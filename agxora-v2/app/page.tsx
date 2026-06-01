@@ -106,8 +106,8 @@ export default function Home() {
         style={{
           maxWidth: "1400px",
           margin: "70px auto 0",
-          paddingLeft: "60px",
-          paddingRight: "60px",
+          paddingLeft: "20px",
+          paddingRight: "20px",
         }}
       >
         <div style={{ maxWidth: "520px" }}>
@@ -189,7 +189,8 @@ export default function Home() {
           maxWidth: "1200px",
           margin: "70px auto 0",
           display: "grid",
-          gridTemplateColumns: "repeat(4,1fr)",
+          gridTemplateColumns:
+          "repeat(auto-fit,minmax(220px,1fr))",
           gap: "20px",
         }}
       >
@@ -260,7 +261,8 @@ export default function Home() {
           maxWidth: "1200px",
           margin: "120px auto 0",
           display: "grid",
-          gridTemplateColumns: "repeat(3,1fr)",
+          gridTemplateColumns:
+          "repeat(auto-fit,minmax(260px,1fr))",
           gap: "25px",
         }}
       >
