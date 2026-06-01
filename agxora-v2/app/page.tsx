@@ -43,13 +43,15 @@ export default function Home() {
   return (
     <main
       style={{
+        width: "100%",
+        maxWidth: "100vw",
         minHeight: "100vh",
         backgroundImage:
           "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/alien-clean.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
+        backgroundAttachment: "scroll",
         backgroundColor: "#020617",
         color: "white",
         padding: "20px",
@@ -57,7 +59,6 @@ export default function Home() {
         fontFamily: "Arial, sans-serif",
       }}
     >
-      {/* NAVBAR */}
       <nav
         style={{
           display: "flex",
@@ -114,7 +115,6 @@ export default function Home() {
         </button>
       </nav>
 
-      {/* HERO */}
       <section
         style={{
           maxWidth: "1400px",
@@ -194,14 +194,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURES */}
       <section
         style={{
           maxWidth: "1200px",
           margin: "80px auto 0",
           display: "grid",
           gridTemplateColumns:
-            "repeat(auto-fit,minmax(250px,1fr))",
+            "repeat(auto-fit,minmax(220px,1fr))",
           gap: "20px",
         }}
       >
@@ -217,12 +216,7 @@ export default function Home() {
               textAlign: "center",
             }}
           >
-            <div
-              style={{
-                fontSize: "42px",
-                marginBottom: "15px",
-              }}
-            >
+            <div style={{ fontSize: "42px", marginBottom: "15px" }}>
               {item.icon}
             </div>
 
@@ -232,7 +226,6 @@ export default function Home() {
         ))}
       </section>
 
-      {/* ABOUT */}
       <section
         style={{
           maxWidth: "1000px",
@@ -258,20 +251,18 @@ export default function Home() {
             opacity: 0.9,
           }}
         >
-          AGXORA combines artificial intelligence,
-          data analytics and automation to help
-          companies make smarter and faster decisions.
+          AGXORA combines artificial intelligence, data analytics and automation
+          to help companies make smarter and faster decisions.
         </p>
       </section>
 
-      {/* PRICING */}
       <section
         style={{
           maxWidth: "1200px",
           margin: "120px auto 0",
           display: "grid",
           gridTemplateColumns:
-            "repeat(auto-fit,minmax(280px,1fr))",
+            "repeat(auto-fit,minmax(240px,1fr))",
           gap: "25px",
         }}
       >
@@ -300,61 +291,6 @@ export default function Home() {
             <p>{plan.desc}</p>
           </div>
         ))}
-      </section>
-
-      {/* CONTACT */}
-      <section
-        style={{
-          maxWidth: "800px",
-          margin: "120px auto",
-          textAlign: "center",
-          padding: "0 20px",
-        }}
-      >
-        <h2
-          style={{
-            color: "#22d3ee",
-            marginBottom: "30px",
-          }}
-        >
-          Contact Us
-        </h2>
-
-        <input
-          placeholder="Email Address"
-          style={{
-            width: "100%",
-            padding: "16px",
-            borderRadius: "12px",
-            border: "none",
-            marginBottom: "15px",
-          }}
-        />
-
-        <textarea
-          placeholder="Your Message"
-          rows={5}
-          style={{
-            width: "100%",
-            padding: "16px",
-            borderRadius: "12px",
-            border: "none",
-            marginBottom: "15px",
-          }}
-        />
-
-        <button
-          style={{
-            background: "#1677ff",
-            color: "white",
-            border: "none",
-            borderRadius: "999px",
-            padding: "16px 36px",
-            cursor: "pointer",
-          }}
-        >
-          Send Message
-        </button>
       </section>
 
       <footer
