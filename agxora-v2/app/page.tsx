@@ -45,14 +45,15 @@ export default function Home() {
       style={{
         minHeight: "100vh",
         backgroundImage:
-          "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/alien-clean.png')",
+          "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/alien-clean.png')",
         backgroundSize: "cover",
-        backgroundPosition: "center center",
+        backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
         backgroundColor: "#020617",
         color: "white",
         padding: "20px",
+        overflowX: "hidden",
         fontFamily: "Arial, sans-serif",
       }}
     >
@@ -62,21 +63,33 @@ export default function Home() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          flexWrap: "wrap",
+          gap: "15px",
           background: "rgba(255,255,255,0.08)",
           backdropFilter: "blur(12px)",
           border: "1px solid rgba(255,255,255,0.12)",
-          padding: "18px 30px",
+          padding: "18px 25px",
           borderRadius: "20px",
+          maxWidth: "1400px",
+          margin: "0 auto",
         }}
       >
-        <h2 style={{ margin: 0, letterSpacing: "3px" }}>
+        <h2
+          style={{
+            margin: 0,
+            letterSpacing: "3px",
+            color: "#22d3ee",
+          }}
+        >
           AGXORA
         </h2>
 
         <div
           style={{
             display: "flex",
-            gap: "35px",
+            gap: "15px",
+            flexWrap: "wrap",
+            justifyContent: "center",
             fontWeight: "600",
           }}
         >
@@ -105,19 +118,18 @@ export default function Home() {
       <section
         style={{
           maxWidth: "1400px",
-          margin: "70px auto 0",
-          paddingLeft: "20px",
-          paddingRight: "20px",
+          margin: "80px auto 0",
+          padding: "0 20px",
         }}
       >
-        <div style={{ maxWidth: "520px" }}>
+        <div style={{ maxWidth: "650px" }}>
           <h1
             style={{
-              fontSize: "58px",
+              fontSize: "clamp(40px, 8vw, 72px)",
               marginBottom: "15px",
               letterSpacing: "4px",
               textShadow:
-                "0 0 10px rgba(0,180,255,.9), 0 0 20px rgba(0,180,255,.8), 0 0 40px rgba(0,180,255,.6)",
+                "0 0 10px rgba(0,180,255,.9),0 0 25px rgba(0,180,255,.8)",
             }}
           >
             AGXORA
@@ -125,7 +137,7 @@ export default function Home() {
 
           <div
             style={{
-              width: "140px",
+              width: "150px",
               height: "4px",
               borderRadius: "999px",
               background: "#22d3ee",
@@ -135,10 +147,9 @@ export default function Home() {
 
           <p
             style={{
-              fontSize: "28px",
+              fontSize: "clamp(20px,4vw,30px)",
               lineHeight: "1.5",
               marginBottom: "40px",
-              fontWeight: "500",
             }}
           >
             AI-Powered Business Intelligence
@@ -148,6 +159,7 @@ export default function Home() {
             style={{
               display: "flex",
               gap: "20px",
+              flexWrap: "wrap",
             }}
           >
             <button
@@ -174,7 +186,6 @@ export default function Home() {
                 padding: "16px 36px",
                 fontSize: "18px",
                 cursor: "pointer",
-                backdropFilter: "blur(8px)",
               }}
             >
               ▶ Live Demo
@@ -187,10 +198,10 @@ export default function Home() {
       <section
         style={{
           maxWidth: "1200px",
-          margin: "70px auto 0",
+          margin: "80px auto 0",
           display: "grid",
           gridTemplateColumns:
-          "repeat(auto-fit,minmax(220px,1fr))",
+            "repeat(auto-fit,minmax(250px,1fr))",
           gap: "20px",
         }}
       >
@@ -204,7 +215,6 @@ export default function Home() {
               borderRadius: "20px",
               padding: "30px",
               textAlign: "center",
-              boxShadow: "0 0 20px rgba(0,180,255,0.15)",
             }}
           >
             <div
@@ -228,12 +238,13 @@ export default function Home() {
           maxWidth: "1000px",
           margin: "120px auto 0",
           textAlign: "center",
+          padding: "0 20px",
         }}
       >
         <h2
           style={{
             color: "#22d3ee",
-            fontSize: "42px",
+            fontSize: "clamp(32px,6vw,48px)",
             marginBottom: "25px",
           }}
         >
@@ -250,8 +261,6 @@ export default function Home() {
           AGXORA combines artificial intelligence,
           data analytics and automation to help
           companies make smarter and faster decisions.
-          Our mission is to transform business data
-          into competitive advantages.
         </p>
       </section>
 
@@ -262,7 +271,7 @@ export default function Home() {
           margin: "120px auto 0",
           display: "grid",
           gridTemplateColumns:
-          "repeat(auto-fit,minmax(260px,1fr))",
+            "repeat(auto-fit,minmax(280px,1fr))",
           gap: "25px",
         }}
       >
@@ -299,6 +308,7 @@ export default function Home() {
           maxWidth: "800px",
           margin: "120px auto",
           textAlign: "center",
+          padding: "0 20px",
         }}
       >
         <h2
@@ -347,11 +357,10 @@ export default function Home() {
         </button>
       </section>
 
-      {/* FOOTER */}
       <footer
         style={{
           textAlign: "center",
-          marginTop: "90px",
+          marginTop: "80px",
           paddingBottom: "60px",
         }}
       >
@@ -364,14 +373,10 @@ export default function Home() {
           AGXORA
         </h3>
 
-        <p
-          style={{
-            opacity: 0.8,
-          }}
-        >
+        <p style={{ opacity: 0.8 }}>
           Business Intelligence Platform © 2026
         </p>
       </footer>
     </main>
   );
-}  
+}
