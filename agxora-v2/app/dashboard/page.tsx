@@ -76,9 +76,11 @@ export default function Dashboard() {
       >
         <h1
           style={{
-            fontSize: "clamp(42px,6vw,72px)",
+            fontSize: "clamp(48px,7vw,80px)",
             color: "#22d3ee",
-            marginBottom: "5px",
+            marginBottom: "10px",
+            letterSpacing: "3px",
+            textShadow: "0 0 30px rgba(34,211,238,0.5)",
           }}
         >
           AGXORA CORE
@@ -88,24 +90,70 @@ export default function Dashboard() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "10px",
-            color: "#00ff88",
-            fontWeight: "bold",
-            marginBottom: "40px",
+            gap: "12px",
+            marginBottom: "10px",
           }}
         >
-          <span>●</span>
-          <span>AI SYSTEM ONLINE</span>
+          <div
+            style={{
+              width: "12px",
+              height: "12px",
+              borderRadius: "50%",
+              background: "#00ff88",
+              boxShadow: "0 0 15px #00ff88",
+            }}
+          />
+
+          <span
+            style={{
+              color: "#00ff88",
+              fontWeight: "bold",
+              letterSpacing: "2px",
+            }}
+          >
+            AI SYSTEM ONLINE
+          </span>
         </div>
+
+        <p
+          style={{
+            color: "rgba(255,255,255,0.7)",
+            marginBottom: "40px",
+            fontSize: "18px",
+          }}
+        >
+          Global AI Command Center
+        </p>
 
         {/* GLOBE */}
 
         <div
           style={{
+            position: "relative",
             marginBottom: "60px",
           }}
         >
           <AgxoraGlobe />
+
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              padding: "12px 24px",
+              borderRadius: "999px",
+              background: "rgba(0,0,0,0.55)",
+              border: "1px solid rgba(34,211,238,0.4)",
+              backdropFilter: "blur(10px)",
+              color: "#22d3ee",
+              fontWeight: "bold",
+              letterSpacing: "2px",
+              pointerEvents: "none",
+            }}
+          >
+            AGXORA AI CORE
+          </div>
         </div>
 
         {/* KPI */}
