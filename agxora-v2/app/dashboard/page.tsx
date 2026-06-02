@@ -1,3 +1,5 @@
+import AgxoraGlobe from "../components/AgxoraGlobe";
+
 export default function Dashboard() {
   const stats = [
     { title: "Active Clients", value: "248", icon: "👥" },
@@ -74,91 +76,36 @@ export default function Dashboard() {
       >
         <h1
           style={{
-            fontSize: "clamp(38px,6vw,64px)",
+            fontSize: "clamp(42px,6vw,72px)",
             color: "#22d3ee",
-            marginBottom: "8px",
+            marginBottom: "5px",
           }}
         >
           AGXORA CORE
         </h1>
 
-        <p
-          style={{
-            opacity: 0.8,
-            marginBottom: "50px",
-            fontSize: "18px",
-          }}
-        >
-          AI Command Center
-        </p>
-
-        {/* AI CORE */}
-
         <div
           style={{
             display: "flex",
-            justifyContent: "center",
+            alignItems: "center",
+            gap: "10px",
+            color: "#00ff88",
+            fontWeight: "bold",
+            marginBottom: "40px",
+          }}
+        >
+          <span>●</span>
+          <span>AI SYSTEM ONLINE</span>
+        </div>
+
+        {/* GLOBE */}
+
+        <div
+          style={{
             marginBottom: "60px",
           }}
         >
-          <div
-            style={{
-              width: "340px",
-              height: "340px",
-              borderRadius: "50%",
-              border: "2px solid #22d3ee",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background:
-                "radial-gradient(circle, rgba(34,211,238,0.18) 0%, rgba(0,0,0,0) 70%)",
-              boxShadow:
-                "0 0 25px #22d3ee, 0 0 80px rgba(34,211,238,0.5)",
-            }}
-          >
-            <div
-              style={{
-                textAlign: "center",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: "60px",
-                  marginBottom: "10px",
-                }}
-              >
-                🌐
-              </div>
-
-              <h2
-                style={{
-                  color: "#22d3ee",
-                  fontSize: "34px",
-                  letterSpacing: "4px",
-                }}
-              >
-                AGXORA
-              </h2>
-
-              <p
-                style={{
-                  opacity: 0.8,
-                }}
-              >
-                Neural Intelligence Core
-              </p>
-
-              <div
-                style={{
-                  marginTop: "15px",
-                  color: "#00ff88",
-                  fontWeight: "bold",
-                }}
-              >
-                ● ONLINE
-              </div>
-            </div>
-          </div>
+          <AgxoraGlobe />
         </div>
 
         {/* KPI */}
@@ -166,8 +113,7 @@ export default function Dashboard() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(240px,1fr))",
+            gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))",
             gap: "20px",
             marginBottom: "50px",
           }}
@@ -186,6 +132,7 @@ export default function Dashboard() {
               <div
                 style={{
                   fontSize: "32px",
+                  marginBottom: "10px",
                 }}
               >
                 {item.icon}
@@ -206,7 +153,7 @@ export default function Dashboard() {
           ))}
         </div>
 
-        {/* LIVE ACTIVITY */}
+        {/* LIVE AI ACTIVITY */}
 
         <div
           style={{
@@ -230,8 +177,7 @@ export default function Dashboard() {
               key={index}
               style={{
                 padding: "14px 0",
-                borderBottom:
-                  "1px solid rgba(255,255,255,0.08)",
+                borderBottom: "1px solid rgba(255,255,255,0.08)",
               }}
             >
               ⚡ {item}
