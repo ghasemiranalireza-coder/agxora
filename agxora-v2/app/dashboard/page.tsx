@@ -1,25 +1,9 @@
 export default function Dashboard() {
   const stats = [
-    {
-      title: "Active Clients",
-      value: "248",
-      icon: "👥",
-    },
-    {
-      title: "Revenue",
-      value: "€48,000",
-      icon: "💰",
-    },
-    {
-      title: "AI Reports",
-      value: "132",
-      icon: "🤖",
-    },
-    {
-      title: "Automation",
-      value: "87%",
-      icon: "⚡",
-    },
+    { title: "Active Clients", value: "248", icon: "👥" },
+    { title: "Revenue", value: "€48,000", icon: "💰" },
+    { title: "AI Reports", value: "132", icon: "🤖" },
+    { title: "Automation", value: "87%", icon: "⚡" },
   ];
 
   const activities = [
@@ -35,7 +19,7 @@ export default function Dashboard() {
       style={{
         minHeight: "100vh",
         background:
-          "radial-gradient(circle at center, #0d1b3d 0%, #081120 40%, #050910 100%)",
+          "radial-gradient(circle at center, #10214b 0%, #081120 45%, #03060d 100%)",
         color: "white",
         display: "flex",
         flexWrap: "wrap",
@@ -47,7 +31,7 @@ export default function Dashboard() {
         style={{
           width: "260px",
           minHeight: "100vh",
-          background: "rgba(0,0,0,0.25)",
+          background: "rgba(255,255,255,0.03)",
           backdropFilter: "blur(20px)",
           borderRight: "1px solid rgba(34,211,238,0.25)",
           padding: "30px",
@@ -56,8 +40,8 @@ export default function Dashboard() {
         <h2
           style={{
             color: "#22d3ee",
-            marginBottom: "40px",
             letterSpacing: "4px",
+            marginBottom: "50px",
           }}
         >
           AGXORA
@@ -67,7 +51,7 @@ export default function Dashboard() {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "22px",
+            gap: "24px",
             fontSize: "18px",
           }}
         >
@@ -79,20 +63,20 @@ export default function Dashboard() {
         </div>
       </aside>
 
-      {/* MAIN CONTENT */}
+      {/* CONTENT */}
 
       <section
         style={{
           flex: 1,
           padding: "40px",
-          minWidth: "300px",
+          minWidth: "320px",
         }}
       >
         <h1
           style={{
-            fontSize: "clamp(36px,6vw,60px)",
+            fontSize: "clamp(38px,6vw,64px)",
             color: "#22d3ee",
-            marginBottom: "10px",
+            marginBottom: "8px",
           }}
         >
           AGXORA CORE
@@ -108,7 +92,7 @@ export default function Dashboard() {
           AI Command Center
         </p>
 
-        {/* CORE */}
+        {/* AI CORE */}
 
         <div
           style={{
@@ -119,59 +103,59 @@ export default function Dashboard() {
         >
           <div
             style={{
-              width: "320px",
-              height: "320px",
+              width: "340px",
+              height: "340px",
               borderRadius: "50%",
+              border: "2px solid #22d3ee",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               background:
-                "radial-gradient(circle, rgba(34,211,238,0.25) 0%, rgba(0,0,0,0) 70%)",
+                "radial-gradient(circle, rgba(34,211,238,0.18) 0%, rgba(0,0,0,0) 70%)",
               boxShadow:
-                "0 0 30px #22d3ee, 0 0 60px rgba(34,211,238,0.6), 0 0 120px rgba(34,211,238,0.4)",
-              border: "3px solid rgba(34,211,238,0.8)",
+                "0 0 25px #22d3ee, 0 0 80px rgba(34,211,238,0.5)",
             }}
           >
             <div
               style={{
-                width: "220px",
-                height: "220px",
-                borderRadius: "50%",
-                border: "2px solid rgba(34,211,238,0.8)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                background: "rgba(255,255,255,0.03)",
-                backdropFilter: "blur(10px)",
+                textAlign: "center",
               }}
             >
               <div
                 style={{
-                  fontSize: "50px",
+                  fontSize: "60px",
+                  marginBottom: "10px",
                 }}
               >
                 🌐
               </div>
 
-              <div
+              <h2
                 style={{
                   color: "#22d3ee",
-                  fontSize: "30px",
-                  fontWeight: "bold",
-                  letterSpacing: "3px",
+                  fontSize: "34px",
+                  letterSpacing: "4px",
                 }}
               >
                 AGXORA
-              </div>
+              </h2>
 
-              <div
+              <p
                 style={{
-                  marginTop: "10px",
                   opacity: 0.8,
                 }}
               >
-                AI COMMAND CORE
+                Neural Intelligence Core
+              </p>
+
+              <div
+                style={{
+                  marginTop: "15px",
+                  color: "#00ff88",
+                  fontWeight: "bold",
+                }}
+              >
+                ● ONLINE
               </div>
             </div>
           </div>
@@ -183,7 +167,7 @@ export default function Dashboard() {
           style={{
             display: "grid",
             gridTemplateColumns:
-              "repeat(auto-fit,minmax(220px,1fr))",
+              "repeat(auto-fit,minmax(240px,1fr))",
             gap: "20px",
             marginBottom: "50px",
           }}
@@ -193,16 +177,15 @@ export default function Dashboard() {
               key={item.title}
               style={{
                 padding: "24px",
-                borderRadius: "20px",
-                background: "rgba(255,255,255,0.05)",
+                borderRadius: "22px",
+                background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(34,211,238,0.3)",
-                backdropFilter: "blur(10px)",
+                backdropFilter: "blur(15px)",
               }}
             >
               <div
                 style={{
-                  fontSize: "30px",
-                  marginBottom: "10px",
+                  fontSize: "32px",
                 }}
               >
                 {item.icon}
@@ -223,13 +206,13 @@ export default function Dashboard() {
           ))}
         </div>
 
-        {/* ACTIVITY FEED */}
+        {/* LIVE ACTIVITY */}
 
         <div
           style={{
             padding: "25px",
-            borderRadius: "20px",
-            background: "rgba(255,255,255,0.05)",
+            borderRadius: "22px",
+            background: "rgba(255,255,255,0.04)",
             border: "1px solid rgba(34,211,238,0.3)",
           }}
         >
@@ -246,7 +229,7 @@ export default function Dashboard() {
             <div
               key={index}
               style={{
-                padding: "12px 0",
+                padding: "14px 0",
                 borderBottom:
                   "1px solid rgba(255,255,255,0.08)",
               }}
