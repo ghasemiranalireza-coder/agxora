@@ -2,18 +2,21 @@ import AgxoraGlobe from "../components/AgxoraGlobe";
 
 export default function Dashboard() {
   const stats = [
-    { title: "Active Clients", value: "248", icon: "👥" },
-    { title: "Revenue", value: "€48,000", icon: "💰" },
-    { title: "AI Reports", value: "132", icon: "🤖" },
-    { title: "Automation", value: "87%", icon: "⚡" },
+    { title: "Global Clients", value: "2,486", icon: "🌍" },
+    { title: "Revenue", value: "€482K", icon: "💰" },
+    { title: "AI Reports", value: "1,328", icon: "🤖" },
+    { title: "Automation", value: "97%", icon: "⚡" },
+    { title: "Live Nodes", value: "24", icon: "🛰️" },
+    { title: "Predictions", value: "99.2%", icon: "📈" },
   ];
 
   const activities = [
-    "AI generated a new business report",
-    "Customer analytics updated",
-    "Revenue forecast completed",
-    "Automation workflow optimized",
-    "Market trend analysis finished",
+    "Dubai laundry market analyzed",
+    "Germany customer behavior updated",
+    "Hotel revenue prediction completed",
+    "AI automation optimized",
+    "Global logistics route calculated",
+    "Business intelligence report generated",
   ];
 
   return (
@@ -27,22 +30,20 @@ export default function Dashboard() {
         flexWrap: "wrap",
       }}
     >
-      {/* SIDEBAR */}
-
       <aside
         style={{
-          width: "260px",
+          width: "280px",
           minHeight: "100vh",
           background: "rgba(255,255,255,0.03)",
           backdropFilter: "blur(20px)",
           borderRight: "1px solid rgba(34,211,238,0.25)",
-          padding: "30px",
+          padding: "35px",
         }}
       >
         <h2
           style={{
             color: "#22d3ee",
-            letterSpacing: "4px",
+            letterSpacing: "5px",
             marginBottom: "50px",
           }}
         >
@@ -53,7 +54,7 @@ export default function Dashboard() {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "24px",
+            gap: "25px",
             fontSize: "18px",
           }}
         >
@@ -61,11 +62,10 @@ export default function Dashboard() {
           <span>📊 Analytics</span>
           <span>🤖 AI Reports</span>
           <span>👥 Customers</span>
+          <span>🌍 Global Network</span>
           <span>⚙️ Settings</span>
         </div>
       </aside>
-
-      {/* CONTENT */}
 
       <section
         style={{
@@ -76,11 +76,11 @@ export default function Dashboard() {
       >
         <h1
           style={{
-            fontSize: "clamp(48px,7vw,80px)",
+            fontSize: "clamp(50px,7vw,90px)",
             color: "#22d3ee",
+            letterSpacing: "4px",
+            textShadow: "0 0 40px rgba(34,211,238,0.5)",
             marginBottom: "10px",
-            letterSpacing: "3px",
-            textShadow: "0 0 30px rgba(34,211,238,0.5)",
           }}
         >
           AGXORA CORE
@@ -91,7 +91,7 @@ export default function Dashboard() {
             display: "flex",
             alignItems: "center",
             gap: "12px",
-            marginBottom: "10px",
+            marginBottom: "25px",
           }}
         >
           <div
@@ -115,17 +115,30 @@ export default function Dashboard() {
           </span>
         </div>
 
-        <p
+        <div
           style={{
-            color: "rgba(255,255,255,0.7)",
+            padding: "24px",
+            borderRadius: "24px",
+            background: "rgba(34,211,238,0.08)",
+            border: "1px solid rgba(34,211,238,0.3)",
             marginBottom: "40px",
-            fontSize: "18px",
           }}
         >
-          Global AI Command Center
-        </p>
+          <h2 style={{ color: "#22d3ee" }}>
+            AGXORA AI COMMAND CENTER
+          </h2>
 
-        {/* GLOBE */}
+          <p
+            style={{
+              color: "#cbd5e1",
+              lineHeight: 1.7,
+            }}
+          >
+            Real-time business intelligence, predictive analytics,
+            automation monitoring, customer insights and global
+            operational control.
+          </p>
+        </div>
 
         <div
           style={{
@@ -141,27 +154,25 @@ export default function Dashboard() {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              padding: "12px 24px",
-              borderRadius: "999px",
               background: "rgba(0,0,0,0.55)",
               border: "1px solid rgba(34,211,238,0.4)",
               backdropFilter: "blur(10px)",
+              borderRadius: "999px",
+              padding: "12px 26px",
               color: "#22d3ee",
               fontWeight: "bold",
               letterSpacing: "2px",
-              pointerEvents: "none",
             }}
           >
             AGXORA AI CORE
           </div>
         </div>
 
-        {/* KPI */}
-
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))",
+            gridTemplateColumns:
+              "repeat(auto-fit,minmax(220px,1fr))",
             gap: "20px",
             marginBottom: "50px",
           }}
@@ -171,22 +182,29 @@ export default function Dashboard() {
               key={item.title}
               style={{
                 padding: "24px",
-                borderRadius: "22px",
+                borderRadius: "24px",
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(34,211,238,0.3)",
-                backdropFilter: "blur(15px)",
+                backdropFilter: "blur(20px)",
               }}
             >
               <div
                 style={{
-                  fontSize: "32px",
+                  fontSize: "34px",
                   marginBottom: "10px",
                 }}
               >
                 {item.icon}
               </div>
 
-              <h3>{item.title}</h3>
+              <div
+                style={{
+                  opacity: 0.8,
+                  marginBottom: "8px",
+                }}
+              >
+                {item.title}
+              </div>
 
               <div
                 style={{
@@ -201,12 +219,10 @@ export default function Dashboard() {
           ))}
         </div>
 
-        {/* LIVE AI ACTIVITY */}
-
         <div
           style={{
             padding: "25px",
-            borderRadius: "22px",
+            borderRadius: "24px",
             background: "rgba(255,255,255,0.04)",
             border: "1px solid rgba(34,211,238,0.3)",
           }}
@@ -225,7 +241,8 @@ export default function Dashboard() {
               key={index}
               style={{
                 padding: "14px 0",
-                borderBottom: "1px solid rgba(255,255,255,0.08)",
+                borderBottom:
+                  "1px solid rgba(255,255,255,0.08)",
               }}
             >
               ⚡ {item}
