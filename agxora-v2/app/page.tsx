@@ -3,40 +3,22 @@ export default function Home() {
     {
       icon: "🧠",
       title: "AI Powered",
-      text: "Intelligente Automatisierung",
+      text: "Intelligent business automation",
     },
     {
       icon: "📊",
       title: "Data Intelligence",
-      text: "Echtzeit Analysen",
+      text: "Real-time analytics",
     },
     {
       icon: "🎯",
       title: "Precision",
-      text: "Datengestützte Entscheidungen",
+      text: "Data-driven decisions",
     },
     {
       icon: "⚡",
       title: "Automation",
-      text: "Skalierbare Workflows",
-    },
-  ];
-
-  const pricing = [
-    {
-      title: "Starter",
-      price: "€29",
-      desc: "Perfect for small teams",
-    },
-    {
-      title: "Professional",
-      price: "€99",
-      desc: "For growing companies",
-    },
-    {
-      title: "Enterprise",
-      price: "Custom",
-      desc: "For large organizations",
+      text: "Scalable workflows",
     },
   ];
 
@@ -44,19 +26,15 @@ export default function Home() {
     <main
       style={{
         width: "100%",
-        maxWidth: "100vw",
         minHeight: "100vh",
         backgroundImage:
-          "linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('/alien-clean.png')",
+          "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)), url('/alien-clean.png')",
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "scroll",
-        backgroundColor: "#020617",
+        backgroundAttachment: "fixed",
         color: "white",
-        padding: "20px",
         overflowX: "hidden",
-        fontFamily: "Arial, sans-serif",
       }}
     >
       <nav
@@ -64,22 +42,16 @@ export default function Home() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          flexWrap: "wrap",
-          gap: "15px",
-          background: "rgba(255,255,255,0.08)",
+          padding: "25px 50px",
           backdropFilter: "blur(12px)",
-          border: "1px solid rgba(255,255,255,0.12)",
-          padding: "18px 25px",
-          borderRadius: "20px",
-          maxWidth: "1400px",
-          margin: "0 auto",
+          background: "rgba(0,0,0,0.2)",
+          borderBottom: "1px solid rgba(34,211,238,0.2)",
         }}
       >
         <h2
           style={{
-            margin: 0,
-            letterSpacing: "3px",
             color: "#22d3ee",
+            letterSpacing: "4px",
           }}
         >
           AGXORA
@@ -88,139 +60,116 @@ export default function Home() {
         <div
           style={{
             display: "flex",
-            gap: "15px",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            fontWeight: "600",
+            gap: "30px",
           }}
         >
           <span>Home</span>
           <span>Features</span>
-          <span>Pricing</span>
+          <span>Solutions</span>
           <span>Contact</span>
         </div>
-
-        <button
-          style={{
-            background: "#1677ff",
-            color: "white",
-            border: "none",
-            borderRadius: "999px",
-            padding: "12px 25px",
-            cursor: "pointer",
-            fontWeight: "bold",
-          }}
-        >
-          Login
-        </button>
       </nav>
 
       <section
         style={{
-          maxWidth: "1400px",
-          margin: "80px auto 0",
-          padding: "0 20px",
+          minHeight: "90vh",
+          display: "flex",
+          alignItems: "center",
+          paddingLeft: "8%",
         }}
       >
-        <div style={{ maxWidth: "650px" }}>
+        <div
+          style={{
+            maxWidth: "700px",
+          }}
+        >
           <h1
             style={{
-              fontSize: "clamp(40px, 8vw, 72px)",
-              marginBottom: "15px",
-              letterSpacing: "4px",
-              textShadow:
-                "0 0 10px rgba(0,180,255,.9),0 0 25px rgba(0,180,255,.8)",
+              fontSize: "80px",
+              marginBottom: "10px",
+              color: "#22d3ee",
+              textShadow: "0 0 30px rgba(34,211,238,0.7)",
             }}
           >
             AGXORA
           </h1>
 
-          <div
+          <h2
             style={{
-              width: "150px",
-              height: "4px",
-              borderRadius: "999px",
-              background: "#22d3ee",
-              marginBottom: "25px",
+              fontSize: "38px",
+              marginBottom: "20px",
             }}
-          />
+          >
+            AI Business Intelligence Platform
+          </h2>
 
           <p
             style={{
-              fontSize: "clamp(20px,4vw,30px)",
-              lineHeight: "1.5",
-              marginBottom: "40px",
+              fontSize: "22px",
+              lineHeight: "1.8",
+              color: "#d1d5db",
+              marginBottom: "35px",
             }}
           >
-            AI-Powered Business Intelligence
+            Transform data into decisions with advanced AI,
+            automation and predictive analytics.
           </p>
 
-          <div
+          <button
             style={{
-              display: "flex",
-              gap: "20px",
-              flexWrap: "wrap",
+              background: "#22d3ee",
+              color: "#000",
+              border: "none",
+              padding: "18px 40px",
+              borderRadius: "999px",
+              fontWeight: "bold",
+              fontSize: "18px",
+              cursor: "pointer",
+              boxShadow: "0 0 25px rgba(34,211,238,0.6)",
             }}
           >
-            <button
-              style={{
-                background: "#1677ff",
-                color: "white",
-                border: "none",
-                borderRadius: "999px",
-                padding: "16px 36px",
-                fontSize: "18px",
-                cursor: "pointer",
-                fontWeight: "bold",
-              }}
-            >
-              🚀 Jetzt starten
-            </button>
-
-            <button
-              style={{
-                background: "rgba(0,120,255,0.15)",
-                color: "white",
-                border: "2px solid #22d3ee",
-                borderRadius: "999px",
-                padding: "16px 36px",
-                fontSize: "18px",
-                cursor: "pointer",
-              }}
-            >
-              ▶ Live Demo
-            </button>
-          </div>
+            Launch Platform
+          </button>
         </div>
       </section>
 
       <section
         style={{
-          maxWidth: "1200px",
-          margin: "80px auto 0",
+          padding: "100px 8%",
           display: "grid",
-          gridTemplateColumns:
-            "repeat(auto-fit,minmax(220px,1fr))",
-          gap: "20px",
+          gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
+          gap: "25px",
         }}
       >
-        {features.map((item, index) => (
+        {features.map((item) => (
           <div
-            key={index}
+            key={item.title}
             style={{
-              background: "rgba(0,20,40,0.45)",
-              border: "1px solid rgba(0,180,255,0.3)",
-              backdropFilter: "blur(12px)",
-              borderRadius: "20px",
+              background: "rgba(0,0,0,0.35)",
+              backdropFilter: "blur(15px)",
+              border: "1px solid rgba(34,211,238,0.25)",
+              borderRadius: "25px",
               padding: "30px",
-              textAlign: "center",
             }}
           >
-            <div style={{ fontSize: "42px", marginBottom: "15px" }}>
+            <div
+              style={{
+                fontSize: "50px",
+                marginBottom: "20px",
+              }}
+            >
               {item.icon}
             </div>
 
-            <h3>{item.title}</h3>
+            <h3
+              style={{
+                color: "#22d3ee",
+                marginBottom: "10px",
+              }}
+            >
+              {item.title}
+            </h3>
+
             <p>{item.text}</p>
           </div>
         ))}
@@ -228,90 +177,51 @@ export default function Home() {
 
       <section
         style={{
-          maxWidth: "1000px",
-          margin: "120px auto 0",
+          padding: "120px 8%",
           textAlign: "center",
-          padding: "0 20px",
         }}
       >
         <h2
           style={{
+            fontSize: "55px",
             color: "#22d3ee",
-            fontSize: "clamp(32px,6vw,48px)",
-            marginBottom: "25px",
+            marginBottom: "30px",
           }}
         >
-          About AGXORA
+          The Future of Business Intelligence
         </h2>
 
         <p
           style={{
-            fontSize: "20px",
+            maxWidth: "900px",
+            margin: "0 auto",
+            fontSize: "22px",
             lineHeight: "1.8",
-            opacity: 0.9,
           }}
         >
-          AGXORA combines artificial intelligence, data analytics and automation
-          to help companies make smarter and faster decisions.
+          AGXORA combines artificial intelligence,
+          predictive analytics and automation into
+          a single powerful ecosystem.
         </p>
-      </section>
-
-      <section
-        style={{
-          maxWidth: "1200px",
-          margin: "120px auto 0",
-          display: "grid",
-          gridTemplateColumns:
-            "repeat(auto-fit,minmax(240px,1fr))",
-          gap: "25px",
-        }}
-      >
-        {pricing.map((plan) => (
-          <div
-            key={plan.title}
-            style={{
-              background: "rgba(0,20,40,0.45)",
-              border: "1px solid rgba(0,180,255,0.3)",
-              borderRadius: "20px",
-              padding: "40px",
-              textAlign: "center",
-            }}
-          >
-            <h3>{plan.title}</h3>
-
-            <h2
-              style={{
-                color: "#22d3ee",
-                fontSize: "42px",
-              }}
-            >
-              {plan.price}
-            </h2>
-
-            <p>{plan.desc}</p>
-          </div>
-        ))}
       </section>
 
       <footer
         style={{
           textAlign: "center",
-          marginTop: "80px",
-          paddingBottom: "60px",
+          padding: "80px 20px",
+          borderTop: "1px solid rgba(255,255,255,0.1)",
         }}
       >
         <h3
           style={{
-            letterSpacing: "4px",
             color: "#22d3ee",
+            letterSpacing: "4px",
           }}
         >
           AGXORA
         </h3>
 
-        <p style={{ opacity: 0.8 }}>
-          Business Intelligence Platform © 2026
-        </p>
+        <p>© 2026 AGXORA. All rights reserved.</p>
       </footer>
     </main>
   );
