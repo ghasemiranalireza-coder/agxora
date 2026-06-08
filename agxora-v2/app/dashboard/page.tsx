@@ -221,33 +221,124 @@ export default function Dashboard() {
 
         <div
           style={{
-            padding: "25px",
-            borderRadius: "24px",
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(34,211,238,0.3)",
+            display: "grid",
+            gridTemplateColumns: "1.5fr 420px",
+            gap: "20px",
           }}
         >
-          <h2
+          <div
             style={{
-              color: "#22d3ee",
-              marginBottom: "20px",
+              padding: "30px",
+              borderRadius: "24px",
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(34,211,238,0.3)",
             }}
           >
-            Live AI Activity
-          </h2>
-
-          {activities.map((item, index) => (
-            <div
-              key={index}
+            <h2
               style={{
-                padding: "14px 0",
-                borderBottom:
-                  "1px solid rgba(255,255,255,0.08)",
+                color: "#22d3ee",
+                marginBottom: "20px",
               }}
             >
-              ⚡ {item}
+              Live AI Activity
+            </h2>
+
+            {activities.map((item, index) => (
+              <div
+                key={index}
+                style={{
+                  padding: "14px 0",
+                  borderBottom:
+                    "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                ⚡ {item}
+              </div>
+            ))}
+          </div>
+
+          <div
+            style={{
+              padding: "30px",
+              borderRadius: "24px",
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(34,211,238,0.3)",
+              backdropFilter: "blur(20px)",
+            }}
+          >
+            <h2
+              style={{
+                color: "#22d3ee",
+                marginBottom: "20px",
+              }}
+            >
+              🤖 AGXORA AI
+            </h2>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px",
+                marginBottom: "20px",
+              }}
+            >
+              <div
+                style={{
+                  padding: "12px",
+                  borderRadius: "12px",
+                  background: "rgba(255,255,255,0.05)",
+                }}
+              >
+                👤 Show revenue forecast
+              </div>
+
+              <div
+                style={{
+                  padding: "12px",
+                  borderRadius: "12px",
+                  background: "rgba(34,211,238,0.08)",
+                  color: "#22d3ee",
+                }}
+              >
+                🤖 Revenue expected to increase by 18% next month.
+              </div>
+
+              <div
+                style={{
+                  padding: "12px",
+                  borderRadius: "12px",
+                  background: "rgba(255,255,255,0.05)",
+                }}
+              >
+                👤 Analyze customer trends
+              </div>
+
+              <div
+                style={{
+                  padding: "12px",
+                  borderRadius: "12px",
+                  background: "rgba(34,211,238,0.08)",
+                  color: "#22d3ee",
+                }}
+              >
+                🤖 Customer retention improved by 12%.
+              </div>
             </div>
-          ))}
+
+            <input
+              placeholder="Ask AGXORA AI..."
+              style={{
+                width: "100%",
+                padding: "14px",
+                borderRadius: "12px",
+                border: "1px solid rgba(34,211,238,0.3)",
+                background: "rgba(255,255,255,0.05)",
+                color: "white",
+                outline: "none",
+              }}
+            />
+          </div>
         </div>
       </section>
     </main>
