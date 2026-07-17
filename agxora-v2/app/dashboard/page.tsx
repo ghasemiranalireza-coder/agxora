@@ -1,4 +1,4 @@
-import AgxoraGlobe from "../components/AgxoraGlobe";
+import AgxoraGlobe3D from "../components/AgxoraGlobe3D";
 
 export default function Dashboard() {
   const stats = [
@@ -146,26 +146,7 @@ export default function Dashboard() {
             marginBottom: "60px",
           }}
         >
-          <AgxoraGlobe />
-
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              background: "rgba(0,0,0,0.55)",
-              border: "1px solid rgba(34,211,238,0.4)",
-              backdropFilter: "blur(10px)",
-              borderRadius: "999px",
-              padding: "12px 26px",
-              color: "#22d3ee",
-              fontWeight: "bold",
-              letterSpacing: "2px",
-            }}
-          >
-            AGXORA AI CORE
-          </div>
+          <AgxoraGlobe3D />
         </div>
 
         <div
