@@ -31,10 +31,10 @@ import { Bloom, EffectComposer, Vignette } from "@react-three/postprocessing";
 /*                                   Config                                   */
 /* -------------------------------------------------------------------------- */
 
-const EARTH_RADIUS = 1.12;
+const EARTH_RADIUS = 0.98;
 const CLOUD_ALTITUDE = 1.012;
 /** Very thin shell — the fresnel falloff does the rest. */
-const ATMOSPHERE_SCALE = 1.045;
+const ATMOSPHERE_SCALE = 1.03;
 
 /** Vertical offset applied to the camera target: looking slightly below
  *  center frames the globe a touch higher, balancing the dashboard card. */
@@ -313,8 +313,8 @@ const Atmosphere = memo(function Atmosphere(): JSX.Element {
         fragmentShader: ATMOSPHERE_FRAGMENT,
         uniforms: {
           uColor: { value: new THREE.Color("#7ab8f0") },
-          uIntensity: { value: 1.05 },
-          uPower: { value: 5.0 },
+          uIntensity: { value: 0.72 },
+          uPower: { value: 6.0 },
         },
         transparent: true,
         blending: THREE.AdditiveBlending,
@@ -596,32 +596,36 @@ const containerStyle: CSSProperties = {
 const labelStyle: CSSProperties = {
   position: "absolute",
   left: "50%",
-  bottom: "26px",
+  bottom: "32px",
   transform: "translateX(-50%)",
   display: "flex",
   alignItems: "center",
-  gap: "10px",
-  padding: "10px 24px",
+  gap: "12px",
+  padding: "13px 30px",
   borderRadius: "999px",
-  background: "rgba(2, 6, 16, 0.6)",
-  border: "1px solid rgba(34, 211, 238, 0.35)",
-  backdropFilter: "blur(12px)",
-  WebkitBackdropFilter: "blur(12px)",
-  color: "#22d3ee",
-  fontWeight: 700,
-  fontSize: "13px",
-  letterSpacing: "3px",
+  background:
+    "linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%)",
+  border: "1px solid rgba(255, 255, 255, 0.12)",
+  boxShadow: "0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08)",
+  backdropFilter: "blur(18px) saturate(140%)",
+  WebkitBackdropFilter: "blur(18px) saturate(140%)",
+  color: "rgba(226, 240, 250, 0.95)",
+  fontFamily:
+    '"SF Pro Display", "Inter", "Segoe UI", system-ui, -apple-system, sans-serif',
+  fontWeight: 600,
+  fontSize: "14.5px",
+  letterSpacing: "4px",
   whiteSpace: "nowrap",
   pointerEvents: "none",
   userSelect: "none",
 };
 
 const labelDotStyle: CSSProperties = {
-  width: "8px",
-  height: "8px",
+  width: "7px",
+  height: "7px",
   borderRadius: "50%",
-  background: "#22d3ee",
-  boxShadow: "0 0 12px rgba(34, 211, 238, 0.9)",
+  background: "#7dd3fc",
+  boxShadow: "0 0 6px rgba(125, 211, 252, 0.55)",
 };
 
 export default function AgxoraGlobe3D(): JSX.Element {
