@@ -37,13 +37,17 @@ const ATMOSPHERE_SCALE = 1.12;
 const EARTH_SPIN_SPEED = 0.018;
 const CLOUD_SPIN_SPEED = 0.026;
 
-const TEXTURES = {
-  map: "/textures/earth_atmos_2048.jpg",
-  normalMap: "/textures/earth_normal_2048.jpg",
-  specularMap: "/textures/earth_specular_2048.jpg",
-  emissiveMap: "/textures/earth_lights_2048.png",
-  cloudsMap: "/textures/earth_clouds_1024.png",
-} as const;
+/** Ordered as [map, normalMap, specularMap, emissiveMap, cloudsMap]. */
+const TEXTURE_URLS: [string, string, string, string, string] = [
+  "/textures/earth_atmos_2048.jpg",
+  "/textures/earth_normal_2048.jpg",
+  "/textures/earth_specular_2048.jpg",
+  "/textures/earth_lights_2048.png",
+  "/textures/earth_clouds_1024.png",
+];
+
+/** Indices in TEXTURE_URLS holding color (sRGB) data: map, emissive, clouds. */
+const SRGB_TEXTURE_INDICES: readonly number[] = [0, 3, 4];
 
 const HDR_ENVIRONMENT = "/hdr/space_env_1k.hdr";
 
@@ -137,11 +141,11 @@ function Earth({ quality }: EarthProps): JSX.Element {
   const cloudsRef = useRef<THREE.Mesh>(null);
 
   const configureTextures = useCallback(
-    (loaded: Record<keyof typeof TEXTURES, THREE.Texture>): void => {
-      loaded.map.colorSpace = THREE.SRGBColorSpace;
-      loaded.emissiveMap.colorSpace = THREE.SRGBColorSpace;
-      loaded.cloudsMap.colorSpace = THREE.SRGBColorSpace;
-      for (const texture of Object.values(loaded)) {
+    (loaded: THREE.Texture[]): void => {
+      for (const [index, texture] of loaded.entries()) {
+        if (SRGB_TEXTURE_INDICES.includes(index)) {
+          texture.colorSpace = THREE.SRGBColorSpace;
+        }
         texture.anisotropy = quality.anisotropy;
         texture.needsUpdate = true;
       }
@@ -149,18 +153,13 @@ function Earth({ quality }: EarthProps): JSX.Element {
     [quality.anisotropy],
   );
 
-  const textures = useTexture(
-    {
-      map: TEXTURES.map,
-      normalMap: TEXTURES.normalMap,
-      specularMap: TEXTURES.specularMap,
-      emissiveMap: TEXTURES.emissiveMap,
-      cloudsMap: TEXTURES.cloudsMap,
-    },
+  // Array form is used because drei invokes `onLoad` with the texture array.
+  const [map, normalMap, specularMap, emissiveMap, cloudsMap] = useTexture(
+    TEXTURE_URLS,
     configureTextures,
   );
 
-  const roughnessMap = useInvertedRoughnessMap(textures.specularMap);
+  const roughnessMap = useInvertedRoughnessMap(specularMap);
 
   useFrame((_, delta) => {
     if (groupRef.current !== null) {
@@ -179,13 +178,13 @@ function Earth({ quality }: EarthProps): JSX.Element {
           args={[EARTH_RADIUS, quality.earthSegments, quality.earthSegments]}
         />
         <meshStandardMaterial
-          map={textures.map}
-          normalMap={textures.normalMap}
+          map={map}
+          normalMap={normalMap}
           normalScale={new THREE.Vector2(0.85, 0.85)}
           roughnessMap={roughnessMap}
           roughness={1}
           metalness={0.02}
-          emissiveMap={textures.emissiveMap}
+          emissiveMap={emissiveMap}
           emissive={new THREE.Color("#ffd9a0")}
           emissiveIntensity={0.55}
         />
@@ -201,7 +200,7 @@ function Earth({ quality }: EarthProps): JSX.Element {
           ]}
         />
         <meshStandardMaterial
-          map={textures.cloudsMap}
+          map={cloudsMap}
           transparent
           opacity={0.55}
           depthWrite={false}
