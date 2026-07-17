@@ -12,6 +12,7 @@
  */
 
 import {
+  memo,
   Suspense,
   useCallback,
   useEffect,
@@ -30,12 +31,20 @@ import { Bloom, EffectComposer, Vignette } from "@react-three/postprocessing";
 /*                                   Config                                   */
 /* -------------------------------------------------------------------------- */
 
-const EARTH_RADIUS = 1.35;
+const EARTH_RADIUS = 1.12;
 const CLOUD_ALTITUDE = 1.012;
-const ATMOSPHERE_SCALE = 1.12;
+/** Very thin shell — the fresnel falloff does the rest. */
+const ATMOSPHERE_SCALE = 1.045;
+
+/** Vertical offset applied to the camera target: looking slightly below
+ *  center frames the globe a touch higher, balancing the dashboard card. */
+const FRAME_Y_OFFSET = -0.24;
 
 const EARTH_SPIN_SPEED = 0.018;
 const CLOUD_SPIN_SPEED = 0.026;
+
+const EARTH_NORMAL_SCALE = new THREE.Vector2(0.85, 0.85);
+const EARTH_EMISSIVE_COLOR = new THREE.Color("#ffd9a0");
 
 /** Ordered as [map, normalMap, specularMap, emissiveMap, cloudsMap]. */
 const TEXTURE_URLS: [string, string, string, string, string] = [
@@ -51,19 +60,66 @@ const SRGB_TEXTURE_INDICES: readonly number[] = [0, 3, 4];
 
 const HDR_ENVIRONMENT = "/hdr/space_env_1k.hdr";
 
+interface StarLayerConfig {
+  readonly count: number;
+  readonly minRadius: number;
+  readonly maxRadius: number;
+  readonly minSize: number;
+  readonly maxSize: number;
+  readonly driftSpeed: number;
+  readonly parallaxFactor: number;
+  readonly seed: number;
+}
+
 interface QualityProfile {
   readonly dpr: [number, number];
   readonly earthSegments: number;
-  readonly starCount: number;
+  readonly starLayers: readonly StarLayerConfig[];
   readonly postprocessing: boolean;
   readonly multisampling: number;
   readonly anisotropy: number;
 }
 
+/** Three depth layers: near stars drift and parallax more than far ones. */
+function buildStarLayers(scale: number): readonly StarLayerConfig[] {
+  return [
+    {
+      count: Math.round(8000 * scale),
+      minRadius: 55,
+      maxRadius: 110,
+      minSize: 0.22,
+      maxSize: 0.9,
+      driftSpeed: 0.0016,
+      parallaxFactor: 0.008,
+      seed: 0x1a2b3c,
+    },
+    {
+      count: Math.round(5000 * scale),
+      minRadius: 30,
+      maxRadius: 60,
+      minSize: 0.3,
+      maxSize: 1.3,
+      driftSpeed: 0.0028,
+      parallaxFactor: 0.02,
+      seed: 0x4d5e6f,
+    },
+    {
+      count: Math.round(3000 * scale),
+      minRadius: 14,
+      maxRadius: 32,
+      minSize: 0.35,
+      maxSize: 1.2,
+      driftSpeed: 0.0042,
+      parallaxFactor: 0.038,
+      seed: 0x708192,
+    },
+  ];
+}
+
 const DESKTOP_QUALITY: QualityProfile = {
   dpr: [1, 2],
   earthSegments: 96,
-  starCount: 5000,
+  starLayers: buildStarLayers(1),
   postprocessing: true,
   multisampling: 4,
   anisotropy: 8,
@@ -72,7 +128,7 @@ const DESKTOP_QUALITY: QualityProfile = {
 const MOBILE_QUALITY: QualityProfile = {
   dpr: [1, 1.5],
   earthSegments: 64,
-  starCount: 2200,
+  starLayers: buildStarLayers(0.4),
   postprocessing: true,
   multisampling: 0,
   anisotropy: 4,
@@ -136,7 +192,7 @@ interface EarthProps {
   readonly quality: QualityProfile;
 }
 
-function Earth({ quality }: EarthProps): JSX.Element {
+const Earth = memo(function Earth({ quality }: EarthProps): JSX.Element {
   const groupRef = useRef<THREE.Group>(null);
   const cloudsRef = useRef<THREE.Mesh>(null);
 
@@ -180,12 +236,12 @@ function Earth({ quality }: EarthProps): JSX.Element {
         <meshStandardMaterial
           map={map}
           normalMap={normalMap}
-          normalScale={new THREE.Vector2(0.85, 0.85)}
+          normalScale={EARTH_NORMAL_SCALE}
           roughnessMap={roughnessMap}
           roughness={1}
           metalness={0.02}
           emissiveMap={emissiveMap}
-          emissive={new THREE.Color("#ffd9a0")}
+          emissive={EARTH_EMISSIVE_COLOR}
           emissiveIntensity={0.55}
         />
       </mesh>
@@ -211,7 +267,7 @@ function Earth({ quality }: EarthProps): JSX.Element {
       </mesh>
     </group>
   );
-}
+});
 
 /* -------------------------------------------------------------------------- */
 /*                              Fresnel atmosphere                            */
@@ -238,22 +294,27 @@ const ATMOSPHERE_FRAGMENT = /* glsl */ `
   varying vec3 vViewDir;
 
   void main() {
+    // Rayleigh-style rim: strongest exactly at the limb, decaying
+    // exponentially inward — a thin, soft haze instead of a ring.
     float fresnel = 1.0 - abs(dot(normalize(vNormal), normalize(vViewDir)));
-    float glow = pow(fresnel, uPower) * uIntensity;
-    gl_FragColor = vec4(uColor, glow);
+    float rim = pow(fresnel, uPower);
+    // Soften the outer edge so the glow dissolves into space.
+    float falloff = smoothstep(1.0, 0.72, fresnel);
+    float glow = rim * falloff * uIntensity;
+    gl_FragColor = vec4(uColor * glow, glow);
   }
 `;
 
-function Atmosphere(): JSX.Element {
+const Atmosphere = memo(function Atmosphere(): JSX.Element {
   const material = useMemo<THREE.ShaderMaterial>(
     () =>
       new THREE.ShaderMaterial({
         vertexShader: ATMOSPHERE_VERTEX,
         fragmentShader: ATMOSPHERE_FRAGMENT,
         uniforms: {
-          uColor: { value: new THREE.Color("#4db8ff") },
-          uIntensity: { value: 1.4 },
-          uPower: { value: 3.2 },
+          uColor: { value: new THREE.Color("#7ab8f0") },
+          uIntensity: { value: 1.05 },
+          uPower: { value: 5.0 },
         },
         transparent: true,
         blending: THREE.AdditiveBlending,
@@ -271,7 +332,7 @@ function Atmosphere(): JSX.Element {
       <primitive object={material} attach="material" />
     </mesh>
   );
-}
+});
 
 /* -------------------------------------------------------------------------- */
 /*                               Deep starfield                               */
@@ -300,10 +361,6 @@ const STAR_FRAGMENT = /* glsl */ `
   }
 `;
 
-interface StarfieldProps {
-  readonly count: number;
-}
-
 /** Deterministic PRNG (mulberry32) — keeps the starfield stable and pure. */
 function createRandom(seed: number): () => number {
   let a = seed;
@@ -316,26 +373,37 @@ function createRandom(seed: number): () => number {
   };
 }
 
-function Starfield({ count }: StarfieldProps): JSX.Element {
+const STAR_PALETTE: readonly THREE.Color[] = [
+  new THREE.Color("#ffffff"),
+  new THREE.Color("#dbeafe"),
+  new THREE.Color("#bfdbfe"),
+  new THREE.Color("#fde8c8"),
+  new THREE.Color("#ffe9d6"),
+  new THREE.Color("#93c5fd"),
+];
+
+interface StarLayerProps {
+  readonly config: StarLayerConfig;
+}
+
+/** One depth slice of the starfield with its own drift and parallax. */
+const StarLayer = memo(function StarLayer({
+  config,
+}: StarLayerProps): JSX.Element {
   const pointsRef = useRef<THREE.Points>(null);
 
   const { geometry, material } = useMemo(() => {
-    const random = createRandom(0xa6f0ea);
-    const positions = new Float32Array(count * 3);
-    const sizes = new Float32Array(count);
-    const colors = new Float32Array(count * 3);
+    const random = createRandom(config.seed);
+    const positions = new Float32Array(config.count * 3);
+    const sizes = new Float32Array(config.count);
+    const colors = new Float32Array(config.count * 3);
 
-    const palette: readonly THREE.Color[] = [
-      new THREE.Color("#ffffff"),
-      new THREE.Color("#dbeafe"),
-      new THREE.Color("#bfdbfe"),
-      new THREE.Color("#fde8c8"),
-      new THREE.Color("#93c5fd"),
-    ];
+    const radiusSpan = config.maxRadius - config.minRadius;
+    const sizeSpan = config.maxSize - config.minSize;
 
-    for (let i = 0; i < count; i += 1) {
-      // Uniform distribution inside a thick spherical shell → real depth.
-      const radius = 18 + Math.cbrt(random()) * 70;
+    for (let i = 0; i < config.count; i += 1) {
+      // Uniform density inside the shell — no clustering, no visible tiling.
+      const radius = config.minRadius + Math.cbrt(random()) * radiusSpan;
       const theta = random() * Math.PI * 2;
       const phi = Math.acos(2 * random() - 1);
 
@@ -343,10 +411,11 @@ function Starfield({ count }: StarfieldProps): JSX.Element {
       positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
       positions[i * 3 + 2] = radius * Math.cos(phi);
 
-      sizes[i] = 0.35 + Math.pow(random(), 3) * 1.6;
+      // Cubic bias keeps most stars tiny, with rare bright ones.
+      sizes[i] = config.minSize + Math.pow(random(), 3) * sizeSpan;
 
-      const color = palette[Math.floor(random() * palette.length)];
-      const brightness = 0.55 + random() * 0.45;
+      const color = STAR_PALETTE[Math.floor(random() * STAR_PALETTE.length)];
+      const brightness = 0.35 + Math.pow(random(), 1.6) * 0.65;
       colors[i * 3] = color.r * brightness;
       colors[i * 3 + 1] = color.g * brightness;
       colors[i * 3 + 2] = color.b * brightness;
@@ -366,7 +435,7 @@ function Starfield({ count }: StarfieldProps): JSX.Element {
     });
 
     return { geometry: geo, material: mat };
-  }, [count]);
+  }, [config]);
 
   useEffect(
     () => () => {
@@ -376,10 +445,25 @@ function Starfield({ count }: StarfieldProps): JSX.Element {
     [geometry, material],
   );
 
-  useFrame((_, delta) => {
-    if (pointsRef.current !== null) {
-      pointsRef.current.rotation.y += delta * 0.004;
-    }
+  useFrame((state, delta) => {
+    const points = pointsRef.current;
+    if (points === null) return;
+
+    // Constant slow drift plus pointer parallax scaled by layer depth,
+    // so near stars shift more than far ones.
+    points.rotation.y += delta * config.driftSpeed;
+    points.rotation.x = THREE.MathUtils.damp(
+      points.rotation.x,
+      -state.pointer.y * config.parallaxFactor,
+      1.2,
+      delta,
+    );
+    points.rotation.z = THREE.MathUtils.damp(
+      points.rotation.z,
+      state.pointer.x * config.parallaxFactor,
+      1.2,
+      delta,
+    );
   });
 
   return (
@@ -388,7 +472,23 @@ function Starfield({ count }: StarfieldProps): JSX.Element {
       <primitive object={material} attach="material" />
     </points>
   );
+});
+
+interface StarfieldProps {
+  readonly layers: readonly StarLayerConfig[];
 }
+
+const Starfield = memo(function Starfield({
+  layers,
+}: StarfieldProps): JSX.Element {
+  return (
+    <>
+      {layers.map((layer) => (
+        <StarLayer key={layer.seed} config={layer} />
+      ))}
+    </>
+  );
+});
 
 /* -------------------------------------------------------------------------- */
 /*                             Cinematic camera rig                           */
@@ -398,28 +498,29 @@ interface CameraRigProps {
   readonly parallax: boolean;
 }
 
-const CAMERA_TARGET = new THREE.Vector3(0, 0, 0);
+const CAMERA_TARGET = new THREE.Vector3(0, FRAME_Y_OFFSET, 0);
 
 function CameraRig({ parallax }: CameraRigProps): null {
   useFrame((state, delta) => {
     const camera = state.camera;
     const t = state.clock.elapsedTime;
 
-    // Slow orbital drift + breathing dolly.
-    const angle = t * 0.05;
-    const dolly = 4.4 + Math.sin(t * 0.12) * 0.28;
+    // Near-imperceptible orbital drift and breathing dolly — the motion
+    // should only register subconsciously.
+    const angle = t * 0.016;
+    const dolly = 4.35 + Math.sin(t * 0.045) * 0.09;
 
-    const baseX = Math.sin(angle) * dolly * 0.35;
-    const baseY = 0.55 + Math.sin(t * 0.09) * 0.22;
-    const baseZ = Math.cos(angle * 0.6) * 0.2 + dolly;
+    const baseX = Math.sin(angle) * dolly * 0.12;
+    const baseY = 0.42 + Math.sin(t * 0.032) * 0.06;
+    const baseZ = Math.cos(angle * 0.6) * 0.08 + dolly;
 
-    // Subtle pointer parallax on desktop only.
-    const px = parallax ? state.pointer.x * 0.35 : 0;
-    const py = parallax ? state.pointer.y * 0.2 : 0;
+    // Gentle pointer parallax on desktop only.
+    const px = parallax ? state.pointer.x * 0.16 : 0;
+    const py = parallax ? state.pointer.y * 0.09 : 0;
 
-    camera.position.x = THREE.MathUtils.damp(camera.position.x, baseX + px, 1.5, delta);
-    camera.position.y = THREE.MathUtils.damp(camera.position.y, baseY + py, 1.5, delta);
-    camera.position.z = THREE.MathUtils.damp(camera.position.z, baseZ, 1.5, delta);
+    camera.position.x = THREE.MathUtils.damp(camera.position.x, baseX + px, 1.0, delta);
+    camera.position.y = THREE.MathUtils.damp(camera.position.y, baseY + py, 1.0, delta);
+    camera.position.z = THREE.MathUtils.damp(camera.position.z, baseZ, 1.0, delta);
 
     camera.lookAt(CAMERA_TARGET);
   });
@@ -436,29 +537,28 @@ interface SceneProps {
   readonly isMobile: boolean;
 }
 
-function Scene({ quality, isMobile }: SceneProps): JSX.Element {
+const Scene = memo(function Scene({
+  quality,
+  isMobile,
+}: SceneProps): JSX.Element {
   return (
     <>
       <color attach="background" args={["#02040a"]} />
 
-      {/* HDR image-based lighting */}
-      <Environment files={HDR_ENVIRONMENT} environmentIntensity={0.35} />
+      {/* HDR image-based lighting for realistic reflections */}
+      <Environment files={HDR_ENVIRONMENT} environmentIntensity={0.45} />
 
-      {/* Key "sun" light */}
-      <directionalLight
-        position={[6, 2.5, 4]}
-        intensity={3.2}
-        color="#fff4e0"
-      />
-      {/* Cool rim fill from deep space */}
+      {/* Soft white key light */}
+      <directionalLight position={[6, 3, 4]} intensity={2.4} color="#ffffff" />
+      {/* Subtle blue rim light from deep space */}
       <directionalLight
         position={[-6, -1.5, -4]}
-        intensity={0.25}
-        color="#3b82f6"
+        intensity={0.35}
+        color="#5b8cff"
       />
-      <ambientLight intensity={0.06} />
+      <ambientLight intensity={0.05} />
 
-      <Starfield count={quality.starCount} />
+      <Starfield layers={quality.starLayers} />
       <Earth quality={quality} />
       <Atmosphere />
       <CameraRig parallax={!isMobile} />
@@ -466,17 +566,18 @@ function Scene({ quality, isMobile }: SceneProps): JSX.Element {
       {quality.postprocessing && (
         <EffectComposer multisampling={quality.multisampling}>
           <Bloom
-            intensity={isMobile ? 0.55 : 0.85}
-            luminanceThreshold={0.28}
-            luminanceSmoothing={0.85}
+            intensity={isMobile ? 0.22 : 0.32}
+            luminanceThreshold={0.55}
+            luminanceSmoothing={0.95}
+            radius={0.85}
             mipmapBlur
           />
-          <Vignette eskil={false} offset={0.28} darkness={0.78} />
+          <Vignette eskil={false} offset={0.26} darkness={0.72} />
         </EffectComposer>
       )}
     </>
   );
-}
+});
 
 /* -------------------------------------------------------------------------- */
 /*                              Public component                              */
@@ -531,11 +632,13 @@ export default function AgxoraGlobe3D(): JSX.Element {
     <div style={containerStyle} aria-label="AGXORA AI CORE — 3D globe">
       <Canvas
         dpr={quality.dpr}
-        camera={{ position: [0, 0.6, 4.4], fov: 42, near: 0.1, far: 300 }}
+        camera={{ position: [0, 0.42, 4.35], fov: 42, near: 0.1, far: 300 }}
         gl={{
           antialias: !quality.postprocessing,
           powerPreference: "high-performance",
           alpha: false,
+          toneMapping: THREE.ACESFilmicToneMapping,
+          toneMappingExposure: 1.1,
         }}
         style={{ position: "absolute", inset: 0 }}
       >
