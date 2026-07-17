@@ -1,15 +1,7 @@
-import AgxoraGlobe from "../components/AgxoraGlobe";
+import AgxoraGlobe3D from "../components/AgxoraGlobe3D";
+import { BusinessOverview } from "../components/dashboard/BusinessOverview";
 
 export default function Dashboard() {
-  const stats = [
-    { title: "Global Clients", value: "2,486", icon: "🌍" },
-    { title: "Revenue", value: "€482K", icon: "💰" },
-    { title: "AI Reports", value: "1,328", icon: "🤖" },
-    { title: "Automation", value: "97%", icon: "⚡" },
-    { title: "Live Nodes", value: "24", icon: "🛰️" },
-    { title: "Predictions", value: "99.2%", icon: "📈" },
-  ];
-
   const activities = [
     "Dubai laundry market analyzed",
     "Germany customer behavior updated",
@@ -146,78 +138,10 @@ export default function Dashboard() {
             marginBottom: "60px",
           }}
         >
-          <AgxoraGlobe />
-
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              background: "rgba(0,0,0,0.55)",
-              border: "1px solid rgba(34,211,238,0.4)",
-              backdropFilter: "blur(10px)",
-              borderRadius: "999px",
-              padding: "12px 26px",
-              color: "#22d3ee",
-              fontWeight: "bold",
-              letterSpacing: "2px",
-            }}
-          >
-            AGXORA AI CORE
-          </div>
+          <AgxoraGlobe3D />
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(220px,1fr))",
-            gap: "20px",
-            marginBottom: "50px",
-          }}
-        >
-          {stats.map((item) => (
-            <div
-              key={item.title}
-              style={{
-                padding: "24px",
-                borderRadius: "24px",
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(34,211,238,0.3)",
-                backdropFilter: "blur(20px)",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: "34px",
-                  marginBottom: "10px",
-                }}
-              >
-                {item.icon}
-              </div>
-
-              <div
-                style={{
-                  opacity: 0.8,
-                  marginBottom: "8px",
-                }}
-              >
-                {item.title}
-              </div>
-
-              <div
-                style={{
-                  fontSize: "34px",
-                  color: "#22d3ee",
-                  fontWeight: "bold",
-                }}
-              >
-                {item.value}
-              </div>
-            </div>
-          ))}
-        </div>
+        <BusinessOverview />
 
         <div
           style={{

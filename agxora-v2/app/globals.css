@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Tailwind v4 gates `hover:` variants behind `@media (hover: hover)`;
+   apply them on real :hover instead so they work on every pointer setup. */
+@custom-variant hover (&:hover);
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
