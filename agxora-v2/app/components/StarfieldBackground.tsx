@@ -3,13 +3,9 @@
 /**
  * StarfieldBackground — global full-viewport procedural space backdrop.
  *
- * Mounted once from the dashboard root layout. A fixed, pointer-
- * transparent canvas that stays behind every scrolling section:
- * every star is generated from seeded noise at runtime.
- * No textures, no HDR, no external assets, no network.
- *
- * Three depth layers drift at different speeds and respond to the
- * pointer with very subtle parallax for an infinite-space feeling.
+ * Theme-aware: night keeps the cinematic starfield; day fades stars to
+ * nearly zero while the sky gradient shifts to bright daylight blue.
+ * Blend is lerped from the theme visual store (no per-frame React work).
  */
 
 import {
@@ -22,6 +18,14 @@ import {
 } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
+import {
+  DAY_TOKENS,
+  NIGHT_TOKENS,
+  THEME_TRANSITION_MS,
+  getThemeDayBlend,
+  lerp,
+  useTheme,
+} from "../lib/theme";
 
 /* ------------------------------------------------------------------ */
 /* Deterministic PRNG                                                  */
@@ -125,10 +129,11 @@ const POINT_VERTEX = /* glsl */ `
 
 const POINT_FRAGMENT = /* glsl */ `
   varying vec3 vTint;
+  uniform float uOpacity;
 
   void main() {
     float d = length(gl_PointCoord - vec2(0.5));
-    float a = smoothstep(0.5, 0.06, d);
+    float a = smoothstep(0.5, 0.06, d) * uOpacity;
     gl_FragColor = vec4(vTint, a);
   }
 `;
@@ -190,6 +195,9 @@ function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
       transparent: true,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
+      uniforms: {
+        uOpacity: { value: 1 },
+      },
     });
 
     return { geometry: geo, material: mat };
@@ -215,6 +223,14 @@ function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
     const ease = 1 - Math.exp(-delta * 1.2);
     points.rotation.x += (targetX - points.rotation.x) * ease;
     points.rotation.z += (targetZ - points.rotation.z) * ease;
+
+    const blend = getThemeDayBlend();
+    const opacity = lerp(
+      NIGHT_TOKENS.starOpacity,
+      DAY_TOKENS.starOpacity,
+      blend,
+    );
+    material.uniforms.uOpacity.value = opacity;
   });
 
   return (
@@ -226,32 +242,34 @@ function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
 }
 
 /* ------------------------------------------------------------------ */
+/* Sky clear color                                                     */
+/* ------------------------------------------------------------------ */
+
+const nightSky = new THREE.Color(NIGHT_TOKENS.skySolid);
+const daySky = new THREE.Color(DAY_TOKENS.skySolid);
+const scratchSky = new THREE.Color();
+
+function ThemeSky(): null {
+  useFrame(({ scene }) => {
+    const blend = getThemeDayBlend();
+    scratchSky.copy(nightSky).lerp(daySky, blend);
+    scene.background = scratchSky;
+  });
+  return null;
+}
+
+/* ------------------------------------------------------------------ */
 /* Exported backdrop                                                   */
 /* ------------------------------------------------------------------ */
 
-const backdropStyle: CSSProperties = {
-  position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100vw",
-  minHeight: "100vh",
-  height: "100dvh",
-  zIndex: 0,
-  pointerEvents: "none",
-  overflow: "hidden",
-  background:
-    "radial-gradient(circle at center, #0b1836 0%, #060d1c 45%, #02060d 100%)",
-};
-
 export default function StarfieldBackground(): JSX.Element {
   const small = useSmallScreen();
+  const { tokens } = useTheme();
   const layers = useMemo(
     () => backdropLayers(small ? 0.45 : 1),
     [small],
   );
 
-  // The canvas ignores pointer events, so parallax input is read from
-  // window-level movement instead of the R3F pointer state.
   const pointerRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -263,6 +281,23 @@ export default function StarfieldBackground(): JSX.Element {
     window.addEventListener("pointermove", onMove, { passive: true });
     return () => window.removeEventListener("pointermove", onMove);
   }, [small]);
+
+  const backdropStyle = useMemo<CSSProperties>(
+    () => ({
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100vw",
+      minHeight: "100vh",
+      height: "100dvh",
+      zIndex: 0,
+      pointerEvents: "none",
+      overflow: "hidden",
+      background: tokens.skyGradient,
+      transition: `background ${THEME_TRANSITION_MS}ms ease`,
+    }),
+    [tokens.skyGradient],
+  );
 
   return (
     <div style={backdropStyle} aria-hidden="true">
@@ -276,7 +311,7 @@ export default function StarfieldBackground(): JSX.Element {
         }}
         style={{ position: "absolute", inset: 0 }}
       >
-        <color attach="background" args={["#02060d"]} />
+        <ThemeSky />
         {layers.map((layer) => (
           <DriftingLayer key={layer.seed} layer={layer} pointerRef={pointerRef} />
         ))}

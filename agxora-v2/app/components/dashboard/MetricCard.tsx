@@ -127,7 +127,8 @@ function MetricVisualRenderer({ visual }: { readonly visual: MetricVisual }): JS
 
 /**
  * Reusable glassmorphism metric card for enterprise dashboards.
- * Pure presentational server component — hover states are CSS-only.
+ * Pure presentational — hover states are CSS-only.
+ * Surface colors come from Adaptive Theme CSS variables.
  */
 export function MetricCard({
   title,
@@ -139,7 +140,15 @@ export function MetricCard({
 }: MetricCardProps): JSX.Element {
   return (
     <article
-      className="group relative flex flex-col gap-4 overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-6 shadow-[0_8px_32px_rgba(0,0,0,0.25)] backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1 hover:border-cyan-300/25 hover:from-white/[0.09] hover:to-white/[0.03] hover:shadow-[0_16px_48px_rgba(0,0,0,0.35)]"
+      className="agx-metric-card group relative flex flex-col gap-4 overflow-hidden rounded-3xl border p-6 backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1"
+      style={{
+        borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
+        background:
+          "linear-gradient(to bottom right, var(--agx-card-bg-from, rgba(255,255,255,0.06)), var(--agx-card-bg-to, rgba(255,255,255,0.02)))",
+        boxShadow: "var(--agx-card-shadow, 0 8px 32px rgba(0,0,0,0.25))",
+        transition:
+          "background var(--agx-theme-transition, 800ms) ease, border-color var(--agx-theme-transition, 800ms) ease, box-shadow var(--agx-theme-transition, 800ms) ease, transform 300ms ease",
+      }}
     >
       {/* Soft sheen that brightens on hover */}
       <div
@@ -149,10 +158,20 @@ export function MetricCard({
 
       <header className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.04] text-cyan-300 transition-colors duration-300 group-hover:border-cyan-300/30 group-hover:text-cyan-200">
+          <span
+            className="flex h-10 w-10 items-center justify-center rounded-xl border text-cyan-300 transition-colors duration-300 group-hover:border-cyan-300/30 group-hover:text-cyan-200"
+            style={{
+              borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
+              background: "var(--agx-card-bg, rgba(255,255,255,0.04))",
+              color: "var(--agx-accent, #22d3ee)",
+            }}
+          >
             {icon}
           </span>
-          <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">
+          <h3
+            className="text-[11px] font-semibold uppercase tracking-[0.18em]"
+            style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+          >
             {title}
           </h3>
         </div>
@@ -171,10 +190,18 @@ export function MetricCard({
       </header>
 
       <div>
-        <p className="text-3xl font-bold tabular-nums tracking-tight text-slate-50">
+        <p
+          className="text-3xl font-bold tabular-nums tracking-tight"
+          style={{ color: "var(--agx-text, #f8fafc)" }}
+        >
           {value}
         </p>
-        <p className="mt-1 text-xs tracking-wide text-slate-400">{caption}</p>
+        <p
+          className="mt-1 text-xs tracking-wide"
+          style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+        >
+          {caption}
+        </p>
       </div>
 
       {visual !== undefined && (

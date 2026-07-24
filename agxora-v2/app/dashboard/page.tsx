@@ -1,7 +1,15 @@
+"use client";
+
 import AgxoraGlobe3D from "../components/AgxoraGlobe3D";
+import ThemeSwitcher from "../components/ThemeSwitcher";
 import { BusinessOverview } from "../components/dashboard/BusinessOverview";
+import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
+
+const surfaceTransition = `background ${THEME_TRANSITION_MS}ms ease, border-color ${THEME_TRANSITION_MS}ms ease, color ${THEME_TRANSITION_MS}ms ease, box-shadow ${THEME_TRANSITION_MS}ms ease, text-shadow ${THEME_TRANSITION_MS}ms ease`;
 
 export default function Dashboard() {
+  const { tokens } = useTheme();
+
   const activities = [
     "Dubai laundry market analyzed",
     "Germany customer behavior updated",
@@ -15,10 +23,11 @@ export default function Dashboard() {
     <main
       style={{
         minHeight: "100vh",
-        color: "white",
+        color: tokens.text,
         display: "flex",
         flexWrap: "wrap",
         background: "transparent",
+        transition: surfaceTransition,
       }}
     >
       <aside
@@ -26,17 +35,19 @@ export default function Dashboard() {
           position: "relative",
           width: "280px",
           minHeight: "100vh",
-          background: "rgba(255,255,255,0.03)",
+          background: tokens.sidebarBg,
           backdropFilter: "blur(20px)",
-          borderRight: "1px solid rgba(34,211,238,0.25)",
+          borderRight: `1px solid ${tokens.sidebarBorder}`,
           padding: "35px",
+          transition: surfaceTransition,
         }}
       >
         <h2
           style={{
-            color: "#22d3ee",
+            color: tokens.accent,
             letterSpacing: "5px",
             marginBottom: "50px",
+            transition: surfaceTransition,
           }}
         >
           AGXORA
@@ -68,17 +79,33 @@ export default function Dashboard() {
           background: "transparent",
         }}
       >
-        <h1
+        <div
           style={{
-            fontSize: "clamp(50px,7vw,90px)",
-            color: "#22d3ee",
-            letterSpacing: "4px",
-            textShadow: "0 0 40px rgba(34,211,238,0.5)",
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            gap: "20px",
             marginBottom: "10px",
+            flexWrap: "wrap",
           }}
         >
-          AGXORA CORE
-        </h1>
+          <h1
+            style={{
+              fontSize: "clamp(50px,7vw,90px)",
+              color: tokens.accent,
+              letterSpacing: "4px",
+              textShadow: tokens.titleShadow,
+              margin: 0,
+              transition: surfaceTransition,
+            }}
+          >
+            AGXORA CORE
+          </h1>
+
+          <div style={{ paddingTop: "12px", marginLeft: "auto" }}>
+            <ThemeSwitcher />
+          </div>
+        </div>
 
         <div
           style={{
@@ -113,19 +140,26 @@ export default function Dashboard() {
           style={{
             padding: "24px",
             borderRadius: "24px",
-            background: "rgba(34,211,238,0.08)",
-            border: "1px solid rgba(34,211,238,0.3)",
+            background: tokens.chatReplyBg,
+            border: `1px solid ${tokens.panelBorder}`,
             marginBottom: "40px",
+            transition: surfaceTransition,
           }}
         >
-          <h2 style={{ color: "#22d3ee" }}>
+          <h2
+            style={{
+              color: tokens.accent,
+              transition: surfaceTransition,
+            }}
+          >
             AGXORA AI COMMAND CENTER
           </h2>
 
           <p
             style={{
-              color: "#cbd5e1",
+              color: tokens.textMuted,
               lineHeight: 1.7,
+              transition: surfaceTransition,
             }}
           >
             Real-time business intelligence, predictive analytics,
@@ -156,14 +190,16 @@ export default function Dashboard() {
             style={{
               padding: "30px",
               borderRadius: "24px",
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(34,211,238,0.3)",
+              background: tokens.panelBg,
+              border: `1px solid ${tokens.panelBorder}`,
+              transition: surfaceTransition,
             }}
           >
             <h2
               style={{
-                color: "#22d3ee",
+                color: tokens.accent,
                 marginBottom: "20px",
+                transition: surfaceTransition,
               }}
             >
               Live AI Activity
@@ -174,8 +210,8 @@ export default function Dashboard() {
                 key={index}
                 style={{
                   padding: "14px 0",
-                  borderBottom:
-                    "1px solid rgba(255,255,255,0.08)",
+                  borderBottom: `1px solid ${tokens.divider}`,
+                  transition: surfaceTransition,
                 }}
               >
                 ⚡ {item}
@@ -187,15 +223,17 @@ export default function Dashboard() {
             style={{
               padding: "30px",
               borderRadius: "24px",
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(34,211,238,0.3)",
+              background: tokens.panelBg,
+              border: `1px solid ${tokens.panelBorder}`,
               backdropFilter: "blur(20px)",
+              transition: surfaceTransition,
             }}
           >
             <h2
               style={{
-                color: "#22d3ee",
+                color: tokens.accent,
                 marginBottom: "20px",
+                transition: surfaceTransition,
               }}
             >
               🤖 AGXORA AI
@@ -213,7 +251,8 @@ export default function Dashboard() {
                 style={{
                   padding: "12px",
                   borderRadius: "12px",
-                  background: "rgba(255,255,255,0.05)",
+                  background: tokens.chatBubbleBg,
+                  transition: surfaceTransition,
                 }}
               >
                 👤 Show revenue forecast
@@ -223,8 +262,9 @@ export default function Dashboard() {
                 style={{
                   padding: "12px",
                   borderRadius: "12px",
-                  background: "rgba(34,211,238,0.08)",
-                  color: "#22d3ee",
+                  background: tokens.chatReplyBg,
+                  color: tokens.accent,
+                  transition: surfaceTransition,
                 }}
               >
                 🤖 Revenue expected to increase by 18% next month.
@@ -234,7 +274,8 @@ export default function Dashboard() {
                 style={{
                   padding: "12px",
                   borderRadius: "12px",
-                  background: "rgba(255,255,255,0.05)",
+                  background: tokens.chatBubbleBg,
+                  transition: surfaceTransition,
                 }}
               >
                 👤 Analyze customer trends
@@ -244,8 +285,9 @@ export default function Dashboard() {
                 style={{
                   padding: "12px",
                   borderRadius: "12px",
-                  background: "rgba(34,211,238,0.08)",
-                  color: "#22d3ee",
+                  background: tokens.chatReplyBg,
+                  color: tokens.accent,
+                  transition: surfaceTransition,
                 }}
               >
                 🤖 Customer retention improved by 12%.
@@ -258,10 +300,11 @@ export default function Dashboard() {
                 width: "100%",
                 padding: "14px",
                 borderRadius: "12px",
-                border: "1px solid rgba(34,211,238,0.3)",
-                background: "rgba(255,255,255,0.05)",
-                color: "white",
+                border: `1px solid ${tokens.inputBorder}`,
+                background: tokens.inputBg,
+                color: tokens.text,
                 outline: "none",
+                transition: surfaceTransition,
               }}
             />
           </div>

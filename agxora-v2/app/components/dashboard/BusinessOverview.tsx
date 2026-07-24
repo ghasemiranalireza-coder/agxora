@@ -127,14 +127,27 @@ export function BusinessOverview(): JSX.Element {
     <section aria-label="Business overview" className="mb-12">
       <header className="mb-6 flex items-baseline justify-between gap-4">
         <div>
-          <h2 className="text-lg font-semibold tracking-wide text-slate-100">
+          <h2
+            className="text-lg font-semibold tracking-wide"
+            style={{ color: "var(--agx-text, #f1f5f9)" }}
+          >
             Business Overview
           </h2>
-          <p className="mt-1 text-xs tracking-wide text-slate-400">
+          <p
+            className="mt-1 text-xs tracking-wide"
+            style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+          >
             Key performance metrics, updated in real time
           </p>
         </div>
-        <span className="hidden rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] tracking-widest text-slate-400 sm:inline-block">
+        <span
+          className="hidden rounded-full border px-3 py-1 text-[11px] tracking-widest sm:inline-block"
+          style={{
+            borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
+            background: "var(--agx-card-bg, rgba(255,255,255,0.03))",
+            color: "var(--agx-text-muted, #94a3b8)",
+          }}
+        >
           LAST 30 DAYS
         </span>
       </header>

@@ -23,6 +23,14 @@ import {
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Bloom, EffectComposer, Vignette } from "@react-three/postprocessing";
+import {
+  DAY_TOKENS,
+  NIGHT_TOKENS,
+  THEME_TRANSITION_MS,
+  getThemeDayBlend,
+  lerp,
+  useTheme,
+} from "../lib/theme";
 
 /* ======================================================================== */
 /*  Deterministic noise toolkit                                             */
@@ -460,6 +468,9 @@ const RIM_FRAGMENT = /* glsl */ `
   }
 `;
 
+const NIGHT_ATMO = new THREE.Color(NIGHT_TOKENS.atmosphereTint);
+const DAY_ATMO = new THREE.Color(DAY_TOKENS.atmosphereTint);
+
 function AtmosphereGlow(): JSX.Element {
   const rimMaterial = useMemo<THREE.ShaderMaterial>(
     () =>
@@ -467,8 +478,8 @@ function AtmosphereGlow(): JSX.Element {
         vertexShader: RIM_VERTEX,
         fragmentShader: RIM_FRAGMENT,
         uniforms: {
-          rimTint: { value: new THREE.Color("#6fb0e8") },
-          rimGain: { value: 0.8 },
+          rimTint: { value: new THREE.Color(NIGHT_TOKENS.atmosphereTint) },
+          rimGain: { value: NIGHT_TOKENS.atmosphereGain },
           rimCurve: { value: 5.2 },
         },
         side: THREE.BackSide,
@@ -480,6 +491,18 @@ function AtmosphereGlow(): JSX.Element {
   );
 
   useEffect(() => () => rimMaterial.dispose(), [rimMaterial]);
+
+  useFrame(() => {
+    const blend = getThemeDayBlend();
+    (rimMaterial.uniforms.rimTint.value as THREE.Color)
+      .copy(NIGHT_ATMO)
+      .lerp(DAY_ATMO, blend);
+    rimMaterial.uniforms.rimGain.value = lerp(
+      NIGHT_TOKENS.atmosphereGain,
+      DAY_TOKENS.atmosphereGain,
+      blend,
+    );
+  });
 
   return (
     <mesh scale={1.04}>
@@ -508,10 +531,11 @@ const STARS_VERTEX = /* glsl */ `
 
 const STARS_FRAGMENT = /* glsl */ `
   varying vec3 vTint;
+  uniform float uOpacity;
 
   void main() {
     float d = length(gl_PointCoord - vec2(0.5));
-    float a = smoothstep(0.5, 0.06, d);
+    float a = smoothstep(0.5, 0.06, d) * uOpacity;
     gl_FragColor = vec4(vTint, a);
   }
 `;
@@ -568,6 +592,9 @@ function StarShellPoints({ shell }: StarShellProps): JSX.Element {
       transparent: true,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
+      uniforms: {
+        uOpacity: { value: 1 },
+      },
     });
 
     return { starGeometry: geometry, starMaterial: material };
@@ -591,6 +618,13 @@ function StarShellPoints({ shell }: StarShellProps): JSX.Element {
     const ease = 1 - Math.exp(-delta * 1.4);
     points.rotation.x += (targetX - points.rotation.x) * ease;
     points.rotation.z += (targetZ - points.rotation.z) * ease;
+
+    const blend = getThemeDayBlend();
+    starMaterial.uniforms.uOpacity.value = lerp(
+      NIGHT_TOKENS.starOpacity,
+      DAY_TOKENS.starOpacity,
+      blend,
+    );
   });
 
   return (
@@ -642,20 +676,89 @@ interface SpaceSceneProps {
   readonly compact: boolean;
 }
 
+const NIGHT_GLOBE_BG = new THREE.Color(NIGHT_TOKENS.globeBg);
+const DAY_GLOBE_BG = new THREE.Color(DAY_TOKENS.globeBg);
+const GLOBE_BG_SCRATCH = new THREE.Color();
+
 function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
+  const sunRef = useRef<THREE.DirectionalLight>(null);
+  const fillRef = useRef<THREE.DirectionalLight>(null);
+  const ambientRef = useRef<THREE.AmbientLight>(null);
+  const bloomRef = useRef<{ intensity: number } | null>(null);
+  const vignetteRef = useRef<{ darkness: number } | null>(null);
+
+  useFrame(({ scene, gl }) => {
+    const blend = getThemeDayBlend();
+    GLOBE_BG_SCRATCH.copy(NIGHT_GLOBE_BG).lerp(DAY_GLOBE_BG, blend);
+    scene.background = GLOBE_BG_SCRATCH;
+
+    if (sunRef.current) {
+      sunRef.current.intensity = lerp(
+        NIGHT_TOKENS.sunIntensity,
+        DAY_TOKENS.sunIntensity,
+        blend,
+      );
+    }
+    if (fillRef.current) {
+      fillRef.current.intensity = lerp(
+        NIGHT_TOKENS.fillIntensity,
+        DAY_TOKENS.fillIntensity,
+        blend,
+      );
+    }
+    if (ambientRef.current) {
+      ambientRef.current.intensity = lerp(
+        NIGHT_TOKENS.ambientIntensity,
+        DAY_TOKENS.ambientIntensity,
+        blend,
+      );
+    }
+
+    gl.toneMappingExposure = lerp(
+      NIGHT_TOKENS.exposure,
+      DAY_TOKENS.exposure,
+      blend,
+    );
+
+    if (bloomRef.current) {
+      bloomRef.current.intensity = lerp(
+        compact
+          ? NIGHT_TOKENS.bloomIntensityCompact
+          : NIGHT_TOKENS.bloomIntensity,
+        compact
+          ? DAY_TOKENS.bloomIntensityCompact
+          : DAY_TOKENS.bloomIntensity,
+        blend,
+      );
+    }
+    if (vignetteRef.current) {
+      vignetteRef.current.darkness = lerp(
+        NIGHT_TOKENS.vignetteDarkness,
+        DAY_TOKENS.vignetteDarkness,
+        blend,
+      );
+    }
+  });
+
   return (
     <>
-      <color attach="background" args={["#01030a"]} />
+      <color attach="background" args={[NIGHT_TOKENS.globeBg]} />
 
       {/* Key sun — clean white, slightly high and camera-left */}
-      <directionalLight position={[5, 2.6, 4]} intensity={2.9} color="#ffffff" />
+      <directionalLight
+        ref={sunRef}
+        position={[5, 2.6, 4]}
+        intensity={NIGHT_TOKENS.sunIntensity}
+        color="#ffffff"
+      />
       {/* Cold bounce from deep space for the shadowed limb */}
       <directionalLight
+        ref={fillRef}
         position={[-5, -1.8, -3.5]}
-        intensity={0.32}
+        intensity={NIGHT_TOKENS.fillIntensity}
         color="#4d7fd6"
       />
-      <ambientLight intensity={0.07} />
+      <ambientLight ref={ambientRef} intensity={NIGHT_TOKENS.ambientIntensity} />
 
       {profile.shells.map((shell) => (
         <StarShellPoints key={shell.seed} shell={shell} />
@@ -667,12 +770,18 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
 
       <EffectComposer multisampling={profile.msaa}>
         <Bloom
+          ref={bloomRef as never}
           intensity={compact ? 0.24 : 0.34}
           luminanceThreshold={0.5}
           luminanceSmoothing={0.92}
           mipmapBlur
         />
-        <Vignette eskil={false} offset={0.25} darkness={0.72} />
+        <Vignette
+          ref={vignetteRef as never}
+          eskil={false}
+          offset={0.25}
+          darkness={0.72}
+        />
       </EffectComposer>
     </>
   );
@@ -681,16 +790,6 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
 /* ======================================================================== */
 /*  Exported component                                                      */
 /* ======================================================================== */
-
-const frameStyle: CSSProperties = {
-  position: "relative",
-  width: "100%",
-  height: "clamp(340px, 60vh, 560px)",
-  borderRadius: "24px",
-  overflow: "hidden",
-  background: "radial-gradient(circle at 50% 45%, #071226 0%, #01030a 70%)",
-  border: "1px solid rgba(34, 211, 238, 0.18)",
-};
 
 const coreBadgeStyle: CSSProperties = {
   position: "absolute",
@@ -730,6 +829,21 @@ const coreBadgeDotStyle: CSSProperties = {
 
 export default function AgxoraGlobe3D(): JSX.Element {
   const { profile, compact } = useRenderProfile();
+  const { tokens } = useTheme();
+
+  const frameStyle = useMemo<CSSProperties>(
+    () => ({
+      position: "relative",
+      width: "100%",
+      height: "clamp(340px, 60vh, 560px)",
+      borderRadius: "24px",
+      overflow: "hidden",
+      background: tokens.globeFrameBg,
+      border: `1px solid ${tokens.globeBorder}`,
+      transition: `background ${THEME_TRANSITION_MS}ms ease, border-color ${THEME_TRANSITION_MS}ms ease`,
+    }),
+    [tokens.globeFrameBg, tokens.globeBorder],
+  );
 
   return (
     <div style={frameStyle} aria-label="AGXORA AI CORE — 3D globe">
