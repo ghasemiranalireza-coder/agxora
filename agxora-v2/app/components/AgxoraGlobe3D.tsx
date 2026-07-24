@@ -6,15 +6,14 @@
  * Stack: Next.js 16 · React 19 · React Three Fiber · three.js ·
  *        @react-three/drei · @react-three/postprocessing
  *
- * Features: PBR Earth, HDR image-based lighting, fresnel atmosphere,
- * animated cloud layer, deep 3D starfield, cinematic camera drift,
+ * Features: procedural PBR Earth (zero external assets), HDR preset
+ * lighting, fresnel atmosphere, deep 3D starfield, cinematic camera drift,
  * bloom + vignette post-processing, responsive + mobile optimized.
  */
 
 import {
   memo,
   Suspense,
-  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -24,7 +23,7 @@ import {
 } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment, useTexture } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { Bloom, EffectComposer, Vignette } from "@react-three/postprocessing";
 
 /* -------------------------------------------------------------------------- */
@@ -32,7 +31,6 @@ import { Bloom, EffectComposer, Vignette } from "@react-three/postprocessing";
 /* -------------------------------------------------------------------------- */
 
 const EARTH_RADIUS = 0.98;
-const CLOUD_ALTITUDE = 1.012;
 /** Very thin shell — the fresnel falloff does the rest. */
 const ATMOSPHERE_SCALE = 1.03;
 
@@ -41,24 +39,10 @@ const ATMOSPHERE_SCALE = 1.03;
 const FRAME_Y_OFFSET = -0.24;
 
 const EARTH_SPIN_SPEED = 0.018;
-const CLOUD_SPIN_SPEED = 0.026;
 
-const EARTH_NORMAL_SCALE = new THREE.Vector2(0.85, 0.85);
-const EARTH_EMISSIVE_COLOR = new THREE.Color("#ffd9a0");
-
-/** Ordered as [map, normalMap, specularMap, emissiveMap, cloudsMap]. */
-const TEXTURE_URLS: [string, string, string, string, string] = [
-  "/textures/earth_atmos_2048.jpg",
-  "/textures/earth_normal_2048.jpg",
-  "/textures/earth_specular_2048.jpg",
-  "/textures/earth_lights_2048.png",
-  "/textures/earth_clouds_1024.png",
-];
-
-/** Indices in TEXTURE_URLS holding color (sRGB) data: map, emissive, clouds. */
-const SRGB_TEXTURE_INDICES: readonly number[] = [0, 3, 4];
-
-const HDR_ENVIRONMENT = "/hdr/space_env_1k.hdr";
+/** Deep realistic ocean blue with a faint atmospheric self-glow. */
+const EARTH_OCEAN_COLOR = new THREE.Color("#0b3d6f");
+const EARTH_EMISSIVE_COLOR = new THREE.Color("#0a2440");
 
 interface StarLayerConfig {
   readonly count: number;
@@ -77,7 +61,6 @@ interface QualityProfile {
   readonly starLayers: readonly StarLayerConfig[];
   readonly postprocessing: boolean;
   readonly multisampling: number;
-  readonly anisotropy: number;
 }
 
 /** Three depth layers: near stars drift and parallax more than far ones. */
@@ -122,7 +105,6 @@ const DESKTOP_QUALITY: QualityProfile = {
   starLayers: buildStarLayers(1),
   postprocessing: true,
   multisampling: 4,
-  anisotropy: 8,
 };
 
 const MOBILE_QUALITY: QualityProfile = {
@@ -131,7 +113,6 @@ const MOBILE_QUALITY: QualityProfile = {
   starLayers: buildStarLayers(0.4),
   postprocessing: true,
   multisampling: 0,
-  anisotropy: 4,
 };
 
 /* -------------------------------------------------------------------------- */
@@ -152,38 +133,6 @@ function useIsMobile(): boolean {
   return isMobile;
 }
 
-/**
- * Builds an inverted grayscale copy of a texture. The three.js Earth
- * specular map is white over oceans; inverting it yields a physically
- * plausible roughness map (smooth water, rough land).
- */
-function useInvertedRoughnessMap(source: THREE.Texture): THREE.Texture {
-  return useMemo<THREE.Texture>(() => {
-    const image = source.image as HTMLImageElement | ImageBitmap;
-    const canvas = document.createElement("canvas");
-    canvas.width = image.width;
-    canvas.height = image.height;
-
-    const ctx = canvas.getContext("2d");
-    if (ctx === null) return source;
-
-    ctx.drawImage(image, 0, 0);
-    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const data = pixels.data;
-    for (let i = 0; i < data.length; i += 4) {
-      data[i] = 255 - data[i];
-      data[i + 1] = 255 - data[i + 1];
-      data[i + 2] = 255 - data[i + 2];
-    }
-    ctx.putImageData(pixels, 0, 0);
-
-    const texture = new THREE.CanvasTexture(canvas);
-    texture.wrapS = THREE.RepeatWrapping;
-    texture.needsUpdate = true;
-    return texture;
-  }, [source]);
-}
-
 /* -------------------------------------------------------------------------- */
 /*                                   Earth                                    */
 /* -------------------------------------------------------------------------- */
@@ -192,77 +141,35 @@ interface EarthProps {
   readonly quality: QualityProfile;
 }
 
+/**
+ * Procedural Earth — no external assets. A physically based ocean sphere:
+ * deep blue water with a glossy clearcoat sheen and a faint emissive
+ * atmospheric self-glow; the fresnel shell supplies the limb haze.
+ */
 const Earth = memo(function Earth({ quality }: EarthProps): JSX.Element {
   const groupRef = useRef<THREE.Group>(null);
-  const cloudsRef = useRef<THREE.Mesh>(null);
-
-  const configureTextures = useCallback(
-    (loaded: THREE.Texture[]): void => {
-      for (const [index, texture] of loaded.entries()) {
-        if (SRGB_TEXTURE_INDICES.includes(index)) {
-          texture.colorSpace = THREE.SRGBColorSpace;
-        }
-        texture.anisotropy = quality.anisotropy;
-        texture.needsUpdate = true;
-      }
-    },
-    [quality.anisotropy],
-  );
-
-  // Array form is used because drei invokes `onLoad` with the texture array.
-  const [map, normalMap, specularMap, emissiveMap, cloudsMap] = useTexture(
-    TEXTURE_URLS,
-    configureTextures,
-  );
-
-  const roughnessMap = useInvertedRoughnessMap(specularMap);
 
   useFrame((_, delta) => {
     if (groupRef.current !== null) {
       groupRef.current.rotation.y += delta * EARTH_SPIN_SPEED;
     }
-    if (cloudsRef.current !== null) {
-      cloudsRef.current.rotation.y += delta * CLOUD_SPIN_SPEED;
-    }
   });
 
   return (
     <group ref={groupRef} rotation={[0.12, -1.2, 0.05]}>
-      {/* Planet surface — full PBR */}
       <mesh>
         <sphereGeometry
           args={[EARTH_RADIUS, quality.earthSegments, quality.earthSegments]}
         />
-        <meshStandardMaterial
-          map={map}
-          normalMap={normalMap}
-          normalScale={EARTH_NORMAL_SCALE}
-          roughnessMap={roughnessMap}
-          roughness={1}
-          metalness={0.02}
-          emissiveMap={emissiveMap}
-          emissive={EARTH_EMISSIVE_COLOR}
-          emissiveIntensity={0.55}
-        />
-      </mesh>
-
-      {/* Cloud layer */}
-      <mesh ref={cloudsRef}>
-        <sphereGeometry
-          args={[
-            EARTH_RADIUS * CLOUD_ALTITUDE,
-            quality.earthSegments,
-            quality.earthSegments,
-          ]}
-        />
-        <meshStandardMaterial
-          map={cloudsMap}
-          transparent
-          opacity={0.55}
-          depthWrite={false}
-          roughness={1}
+        <meshPhysicalMaterial
+          color={EARTH_OCEAN_COLOR}
+          roughness={0.32}
           metalness={0}
-          blending={THREE.NormalBlending}
+          clearcoat={0.65}
+          clearcoatRoughness={0.35}
+          emissive={EARTH_EMISSIVE_COLOR}
+          emissiveIntensity={0.35}
+          envMapIntensity={1.1}
         />
       </mesh>
     </group>
@@ -546,7 +453,7 @@ const Scene = memo(function Scene({
       <color attach="background" args={["#02040a"]} />
 
       {/* HDR image-based lighting for realistic reflections */}
-      <Environment files={HDR_ENVIRONMENT} environmentIntensity={0.45} />
+      <Environment preset="night" />
 
       {/* Soft white key light */}
       <directionalLight position={[6, 3, 4]} intensity={2.4} color="#ffffff" />
