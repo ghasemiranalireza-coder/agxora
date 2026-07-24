@@ -1,10 +1,11 @@
 "use client";
 
 /**
- * StarfieldBackground — global full-screen procedural space backdrop.
+ * StarfieldBackground — global full-viewport procedural space backdrop.
  *
- * A fixed, pointer-transparent canvas that sits behind the entire
- * dashboard: every star is generated from seeded noise at runtime.
+ * Mounted once from the dashboard root layout. A fixed, pointer-
+ * transparent canvas that stays behind every scrolling section:
+ * every star is generated from seeded noise at runtime.
  * No textures, no HDR, no external assets, no network.
  *
  * Three depth layers drift at different speeds and respond to the
@@ -230,9 +231,14 @@ function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
 
 const backdropStyle: CSSProperties = {
   position: "fixed",
-  inset: 0,
+  top: 0,
+  left: 0,
+  width: "100vw",
+  minHeight: "100vh",
+  height: "100dvh",
   zIndex: 0,
   pointerEvents: "none",
+  overflow: "hidden",
   background:
     "radial-gradient(circle at center, #10214b 0%, #081120 45%, #03060d 100%)",
 };
