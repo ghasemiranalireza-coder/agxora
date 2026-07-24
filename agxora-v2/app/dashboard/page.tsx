@@ -81,12 +81,9 @@ export default function Dashboard() {
       >
         <div
           style={{
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "space-between",
-            gap: "20px",
+            position: "relative",
             marginBottom: "10px",
-            flexWrap: "wrap",
+            paddingRight: "min(320px, 40%)",
           }}
         >
           <h1
@@ -102,7 +99,14 @@ export default function Dashboard() {
             AGXORA CORE
           </h1>
 
-          <div style={{ paddingTop: "12px", marginLeft: "auto" }}>
+          <div
+            style={{
+              position: "absolute",
+              top: "8px",
+              right: 0,
+              zIndex: 5,
+            }}
+          >
             <ThemeSwitcher />
           </div>
         </div>

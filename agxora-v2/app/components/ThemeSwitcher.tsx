@@ -42,6 +42,7 @@ function optionStyle(active: boolean): CSSProperties {
     borderRadius: "999px",
     border: "none",
     cursor: "pointer",
+    pointerEvents: "auto",
     fontSize: "12px",
     fontWeight: 600,
     letterSpacing: "0.08em",
@@ -50,14 +51,13 @@ function optionStyle(active: boolean): CSSProperties {
       ? "var(--agx-accent, #22d3ee)"
       : "var(--agx-text-muted, #94a3b8)",
     background: active
-      ? "rgba(34,211,238,0.14)"
+      ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 18%, transparent)"
       : "transparent",
     boxShadow: active
-      ? "inset 0 0 0 1px rgba(34,211,238,0.35), 0 0 18px rgba(34,211,238,0.15)"
+      ? "inset 0 0 0 1px color-mix(in srgb, var(--agx-accent, #22d3ee) 40%, transparent), 0 0 18px color-mix(in srgb, var(--agx-accent, #22d3ee) 18%, transparent)"
       : "none",
     transition:
       "color 280ms ease, background 280ms ease, box-shadow 280ms ease, transform 280ms ease",
-    transform: active ? "translateY(0)" : "none",
   };
 }
 

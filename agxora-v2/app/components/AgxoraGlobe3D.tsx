@@ -684,8 +684,19 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
   const sunRef = useRef<THREE.DirectionalLight>(null);
   const fillRef = useRef<THREE.DirectionalLight>(null);
   const ambientRef = useRef<THREE.AmbientLight>(null);
-  const bloomRef = useRef<{ intensity: number } | null>(null);
-  const vignetteRef = useRef<{ darkness: number } | null>(null);
+  const { appearance } = useTheme();
+  const bloomIntensity =
+    appearance === "day"
+      ? compact
+        ? DAY_TOKENS.bloomIntensityCompact
+        : DAY_TOKENS.bloomIntensity
+      : compact
+        ? NIGHT_TOKENS.bloomIntensityCompact
+        : NIGHT_TOKENS.bloomIntensity;
+  const vignetteDarkness =
+    appearance === "day"
+      ? DAY_TOKENS.vignetteDarkness
+      : NIGHT_TOKENS.vignetteDarkness;
 
   useFrame(({ scene, gl }) => {
     const blend = getThemeDayBlend();
@@ -719,25 +730,6 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
       DAY_TOKENS.exposure,
       blend,
     );
-
-    if (bloomRef.current) {
-      bloomRef.current.intensity = lerp(
-        compact
-          ? NIGHT_TOKENS.bloomIntensityCompact
-          : NIGHT_TOKENS.bloomIntensity,
-        compact
-          ? DAY_TOKENS.bloomIntensityCompact
-          : DAY_TOKENS.bloomIntensity,
-        blend,
-      );
-    }
-    if (vignetteRef.current) {
-      vignetteRef.current.darkness = lerp(
-        NIGHT_TOKENS.vignetteDarkness,
-        DAY_TOKENS.vignetteDarkness,
-        blend,
-      );
-    }
   });
 
   return (
@@ -770,18 +762,12 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
 
       <EffectComposer multisampling={profile.msaa}>
         <Bloom
-          ref={bloomRef as never}
-          intensity={compact ? 0.24 : 0.34}
+          intensity={bloomIntensity}
           luminanceThreshold={0.5}
           luminanceSmoothing={0.92}
           mipmapBlur
         />
-        <Vignette
-          ref={vignetteRef as never}
-          eskil={false}
-          offset={0.25}
-          darkness={0.72}
-        />
+        <Vignette eskil={false} offset={0.25} darkness={vignetteDarkness} />
       </EffectComposer>
     </>
   );
