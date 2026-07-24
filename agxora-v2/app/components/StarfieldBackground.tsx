@@ -56,31 +56,31 @@ interface BackdropLayer {
 function backdropLayers(density: number): readonly BackdropLayer[] {
   return [
     {
-      total: Math.round(3200 * density),
-      nearRadius: 60,
-      farRadius: 120,
-      minPoint: 0.2,
-      maxPoint: 0.8,
+      total: Math.round(5200 * density),
+      nearRadius: 55,
+      farRadius: 115,
+      minPoint: 0.28,
+      maxPoint: 1.05,
       spin: 0.0011,
       sway: 0.005,
       seed: 0x51a001,
     },
     {
-      total: Math.round(2100 * density),
-      nearRadius: 32,
-      farRadius: 62,
-      minPoint: 0.26,
-      maxPoint: 1.1,
+      total: Math.round(3400 * density),
+      nearRadius: 28,
+      farRadius: 58,
+      minPoint: 0.34,
+      maxPoint: 1.35,
       spin: 0.002,
       sway: 0.012,
       seed: 0x51a002,
     },
     {
-      total: Math.round(1100 * density),
-      nearRadius: 15,
-      farRadius: 34,
-      minPoint: 0.3,
-      maxPoint: 1.0,
+      total: Math.round(1800 * density),
+      nearRadius: 12,
+      farRadius: 30,
+      minPoint: 0.4,
+      maxPoint: 1.25,
       spin: 0.0031,
       sway: 0.022,
       seed: 0x51a003,
@@ -118,7 +118,7 @@ const POINT_VERTEX = /* glsl */ `
   void main() {
     vTint = pointTint;
     vec4 mv = modelViewMatrix * vec4(position, 1.0);
-    gl_PointSize = pointScale * (160.0 / -mv.z);
+    gl_PointSize = pointScale * (220.0 / -mv.z);
     gl_Position = projectionMatrix * mv;
   }
 `;
@@ -128,7 +128,7 @@ const POINT_FRAGMENT = /* glsl */ `
 
   void main() {
     float d = length(gl_PointCoord - vec2(0.5));
-    float a = smoothstep(0.5, 0.08, d);
+    float a = smoothstep(0.5, 0.06, d);
     gl_FragColor = vec4(vTint, a);
   }
 `;
@@ -173,7 +173,7 @@ function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
       scales[i] = layer.minPoint + Math.pow(rand(), 3) * sizeShell;
 
       const tint = TINTS[Math.floor(rand() * TINTS.length)];
-      const luma = 0.3 + Math.pow(rand(), 1.6) * 0.7;
+      const luma = 0.45 + Math.pow(rand(), 1.45) * 0.55;
       tints[i * 3] = tint.r * luma;
       tints[i * 3 + 1] = tint.g * luma;
       tints[i * 3 + 2] = tint.b * luma;
@@ -240,13 +240,13 @@ const backdropStyle: CSSProperties = {
   pointerEvents: "none",
   overflow: "hidden",
   background:
-    "radial-gradient(circle at center, #10214b 0%, #081120 45%, #03060d 100%)",
+    "radial-gradient(circle at center, #0b1836 0%, #060d1c 45%, #02060d 100%)",
 };
 
 export default function StarfieldBackground(): JSX.Element {
   const small = useSmallScreen();
   const layers = useMemo(
-    () => backdropLayers(small ? 0.4 : 1),
+    () => backdropLayers(small ? 0.45 : 1),
     [small],
   );
 
@@ -267,15 +267,16 @@ export default function StarfieldBackground(): JSX.Element {
   return (
     <div style={backdropStyle} aria-hidden="true">
       <Canvas
-        dpr={small ? [1, 1.5] : [1, 1.75]}
-        camera={{ position: [0, 0, 0.1], fov: 55, near: 0.1, far: 240 }}
+        dpr={small ? [1, 1.5] : [1, 2]}
+        camera={{ position: [0, 0, 0.1], fov: 60, near: 0.1, far: 240 }}
         gl={{
           antialias: false,
-          alpha: true,
+          alpha: false,
           powerPreference: "high-performance",
         }}
         style={{ position: "absolute", inset: 0 }}
       >
+        <color attach="background" args={["#02060d"]} />
         {layers.map((layer) => (
           <DriftingLayer key={layer.seed} layer={layer} pointerRef={pointerRef} />
         ))}
