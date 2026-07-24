@@ -1,4 +1,5 @@
 import AgxoraGlobe3D from "../components/AgxoraGlobe3D";
+import StarfieldBackground from "../components/StarfieldBackground";
 import { BusinessOverview } from "../components/dashboard/BusinessOverview";
 
 export default function Dashboard() {
@@ -15,15 +16,18 @@ export default function Dashboard() {
     <main
       style={{
         minHeight: "100vh",
-        background:
-          "radial-gradient(circle at center, #10214b 0%, #081120 45%, #03060d 100%)",
         color: "white",
         display: "flex",
         flexWrap: "wrap",
       }}
     >
+      {/* Global procedural space backdrop — stars behind every component */}
+      <StarfieldBackground />
+
       <aside
         style={{
+          position: "relative",
+          zIndex: 1,
           width: "280px",
           minHeight: "100vh",
           background: "rgba(255,255,255,0.03)",
@@ -61,6 +65,8 @@ export default function Dashboard() {
 
       <section
         style={{
+          position: "relative",
+          zIndex: 1,
           flex: 1,
           padding: "40px",
           minWidth: "320px",
