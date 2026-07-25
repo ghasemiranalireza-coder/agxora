@@ -8,6 +8,8 @@
  */
 
 import type { JSX, ReactNode } from "react";
+import { CoreEngineProvider } from "../lib/core";
+import { ChatProvider } from "../lib/modules/chat";
 import { OrganizationProvider } from "../lib/organization";
 
 interface AppProvidersProps {
@@ -15,5 +17,11 @@ interface AppProvidersProps {
 }
 
 export function AppProviders({ children }: AppProvidersProps): JSX.Element {
-  return <OrganizationProvider>{children}</OrganizationProvider>;
+  return (
+    <OrganizationProvider>
+      <CoreEngineProvider>
+        <ChatProvider>{children}</ChatProvider>
+      </CoreEngineProvider>
+    </OrganizationProvider>
+  );
 }

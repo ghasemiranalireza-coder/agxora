@@ -1,9 +1,10 @@
 "use client";
 
-import type { JSX } from "react";
+import type { FormEvent, JSX, KeyboardEvent } from "react";
 import AgxoraGlobe3D from "../components/AgxoraGlobe3D";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import { BusinessOverview } from "../components/dashboard/BusinessOverview";
+import { useChat } from "../lib/modules/chat";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
 
 const surfaceTransition = [
@@ -72,6 +73,24 @@ const NAV_ITEMS = [
 
 export default function Dashboard() {
   const { tokens } = useTheme();
+  const { messages, draft, setDraft, send, canSend, sending } = useChat();
+
+  const handleSend = async (): Promise<void> => {
+    if (!canSend) return;
+    await send();
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    void handleSend();
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>): void => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      void handleSend();
+    }
+  };
 
   const activities = [
     "Dubai laundry market analyzed",
@@ -433,78 +452,87 @@ export default function Dashboard() {
                 flexDirection: "column",
                 gap: "10px",
                 marginBottom: "18px",
+                maxHeight: "320px",
+                overflowY: "auto",
               }}
             >
-              <div
-                style={{
-                  padding: "13px 15px",
-                  borderRadius: "16px",
-                  background: tokens.chatBubbleBg,
-                  border: `1px solid ${tokens.divider}`,
-                  fontSize: "13.5px",
-                  transition: surfaceTransition,
-                }}
-              >
-                Show revenue forecast
-              </div>
-
-              <div
-                style={{
-                  padding: "13px 15px",
-                  borderRadius: "16px",
-                  background: tokens.chatReplyBg,
-                  color: tokens.accent,
-                  border: `1px solid ${tokens.panelBorder}`,
-                  fontSize: "13.5px",
-                  transition: surfaceTransition,
-                }}
-              >
-                Revenue expected to increase by 18% next month.
-              </div>
-
-              <div
-                style={{
-                  padding: "13px 15px",
-                  borderRadius: "16px",
-                  background: tokens.chatBubbleBg,
-                  border: `1px solid ${tokens.divider}`,
-                  fontSize: "13.5px",
-                  transition: surfaceTransition,
-                }}
-              >
-                Analyze customer trends
-              </div>
-
-              <div
-                style={{
-                  padding: "13px 15px",
-                  borderRadius: "16px",
-                  background: tokens.chatReplyBg,
-                  color: tokens.accent,
-                  border: `1px solid ${tokens.panelBorder}`,
-                  fontSize: "13.5px",
-                  transition: surfaceTransition,
-                }}
-              >
-                Customer retention improved by 12%.
-              </div>
+              {messages.map((message) => {
+                const isUser = message.role === "user";
+                return (
+                  <div
+                    key={message.id}
+                    style={{
+                      padding: "13px 15px",
+                      borderRadius: "16px",
+                      background: isUser
+                        ? tokens.chatBubbleBg
+                        : tokens.chatReplyBg,
+                      color: isUser ? tokens.text : tokens.accent,
+                      border: `1px solid ${
+                        isUser ? tokens.divider : tokens.panelBorder
+                      }`,
+                      fontSize: "13.5px",
+                      transition: surfaceTransition,
+                    }}
+                  >
+                    {message.content}
+                  </div>
+                );
+              })}
             </div>
 
-            <input
-              className="agx-input"
-              placeholder="Ask AGXORA AI..."
+            <form
+              onSubmit={handleSubmit}
               style={{
-                width: "100%",
-                padding: "14px 16px",
-                borderRadius: "16px",
-                border: `1px solid ${tokens.inputBorder}`,
-                background: tokens.inputBg,
-                color: tokens.text,
-                outline: "none",
-                fontSize: "14px",
-                transition: surfaceTransition,
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
               }}
-            />
+            >
+              <input
+                className="agx-input"
+                placeholder="Ask AGXORA AI..."
+                value={draft}
+                onChange={(event) => setDraft(event.target.value)}
+                onKeyDown={handleKeyDown}
+                disabled={sending}
+                aria-label="Message AGXORA AI"
+                style={{
+                  flex: 1,
+                  minWidth: 0,
+                  padding: "14px 16px",
+                  borderRadius: "16px",
+                  border: `1px solid ${tokens.inputBorder}`,
+                  background: tokens.inputBg,
+                  color: tokens.text,
+                  outline: "none",
+                  fontSize: "14px",
+                  transition: surfaceTransition,
+                }}
+              />
+              <button
+                type="submit"
+                disabled={!canSend}
+                aria-label="Send message"
+                style={{
+                  flexShrink: 0,
+                  padding: "14px 18px",
+                  borderRadius: "16px",
+                  border: `1px solid ${tokens.panelBorder}`,
+                  background: canSend ? tokens.chatReplyBg : tokens.inputBg,
+                  color: canSend ? tokens.accent : tokens.text,
+                  opacity: canSend ? 1 : 0.55,
+                  fontSize: "13px",
+                  fontWeight: 650,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  cursor: canSend ? "pointer" : "not-allowed",
+                  transition: surfaceTransition,
+                }}
+              >
+                Send
+              </button>
+            </form>
           </div>
         </div>
       </section>
