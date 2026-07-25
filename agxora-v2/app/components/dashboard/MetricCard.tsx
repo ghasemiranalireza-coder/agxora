@@ -65,6 +65,7 @@ function Sparkline({ points }: { readonly points: readonly number[] }): JSX.Elem
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
+        style={{ stroke: "var(--agx-accent, #67e8f9)" }}
       />
     </svg>
   );
@@ -73,13 +74,23 @@ function Sparkline({ points }: { readonly points: readonly number[] }): JSX.Elem
 function ProgressBar({ percent }: { readonly percent: number }): JSX.Element {
   return (
     <div className="space-y-1.5">
-      <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
+      <div
+        className="h-1.5 w-full overflow-hidden rounded-full"
+        style={{ background: "var(--agx-divider, rgba(255,255,255,0.06))" }}
+      >
         <div
-          className="h-full rounded-full bg-gradient-to-r from-cyan-500/70 to-cyan-300/90 transition-[width] duration-700 ease-out"
-          style={{ width: `${percent}%` }}
+          className="h-full rounded-full transition-[width] duration-700 ease-out"
+          style={{
+            width: `${percent}%`,
+            background:
+              "linear-gradient(90deg, color-mix(in srgb, var(--agx-accent, #22d3ee) 55%, transparent), var(--agx-accent, #67e8f9))",
+          }}
         />
       </div>
-      <p className="text-[11px] tracking-wide text-slate-400">
+      <p
+        className="text-[11px] tracking-wide"
+        style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+      >
         {percent}% of workflows automated
       </p>
     </div>
@@ -96,12 +107,17 @@ function StatusList({
       {items.map((item) => (
         <li
           key={item.label}
-          className="flex items-center gap-2 text-[11px] tracking-wide text-slate-400"
+          className="flex items-center gap-2 text-[11px] tracking-wide"
+          style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
           <span
-            className={`h-1.5 w-1.5 rounded-full ${
-              item.ok ? "bg-emerald-400" : "bg-amber-400"
-            }`}
+            className="h-1.5 w-1.5 rounded-full"
+            style={{
+              background: item.ok ? "#34d399" : "#fbbf24",
+              boxShadow: item.ok
+                ? "0 0 8px rgba(52,211,153,0.55)"
+                : "0 0 8px rgba(251,191,36,0.45)",
+            }}
           />
           {item.label}
         </li>
@@ -126,9 +142,8 @@ function MetricVisualRenderer({ visual }: { readonly visual: MetricVisual }): JS
 /* -------------------------------------------------------------------------- */
 
 /**
- * Reusable glassmorphism metric card for enterprise dashboards.
- * Pure presentational — hover states are CSS-only.
- * Surface colors come from Adaptive Theme CSS variables.
+ * VisionOS-inspired glass metric card.
+ * Structure and data unchanged — surface quality only.
  */
 export function MetricCard({
   title,
@@ -140,36 +155,55 @@ export function MetricCard({
 }: MetricCardProps): JSX.Element {
   return (
     <article
-      className="agx-metric-card group relative flex flex-col gap-4 overflow-hidden rounded-3xl border p-6 backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-1"
+      className="agx-metric-card group relative flex flex-col gap-5 overflow-hidden rounded-[28px] border p-6"
       style={{
         borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
         background:
-          "linear-gradient(to bottom right, var(--agx-card-bg-from, rgba(255,255,255,0.06)), var(--agx-card-bg-to, rgba(255,255,255,0.02)))",
+          "linear-gradient(165deg, var(--agx-card-bg-from, rgba(255,255,255,0.06)) 0%, var(--agx-card-bg-to, rgba(255,255,255,0.02)) 100%)",
         boxShadow: "var(--agx-card-shadow, 0 8px 32px rgba(0,0,0,0.25))",
+        backdropFilter: "var(--agx-card-blur, blur(22px) saturate(150%))",
+        WebkitBackdropFilter: "var(--agx-card-blur, blur(22px) saturate(150%))",
         transition:
-          "background var(--agx-theme-transition, 800ms) ease, border-color var(--agx-theme-transition, 800ms) ease, box-shadow var(--agx-theme-transition, 800ms) ease, transform 300ms ease",
+          "background var(--agx-theme-transition, 820ms) ease, border-color var(--agx-theme-transition, 820ms) ease, box-shadow 380ms cubic-bezier(0.4, 0, 0.2, 1), transform 380ms cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
-      {/* Soft sheen that brightens on hover */}
+      {/* Top specular highlight */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/[0.05] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent)",
+          opacity: 0.7,
+        }}
         aria-hidden="true"
       />
 
-      <header className="flex items-start justify-between gap-3">
+      {/* Soft sheen */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-28 opacity-70 transition-opacity duration-400 group-hover:opacity-100"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0.14) 0%, transparent 100%)",
+        }}
+        aria-hidden="true"
+      />
+
+      <header className="relative flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
           <span
-            className="flex h-10 w-10 items-center justify-center rounded-xl border text-cyan-300 transition-colors duration-300 group-hover:border-cyan-300/30 group-hover:text-cyan-200"
+            className="flex h-11 w-11 items-center justify-center rounded-2xl border transition-transform duration-300 group-hover:scale-[1.04]"
             style={{
               borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
-              background: "var(--agx-card-bg, rgba(255,255,255,0.04))",
+              background:
+                "linear-gradient(160deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04))",
               color: "var(--agx-accent, #22d3ee)",
+              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.35)",
             }}
           >
             {icon}
           </span>
           <h3
-            className="text-[11px] font-semibold uppercase tracking-[0.18em]"
+            className="text-[11px] font-semibold uppercase tracking-[0.2em]"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
             {title}
@@ -178,26 +212,35 @@ export function MetricCard({
 
         {delta !== undefined && (
           <span
-            className={`rounded-full border px-2 py-0.5 text-[11px] font-semibold tabular-nums ${
+            className="rounded-full border px-2.5 py-0.5 text-[11px] font-semibold tabular-nums"
+            style={
               delta.positive
-                ? "border-emerald-400/20 bg-emerald-400/10 text-emerald-300"
-                : "border-rose-400/20 bg-rose-400/10 text-rose-300"
-            }`}
+                ? {
+                    borderColor: "rgba(52,211,153,0.28)",
+                    background: "rgba(52,211,153,0.12)",
+                    color: "#34d399",
+                  }
+                : {
+                    borderColor: "rgba(251,113,133,0.28)",
+                    background: "rgba(251,113,133,0.12)",
+                    color: "#fb7185",
+                  }
+            }
           >
             {delta.value}
           </span>
         )}
       </header>
 
-      <div>
+      <div className="relative">
         <p
-          className="text-3xl font-bold tabular-nums tracking-tight"
-          style={{ color: "var(--agx-text, #f8fafc)" }}
+          className="text-[1.85rem] font-semibold tabular-nums tracking-tight"
+          style={{ color: "var(--agx-text, #f8fafc)", letterSpacing: "-0.02em" }}
         >
           {value}
         </p>
         <p
-          className="mt-1 text-xs tracking-wide"
+          className="mt-1.5 text-xs tracking-[0.04em]"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
           {caption}
@@ -205,7 +248,7 @@ export function MetricCard({
       </div>
 
       {visual !== undefined && (
-        <footer className="mt-auto">
+        <footer className="relative mt-auto">
           <MetricVisualRenderer visual={visual} />
         </footer>
       )}

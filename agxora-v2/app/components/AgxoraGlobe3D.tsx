@@ -372,6 +372,8 @@ interface PlanetProps {
 function Planet({ profile }: PlanetProps): JSX.Element {
   const spinGroup = useRef<THREE.Group>(null);
   const cloudMesh = useRef<THREE.Mesh>(null);
+  const surfaceMat = useRef<THREE.MeshPhysicalMaterial>(null);
+  const cloudMat = useRef<THREE.MeshStandardMaterial>(null);
 
   const maps = useMemo<PlanetMaps>(
     () => generatePlanetMaps(profile.mapWidth, profile.mapHeight),
@@ -395,6 +397,29 @@ function Planet({ profile }: PlanetProps): JSX.Element {
     if (cloudMesh.current !== null) {
       cloudMesh.current.rotation.y += delta * CLOUD_SPIN;
     }
+
+    const blend = getThemeDayBlend();
+    if (surfaceMat.current) {
+      surfaceMat.current.clearcoat = lerp(
+        NIGHT_TOKENS.surfaceClearcoat,
+        DAY_TOKENS.surfaceClearcoat,
+        blend,
+      );
+      surfaceMat.current.clearcoatRoughness = lerp(0.42, 0.28, blend);
+      surfaceMat.current.emissiveIntensity = lerp(
+        NIGHT_TOKENS.emissiveIntensity,
+        DAY_TOKENS.emissiveIntensity,
+        blend,
+      );
+      surfaceMat.current.bumpScale = lerp(0.014, 0.018, blend);
+    }
+    if (cloudMat.current) {
+      cloudMat.current.opacity = lerp(
+        NIGHT_TOKENS.cloudOpacity,
+        DAY_TOKENS.cloudOpacity,
+        blend,
+      );
+    }
   });
 
   return (
@@ -405,6 +430,7 @@ function Planet({ profile }: PlanetProps): JSX.Element {
           args={[PLANET_RADIUS, profile.sphereDetail, profile.sphereDetail]}
         />
         <meshPhysicalMaterial
+          ref={surfaceMat}
           map={maps.colorMap}
           roughnessMap={maps.roughnessMap}
           roughness={1}
@@ -424,6 +450,7 @@ function Planet({ profile }: PlanetProps): JSX.Element {
           args={[PLANET_RADIUS * 1.014, profile.sphereDetail, profile.sphereDetail]}
         />
         <meshStandardMaterial
+          ref={cloudMat}
           color="#ffffff"
           alphaMap={maps.cloudMap}
           transparent
@@ -680,6 +707,11 @@ const NIGHT_GLOBE_BG = new THREE.Color(NIGHT_TOKENS.globeBg);
 const DAY_GLOBE_BG = new THREE.Color(DAY_TOKENS.globeBg);
 const GLOBE_BG_SCRATCH = new THREE.Color();
 
+const NIGHT_SUN = new THREE.Color("#ffffff");
+const DAY_SUN = new THREE.Color("#fff4e8");
+const NIGHT_FILL = new THREE.Color("#4d7fd6");
+const DAY_FILL = new THREE.Color("#a8c4dc");
+
 function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
   const sunRef = useRef<THREE.DirectionalLight>(null);
   const fillRef = useRef<THREE.DirectionalLight>(null);
@@ -709,6 +741,13 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
         DAY_TOKENS.sunIntensity,
         blend,
       );
+      sunRef.current.color.copy(NIGHT_SUN).lerp(DAY_SUN, blend);
+      // Soft daylight sun angle — slightly higher and warmer
+      sunRef.current.position.set(
+        lerp(5, 4.2, blend),
+        lerp(2.6, 3.4, blend),
+        lerp(4, 3.6, blend),
+      );
     }
     if (fillRef.current) {
       fillRef.current.intensity = lerp(
@@ -716,6 +755,7 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
         DAY_TOKENS.fillIntensity,
         blend,
       );
+      fillRef.current.color.copy(NIGHT_FILL).lerp(DAY_FILL, blend);
     }
     if (ambientRef.current) {
       ambientRef.current.intensity = lerp(
@@ -736,14 +776,14 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
     <>
       <color attach="background" args={[NIGHT_TOKENS.globeBg]} />
 
-      {/* Key sun — clean white, slightly high and camera-left */}
+      {/* Key sun — clean white night / soft warm daylight */}
       <directionalLight
         ref={sunRef}
         position={[5, 2.6, 4]}
         intensity={NIGHT_TOKENS.sunIntensity}
         color="#ffffff"
       />
-      {/* Cold bounce from deep space for the shadowed limb */}
+      {/* Bounce fill — cold space at night, soft sky fill by day */}
       <directionalLight
         ref={fillRef}
         position={[-5, -1.8, -3.5]}
@@ -763,7 +803,7 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
       <EffectComposer multisampling={profile.msaa}>
         <Bloom
           intensity={bloomIntensity}
-          luminanceThreshold={0.5}
+          luminanceThreshold={appearance === "day" ? 0.62 : 0.5}
           luminanceSmoothing={0.92}
           mipmapBlur
         />

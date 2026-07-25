@@ -2,7 +2,7 @@
 
 /**
  * Premium segmented theme selector — Auto / Day / Night.
- * Sits in the dashboard header; persists mode via ThemeProvider.
+ * VisionOS-inspired frosted control; persists via ThemeProvider.
  */
 
 import { useTheme, type ThemeMode } from "../lib/theme";
@@ -21,16 +21,16 @@ const OPTIONS: readonly {
 const shellStyle: CSSProperties = {
   display: "inline-flex",
   alignItems: "center",
-  gap: "4px",
-  padding: "4px",
+  gap: "3px",
+  padding: "5px",
   borderRadius: "999px",
   background: "var(--agx-panel-bg, rgba(255,255,255,0.06))",
   border: "1px solid var(--agx-panel-border, rgba(34,211,238,0.28))",
-  backdropFilter: "blur(18px) saturate(140%)",
-  WebkitBackdropFilter: "blur(18px) saturate(140%)",
-  boxShadow: "var(--agx-card-shadow, 0 8px 24px rgba(0,0,0,0.25))",
+  backdropFilter: "var(--agx-card-blur, blur(22px) saturate(150%))",
+  WebkitBackdropFilter: "var(--agx-card-blur, blur(22px) saturate(150%))",
+  boxShadow: "var(--agx-panel-shadow, 0 8px 24px rgba(0,0,0,0.25))",
   transition:
-    "background var(--agx-theme-transition, 800ms) ease, border-color var(--agx-theme-transition, 800ms) ease, box-shadow var(--agx-theme-transition, 800ms) ease",
+    "background var(--agx-theme-transition, 820ms) ease, border-color var(--agx-theme-transition, 820ms) ease, box-shadow var(--agx-theme-transition, 820ms) ease",
 };
 
 function optionStyle(active: boolean): CSSProperties {
@@ -38,26 +38,27 @@ function optionStyle(active: boolean): CSSProperties {
     display: "inline-flex",
     alignItems: "center",
     gap: "6px",
-    padding: "8px 14px",
+    padding: "9px 15px",
     borderRadius: "999px",
     border: "none",
     cursor: "pointer",
     pointerEvents: "auto",
-    fontSize: "12px",
-    fontWeight: 600,
-    letterSpacing: "0.08em",
+    fontSize: "11px",
+    fontWeight: 650,
+    letterSpacing: "0.1em",
     textTransform: "uppercase",
     color: active
       ? "var(--agx-accent, #22d3ee)"
       : "var(--agx-text-muted, #94a3b8)",
     background: active
-      ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 18%, transparent)"
+      ? "var(--agx-accent-soft, rgba(34,211,238,0.14))"
       : "transparent",
     boxShadow: active
-      ? "inset 0 0 0 1px color-mix(in srgb, var(--agx-accent, #22d3ee) 40%, transparent), 0 0 18px color-mix(in srgb, var(--agx-accent, #22d3ee) 18%, transparent)"
+      ? "inset 0 0 0 1px color-mix(in srgb, var(--agx-accent, #22d3ee) 35%, transparent), 0 4px 16px color-mix(in srgb, var(--agx-accent, #22d3ee) 16%, transparent)"
       : "none",
+    transform: active ? "scale(1)" : "scale(0.98)",
     transition:
-      "color 280ms ease, background 280ms ease, box-shadow 280ms ease, transform 280ms ease",
+      "color 320ms cubic-bezier(0.4, 0, 0.2, 1), background 320ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 320ms cubic-bezier(0.4, 0, 0.2, 1), transform 320ms cubic-bezier(0.4, 0, 0.2, 1)",
   };
 }
 
@@ -65,11 +66,7 @@ export default function ThemeSwitcher(): JSX.Element {
   const { mode, setMode } = useTheme();
 
   return (
-    <div
-      role="radiogroup"
-      aria-label="Dashboard theme"
-      style={shellStyle}
-    >
+    <div role="radiogroup" aria-label="Dashboard theme" style={shellStyle}>
       {OPTIONS.map((option) => {
         const active = mode === option.mode;
         return (
@@ -79,6 +76,7 @@ export default function ThemeSwitcher(): JSX.Element {
             role="radio"
             aria-checked={active}
             aria-label={option.label}
+            className="agx-theme-option"
             onClick={() => setMode(option.mode)}
             style={optionStyle(active)}
           >

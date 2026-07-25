@@ -1,11 +1,13 @@
 "use client";
 
 /**
- * StarfieldBackground — global full-viewport procedural space backdrop.
+ * StarfieldBackground — global full-viewport environmental backdrop.
  *
- * Theme-aware: night keeps the cinematic starfield; day fades stars to
- * nearly zero while the sky gradient shifts to bright daylight blue.
- * Blend is lerped from the theme visual store (no per-frame React work).
+ * Night: cinematic procedural starfield over deep space.
+ * Day: pearl atmospheric sky (CSS layers) + nearly invisible dust,
+ * soft sun glow, and horizon haze. Stars fade to zero.
+ *
+ * Theme blend is lerped from the visual store (no per-frame React work).
  */
 
 import {
@@ -147,7 +149,7 @@ const TINTS: readonly THREE.Color[] = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* One drifting layer                                                  */
+/* Night star layers                                                   */
 /* ------------------------------------------------------------------ */
 
 interface LayerProps {
@@ -195,9 +197,7 @@ function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
       transparent: true,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
-      uniforms: {
-        uOpacity: { value: 1 },
-      },
+      uniforms: { uOpacity: { value: 1 } },
     });
 
     return { geometry: geo, material: mat };
@@ -216,21 +216,17 @@ function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
     if (points === null) return;
 
     points.rotation.y += delta * layer.spin;
-
     const pointer = pointerRef.current;
-    const targetX = -pointer.y * layer.sway;
-    const targetZ = pointer.x * layer.sway;
     const ease = 1 - Math.exp(-delta * 1.2);
-    points.rotation.x += (targetX - points.rotation.x) * ease;
-    points.rotation.z += (targetZ - points.rotation.z) * ease;
+    points.rotation.x += (-pointer.y * layer.sway - points.rotation.x) * ease;
+    points.rotation.z += (pointer.x * layer.sway - points.rotation.z) * ease;
 
     const blend = getThemeDayBlend();
-    const opacity = lerp(
+    material.uniforms.uOpacity.value = lerp(
       NIGHT_TOKENS.starOpacity,
       DAY_TOKENS.starOpacity,
       blend,
     );
-    material.uniforms.uOpacity.value = opacity;
   });
 
   return (
@@ -242,20 +238,155 @@ function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
 }
 
 /* ------------------------------------------------------------------ */
-/* Sky clear color                                                     */
+/* Day: floating dust / light particles                                */
 /* ------------------------------------------------------------------ */
 
-const nightSky = new THREE.Color(NIGHT_TOKENS.skySolid);
-const daySky = new THREE.Color(DAY_TOKENS.skySolid);
-const scratchSky = new THREE.Color();
+const DUST_VERTEX = /* glsl */ `
+  attribute float aSize;
+  attribute float aPhase;
+  varying float vAlpha;
+  uniform float uTime;
+  uniform float uOpacity;
 
-function ThemeSky(): null {
-  useFrame(({ scene }) => {
+  void main() {
+    vec3 p = position;
+    p.x += sin(uTime * 0.12 + aPhase * 6.2831) * 0.35;
+    p.y += cos(uTime * 0.09 + aPhase * 4.1) * 0.28;
+    vec4 mv = modelViewMatrix * vec4(p, 1.0);
+    gl_PointSize = aSize * (140.0 / -mv.z);
+    vAlpha = (0.25 + 0.75 * sin(uTime * 0.4 + aPhase * 6.28)) * uOpacity;
+    gl_Position = projectionMatrix * mv;
+  }
+`;
+
+const DUST_FRAGMENT = /* glsl */ `
+  varying float vAlpha;
+
+  void main() {
+    float d = length(gl_PointCoord - vec2(0.5));
+    float a = smoothstep(0.5, 0.12, d) * vAlpha;
+    gl_FragColor = vec4(0.96, 0.98, 1.0, a * 0.55);
+  }
+`;
+
+function DayDust({ count }: { readonly count: number }): JSX.Element {
+  const pointsRef = useRef<THREE.Points>(null);
+
+  const { geometry, material } = useMemo(() => {
+    const rand = makeRandom(0xd00501);
+    const positions = new Float32Array(count * 3);
+    const sizes = new Float32Array(count);
+    const phases = new Float32Array(count);
+
+    for (let i = 0; i < count; i += 1) {
+      positions[i * 3] = (rand() - 0.5) * 28;
+      positions[i * 3 + 1] = (rand() - 0.5) * 18;
+      positions[i * 3 + 2] = -4 - rand() * 22;
+      sizes[i] = 0.35 + rand() * 1.1;
+      phases[i] = rand();
+    }
+
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    geo.setAttribute("aSize", new THREE.BufferAttribute(sizes, 1));
+    geo.setAttribute("aPhase", new THREE.BufferAttribute(phases, 1));
+
+    const mat = new THREE.ShaderMaterial({
+      vertexShader: DUST_VERTEX,
+      fragmentShader: DUST_FRAGMENT,
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+      uniforms: {
+        uTime: { value: 0 },
+        uOpacity: { value: 0 },
+      },
+    });
+
+    return { geometry: geo, material: mat };
+  }, [count]);
+
+  useEffect(
+    () => () => {
+      geometry.dispose();
+      material.dispose();
+    },
+    [geometry, material],
+  );
+
+  useFrame((_, delta) => {
+    material.uniforms.uTime.value += delta;
     const blend = getThemeDayBlend();
-    scratchSky.copy(nightSky).lerp(daySky, blend);
-    scene.background = scratchSky;
+    material.uniforms.uOpacity.value = lerp(
+      NIGHT_TOKENS.particleOpacity,
+      DAY_TOKENS.particleOpacity,
+      blend,
+    );
+    if (pointsRef.current) {
+      pointsRef.current.rotation.y += delta * 0.004;
+    }
   });
-  return null;
+
+  return (
+    <points ref={pointsRef}>
+      <primitive object={geometry} attach="geometry" />
+      <primitive object={material} attach="material" />
+    </points>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Day: soft sun bloom + horizon haze                                  */
+/* ------------------------------------------------------------------ */
+
+function SoftSunGlow(): JSX.Element {
+  const matRef = useRef<THREE.MeshBasicMaterial>(null);
+
+  useFrame(() => {
+    const blend = getThemeDayBlend();
+    if (matRef.current) {
+      matRef.current.opacity = lerp(0, 0.42, blend);
+    }
+  });
+
+  return (
+    <mesh position={[6.5, 4.2, -18]} scale={[14, 14, 1]}>
+      <planeGeometry args={[1, 1]} />
+      <meshBasicMaterial
+        ref={matRef}
+        color="#fff8f0"
+        transparent
+        opacity={0}
+        depthWrite={false}
+        blending={THREE.AdditiveBlending}
+      />
+    </mesh>
+  );
+}
+
+function HorizonHaze(): JSX.Element {
+  const matRef = useRef<THREE.MeshBasicMaterial>(null);
+
+  useFrame(() => {
+    const blend = getThemeDayBlend();
+    if (matRef.current) {
+      matRef.current.opacity = lerp(0, 0.22, blend);
+    }
+  });
+
+  return (
+    <mesh position={[0, -5.5, -12]} scale={[40, 8, 1]}>
+      <planeGeometry args={[1, 1]} />
+      <meshBasicMaterial
+        ref={matRef}
+        color="#b8cfe0"
+        transparent
+        opacity={0}
+        depthWrite={false}
+        blending={THREE.NormalBlending}
+      />
+    </mesh>
+  );
 }
 
 /* ------------------------------------------------------------------ */
@@ -266,9 +397,10 @@ export default function StarfieldBackground(): JSX.Element {
   const small = useSmallScreen();
   const { tokens } = useTheme();
   const layers = useMemo(
-    () => backdropLayers(small ? 0.45 : 1),
+    () => backdropLayers(small ? 0.4 : 1),
     [small],
   );
+  const dustCount = small ? 160 : 420;
 
   const pointerRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
@@ -294,27 +426,58 @@ export default function StarfieldBackground(): JSX.Element {
       pointerEvents: "none",
       overflow: "hidden",
       background: tokens.skyGradient,
-      transition: `background ${THEME_TRANSITION_MS}ms ease`,
+      transition: `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`,
     }),
     [tokens.skyGradient],
   );
 
   return (
     <div style={backdropStyle} aria-hidden="true">
+      {/* Extra CSS depth layers for daylight atmosphere */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse 70% 45% at 70% 12%, rgba(255,255,255,0.35) 0%, transparent 55%)",
+          opacity: tokens.tone === "day" ? 1 : 0,
+          transition: `opacity ${THEME_TRANSITION_MS}ms ease`,
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "radial-gradient(ellipse 100% 40% at 50% 100%, rgba(170,195,215,0.28) 0%, transparent 60%)",
+          opacity: tokens.tone === "day" ? 1 : 0,
+          transition: `opacity ${THEME_TRANSITION_MS}ms ease`,
+          pointerEvents: "none",
+        }}
+      />
+
       <Canvas
-        dpr={small ? [1, 1.5] : [1, 2]}
+        dpr={small ? [1, 1.5] : [1, 1.75]}
         camera={{ position: [0, 0, 0.1], fov: 60, near: 0.1, far: 240 }}
         gl={{
           antialias: false,
-          alpha: false,
+          alpha: true,
           powerPreference: "high-performance",
+          premultipliedAlpha: false,
         }}
         style={{ position: "absolute", inset: 0 }}
       >
-        <ThemeSky />
         {layers.map((layer) => (
-          <DriftingLayer key={layer.seed} layer={layer} pointerRef={pointerRef} />
+          <DriftingLayer
+            key={layer.seed}
+            layer={layer}
+            pointerRef={pointerRef}
+          />
         ))}
+        <DayDust count={dustCount} />
+        <SoftSunGlow />
+        <HorizonHaze />
       </Canvas>
     </div>
   );
