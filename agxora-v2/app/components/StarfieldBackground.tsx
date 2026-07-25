@@ -336,97 +336,8 @@ function DayDust({ count }: { readonly count: number }): JSX.Element {
 }
 
 /* ------------------------------------------------------------------ */
-/* Day: soft sun bloom + horizon haze                                  */
+/* Day atmosphere is CSS-layered; WebGL only adds faint dust           */
 /* ------------------------------------------------------------------ */
-
-const SOFT_DISK_VERTEX = /* glsl */ `
-  varying vec2 vUv;
-  void main() {
-    vUv = uv;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  }
-`;
-
-const SOFT_DISK_FRAGMENT = /* glsl */ `
-  varying vec2 vUv;
-  uniform vec3 uColor;
-  uniform float uOpacity;
-  uniform float uSoftness;
-
-  void main() {
-    vec2 p = vUv * 2.0 - 1.0;
-    float d = length(p);
-    float a = exp(-d * d * uSoftness) * uOpacity;
-    if (a < 0.004) discard;
-    gl_FragColor = vec4(uColor, a);
-  }
-`;
-
-function SoftSunGlow(): JSX.Element {
-  const mat = useMemo(
-    () =>
-      new THREE.ShaderMaterial({
-        vertexShader: SOFT_DISK_VERTEX,
-        fragmentShader: SOFT_DISK_FRAGMENT,
-        transparent: true,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending,
-        uniforms: {
-          uColor: { value: new THREE.Color("#fff6ec") },
-          uOpacity: { value: 0 },
-          uSoftness: { value: 2.4 },
-        },
-      }),
-    [],
-  );
-
-  useEffect(() => () => mat.dispose(), [mat]);
-
-  useFrame(() => {
-    const blend = getThemeDayBlend();
-    mat.uniforms.uOpacity.value = lerp(0, 0.28, blend);
-  });
-
-  return (
-    <mesh position={[9.5, 5.8, -24]} scale={[12, 12, 1]}>
-      <planeGeometry args={[1, 1]} />
-      <primitive object={mat} attach="material" />
-    </mesh>
-  );
-}
-
-function HorizonHaze(): JSX.Element {
-  const mat = useMemo(
-    () =>
-      new THREE.ShaderMaterial({
-        vertexShader: SOFT_DISK_VERTEX,
-        fragmentShader: SOFT_DISK_FRAGMENT,
-        transparent: true,
-        depthWrite: false,
-        blending: THREE.NormalBlending,
-        uniforms: {
-          uColor: { value: new THREE.Color("#c5d8e8") },
-          uOpacity: { value: 0 },
-          uSoftness: { value: 1.35 },
-        },
-      }),
-    [],
-  );
-
-  useEffect(() => () => mat.dispose(), [mat]);
-
-  useFrame(() => {
-    const blend = getThemeDayBlend();
-    mat.uniforms.uOpacity.value = lerp(0, 0.16, blend);
-  });
-
-  return (
-    <mesh position={[0, -7.5, -16]} scale={[36, 10, 1]} rotation={[0.2, 0, 0]}>
-      <planeGeometry args={[1, 1]} />
-      <primitive object={mat} attach="material" />
-    </mesh>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /* Exported backdrop                                                   */
@@ -477,8 +388,10 @@ export default function StarfieldBackground(): JSX.Element {
         style={{
           position: "absolute",
           inset: 0,
-          background:
-            "radial-gradient(ellipse 70% 45% at 70% 12%, rgba(255,255,255,0.35) 0%, transparent 55%)",
+          background: [
+            "radial-gradient(ellipse 55% 40% at 78% 6%, rgba(255,252,248,0.7) 0%, rgba(255,252,248,0) 60%)",
+            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0.35) 0%, transparent 55%)",
+          ].join(", "),
           opacity: tokens.tone === "day" ? 1 : 0,
           transition: `opacity ${THEME_TRANSITION_MS}ms ease`,
           pointerEvents: "none",
@@ -488,8 +401,10 @@ export default function StarfieldBackground(): JSX.Element {
         style={{
           position: "absolute",
           inset: 0,
-          background:
-            "radial-gradient(ellipse 100% 40% at 50% 100%, rgba(170,195,215,0.28) 0%, transparent 60%)",
+          background: [
+            "radial-gradient(ellipse 110% 42% at 50% 108%, rgba(176,200,220,0.32) 0%, transparent 58%)",
+            "radial-gradient(ellipse 60% 35% at 20% 70%, rgba(220,232,242,0.2) 0%, transparent 55%)",
+          ].join(", "),
           opacity: tokens.tone === "day" ? 1 : 0,
           transition: `opacity ${THEME_TRANSITION_MS}ms ease`,
           pointerEvents: "none",
@@ -518,8 +433,6 @@ export default function StarfieldBackground(): JSX.Element {
           />
         ))}
         <DayDust count={dustCount} />
-        <SoftSunGlow />
-        <HorizonHaze />
       </Canvas>
     </div>
   );
