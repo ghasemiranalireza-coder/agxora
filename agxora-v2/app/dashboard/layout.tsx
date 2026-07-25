@@ -1,17 +1,18 @@
+"use client";
+
 import type { CSSProperties, ReactNode } from "react";
 import StarfieldBackground from "../components/StarfieldBackground";
+import { ThemeProvider } from "../lib/theme";
 
 /**
- * Dashboard shell — mounts the procedural starfield once at the root so
- * every section (sidebar, globe, cards, AI chat, live activity) floats
- * above the same continuous space backdrop while scrolling.
+ * Dashboard shell — Adaptive Theme Engine + procedural starfield root.
+ * Existing section structure is preserved; theme tokens drive surfaces.
  */
 
 const shellStyle: CSSProperties = {
   position: "relative",
   isolation: "isolate",
   minHeight: "100vh",
-  color: "white",
   background: "transparent",
 };
 
@@ -24,9 +25,11 @@ export default function DashboardLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <div style={shellStyle}>
-      <StarfieldBackground />
-      <div style={contentStyle}>{children}</div>
-    </div>
+    <ThemeProvider>
+      <div style={shellStyle}>
+        <StarfieldBackground />
+        <div style={contentStyle}>{children}</div>
+      </div>
+    </ThemeProvider>
   );
 }

@@ -46,6 +46,95 @@ textarea {
   max-width: 100%;
 }
 
+/* ------------------------------------------------------------------ */
+/* AGXORA premium surface motion                                       */
+/* ------------------------------------------------------------------ */
+
+.agx-nav-item:hover {
+  background: var(--agx-nav-hover-bg, rgba(255, 255, 255, 0.05)) !important;
+  color: var(--agx-text, #fff) !important;
+  transform: translateX(3px);
+}
+
+.agx-nav-item.is-active:hover {
+  background: var(--agx-nav-active-bg, rgba(34, 211, 238, 0.12)) !important;
+  transform: translateX(0);
+}
+
+.agx-metric-card:hover {
+  transform: translateY(-5px) scale(1.005);
+  box-shadow: var(
+    --agx-card-shadow-hover,
+    0 18px 56px rgba(0, 0, 0, 0.42)
+  ) !important;
+}
+
+.agx-theme-option:hover {
+  transform: scale(1.03) !important;
+}
+
+.agx-theme-option:active {
+  transform: scale(0.98) !important;
+}
+
+.agx-input:focus {
+  border-color: var(--agx-accent, #22d3ee) !important;
+  box-shadow: 0 0 0 4px var(--agx-accent-soft, rgba(34, 211, 238, 0.14));
+}
+
+.agx-activity-row {
+  transition: padding 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 320ms ease !important;
+}
+
+.agx-activity-row:hover {
+  padding-left: 6px !important;
+  opacity: 0.92;
+}
+
+.agx-glass-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.agx-glass-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.agx-glass-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 42%
+  );
+  opacity: 0.85;
+}
+
+.agx-globe-frame {
+  isolation: isolate;
+}
+
+@media (max-width: 1100px) {
+  .agx-bottom-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 @media (max-width: 768px) {
   html,
   body {
@@ -53,33 +142,33 @@ textarea {
   }
 
   h1 {
-    font-size: 42px !important;
-    line-height: 1.1 !important;
+    font-size: 40px !important;
+    line-height: 1.05 !important;
   }
 
   h2 {
-    font-size: 32px !important;
+    font-size: 20px !important;
   }
 
   p {
-    font-size: 18px !important;
+    font-size: 15px !important;
+  }
+
+  .agx-sidebar {
+    width: 100% !important;
+    min-height: auto !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--agx-sidebar-border) !important;
   }
 
   nav {
     flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 15px !important;
-    padding: 15px !important;
-  }
-
-  nav div {
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 12px !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
   }
 
   section {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
   }
 }
