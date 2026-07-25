@@ -155,7 +155,7 @@ export function MetricCard({
 }: MetricCardProps): JSX.Element {
   return (
     <article
-      className="agx-metric-card group relative flex flex-col gap-5 overflow-hidden rounded-[28px] border p-6"
+      className="agx-metric-card group relative flex flex-col gap-5 overflow-hidden rounded-[28px] border p-7"
       style={{
         borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
         background:
@@ -164,7 +164,7 @@ export function MetricCard({
         backdropFilter: "var(--agx-card-blur, blur(22px) saturate(150%))",
         WebkitBackdropFilter: "var(--agx-card-blur, blur(22px) saturate(150%))",
         transition:
-          "background var(--agx-theme-transition, 820ms) ease, border-color var(--agx-theme-transition, 820ms) ease, box-shadow 380ms cubic-bezier(0.4, 0, 0.2, 1), transform 380ms cubic-bezier(0.4, 0, 0.2, 1)",
+          "background var(--agx-theme-transition, 820ms) ease, border-color var(--agx-theme-transition, 820ms) ease, box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1), transform 420ms cubic-bezier(0.22, 1, 0.36, 1)",
       }}
     >
       {/* Top specular highlight */}

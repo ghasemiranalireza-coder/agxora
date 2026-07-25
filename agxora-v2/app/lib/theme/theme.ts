@@ -82,11 +82,11 @@ export const NIGHT_TOKENS: ThemeTokens = {
     "0 10px 40px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.06)",
   cardShadowHover:
     "0 18px 56px rgba(0,0,0,0.42), inset 0 1px 0 rgba(255,255,255,0.1)",
-  cardBlur: "blur(22px) saturate(150%)",
-  panelBg: "rgba(255,255,255,0.045)",
-  panelBorder: "rgba(34,211,238,0.28)",
+  cardBlur: "blur(26px) saturate(155%)",
+  panelBg: "rgba(255,255,255,0.05)",
+  panelBorder: "rgba(34,211,238,0.26)",
   panelShadow:
-    "0 12px 40px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.05)",
+    "0 16px 48px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.07)",
   chatBubbleBg: "rgba(255,255,255,0.055)",
   chatReplyBg: "rgba(34,211,238,0.1)",
   text: "#f4f8fb",
@@ -115,10 +115,10 @@ export const NIGHT_TOKENS: ThemeTokens = {
     "radial-gradient(circle at 50% 42%, #0a1630 0%, #050c18 55%, #01030a 100%)",
   globeBorder: "rgba(34, 211, 238, 0.2)",
   atmosphereTint: "#6fb0e8",
-  atmosphereGain: 0.8,
-  cloudOpacity: 0.5,
-  surfaceClearcoat: 0.42,
-  emissiveIntensity: 0.22,
+  atmosphereGain: 0.92,
+  cloudOpacity: 0.52,
+  surfaceClearcoat: 0.55,
+  emissiveIntensity: 0.2,
   tone: "night",
 };
 
@@ -148,11 +148,11 @@ export const DAY_TOKENS: ThemeTokens = {
     "0 14px 44px rgba(110,140,170,0.16), 0 2px 8px rgba(110,140,170,0.08), inset 0 1px 0 rgba(255,255,255,0.85)",
   cardShadowHover:
     "0 22px 60px rgba(110,140,170,0.22), 0 4px 14px rgba(110,140,170,0.1), inset 0 1px 0 rgba(255,255,255,0.95)",
-  cardBlur: "blur(28px) saturate(170%)",
-  panelBg: "rgba(255,255,255,0.48)",
-  panelBorder: "rgba(255,255,255,0.68)",
+  cardBlur: "blur(32px) saturate(175%)",
+  panelBg: "rgba(255,255,255,0.52)",
+  panelBorder: "rgba(255,255,255,0.72)",
   panelShadow:
-    "0 16px 48px rgba(110,140,170,0.14), inset 0 1px 0 rgba(255,255,255,0.8)",
+    "0 18px 52px rgba(110,140,170,0.15), 0 2px 10px rgba(110,140,170,0.06), inset 0 1px 0 rgba(255,255,255,0.88)",
   chatBubbleBg: "rgba(255,255,255,0.55)",
   chatReplyBg: "rgba(210,228,240,0.55)",
   text: "#1c2430",
@@ -182,11 +182,11 @@ export const DAY_TOKENS: ThemeTokens = {
     "radial-gradient(circle at 50% 45%, #e8f1f7 0%, #cfdfea 48%, #b7cddd 100%)",
   ].join(", "),
   globeBorder: "rgba(255,255,255,0.55)",
-  atmosphereTint: "#dcecf8",
-  atmosphereGain: 1.15,
-  cloudOpacity: 0.62,
-  surfaceClearcoat: 0.58,
-  emissiveIntensity: 0.06,
+  atmosphereTint: "#e4f1fb",
+  atmosphereGain: 1.28,
+  cloudOpacity: 0.68,
+  surfaceClearcoat: 0.72,
+  emissiveIntensity: 0.04,
   tone: "day",
 };
 

@@ -362,14 +362,15 @@ function useRenderProfile(): { profile: RenderProfile; compact: boolean } {
 /* ======================================================================== */
 
 const PLANET_RADIUS = 1;
-const PLANET_SPIN = 0.02;
-const CLOUD_SPIN = 0.031;
+const PLANET_SPIN = 0.012;
+const CLOUD_SPIN = 0.019;
 
 interface PlanetProps {
   readonly profile: RenderProfile;
 }
 
 function Planet({ profile }: PlanetProps): JSX.Element {
+  const floatGroup = useRef<THREE.Group>(null);
   const spinGroup = useRef<THREE.Group>(null);
   const cloudMesh = useRef<THREE.Mesh>(null);
   const surfaceMat = useRef<THREE.MeshPhysicalMaterial>(null);
@@ -390,7 +391,13 @@ function Planet({ profile }: PlanetProps): JSX.Element {
     [maps],
   );
 
-  useFrame((_, delta) => {
+  useFrame((state, delta) => {
+    const t = state.clock.elapsedTime;
+
+    if (floatGroup.current !== null) {
+      floatGroup.current.position.y = Math.sin(t * 0.42) * 0.05;
+      floatGroup.current.rotation.z = Math.sin(t * 0.21) * 0.012;
+    }
     if (spinGroup.current !== null) {
       spinGroup.current.rotation.y += delta * PLANET_SPIN;
     }
@@ -405,13 +412,16 @@ function Planet({ profile }: PlanetProps): JSX.Element {
         DAY_TOKENS.surfaceClearcoat,
         blend,
       );
-      surfaceMat.current.clearcoatRoughness = lerp(0.42, 0.28, blend);
+      surfaceMat.current.clearcoatRoughness = lerp(0.36, 0.18, blend);
       surfaceMat.current.emissiveIntensity = lerp(
         NIGHT_TOKENS.emissiveIntensity,
         DAY_TOKENS.emissiveIntensity,
         blend,
       );
-      surfaceMat.current.bumpScale = lerp(0.014, 0.018, blend);
+      surfaceMat.current.bumpScale = lerp(0.016, 0.022, blend);
+      surfaceMat.current.sheen = lerp(0.08, 0.22, blend);
+      surfaceMat.current.sheenRoughness = lerp(0.55, 0.35, blend);
+      surfaceMat.current.specularIntensity = lerp(0.65, 1.05, blend);
     }
     if (cloudMat.current) {
       cloudMat.current.opacity = lerp(
@@ -423,43 +433,53 @@ function Planet({ profile }: PlanetProps): JSX.Element {
   });
 
   return (
-    <group ref={spinGroup} rotation={[0.11, -1.05, 0.05]}>
-      {/* Surface — physically based, fully procedural */}
-      <mesh>
-        <sphereGeometry
-          args={[PLANET_RADIUS, profile.sphereDetail, profile.sphereDetail]}
-        />
-        <meshPhysicalMaterial
-          ref={surfaceMat}
-          map={maps.colorMap}
-          roughnessMap={maps.roughnessMap}
-          roughness={1}
-          bumpMap={maps.bumpMap}
-          bumpScale={0.014}
-          metalness={0}
-          clearcoat={0.42}
-          clearcoatRoughness={0.42}
-          emissive={new THREE.Color("#08223f")}
-          emissiveIntensity={0.22}
-        />
-      </mesh>
+    <group ref={floatGroup}>
+      <group ref={spinGroup} rotation={[0.11, -1.05, 0.05]}>
+        {/* Surface — physically based oceans + continents */}
+        <mesh>
+          <sphereGeometry
+            args={[PLANET_RADIUS, profile.sphereDetail, profile.sphereDetail]}
+          />
+          <meshPhysicalMaterial
+            ref={surfaceMat}
+            map={maps.colorMap}
+            roughnessMap={maps.roughnessMap}
+            roughness={1}
+            bumpMap={maps.bumpMap}
+            bumpScale={0.016}
+            metalness={0.04}
+            clearcoat={0.55}
+            clearcoatRoughness={0.36}
+            sheen={0.08}
+            sheenColor={new THREE.Color("#9ec9ff")}
+            sheenRoughness={0.55}
+            specularIntensity={0.7}
+            emissive={new THREE.Color("#08223f")}
+            emissiveIntensity={0.22}
+          />
+        </mesh>
 
-      {/* Thin procedural cloud veil */}
-      <mesh ref={cloudMesh}>
-        <sphereGeometry
-          args={[PLANET_RADIUS * 1.014, profile.sphereDetail, profile.sphereDetail]}
-        />
-        <meshStandardMaterial
-          ref={cloudMat}
-          color="#ffffff"
-          alphaMap={maps.cloudMap}
-          transparent
-          opacity={0.5}
-          depthWrite={false}
-          roughness={1}
-          metalness={0}
-        />
-      </mesh>
+        {/* Soft cloud veil */}
+        <mesh ref={cloudMesh}>
+          <sphereGeometry
+            args={[
+              PLANET_RADIUS * 1.016,
+              profile.sphereDetail,
+              profile.sphereDetail,
+            ]}
+          />
+          <meshStandardMaterial
+            ref={cloudMat}
+            color="#ffffff"
+            alphaMap={maps.cloudMap}
+            transparent
+            opacity={0.5}
+            depthWrite={false}
+            roughness={0.92}
+            metalness={0}
+          />
+        </mesh>
+      </group>
     </group>
   );
 }
@@ -489,8 +509,9 @@ const RIM_FRAGMENT = /* glsl */ `
 
   void main() {
     float rim = pow(clamp(vFresnel, 0.0, 1.0), rimCurve);
-    float dissolve = smoothstep(1.0, 0.68, vFresnel);
-    float a = rim * dissolve * rimGain;
+    float dissolve = smoothstep(1.0, 0.62, vFresnel);
+    float scatter = pow(clamp(vFresnel, 0.0, 1.0), 2.4) * 0.35;
+    float a = (rim * dissolve + scatter) * rimGain;
     gl_FragColor = vec4(rimTint * a, a);
   }
 `;
@@ -498,7 +519,15 @@ const RIM_FRAGMENT = /* glsl */ `
 const NIGHT_ATMO = new THREE.Color(NIGHT_TOKENS.atmosphereTint);
 const DAY_ATMO = new THREE.Color(DAY_TOKENS.atmosphereTint);
 
-function AtmosphereGlow(): JSX.Element {
+function AtmosphereLayer({
+  scale,
+  gainScale,
+  curve,
+}: {
+  readonly scale: number;
+  readonly gainScale: number;
+  readonly curve: number;
+}): JSX.Element {
   const rimMaterial = useMemo<THREE.ShaderMaterial>(
     () =>
       new THREE.ShaderMaterial({
@@ -506,15 +535,15 @@ function AtmosphereGlow(): JSX.Element {
         fragmentShader: RIM_FRAGMENT,
         uniforms: {
           rimTint: { value: new THREE.Color(NIGHT_TOKENS.atmosphereTint) },
-          rimGain: { value: NIGHT_TOKENS.atmosphereGain },
-          rimCurve: { value: 5.2 },
+          rimGain: { value: NIGHT_TOKENS.atmosphereGain * gainScale },
+          rimCurve: { value: curve },
         },
         side: THREE.BackSide,
         transparent: true,
         depthWrite: false,
         blending: THREE.AdditiveBlending,
       }),
-    [],
+    [curve, gainScale],
   );
 
   useEffect(() => () => rimMaterial.dispose(), [rimMaterial]);
@@ -524,18 +553,28 @@ function AtmosphereGlow(): JSX.Element {
     (rimMaterial.uniforms.rimTint.value as THREE.Color)
       .copy(NIGHT_ATMO)
       .lerp(DAY_ATMO, blend);
-    rimMaterial.uniforms.rimGain.value = lerp(
-      NIGHT_TOKENS.atmosphereGain,
-      DAY_TOKENS.atmosphereGain,
-      blend,
-    );
+    rimMaterial.uniforms.rimGain.value =
+      lerp(NIGHT_TOKENS.atmosphereGain, DAY_TOKENS.atmosphereGain, blend) *
+      gainScale;
+    rimMaterial.uniforms.rimCurve.value = lerp(curve, curve * 0.82, blend);
   });
 
   return (
-    <mesh scale={1.04}>
-      <sphereGeometry args={[PLANET_RADIUS, 48, 48]} />
+    <mesh scale={scale}>
+      <sphereGeometry args={[PLANET_RADIUS, 64, 64]} />
       <primitive object={rimMaterial} attach="material" />
     </mesh>
+  );
+}
+
+function AtmosphereGlow(): JSX.Element {
+  return (
+    <>
+      {/* Soft outer scattering shell */}
+      <AtmosphereLayer scale={1.065} gainScale={0.55} curve={3.4} />
+      {/* Crisp fresnel rim */}
+      <AtmosphereLayer scale={1.035} gainScale={1} curve={5.4} />
+    </>
   );
 }
 
@@ -666,8 +705,8 @@ function StarShellPoints({ shell }: StarShellProps): JSX.Element {
 /*  Cinematic camera                                                        */
 /* ======================================================================== */
 
-const CAMERA_HOME_Z = 4.3;
-const CAMERA_FOCUS = new THREE.Vector3(0, -0.22, 0);
+const CAMERA_HOME_Z = 4.05;
+const CAMERA_FOCUS = new THREE.Vector3(0, -0.18, 0);
 
 interface CameraDriftProps {
   readonly parallax: boolean;
@@ -677,14 +716,14 @@ function CameraDrift({ parallax }: CameraDriftProps): null {
   useFrame(({ camera, clock, pointer }, delta) => {
     const t = clock.elapsedTime;
 
-    const glideX = Math.sin(t * 0.014) * 0.42;
-    const glideY = 0.38 + Math.sin(t * 0.029) * 0.055;
-    const glideZ = CAMERA_HOME_Z + Math.sin(t * 0.041) * 0.08;
+    const glideX = Math.sin(t * 0.011) * 0.32;
+    const glideY = 0.34 + Math.sin(t * 0.023) * 0.048;
+    const glideZ = CAMERA_HOME_Z + Math.sin(t * 0.031) * 0.06;
 
-    const px = parallax ? pointer.x * 0.14 : 0;
-    const py = parallax ? pointer.y * 0.08 : 0;
+    const px = parallax ? pointer.x * 0.1 : 0;
+    const py = parallax ? pointer.y * 0.06 : 0;
 
-    const ease = 1 - Math.exp(-delta * 1.1);
+    const ease = 1 - Math.exp(-delta * 0.95);
     camera.position.x += (glideX + px - camera.position.x) * ease;
     camera.position.y += (glideY + py - camera.position.y) * ease;
     camera.position.z += (glideZ - camera.position.z) * ease;
@@ -791,6 +830,11 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
         color="#4d7fd6"
       />
       <ambientLight ref={ambientRef} intensity={NIGHT_TOKENS.ambientIntensity} />
+      {/* Soft sky dome fill for believable daylight bounce */}
+      <hemisphereLight
+        args={["#d7e8f6", "#1a2a3a", 0.18]}
+        intensity={appearance === "day" ? 0.42 : 0.12}
+      />
 
       {profile.shells.map((shell) => (
         <StarShellPoints key={shell.seed} shell={shell} />
@@ -817,42 +861,6 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
 /*  Exported component                                                      */
 /* ======================================================================== */
 
-const coreBadgeStyle: CSSProperties = {
-  position: "absolute",
-  left: "50%",
-  bottom: "32px",
-  transform: "translateX(-50%)",
-  display: "flex",
-  alignItems: "center",
-  gap: "12px",
-  padding: "13px 30px",
-  borderRadius: "999px",
-  background:
-    "linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02))",
-  border: "1px solid rgba(255, 255, 255, 0.12)",
-  boxShadow:
-    "0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08)",
-  backdropFilter: "blur(18px) saturate(140%)",
-  WebkitBackdropFilter: "blur(18px) saturate(140%)",
-  color: "rgba(226, 240, 250, 0.95)",
-  fontFamily:
-    '"SF Pro Display", "Inter", "Segoe UI", system-ui, -apple-system, sans-serif',
-  fontWeight: 600,
-  fontSize: "14.5px",
-  letterSpacing: "4px",
-  whiteSpace: "nowrap",
-  pointerEvents: "none",
-  userSelect: "none",
-};
-
-const coreBadgeDotStyle: CSSProperties = {
-  width: "7px",
-  height: "7px",
-  borderRadius: "50%",
-  background: "#7dd3fc",
-  boxShadow: "0 0 6px rgba(125, 211, 252, 0.55)",
-};
-
 export default function AgxoraGlobe3D(): JSX.Element {
   const { profile, compact } = useRenderProfile();
   const { tokens } = useTheme();
@@ -861,23 +869,68 @@ export default function AgxoraGlobe3D(): JSX.Element {
     () => ({
       position: "relative",
       width: "100%",
-      height: "clamp(340px, 60vh, 560px)",
-      borderRadius: "24px",
+      height: "clamp(380px, 64vh, 640px)",
+      borderRadius: "28px",
       overflow: "hidden",
       background: tokens.globeFrameBg,
       border: `1px solid ${tokens.globeBorder}`,
-      transition: `background ${THEME_TRANSITION_MS}ms ease, border-color ${THEME_TRANSITION_MS}ms ease`,
+      boxShadow: tokens.panelShadow,
+      transition: `background ${THEME_TRANSITION_MS}ms ease, border-color ${THEME_TRANSITION_MS}ms ease, box-shadow ${THEME_TRANSITION_MS}ms ease`,
     }),
-    [tokens.globeFrameBg, tokens.globeBorder],
+    [tokens.globeFrameBg, tokens.globeBorder, tokens.panelShadow],
+  );
+
+  const badgeStyle = useMemo<CSSProperties>(
+    () => ({
+      position: "absolute",
+      left: "50%",
+      bottom: "28px",
+      transform: "translateX(-50%)",
+      display: "flex",
+      alignItems: "center",
+      gap: "12px",
+      padding: "12px 28px",
+      borderRadius: "999px",
+      background:
+        tokens.tone === "day"
+          ? "linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.38))"
+          : "linear-gradient(135deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03))",
+      border: `1px solid ${tokens.cardBorder}`,
+      boxShadow: tokens.cardShadow,
+      backdropFilter: tokens.cardBlur,
+      WebkitBackdropFilter: tokens.cardBlur,
+      color: tokens.text,
+      fontFamily:
+        '"SF Pro Display", "Segoe UI", system-ui, -apple-system, sans-serif',
+      fontWeight: 600,
+      fontSize: "12px",
+      letterSpacing: "0.22em",
+      whiteSpace: "nowrap",
+      pointerEvents: "none",
+      userSelect: "none",
+      transition: `background ${THEME_TRANSITION_MS}ms ease, color ${THEME_TRANSITION_MS}ms ease, border-color ${THEME_TRANSITION_MS}ms ease, box-shadow ${THEME_TRANSITION_MS}ms ease`,
+    }),
+    [tokens],
+  );
+
+  const badgeDotStyle = useMemo<CSSProperties>(
+    () => ({
+      width: "7px",
+      height: "7px",
+      borderRadius: "50%",
+      background: tokens.accent,
+      boxShadow: `0 0 10px ${tokens.accentGlow}`,
+    }),
+    [tokens.accent, tokens.accentGlow],
   );
 
   return (
-    <div style={frameStyle} aria-label="AGXORA AI CORE — 3D globe">
+    <div style={frameStyle} aria-label="AGXORA AI CORE — 3D globe" className="agx-globe-frame">
       <Canvas
         dpr={profile.pixelRatio}
         camera={{
-          position: [0, 0.38, CAMERA_HOME_Z],
-          fov: 42,
+          position: [0, 0.34, CAMERA_HOME_Z],
+          fov: 40,
           near: 0.1,
           far: 220,
         }}
@@ -895,9 +948,8 @@ export default function AgxoraGlobe3D(): JSX.Element {
         </Suspense>
       </Canvas>
 
-      {/* The single AGXORA AI CORE label */}
-      <div style={coreBadgeStyle}>
-        <span style={coreBadgeDotStyle} />
+      <div style={badgeStyle}>
+        <span style={badgeDotStyle} />
         AGXORA AI CORE
       </div>
     </div>
