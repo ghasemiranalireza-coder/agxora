@@ -339,52 +339,91 @@ function DayDust({ count }: { readonly count: number }): JSX.Element {
 /* Day: soft sun bloom + horizon haze                                  */
 /* ------------------------------------------------------------------ */
 
+const SOFT_DISK_VERTEX = /* glsl */ `
+  varying vec2 vUv;
+  void main() {
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+`;
+
+const SOFT_DISK_FRAGMENT = /* glsl */ `
+  varying vec2 vUv;
+  uniform vec3 uColor;
+  uniform float uOpacity;
+  uniform float uSoftness;
+
+  void main() {
+    vec2 p = vUv * 2.0 - 1.0;
+    float d = length(p);
+    float a = exp(-d * d * uSoftness) * uOpacity;
+    if (a < 0.004) discard;
+    gl_FragColor = vec4(uColor, a);
+  }
+`;
+
 function SoftSunGlow(): JSX.Element {
-  const matRef = useRef<THREE.MeshBasicMaterial>(null);
+  const mat = useMemo(
+    () =>
+      new THREE.ShaderMaterial({
+        vertexShader: SOFT_DISK_VERTEX,
+        fragmentShader: SOFT_DISK_FRAGMENT,
+        transparent: true,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        uniforms: {
+          uColor: { value: new THREE.Color("#fff6ec") },
+          uOpacity: { value: 0 },
+          uSoftness: { value: 2.4 },
+        },
+      }),
+    [],
+  );
+
+  useEffect(() => () => mat.dispose(), [mat]);
 
   useFrame(() => {
     const blend = getThemeDayBlend();
-    if (matRef.current) {
-      matRef.current.opacity = lerp(0, 0.42, blend);
-    }
+    mat.uniforms.uOpacity.value = lerp(0, 0.28, blend);
   });
 
   return (
-    <mesh position={[6.5, 4.2, -18]} scale={[14, 14, 1]}>
+    <mesh position={[9.5, 5.8, -24]} scale={[12, 12, 1]}>
       <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial
-        ref={matRef}
-        color="#fff8f0"
-        transparent
-        opacity={0}
-        depthWrite={false}
-        blending={THREE.AdditiveBlending}
-      />
+      <primitive object={mat} attach="material" />
     </mesh>
   );
 }
 
 function HorizonHaze(): JSX.Element {
-  const matRef = useRef<THREE.MeshBasicMaterial>(null);
+  const mat = useMemo(
+    () =>
+      new THREE.ShaderMaterial({
+        vertexShader: SOFT_DISK_VERTEX,
+        fragmentShader: SOFT_DISK_FRAGMENT,
+        transparent: true,
+        depthWrite: false,
+        blending: THREE.NormalBlending,
+        uniforms: {
+          uColor: { value: new THREE.Color("#c5d8e8") },
+          uOpacity: { value: 0 },
+          uSoftness: { value: 1.35 },
+        },
+      }),
+    [],
+  );
+
+  useEffect(() => () => mat.dispose(), [mat]);
 
   useFrame(() => {
     const blend = getThemeDayBlend();
-    if (matRef.current) {
-      matRef.current.opacity = lerp(0, 0.22, blend);
-    }
+    mat.uniforms.uOpacity.value = lerp(0, 0.16, blend);
   });
 
   return (
-    <mesh position={[0, -5.5, -12]} scale={[40, 8, 1]}>
+    <mesh position={[0, -7.5, -16]} scale={[36, 10, 1]} rotation={[0.2, 0, 0]}>
       <planeGeometry args={[1, 1]} />
-      <meshBasicMaterial
-        ref={matRef}
-        color="#b8cfe0"
-        transparent
-        opacity={0}
-        depthWrite={false}
-        blending={THREE.NormalBlending}
-      />
+      <primitive object={mat} attach="material" />
     </mesh>
   );
 }
@@ -465,6 +504,9 @@ export default function StarfieldBackground(): JSX.Element {
           alpha: true,
           powerPreference: "high-performance",
           premultipliedAlpha: false,
+        }}
+        onCreated={({ gl }) => {
+          gl.setClearColor(0x000000, 0);
         }}
         style={{ position: "absolute", inset: 0 }}
       >
