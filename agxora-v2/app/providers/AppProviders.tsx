@@ -1,13 +1,13 @@
 "use client";
 
 /**
- * AppProviders — root client boundary for foundation providers.
+ * AppProviders — root client boundary for the AGXORA OS.
  *
- * Intentionally invisible: no layout, no chrome, no styling.
- * Order: Theme → Organization → Memory → Chat
+ * Theme → Organization → Business OS → Memory → Chat
  */
 
 import type { JSX, ReactNode } from "react";
+import { BusinessOsProvider } from "../lib/business";
 import { MemoryProvider } from "../lib/memory";
 import { ChatProvider } from "../lib/modules/chat";
 import { OrganizationProvider } from "../lib/organization";
@@ -21,9 +21,11 @@ export function AppProviders({ children }: AppProvidersProps): JSX.Element {
   return (
     <ThemeProvider>
       <OrganizationProvider>
-        <MemoryProvider>
-          <ChatProvider>{children}</ChatProvider>
-        </MemoryProvider>
+        <BusinessOsProvider>
+          <MemoryProvider>
+            <ChatProvider>{children}</ChatProvider>
+          </MemoryProvider>
+        </BusinessOsProvider>
       </OrganizationProvider>
     </ThemeProvider>
   );

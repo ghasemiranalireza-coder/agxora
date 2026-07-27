@@ -115,8 +115,10 @@ export default function Home() {
             automation and predictive analytics.
           </p>
 
-          <button
+          <a
+            href="/onboarding"
             style={{
+              display: "inline-block",
               background: "#22d3ee",
               color: "#000",
               border: "none",
@@ -126,10 +128,11 @@ export default function Home() {
               fontSize: "18px",
               cursor: "pointer",
               boxShadow: "0 0 25px rgba(34,211,238,0.6)",
+              textDecoration: "none",
             }}
           >
             Launch Platform
-          </button>
+          </a>
         </div>
       </section>
 
