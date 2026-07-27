@@ -141,6 +141,12 @@ export interface OrganizationProfile {
 
 export interface Organization extends OrganizationProfile {
   readonly id: OrganizationId;
+  /** URL-safe unique slug for multi-tenant routing. */
+  readonly slug: string;
+  /** Owning principal — transferrable via team service. */
+  readonly ownerId: UserId;
+  /** Subscription reference — billing adapters plug in later. */
+  readonly subscriptionId: string;
   readonly createdAt: string;
   readonly updatedAt: string;
   /** Soft delete / archival — ready for multi-tenant backends. */
@@ -183,7 +189,11 @@ export type WorkspaceModuleKey =
   | "knowledge"
   | "marketplace"
   | "integrations"
-  | "settings";
+  | "settings"
+  | "customers"
+  | "invoices"
+  | "memory"
+  | "dashboard";
 
 export interface Workspace {
   readonly id: WorkspaceId;
@@ -208,6 +218,8 @@ export interface Workspace {
 export type MembershipRole =
   | "owner"
   | "admin"
+  | "manager"
+  | "employee"
   | "member"
   | "viewer"
   | "guest";

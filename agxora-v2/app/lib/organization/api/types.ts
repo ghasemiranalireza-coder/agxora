@@ -45,6 +45,18 @@ export interface OrganizationApiPort {
   readonly listMembershipsForUser: (
     userId: UserId,
   ) => Promise<readonly WorkspaceMembership[]>;
+
+  readonly listMembershipsForOrganization: (
+    organizationId: OrganizationId,
+  ) => Promise<readonly WorkspaceMembership[]>;
+
+  readonly upsertMembership: (
+    membership: WorkspaceMembership,
+  ) => Promise<WorkspaceMembership>;
+
+  readonly revokeMembership: (
+    membershipId: string,
+  ) => Promise<void>;
 }
 
 export class OrganizationApiNotConfiguredError extends Error {

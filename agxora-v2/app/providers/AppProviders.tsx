@@ -3,11 +3,12 @@
 /**
  * AppProviders — root client boundary for the AGXORA OS.
  *
- * Theme → Organization → Business OS → Memory → AI Settings → Chat
+ * Theme → Auth → Organization → Business OS → Memory → AI Settings → Chat
  */
 
 import type { JSX, ReactNode } from "react";
 import { AISettingsProvider } from "../lib/ai/AIProviderContext";
+import { AuthOrganizationBridge, AuthProvider } from "../lib/auth";
 import { BusinessOsProvider } from "../lib/business";
 import { MemoryProvider } from "../lib/memory";
 import { ChatProvider } from "../lib/modules/chat";
@@ -21,15 +22,19 @@ interface AppProvidersProps {
 export function AppProviders({ children }: AppProvidersProps): JSX.Element {
   return (
     <ThemeProvider>
-      <OrganizationProvider>
-        <BusinessOsProvider>
-          <MemoryProvider>
-            <AISettingsProvider>
-              <ChatProvider>{children}</ChatProvider>
-            </AISettingsProvider>
-          </MemoryProvider>
-        </BusinessOsProvider>
-      </OrganizationProvider>
+      <AuthProvider>
+        <AuthOrganizationBridge>
+          <OrganizationProvider>
+            <BusinessOsProvider>
+              <MemoryProvider>
+                <AISettingsProvider>
+                  <ChatProvider>{children}</ChatProvider>
+                </AISettingsProvider>
+              </MemoryProvider>
+            </BusinessOsProvider>
+          </OrganizationProvider>
+        </AuthOrganizationBridge>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
