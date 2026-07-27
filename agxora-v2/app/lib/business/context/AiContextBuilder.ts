@@ -1,7 +1,7 @@
 import type { MemoryContextPacket } from "../../memory/MemoryTypes";
 import type { BusinessType } from "../BusinessType";
 import { getBusinessTypeMeta } from "../BusinessType";
-import type { BusinessProfile } from "../brain/BusinessBrain";
+import type { BusinessProfile } from "../BusinessProfile";
 import {
   CompanyKnowledgeStore,
   companyKnowledgeStore,
@@ -26,6 +26,7 @@ export interface AiOperatingContext {
   readonly modules: readonly string[];
   readonly agents: readonly string[];
   readonly aiFocus: readonly string[];
+  readonly reasoningDomains: readonly string[];
   readonly knowledge: readonly KnowledgeEntry[];
   readonly memory?: MemoryContextPacket;
   readonly systemPrompt: string;
@@ -53,12 +54,15 @@ export class AiContextBuilder {
       organizationId: input.profile.organizationId,
       limit: input.knowledgeLimit ?? 20,
     });
+    const reasoningDomains =
+      input.profile.reasoningDomains ?? template.aiFocus;
 
     const systemPrompt = this.composeSystemPrompt(
       input.profile,
       template,
       meta.label,
       knowledge,
+      reasoningDomains,
     );
 
     return {
@@ -75,6 +79,7 @@ export class AiContextBuilder {
       modules: input.profile.activatedModules,
       agents: input.profile.activatedAgents,
       aiFocus: template.aiFocus,
+      reasoningDomains,
       knowledge,
       memory: input.memory,
       systemPrompt,
@@ -87,6 +92,7 @@ export class AiContextBuilder {
     template: BusinessTemplate,
     businessLabel: string,
     knowledge: readonly KnowledgeEntry[],
+    reasoningDomains: readonly string[],
   ): string {
     const knowledgeBlock = knowledge
       .slice(0, 8)
@@ -98,6 +104,7 @@ export class AiContextBuilder {
       `Business type: ${businessLabel} (${profile.businessType}).`,
       `Template: ${template.name} — ${template.summary}.`,
       `Locale: ${profile.language}, ${profile.country}, ${profile.timezone}.`,
+      `Reason about: ${reasoningDomains.join(", ")}.`,
       profile.goals.length
         ? `Goals: ${profile.goals.join("; ")}.`
         : "Goals: not specified.",
