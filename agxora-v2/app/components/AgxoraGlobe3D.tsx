@@ -21,7 +21,7 @@ import {
   type JSX,
 } from "react";
 import * as THREE from "three";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Bloom, EffectComposer, Vignette } from "@react-three/postprocessing";
 import {
   DAY_TOKENS,
@@ -362,8 +362,13 @@ function useRenderProfile(): { profile: RenderProfile; compact: boolean } {
 /* ======================================================================== */
 
 const PLANET_RADIUS = 1;
-const PLANET_SPIN = 0.012;
-const CLOUD_SPIN = 0.019;
+/** Slow continuous spin — premium, never aggressive. */
+const PLANET_SPIN = 0.0095;
+const CLOUD_SPIN = 0.015;
+/** Raise the planet in-frame (~35% higher visual weight). */
+const PLANET_BASE_Y = 0.32;
+const PLANET_FLOAT_AMP = 0.042;
+const PLANET_FLOAT_SPEED = 0.36;
 
 interface PlanetProps {
   readonly profile: RenderProfile;
@@ -395,8 +400,9 @@ function Planet({ profile }: PlanetProps): JSX.Element {
     const t = state.clock.elapsedTime;
 
     if (floatGroup.current !== null) {
-      floatGroup.current.position.y = Math.sin(t * 0.42) * 0.05;
-      floatGroup.current.rotation.z = Math.sin(t * 0.21) * 0.012;
+      floatGroup.current.position.y =
+        PLANET_BASE_Y + Math.sin(t * PLANET_FLOAT_SPEED) * PLANET_FLOAT_AMP;
+      floatGroup.current.rotation.z = Math.sin(t * 0.18) * 0.01;
     }
     if (spinGroup.current !== null) {
       spinGroup.current.rotation.y += delta * PLANET_SPIN;
@@ -447,13 +453,14 @@ function Planet({ profile }: PlanetProps): JSX.Element {
             roughness={1}
             bumpMap={maps.bumpMap}
             bumpScale={0.016}
-            metalness={0.04}
+            metalness={0.06}
             clearcoat={0.55}
             clearcoatRoughness={0.36}
             sheen={0.08}
             sheenColor={new THREE.Color("#9ec9ff")}
             sheenRoughness={0.55}
-            specularIntensity={0.7}
+            specularIntensity={0.78}
+            reflectivity={0.42}
             emissive={new THREE.Color("#08223f")}
             emissiveIntensity={0.22}
           />
@@ -480,6 +487,8 @@ function Planet({ profile }: PlanetProps): JSX.Element {
           />
         </mesh>
       </group>
+
+      <AtmosphereGlow />
     </group>
   );
 }
@@ -570,10 +579,12 @@ function AtmosphereLayer({
 function AtmosphereGlow(): JSX.Element {
   return (
     <>
-      {/* Soft outer scattering shell */}
-      <AtmosphereLayer scale={1.065} gainScale={0.55} curve={3.4} />
-      {/* Crisp fresnel rim */}
-      <AtmosphereLayer scale={1.035} gainScale={1} curve={5.4} />
+      {/* Soft outer atmospheric scatter — cinematic halo */}
+      <AtmosphereLayer scale={1.095} gainScale={0.32} curve={2.6} />
+      {/* Soft mid scattering shell */}
+      <AtmosphereLayer scale={1.058} gainScale={0.58} curve={3.2} />
+      {/* Crisp blue fresnel rim */}
+      <AtmosphereLayer scale={1.032} gainScale={1.08} curve={5.1} />
     </>
   );
 }
@@ -705,8 +716,9 @@ function StarShellPoints({ shell }: StarShellProps): JSX.Element {
 /*  Cinematic camera                                                        */
 /* ======================================================================== */
 
-const CAMERA_HOME_Z = 4.05;
-const CAMERA_FOCUS = new THREE.Vector3(0, -0.18, 0);
+/** Closer framing for +~25% perceived globe presence; focus raised with planet. */
+const CAMERA_HOME_Z = 3.72;
+const CAMERA_FOCUS = new THREE.Vector3(0, PLANET_BASE_Y + 0.02, 0);
 
 interface CameraDriftProps {
   readonly parallax: boolean;
@@ -716,14 +728,14 @@ function CameraDrift({ parallax }: CameraDriftProps): null {
   useFrame(({ camera, clock, pointer }, delta) => {
     const t = clock.elapsedTime;
 
-    const glideX = Math.sin(t * 0.011) * 0.32;
-    const glideY = 0.34 + Math.sin(t * 0.023) * 0.048;
-    const glideZ = CAMERA_HOME_Z + Math.sin(t * 0.031) * 0.06;
+    const glideX = Math.sin(t * 0.01) * 0.26;
+    const glideY = PLANET_BASE_Y * 0.35 + Math.sin(t * 0.02) * 0.036;
+    const glideZ = CAMERA_HOME_Z + Math.sin(t * 0.028) * 0.045;
 
-    const px = parallax ? pointer.x * 0.1 : 0;
-    const py = parallax ? pointer.y * 0.06 : 0;
+    const px = parallax ? pointer.x * 0.08 : 0;
+    const py = parallax ? pointer.y * 0.045 : 0;
 
-    const ease = 1 - Math.exp(-delta * 0.95);
+    const ease = 1 - Math.exp(-delta * 0.9);
     camera.position.x += (glideX + px - camera.position.x) * ease;
     camera.position.y += (glideY + py - camera.position.y) * ease;
     camera.position.z += (glideZ - camera.position.z) * ease;
@@ -742,19 +754,19 @@ interface SpaceSceneProps {
   readonly compact: boolean;
 }
 
-const NIGHT_GLOBE_BG = new THREE.Color(NIGHT_TOKENS.globeBg);
-const DAY_GLOBE_BG = new THREE.Color(DAY_TOKENS.globeBg);
-const GLOBE_BG_SCRATCH = new THREE.Color();
-
 const NIGHT_SUN = new THREE.Color("#ffffff");
 const DAY_SUN = new THREE.Color("#fff4e8");
 const NIGHT_FILL = new THREE.Color("#4d7fd6");
 const DAY_FILL = new THREE.Color("#a8c4dc");
+const NIGHT_RIM = new THREE.Color("#3d8fd8");
+const DAY_RIM = new THREE.Color("#b8d4ec");
 
 function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
   const sunRef = useRef<THREE.DirectionalLight>(null);
   const fillRef = useRef<THREE.DirectionalLight>(null);
+  const rimRef = useRef<THREE.DirectionalLight>(null);
   const ambientRef = useRef<THREE.AmbientLight>(null);
+  const { gl } = useThree();
   const { appearance } = useTheme();
   const bloomIntensity =
     appearance === "day"
@@ -769,10 +781,15 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
       ? DAY_TOKENS.vignetteDarkness
       : NIGHT_TOKENS.vignetteDarkness;
 
-  useFrame(({ scene, gl }) => {
+  useEffect(() => {
+    gl.setClearColor(0x000000, 0);
+  }, [gl]);
+
+  useFrame(({ scene, gl: renderer }) => {
     const blend = getThemeDayBlend();
-    GLOBE_BG_SCRATCH.copy(NIGHT_GLOBE_BG).lerp(DAY_GLOBE_BG, blend);
-    scene.background = GLOBE_BG_SCRATCH;
+    // Keep canvas transparent so the dashboard starfield shows through.
+    scene.background = null;
+    renderer.setClearColor(0x000000, 0);
 
     if (sunRef.current) {
       sunRef.current.intensity = lerp(
@@ -796,6 +813,10 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
       );
       fillRef.current.color.copy(NIGHT_FILL).lerp(DAY_FILL, blend);
     }
+    if (rimRef.current) {
+      rimRef.current.intensity = lerp(0.55, 0.38, blend);
+      rimRef.current.color.copy(NIGHT_RIM).lerp(DAY_RIM, blend);
+    }
     if (ambientRef.current) {
       ambientRef.current.intensity = lerp(
         NIGHT_TOKENS.ambientIntensity,
@@ -804,7 +825,7 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
       );
     }
 
-    gl.toneMappingExposure = lerp(
+    renderer.toneMappingExposure = lerp(
       NIGHT_TOKENS.exposure,
       DAY_TOKENS.exposure,
       blend,
@@ -813,8 +834,6 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
 
   return (
     <>
-      <color attach="background" args={[NIGHT_TOKENS.globeBg]} />
-
       {/* Key sun — clean white night / soft warm daylight */}
       <directionalLight
         ref={sunRef}
@@ -829,11 +848,18 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
         intensity={NIGHT_TOKENS.fillIntensity}
         color="#4d7fd6"
       />
+      {/* Blue atmospheric rim — subtle HDR edge light */}
+      <directionalLight
+        ref={rimRef}
+        position={[-2.2, 1.4, -4.5]}
+        intensity={0.55}
+        color="#3d8fd8"
+      />
       <ambientLight ref={ambientRef} intensity={NIGHT_TOKENS.ambientIntensity} />
       {/* Soft sky dome fill for believable daylight bounce */}
       <hemisphereLight
         args={["#d7e8f6", "#1a2a3a", 0.18]}
-        intensity={appearance === "day" ? 0.42 : 0.12}
+        intensity={appearance === "day" ? 0.42 : 0.14}
       />
 
       {profile.shells.map((shell) => (
@@ -841,17 +867,16 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
       ))}
 
       <Planet profile={profile} />
-      <AtmosphereGlow />
       <CameraDrift parallax={!compact} />
 
-      <EffectComposer multisampling={profile.msaa}>
+      <EffectComposer multisampling={profile.msaa} frameBufferType={THREE.HalfFloatType}>
         <Bloom
           intensity={bloomIntensity}
-          luminanceThreshold={appearance === "day" ? 0.62 : 0.5}
-          luminanceSmoothing={0.92}
+          luminanceThreshold={appearance === "day" ? 0.68 : 0.55}
+          luminanceSmoothing={0.94}
           mipmapBlur
         />
-        <Vignette eskil={false} offset={0.25} darkness={vignetteDarkness} />
+        <Vignette eskil={false} offset={0.2} darkness={vignetteDarkness} />
       </EffectComposer>
     </>
   );
@@ -869,15 +894,19 @@ export default function AgxoraGlobe3D(): JSX.Element {
     () => ({
       position: "relative",
       width: "100%",
-      height: "clamp(380px, 64vh, 640px)",
+      // +~25% size vs prior clamp(380px, 64vh, 640px); responsive across breakpoints
+      height: "clamp(420px, 78vh, 800px)",
       borderRadius: "28px",
       overflow: "hidden",
       background: tokens.globeFrameBg,
       border: `1px solid ${tokens.globeBorder}`,
-      boxShadow: tokens.panelShadow,
+      boxShadow:
+        tokens.tone === "day"
+          ? `${tokens.panelShadow}, 0 0 80px rgba(150, 190, 215, 0.18)`
+          : `${tokens.panelShadow}, 0 0 90px rgba(34, 211, 238, 0.12), inset 0 0 60px rgba(34, 120, 200, 0.06)`,
       transition: `background ${THEME_TRANSITION_MS}ms ease, border-color ${THEME_TRANSITION_MS}ms ease, box-shadow ${THEME_TRANSITION_MS}ms ease`,
     }),
-    [tokens.globeFrameBg, tokens.globeBorder, tokens.panelShadow],
+    [tokens.globeFrameBg, tokens.globeBorder, tokens.panelShadow, tokens.tone],
   );
 
   const badgeStyle = useMemo<CSSProperties>(
@@ -925,23 +954,28 @@ export default function AgxoraGlobe3D(): JSX.Element {
   );
 
   return (
-    <div style={frameStyle} aria-label="AGXORA AI CORE — 3D globe" className="agx-globe-frame">
+    <div
+      style={frameStyle}
+      aria-label="AGXORA AI CORE — 3D globe"
+      className="agx-globe-frame agx-globe-enter"
+    >
       <Canvas
         dpr={profile.pixelRatio}
         camera={{
-          position: [0, 0.34, CAMERA_HOME_Z],
-          fov: 40,
+          position: [0, PLANET_BASE_Y * 0.35, CAMERA_HOME_Z],
+          fov: 38,
           near: 0.1,
           far: 220,
         }}
         gl={{
           antialias: false,
           powerPreference: "high-performance",
-          alpha: false,
+          alpha: true,
+          premultipliedAlpha: true,
           toneMapping: THREE.ACESFilmicToneMapping,
-          toneMappingExposure: 1.12,
+          toneMappingExposure: 1.16,
         }}
-        style={{ position: "absolute", inset: 0 }}
+        style={{ position: "absolute", inset: 0, background: "transparent" }}
       >
         <Suspense fallback={null}>
           <SpaceScene profile={profile} compact={compact} />

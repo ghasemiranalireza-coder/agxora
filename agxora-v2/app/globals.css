@@ -154,6 +154,55 @@ textarea {
 
 .agx-globe-frame {
   isolation: isolate;
+  background-color: transparent !important;
+}
+
+@keyframes agx-globe-enter {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.975);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.agx-globe-enter {
+  animation: agx-globe-enter 1.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agx-globe-enter {
+    animation: none;
+  }
+}
+
+/* Hero globe sizing — +~25% vs prior, mostly above the fold */
+.agx-globe-frame {
+  height: clamp(420px, 78vh, 800px) !important;
+}
+
+@media (max-width: 1100px) {
+  .agx-globe-frame {
+    height: clamp(400px, 68vh, 700px) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .agx-globe-frame {
+    height: clamp(360px, 58vh, 560px) !important;
+  }
+
+  .agx-hero-header h1 {
+    font-size: clamp(34px, 9vw, 48px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .agx-globe-frame {
+    height: clamp(320px, 54vh, 480px) !important;
+  }
 }
 
 @media (max-width: 1100px) {
