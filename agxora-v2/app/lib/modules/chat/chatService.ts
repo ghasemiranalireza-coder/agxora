@@ -1,10 +1,10 @@
+import { createChatProviderAdapter } from "../../ai/adapters/chatProviderAdapter";
 import {
   createConversationId,
   createMessage,
   type ChatMessage,
   type ConversationId,
 } from "./Message";
-import { MockAiProvider } from "./MockAiProvider";
 import type {
   AiProvider,
   ChatServiceConfig,
@@ -241,9 +241,10 @@ export function createDefaultChatService(
     organizationId?: string | null;
     workspaceId?: string | null;
   },
+  provider?: AiProvider,
 ): ChatService {
   return createChatService({
-    provider: new MockAiProvider(),
+    provider: provider ?? createChatProviderAdapter(),
     memory,
     organizationId: context?.organizationId ?? null,
     workspaceId: context?.workspaceId ?? null,
