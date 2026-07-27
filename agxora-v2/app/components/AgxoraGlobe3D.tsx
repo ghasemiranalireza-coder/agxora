@@ -210,9 +210,12 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
         roughness = THREE.MathUtils.lerp(roughness, 0.55, iceEdge);
       }
 
-      const puff = fbm3D(clouds, px * 3.1 + 11, py * 3.1 - 7, pz * 3.1 + 3, 4);
-      const swirl = fbm3D(clouds, px * 7.4 - 5, py * 7.4 + 9, pz * 7.4 - 2, 3);
-      const cover = smooth(0.56, 0.74, puff * 0.7 + swirl * 0.3);
+/** Cover threshold — softer cloud edges for premium volume. */
+      const puff = fbm3D(clouds, px * 3.05 + 11, py * 3.05 - 7, pz * 3.05 + 3, 5);
+      const swirl = fbm3D(clouds, px * 7.2 - 5, py * 7.2 + 9, pz * 7.2 - 2, 4);
+      const wisps = fbm3D(clouds, px * 14.5 + 2, py * 14.5 - 3, pz * 14.5 + 8, 3);
+      const dense = puff * 0.58 + swirl * 0.28 + wisps * 0.14;
+      const cover = Math.pow(smooth(0.48, 0.78, dense), 1.15);
 
       const i = (row * width + col) * 4;
       colorData[i] = Math.round(color.r * 255);
@@ -363,12 +366,13 @@ function useRenderProfile(): { profile: RenderProfile; compact: boolean } {
 
 const PLANET_RADIUS = 1;
 /** Slow continuous spin — premium, never aggressive. */
-const PLANET_SPIN = 0.0095;
-const CLOUD_SPIN = 0.015;
-/** Raise the planet in-frame (~35% higher visual weight). */
-const PLANET_BASE_Y = 0.32;
-const PLANET_FLOAT_AMP = 0.042;
-const PLANET_FLOAT_SPEED = 0.36;
+const PLANET_SPIN = 0.0088;
+const CLOUD_SPIN = 0.014;
+const CLOUD_HIGH_SPIN = 0.009;
+/** Hero composition — globe sits high in the stage. */
+const PLANET_BASE_Y = 0.08;
+const PLANET_FLOAT_AMP = 0.038;
+const PLANET_FLOAT_SPEED = 0.32;
 
 interface PlanetProps {
   readonly profile: RenderProfile;
@@ -378,8 +382,10 @@ function Planet({ profile }: PlanetProps): JSX.Element {
   const floatGroup = useRef<THREE.Group>(null);
   const spinGroup = useRef<THREE.Group>(null);
   const cloudMesh = useRef<THREE.Mesh>(null);
+  const cloudHighMesh = useRef<THREE.Mesh>(null);
   const surfaceMat = useRef<THREE.MeshPhysicalMaterial>(null);
   const cloudMat = useRef<THREE.MeshStandardMaterial>(null);
+  const cloudHighMat = useRef<THREE.MeshStandardMaterial>(null);
 
   const maps = useMemo<PlanetMaps>(
     () => generatePlanetMaps(profile.mapWidth, profile.mapHeight),
@@ -402,13 +408,16 @@ function Planet({ profile }: PlanetProps): JSX.Element {
     if (floatGroup.current !== null) {
       floatGroup.current.position.y =
         PLANET_BASE_Y + Math.sin(t * PLANET_FLOAT_SPEED) * PLANET_FLOAT_AMP;
-      floatGroup.current.rotation.z = Math.sin(t * 0.18) * 0.01;
+      floatGroup.current.rotation.z = Math.sin(t * 0.16) * 0.009;
     }
     if (spinGroup.current !== null) {
       spinGroup.current.rotation.y += delta * PLANET_SPIN;
     }
     if (cloudMesh.current !== null) {
       cloudMesh.current.rotation.y += delta * CLOUD_SPIN;
+    }
+    if (cloudHighMesh.current !== null) {
+      cloudHighMesh.current.rotation.y += delta * CLOUD_HIGH_SPIN;
     }
 
     const blend = getThemeDayBlend();
@@ -418,16 +427,17 @@ function Planet({ profile }: PlanetProps): JSX.Element {
         DAY_TOKENS.surfaceClearcoat,
         blend,
       );
-      surfaceMat.current.clearcoatRoughness = lerp(0.36, 0.18, blend);
+      surfaceMat.current.clearcoatRoughness = lerp(0.28, 0.14, blend);
       surfaceMat.current.emissiveIntensity = lerp(
         NIGHT_TOKENS.emissiveIntensity,
         DAY_TOKENS.emissiveIntensity,
         blend,
       );
-      surfaceMat.current.bumpScale = lerp(0.016, 0.022, blend);
-      surfaceMat.current.sheen = lerp(0.08, 0.22, blend);
-      surfaceMat.current.sheenRoughness = lerp(0.55, 0.35, blend);
-      surfaceMat.current.specularIntensity = lerp(0.65, 1.05, blend);
+      surfaceMat.current.bumpScale = lerp(0.018, 0.024, blend);
+      surfaceMat.current.sheen = lerp(0.12, 0.28, blend);
+      surfaceMat.current.sheenRoughness = lerp(0.48, 0.3, blend);
+      surfaceMat.current.specularIntensity = lerp(0.78, 1.15, blend);
+      surfaceMat.current.metalness = lerp(0.05, 0.08, blend);
     }
     if (cloudMat.current) {
       cloudMat.current.opacity = lerp(
@@ -436,11 +446,14 @@ function Planet({ profile }: PlanetProps): JSX.Element {
         blend,
       );
     }
+    if (cloudHighMat.current) {
+      cloudHighMat.current.opacity = lerp(0.28, 0.4, blend);
+    }
   });
 
   return (
     <group ref={floatGroup}>
-      <group ref={spinGroup} rotation={[0.11, -1.05, 0.05]}>
+      <group ref={spinGroup} rotation={[0.1, -1.05, 0.04]}>
         {/* Surface — physically based oceans + continents */}
         <mesh>
           <sphereGeometry
@@ -452,43 +465,68 @@ function Planet({ profile }: PlanetProps): JSX.Element {
             roughnessMap={maps.roughnessMap}
             roughness={1}
             bumpMap={maps.bumpMap}
-            bumpScale={0.016}
+            bumpScale={0.018}
             metalness={0.06}
-            clearcoat={0.55}
-            clearcoatRoughness={0.36}
-            sheen={0.08}
-            sheenColor={new THREE.Color("#9ec9ff")}
-            sheenRoughness={0.55}
-            specularIntensity={0.78}
-            reflectivity={0.42}
-            emissive={new THREE.Color("#08223f")}
-            emissiveIntensity={0.22}
+            clearcoat={0.62}
+            clearcoatRoughness={0.28}
+            sheen={0.12}
+            sheenColor={new THREE.Color("#8ec4ff")}
+            sheenRoughness={0.48}
+            specularIntensity={0.88}
+            reflectivity={0.52}
+            envMapIntensity={1.15}
+            emissive={new THREE.Color("#061e3a")}
+            emissiveIntensity={0.24}
           />
         </mesh>
 
-        {/* Soft cloud veil */}
+        {/* Primary cloud deck — softer volume */}
         <mesh ref={cloudMesh}>
           <sphereGeometry
             args={[
-              PLANET_RADIUS * 1.016,
+              PLANET_RADIUS * 1.018,
               profile.sphereDetail,
               profile.sphereDetail,
             ]}
           />
           <meshStandardMaterial
             ref={cloudMat}
+            color="#f4f8ff"
+            alphaMap={maps.cloudMap}
+            transparent
+            opacity={0.58}
+            depthWrite={false}
+            roughness={0.88}
+            metalness={0}
+            emissive={new THREE.Color("#c8dcff")}
+            emissiveIntensity={0.04}
+          />
+        </mesh>
+
+        {/* High cirrus veil — depth + parallax vs lower deck */}
+        <mesh ref={cloudHighMesh}>
+          <sphereGeometry
+            args={[
+              PLANET_RADIUS * 1.032,
+              Math.max(32, Math.floor(profile.sphereDetail * 0.75)),
+              Math.max(32, Math.floor(profile.sphereDetail * 0.75)),
+            ]}
+          />
+          <meshStandardMaterial
+            ref={cloudHighMat}
             color="#ffffff"
             alphaMap={maps.cloudMap}
             transparent
-            opacity={0.5}
+            opacity={0.28}
             depthWrite={false}
-            roughness={0.92}
+            roughness={1}
             metalness={0}
           />
         </mesh>
       </group>
 
       <AtmosphereGlow />
+      <EarthAura />
     </group>
   );
 }
@@ -579,13 +617,46 @@ function AtmosphereLayer({
 function AtmosphereGlow(): JSX.Element {
   return (
     <>
-      {/* Soft outer atmospheric scatter — cinematic halo */}
-      <AtmosphereLayer scale={1.095} gainScale={0.32} curve={2.6} />
-      {/* Soft mid scattering shell */}
-      <AtmosphereLayer scale={1.058} gainScale={0.58} curve={3.2} />
-      {/* Crisp blue fresnel rim */}
-      <AtmosphereLayer scale={1.032} gainScale={1.08} curve={5.1} />
+      {/* Deep blue outer halo — cinematic glow */}
+      <AtmosphereLayer scale={1.14} gainScale={0.28} curve={2.1} />
+      {/* Soft atmospheric scatter */}
+      <AtmosphereLayer scale={1.078} gainScale={0.62} curve={2.85} />
+      {/* Mid blue rim */}
+      <AtmosphereLayer scale={1.048} gainScale={0.85} curve={3.8} />
+      {/* Crisp blue fresnel edge */}
+      <AtmosphereLayer scale={1.028} gainScale={1.2} curve={5.0} />
     </>
+  );
+}
+
+/** Soft additive sprite-like aura for subtle Earth glow (depth cue). */
+function EarthAura(): JSX.Element {
+  const mat = useMemo(
+    () =>
+      new THREE.MeshBasicMaterial({
+        color: new THREE.Color("#3d9aef"),
+        transparent: true,
+        opacity: 0.09,
+        depthWrite: false,
+        blending: THREE.AdditiveBlending,
+        side: THREE.BackSide,
+      }),
+    [],
+  );
+
+  useEffect(() => () => mat.dispose(), [mat]);
+
+  useFrame(() => {
+    const blend = getThemeDayBlend();
+    mat.opacity = lerp(0.11, 0.05, blend);
+    mat.color.set(blend > 0.5 ? "#9ec8e8" : "#3d9aef");
+  });
+
+  return (
+    <mesh scale={1.22}>
+      <sphereGeometry args={[PLANET_RADIUS, 48, 48]} />
+      <primitive object={mat} attach="material" />
+    </mesh>
   );
 }
 
@@ -716,8 +787,8 @@ function StarShellPoints({ shell }: StarShellProps): JSX.Element {
 /*  Cinematic camera                                                        */
 /* ======================================================================== */
 
-/** Closer framing for +~25% perceived globe presence; focus raised with planet. */
-const CAMERA_HOME_Z = 3.72;
+/** Closer cinematic framing for free-floating hero globe. */
+const CAMERA_HOME_Z = 3.35;
 const CAMERA_FOCUS = new THREE.Vector3(0, PLANET_BASE_Y + 0.02, 0);
 
 interface CameraDriftProps {
@@ -728,14 +799,14 @@ function CameraDrift({ parallax }: CameraDriftProps): null {
   useFrame(({ camera, clock, pointer }, delta) => {
     const t = clock.elapsedTime;
 
-    const glideX = Math.sin(t * 0.01) * 0.26;
-    const glideY = PLANET_BASE_Y * 0.35 + Math.sin(t * 0.02) * 0.036;
-    const glideZ = CAMERA_HOME_Z + Math.sin(t * 0.028) * 0.045;
+    const glideX = Math.sin(t * 0.009) * 0.2;
+    const glideY = PLANET_BASE_Y * 0.55 + Math.sin(t * 0.018) * 0.03;
+    const glideZ = CAMERA_HOME_Z + Math.sin(t * 0.024) * 0.038;
 
-    const px = parallax ? pointer.x * 0.08 : 0;
-    const py = parallax ? pointer.y * 0.045 : 0;
+    const px = parallax ? pointer.x * 0.06 : 0;
+    const py = parallax ? pointer.y * 0.035 : 0;
 
-    const ease = 1 - Math.exp(-delta * 0.9);
+    const ease = 1 - Math.exp(-delta * 0.85);
     camera.position.x += (glideX + px - camera.position.x) * ease;
     camera.position.y += (glideY + py - camera.position.y) * ease;
     camera.position.z += (glideZ - camera.position.z) * ease;
@@ -814,7 +885,7 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
       fillRef.current.color.copy(NIGHT_FILL).lerp(DAY_FILL, blend);
     }
     if (rimRef.current) {
-      rimRef.current.intensity = lerp(0.55, 0.38, blend);
+      rimRef.current.intensity = lerp(0.72, 0.42, blend);
       rimRef.current.color.copy(NIGHT_RIM).lerp(DAY_RIM, blend);
     }
     if (ambientRef.current) {
@@ -852,14 +923,22 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
       <directionalLight
         ref={rimRef}
         position={[-2.2, 1.4, -4.5]}
-        intensity={0.55}
+        intensity={0.72}
         color="#3d8fd8"
+      />
+      {/* Soft front fill for specular catch lights */}
+      <pointLight
+        position={[1.6, 0.8, 3.2]}
+        intensity={appearance === "day" ? 0.35 : 0.22}
+        color={appearance === "day" ? "#fff6ee" : "#a8d4ff"}
+        distance={12}
+        decay={2}
       />
       <ambientLight ref={ambientRef} intensity={NIGHT_TOKENS.ambientIntensity} />
       {/* Soft sky dome fill for believable daylight bounce */}
       <hemisphereLight
-        args={["#d7e8f6", "#1a2a3a", 0.18]}
-        intensity={appearance === "day" ? 0.42 : 0.14}
+        args={["#b8d8f8", "#0c1a2e", 0.22]}
+        intensity={appearance === "day" ? 0.48 : 0.18}
       />
 
       {profile.shells.map((shell) => (
@@ -872,11 +951,11 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
       <EffectComposer multisampling={profile.msaa} frameBufferType={THREE.HalfFloatType}>
         <Bloom
           intensity={bloomIntensity}
-          luminanceThreshold={appearance === "day" ? 0.68 : 0.55}
-          luminanceSmoothing={0.94}
+          luminanceThreshold={appearance === "day" ? 0.72 : 0.58}
+          luminanceSmoothing={0.95}
           mipmapBlur
         />
-        <Vignette eskil={false} offset={0.2} darkness={vignetteDarkness} />
+        <Vignette eskil={false} offset={0.35} darkness={vignetteDarkness} />
       </EffectComposer>
     </>
   );
@@ -886,84 +965,60 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
 /*  Exported component                                                      */
 /* ======================================================================== */
 
-export default function AgxoraGlobe3D(): JSX.Element {
+export type GlobeVariant = "hero" | "framed";
+
+interface AgxoraGlobe3DProps {
+  readonly variant?: GlobeVariant;
+}
+
+export default function AgxoraGlobe3D({
+  variant = "hero",
+}: AgxoraGlobe3DProps): JSX.Element {
   const { profile, compact } = useRenderProfile();
   const { tokens } = useTheme();
+  const isHero = variant === "hero";
 
-  const frameStyle = useMemo<CSSProperties>(
-    () => ({
+  const frameStyle = useMemo<CSSProperties>(() => {
+    if (isHero) {
+      return {
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        minHeight: "inherit",
+        borderRadius: 0,
+        overflow: "visible",
+        background: "transparent",
+        border: "none",
+        boxShadow: "none",
+      };
+    }
+
+    return {
       position: "relative",
       width: "100%",
-      // +~25% size vs prior clamp(380px, 64vh, 640px); responsive across breakpoints
       height: "clamp(420px, 78vh, 800px)",
       borderRadius: "28px",
       overflow: "hidden",
       background: tokens.globeFrameBg,
       border: `1px solid ${tokens.globeBorder}`,
-      boxShadow:
-        tokens.tone === "day"
-          ? `${tokens.panelShadow}, 0 0 80px rgba(150, 190, 215, 0.18)`
-          : `${tokens.panelShadow}, 0 0 90px rgba(34, 211, 238, 0.12), inset 0 0 60px rgba(34, 120, 200, 0.06)`,
+      boxShadow: tokens.panelShadow,
       transition: `background ${THEME_TRANSITION_MS}ms ease, border-color ${THEME_TRANSITION_MS}ms ease, box-shadow ${THEME_TRANSITION_MS}ms ease`,
-    }),
-    [tokens.globeFrameBg, tokens.globeBorder, tokens.panelShadow, tokens.tone],
-  );
-
-  const badgeStyle = useMemo<CSSProperties>(
-    () => ({
-      position: "absolute",
-      left: "50%",
-      bottom: "28px",
-      transform: "translateX(-50%)",
-      display: "flex",
-      alignItems: "center",
-      gap: "12px",
-      padding: "12px 28px",
-      borderRadius: "999px",
-      background:
-        tokens.tone === "day"
-          ? "linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.38))"
-          : "linear-gradient(135deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03))",
-      border: `1px solid ${tokens.cardBorder}`,
-      boxShadow: tokens.cardShadow,
-      backdropFilter: tokens.cardBlur,
-      WebkitBackdropFilter: tokens.cardBlur,
-      color: tokens.text,
-      fontFamily:
-        '"SF Pro Display", "Segoe UI", system-ui, -apple-system, sans-serif',
-      fontWeight: 600,
-      fontSize: "12px",
-      letterSpacing: "0.22em",
-      whiteSpace: "nowrap",
-      pointerEvents: "none",
-      userSelect: "none",
-      transition: `background ${THEME_TRANSITION_MS}ms ease, color ${THEME_TRANSITION_MS}ms ease, border-color ${THEME_TRANSITION_MS}ms ease, box-shadow ${THEME_TRANSITION_MS}ms ease`,
-    }),
-    [tokens],
-  );
-
-  const badgeDotStyle = useMemo<CSSProperties>(
-    () => ({
-      width: "7px",
-      height: "7px",
-      borderRadius: "50%",
-      background: tokens.accent,
-      boxShadow: `0 0 10px ${tokens.accentGlow}`,
-    }),
-    [tokens.accent, tokens.accentGlow],
-  );
+    };
+  }, [isHero, tokens.globeFrameBg, tokens.globeBorder, tokens.panelShadow]);
 
   return (
     <div
       style={frameStyle}
       aria-label="AGXORA AI CORE — 3D globe"
-      className="agx-globe-frame agx-globe-enter"
+      className={
+        isHero ? "agx-globe-stage agx-globe-enter" : "agx-globe-frame agx-globe-enter"
+      }
     >
       <Canvas
         dpr={profile.pixelRatio}
         camera={{
-          position: [0, PLANET_BASE_Y * 0.35, CAMERA_HOME_Z],
-          fov: 38,
+          position: [0, PLANET_BASE_Y * 0.55, CAMERA_HOME_Z],
+          fov: isHero ? 36 : 38,
           near: 0.1,
           far: 220,
         }}
@@ -973,19 +1028,19 @@ export default function AgxoraGlobe3D(): JSX.Element {
           alpha: true,
           premultipliedAlpha: true,
           toneMapping: THREE.ACESFilmicToneMapping,
-          toneMappingExposure: 1.16,
+          toneMappingExposure: 1.18,
         }}
-        style={{ position: "absolute", inset: 0, background: "transparent" }}
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "transparent",
+          pointerEvents: compact ? "none" : "auto",
+        }}
       >
         <Suspense fallback={null}>
           <SpaceScene profile={profile} compact={compact} />
         </Suspense>
       </Canvas>
-
-      <div style={badgeStyle}>
-        <span style={badgeDotStyle} />
-        AGXORA AI CORE
-      </div>
     </div>
   );
 }
