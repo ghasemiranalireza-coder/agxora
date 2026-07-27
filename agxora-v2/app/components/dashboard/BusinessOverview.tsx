@@ -125,16 +125,31 @@ const OVERVIEW_METRICS: readonly MetricCardProps[] = [
 export function BusinessOverview(): JSX.Element {
   return (
     <section aria-label="Business overview" className="mb-12">
-      <header className="mb-6 flex items-baseline justify-between gap-4">
+      <header className="mb-7 flex items-baseline justify-between gap-4">
         <div>
-          <h2 className="text-lg font-semibold tracking-wide text-slate-100">
+          <h2
+            className="text-[15px] font-semibold uppercase tracking-[0.16em]"
+            style={{ color: "var(--agx-accent, #22d3ee)" }}
+          >
             Business Overview
           </h2>
-          <p className="mt-1 text-xs tracking-wide text-slate-400">
+          <p
+            className="mt-2 text-[13px] tracking-[0.03em]"
+            style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+          >
             Key performance metrics, updated in real time
           </p>
         </div>
-        <span className="hidden rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-[11px] tracking-widest text-slate-400 sm:inline-block">
+        <span
+          className="hidden rounded-full border px-3.5 py-1.5 text-[10px] font-semibold tracking-[0.18em] sm:inline-block"
+          style={{
+            borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
+            background: "var(--agx-card-bg, rgba(255,255,255,0.03))",
+            color: "var(--agx-text-muted, #94a3b8)",
+            boxShadow: "inset 0 1px 0 rgba(255,255,255,0.2)",
+            backdropFilter: "var(--agx-card-blur, blur(16px))",
+          }}
+        >
           LAST 30 DAYS
         </span>
       </header>
