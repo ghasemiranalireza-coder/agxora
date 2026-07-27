@@ -3,10 +3,11 @@
 /**
  * AppProviders — root client boundary for the AGXORA OS.
  *
- * Theme → Organization → Business OS → Memory → Chat
+ * Theme → Organization → Business OS → Memory → AI Settings → Chat
  */
 
 import type { JSX, ReactNode } from "react";
+import { AISettingsProvider } from "../lib/ai/AIProviderContext";
 import { BusinessOsProvider } from "../lib/business";
 import { MemoryProvider } from "../lib/memory";
 import { ChatProvider } from "../lib/modules/chat";
@@ -23,7 +24,9 @@ export function AppProviders({ children }: AppProvidersProps): JSX.Element {
       <OrganizationProvider>
         <BusinessOsProvider>
           <MemoryProvider>
-            <ChatProvider>{children}</ChatProvider>
+            <AISettingsProvider>
+              <ChatProvider>{children}</ChatProvider>
+            </AISettingsProvider>
           </MemoryProvider>
         </BusinessOsProvider>
       </OrganizationProvider>
