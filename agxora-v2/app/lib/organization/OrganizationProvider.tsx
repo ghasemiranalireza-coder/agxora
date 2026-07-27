@@ -117,7 +117,10 @@ export function OrganizationProvider({
   service = organizationService,
 }: OrganizationProviderProps): JSX.Element {
   const serviceRef = useRef(service);
-  serviceRef.current = service;
+
+  useEffect(() => {
+    serviceRef.current = service;
+  }, [service]);
 
   const session = useSyncExternalStore(
     subscribeOrganizationStore,

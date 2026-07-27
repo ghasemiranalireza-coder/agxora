@@ -13,6 +13,16 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    files: [
+      "app/components/AgxoraGlobe3D.tsx",
+      "app/components/StarfieldBackground.tsx",
+    ],
+    rules: {
+      // React Three Fiber mutates materials / transforms inside useFrame.
+      "react-hooks/immutability": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;

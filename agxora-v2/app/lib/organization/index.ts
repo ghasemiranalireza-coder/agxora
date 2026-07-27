@@ -103,3 +103,64 @@ export {
   buildOrganizationAiContext,
   summarizeOrganizationForAi,
 } from "./ai/organizationAiContext";
+
+export {
+  toOrganizationIdentity,
+  createOrganizationId,
+} from "./Organization";
+export type { OrganizationIdentity } from "./Organization";
+
+export {
+  asBusinessId,
+  createBusiness,
+} from "./Business";
+export type {
+  Business,
+  BusinessId,
+  BusinessStatus,
+  CreateBusinessInput,
+} from "./Business";
+
+export {
+  asDepartmentId,
+  createDepartment,
+} from "./Department";
+export type {
+  Department,
+  DepartmentId,
+  DepartmentStatus,
+  CreateDepartmentInput,
+} from "./Department";
+
+export {
+  asEmployeeId,
+  createEmployee,
+  employeeDisplayName,
+} from "./Employee";
+export type {
+  Employee,
+  EmployeeId,
+  EmployeeStatus,
+  CreateEmployeeInput,
+} from "./Employee";
+
+export {
+  asCustomerId,
+  createCustomer,
+} from "./Customer";
+export type {
+  Customer,
+  CustomerId,
+  CustomerKind,
+  CustomerStatus,
+  CreateCustomerInput,
+} from "./Customer";
+
+export {
+  createUserProfile,
+} from "./UserProfile";
+export type {
+  UserProfile,
+  UserProfileStatus,
+  CreateUserProfileInput,
+} from "./UserProfile";

@@ -7,7 +7,6 @@
 
 import { slugifyWorkspaceName } from "../constants";
 import type {
-  CreateOrganizationInput,
   CreateWorkspaceInput,
   MembershipId,
   Organization,
