@@ -59,11 +59,16 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps): JSX.Element {
-  const [mode, setModeState] = useState<ThemeMode>("auto");
-  const [appearance, setAppearance] = useState<ThemeAppearance>("night");
-  const [hydrated, setHydrated] = useState(false);
-  const appearanceRef = useRef<ThemeAppearance>("night");
+  const [mode, setModeState] = useState<ThemeMode>(() => readStoredMode());
+  const [appearance, setAppearance] = useState<ThemeAppearance>(() =>
+    resolveAppearance(readStoredMode()),
+  );
+  const [hydrated] = useState(() => typeof window !== "undefined");
+  const appearanceRef = useRef<ThemeAppearance>(
+    typeof window === "undefined" ? "night" : resolveAppearance(readStoredMode()),
+  );
   const blendRaf = useRef<number | null>(null);
+  const didInitVisual = useRef(false);
 
   const animateBlend = useCallback((target: ThemeAppearance) => {
     const to = target === "day" ? 1 : 0;
@@ -114,18 +119,15 @@ export function ThemeProvider({ children }: ThemeProviderProps): JSX.Element {
   );
 
   useEffect(() => {
-    const initialMode = readStoredMode();
-    const initialAppearance = resolveAppearance(initialMode);
-    setModeState(initialMode);
-    applyAppearance(initialAppearance, false);
-    setHydrated(true);
-  }, [applyAppearance]);
+    if (didInitVisual.current) return;
+    didInitVisual.current = true;
+    setThemeVisualState(appearance, appearance === "day" ? 1 : 0);
+  }, [appearance]);
 
   useEffect(() => {
     if (!hydrated || mode !== "auto") return undefined;
 
     let boundaryTimer: number | undefined;
-    let pollTimer: number | undefined;
 
     const sync = (): void => {
       const next = resolveAppearance("auto");
@@ -141,11 +143,11 @@ export function ThemeProvider({ children }: ThemeProviderProps): JSX.Element {
     };
 
     armBoundary();
-    pollTimer = window.setInterval(sync, 60_000);
+    const pollTimer = window.setInterval(sync, 60_000);
 
     return () => {
       if (boundaryTimer !== undefined) window.clearTimeout(boundaryTimer);
-      if (pollTimer !== undefined) window.clearInterval(pollTimer);
+      window.clearInterval(pollTimer);
     };
   }, [mode, hydrated, applyAppearance]);
 

@@ -2,6 +2,7 @@
 
 import type { JSX } from "react";
 import AgxoraGlobe3D from "../components/AgxoraGlobe3D";
+import { ChatPanel } from "../components/ChatPanel";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import { BusinessOverview } from "../components/dashboard/BusinessOverview";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
@@ -399,113 +400,7 @@ export default function Dashboard() {
             ))}
           </div>
 
-          <div
-            className="agx-glass-panel"
-            style={{
-              padding: "28px 30px",
-              borderRadius: "26px",
-              background: tokens.panelBg,
-              border: `1px solid ${tokens.panelBorder}`,
-              boxShadow: tokens.panelShadow,
-              backdropFilter: tokens.cardBlur,
-              WebkitBackdropFilter: tokens.cardBlur,
-              transition: surfaceTransition,
-            }}
-          >
-            <h2
-              style={{
-                color: tokens.accent,
-                marginBottom: "18px",
-                marginTop: 0,
-                fontSize: "12px",
-                fontWeight: 650,
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-                transition: surfaceTransition,
-              }}
-            >
-              AGXORA AI
-            </h2>
-
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "10px",
-                marginBottom: "18px",
-              }}
-            >
-              <div
-                style={{
-                  padding: "13px 15px",
-                  borderRadius: "16px",
-                  background: tokens.chatBubbleBg,
-                  border: `1px solid ${tokens.divider}`,
-                  fontSize: "13.5px",
-                  transition: surfaceTransition,
-                }}
-              >
-                Show revenue forecast
-              </div>
-
-              <div
-                style={{
-                  padding: "13px 15px",
-                  borderRadius: "16px",
-                  background: tokens.chatReplyBg,
-                  color: tokens.accent,
-                  border: `1px solid ${tokens.panelBorder}`,
-                  fontSize: "13.5px",
-                  transition: surfaceTransition,
-                }}
-              >
-                Revenue expected to increase by 18% next month.
-              </div>
-
-              <div
-                style={{
-                  padding: "13px 15px",
-                  borderRadius: "16px",
-                  background: tokens.chatBubbleBg,
-                  border: `1px solid ${tokens.divider}`,
-                  fontSize: "13.5px",
-                  transition: surfaceTransition,
-                }}
-              >
-                Analyze customer trends
-              </div>
-
-              <div
-                style={{
-                  padding: "13px 15px",
-                  borderRadius: "16px",
-                  background: tokens.chatReplyBg,
-                  color: tokens.accent,
-                  border: `1px solid ${tokens.panelBorder}`,
-                  fontSize: "13.5px",
-                  transition: surfaceTransition,
-                }}
-              >
-                Customer retention improved by 12%.
-              </div>
-            </div>
-
-            <input
-              className="agx-input"
-              placeholder="Ask AGXORA AI..."
-              style={{
-                width: "100%",
-                padding: "14px 16px",
-                borderRadius: "16px",
-                border: `1px solid ${tokens.inputBorder}`,
-                background: tokens.inputBg,
-                color: tokens.text,
-                outline: "none",
-                fontSize: "14px",
-                transition: surfaceTransition,
-              }}
-            />
-          </div>
+          <ChatPanel />
         </div>
       </section>
     </main>
