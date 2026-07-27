@@ -36,8 +36,8 @@ export function DashboardTopNav(): JSX.Element {
         justifyContent: "space-between",
         gap: 16,
         flexWrap: "wrap",
-        marginBottom: 18,
-        paddingBottom: 14,
+        marginBottom: 10,
+        paddingBottom: 10,
         borderBottom: `1px solid ${tokens.divider}`,
         transition: `border-color ${THEME_TRANSITION_MS}ms ease`,
       }}

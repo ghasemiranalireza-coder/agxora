@@ -30,17 +30,19 @@ export default function Dashboard() {
 
   return (
     <AppShell>
-        {/* Hero header */}
+        {/* Hero header — tightened so the Globe leads the first viewport */}
         <div
+          className="agx-hero-header"
           style={{
             position: "relative",
-            marginBottom: "18px",
+            marginTop: "-6px",
+            marginBottom: "10px",
             paddingRight: "min(320px, 38%)",
           }}
         >
           <p
             style={{
-              margin: "0 0 12px",
+              margin: "0 0 6px",
               fontSize: "11px",
               fontWeight: 650,
               letterSpacing: "0.24em",
@@ -54,11 +56,11 @@ export default function Dashboard() {
 
           <h1
             style={{
-              fontSize: "clamp(46px, 6.2vw, 86px)",
+              fontSize: "clamp(40px, 5.4vw, 72px)",
               color: tokens.accent,
               letterSpacing: "-0.01em",
               fontWeight: 700,
-              lineHeight: 0.98,
+              lineHeight: 0.96,
               textShadow: tokens.titleShadow,
               margin: 0,
               transition: surfaceTransition,
@@ -80,12 +82,13 @@ export default function Dashboard() {
         </div>
 
         <div
+          className="agx-hero-status"
           style={{
             display: "inline-flex",
             alignItems: "center",
             gap: "10px",
-            marginBottom: "32px",
-            padding: "8px 14px",
+            marginBottom: "14px",
+            padding: "7px 12px",
             borderRadius: "999px",
             background: tokens.navActiveBg,
             border: `1px solid ${tokens.panelBorder}`,
@@ -116,10 +119,21 @@ export default function Dashboard() {
           </span>
         </div>
 
+        {/* Globe centerpiece — immediate first impression, mostly above the fold */}
+        <div
+          className="agx-hero-globe"
+          style={{
+            position: "relative",
+            marginBottom: "22px",
+          }}
+        >
+          <AgxoraGlobe3D />
+        </div>
+
         <div
           className="agx-glass-panel"
           style={{
-            padding: "28px 30px",
+            padding: "22px 26px",
             borderRadius: "26px",
             background: tokens.panelBg,
             border: `1px solid ${tokens.panelBorder}`,
@@ -159,16 +173,6 @@ export default function Dashboard() {
             automation monitoring, customer insights and global
             operational control.
           </p>
-        </div>
-
-        {/* Globe centerpiece */}
-        <div
-          style={{
-            position: "relative",
-            marginBottom: "56px",
-          }}
-        >
-          <AgxoraGlobe3D />
         </div>
 
         <BusinessOverview />
