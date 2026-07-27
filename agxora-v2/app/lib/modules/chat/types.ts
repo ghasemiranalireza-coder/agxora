@@ -1,7 +1,12 @@
 import type { MemoryContextPacket } from "../../memory/MemoryTypes";
 import type { ChatMessage, ConversationId, MessageId } from "./Message";
 
-export type ChatStatus = "idle" | "sending" | "typing" | "error";
+export type ChatStatus =
+  | "idle"
+  | "sending"
+  | "typing"
+  | "streaming"
+  | "error";
 
 export interface Conversation {
   readonly id: ConversationId;
@@ -45,6 +50,7 @@ export interface AiCompletionRequest {
   readonly organizationId?: string | null;
   readonly workspaceId?: string | null;
   readonly signal?: AbortSignal;
+  readonly onDelta?: (delta: string, content: string) => void;
 }
 
 export interface AiCompletionResponse {
@@ -82,6 +88,11 @@ export interface ChatServiceConfig {
   readonly organizationId?: string | null;
   readonly workspaceId?: string | null;
   readonly typingDelayMs?: number;
+  readonly autoTitleEnabled?: boolean;
+  readonly onMessagesChange?: (
+    conversation: Conversation,
+    messages: readonly ChatMessage[],
+  ) => void;
 }
 
 export type { ChatMessage, ConversationId, MessageId };

@@ -9,8 +9,8 @@ import {
   type ReactNode,
 } from "react";
 import {
-  createChatProviderAdapter,
-  type ChatProviderAdapter,
+  createRemoteChatProvider,
+  type RemoteChatProviderAdapter,
 } from "../../ai/adapters/chatProviderAdapter";
 import { useOptionalAISettings } from "../../ai/AIProviderContext";
 import { aiEngine } from "../../ai/AIEngine";
@@ -23,6 +23,7 @@ import {
 } from "./chatService";
 import { ChatContext, type ChatContextValue } from "./ChatContext";
 import type { ChatStatus, SendMessageResult } from "./types";
+import type { ConversationId, MessageId } from "./Message";
 
 interface ChatProviderProps {
   readonly children: ReactNode;
@@ -38,9 +39,11 @@ export function ChatProvider({
   const businessOs = useBusinessOs();
   const aiSettings = useOptionalAISettings();
 
-  const [adapter] = useState<ChatProviderAdapter | null>(() => {
+  const [adapter] = useState<RemoteChatProviderAdapter | null>(() => {
     if (injected) return null;
-    return createChatProviderAdapter(aiEngine);
+    return createRemoteChatProvider({
+      getSettings: () => aiEngine.getSettings(),
+    });
   });
 
   const [service] = useState<ChatService>(() => {
@@ -52,7 +55,10 @@ export function ChatProvider({
     }
     return createDefaultChatService(
       {
-        recordMessage: (input) => memory.recordMessage(input),
+        recordMessage: (input) => {
+          if (aiEngine.getSettings().memoryEnabled === false) return;
+          memory.recordMessage(input);
+        },
         buildContext: (scope, options) => memory.buildContext(scope, options),
       },
       {
@@ -60,6 +66,9 @@ export function ChatProvider({
         workspaceId: workspace?.id ?? null,
       },
       adapter ?? undefined,
+      {
+        autoTitleEnabled: true,
+      },
     );
   });
 
@@ -67,9 +76,19 @@ export function ChatProvider({
   const [conversation, setConversation] = useState(() =>
     service.getConversation(),
   );
+  const [conversations, setConversations] = useState(() =>
+    service.listConversations(),
+  );
   const [draft, setDraft] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [status, setStatus] = useState<ChatStatus>("idle");
   const [error, setError] = useState<string | null>(null);
+
+  const syncFromService = useCallback(() => {
+    setMessages(service.listMessages());
+    setConversation(service.getConversation());
+    setConversations(service.listConversations());
+  }, [service]);
 
   useEffect(() => {
     service.setContext(organization?.id ?? null, workspace?.id ?? null);
@@ -79,13 +98,20 @@ export function ChatProvider({
     if (!adapter) return;
     adapter.setEnricher(() => {
       const operating = businessOs.buildAiContext();
+      const settings = aiSettings?.settings;
+      const memoryOn = settings?.memoryEnabled !== false;
+
       if (!operating) {
         return {
           organization: {
             organizationId: organization?.id ?? null,
             workspaceId: workspace?.id ?? null,
             companyName: organization?.name,
+            country: organization?.country,
+            language: organization?.language,
+            timezone: organization?.timezone,
           },
+          memory: memoryOn ? undefined : { scope: { kind: "conversation", id: "none" }, entries: [], generatedAt: new Date().toISOString() },
         };
       }
 
@@ -119,8 +145,7 @@ export function ChatProvider({
           })),
         },
         systemPrompt:
-          aiSettings?.settings.systemPromptOverride?.trim() ||
-          operating.systemPrompt,
+          settings?.systemPromptOverride?.trim() || operating.systemPrompt,
       };
     });
   }, [
@@ -128,44 +153,51 @@ export function ChatProvider({
     businessOs,
     organization?.id,
     organization?.name,
+    organization?.country,
+    organization?.language,
+    organization?.timezone,
     workspace?.id,
-    aiSettings?.settings.systemPromptOverride,
+    aiSettings?.settings,
   ]);
 
   useEffect(() => {
     if (!aiSettings) return;
     aiEngine.updateSettings(aiSettings.settings);
-  }, [aiSettings, aiSettings?.settings]);
+    service.setAutoTitleEnabled(aiSettings.settings.autoTitleEnabled);
+  }, [aiSettings, aiSettings?.settings, service]);
 
-  const syncFromService = useCallback(() => {
-    setMessages(service.listMessages());
-    setConversation(service.getConversation());
-  }, [service]);
-
-  const send = useCallback(
-    async (content?: string): Promise<SendMessageResult | null> => {
-      const text = (content ?? draft).trim();
-      if (!text || status === "sending" || status === "typing") {
-        return null;
+  // Poll streaming message updates while generating.
+  useEffect(() => {
+    if (status !== "typing" && status !== "streaming" && status !== "sending") {
+      return;
+    }
+    const timer = window.setInterval(() => {
+      syncFromService();
+      const last = service.listMessages().at(-1);
+      if (last?.status === "streaming") {
+        setStatus("streaming");
       }
+    }, 80);
+    return () => window.clearInterval(timer);
+  }, [status, service, syncFromService]);
 
+  const runGeneration = useCallback(
+    async (
+      action: () => Promise<SendMessageResult | null>,
+    ): Promise<SendMessageResult | null> => {
       setError(null);
       setStatus("sending");
-      setDraft("");
-
-      // Optimistically reflect the outgoing user message immediately.
       try {
-        // Mark typing while the provider generates a reply.
-        const sendPromise = service.sendMessage({ content: text });
+        const promise = action();
         syncFromService();
         setStatus("typing");
-
-        const result = await sendPromise;
+        const result = await promise;
         syncFromService();
         setStatus("idle");
         return result;
       } catch (err) {
         if (err instanceof DOMException && err.name === "AbortError") {
+          syncFromService();
           setStatus("idle");
           return null;
         }
@@ -177,7 +209,73 @@ export function ChatProvider({
         return null;
       }
     },
-    [draft, service, status, syncFromService],
+    [syncFromService],
+  );
+
+  const send = useCallback(
+    async (content?: string): Promise<SendMessageResult | null> => {
+      const text = (content ?? draft).trim();
+      if (!text || status === "sending" || status === "typing" || status === "streaming") {
+        return null;
+      }
+      setDraft("");
+      return runGeneration(() => service.sendMessage({ content: text }));
+    },
+    [draft, service, status, runGeneration],
+  );
+
+  const stop = useCallback(() => {
+    service.stopGeneration();
+    syncFromService();
+    setStatus("idle");
+  }, [service, syncFromService]);
+
+  const regenerate = useCallback(
+    async (messageId?: MessageId) => {
+      if (status === "sending" || status === "typing" || status === "streaming") {
+        return null;
+      }
+      return runGeneration(() => service.regenerate(messageId));
+    },
+    [runGeneration, service, status],
+  );
+
+  const retry = useCallback(async () => {
+    if (status === "sending" || status === "typing" || status === "streaming") {
+      return null;
+    }
+    return runGeneration(() => service.retryLast());
+  }, [runGeneration, service, status]);
+
+  const deleteConversation = useCallback(() => {
+    service.deleteConversation();
+    syncFromService();
+    setStatus("idle");
+    setError(null);
+  }, [service, syncFromService]);
+
+  const renameConversation = useCallback(
+    (title: string) => {
+      service.renameConversation(title);
+      syncFromService();
+    },
+    [service, syncFromService],
+  );
+
+  const newConversation = useCallback(() => {
+    service.newConversation();
+    syncFromService();
+    setStatus("idle");
+    setError(null);
+  }, [service, syncFromService]);
+
+  const switchConversation = useCallback(
+    (id: ConversationId) => {
+      service.switchConversation(id);
+      syncFromService();
+      setStatus("idle");
+    },
+    [service, syncFromService],
   );
 
   const clearError = useCallback(() => {
@@ -185,36 +283,66 @@ export function ChatProvider({
     if (status === "error") setStatus("idle");
   }, [status]);
 
+  const filteredConversations = useMemo(() => {
+    if (!searchQuery.trim()) return conversations;
+    return service.searchConversations(searchQuery);
+  }, [conversations, searchQuery, service]);
+
   const isSending = status === "sending";
-  const isTyping = status === "typing";
+  const isTyping = status === "typing" || status === "streaming";
+  const isStreaming = status === "streaming";
   const canSend =
-    draft.trim().length > 0 && status !== "sending" && status !== "typing";
+    draft.trim().length > 0 &&
+    status !== "sending" &&
+    status !== "typing" &&
+    status !== "streaming";
 
   const value = useMemo<ChatContextValue>(
     () => ({
       conversation,
+      conversations: filteredConversations,
       messages,
       draft,
       setDraft,
+      searchQuery,
+      setSearchQuery,
       status,
       error,
       isSending,
       isTyping,
+      isStreaming,
       canSend,
       send,
+      stop,
+      regenerate,
+      retry,
+      deleteConversation,
+      renameConversation,
+      newConversation,
+      switchConversation,
       clearError,
       activeConversationId: conversation?.id ?? null,
     }),
     [
       conversation,
+      filteredConversations,
       messages,
       draft,
+      searchQuery,
       status,
       error,
       isSending,
       isTyping,
+      isStreaming,
       canSend,
       send,
+      stop,
+      regenerate,
+      retry,
+      deleteConversation,
+      renameConversation,
+      newConversation,
+      switchConversation,
       clearError,
     ],
   );

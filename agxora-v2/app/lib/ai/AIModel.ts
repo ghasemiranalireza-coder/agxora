@@ -44,10 +44,19 @@ export const AI_MODEL_CATALOG: readonly AIModelDefinition[] = [
   {
     id: "gpt-5",
     providerId: "openai",
-    displayName: "GPT-5 (future)",
+    displayName: "GPT-5",
     contextWindow: 1_000_000,
     maxOutputTokens: 65_536,
     capabilities: ["chat", "streaming", "tools", "vision", "reasoning"],
+    family: "gpt",
+  },
+  {
+    id: "gpt-5-mini",
+    providerId: "openai",
+    displayName: "GPT-5 Mini",
+    contextWindow: 400_000,
+    maxOutputTokens: 32_768,
+    capabilities: ["chat", "streaming", "tools", "vision"],
     family: "gpt",
   },
   {

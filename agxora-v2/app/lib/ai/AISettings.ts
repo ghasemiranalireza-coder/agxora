@@ -14,6 +14,8 @@ export interface AISettings {
   readonly streamingEnabled: boolean;
   readonly systemPromptOverride?: string;
   readonly reasoningLevel: ReasoningLevel;
+  readonly memoryEnabled: boolean;
+  readonly autoTitleEnabled: boolean;
   readonly voiceEnabled: boolean;
   readonly visionEnabled: boolean;
 }
@@ -25,6 +27,8 @@ export const DEFAULT_AI_SETTINGS: AISettings = {
   maxTokens: 2048,
   streamingEnabled: true,
   reasoningLevel: "medium",
+  memoryEnabled: true,
+  autoTitleEnabled: true,
   voiceEnabled: false,
   visionEnabled: false,
 };
