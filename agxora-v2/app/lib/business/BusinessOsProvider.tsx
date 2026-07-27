@@ -20,15 +20,30 @@ import {
   businessBrain,
   type ActivateBusinessInput,
   type BusinessProfile,
-} from "./brain/BusinessBrain";
+} from "./BusinessBrain";
 import {
   businessTemplateRegistry,
   type BusinessTemplate,
 } from "./templates";
 import type { BusinessType } from "./BusinessType";
+import type { BusinessSize } from "./BusinessType";
 import { pluginRegistry } from "../plugins";
 import { rbacEngine } from "../rbac";
 import { workflowEngine } from "../workflows";
+
+function isLegacyProfile(
+  profile: BusinessProfile | (BusinessProfile & Record<string, unknown>),
+): boolean {
+  return !("recognition" in profile) || !("reasoningDomains" in profile);
+}
+
+function readCurrency(profile: BusinessProfile): string | undefined {
+  return "currency" in profile ? profile.currency : undefined;
+}
+
+function readSize(profile: BusinessProfile): BusinessSize | undefined {
+  return "size" in profile ? profile.size : undefined;
+}
 
 const PROFILE_STORAGE_KEY = "agxora-business-profile";
 
@@ -93,6 +108,37 @@ function provisionRuntime(
   }
 }
 
+function normalizeStoredProfile(
+  stored: BusinessProfile | null,
+): BusinessProfile | null {
+  if (!stored) return null;
+
+  const needsRestore =
+    isLegacyProfile(stored) ||
+    !businessBrain.getProfile(stored.organizationId);
+
+  if (!needsRestore) return stored;
+
+  try {
+    const restored = businessBrain.activate({
+      organizationId: stored.organizationId,
+      companyName: stored.companyName,
+      businessType: stored.businessType,
+      templateId: stored.templateId,
+      country: stored.country,
+      language: stored.language,
+      timezone: stored.timezone,
+      currency: readCurrency(stored),
+      size: readSize(stored),
+      goals: stored.goals,
+    });
+    persistProfile(restored.profile);
+    return restored.profile;
+  } catch {
+    return stored;
+  }
+}
+
 interface BusinessOsProviderProps {
   readonly children: ReactNode;
 }
@@ -101,7 +147,7 @@ export function BusinessOsProvider({
   children,
 }: BusinessOsProviderProps): JSX.Element {
   const [profile, setProfile] = useState<BusinessProfile | null>(() =>
-    readStoredProfile(),
+    normalizeStoredProfile(readStoredProfile()),
   );
   const hydratedRef = useRef(false);
 
@@ -113,6 +159,7 @@ export function BusinessOsProvider({
   useEffect(() => {
     if (hydratedRef.current || !profile) return;
     hydratedRef.current = true;
+
     if (!businessBrain.getProfile(profile.organizationId)) {
       businessBrain.activate({
         organizationId: profile.organizationId,
@@ -122,9 +169,12 @@ export function BusinessOsProvider({
         country: profile.country,
         language: profile.language,
         timezone: profile.timezone,
+        currency: readCurrency(profile),
+        size: readSize(profile),
         goals: profile.goals,
       });
     }
+
     const activeTemplate =
       businessTemplateRegistry.get(profile.templateId) ??
       businessTemplateRegistry.primaryFor(profile.businessType);
