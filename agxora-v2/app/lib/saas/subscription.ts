@@ -1,0 +1,46 @@
+/**
+ * SaaS subscription model — architecture ready for Stripe/Paddle later.
+ */
+
+export type SubscriptionPlanId =
+  | "free"
+  | "starter"
+  | "growth"
+  | "enterprise"
+  | "custom";
+
+export type SubscriptionStatus =
+  | "trialing"
+  | "active"
+  | "past_due"
+  | "canceled"
+  | "incomplete";
+
+export interface Subscription {
+  readonly id: string;
+  readonly organizationId: string;
+  readonly planId: SubscriptionPlanId;
+  readonly status: SubscriptionStatus;
+  readonly seats: number;
+  readonly renewsAt?: string;
+  readonly trialEndsAt?: string;
+  readonly createdAt: string;
+  readonly updatedAt: string;
+}
+
+export const DEFAULT_SUBSCRIPTION_PLAN: SubscriptionPlanId = "free";
+
+export function createTrialSubscription(organizationId: string): Subscription {
+  const now = new Date();
+  const trialEnds = new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000);
+  return {
+    id: `sub_${organizationId}`,
+    organizationId,
+    planId: "starter",
+    status: "trialing",
+    seats: 5,
+    trialEndsAt: trialEnds.toISOString(),
+    createdAt: now.toISOString(),
+    updatedAt: now.toISOString(),
+  };
+}

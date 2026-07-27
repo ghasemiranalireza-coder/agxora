@@ -10,9 +10,10 @@ import {
   authInputStyle,
 } from "../components/auth/AuthCard";
 
-export default function LoginPage(): JSX.Element {
-  const { signIn } = useAuth();
+export default function RegisterPage(): JSX.Element {
+  const { signUp } = useAuth();
   const router = useRouter();
+  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -23,10 +24,10 @@ export default function LoginPage(): JSX.Element {
     setBusy(true);
     setError(null);
     try {
-      await signIn({ email, password });
-      router.replace("/dashboard");
+      await signUp({ email, password, displayName });
+      router.replace("/onboarding");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Sign in failed");
+      setError(err instanceof Error ? err.message : "Sign up failed");
     } finally {
       setBusy(false);
     }
@@ -34,19 +35,23 @@ export default function LoginPage(): JSX.Element {
 
   return (
     <AuthCard
-      title="Sign In"
+      title="Sign Up"
       footer={
         <>
-          <div>
-            No account? <AuthLink href="/register">Sign up</AuthLink>
-          </div>
-          <div>
-            <AuthLink href="/forgot-password">Forgot password?</AuthLink>
-          </div>
+          Already have an account? <AuthLink href="/login">Sign in</AuthLink>
         </>
       }
     >
       <form onSubmit={(event) => void onSubmit(event)}>
+        <input
+          type="text"
+          placeholder="Full name"
+          value={displayName}
+          onChange={(event) => setDisplayName(event.target.value)}
+          required
+          autoComplete="name"
+          style={authInputStyle}
+        />
         <input
           type="email"
           placeholder="Email"
@@ -58,18 +63,19 @@ export default function LoginPage(): JSX.Element {
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Password (min 8 characters)"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           required
-          autoComplete="current-password"
+          minLength={8}
+          autoComplete="new-password"
           style={authInputStyle}
         />
         {error ? (
           <p style={{ color: "#f87171", fontSize: 13, marginTop: 0 }}>{error}</p>
         ) : null}
         <button type="submit" disabled={busy} style={authButtonStyle}>
-          {busy ? "Signing in…" : "Sign In"}
+          {busy ? "Creating account…" : "Create Account"}
         </button>
       </form>
     </AuthCard>

@@ -45,12 +45,16 @@ const defaultDeps: OrganizationServiceDeps = {
 
 export class OrganizationService {
   private readonly api: OrganizationApiPort;
-  private readonly resolveCurrentUserId: () => UserId;
+  private resolveCurrentUserId: () => UserId;
 
   constructor(deps: Partial<OrganizationServiceDeps> = {}) {
     this.api = deps.api ?? defaultDeps.api;
     this.resolveCurrentUserId =
       deps.resolveCurrentUserId ?? defaultDeps.resolveCurrentUserId;
+  }
+
+  setCurrentUserResolver(resolver: () => UserId): void {
+    this.resolveCurrentUserId = resolver;
   }
 
   createDraft(partial: OrganizationDraft = {}): OrganizationProfile {

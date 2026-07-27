@@ -1,7 +1,7 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useState, type FormEvent, type JSX } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useState, type FormEvent, type JSX } from "react";
 import { useAuth } from "../lib/auth";
 import {
   AuthCard,
@@ -10,10 +10,11 @@ import {
   authInputStyle,
 } from "../components/auth/AuthCard";
 
-export default function LoginPage(): JSX.Element {
-  const { signIn } = useAuth();
+function ResetPasswordForm(): JSX.Element {
+  const { resetPassword } = useAuth();
   const router = useRouter();
-  const [email, setEmail] = useState("");
+  const params = useSearchParams();
+  const [token, setToken] = useState(params.get("token") ?? "");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -23,10 +24,10 @@ export default function LoginPage(): JSX.Element {
     setBusy(true);
     setError(null);
     try {
-      await signIn({ email, password });
-      router.replace("/dashboard");
+      await resetPassword({ token, password });
+      router.replace("/login");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Sign in failed");
+      setError(err instanceof Error ? err.message : "Reset failed");
     } finally {
       setBusy(false);
     }
@@ -34,44 +35,48 @@ export default function LoginPage(): JSX.Element {
 
   return (
     <AuthCard
-      title="Sign In"
-      footer={
-        <>
-          <div>
-            No account? <AuthLink href="/register">Sign up</AuthLink>
-          </div>
-          <div>
-            <AuthLink href="/forgot-password">Forgot password?</AuthLink>
-          </div>
-        </>
-      }
+      title="Reset Password"
+      footer={<AuthLink href="/login">Back to sign in</AuthLink>}
     >
       <form onSubmit={(event) => void onSubmit(event)}>
         <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          type="text"
+          placeholder="Reset token"
+          value={token}
+          onChange={(event) => setToken(event.target.value)}
           required
-          autoComplete="email"
           style={authInputStyle}
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="New password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           required
-          autoComplete="current-password"
+          minLength={8}
           style={authInputStyle}
         />
         {error ? (
           <p style={{ color: "#f87171", fontSize: 13, marginTop: 0 }}>{error}</p>
         ) : null}
         <button type="submit" disabled={busy} style={authButtonStyle}>
-          {busy ? "Signing in…" : "Sign In"}
+          {busy ? "Updating…" : "Update Password"}
         </button>
       </form>
     </AuthCard>
+  );
+}
+
+export default function ResetPasswordPage(): JSX.Element {
+  return (
+    <Suspense
+      fallback={
+        <AuthCard title="Reset Password">
+          <p style={{ color: "#94a3b8", textAlign: "center" }}>Loading…</p>
+        </AuthCard>
+      }
+    >
+      <ResetPasswordForm />
+    </Suspense>
   );
 }

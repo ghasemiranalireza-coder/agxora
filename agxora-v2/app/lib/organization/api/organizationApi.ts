@@ -68,6 +68,9 @@ export function createLocalOrganizationApi(
       const organization: Organization = {
         ...input.profile,
         id: organizationId,
+        slug: slugifyWorkspaceName(input.profile.name),
+        ownerId: ownerUserId,
+        subscriptionId: `sub_${organizationId}`,
         status: "active",
         createdAt: timestamp,
         updatedAt: timestamp,
@@ -122,6 +125,9 @@ export function createLocalOrganizationApi(
         ...existing,
         ...input.patch,
         id: existing.id,
+        slug: existing.slug,
+        ownerId: existing.ownerId,
+        subscriptionId: existing.subscriptionId,
         createdAt: existing.createdAt,
         updatedAt: nowIso(),
         status: existing.status,
@@ -180,6 +186,29 @@ export function createLocalOrganizationApi(
 
     async listMembershipsForUser(userId) {
       return [...db.memberships.values()].filter((m) => m.userId === userId);
+    },
+
+    async listMembershipsForOrganization(organizationId) {
+      return [...db.memberships.values()].filter(
+        (m) => m.organizationId === organizationId,
+      );
+    },
+
+    async upsertMembership(membership) {
+      db.memberships.set(membership.id, membership);
+      return membership;
+    },
+
+    async revokeMembership(membershipId) {
+      const existing = [...db.memberships.values()].find(
+        (item) => item.id === membershipId,
+      );
+      if (!existing) return;
+      db.memberships.set(existing.id, {
+        ...existing,
+        status: "revoked",
+        updatedAt: nowIso(),
+      });
     },
   };
 }

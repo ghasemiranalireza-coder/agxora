@@ -9,6 +9,33 @@
   --foreground: #171717;
 }
 
+.agx-mobile-nav-toggle,
+.agx-mobile-nav-overlay {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .agx-mobile-nav-toggle {
+    display: inline-flex !important;
+  }
+  .agx-sidebar {
+    position: fixed !important;
+    inset: 0 auto 0 0;
+    transform: translateX(-105%);
+    transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .agx-sidebar.is-open {
+    transform: translateX(0);
+  }
+  .agx-mobile-nav-overlay {
+    display: block !important;
+  }
+  .agx-shell-content {
+    padding: 72px 20px 40px !important;
+    min-width: 0 !important;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

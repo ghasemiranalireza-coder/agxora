@@ -60,15 +60,19 @@ export const INDUSTRY_CATEGORIES: readonly IndustryCategory[] = [
 
 /** Reserved module registry — none enabled by default in Phase 3. */
 export const WORKSPACE_MODULE_REGISTRY: readonly WorkspaceModuleKey[] = [
+  "dashboard",
   "crm",
+  "customers",
   "projects",
   "documents",
   "automation",
   "analytics",
   "finance",
+  "invoices",
   "ai",
   "workflows",
   "knowledge",
+  "memory",
   "marketplace",
   "integrations",
   "settings",

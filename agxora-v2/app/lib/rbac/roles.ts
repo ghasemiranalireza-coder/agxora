@@ -56,6 +56,27 @@ export const SYSTEM_ROLES: readonly RoleDefinition[] = [
     system: true,
   },
   {
+    id: asRbacRoleId("role.manager"),
+    key: "manager",
+    name: "Manager",
+    description: "Lead teams and operational modules",
+    permissions: [
+      ...MEMBER,
+      "module.write",
+      "invite.write",
+      "workflow.execute",
+    ],
+    system: true,
+  },
+  {
+    id: asRbacRoleId("role.employee"),
+    key: "employee",
+    name: "Employee",
+    description: "Day-to-day operational access",
+    permissions: MEMBER,
+    system: true,
+  },
+  {
     id: asRbacRoleId("role.member"),
     key: "member",
     name: "Member",
