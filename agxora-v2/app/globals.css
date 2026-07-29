@@ -179,7 +179,8 @@ textarea {
   justify-content: flex-start;
   width: 100%;
   min-height: clamp(900px, 98vh, 1140px);
-  padding: 12px 0 0;
+  /* Exact: previous 12px top padding + 48px */
+  padding: 60px 0 0;
   margin: -8px 0 0;
   overflow: visible;
   isolation: isolate;
@@ -245,12 +246,16 @@ textarea {
 .agx-hero-globe-stage {
   position: relative;
   z-index: 2;
-  width: min(920px, 100%);
-  /* More cinematic stage height + globe overlap */
-  height: clamp(540px, 66vh, 820px);
-  /* Phase 9.1: more title→globe spacing */
+  /* Exact desktop globe box */
+  width: 520px;
+  max-width: 520px;
+  /* Exact: previous clamp(540px, 66vh, 820px) reduced by 120px, capped at 520px */
+  height: clamp(420px, calc(66vh - 120px), 700px);
+  max-height: 520px;
   margin-top: 22px;
   margin-bottom: -155px;
+  /* Exact: move globe 40px upward (top, not transform — avoids Framer Motion conflict) */
+  top: -40px;
   pointer-events: none;
 }
 
@@ -258,12 +263,35 @@ textarea {
   position: absolute;
   inset: 0;
   z-index: 2;
+  width: 100%;
+  height: 100%;
+  max-width: 520px;
+  max-height: 520px;
   pointer-events: auto;
 }
 
-/* Phase 9: removed thick glow; keep only realistic atmosphere from WebGL. */
+/* Exact halo opacity: 18% */
 .agx-hero-globe-glow {
-  display: none;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 520px;
+  height: 520px;
+  max-width: 520px;
+  max-height: 520px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(56, 168, 255, 0.35) 0%,
+    rgba(34, 140, 230, 0.14) 42%,
+    transparent 72%
+  );
+  filter: blur(10px);
+  pointer-events: none;
+  opacity: 0.18;
 }
 
 .agx-hero-globe-depth {
@@ -271,7 +299,7 @@ textarea {
   left: 50%;
   bottom: 6%;
   z-index: 0;
-  width: min(70%, 560px);
+  width: min(70%, 420px);
   height: 18%;
   transform: translateX(-50%);
   border-radius: 50%;
@@ -283,7 +311,7 @@ textarea {
   );
   filter: blur(26px);
   pointer-events: none;
-  opacity: 0.9;
+  opacity: 0.18;
 }
 
 .agx-hero-cta:focus-visible {
@@ -388,7 +416,8 @@ textarea {
 @media (max-width: 1100px) {
   .agx-hero {
     min-height: clamp(760px, 92vh, 980px);
-    padding-top: 4px;
+    /* Exact: previous tablet 4px + 48px */
+    padding-top: 52px;
   }
 
   .agx-hero-title {
@@ -401,10 +430,22 @@ textarea {
   }
 
   .agx-hero-globe-stage {
-    width: min(820px, 100%);
-    height: clamp(470px, 58vh, 700px);
+    width: min(520px, 100%);
+    max-width: 520px;
+    /* Exact: previous clamp(470px, 58vh, 700px) reduced by 120px */
+    height: clamp(350px, calc(58vh - 120px), 580px);
+    max-height: 520px;
     margin-top: 24px;
     margin-bottom: -115px;
+    top: -40px;
+  }
+
+  .agx-hero-globe-glow {
+    width: min(520px, 100%);
+    height: min(520px, 100%);
+    max-width: 520px;
+    max-height: 520px;
+    opacity: 0.18;
   }
 
   .agx-bottom-grid {
@@ -417,7 +458,8 @@ textarea {
   .agx-hero {
     min-height: clamp(680px, 88vh, 860px);
     margin-top: 0;
-    padding-top: 0;
+    /* Exact: previous 0px + 48px */
+    padding-top: 48px;
   }
 
   .agx-hero-copy {
@@ -455,10 +497,14 @@ textarea {
   }
 
   .agx-hero-globe-stage {
-    width: 100%;
-    height: clamp(410px, 54vh, 600px);
+    width: min(520px, 100%);
+    max-width: 520px;
+    /* Exact: previous clamp(410px, 54vh, 600px) reduced by 120px */
+    height: clamp(290px, calc(54vh - 120px), 480px);
+    max-height: 520px;
     margin-top: 22px;
     margin-bottom: -70px;
+    top: -40px;
   }
 
   .agx-hero-theme {
@@ -470,6 +516,7 @@ textarea {
 @media (max-width: 480px) {
   .agx-hero {
     min-height: clamp(640px, 90vh, 780px);
+    padding-top: 48px;
   }
 
   .agx-hero-title {
@@ -482,8 +529,13 @@ textarea {
   }
 
   .agx-hero-globe-stage {
-    height: clamp(360px, 48vh, 480px);
+    width: min(520px, 100%);
+    max-width: 520px;
+    /* Exact: previous clamp(360px, 48vh, 480px) reduced by 120px */
+    height: clamp(240px, calc(48vh - 120px), 360px);
+    max-height: 520px;
     margin-bottom: -52px;
+    top: -40px;
   }
 }
 

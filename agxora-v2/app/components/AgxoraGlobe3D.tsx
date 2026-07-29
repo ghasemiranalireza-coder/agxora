@@ -645,13 +645,18 @@ function AtmosphereLayer({
   );
 }
 
+/** Exact desktop globe diameter (px) and atmosphere thickness (px). */
+const GLOBE_DIAMETER_PX = 520;
+const ATMOSPHERE_THICKNESS_PX = 6;
+/** Atmosphere outer scale so shell thickness = 6px when diameter = 520px. */
+const ATMOSPHERE_SCALE =
+  1 + (2 * ATMOSPHERE_THICKNESS_PX) / GLOBE_DIAMETER_PX;
+
 function AtmosphereGlow(): JSX.Element {
   return (
     <>
-      {/* Phase 9.1: thin atmosphere (reduced thickness + less blue halo) */}
-      <AtmosphereLayer scale={1.028} gainScale={0.08} curve={2.25} />
-      <AtmosphereLayer scale={1.018} gainScale={0.22} curve={3.05} />
-      <AtmosphereLayer scale={1.008} gainScale={0.48} curve={4.45} />
+      {/* Exact 6px atmosphere thickness at 520px globe diameter */}
+      <AtmosphereLayer scale={ATMOSPHERE_SCALE} gainScale={0.42} curve={4.2} />
     </>
   );
 }
@@ -663,7 +668,8 @@ function EarthAura(): JSX.Element {
       new THREE.MeshBasicMaterial({
         color: new THREE.Color("#3d9aef"),
         transparent: true,
-        opacity: 0.035,
+        // Exact halo opacity: 18%
+        opacity: 0.18,
         depthWrite: false,
         blending: THREE.AdditiveBlending,
         side: THREE.BackSide,
@@ -675,12 +681,13 @@ function EarthAura(): JSX.Element {
 
   useFrame(() => {
     const blend = getThemeDayBlend();
-    mat.opacity = lerp(0.04, 0.016, blend);
+    // Exact night halo 18%; day slightly softer but capped at 18%
+    mat.opacity = lerp(0.18, 0.18 * 0.55, blend);
     mat.color.set(blend > 0.5 ? "#9ec8e8" : "#3d9aef");
   });
 
   return (
-    <mesh scale={1.09}>
+    <mesh scale={ATMOSPHERE_SCALE}>
       <sphereGeometry args={[PLANET_RADIUS, 48, 48]} />
       <primitive object={mat} attach="material" />
     </mesh>
@@ -1018,7 +1025,7 @@ export default function AgxoraGlobe3D({
   const { profile, compact } = useRenderProfile();
   const { tokens } = useTheme();
   const isHero = variant === "hero";
-  const globeScale = isHero ? 0.7 : 1;
+  const globeScale = isHero ? 0.68 : 1;
 
   const frameStyle = useMemo<CSSProperties>(() => {
     if (isHero) {

@@ -153,6 +153,7 @@ export function HeroSection(): JSX.Element {
       </motion.div>
 
       <motion.div className="agx-hero-globe-stage" {...globeRise}>
+        <div className="agx-hero-globe-glow" aria-hidden="true" />
         <div className="agx-hero-globe-depth" aria-hidden="true" />
         <div className="agx-hero-globe-canvas">
           <AgxoraGlobe3D variant="hero" />
