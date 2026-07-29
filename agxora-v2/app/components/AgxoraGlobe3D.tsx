@@ -396,7 +396,7 @@ const PLANET_SPIN = 0.0088;
 const CLOUD_SPIN = 0.014;
 const CLOUD_HIGH_SPIN = 0.009;
 /** Hero composition — globe sits high in the stage. */
-const PLANET_BASE_Y = 0.1;
+const PLANET_BASE_Y = 0.115;
 const PLANET_FLOAT_AMP = 0.03;
 const PLANET_FLOAT_SPEED = 0.26;
 
@@ -648,10 +648,10 @@ function AtmosphereLayer({
 function AtmosphereGlow(): JSX.Element {
   return (
     <>
-      {/* Thin realistic atmosphere — soft scatter + crisp rim */}
-      <AtmosphereLayer scale={1.045} gainScale={0.16} curve={2.45} />
-      <AtmosphereLayer scale={1.03} gainScale={0.34} curve={3.4} />
-      <AtmosphereLayer scale={1.015} gainScale={0.78} curve={5.35} />
+      {/* Phase 9.1: thin atmosphere (reduced thickness + less blue halo) */}
+      <AtmosphereLayer scale={1.028} gainScale={0.08} curve={2.25} />
+      <AtmosphereLayer scale={1.018} gainScale={0.22} curve={3.05} />
+      <AtmosphereLayer scale={1.008} gainScale={0.48} curve={4.45} />
     </>
   );
 }
@@ -663,7 +663,7 @@ function EarthAura(): JSX.Element {
       new THREE.MeshBasicMaterial({
         color: new THREE.Color("#3d9aef"),
         transparent: true,
-        opacity: 0.05,
+        opacity: 0.035,
         depthWrite: false,
         blending: THREE.AdditiveBlending,
         side: THREE.BackSide,
@@ -675,12 +675,12 @@ function EarthAura(): JSX.Element {
 
   useFrame(() => {
     const blend = getThemeDayBlend();
-    mat.opacity = lerp(0.06, 0.028, blend);
+    mat.opacity = lerp(0.04, 0.016, blend);
     mat.color.set(blend > 0.5 ? "#9ec8e8" : "#3d9aef");
   });
 
   return (
-    <mesh scale={1.14}>
+    <mesh scale={1.09}>
       <sphereGeometry args={[PLANET_RADIUS, 48, 48]} />
       <primitive object={mat} attach="material" />
     </mesh>
@@ -857,6 +857,7 @@ function CameraDrift({ parallax }: CameraDriftProps): null {
 interface SpaceSceneProps {
   readonly profile: RenderProfile;
   readonly compact: boolean;
+  readonly globeScale: number;
 }
 
 const NIGHT_SUN = new THREE.Color("#ffffff");
@@ -866,7 +867,11 @@ const DAY_FILL = new THREE.Color("#a8c4dc");
 const NIGHT_RIM = new THREE.Color("#3d8fd8");
 const DAY_RIM = new THREE.Color("#b8d4ec");
 
-function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
+function SpaceScene({
+  profile,
+  compact,
+  globeScale,
+}: SpaceSceneProps): JSX.Element {
   const sunRef = useRef<THREE.DirectionalLight>(null);
   const fillRef = useRef<THREE.DirectionalLight>(null);
   const rimRef = useRef<THREE.DirectionalLight>(null);
@@ -979,7 +984,9 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
         <StarShellPoints key={shell.seed} shell={shell} />
       ))}
 
-      <Planet profile={profile} />
+      <group scale={globeScale}>
+        <Planet profile={profile} />
+      </group>
       <CameraDrift parallax={!compact} />
 
       <EffectComposer multisampling={profile.msaa} frameBufferType={THREE.HalfFloatType}>
@@ -1011,6 +1018,7 @@ export default function AgxoraGlobe3D({
   const { profile, compact } = useRenderProfile();
   const { tokens } = useTheme();
   const isHero = variant === "hero";
+  const globeScale = isHero ? 0.7 : 1;
 
   const frameStyle = useMemo<CSSProperties>(() => {
     if (isHero) {
@@ -1072,7 +1080,11 @@ export default function AgxoraGlobe3D({
         }}
       >
         <Suspense fallback={null}>
-          <SpaceScene profile={profile} compact={compact} />
+          <SpaceScene
+            profile={profile}
+            compact={compact}
+            globeScale={globeScale}
+          />
         </Suspense>
       </Canvas>
     </div>

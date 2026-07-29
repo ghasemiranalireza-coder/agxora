@@ -248,8 +248,9 @@ textarea {
   width: min(920px, 100%);
   /* More cinematic stage height + globe overlap */
   height: clamp(540px, 66vh, 820px);
-  margin-top: 10px;
-  margin-bottom: -170px;
+  /* Phase 9.1: more title→globe spacing */
+  margin-top: 22px;
+  margin-bottom: -155px;
   pointer-events: none;
 }
 
@@ -402,8 +403,8 @@ textarea {
   .agx-hero-globe-stage {
     width: min(820px, 100%);
     height: clamp(470px, 58vh, 700px);
-    margin-top: 14px;
-    margin-bottom: -130px;
+    margin-top: 24px;
+    margin-bottom: -115px;
   }
 
   .agx-bottom-grid {
@@ -456,8 +457,8 @@ textarea {
   .agx-hero-globe-stage {
     width: 100%;
     height: clamp(410px, 54vh, 600px);
-    margin-top: 16px;
-    margin-bottom: -82px;
+    margin-top: 22px;
+    margin-bottom: -70px;
   }
 
   .agx-hero-theme {
@@ -482,7 +483,7 @@ textarea {
 
   .agx-hero-globe-stage {
     height: clamp(360px, 48vh, 480px);
-    margin-bottom: -58px;
+    margin-bottom: -52px;
   }
 }
 
