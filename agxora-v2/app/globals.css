@@ -181,7 +181,8 @@ textarea {
   min-height: clamp(900px, 98vh, 1140px);
   /* Exact: previous 12px top padding + 48px */
   padding: 60px 0 0;
-  margin: -8px 0 0;
+  /* Phase 9.3: shift entire Hero up 90px for first-viewport centering */
+  margin: -98px 0 0;
   overflow: visible;
   isolation: isolate;
   text-align: center;
@@ -457,7 +458,8 @@ textarea {
 @media (max-width: 768px) {
   .agx-hero {
     min-height: clamp(680px, 88vh, 860px);
-    margin-top: 0;
+    /* Phase 9.3: shift entire Hero up 90px (was 0) */
+    margin-top: -90px;
     /* Exact: previous 0px + 48px */
     padding-top: 48px;
   }
