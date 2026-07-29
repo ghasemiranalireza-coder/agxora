@@ -136,6 +136,7 @@ const POINT_VERTEX = /* glsl */ `
 
 const POINT_FRAGMENT = /* glsl */ `
   varying vec3 vTint;
+  varying float vTwinkle;
   uniform float uOpacity;
   uniform float uTime;
   uniform float uTwinkleAmp;
