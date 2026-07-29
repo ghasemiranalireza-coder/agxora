@@ -6,6 +6,7 @@
  */
 
 import { useTheme, type ThemeMode } from "../lib/theme";
+import { motion, useReducedMotion } from "framer-motion";
 import type { CSSProperties, JSX } from "react";
 
 const OPTIONS: readonly {
@@ -64,13 +65,27 @@ function optionStyle(active: boolean): CSSProperties {
 
 export default function ThemeSwitcher(): JSX.Element {
   const { mode, setMode } = useTheme();
+  const reduceMotion = useReducedMotion();
+
+  const animProps = reduceMotion
+    ? undefined
+    : {
+        initial: { opacity: 0, y: 10 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.6 },
+      };
 
   return (
-    <div role="radiogroup" aria-label="Dashboard theme" style={shellStyle}>
+    <motion.div
+      role="radiogroup"
+      aria-label="Dashboard theme"
+      style={shellStyle}
+      {...animProps}
+    >
       {OPTIONS.map((option) => {
         const active = mode === option.mode;
         return (
-          <button
+          <motion.button
             key={option.mode}
             type="button"
             role="radio"
@@ -79,12 +94,15 @@ export default function ThemeSwitcher(): JSX.Element {
             className="agx-theme-option"
             onClick={() => setMode(option.mode)}
             style={optionStyle(active)}
+            whileHover={reduceMotion ? undefined : { scale: 1.03 }}
+            whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+            transition={{ duration: 0.2 }}
           >
             <span aria-hidden="true">{option.icon}</span>
             <span>{option.label}</span>
-          </button>
+          </motion.button>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, type JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
+import { motion, useReducedMotion } from "framer-motion";
 
 const surfaceTransition = [
   `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
@@ -75,6 +76,28 @@ export function DashboardSidebar(): JSX.Element {
   const { tokens } = useTheme();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const m = window.matchMedia("(max-width: 900px)");
+    const sync = (): void => setIsMobile(m.matches);
+    sync();
+    m.addEventListener("change", sync);
+    return () => m.removeEventListener("change", sync);
+  }, []);
+
+  const SIDEBAR_WIDTH = 280;
+  const asideAnim = reduceMotion
+    ? undefined
+    : {
+        initial: { opacity: isMobile && !open ? 0 : 1, x: 0 },
+        animate: {
+          opacity: isMobile ? (open ? 1 : 0) : 1,
+          x: isMobile ? (open ? 0 : -SIDEBAR_WIDTH) : 0,
+        },
+        transition: { duration: 0.45 },
+      };
 
   return (
     <>
@@ -100,8 +123,9 @@ export function DashboardSidebar(): JSX.Element {
         Menu
       </button>
 
-      <aside
+      <motion.aside
         className={`agx-sidebar${open ? " is-open" : ""}`}
+        {...asideAnim}
         style={{
           position: "relative",
           width: "280px",
@@ -204,7 +228,7 @@ export function DashboardSidebar(): JSX.Element {
             );
           })}
         </nav>
-      </aside>
+      </motion.aside>
 
       <style jsx global>{`
         @media (max-width: 900px) {

@@ -20,6 +20,7 @@ import {
 } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { useReducedMotion } from "framer-motion";
 import {
   DAY_TOKENS,
   NIGHT_TOKENS,
@@ -62,33 +63,34 @@ interface BackdropLayer {
 function backdropLayers(density: number): readonly BackdropLayer[] {
   return [
     {
-      total: Math.round(5200 * density),
-      nearRadius: 55,
-      farRadius: 115,
-      minPoint: 0.28,
-      maxPoint: 1.05,
-      spin: 0.0011,
-      sway: 0.005,
+      // Deep space: fewer, subtler points (reduced visual noise).
+      total: Math.round(4200 * density),
+      nearRadius: 60,
+      farRadius: 135,
+      minPoint: 0.18,
+      maxPoint: 0.85,
+      spin: 0.0009,
+      sway: 0.0038,
       seed: 0x51a001,
     },
     {
-      total: Math.round(3400 * density),
-      nearRadius: 28,
-      farRadius: 58,
-      minPoint: 0.34,
-      maxPoint: 1.35,
-      spin: 0.002,
-      sway: 0.012,
+      total: Math.round(2600 * density),
+      nearRadius: 26,
+      farRadius: 70,
+      minPoint: 0.2,
+      maxPoint: 0.9,
+      spin: 0.0014,
+      sway: 0.009,
       seed: 0x51a002,
     },
     {
-      total: Math.round(1800 * density),
-      nearRadius: 12,
-      farRadius: 30,
-      minPoint: 0.4,
-      maxPoint: 1.25,
-      spin: 0.0031,
-      sway: 0.022,
+      total: Math.round(1200 * density),
+      nearRadius: 10,
+      farRadius: 36,
+      minPoint: 0.22,
+      maxPoint: 0.98,
+      spin: 0.0022,
+      sway: 0.016,
       seed: 0x51a003,
     },
   ];
@@ -119,10 +121,13 @@ function useSmallScreen(): boolean {
 const POINT_VERTEX = /* glsl */ `
   attribute float pointScale;
   attribute vec3 pointTint;
+  attribute float twinklePhase;
   varying vec3 vTint;
+  varying float vTwinkle;
 
   void main() {
     vTint = pointTint;
+    vTwinkle = twinklePhase;
     vec4 mv = modelViewMatrix * vec4(position, 1.0);
     gl_PointSize = pointScale * (220.0 / -mv.z);
     gl_Position = projectionMatrix * mv;
@@ -132,10 +137,14 @@ const POINT_VERTEX = /* glsl */ `
 const POINT_FRAGMENT = /* glsl */ `
   varying vec3 vTint;
   uniform float uOpacity;
+  uniform float uTime;
+  uniform float uTwinkleAmp;
 
   void main() {
     float d = length(gl_PointCoord - vec2(0.5));
-    float a = smoothstep(0.5, 0.06, d) * uOpacity;
+    float core = smoothstep(0.5, 0.06, d);
+    float tw = 0.75 + 0.25 * sin(uTime * 1.25 + vTwinkle * 6.2831);
+    float a = core * uOpacity * mix(1.0, tw, uTwinkleAmp);
     gl_FragColor = vec4(vTint, a);
   }
 `;
@@ -155,9 +164,14 @@ const TINTS: readonly THREE.Color[] = [
 interface LayerProps {
   readonly layer: BackdropLayer;
   readonly pointerRef: React.RefObject<{ x: number; y: number }>;
+  readonly reducedMotion: boolean;
 }
 
-function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
+function DriftingLayer({
+  layer,
+  pointerRef,
+  reducedMotion,
+}: LayerProps): JSX.Element {
   const pointsRef = useRef<THREE.Points>(null);
 
   const { geometry, material } = useMemo(() => {
@@ -165,6 +179,7 @@ function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
     const positions = new Float32Array(layer.total * 3);
     const scales = new Float32Array(layer.total);
     const tints = new Float32Array(layer.total * 3);
+    const twinklePhases = new Float32Array(layer.total);
     const shell = layer.farRadius - layer.nearRadius;
     const sizeShell = layer.maxPoint - layer.minPoint;
 
@@ -184,12 +199,18 @@ function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
       tints[i * 3] = tint.r * luma;
       tints[i * 3 + 1] = tint.g * luma;
       tints[i * 3 + 2] = tint.b * luma;
+
+      twinklePhases[i] = rand();
     }
 
     const geo = new THREE.BufferGeometry();
     geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     geo.setAttribute("pointScale", new THREE.BufferAttribute(scales, 1));
     geo.setAttribute("pointTint", new THREE.BufferAttribute(tints, 3));
+    geo.setAttribute(
+      "twinklePhase",
+      new THREE.BufferAttribute(twinklePhases, 1),
+    );
 
     const mat = new THREE.ShaderMaterial({
       vertexShader: POINT_VERTEX,
@@ -197,11 +218,15 @@ function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
       transparent: true,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
-      uniforms: { uOpacity: { value: 1 } },
+      uniforms: {
+        uOpacity: { value: 1 },
+        uTime: { value: 0 },
+        uTwinkleAmp: { value: reducedMotion ? 0 : 1 },
+      },
     });
 
     return { geometry: geo, material: mat };
-  }, [layer]);
+  }, [layer, reducedMotion]);
 
   useEffect(
     () => () => {
@@ -211,15 +236,23 @@ function DriftingLayer({ layer, pointerRef }: LayerProps): JSX.Element {
     [geometry, material],
   );
 
-  useFrame((_, delta) => {
+  useFrame(({ clock }, delta) => {
     const points = pointsRef.current;
     if (points === null) return;
 
-    points.rotation.y += delta * layer.spin;
+    const t = clock.elapsedTime;
+    material.uniforms.uTime.value = t;
+    material.uniforms.uTwinkleAmp.value = reducedMotion ? 0 : 1;
+
+    if (!reducedMotion) {
+      points.rotation.y += delta * layer.spin;
+    }
     const pointer = pointerRef.current;
     const ease = 1 - Math.exp(-delta * 1.2);
-    points.rotation.x += (-pointer.y * layer.sway - points.rotation.x) * ease;
-    points.rotation.z += (pointer.x * layer.sway - points.rotation.z) * ease;
+    if (!reducedMotion) {
+      points.rotation.x += (-pointer.y * layer.sway - points.rotation.x) * ease;
+      points.rotation.z += (pointer.x * layer.sway - points.rotation.z) * ease;
+    }
 
     const blend = getThemeDayBlend();
     material.uniforms.uOpacity.value = lerp(
@@ -345,6 +378,7 @@ function DayDust({ count }: { readonly count: number }): JSX.Element {
 
 export default function StarfieldBackground(): JSX.Element {
   const small = useSmallScreen();
+  const reducedMotion = useReducedMotion() ?? false;
   const { tokens } = useTheme();
   const layers = useMemo(
     () => backdropLayers(small ? 0.4 : 1),
@@ -355,14 +389,14 @@ export default function StarfieldBackground(): JSX.Element {
   const pointerRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
   useEffect(() => {
-    if (small) return undefined;
+    if (small || reducedMotion) return undefined;
     const onMove = (event: PointerEvent): void => {
       pointerRef.current.x = (event.clientX / window.innerWidth) * 2 - 1;
       pointerRef.current.y = -((event.clientY / window.innerHeight) * 2 - 1);
     };
     window.addEventListener("pointermove", onMove, { passive: true });
     return () => window.removeEventListener("pointermove", onMove);
-  }, [small]);
+  }, [small, reducedMotion]);
 
   const backdropStyle = useMemo<CSSProperties>(
     () => ({
@@ -430,6 +464,7 @@ export default function StarfieldBackground(): JSX.Element {
             key={layer.seed}
             layer={layer}
             pointerRef={pointerRef}
+            reducedMotion={reducedMotion}
           />
         ))}
         <DayDust count={dustCount} />
