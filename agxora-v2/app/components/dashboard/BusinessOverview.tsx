@@ -3,6 +3,7 @@ import {
   MetricCard,
   type MetricCardProps,
 } from "./MetricCard";
+import { motion, useReducedMotion } from "framer-motion";
 
 /* -------------------------------------------------------------------------- */
 /*                                Icon library                                */
@@ -123,6 +124,19 @@ const OVERVIEW_METRICS: readonly MetricCardProps[] = [
 
 /** Premium glassmorphism metric grid rendered below the globe hero. */
 export function BusinessOverview(): JSX.Element {
+  const reduceMotion = useReducedMotion();
+
+  const cardVariants = reduceMotion
+    ? undefined
+    : {
+        hidden: { opacity: 0, y: 14 },
+        show: (i: number) => ({
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.55, delay: i * 0.06 },
+        }),
+      };
+
   return (
     <section aria-label="Business overview" className="mb-12">
       <header className="mb-7 flex items-baseline justify-between gap-4">
@@ -155,9 +169,22 @@ export function BusinessOverview(): JSX.Element {
       </header>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
-        {OVERVIEW_METRICS.map((metric) => (
-          <MetricCard key={metric.title} {...metric} />
-        ))}
+        {OVERVIEW_METRICS.map((metric, index) => {
+          if (!cardVariants) return <MetricCard key={metric.title} {...metric} />;
+
+          return (
+            <motion.div
+              key={metric.title}
+              custom={index}
+              variants={cardVariants}
+              initial="hidden"
+              whileHover={reduceMotion ? undefined : { y: -2 }}
+              animate="show"
+            >
+              <MetricCard {...metric} />
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

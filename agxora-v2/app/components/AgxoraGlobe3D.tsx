@@ -20,6 +20,7 @@ import {
   type CSSProperties,
   type JSX,
 } from "react";
+import { useReducedMotion } from "framer-motion";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Bloom, EffectComposer, Vignette } from "@react-three/postprocessing";
@@ -127,6 +128,7 @@ interface PlanetMaps {
   readonly roughnessMap: THREE.DataTexture;
   readonly bumpMap: THREE.DataTexture;
   readonly cloudMap: THREE.DataTexture;
+  readonly lightsMap: THREE.DataTexture;
 }
 
 const SEA_LEVEL = 0.535;
@@ -157,11 +159,13 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
   const continents = makeValueNoise3D(0xa17c);
   const detail = makeValueNoise3D(0x52f1);
   const clouds = makeValueNoise3D(0x39d7);
+  const cities = makeValueNoise3D(0x9f2a);
 
   const colorData = new Uint8Array(width * height * 4);
   const roughData = new Uint8Array(width * height * 4);
   const bumpData = new Uint8Array(width * height * 4);
   const cloudData = new Uint8Array(width * height * 4);
+  const lightsData = new Uint8Array(width * height * 4);
 
   for (let row = 0; row < height; row += 1) {
     const v = row / (height - 1);
@@ -201,8 +205,8 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
       } else {
         const depth = smooth(SEA_LEVEL, SEA_LEVEL - 0.3, elevation);
         color = mixColors(SHALLOWS, ABYSS, depth);
-        roughness = 0.24;
-        bump = 0.35;
+        roughness = 0.28;
+        bump = 0.31;
       }
 
       if (iceEdge > 0) {
@@ -215,7 +219,22 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
       const swirl = fbm3D(clouds, px * 7.2 - 5, py * 7.2 + 9, pz * 7.2 - 2, 4);
       const wisps = fbm3D(clouds, px * 14.5 + 2, py * 14.5 - 3, pz * 14.5 + 8, 3);
       const dense = puff * 0.58 + swirl * 0.28 + wisps * 0.14;
-      const cover = Math.pow(smooth(0.48, 0.78, dense), 1.15);
+      const cover = Math.pow(smooth(0.46, 0.78, dense), 1.08);
+
+      // City lights: subtle warm emission on land, reduced under ice.
+      const landness = smooth(SEA_LEVEL, SEA_LEVEL + 0.22, elevation);
+      const cityNoise = fbm3D(
+        cities,
+        px * 12.2 + 3,
+        py * 12.2 - 2,
+        pz * 12.2 + 7,
+        2,
+      );
+      const cityMask = smooth(0.62, 0.86, cityNoise);
+      const equatorGain = 0.55 + 0.45 * (1 - latAbs / Math.PI);
+      const iceDim = 1 - iceEdge;
+      const lights = Math.pow(cityMask * landness, 2.0) * equatorGain * iceDim;
+      const cityByte = Math.round(THREE.MathUtils.clamp(lights, 0, 1) * 255);
 
       const i = (row * width + col) * 4;
       colorData[i] = Math.round(color.r * 255);
@@ -241,6 +260,12 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
       cloudData[i + 1] = cloudByte;
       cloudData[i + 2] = cloudByte;
       cloudData[i + 3] = 255;
+
+      // Warm emissive RGB — emissiveMap will modulate this by intensity.
+      lightsData[i] = cityByte;
+      lightsData[i + 1] = Math.round(cityByte * 0.78);
+      lightsData[i + 2] = Math.round(cityByte * 0.35);
+      lightsData[i + 3] = 255;
     }
   }
 
@@ -266,6 +291,7 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
     roughnessMap: buildTexture(roughData, false),
     bumpMap: buildTexture(bumpData, false),
     cloudMap: buildTexture(cloudData, false),
+    lightsMap: buildTexture(lightsData, true),
   };
 }
 
@@ -370,9 +396,9 @@ const PLANET_SPIN = 0.0088;
 const CLOUD_SPIN = 0.014;
 const CLOUD_HIGH_SPIN = 0.009;
 /** Hero composition — globe sits high in the stage. */
-const PLANET_BASE_Y = 0.08;
-const PLANET_FLOAT_AMP = 0.038;
-const PLANET_FLOAT_SPEED = 0.32;
+const PLANET_BASE_Y = 0.1;
+const PLANET_FLOAT_AMP = 0.03;
+const PLANET_FLOAT_SPEED = 0.26;
 
 interface PlanetProps {
   readonly profile: RenderProfile;
@@ -386,6 +412,7 @@ function Planet({ profile }: PlanetProps): JSX.Element {
   const surfaceMat = useRef<THREE.MeshPhysicalMaterial>(null);
   const cloudMat = useRef<THREE.MeshStandardMaterial>(null);
   const cloudHighMat = useRef<THREE.MeshStandardMaterial>(null);
+  const reduceMotion = useReducedMotion();
 
   const maps = useMemo<PlanetMaps>(
     () => generatePlanetMaps(profile.mapWidth, profile.mapHeight),
@@ -398,6 +425,7 @@ function Planet({ profile }: PlanetProps): JSX.Element {
       maps.roughnessMap.dispose();
       maps.bumpMap.dispose();
       maps.cloudMap.dispose();
+      maps.lightsMap.dispose();
     },
     [maps],
   );
@@ -405,19 +433,21 @@ function Planet({ profile }: PlanetProps): JSX.Element {
   useFrame((state, delta) => {
     const t = state.clock.elapsedTime;
 
-    if (floatGroup.current !== null) {
-      floatGroup.current.position.y =
-        PLANET_BASE_Y + Math.sin(t * PLANET_FLOAT_SPEED) * PLANET_FLOAT_AMP;
-      floatGroup.current.rotation.z = Math.sin(t * 0.16) * 0.009;
-    }
-    if (spinGroup.current !== null) {
-      spinGroup.current.rotation.y += delta * PLANET_SPIN;
-    }
-    if (cloudMesh.current !== null) {
-      cloudMesh.current.rotation.y += delta * CLOUD_SPIN;
-    }
-    if (cloudHighMesh.current !== null) {
-      cloudHighMesh.current.rotation.y += delta * CLOUD_HIGH_SPIN;
+    if (!reduceMotion) {
+      if (floatGroup.current !== null) {
+        floatGroup.current.position.y =
+          PLANET_BASE_Y + Math.sin(t * PLANET_FLOAT_SPEED) * PLANET_FLOAT_AMP;
+        floatGroup.current.rotation.z = Math.sin(t * 0.14) * 0.007;
+      }
+      if (spinGroup.current !== null) {
+        spinGroup.current.rotation.y += delta * PLANET_SPIN;
+      }
+      if (cloudMesh.current !== null) {
+        cloudMesh.current.rotation.y += delta * CLOUD_SPIN;
+      }
+      if (cloudHighMesh.current !== null) {
+        cloudHighMesh.current.rotation.y += delta * CLOUD_HIGH_SPIN;
+      }
     }
 
     const blend = getThemeDayBlend();
@@ -429,30 +459,30 @@ function Planet({ profile }: PlanetProps): JSX.Element {
       );
       surfaceMat.current.clearcoatRoughness = lerp(0.28, 0.14, blend);
       surfaceMat.current.emissiveIntensity = lerp(
-        NIGHT_TOKENS.emissiveIntensity,
-        DAY_TOKENS.emissiveIntensity,
+        NIGHT_TOKENS.emissiveIntensity * 0.7,
+        DAY_TOKENS.emissiveIntensity * 0.18,
         blend,
       );
-      surfaceMat.current.bumpScale = lerp(0.018, 0.024, blend);
-      surfaceMat.current.sheen = lerp(0.12, 0.28, blend);
-      surfaceMat.current.sheenRoughness = lerp(0.48, 0.3, blend);
-      surfaceMat.current.specularIntensity = lerp(0.78, 1.15, blend);
-      surfaceMat.current.metalness = lerp(0.05, 0.08, blend);
+      surfaceMat.current.bumpScale = lerp(0.016, 0.022, blend);
+      surfaceMat.current.sheen = lerp(0.1, 0.24, blend);
+      surfaceMat.current.sheenRoughness = lerp(0.42, 0.28, blend);
+      surfaceMat.current.specularIntensity = lerp(0.82, 1.08, blend);
+      surfaceMat.current.metalness = lerp(0.035, 0.06, blend);
     }
     if (cloudMat.current) {
       cloudMat.current.opacity = lerp(
-        NIGHT_TOKENS.cloudOpacity,
-        DAY_TOKENS.cloudOpacity,
+        NIGHT_TOKENS.cloudOpacity * 0.8,
+        DAY_TOKENS.cloudOpacity * 0.7,
         blend,
       );
     }
     if (cloudHighMat.current) {
-      cloudHighMat.current.opacity = lerp(0.28, 0.4, blend);
+      cloudHighMat.current.opacity = lerp(0.22, 0.34, blend);
     }
   });
 
   return (
-    <group ref={floatGroup}>
+    <group ref={floatGroup} position={[0, PLANET_BASE_Y, 0]}>
       <group ref={spinGroup} rotation={[0.1, -1.05, 0.04]}>
         {/* Surface — physically based oceans + continents */}
         <mesh>
@@ -463,20 +493,21 @@ function Planet({ profile }: PlanetProps): JSX.Element {
             ref={surfaceMat}
             map={maps.colorMap}
             roughnessMap={maps.roughnessMap}
-            roughness={1}
+            roughness={0.95}
             bumpMap={maps.bumpMap}
             bumpScale={0.018}
-            metalness={0.06}
-            clearcoat={0.62}
-            clearcoatRoughness={0.28}
-            sheen={0.12}
+            metalness={0.04}
+            clearcoat={0.65}
+            clearcoatRoughness={0.26}
+            sheen={0.1}
             sheenColor={new THREE.Color("#8ec4ff")}
-            sheenRoughness={0.48}
-            specularIntensity={0.88}
-            reflectivity={0.52}
+            sheenRoughness={0.42}
+            specularIntensity={0.92}
+            reflectivity={0.46}
             envMapIntensity={1.15}
-            emissive={new THREE.Color("#061e3a")}
-            emissiveIntensity={0.24}
+            emissive={new THREE.Color("#ffffff")}
+            emissiveMap={maps.lightsMap}
+            emissiveIntensity={0.14}
           />
         </mesh>
 
@@ -494,12 +525,12 @@ function Planet({ profile }: PlanetProps): JSX.Element {
             color="#f4f8ff"
             alphaMap={maps.cloudMap}
             transparent
-            opacity={0.58}
+            opacity={0.52}
             depthWrite={false}
-            roughness={0.88}
+            roughness={0.93}
             metalness={0}
             emissive={new THREE.Color("#c8dcff")}
-            emissiveIntensity={0.04}
+            emissiveIntensity={0.03}
           />
         </mesh>
 
@@ -517,7 +548,7 @@ function Planet({ profile }: PlanetProps): JSX.Element {
             color="#ffffff"
             alphaMap={maps.cloudMap}
             transparent
-            opacity={0.28}
+            opacity={0.22}
             depthWrite={false}
             roughness={1}
             metalness={0}
@@ -617,14 +648,10 @@ function AtmosphereLayer({
 function AtmosphereGlow(): JSX.Element {
   return (
     <>
-      {/* Deep blue outer halo — cinematic glow */}
-      <AtmosphereLayer scale={1.14} gainScale={0.28} curve={2.1} />
-      {/* Soft atmospheric scatter */}
-      <AtmosphereLayer scale={1.078} gainScale={0.62} curve={2.85} />
-      {/* Mid blue rim */}
-      <AtmosphereLayer scale={1.048} gainScale={0.85} curve={3.8} />
-      {/* Crisp blue fresnel edge */}
-      <AtmosphereLayer scale={1.028} gainScale={1.2} curve={5.0} />
+      {/* Thin realistic atmosphere — soft scatter + crisp rim */}
+      <AtmosphereLayer scale={1.045} gainScale={0.16} curve={2.45} />
+      <AtmosphereLayer scale={1.03} gainScale={0.34} curve={3.4} />
+      <AtmosphereLayer scale={1.015} gainScale={0.78} curve={5.35} />
     </>
   );
 }
@@ -636,7 +663,7 @@ function EarthAura(): JSX.Element {
       new THREE.MeshBasicMaterial({
         color: new THREE.Color("#3d9aef"),
         transparent: true,
-        opacity: 0.09,
+        opacity: 0.05,
         depthWrite: false,
         blending: THREE.AdditiveBlending,
         side: THREE.BackSide,
@@ -648,12 +675,12 @@ function EarthAura(): JSX.Element {
 
   useFrame(() => {
     const blend = getThemeDayBlend();
-    mat.opacity = lerp(0.11, 0.05, blend);
+    mat.opacity = lerp(0.06, 0.028, blend);
     mat.color.set(blend > 0.5 ? "#9ec8e8" : "#3d9aef");
   });
 
   return (
-    <mesh scale={1.22}>
+    <mesh scale={1.14}>
       <sphereGeometry args={[PLANET_RADIUS, 48, 48]} />
       <primitive object={mat} attach="material" />
     </mesh>
@@ -702,6 +729,7 @@ interface StarShellProps {
 
 function StarShellPoints({ shell }: StarShellProps): JSX.Element {
   const pointsRef = useRef<THREE.Points>(null);
+  const reduceMotion = useReducedMotion();
 
   const { starGeometry, starMaterial } = useMemo(() => {
     const rand = seededRandom(shell.seed);
@@ -760,12 +788,14 @@ function StarShellPoints({ shell }: StarShellProps): JSX.Element {
     const points = pointsRef.current;
     if (points === null) return;
 
-    points.rotation.y += delta * shell.drift;
-    const targetX = -state.pointer.y * shell.parallax;
-    const targetZ = state.pointer.x * shell.parallax;
-    const ease = 1 - Math.exp(-delta * 1.4);
-    points.rotation.x += (targetX - points.rotation.x) * ease;
-    points.rotation.z += (targetZ - points.rotation.z) * ease;
+    if (!reduceMotion) {
+      points.rotation.y += delta * shell.drift;
+      const targetX = -state.pointer.y * shell.parallax;
+      const targetZ = state.pointer.x * shell.parallax;
+      const ease = 1 - Math.exp(-delta * 1.4);
+      points.rotation.x += (targetX - points.rotation.x) * ease;
+      points.rotation.z += (targetZ - points.rotation.z) * ease;
+    }
 
     const blend = getThemeDayBlend();
     starMaterial.uniforms.uOpacity.value = lerp(
@@ -796,6 +826,8 @@ interface CameraDriftProps {
 }
 
 function CameraDrift({ parallax }: CameraDriftProps): null {
+  const reduceMotion = useReducedMotion();
+
   useFrame(({ camera, clock, pointer }, delta) => {
     const t = clock.elapsedTime;
 
@@ -807,9 +839,11 @@ function CameraDrift({ parallax }: CameraDriftProps): null {
     const py = parallax ? pointer.y * 0.035 : 0;
 
     const ease = 1 - Math.exp(-delta * 0.85);
-    camera.position.x += (glideX + px - camera.position.x) * ease;
-    camera.position.y += (glideY + py - camera.position.y) * ease;
-    camera.position.z += (glideZ - camera.position.z) * ease;
+    if (!reduceMotion) {
+      camera.position.x += (glideX + px - camera.position.x) * ease;
+      camera.position.y += (glideY + py - camera.position.y) * ease;
+      camera.position.z += (glideZ - camera.position.z) * ease;
+    }
     camera.lookAt(CAMERA_FOCUS);
   });
 
@@ -950,12 +984,12 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
 
       <EffectComposer multisampling={profile.msaa} frameBufferType={THREE.HalfFloatType}>
         <Bloom
-          intensity={bloomIntensity}
-          luminanceThreshold={appearance === "day" ? 0.72 : 0.58}
+          intensity={bloomIntensity * 0.78}
+          luminanceThreshold={appearance === "day" ? 0.78 : 0.62}
           luminanceSmoothing={0.95}
           mipmapBlur
         />
-        <Vignette eskil={false} offset={0.35} darkness={vignetteDarkness} />
+        <Vignette eskil={false} offset={0.42} darkness={vignetteDarkness} />
       </EffectComposer>
     </>
   );

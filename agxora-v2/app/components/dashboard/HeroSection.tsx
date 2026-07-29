@@ -6,9 +6,16 @@
  */
 
 import type { CSSProperties, JSX } from "react";
-import AgxoraGlobe3D from "../AgxoraGlobe3D";
+import dynamic from "next/dynamic";
+import { motion, useReducedMotion } from "framer-motion";
 import ThemeSwitcher from "../ThemeSwitcher";
 import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
+
+const AgxoraGlobe3D = dynamic(() => import("../AgxoraGlobe3D").then((m) => m.default), {
+  ssr: false,
+  // Minimal skeleton keeps hero cinematic while Globe loads.
+  loading: () => <div className="agx-globe-loading" aria-hidden="true" />,
+});
 
 const surfaceTransition = [
   `color ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
@@ -28,6 +35,7 @@ function scrollToId(id: string): void {
 export function HeroSection(): JSX.Element {
   const { tokens } = useTheme();
   const isDay = tokens.tone === "day";
+  const reduceMotion = useReducedMotion();
 
   const primaryCtaStyle: CSSProperties = {
     appearance: "none",
@@ -67,13 +75,29 @@ export function HeroSection(): JSX.Element {
     transition: surfaceTransition,
   };
 
+  const fadeUp = reduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 26 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.9 },
+      };
+
+  const globeRise = reduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 34, scale: 0.985 },
+        animate: { opacity: 1, y: 0, scale: 1 },
+        transition: { duration: 1.05 },
+      };
+
   return (
     <section className="agx-hero" aria-label="AGXORA CORE hero">
       <div className="agx-hero-theme">
         <ThemeSwitcher />
       </div>
 
-      <div className="agx-hero-copy agx-hero-copy-enter">
+      <motion.div className="agx-hero-copy" {...fadeUp}>
         <p
           className="agx-hero-eyebrow"
           style={{ color: tokens.textMuted, transition: surfaceTransition }}
@@ -101,30 +125,39 @@ export function HeroSection(): JSX.Element {
         </p>
 
         <div className="agx-hero-cta-row">
-          <button
+          <motion.button
             type="button"
+            className="agx-hero-cta agx-hero-cta-primary"
             style={primaryCtaStyle}
             onClick={() => scrollToId("agx-command-center")}
+            whileHover={reduceMotion ? undefined : { y: -2, scale: 1.02 }}
+            whileTap={reduceMotion ? undefined : { scale: 0.99 }}
+            transition={{ duration: 0.22 }}
+            aria-label="Enter Command Center"
           >
             Enter Command Center
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             type="button"
+            className="agx-hero-cta agx-hero-cta-secondary"
             style={secondaryCtaStyle}
             onClick={() => scrollToId("agx-live-activity")}
+            whileHover={reduceMotion ? undefined : { y: -2, scale: 1.01 }}
+            whileTap={reduceMotion ? undefined : { scale: 0.99 }}
+            transition={{ duration: 0.22 }}
+            aria-label="View Live Activity"
           >
             View Live Activity
-          </button>
+          </motion.button>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="agx-hero-globe-stage">
-        <div className="agx-hero-globe-glow" aria-hidden="true" />
+      <motion.div className="agx-hero-globe-stage" {...globeRise}>
         <div className="agx-hero-globe-depth" aria-hidden="true" />
         <div className="agx-hero-globe-canvas">
           <AgxoraGlobe3D variant="hero" />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
