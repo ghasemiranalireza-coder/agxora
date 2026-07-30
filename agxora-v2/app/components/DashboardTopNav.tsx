@@ -2,104 +2,128 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useMemo, type CSSProperties, type JSX } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type JSX,
+  type ReactNode,
+} from "react";
 import { useAuth } from "../lib/auth";
 import { useOrganization } from "../lib/organization";
 import type { WorkspaceId } from "../lib/organization/types";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
+import ThemeSwitcher from "./ThemeSwitcher";
+import { IconButton } from "./ui";
+
+function SvgIcon({ d }: { readonly d: string }): JSX.Element {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d={d} />
+    </svg>
+  );
+}
 
 /**
- * Top navigation — org/workspace switchers, breadcrumbs, session actions.
- * Uses existing theme tokens only (no redesign).
+ * Top header — Organization · Search · Notifications · Profile · Theme.
+ * Removes placeholder / duplicate controls. Does not touch Hero Theme Switch.
  */
 export function DashboardTopNav(): JSX.Element {
   const { tokens } = useTheme();
   const pathname = usePathname();
   const router = useRouter();
   const { user, signOut, isAuthenticated } = useAuth();
-  const { organization, workspace, session, switchWorkspace } =
-    useOrganization();
+  const { organization, workspace, session, switchWorkspace } = useOrganization();
 
-  const crumbs = useMemo(() => {
-    const parts = pathname.split("/").filter(Boolean);
-    return parts.map((part, index) => ({
-      label: part.replace(/-/g, " "),
-      href: `/${parts.slice(0, index + 1).join("/")}`,
-    }));
-  }, [pathname]);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [notifOpen, setNotifOpen] = useState(false);
+  const profileRef = useRef<HTMLDivElement>(null);
+  const notifRef = useRef<HTMLDivElement>(null);
+
+  const showHeaderTheme = pathname !== "/dashboard";
+
+  useEffect(() => {
+    const onDoc = (event: MouseEvent): void => {
+      const target = event.target as Node;
+      if (profileRef.current && !profileRef.current.contains(target)) {
+        setProfileOpen(false);
+      }
+      if (notifRef.current && !notifRef.current.contains(target)) {
+        setNotifOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onDoc);
+    return () => document.removeEventListener("mousedown", onDoc);
+  }, []);
+
+  const orgLabel = organization?.name ?? "Organization";
+  const displayName = user?.displayName ?? (isAuthenticated ? "User" : "Guest");
 
   return (
     <header
+      className="agx-topnav"
       style={{
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
         gap: 16,
-        flexWrap: "wrap",
-        marginBottom: 10,
-        paddingBottom: 10,
+        minHeight: 48,
+        marginBottom: 20,
+        padding: "4px 0 16px",
         borderBottom: `1px solid ${tokens.divider}`,
         transition: `border-color ${THEME_TRANSITION_MS}ms ease`,
       }}
     >
-      <div style={{ minWidth: 0, flex: 1 }}>
-        <nav aria-label="Breadcrumb" style={{ marginBottom: 8 }}>
-          {crumbs.map((crumb, index) => (
-            <span
-              key={crumb.href}
-              style={{ fontSize: 12, color: tokens.textMuted }}
-            >
-              {index > 0 ? " / " : null}
-              <Link
-                href={crumb.href}
-                style={{
-                  color:
-                    index === crumbs.length - 1
-                      ? tokens.accent
-                      : tokens.textMuted,
-                  textDecoration: "none",
-                  textTransform: "capitalize",
-                }}
-              >
-                {crumb.label}
-              </Link>
-            </span>
-          ))}
-        </nav>
-
-        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-          <select
-            aria-label="Organization switcher"
-            value={organization?.id ?? ""}
-            onChange={() => undefined}
-            style={selectStyle(tokens)}
-          >
-            <option value={organization?.id ?? ""}>
-              {organization?.name ?? "Organization"}
-            </option>
-          </select>
-
-          <select
-            aria-label="Workspace switcher"
-            value={workspace?.id ?? ""}
-            onChange={(event) => {
-              if (event.target.value) {
-                void switchWorkspace(event.target.value as WorkspaceId);
-              }
+      <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
+        <div
+          aria-label="Organization"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 10,
+            minHeight: 36,
+            maxWidth: "100%",
+            padding: "0 12px",
+            borderRadius: 12,
+            border: `1px solid ${tokens.inputBorder}`,
+            background: tokens.inputBg,
+            color: tokens.text,
+            fontSize: 13,
+            fontWeight: 550,
+            letterSpacing: "0.01em",
+          }}
+        >
+          <span
+            style={{
+              display: "inline-flex",
+              width: 8,
+              height: 8,
+              borderRadius: 999,
+              background: tokens.accent,
+              boxShadow: `0 0 10px ${tokens.accent}`,
+              flexShrink: 0,
             }}
-            style={selectStyle(tokens)}
+            aria-hidden="true"
+          />
+          <span
+            style={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
           >
-            {(session.accessibleWorkspaces.length
-              ? session.accessibleWorkspaces
-              : workspace
-                ? [workspace]
-                : []
-            ).map((item) => (
-              <option key={item.id} value={item.id}>
-                {item.name}
-              </option>
-            ))}
-          </select>
+            {orgLabel}
+          </span>
         </div>
       </div>
 
@@ -107,78 +131,212 @@ export function DashboardTopNav(): JSX.Element {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: 10,
-          flexWrap: "wrap",
+          gap: 8,
+          flexShrink: 0,
         }}
       >
-        <button
-          type="button"
-          aria-label="Open command palette"
+        <IconButton
+          label="Search"
           onClick={() => {
             window.dispatchEvent(new CustomEvent("agxora:command-palette"));
           }}
-          style={{
-            border: `1px solid ${tokens.panelBorder}`,
-            background: tokens.inputBg,
-            color: tokens.textMuted,
-            borderRadius: 12,
-            padding: "8px 12px",
-            fontSize: 12,
-            cursor: "pointer",
-          }}
         >
-          ⌘K
-        </button>
-        <span style={{ color: tokens.textMuted, fontSize: 12 }}>
-          {user?.displayName ?? (isAuthenticated ? "User" : "Guest")}
-        </span>
-        {isAuthenticated ? (
-          <button
-            type="button"
+          <SvgIcon d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z M21 21l-4.3-4.3" />
+        </IconButton>
+
+        <div ref={notifRef} style={{ position: "relative" }}>
+          <IconButton
+            label="Notifications"
+            active={notifOpen}
             onClick={() => {
-              void signOut().then(() => router.push("/login"));
-            }}
-            style={{
-              border: `1px solid ${tokens.panelBorder}`,
-              background: "transparent",
-              color: tokens.textMuted,
-              borderRadius: 12,
-              padding: "8px 12px",
-              fontSize: 12,
-              cursor: "pointer",
+              setNotifOpen((v) => !v);
+              setProfileOpen(false);
             }}
           >
-            Sign out
-          </button>
-        ) : (
-          <Link
-            href="/login"
-            style={{
-              color: tokens.accent,
-              fontSize: 12,
-              textDecoration: "none",
+            <SvgIcon d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9 M13.73 21a2 2 0 0 1-3.46 0" />
+          </IconButton>
+          {notifOpen ? (
+            <HeaderMenu width={300}>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: "var(--agx-text, #f8fafc)",
+                }}
+              >
+                No notifications
+              </p>
+              <p
+                style={{
+                  margin: "6px 0 0",
+                  fontSize: 12,
+                  lineHeight: 1.5,
+                  color: "var(--agx-text-muted, #94a3b8)",
+                }}
+              >
+                You’re all caught up. Alerts and mentions will appear here.
+              </p>
+            </HeaderMenu>
+          ) : null}
+        </div>
+
+        <div ref={profileRef} style={{ position: "relative" }}>
+          <IconButton
+            label="Profile"
+            active={profileOpen}
+            onClick={() => {
+              setProfileOpen((v) => !v);
+              setNotifOpen(false);
             }}
           >
-            Sign in
-          </Link>
-        )}
+            <SvgIcon d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2 M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8" />
+          </IconButton>
+          {profileOpen ? (
+            <HeaderMenu width={260}>
+              <div style={{ padding: "4px 4px 10px" }}>
+                <p
+                  style={{
+                    margin: 0,
+                    fontSize: 13,
+                    fontWeight: 600,
+                    color: tokens.text,
+                  }}
+                >
+                  {displayName}
+                </p>
+                <p
+                  style={{
+                    margin: "4px 0 0",
+                    fontSize: 12,
+                    color: tokens.textMuted,
+                  }}
+                >
+                  {user?.email ?? (isAuthenticated ? "Signed in" : "Guest session")}
+                </p>
+              </div>
+
+              {(session.accessibleWorkspaces.length > 1 || workspace) && (
+                <label
+                  style={{
+                    display: "block",
+                    marginBottom: 10,
+                    fontSize: 11,
+                    color: tokens.textMuted,
+                  }}
+                >
+                  Workspace
+                  <select
+                    aria-label="Workspace switcher"
+                    value={workspace?.id ?? ""}
+                    onChange={(event) => {
+                      if (event.target.value) {
+                        void switchWorkspace(event.target.value as WorkspaceId);
+                      }
+                    }}
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      marginTop: 6,
+                      padding: "8px 10px",
+                      borderRadius: 10,
+                      border: `1px solid ${tokens.inputBorder}`,
+                      background: tokens.inputBg,
+                      color: tokens.text,
+                      fontSize: 12,
+                    }}
+                  >
+                    {(session.accessibleWorkspaces.length
+                      ? session.accessibleWorkspaces
+                      : workspace
+                        ? [workspace]
+                        : []
+                    ).map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
+
+              {isAuthenticated ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setProfileOpen(false);
+                    void signOut().then(() => router.push("/login"));
+                  }}
+                  style={{
+                    width: "100%",
+                    textAlign: "left",
+                    border: `1px solid ${tokens.panelBorder}`,
+                    background: "transparent",
+                    color: tokens.textMuted,
+                    borderRadius: 10,
+                    padding: "9px 12px",
+                    fontSize: 12,
+                    cursor: "pointer",
+                  }}
+                >
+                  Sign out
+                </button>
+              ) : (
+                <Link
+                  href="/login"
+                  onClick={() => setProfileOpen(false)}
+                  style={{
+                    display: "block",
+                    color: tokens.accent,
+                    fontSize: 12,
+                    textDecoration: "none",
+                    padding: "8px 4px",
+                  }}
+                >
+                  Sign in
+                </Link>
+              )}
+            </HeaderMenu>
+          ) : null}
+        </div>
+
+        {showHeaderTheme ? (
+          <div className="agx-topnav-theme" style={{ marginLeft: 4 }}>
+            <ThemeSwitcher />
+          </div>
+        ) : null}
       </div>
     </header>
   );
 }
 
-function selectStyle(tokens: {
-  inputBorder: string;
-  inputBg: string;
-  text: string;
-}): CSSProperties {
-  return {
-    maxWidth: 180,
-    padding: "8px 10px",
-    borderRadius: 12,
-    border: `1px solid ${tokens.inputBorder}`,
-    background: tokens.inputBg,
-    color: tokens.text,
-    fontSize: 12,
-  };
+function HeaderMenu({
+  children,
+  width,
+}: {
+  readonly children: ReactNode;
+  readonly width: number;
+}): JSX.Element {
+  return (
+    <div
+      role="menu"
+      style={{
+        position: "absolute",
+        top: "calc(100% + 8px)",
+        right: 0,
+        zIndex: 50,
+        width,
+        maxWidth: "min(92vw, 360px)",
+        padding: 12,
+        borderRadius: 16,
+        border: "1px solid var(--agx-card-border, rgba(255,255,255,0.12))",
+        background:
+          "linear-gradient(165deg, var(--agx-card-bg-from, rgba(18,24,38,0.96)), var(--agx-card-bg-to, rgba(10,14,24,0.96)))",
+        boxShadow: "var(--agx-card-shadow, 0 16px 40px rgba(0,0,0,0.35))",
+        backdropFilter: "var(--agx-card-blur, blur(22px) saturate(150%))",
+      }}
+    >
+      {children}
+    </div>
+  );
 }

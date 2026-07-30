@@ -514,3 +514,46 @@ textarea {
     padding-right: 18px !important;
   }
 }
+
+/* ---- Enterprise UI system (Phase 11.5) ---- */
+@keyframes agx-ui-skeleton-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.agx-ui-btn:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+.agx-ui-icon-btn:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 35%, transparent);
+  color: var(--agx-accent, #22d3ee);
+}
+
+.agx-ui-card {
+  transition: box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 900px) {
+  .agx-topnav {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+
+  .agx-topnav-theme {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 0 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agx-ui-skeleton {
+    animation: none !important;
+  }
+}
