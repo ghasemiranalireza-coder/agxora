@@ -8,6 +8,7 @@ export type SaaSModuleKey =
   | "projects"
   | "invoices"
   | "finance"
+  | "crm"
   | "ai"
   | "analytics"
   | "automation"
@@ -52,6 +53,12 @@ export const SAAS_MODULES: readonly SaaSModuleDefinition[] = [
     label: "Finance & Tax",
     href: "/dashboard/finance",
     description: "AI accounting, banking, tax & financial intelligence",
+  },
+  {
+    key: "crm",
+    label: "AI CRM",
+    href: "/dashboard/crm",
+    description: "AI-native CRM and Creator Operating System",
   },
   {
     key: "ai",
