@@ -857,6 +857,8 @@ function CameraDrift({ parallax }: CameraDriftProps): null {
 interface SpaceSceneProps {
   readonly profile: RenderProfile;
   readonly compact: boolean;
+  /** Hero-only diameter scale; 1 keeps framed/default size. */
+  readonly globeScale: number;
 }
 
 const NIGHT_SUN = new THREE.Color("#ffffff");
@@ -866,7 +868,11 @@ const DAY_FILL = new THREE.Color("#a8c4dc");
 const NIGHT_RIM = new THREE.Color("#3d8fd8");
 const DAY_RIM = new THREE.Color("#b8d4ec");
 
-function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
+function SpaceScene({
+  profile,
+  compact,
+  globeScale,
+}: SpaceSceneProps): JSX.Element {
   const sunRef = useRef<THREE.DirectionalLight>(null);
   const fillRef = useRef<THREE.DirectionalLight>(null);
   const rimRef = useRef<THREE.DirectionalLight>(null);
@@ -979,7 +985,10 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
         <StarShellPoints key={shell.seed} shell={shell} />
       ))}
 
-      <Planet profile={profile} />
+      {/* Regression: ~13% smaller hero diameter; camera/lights/spacing unchanged */}
+      <group scale={globeScale}>
+        <Planet profile={profile} />
+      </group>
       <CameraDrift parallax={!compact} />
 
       <EffectComposer multisampling={profile.msaa} frameBufferType={THREE.HalfFloatType}>
@@ -1011,6 +1020,8 @@ export default function AgxoraGlobe3D({
   const { profile, compact } = useRenderProfile();
   const { tokens } = useTheme();
   const isHero = variant === "hero";
+  /** Restore balanced hero diameter (~13% reduction). Position/camera/lights unchanged. */
+  const globeScale = isHero ? 0.87 : 1;
 
   const frameStyle = useMemo<CSSProperties>(() => {
     if (isHero) {
@@ -1072,7 +1083,11 @@ export default function AgxoraGlobe3D({
         }}
       >
         <Suspense fallback={null}>
-          <SpaceScene profile={profile} compact={compact} />
+          <SpaceScene
+            profile={profile}
+            compact={compact}
+            globeScale={globeScale}
+          />
         </Suspense>
       </Canvas>
     </div>
