@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  memo,
   useCallback,
   useEffect,
   useMemo,
@@ -20,10 +21,11 @@ import {
   cloneWorkflow,
   connectNodes,
   createNodeId,
+  GRID_SIZE,
   moveNode,
   WORKFLOW_ELEMENTS,
 } from "../../lib/automation";
-import { Badge, Button, Card } from "../ui";
+import { Badge, Button, Card, EmptyState } from "../ui";
 
 const NODE_W = 168;
 const NODE_H = 72;
@@ -40,14 +42,52 @@ function kindTone(kind: string): "default" | "accent" | "positive" | "warning" {
   return "default";
 }
 
+const PaletteList = memo(function PaletteList({
+  items,
+}: {
+  readonly items: readonly CatalogItem[];
+}): JSX.Element {
+  return (
+    <ul className="max-h-[520px] space-y-2 overflow-y-auto pr-1">
+      {items.map((item) => (
+        <li key={item.id}>
+          <div
+            draggable
+            onDragStart={(e) => {
+              e.dataTransfer.setData("application/agx-automation-node", JSON.stringify(item));
+              e.dataTransfer.effectAllowed = "copy";
+            }}
+            className="cursor-grab rounded-xl border px-3 py-2.5 transition-colors hover:border-[color-mix(in_srgb,var(--agx-accent,#22d3ee)_35%,transparent)] active:cursor-grabbing"
+            style={{
+              borderColor: "var(--agx-card-border, rgba(255,255,255,0.1))",
+              background: "rgba(255,255,255,0.02)",
+            }}
+          >
+            <div className="flex items-center justify-between gap-2">
+              <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
+                {item.label}
+              </p>
+              <Badge tone={kindTone(item.kind)}>{item.kind.replaceAll("_", " ")}</Badge>
+            </div>
+            <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+              {item.description}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+});
+
 /**
- * Visual node-based workflow builder — zoom, pan, minimap, undo/redo, autosave.
- * Local canvas only; execution adapters reserved for future API.
+ * Visual node-based workflow builder — snap grid, smooth zoom/pan, hover states.
  */
 export function WorkflowBuilder({
   initial,
+  onWorkflowChange,
 }: {
   readonly initial: WorkflowDefinition;
+  readonly onWorkflowChange?: (workflow: WorkflowDefinition) => void;
 }): JSX.Element {
   const [workflow, setWorkflow] = useState(() => cloneWorkflow(initial));
   const [past, setPast] = useState<WorkflowDefinition[]>([]);
@@ -55,6 +95,7 @@ export function WorkflowBuilder({
   const [scale, setScale] = useState(1);
   const [pan, setPan] = useState({ x: 40, y: 40 });
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [hoverEdgeId, setHoverEdgeId] = useState<string | null>(null);
   const [linkFrom, setLinkFrom] = useState<string | null>(null);
   const [drag, setDrag] = useState<DragMode>(null);
   const [saveState, setSaveState] = useState<"saved" | "saving" | "idle">("saved");
@@ -63,13 +104,22 @@ export function WorkflowBuilder({
   );
   const viewportRef = useRef<HTMLDivElement>(null);
   const dragSnapshot = useRef<WorkflowDefinition | null>(null);
+  const panRaf = useRef<number | null>(null);
+  const pendingPan = useRef(pan);
 
-  const commit = useCallback((next: WorkflowDefinition) => {
-    setPast((p) => [...p.slice(-39), workflow]);
-    setFuture([]);
-    setWorkflow(next);
-    setSaveState("saving");
-  }, [workflow]);
+  useEffect(() => {
+    onWorkflowChange?.(workflow);
+  }, [workflow, onWorkflowChange]);
+
+  const commit = useCallback(
+    (next: WorkflowDefinition) => {
+      setPast((p) => [...p.slice(-39), workflow]);
+      setFuture([]);
+      setWorkflow(next);
+      setSaveState("saving");
+    },
+    [workflow],
+  );
 
   useEffect(() => {
     if (saveState !== "saving") return;
@@ -77,23 +127,39 @@ export function WorkflowBuilder({
     return () => window.clearTimeout(t);
   }, [saveState, workflow]);
 
-  const undo = (): void => {
+  const undo = useCallback((): void => {
     if (past.length === 0) return;
     const prev = past[past.length - 1];
     setPast((p) => p.slice(0, -1));
     setFuture((f) => [workflow, ...f]);
     setWorkflow(prev);
     setSaveState("saving");
-  };
+  }, [past, workflow]);
 
-  const redo = (): void => {
+  const redo = useCallback((): void => {
     if (future.length === 0) return;
     const next = future[0];
     setFuture((f) => f.slice(1));
     setPast((p) => [...p, workflow]);
     setWorkflow(next);
     setSaveState("saving");
-  };
+  }, [future, workflow]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent): void => {
+      const meta = e.metaKey || e.ctrlKey;
+      if (meta && e.key === "z" && !e.shiftKey) {
+        e.preventDefault();
+        undo();
+      }
+      if (meta && (e.key === "y" || (e.key === "z" && e.shiftKey))) {
+        e.preventDefault();
+        redo();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [undo, redo]);
 
   const paletteItems = useMemo(() => {
     switch (paletteTab) {
@@ -121,8 +187,8 @@ export function WorkflowBuilder({
       type: item.kind,
       catalogId: item.id,
       label: item.label,
-      x: Math.round(x),
-      y: Math.round(y),
+      x,
+      y,
     };
     commit(addNode(workflow, node));
     setSelectedId(node.id);
@@ -131,14 +197,20 @@ export function WorkflowBuilder({
   const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>): void => {
     if (!drag) return;
     if (drag.kind === "pan") {
-      setPan({ x: event.clientX - drag.ox, y: event.clientY - drag.oy });
+      pendingPan.current = { x: event.clientX - drag.ox, y: event.clientY - drag.oy };
+      if (panRaf.current == null) {
+        panRaf.current = window.requestAnimationFrame(() => {
+          setPan(pendingPan.current);
+          panRaf.current = null;
+        });
+      }
       return;
     }
     if (!viewportRef.current) return;
     const rect = viewportRef.current.getBoundingClientRect();
     const x = (event.clientX - rect.left - pan.x) / scale - drag.ox;
     const y = (event.clientY - rect.top - pan.y) / scale - drag.oy;
-    setWorkflow((w) => moveNode(w, drag.id, Math.round(x), Math.round(y)));
+    setWorkflow((w) => moveNode(w, drag.id, x, y, true));
   };
 
   const endDrag = (): void => {
@@ -154,7 +226,7 @@ export function WorkflowBuilder({
   const onWheel = (event: WheelEvent<HTMLDivElement>): void => {
     if (!event.ctrlKey && !event.metaKey) return;
     event.preventDefault();
-    const delta = event.deltaY > 0 ? -0.08 : 0.08;
+    const delta = event.deltaY > 0 ? -0.06 : 0.06;
     setScale((s) => Math.min(1.8, Math.max(0.45, Number((s + delta).toFixed(2)))));
   };
 
@@ -185,7 +257,7 @@ export function WorkflowBuilder({
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Workflow Elements
         </h3>
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-1.5" role="tablist" aria-label="Palette">
           {(
             [
               ["elements", "Elements"],
@@ -197,9 +269,12 @@ export function WorkflowBuilder({
             <button
               key={id}
               type="button"
+              role="tab"
+              aria-selected={paletteTab === id}
               onClick={() => setPaletteTab(id)}
-              className="rounded-full border px-2.5 py-1 text-[11px] font-medium"
+              className="rounded-full border px-2.5 py-1 text-[11px] font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
               style={{
+                outlineColor: "var(--agx-accent, #22d3ee)",
                 borderColor:
                   paletteTab === id
                     ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 45%, transparent)"
@@ -218,47 +293,17 @@ export function WorkflowBuilder({
             </button>
           ))}
         </div>
-        <ul className="max-h-[520px] space-y-2 overflow-y-auto pr-1">
-          {paletteItems.map((item) => (
-            <li key={item.id}>
-              <div
-                draggable
-                onDragStart={(e) => {
-                  e.dataTransfer.setData(
-                    "application/agx-automation-node",
-                    JSON.stringify(item),
-                  );
-                  e.dataTransfer.effectAllowed = "copy";
-                }}
-                className="cursor-grab rounded-xl border px-3 py-2.5 active:cursor-grabbing"
-                style={{
-                  borderColor: "var(--agx-card-border, rgba(255,255,255,0.1))",
-                  background: "rgba(255,255,255,0.02)",
-                }}
-              >
-                <div className="flex items-center justify-between gap-2">
-                  <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                    {item.label}
-                  </p>
-                  <Badge tone={kindTone(item.kind)}>{item.kind.replaceAll("_", " ")}</Badge>
-                </div>
-                <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  {item.description}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <PaletteList items={paletteItems} />
       </Card>
 
       <Card className="xl:col-span-9 space-y-3" padding="16px" hover={false}>
-        <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="sticky top-0 z-10 -mx-1 flex flex-wrap items-center justify-between gap-2 bg-transparent px-1 pb-1">
           <div>
             <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
               Workflow Builder · {workflow.name}
             </h3>
             <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Drag & drop · connect nodes · zoom / pan · mini map · undo / redo · auto save
+              Snap to {GRID_SIZE}px grid · ⌘/Ctrl+scroll zoom · drag canvas to pan · double-click connect
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -271,13 +316,13 @@ export function WorkflowBuilder({
             <Button size="sm" variant="ghost" onClick={redo} disabled={future.length === 0}>
               Redo
             </Button>
-            <Button size="sm" variant="secondary" onClick={() => setScale((s) => Math.max(0.45, s - 0.1))}>
+            <Button size="sm" variant="secondary" onClick={() => setScale((s) => Math.max(0.45, Number((s - 0.1).toFixed(2))))}>
               −
             </Button>
             <span className="text-xs tabular-nums" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {Math.round(scale * 100)}%
             </span>
-            <Button size="sm" variant="secondary" onClick={() => setScale((s) => Math.min(1.8, s + 0.1))}>
+            <Button size="sm" variant="secondary" onClick={() => setScale((s) => Math.min(1.8, Number((s + 0.1).toFixed(2))))}>
               +
             </Button>
             <Button
@@ -298,10 +343,13 @@ export function WorkflowBuilder({
           className="relative h-[520px] overflow-hidden rounded-2xl border"
           style={{
             borderColor: "var(--agx-card-border, rgba(255,255,255,0.1))",
-            background:
-              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0)",
-            backgroundSize: "22px 22px",
+            backgroundColor: "rgba(8,12,20,0.35)",
+            backgroundImage:
+              "linear-gradient(to right, rgba(255,255,255,0.055) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.055) 1px, transparent 1px)",
+            backgroundSize: `${GRID_SIZE * scale}px ${GRID_SIZE * scale}px`,
+            backgroundPosition: `${pan.x}px ${pan.y}px`,
             touchAction: "none",
+            transition: drag?.kind === "pan" ? undefined : "background-size 120ms ease",
           }}
           onDragOver={(e) => e.preventDefault()}
           onDrop={onPaletteDrop}
@@ -318,15 +366,29 @@ export function WorkflowBuilder({
           }}
         >
           <div data-canvas="true" className="absolute inset-0" />
+
+          {workflow.nodes.length === 0 ? (
+            <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center p-6">
+              <div className="pointer-events-auto max-w-md">
+                <EmptyState
+                  title="Empty canvas"
+                  description="Drag a Trigger from the palette to start building. Snap-to-grid keeps nodes aligned."
+                />
+              </div>
+            </div>
+          ) : null}
+
           <div
             style={{
               position: "absolute",
               left: 0,
               top: 0,
-              transform: `translate(${pan.x}px, ${pan.y}px) scale(${scale})`,
+              transform: `translate3d(${pan.x}px, ${pan.y}px, 0) scale(${scale})`,
               transformOrigin: "0 0",
               width: 1400,
               height: 900,
+              willChange: "transform",
+              transition: drag ? undefined : "transform 120ms cubic-bezier(0.22, 1, 0.36, 1)",
             }}
           >
             <svg className="absolute inset-0" width={1400} height={900} aria-hidden="true">
@@ -339,13 +401,21 @@ export function WorkflowBuilder({
                 const x2 = to.x;
                 const y2 = to.y + NODE_H / 2;
                 const mx = (x1 + x2) / 2;
+                const hovered = hoverEdgeId === edge.id;
                 return (
                   <path
                     key={edge.id}
                     d={`M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`}
                     fill="none"
-                    stroke="color-mix(in srgb, var(--agx-accent, #22d3ee) 55%, transparent)"
-                    strokeWidth={2}
+                    stroke={
+                      hovered
+                        ? "var(--agx-accent, #22d3ee)"
+                        : "color-mix(in srgb, var(--agx-accent, #22d3ee) 55%, transparent)"
+                    }
+                    strokeWidth={hovered ? 3.25 : 2}
+                    style={{ cursor: "pointer", transition: "stroke 140ms ease, stroke-width 140ms ease" }}
+                    onMouseEnter={() => setHoverEdgeId(edge.id)}
+                    onMouseLeave={() => setHoverEdgeId(null)}
                   />
                 );
               })}
@@ -358,6 +428,7 @@ export function WorkflowBuilder({
                   key={node.id}
                   role="button"
                   tabIndex={0}
+                  aria-pressed={active}
                   onPointerDown={(e) => {
                     e.stopPropagation();
                     dragSnapshot.current = cloneWorkflow(workflow);
@@ -380,17 +451,28 @@ export function WorkflowBuilder({
                       setLinkFrom(node.id);
                     }
                   }}
-                  className="absolute select-none rounded-2xl border px-3 py-2 shadow-lg"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedId(node.id);
+                    }
+                  }}
+                  className="absolute select-none rounded-2xl border px-3 py-2 shadow-lg outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                   style={{
                     left: node.x,
                     top: node.y,
                     width: NODE_W,
                     minHeight: NODE_H,
+                    outlineColor: "var(--agx-accent, #22d3ee)",
                     borderColor: active
-                      ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 55%, transparent)"
+                      ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 65%, transparent)"
                       : "var(--agx-card-border, rgba(255,255,255,0.14))",
-                    background:
-                      "linear-gradient(165deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))",
+                    background: active
+                      ? "linear-gradient(165deg, rgba(34,211,238,0.16), rgba(255,255,255,0.03))"
+                      : "linear-gradient(165deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))",
+                    boxShadow: active
+                      ? "0 0 0 1px color-mix(in srgb, var(--agx-accent, #22d3ee) 35%, transparent), 0 12px 28px rgba(0,0,0,0.28)"
+                      : "0 8px 20px rgba(0,0,0,0.22)",
                     backdropFilter: "blur(12px)",
                     cursor: "grab",
                   }}
@@ -412,7 +494,6 @@ export function WorkflowBuilder({
             })}
           </div>
 
-          {/* Mini map */}
           <div
             className="absolute bottom-3 right-3 overflow-hidden rounded-xl border"
             style={{
@@ -423,7 +504,11 @@ export function WorkflowBuilder({
             }}
             aria-label="Mini map"
           >
-            <svg width={140} height={96} viewBox={`${bounds.minX - 40} ${bounds.minY - 40} ${Math.max(200, bounds.maxX - bounds.minX + 80)} ${Math.max(140, bounds.maxY - bounds.minY + 80)}`}>
+            <svg
+              width={140}
+              height={96}
+              viewBox={`${bounds.minX - 40} ${bounds.minY - 40} ${Math.max(200, bounds.maxX - bounds.minX + 80)} ${Math.max(140, bounds.maxY - bounds.minY + 80)}`}
+            >
               {workflow.edges.map((edge) => {
                 const from = nodeMap.get(edge.from);
                 const to = nodeMap.get(edge.to);
@@ -448,7 +533,7 @@ export function WorkflowBuilder({
                   width={NODE_W}
                   height={NODE_H}
                   rx={12}
-                  fill="rgba(34,211,238,0.35)"
+                  fill={selectedId === n.id ? "rgba(34,211,238,0.55)" : "rgba(34,211,238,0.35)"}
                 />
               ))}
             </svg>

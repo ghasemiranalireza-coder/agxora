@@ -64,54 +64,12 @@ export const DEFAULT_WORKFLOW: WorkflowDefinition = {
   active: true,
   updatedAt: "2026-07-30T12:00:00Z",
   nodes: [
-    {
-      id: "n1",
-      type: "trigger",
-      catalogId: "tr-customer",
-      label: "Customer Created",
-      x: 80,
-      y: 160,
-    },
-    {
-      id: "n2",
-      type: "action",
-      catalogId: "ac-email",
-      label: "Send Email",
-      x: 320,
-      y: 160,
-    },
-    {
-      id: "n3",
-      type: "ai_action",
-      catalogId: "ai-sum",
-      label: "AI Summarization",
-      x: 560,
-      y: 160,
-    },
-    {
-      id: "n4",
-      type: "action",
-      catalogId: "ac-task",
-      label: "Create Task",
-      x: 800,
-      y: 160,
-    },
-    {
-      id: "n5",
-      type: "condition",
-      catalogId: "el-condition",
-      label: "Condition",
-      x: 560,
-      y: 320,
-    },
-    {
-      id: "n6",
-      type: "notification",
-      catalogId: "el-notification",
-      label: "Notification",
-      x: 800,
-      y: 320,
-    },
+    { id: "n1", type: "trigger", catalogId: "tr-customer", label: "Customer Created", x: 72, y: 168 },
+    { id: "n2", type: "action", catalogId: "ac-email", label: "Send Email", x: 312, y: 168 },
+    { id: "n3", type: "ai_action", catalogId: "ai-sum", label: "AI Summarization", x: 552, y: 168 },
+    { id: "n4", type: "action", catalogId: "ac-task", label: "Create Task", x: 792, y: 168 },
+    { id: "n5", type: "condition", catalogId: "el-condition", label: "Condition", x: 552, y: 336 },
+    { id: "n6", type: "notification", catalogId: "el-notification", label: "Notification", x: 792, y: 336 },
   ],
   edges: [
     { id: "e1", from: "n1", to: "n2" },
@@ -122,6 +80,23 @@ export const DEFAULT_WORKFLOW: WorkflowDefinition = {
   ],
 };
 
+function previewGraph(
+  id: string,
+  name: string,
+  nodes: WorkflowDefinition["nodes"],
+  edges: WorkflowDefinition["edges"],
+): WorkflowDefinition {
+  return {
+    id,
+    name,
+    description: name,
+    active: false,
+    updatedAt: "2026-07-30T12:00:00Z",
+    nodes,
+    edges,
+  };
+}
+
 export const WORKFLOW_RUNS: readonly WorkflowRun[] = [
   {
     id: "run-1",
@@ -129,9 +104,15 @@ export const WORKFLOW_RUNS: readonly WorkflowRun[] = [
     workflowName: "Customer Onboarding",
     status: "success",
     startedAt: "2026-07-30T15:12:00Z",
+    finishedAt: "2026-07-30T15:12:01Z",
     durationMs: 1420,
     trigger: "Customer Created",
     detail: "Welcome email sent · task assigned to Sara M.",
+    executedBy: "System · Automation Engine",
+    retryAvailable: false,
+    input: '{ "customerId": "cust-nordlicht", "source": "crm" }',
+    output: '{ "emailId": "msg-441", "taskId": "task-882" }',
+    aiSummary: "Onboarding completed cleanly. Customer welcomed and owner task created.",
   },
   {
     id: "run-2",
@@ -139,9 +120,15 @@ export const WORKFLOW_RUNS: readonly WorkflowRun[] = [
     workflowName: "Invoice Reminder",
     status: "success",
     startedAt: "2026-07-30T14:40:00Z",
+    finishedAt: "2026-07-30T14:40:01Z",
     durationMs: 980,
     trigger: "Schedule Trigger",
     detail: "Reminder email dispatched for INV-2026-1004.",
+    executedBy: "Scheduler",
+    retryAvailable: false,
+    input: '{ "invoiceId": "INV-2026-1004" }',
+    output: '{ "emailId": "msg-512" }',
+    aiSummary: "Reminder sent within SLA. No escalation required.",
   },
   {
     id: "run-3",
@@ -149,9 +136,16 @@ export const WORKFLOW_RUNS: readonly WorkflowRun[] = [
     workflowName: "Lead Follow-up",
     status: "failed",
     startedAt: "2026-07-30T13:05:00Z",
+    finishedAt: "2026-07-30T13:05:02Z",
     durationMs: 2100,
     trigger: "Lead Created",
     detail: "Email adapter timeout — retry available.",
+    executedBy: "System · Automation Engine",
+    retryAvailable: true,
+    input: '{ "leadId": "lead-991", "owner": "Tom K." }',
+    output: "{}",
+    aiSummary: "Follow-up stopped at Send Email. Retry when adapter health recovers.",
+    errorMessage: "EmailAdapterTimeout: upstream provider did not respond within 2000ms.",
   },
   {
     id: "run-4",
@@ -159,9 +153,15 @@ export const WORKFLOW_RUNS: readonly WorkflowRun[] = [
     workflowName: "Content Publishing",
     status: "success",
     startedAt: "2026-07-30T11:22:00Z",
+    finishedAt: "2026-07-30T11:22:03Z",
     durationMs: 3100,
     trigger: "Campaign Published",
-    detail: "Analytics snapshot + Slack notify queued.",
+    detail: "Analytics snapshot + notify queued.",
+    executedBy: "Creator Studio bridge",
+    retryAvailable: false,
+    input: '{ "campaignId": "camp-1" }',
+    output: '{ "notifyQueued": true }',
+    aiSummary: "Publish pipeline completed. Downstream analytics job queued.",
   },
   {
     id: "run-5",
@@ -172,6 +172,11 @@ export const WORKFLOW_RUNS: readonly WorkflowRun[] = [
     durationMs: 0,
     trigger: "Manual Trigger",
     detail: "Waiting on approval from Tom K.",
+    executedBy: "Sara M.",
+    retryAvailable: false,
+    input: '{ "requestId": "apr-77" }',
+    output: '{ "status": "awaiting_approval" }',
+    aiSummary: "Human approval gate active. No AI actions pending.",
   },
   {
     id: "run-6",
@@ -179,9 +184,15 @@ export const WORKFLOW_RUNS: readonly WorkflowRun[] = [
     workflowName: "Lead Follow-up",
     status: "retried",
     startedAt: "2026-07-30T09:18:00Z",
+    finishedAt: "2026-07-30T09:18:02Z",
     durationMs: 1650,
     trigger: "Lead Created",
     detail: "Succeeded on second attempt.",
+    executedBy: "Retry Queue",
+    retryAvailable: false,
+    input: '{ "leadId": "lead-880" }',
+    output: '{ "emailId": "msg-603" }',
+    aiSummary: "Retry recovered a transient adapter failure.",
   },
 ];
 
@@ -189,23 +200,73 @@ export const WORKFLOW_TEMPLATES: readonly WorkflowTemplate[] = [
   {
     id: "tpl-onboarding",
     name: "Customer Onboarding",
-    description: "Welcome email, AI summary, and owner task.",
+    description: "Welcome email, AI summary, and owner task after customer creation.",
     category: "CRM",
     nodeCount: 6,
+    estimatedRuntime: "~2s",
+    difficulty: "starter",
+    recommendedFor: "Teams onboarding new B2B customers",
+    requiredModules: ["AI CRM", "Automation"],
+    aiFeatures: ["AI Summarization"],
+    preview: DEFAULT_WORKFLOW,
   },
   {
     id: "tpl-invoice",
     name: "Invoice Reminder",
-    description: "Scheduled reminders for open invoices.",
+    description: "Scheduled reminders for open invoices with escalation path.",
     category: "Finance",
     nodeCount: 5,
+    estimatedRuntime: "~1.2s",
+    difficulty: "starter",
+    recommendedFor: "Finance ops reducing overdue receivables",
+    requiredModules: ["Finance & Tax", "Automation"],
+    aiFeatures: [],
+    preview: previewGraph(
+      "wf-invoice-preview",
+      "Invoice Reminder",
+      [
+        { id: "a1", type: "trigger", catalogId: "tr-schedule", label: "Schedule Trigger", x: 72, y: 168 },
+        { id: "a2", type: "condition", catalogId: "el-condition", label: "Condition", x: 312, y: 168 },
+        { id: "a3", type: "action", catalogId: "ac-email", label: "Send Email", x: 552, y: 168 },
+        { id: "a4", type: "delay", catalogId: "el-delay", label: "Delay", x: 552, y: 336 },
+        { id: "a5", type: "notification", catalogId: "el-notification", label: "Notification", x: 792, y: 336 },
+      ],
+      [
+        { id: "x1", from: "a1", to: "a2" },
+        { id: "x2", from: "a2", to: "a3" },
+        { id: "x3", from: "a3", to: "a4" },
+        { id: "x4", from: "a4", to: "a5" },
+      ],
+    ),
   },
   {
     id: "tpl-lead",
     name: "Lead Follow-up",
-    description: "AI email reply + pipeline status update.",
+    description: "AI email reply plus pipeline status update for new leads.",
     category: "Sales",
     nodeCount: 7,
+    estimatedRuntime: "~2.4s",
+    difficulty: "intermediate",
+    recommendedFor: "Sales teams with high inbound lead volume",
+    requiredModules: ["AI CRM", "Automation"],
+    aiFeatures: ["AI Email Reply", "AI Routing"],
+    preview: previewGraph(
+      "wf-lead-preview",
+      "Lead Follow-up",
+      [
+        { id: "b1", type: "trigger", catalogId: "tr-lead", label: "Lead Created", x: 72, y: 168 },
+        { id: "b2", type: "ai_action", catalogId: "ai-email", label: "AI Email Reply", x: 312, y: 168 },
+        { id: "b3", type: "action", catalogId: "ac-email", label: "Send Email", x: 552, y: 168 },
+        { id: "b4", type: "ai_action", catalogId: "ai-route", label: "AI Routing", x: 792, y: 168 },
+        { id: "b5", type: "action", catalogId: "ac-update-status", label: "Update Status", x: 552, y: 336 },
+      ],
+      [
+        { id: "y1", from: "b1", to: "b2" },
+        { id: "y2", from: "b2", to: "b3" },
+        { id: "y3", from: "b3", to: "b4" },
+        { id: "y4", from: "b4", to: "b5" },
+      ],
+    ),
   },
   {
     id: "tpl-welcome",
@@ -213,6 +274,24 @@ export const WORKFLOW_TEMPLATES: readonly WorkflowTemplate[] = [
     description: "Simple welcome sequence on signup.",
     category: "Marketing",
     nodeCount: 3,
+    estimatedRuntime: "~0.8s",
+    difficulty: "starter",
+    recommendedFor: "Any workspace starting with email automation",
+    requiredModules: ["Automation"],
+    aiFeatures: [],
+    preview: previewGraph(
+      "wf-welcome-preview",
+      "Welcome Email",
+      [
+        { id: "c1", type: "trigger", catalogId: "tr-customer", label: "Customer Created", x: 96, y: 180 },
+        { id: "c2", type: "action", catalogId: "ac-email", label: "Send Email", x: 360, y: 180 },
+        { id: "c3", type: "notification", catalogId: "el-notification", label: "Notification", x: 624, y: 180 },
+      ],
+      [
+        { id: "z1", from: "c1", to: "c2" },
+        { id: "z2", from: "c2", to: "c3" },
+      ],
+    ),
   },
   {
     id: "tpl-pipeline",
@@ -220,6 +299,12 @@ export const WORKFLOW_TEMPLATES: readonly WorkflowTemplate[] = [
     description: "Stage changes with notifications and tasks.",
     category: "Sales",
     nodeCount: 8,
+    estimatedRuntime: "~2.8s",
+    difficulty: "advanced",
+    recommendedFor: "Teams managing multi-stage deal progression",
+    requiredModules: ["AI CRM", "Automation"],
+    aiFeatures: ["AI Decision", "AI Recommendations"],
+    preview: DEFAULT_WORKFLOW,
   },
   {
     id: "tpl-recruit",
@@ -227,6 +312,12 @@ export const WORKFLOW_TEMPLATES: readonly WorkflowTemplate[] = [
     description: "Candidate routing and interview tasks.",
     category: "HR",
     nodeCount: 6,
+    estimatedRuntime: "~2.1s",
+    difficulty: "intermediate",
+    recommendedFor: "Hiring managers and people ops",
+    requiredModules: ["Team", "Automation"],
+    aiFeatures: ["AI Classification"],
+    preview: DEFAULT_WORKFLOW,
   },
   {
     id: "tpl-content",
@@ -234,6 +325,12 @@ export const WORKFLOW_TEMPLATES: readonly WorkflowTemplate[] = [
     description: "Creator Studio publish → notify → analytics.",
     category: "Creator",
     nodeCount: 5,
+    estimatedRuntime: "~3.1s",
+    difficulty: "intermediate",
+    recommendedFor: "Marketing and creator teams",
+    requiredModules: ["AI Creator Studio", "Automation"],
+    aiFeatures: ["Generate AI Content"],
+    preview: DEFAULT_WORKFLOW,
   },
   {
     id: "tpl-approval",
@@ -241,50 +338,25 @@ export const WORKFLOW_TEMPLATES: readonly WorkflowTemplate[] = [
     description: "Multi-step approval with AI recommendations.",
     category: "Ops",
     nodeCount: 7,
+    estimatedRuntime: "~human gate",
+    difficulty: "advanced",
+    recommendedFor: "Finance/ops approvals before side effects",
+    requiredModules: ["Automation"],
+    aiFeatures: ["AI Recommendations"],
+    preview: previewGraph(
+      "wf-approval-preview",
+      "Approval Process",
+      [
+        { id: "d1", type: "trigger", catalogId: "tr-manual", label: "Manual Trigger", x: 72, y: 168 },
+        { id: "d2", type: "ai_action", catalogId: "ai-rec", label: "AI Recommendations", x: 312, y: 168 },
+        { id: "d3", type: "approval", catalogId: "el-approval", label: "Approval", x: 552, y: 168 },
+        { id: "d4", type: "action", catalogId: "ac-notify", label: "Send Notification", x: 792, y: 168 },
+      ],
+      [
+        { id: "w1", from: "d1", to: "d2" },
+        { id: "w2", from: "d2", to: "d3" },
+        { id: "w3", from: "d3", to: "d4" },
+      ],
+    ),
   },
 ];
-
-export function formatDuration(ms: number): string {
-  if (ms <= 0) return "—";
-  if (ms < 1000) return `${ms}ms`;
-  return `${(ms / 1000).toFixed(1)}s`;
-}
-
-export function formatDateTime(iso: string): string {
-  return new Intl.DateTimeFormat("en-GB", {
-    day: "2-digit",
-    month: "short",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(new Date(iso));
-}
-
-export function integrationLabel(status: string): string {
-  switch (status) {
-    case "connected":
-      return "Connected";
-    case "ready":
-      return "Ready";
-    case "disabled":
-      return "Disabled";
-    default:
-      return "Planned";
-  }
-}
-
-export function runStatusLabel(status: string): string {
-  switch (status) {
-    case "success":
-      return "Success";
-    case "failed":
-      return "Failed";
-    case "running":
-      return "Running";
-    case "pending":
-      return "Pending";
-    case "retried":
-      return "Retry";
-    default:
-      return status;
-  }
-}
