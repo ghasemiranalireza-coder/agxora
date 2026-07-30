@@ -13,7 +13,7 @@ import { useAuth } from "../lib/auth";
 import { useOrganization } from "../lib/organization";
 import type { WorkspaceId } from "../lib/organization/types";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
-import ThemeSwitcher from "./ThemeSwitcher";
+import { ThemeQuickToggle } from "./ThemeQuickToggle";
 import { IconButton } from "./ui";
 
 function SvgIcon({ d }: { readonly d: string }): JSX.Element {
@@ -35,8 +35,9 @@ function SvgIcon({ d }: { readonly d: string }): JSX.Element {
 }
 
 /**
- * Top header — Organization · Search · Notifications · Profile · Theme.
- * Removes placeholder / duplicate controls. Does not touch Hero Theme Switch.
+ * Top header — Organization · Search · Notifications · Profile · Theme quick toggle.
+ * Full Appearance configuration lives in Settings Control Center only.
+ * Does not touch Hero Theme Switcher on /dashboard.
  */
 export function DashboardTopNav(): JSX.Element {
   const { tokens } = useTheme();
@@ -302,7 +303,7 @@ export function DashboardTopNav(): JSX.Element {
 
         {showHeaderTheme ? (
           <div className="agx-topnav-theme" style={{ marginLeft: 4 }}>
-            <ThemeSwitcher />
+            <ThemeQuickToggle />
           </div>
         ) : null}
       </div>
