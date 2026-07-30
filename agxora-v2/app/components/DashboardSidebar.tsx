@@ -140,12 +140,15 @@ export function DashboardSidebar(): JSX.Element {
           position: "relative",
           width: "280px",
           minHeight: "100vh",
+          maxHeight: "100vh",
+          overflowY: "auto",
+          overscrollBehavior: "contain",
           background: tokens.sidebarBg,
           backdropFilter: tokens.sidebarBlur,
           WebkitBackdropFilter: tokens.sidebarBlur,
           borderRight: `1px solid ${tokens.sidebarBorder}`,
           boxShadow: tokens.sidebarShadow,
-          padding: "40px 26px",
+          padding: "36px 22px 28px",
           transition: surfaceTransition,
           flexShrink: 0,
         }}
@@ -168,8 +171,8 @@ export function DashboardSidebar(): JSX.Element {
             position: "relative",
             color: tokens.accent,
             letterSpacing: "0.32em",
-            marginBottom: "52px",
-            marginTop: "4px",
+            marginBottom: "40px",
+            marginTop: "2px",
             fontSize: "13px",
             fontWeight: 700,
             transition: surfaceTransition,
@@ -184,7 +187,7 @@ export function DashboardSidebar(): JSX.Element {
             position: "relative",
             display: "flex",
             flexDirection: "column",
-            gap: "6px",
+            gap: "4px",
           }}
         >
           {NAV_ITEMS.map((item) => {

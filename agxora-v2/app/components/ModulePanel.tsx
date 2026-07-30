@@ -1,6 +1,7 @@
 "use client";
 
 import type { JSX, ReactNode } from "react";
+import { Card, EmptyState } from "./ui";
 import { useTheme } from "../lib/theme";
 
 export function ModulePanel({
@@ -13,20 +14,9 @@ export function ModulePanel({
   readonly children?: ReactNode;
 }): JSX.Element {
   const { tokens } = useTheme();
+
   return (
-    <div
-      className="agx-glass-panel"
-      style={{
-        padding: "28px 30px",
-        borderRadius: 26,
-        background: tokens.panelBg,
-        border: `1px solid ${tokens.panelBorder}`,
-        boxShadow: tokens.panelShadow,
-        backdropFilter: tokens.cardBlur,
-        WebkitBackdropFilter: tokens.cardBlur,
-        maxWidth: 860,
-      }}
-    >
+    <Card hover={false} className="max-w-[860px]" padding="28px 30px">
       <h1
         style={{
           margin: "0 0 8px",
@@ -41,7 +31,12 @@ export function ModulePanel({
       <p style={{ margin: "0 0 18px", color: tokens.textMuted, fontSize: 14 }}>
         {description}
       </p>
-      {children}
-    </div>
+      {children ?? (
+        <EmptyState
+          title={`No ${title.toLowerCase()} yet`}
+          description="This module is ready. Content and records will appear here as your workspace grows."
+        />
+      )}
+    </Card>
   );
 }
