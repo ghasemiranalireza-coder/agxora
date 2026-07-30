@@ -83,7 +83,7 @@ export const SAAS_MODULES: readonly SaaSModuleDefinition[] = [
     key: "automation",
     label: "Automation",
     href: "/dashboard/automation",
-    description: "Workflows and automations",
+    description: "AI workflow and automation engine",
   },
   {
     key: "memory",
