@@ -10,6 +10,7 @@ export type SaaSModuleKey =
   | "finance"
   | "crm"
   | "creator"
+  | "documents"
   | "ai"
   | "analytics"
   | "automation"
@@ -66,6 +67,12 @@ export const SAAS_MODULES: readonly SaaSModuleDefinition[] = [
     label: "AI Creator Studio",
     href: "/dashboard/creator",
     description: "AI content production and marketing OS",
+  },
+  {
+    key: "documents",
+    label: "Documents",
+    href: "/dashboard/documents",
+    description: "AI Documents & Knowledge Hub",
   },
   {
     key: "ai",
