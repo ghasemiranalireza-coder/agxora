@@ -1,0 +1,10 @@
+export { DocumentsHubPage } from "./DocumentsHubPage";
+export { DocumentsKpiOverview } from "./DocumentsKpiOverview";
+export { LibraryWorkspace } from "./LibraryWorkspace";
+export { DocumentViewer } from "./DocumentViewer";
+export { KnowledgeBase } from "./KnowledgeBase";
+export { ApprovalQueue } from "./ApprovalQueue";
+export { AiKnowledgePanel } from "./AiKnowledgePanel";
+export { DocumentsActivity } from "./DocumentsActivity";
+export { DocumentsIntegrations } from "./DocumentsIntegrations";
+export { DocumentsSecurity } from "./DocumentsSecurity";
