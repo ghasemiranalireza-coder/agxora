@@ -18,51 +18,24 @@ export type WorkflowElementKind =
   | "action"
   | "ai_action";
 
-export type TriggerKind =
-  | "customer_created"
-  | "lead_created"
-  | "invoice_created"
-  | "invoice_paid"
-  | "order_created"
-  | "order_completed"
-  | "document_uploaded"
-  | "campaign_published"
-  | "employee_added"
-  | "task_completed"
-  | "manual"
-  | "schedule"
-  | "webhook"
-  | "api";
-
-export type ActionKind =
-  | "create_crm_record"
-  | "generate_invoice"
-  | "generate_quote"
-  | "generate_delivery_note"
-  | "create_task"
-  | "assign_employee"
-  | "send_email"
-  | "send_notification"
-  | "generate_ai_summary"
-  | "generate_ai_content"
-  | "update_customer"
-  | "update_status"
-  | "export_pdf"
-  | "future_api";
-
-export type AiActionKind =
-  | "ai_decision"
-  | "ai_classification"
-  | "ai_text_generation"
-  | "ai_translation"
-  | "ai_email_reply"
-  | "ai_summarization"
-  | "ai_recommendations"
-  | "ai_routing";
-
 export type RunStatus = "success" | "failed" | "running" | "pending" | "retried";
 
-export type IntegrationStatus = "planned" | "ready" | "connected" | "disabled";
+export type IntegrationStatus =
+  | "connected"
+  | "beta"
+  | "planned"
+  | "coming_soon"
+  | "disabled";
+
+export type IntegrationCategory =
+  | "Productivity"
+  | "Finance"
+  | "CRM"
+  | "Commerce"
+  | "Communication"
+  | "ERP";
+
+export type TemplateDifficulty = "starter" | "intermediate" | "advanced";
 
 export interface AutomationKpi {
   readonly id: string;
@@ -110,9 +83,16 @@ export interface WorkflowRun {
   readonly workflowName: string;
   readonly status: RunStatus;
   readonly startedAt: string;
+  readonly finishedAt?: string;
   readonly durationMs: number;
   readonly trigger: string;
   readonly detail: string;
+  readonly executedBy: string;
+  readonly retryAvailable: boolean;
+  readonly input: string;
+  readonly output: string;
+  readonly aiSummary: string;
+  readonly errorMessage?: string;
 }
 
 export interface WorkflowTemplate {
@@ -121,15 +101,44 @@ export interface WorkflowTemplate {
   readonly description: string;
   readonly category: string;
   readonly nodeCount: number;
+  readonly estimatedRuntime: string;
+  readonly difficulty: TemplateDifficulty;
+  readonly recommendedFor: string;
+  readonly requiredModules: readonly string[];
+  readonly aiFeatures: readonly string[];
+  readonly preview: WorkflowDefinition;
 }
 
 export interface IntegrationPlan {
   readonly id: string;
   readonly name: string;
-  readonly category: string;
+  readonly category: IntegrationCategory;
   readonly status: IntegrationStatus;
   readonly adapter: string;
   readonly notes: string;
+}
+
+export type AssistantSeverity = "info" | "warning" | "critical" | "opportunity";
+
+export interface AssistantSuggestion {
+  readonly id: string;
+  readonly title: string;
+  readonly description: string;
+  readonly severity: AssistantSeverity;
+  readonly kind:
+    | "missing_approval"
+    | "possible_delay"
+    | "unused_trigger"
+    | "duplicate_nodes"
+    | "unused_action"
+    | "security"
+    | "performance";
+}
+
+export interface WorkflowScore {
+  readonly score: number;
+  readonly label: string;
+  readonly suggestions: readonly AssistantSuggestion[];
 }
 
 export interface Point {

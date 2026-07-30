@@ -1,4 +1,10 @@
-import type { WorkflowDefinition, WorkflowEdge, WorkflowNode } from "./types";
+import type { WorkflowDefinition } from "./types";
+
+export const GRID_SIZE = 24;
+
+export function snapToGrid(value: number, grid = GRID_SIZE): number {
+  return Math.round(value / grid) * grid;
+}
 
 export function cloneWorkflow(workflow: WorkflowDefinition): WorkflowDefinition {
   return {
@@ -13,11 +19,14 @@ export function moveNode(
   nodeId: string,
   x: number,
   y: number,
+  snap = true,
 ): WorkflowDefinition {
+  const nx = snap ? snapToGrid(x) : x;
+  const ny = snap ? snapToGrid(y) : y;
   return {
     ...workflow,
     nodes: workflow.nodes.map((node) =>
-      node.id === nodeId ? { ...node, x, y } : node,
+      node.id === nodeId ? { ...node, x: nx, y: ny } : node,
     ),
     updatedAt: new Date().toISOString(),
   };
@@ -25,11 +34,18 @@ export function moveNode(
 
 export function addNode(
   workflow: WorkflowDefinition,
-  node: WorkflowNode,
+  node: WorkflowDefinition["nodes"][number],
 ): WorkflowDefinition {
   return {
     ...workflow,
-    nodes: [...workflow.nodes, node],
+    nodes: [
+      ...workflow.nodes,
+      {
+        ...node,
+        x: snapToGrid(node.x),
+        y: snapToGrid(node.y),
+      },
+    ],
     updatedAt: new Date().toISOString(),
   };
 }
@@ -41,14 +57,12 @@ export function connectNodes(
 ): WorkflowDefinition {
   if (from === to) return workflow;
   if (workflow.edges.some((e) => e.from === from && e.to === to)) return workflow;
-  const edge: WorkflowEdge = {
-    id: `e-${from}-${to}-${Date.now()}`,
-    from,
-    to,
-  };
   return {
     ...workflow,
-    edges: [...workflow.edges, edge],
+    edges: [
+      ...workflow.edges,
+      { id: `e-${from}-${to}-${Date.now()}`, from, to },
+    ],
     updatedAt: new Date().toISOString(),
   };
 }

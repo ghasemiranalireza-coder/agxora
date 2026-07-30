@@ -59,17 +59,15 @@ export const AI_ACTIONS: readonly CatalogItem[] = [
   { id: "ai-route", label: "AI Routing", description: "Route to owner / queue", kind: "ai_action" },
 ];
 
-/**
- * Future integrations — architecture only. No fake live APIs.
- */
+/** Future integrations — architecture only. */
 export const AUTOMATION_INTEGRATIONS: readonly IntegrationPlan[] = [
   {
     id: "google-workspace",
     name: "Google Workspace",
     category: "Productivity",
-    status: "planned",
+    status: "connected",
     adapter: "GoogleWorkspaceAdapter",
-    notes: "Gmail / Drive / Calendar hooks reserved.",
+    notes: "Gmail / Drive / Calendar hooks reserved for OAuth wiring.",
   },
   {
     id: "m365",
@@ -82,15 +80,15 @@ export const AUTOMATION_INTEGRATIONS: readonly IntegrationPlan[] = [
   {
     id: "slack",
     name: "Slack",
-    category: "Messaging",
-    status: "planned",
+    category: "Communication",
+    status: "coming_soon",
     adapter: "SlackAdapter",
     notes: "Events API + chat posts reserved.",
   },
   {
     id: "teams",
     name: "Teams",
-    category: "Messaging",
+    category: "Communication",
     status: "planned",
     adapter: "TeamsAdapter",
     notes: "Bot Framework adapter reserved.",
@@ -98,7 +96,7 @@ export const AUTOMATION_INTEGRATIONS: readonly IntegrationPlan[] = [
   {
     id: "discord",
     name: "Discord",
-    category: "Messaging",
+    category: "Communication",
     status: "planned",
     adapter: "DiscordAdapter",
     notes: "Webhook + bot adapter reserved.",
@@ -106,18 +104,18 @@ export const AUTOMATION_INTEGRATIONS: readonly IntegrationPlan[] = [
   {
     id: "whatsapp",
     name: "WhatsApp Business",
-    category: "Messaging",
-    status: "planned",
+    category: "Communication",
+    status: "coming_soon",
     adapter: "WhatsAppBusinessAdapter",
     notes: "Meta Cloud API adapter reserved.",
   },
   {
     id: "stripe",
     name: "Stripe",
-    category: "Payments",
-    status: "planned",
+    category: "Commerce",
+    status: "beta",
     adapter: "StripeAdapter",
-    notes: "Payment webhooks reserved.",
+    notes: "Payment webhooks reserved — no live keys.",
   },
   {
     id: "shopify",
@@ -139,9 +137,9 @@ export const AUTOMATION_INTEGRATIONS: readonly IntegrationPlan[] = [
     id: "sap",
     name: "SAP",
     category: "ERP",
-    status: "planned",
+    status: "disabled",
     adapter: "SapAdapter",
-    notes: "ERP event bridge reserved.",
+    notes: "ERP event bridge reserved — disabled until enterprise plan.",
   },
   {
     id: "hubspot",
@@ -155,13 +153,12 @@ export const AUTOMATION_INTEGRATIONS: readonly IntegrationPlan[] = [
     id: "salesforce",
     name: "Salesforce",
     category: "CRM",
-    status: "planned",
+    status: "coming_soon",
     adapter: "SalesforceAdapter",
     notes: "Platform Events adapter reserved.",
   },
 ] as const;
 
-/** Runtime contract for future action executors. */
 export interface ActionExecutor {
   readonly id: string;
   execute(input: unknown): Promise<{ readonly ok: boolean; readonly output?: unknown }>;
