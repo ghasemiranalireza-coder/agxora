@@ -70,7 +70,7 @@ function ProfilePanel(): JSX.Element {
   const [name, setName] = useState(identity.profile.fullName);
   const [email, setEmail] = useState(identity.profile.email);
   const [language, setLanguage] = useState<string>(
-    identity.profile.language || "de-DE",
+    identity.profile.language || "en-GB",
   );
   const [timezone, setTimezone] = useState(identity.profile.timezone || "Europe/Berlin");
   const [region, setRegion] = useState("EU");
