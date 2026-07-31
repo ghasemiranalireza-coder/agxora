@@ -557,3 +557,34 @@ textarea {
     animation: none !important;
   }
 }
+
+/* Phase 17 — global loading bar (host only; no module chrome changes) */
+@keyframes agxora-loading-slide {
+  0% {
+    transform: translateX(-100%);
+    width: 30%;
+  }
+  50% {
+    width: 55%;
+  }
+  100% {
+    transform: translateX(350%);
+    width: 30%;
+  }
+}
+
+.agxora-global-loading-bar {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--agx-accent, #22d3ee),
+    transparent
+  );
+  animation: agxora-loading-slide 1.1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agxora-global-loading-bar {
+    animation: none;
+  }
+}

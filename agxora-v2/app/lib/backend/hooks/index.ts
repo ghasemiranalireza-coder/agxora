@@ -18,6 +18,21 @@ import {
 } from "../security";
 import type { ModuleAccessKey } from "@/app/lib/identity/types";
 
+const TOAST_ACTIONS = {
+  success: toastStore.success,
+  warning: toastStore.warning,
+  error: toastStore.error,
+  info: toastStore.info,
+  dismiss: toastStore.dismiss,
+  clear: toastStore.clear,
+} as const;
+
+const LOADING_ACTIONS = {
+  start: loadingStore.start,
+  stop: loadingStore.stop,
+  reset: loadingStore.reset,
+} as const;
+
 export function useBackendState(): BackendGlobalState {
   return useSyncExternalStore(
     backendState.subscribe,
@@ -57,8 +72,8 @@ export function useThemeState() {
 export function useRecentActivity(): readonly Activity[] {
   return useSyncExternalStore(
     subscribeActivity,
-    () => getActivityFeed(),
-    () => getActivityFeed(),
+    getActivityFeed,
+    getActivityFeed,
   );
 }
 
@@ -71,14 +86,7 @@ export function useToasts(): readonly ToastItem[] {
 }
 
 export function useToast() {
-  return {
-    success: toastStore.success,
-    warning: toastStore.warning,
-    error: toastStore.error,
-    info: toastStore.info,
-    dismiss: toastStore.dismiss,
-    clear: toastStore.clear,
-  };
+  return TOAST_ACTIONS;
 }
 
 export function useLoading(): LoadingSnapshot {
@@ -90,11 +98,7 @@ export function useLoading(): LoadingSnapshot {
 }
 
 export function useLoadingActions() {
-  return {
-    start: loadingStore.start,
-    stop: loadingStore.stop,
-    reset: loadingStore.reset,
-  };
+  return LOADING_ACTIONS;
 }
 
 export function useBackend() {
