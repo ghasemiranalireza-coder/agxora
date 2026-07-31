@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-
-const SSR_HTML_LANG = "en";
+import { DEFAULT_LOCALE } from "./locale";
 
 /**
- * Keeps <html lang> aligned with RootLayout during SSR/hydration.
- * Optional browser-language sync runs only after mount (no render-time detection).
+ * Enforces the deterministic RootLayout locale after mount.
+ * Never reads navigator during render. Browser preference is opt-in and
+ * applied only in useEffect after hydration has completed.
  */
 export function HtmlLangSync({
   preferBrowserLanguage = false,
@@ -16,16 +16,17 @@ export function HtmlLangSync({
   useEffect(() => {
     if (typeof document === "undefined") return;
 
-    // Always start from the deterministic RootLayout value.
     if (!preferBrowserLanguage) {
-      if (document.documentElement.lang !== SSR_HTML_LANG) {
-        document.documentElement.lang = SSR_HTML_LANG;
+      if (document.documentElement.lang !== DEFAULT_LOCALE) {
+        document.documentElement.lang = DEFAULT_LOCALE;
       }
       return;
     }
 
+    // Post-hydration only — never affects SSR / first client paint.
     const browser = navigator.language?.split("-")[0]?.toLowerCase();
-    const next = browser && /^[a-z]{2}$/.test(browser) ? browser : SSR_HTML_LANG;
+    const next =
+      browser && /^[a-z]{2}$/.test(browser) ? browser : DEFAULT_LOCALE;
     document.documentElement.lang = next;
   }, [preferBrowserLanguage]);
 
