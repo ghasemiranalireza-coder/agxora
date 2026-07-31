@@ -1,16 +1,23 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import type { JSX } from "react";
 import { AppShell } from "../../components/AppShell";
-import { ModulePanel } from "../../components/ModulePanel";
+import { SkeletonPanel } from "../../components/backend";
+
+const ProjectsWorkspace = dynamic(
+  () =>
+    import("../../components/projects").then((mod) => mod.ProjectsWorkspace),
+  {
+    ssr: false,
+    loading: () => <SkeletonPanel label="Loading projects…" />,
+  },
+);
 
 export default function ProjectsPage(): JSX.Element {
   return (
     <AppShell>
-      <ModulePanel
-        title="Projects"
-        description="Project delivery and tracking for the active organization."
-      />
+      <ProjectsWorkspace />
     </AppShell>
   );
 }
