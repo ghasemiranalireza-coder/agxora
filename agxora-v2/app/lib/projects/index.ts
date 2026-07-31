@@ -68,11 +68,20 @@ export { projectStore } from "./store";
 export type { ProjectStoreSnapshot } from "./store";
 export {
   useProjectStore,
+  useProjectStoreSelector,
   useFilteredProjects,
   useSelectedProject,
   useProjectAnalytics,
   useProjectTasks,
   useOrgTasks,
+  shallowEqualRecord,
+  selectProjectFormSlice,
+  selectProjectDeleteSlice,
+  selectProjectListChrome,
+  selectProjectSortSlice,
+  selectHydrated,
+  selectItemsRevision,
+  selectPortfolioCurrency,
 } from "./hooks";
 export { computeProjectAnalytics, formatMoney } from "./analytics";
 export type { ProjectAnalytics } from "./analytics";

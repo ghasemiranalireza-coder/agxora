@@ -1,18 +1,17 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { AppShell } from "../../components/AppShell";
-import { SettingsControlCenter } from "../../components/settings";
+import { SkeletonPanel } from "../../components/backend";
 
-/**
- * Enterprise Settings Control Center.
- * Replaces the ModulePanel stub. Header keeps a theme quick toggle only;
- * full Appearance configuration lives in this page.
- */
-export default function SettingsPage(): JSX.Element {
-  return (
-    <AppShell>
-      <SettingsControlCenter />
-    </AppShell>
-  );
+const Page = dynamic(
+  () => import("../../components/settings").then((mod) => mod.SettingsControlCenter),
+  {
+    ssr: false,
+    loading: () => <SkeletonPanel label="Loading settings…" />,
+  },
+);
+
+export default function RoutePage(): JSX.Element {
+  return <Page />;
 }

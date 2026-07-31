@@ -12,6 +12,7 @@ import {
   TaskValidationError,
   projectManagementService,
 } from "./service";
+import { projectRepository } from "./repository";
 import type {
   KanbanColumnOrder,
   MemberDraft,
@@ -230,7 +231,9 @@ async function reloadDetail(projectId: ProjectId | null): Promise<void> {
 export const projectStore = {
   subscribe(listener: Listener) {
     listeners.add(listener);
-    return () => listeners.delete(listener);
+    return () => {
+      listeners.delete(listener);
+    };
   },
   getSnapshot(): ProjectStoreSnapshot {
     return snapshot;
@@ -395,30 +398,33 @@ export const projectStore = {
     const id = snapshot.deleteId;
     const organizationId = snapshot.organizationId;
     if (!id || !organizationId) return null;
-    commit({ deleting: true });
+    const removed =
+      snapshot.items.find((row) => row.id === id) ?? null;
+    const clearing = snapshot.selectedId === id;
+
+    // Instant UI: close dialog and drop the row before LocalStorage I/O.
+    commit({
+      items: snapshot.items.filter((row) => row.id !== id),
+      deleting: false,
+      deleteId: null,
+      selectedId: clearing ? null : snapshot.selectedId,
+      ...(clearing
+        ? {
+            tasks: [],
+            files: [],
+            notes: [],
+            activities: [],
+            kanbanOrder: emptyKanbanOrder(),
+          }
+        : {}),
+    });
+
     try {
-      const removed = await projectManagementService.deleteProject(id);
-      const items = await projectManagementService.list(organizationId);
-      const clearing = snapshot.selectedId === id;
-      commit({
-        items,
-        deleting: false,
-        deleteId: null,
-        selectedId: clearing ? null : snapshot.selectedId,
-        ...(clearing
-          ? {
-              tasks: [],
-              files: [],
-              notes: [],
-              activities: [],
-              kanbanOrder: emptyKanbanOrder(),
-            }
-          : {}),
-      });
+      await projectManagementService.deleteProject(id);
       return removed;
     } catch (error) {
+      await reloadList(organizationId);
       commit({
-        deleting: false,
         error:
           error instanceof Error
             ? error.message
@@ -742,14 +748,16 @@ projectManagementService.subscribe(() => {
   ) {
     return;
   }
-  void projectManagementService.list(organizationId).then((items) => {
-    const same =
-      items.length === snapshot.items.length &&
-      items.every(
-        (row, index) =>
-          row.id === snapshot.items[index]?.id &&
-          row.updatedAt === snapshot.items[index]?.updatedAt,
-      );
-    if (!same) commit({ items });
-  });
+  // Cheap identity check against in-memory repo cache — no LocalStorage read.
+  const items = projectRepository
+    .getDatabase()
+    .projects.filter((row) => row.organizationId === organizationId);
+  const same =
+    items.length === snapshot.items.length &&
+    items.every(
+      (row, index) =>
+        row.id === snapshot.items[index]?.id &&
+        row.updatedAt === snapshot.items[index]?.updatedAt,
+    );
+  if (!same) commit({ items });
 });

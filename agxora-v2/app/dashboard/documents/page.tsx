@@ -1,18 +1,17 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { AppShell } from "../../components/AppShell";
-import { DocumentsHubPage } from "../../components/documents";
+import { SkeletonPanel } from "../../components/backend";
 
-/**
- * AGXORA AI Documents & Knowledge Hub.
- * Additive module — does not alter Hero, Header, Sidebar chrome, Finance, CRM,
- * Creator Studio, or Automation beyond registering this route in navigation.
- */
-export default function DocumentsRoutePage(): JSX.Element {
-  return (
-    <AppShell>
-      <DocumentsHubPage />
-    </AppShell>
-  );
+const Page = dynamic(
+  () => import("../../components/documents").then((mod) => mod.DocumentsHubPage),
+  {
+    ssr: false,
+    loading: () => <SkeletonPanel label="Loading documents…" />,
+  },
+);
+
+export default function RoutePage(): JSX.Element {
+  return <Page />;
 }

@@ -6,9 +6,12 @@ import { formatDisplayDate } from "../../lib/i18n";
 import {
   formatMoney,
   projectStore,
+  selectProjectListChrome,
+  selectProjectSortSlice,
+  shallowEqualRecord,
   statusLabel,
   useFilteredProjects,
-  useProjectStore,
+  useProjectStoreSelector,
   type ProjectRecord,
   type ProjectSortKey,
   PROJECT_PRIORITIES,
@@ -118,7 +121,10 @@ const MemoProjectCard = memo(ProjectCardView);
 
 export function ProjectList(): JSX.Element {
   const router = useRouter();
-  const state = useProjectStore();
+  const state = useProjectStoreSelector(
+    selectProjectListChrome,
+    shallowEqualRecord,
+  );
   const { pageRows, total, page, customers, owners } = useFilteredProjects();
   const maxPage = Math.max(1, Math.ceil(total / state.pageSize) || 1);
 
@@ -140,7 +146,7 @@ export function ProjectList(): JSX.Element {
     );
   }
 
-  if (state.error && state.items.length === 0) {
+  if (state.error && state.itemsLength === 0) {
     return (
       <ErrorState
         title="Couldn’t load projects"
@@ -341,7 +347,10 @@ function ProjectTableView({
   readonly rows: readonly ProjectRecord[];
   readonly onOpen: (id: string) => void;
 }): JSX.Element {
-  const state = useProjectStore();
+  const state = useProjectStoreSelector(
+    selectProjectSortSlice,
+    shallowEqualRecord,
+  );
   const sortKeys: { key: ProjectSortKey; label: string }[] = [
     { key: "name", label: "Name" },
     { key: "customer", label: "Customer" },

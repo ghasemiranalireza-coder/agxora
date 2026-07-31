@@ -1,6 +1,7 @@
 "use client";
 
 import type { JSX, ReactNode } from "react";
+import { memo } from "react";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
 import { CommandPalette } from "./CommandPalette";
 import { DashboardSidebar } from "./DashboardSidebar";
@@ -14,9 +15,9 @@ const surfaceTransition = [
 
 /**
  * Application shell — responsive sidebar + top nav.
- * Does not redesign dashboard content; wraps it.
+ * Memoized so route children can swap without remounting chrome.
  */
-export function AppShell({
+function AppShellComponent({
   children,
   showTopNav = true,
 }: {
@@ -56,3 +57,5 @@ export function AppShell({
     </main>
   );
 }
+
+export const AppShell = memo(AppShellComponent);

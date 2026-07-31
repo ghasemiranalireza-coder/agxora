@@ -6,8 +6,11 @@ import { useOrganization } from "../../lib/organization";
 import {
   projectRepository,
   projectStore,
+  selectHydrated,
+  selectItemsRevision,
+  selectPortfolioCurrency,
   useProjectAnalytics,
-  useProjectStore,
+  useProjectStoreSelector,
 } from "../../lib/projects";
 import { Card } from "../ui";
 import {
@@ -27,29 +30,24 @@ const LOCAL_ORG_FALLBACK = "org_local_default";
 export function ProjectsWorkspace(): JSX.Element {
   const { organization } = useOrganization();
   const organizationId = organization?.id ?? LOCAL_ORG_FALLBACK;
-  const state = useProjectStore();
+  const hydrated = useProjectStoreSelector(selectHydrated);
+  const itemsRevision = useProjectStoreSelector(selectItemsRevision);
   const analytics = useProjectAnalytics();
+  const currency = useProjectStoreSelector(selectPortfolioCurrency);
 
   useEffect(() => {
     void projectStore.hydrate(organizationId);
   }, [organizationId]);
 
-  const recent =
-    state.organizationId == null
-      ? []
-      : (() => {
-          void state.items;
-          void state.activities;
-          return projectRepository
-            .getDatabase()
-            .activities.filter(
-              (row) => row.organizationId === state.organizationId,
-            )
-            .slice(0, 8);
-        })();
-
-  const currency =
-    state.items.find((row) => row.budget > 0)?.currency ?? "EUR";
+  const recent = !hydrated
+    ? []
+    : (() => {
+        void itemsRevision;
+        return projectRepository
+          .getDatabase()
+          .activities.filter((row) => row.organizationId === organizationId)
+          .slice(0, 8);
+      })();
 
   return (
     <div className="mx-auto w-full max-w-[1100px] space-y-5">

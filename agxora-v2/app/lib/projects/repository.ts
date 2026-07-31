@@ -23,6 +23,7 @@ import type {
 import { TASK_STATUSES, createMutableKanbanOrder, emptyKanbanOrder, initialsFromName } from "./types";
 
 export const PROJECTS_STORAGE_KEY = "agxora-projects-v1";
+export const PROJECT_FILE_BLOB_PREFIX = "agxora-project-file-blob-v1:";
 export const STORAGE_VERSION = 1;
 
 type Listener = () => void;
@@ -64,6 +65,55 @@ function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
+function fileBlobKey(id: string): string {
+  return `${PROJECT_FILE_BLOB_PREFIX}${id}`;
+}
+
+function writeFileBlob(id: string, dataUrl: string): void {
+  if (typeof window === "undefined" || !dataUrl) return;
+  try {
+    window.localStorage.setItem(fileBlobKey(id), dataUrl);
+  } catch {
+    // Quota — keep blob only in memory cache.
+  }
+}
+
+function readFileBlob(id: string): string {
+  if (typeof window === "undefined") return "";
+  try {
+    return window.localStorage.getItem(fileBlobKey(id)) ?? "";
+  } catch {
+    return "";
+  }
+}
+
+function deleteFileBlob(id: string): void {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.removeItem(fileBlobKey(id));
+  } catch {
+    // ignore
+  }
+}
+
+function withHydratedFiles(
+  files: readonly ProjectFileRecord[],
+): ProjectFileRecord[] {
+  return files.map((file) => {
+    if (file.dataUrl) return file;
+    const blob = readFileBlob(file.id);
+    return blob ? { ...file, dataUrl: blob } : file;
+  });
+}
+
+function stripFilesForStorage(
+  files: readonly ProjectFileRecord[],
+): ProjectFileRecord[] {
+  return files.map((file) =>
+    file.dataUrl ? { ...file, dataUrl: "" } : file,
+  );
+}
+
 function migrate(raw: unknown): ProjectsDatabase {
   if (!isObject(raw)) return emptyDb();
 
@@ -72,21 +122,32 @@ function migrate(raw: unknown): ProjectsDatabase {
       ? raw.version
       : 0;
 
-  // Future migrations branch on `version`. Unknown shapes fall back carefully.
   const base = emptyDb();
 
   const projects = Array.isArray(raw.projects)
     ? (raw.projects as ProjectRecord[])
-    : Array.isArray(raw) // legacy: bare array of projects
+    : Array.isArray(raw)
       ? (raw as ProjectRecord[])
       : base.projects;
 
   const tasks = Array.isArray(raw.tasks) ? (raw.tasks as TaskRecord[]) : [];
-  const files = Array.isArray(raw.files) ? (raw.files as ProjectFileRecord[]) : [];
+  const rawFiles = Array.isArray(raw.files)
+    ? (raw.files as ProjectFileRecord[])
+    : [];
   const notes = Array.isArray(raw.notes) ? (raw.notes as ProjectNoteRecord[]) : [];
   const activities = Array.isArray(raw.activities)
     ? (raw.activities as ProjectActivityRecord[])
     : [];
+
+  // Move legacy inline dataUrls into dedicated blob keys (never rewrite unexpectedly).
+  const files = rawFiles.map((file) => {
+    if (file.dataUrl) {
+      writeFileBlob(file.id, file.dataUrl);
+      return { ...file, dataUrl: file.dataUrl };
+    }
+    const blob = readFileBlob(file.id);
+    return blob ? { ...file, dataUrl: blob } : file;
+  });
 
   const kanbanOrder: Record<string, KanbanColumnOrder> = {};
   if (isObject(raw.kanbanOrder)) {
@@ -129,7 +190,12 @@ function readDb(): ProjectsDatabase {
 function writeDb(db: ProjectsDatabase): void {
   if (typeof window === "undefined") return;
   try {
-    window.localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(db));
+    // Keep heavy base64 blobs out of the main document JSON.
+    const payload: ProjectsDatabase = {
+      ...db,
+      files: stripFilesForStorage(db.files),
+    };
+    window.localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(payload));
   } catch {
     // Quota / private mode — keep in-memory only for this session.
   }
@@ -137,6 +203,8 @@ function writeDb(db: ProjectsDatabase): void {
 
 let cache: ProjectsDatabase | null = null;
 const listeners = new Set<Listener>();
+let writeTimer: ReturnType<typeof setTimeout> | null = null;
+let writeQueued = false;
 
 function emit(): void {
   listeners.forEach((listener) => listener());
@@ -149,10 +217,45 @@ function ensureDb(): ProjectsDatabase {
   return cache;
 }
 
-function persist(next: ProjectsDatabase): void {
+function flushWrite(): void {
+  writeTimer = null;
+  writeQueued = false;
+  if (cache) writeDb(cache);
+}
+
+/**
+ * Update memory + notify subscribers immediately; persist to LocalStorage
+ * on the next macrotask so UI (e.g. delete) is never blocked by stringify.
+ */
+function persist(next: ProjectsDatabase, options?: { readonly sync?: boolean }): void {
   cache = next;
-  writeDb(next);
   emit();
+  if (typeof window === "undefined") return;
+  if (options?.sync) {
+    if (writeTimer != null) {
+      clearTimeout(writeTimer);
+      writeTimer = null;
+    }
+    writeQueued = false;
+    writeDb(next);
+    return;
+  }
+  if (writeQueued) return;
+  writeQueued = true;
+  writeTimer = setTimeout(flushWrite, 0);
+}
+
+/** Ensure pending writes land before unload / navigation away. */
+function ensurePersisted(): void {
+  if (writeQueued || writeTimer != null) {
+    if (writeTimer != null) clearTimeout(writeTimer);
+    flushWrite();
+  }
+}
+
+if (typeof window !== "undefined") {
+  window.addEventListener("pagehide", ensurePersisted);
+  window.addEventListener("beforeunload", ensurePersisted);
 }
 
 function pushActivity(
@@ -371,6 +474,10 @@ export const projectRepository: ProjectRepository = {
 
   async deleteProject(id) {
     let db = ensureDb();
+    const doomedFiles = db.files.filter((row) => row.projectId === id);
+    for (const file of doomedFiles) {
+      deleteFileBlob(file.id);
+    }
     const { [id]: _removed, ...kanbanRest } = db.kanbanOrder;
     void _removed;
     db = {
@@ -382,7 +489,8 @@ export const projectRepository: ProjectRepository = {
       activities: db.activities.filter((row) => row.projectId !== id),
       kanbanOrder: kanbanRest,
     };
-    persist(db);
+    // Sync write once — UI already updated optimistically by the store.
+    persist(db, { sync: true });
   },
 
   async listTasks(projectId) {
@@ -589,8 +697,9 @@ export const projectRepository: ProjectRepository = {
   },
 
   async listFiles(projectId) {
-    return ensureDb()
-      .files.filter((row) => row.projectId === projectId)
+    return withHydratedFiles(
+      ensureDb().files.filter((row) => row.projectId === projectId),
+    )
       .slice()
       .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
   },
@@ -603,6 +712,9 @@ export const projectRepository: ProjectRepository = {
       createdAt: stamp,
       updatedAt: stamp,
     };
+    if (row.dataUrl) {
+      writeFileBlob(row.id, row.dataUrl);
+    }
     let db = ensureDb();
     db = { ...db, files: [row, ...db.files] };
     db = pushActivity(db, {
@@ -621,6 +733,7 @@ export const projectRepository: ProjectRepository = {
     let db = ensureDb();
     const existing = db.files.find((row) => row.id === id);
     if (!existing) return;
+    deleteFileBlob(id);
     db = { ...db, files: db.files.filter((row) => row.id !== id) };
     db = pushActivity(db, {
       projectId: existing.projectId,
@@ -770,11 +883,23 @@ export const projectRepository: ProjectRepository = {
 
   subscribe(listener) {
     listeners.add(listener);
-    return () => listeners.delete(listener);
+    return () => {
+      listeners.delete(listener);
+    };
   },
 
   replaceAll(db) {
-    persist({ ...db, version: STORAGE_VERSION });
+    for (const file of db.files) {
+      if (file.dataUrl) writeFileBlob(file.id, file.dataUrl);
+    }
+    persist(
+      {
+        ...db,
+        version: STORAGE_VERSION,
+        files: withHydratedFiles(db.files),
+      },
+      { sync: true },
+    );
   },
 
   getDatabase() {

@@ -1,17 +1,17 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { AppShell } from "../../components/AppShell";
-import { CrmPage } from "../../components/crm";
+import { SkeletonPanel } from "../../components/backend";
 
-/**
- * AGXORA AI CRM + Creator OS.
- * Additive module — does not alter Dashboard Hero, Globe, or layout.
- */
-export default function CrmRoutePage(): JSX.Element {
-  return (
-    <AppShell>
-      <CrmPage />
-    </AppShell>
-  );
+const Page = dynamic(
+  () => import("../../components/crm").then((mod) => mod.CrmPage),
+  {
+    ssr: false,
+    loading: () => <SkeletonPanel label="Loading CRM…" />,
+  },
+);
+
+export default function RoutePage(): JSX.Element {
+  return <Page />;
 }

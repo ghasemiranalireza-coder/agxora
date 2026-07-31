@@ -1,18 +1,17 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { AppShell } from "../../components/AppShell";
-import { AutomationEnginePage } from "../../components/automation";
+import { SkeletonPanel } from "../../components/backend";
 
-/**
- * AGXORA AI Workflow & Automation Engine.
- * Replaces the stub panel with the full enterprise foundation.
- * Does not alter Hero, Header, Sidebar chrome, Finance, CRM, or Creator Studio.
- */
-export default function AutomationRoutePage(): JSX.Element {
-  return (
-    <AppShell>
-      <AutomationEnginePage />
-    </AppShell>
-  );
+const Page = dynamic(
+  () => import("../../components/automation").then((mod) => mod.AutomationEnginePage),
+  {
+    ssr: false,
+    loading: () => <SkeletonPanel label="Loading automation…" />,
+  },
+);
+
+export default function RoutePage(): JSX.Element {
+  return <Page />;
 }

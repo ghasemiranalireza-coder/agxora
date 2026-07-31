@@ -3,7 +3,6 @@
 import dynamic from "next/dynamic";
 import { use } from "react";
 import type { JSX } from "react";
-import { AppShell } from "../../../components/AppShell";
 import { SkeletonPanel } from "../../../components/backend";
 
 const ProjectDetailWorkspace = dynamic(
@@ -24,9 +23,5 @@ export default function ProjectDetailPage({
 }): JSX.Element {
   const { id } = use(params);
 
-  return (
-    <AppShell>
-      <ProjectDetailWorkspace projectId={id} />
-    </AppShell>
-  );
+  return <ProjectDetailWorkspace projectId={id} />;
 }
