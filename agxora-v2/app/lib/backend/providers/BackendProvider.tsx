@@ -13,7 +13,7 @@ import { asOrganizationId, asUserId } from "@/app/lib/organization/types";
 
 /**
  * Bridges existing Auth / Organization / Theme providers into backendState.
- * No visual changes — state sync only.
+ * Updates only inside effects; store setters bail out on equal values.
  */
 export function BackendStateBridge({
   children,
@@ -36,6 +36,7 @@ export function BackendStateBridge({
       backendState.setWorkspace(null);
       return;
     }
+
     backendState.setOrganization({
       id: asOrganizationId(active.id),
       name: active.name,
@@ -44,19 +45,21 @@ export function BackendStateBridge({
       createdAt: active.createdAt,
       updatedAt: active.updatedAt,
     });
+
     const ws = org.workspace;
-    if (ws) {
-      backendState.setWorkspace({
-        id: ws.id,
-        organizationId: active.id,
-        name: ws.name,
-        status: ws.status,
-        createdAt: ws.createdAt,
-        updatedAt: ws.updatedAt,
-      });
-    } else {
+    if (!ws) {
       backendState.setWorkspace(null);
+      return;
     }
+
+    backendState.setWorkspace({
+      id: ws.id,
+      organizationId: active.id,
+      name: ws.name,
+      status: ws.status,
+      createdAt: ws.createdAt,
+      updatedAt: ws.updatedAt,
+    });
   }, [org.organization, org.workspace]);
 
   useEffect(() => {
