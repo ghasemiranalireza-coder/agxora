@@ -26,6 +26,7 @@ import { ChatProvider } from "../lib/modules/chat";
 import { OrganizationProvider } from "../lib/organization";
 import { ThemeProvider } from "../lib/theme";
 import { AutomationBridge } from "../../features/automation/providers";
+import { IntegrationBridge } from "../../features/integrations/providers";
 
 interface AppProvidersProps {
   readonly children: ReactNode;
@@ -41,19 +42,21 @@ export function AppProviders({ children }: AppProvidersProps): JSX.Element {
             <BackendStateBridge>
               <DataPlatformBridge>
                 <AutomationBridge>
-                  <BusinessOsProvider>
-                    <MemoryProvider>
-                      <AISettingsProvider>
-                        <ChatProvider>
-                          <AppErrorBoundary>
-                            {children}
-                            <ToastHost />
-                            <GlobalLoadingOverlay />
-                          </AppErrorBoundary>
-                        </ChatProvider>
-                      </AISettingsProvider>
-                    </MemoryProvider>
-                  </BusinessOsProvider>
+                  <IntegrationBridge>
+                    <BusinessOsProvider>
+                      <MemoryProvider>
+                        <AISettingsProvider>
+                          <ChatProvider>
+                            <AppErrorBoundary>
+                              {children}
+                              <ToastHost />
+                              <GlobalLoadingOverlay />
+                            </AppErrorBoundary>
+                          </ChatProvider>
+                        </AISettingsProvider>
+                      </MemoryProvider>
+                    </BusinessOsProvider>
+                  </IntegrationBridge>
                 </AutomationBridge>
               </DataPlatformBridge>
             </BackendStateBridge>
