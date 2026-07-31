@@ -9,6 +9,7 @@ import {
   type CustomerSortKey,
   type CustomerStatus,
 } from "../../lib/customers";
+import { formatDisplayDate } from "../../lib/i18n";
 import {
   Button,
   Card,
@@ -64,12 +65,7 @@ export function CustomerTable(): JSX.Element {
         key: "updatedAt",
         header: "Updated",
         sortable: true,
-        render: (row) =>
-          new Date(row.updatedAt).toLocaleDateString(undefined, {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          }),
+        render: (row) => formatDisplayDate(row.updatedAt),
       },
       {
         key: "actions",
