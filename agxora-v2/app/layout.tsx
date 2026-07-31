@@ -15,8 +15,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AGXORA",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_AGXORA_SITE_URL ?? "https://agxora.app",
+  ),
+  title: {
+    default: "AGXORA",
+    template: "%s · AGXORA",
+  },
   description: "AGXORA AI Business Operating System",
+  applicationName: "AGXORA",
 };
 
 export default function RootLayout({

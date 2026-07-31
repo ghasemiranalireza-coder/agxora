@@ -492,7 +492,8 @@ textarea {
     overflow-x: hidden;
   }
 
-  h2 {
+  /* Keep dashboard mobile typography; do not crush public landing headings. */
+  body:not(:has(.agx-landing)) h2 {
     font-size: 20px !important;
   }
 
@@ -503,7 +504,7 @@ textarea {
     border-bottom: 1px solid var(--agx-sidebar-border) !important;
   }
 
-  nav {
+  nav:not(.agx-landing-nav) {
     flex-wrap: wrap !important;
     justify-content: flex-start !important;
     gap: 6px !important;
