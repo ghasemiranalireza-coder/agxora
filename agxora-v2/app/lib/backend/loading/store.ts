@@ -2,19 +2,44 @@
 
 type Listener = () => void;
 
+export type LoadingSnapshot = {
+  readonly active: boolean;
+  readonly count: number;
+  readonly label: string | null;
+};
+
 let pending = 0;
 let label: string | null = null;
 const listeners = new Set<Listener>();
+
+/** Cached snapshot — must keep referential equality between emits. */
+let snapshot: LoadingSnapshot = {
+  active: false,
+  count: 0,
+  label: null,
+};
 
 function emit() {
   listeners.forEach((l) => l());
 }
 
-export type LoadingSnapshot = {
-  active: boolean;
-  count: number;
-  label: string | null;
-};
+function refreshSnapshot(): boolean {
+  const nextActive = pending > 0;
+  const nextLabel = nextActive ? label : null;
+  if (
+    snapshot.active === nextActive &&
+    snapshot.count === pending &&
+    snapshot.label === nextLabel
+  ) {
+    return false;
+  }
+  snapshot = {
+    active: nextActive,
+    count: pending,
+    label: nextLabel,
+  };
+  return true;
+}
 
 export const loadingStore = {
   subscribe(listener: Listener) {
@@ -22,27 +47,23 @@ export const loadingStore = {
     return () => listeners.delete(listener);
   },
   getSnapshot(): LoadingSnapshot {
-    return {
-      active: pending > 0,
-      count: pending,
-      label,
-    };
+    return snapshot;
   },
   start(nextLabel?: string) {
     pending += 1;
     if (nextLabel) label = nextLabel;
-    emit();
+    if (refreshSnapshot()) emit();
     return () => loadingStore.stop();
   },
   stop() {
     pending = Math.max(0, pending - 1);
     if (pending === 0) label = null;
-    emit();
+    if (refreshSnapshot()) emit();
   },
   reset() {
     pending = 0;
     label = null;
-    emit();
+    if (refreshSnapshot()) emit();
   },
 };
 
@@ -57,20 +78,20 @@ export function createOptimisticController<T>(
   getCurrent: () => T,
   setCurrent: (value: T) => void,
 ): OptimisticController<T> {
-  let snapshot: T | null = null;
+  let previous: T | null = null;
   return {
     apply(optimistic) {
-      snapshot = getCurrent();
+      previous = getCurrent();
       setCurrent(optimistic);
     },
     commit(confirmed) {
       setCurrent(confirmed);
-      snapshot = null;
+      previous = null;
     },
     rollback() {
-      if (snapshot !== null) {
-        setCurrent(snapshot);
-        snapshot = null;
+      if (previous !== null) {
+        setCurrent(previous);
+        previous = null;
       }
     },
   };

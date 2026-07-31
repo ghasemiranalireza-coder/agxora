@@ -16,18 +16,18 @@ const TONE_STYLE: Record<
 
 /**
  * Global toast host — fixed overlay, does not alter module layouts.
+ * Empty queue renders a stable empty region (SSR/client identical).
  */
-export function ToastHost(): JSX.Element | null {
+export function ToastHost(): JSX.Element {
   const toasts = useToasts();
   const { dismiss } = useToast();
-
-  if (toasts.length === 0) return null;
 
   return (
     <div
       className="pointer-events-none fixed inset-x-0 top-0 z-[80] flex flex-col items-end gap-2 p-4 sm:p-6"
       aria-live="polite"
       aria-relevant="additions"
+      data-toast-count={toasts.length}
     >
       {toasts.map((toast) => {
         const tone = TONE_STYLE[toast.tone];
@@ -36,7 +36,8 @@ export function ToastHost(): JSX.Element | null {
             key={toast.id}
             className="pointer-events-auto w-full max-w-sm rounded-lg border px-4 py-3 shadow-lg backdrop-blur-md"
             style={{
-              background: "color-mix(in srgb, var(--agx-panel-bg, #0f172a) 92%, transparent)",
+              background:
+                "color-mix(in srgb, var(--agx-panel-bg, #0f172a) 92%, transparent)",
               borderColor: tone.border,
               color: "var(--agx-text, #f8fafc)",
             }}
