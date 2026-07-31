@@ -12,6 +12,7 @@ const PUBLIC_ROUTES = [
   "/logout",
   "/unauthorized",
   "/forbidden",
+  "/offline",
 ];
 
 /** Private routes — soft/hard gated via session cookie. */
