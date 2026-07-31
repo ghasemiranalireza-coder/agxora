@@ -24,7 +24,8 @@ export type AccessErrorCode =
   | "unauthorized"
   | "forbidden"
   | "expired_session"
-  | "missing_permission";
+  | "missing_permission"
+  | "account_locked";
 
 export type ModuleAccessKey =
   | "finance"

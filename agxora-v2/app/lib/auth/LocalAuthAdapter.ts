@@ -101,6 +101,7 @@ export class LocalAuthAdapter implements AuthProviderPort {
         sessionId: session.sessionId,
         userId: asUserId(session.userId),
         accessToken: session.accessToken,
+        refreshToken: session.refreshToken,
         expiresAt: session.expiresAt,
         createdAt: session.createdAt,
       },
@@ -130,6 +131,7 @@ export class LocalAuthAdapter implements AuthProviderPort {
         sessionId: session.sessionId,
         userId: asUserId(session.userId),
         accessToken: session.accessToken,
+        refreshToken: session.refreshToken,
         expiresAt: session.expiresAt,
         createdAt: session.createdAt,
       },
@@ -162,6 +164,7 @@ export class LocalAuthAdapter implements AuthProviderPort {
       sessionId: session.sessionId,
       userId: asUserId(session.userId),
       accessToken: session.accessToken,
+      refreshToken: session.refreshToken,
       expiresAt: session.expiresAt,
       createdAt: session.createdAt,
     };
@@ -191,6 +194,7 @@ export class LocalAuthAdapter implements AuthProviderPort {
       sessionId: session.sessionId,
       userId: asUserId(session.userId),
       accessToken: session.accessToken,
+      refreshToken: session.refreshToken,
       expiresAt: session.expiresAt,
       createdAt: session.createdAt,
     };
@@ -303,6 +307,7 @@ export class LocalAuthAdapter implements AuthProviderPort {
       sessionId: createToken("sess"),
       userId,
       accessToken: createToken("atk"),
+      refreshToken: createToken("rtk"),
       expiresAt: new Date(now + 30 * 24 * 60 * 60 * 1000).toISOString(),
       createdAt: new Date(now).toISOString(),
     };

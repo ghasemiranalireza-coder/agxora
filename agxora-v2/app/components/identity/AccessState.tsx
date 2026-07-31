@@ -25,6 +25,11 @@ const COPY: Record<
     title: "Missing Permission",
     description: "Ask an Owner or Admin to grant the required module access.",
   },
+  account_locked: {
+    title: "Account Locked",
+    description:
+      "This account is locked. Contact an organization owner or try again later.",
+  },
 };
 
 export function AccessState({

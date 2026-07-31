@@ -12,6 +12,8 @@ const PUBLIC_ROUTES = [
   "/logout",
   "/unauthorized",
   "/forbidden",
+  "/session-expired",
+  "/account-locked",
   "/offline",
 ];
 
@@ -22,6 +24,7 @@ const PRIVATE_PREFIXES = ["/dashboard", "/workspace", "/onboarding"];
 const ADMIN_PREFIXES = [
   "/dashboard/settings",
   "/dashboard/team",
+  "/dashboard/identity",
   "/dashboard/finance",
   "/dashboard/automation",
 ];
@@ -72,7 +75,10 @@ export function middleware(request: NextRequest) {
   // Expired / missing session soft signal for private routes when hard gate off:
   // expose architecture headers for future edge logging (no UX change).
   const response = NextResponse.next();
-  response.headers.set("x-agxora-route-class", isAdmin ? "admin" : isPrivate ? "private" : isPublicExact ? "public" : "public");
+  response.headers.set(
+    "x-agxora-route-class",
+    isAdmin ? "admin" : isPrivate ? "private" : isPublicExact ? "public" : "public",
+  );
   if (isPrivate && !session) {
     response.headers.set("x-agxora-auth", "anonymous");
   } else if (session) {
@@ -95,5 +101,7 @@ export const config = {
     "/logout",
     "/unauthorized",
     "/forbidden",
+    "/session-expired",
+    "/account-locked",
   ],
 };
