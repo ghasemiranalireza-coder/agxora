@@ -77,6 +77,13 @@ export const QUICK_ACTIONS: readonly QuickAction[] = [
     href: "/dashboard/team",
     keywords: ["invite", "team", "member"],
   },
+  {
+    id: "action-open-ai",
+    title: "Open AI Workspace",
+    subtitle: "AGXORA AI Platform",
+    href: "/dashboard/ai",
+    keywords: ["ai", "chat", "assistant", "prompts", "commands"],
+  },
 ];
 
 export const COMMAND_ENTRIES: readonly SearchResult[] = [
@@ -124,6 +131,15 @@ export const COMMAND_ENTRIES: readonly SearchResult[] = [
     subtitle: "Control Center",
     href: "/dashboard/settings",
     keywords: ["open", "settings", "control"],
+  },
+  {
+    id: "cmd-open-ai-platform",
+    kind: "module",
+    group: "commands",
+    title: "Open AI Platform",
+    subtitle: "Enterprise AI workspace",
+    href: "/dashboard/ai",
+    keywords: ["open", "ai", "chat", "assistant", "platform", "prompts"],
   },
   {
     id: "cmd-create-customer",

@@ -25,6 +25,8 @@ export {
   GoogleGeminiProvider,
   OpenRouterProvider,
   OllamaProvider,
+  AzureOpenAIProvider,
+  LocalProvider,
 } from "./providers/StubProviders";
 export {
   createChatProviderAdapter,

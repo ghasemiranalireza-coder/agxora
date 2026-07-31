@@ -77,8 +77,8 @@ export const SAAS_MODULES: readonly SaaSModuleDefinition[] = [
   {
     key: "ai",
     label: "AI",
-    href: "/dashboard",
-    description: "AGXORA AI operating assistant",
+    href: "/dashboard/ai",
+    description: "AGXORA AI Platform — enterprise workspace",
   },
   {
     key: "analytics",

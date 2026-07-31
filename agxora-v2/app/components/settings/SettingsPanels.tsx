@@ -291,10 +291,26 @@ function AiPanel(): JSX.Element {
   const [memory, setMemory] = useState(true);
   const [automationSuggestions, setAutomationSuggestions] = useState(true);
   const [lang, setLang] = useState("auto");
-  const [notice, setNotice] = useState("AI settings sync through AISettingsProvider — keys never stored here.");
+  const [notice, setNotice] = useState(
+    "AI settings sync through AISettingsProvider — keys never stored here.",
+  );
 
   return (
-    <SettingsPanel title="AI" description="Preferred provider, default model, creativity, writing style, memory, and automation suggestions.">
+    <SettingsPanel
+      title="AI"
+      description="Provider selection, generation parameters, system prompt, streaming, and API key management (placeholder)."
+      actions={
+        <Link href="/dashboard/ai">
+          <Button size="sm" variant="secondary">
+            Open AI Workspace
+          </Button>
+        </Link>
+      }
+    >
+      <SettingsNotice>
+        Provider implementations stay behind the AI service layer. The UI never
+        receives API keys or SDK details.
+      </SettingsNotice>
       <SettingsGrid>
         <SettingsField label="Preferred AI Provider">
           <SettingsSelect
@@ -303,10 +319,12 @@ function AiPanel(): JSX.Element {
           >
             <option value="mock">Mock (local)</option>
             <option value="openai">OpenAI</option>
+            <option value="azure">Azure OpenAI</option>
             <option value="anthropic">Anthropic</option>
             <option value="google">Google</option>
             <option value="openrouter">OpenRouter</option>
             <option value="ollama">Ollama</option>
+            <option value="local">Local Provider</option>
           </SettingsSelect>
         </SettingsField>
         <SettingsField label="Default AI Model">
@@ -315,20 +333,54 @@ function AiPanel(): JSX.Element {
             onChange={(e) => updateSettings({ defaultModelId: e.target.value })}
           />
         </SettingsField>
-        <SettingsField label="Creativity" hint={`Temperature ${settings.temperature.toFixed(2)}`}>
+        <SettingsField
+          label="Temperature"
+          hint={`${settings.temperature.toFixed(2)}`}
+        >
           <input
             type="range"
             min={0}
             max={1}
             step={0.05}
             value={settings.temperature}
-            onChange={(e) => updateSettings({ temperature: Number(e.target.value) })}
+            onChange={(e) =>
+              updateSettings({ temperature: Number(e.target.value) })
+            }
             className="w-full"
-            aria-label="Creativity temperature"
+            aria-label="Temperature"
+          />
+        </SettingsField>
+        <SettingsField label="Top P" hint={`${settings.topP.toFixed(2)}`}>
+          <input
+            type="range"
+            min={0}
+            max={1}
+            step={0.05}
+            value={settings.topP}
+            onChange={(e) => updateSettings({ topP: Number(e.target.value) })}
+            className="w-full"
+            aria-label="Top P"
+          />
+        </SettingsField>
+        <SettingsField label="Max Tokens">
+          <SettingsInput
+            type="number"
+            min={256}
+            max={32768}
+            step={256}
+            value={settings.maxTokens}
+            onChange={(e) =>
+              updateSettings({
+                maxTokens: Math.max(1, Number(e.target.value) || 1),
+              })
+            }
           />
         </SettingsField>
         <SettingsField label="Writing Style">
-          <SettingsSelect value={style} onChange={(e) => setStyle(e.target.value)}>
+          <SettingsSelect
+            value={style}
+            onChange={(e) => setStyle(e.target.value)}
+          >
             <option value="professional">Professional</option>
             <option value="concise">Concise</option>
             <option value="friendly">Friendly</option>
@@ -336,13 +388,41 @@ function AiPanel(): JSX.Element {
           </SettingsSelect>
         </SettingsField>
         <SettingsField label="Language Preferences">
-          <SettingsSelect value={lang} onChange={(e) => setLang(e.target.value)}>
+          <SettingsSelect
+            value={lang}
+            onChange={(e) => setLang(e.target.value)}
+          >
             <option value="auto">Match profile language</option>
             <option value="en">English</option>
             <option value="de">Deutsch</option>
           </SettingsSelect>
         </SettingsField>
       </SettingsGrid>
+      <SettingsField
+        label="System Prompt"
+        hint="Applied as the default system instruction for the AI Platform."
+      >
+        <SettingsTextArea
+          rows={4}
+          value={settings.systemPromptOverride ?? ""}
+          placeholder="You are AGXORA AI — the enterprise operating assistant…"
+          onChange={(value) =>
+            updateSettings({
+              systemPromptOverride: value || undefined,
+            })
+          }
+        />
+      </SettingsField>
+      <SettingsField
+        label="API Key Management"
+        hint="Placeholder — keys are supplied via server environment variables only."
+      >
+        <SettingsInput
+          value=""
+          readOnly
+          placeholder="Configured via AGXORA_* environment variables (never in the browser)"
+        />
+      </SettingsField>
       <SettingsToggle
         label="Memory"
         description="Allow organization memory to inform AI replies across modules."
@@ -361,7 +441,10 @@ function AiPanel(): JSX.Element {
         checked={settings.streamingEnabled}
         onChange={(v) => updateSettings({ streamingEnabled: v })}
       />
-      <SaveRow notice={notice} onSave={() => setNotice("AI preferences updated.")} />
+      <SaveRow
+        notice={notice}
+        onSave={() => setNotice("AI preferences updated.")}
+      />
     </SettingsPanel>
   );
 }
