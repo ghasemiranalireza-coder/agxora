@@ -1,16 +1,15 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "../auth";
+import { DEFAULT_LOCALE } from "../i18n/locale";
 import { useOrganization } from "../organization";
 import type { MembershipRole } from "../organization/types";
-import { useIsClient } from "../runtime";
 import { useTheme } from "../theme";
 import { canAccessModule, toIdentityRole } from "./permissions";
 import type { ModuleAccessKey } from "./types";
 
-/** Deterministic SSR/hydration defaults — never read navigator during render on the server. */
-const SSR_LANGUAGE = "en";
+/** Deterministic SSR/hydration defaults — never read navigator during render. */
 const SSR_TIMEZONE = "UTC";
 
 /**
@@ -20,14 +19,18 @@ export function useIdentity() {
   const auth = useAuth();
   const org = useOrganization();
   const { mode, appearance } = useTheme();
-  const isClient = useIsClient();
+  const [timezone, setTimezone] = useState(SSR_TIMEZONE);
+  // Language stays on the app default until a user preference is applied later.
+  const language: string = DEFAULT_LOCALE;
 
-  const language = isClient
-    ? navigator.language || SSR_LANGUAGE
-    : SSR_LANGUAGE;
-  const timezone = isClient
-    ? Intl.DateTimeFormat().resolvedOptions().timeZone || SSR_TIMEZONE
-    : SSR_TIMEZONE;
+  useEffect(() => {
+    const id = window.setTimeout(() => {
+      setTimezone(
+        Intl.DateTimeFormat().resolvedOptions().timeZone || SSR_TIMEZONE,
+      );
+    }, 0);
+    return () => window.clearTimeout(id);
+  }, []);
 
   const membership = useMemo(() => {
     if (!auth.user || !org.workspace) return null;
