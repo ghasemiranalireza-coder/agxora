@@ -25,6 +25,7 @@ const ADMIN_PREFIXES = [
   "/dashboard/settings",
   "/dashboard/team",
   "/dashboard/identity",
+  "/dashboard/billing/admin",
   "/dashboard/finance",
   "/dashboard/automation",
 ];
