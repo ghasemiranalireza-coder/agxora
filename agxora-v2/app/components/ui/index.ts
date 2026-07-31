@@ -6,5 +6,7 @@ export { DataTable } from "./DataTable";
 export type { DataTableColumn, DataTableProps } from "./DataTable";
 export { EmptyState, ErrorState, Skeleton, SkeletonCard } from "./States";
 export { SearchField, FilterSelect } from "./Filters";
+export { Dialog } from "./Dialog";
+export { FormField, FormInput, FormTextArea, FormSelect } from "./Form";
 export { UI, BADGE_TONES } from "./tokens";
 export type { BadgeTone } from "./tokens";
