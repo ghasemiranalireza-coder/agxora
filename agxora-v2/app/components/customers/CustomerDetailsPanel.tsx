@@ -2,6 +2,7 @@
 
 import type { JSX } from "react";
 import { customerStore, useCustomerStore, useSelectedCustomer } from "../../lib/customers";
+import { formatDisplayDateTime } from "../../lib/i18n";
 import { Button, Card, Dialog } from "../ui";
 import { CustomerStatusBadge } from "./CustomerStatusBadge";
 
@@ -108,7 +109,7 @@ export function CustomerDetailsPanel(): JSX.Element {
             <DetailCard label="VAT ID" value={customer.vatId || "—"} />
             <DetailCard
               label="Updated"
-              value={new Date(customer.updatedAt).toLocaleString()}
+              value={formatDisplayDateTime(customer.updatedAt)}
             />
           </div>
 

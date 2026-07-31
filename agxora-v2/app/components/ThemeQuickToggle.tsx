@@ -3,7 +3,6 @@
 /**
  * Header quick theme toggle — single control cycling Day ↔ Night.
  * Full Appearance configuration lives only in Settings Control Center.
- * Does not replace the Hero ThemeSwitcher on /dashboard.
  */
 
 import type { JSX } from "react";

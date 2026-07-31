@@ -123,8 +123,9 @@ export function DashboardSidebar(): JSX.Element {
     <>
       <button
         type="button"
-        className="agx-sidebar-toggle"
+        className="agx-sidebar-toggle notranslate"
         aria-label="Toggle navigation"
+        translate="no"
         onClick={() => setOpen((value) => !value)}
         style={{
           display: "none",
