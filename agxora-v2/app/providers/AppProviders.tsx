@@ -17,6 +17,7 @@ import { AISettingsProvider } from "../lib/ai/AIProviderContext";
 import { AuthOrganizationBridge, AuthProvider } from "../lib/auth";
 import { BackendStateBridge } from "../lib/backend/providers";
 import { BusinessOsProvider } from "../lib/business";
+import { HtmlLangSync } from "../lib/i18n";
 import { MemoryProvider } from "../lib/memory";
 import { ChatProvider } from "../lib/modules/chat";
 import { OrganizationProvider } from "../lib/organization";
@@ -29,6 +30,7 @@ interface AppProvidersProps {
 export function AppProviders({ children }: AppProvidersProps): JSX.Element {
   return (
     <ThemeProvider>
+      <HtmlLangSync />
       <AuthProvider>
         <AuthOrganizationBridge>
           <OrganizationProvider>

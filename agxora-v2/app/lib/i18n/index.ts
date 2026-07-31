@@ -1,0 +1,1 @@
+export { HtmlLangSync } from "./HtmlLangSync";
