@@ -300,16 +300,23 @@ function AiPanel(): JSX.Element {
       title="AI"
       description="Provider selection, generation parameters, system prompt, streaming, and API key management (placeholder)."
       actions={
-        <Link href="/dashboard/ai">
-          <Button size="sm" variant="secondary">
-            Open AI Workspace
-          </Button>
-        </Link>
+        <>
+          <Link href="/dashboard/agents">
+            <Button size="sm" variant="primary">
+              Open Agent OS
+            </Button>
+          </Link>
+          <Link href="/dashboard/ai">
+            <Button size="sm" variant="secondary">
+              Open AI Workspace
+            </Button>
+          </Link>
+        </>
       }
     >
       <SettingsNotice>
         Provider implementations stay behind the AI service layer. The UI never
-        receives API keys or SDK details.
+        receives API keys or SDK details. Autonomous agents live in Agent OS.
       </SettingsNotice>
       <SettingsGrid>
         <SettingsField label="Preferred AI Provider">
