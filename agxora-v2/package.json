@@ -1,13 +1,14 @@
 {
   "name": "agxora-v2",
-  "version": "0.18.1",
+  "version": "0.19.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "type-check": "tsc --noEmit"
+    "lint": "eslint . --max-warnings 0",
+    "type-check": "tsc --noEmit",
+    "healthcheck": "curl -sf http://127.0.0.1:3000/api/health"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
