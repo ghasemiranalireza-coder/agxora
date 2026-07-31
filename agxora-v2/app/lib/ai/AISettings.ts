@@ -10,6 +10,7 @@ export interface AISettings {
   readonly defaultProviderId: AIProviderId;
   readonly defaultModelId: string;
   readonly temperature: number;
+  readonly topP: number;
   readonly maxTokens: number;
   readonly streamingEnabled: boolean;
   readonly systemPromptOverride?: string;
@@ -22,6 +23,7 @@ export const DEFAULT_AI_SETTINGS: AISettings = {
   defaultProviderId: "mock",
   defaultModelId: "mock-local",
   temperature: 0.4,
+  topP: 1,
   maxTokens: 2048,
   streamingEnabled: true,
   reasoningLevel: "medium",
@@ -45,4 +47,6 @@ export const AI_ENV_KEYS = {
   google: "AGXORA_GOOGLE_API_KEY",
   openrouter: "AGXORA_OPENROUTER_API_KEY",
   ollama: "AGXORA_OLLAMA_BASE_URL",
+  azure: "AGXORA_AZURE_OPENAI_API_KEY",
+  local: "AGXORA_LOCAL_LLM_BASE_URL",
 } as const;

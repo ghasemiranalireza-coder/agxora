@@ -113,3 +113,16 @@ export class OllamaProvider extends StubAIProvider {
   readonly displayName = "Ollama";
   protected readonly envKey = AI_ENV_KEYS.ollama;
 }
+
+export class AzureOpenAIProvider extends StubAIProvider {
+  readonly id = "azure" as const;
+  readonly displayName = "Azure OpenAI";
+  protected readonly envKey = AI_ENV_KEYS.azure;
+}
+
+/** Local / on-prem LLM endpoint placeholder. */
+export class LocalProvider extends StubAIProvider {
+  readonly id = "local" as const;
+  readonly displayName = "Local Provider";
+  protected readonly envKey = AI_ENV_KEYS.local;
+}

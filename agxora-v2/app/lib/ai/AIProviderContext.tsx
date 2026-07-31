@@ -28,6 +28,7 @@ export type AIProviderContextValue = {
   setProvider: (provider: AIProviderId) => void;
   setModel: (modelId: string) => void;
   setTemperature: (temperature: number) => void;
+  setTopP: (topP: number) => void;
   setMaxTokens: (maxTokens: number) => void;
   setStreaming: (streaming: boolean) => void;
   setSystemPrompt: (systemPrompt: string) => void;
@@ -62,6 +63,10 @@ export function AISettingsProvider({ children }: { children: ReactNode }) {
     setSettings((prev) => mergeAISettings({ ...prev, temperature }));
   }, []);
 
+  const setTopP = useCallback((topP: number) => {
+    setSettings((prev) => mergeAISettings({ ...prev, topP }));
+  }, []);
+
   const setMaxTokens = useCallback((maxTokens: number) => {
     setSettings((prev) => mergeAISettings({ ...prev, maxTokens }));
   }, []);
@@ -93,6 +98,7 @@ export function AISettingsProvider({ children }: { children: ReactNode }) {
       setProvider,
       setModel,
       setTemperature,
+      setTopP,
       setMaxTokens,
       setStreaming,
       setSystemPrompt,
@@ -105,6 +111,7 @@ export function AISettingsProvider({ children }: { children: ReactNode }) {
       setProvider,
       setModel,
       setTemperature,
+      setTopP,
       setMaxTokens,
       setStreaming,
       setSystemPrompt,

@@ -7,7 +7,9 @@ import type { AIProvider } from "./AIProvider";
 import { MockAIProvider } from "./providers/MockAIProvider";
 import {
   AnthropicProvider,
+  AzureOpenAIProvider,
   GoogleGeminiProvider,
+  LocalProvider,
   OllamaProvider,
   OpenAIProvider,
   OpenRouterProvider,
@@ -22,6 +24,8 @@ const registry = new Map<AIProviderId, AIProviderFactoryFn>([
   ["google", () => new GoogleGeminiProvider()],
   ["openrouter", () => new OpenRouterProvider()],
   ["ollama", () => new OllamaProvider()],
+  ["azure", () => new AzureOpenAIProvider()],
+  ["local", () => new LocalProvider()],
 ]);
 
 export function registerAIProvider(

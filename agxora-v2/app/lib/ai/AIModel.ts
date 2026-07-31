@@ -8,6 +8,8 @@ export type AIProviderId =
   | "google"
   | "openrouter"
   | "ollama"
+  | "azure"
+  | "local"
   | "mock";
 
 export type AIModelCapability =
@@ -130,6 +132,24 @@ export const AI_MODEL_CATALOG: readonly AIModelDefinition[] = [
     maxOutputTokens: 8_192,
     capabilities: ["chat", "streaming", "tools"],
     family: "qwen",
+  },
+  {
+    id: "azure-gpt",
+    providerId: "azure",
+    displayName: "Azure OpenAI GPT",
+    contextWindow: 128_000,
+    maxOutputTokens: 16_384,
+    capabilities: ["chat", "streaming", "tools", "vision"],
+    family: "azure",
+  },
+  {
+    id: "local-llm",
+    providerId: "local",
+    displayName: "Local LLM",
+    contextWindow: 32_768,
+    maxOutputTokens: 4_096,
+    capabilities: ["chat", "streaming"],
+    family: "local",
   },
   {
     id: "mock-local",
