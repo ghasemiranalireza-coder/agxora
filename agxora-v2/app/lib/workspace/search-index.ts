@@ -91,6 +91,13 @@ export const QUICK_ACTIONS: readonly QuickAction[] = [
     href: "/dashboard/identity",
     keywords: ["identity", "iam", "rbac", "organization", "workspace", "security"],
   },
+  {
+    id: "action-open-billing",
+    title: "Open Billing Portal",
+    subtitle: "Plans, invoices, usage",
+    href: "/dashboard/billing",
+    keywords: ["billing", "subscription", "upgrade", "invoice", "plan"],
+  },
 ];
 
 export const COMMAND_ENTRIES: readonly SearchResult[] = [
@@ -165,6 +172,15 @@ export const COMMAND_ENTRIES: readonly SearchResult[] = [
     subtitle: "IAM settings, RBAC, audit",
     href: "/dashboard/identity",
     keywords: ["open", "identity", "iam", "rbac", "security", "audit", "workspace"],
+  },
+  {
+    id: "cmd-open-billing",
+    kind: "module",
+    group: "commands",
+    title: "Open Billing",
+    subtitle: "Subscription portal & plans",
+    href: "/dashboard/billing",
+    keywords: ["open", "billing", "subscription", "plans", "invoices", "stripe"],
   },
   {
     id: "cmd-create-customer",

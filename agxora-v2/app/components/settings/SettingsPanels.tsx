@@ -902,26 +902,52 @@ function SecurityPanel(): JSX.Element {
 
 function BillingPanel(): JSX.Element {
   return (
-    <SettingsPanel title="Billing" description="Plan, usage, invoices, and payment methods.">
-      <SettingsGrid>
-        <SettingsField label="Plan">
-          <SettingsInput defaultValue="Enterprise Pilot" readOnly />
-        </SettingsField>
-        <SettingsField label="Usage">
-          <SettingsInput defaultValue="42.6 GB docs · 186 automations / day" readOnly />
-        </SettingsField>
-        <SettingsField label="Payment Methods">
-          <SettingsInput defaultValue="Visa ···· 4242" readOnly />
-        </SettingsField>
-        <SettingsField label="Invoices">
-          <Button size="sm" variant="secondary">
-            View invoices
+    <SettingsPanel
+      title="Billing"
+      description="Plan, usage, invoices, payment methods, and company billing profile."
+      actions={
+        <Link href="/dashboard/billing">
+          <Button size="sm" variant="primary">
+            Open billing portal
           </Button>
+        </Link>
+      }
+    >
+      <SettingsNotice>
+        Commercial SaaS infrastructure lives in the billing portal. Stripe,
+        PayPal, and bank transfer providers are abstracted behind the billing
+        service — no payment SDK in this UI.
+      </SettingsNotice>
+      <SettingsGrid>
+        <SettingsField label="Plans">
+          <SettingsInput
+            defaultValue="Starter · Professional · Business · Enterprise"
+            readOnly
+          />
+        </SettingsField>
+        <SettingsField label="License states">
+          <SettingsInput
+            defaultValue="Trial · Active · Expired · Cancelled · Suspended · Lifetime"
+            readOnly
+          />
+        </SettingsField>
+        <SettingsField label="Payment providers">
+          <SettingsInput
+            defaultValue="Stripe · PayPal · Bank transfer · Manual"
+            readOnly
+          />
+        </SettingsField>
+        <SettingsField label="Admin">
+          <Link href="/dashboard/billing/admin">
+            <Button size="sm" variant="secondary">
+              Admin billing panel
+            </Button>
+          </Link>
         </SettingsField>
       </SettingsGrid>
       <EmptyState
-        title="Billing portal reserved"
-        description="Stripe Customer Portal / invoice PDF export will attach here. No live billing API yet."
+        title="Manage subscription in the portal"
+        description="Upgrade, downgrade, cancel, invoices, usage quotas, VAT/Tax ID, and notifications."
       />
     </SettingsPanel>
   );

@@ -1,11 +1,14 @@
 /**
  * SaaS subscription model — architecture ready for Stripe/Paddle later.
+ * Commercial catalog lives in features/saas (Starter/Professional/Business/Enterprise).
  */
 
 export type SubscriptionPlanId =
   | "free"
   | "starter"
   | "growth"
+  | "professional"
+  | "business"
   | "enterprise"
   | "custom";
 
@@ -14,7 +17,11 @@ export type SubscriptionStatus =
   | "active"
   | "past_due"
   | "canceled"
-  | "incomplete";
+  | "incomplete"
+  | "trial"
+  | "expired"
+  | "cancelled"
+  | "suspended";
 
 export interface Subscription {
   readonly id: string;
@@ -28,7 +35,7 @@ export interface Subscription {
   readonly updatedAt: string;
 }
 
-export const DEFAULT_SUBSCRIPTION_PLAN: SubscriptionPlanId = "free";
+export const DEFAULT_SUBSCRIPTION_PLAN: SubscriptionPlanId = "starter";
 
 export function createTrialSubscription(organizationId: string): Subscription {
   const now = new Date();
