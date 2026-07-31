@@ -8,7 +8,6 @@
 import type { CSSProperties, JSX } from "react";
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
-import ThemeSwitcher from "../ThemeSwitcher";
 import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
 
 const AgxoraGlobe3D = dynamic(() => import("../AgxoraGlobe3D").then((m) => m.default), {
@@ -93,10 +92,6 @@ export function HeroSection(): JSX.Element {
 
   return (
     <section className="agx-hero" aria-label="AGXORA CORE hero">
-      <div className="agx-hero-theme">
-        <ThemeSwitcher />
-      </div>
-
       <motion.div className="agx-hero-copy" {...fadeUp}>
         <p
           className="agx-hero-eyebrow"

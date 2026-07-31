@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   useEffect,
   useRef,
@@ -11,7 +11,6 @@ import {
 } from "react";
 import { useAuth } from "../lib/auth";
 import { useOrganization } from "../lib/organization";
-import type { WorkspaceId } from "../lib/organization/types";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
 import { ThemeQuickToggle } from "./ThemeQuickToggle";
 import { IconButton } from "./ui";
@@ -37,21 +36,21 @@ function SvgIcon({ d }: { readonly d: string }): JSX.Element {
 /**
  * Top header — Organization · Search · Notifications · Profile · Theme quick toggle.
  * Full Appearance configuration lives in Settings Control Center only.
- * Does not touch Hero Theme Switcher on /dashboard.
+ * Workspace switcher is hidden until Multi-Workspace ships.
  */
 export function DashboardTopNav(): JSX.Element {
   const { tokens } = useTheme();
-  const pathname = usePathname();
   const router = useRouter();
   const { user, isAuthenticated } = useAuth();
-  const { organization, workspace, session, switchWorkspace } = useOrganization();
+  const { organization, session } = useOrganization();
 
   const [profileOpen, setProfileOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
   const profileRef = useRef<HTMLDivElement>(null);
   const notifRef = useRef<HTMLDivElement>(null);
 
-  const showHeaderTheme = pathname !== "/dashboard";
+  // Theme quick toggle remains on all dashboard routes (Hero no longer hosts AUTO/DAY/NIGHT).
+  const showHeaderTheme = true;
 
   useEffect(() => {
     const onDoc = (event: MouseEvent): void => {
@@ -68,14 +67,7 @@ export function DashboardTopNav(): JSX.Element {
   }, []);
 
   const orgLabel = organization?.name ?? "Organization";
-  const workspaceLabel = workspace?.name ?? "Workspace";
   const displayName = user?.displayName ?? (isAuthenticated ? "User" : "Guest");
-  const workspaces =
-    session.accessibleWorkspaces.length > 0
-      ? session.accessibleWorkspaces
-      : workspace
-        ? [workspace]
-        : [];
 
   return (
     <header
@@ -134,67 +126,6 @@ export function DashboardTopNav(): JSX.Element {
             {orgLabel}
           </span>
         </div>
-
-        {workspaces.length > 0 ? (
-          <label
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              minHeight: 36,
-              padding: "0 10px",
-              borderRadius: 12,
-              border: `1px solid ${tokens.inputBorder}`,
-              background: tokens.inputBg,
-              color: tokens.textMuted,
-              fontSize: 11,
-              fontWeight: 600,
-              letterSpacing: "0.04em",
-              textTransform: "uppercase",
-            }}
-          >
-            <span className="hidden sm:inline">Workspace</span>
-            <select
-              aria-label="Workspace switcher"
-              value={workspace?.id ?? ""}
-              onChange={(event) => {
-                if (event.target.value) {
-                  void switchWorkspace(event.target.value as WorkspaceId);
-                }
-              }}
-              style={{
-                border: "none",
-                background: "transparent",
-                color: tokens.text,
-                fontSize: 13,
-                fontWeight: 550,
-                maxWidth: 160,
-                outline: "none",
-                cursor: "pointer",
-                textTransform: "none",
-                letterSpacing: "normal",
-              }}
-            >
-              {workspaces.map((item) => (
-                <option key={item.id} value={item.id}>
-                  {item.name}
-                </option>
-              ))}
-            </select>
-          </label>
-        ) : (
-          <span
-            style={{
-              fontSize: 12,
-              color: tokens.textMuted,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {workspaceLabel}
-          </span>
-        )}
       </div>
 
       <div

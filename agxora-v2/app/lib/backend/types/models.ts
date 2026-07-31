@@ -45,10 +45,23 @@ export interface Workspace {
 export interface Customer {
   readonly id: EntityId;
   readonly organizationId: EntityId;
-  readonly name: string;
+  /** @deprecated Prefer companyName — kept for older service callers. */
+  readonly name?: string;
+  readonly companyName: string;
+  readonly contactPerson?: string;
   readonly email: string;
+  readonly phone?: string;
+  readonly mobile?: string;
+  readonly street?: string;
+  readonly postalCode?: string;
+  readonly city?: string;
+  readonly country?: string;
+  readonly taxNumber?: string;
+  readonly vatId?: string;
+  readonly notes?: string;
   readonly company?: string;
-  readonly status: "active" | "prospect" | "churn_risk" | "archived";
+  readonly status: "active" | "prospect" | "inactive" | "blocked" | "churn_risk" | "archived";
+  readonly tags?: readonly string[];
   readonly ownerUserId?: EntityId;
   readonly createdAt: string;
   readonly updatedAt: string;
@@ -145,6 +158,8 @@ export interface Notification {
 
 export type ActivityKind =
   | "customer_created"
+  | "customer_updated"
+  | "customer_deleted"
   | "project_updated"
   | "invoice_paid"
   | "workflow_executed"

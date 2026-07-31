@@ -48,13 +48,14 @@ export class CustomerService extends BaseService<import("../types").Customer> {
     input: Omit<import("../types").Customer, "id" | "createdAt" | "updatedAt">,
   ) {
     const customer = await this.repo.create(input);
+    const label = customer.companyName || customer.name || customer.email;
     recordActivity({
       kind: "customer_created",
       title: "Customer Created",
-      detail: customer.name,
+      detail: label,
       entityId: customer.id,
       organizationId: customer.organizationId,
-      href: "/dashboard/crm",
+      href: "/dashboard/customers",
     });
     auditLog({
       action: "customer.create",
@@ -63,6 +64,39 @@ export class CustomerService extends BaseService<import("../types").Customer> {
       organizationId: customer.organizationId,
     });
     return customer;
+  }
+
+  async updateCustomer(
+    id: string,
+    patch: Partial<import("../types").Customer>,
+  ) {
+    const customer = await this.repo.update(id, patch);
+    const label = customer.companyName || customer.name || customer.email;
+    recordActivity({
+      kind: "customer_updated",
+      title: "Customer Updated",
+      detail: label,
+      entityId: customer.id,
+      organizationId: customer.organizationId,
+      href: "/dashboard/customers",
+    });
+    return customer;
+  }
+
+  async deleteCustomer(id: string) {
+    const existing = await this.repo.getById(id);
+    await this.repo.delete(id);
+    if (existing) {
+      const label = existing.companyName || existing.name || existing.email;
+      recordActivity({
+        kind: "customer_deleted",
+        title: "Customer Deleted",
+        detail: label,
+        entityId: existing.id,
+        organizationId: existing.organizationId,
+        href: "/dashboard/customers",
+      });
+    }
   }
 }
 

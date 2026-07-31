@@ -10,6 +10,7 @@ export interface DataTableColumn<T> {
   readonly align?: "left" | "right";
   readonly render: (row: T) => ReactNode;
   readonly width?: string;
+  readonly sortable?: boolean;
 }
 
 export interface DataTableProps<T> {
@@ -24,6 +25,12 @@ export interface DataTableProps<T> {
   readonly pageSize?: number;
   readonly onPageChange?: (page: number) => void;
   readonly totalCount?: number;
+  /** When set, `rows` are treated as the current page slice (no internal slice). */
+  readonly serverPaginated?: boolean;
+  readonly sortKey?: string;
+  readonly sortDirection?: "asc" | "desc";
+  readonly onSort?: (key: string) => void;
+  readonly onRowClick?: (row: T) => void;
 }
 
 /**
@@ -41,15 +48,26 @@ export function DataTable<T>({
   pageSize = 25,
   onPageChange,
   totalCount,
+  serverPaginated = false,
+  sortKey,
+  sortDirection,
+  onSort,
+  onRowClick,
 }: DataTableProps<T>): JSX.Element {
   const total = totalCount ?? rows.length;
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const start = (page - 1) * pageSize;
-  const pageRows = rows.slice(start, start + pageSize);
+  const pageRows = serverPaginated
+    ? rows
+    : rows.slice(start, start + pageSize);
 
   return (
     <div className="space-y-3">
-      {toolbar ? <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">{toolbar}</div> : null}
+      {toolbar ? (
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+          {toolbar}
+        </div>
+      ) : null}
 
       {pageRows.length === 0 ? (
         <EmptyState title={emptyTitle} description={emptyDescription} />
@@ -61,19 +79,38 @@ export function DataTable<T>({
           >
             <thead>
               <tr style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                {columns.map((col) => (
-                  <th
-                    key={col.key}
-                    className="border-b px-3 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em]"
-                    style={{
-                      borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
-                      textAlign: col.align ?? "left",
-                      width: col.width,
-                    }}
-                  >
-                    {col.header}
-                  </th>
-                ))}
+                {columns.map((col) => {
+                  const active = sortKey === col.key;
+                  const canSort = Boolean(col.sortable && onSort);
+                  return (
+                    <th
+                      key={col.key}
+                      className="border-b px-3 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em]"
+                      style={{
+                        borderColor:
+                          "var(--agx-card-border, rgba(255,255,255,0.08))",
+                        textAlign: col.align ?? "left",
+                        width: col.width,
+                      }}
+                    >
+                      {canSort ? (
+                        <button
+                          type="button"
+                          onClick={() => onSort?.(col.key)}
+                          className="inline-flex items-center gap-1 uppercase tracking-[0.12em]"
+                          style={{ color: "inherit" }}
+                        >
+                          {col.header}
+                          <span aria-hidden="true" className="text-[10px] opacity-70">
+                            {active ? (sortDirection === "asc" ? "↑" : "↓") : "↕"}
+                          </span>
+                        </button>
+                      ) : (
+                        col.header
+                      )}
+                    </th>
+                  );
+                })}
               </tr>
             </thead>
             <tbody>
@@ -81,14 +118,19 @@ export function DataTable<T>({
                 <tr
                   key={rowKey(row)}
                   className="transition-colors hover:bg-white/[0.03]"
-                  style={{ color: "var(--agx-text, #f8fafc)" }}
+                  style={{
+                    color: "var(--agx-text, #f8fafc)",
+                    cursor: onRowClick ? "pointer" : undefined,
+                  }}
+                  onClick={onRowClick ? () => onRowClick(row) : undefined}
                 >
                   {columns.map((col) => (
                     <td
                       key={col.key}
                       className="border-b px-3 py-3"
                       style={{
-                        borderColor: "var(--agx-card-border, rgba(255,255,255,0.06))",
+                        borderColor:
+                          "var(--agx-card-border, rgba(255,255,255,0.06))",
                         textAlign: col.align ?? "left",
                       }}
                     >
@@ -104,8 +146,12 @@ export function DataTable<T>({
 
       {onPageChange && total > pageSize ? (
         <div className="flex items-center justify-between gap-3 pt-1">
-          <p className="text-xs tabular-nums" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            {Math.min(start + 1, total)}–{Math.min(start + pageSize, total)} of {total}
+          <p
+            className="text-xs tabular-nums"
+            style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+          >
+            {Math.min(start + 1, total)}–{Math.min(start + pageSize, total)} of{" "}
+            {total}
           </p>
           <div className="flex gap-2">
             <Button
