@@ -12,6 +12,7 @@ import {
   type JSX,
   type ReactNode,
 } from "react";
+import { useIsClient } from "../runtime";
 import {
   THEME_STORAGE_KEY,
   THEME_TRANSITION_MS,
@@ -36,13 +37,17 @@ export interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
+/** SSR + hydration snapshot — never read window/localStorage/Date here. */
+const SSR_MODE: ThemeMode = "auto";
+const SSR_APPEARANCE: ThemeAppearance = "night";
+
 function readStoredMode(): ThemeMode {
-  if (typeof window === "undefined") return "auto";
+  if (typeof window === "undefined") return SSR_MODE;
   try {
     const raw = window.localStorage.getItem(THEME_STORAGE_KEY);
-    return isThemeMode(raw) ? raw : "auto";
+    return isThemeMode(raw) ? raw : SSR_MODE;
   } catch {
-    return "auto";
+    return SSR_MODE;
   }
 }
 
@@ -59,16 +64,24 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps): JSX.Element {
-  const [mode, setModeState] = useState<ThemeMode>(() => readStoredMode());
-  const [appearance, setAppearance] = useState<ThemeAppearance>(() =>
-    resolveAppearance(readStoredMode()),
-  );
-  const [hydrated] = useState(() => typeof window !== "undefined");
-  const appearanceRef = useRef<ThemeAppearance>(
-    typeof window === "undefined" ? "night" : resolveAppearance(readStoredMode()),
-  );
+  const isClient = useIsClient();
+  const [modeOverride, setModeOverride] = useState<ThemeMode | null>(null);
+  const [autoTick, setAutoTick] = useState(0);
+  const appearanceRef = useRef<ThemeAppearance>(SSR_APPEARANCE);
   const blendRaf = useRef<number | null>(null);
-  const didInitVisual = useRef(false);
+  const prevAppearance = useRef<ThemeAppearance>(SSR_APPEARANCE);
+
+  const mode: ThemeMode =
+    modeOverride ?? (isClient ? readStoredMode() : SSR_MODE);
+
+  // During SSR/hydration always night. After hydration, resolve from mode + local clock.
+  // autoTick re-resolves around day/night boundaries.
+  const appearance: ThemeAppearance = useMemo(() => {
+    if (!isClient) return SSR_APPEARANCE;
+    // Reference autoTick so boundary polls recompute appearance from the current clock.
+    const at = autoTick;
+    return resolveAppearance(mode, at >= 0 ? new Date() : new Date());
+  }, [isClient, mode, autoTick]);
 
   const animateBlend = useCallback((target: ThemeAppearance) => {
     const to = target === "day" ? 1 : 0;
@@ -95,61 +108,45 @@ export function ThemeProvider({ children }: ThemeProviderProps): JSX.Element {
     blendRaf.current = requestAnimationFrame(tick);
   }, []);
 
-  const applyAppearance = useCallback(
-    (next: ThemeAppearance, animate: boolean) => {
-      appearanceRef.current = next;
-      setAppearance(next);
-      if (!animate) {
-        setThemeVisualState(next, next === "day" ? 1 : 0);
-        return;
-      }
-      animateBlend(next);
-    },
-    [animateBlend],
-  );
+  const setMode = useCallback((next: ThemeMode) => {
+    persistMode(next);
+    setModeOverride(next);
+  }, []);
 
-  const setMode = useCallback(
-    (next: ThemeMode) => {
-      setModeState(next);
-      persistMode(next);
-      const resolved = resolveAppearance(next);
-      applyAppearance(resolved, hydrated);
-    },
-    [applyAppearance, hydrated],
-  );
+  // Sync external visual store when appearance changes (no React setState).
+  useEffect(() => {
+    appearanceRef.current = appearance;
+    const shouldAnimate = isClient && prevAppearance.current !== appearance;
+    if (!shouldAnimate) {
+      setThemeVisualState(appearance, appearance === "day" ? 1 : 0);
+    } else {
+      animateBlend(appearance);
+    }
+    prevAppearance.current = appearance;
+  }, [appearance, isClient, animateBlend]);
 
   useEffect(() => {
-    if (didInitVisual.current) return;
-    didInitVisual.current = true;
-    setThemeVisualState(appearance, appearance === "day" ? 1 : 0);
-  }, [appearance]);
-
-  useEffect(() => {
-    if (!hydrated || mode !== "auto") return undefined;
+    if (!isClient || mode !== "auto") return undefined;
 
     let boundaryTimer: number | undefined;
 
-    const sync = (): void => {
-      const next = resolveAppearance("auto");
-      if (appearanceRef.current === next) return;
-      applyAppearance(next, true);
-    };
-
     const armBoundary = (): void => {
       boundaryTimer = window.setTimeout(() => {
-        sync();
+        setAutoTick((value) => value + 1);
         armBoundary();
       }, msUntilNextAutoBoundary());
     };
 
     armBoundary();
-    const pollTimer = window.setInterval(sync, 60_000);
+    const pollTimer = window.setInterval(() => {
+      setAutoTick((value) => value + 1);
+    }, 60_000);
 
     return () => {
       if (boundaryTimer !== undefined) window.clearTimeout(boundaryTimer);
       window.clearInterval(pollTimer);
     };
-  }, [mode, hydrated, applyAppearance]);
+  }, [mode, isClient]);
 
   useEffect(
     () => () => {

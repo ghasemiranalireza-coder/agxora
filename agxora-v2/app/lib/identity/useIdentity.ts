@@ -4,9 +4,14 @@ import { useMemo } from "react";
 import { useAuth } from "../auth";
 import { useOrganization } from "../organization";
 import type { MembershipRole } from "../organization/types";
+import { useIsClient } from "../runtime";
 import { useTheme } from "../theme";
 import { canAccessModule, toIdentityRole } from "./permissions";
 import type { ModuleAccessKey } from "./types";
+
+/** Deterministic SSR/hydration defaults — never read navigator during render on the server. */
+const SSR_LANGUAGE = "en";
+const SSR_TIMEZONE = "UTC";
 
 /**
  * Unified identity view for UI — user, org, workspace, role, permissions.
@@ -15,6 +20,14 @@ export function useIdentity() {
   const auth = useAuth();
   const org = useOrganization();
   const { mode, appearance } = useTheme();
+  const isClient = useIsClient();
+
+  const language = isClient
+    ? navigator.language || SSR_LANGUAGE
+    : SSR_LANGUAGE;
+  const timezone = isClient
+    ? Intl.DateTimeFormat().resolvedOptions().timeZone || SSR_TIMEZONE
+    : SSR_TIMEZONE;
 
   const membership = useMemo(() => {
     if (!auth.user || !org.workspace) return null;
@@ -49,8 +62,8 @@ export function useIdentity() {
         .slice(0, 2)
         .toUpperCase(),
       roleLabel: role ?? "guest",
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      language: typeof navigator !== "undefined" ? navigator.language : "en",
+      timezone,
+      language,
       themeMode: mode,
       themeAppearance: appearance,
     },

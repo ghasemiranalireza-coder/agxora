@@ -23,6 +23,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Deterministic lang for SSR + hydration. Do not read navigator here.
+  // Browser language may be applied after mount via HtmlLangSync (opt-in).
   return (
     <html
       lang="en"

@@ -41,21 +41,30 @@ function KpiStrip(): JSX.Element {
  * Enterprise Settings Control Center — two-column configuration hub.
  * Does not modify Hero, Sidebar chrome, Finance, CRM, Creator, Automation, or Documents modules.
  */
-function initialSection(): SettingsSectionId {
-  if (typeof window === "undefined") return "profile";
-  const hash = window.location.hash.replace("#", "") as SettingsSectionId;
-  return SETTINGS_NAV.some((item) => item.id === hash) ? hash : "profile";
-}
-
 export function SettingsControlCenter(): JSX.Element {
   const reduceMotion = useReducedMotion();
-  const [section, setSection] = useState<SettingsSectionId>(initialSection);
+  const [section, setSection] = useState<SettingsSectionId>("profile");
   const [loading, setLoading] = useState(true);
+  const [hashReady, setHashReady] = useState(false);
 
   useEffect(() => {
+    const applyHash = (): void => {
+      const hash = window.location.hash.replace("#", "") as SettingsSectionId;
+      if (SETTINGS_NAV.some((item) => item.id === hash)) {
+        setSection(hash);
+      }
+      setHashReady(true);
+    };
+    // Defer hash sync until after hydration commit.
+    const id = window.setTimeout(applyHash, 0);
+    return () => window.clearTimeout(id);
+  }, []);
+
+  useEffect(() => {
+    if (!hashReady) return undefined;
     const t = window.setTimeout(() => setLoading(false), 220);
     return () => window.clearTimeout(t);
-  }, [section]);
+  }, [section, hashReady]);
 
   const onSelect = useCallback((id: SettingsSectionId) => {
     setLoading(true);
