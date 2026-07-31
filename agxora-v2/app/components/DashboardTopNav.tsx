@@ -43,7 +43,7 @@ export function DashboardTopNav(): JSX.Element {
   const { tokens } = useTheme();
   const pathname = usePathname();
   const router = useRouter();
-  const { user, signOut, isAuthenticated } = useAuth();
+  const { user, isAuthenticated } = useAuth();
   const { organization, workspace, session, switchWorkspace } = useOrganization();
 
   const [profileOpen, setProfileOpen] = useState(false);
@@ -68,7 +68,14 @@ export function DashboardTopNav(): JSX.Element {
   }, []);
 
   const orgLabel = organization?.name ?? "Organization";
+  const workspaceLabel = workspace?.name ?? "Workspace";
   const displayName = user?.displayName ?? (isAuthenticated ? "User" : "Guest");
+  const workspaces =
+    session.accessibleWorkspaces.length > 0
+      ? session.accessibleWorkspaces
+      : workspace
+        ? [workspace]
+        : [];
 
   return (
     <header
@@ -85,9 +92,10 @@ export function DashboardTopNav(): JSX.Element {
         transition: `border-color ${THEME_TRANSITION_MS}ms ease`,
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0, flexWrap: "wrap" }}>
         <div
-          aria-label="Organization"
+          aria-label="Current organization"
+          title={orgLabel}
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -126,6 +134,67 @@ export function DashboardTopNav(): JSX.Element {
             {orgLabel}
           </span>
         </div>
+
+        {workspaces.length > 0 ? (
+          <label
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              minHeight: 36,
+              padding: "0 10px",
+              borderRadius: 12,
+              border: `1px solid ${tokens.inputBorder}`,
+              background: tokens.inputBg,
+              color: tokens.textMuted,
+              fontSize: 11,
+              fontWeight: 600,
+              letterSpacing: "0.04em",
+              textTransform: "uppercase",
+            }}
+          >
+            <span className="hidden sm:inline">Workspace</span>
+            <select
+              aria-label="Workspace switcher"
+              value={workspace?.id ?? ""}
+              onChange={(event) => {
+                if (event.target.value) {
+                  void switchWorkspace(event.target.value as WorkspaceId);
+                }
+              }}
+              style={{
+                border: "none",
+                background: "transparent",
+                color: tokens.text,
+                fontSize: 13,
+                fontWeight: 550,
+                maxWidth: 160,
+                outline: "none",
+                cursor: "pointer",
+                textTransform: "none",
+                letterSpacing: "normal",
+              }}
+            >
+              {workspaces.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.name}
+                </option>
+              ))}
+            </select>
+          </label>
+        ) : (
+          <span
+            style={{
+              fontSize: 12,
+              color: tokens.textMuted,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {workspaceLabel}
+          </span>
+        )}
       </div>
 
       <div
@@ -217,56 +286,65 @@ export function DashboardTopNav(): JSX.Element {
                 </p>
               </div>
 
-              {(session.accessibleWorkspaces.length > 1 || workspace) && (
-                <label
-                  style={{
-                    display: "block",
-                    marginBottom: 10,
-                    fontSize: 11,
-                    color: tokens.textMuted,
-                  }}
-                >
-                  Workspace
-                  <select
-                    aria-label="Workspace switcher"
-                    value={workspace?.id ?? ""}
-                    onChange={(event) => {
-                      if (event.target.value) {
-                        void switchWorkspace(event.target.value as WorkspaceId);
-                      }
-                    }}
-                    style={{
-                      display: "block",
-                      width: "100%",
-                      marginTop: 6,
-                      padding: "8px 10px",
-                      borderRadius: 10,
-                      border: `1px solid ${tokens.inputBorder}`,
-                      background: tokens.inputBg,
-                      color: tokens.text,
-                      fontSize: 12,
-                    }}
-                  >
-                    {(session.accessibleWorkspaces.length
-                      ? session.accessibleWorkspaces
-                      : workspace
-                        ? [workspace]
-                        : []
-                    ).map((item) => (
-                      <option key={item.id} value={item.id}>
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              )}
+              <p
+                style={{
+                  margin: "0 0 10px",
+                  fontSize: 11,
+                  color: tokens.textMuted,
+                }}
+              >
+                Role ·{" "}
+                {session.memberships.find((m) => m.userId === user?.id)?.role ??
+                  (isAuthenticated ? "member" : "guest")}
+              </p>
+
+              <Link
+                href="/dashboard/settings#profile"
+                onClick={() => setProfileOpen(false)}
+                style={{
+                  display: "block",
+                  color: tokens.text,
+                  fontSize: 12,
+                  textDecoration: "none",
+                  padding: "8px 4px",
+                }}
+              >
+                Account settings
+              </Link>
+              <Link
+                href="/dashboard/settings#security"
+                onClick={() => setProfileOpen(false)}
+                style={{
+                  display: "block",
+                  color: tokens.text,
+                  fontSize: 12,
+                  textDecoration: "none",
+                  padding: "8px 4px",
+                }}
+              >
+                Security
+              </Link>
+              <Link
+                href="/dashboard/team"
+                onClick={() => setProfileOpen(false)}
+                style={{
+                  display: "block",
+                  color: tokens.text,
+                  fontSize: 12,
+                  textDecoration: "none",
+                  padding: "8px 4px",
+                  marginBottom: 8,
+                }}
+              >
+                Team
+              </Link>
 
               {isAuthenticated ? (
                 <button
                   type="button"
                   onClick={() => {
                     setProfileOpen(false);
-                    void signOut().then(() => router.push("/login"));
+                    router.push("/logout");
                   }}
                   style={{
                     width: "100%",

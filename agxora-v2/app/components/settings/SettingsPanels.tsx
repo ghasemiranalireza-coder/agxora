@@ -1,8 +1,18 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState, type JSX } from "react";
 import { useAISettings } from "../../lib/ai";
 import type { AIProviderId } from "../../lib/ai";
+import {
+  ensureActiveSession,
+  listSessions,
+  revokeOtherSessions,
+  revokeSession,
+  toggleTrustedDevice,
+  useIdentity,
+  type SessionRecord,
+} from "../../lib/identity";
 import {
   ACCENT_SWATCHES,
   API_KEYS,
@@ -55,16 +65,20 @@ function SaveRow({
 }
 
 function ProfilePanel(): JSX.Element {
-  const [name, setName] = useState("Alex Morgan");
-  const [email, setEmail] = useState("alex@agxora.io");
-  const [language, setLanguage] = useState("en-GB");
-  const [timezone, setTimezone] = useState("Europe/Berlin");
+  const identity = useIdentity();
+  const { mode } = useTheme();
+  const [name, setName] = useState(identity.profile.fullName);
+  const [email, setEmail] = useState(identity.profile.email);
+  const [language, setLanguage] = useState(identity.profile.language || "en-GB");
+  const [timezone, setTimezone] = useState(identity.profile.timezone || "Europe/Berlin");
   const [region, setRegion] = useState("EU");
   const [prefs, setPrefs] = useState("Prefer concise AI summaries and German invoice defaults.");
-  const [notice, setNotice] = useState("Profile changes are local placeholders — future API ready.");
+  const [notice, setNotice] = useState(
+    "Profile is wired to the signed-in identity. Persistence is future API ready.",
+  );
 
   return (
-    <SettingsPanel title="Profile" description="Avatar, identity, language, timezone, and personal preferences.">
+    <SettingsPanel title="Profile" description="Avatar, full name, email, role, timezone, language, and theme preference.">
       <div className="flex items-center gap-4">
         <div
           className="flex h-16 w-16 items-center justify-center rounded-2xl border text-lg font-semibold"
@@ -75,14 +89,14 @@ function ProfilePanel(): JSX.Element {
           }}
           aria-hidden="true"
         >
-          AM
+          {identity.profile.avatarInitials}
         </div>
         <div>
           <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
             Avatar
           </p>
           <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Upload reserved — storage API not wired.
+            Role: {identity.profile.roleLabel} · Theme: {mode}
           </p>
           <div className="mt-2">
             <Button size="sm" variant="secondary" onClick={() => setNotice("Avatar upload placeholder.")}>
@@ -98,6 +112,9 @@ function ProfilePanel(): JSX.Element {
         <SettingsField label="Email">
           <SettingsInput type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </SettingsField>
+        <SettingsField label="Role">
+          <SettingsInput value={identity.profile.roleLabel} readOnly />
+        </SettingsField>
         <SettingsField label="Language">
           <SettingsSelect value={language} onChange={(e) => setLanguage(e.target.value)}>
             <option value="en-GB">English (UK)</option>
@@ -112,7 +129,11 @@ function ProfilePanel(): JSX.Element {
             <option value="Europe/London">Europe/London</option>
             <option value="America/New_York">America/New_York</option>
             <option value="Asia/Dubai">Asia/Dubai</option>
+            <option value={identity.profile.timezone}>{identity.profile.timezone}</option>
           </SettingsSelect>
+        </SettingsField>
+        <SettingsField label="Theme">
+          <SettingsInput value={`${mode} (resolved ${identity.profile.themeAppearance})`} readOnly />
         </SettingsField>
         <SettingsField label="Region">
           <SettingsSelect value={region} onChange={(e) => setRegion(e.target.value)}>
@@ -126,7 +147,10 @@ function ProfilePanel(): JSX.Element {
       <SettingsField label="Personal Preferences" hint="Used by AI assistants across modules.">
         <SettingsTextArea value={prefs} onChange={setPrefs} />
       </SettingsField>
-      <SaveRow notice={notice} onSave={() => setNotice("Profile saved (placeholder).")} />
+      <SettingsNotice>
+        Appearance configuration remains under Appearance. Header provides a theme quick toggle only.
+      </SettingsNotice>
+      <SaveRow notice={notice} onSave={() => setNotice("Profile preferences saved locally (placeholder API).")} />
     </SettingsPanel>
   );
 }
@@ -661,15 +685,26 @@ function IntegrationsPanel(): JSX.Element {
 }
 
 function SecurityPanel(): JSX.Element {
+  const identity = useIdentity();
   const [twoFa, setTwoFa] = useState(true);
   const [encryption, setEncryption] = useState(true);
-  const [notice, setNotice] = useState("Security controls are preference + audit architecture.");
+  const [notice, setNotice] = useState("Session list is a local architecture store — future server sessions.");
+  const [sessions, setSessions] = useState<readonly SessionRecord[]>(() => {
+    if (!identity.user || !identity.session) return [];
+    ensureActiveSession(identity.user.id, identity.session.sessionId);
+    return listSessions(identity.user.id);
+  });
+
+  const refreshSessions = (): void => {
+    if (!identity.user) return;
+    setSessions(listSessions(identity.user.id));
+  };
 
   return (
-    <SettingsPanel title="Security" description="Two-factor authentication, sessions, trusted devices, password, API keys, and encryption.">
+    <SettingsPanel title="Security" description="Active sessions, trusted devices, password, 2FA, and encryption placeholders.">
       <SettingsToggle
         label="Two Factor Authentication"
-        description="Require TOTP for admin roles."
+        description="Require TOTP for admin roles — architecture only."
         checked={twoFa}
         onChange={setTwoFa}
       />
@@ -680,27 +715,101 @@ function SecurityPanel(): JSX.Element {
         onChange={setEncryption}
       />
       <SettingsGrid>
-        <SettingsField label="Sessions">
-          <SettingsSelect defaultValue="30d">
-            <option value="1d">1 day</option>
-            <option value="7d">7 days</option>
-            <option value="30d">30 days</option>
-          </SettingsSelect>
-        </SettingsField>
         <SettingsField label="Password">
-          <Button size="sm" variant="secondary" onClick={() => setNotice("Password change flow reserved.")}>
-            Change password
-          </Button>
+          <Link href="/forgot-password">
+            <Button size="sm" variant="secondary">
+              Change password
+            </Button>
+          </Link>
+        </SettingsField>
+        <SettingsField label="API Keys">
+          <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            Manage developer keys under API & Developers.
+          </p>
         </SettingsField>
       </SettingsGrid>
-      <SettingsField label="Trusted Devices">
-        <SettingsInput defaultValue="MacBook Pro · Berlin · Last seen today" readOnly />
-      </SettingsField>
-      <SettingsField label="API Keys">
-        <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Manage developer keys under API & Developers.
-        </p>
-      </SettingsField>
+
+      <div className="space-y-2">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+            Active Sessions
+          </h3>
+          <Button
+            size="sm"
+            variant="danger"
+            disabled={!identity.user || !identity.session}
+            onClick={() => {
+              if (!identity.user || !identity.session) return;
+              setSessions(revokeOtherSessions(identity.user.id, identity.session.sessionId));
+              setNotice("Logged out other devices (placeholder). Current session kept.");
+            }}
+          >
+            Logout All Devices
+          </Button>
+        </div>
+        {sessions.length === 0 ? (
+          <EmptyState
+            title="No sessions tracked"
+            description="Sign in to register the current device in the session architecture store."
+          />
+        ) : (
+          <ul className="space-y-2">
+            {sessions.map((item) => (
+              <li
+                key={item.id}
+                className="rounded-xl border px-3 py-3"
+                style={{
+                  borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
+                  background: "rgba(255,255,255,0.02)",
+                }}
+              >
+                <div className="flex flex-wrap items-start justify-between gap-2">
+                  <div>
+                    <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
+                      {item.deviceLabel}
+                      {item.current ? " · Current Device" : ""}
+                    </p>
+                    <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                      {item.ipHint} · last active {item.lastActiveAt.slice(0, 16).replace("T", " ")}
+                    </p>
+                  </div>
+                  <Badge tone={item.trusted ? "positive" : "default"}>
+                    {item.trusted ? "Trusted" : "Untrusted"}
+                  </Badge>
+                </div>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    onClick={() => {
+                      if (!identity.user) return;
+                      setSessions(toggleTrustedDevice(identity.user.id, item.id, !item.trusted));
+                      setNotice("Trusted device preference updated.");
+                    }}
+                  >
+                    {item.trusted ? "Untrust" : "Trust device"}
+                  </Button>
+                  {!item.current ? (
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => {
+                        if (!identity.user) return;
+                        setSessions(revokeSession(identity.user.id, item.id));
+                        setNotice("Session revoked.");
+                        refreshSessions();
+                      }}
+                    >
+                      Revoke
+                    </Button>
+                  ) : null}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
       <SaveRow notice={notice} onSave={() => setNotice("Security preferences saved (placeholder).")} />
     </SettingsPanel>
   );

@@ -50,6 +50,64 @@ export const authButtonStyle: CSSProperties = {
   cursor: "pointer",
 };
 
+export const authButtonDisabledStyle: CSSProperties = {
+  ...authButtonStyle,
+  opacity: 0.55,
+  cursor: "not-allowed",
+};
+
+export const authLabelStyle: CSSProperties = {
+  display: "block",
+  marginBottom: 6,
+  fontSize: 12,
+  fontWeight: 600,
+  letterSpacing: "0.04em",
+  color: "#94a3b8",
+};
+
+export const authRowStyle: CSSProperties = {
+  position: "relative",
+  marginBottom: 15,
+};
+
+export function AuthFieldError({ message }: { readonly message: string | null }): JSX.Element | null {
+  if (!message) return null;
+  return <p style={{ color: "#f87171", fontSize: 13, margin: "0 0 12px" }}>{message}</p>;
+}
+
+export function AuthCheckbox({
+  checked,
+  onChange,
+  children,
+}: {
+  readonly checked: boolean;
+  readonly onChange: (checked: boolean) => void;
+  readonly children: ReactNode;
+}): JSX.Element {
+  return (
+    <label
+      style={{
+        display: "flex",
+        alignItems: "flex-start",
+        gap: 10,
+        marginBottom: 14,
+        color: "#cbd5e1",
+        fontSize: 13,
+        lineHeight: 1.45,
+        cursor: "pointer",
+      }}
+    >
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={(e) => onChange(e.target.checked)}
+        style={{ marginTop: 3 }}
+      />
+      <span>{children}</span>
+    </label>
+  );
+}
+
 export function AuthCard({
   title,
   children,
