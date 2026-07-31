@@ -98,6 +98,21 @@ export const QUICK_ACTIONS: readonly QuickAction[] = [
     href: "/dashboard/billing",
     keywords: ["billing", "subscription", "upgrade", "invoice", "plan"],
   },
+  {
+    id: "action-open-integrations",
+    title: "Open Integration Center",
+    subtitle: "Connectors, webhooks, API keys",
+    href: "/dashboard/integrations",
+    keywords: [
+      "integrations",
+      "connectors",
+      "webhook",
+      "oauth",
+      "api keys",
+      "slack",
+      "salesforce",
+    ],
+  },
 ];
 
 export const COMMAND_ENTRIES: readonly SearchResult[] = [
@@ -181,6 +196,23 @@ export const COMMAND_ENTRIES: readonly SearchResult[] = [
     subtitle: "Subscription portal & plans",
     href: "/dashboard/billing",
     keywords: ["open", "billing", "subscription", "plans", "invoices", "stripe"],
+  },
+  {
+    id: "cmd-open-integrations",
+    kind: "module",
+    group: "commands",
+    title: "Open Integrations",
+    subtitle: "Integration Center & API ecosystem",
+    href: "/dashboard/integrations",
+    keywords: [
+      "open",
+      "integrations",
+      "connectors",
+      "webhooks",
+      "oauth",
+      "api",
+      "gateway",
+    ],
   },
   {
     id: "cmd-create-customer",

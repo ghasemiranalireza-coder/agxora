@@ -760,9 +760,20 @@ function IntegrationsPanel(): JSX.Element {
   );
 
   return (
-    <SettingsPanel title="Integrations" description="Installed, connected, available, and future adapters across AGXORA.">
+    <SettingsPanel
+      title="Integrations"
+      description="Installed, connected, available, and future adapters across AGXORA."
+      actions={
+        <Link href="/dashboard/integrations">
+          <Button size="sm" variant="primary">
+            Open Integration Center
+          </Button>
+        </Link>
+      }
+    >
       <SettingsNotice>
-        Architecture registry only — no live OAuth. Mirrors Documents / Automation / Finance adapters.
+        Enterprise Integration Platform lives in the Integration Center —
+        connectors, OAuth, webhooks, API keys, and the workflow event bridge.
       </SettingsNotice>
       <DataTable columns={columns} rows={SETTINGS_INTEGRATIONS} rowKey={(r) => r.id} minWidth={680} />
     </SettingsPanel>
@@ -973,11 +984,17 @@ function ApiPanel(): JSX.Element {
       title="API & Developers"
       description="API keys, webhooks, developer tokens, and sandbox."
       actions={
-        <Button size="sm" variant="primary">
-          Create key
-        </Button>
+        <Link href="/dashboard/integrations">
+          <Button size="sm" variant="primary">
+            Open developer portal
+          </Button>
+        </Link>
       }
     >
+      <SettingsNotice>
+        Generate, rotate, and revoke keys in the Integration Center. Gateway,
+        webhook tester, and API explorer are available there.
+      </SettingsNotice>
       <DataTable columns={columns} rows={API_KEYS} rowKey={(r) => r.id} minWidth={640} />
       <SettingsGrid>
         <SettingsField label="Webhooks">

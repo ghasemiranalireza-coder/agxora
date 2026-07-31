@@ -1,0 +1,173 @@
+/**
+ * Connector catalog — provider-based definitions for third-party systems.
+ */
+
+import type { ConnectorDefinition, ConnectorId } from "../types";
+
+export const CONNECTOR_CATALOG: readonly ConnectorDefinition[] = [
+  {
+    id: "microsoft365",
+    name: "Microsoft 365",
+    description: "Mail, calendar, and Teams via Microsoft Graph.",
+    category: "productivity",
+    authMethod: "oauth2",
+    oauthProvider: "microsoft",
+    protocols: ["rest", "webhook"],
+    eventTypes: ["mail.received", "calendar.event", "teams.message"],
+    scopes: ["Mail.Read", "Calendars.Read", "User.Read"],
+  },
+  {
+    id: "google_workspace",
+    name: "Google Workspace",
+    description: "Gmail, Calendar, and Drive for Workspace tenants.",
+    category: "productivity",
+    authMethod: "oauth2",
+    oauthProvider: "google",
+    protocols: ["rest", "webhook"],
+    eventTypes: ["mail.received", "calendar.event", "drive.file"],
+    scopes: ["gmail.readonly", "calendar.readonly", "drive.readonly"],
+  },
+  {
+    id: "slack",
+    name: "Slack",
+    description: "Channels, messages, and interactive notifications.",
+    category: "communication",
+    authMethod: "oauth2",
+    oauthProvider: "slack",
+    protocols: ["rest", "webhook", "websocket"],
+    eventTypes: ["message.posted", "channel.created", "app.mention"],
+    scopes: ["chat:write", "channels:read"],
+  },
+  {
+    id: "discord",
+    name: "Discord",
+    description: "Server notifications and bot message delivery.",
+    category: "communication",
+    authMethod: "oauth2",
+    oauthProvider: "custom",
+    protocols: ["rest", "webhook"],
+    eventTypes: ["message.create", "guild.member"],
+    scopes: ["bot", "webhook.incoming"],
+  },
+  {
+    id: "dropbox",
+    name: "Dropbox",
+    description: "File sync and shared folder events.",
+    category: "storage",
+    authMethod: "oauth2",
+    oauthProvider: "dropbox",
+    protocols: ["rest", "webhook"],
+    eventTypes: ["file.uploaded", "file.deleted"],
+    scopes: ["files.content.read", "files.content.write"],
+  },
+  {
+    id: "onedrive",
+    name: "OneDrive",
+    description: "Microsoft OneDrive file storage and delta sync.",
+    category: "storage",
+    authMethod: "oauth2",
+    oauthProvider: "microsoft",
+    protocols: ["rest", "webhook"],
+    eventTypes: ["file.uploaded", "file.updated"],
+    scopes: ["Files.ReadWrite"],
+  },
+  {
+    id: "google_drive",
+    name: "Google Drive",
+    description: "Drive files, folders, and change notifications.",
+    category: "storage",
+    authMethod: "oauth2",
+    oauthProvider: "google",
+    protocols: ["rest", "webhook"],
+    eventTypes: ["file.uploaded", "file.shared"],
+    scopes: ["drive.readonly", "drive.file"],
+  },
+  {
+    id: "hubspot",
+    name: "HubSpot",
+    description: "CRM contacts, deals, and marketing events.",
+    category: "crm",
+    authMethod: "oauth2",
+    oauthProvider: "custom",
+    protocols: ["rest", "webhook"],
+    eventTypes: ["contact.created", "deal.updated"],
+    scopes: ["crm.objects.contacts.read", "crm.objects.deals.read"],
+  },
+  {
+    id: "salesforce",
+    name: "Salesforce",
+    description: "Enterprise CRM objects and Platform Events.",
+    category: "crm",
+    authMethod: "oauth2",
+    oauthProvider: "custom",
+    protocols: ["rest", "graphql", "webhook"],
+    eventTypes: ["account.created", "opportunity.updated"],
+    scopes: ["api", "refresh_token"],
+  },
+  {
+    id: "zapier",
+    name: "Zapier",
+    description: "Outbound hooks into Zapier zaps.",
+    category: "automation",
+    authMethod: "api_key",
+    protocols: ["webhook", "rest"],
+    eventTypes: ["zap.trigger", "zap.complete"],
+    scopes: ["hooks:write"],
+  },
+  {
+    id: "make",
+    name: "Make",
+    description: "Scenario webhooks for Make (Integromat).",
+    category: "automation",
+    authMethod: "webhook",
+    protocols: ["webhook", "rest"],
+    eventTypes: ["scenario.run", "scenario.error"],
+    scopes: ["scenarios:trigger"],
+  },
+  {
+    id: "github",
+    name: "GitHub",
+    description: "Repos, issues, pull requests, and Actions.",
+    category: "devtools",
+    authMethod: "oauth2",
+    oauthProvider: "github",
+    protocols: ["rest", "webhook", "graphql"],
+    eventTypes: ["push", "pull_request", "issues"],
+    scopes: ["repo", "read:org"],
+  },
+  {
+    id: "gitlab",
+    name: "GitLab",
+    description: "Projects, MRs, pipelines, and webhooks.",
+    category: "devtools",
+    authMethod: "oauth2",
+    oauthProvider: "custom",
+    protocols: ["rest", "webhook"],
+    eventTypes: ["push", "merge_request", "pipeline"],
+    scopes: ["api", "read_repository"],
+  },
+  {
+    id: "custom",
+    name: "Custom Connector",
+    description: "Extension point for proprietary enterprise systems.",
+    category: "custom",
+    authMethod: "api_key",
+    oauthProvider: "custom",
+    protocols: ["rest", "webhook", "graphql", "grpc"],
+    eventTypes: ["custom.event"],
+    scopes: ["custom:*"],
+  },
+] as const;
+
+export function getConnectorDefinition(
+  id: ConnectorId,
+): ConnectorDefinition | undefined {
+  return CONNECTOR_CATALOG.find((c) => c.id === id);
+}
+
+export function listConnectorsByCategory(
+  category?: ConnectorDefinition["category"],
+): readonly ConnectorDefinition[] {
+  if (!category) return CONNECTOR_CATALOG;
+  return CONNECTOR_CATALOG.filter((c) => c.category === category);
+}
