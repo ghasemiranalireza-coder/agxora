@@ -4,11 +4,18 @@
  * AppProviders — root client boundary for the AGXORA OS.
  *
  * Theme → Auth → Organization → Business OS → Memory → AI Settings → Chat
+ * → Backend foundation hosts (error / toast / loading)
  */
 
 import type { JSX, ReactNode } from "react";
+import {
+  AppErrorBoundary,
+  GlobalLoadingOverlay,
+  ToastHost,
+} from "../components/backend";
 import { AISettingsProvider } from "../lib/ai/AIProviderContext";
 import { AuthOrganizationBridge, AuthProvider } from "../lib/auth";
+import { BackendStateBridge } from "../lib/backend/providers";
 import { BusinessOsProvider } from "../lib/business";
 import { MemoryProvider } from "../lib/memory";
 import { ChatProvider } from "../lib/modules/chat";
@@ -25,13 +32,21 @@ export function AppProviders({ children }: AppProvidersProps): JSX.Element {
       <AuthProvider>
         <AuthOrganizationBridge>
           <OrganizationProvider>
-            <BusinessOsProvider>
-              <MemoryProvider>
-                <AISettingsProvider>
-                  <ChatProvider>{children}</ChatProvider>
-                </AISettingsProvider>
-              </MemoryProvider>
-            </BusinessOsProvider>
+            <BackendStateBridge>
+              <BusinessOsProvider>
+                <MemoryProvider>
+                  <AISettingsProvider>
+                    <ChatProvider>
+                      <AppErrorBoundary>
+                        {children}
+                        <ToastHost />
+                        <GlobalLoadingOverlay />
+                      </AppErrorBoundary>
+                    </ChatProvider>
+                  </AISettingsProvider>
+                </MemoryProvider>
+              </BusinessOsProvider>
+            </BackendStateBridge>
           </OrganizationProvider>
         </AuthOrganizationBridge>
       </AuthProvider>
