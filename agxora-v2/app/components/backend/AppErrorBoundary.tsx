@@ -31,6 +31,12 @@ export class AppErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, info: ErrorInfo): void {
+    void import("@/app/lib/production/observability").then(({ reportError }) => {
+      reportError(error, {
+        source: "AppErrorBoundary",
+        componentStack: (info.componentStack ?? "").slice(0, 400),
+      });
+    });
     if (process.env.NODE_ENV !== "production") {
       console.error("[AppErrorBoundary]", error, info.componentStack);
     }

@@ -1,16 +1,25 @@
 "use client";
 
 import type { JSX } from "react";
+import { useEffect } from "react";
 import { ErrorPanel } from "./components/backend";
+import { reportError } from "@/app/lib/production/observability";
 
-/** Global 500 / route error — architecture error surface with retry. */
-export default function GlobalError({
+/** Segment error UI — architecture error surface with retry + observability. */
+export default function RouteError({
   error,
   reset,
 }: {
   readonly error: Error & { digest?: string };
   readonly reset: () => void;
 }): JSX.Element {
+  useEffect(() => {
+    reportError(error, {
+      source: "route-error",
+      digest: error.digest ?? "",
+    });
+  }, [error]);
+
   return (
     <div className="flex min-h-[70vh] items-center justify-center px-4 py-16">
       <ErrorPanel

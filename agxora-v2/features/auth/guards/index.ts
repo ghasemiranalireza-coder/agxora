@@ -4,40 +4,23 @@
  */
 
 import {
+  PUBLIC_ROUTE_PATHS,
+  PRIVATE_ROUTE_PREFIXES,
+  ADMIN_ROUTE_PREFIXES,
+} from "@/app/lib/production/routes";
+import {
   normalizeIamRole,
   roleHasPermission,
 } from "./permissionMatrix";
 import type { IamRole, IamRouteClass, IamRouteDefinition } from "../types";
 
-export const IAM_PUBLIC_ROUTES: readonly string[] = [
-  "/",
-  "/login",
-  "/register",
-  "/forgot-password",
-  "/reset-password",
-  "/verify-email",
-  "/logout",
-  "/unauthorized",
-  "/forbidden",
-  "/session-expired",
-  "/account-locked",
-  "/offline",
-];
+export const IAM_PUBLIC_ROUTES: readonly string[] = [...PUBLIC_ROUTE_PATHS];
 
 export const IAM_PRIVATE_PREFIXES: readonly string[] = [
-  "/dashboard",
-  "/workspace",
-  "/onboarding",
+  ...PRIVATE_ROUTE_PREFIXES,
 ];
 
-export const IAM_ADMIN_PREFIXES: readonly string[] = [
-  "/dashboard/settings",
-  "/dashboard/team",
-  "/dashboard/identity",
-  "/dashboard/billing/admin",
-  "/dashboard/finance",
-  "/dashboard/automation",
-];
+export const IAM_ADMIN_PREFIXES: readonly string[] = [...ADMIN_ROUTE_PREFIXES];
 
 export const IAM_ROUTE_CATALOG: readonly IamRouteDefinition[] = [
   { path: "/login", routeClass: "public" },
