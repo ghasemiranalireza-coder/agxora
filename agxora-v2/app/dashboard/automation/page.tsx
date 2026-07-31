@@ -5,7 +5,10 @@ import type { JSX } from "react";
 import { SkeletonPanel } from "../../components/backend";
 
 const Page = dynamic(
-  () => import("../../components/automation").then((mod) => mod.AutomationEnginePage),
+  () =>
+    import("../../../features/automation").then(
+      (mod) => mod.AutomationWorkspace,
+    ),
   {
     ssr: false,
     loading: () => <SkeletonPanel label="Loading automation…" />,
