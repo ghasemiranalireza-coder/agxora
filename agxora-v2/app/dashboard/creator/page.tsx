@@ -1,17 +1,17 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { AppShell } from "../../components/AppShell";
-import { CreatorStudioPage } from "../../components/creator-studio";
+import { SkeletonPanel } from "../../components/backend";
 
-/**
- * AGXORA AI Creator Studio & Marketing OS.
- * Additive module — does not alter Hero, Globe, Header, Finance, or CRM.
- */
-export default function CreatorRoutePage(): JSX.Element {
-  return (
-    <AppShell>
-      <CreatorStudioPage />
-    </AppShell>
-  );
+const Page = dynamic(
+  () => import("../../components/creator-studio").then((mod) => mod.CreatorStudioPage),
+  {
+    ssr: false,
+    loading: () => <SkeletonPanel label="Loading creator studio…" />,
+  },
+);
+
+export default function RoutePage(): JSX.Element {
+  return <Page />;
 }

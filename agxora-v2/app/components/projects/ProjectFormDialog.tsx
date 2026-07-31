@@ -10,8 +10,10 @@ import {
   PROJECT_STATUSES,
   projectErrorMap,
   projectStore,
+  selectProjectFormSlice,
+  shallowEqualRecord,
   statusLabel,
-  useProjectStore,
+  useProjectStoreSelector,
   type ProjectDraft,
 } from "../../lib/projects";
 import {
@@ -24,7 +26,10 @@ import {
 } from "../ui";
 
 export function ProjectFormDialog(): JSX.Element {
-  const state = useProjectStore();
+  const state = useProjectStoreSelector(
+    selectProjectFormSlice,
+    shallowEqualRecord,
+  );
   const toast = useToast();
   const errors = projectErrorMap(state.formErrors);
   const title = state.formMode === "edit" ? "Edit Project" : "Create Project";

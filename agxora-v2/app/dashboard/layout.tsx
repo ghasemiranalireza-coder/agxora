@@ -1,11 +1,12 @@
 "use client";
 
 import type { CSSProperties, ReactNode } from "react";
+import { AppShell } from "../components/AppShell";
 import StarfieldBackground from "../components/StarfieldBackground";
 
 /**
- * Dashboard shell — procedural starfield root.
- * Theme is provided at the app root via AppProviders.
+ * Dashboard shell — starfield + persistent AppShell.
+ * Keeps sidebar / top nav / command palette mounted across module navigations.
  */
 
 const shellStyle: CSSProperties = {
@@ -26,7 +27,9 @@ export default function DashboardLayout({
   return (
     <div style={shellStyle}>
       <StarfieldBackground />
-      <div style={contentStyle}>{children}</div>
+      <div style={contentStyle}>
+        <AppShell>{children}</AppShell>
+      </div>
     </div>
   );
 }

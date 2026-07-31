@@ -2,7 +2,6 @@
 
 import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { AppShell } from "../../components/AppShell";
 import { SkeletonPanel } from "../../components/backend";
 
 const ProjectsWorkspace = dynamic(
@@ -15,9 +14,5 @@ const ProjectsWorkspace = dynamic(
 );
 
 export default function ProjectsPage(): JSX.Element {
-  return (
-    <AppShell>
-      <ProjectsWorkspace />
-    </AppShell>
-  );
+  return <ProjectsWorkspace />;
 }

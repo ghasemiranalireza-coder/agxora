@@ -1,14 +1,23 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import type { JSX } from "react";
 import { useToast } from "../../lib/backend/hooks";
-import { projectStore, useProjectStore } from "../../lib/projects";
+import {
+  projectStore,
+  selectProjectDeleteSlice,
+  shallowEqualRecord,
+  useProjectStoreSelector,
+} from "../../lib/projects";
 import { Button, Dialog } from "../ui";
 
 export function ProjectDeleteDialog(): JSX.Element {
-  const state = useProjectStore();
+  const router = useRouter();
   const toast = useToast();
-  const project = state.items.find((row) => row.id === state.deleteId) ?? null;
+  const state = useProjectStoreSelector(
+    selectProjectDeleteSlice,
+    shallowEqualRecord,
+  );
 
   return (
     <Dialog
@@ -30,9 +39,15 @@ export function ProjectDeleteDialog(): JSX.Element {
             size="sm"
             loading={state.deleting}
             onClick={() => {
+              const deletingSelected =
+                state.selectedId != null &&
+                state.selectedId === state.deleteId;
               void projectStore.confirmDelete().then((removed) => {
                 if (removed) {
                   toast.success("Project deleted", removed.name);
+                  if (deletingSelected) {
+                    router.replace("/dashboard/projects");
+                  }
                 }
               });
             }}
@@ -42,10 +57,13 @@ export function ProjectDeleteDialog(): JSX.Element {
         </>
       }
     >
-      <p className="text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+      <p
+        className="text-sm leading-relaxed"
+        style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+      >
         This removes{" "}
         <strong style={{ color: "var(--agx-text, #f8fafc)" }}>
-          {project?.name ?? "this project"}
+          {state.projectName ?? "this project"}
         </strong>{" "}
         and all related tasks, files, notes, and activity from local storage.
         This action cannot be undone.
