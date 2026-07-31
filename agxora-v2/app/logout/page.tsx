@@ -5,7 +5,7 @@ import { useEffect, useState, type JSX } from "react";
 import { AuthCard } from "../components/auth/AuthCard";
 import { IdentityLoadingOverlay } from "../components/identity";
 import { useAuth } from "../lib/auth";
-import { logout as identityLogout } from "../lib/identity";
+import { iamAuthService } from "../../features/auth";
 
 /**
  * /logout — clears local placeholder session and redirects to login.
@@ -19,7 +19,7 @@ export default function LogoutPage(): JSX.Element {
     let cancelled = false;
     void (async () => {
       try {
-        await identityLogout();
+        await iamAuthService.logout();
         await signOut();
         if (!cancelled) router.replace("/login");
       } catch (err) {

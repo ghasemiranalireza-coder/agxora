@@ -84,6 +84,13 @@ export const QUICK_ACTIONS: readonly QuickAction[] = [
     href: "/dashboard/ai",
     keywords: ["ai", "chat", "assistant", "prompts", "commands"],
   },
+  {
+    id: "action-open-identity",
+    title: "Open Identity Settings",
+    subtitle: "Organizations, workspaces, RBAC",
+    href: "/dashboard/identity",
+    keywords: ["identity", "iam", "rbac", "organization", "workspace", "security"],
+  },
 ];
 
 export const COMMAND_ENTRIES: readonly SearchResult[] = [
@@ -140,6 +147,24 @@ export const COMMAND_ENTRIES: readonly SearchResult[] = [
     subtitle: "Enterprise AI workspace",
     href: "/dashboard/ai",
     keywords: ["open", "ai", "chat", "assistant", "platform", "prompts"],
+  },
+  {
+    id: "cmd-open-profile",
+    kind: "module",
+    group: "commands",
+    title: "Open Profile",
+    subtitle: "User identity preferences",
+    href: "/dashboard/profile",
+    keywords: ["open", "profile", "account", "user", "identity"],
+  },
+  {
+    id: "cmd-open-identity",
+    kind: "module",
+    group: "commands",
+    title: "Open Identity & Access",
+    subtitle: "IAM settings, RBAC, audit",
+    href: "/dashboard/identity",
+    keywords: ["open", "identity", "iam", "rbac", "security", "audit", "workspace"],
   },
   {
     id: "cmd-create-customer",

@@ -14,7 +14,8 @@ import {
   authRowStyle,
 } from "../components/auth/AuthCard";
 import { useAuth } from "../lib/auth";
-import { getRememberedEmail, login as identityLogin } from "../lib/identity";
+import { getRememberedEmail } from "../lib/identity";
+import { iamAuthService } from "../../features/auth";
 
 function LoginForm(): JSX.Element {
   const { refresh } = useAuth();
@@ -48,7 +49,7 @@ function LoginForm(): JSX.Element {
     setBusy(true);
     setError(null);
     try {
-      await identityLogin({ email, password, rememberMe });
+      await iamAuthService.login({ email, password, rememberMe });
       await refresh();
       const next = search.get("next");
       router.replace(next && next.startsWith("/") ? next : "/dashboard");

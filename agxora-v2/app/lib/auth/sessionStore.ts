@@ -30,6 +30,8 @@ export interface PersistedAuthSession {
   readonly sessionId: string;
   readonly userId: string;
   readonly accessToken: string;
+  /** Refresh token — present for session rotation architecture. */
+  readonly refreshToken?: string;
   readonly expiresAt: string;
   readonly createdAt: string;
 }

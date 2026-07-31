@@ -14,7 +14,7 @@ import {
   authRowStyle,
 } from "../components/auth/AuthCard";
 import { useAuth } from "../lib/auth";
-import { register as identityRegister } from "../lib/identity";
+import { iamAuthService } from "../../features/auth";
 
 export default function RegisterPage(): JSX.Element {
   const { refresh } = useAuth();
@@ -49,7 +49,7 @@ export default function RegisterPage(): JSX.Element {
     setBusy(true);
     setError(null);
     try {
-      await identityRegister({
+      await iamAuthService.register({
         email,
         password,
         displayName,
