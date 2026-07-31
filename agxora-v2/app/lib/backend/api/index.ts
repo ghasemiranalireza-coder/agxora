@@ -1,1 +1,8 @@
-export { ApiClient, ApiClientError, configureApiClient, getApiClient } from "./client";
+export {
+  ApiClient,
+  ApiClientError,
+  configureApiClient,
+  getApiClient,
+  type ApiRequestInterceptor,
+  type ApiResponseInterceptor,
+} from "./client";

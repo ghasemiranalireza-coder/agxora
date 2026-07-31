@@ -1,4 +1,6 @@
 import { backendConfig } from "../config";
+import { getFeatureFlag } from "../config/featureFlags";
+import { logPlatformEvent } from "../observability/logger";
 import type { ApiFailure, ApiRequestOptions, ApiResponse } from "../types";
 
 export class ApiClientError extends Error {
@@ -14,6 +16,15 @@ export class ApiClientError extends Error {
     this.details = failure.details;
   }
 }
+
+export type ApiRequestInterceptor = (
+  options: ApiRequestOptions,
+) => ApiRequestOptions | Promise<ApiRequestOptions>;
+
+export type ApiResponseInterceptor = <T>(
+  response: ApiResponse<T>,
+  options: ApiRequestOptions,
+) => ApiResponse<T> | Promise<ApiResponse<T>>;
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -49,26 +60,99 @@ function toFailure(status: number, body: unknown, fallback: string): ApiFailure 
 }
 
 /**
- * Central API client — request/response wrappers, error handling, retry strategy.
- * Swap base URL via NEXT_PUBLIC_AGXORA_API_BASE_URL when a real backend exists.
+ * Central API client — GET/POST/PUT/PATCH/DELETE, timeout, retry,
+ * auth hooks, and future interceptors.
  */
 export class ApiClient {
+  private requestInterceptors: ApiRequestInterceptor[] = [];
+  private responseInterceptors: ApiResponseInterceptor[] = [];
+  private csrfToken: string | null = null;
+
   constructor(
     private readonly getToken: () => string | null | undefined = () => null,
     private readonly config = backendConfig,
   ) {}
 
+  useRequestInterceptor(interceptor: ApiRequestInterceptor): () => void {
+    this.requestInterceptors.push(interceptor);
+    return () => {
+      this.requestInterceptors = this.requestInterceptors.filter(
+        (item) => item !== interceptor,
+      );
+    };
+  }
+
+  useResponseInterceptor(interceptor: ApiResponseInterceptor): () => void {
+    this.responseInterceptors.push(interceptor);
+    return () => {
+      this.responseInterceptors = this.responseInterceptors.filter(
+        (item) => item !== interceptor,
+      );
+    };
+  }
+
+  setCsrfToken(token: string | null): void {
+    this.csrfToken = token;
+  }
+
+  get(path: string, options?: Omit<ApiRequestOptions, "method" | "path">) {
+    return this.request({ ...options, method: "GET", path });
+  }
+
+  post<T = unknown>(
+    path: string,
+    body?: unknown,
+    options?: Omit<ApiRequestOptions, "method" | "path" | "body">,
+  ) {
+    return this.request<T>({ ...options, method: "POST", path, body });
+  }
+
+  put<T = unknown>(
+    path: string,
+    body?: unknown,
+    options?: Omit<ApiRequestOptions, "method" | "path" | "body">,
+  ) {
+    return this.request<T>({ ...options, method: "PUT", path, body });
+  }
+
+  patch<T = unknown>(
+    path: string,
+    body?: unknown,
+    options?: Omit<ApiRequestOptions, "method" | "path" | "body">,
+  ) {
+    return this.request<T>({ ...options, method: "PATCH", path, body });
+  }
+
+  delete(path: string, options?: Omit<ApiRequestOptions, "method" | "path">) {
+    return this.request({ ...options, method: "DELETE", path });
+  }
+
   async request<T>(options: ApiRequestOptions): Promise<ApiResponse<T>> {
-    const attempts = options.retry === false ? 1 : this.config.retryAttempts + 1;
+    let prepared = options;
+    for (const interceptor of this.requestInterceptors) {
+      prepared = await interceptor(prepared);
+    }
+
+    const attempts = prepared.retry === false ? 1 : this.config.retryAttempts + 1;
     let lastFailure: ApiFailure | null = null;
 
     for (let attempt = 0; attempt < attempts; attempt += 1) {
       try {
-        const result = await this.executeOnce<T>(options);
+        let result = await this.executeOnce<T>(prepared);
+        for (const interceptor of this.responseInterceptors) {
+          result = await interceptor(result, prepared);
+        }
         if (result.ok) return result;
         lastFailure = result;
         const retryable = result.status >= 500 || result.status === 429;
-        if (!retryable || attempt >= attempts - 1) return result;
+        if (!retryable || attempt >= attempts - 1) {
+          logPlatformEvent("api.error", {
+            path: prepared.path,
+            code: result.code,
+            status: String(result.status),
+          });
+          return result;
+        }
         await sleep(this.config.retryBackoffMs * (attempt + 1));
       } catch (error) {
         lastFailure = {
@@ -77,7 +161,13 @@ export class ApiClient {
           code: "network_error",
           message: error instanceof Error ? error.message : "Network request failed",
         };
-        if (attempt >= attempts - 1) return lastFailure;
+        if (attempt >= attempts - 1) {
+          logPlatformEvent("api.error", {
+            path: prepared.path,
+            code: "network_error",
+          });
+          return lastFailure;
+        }
         await sleep(this.config.retryBackoffMs * (attempt + 1));
       }
     }
@@ -98,7 +188,9 @@ export class ApiClient {
     return result.data;
   }
 
-  private async executeOnce<T>(options: ApiRequestOptions): Promise<ApiResponse<T>> {
+  private async executeOnce<T>(
+    options: ApiRequestOptions,
+  ): Promise<ApiResponse<T>> {
     const controller = new AbortController();
     const timeout = globalThis.setTimeout(
       () => controller.abort(),
@@ -111,6 +203,9 @@ export class ApiClient {
       ...options.headers,
     };
     if (token) headers.Authorization = `Bearer ${token}`;
+    if (getFeatureFlag("security.csrf") && this.csrfToken) {
+      headers["X-AGXORA-CSRF"] = this.csrfToken;
+    }
 
     try {
       const response = await fetch(`${this.config.apiBaseUrl}${options.path}`, {
@@ -121,7 +216,11 @@ export class ApiClient {
       });
       const body = await parseBody(response);
       if (!response.ok) {
-        return toFailure(response.status, body, response.statusText || "Request failed");
+        return toFailure(
+          response.status,
+          body,
+          response.statusText || "Request failed",
+        );
       }
       return { ok: true, data: body as T, status: response.status };
     } finally {
@@ -137,7 +236,9 @@ export function getApiClient(): ApiClient {
   return sharedClient;
 }
 
-export function configureApiClient(getToken: () => string | null | undefined): ApiClient {
+export function configureApiClient(
+  getToken: () => string | null | undefined,
+): ApiClient {
   sharedClient = new ApiClient(getToken);
   return sharedClient;
 }

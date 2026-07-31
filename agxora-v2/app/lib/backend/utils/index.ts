@@ -6,9 +6,17 @@ export {
   cacheGet,
   cacheSet,
   cacheInvalidate,
+  cacheInvalidateByTag,
   cacheClear,
+  cachePeek,
   isStale,
+  queryFetch,
+  serializeQueryKey,
+  subscribeCache,
+  CacheTags,
   type CacheEntry,
+  type QueryKey,
+  type QueryOptions,
 } from "./cache";
 
 /**

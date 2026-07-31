@@ -13,3 +13,10 @@ export {
   type AsyncStatus,
   type AsyncState,
 } from "./async-state";
+
+export {
+  withGlobalLoading,
+  runAsyncState,
+  beginOptimistic,
+  scheduleBackgroundRefresh,
+} from "./strategy";

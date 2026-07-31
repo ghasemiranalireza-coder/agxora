@@ -15,7 +15,10 @@ import {
 } from "../components/backend";
 import { AISettingsProvider } from "../lib/ai/AIProviderContext";
 import { AuthOrganizationBridge, AuthProvider } from "../lib/auth";
-import { BackendStateBridge } from "../lib/backend/providers";
+import {
+  BackendStateBridge,
+  DataPlatformBridge,
+} from "../lib/backend/providers";
 import { BusinessOsProvider } from "../lib/business";
 import { HtmlLangSync } from "../lib/i18n";
 import { MemoryProvider } from "../lib/memory";
@@ -35,19 +38,21 @@ export function AppProviders({ children }: AppProvidersProps): JSX.Element {
         <AuthOrganizationBridge>
           <OrganizationProvider>
             <BackendStateBridge>
-              <BusinessOsProvider>
-                <MemoryProvider>
-                  <AISettingsProvider>
-                    <ChatProvider>
-                      <AppErrorBoundary>
-                        {children}
-                        <ToastHost />
-                        <GlobalLoadingOverlay />
-                      </AppErrorBoundary>
-                    </ChatProvider>
-                  </AISettingsProvider>
-                </MemoryProvider>
-              </BusinessOsProvider>
+              <DataPlatformBridge>
+                <BusinessOsProvider>
+                  <MemoryProvider>
+                    <AISettingsProvider>
+                      <ChatProvider>
+                        <AppErrorBoundary>
+                          {children}
+                          <ToastHost />
+                          <GlobalLoadingOverlay />
+                        </AppErrorBoundary>
+                      </ChatProvider>
+                    </AISettingsProvider>
+                  </MemoryProvider>
+                </BusinessOsProvider>
+              </DataPlatformBridge>
             </BackendStateBridge>
           </OrganizationProvider>
         </AuthOrganizationBridge>

@@ -56,3 +56,13 @@ export const repositories: RepositoryRegistry = createRepositoryRegistry();
 
 export * from "./types";
 export { createMemoryRepository } from "./memory";
+export {
+  crmDataRepository,
+  projectsDataRepository,
+  financeDataRepository,
+  documentsDataRepository,
+  aiDataRepository,
+  identityDataRepository,
+  domainRepositories,
+  type DomainRepositoryRegistry,
+} from "./domain";
