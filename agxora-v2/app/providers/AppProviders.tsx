@@ -28,6 +28,7 @@ import { ThemeProvider } from "../lib/theme";
 import { AutomationBridge } from "../../features/automation/providers";
 import { IntegrationBridge } from "../../features/integrations/providers";
 import { AgentOsBridge } from "../../features/agents/providers";
+import { IntelligenceBridge } from "../../features/intelligence/providers";
 
 interface AppProvidersProps {
   readonly children: ReactNode;
@@ -45,19 +46,21 @@ export function AppProviders({ children }: AppProvidersProps): JSX.Element {
                 <AutomationBridge>
                   <IntegrationBridge>
                     <AgentOsBridge>
-                      <BusinessOsProvider>
-                        <MemoryProvider>
-                          <AISettingsProvider>
-                            <ChatProvider>
-                              <AppErrorBoundary>
-                                {children}
-                                <ToastHost />
-                                <GlobalLoadingOverlay />
-                              </AppErrorBoundary>
-                            </ChatProvider>
-                          </AISettingsProvider>
-                        </MemoryProvider>
-                      </BusinessOsProvider>
+                      <IntelligenceBridge>
+                        <BusinessOsProvider>
+                          <MemoryProvider>
+                            <AISettingsProvider>
+                              <ChatProvider>
+                                <AppErrorBoundary>
+                                  {children}
+                                  <ToastHost />
+                                  <GlobalLoadingOverlay />
+                                </AppErrorBoundary>
+                              </ChatProvider>
+                            </AISettingsProvider>
+                          </MemoryProvider>
+                        </BusinessOsProvider>
+                      </IntelligenceBridge>
                     </AgentOsBridge>
                   </IntegrationBridge>
                 </AutomationBridge>
