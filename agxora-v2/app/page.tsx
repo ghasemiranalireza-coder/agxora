@@ -23,18 +23,18 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    absolute: "AGXORA — Enterprise AI Operating System",
+    absolute: "AGXORA — Enterprise Intelligence Platform",
   },
   description:
-    "AGXORA is the enterprise AI operating system for intelligence, automation, analytics, identity, and secure operations — ready for public launch.",
+    "Run your business with AI, Automation and Analytics inside one intelligent platform.",
   applicationName: "AGXORA",
   keywords: [
     "AGXORA",
-    "enterprise AI",
-    "business operating system",
+    "enterprise intelligence",
+    "AI platform",
     "automation",
     "analytics",
-    "AI agents",
+    "B2B software",
   ],
   alternates: {
     canonical: "/",
@@ -43,24 +43,15 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     siteName: "AGXORA",
-    title: "AGXORA — Enterprise AI Operating System",
+    title: "AGXORA — Enterprise Intelligence Platform",
     description:
-      "Unify intelligence, automation, and governance in one secure enterprise AI platform.",
-    images: [
-      {
-        url: "/alien-clean.png",
-        width: 1200,
-        height: 630,
-        alt: "AGXORA — enterprise intelligence brand visual",
-      },
-    ],
+      "Run your business with AI, Automation and Analytics inside one intelligent platform.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AGXORA — Enterprise AI Operating System",
+    title: "AGXORA — Enterprise Intelligence Platform",
     description:
-      "Unify intelligence, automation, and governance in one secure enterprise AI platform.",
-    images: ["/alien-clean.png"],
+      "Run your business with AI, Automation and Analytics inside one intelligent platform.",
   },
   robots: {
     index: true,
@@ -75,13 +66,13 @@ const jsonLd = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description:
-    "Enterprise AI operating system for intelligence, automation, analytics, and secure operations.",
+    "Enterprise Intelligence Platform — AI, Automation and Analytics in one system.",
   url: siteUrl,
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
-    description: "Start free workspace",
+    description: "Start free",
   },
 };
 

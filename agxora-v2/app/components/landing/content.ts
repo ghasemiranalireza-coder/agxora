@@ -1,134 +1,74 @@
 /**
- * Landing page content constants — copy only, no app routing changes.
+ * Landing v2 blueprint copy — marketing surface only.
  */
 
 export const LANDING_NAV = [
-  { href: "#platform", label: "Platform" },
-  { href: "#features", label: "Features" },
-  { href: "#trust", label: "Trust" },
+  { href: "#product", label: "Product" },
+  { href: "#pillars", label: "Platform" },
+  { href: "#security", label: "Security" },
   { href: "#start", label: "Start" },
 ] as const;
 
-export const LANDING_VALUE_PROPS = [
+export const LANDING_TRUST_LOGOS = [
+  "Northline",
+  "Helix Ops",
+  "Cascade",
+  "Vertex Co",
+  "Aperture",
+  "Lumen Group",
+] as const;
+
+export const LANDING_PILLARS = [
+  { title: "AI", detail: "Governed intelligence" },
+  { title: "Automation", detail: "Durable workflows" },
+  { title: "Analytics", detail: "Live operational signal" },
+  { title: "Integrations", detail: "Connected systems" },
+] as const;
+
+export const LANDING_WHY = [
   {
-    id: "ai",
-    title: "Enterprise AI",
-    description:
-      "Operate with a governed AI layer built for decisions, not demos — grounded in your workspace data.",
-    href: "/onboarding",
-    cta: "Start Free",
-    icon: "ai",
+    title: "Enterprise Scale",
+    detail: "Built for multi-workspace operators and growing teams.",
   },
   {
-    id: "automation",
-    title: "Automation",
-    description:
-      "Design durable workflows that move work across teams with auditability and control.",
-    href: "/login",
-    cta: "Explore Platform",
-    icon: "automation",
+    title: "AI Native",
+    detail: "Intelligence woven through every surface — not bolted on.",
   },
   {
-    id: "analytics",
-    title: "Analytics",
-    description:
-      "See signal, not noise — live operational intelligence across customers, finance, and delivery.",
-    href: "/onboarding",
-    cta: "Request Demo",
-    icon: "analytics",
+    title: "Built for Growth",
+    detail: "From first workspace to full operating system.",
   },
+] as const;
+
+export const LANDING_SECURITY = [
   {
-    id: "security",
     title: "Security",
-    description:
-      "Session isolation, route guards, and production hardening prepared for enterprise deployment.",
-    href: "/login",
-    cta: "Book Consultation",
-    icon: "security",
-  },
-  {
-    id: "integrations",
-    title: "Integrations",
-    description:
-      "Connect the systems you already run. Extend AGXORA without fracturing your stack.",
-    href: "/onboarding",
-    cta: "Explore Platform",
-    icon: "integrations",
-  },
-  {
-    id: "identity",
-    title: "Identity",
-    description:
-      "Roles, permissions, and workspace boundaries designed for multi-organization SaaS.",
-    href: "/login",
-    cta: "Start Free",
-    icon: "identity",
-  },
-  {
-    id: "intelligence",
-    title: "Intelligence",
-    description:
-      "An enterprise intelligence center that compounds insight across agents, memory, and outcomes.",
-    href: "/onboarding",
-    cta: "Request Demo",
-    icon: "intelligence",
-  },
-] as const;
-
-export const LANDING_FEATURES = [
-  {
-    title: "Command Center",
-    description: "One operating surface for workspaces, agents, and live business context.",
-  },
-  {
-    title: "AI Agent OS",
-    description: "Register, govern, and orchestrate agents with clear operational boundaries.",
-  },
-  {
-    title: "Workflow Engine",
-    description: "Automate cross-module processes with durable, inspectable runs.",
-  },
-  {
-    title: "Integration Fabric",
-    description: "API-ready connectors and an ecosystem architecture for enterprise systems.",
-  },
-  {
-    title: "Commercial Layer",
-    description: "Billing, plans, and SaaS infrastructure prepared for launch.",
-  },
-  {
-    title: "Production Hardening",
-    description: "Health checks, security headers, observability stubs, and launch gates.",
-  },
-] as const;
-
-export const LANDING_METRICS = [
-  { label: "Enterprise Ready", value: "Production", detail: "Hardened for launch" },
-  { label: "AI Powered", value: "Multi-model", detail: "Provider-ready brain" },
-  { label: "Automation Engine", value: "Event-driven", detail: "Durable workflows" },
-  { label: "Analytics Platform", value: "Live", detail: "Operational signal" },
-  { label: "Secure Architecture", value: "Guarded", detail: "Route & session gates" },
-] as const;
-
-export const LANDING_TRUST = [
-  {
-    title: "Enterprise Customers",
-    description: "Placeholder for design partners and early enterprise logos.",
-  },
-  {
-    title: "Testimonials",
-    description: "Placeholder for operator stories from pilots and launch cohorts.",
+    detail: "Session gates, route isolation, and production hardening.",
   },
   {
     title: "Compliance",
-    description: "Architecture prepared for SOC 2 / GDPR programs — policies forthcoming.",
+    detail: "Architecture prepared for enterprise assurance programs.",
   },
   {
-    title: "Security",
-    description: "CSP baseline, session validation placeholders, and workspace isolation.",
-  },
-  {
-    title: "Availability",
-    description: "Health endpoint and operational readiness for continuous delivery.",
+    title: "Privacy",
+    detail: "Sensitive data boundaries and redaction-ready logging.",
   },
 ] as const;
+
+export const LANDING_FOOTER = {
+  product: [
+    { href: "#product", label: "Product" },
+    { href: "#pillars", label: "Platform" },
+    { href: "/login", label: "Sign in" },
+  ],
+  company: [
+    { href: "#start", label: "Pricing" },
+    { href: "#security", label: "Security" },
+    { href: "mailto:hello@agxora.app", label: "Contact" },
+  ],
+  legal: [
+    { href: "#security", label: "Privacy" },
+    { href: "#security", label: "Terms" },
+    { href: "#product", label: "Docs" },
+  ],
+} as const;
