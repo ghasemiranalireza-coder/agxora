@@ -1,74 +1,51 @@
 /**
- * Landing v2 blueprint copy — marketing surface only.
+ * Phase 31 landing copy — sparse, enterprise, 5-second readable.
  */
 
 export const LANDING_NAV = [
   { href: "#product", label: "Product" },
-  { href: "#pillars", label: "Platform" },
-  { href: "#security", label: "Security" },
-  { href: "#start", label: "Start" },
+  { href: "#platform", label: "Platform" },
+  { href: "#start", label: "Get started" },
 ] as const;
 
 export const LANDING_TRUST_LOGOS = [
   "Northline",
-  "Helix Ops",
+  "Helix",
   "Cascade",
-  "Vertex Co",
+  "Vertex",
   "Aperture",
-  "Lumen Group",
+  "Lumen",
 ] as const;
 
-export const LANDING_PILLARS = [
-  { title: "AI", detail: "Governed intelligence" },
-  { title: "Automation", detail: "Durable workflows" },
-  { title: "Analytics", detail: "Live operational signal" },
-  { title: "Integrations", detail: "Connected systems" },
+export const LANDING_STATS = [
+  { value: "Global", label: "Intelligence layer" },
+  { value: "Unified", label: "Operating surface" },
+  { value: "Secure", label: "Enterprise posture" },
 ] as const;
 
-export const LANDING_WHY = [
+export const LANDING_FEATURES = [
   {
-    title: "Enterprise Scale",
-    detail: "Built for multi-workspace operators and growing teams.",
+    id: "ai",
+    title: "AI",
+    statement: "Governed intelligence across every workspace.",
+    detail: "Decisions grounded in your data — not demos.",
   },
   {
-    title: "AI Native",
-    detail: "Intelligence woven through every surface — not bolted on.",
+    id: "automation",
+    title: "Automation",
+    statement: "Durable workflows that move the business.",
+    detail: "From trigger to outcome with clear control.",
   },
   {
-    title: "Built for Growth",
-    detail: "From first workspace to full operating system.",
-  },
-] as const;
-
-export const LANDING_SECURITY = [
-  {
-    title: "Security",
-    detail: "Session gates, route isolation, and production hardening.",
+    id: "analytics",
+    title: "Analytics",
+    statement: "Live signal for operators who ship.",
+    detail: "See what matters. Act without noise.",
   },
   {
-    title: "Compliance",
-    detail: "Architecture prepared for enterprise assurance programs.",
-  },
-  {
-    title: "Privacy",
-    detail: "Sensitive data boundaries and redaction-ready logging.",
+    id: "integrations",
+    title: "Integrations",
+    statement: "Connect the systems you already run.",
+    detail: "One platform. No fractured stack.",
   },
 ] as const;
-
-export const LANDING_FOOTER = {
-  product: [
-    { href: "#product", label: "Product" },
-    { href: "#pillars", label: "Platform" },
-    { href: "/login", label: "Sign in" },
-  ],
-  company: [
-    { href: "#start", label: "Pricing" },
-    { href: "#security", label: "Security" },
-    { href: "mailto:hello@agxora.app", label: "Contact" },
-  ],
-  legal: [
-    { href: "#security", label: "Privacy" },
-    { href: "#security", label: "Terms" },
-    { href: "#product", label: "Docs" },
-  ],
-} as const;
