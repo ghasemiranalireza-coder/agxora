@@ -1,19 +1,11 @@
-# Phase 32 — Executive Landing Experience
+# Phase 32 / RC-1 — Public Landing
 
-Refinement of the Phase 31 public homepage. Application untouched.
+## RC-1 Hero (brand identity)
 
-## Hierarchy
-
+First-screen focus only:
 1. Headline
-2. CTA
-3. Globe (recessed, ~35% smaller)
-4. Product preview
+2. Globe (+20% presence, depth, reflection, soft breath)
+3. CTA — Start Free / Book Demo
+4. Supporting subtitle (max two lines)
 
-## Visual language
-
-- Soft ambient blue lighting (no harsh glow)
-- Dramatic whitespace
-- Bold headline typography
-- Premium product bezel
-- CTA hover / focus / loading states via `LandingCta`
-- Consistent radius, spacing, and motion easing
+Application and non-hero landing sections remain untouched in RC-1.

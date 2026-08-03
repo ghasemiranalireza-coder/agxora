@@ -15,7 +15,8 @@ const AgxoraGlobe3D = dynamic(
 );
 
 /**
- * Phase 32 executive hero — headline first, CTA second, globe recessed.
+ * RC-1 Hero — brand identity for the first screen.
+ * Hierarchy: Headline → Globe → CTA → Supporting text.
  */
 export function LandingHero(): JSX.Element {
   const reduceMotion = useReducedMotion();
@@ -30,28 +31,37 @@ export function LandingHero(): JSX.Element {
       <div className="p31-hero__shell">
         <motion.div
           className="p31-hero__copy"
-          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ ...LANDING_FADE, duration: 0.6 }}
+          transition={{ ...LANDING_FADE, duration: 0.65 }}
         >
           <p className="p31-hero__brandmark">AGXORA</p>
           <h1 className="p31-hero__headline">
             The enterprise operating system.
           </h1>
+          <p className="p31-hero__subtitle">
+            Run your business with AI, automation, and analytics
+            <br />
+            inside one intelligent platform.
+          </p>
           <div className="p31-hero__cta">
             <LandingCta href="/onboarding">Start Free</LandingCta>
+            <LandingCta href="mailto:hello@agxora.app" variant="ghost">
+              Book Demo
+            </LandingCta>
           </div>
         </motion.div>
 
         <motion.div
           className="p31-hero__globe"
-          aria-hidden="true"
-          initial={reduceMotion ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ ...LANDING_FADE, duration: 0.9, delay: 0.15 }}
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.985 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ ...LANDING_FADE, duration: 0.85, delay: 0.08 }}
         >
           <div className="p31-globe">
-            <div className="p31-globe__glow" />
+            <div className="p31-globe__glow" aria-hidden="true" />
+            <div className="p31-globe__ring" aria-hidden="true" />
+            <div className="p31-globe__reflection" aria-hidden="true" />
             <div className="p31-globe__stage">
               <AgxoraGlobe3D variant="hero" />
             </div>
