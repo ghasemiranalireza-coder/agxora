@@ -1,8 +1,8 @@
 "use client";
 
 import type { JSX } from "react";
-import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import { LandingCta } from "./LandingCta";
 import { LANDING_FADE } from "./motion";
 
 export function LandingFinalCta(): JSX.Element {
@@ -13,7 +13,7 @@ export function LandingFinalCta(): JSX.Element {
       <div className="p31-wrap">
         <motion.div
           className="p31-close__panel"
-          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={LANDING_FADE}
@@ -23,12 +23,10 @@ export function LandingFinalCta(): JSX.Element {
           </h2>
           <p className="p31-lead">Create a workspace in minutes.</p>
           <div className="p31-close__actions">
-            <Link href="/onboarding" className="p31-btn p31-btn--primary">
-              Start Free
-            </Link>
-            <Link href="/login" className="p31-btn p31-btn--ghost">
+            <LandingCta href="/onboarding">Start Free</LandingCta>
+            <LandingCta href="/login" variant="ghost">
               Sign in
-            </Link>
+            </LandingCta>
           </div>
         </motion.div>
       </div>
