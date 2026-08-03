@@ -2,8 +2,8 @@
 
 import type { JSX } from "react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import { LandingCta } from "./LandingCta";
 import { LANDING_FADE } from "./motion";
 
 const AgxoraGlobe3D = dynamic(
@@ -15,8 +15,7 @@ const AgxoraGlobe3D = dynamic(
 );
 
 /**
- * Phase 31 hero — one message, one CTA, globe as intelligence centerpiece.
- * No alien. No clutter. Maximum confidence.
+ * Phase 32 executive hero — headline first, CTA second, globe recessed.
  */
 export function LandingHero(): JSX.Element {
   const reduceMotion = useReducedMotion();
@@ -31,35 +30,32 @@ export function LandingHero(): JSX.Element {
       <div className="p31-hero__shell">
         <motion.div
           className="p31-hero__copy"
-          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ ...LANDING_FADE, duration: 0.65 }}
+          transition={{ ...LANDING_FADE, duration: 0.6 }}
         >
-          <h1 className="p31-hero__brand">AGXORA</h1>
-          <p className="p31-hero__message">
+          <p className="p31-hero__brandmark">AGXORA</p>
+          <h1 className="p31-hero__headline">
             The enterprise operating system.
-          </p>
+          </h1>
           <div className="p31-hero__cta">
-            <Link href="/onboarding" className="p31-btn p31-btn--primary">
-              Start Free
-            </Link>
+            <LandingCta href="/onboarding">Start Free</LandingCta>
           </div>
         </motion.div>
 
         <motion.div
           className="p31-hero__globe"
-          initial={reduceMotion ? false : { opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ ...LANDING_FADE, duration: 0.8, delay: 0.1 }}
+          aria-hidden="true"
+          initial={reduceMotion ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ ...LANDING_FADE, duration: 0.9, delay: 0.15 }}
         >
           <div className="p31-globe">
-            <div className="p31-globe__glow" aria-hidden="true" />
-            <div className="p31-globe__ring" aria-hidden="true" />
+            <div className="p31-globe__glow" />
             <div className="p31-globe__stage">
               <AgxoraGlobe3D variant="hero" />
             </div>
           </div>
-          <p className="p31-hero__globe-caption">Global Enterprise Intelligence</p>
         </motion.div>
       </div>
     </section>

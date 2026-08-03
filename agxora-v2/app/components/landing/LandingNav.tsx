@@ -3,6 +3,7 @@
 import { useState, type JSX } from "react";
 import Link from "next/link";
 import { LANDING_NAV } from "./content";
+import { LandingCta } from "./LandingCta";
 
 export function LandingNav(): JSX.Element {
   const [open, setOpen] = useState(false);
@@ -29,9 +30,9 @@ export function LandingNav(): JSX.Element {
         </div>
 
         <div className="p31-nav__end">
-          <Link href="/onboarding" className="p31-btn p31-btn--primary p31-btn--sm">
+          <LandingCta href="/onboarding" size="sm">
             Start Free
-          </Link>
+          </LandingCta>
           <button
             type="button"
             className="p31-nav__menu"
