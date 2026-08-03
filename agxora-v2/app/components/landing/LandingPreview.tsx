@@ -2,6 +2,7 @@
 
 import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { LANDING_FADE_UP } from "./motion";
 
 /** Stylized preview of AGXORA command surfaces — reflective of real modules. */
 export function LandingPreview(): JSX.Element {
@@ -21,10 +22,10 @@ export function LandingPreview(): JSX.Element {
 
         <motion.div
           className="agx-landing-preview"
-          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
           whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.55 }}
+          transition={{ ...LANDING_FADE_UP, duration: 0.5 }}
         >
           <div className="agx-landing-preview__chrome" aria-hidden="true">
             <span className="agx-landing-preview__dot" />

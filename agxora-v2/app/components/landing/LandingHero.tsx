@@ -9,31 +9,29 @@ const AgxoraGlobe3D = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div
-        aria-hidden="true"
-        style={{
-          width: "100%",
-          height: "100%",
-          background:
-            "radial-gradient(circle at 50% 50%, rgba(34,211,238,0.14), transparent 62%)",
-        }}
-      />
+      <div className="agx-landing-hero__globe-skeleton" aria-hidden="true" />
     ),
   },
 );
 
 /**
- * Hero copy stays SSR-visible (no opacity-0 motion initial) so brand/CTAs
- * never disappear if client JS is delayed. Entrance uses CSS animation.
+ * v1.0 hero — globe as centerpiece, alien as cinematic intelligence in shadow.
+ * Copy remains SSR-visible; entrance uses CSS only.
  */
 export function LandingHero(): JSX.Element {
   return (
     <section className="agx-landing-hero" aria-label="AGXORA hero">
       <div className="agx-landing-hero__stage" aria-hidden="true">
+        <div className="agx-landing-hero__vignette" />
         <div className="agx-landing-hero__alien" />
-        <div className="agx-landing-hero__alien-glow" />
-        <div className="agx-landing-hero__globe">
-          <AgxoraGlobe3D variant="hero" />
+        <div className="agx-landing-hero__alien-rim" />
+        <div className="agx-landing-hero__alien-eye" />
+        <div className="agx-landing-hero__globe-wrap">
+          <div className="agx-landing-hero__globe-aura" />
+          <div className="agx-landing-hero__globe">
+            <AgxoraGlobe3D variant="hero" />
+          </div>
+          <div className="agx-landing-hero__globe-reflection" />
         </div>
       </div>
 

@@ -3,6 +3,7 @@
 import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { LANDING_FEATURES } from "./content";
+import { LANDING_EASE } from "./motion";
 
 export function LandingFeatureGrid(): JSX.Element {
   const reduceMotion = useReducedMotion();
@@ -29,11 +30,12 @@ export function LandingFeatureGrid(): JSX.Element {
               key={feature.title}
               className="agx-landing-feature"
               tabIndex={0}
-              initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
               whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
+              viewport={{ once: true, amount: 0.28 }}
+              transition={{ duration: 0.45, delay: index * 0.04, ease: LANDING_EASE }}
             >
+              <span className="agx-landing-feature__mark" aria-hidden="true" />
               <h3>{feature.title}</h3>
               <p>{feature.description}</p>
             </motion.article>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { LANDING_VALUE_PROPS } from "./content";
 import { LandingIcon } from "./LandingIcons";
+import { LANDING_FADE_UP } from "./motion";
 
 export function LandingValueProps(): JSX.Element {
   const reduceMotion = useReducedMotion();
@@ -30,10 +31,10 @@ export function LandingValueProps(): JSX.Element {
             <motion.article
               key={item.id}
               className="agx-landing-value"
-              initial={reduceMotion ? false : { opacity: 0, y: 16 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
               whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: 0.45, delay: index * 0.04 }}
+              transition={{ ...LANDING_FADE_UP, delay: index * 0.04 }}
             >
               <div className="agx-landing-value__icon" aria-hidden="true">
                 <LandingIcon name={item.icon} />
