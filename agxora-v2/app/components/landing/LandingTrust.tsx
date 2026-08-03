@@ -3,6 +3,7 @@
 import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { LANDING_TRUST } from "./content";
+import { LANDING_FADE_UP } from "./motion";
 
 export function LandingTrust(): JSX.Element {
   const reduceMotion = useReducedMotion();
@@ -30,7 +31,7 @@ export function LandingTrust(): JSX.Element {
               initial={reduceMotion ? false : { opacity: 0, y: 10 }}
               whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.4, delay: index * 0.04 }}
+              transition={{ ...LANDING_FADE_UP, delay: index * 0.04 }}
             >
               <h3>{item.title}</h3>
               <p>{item.description}</p>

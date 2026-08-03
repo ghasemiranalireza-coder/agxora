@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { LANDING_METRICS } from "./content";
+import { LANDING_FADE_UP } from "./motion";
 
 export function LandingMetrics(): JSX.Element {
   const reduceMotion = useReducedMotion();
@@ -44,7 +45,10 @@ export function LandingMetrics(): JSX.Element {
                   ? { opacity: 1, y: 0 }
                   : { opacity: 0, y: 12 }
               }
-              transition={{ duration: 0.45, delay: reduceMotion ? 0 : index * 0.06 }}
+              transition={{
+                ...LANDING_FADE_UP,
+                delay: reduceMotion ? 0 : index * 0.05,
+              }}
             >
               <span>{metric.label}</span>
               <strong>{metric.value}</strong>

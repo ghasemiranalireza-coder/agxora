@@ -19,20 +19,20 @@ sidebar, header, hero, globe internals, theme, nav) is intentionally unchanged.
 | `LandingTrust` | Placeholders for customers, compliance, security |
 | `LandingFinalCta` | Start Free / Explore / Consultation |
 
-## Brand principles
+## Brand principles (v1.0)
 
 1. **Brand first** — AGXORA is the hero typographic signal; headlines never overpower it.
-2. **Alien as intelligence** — premium, soft glow, enterprise tone (not game UI).
-3. **Globe as system** — reused `AgxoraGlobe3D` via dynamic import; no dashboard edits.
-4. **Atmosphere** — gradients, noise, soft light, sparse particles.
+2. **Alien as intelligence** — partially revealed in darkness, one eye glow, soft rim light — observing, not a mascot.
+3. **Globe as centerpiece** — global intelligence; reused `AgxoraGlobe3D` via dynamic import with aura + reflection; no dashboard edits.
+4. **Atmosphere** — quiet gradients, soft vignette, sparse particles, film grain noise.
 5. **Restraint** — motion is fast, subtle, and respects `prefers-reduced-motion`.
 
 ## Animation guidelines
 
-- Prefer Framer Motion fade/rise under 1s.
-- One intentional pulse on alien glow; particle drift is CSS-only and sparse.
-- Feature cards: hover lift + border accent only.
-- Disable transform animations when `useReducedMotion()` is true.
+- Prefer Framer Motion fade/rise under 0.5s with shared `LANDING_EASE`.
+- Hero copy uses CSS entrance (never opacity-0 SSR).
+- One intentional alien-eye pulse; particle drift is CSS-only and sparse.
+- Feature cards: glass lift + border accent only.
 
 ## Future marketing expansion
 
