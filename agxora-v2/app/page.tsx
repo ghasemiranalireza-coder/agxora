@@ -23,40 +23,35 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    absolute: "AGXORA — Enterprise Intelligence Platform",
+    absolute: "AGXORA — The Enterprise Operating System",
   },
   description:
-    "Run your business with AI, Automation and Analytics inside one intelligent platform.",
+    "AGXORA is the enterprise operating system for AI, automation, analytics, and integrations — in one intelligent platform.",
   applicationName: "AGXORA",
   keywords: [
     "AGXORA",
-    "enterprise intelligence",
-    "AI platform",
+    "enterprise operating system",
+    "AI",
     "automation",
     "analytics",
-    "B2B software",
+    "integrations",
   ],
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: "/",
     siteName: "AGXORA",
-    title: "AGXORA — Enterprise Intelligence Platform",
+    title: "AGXORA — The Enterprise Operating System",
     description:
-      "Run your business with AI, Automation and Analytics inside one intelligent platform.",
+      "Operate your business with AI, automation, analytics, and integrations in one platform.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AGXORA — Enterprise Intelligence Platform",
+    title: "AGXORA — The Enterprise Operating System",
     description:
-      "Run your business with AI, Automation and Analytics inside one intelligent platform.",
+      "Operate your business with AI, automation, analytics, and integrations in one platform.",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
 const jsonLd = {
@@ -65,15 +60,8 @@ const jsonLd = {
   name: "AGXORA",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
-  description:
-    "Enterprise Intelligence Platform — AI, Automation and Analytics in one system.",
+  description: "The enterprise operating system.",
   url: siteUrl,
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    description: "Start free",
-  },
 };
 
 export default function Home(): JSX.Element {

@@ -493,7 +493,7 @@ textarea {
   }
 
   /* Keep dashboard mobile typography; do not crush public landing headings. */
-  body:not(:has(.lv2)) h2 {
+  body:not(:has(.p31)) h2 {
     font-size: 20px !important;
   }
 
@@ -504,7 +504,7 @@ textarea {
     border-bottom: 1px solid var(--agx-sidebar-border) !important;
   }
 
-  nav:not(.lv2-nav) {
+  nav:not(.p31-nav) {
     flex-wrap: wrap !important;
     justify-content: flex-start !important;
     gap: 6px !important;

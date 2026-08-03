@@ -5,22 +5,20 @@ import { LandingNav } from "./LandingNav";
 import { LandingHero } from "./LandingHero";
 import { LandingTrust } from "./LandingTrust";
 import { LandingPreview } from "./LandingPreview";
-import { LandingPillars } from "./LandingPillars";
-import { LandingWhy } from "./LandingWhy";
-import { LandingSecurity } from "./LandingSecurity";
+import { LandingFeatures } from "./LandingFeatures";
 import { LandingFinalCta } from "./LandingFinalCta";
 import { LandingFooter } from "./LandingFooter";
 import "./landing.css";
 
-/** Public marketing homepage — Landing v2 blueprint. */
+/** Phase 31 — world-class public landing. Application untouched. */
 export function LandingPage({
   className,
 }: {
   readonly className?: string;
 }): JSX.Element {
   return (
-    <div className={`lv2${className ? ` ${className}` : ""}`}>
-      <a href="#product" className="lv2-skip">
+    <div className={`p31${className ? ` ${className}` : ""}`}>
+      <a href="#product" className="p31-skip">
         Skip to product
       </a>
       <LandingNav />
@@ -28,9 +26,7 @@ export function LandingPage({
         <LandingHero />
         <LandingTrust />
         <LandingPreview />
-        <LandingPillars />
-        <LandingWhy />
-        <LandingSecurity />
+        <LandingFeatures />
         <LandingFinalCta />
       </main>
       <LandingFooter />

@@ -3,31 +3,32 @@
 import type { JSX } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { LANDING_FADE_UP } from "./motion";
+import { LANDING_FADE } from "./motion";
 
 export function LandingFinalCta(): JSX.Element {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="start" className="lv2-section lv2-cta" aria-labelledby="lv2-cta-title">
-      <div className="lv2-container">
+    <section id="start" className="p31-close" aria-labelledby="p31-close-title">
+      <div className="p31-wrap">
         <motion.div
-          className="lv2-cta__panel"
+          className="p31-close__panel"
           initial={reduceMotion ? false : { opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={LANDING_FADE_UP}
+          transition={LANDING_FADE}
         >
-          <h2 id="lv2-cta-title" className="lv2-heading">
-            Ready to transform your business?
+          <h2 id="p31-close-title" className="p31-display">
+            Start operating.
           </h2>
-          <div className="lv2-hero__actions lv2-cta__actions">
-            <Link href="/onboarding" className="lv2-btn lv2-btn--primary">
+          <p className="p31-lead">Create a workspace in minutes.</p>
+          <div className="p31-close__actions">
+            <Link href="/onboarding" className="p31-btn p31-btn--primary">
               Start Free
             </Link>
-            <a href="mailto:hello@agxora.app" className="lv2-btn lv2-btn--secondary">
-              Book Demo
-            </a>
+            <Link href="/login" className="p31-btn p31-btn--ghost">
+              Sign in
+            </Link>
           </div>
         </motion.div>
       </div>
