@@ -131,6 +131,14 @@ export function PricingPageView(): JSX.Element {
             Contact Sales
           </Link>
         </div>
+
+        <nav className="p35-pricing__legal" aria-label="Legal">
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/terms">Terms</Link>
+          <Link href="/cookies">Cookies</Link>
+          <Link href="/imprint">Imprint</Link>
+          <Link href="/contact">Contact</Link>
+        </nav>
       </main>
     </div>
   );

@@ -31,6 +31,9 @@ export default function NotFound(): JSX.Element {
           <Link href="/pricing" className="underline-offset-2 hover:underline">
             Pricing
           </Link>
+          <Link href="/contact" className="underline-offset-2 hover:underline">
+            Contact
+          </Link>
           <Link href="/login" className="underline-offset-2 hover:underline">
             Sign in
           </Link>

@@ -32,6 +32,10 @@ export default function OfflinePage(): JSX.Element {
             Home
           </Link>
           {" · "}
+          <Link href="/contact" className="underline-offset-2 hover:underline">
+            Contact
+          </Link>
+          {" · "}
           <Link href="/login" className="underline-offset-2 hover:underline">
             Sign in
           </Link>

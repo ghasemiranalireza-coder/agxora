@@ -153,6 +153,20 @@ function ProfilePanel(): JSX.Element {
       <SettingsNotice>
         Appearance configuration remains under Appearance. Header provides a theme quick toggle only.
       </SettingsNotice>
+      <SettingsNotice>
+        Support:{" "}
+        <Link href="/contact" className="underline-offset-2 hover:underline">
+          Contact
+        </Link>
+        {" · "}
+        <Link href="/privacy" className="underline-offset-2 hover:underline">
+          Privacy
+        </Link>
+        {" · "}
+        <Link href="/terms" className="underline-offset-2 hover:underline">
+          Terms
+        </Link>
+      </SettingsNotice>
       <SaveRow notice={notice} onSave={() => setNotice("Profile preferences saved locally (placeholder API).")} />
     </SettingsPanel>
   );
@@ -623,6 +637,13 @@ function NotificationsPanel(): JSX.Element {
         checked={prefs.documentsAlerts}
         onChange={(v) => set("documentsAlerts", v)}
       />
+      <SettingsNotice>
+        Delivery adapters ship at launch. Questions:{" "}
+        <Link href="/contact" className="underline-offset-2 hover:underline">
+          Contact support
+        </Link>
+        .
+      </SettingsNotice>
       <SaveRow notice={notice} onSave={() => setNotice("Notification preferences saved (placeholder).")} />
     </SettingsPanel>
   );
@@ -933,6 +954,20 @@ function BillingPanel(): JSX.Element {
       }
     >
       <AccountBillingSection />
+      <SettingsNotice>
+        Billing questions:{" "}
+        <Link href="/contact" className="underline-offset-2 hover:underline">
+          Contact
+        </Link>
+        {" · "}
+        <Link href="/pricing" className="underline-offset-2 hover:underline">
+          Pricing
+        </Link>
+        {" · "}
+        <Link href="/terms" className="underline-offset-2 hover:underline">
+          Terms
+        </Link>
+      </SettingsNotice>
     </SettingsPanel>
   );
 }

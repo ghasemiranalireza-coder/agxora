@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useState, type FormEvent, type JSX } from "react";
 import {
   AuthCard,
@@ -222,7 +223,15 @@ export default function RegisterPage(): JSX.Element {
           checked={acceptTerms}
           onChange={setAcceptTerms}
         >
-          Accept Terms — I agree to the AGXORA terms and privacy policy.
+          Accept Terms — I agree to the AGXORA{" "}
+          <Link href="/terms" style={{ color: "#22d3ee" }}>
+            Terms of Service
+          </Link>{" "}
+          and{" "}
+          <Link href="/privacy" style={{ color: "#22d3ee" }}>
+            Privacy Policy
+          </Link>
+          .
         </AuthCheckbox>
 
         <AuthFieldError message={error} />
