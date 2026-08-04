@@ -51,6 +51,10 @@ export default function RouteError({
             Home
           </Link>
           {" · "}
+          <Link href="/contact" className="underline-offset-2 hover:underline">
+            Contact
+          </Link>
+          {" · "}
           <Link href="/offline" className="underline-offset-2 hover:underline">
             Offline help
           </Link>

@@ -43,7 +43,7 @@ export function getEnvSnapshot(): AgxoraEnvSnapshot {
     apiBaseUrl: process.env.NEXT_PUBLIC_AGXORA_API_BASE_URL ?? "/api",
     dataProvider: process.env.NEXT_PUBLIC_AGXORA_DATA_PROVIDER ?? "local",
     nodeEnv: process.env.NODE_ENV ?? "development",
-    appVersion: process.env.NEXT_PUBLIC_AGXORA_VERSION ?? "0.37.0",
+    appVersion: process.env.NEXT_PUBLIC_AGXORA_VERSION ?? "0.39.0",
   };
 }
 

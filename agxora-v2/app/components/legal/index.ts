@@ -1,0 +1,1 @@
+export { LegalPageShell } from "./LegalPageShell";
