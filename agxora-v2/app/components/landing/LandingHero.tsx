@@ -52,10 +52,9 @@ export function LandingHero(): JSX.Element {
             </LandingCta>
           </div>
           <p className="p31-hero__next">
-            Prefer a walkthrough?{" "}
-            <a href="/demo">Book a demo</a>
-            {" · "}
             <a href="/contact-sales">Contact sales</a>
+            <span aria-hidden="true"> · </span>
+            <a href="/demo">Book a demo</a>
           </p>
         </motion.div>
 

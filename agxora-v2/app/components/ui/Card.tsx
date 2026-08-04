@@ -8,9 +8,9 @@ const glassStyle = {
   borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
   background:
     "linear-gradient(165deg, var(--agx-card-bg-from, rgba(255,255,255,0.06)) 0%, var(--agx-card-bg-to, rgba(255,255,255,0.02)) 100%)",
-  boxShadow: "var(--agx-card-shadow, 0 8px 32px rgba(0,0,0,0.25))",
-  backdropFilter: "var(--agx-card-blur, blur(22px) saturate(150%))",
-  WebkitBackdropFilter: "var(--agx-card-blur, blur(22px) saturate(150%))",
+        boxShadow: "var(--agx-card-shadow, var(--agx-ds-shadow-md))",
+        backdropFilter: "var(--agx-card-blur, blur(18px) saturate(140%))",
+        WebkitBackdropFilter: "var(--agx-card-blur, blur(18px) saturate(140%))",
 } as const;
 
 /**

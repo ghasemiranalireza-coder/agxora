@@ -8,12 +8,18 @@
 }
 
 .p35-pricing__header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 20px clamp(20px, 4vw, 48px);
+  padding: 16px clamp(20px, 4vw, 48px);
   border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  background: rgba(5, 7, 12, 0.88);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
 }
 
 .p35-pricing__brand {
@@ -35,10 +41,19 @@
 .p35-pricing__nav a {
   color: rgba(203, 213, 225, 0.9);
   text-decoration: none;
+  border-radius: 8px;
+  padding: 6px 8px;
+  transition: color 160ms ease, background 160ms ease;
 }
 
 .p35-pricing__nav a:hover {
   color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.p35-pricing__nav a:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
 }
 
 .p35-pricing__nav-cta {

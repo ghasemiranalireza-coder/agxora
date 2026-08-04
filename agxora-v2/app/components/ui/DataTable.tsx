@@ -74,7 +74,7 @@ export function DataTable<T>({
       ) : (
         <div className="overflow-x-auto">
           <table
-            className="w-full border-collapse text-left text-sm"
+            className="agx-ui-table w-full border-collapse text-left text-sm"
             style={{ minWidth }}
           >
             <thead>

@@ -56,7 +56,7 @@ function AppShellComponent({
           }}
         >
           {showTopNav ? <DashboardTopNav /> : null}
-          {children}
+          <div className="agx-page-enter">{children}</div>
         </section>
         <CommandPalette />
       </div>
