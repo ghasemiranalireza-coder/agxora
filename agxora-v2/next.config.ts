@@ -11,6 +11,10 @@ const isProd = process.env.NODE_ENV === "production";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    dangerouslyAllowSVG: false,
+  },
   turbopack: {
     // Ensures Turbopack treats agxora-v2 as the project root when
     // `npm run dev` / `npm run build` are executed from this folder.

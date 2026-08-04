@@ -3,10 +3,11 @@
 import type { JSX } from "react";
 import { useEffect } from "react";
 import { reportError } from "@/app/lib/production/observability";
+import { sanitizeClientErrorMessage } from "@/app/lib/production/safeErrorMessage";
 
 /**
  * Root layout error boundary — must define its own html/body.
- * Reports to observability stubs (Sentry-ready).
+ * Hides internal error details from end users.
  */
 export default function GlobalError({
   error,
@@ -22,6 +23,11 @@ export default function GlobalError({
     });
   }, [error]);
 
+  const message = sanitizeClientErrorMessage(
+    error.message,
+    "An unexpected error occurred. Please try again.",
+  );
+
   return (
     <html lang="en">
       <body
@@ -32,37 +38,52 @@ export default function GlobalError({
           alignItems: "center",
           justifyContent: "center",
           fontFamily:
-            "ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif",
-          background: "#0b1220",
+            "var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif",
+          background:
+            "radial-gradient(ellipse at top, rgba(248,113,113,0.1), transparent 55%), #05070d",
           color: "#f8fafc",
         }}
       >
-        <div style={{ maxWidth: 420, padding: 24, textAlign: "center" }}>
+        <div
+          role="alert"
+          style={{
+            maxWidth: 440,
+            padding: 32,
+            textAlign: "center",
+            borderRadius: 24,
+            border: "1px solid rgba(148,163,184,0.2)",
+            background: "rgba(8,14,28,0.88)",
+          }}
+        >
           <p
             style={{
               fontSize: 11,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
               color: "#22d3ee",
-              fontWeight: 600,
+              fontWeight: 700,
+              margin: 0,
             }}
           >
             500
           </p>
-          <h1 style={{ fontSize: 24, margin: "12px 0" }}>Something went wrong</h1>
-          <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.5 }}>
-            {error.message || "An unexpected error occurred. Please try again."}
+          <h1 style={{ fontSize: 24, margin: "14px 0 10px", fontWeight: 650 }}>
+            Something went wrong
+          </h1>
+          <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.55, margin: 0 }}>
+            {message}
           </p>
           <button
             type="button"
             onClick={reset}
             style={{
-              marginTop: 16,
-              padding: "8px 16px",
-              borderRadius: 8,
-              border: "1px solid #334155",
-              background: "#1e293b",
-              color: "#f8fafc",
+              marginTop: 20,
+              padding: "12px 18px",
+              borderRadius: 12,
+              border: "none",
+              background: "linear-gradient(90deg,#06b6d4,#22d3ee)",
+              color: "#020617",
+              fontWeight: 700,
               cursor: "pointer",
             }}
           >

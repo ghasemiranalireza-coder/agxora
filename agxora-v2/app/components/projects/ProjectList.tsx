@@ -292,7 +292,7 @@ export function ProjectList(): JSX.Element {
       {total === 0 ? (
         <EmptyState
           title="No projects yet"
-          description="Create your first enterprise project to track delivery, budget, team, and tasks."
+          description="Spin up a delivery workspace to track milestones, budget, and team ownership."
           actionLabel="Create project"
           onAction={() => projectStore.openCreate()}
         />

@@ -433,8 +433,8 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             columns={kpiColumns}
             rows={[...eic.kpis]}
             rowKey={(r) => r.kpiId}
-            emptyTitle="No KPIs"
-            emptyDescription="Refresh the intelligence workspace."
+            emptyTitle="Analytics awaits signal"
+            emptyDescription="Once your workspace generates activity, executive KPIs and alerts appear here."
             minWidth={720}
           />
         </Card>

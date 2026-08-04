@@ -10,31 +10,56 @@ export function EmptyState({
   actionLabel,
   onAction,
   icon,
+  footer,
 }: {
   readonly title: string;
   readonly description: string;
   readonly actionLabel?: string;
   readonly onAction?: () => void;
   readonly icon?: ReactNode;
+  readonly footer?: ReactNode;
 }): JSX.Element {
   return (
-    <Card hover={false} className="flex flex-col items-center text-center" padding="40px 28px">
+    <div role="status" aria-live="polite">
+      <Card
+        hover={false}
+        className="flex flex-col items-center text-center"
+        padding="40px 28px"
+      >
       {icon ? (
         <div
           className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border"
           style={{
             borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
             color: "var(--agx-accent, #22d3ee)",
+            background: "rgba(34, 211, 238, 0.06)",
           }}
           aria-hidden="true"
         >
           {icon}
         </div>
-      ) : null}
+      ) : (
+        <div
+          className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border"
+          style={{
+            borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
+            color: "var(--agx-accent, #22d3ee)",
+            background: "rgba(34, 211, 238, 0.06)",
+          }}
+          aria-hidden="true"
+        >
+          <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.14em" }}>
+            AGX
+          </span>
+        </div>
+      )}
       <h3 className="text-base font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
         {title}
       </h3>
-      <p className="mt-2 max-w-md text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+      <p
+        className="mt-2 max-w-md text-sm leading-relaxed"
+        style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+      >
         {description}
       </p>
       {actionLabel && onAction ? (
@@ -44,7 +69,9 @@ export function EmptyState({
           </Button>
         </div>
       ) : null}
+      {footer ? <div className="mt-5">{footer}</div> : null}
     </Card>
+    </div>
   );
 }
 
