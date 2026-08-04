@@ -28,10 +28,13 @@ export const IAM_ROUTE_CATALOG: readonly IamRouteDefinition[] = [
   { path: "/forgot-password", routeClass: "public" },
   { path: "/reset-password", routeClass: "public" },
   { path: "/verify-email", routeClass: "public" },
+  { path: "/demo", routeClass: "public" },
   { path: "/session-expired", routeClass: "public" },
   { path: "/account-locked", routeClass: "public" },
   { path: "/unauthorized", routeClass: "public" },
   { path: "/forbidden", routeClass: "public" },
+  { path: "/welcome", routeClass: "private" },
+  { path: "/onboarding", routeClass: "private" },
   { path: "/dashboard", routeClass: "private" },
   {
     path: "/dashboard/settings",

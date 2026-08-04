@@ -70,6 +70,8 @@ export const config = {
     "/dashboard/:path*",
     "/workspace/:path*",
     "/onboarding/:path*",
+    "/welcome",
+    "/demo",
     "/login",
     "/register",
     "/forgot-password",

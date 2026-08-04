@@ -30,7 +30,7 @@ export function LandingNav(): JSX.Element {
         </div>
 
         <div className="p31-nav__end">
-          <LandingCta href="/onboarding" size="sm">
+          <LandingCta href="/register" size="sm">
             Start Free
           </LandingCta>
           <button

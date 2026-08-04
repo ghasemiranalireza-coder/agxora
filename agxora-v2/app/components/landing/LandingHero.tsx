@@ -45,8 +45,8 @@ export function LandingHero(): JSX.Element {
             AI, automation, and analytics in one system.
           </p>
           <div className="p31-hero__cta">
-            <LandingCta href="/onboarding">Start Free</LandingCta>
-            <LandingCta href="mailto:hello@agxora.app?subject=Book%20a%20demo" variant="ghost">
+            <LandingCta href="/register">Start Free</LandingCta>
+            <LandingCta href="/demo" variant="ghost">
               Book Demo
             </LandingCta>
           </div>

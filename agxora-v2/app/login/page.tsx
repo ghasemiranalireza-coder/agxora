@@ -12,8 +12,11 @@ import {
   authInputStyle,
   authLabelStyle,
   authRowStyle,
+  authToggleStyle,
 } from "../components/auth/AuthCard";
 import { useAuth } from "../lib/auth";
+import { isValidEmail } from "../lib/auth/formValidation";
+import { needsWelcome } from "../lib/auth/welcomeFlags";
 import { getRememberedEmail } from "../lib/identity";
 import { iamAuthService } from "../../features/auth";
 
@@ -31,7 +34,7 @@ function LoginForm(): JSX.Element {
   const [busy, setBusy] = useState(false);
 
   const validate = (): boolean => {
-    if (!email.trim() || !email.includes("@")) {
+    if (!isValidEmail(email)) {
       setFieldError("Enter a valid email address.");
       return false;
     }
@@ -49,9 +52,13 @@ function LoginForm(): JSX.Element {
     setBusy(true);
     setError(null);
     try {
-      await iamAuthService.login({ email, password, rememberMe });
+      const result = await iamAuthService.login({ email, password, rememberMe });
       await refresh();
       const next = search.get("next");
+      if (needsWelcome(result.userId)) {
+        router.replace("/welcome");
+        return;
+      }
       router.replace(next && next.startsWith("/") ? next : "/dashboard");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Sign in failed");
@@ -62,14 +69,15 @@ function LoginForm(): JSX.Element {
 
   return (
     <AuthCard
-      title="Sign In"
+      title="Sign in"
+      subtitle="Welcome back to AGXORA."
       footer={
         <>
           <div>
-            No account? <AuthLink href="/register">Create workspace</AuthLink>
+            No account? <AuthLink href="/register">Start free</AuthLink>
           </div>
           <div>
-            <AuthLink href="/forgot-password">Forgot Password</AuthLink>
+            <AuthLink href="/forgot-password">Forgot password</AuthLink>
           </div>
         </>
       }
@@ -87,6 +95,7 @@ function LoginForm(): JSX.Element {
           required
           autoComplete="email"
           disabled={busy}
+          aria-required="true"
           style={authInputStyle}
         />
 
@@ -103,30 +112,25 @@ function LoginForm(): JSX.Element {
             required
             autoComplete="current-password"
             disabled={busy}
+            aria-required="true"
             style={{ ...authInputStyle, marginBottom: 0, paddingRight: 96 }}
           />
           <button
             type="button"
             onClick={() => setShowPassword((v) => !v)}
             disabled={busy}
-            style={{
-              position: "absolute",
-              right: 10,
-              top: "50%",
-              transform: "translateY(-50%)",
-              border: "none",
-              background: "transparent",
-              color: "#22d3ee",
-              fontSize: 12,
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
+            aria-label={showPassword ? "Hide password" : "Show password"}
+            style={authToggleStyle}
           >
-            {showPassword ? "Hide" : "Show Password"}
+            {showPassword ? "Hide" : "Show"}
           </button>
         </div>
 
-        <AuthCheckbox checked={rememberMe} onChange={setRememberMe}>
+        <AuthCheckbox
+          id="login-remember"
+          checked={rememberMe}
+          onChange={setRememberMe}
+        >
           Remember Me
         </AuthCheckbox>
 
@@ -138,7 +142,7 @@ function LoginForm(): JSX.Element {
           style={busy ? authButtonDisabledStyle : authButtonStyle}
           aria-busy={busy}
         >
-          {busy ? "Signing in…" : "Login"}
+          {busy ? "Signing in…" : "Sign in"}
         </button>
       </form>
     </AuthCard>
@@ -147,7 +151,7 @@ function LoginForm(): JSX.Element {
 
 export default function LoginPage(): JSX.Element {
   return (
-    <Suspense fallback={<AuthCard title="Sign In">Loading…</AuthCard>}>
+    <Suspense fallback={<AuthCard title="Sign in">Loading…</AuthCard>}>
       <LoginForm />
     </Suspense>
   );

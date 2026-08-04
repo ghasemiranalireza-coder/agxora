@@ -10,7 +10,8 @@ export function LandingFooter(): JSX.Element {
           <Link href="#product">Product</Link>
           <Link href="#platform">Platform</Link>
           <Link href="/login">Sign in</Link>
-          <Link href="/onboarding">Start Free</Link>
+          <Link href="/register">Start Free</Link>
+          <Link href="/demo">Book Demo</Link>
           <a href="mailto:hello@agxora.app">Contact</a>
         </nav>
         <p>© 2026 AGXORA</p>

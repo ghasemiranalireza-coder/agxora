@@ -12,6 +12,6 @@ Public homepage only. Goal: increase signup probability.
 
 ## Rules
 
-- Real CTAs only (`/onboarding`, `mailto:`)
+- Real CTAs only (`/register`, `/demo`)
 - No invented customer logos
 - Application chrome untouched
