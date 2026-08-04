@@ -10,7 +10,7 @@ import { LandingFinalCta } from "./LandingFinalCta";
 import { LandingFooter } from "./LandingFooter";
 import "./landing.css";
 
-/** Phase 31 — world-class public landing. Application untouched. */
+/** Phase 33 — conversion-first public landing. Application untouched. */
 export function LandingPage({
   className,
 }: {

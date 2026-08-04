@@ -2,14 +2,15 @@
 
 import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { LANDING_STATS, LANDING_TRUST_LOGOS } from "./content";
+import { LANDING_TRUST_SIGNALS } from "./content";
 import { LANDING_FADE } from "./motion";
 
+/** Trust strip — generic indicators only (no invented logos). */
 export function LandingTrust(): JSX.Element {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="p31-trust" aria-label="Trust">
+    <section className="p31-trust" aria-label="Trust indicators">
       <div className="p31-wrap">
         <motion.p
           className="p31-trust__eyebrow"
@@ -18,38 +19,23 @@ export function LandingTrust(): JSX.Element {
           viewport={{ once: true }}
           transition={LANDING_FADE}
         >
-          Trusted by modern businesses
+          Why teams choose AGXORA
         </motion.p>
 
-        <ul className="p31-trust__logos">
-          {LANDING_TRUST_LOGOS.map((name, i) => (
+        <ul className="p31-trust__signals">
+          {LANDING_TRUST_SIGNALS.map((item, i) => (
             <motion.li
-              key={name}
-              initial={reduceMotion ? false : { opacity: 0, y: 6 }}
+              key={item.title}
+              initial={reduceMotion ? false : { opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ ...LANDING_FADE, delay: i * 0.04 }}
             >
-              {name}
+              <strong>{item.title}</strong>
+              <span>{item.detail}</span>
             </motion.li>
           ))}
         </ul>
-
-        <div className="p31-trust__stats">
-          {LANDING_STATS.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              className="p31-trust__stat"
-              initial={reduceMotion ? false : { opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ ...LANDING_FADE, delay: 0.08 + i * 0.05 }}
-            >
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );

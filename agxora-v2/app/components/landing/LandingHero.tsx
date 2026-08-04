@@ -15,14 +15,14 @@ const AgxoraGlobe3D = dynamic(
 );
 
 /**
- * RC-1 Hero — brand identity for the first screen.
- * Hierarchy: Headline → Globe → CTA → Supporting text.
+ * Phase 33 hero — conversion-first value proposition.
+ * What / who / why in under five seconds.
  */
 export function LandingHero(): JSX.Element {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="p31-hero" aria-label="AGXORA">
+    <section className="p31-hero" aria-labelledby="p31-hero-headline">
       <div className="p31-hero__atmosphere" aria-hidden="true">
         <div className="p31-hero__wash" />
         <div className="p31-hero__beam" />
@@ -33,20 +33,20 @@ export function LandingHero(): JSX.Element {
           className="p31-hero__copy"
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ ...LANDING_FADE, duration: 0.65 }}
+          transition={{ ...LANDING_FADE, duration: 0.6 }}
         >
           <p className="p31-hero__brandmark">AGXORA</p>
-          <h1 className="p31-hero__headline">
-            The enterprise operating system.
+          <h1 id="p31-hero-headline" className="p31-hero__headline">
+            The AI platform that runs your business.
           </h1>
           <p className="p31-hero__subtitle">
-            Run your business with AI, automation, and analytics
+            For founders, operators, and enterprise teams who need
             <br />
-            inside one intelligent platform.
+            AI, automation, and analytics in one system.
           </p>
           <div className="p31-hero__cta">
             <LandingCta href="/onboarding">Start Free</LandingCta>
-            <LandingCta href="mailto:hello@agxora.app" variant="ghost">
+            <LandingCta href="mailto:hello@agxora.app?subject=Book%20a%20demo" variant="ghost">
               Book Demo
             </LandingCta>
           </div>
@@ -54,9 +54,11 @@ export function LandingHero(): JSX.Element {
 
         <motion.div
           className="p31-hero__globe"
+          aria-label="Global enterprise intelligence visualization"
+          role="img"
           initial={reduceMotion ? false : { opacity: 0, scale: 0.985 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ ...LANDING_FADE, duration: 0.85, delay: 0.08 }}
+          transition={{ ...LANDING_FADE, duration: 0.8, delay: 0.06 }}
         >
           <div className="p31-globe">
             <div className="p31-globe__glow" aria-hidden="true" />
