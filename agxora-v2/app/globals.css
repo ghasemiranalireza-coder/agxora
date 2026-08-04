@@ -606,6 +606,12 @@ select {
   color: var(--agx-accent, #22d3ee);
 }
 
+.agx-ui-card {
+  transition:
+    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .agx-ui-card:hover {
   box-shadow: var(--agx-card-shadow-hover, var(--agx-ds-shadow-lg));
 }
