@@ -74,6 +74,7 @@ export const config = {
     "/demo",
     "/pricing",
     "/contact-sales",
+    "/offline",
     "/login",
     "/register",
     "/forgot-password",

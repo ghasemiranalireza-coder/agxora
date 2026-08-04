@@ -11,6 +11,7 @@ import type { JSX, ReactNode } from "react";
 import {
   AppErrorBoundary,
   GlobalLoadingOverlay,
+  NetworkStatusBanner,
   ToastHost,
 } from "../components/backend";
 import { AISettingsProvider } from "../lib/ai/AIProviderContext";
@@ -54,6 +55,7 @@ export function AppProviders({ children }: AppProvidersProps): JSX.Element {
                                 <AppErrorBoundary>
                                   {children}
                                   <ToastHost />
+                                  <NetworkStatusBanner />
                                   <GlobalLoadingOverlay />
                                 </AppErrorBoundary>
                               </ChatProvider>

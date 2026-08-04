@@ -24,6 +24,7 @@ import { useReducedMotion } from "framer-motion";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Bloom, EffectComposer, Vignette } from "@react-three/postprocessing";
+import "@/app/lib/three/clockCompat";
 import {
   DAY_TOKENS,
   NIGHT_TOKENS,

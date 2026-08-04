@@ -21,6 +21,7 @@ import {
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useReducedMotion } from "framer-motion";
+import "@/app/lib/three/clockCompat";
 import {
   DAY_TOKENS,
   NIGHT_TOKENS,
@@ -63,8 +64,8 @@ interface BackdropLayer {
 function backdropLayers(density: number): readonly BackdropLayer[] {
   return [
     {
-      // Deep space: fewer, subtler points (reduced visual noise).
-      total: Math.round(4200 * density),
+      // Deep space: fewer, subtler points (reduced visual noise + GPU cost).
+      total: Math.round(2800 * density),
       nearRadius: 60,
       farRadius: 135,
       minPoint: 0.18,
@@ -74,7 +75,7 @@ function backdropLayers(density: number): readonly BackdropLayer[] {
       seed: 0x51a001,
     },
     {
-      total: Math.round(2600 * density),
+      total: Math.round(1600 * density),
       nearRadius: 26,
       farRadius: 70,
       minPoint: 0.2,

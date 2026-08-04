@@ -235,8 +235,8 @@ export function CrmDirectory(): JSX.Element {
 
       {total === 0 ? (
         <EmptyState
-          title="No customers yet"
-          description="Create your first CRM customer to build the directory, profiles, and activity feed."
+          title="Your CRM is ready"
+          description="Create the first customer record to unlock directory, profiles, and activity."
           actionLabel="Create customer"
           onAction={() => crmStore.openCreate()}
         />

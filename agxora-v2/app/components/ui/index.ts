@@ -5,6 +5,8 @@ export { Badge } from "./Badge";
 export { DataTable } from "./DataTable";
 export type { DataTableColumn, DataTableProps } from "./DataTable";
 export { EmptyState, ErrorState, Skeleton, SkeletonCard } from "./States";
+export { ModuleEmptyState } from "./ModuleEmptyState";
+export type { ModuleEmptyKind } from "./ModuleEmptyState";
 export { SearchField, FilterSelect } from "./Filters";
 export { Dialog } from "./Dialog";
 export { FormField, FormInput, FormTextArea, FormSelect } from "./Form";

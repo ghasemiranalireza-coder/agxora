@@ -33,7 +33,9 @@ export const SECURITY_HEADERS: readonly SecurityHeader[] = [
       "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
       "connect-src 'self' https: wss:",
+      "media-src 'self' blob:",
       "worker-src 'self' blob:",
+      "object-src 'none'",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
@@ -47,7 +49,14 @@ export function productionOnlyHeaders(
 ): readonly SecurityHeader[] {
   if (!isProduction) return SECURITY_HEADERS;
   return [
-    ...SECURITY_HEADERS,
+    ...SECURITY_HEADERS.map((header) =>
+      header.key === "Content-Security-Policy"
+        ? {
+            ...header,
+            value: `${header.value}; upgrade-insecure-requests`,
+          }
+        : header,
+    ),
     {
       key: "Strict-Transport-Security",
       value: "max-age=63072000; includeSubDomains; preload",

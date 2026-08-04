@@ -26,7 +26,7 @@ export function ToastHost(): JSX.Element {
     <div
       className="pointer-events-none fixed inset-x-0 top-0 z-[80] flex flex-col items-end gap-2 p-4 sm:p-6"
       aria-live="polite"
-      aria-relevant="additions"
+      aria-relevant="additions text"
       data-toast-count={toasts.length}
     >
       {toasts.map((toast) => {
@@ -41,7 +41,8 @@ export function ToastHost(): JSX.Element {
               borderColor: tone.border,
               color: "var(--agx-text, #f8fafc)",
             }}
-            role="status"
+            role={toast.tone === "error" ? "alert" : "status"}
+            aria-atomic="true"
           >
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0 space-y-1">

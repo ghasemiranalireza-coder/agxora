@@ -351,8 +351,8 @@ export function LibraryWorkspace({
 
           {sorted.length === 0 ? (
             <EmptyState
-              title="No documents match"
-              description="Adjust filters, clear search, or switch library view."
+              title="No documents to show"
+              description="Adjust filters, clear search, or add knowledge assets to grow the library."
             />
           ) : (
             <ul className="max-h-[520px] space-y-2 overflow-y-auto pr-1" role="listbox">

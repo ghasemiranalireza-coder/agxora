@@ -95,7 +95,7 @@ export function AccountBillingSection(): JSX.Element {
         </h3>
         {recentInvoices.length === 0 ? (
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            No invoices yet. Upgrade to generate billing history.
+            No billing history yet. Upgrade a plan to generate invoices and renewals.
           </p>
         ) : (
           <ul className="space-y-2">

@@ -27,34 +27,40 @@ function AppShellComponent({
   const { tokens } = useTheme();
 
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        color: tokens.text,
-        display: "flex",
-        flexWrap: "wrap",
-        background: "transparent",
-        transition: surfaceTransition,
-        fontFamily:
-          '"SF Pro Display", "Segoe UI", system-ui, -apple-system, sans-serif',
-      }}
-    >
-      <DashboardSidebar />
-      <section
-        className="agx-shell-content"
+    <>
+      <a href="#agxora-dashboard-main" className="agx-skip-link">
+        Skip to dashboard content
+      </a>
+      <div
         style={{
-          position: "relative",
-          flex: 1,
-          padding: "44px 48px 56px",
-          minWidth: "320px",
+          minHeight: "100vh",
+          color: tokens.text,
+          display: "flex",
+          flexWrap: "wrap",
           background: "transparent",
+          transition: surfaceTransition,
+          fontFamily:
+            '"SF Pro Display", "Segoe UI", system-ui, -apple-system, sans-serif',
         }}
       >
-        {showTopNav ? <DashboardTopNav /> : null}
-        {children}
-      </section>
-      <CommandPalette />
-    </main>
+        <DashboardSidebar />
+        <section
+          id="agxora-dashboard-main"
+          className="agx-shell-content"
+          style={{
+            position: "relative",
+            flex: 1,
+            padding: "44px 48px 56px",
+            minWidth: "320px",
+            background: "transparent",
+          }}
+        >
+          {showTopNav ? <DashboardTopNav /> : null}
+          {children}
+        </section>
+        <CommandPalette />
+      </div>
+    </>
   );
 }
 

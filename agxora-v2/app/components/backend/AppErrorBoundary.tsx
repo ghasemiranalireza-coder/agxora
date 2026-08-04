@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import { resolveAppError, type AppErrorCode } from "@/app/lib/backend/errors";
 import { Button, Card } from "@/app/components/ui";
+import { sanitizeClientErrorMessage } from "@/app/lib/production/safeErrorMessage";
 
 type Props = {
   readonly children: ReactNode;
@@ -79,6 +80,7 @@ export function ErrorPanel({
   readonly onRetry?: () => void;
   readonly code?: string;
 }): JSX.Element {
+  const safeMessage = sanitizeClientErrorMessage(message, message);
   return (
     <Card className="mx-auto max-w-lg space-y-4 text-center" padding="32px" hover={false}>
       {code ? (
@@ -93,7 +95,7 @@ export function ErrorPanel({
         {title}
       </h1>
       <p className="text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        {message}
+        {safeMessage}
       </p>
       <div className="flex flex-wrap justify-center gap-2">
         {retryable && onRetry ? (

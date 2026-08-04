@@ -43,7 +43,7 @@ export function getEnvSnapshot(): AgxoraEnvSnapshot {
     apiBaseUrl: process.env.NEXT_PUBLIC_AGXORA_API_BASE_URL ?? "/api",
     dataProvider: process.env.NEXT_PUBLIC_AGXORA_DATA_PROVIDER ?? "local",
     nodeEnv: process.env.NODE_ENV ?? "development",
-    appVersion: process.env.NEXT_PUBLIC_AGXORA_VERSION ?? "1.0.0",
+    appVersion: process.env.NEXT_PUBLIC_AGXORA_VERSION ?? "0.36.0",
   };
 }
 
@@ -65,6 +65,15 @@ export function assertProdEnv(): readonly string[] {
       warnings.push(
         "NEXT_PUBLIC_AGXORA_DATA_PROVIDER should use a remote provider in production",
       );
+    }
+    const siteUrl = process.env.NEXT_PUBLIC_AGXORA_SITE_URL;
+    if (!siteUrl || !/^https:\/\//i.test(siteUrl)) {
+      warnings.push(
+        "NEXT_PUBLIC_AGXORA_SITE_URL should be an https URL in production",
+      );
+    }
+    if (!process.env.NEXT_PUBLIC_AGXORA_VERSION) {
+      warnings.push("NEXT_PUBLIC_AGXORA_VERSION should be set in production");
     }
   }
   return warnings;

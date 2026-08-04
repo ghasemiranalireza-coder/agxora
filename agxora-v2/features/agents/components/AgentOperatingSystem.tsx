@@ -305,8 +305,8 @@ export function AgentOperatingSystem(): JSX.Element {
               columns={runtimeColumns}
               rows={[...aos.runtimes]}
               rowKey={(r) => r.instanceId}
-              emptyTitle="No agents registered"
-              emptyDescription="Install agents from the marketplace."
+              emptyTitle="No agents active"
+              emptyDescription="Install or activate an agent from the marketplace to start autonomous runs."
               minWidth={720}
             />
           </Card>

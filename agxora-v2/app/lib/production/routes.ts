@@ -76,6 +76,7 @@ export const PROXY_MATCHER = [
   "/demo",
   "/pricing",
   "/contact-sales",
+  "/offline",
   "/login",
   "/register",
   "/forgot-password",
