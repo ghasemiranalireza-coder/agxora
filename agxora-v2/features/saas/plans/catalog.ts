@@ -44,9 +44,9 @@ export const COMMERCIAL_PLANS: readonly CommercialPlan[] = [
   {
     id: "starter",
     name: "Starter",
-    description: "For small teams launching AGXORA",
-    priceMonthlyUsd: 49,
-    priceYearlyUsd: 490,
+    description: "For freelancers and small businesses.",
+    priceMonthlyUsd: 19.99,
+    priceYearlyUsd: 191.9,
     public: true,
     limits: limits({
       users: 5,
@@ -62,11 +62,10 @@ export const COMMERCIAL_PLANS: readonly CommercialPlan[] = [
   {
     id: "professional",
     name: "Professional",
-    description: "Growing companies with finance and API needs",
-    priceMonthlyUsd: 149,
-    priceYearlyUsd: 1_490,
+    description: "For advanced companies.",
+    priceMonthlyUsd: 128,
+    priceYearlyUsd: 1_228.8,
     public: true,
-    highlighted: true,
     limits: limits({
       users: 25,
       projects: 100,
@@ -81,10 +80,11 @@ export const COMMERCIAL_PLANS: readonly CommercialPlan[] = [
   {
     id: "business",
     name: "Business",
-    description: "Automation, audit export, and priority support",
-    priceMonthlyUsd: 399,
-    priceYearlyUsd: 3_990,
+    description: "For growing teams.",
+    priceMonthlyUsd: 49.99,
+    priceYearlyUsd: 479.9,
     public: true,
+    highlighted: true,
     limits: limits({
       users: 100,
       projects: 500,
@@ -99,7 +99,7 @@ export const COMMERCIAL_PLANS: readonly CommercialPlan[] = [
   {
     id: "enterprise",
     name: "Enterprise",
-    description: "SSO, branding, and unlimited commercial scale",
+    description: "Custom pricing for unlimited scale.",
     priceMonthlyUsd: null,
     priceYearlyUsd: null,
     public: true,
