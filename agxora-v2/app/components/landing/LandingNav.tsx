@@ -19,11 +19,17 @@ export function LandingNav(): JSX.Element {
           id="p31-nav-links"
           className={`p31-nav__links${open ? " is-open" : ""}`}
         >
-          {LANDING_NAV.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
-              {item.label}
-            </a>
-          ))}
+          {LANDING_NAV.map((item) =>
+            item.href.startsWith("/") ? (
+              <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+                {item.label}
+              </Link>
+            ) : (
+              <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+                {item.label}
+              </a>
+            ),
+          )}
           <Link href="/login" onClick={() => setOpen(false)}>
             Sign in
           </Link>

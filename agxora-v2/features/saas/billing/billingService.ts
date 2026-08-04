@@ -9,6 +9,7 @@ import {
   cancelLicense,
   changePlan,
   ensureLicense,
+  renewLicense,
 } from "../license";
 import { getPaymentProvider } from "../payments";
 import { saasCommercialStore } from "../store";
@@ -167,6 +168,24 @@ export const billingService = {
         to: email,
         subject: "Subscription cancelled",
         body: "Your AGXORA subscription has been cancelled.",
+      });
+    }
+    return license;
+  },
+
+  renew(organizationId: string, actorUserId?: string, email?: string) {
+    const license = renewLicense(organizationId, actorUserId);
+    notifySaasEvent(organizationId, "invoice_ready", {
+      title: "Subscription renewed",
+      body: `Your plan renews on ${(license.renewsAt ?? "").slice(0, 10)}.`,
+      href: "/dashboard/billing",
+    });
+    if (email) {
+      sendBillingEmail({
+        templateId: "billing_notification",
+        to: email,
+        subject: "Subscription renewed",
+        body: `Your AGXORA subscription was renewed through ${license.renewsAt?.slice(0, 10) ?? "the next period"}.`,
       });
     }
     return license;

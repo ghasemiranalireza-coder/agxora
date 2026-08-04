@@ -32,6 +32,7 @@ import {
 import { useTheme, type ThemeMode } from "../../lib/theme";
 import { Badge, Button, DataTable, EmptyState } from "../ui";
 import type { DataTableColumn } from "../ui";
+import { AccountBillingSection } from "../../../features/saas";
 import {
   SettingsField,
   SettingsGrid,
@@ -922,7 +923,7 @@ function BillingPanel(): JSX.Element {
   return (
     <SettingsPanel
       title="Billing"
-      description="Plan, usage, invoices, payment methods, and company billing profile."
+      description="Current plan, renewal, usage, invoices, and upgrade path."
       actions={
         <Link href="/dashboard/billing">
           <Button size="sm" variant="primary">
@@ -931,42 +932,7 @@ function BillingPanel(): JSX.Element {
         </Link>
       }
     >
-      <SettingsNotice>
-        Commercial SaaS infrastructure lives in the billing portal. Stripe,
-        PayPal, and bank transfer providers are abstracted behind the billing
-        service — no payment SDK in this UI.
-      </SettingsNotice>
-      <SettingsGrid>
-        <SettingsField label="Plans">
-          <SettingsInput
-            defaultValue="Starter · Professional · Business · Enterprise"
-            readOnly
-          />
-        </SettingsField>
-        <SettingsField label="License states">
-          <SettingsInput
-            defaultValue="Trial · Active · Expired · Cancelled · Suspended · Lifetime"
-            readOnly
-          />
-        </SettingsField>
-        <SettingsField label="Payment providers">
-          <SettingsInput
-            defaultValue="Stripe · PayPal · Bank transfer · Manual"
-            readOnly
-          />
-        </SettingsField>
-        <SettingsField label="Admin">
-          <Link href="/dashboard/billing/admin">
-            <Button size="sm" variant="secondary">
-              Admin billing panel
-            </Button>
-          </Link>
-        </SettingsField>
-      </SettingsGrid>
-      <EmptyState
-        title="Manage subscription in the portal"
-        description="Upgrade, downgrade, cancel, invoices, usage quotas, VAT/Tax ID, and notifications."
-      />
+      <AccountBillingSection />
     </SettingsPanel>
   );
 }
