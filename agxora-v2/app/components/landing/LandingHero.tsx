@@ -35,21 +35,28 @@ export function LandingHero(): JSX.Element {
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...LANDING_FADE, duration: 0.6 }}
         >
-          <p className="p31-hero__brandmark">AGXORA</p>
+          <p className="p31-hero__brandmark" aria-label="AGXORA">
+            AGXORA
+          </p>
           <h1 id="p31-hero-headline" className="p31-hero__headline">
             The AI platform that runs your business.
           </h1>
           <p className="p31-hero__subtitle">
-            For founders, operators, and enterprise teams who need
-            <br />
-            AI, automation, and analytics in one system.
+            For founders, operators, and enterprise teams who need AI,
+            automation, and analytics in one system.
           </p>
           <div className="p31-hero__cta">
             <LandingCta href="/register">Start Free</LandingCta>
-            <LandingCta href="/demo" variant="ghost">
-              Book Demo
+            <LandingCta href="/pricing" variant="ghost">
+              View Pricing
             </LandingCta>
           </div>
+          <p className="p31-hero__next">
+            Prefer a walkthrough?{" "}
+            <a href="/demo">Book a demo</a>
+            {" · "}
+            <a href="/contact-sales">Contact sales</a>
+          </p>
         </motion.div>
 
         <motion.div

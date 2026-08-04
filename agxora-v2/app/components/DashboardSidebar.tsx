@@ -38,19 +38,34 @@ const NAV_ITEMS = [
     path: "M3 12l9-9 9 9 M5 10v9a1 1 0 0 0 1 1h3m6 0h3a1 1 0 0 0 1-1v-9 M9 20v-6h6v6",
   },
   {
-    label: "Analytics",
-    href: "/dashboard/analytics",
-    path: "M4 19V5 M10 19V9 M16 19v-6 M22 19V7",
-  },
-  {
-    label: "Customers",
-    href: "/dashboard/customers",
-    path: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
+    label: "AI Workspace",
+    href: "/dashboard/ai",
+    path: "M12 3v3 M12 18v3 M3 12h3 M18 12h3 M5.6 5.6l2.1 2.1 M16.3 16.3l2.1 2.1 M5.6 18.4l2.1-2.1 M16.3 7.7l2.1-2.1 M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z",
   },
   {
     label: "Projects",
     href: "/dashboard/projects",
     path: "M4 5h16 M4 12h16 M4 19h10",
+  },
+  {
+    label: "AI CRM",
+    href: "/dashboard/crm",
+    path: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
+  },
+  {
+    label: "Analytics",
+    href: "/dashboard/analytics",
+    path: "M4 19V5 M10 19V9 M16 19v-6 M22 19V7",
+  },
+  {
+    label: "Billing",
+    href: "/dashboard/billing",
+    path: "M4 6h16v12H4Z M4 10h16 M8 14h4",
+  },
+  {
+    label: "Customers",
+    href: "/dashboard/customers",
+    path: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
   },
   {
     label: "Automation",
@@ -61,11 +76,6 @@ const NAV_ITEMS = [
     label: "Finance & Tax",
     href: "/dashboard/finance",
     path: "M3 21h18 M5 21V10l7-5 7 5v11 M9 21v-6h6v6 M12 5v2",
-  },
-  {
-    label: "AI CRM",
-    href: "/dashboard/crm",
-    path: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
   },
   {
     label: "AI Creator Studio",

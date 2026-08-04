@@ -1,5 +1,5 @@
 /**
- * AGXORA enterprise UI tokens — single spacing / radius / motion system.
+ * AGXORA enterprise UI tokens — single spacing / radius / shadow / motion system.
  * Does not alter theme colors; complements existing CSS variables.
  */
 
@@ -18,6 +18,7 @@ export const UI = {
     xl: 20,
     "2xl": 24,
     "3xl": 32,
+    section: 48,
   },
   control: {
     height: 36,
@@ -25,9 +26,14 @@ export const UI = {
     icon: 18,
     padX: 14,
   },
+  shadow: {
+    sm: "0 4px 16px rgba(0,0,0,0.18)",
+    md: "0 12px 32px rgba(0,0,0,0.28)",
+    lg: "0 24px 56px rgba(0,0,0,0.36)",
+  },
   motion: {
-    fast: 0.22,
-    base: 0.35,
+    fast: 0.18,
+    base: 0.28,
     ease: [0.22, 1, 0.36, 1] as const,
   },
   card: {

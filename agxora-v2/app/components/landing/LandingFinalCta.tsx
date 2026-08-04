@@ -24,6 +24,9 @@ export function LandingFinalCta(): JSX.Element {
           <p className="p31-lead">Create a workspace in minutes — no credit card.</p>
           <div className="p31-close__actions">
             <LandingCta href="/register">Start Free</LandingCta>
+            <LandingCta href="/pricing" variant="ghost">
+              View Pricing
+            </LandingCta>
             <LandingCta href="/demo" variant="ghost">
               Book Demo
             </LandingCta>

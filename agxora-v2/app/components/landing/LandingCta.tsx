@@ -2,7 +2,7 @@
 
 import { useState, type JSX, type ReactNode } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 type Props = {
   readonly href: string;
@@ -23,7 +23,9 @@ export function LandingCta({
   className = "",
 }: Props): JSX.Element {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  const pathname = usePathname();
+  const [pendingHref, setPendingHref] = useState<string | null>(null);
+  const loading = Boolean(pendingHref && pendingHref !== pathname);
 
   const classes = [
     "p31-btn",
@@ -40,16 +42,15 @@ export function LandingCta({
       href={href}
       className={classes}
       aria-busy={loading || undefined}
-      aria-disabled={loading || undefined}
       onClick={(event) => {
         if (loading) {
           event.preventDefault();
           return;
         }
-        // Soft loading affordance for same-origin navigations.
         if (href.startsWith("/") && !href.startsWith("//")) {
           event.preventDefault();
-          setLoading(true);
+          setPendingHref(href);
+          window.setTimeout(() => setPendingHref(null), 5000);
           router.push(href);
         }
       }}

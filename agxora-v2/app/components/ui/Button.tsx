@@ -83,7 +83,9 @@ export function Button({
       }}
       {...rest}
     >
-      {loading ? <span aria-hidden="true">…</span> : null}
+      {loading ? (
+        <span className="agx-ui-btn__spinner" aria-hidden="true" />
+      ) : null}
       {children}
     </button>
   );

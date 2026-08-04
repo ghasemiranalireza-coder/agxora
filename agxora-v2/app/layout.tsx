@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   other: {
-    "agxora:version": process.env.NEXT_PUBLIC_AGXORA_VERSION ?? "0.36.0",
+    "agxora:version": process.env.NEXT_PUBLIC_AGXORA_VERSION ?? "0.37.0",
   },
 };
 

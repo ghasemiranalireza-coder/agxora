@@ -2,6 +2,7 @@
 
 import type { JSX } from "react";
 import Link from "next/link";
+import { Button } from "./Button";
 import { EmptyState } from "./States";
 
 export type ModuleEmptyKind =
@@ -53,8 +54,8 @@ const PRESETS: Record<
     title: "No billing history yet",
     description:
       "Upgrade a plan to generate invoices, renewals, and payment history.",
-    actionLabel: "View plans",
-    href: "/pricing",
+    actionLabel: "Open billing",
+    href: "/dashboard/billing",
   },
   agents: {
     title: "No agents active",
@@ -97,15 +98,8 @@ export function ModuleEmptyState({
         description={preset.description}
         icon={<EmptyGlyph kind={kind} />}
         footer={
-          <Link
-            href={preset.href}
-            className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold"
-            style={{
-              background: "linear-gradient(90deg, #06b6d4, #22d3ee)",
-              color: "#020617",
-            }}
-          >
-            {preset.actionLabel}
+          <Link href={preset.href} style={{ textDecoration: "none" }}>
+            <Button variant="primary">{preset.actionLabel}</Button>
           </Link>
         }
       />
