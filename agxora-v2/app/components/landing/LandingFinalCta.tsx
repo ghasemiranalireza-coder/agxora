@@ -19,13 +19,16 @@ export function LandingFinalCta(): JSX.Element {
           transition={LANDING_FADE}
         >
           <h2 id="p31-close-title" className="p31-display">
-            Start operating.
+            Start free. Scale when ready.
           </h2>
-          <p className="p31-lead">Create a workspace in minutes.</p>
+          <p className="p31-lead">Create a workspace in minutes — no credit card.</p>
           <div className="p31-close__actions">
             <LandingCta href="/onboarding">Start Free</LandingCta>
-            <LandingCta href="/login" variant="ghost">
-              Sign in
+            <LandingCta
+              href="mailto:hello@agxora.app?subject=Book%20a%20demo"
+              variant="ghost"
+            >
+              Book Demo
             </LandingCta>
           </div>
         </motion.div>

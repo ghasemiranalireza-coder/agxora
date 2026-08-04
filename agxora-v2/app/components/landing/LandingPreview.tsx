@@ -4,7 +4,7 @@ import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { LANDING_FADE } from "./motion";
 
-/** Premium product proof — framed as the platform itself. */
+/** Large product proof — conversion centerpiece below trust. */
 export function LandingPreview(): JSX.Element {
   const reduceMotion = useReducedMotion();
 
@@ -14,7 +14,7 @@ export function LandingPreview(): JSX.Element {
       className="p31-product"
       aria-labelledby="p31-product-title"
     >
-      <div className="p31-wrap">
+      <div className="p31-wrap p31-wrap--wide">
         <motion.div
           className="p31-product__intro"
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
@@ -23,16 +23,18 @@ export function LandingPreview(): JSX.Element {
           transition={LANDING_FADE}
         >
           <h2 id="p31-product-title" className="p31-display">
-            The product is the proof.
+            See the platform.
           </h2>
-          <p className="p31-lead">One operating surface for the enterprise.</p>
+          <p className="p31-lead">
+            A real operating surface — command, AI, automation, and analytics together.
+          </p>
         </motion.div>
 
         <motion.div
-          className="p31-product__bezel"
-          initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+          className="p31-product__bezel p31-product__bezel--xl"
+          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.18 }}
           transition={{ ...LANDING_FADE, duration: 0.65 }}
         >
           <div className="p31-product__frame">
@@ -43,7 +45,7 @@ export function LandingPreview(): JSX.Element {
               <span>agxora.app / dashboard</span>
             </div>
             <div className="p31-product__canvas">
-              <aside className="p31-product__rail" aria-hidden="true">
+              <aside className="p31-product__rail" aria-label="Preview navigation">
                 <div className="p31-product__rail-brand">AGXORA</div>
                 <ul>
                   <li data-on="true">Command</li>

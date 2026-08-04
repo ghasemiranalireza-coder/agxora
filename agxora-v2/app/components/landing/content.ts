@@ -1,5 +1,5 @@
 /**
- * Phase 31 landing copy — sparse, enterprise, 5-second readable.
+ * Phase 33 — conversion-first landing copy.
  */
 
 export const LANDING_NAV = [
@@ -8,19 +8,12 @@ export const LANDING_NAV = [
   { href: "#start", label: "Get started" },
 ] as const;
 
-export const LANDING_TRUST_LOGOS = [
-  "Northline",
-  "Helix",
-  "Cascade",
-  "Vertex",
-  "Aperture",
-  "Lumen",
-] as const;
-
-export const LANDING_STATS = [
-  { value: "Global", label: "Intelligence layer" },
-  { value: "Unified", label: "Operating surface" },
-  { value: "Secure", label: "Enterprise posture" },
+/** Generic trust indicators — no invented customer logos. */
+export const LANDING_TRUST_SIGNALS = [
+  { title: "Enterprise Ready", detail: "Built for serious operators" },
+  { title: "AI Powered", detail: "Intelligence across every workflow" },
+  { title: "Built for Scale", detail: "From first team to full org" },
+  { title: "Secure by Design", detail: "Guarded routes and sessions" },
 ] as const;
 
 export const LANDING_FEATURES = [

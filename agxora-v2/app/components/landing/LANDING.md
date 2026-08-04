@@ -1,11 +1,17 @@
-# Phase 32 / RC-1 — Public Landing
+# Phase 33 — Conversion-First Landing
 
-## RC-1 Hero (brand identity)
+Public homepage only. Goal: increase signup probability.
 
-First-screen focus only:
-1. Headline
-2. Globe (+20% presence, depth, reflection, soft breath)
-3. CTA — Start Free / Book Demo
-4. Supporting subtitle (max two lines)
+## Conversion structure
 
-Application and non-hero landing sections remain untouched in RC-1.
+1. Hero — what / who / why in &lt;5s + Start Free / Book Demo
+2. Trust — Enterprise Ready · AI Powered · Built for Scale · Secure by Design (no fake logos)
+3. Product preview — large proof surface
+4. Platform bands
+5. Close CTA
+
+## Rules
+
+- Real CTAs only (`/onboarding`, `mailto:`)
+- No invented customer logos
+- Application chrome untouched
