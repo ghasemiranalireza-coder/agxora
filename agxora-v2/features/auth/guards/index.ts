@@ -29,6 +29,8 @@ export const IAM_ROUTE_CATALOG: readonly IamRouteDefinition[] = [
   { path: "/reset-password", routeClass: "public" },
   { path: "/verify-email", routeClass: "public" },
   { path: "/demo", routeClass: "public" },
+  { path: "/pricing", routeClass: "public" },
+  { path: "/contact-sales", routeClass: "public" },
   { path: "/session-expired", routeClass: "public" },
   { path: "/account-locked", routeClass: "public" },
   { path: "/unauthorized", routeClass: "public" },

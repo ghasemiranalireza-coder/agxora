@@ -190,6 +190,7 @@ export type SaasAuditAction =
   | "license.cancelled"
   | "license.suspended"
   | "license.plan_changed"
+  | "license.renewed"
   | "billing.invoice_created"
   | "billing.payment_succeeded"
   | "billing.payment_failed"
@@ -197,7 +198,9 @@ export type SaasAuditAction =
   | "coupon.applied"
   | "portal.upgrade"
   | "portal.downgrade"
-  | "portal.cancel";
+  | "portal.cancel"
+  | "portal.renew"
+  | "sales.inquiry";
 
 export interface SaasAuditEvent {
   readonly id: string;

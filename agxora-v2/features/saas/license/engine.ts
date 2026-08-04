@@ -114,6 +114,38 @@ export function cancelLicense(
   return license;
 }
 
+/** Extend renewsAt by one billing period (mock — payment provider later). */
+export function renewLicense(
+  organizationId: string,
+  actorUserId?: string,
+  intervalDays = 30,
+): LicenseRecord {
+  const current = ensureLicense(organizationId);
+  const base = current.renewsAt
+    ? Math.max(Date.now(), new Date(current.renewsAt).getTime())
+    : Date.now();
+  const renewsAt = new Date(base + intervalDays * 24 * 60 * 60 * 1000).toISOString();
+  const license = saasCommercialStore.updateLicense(organizationId, {
+    status: "active",
+    renewsAt,
+    cancelledAt: undefined,
+    suspendedAt: undefined,
+  });
+  saasCommercialStore.logAudit({
+    action: "license.renewed",
+    organizationId,
+    actorUserId,
+    metadata: { renewsAt },
+  });
+  saasCommercialStore.logAudit({
+    action: "portal.renew",
+    organizationId,
+    actorUserId,
+    metadata: { renewsAt },
+  });
+  return license;
+}
+
 export function suspendLicense(
   organizationId: string,
   actorUserId?: string,

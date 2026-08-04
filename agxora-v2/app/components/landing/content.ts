@@ -5,6 +5,7 @@
 export const LANDING_NAV = [
   { href: "#product", label: "Product" },
   { href: "#platform", label: "Platform" },
+  { href: "/pricing", label: "Pricing" },
   { href: "#start", label: "Get started" },
 ] as const;
 

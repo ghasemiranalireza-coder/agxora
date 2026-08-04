@@ -118,6 +118,15 @@ export function CustomerBillingPortal(): JSX.Element {
     setNotice("Subscription cancelled.");
   };
 
+  const onRenew = () => {
+    billingService.renew(
+      saas.organizationId,
+      saas.userId ?? undefined,
+      saas.email,
+    );
+    setNotice("Subscription renewed for the next period.");
+  };
+
   const saveProfile = () => {
     billingService.updateProfile({
       organizationId: saas.organizationId,
@@ -165,6 +174,16 @@ export function CustomerBillingPortal(): JSX.Element {
           Payment providers stay behind the billing service.
         </p>
         <div className="flex flex-wrap gap-2 pt-1">
+          <Link href="/pricing">
+            <Button size="sm" variant="secondary">
+              Public pricing
+            </Button>
+          </Link>
+          <Link href="/contact-sales">
+            <Button size="sm" variant="secondary">
+              Contact Sales
+            </Button>
+          </Link>
           <Link href="/dashboard/billing/admin">
             <Button size="sm" variant="secondary">
               Admin billing
@@ -200,6 +219,9 @@ export function CustomerBillingPortal(): JSX.Element {
           Enabled modules: {saas.features.join(", ") || "none"}
         </p>
         <div className="flex flex-wrap gap-2">
+          <Button size="sm" variant="primary" onClick={onRenew} disabled={busy}>
+            Renew
+          </Button>
           <Button size="sm" variant="danger" onClick={onCancel} disabled={busy}>
             Cancel subscription
           </Button>
@@ -272,8 +294,15 @@ export function CustomerBillingPortal(): JSX.Element {
                 <Button
                   size="sm"
                   variant={current ? "secondary" : "primary"}
-                  disabled={busy || current || plan.priceMonthlyUsd == null}
-                  onClick={() => void onCheckout(plan.id)}
+                  disabled={
+                    busy ||
+                    current ||
+                    (plan.priceMonthlyUsd == null && plan.id !== "enterprise")
+                  }
+                  onClick={() => {
+                    if (plan.priceMonthlyUsd == null) return;
+                    void onCheckout(plan.id);
+                  }}
                 >
                   {current
                     ? "Current plan"
@@ -281,6 +310,11 @@ export function CustomerBillingPortal(): JSX.Element {
                       ? "Contact sales"
                       : "Choose plan"}
                 </Button>
+                {plan.priceMonthlyUsd == null ? (
+                  <Link href="/contact-sales" className="text-[11px] font-semibold underline" style={{ color: "var(--agx-accent, #22d3ee)" }}>
+                    Open Contact Sales
+                  </Link>
+                ) : null}
               </div>
             );
           })}

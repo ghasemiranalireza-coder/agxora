@@ -72,6 +72,8 @@ export const config = {
     "/onboarding/:path*",
     "/welcome",
     "/demo",
+    "/pricing",
+    "/contact-sales",
     "/login",
     "/register",
     "/forgot-password",

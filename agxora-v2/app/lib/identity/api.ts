@@ -69,6 +69,8 @@ export const ROUTE_ACCESS = {
     "/reset-password",
     "/verify-email",
     "/demo",
+    "/pricing",
+    "/contact-sales",
     "/logout",
   ],
   private: ["/dashboard", "/workspace", "/onboarding", "/welcome"],

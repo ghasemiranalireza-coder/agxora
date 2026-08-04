@@ -14,7 +14,8 @@ features/saas/
   notifications/   # Trial ending, expiry, payment failed, upgrades, quotas
   store/           # LocalStorage commercial state (API-ready)
   hooks/           # useSaasCommercial
-  components/      # Customer portal + Admin panel
+  components/      # Customer portal + Admin panel + Account billing section
+  sales/           # Enterprise contact inquiries (local)
 ```
 
 UI never imports payment SDKs. All commercial operations go through `billingService`.
@@ -28,13 +29,17 @@ UI never imports payment SDKs. All commercial operations go through `billingServ
 | Business | + Automation, audit export, priority support |
 | Enterprise | + SSO, branding, scale limits |
 
+Public marketing pricing focuses on **Starter · Professional · Enterprise**.
+
 Limits cover users, projects, customers, documents, storage, AI requests, API requests.
 
 ## Routes
 
-- `/dashboard/billing` — customer portal
+- `/pricing` — public pricing (monthly / yearly)
+- `/contact-sales` — enterprise inquiry
+- `/dashboard/billing` — customer portal (upgrade / downgrade / cancel / renew)
 - `/dashboard/billing/admin` — internal admin
-- Settings → Billing links into the portal
+- Settings → Billing — account billing summary
 
 ## Future integrations
 

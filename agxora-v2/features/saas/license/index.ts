@@ -5,6 +5,7 @@ export {
   activateLicense,
   changePlan,
   cancelLicense,
+  renewLicense,
   suspendLicense,
   grantLifetimeLicense,
   isLicenseEntitled,
