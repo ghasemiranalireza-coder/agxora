@@ -30,6 +30,8 @@ Existing engines remain the source of truth for adapters:
 |-------|---------|
 | `/login` | Sign in (mock) |
 | `/register` | Create account |
+| `/demo` | Book demo (placeholder) |
+| `/welcome` | First-login welcome |
 | `/forgot-password` | Reset request |
 | `/reset-password` | Apply reset token |
 | `/verify-email` | Email verification |

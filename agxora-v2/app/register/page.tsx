@@ -9,18 +9,27 @@ import {
   AuthLink,
   authButtonDisabledStyle,
   authButtonStyle,
+  authHintStyle,
   authInputStyle,
   authLabelStyle,
   authRowStyle,
+  authToggleStyle,
 } from "../components/auth/AuthCard";
 import { useAuth } from "../lib/auth";
+import {
+  assessPasswordStrength,
+  isValidEmail,
+  passwordStrengthMessage,
+} from "../lib/auth/formValidation";
+import { markWelcomePending } from "../lib/auth/welcomeFlags";
 import { iamAuthService } from "../../features/auth";
 
 export default function RegisterPage(): JSX.Element {
   const { refresh } = useAuth();
   const router = useRouter();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [companyName, setCompanyName] = useState("");
-  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -29,13 +38,17 @@ export default function RegisterPage(): JSX.Element {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
+  const strength = assessPasswordStrength(password);
+
   const validate = (): string | null => {
-    if (!companyName.trim()) return "Company name is required.";
-    if (!displayName.trim()) return "Full name is required.";
-    if (!email.includes("@")) return "Enter a valid email address.";
-    if (password.length < 8) return "Password must be at least 8 characters.";
+    if (!firstName.trim()) return "First name is required.";
+    if (!lastName.trim()) return "Last name is required.";
+    if (!companyName.trim()) return "Company is required.";
+    if (!isValidEmail(email)) return "Enter a valid email address.";
+    const passwordError = passwordStrengthMessage(password);
+    if (passwordError) return passwordError;
     if (password !== confirmPassword) return "Passwords do not match.";
-    if (!acceptTerms) return "Accept the terms to create a workspace.";
+    if (!acceptTerms) return "Accept the terms to continue.";
     return null;
   };
 
@@ -49,15 +62,17 @@ export default function RegisterPage(): JSX.Element {
     setBusy(true);
     setError(null);
     try {
-      await iamAuthService.register({
-        email,
+      const displayName = `${firstName.trim()} ${lastName.trim()}`.trim();
+      const result = await iamAuthService.register({
+        email: email.trim(),
         password,
         displayName,
-        companyName,
+        companyName: companyName.trim(),
         acceptTerms,
       });
+      markWelcomePending(result.userId);
       await refresh();
-      router.replace("/onboarding");
+      router.replace("/welcome");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Sign up failed");
     } finally {
@@ -67,7 +82,8 @@ export default function RegisterPage(): JSX.Element {
 
   return (
     <AuthCard
-      title="Create Workspace"
+      title="Create your account"
+      subtitle="Start free — set up your AGXORA workspace."
       footer={
         <>
           Already have an account? <AuthLink href="/login">Sign in</AuthLink>
@@ -75,8 +91,52 @@ export default function RegisterPage(): JSX.Element {
       }
     >
       <form onSubmit={(event) => void onSubmit(event)} noValidate>
+        <div
+          className="auth-name-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 12,
+          }}
+        >
+          <div>
+            <label style={authLabelStyle} htmlFor="reg-first">
+              First Name
+            </label>
+            <input
+              id="reg-first"
+              type="text"
+              placeholder="Alex"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+              autoComplete="given-name"
+              disabled={busy}
+              aria-required="true"
+              style={{ ...authInputStyle, marginBottom: 15 }}
+            />
+          </div>
+          <div>
+            <label style={authLabelStyle} htmlFor="reg-last">
+              Last Name
+            </label>
+            <input
+              id="reg-last"
+              type="text"
+              placeholder="Morgan"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              required
+              autoComplete="family-name"
+              disabled={busy}
+              aria-required="true"
+              style={{ ...authInputStyle, marginBottom: 15 }}
+            />
+          </div>
+        </div>
+
         <label style={authLabelStyle} htmlFor="reg-company">
-          Company Name
+          Company
         </label>
         <input
           id="reg-company"
@@ -85,22 +145,9 @@ export default function RegisterPage(): JSX.Element {
           value={companyName}
           onChange={(e) => setCompanyName(e.target.value)}
           required
+          autoComplete="organization"
           disabled={busy}
-          style={authInputStyle}
-        />
-
-        <label style={authLabelStyle} htmlFor="reg-name">
-          Full Name
-        </label>
-        <input
-          id="reg-name"
-          type="text"
-          placeholder="Alex Morgan"
-          value={displayName}
-          onChange={(e) => setDisplayName(e.target.value)}
-          required
-          autoComplete="name"
-          disabled={busy}
+          aria-required="true"
           style={authInputStyle}
         />
 
@@ -116,6 +163,7 @@ export default function RegisterPage(): JSX.Element {
           required
           autoComplete="email"
           disabled={busy}
+          aria-required="true"
           style={authInputStyle}
         />
 
@@ -126,36 +174,34 @@ export default function RegisterPage(): JSX.Element {
           <input
             id="reg-password"
             type={showPassword ? "text" : "password"}
-            placeholder="Min 8 characters"
+            placeholder="Min 8 characters, letters + numbers"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             minLength={8}
             autoComplete="new-password"
             disabled={busy}
+            aria-required="true"
+            aria-describedby="reg-password-hint"
             style={{ ...authInputStyle, marginBottom: 0, paddingRight: 72 }}
           />
           <button
             type="button"
             onClick={() => setShowPassword((v) => !v)}
-            style={{
-              position: "absolute",
-              right: 10,
-              top: "50%",
-              transform: "translateY(-50%)",
-              border: "none",
-              background: "transparent",
-              color: "#22d3ee",
-              fontSize: 12,
-              fontWeight: 600,
-              cursor: "pointer",
-            }}
+            aria-label={showPassword ? "Hide password" : "Show password"}
+            style={authToggleStyle}
           >
             {showPassword ? "Hide" : "Show"}
           </button>
         </div>
+        <p id="reg-password-hint" style={authHintStyle}>
+          Strength:{" "}
+          <span style={{ color: strength === "strong" ? "#34d399" : strength === "fair" ? "#fbbf24" : "#f87171" }}>
+            {strength}
+          </span>
+        </p>
 
-        <label style={{ ...authLabelStyle, marginTop: 15 }} htmlFor="reg-confirm">
+        <label style={authLabelStyle} htmlFor="reg-confirm">
           Confirm Password
         </label>
         <input
@@ -167,11 +213,16 @@ export default function RegisterPage(): JSX.Element {
           required
           autoComplete="new-password"
           disabled={busy}
+          aria-required="true"
           style={authInputStyle}
         />
 
-        <AuthCheckbox checked={acceptTerms} onChange={setAcceptTerms}>
-          Accept Terms — I agree to the AGXORA workspace terms and privacy policy.
+        <AuthCheckbox
+          id="reg-terms"
+          checked={acceptTerms}
+          onChange={setAcceptTerms}
+        >
+          Accept Terms — I agree to the AGXORA terms and privacy policy.
         </AuthCheckbox>
 
         <AuthFieldError message={error} />
@@ -182,9 +233,16 @@ export default function RegisterPage(): JSX.Element {
           style={busy ? authButtonDisabledStyle : authButtonStyle}
           aria-busy={busy}
         >
-          {busy ? "Creating workspace…" : "Create Workspace"}
+          {busy ? "Creating account…" : "Create account"}
         </button>
       </form>
+      <style>{`
+        @media (max-width: 520px) {
+          .auth-name-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </AuthCard>
   );
 }

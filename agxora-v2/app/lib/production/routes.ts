@@ -10,6 +10,7 @@ export const PUBLIC_ROUTE_PATHS = [
   "/forgot-password",
   "/reset-password",
   "/verify-email",
+  "/demo",
   "/logout",
   "/unauthorized",
   "/forbidden",
@@ -30,6 +31,7 @@ export const PRIVATE_ROUTE_PREFIXES = [
   "/dashboard",
   "/workspace",
   "/onboarding",
+  "/welcome",
 ] as const;
 
 /** Admin-oriented markers for future RBAC edge checks. */
@@ -68,6 +70,8 @@ export const PROXY_MATCHER = [
   "/dashboard/:path*",
   "/workspace/:path*",
   "/onboarding/:path*",
+  "/welcome",
+  "/demo",
   "/login",
   "/register",
   "/forgot-password",
