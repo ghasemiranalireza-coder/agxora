@@ -62,7 +62,7 @@ export function PricingPageView(): JSX.Element {
               onClick={() => setInterval("yearly")}
             >
               Yearly
-              <span className="p35-pricing__save">Save ~17%</span>
+              <span className="p35-pricing__save">Save ~20%</span>
             </button>
           </div>
         </div>
@@ -78,7 +78,7 @@ export function PricingPageView(): JSX.Element {
                 aria-label={`${plan.name} plan`}
               >
                 {plan.recommended ? (
-                  <p className="p35-plan__badge">Recommended</p>
+                  <p className="p35-plan__badge">MOST POPULAR</p>
                 ) : (
                   <p className="p35-plan__badge p35-plan__badge--spacer" aria-hidden="true">
                     &nbsp;
@@ -92,7 +92,8 @@ export function PricingPageView(): JSX.Element {
                 </p>
                 {interval === "yearly" && savings != null ? (
                   <p className="p35-plan__yearly-hint">
-                    ${plan.priceYearlyUsd}/year · save {savings}%
+                    €{Number(plan.priceYearlyUsd).toFixed(2)}/year · save{" "}
+                    {savings}%
                   </p>
                 ) : (
                   <p className="p35-plan__yearly-hint p35-plan__yearly-hint--spacer">

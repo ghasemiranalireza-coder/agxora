@@ -1,6 +1,5 @@
 /**
- * Public marketing plans — Starter · Professional · Enterprise.
- * Business remains in the commercial catalog for portal upgrades.
+ * Public marketing plans — Starter · Business · Professional · Enterprise.
  */
 
 import type { BillingInterval, CommercialPlan, CommercialPlanId } from "../types";
@@ -25,6 +24,7 @@ export interface PricingPlanView {
 
 const MARKETING_ORDER: readonly CommercialPlanId[] = [
   "starter",
+  "business",
   "professional",
   "enterprise",
 ];
@@ -37,25 +37,26 @@ const FEATURE_COPY: Readonly<Record<CommercialPlanId, readonly string[]>> = {
     "Up to 5 seats",
     "Email support",
   ],
+  business: [
+    "Everything in Starter",
+    "Finance & analytics modules",
+    "Automation & audit export",
+    "Team collaboration",
+    "Priority support",
+  ],
   professional: [
     "Everything in Starter",
     "Finance & analytics modules",
     "API access",
-    "Up to 25 seats",
+    "Advanced company workflows",
     "Priority support inbox",
   ],
-  business: [
-    "Everything in Professional",
-    "Automation & audit export",
-    "Up to 100 seats",
-    "Priority support",
-  ],
   enterprise: [
-    "Everything in Professional",
-    "SSO and custom branding",
-    "Dedicated success partnership",
-    "Custom limits and SLA",
-    "Volume commercial terms",
+    "Custom pricing",
+    "Unlimited scale",
+    "Dedicated onboarding",
+    "Custom integrations",
+    "Priority support",
   ],
 };
 
@@ -67,15 +68,15 @@ const CTA_BY_PLAN: Readonly<
     label: "Start Free",
     href: "/register",
   },
-  professional: {
+  business: {
     kind: "start_free",
     label: "Start Free",
     href: "/register",
   },
-  business: {
-    kind: "book_demo",
-    label: "Book Demo",
-    href: "/demo",
+  professional: {
+    kind: "start_free",
+    label: "Start Free",
+    href: "/register",
   },
   enterprise: {
     kind: "contact_sales",
@@ -83,6 +84,10 @@ const CTA_BY_PLAN: Readonly<
     href: "/contact-sales",
   },
 };
+
+function formatEuro(amount: number): string {
+  return `€${amount.toFixed(2)}`;
+}
 
 export function listMarketingPlans(): readonly PricingPlanView[] {
   return MARKETING_ORDER.map((id) => {
@@ -109,13 +114,13 @@ export function formatPlanPrice(
   interval: BillingInterval,
 ): { readonly label: string; readonly suffix: string } {
   if (plan.priceMonthlyUsd == null || plan.priceYearlyUsd == null) {
-    return { label: "Custom", suffix: "talk to sales" };
+    return { label: "Contact Sales", suffix: "" };
   }
   if (interval === "yearly") {
-    const monthlyEquivalent = Math.round(plan.priceYearlyUsd / 12);
-    return { label: `$${monthlyEquivalent}`, suffix: "/mo billed yearly" };
+    const monthlyEquivalent = plan.priceYearlyUsd / 12;
+    return { label: formatEuro(monthlyEquivalent), suffix: "/mo billed yearly" };
   }
-  return { label: `$${plan.priceMonthlyUsd}`, suffix: "/mo" };
+  return { label: formatEuro(plan.priceMonthlyUsd), suffix: "/mo" };
 }
 
 export function yearlySavingsPercent(plan: PricingPlanView): number | null {
