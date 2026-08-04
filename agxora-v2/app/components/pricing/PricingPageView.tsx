@@ -21,8 +21,11 @@ export function PricingPageView(): JSX.Element {
           AGXORA
         </Link>
         <nav className="p35-pricing__nav" aria-label="Pricing navigation">
-          <Link href="/demo">Book Demo</Link>
+          <Link href="/pricing" aria-current="page">
+            Pricing
+          </Link>
           <Link href="/contact-sales">Contact Sales</Link>
+          <Link href="/demo">Book Demo</Link>
           <Link href="/login">Sign in</Link>
           <Link href="/register" className="p35-pricing__nav-cta">
             Start Free

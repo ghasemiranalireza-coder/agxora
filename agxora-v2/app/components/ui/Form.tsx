@@ -8,41 +8,36 @@ import type {
   TextareaHTMLAttributes,
 } from "react";
 
-const controlStyle = {
-  borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
-  background: "rgba(255,255,255,0.04)",
-  color: "var(--agx-text, #f8fafc)",
-  outlineColor: "var(--agx-accent, #22d3ee)",
-} as const;
-
 export function FormField({
   label,
   error,
   hint,
+  htmlFor,
   children,
 }: {
   readonly label: string;
   readonly error?: string;
   readonly hint?: string;
+  readonly htmlFor?: string;
   readonly children: ReactNode;
 }): JSX.Element {
   return (
-    <label className="block space-y-1.5">
+    <label className="block space-y-1.5" htmlFor={htmlFor}>
       <span
         className="block text-[11px] font-semibold uppercase tracking-[0.14em]"
-        style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+        style={{ color: "var(--agx-ds-text-muted, #94a3b8)" }}
       >
         {label}
       </span>
       {children}
       {error ? (
-        <span className="block text-xs" style={{ color: "#fb7185" }}>
+        <span className="block text-xs" role="alert" style={{ color: "#fb7185" }}>
           {error}
         </span>
       ) : hint ? (
         <span
           className="block text-xs"
-          style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+          style={{ color: "var(--agx-ds-text-muted, #94a3b8)" }}
         >
           {hint}
         </span>
@@ -54,25 +49,13 @@ export function FormField({
 export function FormInput(
   props: Omit<InputHTMLAttributes<HTMLInputElement>, "className">,
 ): JSX.Element {
-  return (
-    <input
-      {...props}
-      className="w-full rounded-xl border px-3 py-2.5 text-sm outline-none transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-55"
-      style={controlStyle}
-    />
-  );
+  return <input {...props} className="agx-ui-control" />;
 }
 
 export function FormTextArea(
   props: Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "className">,
 ): JSX.Element {
-  return (
-    <textarea
-      {...props}
-      className="w-full rounded-xl border px-3 py-2.5 text-sm outline-none transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-55"
-      style={controlStyle}
-    />
-  );
+  return <textarea {...props} className="agx-ui-control" />;
 }
 
 export function FormSelect(
@@ -81,10 +64,8 @@ export function FormSelect(
   },
 ): JSX.Element {
   return (
-    <select
-      {...props}
-      className="w-full rounded-xl border px-3 py-2.5 text-sm outline-none transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-55"
-      style={controlStyle}
-    />
+    <select {...props} className="agx-ui-control">
+      {props.children}
+    </select>
   );
 }

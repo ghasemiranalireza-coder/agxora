@@ -244,34 +244,6 @@ export function DashboardTopNav(): JSX.Element {
                 Account settings
               </Link>
               <Link
-                href="/dashboard/billing"
-                onClick={() => setProfileOpen(false)}
-                className="agx-topnav-menu-link"
-                style={{
-                  display: "block",
-                  color: tokens.text,
-                  fontSize: 12,
-                  textDecoration: "none",
-                  padding: "8px 4px",
-                }}
-              >
-                Billing
-              </Link>
-              <Link
-                href="/dashboard/ai"
-                onClick={() => setProfileOpen(false)}
-                className="agx-topnav-menu-link"
-                style={{
-                  display: "block",
-                  color: tokens.text,
-                  fontSize: 12,
-                  textDecoration: "none",
-                  padding: "8px 4px",
-                }}
-              >
-                AI Workspace
-              </Link>
-              <Link
                 href="/dashboard/projects"
                 onClick={() => setProfileOpen(false)}
                 className="agx-topnav-menu-link"
@@ -312,6 +284,34 @@ export function DashboardTopNav(): JSX.Element {
                 }}
               >
                 Analytics
+              </Link>
+              <Link
+                href="/dashboard/billing"
+                onClick={() => setProfileOpen(false)}
+                className="agx-topnav-menu-link"
+                style={{
+                  display: "block",
+                  color: tokens.text,
+                  fontSize: 12,
+                  textDecoration: "none",
+                  padding: "8px 4px",
+                }}
+              >
+                Billing
+              </Link>
+              <Link
+                href="/dashboard/ai"
+                onClick={() => setProfileOpen(false)}
+                className="agx-topnav-menu-link"
+                style={{
+                  display: "block",
+                  color: tokens.text,
+                  fontSize: 12,
+                  textDecoration: "none",
+                  padding: "8px 4px",
+                }}
+              >
+                AI Workspace
               </Link>
               <Link
                 href="/dashboard/settings#security"

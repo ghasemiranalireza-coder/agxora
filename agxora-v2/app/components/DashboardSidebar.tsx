@@ -38,11 +38,6 @@ const NAV_ITEMS = [
     path: "M3 12l9-9 9 9 M5 10v9a1 1 0 0 0 1 1h3m6 0h3a1 1 0 0 0 1-1v-9 M9 20v-6h6v6",
   },
   {
-    label: "AI Workspace",
-    href: "/dashboard/ai",
-    path: "M12 3v3 M12 18v3 M3 12h3 M18 12h3 M5.6 5.6l2.1 2.1 M16.3 16.3l2.1 2.1 M5.6 18.4l2.1-2.1 M16.3 7.7l2.1-2.1 M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z",
-  },
-  {
     label: "Projects",
     href: "/dashboard/projects",
     path: "M4 5h16 M4 12h16 M4 19h10",
@@ -61,6 +56,11 @@ const NAV_ITEMS = [
     label: "Billing",
     href: "/dashboard/billing",
     path: "M4 6h16v12H4Z M4 10h16 M8 14h4",
+  },
+  {
+    label: "AI Workspace",
+    href: "/dashboard/ai",
+    path: "M12 3v3 M12 18v3 M3 12h3 M18 12h3 M5.6 5.6l2.1 2.1 M16.3 16.3l2.1 2.1 M5.6 18.4l2.1-2.1 M16.3 7.7l2.1-2.1 M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z",
   },
   {
     label: "Customers",

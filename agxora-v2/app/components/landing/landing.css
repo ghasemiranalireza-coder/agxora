@@ -372,33 +372,32 @@
 }
 
 .p31-hero__brandmark {
-  margin: 0 0 18px;
+  margin: 0 0 20px;
   font-family: var(--p31-display);
-  font-size: clamp(14px, 1.4vw, 18px);
+  font-size: clamp(15px, 1.5vw, 20px);
   font-weight: 700;
-  letter-spacing: 0.32em;
-  text-indent: 0.32em;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
   color: var(--p31-accent);
-  text-shadow: 0 0 28px rgba(125, 211, 252, 0.28);
 }
 
 .p31-hero__headline {
-  margin: 0 0 18px;
-  max-width: 12ch;
+  margin: 0 0 20px;
+  max-width: 13ch;
   font-family: var(--p31-display);
-  font-size: clamp(42px, 5.8vw, 68px);
+  font-size: clamp(40px, 5.4vw, 64px);
   font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 1.02;
+  letter-spacing: -0.042em;
+  line-height: 1.05;
   color: var(--p31-ink);
 }
 
 .p31-hero__subtitle {
-  margin: 0 0 28px;
-  max-width: 36ch;
-  font-size: clamp(15px, 1.35vw, 17px);
+  margin: 0 0 32px;
+  max-width: 38ch;
+  font-size: clamp(15px, 1.25vw, 17px);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.65;
   letter-spacing: -0.01em;
   color: var(--p31-muted);
 }
@@ -407,27 +406,30 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .p31-hero__next {
-  margin: 18px 0 0;
+  margin: 22px 0 0;
   font-size: 13px;
   color: var(--p31-muted);
   line-height: 1.5;
+  letter-spacing: 0.01em;
 }
 
 .p31-hero__next a {
-  color: var(--p31-accent);
-  font-weight: 600;
+  color: rgba(226, 232, 240, 0.92);
+  font-weight: 550;
   text-decoration: none;
-  transition: opacity 160ms ease;
+  border-bottom: 1px solid rgba(125, 211, 252, 0.35);
+  transition:
+    color 160ms ease,
+    border-color 160ms ease;
 }
 
 .p31-hero__next a:hover {
-  opacity: 0.8;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--p31-accent);
+  border-bottom-color: var(--p31-accent);
 }
 
 /* Globe — signature object (+20% from Phase 32), premium depth */

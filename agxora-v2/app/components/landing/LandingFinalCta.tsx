@@ -27,8 +27,8 @@ export function LandingFinalCta(): JSX.Element {
             <LandingCta href="/pricing" variant="ghost">
               View Pricing
             </LandingCta>
-            <LandingCta href="/demo" variant="ghost">
-              Book Demo
+            <LandingCta href="/contact-sales" variant="ghost">
+              Contact Sales
             </LandingCta>
           </div>
         </motion.div>

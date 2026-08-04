@@ -17,19 +17,19 @@ const variantStyle: Record<
   { border: string; background: string; color: string }
 > = {
   primary: {
-    border: "color-mix(in srgb, var(--agx-accent, #22d3ee) 45%, transparent)",
-    background: "color-mix(in srgb, var(--agx-accent, #22d3ee) 18%, transparent)",
-    color: "var(--agx-accent, #22d3ee)",
+    border: "transparent",
+    background: "linear-gradient(180deg, #67e8f9 0%, #22d3ee 55%, #06b6d4 100%)",
+    color: "#041018",
   },
   secondary: {
-    border: "var(--agx-card-border, rgba(255,255,255,0.12))",
-    background: "rgba(255,255,255,0.04)",
-    color: "var(--agx-text, #f8fafc)",
+    border: "var(--agx-ds-border, rgba(255,255,255,0.12))",
+    background: "var(--agx-ds-surface, rgba(255,255,255,0.04))",
+    color: "var(--agx-ds-text, #f8fafc)",
   },
   ghost: {
     border: "transparent",
     background: "transparent",
-    color: "var(--agx-text-muted, #94a3b8)",
+    color: "var(--agx-ds-text-muted, #94a3b8)",
   },
   danger: {
     border: "rgba(251,113,133,0.35)",
@@ -67,18 +67,20 @@ export function Button({
         justifyContent: "center",
         gap: 8,
         height,
+        minWidth: size === "sm" ? 72 : 88,
         padding: `0 ${UI.control.padX}px`,
-        borderRadius: UI.radius.sm,
+        borderRadius: UI.radius.md,
         border: `1px solid ${v.border}`,
         background: v.background,
         color: v.color,
         fontSize: size === "sm" ? 12 : 13,
-        fontWeight: 550,
+        fontWeight: variant === "primary" ? 650 : 550,
         letterSpacing: "0.01em",
         cursor: isDisabled ? "not-allowed" : "pointer",
         opacity: isDisabled ? 0.55 : 1,
+        boxShadow: variant === "primary" ? UI.shadow.sm : "none",
         transition:
-          "opacity 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease",
+          "opacity 160ms var(--agx-ds-ease, ease), background 160ms ease, border-color 160ms ease, transform 160ms var(--agx-ds-ease, ease), box-shadow 160ms ease",
         ...style,
       }}
       {...rest}
@@ -113,20 +115,20 @@ export function IconButton({
         justifyContent: "center",
         width: UI.control.height,
         height: UI.control.height,
-        borderRadius: UI.radius.sm,
+        borderRadius: UI.radius.md,
         border: `1px solid ${
           active
             ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 40%, transparent)"
-            : "var(--agx-card-border, rgba(255,255,255,0.12))"
+            : "var(--agx-ds-border, rgba(255,255,255,0.12))"
         }`,
         background: active
           ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 12%, transparent)"
           : "rgba(255,255,255,0.03)",
         color: active
           ? "var(--agx-accent, #22d3ee)"
-          : "var(--agx-text-muted, #94a3b8)",
+          : "var(--agx-ds-text-muted, #94a3b8)",
         cursor: rest.disabled ? "not-allowed" : "pointer",
-        transition: "background 180ms ease, border-color 180ms ease, color 180ms ease",
+        transition: "background 160ms ease, border-color 160ms ease, color 160ms ease",
       }}
       {...rest}
     >

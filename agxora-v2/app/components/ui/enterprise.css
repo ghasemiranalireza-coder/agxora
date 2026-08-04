@@ -1,0 +1,139 @@
+/**
+ * AGXORA enterprise design language — CSS custom properties.
+ * Single source for spacing, radius, elevation, control sizes, and motion.
+ */
+
+:root {
+  --agx-ds-space-1: 4px;
+  --agx-ds-space-2: 8px;
+  --agx-ds-space-3: 12px;
+  --agx-ds-space-4: 16px;
+  --agx-ds-space-5: 20px;
+  --agx-ds-space-6: 24px;
+  --agx-ds-space-8: 32px;
+  --agx-ds-space-10: 40px;
+  --agx-ds-space-12: 48px;
+
+  --agx-ds-radius-sm: 10px;
+  --agx-ds-radius-md: 14px;
+  --agx-ds-radius-lg: 20px;
+  --agx-ds-radius-xl: 24px;
+  --agx-ds-radius-pill: 999px;
+
+  --agx-ds-shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.16);
+  --agx-ds-shadow-md: 0 12px 32px rgba(0, 0, 0, 0.26);
+  --agx-ds-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.34);
+  --agx-ds-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--agx-accent, #22d3ee) 28%, transparent);
+
+  --agx-ds-control-h: 36px;
+  --agx-ds-control-h-sm: 32px;
+  --agx-ds-icon: 18px;
+  --agx-ds-font-ui: var(--font-geist-sans), system-ui, sans-serif;
+  --agx-ds-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --agx-ds-duration: 180ms;
+
+  --agx-ds-text: var(--agx-text, #f8fafc);
+  --agx-ds-text-muted: var(--agx-text-muted, #94a3b8);
+  --agx-ds-border: var(--agx-card-border, rgba(255, 255, 255, 0.1));
+  --agx-ds-surface: rgba(255, 255, 255, 0.035);
+}
+
+/* Unified form / select / textarea control surface */
+.agx-ui-control {
+  width: 100%;
+  min-height: var(--agx-ds-control-h);
+  border-radius: var(--agx-ds-radius-md);
+  border: 1px solid var(--agx-ds-border);
+  background: var(--agx-ds-surface);
+  color: var(--agx-ds-text);
+  padding: 0 var(--agx-ds-space-3);
+  font-size: 13px;
+  font-family: var(--agx-ds-font-ui);
+  transition:
+    border-color var(--agx-ds-duration) var(--agx-ds-ease),
+    box-shadow var(--agx-ds-duration) var(--agx-ds-ease),
+    background var(--agx-ds-duration) var(--agx-ds-ease);
+}
+
+.agx-ui-control:hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 28%, transparent);
+}
+
+.agx-ui-control:focus-visible {
+  outline: none;
+  border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 55%, transparent);
+  box-shadow: var(--agx-ds-shadow-focus);
+}
+
+.agx-ui-control:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+textarea.agx-ui-control {
+  min-height: 96px;
+  padding: var(--agx-ds-space-3);
+  resize: vertical;
+}
+
+/* Table rhythm */
+.agx-ui-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.agx-ui-table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--agx-ds-text-muted);
+  padding: var(--agx-ds-space-3) var(--agx-ds-space-4);
+  border-bottom: 1px solid var(--agx-ds-border);
+}
+
+.agx-ui-table td {
+  padding: var(--agx-ds-space-3) var(--agx-ds-space-4);
+  border-bottom: 1px solid color-mix(in srgb, var(--agx-ds-border) 70%, transparent);
+  color: var(--agx-ds-text);
+  vertical-align: middle;
+}
+
+.agx-ui-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Section rhythm helper */
+.agx-ui-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--agx-ds-space-4);
+}
+
+.agx-ui-stack--lg {
+  gap: var(--agx-ds-space-6);
+}
+
+/* Page enter — subtle, reduced when prefers-reduced-motion */
+.agx-page-enter {
+  animation: agx-page-enter 280ms var(--agx-ds-ease);
+}
+
+@keyframes agx-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agx-page-enter {
+    animation: none;
+  }
+}
