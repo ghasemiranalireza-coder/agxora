@@ -3,6 +3,7 @@
 import type { JSX, ReactNode } from "react";
 import { Button } from "./Button";
 import { Card } from "./Card";
+import { UI } from "./tokens";
 
 export function EmptyState({
   title,
@@ -86,16 +87,62 @@ export function ErrorState({
 }): JSX.Element {
   return (
     <Card hover={false} padding="28px">
+      <div role="alert">
+        <h3 className="text-base font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+          {title}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          {description}
+        </p>
+        {onRetry ? (
+          <div className="mt-4">
+            <Button variant="primary" onClick={onRetry}>
+              Retry
+            </Button>
+          </div>
+        ) : null}
+      </div>
+    </Card>
+  );
+}
+
+export function SuccessState({
+  title,
+  description,
+  actionLabel,
+  onAction,
+}: {
+  readonly title: string;
+  readonly description: string;
+  readonly actionLabel?: string;
+  readonly onAction?: () => void;
+}): JSX.Element {
+  return (
+    <Card hover={false} className="flex flex-col items-center text-center" padding="36px 28px">
+      <div
+        className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border"
+        style={{
+          borderColor: "rgba(52,211,153,0.35)",
+          color: "#34d399",
+          background: "rgba(52,211,153,0.1)",
+        }}
+        aria-hidden="true"
+      >
+        <span style={{ fontSize: 18, fontWeight: 700 }}>✓</span>
+      </div>
       <h3 className="text-base font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
         {title}
       </h3>
-      <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+      <p
+        className="mt-2 max-w-md text-sm leading-relaxed"
+        style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+      >
         {description}
       </p>
-      {onRetry ? (
-        <div className="mt-4">
-          <Button variant="primary" onClick={onRetry}>
-            Retry
+      {actionLabel && onAction ? (
+        <div className="mt-5">
+          <Button variant="primary" onClick={onAction}>
+            {actionLabel}
           </Button>
         </div>
       ) : null}
@@ -118,7 +165,7 @@ export function Skeleton({
       style={{
         height,
         width,
-        borderRadius: 10,
+        borderRadius: UI.radius.sm,
         background:
           "linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.09), rgba(255,255,255,0.04))",
         backgroundSize: "200% 100%",

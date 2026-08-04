@@ -578,6 +578,26 @@ select {
 
 .agx-ui-btn:hover:not(:disabled) {
   filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.agx-ui-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.agx-ui-btn__spinner {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  animation: agx-ui-spin 0.7s linear infinite;
+}
+
+@keyframes agx-ui-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .agx-ui-icon-btn:hover:not(:disabled) {
@@ -586,7 +606,49 @@ select {
 }
 
 .agx-ui-card {
-  transition: box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.agx-topnav-menu {
+  animation: agx-menu-in 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: top right;
+}
+
+.agx-topnav-menu-link {
+  border-radius: 8px;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.agx-topnav-menu-link:hover {
+  background: rgba(34, 211, 238, 0.08);
+}
+
+@keyframes agx-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+[data-toast-count] > div {
+  animation: agx-toast-in 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes agx-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 900px) {
@@ -605,6 +667,12 @@ select {
 
 @media (prefers-reduced-motion: reduce) {
   .agx-ui-skeleton {
+    animation: none !important;
+  }
+
+  .agx-ui-btn__spinner,
+  .agx-topnav-menu,
+  [data-toast-count] > div {
     animation: none !important;
   }
 }

@@ -4,7 +4,7 @@ export { Card, Section } from "./Card";
 export { Badge } from "./Badge";
 export { DataTable } from "./DataTable";
 export type { DataTableColumn, DataTableProps } from "./DataTable";
-export { EmptyState, ErrorState, Skeleton, SkeletonCard } from "./States";
+export { EmptyState, ErrorState, SuccessState, Skeleton, SkeletonCard } from "./States";
 export { ModuleEmptyState } from "./ModuleEmptyState";
 export type { ModuleEmptyKind } from "./ModuleEmptyState";
 export { SearchField, FilterSelect } from "./Filters";

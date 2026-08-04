@@ -45,10 +45,10 @@ export default function BookDemoPage() {
             We’re finishing scheduling so you can pick a time that works for your team.
             Until then, start free and explore the product at your own pace — or reach us at{" "}
             <a
-              href="mailto:hello@agxora.com?subject=AGXORA%20demo%20request"
+              href="mailto:hello@agxora.app?subject=AGXORA%20demo%20request"
               style={{ color: "#7dd3fc", fontWeight: 600 }}
             >
-              hello@agxora.com
+              hello@agxora.app
             </a>
             .
           </p>

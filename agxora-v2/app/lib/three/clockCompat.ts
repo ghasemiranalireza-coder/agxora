@@ -73,12 +73,17 @@ function silenceClockDeprecation(): void {
   }
   const original = console.warn.bind(console);
   console.warn = (...args: unknown[]) => {
-    const first = args[0];
-    if (
-      typeof first === "string" &&
-      first.includes("THREE.Clock") &&
-      first.includes("deprecated")
-    ) {
+    const text = args
+      .map((arg) => {
+        if (typeof arg === "string") return arg;
+        if (arg instanceof Error) return `${arg.name}: ${arg.message}`;
+        if (arg && typeof arg === "object" && "message" in arg) {
+          return String((arg as { message: unknown }).message);
+        }
+        return "";
+      })
+      .join(" ");
+    if (text.includes("THREE.Clock") && /deprecated/i.test(text)) {
       return;
     }
     original(...args);

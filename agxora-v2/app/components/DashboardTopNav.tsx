@@ -232,6 +232,7 @@ export function DashboardTopNav(): JSX.Element {
               <Link
                 href="/dashboard/settings#profile"
                 onClick={() => setProfileOpen(false)}
+                className="agx-topnav-menu-link"
                 style={{
                   display: "block",
                   color: tokens.text,
@@ -243,8 +244,79 @@ export function DashboardTopNav(): JSX.Element {
                 Account settings
               </Link>
               <Link
+                href="/dashboard/billing"
+                onClick={() => setProfileOpen(false)}
+                className="agx-topnav-menu-link"
+                style={{
+                  display: "block",
+                  color: tokens.text,
+                  fontSize: 12,
+                  textDecoration: "none",
+                  padding: "8px 4px",
+                }}
+              >
+                Billing
+              </Link>
+              <Link
+                href="/dashboard/ai"
+                onClick={() => setProfileOpen(false)}
+                className="agx-topnav-menu-link"
+                style={{
+                  display: "block",
+                  color: tokens.text,
+                  fontSize: 12,
+                  textDecoration: "none",
+                  padding: "8px 4px",
+                }}
+              >
+                AI Workspace
+              </Link>
+              <Link
+                href="/dashboard/projects"
+                onClick={() => setProfileOpen(false)}
+                className="agx-topnav-menu-link"
+                style={{
+                  display: "block",
+                  color: tokens.text,
+                  fontSize: 12,
+                  textDecoration: "none",
+                  padding: "8px 4px",
+                }}
+              >
+                Projects
+              </Link>
+              <Link
+                href="/dashboard/crm"
+                onClick={() => setProfileOpen(false)}
+                className="agx-topnav-menu-link"
+                style={{
+                  display: "block",
+                  color: tokens.text,
+                  fontSize: 12,
+                  textDecoration: "none",
+                  padding: "8px 4px",
+                }}
+              >
+                CRM
+              </Link>
+              <Link
+                href="/dashboard/analytics"
+                onClick={() => setProfileOpen(false)}
+                className="agx-topnav-menu-link"
+                style={{
+                  display: "block",
+                  color: tokens.text,
+                  fontSize: 12,
+                  textDecoration: "none",
+                  padding: "8px 4px",
+                }}
+              >
+                Analytics
+              </Link>
+              <Link
                 href="/dashboard/settings#security"
                 onClick={() => setProfileOpen(false)}
+                className="agx-topnav-menu-link"
                 style={{
                   display: "block",
                   color: tokens.text,
@@ -258,6 +330,7 @@ export function DashboardTopNav(): JSX.Element {
               <Link
                 href="/dashboard/team"
                 onClick={() => setProfileOpen(false)}
+                className="agx-topnav-menu-link"
                 style={{
                   display: "block",
                   color: tokens.text,
@@ -330,6 +403,7 @@ function HeaderMenu({
   return (
     <div
       role="menu"
+      className="agx-topnav-menu"
       style={{
         position: "absolute",
         top: "calc(100% + 8px)",
