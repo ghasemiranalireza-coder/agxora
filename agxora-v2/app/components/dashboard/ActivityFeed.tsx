@@ -63,15 +63,15 @@ export function ActivityFeed({
       className="agx-glass-panel agx-dash-activity"
       aria-label="Recent activity"
       style={{
-        padding: "28px 30px",
-        borderRadius: "26px",
+        padding: "24px",
+        borderRadius: "24px",
         background: tokens.panelBg,
         border: `1px solid ${tokens.panelBorder}`,
         boxShadow: tokens.panelShadow,
         backdropFilter: tokens.cardBlur,
         WebkitBackdropFilter: tokens.cardBlur,
         transition: surfaceTransition,
-        minHeight: 420,
+        minHeight: 416,
         display: "flex",
         flexDirection: "column",
       }}

@@ -37,14 +37,14 @@ export function AttentionPanel({
       className="agx-glass-panel agx-hero-follow agx-dash-panel"
       aria-label="What needs attention"
       style={{
-        padding: "22px 26px",
-        borderRadius: "26px",
+        padding: "24px",
+        borderRadius: "24px",
         background: tokens.panelBg,
         border: `1px solid ${tokens.panelBorder}`,
         boxShadow: tokens.panelShadow,
         backdropFilter: tokens.cardBlur,
         WebkitBackdropFilter: tokens.cardBlur,
-        marginBottom: "28px",
+        marginBottom: "24px",
         transition: surfaceTransition,
       }}
     >

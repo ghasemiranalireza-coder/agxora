@@ -70,8 +70,8 @@ export function ChatPanel(): JSX.Element {
     <div
       className="agx-glass-panel"
       style={{
-        padding: "28px 30px",
-        borderRadius: "26px",
+        padding: "24px",
+        borderRadius: "24px",
         background: tokens.panelBg,
         border: `1px solid ${tokens.panelBorder}`,
         boxShadow: tokens.panelShadow,

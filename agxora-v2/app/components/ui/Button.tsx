@@ -3,7 +3,12 @@
 import type { ButtonHTMLAttributes, JSX, ReactNode } from "react";
 import { UI } from "./tokens";
 
-export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
+export type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "outline"
+  | "ghost"
+  | "danger";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   readonly variant?: ButtonVariant;
@@ -24,7 +29,12 @@ const variantStyle: Record<
   secondary: {
     border: "var(--agx-ds-border, rgba(255,255,255,0.12))",
     background: "var(--agx-ds-surface, rgba(255,255,255,0.04))",
-    color: "var(--agx-ds-text, #f8fafc)",
+    color: "var(--agx-ds-text, #f4f8fb)",
+  },
+  outline: {
+    border: "color-mix(in srgb, var(--agx-accent, #22d3ee) 40%, transparent)",
+    background: "transparent",
+    color: "var(--agx-accent, #22d3ee)",
   },
   ghost: {
     border: "transparent",
@@ -32,14 +42,14 @@ const variantStyle: Record<
     color: "var(--agx-ds-text-muted, #94a3b8)",
   },
   danger: {
-    border: "rgba(251,113,133,0.35)",
-    background: "rgba(251,113,133,0.12)",
-    color: "#fb7185",
+    border: "color-mix(in srgb, var(--agx-ds-danger, #fb7185) 35%, transparent)",
+    background: "color-mix(in srgb, var(--agx-ds-danger, #fb7185) 12%, transparent)",
+    color: "var(--agx-ds-danger, #fb7185)",
   },
 };
 
 /**
- * Enterprise button — Primary / Secondary / Ghost / Danger + loading / disabled.
+ * Enterprise button — Primary / Secondary / Outline / Ghost / Danger.
  */
 export function Button({
   variant = "secondary",
@@ -65,22 +75,22 @@ export function Button({
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
-        gap: 8,
+        gap: UI.space.sm,
         height,
         minWidth: size === "sm" ? 72 : 88,
-        padding: `0 ${UI.control.padX}px`,
+        padding: `0 ${size === "sm" ? UI.control.padXSm : UI.control.padX}px`,
         borderRadius: UI.radius.md,
         border: `1px solid ${v.border}`,
         background: v.background,
         color: v.color,
-        fontSize: size === "sm" ? 12 : 13,
+        fontSize: size === "sm" ? UI.typography.caption : UI.typography.body,
         fontWeight: variant === "primary" ? 650 : 550,
         letterSpacing: "0.01em",
         cursor: isDisabled ? "not-allowed" : "pointer",
         opacity: isDisabled ? 0.55 : 1,
         boxShadow: variant === "primary" ? UI.shadow.sm : "none",
         transition:
-          "opacity 160ms var(--agx-ds-ease, ease), background 160ms ease, border-color 160ms ease, transform 160ms var(--agx-ds-ease, ease), box-shadow 160ms ease",
+          "opacity var(--agx-ds-duration, 160ms) var(--agx-ds-ease), background var(--agx-ds-duration, 160ms) ease, border-color var(--agx-ds-duration, 160ms) ease, transform var(--agx-ds-duration, 160ms) var(--agx-ds-ease), box-shadow var(--agx-ds-duration, 160ms) ease",
         ...style,
       }}
       {...rest}
@@ -102,7 +112,10 @@ export function IconButton({
   readonly label: string;
   readonly children: ReactNode;
   readonly active?: boolean;
-} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "aria-label">): JSX.Element {
+} & Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "children" | "aria-label"
+>): JSX.Element {
   return (
     <button
       type="button"
@@ -123,12 +136,13 @@ export function IconButton({
         }`,
         background: active
           ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 12%, transparent)"
-          : "rgba(255,255,255,0.03)",
+          : "var(--agx-ds-surface, rgba(255,255,255,0.03))",
         color: active
           ? "var(--agx-accent, #22d3ee)"
           : "var(--agx-ds-text-muted, #94a3b8)",
         cursor: rest.disabled ? "not-allowed" : "pointer",
-        transition: "background 160ms ease, border-color 160ms ease, color 160ms ease",
+        transition:
+          "background var(--agx-ds-duration, 160ms) ease, border-color var(--agx-ds-duration, 160ms) ease, color var(--agx-ds-duration, 160ms) ease",
       }}
       {...rest}
     >
