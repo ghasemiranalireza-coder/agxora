@@ -12,7 +12,7 @@ function isTailwindPadding(value: string): boolean {
 export function CrmGlassCard({
   children,
   className = "",
-  padding = "p-5",
+  padding = "p-6",
 }: {
   readonly children: ReactNode;
   readonly className?: string;

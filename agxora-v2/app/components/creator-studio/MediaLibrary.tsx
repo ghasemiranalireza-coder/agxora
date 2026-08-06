@@ -59,7 +59,7 @@ export function MediaLibrary({
   }, [assets, query, kind]);
 
   return (
-    <Card padding="20px">
+    <Card padding="24px">
       <h3 className="mb-4 text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
         Media Library
       </h3>

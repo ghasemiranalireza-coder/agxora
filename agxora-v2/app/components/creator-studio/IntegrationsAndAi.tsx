@@ -11,7 +11,7 @@ export function FutureIntegrations({
   readonly platforms: readonly PlatformIntegrationPlan[];
 }): JSX.Element {
   return (
-    <Card padding="20px">
+    <Card padding="24px">
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
         Future integrations — optional. No live APIs until connected. Instagram, TikTok, YouTube,
         Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.
@@ -59,7 +59,7 @@ export function AiFeaturesPanel({
   readonly features: readonly AiFeaturePlan[];
 }): JSX.Element {
   return (
-    <Card padding="20px">
+    <Card padding="24px">
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
         AI feature map — ideas, captions, hashtags, calendar, campaigns, audience, schedule, brand
         consistency, rewrite, translate, multi-language.

@@ -25,7 +25,7 @@ export function WorkflowTemplates({
   };
 
   return (
-    <Card padding="20px" hover={false}>
+    <Card padding="24px" hover={false}>
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Template Library

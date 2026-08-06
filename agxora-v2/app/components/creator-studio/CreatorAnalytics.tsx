@@ -15,7 +15,7 @@ export function CreatorAnalytics({
 }): JSX.Element {
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-5">
-      <Card className="xl:col-span-3 space-y-4" padding="20px">
+      <Card className="xl:col-span-3 space-y-4" padding="24px">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Analytics
         </h3>
@@ -83,7 +83,7 @@ export function CreatorAnalytics({
         </div>
       </Card>
 
-      <Card className="xl:col-span-2 space-y-3" padding="20px">
+      <Card className="xl:col-span-2 space-y-3" padding="24px">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           AI Recommendations
         </h3>

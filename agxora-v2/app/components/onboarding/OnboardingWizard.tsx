@@ -182,7 +182,7 @@ export function OnboardingWizard(): JSX.Element {
                   flex: "1 1 70px",
                   minWidth: "70px",
                   padding: "10px 12px",
-                  borderRadius: "14px",
+                  borderRadius: "12px",
                   border: `1px solid ${
                     active || done ? tokens.accentSoft : tokens.divider
                   }`,
@@ -221,7 +221,7 @@ export function OnboardingWizard(): JSX.Element {
                   style={{
                     textAlign: "left",
                     padding: "16px",
-                    borderRadius: "18px",
+                    borderRadius: "16px",
                     border: `1px solid ${
                       selected ? tokens.accent : tokens.cardBorder
                     }`,
@@ -269,7 +269,7 @@ export function OnboardingWizard(): JSX.Element {
         ) : null}
 
         {step === 1 ? (
-          <div style={{ display: "grid", gap: "14px" }}>
+          <div style={{ display: "grid", gap: "16px" }}>
             <label style={{ display: "grid", gap: "8px" }}>
               <span style={{ fontSize: "13px", color: tokens.textMuted }}>
                 Company name
@@ -458,13 +458,14 @@ function inputStyle(tokens: {
 }): CSSProperties {
   return {
     width: "100%",
-    padding: "14px 16px",
-    borderRadius: "16px",
+    padding: "0 16px",
+    borderRadius: "12px",
     border: `1px solid ${tokens.inputBorder}`,
     background: tokens.inputBg,
     color: tokens.text,
     outline: "none",
-    fontSize: "15px",
+    fontSize: "13px",
+    minHeight: 40,
   };
 }
 
@@ -479,14 +480,15 @@ function buttonStyle(
   primary: boolean,
 ): CSSProperties {
   return {
-    padding: "14px 20px",
-    borderRadius: "16px",
+    padding: "0 16px",
+    minHeight: 40,
+    borderRadius: "12px",
     border: `1px solid ${tokens.panelBorder}`,
     background: primary ? tokens.chatReplyBg : tokens.chatBubbleBg,
     color: primary ? tokens.accent : tokens.text,
     fontSize: "13px",
-    fontWeight: 700,
-    letterSpacing: "0.08em",
-    textTransform: "uppercase",
+    fontWeight: 650,
+    letterSpacing: "0.01em",
+    textTransform: "none" as const,
   };
 }

@@ -21,7 +21,7 @@ export function AutomationKpiOverview({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35, delay: 0.03 * index, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Card className="h-full" padding="20px">
+          <Card className="h-full" padding="24px">
             <div className="flex items-start justify-between gap-2">
               <h3
                 className="text-[11px] font-semibold uppercase tracking-[0.16em]"

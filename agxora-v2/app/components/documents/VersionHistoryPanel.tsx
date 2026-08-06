@@ -15,7 +15,7 @@ export function VersionHistoryPanel({
 
   if (!document) {
     return (
-      <Card padding="20px" hover={false}>
+      <Card padding="24px" hover={false}>
         <h3 className="mb-3 text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Version History
         </h3>
@@ -28,7 +28,7 @@ export function VersionHistoryPanel({
   }
 
   return (
-    <Card className="space-y-3" padding="20px" hover={false}>
+    <Card className="space-y-3" padding="24px" hover={false}>
       <div>
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Version History

@@ -115,7 +115,7 @@ export function CustomerTable(): JSX.Element {
   );
 
   return (
-    <Card className="space-y-4" padding="20px" hover={false}>
+    <Card className="space-y-4" padding="24px" hover={false}>
       {state.loading && !state.hydrated ? (
         <div className="space-y-3" aria-busy="true" aria-live="polite">
           <Skeleton height={40} />

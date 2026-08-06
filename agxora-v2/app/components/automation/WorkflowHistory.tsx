@@ -27,7 +27,7 @@ export function WorkflowHistory({
 
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-5">
-      <Card className="xl:col-span-3 space-y-3" padding="20px" hover={false}>
+      <Card className="xl:col-span-3 space-y-3" padding="24px" hover={false}>
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
             Workflow History · Execution Log

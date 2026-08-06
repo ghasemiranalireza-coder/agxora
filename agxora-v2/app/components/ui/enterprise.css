@@ -168,6 +168,30 @@ select.agx-ui-control {
   gap: var(--agx-ds-space-5);
 }
 
+/* Wide module shells — CRM, Finance, Documents, Automation, Creator, Settings */
+.agx-ui-module-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--agx-ds-space-8);
+  padding: var(--agx-ds-space-6) var(--agx-ds-space-4);
+}
+
+@media (min-width: 640px) {
+  .agx-ui-module-page {
+    padding-inline: var(--agx-ds-space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .agx-ui-module-page {
+    padding-block: var(--agx-ds-space-8);
+    padding-inline: var(--agx-ds-space-8);
+  }
+}
+
 .agx-ui-section-title {
   margin: 0;
   font-size: 12px;

@@ -11,7 +11,7 @@ export function DocumentsIntegrations({
   readonly integrations: readonly DocumentIntegration[];
 }): JSX.Element {
   return (
-    <Card padding="20px" hover={false}>
+    <Card padding="24px" hover={false}>
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
         Cloud drive adapters are architecture only — Google Drive, OneDrive, Dropbox, Box,
         SharePoint, Nextcloud. No live APIs.

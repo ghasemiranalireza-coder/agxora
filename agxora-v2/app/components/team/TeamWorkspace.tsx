@@ -193,7 +193,7 @@ export function TeamWorkspace(): JSX.Element {
           </p>
         </header>
 
-        <Card className="space-y-3" padding="20px" hover={false}>
+        <Card className="space-y-3" padding="24px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
             Invite by Email
           </h2>
@@ -241,7 +241,7 @@ export function TeamWorkspace(): JSX.Element {
           ) : null}
         </Card>
 
-        <Card className="space-y-3" padding="20px" hover={false}>
+        <Card className="space-y-3" padding="24px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
             Roles
           </h2>
@@ -266,7 +266,7 @@ export function TeamWorkspace(): JSX.Element {
           </div>
         </Card>
 
-        <Card padding="20px" hover={false}>
+        <Card padding="24px" hover={false}>
           <h2 className="mb-3 text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
             Members
           </h2>
@@ -289,7 +289,7 @@ export function TeamWorkspace(): JSX.Element {
         </Card>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <Card className="space-y-3" padding="20px" hover={false}>
+          <Card className="space-y-3" padding="24px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
               Pending Invitations
             </h2>
@@ -337,7 +337,7 @@ export function TeamWorkspace(): JSX.Element {
             )}
           </Card>
 
-          <Card className="space-y-3" padding="20px" hover={false}>
+          <Card className="space-y-3" padding="24px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
               Invitation History
             </h2>

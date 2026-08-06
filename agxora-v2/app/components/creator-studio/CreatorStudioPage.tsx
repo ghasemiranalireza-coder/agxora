@@ -45,19 +45,14 @@ export function CreatorStudioPage(): JSX.Element {
   );
 
   return (
-    <div className="mx-auto w-full max-w-[1400px] space-y-10 px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+    <div className="agx-ui-module-page agx-page-enter">
       <motion.header
         className="space-y-2"
         initial={reduceMotion ? false : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p
-          className="text-[11px] font-semibold uppercase tracking-[0.22em]"
-          style={{ color: "var(--agx-accent, #22d3ee)" }}
-        >
-          AGXORA Marketing OS
-        </p>
+        <p className="agx-ui-section-title">AGXORA Marketing OS</p>
         <h1
           className="text-3xl font-semibold tracking-tight sm:text-4xl"
           style={{ color: "var(--agx-text, #f8fafc)", letterSpacing: "-0.03em" }}
@@ -122,7 +117,7 @@ export function CreatorStudioPage(): JSX.Element {
           ) : null}
           {tab === "media" ? <MediaLibrary assets={MEDIA_ASSETS} /> : null}
           {tab === "templates" ? (
-            <Card padding="20px">
+            <Card padding="24px">
               {templates.length > 0 ? (
                 <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {templates.map((t) => (
@@ -157,7 +152,7 @@ export function CreatorStudioPage(): JSX.Element {
             </Card>
           ) : null}
           {tab === "brand" ? (
-            <Card padding="20px">
+            <Card padding="24px">
               <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {brandAssets.map((asset) => (
                   <li

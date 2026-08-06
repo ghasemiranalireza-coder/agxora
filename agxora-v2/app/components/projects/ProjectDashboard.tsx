@@ -116,7 +116,7 @@ export function ProjectAnalyticsPanel({
   readonly analytics: ProjectAnalytics;
 }): JSX.Element {
   return (
-    <Card hover={false} className="space-y-4" padding="20px">
+    <Card hover={false} className="space-y-4" padding="24px">
       <div>
         <h2
           className="text-sm font-semibold"
@@ -258,7 +258,7 @@ export function RecentActivityList({
   readonly children: ReactNode;
 }): JSX.Element {
   return (
-    <Card hover={false} className="space-y-3" padding="20px">
+    <Card hover={false} className="space-y-3" padding="24px">
       <div>
         <h2
           className="text-sm font-semibold"

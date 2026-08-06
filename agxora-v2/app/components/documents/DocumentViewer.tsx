@@ -34,7 +34,7 @@ export function DocumentViewer({
 
   if (!document) {
     return (
-      <Card className="h-full" padding="20px" hover={false}>
+      <Card className="h-full" padding="24px" hover={false}>
         <h3 className="mb-3 text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Document Viewer
         </h3>
@@ -47,7 +47,7 @@ export function DocumentViewer({
   }
 
   return (
-    <Card className="h-full space-y-4" padding="20px" hover={false}>
+    <Card className="h-full space-y-4" padding="24px" hover={false}>
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="min-w-0">
           <h3 className="truncate text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
