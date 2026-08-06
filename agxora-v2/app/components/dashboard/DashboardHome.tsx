@@ -1,145 +1,112 @@
 "use client";
 
-import type { JSX } from "react";
+import { useEffect, useMemo, type JSX } from "react";
 import { ChatPanel } from "../ChatPanel";
+import { useOrganization } from "../../lib/organization";
+import { customerStore, useCustomerStore } from "../../lib/customers";
+import { projectStore, useProjectStore } from "../../lib/projects";
+import { useRecentActivity } from "../../lib/backend/hooks";
+import { ActivityFeed } from "./ActivityFeed";
+import { AttentionPanel, type AttentionItem } from "./AttentionPanel";
 import { BusinessOverview } from "./BusinessOverview";
 import { HeroSection } from "./HeroSection";
-import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
+import { QuickActions } from "./QuickActions";
+import "./dashboard.css";
 
-const surfaceTransition = [
-  `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-  `border-color ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-  `color ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-  `box-shadow ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-  `text-shadow ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-  `backdrop-filter ${THEME_TRANSITION_MS}ms ease`,
-].join(", ");
+const LOCAL_ORG_FALLBACK = "org_local_default";
 
 /**
- * Dashboard home content — lazy-loaded by the route page.
- * Preserves existing Hero / overview / chat structure.
+ * Dashboard home — premium command center.
+ * Answers: what is happening, what needs attention, what changed, what next.
  */
 export function DashboardHome(): JSX.Element {
-  const { tokens } = useTheme();
+  const { organization } = useOrganization();
+  const organizationId = organization?.id ?? LOCAL_ORG_FALLBACK;
+  const customers = useCustomerStore();
+  const projects = useProjectStore();
+  const activity = useRecentActivity();
 
-  const activities = [
-    "Dubai laundry market analyzed",
-    "Germany customer behavior updated",
-    "Hotel revenue prediction completed",
-    "AI automation optimized",
-    "Global logistics route calculated",
-    "Business intelligence report generated",
-  ];
+  useEffect(() => {
+    void customerStore.hydrate(organizationId);
+    void projectStore.hydrate(organizationId);
+  }, [organizationId]);
+
+  const attention = useMemo((): readonly AttentionItem[] => {
+    const items: AttentionItem[] = [];
+    if (customers.hydrated && customers.items.length === 0) {
+      items.push({
+        id: "customers",
+        title: "Add your first customer",
+        detail: "Build your CRM foundation with a company record.",
+        href: "/dashboard/customers",
+        tone: "action",
+      });
+    }
+    if (projects.hydrated && projects.items.length === 0) {
+      items.push({
+        id: "projects",
+        title: "Create a project",
+        detail: "Track delivery work with owners, dates, and status.",
+        href: "/dashboard/projects",
+        tone: "action",
+      });
+    }
+    if (activity.length === 0 && items.length < 3) {
+      items.push({
+        id: "explore",
+        title: "Explore AI workspace",
+        detail: "Ask AGXORA for summaries, drafts, or operational help.",
+        href: "/dashboard/ai",
+        tone: "info",
+      });
+    }
+    if (items.length < 3) {
+      items.push({
+        id: "billing",
+        title: "Review billing",
+        detail: "Confirm plan, invoices, and usage for this workspace.",
+        href: "/dashboard/billing",
+        tone: "info",
+      });
+    }
+    return items.slice(0, 3);
+  }, [
+    customers.hydrated,
+    customers.items.length,
+    projects.hydrated,
+    projects.items.length,
+    activity.length,
+  ]);
+
+  const summary = useMemo(() => {
+    const today = activity.filter((row) => {
+      const d = new Date(row.createdAt);
+      const now = new Date();
+      return (
+        d.getFullYear() === now.getFullYear() &&
+        d.getMonth() === now.getMonth() &&
+        d.getDate() === now.getDate()
+      );
+    }).length;
+    const name = organization?.name ?? "your workspace";
+    return `${name}: ${customers.items.length} customers · ${projects.items.length} projects · ${today} updates today.`;
+  }, [
+    activity,
+    customers.items.length,
+    organization?.name,
+    projects.items.length,
+  ]);
 
   return (
-    <>
+    <div className="agx-dashboard-home">
       <HeroSection />
-
-      <div
-        id="agx-command-center"
-        className="agx-glass-panel agx-hero-follow"
-        style={{
-          padding: "22px 26px",
-          borderRadius: "26px",
-          background: tokens.panelBg,
-          border: `1px solid ${tokens.panelBorder}`,
-          boxShadow: tokens.panelShadow,
-          backdropFilter: tokens.cardBlur,
-          WebkitBackdropFilter: tokens.cardBlur,
-          marginBottom: "36px",
-          maxWidth: "760px",
-          transition: surfaceTransition,
-        }}
-      >
-        <h2
-          style={{
-            color: tokens.accent,
-            margin: "0 0 10px",
-            fontSize: "12px",
-            fontWeight: 650,
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            transition: surfaceTransition,
-          }}
-        >
-          AGXORA AI Command Center
-        </h2>
-
-        <p
-          style={{
-            color: tokens.textMuted,
-            lineHeight: 1.75,
-            margin: 0,
-            fontSize: "15px",
-            maxWidth: "58ch",
-            transition: surfaceTransition,
-          }}
-        >
-          Real-time business intelligence, predictive analytics, automation
-          monitoring, customer insights and global operational control.
-        </p>
-      </div>
-
+      <AttentionPanel items={attention} summary={summary} />
+      <QuickActions />
       <BusinessOverview />
-
-      <div
-        id="agx-live-activity"
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1.5fr 420px",
-          gap: "22px",
-        }}
-        className="agx-bottom-grid"
-      >
-        <div
-          className="agx-glass-panel"
-          style={{
-            padding: "28px 30px",
-            borderRadius: "26px",
-            background: tokens.panelBg,
-            border: `1px solid ${tokens.panelBorder}`,
-            boxShadow: tokens.panelShadow,
-            backdropFilter: tokens.cardBlur,
-            WebkitBackdropFilter: tokens.cardBlur,
-            transition: surfaceTransition,
-          }}
-        >
-          <h2
-            style={{
-              color: tokens.accent,
-              marginBottom: "18px",
-              marginTop: 0,
-              fontSize: "12px",
-              fontWeight: 650,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-              transition: surfaceTransition,
-            }}
-          >
-            Live AI Activity
-          </h2>
-
-          {activities.map((item, index) => (
-            <div
-              key={index}
-              className="agx-activity-row"
-              style={{
-                padding: "15px 0",
-                borderBottom: `1px solid ${tokens.divider}`,
-                fontSize: "14px",
-                letterSpacing: "0.01em",
-                color: tokens.text,
-                transition: `${surfaceTransition}, padding 320ms cubic-bezier(0.22, 1, 0.36, 1)`,
-              }}
-            >
-              <span style={{ opacity: 0.7, marginRight: 10 }}>⚡</span>
-              {item}
-            </div>
-          ))}
-        </div>
-
+      <div className="agx-bottom-grid" style={{ display: "grid", gap: "22px" }}>
+        <ActivityFeed items={activity} />
         <ChatPanel />
       </div>
-    </>
+    </div>
   );
 }
