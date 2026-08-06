@@ -163,7 +163,7 @@ export function TimelineView(): JSX.Element {
                 className="text-[11px]"
                 style={{ color: "var(--agx-text-muted, #94a3b8)" }}
               >
-                Dependencies: placeholder
+                Dependencies: none
               </p>
             </div>
           );

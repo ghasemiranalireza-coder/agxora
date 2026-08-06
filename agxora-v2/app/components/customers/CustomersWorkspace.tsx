@@ -41,9 +41,8 @@ export function CustomersWorkspace(): JSX.Element {
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Create, edit, search, and manage real customer records for{" "}
-          {organization?.name ?? "your organization"}. Data persists locally and
-          is ready for database connectivity.
+          Create, edit, search, and manage customer records for{" "}
+          {organization?.name ?? "your organization"}.
         </p>
       </Card>
 

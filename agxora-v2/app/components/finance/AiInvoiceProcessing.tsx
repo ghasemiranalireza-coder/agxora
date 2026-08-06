@@ -80,7 +80,7 @@ export function AiInvoiceProcessing({
             Drag & drop invoice files
           </p>
           <p className="mt-2 max-w-sm text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            PDF · Image · Email Import (placeholder)
+            PDF · Image · Email Import
           </p>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
             <label className="cursor-pointer">

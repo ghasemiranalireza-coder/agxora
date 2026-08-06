@@ -43,7 +43,7 @@ export function CustomerBillingPortal(): JSX.Element {
     billingService.ensureWorkspace(saas.organizationId);
     billingService.getOrCreateProfile(saas.organizationId, {
       companyName: "AGXORA Organization",
-      billingEmail: saas.email ?? "billing@example.com",
+      billingEmail: saas.email ?? "",
     });
     refreshSubscriptionNotifications(saas.organizationId, saas.email);
   }, [saas.hydrated, saas.organizationId, saas.email]);
@@ -61,7 +61,7 @@ export function CustomerBillingPortal(): JSX.Element {
     {
       key: "amountUsd",
       header: "Amount",
-      render: (r) => `$${r.amountUsd.toFixed(2)}`,
+      render: (r) => `€${r.amountUsd.toFixed(2)}`,
     },
     {
       key: "issuedAt",
@@ -101,7 +101,7 @@ export function CustomerBillingPortal(): JSX.Element {
         actorUserId: saas.userId ?? undefined,
         email: saas.email,
       });
-      setNotice(`Activated ${planId} via ${session.providerId} (mock checkout).`);
+      setNotice(`Activated ${planId} via ${session.providerId}.`);
     } catch (error) {
       setNotice(error instanceof Error ? error.message : "Checkout failed");
     } finally {
@@ -283,7 +283,7 @@ export function CustomerBillingPortal(): JSX.Element {
                 <p className="text-lg font-semibold" style={{ color: "var(--agx-accent, #22d3ee)" }}>
                   {plan.priceMonthlyUsd == null
                     ? "Contact sales"
-                    : `$${plan.priceMonthlyUsd}/mo`}
+                    : `€${plan.priceMonthlyUsd}/mo`}
                 </p>
                 <ul className="space-y-1 text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                   <li>{plan.limits.users} users</li>
@@ -423,7 +423,7 @@ export function CustomerBillingPortal(): JSX.Element {
               }
               className="w-full rounded-xl border px-3 py-2 text-sm"
               style={fieldStyle}
-              placeholder="Placeholder"
+              placeholder="e.g. DE123456789"
             />
           </Field>
           <Field label="Tax ID">
@@ -437,7 +437,7 @@ export function CustomerBillingPortal(): JSX.Element {
               }
               className="w-full rounded-xl border px-3 py-2 text-sm"
               style={fieldStyle}
-              placeholder="Placeholder"
+              placeholder="e.g. DE123456789"
             />
           </Field>
         </div>

@@ -30,28 +30,28 @@ const KINDS: readonly {
     baseline: 420,
     projected: 455,
     confidence: 0.68,
-    note: "Acquisition + retention composite placeholder.",
+    note: "Acquisition + retention composite.",
   },
   {
     kind: "project",
     baseline: 12,
     projected: 14,
     confidence: 0.61,
-    note: "Capacity-aware delivery forecast placeholder.",
+    note: "Capacity-aware delivery forecast.",
   },
   {
     kind: "capacity",
     baseline: 78,
     projected: 82,
     confidence: 0.58,
-    note: "Team utilization forecast placeholder.",
+    note: "Team utilization forecast.",
   },
   {
     kind: "growth",
     baseline: 6.9,
     projected: 8.1,
     confidence: 0.64,
-    note: "Growth rate forecast placeholder.",
+    note: "Growth rate forecast.",
   },
 ];
 

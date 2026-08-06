@@ -46,7 +46,7 @@ export function CustomerDeleteDialog(): JSX.Element {
     >
       <p className="text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
         {target
-          ? `Permanently remove ${target.companyName}? This cannot be undone in the local workspace store.`
+          ? `Permanently remove ${target.companyName}? This cannot be undone.`
           : "This customer will be permanently removed."}
       </p>
     </Dialog>

@@ -1,13 +1,18 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import type { CSSProperties, ReactNode } from "react";
 import { AppShell } from "../components/AppShell";
-import StarfieldBackground from "../components/StarfieldBackground";
 
 /**
  * Dashboard shell — starfield + persistent AppShell.
  * Keeps sidebar / top nav / command palette mounted across module navigations.
  */
+
+const StarfieldBackground = dynamic(
+  () => import("../components/StarfieldBackground"),
+  { ssr: false },
+);
 
 const shellStyle: CSSProperties = {
   position: "relative",

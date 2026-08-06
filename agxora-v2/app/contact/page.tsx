@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import type { JSX } from "react";
 import Link from "next/link";
 import { LegalPageShell } from "../components/legal";
-import { COMPANY, formatCompanyAddress } from "../lib/company";
+import {
+  COMPANY,
+  formatCompanyAddress,
+  hasConfiguredAddress,
+} from "../lib/company";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -43,9 +47,6 @@ export default function ContactPage(): JSX.Element {
           <dt>Support email</dt>
           <dd>
             <a href={`mailto:${COMPANY.email.support}`}>{COMPANY.email.support}</a>
-            <span style={{ display: "block", marginTop: 6, color: "#94a3b8", fontSize: 13 }}>
-              Placeholder inbox — monitored at launch.
-            </span>
           </dd>
         </div>
         <div>
@@ -61,10 +62,9 @@ export default function ContactPage(): JSX.Element {
           <dd>
             {COMPANY.legalName}
             <br />
-            {formatCompanyAddress()}
-            <span style={{ display: "block", marginTop: 6, color: "#94a3b8", fontSize: 13 }}>
-              Placeholder address pending final registration details.
-            </span>
+            {hasConfiguredAddress()
+              ? formatCompanyAddress()
+              : "Available on request — set NEXT_PUBLIC_AGXORA_ADDRESS_* for production."}
           </dd>
         </div>
       </dl>
@@ -75,7 +75,7 @@ export default function ContactPage(): JSX.Element {
           <Link href="/pricing">Pricing</Link>
         </li>
         <li>
-          <Link href="/demo">Book a demo</Link>
+          <Link href="/contact-sales">Contact Sales</Link>
         </li>
         <li>
           <Link href="/imprint">Imprint</Link>

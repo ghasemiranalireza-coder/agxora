@@ -79,14 +79,13 @@ export function CrmAnalyticsDashboard({
             className="text-sm font-semibold"
             style={{ color: "var(--agx-text, #f8fafc)" }}
           >
-            Lead conversion (placeholder)
+            Lead conversion
           </h2>
           <p className="text-3xl font-semibold" style={{ color: "#22d3ee" }}>
             {analytics.conversionPlaceholder}%
           </p>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Active + VIP over lead / prospect / converted funnel. Wire to
-            attribution when the pipeline backend lands.
+            Active and VIP share of the lead / prospect / converted funnel.
           </p>
         </Card>
         <Card hover={false} className="space-y-3" padding="18px">

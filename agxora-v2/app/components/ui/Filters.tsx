@@ -8,6 +8,9 @@ const fieldStyle = {
   color: "var(--agx-text, #f8fafc)",
 } as const;
 
+const focusClass =
+  "w-full rounded-xl border px-3 py-2 text-sm outline-none transition-[border-color,box-shadow] focus-visible:border-[color-mix(in_srgb,var(--agx-accent,#22d3ee)_55%,transparent)] focus-visible:ring-2 focus-visible:ring-[color-mix(in_srgb,var(--agx-accent,#22d3ee)_35%,transparent)]";
+
 export function SearchField({
   label = "Search",
   value,
@@ -20,13 +23,16 @@ export function SearchField({
   readonly placeholder?: string;
 }): JSX.Element {
   return (
-    <label className="block min-w-0 flex-1 space-y-1.5 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+    <label
+      className="block min-w-0 flex-1 space-y-1.5 text-xs"
+      style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+    >
       {label}
       <input
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full rounded-xl border px-3 py-2 text-sm outline-none"
+        className={focusClass}
         style={fieldStyle}
       />
     </label>
@@ -42,13 +48,12 @@ export function FilterSelect({
   readonly children: ReactNode;
 } & SelectHTMLAttributes<HTMLSelectElement>): JSX.Element {
   return (
-    <label className="block min-w-[140px] space-y-1.5 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+    <label
+      className="block min-w-[140px] space-y-1.5 text-xs"
+      style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+    >
       {label}
-      <select
-        className="w-full rounded-xl border px-3 py-2 text-sm outline-none"
-        style={fieldStyle}
-        {...rest}
-      >
+      <select className={focusClass} style={fieldStyle} {...rest}>
         {children}
       </select>
     </label>

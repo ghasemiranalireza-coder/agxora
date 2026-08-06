@@ -95,7 +95,7 @@ export const billingService = {
       number: createInvoiceNumber(),
       status: "paid",
       amountUsd: input.amountUsd,
-      currency: "USD",
+      currency: "EUR",
       issuedAt: new Date().toISOString(),
       dueAt: new Date().toISOString(),
       paidAt: new Date().toISOString(),
@@ -107,7 +107,7 @@ export const billingService = {
       invoiceId: invoice.id,
       providerId: input.providerId ?? "stripe",
       amountUsd: input.amountUsd,
-      currency: "USD",
+      currency: "EUR",
       status: "succeeded",
       createdAt: new Date().toISOString(),
       reference: `mock_${invoice.id}`,
@@ -128,7 +128,7 @@ export const billingService = {
         templateId: "invoice",
         to: input.email,
         subject: `Invoice ${invoice.number}`,
-        body: `Thank you for subscribing to AGXORA ${getCommercialPlan(input.planId).name}. Amount: $${input.amountUsd}.`,
+        body: `Thank you for subscribing to AGXORA ${getCommercialPlan(input.planId).name}. Amount: €${input.amountUsd}.`,
       });
     }
     notifySaasEvent(input.organizationId, "invoice_ready", {
@@ -210,7 +210,7 @@ export const billingService = {
     const profile: BillingProfile = {
       organizationId,
       companyName: seed?.companyName ?? "AGXORA Organization",
-      billingEmail: seed?.billingEmail ?? "billing@example.com",
+      billingEmail: seed?.billingEmail ?? "",
       addressLine1: seed?.addressLine1,
       city: seed?.city,
       country: seed?.country ?? "DE",

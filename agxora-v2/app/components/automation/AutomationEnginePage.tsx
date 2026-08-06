@@ -175,7 +175,7 @@ export function AutomationEnginePage(): JSX.Element {
       <Section
         id="automation-integrations"
         title="Integration Center"
-        subtitle="Adapter registry only — Connected, Beta, Planned, Coming Soon, Disabled. No live APIs."
+        subtitle="Adapter registry only — Connected, Beta, Planned, Coming soon, Disabled. No live APIs."
         delay={0.12}
       >
         <AutomationIntegrations integrations={AUTOMATION_INTEGRATIONS} />

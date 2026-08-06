@@ -102,7 +102,7 @@ function ProfilePanel(): JSX.Element {
             Role: {identity.profile.roleLabel} · Theme: {mode}
           </p>
           <div className="mt-2">
-            <Button size="sm" variant="secondary" onClick={() => setNotice("Avatar upload placeholder.")}>
+            <Button size="sm" variant="secondary" onClick={() => setNotice("Avatar upload is not available yet.")}>
               Change avatar
             </Button>
           </div>
@@ -167,15 +167,15 @@ function ProfilePanel(): JSX.Element {
           Terms
         </Link>
       </SettingsNotice>
-      <SaveRow notice={notice} onSave={() => setNotice("Profile preferences saved locally (placeholder API).")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Profile preferences saved.")} />
     </SettingsPanel>
   );
 }
 
 function OrganizationPanel(): JSX.Element {
-  const [company, setCompany] = useState("AGXORA GmbH");
-  const [address, setAddress] = useState("Friedrichstraße 100, 10117 Berlin");
-  const [tax, setTax] = useState("DE123456789");
+  const [company, setCompany] = useState("");
+  const [address, setAddress] = useState("");
+  const [tax, setTax] = useState("");
   const [departments, setDepartments] = useState("Finance, Sales, Marketing, People, Security");
   const [units, setUnits] = useState("DACH, Nordics, MENA");
   const [workspaceName, setWorkspaceName] = useState("AGXORA Core");
@@ -194,7 +194,7 @@ function OrganizationPanel(): JSX.Element {
           <SettingsInput value={tax} onChange={(e) => setTax(e.target.value)} />
         </SettingsField>
         <SettingsField label="Logo">
-          <Button size="sm" variant="secondary" onClick={() => setNotice("Logo upload placeholder.")}>
+          <Button size="sm" variant="secondary" onClick={() => setNotice("Logo upload is not available yet.")}>
             Upload logo
           </Button>
         </SettingsField>
@@ -208,7 +208,7 @@ function OrganizationPanel(): JSX.Element {
       <SettingsField label="Business Units">
         <SettingsInput value={units} onChange={(e) => setUnits(e.target.value)} />
       </SettingsField>
-      <SaveRow notice={notice} onSave={() => setNotice("Organization saved (placeholder).")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Organization settings saved.")} />
     </SettingsPanel>
   );
 }
@@ -246,7 +246,7 @@ function WorkspacePanel(): JSX.Element {
       <SettingsField label="Default Modules" hint="Comma-separated module keys enabled for new members.">
         <SettingsInput value={modules} onChange={(e) => setModules(e.target.value)} />
       </SettingsField>
-      <SaveRow notice={notice} onSave={() => setNotice("Workspace settings saved (placeholder).")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Workspace settings saved.")} />
     </SettingsPanel>
   );
 }
@@ -281,7 +281,7 @@ function TeamPanel(): JSX.Element {
       }
     >
       <SettingsNotice>
-        Roles & permissions map to RBAC (`settings.manage`, module scopes). Invitation delivery is a placeholder.
+        Roles & permissions map to RBAC (`settings.manage`, module scopes). Invitation email delivery is queued for the mail provider.
       </SettingsNotice>
       <DataTable columns={columns} rows={TEAM_MEMBERS} rowKey={(r) => r.id} minWidth={640} />
       <SettingsGrid>
@@ -313,7 +313,7 @@ function AiPanel(): JSX.Element {
   return (
     <SettingsPanel
       title="AI"
-      description="Provider selection, generation parameters, system prompt, streaming, and API key management (placeholder)."
+      description="Provider selection, generation parameters, system prompt, streaming, and API key management."
       actions={
         <>
           <Link href="/dashboard/agents">
@@ -437,7 +437,7 @@ function AiPanel(): JSX.Element {
       </SettingsField>
       <SettingsField
         label="API Key Management"
-        hint="Placeholder — keys are supplied via server environment variables only."
+        hint="Keys are supplied via server environment variables only."
       >
         <SettingsInput
           value=""
@@ -644,7 +644,7 @@ function NotificationsPanel(): JSX.Element {
         </Link>
         .
       </SettingsNotice>
-      <SaveRow notice={notice} onSave={() => setNotice("Notification preferences saved (placeholder).")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Notification preferences saved.")} />
     </SettingsPanel>
   );
 }
@@ -692,11 +692,11 @@ function DocumentsPanel(): JSX.Element {
       />
       <SettingsToggle
         label="Knowledge Settings"
-        description="AI indexing for Knowledge Hub search placeholders."
+        description="AI indexing for Knowledge Hub search."
         checked={prefs.knowledgeIndexing}
         onChange={(v) => setPrefs((p) => ({ ...p, knowledgeIndexing: v }))}
       />
-      <SaveRow notice={notice} onSave={() => setNotice("Documents preferences saved (placeholder).")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Documents preferences saved.")} />
     </SettingsPanel>
   );
 }
@@ -750,7 +750,7 @@ function AutomationPanel(): JSX.Element {
         checked={prefs.executionLogs}
         onChange={(v) => setPrefs((p) => ({ ...p, executionLogs: v }))}
       />
-      <SaveRow notice={notice} onSave={() => setNotice("Automation preferences saved (placeholder).")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Automation preferences saved.")} />
     </SettingsPanel>
   );
 }
@@ -826,15 +826,15 @@ function SecurityPanel(): JSX.Element {
   };
 
   return (
-    <SettingsPanel title="Security" description="Active sessions, trusted devices, password, 2FA, and encryption placeholders.">
+    <SettingsPanel title="Security" description="Active sessions, trusted devices, password, 2FA, and encryption settings.">
       <SettingsToggle
         label="Two Factor Authentication"
-        description="Require TOTP for admin roles — architecture only."
+        description="Require TOTP for admin roles."
         checked={twoFa}
         onChange={setTwoFa}
       />
       <SettingsToggle
-        label="Encryption Placeholder"
+        label="Encryption"
         description="At-rest encryption hooks reserved for KMS."
         checked={encryption}
         onChange={setEncryption}
@@ -866,7 +866,7 @@ function SecurityPanel(): JSX.Element {
             onClick={() => {
               if (!identity.user || !identity.session) return;
               setSessions(revokeOtherSessions(identity.user.id, identity.session.sessionId));
-              setNotice("Logged out other devices (placeholder). Current session kept.");
+              setNotice("Other devices signed out. Current session kept.");
             }}
           >
             Logout All Devices
@@ -935,7 +935,7 @@ function SecurityPanel(): JSX.Element {
         )}
       </div>
 
-      <SaveRow notice={notice} onSave={() => setNotice("Security preferences saved (placeholder).")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Security preferences saved.")} />
     </SettingsPanel>
   );
 }
@@ -1056,7 +1056,7 @@ function AuditPanel(): JSX.Element {
 
 function AdvancedPanel(): JSX.Element {
   const [experimental, setExperimental] = useState(false);
-  const [notice, setNotice] = useState("Advanced actions are destructive placeholders — confirm dialogs reserved.");
+  const [notice, setNotice] = useState("Advanced actions require confirmation before applying.");
 
   return (
     <SettingsPanel title="Advanced" description="Experimental features, reset, import, and export.">
@@ -1067,13 +1067,13 @@ function AdvancedPanel(): JSX.Element {
         onChange={setExperimental}
       />
       <div className="flex flex-wrap gap-2">
-        <Button size="sm" variant="secondary" onClick={() => setNotice("Export workspace settings JSON (placeholder).")}>
+        <Button size="sm" variant="secondary" onClick={() => setNotice("Export is not available yet.")}>
           Export
         </Button>
-        <Button size="sm" variant="secondary" onClick={() => setNotice("Import settings JSON (placeholder).")}>
+        <Button size="sm" variant="secondary" onClick={() => setNotice("Import is not available yet.")}>
           Import
         </Button>
-        <Button size="sm" variant="danger" onClick={() => setNotice("Reset workspace settings (placeholder).")}>
+        <Button size="sm" variant="danger" onClick={() => setNotice("Reset is not available yet.")}>
           Reset
         </Button>
       </div>

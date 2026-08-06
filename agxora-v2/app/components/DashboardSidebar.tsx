@@ -135,6 +135,8 @@ export function DashboardSidebar(): JSX.Element {
         type="button"
         className="agx-sidebar-toggle notranslate"
         aria-label="Toggle navigation"
+        aria-expanded={open}
+        aria-controls="agxora-sidebar"
         translate="no"
         onClick={() => setOpen((value) => !value)}
         style={{
@@ -155,7 +157,9 @@ export function DashboardSidebar(): JSX.Element {
       </button>
 
       <motion.aside
+        id="agxora-sidebar"
         className={`agx-sidebar${open ? " is-open" : ""}`}
+        aria-hidden={isMobile && !open ? true : undefined}
         {...asideAnim}
         style={{
           position: "relative",

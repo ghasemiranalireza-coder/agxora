@@ -144,8 +144,8 @@ export function CrmCustomerProfile({
       {state.profileTab === "invoices" ? (
         <Card hover={false} padding="18px">
           <EmptyState
-            title="Invoices placeholder"
-            description="Invoice integration will connect to Finance when that module is production-ready."
+            title="No invoices yet"
+            description="Invoices for this customer appear here when linked from Finance."
           />
         </Card>
       ) : null}

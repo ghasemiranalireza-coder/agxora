@@ -65,7 +65,7 @@ export function defaultExecutiveCharts(
     buildChartSpec({
       id: "chart_heatmap_placeholder",
       kind: "heatmap",
-      title: "Engagement heatmap (placeholder)",
+      title: "Engagement heatmap",
       domain: "crm",
       seriesIds: byDomain("crm"),
     }),

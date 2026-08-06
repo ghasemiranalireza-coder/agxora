@@ -5,10 +5,6 @@ import {
 } from "./MetricCard";
 import { motion, useReducedMotion } from "framer-motion";
 
-/* -------------------------------------------------------------------------- */
-/*                                Icon library                                */
-/* -------------------------------------------------------------------------- */
-
 interface IconProps {
   readonly path: string;
 }
@@ -44,83 +40,57 @@ const ICON_PATHS = {
     "M3 3v18h18 M7 15l4-6 4 3 5-8",
 } as const;
 
-/* -------------------------------------------------------------------------- */
-/*                             Placeholder metrics                            */
-/* -------------------------------------------------------------------------- */
-
-/** Realistic placeholder data — replace with live metrics when the API lands. */
+/** Empty overview until live metrics are connected — no fabricated figures. */
 const OVERVIEW_METRICS: readonly MetricCardProps[] = [
   {
     title: "Revenue",
-    value: "€482,590",
-    caption: "Monthly recurring revenue",
+    value: "—",
+    caption: "Connect billing data to show MRR",
     icon: <Icon path={ICON_PATHS.revenue} />,
-    delta: { value: "+18.2%", positive: true },
-    visual: {
-      kind: "sparkline",
-      points: [310, 335, 328, 356, 372, 361, 398, 412, 434, 428, 461, 483],
-    },
+    visual: { kind: "sparkline", points: [0, 0, 0, 0, 0, 0, 0, 0] },
   },
   {
     title: "Active Clients",
-    value: "2,486",
-    caption: "Across 34 countries",
+    value: "0",
+    caption: "Customers with active status",
     icon: <Icon path={ICON_PATHS.clients} />,
-    delta: { value: "+126", positive: true },
-    visual: {
-      kind: "sparkline",
-      points: [1980, 2040, 2015, 2110, 2180, 2165, 2240, 2310, 2295, 2380, 2440, 2486],
-    },
+    visual: { kind: "sparkline", points: [0, 0, 0, 0, 0, 0, 0, 0] },
   },
   {
     title: "AI Tasks",
-    value: "18,342",
+    value: "0",
     caption: "Completed this month",
     icon: <Icon path={ICON_PATHS.aiTasks} />,
-    delta: { value: "+9.6%", positive: true },
-    visual: {
-      kind: "sparkline",
-      points: [1210, 1340, 1290, 1420, 1510, 1480, 1620, 1590, 1710, 1780, 1850, 1930],
-    },
+    visual: { kind: "sparkline", points: [0, 0, 0, 0, 0, 0, 0, 0] },
   },
   {
     title: "Automation Status",
-    value: "97.4%",
-    caption: "241 active workflows",
+    value: "—",
+    caption: "No active workflows yet",
     icon: <Icon path={ICON_PATHS.automation} />,
-    delta: { value: "+1.1%", positive: true },
-    visual: { kind: "progress", percent: 97 },
+    visual: { kind: "progress", percent: 0 },
   },
   {
     title: "System Health",
-    value: "99.98%",
-    caption: "Uptime, last 30 days",
+    value: "OK",
+    caption: "Workspace operational",
     icon: <Icon path={ICON_PATHS.health} />,
     visual: {
       kind: "status",
       items: [
-        { label: "API latency 42 ms", ok: true },
-        { label: "24 live nodes operational", ok: true },
-        { label: "1 node in maintenance", ok: false },
+        { label: "Application online", ok: true },
+        { label: "Local workspace ready", ok: true },
       ],
     },
   },
   {
     title: "Growth Analytics",
-    value: "+24.7%",
-    caption: "Quarter-over-quarter growth",
+    value: "—",
+    caption: "Available when usage accumulates",
     icon: <Icon path={ICON_PATHS.growth} />,
-    delta: { value: "+3.4 pts", positive: true },
-    visual: {
-      kind: "sparkline",
-      points: [12.1, 13.4, 12.8, 14.6, 15.9, 15.2, 17.4, 18.8, 18.1, 20.6, 22.9, 24.7],
-    },
+    visual: { kind: "sparkline", points: [0, 0, 0, 0, 0, 0, 0, 0] },
   },
 ];
-
-/* -------------------------------------------------------------------------- */
-/*                              Business overview                             */
-/* -------------------------------------------------------------------------- */
 
 /** Premium glassmorphism metric grid rendered below the globe hero. */
 export function BusinessOverview(): JSX.Element {
@@ -151,7 +121,7 @@ export function BusinessOverview(): JSX.Element {
             className="mt-2 text-[13px] tracking-[0.03em]"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            Key performance metrics, updated in real time
+            Workspace metrics for your organization
           </p>
         </div>
         <span
@@ -164,7 +134,7 @@ export function BusinessOverview(): JSX.Element {
             backdropFilter: "var(--agx-card-blur, blur(16px))",
           }}
         >
-          LAST 30 DAYS
+          LIVE WORKSPACE
         </span>
       </header>
 

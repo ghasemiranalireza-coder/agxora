@@ -7,7 +7,7 @@ import { iamAuditLog } from "../store/auditStore";
 import { useEffect } from "react";
 
 /**
- * Account locked placeholder — lockout policy is enforced by future backend.
+ * Account locked lockout policy is enforced by future backend.
  */
 export function AccountLockedPage(): JSX.Element {
   useEffect(() => {

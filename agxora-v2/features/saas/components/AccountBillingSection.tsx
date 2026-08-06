@@ -24,7 +24,7 @@ export function AccountBillingSection(): JSX.Element {
     billingService.ensureWorkspace(saas.organizationId);
     billingService.getOrCreateProfile(saas.organizationId, {
       companyName: "AGXORA Organization",
-      billingEmail: saas.email ?? "billing@example.com",
+      billingEmail: saas.email ?? "",
     });
   }, [saas.hydrated, saas.organizationId, saas.email]);
 
@@ -113,7 +113,7 @@ export function AccountBillingSection(): JSX.Element {
                   {inv.number} · {inv.status}
                 </span>
                 <span style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  ${inv.amountUsd.toFixed(2)} · {inv.issuedAt.slice(0, 10)}
+                  €{inv.amountUsd.toFixed(2)} · {inv.issuedAt.slice(0, 10)}
                 </span>
               </li>
             ))}

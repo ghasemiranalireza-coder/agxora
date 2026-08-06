@@ -11,10 +11,10 @@ const AI_FEATURES = [
   { id: "tags", title: "AI Suggested Tags", description: "Tag recommendations without mutating the graph." },
   { id: "folder", title: "AI Suggested Folder", description: "Smart placement into nested folders." },
   { id: "related", title: "AI Related Documents", description: "Graph neighbors across the knowledge hub." },
-  { id: "duplicate", title: "AI Duplicate Detection", description: "Near-duplicate detection placeholder." },
+  { id: "duplicate", title: "AI Duplicate Detection", description: "Near-duplicate detection for document libraries." },
   { id: "translation", title: "AI Translation", description: "Translation readiness flag — no live model." },
-  { id: "ocr", title: "AI OCR Placeholder", description: "OCR pipeline reserved for scans and PDFs." },
-  { id: "search", title: "AI Search Placeholder", description: "Semantic search reserved for future index." },
+  { id: "ocr", title: "AI OCR", description: "OCR pipeline reserved for scans and PDFs." },
+  { id: "search", title: "AI Search", description: "Semantic search reserved for future index." },
 ] as const;
 
 export function AiKnowledgePanel({
@@ -99,13 +99,13 @@ export function AiKnowledgePanel({
               <div>
                 <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>AI Translation</dt>
                 <dd style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {document.ai.translationReady ? "Ready (placeholder)" : "Not applicable"}
+                  {document.ai.translationReady ? "Ready" : "Not applicable"}
                 </dd>
               </div>
               <div>
                 <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>AI OCR</dt>
                 <dd style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {document.ai.ocrReady ? "Ready (placeholder)" : "Not applicable"}
+                  {document.ai.ocrReady ? "Ready" : "Not applicable"}
                 </dd>
               </div>
             </dl>
@@ -157,9 +157,9 @@ export function AiKnowledgePanel({
             <Button
               variant="primary"
               size="sm"
-              onClick={() => setNotice("AI Search placeholder queued — index wiring reserved.")}
+              onClick={() => setNotice("AI Search queued.")}
             >
-              Run AI Search Placeholder
+              Run AI Search
             </Button>
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {notice}

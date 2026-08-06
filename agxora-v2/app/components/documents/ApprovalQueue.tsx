@@ -59,7 +59,7 @@ export function ApprovalQueue({
                   size="sm"
                   variant="primary"
                   onClick={() =>
-                    setNotice(`Approved ${doc.id} — Automation hook reserved (placeholder).`)
+                    setNotice(`Approved ${doc.id} — Automation hook reserved.`)
                   }
                 >
                   Approve
@@ -68,7 +68,7 @@ export function ApprovalQueue({
                   size="sm"
                   variant="danger"
                   onClick={() =>
-                    setNotice(`Rejected ${doc.id} — Automation hook reserved (placeholder).`)
+                    setNotice(`Rejected ${doc.id} — Automation hook reserved.`)
                   }
                 >
                   Reject

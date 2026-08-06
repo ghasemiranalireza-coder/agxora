@@ -11,7 +11,7 @@ export default function BookDemoPage() {
   return (
     <AuthCard
       title="Book a demo"
-      subtitle="Live walkthroughs with the AGXORA team are coming soon. Leave nothing dangling — here’s where the booking calendar will live."
+      subtitle="Schedule a live walkthrough with the AGXORA team. Until calendar booking is enabled, email us to request a demo."
     >
       <div style={{ display: "grid", gap: 16 }}>
         <div
@@ -32,7 +32,7 @@ export default function BookDemoPage() {
               color: "rgba(125,211,252,0.85)",
             }}
           >
-            Coming soon
+            Request a demo
           </p>
           <p
             style={{

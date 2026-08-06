@@ -112,7 +112,7 @@ export function CrmPage(): JSX.Element {
       <CrmSection
         id="communication-hub"
         title="Communication Hub"
-        subtitle="Adapter registry for messaging, social, email, voice, and video — placeholders only."
+        subtitle="Adapter registry for messaging, social, email, voice, and videos only."
         delay={0.18}
       >
         <CommunicationHub channels={COMMUNICATION_CHANNELS} />

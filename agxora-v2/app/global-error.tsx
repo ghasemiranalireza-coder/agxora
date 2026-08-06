@@ -89,6 +89,17 @@ export default function GlobalError({
           >
             Retry
           </button>
+          <p style={{ marginTop: 18, fontSize: 12, color: "#94a3b8" }}>
+            {/* Plain anchors required: root layout may be unavailable. */}
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+            <a href="/" style={{ color: "#22d3ee" }}>
+              Home
+            </a>
+            {" · "}
+            <a href="/contact" style={{ color: "#22d3ee" }}>
+              Contact
+            </a>
+          </p>
         </div>
       </body>
     </html>

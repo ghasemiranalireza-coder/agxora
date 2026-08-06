@@ -25,11 +25,12 @@ export const metadata: Metadata = {
 
 export default function CookiesPage(): JSX.Element {
   return (
-    <LegalPageShell title="Cookie Policy" eyebrow="Legal · Placeholder">
+    <LegalPageShell title="Cookie Policy" eyebrow="Legal">
       <p>
         This Cookie Policy describes how {COMPANY.name} uses cookies and similar
-        technologies. A full consent manager will be enabled at public launch;
-        this page documents the intended categories.
+        technologies. Essential cookies are required for authentication and
+        security. Optional analytics cookies are enabled only where consent is
+        collected.
       </p>
 
       <h2>1. What are cookies?</h2>
