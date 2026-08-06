@@ -146,7 +146,21 @@ export function IntegrationCenter(): JSX.Element {
         apiKeyId: platform.apiKeys.find((k) => k.status === "active")?.id,
       });
       setExplorerResult(JSON.stringify(result.body, null, 2));
-      setNotice(`API explorer → ${result.statusCode}`);
+      if (result.statusCode === 0) {
+        const msg =
+          typeof result.body.message === "string"
+            ? result.body.message
+            : "Failed to fetch";
+        setNotice(`API explorer network error: ${msg}`);
+      } else if (result.statusCode >= 400) {
+        const msg =
+          typeof result.body.message === "string"
+            ? result.body.message
+            : `HTTP ${result.statusCode}`;
+        setNotice(`API explorer → ${result.statusCode}: ${msg}`);
+      } else {
+        setNotice(`API explorer → ${result.statusCode}`);
+      }
     } catch (err) {
       setNotice(err instanceof Error ? err.message : "Explorer failed");
     } finally {

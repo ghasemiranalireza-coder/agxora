@@ -24,17 +24,27 @@ export class RestDataProvider implements DataProvider {
 
   async health(): Promise<DataProviderHealth> {
     const client = getApiClient();
+    // Prefer versioned health; fall back to /health (both are implemented).
     const result = await client.request<{ readonly status?: string }>({
       method: "GET",
-      path: "/health",
+      path: "/v1/health",
       retry: false,
     });
+    const fallback =
+      result.ok
+        ? result
+        : await client.request<{ readonly status?: string }>({
+            method: "GET",
+            path: "/health",
+            retry: false,
+          });
+    const finalResult = result.ok ? result : fallback;
     return {
-      ok: result.ok,
+      ok: finalResult.ok,
       providerId: this.id,
-      message: result.ok
+      message: finalResult.ok
         ? "REST provider reachable"
-        : `REST health failed: ${result.message}`,
+        : `REST health failed: ${finalResult.message}`,
       checkedAt: new Date().toISOString(),
     };
   }

@@ -30,6 +30,34 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+/**
+ * Join API base + path without doubling `/api`.
+ * Prevents `/api` + `/api/v1/health` → `/api/api/v1/health`.
+ */
+export function joinApiUrl(base: string, path: string): string {
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  const normalizedBase = (base || "").replace(/\/$/, "");
+
+  if (!normalizedBase) return normalizedPath;
+
+  if (
+    normalizedPath === normalizedBase ||
+    normalizedPath.startsWith(`${normalizedBase}/`)
+  ) {
+    return normalizedPath;
+  }
+
+  // Absolute app path already includes /api — use as-is when base is /api
+  if (
+    (normalizedBase === "/api" || normalizedBase.endsWith("/api")) &&
+    normalizedPath.startsWith("/api/")
+  ) {
+    return normalizedPath;
+  }
+
+  return `${normalizedBase}${normalizedPath}`;
+}
+
 async function parseBody(response: Response): Promise<unknown> {
   const text = await response.text();
   if (!text) return null;
@@ -155,17 +183,31 @@ export class ApiClient {
         }
         await sleep(this.config.retryBackoffMs * (attempt + 1));
       } catch (error) {
+        const message =
+          error instanceof Error ? error.message : "Network request failed";
+        const url = joinApiUrl(this.config.apiBaseUrl, prepared.path);
         lastFailure = {
           ok: false,
           status: 0,
           code: "network_error",
-          message: error instanceof Error ? error.message : "Network request failed",
+          message,
+          details: {
+            url,
+            name: error instanceof Error ? error.name : "Error",
+            cause:
+              error instanceof Error && error.cause
+                ? String(error.cause)
+                : undefined,
+          },
         };
         if (attempt >= attempts - 1) {
           logPlatformEvent("api.error", {
             path: prepared.path,
             code: "network_error",
+            message,
+            url,
           });
+          // Surface the real network failure — do not rename or hide it.
           return lastFailure;
         }
         await sleep(this.config.retryBackoffMs * (attempt + 1));
@@ -207,8 +249,9 @@ export class ApiClient {
       headers["X-AGXORA-CSRF"] = this.csrfToken;
     }
 
+    const url = joinApiUrl(this.config.apiBaseUrl, options.path);
     try {
-      const response = await fetch(`${this.config.apiBaseUrl}${options.path}`, {
+      const response = await fetch(url, {
         method: options.method ?? (options.body !== undefined ? "POST" : "GET"),
         headers,
         body: options.body !== undefined ? JSON.stringify(options.body) : undefined,
