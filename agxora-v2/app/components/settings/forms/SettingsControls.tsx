@@ -95,80 +95,8 @@ export function SettingsSelect({
   );
 }
 
-export function SettingsToggle({
-  label,
-  description,
-  checked,
-  onChange,
-  disabled,
-}: {
-  readonly label: string;
-  readonly description?: string;
-  readonly checked: boolean;
-  readonly onChange: (checked: boolean) => void;
-  readonly disabled?: boolean;
-}): JSX.Element {
-  return (
-    <div
-      className="flex items-start justify-between gap-4"
-      style={{
-        borderRadius: "var(--agx-ds-radius-lg)",
-        border: "1px solid var(--agx-ds-border)",
-        background: "var(--agx-ds-surface)",
-        padding: "var(--agx-ds-space-3) var(--agx-ds-space-4)",
-        opacity: disabled ? 0.55 : 1,
-      }}
-    >
-      <div className="min-w-0">
-        <p
-          className="text-sm font-medium"
-          style={{ color: "var(--agx-ds-text)" }}
-        >
-          {label}
-        </p>
-        {description ? (
-          <p
-            className="mt-1 text-xs leading-relaxed"
-            style={{ color: "var(--agx-ds-text-muted)" }}
-          >
-            {description}
-          </p>
-        ) : null}
-      </div>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={checked}
-        aria-label={label}
-        disabled={disabled}
-        onClick={() => onChange(!checked)}
-        className="relative h-6 w-11 shrink-0 rounded-full border transition"
-        style={{
-          borderColor: checked
-            ? "color-mix(in srgb, var(--agx-ds-accent) 45%, transparent)"
-            : "var(--agx-ds-border)",
-          background: checked
-            ? "color-mix(in srgb, var(--agx-ds-accent) 35%, transparent)"
-            : "var(--agx-ds-surface-hover)",
-          boxShadow: undefined,
-        }}
-      >
-        <span
-          className="absolute top-0.5 rounded-full transition-transform"
-          style={{
-            left: 3,
-            width: 18,
-            height: 18,
-            transform: checked ? "translateX(20px)" : "translateX(0)",
-            background: checked
-              ? "var(--agx-ds-accent)"
-              : "var(--agx-ds-text-muted)",
-          }}
-        />
-      </button>
-    </div>
-  );
-}
+/** Settings toggle — shared Switch (single DS control). */
+export { Switch as SettingsToggle } from "../../ui/Switch";
 
 export function SettingsGrid({ children }: { readonly children: ReactNode }): JSX.Element {
   return <div className="grid grid-cols-1 gap-4 md:grid-cols-2">{children}</div>;

@@ -294,6 +294,7 @@ export function tokensToCssVars(
     "--agx-bg-elevated": isDay
       ? "rgba(255,255,255,0.94)"
       : "rgba(12,18,32,0.98)",
+    "--agx-surface": tokens.inputBg,
     "--agx-border": tokens.cardBorder,
   };
 }

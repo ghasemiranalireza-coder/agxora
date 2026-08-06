@@ -239,8 +239,7 @@ export function CustomerBillingPortal(): JSX.Element {
               <select
                 value={providerId}
                 onChange={(e) => setProviderId(e.target.value as PaymentProviderId)}
-                className="rounded-lg border px-2 py-1"
-                style={fieldStyle}
+                className="agx-ui-control rounded-lg border px-2 py-1"
               >
                 {listPaymentProviders().map((p) => (
                   <option key={p.id} value={p.id}>
@@ -253,8 +252,7 @@ export function CustomerBillingPortal(): JSX.Element {
               value={coupon}
               onChange={(e) => setCoupon(e.target.value)}
               placeholder="Coupon (LAUNCH20)"
-              className="rounded-lg border px-2 py-1"
-              style={fieldStyle}
+              className="agx-ui-control rounded-lg border px-2 py-1"
             />
           </div>
         </div>
@@ -395,8 +393,7 @@ export function CustomerBillingPortal(): JSX.Element {
                   companyName: e.target.value,
                 }))
               }
-              className="w-full rounded-xl border px-3 py-2 text-sm"
-              style={fieldStyle}
+              className="agx-ui-control w-full rounded-xl border px-3 py-2 text-sm"
             />
           </Field>
           <Field label="Billing email">
@@ -408,8 +405,7 @@ export function CustomerBillingPortal(): JSX.Element {
                   billingEmail: e.target.value,
                 }))
               }
-              className="w-full rounded-xl border px-3 py-2 text-sm"
-              style={fieldStyle}
+              className="agx-ui-control w-full rounded-xl border px-3 py-2 text-sm"
             />
           </Field>
           <Field label="VAT ID">
@@ -421,8 +417,7 @@ export function CustomerBillingPortal(): JSX.Element {
                   vatId: e.target.value,
                 }))
               }
-              className="w-full rounded-xl border px-3 py-2 text-sm"
-              style={fieldStyle}
+              className="agx-ui-control w-full rounded-xl border px-3 py-2 text-sm"
               placeholder="e.g. DE123456789"
             />
           </Field>
@@ -435,8 +430,7 @@ export function CustomerBillingPortal(): JSX.Element {
                   taxId: e.target.value,
                 }))
               }
-              className="w-full rounded-xl border px-3 py-2 text-sm"
-              style={fieldStyle}
+              className="agx-ui-control w-full rounded-xl border px-3 py-2 text-sm"
               placeholder="e.g. DE123456789"
             />
           </Field>
@@ -481,11 +475,6 @@ export function CustomerBillingPortal(): JSX.Element {
   );
 }
 
-const fieldStyle = {
-  borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
-  background: "rgba(255,255,255,0.04)",
-  color: "var(--agx-text, #f8fafc)",
-} as const;
 
 function Meta({ label, value }: { label: string; value: string }): JSX.Element {
   return (

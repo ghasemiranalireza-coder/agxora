@@ -1,13 +1,29 @@
 "use client";
 
-import type {
-  InputHTMLAttributes,
-  JSX,
-  ReactNode,
-  SelectHTMLAttributes,
-  TextareaHTMLAttributes,
+import {
+  Children,
+  cloneElement,
+  isValidElement,
+  useId,
+  type InputHTMLAttributes,
+  type JSX,
+  type ReactElement,
+  type ReactNode,
+  type SelectHTMLAttributes,
+  type TextareaHTMLAttributes,
 } from "react";
 
+type ControlAriaProps = {
+  id?: string;
+  required?: boolean;
+  "aria-invalid"?: boolean | "true" | "false";
+  "aria-required"?: boolean | "true" | "false";
+  "aria-describedby"?: string;
+};
+
+/**
+ * Form field — auto id wiring, required marker, error/hint a11y.
+ */
 export function FormField({
   label,
   error,
@@ -23,9 +39,17 @@ export function FormField({
   readonly required?: boolean;
   readonly children: ReactNode;
 }): JSX.Element {
+  const autoId = useId();
+  const fieldId = htmlFor ?? autoId;
+  const errorId = `${fieldId}-error`;
+  const hintId = `${fieldId}-hint`;
+  const describedBy = [error ? errorId : null, !error && hint ? hintId : null]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <label className="block space-y-2" htmlFor={htmlFor}>
-      <span className="agx-ui-label">
+    <div className="block space-y-2">
+      <label className="agx-ui-label" htmlFor={fieldId}>
         {label}
         {required ? (
           <span aria-hidden="true" style={{ color: "var(--agx-ds-danger)" }}>
@@ -33,16 +57,29 @@ export function FormField({
             *
           </span>
         ) : null}
-      </span>
-      {children}
+      </label>
+      {Children.map(children, (child) => {
+        if (!isValidElement(child)) return child;
+        const el = child as ReactElement<ControlAriaProps>;
+        return cloneElement(el, {
+          id: el.props.id ?? fieldId,
+          required: required || el.props.required,
+          "aria-invalid": error ? true : el.props["aria-invalid"],
+          "aria-required": required || el.props["aria-required"],
+          "aria-describedby":
+            describedBy || el.props["aria-describedby"],
+        });
+      })}
       {error ? (
-        <span className="agx-ui-error" role="alert">
+        <span className="agx-ui-error" role="alert" id={errorId}>
           {error}
         </span>
       ) : hint ? (
-        <span className="agx-ui-hint">{hint}</span>
+        <span className="agx-ui-hint" id={hintId}>
+          {hint}
+        </span>
       ) : null}
-    </label>
+    </div>
   );
 }
 

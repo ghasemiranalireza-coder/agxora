@@ -255,8 +255,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
               type="date"
               value={filterFrom}
               onChange={(e) => setDateFrom(e.target.value)}
-              className="mt-1 block rounded-lg border px-2 py-1 text-sm"
-              style={fieldStyle}
+              className="agx-ui-control mt-1 block rounded-lg border px-2 py-1 text-sm"
             />
           </label>
           <label className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
@@ -265,8 +264,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
               type="date"
               value={filterTo}
               onChange={(e) => setDateTo(e.target.value)}
-              className="mt-1 block rounded-lg border px-2 py-1 text-sm"
-              style={fieldStyle}
+              className="agx-ui-control mt-1 block rounded-lg border px-2 py-1 text-sm"
             />
           </label>
           <label className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
@@ -276,8 +274,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
               onChange={(e) =>
                 setDomainFilter(e.target.value as AnalyticsDomain | "all")
               }
-              className="mt-1 block rounded-lg border px-2 py-1 text-sm"
-              style={fieldStyle}
+              className="agx-ui-control mt-1 block rounded-lg border px-2 py-1 text-sm"
             >
               <option value="all">All domains</option>
               {eic.domains.map((d) => (
@@ -541,8 +538,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             value={explorerQuery}
             onChange={(e) => setExplorerQuery(e.target.value)}
             placeholder="Search · group · aggregate ready"
-            className="w-full rounded-xl border px-3 py-2 text-sm"
-            style={fieldStyle}
+            className="agx-ui-control w-full rounded-xl border px-3 py-2 text-sm"
           />
           <DataTable
             columns={explorerColumns}
@@ -670,10 +666,3 @@ function Stat({ label, value }: { label: string; value: string }): JSX.Element {
   );
 }
 
-const fieldStyle = {
-  background:
-    "color-mix(in srgb, var(--agx-surface, #0f172a) 80%, transparent)",
-  borderColor:
-    "color-mix(in srgb, var(--agx-border, #334155) 70%, transparent)",
-  color: "var(--agx-text, #f8fafc)",
-} as const;

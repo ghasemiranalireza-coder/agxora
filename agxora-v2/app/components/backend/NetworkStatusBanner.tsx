@@ -4,6 +4,7 @@ import type { JSX } from "react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "../ui/Button";
+import { OVERLAY_Z } from "../ui/overlayStack";
 
 /**
  * Network / offline banner — non-intrusive, retry-capable.
@@ -31,19 +32,21 @@ export function NetworkStatusBanner(): JSX.Element | null {
       role="alert"
       aria-live="assertive"
       className="fixed inset-x-0 bottom-0 flex justify-center p-3 sm:p-4"
-      style={{ zIndex: 1040 }}
+      style={{ zIndex: OVERLAY_Z.critical }}
     >
       <div
-        className="flex w-full max-w-xl flex-wrap items-center justify-between gap-3 rounded-2xl border px-4 py-3 shadow-xl backdrop-blur-md"
+        className="flex w-full max-w-xl flex-wrap items-center justify-between gap-3 rounded-2xl border px-4 py-3 shadow-xl"
         style={{
-          background: "rgba(15, 23, 42, 0.94)",
-          borderColor: "rgba(248, 113, 113, 0.45)",
-          color: "#f8fafc",
+          background: "var(--agx-ds-elevated)",
+          borderColor:
+            "color-mix(in srgb, var(--agx-ds-danger) 45%, transparent)",
+          color: "var(--agx-ds-text)",
+          boxShadow: "var(--agx-ds-shadow-lg)",
         }}
       >
         <div className="min-w-0">
           <p className="text-sm font-semibold">You appear to be offline</p>
-          <p className="text-xs" style={{ color: "#94a3b8" }}>
+          <p className="text-xs" style={{ color: "var(--agx-ds-text-muted)" }}>
             Changes may not sync until the connection returns.{" "}
             <Link href="/offline" className="underline underline-offset-2">
               Offline help

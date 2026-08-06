@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useMemo, useState, type DragEvent, type JSX } from "react";
+import { memo, useEffect, useMemo, useState, type DragEvent, type JSX } from "react";
 import type {
   DocumentFileType,
   DocumentFolder,
@@ -16,7 +16,17 @@ import {
   LIBRARY_VIEWS,
   statusLabel,
 } from "../../lib/documents";
-import { Badge, Button, Card, EmptyState, FilterSelect, SearchField } from "../ui";
+import {
+  Badge,
+  Button,
+  Card,
+  EmptyState,
+  FilterSelect,
+  OVERLAY_Z,
+  SearchField,
+  isTopOverlay,
+  pushOverlay,
+} from "../ui";
 import { DocumentViewer } from "./DocumentViewer";
 import { VersionHistoryPanel } from "./VersionHistoryPanel";
 import { DocStatusBadge } from "./shared/StatusBadges";
@@ -446,43 +456,100 @@ export function LibraryWorkspace({
       </DocumentsDialog>
 
       {contextMenu ? (
-        <div
-          role="menu"
-          className="fixed min-w-[180px] rounded-xl border p-1.5 shadow-xl"
-          style={{
-            zIndex: 1020,
-            top: contextMenu.y,
-            left: contextMenu.x,
-            borderColor: "var(--agx-ds-border)",
-            background: "var(--agx-ds-elevated)",
-            color: "var(--agx-ds-text)",
+        <LibraryContextMenu
+          x={contextMenu.x}
+          y={contextMenu.y}
+          docId={contextMenu.id}
+          onAction={(label) => {
+            setUploadNotice(`${label} action for ${contextMenu.id}.`);
+            setContextMenu(null);
           }}
-        >
-          {["Open", "Share", "Favorite", "Move", "Delete"].map((label) => (
-            <button
-              key={label}
-              type="button"
-              role="menuitem"
-              className="block w-full rounded-lg px-3 py-2 text-left text-sm transition-colors hover:bg-white/[0.06]"
-              style={{ color: "var(--agx-text, #f8fafc)" }}
-              onClick={() => {
-                setUploadNotice(`${label} action for ${contextMenu.id}.`);
-                setContextMenu(null);
-              }}
-            >
-              {label}
-            </button>
-          ))}
-          <button
-            type="button"
-            className="mt-1 block w-full rounded-lg px-3 py-2 text-left text-xs"
-            style={{ color: "var(--agx-text-muted, #94a3b8)" }}
-            onClick={() => setContextMenu(null)}
-          >
-            Dismiss
-          </button>
-        </div>
+          onClose={() => setContextMenu(null)}
+        />
       ) : null}
+    </div>
+  );
+}
+
+function LibraryContextMenu({
+  x,
+  y,
+  docId,
+  onAction,
+  onClose,
+}: {
+  readonly x: number;
+  readonly y: number;
+  readonly docId: string;
+  readonly onAction: (label: string) => void;
+  readonly onClose: () => void;
+}): JSX.Element {
+  useEffect(() => {
+    const close = (): void => onClose();
+    const pop = pushOverlay(close);
+    const onEsc = (event: KeyboardEvent): void => {
+      if (event.key !== "Escape") return;
+      if (!isTopOverlay(close)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      close();
+    };
+    const onPointer = (event: MouseEvent): void => {
+      const target = event.target as Node | null;
+      const menu = document.getElementById(`library-ctx-${docId}`);
+      if (menu && target && !menu.contains(target)) close();
+    };
+    window.addEventListener("keydown", onEsc, true);
+    window.addEventListener("mousedown", onPointer, true);
+    return () => {
+      window.removeEventListener("keydown", onEsc, true);
+      window.removeEventListener("mousedown", onPointer, true);
+      pop();
+    };
+  }, [docId, onClose]);
+
+  return (
+    <div
+      id={`library-ctx-${docId}`}
+      role="menu"
+      className="fixed min-w-[180px] rounded-xl border p-1.5 shadow-xl"
+      style={{
+        zIndex: OVERLAY_Z.popover,
+        top: y,
+        left: x,
+        borderColor: "var(--agx-ds-border)",
+        background: "var(--agx-ds-elevated)",
+        color: "var(--agx-ds-text)",
+        boxShadow: "var(--agx-ds-shadow-lg)",
+      }}
+    >
+      {["Open", "Share", "Favorite", "Move", "Delete"].map((label) => (
+        <button
+          key={label}
+          type="button"
+          role="menuitem"
+          className="block w-full rounded-lg px-3 py-2 text-left text-sm transition-colors"
+          style={{ color: "var(--agx-ds-text)" }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background =
+              "color-mix(in srgb, var(--agx-ds-accent) 12%, transparent)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "transparent";
+          }}
+          onClick={() => onAction(label)}
+        >
+          {label}
+        </button>
+      ))}
+      <button
+        type="button"
+        className="mt-1 block w-full rounded-lg px-3 py-2 text-left text-xs"
+        style={{ color: "var(--agx-ds-text-muted)" }}
+        onClick={onClose}
+      >
+        Dismiss
+      </button>
     </div>
   );
 }

@@ -116,6 +116,26 @@ select.agx-ui-control option {
   color: var(--agx-ds-text);
 }
 
+/* Shared checkbox — focusable, accent when checked */
+.agx-ui-checkbox {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: var(--agx-ds-accent);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.agx-ui-checkbox:focus-visible {
+  outline: none;
+  box-shadow: var(--agx-ds-shadow-focus);
+}
+
+.agx-ui-checkbox:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 /* Legacy alias — Chat / Onboarding use the same control surface */
 .agx-input {
   width: 100%;

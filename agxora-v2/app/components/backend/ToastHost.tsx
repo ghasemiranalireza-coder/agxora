@@ -3,15 +3,28 @@
 import type { JSX } from "react";
 import { useToasts, useToast } from "@/app/lib/backend/hooks";
 import type { ToastTone } from "@/app/lib/backend/notifications";
+import { OVERLAY_Z } from "@/app/components/ui/overlayStack";
 
 const TONE_STYLE: Record<
   ToastTone,
   { readonly border: string; readonly label: string }
 > = {
-  success: { border: "rgba(52, 211, 153, 0.45)", label: "Success" },
-  warning: { border: "rgba(251, 191, 36, 0.45)", label: "Warning" },
-  error: { border: "rgba(248, 113, 113, 0.5)", label: "Error" },
-  info: { border: "rgba(56, 189, 248, 0.45)", label: "Info" },
+  success: {
+    border: "color-mix(in srgb, var(--agx-ds-success, #34d399) 45%, transparent)",
+    label: "Success",
+  },
+  warning: {
+    border: "color-mix(in srgb, var(--agx-ds-warning, #fbbf24) 45%, transparent)",
+    label: "Warning",
+  },
+  error: {
+    border: "color-mix(in srgb, var(--agx-ds-danger, #fb7185) 50%, transparent)",
+    label: "Error",
+  },
+  info: {
+    border: "color-mix(in srgb, var(--agx-ds-accent) 45%, transparent)",
+    label: "Info",
+  },
 };
 
 /**
@@ -25,7 +38,7 @@ export function ToastHost(): JSX.Element {
   return (
     <div
       className="pointer-events-none fixed inset-x-0 top-0 flex flex-col items-end gap-2 p-4 sm:p-6"
-      style={{ zIndex: 1030 }}
+      style={{ zIndex: OVERLAY_Z.toast }}
       aria-live="polite"
       aria-relevant="additions text"
       data-toast-count={toasts.length}
@@ -35,12 +48,12 @@ export function ToastHost(): JSX.Element {
         return (
           <div
             key={toast.id}
-            className="pointer-events-auto w-full max-w-sm rounded-lg border px-4 py-3 shadow-lg backdrop-blur-md"
+            className="pointer-events-auto w-full max-w-sm rounded-lg border px-4 py-3 shadow-lg"
             style={{
-              background:
-                "color-mix(in srgb, var(--agx-panel-bg, #0f172a) 92%, transparent)",
+              background: "var(--agx-ds-elevated)",
               borderColor: tone.border,
-              color: "var(--agx-text, #f8fafc)",
+              color: "var(--agx-ds-text)",
+              boxShadow: "var(--agx-ds-shadow-md)",
             }}
             role={toast.tone === "error" ? "alert" : "status"}
             aria-atomic="true"
@@ -49,7 +62,7 @@ export function ToastHost(): JSX.Element {
               <div className="min-w-0 space-y-1">
                 <p
                   className="text-[10px] font-semibold uppercase tracking-[0.16em]"
-                  style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+                  style={{ color: "var(--agx-ds-text-muted)" }}
                 >
                   {tone.label}
                 </p>
@@ -57,7 +70,7 @@ export function ToastHost(): JSX.Element {
                 {toast.description ? (
                   <p
                     className="text-xs leading-relaxed"
-                    style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+                    style={{ color: "var(--agx-ds-text-muted)" }}
                   >
                     {toast.description}
                   </p>

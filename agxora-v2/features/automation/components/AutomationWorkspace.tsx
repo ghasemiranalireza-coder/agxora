@@ -584,8 +584,7 @@ function WorkflowEditorPanel({
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-            style={fieldStyle}
+            className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
             disabled={!canWrite}
           />
         </label>
@@ -594,8 +593,7 @@ function WorkflowEditorPanel({
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-            style={fieldStyle}
+            className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
             rows={2}
             disabled={!canWrite}
           />
@@ -606,8 +604,7 @@ function WorkflowEditorPanel({
             <select
               value={triggerType}
               onChange={(e) => setTriggerType(e.target.value as TriggerType)}
-              className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-              style={fieldStyle}
+              className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
               disabled={!canWrite}
             >
               {triggers.map((t) => (
@@ -624,8 +621,7 @@ function WorkflowEditorPanel({
               onChange={(e) =>
                 setActionType(e.target.value as typeof actionType)
               }
-              className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-              style={fieldStyle}
+              className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
               disabled={!canWrite}
             >
               {actions.map((a) => (
@@ -892,8 +888,7 @@ function SettingsPanel({
                 logLevel: e.target.value as WorkflowSettings["logLevel"],
               })
             }
-            className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-            style={fieldStyle}
+            className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
           >
             <option value="error">error</option>
             <option value="warn">warn</option>
@@ -941,15 +936,9 @@ function NumField({
         value={value}
         disabled={disabled}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-        style={fieldStyle}
+        className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
       />
     </label>
   );
 }
 
-const fieldStyle = {
-  background: "color-mix(in srgb, var(--agx-surface, #0f172a) 80%, transparent)",
-  borderColor: "color-mix(in srgb, var(--agx-border, #334155) 70%, transparent)",
-  color: "var(--agx-text, #f8fafc)",
-} as const;
