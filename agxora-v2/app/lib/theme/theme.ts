@@ -236,6 +236,7 @@ export function msUntilNextAutoBoundary(date: Date = new Date()): number {
 export function tokensToCssVars(
   tokens: ThemeTokens,
 ): Record<string, string> {
+  const isDay = tokens.tone === "day";
   return {
     "--agx-sky-gradient": tokens.skyGradient,
     "--agx-sky-solid": tokens.skySolid,
@@ -270,5 +271,29 @@ export function tokensToCssVars(
     "--agx-globe-frame-bg": tokens.globeFrameBg,
     "--agx-globe-border": tokens.globeBorder,
     "--agx-theme-transition": `${THEME_TRANSITION_MS}ms`,
+
+    /* Design-system bridge — controls/overlays always track appearance */
+    "--agx-ds-text": tokens.text,
+    "--agx-ds-text-muted": tokens.textMuted,
+    "--agx-ds-accent": tokens.accent,
+    "--agx-ds-border": tokens.inputBorder,
+    "--agx-ds-surface": tokens.inputBg,
+    "--agx-ds-surface-hover": isDay
+      ? "rgba(255,255,255,0.78)"
+      : "rgba(255,255,255,0.08)",
+    "--agx-ds-elevated": isDay
+      ? "rgba(255,255,255,0.94)"
+      : "rgba(12,18,32,0.98)",
+    "--agx-ds-scrim": isDay
+      ? "rgba(28,40,56,0.42)"
+      : "rgba(4,8,16,0.72)",
+    "--agx-ds-placeholder": isDay
+      ? "rgba(90,106,122,0.72)"
+      : "rgba(168,182,199,0.72)",
+    "--agx-ds-on-accent": isDay ? "#f8fafc" : "#041018",
+    "--agx-bg-elevated": isDay
+      ? "rgba(255,255,255,0.94)"
+      : "rgba(12,18,32,0.98)",
+    "--agx-border": tokens.cardBorder,
   };
 }

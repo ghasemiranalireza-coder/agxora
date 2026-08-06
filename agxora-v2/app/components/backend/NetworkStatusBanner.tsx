@@ -30,7 +30,8 @@ export function NetworkStatusBanner(): JSX.Element | null {
     <div
       role="alert"
       aria-live="assertive"
-      className="fixed inset-x-0 bottom-0 z-[90] flex justify-center p-3 sm:p-4"
+      className="fixed inset-x-0 bottom-0 flex justify-center p-3 sm:p-4"
+      style={{ zIndex: 1040 }}
     >
       <div
         className="flex w-full max-w-xl flex-wrap items-center justify-between gap-3 rounded-2xl border px-4 py-3 shadow-xl backdrop-blur-md"

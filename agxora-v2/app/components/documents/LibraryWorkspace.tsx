@@ -256,7 +256,7 @@ export function LibraryWorkspace({
 
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
         <Card className="xl:col-span-3 space-y-3" padding="16px" hover={false}>
-          <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+          <h3 className="text-sm font-semibold" style={{ color: "var(--agx-ds-text)" }}>
             Folders & Collections
           </h3>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
@@ -448,12 +448,14 @@ export function LibraryWorkspace({
       {contextMenu ? (
         <div
           role="menu"
-          className="fixed z-[90] min-w-[180px] rounded-xl border p-1.5 shadow-xl"
+          className="fixed min-w-[180px] rounded-xl border p-1.5 shadow-xl"
           style={{
-            left: contextMenu.x,
+            zIndex: 1020,
             top: contextMenu.y,
-            borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
-            background: "rgba(12,16,28,0.96)",
+            left: contextMenu.x,
+            borderColor: "var(--agx-ds-border)",
+            background: "var(--agx-ds-elevated)",
+            color: "var(--agx-ds-text)",
           }}
         >
           {["Open", "Share", "Favorite", "Move", "Delete"].map((label) => (

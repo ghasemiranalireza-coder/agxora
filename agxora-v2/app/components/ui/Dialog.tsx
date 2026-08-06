@@ -8,9 +8,19 @@ import {
   type JSX,
   type ReactNode,
 } from "react";
+import { createPortal } from "react-dom";
+import {
+  isTopOverlay,
+  lockBodyScroll,
+  OVERLAY_Z,
+  pushOverlay,
+} from "./overlayStack";
 
 /**
- * Reusable modal dialog — Escape, backdrop close, focus trap, restore focus.
+ * AGXORA Dialog — single modal primitive.
+ * Portals to document.body (outside dashboard isolation / page-enter opacity).
+ * Owns Escape only when topmost; locks body scroll; focus traps; solid panel
+ * (no backdrop-filter) so native selects paint above the panel.
  */
 export function Dialog({
   open,
@@ -30,6 +40,11 @@ export function Dialog({
   const titleId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
   const previouslyFocused = useRef<HTMLElement | null>(null);
+  const onCloseRef = useRef(onClose);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
 
   const focusFirst = useCallback((): void => {
     const panel = panelRef.current;
@@ -43,19 +58,27 @@ export function Dialog({
 
   useEffect(() => {
     if (!open) return;
+
     previouslyFocused.current =
       typeof document !== "undefined"
         ? (document.activeElement as HTMLElement | null)
         : null;
+
+    const close = (): void => onCloseRef.current();
+    const pop = pushOverlay(close);
+    const unlock = lockBodyScroll();
     const frame = window.requestAnimationFrame(() => focusFirst());
 
     const onKey = (event: KeyboardEvent): void => {
       if (event.key === "Escape") {
+        if (!isTopOverlay(close)) return;
         event.preventDefault();
-        onClose();
+        event.stopPropagation();
+        close();
         return;
       }
       if (event.key !== "Tab" || !panelRef.current) return;
+      if (!isTopOverlay(close)) return;
       const focusable = Array.from(
         panelRef.current.querySelectorAll<HTMLElement>(
           'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
@@ -78,20 +101,25 @@ export function Dialog({
       }
     };
 
-    window.addEventListener("keydown", onKey);
+    window.addEventListener("keydown", onKey, true);
     return () => {
       window.cancelAnimationFrame(frame);
-      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("keydown", onKey, true);
+      pop();
+      unlock();
       previouslyFocused.current?.focus?.();
     };
-  }, [open, onClose, focusFirst]);
+  }, [open, focusFirst]);
 
-  if (!open) return null;
+  if (!open || typeof document === "undefined") return null;
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[80] flex items-center justify-center p-4"
-      style={{ background: "rgba(4,8,16,0.62)" }}
+      className="agx-ui-overlay fixed inset-0 flex items-center justify-center p-4"
+      style={{
+        zIndex: OVERLAY_Z.modal,
+        background: "var(--agx-ds-scrim)",
+      }}
       onClick={onClose}
     >
       <div
@@ -100,17 +128,16 @@ export function Dialog({
         aria-modal="true"
         aria-labelledby={titleId}
         tabIndex={-1}
-        className={`max-h-[90vh] w-full overflow-y-auto border outline-none ${
+        className={`agx-ui-dialog-panel max-h-[90vh] w-full overflow-y-auto border outline-none ${
           wide ? "max-w-4xl" : "max-w-2xl"
         }`}
         style={{
           borderRadius: "var(--agx-ds-radius-xl)",
           padding: "var(--agx-ds-space-5)",
           borderColor: "var(--agx-ds-border)",
-          background:
-            "linear-gradient(165deg, var(--agx-card-bg-from, rgba(18,24,38,0.98)), var(--agx-card-bg-to, rgba(10,14,24,0.98)))",
-          backdropFilter: "var(--agx-card-blur, blur(22px))",
+          background: "var(--agx-ds-elevated)",
           boxShadow: "var(--agx-ds-shadow-lg)",
+          color: "var(--agx-ds-text)",
         }}
         onClick={(event) => event.stopPropagation()}
       >
@@ -130,7 +157,7 @@ export function Dialog({
             style={{
               borderColor: "var(--agx-ds-border)",
               color: "var(--agx-ds-text-muted)",
-              background: "transparent",
+              background: "var(--agx-ds-surface)",
               outlineColor: "var(--agx-ds-accent)",
               minHeight: "var(--agx-ds-control-h-sm)",
             }}
@@ -143,6 +170,7 @@ export function Dialog({
           <div className="mt-6 flex flex-wrap justify-end gap-2">{footer}</div>
         ) : null}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

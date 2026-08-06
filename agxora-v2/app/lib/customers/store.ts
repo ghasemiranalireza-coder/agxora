@@ -146,6 +146,7 @@ export const customerStore = {
       formMode: "edit",
       editingId: customer.id,
       selectedId: customer.id,
+      detailsOpen: false,
       draft: {
         companyName: customer.companyName,
         contactPerson: customer.contactPerson,

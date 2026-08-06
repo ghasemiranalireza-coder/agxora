@@ -32,6 +32,7 @@ export function SearchField({
 export function FilterSelect({
   label,
   children,
+  className,
   ...rest
 }: {
   readonly label: string;
@@ -40,7 +41,10 @@ export function FilterSelect({
   return (
     <label className="block min-w-[140px] space-y-2">
       <span className="agx-ui-label">{label}</span>
-      <select className="agx-ui-control" {...rest}>
+      <select
+        {...rest}
+        className={["agx-ui-control", className].filter(Boolean).join(" ")}
+      >
         {children}
       </select>
     </label>

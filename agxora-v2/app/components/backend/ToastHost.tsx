@@ -24,7 +24,8 @@ export function ToastHost(): JSX.Element {
 
   return (
     <div
-      className="pointer-events-none fixed inset-x-0 top-0 z-[80] flex flex-col items-end gap-2 p-4 sm:p-6"
+      className="pointer-events-none fixed inset-x-0 top-0 flex flex-col items-end gap-2 p-4 sm:p-6"
+      style={{ zIndex: 1030 }}
       aria-live="polite"
       aria-relevant="additions text"
       data-toast-count={toasts.length}

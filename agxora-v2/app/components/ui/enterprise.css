@@ -37,12 +37,14 @@
   --agx-ds-duration: 160ms;
   --agx-ds-duration-md: 240ms;
 
-  /* Semantic colors — never mix alternate gray/success/danger palettes */
+  /* Semantic colors — theme bridge overrides these at runtime via tokensToCssVars */
   --agx-ds-text: var(--agx-text, #f4f8fb);
   --agx-ds-text-muted: var(--agx-text-muted, #94a3b8);
-  --agx-ds-border: var(--agx-card-border, rgba(255, 255, 255, 0.1));
-  --agx-ds-surface: rgba(255, 255, 255, 0.035);
-  --agx-ds-surface-hover: rgba(255, 255, 255, 0.055);
+  --agx-ds-border: var(--agx-input-border, var(--agx-card-border, rgba(255, 255, 255, 0.1)));
+  --agx-ds-surface: var(--agx-input-bg, rgba(255, 255, 255, 0.055));
+  --agx-ds-surface-hover: rgba(255, 255, 255, 0.08);
+  --agx-ds-elevated: rgba(12, 18, 32, 0.98);
+  --agx-ds-scrim: rgba(4, 8, 16, 0.72);
   --agx-ds-placeholder: color-mix(in srgb, var(--agx-ds-text-muted) 72%, transparent);
   --agx-ds-success: #34d399;
   --agx-ds-warning: #fbbf24;
@@ -50,6 +52,15 @@
   --agx-ds-accent: var(--agx-accent, #22d3ee);
 
   --agx-ds-table-row-min: 48px;
+}
+
+/* Appearance-aware native form chrome (select option lists, scrollbars) */
+[data-agx-appearance="night"] {
+  color-scheme: dark;
+}
+
+[data-agx-appearance="day"] {
+  color-scheme: light;
 }
 
 /* Unified form / select / textarea control surface */
@@ -97,6 +108,40 @@ textarea.agx-ui-control {
 
 select.agx-ui-control {
   cursor: pointer;
+  color-scheme: inherit;
+}
+
+select.agx-ui-control option {
+  background: var(--agx-ds-elevated);
+  color: var(--agx-ds-text);
+}
+
+/* Legacy alias — Chat / Onboarding use the same control surface */
+.agx-input {
+  width: 100%;
+  min-height: var(--agx-ds-control-h);
+  border-radius: var(--agx-ds-radius-md);
+  border: 1px solid var(--agx-ds-border);
+  background: var(--agx-ds-surface);
+  color: var(--agx-ds-text);
+  padding: 0 var(--agx-ds-space-4);
+  font-size: 13px;
+  line-height: 1.4;
+  font-family: var(--agx-ds-font-ui);
+  outline: none;
+  transition:
+    border-color var(--agx-ds-duration) var(--agx-ds-ease),
+    box-shadow var(--agx-ds-duration) var(--agx-ds-ease),
+    background var(--agx-ds-duration) var(--agx-ds-ease);
+}
+
+.agx-input:focus-visible {
+  border-color: color-mix(in srgb, var(--agx-ds-accent) 55%, transparent);
+  box-shadow: var(--agx-ds-shadow-focus);
+}
+
+.agx-input::placeholder {
+  color: var(--agx-ds-placeholder);
 }
 
 /* Compact control (filters / toolbars) */

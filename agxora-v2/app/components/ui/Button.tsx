@@ -23,8 +23,9 @@ const variantStyle: Record<
 > = {
   primary: {
     border: "transparent",
-    background: "linear-gradient(180deg, #67e8f9 0%, #22d3ee 55%, #06b6d4 100%)",
-    color: "#041018",
+    background:
+      "linear-gradient(180deg, color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 88%, white) 0%, var(--agx-ds-accent, #22d3ee) 55%, color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 75%, #0e7490) 100%)",
+    color: "var(--agx-ds-on-accent, #041018)",
   },
   secondary: {
     border: "var(--agx-ds-border, rgba(255,255,255,0.12))",
