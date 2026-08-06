@@ -15,7 +15,18 @@ async function providerRequest<T>(
   body?: unknown,
 ): Promise<ApiResponse<T>> {
   logPlatformEvent(method === "GET" ? "repo.read" : "repo.write", { path, method });
-  return getActiveDataProvider().request<T>({ method, path, body });
+  const result = await getActiveDataProvider().request<T>({ method, path, body });
+  if (!result.ok) {
+    // Do not hide transport failures — log the real message (e.g. Failed to fetch).
+    logPlatformEvent("api.error", {
+      path,
+      method,
+      code: result.code,
+      status: String(result.status),
+      message: result.message,
+    });
+  }
+  return result;
 }
 
 export const crmDataRepository = {
