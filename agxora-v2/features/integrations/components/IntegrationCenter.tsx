@@ -570,8 +570,7 @@ export function IntegrationCenter(): JSX.Element {
               <input
                 value={webhookUrl}
                 onChange={(e) => setWebhookUrl(e.target.value)}
-                className="min-w-[240px] flex-1 rounded-xl border px-3 py-2 text-sm"
-                style={fieldStyle}
+                className="agx-ui-control min-w-[240px] flex-1 rounded-xl border px-3 py-2 text-sm"
                 placeholder="https://…"
               />
               <Button size="sm" onClick={onCreateWebhook}>
@@ -609,9 +608,10 @@ export function IntegrationCenter(): JSX.Element {
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
               Developer settings
             </h2>
-            <label className="flex items-center gap-2 text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
+            <label className="flex items-center gap-2 text-sm" style={{ color: "var(--agx-ds-text)" }}>
               <input
                 type="checkbox"
+                className="agx-ui-checkbox"
                 checked={sandboxMode}
                 onChange={(e) =>
                   setDevDraft((prev) => ({
@@ -622,9 +622,10 @@ export function IntegrationCenter(): JSX.Element {
               />
               Sandbox mode
             </label>
-            <label className="flex items-center gap-2 text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
+            <label className="flex items-center gap-2 text-sm" style={{ color: "var(--agx-ds-text)" }}>
               <input
                 type="checkbox"
+                className="agx-ui-checkbox"
                 checked={webhookSigningEnabled}
                 onChange={(e) =>
                   setDevDraft((prev) => ({
@@ -667,8 +668,7 @@ export function IntegrationCenter(): JSX.Element {
             <input
               value={explorerPath}
               onChange={(e) => setExplorerPath(e.target.value)}
-              className="w-full rounded-xl border px-3 py-2 font-mono text-sm"
-              style={fieldStyle}
+              className="agx-ui-control w-full rounded-xl border px-3 py-2 font-mono text-sm"
             />
             <Button size="sm" disabled={busy} onClick={() => void onExplore()}>
               Send GET
@@ -734,10 +734,3 @@ function Stat({ label, value }: { label: string; value: string }): JSX.Element {
   );
 }
 
-const fieldStyle = {
-  background:
-    "color-mix(in srgb, var(--agx-surface, #0f172a) 80%, transparent)",
-  borderColor:
-    "color-mix(in srgb, var(--agx-border, #334155) 70%, transparent)",
-  color: "var(--agx-text, #f8fafc)",
-} as const;

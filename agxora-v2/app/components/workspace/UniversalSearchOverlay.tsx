@@ -26,8 +26,10 @@ import {
   type SearchResult,
 } from "../../lib/workspace";
 import { Badge, Button, EmptyState } from "../ui";
+import { OVERLAY_Z, lockBodyScroll, pushOverlay, isTopOverlay } from "../ui/overlayStack";
 import { SearchPreview } from "./SearchPreview";
 import { VirtualResultList } from "./VirtualResultList";
+import { createPortal } from "react-dom";
 
 type FlatRow =
   | { readonly type: "header"; readonly id: string; readonly label: string }
@@ -56,7 +58,6 @@ export function UniversalSearchOverlay(): JSX.Element | null {
         event.preventDefault();
         setOpen((value) => !value);
       }
-      if (event.key === "Escape") setOpen(false);
     };
     const onCustom = (): void => setOpen(true);
     window.addEventListener("keydown", onKey);
@@ -69,13 +70,29 @@ export function UniversalSearchOverlay(): JSX.Element | null {
 
   useEffect(() => {
     if (!open) return;
+    const close = (): void => setOpen(false);
+    const pop = pushOverlay(close);
+    const unlock = lockBodyScroll();
+    const onEsc = (event: globalThis.KeyboardEvent): void => {
+      if (event.key !== "Escape") return;
+      if (!isTopOverlay(close)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      close();
+    };
+    window.addEventListener("keydown", onEsc, true);
     const t = window.setTimeout(() => {
       setRecent(getRecentSearches());
       setFavorites(getFavoriteIds());
       setActiveIndex(0);
       inputRef.current?.focus();
     }, 0);
-    return () => window.clearTimeout(t);
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("keydown", onEsc, true);
+      pop();
+      unlock();
+    };
   }, [open]);
 
   const results = useMemo(() => searchIndex(index, query, { limit: 100 }), [index, query]);
@@ -164,26 +181,29 @@ export function UniversalSearchOverlay(): JSX.Element | null {
     }
   };
 
-  if (!open) return null;
+  if (!open || typeof document === "undefined") return null;
 
   const showHome = !query.trim();
 
-  return (
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
       aria-label="Universal search"
-      className="fixed inset-0 z-[90] flex items-start justify-center px-3 pt-[8vh] sm:px-6"
-      style={{ background: "rgba(2,6,23,0.62)" }}
+      className="fixed inset-0 flex items-start justify-center px-3 pt-[8vh] sm:px-6"
+      style={{
+        zIndex: OVERLAY_Z.popover,
+        background: "var(--agx-ds-scrim)",
+      }}
       onClick={close}
     >
       <div
-        className="w-full max-w-5xl overflow-hidden rounded-[24px] border shadow-2xl"
+        className="w-full max-w-5xl overflow-hidden border shadow-2xl"
         style={{
-          borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
-          background:
-            "linear-gradient(165deg, var(--agx-card-bg-from, rgba(18,24,38,0.98)), var(--agx-card-bg-to, rgba(10,14,24,0.98)))",
-          backdropFilter: "var(--agx-card-blur, blur(22px))",
+          borderRadius: "var(--agx-ds-radius-xl)",
+          borderColor: "var(--agx-ds-border)",
+          background: "var(--agx-ds-elevated)",
+          boxShadow: "var(--agx-ds-shadow-lg)",
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -469,7 +489,8 @@ export function UniversalSearchOverlay(): JSX.Element | null {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 

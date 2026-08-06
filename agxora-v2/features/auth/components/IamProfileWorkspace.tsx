@@ -1,8 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, type FormEvent, type JSX, type ReactNode } from "react";
-import { Button, Card } from "@/app/components/ui";
+import { useEffect, useState, type FormEvent, type JSX } from "react";
+import {
+  Button,
+  Card,
+  FormField,
+  FormInput,
+  FormSelect,
+  Switch,
+} from "@/app/components/ui";
 import { useAuth } from "@/app/lib/auth";
 import { useIamAuth } from "../hooks/useIamAuth";
 import { useIamProfilePreferences } from "../hooks/useIamStores";
@@ -149,64 +156,59 @@ export function IamProfileWorkspace(): JSX.Element {
             >
               Profile
             </h2>
-            <Field label="Full name">
-              <input
+            <FormField label="Full name" required>
+              <FormInput
                 value={form.displayName}
                 onChange={(e) => patch({ displayName: e.target.value })}
-                className="w-full rounded-xl border px-3 py-2 text-sm outline-none"
-                style={fieldStyle}
+                autoComplete="name"
               />
-            </Field>
-            <Field label="Email">
-              <input
+            </FormField>
+            <FormField label="Email">
+              <FormInput
                 value={auth.user?.email ?? ""}
                 readOnly
-                className="w-full rounded-xl border px-3 py-2 text-sm outline-none opacity-80"
-                style={fieldStyle}
+                autoComplete="email"
+                style={{ opacity: 0.8 }}
               />
-            </Field>
+            </FormField>
             <div className="grid gap-3 sm:grid-cols-2">
-              <Field label="Language">
-                <select
+              <FormField label="Language">
+                <FormSelect
                   value={form.language}
                   onChange={(e) => patch({ language: e.target.value })}
-                  className="w-full rounded-xl border px-3 py-2 text-sm outline-none"
-                  style={fieldStyle}
                 >
                   <option value="en-GB">English (UK)</option>
                   <option value="en-US">English (US)</option>
                   <option value="de-DE">Deutsch</option>
-                </select>
-              </Field>
-              <Field label="Timezone">
-                <select
+                </FormSelect>
+              </FormField>
+              <FormField label="Timezone">
+                <FormSelect
                   value={form.timezone}
                   onChange={(e) => patch({ timezone: e.target.value })}
-                  className="w-full rounded-xl border px-3 py-2 text-sm outline-none"
-                  style={fieldStyle}
                 >
                   <option value="Europe/Berlin">Europe/Berlin</option>
                   <option value="Europe/London">Europe/London</option>
                   <option value="UTC">UTC</option>
                   <option value="America/New_York">America/New_York</option>
-                </select>
-              </Field>
+                </FormSelect>
+              </FormField>
             </div>
           </Card>
 
           <Card className="space-y-4" padding="24px" hover={false}>
             <h2
               className="text-sm font-semibold"
-              style={{ color: "var(--agx-text, #f8fafc)" }}
+              style={{ color: "var(--agx-ds-text)" }}
             >
               Notifications
             </h2>
-            <Toggle
+            <Switch
               label="Email notifications"
               checked={form.notificationsEmail}
               onChange={(value) => patch({ notificationsEmail: value })}
             />
-            <Toggle
+            <Switch
               label="Push notifications"
               checked={form.notificationsPush}
               onChange={(value) => patch({ notificationsPush: value })}
@@ -240,49 +242,3 @@ export function IamProfileWorkspace(): JSX.Element {
   );
 }
 
-const fieldStyle = {
-  borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
-  background: "rgba(255,255,255,0.04)",
-  color: "var(--agx-text, #f8fafc)",
-} as const;
-
-function Field({
-  label,
-  children,
-}: {
-  label: string;
-  children: ReactNode;
-}): JSX.Element {
-  return (
-    <label className="block space-y-1.5">
-      <span
-        className="block text-[11px] font-semibold uppercase tracking-[0.14em]"
-        style={{ color: "var(--agx-text-muted, #94a3b8)" }}
-      >
-        {label}
-      </span>
-      {children}
-    </label>
-  );
-}
-
-function Toggle({
-  label,
-  checked,
-  onChange,
-}: {
-  label: string;
-  checked: boolean;
-  onChange: (value: boolean) => void;
-}): JSX.Element {
-  return (
-    <label className="flex items-center justify-between gap-3 text-sm">
-      <span style={{ color: "var(--agx-text, #f8fafc)" }}>{label}</span>
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
-      />
-    </label>
-  );
-}

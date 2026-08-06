@@ -9,6 +9,13 @@ import {
   type JSX,
   type KeyboardEvent,
 } from "react";
+import { createPortal } from "react-dom";
+import {
+  isTopOverlay,
+  lockBodyScroll,
+  OVERLAY_Z,
+  pushOverlay,
+} from "@/app/components/ui/overlayStack";
 import { searchAiCommands } from "../prompts";
 import type { AiCommand } from "../types";
 
@@ -19,7 +26,8 @@ export interface AiCommandPaletteProps {
 }
 
 /**
- * Remounts when opened so query/index reset without setState-in-effect.
+ * AI command palette — same overlay contract as Universal Search
+ * (portal, Escape stack, scroll lock, DS scrim/elevated).
  */
 export function AiCommandPalette({
   open,
@@ -36,16 +44,37 @@ function AiCommandPaletteOpen({
 }: {
   readonly onClose: () => void;
   readonly onRun: (command: AiCommand) => void;
-}): JSX.Element {
+}): JSX.Element | null {
   const [query, setQuery] = useState("");
   const [index, setIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const onCloseRef = useRef(onClose);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
 
   const results = useMemo(() => searchAiCommands(query), [query]);
 
   useEffect(() => {
+    const close = (): void => onCloseRef.current();
+    const pop = pushOverlay(close);
+    const unlock = lockBodyScroll();
     const t = window.setTimeout(() => inputRef.current?.focus(), 20);
-    return () => window.clearTimeout(t);
+    const onEsc = (event: globalThis.KeyboardEvent): void => {
+      if (event.key !== "Escape") return;
+      if (!isTopOverlay(close)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      close();
+    };
+    window.addEventListener("keydown", onEsc, true);
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("keydown", onEsc, true);
+      pop();
+      unlock();
+    };
   }, []);
 
   const run = useCallback(
@@ -57,11 +86,6 @@ function AiCommandPaletteOpen({
   );
 
   const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Escape") {
-      event.preventDefault();
-      onClose();
-      return;
-    }
     if (event.key === "ArrowDown") {
       event.preventDefault();
       setIndex((i) => Math.min(i + 1, Math.max(0, results.length - 1)));
@@ -79,30 +103,33 @@ function AiCommandPaletteOpen({
     }
   };
 
-  return (
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
     <div
-      className="fixed inset-0 z-[80] flex items-start justify-center px-4 pt-[12vh]"
-      style={{ background: "color-mix(in srgb, #020617 55%, transparent)" }}
+      className="fixed inset-0 flex items-start justify-center px-4 pt-[12vh]"
+      style={{
+        zIndex: OVERLAY_Z.popover,
+        background: "var(--agx-ds-scrim)",
+      }}
       role="dialog"
       aria-modal="true"
       aria-label="AI command palette"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-xl overflow-hidden rounded-2xl shadow-2xl"
+        className="w-full max-w-xl overflow-hidden border shadow-2xl"
         style={{
-          background: "var(--agx-bg-elevated, #0f172a)",
-          border:
-            "1px solid color-mix(in srgb, var(--agx-border, #334155) 80%, transparent)",
+          borderRadius: "var(--agx-ds-radius-xl)",
+          background: "var(--agx-ds-elevated)",
+          border: "1px solid var(--agx-ds-border)",
+          boxShadow: "var(--agx-ds-shadow-lg)",
         }}
         onClick={(e) => e.stopPropagation()}
       >
         <div
           className="border-b px-3 py-2"
-          style={{
-            borderColor:
-              "color-mix(in srgb, var(--agx-border, #334155) 70%, transparent)",
-          }}
+          style={{ borderColor: "var(--agx-ds-border)" }}
         >
           <input
             ref={inputRef}
@@ -113,64 +140,63 @@ function AiCommandPaletteOpen({
             }}
             onKeyDown={onKeyDown}
             placeholder="AI command… summarize, propose, analyze…"
-            className="w-full bg-transparent text-sm outline-none"
-            style={{ color: "var(--agx-text, #f8fafc)" }}
+            className="agx-ui-control"
+            style={{ border: "none", background: "transparent", boxShadow: "none" }}
             aria-label="Filter AI commands"
           />
         </div>
-        <ul className="max-h-[360px] overflow-y-auto py-1" role="listbox">
-          {results.map((command, i) => {
-            const active = i === index;
-            return (
-              <li key={command.id} role="option" aria-selected={active}>
-                <button
-                  type="button"
-                  className="flex w-full flex-col gap-0.5 px-3 py-2.5 text-left"
-                  style={{
-                    background: active
-                      ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 14%, transparent)"
-                      : "transparent",
-                  }}
-                  onMouseEnter={() => setIndex(i)}
-                  onClick={() => run(command)}
-                >
-                  <span
-                    className="text-sm font-medium"
-                    style={{ color: "var(--agx-text, #f8fafc)" }}
-                  >
-                    {command.label}
-                  </span>
-                  <span
-                    className="text-[11px]"
-                    style={{ color: "var(--agx-text-muted, #94a3b8)" }}
-                  >
-                    {command.description}
-                  </span>
-                </button>
-              </li>
-            );
-          })}
+        <ul className="max-h-72 overflow-auto p-2" role="listbox">
           {results.length === 0 ? (
             <li
-              className="px-3 py-6 text-center text-xs"
-              style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+              className="px-3 py-4 text-sm"
+              style={{ color: "var(--agx-ds-text-muted)" }}
             >
-              No commands found
+              No matching commands
             </li>
-          ) : null}
+          ) : (
+            results.map((command, i) => {
+              const active = i === index;
+              return (
+                <li key={command.id} role="option" aria-selected={active}>
+                  <button
+                    type="button"
+                    className="flex w-full flex-col rounded-xl px-3 py-2 text-left"
+                    style={{
+                      background: active
+                        ? "color-mix(in srgb, var(--agx-ds-accent) 12%, transparent)"
+                        : "transparent",
+                      color: "var(--agx-ds-text)",
+                    }}
+                    onMouseEnter={() => setIndex(i)}
+                    onClick={() => run(command)}
+                  >
+                    <span className="text-sm font-medium">{command.label}</span>
+                    {command.description ? (
+                      <span
+                        className="text-xs"
+                        style={{ color: "var(--agx-ds-text-muted)" }}
+                      >
+                        {command.description}
+                      </span>
+                    ) : null}
+                  </button>
+                </li>
+              );
+            })
+          )}
         </ul>
         <div
           className="border-t px-3 py-2 text-[10px]"
           style={{
-            color: "var(--agx-text-muted, #94a3b8)",
-            borderColor:
-              "color-mix(in srgb, var(--agx-border, #334155) 70%, transparent)",
+            color: "var(--agx-ds-text-muted)",
+            borderColor: "var(--agx-ds-border)",
           }}
         >
           Register future commands via <code>registerAiCommand</code> — UI stays
           unchanged.
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

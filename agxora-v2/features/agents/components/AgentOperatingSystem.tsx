@@ -564,8 +564,7 @@ export function AgentOperatingSystem(): JSX.Element {
             <select
               value={llmProvider}
               onChange={(e) => setLlmDraft(e.target.value as LlmProviderId)}
-              className="mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-              style={fieldStyle}
+              className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
             >
               {aos.llmProviders.map((p) => (
                 <option key={p.id} value={p.id}>
@@ -633,10 +632,3 @@ function Stat({ label, value }: { label: string; value: string }): JSX.Element {
   );
 }
 
-const fieldStyle = {
-  background:
-    "color-mix(in srgb, var(--agx-surface, #0f172a) 80%, transparent)",
-  borderColor:
-    "color-mix(in srgb, var(--agx-border, #334155) 70%, transparent)",
-  color: "var(--agx-text, #f8fafc)",
-} as const;

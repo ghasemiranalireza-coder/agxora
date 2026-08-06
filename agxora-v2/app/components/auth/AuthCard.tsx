@@ -12,19 +12,17 @@ const pageStyle: CSSProperties = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  background: "linear-gradient(160deg,#05070c 0%,#0b1220 48%,#0a1628 100%)",
+  background: "var(--agx-sky-gradient, linear-gradient(160deg,#05070c 0%,#0b1220 48%,#0a1628 100%))",
   padding: "24px",
 };
 
 const cardStyle: CSSProperties = {
   width: "100%",
   maxWidth: "440px",
-  background:
-    "linear-gradient(165deg, var(--agx-card-bg-from, rgba(18,24,38,0.96)) 0%, var(--agx-card-bg-to, rgba(8,14,28,0.92)) 100%)",
+  background: "var(--agx-ds-elevated, rgba(12,18,32,0.98))",
   border: "1px solid var(--agx-ds-border, rgba(125,211,252,0.18))",
   borderRadius: "24px",
   padding: "40px 32px",
-  backdropFilter: "blur(20px)",
   boxShadow: "var(--agx-ds-shadow-lg, 0 24px 56px rgba(0,0,0,0.34))",
 };
 
@@ -52,8 +50,9 @@ export const authButtonStyle: CSSProperties = {
   padding: "0 16px",
   borderRadius: 12,
   border: "none",
-  background: "linear-gradient(180deg, #67e8f9 0%, #22d3ee 55%, #06b6d4 100%)",
-  color: "#041018",
+  background:
+    "linear-gradient(180deg, color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 88%, white) 0%, var(--agx-ds-accent, #22d3ee) 55%, color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 75%, #0e7490) 100%)",
+  color: "var(--agx-ds-on-accent, #041018)",
   fontWeight: 650,
   letterSpacing: "0.01em",
   fontSize: 13,
