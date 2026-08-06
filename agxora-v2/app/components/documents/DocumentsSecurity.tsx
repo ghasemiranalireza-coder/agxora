@@ -12,7 +12,7 @@ export function DocumentsSecurity({
 }): JSX.Element {
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
-      <Card className="space-y-3" padding="20px" hover={false}>
+      <Card className="space-y-3" padding="24px" hover={false}>
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Security Architecture
         </h3>
@@ -50,7 +50,7 @@ export function DocumentsSecurity({
         </ul>
       </Card>
 
-      <Card className="space-y-3" padding="20px" hover={false}>
+      <Card className="space-y-3" padding="24px" hover={false}>
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Sharing Model
         </h3>

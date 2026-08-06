@@ -3,12 +3,9 @@
 import type { InputHTMLAttributes, JSX, ReactNode, SelectHTMLAttributes } from "react";
 import { Card } from "../../ui";
 
-const fieldStyle = {
-  borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
-  background: "rgba(255,255,255,0.04)",
-  color: "var(--agx-text, #f8fafc)",
-} as const;
-
+/**
+ * Settings form controls — same surfaces as Form/Filters (agx-ui-control).
+ */
 export function SettingsPanel({
   title,
   description,
@@ -24,19 +21,14 @@ export function SettingsPanel({
     <Card className="space-y-5" padding="24px" hover={false}>
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
-          <h2
-            className="text-lg font-semibold tracking-tight"
-            style={{ color: "var(--agx-text, #f8fafc)" }}
-          >
+          <h2 className="agx-ui-section-title" style={{ fontSize: 12 }}>
             {title}
           </h2>
-          <p className="mt-1 max-w-2xl text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            {description}
-          </p>
+          <p className="agx-ui-section-lead">{description}</p>
         </div>
         {actions}
       </div>
-      <div className="space-y-4">{children}</div>
+      <div className="agx-ui-stack">{children}</div>
     </Card>
   );
 }
@@ -51,19 +43,10 @@ export function SettingsField({
   readonly children: ReactNode;
 }): JSX.Element {
   return (
-    <label className="block space-y-1.5">
-      <span
-        className="block text-[11px] font-semibold uppercase tracking-[0.14em]"
-        style={{ color: "var(--agx-text-muted, #94a3b8)" }}
-      >
-        {label}
-      </span>
+    <label className="block space-y-2">
+      <span className="agx-ui-label">{label}</span>
       {children}
-      {hint ? (
-        <span className="block text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          {hint}
-        </span>
-      ) : null}
+      {hint ? <span className="agx-ui-hint">{hint}</span> : null}
     </label>
   );
 }
@@ -71,16 +54,7 @@ export function SettingsField({
 export function SettingsInput(
   props: Omit<InputHTMLAttributes<HTMLInputElement>, "className">,
 ): JSX.Element {
-  return (
-    <input
-      {...props}
-      className="w-full rounded-xl border px-3 py-2.5 text-sm outline-none transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-55"
-      style={{
-        ...fieldStyle,
-        outlineColor: "var(--agx-accent, #22d3ee)",
-      }}
-    />
-  );
+  return <input {...props} className="agx-ui-control" />;
 }
 
 export function SettingsTextArea({
@@ -103,12 +77,7 @@ export function SettingsTextArea({
       placeholder={placeholder}
       disabled={disabled}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full rounded-xl border px-3 py-2.5 text-sm outline-none transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-55"
-      style={{
-        ...fieldStyle,
-        outlineColor: "var(--agx-accent, #22d3ee)",
-        resize: "vertical",
-      }}
+      className="agx-ui-control"
     />
   );
 }
@@ -120,14 +89,7 @@ export function SettingsSelect({
   readonly children: ReactNode;
 } & SelectHTMLAttributes<HTMLSelectElement>): JSX.Element {
   return (
-    <select
-      {...rest}
-      className="w-full rounded-xl border px-3 py-2.5 text-sm outline-none transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-55"
-      style={{
-        ...fieldStyle,
-        outlineColor: "var(--agx-accent, #22d3ee)",
-      }}
-    >
+    <select {...rest} className="agx-ui-control">
       {children}
     </select>
   );
@@ -148,19 +110,27 @@ export function SettingsToggle({
 }): JSX.Element {
   return (
     <div
-      className="flex items-start justify-between gap-4 rounded-2xl border px-4 py-3"
+      className="flex items-start justify-between gap-4"
       style={{
-        borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
-        background: "rgba(255,255,255,0.02)",
+        borderRadius: "var(--agx-ds-radius-lg)",
+        border: "1px solid var(--agx-ds-border)",
+        background: "var(--agx-ds-surface)",
+        padding: "var(--agx-ds-space-3) var(--agx-ds-space-4)",
         opacity: disabled ? 0.55 : 1,
       }}
     >
       <div className="min-w-0">
-        <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
+        <p
+          className="text-sm font-medium"
+          style={{ color: "var(--agx-ds-text)" }}
+        >
           {label}
         </p>
         {description ? (
-          <p className="mt-1 text-xs leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          <p
+            className="mt-1 text-xs leading-relaxed"
+            style={{ color: "var(--agx-ds-text-muted)" }}
+          >
             {description}
           </p>
         ) : null}
@@ -172,25 +142,27 @@ export function SettingsToggle({
         aria-label={label}
         disabled={disabled}
         onClick={() => onChange(!checked)}
-        className="relative h-6 w-11 shrink-0 rounded-full border transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        className="relative h-6 w-11 shrink-0 rounded-full border transition"
         style={{
-          outlineColor: "var(--agx-accent, #22d3ee)",
           borderColor: checked
-            ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 45%, transparent)"
-            : "var(--agx-card-border, rgba(255,255,255,0.16))",
+            ? "color-mix(in srgb, var(--agx-ds-accent) 45%, transparent)"
+            : "var(--agx-ds-border)",
           background: checked
-            ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 35%, transparent)"
-            : "rgba(255,255,255,0.08)",
+            ? "color-mix(in srgb, var(--agx-ds-accent) 35%, transparent)"
+            : "var(--agx-ds-surface-hover)",
+          boxShadow: undefined,
         }}
       >
         <span
-          className="absolute top-0.5 h-4.5 w-4.5 rounded-full transition-transform"
+          className="absolute top-0.5 rounded-full transition-transform"
           style={{
             left: 3,
             width: 18,
             height: 18,
             transform: checked ? "translateX(20px)" : "translateX(0)",
-            background: checked ? "var(--agx-accent, #22d3ee)" : "var(--agx-text-muted, #94a3b8)",
+            background: checked
+              ? "var(--agx-ds-accent)"
+              : "var(--agx-ds-text-muted)",
           }}
         />
       </button>
@@ -205,11 +177,13 @@ export function SettingsGrid({ children }: { readonly children: ReactNode }): JS
 export function SettingsNotice({ children }: { readonly children: ReactNode }): JSX.Element {
   return (
     <p
-      className="rounded-xl border px-3 py-2 text-xs leading-relaxed"
+      className="text-xs leading-relaxed"
       style={{
-        borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
-        color: "var(--agx-text-muted, #94a3b8)",
-        background: "rgba(255,255,255,0.02)",
+        borderRadius: "var(--agx-ds-radius-md)",
+        border: "1px solid var(--agx-ds-border)",
+        color: "var(--agx-ds-text-muted)",
+        background: "var(--agx-ds-surface)",
+        padding: "var(--agx-ds-space-2) var(--agx-ds-space-3)",
       }}
     >
       {children}

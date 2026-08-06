@@ -18,10 +18,10 @@ export function Badge({
         borderRadius: UI.radius.pill,
         borderWidth: 1,
         borderStyle: "solid",
-        padding: "3px 10px",
-        fontSize: 11,
+        padding: "4px 10px",
+        fontSize: UI.typography.label,
         lineHeight: 1.35,
-        minHeight: 22,
+        minHeight: 24,
       }}
     >
       {children}

@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Shared auth card chrome — AGXORA design language.
+ * Shared auth card chrome — AGXORA design language (aligned with UI tokens).
  */
 
 import Link from "next/link";
@@ -19,36 +19,47 @@ const pageStyle: CSSProperties = {
 const cardStyle: CSSProperties = {
   width: "100%",
   maxWidth: "440px",
-  background: "rgba(8,14,28,0.88)",
-  border: "1px solid rgba(125,211,252,0.18)",
+  background:
+    "linear-gradient(165deg, var(--agx-card-bg-from, rgba(18,24,38,0.96)) 0%, var(--agx-card-bg-to, rgba(8,14,28,0.92)) 100%)",
+  border: "1px solid var(--agx-ds-border, rgba(125,211,252,0.18))",
   borderRadius: "24px",
-  padding: "40px 36px",
+  padding: "40px 32px",
   backdropFilter: "blur(20px)",
-  boxShadow: "0 32px 80px rgba(0,0,0,0.45)",
+  boxShadow: "var(--agx-ds-shadow-lg, 0 24px 56px rgba(0,0,0,0.34))",
 };
 
+/** Matches `.agx-ui-control` height / radius / colors. */
 export const authInputStyle: CSSProperties = {
   width: "100%",
-  padding: "14px",
-  marginBottom: "15px",
-  borderRadius: "12px",
-  border: "1px solid #334155",
-  background: "#0f172a",
-  color: "white",
+  minHeight: 40,
+  padding: "0 16px",
+  marginBottom: 16,
+  borderRadius: 12,
+  border: "1px solid var(--agx-ds-border, rgba(255,255,255,0.1))",
+  background: "var(--agx-ds-surface, rgba(255,255,255,0.035))",
+  color: "var(--agx-ds-text, #f4f8fb)",
   boxSizing: "border-box",
   outline: "none",
+  fontSize: 13,
+  fontFamily: "var(--agx-ds-font-ui, var(--font-geist-sans), system-ui, sans-serif)",
+  transition:
+    "border-color var(--agx-ds-duration, 160ms) var(--agx-ds-ease), box-shadow var(--agx-ds-duration, 160ms) var(--agx-ds-ease)",
 };
 
 export const authButtonStyle: CSSProperties = {
   width: "100%",
-  padding: "15px",
-  borderRadius: "14px",
+  minHeight: 40,
+  padding: "0 16px",
+  borderRadius: 12,
   border: "none",
-  background: "linear-gradient(90deg,#06b6d4,#22d3ee)",
-  color: "#020617",
-  fontWeight: 700,
-  letterSpacing: "0.04em",
+  background: "linear-gradient(180deg, #67e8f9 0%, #22d3ee 55%, #06b6d4 100%)",
+  color: "#041018",
+  fontWeight: 650,
+  letterSpacing: "0.01em",
+  fontSize: 13,
   cursor: "pointer",
+  boxShadow: "var(--agx-ds-shadow-sm, 0 4px 14px rgba(0,0,0,0.16))",
+  transition: "opacity var(--agx-ds-duration, 160ms) var(--agx-ds-ease)",
 };
 
 export const authButtonDisabledStyle: CSSProperties = {
@@ -59,11 +70,12 @@ export const authButtonDisabledStyle: CSSProperties = {
 
 export const authLabelStyle: CSSProperties = {
   display: "block",
-  marginBottom: 6,
-  fontSize: 12,
-  fontWeight: 600,
-  letterSpacing: "0.04em",
-  color: "#94a3b8",
+  marginBottom: 8,
+  fontSize: 11,
+  fontWeight: 650,
+  letterSpacing: "0.14em",
+  textTransform: "uppercase",
+  color: "var(--agx-ds-text-muted, #94a3b8)",
 };
 
 export const authRowStyle: CSSProperties = {
@@ -73,26 +85,26 @@ export const authRowStyle: CSSProperties = {
 
 export const authToggleStyle: CSSProperties = {
   position: "absolute",
-  right: 10,
+  right: 12,
   top: "50%",
   transform: "translateY(-50%)",
   border: "none",
   background: "transparent",
-  color: "#22d3ee",
+  color: "var(--agx-ds-accent, #22d3ee)",
   fontSize: 12,
   fontWeight: 600,
   cursor: "pointer",
 };
 
 export const authHintStyle: CSSProperties = {
-  margin: "0 0 14px",
+  margin: "0 0 16px",
   fontSize: 12,
-  color: "#64748b",
+  color: "var(--agx-ds-text-muted, #94a3b8)",
 };
 
 export const authMutedStyle: CSSProperties = {
   fontSize: 13,
-  color: "#94a3b8",
+  color: "var(--agx-ds-text-muted, #94a3b8)",
   lineHeight: 1.5,
 };
 
@@ -105,7 +117,8 @@ export function AuthFieldError({
   return (
     <p
       role="alert"
-      style={{ color: "#f87171", fontSize: 13, margin: "0 0 12px" }}
+      className="agx-ui-error"
+      style={{ margin: "0 0 16px" }}
     >
       {message}
     </p>
@@ -130,9 +143,9 @@ export function AuthCheckbox({
       style={{
         display: "flex",
         alignItems: "flex-start",
-        gap: 10,
-        marginBottom: 14,
-        color: "#cbd5e1",
+        gap: 8,
+        marginBottom: 16,
+        color: "var(--agx-ds-text, #f4f8fb)",
         fontSize: 13,
         lineHeight: 1.45,
         cursor: "pointer",
@@ -162,15 +175,13 @@ export function AuthCard({
   readonly footer?: ReactNode;
 }): JSX.Element {
   return (
-    <main style={pageStyle}>
-      <div style={cardStyle}>
+    <main style={pageStyle} className="agx-auth-page">
+      <div style={cardStyle} data-auth-card="">
         <p
+          className="agx-ui-section-title"
           style={{
             textAlign: "center",
-            color: "#7dd3fc",
-            margin: "0 0 8px",
-            fontSize: 13,
-            fontWeight: 700,
+            marginBottom: 8,
             letterSpacing: "0.28em",
           }}
         >
@@ -179,8 +190,8 @@ export function AuthCard({
         <h1
           style={{
             textAlign: "center",
-            color: "white",
-            marginBottom: subtitle ? 10 : 24,
+            color: "var(--agx-ds-text, #f4f8fb)",
+            marginBottom: subtitle ? 8 : 24,
             marginTop: 0,
             fontSize: 24,
             fontWeight: 650,
@@ -193,7 +204,7 @@ export function AuthCard({
           <p
             style={{
               textAlign: "center",
-              color: "#94a3b8",
+              color: "var(--agx-ds-text-muted, #94a3b8)",
               margin: "0 0 24px",
               fontSize: 14,
               lineHeight: 1.5,
@@ -206,9 +217,9 @@ export function AuthCard({
         {footer ? (
           <div
             style={{
-              marginTop: 18,
+              marginTop: 16,
               textAlign: "center",
-              color: "#94a3b8",
+              color: "var(--agx-ds-text-muted, #94a3b8)",
               fontSize: 13,
               lineHeight: 1.6,
             }}
@@ -218,16 +229,20 @@ export function AuthCard({
         ) : null}
       </div>
       <style>{`
-        main input:focus-visible,
-        main button:focus-visible,
-        main a:focus-visible {
-          outline: 2px solid #22d3ee !important;
-          outline-offset: 2px;
+        .agx-auth-page input:focus-visible,
+        .agx-auth-page button:focus-visible,
+        .agx-auth-page a:focus-visible {
+          outline: none !important;
+          box-shadow: var(--agx-ds-shadow-focus) !important;
+          border-color: color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 55%, transparent);
+        }
+        .agx-auth-page input::placeholder {
+          color: var(--agx-ds-placeholder);
         }
         @media (max-width: 520px) {
-          main > div {
-            padding: 28px 20px !important;
-            border-radius: 20px !important;
+          .agx-auth-page [data-auth-card] {
+            padding: 32px 24px !important;
+            border-radius: 24px !important;
           }
         }
       `}</style>
@@ -243,7 +258,13 @@ export function AuthLink({
   readonly children: ReactNode;
 }): JSX.Element {
   return (
-    <Link href={href} style={{ color: "#22d3ee", textDecoration: "none" }}>
+    <Link
+      href={href}
+      style={{
+        color: "var(--agx-ds-accent, #22d3ee)",
+        textDecoration: "none",
+      }}
+    >
       {children}
     </Link>
   );

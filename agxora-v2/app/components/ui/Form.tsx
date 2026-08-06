@@ -13,34 +13,34 @@ export function FormField({
   error,
   hint,
   htmlFor,
+  required,
   children,
 }: {
   readonly label: string;
   readonly error?: string;
   readonly hint?: string;
   readonly htmlFor?: string;
+  readonly required?: boolean;
   readonly children: ReactNode;
 }): JSX.Element {
   return (
-    <label className="block space-y-1.5" htmlFor={htmlFor}>
-      <span
-        className="block text-[11px] font-semibold uppercase tracking-[0.14em]"
-        style={{ color: "var(--agx-ds-text-muted, #94a3b8)" }}
-      >
+    <label className="block space-y-2" htmlFor={htmlFor}>
+      <span className="agx-ui-label">
         {label}
+        {required ? (
+          <span aria-hidden="true" style={{ color: "var(--agx-ds-danger)" }}>
+            {" "}
+            *
+          </span>
+        ) : null}
       </span>
       {children}
       {error ? (
-        <span className="block text-xs" role="alert" style={{ color: "#fb7185" }}>
+        <span className="agx-ui-error" role="alert">
           {error}
         </span>
       ) : hint ? (
-        <span
-          className="block text-xs"
-          style={{ color: "var(--agx-ds-text-muted, #94a3b8)" }}
-        >
-          {hint}
-        </span>
+        <span className="agx-ui-hint">{hint}</span>
       ) : null}
     </label>
   );

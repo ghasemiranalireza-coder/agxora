@@ -12,7 +12,7 @@ export function KnowledgeBase({
   readonly articles: readonly KnowledgeArticle[];
 }): JSX.Element {
   return (
-    <Card padding="20px" hover={false}>
+    <Card padding="24px" hover={false}>
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
         Articles, policies, processes, manuals, FAQs, and internal wiki — the narrative layer of the
         Knowledge Hub.

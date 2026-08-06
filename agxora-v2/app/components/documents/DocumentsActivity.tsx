@@ -26,7 +26,7 @@ export function DocumentsActivity({
   readonly activity: readonly DocumentActivity[];
 }): JSX.Element {
   return (
-    <Card padding="20px" hover={false}>
+    <Card padding="24px" hover={false}>
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
         Recent changes, uploads, views, shares, and audit history — foundation for compliance trails.
       </p>

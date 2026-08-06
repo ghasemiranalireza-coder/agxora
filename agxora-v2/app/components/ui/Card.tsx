@@ -85,12 +85,15 @@ export function Section({
       <header className="space-y-1">
         <h2
           className="text-lg font-semibold tracking-tight sm:text-xl"
-          style={{ color: "var(--agx-text, #f8fafc)" }}
+          style={{ color: "var(--agx-ds-text, var(--agx-text, #f4f8fb))" }}
         >
           {title}
         </h2>
         {subtitle ? (
-          <p className="max-w-3xl text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          <p
+            className="max-w-3xl text-sm"
+            style={{ color: "var(--agx-ds-text-muted, var(--agx-text-muted, #94a3b8))" }}
+          >
             {subtitle}
           </p>
         ) : null}

@@ -32,7 +32,7 @@ export function ExecutionInspector({
 
   if (!run) {
     return (
-      <Card className="h-full" padding="20px" hover={false}>
+      <Card className="h-full" padding="24px" hover={false}>
         <h3 className="mb-3 text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Execution Details
         </h3>
@@ -45,7 +45,7 @@ export function ExecutionInspector({
   }
 
   return (
-    <Card className="h-full space-y-3" padding="20px" hover={false}>
+    <Card className="h-full space-y-3" padding="24px" hover={false}>
       <div className="flex items-start justify-between gap-2">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Execution Details

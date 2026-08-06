@@ -31,7 +31,7 @@ export function AiWorkflowAssistant({
   const [notice, setNotice] = useState("One Click Optimize is a no graph mutation yet.");
 
   return (
-    <Card className="h-full space-y-4" padding="20px" hover={false}>
+    <Card className="h-full space-y-4" padding="24px" hover={false}>
       <div className="flex items-start justify-between gap-2">
         <div>
           <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>

@@ -25,53 +25,44 @@ export function EmptyState({
       <Card
         hover={false}
         className="flex flex-col items-center text-center"
-        padding="40px 28px"
+        padding={`${UI.space["2xl"]}px ${UI.space.lg}px`}
       >
-      {icon ? (
         <div
           className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border"
           style={{
-            borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
-            color: "var(--agx-accent, #22d3ee)",
-            background: "rgba(34, 211, 238, 0.06)",
+            borderColor: UI.color.border,
+            color: UI.color.accent,
+            background: "color-mix(in srgb, var(--agx-accent, #22d3ee) 8%, transparent)",
           }}
           aria-hidden="true"
         >
-          {icon}
+          {icon ?? (
+            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.14em" }}>
+              AGX
+            </span>
+          )}
         </div>
-      ) : (
-        <div
-          className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border"
-          style={{
-            borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
-            color: "var(--agx-accent, #22d3ee)",
-            background: "rgba(34, 211, 238, 0.06)",
-          }}
-          aria-hidden="true"
+        <h3
+          className="text-base font-semibold"
+          style={{ color: UI.color.text }}
         >
-          <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.14em" }}>
-            AGX
-          </span>
-        </div>
-      )}
-      <h3 className="text-base font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-        {title}
-      </h3>
-      <p
-        className="mt-2 max-w-md text-sm leading-relaxed"
-        style={{ color: "var(--agx-text-muted, #94a3b8)" }}
-      >
-        {description}
-      </p>
-      {actionLabel && onAction ? (
-        <div className="mt-5">
-          <Button variant="primary" onClick={onAction}>
-            {actionLabel}
-          </Button>
-        </div>
-      ) : null}
-      {footer ? <div className="mt-5">{footer}</div> : null}
-    </Card>
+          {title}
+        </h3>
+        <p
+          className="mt-2 max-w-md text-sm leading-relaxed"
+          style={{ color: UI.color.textMuted }}
+        >
+          {description}
+        </p>
+        {actionLabel && onAction ? (
+          <div className="mt-5">
+            <Button variant="primary" onClick={onAction}>
+              {actionLabel}
+            </Button>
+          </div>
+        ) : null}
+        {footer ? <div className="mt-5">{footer}</div> : null}
+      </Card>
     </div>
   );
 }
@@ -86,12 +77,24 @@ export function ErrorState({
   readonly onRetry?: () => void;
 }): JSX.Element {
   return (
-    <Card hover={false} padding="28px">
+    <Card hover={false} padding={`${UI.space.lg}px`}>
       <div role="alert">
-        <h3 className="text-base font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+        <p
+          className="text-[11px] font-semibold uppercase tracking-[0.14em]"
+          style={{ color: UI.color.danger }}
+        >
+          Error
+        </p>
+        <h3
+          className="mt-2 text-base font-semibold"
+          style={{ color: UI.color.text }}
+        >
           {title}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+        <p
+          className="mt-2 text-sm leading-relaxed"
+          style={{ color: UI.color.textMuted }}
+        >
           {description}
         </p>
         {onRetry ? (
@@ -118,24 +121,28 @@ export function SuccessState({
   readonly onAction?: () => void;
 }): JSX.Element {
   return (
-    <Card hover={false} className="flex flex-col items-center text-center" padding="36px 28px">
+    <Card
+      hover={false}
+      className="flex flex-col items-center text-center"
+      padding={`${UI.space.xl}px ${UI.space.lg}px`}
+    >
       <div
         className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl border"
         style={{
-          borderColor: "rgba(52,211,153,0.35)",
-          color: "#34d399",
-          background: "rgba(52,211,153,0.1)",
+          borderColor: "color-mix(in srgb, var(--agx-ds-success) 35%, transparent)",
+          color: UI.color.success,
+          background: "color-mix(in srgb, var(--agx-ds-success) 10%, transparent)",
         }}
         aria-hidden="true"
       >
         <span style={{ fontSize: 18, fontWeight: 700 }}>✓</span>
       </div>
-      <h3 className="text-base font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+      <h3 className="text-base font-semibold" style={{ color: UI.color.text }}>
         {title}
       </h3>
       <p
         className="mt-2 max-w-md text-sm leading-relaxed"
-        style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+        style={{ color: UI.color.textMuted }}
       >
         {description}
       </p>

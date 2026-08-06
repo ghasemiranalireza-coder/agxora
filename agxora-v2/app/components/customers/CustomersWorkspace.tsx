@@ -23,24 +23,16 @@ export function CustomersWorkspace(): JSX.Element {
   }, [organizationId]);
 
   return (
-    <div className="mx-auto w-full max-w-[1100px] space-y-5">
+    <div className="agx-ui-page agx-page-enter">
       <Card className="space-y-2" padding="24px" hover={false}>
-        <p
-          className="text-[11px] font-semibold uppercase tracking-[0.16em]"
-          style={{ color: "var(--agx-accent, #22d3ee)" }}
-        >
-          Customer Management
-        </p>
+        <p className="agx-ui-section-title">Customer Management</p>
         <h1
           className="text-2xl font-semibold tracking-tight"
-          style={{ color: "var(--agx-text, #f8fafc)" }}
+          style={{ color: "var(--agx-ds-text, var(--agx-text, #f4f8fb))" }}
         >
           Customers
         </h1>
-        <p
-          className="max-w-2xl text-sm leading-relaxed"
-          style={{ color: "var(--agx-text-muted, #94a3b8)" }}
-        >
+        <p className="agx-ui-section-lead max-w-2xl">
           Create, edit, search, and manage customer records for{" "}
           {organization?.name ?? "your organization"}.
         </p>

@@ -20,7 +20,7 @@ export function ApprovalQueue({
   );
 
   return (
-    <Card className="space-y-3" padding="20px" hover={false}>
+    <Card className="space-y-3" padding="24px" hover={false}>
       <div>
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Approval Workflow

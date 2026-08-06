@@ -1,41 +1,55 @@
 /**
  * AGXORA enterprise design language — CSS custom properties.
- * Single source for spacing, radius, elevation, control sizes, and motion.
+ * Single source for spacing (8px), radius, elevation, color, controls, motion.
  */
 
 :root {
+  /* Spacing — 8px scale (+ 4px half-step) */
   --agx-ds-space-1: 4px;
   --agx-ds-space-2: 8px;
-  --agx-ds-space-3: 12px;
+  --agx-ds-space-3: 12px; /* compact denseness inside tables/forms */
   --agx-ds-space-4: 16px;
-  --agx-ds-space-5: 20px;
-  --agx-ds-space-6: 24px;
-  --agx-ds-space-8: 32px;
-  --agx-ds-space-10: 40px;
-  --agx-ds-space-12: 48px;
+  --agx-ds-space-5: 24px;
+  --agx-ds-space-6: 32px;
+  --agx-ds-space-8: 40px;
+  --agx-ds-space-10: 48px;
+  --agx-ds-space-12: 64px;
 
-  --agx-ds-radius-sm: 10px;
-  --agx-ds-radius-md: 14px;
-  --agx-ds-radius-lg: 20px;
+  --agx-ds-radius-sm: 8px;
+  --agx-ds-radius-md: 12px;
+  --agx-ds-radius-lg: 16px;
   --agx-ds-radius-xl: 24px;
+  --agx-ds-radius-2xl: 28px;
   --agx-ds-radius-pill: 999px;
 
   --agx-ds-shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.16);
   --agx-ds-shadow-md: 0 12px 32px rgba(0, 0, 0, 0.26);
   --agx-ds-shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.34);
-  --agx-ds-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--agx-accent, #22d3ee) 28%, transparent);
+  --agx-ds-shadow-focus: 0 0 0 3px
+    color-mix(in srgb, var(--agx-accent, #22d3ee) 28%, transparent);
 
-  --agx-ds-control-h: 36px;
+  --agx-ds-control-h: 40px;
   --agx-ds-control-h-sm: 32px;
   --agx-ds-icon: 18px;
+  --agx-ds-icon-sm: 16px;
   --agx-ds-font-ui: var(--font-geist-sans), system-ui, sans-serif;
   --agx-ds-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --agx-ds-duration: 180ms;
+  --agx-ds-duration: 160ms;
+  --agx-ds-duration-md: 240ms;
 
-  --agx-ds-text: var(--agx-text, #f8fafc);
+  /* Semantic colors — never mix alternate gray/success/danger palettes */
+  --agx-ds-text: var(--agx-text, #f4f8fb);
   --agx-ds-text-muted: var(--agx-text-muted, #94a3b8);
   --agx-ds-border: var(--agx-card-border, rgba(255, 255, 255, 0.1));
   --agx-ds-surface: rgba(255, 255, 255, 0.035);
+  --agx-ds-surface-hover: rgba(255, 255, 255, 0.055);
+  --agx-ds-placeholder: color-mix(in srgb, var(--agx-ds-text-muted) 72%, transparent);
+  --agx-ds-success: #34d399;
+  --agx-ds-warning: #fbbf24;
+  --agx-ds-danger: #fb7185;
+  --agx-ds-accent: var(--agx-accent, #22d3ee);
+
+  --agx-ds-table-row-min: 48px;
 }
 
 /* Unified form / select / textarea control surface */
@@ -46,8 +60,9 @@
   border: 1px solid var(--agx-ds-border);
   background: var(--agx-ds-surface);
   color: var(--agx-ds-text);
-  padding: 0 var(--agx-ds-space-3);
+  padding: 0 var(--agx-ds-space-4);
   font-size: 13px;
+  line-height: 1.4;
   font-family: var(--agx-ds-font-ui);
   transition:
     border-color var(--agx-ds-duration) var(--agx-ds-ease),
@@ -55,13 +70,17 @@
     background var(--agx-ds-duration) var(--agx-ds-ease);
 }
 
+.agx-ui-control::placeholder {
+  color: var(--agx-ds-placeholder);
+}
+
 .agx-ui-control:hover:not(:disabled) {
-  border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 28%, transparent);
+  border-color: color-mix(in srgb, var(--agx-ds-accent) 28%, transparent);
 }
 
 .agx-ui-control:focus-visible {
   outline: none;
-  border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 55%, transparent);
+  border-color: color-mix(in srgb, var(--agx-ds-accent) 55%, transparent);
   box-shadow: var(--agx-ds-shadow-focus);
 }
 
@@ -72,15 +91,27 @@
 
 textarea.agx-ui-control {
   min-height: 96px;
-  padding: var(--agx-ds-space-3);
+  padding: var(--agx-ds-space-3) var(--agx-ds-space-4);
   resize: vertical;
 }
 
-/* Table rhythm */
+select.agx-ui-control {
+  cursor: pointer;
+}
+
+/* Compact control (filters / toolbars) */
+.agx-ui-control--sm {
+  min-height: var(--agx-ds-control-h-sm);
+  font-size: 12px;
+  padding: 0 var(--agx-ds-space-3);
+}
+
+/* Table rhythm — identical across modules */
 .agx-ui-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+  font-family: var(--agx-ds-font-ui);
 }
 
 .agx-ui-table th {
@@ -92,6 +123,7 @@ textarea.agx-ui-control {
   color: var(--agx-ds-text-muted);
   padding: var(--agx-ds-space-3) var(--agx-ds-space-4);
   border-bottom: 1px solid var(--agx-ds-border);
+  height: var(--agx-ds-table-row-min);
 }
 
 .agx-ui-table td {
@@ -99,13 +131,24 @@ textarea.agx-ui-control {
   border-bottom: 1px solid color-mix(in srgb, var(--agx-ds-border) 70%, transparent);
   color: var(--agx-ds-text);
   vertical-align: middle;
+  min-height: var(--agx-ds-table-row-min);
+  height: var(--agx-ds-table-row-min);
 }
 
-.agx-ui-table tr:hover td {
-  background: rgba(255, 255, 255, 0.02);
+.agx-ui-table tbody tr {
+  transition: background var(--agx-ds-duration) var(--agx-ds-ease);
 }
 
-/* Section rhythm helper */
+.agx-ui-table tbody tr:hover td {
+  background: var(--agx-ds-surface-hover);
+}
+
+.agx-ui-table tbody tr:focus-visible {
+  outline: 2px solid var(--agx-ds-accent);
+  outline-offset: -2px;
+}
+
+/* Section / page helpers */
 .agx-ui-stack {
   display: flex;
   flex-direction: column;
@@ -113,12 +156,108 @@ textarea.agx-ui-control {
 }
 
 .agx-ui-stack--lg {
-  gap: var(--agx-ds-space-6);
+  gap: var(--agx-ds-space-5);
 }
 
-/* Page enter — subtle, reduced when prefers-reduced-motion */
+.agx-ui-page {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--agx-ds-space-5);
+}
+
+/* Wide module shells — CRM, Finance, Documents, Automation, Creator, Settings */
+.agx-ui-module-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--agx-ds-space-8);
+  padding: var(--agx-ds-space-6) var(--agx-ds-space-4);
+}
+
+@media (min-width: 640px) {
+  .agx-ui-module-page {
+    padding-inline: var(--agx-ds-space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .agx-ui-module-page {
+    padding-block: var(--agx-ds-space-8);
+    padding-inline: var(--agx-ds-space-8);
+  }
+}
+
+.agx-ui-section-title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--agx-ds-accent);
+}
+
+.agx-ui-section-lead {
+  margin: var(--agx-ds-space-2) 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--agx-ds-text-muted);
+}
+
+.agx-ui-icon {
+  width: var(--agx-ds-icon);
+  height: var(--agx-ds-icon);
+  flex-shrink: 0;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.agx-ui-icon--sm {
+  width: var(--agx-ds-icon-sm);
+  height: var(--agx-ds-icon-sm);
+}
+
+/* Labels */
+.agx-ui-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--agx-ds-text-muted);
+}
+
+.agx-ui-error {
+  display: block;
+  font-size: 12px;
+  color: var(--agx-ds-danger);
+}
+
+.agx-ui-hint {
+  display: block;
+  font-size: 12px;
+  color: var(--agx-ds-text-muted);
+}
+
+/* Glass panel shared by dashboard / modules */
+.agx-ui-panel {
+  border-radius: var(--agx-ds-radius-xl);
+  border: 1px solid var(--agx-ds-border);
+  background: var(--agx-panel-bg, var(--agx-ds-surface));
+  box-shadow: var(--agx-ds-shadow-md);
+  padding: var(--agx-ds-space-5);
+}
+
+/* Page enter — subtle */
 .agx-page-enter {
-  animation: agx-page-enter 280ms var(--agx-ds-ease);
+  animation: agx-page-enter var(--agx-ds-duration-md) var(--agx-ds-ease);
 }
 
 @keyframes agx-page-enter {
@@ -135,5 +274,11 @@ textarea.agx-ui-control {
 @media (prefers-reduced-motion: reduce) {
   .agx-page-enter {
     animation: none;
+  }
+
+  .agx-ui-table tbody tr,
+  .agx-ui-control,
+  .agx-ui-btn {
+    transition: none !important;
   }
 }

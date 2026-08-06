@@ -77,7 +77,7 @@ export function PublishingQueue({
   );
 
   return (
-    <Card padding="20px">
+    <Card padding="24px">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Publishing Queue

@@ -38,14 +38,14 @@ export function SkeletonPanel({
         {label}
       </p>
       <div className="grid gap-4 md:grid-cols-2">
-        <Card hover={false} padding="20px">
+        <Card hover={false} padding="24px">
           <SkeletonBlock lines={3} label={label} />
         </Card>
-        <Card hover={false} padding="20px">
+        <Card hover={false} padding="24px">
           <SkeletonBlock lines={4} label={label} />
         </Card>
       </div>
-      <Card hover={false} padding="20px">
+      <Card hover={false} padding="24px">
         <SkeletonBlock lines={5} label={label} />
       </Card>
     </div>

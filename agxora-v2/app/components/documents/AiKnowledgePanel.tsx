@@ -28,7 +28,7 @@ export function AiKnowledgePanel({
 
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-5">
-      <Card className="xl:col-span-2 space-y-3" padding="20px" hover={false}>
+      <Card className="xl:col-span-2 space-y-3" padding="24px" hover={false}>
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           AI Feature Architecture
         </h3>
@@ -56,7 +56,7 @@ export function AiKnowledgePanel({
         </ul>
       </Card>
 
-      <Card className="xl:col-span-3 space-y-4" padding="20px" hover={false}>
+      <Card className="xl:col-span-3 space-y-4" padding="24px" hover={false}>
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Insights for Selected Document
         </h3>

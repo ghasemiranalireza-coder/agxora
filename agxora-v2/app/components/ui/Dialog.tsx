@@ -100,22 +100,25 @@ export function Dialog({
         aria-modal="true"
         aria-labelledby={titleId}
         tabIndex={-1}
-        className={`max-h-[90vh] w-full overflow-y-auto rounded-[24px] border p-5 shadow-2xl outline-none ${
+        className={`max-h-[90vh] w-full overflow-y-auto border outline-none ${
           wide ? "max-w-4xl" : "max-w-2xl"
         }`}
         style={{
-          borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
+          borderRadius: "var(--agx-ds-radius-xl)",
+          padding: "var(--agx-ds-space-5)",
+          borderColor: "var(--agx-ds-border)",
           background:
             "linear-gradient(165deg, var(--agx-card-bg-from, rgba(18,24,38,0.98)), var(--agx-card-bg-to, rgba(10,14,24,0.98)))",
           backdropFilter: "var(--agx-card-blur, blur(22px))",
+          boxShadow: "var(--agx-ds-shadow-lg)",
         }}
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="mb-4 flex items-start justify-between gap-3">
+        <div className="mb-4 flex items-start justify-between gap-4">
           <h3
             id={titleId}
             className="text-lg font-semibold"
-            style={{ color: "var(--agx-text, #f8fafc)" }}
+            style={{ color: "var(--agx-ds-text)" }}
           >
             {title}
           </h3>
@@ -123,12 +126,13 @@ export function Dialog({
             type="button"
             aria-label="Close dialog"
             onClick={onClose}
-            className="rounded-lg border px-2.5 py-1 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            className="rounded-xl border px-3 py-2 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
             style={{
-              borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
-              color: "var(--agx-text-muted, #94a3b8)",
+              borderColor: "var(--agx-ds-border)",
+              color: "var(--agx-ds-text-muted)",
               background: "transparent",
-              outlineColor: "var(--agx-accent, #22d3ee)",
+              outlineColor: "var(--agx-ds-accent)",
+              minHeight: "var(--agx-ds-control-h-sm)",
             }}
           >
             Esc
@@ -136,7 +140,7 @@ export function Dialog({
         </div>
         {children}
         {footer ? (
-          <div className="mt-5 flex flex-wrap justify-end gap-2">{footer}</div>
+          <div className="mt-6 flex flex-wrap justify-end gap-2">{footer}</div>
         ) : null}
       </div>
     </div>

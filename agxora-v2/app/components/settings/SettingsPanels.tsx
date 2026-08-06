@@ -54,8 +54,11 @@ function SaveRow({
   readonly label?: string;
 }): JSX.Element {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 border-t pt-4" style={{ borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))" }}>
-      <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+    <div
+      className="flex flex-wrap items-center justify-between gap-3 border-t pt-4"
+      style={{ borderColor: "var(--agx-ds-border)" }}
+    >
+      <p className="text-xs" style={{ color: "var(--agx-ds-text-muted)" }}>
         {notice}
       </p>
       <Button size="sm" variant="primary" onClick={onSave}>

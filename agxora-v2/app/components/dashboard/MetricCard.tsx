@@ -117,10 +117,12 @@ function StatusList({
           <span
             className="h-1.5 w-1.5 rounded-full"
             style={{
-              background: item.ok ? "#34d399" : "#fbbf24",
+              background: item.ok
+                ? "var(--agx-ds-success, #34d399)"
+                : "var(--agx-ds-warning, #fbbf24)",
               boxShadow: item.ok
-                ? "0 0 8px rgba(52,211,153,0.55)"
-                : "0 0 8px rgba(251,191,36,0.45)",
+                ? "0 0 8px color-mix(in srgb, var(--agx-ds-success, #34d399) 55%, transparent)"
+                : "0 0 8px color-mix(in srgb, var(--agx-ds-warning, #fbbf24) 45%, transparent)",
             }}
           />
           {item.label}
@@ -222,14 +224,18 @@ export function MetricCard({
             style={
               delta.positive
                 ? {
-                    borderColor: "rgba(52,211,153,0.28)",
-                    background: "rgba(52,211,153,0.12)",
-                    color: "#34d399",
+                    borderColor:
+                      "color-mix(in srgb, var(--agx-ds-success, #34d399) 28%, transparent)",
+                    background:
+                      "color-mix(in srgb, var(--agx-ds-success, #34d399) 12%, transparent)",
+                    color: "var(--agx-ds-success, #34d399)",
                   }
                 : {
-                    borderColor: "rgba(251,113,133,0.28)",
-                    background: "rgba(251,113,133,0.12)",
-                    color: "#fb7185",
+                    borderColor:
+                      "color-mix(in srgb, var(--agx-ds-danger, #fb7185) 28%, transparent)",
+                    background:
+                      "color-mix(in srgb, var(--agx-ds-danger, #fb7185) 12%, transparent)",
+                    color: "var(--agx-ds-danger, #fb7185)",
                   }
             }
           >

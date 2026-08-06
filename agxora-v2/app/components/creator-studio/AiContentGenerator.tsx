@@ -20,7 +20,7 @@ export function AiContentGenerator({
 
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-5">
-      <Card className="space-y-4 xl:col-span-3" padding="20px">
+      <Card className="space-y-4 xl:col-span-3" padding="24px">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           AI Content Generator
         </h3>
@@ -103,7 +103,7 @@ export function AiContentGenerator({
         </div>
       </Card>
 
-      <Card className="space-y-3 xl:col-span-2" padding="20px">
+      <Card className="space-y-3 xl:col-span-2" padding="24px">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           Brand Voice
         </h3>
