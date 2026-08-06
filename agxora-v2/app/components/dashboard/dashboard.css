@@ -1,0 +1,55 @@
+/* Dashboard command-center layout polish — preserves AGXORA glass identity. */
+
+.agx-dashboard-home {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.agx-dash-panel {
+  width: 100%;
+}
+
+.agx-dash-attention-card:hover {
+  transform: translateY(-2px);
+}
+
+.agx-dash-quick-action:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 50%, transparent) !important;
+}
+
+.agx-bottom-grid {
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 400px);
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+.agx-dash-activity .agx-activity-row:last-child {
+  border-bottom: none !important;
+}
+
+@media (max-width: 1100px) {
+  .agx-bottom-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .agx-dashboard-home {
+    max-width: 100%;
+  }
+
+  .agx-dash-activity,
+  .agx-bottom-grid .agx-glass-panel {
+    padding: 22px 18px !important;
+    border-radius: 22px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agx-dash-attention-card:hover,
+  .agx-dash-quick-action:hover {
+    transform: none;
+  }
+}

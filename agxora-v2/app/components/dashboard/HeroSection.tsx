@@ -115,8 +115,8 @@ export function HeroSection(): JSX.Element {
           className="agx-hero-subtitle"
           style={{ color: tokens.textMuted, transition: surfaceTransition }}
         >
-          Real-time intelligence, predictive analytics, and global operational
-          control — in one cinematic command surface.
+          Real-time intelligence and operational control — your workspace command
+          surface.
         </p>
 
         <div className="agx-hero-cta-row">
@@ -124,13 +124,13 @@ export function HeroSection(): JSX.Element {
             type="button"
             className="agx-hero-cta agx-hero-cta-primary"
             style={primaryCtaStyle}
-            onClick={() => scrollToId("agx-command-center")}
+            onClick={() => scrollToId("agx-quick-actions")}
             whileHover={reduceMotion ? undefined : { y: -2, scale: 1.02 }}
             whileTap={reduceMotion ? undefined : { scale: 0.99 }}
             transition={{ duration: 0.22 }}
-            aria-label="Enter Command Center"
+            aria-label="Open quick actions"
           >
-            Enter Command Center
+            Get started
           </motion.button>
           <motion.button
             type="button"
@@ -140,9 +140,9 @@ export function HeroSection(): JSX.Element {
             whileHover={reduceMotion ? undefined : { y: -2, scale: 1.01 }}
             whileTap={reduceMotion ? undefined : { scale: 0.99 }}
             transition={{ duration: 0.22 }}
-            aria-label="View Live Activity"
+            aria-label="View recent activity"
           >
-            View Live Activity
+            View activity
           </motion.button>
         </div>
       </motion.div>

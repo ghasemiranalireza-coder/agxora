@@ -1,4 +1,5 @@
 import type { JSX, ReactNode } from "react";
+import Link from "next/link";
 
 /* -------------------------------------------------------------------------- */
 /*                                   Types                                    */
@@ -25,6 +26,8 @@ export interface MetricCardProps {
   readonly icon: ReactNode;
   readonly delta?: MetricDelta;
   readonly visual?: MetricVisual;
+  readonly href?: string;
+  readonly actionLabel?: string;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -72,6 +75,7 @@ function Sparkline({ points }: { readonly points: readonly number[] }): JSX.Elem
 }
 
 function ProgressBar({ percent }: { readonly percent: number }): JSX.Element {
+  const safe = Math.max(0, Math.min(100, Math.round(percent)));
   return (
     <div className="space-y-1.5">
       <div
@@ -81,17 +85,17 @@ function ProgressBar({ percent }: { readonly percent: number }): JSX.Element {
         <div
           className="h-full rounded-full transition-[width] duration-700 ease-out"
           style={{
-            width: `${percent}%`,
+            width: `${safe}%`,
             background:
               "linear-gradient(90deg, color-mix(in srgb, var(--agx-accent, #22d3ee) 55%, transparent), var(--agx-accent, #67e8f9))",
           }}
         />
       </div>
       <p
-        className="text-[11px] tracking-wide"
+        className="text-[11px] tracking-wide tabular-nums"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        {percent}% of workflows automated
+        {safe}% capacity signal
       </p>
     </div>
   );
@@ -152,10 +156,12 @@ export function MetricCard({
   icon,
   delta,
   visual,
+  href,
+  actionLabel,
 }: MetricCardProps): JSX.Element {
   return (
     <article
-      className="agx-metric-card group relative flex flex-col gap-5 overflow-hidden rounded-[28px] border p-7"
+      className="agx-metric-card group relative flex h-full min-h-[220px] flex-col gap-5 overflow-hidden rounded-[28px] border p-7"
       style={{
         borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
         background:
@@ -248,10 +254,70 @@ export function MetricCard({
       </div>
 
       {visual !== undefined && (
-        <footer className="relative mt-auto">
+        <footer className="relative mt-auto space-y-3">
           <MetricVisualRenderer visual={visual} />
+          {href && actionLabel ? (
+            <Link
+              href={href}
+              className="inline-flex text-xs font-semibold no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              style={{
+                color: "var(--agx-accent, #22d3ee)",
+                outlineColor: "var(--agx-accent, #22d3ee)",
+              }}
+            >
+              {actionLabel} →
+            </Link>
+          ) : null}
         </footer>
       )}
+      {visual === undefined && href && actionLabel ? (
+        <footer className="relative mt-auto">
+          <Link
+            href={href}
+            className="inline-flex text-xs font-semibold no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            style={{
+              color: "var(--agx-accent, #22d3ee)",
+              outlineColor: "var(--agx-accent, #22d3ee)",
+            }}
+          >
+            {actionLabel} →
+          </Link>
+        </footer>
+      ) : null}
     </article>
+  );
+}
+
+/** Fixed-height skeleton matching MetricCard to prevent layout jump. */
+export function MetricCardSkeleton(): JSX.Element {
+  return (
+    <div
+      className="flex min-h-[220px] flex-col gap-5 rounded-[28px] border p-7"
+      style={{
+        borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
+        background:
+          "linear-gradient(165deg, var(--agx-card-bg-from, rgba(255,255,255,0.06)) 0%, var(--agx-card-bg-to, rgba(255,255,255,0.02)) 100%)",
+      }}
+      aria-hidden="true"
+    >
+      <div className="flex items-center gap-3">
+        <div
+          className="h-11 w-11 rounded-2xl"
+          style={{ background: "rgba(255,255,255,0.06)" }}
+        />
+        <div
+          className="h-3 w-24 rounded"
+          style={{ background: "rgba(255,255,255,0.06)" }}
+        />
+      </div>
+      <div
+        className="h-8 w-20 rounded"
+        style={{ background: "rgba(255,255,255,0.08)" }}
+      />
+      <div
+        className="mt-auto h-9 w-full rounded"
+        style={{ background: "rgba(255,255,255,0.04)" }}
+      />
+    </div>
   );
 }

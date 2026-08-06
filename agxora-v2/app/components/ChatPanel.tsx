@@ -103,9 +103,26 @@ export function ChatPanel(): JSX.Element {
           gap: "10px",
           marginBottom: "18px",
           maxHeight: "320px",
+          minHeight: "180px",
           overflowY: "auto",
         }}
       >
+        {messages.length === 0 && !isTyping ? (
+          <div
+            style={{
+              padding: "18px 16px",
+              borderRadius: "16px",
+              border: `1px dashed ${tokens.panelBorder}`,
+              color: tokens.textMuted,
+              fontSize: "13.5px",
+              lineHeight: 1.55,
+            }}
+          >
+            Ask AGXORA about customers, projects, or next actions. Your
+            conversation stays in this workspace session.
+          </div>
+        ) : null}
+
         {messages.map((message) => {
           if (message.status === "failed" && !message.content) {
             return null;
