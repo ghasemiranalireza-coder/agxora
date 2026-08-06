@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import type { JSX } from "react";
 import Link from "next/link";
 import { LegalPageShell } from "../components/legal";
-import { COMPANY, formatCompanyAddress } from "../lib/company";
+import {
+  COMPANY,
+  formatCompanyAddress,
+  hasConfiguredAddress,
+} from "../lib/company";
 
 export const metadata: Metadata = {
   title: "Imprint",
@@ -20,13 +24,17 @@ export const metadata: Metadata = {
   },
 };
 
+function valueOrPending(value: string): string {
+  return value.trim() ? value : "Pending configuration";
+}
+
 export default function ImprintPage(): JSX.Element {
   return (
     <LegalPageShell title="Imprint" eyebrow="Legal">
       <p>
-        Information according to applicable disclosure requirements (including
-        § 5 TMG / equivalent). Placeholders below will be replaced with final
-        registered entity details at launch.
+        Information according to applicable disclosure requirements. Configure
+        production values with <code>NEXT_PUBLIC_AGXORA_*</code> environment
+        variables before public launch.
       </p>
 
       <dl className="p39-legal__card">
@@ -36,7 +44,11 @@ export default function ImprintPage(): JSX.Element {
         </div>
         <div>
           <dt>Address</dt>
-          <dd>{formatCompanyAddress()}</dd>
+          <dd>
+            {hasConfiguredAddress()
+              ? formatCompanyAddress()
+              : "Pending configuration"}
+          </dd>
         </div>
         <div>
           <dt>Email</dt>
@@ -52,22 +64,28 @@ export default function ImprintPage(): JSX.Element {
         </div>
         <div>
           <dt>Represented by</dt>
-          <dd>Managing Director (placeholder)</dd>
+          <dd>{valueOrPending(COMPANY.register.managingDirector)}</dd>
         </div>
         <div>
           <dt>Register</dt>
-          <dd>Commercial register · Court · HRB (placeholder)</dd>
+          <dd>
+            {COMPANY.register.court || COMPANY.register.number
+              ? [COMPANY.register.court, COMPANY.register.number]
+                  .filter(Boolean)
+                  .join(" · ")
+              : "Pending configuration"}
+          </dd>
         </div>
         <div>
           <dt>VAT ID</dt>
-          <dd>DE000000000 (placeholder)</dd>
+          <dd>{valueOrPending(COMPANY.register.vatId)}</dd>
         </div>
       </dl>
 
       <h2>Responsible for content</h2>
       <p>
-        Editorial contact for this website: {COMPANY.legalName},{" "}
-        {formatCompanyAddress()}.
+        Editorial contact for this website: {COMPANY.legalName}
+        {hasConfiguredAddress() ? `, ${formatCompanyAddress()}` : ""}.
       </p>
 
       <h2>Contact</h2>

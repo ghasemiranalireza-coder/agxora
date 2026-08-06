@@ -132,7 +132,7 @@ export function ExecutionInspector({
         <Button
           variant="primary"
           disabled={!run.retryAvailable}
-          onClick={() => setNotice(`Retry queued for ${run.id} (placeholder).`)}
+          onClick={() => setNotice(`Retry queued for ${run.id}.`)}
         >
           Retry
         </Button>

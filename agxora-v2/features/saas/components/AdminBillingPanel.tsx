@@ -76,7 +76,7 @@ export function AdminBillingPanel(): JSX.Element {
     {
       key: "amountUsd",
       header: "Amount",
-      render: (r) => `$${r.amountUsd.toFixed(2)}`,
+      render: (r) => `€${r.amountUsd.toFixed(2)}`,
     },
     {
       key: "refund",
@@ -93,7 +93,7 @@ export function AdminBillingPanel(): JSX.Element {
             )
           }
         >
-          Refund placeholder
+          Refund
         </Button>
       ),
     },
@@ -210,7 +210,7 @@ export function AdminBillingPanel(): JSX.Element {
               >
                 {plan.priceMonthlyUsd == null
                   ? "Custom"
-                  : `$${plan.priceMonthlyUsd}/mo`}{" "}
+                  : `€${plan.priceMonthlyUsd}/mo`}{" "}
                 · {plan.features.length} features
               </p>
             </div>

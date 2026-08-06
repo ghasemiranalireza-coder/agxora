@@ -27,6 +27,9 @@ export function useFilteredCustomers(): {
     if (state.statusFilter !== "all") {
       rows = rows.filter((row) => row.status === state.statusFilter);
     }
+    if (state.tagFilter) {
+      rows = rows.filter((row) => row.tags.includes(state.tagFilter));
+    }
     if (query) {
       rows = rows.filter((row) => {
         const haystack = [
@@ -61,6 +64,7 @@ export function useFilteredCustomers(): {
     state.items,
     state.search,
     state.statusFilter,
+    state.tagFilter,
     state.sortKey,
     state.sortDirection,
     state.page,

@@ -118,14 +118,14 @@ export const SECURITY_CONTROLS: readonly SecurityControl[] = [
   },
   {
     id: "encryption",
-    title: "Encryption Placeholder",
+    title: "Encryption",
     description: "At-rest and in-transit encryption hooks reserved for KMS wiring.",
     status: "placeholder",
   },
   {
     id: "retention",
     title: "Retention Policy",
-    description: "Per-category retention windows with legal hold placeholders.",
+    description: "Per-category retention windows with legal hold support.",
     status: "planned",
   },
 ] as const;

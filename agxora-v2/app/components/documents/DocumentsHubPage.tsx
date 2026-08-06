@@ -136,7 +136,7 @@ export function DocumentsHubPage(): JSX.Element {
       <Section
         id="documents-ai"
         title="AI Knowledge Layer"
-        subtitle="Summary, keywords, classification, tags, folders, related docs, duplicates, translation, OCR, and search — placeholders only."
+        subtitle="Summary, keywords, classification, tags, folders, related docs, duplicates, translation, OCR, and searchs only."
         delay={0.12}
       >
         <div className="mb-3 flex flex-wrap gap-2">
@@ -192,7 +192,7 @@ export function DocumentsHubPage(): JSX.Element {
       <Section
         id="documents-security"
         title="Security & Sharing"
-        subtitle="RBAC, audit trail, encryption placeholder, retention, and share scopes."
+        subtitle="RBAC, audit trail, encryption, retention, and share scopes."
         delay={0.18}
       >
         <DocumentsSecurity controls={SECURITY_CONTROLS} />

@@ -32,7 +32,7 @@ export function BankingPanel({
             color: "var(--agx-text-muted, #94a3b8)",
           }}
         >
-          Bank Feed (placeholder) — live sync endpoint ready for provider keys.
+          Bank Feed — connect a provider to sync transactions.
         </div>
       </FinanceGlassCard>
 

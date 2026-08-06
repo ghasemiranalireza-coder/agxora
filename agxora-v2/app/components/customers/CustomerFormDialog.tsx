@@ -104,7 +104,7 @@ export function CustomerFormDialog(): JSX.Element {
           >
             {CUSTOMER_STATUSES.map((status) => (
               <option key={status} value={status}>
-                {status}
+                {status.charAt(0).toUpperCase() + status.slice(1)}
               </option>
             ))}
           </FormSelect>

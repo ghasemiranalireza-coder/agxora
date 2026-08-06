@@ -104,9 +104,11 @@ export function installThreeClockCompat(): void {
     // Frozen ESM namespace — fall through to warn filter.
   }
 
-  // Always silence the known deprecation so terminals stay clean even when
-  // the constructor cannot be replaced (native ESM live bindings).
-  silenceClockDeprecation();
+  // Only silence the known deprecation in development so production consoles
+  // are not filtered if the Clock constructor cannot be replaced.
+  if (process.env.NODE_ENV !== "production") {
+    silenceClockDeprecation();
+  }
 }
 
 installThreeClockCompat();

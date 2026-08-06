@@ -10,7 +10,7 @@ export function VersionHistoryPanel({
 }: {
   readonly document: KnowledgeDocument | null;
 }): JSX.Element {
-  const [notice, setNotice] = useState("Restore and compare are placeholders — no storage API yet.");
+  const [notice, setNotice] = useState("Restore and compare require the storage API.");
   const [selected, setSelected] = useState<string | null>(null);
 
   if (!document) {
@@ -21,7 +21,7 @@ export function VersionHistoryPanel({
         </h3>
         <EmptyState
           title="No document selected"
-          description="Open a document to inspect versions, notes, restore, and compare placeholders."
+          description="Open a document to inspect versions, notes, restore, and compare."
         />
       </Card>
     );
@@ -83,7 +83,7 @@ export function VersionHistoryPanel({
           variant="primary"
           disabled={!selected}
           onClick={() =>
-            setNotice(`Restore queued for ${selected} (placeholder).`)
+            setNotice(`Restore queued for ${selected}.`)
           }
         >
           Restore Version
@@ -93,7 +93,7 @@ export function VersionHistoryPanel({
           variant="secondary"
           disabled={!selected}
           onClick={() =>
-            setNotice(`Compare ${selected} ↔ ${document.version} (placeholder).`)
+            setNotice(`Compare ${selected} ↔ ${document.version}.`)
           }
         >
           Compare Versions

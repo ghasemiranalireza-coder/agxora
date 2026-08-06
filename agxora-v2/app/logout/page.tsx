@@ -8,7 +8,7 @@ import { useAuth } from "../lib/auth";
 import { iamAuthService } from "../../features/auth";
 
 /**
- * /logout — clears local placeholder session and redirects to login.
+ * /logout — clears the local session and redirects to login.
  */
 export default function LogoutPage(): JSX.Element {
   const { signOut } = useAuth();

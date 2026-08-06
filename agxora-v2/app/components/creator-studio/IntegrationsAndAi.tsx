@@ -13,7 +13,7 @@ export function FutureIntegrations({
   return (
     <Card padding="20px">
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Future integrations — architecture only. No fake live APIs. Instagram, TikTok, YouTube,
+        Future integrations — optional. No live APIs until connected. Instagram, TikTok, YouTube,
         Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.
       </p>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">

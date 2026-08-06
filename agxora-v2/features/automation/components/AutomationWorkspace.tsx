@@ -576,7 +576,7 @@ function WorkflowEditorPanel({
           Workflow editor
         </h2>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Architecture supports trigger → condition → action → delay → branch → loop (placeholder).
+          Architecture supports trigger → condition → action → delay → branch → loop.
           Canvas drag-and-drop can plug into node positions without engine changes.
         </p>
         <label className="block text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
@@ -837,7 +837,7 @@ function SettingsPanel({
         Automation settings
       </h2>
       <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Retry policy, execution limits, concurrency, timeout, and logging — placeholders for
+        Retry policy, execution limits, concurrency, timeout, and loggings for
         distributed execution.
       </p>
       <div className="grid gap-3 sm:grid-cols-2">

@@ -117,12 +117,24 @@ export function DataTable<T>({
               {pageRows.map((row) => (
                 <tr
                   key={rowKey(row)}
-                  className="transition-colors hover:bg-white/[0.03]"
+                  className="transition-colors hover:bg-white/[0.03] focus-visible:bg-white/[0.05] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px]"
                   style={{
                     color: "var(--agx-text, #f8fafc)",
                     cursor: onRowClick ? "pointer" : undefined,
+                    outlineColor: "var(--agx-accent, #22d3ee)",
                   }}
+                  tabIndex={onRowClick ? 0 : undefined}
                   onClick={onRowClick ? () => onRowClick(row) : undefined}
+                  onKeyDown={
+                    onRowClick
+                      ? (event) => {
+                          if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            onRowClick(row);
+                          }
+                        }
+                      : undefined
+                  }
                 >
                   {columns.map((col) => (
                     <td

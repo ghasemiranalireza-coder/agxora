@@ -13,7 +13,7 @@ export function AutomationIntegrations({
   return (
     <Card padding="20px" hover={false}>
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Integration Center — architecture only. Statuses: Connected, Beta, Planned, Coming Soon,
+        Integration Center — optional. Statuses: Connected, Beta, Planned, Coming soon,
         Disabled. No live APIs.
       </p>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">

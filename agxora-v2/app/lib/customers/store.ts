@@ -28,6 +28,7 @@ export type CustomerStoreSnapshot = {
   readonly deleting: boolean;
   readonly search: string;
   readonly statusFilter: CustomerStatus | "all";
+  readonly tagFilter: string;
   readonly sortKey: CustomerSortKey;
   readonly sortDirection: SortDirection;
   readonly page: number;
@@ -53,6 +54,7 @@ let snapshot: CustomerStoreSnapshot = {
   deleting: false,
   search: "",
   statusFilter: "all",
+  tagFilter: "",
   sortKey: "updatedAt",
   sortDirection: "desc",
   page: 1,
@@ -110,6 +112,9 @@ export const customerStore = {
   },
   setStatusFilter(statusFilter: CustomerStatus | "all") {
     commit({ statusFilter, page: 1 });
+  },
+  setTagFilter(tagFilter: string) {
+    commit({ tagFilter, page: 1 });
   },
   setSort(sortKey: CustomerSortKey) {
     if (snapshot.sortKey === sortKey) {

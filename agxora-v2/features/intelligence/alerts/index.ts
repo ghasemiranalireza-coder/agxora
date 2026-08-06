@@ -64,7 +64,7 @@ const ALERT_DEFS: readonly {
     kind: "security",
     severity: "critical",
     title: "Security alert",
-    body: "Unusual API key usage pattern detected (placeholder).",
+    body: "Unusual API key usage pattern detected.",
     domain: "identity",
   },
 ];

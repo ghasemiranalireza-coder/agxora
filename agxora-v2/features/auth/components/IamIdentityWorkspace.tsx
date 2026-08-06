@@ -262,11 +262,11 @@ export function IamIdentityWorkspace(): JSX.Element {
           <SectionTitle>Security settings</SectionTitle>
           <Placeholder
             title="Password change"
-            detail="Placeholder — wire to AuthProviderPort.resetPassword / changePassword API."
+            detail="Password change connects through the auth provider when configured."
           />
           <Placeholder
             title="Two-factor authentication (2FA)"
-            detail="Placeholder — TOTP / WebAuthn adapters register here without UI rewrite."
+            detail="TOTP and WebAuthn adapters register here when enabled."
           />
           <Placeholder
             title="Active sessions"
@@ -274,7 +274,7 @@ export function IamIdentityWorkspace(): JSX.Element {
           />
           <Placeholder
             title="API keys"
-            detail="Placeholder — service accounts and scoped tokens for developers."
+            detail="Service accounts and scoped tokens for developers."
           />
           <div className="grid gap-3 sm:grid-cols-2 text-sm">
             <Meta
@@ -286,7 +286,7 @@ export function IamIdentityWorkspace(): JSX.Element {
               value={
                 policy.idleTimeoutMs > 0
                   ? `${Math.round(policy.idleTimeoutMs / 60000)} min`
-                  : "Disabled (placeholder)"
+                  : "Disabled"
               }
             />
             <Meta

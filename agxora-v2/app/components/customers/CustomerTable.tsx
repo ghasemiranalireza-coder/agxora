@@ -16,6 +16,7 @@ import {
   DataTable,
   FilterSelect,
   SearchField,
+  Skeleton,
   type DataTableColumn,
 } from "../ui";
 import { CustomerStatusBadge } from "./CustomerStatusBadge";
@@ -23,6 +24,14 @@ import { CustomerStatusBadge } from "./CustomerStatusBadge";
 export function CustomerTable(): JSX.Element {
   const state = useCustomerStore();
   const { pageRows, total, page } = useFilteredCustomers();
+
+  const tagOptions = useMemo(() => {
+    const tags = new Set<string>();
+    for (const row of state.items) {
+      for (const tag of row.tags) tags.add(tag);
+    }
+    return Array.from(tags).sort((a, b) => a.localeCompare(b));
+  }, [state.items]);
 
   const columns = useMemo<readonly DataTableColumn<CustomerRecord>[]>(
     () => [
@@ -75,6 +84,7 @@ export function CustomerTable(): JSX.Element {
           <div
             className="flex justify-end gap-1"
             onClick={(event: MouseEvent) => event.stopPropagation()}
+            onKeyDown={(event) => event.stopPropagation()}
           >
             <Button
               size="sm"
@@ -106,60 +116,85 @@ export function CustomerTable(): JSX.Element {
 
   return (
     <Card className="space-y-4" padding="20px" hover={false}>
-      <DataTable
-        columns={columns}
-        rows={pageRows}
-        rowKey={(row) => row.id}
-        serverPaginated
-        totalCount={total}
-        page={page}
-        pageSize={state.pageSize}
-        onPageChange={(next) => customerStore.setPage(next)}
-        sortKey={state.sortKey}
-        sortDirection={state.sortDirection}
-        onSort={(key) => customerStore.setSort(key as CustomerSortKey)}
-        onRowClick={(row) => customerStore.openDetails(row.id)}
-        emptyTitle="No customers yet"
-        emptyDescription="Create your first customer to start the CRM workspace."
-        minWidth={880}
-        toolbar={
-          <div className="flex w-full flex-col gap-3 lg:flex-row lg:items-end">
-            <SearchField
-              label="Search customers"
-              value={state.search}
-              onChange={(value) => customerStore.setSearch(value)}
-              placeholder="Company, contact, email, city, tags…"
-            />
-            <FilterSelect
-              label="Status"
-              value={state.statusFilter}
-              onChange={(event) =>
-                customerStore.setStatusFilter(
-                  event.target.value as CustomerStatus | "all",
-                )
-              }
-            >
-              <option value="all">All statuses</option>
-              <option value="active">Active</option>
-              <option value="prospect">Prospect</option>
-              <option value="inactive">Inactive</option>
-              <option value="blocked">Blocked</option>
-            </FilterSelect>
-            <Button
-              variant="primary"
-              size="sm"
-              onClick={() => customerStore.openCreate()}
-            >
-              Add Customer
-            </Button>
-          </div>
-        }
-      />
-      {state.loading ? (
-        <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Loading customers…
-        </p>
-      ) : null}
+      {state.loading && !state.hydrated ? (
+        <div className="space-y-3" aria-busy="true" aria-live="polite">
+          <Skeleton height={40} />
+          <Skeleton height={48} />
+          <Skeleton height={48} />
+          <Skeleton height={48} />
+          <p className="sr-only">Loading customers…</p>
+        </div>
+      ) : (
+        <DataTable
+          columns={columns}
+          rows={pageRows}
+          rowKey={(row) => row.id}
+          serverPaginated
+          totalCount={total}
+          page={page}
+          pageSize={state.pageSize}
+          onPageChange={(next) => customerStore.setPage(next)}
+          sortKey={state.sortKey}
+          sortDirection={state.sortDirection}
+          onSort={(key) => customerStore.setSort(key as CustomerSortKey)}
+          onRowClick={(row) => customerStore.openDetails(row.id)}
+          emptyTitle={
+            state.search || state.statusFilter !== "all" || state.tagFilter
+              ? "No matching customers"
+              : "No customers yet"
+          }
+          emptyDescription={
+            state.search || state.statusFilter !== "all" || state.tagFilter
+              ? "Try adjusting search or filters."
+              : "Create your first customer to start managing your accounts."
+          }
+          minWidth={880}
+          toolbar={
+            <div className="flex w-full flex-col gap-3 lg:flex-row lg:items-end">
+              <SearchField
+                label="Search customers"
+                value={state.search}
+                onChange={(value) => customerStore.setSearch(value)}
+                placeholder="Company, contact, email, city, tags…"
+              />
+              <FilterSelect
+                label="Status"
+                value={state.statusFilter}
+                onChange={(event) =>
+                  customerStore.setStatusFilter(
+                    event.target.value as CustomerStatus | "all",
+                  )
+                }
+              >
+                <option value="all">All statuses</option>
+                <option value="active">Active</option>
+                <option value="prospect">Prospect</option>
+                <option value="inactive">Inactive</option>
+                <option value="blocked">Blocked</option>
+              </FilterSelect>
+              <FilterSelect
+                label="Tag"
+                value={state.tagFilter}
+                onChange={(event) => customerStore.setTagFilter(event.target.value)}
+              >
+                <option value="">All tags</option>
+                {tagOptions.map((tag) => (
+                  <option key={tag} value={tag}>
+                    {tag}
+                  </option>
+                ))}
+              </FilterSelect>
+              <Button
+                variant="primary"
+                size="sm"
+                onClick={() => customerStore.openCreate()}
+              >
+                Add Customer
+              </Button>
+            </div>
+          }
+        />
+      )}
     </Card>
   );
 }

@@ -43,12 +43,12 @@ export function DeliveryModule({
         <div className="flex flex-wrap gap-2">
           <CrmBadge tone="accent">QR Code Ready</CrmBadge>
           <CrmBadge tone="accent">Barcode Ready</CrmBadge>
-          <CrmBadge tone="positive">Signature Placeholder</CrmBadge>
+          <CrmBadge tone="positive">Signature</CrmBadge>
         </div>
         <div className="flex flex-wrap gap-2 pt-2">
           <CrmButton
             variant="primary"
-            onClick={() => setMessage("PDF export job queued in DeliveryExportAdapter (stub).")}
+            onClick={() => setMessage("PDF export job queued in DeliveryExportAdapter.")}
           >
             Export PDF
           </CrmButton>

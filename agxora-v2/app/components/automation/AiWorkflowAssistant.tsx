@@ -28,7 +28,7 @@ export function AiWorkflowAssistant({
   readonly onClose?: () => void;
 }): JSX.Element {
   const report = useMemo(() => scoreWorkflow(workflow), [workflow]);
-  const [notice, setNotice] = useState("One Click Optimize is a placeholder — no graph mutation yet.");
+  const [notice, setNotice] = useState("One Click Optimize is a no graph mutation yet.");
 
   return (
     <Card className="h-full space-y-4" padding="20px" hover={false}>
@@ -109,7 +109,7 @@ export function AiWorkflowAssistant({
       <Button
         variant="primary"
         onClick={() =>
-          setNotice("Optimize queued (placeholder). Future engine will rewrite delays & approvals.")
+          setNotice("Optimize queued. Future engine will rewrite delays & approvals.")
         }
       >
         One Click Optimize

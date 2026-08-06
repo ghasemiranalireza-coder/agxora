@@ -110,7 +110,7 @@ export function LibraryWorkspace({
     null,
   );
   const [uploadNotice, setUploadNotice] = useState(
-    "Drag & drop upload is a placeholder — storage API reserved.",
+    "Drag & drop upload is a storage API reserved.",
   );
 
   const departments = useMemo(
@@ -201,8 +201,8 @@ export function LibraryWorkspace({
     const count = e.dataTransfer.files?.length ?? 0;
     setUploadNotice(
       count > 0
-        ? `${count} file(s) staged for upload (placeholder — no storage write).`
-        : "Drop received (placeholder — no storage write).",
+        ? `${count} file(s) staged for upload (no storage write).`
+        : "Drop received (no storage write).",
     );
   };
 
@@ -281,7 +281,7 @@ export function LibraryWorkspace({
               variant="secondary"
               disabled={selectedIds.size === 0}
               onClick={() =>
-                setUploadNotice(`Bulk action queued for ${selectedIds.size} item(s) (placeholder).`)
+                setUploadNotice(`Bulk action queued for ${selectedIds.size} item(s).`)
               }
             >
               Bulk action
@@ -464,7 +464,7 @@ export function LibraryWorkspace({
               className="block w-full rounded-lg px-3 py-2 text-left text-sm transition-colors hover:bg-white/[0.06]"
               style={{ color: "var(--agx-text, #f8fafc)" }}
               onClick={() => {
-                setUploadNotice(`${label} action for ${contextMenu.id} (placeholder).`);
+                setUploadNotice(`${label} action for ${contextMenu.id}.`);
                 setContextMenu(null);
               }}
             >

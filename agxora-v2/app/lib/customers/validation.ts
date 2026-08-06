@@ -88,15 +88,26 @@ export function validateCustomerDraft(
     errors.push({ field: "status", message: "Select a valid status." });
   }
 
-  // Duplicate detection architecture — email uniqueness within organization dataset.
-  const duplicates = (options?.existing ?? []).filter((row) => {
-    if (options?.excludeId && row.id === options.excludeId) return false;
-    return normalizeEmail(row.email) === email;
-  });
-  if (duplicates.length > 0) {
+  // Duplicate prevention — email and company name uniqueness within organization.
+  const peers = (options?.existing ?? []).filter(
+    (row) => !(options?.excludeId && row.id === options.excludeId),
+  );
+  if (email && peers.some((row) => normalizeEmail(row.email) === email)) {
     errors.push({
       field: "email",
       message: "A customer with this email already exists.",
+    });
+  }
+  if (
+    companyName &&
+    peers.some(
+      (row) =>
+        row.companyName.trim().toLowerCase() === companyName.toLowerCase(),
+    )
+  ) {
+    errors.push({
+      field: "companyName",
+      message: "A customer with this company name already exists.",
     });
   }
 
