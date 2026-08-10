@@ -87,20 +87,21 @@ export function DataTable<T>({
                         textAlign: col.align ?? "left",
                         width: col.width,
                       }}
+                      aria-sort={
+                        canSort && active
+                          ? sortDirection === "asc"
+                            ? "ascending"
+                            : "descending"
+                          : canSort
+                            ? "none"
+                            : undefined
+                      }
                     >
                       {canSort ? (
                         <button
                           type="button"
                           onClick={() => onSort?.(col.key)}
-                          className="inline-flex items-center gap-1 uppercase tracking-[0.12em] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                          style={{
-                            color: "inherit",
-                            background: "transparent",
-                            border: "none",
-                            padding: 0,
-                            cursor: "pointer",
-                            outlineColor: UI.color.accent,
-                          }}
+                          className="agx-ui-table-sort uppercase tracking-[0.12em]"
                         >
                           {col.header}
                           <span aria-hidden="true" className="text-[10px] opacity-70">

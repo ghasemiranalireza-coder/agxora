@@ -288,8 +288,8 @@ export function tokensToCssVars(
       ? "rgba(28,40,56,0.42)"
       : "rgba(4,8,16,0.72)",
     "--agx-ds-placeholder": isDay
-      ? "rgba(90,106,122,0.72)"
-      : "rgba(168,182,199,0.72)",
+      ? "rgba(71, 85, 105, 0.88)"
+      : "rgba(186, 198, 214, 0.82)",
     "--agx-ds-on-accent": isDay ? "#f8fafc" : "#041018",
     "--agx-bg-elevated": isDay
       ? "rgba(255,255,255,0.94)"

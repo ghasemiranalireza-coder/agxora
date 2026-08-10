@@ -301,7 +301,7 @@ export const crmStore = {
     commit({ draft: { ...snapshot.draft, ...patch } });
   },
   requestDelete(deleteId: CrmCustomerId) {
-    commit({ deleteId });
+    commit({ deleteId, formOpen: false });
   },
   cancelDelete() {
     commit({ deleteId: null });
@@ -365,21 +365,24 @@ export const crmStore = {
     if (!id || !organizationId) return null;
     const removed = snapshot.items.find((row) => row.id === id) ?? null;
     const clearing = snapshot.selectedId === id;
-    commit({
-      items: snapshot.items.filter((row) => row.id !== id),
-      deleting: false,
-      deleteId: null,
-      selectedId: clearing ? null : snapshot.selectedId,
-      ...(clearing
-        ? { contacts: [], notes: [], documents: [], activities: [] }
-        : {}),
-    });
+    commit({ deleting: true, error: null });
     try {
       await crmDirectoryService.deleteCustomer(id);
+      commit({
+        items: snapshot.items.filter((row) => row.id !== id),
+        deleting: false,
+        deleteId: null,
+        selectedId: clearing ? null : snapshot.selectedId,
+        ...(clearing
+          ? { contacts: [], notes: [], documents: [], activities: [] }
+          : {}),
+      });
       return removed;
     } catch (error) {
       await reloadList(organizationId);
       commit({
+        deleting: false,
+        deleteId: null,
         error:
           error instanceof Error
             ? error.message

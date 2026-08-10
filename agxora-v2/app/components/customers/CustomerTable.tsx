@@ -14,6 +14,7 @@ import {
   Button,
   Card,
   DataTable,
+  ErrorState,
   FilterSelect,
   SearchField,
   Skeleton,
@@ -24,6 +25,10 @@ import { CustomerStatusBadge } from "./CustomerStatusBadge";
 export function CustomerTable(): JSX.Element {
   const state = useCustomerStore();
   const { pageRows, total, page } = useFilteredCustomers();
+  const hasFilters =
+    Boolean(state.search) ||
+    state.statusFilter !== "all" ||
+    Boolean(state.tagFilter);
 
   const tagOptions = useMemo(() => {
     const tags = new Set<string>();
@@ -41,10 +46,12 @@ export function CustomerTable(): JSX.Element {
         sortable: true,
         render: (row) => (
           <div>
-            <p className="font-medium">{row.companyName}</p>
+            <p className="font-medium" style={{ color: "var(--agx-ds-text)" }}>
+              {row.companyName}
+            </p>
             <p
               className="text-xs"
-              style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+              style={{ color: "var(--agx-ds-text-muted, #94a3b8)" }}
             >
               {row.contactPerson}
             </p>
@@ -55,7 +62,9 @@ export function CustomerTable(): JSX.Element {
         key: "email",
         header: "Email",
         sortable: true,
-        render: (row) => row.email,
+        render: (row) => (
+          <span style={{ color: "var(--agx-ds-text)" }}>{row.email}</span>
+        ),
       },
       {
         key: "city",
@@ -82,13 +91,14 @@ export function CustomerTable(): JSX.Element {
         align: "right",
         render: (row) => (
           <div
-            className="flex justify-end gap-1"
+            className="agx-ui-table-actions"
             onClick={(event: MouseEvent) => event.stopPropagation()}
             onKeyDown={(event) => event.stopPropagation()}
           >
             <Button
               size="sm"
               variant="ghost"
+              aria-label={`View ${row.companyName}`}
               onClick={() => customerStore.openDetails(row.id)}
             >
               View
@@ -96,6 +106,7 @@ export function CustomerTable(): JSX.Element {
             <Button
               size="sm"
               variant="secondary"
+              aria-label={`Edit ${row.companyName}`}
               onClick={() => customerStore.openEdit(row)}
             >
               Edit
@@ -103,6 +114,7 @@ export function CustomerTable(): JSX.Element {
             <Button
               size="sm"
               variant="danger"
+              aria-label={`Delete ${row.companyName}`}
               onClick={() => customerStore.requestDelete(row.id)}
             >
               Delete
@@ -114,8 +126,31 @@ export function CustomerTable(): JSX.Element {
     [],
   );
 
+  if (state.error && state.items.length === 0) {
+    return (
+      <Card className="space-y-4" padding="24px" hover={false}>
+        <ErrorState
+          title="Couldn’t load customers"
+          description={state.error}
+          onRetry={() =>
+            void customerStore.hydrate(state.organizationId ?? "org_local_default")
+          }
+        />
+      </Card>
+    );
+  }
+
   return (
     <Card className="space-y-4" padding="24px" hover={false}>
+      {state.error ? (
+        <ErrorState
+          title="Something went wrong"
+          description={state.error}
+          onRetry={() =>
+            void customerStore.hydrate(state.organizationId ?? "org_local_default")
+          }
+        />
+      ) : null}
       {state.loading && !state.hydrated ? (
         <div className="space-y-3" aria-busy="true" aria-live="polite">
           <Skeleton height={40} />
@@ -139,12 +174,10 @@ export function CustomerTable(): JSX.Element {
           onSort={(key) => customerStore.setSort(key as CustomerSortKey)}
           onRowClick={(row) => customerStore.openDetails(row.id)}
           emptyTitle={
-            state.search || state.statusFilter !== "all" || state.tagFilter
-              ? "No matching customers"
-              : "No customers yet"
+            hasFilters ? "No matching customers" : "No customers yet"
           }
           emptyDescription={
-            state.search || state.statusFilter !== "all" || state.tagFilter
+            hasFilters
               ? "Try adjusting search or filters."
               : "Create your first customer to start managing your accounts."
           }
@@ -153,12 +186,14 @@ export function CustomerTable(): JSX.Element {
             <div className="flex w-full flex-col gap-3 lg:flex-row lg:items-end">
               <SearchField
                 label="Search customers"
+                controlSize="sm"
                 value={state.search}
                 onChange={(value) => customerStore.setSearch(value)}
                 placeholder="Company, contact, email, city, tags…"
               />
               <FilterSelect
                 label="Status"
+                controlSize="sm"
                 value={state.statusFilter}
                 onChange={(event) =>
                   customerStore.setStatusFilter(
@@ -174,8 +209,11 @@ export function CustomerTable(): JSX.Element {
               </FilterSelect>
               <FilterSelect
                 label="Tag"
+                controlSize="sm"
                 value={state.tagFilter}
-                onChange={(event) => customerStore.setTagFilter(event.target.value)}
+                onChange={(event) =>
+                  customerStore.setTagFilter(event.target.value)
+                }
               >
                 <option value="">All tags</option>
                 {tagOptions.map((tag) => (
@@ -184,6 +222,19 @@ export function CustomerTable(): JSX.Element {
                   </option>
                 ))}
               </FilterSelect>
+              {hasFilters ? (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    customerStore.setSearch("");
+                    customerStore.setStatusFilter("all");
+                    customerStore.setTagFilter("");
+                  }}
+                >
+                  Clear filters
+                </Button>
+              ) : null}
               <Button
                 variant="primary"
                 size="sm"
