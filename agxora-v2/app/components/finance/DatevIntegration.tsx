@@ -52,7 +52,9 @@ export function DatevIntegration({
 }: {
   readonly history: readonly DatevExportRecord[];
 }): JSX.Element {
-  const [notice, setNotice] = useState("Ready for Steuerberater · export adapters staged.");
+  const [notice, setNotice] = useState(
+    "Export adapters are not connected — no files will be generated.",
+  );
 
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-5">
@@ -61,21 +63,29 @@ export function DatevIntegration({
           <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
             DATEV Integration
           </h3>
-          <FinanceBadge tone="positive">Ready for Steuerberater</FinanceBadge>
+          <FinanceBadge tone="warning">Not connected</FinanceBadge>
         </div>
+        <p className="text-xs leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          Sample export history below is illustrative. Credentials and file
+          generation are not wired in this build.
+        </p>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {EXPORT_ACTIONS.map((action) => (
             <button
               key={action.format}
               type="button"
               onClick={() =>
-                setNotice(`${action.title} queued · DATEV API adapter reserved for credentials.`)
+                setNotice(
+                  `${action.title} unavailable — DATEV / file export is not connected.`,
+                )
               }
-              className="rounded-2xl border p-4 text-left transition-opacity hover:opacity-90"
+              className="min-h-[5.5rem] rounded-2xl border p-4 text-left transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
               style={{
                 borderColor: "var(--agx-card-border, rgba(255,255,255,0.1))",
                 background: "rgba(255,255,255,0.03)",
+                outlineColor: "var(--agx-accent, #22d3ee)",
               }}
+              aria-label={`${action.title} — unavailable`}
             >
               <p className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
                 {action.title}
@@ -86,7 +96,12 @@ export function DatevIntegration({
             </button>
           ))}
         </div>
-        <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+        <p
+          className="text-xs"
+          role="status"
+          aria-live="polite"
+          style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+        >
           {notice}
         </p>
       </FinanceGlassCard>
@@ -94,10 +109,14 @@ export function DatevIntegration({
       <FinanceGlassCard className="xl:col-span-3" padding="p-5">
         <div className="mb-4 flex items-center justify-between gap-2">
           <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Export History
+            Export History (sample)
           </h3>
           <FinanceButton
-            onClick={() => setNotice("Refreshing export history from DATEV staging store.")}
+            onClick={() =>
+              setNotice(
+                "Refresh unavailable — export history is static sample data.",
+              )
+            }
           >
             Refresh
           </FinanceButton>
@@ -156,8 +175,8 @@ export function DatevIntegration({
                     className="border-b px-3 py-3"
                     style={{ borderColor: "var(--agx-card-border, rgba(255,255,255,0.06))" }}
                   >
-                    <FinanceBadge tone={row.steuerberaterReady ? "positive" : "warning"}>
-                      {row.steuerberaterReady ? "Ready" : "Pending"}
+                    <FinanceBadge tone={row.steuerberaterReady ? "accent" : "warning"}>
+                      {row.steuerberaterReady ? "Sample" : "Pending"}
                     </FinanceBadge>
                   </td>
                 </tr>

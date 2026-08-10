@@ -99,13 +99,6 @@ export function BusinessOverview(): JSX.Element {
         icon: <Icon path={ICON_PATHS.clients} />,
         href: "/dashboard/customers",
         actionLabel: activeCustomers === 0 ? "Add customer" : "View customers",
-        visual: {
-          kind: "sparkline",
-          points:
-            activeCustomers === 0
-              ? [0, 0, 0, 0, 0, 0, 0, 0]
-              : [1, 1, 2, 2, 3, 3, Math.max(3, activeCustomers - 1), activeCustomers],
-        },
       },
       {
         title: "Projects",
@@ -117,10 +110,6 @@ export function BusinessOverview(): JSX.Element {
         icon: <Icon path={ICON_PATHS.projects} />,
         href: "/dashboard/projects",
         actionLabel: projectCount === 0 ? "Create project" : "Open projects",
-        visual: {
-          kind: "progress",
-          percent: projectCount === 0 ? 0 : Math.min(100, projectCount * 12),
-        },
       },
       {
         title: "Activity today",
@@ -132,13 +121,6 @@ export function BusinessOverview(): JSX.Element {
         icon: <Icon path={ICON_PATHS.activity} />,
         href: "#agx-live-activity",
         actionLabel: "View feed",
-        visual: {
-          kind: "sparkline",
-          points:
-            todayActivity === 0
-              ? [0, 0, 0, 0, 0, 0, 0, 0]
-              : [0, 1, 1, 2, 2, 3, Math.max(1, todayActivity - 1), todayActivity],
-        },
       },
       {
         title: "Revenue",
@@ -147,29 +129,27 @@ export function BusinessOverview(): JSX.Element {
         icon: <Icon path={ICON_PATHS.revenue} />,
         href: "/dashboard/billing",
         actionLabel: "Open billing",
-        visual: { kind: "sparkline", points: [0, 0, 0, 0, 0, 0, 0, 0] },
       },
       {
-        title: "System health",
-        value: "OK",
-        caption: "Workspace operational",
+        title: "Client shell",
+        value: "Online",
+        caption: "Browser session ready — not a live ops monitor",
         icon: <Icon path={ICON_PATHS.health} />,
         visual: {
           kind: "status",
           items: [
-            { label: "Application online", ok: true },
-            { label: "Local workspace ready", ok: true },
+            { label: "Application shell loaded", ok: true },
+            { label: "Local workspace stores ready", ok: true },
           ],
         },
       },
       {
         title: "Growth",
         value: "—",
-        caption: "Available when usage accumulates",
+        caption: "Trend metrics need accumulated usage",
         icon: <Icon path={ICON_PATHS.growth} />,
         href: "/dashboard/analytics",
         actionLabel: "Open analytics",
-        visual: { kind: "sparkline", points: [0, 0, 0, 0, 0, 0, 0, 0] },
       },
     ],
     [activeCustomers, customers.items.length, projectCount, todayActivity],
@@ -200,7 +180,7 @@ export function BusinessOverview(): JSX.Element {
             className="mt-2 text-sm"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            Live workspace metrics for {organization?.name ?? "your organization"}
+            Workspace counts for {organization?.name ?? "your organization"}
           </p>
         </div>
         <span
@@ -211,7 +191,7 @@ export function BusinessOverview(): JSX.Element {
             color: "var(--agx-text-muted, #94a3b8)",
           }}
         >
-          LIVE
+          LOCAL
         </span>
       </header>
 

@@ -82,8 +82,11 @@ export function VersionHistoryPanel({
           size="sm"
           variant="primary"
           disabled={!selected}
+          title="Restore requires the storage API"
           onClick={() =>
-            setNotice(`Restore queued for ${selected}.`)
+            setNotice(
+              `Restore unavailable for ${selected} — storage API is not connected.`,
+            )
           }
         >
           Restore Version
@@ -92,14 +95,22 @@ export function VersionHistoryPanel({
           size="sm"
           variant="secondary"
           disabled={!selected}
+          title="Compare requires the storage API"
           onClick={() =>
-            setNotice(`Compare ${selected} ↔ ${document.version}.`)
+            setNotice(
+              `Compare unavailable (${selected} ↔ ${document.version}) — storage API is not connected.`,
+            )
           }
         >
           Compare Versions
         </Button>
       </div>
-      <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+      <p
+        className="text-xs"
+        role="status"
+        aria-live="polite"
+        style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+      >
         {notice}
       </p>
     </Card>

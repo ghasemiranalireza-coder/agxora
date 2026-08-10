@@ -99,13 +99,13 @@ export function AiKnowledgePanel({
               <div>
                 <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>AI Translation</dt>
                 <dd style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {document.ai.translationReady ? "Ready" : "Not applicable"}
+                  {document.ai.translationReady ? "Sample ready" : "Not applicable"}
                 </dd>
               </div>
               <div>
                 <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>AI OCR</dt>
                 <dd style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {document.ai.ocrReady ? "Ready" : "Not applicable"}
+                  {document.ai.ocrReady ? "Sample ready" : "Not applicable"}
                 </dd>
               </div>
             </dl>
@@ -157,11 +157,21 @@ export function AiKnowledgePanel({
             <Button
               variant="primary"
               size="sm"
-              onClick={() => setNotice("AI Search queued.")}
+              title="AI Search is not connected"
+              onClick={() =>
+                setNotice(
+                  "AI Search unavailable — semantic index is not connected. Sample insights above are static.",
+                )
+              }
             >
               Run AI Search
             </Button>
-            <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            <p
+              className="text-xs"
+              role="status"
+              aria-live="polite"
+              style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+            >
               {notice}
             </p>
           </>

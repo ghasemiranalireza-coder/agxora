@@ -50,7 +50,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
   const eic = useEnterpriseIntelligence();
   const [tab, setTab] = useState<TabId>("executive");
   const [notice, setNotice] = useState(
-    "Analytics are repository-driven and independent from UI chrome.",
+    "Showing seeded demo analytics — not live production telemetry.",
   );
   const [domainFilter, setDomainFilter] = useState<AnalyticsDomain | "all">(
     "all",
@@ -183,16 +183,18 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
       key: "export",
       header: "Export",
       render: (r) => (
-        <div className="flex gap-1">
+        <div className="flex flex-wrap gap-1">
           {r.exportFormats.map((f) => (
             <Button
               key={f}
               size="sm"
               variant="ghost"
-              disabled={!eic.permissions.canExport}
+              disabled
+              title="Export unavailable — report generation is not connected yet."
+              aria-label={`Export ${r.title} as ${f} — unavailable`}
               onClick={() => {
                 const res = intelligenceService.exportReport(r, f);
-                setNotice(`Export placeholder ${res.format} for ${r.title}`);
+                setNotice(res.reason);
               }}
             >
               {f}
@@ -242,10 +244,29 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Transform enterprise data into actionable insights — KPIs, scorecards,
-          alerts, reports, and AI-ready recommendations across every AGXORA module.
+          KPIs, scorecards, alerts, and reports for every AGXORA module. Values
+          below are a seeded demo dataset until live analytics backends connect.
         </p>
-        <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+        <div
+          role="status"
+          className="rounded-xl border px-3 py-2 text-xs leading-relaxed"
+          style={{
+            borderColor:
+              "color-mix(in srgb, var(--agx-accent, #22d3ee) 35%, transparent)",
+            background:
+              "color-mix(in srgb, var(--agx-accent, #22d3ee) 10%, transparent)",
+            color: "var(--agx-text, #f8fafc)",
+          }}
+        >
+          Demo dataset — filters and acknowledge work in-session; export and live
+          model calls are not available yet.
+        </div>
+        <p
+          className="text-xs"
+          role="status"
+          aria-live="polite"
+          style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+        >
           {notice}
         </p>
         <div className="flex flex-wrap items-end gap-2 pt-1">
@@ -255,7 +276,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
               type="date"
               value={filterFrom}
               onChange={(e) => setDateFrom(e.target.value)}
-              className="agx-ui-control mt-1 block rounded-lg border px-2 py-1 text-sm"
+              className="agx-ui-control mt-1 block min-h-9 min-w-[9.5rem] rounded-lg border px-2 py-1.5 text-sm"
             />
           </label>
           <label className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
@@ -264,7 +285,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
               type="date"
               value={filterTo}
               onChange={(e) => setDateTo(e.target.value)}
-              className="agx-ui-control mt-1 block rounded-lg border px-2 py-1 text-sm"
+              className="agx-ui-control mt-1 block min-h-9 min-w-[9.5rem] rounded-lg border px-2 py-1.5 text-sm"
             />
           </label>
           <label className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
@@ -274,7 +295,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
               onChange={(e) =>
                 setDomainFilter(e.target.value as AnalyticsDomain | "all")
               }
-              className="agx-ui-control mt-1 block rounded-lg border px-2 py-1 text-sm"
+              className="agx-ui-control mt-1 block min-h-9 min-w-[10rem] rounded-lg border px-2 py-1.5 text-sm"
             >
               <option value="all">All domains</option>
               {eic.domains.map((d) => (
@@ -292,18 +313,23 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             variant="ghost"
             onClick={() => {
               intelligenceService.refresh(eic.organizationId);
-              setNotice("Intelligence workspace refreshed");
+              setNotice("Demo dataset reloaded for this workspace.");
             }}
           >
-            Refresh
+            Reload demo data
           </Button>
         </div>
-        <div className="flex flex-wrap gap-2 pt-1">
+        <div
+          className="flex flex-wrap gap-2 pt-1"
+          role="tablist"
+          aria-label="Intelligence views"
+        >
           {TABS.map((t) => (
             <Button
               key={t.id}
               size="sm"
               variant={tab === t.id ? "primary" : "secondary"}
+              aria-pressed={tab === t.id}
               onClick={() => setTab(t.id)}
             >
               {t.label}
@@ -340,6 +366,9 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
               Visualization previews
             </h2>
+            <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+              Illustrative charts from the demo series — not interactive drill-downs.
+            </p>
             <div className="grid gap-3 md:grid-cols-2">
               {eic.charts
                 .filter((c) => c.kind !== "heatmap")
@@ -442,6 +471,10 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
             Reporting engine
           </h2>
+          <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            Report definitions are seeded for review. File export is unavailable
+            until a reporting backend is connected.
+          </p>
           <DataTable
             columns={reportColumns}
             rows={[...eic.reports]}
@@ -454,40 +487,63 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
       ) : null}
 
       {tab === "insights" ? (
-        <div className="grid gap-3 md:grid-cols-2">
-          {eic.insights.map((i) => (
-            <Card key={i.id} className="space-y-2" padding="20px" hover={false}>
-              <p className="text-[11px] uppercase tracking-wide" style={{ color: "var(--agx-accent, #22d3ee)" }}>
-                {i.kind} · {i.domain} · conf {i.confidence}
-              </p>
-              <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                {i.title}
-              </h3>
-              <p className="text-xs leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                {i.summary}
-              </p>
-            </Card>
-          ))}
-        </div>
+        eic.insights.length === 0 ? (
+          <Card padding="20px" hover={false}>
+            <p className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+              No insights yet
+            </p>
+            <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+              Demo insights appear after the workspace seeds. Live AI insight
+              generation is not connected.
+            </p>
+          </Card>
+        ) : (
+          <div className="grid gap-3 md:grid-cols-2">
+            {eic.insights.map((i) => (
+              <Card key={i.id} className="space-y-2" padding="20px" hover={false}>
+                <p className="text-[11px] uppercase tracking-wide" style={{ color: "var(--agx-accent, #22d3ee)" }}>
+                  Demo · {i.kind} · {i.domain} · conf {i.confidence}
+                </p>
+                <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+                  {i.title}
+                </h3>
+                <p className="text-xs leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                  {i.summary}
+                </p>
+              </Card>
+            ))}
+          </div>
+        )
       ) : null}
 
       {tab === "forecasts" ? (
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {eic.forecasts.map((f) => (
-            <Card key={f.id} className="space-y-2" padding="20px" hover={false}>
-              <h3 className="text-sm font-semibold capitalize" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                {f.kind.replace("_", " ")} forecast
-              </h3>
-              <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                Baseline {f.baseline.toLocaleString()} → projected{" "}
-                {f.projected.toLocaleString()} ({f.horizonDays}d)
-              </p>
-              <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                Confidence {f.confidence} — {f.note}
-              </p>
-            </Card>
-          ))}
-        </div>
+        eic.forecasts.length === 0 ? (
+          <Card padding="20px" hover={false}>
+            <p className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+              No forecasts yet
+            </p>
+            <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+              Demo forecasts appear after seed. Predictive models are not connected.
+            </p>
+          </Card>
+        ) : (
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {eic.forecasts.map((f) => (
+              <Card key={f.id} className="space-y-2" padding="20px" hover={false}>
+                <h3 className="text-sm font-semibold capitalize" style={{ color: "var(--agx-text, #f8fafc)" }}>
+                  {f.kind.replace("_", " ")} forecast
+                </h3>
+                <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                  Baseline {f.baseline.toLocaleString()} → projected{" "}
+                  {f.projected.toLocaleString()} ({f.horizonDays}d)
+                </p>
+                <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                  Demo · Confidence {f.confidence} — {f.note}
+                </p>
+              </Card>
+            ))}
+          </div>
+        )
       ) : null}
 
       {tab === "alerts" ? (
@@ -537,20 +593,21 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
           <input
             value={explorerQuery}
             onChange={(e) => setExplorerQuery(e.target.value)}
-            placeholder="Search · group · aggregate ready"
+            placeholder="Search demo rows…"
+            aria-label="Search demo explorer rows"
             className="agx-ui-control w-full rounded-xl border px-3 py-2 text-sm"
           />
           <DataTable
             columns={explorerColumns}
             rows={[...explorerRows]}
             rowKey={(r) => r.id}
-            emptyTitle="No rows"
-            emptyDescription="Adjust filters or search query."
+            emptyTitle="No rows match"
+            emptyDescription="Adjust filters or search, or reload the demo dataset."
             minWidth={720}
           />
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Drill-down architecture ready — rows are domain/entity/dimension/measure
-            tuples for future backend aggregation.
+            Client-side search on seeded tuples — backend aggregation and
+            drill-down are not connected.
           </p>
         </Card>
       ) : null}

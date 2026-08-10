@@ -29,7 +29,9 @@ export function AiInvoiceProcessing({
 }): JSX.Element {
   const [dragging, setDragging] = useState(false);
   const [localJobs, setLocalJobs] = useState<UploadJob[]>([...jobs]);
-  const [message, setMessage] = useState("Drop PDF or image invoices to queue OCR.");
+  const [message, setMessage] = useState(
+    "Drop PDF or image invoices to stage locally — OCR is not connected.",
+  );
 
   const enqueueFiles = useCallback((files: FileList | null) => {
     if (!files || files.length === 0) return;
@@ -47,7 +49,9 @@ export function AiInvoiceProcessing({
       };
     });
     setLocalJobs((prev) => [...next, ...prev]);
-    setMessage(`${next.length} file(s) queued for OCR · AI extraction pipeline ready.`);
+    setMessage(
+      `${next.length} file(s) listed locally only — OCR / AI extraction is not connected.`,
+    );
   }, []);
 
   const onDrop = (event: DragEvent<HTMLDivElement>): void => {
