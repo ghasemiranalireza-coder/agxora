@@ -1,0 +1,116 @@
+{
+  "skipToContent": "Zum Dashboard-Inhalt springen",
+  "loading": "Dashboard wird geladen…",
+  "hero": {
+    "ariaLabel": "AGXORA CORE Hero",
+    "eyebrow": "KI-Betriebsystem für Unternehmen",
+    "title": "AGXORA CORE",
+    "subtitle": "Echtzeit-Intelligenz und operative Steuerung — die Kommandozentrale Ihres Workspace.",
+    "ctaGetStarted": "Loslegen",
+    "ctaViewActivity": "Aktivität ansehen"
+  },
+  "quickActions": {
+    "title": "Schnellaktionen",
+    "subtitle": "Was sollten Sie als Nächstes tun?",
+    "ariaLabel": "Schnellaktionen",
+    "addCustomer": { "label": "Kunde hinzufügen", "description": "CRM-Datensatz anlegen" },
+    "newProject": { "label": "Neues Projekt", "description": "Lieferpfad starten" },
+    "askAi": { "label": "KI fragen", "description": "KI-Arbeitsbereich öffnen" },
+    "finance": { "label": "Finanzen", "description": "Rechnungen und Cashflow" },
+    "automations": { "label": "Automatisierungen", "description": "Workflow-Engine" },
+    "settings": { "label": "Einstellungen", "description": "Workspace-Einstellungen" }
+  },
+  "attention": {
+    "title": "Aufmerksamkeit erforderlich",
+    "ariaLabel": "Was Aufmerksamkeit braucht",
+    "empty": "Alles klar — derzeit keine dringenden Punkte.",
+    "tone": {
+      "critical": "Kritisch",
+      "warning": "Warnung",
+      "info": "Info",
+      "success": "Bereit"
+    },
+    "addCustomer": {
+      "title": "Ersten Kunden hinzufügen",
+      "detail": "Starten Sie das CRM mit einem echten Kontodatensatz."
+    },
+    "createProject": {
+      "title": "Projekt erstellen",
+      "detail": "Öffnen Sie einen Lieferpfad für Ihr nächstes Engagement."
+    },
+    "exploreAi": {
+      "title": "KI-Arbeitsbereich erkunden",
+      "detail": "Fragen Sie AGXORA zu Kunden, Projekten oder nächsten Schritten."
+    },
+    "reviewBilling": {
+      "title": "Abrechnung prüfen",
+      "detail": "Plan und Nutzung bestätigen, wenn Sie skalieren möchten."
+    }
+  },
+  "overview": {
+    "title": "Was passiert",
+    "subtitle": "Workspace-Kennzahlen für {name}",
+    "fallbackName": "Ihren Workspace",
+    "ariaLabel": "Geschäftsübersicht",
+    "online": "Online",
+    "emDash": "—",
+    "capacitySignal": "{percent} % Auslastungssignal",
+    "activeClients": {
+      "title": "Aktive Kunden",
+      "captionEmpty": "Noch keine aktiven Kunden",
+      "captionTotal": "{count} gesamt im Workspace",
+      "add": "Kunde hinzufügen",
+      "view": "Kunden anzeigen"
+    },
+    "projects": {
+      "title": "Projekte",
+      "captionEmpty": "Keine Projekte im Portfolio",
+      "captionOpen": "Offene Lieferpfade",
+      "create": "Projekt erstellen",
+      "open": "Projekte öffnen"
+    },
+    "activityToday": {
+      "title": "Aktivität heute",
+      "captionEmpty": "Heute noch nichts protokolliert",
+      "captionEvents": "Workspace-Ereignisse seit Mitternacht",
+      "viewFeed": "Feed anzeigen"
+    },
+    "revenue": {
+      "title": "Umsatz",
+      "caption": "Abrechnung verbinden, um MRR anzuzeigen",
+      "openBilling": "Abrechnung öffnen"
+    },
+    "clientShell": {
+      "title": "Client-Shell",
+      "caption": "Browsersitzung bereit — kein Live-Ops-Monitor",
+      "shellLoaded": "Anwendungs-Shell geladen",
+      "storesReady": "Lokale Workspace-Stores bereit"
+    },
+    "growth": {
+      "title": "Wachstum",
+      "caption": "Trendmetriken brauchen akkumulierte Nutzung",
+      "openAnalytics": "Analysen öffnen"
+    }
+  },
+  "activity": {
+    "title": "Letzte Aktivität",
+    "subtitle": "Was sich heute geändert hat",
+    "ariaLabel": "Letzte Aktivität",
+    "todayCount": "{count} HEUTE",
+    "localBadge": "LOKAL",
+    "emptyTitle": "Noch keine Aktivität",
+    "emptyBody": "Workspace-Ereignisse erscheinen hier, wenn Sie Kunden, Projekte und mehr hinzufügen.",
+    "addCustomer": "Kunde hinzufügen",
+    "newProject": "Neues Projekt",
+    "kind": {
+      "customer": "Kunde",
+      "project": "Projekt",
+      "finance": "Finanzen",
+      "automation": "Automatisierung",
+      "documents": "Dokumente",
+      "team": "Team",
+      "workspace": "Workspace"
+    }
+  },
+  "summary": "{name}: {customers} Kunden · {projects} Projekte · {updates} Updates heute."
+}

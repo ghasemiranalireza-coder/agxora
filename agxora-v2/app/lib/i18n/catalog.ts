@@ -1,5 +1,5 @@
 /**
- * Message catalog loader — static imports keep P0 simple and SSR-safe.
+ * Message catalog loader — static imports keep P0/P1/P2 simple and SSR-safe.
  * Future locales can switch to dynamic import() without changing the t() API.
  */
 
@@ -12,6 +12,8 @@ import enPricing from "./messages/en/pricing.json";
 import enBilling from "./messages/en/billing.json";
 import enSettings from "./messages/en/settings.json";
 import enErrors from "./messages/en/errors.json";
+import enDashboard from "./messages/en/dashboard.json";
+import enAuth from "./messages/en/auth.json";
 
 import deCommon from "./messages/de/common.json";
 import deNavigation from "./messages/de/navigation.json";
@@ -19,6 +21,8 @@ import dePricing from "./messages/de/pricing.json";
 import deBilling from "./messages/de/billing.json";
 import deSettings from "./messages/de/settings.json";
 import deErrors from "./messages/de/errors.json";
+import deDashboard from "./messages/de/dashboard.json";
+import deAuth from "./messages/de/auth.json";
 
 import faCommon from "./messages/fa/common.json";
 import faNavigation from "./messages/fa/navigation.json";
@@ -26,6 +30,8 @@ import faPricing from "./messages/fa/pricing.json";
 import faBilling from "./messages/fa/billing.json";
 import faSettings from "./messages/fa/settings.json";
 import faErrors from "./messages/fa/errors.json";
+import faDashboard from "./messages/fa/dashboard.json";
+import faAuth from "./messages/fa/auth.json";
 
 export type MessageTree = {
   readonly common: Record<string, unknown>;
@@ -34,6 +40,8 @@ export type MessageTree = {
   readonly billing: Record<string, unknown>;
   readonly settings: Record<string, unknown>;
   readonly errors: Record<string, unknown>;
+  readonly dashboard: Record<string, unknown>;
+  readonly auth: Record<string, unknown>;
 };
 
 const CATALOGS: Readonly<Record<AppLocale, MessageTree>> = {
@@ -44,6 +52,8 @@ const CATALOGS: Readonly<Record<AppLocale, MessageTree>> = {
     billing: enBilling,
     settings: enSettings,
     errors: enErrors,
+    dashboard: enDashboard,
+    auth: enAuth,
   },
   de: {
     common: deCommon,
@@ -52,6 +62,8 @@ const CATALOGS: Readonly<Record<AppLocale, MessageTree>> = {
     billing: deBilling,
     settings: deSettings,
     errors: deErrors,
+    dashboard: deDashboard,
+    auth: deAuth,
   },
   fa: {
     common: faCommon,
@@ -60,6 +72,8 @@ const CATALOGS: Readonly<Record<AppLocale, MessageTree>> = {
     billing: faBilling,
     settings: faSettings,
     errors: faErrors,
+    dashboard: faDashboard,
+    auth: faAuth,
   },
 };
 

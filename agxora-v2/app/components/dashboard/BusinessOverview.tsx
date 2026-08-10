@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState, type JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { formatNumber, useLocale } from "../../lib/i18n";
 import { useOrganization } from "../../lib/organization";
 import { customerStore, useCustomerStore } from "../../lib/customers";
 import { projectStore, useProjectStore } from "../../lib/projects";
@@ -48,19 +49,18 @@ const ICON_PATHS = {
 
 const LOCAL_ORG_FALLBACK = "org_local_default";
 
-function formatCount(n: number): string {
-  return new Intl.NumberFormat("en-GB").format(n);
-}
-
 /** Premium metric grid — live workspace counts, stable skeletons while hydrating. */
 export function BusinessOverview(): JSX.Element {
   const reduceMotion = useReducedMotion();
+  const { t, locale } = useLocale();
   const { organization } = useOrganization();
   const organizationId = organization?.id ?? LOCAL_ORG_FALLBACK;
   const customers = useCustomerStore();
   const projects = useProjectStore();
   const activity = useRecentActivity();
   const [ready, setReady] = useState(false);
+
+  const formatCount = (n: number): string => formatNumber(n, locale);
 
   useEffect(() => {
     let cancelled = false;
@@ -90,69 +90,90 @@ export function BusinessOverview(): JSX.Element {
   const metrics: readonly MetricCardProps[] = useMemo(
     () => [
       {
-        title: "Active clients",
+        title: t("dashboard.overview.activeClients.title"),
         value: formatCount(activeCustomers),
         caption:
           activeCustomers === 0
-            ? "No active customers yet"
-            : `${formatCount(customers.items.length)} total in workspace`,
+            ? t("dashboard.overview.activeClients.captionEmpty")
+            : t("dashboard.overview.activeClients.captionTotal", {
+                count: formatCount(customers.items.length),
+              }),
         icon: <Icon path={ICON_PATHS.clients} />,
         href: "/dashboard/customers",
-        actionLabel: activeCustomers === 0 ? "Add customer" : "View customers",
+        actionLabel:
+          activeCustomers === 0
+            ? t("dashboard.overview.activeClients.add")
+            : t("dashboard.overview.activeClients.view"),
       },
       {
-        title: "Projects",
+        title: t("dashboard.overview.projects.title"),
         value: formatCount(projectCount),
         caption:
           projectCount === 0
-            ? "No projects in portfolio"
-            : "Open delivery tracks",
+            ? t("dashboard.overview.projects.captionEmpty")
+            : t("dashboard.overview.projects.captionOpen"),
         icon: <Icon path={ICON_PATHS.projects} />,
         href: "/dashboard/projects",
-        actionLabel: projectCount === 0 ? "Create project" : "Open projects",
+        actionLabel:
+          projectCount === 0
+            ? t("dashboard.overview.projects.create")
+            : t("dashboard.overview.projects.open"),
       },
       {
-        title: "Activity today",
+        title: t("dashboard.overview.activityToday.title"),
         value: formatCount(todayActivity),
         caption:
           todayActivity === 0
-            ? "Nothing logged yet today"
-            : "Workspace events since midnight",
+            ? t("dashboard.overview.activityToday.captionEmpty")
+            : t("dashboard.overview.activityToday.captionEvents"),
         icon: <Icon path={ICON_PATHS.activity} />,
         href: "#agx-live-activity",
-        actionLabel: "View feed",
+        actionLabel: t("dashboard.overview.activityToday.viewFeed"),
       },
       {
-        title: "Revenue",
-        value: "—",
-        caption: "Connect billing to show MRR",
+        title: t("dashboard.overview.revenue.title"),
+        value: t("dashboard.overview.emDash"),
+        caption: t("dashboard.overview.revenue.caption"),
         icon: <Icon path={ICON_PATHS.revenue} />,
         href: "/dashboard/billing",
-        actionLabel: "Open billing",
+        actionLabel: t("dashboard.overview.revenue.openBilling"),
       },
       {
-        title: "Client shell",
-        value: "Online",
-        caption: "Browser session ready — not a live ops monitor",
+        title: t("dashboard.overview.clientShell.title"),
+        value: t("dashboard.overview.online"),
+        caption: t("dashboard.overview.clientShell.caption"),
         icon: <Icon path={ICON_PATHS.health} />,
         visual: {
           kind: "status",
           items: [
-            { label: "Application shell loaded", ok: true },
-            { label: "Local workspace stores ready", ok: true },
+            {
+              label: t("dashboard.overview.clientShell.shellLoaded"),
+              ok: true,
+            },
+            {
+              label: t("dashboard.overview.clientShell.storesReady"),
+              ok: true,
+            },
           ],
         },
       },
       {
-        title: "Growth",
-        value: "—",
-        caption: "Trend metrics need accumulated usage",
+        title: t("dashboard.overview.growth.title"),
+        value: t("dashboard.overview.emDash"),
+        caption: t("dashboard.overview.growth.caption"),
         icon: <Icon path={ICON_PATHS.growth} />,
         href: "/dashboard/analytics",
-        actionLabel: "Open analytics",
+        actionLabel: t("dashboard.overview.growth.openAnalytics"),
       },
     ],
-    [activeCustomers, customers.items.length, projectCount, todayActivity],
+    [
+      activeCustomers,
+      customers.items.length,
+      locale,
+      projectCount,
+      t,
+      todayActivity,
+    ],
   );
 
   const cardVariants = reduceMotion
@@ -166,21 +187,27 @@ export function BusinessOverview(): JSX.Element {
         }),
       };
 
+  const workspaceName =
+    organization?.name ?? t("dashboard.overview.fallbackName");
+
   return (
-    <section aria-label="Business overview" className="agx-dash-panel mb-10">
+    <section
+      aria-label={t("dashboard.overview.ariaLabel")}
+      className="agx-dash-panel mb-10"
+    >
       <header className="mb-6 flex items-baseline justify-between gap-4">
         <div>
           <h2
             className="text-[12px] font-semibold uppercase tracking-[0.16em]"
             style={{ color: "var(--agx-accent, #22d3ee)" }}
           >
-            What is happening
+            {t("dashboard.overview.title")}
           </h2>
           <p
             className="mt-2 text-sm"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            Workspace counts for {organization?.name ?? "your organization"}
+            {t("dashboard.overview.subtitle", { name: workspaceName })}
           </p>
         </div>
         <span
@@ -191,7 +218,7 @@ export function BusinessOverview(): JSX.Element {
             color: "var(--agx-text-muted, #94a3b8)",
           }}
         >
-          LOCAL
+          {t("dashboard.activity.localBadge")}
         </span>
       </header>
 

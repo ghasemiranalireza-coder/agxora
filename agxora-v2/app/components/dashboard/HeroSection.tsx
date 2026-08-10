@@ -8,6 +8,7 @@
 import type { CSSProperties, JSX } from "react";
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
+import { useLocale } from "../../lib/i18n";
 import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
 
 const AgxoraGlobe3D = dynamic(() => import("../AgxoraGlobe3D").then((m) => m.default), {
@@ -33,6 +34,7 @@ function scrollToId(id: string): void {
 
 export function HeroSection(): JSX.Element {
   const { tokens } = useTheme();
+  const { t } = useLocale();
   const isDay = tokens.tone === "day";
   const reduceMotion = useReducedMotion();
 
@@ -91,13 +93,13 @@ export function HeroSection(): JSX.Element {
       };
 
   return (
-    <section className="agx-hero" aria-label="AGXORA CORE hero">
+    <section className="agx-hero" aria-label={t("dashboard.hero.ariaLabel")}>
       <motion.div className="agx-hero-copy" {...fadeUp}>
         <p
           className="agx-hero-eyebrow"
           style={{ color: tokens.textMuted, transition: surfaceTransition }}
         >
-          AI Business Operating System
+          {t("dashboard.hero.eyebrow")}
         </p>
 
         <h1
@@ -108,15 +110,14 @@ export function HeroSection(): JSX.Element {
             transition: surfaceTransition,
           }}
         >
-          AGXORA CORE
+          {t("dashboard.hero.title")}
         </h1>
 
         <p
           className="agx-hero-subtitle"
           style={{ color: tokens.textMuted, transition: surfaceTransition }}
         >
-          Real-time intelligence and operational control — your workspace command
-          surface.
+          {t("dashboard.hero.subtitle")}
         </p>
 
         <div className="agx-hero-cta-row">
@@ -130,7 +131,7 @@ export function HeroSection(): JSX.Element {
             transition={{ duration: 0.22 }}
             aria-label="Open quick actions"
           >
-            Get started
+            {t("dashboard.hero.ctaGetStarted")}
           </motion.button>
           <motion.button
             type="button"
@@ -142,7 +143,7 @@ export function HeroSection(): JSX.Element {
             transition={{ duration: 0.22 }}
             aria-label="View recent activity"
           >
-            View activity
+            {t("dashboard.hero.ctaViewActivity")}
           </motion.button>
         </div>
       </motion.div>

@@ -1,0 +1,116 @@
+{
+  "skipToContent": "رفتن به محتوای داشبورد",
+  "loading": "در حال بارگذاری داشبورد…",
+  "hero": {
+    "ariaLabel": "هیروی AGXORA CORE",
+    "eyebrow": "سیستم عامل کسب‌وکار مبتنی بر هوش مصنوعی",
+    "title": "AGXORA CORE",
+    "subtitle": "هوش لحظه‌ای و کنترل عملیاتی — سطح فرمان فضای کاری شما.",
+    "ctaGetStarted": "شروع کنید",
+    "ctaViewActivity": "مشاهده فعالیت"
+  },
+  "quickActions": {
+    "title": "اقدامات سریع",
+    "subtitle": "قدم بعدی چیست؟",
+    "ariaLabel": "اقدامات سریع",
+    "addCustomer": { "label": "افزودن مشتری", "description": "ایجاد رکورد CRM" },
+    "newProject": { "label": "پروژه جدید", "description": "شروع مسیر تحویل" },
+    "askAi": { "label": "پرسش از AI", "description": "باز کردن فضای کاری AI" },
+    "finance": { "label": "مالی", "description": "فاکتورها و جریان نقدی" },
+    "automations": { "label": "اتوماسیون", "description": "موتور گردش‌کار" },
+    "settings": { "label": "تنظیمات", "description": "ترجیحات فضای کاری" }
+  },
+  "attention": {
+    "title": "نیاز به توجه",
+    "ariaLabel": "موارد نیازمند توجه",
+    "empty": "همه‌چیز مرتب است — مورد فوری نیست.",
+    "tone": {
+      "critical": "بحرانی",
+      "warning": "هشدار",
+      "info": "اطلاعات",
+      "success": "آماده"
+    },
+    "addCustomer": {
+      "title": "اولین مشتری را اضافه کنید",
+      "detail": "CRM را با یک رکورد واقعی حساب شروع کنید."
+    },
+    "createProject": {
+      "title": "ایجاد پروژه",
+      "detail": "مسیر تحویل را برای همکاری بعدی باز کنید."
+    },
+    "exploreAi": {
+      "title": "فضای کاری AI را کاوش کنید",
+      "detail": "از AGXORA درباره مشتریان، پروژه‌ها یا گام‌های بعدی بپرسید."
+    },
+    "reviewBilling": {
+      "title": "بررسی صورتحساب",
+      "detail": "هنگام آمادگی برای مقیاس، طرح و مصرف را تأیید کنید."
+    }
+  },
+  "overview": {
+    "title": "چه می‌گذرد",
+    "subtitle": "شمارنده‌های فضای کاری برای {name}",
+    "fallbackName": "فضای کاری شما",
+    "ariaLabel": "نمای کلی کسب‌وکار",
+    "online": "آنلاین",
+    "emDash": "—",
+    "capacitySignal": "سیگنال ظرفیت {percent}٪",
+    "activeClients": {
+      "title": "مشتریان فعال",
+      "captionEmpty": "هنوز مشتری فعالی نیست",
+      "captionTotal": "{count} در مجموع در فضای کاری",
+      "add": "افزودن مشتری",
+      "view": "مشاهده مشتریان"
+    },
+    "projects": {
+      "title": "پروژه‌ها",
+      "captionEmpty": "پروژه‌ای در سبد نیست",
+      "captionOpen": "مسیرهای تحویل باز",
+      "create": "ایجاد پروژه",
+      "open": "باز کردن پروژه‌ها"
+    },
+    "activityToday": {
+      "title": "فعالیت امروز",
+      "captionEmpty": "امروز هنوز چیزی ثبت نشده",
+      "captionEvents": "رویدادهای فضای کاری از نیمه‌شب",
+      "viewFeed": "مشاهده فید"
+    },
+    "revenue": {
+      "title": "درآمد",
+      "caption": "صورتحساب را وصل کنید تا MRR نمایش داده شود",
+      "openBilling": "باز کردن صورتحساب"
+    },
+    "clientShell": {
+      "title": "پوسته کلاینت",
+      "caption": "نشست مرورگر آماده است — مانیتور عملیات زنده نیست",
+      "shellLoaded": "پوسته برنامه بارگذاری شد",
+      "storesReady": "ذخیره‌های محلی فضای کاری آماده است"
+    },
+    "growth": {
+      "title": "رشد",
+      "caption": "معیارهای روند به مصرف انباشته نیاز دارند",
+      "openAnalytics": "باز کردن تحلیل‌ها"
+    }
+  },
+  "activity": {
+    "title": "فعالیت اخیر",
+    "subtitle": "آنچه امروز تغییر کرد",
+    "ariaLabel": "فعالیت اخیر",
+    "todayCount": "{count} امروز",
+    "localBadge": "محلی",
+    "emptyTitle": "هنوز فعالیتی نیست",
+    "emptyBody": "رویدادهای فضای کاری با افزودن مشتری، پروژه و موارد دیگر اینجا ظاهر می‌شوند.",
+    "addCustomer": "افزودن مشتری",
+    "newProject": "پروژه جدید",
+    "kind": {
+      "customer": "مشتری",
+      "project": "پروژه",
+      "finance": "مالی",
+      "automation": "اتوماسیون",
+      "documents": "اسناد",
+      "team": "تیم",
+      "workspace": "فضای کاری"
+    }
+  },
+  "summary": "{name}: {customers} مشتری · {projects} پروژه · {updates} به‌روزرسانی امروز."
+}

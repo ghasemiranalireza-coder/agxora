@@ -26,13 +26,12 @@ function AppShellComponent({
   readonly showTopNav?: boolean;
 }): JSX.Element {
   const { tokens } = useTheme();
-  // Subscribe so Finance/CRM/Documents formatters re-render on locale change.
-  useLocale();
+  const { t } = useLocale();
 
   return (
     <>
       <a href="#agxora-dashboard-main" className="agx-skip-link">
-        Skip to dashboard content
+        {t("dashboard.skipToContent")}
       </a>
       <div
         style={{

@@ -1,9 +1,19 @@
 import type { JSX } from "react";
+import { cookies } from "next/headers";
 import { MetricCardSkeleton } from "../components/dashboard/MetricCard";
 import { Skeleton } from "../components/ui";
+import {
+  LOCALE_COOKIE,
+  resolveMessage,
+  resolveServerLocale,
+} from "../lib/i18n";
 
 /** App Router loading UI — matches dashboard structure to avoid layout jump. */
-export default function DashboardLoading(): JSX.Element {
+export default async function DashboardLoading(): Promise<JSX.Element> {
+  const jar = await cookies();
+  const locale = resolveServerLocale(jar.get(LOCALE_COOKIE)?.value);
+  const loadingLabel = resolveMessage(locale, "dashboard.loading");
+
   return (
     <div
       className="mx-auto w-full max-w-[1180px] space-y-8 px-1 py-2"
@@ -36,7 +46,7 @@ export default function DashboardLoading(): JSX.Element {
         ))}
       </div>
 
-      <p className="sr-only">Loading dashboard…</p>
+      <p className="sr-only">{loadingLabel}</p>
     </div>
   );
 }

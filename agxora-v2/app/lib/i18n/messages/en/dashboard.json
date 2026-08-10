@@ -1,0 +1,116 @@
+{
+  "skipToContent": "Skip to dashboard content",
+  "loading": "Loading dashboard…",
+  "hero": {
+    "ariaLabel": "AGXORA CORE hero",
+    "eyebrow": "AI Business Operating System",
+    "title": "AGXORA CORE",
+    "subtitle": "Real-time intelligence and operational control — your workspace command surface.",
+    "ctaGetStarted": "Get started",
+    "ctaViewActivity": "View activity"
+  },
+  "quickActions": {
+    "title": "Quick actions",
+    "subtitle": "What should you do next?",
+    "ariaLabel": "Quick actions",
+    "addCustomer": { "label": "Add customer", "description": "Create a CRM record" },
+    "newProject": { "label": "New project", "description": "Start a delivery track" },
+    "askAi": { "label": "Ask AI", "description": "Open the AI workspace" },
+    "finance": { "label": "Finance", "description": "Invoices and cashflow" },
+    "automations": { "label": "Automations", "description": "Workflow engine" },
+    "settings": { "label": "Settings", "description": "Workspace preferences" }
+  },
+  "attention": {
+    "title": "Needs attention",
+    "ariaLabel": "What needs attention",
+    "empty": "You are clear — no urgent items right now.",
+    "tone": {
+      "critical": "Critical",
+      "warning": "Warning",
+      "info": "Info",
+      "success": "Ready"
+    },
+    "addCustomer": {
+      "title": "Add your first customer",
+      "detail": "Start the CRM with a real account record."
+    },
+    "createProject": {
+      "title": "Create a project",
+      "detail": "Open a delivery track for your next engagement."
+    },
+    "exploreAi": {
+      "title": "Explore the AI workspace",
+      "detail": "Ask AGXORA about customers, projects, or next steps."
+    },
+    "reviewBilling": {
+      "title": "Review billing",
+      "detail": "Confirm plan and usage when you are ready to scale."
+    }
+  },
+  "overview": {
+    "title": "What is happening",
+    "subtitle": "Workspace counts for {name}",
+    "fallbackName": "your workspace",
+    "ariaLabel": "Business overview",
+    "online": "Online",
+    "emDash": "—",
+    "capacitySignal": "{percent}% capacity signal",
+    "activeClients": {
+      "title": "Active clients",
+      "captionEmpty": "No active customers yet",
+      "captionTotal": "{count} total in workspace",
+      "add": "Add customer",
+      "view": "View customers"
+    },
+    "projects": {
+      "title": "Projects",
+      "captionEmpty": "No projects in portfolio",
+      "captionOpen": "Open delivery tracks",
+      "create": "Create project",
+      "open": "Open projects"
+    },
+    "activityToday": {
+      "title": "Activity today",
+      "captionEmpty": "Nothing logged yet today",
+      "captionEvents": "Workspace events since midnight",
+      "viewFeed": "View feed"
+    },
+    "revenue": {
+      "title": "Revenue",
+      "caption": "Connect billing to show MRR",
+      "openBilling": "Open billing"
+    },
+    "clientShell": {
+      "title": "Client shell",
+      "caption": "Browser session ready — not a live ops monitor",
+      "shellLoaded": "Application shell loaded",
+      "storesReady": "Local workspace stores ready"
+    },
+    "growth": {
+      "title": "Growth",
+      "caption": "Trend metrics need accumulated usage",
+      "openAnalytics": "Open analytics"
+    }
+  },
+  "activity": {
+    "title": "Recent activity",
+    "subtitle": "What changed today",
+    "ariaLabel": "Recent activity",
+    "todayCount": "{count} TODAY",
+    "localBadge": "LOCAL",
+    "emptyTitle": "No activity yet",
+    "emptyBody": "Workspace events will appear here as you add customers, projects, and more.",
+    "addCustomer": "Add customer",
+    "newProject": "New project",
+    "kind": {
+      "customer": "Customer",
+      "project": "Project",
+      "finance": "Finance",
+      "automation": "Automation",
+      "documents": "Documents",
+      "team": "Team",
+      "workspace": "Workspace"
+    }
+  },
+  "summary": "{name}: {customers} customers · {projects} projects · {updates} updates today."
+}
