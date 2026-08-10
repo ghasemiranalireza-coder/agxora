@@ -169,7 +169,8 @@
     transform 160ms ease;
 }
 
-.p35-plan:hover {
+.p35-plan:hover,
+.p35-plan:focus-visible {
   border-color: rgba(34, 211, 238, 0.38);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
   transform: translateY(-2px);
@@ -180,14 +181,22 @@
   outline-offset: 3px;
 }
 
+/*
+ * Recommended = badge only.
+ * Do not apply permanent cyan card chrome (that reads as stuck hover).
+ */
 .p35-plan.is-recommended {
-  border-color: rgba(34, 211, 238, 0.45);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-  background: linear-gradient(
-    180deg,
-    rgba(14, 116, 144, 0.18) 0%,
-    rgba(8, 14, 28, 0.85) 40%
-  );
+  border-color: rgba(148, 163, 184, 0.16);
+  box-shadow: none;
+  background: rgba(8, 14, 28, 0.72);
+}
+
+.p35-plan.is-recommended:hover,
+.p35-plan.is-recommended:focus-visible {
+  border-color: rgba(34, 211, 238, 0.38);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  background: rgba(8, 14, 28, 0.72);
+  transform: translateY(-2px);
 }
 
 .p35-plan__badge {
@@ -293,18 +302,23 @@
 }
 
 .p35-plan:hover .p35-plan__cta {
-  border-color: rgba(148, 163, 184, 0.45);
+  border-color: rgba(34, 211, 238, 0.45);
+  background: linear-gradient(90deg, #06b6d4, #22d3ee);
+  color: #020617;
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.25);
+}
+
+.p35-plan:focus-visible .p35-plan__cta {
+  border-color: rgba(34, 211, 238, 0.45);
+  background: linear-gradient(90deg, #06b6d4, #22d3ee);
+  color: #020617;
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.25);
 }
 
 .p35-plan__cta--primary {
   border: none;
   background: linear-gradient(90deg, #06b6d4, #22d3ee);
   color: #020617;
-}
-
-.p35-plan.is-recommended:hover .p35-plan__cta--primary,
-.p35-plan.is-recommended .p35-plan__cta--primary {
-  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.25);
 }
 
 .p35-pricing__actions {
@@ -318,6 +332,8 @@
 .p35-pricing__actions .p35-plan__cta {
   width: auto;
   min-width: 160px;
+  /* Footer Links reuse CTA styles; restore interaction (card spans stay none). */
+  pointer-events: auto;
 }
 
 .p35-pricing__legal {

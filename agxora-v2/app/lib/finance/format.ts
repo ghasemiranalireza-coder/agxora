@@ -70,9 +70,9 @@ export function categoryLabel(category: InvoiceCategory): string {
 
 export function stageLabel(status: ProcessingStageStatus): string {
   const map: Record<ProcessingStageStatus, string> = {
-    pending: "Pending",
-    running: "Running",
-    complete: "Complete",
+    pending: "Unavailable",
+    running: "Not connected",
+    complete: "Demo",
     failed: "Failed",
     skipped: "Skipped",
   };
@@ -81,9 +81,9 @@ export function stageLabel(status: ProcessingStageStatus): string {
 
 export function exportStatusLabel(status: ExportStatus): string {
   const map: Record<ExportStatus, string> = {
-    queued: "Queued",
-    ready: "Ready",
-    delivered: "Delivered",
+    queued: "Sample · Queued",
+    ready: "Sample · Ready",
+    delivered: "Illustrative",
     failed: "Failed",
   };
   return map[status];

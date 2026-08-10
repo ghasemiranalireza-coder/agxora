@@ -39,7 +39,7 @@ export function DocumentsSecurity({
                     ? "Enabled"
                     : c.status === "placeholder"
                       ? "Placeholder"
-                      : "Planned"}
+                      : "Not enforced"}
                 </Badge>
               </div>
               <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
@@ -70,8 +70,8 @@ export function DocumentsSecurity({
               <span className="text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
                 {shareLabel(scope)}
               </span>
-              <Badge tone={scope === "public_link" ? "warning" : "accent"}>
-                {scope === "public_link" ? "Placeholder" : "Supported"}
+              <Badge tone={scope === "public_link" ? "warning" : "default"}>
+                {scope === "public_link" ? "Placeholder" : "Model only"}
               </Badge>
             </li>
           ))}

@@ -10,10 +10,9 @@ import {
 } from "../components/auth/AuthCard";
 
 export default function ForgotPasswordPage(): JSX.Element {
-  const { forgotPassword, peekResetToken } = useAuth();
+  const { forgotPassword } = useAuth();
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState<string | null>(null);
-  const [token, setToken] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
   const onSubmit = async (event: FormEvent): Promise<void> => {
@@ -21,11 +20,9 @@ export default function ForgotPasswordPage(): JSX.Element {
     setBusy(true);
     setMessage(null);
     try {
-      const result = await forgotPassword({ email });
-      const peeked = peekResetToken(email);
-      setToken(peeked ?? result.token);
+      await forgotPassword({ email });
       setMessage(
-        "If an account exists, a reset token was issued. Use it on the reset page.",
+        "If an account exists for that email, you will receive reset instructions shortly.",
       );
     } catch (err) {
       setMessage(err instanceof Error ? err.message : "Request failed");
@@ -37,18 +34,7 @@ export default function ForgotPasswordPage(): JSX.Element {
   return (
     <AuthCard
       title="Forgot Password"
-      footer={
-        <>
-          <AuthLink href="/login">Back to sign in</AuthLink>
-          {token ? (
-            <div style={{ marginTop: 8 }}>
-              <AuthLink href={`/reset-password?token=${encodeURIComponent(token)}`}>
-                Continue to reset password
-              </AuthLink>
-            </div>
-          ) : null}
-        </>
-      }
+      footer={<AuthLink href="/login">Back to sign in</AuthLink>}
     >
       <form onSubmit={(event) => void onSubmit(event)}>
         <input

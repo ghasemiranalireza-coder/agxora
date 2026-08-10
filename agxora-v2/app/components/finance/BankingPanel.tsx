@@ -1,6 +1,6 @@
 "use client";
 
-import type { JSX } from "react";
+import { useState, type JSX } from "react";
 import type { BankAccount, BankTransaction } from "../../lib/finance";
 import { formatDate, formatMoney } from "../../lib/finance";
 import { FinanceBadge, FinanceButton, FinanceGlassCard } from "./FinancePrimitives";
@@ -12,6 +12,10 @@ export function BankingPanel({
   readonly accounts: readonly BankAccount[];
   readonly transactions: readonly BankTransaction[];
 }): JSX.Element {
+  const [notice, setNotice] = useState(
+    "Open Banking is not connected — accounts below are sample data.",
+  );
+
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
       <FinanceGlassCard className="space-y-4 xl:col-span-1" padding="p-5">
@@ -19,11 +23,18 @@ export function BankingPanel({
           <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
             Bank Connection
           </h3>
-          <FinanceButton variant="primary">Connect bank</FinanceButton>
+          <FinanceButton
+            variant="primary"
+            onClick={() =>
+              setNotice("Connect bank unavailable — Open Banking is not connected in this build.")
+            }
+          >
+            Connect bank
+          </FinanceButton>
         </div>
         <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          PSD2 / Open Banking adapters reserved. Auto matching and payment reconciliation run on
-          connected feeds.
+          PSD2 / Open Banking adapters are not wired. Matching and reconciliation
+          below are illustrative only.
         </p>
         <div
           className="rounded-2xl border border-dashed p-4 text-sm"
@@ -32,13 +43,21 @@ export function BankingPanel({
             color: "var(--agx-text-muted, #94a3b8)",
           }}
         >
-          Bank Feed — connect a provider to sync transactions.
+          Bank feed unavailable — provider connection is not connected.
         </div>
+        <p
+          className="text-xs"
+          role="status"
+          aria-live="polite"
+          style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+        >
+          {notice}
+        </p>
       </FinanceGlassCard>
 
       <FinanceGlassCard className="space-y-3 xl:col-span-1" padding="p-5">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Connected Accounts
+          Sample Accounts
         </h3>
         <ul className="space-y-3">
           {accounts.map((account) => (
@@ -62,8 +81,8 @@ export function BankingPanel({
                     {account.ibanMasked}
                   </p>
                 </div>
-                <FinanceBadge tone={account.connected ? "positive" : "default"}>
-                  {account.connected ? "Connected" : "Offline"}
+                <FinanceBadge tone={account.connected ? "accent" : "default"}>
+                  {account.connected ? "Sample" : "Offline"}
                 </FinanceBadge>
               </div>
               <div className="mt-3 flex items-end justify-between gap-2">
@@ -74,7 +93,7 @@ export function BankingPanel({
                   {account.connected ? formatMoney(account.balance, account.currency) : "—"}
                 </p>
                 <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  Sync {account.connected ? formatDate(account.lastSync) : "—"}
+                  Demo {account.connected ? formatDate(account.lastSync) : "—"}
                 </p>
               </div>
             </li>
@@ -88,8 +107,8 @@ export function BankingPanel({
             Latest Transactions
           </h3>
           <div className="flex gap-2">
-            <FinanceBadge tone="accent">Auto Matching</FinanceBadge>
-            <FinanceBadge tone="positive">Reconciliation</FinanceBadge>
+            <FinanceBadge tone="accent">Sample matching</FinanceBadge>
+            <FinanceBadge tone="default">Demo only</FinanceBadge>
           </div>
         </div>
         <ul className="space-y-2">
@@ -124,8 +143,8 @@ export function BankingPanel({
                   {formatMoney(tx.amount, tx.currency)}
                 </p>
                 <div className="mt-1 flex justify-end">
-                  <FinanceBadge tone={tx.matched ? "positive" : "warning"}>
-                    {tx.matched ? "Matched" : "Unmatched"}
+                  <FinanceBadge tone={tx.matched ? "accent" : "warning"}>
+                    {tx.matched ? "Sample match" : "Unmatched"}
                   </FinanceBadge>
                 </div>
               </div>

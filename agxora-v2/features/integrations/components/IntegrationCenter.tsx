@@ -44,7 +44,7 @@ export function IntegrationCenter(): JSX.Element {
   const platform = useIntegrationPlatform();
   const [tab, setTab] = useState<TabId>("dashboard");
   const [notice, setNotice] = useState(
-    "Connectors are provider-based. Secrets stay in the vault abstraction — never in UI state.",
+    "Local demo connectors — OAuth and live sync are not connected.",
   );
   const [busy, setBusy] = useState(false);
   const [createdKeySecret, setCreatedKeySecret] = useState<string | null>(null);
@@ -91,7 +91,7 @@ export function IntegrationCenter(): JSX.Element {
         platform.organizationId,
         connectorId,
       );
-      setNotice(`Connected ${conn.displayName}`);
+      setNotice(`Demo connection: ${conn.displayName} (local stub only)`);
       setTab("installed");
     } catch (err) {
       setNotice(err instanceof Error ? err.message : "Connect failed");
@@ -176,7 +176,9 @@ export function IntegrationCenter(): JSX.Element {
         connectionId,
         mode,
       });
-      setNotice(`Sync ${job.status} (${job.recordsProcessed} records)`);
+      setNotice(
+        `Demo sync · ${job.status} (${job.recordsProcessed} local records) — no external data transferred.`,
+      );
     } finally {
       setBusy(false);
     }
@@ -184,11 +186,15 @@ export function IntegrationCenter(): JSX.Element {
 
   const connectionColumns: DataTableColumn<IntegrationConnection>[] = [
     { key: "name", header: "Integration", render: (r) => r.displayName },
-    { key: "status", header: "Status", render: (r) => r.status },
+    {
+      key: "status",
+      header: "Status",
+      render: (r) => connectionStatusLabel(r.status),
+    },
     {
       key: "health",
       header: "Health",
-      render: (r) => r.health.status,
+      render: (r) => (r.status === "connected" ? "Local demo" : r.health.status),
     },
     {
       key: "latency",
@@ -215,16 +221,17 @@ export function IntegrationCenter(): JSX.Element {
             size="sm"
             variant="ghost"
             disabled={busy || r.status !== "connected"}
+            title="Demo sync only — no external transfer"
             onClick={() => void onSync(r.id, "manual")}
           >
-            Sync
+            Demo sync
           </Button>
           <Button
             size="sm"
             variant="ghost"
             onClick={() => {
               integrationService.disconnect(r.id);
-              setNotice(`Disconnected ${r.displayName}`);
+              setNotice(`Removed demo connection: ${r.displayName}`);
             }}
           >
             Disconnect
@@ -359,9 +366,9 @@ export function IntegrationCenter(): JSX.Element {
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Connect AGXORA to Microsoft 365, Google, Slack, CRM, storage, and
-          automation ecosystems. Event bridge wires connectors into the Workflow
-          Engine.
+          Connectors for Microsoft 365, Google, Slack, CRM, storage, and
+          automation ecosystems. Connections and sync in this build are local
+          demos — live OAuth is not connected.
         </p>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           {notice}
@@ -388,7 +395,7 @@ export function IntegrationCenter(): JSX.Element {
       {tab === "dashboard" ? (
         <>
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-            <Stat label="Connected" value={String(platform.metrics.connectedCount)} />
+            <Stat label="Demo links" value={String(platform.metrics.connectedCount)} />
             <Stat label="Catalog" value={String(platform.metrics.availableCount)} />
             <Stat label="API (24h)" value={String(platform.metrics.apiRequests24h)} />
             <Stat
@@ -500,10 +507,10 @@ export function IntegrationCenter(): JSX.Element {
                   onClick={() => void onConnect(c.id)}
                 >
                   {installed?.status === "connected"
-                    ? "Connected"
+                    ? "Demo connection"
                     : installed
-                      ? "Connect"
-                      : "Install & connect"}
+                      ? "Connect (demo)"
+                      : "Install demo"}
                 </Button>
               </Card>
             );
@@ -716,6 +723,23 @@ export function IntegrationCenter(): JSX.Element {
       ) : null}
     </div>
   );
+}
+
+function connectionStatusLabel(status: IntegrationConnection["status"]): string {
+  switch (status) {
+    case "connected":
+      return "Demo connection";
+    case "pending_auth":
+      return "Pending (demo)";
+    case "error":
+      return "Error";
+    case "disabled":
+      return "Disabled";
+    case "installed":
+      return "Installed";
+    default:
+      return "Available";
+  }
 }
 
 function Stat({ label, value }: { label: string; value: string }): JSX.Element {

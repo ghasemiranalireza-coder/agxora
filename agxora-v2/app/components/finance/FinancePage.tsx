@@ -89,7 +89,7 @@ export function FinancePage(): JSX.Element {
       <FinanceSection
         id="ai-invoice-processing"
         title="AI Invoice Processing"
-        subtitle="OCR, extraction, categorization, and duplicate detection for inbound documents."
+        subtitle="Demo pipeline — OCR and AI extraction are not connected."
         delay={0.1}
       >
         <AiInvoiceProcessing jobs={UPLOAD_JOBS} />
@@ -98,7 +98,7 @@ export function FinancePage(): JSX.Element {
       <FinanceSection
         id="banking"
         title="Banking"
-        subtitle="Connected accounts, auto matching, payment reconciliation, and bank feed adapters."
+        subtitle="Sample accounts only — Open Banking feeds are not connected."
         delay={0.12}
       >
         <BankingPanel accounts={BANK_ACCOUNTS} transactions={BANK_TRANSACTIONS} />
@@ -107,7 +107,7 @@ export function FinancePage(): JSX.Element {
       <FinanceSection
         id="datev-integration"
         title="DATEV Integration"
-        subtitle="Export packages for Steuerberater — DATEV, CSV, PDF, and XML."
+        subtitle="Sample export history — DATEV file generation is not connected."
         delay={0.14}
       >
         <DatevIntegration history={DATEV_EXPORTS} />
@@ -125,7 +125,7 @@ export function FinancePage(): JSX.Element {
       <FinanceSection
         id="ai-insights"
         title="AI Insights"
-        subtitle="AI detects unusual expenses, duplicates, missing invoices, late payments, cashflow, and tax opportunities."
+        subtitle="Sample findings only — insight actions are not connected."
         delay={0.18}
       >
         <AiInsights insights={AI_INSIGHTS} />

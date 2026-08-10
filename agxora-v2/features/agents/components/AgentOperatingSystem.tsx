@@ -47,7 +47,7 @@ export function AgentOperatingSystem(): JSX.Element {
   const aos = useAgentOperatingSystem();
   const [tab, setTab] = useState<TabId>("dashboard");
   const [notice, setNotice] = useState(
-    "Agents are first-class citizens — execution is independent from UI chrome.",
+    "Local Agent OS — runs are simulated in this workspace.",
   );
   const [busy, setBusy] = useState(false);
   const [selectedInstance, setSelectedInstance] = useState<string | null>(null);
@@ -93,7 +93,7 @@ export function AgentOperatingSystem(): JSX.Element {
         title,
         goal: title,
       });
-      setNotice(`Task ${task.status} (${task.durationMs ?? 0}ms)`);
+      setNotice(`Simulated run · ${task.status} (${task.durationMs ?? 0}ms)`);
       setTab("history");
     } catch (err) {
       setNotice(err instanceof Error ? err.message : "Task failed");
@@ -105,7 +105,7 @@ export function AgentOperatingSystem(): JSX.Element {
   const onInstall = (agentId: AgentId) => {
     const runtime = agentOsService.register(aos.organizationId, agentId, true);
     setSelectedInstance(runtime.instanceId);
-    setNotice(`Activated ${agentId}`);
+    setNotice(`Activated locally: ${agentId}`);
     setTab("registry");
   };
 
@@ -255,8 +255,9 @@ export function AgentOperatingSystem(): JSX.Element {
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Autonomous enterprise intelligence — agents reason, plan, collaborate,
-          and execute across CRM, Projects, Finance, Workflows, and Integrations.
+          Local agent workspace — agents can be activated and run as simulations
+          across CRM, Projects, Finance, Workflows, and Integrations. Production
+          autonomous execution is not connected.
         </p>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           {notice}
@@ -285,8 +286,8 @@ export function AgentOperatingSystem(): JSX.Element {
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             <Stat label="Agents" value={String(aos.metrics.totalAgents)} />
             <Stat label="Active" value={String(aos.metrics.activeAgents)} />
-            <Stat label="Healthy" value={String(aos.metrics.healthyAgents)} />
-            <Stat label="Tasks today" value={String(aos.metrics.tasksToday)} />
+            <Stat label="Local ready" value={String(aos.metrics.healthyAgents)} />
+            <Stat label="Simulated today" value={String(aos.metrics.tasksToday)} />
           </div>
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             <Stat label="Failed today" value={String(aos.metrics.failedToday)} />
@@ -306,7 +307,7 @@ export function AgentOperatingSystem(): JSX.Element {
               rows={[...aos.runtimes]}
               rowKey={(r) => r.instanceId}
               emptyTitle="No agents active"
-              emptyDescription="Install or activate an agent from the marketplace to start autonomous runs."
+              emptyDescription="Install or activate an agent from the marketplace to start simulated runs."
               minWidth={720}
             />
           </Card>
@@ -601,7 +602,7 @@ export function AgentOperatingSystem(): JSX.Element {
               setLlmDraft(null);
               setSupervisorDraft(null);
               setSensitiveDraft(null);
-              setNotice("Agent OS settings saved");
+              setNotice("Agent OS settings updated for this local workspace.");
             }}
           >
             Save settings

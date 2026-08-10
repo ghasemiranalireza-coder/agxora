@@ -101,20 +101,22 @@ export const SECURITY_CONTROLS: readonly SecurityControl[] = [
   {
     id: "rbac",
     title: "Role Based Access",
-    description: "Owner, editor, viewer, and approver roles map to document ACLs.",
-    status: "enabled",
+    description:
+      "Owner, editor, viewer, and approver roles map to document ACLs — not enforced in this build.",
+    status: "planned",
   },
   {
     id: "permissions",
     title: "Permission Architecture",
-    description: "Folder inheritance with document-level overrides — future API ready.",
-    status: "enabled",
+    description: "Folder inheritance with document-level overrides — not enforced in this build.",
+    status: "planned",
   },
   {
     id: "audit",
     title: "Audit Trail",
-    description: "Immutable activity events for views, shares, restores, and approvals.",
-    status: "enabled",
+    description:
+      "Activity events for views, shares, restores, and approvals — not persisted yet.",
+    status: "planned",
   },
   {
     id: "encryption",
@@ -125,7 +127,7 @@ export const SECURITY_CONTROLS: readonly SecurityControl[] = [
   {
     id: "retention",
     title: "Retention Policy",
-    description: "Per-category retention windows with legal hold support.",
+    description: "Per-category retention windows with legal hold support — not enforced yet.",
     status: "planned",
   },
 ] as const;

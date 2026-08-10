@@ -171,7 +171,8 @@ export function AutomationWorkspace(): JSX.Element {
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
           Configurable business workflows across CRM, Projects, Finance,
-          Documents, and AI — event-driven, queue-ready, and backend-ready.
+          Documents, and AI — local event bus and in-browser engine. Distributed
+          queue and backend workers are not connected.
         </p>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           {notice}

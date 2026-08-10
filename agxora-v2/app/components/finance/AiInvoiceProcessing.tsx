@@ -41,7 +41,7 @@ export function AiInvoiceProcessing({
         id: `local-${Date.now()}-${index}`,
         fileName: file.name,
         source: isPdf ? "pdf" : "image",
-        ocr: "running",
+        ocr: "pending",
         extraction: "pending",
         categorization: "pending",
         duplicateDetection: "pending",
@@ -122,7 +122,7 @@ export function AiInvoiceProcessing({
 
       <FinanceGlassCard className="xl:col-span-3" padding="p-5">
         <h3 className="mb-4 text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Processing pipeline
+          Processing pipeline (demo)
         </h3>
         <ul className="space-y-3">
           {localJobs.map((job) => (
