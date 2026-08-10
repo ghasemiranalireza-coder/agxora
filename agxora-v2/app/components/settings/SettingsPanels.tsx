@@ -36,6 +36,7 @@ import { AccountBillingSection, SaasNavLink } from "../../../features/saas";
 import {
   LanguageSwitcher,
   useLocale,
+  useT,
 } from "../../lib/i18n";
 import {
   SettingsField,
@@ -51,12 +52,13 @@ import {
 function SaveRow({
   notice,
   onSave,
-  label = "Save changes",
+  label,
 }: {
   readonly notice: string;
   readonly onSave: () => void;
   readonly label?: string;
 }): JSX.Element {
+  const t = useT();
   return (
     <div
       className="flex flex-wrap items-center justify-between gap-3 border-t pt-4"
@@ -66,7 +68,7 @@ function SaveRow({
         {notice}
       </p>
       <Button size="sm" variant="primary" onClick={onSave}>
-        {label}
+        {label ?? t("settings.saveChanges")}
       </Button>
     </div>
   );
@@ -104,26 +106,26 @@ function ProfilePanel(): JSX.Element {
         </div>
         <div>
           <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Avatar
+            {t("settings.profile.avatar")}
           </p>
           <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Role: {identity.profile.roleLabel} · Theme: {mode}
+            {t("settings.profile.role")}: {identity.profile.roleLabel} · {t("settings.profile.theme")}: {mode}
           </p>
           <div className="mt-2">
             <Button size="sm" variant="secondary" onClick={() => setNotice("Avatar upload is not available yet.")}>
-              Change avatar
+              {t("settings.profile.changeAvatar")}
             </Button>
           </div>
         </div>
       </div>
       <SettingsGrid>
-        <SettingsField label="Full Name">
+        <SettingsField label={t("settings.profile.fullName")}>
           <SettingsInput value={name} onChange={(e) => setName(e.target.value)} />
         </SettingsField>
-        <SettingsField label="Email">
+        <SettingsField label={t("settings.profile.email")}>
           <SettingsInput type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </SettingsField>
-        <SettingsField label="Role">
+        <SettingsField label={t("settings.profile.role")}>
           <SettingsInput value={identity.profile.roleLabel} readOnly />
         </SettingsField>
         <SettingsField label={t("settings.profile.language")}>
@@ -138,10 +140,10 @@ function ProfilePanel(): JSX.Element {
             <option value={identity.profile.timezone}>{identity.profile.timezone}</option>
           </SettingsSelect>
         </SettingsField>
-        <SettingsField label="Theme">
+        <SettingsField label={t("settings.profile.theme")}>
           <SettingsInput value={`${mode} (resolved ${identity.profile.themeAppearance})`} readOnly />
         </SettingsField>
-        <SettingsField label="Region">
+        <SettingsField label={t("settings.profile.region")}>
           <SettingsSelect value={region} onChange={(e) => setRegion(e.target.value)}>
             <option value="EU">European Union</option>
             <option value="US">United States</option>
@@ -150,14 +152,14 @@ function ProfilePanel(): JSX.Element {
           </SettingsSelect>
         </SettingsField>
       </SettingsGrid>
-      <SettingsField label="Personal Preferences" hint="Used by AI assistants across modules.">
+      <SettingsField label={t("settings.profile.personalPrefs")} hint="Used by AI assistants across modules.">
         <SettingsTextArea value={prefs} onChange={setPrefs} />
       </SettingsField>
       <SettingsNotice>
         Appearance configuration remains under Appearance. Header provides a theme quick toggle only.
       </SettingsNotice>
       <SettingsNotice>
-        Support:{" "}
+        {t("settings.profile.supportLinks")}:{" "}
         <Link href="/contact" className="underline-offset-2 hover:underline">
           {t("common.contact")}
         </Link>
@@ -170,12 +172,16 @@ function ProfilePanel(): JSX.Element {
           {t("common.terms")}
         </Link>
       </SettingsNotice>
-      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — profile API not connected.")} />
+      <SaveRow
+        notice={notice}
+        onSave={() => setNotice(t("settings.sessionNotice", { area: "profile" }))}
+      />
     </SettingsPanel>
   );
 }
 
 function OrganizationPanel(): JSX.Element {
+  const t = useT();
   const [company, setCompany] = useState("");
   const [address, setAddress] = useState("");
   const [tax, setTax] = useState("");
@@ -185,7 +191,7 @@ function OrganizationPanel(): JSX.Element {
   const [notice, setNotice] = useState("Organization profile is architecture-ready for org APIs.");
 
   return (
-    <SettingsPanel title="Organization" description="Company name, logo, address, tax information, departments, and business units.">
+    <SettingsPanel title={t("settings.organization.title")} description={t("settings.organization.panelDescription")}>
       <SettingsGrid>
         <SettingsField label="Company Name">
           <SettingsInput value={company} onChange={(e) => setCompany(e.target.value)} />
@@ -211,12 +217,13 @@ function OrganizationPanel(): JSX.Element {
       <SettingsField label="Business Units">
         <SettingsInput value={units} onChange={(e) => setUnits(e.target.value)} />
       </SettingsField>
-      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — organization settings are not persisted yet.")} />
+      <SaveRow notice={notice} onSave={() => setNotice(t("settings.sessionNotice", { area: "organization" }))} />
     </SettingsPanel>
   );
 }
 
 function WorkspacePanel(): JSX.Element {
+  const t = useT();
   const [dashboard, setDashboard] = useState("command-center");
   const [homepage, setHomepage] = useState("/dashboard");
   const [branding, setBranding] = useState("AGXORA Business OS");
@@ -224,7 +231,7 @@ function WorkspacePanel(): JSX.Element {
   const [notice, setNotice] = useState("Workspace settings control default modules and homepage.");
 
   return (
-    <SettingsPanel title="Workspace" description="Workspace settings, default dashboard, branding, modules, and homepage.">
+    <SettingsPanel title={t("settings.workspace.title")} description={t("settings.workspace.panelDescription")}>
       <SettingsGrid>
         <SettingsField label="Default Dashboard">
           <SettingsSelect value={dashboard} onChange={(e) => setDashboard(e.target.value)}>
@@ -249,7 +256,7 @@ function WorkspacePanel(): JSX.Element {
       <SettingsField label="Default Modules" hint="Comma-separated module keys enabled for new members.">
         <SettingsInput value={modules} onChange={(e) => setModules(e.target.value)} />
       </SettingsField>
-      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — workspace settings are not persisted yet.")} />
+      <SaveRow notice={notice} onSave={() => setNotice(t("settings.sessionNotice", { area: "workspace" }))} />
     </SettingsPanel>
   );
 }
@@ -273,10 +280,12 @@ function TeamPanel(): JSX.Element {
     [],
   );
 
+  const t = useT();
+
   return (
     <SettingsPanel
-      title="Team"
-      description="Members, roles, permissions, invitations, and groups."
+      title={t("settings.team.title")}
+      description={t("settings.team.panelDescription")}
       actions={
         <Button size="sm" variant="primary">
           Invite member
@@ -313,10 +322,12 @@ function AiPanel(): JSX.Element {
     "AI settings sync through AISettingsProvider — keys never stored here.",
   );
 
+  const t = useT();
+
   return (
     <SettingsPanel
-      title="AI"
-      description="Provider selection, generation parameters, system prompt, streaming, and API key management."
+      title={t("settings.ai.title")}
+      description={t("settings.ai.panelDescription")}
       actions={
         <>
           <Link href="/dashboard/agents">
@@ -468,7 +479,7 @@ function AiPanel(): JSX.Element {
       />
       <SaveRow
         notice={notice}
-        onSave={() => setNotice("Updated for this session — AI preferences are not persisted yet.")}
+        onSave={() => setNotice(t("settings.sessionNotice", { area: "AI" }))}
       />
     </SettingsPanel>
   );
@@ -487,10 +498,12 @@ function AppearancePanel(): JSX.Element {
     { id: "auto", label: "System", hint: "Follow local schedule (Auto)" },
   ];
 
+  const t = useT();
+
   return (
     <SettingsPanel
-      title="Appearance"
-      description="Complete theme configuration for AGXORA. Header quick toggle only flips Day ↔ Night."
+      title={t("settings.appearance.title")}
+      description={t("settings.appearance.panelDescription")}
     >
       <div>
         <p
@@ -603,13 +616,14 @@ function AppearancePanel(): JSX.Element {
       />
       <SaveRow
         notice={notice}
-        onSave={() => setNotice("Theme mode persists via ThemeProvider. Other appearance fields are not persisted yet.")}
+        onSave={() => setNotice(t("settings.sessionNotice", { area: "appearance" }))}
       />
     </SettingsPanel>
   );
 }
 
 function NotificationsPanel(): JSX.Element {
+  const t = useT();
   const [prefs, setPrefs] = useState<NotificationPrefs>(DEFAULT_NOTIFICATION_PREFS);
   const [notice, setNotice] = useState("Notification channels are preferences only — delivery adapters reserved.");
 
@@ -618,7 +632,7 @@ function NotificationsPanel(): JSX.Element {
   };
 
   return (
-    <SettingsPanel title="Notifications" description="Email, push, desktop, mobile, and module-specific alerts.">
+    <SettingsPanel title={t("settings.notifications.title")} description={t("settings.notifications.panelDescription")}>
       <SettingsToggle label="Email" checked={prefs.email} onChange={(v) => set("email", v)} />
       <SettingsToggle label="Push" checked={prefs.push} onChange={(v) => set("push", v)} />
       <SettingsToggle label="Desktop" checked={prefs.desktop} onChange={(v) => set("desktop", v)} />
@@ -647,17 +661,18 @@ function NotificationsPanel(): JSX.Element {
         </Link>
         .
       </SettingsNotice>
-      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — notification preferences are not persisted yet.")} />
+      <SaveRow notice={notice} onSave={() => setNotice(t("settings.sessionNotice", { area: "notifications" }))} />
     </SettingsPanel>
   );
 }
 
 function DocumentsPanel(): JSX.Element {
+  const t = useT();
   const [prefs, setPrefs] = useState<DocumentsPrefs>(DEFAULT_DOCUMENTS_PREFS);
   const [notice, setNotice] = useState("Documents settings integrate with the Knowledge Hub architecture.");
 
   return (
-    <SettingsPanel title="Documents" description="Storage preferences, retention, default folder, versioning, and knowledge settings.">
+    <SettingsPanel title={t("settings.documents.title")} description={t("settings.documents.panelDescription")}>
       <SettingsGrid>
         <SettingsField label="Storage Preferences">
           <SettingsSelect
@@ -699,17 +714,18 @@ function DocumentsPanel(): JSX.Element {
         checked={prefs.knowledgeIndexing}
         onChange={(v) => setPrefs((p) => ({ ...p, knowledgeIndexing: v }))}
       />
-      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — documents preferences are not persisted yet.")} />
+      <SaveRow notice={notice} onSave={() => setNotice(t("settings.sessionNotice", { area: "documents" }))} />
     </SettingsPanel>
   );
 }
 
 function AutomationPanel(): JSX.Element {
+  const t = useT();
   const [prefs, setPrefs] = useState<AutomationPrefs>(DEFAULT_AUTOMATION_PREFS);
   const [notice, setNotice] = useState("Automation defaults apply to the Workflow Engine architecture.");
 
   return (
-    <SettingsPanel title="Automation" description="Workflow defaults, AI suggestions, execution logs, history limits, and retry policy.">
+    <SettingsPanel title={t("settings.automation.title")} description={t("settings.automation.panelDescription")}>
       <SettingsGrid>
         <SettingsField label="Workflow Defaults">
           <SettingsSelect
@@ -753,7 +769,7 @@ function AutomationPanel(): JSX.Element {
         checked={prefs.executionLogs}
         onChange={(v) => setPrefs((p) => ({ ...p, executionLogs: v }))}
       />
-      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — automation preferences are not persisted yet.")} />
+      <SaveRow notice={notice} onSave={() => setNotice(t("settings.sessionNotice", { area: "automation" }))} />
     </SettingsPanel>
   );
 }
@@ -791,10 +807,12 @@ function IntegrationsPanel(): JSX.Element {
     [],
   );
 
+  const t = useT();
+
   return (
     <SettingsPanel
-      title="Integrations"
-      description="Installed, connected, available, and future adapters across AGXORA."
+      title={t("settings.integrations.title")}
+      description={t("settings.integrations.panelDescription")}
       actions={
         <Link href="/dashboard/integrations">
           <Button size="sm" variant="primary">
@@ -813,6 +831,7 @@ function IntegrationsPanel(): JSX.Element {
 }
 
 function SecurityPanel(): JSX.Element {
+  const t = useT();
   const identity = useIdentity();
   const [twoFa, setTwoFa] = useState(true);
   const [encryption, setEncryption] = useState(true);
@@ -829,7 +848,7 @@ function SecurityPanel(): JSX.Element {
   };
 
   return (
-    <SettingsPanel title="Security" description="Active sessions, trusted devices, password, 2FA, and encryption settings.">
+    <SettingsPanel title={t("settings.security.title")} description={t("settings.security.panelDescription")}>
       <SettingsToggle
         label="Two Factor Authentication"
         description="Require TOTP for admin roles."
@@ -938,7 +957,7 @@ function SecurityPanel(): JSX.Element {
         )}
       </div>
 
-      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — security preferences are not persisted yet.")} />
+      <SaveRow notice={notice} onSave={() => setNotice(t("settings.sessionNotice", { area: "security" }))} />
     </SettingsPanel>
   );
 }
@@ -984,6 +1003,7 @@ function BillingPanel(): JSX.Element {
 }
 
 function ApiPanel(): JSX.Element {
+  const t = useT();
   const columns = useMemo<DataTableColumn<(typeof API_KEYS)[number]>[]>(
     () => [
       { key: "name", header: "Name", render: (r) => r.name },
@@ -1000,8 +1020,8 @@ function ApiPanel(): JSX.Element {
 
   return (
     <SettingsPanel
-      title="API & Developers"
-      description="API keys, webhooks, developer tokens, and sandbox."
+      title={t("settings.api.title")}
+      description={t("settings.api.panelDescription")}
       actions={
         <Link href="/dashboard/integrations">
           <Button size="sm" variant="primary">
@@ -1058,19 +1078,22 @@ function AuditPanel(): JSX.Element {
     [],
   );
 
+  const t = useT();
+
   return (
-    <SettingsPanel title="Audit Logs" description="Recent activity, security events, and system changes.">
+    <SettingsPanel title={t("settings.audit.title")} description={t("settings.audit.panelDescription")}>
       <DataTable columns={columns} rows={AUDIT_LOGS} rowKey={(r) => r.id} minWidth={720} />
     </SettingsPanel>
   );
 }
 
 function AdvancedPanel(): JSX.Element {
+  const t = useT();
   const [experimental, setExperimental] = useState(false);
   const [notice, setNotice] = useState("Advanced actions require confirmation before applying.");
 
   return (
-    <SettingsPanel title="Advanced" description="Experimental features, reset, import, and export.">
+    <SettingsPanel title={t("settings.advanced.title")} description={t("settings.advanced.panelDescription")}>
       <SettingsToggle
         label="Experimental Features"
         description="Opt into unfinished Control Center capabilities."
@@ -1130,10 +1153,18 @@ export function SettingsSectionPanel({
     case "advanced":
       return <AdvancedPanel />;
     default:
-      return (
-        <SettingsPanel title="Settings" description="Unknown section.">
-          <EmptyState title="Not found" description="Select a section from the Control Center navigation." />
-        </SettingsPanel>
-      );
+      return <UnknownSettingsPanel />;
   }
+}
+
+function UnknownSettingsPanel(): JSX.Element {
+  const t = useT();
+  return (
+    <SettingsPanel title={t("settings.unknown.title")} description={t("settings.unknown.description")}>
+      <EmptyState
+        title={t("settings.unknown.emptyTitle")}
+        description={t("settings.unknown.emptyDescription")}
+      />
+    </SettingsPanel>
+  );
 }

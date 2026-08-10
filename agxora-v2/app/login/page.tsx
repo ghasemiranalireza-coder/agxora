@@ -18,9 +18,11 @@ import { useAuth } from "../lib/auth";
 import { isValidEmail } from "../lib/auth/formValidation";
 import { needsWelcome } from "../lib/auth/welcomeFlags";
 import { getRememberedEmail } from "../lib/identity";
+import { useT } from "../lib/i18n";
 import { iamAuthService } from "../../features/auth";
 
 function LoginForm(): JSX.Element {
+  const t = useT();
   const { refresh } = useAuth();
   const router = useRouter();
   const search = useSearchParams();
@@ -35,11 +37,11 @@ function LoginForm(): JSX.Element {
 
   const validate = (): boolean => {
     if (!isValidEmail(email)) {
-      setFieldError("Enter a valid email address.");
+      setFieldError("errors.invalidEmail");
       return false;
     }
     if (password.length < 8) {
-      setFieldError("Password must be at least 8 characters.");
+      setFieldError("errors.passwordMin");
       return false;
     }
     setFieldError(null);
@@ -61,35 +63,38 @@ function LoginForm(): JSX.Element {
       }
       router.replace(next && next.startsWith("/") ? next : "/dashboard");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Sign in failed");
+      setError(err instanceof Error ? err.message : "auth.login.failed");
     } finally {
       setBusy(false);
     }
   };
 
+  const displayError = fieldError ? t(fieldError) : error ? t(error) : null;
+
   return (
     <AuthCard
-      title="Sign in"
-      subtitle="Welcome back to AGXORA."
+      title={t("auth.login.title")}
+      subtitle={t("auth.login.subtitle")}
       footer={
         <>
           <div>
-            No account? <AuthLink href="/register">Start free</AuthLink>
+            {t("auth.login.noAccount")}{" "}
+            <AuthLink href="/register">{t("auth.login.startFree")}</AuthLink>
           </div>
           <div>
-            <AuthLink href="/forgot-password">Forgot password</AuthLink>
+            <AuthLink href="/forgot-password">{t("auth.login.forgotPassword")}</AuthLink>
           </div>
         </>
       }
     >
       <form onSubmit={(event) => void onSubmit(event)} noValidate>
         <label style={authLabelStyle} htmlFor="login-email">
-          Email
+          {t("auth.login.email")}
         </label>
         <input
           id="login-email"
           type="email"
-          placeholder="you@company.com"
+          placeholder={t("auth.login.emailPlaceholder")}
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           required
@@ -100,13 +105,13 @@ function LoginForm(): JSX.Element {
         />
 
         <label style={authLabelStyle} htmlFor="login-password">
-          Password
+          {t("auth.login.password")}
         </label>
         <div style={authRowStyle}>
           <input
             id="login-password"
             type={showPassword ? "text" : "password"}
-            placeholder="Password"
+            placeholder={t("auth.login.passwordPlaceholder")}
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             required
@@ -119,10 +124,10 @@ function LoginForm(): JSX.Element {
             type="button"
             onClick={() => setShowPassword((v) => !v)}
             disabled={busy}
-            aria-label={showPassword ? "Hide password" : "Show password"}
+            aria-label={showPassword ? t("common.hidePassword") : t("common.showPassword")}
             style={authToggleStyle}
           >
-            {showPassword ? "Hide" : "Show"}
+            {showPassword ? t("common.hidePassword") : t("common.showPassword")}
           </button>
         </div>
 
@@ -131,10 +136,10 @@ function LoginForm(): JSX.Element {
           checked={rememberMe}
           onChange={setRememberMe}
         >
-          Remember Me
+          {t("auth.login.rememberMe")}
         </AuthCheckbox>
 
-        <AuthFieldError message={fieldError ?? error} />
+        <AuthFieldError message={displayError} />
 
         <button
           type="submit"
@@ -142,16 +147,21 @@ function LoginForm(): JSX.Element {
           style={busy ? authButtonDisabledStyle : authButtonStyle}
           aria-busy={busy}
         >
-          {busy ? "Signing in…" : "Sign in"}
+          {busy ? t("auth.login.submitting") : t("auth.login.submit")}
         </button>
       </form>
     </AuthCard>
   );
 }
 
+function LoginFallback(): JSX.Element {
+  const t = useT();
+  return <AuthCard title={t("auth.login.loading")}>{t("common.loading")}</AuthCard>;
+}
+
 export default function LoginPage(): JSX.Element {
   return (
-    <Suspense fallback={<AuthCard title="Sign in">Loading…</AuthCard>}>
+    <Suspense fallback={<LoginFallback />}>
       <LoginForm />
     </Suspense>
   );

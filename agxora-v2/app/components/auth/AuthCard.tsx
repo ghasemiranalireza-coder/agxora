@@ -6,6 +6,7 @@
 
 import Link from "next/link";
 import type { CSSProperties, JSX, ReactNode } from "react";
+import { useT } from "../../lib/i18n";
 
 const pageStyle: CSSProperties = {
   minHeight: "100vh",
@@ -173,6 +174,7 @@ export function AuthCard({
   readonly children: ReactNode;
   readonly footer?: ReactNode;
 }): JSX.Element {
+  const t = useT();
   return (
     <main style={pageStyle} className="agx-auth-page">
       <div style={cardStyle} data-auth-card="">
@@ -184,7 +186,7 @@ export function AuthCard({
             letterSpacing: "0.28em",
           }}
         >
-          AGXORA
+          {t("auth.brand")}
         </p>
         <h1
           style={{

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { JSX } from "react";
 import { Button, Card } from "@/app/components/ui";
+import { useT } from "@/app/lib/i18n";
 import { iamAuditLog } from "../store/auditStore";
 import { useEffect } from "react";
 
@@ -10,6 +11,8 @@ import { useEffect } from "react";
  * Account locked lockout policy is enforced by future backend.
  */
 export function AccountLockedPage(): JSX.Element {
+  const t = useT();
+
   useEffect(() => {
     iamAuditLog({
       action: "auth.account_locked",
@@ -34,25 +37,23 @@ export function AccountLockedPage(): JSX.Element {
         className="text-2xl font-semibold"
         style={{ color: "var(--agx-text, #f8fafc)" }}
       >
-        Account locked
+        {t("auth.locked.title")}
       </h1>
       <p
         className="text-sm leading-relaxed"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        This account is temporarily locked. Contact an organization owner or
-        wait for the lockout window to expire. Automated lockout and unlock
-        flows are backend placeholders.
+        {t("auth.locked.subtitle")}
       </p>
       <div className="flex flex-wrap justify-center gap-2">
         <Link href="/login">
           <Button variant="primary" size="sm">
-            Back to sign in
+            {t("auth.locked.backToSignIn")}
           </Button>
         </Link>
         <Link href="/forgot-password">
           <Button variant="secondary" size="sm">
-            Reset password
+            {t("auth.locked.forgotPassword")}
           </Button>
         </Link>
       </div>

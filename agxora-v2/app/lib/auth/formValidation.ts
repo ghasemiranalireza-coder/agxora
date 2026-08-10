@@ -1,5 +1,6 @@
 /**
  * Client-side auth form validation helpers.
+ * Returns i18n message keys (e.g. "errors.invalidEmail") for UI translation via t().
  */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,11 +21,12 @@ export function assessPasswordStrength(password: string): PasswordStrength {
   return "weak";
 }
 
+/** @returns i18n key under `errors.*`, or null when valid */
 export function passwordStrengthMessage(password: string): string | null {
-  if (!password) return "Password is required.";
-  if (password.length < 8) return "Password must be at least 8 characters.";
+  if (!password) return "errors.required";
+  if (password.length < 8) return "errors.passwordMin";
   if (!/[A-Za-z]/.test(password) || !/\d/.test(password)) {
-    return "Use letters and numbers for a stronger password.";
+    return "errors.passwordLettersNumbers";
   }
   return null;
 }

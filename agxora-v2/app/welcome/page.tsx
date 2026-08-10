@@ -10,8 +10,10 @@ import {
 } from "../components/auth/AuthCard";
 import { useAuth } from "../lib/auth";
 import { completeWelcome } from "../lib/auth/welcomeFlags";
+import { useT } from "../lib/i18n";
 
 export default function WelcomePage(): JSX.Element {
+  const t = useT();
   const router = useRouter();
   const { user, hydrated, isAuthenticated } = useAuth();
   const redirected = useRef(false);
@@ -45,7 +47,7 @@ export default function WelcomePage(): JSX.Element {
         }}
       >
         <p style={{ margin: 0, color: "rgba(148,163,184,0.9)", fontSize: 14 }}>
-          Preparing your workspace…
+          {t("common.loading")}
         </p>
       </main>
     );
@@ -53,8 +55,8 @@ export default function WelcomePage(): JSX.Element {
 
   return (
     <AuthCard
-      title={firstName ? `Welcome to AGXORA, ${firstName}` : "Welcome to AGXORA"}
-      subtitle="Let’s set up your workspace. A short guided pass — then you’re in the command center."
+      title={firstName ? `${t("auth.welcome.title")}, ${firstName}` : t("auth.welcome.title")}
+      subtitle={t("auth.welcome.subtitle")}
     >
       <div style={{ display: "grid", gap: 14 }}>
         <ul
@@ -72,7 +74,7 @@ export default function WelcomePage(): JSX.Element {
         </ul>
 
         <button type="button" onClick={onContinue} style={authButtonStyle}>
-          Continue
+          {t("auth.welcome.continue")}
         </button>
 
         <p style={{ ...authMutedStyle, textAlign: "center", margin: 0 }}>

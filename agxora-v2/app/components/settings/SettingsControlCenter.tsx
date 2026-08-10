@@ -1,17 +1,19 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState, type JSX, type KeyboardEvent } from "react";
+import { useCallback, useEffect, useState, type JSX, type KeyboardEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   SETTINGS_KPIS,
   SETTINGS_NAV,
   type SettingsSectionId,
 } from "../../lib/settings";
+import { useT } from "../../lib/i18n";
 import { Card, Skeleton } from "../ui";
 import { SettingsNav } from "./SettingsNav";
 import { SettingsSectionPanel } from "./SettingsPanels";
 
 function KpiStrip(): JSX.Element {
+  const t = useT();
   return (
     <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
       {SETTINGS_KPIS.map((kpi) => (
@@ -20,7 +22,7 @@ function KpiStrip(): JSX.Element {
             className="text-[11px] font-semibold uppercase tracking-[0.14em]"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            {kpi.label}
+            {t(`settings.kpi.${kpi.id}.label`)}
           </p>
           <p
             className="mt-2 text-xl font-semibold tabular-nums"
@@ -29,7 +31,7 @@ function KpiStrip(): JSX.Element {
             {kpi.value}
           </p>
           <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            {kpi.caption}
+            {t(`settings.kpi.${kpi.id}.caption`)}
           </p>
         </Card>
       ))}
@@ -42,6 +44,7 @@ function KpiStrip(): JSX.Element {
  * Does not modify Hero, Sidebar chrome, Finance, CRM, Creator, Automation, or Documents modules.
  */
 export function SettingsControlCenter(): JSX.Element {
+  const t = useT();
   const reduceMotion = useReducedMotion();
   const [section, setSection] = useState<SettingsSectionId>("profile");
   const [loading, setLoading] = useState(true);
@@ -66,8 +69,8 @@ export function SettingsControlCenter(): JSX.Element {
 
   useEffect(() => {
     if (!hashReady) return undefined;
-    const t = window.setTimeout(() => setLoading(false), 220);
-    return () => window.clearTimeout(t);
+    const timer = window.setTimeout(() => setLoading(false), 220);
+    return () => window.clearTimeout(timer);
   }, [section, hashReady]);
 
   const onSelect = useCallback((id: SettingsSectionId) => {
@@ -75,11 +78,6 @@ export function SettingsControlCenter(): JSX.Element {
     setSection(id);
     window.history.replaceState(null, "", `#${id}`);
   }, []);
-
-  const activeMeta = useMemo(
-    () => SETTINGS_NAV.find((item) => item.id === section) ?? SETTINGS_NAV[0],
-    [section],
-  );
 
   const onNavKeyDown = (event: KeyboardEvent<HTMLDivElement>): void => {
     const idx = SETTINGS_NAV.findIndex((item) => item.id === section);
@@ -103,16 +101,15 @@ export function SettingsControlCenter(): JSX.Element {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="agx-ui-section-title">AGXORA Control Center</p>
+        <p className="agx-ui-section-title">{t("settings.page.eyebrow")}</p>
         <h1
           className="text-3xl font-semibold tracking-tight sm:text-4xl"
           style={{ color: "var(--agx-text, #f8fafc)", letterSpacing: "-0.03em" }}
         >
-          Settings
+          {t("settings.page.title")}
         </h1>
         <p className="max-w-2xl text-sm sm:text-base" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Enterprise configuration for every AGXORA module — profile, organization, AI, appearance,
-          security, billing, and developer controls in one place.
+          {t("settings.page.lead")}
         </p>
       </motion.header>
 
@@ -130,7 +127,7 @@ export function SettingsControlCenter(): JSX.Element {
           aria-labelledby={`settings-nav-${section}`}
         >
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            {activeMeta.label} · {activeMeta.description}
+            {t(`settings.${section}.label`)} · {t(`settings.${section}.description`)}
           </p>
           <motion.div
             key={section}
