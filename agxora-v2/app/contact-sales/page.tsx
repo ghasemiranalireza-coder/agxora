@@ -65,7 +65,7 @@ export default function ContactSalesPage(): JSX.Element {
     return (
       <AuthCard
         title="Thank you"
-        subtitle="Our enterprise team will follow up shortly."
+        subtitle="Your inquiry has been saved in this workspace."
         footer={
           <>
             <AuthLink href="/pricing">Back to pricing</AuthLink>
@@ -76,9 +76,12 @@ export default function ContactSalesPage(): JSX.Element {
           </>
         }
       >
+        <p style={{ ...authMutedStyle, margin: "0 0 12px", textAlign: "center" }}>
+          Saved for <strong style={{ color: "#e2e8f0" }}>{company}</strong>. Sales
+          delivery is not connected in this build.
+        </p>
         <p style={{ ...authMutedStyle, margin: "0 0 18px", textAlign: "center" }}>
-          We received your inquiry for <strong style={{ color: "#e2e8f0" }}>{company}</strong>.
-          Prefer a live walkthrough while you wait?
+          Prefer a product walkthrough next?
         </p>
         <Link href="/demo" style={{ ...authButtonStyle, display: "block", textAlign: "center", textDecoration: "none" }}>
           Book Demo

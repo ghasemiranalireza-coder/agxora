@@ -151,7 +151,7 @@ export const integrationService = {
           status: "healthy",
           lastCheckedAt: nowIso(),
           latencyMs: 55,
-          message: `OAuth placeholder authorized (${auth.placeholder ? "stub" : "live"})`,
+          message: `Local demo OAuth stub (${auth.placeholder ? "stub" : "live"})`,
         },
         config: {
           ...connection.config,
@@ -173,7 +173,7 @@ export const integrationService = {
           status: "healthy",
           lastCheckedAt: nowIso(),
           latencyMs: 42,
-          message: "API key / webhook credential stored in vault abstraction",
+          message: "Local demo credential stored — live API not connected",
         },
       };
     } else {
@@ -184,7 +184,7 @@ export const integrationService = {
         health: {
           status: "healthy",
           lastCheckedAt: nowIso(),
-          message: "Connected",
+          message: "Local demo connection — not a live provider link",
         },
       };
     }
@@ -196,7 +196,7 @@ export const integrationService = {
       eventType: "connected",
       payload: { connectionId: connection.id },
     });
-    log(organizationId, "info", "connector", `Connected ${def.name}`, {
+    log(organizationId, "info", "connector", `Demo connected ${def.name}`, {
       connectionId: connection.id,
     });
     return connection;

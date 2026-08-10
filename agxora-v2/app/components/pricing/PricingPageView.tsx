@@ -106,15 +106,7 @@ export function PricingPageView(): JSX.Element {
                     <li key={feature}>{feature}</li>
                   ))}
                 </ul>
-                <span
-                  className={
-                    plan.recommended
-                      ? "p35-plan__cta p35-plan__cta--primary"
-                      : "p35-plan__cta"
-                  }
-                >
-                  {plan.cta.label}
-                </span>
+                <span className="p35-plan__cta">{plan.cta.label}</span>
               </Link>
             );
           })}

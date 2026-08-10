@@ -27,7 +27,7 @@ export function DeliveryModule({
   readonly notes: readonly DeliveryNote[];
 }): JSX.Element {
   const [message, setMessage] = useState(
-    "Lieferschein PDF / QR / barcode adapters reserved — no fake providers.",
+    "PDF, QR, and barcode export are not connected in this build.",
   );
 
   return (
@@ -37,26 +37,37 @@ export function DeliveryModule({
           Professional Lieferschein System
         </h3>
         <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Delivery notes, pickup / delivery, driver, vehicle, tracking, customer signature,
-          QR-ready and barcode-ready export pipeline.
+          Delivery notes, pickup / delivery, driver, vehicle, and tracking —
+          sample records only. Export adapters are not connected.
         </p>
         <div className="flex flex-wrap gap-2">
-          <CrmBadge tone="accent">QR Code Ready</CrmBadge>
-          <CrmBadge tone="accent">Barcode Ready</CrmBadge>
-          <CrmBadge tone="positive">Signature</CrmBadge>
+          <CrmBadge tone="default">QR unavailable</CrmBadge>
+          <CrmBadge tone="default">Barcode unavailable</CrmBadge>
+          <CrmBadge tone="warning">Signature demo</CrmBadge>
         </div>
         <div className="flex flex-wrap gap-2 pt-2">
           <CrmButton
             variant="primary"
-            onClick={() => setMessage("PDF export job queued in DeliveryExportAdapter.")}
+            onClick={() =>
+              setMessage("Export PDF unavailable — delivery export is not connected.")
+            }
           >
             Export PDF
           </CrmButton>
-          <CrmButton onClick={() => setMessage("Delivery history store ready for persistence layer.")}>
+          <CrmButton
+            onClick={() =>
+              setMessage("Delivery history store is not connected in this build.")
+            }
+          >
             Delivery History
           </CrmButton>
         </div>
-        <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+        <p
+          className="text-xs"
+          role="status"
+          aria-live="polite"
+          style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+        >
           {message}
         </p>
       </CrmGlassCard>

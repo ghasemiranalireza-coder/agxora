@@ -170,7 +170,7 @@ function ProfilePanel(): JSX.Element {
           Terms
         </Link>
       </SettingsNotice>
-      <SaveRow notice={notice} onSave={() => setNotice("Profile preferences saved.")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — profile API not connected.")} />
     </SettingsPanel>
   );
 }
@@ -211,7 +211,7 @@ function OrganizationPanel(): JSX.Element {
       <SettingsField label="Business Units">
         <SettingsInput value={units} onChange={(e) => setUnits(e.target.value)} />
       </SettingsField>
-      <SaveRow notice={notice} onSave={() => setNotice("Organization settings saved.")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — organization settings are not persisted yet.")} />
     </SettingsPanel>
   );
 }
@@ -249,7 +249,7 @@ function WorkspacePanel(): JSX.Element {
       <SettingsField label="Default Modules" hint="Comma-separated module keys enabled for new members.">
         <SettingsInput value={modules} onChange={(e) => setModules(e.target.value)} />
       </SettingsField>
-      <SaveRow notice={notice} onSave={() => setNotice("Workspace settings saved.")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — workspace settings are not persisted yet.")} />
     </SettingsPanel>
   );
 }
@@ -468,7 +468,7 @@ function AiPanel(): JSX.Element {
       />
       <SaveRow
         notice={notice}
-        onSave={() => setNotice("AI preferences updated.")}
+        onSave={() => setNotice("Updated for this session — AI preferences are not persisted yet.")}
       />
     </SettingsPanel>
   );
@@ -603,7 +603,7 @@ function AppearancePanel(): JSX.Element {
       />
       <SaveRow
         notice={notice}
-        onSave={() => setNotice("Appearance preferences saved. Theme mode persists via ThemeProvider.")}
+        onSave={() => setNotice("Theme mode persists via ThemeProvider. Other appearance fields are not persisted yet.")}
       />
     </SettingsPanel>
   );
@@ -647,7 +647,7 @@ function NotificationsPanel(): JSX.Element {
         </Link>
         .
       </SettingsNotice>
-      <SaveRow notice={notice} onSave={() => setNotice("Notification preferences saved.")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — notification preferences are not persisted yet.")} />
     </SettingsPanel>
   );
 }
@@ -699,7 +699,7 @@ function DocumentsPanel(): JSX.Element {
         checked={prefs.knowledgeIndexing}
         onChange={(v) => setPrefs((p) => ({ ...p, knowledgeIndexing: v }))}
       />
-      <SaveRow notice={notice} onSave={() => setNotice("Documents preferences saved.")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — documents preferences are not persisted yet.")} />
     </SettingsPanel>
   );
 }
@@ -753,7 +753,7 @@ function AutomationPanel(): JSX.Element {
         checked={prefs.executionLogs}
         onChange={(v) => setPrefs((p) => ({ ...p, executionLogs: v }))}
       />
-      <SaveRow notice={notice} onSave={() => setNotice("Automation preferences saved.")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — automation preferences are not persisted yet.")} />
     </SettingsPanel>
   );
 }
@@ -938,7 +938,7 @@ function SecurityPanel(): JSX.Element {
         )}
       </div>
 
-      <SaveRow notice={notice} onSave={() => setNotice("Security preferences saved.")} />
+      <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — security preferences are not persisted yet.")} />
     </SettingsPanel>
   );
 }

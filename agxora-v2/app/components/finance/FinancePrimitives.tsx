@@ -65,12 +65,14 @@ export function FinanceButton({
   variant = "secondary",
   type = "button",
   disabled = false,
+  title,
 }: {
   readonly children: ReactNode;
   readonly onClick?: () => void;
   readonly variant?: "primary" | "secondary";
   readonly type?: "button" | "submit";
   readonly disabled?: boolean;
+  readonly title?: string;
 }): JSX.Element {
   return (
     <Button
@@ -78,6 +80,7 @@ export function FinanceButton({
       variant={variant as ButtonVariant}
       onClick={onClick}
       disabled={disabled}
+      title={title}
     >
       {children}
     </Button>
