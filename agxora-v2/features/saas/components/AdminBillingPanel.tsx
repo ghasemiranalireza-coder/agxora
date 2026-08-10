@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
@@ -17,6 +16,7 @@ import type {
   LicenseRecord,
   SaasAuditEvent,
 } from "../types";
+import { SaasNavLink } from "./SaasNavLink";
 
 /**
  * Internal admin billing panel — subscriptions, plans, licenses, usage, audit.
@@ -148,11 +148,9 @@ export function AdminBillingPanel(): JSX.Element {
           Internal management for subscriptions, licenses, invoices, email queue,
           and commercial audit events.
         </p>
-        <Link href="/dashboard/billing">
-          <Button size="sm" variant="secondary">
-            Customer portal
-          </Button>
-        </Link>
+        <SaasNavLink href="/dashboard/billing" variant="secondary">
+          Customer portal
+        </SaasNavLink>
       </Card>
 
       <Card className="space-y-3" padding="20px" hover={false}>

@@ -4,13 +4,12 @@
  * Account billing summary — current plan, renewal, usage, invoices, upgrade CTA.
  */
 
-import Link from "next/link";
 import { useEffect, type JSX } from "react";
-import { Button } from "@/app/components/ui";
-import { getCommercialPlan } from "../plans";
 import { saasCommercialStore } from "../store";
 import { billingService } from "../billing";
+import { getCommercialPlan } from "../plans";
 import { useSaasCommercial } from "../hooks/useSaasCommercial";
+import { SaasNavLink } from "./SaasNavLink";
 
 export function AccountBillingSection(): JSX.Element {
   const saas = useSaasCommercial();
@@ -122,21 +121,15 @@ export function AccountBillingSection(): JSX.Element {
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <Link href="/dashboard/billing">
-          <Button size="sm" variant="primary">
-            Upgrade
-          </Button>
-        </Link>
-        <Link href="/pricing">
-          <Button size="sm" variant="secondary">
-            View pricing
-          </Button>
-        </Link>
-        <Link href="/contact-sales">
-          <Button size="sm" variant="ghost">
-            Contact Sales
-          </Button>
-        </Link>
+        <SaasNavLink href="/dashboard/billing" variant="primary">
+          Upgrade
+        </SaasNavLink>
+        <SaasNavLink href="/pricing" variant="secondary">
+          View pricing
+        </SaasNavLink>
+        <SaasNavLink href="/contact-sales" variant="ghost">
+          Contact Sales
+        </SaasNavLink>
       </div>
     </div>
   );
