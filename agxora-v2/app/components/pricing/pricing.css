@@ -163,15 +163,31 @@
   cursor: pointer;
   box-sizing: border-box;
   transition:
-    border-color 160ms ease,
-    background 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
+    border-color 200ms ease,
+    background 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
 }
 
-.p35-plan:hover {
-  border-color: rgba(34, 211, 238, 0.38);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+/* Recommended = badge + subtle default shell — NOT permanent hover cyan */
+.p35-plan.is-recommended {
+  border-color: rgba(148, 163, 184, 0.22);
+  box-shadow: none;
+  background: rgba(8, 14, 28, 0.72);
+}
+
+/* Temporary hover / keyboard focus — applies to every plan, including recommended */
+.p35-plan:hover,
+.p35-plan:focus-visible {
+  border-color: rgba(34, 211, 238, 0.55);
+  background: linear-gradient(
+    180deg,
+    rgba(14, 116, 144, 0.16) 0%,
+    rgba(8, 14, 28, 0.9) 48%
+  );
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.28),
+    0 0 28px rgba(34, 211, 238, 0.1);
   transform: translateY(-2px);
 }
 
@@ -180,14 +196,8 @@
   outline-offset: 3px;
 }
 
-.p35-plan.is-recommended {
-  border-color: rgba(34, 211, 238, 0.45);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-  background: linear-gradient(
-    180deg,
-    rgba(14, 116, 144, 0.18) 0%,
-    rgba(8, 14, 28, 0.85) 40%
-  );
+.p35-plan:active {
+  transform: translateY(0);
 }
 
 .p35-plan__badge {
@@ -292,8 +302,16 @@
   pointer-events: none;
 }
 
-.p35-plan:hover .p35-plan__cta {
+.p35-plan:hover .p35-plan__cta,
+.p35-plan:focus-visible .p35-plan__cta {
   border-color: rgba(148, 163, 184, 0.45);
+}
+
+.p35-plan:hover .p35-plan__cta:not(.p35-plan__cta--primary),
+.p35-plan:focus-visible .p35-plan__cta:not(.p35-plan__cta--primary) {
+  border-color: rgba(34, 211, 238, 0.35);
+  background: rgba(14, 116, 144, 0.2);
+  color: #e0f2fe;
 }
 
 .p35-plan__cta--primary {
@@ -302,9 +320,13 @@
   color: #020617;
 }
 
-.p35-plan.is-recommended:hover .p35-plan__cta--primary,
 .p35-plan.is-recommended .p35-plan__cta--primary {
-  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.25);
+  box-shadow: 0 4px 16px rgba(34, 211, 238, 0.18);
+}
+
+.p35-plan.is-recommended:hover .p35-plan__cta--primary,
+.p35-plan.is-recommended:focus-visible .p35-plan__cta--primary {
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.28);
 }
 
 .p35-pricing__actions {

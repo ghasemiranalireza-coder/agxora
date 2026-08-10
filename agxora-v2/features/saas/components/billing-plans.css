@@ -21,9 +21,11 @@
     opacity 160ms ease;
 }
 
-.saas-plan-card:hover:not(:disabled):not(.is-current) {
-  border-color: color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 45%, transparent);
-  background: color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 6%, transparent);
+.saas-plan-card:hover:not(:disabled):not(.is-current),
+.saas-plan-card:focus-visible:not(.is-current) {
+  border-color: color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 50%, transparent);
+  background: color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 8%, transparent);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
 }
 
 .saas-plan-card:focus-visible {
@@ -37,9 +39,10 @@
   cursor: default;
 }
 
+/* Recommended badge identity only — same default shell as other plans */
 .saas-plan-card.is-recommended:not(.is-current) {
-  border-color: color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 40%, transparent);
-  background: color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 8%, transparent);
+  border-color: color-mix(in srgb, var(--agx-ds-border, #334155) 70%, transparent);
+  background: transparent;
 }
 
 .saas-plan-card.is-selecting {
@@ -119,8 +122,8 @@
   box-sizing: border-box;
 }
 
-.saas-plan-card.is-recommended:not(.is-current) .saas-plan-card__action,
-.saas-plan-card:not(.is-current):not(:disabled):hover .saas-plan-card__action {
+.saas-plan-card:not(.is-current):not(:disabled):hover .saas-plan-card__action,
+.saas-plan-card:not(.is-current):not(:disabled):focus-visible .saas-plan-card__action {
   border-color: transparent;
   background: linear-gradient(
     90deg,
@@ -128,6 +131,12 @@
     var(--agx-ds-accent, #22d3ee)
   );
   color: var(--agx-ds-on-accent, #041018);
+}
+
+.saas-plan-card.is-recommended:not(.is-current) .saas-plan-card__action {
+  border-color: color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 28%, transparent);
+  background: color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 10%, transparent);
+  color: var(--agx-ds-text, #f8fafc);
 }
 
 .saas-plan-card.is-current .saas-plan-card__action {
