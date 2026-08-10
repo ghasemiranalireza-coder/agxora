@@ -47,26 +47,46 @@
   display: inline-flex;
   align-items: center;
   box-sizing: border-box;
-  transition: color 160ms ease, background 160ms ease;
+  transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease;
 }
 
-.p35-pricing__nav a:hover {
+/*
+ * Text nav links only — never the Start Free CTA.
+ * Generic hover wiped .p35-pricing__nav-cta gradient and left dark text
+ * on a near-black fill (unreadable “black block”).
+ */
+.p35-pricing__nav a:not(.p35-pricing__nav-cta):hover {
   color: #fff;
   background: rgba(255, 255, 255, 0.04);
 }
 
-.p35-pricing__nav a:focus-visible {
+.p35-pricing__nav a:not(.p35-pricing__nav-cta):focus-visible {
   outline: 2px solid #22d3ee;
   outline-offset: 2px;
 }
 
-.p35-pricing__nav-cta {
+/* Equal/higher specificity than `.p35-pricing__nav a` — no !important. */
+.p35-pricing__nav a.p35-pricing__nav-cta {
   padding: 10px 16px;
   min-height: 44px;
   border-radius: 999px;
   background: linear-gradient(90deg, #06b6d4, #22d3ee);
-  color: #020617 !important;
+  color: #020617;
   font-weight: 700;
+  box-shadow: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .p35-pricing__nav a.p35-pricing__nav-cta:hover {
+    background: linear-gradient(90deg, #22d3ee, #67e8f9);
+    color: #020617;
+    box-shadow: 0 8px 24px rgba(34, 211, 238, 0.28);
+  }
+}
+
+.p35-pricing__nav a.p35-pricing__nav-cta:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 3px;
 }
 
 .p35-pricing__main {
