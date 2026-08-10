@@ -57,7 +57,11 @@ export function SettingsControlCenter(): JSX.Element {
     };
     // Defer hash sync until after hydration commit.
     const id = window.setTimeout(applyHash, 0);
-    return () => window.clearTimeout(id);
+    window.addEventListener("hashchange", applyHash);
+    return () => {
+      window.clearTimeout(id);
+      window.removeEventListener("hashchange", applyHash);
+    };
   }, []);
 
   useEffect(() => {

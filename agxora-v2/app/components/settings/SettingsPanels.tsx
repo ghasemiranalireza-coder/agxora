@@ -32,7 +32,7 @@ import {
 import { useTheme, type ThemeMode } from "../../lib/theme";
 import { Badge, Button, DataTable, EmptyState } from "../ui";
 import type { DataTableColumn } from "../ui";
-import { AccountBillingSection } from "../../../features/saas";
+import { AccountBillingSection, SaasNavLink } from "../../../features/saas";
 import {
   SettingsField,
   SettingsGrid,
@@ -949,25 +949,32 @@ function BillingPanel(): JSX.Element {
       title="Billing"
       description="Current plan, renewal, usage, invoices, and upgrade path."
       actions={
-        <Link href="/dashboard/billing">
-          <Button size="sm" variant="primary">
-            Open billing portal
-          </Button>
-        </Link>
+        <SaasNavLink href="/dashboard/billing" variant="primary" size="sm">
+          Open billing portal
+        </SaasNavLink>
       }
     >
       <AccountBillingSection />
       <SettingsNotice>
         Billing questions:{" "}
-        <Link href="/contact" className="underline-offset-2 hover:underline">
+        <Link
+          href="/contact"
+          className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
+        >
           Contact
         </Link>
         {" · "}
-        <Link href="/pricing" className="underline-offset-2 hover:underline">
+        <Link
+          href="/pricing"
+          className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
+        >
           Pricing
         </Link>
         {" · "}
-        <Link href="/terms" className="underline-offset-2 hover:underline">
+        <Link
+          href="/terms"
+          className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
+        >
           Terms
         </Link>
       </SettingsNotice>

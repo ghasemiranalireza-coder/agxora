@@ -70,6 +70,7 @@ export function SaasNavLink({
     fontWeight: variant === "primary" ? 650 : 550,
     letterSpacing: "0.01em",
     textDecoration: "none",
+    cursor: "pointer",
     boxShadow: variant === "primary" ? UI.shadow.sm : "none",
     transition:
       "opacity var(--agx-ds-duration, 160ms) var(--agx-ds-ease), background var(--agx-ds-duration, 160ms) ease, border-color var(--agx-ds-duration, 160ms) ease",
