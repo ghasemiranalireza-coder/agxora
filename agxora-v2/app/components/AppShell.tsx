@@ -3,6 +3,7 @@
 import type { JSX, ReactNode } from "react";
 import { memo } from "react";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
+import { useLocale } from "../lib/i18n";
 import { CommandPalette } from "./CommandPalette";
 import { DashboardSidebar } from "./DashboardSidebar";
 import { DashboardTopNav } from "./DashboardTopNav";
@@ -25,6 +26,8 @@ function AppShellComponent({
   readonly showTopNav?: boolean;
 }): JSX.Element {
   const { tokens } = useTheme();
+  // Subscribe so Finance/CRM/Documents formatters re-render on locale change.
+  useLocale();
 
   return (
     <>

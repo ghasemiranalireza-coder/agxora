@@ -42,6 +42,7 @@ import {
   resolveMessageList,
   type TranslateValues,
 } from "./translate";
+import { setActiveFormatLocale } from "./format";
 
 export type TranslateFn = (key: string, values?: TranslateValues) => string;
 
@@ -75,6 +76,9 @@ export function LocaleProvider({
   /** Prevents first-visit hydrate from clobbering an explicit user choice. */
   const explicitChoiceRef = useRef(false);
 
+  // Keep module formatters aligned with the rendered locale (SSR + client).
+  setActiveFormatLocale(locale);
+
   useEffect(() => {
     // Soft client resolution after hydration (storage / browser when cookie absent).
     const id = window.setTimeout(() => {
@@ -86,6 +90,7 @@ export function LocaleProvider({
         userPreference: userLanguage,
         workspaceLanguage,
       });
+      setActiveFormatLocale(resolved);
       setLocaleState(resolved);
       writeLocaleCookie(resolved);
       writeLocaleStorage(resolved);
@@ -96,6 +101,7 @@ export function LocaleProvider({
 
   const setLocale = useCallback((next: AppLocale) => {
     explicitChoiceRef.current = true;
+    setActiveFormatLocale(next);
     setLocaleState(next);
     writeLocaleCookie(next);
     writeLocaleStorage(next);

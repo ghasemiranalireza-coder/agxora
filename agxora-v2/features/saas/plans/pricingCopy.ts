@@ -4,6 +4,10 @@
 
 import type { BillingInterval, CommercialPlan, CommercialPlanId } from "../types";
 import { getCommercialPlan } from "./catalog";
+import {
+  formatCurrency,
+  type FormatLocale,
+} from "@/app/lib/i18n/format";
 
 export type PricingCtaKind = "start_free" | "book_demo" | "contact_sales";
 
@@ -85,8 +89,14 @@ const CTA_BY_PLAN: Readonly<
   },
 };
 
-function formatEuro(amount: number): string {
-  return `€${amount.toFixed(2)}`;
+/** Commercial catalog amounts are EUR (field names retain historical Usd suffix). */
+const PRICING_CURRENCY = "EUR";
+
+function formatPlanAmount(amount: number, locale?: FormatLocale): string {
+  return formatCurrency(amount, locale, PRICING_CURRENCY, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 }
 
 export function listMarketingPlans(): readonly PricingPlanView[] {
@@ -112,15 +122,22 @@ function toPricingView(plan: CommercialPlan): PricingPlanView {
 export function formatPlanPrice(
   plan: PricingPlanView,
   interval: BillingInterval,
+  locale?: FormatLocale,
 ): { readonly label: string; readonly suffix: string } {
   if (plan.priceMonthlyUsd == null || plan.priceYearlyUsd == null) {
     return { label: "Contact Sales", suffix: "" };
   }
   if (interval === "yearly") {
     const monthlyEquivalent = plan.priceYearlyUsd / 12;
-    return { label: formatEuro(monthlyEquivalent), suffix: "/mo billed yearly" };
+    return {
+      label: formatPlanAmount(monthlyEquivalent, locale),
+      suffix: "/mo billed yearly",
+    };
   }
-  return { label: formatEuro(plan.priceMonthlyUsd), suffix: "/mo" };
+  return {
+    label: formatPlanAmount(plan.priceMonthlyUsd, locale),
+    suffix: "/mo",
+  };
 }
 
 export function yearlySavingsPercent(plan: PricingPlanView): number | null {

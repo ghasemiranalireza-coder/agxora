@@ -10,13 +10,13 @@ import type {
   UploadJob,
   VatSummary,
 } from "./types";
-import { formatMoney } from "./format";
 
 export const FINANCE_OVERVIEW: readonly FinanceOverviewMetric[] = [
   {
     id: "revenue",
     label: "Revenue",
-    value: formatMoney(428650),
+    value: 428650,
+    currency: "EUR",
     caption: "Sample · last 30 days",
     delta: { value: "+8.4%", positive: true },
     tone: "positive",
@@ -24,7 +24,8 @@ export const FINANCE_OVERVIEW: readonly FinanceOverviewMetric[] = [
   {
     id: "expenses",
     label: "Expenses",
-    value: formatMoney(186420),
+    value: 186420,
+    currency: "EUR",
     caption: "Sample · operating + COGS",
     delta: { value: "+2.1%", positive: false },
     tone: "default",
@@ -32,7 +33,8 @@ export const FINANCE_OVERVIEW: readonly FinanceOverviewMetric[] = [
   {
     id: "profit",
     label: "Profit",
-    value: formatMoney(242230),
+    value: 242230,
+    currency: "EUR",
     caption: "Sample · net operating",
     delta: { value: "+12.6%", positive: true },
     tone: "positive",
@@ -40,7 +42,8 @@ export const FINANCE_OVERVIEW: readonly FinanceOverviewMetric[] = [
   {
     id: "vat-due",
     label: "VAT Due",
-    value: formatMoney(18450),
+    value: 18450,
+    currency: "EUR",
     caption: "Sample · Q2 window",
     delta: { value: "Due in 12d", positive: false },
     tone: "warning",
@@ -49,7 +52,8 @@ export const FINANCE_OVERVIEW: readonly FinanceOverviewMetric[] = [
     id: "open-invoices",
     label: "Open Invoices",
     value: "24",
-    caption: "Sample · " + formatMoney(67280) + " outstanding",
+    caption: "Sample · {money} outstanding",
+    captionAmount: 67280,
     tone: "accent",
   },
   {
@@ -63,7 +67,8 @@ export const FINANCE_OVERVIEW: readonly FinanceOverviewMetric[] = [
   {
     id: "cashflow",
     label: "Cashflow",
-    value: formatMoney(94320),
+    value: 94320,
+    currency: "EUR",
     caption: "Sample · 30-day projection",
     delta: { value: "+4.2%", positive: true },
     tone: "positive",

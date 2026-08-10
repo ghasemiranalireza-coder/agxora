@@ -14,6 +14,7 @@ import {
   UPLOAD_JOBS,
   VAT_SUMMARIES,
 } from "../../lib/finance";
+import { useLocale } from "../../lib/i18n";
 import { AiInsights } from "./AiInsights";
 import { AiInvoiceProcessing } from "./AiInvoiceProcessing";
 import { BankingPanel } from "./BankingPanel";
@@ -27,6 +28,9 @@ import { TaxCenter } from "./TaxCenter";
 export function FinancePage(): JSX.Element {
   const reduceMotion = useReducedMotion();
   const [invoiceSeed, setInvoiceSeed] = useState(0);
+  // Keep render-time formatters (invoices, banking, tax) in sync with UI locale.
+  useLocale();
+
 
   const onSmartQuery = useCallback((query: string) => {
     const q = query.toLowerCase();

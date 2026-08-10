@@ -1,3 +1,11 @@
+/**
+ * Documents display formatters — delegate date/time to shared i18n Intl helpers.
+ */
+
+import {
+  formatDate as formatSharedDate,
+  formatDateTime as formatSharedDateTime,
+} from "../i18n/format";
 import type {
   DocumentFileType,
   DocumentStatus,
@@ -17,21 +25,21 @@ export function formatBytes(bytes: number): string {
 }
 
 export function formatDateTime(iso: string): string {
-  return new Intl.DateTimeFormat("en-GB", {
+  return formatSharedDateTime(iso, undefined, {
     day: "2-digit",
     month: "short",
     year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-  }).format(new Date(iso));
+  });
 }
 
 export function formatDate(iso: string): string {
-  return new Intl.DateTimeFormat("en-GB", {
+  return formatSharedDate(iso, undefined, {
     day: "2-digit",
     month: "short",
     year: "numeric",
-  }).format(new Date(iso));
+  });
 }
 
 export function fileTypeLabel(type: DocumentFileType): string {
