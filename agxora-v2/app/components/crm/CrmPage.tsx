@@ -15,6 +15,7 @@ import {
   INDUSTRY_MODULES,
   PIPELINE_DEALS,
 } from "../../lib/crm";
+import { useLocale } from "../../lib/i18n";
 import { AiCreatorPanel } from "./AiCreatorPanel";
 import { CommunicationHub } from "./CommunicationHub";
 import { CreatorStudio } from "./CreatorStudio";
@@ -34,6 +35,8 @@ import { TasksModule } from "./TasksModule";
  */
 export function CrmPage(): JSX.Element {
   const reduceMotion = useReducedMotion();
+  // Keep render-time formatters in sync with UI locale.
+  useLocale();
 
   return (
     <div className="agx-ui-module-page agx-page-enter">

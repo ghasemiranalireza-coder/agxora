@@ -2,7 +2,8 @@
 
 import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import type { FinanceOverviewMetric } from "../../lib/finance";
+import { formatMoney, type FinanceOverviewMetric } from "../../lib/finance";
+import { useLocale } from "../../lib/i18n";
 import { FinanceGlassCard } from "./FinancePrimitives";
 
 function MetricIcon({ id }: { readonly id: string }): JSX.Element {
@@ -33,12 +34,29 @@ function MetricIcon({ id }: { readonly id: string }): JSX.Element {
   );
 }
 
+function displayMetricValue(metric: FinanceOverviewMetric): string {
+  if (typeof metric.value === "number") {
+    return formatMoney(metric.value, metric.currency);
+  }
+  return metric.value;
+}
+
+function displayMetricCaption(metric: FinanceOverviewMetric): string {
+  if (metric.captionAmount == null) return metric.caption;
+  return metric.caption.replaceAll(
+    "{money}",
+    formatMoney(metric.captionAmount, metric.currency),
+  );
+}
+
 export function FinanceOverview({
   metrics,
 }: {
   readonly metrics: readonly FinanceOverviewMetric[];
 }): JSX.Element {
   const reduceMotion = useReducedMotion();
+  // Subscribe so KPI money/captions reformat when the UI locale changes.
+  useLocale();
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -99,13 +117,13 @@ export function FinanceOverview({
               className="mt-4 text-[1.55rem] font-semibold tabular-nums tracking-tight"
               style={{ color: "var(--agx-text, #f8fafc)", letterSpacing: "-0.02em" }}
             >
-              {metric.value}
+              {displayMetricValue(metric)}
             </p>
             <p
               className="mt-1.5 text-xs"
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
             >
-              {metric.caption}
+              {displayMetricCaption(metric)}
             </p>
           </FinanceGlassCard>
         </motion.div>

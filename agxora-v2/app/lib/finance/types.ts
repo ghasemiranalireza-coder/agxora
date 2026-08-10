@@ -38,8 +38,16 @@ export interface MoneyAmount {
 export interface FinanceOverviewMetric {
   readonly id: string;
   readonly label: string;
-  readonly value: string;
+  /**
+   * Display value: raw number (format at render) or ready-made string
+   * (counts / scores that are not locale money).
+   */
+  readonly value: string | number;
+  /** ISO 4217 when `value` is a money amount. Defaults via resolveDisplayCurrency. */
+  readonly currency?: string;
   readonly caption: string;
+  /** When set, `{money}` in caption is replaced with formatMoney at render. */
+  readonly captionAmount?: number;
   readonly delta?: { readonly value: string; readonly positive: boolean };
   readonly tone?: "default" | "positive" | "warning" | "accent";
 }

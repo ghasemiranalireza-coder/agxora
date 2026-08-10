@@ -8,11 +8,11 @@ import {
   yearlySavingsPercent,
 } from "../../../features/saas";
 import type { BillingInterval, CommercialPlanId } from "../../../features/saas";
-import { LanguageSwitcher, useLocale } from "../../lib/i18n";
+import { LanguageSwitcher, formatCurrency, formatNumber, useLocale } from "../../lib/i18n";
 import "./pricing.css";
 
 export function PricingPageView(): JSX.Element {
-  const { t, tList } = useLocale();
+  const { t, tList, locale } = useLocale();
   const [interval, setInterval] = useState<BillingInterval>("monthly");
   const plans = listMarketingPlans();
 
@@ -78,7 +78,7 @@ export function PricingPageView(): JSX.Element {
 
         <div className="p35-pricing__grid">
           {plans.map((plan) => {
-            const price = formatPlanPrice(plan, interval);
+            const price = formatPlanPrice(plan, interval, locale);
             const savings = yearlySavingsPercent(plan);
             const name = planName(plan.id);
             const ctaLabel = planCta(plan.id);
@@ -112,11 +112,14 @@ export function PricingPageView(): JSX.Element {
                   <span className="p35-plan__amount">{amountLabel}</span>
                   <span className="p35-plan__suffix">{suffixLabel}</span>
                 </p>
-                {interval === "yearly" && savings != null ? (
+                {interval === "yearly" && savings != null && plan.priceYearlyUsd != null ? (
                   <p className="p35-plan__yearly-hint">
                     {t("pricing.yearlyHint", {
-                      amount: Number(plan.priceYearlyUsd).toFixed(2),
-                      percent: savings,
+                      amount: formatCurrency(Number(plan.priceYearlyUsd), locale, "EUR", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      }),
+                      percent: formatNumber(savings, locale, { maximumFractionDigits: 0 }),
                     })}
                   </p>
                 ) : (

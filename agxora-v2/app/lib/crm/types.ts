@@ -44,9 +44,21 @@ export type IntegrationStatus = "planned" | "ready" | "connected" | "disabled";
 export interface CrmKpiMetric {
   readonly id: string;
   readonly label: string;
-  readonly value: string;
+  /**
+   * Display value: raw number (format at render) or ready-made string
+   * (counts / scores that are not locale money).
+   */
+  readonly value: string | number;
+  readonly currency?: string;
   readonly caption: string;
-  readonly delta?: { readonly value: string; readonly positive: boolean };
+  readonly delta?: {
+    readonly value?: string;
+    /** Raw money for locale-aware delta chips (formatted at render). */
+    readonly amount?: number;
+    readonly currency?: string;
+    readonly compact?: boolean;
+    readonly positive: boolean;
+  };
 }
 
 export interface CrmContact {

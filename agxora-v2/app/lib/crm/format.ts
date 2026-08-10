@@ -1,3 +1,14 @@
+/**
+ * CRM display formatters — delegate to shared i18n Intl helpers.
+ * Locale follows the active UI locale; currency stays an explicit ISO code.
+ */
+
+import {
+  formatCurrency,
+  formatDate as formatSharedDate,
+  formatDateTime as formatSharedDateTime,
+  resolveDisplayCurrency,
+} from "../i18n/format";
 import type {
   DocumentKind,
   OrderStatus,
@@ -6,36 +17,26 @@ import type {
   IntegrationStatus,
 } from "./types";
 
-const EUR = new Intl.NumberFormat("de-DE", {
-  style: "currency",
-  currency: "EUR",
-  maximumFractionDigits: 2,
-});
-
-export function formatMoney(amount: number, currency = "EUR"): string {
-  if (currency === "EUR") return EUR.format(amount);
-  return new Intl.NumberFormat("de-DE", {
-    style: "currency",
-    currency,
-    maximumFractionDigits: 2,
-  }).format(amount);
+export function formatMoney(amount: number, currency?: string): string {
+  return formatCurrency(amount, undefined, resolveDisplayCurrency(currency));
 }
 
 export function formatDate(iso: string): string {
-  return new Intl.DateTimeFormat("de-DE", {
+  return formatSharedDate(iso, undefined, {
     day: "2-digit",
     month: "short",
     year: "numeric",
-  }).format(new Date(iso));
+  });
 }
 
 export function formatDateTime(iso: string): string {
-  return new Intl.DateTimeFormat("de-DE", {
+  return formatSharedDateTime(iso, undefined, {
     day: "2-digit",
     month: "short",
+    year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-  }).format(new Date(iso));
+  });
 }
 
 export function pipelineLabel(stage: PipelineStage): string {

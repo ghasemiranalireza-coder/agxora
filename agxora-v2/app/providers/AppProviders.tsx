@@ -21,7 +21,7 @@ import {
   DataPlatformBridge,
 } from "../lib/backend/providers";
 import { BusinessOsProvider } from "../lib/business";
-import { HtmlLangSync, LocaleProvider, type AppLocale } from "../lib/i18n";
+import { HtmlLangSync, LocaleProvider, FormatPreferencesSync, type AppLocale } from "../lib/i18n";
 import { MemoryProvider } from "../lib/memory";
 import { ChatProvider } from "../lib/modules/chat";
 import { OrganizationProvider } from "../lib/organization";
@@ -48,6 +48,7 @@ export function AppProviders({
         <AuthProvider>
           <AuthOrganizationBridge>
             <OrganizationProvider>
+              <FormatPreferencesSync />
               <BackendStateBridge>
                 <DataPlatformBridge>
                   <AutomationBridge>

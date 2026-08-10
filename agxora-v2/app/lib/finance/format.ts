@@ -1,3 +1,14 @@
+/**
+ * Finance display formatters — delegate to shared i18n Intl helpers.
+ * Locale follows the active UI locale; currency stays an explicit ISO code.
+ */
+
+import {
+  formatCurrency,
+  formatDate as formatSharedDate,
+  formatPercent as formatSharedPercent,
+  resolveDisplayCurrency,
+} from "../i18n/format";
 import type {
   InvoiceCategory,
   InvoiceStatus,
@@ -7,31 +18,20 @@ import type {
   InsightSeverity,
 } from "./types";
 
-const EUR = new Intl.NumberFormat("de-DE", {
-  style: "currency",
-  currency: "EUR",
-  maximumFractionDigits: 2,
-});
-
-export function formatMoney(amount: number, currency = "EUR"): string {
-  if (currency === "EUR") return EUR.format(amount);
-  return new Intl.NumberFormat("de-DE", {
-    style: "currency",
-    currency,
-    maximumFractionDigits: 2,
-  }).format(amount);
+export function formatMoney(amount: number, currency?: string): string {
+  return formatCurrency(amount, undefined, resolveDisplayCurrency(currency));
 }
 
 export function formatPercent(value: number): string {
-  return `${Math.round(value)}%`;
+  return formatSharedPercent(value);
 }
 
 export function formatDate(iso: string): string {
-  return new Intl.DateTimeFormat("de-DE", {
+  return formatSharedDate(iso, undefined, {
     day: "2-digit",
     month: "short",
     year: "numeric",
-  }).format(new Date(iso));
+  });
 }
 
 export function invoiceStatusLabel(status: InvoiceStatus): string {

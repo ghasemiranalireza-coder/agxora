@@ -1,5 +1,6 @@
 import type {
   CrmDocument,
+  CrmKpiMetric,
   CrmOrder,
   CrmTask,
   Customer360,
@@ -7,9 +8,8 @@ import type {
   PipelineDeal,
   PipelineStage,
 } from "./types";
-import { formatMoney } from "./format";
 
-export const CRM_KPI_METRICS = [
+export const CRM_KPI_METRICS: readonly CrmKpiMetric[] = [
   {
     id: "customers",
     label: "Customers",
@@ -36,12 +36,13 @@ export const CRM_KPI_METRICS = [
     label: "Deals",
     value: "54",
     caption: "Open pipeline",
-    delta: { value: "€1.24M", positive: true },
+    delta: { amount: 1_240_000, currency: "EUR", compact: true, positive: true },
   },
   {
     id: "revenue",
     label: "Revenue",
-    value: formatMoney(842500),
+    value: 842500,
+    currency: "EUR",
     caption: "Won YTD",
     delta: { value: "+14.2%", positive: true },
   },
@@ -66,7 +67,7 @@ export const CRM_KPI_METRICS = [
     caption: "Relationship quality signal",
     delta: { value: "+2", positive: true },
   },
-] as const;
+];
 
 export const PIPELINE_STAGES: readonly {
   readonly id: PipelineStage;
