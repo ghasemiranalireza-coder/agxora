@@ -40,7 +40,7 @@ const variantStyle: Record<
   ghost: {
     border: "transparent",
     background: "transparent",
-    color: "var(--agx-ds-text-muted, #94a3b8)",
+    color: "var(--agx-ds-text, #f4f8fb)",
   },
   danger: {
     border: "color-mix(in srgb, var(--agx-ds-danger, #fb7185) 35%, transparent)",

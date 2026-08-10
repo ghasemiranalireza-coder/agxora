@@ -45,7 +45,7 @@
   --agx-ds-surface-hover: rgba(255, 255, 255, 0.08);
   --agx-ds-elevated: rgba(12, 18, 32, 0.98);
   --agx-ds-scrim: rgba(4, 8, 16, 0.72);
-  --agx-ds-placeholder: color-mix(in srgb, var(--agx-ds-text-muted) 72%, transparent);
+  --agx-ds-placeholder: color-mix(in srgb, var(--agx-ds-text-muted) 88%, transparent);
   --agx-ds-success: #34d399;
   --agx-ds-warning: #fbbf24;
   --agx-ds-danger: #fb7185;
@@ -109,6 +109,21 @@ textarea.agx-ui-control {
 select.agx-ui-control {
   cursor: pointer;
   color-scheme: inherit;
+  padding-inline-end: calc(var(--agx-ds-space-4) + 18px);
+  appearance: none;
+  background-image: linear-gradient(
+      45deg,
+      transparent 50%,
+      var(--agx-ds-text-muted) 50%
+    ),
+    linear-gradient(135deg, var(--agx-ds-text-muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(50% - 2px),
+    calc(100% - 12px) calc(50% - 2px);
+  background-size:
+    6px 6px,
+    6px 6px;
+  background-repeat: no-repeat;
 }
 
 select.agx-ui-control option {
@@ -292,11 +307,11 @@ select.agx-ui-control option {
 /* Labels */
 .agx-ui-label {
   display: block;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 650;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--agx-ds-text-muted);
+  color: color-mix(in srgb, var(--agx-ds-text) 72%, var(--agx-ds-text-muted));
 }
 
 .agx-ui-error {
@@ -309,6 +324,40 @@ select.agx-ui-control option {
   display: block;
   font-size: 12px;
   color: var(--agx-ds-text-muted);
+}
+
+/* Sortable table headers — comfortable hit target */
+.agx-ui-table-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 8px 4px;
+  margin: -8px -4px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  border-radius: var(--agx-ds-radius-sm);
+}
+
+.agx-ui-table-sort:hover {
+  color: var(--agx-ds-text);
+}
+
+.agx-ui-table-sort:focus-visible {
+  outline: 2px solid var(--agx-ds-accent);
+  outline-offset: 2px;
+}
+
+.agx-ui-table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
 /* Glass panel shared by dashboard / modules */

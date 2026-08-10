@@ -135,6 +135,7 @@ export function CrmDirectory(): JSX.Element {
         <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
           <SearchField
             label="Search customers"
+            controlSize="sm"
             value={state.search}
             onChange={(value) => crmStore.setSearch(value)}
             placeholder="Company, contact, email, tags…"
@@ -168,6 +169,7 @@ export function CrmDirectory(): JSX.Element {
         <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-5">
           <FilterSelect
             label="Status"
+            controlSize="sm"
             value={state.statusFilter}
             onChange={(e) =>
               crmStore.setStatusFilter(
@@ -184,6 +186,7 @@ export function CrmDirectory(): JSX.Element {
           </FilterSelect>
           <FilterSelect
             label="Industry"
+            controlSize="sm"
             value={state.industryFilter}
             onChange={(e) => crmStore.setIndustryFilter(e.target.value)}
           >
@@ -196,6 +199,7 @@ export function CrmDirectory(): JSX.Element {
           </FilterSelect>
           <FilterSelect
             label="Owner"
+            controlSize="sm"
             value={state.ownerFilter}
             onChange={(e) => crmStore.setOwnerFilter(e.target.value)}
           >
@@ -208,6 +212,7 @@ export function CrmDirectory(): JSX.Element {
           </FilterSelect>
           <FilterSelect
             label="Country"
+            controlSize="sm"
             value={state.countryFilter}
             onChange={(e) => crmStore.setCountryFilter(e.target.value)}
           >
@@ -220,6 +225,7 @@ export function CrmDirectory(): JSX.Element {
           </FilterSelect>
           <FilterSelect
             label="Tags"
+            controlSize="sm"
             value={state.tagFilter}
             onChange={(e) => crmStore.setTagFilter(e.target.value)}
           >
@@ -235,10 +241,55 @@ export function CrmDirectory(): JSX.Element {
 
       {total === 0 ? (
         <EmptyState
-          title="Your CRM is ready"
-          description="Create the first customer record to unlock directory, profiles, and activity."
-          actionLabel="Create customer"
-          onAction={() => crmStore.openCreate()}
+          title={
+            state.search ||
+            state.statusFilter !== "all" ||
+            state.industryFilter ||
+            state.ownerFilter ||
+            state.countryFilter ||
+            state.tagFilter
+              ? "No matching customers"
+              : "Your CRM is ready"
+          }
+          description={
+            state.search ||
+            state.statusFilter !== "all" ||
+            state.industryFilter ||
+            state.ownerFilter ||
+            state.countryFilter ||
+            state.tagFilter
+              ? "Try adjusting search or filters to find the right records."
+              : "Create the first customer record to unlock directory, profiles, and activity."
+          }
+          actionLabel={
+            state.search ||
+            state.statusFilter !== "all" ||
+            state.industryFilter ||
+            state.ownerFilter ||
+            state.countryFilter ||
+            state.tagFilter
+              ? "Clear filters"
+              : "Create customer"
+          }
+          onAction={() => {
+            if (
+              state.search ||
+              state.statusFilter !== "all" ||
+              state.industryFilter ||
+              state.ownerFilter ||
+              state.countryFilter ||
+              state.tagFilter
+            ) {
+              crmStore.setSearch("");
+              crmStore.setStatusFilter("all");
+              crmStore.setIndustryFilter("");
+              crmStore.setOwnerFilter("");
+              crmStore.setCountryFilter("");
+              crmStore.setTagFilter("");
+              return;
+            }
+            crmStore.openCreate();
+          }}
         />
       ) : state.viewMode === "cards" ? (
         <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -252,22 +303,35 @@ export function CrmDirectory(): JSX.Element {
         </div>
       ) : (
         <Card hover={false} padding="0" className="overflow-x-auto">
-          <table className="min-w-full text-left text-sm">
+          <table className="agx-ui-table min-w-full text-left text-sm">
             <thead>
-              <tr style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+              <tr style={{ color: "var(--agx-ds-text-muted, #94a3b8)" }}>
                 {sortKeys.map((col) => (
-                  <th key={col.key} className="px-4 py-3 font-medium">
+                  <th
+                    key={col.key}
+                    className="px-4 py-1 font-medium"
+                    aria-sort={
+                      state.sortKey === col.key
+                        ? state.sortDirection === "asc"
+                          ? "ascending"
+                          : "descending"
+                        : "none"
+                    }
+                  >
                     <button
                       type="button"
+                      className="agx-ui-table-sort"
                       onClick={() => crmStore.setSort(col.key)}
                       aria-label={`Sort by ${col.label}`}
                     >
                       {col.label}
-                      {state.sortKey === col.key
-                        ? state.sortDirection === "asc"
-                          ? " ↑"
-                          : " ↓"
-                        : ""}
+                      <span aria-hidden="true" className="text-[10px] opacity-70">
+                        {state.sortKey === col.key
+                          ? state.sortDirection === "asc"
+                            ? "↑"
+                            : "↓"
+                          : "↕"}
+                      </span>
                     </button>
                   </th>
                 ))}
@@ -281,13 +345,16 @@ export function CrmDirectory(): JSX.Element {
                   style={{
                     borderTop:
                       "1px solid var(--agx-card-border, rgba(255,255,255,0.06))",
-                    color: "var(--agx-text, #f8fafc)",
+                    color: "var(--agx-ds-text, #f8fafc)",
                   }}
                   tabIndex={0}
                   aria-label={`Open customer ${customer.companyName}`}
                   onClick={() => openCustomer(customer.id)}
                   onKeyDown={(event) => {
-                    if (event.key === "Enter") openCustomer(customer.id);
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      openCustomer(customer.id);
+                    }
                   }}
                 >
                   <td className="px-4 py-3 font-medium">

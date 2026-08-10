@@ -20,6 +20,7 @@ export function CrmCustomerDeleteDialog(): JSX.Element {
     <Dialog
       open={Boolean(state.deleteId)}
       title="Delete customer"
+      dismissible={!state.deleting}
       onClose={() => crmStore.cancelDelete()}
       footer={
         <>
@@ -35,6 +36,7 @@ export function CrmCustomerDeleteDialog(): JSX.Element {
             variant="danger"
             size="sm"
             loading={state.deleting}
+            disabled={state.deleting}
             onClick={() => {
               const leavingProfile =
                 state.selectedId != null &&
@@ -43,6 +45,12 @@ export function CrmCustomerDeleteDialog(): JSX.Element {
                 if (removed) {
                   toast.success("Customer deleted", removed.companyName);
                   if (leavingProfile) router.replace("/dashboard/crm");
+                } else {
+                  toast.error(
+                    "Delete failed",
+                    crmStore.getSnapshot().error ??
+                      "Customer could not be removed.",
+                  );
                 }
               });
             }}

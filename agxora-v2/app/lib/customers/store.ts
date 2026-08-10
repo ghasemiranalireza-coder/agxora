@@ -26,6 +26,7 @@ export type CustomerStoreSnapshot = {
   readonly loading: boolean;
   readonly saving: boolean;
   readonly deleting: boolean;
+  readonly error: string | null;
   readonly search: string;
   readonly statusFilter: CustomerStatus | "all";
   readonly tagFilter: string;
@@ -52,6 +53,7 @@ let snapshot: CustomerStoreSnapshot = {
   loading: false,
   saving: false,
   deleting: false,
+  error: null,
   search: "",
   statusFilter: "all",
   tagFilter: "",
@@ -88,12 +90,29 @@ function commit(partial: Partial<CustomerStoreSnapshot>): void {
 
 async function reload(organizationId: string | null): Promise<void> {
   if (!organizationId) {
-    commit({ items: [], organizationId: null, hydrated: true, loading: false });
+    commit({
+      items: [],
+      organizationId: null,
+      hydrated: true,
+      loading: false,
+      error: null,
+    });
     return;
   }
-  commit({ loading: true, organizationId });
-  const items = await customerCrmService.list(organizationId);
-  commit({ items, loading: false, hydrated: true });
+  commit({ loading: true, organizationId, error: null });
+  try {
+    const items = await customerCrmService.list(organizationId);
+    commit({ items, loading: false, hydrated: true, error: null });
+  } catch (error) {
+    commit({
+      loading: false,
+      hydrated: true,
+      error:
+        error instanceof Error
+          ? error.message
+          : "Couldn’t load customers. Check your connection and try again.",
+    });
+  }
 }
 
 export const customerStore = {
@@ -179,7 +198,11 @@ export const customerStore = {
     commit({ detailsOpen: false });
   },
   requestDelete(deleteId: CustomerId) {
-    commit({ deleteId });
+    commit({
+      deleteId,
+      detailsOpen: false,
+      formOpen: false,
+    });
   },
   cancelDelete() {
     commit({ deleteId: null });

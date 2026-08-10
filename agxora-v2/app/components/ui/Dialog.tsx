@@ -21,6 +21,7 @@ import {
  * Portals to document.body (outside dashboard isolation / page-enter opacity).
  * Owns Escape only when topmost; locks body scroll; focus traps; solid panel
  * (no backdrop-filter) so native selects paint above the panel.
+ * Sticky header/footer with scrollable body so actions stay reachable.
  */
 export function Dialog({
   open,
@@ -29,6 +30,7 @@ export function Dialog({
   children,
   footer,
   wide = false,
+  dismissible = true,
 }: {
   readonly open: boolean;
   readonly title: string;
@@ -36,19 +38,41 @@ export function Dialog({
   readonly children: ReactNode;
   readonly footer?: ReactNode;
   readonly wide?: boolean;
+  /** When false, Escape / backdrop / close button do not dismiss (e.g. while saving). */
+  readonly dismissible?: boolean;
 }): JSX.Element | null {
   const titleId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
   const previouslyFocused = useRef<HTMLElement | null>(null);
   const onCloseRef = useRef(onClose);
+  const dismissibleRef = useRef(dismissible);
 
   useEffect(() => {
     onCloseRef.current = onClose;
   }, [onClose]);
 
+  useEffect(() => {
+    dismissibleRef.current = dismissible;
+  }, [dismissible]);
+
+  const requestClose = useCallback((): void => {
+    if (!dismissibleRef.current) return;
+    onCloseRef.current();
+  }, []);
+
   const focusFirst = useCallback((): void => {
     const panel = panelRef.current;
     if (!panel) return;
+    const autofocus = panel.querySelector<HTMLElement>("[autofocus], [data-autofocus]");
+    if (autofocus && !autofocus.hasAttribute("disabled")) {
+      autofocus.focus();
+      return;
+    }
+    const invalid = panel.querySelector<HTMLElement>('[aria-invalid="true"]');
+    if (invalid) {
+      invalid.focus();
+      return;
+    }
     const focusable = panel.querySelectorAll<HTMLElement>(
       'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
     );
@@ -64,7 +88,10 @@ export function Dialog({
         ? (document.activeElement as HTMLElement | null)
         : null;
 
-    const close = (): void => onCloseRef.current();
+    const close = (): void => {
+      if (!dismissibleRef.current) return;
+      onCloseRef.current();
+    };
     const pop = pushOverlay(close);
     const unlock = lockBodyScroll();
     const frame = window.requestAnimationFrame(() => focusFirst());
@@ -72,6 +99,11 @@ export function Dialog({
     const onKey = (event: KeyboardEvent): void => {
       if (event.key === "Escape") {
         if (!isTopOverlay(close)) return;
+        if (!dismissibleRef.current) {
+          event.preventDefault();
+          event.stopPropagation();
+          return;
+        }
         event.preventDefault();
         event.stopPropagation();
         close();
@@ -120,7 +152,7 @@ export function Dialog({
         zIndex: OVERLAY_Z.modal,
         background: "var(--agx-ds-scrim)",
       }}
-      onClick={onClose}
+      onClick={requestClose}
     >
       <div
         ref={panelRef}
@@ -128,12 +160,11 @@ export function Dialog({
         aria-modal="true"
         aria-labelledby={titleId}
         tabIndex={-1}
-        className={`agx-ui-dialog-panel max-h-[90vh] w-full overflow-y-auto border outline-none ${
+        className={`agx-ui-dialog-panel flex max-h-[90vh] w-full flex-col border outline-none ${
           wide ? "max-w-4xl" : "max-w-2xl"
         }`}
         style={{
           borderRadius: "var(--agx-ds-radius-xl)",
-          padding: "var(--agx-ds-space-5)",
           borderColor: "var(--agx-ds-border)",
           background: "var(--agx-ds-elevated)",
           boxShadow: "var(--agx-ds-shadow-lg)",
@@ -141,7 +172,10 @@ export function Dialog({
         }}
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="mb-4 flex items-start justify-between gap-4">
+        <div
+          className="flex shrink-0 items-start justify-between gap-4 border-b px-5 py-4"
+          style={{ borderColor: "var(--agx-ds-border)" }}
+        >
           <h3
             id={titleId}
             className="text-lg font-semibold"
@@ -152,22 +186,30 @@ export function Dialog({
           <button
             type="button"
             aria-label="Close dialog"
-            onClick={onClose}
-            className="rounded-xl border px-3 py-2 text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            disabled={!dismissible}
+            onClick={requestClose}
+            className="inline-flex items-center justify-center rounded-xl border text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-55"
             style={{
               borderColor: "var(--agx-ds-border)",
               color: "var(--agx-ds-text-muted)",
               background: "var(--agx-ds-surface)",
               outlineColor: "var(--agx-ds-accent)",
-              minHeight: "var(--agx-ds-control-h-sm)",
+              minHeight: 44,
+              minWidth: 44,
+              padding: "0 12px",
             }}
           >
-            Esc
+            Close
           </button>
         </div>
-        {children}
+        <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4">{children}</div>
         {footer ? (
-          <div className="mt-6 flex flex-wrap justify-end gap-2">{footer}</div>
+          <div
+            className="flex shrink-0 flex-wrap justify-end gap-2 border-t px-5 py-4"
+            style={{ borderColor: "var(--agx-ds-border)" }}
+          >
+            {footer}
+          </div>
         ) : null}
       </div>
     </div>,
