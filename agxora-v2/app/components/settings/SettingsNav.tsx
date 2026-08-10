@@ -2,6 +2,7 @@
 
 import type { JSX } from "react";
 import type { SettingsNavItem, SettingsSectionId } from "../../lib/settings";
+import { useT } from "../../lib/i18n";
 import { Card } from "../ui";
 
 export function SettingsNav({
@@ -13,16 +14,18 @@ export function SettingsNav({
   readonly active: SettingsSectionId;
   readonly onSelect: (id: SettingsSectionId) => void;
 }): JSX.Element {
+  const t = useT();
+
   return (
     <Card className="xl:sticky xl:top-4" padding="12px" hover={false}>
       <p
         className="mb-2 px-2 text-[11px] font-semibold uppercase tracking-[0.16em]"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        Control Center
+        {t("settings.controlCenter")}
       </p>
-      <nav aria-label="Settings sections">
-        <ul className="max-h-[min(70vh,720px)] space-y-0.5 overflow-y-auto pr-1">
+      <nav aria-label={t("settings.settingsSections")}>
+        <ul className="max-h-[min(70vh,720px)] space-y-0.5 overflow-y-auto pe-1">
           {items.map((item) => {
             const selected = item.id === active;
             return (
@@ -32,7 +35,7 @@ export function SettingsNav({
                   id={`settings-nav-${item.id}`}
                   aria-current={selected ? "page" : undefined}
                   onClick={() => onSelect(item.id)}
-                  className="w-full rounded-xl px-3 py-2.5 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                  className="w-full rounded-xl px-3 py-2.5 text-start transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                   style={{
                     outlineColor: "var(--agx-accent, #22d3ee)",
                     background: selected
@@ -43,7 +46,9 @@ export function SettingsNav({
                       : "var(--agx-text, #f8fafc)",
                   }}
                 >
-                  <span className="block text-sm font-medium">{item.label}</span>
+                  <span className="block text-sm font-medium">
+                    {t(`settings.${item.id}.label`)}
+                  </span>
                   <span
                     className="mt-0.5 block text-[11px] leading-snug"
                     style={{
@@ -52,7 +57,7 @@ export function SettingsNav({
                         : "var(--agx-text-muted, #94a3b8)",
                     }}
                   >
-                    {item.description}
+                    {t(`settings.${item.id}.description`)}
                   </span>
                 </button>
               </li>

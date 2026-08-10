@@ -1,0 +1,70 @@
+{
+  "navLabel": "Pricing navigation",
+  "navPricing": "Pricing",
+  "navContactSales": "Contact Sales",
+  "navBookDemo": "Book Demo",
+  "navSignIn": "Sign in",
+  "eyebrow": "Pricing",
+  "title": "Plans built for operators who ship.",
+  "lead": "Clear commercial tiers. Start free, scale when ready, or talk to sales for enterprise terms.",
+  "billingInterval": "Billing interval",
+  "monthly": "Monthly",
+  "yearly": "Yearly",
+  "savePercent": "Save ~20%",
+  "mostPopular": "MOST POPULAR",
+  "startFree": "Start Free",
+  "bookDemo": "Book Demo",
+  "contactSales": "Contact Sales",
+  "perMonth": "/mo",
+  "perMonthYearly": "/mo billed yearly",
+  "yearlyHint": "€{amount}/year · save {percent}%",
+  "commercialActions": "Commercial actions",
+  "legal": "Legal",
+  "planAria": "{name} plan — {cta}",
+  "plans": {
+    "starter": {
+      "name": "Starter",
+      "description": "For freelancers and small businesses.",
+      "features": [
+        "CRM & customer pipeline",
+        "Projects and documents",
+        "Governed AI assistant",
+        "Up to 5 seats",
+        "Email support"
+      ]
+    },
+    "business": {
+      "name": "Business",
+      "description": "For growing teams.",
+      "features": [
+        "Everything in Starter",
+        "Finance & analytics modules",
+        "Automation & audit export",
+        "Team collaboration",
+        "Priority support"
+      ]
+    },
+    "professional": {
+      "name": "Professional",
+      "description": "For advanced companies.",
+      "features": [
+        "Everything in Starter",
+        "Finance & analytics modules",
+        "API access",
+        "Advanced company workflows",
+        "Priority support inbox"
+      ]
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "description": "Custom pricing for unlimited scale.",
+      "features": [
+        "Custom pricing",
+        "Unlimited scale",
+        "Dedicated onboarding",
+        "Custom integrations",
+        "Priority support"
+      ]
+    }
+  }
+}

@@ -40,7 +40,7 @@ function AppShellComponent({
           background: "transparent",
           transition: surfaceTransition,
           fontFamily:
-            '"SF Pro Display", "Segoe UI", system-ui, -apple-system, sans-serif',
+            "var(--agx-ds-font-ui, var(--font-geist-sans), system-ui, sans-serif)",
         }}
       >
         <DashboardSidebar />

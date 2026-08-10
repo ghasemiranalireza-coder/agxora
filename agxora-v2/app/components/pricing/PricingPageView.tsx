@@ -7,12 +7,23 @@ import {
   listMarketingPlans,
   yearlySavingsPercent,
 } from "../../../features/saas";
-import type { BillingInterval } from "../../../features/saas";
+import type { BillingInterval, CommercialPlanId } from "../../../features/saas";
+import { LanguageSwitcher, useLocale } from "../../lib/i18n";
 import "./pricing.css";
 
 export function PricingPageView(): JSX.Element {
+  const { t, tList } = useLocale();
   const [interval, setInterval] = useState<BillingInterval>("monthly");
   const plans = listMarketingPlans();
+
+  const planName = (id: CommercialPlanId): string =>
+    t(`pricing.plans.${id}.name`);
+  const planDescription = (id: CommercialPlanId): string =>
+    t(`pricing.plans.${id}.description`);
+  const planFeatures = (id: CommercialPlanId): string[] =>
+    tList(`pricing.plans.${id}.features`);
+  const planCta = (id: CommercialPlanId): string =>
+    id === "enterprise" ? t("pricing.contactSales") : t("pricing.startFree");
 
   return (
     <div className="p35-pricing">
@@ -20,32 +31,30 @@ export function PricingPageView(): JSX.Element {
         <Link href="/" className="p35-pricing__brand">
           AGXORA
         </Link>
-        <nav className="p35-pricing__nav" aria-label="Pricing navigation">
+        <nav className="p35-pricing__nav" aria-label={t("pricing.navLabel")}>
           <Link href="/pricing" aria-current="page">
-            Pricing
+            {t("pricing.navPricing")}
           </Link>
-          <Link href="/contact-sales">Contact Sales</Link>
-          <Link href="/demo">Book Demo</Link>
-          <Link href="/login">Sign in</Link>
+          <Link href="/contact-sales">{t("pricing.navContactSales")}</Link>
+          <Link href="/demo">{t("pricing.navBookDemo")}</Link>
+          <Link href="/login">{t("pricing.navSignIn")}</Link>
+          <LanguageSwitcher id="pricing-language" />
           <Link href="/register" className="p35-pricing__nav-cta">
-            Start Free
+            {t("pricing.startFree")}
           </Link>
         </nav>
       </header>
 
       <main className="p35-pricing__main">
         <div className="p35-pricing__intro">
-          <p className="p35-pricing__eyebrow">Pricing</p>
-          <h1 className="p35-pricing__title">Plans built for operators who ship.</h1>
-          <p className="p35-pricing__lead">
-            Clear commercial tiers. Start free, scale when ready, or talk to sales for
-            enterprise terms.
-          </p>
+          <p className="p35-pricing__eyebrow">{t("pricing.eyebrow")}</p>
+          <h1 className="p35-pricing__title">{t("pricing.title")}</h1>
+          <p className="p35-pricing__lead">{t("pricing.lead")}</p>
 
           <div
             className="p35-pricing__toggle"
             role="group"
-            aria-label="Billing interval"
+            aria-label={t("pricing.billingInterval")}
           >
             <button
               type="button"
@@ -53,7 +62,7 @@ export function PricingPageView(): JSX.Element {
               aria-pressed={interval === "monthly"}
               onClick={() => setInterval("monthly")}
             >
-              Monthly
+              {t("pricing.monthly")}
             </button>
             <button
               type="button"
@@ -61,8 +70,8 @@ export function PricingPageView(): JSX.Element {
               aria-pressed={interval === "yearly"}
               onClick={() => setInterval("yearly")}
             >
-              Yearly
-              <span className="p35-pricing__save">Save ~20%</span>
+              {t("pricing.yearly")}
+              <span className="p35-pricing__save">{t("pricing.savePercent")}</span>
             </button>
           </div>
         </div>
@@ -71,30 +80,44 @@ export function PricingPageView(): JSX.Element {
           {plans.map((plan) => {
             const price = formatPlanPrice(plan, interval);
             const savings = yearlySavingsPercent(plan);
+            const name = planName(plan.id);
+            const ctaLabel = planCta(plan.id);
+            const features = planFeatures(plan.id);
+            const amountLabel =
+              plan.priceMonthlyUsd == null ? t("pricing.contactSales") : price.label;
+            const suffixLabel =
+              plan.priceMonthlyUsd == null
+                ? ""
+                : interval === "yearly"
+                  ? t("pricing.perMonthYearly")
+                  : t("pricing.perMonth");
+
             return (
               <Link
                 key={plan.id}
                 href={plan.cta.href}
                 className={`p35-plan${plan.recommended ? " is-recommended" : ""}`}
-                aria-label={`${plan.name} plan — ${plan.cta.label}`}
+                aria-label={t("pricing.planAria", { name, cta: ctaLabel })}
               >
                 {plan.recommended ? (
-                  <p className="p35-plan__badge">MOST POPULAR</p>
+                  <p className="p35-plan__badge">{t("pricing.mostPopular")}</p>
                 ) : (
                   <p className="p35-plan__badge p35-plan__badge--spacer" aria-hidden="true">
                     &nbsp;
                   </p>
                 )}
-                <h2 className="p35-plan__name">{plan.name}</h2>
-                <p className="p35-plan__desc">{plan.description}</p>
+                <h2 className="p35-plan__name">{name}</h2>
+                <p className="p35-plan__desc">{planDescription(plan.id)}</p>
                 <p className="p35-plan__price">
-                  <span className="p35-plan__amount">{price.label}</span>
-                  <span className="p35-plan__suffix">{price.suffix}</span>
+                  <span className="p35-plan__amount">{amountLabel}</span>
+                  <span className="p35-plan__suffix">{suffixLabel}</span>
                 </p>
                 {interval === "yearly" && savings != null ? (
                   <p className="p35-plan__yearly-hint">
-                    €{Number(plan.priceYearlyUsd).toFixed(2)}/year · save{" "}
-                    {savings}%
+                    {t("pricing.yearlyHint", {
+                      amount: Number(plan.priceYearlyUsd).toFixed(2),
+                      percent: savings,
+                    })}
                   </p>
                 ) : (
                   <p className="p35-plan__yearly-hint p35-plan__yearly-hint--spacer">
@@ -102,34 +125,34 @@ export function PricingPageView(): JSX.Element {
                   </p>
                 )}
                 <ul className="p35-plan__features">
-                  {plan.features.map((feature) => (
+                  {(features.length > 0 ? features : plan.features).map((feature) => (
                     <li key={feature}>{feature}</li>
                   ))}
                 </ul>
-                <span className="p35-plan__cta">{plan.cta.label}</span>
+                <span className="p35-plan__cta">{ctaLabel}</span>
               </Link>
             );
           })}
         </div>
 
-        <div className="p35-pricing__actions" aria-label="Commercial actions">
+        <div className="p35-pricing__actions" aria-label={t("pricing.commercialActions")}>
           <Link href="/register" className="p35-pricing__action p35-pricing__action--primary">
-            Start Free
+            {t("pricing.startFree")}
           </Link>
           <Link href="/demo" className="p35-pricing__action">
-            Book Demo
+            {t("pricing.bookDemo")}
           </Link>
           <Link href="/contact-sales" className="p35-pricing__action">
-            Contact Sales
+            {t("pricing.contactSales")}
           </Link>
         </div>
 
-        <nav className="p35-pricing__legal" aria-label="Legal">
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/terms">Terms</Link>
-          <Link href="/cookies">Cookies</Link>
-          <Link href="/imprint">Imprint</Link>
-          <Link href="/contact">Contact</Link>
+        <nav className="p35-pricing__legal" aria-label={t("pricing.legal")}>
+          <Link href="/privacy">{t("common.privacy")}</Link>
+          <Link href="/terms">{t("common.terms")}</Link>
+          <Link href="/cookies">{t("common.cookies")}</Link>
+          <Link href="/imprint">{t("common.imprint")}</Link>
+          <Link href="/contact">{t("common.contact")}</Link>
         </nav>
       </main>
     </div>

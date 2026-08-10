@@ -1,0 +1,70 @@
+{
+  "controlCenter": "Control Center",
+  "settingsSections": "Einstellungsbereiche",
+  "profile": {
+    "label": "Profil",
+    "description": "Avatar, Identität und persönliche Einstellungen",
+    "title": "Profil",
+    "panelDescription": "Avatar, vollständiger Name, E-Mail, Rolle, Zeitzone, Sprache und Theme.",
+    "language": "Sprache",
+    "timezone": "Zeitzone"
+  },
+  "organization": {
+    "label": "Organisation",
+    "description": "Unternehmensprofil und Steueridentität"
+  },
+  "workspace": {
+    "label": "Workspace",
+    "description": "Branding, Startseite und Standardmodule"
+  },
+  "team": {
+    "label": "Team",
+    "description": "Mitglieder, Rollen, Einladungen und Gruppen"
+  },
+  "ai": {
+    "label": "AI",
+    "description": "Anbieter, Modell, Kreativität und Speicher"
+  },
+  "appearance": {
+    "label": "Darstellung",
+    "description": "Theme, Dichte und Glas-Effekte"
+  },
+  "notifications": {
+    "label": "Benachrichtigungen",
+    "description": "E-Mail, Push und Modulalarme"
+  },
+  "documents": {
+    "label": "Dokumente",
+    "description": "Speicher, Aufbewahrung und Wissen"
+  },
+  "automation": {
+    "label": "Automatisierung",
+    "description": "Workflow-Standards und Wiederholungsrichtlinie"
+  },
+  "integrations": {
+    "label": "Integrationen",
+    "description": "Installiert, verbunden und verfügbar"
+  },
+  "security": {
+    "label": "Sicherheit",
+    "description": "2FA, Sitzungen, Schlüssel und Verschlüsselung"
+  },
+  "billing": {
+    "label": "Abrechnung",
+    "description": "Tarif, Nutzung, Rechnungen und Zahlungen",
+    "title": "Abrechnung",
+    "panelDescription": "Aktueller Tarif, Verlängerung, Nutzung, Rechnungen und Upgrade-Pfad."
+  },
+  "api": {
+    "label": "API & Entwickler",
+    "description": "Schlüssel, Webhooks, Tokens, Sandbox"
+  },
+  "audit": {
+    "label": "Audit-Protokolle",
+    "description": "Aktivität, Sicherheit und Systemänderungen"
+  },
+  "advanced": {
+    "label": "Erweitert",
+    "description": "Experimentell, Reset, Import, Export"
+  }
+}

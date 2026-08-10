@@ -1,18 +1,21 @@
 "use client";
 
 import { useEffect } from "react";
-import { DEFAULT_LOCALE } from "./locale";
+import { useLocale } from "./LocaleProvider";
 
 /**
- * Keeps documentElement.lang aligned with the deterministic app locale.
- * Runs only after mount — never during SSR/render.
+ * Syncs documentElement lang + dir with the active LocaleProvider locale.
+ * Runs after mount / locale changes — never during SSR render.
  */
 export function HtmlLangSync(): null {
+  const { locale, dir, bcp47 } = useLocale();
+
   useEffect(() => {
-    if (document.documentElement.lang !== DEFAULT_LOCALE) {
-      document.documentElement.lang = DEFAULT_LOCALE;
-    }
-  }, []);
+    const root = document.documentElement;
+    if (root.lang !== bcp47) root.lang = bcp47;
+    if (root.dir !== dir) root.dir = dir;
+    root.dataset.locale = locale;
+  }, [locale, dir, bcp47]);
 
   return null;
 }

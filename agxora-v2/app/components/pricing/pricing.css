@@ -4,7 +4,8 @@
   background:
     radial-gradient(ellipse 70% 45% at 50% -10%, rgba(34, 211, 238, 0.12), transparent),
     linear-gradient(165deg, #05070c 0%, #0b1220 50%, #071018 100%);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  /* Uses --agx-ds-font-ui so RTL (fa) swaps to the Arabic-capable face. */
+  font-family: var(--agx-ds-font-ui, var(--font-geist-sans), system-ui, sans-serif);
 }
 
 .p35-pricing__header {
