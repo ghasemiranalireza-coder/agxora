@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { cookies } from "next/headers";
+import { Geist, Geist_Mono, Noto_Sans_Arabic } from "next/font/google";
 import { AppProviders } from "./providers/AppProviders";
-import { DEFAULT_LOCALE } from "./lib/i18n/locale";
+import { resolveServerLocale } from "./lib/i18n/cookie";
+import {
+  LOCALE_COOKIE,
+  localeDirection,
+  toBcp47,
+} from "./lib/i18n/locale";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,6 +20,14 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
+});
+
+/** Persian/Arabic-capable face — activated via [dir=rtl] CSS variable swap. */
+const notoSansArabic = Noto_Sans_Arabic({
+  variable: "--font-agx-arabic",
+  subsets: ["arabic"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 const SITE_URL =
@@ -70,16 +84,23 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jar = await cookies();
+  const initialLocale = resolveServerLocale(jar.get(LOCALE_COOKIE)?.value);
+  const dir = localeDirection(initialLocale);
+  const lang = toBcp47(initialLocale);
+
   return (
     <html
-      lang={DEFAULT_LOCALE}
+      lang={lang}
+      dir={dir}
+      data-locale={initialLocale}
       translate="no"
-      className={`notranslate ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`notranslate ${geistSans.variable} ${geistMono.variable} ${notoSansArabic.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <a href="#agxora-main" className="agx-skip-link">
@@ -91,7 +112,7 @@ export default function RootLayout({
           aria-live="polite"
           aria-atomic="true"
         />
-        <AppProviders>
+        <AppProviders initialLocale={initialLocale}>
           <div id="agxora-main">{children}</div>
         </AppProviders>
       </body>

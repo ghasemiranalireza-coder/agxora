@@ -1,0 +1,70 @@
+{
+  "controlCenter": "Control Center",
+  "settingsSections": "Settings sections",
+  "profile": {
+    "label": "Profile",
+    "description": "Avatar, identity, and personal preferences",
+    "title": "Profile",
+    "panelDescription": "Avatar, full name, email, role, timezone, language, and theme preference.",
+    "language": "Language",
+    "timezone": "Timezone"
+  },
+  "organization": {
+    "label": "Organization",
+    "description": "Company profile and tax identity"
+  },
+  "workspace": {
+    "label": "Workspace",
+    "description": "Branding, homepage, and default modules"
+  },
+  "team": {
+    "label": "Team",
+    "description": "Members, roles, invitations, and groups"
+  },
+  "ai": {
+    "label": "AI",
+    "description": "Provider, model, creativity, and memory"
+  },
+  "appearance": {
+    "label": "Appearance",
+    "description": "Theme, density, and glass effects"
+  },
+  "notifications": {
+    "label": "Notifications",
+    "description": "Email, push, and module alerts"
+  },
+  "documents": {
+    "label": "Documents",
+    "description": "Storage, retention, and knowledge"
+  },
+  "automation": {
+    "label": "Automation",
+    "description": "Workflow defaults and retry policy"
+  },
+  "integrations": {
+    "label": "Integrations",
+    "description": "Installed, connected, and available"
+  },
+  "security": {
+    "label": "Security",
+    "description": "2FA, sessions, keys, and encryption"
+  },
+  "billing": {
+    "label": "Billing",
+    "description": "Plan, usage, invoices, and payments",
+    "title": "Billing",
+    "panelDescription": "Current plan, renewal, usage, invoices, and upgrade path."
+  },
+  "api": {
+    "label": "API & Developers",
+    "description": "Keys, webhooks, tokens, sandbox"
+  },
+  "audit": {
+    "label": "Audit Logs",
+    "description": "Activity, security, and system changes"
+  },
+  "advanced": {
+    "label": "Advanced",
+    "description": "Experimental, reset, import, export"
+  }
+}

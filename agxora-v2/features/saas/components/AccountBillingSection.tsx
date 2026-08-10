@@ -10,9 +10,11 @@ import { billingService } from "../billing";
 import { getCommercialPlan } from "../plans";
 import { useSaasCommercial } from "../hooks/useSaasCommercial";
 import { SaasNavLink } from "./SaasNavLink";
+import { useT } from "@/app/lib/i18n";
 
 export function AccountBillingSection(): JSX.Element {
   const saas = useSaasCommercial();
+  const t = useT();
 
   useEffect(() => {
     saasCommercialStore.hydrate();
@@ -30,7 +32,7 @@ export function AccountBillingSection(): JSX.Element {
   if (!saas.hydrated) {
     return (
       <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Loading billing…
+        {t("common.loading")}
       </p>
     );
   }
@@ -122,13 +124,13 @@ export function AccountBillingSection(): JSX.Element {
 
       <div className="flex flex-wrap gap-2">
         <SaasNavLink href="/dashboard/billing" variant="primary">
-          Upgrade
+          {t("billing.upgrade")}
         </SaasNavLink>
         <SaasNavLink href="/pricing" variant="secondary">
-          View pricing
+          {t("billing.viewPricing")}
         </SaasNavLink>
         <SaasNavLink href="/contact-sales" variant="ghost">
-          Contact Sales
+          {t("billing.contactSales")}
         </SaasNavLink>
       </div>
     </div>

@@ -34,6 +34,10 @@ import { Badge, Button, DataTable, EmptyState } from "../ui";
 import type { DataTableColumn } from "../ui";
 import { AccountBillingSection, SaasNavLink } from "../../../features/saas";
 import {
+  LanguageSwitcher,
+  useLocale,
+} from "../../lib/i18n";
+import {
   SettingsField,
   SettingsGrid,
   SettingsInput,
@@ -71,11 +75,9 @@ function SaveRow({
 function ProfilePanel(): JSX.Element {
   const identity = useIdentity();
   const { mode } = useTheme();
+  const { t } = useLocale();
   const [name, setName] = useState(identity.profile.fullName);
   const [email, setEmail] = useState(identity.profile.email);
-  const [language, setLanguage] = useState<string>(
-    identity.profile.language || "en-GB",
-  );
   const [timezone, setTimezone] = useState(identity.profile.timezone || "Europe/Berlin");
   const [region, setRegion] = useState("EU");
   const [prefs, setPrefs] = useState("Prefer concise AI summaries and German invoice defaults.");
@@ -84,7 +86,10 @@ function ProfilePanel(): JSX.Element {
   );
 
   return (
-    <SettingsPanel title="Profile" description="Avatar, full name, email, role, timezone, language, and theme preference.">
+    <SettingsPanel
+      title={t("settings.profile.title")}
+      description={t("settings.profile.panelDescription")}
+    >
       <div className="flex items-center gap-4">
         <div
           className="flex h-16 w-16 items-center justify-center rounded-2xl border text-lg font-semibold"
@@ -121,15 +126,10 @@ function ProfilePanel(): JSX.Element {
         <SettingsField label="Role">
           <SettingsInput value={identity.profile.roleLabel} readOnly />
         </SettingsField>
-        <SettingsField label="Language">
-          <SettingsSelect value={language} onChange={(e) => setLanguage(e.target.value)}>
-            <option value="en-GB">English (UK)</option>
-            <option value="en-US">English (US)</option>
-            <option value="de-DE">Deutsch</option>
-            <option value="fr-FR">Français</option>
-          </SettingsSelect>
+        <SettingsField label={t("settings.profile.language")}>
+          <LanguageSwitcher id="settings-profile-language" size="md" />
         </SettingsField>
-        <SettingsField label="Timezone">
+        <SettingsField label={t("settings.profile.timezone")}>
           <SettingsSelect value={timezone} onChange={(e) => setTimezone(e.target.value)}>
             <option value="Europe/Berlin">Europe/Berlin</option>
             <option value="Europe/London">Europe/London</option>
@@ -159,15 +159,15 @@ function ProfilePanel(): JSX.Element {
       <SettingsNotice>
         Support:{" "}
         <Link href="/contact" className="underline-offset-2 hover:underline">
-          Contact
+          {t("common.contact")}
         </Link>
         {" · "}
         <Link href="/privacy" className="underline-offset-2 hover:underline">
-          Privacy
+          {t("common.privacy")}
         </Link>
         {" · "}
         <Link href="/terms" className="underline-offset-2 hover:underline">
-          Terms
+          {t("common.terms")}
         </Link>
       </SettingsNotice>
       <SaveRow notice={notice} onSave={() => setNotice("Updated for this session — profile API not connected.")} />
@@ -944,38 +944,39 @@ function SecurityPanel(): JSX.Element {
 }
 
 function BillingPanel(): JSX.Element {
+  const { t } = useLocale();
   return (
     <SettingsPanel
-      title="Billing"
-      description="Current plan, renewal, usage, invoices, and upgrade path."
+      title={t("settings.billing.title")}
+      description={t("settings.billing.panelDescription")}
       actions={
         <SaasNavLink href="/dashboard/billing" variant="primary" size="sm">
-          Open billing portal
+          {t("billing.openBillingPortal")}
         </SaasNavLink>
       }
     >
       <AccountBillingSection />
       <SettingsNotice>
-        Billing questions:{" "}
+        {t("billing.billingQuestions")}{" "}
         <Link
           href="/contact"
           className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
         >
-          Contact
+          {t("common.contact")}
         </Link>
         {" · "}
         <Link
           href="/pricing"
           className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
         >
-          Pricing
+          {t("pricing.navPricing")}
         </Link>
         {" · "}
         <Link
           href="/terms"
           className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
         >
-          Terms
+          {t("common.terms")}
         </Link>
       </SettingsNotice>
     </SettingsPanel>

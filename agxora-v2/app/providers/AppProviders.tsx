@@ -21,7 +21,7 @@ import {
   DataPlatformBridge,
 } from "../lib/backend/providers";
 import { BusinessOsProvider } from "../lib/business";
-import { HtmlLangSync } from "../lib/i18n";
+import { HtmlLangSync, LocaleProvider, type AppLocale } from "../lib/i18n";
 import { MemoryProvider } from "../lib/memory";
 import { ChatProvider } from "../lib/modules/chat";
 import { OrganizationProvider } from "../lib/organization";
@@ -33,44 +33,51 @@ import { IntelligenceBridge } from "../../features/intelligence/providers";
 
 interface AppProvidersProps {
   readonly children: ReactNode;
+  /** Validated SSR locale from cookie (matches root html lang/dir). */
+  readonly initialLocale?: AppLocale;
 }
 
-export function AppProviders({ children }: AppProvidersProps): JSX.Element {
+export function AppProviders({
+  children,
+  initialLocale,
+}: AppProvidersProps): JSX.Element {
   return (
     <ThemeProvider>
-      <HtmlLangSync />
-      <AuthProvider>
-        <AuthOrganizationBridge>
-          <OrganizationProvider>
-            <BackendStateBridge>
-              <DataPlatformBridge>
-                <AutomationBridge>
-                  <IntegrationBridge>
-                    <AgentOsBridge>
-                      <IntelligenceBridge>
-                        <BusinessOsProvider>
-                          <MemoryProvider>
-                            <AISettingsProvider>
-                              <ChatProvider>
-                                <AppErrorBoundary>
-                                  {children}
-                                  <ToastHost />
-                                  <NetworkStatusBanner />
-                                  <GlobalLoadingOverlay />
-                                </AppErrorBoundary>
-                              </ChatProvider>
-                            </AISettingsProvider>
-                          </MemoryProvider>
-                        </BusinessOsProvider>
-                      </IntelligenceBridge>
-                    </AgentOsBridge>
-                  </IntegrationBridge>
-                </AutomationBridge>
-              </DataPlatformBridge>
-            </BackendStateBridge>
-          </OrganizationProvider>
-        </AuthOrganizationBridge>
-      </AuthProvider>
+      <LocaleProvider initialLocale={initialLocale}>
+        <HtmlLangSync />
+        <AuthProvider>
+          <AuthOrganizationBridge>
+            <OrganizationProvider>
+              <BackendStateBridge>
+                <DataPlatformBridge>
+                  <AutomationBridge>
+                    <IntegrationBridge>
+                      <AgentOsBridge>
+                        <IntelligenceBridge>
+                          <BusinessOsProvider>
+                            <MemoryProvider>
+                              <AISettingsProvider>
+                                <ChatProvider>
+                                  <AppErrorBoundary>
+                                    {children}
+                                    <ToastHost />
+                                    <NetworkStatusBanner />
+                                    <GlobalLoadingOverlay />
+                                  </AppErrorBoundary>
+                                </ChatProvider>
+                              </AISettingsProvider>
+                            </MemoryProvider>
+                          </BusinessOsProvider>
+                        </IntelligenceBridge>
+                      </AgentOsBridge>
+                    </IntegrationBridge>
+                  </AutomationBridge>
+                </DataPlatformBridge>
+              </BackendStateBridge>
+            </OrganizationProvider>
+          </AuthOrganizationBridge>
+        </AuthProvider>
+      </LocaleProvider>
     </ThemeProvider>
   );
 }

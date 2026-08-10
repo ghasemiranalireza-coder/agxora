@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type JSX } from "react";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
+import { useT } from "../lib/i18n";
 import { motion, useReducedMotion } from "framer-motion";
 
 const surfaceTransition = [
@@ -33,67 +34,67 @@ function NavIcon({ path }: { readonly path: string }): JSX.Element {
 
 const NAV_ITEMS = [
   {
-    label: "Dashboard",
+    labelKey: "navigation.dashboard",
     href: "/dashboard",
     path: "M3 12l9-9 9 9 M5 10v9a1 1 0 0 0 1 1h3m6 0h3a1 1 0 0 0 1-1v-9 M9 20v-6h6v6",
   },
   {
-    label: "Projects",
+    labelKey: "navigation.projects",
     href: "/dashboard/projects",
     path: "M4 5h16 M4 12h16 M4 19h10",
   },
   {
-    label: "AI CRM",
+    labelKey: "navigation.aiCrm",
     href: "/dashboard/crm",
     path: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
   },
   {
-    label: "Analytics",
+    labelKey: "navigation.analytics",
     href: "/dashboard/analytics",
     path: "M4 19V5 M10 19V9 M16 19v-6 M22 19V7",
   },
   {
-    label: "Billing",
+    labelKey: "navigation.billing",
     href: "/dashboard/billing",
     path: "M4 6h16v12H4Z M4 10h16 M8 14h4",
   },
   {
-    label: "AI Workspace",
+    labelKey: "navigation.aiWorkspace",
     href: "/dashboard/ai",
     path: "M12 3v3 M12 18v3 M3 12h3 M18 12h3 M5.6 5.6l2.1 2.1 M16.3 16.3l2.1 2.1 M5.6 18.4l2.1-2.1 M16.3 7.7l2.1-2.1 M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z",
   },
   {
-    label: "Customers",
+    labelKey: "navigation.customers",
     href: "/dashboard/customers",
     path: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
   },
   {
-    label: "Automation",
+    labelKey: "navigation.automation",
     href: "/dashboard/automation",
     path: "M12 3a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-.5 M8 8V7a4 4 0 0 1 4-4 M7 14h.5A3 3 0 0 1 7 8h1m4 12v-3m-4 3h8",
   },
   {
-    label: "Finance & Tax",
+    labelKey: "navigation.financeTax",
     href: "/dashboard/finance",
     path: "M3 21h18 M5 21V10l7-5 7 5v11 M9 21v-6h6v6 M12 5v2",
   },
   {
-    label: "AI Creator Studio",
+    labelKey: "navigation.aiCreatorStudio",
     href: "/dashboard/creator",
     path: "M12 20h9 M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z",
   },
   {
-    label: "Documents",
+    labelKey: "navigation.documents",
     href: "/dashboard/documents",
     path: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z M14 2v6h6 M8 13h8 M8 17h8 M8 9h2",
   },
   {
-    label: "Team",
+    labelKey: "navigation.team",
     href: "/dashboard/team",
     path: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
   },
   {
-    label: "Settings",
+    labelKey: "navigation.settings",
     href: "/dashboard/settings",
     path: "M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V20a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V10c.2.6.8 1 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z",
   },
@@ -104,6 +105,7 @@ const NAV_ITEMS = [
  */
 export function DashboardSidebar(): JSX.Element {
   const { tokens } = useTheme();
+  const t = useT();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -134,7 +136,7 @@ export function DashboardSidebar(): JSX.Element {
       <button
         type="button"
         className="agx-sidebar-toggle notranslate"
-        aria-label="Toggle navigation"
+        aria-label={t("navigation.toggleNavigation")}
         aria-expanded={open}
         aria-controls="agxora-sidebar"
         translate="no"
@@ -143,7 +145,7 @@ export function DashboardSidebar(): JSX.Element {
           display: "none",
           position: "fixed",
           top: 16,
-          left: 16,
+          insetInlineStart: 16,
           zIndex: 40,
           borderRadius: 12,
           border: `1px solid ${tokens.panelBorder}`,
@@ -153,7 +155,7 @@ export function DashboardSidebar(): JSX.Element {
           cursor: "pointer",
         }}
       >
-        Menu
+        {t("navigation.menu")}
       </button>
 
       <motion.aside
@@ -207,7 +209,7 @@ export function DashboardSidebar(): JSX.Element {
         </h2>
 
         <nav
-          aria-label="Primary"
+          aria-label={t("navigation.primary")}
           style={{
             position: "relative",
             display: "flex",
@@ -216,13 +218,14 @@ export function DashboardSidebar(): JSX.Element {
           }}
         >
           {NAV_ITEMS.map((item) => {
+            const label = t(item.labelKey);
             const active =
               item.href === "/dashboard"
                 ? pathname === "/dashboard"
                 : pathname.startsWith(item.href);
             return (
               <Link
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className={`agx-nav-item${active ? " is-active" : ""}`}
@@ -242,7 +245,7 @@ export function DashboardSidebar(): JSX.Element {
                   fontSize: "14px",
                   fontWeight: active ? 600 : 500,
                   letterSpacing: "0.01em",
-                  textAlign: "left",
+                  textAlign: "start",
                   textDecoration: "none",
                   cursor: "pointer",
                   transition:
@@ -261,7 +264,7 @@ export function DashboardSidebar(): JSX.Element {
                 >
                   <NavIcon path={item.path} />
                 </span>
-                <span>{item.label}</span>
+                <span>{label}</span>
               </Link>
             );
           })}

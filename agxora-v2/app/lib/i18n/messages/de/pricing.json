@@ -1,0 +1,70 @@
+{
+  "navLabel": "Preisnavigation",
+  "navPricing": "Preise",
+  "navContactSales": "Vertrieb kontaktieren",
+  "navBookDemo": "Demo buchen",
+  "navSignIn": "Anmelden",
+  "eyebrow": "Preise",
+  "title": "Tarife für Teams, die liefern.",
+  "lead": "Klare kommerzielle Stufen. Kostenlos starten, bei Bedarf skalieren oder mit dem Vertrieb über Enterprise-Konditionen sprechen.",
+  "billingInterval": "Abrechnungsintervall",
+  "monthly": "Monatlich",
+  "yearly": "Jährlich",
+  "savePercent": "Spar ~20%",
+  "mostPopular": "BELIEBTESTE",
+  "startFree": "Kostenlos starten",
+  "bookDemo": "Demo buchen",
+  "contactSales": "Vertrieb kontaktieren",
+  "perMonth": "/Monat",
+  "perMonthYearly": "/Monat, jährlich abgerechnet",
+  "yearlyHint": "€{amount}/Jahr · {percent}% sparen",
+  "commercialActions": "Kommerzielle Aktionen",
+  "legal": "Rechtliches",
+  "planAria": "{name}-Tarif — {cta}",
+  "plans": {
+    "starter": {
+      "name": "Starter",
+      "description": "Für Freelancer und kleine Unternehmen.",
+      "features": [
+        "CRM & Kundenpipeline",
+        "Projekte und Dokumente",
+        "Gesteuerter AI-Assistent",
+        "Bis zu 5 Sitze",
+        "E-Mail-Support"
+      ]
+    },
+    "business": {
+      "name": "Business",
+      "description": "Für wachsende Teams.",
+      "features": [
+        "Alles aus Starter",
+        "Finanz- und Analysemodule",
+        "Automatisierung & Audit-Export",
+        "Teamzusammenarbeit",
+        "Prioritäts-Support"
+      ]
+    },
+    "professional": {
+      "name": "Professional",
+      "description": "Für fortgeschrittene Unternehmen.",
+      "features": [
+        "Alles aus Starter",
+        "Finanz- und Analysemodule",
+        "API-Zugang",
+        "Erweiterte Unternehmens-Workflows",
+        "Prioritäts-Support-Inbox"
+      ]
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "description": "Individuelle Preise für unbegrenzte Skalierung.",
+      "features": [
+        "Individuelle Preise",
+        "Unbegrenzte Skalierung",
+        "Dediziertes Onboarding",
+        "Individuelle Integrationen",
+        "Prioritäts-Support"
+      ]
+    }
+  }
+}
