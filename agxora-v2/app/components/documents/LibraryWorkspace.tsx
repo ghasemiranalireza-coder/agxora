@@ -291,7 +291,9 @@ export function LibraryWorkspace({
               variant="secondary"
               disabled={selectedIds.size === 0}
               onClick={() =>
-                setUploadNotice(`Bulk action queued for ${selectedIds.size} item(s).`)
+                setUploadNotice(
+                  `Bulk action unavailable for ${selectedIds.size} item(s) — storage mutations are not connected.`,
+                )
               }
             >
               Bulk action
@@ -461,7 +463,9 @@ export function LibraryWorkspace({
           y={contextMenu.y}
           docId={contextMenu.id}
           onAction={(label) => {
-            setUploadNotice(`${label} action for ${contextMenu.id}.`);
+            setUploadNotice(
+              `${label} unavailable — document mutations are not connected for ${contextMenu.id}.`,
+            );
             setContextMenu(null);
           }}
           onClose={() => setContextMenu(null)}

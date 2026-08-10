@@ -3,7 +3,6 @@ import {
   createConversationId,
   createMessage,
   type ChatMessage,
-  type ConversationId,
 } from "./Message";
 import type {
   AiProvider,
@@ -23,17 +22,13 @@ export interface ChatService {
   reset(): void;
 }
 
-const SEED_PAIRS: ReadonlyArray<readonly [string, string]> = [
-  ["Show revenue forecast", "Revenue expected to increase by 18% next month."],
-  ["Analyze customer trends", "Customer retention improved by 12%."],
-];
-
 export function createChatService(config: ChatServiceConfig): ChatService {
   let organizationId = config.organizationId ?? null;
   let workspaceId = config.workspaceId ?? null;
   let provider = config.provider;
   let conversation = createConversation();
-  let messages: ChatMessage[] = seedMessages(conversation.id);
+  /** Empty transcript — do not seed fabricated Q&A. */
+  let messages: ChatMessage[] = [];
   let abortController: AbortController | null = null;
 
   function createConversation(): Conversation {
@@ -46,53 +41,6 @@ export function createChatService(config: ChatServiceConfig): ChatService {
       createdAt: now,
       updatedAt: now,
     };
-  }
-
-  function seedMessages(conversationId: ConversationId): ChatMessage[] {
-    const base = Date.now() - SEED_PAIRS.length * 60_000;
-    const seeded: ChatMessage[] = [];
-
-    SEED_PAIRS.forEach(([user, assistant], index) => {
-      const t = base + index * 60_000;
-      const userMsg = createMessage({
-        conversationId,
-        role: "user",
-        content: user,
-        status: "complete",
-        createdAt: new Date(t).toISOString(),
-        updatedAt: new Date(t).toISOString(),
-      });
-      const assistantMsg = createMessage({
-        conversationId,
-        role: "assistant",
-        content: assistant,
-        status: "complete",
-        metadata: { seeded: true },
-        createdAt: new Date(t + 1200).toISOString(),
-        updatedAt: new Date(t + 1200).toISOString(),
-      });
-
-      seeded.push(userMsg, assistantMsg);
-
-      config.memory.recordMessage({
-        conversationId,
-        messageId: userMsg.id,
-        role: userMsg.role,
-        content: userMsg.content,
-        organizationId,
-        workspaceId,
-      });
-      config.memory.recordMessage({
-        conversationId,
-        messageId: assistantMsg.id,
-        role: assistantMsg.role,
-        content: assistantMsg.content,
-        organizationId,
-        workspaceId,
-      });
-    });
-
-    return seeded;
   }
 
   return {
@@ -230,7 +178,7 @@ export function createChatService(config: ChatServiceConfig): ChatService {
     reset() {
       abortController?.abort();
       conversation = createConversation();
-      messages = seedMessages(conversation.id);
+      messages = [];
     },
   };
 }

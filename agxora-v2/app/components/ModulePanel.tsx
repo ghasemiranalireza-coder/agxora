@@ -42,8 +42,8 @@ export function ModulePanel({
             <ModuleEmptyState kind={kind} />
           ) : (
             <EmptyState
-              title={`${title} is ready`}
-              description="This module is prepared for production use. Records will appear here as your workspace grows."
+              title={`${title} is not available yet`}
+              description="This module shell is prepared for a future release. No records are stored here yet."
             />
           ))}
       </Card>

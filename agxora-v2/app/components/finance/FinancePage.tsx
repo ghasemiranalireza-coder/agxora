@@ -54,8 +54,23 @@ export function FinancePage(): JSX.Element {
           Finance & Tax
         </h1>
         <p className="max-w-2xl text-sm sm:text-base" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          AI-powered Accounting, Banking, Tax & Financial Intelligence
+          Accounting, banking, tax, and financial intelligence — previewed with
+          sample data until live ledgers connect.
         </p>
+        <div
+          role="status"
+          className="mt-3 max-w-2xl rounded-xl border px-3 py-2 text-xs leading-relaxed"
+          style={{
+            borderColor:
+              "color-mix(in srgb, var(--agx-accent, #22d3ee) 35%, transparent)",
+            background:
+              "color-mix(in srgb, var(--agx-accent, #22d3ee) 10%, transparent)",
+            color: "var(--agx-text, #f8fafc)",
+          }}
+        >
+          Sample dataset — figures and export history are illustrative. DATEV /
+          file export and live bank feeds are not connected.
+        </div>
       </motion.header>
 
       <FinanceSection id="finance-overview" title="Finance Overview" delay={0.05}>

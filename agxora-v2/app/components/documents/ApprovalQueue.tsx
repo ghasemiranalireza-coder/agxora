@@ -16,8 +16,14 @@ export function ApprovalQueue({
     [documents],
   );
   const [notice, setNotice] = useState(
-    "Approval transitions link to Automation architecture — no live workflow engine call.",
+    "Approval transitions require the Automation workflow engine — not connected in this build.",
   );
+
+  const unavailable = (action: string, docId: string): void => {
+    setNotice(
+      `${action} unavailable for ${docId} — workflow engine is not connected. Sample document status was not changed.`,
+    );
+  };
 
   return (
     <Card className="space-y-3" padding="24px" hover={false}>
@@ -26,12 +32,16 @@ export function ApprovalQueue({
           Approval Workflow
         </h3>
         <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Draft → In Review → Approved / Rejected → Archived. Linked with Automation approval gates.
+          Draft → In Review → Approved / Rejected → Archived. Queue items are
+          sample documents; actions do not persist.
         </p>
       </div>
 
       {queue.length === 0 ? (
-        <EmptyState title="Queue clear" description="No draft or in-review documents." />
+        <EmptyState
+          title="Queue clear"
+          description="No draft or in-review documents in the sample set."
+        />
       ) : (
         <ul className="space-y-2">
           {queue.map((doc) => (
@@ -58,27 +68,24 @@ export function ApprovalQueue({
                 <Button
                   size="sm"
                   variant="primary"
-                  onClick={() =>
-                    setNotice(`Approved ${doc.id} — Automation hook reserved.`)
-                  }
+                  title="Approval unavailable — workflow engine not connected"
+                  onClick={() => unavailable("Approve", doc.id)}
                 >
                   Approve
                 </Button>
                 <Button
                   size="sm"
                   variant="danger"
-                  onClick={() =>
-                    setNotice(`Rejected ${doc.id} — Automation hook reserved.`)
-                  }
+                  title="Rejection unavailable — workflow engine not connected"
+                  onClick={() => unavailable("Reject", doc.id)}
                 >
                   Reject
                 </Button>
                 <Button
                   size="sm"
                   variant="secondary"
-                  onClick={() =>
-                    setNotice(`Sent ${doc.id} to In Review via Automation architecture.`)
-                  }
+                  title="Send to review unavailable — workflow engine not connected"
+                  onClick={() => unavailable("Send to Review", doc.id)}
                 >
                   Send to Review
                 </Button>
@@ -87,7 +94,12 @@ export function ApprovalQueue({
           ))}
         </ul>
       )}
-      <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+      <p
+        className="text-xs"
+        role="status"
+        aria-live="polite"
+        style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+      >
         {notice}
       </p>
     </Card>

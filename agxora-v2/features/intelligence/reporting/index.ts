@@ -60,10 +60,23 @@ export function seedReports(organizationId: string): readonly ReportDefinition[]
   }));
 }
 
-/** Export placeholder — returns metadata only. */
+/**
+ * Export stub — no file is generated.
+ * Callers must surface an unavailable state (never imply success).
+ */
 export function exportReportPlaceholder(
   report: ReportDefinition,
   format: "pdf" | "csv" | "xlsx",
-): { readonly ok: true; readonly format: string; readonly reportId: string } {
-  return { ok: true, format, reportId: report.id };
+): {
+  readonly ok: false;
+  readonly format: string;
+  readonly reportId: string;
+  readonly reason: string;
+} {
+  return {
+    ok: false,
+    format,
+    reportId: report.id,
+    reason: "Export unavailable — report generation is not connected yet.",
+  };
 }

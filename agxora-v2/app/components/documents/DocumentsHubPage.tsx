@@ -92,9 +92,23 @@ export function DocumentsHubPage(): JSX.Element {
           Documents
         </h1>
         <p className="max-w-2xl text-sm sm:text-base" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Enterprise AI Documents & Knowledge Hub — the central knowledge system every AGXORA module
-          can attach to and retrieve from. Architecture first. Future AI ready.
+          Enterprise documents & knowledge hub — previewed with sample content
+          until storage and approval backends connect.
         </p>
+        <div
+          role="status"
+          className="mt-3 max-w-2xl rounded-xl border px-3 py-2 text-xs leading-relaxed"
+          style={{
+            borderColor:
+              "color-mix(in srgb, var(--agx-accent, #22d3ee) 35%, transparent)",
+            background:
+              "color-mix(in srgb, var(--agx-accent, #22d3ee) 10%, transparent)",
+            color: "var(--agx-text, #f8fafc)",
+          }}
+        >
+          Sample library — browsing and filters work in-session. Upload,
+          approve, and AI index actions are not connected.
+        </div>
       </motion.header>
 
       <Section id="documents-kpis" title="Knowledge Dashboard" delay={0.04}>
