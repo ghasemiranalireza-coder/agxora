@@ -129,7 +129,7 @@ export function HeroSection(): JSX.Element {
             whileHover={reduceMotion ? undefined : { y: -2, scale: 1.02 }}
             whileTap={reduceMotion ? undefined : { scale: 0.99 }}
             transition={{ duration: 0.22 }}
-            aria-label="Open quick actions"
+            aria-label={t("dashboard.hero.openQuickActionsAria")}
           >
             {t("dashboard.hero.ctaGetStarted")}
           </motion.button>
@@ -141,7 +141,7 @@ export function HeroSection(): JSX.Element {
             whileHover={reduceMotion ? undefined : { y: -2, scale: 1.01 }}
             whileTap={reduceMotion ? undefined : { scale: 0.99 }}
             transition={{ duration: 0.22 }}
-            aria-label="View recent activity"
+            aria-label={t("dashboard.hero.viewActivityAria")}
           >
             {t("dashboard.hero.ctaViewActivity")}
           </motion.button>

@@ -114,7 +114,7 @@ export function AttentionPanel({
                   style={{ color: tokens.accent }}
                 >
                   {item.tone === "action"
-                    ? "Do next"
+                    ? t("dashboard.attention.tone.action")
                     : t("dashboard.attention.tone.info")}
                 </p>
                 <p className="mt-2 mb-1 text-sm font-semibold">{item.title}</p>

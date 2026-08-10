@@ -60,8 +60,6 @@ export function BusinessOverview(): JSX.Element {
   const activity = useRecentActivity();
   const [ready, setReady] = useState(false);
 
-  const formatCount = (n: number): string => formatNumber(n, locale);
-
   useEffect(() => {
     let cancelled = false;
     void (async () => {
@@ -91,12 +89,12 @@ export function BusinessOverview(): JSX.Element {
     () => [
       {
         title: t("dashboard.overview.activeClients.title"),
-        value: formatCount(activeCustomers),
+        value: formatNumber(activeCustomers, locale),
         caption:
           activeCustomers === 0
             ? t("dashboard.overview.activeClients.captionEmpty")
             : t("dashboard.overview.activeClients.captionTotal", {
-                count: formatCount(customers.items.length),
+                count: formatNumber(customers.items.length, locale),
               }),
         icon: <Icon path={ICON_PATHS.clients} />,
         href: "/dashboard/customers",
@@ -107,7 +105,7 @@ export function BusinessOverview(): JSX.Element {
       },
       {
         title: t("dashboard.overview.projects.title"),
-        value: formatCount(projectCount),
+        value: formatNumber(projectCount, locale),
         caption:
           projectCount === 0
             ? t("dashboard.overview.projects.captionEmpty")
@@ -121,7 +119,7 @@ export function BusinessOverview(): JSX.Element {
       },
       {
         title: t("dashboard.overview.activityToday.title"),
-        value: formatCount(todayActivity),
+        value: formatNumber(todayActivity, locale),
         caption:
           todayActivity === 0
             ? t("dashboard.overview.activityToday.captionEmpty")
