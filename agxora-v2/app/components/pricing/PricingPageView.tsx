@@ -72,10 +72,11 @@ export function PricingPageView(): JSX.Element {
             const price = formatPlanPrice(plan, interval);
             const savings = yearlySavingsPercent(plan);
             return (
-              <article
+              <Link
                 key={plan.id}
+                href={plan.cta.href}
                 className={`p35-plan${plan.recommended ? " is-recommended" : ""}`}
-                aria-label={`${plan.name} plan`}
+                aria-label={`${plan.name} plan — ${plan.cta.label}`}
               >
                 {plan.recommended ? (
                   <p className="p35-plan__badge">MOST POPULAR</p>
@@ -105,8 +106,7 @@ export function PricingPageView(): JSX.Element {
                     <li key={feature}>{feature}</li>
                   ))}
                 </ul>
-                <Link
-                  href={plan.cta.href}
+                <span
                   className={
                     plan.recommended
                       ? "p35-plan__cta p35-plan__cta--primary"
@@ -114,8 +114,8 @@ export function PricingPageView(): JSX.Element {
                   }
                 >
                   {plan.cta.label}
-                </Link>
-              </article>
+                </span>
+              </Link>
             );
           })}
         </div>

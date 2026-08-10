@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState, type JSX, type ReactNode } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
@@ -15,6 +14,8 @@ import type {
   PaymentProviderId,
   QuotaCheckResult,
 } from "../types";
+import { BillingPlanCard } from "./BillingPlanCard";
+import { SaasNavLink } from "./SaasNavLink";
 
 /**
  * Customer subscription portal — upgrade/downgrade/cancel, invoices, usage, methods.
@@ -27,6 +28,9 @@ export function CustomerBillingPortal(): JSX.Element {
     "Billing runs through the commercial service layer — no payment SDK in the UI.",
   );
   const [busy, setBusy] = useState(false);
+  const [selectingPlanId, setSelectingPlanId] = useState<CommercialPlanId | null>(
+    null,
+  );
   const [draftProfile, setDraftProfile] = useState<{
     companyName?: string;
     billingEmail?: string;
@@ -84,6 +88,7 @@ export function CustomerBillingPortal(): JSX.Element {
 
   const onCheckout = async (planId: CommercialPlanId) => {
     setBusy(true);
+    setSelectingPlanId(planId);
     try {
       const { session, amountUsd } = await billingService.startCheckout({
         organizationId: saas.organizationId,
@@ -101,11 +106,12 @@ export function CustomerBillingPortal(): JSX.Element {
         actorUserId: saas.userId ?? undefined,
         email: saas.email,
       });
-      setNotice(`Activated ${planId} via ${session.providerId}.`);
+      setNotice(`Activated ${planId} via ${session.providerId} (mock checkout).`);
     } catch (error) {
       setNotice(error instanceof Error ? error.message : "Checkout failed");
     } finally {
       setBusy(false);
+      setSelectingPlanId(null);
     }
   };
 
@@ -174,26 +180,18 @@ export function CustomerBillingPortal(): JSX.Element {
           Payment providers stay behind the billing service.
         </p>
         <div className="flex flex-wrap gap-2 pt-1">
-          <Link href="/pricing">
-            <Button size="sm" variant="secondary">
-              Public pricing
-            </Button>
-          </Link>
-          <Link href="/contact-sales">
-            <Button size="sm" variant="secondary">
-              Contact Sales
-            </Button>
-          </Link>
-          <Link href="/dashboard/billing/admin">
-            <Button size="sm" variant="secondary">
-              Admin billing
-            </Button>
-          </Link>
-          <Link href="/dashboard/settings#billing">
-            <Button size="sm" variant="ghost">
-              Settings billing
-            </Button>
-          </Link>
+          <SaasNavLink href="/pricing" variant="secondary">
+            Public pricing
+          </SaasNavLink>
+          <SaasNavLink href="/contact-sales" variant="secondary">
+            Contact Sales
+          </SaasNavLink>
+          <SaasNavLink href="/dashboard/billing/admin" variant="secondary">
+            Admin billing
+          </SaasNavLink>
+          <SaasNavLink href="/dashboard/settings#billing" variant="ghost">
+            Settings billing
+          </SaasNavLink>
         </div>
       </Card>
 
@@ -260,60 +258,14 @@ export function CustomerBillingPortal(): JSX.Element {
           {saas.plans.map((plan) => {
             const current = saas.license?.planId === plan.id;
             return (
-              <div
+              <BillingPlanCard
                 key={plan.id}
-                className="flex flex-col gap-2 rounded-2xl p-4"
-                style={{
-                  border: plan.highlighted
-                    ? "1px solid color-mix(in srgb, var(--agx-accent, #22d3ee) 40%, transparent)"
-                    : "1px solid color-mix(in srgb, var(--agx-border, #334155) 60%, transparent)",
-                  background: plan.highlighted
-                    ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 8%, transparent)"
-                    : "transparent",
-                }}
-              >
-                <p className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {plan.name}
-                </p>
-                <p className="text-[11px] leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  {plan.description}
-                </p>
-                <p className="text-lg font-semibold" style={{ color: "var(--agx-accent, #22d3ee)" }}>
-                  {plan.priceMonthlyUsd == null
-                    ? "Contact sales"
-                    : `€${plan.priceMonthlyUsd}/mo`}
-                </p>
-                <ul className="space-y-1 text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  <li>{plan.limits.users} users</li>
-                  <li>{plan.limits.aiRequestsPerMonth.toLocaleString()} AI req/mo</li>
-                  <li>{plan.limits.storageMb.toLocaleString()} MB storage</li>
-                  <li>{plan.features.length} module features</li>
-                </ul>
-                <Button
-                  size="sm"
-                  variant={current ? "secondary" : "primary"}
-                  disabled={
-                    busy ||
-                    current ||
-                    (plan.priceMonthlyUsd == null && plan.id !== "enterprise")
-                  }
-                  onClick={() => {
-                    if (plan.priceMonthlyUsd == null) return;
-                    void onCheckout(plan.id);
-                  }}
-                >
-                  {current
-                    ? "Current plan"
-                    : plan.priceMonthlyUsd == null
-                      ? "Contact sales"
-                      : "Choose plan"}
-                </Button>
-                {plan.priceMonthlyUsd == null ? (
-                  <Link href="/contact-sales" className="text-[11px] font-semibold underline" style={{ color: "var(--agx-accent, #22d3ee)" }}>
-                    Open Contact Sales
-                  </Link>
-                ) : null}
-              </div>
+                plan={plan}
+                current={current}
+                busy={busy}
+                selecting={selectingPlanId === plan.id}
+                onSelect={(planId) => void onCheckout(planId)}
+              />
             );
           })}
         </div>
