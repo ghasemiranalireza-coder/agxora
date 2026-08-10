@@ -113,13 +113,13 @@ export function PricingPageView(): JSX.Element {
         </div>
 
         <div className="p35-pricing__actions" aria-label="Commercial actions">
-          <Link href="/register" className="p35-plan__cta p35-plan__cta--primary">
+          <Link href="/register" className="p35-pricing__action p35-pricing__action--primary">
             Start Free
           </Link>
-          <Link href="/demo" className="p35-plan__cta">
+          <Link href="/demo" className="p35-pricing__action">
             Book Demo
           </Link>
-          <Link href="/contact-sales" className="p35-plan__cta">
+          <Link href="/contact-sales" className="p35-pricing__action">
             Contact Sales
           </Link>
         </div>

@@ -149,7 +149,16 @@
   align-items: stretch;
 }
 
+/*
+ * Plan cards — full-card <a.p35-plan>.
+ * Rest state is identical for all plans (including recommended).
+ * Hover chrome is ONLY under @media (hover: hover) so touch does not sticky-hover.
+ * Focus uses outline only — never the cyan “hover” fill (avoids stuck-highlight look).
+ */
 .p35-plan {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -162,41 +171,44 @@
   color: inherit;
   cursor: pointer;
   box-sizing: border-box;
+  box-shadow: none;
+  transform: none;
   transition:
     border-color 160ms ease,
     background 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
+    box-shadow 160ms ease;
 }
 
-.p35-plan:hover,
-.p35-plan:focus-visible {
-  border-color: rgba(34, 211, 238, 0.38);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
-  transform: translateY(-2px);
+/* Recommended = MOST POPULAR badge only — no permanent cyan card chrome. */
+.p35-plan.is-recommended {
+  border-color: rgba(148, 163, 184, 0.16);
+  background: rgba(8, 14, 28, 0.72);
+  box-shadow: none;
+}
+
+.p35-plan:focus {
+  outline: none;
 }
 
 .p35-plan:focus-visible {
   outline: 2px solid #22d3ee;
   outline-offset: 3px;
+  /* Do not apply hover fill here — focus ≠ hover. */
 }
 
-/*
- * Recommended = badge only.
- * Do not apply permanent cyan card chrome (that reads as stuck hover).
- */
-.p35-plan.is-recommended {
-  border-color: rgba(148, 163, 184, 0.16);
-  box-shadow: none;
-  background: rgba(8, 14, 28, 0.72);
-}
+@media (hover: hover) and (pointer: fine) {
+  .p35-plan:hover {
+    border-color: rgba(34, 211, 238, 0.38);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+    /* No translateY — lift shifts hit-testing and causes hover flicker. */
+  }
 
-.p35-plan.is-recommended:hover,
-.p35-plan.is-recommended:focus-visible {
-  border-color: rgba(34, 211, 238, 0.38);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
-  background: rgba(8, 14, 28, 0.72);
-  transform: translateY(-2px);
+  .p35-plan:hover .p35-plan__cta {
+    border-color: rgba(34, 211, 238, 0.45);
+    background: linear-gradient(90deg, #06b6d4, #22d3ee);
+    color: #020617;
+    box-shadow: 0 8px 24px rgba(34, 211, 238, 0.25);
+  }
 }
 
 .p35-plan__badge {
@@ -280,8 +292,13 @@
   height: 6px;
   border-radius: 50%;
   background: #22d3ee;
+  pointer-events: none;
 }
 
+/*
+ * Decorative CTA label INSIDE the card Link only.
+ * Never reuse this class on real footer/nav Links (pointer-events: none).
+ */
 .p35-plan__cta {
   display: inline-flex;
   justify-content: center;
@@ -299,28 +316,13 @@
   text-decoration: none;
   box-sizing: border-box;
   pointer-events: none;
+  user-select: none;
 }
 
-.p35-plan:hover .p35-plan__cta {
-  border-color: rgba(34, 211, 238, 0.45);
-  background: linear-gradient(90deg, #06b6d4, #22d3ee);
-  color: #020617;
-  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.25);
-}
-
-.p35-plan:focus-visible .p35-plan__cta {
-  border-color: rgba(34, 211, 238, 0.45);
-  background: linear-gradient(90deg, #06b6d4, #22d3ee);
-  color: #020617;
-  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.25);
-}
-
-.p35-plan__cta--primary {
-  border: none;
-  background: linear-gradient(90deg, #06b6d4, #22d3ee);
-  color: #020617;
-}
-
+/*
+ * Footer commercial actions — dedicated classes.
+ * Always interactive; never inherit .p35-plan__cta pointer-events: none.
+ */
 .p35-pricing__actions {
   display: flex;
   flex-wrap: wrap;
@@ -329,11 +331,58 @@
   margin-top: 48px;
 }
 
-.p35-pricing__actions .p35-plan__cta {
+.p35-pricing__action {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: auto;
   min-width: 160px;
-  /* Footer Links reuse CTA styles; restore interaction (card spans stay none). */
+  min-height: 44px;
+  padding: 13px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(15, 23, 42, 0.7);
+  color: #e2e8f0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-sizing: border-box;
+  cursor: pointer;
   pointer-events: auto;
+  position: relative;
+  z-index: 1;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.p35-pricing__action--primary {
+  border: none;
+  background: linear-gradient(90deg, #06b6d4, #22d3ee);
+  color: #020617;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .p35-pricing__action:hover {
+    border-color: rgba(148, 163, 184, 0.5);
+    background: rgba(30, 41, 59, 0.95);
+    color: #f8fafc;
+  }
+
+  .p35-pricing__action--primary:hover {
+    border: none;
+    background: linear-gradient(90deg, #22d3ee, #67e8f9);
+    color: #020617;
+    box-shadow: 0 8px 24px rgba(34, 211, 238, 0.28);
+  }
+}
+
+.p35-pricing__action:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 3px;
 }
 
 .p35-pricing__legal {
@@ -361,7 +410,11 @@
   color: #e2e8f0;
 }
 
-.p35-pricing a:focus-visible,
+.p35-pricing__legal a:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 3px;
+}
+
 .p35-pricing button:focus-visible {
   outline: 2px solid #22d3ee;
   outline-offset: 3px;
@@ -391,7 +444,7 @@
     width: 100%;
   }
 
-  .p35-pricing__actions .p35-plan__cta {
+  .p35-pricing__action {
     width: 100%;
   }
 }
