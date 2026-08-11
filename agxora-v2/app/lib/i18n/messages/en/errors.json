@@ -1,5 +1,11 @@
 {
   "required": "This field is required.",
   "invalidEmail": "Enter a valid email address.",
-  "generic": "Something went wrong."
+  "passwordMin": "Password must be at least 8 characters.",
+  "passwordLettersNumbers": "Password must include letters and numbers.",
+  "passwordMismatch": "Passwords do not match.",
+  "acceptTerms": "Please accept the terms to continue.",
+  "generic": "Something went wrong.",
+  "tryAgain": "Please try again.",
+  "saved": "Saved successfully."
 }

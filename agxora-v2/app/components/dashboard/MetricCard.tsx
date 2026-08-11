@@ -1,5 +1,8 @@
+"use client";
+
 import type { JSX, ReactNode } from "react";
 import Link from "next/link";
+import { useLocale } from "../../lib/i18n";
 
 /* -------------------------------------------------------------------------- */
 /*                                   Types                                    */
@@ -75,6 +78,7 @@ function Sparkline({ points }: { readonly points: readonly number[] }): JSX.Elem
 }
 
 function ProgressBar({ percent }: { readonly percent: number }): JSX.Element {
+  const { t } = useLocale();
   const safe = Math.max(0, Math.min(100, Math.round(percent)));
   return (
     <div className="space-y-1.5">
@@ -95,7 +99,7 @@ function ProgressBar({ percent }: { readonly percent: number }): JSX.Element {
         className="text-[11px] tracking-wide tabular-nums"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        {safe}% capacity signal
+        {t("dashboard.overview.capacitySignal", { percent: safe })}
       </p>
     </div>
   );

@@ -13,9 +13,11 @@ import {
   authMutedStyle,
 } from "../components/auth/AuthCard";
 import { isValidEmail } from "../lib/auth/formValidation";
+import { useT } from "../lib/i18n";
 import { submitSalesInquiry } from "../../features/saas";
 
 export default function ContactSalesPage(): JSX.Element {
+  const t = useT();
   const [company, setCompany] = useState("");
   const [employees, setEmployees] = useState("");
   const [country, setCountry] = useState("");
@@ -26,12 +28,12 @@ export default function ContactSalesPage(): JSX.Element {
   const [busy, setBusy] = useState(false);
 
   const validate = (): string | null => {
-    if (!company.trim()) return "Company is required.";
-    if (!employees.trim()) return "Employees is required.";
-    if (!country.trim()) return "Country is required.";
-    if (!isValidEmail(businessEmail)) return "Enter a valid business email.";
+    if (!company.trim()) return "errors.required";
+    if (!employees.trim()) return "errors.required";
+    if (!country.trim()) return "errors.required";
+    if (!isValidEmail(businessEmail)) return "errors.invalidEmail";
     if (!message.trim() || message.trim().length < 12) {
-      return "Please share a short message about your needs.";
+      return "errors.required";
     }
     return null;
   };
@@ -55,7 +57,7 @@ export default function ContactSalesPage(): JSX.Element {
       });
       setSubmitted(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not submit inquiry.");
+      setError(err instanceof Error ? err.message : "auth.contactSales.failed");
     } finally {
       setBusy(false);
     }
@@ -64,15 +66,15 @@ export default function ContactSalesPage(): JSX.Element {
   if (submitted) {
     return (
       <AuthCard
-        title="Thank you"
-        subtitle="Your inquiry has been saved in this workspace."
+        title={t("auth.contactSales.successTitle")}
+        subtitle={t("auth.contactSales.successBody")}
         footer={
           <>
-            <AuthLink href="/pricing">Back to pricing</AuthLink>
+            <AuthLink href="/pricing">{t("auth.contactSales.viewPricing")}</AuthLink>
             {" · "}
-            <AuthLink href="/demo">Book Demo</AuthLink>
+            <AuthLink href="/demo">{t("auth.contactSales.bookDemo")}</AuthLink>
             {" · "}
-            <AuthLink href="/register">Start Free</AuthLink>
+            <AuthLink href="/register">{t("auth.login.startFree")}</AuthLink>
           </>
         }
       >
@@ -84,7 +86,7 @@ export default function ContactSalesPage(): JSX.Element {
           Prefer a product walkthrough next?
         </p>
         <Link href="/demo" style={{ ...authButtonStyle, display: "block", textAlign: "center", textDecoration: "none" }}>
-          Book Demo
+          {t("auth.contactSales.bookDemo")}
         </Link>
       </AuthCard>
     );
@@ -92,21 +94,21 @@ export default function ContactSalesPage(): JSX.Element {
 
   return (
     <AuthCard
-      title="Contact Sales"
-      subtitle="Enterprise inquiry — tell us about your organization and we’ll tailor AGXORA."
+      title={t("auth.contactSales.title")}
+      subtitle={t("auth.contactSales.subtitle")}
       footer={
         <>
-          Prefer self-serve? <AuthLink href="/register">Start Free</AuthLink>
+          Prefer self-serve? <AuthLink href="/register">{t("auth.login.startFree")}</AuthLink>
           {" · "}
-          <AuthLink href="/pricing">View pricing</AuthLink>
+          <AuthLink href="/pricing">{t("auth.contactSales.viewPricing")}</AuthLink>
           {" · "}
-          <AuthLink href="/demo">Book Demo</AuthLink>
+          <AuthLink href="/demo">{t("auth.contactSales.bookDemo")}</AuthLink>
         </>
       }
     >
       <form onSubmit={onSubmit} noValidate>
         <label style={authLabelStyle} htmlFor="sales-company">
-          Company
+          {t("auth.contactSales.company")}
         </label>
         <input
           id="sales-company"
@@ -121,7 +123,7 @@ export default function ContactSalesPage(): JSX.Element {
         />
 
         <label style={authLabelStyle} htmlFor="sales-employees">
-          Employees
+          {t("auth.contactSales.employees")}
         </label>
         <select
           id="sales-employees"
@@ -130,15 +132,15 @@ export default function ContactSalesPage(): JSX.Element {
           required
           disabled={busy}
           aria-required="true"
-          aria-label="Number of employees"
+          aria-label={t("auth.contactSales.employees")}
           style={authInputStyle}
         >
-          <option value="">Select range</option>
-          <option value="1-10">1–10</option>
-          <option value="11-50">11–50</option>
-          <option value="51-200">51–200</option>
-          <option value="201-1000">201–1,000</option>
-          <option value="1000+">1,000+</option>
+          <option value="">{t("auth.contactSales.employeesSelect")}</option>
+          <option value="1-10">{t("auth.contactSales.employees1_10")}</option>
+          <option value="11-50">{t("auth.contactSales.employees11_50")}</option>
+          <option value="51-200">{t("auth.contactSales.employees51_200")}</option>
+          <option value="201-1000">{t("auth.contactSales.employees201_1000")}</option>
+          <option value="1000+">{t("auth.contactSales.employees1000plus")}</option>
         </select>
 
         <label style={authLabelStyle} htmlFor="sales-country">
@@ -157,7 +159,7 @@ export default function ContactSalesPage(): JSX.Element {
         />
 
         <label style={authLabelStyle} htmlFor="sales-email">
-          Business Email
+          {t("auth.contactSales.email")}
         </label>
         <input
           id="sales-email"
@@ -172,7 +174,7 @@ export default function ContactSalesPage(): JSX.Element {
         />
 
         <label style={authLabelStyle} htmlFor="sales-message">
-          Message
+          {t("auth.contactSales.message")}
         </label>
         <textarea
           id="sales-message"
@@ -182,6 +184,7 @@ export default function ContactSalesPage(): JSX.Element {
           rows={4}
           disabled={busy}
           aria-required="true"
+          placeholder={t("auth.contactSales.messagePlaceholder")}
           style={{
             ...authInputStyle,
             minHeight: 110,
@@ -190,7 +193,7 @@ export default function ContactSalesPage(): JSX.Element {
           }}
         />
 
-        <AuthFieldError message={error} />
+        <AuthFieldError message={error ? t(error) : null} />
 
         <button
           type="submit"
@@ -198,7 +201,7 @@ export default function ContactSalesPage(): JSX.Element {
           style={busy ? authButtonDisabledStyle : authButtonStyle}
           aria-busy={busy}
         >
-          {busy ? "Sending…" : "Submit inquiry"}
+          {busy ? t("auth.contactSales.submitting") : t("auth.contactSales.submit")}
         </button>
       </form>
     </AuthCard>

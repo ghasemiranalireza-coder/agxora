@@ -7,47 +7,76 @@
     "title": "Profile",
     "panelDescription": "Avatar, full name, email, role, timezone, language, and theme preference.",
     "language": "Language",
-    "timezone": "Timezone"
+    "timezone": "Timezone",
+    "fullName": "Full name",
+    "email": "Email",
+    "role": "Role",
+    "theme": "Theme",
+    "avatar": "Avatar",
+    "changeAvatar": "Change avatar",
+    "region": "Region",
+    "personalPrefs": "Personal preferences",
+    "supportLinks": "Support & legal"
   },
   "organization": {
     "label": "Organization",
-    "description": "Company profile and tax identity"
+    "description": "Company profile and tax identity",
+    "title": "Organization",
+    "panelDescription": "Company name, logo, address, tax information, departments, and business units."
   },
   "workspace": {
     "label": "Workspace",
-    "description": "Branding, homepage, and default modules"
+    "description": "Branding, homepage, and default modules",
+    "title": "Workspace",
+    "panelDescription": "Workspace settings, default dashboard, branding, modules, and homepage."
   },
   "team": {
     "label": "Team",
-    "description": "Members, roles, invitations, and groups"
+    "description": "Members, roles, invitations, and groups",
+    "title": "Team",
+    "panelDescription": "Members, roles, invitations, and groups."
   },
   "ai": {
     "label": "AI",
-    "description": "Provider, model, creativity, and memory"
+    "description": "Provider, model, creativity, and memory",
+    "title": "AI",
+    "panelDescription": "Provider, model, creativity, temperature, and memory preferences."
   },
   "appearance": {
     "label": "Appearance",
-    "description": "Theme, density, and glass effects"
+    "description": "Theme, density, and glass effects",
+    "title": "Appearance",
+    "panelDescription": "Theme, density, accent, animations, and glass effects."
   },
   "notifications": {
     "label": "Notifications",
-    "description": "Email, push, and module alerts"
+    "description": "Email, push, and module alerts",
+    "title": "Notifications",
+    "panelDescription": "Email, push, desktop, mobile, and module-specific alerts."
   },
   "documents": {
     "label": "Documents",
-    "description": "Storage, retention, and knowledge"
+    "description": "Storage, retention, and knowledge",
+    "title": "Documents",
+    "panelDescription": "Storage preferences, retention, default folder, versioning, and knowledge settings."
   },
   "automation": {
     "label": "Automation",
-    "description": "Workflow defaults and retry policy"
+    "description": "Workflow defaults and retry policy",
+    "title": "Automation",
+    "panelDescription": "Workflow defaults, AI suggestions, execution logs, history limits, and retry policy."
   },
   "integrations": {
     "label": "Integrations",
-    "description": "Installed, connected, and available"
+    "description": "Installed, connected, and available",
+    "title": "Integrations",
+    "panelDescription": "Installed, connected, and available adapters."
   },
   "security": {
     "label": "Security",
-    "description": "2FA, sessions, keys, and encryption"
+    "description": "2FA, sessions, keys, and encryption",
+    "title": "Security",
+    "panelDescription": "Active sessions, trusted devices, password, 2FA, and encryption settings."
   },
   "billing": {
     "label": "Billing",
@@ -57,14 +86,53 @@
   },
   "api": {
     "label": "API & Developers",
-    "description": "Keys, webhooks, tokens, sandbox"
+    "description": "Keys, webhooks, tokens, sandbox",
+    "title": "API & Developers",
+    "panelDescription": "Keys, webhooks, tokens, and sandbox access."
   },
   "audit": {
     "label": "Audit Logs",
-    "description": "Activity, security, and system changes"
+    "description": "Activity, security, and system changes",
+    "title": "Audit Logs",
+    "panelDescription": "Recent activity, security events, and system changes."
   },
   "advanced": {
     "label": "Advanced",
-    "description": "Experimental, reset, import, export"
+    "description": "Experimental, reset, import, export",
+    "title": "Advanced",
+    "panelDescription": "Experimental features, reset, import, and export."
+  },
+  "page": {
+    "eyebrow": "AGXORA Control Center",
+    "title": "Settings",
+    "lead": "Enterprise configuration for every AGXORA module — profile, organization, AI, appearance, security, billing, and developer controls in one place.",
+    "loading": "Loading settings…",
+    "breadcrumb": "{label} · {description}"
+  },
+  "saveChanges": "Save changes",
+  "sessionNotice": "Updated for this session — {area} not connected.",
+  "kpi": {
+    "members": {
+      "label": "Team Members",
+      "caption": "Active seats"
+    },
+    "integrations": {
+      "label": "Integrations",
+      "caption": "Connected adapters"
+    },
+    "api": {
+      "label": "API Keys",
+      "caption": "Developer tokens"
+    },
+    "audit": {
+      "label": "Audit Events",
+      "caption": "Last 7 days"
+    }
+  },
+  "unknown": {
+    "title": "Settings",
+    "description": "Unknown section.",
+    "emptyTitle": "Not found",
+    "emptyDescription": "Select a section from the Control Center navigation."
   }
 }

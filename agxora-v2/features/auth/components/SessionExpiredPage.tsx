@@ -3,8 +3,11 @@
 import Link from "next/link";
 import type { JSX } from "react";
 import { Button, Card } from "@/app/components/ui";
+import { useT } from "@/app/lib/i18n";
 
 export function SessionExpiredPage(): JSX.Element {
+  const t = useT();
+
   return (
     <Card
       className="mx-auto max-w-lg space-y-4 text-center"
@@ -21,25 +24,23 @@ export function SessionExpiredPage(): JSX.Element {
         className="text-2xl font-semibold"
         style={{ color: "var(--agx-text, #f8fafc)" }}
       >
-        Session expired
+        {t("auth.sessionExpired.title")}
       </h1>
       <p
         className="text-sm leading-relaxed"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        Your access token is no longer valid. Sign in again to restore your
-        workspace session. Refresh-token rotation will be enforced by the
-        identity backend.
+        {t("auth.sessionExpired.subtitle")}
       </p>
       <div className="flex flex-wrap justify-center gap-2">
         <Link href="/login">
           <Button variant="primary" size="sm">
-            Sign in
+            {t("auth.sessionExpired.signIn")}
           </Button>
         </Link>
         <Link href="/">
           <Button variant="secondary" size="sm">
-            Home
+            {t("common.home")}
           </Button>
         </Link>
       </div>

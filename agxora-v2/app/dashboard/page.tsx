@@ -3,6 +3,12 @@
 import dynamic from "next/dynamic";
 import type { JSX } from "react";
 import { SkeletonPanel } from "../components/backend";
+import { useT } from "../lib/i18n";
+
+function DashboardLoadingFallback(): JSX.Element {
+  const t = useT();
+  return <SkeletonPanel label={t("dashboard.loading")} />;
+}
 
 const DashboardHome = dynamic(
   () =>
@@ -11,7 +17,7 @@ const DashboardHome = dynamic(
     ),
   {
     ssr: false,
-    loading: () => <SkeletonPanel label="Loading dashboard…" />,
+    loading: () => <DashboardLoadingFallback />,
   },
 );
 

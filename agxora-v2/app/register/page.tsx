@@ -23,9 +23,11 @@ import {
   passwordStrengthMessage,
 } from "../lib/auth/formValidation";
 import { markWelcomePending } from "../lib/auth/welcomeFlags";
+import { useT } from "../lib/i18n";
 import { iamAuthService } from "../../features/auth";
 
 export default function RegisterPage(): JSX.Element {
+  const t = useT();
   const { refresh } = useAuth();
   const router = useRouter();
   const [firstName, setFirstName] = useState("");
@@ -40,16 +42,22 @@ export default function RegisterPage(): JSX.Element {
   const [busy, setBusy] = useState(false);
 
   const strength = assessPasswordStrength(password);
+  const strengthLabel =
+    strength === "strong"
+      ? t("auth.register.strengthStrong")
+      : strength === "fair"
+        ? t("auth.register.strengthFair")
+        : t("auth.register.strengthWeak");
 
   const validate = (): string | null => {
-    if (!firstName.trim()) return "First name is required.";
-    if (!lastName.trim()) return "Last name is required.";
-    if (!companyName.trim()) return "Company is required.";
-    if (!isValidEmail(email)) return "Enter a valid email address.";
+    if (!firstName.trim()) return "errors.required";
+    if (!lastName.trim()) return "errors.required";
+    if (!companyName.trim()) return "errors.required";
+    if (!isValidEmail(email)) return "errors.invalidEmail";
     const passwordError = passwordStrengthMessage(password);
     if (passwordError) return passwordError;
-    if (password !== confirmPassword) return "Passwords do not match.";
-    if (!acceptTerms) return "Accept the terms to continue.";
+    if (password !== confirmPassword) return "errors.passwordMismatch";
+    if (!acceptTerms) return "errors.acceptTerms";
     return null;
   };
 
@@ -75,7 +83,7 @@ export default function RegisterPage(): JSX.Element {
       await refresh();
       router.replace("/welcome");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Sign up failed");
+      setError(err instanceof Error ? err.message : "auth.register.failed");
     } finally {
       setBusy(false);
     }
@@ -83,11 +91,12 @@ export default function RegisterPage(): JSX.Element {
 
   return (
     <AuthCard
-      title="Create your account"
-      subtitle="Start free — set up your AGXORA workspace."
+      title={t("auth.register.title")}
+      subtitle={t("auth.register.subtitle")}
       footer={
         <>
-          Already have an account? <AuthLink href="/login">Sign in</AuthLink>
+          {t("auth.register.haveAccount")}{" "}
+          <AuthLink href="/login">{t("auth.register.signIn")}</AuthLink>
         </>
       }
     >
@@ -102,7 +111,7 @@ export default function RegisterPage(): JSX.Element {
         >
           <div>
             <label style={authLabelStyle} htmlFor="reg-first">
-              First Name
+              {t("auth.register.firstName")}
             </label>
             <input
               id="reg-first"
@@ -119,7 +128,7 @@ export default function RegisterPage(): JSX.Element {
           </div>
           <div>
             <label style={authLabelStyle} htmlFor="reg-last">
-              Last Name
+              {t("auth.register.lastName")}
             </label>
             <input
               id="reg-last"
@@ -137,7 +146,7 @@ export default function RegisterPage(): JSX.Element {
         </div>
 
         <label style={authLabelStyle} htmlFor="reg-company">
-          Company
+          {t("auth.register.company")}
         </label>
         <input
           id="reg-company"
@@ -153,7 +162,7 @@ export default function RegisterPage(): JSX.Element {
         />
 
         <label style={authLabelStyle} htmlFor="reg-email">
-          Email
+          {t("auth.register.email")}
         </label>
         <input
           id="reg-email"
@@ -169,7 +178,7 @@ export default function RegisterPage(): JSX.Element {
         />
 
         <label style={authLabelStyle} htmlFor="reg-password">
-          Password
+          {t("auth.register.password")}
         </label>
         <div style={authRowStyle}>
           <input
@@ -189,21 +198,21 @@ export default function RegisterPage(): JSX.Element {
           <button
             type="button"
             onClick={() => setShowPassword((v) => !v)}
-            aria-label={showPassword ? "Hide password" : "Show password"}
+            aria-label={showPassword ? t("common.hidePassword") : t("common.showPassword")}
             style={authToggleStyle}
           >
-            {showPassword ? "Hide" : "Show"}
+            {showPassword ? t("common.hidePassword") : t("common.showPassword")}
           </button>
         </div>
         <p id="reg-password-hint" style={authHintStyle}>
-          Strength:{" "}
+          {t("auth.register.strength")}:{" "}
           <span style={{ color: strength === "strong" ? "#34d399" : strength === "fair" ? "#fbbf24" : "#f87171" }}>
-            {strength}
+            {strengthLabel}
           </span>
         </p>
 
         <label style={authLabelStyle} htmlFor="reg-confirm">
-          Confirm Password
+          {t("auth.register.confirmPassword")}
         </label>
         <input
           id="reg-confirm"
@@ -223,18 +232,17 @@ export default function RegisterPage(): JSX.Element {
           checked={acceptTerms}
           onChange={setAcceptTerms}
         >
-          Accept Terms — I agree to the AGXORA{" "}
+          {t("auth.register.acceptTerms")}{" "}
           <Link href="/terms" style={{ color: "#22d3ee" }}>
-            Terms of Service
+            {t("auth.register.termsOfService")}
           </Link>{" "}
-          and{" "}
+          {t("auth.register.and")}{" "}
           <Link href="/privacy" style={{ color: "#22d3ee" }}>
-            Privacy Policy
+            {t("auth.register.privacyPolicy")}
           </Link>
-          .
         </AuthCheckbox>
 
-        <AuthFieldError message={error} />
+        <AuthFieldError message={error ? t(error) : null} />
 
         <button
           type="submit"
@@ -242,7 +250,7 @@ export default function RegisterPage(): JSX.Element {
           style={busy ? authButtonDisabledStyle : authButtonStyle}
           aria-busy={busy}
         >
-          {busy ? "Creating account…" : "Create account"}
+          {busy ? t("auth.register.submitting") : t("auth.register.submit")}
         </button>
       </form>
       <style>{`

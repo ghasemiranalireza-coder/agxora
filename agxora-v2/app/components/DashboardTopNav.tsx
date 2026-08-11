@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import { useAuth } from "../lib/auth";
+import { useLocale } from "../lib/i18n";
 import { useOrganization } from "../lib/organization";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
 import { ThemeQuickToggle } from "./ThemeQuickToggle";
@@ -40,6 +41,7 @@ function SvgIcon({ d }: { readonly d: string }): JSX.Element {
  */
 export function DashboardTopNav(): JSX.Element {
   const { tokens } = useTheme();
+  const { t } = useLocale();
   const router = useRouter();
   const { user, isAuthenticated } = useAuth();
   const { organization, session } = useOrganization();
@@ -66,8 +68,16 @@ export function DashboardTopNav(): JSX.Element {
     return () => document.removeEventListener("mousedown", onDoc);
   }, []);
 
-  const orgLabel = organization?.name ?? "Organization";
-  const displayName = user?.displayName ?? (isAuthenticated ? "User" : "Guest");
+  const orgLabel = organization?.name ?? t("common.organization");
+  const displayName =
+    user?.displayName ??
+    (isAuthenticated ? t("common.user") : t("common.guest"));
+  const membershipRole = session.memberships.find(
+    (m) => m.userId === user?.id,
+  )?.role;
+  const roleLabel =
+    membershipRole ??
+    (isAuthenticated ? t("common.member") : t("common.guest"));
 
   return (
     <header
@@ -86,7 +96,7 @@ export function DashboardTopNav(): JSX.Element {
     >
       <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0, flexWrap: "wrap" }}>
         <div
-          aria-label="Current organization"
+          aria-label={t("navigation.currentOrganization")}
           title={orgLabel}
           style={{
             display: "inline-flex",
@@ -137,7 +147,7 @@ export function DashboardTopNav(): JSX.Element {
         }}
       >
         <IconButton
-          label="Search"
+          label={t("navigation.search")}
           onClick={() => {
             window.dispatchEvent(new CustomEvent("agxora:command-palette"));
           }}
@@ -147,7 +157,7 @@ export function DashboardTopNav(): JSX.Element {
 
         <div ref={notifRef} style={{ position: "relative" }}>
           <IconButton
-            label="Notifications"
+            label={t("navigation.notifications")}
             active={notifOpen}
             onClick={() => {
               setNotifOpen((v) => !v);
@@ -166,7 +176,7 @@ export function DashboardTopNav(): JSX.Element {
                   color: "var(--agx-text, #f8fafc)",
                 }}
               >
-                No notifications
+                {t("navigation.noNotifications")}
               </p>
               <p
                 style={{
@@ -176,7 +186,7 @@ export function DashboardTopNav(): JSX.Element {
                   color: "var(--agx-text-muted, #94a3b8)",
                 }}
               >
-                You’re all caught up. Alerts and mentions will appear here.
+                {t("navigation.notificationsEmpty")}
               </p>
             </HeaderMenu>
           ) : null}
@@ -184,7 +194,7 @@ export function DashboardTopNav(): JSX.Element {
 
         <div ref={profileRef} style={{ position: "relative" }}>
           <IconButton
-            label="Profile"
+            label={t("navigation.profile")}
             active={profileOpen}
             onClick={() => {
               setProfileOpen((v) => !v);
@@ -213,7 +223,10 @@ export function DashboardTopNav(): JSX.Element {
                     color: tokens.textMuted,
                   }}
                 >
-                  {user?.email ?? (isAuthenticated ? "Signed in" : "Guest session")}
+                  {user?.email ??
+                    (isAuthenticated
+                      ? t("common.signedIn")
+                      : t("common.guestSession"))}
                 </p>
               </div>
 
@@ -224,9 +237,7 @@ export function DashboardTopNav(): JSX.Element {
                   color: tokens.textMuted,
                 }}
               >
-                Role ·{" "}
-                {session.memberships.find((m) => m.userId === user?.id)?.role ??
-                  (isAuthenticated ? "member" : "guest")}
+                {t("common.role")} · {roleLabel}
               </p>
 
               <Link
@@ -241,7 +252,7 @@ export function DashboardTopNav(): JSX.Element {
                   padding: "8px 4px",
                 }}
               >
-                Account settings
+                {t("navigation.accountSettings")}
               </Link>
               <Link
                 href="/dashboard/projects"
@@ -255,7 +266,7 @@ export function DashboardTopNav(): JSX.Element {
                   padding: "8px 4px",
                 }}
               >
-                Projects
+                {t("navigation.projects")}
               </Link>
               <Link
                 href="/dashboard/crm"
@@ -269,7 +280,7 @@ export function DashboardTopNav(): JSX.Element {
                   padding: "8px 4px",
                 }}
               >
-                CRM
+                {t("navigation.aiCrm")}
               </Link>
               <Link
                 href="/dashboard/analytics"
@@ -283,7 +294,7 @@ export function DashboardTopNav(): JSX.Element {
                   padding: "8px 4px",
                 }}
               >
-                Analytics
+                {t("navigation.analytics")}
               </Link>
               <Link
                 href="/dashboard/billing"
@@ -297,7 +308,7 @@ export function DashboardTopNav(): JSX.Element {
                   padding: "8px 4px",
                 }}
               >
-                Billing
+                {t("navigation.billing")}
               </Link>
               <Link
                 href="/dashboard/ai"
@@ -311,7 +322,7 @@ export function DashboardTopNav(): JSX.Element {
                   padding: "8px 4px",
                 }}
               >
-                AI Workspace
+                {t("navigation.aiWorkspace")}
               </Link>
               <Link
                 href="/dashboard/settings#security"
@@ -325,7 +336,7 @@ export function DashboardTopNav(): JSX.Element {
                   padding: "8px 4px",
                 }}
               >
-                Security
+                {t("navigation.security")}
               </Link>
               <Link
                 href="/dashboard/team"
@@ -340,7 +351,7 @@ export function DashboardTopNav(): JSX.Element {
                   marginBottom: 8,
                 }}
               >
-                Team
+                {t("navigation.team")}
               </Link>
 
               {isAuthenticated ? (
@@ -362,7 +373,7 @@ export function DashboardTopNav(): JSX.Element {
                     cursor: "pointer",
                   }}
                 >
-                  Sign out
+                  {t("common.signOut")}
                 </button>
               ) : (
                 <Link
@@ -376,7 +387,7 @@ export function DashboardTopNav(): JSX.Element {
                     padding: "8px 4px",
                   }}
                 >
-                  Sign in
+                  {t("common.signIn")}
                 </Link>
               )}
             </HeaderMenu>

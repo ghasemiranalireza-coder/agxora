@@ -6,6 +6,7 @@
  */
 
 import type { JSX } from "react";
+import { useLocale } from "../lib/i18n";
 import { useTheme, type ThemeMode } from "../lib/theme";
 import { IconButton } from "./ui";
 
@@ -37,11 +38,12 @@ function ThemeGlyph({ appearance }: { readonly appearance: "day" | "night" }): J
 
 export function ThemeQuickToggle(): JSX.Element {
   const { mode, appearance, setMode } = useTheme();
+  const { t } = useLocale();
   const next: ThemeMode = appearance === "day" ? "night" : "day";
 
   return (
     <IconButton
-      label={`Quick theme toggle. Preference: ${mode}. Resolved: ${appearance}. Switch to ${next}.`}
+      label={t("navigation.themeToggle", { mode })}
       active={appearance === "night"}
       onClick={() => setMode(next)}
     >

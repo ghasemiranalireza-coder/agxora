@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { JSX } from "react";
 import type { Activity, ActivityKind } from "../../lib/backend/types";
+import { useLocale } from "../../lib/i18n";
 import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
 
 const surfaceTransition = [
@@ -11,24 +12,24 @@ const surfaceTransition = [
   `color ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
 ].join(", ");
 
-const KIND_LABEL: Record<ActivityKind, string> = {
-  customer_created: "Customer",
-  customer_updated: "Customer",
-  customer_deleted: "Customer",
-  project_updated: "Project",
-  invoice_paid: "Finance",
-  workflow_executed: "Automation",
-  document_uploaded: "Documents",
-  member_invited: "Team",
-  generic: "Workspace",
+const KIND_MESSAGE_KEY: Record<ActivityKind, string> = {
+  customer_created: "customer",
+  customer_updated: "customer",
+  customer_deleted: "customer",
+  project_updated: "project",
+  invoice_paid: "finance",
+  workflow_executed: "automation",
+  document_uploaded: "documents",
+  member_invited: "team",
+  generic: "workspace",
 };
 
-function formatRelativeTime(iso: string): string {
+function formatRelativeTime(iso: string, bcp47: string): string {
   const then = new Date(iso).getTime();
   if (Number.isNaN(then)) return "";
   const deltaSec = Math.round((then - Date.now()) / 1000);
   const abs = Math.abs(deltaSec);
-  const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+  const rtf = new Intl.RelativeTimeFormat(bcp47, { numeric: "auto" });
   if (abs < 60) return rtf.format(deltaSec, "second");
   if (abs < 3600) return rtf.format(Math.round(deltaSec / 60), "minute");
   if (abs < 86400) return rtf.format(Math.round(deltaSec / 3600), "hour");
@@ -54,6 +55,7 @@ export function ActivityFeed({
   readonly items: readonly Activity[];
 }): JSX.Element {
   const { tokens } = useTheme();
+  const { t, bcp47 } = useLocale();
   const todayCount = items.filter((row) => isToday(row.createdAt)).length;
   const visible = items.slice(0, 12);
 
@@ -61,7 +63,7 @@ export function ActivityFeed({
     <section
       id="agx-live-activity"
       className="agx-glass-panel agx-dash-activity"
-      aria-label="Recent activity"
+      aria-label={t("dashboard.activity.ariaLabel")}
       style={{
         padding: "24px",
         borderRadius: "24px",
@@ -89,10 +91,10 @@ export function ActivityFeed({
               textTransform: "uppercase",
             }}
           >
-            Recent activity
+            {t("dashboard.activity.title")}
           </h2>
           <p className="m-0 text-sm" style={{ color: tokens.textMuted }}>
-            What changed today
+            {t("dashboard.activity.subtitle")}
           </p>
         </div>
         <span
@@ -102,7 +104,7 @@ export function ActivityFeed({
             color: tokens.textMuted,
           }}
         >
-          {todayCount} TODAY
+          {t("dashboard.activity.todayCount", { count: todayCount })}
         </span>
       </header>
 
@@ -118,14 +120,13 @@ export function ActivityFeed({
             className="m-0 text-sm font-semibold"
             style={{ color: tokens.text }}
           >
-            No activity yet
+            {t("dashboard.activity.emptyTitle")}
           </p>
           <p
             className="mt-2 mb-4 max-w-md text-sm leading-relaxed"
             style={{ color: tokens.textMuted }}
           >
-            Create a customer, update a project, or run a workflow — changes will
-            appear here with timestamps.
+            {t("dashboard.activity.emptyBody")}
           </p>
           <div className="flex flex-wrap gap-2">
             <Link
@@ -137,7 +138,7 @@ export function ActivityFeed({
                 outlineColor: "var(--agx-accent, #22d3ee)",
               }}
             >
-              Add customer
+              {t("dashboard.activity.addCustomer")}
             </Link>
             <Link
               href="/dashboard/projects"
@@ -148,7 +149,7 @@ export function ActivityFeed({
                 outlineColor: "var(--agx-accent, #22d3ee)",
               }}
             >
-              New project
+              {t("dashboard.activity.newProject")}
             </Link>
           </div>
         </div>
@@ -158,6 +159,8 @@ export function ActivityFeed({
           style={{ maxHeight: 360 }}
         >
           {visible.map((item) => {
+            const kindKey =
+              KIND_MESSAGE_KEY[item.kind] ?? "workspace";
             const body = (
               <>
                 <span
@@ -174,13 +177,13 @@ export function ActivityFeed({
                       className="text-[10px] font-semibold uppercase tracking-[0.12em]"
                       style={{ color: tokens.textMuted }}
                     >
-                      {KIND_LABEL[item.kind] ?? "Workspace"}
+                      {t(`dashboard.activity.kind.${kindKey}`)}
                     </span>
                     <span
                       className="text-[11px] tabular-nums"
                       style={{ color: tokens.textMuted }}
                     >
-                      {formatRelativeTime(item.createdAt)}
+                      {formatRelativeTime(item.createdAt, bcp47)}
                     </span>
                   </span>
                   <span

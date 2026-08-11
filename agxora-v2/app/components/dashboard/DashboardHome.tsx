@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, type JSX } from "react";
 import { ChatPanel } from "../ChatPanel";
+import { useLocale } from "../../lib/i18n";
 import { useOrganization } from "../../lib/organization";
 import { customerStore, useCustomerStore } from "../../lib/customers";
 import { projectStore, useProjectStore } from "../../lib/projects";
@@ -20,6 +21,7 @@ const LOCAL_ORG_FALLBACK = "org_local_default";
  * Answers: what is happening, what needs attention, what changed, what next.
  */
 export function DashboardHome(): JSX.Element {
+  const { t } = useLocale();
   const { organization } = useOrganization();
   const organizationId = organization?.id ?? LOCAL_ORG_FALLBACK;
   const customers = useCustomerStore();
@@ -36,8 +38,8 @@ export function DashboardHome(): JSX.Element {
     if (customers.hydrated && customers.items.length === 0) {
       items.push({
         id: "customers",
-        title: "Add your first customer",
-        detail: "Build your CRM foundation with a company record.",
+        title: t("dashboard.attention.addCustomer.title"),
+        detail: t("dashboard.attention.addCustomer.detail"),
         href: "/dashboard/customers",
         tone: "action",
       });
@@ -45,8 +47,8 @@ export function DashboardHome(): JSX.Element {
     if (projects.hydrated && projects.items.length === 0) {
       items.push({
         id: "projects",
-        title: "Create a project",
-        detail: "Track delivery work with owners, dates, and status.",
+        title: t("dashboard.attention.createProject.title"),
+        detail: t("dashboard.attention.createProject.detail"),
         href: "/dashboard/projects",
         tone: "action",
       });
@@ -54,8 +56,8 @@ export function DashboardHome(): JSX.Element {
     if (activity.length === 0 && items.length < 3) {
       items.push({
         id: "explore",
-        title: "Explore AI workspace",
-        detail: "Ask AGXORA for summaries, drafts, or operational help.",
+        title: t("dashboard.attention.exploreAi.title"),
+        detail: t("dashboard.attention.exploreAi.detail"),
         href: "/dashboard/ai",
         tone: "info",
       });
@@ -63,8 +65,8 @@ export function DashboardHome(): JSX.Element {
     if (items.length < 3) {
       items.push({
         id: "billing",
-        title: "Review billing",
-        detail: "Confirm plan, invoices, and usage for this workspace.",
+        title: t("dashboard.attention.reviewBilling.title"),
+        detail: t("dashboard.attention.reviewBilling.detail"),
         href: "/dashboard/billing",
         tone: "info",
       });
@@ -76,6 +78,7 @@ export function DashboardHome(): JSX.Element {
     projects.hydrated,
     projects.items.length,
     activity.length,
+    t,
   ]);
 
   const summary = useMemo(() => {
@@ -88,13 +91,19 @@ export function DashboardHome(): JSX.Element {
         d.getDate() === now.getDate()
       );
     }).length;
-    const name = organization?.name ?? "your workspace";
-    return `${name}: ${customers.items.length} customers · ${projects.items.length} projects · ${today} updates today.`;
+    const name = organization?.name ?? t("dashboard.overview.fallbackName");
+    return t("dashboard.summary", {
+      name,
+      customers: customers.items.length,
+      projects: projects.items.length,
+      updates: today,
+    });
   }, [
     activity,
     customers.items.length,
     organization?.name,
     projects.items.length,
+    t,
   ]);
 
   return (

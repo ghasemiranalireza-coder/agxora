@@ -8,9 +8,12 @@ import {
   AuthLink,
   authButtonStyle,
   authInputStyle,
+  authLabelStyle,
 } from "../components/auth/AuthCard";
+import { useT } from "../lib/i18n";
 
 function ResetPasswordForm(): JSX.Element {
+  const t = useT();
   const { resetPassword } = useAuth();
   const router = useRouter();
   const params = useSearchParams();
@@ -27,7 +30,7 @@ function ResetPasswordForm(): JSX.Element {
       await resetPassword({ token, password });
       router.replace("/login");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Reset failed");
+      setError(err instanceof Error ? err.message : "auth.reset.failed");
     } finally {
       setBusy(false);
     }
@@ -35,21 +38,30 @@ function ResetPasswordForm(): JSX.Element {
 
   return (
     <AuthCard
-      title="Reset Password"
-      footer={<AuthLink href="/login">Back to sign in</AuthLink>}
+      title={t("auth.reset.title")}
+      subtitle={t("auth.reset.subtitle")}
+      footer={<AuthLink href="/login">{t("auth.reset.backToSignIn")}</AuthLink>}
     >
       <form onSubmit={(event) => void onSubmit(event)}>
+        <label style={authLabelStyle} htmlFor="reset-token">
+          {t("auth.reset.token")}
+        </label>
         <input
+          id="reset-token"
           type="text"
-          placeholder="Reset token"
+          placeholder={t("auth.reset.token")}
           value={token}
           onChange={(event) => setToken(event.target.value)}
           required
           style={authInputStyle}
         />
+        <label style={authLabelStyle} htmlFor="reset-password">
+          {t("auth.reset.newPassword")}
+        </label>
         <input
+          id="reset-password"
           type="password"
-          placeholder="New password"
+          placeholder={t("auth.reset.newPassword")}
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           required
@@ -57,25 +69,28 @@ function ResetPasswordForm(): JSX.Element {
           style={authInputStyle}
         />
         {error ? (
-          <p style={{ color: "#f87171", fontSize: 13, marginTop: 0 }}>{error}</p>
+          <p style={{ color: "#f87171", fontSize: 13, marginTop: 0 }}>{t(error)}</p>
         ) : null}
         <button type="submit" disabled={busy} style={authButtonStyle}>
-          {busy ? "Updating…" : "Update Password"}
+          {busy ? t("auth.reset.submitting") : t("auth.reset.submit")}
         </button>
       </form>
     </AuthCard>
   );
 }
 
+function ResetFallback(): JSX.Element {
+  const t = useT();
+  return (
+    <AuthCard title={t("auth.reset.loading")}>
+      <p style={{ color: "#94a3b8", textAlign: "center" }}>{t("common.loading")}</p>
+    </AuthCard>
+  );
+}
+
 export default function ResetPasswordPage(): JSX.Element {
   return (
-    <Suspense
-      fallback={
-        <AuthCard title="Reset Password">
-          <p style={{ color: "#94a3b8", textAlign: "center" }}>Loading…</p>
-        </AuthCard>
-      }
-    >
+    <Suspense fallback={<ResetFallback />}>
       <ResetPasswordForm />
     </Suspense>
   );

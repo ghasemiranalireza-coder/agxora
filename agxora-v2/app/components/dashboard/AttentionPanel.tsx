@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import type { JSX } from "react";
+import { useLocale } from "../../lib/i18n";
 import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
 
 const surfaceTransition = [
@@ -30,12 +31,13 @@ export function AttentionPanel({
   readonly summary: string;
 }): JSX.Element {
   const { tokens } = useTheme();
+  const { t } = useLocale();
 
   return (
     <section
       id="agx-command-center"
       className="agx-glass-panel agx-hero-follow agx-dash-panel"
-      aria-label="What needs attention"
+      aria-label={t("dashboard.attention.ariaLabel")}
       style={{
         padding: "24px",
         borderRadius: "24px",
@@ -60,7 +62,7 @@ export function AttentionPanel({
               textTransform: "uppercase",
             }}
           >
-            Needs attention
+            {t("dashboard.attention.title")}
           </h2>
           <p
             style={{
@@ -85,8 +87,7 @@ export function AttentionPanel({
             background: "rgba(255,255,255,0.03)",
           }}
         >
-          You are clear — no urgent items. Review activity below or start a quick
-          action.
+          {t("dashboard.attention.empty")}
         </p>
       ) : (
         <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2 xl:grid-cols-3">
@@ -112,7 +113,9 @@ export function AttentionPanel({
                   className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em]"
                   style={{ color: tokens.accent }}
                 >
-                  {item.tone === "action" ? "Do next" : "Update"}
+                  {item.tone === "action"
+                    ? t("dashboard.attention.tone.action")
+                    : t("dashboard.attention.tone.info")}
                 </p>
                 <p className="mt-2 mb-1 text-sm font-semibold">{item.title}</p>
                 <p
