@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "AGXORA Finance OS",
+    "title": "Finance & Tax",
+    "subtitle": "Accounting, banking, tax, and financial intelligence — previewed with sample data until live ledgers connect.",
+    "sampleNotice": "Sample dataset — figures and export history are illustrative. DATEV / file export and live bank feeds are not connected."
+  },
+  "sections": {
+    "overview": {
+      "title": "Finance Overview"
+    },
+    "invoiceCenter": {
+      "title": "Invoice Center",
+      "subtitle": "Search, filter, and sort the enterprise invoice ledger with AI confidence scoring."
+    },
+    "aiInvoiceProcessing": {
+      "title": "AI Invoice Processing",
+      "subtitle": "Demo pipeline — OCR and AI extraction are not connected."
+    },
+    "banking": {
+      "title": "Banking",
+      "subtitle": "Sample accounts only — Open Banking feeds are not connected."
+    },
+    "datev": {
+      "title": "DATEV Integration",
+      "subtitle": "Sample export history — DATEV file generation is not connected."
+    },
+    "taxCenter": {
+      "title": "Tax Center",
+      "subtitle": "VAT summaries, deadlines, and upcoming payments."
+    },
+    "aiInsights": {
+      "title": "AI Insights",
+      "subtitle": "Sample findings only — insight actions are not connected."
+    },
+    "smartSearch": {
+      "title": "Smart Search",
+      "subtitle": "Natural language queries across invoices, expenses, VAT, and exports."
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "Revenue",
+        "caption": "Sample · last 30 days",
+        "delta": "+8.4%"
+      },
+      "expenses": {
+        "label": "Expenses",
+        "caption": "Sample · operating + COGS",
+        "delta": "+2.1%"
+      },
+      "profit": {
+        "label": "Profit",
+        "caption": "Sample · net operating",
+        "delta": "+12.6%"
+      },
+      "vat-due": {
+        "label": "VAT Due",
+        "caption": "Sample · Q2 window",
+        "delta": "Due in {days}d"
+      },
+      "open-invoices": {
+        "label": "Open Invoices",
+        "caption": "Sample · {money} outstanding"
+      },
+      "paid-invoices": {
+        "label": "Paid Invoices",
+        "caption": "Sample · this quarter",
+        "delta": "+{count}"
+      },
+      "cashflow": {
+        "label": "Cashflow",
+        "caption": "Sample · 30-day projection",
+        "delta": "+4.2%"
+      },
+      "ai-score": {
+        "label": "AI Financial Score",
+        "caption": "Sample score · not live risk scoring",
+        "delta": "+{count}"
+      }
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "invoices": {
+    "emptyTitle": "No invoices",
+    "emptyDescription": "No invoices match your search or filters.",
+    "searchPlaceholder": "Number, company, category…",
+    "statusFilter": "Status filter",
+    "paymentFilter": "Payment filter",
+    "sortBy": "Sort by",
+    "toggleSort": "Toggle sort direction",
+    "count": "{count} invoices",
+    "countOne": "{count} invoice",
+    "allStatuses": "All statuses",
+    "allPayments": "All payments",
+    "columns": {
+      "number": "Invoice Number",
+      "company": "Company",
+      "amount": "Amount",
+      "vat": "VAT",
+      "status": "Status",
+      "dueDate": "Due Date",
+      "payment": "Payment Status",
+      "category": "Category",
+      "ai": "AI Confidence"
+    },
+    "sort": {
+      "dueDate": "Due date",
+      "amount": "Amount",
+      "company": "Company",
+      "status": "Status",
+      "aiConfidence": "AI confidence",
+      "number": "Invoice #"
+    }
+  },
+  "status": {
+    "draft": "Draft",
+    "open": "Open",
+    "paid": "Paid",
+    "overdue": "Overdue",
+    "cancelled": "Cancelled"
+  },
+  "payment": {
+    "unpaid": "Unpaid",
+    "partial": "Partial",
+    "paid": "Paid",
+    "refunded": "Refunded"
+  },
+  "category": {
+    "saas": "SaaS",
+    "office": "Office",
+    "travel": "Travel",
+    "marketing": "Marketing",
+    "utilities": "Utilities",
+    "professional": "Professional",
+    "other": "Other"
+  },
+  "processing": {
+    "dropTitle": "Drag & drop invoice files",
+    "dropFormats": "PDF · Image · Email Import",
+    "uploadFiles": "Upload files",
+    "emailImport": "Email Import",
+    "dropHint": "Drop PDF or image invoices to stage locally — OCR is not connected.",
+    "filesStaged": "{count} file(s) listed locally only — OCR / AI extraction is not connected.",
+    "emailReserved": "Email import connector reserved for IMAP / Microsoft Graph.",
+    "pipelineTitle": "Processing pipeline (demo)",
+    "stages": {
+      "ocr": "OCR Status",
+      "extraction": "AI Extraction",
+      "categorization": "Categorization",
+      "duplicateDetection": "Duplicate Detection"
+    }
+  },
+  "stage": {
+    "pending": "Unavailable",
+    "running": "Not connected",
+    "complete": "Demo",
+    "failed": "Failed",
+    "skipped": "Skipped"
+  },
+  "banking": {
+    "connectionTitle": "Bank Connection",
+    "connectBank": "Connect bank",
+    "description": "PSD2 / Open Banking adapters are not wired. Matching and reconciliation below are illustrative only.",
+    "feedUnavailable": "Bank feed unavailable — provider connection is not connected.",
+    "noticeDefault": "Open Banking is not connected — accounts below are sample data.",
+    "connectUnavailable": "Connect bank unavailable — Open Banking is not connected in this build.",
+    "sampleAccounts": "Sample Accounts",
+    "sample": "Sample",
+    "offline": "Offline",
+    "demoPrefix": "Demo",
+    "latestTransactions": "Latest Transactions",
+    "sampleMatching": "Sample matching",
+    "demoOnly": "Demo only",
+    "sampleMatch": "Sample match",
+    "unmatched": "Unmatched",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "DATEV Integration",
+    "notConnected": "Not connected",
+    "intro": "Sample export history below is illustrative. Credentials and file generation are not wired in this build.",
+    "noticeDefault": "Export adapters are not connected — no files will be generated.",
+    "exportUnavailable": "{title} unavailable — DATEV / file export is not connected.",
+    "exportUnavailableAria": "{title} — unavailable",
+    "historyTitle": "Export History (sample)",
+    "refresh": "Refresh",
+    "refreshUnavailable": "Refresh unavailable — export history is static sample data.",
+    "steuerberaterSample": "Sample",
+    "steuerberaterPending": "Pending",
+    "columns": {
+      "export": "Export",
+      "format": "Format",
+      "period": "Period",
+      "created": "Created",
+      "status": "Status",
+      "steuerberater": "Steuerberater"
+    },
+    "actions": {
+      "datev": {
+        "title": "DATEV Export",
+        "description": "Buchungsstapel package for Steuerberater workflows."
+      },
+      "csv": {
+        "title": "CSV Export",
+        "description": "Ledger-ready CSV for spreadsheets and imports."
+      },
+      "pdf": {
+        "title": "PDF Export",
+        "description": "Document pack for review and archival."
+      },
+      "xml": {
+        "title": "XML Export",
+        "description": "Structured tax XML for filing pipelines."
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "Sample · Queued",
+    "ready": "Sample · Ready",
+    "delivered": "Illustrative",
+    "failed": "Failed"
+  },
+  "tax": {
+    "vatSummaryTitle": "VAT Summary",
+    "monthlyVat": "Monthly VAT",
+    "quarterlyVat": "Quarterly VAT",
+    "collected": "Collected",
+    "deductible": "Deductible",
+    "netDue": "Net due",
+    "deadlinesTitle": "Tax Deadlines · Upcoming Payments",
+    "duePrefix": "Due",
+    "deadlineStatus": {
+      "due_soon": "Due soon",
+      "upcoming": "Upcoming",
+      "overdue": "Overdue",
+      "paid": "Paid"
+    },
+    "deadlines": {
+      "td-1": "Monthly VAT return",
+      "td-2": "Quarterly VAT settlement",
+      "td-3": "Advance corporate tax"
+    },
+    "period": {
+      "monthly": "Monthly",
+      "quarterly": "Quarterly",
+      "annual": "Annual"
+    }
+  },
+  "insights": {
+    "demoPrefix": "Demo",
+    "noticeDefault": "Insight actions are not connected — cards show sample findings only.",
+    "actionUnavailable": "{action} unavailable — finance insight actions are not connected.",
+    "actionUnavailableTitle": "{action} unavailable — not connected",
+    "kinds": {
+      "unusual_expense": "Unusual expenses",
+      "duplicate_invoice": "Duplicate invoices",
+      "missing_invoice": "Missing invoices",
+      "late_payment": "Late payments",
+      "cashflow_prediction": "Cashflow prediction",
+      "tax_optimization": "Tax optimization"
+    }
+  },
+  "search": {
+    "label": "Natural Language Search",
+    "placeholder": "Try “Show unpaid invoices”",
+    "submit": "Search",
+    "examplesTitle": "Examples",
+    "hints": {
+      "idle": "Ask about invoices, expenses, VAT, or exports.",
+      "unpaid_invoices": "Filtering Invoice Center to unpaid / open items.",
+      "july_expenses": "Showing July expense-side activity.",
+      "amazon": "Locating Amazon invoices and receipts.",
+      "vat_export": "Opening DATEV / VAT export actions.",
+      "general": "Searching ledger for “{query}”."
+    },
+    "examples": {
+      "q1": {
+        "query": "Show unpaid invoices",
+        "description": "Open receivables with unpaid or partial status"
+      },
+      "q2": {
+        "query": "Show July expenses",
+        "description": "Expense-side invoices and bank outflows in July"
+      },
+      "q3": {
+        "query": "Find Amazon invoices",
+        "description": "Vendor match across invoice center and uploads"
+      },
+      "q4": {
+        "query": "Export VAT",
+        "description": "Jump to DATEV / tax export actions"
+      }
+    }
+  }
+}

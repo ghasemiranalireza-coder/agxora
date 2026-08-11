@@ -3,6 +3,7 @@
 import { useState, type JSX } from "react";
 import type { BankAccount, BankTransaction } from "../../lib/finance";
 import { formatDate, formatMoney } from "../../lib/finance";
+import { useLocale } from "../../lib/i18n";
 import { FinanceBadge, FinanceButton, FinanceGlassCard } from "./FinancePrimitives";
 
 export function BankingPanel({
@@ -12,29 +13,34 @@ export function BankingPanel({
   readonly accounts: readonly BankAccount[];
   readonly transactions: readonly BankTransaction[];
 }): JSX.Element {
-  const [notice, setNotice] = useState(
-    "Open Banking is not connected — accounts below are sample data.",
+  const { t } = useLocale();
+  const [noticeKey, setNoticeKey] = useState<"default" | "connectUnavailable">(
+    "default",
   );
+  const notice =
+    noticeKey === "default"
+      ? t("finance.banking.noticeDefault")
+      : t("finance.banking.connectUnavailable");
 
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
       <FinanceGlassCard className="space-y-4 xl:col-span-1" padding="p-5">
         <div className="flex items-center justify-between gap-3">
-          <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Bank Connection
+          <h3
+            className="text-sm font-semibold"
+            style={{ color: "var(--agx-text, #f8fafc)" }}
+          >
+            {t("finance.banking.connectionTitle")}
           </h3>
           <FinanceButton
             variant="primary"
-            onClick={() =>
-              setNotice("Connect bank unavailable — Open Banking is not connected in this build.")
-            }
+            onClick={() => setNoticeKey("connectUnavailable")}
           >
-            Connect bank
+            {t("finance.banking.connectBank")}
           </FinanceButton>
         </div>
         <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          PSD2 / Open Banking adapters are not wired. Matching and reconciliation
-          below are illustrative only.
+          {t("finance.banking.description")}
         </p>
         <div
           className="rounded-2xl border border-dashed p-4 text-sm"
@@ -43,7 +49,7 @@ export function BankingPanel({
             color: "var(--agx-text-muted, #94a3b8)",
           }}
         >
-          Bank feed unavailable — provider connection is not connected.
+          {t("finance.banking.feedUnavailable")}
         </div>
         <p
           className="text-xs"
@@ -56,8 +62,11 @@ export function BankingPanel({
       </FinanceGlassCard>
 
       <FinanceGlassCard className="space-y-3 xl:col-span-1" padding="p-5">
-        <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Sample Accounts
+        <h3
+          className="text-sm font-semibold"
+          style={{ color: "var(--agx-text, #f8fafc)" }}
+        >
+          {t("finance.banking.sampleAccounts")}
         </h3>
         <ul className="space-y-3">
           {accounts.map((account) => (
@@ -71,7 +80,10 @@ export function BankingPanel({
             >
               <div className="flex items-start justify-between gap-2">
                 <div>
-                  <p className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
+                  <p
+                    className="font-medium"
+                    style={{ color: "var(--agx-text, #f8fafc)" }}
+                  >
                     {account.bankName}
                   </p>
                   <p
@@ -82,7 +94,9 @@ export function BankingPanel({
                   </p>
                 </div>
                 <FinanceBadge tone={account.connected ? "accent" : "default"}>
-                  {account.connected ? "Sample" : "Offline"}
+                  {account.connected
+                    ? t("finance.banking.sample")
+                    : t("finance.banking.offline")}
                 </FinanceBadge>
               </div>
               <div className="mt-3 flex items-end justify-between gap-2">
@@ -90,10 +104,18 @@ export function BankingPanel({
                   className="text-lg font-semibold tabular-nums"
                   style={{ color: "var(--agx-text, #f8fafc)" }}
                 >
-                  {account.connected ? formatMoney(account.balance, account.currency) : "—"}
+                  {account.connected
+                    ? formatMoney(account.balance, account.currency)
+                    : t("finance.banking.emptyBalance")}
                 </p>
-                <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  Demo {account.connected ? formatDate(account.lastSync) : "—"}
+                <p
+                  className="text-[11px]"
+                  style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+                >
+                  {t("finance.banking.demoPrefix")}{" "}
+                  {account.connected && account.lastSync !== "—"
+                    ? formatDate(account.lastSync)
+                    : t("finance.banking.emptyBalance")}
                 </p>
               </div>
             </li>
@@ -103,12 +125,19 @@ export function BankingPanel({
 
       <FinanceGlassCard className="space-y-3 xl:col-span-1" padding="p-5">
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Latest Transactions
+          <h3
+            className="text-sm font-semibold"
+            style={{ color: "var(--agx-text, #f8fafc)" }}
+          >
+            {t("finance.banking.latestTransactions")}
           </h3>
           <div className="flex gap-2">
-            <FinanceBadge tone="accent">Sample matching</FinanceBadge>
-            <FinanceBadge tone="default">Demo only</FinanceBadge>
+            <FinanceBadge tone="accent">
+              {t("finance.banking.sampleMatching")}
+            </FinanceBadge>
+            <FinanceBadge tone="default">
+              {t("finance.banking.demoOnly")}
+            </FinanceBadge>
           </div>
         </div>
         <ul className="space-y-2">
@@ -128,12 +157,15 @@ export function BankingPanel({
                 >
                   {tx.counterparty}
                 </p>
-                <p className="mt-0.5 text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                <p
+                  className="mt-0.5 text-[11px]"
+                  style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+                >
                   {formatDate(tx.date)}
                   {tx.invoiceRef ? ` · ${tx.invoiceRef}` : ""}
                 </p>
               </div>
-              <div className="shrink-0 text-right">
+              <div className="shrink-0 text-end">
                 <p
                   className="text-sm font-semibold tabular-nums"
                   style={{
@@ -144,7 +176,9 @@ export function BankingPanel({
                 </p>
                 <div className="mt-1 flex justify-end">
                   <FinanceBadge tone={tx.matched ? "accent" : "warning"}>
-                    {tx.matched ? "Sample match" : "Unmatched"}
+                    {tx.matched
+                      ? t("finance.banking.sampleMatch")
+                      : t("finance.banking.unmatched")}
                   </FinanceBadge>
                 </div>
               </div>

@@ -18,7 +18,7 @@ export const FINANCE_OVERVIEW: readonly FinanceOverviewMetric[] = [
     value: 428650,
     currency: "EUR",
     caption: "Sample · last 30 days",
-    delta: { value: "+8.4%", positive: true },
+    delta: { positive: true },
     tone: "positive",
   },
   {
@@ -27,7 +27,7 @@ export const FINANCE_OVERVIEW: readonly FinanceOverviewMetric[] = [
     value: 186420,
     currency: "EUR",
     caption: "Sample · operating + COGS",
-    delta: { value: "+2.1%", positive: false },
+    delta: { positive: false },
     tone: "default",
   },
   {
@@ -36,7 +36,7 @@ export const FINANCE_OVERVIEW: readonly FinanceOverviewMetric[] = [
     value: 242230,
     currency: "EUR",
     caption: "Sample · net operating",
-    delta: { value: "+12.6%", positive: true },
+    delta: { positive: true },
     tone: "positive",
   },
   {
@@ -45,23 +45,24 @@ export const FINANCE_OVERVIEW: readonly FinanceOverviewMetric[] = [
     value: 18450,
     currency: "EUR",
     caption: "Sample · Q2 window",
-    delta: { value: "Due in 12d", positive: false },
+    delta: { positive: false, days: 12 },
     tone: "warning",
   },
   {
     id: "open-invoices",
     label: "Open Invoices",
-    value: "24",
+    value: 24,
     caption: "Sample · {money} outstanding",
     captionAmount: 67280,
+    currency: "EUR",
     tone: "accent",
   },
   {
     id: "paid-invoices",
     label: "Paid Invoices",
-    value: "148",
+    value: 148,
     caption: "Sample · this quarter",
-    delta: { value: "+18", positive: true },
+    delta: { positive: true, count: 18 },
     tone: "positive",
   },
   {
@@ -70,7 +71,7 @@ export const FINANCE_OVERVIEW: readonly FinanceOverviewMetric[] = [
     value: 94320,
     currency: "EUR",
     caption: "Sample · 30-day projection",
-    delta: { value: "+4.2%", positive: true },
+    delta: { positive: true },
     tone: "positive",
   },
   {
@@ -78,7 +79,7 @@ export const FINANCE_OVERVIEW: readonly FinanceOverviewMetric[] = [
     label: "AI Financial Score",
     value: "86 / 100",
     caption: "Sample score · not live risk scoring",
-    delta: { value: "+3", positive: true },
+    delta: { positive: true, count: 3 },
     tone: "accent",
   },
 ];

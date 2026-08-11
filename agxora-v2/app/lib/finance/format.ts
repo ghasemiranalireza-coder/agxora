@@ -1,6 +1,7 @@
 /**
  * Finance display formatters — delegate to shared i18n Intl helpers.
  * Locale follows the active UI locale; currency stays an explicit ISO code.
+ * Label helpers return finance.* i18n keys for t() at render time.
  */
 
 import {
@@ -35,58 +36,23 @@ export function formatDate(iso: string): string {
 }
 
 export function invoiceStatusLabel(status: InvoiceStatus): string {
-  const map: Record<InvoiceStatus, string> = {
-    draft: "Draft",
-    open: "Open",
-    paid: "Paid",
-    overdue: "Overdue",
-    cancelled: "Cancelled",
-  };
-  return map[status];
+  return `finance.status.${status}`;
 }
 
 export function paymentStatusLabel(status: PaymentStatus): string {
-  const map: Record<PaymentStatus, string> = {
-    unpaid: "Unpaid",
-    partial: "Partial",
-    paid: "Paid",
-    refunded: "Refunded",
-  };
-  return map[status];
+  return `finance.payment.${status}`;
 }
 
 export function categoryLabel(category: InvoiceCategory): string {
-  const map: Record<InvoiceCategory, string> = {
-    saas: "SaaS",
-    office: "Office",
-    travel: "Travel",
-    marketing: "Marketing",
-    utilities: "Utilities",
-    professional: "Professional",
-    other: "Other",
-  };
-  return map[category];
+  return `finance.category.${category}`;
 }
 
 export function stageLabel(status: ProcessingStageStatus): string {
-  const map: Record<ProcessingStageStatus, string> = {
-    pending: "Unavailable",
-    running: "Not connected",
-    complete: "Demo",
-    failed: "Failed",
-    skipped: "Skipped",
-  };
-  return map[status];
+  return `finance.stage.${status}`;
 }
 
 export function exportStatusLabel(status: ExportStatus): string {
-  const map: Record<ExportStatus, string> = {
-    queued: "Sample · Queued",
-    ready: "Sample · Ready",
-    delivered: "Illustrative",
-    failed: "Failed",
-  };
-  return map[status];
+  return `finance.exportStatus.${status}`;
 }
 
 export function severityTone(severity: InsightSeverity): {

@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "AGXORA Finance OS",
+    "title": "مالی و مالیات",
+    "subtitle": "حسابداری، بانکداری، مالیات و هوش مالی — با داده‌های نمونه تا اتصال دفاتر زنده.",
+    "sampleNotice": "مجموعه داده نمونه — ارقام و تاریخچه خروجی فقط جنبه نمایشی دارند. خروجی DATEV / فایل و فیدهای بانکی زنده متصل نیستند."
+  },
+  "sections": {
+    "overview": {
+      "title": "نمای کلی مالی"
+    },
+    "invoiceCenter": {
+      "title": "مرکز فاکتور",
+      "subtitle": "جستجو، فیلتر و مرتب‌سازی دفتر فاکتور سازمانی با امتیاز اطمینان هوش مصنوعی."
+    },
+    "aiInvoiceProcessing": {
+      "title": "پردازش فاکتور با هوش مصنوعی",
+      "subtitle": "پایپ‌لاین دمو — OCR و استخراج هوش مصنوعی متصل نیستند."
+    },
+    "banking": {
+      "title": "بانکداری",
+      "subtitle": "فقط حساب‌های نمونه — فیدهای Open Banking متصل نیستند."
+    },
+    "datev": {
+      "title": "یکپارچه‌سازی DATEV",
+      "subtitle": "تاریخچه خروجی نمونه — تولید فایل DATEV متصل نیست."
+    },
+    "taxCenter": {
+      "title": "مرکز مالیات",
+      "subtitle": "خلاصه مالیات بر ارزش افزوده، مهلت‌ها و پرداخت‌های پیش‌رو."
+    },
+    "aiInsights": {
+      "title": "بینش‌های هوش مصنوعی",
+      "subtitle": "فقط یافته‌های نمونه — اقدامات بینش متصل نیستند."
+    },
+    "smartSearch": {
+      "title": "جستجوی هوشمند",
+      "subtitle": "پرسش‌های زبان طبیعی در فاکتورها، هزینه‌ها، مالیات بر ارزش افزوده و خروجی‌ها."
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "درآمد",
+        "caption": "نمونه · ۳۰ روز گذشته",
+        "delta": "+۸٫۴٪"
+      },
+      "expenses": {
+        "label": "هزینه‌ها",
+        "caption": "نمونه · عملیاتی + COGS",
+        "delta": "+۲٫۱٪"
+      },
+      "profit": {
+        "label": "سود",
+        "caption": "نمونه · عملیاتی خالص",
+        "delta": "+۱۲٫۶٪"
+      },
+      "vat-due": {
+        "label": "مالیات بر ارزش افزوده سررسید",
+        "caption": "نمونه · پنجره Q2",
+        "delta": "سررسید در {days} روز"
+      },
+      "open-invoices": {
+        "label": "فاکتورهای باز",
+        "caption": "نمونه · {money} معوق"
+      },
+      "paid-invoices": {
+        "label": "فاکتورهای پرداخت‌شده",
+        "caption": "نمونه · این فصل",
+        "delta": "+{count}"
+      },
+      "cashflow": {
+        "label": "جریان نقدی",
+        "caption": "نمونه · پیش‌بینی ۳۰ روزه",
+        "delta": "+۴٫۲٪"
+      },
+      "ai-score": {
+        "label": "امتیاز مالی هوش مصنوعی",
+        "caption": "امتیاز نمونه · امتیازدهی ریسک زنده نیست",
+        "delta": "+{count}"
+      }
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "invoices": {
+    "emptyTitle": "فاکتوری نیست",
+    "emptyDescription": "هیچ فاکتوری با جستجو یا فیلترهای شما مطابقت ندارد.",
+    "searchPlaceholder": "شماره، شرکت، دسته…",
+    "statusFilter": "فیلتر وضعیت",
+    "paymentFilter": "فیلتر پرداخت",
+    "sortBy": "مرتب‌سازی بر اساس",
+    "toggleSort": "تغییر جهت مرتب‌سازی",
+    "count": "{count} فاکتور",
+    "countOne": "{count} فاکتور",
+    "allStatuses": "همه وضعیت‌ها",
+    "allPayments": "همه پرداخت‌ها",
+    "columns": {
+      "number": "شماره فاکتور",
+      "company": "شرکت",
+      "amount": "مبلغ",
+      "vat": "مالیات بر ارزش افزوده",
+      "status": "وضعیت",
+      "dueDate": "تاریخ سررسید",
+      "payment": "وضعیت پرداخت",
+      "category": "دسته",
+      "ai": "اطمینان هوش مصنوعی"
+    },
+    "sort": {
+      "dueDate": "تاریخ سررسید",
+      "amount": "مبلغ",
+      "company": "شرکت",
+      "status": "وضعیت",
+      "aiConfidence": "اطمینان هوش مصنوعی",
+      "number": "فاکتور #"
+    }
+  },
+  "status": {
+    "draft": "پیش‌نویس",
+    "open": "باز",
+    "paid": "پرداخت‌شده",
+    "overdue": "سررسید گذشته",
+    "cancelled": "لغوشده"
+  },
+  "payment": {
+    "unpaid": "پرداخت‌نشده",
+    "partial": "جزئی",
+    "paid": "پرداخت‌شده",
+    "refunded": "بازپرداخت‌شده"
+  },
+  "category": {
+    "saas": "SaaS",
+    "office": "دفتر",
+    "travel": "سفر",
+    "marketing": "بازاریابی",
+    "utilities": "خدمات شهری",
+    "professional": "حرفه‌ای",
+    "other": "سایر"
+  },
+  "processing": {
+    "dropTitle": "فایل‌های فاکتور را بکشید و رها کنید",
+    "dropFormats": "PDF · تصویر · ایمپورت ایمیل",
+    "uploadFiles": "آپلود فایل‌ها",
+    "emailImport": "ایمپورت ایمیل",
+    "dropHint": "فاکتورهای PDF یا تصویری را محلی مرحله‌بندی کنید — OCR متصل نیست.",
+    "filesStaged": "{count} فایل فقط به‌صورت محلی فهرست شد — OCR / استخراج هوش مصنوعی متصل نیست.",
+    "emailReserved": "اتصال‌دهنده ایمپورت ایمیل برای IMAP / Microsoft Graph رزرو شده است.",
+    "pipelineTitle": "پایپ‌لاین پردازش (دمو)",
+    "stages": {
+      "ocr": "وضعیت OCR",
+      "extraction": "استخراج هوش مصنوعی",
+      "categorization": "دسته‌بندی",
+      "duplicateDetection": "تشخیص تکراری"
+    }
+  },
+  "stage": {
+    "pending": "در دسترس نیست",
+    "running": "متصل نیست",
+    "complete": "دمو",
+    "failed": "ناموفق",
+    "skipped": "ردشده"
+  },
+  "banking": {
+    "connectionTitle": "اتصال بانک",
+    "connectBank": "اتصال بانک",
+    "description": "آداپترهای PSD2 / Open Banking متصل نیستند. تطبیق و تسویه زیر فقط جنبه نمایشی دارند.",
+    "feedUnavailable": "فید بانکی در دسترس نیست — اتصال ارائه‌دهنده برقرار نشده است.",
+    "noticeDefault": "Open Banking متصل نیست — حساب‌های زیر داده‌های نمونه هستند.",
+    "connectUnavailable": "اتصال بانک در دسترس نیست — Open Banking در این ساخت متصل نیست.",
+    "sampleAccounts": "حساب‌های نمونه",
+    "sample": "نمونه",
+    "offline": "آفلاین",
+    "demoPrefix": "دمو",
+    "latestTransactions": "آخرین تراکنش‌ها",
+    "sampleMatching": "تطبیق نمونه",
+    "demoOnly": "فقط دمو",
+    "sampleMatch": "تطبیق نمونه",
+    "unmatched": "تطبیق‌نشده",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "یکپارچه‌سازی DATEV",
+    "notConnected": "متصل نیست",
+    "intro": "تاریخچه خروجی نمونه زیر جنبه نمایشی دارد. اعتبارنامه‌ها و تولید فایل در این ساخت متصل نیستند.",
+    "noticeDefault": "آداپترهای خروجی متصل نیستند — هیچ فایلی تولید نمی‌شود.",
+    "exportUnavailable": "{title} در دسترس نیست — خروجی DATEV / فایل متصل نیست.",
+    "exportUnavailableAria": "{title} — در دسترس نیست",
+    "historyTitle": "تاریخچه خروجی (نمونه)",
+    "refresh": "بازخوانی",
+    "refreshUnavailable": "بازخوانی در دسترس نیست — تاریخچه خروجی داده نمونه ثابت است.",
+    "steuerberaterSample": "نمونه",
+    "steuerberaterPending": "در انتظار",
+    "columns": {
+      "export": "خروجی",
+      "format": "قالب",
+      "period": "دوره",
+      "created": "ایجادشده",
+      "status": "وضعیت",
+      "steuerberater": "مشاور مالیاتی"
+    },
+    "actions": {
+      "datev": {
+        "title": "خروجی DATEV",
+        "description": "بسته Buchungsstapel برای گردش‌کار مشاور مالیاتی."
+      },
+      "csv": {
+        "title": "خروجی CSV",
+        "description": "CSV آماده دفترکل برای صفحات گسترده و ایمپورت."
+      },
+      "pdf": {
+        "title": "خروجی PDF",
+        "description": "بسته اسناد برای بررسی و بایگانی."
+      },
+      "xml": {
+        "title": "خروجی XML",
+        "description": "XML مالیاتی ساخت‌یافته برای پایپ‌لاین‌های ارسال."
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "نمونه · صف",
+    "ready": "نمونه · آماده",
+    "delivered": "نمایشی",
+    "failed": "ناموفق"
+  },
+  "tax": {
+    "vatSummaryTitle": "خلاصه مالیات بر ارزش افزوده",
+    "monthlyVat": "مالیات ماهانه",
+    "quarterlyVat": "مالیات فصلی",
+    "collected": "وصول‌شده",
+    "deductible": "قابل کسر",
+    "netDue": "خالص سررسید",
+    "deadlinesTitle": "مهلت‌های مالیاتی · پرداخت‌های پیش‌رو",
+    "duePrefix": "سررسید",
+    "deadlineStatus": {
+      "due_soon": "به‌زودی سررسید",
+      "upcoming": "آینده",
+      "overdue": "سررسید گذشته",
+      "paid": "پرداخت‌شده"
+    },
+    "deadlines": {
+      "td-1": "اظهارنامه ماهانه مالیات بر ارزش افزوده",
+      "td-2": "تسویه فصلی مالیات بر ارزش افزوده",
+      "td-3": "پیش‌پرداخت مالیات شرکت"
+    },
+    "period": {
+      "monthly": "ماهانه",
+      "quarterly": "فصلی",
+      "annual": "سالانه"
+    }
+  },
+  "insights": {
+    "demoPrefix": "دمو",
+    "noticeDefault": "اقدامات بینش متصل نیستند — کارت‌ها فقط یافته‌های نمونه را نشان می‌دهند.",
+    "actionUnavailable": "{action} در دسترس نیست — اقدامات بینش مالی متصل نیستند.",
+    "actionUnavailableTitle": "{action} در دسترس نیست — متصل نیست",
+    "kinds": {
+      "unusual_expense": "هزینه‌های غیرمعمول",
+      "duplicate_invoice": "فاکتورهای تکراری",
+      "missing_invoice": "فاکتورهای مفقود",
+      "late_payment": "پرداخت‌های دیرهنگام",
+      "cashflow_prediction": "پیش‌بینی جریان نقدی",
+      "tax_optimization": "بهینه‌سازی مالیات"
+    }
+  },
+  "search": {
+    "label": "جستجوی زبان طبیعی",
+    "placeholder": "مثلاً «فاکتورهای پرداخت‌نشده را نشان بده»",
+    "submit": "جستجو",
+    "examplesTitle": "نمونه‌ها",
+    "hints": {
+      "idle": "درباره فاکتورها، هزینه‌ها، مالیات بر ارزش افزوده یا خروجی‌ها بپرسید.",
+      "unpaid_invoices": "مرکز فاکتور به موارد پرداخت‌نشده / باز فیلتر می‌شود.",
+      "july_expenses": "فعالیت هزینه‌ای ژوئیه نمایش داده می‌شود.",
+      "amazon": "فاکتورها و رسیدهای Amazon پیدا می‌شوند.",
+      "vat_export": "اقدامات خروجی DATEV / مالیات بر ارزش افزوده باز می‌شود.",
+      "general": "دفترکل برای «{query}» جستجو می‌شود."
+    },
+    "examples": {
+      "q1": {
+        "query": "فاکتورهای پرداخت‌نشده را نشان بده",
+        "description": "مطالبات باز با وضعیت پرداخت‌نشده یا جزئی"
+      },
+      "q2": {
+        "query": "هزینه‌های ژوئیه را نشان بده",
+        "description": "فاکتورهای هزینه و خروج‌های بانکی در ژوئیه"
+      },
+      "q3": {
+        "query": "فاکتورهای Amazon را پیدا کن",
+        "description": "تطبیق فروشنده در مرکز فاکتور و آپلودها"
+      },
+      "q4": {
+        "query": "خروجی مالیات بر ارزش افزوده",
+        "description": "پرش به اقدامات خروجی DATEV / مالیات"
+      }
+    }
+  }
+}

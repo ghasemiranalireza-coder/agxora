@@ -48,7 +48,13 @@ export interface FinanceOverviewMetric {
   readonly caption: string;
   /** When set, `{money}` in caption is replaced with formatMoney at render. */
   readonly captionAmount?: number;
-  readonly delta?: { readonly value: string; readonly positive: boolean };
+  readonly delta?: {
+    readonly positive: boolean;
+    /** Interpolated into `finance.overview.metrics.{id}.delta` as `{days}`. */
+    readonly days?: number;
+    /** Interpolated into `finance.overview.metrics.{id}.delta` as `{count}`. */
+    readonly count?: number;
+  };
   readonly tone?: "default" | "positive" | "warning" | "accent";
 }
 
