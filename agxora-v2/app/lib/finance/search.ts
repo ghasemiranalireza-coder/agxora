@@ -74,26 +74,52 @@ export function filterAndSortInvoices(
   });
 }
 
-/** Lightweight NL intent resolver for Smart Search prototypes. */
+/** Lightweight NL intent resolver for Smart Search prototypes. Hints are i18n keys. */
 export function resolveSmartQuery(query: string): {
   readonly intent: string;
-  readonly hint: string;
+  readonly hintKey: string;
 } {
   const q = query.trim().toLowerCase();
   if (!q) {
-    return { intent: "idle", hint: "Ask about invoices, expenses, VAT, or exports." };
+    return { intent: "idle", hintKey: "finance.search.hints.idle" };
   }
-  if (q.includes("unpaid") || q.includes("open invoice")) {
-    return { intent: "unpaid_invoices", hint: "Filtering Invoice Center to unpaid / open items." };
+  if (
+    q.includes("unpaid") ||
+    q.includes("open invoice") ||
+    q.includes("offen") ||
+    q.includes("unbezahlt") ||
+    q.includes("پرداخت‌نشده") ||
+    q.includes("پرداخت نشده") ||
+    q.includes("فاکتورهای باز") ||
+    q.includes("فاکتورهای پرداخت")
+  ) {
+    return {
+      intent: "unpaid_invoices",
+      hintKey: "finance.search.hints.unpaid_invoices",
+    };
   }
-  if (q.includes("july") && q.includes("expense")) {
-    return { intent: "july_expenses", hint: "Showing July expense-side activity." };
+  if (
+    (q.includes("july") || q.includes("juli") || q.includes("ژوئیه") || q.includes("جولای")) &&
+    (q.includes("expense") || q.includes("ausgabe") || q.includes("هزینه"))
+  ) {
+    return {
+      intent: "july_expenses",
+      hintKey: "finance.search.hints.july_expenses",
+    };
   }
   if (q.includes("amazon")) {
-    return { intent: "amazon", hint: "Locating Amazon invoices and receipts." };
+    return { intent: "amazon", hintKey: "finance.search.hints.amazon" };
   }
-  if (q.includes("vat") || q.includes("export")) {
-    return { intent: "vat_export", hint: "Opening DATEV / VAT export actions." };
+  if (
+    q.includes("vat") ||
+    q.includes("export") ||
+    q.includes("ust") ||
+    q.includes("mwst") ||
+    q.includes("datev") ||
+    q.includes("مالیات") ||
+    q.includes("خروجی")
+  ) {
+    return { intent: "vat_export", hintKey: "finance.search.hints.vat_export" };
   }
-  return { intent: "general", hint: `Searching ledger for “${query.trim()}”.` };
+  return { intent: "general", hintKey: "finance.search.hints.general" };
 }

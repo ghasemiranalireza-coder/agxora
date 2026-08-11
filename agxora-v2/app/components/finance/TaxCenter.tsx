@@ -3,6 +3,7 @@
 import type { JSX } from "react";
 import type { TaxDeadline, VatSummary } from "../../lib/finance";
 import { formatDate, formatMoney } from "../../lib/finance";
+import { useLocale } from "../../lib/i18n";
 import { FinanceBadge, FinanceGlassCard } from "./FinancePrimitives";
 
 function deadlineTone(
@@ -20,19 +21,6 @@ function deadlineTone(
   }
 }
 
-function deadlineLabel(status: TaxDeadline["status"]): string {
-  switch (status) {
-    case "due_soon":
-      return "Due soon";
-    case "upcoming":
-      return "Upcoming";
-    case "overdue":
-      return "Overdue";
-    case "paid":
-      return "Paid";
-  }
-}
-
 export function TaxCenter({
   vatSummaries,
   deadlines,
@@ -40,11 +28,16 @@ export function TaxCenter({
   readonly vatSummaries: readonly VatSummary[];
   readonly deadlines: readonly TaxDeadline[];
 }): JSX.Element {
+  const { t } = useLocale();
+
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
       <FinanceGlassCard className="space-y-4" padding="p-5">
-        <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          VAT Summary
+        <h3
+          className="text-sm font-semibold"
+          style={{ color: "var(--agx-text, #f8fafc)" }}
+        >
+          {t("finance.tax.vatSummaryTitle")}
         </h3>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {vatSummaries.map((vat) => (
@@ -57,29 +50,55 @@ export function TaxCenter({
               }}
             >
               <div className="flex items-center justify-between gap-2">
-                <p className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {vat.periodType === "monthly" ? "Monthly VAT" : "Quarterly VAT"}
+                <p
+                  className="font-medium"
+                  style={{ color: "var(--agx-text, #f8fafc)" }}
+                >
+                  {vat.periodType === "monthly"
+                    ? t("finance.tax.monthlyVat")
+                    : t("finance.tax.quarterlyVat")}
                 </p>
                 <FinanceBadge tone="accent">{vat.periodLabel}</FinanceBadge>
               </div>
               <dl className="mt-4 space-y-2 text-sm">
                 <div className="flex justify-between gap-3">
-                  <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>Collected</dt>
-                  <dd className="tabular-nums" style={{ color: "var(--agx-text, #f8fafc)" }}>
+                  <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    {t("finance.tax.collected")}
+                  </dt>
+                  <dd
+                    className="tabular-nums"
+                    style={{ color: "var(--agx-text, #f8fafc)" }}
+                  >
                     {formatMoney(vat.collected, vat.currency)}
                   </dd>
                 </div>
                 <div className="flex justify-between gap-3">
-                  <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>Deductible</dt>
-                  <dd className="tabular-nums" style={{ color: "var(--agx-text, #f8fafc)" }}>
+                  <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    {t("finance.tax.deductible")}
+                  </dt>
+                  <dd
+                    className="tabular-nums"
+                    style={{ color: "var(--agx-text, #f8fafc)" }}
+                  >
                     {formatMoney(vat.deductible, vat.currency)}
                   </dd>
                 </div>
-                <div className="flex justify-between gap-3 border-t pt-2" style={{ borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))" }}>
-                  <dt className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                    Net due
+                <div
+                  className="flex justify-between gap-3 border-t pt-2"
+                  style={{
+                    borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
+                  }}
+                >
+                  <dt
+                    className="font-medium"
+                    style={{ color: "var(--agx-text, #f8fafc)" }}
+                  >
+                    {t("finance.tax.netDue")}
                   </dt>
-                  <dd className="font-semibold tabular-nums" style={{ color: "var(--agx-accent, #22d3ee)" }}>
+                  <dd
+                    className="font-semibold tabular-nums"
+                    style={{ color: "var(--agx-accent, #22d3ee)" }}
+                  >
                     {formatMoney(vat.netDue, vat.currency)}
                   </dd>
                 </div>
@@ -90,8 +109,11 @@ export function TaxCenter({
       </FinanceGlassCard>
 
       <FinanceGlassCard className="space-y-4" padding="p-5">
-        <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Tax Deadlines · Upcoming Payments
+        <h3
+          className="text-sm font-semibold"
+          style={{ color: "var(--agx-text, #f8fafc)" }}
+        >
+          {t("finance.tax.deadlinesTitle")}
         </h3>
         <ul className="space-y-3">
           {deadlines.map((item) => (
@@ -104,20 +126,30 @@ export function TaxCenter({
               }}
             >
               <div>
-                <p className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {item.label}
+                <p
+                  className="font-medium"
+                  style={{ color: "var(--agx-text, #f8fafc)" }}
+                >
+                  {t(`finance.tax.deadlines.${item.id}`)}
                 </p>
-                <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  Due {formatDate(item.dueDate)} · {item.period}
+                <p
+                  className="mt-1 text-xs"
+                  style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+                >
+                  {t("finance.tax.duePrefix")} {formatDate(item.dueDate)} ·{" "}
+                  {t(`finance.tax.period.${item.period}`)}
                 </p>
               </div>
-              <div className="text-right">
-                <p className="font-semibold tabular-nums" style={{ color: "var(--agx-text, #f8fafc)" }}>
+              <div className="text-end">
+                <p
+                  className="font-semibold tabular-nums"
+                  style={{ color: "var(--agx-text, #f8fafc)" }}
+                >
                   {formatMoney(item.amount, item.currency)}
                 </p>
                 <div className="mt-1 flex justify-end">
                   <FinanceBadge tone={deadlineTone(item.status)}>
-                    {deadlineLabel(item.status)}
+                    {t(`finance.tax.deadlineStatus.${item.status}`)}
                   </FinanceBadge>
                 </div>
               </div>

@@ -9,7 +9,6 @@ import {
   DATEV_EXPORTS,
   FINANCE_INVOICES,
   FINANCE_OVERVIEW,
-  SMART_SEARCH_EXAMPLES,
   TAX_DEADLINES,
   UPLOAD_JOBS,
   VAT_SUMMARIES,
@@ -28,17 +27,37 @@ import { TaxCenter } from "./TaxCenter";
 export function FinancePage(): JSX.Element {
   const reduceMotion = useReducedMotion();
   const [invoiceSeed, setInvoiceSeed] = useState(0);
-  // Keep render-time formatters (invoices, banking, tax) in sync with UI locale.
-  useLocale();
+  const { t } = useLocale();
 
-
-  const onSmartQuery = useCallback((query: string) => {
+  const onSmartQuery = useCallback((query: string, intent?: string) => {
     const q = query.toLowerCase();
-    if (q.includes("unpaid") || q.includes("amazon") || q.includes("july")) {
+    const resolved = intent ?? "";
+    if (
+      resolved === "unpaid_invoices" ||
+      resolved === "amazon" ||
+      resolved === "july_expenses" ||
+      q.includes("unpaid") ||
+      q.includes("amazon") ||
+      q.includes("july") ||
+      q.includes("offen") ||
+      q.includes("پرداخت")
+    ) {
       setInvoiceSeed((n) => n + 1);
-      document.getElementById("invoice-center")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else if (q.includes("vat") || q.includes("export")) {
-      document.getElementById("datev-integration")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document
+        .getElementById("invoice-center")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else if (
+      resolved === "vat_export" ||
+      q.includes("vat") ||
+      q.includes("export") ||
+      q.includes("ust") ||
+      q.includes("datev") ||
+      q.includes("مالیات") ||
+      q.includes("خروجی")
+    ) {
+      document
+        .getElementById("datev-integration")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, []);
 
@@ -50,16 +69,18 @@ export function FinancePage(): JSX.Element {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="agx-ui-section-title">AGXORA Finance OS</p>
+        <p className="agx-ui-section-title">{t("finance.page.brand")}</p>
         <h1
           className="text-3xl font-semibold tracking-tight sm:text-4xl"
           style={{ color: "var(--agx-text, #f8fafc)", letterSpacing: "-0.03em" }}
         >
-          Finance & Tax
+          {t("finance.page.title")}
         </h1>
-        <p className="max-w-2xl text-sm sm:text-base" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Accounting, banking, tax, and financial intelligence — previewed with
-          sample data until live ledgers connect.
+        <p
+          className="max-w-2xl text-sm sm:text-base"
+          style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+        >
+          {t("finance.page.subtitle")}
         </p>
         <div
           role="status"
@@ -72,19 +93,22 @@ export function FinancePage(): JSX.Element {
             color: "var(--agx-text, #f8fafc)",
           }}
         >
-          Sample dataset — figures and export history are illustrative. DATEV /
-          file export and live bank feeds are not connected.
+          {t("finance.page.sampleNotice")}
         </div>
       </motion.header>
 
-      <FinanceSection id="finance-overview" title="Finance Overview" delay={0.05}>
+      <FinanceSection
+        id="finance-overview"
+        title={t("finance.sections.overview.title")}
+        delay={0.05}
+      >
         <FinanceOverview metrics={FINANCE_OVERVIEW} />
       </FinanceSection>
 
       <FinanceSection
         id="invoice-center"
-        title="Invoice Center"
-        subtitle="Search, filter, and sort the enterprise invoice ledger with AI confidence scoring."
+        title={t("finance.sections.invoiceCenter.title")}
+        subtitle={t("finance.sections.invoiceCenter.subtitle")}
         delay={0.08}
       >
         <InvoiceCenter key={invoiceSeed} invoices={FINANCE_INVOICES} />
@@ -92,8 +116,8 @@ export function FinancePage(): JSX.Element {
 
       <FinanceSection
         id="ai-invoice-processing"
-        title="AI Invoice Processing"
-        subtitle="Demo pipeline — OCR and AI extraction are not connected."
+        title={t("finance.sections.aiInvoiceProcessing.title")}
+        subtitle={t("finance.sections.aiInvoiceProcessing.subtitle")}
         delay={0.1}
       >
         <AiInvoiceProcessing jobs={UPLOAD_JOBS} />
@@ -101,8 +125,8 @@ export function FinancePage(): JSX.Element {
 
       <FinanceSection
         id="banking"
-        title="Banking"
-        subtitle="Sample accounts only — Open Banking feeds are not connected."
+        title={t("finance.sections.banking.title")}
+        subtitle={t("finance.sections.banking.subtitle")}
         delay={0.12}
       >
         <BankingPanel accounts={BANK_ACCOUNTS} transactions={BANK_TRANSACTIONS} />
@@ -110,8 +134,8 @@ export function FinancePage(): JSX.Element {
 
       <FinanceSection
         id="datev-integration"
-        title="DATEV Integration"
-        subtitle="Sample export history — DATEV file generation is not connected."
+        title={t("finance.sections.datev.title")}
+        subtitle={t("finance.sections.datev.subtitle")}
         delay={0.14}
       >
         <DatevIntegration history={DATEV_EXPORTS} />
@@ -119,8 +143,8 @@ export function FinancePage(): JSX.Element {
 
       <FinanceSection
         id="tax-center"
-        title="Tax Center"
-        subtitle="VAT summaries, deadlines, and upcoming payments."
+        title={t("finance.sections.taxCenter.title")}
+        subtitle={t("finance.sections.taxCenter.subtitle")}
         delay={0.16}
       >
         <TaxCenter vatSummaries={VAT_SUMMARIES} deadlines={TAX_DEADLINES} />
@@ -128,8 +152,8 @@ export function FinancePage(): JSX.Element {
 
       <FinanceSection
         id="ai-insights"
-        title="AI Insights"
-        subtitle="Sample findings only — insight actions are not connected."
+        title={t("finance.sections.aiInsights.title")}
+        subtitle={t("finance.sections.aiInsights.subtitle")}
         delay={0.18}
       >
         <AiInsights insights={AI_INSIGHTS} />
@@ -137,11 +161,11 @@ export function FinancePage(): JSX.Element {
 
       <FinanceSection
         id="smart-search"
-        title="Smart Search"
-        subtitle="Natural language queries across invoices, expenses, VAT, and exports."
+        title={t("finance.sections.smartSearch.title")}
+        subtitle={t("finance.sections.smartSearch.subtitle")}
         delay={0.2}
       >
-        <SmartSearch examples={SMART_SEARCH_EXAMPLES} onQuery={onSmartQuery} />
+        <SmartSearch onQuery={onSmartQuery} />
       </FinanceSection>
     </div>
   );
