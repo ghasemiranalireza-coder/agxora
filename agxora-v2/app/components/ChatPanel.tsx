@@ -8,6 +8,7 @@ import {
   type KeyboardEvent,
 } from "react";
 import { useChat } from "../lib/modules/chat";
+import { useLocale } from "../lib/i18n";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
 
 const surfaceTransition = [
@@ -25,6 +26,7 @@ const surfaceTransition = [
  */
 export function ChatPanel(): JSX.Element {
   const { tokens } = useTheme();
+  const { t } = useLocale();
   const {
     messages,
     draft,
@@ -92,7 +94,7 @@ export function ChatPanel(): JSX.Element {
           transition: surfaceTransition,
         }}
       >
-        AGXORA AI
+        {t("dashboard.chat.title")}
       </h2>
 
       <div
@@ -118,8 +120,7 @@ export function ChatPanel(): JSX.Element {
               lineHeight: 1.55,
             }}
           >
-            Ask AGXORA about customers, projects, or next actions. Your
-            conversation stays in this workspace session.
+            {t("dashboard.chat.emptyState")}
           </div>
         ) : null}
 
@@ -161,7 +162,7 @@ export function ChatPanel(): JSX.Element {
               transition: surfaceTransition,
             }}
           >
-            AGXORA is thinking…
+            {t("dashboard.chat.thinking")}
           </div>
         ) : null}
       </div>
@@ -185,7 +186,7 @@ export function ChatPanel(): JSX.Element {
             transition: surfaceTransition,
           }}
         >
-          {error} — tap to dismiss
+          {t("dashboard.chat.errorDismiss", { error })}
         </button>
       ) : null}
 
@@ -200,12 +201,12 @@ export function ChatPanel(): JSX.Element {
         <input
           ref={inputRef}
           className="agx-input"
-          placeholder="Ask AGXORA AI..."
+          placeholder={t("dashboard.chat.placeholder")}
           value={draft}
           onChange={(event) => setDraft(event.target.value)}
           onKeyDown={handleKeyDown}
           disabled={disabled}
-          aria-label="Message AGXORA AI"
+          aria-label={t("dashboard.chat.messageAria")}
           style={{
             flex: 1,
             minWidth: 0,
@@ -223,7 +224,7 @@ export function ChatPanel(): JSX.Element {
         <button
           type="submit"
           disabled={!canSend}
-          aria-label="Send message"
+          aria-label={t("dashboard.chat.sendAria")}
           style={{
             flexShrink: 0,
             padding: "14px 18px",
@@ -240,7 +241,7 @@ export function ChatPanel(): JSX.Element {
             transition: surfaceTransition,
           }}
         >
-          Send
+          {t("dashboard.chat.send")}
         </button>
       </form>
     </div>

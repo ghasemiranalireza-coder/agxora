@@ -2,14 +2,14 @@
 
 import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { SkeletonPanel } from "../../components/backend";
+import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
 
 const ProjectsWorkspace = dynamic(
   () =>
     import("../../components/projects").then((mod) => mod.ProjectsWorkspace),
   {
     ssr: false,
-    loading: () => <SkeletonPanel label="Loading projects…" />,
+    loading: createRouteLoading("dashboard.routeLoading.projects"),
   },
 );
 

@@ -2,14 +2,14 @@
 
 import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { SkeletonPanel } from "../../components/backend";
+import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
 
 const CustomersWorkspace = dynamic(
   () =>
     import("../../components/customers").then((mod) => mod.CustomersWorkspace),
   {
     ssr: false,
-    loading: () => <SkeletonPanel label="Loading customers…" />,
+    loading: createRouteLoading("dashboard.routeLoading.customers"),
   },
 );
 

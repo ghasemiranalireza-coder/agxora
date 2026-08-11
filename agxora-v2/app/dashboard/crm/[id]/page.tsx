@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { use } from "react";
 import type { JSX } from "react";
-import { SkeletonPanel } from "../../../components/backend";
+import { createRouteLoading } from "../../../components/dashboard/RouteLoadingPanel";
 
 const CrmCustomerProfileWorkspace = dynamic(
   () =>
@@ -12,7 +12,7 @@ const CrmCustomerProfileWorkspace = dynamic(
     ),
   {
     ssr: false,
-    loading: () => <SkeletonPanel label="Loading customer…" />,
+    loading: createRouteLoading("dashboard.routeLoading.customer"),
   },
 );
 

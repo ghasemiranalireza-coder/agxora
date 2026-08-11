@@ -113,6 +113,189 @@
       "documents": "اسناد",
       "team": "تیم",
       "workspace": "فضای کاری"
+    },
+    "events": {
+      "customer_created": "مشتری ایجاد شد",
+      "customer_updated": "مشتری به‌روزرسانی شد",
+      "customer_deleted": "مشتری حذف شد",
+      "project_updated": "پروژه به‌روزرسانی شد",
+      "invoice_paid": "فاکتور پرداخت شد",
+      "document_uploaded": "سند بارگذاری شد",
+      "workflow_executed": "گردش‌کار اجرا شد",
+      "member_invited": "عضو تیم دعوت شد",
+      "generic": "به‌روزرسانی فضای کاری"
+    }
+  },
+  "chat": {
+    "title": "AGXORA AI",
+    "emptyState": "از AGXORA درباره مشتریان، پروژه‌ها یا اقدامات بعدی بپرسید. گفتگوی شما در این نشست فضای کاری باقی می‌ماند.",
+    "thinking": "AGXORA در حال فکر کردن است…",
+    "errorDismiss": "{error} — برای بستن ضربه بزنید",
+    "placeholder": "از AGXORA AI بپرسید…",
+    "messageAria": "پیام به AGXORA AI",
+    "sendAria": "ارسال پیام",
+    "send": "ارسال"
+  },
+  "routeLoading": {
+    "team": "در حال بارگذاری تیم…",
+    "projects": "در حال بارگذاری پروژه‌ها…",
+    "project": "در حال بارگذاری پروژه…",
+    "profile": "در حال بارگذاری پروفایل…",
+    "integrations": "در حال بارگذاری یکپارچه‌سازی‌ها…",
+    "identity": "در حال بارگذاری هویت…",
+    "finance": "در حال بارگذاری مالی…",
+    "documents": "در حال بارگذاری اسناد…",
+    "customers": "در حال بارگذاری مشتریان…",
+    "crm": "در حال بارگذاری CRM…",
+    "customer": "در حال بارگذاری مشتری…",
+    "creator": "در حال بارگذاری استودیوی سازنده…",
+    "billing": "در حال بارگذاری صورتحساب…",
+    "billingAdmin": "در حال بارگذاری صورتحساب مدیریت…",
+    "automation": "در حال بارگذاری اتوماسیون…",
+    "analytics": "در حال بارگذاری مرکز هوش…",
+    "ai": "در حال بارگذاری پلتفرم AI…",
+    "agents": "در حال بارگذاری Agent OS…"
+  },
+  "shell": {
+    "memory": {
+      "title": "حافظه",
+      "description": "حافظه سازمانی در این نسخه متصل نیست.",
+      "emptyTitle": "فضای کاری حافظه هنوز در دسترس نیست",
+      "emptyBody": "ذخیره‌سازی پایدار حافظه سازمانی متصل نیست. چت ممکن است زمینه کوتاه‌مدت را فقط در نشست نگه دارد — چیزی اینجا به‌عنوان حافظه سازمانی ذخیره نمی‌شود."
+    },
+    "invoices": {
+      "title": "فاکتورها",
+      "description": "معماری صورتحساب و فاکتور برای مستأجران سازمانی.",
+      "emptyTitle": "دفتر فاکتور هنوز در دسترس نیست",
+      "emptyBody": "این مسیر یک پوسته است — ایجاد و ذخیره فاکتور متصل نیست. برای پیش‌نمایش دفتر نمونه از مالی یا برای مدیریت طرح از صورتحساب استفاده کنید.",
+      "openFinance": "باز کردن مالی",
+      "openBilling": "باز کردن صورتحساب"
+    }
+  },
+  "search": {
+    "ariaLabel": "جستجوی سراسری",
+    "queryAria": "عبارت جستجوی سراسری",
+    "placeholder": "جستجوی مشتریان، فاکتورها، اسناد، گردش‌کارها، تنظیمات…",
+    "quickActions": "اقدامات سریع",
+    "favorites": "علاقه‌مندی‌ها",
+    "recentSearches": "جستجوهای اخیر",
+    "clear": "پاک کردن",
+    "noRecentSearches": "هنوز جستجوی اخیری نیست. «Nordlicht»، «invoice» یا «workflow» را امتحان کنید.",
+    "recentActivity": "فعالیت اخیر",
+    "aiReady": "AI آماده (معماری)",
+    "pinnedResults": "نتایج سنجاق‌شده",
+    "noMatches": "موردی یافت نشد",
+    "noMatchesBody": "کلمه دیگری امتحان کنید یا یک ماژول را از اقدامات سریع باز کنید.",
+    "close": "بستن",
+    "open": "باز کردن",
+    "keyboardHints": "↑↓ پیمایش · Enter باز کردن · Ctrl/⌘ K تغییر · Esc بستن",
+    "pinResult": "سنجاق کردن نتیجه",
+    "unpinResult": "برداشتن سنجاق",
+    "previewEmpty": "برای پیش‌نمایش، متاداده و پیوندهای هوشمند، روی نتیجه بایستید یا آن را برجسته کنید.",
+    "previewAria": "پیش‌نمایش سراسری",
+    "relatedItems": "موارد مرتبط",
+    "noSmartLinks": "پیوند هوشمندی برای این نتیجه نیست.",
+    "groups": {
+      "crm": "CRM",
+      "finance": "مالی",
+      "documents": "اسناد",
+      "automation": "اتوماسیون",
+      "projects": "پروژه‌ها",
+      "creator": "استودیوی سازنده",
+      "settings": "تنظیمات",
+      "commands": "دستورات",
+      "actions": "اقدامات سریع"
+    },
+    "status": {
+      "architecture": "معماری",
+      "planned": "برنامه‌ریزی‌شده"
+    },
+    "meta": {
+      "type": "نوع",
+      "module": "ماژول",
+      "quickAction": "اقدام سریع"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "ایجاد مشتری",
+        "subtitle": "باز کردن مشتریان برای افزودن رکورد"
+      },
+      "createInvoice": {
+        "title": "ایجاد فاکتور",
+        "subtitle": "باز کردن فضای کاری فاکتور مالی"
+      },
+      "uploadDocument": {
+        "title": "بارگذاری سند",
+        "subtitle": "باز کردن مرکز دانش اسناد"
+      },
+      "newWorkflow": {
+        "title": "گردش‌کار جدید",
+        "subtitle": "باز کردن سازنده موتور اتوماسیون"
+      },
+      "newProject": {
+        "title": "پروژه جدید",
+        "subtitle": "باز کردن فضای کاری پروژه‌ها"
+      },
+      "inviteMember": {
+        "title": "دعوت عضو تیم",
+        "subtitle": "باز کردن دعوت‌های تیم"
+      },
+      "openBilling": {
+        "title": "باز کردن صورتحساب",
+        "subtitle": "طرح‌ها، فاکتورها و اشتراک"
+      },
+      "openSettings": {
+        "title": "باز کردن تنظیمات",
+        "subtitle": "ترجیحات فضای کاری"
+      }
+    },
+    "commands": {
+      "openCrm": { "title": "باز کردن CRM", "subtitle": "ماژول CRM هوشمند" },
+      "openCustomers": { "title": "باز کردن مشتریان", "subtitle": "مدیریت مشتری" },
+      "openFinance": { "title": "باز کردن مالی", "subtitle": "ماژول مالی و مالیات" },
+      "openDocuments": { "title": "باز کردن اسناد", "subtitle": "مرکز دانش" },
+      "openAutomation": { "title": "باز کردن اتوماسیون", "subtitle": "موتور گردش‌کار" },
+      "openSettings": { "title": "باز کردن تنظیمات", "subtitle": "تنظیمات فضای کاری" },
+      "openProjects": { "title": "باز کردن پروژه‌ها", "subtitle": "سبد پروژه" },
+      "openAi": { "title": "باز کردن AI", "subtitle": "فضای کاری پلتفرم AI" },
+      "openAnalytics": { "title": "باز کردن تحلیل‌ها", "subtitle": "مرکز هوش" },
+      "openIdentity": { "title": "باز کردن هویت و دسترسی", "subtitle": "تنظیمات IAM، RBAC، ممیزی" },
+      "openBilling": { "title": "باز کردن صورتحساب", "subtitle": "پورتال اشتراک و طرح‌ها" },
+      "openIntegrations": { "title": "باز کردن یکپارچه‌سازی‌ها", "subtitle": "مرکز یکپارچه‌سازی و اکوسیستم API" }
+    },
+    "modules": {
+      "dashboard": { "subtitle": "مرکز فرمان و نمای کلی کره" },
+      "customers": { "subtitle": "رکوردهای مشتری و CRM" },
+      "projects": { "subtitle": "تحویل و پیگیری پروژه" },
+      "invoices": { "title": "فاکتورها", "subtitle": "صورتحساب و فاکتورها" },
+      "finance": { "subtitle": "حسابداری AI، بانکداری، مالیات و هوش مالی" },
+      "crm": { "subtitle": "CRM بومی AI و سیستم عامل سازنده" },
+      "creator": { "subtitle": "تولید محتوای AI و OS بازاریابی" },
+      "documents": { "subtitle": "اسناد AI و مرکز دانش" },
+      "ai": { "title": "AI", "subtitle": "پلتفرم AGXORA AI — فضای کاری سازمانی" },
+      "analytics": { "subtitle": "هوش کسب‌وکار" },
+      "automation": { "subtitle": "موتور گردش‌کار و اتوماسیون AI" },
+      "memory": { "title": "حافظه", "subtitle": "حافظه سازمانی" },
+      "team": { "subtitle": "اعضا و دعوت‌ها" },
+      "settings": { "subtitle": "تنظیمات فضای کاری و AI" }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "جستجوی AI",
+        "description": "رتبه‌بندی نتایج با مدل بازیابی آینده در ماژول‌ها."
+      },
+      "semantic": {
+        "title": "جستجوی معنایی",
+        "description": "شباهت برداری روی اسناد، فاکتورها و دانش."
+      },
+      "nl": {
+        "title": "جستجوی زبان طبیعی",
+        "description": "تجزیه intentهایی مانند «فاکتورهای معوق Nordlicht»."
+      },
+      "rag": {
+        "title": "بازیابی دانش",
+        "description": "پاسخ‌ها را در corpus مرکز دانش اسناد زمینه‌گذاری کنید."
+      }
     }
   },
   "summary": "{name}: {customers} مشتری · {projects} پروژه · {updates} به‌روزرسانی امروز."

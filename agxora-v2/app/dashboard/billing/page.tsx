@@ -2,14 +2,14 @@
 
 import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { SkeletonPanel } from "../../components/backend";
+import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
 
 const Page = dynamic(
   () =>
     import("../../../features/saas").then((mod) => mod.CustomerBillingPortal),
   {
     ssr: false,
-    loading: () => <SkeletonPanel label="Loading billing…" />,
+    loading: createRouteLoading("dashboard.routeLoading.billing"),
   },
 );
 

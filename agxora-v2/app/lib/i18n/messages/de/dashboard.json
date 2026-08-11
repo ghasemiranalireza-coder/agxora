@@ -113,6 +113,189 @@
       "documents": "Dokumente",
       "team": "Team",
       "workspace": "Workspace"
+    },
+    "events": {
+      "customer_created": "Kunde erstellt",
+      "customer_updated": "Kunde aktualisiert",
+      "customer_deleted": "Kunde gelöscht",
+      "project_updated": "Projekt aktualisiert",
+      "invoice_paid": "Rechnung bezahlt",
+      "document_uploaded": "Dokument hochgeladen",
+      "workflow_executed": "Workflow ausgeführt",
+      "member_invited": "Teammitglied eingeladen",
+      "generic": "Workspace-Update"
+    }
+  },
+  "chat": {
+    "title": "AGXORA AI",
+    "emptyState": "Fragen Sie AGXORA zu Kunden, Projekten oder nächsten Schritten. Ihr Gespräch bleibt in dieser Workspace-Sitzung.",
+    "thinking": "AGXORA denkt nach…",
+    "errorDismiss": "{error} — tippen zum Schließen",
+    "placeholder": "AGXORA AI fragen…",
+    "messageAria": "Nachricht an AGXORA AI",
+    "sendAria": "Nachricht senden",
+    "send": "Senden"
+  },
+  "routeLoading": {
+    "team": "Team wird geladen…",
+    "projects": "Projekte werden geladen…",
+    "project": "Projekt wird geladen…",
+    "profile": "Profil wird geladen…",
+    "integrations": "Integrationen werden geladen…",
+    "identity": "Identität wird geladen…",
+    "finance": "Finanzen werden geladen…",
+    "documents": "Dokumente werden geladen…",
+    "customers": "Kunden werden geladen…",
+    "crm": "CRM wird geladen…",
+    "customer": "Kunde wird geladen…",
+    "creator": "Creator Studio wird geladen…",
+    "billing": "Abrechnung wird geladen…",
+    "billingAdmin": "Admin-Abrechnung wird geladen…",
+    "automation": "Automatisierung wird geladen…",
+    "analytics": "Intelligence Center wird geladen…",
+    "ai": "KI-Plattform wird geladen…",
+    "agents": "Agent OS wird geladen…"
+  },
+  "shell": {
+    "memory": {
+      "title": "Memory",
+      "description": "Organisationsgedächtnis ist in diesem Build nicht verbunden.",
+      "emptyTitle": "Memory-Arbeitsbereich ist noch nicht verfügbar",
+      "emptyBody": "Persistenter Speicher für Organisationsgedächtnis ist nicht verbunden. Chat kann kurzlebigen Kontext nur in der Sitzung halten — hier wird nichts als Enterprise-Memory gespeichert."
+    },
+    "invoices": {
+      "title": "Rechnungen",
+      "description": "Abrechnungs- und Rechnungsarchitektur für Enterprise-Mandanten.",
+      "emptyTitle": "Rechnungsbuch ist noch nicht verfügbar",
+      "emptyBody": "Diese Route ist eine Hülle — Rechnungserstellung und Persistenz sind nicht verbunden. Nutzen Sie Finanzen für die Beispiel-Ledger-Vorschau oder Abrechnung für die Planverwaltung.",
+      "openFinance": "Finanzen öffnen",
+      "openBilling": "Abrechnung öffnen"
+    }
+  },
+  "search": {
+    "ariaLabel": "Universelle Suche",
+    "queryAria": "Universelle Suchanfrage",
+    "placeholder": "Kunden, Rechnungen, Dokumente, Workflows, Einstellungen suchen…",
+    "quickActions": "Schnellaktionen",
+    "favorites": "Favoriten",
+    "recentSearches": "Letzte Suchen",
+    "clear": "Löschen",
+    "noRecentSearches": "Noch keine letzten Suchen. Probieren Sie „Nordlicht“, „Rechnung“ oder „Workflow“.",
+    "recentActivity": "Letzte Aktivität",
+    "aiReady": "KI bereit (Architektur)",
+    "pinnedResults": "Angeheftete Ergebnisse",
+    "noMatches": "Keine Treffer",
+    "noMatchesBody": "Anderes Stichwort versuchen oder ein Modul über Schnellaktionen öffnen.",
+    "close": "Schließen",
+    "open": "Öffnen",
+    "keyboardHints": "↑↓ navigieren · Enter öffnen · Strg/⌘ K umschalten · Esc schließen",
+    "pinResult": "Ergebnis anheften",
+    "unpinResult": "Anheftung aufheben",
+    "previewEmpty": "Ergebnis hervorheben oder darüber fahren für Vorschau, Metadaten und Smart Links.",
+    "previewAria": "Universelle Vorschau",
+    "relatedItems": "Verwandte Elemente",
+    "noSmartLinks": "Keine Smart Links für dieses Ergebnis.",
+    "groups": {
+      "crm": "CRM",
+      "finance": "Finanzen",
+      "documents": "Dokumente",
+      "automation": "Automatisierung",
+      "projects": "Projekte",
+      "creator": "Creator Studio",
+      "settings": "Einstellungen",
+      "commands": "Befehle",
+      "actions": "Schnellaktionen"
+    },
+    "status": {
+      "architecture": "Architektur",
+      "planned": "geplant"
+    },
+    "meta": {
+      "type": "Typ",
+      "module": "Modul",
+      "quickAction": "Schnellaktion"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "Kunde erstellen",
+        "subtitle": "Kunden öffnen, um einen Datensatz hinzuzufügen"
+      },
+      "createInvoice": {
+        "title": "Rechnung erstellen",
+        "subtitle": "Finanz-Rechnungsarbeitsbereich öffnen"
+      },
+      "uploadDocument": {
+        "title": "Dokument hochladen",
+        "subtitle": "Documents Knowledge Hub öffnen"
+      },
+      "newWorkflow": {
+        "title": "Neuer Workflow",
+        "subtitle": "Automation Engine Builder öffnen"
+      },
+      "newProject": {
+        "title": "Neues Projekt",
+        "subtitle": "Projekte-Arbeitsbereich öffnen"
+      },
+      "inviteMember": {
+        "title": "Teammitglied einladen",
+        "subtitle": "Teameinladungen öffnen"
+      },
+      "openBilling": {
+        "title": "Abrechnung öffnen",
+        "subtitle": "Pläne, Rechnungen und Abonnement"
+      },
+      "openSettings": {
+        "title": "Einstellungen öffnen",
+        "subtitle": "Workspace-Einstellungen"
+      }
+    },
+    "commands": {
+      "openCrm": { "title": "CRM öffnen", "subtitle": "KI-CRM-Modul" },
+      "openCustomers": { "title": "Kunden öffnen", "subtitle": "Kundenverwaltung" },
+      "openFinance": { "title": "Finanzen öffnen", "subtitle": "Finanzen- & Steuer-Modul" },
+      "openDocuments": { "title": "Dokumente öffnen", "subtitle": "Knowledge Hub" },
+      "openAutomation": { "title": "Automatisierung öffnen", "subtitle": "Workflow-Engine" },
+      "openSettings": { "title": "Einstellungen öffnen", "subtitle": "Workspace-Einstellungen" },
+      "openProjects": { "title": "Projekte öffnen", "subtitle": "Projektportfolio" },
+      "openAi": { "title": "KI öffnen", "subtitle": "KI-Plattform-Arbeitsbereich" },
+      "openAnalytics": { "title": "Analysen öffnen", "subtitle": "Intelligence Center" },
+      "openIdentity": { "title": "Identity & Access öffnen", "subtitle": "IAM-Einstellungen, RBAC, Audit" },
+      "openBilling": { "title": "Abrechnung öffnen", "subtitle": "Abonnementportal & Pläne" },
+      "openIntegrations": { "title": "Integrationen öffnen", "subtitle": "Integration Center & API-Ökosystem" }
+    },
+    "modules": {
+      "dashboard": { "subtitle": "Kommandozentrale und Globus-Übersicht" },
+      "customers": { "subtitle": "Kundendatensätze und CRM" },
+      "projects": { "subtitle": "Projektlieferung und Tracking" },
+      "invoices": { "title": "Rechnungen", "subtitle": "Abrechnung und Rechnungen" },
+      "finance": { "subtitle": "KI-Buchhaltung, Banking, Steuern & Finanzintelligenz" },
+      "crm": { "subtitle": "KI-natives CRM und Creator Operating System" },
+      "creator": { "subtitle": "KI-Content-Produktion und Marketing-OS" },
+      "documents": { "subtitle": "KI-Dokumente & Knowledge Hub" },
+      "ai": { "title": "KI", "subtitle": "AGXORA AI Platform — Enterprise-Workspace" },
+      "analytics": { "subtitle": "Business Intelligence" },
+      "automation": { "subtitle": "KI-Workflow- und Automatisierungs-Engine" },
+      "memory": { "title": "Memory", "subtitle": "Organisationsgedächtnis" },
+      "team": { "subtitle": "Mitglieder und Einladungen" },
+      "settings": { "subtitle": "Workspace- und KI-Einstellungen" }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "KI-Suche",
+        "description": "Ergebnisse mit einem zukünftigen Retrieval-Modell modulübergreifend ranken."
+      },
+      "semantic": {
+        "title": "Semantische Suche",
+        "description": "Vektorähnlichkeit über Dokumente, Rechnungen und Wissen."
+      },
+      "nl": {
+        "title": "Natürlichsprachliche Suche",
+        "description": "Absichten wie „überfällige Rechnungen für Nordlicht“ parsen."
+      },
+      "rag": {
+        "title": "Wissensabruf",
+        "description": "Antworten im Documents Knowledge Hub-Korpus verankern."
+      }
     }
   },
   "summary": "{name}: {customers} Kunden · {projects} Projekte · {updates} Updates heute."

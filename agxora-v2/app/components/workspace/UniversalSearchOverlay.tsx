@@ -18,13 +18,18 @@ import {
   getFavoriteIds,
   getRecentSearches,
   groupResults,
-  GROUP_LABELS,
   pushRecentSearch,
   resolveRelated,
   searchIndex,
   toggleFavorite,
   type SearchResult,
 } from "../../lib/workspace";
+import {
+  localizeSearchResult,
+  localizeSearchResults,
+  searchGroupLabel,
+} from "../../lib/workspace/search-i18n";
+import { useLocale } from "../../lib/i18n";
 import { Badge, Button, EmptyState } from "../ui";
 import { OVERLAY_Z, lockBodyScroll, pushOverlay, isTopOverlay } from "../ui/overlayStack";
 import { SearchPreview } from "./SearchPreview";
@@ -35,12 +40,35 @@ type FlatRow =
   | { readonly type: "header"; readonly id: string; readonly label: string }
   | { readonly type: "item"; readonly id: string; readonly item: SearchResult; readonly flatIndex: number };
 
+const CAPABILITY_KEYS: Record<
+  string,
+  { readonly titleKey: string; readonly descriptionKey: string }
+> = {
+  "ai-search": {
+    titleKey: "dashboard.search.capabilities.aiSearch.title",
+    descriptionKey: "dashboard.search.capabilities.aiSearch.description",
+  },
+  semantic: {
+    titleKey: "dashboard.search.capabilities.semantic.title",
+    descriptionKey: "dashboard.search.capabilities.semantic.description",
+  },
+  nl: {
+    titleKey: "dashboard.search.capabilities.nl.title",
+    descriptionKey: "dashboard.search.capabilities.nl.description",
+  },
+  rag: {
+    titleKey: "dashboard.search.capabilities.rag.title",
+    descriptionKey: "dashboard.search.capabilities.rag.description",
+  },
+};
+
 /**
  * Universal Search + Command Palette — AGXORA OS layer.
  * Ctrl/Cmd+K · ESC · arrow navigation · recent · favorites · preview · smart links.
  */
 export function UniversalSearchOverlay(): JSX.Element | null {
   const router = useRouter();
+  const { t } = useLocale();
   const inputRef = useRef<HTMLInputElement>(null);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -50,6 +78,10 @@ export function UniversalSearchOverlay(): JSX.Element | null {
   const [favorites, setFavorites] = useState<readonly string[]>([]);
 
   const index = useMemo(() => buildSearchIndex(), []);
+  const localizedIndex = useMemo(
+    () => localizeSearchResults(index, t),
+    [index, t],
+  );
   const activity = useMemo(() => buildRecentActivity(), []);
 
   useEffect(() => {
@@ -81,26 +113,32 @@ export function UniversalSearchOverlay(): JSX.Element | null {
       close();
     };
     window.addEventListener("keydown", onEsc, true);
-    const t = window.setTimeout(() => {
+    const focusTimer = window.setTimeout(() => {
       setRecent(getRecentSearches());
       setFavorites(getFavoriteIds());
       setActiveIndex(0);
       inputRef.current?.focus();
     }, 0);
     return () => {
-      window.clearTimeout(t);
+      window.clearTimeout(focusTimer);
       window.removeEventListener("keydown", onEsc, true);
       pop();
       unlock();
     };
   }, [open]);
 
-  const results = useMemo(() => searchIndex(index, query, { limit: 100 }), [index, query]);
+  const results = useMemo(
+    () => localizeSearchResults(searchIndex(index, query, { limit: 100 }), t),
+    [index, query, t],
+  );
 
   const pinnedResults = useMemo(() => {
     const favSet = new Set(favorites);
-    return index.filter((item) => favSet.has(item.id) && item.pinnable);
-  }, [index, favorites]);
+    return localizeSearchResults(
+      index.filter((item) => favSet.has(item.id) && item.pinnable),
+      t,
+    );
+  }, [index, favorites, t]);
 
   const grouped = useMemo(() => groupResults(results), [results]);
 
@@ -108,21 +146,25 @@ export function UniversalSearchOverlay(): JSX.Element | null {
     const rows: FlatRow[] = [];
     let flatIndex = 0;
     if (!query.trim() && pinnedResults.length > 0) {
-      rows.push({ type: "header", id: "hdr-pinned", label: "Pinned Results" });
+      rows.push({ type: "header", id: "hdr-pinned", label: t("dashboard.search.pinnedResults") });
       for (const item of pinnedResults) {
         rows.push({ type: "item", id: `pin-${item.id}`, item, flatIndex });
         flatIndex += 1;
       }
     }
     for (const block of grouped) {
-      rows.push({ type: "header", id: `hdr-${block.group}`, label: block.label });
+      rows.push({
+        type: "header",
+        id: `hdr-${block.group}`,
+        label: searchGroupLabel(block.group, t),
+      });
       for (const item of block.items) {
         rows.push({ type: "item", id: item.id, item, flatIndex });
         flatIndex += 1;
       }
     }
     return rows;
-  }, [grouped, pinnedResults, query]);
+  }, [grouped, pinnedResults, query, t]);
 
   const selectable = useMemo(
     () => flatRows.filter((row): row is Extract<FlatRow, { type: "item" }> => row.type === "item"),
@@ -132,14 +174,15 @@ export function UniversalSearchOverlay(): JSX.Element | null {
   const activeItem = selectable[activeIndex]?.item ?? null;
   const previewItem = useMemo(() => {
     if (hoverId) {
-      return index.find((item) => item.id === hoverId) ?? activeItem;
+      const raw = index.find((item) => item.id === hoverId) ?? activeItem;
+      return raw ? localizeSearchResult(raw, t) : activeItem;
     }
     return activeItem;
-  }, [hoverId, index, activeItem]);
+  }, [hoverId, index, activeItem, t]);
 
   const related = useMemo(
-    () => resolveRelated(index, previewItem),
-    [index, previewItem],
+    () => localizeSearchResults(resolveRelated(localizedIndex, previewItem), t),
+    [localizedIndex, previewItem, t],
   );
 
   const close = useCallback((): void => {
@@ -189,7 +232,7 @@ export function UniversalSearchOverlay(): JSX.Element | null {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Universal search"
+      aria-label={t("dashboard.search.ariaLabel")}
       className="fixed inset-0 flex items-start justify-center px-3 pt-[8vh] sm:px-6"
       style={{
         zIndex: OVERLAY_Z.popover,
@@ -222,8 +265,8 @@ export function UniversalSearchOverlay(): JSX.Element | null {
               setActiveIndex(0);
             }}
             onKeyDown={onInputKeyDown}
-            placeholder="Search customers, invoices, documents, workflows, settings…"
-            aria-label="Universal search query"
+            placeholder={t("dashboard.search.placeholder")}
+            aria-label={t("dashboard.search.queryAria")}
             aria-autocomplete="list"
             aria-controls="universal-search-results"
             className="min-w-0 flex-1 bg-transparent text-[15px] outline-none"
@@ -250,13 +293,15 @@ export function UniversalSearchOverlay(): JSX.Element | null {
                       className="text-[11px] font-semibold uppercase tracking-[0.14em]"
                       style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                     >
-                      Quick Actions
+                      {t("dashboard.search.quickActions")}
                     </h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {index
                       .filter((item) => item.group === "actions")
-                      .map((action) => (
+                      .map((action) => {
+                        const localized = localizeSearchResult(action, t);
+                        return (
                         <button
                           key={action.id}
                           type="button"
@@ -269,9 +314,10 @@ export function UniversalSearchOverlay(): JSX.Element | null {
                             background: "rgba(255,255,255,0.03)",
                           }}
                         >
-                          {action.title}
+                          {localized.title}
                         </button>
-                      ))}
+                      );
+                      })}
                   </div>
                 </section>
 
@@ -281,7 +327,7 @@ export function UniversalSearchOverlay(): JSX.Element | null {
                       className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em]"
                       style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                     >
-                      Favorites
+                      {t("dashboard.search.favorites")}
                     </h3>
                     <ul className="space-y-1">
                       {pinnedResults.map((item) => (
@@ -305,7 +351,7 @@ export function UniversalSearchOverlay(): JSX.Element | null {
                       className="text-[11px] font-semibold uppercase tracking-[0.14em]"
                       style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                     >
-                      Recent Searches
+                      {t("dashboard.search.recentSearches")}
                     </h3>
                     {recent.length > 0 ? (
                       <button
@@ -317,13 +363,13 @@ export function UniversalSearchOverlay(): JSX.Element | null {
                           setRecent([]);
                         }}
                       >
-                        Clear
+                        {t("dashboard.search.clear")}
                       </button>
                     ) : null}
                   </div>
                   {recent.length === 0 ? (
                     <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                      No recent searches yet. Try “Nordlicht”, “invoice”, or “workflow”.
+                      {t("dashboard.search.noRecentSearches")}
                     </p>
                   ) : (
                     <div className="flex flex-wrap gap-2">
@@ -350,7 +396,7 @@ export function UniversalSearchOverlay(): JSX.Element | null {
                     className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em]"
                     style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                   >
-                    Recent Activity
+                    {t("dashboard.search.recentActivity")}
                   </h3>
                   <ul className="space-y-1.5">
                     {activity.slice(0, 6).map((item) => (
@@ -371,7 +417,7 @@ export function UniversalSearchOverlay(): JSX.Element | null {
                             <span className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
                               {item.title}
                             </span>
-                            <Badge>{GROUP_LABELS[
+                            <Badge>{searchGroupLabel(
                               item.kind === "invoice"
                                 ? "finance"
                                 : item.kind === "customer"
@@ -380,8 +426,9 @@ export function UniversalSearchOverlay(): JSX.Element | null {
                                     ? "automation"
                                     : item.kind === "project"
                                       ? "projects"
-                                      : "documents"
-                            ]}</Badge>
+                                      : "documents",
+                              t,
+                            )}</Badge>
                           </div>
                           <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                             {item.detail}
@@ -397,10 +444,12 @@ export function UniversalSearchOverlay(): JSX.Element | null {
                     className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em]"
                     style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                   >
-                    AI Ready (Architecture)
+                    {t("dashboard.search.aiReady")}
                   </h3>
                   <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                    {AI_SEARCH_CAPABILITIES.map((cap) => (
+                    {AI_SEARCH_CAPABILITIES.map((cap) => {
+                      const keys = CAPABILITY_KEYS[cap.id];
+                      return (
                       <div
                         key={cap.id}
                         className="rounded-xl border px-3 py-2"
@@ -411,23 +460,24 @@ export function UniversalSearchOverlay(): JSX.Element | null {
                       >
                         <div className="flex items-center justify-between gap-2">
                           <p className="text-xs font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                            {cap.title}
+                            {keys ? t(keys.titleKey) : cap.title}
                           </p>
-                          <Badge tone="warning">{cap.status}</Badge>
+                          <Badge tone="warning">{t(`dashboard.search.status.${cap.status}`)}</Badge>
                         </div>
                         <p className="mt-1 text-[11px] leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                          {cap.description}
+                          {keys ? t(keys.descriptionKey) : cap.description}
                         </p>
                       </div>
-                    ))}
+                    );
+                    })}
                   </div>
                 </section>
               </div>
             ) : selectable.length === 0 ? (
               <div className="p-4">
                 <EmptyState
-                  title="No matches"
-                  description="Try another keyword, or open a module via Quick Actions."
+                  title={t("dashboard.search.noMatches")}
+                  description={t("dashboard.search.noMatchesBody")}
                 />
               </div>
             ) : (
@@ -475,16 +525,16 @@ export function UniversalSearchOverlay(): JSX.Element | null {
             />
             <div className="mt-3 flex flex-wrap gap-2">
               <Button size="sm" variant="secondary" onClick={close}>
-                Close
+                {t("dashboard.search.close")}
               </Button>
               {activeItem ? (
                 <Button size="sm" variant="primary" onClick={() => navigateTo(activeItem)}>
-                  Open
+                  {t("dashboard.search.open")}
                 </Button>
               ) : null}
             </div>
             <p className="mt-3 text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              ↑↓ navigate · Enter open · Ctrl/⌘ K toggle · Esc close
+              {t("dashboard.search.keyboardHints")}
             </p>
           </div>
         </div>
@@ -509,6 +559,8 @@ function ResultButton({
   readonly onSelect: () => void;
   readonly onPin: () => void;
 }): JSX.Element {
+  const { t } = useLocale();
+
   return (
     <div
       role="option"
@@ -534,13 +586,13 @@ function ResultButton({
           {item.title}
         </span>
         <span className="block truncate text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          {GROUP_LABELS[item.group]} · {item.subtitle}
+          {searchGroupLabel(item.group, t)} · {item.subtitle}
         </span>
       </button>
       {item.pinnable ? (
         <button
           type="button"
-          aria-label={pinned ? "Unpin result" : "Pin result"}
+          aria-label={pinned ? t("dashboard.search.unpinResult") : t("dashboard.search.pinResult")}
           onClick={(e) => {
             e.stopPropagation();
             onPin();

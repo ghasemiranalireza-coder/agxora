@@ -2,14 +2,14 @@
 
 import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { SkeletonPanel } from "../../components/backend";
+import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
 
 const Page = dynamic(
   () =>
     import("../../../features/auth").then((mod) => mod.IamIdentityWorkspace),
   {
     ssr: false,
-    loading: () => <SkeletonPanel label="Loading identity…" />,
+    loading: createRouteLoading("dashboard.routeLoading.identity"),
   },
 );
 
