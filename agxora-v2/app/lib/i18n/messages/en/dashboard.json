@@ -113,6 +113,189 @@
       "documents": "Documents",
       "team": "Team",
       "workspace": "Workspace"
+    },
+    "events": {
+      "customer_created": "Customer created",
+      "customer_updated": "Customer updated",
+      "customer_deleted": "Customer deleted",
+      "project_updated": "Project updated",
+      "invoice_paid": "Invoice paid",
+      "document_uploaded": "Document uploaded",
+      "workflow_executed": "Workflow executed",
+      "member_invited": "Team member invited",
+      "generic": "Workspace update"
+    }
+  },
+  "chat": {
+    "title": "AGXORA AI",
+    "emptyState": "Ask AGXORA about customers, projects, or next actions. Your conversation stays in this workspace session.",
+    "thinking": "AGXORA is thinking…",
+    "errorDismiss": "{error} — tap to dismiss",
+    "placeholder": "Ask AGXORA AI…",
+    "messageAria": "Message AGXORA AI",
+    "sendAria": "Send message",
+    "send": "Send"
+  },
+  "routeLoading": {
+    "team": "Loading team…",
+    "projects": "Loading projects…",
+    "project": "Loading project…",
+    "profile": "Loading profile…",
+    "integrations": "Loading integrations…",
+    "identity": "Loading identity…",
+    "finance": "Loading finance…",
+    "documents": "Loading documents…",
+    "customers": "Loading customers…",
+    "crm": "Loading CRM…",
+    "customer": "Loading customer…",
+    "creator": "Loading creator studio…",
+    "billing": "Loading billing…",
+    "billingAdmin": "Loading admin billing…",
+    "automation": "Loading automation…",
+    "analytics": "Loading Intelligence Center…",
+    "ai": "Loading AI Platform…",
+    "agents": "Loading Agent OS…"
+  },
+  "shell": {
+    "memory": {
+      "title": "Memory",
+      "description": "Organization memory is not connected in this build.",
+      "emptyTitle": "Memory workspace is not available yet",
+      "emptyBody": "Persistent organization memory storage is not connected. Chat may keep short-lived context in-session only — nothing here is stored as enterprise memory."
+    },
+    "invoices": {
+      "title": "Invoices",
+      "description": "Billing and invoice architecture for enterprise tenants.",
+      "emptyTitle": "Invoice ledger is not available yet",
+      "emptyBody": "This route is a shell — invoice creation and persistence are not connected. Use Finance for the sample ledger preview, or Billing for plan management.",
+      "openFinance": "Open Finance",
+      "openBilling": "Open Billing"
+    }
+  },
+  "search": {
+    "ariaLabel": "Universal search",
+    "queryAria": "Universal search query",
+    "placeholder": "Search customers, invoices, documents, workflows, settings…",
+    "quickActions": "Quick Actions",
+    "favorites": "Favorites",
+    "recentSearches": "Recent Searches",
+    "clear": "Clear",
+    "noRecentSearches": "No recent searches yet. Try “Nordlicht”, “invoice”, or “workflow”.",
+    "recentActivity": "Recent Activity",
+    "aiReady": "AI Ready (Architecture)",
+    "pinnedResults": "Pinned Results",
+    "noMatches": "No matches",
+    "noMatchesBody": "Try another keyword, or open a module via Quick Actions.",
+    "close": "Close",
+    "open": "Open",
+    "keyboardHints": "↑↓ navigate · Enter open · Ctrl/⌘ K toggle · Esc close",
+    "pinResult": "Pin result",
+    "unpinResult": "Unpin result",
+    "previewEmpty": "Hover or highlight a result for preview, metadata, and smart links.",
+    "previewAria": "Universal preview",
+    "relatedItems": "Related Items",
+    "noSmartLinks": "No smart links for this result.",
+    "groups": {
+      "crm": "CRM",
+      "finance": "Finance",
+      "documents": "Documents",
+      "automation": "Automation",
+      "projects": "Projects",
+      "creator": "Creator Studio",
+      "settings": "Settings",
+      "commands": "Commands",
+      "actions": "Quick Actions"
+    },
+    "status": {
+      "architecture": "architecture",
+      "planned": "planned"
+    },
+    "meta": {
+      "type": "Type",
+      "module": "Module",
+      "quickAction": "Quick Action"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "Create Customer",
+        "subtitle": "Open Customers to add a record"
+      },
+      "createInvoice": {
+        "title": "Create Invoice",
+        "subtitle": "Open Finance invoice workspace"
+      },
+      "uploadDocument": {
+        "title": "Upload Document",
+        "subtitle": "Open Documents Knowledge Hub"
+      },
+      "newWorkflow": {
+        "title": "New Workflow",
+        "subtitle": "Open Automation Engine builder"
+      },
+      "newProject": {
+        "title": "New Project",
+        "subtitle": "Open Projects workspace"
+      },
+      "inviteMember": {
+        "title": "Invite Team Member",
+        "subtitle": "Open Team invitations"
+      },
+      "openBilling": {
+        "title": "Open Billing",
+        "subtitle": "Plans, invoices, and subscription"
+      },
+      "openSettings": {
+        "title": "Open Settings",
+        "subtitle": "Workspace preferences"
+      }
+    },
+    "commands": {
+      "openCrm": { "title": "Open CRM", "subtitle": "AI CRM module" },
+      "openCustomers": { "title": "Open Customers", "subtitle": "Customer management" },
+      "openFinance": { "title": "Open Finance", "subtitle": "Finance & Tax module" },
+      "openDocuments": { "title": "Open Documents", "subtitle": "Knowledge Hub" },
+      "openAutomation": { "title": "Open Automation", "subtitle": "Workflow engine" },
+      "openSettings": { "title": "Open Settings", "subtitle": "Workspace settings" },
+      "openProjects": { "title": "Open Projects", "subtitle": "Project portfolio" },
+      "openAi": { "title": "Open AI", "subtitle": "AI platform workspace" },
+      "openAnalytics": { "title": "Open Analytics", "subtitle": "Intelligence center" },
+      "openIdentity": { "title": "Open Identity & Access", "subtitle": "IAM settings, RBAC, audit" },
+      "openBilling": { "title": "Open Billing", "subtitle": "Subscription portal & plans" },
+      "openIntegrations": { "title": "Open Integrations", "subtitle": "Integration Center & API ecosystem" }
+    },
+    "modules": {
+      "dashboard": { "subtitle": "Command center and globe overview" },
+      "customers": { "subtitle": "Customer records and CRM" },
+      "projects": { "subtitle": "Project delivery and tracking" },
+      "invoices": { "title": "Invoices", "subtitle": "Billing and invoices" },
+      "finance": { "subtitle": "AI accounting, banking, tax & financial intelligence" },
+      "crm": { "subtitle": "AI-native CRM and Creator Operating System" },
+      "creator": { "subtitle": "AI content production and marketing OS" },
+      "documents": { "subtitle": "AI Documents & Knowledge Hub" },
+      "ai": { "title": "AI", "subtitle": "AGXORA AI Platform — enterprise workspace" },
+      "analytics": { "subtitle": "Business intelligence" },
+      "automation": { "subtitle": "AI workflow and automation engine" },
+      "memory": { "title": "Memory", "subtitle": "Organization memory" },
+      "team": { "subtitle": "Members and invitations" },
+      "settings": { "subtitle": "Workspace and AI settings" }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "AI Search",
+        "description": "Rank results with a future retrieval model across modules."
+      },
+      "semantic": {
+        "title": "Semantic Search",
+        "description": "Vector similarity over documents, invoices, and knowledge."
+      },
+      "nl": {
+        "title": "Natural Language Search",
+        "description": "Parse intents like “overdue invoices for Nordlicht”."
+      },
+      "rag": {
+        "title": "Knowledge Retrieval",
+        "description": "Ground answers in the Documents Knowledge Hub corpus."
+      }
     }
   },
   "summary": "{name}: {customers} customers · {projects} projects · {updates} updates today."

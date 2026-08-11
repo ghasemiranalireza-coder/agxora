@@ -24,6 +24,18 @@ const KIND_MESSAGE_KEY: Record<ActivityKind, string> = {
   generic: "workspace",
 };
 
+const EVENT_TITLE_KEY: Record<ActivityKind, string> = {
+  customer_created: "dashboard.activity.events.customer_created",
+  customer_updated: "dashboard.activity.events.customer_updated",
+  customer_deleted: "dashboard.activity.events.customer_deleted",
+  project_updated: "dashboard.activity.events.project_updated",
+  invoice_paid: "dashboard.activity.events.invoice_paid",
+  document_uploaded: "dashboard.activity.events.document_uploaded",
+  workflow_executed: "dashboard.activity.events.workflow_executed",
+  member_invited: "dashboard.activity.events.member_invited",
+  generic: "dashboard.activity.events.generic",
+};
+
 function formatRelativeTime(iso: string, bcp47: string): string {
   const then = new Date(iso).getTime();
   if (Number.isNaN(then)) return "";
@@ -190,7 +202,7 @@ export function ActivityFeed({
                     className="mt-1 block text-sm font-medium"
                     style={{ color: tokens.text }}
                   >
-                    {item.title}
+                    {t(EVENT_TITLE_KEY[item.kind])}
                   </span>
                   <span
                     className="mt-0.5 block text-xs leading-relaxed"

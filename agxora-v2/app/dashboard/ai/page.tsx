@@ -2,14 +2,14 @@
 
 import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { SkeletonPanel } from "../../components/backend";
+import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
 
 const AiPlatformWorkspace = dynamic(
   () =>
     import("../../../features/ai").then((mod) => mod.AiPlatformWorkspace),
   {
     ssr: false,
-    loading: () => <SkeletonPanel label="Loading AI Platform…" />,
+    loading: createRouteLoading("dashboard.routeLoading.ai"),
   },
 );
 

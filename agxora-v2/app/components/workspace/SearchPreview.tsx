@@ -2,6 +2,7 @@
 
 import type { JSX } from "react";
 import type { SearchResult } from "../../lib/workspace";
+import { useLocale } from "../../lib/i18n";
 import { Badge } from "../ui";
 
 export function SearchPreview({
@@ -13,6 +14,8 @@ export function SearchPreview({
   readonly related: readonly SearchResult[];
   readonly onOpenRelated: (item: SearchResult) => void;
 }): JSX.Element {
+  const { t } = useLocale();
+
   if (!item) {
     return (
       <div
@@ -23,7 +26,7 @@ export function SearchPreview({
           background: "rgba(255,255,255,0.02)",
         }}
       >
-        Hover or highlight a result for preview, metadata, and smart links.
+        {t("dashboard.search.previewEmpty")}
       </div>
     );
   }
@@ -35,7 +38,7 @@ export function SearchPreview({
         borderColor: "var(--agx-card-border, rgba(255,255,255,0.1))",
         background: "rgba(255,255,255,0.03)",
       }}
-      aria-label="Universal preview"
+      aria-label={t("dashboard.search.previewAria")}
     >
       <div>
         <Badge tone="accent">{item.kind.replaceAll("_", " ")}</Badge>
@@ -72,11 +75,11 @@ export function SearchPreview({
           className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em]"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Related Items
+          {t("dashboard.search.relatedItems")}
         </p>
         {related.length === 0 ? (
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            No smart links for this result.
+            {t("dashboard.search.noSmartLinks")}
           </p>
         ) : (
           <ul className="space-y-1.5">

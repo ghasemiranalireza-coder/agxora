@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { SkeletonPanel } from "../../components/backend";
+import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
 
 const Page = dynamic(
   () =>
@@ -11,7 +11,7 @@ const Page = dynamic(
     ),
   {
     ssr: false,
-    loading: () => <SkeletonPanel label="Loading automation…" />,
+    loading: createRouteLoading("dashboard.routeLoading.automation"),
   },
 );
 

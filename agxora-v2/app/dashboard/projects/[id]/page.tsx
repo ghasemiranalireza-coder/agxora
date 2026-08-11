@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { use } from "react";
 import type { JSX } from "react";
-import { SkeletonPanel } from "../../../components/backend";
+import { createRouteLoading } from "../../../components/dashboard/RouteLoadingPanel";
 
 const ProjectDetailWorkspace = dynamic(
   () =>
@@ -12,7 +12,7 @@ const ProjectDetailWorkspace = dynamic(
     ),
   {
     ssr: false,
-    loading: () => <SkeletonPanel label="Loading project…" />,
+    loading: createRouteLoading("dashboard.routeLoading.project"),
   },
 );
 

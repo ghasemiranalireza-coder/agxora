@@ -2,14 +2,14 @@
 
 import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { SkeletonPanel } from "../../components/backend";
+import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
 
 const CrmEnterpriseWorkspace = dynamic(
   () =>
     import("../../components/crm").then((mod) => mod.CrmEnterpriseWorkspace),
   {
     ssr: false,
-    loading: () => <SkeletonPanel label="Loading CRM…" />,
+    loading: createRouteLoading("dashboard.routeLoading.crm"),
   },
 );
 

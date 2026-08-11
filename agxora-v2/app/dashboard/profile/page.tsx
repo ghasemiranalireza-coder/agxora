@@ -2,14 +2,14 @@
 
 import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { SkeletonPanel } from "../../components/backend";
+import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
 
 const Page = dynamic(
   () =>
     import("../../../features/auth").then((mod) => mod.IamProfileWorkspace),
   {
     ssr: false,
-    loading: () => <SkeletonPanel label="Loading profile…" />,
+    loading: createRouteLoading("dashboard.routeLoading.profile"),
   },
 );
 

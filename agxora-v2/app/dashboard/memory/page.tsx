@@ -1,18 +1,21 @@
 "use client";
 
 import type { JSX } from "react";
+import { useLocale } from "../../lib/i18n";
 import { ModulePanel } from "../../components/ModulePanel";
 import { EmptyState } from "../../components/ui";
 
 export default function MemoryPage(): JSX.Element {
+  const { t } = useLocale();
+
   return (
     <ModulePanel
-      title="Memory"
-      description="Organization memory is not connected in this build."
+      title={t("dashboard.shell.memory.title")}
+      description={t("dashboard.shell.memory.description")}
     >
       <EmptyState
-        title="Memory workspace is not available yet"
-        description="Persistent organization memory storage is not connected. Chat may keep short-lived context in-session only — nothing here is stored as enterprise memory."
+        title={t("dashboard.shell.memory.emptyTitle")}
+        description={t("dashboard.shell.memory.emptyBody")}
       />
     </ModulePanel>
   );
