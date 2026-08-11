@@ -1,0 +1,388 @@
+{
+  "page": {
+    "brand": "AGXORA Knowledge OS",
+    "title": "Documents",
+    "subtitle": "Enterprise documents & knowledge hub — previewed with sample content until storage and approval backends connect.",
+    "sampleNotice": "Sample library — browsing and filters work in-session. Upload, approve, and AI index actions are not connected."
+  },
+  "sections": {
+    "kpis": {
+      "title": "Knowledge Dashboard"
+    },
+    "library": {
+      "title": "Document Library",
+      "subtitle": "All Documents, Recent, Favorites, Shared, Archived, Trash, Knowledge Base — with folders, search, viewer, and versions."
+    },
+    "knowledge": {
+      "title": "Knowledge Base",
+      "subtitle": "Articles, policies, processes, manuals, FAQs, and internal wiki."
+    },
+    "approvals": {
+      "title": "Approvals",
+      "subtitle": "Draft, In Review, Approved, Rejected, Archived — linked with Automation architecture."
+    },
+    "ai": {
+      "title": "AI Knowledge Layer",
+      "subtitle": "Summary, keywords, classification, tags, folders, related docs, duplicates, translation, OCR, and search — architecture only."
+    },
+    "activity": {
+      "title": "Activity",
+      "subtitle": "Recent changes, uploads, views, shares, and audit history."
+    },
+    "integrations": {
+      "title": "Integrations",
+      "subtitle": "Drive adapters reserved — no live connectors."
+    },
+    "security": {
+      "title": "Security & Sharing",
+      "subtitle": "RBAC, audit trail, encryption, retention, and share scopes."
+    }
+  },
+  "loading": {
+    "knowledgeBase": "Loading knowledge base…",
+    "approvals": "Loading approval queue…",
+    "aiInsights": "Loading AI insights…",
+    "activity": "Loading activity…",
+    "integrations": "Loading integrations…",
+    "security": "Loading security…"
+  },
+  "kpi": {
+    "documents": {
+      "label": "Documents",
+      "caption": "Sample · across folders",
+      "delta": "+{count}"
+    },
+    "folders": {
+      "label": "Folders",
+      "caption": "Sample · including smart collections",
+      "delta": "+{count}"
+    },
+    "storage": {
+      "label": "Storage Used",
+      "caption": "Sample · of illustrative plan",
+      "delta": "+{size}"
+    },
+    "shared": {
+      "label": "Shared Documents",
+      "caption": "Sample · org + department + users",
+      "delta": "+{count}"
+    },
+    "activity": {
+      "label": "Recent Activity",
+      "caption": "Sample · last 24 hours",
+      "delta": "+{count}"
+    },
+    "indexed": {
+      "label": "AI Indexed",
+      "caption": "Sample · AI search not connected",
+      "delta": "{percent}"
+    },
+    "approvals": {
+      "label": "Pending Approvals",
+      "caption": "Sample · automation not connected",
+      "delta": "{count}"
+    },
+    "score": {
+      "label": "Knowledge Score",
+      "caption": "Sample · coverage illustration",
+      "delta": "+{count}"
+    }
+  },
+  "library": {
+    "viewsAria": "Library views",
+    "views": {
+      "all": "All Documents",
+      "recent": "Recent",
+      "favorites": "Favorites",
+      "shared": "Shared",
+      "archived": "Archived",
+      "trash": "Trash",
+      "knowledge": "Knowledge Base"
+    },
+    "dropzone": "Drag & drop files here to stage an upload.",
+    "uploadReserved": "Drag & drop upload is a storage API reserved.",
+    "filesStaged": "{count} file(s) staged for upload (no storage write).",
+    "dropReceived": "Drop received (no storage write).",
+    "foldersTitle": "Folders & Collections",
+    "foldersHint": "Nested folders, collections, smart collections, tags, pinned & favorites.",
+    "allFolders": "All folders",
+    "smart": "Smart",
+    "collection": "Collection",
+    "pinned": "Pinned",
+    "favorite": "Favorite",
+    "sharedBadge": "Shared",
+    "title": "Document Library",
+    "results": "{count} results",
+    "resultOne": "{count} result",
+    "selected": "· {count} selected",
+    "bulkAction": "Bulk action",
+    "bulkUnavailable": "Bulk action unavailable for {count} item(s) — storage mutations are not connected.",
+    "searchLabel": "Global Search",
+    "searchPlaceholder": "Name, tags, owner, AI summary…",
+    "typeLabel": "Type",
+    "statusLabel": "Status",
+    "departmentLabel": "Department",
+    "ownerLabel": "Owner",
+    "allTypes": "All types",
+    "allStatuses": "All statuses",
+    "allDepartments": "All departments",
+    "allOwners": "All owners",
+    "favoritesOnly": "Favorites only",
+    "emptyTitle": "No documents to show",
+    "emptyDescription": "Adjust filters, clear search, or add knowledge assets to grow the library.",
+    "selectAria": "Select {name}",
+    "versionHistoryTitle": "Version History",
+    "close": "Close",
+    "context": {
+      "open": "Open",
+      "share": "Share",
+      "favorite": "Favorite",
+      "move": "Move",
+      "delete": "Delete",
+      "dismiss": "Dismiss",
+      "unavailable": "{action} unavailable — document mutations are not connected for {id}."
+    }
+  },
+  "viewer": {
+    "title": "Document Viewer",
+    "emptyTitle": "Select a document",
+    "emptyDescription": "Choose a file from the library to preview content, metadata, tags, versions, and linked modules.",
+    "zoomOut": "Zoom −",
+    "zoomIn": "Zoom +",
+    "prev": "Prev",
+    "next": "Next",
+    "page": "Page {page} / {total}",
+    "searchInside": "Search inside",
+    "findPlaceholder": "Find in preview…",
+    "noMatches": "No matches in preview text.",
+    "meta": {
+      "owner": "Owner",
+      "created": "Created",
+      "updated": "Updated",
+      "fileType": "File Type",
+      "size": "Size",
+      "category": "Category",
+      "department": "Department",
+      "status": "Status",
+      "retention": "Retention",
+      "version": "Version",
+      "sharing": "Sharing"
+    },
+    "tags": "Tags",
+    "linkedModules": "Linked Modules",
+    "noModuleLinks": "No module links yet",
+    "versionHistory": "Version History"
+  },
+  "versions": {
+    "title": "Version History",
+    "emptyTitle": "No document selected",
+    "emptyDescription": "Open a document to inspect versions, notes, restore, and compare.",
+    "current": "{name} · current {version}",
+    "restore": "Restore Version",
+    "compare": "Compare Versions",
+    "restoreTitle": "Restore requires the storage API",
+    "compareTitle": "Compare requires the storage API",
+    "noticeDefault": "Restore and compare require the storage API.",
+    "restoreUnavailable": "Restore unavailable for {id} — storage API is not connected.",
+    "compareUnavailable": "Compare unavailable ({selected} ↔ {current}) — storage API is not connected."
+  },
+  "approvals": {
+    "title": "Approval Workflow",
+    "subtitle": "Draft → In Review → Approved / Rejected → Archived. Queue items are sample documents; actions do not persist.",
+    "emptyTitle": "Queue clear",
+    "emptyDescription": "No draft or in-review documents in the sample set.",
+    "approve": "Approve",
+    "reject": "Reject",
+    "sendToReview": "Send to Review",
+    "noticeDefault": "Approval transitions require the Automation workflow engine — not connected in this build.",
+    "unavailable": "{action} unavailable for {id} — workflow engine is not connected. Sample document status was not changed.",
+    "approveTitle": "Approval unavailable — workflow engine not connected",
+    "rejectTitle": "Rejection unavailable — workflow engine not connected",
+    "sendTitle": "Send to review unavailable — workflow engine not connected"
+  },
+  "knowledge": {
+    "intro": "Articles, policies, processes, manuals, FAQs, and internal wiki — the narrative layer of the Knowledge Hub."
+  },
+  "activity": {
+    "intro": "Recent changes, uploads, views, shares, and audit history — foundation for compliance trails."
+  },
+  "integrations": {
+    "intro": "Cloud drive adapters are architecture only — Google Drive, OneDrive, Dropbox, Box, SharePoint, Nextcloud. No live APIs.",
+    "reservedAdapter": "Reserved adapter:",
+    "architecture": "Architecture",
+    "items": {
+      "google-drive": {
+        "description": "Import / sync architecture reserved — no live OAuth yet."
+      },
+      "onedrive": {
+        "description": "Microsoft Graph file hooks reserved."
+      },
+      "dropbox": {
+        "description": "Dropbox API adapter reserved."
+      },
+      "box": {
+        "description": "Enterprise Box connector reserved."
+      },
+      "sharepoint": {
+        "description": "Site libraries + metadata mapping reserved."
+      },
+      "nextcloud": {
+        "description": "WebDAV adapter reserved — disabled until self-host plan."
+      }
+    }
+  },
+  "security": {
+    "architectureTitle": "Security Architecture",
+    "sharingTitle": "Sharing Model",
+    "sharingIntro": "Private, Organization, Department, Specific Users, and Public Link placeholder.",
+    "enabled": "Enabled",
+    "placeholder": "Placeholder",
+    "notEnforced": "Not enforced",
+    "modelOnly": "Model only",
+    "controls": {
+      "rbac": {
+        "title": "Role Based Access",
+        "description": "Owner, editor, viewer, and approver roles map to document ACLs — not enforced in this build."
+      },
+      "permissions": {
+        "title": "Permission Architecture",
+        "description": "Folder inheritance with document-level overrides — not enforced in this build."
+      },
+      "audit": {
+        "title": "Audit Trail",
+        "description": "Activity events for views, shares, restores, and approvals — not persisted yet."
+      },
+      "encryption": {
+        "title": "Encryption",
+        "description": "At-rest and in-transit encryption hooks reserved for KMS wiring."
+      },
+      "retention": {
+        "title": "Retention Policy",
+        "description": "Per-category retention windows with legal hold support — not enforced yet."
+      }
+    }
+  },
+  "ai": {
+    "architectureTitle": "AI Feature Architecture",
+    "architectureIntro": "Every capability is reserved for the future AI index. UI shows deterministic mock insights.",
+    "insightsTitle": "Insights for Selected Document",
+    "emptyTitle": "Select a document",
+    "emptyDescription": "Open a file in the library to inspect AI summary, keywords, and suggestions.",
+    "summary": "AI Summary",
+    "keywords": "AI Keywords",
+    "classification": "AI Classification",
+    "suggestedFolder": "AI Suggested Folder",
+    "translation": "AI Translation",
+    "ocr": "AI OCR",
+    "suggestedTags": "AI Suggested Tags",
+    "related": "AI Related Documents",
+    "noRelated": "No related documents indexed.",
+    "duplicateOf": "AI Duplicate Detection: possible duplicate of",
+    "noDuplicates": "AI Duplicate Detection: no near-duplicates flagged.",
+    "sampleReady": "Sample ready",
+    "notApplicable": "Not applicable",
+    "runSearch": "Run AI Search",
+    "searchTitle": "AI Search is not connected",
+    "noticeDefault": "AI features are architecture only — no live model calls.",
+    "searchUnavailable": "AI Search unavailable — semantic index is not connected. Sample insights above are static.",
+    "features": {
+      "summary": {
+        "title": "AI Summary",
+        "description": "Condensed document understanding for every module."
+      },
+      "keywords": {
+        "title": "AI Keywords",
+        "description": "Extracted topic signals for search and routing."
+      },
+      "classification": {
+        "title": "AI Classification",
+        "description": "Category / department taxonomy suggestion."
+      },
+      "tags": {
+        "title": "AI Suggested Tags",
+        "description": "Tag recommendations without mutating the graph."
+      },
+      "folder": {
+        "title": "AI Suggested Folder",
+        "description": "Smart placement into nested folders."
+      },
+      "related": {
+        "title": "AI Related Documents",
+        "description": "Graph neighbors across the knowledge hub."
+      },
+      "duplicate": {
+        "title": "AI Duplicate Detection",
+        "description": "Near-duplicate detection for document libraries."
+      },
+      "translation": {
+        "title": "AI Translation",
+        "description": "Translation readiness flag — no live model."
+      },
+      "ocr": {
+        "title": "AI OCR",
+        "description": "OCR pipeline reserved for scans and PDFs."
+      },
+      "search": {
+        "title": "AI Search",
+        "description": "Semantic search reserved for future index."
+      }
+    }
+  },
+  "status": {
+    "draft": "Draft",
+    "in_review": "In Review",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "archived": "Archived"
+  },
+  "fileType": {
+    "pdf": "PDF",
+    "word": "Word",
+    "excel": "Excel",
+    "powerpoint": "PowerPoint",
+    "image": "Image",
+    "video": "Video",
+    "audio": "Audio",
+    "markdown": "Markdown",
+    "text": "Text",
+    "json": "JSON",
+    "csv": "CSV",
+    "other": "Other"
+  },
+  "share": {
+    "private": "Private",
+    "organization": "Organization",
+    "department": "Department",
+    "specific_users": "Specific Users",
+    "public_link": "Public Link"
+  },
+  "module": {
+    "crm": "CRM",
+    "finance": "Finance",
+    "automation": "Automation",
+    "creator": "Creator Studio",
+    "hr": "Future HR",
+    "projects": "Future Projects"
+  },
+  "knowledgeKind": {
+    "article": "Article",
+    "policy": "Policy",
+    "process": "Process",
+    "manual": "Manual",
+    "faq": "FAQ",
+    "wiki": "Internal Wiki"
+  },
+  "integrationStatus": {
+    "connected": "Connected",
+    "beta": "Beta",
+    "coming_soon": "Coming Soon",
+    "disabled": "Disabled",
+    "planned": "Planned"
+  },
+  "bytes": {
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
+  }
+}
