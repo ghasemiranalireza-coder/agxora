@@ -72,32 +72,38 @@ export function validateCustomerDraft(
   const tags = parseTags(draft.tags);
 
   if (!companyName) {
-    errors.push({ field: "companyName", message: "Company name is required." });
+    errors.push({
+      field: "companyName",
+      message: "crm.validation.companyNameRequired",
+    });
   }
   if (!contactName) {
-    errors.push({ field: "contactName", message: "Contact name is required." });
+    errors.push({
+      field: "contactName",
+      message: "crm.validation.contactNameRequired",
+    });
   }
   if (!email) {
-    errors.push({ field: "email", message: "Email is required." });
+    errors.push({ field: "email", message: "crm.validation.emailRequired" });
   } else if (!EMAIL_RE.test(email)) {
-    errors.push({ field: "email", message: "Enter a valid email address." });
+    errors.push({ field: "email", message: "crm.validation.emailInvalid" });
   }
   if (!phone) {
-    errors.push({ field: "phone", message: "Phone is required." });
+    errors.push({ field: "phone", message: "crm.validation.phoneRequired" });
   } else if (!PHONE_RE.test(phone)) {
-    errors.push({ field: "phone", message: "Enter a valid phone number." });
+    errors.push({ field: "phone", message: "crm.validation.phoneInvalid" });
   }
   if (website && !URL_RE.test(website)) {
-    errors.push({ field: "website", message: "Enter a valid website." });
+    errors.push({ field: "website", message: "crm.validation.websiteInvalid" });
   }
   if (!industry) {
-    errors.push({ field: "industry", message: "Industry is required." });
+    errors.push({ field: "industry", message: "crm.validation.industryRequired" });
   }
   if (!owner) {
-    errors.push({ field: "owner", message: "Owner is required." });
+    errors.push({ field: "owner", message: "crm.validation.ownerRequired" });
   }
   if (!CRM_STATUSES.includes(status)) {
-    errors.push({ field: "status", message: "Select a valid status." });
+    errors.push({ field: "status", message: "crm.validation.statusInvalid" });
   }
 
   const duplicates = (options?.existing ?? []).filter((row) => {
@@ -107,7 +113,7 @@ export function validateCustomerDraft(
   if (duplicates.length > 0) {
     errors.push({
       field: "email",
-      message: "A customer with this email already exists.",
+      message: "crm.validation.emailDuplicate",
     });
   }
 
@@ -154,15 +160,15 @@ export function validateContactDraft(draft: CrmContactDraft):
   const mobile = draft.mobile.trim();
   const notes = draft.notes.trim();
 
-  if (!name) errors.push({ field: "name", message: "Name is required." });
+  if (!name) errors.push({ field: "name", message: "crm.validation.nameRequired" });
   if (email && !EMAIL_RE.test(email)) {
-    errors.push({ field: "email", message: "Enter a valid email address." });
+    errors.push({ field: "email", message: "crm.validation.emailInvalid" });
   }
   if (phone && !PHONE_RE.test(phone)) {
-    errors.push({ field: "phone", message: "Enter a valid phone number." });
+    errors.push({ field: "phone", message: "crm.validation.phoneInvalid" });
   }
   if (mobile && !PHONE_RE.test(mobile)) {
-    errors.push({ field: "mobile", message: "Enter a valid mobile number." });
+    errors.push({ field: "mobile", message: "crm.validation.mobileInvalid" });
   }
   if (errors.length > 0) return { ok: false, errors };
   return { ok: true, value: { name, role, email, phone, mobile, notes } };
@@ -178,9 +184,10 @@ export function validateNoteDraft(draft: CrmNoteDraft):
   const title = draft.title.trim();
   const body = draft.body.trim();
   const author = draft.author.trim();
-  if (!title) errors.push({ field: "title", message: "Title is required." });
-  if (!body) errors.push({ field: "body", message: "Note body is required." });
-  if (!author) errors.push({ field: "author", message: "Author is required." });
+  if (!title)
+    errors.push({ field: "title", message: "crm.validation.noteTitleRequired" });
+  if (!body) errors.push({ field: "body", message: "crm.validation.noteBodyRequired" });
+  if (!author) errors.push({ field: "author", message: "crm.validation.noteAuthorRequired" });
   if (errors.length > 0) return { ok: false, errors };
   return { ok: true, value: { title, body, author } };
 }

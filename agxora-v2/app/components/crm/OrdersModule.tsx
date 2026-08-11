@@ -3,6 +3,7 @@
 import { useMemo, useState, type JSX } from "react";
 import type { CrmOrder } from "../../lib/crm";
 import { formatDate, formatMoney, orderStatusLabel, orderTotal } from "../../lib/crm";
+import { useLocale } from "../../lib/i18n";
 import { CrmBadge, CrmButton, CrmGlassCard } from "./CrmPrimitives";
 
 function statusTone(
@@ -22,22 +23,40 @@ function statusTone(
   }
 }
 
+const COLUMN_KEYS = [
+  "order",
+  "customer",
+  "status",
+  "lines",
+  "net",
+  "tax",
+  "gross",
+  "created",
+] as const;
+
 export function OrdersModule({
   orders,
 }: {
   readonly orders: readonly CrmOrder[];
 }): JSX.Element {
-  const [notice, setNotice] = useState("Order creation API reserved for future write path.");
+  const { t } = useLocale();
+  const [noticeKey, setNoticeKey] = useState<"apiReserved" | "draftStaged">(
+    "apiReserved",
+  );
+  const notice = t(`crm.orders.notices.${noticeKey}`);
   const rows = useMemo(() => orders, [orders]);
 
   return (
     <CrmGlassCard padding="p-5">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Products, services, price, discount, tax, and customer — enterprise order ledger.
+          {t("crm.orders.description")}
         </p>
-        <CrmButton variant="primary" onClick={() => setNotice("Create Order draft staged (no API yet).")}>
-          Create Order
+        <CrmButton
+          variant="primary"
+          onClick={() => setNoticeKey("draftStaged")}
+        >
+          {t("crm.orders.createOrder")}
         </CrmButton>
       </div>
       <p className="mb-4 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
@@ -47,13 +66,13 @@ export function OrdersModule({
         <table className="min-w-[920px] w-full border-collapse text-left text-sm">
           <thead>
             <tr style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {["Order", "Customer", "Status", "Lines", "Net", "Tax", "Gross", "Created"].map((h) => (
+              {COLUMN_KEYS.map((key) => (
                 <th
-                  key={h}
+                  key={key}
                   className="border-b px-3 py-2.5 text-[11px] font-semibold uppercase tracking-[0.12em]"
                   style={{ borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))" }}
                 >
-                  {h}
+                  {t(`crm.orders.columns.${key}`)}
                 </th>
               ))}
             </tr>
@@ -70,14 +89,17 @@ export function OrdersModule({
                     {order.customerName}
                   </td>
                   <td className="border-b px-3 py-3" style={{ borderColor: "var(--agx-card-border, rgba(255,255,255,0.06))" }}>
-                    <CrmBadge tone={statusTone(order.status)}>{orderStatusLabel(order.status)}</CrmBadge>
+                    <CrmBadge tone={statusTone(order.status)}>
+                      {t(orderStatusLabel(order.status))}
+                    </CrmBadge>
                   </td>
                   <td className="border-b px-3 py-3" style={{ borderColor: "var(--agx-card-border, rgba(255,255,255,0.06))" }}>
                     <div className="space-y-1">
                       {order.lines.map((line) => (
                         <p key={line.id} className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                           {line.kind}: {line.name} ×{line.qty}
-                          {line.discountPct > 0 ? ` · -${line.discountPct}%` : ""} · {line.taxPct}% tax
+                          {line.discountPct > 0 ? ` · -${line.discountPct}%` : ""} ·{" "}
+                          {t("crm.orders.lineTax", { taxPct: line.taxPct })}
                         </p>
                       ))}
                     </div>

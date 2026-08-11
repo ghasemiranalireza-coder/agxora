@@ -2,7 +2,8 @@
 
 import { useRef, type JSX } from "react";
 import { useRouter } from "next/navigation";
-import { formatDisplayDate, formatDisplayDateTime } from "../../../lib/i18n";
+import { formatDisplayDate, formatDisplayDateTime, useLocale } from "../../../lib/i18n";
+import { translateCrmMessage, translateActivityTitle } from "../../../lib/crm/i18n-helpers";
 import { useToast } from "../../../lib/backend/hooks";
 import {
   contactErrorMap,
@@ -25,15 +26,15 @@ import {
 } from "../../ui";
 import { CrmStatusBadge, CrmTagChips } from "./CrmBadges";
 
-const TABS = [
-  { id: "overview", label: "Overview" },
-  { id: "contacts", label: "Contacts" },
-  { id: "projects", label: "Projects" },
-  { id: "documents", label: "Documents" },
-  { id: "invoices", label: "Invoices" },
-  { id: "activity", label: "Activity" },
-  { id: "notes", label: "Notes" },
-  { id: "settings", label: "Settings" },
+const TAB_IDS = [
+  "overview",
+  "contacts",
+  "projects",
+  "documents",
+  "invoices",
+  "activity",
+  "notes",
+  "settings",
 ] as const;
 
 export function CrmCustomerProfile({
@@ -44,6 +45,7 @@ export function CrmCustomerProfile({
   const router = useRouter();
   const state = useCrmStore();
   const customer = useSelectedCrmCustomer();
+  const { t } = useLocale();
   const ready = state.hydrated && state.selectedId === customerId;
 
   if (!state.hydrated || state.detailLoading) {
@@ -58,8 +60,8 @@ export function CrmCustomerProfile({
   if (ready && !customer) {
     return (
       <ErrorState
-        title="Customer not found"
-        description="This customer may have been deleted."
+        title={t("crm.profile.notFoundTitle")}
+        description={t("crm.profile.notFoundDescription")}
         onRetry={() => router.push("/dashboard/crm")}
       />
     );
@@ -87,7 +89,7 @@ export function CrmCustomerProfile({
                 router.push("/dashboard/crm");
               }}
             >
-              ← Back to CRM
+              {t("crm.profile.backToCrm")}
             </Button>
             <h1
               className="text-2xl font-semibold tracking-tight"
@@ -99,7 +101,7 @@ export function CrmCustomerProfile({
               className="text-sm"
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
             >
-              {customer.contactName} · {customer.industry} · Owner{" "}
+              {customer.contactName} · {customer.industry} · {t("crm.profile.ownerLabel")}{" "}
               {customer.owner}
             </p>
             <CrmTagChips tags={customer.tags} />
@@ -111,27 +113,27 @@ export function CrmCustomerProfile({
               variant="secondary"
               onClick={() => crmStore.openEdit(customer)}
             >
-              Edit
+              {t("common.edit")}
             </Button>
             <Button
               size="sm"
               variant="danger"
               onClick={() => crmStore.requestDelete(customer.id)}
             >
-              Delete
+              {t("common.delete")}
             </Button>
           </div>
         </div>
-        <nav className="flex flex-wrap gap-2" aria-label="Customer profile">
-          {TABS.map((tab) => (
+        <nav className="flex flex-wrap gap-2" aria-label={t("crm.profile.ariaProfileNav")}>
+          {TAB_IDS.map((tabId) => (
             <Button
-              key={tab.id}
+              key={tabId}
               size="sm"
-              variant={state.profileTab === tab.id ? "primary" : "ghost"}
-              aria-current={state.profileTab === tab.id ? "page" : undefined}
-              onClick={() => crmStore.setProfileTab(tab.id)}
+              variant={state.profileTab === tabId ? "primary" : "ghost"}
+              aria-current={state.profileTab === tabId ? "page" : undefined}
+              onClick={() => crmStore.setProfileTab(tabId)}
             >
-              {tab.label}
+              {t(`crm.profile.tabs.${tabId}`)}
             </Button>
           ))}
         </nav>
@@ -144,8 +146,8 @@ export function CrmCustomerProfile({
       {state.profileTab === "invoices" ? (
         <Card hover={false} padding="18px">
           <EmptyState
-            title="No invoices yet"
-            description="Invoices for this customer appear here when linked from Finance."
+            title={t("crm.profile.invoices.emptyTitle")}
+            description={t("crm.profile.invoices.emptyDescription")}
           />
         </Card>
       ) : null}
@@ -158,11 +160,13 @@ export function CrmCustomerProfile({
 
 function OverviewTab(): JSX.Element {
   const customer = useSelectedCrmCustomer();
+  const { t } = useLocale();
+  const empty = t("crm.profile.overview.emptyValue");
   if (!customer) {
     return (
       <EmptyState
-        title="Missing customer"
-        description="Select a customer to view the overview."
+        title={t("crm.profile.missingCustomerTitle")}
+        description={t("crm.profile.missingOverviewDescription")}
       />
     );
   }
@@ -172,20 +176,20 @@ function OverviewTab(): JSX.Element {
         className="text-sm font-semibold"
         style={{ color: "var(--agx-text, #f8fafc)" }}
       >
-        Overview
+        {t("crm.profile.overview.title")}
       </h2>
       <dl className="grid gap-3 sm:grid-cols-2 text-sm">
-        <Meta label="Email" value={customer.email} />
-        <Meta label="Phone" value={customer.phone || "—"} />
-        <Meta label="Website" value={customer.website || "—"} />
-        <Meta label="Tax number" value={customer.taxNumber || "—"} />
+        <Meta label={t("crm.profile.overview.email")} value={customer.email} />
+        <Meta label={t("crm.profile.overview.phone")} value={customer.phone || empty} />
+        <Meta label={t("crm.profile.overview.website")} value={customer.website || empty} />
+        <Meta label={t("crm.profile.overview.taxNumber")} value={customer.taxNumber || empty} />
         <Meta
-          label="Location"
-          value={[customer.city, customer.country].filter(Boolean).join(", ") || "—"}
+          label={t("crm.profile.overview.location")}
+          value={[customer.city, customer.country].filter(Boolean).join(", ") || empty}
         />
-        <Meta label="Address" value={customer.address || "—"} />
-        <Meta label="Created" value={formatDisplayDate(customer.createdAt)} />
-        <Meta label="Updated" value={formatDisplayDateTime(customer.updatedAt)} />
+        <Meta label={t("crm.profile.overview.address")} value={customer.address || empty} />
+        <Meta label={t("crm.profile.overview.created")} value={formatDisplayDate(customer.createdAt)} />
+        <Meta label={t("crm.profile.overview.updated")} value={formatDisplayDateTime(customer.updatedAt)} />
       </dl>
     </Card>
   );
@@ -214,7 +218,9 @@ function Meta({
 function ContactsTab(): JSX.Element {
   const state = useCrmStore();
   const toast = useToast();
+  const { t } = useLocale();
   const errors = contactErrorMap(state.contactErrors);
+  const tx = (msg: string | undefined) => translateCrmMessage(t, msg);
 
   return (
     <div className="grid gap-4 lg:grid-cols-[300px_minmax(0,1fr)]">
@@ -223,9 +229,11 @@ function ContactsTab(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          {state.editingContactId ? "Edit contact" : "Add contact"}
+          {state.editingContactId
+            ? t("crm.profile.contacts.editTitle")
+            : t("crm.profile.contacts.addTitle")}
         </h2>
-        <FormField label="Name" error={errors.name}>
+        <FormField label={t("crm.profile.contacts.name")} error={tx(errors.name)}>
           <FormInput
             value={state.contactDraft.name}
             onChange={(e) =>
@@ -233,7 +241,7 @@ function ContactsTab(): JSX.Element {
             }
           />
         </FormField>
-        <FormField label="Role" error={errors.role}>
+        <FormField label={t("crm.profile.contacts.role")} error={tx(errors.role)}>
           <FormInput
             value={state.contactDraft.role}
             onChange={(e) =>
@@ -241,7 +249,7 @@ function ContactsTab(): JSX.Element {
             }
           />
         </FormField>
-        <FormField label="Email" error={errors.email}>
+        <FormField label={t("crm.profile.contacts.email")} error={tx(errors.email)}>
           <FormInput
             type="email"
             value={state.contactDraft.email}
@@ -250,7 +258,7 @@ function ContactsTab(): JSX.Element {
             }
           />
         </FormField>
-        <FormField label="Phone" error={errors.phone}>
+        <FormField label={t("crm.profile.contacts.phone")} error={tx(errors.phone)}>
           <FormInput
             value={state.contactDraft.phone}
             onChange={(e) =>
@@ -258,7 +266,7 @@ function ContactsTab(): JSX.Element {
             }
           />
         </FormField>
-        <FormField label="Mobile" error={errors.mobile}>
+        <FormField label={t("crm.profile.contacts.mobile")} error={tx(errors.mobile)}>
           <FormInput
             value={state.contactDraft.mobile}
             onChange={(e) =>
@@ -266,7 +274,7 @@ function ContactsTab(): JSX.Element {
             }
           />
         </FormField>
-        <FormField label="Notes" error={errors.notes}>
+        <FormField label={t("crm.profile.contacts.notes")} error={tx(errors.notes)}>
           <FormTextArea
             rows={3}
             value={state.contactDraft.notes}
@@ -282,7 +290,7 @@ function ContactsTab(): JSX.Element {
               variant="ghost"
               onClick={() => crmStore.cancelContactEdit()}
             >
-              Cancel
+              {t("common.cancel")}
             </Button>
           ) : null}
           <Button
@@ -291,11 +299,11 @@ function ContactsTab(): JSX.Element {
             loading={state.saving}
             onClick={() => {
               void crmStore.saveContact().then((ok) => {
-                if (ok) toast.success("Contact saved");
+                if (ok) toast.success(t("crm.toasts.contactSaved"));
               });
             }}
           >
-            Save contact
+            {t("crm.profile.contacts.saveContact")}
           </Button>
         </div>
       </Card>
@@ -304,12 +312,12 @@ function ContactsTab(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Contacts
+          {t("crm.profile.contacts.listTitle")}
         </h2>
         {state.contacts.length === 0 ? (
           <EmptyState
-            title="No contacts yet"
-            description="Add stakeholders with role, email, and phone details."
+            title={t("crm.profile.contacts.emptyTitle")}
+            description={t("crm.profile.contacts.emptyDescription")}
           />
         ) : (
           <ul className="space-y-2">
@@ -333,10 +341,12 @@ function ContactsTab(): JSX.Element {
                       className="text-[11px]"
                       style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                     >
-                      {contact.role || "Contact"}
+                      {contact.role || t("crm.profile.contacts.defaultRole")}
                       {contact.email ? ` · ${contact.email}` : ""}
                       {contact.phone ? ` · ${contact.phone}` : ""}
-                      {contact.mobile ? ` · Mobile ${contact.mobile}` : ""}
+                      {contact.mobile
+                        ? ` · ${t("crm.profile.contacts.mobilePrefix")} ${contact.mobile}`
+                        : ""}
                     </p>
                     {contact.notes ? (
                       <p
@@ -353,14 +363,14 @@ function ContactsTab(): JSX.Element {
                       variant="ghost"
                       onClick={() => crmStore.editContact(contact)}
                     >
-                      Edit
+                      {t("common.edit")}
                     </Button>
                     <Button
                       size="sm"
                       variant="danger"
                       onClick={() => void crmStore.deleteContact(contact.id)}
                     >
-                      Delete
+                      {t("common.delete")}
                     </Button>
                   </div>
                 </div>
@@ -381,13 +391,14 @@ function ProjectsTab(): JSX.Element {
     state.organizationId,
   );
   const router = useRouter();
+  const { t } = useLocale();
 
   if (projects.length === 0) {
     return (
       <EmptyState
-        title="No linked projects"
-        description="Projects whose customer name matches this company appear here. Data is read from the Projects module — nothing is duplicated."
-        actionLabel="Open Projects"
+        title={t("crm.profile.projects.emptyTitle")}
+        description={t("crm.profile.projects.emptyDescription")}
+        actionLabel={t("crm.profile.projects.openProjects")}
         onAction={() => router.push("/dashboard/projects")}
       />
     );
@@ -399,7 +410,7 @@ function ProjectsTab(): JSX.Element {
         className="text-sm font-semibold"
         style={{ color: "var(--agx-text, #f8fafc)" }}
       >
-        Projects
+        {t("crm.profile.projects.title")}
       </h2>
       <ul className="space-y-2">
         {projects.map((project) => (
@@ -433,6 +444,7 @@ function DocumentsTab(): JSX.Element {
   const customer = useSelectedCrmCustomer();
   const toast = useToast();
   const inputRef = useRef<HTMLInputElement>(null);
+  const { t } = useLocale();
 
   return (
     <Card hover={false} className="space-y-4" padding="18px">
@@ -442,13 +454,13 @@ function DocumentsTab(): JSX.Element {
             className="text-sm font-semibold"
             style={{ color: "var(--agx-text, #f8fafc)" }}
           >
-            Documents
+            {t("crm.profile.documents.title")}
           </h2>
           <p
             className="text-xs"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            Images, PDFs, and office documents — metadata only in Local Storage.
+            {t("crm.profile.documents.subtitle")}
           </p>
         </div>
         <div>
@@ -462,9 +474,17 @@ function DocumentsTab(): JSX.Element {
               const files = event.target.files;
               if (!files?.length) return;
               void crmStore
-                .uploadDocuments(files, customer?.owner ?? "System")
+                .uploadDocuments(
+                  files,
+                  customer?.owner ?? t("crm.profile.documents.systemUploader"),
+                )
                 .then(() =>
-                  toast.success("Documents attached", `${files.length} file(s)`),
+                  toast.success(
+                    t("crm.toasts.documentsAttached"),
+                    t("crm.toasts.documentsAttachedDetail", {
+                      count: files.length,
+                    }),
+                  ),
                 );
               event.target.value = "";
             }}
@@ -475,14 +495,14 @@ function DocumentsTab(): JSX.Element {
             loading={state.uploading}
             onClick={() => inputRef.current?.click()}
           >
-            Attach files
+            {t("crm.profile.documents.attachFiles")}
           </Button>
         </div>
       </div>
       {state.documents.length === 0 ? (
         <EmptyState
-          title="No documents"
-          description="Attach customer files for the account team."
+          title={t("crm.profile.documents.emptyTitle")}
+          description={t("crm.profile.documents.emptyDescription")}
         />
       ) : (
         <ul className="space-y-2">
@@ -514,7 +534,7 @@ function DocumentsTab(): JSX.Element {
                 variant="danger"
                 onClick={() => void crmStore.deleteDocument(doc.id)}
               >
-                Delete
+                {t("common.delete")}
               </Button>
             </li>
           ))}
@@ -526,18 +546,19 @@ function DocumentsTab(): JSX.Element {
 
 function ActivityTab(): JSX.Element {
   const state = useCrmStore();
+  const { t } = useLocale();
   return (
     <Card hover={false} className="space-y-3" padding="18px">
       <h2
         className="text-sm font-semibold"
         style={{ color: "var(--agx-text, #f8fafc)" }}
       >
-        Activity
+        {t("crm.profile.activity.title")}
       </h2>
       {state.activities.length === 0 ? (
         <EmptyState
-          title="No activity yet"
-          description="Creates, updates, notes, and documents appear here newest first."
+          title={t("crm.profile.activity.emptyTitle")}
+          description={t("crm.profile.activity.emptyDescription")}
         />
       ) : (
         <ol className="space-y-2">
@@ -554,7 +575,7 @@ function ActivityTab(): JSX.Element {
                   className="text-sm font-medium"
                   style={{ color: "var(--agx-text, #f8fafc)" }}
                 >
-                  {item.title}
+                  {translateActivityTitle(t, item.kind, item.title)}
                 </p>
                 <time
                   className="text-[11px]"
@@ -581,7 +602,9 @@ function ActivityTab(): JSX.Element {
 function NotesTab(): JSX.Element {
   const state = useCrmStore();
   const toast = useToast();
+  const { t } = useLocale();
   const errors = noteErrorMap(state.noteErrors);
+  const tx = (msg: string | undefined) => translateCrmMessage(t, msg);
 
   return (
     <div className="grid gap-4 lg:grid-cols-[320px_minmax(0,1fr)]">
@@ -590,9 +613,11 @@ function NotesTab(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          {state.editingNoteId ? "Edit note" : "New note"}
+          {state.editingNoteId
+            ? t("crm.profile.notes.editTitle")
+            : t("crm.profile.notes.newTitle")}
         </h2>
-        <FormField label="Title" error={errors.title}>
+        <FormField label={t("crm.profile.notes.title")} error={tx(errors.title)}>
           <FormInput
             value={state.noteDraft.title}
             onChange={(e) =>
@@ -600,7 +625,7 @@ function NotesTab(): JSX.Element {
             }
           />
         </FormField>
-        <FormField label="Author" error={errors.author}>
+        <FormField label={t("crm.profile.notes.author")} error={tx(errors.author)}>
           <FormInput
             value={state.noteDraft.author}
             onChange={(e) =>
@@ -608,7 +633,7 @@ function NotesTab(): JSX.Element {
             }
           />
         </FormField>
-        <FormField label="Body" error={errors.body}>
+        <FormField label={t("crm.profile.notes.body")} error={tx(errors.body)}>
           <FormTextArea
             rows={8}
             value={state.noteDraft.body}
@@ -622,7 +647,7 @@ function NotesTab(): JSX.Element {
               variant="ghost"
               onClick={() => crmStore.cancelNoteEdit()}
             >
-              Cancel
+              {t("common.cancel")}
             </Button>
           ) : null}
           <Button
@@ -631,19 +656,19 @@ function NotesTab(): JSX.Element {
             loading={state.saving}
             onClick={() => {
               void crmStore.saveNote().then((ok) => {
-                if (ok) toast.success("Note saved");
+                if (ok) toast.success(t("crm.toasts.noteSaved"));
               });
             }}
           >
-            Save note
+            {t("crm.profile.notes.saveNote")}
           </Button>
         </div>
       </Card>
       <div className="space-y-3">
         {state.notes.length === 0 ? (
           <EmptyState
-            title="No notes yet"
-            description="Capture account context with author and timestamps."
+            title={t("crm.profile.notes.emptyTitle")}
+            description={t("crm.profile.notes.emptyDescription")}
           />
         ) : (
           state.notes.map((note) => (
@@ -669,14 +694,14 @@ function NotesTab(): JSX.Element {
                     variant="ghost"
                     onClick={() => crmStore.editNote(note)}
                   >
-                    Edit
+                    {t("common.edit")}
                   </Button>
                   <Button
                     size="sm"
                     variant="danger"
                     onClick={() => void crmStore.deleteNote(note.id)}
                   >
-                    Delete
+                    {t("common.delete")}
                   </Button>
                 </div>
               </div>
@@ -696,11 +721,12 @@ function NotesTab(): JSX.Element {
 
 function SettingsTab(): JSX.Element {
   const customer = useSelectedCrmCustomer();
+  const { t } = useLocale();
   if (!customer) {
     return (
       <EmptyState
-        title="Missing customer"
-        description="Select a customer to manage settings."
+        title={t("crm.profile.missingCustomerTitle")}
+        description={t("crm.profile.missingSettingsDescription")}
       />
     );
   }
@@ -710,11 +736,10 @@ function SettingsTab(): JSX.Element {
         className="text-sm font-semibold"
         style={{ color: "var(--agx-text, #f8fafc)" }}
       >
-        Settings
+        {t("crm.profile.settings.title")}
       </h2>
       <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Edit all profile fields or archive this account. Deletion uses the
-        confirmation dialog.
+        {t("crm.profile.settings.description")}
       </p>
       <div className="flex flex-wrap gap-2">
         <Button
@@ -722,7 +747,7 @@ function SettingsTab(): JSX.Element {
           variant="primary"
           onClick={() => crmStore.openEdit(customer)}
         >
-          Edit all fields
+          {t("crm.profile.settings.editAllFields")}
         </Button>
         <Button
           size="sm"
@@ -731,14 +756,14 @@ function SettingsTab(): JSX.Element {
             crmStore.openEdit({ ...customer, status: "archived" })
           }
         >
-          Prepare archive
+          {t("crm.profile.settings.prepareArchive")}
         </Button>
         <Button
           size="sm"
           variant="danger"
           onClick={() => crmStore.requestDelete(customer.id)}
         >
-          Delete customer
+          {t("crm.profile.settings.deleteCustomer")}
         </Button>
       </div>
     </Card>

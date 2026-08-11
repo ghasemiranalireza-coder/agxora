@@ -3,20 +3,8 @@
 import type { JSX } from "react";
 import type { CrmTask } from "../../lib/crm";
 import { formatDateTime } from "../../lib/crm";
+import { useLocale } from "../../lib/i18n";
 import { CrmBadge, CrmGlassCard } from "./CrmPrimitives";
-
-function kindLabel(kind: CrmTask["kind"]): string {
-  switch (kind) {
-    case "follow_up":
-      return "Follow-up";
-    case "meeting":
-      return "Meeting";
-    case "reminder":
-      return "Reminder";
-    default:
-      return "Task";
-  }
-}
 
 function statusTone(
   status: CrmTask["status"],
@@ -38,11 +26,13 @@ export function TasksModule({
 }: {
   readonly tasks: readonly CrmTask[];
 }): JSX.Element {
+  const { t } = useLocale();
+
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
       <CrmGlassCard padding="p-5">
         <h3 className="mb-3 text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Calendar · Meetings · Reminders · Follow-ups
+          {t("crm.tasks.calendarTitle")}
         </h3>
         <ul className="space-y-3">
           {tasks.map((task) => (
@@ -59,14 +49,15 @@ export function TasksModule({
                   {task.title}
                 </p>
                 <div className="flex gap-2">
-                  <CrmBadge tone="accent">{kindLabel(task.kind)}</CrmBadge>
+                  <CrmBadge tone="accent">{t(`crm.tasks.kinds.${task.kind}`)}</CrmBadge>
                   <CrmBadge tone={statusTone(task.status)}>
-                    {task.status.replaceAll("_", " ")}
+                    {t(`crm.tasks.statuses.${task.status}`)}
                   </CrmBadge>
                 </div>
               </div>
               <p className="mt-2 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                Due {formatDateTime(task.dueAt)} · {task.relatedTo} · {task.owner}
+                {t("crm.tasks.duePrefix")} {formatDateTime(task.dueAt)} · {task.relatedTo} ·{" "}
+                {task.owner}
               </p>
             </li>
           ))}
@@ -75,17 +66,16 @@ export function TasksModule({
 
       <CrmGlassCard className="space-y-3" padding="p-5">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Task OS foundation
+          {t("crm.tasks.foundationTitle")}
         </h3>
         <p className="text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Calendar sync, meeting providers, reminder jobs, and follow-up automation hooks are
-          reserved. This board is the shared CRM task surface for every industry module.
+          {t("crm.tasks.foundationDescription")}
         </p>
         <div className="flex flex-wrap gap-2">
-          <CrmBadge>Calendar adapter</CrmBadge>
-          <CrmBadge>Meeting adapter</CrmBadge>
-          <CrmBadge>Reminder queue</CrmBadge>
-          <CrmBadge>Follow-up engine</CrmBadge>
+          <CrmBadge>{t("crm.tasks.badges.calendarAdapter")}</CrmBadge>
+          <CrmBadge>{t("crm.tasks.badges.meetingAdapter")}</CrmBadge>
+          <CrmBadge>{t("crm.tasks.badges.reminderQueue")}</CrmBadge>
+          <CrmBadge>{t("crm.tasks.badges.followUpEngine")}</CrmBadge>
         </div>
       </CrmGlassCard>
     </div>

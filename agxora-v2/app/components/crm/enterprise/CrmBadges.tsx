@@ -8,6 +8,7 @@ import {
   type CrmCustomerStatus,
   type CrmTag,
 } from "../../../lib/crm/directory";
+import { useLocale } from "../../../lib/i18n";
 
 function statusTone(status: CrmCustomerStatus): BadgeTone {
   switch (status) {
@@ -33,7 +34,8 @@ export function CrmStatusBadge({
 }: {
   readonly status: CrmCustomerStatus;
 }): JSX.Element {
-  return <Badge tone={statusTone(status)}>{statusLabel(status)}</Badge>;
+  const { t } = useLocale();
+  return <Badge tone={statusTone(status)}>{t(statusLabel(status))}</Badge>;
 }
 
 export function CrmTagChips({

@@ -181,17 +181,17 @@ export type CrmNoteDraft = {
 export function statusLabel(status: CrmCustomerStatus): string {
   switch (status) {
     case "lead":
-      return "Lead";
+      return "crm.status.lead";
     case "prospect":
-      return "Prospect";
+      return "crm.status.prospect";
     case "active":
-      return "Active";
+      return "crm.status.active";
     case "inactive":
-      return "Inactive";
+      return "crm.status.inactive";
     case "vip":
-      return "VIP";
+      return "crm.status.vip";
     case "archived":
-      return "Archived";
+      return "crm.status.archived";
     default:
       return status;
   }

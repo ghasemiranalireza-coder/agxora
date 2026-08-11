@@ -2,7 +2,7 @@
 
 import { memo, useCallback, type JSX, type KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
-import { formatDisplayDate } from "../../../lib/i18n";
+import { formatDisplayDate, useLocale } from "../../../lib/i18n";
 import {
   CRM_STATUSES,
   crmStore,
@@ -32,6 +32,7 @@ const MemoCard = memo(function CustomerCard({
   readonly customer: CrmCustomerRecord;
   readonly onOpen: (id: string) => void;
 }): JSX.Element {
+  const { t } = useLocale();
   return (
     <Card className="flex h-full flex-col gap-3" padding="18px" hover>
       <button
@@ -44,7 +45,7 @@ const MemoCard = memo(function CustomerCard({
             onOpen(customer.id);
           }
         }}
-        aria-label={`Open customer ${customer.companyName}`}
+        aria-label={t("crm.directory.aria.openCustomer", { company: customer.companyName })}
       >
         <div className="flex items-start justify-between gap-3">
           <div>
@@ -75,8 +76,10 @@ const MemoCard = memo(function CustomerCard({
           className="mt-auto text-[11px]"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Owner {customer.owner} · Created{" "}
-          {formatDisplayDate(customer.createdAt)}
+          {t("crm.directory.cardMeta", {
+            owner: customer.owner,
+            date: formatDisplayDate(customer.createdAt),
+          })}
         </p>
       </button>
     </Card>
@@ -86,6 +89,7 @@ const MemoCard = memo(function CustomerCard({
 export function CrmDirectory(): JSX.Element {
   const router = useRouter();
   const state = useCrmStoreSelector(selectCrmListChrome, shallowEqualRecord);
+  const { t } = useLocale();
   const { pageRows, total, page, industries, owners, countries, tags } =
     useFilteredCrmCustomers();
   const maxPage = Math.max(1, Math.ceil(total / state.pageSize) || 1);
@@ -109,24 +113,26 @@ export function CrmDirectory(): JSX.Element {
   }
 
   if (state.error && state.itemsLength === 0) {
+    const translatedError =
+      state.error.startsWith("crm.") ? t(state.error) : state.error;
     return (
       <ErrorState
-        title="Couldn’t load CRM"
-        description={state.error}
+        title={t("crm.directory.errorTitle")}
+        description={translatedError}
         onRetry={() => void crmStore.hydrate(state.organizationId)}
       />
     );
   }
 
   const sortKeys: { key: CrmSortKey; label: string }[] = [
-    { key: "companyName", label: "Company" },
-    { key: "contactName", label: "Contact" },
-    { key: "email", label: "Email" },
-    { key: "phone", label: "Phone" },
-    { key: "industry", label: "Industry" },
-    { key: "status", label: "Status" },
-    { key: "owner", label: "Owner" },
-    { key: "createdAt", label: "Created" },
+    { key: "companyName", label: t("crm.directory.sort.companyName") },
+    { key: "contactName", label: t("crm.directory.sort.contactName") },
+    { key: "email", label: t("crm.directory.sort.email") },
+    { key: "phone", label: t("crm.directory.sort.phone") },
+    { key: "industry", label: t("crm.directory.sort.industry") },
+    { key: "status", label: t("crm.directory.sort.status") },
+    { key: "owner", label: t("crm.directory.sort.owner") },
+    { key: "createdAt", label: t("crm.directory.sort.createdAt") },
   ];
 
   return (
@@ -134,11 +140,11 @@ export function CrmDirectory(): JSX.Element {
       <Card hover={false} className="space-y-3" padding="16px">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
           <SearchField
-            label="Search customers"
+            label={t("crm.directory.search.label")}
             controlSize="sm"
             value={state.search}
             onChange={(value) => crmStore.setSearch(value)}
-            placeholder="Company, contact, email, tags…"
+            placeholder={t("crm.directory.search.placeholder")}
           />
           <div className="flex flex-wrap gap-2">
             <Button
@@ -147,7 +153,7 @@ export function CrmDirectory(): JSX.Element {
               aria-pressed={state.viewMode === "table"}
               onClick={() => crmStore.setViewMode("table")}
             >
-              Table
+              {t("crm.directory.view.table")}
             </Button>
             <Button
               size="sm"
@@ -155,20 +161,20 @@ export function CrmDirectory(): JSX.Element {
               aria-pressed={state.viewMode === "cards"}
               onClick={() => crmStore.setViewMode("cards")}
             >
-              Cards
+              {t("crm.directory.view.cards")}
             </Button>
             <Button
               size="sm"
               variant="primary"
               onClick={() => crmStore.openCreate()}
             >
-              New customer
+              {t("crm.directory.actions.newCustomer")}
             </Button>
           </div>
         </div>
         <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-5">
           <FilterSelect
-            label="Status"
+            label={t("crm.directory.filters.status")}
             controlSize="sm"
             value={state.statusFilter}
             onChange={(e) =>
@@ -177,20 +183,20 @@ export function CrmDirectory(): JSX.Element {
               )
             }
           >
-            <option value="all">All statuses</option>
+            <option value="all">{t("crm.directory.filters.allStatuses")}</option>
             {CRM_STATUSES.map((status) => (
               <option key={status} value={status}>
-                {statusLabel(status)}
+                {t(statusLabel(status))}
               </option>
             ))}
           </FilterSelect>
           <FilterSelect
-            label="Industry"
+            label={t("crm.directory.filters.industry")}
             controlSize="sm"
             value={state.industryFilter}
             onChange={(e) => crmStore.setIndustryFilter(e.target.value)}
           >
-            <option value="">All industries</option>
+            <option value="">{t("crm.directory.filters.allIndustries")}</option>
             {industries.map((industry) => (
               <option key={industry} value={industry}>
                 {industry}
@@ -198,12 +204,12 @@ export function CrmDirectory(): JSX.Element {
             ))}
           </FilterSelect>
           <FilterSelect
-            label="Owner"
+            label={t("crm.directory.filters.owner")}
             controlSize="sm"
             value={state.ownerFilter}
             onChange={(e) => crmStore.setOwnerFilter(e.target.value)}
           >
-            <option value="">All owners</option>
+            <option value="">{t("crm.directory.filters.allOwners")}</option>
             {owners.map((owner) => (
               <option key={owner} value={owner}>
                 {owner}
@@ -211,12 +217,12 @@ export function CrmDirectory(): JSX.Element {
             ))}
           </FilterSelect>
           <FilterSelect
-            label="Country"
+            label={t("crm.directory.filters.country")}
             controlSize="sm"
             value={state.countryFilter}
             onChange={(e) => crmStore.setCountryFilter(e.target.value)}
           >
-            <option value="">All countries</option>
+            <option value="">{t("crm.directory.filters.allCountries")}</option>
             {countries.map((country) => (
               <option key={country} value={country}>
                 {country}
@@ -224,12 +230,12 @@ export function CrmDirectory(): JSX.Element {
             ))}
           </FilterSelect>
           <FilterSelect
-            label="Tags"
+            label={t("crm.directory.filters.tags")}
             controlSize="sm"
             value={state.tagFilter}
             onChange={(e) => crmStore.setTagFilter(e.target.value)}
           >
-            <option value="">All tags</option>
+            <option value="">{t("crm.directory.filters.allTags")}</option>
             {tags.map((tag) => (
               <option key={tag} value={tag}>
                 {tag}
@@ -248,8 +254,8 @@ export function CrmDirectory(): JSX.Element {
             state.ownerFilter ||
             state.countryFilter ||
             state.tagFilter
-              ? "No matching customers"
-              : "Your CRM is ready"
+              ? t("crm.directory.empty.noMatches.title")
+              : t("crm.directory.empty.ready.title")
           }
           description={
             state.search ||
@@ -258,8 +264,8 @@ export function CrmDirectory(): JSX.Element {
             state.ownerFilter ||
             state.countryFilter ||
             state.tagFilter
-              ? "Try adjusting search or filters to find the right records."
-              : "Create the first customer record to unlock directory, profiles, and activity."
+              ? t("crm.directory.empty.noMatches.description")
+              : t("crm.directory.empty.ready.description")
           }
           actionLabel={
             state.search ||
@@ -268,8 +274,8 @@ export function CrmDirectory(): JSX.Element {
             state.ownerFilter ||
             state.countryFilter ||
             state.tagFilter
-              ? "Clear filters"
-              : "Create customer"
+              ? t("crm.directory.empty.noMatches.action")
+              : t("crm.directory.empty.ready.action")
           }
           onAction={() => {
             if (
@@ -322,7 +328,7 @@ export function CrmDirectory(): JSX.Element {
                       type="button"
                       className="agx-ui-table-sort"
                       onClick={() => crmStore.setSort(col.key)}
-                      aria-label={`Sort by ${col.label}`}
+                      aria-label={t("crm.directory.sortBy", { column: col.label })}
                     >
                       {col.label}
                       <span aria-hidden="true" className="text-[10px] opacity-70">
@@ -348,7 +354,7 @@ export function CrmDirectory(): JSX.Element {
                     color: "var(--agx-ds-text, #f8fafc)",
                   }}
                   tabIndex={0}
-                  aria-label={`Open customer ${customer.companyName}`}
+                  aria-label={t("crm.directory.aria.openCustomer", { company: customer.companyName })}
                   onClick={() => openCustomer(customer.id)}
                   onKeyDown={(event) => {
                     if (event.key === "Enter" || event.key === " ") {
@@ -380,12 +386,12 @@ export function CrmDirectory(): JSX.Element {
 
       {total > 0 ? (
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <p
-            className="text-xs"
-            style={{ color: "var(--agx-text-muted, #94a3b8)" }}
-          >
-            Showing {(page - 1) * state.pageSize + 1}–
-            {Math.min(page * state.pageSize, total)} of {total}
+          <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {t("crm.directory.showing", {
+              from: (page - 1) * state.pageSize + 1,
+              to: Math.min(page * state.pageSize, total),
+              total,
+            })}
           </p>
           <div className="flex gap-2">
             <Button
@@ -394,7 +400,7 @@ export function CrmDirectory(): JSX.Element {
               disabled={page <= 1}
               onClick={() => crmStore.setPage(page - 1)}
             >
-              Previous
+              {t("crm.directory.pagination.previous")}
             </Button>
             <Button
               size="sm"
@@ -402,7 +408,7 @@ export function CrmDirectory(): JSX.Element {
               disabled={page >= maxPage}
               onClick={() => crmStore.setPage(page + 1)}
             >
-              Next
+              {t("crm.directory.pagination.next")}
             </Button>
           </div>
         </div>

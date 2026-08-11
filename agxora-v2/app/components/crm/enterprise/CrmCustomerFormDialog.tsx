@@ -12,6 +12,7 @@ import {
   useCrmStoreSelector,
   type CrmCustomerDraft,
 } from "../../../lib/crm/directory";
+import { useLocale } from "../../../lib/i18n";
 import {
   Button,
   Dialog,
@@ -25,8 +26,13 @@ export function CrmCustomerFormDialog(): JSX.Element {
   const state = useCrmStoreSelector(selectCrmFormSlice, shallowEqualRecord);
   const toast = useToast();
   const errors = customerErrorMap(state.formErrors);
+  const { t } = useLocale();
+  const translateError = (message: string | undefined): string | undefined => {
+    if (!message) return message;
+    return message.startsWith("crm.") ? t(message) : message;
+  };
   const title =
-    state.formMode === "edit" ? "Edit Customer" : "Create Customer";
+    state.formMode === "edit" ? t("crm.form.editTitle") : t("crm.form.createTitle");
   const busy = state.saving;
 
   const setField = useCallback(
@@ -43,7 +49,7 @@ export function CrmCustomerFormDialog(): JSX.Element {
     void crmStore.save().then((customer) => {
       if (customer) {
         toast.success(
-          mode === "edit" ? "Customer updated" : "Customer created",
+          mode === "edit" ? t("crm.toasts.customerUpdated") : t("crm.toasts.customerCreated"),
           customer.companyName,
         );
         return;
@@ -51,8 +57,8 @@ export function CrmCustomerFormDialog(): JSX.Element {
       const nextErrors = crmStore.getSnapshot().formErrors;
       if (nextErrors.length > 0) {
         toast.warning(
-          "Check the form",
-          nextErrors[0]?.message ?? "Validation failed.",
+          t("crm.toasts.checkForm"),
+          translateError(nextErrors[0]?.message) ?? t("crm.toasts.validationFailed"),
         );
         window.requestAnimationFrame(() => {
           document
@@ -78,7 +84,7 @@ export function CrmCustomerFormDialog(): JSX.Element {
             onClick={() => crmStore.closeForm()}
             disabled={busy}
           >
-            Cancel
+            {t("crm.form.cancel")}
           </Button>
           <Button
             type="submit"
@@ -88,14 +94,20 @@ export function CrmCustomerFormDialog(): JSX.Element {
             loading={busy}
             disabled={busy}
           >
-            {state.formMode === "edit" ? "Save changes" : "Create customer"}
+            {state.formMode === "edit"
+              ? t("crm.form.saveChanges")
+              : t("crm.form.createCustomer")}
           </Button>
         </>
       }
     >
       <form id="crm-customer-form" className="space-y-4" onSubmit={onSubmit}>
         <div className="grid gap-4 sm:grid-cols-2">
-          <FormField label="Company Name" error={errors.companyName} required>
+          <FormField
+            label={t("crm.form.companyName")}
+            error={translateError(errors.companyName)}
+            required
+          >
             <FormInput
               value={state.draft.companyName}
               onChange={(e) => setField("companyName", e.target.value)}
@@ -103,14 +115,22 @@ export function CrmCustomerFormDialog(): JSX.Element {
               autoComplete="organization"
             />
           </FormField>
-          <FormField label="Contact Name" error={errors.contactName} required>
+          <FormField
+            label={t("crm.form.contactName")}
+            error={translateError(errors.contactName)}
+            required
+          >
             <FormInput
               value={state.draft.contactName}
               onChange={(e) => setField("contactName", e.target.value)}
               autoComplete="name"
             />
           </FormField>
-          <FormField label="Email" error={errors.email} required>
+          <FormField
+            label={t("crm.form.email")}
+            error={translateError(errors.email)}
+            required
+          >
             <FormInput
               type="email"
               value={state.draft.email}
@@ -118,7 +138,11 @@ export function CrmCustomerFormDialog(): JSX.Element {
               autoComplete="email"
             />
           </FormField>
-          <FormField label="Phone" error={errors.phone} required>
+          <FormField
+            label={t("crm.form.phone")}
+            error={translateError(errors.phone)}
+            required
+          >
             <FormInput
               type="tel"
               value={state.draft.phone}
@@ -126,27 +150,39 @@ export function CrmCustomerFormDialog(): JSX.Element {
               autoComplete="tel"
             />
           </FormField>
-          <FormField label="Website" error={errors.website}>
+          <FormField
+            label={t("crm.form.website")}
+            error={translateError(errors.website)}
+          >
             <FormInput
               value={state.draft.website}
               onChange={(e) => setField("website", e.target.value)}
-              placeholder="https://"
+              placeholder={t("crm.form.websitePlaceholder")}
             />
           </FormField>
-          <FormField label="Industry" error={errors.industry}>
+          <FormField
+            label={t("crm.form.industry")}
+            error={translateError(errors.industry)}
+          >
             <FormInput
               value={state.draft.industry}
               onChange={(e) => setField("industry", e.target.value)}
             />
           </FormField>
-          <FormField label="Country" error={errors.country}>
+          <FormField
+            label={t("crm.form.country")}
+            error={translateError(errors.country)}
+          >
             <FormInput
               value={state.draft.country}
               onChange={(e) => setField("country", e.target.value)}
               autoComplete="country-name"
             />
           </FormField>
-          <FormField label="City" error={errors.city}>
+          <FormField
+            label={t("crm.form.city")}
+            error={translateError(errors.city)}
+          >
             <FormInput
               value={state.draft.city}
               onChange={(e) => setField("city", e.target.value)}
@@ -154,7 +190,10 @@ export function CrmCustomerFormDialog(): JSX.Element {
             />
           </FormField>
           <div className="sm:col-span-2">
-            <FormField label="Address" error={errors.address}>
+            <FormField
+              label={t("crm.form.address")}
+              error={translateError(errors.address)}
+            >
               <FormTextArea
                 rows={2}
                 value={state.draft.address}
@@ -162,47 +201,57 @@ export function CrmCustomerFormDialog(): JSX.Element {
               />
             </FormField>
           </div>
-          <FormField label="Tax Number" error={errors.taxNumber}>
+          <FormField
+            label={t("crm.form.taxNumber")}
+            error={translateError(errors.taxNumber)}
+          >
             <FormInput
               value={state.draft.taxNumber}
               onChange={(e) => setField("taxNumber", e.target.value)}
             />
           </FormField>
-          <FormField label="Owner" error={errors.owner}>
+          <FormField
+            label={t("crm.form.owner")}
+            error={translateError(errors.owner)}
+          >
             <FormInput
               value={state.draft.owner}
               onChange={(e) => setField("owner", e.target.value)}
             />
           </FormField>
-          <FormField label="Status" error={errors.status} required>
+          <FormField
+            label={t("crm.form.status")}
+            error={translateError(errors.status)}
+            required
+          >
             <FormSelect
               value={state.draft.status}
               onChange={(e) =>
                 setField("status", e.target.value as CrmCustomerDraft["status"])
               }
-              aria-label="Customer status"
+              aria-label={t("crm.form.statusAria")}
             >
               {CRM_STATUSES.map((status) => (
                 <option key={status} value={status}>
-                  {statusLabel(status)}
+                  {t(statusLabel(status))}
                 </option>
               ))}
             </FormSelect>
           </FormField>
           <FormField
-            label="Tags"
-            error={errors.tags}
-            hint="Comma-separated, color-coded automatically"
+            label={t("crm.form.tags")}
+            error={translateError(errors.tags)}
+            hint={t("crm.form.tagsHint")}
           >
             <FormInput
               value={state.draft.tags}
               onChange={(e) => setField("tags", e.target.value)}
-              placeholder="enterprise, retail"
+              placeholder={t("crm.form.tagsPlaceholder")}
             />
           </FormField>
           {errors.form ? (
             <p className="agx-ui-error sm:col-span-2" role="alert">
-              {errors.form}
+              {translateError(errors.form)}
             </p>
           ) : null}
         </div>
