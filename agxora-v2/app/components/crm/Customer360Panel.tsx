@@ -3,32 +3,42 @@
 import { useState, type JSX } from "react";
 import type { Customer360 } from "../../lib/crm";
 import { formatDate, formatDateTime, formatMoney } from "../../lib/crm";
+import { useLocale } from "../../lib/i18n";
 import { CrmBadge, CrmGlassCard } from "./CrmPrimitives";
 
-const TABS = [
-  "Profile",
-  "Company",
-  "Contacts",
-  "Orders",
-  "Invoices",
-  "Lieferscheine",
-  "Payments",
-  "Documents",
-  "Timeline",
-  "Activities",
-  "Notes",
-  "AI Summary",
-  "Communication History",
+const TAB_KEYS = [
+  "profile",
+  "company",
+  "contacts",
+  "orders",
+  "invoices",
+  "lieferscheine",
+  "payments",
+  "documents",
+  "timeline",
+  "activities",
+  "notes",
+  "aiSummary",
+  "communicationHistory",
 ] as const;
 
-type Tab = (typeof TABS)[number];
+type TabKey = (typeof TAB_KEYS)[number];
 
 export function Customer360Panel({
   customer,
 }: {
   readonly customer: Customer360;
 }): JSX.Element {
-  const [tab, setTab] = useState<Tab>("Profile");
+  const { t } = useLocale();
+  const [tab, setTab] = useState<TabKey>("profile");
+  const statusDisplay =
+    customer.status === "active"
+      ? t("crm.status.active")
+      : customer.status === "prospect"
+        ? t("crm.status.prospect")
+        : customer.status === "churn_risk"
+          ? t("crm.customer360.status.churn_risk")
+          : customer.status;
 
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
@@ -43,22 +53,31 @@ export function Customer360Panel({
             </p>
           </div>
           <CrmBadge tone={customer.status === "active" ? "positive" : "warning"}>
-            {customer.status}
+            {statusDisplay}
           </CrmBadge>
         </div>
         <dl className="mt-5 space-y-2 text-sm">
           <div className="flex justify-between gap-3">
-            <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>Email</dt>
+            <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+              {t("crm.customer360.email")}
+            </dt>
             <dd style={{ color: "var(--agx-text, #f8fafc)" }}>{customer.email}</dd>
           </div>
           <div className="flex justify-between gap-3">
-            <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>Phone</dt>
+            <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+              {t("crm.customer360.phone")}
+            </dt>
             <dd style={{ color: "var(--agx-text, #f8fafc)" }}>{customer.phone}</dd>
           </div>
           <div className="flex justify-between gap-3">
-            <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>AI Health</dt>
+            <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+              {t("crm.customer360.aiHealth")}
+            </dt>
             <dd className="font-semibold tabular-nums" style={{ color: "var(--agx-accent, #22d3ee)" }}>
-              {customer.healthScore}/100
+              {t("crm.kpi.scoreOutOf", {
+                score: customer.healthScore,
+                max: 100,
+              })}
             </dd>
           </div>
         </dl>
@@ -71,17 +90,17 @@ export function Customer360Panel({
         <div
           className="mb-4 flex gap-2 overflow-x-auto pb-1"
           role="tablist"
-          aria-label="Customer 360 sections"
+          aria-label={t("crm.customer360.ariaSections")}
         >
-          {TABS.map((item) => {
-            const active = item === tab;
+          {TAB_KEYS.map((key) => {
+            const active = key === tab;
             return (
               <button
-                key={item}
+                key={key}
                 type="button"
                 role="tab"
                 aria-selected={active}
-                onClick={() => setTab(item)}
+                onClick={() => setTab(key)}
                 className="shrink-0 rounded-full border px-3 py-1.5 text-xs font-medium"
                 style={{
                   borderColor: active
@@ -95,21 +114,27 @@ export function Customer360Panel({
                     : "var(--agx-text-muted, #94a3b8)",
                 }}
               >
-                {item}
+                {t(`crm.customer360.tabs.${key}`)}
               </button>
             );
           })}
         </div>
 
         <div role="tabpanel" className="min-h-[220px] text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          {tab === "Profile" && (
+          {tab === "profile" && (
             <ul className="space-y-2">
-              <li>Customer ID: {customer.id}</li>
-              <li>Status: {customer.status}</li>
-              <li>Primary contact: {customer.name}</li>
+              <li>
+                {t("crm.customer360.profileLines.customerId")}: {customer.id}
+              </li>
+              <li>
+                {t("crm.customer360.profileLines.status")}: {customer.status}
+              </li>
+              <li>
+                {t("crm.customer360.profileLines.primaryContact")}: {customer.name}
+              </li>
             </ul>
           )}
-          {tab === "Company" && (
+          {tab === "company" && (
             <ul className="space-y-2">
               <li>{customer.company.name}</li>
               <li>
@@ -118,7 +143,7 @@ export function Customer360Panel({
               <li>{customer.company.website}</li>
             </ul>
           )}
-          {tab === "Contacts" && (
+          {tab === "contacts" && (
             <ul className="space-y-3">
               {customer.contacts.map((c) => (
                 <li key={c.id} className="rounded-xl border px-3 py-2" style={{ borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))" }}>
@@ -130,10 +155,10 @@ export function Customer360Panel({
               ))}
             </ul>
           )}
-          {tab === "Orders" && <ChipList items={customer.orders} />}
-          {tab === "Invoices" && <ChipList items={customer.invoices} />}
-          {tab === "Lieferscheine" && <ChipList items={customer.lieferscheine} />}
-          {tab === "Payments" && (
+          {tab === "orders" && <ChipList items={customer.orders} />}
+          {tab === "invoices" && <ChipList items={customer.invoices} />}
+          {tab === "lieferscheine" && <ChipList items={customer.lieferscheine} />}
+          {tab === "payments" && (
             <ul className="space-y-2">
               {customer.payments.map((p) => (
                 <li key={p.id} className="flex justify-between gap-3">
@@ -143,8 +168,8 @@ export function Customer360Panel({
               ))}
             </ul>
           )}
-          {tab === "Documents" && <ChipList items={customer.documents} />}
-          {tab === "Timeline" && (
+          {tab === "documents" && <ChipList items={customer.documents} />}
+          {tab === "timeline" && (
             <ul className="space-y-3">
               {customer.timeline.map((e) => (
                 <li key={e.id}>
@@ -156,7 +181,7 @@ export function Customer360Panel({
               ))}
             </ul>
           )}
-          {tab === "Activities" && (
+          {tab === "activities" && (
             <ul className="space-y-3">
               {customer.activities.map((a) => (
                 <li key={a.id}>
@@ -168,7 +193,7 @@ export function Customer360Panel({
               ))}
             </ul>
           )}
-          {tab === "Notes" && (
+          {tab === "notes" && (
             <ul className="space-y-3">
               {customer.notes.map((n) => (
                 <li key={n.id}>
@@ -180,12 +205,12 @@ export function Customer360Panel({
               ))}
             </ul>
           )}
-          {tab === "AI Summary" && (
+          {tab === "aiSummary" && (
             <p className="leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {customer.aiSummary}
             </p>
           )}
-          {tab === "Communication History" && (
+          {tab === "communicationHistory" && (
             <ul className="space-y-3">
               {customer.communicationHistory.map((c) => (
                 <li key={c.id} className="rounded-xl border px-3 py-2" style={{ borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))" }}>

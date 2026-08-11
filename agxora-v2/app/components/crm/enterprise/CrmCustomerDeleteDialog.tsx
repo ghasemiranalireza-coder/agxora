@@ -9,17 +9,20 @@ import {
   shallowEqualRecord,
   useCrmStoreSelector,
 } from "../../../lib/crm/directory";
+import { translateCrmMessage } from "../../../lib/crm/i18n-helpers";
+import { useLocale } from "../../../lib/i18n";
 import { Button, Dialog } from "../../ui";
 
 export function CrmCustomerDeleteDialog(): JSX.Element {
   const router = useRouter();
   const toast = useToast();
   const state = useCrmStoreSelector(selectCrmDeleteSlice, shallowEqualRecord);
+  const { t } = useLocale();
 
   return (
     <Dialog
       open={Boolean(state.deleteId)}
-      title="Delete customer"
+      title={t("crm.deleteDialog.title")}
       dismissible={!state.deleting}
       onClose={() => crmStore.cancelDelete()}
       footer={
@@ -30,7 +33,7 @@ export function CrmCustomerDeleteDialog(): JSX.Element {
             onClick={() => crmStore.cancelDelete()}
             disabled={state.deleting}
           >
-            Cancel
+            {t("crm.deleteDialog.cancel")}
           </Button>
           <Button
             variant="danger"
@@ -43,19 +46,19 @@ export function CrmCustomerDeleteDialog(): JSX.Element {
                 state.selectedId === state.deleteId;
               void crmStore.confirmDelete().then((removed) => {
                 if (removed) {
-                  toast.success("Customer deleted", removed.companyName);
+                  toast.success(t("crm.toasts.customerDeleted"), removed.companyName);
                   if (leavingProfile) router.replace("/dashboard/crm");
                 } else {
                   toast.error(
-                    "Delete failed",
-                    crmStore.getSnapshot().error ??
-                      "Customer could not be removed.",
+                    t("crm.toasts.deleteFailed"),
+                    translateCrmMessage(t, crmStore.getSnapshot().error ?? undefined) ??
+                      t("crm.toasts.customerCouldNotBeRemoved"),
                   );
                 }
               });
             }}
           >
-            Delete permanently
+            {t("crm.deleteDialog.deletePermanently")}
           </Button>
         </>
       }
@@ -64,12 +67,11 @@ export function CrmCustomerDeleteDialog(): JSX.Element {
         className="text-sm leading-relaxed"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        This removes{" "}
-        <strong style={{ color: "var(--agx-text, #f8fafc)" }}>
-          {state.companyName ?? "this customer"}
-        </strong>{" "}
-        and related contacts, notes, documents, and activity from local
-        storage. Linked projects are not deleted.
+          {t("crm.deleteDialog.bodyPrefix")}{" "}
+          <strong style={{ color: "var(--agx-text, #f8fafc)" }}>
+            {state.companyName ?? t("crm.deleteDialog.thisCustomer")}
+          </strong>{" "}
+          {t("crm.deleteDialog.bodySuffix")}
       </p>
     </Dialog>
   );

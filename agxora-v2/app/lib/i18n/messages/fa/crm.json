@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "AGXORA Business OS",
+    "title": "CRM مبتنی بر هوش مصنوعی",
+    "subtitle": "CRM بومی با هوش مصنوعی و سیستم‌عامل Creator — مشتریان، پایپ‌لاین، سفارش‌ها، تحویل، اسناد، ارتباطات و معماری سازنده برای هر صنعت."
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "داشبورد CRM"
+    },
+    "customer360": {
+      "title": "مشتری 360°",
+      "subtitle": "پروفایل، شرکت، مخاطبین، سفارش‌ها، فاکتورها، Lieferscheine، پرداخت‌ها، اسناد، تایم‌لاین، فعالیت‌ها، یادداشت‌ها، خلاصه AI و تاریخچه ارتباطات."
+    },
+    "salesPipeline": {
+      "title": "پایپ‌لاین فروش",
+      "subtitle": "مراحل کانبان با درگ و دراپ — Lead، Qualified، Proposal، Negotiation، Won، Lost."
+    },
+    "ordersModule": {
+      "title": "ماژول سفارش‌ها"
+    },
+    "deliveryModule": {
+      "title": "ماژول تحویل",
+      "subtitle": "سیستم حرفه‌ای Lieferschein با پیگیری، امضا، QR و آماده‌بودن بارکد."
+    },
+    "documentsModule": {
+      "title": "اسناد",
+      "subtitle": "پیشنهادات، قراردادها، فاکتورها، Lieferschein، سفارش خرید، رسیدها — با جستجوی AI."
+    },
+    "tasksModule": {
+      "title": "وظایف"
+    },
+    "communicationHub": {
+      "title": "مرکز ارتباطات",
+      "subtitle": "فهرست آداپتور فقط برای پیام‌رسانی، شبکه‌های اجتماعی، ایمیل، ویس و ویدیو."
+    },
+    "creatorStudio": {
+      "title": "بنیاد Creator Studio",
+      "subtitle": "آداپتورهای پلتفرم آماده برای اتصال رسمی در زمان بعد."
+    },
+    "aiCreator": {
+      "title": "سازنده AI",
+      "subtitle": "نقشه توانمندی سازمانی برای محتوا، تقویم، تولید و انتشار."
+    },
+    "industryPlatform": {
+      "title": "پلتفرم کسب‌وکار جهانی",
+      "subtitle": "رجیستر مدولار صنایع — هر حوزه می‌تواند ماژول‌های اختصاصی AI دریافت کند."
+    }
+  },
+  "directory": {
+    "errorTitle": "CRM قابل بارگذاری نیست",
+    "sort": {
+      "companyName": "شرکت",
+      "contactName": "مخاطب",
+      "email": "ایمیل",
+      "phone": "تلفن",
+      "industry": "صنعت",
+      "status": "وضعیت",
+      "owner": "مالک",
+      "createdAt": "ایجادشده"
+    },
+    "search": {
+      "label": "جستجوی مشتریان",
+      "placeholder": "شرکت، مخاطب، ایمیل، برچسب‌ها…"
+    },
+    "view": {
+      "table": "جدول",
+      "cards": "کارت‌ها"
+    },
+    "actions": {
+      "newCustomer": "مشتری جدید"
+    },
+    "filters": {
+      "status": "وضعیت",
+      "industry": "صنعت",
+      "owner": "مالک",
+      "country": "کشور",
+      "tags": "برچسب‌ها",
+      "allStatuses": "همه وضعیت‌ها",
+      "allIndustries": "همه صنایع",
+      "allOwners": "همه مالکان",
+      "allCountries": "همه کشورها",
+      "allTags": "همه برچسب‌ها"
+    },
+    "empty": {
+      "ready": {
+        "title": "CRM آماده است",
+        "description": "اولین رکورد مشتری را بسازید تا بخش دایرکتوری، پروفایل‌ها و فعالیت فعال شود.",
+        "action": "ایجاد مشتری"
+      },
+      "noMatches": {
+        "title": "مشتری مطابق یافت نشد",
+        "description": "جستجو یا فیلترها را تغییر دهید تا رکوردهای درست را پیدا کنید.",
+        "action": "پاک کردن فیلترها"
+      }
+    },
+    "pagination": {
+      "previous": "قبلی",
+      "next": "بعدی"
+    },
+    "showing": "نمایش: {from}–{to} از {total}",
+    "aria": {
+      "openCustomer": "باز کردن مشتری: {company}"
+    },
+    "cardMeta": "مالک {owner} · ایجاد {date}",
+    "sortBy": "مرتب‌سازی بر اساس {column}"
+  },
+  "status": {
+    "lead": "لید",
+    "prospect": "پیش‌مشتری",
+    "active": "فعال",
+    "inactive": "غیرفعال",
+    "vip": "VIP",
+    "archived": "آرشیو"
+  },
+  "form": {
+    "createTitle": "ایجاد مشتری",
+    "editTitle": "ویرایش مشتری",
+    "cancel": "لغو",
+    "saveChanges": "ذخیره تغییرات",
+    "createCustomer": "ایجاد مشتری",
+    "companyName": "نام شرکت",
+    "contactName": "نام مخاطب",
+    "email": "ایمیل",
+    "phone": "تلفن",
+    "website": "وب‌سایت",
+    "industry": "صنعت",
+    "country": "کشور",
+    "city": "شهر",
+    "address": "آدرس",
+    "taxNumber": "شماره مالیات",
+    "owner": "مالک",
+    "status": "وضعیت",
+    "tags": "برچسب‌ها",
+    "statusAria": "وضعیت مشتری",
+    "tagsHint": "با ویرگول جدا کنید، به‌طور خودکار رنگ‌بندی می‌شود",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "enterprise, retail"
+  },
+  "toasts": {
+    "customerCreated": "مشتری ایجاد شد",
+    "customerUpdated": "مشتری به‌روزرسانی شد",
+    "checkForm": "فرم را بررسی کنید",
+    "validationFailed": "اعتبارسنجی ناموفق بود.",
+    "customerDeleted": "مشتری حذف شد",
+    "deleteFailed": "حذف ناموفق بود",
+    "customerCouldNotBeRemoved": "مشتری قابل حذف نبود.",
+    "contactSaved": "مخاطب ذخیره شد",
+    "documentsAttached": "اسناد پیوست شد",
+    "documentsAttachedDetail": "{count} فایل",
+    "noteSaved": "یادداشت ذخیره شد"
+  },
+  "deleteDialog": {
+    "title": "حذف مشتری",
+    "cancel": "لغو",
+    "deletePermanently": "حذف دائم",
+    "thisCustomer": "این مشتری",
+    "bodyPrefix": "این موارد را حذف می‌کند",
+    "bodySuffix": "تماس‌های مرتبط، یادداشت‌ها، اسناد و فعالیت را از حافظه محلی. پروژه‌های متصل حذف نمی‌شوند."
+  },
+  "validation": {
+    "companyNameRequired": "نام شرکت الزامی است.",
+    "contactNameRequired": "نام مخاطب الزامی است.",
+    "emailRequired": "ایمیل الزامی است.",
+    "emailInvalid": "لطفاً یک آدرس ایمیل معتبر وارد کنید.",
+    "phoneRequired": "تلفن الزامی است.",
+    "phoneInvalid": "لطفاً یک شماره تلفن معتبر وارد کنید.",
+    "websiteInvalid": "لطفاً یک وب‌سایت معتبر وارد کنید.",
+    "industryRequired": "صنعت الزامی است.",
+    "ownerRequired": "مالک الزامی است.",
+    "statusInvalid": "لطفاً یک وضعیت معتبر انتخاب کنید.",
+    "emailDuplicate": "این ایمیل قبلاً برای یک مشتری ثبت شده است.",
+    "nameRequired": "نام الزامی است.",
+    "mobileInvalid": "لطفاً یک شماره موبایل معتبر وارد کنید.",
+    "mobileRequired": "موبایل الزامی است.",
+    "roleRequired": "نقش الزامی است.",
+    "noteTitleRequired": "عنوان الزامی است.",
+    "noteBodyRequired": "متن یادداشت الزامی است.",
+    "noteAuthorRequired": "نویسنده الزامی است."
+  },
+  "errors": {
+    "failedToLoadCustomers": "مشتری‌ها قابل بارگذاری نیستند.",
+    "failedToLoadCustomerProfile": "پروفایل مشتری قابل بارگذاری نیست.",
+    "organizationRequired": "سازمان الزامی است.",
+    "failedToSaveCustomer": "مشتری ذخیره نشد.",
+    "failedToDeleteCustomer": "مشتری حذف نشد.",
+    "failedToSaveContact": "مخاطب ذخیره نشد.",
+    "failedToSaveNote": "یادداشت ذخیره نشد.",
+    "failedToUploadDocument": "سند آپلود نشد."
+  },
+  "workspace": {
+    "badge": "Enterprise CRM 2.0",
+    "title": "مدیریت ارتباط با مشتری",
+    "subtitleBeforeOrg": "دایرکتوری مشتریان، پروفایل‌ها، مخاطبین، یادداشت‌ها و اسناد را برای",
+    "subtitleAfterOrg": "پروژه‌ها بر اساس نام شرکت از ماژول پروژه‌ها لینک می‌شوند — بدون تکرار داده.",
+    "yourOrganization": "سازمان شما"
+  },
+  "analytics": {
+    "totalCustomers": "کل مشتریان",
+    "activeCustomers": "مشتریان فعال",
+    "newCustomers": "مشتریان جدید",
+    "vipCustomers": "مشتریان VIP",
+    "createdThisMonth": "ایجادشده این ماه",
+    "leadConversion": "تبدیل لید",
+    "leadConversionHint": "سهم مشتریان فعال و VIP در قیف لید / پیش‌مشتری / تبدیل‌شده.",
+    "customerGrowth": "رشد مشتری"
+  },
+  "profile": {
+    "backToCrm": "← بازگشت به CRM",
+    "ownerLabel": "Owner",
+    "notFoundTitle": "مشتری یافت نشد",
+    "notFoundDescription": "این مشتری ممکن است حذف شده باشد.",
+    "missingCustomerTitle": "مشتری موجود نیست",
+    "missingOverviewDescription": "برای مشاهده نمای کلی یک مشتری را انتخاب کنید.",
+    "missingSettingsDescription": "برای مدیریت تنظیمات یک مشتری را انتخاب کنید.",
+    "ariaProfileNav": "پروفایل مشتری",
+    "tabs": {
+      "overview": "نمای کلی",
+      "contacts": "مخاطبین",
+      "projects": "پروژه‌ها",
+      "documents": "اسناد",
+      "invoices": "فاکتورها",
+      "activity": "فعالیت",
+      "notes": "یادداشت‌ها",
+      "settings": "تنظیمات"
+    },
+    "overview": {
+      "title": "نمای کلی",
+      "email": "ایمیل",
+      "phone": "تلفن",
+      "website": "وب‌سایت",
+      "taxNumber": "شماره مالیات",
+      "location": "موقعیت",
+      "address": "آدرس",
+      "created": "ایجادشده",
+      "updated": "به‌روزرسانی",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "افزودن مخاطب",
+      "editTitle": "ویرایش مخاطب",
+      "listTitle": "مخاطبین",
+      "name": "نام",
+      "role": "نقش",
+      "email": "ایمیل",
+      "phone": "تلفن",
+      "mobile": "موبایل",
+      "notes": "یادداشت‌ها",
+      "saveContact": "ذخیره مخاطب",
+      "emptyTitle": "هنوز مخاطبی نیست",
+      "emptyDescription": "ذینفعان را با نقش، ایمیل و تلفن اضافه کنید.",
+      "defaultRole": "مخاطب",
+      "mobilePrefix": "موبایل"
+    },
+    "projects": {
+      "title": "پروژه‌ها",
+      "emptyTitle": "پروژه متصل نیست",
+      "emptyDescription": "پروژه‌هایی که نام مشتری با این شرکت مطابقت دارد اینجا نمایش داده می‌شوند. داده از ماژول پروژه‌ها خوانده می‌شود — چیزی تکرار نمی‌شود.",
+      "openProjects": "باز کردن پروژه‌ها"
+    },
+    "documents": {
+      "title": "اسناد",
+      "subtitle": "تصاویر، PDF و اسناد آفیس — فقط متادیتا در Local Storage.",
+      "attachFiles": "پیوست فایل",
+      "emptyTitle": "سندی نیست",
+      "emptyDescription": "فایل‌های مشتری را برای تیم حساب پیوست کنید.",
+      "systemUploader": "سیستم"
+    },
+    "invoices": {
+      "emptyTitle": "هنوز فاکتوری نیست",
+      "emptyDescription": "فاکتورهای این مشتری پس از اتصال از Finance اینجا نمایش داده می‌شوند."
+    },
+    "activity": {
+      "title": "فعالیت",
+      "emptyTitle": "هنوز فعالیتی نیست",
+      "emptyDescription": "ایجاد، به‌روزرسانی، یادداشت و اسناد جدیدترین اول اینجا نمایش داده می‌شوند.",
+      "kinds": {
+        "customer_created": "مشتری ایجاد شد",
+        "customer_updated": "مشتری به‌روزرسانی شد",
+        "contact_added": "مخاطب اضافه شد",
+        "contact_updated": "مخاطب به‌روزرسانی شد",
+        "contact_deleted": "مخاطب حذف شد",
+        "note_added": "یادداشت اضافه شد",
+        "note_updated": "یادداشت به‌روزرسانی شد",
+        "note_deleted": "یادداشت حذف شد",
+        "document_added": "سند اضافه شد",
+        "document_deleted": "سند حذف شد",
+        "project_linked": "پروژه پیوند شد"
+      }
+    },
+    "notes": {
+      "newTitle": "یادداشت جدید",
+      "editTitle": "ویرایش یادداشت",
+      "title": "عنوان",
+      "author": "نویسنده",
+      "body": "متن",
+      "saveNote": "ذخیره یادداشت",
+      "emptyTitle": "هنوز یادداشتی نیست",
+      "emptyDescription": "زمینه حساب را با نویسنده و زمان‌بندی ثبت کنید."
+    },
+    "settings": {
+      "title": "تنظیمات",
+      "description": "همه فیلدهای پروفایل را ویرایش کنید یا این حساب را آرشیو کنید. حذف از طریق دیالوگ تأیید انجام می‌شود.",
+      "editAllFields": "ویرایش همه فیلدها",
+      "prepareArchive": "آماده‌سازی آرشیو",
+      "deleteCustomer": "حذف مشتری"
+    }
+  },
+  "customer360": {
+    "ariaSections": "بخش‌های Customer 360",
+    "email": "ایمیل",
+    "phone": "تلفن",
+    "aiHealth": "سلامت AI",
+    "tabs": {
+      "profile": "پروفایل",
+      "company": "شرکت",
+      "contacts": "مخاطبین",
+      "orders": "سفارش‌ها",
+      "invoices": "فاکتورها",
+      "lieferscheine": "Lieferscheine",
+      "payments": "پرداخت‌ها",
+      "documents": "اسناد",
+      "timeline": "تایم‌لاین",
+      "activities": "فعالیت‌ها",
+      "notes": "یادداشت‌ها",
+      "aiSummary": "خلاصه AI",
+      "communicationHistory": "تاریخچه ارتباطات"
+    },
+    "profileLines": {
+      "customerId": "شناسه مشتری",
+      "status": "وضعیت",
+      "primaryContact": "مخاطب اصلی"
+    },
+    "status": {
+      "churn_risk": "ریسک ریزش"
+    }
+  },
+  "delivery": {
+    "title": "سیستم حرفه‌ای Lieferschein",
+    "description": "برگه‌های تحویل، دریافت/تحویل، راننده، وسیله و پیگیری — فقط رکوردهای نمونه. آداپتورهای export متصل نیستند.",
+    "badges": {
+      "qrUnavailable": "QR در دسترس نیست",
+      "barcodeUnavailable": "بارکد در دسترس نیست",
+      "signatureDemo": "امضای دمو"
+    },
+    "exportPdf": "خروجی PDF",
+    "deliveryHistory": "تاریخچه تحویل",
+    "notices": {
+      "exportNotConnected": "خروجی PDF، QR و بارکد در این نسخه متصل نیست.",
+      "exportPdfUnavailable": "خروجی PDF در دسترس نیست — export تحویل متصل نیست.",
+      "historyNotConnected": "ذخیره تاریخچه تحویل در این نسخه متصل نیست."
+    },
+    "columns": {
+      "lieferschein": "Lieferschein",
+      "order": "سفارش",
+      "customer": "مشتری",
+      "kind": "نوع",
+      "driver": "راننده",
+      "vehicle": "وسیله",
+      "tracking": "پیگیری",
+      "scheduled": "زمان‌بندی"
+    }
+  },
+  "orders": {
+    "description": "محصولات، خدمات، قیمت، تخفیف، مالیات و مشتری — دفتر سفارش سازمانی.",
+    "createOrder": "ایجاد سفارش",
+    "notices": {
+      "apiReserved": "API ایجاد سفارش برای مسیر نوشتن آینده رزرو شده است.",
+      "draftStaged": "پیش‌نویس سفارش آماده شد (هنوز API نیست)."
+    },
+    "columns": {
+      "order": "سفارش",
+      "customer": "مشتری",
+      "status": "وضعیت",
+      "lines": "ردیف‌ها",
+      "net": "خالص",
+      "tax": "مالیات",
+      "gross": "ناخالص",
+      "created": "ایجادشده"
+    },
+    "lineTax": "{taxPct}% مالیات"
+  },
+  "tasks": {
+    "calendarTitle": "تقویم · جلسات · یادآورها · پیگیری‌ها",
+    "foundationTitle": "بنیاد Task OS",
+    "foundationDescription": "همگام‌سازی تقویم، ارائه‌دهندگان جلسه، صف یادآوری و قلاب‌های خودکارسازی پیگیری رزرو شده‌اند. این بورد سطح مشترک وظایف CRM برای هر ماژول صنعتی است.",
+    "badges": {
+      "calendarAdapter": "آداپتور تقویم",
+      "meetingAdapter": "آداپتور جلسه",
+      "reminderQueue": "صف یادآوری",
+      "followUpEngine": "موتور پیگیری"
+    },
+    "duePrefix": "سررسید",
+    "kinds": {
+      "follow_up": "پیگیری",
+      "meeting": "جلسه",
+      "reminder": "یادآوری",
+      "task": "وظیفه"
+    },
+    "statuses": {
+      "open": "باز",
+      "in_progress": "در حال انجام",
+      "done": "انجام‌شده",
+      "cancelled": "لغوشده"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "سندی نیست",
+    "emptyDescription": "سندی با این جستجو مطابقت ندارد.",
+    "searchLabel": "جستجوی AI",
+    "searchPlaceholder": "پیشنهادات، قراردادها، فاکتورها، Lieferschein…",
+    "typeLabel": "نوع سند",
+    "allTypes": "همه انواع",
+    "columns": {
+      "type": "نوع",
+      "title": "عنوان",
+      "customer": "مشتری",
+      "status": "وضعیت",
+      "updated": "به‌روزرسانی"
+    },
+    "kinds": {
+      "quote": "پیشنهادات",
+      "contract": "قراردادها",
+      "invoice": "فاکتورها",
+      "lieferschein": "Lieferschein",
+      "purchase_order": "سفارش خرید",
+      "receipt": "رسیدها"
+    }
+  },
+  "communication": {
+    "intro": "معماری کانال مقیاس‌پذیر — ایمیل، واتساپ، اینستاگرام، فیسبوک، تیک‌تاک، لینkedIn، تلگرام، ویس و ویدیو. بدون اتصال جعلی زنده.",
+    "adapterPrefix": "آداپتور:"
+  },
+  "aiCreator": {
+    "intro": "سطح AI Creator آماده آینده — ایده، کپشن، هشتگ، تقویم، کمپین، صدای برند، تولید تصویر/ویدیو، analytics، زمان‌بندی، صف انتشار و insights. هنوز API واقعی provider متصل نیست."
+  },
+  "creatorStudio": {
+    "intro": "بنیاد Creator Studio — اتصال رسمی پلتفرم‌ها می‌تواند بعداً به این آداپتورها وصل شود. Instagram، TikTok، YouTube، Facebook، LinkedIn، Pinterest، Threads، X."
+  },
+  "industry": {
+    "intro": "پلتفرم کسب‌وکار جهانی — در onboarding بعداً صنعت انتخاب می‌شود. هر صنعت ماژول‌های AI اختصاصی بدون انشعاب از CRM اصلی دریافت می‌کند."
+  },
+  "kpi": {
+    "customers": {
+      "label": "مشتریان",
+      "caption": "روابط فعال"
+    },
+    "companies": {
+      "label": "شرکت‌ها",
+      "caption": "سازمان‌های حساب"
+    },
+    "leads": {
+      "label": "لیدها",
+      "caption": "جدید این ماه"
+    },
+    "deals": {
+      "label": "معاملات",
+      "caption": "پایپ‌لاین باز"
+    },
+    "revenue": {
+      "label": "درآمد",
+      "caption": "برنده YTD"
+    },
+    "projects": {
+      "label": "پروژه‌های فعال",
+      "caption": "تحویل در جریان"
+    },
+    "tasks": {
+      "label": "وظایف باز",
+      "caption": "در CRM + تحویل"
+    },
+    "ai-health": {
+      "label": "امتیاز سلامت AI",
+      "caption": "سیگنال کیفیت رابطه"
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "pipeline": {
+    "lead": "Lead",
+    "qualified": "Qualified",
+    "proposal": "Proposal",
+    "negotiation": "Negotiation",
+    "won": "Won",
+    "lost": "Lost"
+  },
+  "orderStatus": {
+    "draft": "پیش‌نویس",
+    "confirmed": "تأییدشده",
+    "in_fulfillment": "در حال اجرا",
+    "shipped": "ارسال‌شده",
+    "delivered": "تحویل‌شده",
+    "cancelled": "لغوشده"
+  },
+  "tracking": {
+    "scheduled": "زمان‌بندی‌شده",
+    "en_route": "در مسیر",
+    "arrived": "رسیده",
+    "completed": "تکمیل‌شده",
+    "failed": "ناموفق"
+  },
+  "documentKind": {
+    "quote": "پیشنهاد",
+    "contract": "قرارداد",
+    "invoice": "فاکتور",
+    "lieferschein": "Lieferschein",
+    "purchase_order": "سفارش خرید",
+    "receipt": "رسید"
+  },
+  "documentStatus": {
+    "sent": "ارسال‌شده",
+    "signed": "امضاشده",
+    "paid": "پرداخت‌شده",
+    "in_transit": "در مسیر",
+    "open": "باز",
+    "filed": "بایگانی‌شده"
+  },
+  "integration": {
+    "planned": "برنامه‌ریزی‌شده",
+    "ready": "آماده",
+    "connected": "متصل",
+    "disabled": "غیرفعال"
+  }
+}

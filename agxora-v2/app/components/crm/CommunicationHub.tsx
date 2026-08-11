@@ -3,6 +3,7 @@
 import type { JSX } from "react";
 import type { ChannelAdapterPlan } from "../../lib/crm";
 import { integrationLabel } from "../../lib/crm";
+import { useLocale } from "../../lib/i18n";
 import { CrmBadge, CrmGlassCard } from "./CrmPrimitives";
 
 function statusTone(
@@ -25,11 +26,12 @@ export function CommunicationHub({
 }: {
   readonly channels: readonly ChannelAdapterPlan[];
 }): JSX.Element {
+  const { t } = useLocale();
+
   return (
     <CrmGlassCard padding="p-5">
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Scalable channel architecture only — Email, WhatsApp, Instagram, Facebook, TikTok,
-        LinkedIn, Telegram, Voice, and Video. No fake live integrations.
+        {t("crm.communication.intro")}
       </p>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
         {channels.map((channel) => (
@@ -51,11 +53,12 @@ export function CommunicationHub({
                 </p>
               </div>
               <CrmBadge tone={statusTone(channel.status)}>
-                {integrationLabel(channel.status)}
+                {t(integrationLabel(channel.status))}
               </CrmBadge>
             </div>
             <p className="mt-3 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Adapter: <span style={{ color: "var(--agx-text, #f8fafc)" }}>{channel.adapter}</span>
+              {t("crm.communication.adapterPrefix")}{" "}
+              <span style={{ color: "var(--agx-text, #f8fafc)" }}>{channel.adapter}</span>
             </p>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {channel.notes}

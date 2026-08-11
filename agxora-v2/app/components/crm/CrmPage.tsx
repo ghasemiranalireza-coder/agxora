@@ -36,7 +36,7 @@ import { TasksModule } from "./TasksModule";
 export function CrmPage(): JSX.Element {
   const reduceMotion = useReducedMotion();
   // Keep render-time formatters in sync with UI locale.
-  useLocale();
+  const { t } = useLocale();
 
   return (
     <div className="agx-ui-module-page agx-page-enter">
@@ -46,27 +46,26 @@ export function CrmPage(): JSX.Element {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="agx-ui-section-title">AGXORA Business OS</p>
+        <p className="agx-ui-section-title">{t("crm.page.brandOs")}</p>
         <h1
           className="text-3xl font-semibold tracking-tight sm:text-4xl"
           style={{ color: "var(--agx-text, #f8fafc)", letterSpacing: "-0.03em" }}
         >
-          AI CRM
+          {t("crm.page.title")}
         </h1>
         <p className="max-w-2xl text-sm sm:text-base" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          AI-native CRM and Creator Operating System — customers, pipeline, orders, delivery,
-          documents, communications, and creator architecture for every industry.
+          {t("crm.page.subtitle")}
         </p>
       </motion.header>
 
-      <CrmSection id="crm-kpis" title="CRM Dashboard" delay={0.04}>
+      <CrmSection id="crm-kpis" title={t("crm.sections.crmDashboard.title")} delay={0.04}>
         <CrmKpiOverview metrics={CRM_KPI_METRICS} />
       </CrmSection>
 
       <CrmSection
         id="customer-360"
-        title="Customer 360°"
-        subtitle="Profile, company, contacts, orders, invoices, Lieferscheine, payments, documents, timeline, activities, notes, AI summary, and communication history."
+        title={t("crm.sections.customer360.title")}
+        subtitle={t("crm.sections.customer360.subtitle")}
         delay={0.06}
       >
         <Customer360Panel customer={CUSTOMER_360} />
@@ -74,21 +73,21 @@ export function CrmPage(): JSX.Element {
 
       <CrmSection
         id="sales-pipeline"
-        title="Sales Pipeline"
-        subtitle="Kanban stages with drag & drop — Lead, Qualified, Proposal, Negotiation, Won, Lost."
+        title={t("crm.sections.salesPipeline.title")}
+        subtitle={t("crm.sections.salesPipeline.subtitle")}
         delay={0.08}
       >
         <SalesPipeline initialDeals={PIPELINE_DEALS} />
       </CrmSection>
 
-      <CrmSection id="orders" title="Orders Module" delay={0.1}>
+      <CrmSection id="orders" title={t("crm.sections.ordersModule.title")} delay={0.1}>
         <OrdersModule orders={CRM_ORDERS} />
       </CrmSection>
 
       <CrmSection
         id="delivery"
-        title="Delivery Module"
-        subtitle="Professional Lieferschein system with tracking, signature, QR, and barcode readiness."
+        title={t("crm.sections.deliveryModule.title")}
+        subtitle={t("crm.sections.deliveryModule.subtitle")}
         delay={0.12}
       >
         <DeliveryModule notes={DELIVERY_NOTES} />
@@ -96,21 +95,21 @@ export function CrmPage(): JSX.Element {
 
       <CrmSection
         id="documents"
-        title="Documents"
-        subtitle="Quotes, contracts, invoices, Lieferschein, purchase orders, receipts — with AI search."
+        title={t("crm.sections.documentsModule.title")}
+        subtitle={t("crm.sections.documentsModule.subtitle")}
         delay={0.14}
       >
         <DocumentsModule documents={CRM_DOCUMENTS} />
       </CrmSection>
 
-      <CrmSection id="tasks" title="Tasks" delay={0.16}>
+      <CrmSection id="tasks" title={t("crm.sections.tasksModule.title")} delay={0.16}>
         <TasksModule tasks={CRM_TASKS} />
       </CrmSection>
 
       <CrmSection
         id="communication-hub"
-        title="Communication Hub"
-        subtitle="Adapter registry for messaging, social, email, voice, and videos only."
+        title={t("crm.sections.communicationHub.title")}
+        subtitle={t("crm.sections.communicationHub.subtitle")}
         delay={0.18}
       >
         <CommunicationHub channels={COMMUNICATION_CHANNELS} />
@@ -118,8 +117,8 @@ export function CrmPage(): JSX.Element {
 
       <CrmSection
         id="creator-studio"
-        title="Creator Studio Foundation"
-        subtitle="Platform adapters ready for official integrations later."
+        title={t("crm.sections.creatorStudio.title")}
+        subtitle={t("crm.sections.creatorStudio.subtitle")}
         delay={0.2}
       >
         <CreatorStudio platforms={CREATOR_PLATFORMS} />
@@ -127,8 +126,8 @@ export function CrmPage(): JSX.Element {
 
       <CrmSection
         id="ai-creator"
-        title="AI Creator"
-        subtitle="Enterprise capability map for content, calendar, generation, and publishing."
+        title={t("crm.sections.aiCreator.title")}
+        subtitle={t("crm.sections.aiCreator.subtitle")}
         delay={0.22}
       >
         <AiCreatorPanel capabilities={AI_CREATOR_CAPABILITIES} />
@@ -136,8 +135,8 @@ export function CrmPage(): JSX.Element {
 
       <CrmSection
         id="industry-platform"
-        title="Universal Business Platform"
-        subtitle="Modular industry registry — every vertical can receive dedicated AI modules."
+        title={t("crm.sections.industryPlatform.title")}
+        subtitle={t("crm.sections.industryPlatform.subtitle")}
         delay={0.24}
       >
         <IndustryPlatform industries={INDUSTRY_MODULES} />

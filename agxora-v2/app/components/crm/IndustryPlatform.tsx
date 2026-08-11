@@ -3,6 +3,7 @@
 import type { JSX } from "react";
 import type { IndustryModulePlan } from "../../lib/crm";
 import { integrationLabel } from "../../lib/crm";
+import { useLocale } from "../../lib/i18n";
 import { CrmBadge, CrmGlassCard } from "./CrmPrimitives";
 
 export function IndustryPlatform({
@@ -10,11 +11,12 @@ export function IndustryPlatform({
 }: {
   readonly industries: readonly IndustryModulePlan[];
 }): JSX.Element {
+  const { t } = useLocale();
+
   return (
     <CrmGlassCard padding="p-5">
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Universal Business Platform — onboarding will later choose an industry. Each industry
-        receives dedicated AI modules without forking the core CRM OS.
+        {t("crm.industry.intro")}
       </p>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {industries.map((industry) => (
@@ -31,7 +33,7 @@ export function IndustryPlatform({
                 {industry.label}
               </h3>
               <CrmBadge tone={industry.status === "ready" ? "accent" : "warning"}>
-                {integrationLabel(industry.status)}
+                {t(integrationLabel(industry.status))}
               </CrmBadge>
             </div>
             <p className="mt-2 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>

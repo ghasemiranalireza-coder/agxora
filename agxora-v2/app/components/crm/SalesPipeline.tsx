@@ -6,8 +6,10 @@ import {
   formatMoney,
   groupDealsByStage,
   moveDealStage,
+  pipelineLabel,
   PIPELINE_STAGES,
 } from "../../lib/crm";
+import { useLocale } from "../../lib/i18n";
 import { CrmBadge, CrmGlassCard } from "./CrmPrimitives";
 
 export function SalesPipeline({
@@ -15,6 +17,7 @@ export function SalesPipeline({
 }: {
   readonly initialDeals: readonly PipelineDeal[];
 }): JSX.Element {
+  const { t } = useLocale();
   const [deals, setDeals] = useState<PipelineDeal[]>([...initialDeals]);
   const [draggingId, setDraggingId] = useState<string | null>(null);
   const groups = useMemo(() => groupDealsByStage(deals), [deals]);
@@ -41,7 +44,7 @@ export function SalesPipeline({
                   className="text-[11px] font-semibold uppercase tracking-[0.14em]"
                   style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                 >
-                  {stage.label}
+                  {t(pipelineLabel(stage.id))}
                 </h3>
                 <CrmBadge>{groups[stage.id].length}</CrmBadge>
               </div>

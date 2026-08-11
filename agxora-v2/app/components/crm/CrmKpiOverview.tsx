@@ -3,13 +3,28 @@
 import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { formatMoney, type CrmKpiMetric } from "../../lib/crm";
-import { formatCurrency, useLocale } from "../../lib/i18n";
+import { formatCurrency, formatNumber, useLocale } from "../../lib/i18n";
 
 import { CrmGlassCard } from "./CrmPrimitives";
 
-function displayMetricValue(metric: CrmKpiMetric): string {
+function displayMetricValue(
+  metric: CrmKpiMetric,
+  t: (key: string, values?: Record<string, string | number>) => string,
+): string {
+  if (metric.id === "ai-health" && typeof metric.value === "string") {
+    const match = /^(\d+)\s*\/\s*(\d+)$/.exec(metric.value.trim());
+    if (match) {
+      return t("crm.kpi.scoreOutOf", {
+        score: match[1],
+        max: match[2],
+      });
+    }
+  }
   if (typeof metric.value === "number") {
-    return formatMoney(metric.value, metric.currency);
+    if (metric.currency) {
+      return formatMoney(metric.value, metric.currency);
+    }
+    return formatNumber(metric.value);
   }
   return metric.value;
 }
@@ -32,13 +47,14 @@ export function CrmKpiOverview({
   readonly metrics: readonly CrmKpiMetric[];
 }): JSX.Element {
   const reduceMotion = useReducedMotion();
-  // Subscribe so KPI money/deltas reformat when the UI locale changes.
-  useLocale();
+  const { t } = useLocale();
 
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
       {metrics.map((metric, index) => {
         const deltaLabel = displayDelta(metric);
+        const labelKey = `crm.kpi.${metric.id}.label`;
+        const captionKey = `crm.kpi.${metric.id}.caption`;
         return (
           <motion.div
             key={metric.id}
@@ -52,7 +68,7 @@ export function CrmKpiOverview({
                   className="text-[11px] font-semibold uppercase tracking-[0.16em]"
                   style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                 >
-                  {metric.label}
+                  {t(labelKey)}
                 </h3>
                 {deltaLabel && metric.delta ? (
                   <span
@@ -79,10 +95,10 @@ export function CrmKpiOverview({
                 className="mt-3 text-[1.5rem] font-semibold tabular-nums tracking-tight"
                 style={{ color: "var(--agx-text, #f8fafc)", letterSpacing: "-0.02em" }}
               >
-                {displayMetricValue(metric)}
+                {displayMetricValue(metric, t)}
               </p>
               <p className="mt-1.5 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                {metric.caption}
+                {t(captionKey)}
               </p>
             </CrmGlassCard>
           </motion.div>

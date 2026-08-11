@@ -6,6 +6,7 @@ import {
   crmStore,
   useCrmAnalytics,
 } from "../../../lib/crm/directory";
+import { useLocale } from "../../../lib/i18n";
 import { Card } from "../../ui";
 import { CrmAnalyticsDashboard } from "./CrmAnalyticsDashboard";
 import { CrmCustomerDeleteDialog } from "./CrmCustomerDeleteDialog";
@@ -21,6 +22,8 @@ export function CrmEnterpriseWorkspace(): JSX.Element {
   const { organization } = useOrganization();
   const organizationId = organization?.id ?? LOCAL_ORG_FALLBACK;
   const analytics = useCrmAnalytics();
+  const { t } = useLocale();
+  const orgName = organization?.name ?? t("crm.workspace.yourOrganization");
 
   useEffect(() => {
     void crmStore.hydrate(organizationId);
@@ -33,22 +36,20 @@ export function CrmEnterpriseWorkspace(): JSX.Element {
           className="text-[11px] font-semibold uppercase tracking-[0.16em]"
           style={{ color: "var(--agx-accent, #22d3ee)" }}
         >
-          Enterprise CRM 2.0
+          {t("crm.workspace.badge")}
         </p>
         <h1
           className="text-2xl font-semibold tracking-tight"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Customer Relationship Management
+          {t("crm.workspace.title")}
         </h1>
         <p
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Manage the customer directory, profiles, contacts, notes, and
-          documents for {organization?.name ?? "your organization"}. Projects
-          are linked by company name from the Projects module without
-          duplicating data.
+          {t("crm.workspace.subtitleBeforeOrg")} {orgName}.{" "}
+          {t("crm.workspace.subtitleAfterOrg")}
         </p>
       </Card>
 

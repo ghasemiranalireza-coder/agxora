@@ -40,60 +40,27 @@ export function formatDateTime(iso: string): string {
 }
 
 export function pipelineLabel(stage: PipelineStage): string {
-  const map: Record<PipelineStage, string> = {
-    lead: "Lead",
-    qualified: "Qualified",
-    proposal: "Proposal",
-    negotiation: "Negotiation",
-    won: "Won",
-    lost: "Lost",
-  };
-  return map[stage];
+  return `crm.pipeline.${stage}`;
 }
 
 export function orderStatusLabel(status: OrderStatus): string {
-  const map: Record<OrderStatus, string> = {
-    draft: "Draft",
-    confirmed: "Confirmed",
-    in_fulfillment: "In fulfillment",
-    shipped: "Shipped",
-    delivered: "Delivered",
-    cancelled: "Cancelled",
-  };
-  return map[status];
+  return `crm.orderStatus.${status}`;
 }
 
 export function trackingLabel(status: TrackingStatus): string {
-  const map: Record<TrackingStatus, string> = {
-    scheduled: "Scheduled",
-    en_route: "En route",
-    arrived: "Arrived",
-    completed: "Completed",
-    failed: "Failed",
-  };
-  return map[status];
+  return `crm.tracking.${status}`;
 }
 
 export function documentKindLabel(kind: DocumentKind): string {
-  const map: Record<DocumentKind, string> = {
-    quote: "Quote",
-    contract: "Contract",
-    invoice: "Invoice",
-    lieferschein: "Lieferschein",
-    purchase_order: "Purchase Order",
-    receipt: "Receipt",
-  };
-  return map[kind];
+  return `crm.documentKind.${kind}`;
+}
+
+export function documentStatusLabel(status: string): string {
+  return `crm.documentStatus.${status}`;
 }
 
 export function integrationLabel(status: IntegrationStatus): string {
-  const map: Record<IntegrationStatus, string> = {
-    planned: "Planned",
-    ready: "Ready",
-    connected: "Connected",
-    disabled: "Disabled",
-  };
-  return map[status];
+  return `crm.integration.${status}`;
 }
 
 export function orderTotal(lines: readonly {

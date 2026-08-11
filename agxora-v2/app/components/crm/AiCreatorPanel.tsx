@@ -3,6 +3,7 @@
 import type { JSX } from "react";
 import type { AiCreatorCapability } from "../../lib/crm";
 import { integrationLabel } from "../../lib/crm";
+import { useLocale } from "../../lib/i18n";
 import { CrmBadge, CrmGlassCard } from "./CrmPrimitives";
 
 export function AiCreatorPanel({
@@ -10,12 +11,12 @@ export function AiCreatorPanel({
 }: {
   readonly capabilities: readonly AiCreatorCapability[];
 }): JSX.Element {
+  const { t } = useLocale();
+
   return (
     <CrmGlassCard padding="p-5">
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Future-ready AI Creator surface — ideas, captions, hashtags, calendar, campaigns, brand
-        voice, image/video generation, analytics, scheduling, publishing queue, and insights.
-        No real provider APIs wired yet.
+        {t("crm.aiCreator.intro")}
       </p>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
         {capabilities.map((cap) => (
@@ -32,7 +33,7 @@ export function AiCreatorPanel({
                 {cap.label}
               </h3>
               <CrmBadge tone={cap.status === "ready" ? "accent" : "warning"}>
-                {integrationLabel(cap.status)}
+                {t(integrationLabel(cap.status))}
               </CrmBadge>
             </div>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>

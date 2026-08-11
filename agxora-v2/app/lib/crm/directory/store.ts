@@ -153,11 +153,14 @@ async function reloadList(organizationId: string | null): Promise<void> {
     const items = await crmDirectoryService.list(organizationId);
     commit({ items, loading: false, hydrated: true });
   } catch (error) {
+    const message =
+      error instanceof Error
+        ? error.message
+        : "crm.errors.failedToLoadCustomers";
     commit({
       loading: false,
       hydrated: true,
-      error:
-        error instanceof Error ? error.message : "Failed to load customers.",
+      error: message.startsWith("crm.") ? message : "crm.errors.failedToLoadCustomers",
     });
   }
 }
@@ -189,12 +192,13 @@ async function reloadDetail(customerId: CrmCustomerId | null): Promise<void> {
       detailLoading: false,
     });
   } catch (error) {
+    const message =
+      error instanceof Error
+        ? error.message
+        : "crm.errors.failedToLoadCustomerProfile";
     commit({
       detailLoading: false,
-      error:
-        error instanceof Error
-          ? error.message
-          : "Failed to load customer profile.",
+      error: message.startsWith("crm.") ? message : "crm.errors.failedToLoadCustomerProfile",
     });
   }
 }
@@ -310,7 +314,7 @@ export const crmStore = {
     const organizationId = snapshot.organizationId;
     if (!organizationId) {
       commit({
-        formErrors: [{ field: "form", message: "Organization is required." }],
+        formErrors: [{ field: "form", message: "crm.errors.organizationRequired" }],
       });
       return null;
     }
@@ -351,8 +355,10 @@ export const crmStore = {
             field: "form",
             message:
               error instanceof Error
-                ? error.message
-                : "Failed to save customer.",
+                ? error.message.startsWith("crm.")
+                  ? error.message
+                  : "crm.errors.failedToSaveCustomer"
+                : "crm.errors.failedToSaveCustomer",
           },
         ],
       });
@@ -385,8 +391,10 @@ export const crmStore = {
         deleteId: null,
         error:
           error instanceof Error
-            ? error.message
-            : "Failed to delete customer.",
+            ? error.message.startsWith("crm.")
+              ? error.message
+              : "crm.errors.failedToDeleteCustomer"
+            : "crm.errors.failedToDeleteCustomer",
       });
       return null;
     }
@@ -453,8 +461,10 @@ export const crmStore = {
             field: "form",
             message:
               error instanceof Error
-                ? error.message
-                : "Failed to save contact.",
+                ? error.message.startsWith("crm.")
+                  ? error.message
+                  : "crm.errors.failedToSaveContact"
+                : "crm.errors.failedToSaveContact",
           },
         ],
       });
@@ -525,7 +535,11 @@ export const crmStore = {
           {
             field: "form",
             message:
-              error instanceof Error ? error.message : "Failed to save note.",
+              error instanceof Error
+                ? error.message.startsWith("crm.")
+                  ? error.message
+                  : "crm.errors.failedToSaveNote"
+                : "crm.errors.failedToSaveNote",
           },
         ],
       });
@@ -560,7 +574,11 @@ export const crmStore = {
       commit({
         uploading: false,
         error:
-          error instanceof Error ? error.message : "Failed to upload document.",
+          error instanceof Error
+            ? error.message.startsWith("crm.")
+              ? error.message
+              : "crm.errors.failedToUploadDocument"
+            : "crm.errors.failedToUploadDocument",
       });
     }
   },

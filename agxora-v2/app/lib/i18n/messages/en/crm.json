@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "AGXORA Business OS",
+    "title": "AI CRM",
+    "subtitle": "AI-native CRM and Creator Operating System — customers, pipeline, orders, delivery, documents, communications, and creator architecture for every industry."
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "CRM Dashboard"
+    },
+    "customer360": {
+      "title": "Customer 360°",
+      "subtitle": "Profile, company, contacts, orders, invoices, Lieferscheine, payments, documents, timeline, activities, notes, AI summary, and communication history."
+    },
+    "salesPipeline": {
+      "title": "Sales Pipeline",
+      "subtitle": "Kanban stages with drag & drop — Lead, Qualified, Proposal, Negotiation, Won, Lost."
+    },
+    "ordersModule": {
+      "title": "Orders Module"
+    },
+    "deliveryModule": {
+      "title": "Delivery Module",
+      "subtitle": "Professional Lieferschein system with tracking, signature, QR, and barcode readiness."
+    },
+    "documentsModule": {
+      "title": "Documents",
+      "subtitle": "Quotes, contracts, invoices, Lieferschein, purchase orders, receipts — with AI search."
+    },
+    "tasksModule": {
+      "title": "Tasks"
+    },
+    "communicationHub": {
+      "title": "Communication Hub",
+      "subtitle": "Adapter registry for messaging, social, email, voice, and videos only."
+    },
+    "creatorStudio": {
+      "title": "Creator Studio Foundation",
+      "subtitle": "Platform adapters ready for official integrations later."
+    },
+    "aiCreator": {
+      "title": "AI Creator",
+      "subtitle": "Enterprise capability map for content, calendar, generation, and publishing."
+    },
+    "industryPlatform": {
+      "title": "Universal Business Platform",
+      "subtitle": "Modular industry registry — every vertical can receive dedicated AI modules."
+    }
+  },
+  "directory": {
+    "errorTitle": "Couldn’t load CRM",
+    "sort": {
+      "companyName": "Company",
+      "contactName": "Contact",
+      "email": "Email",
+      "phone": "Phone",
+      "industry": "Industry",
+      "status": "Status",
+      "owner": "Owner",
+      "createdAt": "Created"
+    },
+    "search": {
+      "label": "Search customers",
+      "placeholder": "Company, contact, email, tags…"
+    },
+    "view": {
+      "table": "Table",
+      "cards": "Cards"
+    },
+    "actions": {
+      "newCustomer": "New customer"
+    },
+    "filters": {
+      "status": "Status",
+      "industry": "Industry",
+      "owner": "Owner",
+      "country": "Country",
+      "tags": "Tags",
+      "allStatuses": "All statuses",
+      "allIndustries": "All industries",
+      "allOwners": "All owners",
+      "allCountries": "All countries",
+      "allTags": "All tags"
+    },
+    "empty": {
+      "ready": {
+        "title": "Your CRM is ready",
+        "description": "Create the first customer record to unlock directory, profiles, and activity.",
+        "action": "Create customer"
+      },
+      "noMatches": {
+        "title": "No matching customers",
+        "description": "Try adjusting search or filters to find the right records.",
+        "action": "Clear filters"
+      }
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "showing": "Showing {from}–{to} of {total}",
+    "aria": {
+      "openCustomer": "Open customer {company}"
+    },
+    "cardMeta": "Owner {owner} · Created {date}",
+    "sortBy": "Sort by {column}"
+  },
+  "status": {
+    "lead": "Lead",
+    "prospect": "Prospect",
+    "active": "Active",
+    "inactive": "Inactive",
+    "vip": "VIP",
+    "archived": "Archived"
+  },
+  "form": {
+    "createTitle": "Create Customer",
+    "editTitle": "Edit Customer",
+    "cancel": "Cancel",
+    "saveChanges": "Save changes",
+    "createCustomer": "Create customer",
+    "companyName": "Company Name",
+    "contactName": "Contact Name",
+    "email": "Email",
+    "phone": "Phone",
+    "website": "Website",
+    "industry": "Industry",
+    "country": "Country",
+    "city": "City",
+    "address": "Address",
+    "taxNumber": "Tax Number",
+    "owner": "Owner",
+    "status": "Status",
+    "tags": "Tags",
+    "statusAria": "Customer status",
+    "tagsHint": "Comma-separated, color-coded automatically",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "enterprise, retail"
+  },
+  "toasts": {
+    "customerCreated": "Customer created",
+    "customerUpdated": "Customer updated",
+    "checkForm": "Check the form",
+    "validationFailed": "Validation failed.",
+    "customerDeleted": "Customer deleted",
+    "deleteFailed": "Delete failed",
+    "customerCouldNotBeRemoved": "Customer could not be removed.",
+    "contactSaved": "Contact saved",
+    "documentsAttached": "Documents attached",
+    "documentsAttachedDetail": "{count} file(s)",
+    "noteSaved": "Note saved"
+  },
+  "deleteDialog": {
+    "title": "Delete customer",
+    "cancel": "Cancel",
+    "deletePermanently": "Delete permanently",
+    "thisCustomer": "this customer",
+    "bodyPrefix": "This removes",
+    "bodySuffix": "and related contacts, notes, documents, and activity from local storage. Linked projects are not deleted."
+  },
+  "validation": {
+    "companyNameRequired": "Company name is required.",
+    "contactNameRequired": "Contact name is required.",
+    "emailRequired": "Email is required.",
+    "emailInvalid": "Enter a valid email address.",
+    "phoneRequired": "Phone is required.",
+    "phoneInvalid": "Enter a valid phone number.",
+    "websiteInvalid": "Enter a valid website.",
+    "industryRequired": "Industry is required.",
+    "ownerRequired": "Owner is required.",
+    "statusInvalid": "Select a valid status.",
+    "emailDuplicate": "A customer with this email already exists.",
+    "nameRequired": "Name is required.",
+    "mobileInvalid": "Enter a valid mobile number.",
+    "mobileRequired": "Mobile is required.",
+    "roleRequired": "Role is required.",
+    "noteTitleRequired": "Title is required.",
+    "noteBodyRequired": "Note body is required.",
+    "noteAuthorRequired": "Author is required."
+  },
+  "errors": {
+    "failedToLoadCustomers": "Failed to load customers.",
+    "failedToLoadCustomerProfile": "Failed to load customer profile.",
+    "organizationRequired": "Organization is required.",
+    "failedToSaveCustomer": "Failed to save customer.",
+    "failedToDeleteCustomer": "Failed to delete customer.",
+    "failedToSaveContact": "Failed to save contact.",
+    "failedToSaveNote": "Failed to save note.",
+    "failedToUploadDocument": "Failed to upload document."
+  },
+  "workspace": {
+    "badge": "Enterprise CRM 2.0",
+    "title": "Customer Relationship Management",
+    "subtitleBeforeOrg": "Manage the customer directory, profiles, contacts, notes, and documents for",
+    "subtitleAfterOrg": "Projects are linked by company name from the Projects module without duplicating data.",
+    "yourOrganization": "your organization"
+  },
+  "analytics": {
+    "totalCustomers": "Total Customers",
+    "activeCustomers": "Active Customers",
+    "newCustomers": "New Customers",
+    "vipCustomers": "VIP Customers",
+    "createdThisMonth": "Created this month",
+    "leadConversion": "Lead conversion",
+    "leadConversionHint": "Active and VIP share of the lead / prospect / converted funnel.",
+    "customerGrowth": "Customer growth"
+  },
+  "profile": {
+    "backToCrm": "← Back to CRM",
+    "ownerLabel": "Owner",
+    "notFoundTitle": "Customer not found",
+    "notFoundDescription": "This customer may have been deleted.",
+    "missingCustomerTitle": "Missing customer",
+    "missingOverviewDescription": "Select a customer to view the overview.",
+    "missingSettingsDescription": "Select a customer to manage settings.",
+    "ariaProfileNav": "Customer profile",
+    "tabs": {
+      "overview": "Overview",
+      "contacts": "Contacts",
+      "projects": "Projects",
+      "documents": "Documents",
+      "invoices": "Invoices",
+      "activity": "Activity",
+      "notes": "Notes",
+      "settings": "Settings"
+    },
+    "overview": {
+      "title": "Overview",
+      "email": "Email",
+      "phone": "Phone",
+      "website": "Website",
+      "taxNumber": "Tax number",
+      "location": "Location",
+      "address": "Address",
+      "created": "Created",
+      "updated": "Updated",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "Add contact",
+      "editTitle": "Edit contact",
+      "listTitle": "Contacts",
+      "name": "Name",
+      "role": "Role",
+      "email": "Email",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "notes": "Notes",
+      "saveContact": "Save contact",
+      "emptyTitle": "No contacts yet",
+      "emptyDescription": "Add stakeholders with role, email, and phone details.",
+      "defaultRole": "Contact",
+      "mobilePrefix": "Mobile"
+    },
+    "projects": {
+      "title": "Projects",
+      "emptyTitle": "No linked projects",
+      "emptyDescription": "Projects whose customer name matches this company appear here. Data is read from the Projects module — nothing is duplicated.",
+      "openProjects": "Open Projects"
+    },
+    "documents": {
+      "title": "Documents",
+      "subtitle": "Images, PDFs, and office documents — metadata only in Local Storage.",
+      "attachFiles": "Attach files",
+      "emptyTitle": "No documents",
+      "emptyDescription": "Attach customer files for the account team.",
+      "systemUploader": "System"
+    },
+    "invoices": {
+      "emptyTitle": "No invoices yet",
+      "emptyDescription": "Invoices for this customer appear here when linked from Finance."
+    },
+    "activity": {
+      "title": "Activity",
+      "emptyTitle": "No activity yet",
+      "emptyDescription": "Creates, updates, notes, and documents appear here newest first.",
+      "kinds": {
+        "customer_created": "Customer created",
+        "customer_updated": "Customer updated",
+        "contact_added": "Contact added",
+        "contact_updated": "Contact updated",
+        "contact_deleted": "Contact deleted",
+        "note_added": "Note added",
+        "note_updated": "Note updated",
+        "note_deleted": "Note deleted",
+        "document_added": "Document added",
+        "document_deleted": "Document deleted",
+        "project_linked": "Project linked"
+      }
+    },
+    "notes": {
+      "newTitle": "New note",
+      "editTitle": "Edit note",
+      "title": "Title",
+      "author": "Author",
+      "body": "Body",
+      "saveNote": "Save note",
+      "emptyTitle": "No notes yet",
+      "emptyDescription": "Capture account context with author and timestamps."
+    },
+    "settings": {
+      "title": "Settings",
+      "description": "Edit all profile fields or archive this account. Deletion uses the confirmation dialog.",
+      "editAllFields": "Edit all fields",
+      "prepareArchive": "Prepare archive",
+      "deleteCustomer": "Delete customer"
+    }
+  },
+  "customer360": {
+    "ariaSections": "Customer 360 sections",
+    "email": "Email",
+    "phone": "Phone",
+    "aiHealth": "AI Health",
+    "tabs": {
+      "profile": "Profile",
+      "company": "Company",
+      "contacts": "Contacts",
+      "orders": "Orders",
+      "invoices": "Invoices",
+      "lieferscheine": "Lieferscheine",
+      "payments": "Payments",
+      "documents": "Documents",
+      "timeline": "Timeline",
+      "activities": "Activities",
+      "notes": "Notes",
+      "aiSummary": "AI Summary",
+      "communicationHistory": "Communication History"
+    },
+    "profileLines": {
+      "customerId": "Customer ID",
+      "status": "Status",
+      "primaryContact": "Primary contact"
+    },
+    "status": {
+      "churn_risk": "Churn risk"
+    }
+  },
+  "delivery": {
+    "title": "Professional Lieferschein System",
+    "description": "Delivery notes, pickup / delivery, driver, vehicle, and tracking — sample records only. Export adapters are not connected.",
+    "badges": {
+      "qrUnavailable": "QR unavailable",
+      "barcodeUnavailable": "Barcode unavailable",
+      "signatureDemo": "Signature demo"
+    },
+    "exportPdf": "Export PDF",
+    "deliveryHistory": "Delivery History",
+    "notices": {
+      "exportNotConnected": "PDF, QR, and barcode export are not connected in this build.",
+      "exportPdfUnavailable": "Export PDF unavailable — delivery export is not connected.",
+      "historyNotConnected": "Delivery history store is not connected in this build."
+    },
+    "columns": {
+      "lieferschein": "Lieferschein",
+      "order": "Order",
+      "customer": "Customer",
+      "kind": "Kind",
+      "driver": "Driver",
+      "vehicle": "Vehicle",
+      "tracking": "Tracking",
+      "scheduled": "Scheduled"
+    }
+  },
+  "orders": {
+    "description": "Products, services, price, discount, tax, and customer — enterprise order ledger.",
+    "createOrder": "Create Order",
+    "notices": {
+      "apiReserved": "Order creation API reserved for future write path.",
+      "draftStaged": "Create Order draft staged (no API yet)."
+    },
+    "columns": {
+      "order": "Order",
+      "customer": "Customer",
+      "status": "Status",
+      "lines": "Lines",
+      "net": "Net",
+      "tax": "Tax",
+      "gross": "Gross",
+      "created": "Created"
+    },
+    "lineTax": "{taxPct}% tax"
+  },
+  "tasks": {
+    "calendarTitle": "Calendar · Meetings · Reminders · Follow-ups",
+    "foundationTitle": "Task OS foundation",
+    "foundationDescription": "Calendar sync, meeting providers, reminder jobs, and follow-up automation hooks are reserved. This board is the shared CRM task surface for every industry module.",
+    "badges": {
+      "calendarAdapter": "Calendar adapter",
+      "meetingAdapter": "Meeting adapter",
+      "reminderQueue": "Reminder queue",
+      "followUpEngine": "Follow-up engine"
+    },
+    "duePrefix": "Due",
+    "kinds": {
+      "follow_up": "Follow-up",
+      "meeting": "Meeting",
+      "reminder": "Reminder",
+      "task": "Task"
+    },
+    "statuses": {
+      "open": "Open",
+      "in_progress": "In progress",
+      "done": "Done",
+      "cancelled": "Cancelled"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "No documents",
+    "emptyDescription": "No documents match this search.",
+    "searchLabel": "AI Search",
+    "searchPlaceholder": "Quotes, contracts, invoices, Lieferschein…",
+    "typeLabel": "Document type",
+    "allTypes": "All types",
+    "columns": {
+      "type": "Type",
+      "title": "Title",
+      "customer": "Customer",
+      "status": "Status",
+      "updated": "Updated"
+    },
+    "kinds": {
+      "quote": "Quotes",
+      "contract": "Contracts",
+      "invoice": "Invoices",
+      "lieferschein": "Lieferschein",
+      "purchase_order": "Purchase Orders",
+      "receipt": "Receipts"
+    }
+  },
+  "communication": {
+    "intro": "Scalable channel architecture only — Email, WhatsApp, Instagram, Facebook, TikTok, LinkedIn, Telegram, Voice, and Video. No fake live integrations.",
+    "adapterPrefix": "Adapter:"
+  },
+  "aiCreator": {
+    "intro": "Future-ready AI Creator surface — ideas, captions, hashtags, calendar, campaigns, brand voice, image/video generation, analytics, scheduling, publishing queue, and insights. No real provider APIs wired yet."
+  },
+  "creatorStudio": {
+    "intro": "Creator Studio foundation — official platform integrations can plug into these adapters later. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
+  },
+  "industry": {
+    "intro": "Universal Business Platform — onboarding will later choose an industry. Each industry receives dedicated AI modules without forking the core CRM OS."
+  },
+  "kpi": {
+    "customers": {
+      "label": "Customers",
+      "caption": "Active relationships"
+    },
+    "companies": {
+      "label": "Companies",
+      "caption": "Account organizations"
+    },
+    "leads": {
+      "label": "Leads",
+      "caption": "New this month"
+    },
+    "deals": {
+      "label": "Deals",
+      "caption": "Open pipeline"
+    },
+    "revenue": {
+      "label": "Revenue",
+      "caption": "Won YTD"
+    },
+    "projects": {
+      "label": "Active Projects",
+      "caption": "Delivery in flight"
+    },
+    "tasks": {
+      "label": "Open Tasks",
+      "caption": "Across CRM + delivery"
+    },
+    "ai-health": {
+      "label": "AI Health Score",
+      "caption": "Relationship quality signal"
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "pipeline": {
+    "lead": "Lead",
+    "qualified": "Qualified",
+    "proposal": "Proposal",
+    "negotiation": "Negotiation",
+    "won": "Won",
+    "lost": "Lost"
+  },
+  "orderStatus": {
+    "draft": "Draft",
+    "confirmed": "Confirmed",
+    "in_fulfillment": "In fulfillment",
+    "shipped": "Shipped",
+    "delivered": "Delivered",
+    "cancelled": "Cancelled"
+  },
+  "tracking": {
+    "scheduled": "Scheduled",
+    "en_route": "En route",
+    "arrived": "Arrived",
+    "completed": "Completed",
+    "failed": "Failed"
+  },
+  "documentKind": {
+    "quote": "Quote",
+    "contract": "Contract",
+    "invoice": "Invoice",
+    "lieferschein": "Lieferschein",
+    "purchase_order": "Purchase Order",
+    "receipt": "Receipt"
+  },
+  "documentStatus": {
+    "sent": "Sent",
+    "signed": "Signed",
+    "paid": "Paid",
+    "in_transit": "In transit",
+    "open": "Open",
+    "filed": "Filed"
+  },
+  "integration": {
+    "planned": "Planned",
+    "ready": "Ready",
+    "connected": "Connected",
+    "disabled": "Disabled"
+  }
+}

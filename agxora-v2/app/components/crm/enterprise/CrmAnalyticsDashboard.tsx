@@ -4,6 +4,7 @@ import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Card } from "../../ui";
 import type { CrmAnalytics } from "../../../lib/crm/directory";
+import { formatDate, useLocale } from "../../../lib/i18n";
 
 function Kpi({
   label,
@@ -51,23 +52,25 @@ export function CrmAnalyticsDashboard({
 }: {
   readonly analytics: CrmAnalytics;
 }): JSX.Element {
+  const { t, locale } = useLocale();
+
   return (
     <div className="space-y-4">
       <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        <Kpi label="Total Customers" value={String(analytics.total)} />
+        <Kpi label={t("crm.analytics.totalCustomers")} value={String(analytics.total)} />
         <Kpi
-          label="Active Customers"
+          label={t("crm.analytics.activeCustomers")}
           value={String(analytics.active)}
           accent="#34d399"
         />
         <Kpi
-          label="New Customers"
+          label={t("crm.analytics.newCustomers")}
           value={String(analytics.newThisMonth)}
-          hint="Created this month"
+          hint={t("crm.analytics.createdThisMonth")}
           accent="var(--agx-accent, #22d3ee)"
         />
         <Kpi
-          label="VIP Customers"
+          label={t("crm.analytics.vipCustomers")}
           value={String(analytics.vip)}
           accent="#a78bfa"
         />
@@ -79,13 +82,13 @@ export function CrmAnalyticsDashboard({
             className="text-sm font-semibold"
             style={{ color: "var(--agx-text, #f8fafc)" }}
           >
-            Lead conversion
+            {t("crm.analytics.leadConversion")}
           </h2>
           <p className="text-3xl font-semibold" style={{ color: "#22d3ee" }}>
             {analytics.conversionPlaceholder}%
           </p>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Active and VIP share of the lead / prospect / converted funnel.
+            {t("crm.analytics.leadConversionHint")}
           </p>
         </Card>
         <Card hover={false} className="space-y-3" padding="18px">
@@ -93,14 +96,19 @@ export function CrmAnalyticsDashboard({
             className="text-sm font-semibold"
             style={{ color: "var(--agx-text, #f8fafc)" }}
           >
-            Customer growth
+            {t("crm.analytics.customerGrowth")}
           </h2>
           <div className="space-y-2">
-            {analytics.growthByMonth.map((row) => (
+            {analytics.growthByMonth.map((row) => {
+              const monthLabel = formatDate(`${row.label}-01T00:00:00Z`, locale, {
+                month: "short",
+                year: "numeric",
+              });
+              return (
               <div key={row.label} className="space-y-1">
                 <div className="flex justify-between text-xs">
                   <span style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                    {row.label}
+                    {monthLabel}
                   </span>
                   <span style={{ color: "var(--agx-text, #f8fafc)" }}>
                     {row.count}
@@ -119,7 +127,8 @@ export function CrmAnalyticsDashboard({
                   />
                 </div>
               </div>
-            ))}
+            );
+            })}
           </div>
         </Card>
       </div>
