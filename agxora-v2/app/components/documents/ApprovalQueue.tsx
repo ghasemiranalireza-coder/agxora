@@ -3,44 +3,55 @@
 import { useMemo, useState, type JSX } from "react";
 import type { KnowledgeDocument } from "../../lib/documents";
 import { formatDateTime } from "../../lib/documents";
+import { useLocale } from "../../lib/i18n";
 import { Button, Card, EmptyState } from "../ui";
 import { DocStatusBadge } from "./shared/StatusBadges";
+
+type ActionKey = "approve" | "reject" | "sendToReview";
+
+type NoticeState =
+  | { readonly kind: "default" }
+  | { readonly kind: "unavailable"; readonly actionKey: ActionKey; readonly id: string };
 
 export function ApprovalQueue({
   documents,
 }: {
   readonly documents: readonly KnowledgeDocument[];
 }): JSX.Element {
+  const { t } = useLocale();
   const queue = useMemo(
     () => documents.filter((d) => d.status === "draft" || d.status === "in_review"),
     [documents],
   );
-  const [notice, setNotice] = useState(
-    "Approval transitions require the Automation workflow engine — not connected in this build.",
-  );
+  const [notice, setNotice] = useState<NoticeState>({ kind: "default" });
 
-  const unavailable = (action: string, docId: string): void => {
-    setNotice(
-      `${action} unavailable for ${docId} — workflow engine is not connected. Sample document status was not changed.`,
-    );
+  const noticeText =
+    notice.kind === "default"
+      ? t("documents.approvals.noticeDefault")
+      : t("documents.approvals.unavailable", {
+          action: t(`documents.approvals.${notice.actionKey}`),
+          id: notice.id,
+        });
+
+  const unavailable = (actionKey: ActionKey, docId: string): void => {
+    setNotice({ kind: "unavailable", actionKey, id: docId });
   };
 
   return (
     <Card className="space-y-3" padding="24px" hover={false}>
       <div>
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Approval Workflow
+          {t("documents.approvals.title")}
         </h3>
         <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Draft → In Review → Approved / Rejected → Archived. Queue items are
-          sample documents; actions do not persist.
+          {t("documents.approvals.subtitle")}
         </p>
       </div>
 
       {queue.length === 0 ? (
         <EmptyState
-          title="Queue clear"
-          description="No draft or in-review documents in the sample set."
+          title={t("documents.approvals.emptyTitle")}
+          description={t("documents.approvals.emptyDescription")}
         />
       ) : (
         <ul className="space-y-2">
@@ -68,26 +79,26 @@ export function ApprovalQueue({
                 <Button
                   size="sm"
                   variant="primary"
-                  title="Approval unavailable — workflow engine not connected"
-                  onClick={() => unavailable("Approve", doc.id)}
+                  title={t("documents.approvals.approveTitle")}
+                  onClick={() => unavailable("approve", doc.id)}
                 >
-                  Approve
+                  {t("documents.approvals.approve")}
                 </Button>
                 <Button
                   size="sm"
                   variant="danger"
-                  title="Rejection unavailable — workflow engine not connected"
-                  onClick={() => unavailable("Reject", doc.id)}
+                  title={t("documents.approvals.rejectTitle")}
+                  onClick={() => unavailable("reject", doc.id)}
                 >
-                  Reject
+                  {t("documents.approvals.reject")}
                 </Button>
                 <Button
                   size="sm"
                   variant="secondary"
-                  title="Send to review unavailable — workflow engine not connected"
-                  onClick={() => unavailable("Send to Review", doc.id)}
+                  title={t("documents.approvals.sendTitle")}
+                  onClick={() => unavailable("sendToReview", doc.id)}
                 >
-                  Send to Review
+                  {t("documents.approvals.sendToReview")}
                 </Button>
               </div>
             </li>
@@ -100,7 +111,7 @@ export function ApprovalQueue({
         aria-live="polite"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        {notice}
+        {noticeText}
       </p>
     </Card>
   );

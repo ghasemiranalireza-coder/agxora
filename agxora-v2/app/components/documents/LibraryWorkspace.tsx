@@ -11,11 +11,12 @@ import type {
 import {
   DOCUMENT_FILE_TYPES,
   fileTypeLabel,
-  formatBytes,
+  formatBytesLocalized,
   formatDate,
   LIBRARY_VIEWS,
   statusLabel,
 } from "../../lib/documents";
+import { formatNumber, useLocale } from "../../lib/i18n";
 import {
   Badge,
   Button,
@@ -32,6 +33,27 @@ import { VersionHistoryPanel } from "./VersionHistoryPanel";
 import { DocStatusBadge } from "./shared/StatusBadges";
 import { DocumentsDialog } from "./shared/DocumentsDialog";
 
+type ContextAction = "open" | "share" | "favorite" | "move" | "delete";
+
+type UploadNotice =
+  | { readonly kind: "uploadReserved" }
+  | { readonly kind: "filesStaged"; readonly count: number }
+  | { readonly kind: "dropReceived" }
+  | { readonly kind: "bulkUnavailable"; readonly count: number }
+  | {
+      readonly kind: "contextUnavailable";
+      readonly action: ContextAction;
+      readonly id: string;
+    };
+
+const CONTEXT_ACTIONS: readonly ContextAction[] = [
+  "open",
+  "share",
+  "favorite",
+  "move",
+  "delete",
+];
+
 const FolderTree = memo(function FolderTree({
   folders,
   selectedId,
@@ -41,6 +63,7 @@ const FolderTree = memo(function FolderTree({
   readonly selectedId: string | null;
   readonly onSelect: (id: string | null) => void;
 }): JSX.Element {
+  const { t } = useLocale();
   const roots = folders.filter((f) => f.parentId == null);
   const childrenOf = (id: string) => folders.filter((f) => f.parentId === id);
 
@@ -51,7 +74,7 @@ const FolderTree = memo(function FolderTree({
         <button
           type="button"
           onClick={() => onSelect(folder.id)}
-          className="flex w-full items-center gap-2 rounded-xl px-2.5 py-2 text-left text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          className="flex w-full items-center gap-2 rounded-xl px-2.5 py-2 text-start text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
           style={{
             outlineColor: "var(--agx-accent, #22d3ee)",
             paddingLeft: 10 + depth * 12,
@@ -62,9 +85,13 @@ const FolderTree = memo(function FolderTree({
           }}
         >
           <span className="truncate">{folder.name}</span>
-          {folder.smart ? <Badge tone="accent">Smart</Badge> : null}
-          {folder.collection && !folder.smart ? <Badge>Collection</Badge> : null}
-          {folder.pinned ? <Badge tone="warning">Pinned</Badge> : null}
+          {folder.smart ? <Badge tone="accent">{t("documents.library.smart")}</Badge> : null}
+          {folder.collection && !folder.smart ? (
+            <Badge>{t("documents.library.collection")}</Badge>
+          ) : null}
+          {folder.pinned ? (
+            <Badge tone="warning">{t("documents.library.pinned")}</Badge>
+          ) : null}
         </button>
         {childrenOf(folder.id).length > 0 ? (
           <ul>{childrenOf(folder.id).map((c) => renderNode(c, depth + 1))}</ul>
@@ -78,7 +105,7 @@ const FolderTree = memo(function FolderTree({
       <button
         type="button"
         onClick={() => onSelect(null)}
-        className="w-full rounded-xl px-2.5 py-2 text-left text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        className="w-full rounded-xl px-2.5 py-2 text-start text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
         style={{
           outlineColor: "var(--agx-accent, #22d3ee)",
           background:
@@ -89,7 +116,7 @@ const FolderTree = memo(function FolderTree({
             selectedId == null ? "var(--agx-accent, #22d3ee)" : "var(--agx-text, #f8fafc)",
         }}
       >
-        All folders
+        {t("documents.library.allFolders")}
       </button>
       <ul className="max-h-[420px] space-y-0.5 overflow-y-auto pr-1">
         {roots.map((f) => renderNode(f, 0))}
@@ -98,6 +125,27 @@ const FolderTree = memo(function FolderTree({
   );
 });
 
+function resolveUploadNotice(
+  notice: UploadNotice,
+  t: (key: string, values?: Record<string, string | number>) => string,
+): string {
+  switch (notice.kind) {
+    case "uploadReserved":
+      return t("documents.library.uploadReserved");
+    case "filesStaged":
+      return t("documents.library.filesStaged", { count: notice.count });
+    case "dropReceived":
+      return t("documents.library.dropReceived");
+    case "bulkUnavailable":
+      return t("documents.library.bulkUnavailable", { count: notice.count });
+    case "contextUnavailable":
+      return t("documents.library.context.unavailable", {
+        action: t(`documents.library.context.${notice.action}`),
+        id: notice.id,
+      });
+  }
+}
+
 export function LibraryWorkspace({
   documents,
   folders,
@@ -105,6 +153,7 @@ export function LibraryWorkspace({
   readonly documents: readonly KnowledgeDocument[];
   readonly folders: readonly DocumentFolder[];
 }): JSX.Element {
+  const { t } = useLocale();
   const [view, setView] = useState<LibraryView>("all");
   const [folderId, setFolderId] = useState<string | null>(null);
   const [query, setQuery] = useState("");
@@ -119,9 +168,9 @@ export function LibraryWorkspace({
   const [contextMenu, setContextMenu] = useState<{ x: number; y: number; id: string } | null>(
     null,
   );
-  const [uploadNotice, setUploadNotice] = useState(
-    "Drag & drop upload is a storage API reserved.",
-  );
+  const [uploadNotice, setUploadNotice] = useState<UploadNotice>({
+    kind: "uploadReserved",
+  });
 
   const departments = useMemo(
     () => Array.from(new Set(documents.map((d) => d.department))).sort(),
@@ -149,7 +198,7 @@ export function LibraryWorkspace({
         if (doc.trashed) return false;
         if (!["Policy", "Process", "FAQ", "Manual", "Brand"].includes(doc.category) && !doc.tags.includes("policy")) {
           // show knowledge-oriented docs lightly
-          if (!doc.tags.some((t) => ["policy", "process", "faq", "wiki", "manual"].includes(t))) {
+          if (!doc.tags.some((tag) => ["policy", "process", "faq", "wiki", "manual"].includes(tag))) {
             return false;
           }
         }
@@ -211,14 +260,19 @@ export function LibraryWorkspace({
     const count = e.dataTransfer.files?.length ?? 0;
     setUploadNotice(
       count > 0
-        ? `${count} file(s) staged for upload (no storage write).`
-        : "Drop received (no storage write).",
+        ? { kind: "filesStaged", count }
+        : { kind: "dropReceived" },
     );
   };
 
+  const resultsLabel =
+    sorted.length === 1
+      ? t("documents.library.resultOne", { count: formatNumber(sorted.length) })
+      : t("documents.library.results", { count: formatNumber(sorted.length) });
+
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Library views">
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label={t("documents.library.viewsAria")}>
         {LIBRARY_VIEWS.map((item) => (
           <button
             key={item.id}
@@ -246,7 +300,7 @@ export function LibraryWorkspace({
                   : "var(--agx-text-muted, #94a3b8)",
             }}
           >
-            {item.label}
+            {t(`documents.library.views.${item.id}`)}
           </button>
         ))}
       </div>
@@ -261,16 +315,16 @@ export function LibraryWorkspace({
           background: "rgba(255,255,255,0.02)",
         }}
       >
-        Drag & drop files here to stage an upload. {uploadNotice}
+        {t("documents.library.dropzone")} {resolveUploadNotice(uploadNotice, t)}
       </div>
 
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
         <Card className="xl:col-span-3 space-y-3" padding="16px" hover={false}>
           <h3 className="text-sm font-semibold" style={{ color: "var(--agx-ds-text)" }}>
-            Folders & Collections
+            {t("documents.library.foldersTitle")}
           </h3>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Nested folders, collections, smart collections, tags, pinned & favorites.
+            {t("documents.library.foldersHint")}
           </p>
           <FolderTree folders={folders} selectedId={folderId} onSelect={setFolderId} />
         </Card>
@@ -279,11 +333,15 @@ export function LibraryWorkspace({
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                Document Library
+                {t("documents.library.title")}
               </h3>
               <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                {sorted.length} result{sorted.length === 1 ? "" : "s"}
-                {selectedIds.size > 0 ? ` · ${selectedIds.size} selected` : ""}
+                {resultsLabel}
+                {selectedIds.size > 0
+                  ? ` ${t("documents.library.selected", {
+                      count: formatNumber(selectedIds.size),
+                    })}`
+                  : ""}
               </p>
             </div>
             <Button
@@ -291,60 +349,65 @@ export function LibraryWorkspace({
               variant="secondary"
               disabled={selectedIds.size === 0}
               onClick={() =>
-                setUploadNotice(
-                  `Bulk action unavailable for ${selectedIds.size} item(s) — storage mutations are not connected.`,
-                )
+                setUploadNotice({
+                  kind: "bulkUnavailable",
+                  count: selectedIds.size,
+                })
               }
             >
-              Bulk action
+              {t("documents.library.bulkAction")}
             </Button>
           </div>
 
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             <SearchField
-              label="Global Search"
+              label={t("documents.library.searchLabel")}
               value={query}
               onChange={setQuery}
-              placeholder="Name, tags, owner, AI summary…"
+              placeholder={t("documents.library.searchPlaceholder")}
             />
             <FilterSelect
-              label="Type"
+              label={t("documents.library.typeLabel")}
               value={type}
               onChange={(e) => setType(e.target.value as DocumentFileType | "all")}
             >
-              <option value="all">All types</option>
-              {DOCUMENT_FILE_TYPES.map((t) => (
-                <option key={t} value={t}>
-                  {fileTypeLabel(t)}
+              <option value="all">{t("documents.library.allTypes")}</option>
+              {DOCUMENT_FILE_TYPES.map((ft) => (
+                <option key={ft} value={ft}>
+                  {t(fileTypeLabel(ft))}
                 </option>
               ))}
             </FilterSelect>
             <FilterSelect
-              label="Status"
+              label={t("documents.library.statusLabel")}
               value={status}
               onChange={(e) => setStatus(e.target.value as DocumentStatus | "all")}
             >
-              <option value="all">All statuses</option>
+              <option value="all">{t("documents.library.allStatuses")}</option>
               {(["draft", "in_review", "approved", "rejected", "archived"] as const).map((s) => (
                 <option key={s} value={s}>
-                  {statusLabel(s)}
+                  {t(statusLabel(s))}
                 </option>
               ))}
             </FilterSelect>
             <FilterSelect
-              label="Department"
+              label={t("documents.library.departmentLabel")}
               value={department}
               onChange={(e) => setDepartment(e.target.value)}
             >
-              <option value="all">All departments</option>
+              <option value="all">{t("documents.library.allDepartments")}</option>
               {departments.map((d) => (
                 <option key={d} value={d}>
                   {d}
                 </option>
               ))}
             </FilterSelect>
-            <FilterSelect label="Owner" value={owner} onChange={(e) => setOwner(e.target.value)}>
-              <option value="all">All owners</option>
+            <FilterSelect
+              label={t("documents.library.ownerLabel")}
+              value={owner}
+              onChange={(e) => setOwner(e.target.value)}
+            >
+              <option value="all">{t("documents.library.allOwners")}</option>
               {owners.map((o) => (
                 <option key={o} value={o}>
                   {o}
@@ -357,14 +420,14 @@ export function LibraryWorkspace({
                 checked={favoritesOnly}
                 onChange={(e) => setFavoritesOnly(e.target.checked)}
               />
-              Favorites only
+              {t("documents.library.favoritesOnly")}
             </label>
           </div>
 
           {sorted.length === 0 ? (
             <EmptyState
-              title="No documents to show"
-              description="Adjust filters, clear search, or add knowledge assets to grow the library."
+              title={t("documents.library.emptyTitle")}
+              description={t("documents.library.emptyDescription")}
             />
           ) : (
             <ul className="max-h-[520px] space-y-2 overflow-y-auto pr-1" role="listbox">
@@ -388,7 +451,7 @@ export function LibraryWorkspace({
                         e.preventDefault();
                         setContextMenu({ x: e.clientX, y: e.clientY, id: doc.id });
                       }}
-                      className="flex w-full cursor-pointer items-start gap-3 rounded-2xl border px-3 py-3 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                      className="flex w-full cursor-pointer items-start gap-3 rounded-2xl border px-3 py-3 text-start transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                       style={{
                         outlineColor: "var(--agx-accent, #22d3ee)",
                         borderColor: active
@@ -404,7 +467,7 @@ export function LibraryWorkspace({
                         checked={checked}
                         onChange={() => toggleSelect(doc.id)}
                         onClick={(e) => e.stopPropagation()}
-                        aria-label={`Select ${doc.name}`}
+                        aria-label={t("documents.library.selectAria", { name: doc.name })}
                         className="mt-1"
                       />
                       <div className="min-w-0 flex-1">
@@ -415,15 +478,21 @@ export function LibraryWorkspace({
                           <DocStatusBadge status={doc.status} />
                         </div>
                         <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                          {fileTypeLabel(doc.fileType)} · {formatBytes(doc.sizeBytes)} ·{" "}
+                          {t(fileTypeLabel(doc.fileType))} · {formatBytesLocalized(doc.sizeBytes, t)} ·{" "}
                           {doc.owner} · {formatDate(doc.updatedAt)}
                         </p>
                         <div className="mt-2 flex flex-wrap gap-1">
-                          {doc.favorite ? <Badge tone="warning">Favorite</Badge> : null}
-                          {doc.pinned ? <Badge tone="accent">Pinned</Badge> : null}
-                          {doc.shared ? <Badge>Shared</Badge> : null}
-                          {doc.tags.slice(0, 3).map((t) => (
-                            <Badge key={t}>{t}</Badge>
+                          {doc.favorite ? (
+                            <Badge tone="warning">{t("documents.library.favorite")}</Badge>
+                          ) : null}
+                          {doc.pinned ? (
+                            <Badge tone="accent">{t("documents.library.pinned")}</Badge>
+                          ) : null}
+                          {doc.shared ? (
+                            <Badge>{t("documents.library.sharedBadge")}</Badge>
+                          ) : null}
+                          {doc.tags.slice(0, 3).map((tag) => (
+                            <Badge key={tag}>{tag}</Badge>
                           ))}
                         </div>
                       </div>
@@ -445,12 +514,12 @@ export function LibraryWorkspace({
 
       <DocumentsDialog
         open={versionsOpen}
-        title="Version History"
+        title={t("documents.library.versionHistoryTitle")}
         onClose={() => setVersionsOpen(false)}
         wide
         footer={
           <Button variant="secondary" onClick={() => setVersionsOpen(false)}>
-            Close
+            {t("documents.library.close")}
           </Button>
         }
       >
@@ -462,10 +531,12 @@ export function LibraryWorkspace({
           x={contextMenu.x}
           y={contextMenu.y}
           docId={contextMenu.id}
-          onAction={(label) => {
-            setUploadNotice(
-              `${label} unavailable — document mutations are not connected for ${contextMenu.id}.`,
-            );
+          onAction={(action) => {
+            setUploadNotice({
+              kind: "contextUnavailable",
+              action,
+              id: contextMenu.id,
+            });
             setContextMenu(null);
           }}
           onClose={() => setContextMenu(null)}
@@ -485,9 +556,11 @@ function LibraryContextMenu({
   readonly x: number;
   readonly y: number;
   readonly docId: string;
-  readonly onAction: (label: string) => void;
+  readonly onAction: (action: ContextAction) => void;
   readonly onClose: () => void;
 }): JSX.Element {
+  const { t } = useLocale();
+
   useEffect(() => {
     const close = (): void => onClose();
     const pop = pushOverlay(close);
@@ -527,12 +600,12 @@ function LibraryContextMenu({
         boxShadow: "var(--agx-ds-shadow-lg)",
       }}
     >
-      {["Open", "Share", "Favorite", "Move", "Delete"].map((label) => (
+      {CONTEXT_ACTIONS.map((action) => (
         <button
-          key={label}
+          key={action}
           type="button"
           role="menuitem"
-          className="block w-full rounded-lg px-3 py-2 text-left text-sm transition-colors"
+          className="block w-full rounded-lg px-3 py-2 text-start text-sm transition-colors"
           style={{ color: "var(--agx-ds-text)" }}
           onMouseEnter={(e) => {
             e.currentTarget.style.background =
@@ -541,18 +614,18 @@ function LibraryContextMenu({
           onMouseLeave={(e) => {
             e.currentTarget.style.background = "transparent";
           }}
-          onClick={() => onAction(label)}
+          onClick={() => onAction(action)}
         >
-          {label}
+          {t(`documents.library.context.${action}`)}
         </button>
       ))}
       <button
         type="button"
-        className="mt-1 block w-full rounded-lg px-3 py-2 text-left text-xs"
+        className="mt-1 block w-full rounded-lg px-3 py-2 text-start text-xs"
         style={{ color: "var(--agx-ds-text-muted)" }}
         onClick={onClose}
       >
-        Dismiss
+        {t("documents.library.context.dismiss")}
       </button>
     </div>
   );

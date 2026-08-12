@@ -16,6 +16,7 @@ import enDashboard from "./messages/en/dashboard.json";
 import enAuth from "./messages/en/auth.json";
 import enCrm from "./messages/en/crm.json";
 import enFinance from "./messages/en/finance.json";
+import enDocuments from "./messages/en/documents.json";
 
 import deCommon from "./messages/de/common.json";
 import deNavigation from "./messages/de/navigation.json";
@@ -27,6 +28,7 @@ import deDashboard from "./messages/de/dashboard.json";
 import deAuth from "./messages/de/auth.json";
 import deCrm from "./messages/de/crm.json";
 import deFinance from "./messages/de/finance.json";
+import deDocuments from "./messages/de/documents.json";
 
 import faCommon from "./messages/fa/common.json";
 import faNavigation from "./messages/fa/navigation.json";
@@ -38,6 +40,7 @@ import faDashboard from "./messages/fa/dashboard.json";
 import faAuth from "./messages/fa/auth.json";
 import faCrm from "./messages/fa/crm.json";
 import faFinance from "./messages/fa/finance.json";
+import faDocuments from "./messages/fa/documents.json";
 
 export type MessageTree = {
   readonly common: Record<string, unknown>;
@@ -50,6 +53,7 @@ export type MessageTree = {
   readonly auth: Record<string, unknown>;
   readonly crm: Record<string, unknown>;
   readonly finance: Record<string, unknown>;
+  readonly documents: Record<string, unknown>;
 };
 
 const CATALOGS: Readonly<Record<AppLocale, MessageTree>> = {
@@ -64,6 +68,7 @@ const CATALOGS: Readonly<Record<AppLocale, MessageTree>> = {
     auth: enAuth,
     crm: enCrm,
     finance: enFinance,
+    documents: enDocuments,
   },
   de: {
     common: deCommon,
@@ -76,6 +81,7 @@ const CATALOGS: Readonly<Record<AppLocale, MessageTree>> = {
     auth: deAuth,
     crm: deCrm,
     finance: deFinance,
+    documents: deDocuments,
   },
   fa: {
     common: faCommon,
@@ -88,6 +94,7 @@ const CATALOGS: Readonly<Record<AppLocale, MessageTree>> = {
     auth: faAuth,
     crm: faCrm,
     finance: faFinance,
+    documents: faDocuments,
   },
 };
 

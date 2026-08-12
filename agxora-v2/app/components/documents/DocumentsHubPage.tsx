@@ -12,45 +12,17 @@ import {
   KNOWLEDGE_DOCUMENTS,
   SECURITY_CONTROLS,
 } from "../../lib/documents";
+import { useLocale } from "../../lib/i18n";
 import { Card, Section, Skeleton } from "../ui";
 import { DocumentsKpiOverview } from "./DocumentsKpiOverview";
 import { LibraryWorkspace } from "./LibraryWorkspace";
 
-const KnowledgeBase = dynamic(
-  () => import("./KnowledgeBase").then((m) => m.KnowledgeBase),
-  { ssr: false, loading: () => <SectionSkeleton label="Loading knowledge base…" /> },
-);
-
-const ApprovalQueue = dynamic(
-  () => import("./ApprovalQueue").then((m) => m.ApprovalQueue),
-  { ssr: false, loading: () => <SectionSkeleton label="Loading approval queue…" /> },
-);
-
-const AiKnowledgePanel = dynamic(
-  () => import("./AiKnowledgePanel").then((m) => m.AiKnowledgePanel),
-  { ssr: false, loading: () => <SectionSkeleton label="Loading AI insights…" /> },
-);
-
-const DocumentsActivity = dynamic(
-  () => import("./DocumentsActivity").then((m) => m.DocumentsActivity),
-  { ssr: false, loading: () => <SectionSkeleton label="Loading activity…" /> },
-);
-
-const DocumentsIntegrations = dynamic(
-  () => import("./DocumentsIntegrations").then((m) => m.DocumentsIntegrations),
-  { ssr: false, loading: () => <SectionSkeleton label="Loading integrations…" /> },
-);
-
-const DocumentsSecurity = dynamic(
-  () => import("./DocumentsSecurity").then((m) => m.DocumentsSecurity),
-  { ssr: false, loading: () => <SectionSkeleton label="Loading security…" /> },
-);
-
-function SectionSkeleton({ label }: { readonly label: string }): JSX.Element {
+function SectionSkeleton({ labelKey }: { readonly labelKey: string }): JSX.Element {
+  const { t } = useLocale();
   return (
     <Card padding="24px" hover={false}>
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        {label}
+        {t(labelKey)}
       </p>
       <div className="space-y-3">
         <Skeleton height={40} width="100%" />
@@ -61,18 +33,70 @@ function SectionSkeleton({ label }: { readonly label: string }): JSX.Element {
   );
 }
 
+const KnowledgeBase = dynamic(
+  () => import("./KnowledgeBase").then((m) => m.KnowledgeBase),
+  {
+    ssr: false,
+    loading: () => <SectionSkeleton labelKey="documents.loading.knowledgeBase" />,
+  },
+);
+
+const ApprovalQueue = dynamic(
+  () => import("./ApprovalQueue").then((m) => m.ApprovalQueue),
+  {
+    ssr: false,
+    loading: () => <SectionSkeleton labelKey="documents.loading.approvals" />,
+  },
+);
+
+const AiKnowledgePanel = dynamic(
+  () => import("./AiKnowledgePanel").then((m) => m.AiKnowledgePanel),
+  {
+    ssr: false,
+    loading: () => <SectionSkeleton labelKey="documents.loading.aiInsights" />,
+  },
+);
+
+const DocumentsActivity = dynamic(
+  () => import("./DocumentsActivity").then((m) => m.DocumentsActivity),
+  {
+    ssr: false,
+    loading: () => <SectionSkeleton labelKey="documents.loading.activity" />,
+  },
+);
+
+const DocumentsIntegrations = dynamic(
+  () => import("./DocumentsIntegrations").then((m) => m.DocumentsIntegrations),
+  {
+    ssr: false,
+    loading: () => <SectionSkeleton labelKey="documents.loading.integrations" />,
+  },
+);
+
+const DocumentsSecurity = dynamic(
+  () => import("./DocumentsSecurity").then((m) => m.DocumentsSecurity),
+  {
+    ssr: false,
+    loading: () => <SectionSkeleton labelKey="documents.loading.security" />,
+  },
+);
+
 /**
  * AI Documents & Knowledge Hub — enterprise foundation.
  * Additive module; does not modify Hero, Finance, CRM, Creator, or Automation.
  */
 export function DocumentsHubPage(): JSX.Element {
   const reduceMotion = useReducedMotion();
+  const { t } = useLocale();
   const [insightDocId, setInsightDocId] = useState<string | null>(
     KNOWLEDGE_DOCUMENTS[0]?.id ?? null,
   );
 
   const insightDoc = useMemo(
-    () => KNOWLEDGE_DOCUMENTS.find((d) => d.id === insightDocId) ?? KNOWLEDGE_DOCUMENTS[0] ?? null,
+    () =>
+      KNOWLEDGE_DOCUMENTS.find((d) => d.id === insightDocId) ??
+      KNOWLEDGE_DOCUMENTS[0] ??
+      null,
     [insightDocId],
   );
 
@@ -84,16 +108,18 @@ export function DocumentsHubPage(): JSX.Element {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="agx-ui-section-title">AGXORA Knowledge OS</p>
+        <p className="agx-ui-section-title">{t("documents.page.brand")}</p>
         <h1
           className="text-3xl font-semibold tracking-tight sm:text-4xl"
           style={{ color: "var(--agx-text, #f8fafc)", letterSpacing: "-0.03em" }}
         >
-          Documents
+          {t("documents.page.title")}
         </h1>
-        <p className="max-w-2xl text-sm sm:text-base" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Enterprise documents & knowledge hub — previewed with sample content
-          until storage and approval backends connect.
+        <p
+          className="max-w-2xl text-sm sm:text-base"
+          style={{ color: "var(--agx-text-muted, #94a3b8)" }}
+        >
+          {t("documents.page.subtitle")}
         </p>
         <div
           role="status"
@@ -106,19 +132,18 @@ export function DocumentsHubPage(): JSX.Element {
             color: "var(--agx-text, #f8fafc)",
           }}
         >
-          Sample library — browsing and filters work in-session. Upload,
-          approve, and AI index actions are not connected.
+          {t("documents.page.sampleNotice")}
         </div>
       </motion.header>
 
-      <Section id="documents-kpis" title="Knowledge Dashboard" delay={0.04}>
+      <Section id="documents-kpis" title={t("documents.sections.kpis.title")} delay={0.04}>
         <DocumentsKpiOverview metrics={DOCUMENTS_KPIS} />
       </Section>
 
       <Section
         id="documents-library"
-        title="Document Library"
-        subtitle="All Documents, Recent, Favorites, Shared, Archived, Trash, Knowledge Base — with folders, search, viewer, and versions."
+        title={t("documents.sections.library.title")}
+        subtitle={t("documents.sections.library.subtitle")}
         delay={0.06}
       >
         <LibraryWorkspace documents={KNOWLEDGE_DOCUMENTS} folders={DOCUMENT_FOLDERS} />
@@ -126,8 +151,8 @@ export function DocumentsHubPage(): JSX.Element {
 
       <Section
         id="documents-knowledge"
-        title="Knowledge Base"
-        subtitle="Articles, policies, processes, manuals, FAQs, and internal wiki."
+        title={t("documents.sections.knowledge.title")}
+        subtitle={t("documents.sections.knowledge.subtitle")}
         delay={0.08}
       >
         <KnowledgeBase articles={KNOWLEDGE_ARTICLES} />
@@ -135,8 +160,8 @@ export function DocumentsHubPage(): JSX.Element {
 
       <Section
         id="documents-approvals"
-        title="Approvals"
-        subtitle="Draft, In Review, Approved, Rejected, Archived — linked with Automation architecture."
+        title={t("documents.sections.approvals.title")}
+        subtitle={t("documents.sections.approvals.subtitle")}
         delay={0.1}
       >
         <ApprovalQueue documents={KNOWLEDGE_DOCUMENTS} />
@@ -144,8 +169,8 @@ export function DocumentsHubPage(): JSX.Element {
 
       <Section
         id="documents-ai"
-        title="AI Knowledge Layer"
-        subtitle="Summary, keywords, classification, tags, folders, related docs, duplicates, translation, OCR, and searchs only."
+        title={t("documents.sections.ai.title")}
+        subtitle={t("documents.sections.ai.subtitle")}
         delay={0.12}
       >
         <div className="mb-3 flex flex-wrap gap-2">
@@ -182,8 +207,8 @@ export function DocumentsHubPage(): JSX.Element {
 
       <Section
         id="documents-activity"
-        title="Activity"
-        subtitle="Recent changes, uploads, views, shares, and audit history."
+        title={t("documents.sections.activity.title")}
+        subtitle={t("documents.sections.activity.subtitle")}
         delay={0.14}
       >
         <DocumentsActivity activity={DOCUMENT_ACTIVITY} />
@@ -191,8 +216,8 @@ export function DocumentsHubPage(): JSX.Element {
 
       <Section
         id="documents-integrations"
-        title="Integrations"
-        subtitle="Drive adapters reserved — no live connectors."
+        title={t("documents.sections.integrations.title")}
+        subtitle={t("documents.sections.integrations.subtitle")}
         delay={0.16}
       >
         <DocumentsIntegrations integrations={DOCUMENT_INTEGRATIONS} />
@@ -200,8 +225,8 @@ export function DocumentsHubPage(): JSX.Element {
 
       <Section
         id="documents-security"
-        title="Security & Sharing"
-        subtitle="RBAC, audit trail, encryption, retention, and share scopes."
+        title={t("documents.sections.security.title")}
+        subtitle={t("documents.sections.security.subtitle")}
         delay={0.18}
       >
         <DocumentsSecurity controls={SECURITY_CONTROLS} />

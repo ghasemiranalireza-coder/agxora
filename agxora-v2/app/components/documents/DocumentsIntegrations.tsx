@@ -2,6 +2,7 @@
 
 import type { JSX } from "react";
 import type { DocumentIntegration } from "../../lib/documents";
+import { useLocale } from "../../lib/i18n";
 import { Badge, Card } from "../ui";
 import { IntegrationStatusBadge } from "./shared/StatusBadges";
 
@@ -10,11 +11,12 @@ export function DocumentsIntegrations({
 }: {
   readonly integrations: readonly DocumentIntegration[];
 }): JSX.Element {
+  const { t } = useLocale();
+
   return (
     <Card padding="24px" hover={false}>
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Cloud drive adapters are architecture only — Google Drive, OneDrive, Dropbox, Box,
-        SharePoint, Nextcloud. No live APIs.
+        {t("documents.integrations.intro")}
       </p>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
         {integrations.map((item) => (
@@ -34,16 +36,16 @@ export function DocumentsIntegrations({
               <IntegrationStatusBadge status={item.status} />
             </div>
             <p className="mt-3 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Reserved adapter:{" "}
+              {t("documents.integrations.reservedAdapter")}{" "}
               <span className="font-mono" style={{ color: "var(--agx-text, #f8fafc)" }}>
                 {item.adapter}
               </span>
             </p>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {item.description}
+              {t(`documents.integrations.items.${item.id}.description`)}
             </p>
             <div className="mt-3">
-              <Badge>Architecture</Badge>
+              <Badge>{t("documents.integrations.architecture")}</Badge>
             </div>
           </article>
         ))}
