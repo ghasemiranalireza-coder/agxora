@@ -1,35 +1,113 @@
-/* Dashboard command-center layout polish — preserves AGXORA glass identity. */
+/* Dashboard command-center layout + motion — preserves AGXORA glass identity. */
 
 .agx-dashboard-home {
   width: 100%;
   max-width: 1180px;
   margin: 0 auto;
+  --agx-motion-micro: 160ms;
+  --agx-motion-standard: 220ms;
+  --agx-motion-large: 320ms;
+  --agx-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .agx-dash-panel {
   width: 100%;
 }
 
-.agx-dash-attention-card {
-  transition: border-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1);
+/* ---- Interactive surfaces ---- */
+
+.agx-dash-attention-card,
+.agx-dash-quick-action {
+  transition:
+    border-color var(--agx-motion-standard) var(--agx-motion-ease),
+    box-shadow var(--agx-motion-standard) var(--agx-motion-ease),
+    background-color var(--agx-motion-standard) var(--agx-motion-ease);
 }
 
-.agx-dash-quick-action {
-  transition: border-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1);
+.agx-dash-quick-action .agx-dash-quick-action__icon {
+  transition:
+    border-color var(--agx-motion-micro) var(--agx-motion-ease),
+    background-color var(--agx-motion-micro) var(--agx-motion-ease),
+    color var(--agx-motion-micro) var(--agx-motion-ease);
+}
+
+.agx-dash-attention-card:active,
+.agx-dash-quick-action:active {
+  opacity: 0.94;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .agx-dash-attention-card:hover {
-    border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 35%, transparent) !important;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+    border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 42%, transparent) !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
   }
 
   .agx-dash-quick-action:hover {
-    border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 50%, transparent) !important;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+    border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 52%, transparent) !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
   }
+
+  .agx-dash-quick-action:hover .agx-dash-quick-action__icon {
+    border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 35%, transparent);
+    background: color-mix(in srgb, var(--agx-accent, #22d3ee) 10%, transparent);
+  }
+}
+
+/* Activity rows — highlight without layout shift */
+.agx-dash-activity .agx-activity-row {
+  border-radius: 12px;
+  margin-inline: -4px;
+  padding-inline: 4px !important;
+  transition:
+    background-color var(--agx-motion-standard) var(--agx-motion-ease),
+    opacity var(--agx-motion-standard) var(--agx-motion-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .agx-dash-activity .agx-activity-row:hover {
+    background: color-mix(in srgb, var(--agx-accent, #22d3ee) 6%, transparent);
+    opacity: 1;
+  }
+}
+
+/* Metric grid content reveal */
+@keyframes agx-dash-metrics-in {
+  from {
+    opacity: 0.82;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.agx-dash-metrics-ready {
+  animation: agx-dash-metrics-in var(--agx-motion-standard) var(--agx-motion-ease);
+}
+
+/* Hero CTAs — feedback without hit-box movement */
+.agx-hero-cta {
+  transition:
+    box-shadow var(--agx-motion-standard) var(--agx-motion-ease),
+    filter var(--agx-motion-micro) var(--agx-motion-ease),
+    opacity var(--agx-motion-micro) var(--agx-motion-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .agx-hero-cta-primary:hover {
+    filter: brightness(1.04);
+    box-shadow:
+      0 14px 40px rgba(34, 211, 238, 0.32),
+      inset 0 1px 0 rgba(255, 255, 255, 0.38);
+  }
+
+  .agx-hero-cta-secondary:hover {
+    border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 40%, transparent) !important;
+    background: color-mix(in srgb, var(--agx-accent, #22d3ee) 8%, transparent) !important;
+  }
+}
+
+.agx-hero-cta:active {
+  opacity: 0.92;
 }
 
 .agx-bottom-grid {
@@ -61,8 +139,19 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .agx-dash-attention-card,
+  .agx-dash-quick-action,
+  .agx-dash-activity .agx-activity-row,
+  .agx-hero-cta {
+    transition: none !important;
+  }
+
   .agx-dash-attention-card:hover,
   .agx-dash-quick-action:hover {
     box-shadow: none;
+  }
+
+  .agx-dash-metrics-ready {
+    animation: none;
   }
 }

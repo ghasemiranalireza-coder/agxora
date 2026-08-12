@@ -3,13 +3,8 @@
 import Link from "next/link";
 import type { JSX } from "react";
 import { useLocale } from "../../lib/i18n";
-import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
-
-const surfaceTransition = [
-  `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-  `border-color ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-  `color ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-].join(", ");
+import { useTheme } from "../../lib/theme";
+import { interactionTransition } from "./motion";
 
 type QuickAction = {
   readonly id: string;
@@ -123,11 +118,11 @@ export function QuickActions(): JSX.Element {
               color: tokens.text,
               backdropFilter: tokens.cardBlur,
               outlineColor: "var(--agx-accent, #22d3ee)",
-              transition: surfaceTransition,
+              transition: interactionTransition("background", "border-color", "color", "box-shadow"),
             }}
           >
             <span
-              className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border"
+              className="agx-dash-quick-action__icon mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border"
               style={{
                 borderColor: tokens.panelBorder,
                 color: tokens.accent,

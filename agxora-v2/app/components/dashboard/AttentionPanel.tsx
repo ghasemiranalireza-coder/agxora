@@ -3,14 +3,8 @@
 import Link from "next/link";
 import type { JSX } from "react";
 import { useLocale } from "../../lib/i18n";
-import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
-
-const surfaceTransition = [
-  `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-  `border-color ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-  `color ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-  `box-shadow ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-].join(", ");
+import { useTheme } from "../../lib/theme";
+import { interactionTransition } from "./motion";
 
 export type AttentionItem = {
   readonly id: string;
@@ -47,7 +41,7 @@ export function AttentionPanel({
         backdropFilter: tokens.cardBlur,
         WebkitBackdropFilter: tokens.cardBlur,
         marginBottom: "24px",
-        transition: surfaceTransition,
+        transition: interactionTransition("background", "border-color", "box-shadow"),
       }}
     >
       <header className="mb-4 flex flex-wrap items-end justify-between gap-3">
@@ -95,7 +89,7 @@ export function AttentionPanel({
             <li key={item.id}>
               <Link
                 href={item.href}
-                className="agx-dash-attention-card block h-full rounded-2xl border px-4 py-3 no-underline transition-[transform,border-color,background] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                className="agx-dash-attention-card block h-full rounded-2xl border px-4 py-3 no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 style={{
                   borderColor:
                     item.tone === "action"

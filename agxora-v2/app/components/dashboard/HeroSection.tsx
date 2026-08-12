@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "../../lib/i18n";
 import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
+import { framerTransition, MOTION_LARGE_S } from "./motion";
 
 const AgxoraGlobe3D = dynamic(() => import("../AgxoraGlobe3D").then((m) => m.default), {
   ssr: false,
@@ -25,10 +26,13 @@ const surfaceTransition = [
   `text-shadow ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
 ].join(", ");
 
-function scrollToId(id: string): void {
+function scrollToId(id: string, reduceMotion: boolean): void {
   const el = document.getElementById(id);
   if (el) {
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    el.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "start",
+    });
   }
 }
 
@@ -79,17 +83,17 @@ export function HeroSection(): JSX.Element {
   const fadeUp = reduceMotion
     ? {}
     : {
-        initial: { opacity: 0, y: 26 },
+        initial: { opacity: 0, y: 12 },
         animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.9 },
+        transition: framerTransition(MOTION_LARGE_S),
       };
 
   const globeRise = reduceMotion
     ? {}
     : {
-        initial: { opacity: 0, y: 34, scale: 0.985 },
+        initial: { opacity: 0, y: 14, scale: 0.992 },
         animate: { opacity: 1, y: 0, scale: 1 },
-        transition: { duration: 1.05 },
+        transition: { ...framerTransition(MOTION_LARGE_S), delay: 0.04 },
       };
 
   return (
@@ -121,30 +125,24 @@ export function HeroSection(): JSX.Element {
         </p>
 
         <div className="agx-hero-cta-row">
-          <motion.button
+          <button
             type="button"
             className="agx-hero-cta agx-hero-cta-primary"
             style={primaryCtaStyle}
-            onClick={() => scrollToId("agx-quick-actions")}
-            whileHover={reduceMotion ? undefined : { y: -2, scale: 1.02 }}
-            whileTap={reduceMotion ? undefined : { scale: 0.99 }}
-            transition={{ duration: 0.22 }}
+            onClick={() => scrollToId("agx-quick-actions", !!reduceMotion)}
             aria-label={t("dashboard.hero.openQuickActionsAria")}
           >
             {t("dashboard.hero.ctaGetStarted")}
-          </motion.button>
-          <motion.button
+          </button>
+          <button
             type="button"
             className="agx-hero-cta agx-hero-cta-secondary"
             style={secondaryCtaStyle}
-            onClick={() => scrollToId("agx-live-activity")}
-            whileHover={reduceMotion ? undefined : { y: -2, scale: 1.01 }}
-            whileTap={reduceMotion ? undefined : { scale: 0.99 }}
-            transition={{ duration: 0.22 }}
+            onClick={() => scrollToId("agx-live-activity", !!reduceMotion)}
             aria-label={t("dashboard.hero.viewActivityAria")}
           >
             {t("dashboard.hero.ctaViewActivity")}
-          </motion.button>
+          </button>
         </div>
       </motion.div>
 

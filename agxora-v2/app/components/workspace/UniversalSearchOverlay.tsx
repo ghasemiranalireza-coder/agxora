@@ -35,6 +35,7 @@ import { OVERLAY_Z, lockBodyScroll, pushOverlay, isTopOverlay } from "../ui/over
 import { SearchPreview } from "./SearchPreview";
 import { VirtualResultList } from "./VirtualResultList";
 import { createPortal } from "react-dom";
+import "./search-overlay.css";
 
 type FlatRow =
   | { readonly type: "header"; readonly id: string; readonly label: string }
@@ -233,7 +234,7 @@ export function UniversalSearchOverlay(): JSX.Element | null {
       role="dialog"
       aria-modal="true"
       aria-label={t("dashboard.search.ariaLabel")}
-      className="fixed inset-0 flex items-start justify-center px-3 pt-[8vh] sm:px-6"
+      className="agx-search-overlay fixed inset-0 flex items-start justify-center px-3 pt-[8vh] sm:px-6"
       style={{
         zIndex: OVERLAY_Z.popover,
         background: "var(--agx-ds-scrim)",
@@ -241,7 +242,7 @@ export function UniversalSearchOverlay(): JSX.Element | null {
       onClick={close}
     >
       <div
-        className="w-full max-w-5xl overflow-hidden border shadow-2xl"
+        className="agx-search-panel w-full max-w-5xl overflow-hidden border shadow-2xl"
         style={{
           borderRadius: "var(--agx-ds-radius-xl)",
           borderColor: "var(--agx-ds-border)",
@@ -567,7 +568,7 @@ function ResultButton({
       aria-selected={active}
       tabIndex={-1}
       onMouseEnter={onHover}
-      className="flex h-[56px] items-center gap-2 rounded-xl border px-2"
+      className="flex h-[56px] items-center gap-2 rounded-xl border px-2 agx-search-result"
       style={{
         borderColor: active
           ? "color-mix(in srgb, var(--agx-accent, #22d3ee) 45%, transparent)"

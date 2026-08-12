@@ -12,6 +12,10 @@ import {
   MetricCardSkeleton,
   type MetricCardProps,
 } from "./MetricCard";
+import {
+  framerTransition,
+  MOTION_STANDARD_S,
+} from "./motion";
 
 interface IconProps {
   readonly path: string;
@@ -177,11 +181,14 @@ export function BusinessOverview(): JSX.Element {
   const cardVariants = reduceMotion
     ? undefined
     : {
-        hidden: { opacity: 0, y: 14 },
+        hidden: { opacity: 0, y: 8 },
         show: (i: number) => ({
           opacity: 1,
           y: 0,
-          transition: { duration: 0.45, delay: i * 0.05 },
+          transition: {
+            ...framerTransition(MOTION_STANDARD_S),
+            delay: Math.min(i * 0.04, 0.2),
+          },
         }),
       };
 
@@ -220,7 +227,9 @@ export function BusinessOverview(): JSX.Element {
         </span>
       </header>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      <div
+        className={`grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3${ready ? " agx-dash-metrics-ready" : ""}`}
+      >
         {!ready
           ? Array.from({ length: 6 }, (_, index) => (
               <MetricCardSkeleton key={`sk-${index}`} />
