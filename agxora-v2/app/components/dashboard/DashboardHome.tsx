@@ -107,7 +107,7 @@ export function DashboardHome(): JSX.Element {
   ]);
 
   return (
-    <div className="agx-dashboard-home agx-page-enter">
+    <div className="agx-dashboard-home">
       <HeroSection />
       <AttentionPanel items={attention} summary={summary} />
       <QuickActions />

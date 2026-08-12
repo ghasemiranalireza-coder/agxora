@@ -15,22 +15,32 @@
   display: none;
 }
 
+.agx-sidebar-toggle {
+  display: none !important;
+}
+
+.agx-mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: default;
+  background: rgba(2, 6, 14, 0.62);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
 @media (max-width: 900px) {
-  .agx-mobile-nav-toggle {
+  .agx-mobile-nav-toggle,
+  .agx-sidebar-toggle {
     display: inline-flex !important;
   }
   .agx-sidebar {
     position: fixed !important;
     inset: 0 auto 0 0;
-    /* Phase 9: motion-based slide animation handled in `DashboardSidebar`. */
-    transform: none !important;
-    transition: none !important;
-  }
-  .agx-sidebar.is-open {
-    transform: none !important;
-  }
-  .agx-mobile-nav-overlay {
-    display: block !important;
+    z-index: 30;
   }
   .agx-shell-content {
     padding: 72px 20px 40px !important;
@@ -143,23 +153,38 @@ select {
 /* AGXORA premium surface motion                                       */
 /* ------------------------------------------------------------------ */
 
-.agx-nav-item:hover {
-  background: var(--agx-nav-hover-bg, rgba(255, 255, 255, 0.05)) !important;
-  color: var(--agx-text, #fff) !important;
-  transform: translateX(3px);
+@media (hover: hover) and (pointer: fine) {
+  .agx-nav-item:hover {
+    background: var(--agx-nav-hover-bg, rgba(255, 255, 255, 0.05)) !important;
+    color: var(--agx-text, #fff) !important;
+    transform: translateX(3px);
+  }
+
+  .agx-nav-item.is-active:hover {
+    background: var(--agx-nav-active-bg, rgba(34, 211, 238, 0.12)) !important;
+    transform: translateX(0);
+  }
+
+  html[dir="rtl"] .agx-nav-item:hover:not(.is-active) {
+    transform: translateX(-3px);
+  }
+
+  .agx-metric-card__action:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .agx-activity-row:hover {
+    padding-inline-start: 6px !important;
+    opacity: 0.92;
+  }
 }
 
-.agx-nav-item.is-active:hover {
-  background: var(--agx-nav-active-bg, rgba(34, 211, 238, 0.12)) !important;
-  transform: translateX(0);
-}
-
-.agx-metric-card:hover {
-  transform: translateY(-5px) scale(1.005);
-  box-shadow: var(
-    --agx-card-shadow-hover,
-    0 18px 56px rgba(0, 0, 0, 0.42)
-  ) !important;
+@media (prefers-reduced-motion: reduce) {
+  .agx-nav-item:hover,
+  .agx-activity-row:hover {
+    transform: none !important;
+  }
 }
 
 .agx-theme-option:hover {
@@ -192,11 +217,6 @@ select {
 .agx-activity-row {
   transition: padding 320ms cubic-bezier(0.22, 1, 0.36, 1),
     opacity 320ms ease !important;
-}
-
-.agx-activity-row:hover {
-  padding-left: 6px !important;
-  opacity: 0.92;
 }
 
 .agx-glass-panel {

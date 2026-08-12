@@ -240,7 +240,6 @@ export function BusinessOverview(): JSX.Element {
                   custom={index}
                   variants={cardVariants}
                   initial="hidden"
-                  whileHover={reduceMotion ? undefined : { y: -2 }}
                   animate="show"
                 >
                   <MetricCard {...metric} />
