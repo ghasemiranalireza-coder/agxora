@@ -4,11 +4,20 @@
 
 export * from "./types";
 export * from "./sessionStore";
+export * from "./mode";
 export {
   LocalAuthAdapter,
   localAuthAdapter,
   createAuthAdapter,
 } from "./LocalAuthAdapter";
+export {
+  ServerAuthAdapter,
+  serverAuthAdapter,
+} from "./ServerAuthAdapter";
+export {
+  createDefaultAuthAdapter,
+  getActiveAuthAdapter,
+} from "./createDefaultAuthAdapter";
 export {
   AuthProvider,
   useAuth,

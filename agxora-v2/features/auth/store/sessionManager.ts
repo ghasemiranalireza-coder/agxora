@@ -2,7 +2,7 @@
  * Session manager — access / refresh tokens, auto-refresh, timeout, idle placeholder.
  */
 
-import { localAuthAdapter } from "@/app/lib/auth/LocalAuthAdapter";
+import { getActiveAuthAdapter } from "@/app/lib/auth/createDefaultAuthAdapter";
 import type { AuthSession } from "@/app/lib/auth/types";
 import {
   DEFAULT_SESSION_POLICY,
@@ -108,7 +108,7 @@ export const iamSessionManager = {
   },
 
   async refresh(): Promise<AuthSession | null> {
-    const next = await localAuthAdapter.refreshSession();
+    const next = await getActiveAuthAdapter().refreshSession();
     state = {
       ...state,
       session: next,

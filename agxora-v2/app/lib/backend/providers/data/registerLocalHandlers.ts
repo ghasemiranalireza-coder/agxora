@@ -113,10 +113,10 @@ export function registerLocalDataHandlers(): void {
 
   localDataProvider.register("/identity/me", async () => {
     try {
-      const { localAuthAdapter } = await import(
-        "@/app/lib/auth/LocalAuthAdapter"
+      const { getActiveAuthAdapter } = await import(
+        "@/app/lib/auth/createDefaultAuthAdapter"
       );
-      const user = await localAuthAdapter.getUser();
+      const user = await getActiveAuthAdapter().getUser();
       if (!user) {
         return {
           ok: false,

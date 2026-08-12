@@ -15,10 +15,8 @@ import {
   type ReactNode,
 } from "react";
 import { asUserId, type UserId } from "../organization/types";
-import {
-  createAuthAdapter,
-  localAuthAdapter,
-} from "./LocalAuthAdapter";
+import { localAuthAdapter } from "./LocalAuthAdapter";
+import { createDefaultAuthAdapter } from "./createDefaultAuthAdapter";
 import type {
   AuthProviderPort,
   AuthSession,
@@ -69,7 +67,7 @@ export function AuthProvider({
   adapter,
 }: AuthProviderProps): JSX.Element {
   const port = useMemo(
-    () => adapter ?? createAuthAdapter("local"),
+    () => adapter ?? createDefaultAuthAdapter(),
     [adapter],
   );
   const [state, setState] = useState<AuthState>(initialState);

@@ -1,15 +1,23 @@
 /**
- * IdentityService — composes auth + team + sessions via placeholder API.
+ * IdentityService — composes auth + team + sessions.
+ * Phase 43: routes login/register/logout through the active auth adapter
+ * (server by default when CRM database mode / AUTH_MODE=server).
  */
 
-import { localAuthAdapter } from "../auth/LocalAuthAdapter";
+import { getActiveAuthAdapter } from "../auth/createDefaultAuthAdapter";
 import type {
   ForgotPasswordInput,
   ResetPasswordInput,
   SignInInput,
   SignUpInput,
 } from "../auth/types";
-import type { MembershipRole, OrganizationId, UserId, WorkspaceId } from "../organization/types";
+import {
+  asUserId,
+  type MembershipRole,
+  type OrganizationId,
+  type UserId,
+  type WorkspaceId,
+} from "../organization/types";
 import { teamService } from "../saas";
 import type { IdentityApi, LoginResult, RegisterResult } from "./api";
 import {
@@ -32,19 +40,24 @@ export function setRememberedEmail(email: string | null): void {
   else window.localStorage.setItem(REMEMBER_KEY, email);
 }
 
-class LocalIdentityApi implements IdentityApi {
+class AdapterIdentityApi implements IdentityApi {
+  private adapter() {
+    return getActiveAuthAdapter();
+  }
+
   async login(
     input: SignInInput & { readonly rememberMe?: boolean },
   ): Promise<LoginResult> {
-    const { user, session } = await localAuthAdapter.signIn(input);
+    const { user, session } = await this.adapter().signIn(input);
     if (input.rememberMe) setRememberedEmail(input.email);
     else setRememberedEmail(null);
+    // Local session list is UI-only; server session is authoritative in server mode.
     ensureActiveSession(user.id, session.sessionId);
     return { ok: true, userId: user.id, sessionId: session.sessionId };
   }
 
   async logout(): Promise<void> {
-    await localAuthAdapter.signOut();
+    await this.adapter().signOut();
   }
 
   async register(
@@ -59,7 +72,36 @@ class LocalIdentityApi implements IdentityApi {
         );
       }
     }
-    const { user } = await localAuthAdapter.signUp({
+    const adapter = this.adapter();
+    if (adapter.id === "custom") {
+      const response = await fetch("/api/v1/auth/register", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({
+          email: input.email,
+          password: input.password,
+          displayName: input.displayName,
+          companyName: input.companyName,
+          acceptTerms: input.acceptTerms,
+        }),
+      });
+      const payload = (await response.json()) as {
+        ok?: boolean;
+        message?: string;
+        user?: { id: string };
+      };
+      if (!response.ok || !payload.ok || !payload.user) {
+        throw new Error(payload.message || "Registration failed");
+      }
+      return {
+        ok: true,
+        userId: asUserId(payload.user.id),
+        companyName: input.companyName,
+      };
+    }
+
+    const { user } = await adapter.signUp({
       email: input.email,
       password: input.password,
       displayName: input.displayName,
@@ -68,11 +110,11 @@ class LocalIdentityApi implements IdentityApi {
   }
 
   async forgotPassword(input: ForgotPasswordInput): Promise<{ readonly token: string }> {
-    return localAuthAdapter.requestPasswordReset(input);
+    return this.adapter().requestPasswordReset(input);
   }
 
   async resetPassword(input: ResetPasswordInput): Promise<void> {
-    await localAuthAdapter.resetPassword(input);
+    await this.adapter().resetPassword(input);
   }
 
   async inviteMember(input: {
@@ -126,7 +168,7 @@ class LocalIdentityApi implements IdentityApi {
   }
 }
 
-export const identityApi: IdentityApi = new LocalIdentityApi();
+export const identityApi: IdentityApi = new AdapterIdentityApi();
 
 /** Convenience aliases matching the Phase 16 API surface. */
 export const login = (input: SignInInput & { rememberMe?: boolean }) =>
