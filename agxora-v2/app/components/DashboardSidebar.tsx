@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, type JSX } from "react";
+import { useCallback, useEffect, useRef, useState, type JSX } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
 import { useT } from "../lib/i18n";
-import { motion, useReducedMotion } from "framer-motion";
 
 const surfaceTransition = [
   `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
@@ -13,6 +13,9 @@ const surfaceTransition = [
   `color ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
   `box-shadow ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
 ].join(", ");
+
+const DRAWER_EASE = [0.22, 1, 0.36, 1] as const;
+const DRAWER_DURATION = 0.35;
 
 function NavIcon({ path }: { readonly path: string }): JSX.Element {
   return (
@@ -102,6 +105,7 @@ const NAV_ITEMS = [
 
 /**
  * Dashboard sidebar — preserves approved glass visual language.
+ * Mobile drawer motion is owned exclusively by Framer Motion (no CSS transform overrides).
  */
 export function DashboardSidebar(): JSX.Element {
   const { tokens } = useTheme();
@@ -110,39 +114,135 @@ export function DashboardSidebar(): JSX.Element {
   const [open, setOpen] = useState(false);
   const reduceMotion = useReducedMotion();
   const [isMobile, setIsMobile] = useState(false);
+  const [isRtl, setIsRtl] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const asideRef = useRef<HTMLElement>(null);
+  const wasOpenRef = useRef(false);
+
+  const closeDrawer = useCallback((): void => {
+    setOpen(false);
+  }, []);
+
+  const toggleDrawer = useCallback((): void => {
+    setOpen((value) => !value);
+  }, []);
+
+  const drawerOpen = isMobile && open;
 
   useEffect(() => {
     const m = window.matchMedia("(max-width: 900px)");
-    const sync = (): void => setIsMobile(m.matches);
+    const sync = (): void => {
+      const mobile = m.matches;
+      setIsMobile(mobile);
+      if (!mobile) {
+        setOpen(false);
+      }
+    };
     sync();
     m.addEventListener("change", sync);
     return () => m.removeEventListener("change", sync);
   }, []);
 
-  const SIDEBAR_WIDTH = 280;
-  const asideAnim = reduceMotion
-    ? undefined
-    : {
-        initial: { opacity: isMobile && !open ? 0 : 1, x: 0 },
+  useEffect(() => {
+    const syncDir = (): void => {
+      setIsRtl(document.documentElement.dir === "rtl");
+    };
+    syncDir();
+    const observer = new MutationObserver(syncDir);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["dir"],
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const onKeyDown = (event: KeyboardEvent): void => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeDrawer();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [drawerOpen, closeDrawer]);
+
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [drawerOpen]);
+
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const aside = asideRef.current;
+    if (!aside) return;
+
+    const focusable = aside.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    requestAnimationFrame(() => first.focus());
+
+    const trapFocus = (event: KeyboardEvent): void => {
+      if (event.key !== "Tab") return;
+      if (event.shiftKey) {
+        if (document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        }
+      } else if (document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    aside.addEventListener("keydown", trapFocus);
+    return () => aside.removeEventListener("keydown", trapFocus);
+  }, [drawerOpen]);
+
+  useEffect(() => {
+    if (wasOpenRef.current && !drawerOpen && isMobile) {
+      toggleRef.current?.focus();
+    }
+    wasOpenRef.current = drawerOpen;
+  }, [drawerOpen, isMobile]);
+
+  const closedOffset = isRtl ? "100%" : "-100%";
+  const drawerTransition = reduceMotion
+    ? { duration: 0 }
+    : { duration: DRAWER_DURATION, ease: DRAWER_EASE };
+
+  const mobileDrawerMotion = isMobile
+    ? {
+        initial: false as const,
         animate: {
-          opacity: isMobile ? (open ? 1 : 0) : 1,
-          x: isMobile ? (open ? 0 : -SIDEBAR_WIDTH) : 0,
+          x: open ? 0 : closedOffset,
+          opacity: open ? 1 : reduceMotion ? 1 : 0,
         },
-        transition: { duration: 0.45 },
-      };
+        transition: drawerTransition,
+      }
+    : {};
 
   return (
     <>
       <button
+        ref={toggleRef}
         type="button"
         className="agx-sidebar-toggle notranslate"
         aria-label={t("navigation.toggleNavigation")}
-        aria-expanded={open}
+        aria-expanded={drawerOpen}
         aria-controls="agxora-sidebar"
         translate="no"
-        onClick={() => setOpen((value) => !value)}
+        onClick={toggleDrawer}
         style={{
-          display: "none",
           position: "fixed",
           top: 16,
           insetInlineStart: 16,
@@ -158,11 +258,31 @@ export function DashboardSidebar(): JSX.Element {
         {t("navigation.menu")}
       </button>
 
+      <AnimatePresence>
+        {drawerOpen ? (
+          <motion.button
+            key="agx-mobile-nav-scrim"
+            type="button"
+            className="agx-mobile-nav-overlay"
+            aria-label={t("common.close")}
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={reduceMotion ? undefined : { opacity: 0 }}
+            transition={drawerTransition}
+            onClick={closeDrawer}
+          />
+        ) : null}
+      </AnimatePresence>
+
       <motion.aside
+        ref={asideRef}
         id="agxora-sidebar"
-        className={`agx-sidebar${open ? " is-open" : ""}`}
+        className={`agx-sidebar${drawerOpen ? " is-open" : ""}`}
+        role={drawerOpen ? "dialog" : undefined}
+        aria-modal={drawerOpen ? true : undefined}
+        aria-label={drawerOpen ? t("navigation.primary") : undefined}
         aria-hidden={isMobile && !open ? true : undefined}
-        {...asideAnim}
+        {...mobileDrawerMotion}
         style={{
           position: "relative",
           width: "280px",
@@ -178,6 +298,7 @@ export function DashboardSidebar(): JSX.Element {
           padding: "36px 22px 28px",
           transition: surfaceTransition,
           flexShrink: 0,
+          pointerEvents: isMobile && !open ? "none" : "auto",
         }}
       >
         <div
@@ -227,7 +348,7 @@ export function DashboardSidebar(): JSX.Element {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => setOpen(false)}
+                onClick={closeDrawer}
                 className={`agx-nav-item${active ? " is-active" : ""}`}
                 style={{
                   display: "flex",
@@ -270,23 +391,6 @@ export function DashboardSidebar(): JSX.Element {
           })}
         </nav>
       </motion.aside>
-
-      <style jsx global>{`
-        @media (max-width: 900px) {
-          .agx-sidebar-toggle {
-            display: inline-flex !important;
-          }
-          .agx-sidebar {
-            position: fixed !important;
-            inset: 0 auto 0 0;
-            z-index: 30;
-            transform: translateX(-105%);
-          }
-          .agx-sidebar.is-open {
-            transform: translateX(0);
-          }
-        }
-      `}</style>
     </>
   );
 }

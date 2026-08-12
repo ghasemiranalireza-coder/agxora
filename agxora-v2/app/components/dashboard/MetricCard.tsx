@@ -167,7 +167,7 @@ export function MetricCard({
 }: MetricCardProps): JSX.Element {
   return (
     <article
-      className="agx-metric-card group relative flex h-full min-h-[220px] flex-col gap-5 overflow-hidden rounded-[28px] border p-7"
+      className="agx-metric-card relative flex h-full min-h-[220px] flex-col gap-5 overflow-hidden rounded-[28px] border p-7"
       style={{
         borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
         background:
@@ -176,7 +176,7 @@ export function MetricCard({
         backdropFilter: "var(--agx-card-blur, blur(22px) saturate(150%))",
         WebkitBackdropFilter: "var(--agx-card-blur, blur(22px) saturate(150%))",
         transition:
-          "background var(--agx-theme-transition, 820ms) ease, border-color var(--agx-theme-transition, 820ms) ease, box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1), transform 420ms cubic-bezier(0.22, 1, 0.36, 1)",
+          "background var(--agx-theme-transition, 820ms) ease, border-color var(--agx-theme-transition, 820ms) ease",
       }}
     >
       {/* Top specular highlight */}
@@ -192,7 +192,7 @@ export function MetricCard({
 
       {/* Soft sheen */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-28 opacity-70 transition-opacity duration-400 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-x-0 top-0 h-28 opacity-70"
         style={{
           background:
             "linear-gradient(180deg, rgba(255,255,255,0.14) 0%, transparent 100%)",
@@ -203,7 +203,7 @@ export function MetricCard({
       <header className="relative flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
           <span
-            className="flex h-11 w-11 items-center justify-center rounded-2xl border transition-transform duration-300 group-hover:scale-[1.04]"
+            className="flex h-11 w-11 items-center justify-center rounded-2xl border"
             style={{
               borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
               background:
@@ -269,7 +269,7 @@ export function MetricCard({
           {href && actionLabel ? (
             <Link
               href={href}
-              className="inline-flex text-xs font-semibold no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="agx-metric-card__action inline-flex text-xs font-semibold no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
               style={{
                 color: "var(--agx-accent, #22d3ee)",
                 outlineColor: "var(--agx-accent, #22d3ee)",
@@ -284,7 +284,7 @@ export function MetricCard({
         <footer className="relative mt-auto">
           <Link
             href={href}
-            className="inline-flex text-xs font-semibold no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            className="agx-metric-card__action inline-flex text-xs font-semibold no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
             style={{
               color: "var(--agx-accent, #22d3ee)",
               outlineColor: "var(--agx-accent, #22d3ee)",
