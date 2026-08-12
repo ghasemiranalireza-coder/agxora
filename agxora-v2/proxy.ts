@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { AUTH_SESSION_COOKIE } from "./app/lib/auth/sessionStore";
+import { SERVER_SESSION_COOKIE } from "./app/lib/tenancy/actor";
 import {
   AUTH_PAGE_PREFIXES,
   ADMIN_ROUTE_PREFIXES,
@@ -11,15 +12,17 @@ import { applySecurityHeaders } from "./app/lib/production/securityHeaders";
 import { validateSessionToken } from "./app/lib/production/security";
 
 /**
- * Soft auth gate — architecture ready for httpOnly server sessions + RBAC.
- * Local adapter sets a readable session cookie; remote providers replace this.
+ * Soft auth gate — Phase 43 prefers httpOnly server session cookie.
+ * Local demo cookie remains recognized only for AUTH_MODE=local.
  *
  * Next.js 16: `proxy.ts` replaces deprecated `middleware.ts`.
- * Behavior preserved: Public · Private · Admin route classes + optional hard gate.
+ * Real authorization still happens server-side in API/actions.
  */
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const session = request.cookies.get(AUTH_SESSION_COOKIE)?.value;
+  const localSession = request.cookies.get(AUTH_SESSION_COOKIE)?.value;
+  const serverSession = request.cookies.get(SERVER_SESSION_COOKIE)?.value;
+  const session = serverSession || localSession;
   const hasSession = Boolean(session);
   const tokenCheck = validateSessionToken(session);
   const isPrivate = matchesPrefix(pathname, PRIVATE_ROUTE_PREFIXES);
@@ -56,7 +59,7 @@ export function proxy(request: NextRequest) {
   if (isPrivate && !hasSession) {
     response.headers.set("x-agxora-auth", "anonymous");
   } else if (hasSession) {
-    response.headers.set("x-agxora-auth", "session");
+    response.headers.set("x-agxora-auth", serverSession ? "server-session" : "session");
   }
   if (hasSession && !tokenCheck.valid && tokenCheck.reason) {
     response.headers.set("x-agxora-session-check", tokenCheck.reason);

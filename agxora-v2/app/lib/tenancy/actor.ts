@@ -22,28 +22,40 @@ async function resolveActorFromToken(token: string): Promise<Actor | null> {
   const session = await prisma.session.findUnique({
     where: { token },
     include: {
-      user: {
-        include: {
-          memberships: {
-            where: { status: "ACTIVE" },
-            orderBy: { createdAt: "asc" },
-            take: 1,
-            include: {
-              workspace: true,
-            },
-          },
-        },
-      },
+      user: true,
     },
   });
 
   if (!session) return null;
+  if (session.revokedAt) return null;
   if (session.expiresAt.getTime() <= Date.now()) {
-    await prisma.session.delete({ where: { id: session.id } }).catch(() => undefined);
+    await prisma.session
+      .update({
+        where: { id: session.id },
+        data: { revokedAt: new Date() },
+      })
+      .catch(() => undefined);
     return null;
   }
 
-  const membership = session.user.memberships[0];
+  let membership = null;
+  if (session.activeWorkspaceId) {
+    membership = await prisma.membership.findFirst({
+      where: {
+        userId: session.userId,
+        workspaceId: session.activeWorkspaceId,
+        status: "ACTIVE",
+      },
+    });
+  }
+
+  if (!membership) {
+    membership = await prisma.membership.findFirst({
+      where: { userId: session.userId, status: "ACTIVE" },
+      orderBy: { createdAt: "asc" },
+    });
+  }
+
   if (!membership) {
     throw new PersistenceError(
       "forbidden",
@@ -75,7 +87,13 @@ export async function getActorForWorkspace(
     where: { token },
     include: { user: true },
   });
-  if (!session || session.expiresAt.getTime() <= Date.now()) return null;
+  if (
+    !session ||
+    session.revokedAt ||
+    session.expiresAt.getTime() <= Date.now()
+  ) {
+    return null;
+  }
 
   const membership = await prisma.membership.findFirst({
     where: {

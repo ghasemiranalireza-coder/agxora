@@ -316,14 +316,22 @@ export class LocalAuthAdapter implements AuthProviderPort {
 
 export const localAuthAdapter = new LocalAuthAdapter();
 
-/** Factory for future providers — plug-and-play. */
+/**
+ * Factory for auth providers.
+ * Prefer createDefaultAuthAdapter() — Phase 43 defaults to server auth when configured.
+ */
 export function createAuthAdapter(
   providerId: AuthProviderPort["id"] = "local",
 ): AuthProviderPort {
   if (providerId === "local") return localAuthAdapter;
-  // Future: return new ClerkAuthAdapter() / Auth0AuthAdapter() / SupabaseAuthAdapter()
+  if (providerId === "custom") {
+    // Lazy import avoided — callers should use createDefaultAuthAdapter.
+    throw new Error(
+      'Use createDefaultAuthAdapter() for server auth ("custom").',
+    );
+  }
   throw new Error(
-    `Auth provider "${providerId}" is not configured yet. Use "local" or implement AuthProviderPort.`,
+    `Auth provider "${providerId}" is not configured yet. Use "local"/"custom" via createDefaultAuthAdapter().`,
   );
 }
 

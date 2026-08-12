@@ -1,6 +1,6 @@
 /**
  * Central IAM service — sole orchestration entry for auth lifecycle + audit.
- * Mock / local only — swap IdentityApi later without UI changes.
+ * Phase 43: uses active auth adapter (server or local demo).
  */
 
 import {
@@ -9,7 +9,7 @@ import {
   logout as identityLogout,
   register as identityRegister,
 } from "@/app/lib/identity";
-import { localAuthAdapter } from "@/app/lib/auth/LocalAuthAdapter";
+import { getActiveAuthAdapter } from "@/app/lib/auth/createDefaultAuthAdapter";
 import type {
   ForgotPasswordInput,
   ResetPasswordInput,
@@ -27,7 +27,7 @@ export const iamAuthService = {
     input: SignInInput & { readonly rememberMe?: boolean },
   ): Promise<{ userId: string; sessionId: string }> {
     const result = await identityLogin(input);
-    const session = await localAuthAdapter.getSession();
+    const session = await getActiveAuthAdapter().getSession();
     iamSessionManager.setSession(session);
     iamSessionManager.startAutoRefresh();
     iamAuditLog({
@@ -60,7 +60,7 @@ export const iamAuthService = {
     },
   ): Promise<{ userId: string; companyName?: string }> {
     const result = await identityRegister(input);
-    const session = await localAuthAdapter.getSession();
+    const session = await getActiveAuthAdapter().getSession();
     iamSessionManager.setSession(session);
     iamSessionManager.startAutoRefresh();
     iamAuditLog({
@@ -76,7 +76,7 @@ export const iamAuthService = {
   },
 
   async forgotPassword(input: ForgotPasswordInput): Promise<{ token: string }> {
-    const result = await localAuthAdapter.requestPasswordReset(input);
+    const result = await getActiveAuthAdapter().requestPasswordReset(input);
     iamAuditLog({
       action: "auth.password_reset_requested",
       resource: "user",
@@ -86,7 +86,7 @@ export const iamAuthService = {
   },
 
   async resetPassword(input: ResetPasswordInput): Promise<void> {
-    await localAuthAdapter.resetPassword(input);
+    await getActiveAuthAdapter().resetPassword(input);
     iamAuditLog({
       action: "auth.password_reset_completed",
       resource: "user",
@@ -94,7 +94,7 @@ export const iamAuthService = {
   },
 
   async verifyEmail(input: VerifyEmailInput) {
-    const user = await localAuthAdapter.verifyEmail(input);
+    const user = await getActiveAuthAdapter().verifyEmail(input);
     iamAuditLog({
       action: "auth.email_verified",
       actorUserId: user.id,

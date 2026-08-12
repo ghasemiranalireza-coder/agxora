@@ -1,13 +1,17 @@
 /**
- * Deterministic / idempotent development seed for Phase 42.1.
+ * Deterministic / idempotent development seed for Phase 42.1 + Phase 43.
+ * Seed users get bcrypt password hashes (never plaintext).
  * Never run against production without explicit confirmation.
  */
 
 import { PrismaClient, type MembershipRole } from "@prisma/client";
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
 const SEED_MARK = "phase42_1";
+/** Shared seed password for local/dev only — change in real environments. */
+export const SEED_PASSWORD = "AgxoraSeed!23";
 
 type SeedUser = {
   readonly email: string;
@@ -102,6 +106,7 @@ async function main(): Promise<void> {
     throw new Error("Refusing to seed production without AGXORA_ALLOW_PROD_SEED=1");
   }
 
+  const passwordHash = await bcrypt.hash(SEED_PASSWORD, 12);
   const expiresAt = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000);
   const orgWorkspace = new Map<
     string,
@@ -116,10 +121,13 @@ async function main(): Promise<void> {
         name: seed.name,
         externalAuthId: seed.externalAuthId,
         emailVerified: true,
+        passwordHash,
       },
       update: {
         name: seed.name,
         externalAuthId: seed.externalAuthId,
+        passwordHash,
+        emailVerified: true,
       },
     });
 
@@ -165,10 +173,14 @@ async function main(): Promise<void> {
         userId: user.id,
         token: seed.token,
         expiresAt,
+        revokedAt: null,
+        activeWorkspaceId: pair.workspaceId,
       },
       update: {
         userId: user.id,
         expiresAt,
+        revokedAt: null,
+        activeWorkspaceId: pair.workspaceId,
       },
     });
   }
@@ -234,10 +246,11 @@ async function main(): Promise<void> {
     });
   }
 
-  console.log("Phase 42.1 seed complete");
+  console.log("Phase 43 seed complete (bcrypt passwords)");
   console.log(
     JSON.stringify(
       {
+        seedPassword: SEED_PASSWORD,
         tokens: USERS.map((u) => ({ email: u.email, token: u.token, role: u.role })),
         orgs: [...orgWorkspace.entries()].map(([slug, v]) => ({
           slug,

@@ -40,6 +40,7 @@ async function crmFetch<T>(
   path: string,
   init?: RequestInit,
 ): Promise<T> {
+  // Prefer httpOnly cookie (credentials: include). Optional Bearer is for tests only.
   const token = readServerSessionToken();
   const headers = new Headers(init?.headers);
   headers.set("content-type", "application/json");
