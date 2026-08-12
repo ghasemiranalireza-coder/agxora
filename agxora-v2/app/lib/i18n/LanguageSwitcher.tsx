@@ -15,9 +15,11 @@ import { useLocale } from "./LocaleProvider";
 export function LanguageSwitcher({
   id = "agxora-language",
   size = "sm",
+  className = "",
 }: {
   readonly id?: string;
   readonly size?: "sm" | "md";
+  readonly className?: string;
 }): JSX.Element {
   const { locale, setLocale, t } = useLocale();
   const pad = size === "sm" ? "6px 10px" : "8px 12px";
@@ -25,6 +27,7 @@ export function LanguageSwitcher({
   return (
     <label
       htmlFor={id}
+      className={className || undefined}
       style={{
         display: "inline-flex",
         alignItems: "center",

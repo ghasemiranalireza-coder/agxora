@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type JSX, type ReactNode } from "react";
+import { useState, type JSX, type ReactNode, type MouseEvent } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -14,6 +14,7 @@ type Props = {
 
 /**
  * Landing CTA — real destinations only, with hover / focus / loading states.
+ * Hash links scroll in-page; route links show a controlled loading state.
  */
 export function LandingCta({
   href,
@@ -37,23 +38,43 @@ export function LandingCta({
     .filter(Boolean)
     .join(" ");
 
+  const onClick = (event: MouseEvent<HTMLAnchorElement>): void => {
+    if (loading) {
+      event.preventDefault();
+      return;
+    }
+
+    if (href.startsWith("#")) {
+      if (pathname !== "/") return;
+      const id = href.slice(1);
+      const el = document.getElementById(id);
+      if (!el) return;
+      event.preventDefault();
+      const reduce =
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      el.scrollIntoView({
+        behavior: reduce ? "auto" : "smooth",
+        block: "start",
+      });
+      window.history.replaceState(null, "", href);
+      return;
+    }
+
+    if (href.startsWith("/") && !href.startsWith("//")) {
+      event.preventDefault();
+      setPendingHref(href);
+      window.setTimeout(() => setPendingHref(null), 5000);
+      router.push(href);
+    }
+  };
+
   return (
     <Link
       href={href}
       className={classes}
       aria-busy={loading || undefined}
-      onClick={(event) => {
-        if (loading) {
-          event.preventDefault();
-          return;
-        }
-        if (href.startsWith("/") && !href.startsWith("//")) {
-          event.preventDefault();
-          setPendingHref(href);
-          window.setTimeout(() => setPendingHref(null), 5000);
-          router.push(href);
-        }
-      }}
+      onClick={onClick}
     >
       <span className="p31-btn__label">{children}</span>
       {loading ? <span className="p31-btn__spinner" aria-hidden="true" /> : null}

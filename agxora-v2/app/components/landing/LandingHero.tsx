@@ -3,8 +3,9 @@
 import type { JSX } from "react";
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
+import { useLocale } from "../../lib/i18n";
 import { LandingCta } from "./LandingCta";
-import { LANDING_FADE } from "./motion";
+import { LANDING_ENTER } from "./motion";
 
 const AgxoraGlobe3D = dynamic(
   () => import("../AgxoraGlobe3D").then((m) => m.default),
@@ -15,11 +16,11 @@ const AgxoraGlobe3D = dynamic(
 );
 
 /**
- * Phase 33 hero — conversion-first value proposition.
- * What / who / why in under five seconds.
+ * First viewport — brand, OS positioning, CTAs, signature globe.
  */
 export function LandingHero(): JSX.Element {
   const reduceMotion = useReducedMotion();
+  const { t } = useLocale();
 
   return (
     <section className="p31-hero" aria-labelledby="p31-hero-headline">
@@ -31,40 +32,32 @@ export function LandingHero(): JSX.Element {
       <div className="p31-hero__shell">
         <motion.div
           className="p31-hero__copy"
-          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ ...LANDING_FADE, duration: 0.6 }}
+          transition={LANDING_ENTER}
         >
-          <p className="p31-hero__brandmark" aria-label="AGXORA">
-            AGXORA
+          <p className="p31-hero__brandmark" aria-label={t("landing.hero.brand")}>
+            {t("landing.hero.brand")}
           </p>
           <h1 id="p31-hero-headline" className="p31-hero__headline">
-            The AI platform that runs your business.
+            {t("landing.hero.headline")}
           </h1>
-          <p className="p31-hero__subtitle">
-            For founders, operators, and enterprise teams who need AI,
-            automation, and analytics in one system.
-          </p>
+          <p className="p31-hero__subtitle">{t("landing.hero.subtitle")}</p>
           <div className="p31-hero__cta">
-            <LandingCta href="/register">Start Free</LandingCta>
-            <LandingCta href="/pricing" variant="ghost">
-              View Pricing
+            <LandingCta href="/register">{t("landing.hero.ctaStart")}</LandingCta>
+            <LandingCta href="#product" variant="ghost">
+              {t("landing.hero.ctaExplore")}
             </LandingCta>
           </div>
-          <p className="p31-hero__next">
-            <a href="/contact-sales">Contact sales</a>
-            <span aria-hidden="true"> · </span>
-            <a href="/demo">Book a demo</a>
-          </p>
         </motion.div>
 
         <motion.div
           className="p31-hero__globe"
-          aria-label="Global enterprise intelligence visualization"
+          aria-label={t("landing.hero.globeAria")}
           role="img"
-          initial={reduceMotion ? false : { opacity: 0, scale: 0.985 }}
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.992 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ ...LANDING_FADE, duration: 0.8, delay: 0.06 }}
+          transition={{ ...LANDING_ENTER, delay: reduceMotion ? 0 : 0.05 }}
         >
           <div className="p31-globe">
             <div className="p31-globe__glow" aria-hidden="true" />

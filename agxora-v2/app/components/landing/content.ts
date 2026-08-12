@@ -1,46 +1,33 @@
 /**
- * Phase 33 — conversion-first landing copy.
+ * Landing structure — labels live in i18n landing catalogs.
  */
 
 export const LANDING_NAV = [
-  { href: "#product", label: "Product" },
-  { href: "#platform", label: "Platform" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/contact-sales", label: "Sales" },
-  { href: "#start", label: "Get started" },
+  { href: "#product", messageKey: "landing.nav.product" },
+  { href: "#platform", messageKey: "landing.nav.platform" },
+  { href: "/pricing", messageKey: "landing.nav.pricing" },
+  { href: "/contact-sales", messageKey: "landing.nav.sales" },
+  { href: "#start", messageKey: "landing.nav.getStarted" },
 ] as const;
 
-/** Generic trust indicators — no invented customer logos. */
-export const LANDING_TRUST_SIGNALS = [
-  { title: "Enterprise Ready", detail: "Built for serious operators" },
-  { title: "AI Powered", detail: "Intelligence across every workflow" },
-  { title: "Built for Scale", detail: "From first team to full org" },
-  { title: "Secure by Design", detail: "Guarded routes and sessions" },
+export const LANDING_TRUST_KEYS = [
+  "unified",
+  "intelligence",
+  "clarity",
+  "path",
 ] as const;
 
-export const LANDING_FEATURES = [
-  {
-    id: "ai",
-    title: "AI",
-    statement: "Governed intelligence across every workspace.",
-    detail: "Decisions grounded in your data — not demos.",
-  },
-  {
-    id: "automation",
-    title: "Automation",
-    statement: "Durable workflows that move the business.",
-    detail: "From trigger to outcome with clear control.",
-  },
-  {
-    id: "analytics",
-    title: "Analytics",
-    statement: "Live signal for operators who ship.",
-    detail: "See what matters. Act without noise.",
-  },
-  {
-    id: "integrations",
-    title: "Integrations",
-    statement: "Connect the systems you already run.",
-    detail: "One platform. No fractured stack.",
-  },
+/** Narrative bands — visual modifiers reuse existing CSS keys. */
+export const LANDING_STORY = [
+  { id: "fragmented", visual: "integrations" },
+  { id: "connect", visual: "automation" },
+  { id: "understand", visual: "ai" },
+  { id: "execute", visual: "analytics" },
+] as const;
+
+export const LANDING_PREVIEW_MODULES = [
+  "moduleCustomers",
+  "moduleFinance",
+  "moduleDocuments",
+  "moduleAi",
 ] as const;
