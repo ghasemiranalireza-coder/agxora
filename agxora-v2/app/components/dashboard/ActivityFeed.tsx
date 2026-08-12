@@ -4,13 +4,8 @@ import Link from "next/link";
 import type { JSX } from "react";
 import type { Activity, ActivityKind } from "../../lib/backend/types";
 import { useLocale } from "../../lib/i18n";
-import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
-
-const surfaceTransition = [
-  `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-  `border-color ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-  `color ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
-].join(", ");
+import { useTheme } from "../../lib/theme";
+import { interactionTransition } from "./motion";
 
 const KIND_MESSAGE_KEY: Record<ActivityKind, string> = {
   customer_created: "customer",
@@ -84,7 +79,7 @@ export function ActivityFeed({
         boxShadow: tokens.panelShadow,
         backdropFilter: tokens.cardBlur,
         WebkitBackdropFilter: tokens.cardBlur,
-        transition: surfaceTransition,
+        transition: interactionTransition("background", "border-color", "box-shadow"),
         minHeight: 416,
         display: "flex",
         flexDirection: "column",
