@@ -1,0 +1,388 @@
+{
+  "page": {
+    "brand": "AGXORA Knowledge OS",
+    "title": "Dokumente",
+    "subtitle": "Unternehmensdokumente & Wissenszentrale — Vorschau mit Beispielinhalten, bis Speicher- und Freigabe-Backends angebunden sind.",
+    "sampleNotice": "Beispielbibliothek — Browse und Filter funktionieren in der Sitzung. Upload, Freigabe und KI-Indexierung sind nicht verbunden."
+  },
+  "sections": {
+    "kpis": {
+      "title": "Wissens-Dashboard"
+    },
+    "library": {
+      "title": "Dokumentenbibliothek",
+      "subtitle": "Alle Dokumente, Zuletzt, Favoriten, Geteilt, Archiviert, Papierkorb, Wissensdatenbank — mit Ordnern, Suche, Viewer und Versionen."
+    },
+    "knowledge": {
+      "title": "Wissensdatenbank",
+      "subtitle": "Artikel, Richtlinien, Prozesse, Handbücher, FAQs und internes Wiki."
+    },
+    "approvals": {
+      "title": "Freigaben",
+      "subtitle": "Entwurf, In Prüfung, Freigegeben, Abgelehnt, Archiviert — verknüpft mit der Automation-Architektur."
+    },
+    "ai": {
+      "title": "KI-Wissensebene",
+      "subtitle": "Zusammenfassung, Schlüsselwörter, Klassifikation, Tags, Ordner, verwandte Dokumente, Duplikate, Übersetzung, OCR und Suche — nur Architektur."
+    },
+    "activity": {
+      "title": "Aktivität",
+      "subtitle": "Letzte Änderungen, Uploads, Aufrufe, Freigaben und Audit-Historie."
+    },
+    "integrations": {
+      "title": "Integrationen",
+      "subtitle": "Drive-Adapter reserviert — keine Live-Connectoren."
+    },
+    "security": {
+      "title": "Sicherheit & Freigabe",
+      "subtitle": "RBAC, Audit-Trail, Verschlüsselung, Aufbewahrung und Freigabeumfänge."
+    }
+  },
+  "loading": {
+    "knowledgeBase": "Wissensdatenbank wird geladen…",
+    "approvals": "Freigabe-Warteschlange wird geladen…",
+    "aiInsights": "KI-Einblicke werden geladen…",
+    "activity": "Aktivität wird geladen…",
+    "integrations": "Integrationen werden geladen…",
+    "security": "Sicherheit wird geladen…"
+  },
+  "kpi": {
+    "documents": {
+      "label": "Dokumente",
+      "caption": "Beispiel · über Ordner hinweg",
+      "delta": "+{count}"
+    },
+    "folders": {
+      "label": "Ordner",
+      "caption": "Beispiel · inkl. Smart Collections",
+      "delta": "+{count}"
+    },
+    "storage": {
+      "label": "Speicher belegt",
+      "caption": "Beispiel · des illustrativen Plans",
+      "delta": "+{size}"
+    },
+    "shared": {
+      "label": "Geteilte Dokumente",
+      "caption": "Beispiel · Org. + Abteilung + Benutzer",
+      "delta": "+{count}"
+    },
+    "activity": {
+      "label": "Letzte Aktivität",
+      "caption": "Beispiel · letzte 24 Stunden",
+      "delta": "+{count}"
+    },
+    "indexed": {
+      "label": "KI-indexiert",
+      "caption": "Beispiel · KI-Suche nicht verbunden",
+      "delta": "{percent}"
+    },
+    "approvals": {
+      "label": "Offene Freigaben",
+      "caption": "Beispiel · Automation nicht verbunden",
+      "delta": "{count}"
+    },
+    "score": {
+      "label": "Wissensscore",
+      "caption": "Beispiel · Abdeckungsillustration",
+      "delta": "+{count}"
+    }
+  },
+  "library": {
+    "viewsAria": "Bibliotheksansichten",
+    "views": {
+      "all": "Alle Dokumente",
+      "recent": "Zuletzt",
+      "favorites": "Favoriten",
+      "shared": "Geteilt",
+      "archived": "Archiviert",
+      "trash": "Papierkorb",
+      "knowledge": "Wissensdatenbank"
+    },
+    "dropzone": "Dateien hierher ziehen, um einen Upload vorzubereiten.",
+    "uploadReserved": "Drag-&-Drop-Upload ist für die Storage-API reserviert.",
+    "filesStaged": "{count} Datei(en) für Upload vorbereitet (kein Speicherschreibzugriff).",
+    "dropReceived": "Ablage empfangen (kein Speicherschreibzugriff).",
+    "foldersTitle": "Ordner & Sammlungen",
+    "foldersHint": "Verschachtelte Ordner, Sammlungen, Smart Collections, Tags, angeheftet & Favoriten.",
+    "allFolders": "Alle Ordner",
+    "smart": "Smart",
+    "collection": "Sammlung",
+    "pinned": "Angeheftet",
+    "favorite": "Favorit",
+    "sharedBadge": "Geteilt",
+    "title": "Dokumentenbibliothek",
+    "results": "{count} Ergebnisse",
+    "resultOne": "{count} Ergebnis",
+    "selected": "· {count} ausgewählt",
+    "bulkAction": "Massenaktion",
+    "bulkUnavailable": "Massenaktion für {count} Element(e) nicht verfügbar — Speichermutationen sind nicht verbunden.",
+    "searchLabel": "Globale Suche",
+    "searchPlaceholder": "Name, Tags, Eigentümer, KI-Zusammenfassung…",
+    "typeLabel": "Typ",
+    "statusLabel": "Status",
+    "departmentLabel": "Abteilung",
+    "ownerLabel": "Eigentümer",
+    "allTypes": "Alle Typen",
+    "allStatuses": "Alle Status",
+    "allDepartments": "Alle Abteilungen",
+    "allOwners": "Alle Eigentümer",
+    "favoritesOnly": "Nur Favoriten",
+    "emptyTitle": "Keine Dokumente vorhanden",
+    "emptyDescription": "Filter anpassen, Suche leeren oder Wissensassets hinzufügen, um die Bibliothek zu erweitern.",
+    "selectAria": "{name} auswählen",
+    "versionHistoryTitle": "Versionshistorie",
+    "close": "Schließen",
+    "context": {
+      "open": "Öffnen",
+      "share": "Teilen",
+      "favorite": "Favorit",
+      "move": "Verschieben",
+      "delete": "Löschen",
+      "dismiss": "Schließen",
+      "unavailable": "{action} nicht verfügbar — Dokumentenänderungen sind für {id} nicht verbunden."
+    }
+  },
+  "viewer": {
+    "title": "Dokumentenviewer",
+    "emptyTitle": "Dokument auswählen",
+    "emptyDescription": "Wählen Sie eine Datei aus der Bibliothek, um Inhalt, Metadaten, Tags, Versionen und verknüpfte Module anzuzeigen.",
+    "zoomOut": "Zoom −",
+    "zoomIn": "Zoom +",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "page": "Seite {page} / {total}",
+    "searchInside": "Im Dokument suchen",
+    "findPlaceholder": "In Vorschau suchen…",
+    "noMatches": "Keine Treffer im Vorschautext.",
+    "meta": {
+      "owner": "Eigentümer",
+      "created": "Erstellt",
+      "updated": "Aktualisiert",
+      "fileType": "Dateityp",
+      "size": "Größe",
+      "category": "Kategorie",
+      "department": "Abteilung",
+      "status": "Status",
+      "retention": "Aufbewahrung",
+      "version": "Version",
+      "sharing": "Freigabe"
+    },
+    "tags": "Tags",
+    "linkedModules": "Verknüpfte Module",
+    "noModuleLinks": "Noch keine Modulverknüpfungen",
+    "versionHistory": "Versionshistorie"
+  },
+  "versions": {
+    "title": "Versionshistorie",
+    "emptyTitle": "Kein Dokument ausgewählt",
+    "emptyDescription": "Öffnen Sie ein Dokument, um Versionen, Notizen, Wiederherstellung und Vergleich zu prüfen.",
+    "current": "{name} · aktuell {version}",
+    "restore": "Version wiederherstellen",
+    "compare": "Versionen vergleichen",
+    "restoreTitle": "Wiederherstellung erfordert die Storage-API",
+    "compareTitle": "Vergleich erfordert die Storage-API",
+    "noticeDefault": "Wiederherstellung und Vergleich erfordern die Storage-API.",
+    "restoreUnavailable": "Wiederherstellung für {id} nicht verfügbar — Storage-API ist nicht verbunden.",
+    "compareUnavailable": "Vergleich nicht verfügbar ({selected} ↔ {current}) — Storage-API ist nicht verbunden."
+  },
+  "approvals": {
+    "title": "Freigabe-Workflow",
+    "subtitle": "Entwurf → In Prüfung → Freigegeben / Abgelehnt → Archiviert. Warteschlangeneinträge sind Beispieldokumente; Aktionen werden nicht persistiert.",
+    "emptyTitle": "Warteschlange leer",
+    "emptyDescription": "Keine Entwurfs- oder In-Prüfung-Dokumente im Beispieldatensatz.",
+    "approve": "Freigeben",
+    "reject": "Ablehnen",
+    "sendToReview": "Zur Prüfung senden",
+    "noticeDefault": "Freigabeübergänge erfordern die Automation-Workflow-Engine — in diesem Build nicht verbunden.",
+    "unavailable": "{action} für {id} nicht verfügbar — Workflow-Engine ist nicht verbunden. Status des Beispieldokuments wurde nicht geändert.",
+    "approveTitle": "Freigabe nicht verfügbar — Workflow-Engine nicht verbunden",
+    "rejectTitle": "Ablehnung nicht verfügbar — Workflow-Engine nicht verbunden",
+    "sendTitle": "Zur Prüfung senden nicht verfügbar — Workflow-Engine nicht verbunden"
+  },
+  "knowledge": {
+    "intro": "Artikel, Richtlinien, Prozesse, Handbücher, FAQs und internes Wiki — die narrative Ebene des Knowledge Hub."
+  },
+  "activity": {
+    "intro": "Letzte Änderungen, Uploads, Aufrufe, Freigaben und Audit-Historie — Grundlage für Compliance-Nachweise."
+  },
+  "integrations": {
+    "intro": "Cloud-Drive-Adapter sind nur Architektur — Google Drive, OneDrive, Dropbox, Box, SharePoint, Nextcloud. Keine Live-APIs.",
+    "reservedAdapter": "Reservierter Adapter:",
+    "architecture": "Architektur",
+    "items": {
+      "google-drive": {
+        "description": "Import-/Sync-Architektur reserviert — noch kein Live-OAuth."
+      },
+      "onedrive": {
+        "description": "Microsoft Graph Datei-Hooks reserviert."
+      },
+      "dropbox": {
+        "description": "Dropbox-API-Adapter reserviert."
+      },
+      "box": {
+        "description": "Enterprise-Box-Connector reserviert."
+      },
+      "sharepoint": {
+        "description": "Site-Bibliotheken + Metadaten-Mapping reserviert."
+      },
+      "nextcloud": {
+        "description": "WebDAV-Adapter reserviert — deaktiviert bis Self-Host-Plan."
+      }
+    }
+  },
+  "security": {
+    "architectureTitle": "Sicherheitsarchitektur",
+    "sharingTitle": "Freigabemodell",
+    "sharingIntro": "Privat, Organisation, Abteilung, Bestimmte Benutzer und Öffentlicher Link als Platzhalter.",
+    "enabled": "Aktiviert",
+    "placeholder": "Platzhalter",
+    "notEnforced": "Nicht durchgesetzt",
+    "modelOnly": "Nur Modell",
+    "controls": {
+      "rbac": {
+        "title": "Rollenbasierter Zugriff",
+        "description": "Eigentümer-, Bearbeiter-, Betrachter- und Freigeber-Rollen werden auf Dokument-ACLs abgebildet — in diesem Build nicht durchgesetzt."
+      },
+      "permissions": {
+        "title": "Berechtigungsarchitektur",
+        "description": "Ordnervererbung mit dokumentbezogenen Überschreibungen — in diesem Build nicht durchgesetzt."
+      },
+      "audit": {
+        "title": "Audit-Trail",
+        "description": "Aktivitätsereignisse für Aufrufe, Freigaben, Wiederherstellungen und Freigaben — noch nicht persistiert."
+      },
+      "encryption": {
+        "title": "Verschlüsselung",
+        "description": "Verschlüsselungs-Hooks at-rest und in-transit für KMS-Anbindung reserviert."
+      },
+      "retention": {
+        "title": "Aufbewahrungsrichtlinie",
+        "description": "Kategoriebezogene Aufbewahrungsfenster mit Legal-Hold-Unterstützung — noch nicht durchgesetzt."
+      }
+    }
+  },
+  "ai": {
+    "architectureTitle": "KI-Funktionsarchitektur",
+    "architectureIntro": "Jede Fähigkeit ist für den künftigen KI-Index reserviert. Die UI zeigt deterministische Mock-Einblicke.",
+    "insightsTitle": "Einblicke zum ausgewählten Dokument",
+    "emptyTitle": "Dokument auswählen",
+    "emptyDescription": "Öffnen Sie eine Datei in der Bibliothek, um KI-Zusammenfassung, Schlüsselwörter und Vorschläge zu prüfen.",
+    "summary": "KI-Zusammenfassung",
+    "keywords": "KI-Schlüsselwörter",
+    "classification": "KI-Klassifikation",
+    "suggestedFolder": "KI-vorgeschlagener Ordner",
+    "translation": "KI-Übersetzung",
+    "ocr": "KI-OCR",
+    "suggestedTags": "KI-vorgeschlagene Tags",
+    "related": "KI-verwandte Dokumente",
+    "noRelated": "Keine verwandten Dokumente indexiert.",
+    "duplicateOf": "KI-Duplikaterkennung: mögliches Duplikat von",
+    "noDuplicates": "KI-Duplikaterkennung: keine Near-Duplicates markiert.",
+    "sampleReady": "Beispiel bereit",
+    "notApplicable": "Nicht zutreffend",
+    "runSearch": "KI-Suche starten",
+    "searchTitle": "KI-Suche ist nicht verbunden",
+    "noticeDefault": "KI-Funktionen sind nur Architektur — keine Live-Modellaufrufe.",
+    "searchUnavailable": "KI-Suche nicht verfügbar — semantischer Index ist nicht verbunden. Die Beispieleinblicke oben sind statisch.",
+    "features": {
+      "summary": {
+        "title": "KI-Zusammenfassung",
+        "description": "Verdichtetes Dokumentverständnis für jedes Modul."
+      },
+      "keywords": {
+        "title": "KI-Schlüsselwörter",
+        "description": "Extrahierte Themensignale für Suche und Routing."
+      },
+      "classification": {
+        "title": "KI-Klassifikation",
+        "description": "Vorschlag zu Kategorie-/Abteilungstaxonomie."
+      },
+      "tags": {
+        "title": "KI-vorgeschlagene Tags",
+        "description": "Tag-Empfehlungen ohne Änderung am Graphen."
+      },
+      "folder": {
+        "title": "KI-vorgeschlagener Ordner",
+        "description": "Intelligente Platzierung in verschachtelten Ordnern."
+      },
+      "related": {
+        "title": "KI-verwandte Dokumente",
+        "description": "Graph-Nachbarn über den Knowledge Hub hinweg."
+      },
+      "duplicate": {
+        "title": "KI-Duplikaterkennung",
+        "description": "Near-Duplicate-Erkennung für Dokumentenbibliotheken."
+      },
+      "translation": {
+        "title": "KI-Übersetzung",
+        "description": "Übersetzungsbereitschaftsflag — kein Live-Modell."
+      },
+      "ocr": {
+        "title": "KI-OCR",
+        "description": "OCR-Pipeline für Scans und PDFs reserviert."
+      },
+      "search": {
+        "title": "KI-Suche",
+        "description": "Semantische Suche für künftigen Index reserviert."
+      }
+    }
+  },
+  "status": {
+    "draft": "Entwurf",
+    "in_review": "In Prüfung",
+    "approved": "Freigegeben",
+    "rejected": "Abgelehnt",
+    "archived": "Archiviert"
+  },
+  "fileType": {
+    "pdf": "PDF",
+    "word": "Word",
+    "excel": "Excel",
+    "powerpoint": "PowerPoint",
+    "image": "Bild",
+    "video": "Video",
+    "audio": "Audio",
+    "markdown": "Markdown",
+    "text": "Text",
+    "json": "JSON",
+    "csv": "CSV",
+    "other": "Sonstiges"
+  },
+  "share": {
+    "private": "Privat",
+    "organization": "Organisation",
+    "department": "Abteilung",
+    "specific_users": "Bestimmte Benutzer",
+    "public_link": "Öffentlicher Link"
+  },
+  "module": {
+    "crm": "CRM",
+    "finance": "Finanzen",
+    "automation": "Automation",
+    "creator": "Creator Studio",
+    "hr": "Zukünftiges HR",
+    "projects": "Zukünftige Projekte"
+  },
+  "knowledgeKind": {
+    "article": "Artikel",
+    "policy": "Richtlinie",
+    "process": "Prozess",
+    "manual": "Handbuch",
+    "faq": "FAQ",
+    "wiki": "Internes Wiki"
+  },
+  "integrationStatus": {
+    "connected": "Verbunden",
+    "beta": "Beta",
+    "coming_soon": "Demnächst",
+    "disabled": "Deaktiviert",
+    "planned": "Geplant"
+  },
+  "bytes": {
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
+  }
+}

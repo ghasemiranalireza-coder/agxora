@@ -3,6 +3,7 @@
 import type { JSX } from "react";
 import type { KnowledgeArticle } from "../../lib/documents";
 import { formatDate, knowledgeKindLabel } from "../../lib/documents";
+import { useLocale } from "../../lib/i18n";
 import { Badge, Card } from "../ui";
 import { DocStatusBadge } from "./shared/StatusBadges";
 
@@ -11,11 +12,12 @@ export function KnowledgeBase({
 }: {
   readonly articles: readonly KnowledgeArticle[];
 }): JSX.Element {
+  const { t } = useLocale();
+
   return (
     <Card padding="24px" hover={false}>
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Articles, policies, processes, manuals, FAQs, and internal wiki — the narrative layer of the
-        Knowledge Hub.
+        {t("documents.knowledge.intro")}
       </p>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
         {articles.map((article) => (
@@ -28,7 +30,7 @@ export function KnowledgeBase({
             }}
           >
             <div className="flex items-start justify-between gap-2">
-              <Badge tone="accent">{knowledgeKindLabel(article.kind)}</Badge>
+              <Badge tone="accent">{t(knowledgeKindLabel(article.kind))}</Badge>
               <DocStatusBadge status={article.status} />
             </div>
             <h3 className="mt-3 font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
@@ -41,8 +43,8 @@ export function KnowledgeBase({
               {article.owner} · {formatDate(article.updatedAt)}
             </p>
             <div className="mt-2 flex flex-wrap gap-1.5">
-              {article.tags.map((t) => (
-                <Badge key={t}>{t}</Badge>
+              {article.tags.map((tag) => (
+                <Badge key={tag}>{tag}</Badge>
               ))}
             </div>
           </article>

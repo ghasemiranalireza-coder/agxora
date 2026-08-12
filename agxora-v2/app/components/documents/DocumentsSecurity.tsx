@@ -3,6 +3,7 @@
 import type { JSX } from "react";
 import type { SecurityControl } from "../../lib/documents";
 import { SHARE_SCOPES, shareLabel } from "../../lib/documents";
+import { useLocale } from "../../lib/i18n";
 import { Badge, Card } from "../ui";
 
 export function DocumentsSecurity({
@@ -10,11 +11,13 @@ export function DocumentsSecurity({
 }: {
   readonly controls: readonly SecurityControl[];
 }): JSX.Element {
+  const { t } = useLocale();
+
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
       <Card className="space-y-3" padding="24px" hover={false}>
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Security Architecture
+          {t("documents.security.architectureTitle")}
         </h3>
         <ul className="space-y-2">
           {controls.map((c) => (
@@ -28,7 +31,7 @@ export function DocumentsSecurity({
             >
               <div className="flex items-start justify-between gap-2">
                 <p className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {c.title}
+                  {t(`documents.security.controls.${c.id}.title`)}
                 </p>
                 <Badge
                   tone={
@@ -36,14 +39,14 @@ export function DocumentsSecurity({
                   }
                 >
                   {c.status === "enabled"
-                    ? "Enabled"
+                    ? t("documents.security.enabled")
                     : c.status === "placeholder"
-                      ? "Placeholder"
-                      : "Not enforced"}
+                      ? t("documents.security.placeholder")
+                      : t("documents.security.notEnforced")}
                 </Badge>
               </div>
               <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                {c.description}
+                {t(`documents.security.controls.${c.id}.description`)}
               </p>
             </li>
           ))}
@@ -52,10 +55,10 @@ export function DocumentsSecurity({
 
       <Card className="space-y-3" padding="24px" hover={false}>
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Sharing Model
+          {t("documents.security.sharingTitle")}
         </h3>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Private, Organization, Department, Specific Users, and Public Link placeholder.
+          {t("documents.security.sharingIntro")}
         </p>
         <ul className="space-y-2">
           {SHARE_SCOPES.map((scope) => (
@@ -68,10 +71,12 @@ export function DocumentsSecurity({
               }}
             >
               <span className="text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                {shareLabel(scope)}
+                {t(shareLabel(scope))}
               </span>
               <Badge tone={scope === "public_link" ? "warning" : "default"}>
-                {scope === "public_link" ? "Placeholder" : "Model only"}
+                {scope === "public_link"
+                  ? t("documents.security.placeholder")
+                  : t("documents.security.modelOnly")}
               </Badge>
             </li>
           ))}

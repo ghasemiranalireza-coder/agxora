@@ -68,9 +68,20 @@ export type LibraryView =
 export interface DocumentsKpi {
   readonly id: string;
   readonly label: string;
-  readonly value: string;
+  /**
+   * Display value: raw number (format at render) or ready-made string
+   * for non-numeric scores.
+   */
+  readonly value: string | number;
+  /** When set, value is treated as byte size for formatBytes. */
+  readonly valueBytes?: number;
   readonly caption: string;
-  readonly delta?: { readonly value: string; readonly positive: boolean };
+  readonly delta?: {
+    readonly positive: boolean;
+    readonly count?: number;
+    readonly sizeBytes?: number;
+    readonly percent?: number;
+  };
 }
 
 export interface DocumentFolder {

@@ -2,26 +2,43 @@
 
 import { useState, type JSX } from "react";
 import type { KnowledgeDocument } from "../../lib/documents";
-import { formatBytes, formatDateTime } from "../../lib/documents";
+import { formatBytesLocalized, formatDateTime } from "../../lib/documents";
+import { useLocale } from "../../lib/i18n";
 import { Button, Card, EmptyState } from "../ui";
+
+type NoticeState =
+  | { readonly kind: "default" }
+  | { readonly kind: "restore"; readonly id: string }
+  | { readonly kind: "compare"; readonly selected: string; readonly current: string };
 
 export function VersionHistoryPanel({
   document,
 }: {
   readonly document: KnowledgeDocument | null;
 }): JSX.Element {
-  const [notice, setNotice] = useState("Restore and compare require the storage API.");
+  const { t } = useLocale();
+  const [notice, setNotice] = useState<NoticeState>({ kind: "default" });
   const [selected, setSelected] = useState<string | null>(null);
+
+  const noticeText =
+    notice.kind === "default"
+      ? t("documents.versions.noticeDefault")
+      : notice.kind === "restore"
+        ? t("documents.versions.restoreUnavailable", { id: notice.id })
+        : t("documents.versions.compareUnavailable", {
+            selected: notice.selected,
+            current: notice.current,
+          });
 
   if (!document) {
     return (
       <Card padding="24px" hover={false}>
         <h3 className="mb-3 text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Version History
+          {t("documents.versions.title")}
         </h3>
         <EmptyState
-          title="No document selected"
-          description="Open a document to inspect versions, notes, restore, and compare."
+          title={t("documents.versions.emptyTitle")}
+          description={t("documents.versions.emptyDescription")}
         />
       </Card>
     );
@@ -31,10 +48,13 @@ export function VersionHistoryPanel({
     <Card className="space-y-3" padding="24px" hover={false}>
       <div>
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Version History
+          {t("documents.versions.title")}
         </h3>
         <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          {document.name} · current {document.version}
+          {t("documents.versions.current", {
+            name: document.name,
+            version: document.version,
+          })}
         </p>
       </div>
 
@@ -46,7 +66,7 @@ export function VersionHistoryPanel({
               <button
                 type="button"
                 onClick={() => setSelected(v.id)}
-                className="w-full rounded-2xl border px-4 py-3 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                className="w-full rounded-2xl border px-4 py-3 text-start transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                 style={{
                   outlineColor: "var(--agx-accent, #22d3ee)",
                   borderColor: active
@@ -62,7 +82,7 @@ export function VersionHistoryPanel({
                     {v.version}
                   </p>
                   <span className="text-xs tabular-nums" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                    {formatBytes(v.sizeBytes)}
+                    {formatBytesLocalized(v.sizeBytes, t)}
                   </span>
                 </div>
                 <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
@@ -82,27 +102,29 @@ export function VersionHistoryPanel({
           size="sm"
           variant="primary"
           disabled={!selected}
-          title="Restore requires the storage API"
+          title={t("documents.versions.restoreTitle")}
           onClick={() =>
-            setNotice(
-              `Restore unavailable for ${selected} — storage API is not connected.`,
-            )
+            selected ? setNotice({ kind: "restore", id: selected }) : undefined
           }
         >
-          Restore Version
+          {t("documents.versions.restore")}
         </Button>
         <Button
           size="sm"
           variant="secondary"
           disabled={!selected}
-          title="Compare requires the storage API"
+          title={t("documents.versions.compareTitle")}
           onClick={() =>
-            setNotice(
-              `Compare unavailable (${selected} ↔ ${document.version}) — storage API is not connected.`,
-            )
+            selected
+              ? setNotice({
+                  kind: "compare",
+                  selected,
+                  current: document.version,
+                })
+              : undefined
           }
         >
-          Compare Versions
+          {t("documents.versions.compare")}
         </Button>
       </div>
       <p
@@ -111,7 +133,7 @@ export function VersionHistoryPanel({
         aria-live="polite"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        {notice}
+        {noticeText}
       </p>
     </Card>
   );

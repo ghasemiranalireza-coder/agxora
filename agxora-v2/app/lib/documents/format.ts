@@ -1,10 +1,12 @@
 /**
- * Documents display formatters — delegate date/time to shared i18n Intl helpers.
+ * Documents display formatters — delegate date/time/number to shared i18n Intl helpers.
+ * Label helpers return documents.* i18n keys for t() at render time.
  */
 
 import {
   formatDate as formatSharedDate,
   formatDateTime as formatSharedDateTime,
+  formatNumber,
 } from "../i18n/format";
 import type {
   DocumentFileType,
@@ -17,11 +19,44 @@ import type {
 
 export type StatusTone = "default" | "positive" | "warning" | "critical" | "accent";
 
+/** Raw byte string for callers that pass a translate fn; prefer formatBytesLocalized. */
 export function formatBytes(bytes: number): string {
-  if (bytes < 1024) return `${bytes} B`;
-  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
-  if (bytes < 1024 * 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-  return `${(bytes / (1024 * 1024 * 1024)).toFixed(2)} GB`;
+  if (bytes < 1024) return `${formatNumber(bytes, undefined, { maximumFractionDigits: 0 })} B`;
+  if (bytes < 1024 * 1024) {
+    return `${formatNumber(bytes / 1024, undefined, { maximumFractionDigits: 1 })} KB`;
+  }
+  if (bytes < 1024 * 1024 * 1024) {
+    return `${formatNumber(bytes / (1024 * 1024), undefined, { maximumFractionDigits: 1 })} MB`;
+  }
+  return `${formatNumber(bytes / (1024 * 1024 * 1024), undefined, { maximumFractionDigits: 2 })} GB`;
+}
+
+export function formatBytesLocalized(
+  bytes: number,
+  t: (key: string, values?: Record<string, string | number>) => string,
+): string {
+  if (bytes < 1024) {
+    return t("documents.bytes.b", {
+      value: formatNumber(bytes, undefined, { maximumFractionDigits: 0 }),
+    });
+  }
+  if (bytes < 1024 * 1024) {
+    return t("documents.bytes.kb", {
+      value: formatNumber(bytes / 1024, undefined, { maximumFractionDigits: 1 }),
+    });
+  }
+  if (bytes < 1024 * 1024 * 1024) {
+    return t("documents.bytes.mb", {
+      value: formatNumber(bytes / (1024 * 1024), undefined, {
+        maximumFractionDigits: 1,
+      }),
+    });
+  }
+  return t("documents.bytes.gb", {
+    value: formatNumber(bytes / (1024 * 1024 * 1024), undefined, {
+      maximumFractionDigits: 2,
+    }),
+  });
 }
 
 export function formatDateTime(iso: string): string {
@@ -43,47 +78,11 @@ export function formatDate(iso: string): string {
 }
 
 export function fileTypeLabel(type: DocumentFileType): string {
-  switch (type) {
-    case "pdf":
-      return "PDF";
-    case "word":
-      return "Word";
-    case "excel":
-      return "Excel";
-    case "powerpoint":
-      return "PowerPoint";
-    case "image":
-      return "Image";
-    case "video":
-      return "Video";
-    case "audio":
-      return "Audio";
-    case "markdown":
-      return "Markdown";
-    case "text":
-      return "Text";
-    case "json":
-      return "JSON";
-    case "csv":
-      return "CSV";
-    default:
-      return "Other";
-  }
+  return `documents.fileType.${type}`;
 }
 
 export function statusLabel(status: DocumentStatus): string {
-  switch (status) {
-    case "draft":
-      return "Draft";
-    case "in_review":
-      return "In Review";
-    case "approved":
-      return "Approved";
-    case "rejected":
-      return "Rejected";
-    case "archived":
-      return "Archived";
-  }
+  return `documents.status.${status}`;
 }
 
 export function statusTone(status: DocumentStatus): StatusTone {
@@ -102,67 +101,19 @@ export function statusTone(status: DocumentStatus): StatusTone {
 }
 
 export function shareLabel(scope: ShareScope): string {
-  switch (scope) {
-    case "private":
-      return "Private";
-    case "organization":
-      return "Organization";
-    case "department":
-      return "Department";
-    case "specific_users":
-      return "Specific Users";
-    case "public_link":
-      return "Public Link";
-  }
+  return `documents.share.${scope}`;
 }
 
 export function moduleLabel(key: LinkedModuleKey): string {
-  switch (key) {
-    case "crm":
-      return "CRM";
-    case "finance":
-      return "Finance";
-    case "automation":
-      return "Automation";
-    case "creator":
-      return "Creator Studio";
-    case "hr":
-      return "Future HR";
-    case "projects":
-      return "Future Projects";
-  }
+  return `documents.module.${key}`;
 }
 
 export function knowledgeKindLabel(kind: KnowledgeKind): string {
-  switch (kind) {
-    case "article":
-      return "Article";
-    case "policy":
-      return "Policy";
-    case "process":
-      return "Process";
-    case "manual":
-      return "Manual";
-    case "faq":
-      return "FAQ";
-    case "wiki":
-      return "Internal Wiki";
-  }
+  return `documents.knowledgeKind.${kind}`;
 }
 
 export function integrationLabel(status: IntegrationStatus): string {
-  switch (status) {
-    case "connected":
-      return "Connected";
-    case "beta":
-      return "Beta";
-    case "coming_soon":
-      return "Coming Soon";
-    case "disabled":
-      return "Disabled";
-    default:
-      return "Planned";
-  }
+  return `documents.integrationStatus.${status}`;
 }
 
 export function integrationTone(status: IntegrationStatus): StatusTone {

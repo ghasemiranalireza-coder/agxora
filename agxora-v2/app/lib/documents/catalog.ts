@@ -24,15 +24,14 @@ export const DOCUMENT_FILE_TYPES: readonly DocumentFileType[] = [
 
 export const LIBRARY_VIEWS: readonly {
   readonly id: LibraryView;
-  readonly label: string;
 }[] = [
-  { id: "all", label: "All Documents" },
-  { id: "recent", label: "Recent" },
-  { id: "favorites", label: "Favorites" },
-  { id: "shared", label: "Shared" },
-  { id: "archived", label: "Archived" },
-  { id: "trash", label: "Trash" },
-  { id: "knowledge", label: "Knowledge Base" },
+  { id: "all" },
+  { id: "recent" },
+  { id: "favorites" },
+  { id: "shared" },
+  { id: "archived" },
+  { id: "trash" },
+  { id: "knowledge" },
 ] as const;
 
 export const LINKED_MODULE_OPTIONS: readonly LinkedModuleKey[] = [

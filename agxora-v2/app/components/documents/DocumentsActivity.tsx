@@ -3,6 +3,7 @@
 import type { JSX } from "react";
 import type { DocumentActivity } from "../../lib/documents";
 import { formatDateTime } from "../../lib/documents";
+import { useLocale } from "../../lib/i18n";
 import { Badge, Card } from "../ui";
 
 function kindTone(
@@ -25,10 +26,12 @@ export function DocumentsActivity({
 }: {
   readonly activity: readonly DocumentActivity[];
 }): JSX.Element {
+  const { t } = useLocale();
+
   return (
     <Card padding="24px" hover={false}>
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Recent changes, uploads, views, shares, and audit history — foundation for compliance trails.
+        {t("documents.activity.intro")}
       </p>
       <ul className="space-y-2">
         {activity.map((item) => (
