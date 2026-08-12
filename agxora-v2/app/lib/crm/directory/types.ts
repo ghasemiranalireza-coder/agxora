@@ -44,6 +44,7 @@ export type SortDirection = "asc" | "desc";
 export type CrmActivityKind =
   | "customer_created"
   | "customer_updated"
+  | "customer_deleted"
   | "project_linked"
   | "document_added"
   | "document_deleted"

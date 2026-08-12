@@ -18,3 +18,4 @@ export {
   type AuthContextValue,
 } from "./AuthProvider";
 export { AuthOrganizationBridge } from "./AuthOrganizationBridge";
+export { AuthServerBridge } from "./AuthServerBridge";

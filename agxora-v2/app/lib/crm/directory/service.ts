@@ -1,6 +1,14 @@
 import { recordActivity } from "../../backend/activity";
 import { auditLog } from "../../backend/audit";
+import { isCrmDatabaseMode } from "../persistence/mode";
 import { crmDirectoryRepository } from "./repository";
+import {
+  remoteCreateCustomer,
+  remoteDeleteCustomer,
+  remoteGetCustomer,
+  remoteListCustomers,
+  remoteUpdateCustomer,
+} from "./remoteAdapter";
 import type {
   CrmContactDraft,
   CrmCustomerDraft,
@@ -50,11 +58,18 @@ export class CrmNoteValidationError extends Error {
 export class CrmDirectoryService {
   constructor(private readonly repo = crmDirectoryRepository) {}
 
-  list(organizationId?: string) {
+  async list(organizationId?: string) {
+    if (isCrmDatabaseMode()) {
+      // Server scopes by actor membership — ignore client org hint.
+      return remoteListCustomers();
+    }
     return this.repo.listCustomers(organizationId);
   }
 
-  getById(id: CrmCustomerId) {
+  async getById(id: CrmCustomerId) {
+    if (isCrmDatabaseMode()) {
+      return remoteGetCustomer(id);
+    }
     return this.repo.getCustomer(id);
   }
 
@@ -67,6 +82,27 @@ export class CrmDirectoryService {
   }
 
   async createFromDraft(draft: CrmCustomerDraft, organizationId: string) {
+    if (isCrmDatabaseMode()) {
+      const preview = validateCustomerDraft(draft, { existing: [] });
+      if (!preview.ok) throw new CrmValidationError(preview.errors);
+      const customer = await remoteCreateCustomer(draft);
+      recordActivity({
+        kind: "customer_created",
+        title: "CRM Customer Created",
+        detail: customer.companyName,
+        entityId: customer.id,
+        organizationId: customer.organizationId,
+        href: `${HREF}/${customer.id}`,
+      });
+      auditLog({
+        action: "crm.customer.create",
+        resource: "crm_customer",
+        resourceId: customer.id,
+        organizationId: customer.organizationId,
+      });
+      return customer;
+    }
+
     const existing = await this.repo.listCustomers(organizationId);
     const result = validateCustomerDraft(draft, { existing });
     if (!result.ok) throw new CrmValidationError(result.errors);
@@ -92,6 +128,27 @@ export class CrmDirectoryService {
   }
 
   async updateFromDraft(id: CrmCustomerId, draft: CrmCustomerDraft) {
+    if (isCrmDatabaseMode()) {
+      const preview = validateCustomerDraft(draft, { existing: [] });
+      if (!preview.ok) throw new CrmValidationError(preview.errors);
+      const customer = await remoteUpdateCustomer(id, draft);
+      recordActivity({
+        kind: "customer_updated",
+        title: "CRM Customer Updated",
+        detail: customer.companyName,
+        entityId: customer.id,
+        organizationId: customer.organizationId,
+        href: `${HREF}/${customer.id}`,
+      });
+      auditLog({
+        action: "crm.customer.update",
+        resource: "crm_customer",
+        resourceId: customer.id,
+        organizationId: customer.organizationId,
+      });
+      return customer;
+    }
+
     const existingCustomer = await this.repo.getCustomer(id);
     if (!existingCustomer) throw new Error(`Customer not found: ${id}`);
     const existing = await this.repo.listCustomers(
@@ -121,6 +178,27 @@ export class CrmDirectoryService {
   }
 
   async deleteCustomer(id: CrmCustomerId): Promise<CrmCustomerRecord | null> {
+    if (isCrmDatabaseMode()) {
+      const existing = await remoteGetCustomer(id);
+      if (!existing) return null;
+      await remoteDeleteCustomer(id);
+      recordActivity({
+        kind: "customer_deleted",
+        title: "CRM Customer Deleted",
+        detail: existing.companyName,
+        entityId: existing.id,
+        organizationId: existing.organizationId,
+        href: HREF,
+      });
+      auditLog({
+        action: "crm.customer.delete",
+        resource: "crm_customer",
+        resourceId: existing.id,
+        organizationId: existing.organizationId,
+      });
+      return existing;
+    }
+
     const existing = await this.repo.getCustomer(id);
     if (!existing) return null;
     await this.repo.deleteCustomer(id);

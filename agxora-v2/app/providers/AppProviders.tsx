@@ -15,7 +15,7 @@ import {
   ToastHost,
 } from "../components/backend";
 import { AISettingsProvider } from "../lib/ai/AIProviderContext";
-import { AuthOrganizationBridge, AuthProvider } from "../lib/auth";
+import { AuthOrganizationBridge, AuthProvider, AuthServerBridge } from "../lib/auth";
 import {
   BackendStateBridge,
   DataPlatformBridge,
@@ -47,35 +47,37 @@ export function AppProviders({
         <HtmlLangSync />
         <AuthProvider>
           <AuthOrganizationBridge>
-            <OrganizationProvider>
-              <FormatPreferencesSync />
-              <BackendStateBridge>
-                <DataPlatformBridge>
-                  <AutomationBridge>
-                    <IntegrationBridge>
-                      <AgentOsBridge>
-                        <IntelligenceBridge>
-                          <BusinessOsProvider>
-                            <MemoryProvider>
-                              <AISettingsProvider>
-                                <ChatProvider>
-                                  <AppErrorBoundary>
-                                    {children}
-                                    <ToastHost />
-                                    <NetworkStatusBanner />
-                                    <GlobalLoadingOverlay />
-                                  </AppErrorBoundary>
-                                </ChatProvider>
-                              </AISettingsProvider>
-                            </MemoryProvider>
-                          </BusinessOsProvider>
-                        </IntelligenceBridge>
-                      </AgentOsBridge>
-                    </IntegrationBridge>
-                  </AutomationBridge>
-                </DataPlatformBridge>
-              </BackendStateBridge>
-            </OrganizationProvider>
+            <AuthServerBridge>
+              <OrganizationProvider>
+                <FormatPreferencesSync />
+                <BackendStateBridge>
+                  <DataPlatformBridge>
+                    <AutomationBridge>
+                      <IntegrationBridge>
+                        <AgentOsBridge>
+                          <IntelligenceBridge>
+                            <BusinessOsProvider>
+                              <MemoryProvider>
+                                <AISettingsProvider>
+                                  <ChatProvider>
+                                    <AppErrorBoundary>
+                                      {children}
+                                      <ToastHost />
+                                      <NetworkStatusBanner />
+                                      <GlobalLoadingOverlay />
+                                    </AppErrorBoundary>
+                                  </ChatProvider>
+                                </AISettingsProvider>
+                              </MemoryProvider>
+                            </BusinessOsProvider>
+                          </IntelligenceBridge>
+                        </AgentOsBridge>
+                      </IntegrationBridge>
+                    </AutomationBridge>
+                  </DataPlatformBridge>
+                </BackendStateBridge>
+              </OrganizationProvider>
+            </AuthServerBridge>
           </AuthOrganizationBridge>
         </AuthProvider>
       </LocaleProvider>

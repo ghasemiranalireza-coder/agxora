@@ -1,0 +1,158 @@
+// AGXORA Phase 42.1 — Production foundation schema
+// PostgreSQL source of truth for User / Organization / Workspace / Membership / Customer
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum MembershipRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum MembershipStatus {
+  ACTIVE
+  INVITED
+  REVOKED
+}
+
+enum CustomerStatus {
+  lead
+  prospect
+  active
+  inactive
+  vip
+  archived
+}
+
+model User {
+  id                   String   @id @default(uuid()) @db.Uuid
+  email                String   @unique
+  name                 String
+  /// Optional link to LocalAuthAdapter user id (usr_…) until Phase 43 IdP
+  externalAuthId       String?  @unique
+  emailVerified        Boolean  @default(false)
+  /// Compatible with existing LocalAuth hash format when provided
+  passwordHash         String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  memberships          Membership[]
+  sessions             Session[]
+  ownedOrganizations   Organization[] @relation("OrganizationOwner")
+
+  @@index([externalAuthId])
+  @@map("users")
+}
+
+model Organization {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  slug      String   @unique
+  ownerId   String   @db.Uuid
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  owner       User         @relation("OrganizationOwner", fields: [ownerId], references: [id], onDelete: Restrict)
+  workspaces  Workspace[]
+  memberships Membership[]
+  customers   Customer[]
+
+  @@index([ownerId])
+  @@map("organizations")
+}
+
+model Workspace {
+  id             String   @id @default(uuid()) @db.Uuid
+  organizationId String   @db.Uuid
+  name           String
+  slug           String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  memberships  Membership[]
+  customers    Customer[]
+
+  @@unique([organizationId, slug])
+  @@index([organizationId])
+  @@map("workspaces")
+}
+
+model Membership {
+  id             String           @id @default(uuid()) @db.Uuid
+  userId         String           @db.Uuid
+  organizationId String           @db.Uuid
+  workspaceId    String           @db.Uuid
+  role           MembershipRole
+  status         MembershipStatus @default(ACTIVE)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, workspaceId])
+  @@index([userId])
+  @@index([organizationId])
+  @@index([workspaceId])
+  @@index([userId, organizationId, status])
+  @@map("memberships")
+}
+
+/// Server session bridge — Phase 42.1 integration with LocalAuth until Phase 43
+model Session {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("sessions")
+}
+
+model Customer {
+  id             String         @id @default(uuid()) @db.Uuid
+  organizationId String         @db.Uuid
+  workspaceId    String         @db.Uuid
+  companyName    String
+  contactName    String
+  email          String
+  phone          String         @default("")
+  website        String         @default("")
+  industry       String         @default("")
+  country        String         @default("")
+  city           String         @default("")
+  address        String         @default("")
+  taxNumber      String         @default("")
+  status         CustomerStatus @default(lead)
+  owner          String         @default("")
+  /// CrmTag[] JSON — label + color
+  tags           Json           @default("[]")
+  /// Marks seed/sample rows for honesty (Phase 40)
+  isSample       Boolean        @default(false)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@index([workspaceId])
+  @@index([organizationId])
+  @@index([workspaceId, email])
+  @@index([workspaceId, status])
+  @@index([workspaceId, createdAt])
+  @@map("customers")
+}
