@@ -23,17 +23,19 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    absolute: "AGXORA — AI Platform That Runs Your Business",
+    absolute: "AGXORA — Intelligent Business Operating System",
   },
   description:
-    "AGXORA unifies AI, automation, and analytics for founders, operators, and enterprise teams — start free in minutes.",
+    "AGXORA connects customers, finance, documents, and governed AI in one calm command center for founders and operators.",
   applicationName: "AGXORA",
   keywords: [
     "AGXORA",
-    "enterprise AI platform",
     "business operating system",
+    "enterprise AI platform",
+    "CRM",
+    "finance",
+    "documents",
     "automation",
-    "analytics",
     "B2B SaaS",
   ],
   alternates: { canonical: "/" },
@@ -41,15 +43,15 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     siteName: "AGXORA",
-    title: "AGXORA — AI Platform That Runs Your Business",
+    title: "AGXORA — Intelligent Business Operating System",
     description:
-      "AI, automation, and analytics in one system — built for founders, operators, and enterprise teams.",
+      "Connect customers, finance, documents, and AI in one operating surface — start free when you are ready.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AGXORA — AI Platform That Runs Your Business",
+    title: "AGXORA — Intelligent Business Operating System",
     description:
-      "AI, automation, and analytics in one system — start free in minutes.",
+      "An intelligent business operating system for founders and operators — start free.",
   },
   robots: { index: true, follow: true },
 };
@@ -61,7 +63,7 @@ const jsonLd = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description:
-    "The AI platform that runs your business — AI, automation, and analytics in one system.",
+    "AGXORA is an intelligent business operating system connecting CRM, finance, documents, and governed AI.",
   url: siteUrl,
   offers: {
     "@type": "Offer",

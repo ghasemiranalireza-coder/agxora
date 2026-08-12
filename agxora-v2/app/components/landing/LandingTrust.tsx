@@ -2,15 +2,17 @@
 
 import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { LANDING_TRUST_SIGNALS } from "./content";
+import { useLocale } from "../../lib/i18n";
+import { LANDING_TRUST_KEYS } from "./content";
 import { LANDING_FADE } from "./motion";
 
-/** Trust strip — generic indicators only (no invented logos). */
+/** Trust strip — honest product signals only (no invented logos). */
 export function LandingTrust(): JSX.Element {
   const reduceMotion = useReducedMotion();
+  const { t } = useLocale();
 
   return (
-    <section className="p31-trust" aria-label="Trust indicators">
+    <section className="p31-trust" aria-label={t("landing.trust.ariaLabel")}>
       <div className="p31-wrap">
         <motion.p
           className="p31-trust__eyebrow"
@@ -19,20 +21,23 @@ export function LandingTrust(): JSX.Element {
           viewport={{ once: true }}
           transition={LANDING_FADE}
         >
-          Why teams choose AGXORA
+          {t("landing.trust.eyebrow")}
         </motion.p>
 
         <ul className="p31-trust__signals">
-          {LANDING_TRUST_SIGNALS.map((item, i) => (
+          {LANDING_TRUST_KEYS.map((key, i) => (
             <motion.li
-              key={item.title}
-              initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+              key={key}
+              initial={reduceMotion ? false : { opacity: 0, y: 6 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ ...LANDING_FADE, delay: i * 0.04 }}
+              transition={{
+                ...LANDING_FADE,
+                delay: reduceMotion ? 0 : Math.min(i * 0.04, 0.12),
+              }}
             >
-              <strong>{item.title}</strong>
-              <span>{item.detail}</span>
+              <strong>{t(`landing.trust.signals.${key}.title`)}</strong>
+              <span>{t(`landing.trust.signals.${key}.detail`)}</span>
             </motion.li>
           ))}
         </ul>

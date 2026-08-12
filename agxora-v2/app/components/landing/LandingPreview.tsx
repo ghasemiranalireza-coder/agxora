@@ -2,11 +2,14 @@
 
 import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { LANDING_FADE } from "./motion";
+import { useLocale } from "../../lib/i18n";
+import { LANDING_PREVIEW_MODULES } from "./content";
+import { LANDING_ENTER, LANDING_FADE } from "./motion";
 
-/** Large product proof — conversion centerpiece below trust. */
+/** Illustrative product preview — clearly labeled, no fabricated live metrics. */
 export function LandingPreview(): JSX.Element {
   const reduceMotion = useReducedMotion();
+  const { t } = useLocale();
 
   return (
     <section
@@ -17,62 +20,57 @@ export function LandingPreview(): JSX.Element {
       <div className="p31-wrap p31-wrap--wide">
         <motion.div
           className="p31-product__intro"
-          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={LANDING_FADE}
         >
           <h2 id="p31-product-title" className="p31-display">
-            See the platform.
+            {t("landing.product.title")}
           </h2>
-          <p className="p31-lead">
-            A real operating surface — command, AI, automation, and analytics together.
-          </p>
+          <p className="p31-lead">{t("landing.product.lead")}</p>
         </motion.div>
 
         <motion.div
           className="p31-product__bezel p31-product__bezel--xl"
-          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.18 }}
-          transition={{ ...LANDING_FADE, duration: 0.65 }}
+          transition={LANDING_ENTER}
         >
           <div className="p31-product__frame">
             <div className="p31-product__chrome" aria-hidden="true">
               <i />
               <i />
               <i />
-              <span>agxora.app / dashboard</span>
+              <span>{t("landing.product.chromePath")}</span>
             </div>
             <div className="p31-product__canvas">
-              <aside className="p31-product__rail" aria-label="Preview navigation">
-                <div className="p31-product__rail-brand">AGXORA</div>
+              <aside className="p31-product__rail" aria-label={t("landing.product.railAria")}>
+                <div className="p31-product__rail-brand">
+                  {t("landing.product.railBrand")}
+                </div>
                 <ul>
-                  <li data-on="true">Command</li>
-                  <li>AI</li>
-                  <li>Automation</li>
-                  <li>Analytics</li>
-                  <li>Integrations</li>
+                  <li data-on="true">{t("landing.product.navCommand")}</li>
+                  <li>{t("landing.product.navAi")}</li>
+                  <li>{t("landing.product.navAutomation")}</li>
+                  <li>{t("landing.product.navAnalytics")}</li>
+                  <li>{t("landing.product.navIntegrations")}</li>
                 </ul>
               </aside>
               <div className="p31-product__stage">
                 <header className="p31-product__stage-head">
-                  <h3>Command Center</h3>
-                  <span>Live</span>
+                  <h3>{t("landing.product.stageTitle")}</h3>
+                  <span className="p31-product__badge">
+                    {t("landing.product.stageBadge")}
+                  </span>
                 </header>
                 <div className="p31-product__metrics">
-                  <article>
-                    <em>Revenue pulse</em>
-                    <strong>+12.4%</strong>
-                  </article>
-                  <article>
-                    <em>Active agents</em>
-                    <strong>28</strong>
-                  </article>
-                  <article>
-                    <em>Workflows</em>
-                    <strong>146</strong>
-                  </article>
+                  {LANDING_PREVIEW_MODULES.map((key) => (
+                    <article key={key}>
+                      <em>{t(`landing.product.${key}`)}</em>
+                    </article>
+                  ))}
                 </div>
                 <div className="p31-product__chart" aria-hidden="true">
                   <span style={{ height: "42%" }} />
