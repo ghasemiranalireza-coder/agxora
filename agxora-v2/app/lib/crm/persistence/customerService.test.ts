@@ -45,6 +45,8 @@ function draft(partial?: Partial<CrmCustomerDraft>): CrmCustomerDraft {
 
 async function resetFixtures(): Promise<void> {
   await prisma.customer.deleteMany();
+  await prisma.controlPlaneAuditEvent.deleteMany();
+  await prisma.invitation.deleteMany();
   await prisma.session.deleteMany();
   await prisma.membership.deleteMany();
   await prisma.workspace.deleteMany();

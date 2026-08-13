@@ -21,6 +21,21 @@ export type CustomerAction =
   | "customer.update"
   | "customer.delete";
 
+export type ControlPlaneAction =
+  | "organization.read"
+  | "organization.update"
+  | "workspace.read"
+  | "workspace.create"
+  | "workspace.update"
+  | "workspace.archive"
+  | "workspace.switch"
+  | "member.read"
+  | "member.invite"
+  | "member.role.change"
+  | "member.remove"
+  | "invitation.read"
+  | "invitation.revoke";
+
 export type AuthzResource =
   | { readonly kind: "workspace"; readonly workspaceId: string; readonly organizationId: string }
   | {

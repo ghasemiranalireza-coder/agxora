@@ -414,6 +414,7 @@ export async function switchActiveWorkspace(
       userId: session.userId,
       workspaceId,
       status: "ACTIVE",
+      workspace: { archivedAt: null },
     },
   });
   if (!membership) {

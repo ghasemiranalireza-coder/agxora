@@ -52,6 +52,8 @@ function draft(partial?: Partial<CrmCustomerDraft>): CrmCustomerDraft {
 
 async function wipe(): Promise<void> {
   await prisma.customer.deleteMany();
+  await prisma.controlPlaneAuditEvent.deleteMany();
+  await prisma.invitation.deleteMany();
   await prisma.passwordResetToken.deleteMany();
   await prisma.emailVerificationToken.deleteMany();
   await prisma.session.deleteMany();

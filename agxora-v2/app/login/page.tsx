@@ -57,6 +57,10 @@ function LoginForm(): JSX.Element {
       const result = await iamAuthService.login({ email, password, rememberMe });
       await refresh();
       const next = search.get("next");
+      if (next && next.startsWith("/invite/")) {
+        router.replace(next);
+        return;
+      }
       if (needsWelcome(result.userId)) {
         router.replace("/welcome");
         return;
@@ -79,7 +83,15 @@ function LoginForm(): JSX.Element {
         <>
           <div>
             {t("auth.login.noAccount")}{" "}
-            <AuthLink href="/register">{t("auth.login.startFree")}</AuthLink>
+            <AuthLink
+              href={
+                search.get("next")?.startsWith("/")
+                  ? `/register?next=${encodeURIComponent(search.get("next") ?? "")}`
+                  : "/register"
+              }
+            >
+              {t("auth.login.startFree")}
+            </AuthLink>
           </div>
           <div>
             <AuthLink href="/forgot-password">{t("auth.login.forgotPassword")}</AuthLink>

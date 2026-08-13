@@ -1,9 +1,21 @@
-export type { Actor, CustomerAction, MembershipRole, AuthzResource } from "./types";
+export type { Actor, CustomerAction, ControlPlaneAction, MembershipRole, AuthzResource } from "./types";
 export { PersistenceError, isPersistenceError } from "./errors";
-export { can, assertCan, assertAuthenticated, roleAtLeast } from "./authorize";
+export {
+  can,
+  canControl,
+  assertCan,
+  assertControl,
+  assertCanGrantRole,
+  assertCanManageTarget,
+  assertAuthenticated,
+  roleAtLeast,
+  roleRank,
+  validationError,
+} from "./authorize";
 export {
   getCurrentActor,
   requireCurrentActor,
+  requireActorForWorkspace,
   getActorBySessionToken,
   getActorForWorkspace,
   readSessionToken,
