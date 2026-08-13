@@ -5,15 +5,6 @@ import { useCallback, useEffect, useMemo, useState, type JSX } from "react";
 import { useAISettings } from "../../lib/ai";
 import type { AIProviderId } from "../../lib/ai";
 import {
-  ensureActiveSession,
-  listSessions,
-  revokeOtherSessions,
-  revokeSession,
-  toggleTrustedDevice,
-  useIdentity,
-  type SessionRecord,
-} from "../../lib/identity";
-import {
   ACCENT_SWATCHES,
   API_KEYS,
   AUDIT_LOGS,
@@ -56,6 +47,7 @@ import {
   TeamControlPanel,
   WorkspaceControlPanel,
 } from "./control-plane/ControlPlanePanels";
+import { SecurityPanel } from "./SecurityPanel";
 
 function SaveRow({
   notice,
@@ -772,138 +764,6 @@ function IntegrationsPanel(): JSX.Element {
         connectors, OAuth, webhooks, API keys, and the workflow event bridge.
       </SettingsNotice>
       <DataTable columns={columns} rows={SETTINGS_INTEGRATIONS} rowKey={(r) => r.id} minWidth={680} />
-    </SettingsPanel>
-  );
-}
-
-function SecurityPanel(): JSX.Element {
-  const t = useT();
-  const identity = useIdentity();
-  const [twoFa, setTwoFa] = useState(true);
-  const [encryption, setEncryption] = useState(true);
-  const [notice, setNotice] = useState("Session list is a local architecture store — future server sessions.");
-  const [sessions, setSessions] = useState<readonly SessionRecord[]>(() => {
-    if (!identity.user || !identity.session) return [];
-    ensureActiveSession(identity.user.id, identity.session.sessionId);
-    return listSessions(identity.user.id);
-  });
-
-  const refreshSessions = (): void => {
-    if (!identity.user) return;
-    setSessions(listSessions(identity.user.id));
-  };
-
-  return (
-    <SettingsPanel title={t("settings.security.title")} description={t("settings.security.panelDescription")}>
-      <SettingsToggle
-        label="Two Factor Authentication"
-        description="Require TOTP for admin roles."
-        checked={twoFa}
-        onChange={setTwoFa}
-      />
-      <SettingsToggle
-        label="Encryption"
-        description="At-rest encryption hooks reserved for KMS."
-        checked={encryption}
-        onChange={setEncryption}
-      />
-      <SettingsGrid>
-        <SettingsField label="Password">
-          <Link href="/forgot-password">
-            <Button size="sm" variant="secondary">
-              Change password
-            </Button>
-          </Link>
-        </SettingsField>
-        <SettingsField label="API Keys">
-          <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Manage developer keys under API & Developers.
-          </p>
-        </SettingsField>
-      </SettingsGrid>
-
-      <div className="space-y-2">
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Active Sessions
-          </h3>
-          <Button
-            size="sm"
-            variant="danger"
-            disabled={!identity.user || !identity.session}
-            onClick={() => {
-              if (!identity.user || !identity.session) return;
-              setSessions(revokeOtherSessions(identity.user.id, identity.session.sessionId));
-              setNotice("Other devices signed out. Current session kept.");
-            }}
-          >
-            Logout All Devices
-          </Button>
-        </div>
-        {sessions.length === 0 ? (
-          <EmptyState
-            title="No sessions tracked"
-            description="Sign in to register the current device in the session architecture store."
-          />
-        ) : (
-          <ul className="space-y-2">
-            {sessions.map((item) => (
-              <li
-                key={item.id}
-                className="rounded-xl border px-3 py-3"
-                style={{
-                  borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
-                  background: "rgba(255,255,255,0.02)",
-                }}
-              >
-                <div className="flex flex-wrap items-start justify-between gap-2">
-                  <div>
-                    <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                      {item.deviceLabel}
-                      {item.current ? " · Current Device" : ""}
-                    </p>
-                    <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                      {item.ipHint} · last active {item.lastActiveAt.slice(0, 16).replace("T", " ")}
-                    </p>
-                  </div>
-                  <Badge tone={item.trusted ? "positive" : "default"}>
-                    {item.trusted ? "Trusted" : "Untrusted"}
-                  </Badge>
-                </div>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  <Button
-                    size="sm"
-                    variant="secondary"
-                    onClick={() => {
-                      if (!identity.user) return;
-                      setSessions(toggleTrustedDevice(identity.user.id, item.id, !item.trusted));
-                      setNotice("Trusted device preference updated.");
-                    }}
-                  >
-                    {item.trusted ? "Untrust" : "Trust device"}
-                  </Button>
-                  {!item.current ? (
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      onClick={() => {
-                        if (!identity.user) return;
-                        setSessions(revokeSession(identity.user.id, item.id));
-                        setNotice("Session revoked.");
-                        refreshSessions();
-                      }}
-                    >
-                      Revoke
-                    </Button>
-                  ) : null}
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      <SaveRow notice={notice} onSave={() => setNotice(t("settings.sessionNotice", { area: "security" }))} />
     </SettingsPanel>
   );
 }

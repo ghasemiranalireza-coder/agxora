@@ -30,3 +30,13 @@ export {
   type PublicAuthUser,
   type PublicAuthSession,
 } from "./service";
+export {
+  listManagedSessions,
+  listManagedSessionsForToken,
+  revokeManagedSession,
+  revokeManagedSessionForToken,
+  revokeOtherManagedSessions,
+  revokeOtherManagedSessionsForToken,
+  type PublicManagedSession,
+  type ManagedSessionList,
+} from "./managedSessions";
