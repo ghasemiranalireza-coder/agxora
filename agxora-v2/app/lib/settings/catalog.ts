@@ -11,7 +11,7 @@ export const SETTINGS_NAV: readonly SettingsNavItem[] = [
   { id: "documents", label: "Documents", description: "Storage, retention, and knowledge" },
   { id: "automation", label: "Automation", description: "Workflow defaults and retry policy" },
   { id: "integrations", label: "Integrations", description: "Installed, connected, and available" },
-  { id: "security", label: "Security", description: "2FA, sessions, keys, and encryption" },
+  { id: "security", label: "Security", description: "Sessions, password, and account protection" },
   { id: "billing", label: "Billing", description: "Plan, usage, invoices, and payments" },
   { id: "api", label: "API & Developers", description: "Keys, webhooks, tokens, sandbox" },
   { id: "audit", label: "Audit Logs", description: "Activity, security, and system changes" },
