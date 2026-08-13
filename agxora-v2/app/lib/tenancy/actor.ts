@@ -10,9 +10,9 @@ import type { MembershipRole as PrismaRole } from "@prisma/client";
 import { prisma } from "../db/prisma";
 import { PersistenceError } from "./errors";
 import type { Actor, MembershipRole } from "./types";
+import { SERVER_SESSION_COOKIE, SERVER_SESSION_HEADER } from "./sessionCookie";
 
-export const SERVER_SESSION_COOKIE = "agxora.server.session";
-export const SERVER_SESSION_HEADER = "x-agxora-session-token";
+export { SERVER_SESSION_COOKIE, SERVER_SESSION_HEADER };
 
 function mapRole(role: PrismaRole): MembershipRole {
   return role;

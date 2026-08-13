@@ -19,6 +19,5 @@ export {
   getActorBySessionToken,
   getActorForWorkspace,
   readSessionToken,
-  SERVER_SESSION_COOKIE,
-  SERVER_SESSION_HEADER,
 } from "./actor";
+export { SERVER_SESSION_COOKIE, SERVER_SESSION_HEADER } from "./sessionCookie";
