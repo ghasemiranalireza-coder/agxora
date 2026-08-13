@@ -1,8 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { useState, type FormEvent, type JSX } from "react";
+import { Suspense, useState, type FormEvent, type JSX } from "react";
 import {
   AuthCard,
   AuthCheckbox,
@@ -26,10 +26,11 @@ import { markWelcomePending } from "../lib/auth/welcomeFlags";
 import { useT } from "../lib/i18n";
 import { iamAuthService } from "../../features/auth";
 
-export default function RegisterPage(): JSX.Element {
+function RegisterForm(): JSX.Element {
   const t = useT();
   const { refresh } = useAuth();
   const router = useRouter();
+  const search = useSearchParams();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [companyName, setCompanyName] = useState("");
@@ -79,8 +80,13 @@ export default function RegisterPage(): JSX.Element {
         companyName: companyName.trim(),
         acceptTerms,
       });
-      markWelcomePending(result.userId);
       await refresh();
+      const next = search.get("next");
+      if (next && next.startsWith("/invite/")) {
+        router.replace(next);
+        return;
+      }
+      markWelcomePending(result.userId);
       router.replace("/welcome");
     } catch (err) {
       setError(err instanceof Error ? err.message : "auth.register.failed");
@@ -96,7 +102,15 @@ export default function RegisterPage(): JSX.Element {
       footer={
         <>
           {t("auth.register.haveAccount")}{" "}
-          <AuthLink href="/login">{t("auth.register.signIn")}</AuthLink>
+          <AuthLink
+            href={
+              search.get("next")?.startsWith("/")
+                ? `/login?next=${encodeURIComponent(search.get("next") ?? "")}`
+                : "/login"
+            }
+          >
+            {t("auth.register.signIn")}
+          </AuthLink>
         </>
       }
     >
@@ -261,5 +275,18 @@ export default function RegisterPage(): JSX.Element {
         }
       `}</style>
     </AuthCard>
+  );
+}
+
+function RegisterFallback(): JSX.Element {
+  const t = useT();
+  return <AuthCard title={t("auth.register.title")}>{t("common.loading")}</AuthCard>;
+}
+
+export default function RegisterPage(): JSX.Element {
+  return (
+    <Suspense fallback={<RegisterFallback />}>
+      <RegisterForm />
+    </Suspense>
   );
 }

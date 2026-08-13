@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState, type JSX } from "react";
+import { useCallback, useEffect, useMemo, useState, type JSX } from "react";
 import { useAISettings } from "../../lib/ai";
 import type { AIProviderId } from "../../lib/ai";
 import {
@@ -22,7 +22,6 @@ import {
   DEFAULT_DOCUMENTS_PREFS,
   DEFAULT_NOTIFICATION_PREFS,
   SETTINGS_INTEGRATIONS,
-  TEAM_MEMBERS,
   type AppearancePrefs,
   type AutomationPrefs,
   type DocumentsPrefs,
@@ -33,11 +32,15 @@ import { useTheme, type ThemeMode } from "../../lib/theme";
 import { Badge, Button, DataTable, EmptyState } from "../ui";
 import type { DataTableColumn } from "../ui";
 import { AccountBillingSection, SaasNavLink } from "../../../features/saas";
+import { useAuth } from "../../lib/auth";
+import { isServerAuthMode } from "../../lib/auth/mode";
+import { controlPlaneClient } from "../../lib/control-plane/client";
 import {
   LanguageSwitcher,
   useLocale,
   useT,
 } from "../../lib/i18n";
+import { resolveProfileIdentity, type WorkspaceRole } from "./profileIdentity";
 import {
   SettingsField,
   SettingsGrid,
@@ -48,6 +51,11 @@ import {
   SettingsTextArea,
   SettingsToggle,
 } from "./forms/SettingsControls";
+import {
+  OrganizationControlPanel,
+  TeamControlPanel,
+  WorkspaceControlPanel,
+} from "./control-plane/ControlPlanePanels";
 
 function SaveRow({
   notice,
@@ -75,23 +83,68 @@ function SaveRow({
 }
 
 function ProfilePanel(): JSX.Element {
-  const identity = useIdentity();
-  const { mode } = useTheme();
+  const { user, isAuthenticated, hydrated } = useAuth();
+  const { mode, appearance } = useTheme();
   const { t } = useLocale();
-  const [name, setName] = useState(identity.profile.fullName);
-  const [email, setEmail] = useState(identity.profile.email);
-  const [timezone, setTimezone] = useState(identity.profile.timezone || "Europe/Berlin");
+  const [workspaceRole, setWorkspaceRole] = useState<WorkspaceRole | null>(null);
+  const [timezone, setTimezone] = useState("Europe/Berlin");
   const [region, setRegion] = useState("EU");
-  const [prefs, setPrefs] = useState("Prefer concise AI summaries and German invoice defaults.");
-  const [notice, setNotice] = useState(
-    "Profile is wired to the signed-in identity. Persistence is future API ready.",
-  );
+  const [prefs, setPrefs] = useState("");
+  const [notice, setNotice] = useState<string | null>(null);
+
+  const identity = resolveProfileIdentity({
+    hydrated,
+    authenticated: isAuthenticated,
+    displayName: user?.displayName,
+    email: user?.email,
+    workspaceRole,
+  });
+
+  const loadRole = useCallback(async () => {
+    if (!isServerAuthMode() || !isAuthenticated) {
+      setWorkspaceRole(null);
+      return;
+    }
+    try {
+      const data = await controlPlaneClient.organization();
+      setWorkspaceRole(data.organization.viewerRole);
+    } catch {
+      setWorkspaceRole(null);
+    }
+  }, [isAuthenticated]);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      void loadRole();
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [loadRole]);
+
+  const roleLabel =
+    identity.role === "OWNER"
+      ? t("settings.controlPlane.roleOwner")
+      : identity.role === "ADMIN"
+        ? t("settings.controlPlane.roleAdmin")
+        : identity.role === "MEMBER"
+          ? t("settings.controlPlane.roleMember")
+          : "";
+
+  const identityReadOnly = identity.status !== "ready";
 
   return (
     <SettingsPanel
       title={t("settings.profile.title")}
       description={t("settings.profile.panelDescription")}
     >
+      {identity.status === "loading" ? (
+        <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          {t("settings.controlPlane.loading")}
+        </p>
+      ) : null}
+      {identity.status === "signed_out" ? (
+        <SettingsNotice>{t("settings.profile.signedOut")}</SettingsNotice>
+      ) : null}
+
       <div className="flex items-center gap-4">
         <div
           className="flex h-16 w-16 items-center justify-center rounded-2xl border text-lg font-semibold"
@@ -102,17 +155,21 @@ function ProfilePanel(): JSX.Element {
           }}
           aria-hidden="true"
         >
-          {identity.profile.avatarInitials}
+          {identity.initials || "—"}
         </div>
         <div>
           <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
             {t("settings.profile.avatar")}
           </p>
           <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            {t("settings.profile.role")}: {identity.profile.roleLabel} · {t("settings.profile.theme")}: {mode}
+            {t("settings.profile.role")}: {roleLabel || "—"} · {t("settings.profile.theme")}: {mode}
           </p>
           <div className="mt-2">
-            <Button size="sm" variant="secondary" onClick={() => setNotice("Avatar upload is not available yet.")}>
+            <Button
+              size="sm"
+              variant="secondary"
+              onClick={() => setNotice(t("settings.profile.avatarUnavailable"))}
+            >
               {t("settings.profile.changeAvatar")}
             </Button>
           </div>
@@ -120,13 +177,24 @@ function ProfilePanel(): JSX.Element {
       </div>
       <SettingsGrid>
         <SettingsField label={t("settings.profile.fullName")}>
-          <SettingsInput value={name} onChange={(e) => setName(e.target.value)} />
+          <SettingsInput
+            value={identity.displayName}
+            readOnly
+            aria-readonly="true"
+            disabled={identityReadOnly}
+          />
         </SettingsField>
         <SettingsField label={t("settings.profile.email")}>
-          <SettingsInput type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <SettingsInput
+            type="email"
+            value={identity.email}
+            readOnly
+            aria-readonly="true"
+            disabled={identityReadOnly}
+          />
         </SettingsField>
         <SettingsField label={t("settings.profile.role")}>
-          <SettingsInput value={identity.profile.roleLabel} readOnly />
+          <SettingsInput value={roleLabel} readOnly aria-readonly="true" />
         </SettingsField>
         <SettingsField label={t("settings.profile.language")}>
           <LanguageSwitcher id="settings-profile-language" size="md" />
@@ -137,11 +205,14 @@ function ProfilePanel(): JSX.Element {
             <option value="Europe/London">Europe/London</option>
             <option value="America/New_York">America/New_York</option>
             <option value="Asia/Dubai">Asia/Dubai</option>
-            <option value={identity.profile.timezone}>{identity.profile.timezone}</option>
           </SettingsSelect>
         </SettingsField>
         <SettingsField label={t("settings.profile.theme")}>
-          <SettingsInput value={`${mode} (resolved ${identity.profile.themeAppearance})`} readOnly />
+          <SettingsInput
+            value={`${mode} (resolved ${appearance})`}
+            readOnly
+            aria-readonly="true"
+          />
         </SettingsField>
         <SettingsField label={t("settings.profile.region")}>
           <SettingsSelect value={region} onChange={(e) => setRegion(e.target.value)}>
@@ -152,12 +223,14 @@ function ProfilePanel(): JSX.Element {
           </SettingsSelect>
         </SettingsField>
       </SettingsGrid>
-      <SettingsField label={t("settings.profile.personalPrefs")} hint="Used by AI assistants across modules.">
+      <SettingsField label={t("settings.profile.personalPrefs")} hint={t("settings.profile.prefsHint")}>
         <SettingsTextArea value={prefs} onChange={setPrefs} />
       </SettingsField>
-      <SettingsNotice>
-        Appearance configuration remains under Appearance. Header provides a theme quick toggle only.
-      </SettingsNotice>
+      {identity.status === "ready" ? (
+        <SettingsNotice>{t("settings.profile.serverIdentityNotice")}</SettingsNotice>
+      ) : null}
+      <SettingsNotice>{t("settings.profile.appearanceNote")}</SettingsNotice>
+      <SettingsNotice>{t("settings.profile.localPrefsNotice")}</SettingsNotice>
       <SettingsNotice>
         {t("settings.profile.supportLinks")}:{" "}
         <Link href="/contact" className="underline-offset-2 hover:underline">
@@ -172,142 +245,15 @@ function ProfilePanel(): JSX.Element {
           {t("common.terms")}
         </Link>
       </SettingsNotice>
+      {notice ? (
+        <p className="text-sm" role="status" style={{ color: "var(--agx-accent, #22d3ee)" }}>
+          {notice}
+        </p>
+      ) : null}
       <SaveRow
-        notice={notice}
+        notice={t("settings.profile.localPrefsNotice")}
         onSave={() => setNotice(t("settings.sessionNotice", { area: "profile" }))}
       />
-    </SettingsPanel>
-  );
-}
-
-function OrganizationPanel(): JSX.Element {
-  const t = useT();
-  const [company, setCompany] = useState("");
-  const [address, setAddress] = useState("");
-  const [tax, setTax] = useState("");
-  const [departments, setDepartments] = useState("Finance, Sales, Marketing, People, Security");
-  const [units, setUnits] = useState("DACH, Nordics, MENA");
-  const [workspaceName, setWorkspaceName] = useState("AGXORA Core");
-  const [notice, setNotice] = useState("Organization profile is architecture-ready for org APIs.");
-
-  return (
-    <SettingsPanel title={t("settings.organization.title")} description={t("settings.organization.panelDescription")}>
-      <SettingsGrid>
-        <SettingsField label="Company Name">
-          <SettingsInput value={company} onChange={(e) => setCompany(e.target.value)} />
-        </SettingsField>
-        <SettingsField label="Workspace Name">
-          <SettingsInput value={workspaceName} onChange={(e) => setWorkspaceName(e.target.value)} />
-        </SettingsField>
-        <SettingsField label="Tax Information">
-          <SettingsInput value={tax} onChange={(e) => setTax(e.target.value)} />
-        </SettingsField>
-        <SettingsField label="Logo">
-          <Button size="sm" variant="secondary" onClick={() => setNotice("Logo upload is not available yet.")}>
-            Upload logo
-          </Button>
-        </SettingsField>
-      </SettingsGrid>
-      <SettingsField label="Address">
-        <SettingsTextArea value={address} onChange={setAddress} rows={2} />
-      </SettingsField>
-      <SettingsField label="Departments">
-        <SettingsInput value={departments} onChange={(e) => setDepartments(e.target.value)} />
-      </SettingsField>
-      <SettingsField label="Business Units">
-        <SettingsInput value={units} onChange={(e) => setUnits(e.target.value)} />
-      </SettingsField>
-      <SaveRow notice={notice} onSave={() => setNotice(t("settings.sessionNotice", { area: "organization" }))} />
-    </SettingsPanel>
-  );
-}
-
-function WorkspacePanel(): JSX.Element {
-  const t = useT();
-  const [dashboard, setDashboard] = useState("command-center");
-  const [homepage, setHomepage] = useState("/dashboard");
-  const [branding, setBranding] = useState("AGXORA Business OS");
-  const [modules, setModules] = useState("dashboard,crm,finance,automation,documents,creator");
-  const [notice, setNotice] = useState("Workspace settings control default modules and homepage.");
-
-  return (
-    <SettingsPanel title={t("settings.workspace.title")} description={t("settings.workspace.panelDescription")}>
-      <SettingsGrid>
-        <SettingsField label="Default Dashboard">
-          <SettingsSelect value={dashboard} onChange={(e) => setDashboard(e.target.value)}>
-            <option value="command-center">Command Center</option>
-            <option value="finance">Finance Overview</option>
-            <option value="crm">CRM Pipeline</option>
-            <option value="documents">Knowledge Hub</option>
-          </SettingsSelect>
-        </SettingsField>
-        <SettingsField label="Homepage">
-          <SettingsSelect value={homepage} onChange={(e) => setHomepage(e.target.value)}>
-            <option value="/dashboard">/dashboard</option>
-            <option value="/dashboard/crm">/dashboard/crm</option>
-            <option value="/dashboard/finance">/dashboard/finance</option>
-            <option value="/dashboard/documents">/dashboard/documents</option>
-          </SettingsSelect>
-        </SettingsField>
-      </SettingsGrid>
-      <SettingsField label="Workspace Branding">
-        <SettingsInput value={branding} onChange={(e) => setBranding(e.target.value)} />
-      </SettingsField>
-      <SettingsField label="Default Modules" hint="Comma-separated module keys enabled for new members.">
-        <SettingsInput value={modules} onChange={(e) => setModules(e.target.value)} />
-      </SettingsField>
-      <SaveRow notice={notice} onSave={() => setNotice(t("settings.sessionNotice", { area: "workspace" }))} />
-    </SettingsPanel>
-  );
-}
-
-function TeamPanel(): JSX.Element {
-  const columns = useMemo<DataTableColumn<(typeof TEAM_MEMBERS)[number]>[]>(
-    () => [
-      { key: "name", header: "Member", render: (r) => r.name },
-      { key: "email", header: "Email", render: (r) => r.email },
-      { key: "role", header: "Role", render: (r) => r.role },
-      {
-        key: "status",
-        header: "Status",
-        render: (r) => (
-          <Badge tone={r.status === "active" ? "positive" : r.status === "invited" ? "accent" : "default"}>
-            {r.status}
-          </Badge>
-        ),
-      },
-    ],
-    [],
-  );
-
-  const t = useT();
-
-  return (
-    <SettingsPanel
-      title={t("settings.team.title")}
-      description={t("settings.team.panelDescription")}
-      actions={
-        <Button size="sm" variant="primary">
-          Invite member
-        </Button>
-      }
-    >
-      <SettingsNotice>
-        Roles & permissions map to RBAC (`settings.manage`, module scopes). Invitation email delivery is queued for the mail provider.
-      </SettingsNotice>
-      <DataTable columns={columns} rows={TEAM_MEMBERS} rowKey={(r) => r.id} minWidth={640} />
-      <SettingsGrid>
-        <SettingsField label="Groups">
-          <SettingsInput defaultValue="Leadership, Finance Controllers, Creators" readOnly />
-        </SettingsField>
-        <SettingsField label="Default Role for Invites">
-          <SettingsSelect defaultValue="viewer">
-            <option value="viewer">Viewer</option>
-            <option value="editor">Editor</option>
-            <option value="admin">Admin</option>
-          </SettingsSelect>
-        </SettingsField>
-      </SettingsGrid>
     </SettingsPanel>
   );
 }
@@ -1125,11 +1071,11 @@ export function SettingsSectionPanel({
     case "profile":
       return <ProfilePanel />;
     case "organization":
-      return <OrganizationPanel />;
+      return <OrganizationControlPanel />;
     case "workspace":
-      return <WorkspacePanel />;
+      return <WorkspaceControlPanel />;
     case "team":
-      return <TeamPanel />;
+      return <TeamControlPanel />;
     case "ai":
       return <AiPanel />;
     case "appearance":

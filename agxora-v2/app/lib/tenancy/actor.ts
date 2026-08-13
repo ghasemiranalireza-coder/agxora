@@ -18,6 +18,32 @@ function mapRole(role: PrismaRole): MembershipRole {
   return role;
 }
 
+async function loadActiveMembership(
+  userId: string,
+  preferredWorkspaceId?: string | null,
+) {
+  if (preferredWorkspaceId) {
+    const preferred = await prisma.membership.findFirst({
+      where: {
+        userId,
+        workspaceId: preferredWorkspaceId,
+        status: "ACTIVE",
+        workspace: { archivedAt: null },
+      },
+    });
+    if (preferred) return preferred;
+  }
+
+  return prisma.membership.findFirst({
+    where: {
+      userId,
+      status: "ACTIVE",
+      workspace: { archivedAt: null },
+    },
+    orderBy: { createdAt: "asc" },
+  });
+}
+
 async function resolveActorFromToken(token: string): Promise<Actor | null> {
   const session = await prisma.session.findUnique({
     where: { token },
@@ -38,23 +64,10 @@ async function resolveActorFromToken(token: string): Promise<Actor | null> {
     return null;
   }
 
-  let membership = null;
-  if (session.activeWorkspaceId) {
-    membership = await prisma.membership.findFirst({
-      where: {
-        userId: session.userId,
-        workspaceId: session.activeWorkspaceId,
-        status: "ACTIVE",
-      },
-    });
-  }
-
-  if (!membership) {
-    membership = await prisma.membership.findFirst({
-      where: { userId: session.userId, status: "ACTIVE" },
-      orderBy: { createdAt: "asc" },
-    });
-  }
+  const membership = await loadActiveMembership(
+    session.userId,
+    session.activeWorkspaceId,
+  );
 
   if (!membership) {
     throw new PersistenceError(
@@ -100,6 +113,7 @@ export async function getActorForWorkspace(
       userId: session.userId,
       workspaceId,
       status: "ACTIVE",
+      workspace: { archivedAt: null },
     },
   });
   if (!membership) return null;
@@ -138,6 +152,22 @@ export async function requireCurrentActor(): Promise<Actor> {
   const actor = await getCurrentActor();
   if (!actor) {
     throw new PersistenceError("unauthorized", "Authentication required");
+  }
+  return actor;
+}
+
+/**
+ * Resolve actor in a requested workspace after verifying membership.
+ * The requested ID is a hint only — membership is the authority.
+ */
+export async function requireActorForWorkspace(workspaceId: string): Promise<Actor> {
+  const token = await readSessionToken();
+  if (!token) {
+    throw new PersistenceError("unauthorized", "Authentication required");
+  }
+  const actor = await getActorForWorkspace(token, workspaceId);
+  if (!actor) {
+    throw new PersistenceError("forbidden", "No membership for requested workspace");
   }
   return actor;
 }

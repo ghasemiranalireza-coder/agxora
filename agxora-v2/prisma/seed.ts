@@ -246,7 +246,7 @@ async function main(): Promise<void> {
     });
   }
 
-  console.log("Phase 43 seed complete (bcrypt passwords)");
+  console.log("Phase 42.1–44 seed complete (bcrypt passwords, no invitations)");
   console.log(
     JSON.stringify(
       {

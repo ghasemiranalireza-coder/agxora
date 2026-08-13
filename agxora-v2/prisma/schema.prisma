@@ -1,5 +1,6 @@
-// AGXORA Phase 42.1 + Phase 43 — Production foundation + real authentication
-// PostgreSQL source of truth for User / Organization / Workspace / Membership / Session / Customer
+// AGXORA Phase 42.1 + Phase 43 + Phase 44
+// PostgreSQL source of truth for User / Organization / Workspace / Membership /
+// Session / Customer / Invitation / ControlPlaneAuditEvent
 
 generator client {
   provider = "prisma-client-js"
@@ -45,9 +46,11 @@ model User {
 
   memberships            Membership[]
   sessions               Session[]
-  ownedOrganizations     Organization[]         @relation("OrganizationOwner")
-  passwordResetTokens    PasswordResetToken[]
+  ownedOrganizations      Organization[]          @relation("OrganizationOwner")
+  passwordResetTokens     PasswordResetToken[]
   emailVerificationTokens EmailVerificationToken[]
+  invitationsSent         Invitation[]            @relation("InvitationInviter")
+  auditEvents             ControlPlaneAuditEvent[]
 
   @@index([externalAuthId])
   @@map("users")
@@ -65,25 +68,32 @@ model Organization {
   workspaces  Workspace[]
   memberships Membership[]
   customers   Customer[]
+  invitations Invitation[]
+  auditEvents ControlPlaneAuditEvent[]
 
   @@index([ownerId])
   @@map("organizations")
 }
 
 model Workspace {
-  id             String   @id @default(uuid()) @db.Uuid
-  organizationId String   @db.Uuid
+  id             String    @id @default(uuid()) @db.Uuid
+  organizationId String    @db.Uuid
   name           String
   slug           String
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  /// Soft archive — archived workspaces cannot be switched into or mutated
+  archivedAt     DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
 
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   memberships  Membership[]
   customers    Customer[]
+  invitations  Invitation[]
+  auditEvents  ControlPlaneAuditEvent[]
 
   @@unique([organizationId, slug])
   @@index([organizationId])
+  @@index([archivedAt])
   @@map("workspaces")
 }
 
@@ -107,6 +117,54 @@ model Membership {
   @@index([workspaceId])
   @@index([userId, organizationId, status])
   @@map("memberships")
+}
+
+/// Workspace invitation — raw token is never stored; only tokenHash.
+model Invitation {
+  id             String    @id @default(uuid()) @db.Uuid
+  organizationId String    @db.Uuid
+  workspaceId    String    @db.Uuid
+  invitedEmail   String
+  role           MembershipRole
+  tokenHash      String    @unique
+  expiresAt      DateTime
+  acceptedAt     DateTime?
+  revokedAt      DateTime?
+  invitedById    String    @db.Uuid
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  invitedBy    User         @relation("InvitationInviter", fields: [invitedById], references: [id], onDelete: Restrict)
+
+  @@index([workspaceId, invitedEmail])
+  @@index([organizationId])
+  @@index([expiresAt])
+  @@index([invitedById])
+  @@map("invitations")
+}
+
+/// Compact control-plane audit — no secrets, no raw tokens.
+model ControlPlaneAuditEvent {
+  id             String   @id @default(uuid()) @db.Uuid
+  organizationId String   @db.Uuid
+  workspaceId    String?  @db.Uuid
+  actorUserId    String   @db.Uuid
+  action         String
+  targetUserId   String?  @db.Uuid
+  invitationId   String?  @db.Uuid
+  metadata       Json     @default("{}")
+  createdAt      DateTime @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace?   @relation(fields: [workspaceId], references: [id], onDelete: SetNull)
+  actor        User         @relation(fields: [actorUserId], references: [id], onDelete: Restrict)
+
+  @@index([organizationId, createdAt])
+  @@index([workspaceId, createdAt])
+  @@index([actorUserId, createdAt])
+  @@map("control_plane_audit_events")
 }
 
 /// Server-authoritative session. Token is high-entropy; cookie is httpOnly.
