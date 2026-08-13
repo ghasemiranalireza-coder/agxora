@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { AUTH_SESSION_COOKIE } from "./app/lib/auth/sessionStore";
-import { SERVER_SESSION_COOKIE } from "./app/lib/tenancy/actor";
+import { SERVER_SESSION_COOKIE } from "./app/lib/tenancy/sessionCookie";
 import {
   AUTH_PAGE_PREFIXES,
   ADMIN_ROUTE_PREFIXES,
