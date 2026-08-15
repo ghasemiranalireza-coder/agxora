@@ -10,6 +10,8 @@ import type {
   CrmCustomerDraft,
   CrmCustomerId,
   CrmCustomerRecord,
+  CrmNoteDraft,
+  CrmNoteRecord,
 } from "./types";
 
 const SESSION_STORAGE_KEY = "agxora.server.session.token";
@@ -166,6 +168,51 @@ export async function remoteUpdateContact(
 
 export async function remoteDeleteContact(id: string): Promise<void> {
   await crmFetch(`/api/v1/crm/contacts/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+  });
+}
+
+/** Phase 48 — Notes (database mode). */
+
+export async function remoteListNotes(
+  customerId: CrmCustomerId,
+): Promise<CrmNoteRecord[]> {
+  const data = await crmFetch<{ items: CrmNoteRecord[] }>(
+    `/api/v1/crm/customers/${encodeURIComponent(customerId)}/notes`,
+  );
+  return [...(data.items ?? [])];
+}
+
+export async function remoteCreateNote(
+  customerId: CrmCustomerId,
+  draft: CrmNoteDraft,
+): Promise<CrmNoteRecord> {
+  const data = await crmFetch<{ note: CrmNoteRecord }>(
+    `/api/v1/crm/customers/${encodeURIComponent(customerId)}/notes`,
+    {
+      method: "POST",
+      body: JSON.stringify({ draft }),
+    },
+  );
+  return data.note;
+}
+
+export async function remoteUpdateNote(
+  id: string,
+  draft: CrmNoteDraft,
+): Promise<CrmNoteRecord> {
+  const data = await crmFetch<{ note: CrmNoteRecord }>(
+    `/api/v1/crm/notes/${encodeURIComponent(id)}`,
+    {
+      method: "PUT",
+      body: JSON.stringify({ draft }),
+    },
+  );
+  return data.note;
+}
+
+export async function remoteDeleteNote(id: string): Promise<void> {
+  await crmFetch(`/api/v1/crm/notes/${encodeURIComponent(id)}`, {
     method: "DELETE",
   });
 }

@@ -48,6 +48,12 @@ export type ValidatedContactPayload = {
   readonly notes: string;
 };
 
+export type ValidatedNotePayload = {
+  readonly title: string;
+  readonly body: string;
+  readonly author: string;
+};
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[+]?[\d\s()./-]{6,24}$/;
 const URL_RE = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/\S*)?$/i;
@@ -179,7 +185,7 @@ export function validateContactDraft(draft: CrmContactDraft):
 export function validateNoteDraft(draft: CrmNoteDraft):
   | {
       readonly ok: true;
-      readonly value: { title: string; body: string; author: string };
+      readonly value: ValidatedNotePayload;
     }
   | { readonly ok: false; readonly errors: readonly CrmNoteFieldError[] } {
   const errors: CrmNoteFieldError[] = [];

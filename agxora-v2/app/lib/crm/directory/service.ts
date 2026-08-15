@@ -5,13 +5,17 @@ import { crmDirectoryRepository } from "./repository";
 import {
   remoteCreateContact,
   remoteCreateCustomer,
+  remoteCreateNote,
   remoteDeleteContact,
   remoteDeleteCustomer,
+  remoteDeleteNote,
   remoteGetCustomer,
   remoteListContacts,
   remoteListCustomers,
+  remoteListNotes,
   remoteUpdateContact,
   remoteUpdateCustomer,
+  remoteUpdateNote,
 } from "./remoteAdapter";
 import type {
   CrmContactDraft,
@@ -265,7 +269,10 @@ export class CrmDirectoryService {
     return this.repo.deleteContact(id);
   }
 
-  listNotes(customerId: CrmCustomerId) {
+  async listNotes(customerId: CrmCustomerId) {
+    if (isCrmDatabaseMode()) {
+      return remoteListNotes(customerId);
+    }
     return this.repo.listNotes(customerId);
   }
 
@@ -276,6 +283,10 @@ export class CrmDirectoryService {
   ) {
     const result = validateNoteDraft(draft);
     if (!result.ok) throw new CrmNoteValidationError(result.errors);
+    if (isCrmDatabaseMode()) {
+      // organizationId from the browser is ignored — server derives tenancy.
+      return remoteCreateNote(customerId, draft);
+    }
     return this.repo.createNote({
       customerId,
       organizationId,
@@ -286,10 +297,17 @@ export class CrmDirectoryService {
   async updateNoteFromDraft(id: string, draft: CrmNoteDraft) {
     const result = validateNoteDraft(draft);
     if (!result.ok) throw new CrmNoteValidationError(result.errors);
+    if (isCrmDatabaseMode()) {
+      return remoteUpdateNote(id, draft);
+    }
     return this.repo.updateNote(id, result.value);
   }
 
-  deleteNote(id: string) {
+  async deleteNote(id: string) {
+    if (isCrmDatabaseMode()) {
+      await remoteDeleteNote(id);
+      return;
+    }
     return this.repo.deleteNote(id);
   }
 
