@@ -8,6 +8,10 @@ function subscribe(listener: () => void): () => void {
   return aiConversationStore.subscribe(listener);
 }
 
+/** Stable empty snapshots for useSyncExternalStore getServerSnapshot. */
+const EMPTY_SUMMARIES: AiConversationSummary[] = [];
+const EMPTY_IDS: string[] = [];
+
 export function useAiPlatformHydrated(): boolean {
   return useSyncExternalStore(
     subscribe,
@@ -43,7 +47,7 @@ export function useAiConversationSummaries(
         query,
         includeArchived,
       }),
-    () => [],
+    () => EMPTY_SUMMARIES,
   );
 }
 
@@ -51,7 +55,7 @@ export function useAiFavoritePromptIds(): string[] {
   return useSyncExternalStore(
     subscribe,
     () => aiConversationStore.getFavoritePromptIds(),
-    () => [],
+    () => EMPTY_IDS,
   );
 }
 
@@ -59,6 +63,6 @@ export function useAiRecentPromptIds(): string[] {
   return useSyncExternalStore(
     subscribe,
     () => aiConversationStore.getRecentPromptIds(),
-    () => [],
+    () => EMPTY_IDS,
   );
 }

@@ -467,7 +467,11 @@ export function TeamControlPanel(): JSX.Element {
     setBusy(true);
     try {
       const result = await controlPlaneClient.invite(workspaceId, inviteEmail, inviteRole);
-      setInviteLink(`${window.location.origin}${result.acceptPath}`);
+      if (result.acceptPath) {
+        setInviteLink(`${window.location.origin}${result.acceptPath}`);
+      } else {
+        setInviteLink("");
+      }
       setNotice(result.message);
       setInviteEmail("");
       await load();

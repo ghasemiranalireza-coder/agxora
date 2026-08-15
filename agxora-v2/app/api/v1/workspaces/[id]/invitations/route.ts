@@ -32,19 +32,30 @@ export async function POST(
     const { id } = await context.params;
     const actor = await requireActorForWorkspace(id);
     const body = (await request.json()) as Record<string, unknown>;
-    const { invitation, token } = await createInvitation(actor, {
+    const { invitation, token, delivery } = await createInvitation(actor, {
       email: body.email,
       role: body.role,
     });
+
+    const queued = delivery === "queued";
+    // When email was handed off, do not return the raw token in the JSON body.
+    // Operators can still share manually when delivery remains not_configured.
     return NextResponse.json(
       {
         ok: true,
         invitation,
-        token,
-        acceptPath: `/invite/${token}`,
-        delivery: "not_configured",
-        message:
-          "Invitation created. Email delivery is not configured yet — share the invite link directly.",
+        delivery,
+        ...(queued
+          ? {
+              message:
+                "Invitation created and email delivery was queued for the recipient.",
+            }
+          : {
+              token,
+              acceptPath: `/invite/${token}`,
+              message:
+                "Invitation created. Email delivery is not configured — share the invite link directly.",
+            }),
       },
       { status: 201 },
     );

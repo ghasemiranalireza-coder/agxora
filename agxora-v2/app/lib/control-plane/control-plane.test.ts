@@ -11,6 +11,13 @@ import { PersistenceError } from "@/app/lib/tenancy/errors";
 import { jsonError } from "@/app/lib/crm/persistence/http";
 import { hashOpaqueToken } from "@/app/lib/auth/server/tokens";
 import { registerWithPassword } from "@/app/lib/auth/server/service";
+import {
+  forceMemoryEmailFailure,
+  listMemoryEmailOutbox,
+  memoryEmailProvider,
+  resetMemoryEmailOutbox,
+  setEmailProviderForTests,
+} from "@/app/lib/email";
 import { GET as getCurrentOrganizationRoute } from "@/app/api/v1/organizations/current/route";
 import { GET as listWorkspacesRoute } from "@/app/api/v1/workspaces/route";
 import type { Actor } from "@/app/lib/tenancy/types";
@@ -160,11 +167,15 @@ beforeAll(async () => {
 });
 
 beforeEach(async () => {
+  setEmailProviderForTests(null);
+  resetMemoryEmailOutbox();
   await wipe();
   await seed();
 });
 
 afterAll(async () => {
+  setEmailProviderForTests(null);
+  resetMemoryEmailOutbox();
   await wipe();
   await prisma.$disconnect();
 });
@@ -572,6 +583,42 @@ describe("Phase 44 invitations", () => {
     await expect(revokeInvitation(ownerB, created.invitation.id)).rejects.toMatchObject({
       code: "not_found",
     });
+  });
+
+  it("Phase 45: queues invitation email on successful handoff and keeps accept flow", async () => {
+    setEmailProviderForTests(memoryEmailProvider);
+    const owner = await actor(TOKEN_OWNER_A);
+    const created = await createInvitation(owner, {
+      email: "queued-invite@cp.test",
+      role: "MEMBER",
+    });
+    expect(created.delivery).toBe("queued");
+    expect(listMemoryEmailOutbox()).toHaveLength(1);
+    expect(listMemoryEmailOutbox()[0]?.kind).toBe("invitation");
+
+    const invitee = await registerWithPassword({
+      email: "queued-invite@cp.test",
+      password: "SecurePass1!",
+      displayName: "Queued Invitee",
+    });
+    const inviteeActor = await actor(invitee.rawSessionToken);
+    const accepted = await acceptInvitation(inviteeActor, created.token);
+    expect(accepted.workspaceId).toBe(owner.workspaceId);
+  });
+
+  it("Phase 45: does not report queued when invitation handoff fails", async () => {
+    setEmailProviderForTests(memoryEmailProvider);
+    forceMemoryEmailFailure("webhook down");
+    const owner = await actor(TOKEN_OWNER_A);
+    const created = await createInvitation(owner, {
+      email: "fail-invite@cp.test",
+      role: "MEMBER",
+    });
+    expect(created.delivery).toBe("not_configured");
+    expect(listMemoryEmailOutbox()).toHaveLength(0);
+    expect(created.token).toBeTruthy();
+    const preview = await previewInvitation(created.token);
+    expect(preview.status).toBe("pending");
   });
 });
 

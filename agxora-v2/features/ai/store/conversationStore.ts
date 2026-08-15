@@ -1,6 +1,7 @@
 /**
  * AI conversation store — LocalStorage-backed, selector-friendly.
  * UI never talks to providers; only the platform service generates replies.
+ * Derived selectors are cached for useSyncExternalStore referential stability.
  */
 
 import type { AiConversation, AiConversationSummary, AiMessage } from "../types";
@@ -35,6 +36,10 @@ let state: AiPlatformState = {
   hydrated: false,
   generating: false,
 };
+
+/** Invalidate when `state` is replaced so listSummaries stays referentially stable. */
+let summariesCacheState: AiPlatformState = state;
+const summariesCache = new Map<string, AiConversationSummary[]>();
 
 function emit(): void {
   listeners.forEach((listener) => listener());
@@ -134,20 +139,30 @@ export const aiConversationStore = {
     query?: string;
     includeArchived?: boolean;
   }): AiConversationSummary[] {
+    if (summariesCacheState !== state) {
+      summariesCache.clear();
+      summariesCacheState = state;
+    }
     const query = options?.query?.trim().toLowerCase() ?? "";
     const includeArchived = options?.includeArchived ?? false;
-    const rows = state.conversations
-      .filter((c) => !c.deleted)
-      .filter((c) => (includeArchived ? true : !c.archived))
-      .map(toSummary)
-      .filter((row) => {
-        if (!query) return true;
-        return (
-          row.title.toLowerCase().includes(query) ||
-          row.preview.toLowerCase().includes(query)
-        );
-      });
-    return sortSummaries(rows);
+    const cacheKey = `${includeArchived ? "1" : "0"}:${query}`;
+    const cached = summariesCache.get(cacheKey);
+    if (cached) return cached;
+    const rows = sortSummaries(
+      state.conversations
+        .filter((c) => !c.deleted)
+        .filter((c) => (includeArchived ? true : !c.archived))
+        .map(toSummary)
+        .filter((row) => {
+          if (!query) return true;
+          return (
+            row.title.toLowerCase().includes(query) ||
+            row.preview.toLowerCase().includes(query)
+          );
+        }),
+    );
+    summariesCache.set(cacheKey, rows);
+    return rows;
   },
 
   getActiveConversation(): AiConversation | null {

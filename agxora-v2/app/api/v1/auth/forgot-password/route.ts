@@ -8,8 +8,9 @@ export const runtime = "nodejs";
 type Body = { readonly email?: string };
 
 /**
- * Always returns a generic success shape.
- * Never claims "email sent" unless AGXORA_AUTH_EMAIL_DELIVERY=configured.
+ * Always returns a generic success shape for valid requests.
+ * `delivery: "queued"` only after a successful provider handoff for an
+ * existing account. Never claims email was sent without a handoff.
  */
 export async function POST(request: Request): Promise<NextResponse> {
   try {
@@ -27,9 +28,11 @@ export async function POST(request: Request): Promise<NextResponse> {
       ...(result.delivery === "not_configured"
         ? {
             message:
-              "Password reset accepted. Email delivery is not configured yet.",
+              "Password reset accepted. Email delivery is not configured or handoff did not succeed — use a reset link from a trusted channel if available.",
           }
-        : {}),
+        : {
+            message: "Password reset accepted. Email delivery was queued.",
+          }),
     });
   } catch (error) {
     return authJsonError(error);

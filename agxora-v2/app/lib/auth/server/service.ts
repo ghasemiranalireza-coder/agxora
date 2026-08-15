@@ -12,6 +12,12 @@ import { PersistenceError } from "@/app/lib/tenancy/errors";
 import { assertPasswordPolicy, hashPassword, verifyPassword } from "./password";
 import { createOpaqueToken, hashOpaqueToken } from "./tokens";
 import { SESSION_MAX_AGE_SECONDS } from "./cookies";
+import {
+  buildEmailVerificationEmail,
+  buildPasswordResetEmail,
+  deliverEmail,
+  type EmailDeliveryStatus,
+} from "@/app/lib/email";
 
 const GENERIC_AUTH_ERROR = "Invalid email or password";
 const RESET_TTL_MS = 60 * 60 * 1000;
@@ -269,26 +275,24 @@ export async function getSessionPublic(token: string | null): Promise<{
 }
 
 /**
- * Forgot-password: creates a one-time hashed token.
- * Does not claim email delivery unless AGXORA_AUTH_EMAIL_DELIVERY=configured.
+ * Forgot-password: creates a one-time hashed token and attempts email delivery.
+ * `delivery: "queued"` only after a successful provider handoff.
  * Dev/test may expose raw token when AGXORA_AUTH_EXPOSE_RESET_TOKEN=1.
+ *
+ * Anti-enumeration: missing accounts return the same ok shape. When a provider
+ * is configured but the account is missing, delivery stays "not_configured"
+ * (no message was handed off). Existing accounts report actual handoff status.
  */
 export async function requestPasswordReset(emailRaw: string): Promise<{
   readonly ok: true;
-  readonly delivery: "not_configured" | "queued";
+  readonly delivery: EmailDeliveryStatus;
   readonly resetToken?: string;
 }> {
   const email = normalizeEmail(emailRaw);
   const user = await prisma.user.findUnique({ where: { email } });
 
-  // Always return the same shape — do not reveal whether email exists
-  const delivery =
-    process.env.AGXORA_AUTH_EMAIL_DELIVERY === "configured"
-      ? ("queued" as const)
-      : ("not_configured" as const);
-
   if (!user) {
-    return { ok: true, delivery };
+    return { ok: true, delivery: "not_configured" };
   }
 
   const rawToken = createOpaqueToken(32);
@@ -303,7 +307,10 @@ export async function requestPasswordReset(emailRaw: string): Promise<{
     },
   });
 
-  // Follow-up: enqueue email with rawToken. Never log the raw token.
+  const { delivery } = await deliverEmail(
+    buildPasswordResetEmail({ to: email, rawToken }),
+  );
+
   if (process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN === "1") {
     return { ok: true, delivery, resetToken: rawToken };
   }
@@ -354,7 +361,12 @@ export async function resetPasswordWithToken(input: {
 
 export async function createEmailVerificationToken(
   userId: string,
-): Promise<{ rawToken: string; delivery: "not_configured" | "queued" }> {
+): Promise<{ rawToken: string; delivery: EmailDeliveryStatus }> {
+  const user = await prisma.user.findUnique({ where: { id: userId } });
+  if (!user) {
+    throw new PersistenceError("not_found", "User not found");
+  }
+
   const rawToken = createOpaqueToken(32);
   await prisma.emailVerificationToken.create({
     data: {
@@ -363,10 +375,10 @@ export async function createEmailVerificationToken(
       expiresAt: new Date(Date.now() + VERIFY_TTL_MS),
     },
   });
-  const delivery =
-    process.env.AGXORA_AUTH_EMAIL_DELIVERY === "configured"
-      ? ("queued" as const)
-      : ("not_configured" as const);
+
+  const { delivery } = await deliverEmail(
+    buildEmailVerificationEmail({ to: user.email, rawToken }),
+  );
   return { rawToken, delivery };
 }
 

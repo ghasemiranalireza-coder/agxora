@@ -17,6 +17,11 @@ import {
 import type { Actor } from "@/app/lib/tenancy/types";
 import { switchActiveWorkspace } from "@/app/lib/auth/server/service";
 import { createOpaqueToken, hashOpaqueToken } from "@/app/lib/auth/server/tokens";
+import {
+  buildInvitationEmail,
+  deliverEmail,
+  type EmailDeliveryStatus,
+} from "@/app/lib/email";
 import { recordControlAudit } from "./audit";
 import type {
   InvitationPreview,
@@ -507,7 +512,11 @@ export async function listInvitations(actor: Actor): Promise<InvitationView[]> {
 export async function createInvitation(
   actor: Actor,
   input: { readonly email?: unknown; readonly role?: unknown },
-): Promise<{ invitation: InvitationView; token: string }> {
+): Promise<{
+  invitation: InvitationView;
+  token: string;
+  delivery: EmailDeliveryStatus;
+}> {
   assertControl(actor, "member.invite", {
     organizationId: actor.organizationId,
     workspaceId: actor.workspaceId,
@@ -540,6 +549,15 @@ export async function createInvitation(
     throw new PersistenceError("conflict", "A pending invitation already exists for this email");
   }
 
+  const [workspace, organization, inviter] = await Promise.all([
+    prisma.workspace.findUnique({ where: { id: actor.workspaceId } }),
+    prisma.organization.findUnique({ where: { id: actor.organizationId } }),
+    prisma.user.findUnique({ where: { id: actor.userId } }),
+  ]);
+  if (!workspace || !organization) {
+    throw new PersistenceError("not_found", "Workspace or organization not found");
+  }
+
   const rawToken = createOpaqueToken(32);
   const invitation = await prisma.invitation.create({
     data: {
@@ -560,7 +578,22 @@ export async function createInvitation(
     metadata: { email, role },
   });
 
-  return { invitation: toInvitationView(invitation), token: rawToken };
+  const { delivery } = await deliverEmail(
+    buildInvitationEmail({
+      to: email,
+      organizationName: organization.name,
+      workspaceName: workspace.name,
+      role,
+      rawToken,
+      inviterName: inviter?.name,
+    }),
+  );
+
+  return {
+    invitation: toInvitationView(invitation),
+    token: rawToken,
+    delivery,
+  };
 }
 
 export async function revokeInvitation(actor: Actor, invitationId: string): Promise<InvitationView> {
