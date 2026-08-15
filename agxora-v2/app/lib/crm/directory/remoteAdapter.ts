@@ -1,10 +1,12 @@
 /**
- * Browser CRM adapter — talks to /api/v1/crm/customers with server session.
+ * Browser CRM adapter — talks to /api/v1/crm/* with server session.
  */
 
 "use client";
 
 import type {
+  CrmContactDraft,
+  CrmContactRecord,
   CrmCustomerDraft,
   CrmCustomerId,
   CrmCustomerRecord,
@@ -119,6 +121,51 @@ export async function remoteUpdateCustomer(
 
 export async function remoteDeleteCustomer(id: CrmCustomerId): Promise<void> {
   await crmFetch(`/api/v1/crm/customers/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+  });
+}
+
+/** Phase 47 — Contacts (database mode). */
+
+export async function remoteListContacts(
+  customerId: CrmCustomerId,
+): Promise<CrmContactRecord[]> {
+  const data = await crmFetch<{ items: CrmContactRecord[] }>(
+    `/api/v1/crm/customers/${encodeURIComponent(customerId)}/contacts`,
+  );
+  return [...(data.items ?? [])];
+}
+
+export async function remoteCreateContact(
+  customerId: CrmCustomerId,
+  draft: CrmContactDraft,
+): Promise<CrmContactRecord> {
+  const data = await crmFetch<{ contact: CrmContactRecord }>(
+    `/api/v1/crm/customers/${encodeURIComponent(customerId)}/contacts`,
+    {
+      method: "POST",
+      body: JSON.stringify({ draft }),
+    },
+  );
+  return data.contact;
+}
+
+export async function remoteUpdateContact(
+  id: string,
+  draft: CrmContactDraft,
+): Promise<CrmContactRecord> {
+  const data = await crmFetch<{ contact: CrmContactRecord }>(
+    `/api/v1/crm/contacts/${encodeURIComponent(id)}`,
+    {
+      method: "PUT",
+      body: JSON.stringify({ draft }),
+    },
+  );
+  return data.contact;
+}
+
+export async function remoteDeleteContact(id: string): Promise<void> {
+  await crmFetch(`/api/v1/crm/contacts/${encodeURIComponent(id)}`, {
     method: "DELETE",
   });
 }
