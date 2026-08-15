@@ -1,6 +1,6 @@
-// AGXORA Phase 42.1 + Phase 43 + Phase 44
+// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B
 // PostgreSQL source of truth for User / Organization / Workspace / Membership /
-// Session / Customer / Invitation / ControlPlaneAuditEvent
+// Session / Customer / Invitation / OwnershipTransfer / ControlPlaneAuditEvent
 
 generator client {
   provider = "prisma-client-js"
@@ -50,6 +50,8 @@ model User {
   passwordResetTokens     PasswordResetToken[]
   emailVerificationTokens EmailVerificationToken[]
   invitationsSent         Invitation[]            @relation("InvitationInviter")
+  ownershipTransfersFrom  OwnershipTransfer[]     @relation("OwnershipTransferFrom")
+  ownershipTransfersTo    OwnershipTransfer[]     @relation("OwnershipTransferTo")
   auditEvents             ControlPlaneAuditEvent[]
 
   @@index([externalAuthId])
@@ -68,8 +70,9 @@ model Organization {
   workspaces  Workspace[]
   memberships Membership[]
   customers   Customer[]
-  invitations Invitation[]
-  auditEvents ControlPlaneAuditEvent[]
+  invitations         Invitation[]
+  ownershipTransfers  OwnershipTransfer[]
+  auditEvents         ControlPlaneAuditEvent[]
 
   @@index([ownerId])
   @@map("organizations")
@@ -88,8 +91,9 @@ model Workspace {
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   memberships  Membership[]
   customers    Customer[]
-  invitations  Invitation[]
-  auditEvents  ControlPlaneAuditEvent[]
+  invitations         Invitation[]
+  ownershipTransfers  OwnershipTransfer[]
+  auditEvents         ControlPlaneAuditEvent[]
 
   @@unique([organizationId, slug])
   @@index([organizationId])
@@ -143,6 +147,33 @@ model Invitation {
   @@index([expiresAt])
   @@index([invitedById])
   @@map("invitations")
+}
+
+/// Controlled org ownership transfer — raw confirmation token never stored.
+/// Pending transfer does not change Organization.ownerId or membership roles.
+model OwnershipTransfer {
+  id             String    @id @default(uuid()) @db.Uuid
+  organizationId String    @db.Uuid
+  workspaceId    String    @db.Uuid
+  fromUserId     String    @db.Uuid
+  toUserId       String    @db.Uuid
+  tokenHash      String    @unique
+  expiresAt      DateTime
+  confirmedAt    DateTime?
+  cancelledAt    DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  fromUser     User         @relation("OwnershipTransferFrom", fields: [fromUserId], references: [id], onDelete: Restrict)
+  toUser       User         @relation("OwnershipTransferTo", fields: [toUserId], references: [id], onDelete: Restrict)
+
+  @@index([organizationId, expiresAt])
+  @@index([workspaceId])
+  @@index([fromUserId])
+  @@index([toUserId])
+  @@map("ownership_transfers")
 }
 
 /// Compact control-plane audit — no secrets, no raw tokens.

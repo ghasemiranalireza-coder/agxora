@@ -22,6 +22,7 @@ export {
 export {
   buildEmailVerificationEmail,
   buildInvitationEmail,
+  buildOwnershipTransferEmail,
   buildPasswordResetEmail,
   redactActionUrl,
 } from "./templates";

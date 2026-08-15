@@ -34,7 +34,10 @@ export type ControlPlaneAction =
   | "member.role.change"
   | "member.remove"
   | "invitation.read"
-  | "invitation.revoke";
+  | "invitation.revoke"
+  | "ownership.transfer.initiate"
+  | "ownership.transfer.read"
+  | "ownership.transfer.cancel";
 
 export type AuthzResource =
   | { readonly kind: "workspace"; readonly workspaceId: string; readonly organizationId: string }

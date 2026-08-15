@@ -15,6 +15,7 @@ import {
   forceMemoryEmailFailure,
   listMemoryEmailOutbox,
   memoryEmailProvider,
+  noneEmailProvider,
   resetMemoryEmailOutbox,
   setEmailProviderForTests,
 } from "@/app/lib/email";
@@ -24,15 +25,20 @@ import type { Actor } from "@/app/lib/tenancy/types";
 import {
   acceptInvitation,
   archiveWorkspace,
+  cancelOwnershipTransfer,
   changeMemberRole,
+  confirmOwnershipTransfer,
   createInvitation,
   createWorkspace,
   getCurrentOrganization,
+  getPendingOwnershipTransfer,
   getWorkspaceForActor,
+  initiateOwnershipTransfer,
   listInvitations,
   listMembers,
   listWorkspacesForActor,
   previewInvitation,
+  previewOwnershipTransfer,
   removeMember,
   revokeInvitation,
   switchWorkspaceForActor,
@@ -50,6 +56,7 @@ const TOKEN_OWNER_B = "cp_token_owner_b";
 async function wipe(): Promise<void> {
   await prisma.customer.deleteMany();
   await prisma.controlPlaneAuditEvent.deleteMany();
+  await prisma.ownershipTransfer.deleteMany();
   await prisma.invitation.deleteMany();
   await prisma.passwordResetToken.deleteMany();
   await prisma.emailVerificationToken.deleteMany();
@@ -207,13 +214,16 @@ describe("Phase 44 authorization policy", () => {
 
     expect(canControl(owner, "workspace.create")).toBe(true);
     expect(canControl(owner, "workspace.archive")).toBe(true);
+    expect(canControl(owner, "ownership.transfer.initiate")).toBe(true);
     expect(canControl(admin, "organization.update")).toBe(true);
     expect(canControl(admin, "workspace.create")).toBe(false);
     expect(canControl(admin, "workspace.archive")).toBe(false);
+    expect(canControl(admin, "ownership.transfer.initiate")).toBe(false);
     expect(canControl(member, "organization.update")).toBe(false);
     expect(canControl(member, "member.invite")).toBe(false);
     expect(canControl(member, "member.remove")).toBe(false);
     expect(canControl(member, "workspace.switch")).toBe(true);
+    expect(canControl(member, "ownership.transfer.initiate")).toBe(false);
   });
 });
 
@@ -643,5 +653,168 @@ describe("Phase 44 tenancy isolation", () => {
     const membersB = await listMembers(ownerB);
     expect(membersA.some((row) => row.userId === ownerB.userId)).toBe(false);
     expect(membersB.some((row) => row.userId === ownerA.userId)).toBe(false);
+  });
+});
+
+describe("Phase 45-B controlled ownership transfer", () => {
+  it("lets OWNER initiate transfer to an eligible member without changing ownership yet", async () => {
+    setEmailProviderForTests(memoryEmailProvider);
+    const owner = await actor(TOKEN_OWNER_A);
+    const admin = await actor(TOKEN_ADMIN_A);
+
+    const { transfer, token, delivery } = await initiateOwnershipTransfer(owner, {
+      targetUserId: admin.userId,
+    });
+
+    expect(delivery).toBe("queued");
+    expect(transfer.status).toBe("pending");
+    expect(transfer.toUserId).toBe(admin.userId);
+    expect(token).toBeTruthy();
+    expect(JSON.stringify(transfer)).not.toContain(token);
+
+    const org = await getCurrentOrganization(owner);
+    expect(org.ownerId).toBe(owner.userId);
+    expect(owner.role).toBe("OWNER");
+
+    const members = await listMembers(owner);
+    expect(members.find((m) => m.userId === owner.userId)?.role).toBe("OWNER");
+    expect(members.find((m) => m.userId === admin.userId)?.role).toBe("ADMIN");
+
+    const stored = await prisma.ownershipTransfer.findUnique({
+      where: { id: transfer.id },
+    });
+    expect(stored?.tokenHash).toBe(hashOpaqueToken(token));
+    expect(stored?.tokenHash).not.toBe(token);
+
+    const outbox = listMemoryEmailOutbox();
+    expect(outbox).toHaveLength(1);
+    expect(outbox[0]?.kind).toBe("ownership_transfer");
+    expect(outbox[0]?.to).toBe("admin-a@cp.test");
+    expect(outbox[0]?.text).toContain(token);
+
+    const audits = await prisma.controlPlaneAuditEvent.findMany({
+      where: { action: "ownership_transfer_initiated" },
+    });
+    expect(audits.length).toBeGreaterThanOrEqual(1);
+    expect(JSON.stringify(audits)).not.toContain(token);
+  });
+
+  it("rejects non-owner initiation, self-transfer, and ineligible targets", async () => {
+    const owner = await actor(TOKEN_OWNER_A);
+    const admin = await actor(TOKEN_ADMIN_A);
+    const member = await actor(TOKEN_MEMBER_A);
+    const ownerB = await actor(TOKEN_OWNER_B);
+
+    await expect(
+      initiateOwnershipTransfer(admin, { targetUserId: member.userId }),
+    ).rejects.toMatchObject({ code: "forbidden" });
+
+    await expect(
+      initiateOwnershipTransfer(owner, { targetUserId: owner.userId }),
+    ).rejects.toMatchObject({ code: "forbidden" });
+
+    await expect(
+      initiateOwnershipTransfer(owner, { targetUserId: ownerB.userId }),
+    ).rejects.toMatchObject({ code: "validation" });
+  });
+
+  it("completes transfer on valid confirmation and demotes previous owner to ADMIN", async () => {
+    setEmailProviderForTests(noneEmailProvider);
+    const owner = await actor(TOKEN_OWNER_A);
+    const admin = await actor(TOKEN_ADMIN_A);
+
+    const { token } = await initiateOwnershipTransfer(owner, {
+      targetUserId: admin.userId,
+    });
+
+    const pending = await getPendingOwnershipTransfer(owner);
+    expect(pending?.status).toBe("pending");
+
+    const result = await confirmOwnershipTransfer(admin, token);
+    expect(result.newOwnerId).toBe(admin.userId);
+    expect(result.previousOwnerId).toBe(owner.userId);
+
+    const org = await prisma.organization.findUniqueOrThrow({
+      where: { id: owner.organizationId },
+    });
+    expect(org.ownerId).toBe(admin.userId);
+
+    const memberships = await prisma.membership.findMany({
+      where: { workspaceId: owner.workspaceId, status: "ACTIVE" },
+    });
+    expect(memberships.find((m) => m.userId === admin.userId)?.role).toBe("OWNER");
+    expect(memberships.find((m) => m.userId === owner.userId)?.role).toBe("ADMIN");
+
+    const completed = await prisma.controlPlaneAuditEvent.findMany({
+      where: { action: "ownership_transfer_completed" },
+    });
+    expect(completed.length).toBeGreaterThanOrEqual(1);
+
+    // Replay rejected
+    await expect(confirmOwnershipTransfer(admin, token)).rejects.toMatchObject({
+      code: "conflict",
+    });
+  });
+
+  it("rejects expired and unauthorized confirmations", async () => {
+    setEmailProviderForTests(noneEmailProvider);
+    const owner = await actor(TOKEN_OWNER_A);
+    const admin = await actor(TOKEN_ADMIN_A);
+    const member = await actor(TOKEN_MEMBER_A);
+
+    const { token, transfer } = await initiateOwnershipTransfer(owner, {
+      targetUserId: admin.userId,
+    });
+
+    await expect(confirmOwnershipTransfer(member, token)).rejects.toMatchObject({
+      code: "forbidden",
+    });
+
+    await prisma.ownershipTransfer.update({
+      where: { id: transfer.id },
+      data: { expiresAt: new Date(Date.now() - 60_000) },
+    });
+
+    await expect(confirmOwnershipTransfer(admin, token)).rejects.toMatchObject({
+      code: "forbidden",
+    });
+
+    const org = await prisma.organization.findUniqueOrThrow({
+      where: { id: owner.organizationId },
+    });
+    expect(org.ownerId).toBe(owner.userId);
+  });
+
+  it("allows cancel and keeps OWNER grants blocked via role change", async () => {
+    setEmailProviderForTests(noneEmailProvider);
+    const owner = await actor(TOKEN_OWNER_A);
+    const admin = await actor(TOKEN_ADMIN_A);
+    const member = await actor(TOKEN_MEMBER_A);
+
+    const { transfer } = await initiateOwnershipTransfer(owner, {
+      targetUserId: admin.userId,
+    });
+    const cancelled = await cancelOwnershipTransfer(owner, transfer.id);
+    expect(cancelled.status).toBe("cancelled");
+    expect(await getPendingOwnershipTransfer(owner)).toBeNull();
+
+    await expect(changeMemberRole(owner, member.userId, "OWNER")).rejects.toMatchObject({
+      code: "forbidden",
+      message: expect.stringContaining("controlled ownership transfer"),
+    });
+  });
+
+  it("previews transfer without leaking token hash", async () => {
+    setEmailProviderForTests(noneEmailProvider);
+    const owner = await actor(TOKEN_OWNER_A);
+    const admin = await actor(TOKEN_ADMIN_A);
+    const { token } = await initiateOwnershipTransfer(owner, {
+      targetUserId: admin.userId,
+    });
+    const preview = await previewOwnershipTransfer(token);
+    expect(preview.status).toBe("pending");
+    expect(preview.toUserEmail).toBe("admin-a@cp.test");
+    expect(JSON.stringify(preview)).not.toContain(token);
+    expect(JSON.stringify(preview)).not.toContain(hashOpaqueToken(token));
   });
 });

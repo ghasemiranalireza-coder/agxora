@@ -48,6 +48,23 @@ export type InvitationDto = {
   readonly createdAt: string;
 };
 
+export type OwnershipTransferDto = {
+  readonly id: string;
+  readonly organizationId: string;
+  readonly workspaceId: string;
+  readonly fromUserId: string;
+  readonly fromUserName: string;
+  readonly fromUserEmail: string;
+  readonly toUserId: string;
+  readonly toUserName: string;
+  readonly toUserEmail: string;
+  readonly expiresAt: string;
+  readonly confirmedAt: string | null;
+  readonly cancelledAt: string | null;
+  readonly createdAt: string;
+  readonly status: "pending" | "expired" | "cancelled" | "confirmed";
+};
+
 async function api<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(path, {
     ...init,
@@ -145,4 +162,50 @@ export const controlPlaneClient = {
       `/api/v1/invitations/${encodeURIComponent(token)}/accept`,
       { method: "POST" },
     ),
+  pendingOwnershipTransfer: () =>
+    api<{ transfer: OwnershipTransferDto | null }>(
+      "/api/v1/organizations/current/ownership-transfer",
+    ),
+  initiateOwnershipTransfer: (targetUserId: string) =>
+    api<{
+      transfer: OwnershipTransferDto;
+      token?: string;
+      confirmPath?: string;
+      delivery: string;
+      message: string;
+    }>("/api/v1/organizations/current/ownership-transfer", {
+      method: "POST",
+      body: JSON.stringify({ targetUserId }),
+    }),
+  cancelOwnershipTransfer: (transferId?: string) =>
+    api<{ transfer: OwnershipTransferDto }>(
+      "/api/v1/organizations/current/ownership-transfer",
+      {
+        method: "DELETE",
+        body: JSON.stringify(transferId ? { transferId } : {}),
+      },
+    ),
+  previewOwnershipTransfer: (token: string) =>
+    api<{
+      transfer: {
+        organizationName: string;
+        workspaceName: string;
+        fromUserName: string;
+        fromUserEmail: string;
+        toUserName: string;
+        toUserEmail: string;
+        expiresAt: string;
+        status: string;
+      };
+    }>(`/api/v1/ownership-transfers/${encodeURIComponent(token)}`),
+  confirmOwnershipTransfer: (token: string) =>
+    api<{
+      organizationId: string;
+      workspaceId: string;
+      previousOwnerId: string;
+      newOwnerId: string;
+      message: string;
+    }>(`/api/v1/ownership-transfers/${encodeURIComponent(token)}/confirm`, {
+      method: "POST",
+    }),
 };

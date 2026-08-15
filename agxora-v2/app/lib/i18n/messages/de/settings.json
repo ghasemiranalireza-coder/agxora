@@ -233,6 +233,33 @@
       "expired": "Diese Einladung ist abgelaufen.",
       "revoked": "Diese Einladung wurde widerrufen.",
       "accepted": "Diese Einladung wurde bereits angenommen."
+    },
+    "transferOwnership": "Eigentümerschaft übertragen",
+    "transferTitle": "Organisationseigentümerschaft übertragen",
+    "transferWarning": "Gefährliche Aktion. Sie bleiben OWNER, bis der Empfänger bestätigt. Danach werden Sie ADMIN und der Empfänger OWNER.",
+    "transferTarget": "Neuer Eigentümer",
+    "transferSelectMember": "Bestehendes Mitglied wählen…",
+    "transferTypeName": "„{name}“ zur Bestätigung eingeben",
+    "transferConfirmMismatch": "Der eingegebene Name stimmt nicht überein.",
+    "transferInitiate": "Übertragung starten",
+    "transferHonesty": "Eine Bestätigungs-E-Mail wird gesendet, wenn die Zustellung konfiguriert ist. Andernfalls teilen Sie den Bestätigungslink direkt.",
+    "transferLink": "Bestätigungslink",
+    "transferPendingTitle": "Ausstehende Eigentumsübertragung",
+    "transferPendingBody": "Warte auf Bestätigung von {name} ({email}). Läuft ab {expires}. Sie bleiben bis dahin OWNER.",
+    "transferPendingNote": "Mitgliedsrollen ändern sich nicht, solange die Übertragung aussteht.",
+    "cancelTransfer": "Übertragung abbrechen",
+    "transferCancelled": "Eigentumsübertragung abgebrochen.",
+    "transferInvalid": "Diese Eigentumsübertragung ist ungültig.",
+    "transferConfirmTitle": "Eigentumsübertragung bestätigen",
+    "transferConfirmBody": "{from} möchte die Organisationseigentümerschaft an {to} ({email}) übertragen.",
+    "transferConfirmDanger": "Nach der Bestätigung werden Sie OWNER und der bisherige Eigentümer ADMIN.",
+    "transferConfirmAction": "Bestätigen: Ich werde neuer Eigentümer",
+    "transferWrongAccount": "Melden Sie sich als {email} an, um zu bestätigen.",
+    "transferStatus": {
+      "pending": "Bestätigung ausstehend",
+      "expired": "Diese Eigentumsübertragung ist abgelaufen.",
+      "cancelled": "Diese Eigentumsübertragung wurde abgebrochen.",
+      "confirmed": "Diese Eigentumsübertragung wurde bereits abgeschlossen."
     }
   }
 }

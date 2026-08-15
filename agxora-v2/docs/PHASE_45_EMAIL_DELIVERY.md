@@ -29,8 +29,8 @@ In scope:
 
 Out of scope:
 
-- **Controlled ownership transfer** is NOT part of this Phase 45 email-delivery
-  implementation and will be handled as the next controlled task.
+- **Controlled ownership transfer** is Phase **45-B** (see
+  `docs/PHASE_45B_OWNERSHIP_TRANSFER.md`). This document covers email delivery only.
 - Stripe / billing
 - Social login
 - AI expansion

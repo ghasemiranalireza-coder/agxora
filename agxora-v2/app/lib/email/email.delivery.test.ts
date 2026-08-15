@@ -70,6 +70,12 @@ describe("Phase 45 email delivery contract", () => {
     ).toBe("https://agxora.app/invite/[redacted]");
     expect(
       redactActionUrl(
+        "https://agxora.app/ownership-transfer/abcXYZ",
+        "ownership_transfer",
+      ),
+    ).toBe("https://agxora.app/ownership-transfer/[redacted]");
+    expect(
+      redactActionUrl(
         "https://agxora.app/reset-password?token=abcXYZ",
         "password_reset",
       ),
