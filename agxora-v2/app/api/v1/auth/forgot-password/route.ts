@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { requestPasswordReset } from "@/app/lib/auth/server";
 import { authJsonError, requireDatabase } from "@/app/lib/auth/server/http";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
+import { rateLimitResponse } from "@/app/lib/security/rate-limit";
 
 export const runtime = "nodejs";
 
@@ -15,6 +16,12 @@ type Body = { readonly email?: string };
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     requireDatabase();
+    const limited = rateLimitResponse({
+      request,
+      policyId: "auth.forgot_password",
+    });
+    if (limited) return limited;
+
     const body = (await request.json()) as Body;
     if (!body.email?.trim()) {
       throw new PersistenceError("validation", "email is required");
