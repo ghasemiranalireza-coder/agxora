@@ -27,7 +27,16 @@ import {
   requestPasswordReset,
   resetPasswordWithToken,
   switchActiveWorkspace,
+  createEmailVerificationToken,
+  verifyEmailWithToken,
 } from "@/app/lib/auth/server/service";
+import {
+  forceMemoryEmailFailure,
+  listMemoryEmailOutbox,
+  memoryEmailProvider,
+  resetMemoryEmailOutbox,
+  setEmailProviderForTests,
+} from "@/app/lib/email";
 
 const prisma = new PrismaClient();
 
@@ -65,14 +74,20 @@ async function wipe(): Promise<void> {
 
 beforeAll(async () => {
   process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN = "1";
-  process.env.AGXORA_AUTH_EMAIL_DELIVERY = "not_configured";
+  process.env.AGXORA_EMAIL_PROVIDER = "none";
+  delete process.env.AGXORA_AUTH_EMAIL_DELIVERY;
 });
 
 beforeEach(async () => {
   await wipe();
+  setEmailProviderForTests(null);
+  resetMemoryEmailOutbox();
+  process.env.AGXORA_EMAIL_PROVIDER = "none";
 });
 
 afterAll(async () => {
+  setEmailProviderForTests(null);
+  resetMemoryEmailOutbox();
   await wipe();
   await prisma.$disconnect();
 });
@@ -464,6 +479,65 @@ describe("Phase 43 password reset", () => {
     expect(missing.ok).toBe(true);
     expect(present.ok).toBe(true);
     expect(missing.delivery).toBe(present.delivery);
+  });
+});
+
+describe("Phase 45 auth email delivery", () => {
+  it("queues password-reset email on successful provider handoff", async () => {
+    setEmailProviderForTests(memoryEmailProvider);
+    const registered = await registerWithPassword({
+      email: "mail-reset@agxora.test",
+      password: "SecurePass1!",
+      displayName: "Mail Reset",
+    });
+    const forgot = await requestPasswordReset("mail-reset@agxora.test");
+    expect(forgot.delivery).toBe("queued");
+    expect(listMemoryEmailOutbox()).toHaveLength(1);
+    expect(listMemoryEmailOutbox()[0]?.kind).toBe("password_reset");
+    expect(listMemoryEmailOutbox()[0]?.to).toBe("mail-reset@agxora.test");
+
+    await resetPasswordWithToken({
+      token: forgot.resetToken!,
+      password: "BrandNewPass1!",
+    });
+    const again = await loginWithPassword({
+      email: "mail-reset@agxora.test",
+      password: "BrandNewPass1!",
+    });
+    expect(again.user.id).toBe(registered.user.id);
+  });
+
+  it("does not report queued when password-reset handoff fails", async () => {
+    setEmailProviderForTests(memoryEmailProvider);
+    forceMemoryEmailFailure("smtp down");
+    await registerWithPassword({
+      email: "mail-fail@agxora.test",
+      password: "SecurePass1!",
+      displayName: "Mail Fail",
+    });
+    const forgot = await requestPasswordReset("mail-fail@agxora.test");
+    expect(forgot.delivery).toBe("not_configured");
+    expect(listMemoryEmailOutbox()).toHaveLength(0);
+    // Token still usable via expose mode / trusted channel
+    expect(forgot.resetToken).toBeTruthy();
+    await resetPasswordWithToken({
+      token: forgot.resetToken!,
+      password: "RecoveredPass1!",
+    });
+  });
+
+  it("queues verification email and accepts the existing token flow", async () => {
+    setEmailProviderForTests(memoryEmailProvider);
+    const registered = await registerWithPassword({
+      email: "verify-mail@agxora.test",
+      password: "SecurePass1!",
+      displayName: "Verify Mail",
+    });
+    const issued = await createEmailVerificationToken(registered.user.id);
+    expect(issued.delivery).toBe("queued");
+    expect(listMemoryEmailOutbox()[0]?.kind).toBe("email_verification");
+    const verified = await verifyEmailWithToken(issued.rawToken);
+    expect(verified.emailVerified).toBe(true);
   });
 });
 

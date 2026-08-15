@@ -176,8 +176,17 @@ export class ServerAuthAdapter implements AuthProviderPort {
   }
 
   async requestEmailVerification(): Promise<{ token: string }> {
-    // Server architecture exists; delivery not configured — honest empty token.
-    return { token: "" };
+    const payload = await authFetch<{
+      ok: boolean;
+      delivery: string;
+      verificationToken?: string;
+      message?: string;
+    }>("/api/v1/auth/request-verification", {
+      method: "POST",
+      body: JSON.stringify({}),
+    });
+    // Honesty: only return a token when the server explicitly exposed one (dev).
+    return { token: payload.verificationToken ?? "" };
   }
 
   async verifyEmail(input: VerifyEmailInput): Promise<AuthUser> {

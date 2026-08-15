@@ -116,8 +116,8 @@ export const controlPlaneClient = {
   invite: (workspaceId: string, email: string, role: string) =>
     api<{
       invitation: InvitationDto;
-      token: string;
-      acceptPath: string;
+      token?: string;
+      acceptPath?: string;
       delivery: string;
       message: string;
     }>(`/api/v1/workspaces/${workspaceId}/invitations`, {
