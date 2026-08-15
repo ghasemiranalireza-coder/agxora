@@ -3,10 +3,14 @@ import { auditLog } from "../../backend/audit";
 import { isCrmDatabaseMode } from "../persistence/mode";
 import { crmDirectoryRepository } from "./repository";
 import {
+  remoteCreateContact,
   remoteCreateCustomer,
+  remoteDeleteContact,
   remoteDeleteCustomer,
   remoteGetCustomer,
+  remoteListContacts,
   remoteListCustomers,
+  remoteUpdateContact,
   remoteUpdateCustomer,
 } from "./remoteAdapter";
 import type {
@@ -219,7 +223,10 @@ export class CrmDirectoryService {
     return existing;
   }
 
-  listContacts(customerId: CrmCustomerId) {
+  async listContacts(customerId: CrmCustomerId) {
+    if (isCrmDatabaseMode()) {
+      return remoteListContacts(customerId);
+    }
     return this.repo.listContacts(customerId);
   }
 
@@ -230,6 +237,10 @@ export class CrmDirectoryService {
   ) {
     const result = validateContactDraft(draft);
     if (!result.ok) throw new CrmContactValidationError(result.errors);
+    if (isCrmDatabaseMode()) {
+      // organizationId from the browser is ignored — server derives tenancy.
+      return remoteCreateContact(customerId, draft);
+    }
     return this.repo.createContact({
       customerId,
       organizationId,
@@ -240,10 +251,17 @@ export class CrmDirectoryService {
   async updateContactFromDraft(id: string, draft: CrmContactDraft) {
     const result = validateContactDraft(draft);
     if (!result.ok) throw new CrmContactValidationError(result.errors);
+    if (isCrmDatabaseMode()) {
+      return remoteUpdateContact(id, draft);
+    }
     return this.repo.updateContact(id, result.value);
   }
 
-  deleteContact(id: string) {
+  async deleteContact(id: string) {
+    if (isCrmDatabaseMode()) {
+      await remoteDeleteContact(id);
+      return;
+    }
     return this.repo.deleteContact(id);
   }
 

@@ -1,9 +1,14 @@
 /**
- * Map between Prisma Customer and CrmCustomerRecord (UI contract).
+ * Map between Prisma models and CRM directory UI contracts.
  */
 
-import type { Customer, CustomerStatus as DbStatus } from "@prisma/client";
-import type { CrmCustomerRecord, CrmCustomerStatus, CrmTag } from "../directory/types";
+import type { Contact, Customer, CustomerStatus as DbStatus } from "@prisma/client";
+import type {
+  CrmContactRecord,
+  CrmCustomerRecord,
+  CrmCustomerStatus,
+  CrmTag,
+} from "../directory/types";
 
 function isTag(value: unknown): value is CrmTag {
   return (
@@ -36,6 +41,22 @@ export function toCrmCustomerRecord(row: Customer): CrmCustomerRecord {
     status: row.status as CrmCustomerStatus,
     owner: row.owner,
     tags: parseTagsJson(row.tags),
+    createdAt: row.createdAt.toISOString(),
+    updatedAt: row.updatedAt.toISOString(),
+  };
+}
+
+export function toCrmContactRecord(row: Contact): CrmContactRecord {
+  return {
+    id: row.id,
+    customerId: row.customerId,
+    organizationId: row.organizationId,
+    name: row.name,
+    role: row.role,
+    email: row.email,
+    phone: row.phone,
+    mobile: row.mobile,
+    notes: row.notes,
     createdAt: row.createdAt.toISOString(),
     updatedAt: row.updatedAt.toISOString(),
   };

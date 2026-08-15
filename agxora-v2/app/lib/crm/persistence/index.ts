@@ -12,4 +12,18 @@ export {
   updateCustomerRecord,
   deleteCustomerRecord,
 } from "./customerRepository";
-export { toCrmCustomerRecord } from "./mappers";
+export {
+  listContactsForActor,
+  getContactForActor,
+  createContactForActor,
+  updateContactForActor,
+  deleteContactForActor,
+} from "./contactService";
+export {
+  listContactsForCustomerInWorkspace,
+  getContactInWorkspace,
+  createContactRecord,
+  updateContactRecord,
+  deleteContactRecord,
+} from "./contactRepository";
+export { toCrmCustomerRecord, toCrmContactRecord } from "./mappers";

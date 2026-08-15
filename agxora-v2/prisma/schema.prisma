@@ -1,6 +1,6 @@
-// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B
+// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47
 // PostgreSQL source of truth for User / Organization / Workspace / Membership /
-// Session / Customer / Invitation / OwnershipTransfer / ControlPlaneAuditEvent
+// Session / Customer / Contact / Invitation / OwnershipTransfer / ControlPlaneAuditEvent
 
 generator client {
   provider = "prisma-client-js"
@@ -70,6 +70,7 @@ model Organization {
   workspaces  Workspace[]
   memberships Membership[]
   customers   Customer[]
+  contacts    Contact[]
   invitations         Invitation[]
   ownershipTransfers  OwnershipTransfer[]
   auditEvents         ControlPlaneAuditEvent[]
@@ -91,6 +92,7 @@ model Workspace {
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   memberships  Membership[]
   customers    Customer[]
+  contacts     Contact[]
   invitations         Invitation[]
   ownershipTransfers  OwnershipTransfer[]
   auditEvents         ControlPlaneAuditEvent[]
@@ -275,6 +277,7 @@ model Customer {
 
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  contacts     Contact[]
 
   @@index([workspaceId])
   @@index([organizationId])
@@ -282,4 +285,32 @@ model Customer {
   @@index([workspaceId, status])
   @@index([workspaceId, createdAt])
   @@map("customers")
+}
+
+/// Phase 47 — CRM contact person (profile), not the deferred Note entity.
+model Contact {
+  id             String   @id @default(uuid()) @db.Uuid
+  organizationId String   @db.Uuid
+  workspaceId    String   @db.Uuid
+  customerId     String   @db.Uuid
+  name           String
+  role           String   @default("")
+  email          String   @default("")
+  phone          String   @default("")
+  mobile         String   @default("")
+  /// Free-text notes on the contact person (not CrmNoteRecord persistence).
+  notes          String   @default("")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  customer     Customer     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@index([customerId])
+  @@index([workspaceId])
+  @@index([organizationId])
+  @@index([customerId, createdAt])
+  @@index([workspaceId, customerId])
+  @@map("contacts")
 }

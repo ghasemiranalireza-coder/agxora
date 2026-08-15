@@ -95,7 +95,7 @@ Production seed is blocked unless `AGXORA_ALLOW_PROD_SEED=1`.
 
 ## Known limitations
 
-- Contacts / notes / documents still LocalStorage in CRM UI
+- Contacts / notes / documents still LocalStorage in CRM UI *(Contacts: see Phase 47)*
 - No Stripe / Mission / Memory / Agents / Action Engine
 - Auth ensure is a bridge, not production IdP
 - Rate limiting deferred (Phase 46)
@@ -104,6 +104,8 @@ Production seed is blocked unless `AGXORA_ALLOW_PROD_SEED=1`.
 
 1. Production authentication (replace LocalAuth as source of truth)
 2. Hard server session issuance (no trusted client bootstrap)
-3. Persist CRM contacts/notes alongside customers
+3. Persist CRM contacts/notes alongside customers *(Contacts: Phase 47; Notes: deferred)*
 4. Migrate organization provider off in-memory Maps
 5. Optional: import LocalStorage CRM rows into Postgres with user consent
+
+See also: `docs/PHASE_47_CRM_PROFILE_PERSISTENCE.md`.

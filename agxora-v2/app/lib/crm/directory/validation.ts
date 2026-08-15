@@ -39,6 +39,15 @@ export type ValidatedCustomerPayload = {
   readonly tags: readonly CrmTag[];
 };
 
+export type ValidatedContactPayload = {
+  readonly name: string;
+  readonly role: string;
+  readonly email: string;
+  readonly phone: string;
+  readonly mobile: string;
+  readonly notes: string;
+};
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[+]?[\d\s()./-]{6,24}$/;
 const URL_RE = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/\S*)?$/i;
@@ -142,14 +151,7 @@ export function validateCustomerDraft(
 export function validateContactDraft(draft: CrmContactDraft):
   | {
       readonly ok: true;
-      readonly value: {
-        name: string;
-        role: string;
-        email: string;
-        phone: string;
-        mobile: string;
-        notes: string;
-      };
+      readonly value: ValidatedContactPayload;
     }
   | { readonly ok: false; readonly errors: readonly CrmContactFieldError[] } {
   const errors: CrmContactFieldError[] = [];
