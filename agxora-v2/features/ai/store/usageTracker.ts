@@ -1,5 +1,6 @@
 /**
  * Session usage tracker — estimated tokens + cost placeholder.
+ * Snapshot is cached for useSyncExternalStore stability.
  */
 
 import type { AiUsageSnapshot } from "../types";
@@ -20,6 +21,22 @@ let accumulator: UsageAccumulator = {
 };
 
 const listeners = new Set<() => void>();
+
+function buildSnapshot(): AiUsageSnapshot {
+  const total = accumulator.promptTokens + accumulator.completionTokens;
+  return {
+    estimatedPromptTokens: accumulator.promptTokens,
+    estimatedCompletionTokens: accumulator.completionTokens,
+    estimatedTotalTokens: total,
+    estimatedCostUsd: estimateCostUsd(total, accumulator.providerId),
+    providerId: accumulator.providerId,
+    model: accumulator.model,
+    updatedAt: new Date().toISOString(),
+  };
+}
+
+/** Cached for referential equality between store updates. */
+let cachedSnapshot: AiUsageSnapshot = buildSnapshot();
 
 function emit(): void {
   listeners.forEach((l) => l());
@@ -46,6 +63,7 @@ export const aiUsageTracker = {
       providerId: input.providerId,
       model: input.model,
     };
+    cachedSnapshot = buildSnapshot();
     emit();
   },
 
@@ -56,19 +74,11 @@ export const aiUsageTracker = {
       providerId: "mock",
       model: "mock-local",
     };
+    cachedSnapshot = buildSnapshot();
     emit();
   },
 
   snapshot(): AiUsageSnapshot {
-    const total = accumulator.promptTokens + accumulator.completionTokens;
-    return {
-      estimatedPromptTokens: accumulator.promptTokens,
-      estimatedCompletionTokens: accumulator.completionTokens,
-      estimatedTotalTokens: total,
-      estimatedCostUsd: estimateCostUsd(total, accumulator.providerId),
-      providerId: accumulator.providerId,
-      model: accumulator.model,
-      updatedAt: new Date().toISOString(),
-    };
+    return cachedSnapshot;
   },
 };
