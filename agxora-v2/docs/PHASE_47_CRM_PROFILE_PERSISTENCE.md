@@ -5,7 +5,8 @@
 Make **CRM Contacts** server-authoritative and persistent on PostgreSQL, using the
 existing Phase 42.1–44 tenancy / auth architecture.
 
-This is the first slice of CRM profile persistence. **Notes are deferred.**
+This is the Contacts slice of CRM profile persistence. Notes follow in
+**Phase 48** (`docs/PHASE_48_CRM_NOTES_PERSISTENCE.md`).
 
 ## Why Contacts are being persisted
 
@@ -84,7 +85,7 @@ Server checks:
 | Mode | Customers | Contacts | Notes / documents / activities |
 |------|-----------|----------|--------------------------------|
 | `local` (default) | LocalStorage | LocalStorage | LocalStorage |
-| `database` | PostgreSQL API | PostgreSQL API (Phase 47) | **Still LocalStorage** |
+| `database` | PostgreSQL API | PostgreSQL API (Phase 47) | Notes: Phase 48; documents/activities still LocalStorage |
 
 Production expectation: set `NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE=database` when
 server auth + `DATABASE_URL` are live.
@@ -113,22 +114,23 @@ app/lib/crm/directory/service.ts        # database-mode branch for contacts
 
 ## Known limitations
 
-- Notes entity persistence is **not** implemented
+- Notes entity persistence is implemented in **Phase 48** — see
+  `docs/PHASE_48_CRM_NOTES_PERSISTENCE.md`
 - Documents / file blobs remain LocalStorage
 - CRM channel integrations unchanged
 - Dual-mode default remains `local` until operators flip the flag
-- Contact person `notes` string field is persisted; that is **not** the Notes slice
+- Contact person `notes` string field is persisted; that is **not** the Notes entity
 
-## Deferred to next slice
+## Deferred to next slice (after Contacts; Notes now Phase 48)
 
-- **Notes** (`CrmNoteRecord` → Postgres)
+- ~~**Notes** (`CrmNoteRecord` → Postgres)~~ → **Phase 48**
 - Documents / blob storage
 - Optional consented LocalStorage → Postgres import
 - Activities server persistence
 
 ## Explicit out of scope
 
-- Notes (entity)
+- Notes (entity) — delivered in Phase 48
 - Documents / blob storage
 - CRM channel integrations
 - Stripe / billing
@@ -138,3 +140,5 @@ app/lib/crm/directory/service.ts        # database-mode branch for contacts
 - Browser matrix / Playwright
 - Ownership-transfer redesign
 - Unrelated dashboard UI redesign
+
+See also: `docs/PHASE_48_CRM_NOTES_PERSISTENCE.md`.
