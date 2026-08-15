@@ -233,6 +233,33 @@
       "expired": "این دعوت منقضی شده است.",
       "revoked": "این دعوت لغو شده است.",
       "accepted": "این دعوت قبلاً پذیرفته شده است."
+    },
+    "transferOwnership": "انتقال مالکیت",
+    "transferTitle": "انتقال مالکیت سازمان",
+    "transferWarning": "این یک اقدام حساس است. تا تأیید گیرنده، شما OWNER می‌مانید. پس از تأیید، شما ADMIN و گیرنده OWNER می‌شود.",
+    "transferTarget": "مالک جدید",
+    "transferSelectMember": "یک عضو موجود را انتخاب کنید…",
+    "transferTypeName": "برای تأیید «{name}» را تایپ کنید",
+    "transferConfirmMismatch": "نام واردشده با عضو انتخاب‌شده مطابقت ندارد.",
+    "transferInitiate": "شروع انتقال",
+    "transferHonesty": "در صورت پیکربندی ایمیل، پیام تأیید ارسال می‌شود؛ در غیر این صورت لینک را مستقیماً به اشتراک بگذارید.",
+    "transferLink": "لینک تأیید",
+    "transferPendingTitle": "انتقال مالکیت در انتظار",
+    "transferPendingBody": "در انتظار تأیید {name} ({email}). انقضا {expires}. تا آن زمان شما OWNER می‌مانید.",
+    "transferPendingNote": "تا وقتی انتقال در انتظار است، نقش‌ها تغییر نمی‌کنند.",
+    "cancelTransfer": "لغو انتقال",
+    "transferCancelled": "انتقال مالکیت لغو شد.",
+    "transferInvalid": "این انتقال مالکیت معتبر نیست.",
+    "transferConfirmTitle": "تأیید انتقال مالکیت",
+    "transferConfirmBody": "{from} می‌خواهد مالکیت سازمان را به {to} ({email}) منتقل کند.",
+    "transferConfirmDanger": "پس از تأیید، شما OWNER و مالک قبلی ADMIN می‌شود.",
+    "transferConfirmAction": "تأیید می‌کنم مالک جدید باشم",
+    "transferWrongAccount": "برای تأیید با حساب {email} وارد شوید.",
+    "transferStatus": {
+      "pending": "در انتظار تأیید",
+      "expired": "این انتقال مالکیت منقضی شده است.",
+      "cancelled": "این انتقال مالکیت لغو شده است.",
+      "confirmed": "این انتقال مالکیت قبلاً تکمیل شده است."
     }
   }
 }

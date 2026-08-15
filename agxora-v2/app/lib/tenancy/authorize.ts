@@ -47,6 +47,9 @@ const CONTROL_PERMISSIONS: Record<MembershipRole, readonly ControlPlaneAction[]>
     "member.remove",
     "invitation.read",
     "invitation.revoke",
+    "ownership.transfer.initiate",
+    "ownership.transfer.read",
+    "ownership.transfer.cancel",
   ],
   ADMIN: [
     "organization.read",
@@ -134,13 +137,13 @@ export function assertControl(
 
 /**
  * Inviter cannot grant a role at or above their own rank.
- * OWNER invitations are refused (exactly one workspace OWNER; transfer is future).
+ * OWNER invitations/role changes are refused — use controlled ownership transfer.
  */
 export function assertCanGrantRole(actor: Actor, targetRole: MembershipRole): void {
   if (targetRole === "OWNER") {
     throw new PersistenceError(
       "forbidden",
-      "Cannot grant OWNER; ownership transfer is not available",
+      "Cannot grant OWNER; use controlled ownership transfer",
     );
   }
   if (ROLE_RANK[actor.role] <= ROLE_RANK[targetRole]) {

@@ -7,7 +7,8 @@ export type EmailDeliveryStatus = "not_configured" | "queued";
 export type EmailKind =
   | "invitation"
   | "password_reset"
-  | "email_verification";
+  | "email_verification"
+  | "ownership_transfer";
 
 export type EmailMessage = {
   readonly kind: EmailKind;

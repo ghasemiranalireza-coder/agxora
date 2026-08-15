@@ -17,6 +17,7 @@ import {
   type InvitationDto,
   type MemberDto,
   type OrganizationDto,
+  type OwnershipTransferDto,
   type WorkspaceDto,
 } from "../../../lib/control-plane/client";
 import {
@@ -346,6 +347,9 @@ export function TeamControlPanel(): JSX.Element {
   const [role, setRole] = useState<Role>("MEMBER");
   const [members, setMembers] = useState<MemberDto[]>([]);
   const [invites, setInvites] = useState<InvitationDto[]>([]);
+  const [pendingTransfer, setPendingTransfer] = useState<OwnershipTransferDto | null>(
+    null,
+  );
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -353,6 +357,10 @@ export function TeamControlPanel(): JSX.Element {
   const [inviteEmail, setInviteEmail] = useState("");
   const [inviteRole, setInviteRole] = useState<"ADMIN" | "MEMBER">("MEMBER");
   const [inviteLink, setInviteLink] = useState<string | null>(null);
+  const [transferOpen, setTransferOpen] = useState(false);
+  const [transferTargetId, setTransferTargetId] = useState("");
+  const [transferConfirmName, setTransferConfirmName] = useState("");
+  const [transferLink, setTransferLink] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     try {
@@ -366,16 +374,20 @@ export function TeamControlPanel(): JSX.Element {
       }
       setWorkspaceId(current.id);
       setRole(current.role);
-      const [memberData, inviteData] = await Promise.all([
+      const [memberData, inviteData, transferData] = await Promise.all([
         controlPlaneClient.members(current.id),
         current.role === "MEMBER"
           ? Promise.resolve({ invitations: [] as InvitationDto[] })
           : controlPlaneClient.invitations(current.id),
+        current.role === "OWNER"
+          ? controlPlaneClient.pendingOwnershipTransfer()
+          : Promise.resolve({ transfer: null as OwnershipTransferDto | null }),
       ]);
       setMembers(memberData.members);
       setInvites(
         inviteData.invitations.filter((inv) => !inv.acceptedAt && !inv.revokedAt),
       );
+      setPendingTransfer(transferData.transfer);
       setError(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : t("settings.controlPlane.loadFailed"));
@@ -482,15 +494,66 @@ export function TeamControlPanel(): JSX.Element {
     }
   };
 
+  const eligibleTransferTargets = members.filter(
+    (m) => m.role !== "OWNER" && m.userId !== pendingTransfer?.fromUserId,
+  );
+
+  const selectedTransferTarget = eligibleTransferTargets.find(
+    (m) => m.userId === transferTargetId,
+  );
+
+  const onInitiateTransfer = async (event: FormEvent): Promise<void> => {
+    event.preventDefault();
+    if (!transferTargetId || !selectedTransferTarget) return;
+    if (transferConfirmName.trim() !== selectedTransferTarget.name.trim()) {
+      setError(t("settings.controlPlane.transferConfirmMismatch"));
+      return;
+    }
+    setBusy(true);
+    setError(null);
+    try {
+      const result =
+        await controlPlaneClient.initiateOwnershipTransfer(transferTargetId);
+      if (result.confirmPath) {
+        setTransferLink(`${window.location.origin}${result.confirmPath}`);
+      } else {
+        setTransferLink("");
+      }
+      setNotice(result.message);
+      setTransferConfirmName("");
+      await load();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"));
+    } finally {
+      setBusy(false);
+    }
+  };
+
   return (
     <SettingsPanel
       title={t("settings.team.title")}
       description={t("settings.team.panelDescription")}
       actions={
         canManage ? (
-          <Button size="sm" onClick={() => setInviteOpen(true)}>
-            {t("settings.controlPlane.invite")}
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            {role === "OWNER" && !pendingTransfer ? (
+              <Button
+                size="sm"
+                variant="danger"
+                onClick={() => {
+                  setTransferOpen(true);
+                  setTransferLink(null);
+                  setTransferTargetId(eligibleTransferTargets[0]?.userId ?? "");
+                  setTransferConfirmName("");
+                }}
+              >
+                {t("settings.controlPlane.transferOwnership")}
+              </Button>
+            ) : null}
+            <Button size="sm" onClick={() => setInviteOpen(true)}>
+              {t("settings.controlPlane.invite")}
+            </Button>
+          </div>
         ) : null
       }
     >
@@ -499,6 +562,50 @@ export function TeamControlPanel(): JSX.Element {
         <p className="text-sm" role="status" style={{ color: "var(--agx-accent, #22d3ee)" }}>
           {notice}
         </p>
+      ) : null}
+
+      {role === "OWNER" && pendingTransfer ? (
+        <div
+          className="space-y-2 rounded-xl border px-3 py-3"
+          style={{ borderColor: "var(--agx-danger, #f87171)" }}
+          role="status"
+        >
+          <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+            {t("settings.controlPlane.transferPendingTitle")}
+          </h3>
+          <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {t("settings.controlPlane.transferPendingBody", {
+              name: pendingTransfer.toUserName,
+              email: pendingTransfer.toUserEmail,
+              expires: formatters.date(pendingTransfer.expiresAt),
+            })}
+          </p>
+          <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {t("settings.controlPlane.transferPendingNote")}
+          </p>
+          <Button
+            size="sm"
+            variant="secondary"
+            disabled={busy}
+            onClick={() => {
+              setBusy(true);
+              void controlPlaneClient
+                .cancelOwnershipTransfer(pendingTransfer.id)
+                .then(() => {
+                  setNotice(t("settings.controlPlane.transferCancelled"));
+                  return load();
+                })
+                .catch((err: unknown) =>
+                  setError(
+                    err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"),
+                  ),
+                )
+                .finally(() => setBusy(false));
+            }}
+          >
+            {t("settings.controlPlane.cancelTransfer")}
+          </Button>
+        </div>
       ) : null}
 
       {members.length === 0 ? (
@@ -611,6 +718,92 @@ export function TeamControlPanel(): JSX.Element {
           {inviteLink ? (
             <p className="break-all text-xs" role="status">
               {t("settings.controlPlane.inviteLink")}: {inviteLink}
+            </p>
+          ) : null}
+        </form>
+      </Dialog>
+
+      <Dialog
+        open={transferOpen}
+        title={t("settings.controlPlane.transferTitle")}
+        onClose={() => {
+          setTransferOpen(false);
+          setTransferLink(null);
+          setTransferConfirmName("");
+        }}
+        footer={
+          <div className="flex justify-end gap-2">
+            <Button
+              type="button"
+              variant="secondary"
+              size="sm"
+              onClick={() => setTransferOpen(false)}
+            >
+              {t("settings.controlPlane.close")}
+            </Button>
+            <Button
+              type="submit"
+              form="ownership-transfer-form"
+              size="sm"
+              variant="danger"
+              disabled={
+                busy ||
+                !transferTargetId ||
+                !selectedTransferTarget ||
+                transferConfirmName.trim() !== selectedTransferTarget.name.trim()
+              }
+            >
+              {t("settings.controlPlane.transferInitiate")}
+            </Button>
+          </div>
+        }
+      >
+        <form
+          id="ownership-transfer-form"
+          onSubmit={(e) => void onInitiateTransfer(e)}
+          className="space-y-4"
+        >
+          <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {t("settings.controlPlane.transferWarning")}
+          </p>
+          <SettingsField label={t("settings.controlPlane.transferTarget")}>
+            <SettingsSelect
+              value={transferTargetId}
+              onChange={(e) => {
+                setTransferTargetId(e.target.value);
+                setTransferConfirmName("");
+              }}
+              required
+              data-autofocus
+            >
+              <option value="">{t("settings.controlPlane.transferSelectMember")}</option>
+              {eligibleTransferTargets.map((m) => (
+                <option key={m.userId} value={m.userId}>
+                  {m.name} ({m.email}) · {roleLabel(t, m.role)}
+                </option>
+              ))}
+            </SettingsSelect>
+          </SettingsField>
+          {selectedTransferTarget ? (
+            <SettingsField
+              label={t("settings.controlPlane.transferTypeName", {
+                name: selectedTransferTarget.name,
+              })}
+            >
+              <SettingsInput
+                value={transferConfirmName}
+                onChange={(e) => setTransferConfirmName(e.target.value)}
+                required
+                autoComplete="off"
+              />
+            </SettingsField>
+          ) : null}
+          <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {t("settings.controlPlane.transferHonesty")}
+          </p>
+          {transferLink ? (
+            <p className="break-all text-xs" role="status">
+              {t("settings.controlPlane.transferLink")}: {transferLink}
             </p>
           ) : null}
         </form>

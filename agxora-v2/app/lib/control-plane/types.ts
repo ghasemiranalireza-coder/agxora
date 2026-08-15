@@ -59,6 +59,34 @@ export type InvitationPreview = {
   readonly status: "pending" | "expired" | "revoked" | "accepted";
 };
 
+export type OwnershipTransferView = {
+  readonly id: string;
+  readonly organizationId: string;
+  readonly workspaceId: string;
+  readonly fromUserId: string;
+  readonly fromUserName: string;
+  readonly fromUserEmail: string;
+  readonly toUserId: string;
+  readonly toUserName: string;
+  readonly toUserEmail: string;
+  readonly expiresAt: string;
+  readonly confirmedAt: string | null;
+  readonly cancelledAt: string | null;
+  readonly createdAt: string;
+  readonly status: "pending" | "expired" | "cancelled" | "confirmed";
+};
+
+export type OwnershipTransferPreview = {
+  readonly organizationName: string;
+  readonly workspaceName: string;
+  readonly fromUserName: string;
+  readonly fromUserEmail: string;
+  readonly toUserName: string;
+  readonly toUserEmail: string;
+  readonly expiresAt: string;
+  readonly status: "pending" | "expired" | "cancelled" | "confirmed";
+};
+
 export const CONTROL_AUDIT_ACTIONS = [
   "workspace_created",
   "workspace_updated",
@@ -70,6 +98,10 @@ export const CONTROL_AUDIT_ACTIONS = [
   "member_role_changed",
   "workspace_switched",
   "organization_updated",
+  "ownership_transfer_initiated",
+  "ownership_transfer_cancelled",
+  "ownership_transfer_completed",
+  "ownership_transfer_failed",
 ] as const;
 
 export type ControlAuditAction = (typeof CONTROL_AUDIT_ACTIONS)[number];

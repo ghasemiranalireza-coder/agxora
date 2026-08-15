@@ -19,6 +19,7 @@ import { switchActiveWorkspace } from "@/app/lib/auth/server/service";
 import { createOpaqueToken, hashOpaqueToken } from "@/app/lib/auth/server/tokens";
 import {
   buildInvitationEmail,
+  buildOwnershipTransferEmail,
   deliverEmail,
   type EmailDeliveryStatus,
 } from "@/app/lib/email";
@@ -28,10 +29,14 @@ import type {
   InvitationView,
   MemberView,
   OrganizationView,
+  OwnershipTransferPreview,
+  OwnershipTransferView,
   WorkspaceView,
 } from "./types";
 
 const INVITE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+/** Confirmation window for ownership transfer (48h). */
+const OWNERSHIP_TRANSFER_TTL_MS = 48 * 60 * 60 * 1000;
 const ROLES: readonly MembershipRole[] = ["OWNER", "ADMIN", "MEMBER"];
 
 function slugify(input: string): string {
@@ -777,4 +782,429 @@ export async function listControlAudit(
     targetUserId: row.targetUserId,
     createdAt: row.createdAt.toISOString(),
   }));
+}
+
+function ownershipTransferStatus(row: {
+  confirmedAt: Date | null;
+  cancelledAt: Date | null;
+  expiresAt: Date;
+}): OwnershipTransferView["status"] {
+  if (row.confirmedAt) return "confirmed";
+  if (row.cancelledAt) return "cancelled";
+  if (row.expiresAt.getTime() <= Date.now()) return "expired";
+  return "pending";
+}
+
+function toOwnershipTransferView(row: {
+  id: string;
+  organizationId: string;
+  workspaceId: string;
+  fromUserId: string;
+  toUserId: string;
+  expiresAt: Date;
+  confirmedAt: Date | null;
+  cancelledAt: Date | null;
+  createdAt: Date;
+  fromUser: { name: string; email: string };
+  toUser: { name: string; email: string };
+}): OwnershipTransferView {
+  return {
+    id: row.id,
+    organizationId: row.organizationId,
+    workspaceId: row.workspaceId,
+    fromUserId: row.fromUserId,
+    fromUserName: row.fromUser.name,
+    fromUserEmail: row.fromUser.email,
+    toUserId: row.toUserId,
+    toUserName: row.toUser.name,
+    toUserEmail: row.toUser.email,
+    expiresAt: row.expiresAt.toISOString(),
+    confirmedAt: row.confirmedAt?.toISOString() ?? null,
+    cancelledAt: row.cancelledAt?.toISOString() ?? null,
+    createdAt: row.createdAt.toISOString(),
+    status: ownershipTransferStatus(row),
+  };
+}
+
+/**
+ * Phase 45-B — initiate controlled ownership transfer.
+ * Does NOT change Organization.ownerId or membership roles until confirmation.
+ */
+export async function initiateOwnershipTransfer(
+  actor: Actor,
+  input: { readonly targetUserId?: unknown },
+): Promise<{
+  transfer: OwnershipTransferView;
+  token: string;
+  delivery: EmailDeliveryStatus;
+}> {
+  assertControl(actor, "ownership.transfer.initiate", {
+    organizationId: actor.organizationId,
+    workspaceId: actor.workspaceId,
+  });
+
+  if (actor.role !== "OWNER") {
+    throw new PersistenceError("forbidden", "Only OWNER can initiate ownership transfer");
+  }
+
+  const targetUserId =
+    typeof input.targetUserId === "string" ? input.targetUserId.trim() : "";
+  if (!targetUserId) {
+    validationError("targetUserId is required", [
+      { field: "targetUserId", message: "targetUserId is required" },
+    ]);
+  }
+  if (targetUserId === actor.userId) {
+    throw new PersistenceError("forbidden", "Cannot transfer ownership to yourself");
+  }
+
+  const organization = await prisma.organization.findUnique({
+    where: { id: actor.organizationId },
+  });
+  if (!organization) {
+    throw new PersistenceError("not_found", "Organization not found");
+  }
+  if (organization.ownerId !== actor.userId) {
+    throw new PersistenceError(
+      "forbidden",
+      "Only the organization owner can initiate ownership transfer",
+    );
+  }
+
+  const targetMembership = await prisma.membership.findFirst({
+    where: {
+      organizationId: actor.organizationId,
+      workspaceId: actor.workspaceId,
+      userId: targetUserId,
+      status: "ACTIVE",
+    },
+    include: { user: true },
+  });
+  if (!targetMembership) {
+    throw new PersistenceError(
+      "validation",
+      "Target must be an active member of this workspace",
+      { status: 422 },
+    );
+  }
+  if (targetMembership.role === "OWNER") {
+    throw new PersistenceError("conflict", "Target is already the workspace OWNER");
+  }
+
+  const pending = await prisma.ownershipTransfer.findFirst({
+    where: {
+      organizationId: actor.organizationId,
+      confirmedAt: null,
+      cancelledAt: null,
+      expiresAt: { gt: new Date() },
+    },
+  });
+  if (pending) {
+    throw new PersistenceError(
+      "conflict",
+      "A pending ownership transfer already exists for this organization",
+    );
+  }
+
+  const [workspace, fromUser] = await Promise.all([
+    prisma.workspace.findUnique({ where: { id: actor.workspaceId } }),
+    prisma.user.findUnique({ where: { id: actor.userId } }),
+  ]);
+  if (!workspace || !fromUser) {
+    throw new PersistenceError("not_found", "Workspace or owner not found");
+  }
+
+  const rawToken = createOpaqueToken(32);
+  const transfer = await prisma.ownershipTransfer.create({
+    data: {
+      organizationId: actor.organizationId,
+      workspaceId: actor.workspaceId,
+      fromUserId: actor.userId,
+      toUserId: targetUserId,
+      tokenHash: hashOpaqueToken(rawToken),
+      expiresAt: new Date(Date.now() + OWNERSHIP_TRANSFER_TTL_MS),
+    },
+    include: { fromUser: true, toUser: true },
+  });
+
+  await recordControlAudit({
+    actor,
+    action: "ownership_transfer_initiated",
+    workspaceId: actor.workspaceId,
+    targetUserId,
+    metadata: {
+      transferId: transfer.id,
+      toEmail: targetMembership.user.email,
+      previousRole: targetMembership.role,
+    },
+  });
+
+  const { delivery } = await deliverEmail(
+    buildOwnershipTransferEmail({
+      to: targetMembership.user.email,
+      organizationName: organization.name,
+      workspaceName: workspace.name,
+      fromUserName: fromUser.name,
+      rawToken,
+    }),
+  );
+
+  return {
+    transfer: toOwnershipTransferView(transfer),
+    token: rawToken,
+    delivery,
+  };
+}
+
+export async function getPendingOwnershipTransfer(
+  actor: Actor,
+): Promise<OwnershipTransferView | null> {
+  assertControl(actor, "ownership.transfer.read", {
+    organizationId: actor.organizationId,
+    workspaceId: actor.workspaceId,
+  });
+
+  const row = await prisma.ownershipTransfer.findFirst({
+    where: {
+      organizationId: actor.organizationId,
+      confirmedAt: null,
+      cancelledAt: null,
+      expiresAt: { gt: new Date() },
+    },
+    include: { fromUser: true, toUser: true },
+    orderBy: { createdAt: "desc" },
+  });
+  return row ? toOwnershipTransferView(row) : null;
+}
+
+export async function cancelOwnershipTransfer(
+  actor: Actor,
+  transferId?: string,
+): Promise<OwnershipTransferView> {
+  assertControl(actor, "ownership.transfer.cancel", {
+    organizationId: actor.organizationId,
+    workspaceId: actor.workspaceId,
+  });
+
+  const row = await prisma.ownershipTransfer.findFirst({
+    where: {
+      organizationId: actor.organizationId,
+      ...(transferId ? { id: transferId } : {}),
+      confirmedAt: null,
+      cancelledAt: null,
+      expiresAt: { gt: new Date() },
+    },
+    include: { fromUser: true, toUser: true },
+    orderBy: { createdAt: "desc" },
+  });
+  if (!row) {
+    throw new PersistenceError("not_found", "No pending ownership transfer found");
+  }
+  if (row.fromUserId !== actor.userId) {
+    throw new PersistenceError("forbidden", "Only the initiating owner can cancel");
+  }
+
+  const updated = await prisma.ownershipTransfer.update({
+    where: { id: row.id },
+    data: { cancelledAt: new Date() },
+    include: { fromUser: true, toUser: true },
+  });
+
+  await recordControlAudit({
+    actor,
+    action: "ownership_transfer_cancelled",
+    workspaceId: row.workspaceId,
+    targetUserId: row.toUserId,
+    metadata: { transferId: row.id },
+  });
+
+  return toOwnershipTransferView(updated);
+}
+
+async function loadOwnershipTransferByRawToken(rawToken: string) {
+  if (!rawToken || rawToken.length < 16) return null;
+  return prisma.ownershipTransfer.findUnique({
+    where: { tokenHash: hashOpaqueToken(rawToken) },
+    include: {
+      fromUser: true,
+      toUser: true,
+      organization: true,
+      workspace: true,
+    },
+  });
+}
+
+export async function previewOwnershipTransfer(
+  rawToken: string,
+): Promise<OwnershipTransferPreview> {
+  const transfer = await loadOwnershipTransferByRawToken(rawToken);
+  if (!transfer) {
+    throw new PersistenceError("not_found", "Ownership transfer not found");
+  }
+  return {
+    organizationName: transfer.organization.name,
+    workspaceName: transfer.workspace.name,
+    fromUserName: transfer.fromUser.name,
+    fromUserEmail: transfer.fromUser.email,
+    toUserName: transfer.toUser.name,
+    toUserEmail: transfer.toUser.email,
+    expiresAt: transfer.expiresAt.toISOString(),
+    status: ownershipTransferStatus(transfer),
+  };
+}
+
+/**
+ * Confirm ownership transfer atomically.
+ * Caller must be authenticated as the transfer target.
+ */
+export async function confirmOwnershipTransfer(
+  actor: Actor,
+  rawToken: string,
+): Promise<{
+  organizationId: string;
+  workspaceId: string;
+  previousOwnerId: string;
+  newOwnerId: string;
+}> {
+  const transfer = await loadOwnershipTransferByRawToken(rawToken);
+  if (!transfer) {
+    throw new PersistenceError("not_found", "Ownership transfer not found");
+  }
+
+  const status = ownershipTransferStatus(transfer);
+  if (status === "expired") {
+    throw new PersistenceError("forbidden", "Ownership transfer has expired");
+  }
+  if (status === "cancelled") {
+    throw new PersistenceError("forbidden", "Ownership transfer was cancelled");
+  }
+  if (status === "confirmed") {
+    throw new PersistenceError("conflict", "Ownership transfer has already been confirmed");
+  }
+  if (actor.userId !== transfer.toUserId) {
+    throw new PersistenceError(
+      "forbidden",
+      "Only the designated recipient can confirm this ownership transfer",
+    );
+  }
+  if (actor.email.trim().toLowerCase() !== transfer.toUser.email.trim().toLowerCase()) {
+    throw new PersistenceError(
+      "forbidden",
+      "Authenticated account does not match the transfer recipient",
+    );
+  }
+
+  try {
+    const result = await prisma.$transaction(async (tx) => {
+      const locked = await tx.ownershipTransfer.findUnique({
+        where: { id: transfer.id },
+      });
+      if (!locked || locked.confirmedAt || locked.cancelledAt) {
+        throw new PersistenceError(
+          "conflict",
+          "Ownership transfer has already been confirmed",
+        );
+      }
+      if (locked.expiresAt.getTime() <= Date.now()) {
+        throw new PersistenceError("forbidden", "Ownership transfer has expired");
+      }
+
+      const org = await tx.organization.findUnique({
+        where: { id: locked.organizationId },
+      });
+      if (!org) {
+        throw new PersistenceError("not_found", "Organization not found");
+      }
+      if (org.ownerId !== locked.fromUserId) {
+        throw new PersistenceError(
+          "conflict",
+          "Organization owner changed since the transfer was initiated",
+        );
+      }
+
+      const fromMembership = await tx.membership.findFirst({
+        where: {
+          userId: locked.fromUserId,
+          workspaceId: locked.workspaceId,
+          status: "ACTIVE",
+          role: "OWNER",
+        },
+      });
+      const toMembership = await tx.membership.findFirst({
+        where: {
+          userId: locked.toUserId,
+          workspaceId: locked.workspaceId,
+          organizationId: locked.organizationId,
+          status: "ACTIVE",
+        },
+      });
+      if (!fromMembership || !toMembership) {
+        throw new PersistenceError(
+          "conflict",
+          "Membership state is no longer valid for this transfer",
+        );
+      }
+      if (toMembership.role === "OWNER") {
+        throw new PersistenceError("conflict", "Target is already the workspace OWNER");
+      }
+
+      await tx.organization.update({
+        where: { id: locked.organizationId },
+        data: { ownerId: locked.toUserId },
+      });
+      await tx.membership.update({
+        where: { id: fromMembership.id },
+        data: { role: "ADMIN" },
+      });
+      await tx.membership.update({
+        where: { id: toMembership.id },
+        data: { role: "OWNER" },
+      });
+      await tx.ownershipTransfer.update({
+        where: { id: locked.id },
+        data: { confirmedAt: new Date() },
+      });
+
+      return {
+        organizationId: locked.organizationId,
+        workspaceId: locked.workspaceId,
+        previousOwnerId: locked.fromUserId,
+        newOwnerId: locked.toUserId,
+      };
+    });
+
+    await recordControlAudit({
+      actor: {
+        ...actor,
+        organizationId: result.organizationId,
+        workspaceId: result.workspaceId,
+        role: "OWNER",
+      },
+      action: "ownership_transfer_completed",
+      workspaceId: result.workspaceId,
+      targetUserId: result.previousOwnerId,
+      metadata: {
+        transferId: transfer.id,
+        previousOwnerId: result.previousOwnerId,
+        newOwnerId: result.newOwnerId,
+        previousOwnerNewRole: "ADMIN",
+      },
+    });
+
+    return result;
+  } catch (error) {
+    if (error instanceof PersistenceError) {
+      await recordControlAudit({
+        actor,
+        action: "ownership_transfer_failed",
+        workspaceId: transfer.workspaceId,
+        targetUserId: transfer.toUserId,
+        metadata: {
+          transferId: transfer.id,
+          reason: error.message.slice(0, 120),
+        },
+      }).catch(() => undefined);
+    }
+    throw error;
+  }
 }

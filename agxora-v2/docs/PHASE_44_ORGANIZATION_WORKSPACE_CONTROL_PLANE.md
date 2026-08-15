@@ -130,9 +130,8 @@ ignored. Authority always comes from the session actor.
 
 ## Known limitations
 
-- Email delivery is **not configured**. Creating an invitation does not send
-  mail.
-- Ownership transfer is **not implemented** (documented future operation).
+- Ownership transfer is implemented in **Phase 45-B** (two-step controlled
+  flow). Direct OWNER invite / role change remains forbidden.
 - `/dashboard/team` remains a legacy demo module; **Settings → Team** is the
   production membership UI.
 - No MFA, OAuth, rate limiting, or Stripe (later phases).
@@ -141,9 +140,7 @@ ignored. Authority always comes from the session actor.
 
 ## Future ownership transfer
 
-A dedicated, audited, two-step transfer (current OWNER → existing ADMIN, with
-demotion of the previous OWNER) should be a later phase. Until then, OWNER
-cannot be invited, removed, or demoted.
+Implemented in Phase 45-B — see `docs/PHASE_45B_OWNERSHIP_TRANSFER.md`.
 
 ## Future email delivery
 

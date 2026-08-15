@@ -77,10 +77,41 @@ export function buildEmailVerificationEmail(input: {
   };
 }
 
+export function buildOwnershipTransferEmail(input: {
+  readonly to: string;
+  readonly organizationName: string;
+  readonly workspaceName: string;
+  readonly fromUserName: string;
+  readonly rawToken: string;
+}): EmailMessage {
+  const actionUrl = `${getAppOrigin()}/ownership-transfer/${input.rawToken}`;
+  return {
+    kind: "ownership_transfer",
+    to: input.to,
+    subject: `Confirm ownership transfer for ${input.organizationName}`,
+    actionUrl,
+    text: [
+      `${input.fromUserName} initiated an organization ownership transfer to you`,
+      `for “${input.organizationName}” (workspace “${input.workspaceName}”).`,
+      "",
+      "If you accept, you become the organization OWNER and the previous owner",
+      "is demoted to ADMIN on that workspace.",
+      "",
+      "Confirm the transfer:",
+      actionUrl,
+      "",
+      "This link expires in 48 hours. If you did not expect this, ignore the email.",
+      "— AGXORA",
+    ].join("\n"),
+  };
+}
+
 /** Redacts one-time tokens from URLs for safe structured logs. */
 export function redactActionUrl(url: string, kind: EmailKind): string {
-  if (kind === "invitation") {
-    return url.replace(/\/invite\/[^/?#]+/i, "/invite/[redacted]");
+  if (kind === "invitation" || kind === "ownership_transfer") {
+    return url
+      .replace(/\/invite\/[^/?#]+/i, "/invite/[redacted]")
+      .replace(/\/ownership-transfer\/[^/?#]+/i, "/ownership-transfer/[redacted]");
   }
   return url.replace(/([?&]token=)[^&]+/i, "$1[redacted]");
 }

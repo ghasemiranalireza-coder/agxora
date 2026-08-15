@@ -233,6 +233,33 @@
       "expired": "This invitation has expired.",
       "revoked": "This invitation was revoked.",
       "accepted": "This invitation was already accepted."
+    },
+    "transferOwnership": "Transfer ownership",
+    "transferTitle": "Transfer organization ownership",
+    "transferWarning": "This is a dangerous action. You remain OWNER until the recipient confirms. After confirmation, you become ADMIN and they become OWNER.",
+    "transferTarget": "New owner",
+    "transferSelectMember": "Select an existing member…",
+    "transferTypeName": "Type “{name}” to confirm",
+    "transferConfirmMismatch": "Typed name does not match the selected member.",
+    "transferInitiate": "Initiate transfer",
+    "transferHonesty": "A confirmation email is sent when delivery is configured. Otherwise share the confirmation link directly with the recipient.",
+    "transferLink": "Confirmation link",
+    "transferPendingTitle": "Pending ownership transfer",
+    "transferPendingBody": "Waiting for {name} ({email}) to confirm. Expires {expires}. You remain OWNER until then.",
+    "transferPendingNote": "Membership roles do not change while the transfer is pending.",
+    "cancelTransfer": "Cancel transfer",
+    "transferCancelled": "Ownership transfer cancelled.",
+    "transferInvalid": "This ownership transfer is not valid.",
+    "transferConfirmTitle": "Confirm ownership transfer",
+    "transferConfirmBody": "{from} wants to transfer organization ownership to {to} ({email}).",
+    "transferConfirmDanger": "After you confirm, you become OWNER and the previous owner becomes ADMIN.",
+    "transferConfirmAction": "Confirm I become the new owner",
+    "transferWrongAccount": "Sign in as {email} to confirm this transfer.",
+    "transferStatus": {
+      "pending": "Pending confirmation",
+      "expired": "This ownership transfer has expired.",
+      "cancelled": "This ownership transfer was cancelled.",
+      "confirmed": "This ownership transfer was already completed."
     }
   }
 }

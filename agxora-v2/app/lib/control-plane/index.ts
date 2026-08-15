@@ -4,6 +4,8 @@ export type {
   MemberView,
   InvitationView,
   InvitationPreview,
+  OwnershipTransferView,
+  OwnershipTransferPreview,
   ControlAuditAction,
 } from "./types";
 export { CONTROL_AUDIT_ACTIONS } from "./types";
@@ -25,4 +27,9 @@ export {
   previewInvitation,
   acceptInvitation,
   listControlAudit,
+  initiateOwnershipTransfer,
+  getPendingOwnershipTransfer,
+  cancelOwnershipTransfer,
+  previewOwnershipTransfer,
+  confirmOwnershipTransfer,
 } from "./service";
