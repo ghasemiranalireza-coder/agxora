@@ -3,6 +3,7 @@ import { requireActorForWorkspace } from "@/app/lib/tenancy";
 import { createInvitation, listInvitations } from "@/app/lib/control-plane";
 import { jsonError } from "@/app/lib/crm/persistence/http";
 import { requireDatabase } from "@/app/lib/auth/server/http";
+import { rateLimitResponse } from "@/app/lib/security/rate-limit";
 
 export const runtime = "nodejs";
 
@@ -31,6 +32,13 @@ export async function POST(
     requireDatabase();
     const { id } = await context.params;
     const actor = await requireActorForWorkspace(id);
+    const limited = rateLimitResponse({
+      request,
+      policyId: "control.invite",
+      userId: actor.userId,
+    });
+    if (limited) return limited;
+
     const body = (await request.json()) as Record<string, unknown>;
     const { invitation, token, delivery } = await createInvitation(actor, {
       email: body.email,

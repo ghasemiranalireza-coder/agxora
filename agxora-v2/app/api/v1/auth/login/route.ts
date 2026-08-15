@@ -6,6 +6,7 @@ import {
   requireDatabase,
 } from "@/app/lib/auth/server/http";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
+import { rateLimitResponse } from "@/app/lib/security/rate-limit";
 
 export const runtime = "nodejs";
 
@@ -17,6 +18,12 @@ type Body = {
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     requireDatabase();
+    const limited = rateLimitResponse({
+      request,
+      policyId: "auth.login",
+    });
+    if (limited) return limited;
+
     const body = (await request.json()) as Body;
     if (!body.email || !body.password) {
       throw new PersistenceError("validation", "email and password are required");

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { resetPasswordWithToken, clearSessionCookie } from "@/app/lib/auth/server";
 import { authJsonError, requireDatabase } from "@/app/lib/auth/server/http";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
+import { rateLimitResponse } from "@/app/lib/security/rate-limit";
 
 export const runtime = "nodejs";
 
@@ -13,6 +14,12 @@ type Body = {
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     requireDatabase();
+    const limited = rateLimitResponse({
+      request,
+      policyId: "auth.reset_password",
+    });
+    if (limited) return limited;
+
     const body = (await request.json()) as Body;
     if (!body.token || !body.password) {
       throw new PersistenceError("validation", "token and password are required");

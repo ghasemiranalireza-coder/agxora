@@ -9,7 +9,8 @@ export type PersistenceErrorCode =
   | "validation"
   | "conflict"
   | "persistence"
-  | "misconfigured";
+  | "misconfigured"
+  | "rate_limited";
 
 export class PersistenceError extends Error {
   readonly code: PersistenceErrorCode;
@@ -37,6 +38,7 @@ export class PersistenceError extends Error {
         conflict: 409,
         persistence: 500,
         misconfigured: 503,
+        rate_limited: 429,
       }[code] as number);
     this.details = options?.details;
   }

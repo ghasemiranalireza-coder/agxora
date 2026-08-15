@@ -7,6 +7,7 @@ import {
 } from "@/app/lib/control-plane";
 import { jsonError } from "@/app/lib/crm/persistence/http";
 import { requireDatabase } from "@/app/lib/auth/server/http";
+import { rateLimitResponse } from "@/app/lib/security/rate-limit";
 
 export const runtime = "nodejs";
 
@@ -25,6 +26,13 @@ export async function POST(request: Request): Promise<NextResponse> {
   try {
     requireDatabase();
     const actor = await requireCurrentActor();
+    const limited = rateLimitResponse({
+      request,
+      policyId: "control.ownership_transfer_initiate",
+      userId: actor.userId,
+    });
+    if (limited) return limited;
+
     const body = (await request.json()) as Record<string, unknown>;
     const { transfer, token, delivery } = await initiateOwnershipTransfer(actor, {
       targetUserId: body.targetUserId,

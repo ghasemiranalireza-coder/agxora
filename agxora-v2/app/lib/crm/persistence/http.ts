@@ -12,20 +12,37 @@ export function jsonError(error: unknown): NextResponse {
         code: error.code,
         message: error.message,
       });
-    } else {
+    } else if (error.code !== "rate_limited") {
       console.warn("[agxora.authz]", {
         code: error.code,
         message: error.message,
       });
     }
+
+    const headers: Record<string, string> = {};
+    if (error.code === "rate_limited") {
+      const retryDetail = error.details?.find((d) =>
+        d.message.startsWith("retry_after_sec="),
+      );
+      const retryAfterSec = retryDetail
+        ? Number.parseInt(retryDetail.message.split("=")[1] ?? "60", 10)
+        : 60;
+      headers["Retry-After"] = String(
+        Number.isFinite(retryAfterSec) && retryAfterSec > 0 ? retryAfterSec : 60,
+      );
+      headers["Cache-Control"] = "no-store";
+    }
+
     return NextResponse.json(
       {
         ok: false,
         code: error.code,
         message: error.message,
-        details: error.details,
+        // Never echo limiter internals / retry detail strings to clients.
+        details:
+          error.code === "rate_limited" ? undefined : error.details,
       },
-      { status: error.status },
+      { status: error.status, headers },
     );
   }
 
