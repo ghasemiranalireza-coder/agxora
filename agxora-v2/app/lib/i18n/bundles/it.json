@@ -4502,7 +4502,7 @@
     "healthStatus": {
       "healthy": "Integro",
       "degraded": "Degradato",
-      "down": "Down",
+      "down": "Non disponibile",
       "unknown": "Sconosciuto"
     },
     "taskStatus": {
@@ -4514,7 +4514,7 @@
       "retrying": "Nuovo tentativo"
     },
     "memoryScope": {
-      "working": "Working",
+      "working": "Operativa",
       "conversation": "Conversazione",
       "business": "Business",
       "long_term": "Lungo termine",
@@ -4836,11 +4836,11 @@
         "description": "Nuovi clienti acquisiti."
       },
       "retention": {
-        "name": "Retention",
+        "name": "Ritenzione",
         "description": "Tasso di retention clienti."
       },
       "churn": {
-        "name": "Churn",
+        "name": "Abbandono",
         "description": "Tasso di churn clienti."
       },
       "project_success": {
@@ -4871,7 +4871,7 @@
       "emptyDescription": "Riporta il seed sul bootstrap dell'area di lavoro.",
       "scheduleOnDemand": "su richiesta",
       "executive": {
-        "title": "Weekly executive",
+        "title": "Report executive settimanale",
         "description": "Brief CEO su salute, ricavi, rischio e crescita."
       },
       "department": {
@@ -4879,7 +4879,7 @@
         "description": "Pipeline, acquisizione e retention per la leadership vendite."
       },
       "operational": {
-        "title": "Daily operations",
+        "title": "Operazioni giornaliere",
         "description": "Workflow, integrazioni e postura identità."
       },
       "management": {
@@ -4943,7 +4943,7 @@
         "name": "Punteggio vendite",
         "drivers": {
           "pipeline_coverage": "Copertura pipeline",
-          "win_rate": "Win rate",
+          "win_rate": "Tasso di vittoria",
           "cycle_time": "Tempo di ciclo"
         }
       },
@@ -5067,7 +5067,7 @@
     "chartKinds": {
       "line": "Linea",
       "bar": "Barre",
-      "area": "Area",
+      "area": "Aree",
       "pie": "Torta",
       "heatmap": "Heatmap",
       "table": "Tabella",
@@ -5125,7 +5125,7 @@
     },
     "insightKinds": {
       "trend": "Trend",
-      "pattern": "Pattern",
+      "pattern": "Schema",
       "recommendation": "Raccomandazione",
       "executive_summary": "Sintesi executive",
       "risk": "Rischio",
@@ -5580,7 +5580,7 @@
     },
     "categories": {
       "social": "Social",
-      "ads": "Ads",
+      "ads": "Annunci",
       "analytics": "Analytics"
     },
     "platforms": {
@@ -5752,7 +5752,7 @@
       },
       "camp-3": {
         "name": "Push portfolio agency",
-        "objective": "Lead generation",
+        "objective": "Generazione lead",
         "audience": "Direttori marketing",
         "budget": "2.900 € (placeholder)",
         "timeline": "1 set – 30 set"

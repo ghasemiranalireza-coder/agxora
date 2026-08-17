@@ -48,7 +48,7 @@ export const AGENTS_META_OVERLAY = {
 
   "agents.healthStatus.healthy": zip(["Gesund", "سالم", "健康", "健康", "健全", "Gezond", "Sain", "Correcto", "Integro", "Saudável", "В норме", "Sağlıklı", "سليم", "양호", "Zdrowy", "Здоровий", "स्वस्थ", "Sehat", "Ổn định"]),
   "agents.healthStatus.degraded": zip(["Beeinträchtigt", "کاهش‌یافته", "降级", "降級", "劣化", "Verminderd", "Dégradé", "Degradado", "Degradato", "Degradado", "Деградация", "Bozulmuş", "متدهور", "저하", "Obniżony", "Погіршений", "गिरा हुआ", "Menurun", "Suy giảm"]),
-  "agents.healthStatus.down": zip(["Ausgefallen", "ازکارافتاده", "停机", "停機", "停止", "Offline", "Hors service", "Caído", "Down", "Indisponível", "Недоступен", "Kapalı", "متوقف", "중단", "Niedostępny", "Недоступний", "डाउन", "Down", "Ngừng"]),
+  "agents.healthStatus.down": zip(["Ausgefallen", "ازکارافتاده", "停机", "停機", "停止", "Offline", "Hors service", "Caído", "Non disponibile", "Indisponível", "Недоступен", "Kapalı", "متوقف", "중단", "Niedostępny", "Недоступний", "डाउन", "Offline", "Ngừng"]),
   "agents.healthStatus.unknown": zip(["Unbekannt", "نامشخص", "未知", "未知", "不明", "Onbekend", "Inconnu", "Desconocido", "Sconosciuto", "Desconhecido", "Неизвестно", "Bilinmiyor", "غير معروف", "알 수 없음", "Nieznany", "Невідомо", "अज्ञात", "Tidak diketahui", "Không rõ"]),
 
   "agents.taskStatus.pending": zip(["Ausstehend", "در انتظار", "待处理", "待處理", "保留中", "In behandeling", "En attente", "Pendiente", "In attesa", "Pendente", "Ожидание", "Beklemede", "قيد الانتظار", "대기", "Oczekujące", "Очікування", "लंबित", "Tertunda", "Đang chờ"]),
@@ -58,7 +58,7 @@ export const AGENTS_META_OVERLAY = {
   "agents.taskStatus.failed": zip(["Fehlgeschlagen", "ناموفق", "失败", "失敗", "失敗", "Mislukt", "Échoué", "Fallido", "Non riuscito", "Falhado", "Сбой", "Başarısız", "فشل", "실패", "Nieudane", "Збій", "विफल", "Gagal", "Thất bại"]),
   "agents.taskStatus.retrying": zip(["Wird wiederholt", "تلاش مجدد", "重试中", "重試中", "再試行中", "Opnieuw", "Nouvel essai", "Reintentando", "Nuovo tentativo", "A repetir", "Повтор", "Yeniden deneniyor", "إعادة المحاولة", "재시도 중", "Ponawianie", "Повтор", "पुनः प्रयास", "Mencoba lagi", "Đang thử lại"]),
 
-  "agents.memoryScope.working": zip(["Arbeitspeicher", "کاری", "工作", "工作", "ワーキング", "Werkgeheugen", "Travail", "Trabajo", "Working", "Trabalho", "Рабочая", "Çalışma", "عمل", "작업", "Robocza", "Робоча", "कार्य", "Kerja", "Làm việc"]),
+  "agents.memoryScope.working": zip(["Arbeitspeicher", "کاری", "工作", "工作", "ワーキング", "Werkgeheugen", "Travail", "Trabajo", "Operativa", "Trabalho", "Рабочая", "Çalışma", "عمل", "작업", "Robocza", "Робоча", "कार्य", "Kerja", "Làm việc"]),
   "agents.memoryScope.conversation": zip(["Konversation", "گفتگو", "对话", "對話", "会話", "Gesprek", "Conversation", "Conversación", "Conversazione", "Conversa", "Диалог", "Konuşma", "محادثة", "대화", "Rozmowa", "Розмова", "बातचीत", "Percakapan", "Hội thoại"]),
   "agents.memoryScope.business": zip(["Business", "کسب‌وکار", "业务", "業務", "ビジネス", "Business", "Métier", "Negocio", "Business", "Negócio", "Бизнес", "İş", "أعمال", "비즈니스", "Biznes", "Бізнес", "व्यवसाय", "Bisnis", "Kinh doanh"]),
   "agents.memoryScope.long_term": zip(["Langzeit", "بلندمدت", "长期", "長期", "長期", "Langetermijn", "Long terme", "Largo plazo", "Lungo termine", "Longo prazo", "Долгосрочная", "Uzun vadeli", "طويل الأمد", "장기", "Długoterminowa", "Довгострокова", "दीर्घकालिक", "Jangka panjang", "Dài hạn"]),

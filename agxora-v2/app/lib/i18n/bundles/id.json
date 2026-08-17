@@ -4502,7 +4502,7 @@
     "healthStatus": {
       "healthy": "Sehat",
       "degraded": "Menurun",
-      "down": "Down",
+      "down": "Offline",
       "unknown": "Tidak diketahui"
     },
     "taskStatus": {
@@ -4741,7 +4741,7 @@
     "healthStatus": {
       "healthy": "Sehat",
       "degraded": "Menurun",
-      "down": "Down",
+      "down": "Offline",
       "unknown": "Tidak diketahui"
     }
   },
@@ -4840,7 +4840,7 @@
         "description": "Tingkat retensi pelanggan."
       },
       "churn": {
-        "name": "Churn",
+        "name": "Churn pelanggan",
         "description": "Tingkat churn pelanggan."
       },
       "project_success": {
@@ -5067,7 +5067,7 @@
     "chartKinds": {
       "line": "Garis",
       "bar": "Batang",
-      "area": "Area",
+      "area": "Area luas",
       "pie": "Lingkaran",
       "heatmap": "Peta panas",
       "table": "Tabel",

@@ -17,7 +17,7 @@ import {
   toBcp47,
 } from "./locale";
 import { getCatalog, getFallbackCatalog } from "./catalog";
-import { resolveMessage, resolveMessageList } from "./translate";
+import { resolveMessage } from "./translate";
 import { catalogCopy } from "./catalogCopy";
 import { formatCurrency, formatDate, formatNumber, setActiveFormatLocale } from "./format";
 import { resolveUserFacingErrorKey } from "./errorMap";

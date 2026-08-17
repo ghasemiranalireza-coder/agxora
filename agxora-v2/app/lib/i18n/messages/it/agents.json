@@ -264,7 +264,7 @@
   "healthStatus": {
     "healthy": "Integro",
     "degraded": "Degradato",
-    "down": "Down",
+    "down": "Non disponibile",
     "unknown": "Sconosciuto"
   },
   "taskStatus": {
@@ -276,7 +276,7 @@
     "retrying": "Nuovo tentativo"
   },
   "memoryScope": {
-    "working": "Working",
+    "working": "Operativa",
     "conversation": "Conversazione",
     "business": "Business",
     "long_term": "Lungo termine",

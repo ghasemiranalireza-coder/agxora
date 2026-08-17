@@ -124,7 +124,7 @@
     "emptyDescription": "Начальное значение отчетов при загрузке рабочей области.",
     "scheduleOnDemand": "по требованию",
     "executive": {
-      "title": "Еженедельный executive",
+      "title": "Еженедельный обзор",
       "description": "Бриф для CEO по здоровью, выручке, риску и росту."
     },
     "department": {
@@ -196,7 +196,7 @@
       "name": "Оценка продаж",
       "drivers": {
         "pipeline_coverage": "Покрытие воронки",
-        "win_rate": "Win rate",
+        "win_rate": "Доля побед",
         "cycle_time": "Длительность цикла"
       }
     },
