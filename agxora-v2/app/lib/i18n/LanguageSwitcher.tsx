@@ -7,7 +7,6 @@ import {
   useRef,
   useState,
   type JSX,
-  type KeyboardEvent,
 } from "react";
 import { LOCALE_LABELS, SUPPORTED_LOCALES, type AppLocale } from "./locale";
 import { useLocale } from "./LocaleProvider";
@@ -31,15 +30,23 @@ export function LanguageSwitcher({
   const triggerId = id ?? `agxora-language-${autoId}`;
   const listId = `${triggerId}-list`;
   const rootRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const localeRef = useRef(locale);
+  const activeIndexRef = useRef(0);
+  localeRef.current = locale;
+
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(() =>
+    Math.max(0, SUPPORTED_LOCALES.indexOf(locale)),
+  );
+  activeIndexRef.current = activeIndex;
 
   const close = useCallback(() => setOpen(false), []);
 
-  const openMenu = useCallback(() => {
-    setActiveIndex(Math.max(0, SUPPORTED_LOCALES.indexOf(locale)));
-    setOpen(true);
-  }, [locale]);
+  const toggleMenu = useCallback(() => {
+    setActiveIndex(Math.max(0, SUPPORTED_LOCALES.indexOf(localeRef.current)));
+    setOpen((wasOpen) => !wasOpen);
+  }, []);
 
   const choose = useCallback(
     (next: AppLocale) => {
@@ -50,28 +57,103 @@ export function LanguageSwitcher({
   );
 
   useEffect(() => {
-    if (!open) return undefined;
-    const onPointer = (event: MouseEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) close();
+    const trigger = triggerRef.current;
+    if (!trigger) return undefined;
+
+    const onTriggerClick = (event: MouseEvent) => {
+      event.preventDefault();
+      event.stopPropagation();
+      toggleMenu();
     };
-    const onKey = (event: globalThis.KeyboardEvent) => {
+    const onTriggerKeyDown = (event: KeyboardEvent) => {
+      if (
+        event.key === "ArrowDown" ||
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
+        event.preventDefault();
+        setActiveIndex(Math.max(0, SUPPORTED_LOCALES.indexOf(localeRef.current)));
+        setOpen(true);
+      }
+    };
+
+    trigger.addEventListener("click", onTriggerClick);
+    trigger.addEventListener("keydown", onTriggerKeyDown);
+    return () => {
+      trigger.removeEventListener("click", onTriggerClick);
+      trigger.removeEventListener("keydown", onTriggerKeyDown);
+    };
+  }, [toggleMenu]);
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const root = rootRef.current;
+    if (!root) return undefined;
+
+    const onDocumentPointer = (event: MouseEvent) => {
+      if (!root.contains(event.target as Node)) close();
+    };
+    const onDocumentKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault();
         close();
       }
     };
-    document.addEventListener("mousedown", onPointer);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onPointer);
-      document.removeEventListener("keydown", onKey);
+    const onRootClick = (event: MouseEvent) => {
+      const option = (event.target as HTMLElement | null)?.closest<HTMLElement>(
+        "[data-locale]",
+      );
+      if (!option || !root.contains(option)) return;
+      const next = option.getAttribute("data-locale");
+      if (next && SUPPORTED_LOCALES.includes(next as AppLocale)) {
+        event.preventDefault();
+        event.stopPropagation();
+        choose(next as AppLocale);
+      }
     };
-  }, [open, close]);
+    const onListKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        setActiveIndex((index) => (index + 1) % SUPPORTED_LOCALES.length);
+        return;
+      }
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+        setActiveIndex(
+          (index) =>
+            (index - 1 + SUPPORTED_LOCALES.length) % SUPPORTED_LOCALES.length,
+        );
+        return;
+      }
+      if (event.key === "Home") {
+        event.preventDefault();
+        setActiveIndex(0);
+        return;
+      }
+      if (event.key === "End") {
+        event.preventDefault();
+        setActiveIndex(SUPPORTED_LOCALES.length - 1);
+        return;
+      }
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        choose(SUPPORTED_LOCALES[activeIndexRef.current]);
+      }
+    };
 
-  useEffect(() => {
-    if (!open) return;
-    rootRef.current?.querySelector<HTMLElement>('[role="listbox"]')?.focus();
-  }, [open]);
+    document.addEventListener("mousedown", onDocumentPointer);
+    document.addEventListener("keydown", onDocumentKey);
+    root.addEventListener("click", onRootClick);
+    const list = root.querySelector<HTMLElement>('[role="listbox"]');
+    list?.addEventListener("keydown", onListKeyDown);
+    list?.focus();
+    return () => {
+      document.removeEventListener("mousedown", onDocumentPointer);
+      document.removeEventListener("keydown", onDocumentKey);
+      root.removeEventListener("click", onRootClick);
+      list?.removeEventListener("keydown", onListKeyDown);
+    };
+  }, [open, close, choose]);
 
   useEffect(() => {
     if (!open) return;
@@ -80,48 +162,6 @@ export function LanguageSwitcher({
     );
     option?.scrollIntoView({ block: "nearest" });
   }, [open, activeIndex]);
-
-  const onTriggerKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
-    if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      openMenu();
-    }
-  };
-
-  const onListKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === "ArrowDown") {
-      event.preventDefault();
-      setActiveIndex((index) => (index + 1) % SUPPORTED_LOCALES.length);
-      return;
-    }
-    if (event.key === "ArrowUp") {
-      event.preventDefault();
-      setActiveIndex(
-        (index) =>
-          (index - 1 + SUPPORTED_LOCALES.length) % SUPPORTED_LOCALES.length,
-      );
-      return;
-    }
-    if (event.key === "Home") {
-      event.preventDefault();
-      setActiveIndex(0);
-      return;
-    }
-    if (event.key === "End") {
-      event.preventDefault();
-      setActiveIndex(SUPPORTED_LOCALES.length - 1);
-      return;
-    }
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      choose(SUPPORTED_LOCALES[activeIndex]);
-      return;
-    }
-    if (event.key === "Escape") {
-      event.preventDefault();
-      close();
-    }
-  };
 
   const rootClass = [
     "agx-lang-switcher",
@@ -134,6 +174,7 @@ export function LanguageSwitcher({
   return (
     <div ref={rootRef} className={rootClass}>
       <button
+        ref={triggerRef}
         type="button"
         id={triggerId}
         className="agx-lang-switcher__trigger"
@@ -141,8 +182,6 @@ export function LanguageSwitcher({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
-        onClick={() => (open ? close() : openMenu())}
-        onKeyDown={onTriggerKeyDown}
       >
         <span className="agx-lang-switcher__label">{LOCALE_LABELS[locale]}</span>
         <span className="agx-lang-switcher__chevron" aria-hidden="true" />
@@ -155,7 +194,6 @@ export function LanguageSwitcher({
           aria-label={t("common.language")}
           aria-activedescendant={`${triggerId}-opt-${SUPPORTED_LOCALES[activeIndex]}`}
           tabIndex={-1}
-          onKeyDown={onListKeyDown}
         >
           {SUPPORTED_LOCALES.map((code, index) => (
             <button
@@ -163,6 +201,7 @@ export function LanguageSwitcher({
               type="button"
               id={`${triggerId}-opt-${code}`}
               role="option"
+              data-locale={code}
               data-locale-index={index}
               className={
                 index === activeIndex
@@ -171,7 +210,6 @@ export function LanguageSwitcher({
               }
               aria-selected={code === locale}
               onMouseEnter={() => setActiveIndex(index)}
-              onClick={() => choose(code)}
             >
               {LOCALE_LABELS[code]}
             </button>
