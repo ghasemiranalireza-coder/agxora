@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type CSSProperties, type JSX } from "react";
+import { useMemo, useState, useEffect, type CSSProperties, type JSX } from "react";
 import { useRouter } from "next/navigation";
 import {
   BUSINESS_TYPE_META,
@@ -8,7 +8,7 @@ import {
   useBusinessOs,
 } from "../../lib/business";
 import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
-import { useT } from "../../lib/i18n";
+import { resolveUserFacingErrorKey, useT } from "../../lib/i18n";
 
 const surfaceTransition = [
   `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
@@ -47,12 +47,16 @@ export function OnboardingWizard(): JSX.Element {
   const [step, setStep] = useState<Step>(0);
   const [businessType, setBusinessType] = useState<BusinessType | null>(null);
   const [companyName, setCompanyName] = useState("");
-  const [country, setCountry] = useState("United States");
+  const [country, setCountry] = useState("");
   const [language, setLanguage] = useState("en");
   const [timezone, setTimezone] = useState("UTC");
   const [goals, setGoals] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setCountry((current) => current || t("onboarding.defaultCountry"));
+  }, [t]);
 
   const template = useMemo(
     () => (businessType ? primaryTemplate(businessType) : null),
@@ -97,7 +101,7 @@ export function OnboardingWizard(): JSX.Element {
 
       router.push("/dashboard");
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("onboarding.failed"));
+      setError(t(resolveUserFacingErrorKey(err, "onboarding.failed")));
       setSubmitting(false);
     }
   };
@@ -229,7 +233,7 @@ export function OnboardingWizard(): JSX.Element {
                   onClick={() => setBusinessType(item.type)}
                   className="agx-metric-card"
                   style={{
-                    textAlign: "left",
+                    textAlign: "start",
                     padding: "16px",
                     borderRadius: "16px",
                     border: `1px solid ${
@@ -260,8 +264,8 @@ export function OnboardingWizard(): JSX.Element {
                   >
                     {item.icon}
                   </div>
-                  <div style={{ fontWeight: 700, marginBottom: "6px" }}>
-                    {item.label}
+                    <div style={{ fontWeight: 700, marginBottom: "6px" }}>
+                    {t(`onboarding.businessTypes.${item.type}.label`)}
                   </div>
                   <div
                     style={{
@@ -270,7 +274,7 @@ export function OnboardingWizard(): JSX.Element {
                       lineHeight: 1.45,
                     }}
                   >
-                    {item.description}
+                    {t(`onboarding.businessTypes.${item.type}.description`)}
                   </div>
                 </button>
               );
@@ -393,7 +397,7 @@ export function OnboardingWizard(): JSX.Element {
                     background: selected ? tokens.navActiveBg : tokens.cardBg,
                     color: selected ? tokens.accent : tokens.text,
                     cursor: "pointer",
-                    textAlign: "left",
+                    textAlign: "start",
                     fontWeight: 600,
                     transition: surfaceTransition,
                   }}

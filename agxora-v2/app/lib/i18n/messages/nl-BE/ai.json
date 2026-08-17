@@ -16,7 +16,7 @@
     "provider": "Aanbieder",
     "model": "Model",
     "estimatedTokens": "Geschat. tokens",
-    "tokensInOut": "(in {in} / uit {uit})",
+    "tokensInOut": "(in {in} / uit {out})",
     "cost": "Kosten",
     "context": "Context",
     "contextNone": "geen",
@@ -79,5 +79,90 @@
     "placeholder": "AI-opdracht… samenvatten, voorstellen, analyseren…",
     "noMatches": "Geen overeenkomende opdrachten",
     "footer": "Registreer toekomstige opdrachten via registerAiCommand - UI blijft ongewijzigd."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Projecten",
+    "finance": "Financiën",
+    "marketing": "Marketing",
+    "documents": "Documenten",
+    "automation": "Automatisering",
+    "general": "Algemeen"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Klant samenvatten",
+      "description": "Managementsamenvatting van een klantrelatie"
+    },
+    "crm-follow-up-email": {
+      "title": "Opvolgmail",
+      "description": "Een professionele CRM-opvolging opstellen"
+    },
+    "projects-analyze": {
+      "title": "Project analyseren",
+      "description": "Gezondheidscheck voor een project"
+    },
+    "projects-task-list": {
+      "title": "Takenlijst maken",
+      "description": "Werk opsplitsen in uitvoerbare taken"
+    },
+    "finance-explain-invoice": {
+      "title": "Factuur uitleggen",
+      "description": "Factuurtoelichting in gewone taal"
+    },
+    "finance-cashflow-brief": {
+      "title": "Cashflow-briefing",
+      "description": "Kort cashflowverhaal"
+    },
+    "marketing-campaign-outline": {
+      "title": "Campagne-overzicht",
+      "description": "Een marketingcampagne structureren"
+    },
+    "marketing-proposal": {
+      "title": "Voorstel genereren",
+      "description": "Klantgericht voorstelconcept"
+    },
+    "documents-summarize": {
+      "title": "Document samenvatten",
+      "description": "Gestructureerde documentsamenvatting"
+    },
+    "automation-workflow": {
+      "title": "Workflow ontwerpen",
+      "description": "Schets van een automatiseringsworkflow"
+    },
+    "general-brainstorm": {
+      "title": "Opties brainstormen",
+      "description": "Gestructureerde ideevorming"
+    },
+    "general-explain": {
+      "title": "Eenvoudig uitleggen",
+      "description": "Duidelijke uitleg voor stakeholders"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Klant samenvatten",
+      "description": "Managementsamenvatting van de actieve klant"
+    },
+    "cmd-generate-proposal": {
+      "label": "Voorstel genereren",
+      "description": "Een klantvoorsteloverzicht opstellen"
+    },
+    "cmd-analyze-project": {
+      "label": "Project analyseren",
+      "description": "Projectgezondheid en risicoanalyse"
+    },
+    "cmd-create-task-list": {
+      "label": "Takenlijst maken",
+      "description": "Werk opsplitsen in uitvoerbare taken"
+    },
+    "cmd-generate-email": {
+      "label": "E-mail genereren",
+      "description": "Een professionele e-mail opstellen"
+    },
+    "cmd-explain-invoice": {
+      "label": "Factuur uitleggen",
+      "description": "Factuurtoelichting in gewone taal"
+    }
   }
 }

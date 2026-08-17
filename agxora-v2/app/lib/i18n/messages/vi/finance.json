@@ -58,16 +58,16 @@
       "vat-due": {
         "label": "VAT đến hạn",
         "caption": "Mẫu · Cửa sổ Q2",
-        "delta": "Đến hạn sau {ngày} ngày nữa"
+        "delta": "Đến hạn sau {days} ngày nữa"
       },
       "open-invoices": {
         "label": "Mở hóa đơn",
-        "caption": "Mẫu · {tiền} chưa thanh toán"
+        "caption": "Mẫu · {money} chưa thanh toán"
       },
       "paid-invoices": {
         "label": "Hóa đơn đã thanh toán",
         "caption": "Mẫu · quý này",
-        "delta": "+{đếm}"
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "Dòng tiền",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "Điểm tài chính AI",
         "caption": "Điểm mẫu · không phải điểm rủi ro trực tiếp",
-        "delta": "+{đếm}"
+        "delta": "+{count}"
       }
     },
-    "scoreOutOf": "{điểm} / {tối đa}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "Không có hóa đơn",
@@ -91,7 +91,7 @@
     "sortBy": "Sắp xếp theo",
     "toggleSort": "Chuyển đổi hướng sắp xếp",
     "count": "{count} hóa đơn",
-    "countOne": "{đếm} hóa đơn",
+    "countOne": "{count} hóa đơn",
     "allStatuses": "Tất cả trạng thái",
     "allPayments": "Tất cả các khoản thanh toán",
     "columns": {

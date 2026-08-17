@@ -9,7 +9,7 @@ import { UI } from "./tokens";
 export interface DataTableColumn<T> {
   readonly key: string;
   readonly header: string;
-  readonly align?: "left" | "right";
+  readonly align?: "left" | "right" | "start" | "end";
   readonly render: (row: T) => ReactNode;
   readonly width?: string;
   readonly sortable?: boolean;
@@ -89,7 +89,10 @@ export function DataTable<T>({
                     <th
                       key={col.key}
                       style={{
-                        textAlign: col.align ?? "left",
+                        textAlign:
+                          col.align === "right" || col.align === "end"
+                            ? "end"
+                            : "start",
                         width: col.width,
                       }}
                       aria-sort={
@@ -144,7 +147,12 @@ export function DataTable<T>({
                   {columns.map((col) => (
                     <td
                       key={col.key}
-                      style={{ textAlign: col.align ?? "left" }}
+                      style={{
+                        textAlign:
+                          col.align === "right" || col.align === "end"
+                            ? "end"
+                            : "start",
+                      }}
                     >
                       {col.render(row)}
                     </td>

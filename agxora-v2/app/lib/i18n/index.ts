@@ -39,6 +39,8 @@ export {
 } from "./cookie";
 
 export { HtmlLangSync } from "./HtmlLangSync";
+export { SkipToMainLink } from "./SkipToMainLink";
+export { CjkFontLinks } from "./CjkFontLinks";
 export {
   LocaleProvider,
   useLocale,
@@ -49,3 +51,7 @@ export {
 export { LanguageSwitcher } from "./LanguageSwitcher";
 export type { TranslateValues } from "./translate";
 export { resolveMessage, resolveMessageList } from "./translate";
+export {
+  isTranslationKey,
+  resolveUserFacingErrorKey,
+} from "./errorMap";

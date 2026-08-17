@@ -13,7 +13,7 @@ import {
   authMutedStyle,
 } from "../components/auth/AuthCard";
 import { isValidEmail } from "../lib/auth/formValidation";
-import { useT } from "../lib/i18n";
+import { useT, resolveUserFacingErrorKey } from "../lib/i18n";
 import { submitSalesInquiry } from "../../features/saas";
 
 export default function ContactSalesPage(): JSX.Element {
@@ -57,7 +57,7 @@ export default function ContactSalesPage(): JSX.Element {
       });
       setSubmitted(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "auth.contactSales.failed");
+      setError(resolveUserFacingErrorKey(err, "auth.contactSales.failed"));
     } finally {
       setBusy(false);
     }

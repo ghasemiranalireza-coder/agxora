@@ -100,10 +100,10 @@
     },
     "showing": "顯示 {from}–{to}，共 {total}",
     "aria": {
-      "openCustomer": "打開客戶{公司}"
+      "openCustomer": "打開客戶{company}"
     },
     "cardMeta": "所有者{owner} ·建立於{date}",
-    "sortBy": "按{列}排序"
+    "sortBy": "按{column}排序"
   },
   "status": {
     "lead": "帶領",
@@ -473,7 +473,7 @@
       "label": "人工智慧健康評分",
       "caption": "關係品質信號"
     },
-    "scoreOutOf": "{分數} / {最大}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "帶領",

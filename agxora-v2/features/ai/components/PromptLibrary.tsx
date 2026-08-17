@@ -87,7 +87,7 @@ export function PromptLibrary({ onUsePrompt }: PromptLibraryProps): JSX.Element 
           <Chip
             key={c.id}
             active={category === c.id}
-            label={c.label}
+            label={t(`ai.categories.${c.id}`)}
             onClick={() => setCategory(c.id)}
           />
         ))}
@@ -231,13 +231,13 @@ function PromptRow({
             className="text-sm font-medium"
             style={{ color: "var(--agx-text, #f8fafc)" }}
           >
-            {prompt.title}
+            {t(`ai.library.${prompt.id}.title`)}
           </p>
           <p
             className="mt-0.5 text-[11px] leading-snug"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            {prompt.description}
+            {t(`ai.library.${prompt.id}.description`)}
           </p>
         </div>
         <button

@@ -98,12 +98,12 @@
       "previous": "Предыдущий",
       "next": "Следующий"
     },
-    "showing": "Показаны {от}–{до} из {total}",
+    "showing": "Показаны {from}–{to} из {total}",
     "aria": {
-      "openCustomer": "Открыть клиента {компания}"
+      "openCustomer": "Открыть клиента {company}"
     },
-    "cardMeta": "Владелец {owner} · Создано {дата}",
-    "sortBy": "Сортировать по {столбцу}"
+    "cardMeta": "Владелец {owner} · Создано {date}",
+    "sortBy": "Сортировать по {column}"
   },
   "status": {
     "lead": "Вести",
@@ -473,7 +473,7 @@
       "label": "Оценка здоровья ИИ",
       "caption": "Сигнал качества отношений"
     },
-    "scoreOutOf": "{оценка} / {макс}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "Вести",

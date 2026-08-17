@@ -18,11 +18,11 @@
     "demoConnection": "デモ接続: {name} (ローカル スタブのみ)",
     "connectFailed": "接続に失敗しました",
     "keyCreated": "作成された API キー: {prefix}",
-    "webhookCreated": "Webhook が作成されました: {名前}",
-    "webhookTest": "Webhook テスト {ステータス}",
-    "networkError": "API エクスプローラーのネットワーク エラー: {メッセージ}",
-    "explorerError": "API エクスプローラー → {ステータス}: {メッセージ}",
-    "explorerSuccess": "API エクスプローラー → {ステータス}",
+    "webhookCreated": "Webhook が作成されました: {name}",
+    "webhookTest": "Webhook テスト {status}",
+    "networkError": "API エクスプローラーのネットワーク エラー: {message}",
+    "explorerError": "API エクスプローラー → {status}: {message}",
+    "explorerSuccess": "API エクスプローラー → {status}",
     "explorerFailed": "エクスプローラーが失敗しました",
     "syncResult": "デモ同期 · {status} ({records} ローカル レコード) — 外部データは転送されません。",
     "diagnosed": "診断済み",
@@ -55,7 +55,7 @@
     "latestSync": "最新の同期: {status} · {records} レコード · モード {mode}"
   },
   "available": {
-    "protocols": "プロトコル: {プロトコル}",
+    "protocols": "プロトコル: {protocols}",
     "demoConnection": "デモ接続",
     "connectDemo": "接続（デモ）",
     "installDemo": "デモをインストールする"
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "取得に失敗しました",
-    "httpStatus": "HTTP {ステータス}"
+    "httpStatus": "HTTP {status}"
   }
 }

@@ -2,7 +2,7 @@
   "page": {
     "sectionTitle": "顧客管理",
     "title": "お客様",
-    "lead": "{組織} の顧客レコードを作成、編集、検索、管理します。",
+    "lead": "{organization} の顧客レコードを作成、編集、検索、管理します。",
     "yourOrganization": "あなたの組織"
   },
   "table": {
@@ -17,9 +17,9 @@
     "view": "ビュー",
     "edit": "編集",
     "delete": "消去",
-    "viewAria": "{会社} を見る",
-    "editAria": "{会社} を編集",
-    "deleteAria": "{会社}を削除",
+    "viewAria": "{company} を見る",
+    "editAria": "{company} を編集",
+    "deleteAria": "{company}を削除",
     "loading": "顧客を読み込んでいます…",
     "errorLoad": "顧客を読み込めませんでした",
     "errorGeneric": "何か問題が発生しました",
@@ -96,5 +96,17 @@
     "updated": "更新されました",
     "notes": "注意事項",
     "noNotes": "まだメモはありません。"
+  },
+  "validation": {
+    "companyRequired": "会社名は必須です。",
+    "contactRequired": "担当者は必須です。",
+    "emailRequired": "メールアドレスは必須です。",
+    "emailInvalid": "有効なメールアドレスを入力してください。",
+    "phoneRequired": "電話番号は必須です。",
+    "phoneInvalid": "有効な電話番号を入力してください。",
+    "mobileInvalid": "有効な携帯電話番号を入力してください。",
+    "statusInvalid": "有効なステータスを選択してください。",
+    "emailDuplicate": "このメールの顧客は既に存在します。",
+    "companyDuplicate": "この会社名の顧客は既に存在します。"
   }
 }

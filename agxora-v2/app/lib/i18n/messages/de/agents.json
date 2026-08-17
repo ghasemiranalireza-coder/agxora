@@ -42,15 +42,15 @@
   "registry": {
     "title": "Register",
     "selectPrompt": "Wählen Sie einen Agenten aus der Registrierung aus.",
-    "status": "Stend&#x09;Stand",
-    "health": "Gesundheit: ${ health }",
+    "status": "Status: {status}",
+    "health": "Gesundheit: {health}",
     "queue": "Warteschlange: {queue}",
-    "usage": "usage=\"Usage: $0\"",
+    "usage": "Usage: {usage}",
     "executeTask": "Aufgabe starten",
     "supervisorDelegate": "Vorgesetzter Delegierter"
   },
   "marketplace": {
-    "tools": "die Instrumente",
+    "tools": "Tools: {tools}",
     "installed": "Installiert",
     "installActivate": "Installieren & Aktivieren"
   },
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "{agentId} Geschäftsziel ausführen",
     "planAndExecute": "Planen und Ausführen eines Geschäftsziels für den Arbeitsbereich"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Kundenwirkung priorisieren",
+    "delegatedFollowUp": "Delegiertes Follow-up"
   }
 }

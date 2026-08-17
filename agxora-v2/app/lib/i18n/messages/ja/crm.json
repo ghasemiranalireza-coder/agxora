@@ -98,12 +98,12 @@
       "previous": "前の",
       "next": "次"
     },
-    "showing": "{total} 件中 {from} ～ {to} を表示中",
+    "showing": "{from} 件中 {to} ～ {total} を表示中",
     "aria": {
-      "openCustomer": "顧客 {会社} を開く"
+      "openCustomer": "顧客 {company} を開く"
     },
     "cardMeta": "所有者 {owner} · 作成日 {date}",
-    "sortBy": "{列}で並べ替え"
+    "sortBy": "{column}で並べ替え"
   },
   "status": {
     "lead": "鉛",
@@ -473,7 +473,7 @@
       "label": "AI 健康スコア",
       "caption": "関係性の質に関するシグナル"
     },
-    "scoreOutOf": "{スコア} / {最大}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "鉛",

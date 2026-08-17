@@ -136,9 +136,9 @@
       "runResult": "اجرای {status} ({duration}ms)",
       "runFailed": "گردش کار اجرا نشد (غیرفعال یا مفقود).",
       "publishedEvent": "رویداد دامنه منتشر شده: {type}",
-      "workflowStatus": "وضعیت ",
+      "workflowStatus": "Workflow {status}",
       "saved": "گردش کار ذخیره شد",
-      "retryResult": "وضعیت دوباره",
+      "retryResult": "Retry {status}",
       "retryFailed": "تلاش ناموفق بود.  %s",
       "settingsSaved": "تنظیمات اتوماسیون ذخیره شد"
     },
@@ -193,7 +193,7 @@
       "emptyTitle": "هنوز خبری از اعدام نیست.",
       "emptyDescription": "یک گردش کار را اجرا کنید یا یک رویداد دامنه را منتشر کنید.",
       "latestRun": "آخرین جزئیات اجرا",
-      "path": "مسیر: {مسیر}",
+      "path": "مسیر: {path}",
       "error": "· خطا: {error}",
       "columns": {
         "workflow": "فضای کاری",
@@ -226,7 +226,315 @@
       "concurrencyLimit": "محدودیت همزمانی",
       "timeoutMs": "مهلت زمانی (میلی ثانیه)",
       "logLevel": "سطح لاگ",
-      "saveSettings": "تنظیمات را ذخیره کن"
+      "saveSettings": "تنظیمات را ذخیره کن",
+      "logLevels": {
+        "error": "خطا",
+        "warn": "هشدار",
+        "info": "اطلاعات",
+        "debug": "اشکال‌زدایی"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "گردش‌کار خالی"
+  },
+  "status": {
+    "connected": "متصل",
+    "beta": "بتا",
+    "comingSoon": "به‌زودی",
+    "disabled": "غیرفعال",
+    "planned": "برنامه‌ریزی‌شده",
+    "success": "موفق",
+    "failed": "ناموفق",
+    "running": "در حال اجرا",
+    "pending": "در انتظار",
+    "retried": "تلاش مجدد"
+  },
+  "difficulty": {
+    "starter": "مبتدی",
+    "intermediate": "متوسط",
+    "advanced": "پیشرفته"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "راه‌انداز",
+      "description": "با وقوع رویداد شروع شود"
+    },
+    "el-condition": {
+      "label": "شرط",
+      "description": "بر اساس قواعد شاخه بزن"
+    },
+    "el-delay": {
+      "label": "تأخیر",
+      "description": "پیش از ادامه صبر کن"
+    },
+    "el-approval": {
+      "label": "تأیید",
+      "description": "دروازه تأیید انسانی"
+    },
+    "el-loop": {
+      "label": "حلقه",
+      "description": "روی یک مجموعه تکرار کن"
+    },
+    "el-merge": {
+      "label": "ادغام",
+      "description": "مسیرهای موازی را وصل کن"
+    },
+    "el-split": {
+      "label": "تقسیم",
+      "description": "مسیرهای موازی را پخش کن"
+    },
+    "el-ai-decision": {
+      "label": "تصمیم هوش مصنوعی",
+      "description": "از طریق هوش مصنوعی مسیر بده"
+    },
+    "el-notification": {
+      "label": "اعلان",
+      "description": "هشدار درون‌برنامه"
+    },
+    "el-webhook": {
+      "label": "جایگاه Webhook",
+      "description": "بازخوان HTTP رزرو شده"
+    },
+    "el-custom": {
+      "label": "اقدام سفارشی",
+      "description": "جایگاه اقدام توسعه‌پذیر"
+    },
+    "tr-customer": {
+      "label": "مشتری ایجاد شد",
+      "description": "رکورد مشتری CRM ایجاد شد"
+    },
+    "tr-lead": {
+      "label": "سرنخ ایجاد شد",
+      "description": "سرنخ جدید وارد قیف می‌شود"
+    },
+    "tr-invoice": {
+      "label": "فاکتور ایجاد شد",
+      "description": "فاکتور مالی صادر شد"
+    },
+    "tr-invoice-paid": {
+      "label": "فاکتور پرداخت شد",
+      "description": "پرداخت تسویه شد"
+    },
+    "tr-order": {
+      "label": "سفارش ایجاد شد",
+      "description": "سفارش ثبت شد"
+    },
+    "tr-order-done": {
+      "label": "سفارش تکمیل شد",
+      "description": "سفارش تحویل شد"
+    },
+    "tr-doc": {
+      "label": "سند بارگذاری شد",
+      "description": "بارگذاری به مخزن اسناد"
+    },
+    "tr-campaign": {
+      "label": "کمپین منتشر شد",
+      "description": "انتشار Creator Studio"
+    },
+    "tr-employee": {
+      "label": "کارمند افزوده شد",
+      "description": "تغییر فهرست تیم"
+    },
+    "tr-task": {
+      "label": "وظیفه تکمیل شد",
+      "description": "وظیفه انجام‌شده علامت خورد"
+    },
+    "tr-manual": {
+      "label": "راه‌انداز دستی",
+      "description": "در صورت تقاضا اجرا کن"
+    },
+    "tr-schedule": {
+      "label": "راه‌انداز زمان‌بندی",
+      "description": "زمان‌بندی cron / تقویم"
+    },
+    "tr-webhook": {
+      "label": "راه‌انداز Webhook",
+      "description": "رویداد HTTP ورودی"
+    },
+    "tr-api": {
+      "label": "راه‌انداز API",
+      "description": "شروع برنامه‌ای"
+    },
+    "ac-crm": {
+      "label": "ایجاد رکورد CRM",
+      "description": "موجودیت CRM را بنویس"
+    },
+    "ac-invoice": {
+      "label": "تولید فاکتور",
+      "description": "فاکتور مالی"
+    },
+    "ac-quote": {
+      "label": "تولید پیشنهاد قیمت",
+      "description": "سند پیشنهاد قیمت بساز"
+    },
+    "ac-delivery": {
+      "label": "تولید حواله تحویل",
+      "description": "حواله تحویل"
+    },
+    "ac-task": {
+      "label": "ایجاد وظیفه",
+      "description": "یک وظیفه باز کن"
+    },
+    "ac-assign": {
+      "label": "اختصاص کارمند",
+      "description": "به هم‌تیمی مسیر بده"
+    },
+    "ac-email": {
+      "label": "ارسال ایمیل",
+      "description": "ایمیل خروجی"
+    },
+    "ac-notify": {
+      "label": "ارسال اعلان",
+      "description": "اعلان درون‌برنامه"
+    },
+    "ac-ai-summary": {
+      "label": "تولید خلاصه هوش مصنوعی",
+      "description": "زمینه را خلاصه کن"
+    },
+    "ac-ai-content": {
+      "label": "تولید محتوای هوش مصنوعی",
+      "description": "پیش‌نویس Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "به‌روزرسانی مشتری",
+      "description": "مشتری CRM را وصله کن"
+    },
+    "ac-update-status": {
+      "label": "به‌روزرسانی وضعیت",
+      "description": "وضعیت موجودیت را تغییر بده"
+    },
+    "ac-pdf": {
+      "label": "خروجی PDF",
+      "description": "خروجی سند"
+    },
+    "ac-future": {
+      "label": "جایگاه API آینده",
+      "description": "جایگاه اقدام رزروشده"
+    },
+    "ai-decision": {
+      "label": "تصمیم هوش مصنوعی",
+      "description": "مسیر بعدی را تصمیم بگیر"
+    },
+    "ai-class": {
+      "label": "طبقه‌بندی هوش مصنوعی",
+      "description": "رکوردها را طبقه‌بندی کن"
+    },
+    "ai-text": {
+      "label": "تولید متن هوش مصنوعی",
+      "description": "متن تولید کن"
+    },
+    "ai-translate": {
+      "label": "ترجمه هوش مصنوعی",
+      "description": "محتوا را ترجمه کن"
+    },
+    "ai-email": {
+      "label": "پاسخ ایمیل هوش مصنوعی",
+      "description": "پاسخ پیش‌نویس کن"
+    },
+    "ai-sum": {
+      "label": "خلاصه‌سازی هوش مصنوعی",
+      "description": "زمینه را فشرده کن"
+    },
+    "ai-rec": {
+      "label": "پیشنهادهای هوش مصنوعی",
+      "description": "گام‌های بعدی را پیشنهاد بده"
+    },
+    "ai-route": {
+      "label": "مسیریابی هوش مصنوعی",
+      "description": "به مالک / صف مسیر بده"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "مشتری ایجاد شد",
+      "description": "وقتی یک رکورد مشتری در CRM ایجاد شود فعال می‌شود."
+    },
+    "project_created": {
+      "label": "پروژه ایجاد شد",
+      "description": "وقتی یک پروژه ایجاد شود فعال می‌شود."
+    },
+    "task_completed": {
+      "label": "وظیفه تکمیل شد",
+      "description": "وقتی وظیفه‌ای تکمیل شود فعال می‌شود."
+    },
+    "document_uploaded": {
+      "label": "سند بارگذاری شد",
+      "description": "وقتی سندی بارگذاری شود فعال می‌شود."
+    },
+    "schedule": {
+      "label": "زمان‌بندی",
+      "description": "محرک زمان‌بندی کرون / بازه‌ای."
+    },
+    "invoice_issued": {
+      "label": "صدور فاکتور",
+      "description": "وقتی فاکتور صادر شود فعال می‌شود."
+    },
+    "user_invited": {
+      "label": "دعوت کاربر",
+      "description": "وقتی عضوی به تیم دعوت شود فعال می‌شود."
+    },
+    "webhook": {
+      "label": "وب‌هوک",
+      "description": "وب‌هوک ورودی HTTP."
+    },
+    "api_event": {
+      "label": "رویداد API",
+      "description": "رویداد دامنه‌ای عمومی API."
+    },
+    "ai_event": {
+      "label": "رویداد هوش مصنوعی",
+      "description": "سیگنال هوش مصنوعی (تکمیل، بینش، گام عامل)."
+    },
+    "manual": {
+      "label": "محرک دستی",
+      "description": "اجرا به‌صورت دستی از رابط یا API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "ایجاد مشتری",
+      "description": "ایجاد رکورد مشتری در CRM."
+    },
+    "customer_update": {
+      "label": "به‌روزرسانی مشتری",
+      "description": "به‌روزرسانی فیلدهای مشتری."
+    },
+    "project_create": {
+      "label": "ایجاد پروژه",
+      "description": "ایجاد پروژه از بافت گردش‌کار."
+    },
+    "notification_send": {
+      "label": "ارسال اعلان",
+      "description": "ارسال اعلان درون‌برنامه."
+    },
+    "email_send": {
+      "label": "ارسال ایمیل",
+      "description": "صف‌کردن ایمیل از طریق ارائه‌دهنده."
+    },
+    "invoice_create": {
+      "label": "ایجاد فاکتور",
+      "description": "ایجاد فاکتور مالی."
+    },
+    "status_update": {
+      "label": "به‌روزرسانی وضعیت",
+      "description": "به‌روزرسانی وضعیت موجودیت در یک ماژول."
+    },
+    "document_generate": {
+      "label": "تولید سند",
+      "description": "تولید سند از روی قالب."
+    },
+    "api_call": {
+      "label": "فراخوانی API",
+      "description": "فراخوان HTTP به API داخلی یا خارجی."
+    },
+    "ai_run": {
+      "label": "اجرای هوش مصنوعی",
+      "description": "اجرای پرامپت / گام عامل با بافت."
+    },
+    "task_assign": {
+      "label": "واگذاری وظیفه",
+      "description": "واگذاری وظیفه به کاربر."
     }
   }
 }

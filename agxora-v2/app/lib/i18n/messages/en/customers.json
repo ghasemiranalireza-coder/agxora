@@ -96,5 +96,17 @@
     "updated": "Updated",
     "notes": "Notes",
     "noNotes": "No notes yet."
+  },
+  "validation": {
+    "companyRequired": "Company name is required.",
+    "contactRequired": "Contact person is required.",
+    "emailRequired": "Email is required.",
+    "emailInvalid": "Enter a valid email address.",
+    "phoneRequired": "Phone is required.",
+    "phoneInvalid": "Enter a valid phone number.",
+    "mobileInvalid": "Enter a valid mobile number.",
+    "statusInvalid": "Select a valid status.",
+    "emailDuplicate": "A customer with this email already exists.",
+    "companyDuplicate": "A customer with this company name already exists."
   }
 }

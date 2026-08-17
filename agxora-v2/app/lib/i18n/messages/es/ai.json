@@ -16,7 +16,7 @@
     "provider": "Proveedor",
     "model": "Modelo",
     "estimatedTokens": "Est. fichas",
-    "tokensInOut": "(en {entrada} / fuera {fuera})",
+    "tokensInOut": "(en {in} / fuera {out})",
     "cost": "Costo",
     "context": "Contexto",
     "contextNone": "ninguno",
@@ -79,5 +79,90 @@
     "placeholder": "Comando de IA… resumir, proponer, analizar…",
     "noMatches": "No hay comandos coincidentes",
     "footer": "Registre comandos futuros a través de RegisterAiCommand: la interfaz de usuario permanece sin cambios."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Proyectos",
+    "finance": "Finanzas",
+    "marketing": "Marketing",
+    "documents": "Documentos",
+    "automation": "Automatización",
+    "general": "General"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Resumir cliente",
+      "description": "Resumen ejecutivo de una relación con el cliente"
+    },
+    "crm-follow-up-email": {
+      "title": "Correo de seguimiento",
+      "description": "Redactar un seguimiento CRM profesional"
+    },
+    "projects-analyze": {
+      "title": "Analizar proyecto",
+      "description": "Revisión de salud de un proyecto"
+    },
+    "projects-task-list": {
+      "title": "Crear lista de tareas",
+      "description": "Dividir el trabajo en tareas accionables"
+    },
+    "finance-explain-invoice": {
+      "title": "Explicar factura",
+      "description": "Explicación de factura en lenguaje sencillo"
+    },
+    "finance-cashflow-brief": {
+      "title": "Informe de flujo de caja",
+      "description": "Narrativa breve de flujo de caja"
+    },
+    "marketing-campaign-outline": {
+      "title": "Esquema de campaña",
+      "description": "Estructurar una campaña de marketing"
+    },
+    "marketing-proposal": {
+      "title": "Generar propuesta",
+      "description": "Borrador de propuesta para el cliente"
+    },
+    "documents-summarize": {
+      "title": "Resumir documento",
+      "description": "Resumen de documento estructurado"
+    },
+    "automation-workflow": {
+      "title": "Diseñar flujo de trabajo",
+      "description": "Boceto de flujo de automatización"
+    },
+    "general-brainstorm": {
+      "title": "Lluvia de ideas de opciones",
+      "description": "Ideación estructurada"
+    },
+    "general-explain": {
+      "title": "Explicar con sencillez",
+      "description": "Explicación clara para las partes interesadas"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Resumir cliente",
+      "description": "Resumen ejecutivo del cliente activo"
+    },
+    "cmd-generate-proposal": {
+      "label": "Generar propuesta",
+      "description": "Redactar el esquema de una propuesta al cliente"
+    },
+    "cmd-analyze-project": {
+      "label": "Analizar proyecto",
+      "description": "Salud del proyecto y análisis de riesgos"
+    },
+    "cmd-create-task-list": {
+      "label": "Crear lista de tareas",
+      "description": "Dividir el trabajo en tareas accionables"
+    },
+    "cmd-generate-email": {
+      "label": "Generar correo",
+      "description": "Redactar un correo profesional"
+    },
+    "cmd-explain-invoice": {
+      "label": "Explicar factura",
+      "description": "Explicación de factura en lenguaje sencillo"
+    }
   }
 }

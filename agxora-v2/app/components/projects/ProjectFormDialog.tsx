@@ -78,8 +78,9 @@ export function ProjectFormDialog(): JSX.Element {
                 } else if (projectStore.getSnapshot().formErrors.length > 0) {
                   toast.warning(
                     t("projects.toasts.checkForm"),
-                    projectStore.getSnapshot().formErrors[0]?.message ??
-                      t("projects.toasts.validationFailed"),
+                    projectStore.getSnapshot().formErrors[0]?.message
+                      ? t(projectStore.getSnapshot().formErrors[0].message)
+                      : t("projects.toasts.validationFailed"),
                   );
                 }
               });

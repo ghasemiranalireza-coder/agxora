@@ -43,14 +43,14 @@
     "title": "Registri",
     "selectPrompt": "Pilih agen dari registri.",
     "status": "Status: {status}",
-    "health": "Kesehatan: {kesehatan}",
-    "queue": "Antrian: {antrian}",
-    "usage": "Penggunaan: {penggunaan}",
+    "health": "Kesehatan: {health}",
+    "queue": "Antrian: {queue}",
+    "usage": "Penggunaan: {usage}",
     "executeTask": "Jalankan tugas",
     "supervisorDelegate": "Delegasi pengawas"
   },
   "marketplace": {
-    "tools": "Alat: {alat}",
+    "tools": "Alat: {tools}",
     "installed": "Dipasang",
     "installActivate": "Instal & aktifkan"
   },
@@ -58,7 +58,7 @@
     "title": "Pemantau agen",
     "emptyTitle": "Tidak ada agen yang harus dipantau",
     "emptyDescription": "Aktifkan agen dari pasar.",
-    "latestConfidence": "Keyakinan penalaran terbaru: {confident} — {steps}"
+    "latestConfidence": "Keyakinan penalaran terbaru: {confidence} — {steps}"
   },
   "history": {
     "title": "Sejarah eksekusi",
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "Jalankan sasaran bisnis {agentId}",
     "planAndExecute": "Merencanakan dan melaksanakan tujuan bisnis ruang kerja"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Prioritaskan dampak pelanggan",
+    "delegatedFollowUp": "Tindak lanjut yang didelegasikan"
   }
 }

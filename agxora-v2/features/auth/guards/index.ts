@@ -115,21 +115,21 @@ export function evaluateAccess(input: {
     return {
       allowed: false,
       reason: "account_locked",
-      message: "This account is locked. Contact an administrator.",
+      message: "errors.codes.AUTH_ACCOUNT_LOCKED",
     };
   }
   if (input.sessionExpired) {
     return {
       allowed: false,
       reason: "expired_session",
-      message: "Your session expired. Sign in again.",
+      message: "errors.codes.AUTH_SESSION_EXPIRED",
     };
   }
   if (!input.authenticated) {
     return {
       allowed: false,
       reason: "unauthorized",
-      message: "Sign in to continue.",
+      message: "errors.codes.AUTH_SIGN_IN_REQUIRED",
     };
   }
   if (
@@ -140,7 +140,7 @@ export function evaluateAccess(input: {
     return {
       allowed: false,
       reason: "forbidden",
-      message: "Your role cannot access this resource.",
+      message: "errors.roleCannotAccess",
     };
   }
   if (
@@ -150,7 +150,7 @@ export function evaluateAccess(input: {
     return {
       allowed: false,
       reason: "forbidden",
-      message: `Missing permission: ${input.requiredPermission}`,
+      message: "errors.codes.AUTH_INSUFFICIENT_PERMISSIONS",
     };
   }
   return { allowed: true };

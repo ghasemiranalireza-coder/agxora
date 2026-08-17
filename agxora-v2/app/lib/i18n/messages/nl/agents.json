@@ -43,14 +43,14 @@
     "title": "Griffie",
     "selectPrompt": "Selecteer een agent uit het register.",
     "status": "Status: {status}",
-    "health": "Gezondheid: {gezondheid}",
-    "queue": "Wachtrij: {wachtrij}",
-    "usage": "Gebruik: {gebruik}",
+    "health": "Gezondheid: {health}",
+    "queue": "Wachtrij: {queue}",
+    "usage": "Gebruik: {usage}",
     "executeTask": "Taak uitvoeren",
     "supervisorDelegate": "Leidinggevende of gedelegeerde"
   },
   "marketplace": {
-    "tools": "Gereedschap: {gereedschappen}",
+    "tools": "Gereedschap: {tools}",
     "installed": "Geïnstalleerd",
     "installActivate": "Installeren en activeren"
   },
@@ -58,7 +58,7 @@
     "title": "Agentmonitor",
     "emptyTitle": "Geen agenten om te controleren",
     "emptyDescription": "Activeer agenten van de marktplaats.",
-    "latestConfidence": "Laatste redeneringsvertrouwen: {vertrouwen} — {stappen}"
+    "latestConfidence": "Laatste redeneringsvertrouwen: {confidence} — {steps}"
   },
   "history": {
     "title": "Uitvoeringsgeschiedenis",
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "Voer het bedrijfsdoel van {agentId} uit",
     "planAndExecute": "Plan en voer een zakelijk doel voor de werkruimte uit"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Klantimpact prioriteren",
+    "delegatedFollowUp": "Gedelegeerde opvolging"
   }
 }

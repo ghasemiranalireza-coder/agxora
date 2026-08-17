@@ -8,9 +8,9 @@
   "noPermission": "No tienes permiso de Intelligence.read para este espacio de trabajo.",
   "filtersUpdated": "Filtros actualizados",
   "demoReloaded": "Conjunto de datos de demostración recargado para este espacio de trabajo.",
-  "acknowledged": "Reconocido: {título}",
+  "acknowledged": "Reconocido: {title}",
   "exportUnavailableTitle": "Exportación no disponible: la generación de informes aún no está conectada.",
-  "exportUnavailableAria": "Exportar {título} como {formato} — no disponible",
+  "exportUnavailableAria": "Exportar {title} como {format} — no disponible",
   "tabs": {
     "executive": "Ejecutivo",
     "health": "Salud empresarial",
@@ -79,14 +79,14 @@
   "insights": {
     "emptyTitle": "Aún no hay información",
     "emptyDescription": "La información de demostración aparece después de las semillas del espacio de trabajo. La generación de información de Live AI no está conectada.",
-    "badge": "Demostración · {tipo} · {dominio} · conf {confianza}"
+    "badge": "Demostración · {kind} · {domain} · conf {confidence}"
   },
   "forecasts": {
     "emptyTitle": "Aún no hay previsiones",
     "emptyDescription": "Los pronósticos de demostración aparecen después de la semilla. Los modelos predictivos no están conectados.",
-    "title": "pronóstico {tipo}",
-    "baseline": "Línea base {línea base} → proyectada {proyectada} ({días}d)",
-    "confidence": "Demostración · Confianza {confianza} — {nota}"
+    "title": "pronóstico {kind}",
+    "baseline": "Línea base {baseline} → proyectada {projected} ({days}d)",
+    "confidence": "Demostración · Confianza {confidence} — {note}"
   },
   "alerts": {
     "title": "Motor de alerta",

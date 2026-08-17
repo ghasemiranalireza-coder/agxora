@@ -611,9 +611,9 @@ function WorkflowEditorPanel({
               className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
               disabled={!canWrite}
             >
-              {triggers.map((t) => (
-                <option key={t.type} value={t.type}>
-                  {t.label}
+              {triggers.map((trigger) => (
+                <option key={trigger.type} value={trigger.type}>
+                  {t(`automation.triggers.${String(trigger.type).replaceAll(".", "_")}.label`)}
                 </option>
               ))}
             </select>
@@ -628,9 +628,9 @@ function WorkflowEditorPanel({
               className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
               disabled={!canWrite}
             >
-              {actions.map((a) => (
-                <option key={a.type} value={a.type}>
-                  {a.label}
+              {actions.map((action) => (
+                <option key={action.type} value={action.type}>
+                  {t(`automation.actions.${String(action.type).replaceAll(".", "_")}.label`)}
                 </option>
               ))}
             </select>

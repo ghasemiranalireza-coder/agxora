@@ -62,12 +62,12 @@
       },
       "open-invoices": {
         "label": "فتح الفواتير",
-        "caption": "عينة · {المال} المعلق"
+        "caption": "عينة · {money} المعلق"
       },
       "paid-invoices": {
         "label": "الفواتير المدفوعة",
         "caption": "عينة · هذا الربع",
-        "delta": "+ {عدد}"
+        "delta": "+ {count}"
       },
       "cashflow": {
         "label": "التدفق النقدي",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "الذكاء الاصطناعي النتيجة المالية",
         "caption": "نقاط العينة · لا تسجل المخاطر المباشرة",
-        "delta": "+ {عدد}"
+        "delta": "+ {count}"
       }
     },
-    "scoreOutOf": "{النتيجة} / {الحد الأقصى}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "لا فواتير",
@@ -91,7 +91,7 @@
     "sortBy": "الترتيب حسب",
     "toggleSort": "تبديل اتجاه الفرز",
     "count": "{count} الفواتير",
-    "countOne": "{عدد} الفاتورة",
+    "countOne": "{count} الفاتورة",
     "allStatuses": "جميع الحالات",
     "allPayments": "جميع المدفوعات",
     "columns": {
@@ -183,7 +183,7 @@
     "intro": "نموذج تاريخ التصدير أدناه توضيحي. لا يتم توصيل بيانات الاعتماد وإنشاء الملفات في هذا الإصدار.",
     "noticeDefault": "محولات التصدير غير متصلة — لن يتم إنشاء أي ملفات.",
     "exportUnavailable": "{title} غير متاح — DATEV / تصدير الملف غير متصل.",
-    "exportUnavailableAria": "{العنوان} — غير متاح",
+    "exportUnavailableAria": "{title} — غير متاح",
     "historyTitle": "سجل التصدير (نموذج)",
     "refresh": "ينعش",
     "refreshUnavailable": "التحديث غير متاح — سجل التصدير عبارة عن بيانات نموذجية ثابتة.",

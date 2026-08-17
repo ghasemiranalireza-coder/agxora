@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "Карта функций ИИ — идеи, подписи, хэштеги, календарь, кампании, аудитория, график, согласованность бренда, переписывание, перевод, многоязычность."
+  },
+  "formats": {
+    "instagram_caption": "Подпись Instagram",
+    "tiktok_script": "Сценарий TikTok",
+    "linkedin_post": "Пост LinkedIn",
+    "facebook_post": "Пост Facebook",
+    "x_post": "Пост X",
+    "blog_article": "Статья блога",
+    "newsletter": "Рассылка",
+    "email_campaign": "Почтовая кампания",
+    "product_description": "Описание товара",
+    "ad_copy": "Рекламный текст",
+    "seo_article": "SEO-статья",
+    "landing_page_copy": "Текст посадочной страницы"
+  },
+  "publishStatus": {
+    "draft": "Черновик",
+    "review": "Проверка",
+    "approved": "Утверждено",
+    "scheduled": "Запланировано",
+    "published": "Опубликовано",
+    "archive": "Архив"
+  },
+  "mediaKind": {
+    "image": "Изображение",
+    "video": "Видео",
+    "document": "Документ",
+    "logo": "Логотип бренда",
+    "template": "Шаблон"
+  },
+  "voice": {
+    "professional": "Профессиональный",
+    "friendly": "Дружелюбный",
+    "luxury": "Люкс",
+    "casual": "Неформальный"
+  },
+  "integrationStatus": {
+    "planned": "Запланировано",
+    "ready": "Готово",
+    "connected": "Подключено",
+    "disabled": "Отключено"
   }
 }

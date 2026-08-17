@@ -79,5 +79,90 @@
     "placeholder": "KI-Befehl… zusammenfassen, vorschlagen, analysieren…",
     "noMatches": "Keine passenden Befehle",
     "footer": "Registrieren Sie zukünftige Befehle über registerAiCommand — UI bleibt unverändert."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Projekte",
+    "finance": "Finanzen",
+    "marketing": "Marketing",
+    "documents": "Dokumente",
+    "automation": "Automatisierung",
+    "general": "Allgemein"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Kunde zusammenfassen",
+      "description": "Kurzfassung einer Kundenbeziehung"
+    },
+    "crm-follow-up-email": {
+      "title": "Follow-up-E-Mail",
+      "description": "Professionelles CRM-Follow-up entwerfen"
+    },
+    "projects-analyze": {
+      "title": "Projekt analysieren",
+      "description": "Gesundheitscheck für ein Projekt"
+    },
+    "projects-task-list": {
+      "title": "Aufgabenliste erstellen",
+      "description": "Arbeit in umsetzbare Aufgaben zerlegen"
+    },
+    "finance-explain-invoice": {
+      "title": "Rechnung erklären",
+      "description": "Rechnungserklärung in einfacher Sprache"
+    },
+    "finance-cashflow-brief": {
+      "title": "Cashflow-Kurzbericht",
+      "description": "Kurze Cashflow-Erzählung"
+    },
+    "marketing-campaign-outline": {
+      "title": "Kampagnenskizze",
+      "description": "Eine Marketingkampagne strukturieren"
+    },
+    "marketing-proposal": {
+      "title": "Angebot erzeugen",
+      "description": "Kundenorientierter Angebotsentwurf"
+    },
+    "documents-summarize": {
+      "title": "Dokument zusammenfassen",
+      "description": "Strukturierte Dokumentzusammenfassung"
+    },
+    "automation-workflow": {
+      "title": "Workflow entwerfen",
+      "description": "Skizze eines Automatisierungs-Workflows"
+    },
+    "general-brainstorm": {
+      "title": "Optionen brainstormen",
+      "description": "Strukturierte Ideenfindung"
+    },
+    "general-explain": {
+      "title": "Einfach erklären",
+      "description": "Klare Erklärung für Stakeholder"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Kunde zusammenfassen",
+      "description": "Kurzfassung des aktiven Kunden"
+    },
+    "cmd-generate-proposal": {
+      "label": "Angebot erzeugen",
+      "description": "Kundenangebotsgliederung entwerfen"
+    },
+    "cmd-analyze-project": {
+      "label": "Projekt analysieren",
+      "description": "Projektgesundheit und Risikoanalyse"
+    },
+    "cmd-create-task-list": {
+      "label": "Aufgabenliste erstellen",
+      "description": "Arbeit in umsetzbare Aufgaben zerlegen"
+    },
+    "cmd-generate-email": {
+      "label": "E-Mail erzeugen",
+      "description": "Professionelle E-Mail entwerfen"
+    },
+    "cmd-explain-invoice": {
+      "label": "Rechnung erklären",
+      "description": "Rechnungserklärung in einfacher Sprache"
+    }
   }
 }

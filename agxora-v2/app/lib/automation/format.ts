@@ -1,4 +1,8 @@
 import type { IntegrationStatus, RunStatus, TemplateDifficulty } from "./types";
+import {
+  formatDateTime as formatI18nDateTime,
+  getActiveFormatLocale,
+} from "@/app/lib/i18n/format";
 
 export type StatusTone = "default" | "positive" | "warning" | "critical" | "accent";
 
@@ -9,26 +13,26 @@ export function formatDuration(ms: number): string {
 }
 
 export function formatDateTime(iso: string): string {
-  return new Intl.DateTimeFormat("en-GB", {
+  return formatI18nDateTime(iso, getActiveFormatLocale(), {
     day: "2-digit",
     month: "short",
     hour: "2-digit",
     minute: "2-digit",
-  }).format(new Date(iso));
+  });
 }
 
 export function integrationLabel(status: IntegrationStatus): string {
   switch (status) {
     case "connected":
-      return "Connected";
+      return "automation.status.connected";
     case "beta":
-      return "Beta";
+      return "automation.status.beta";
     case "coming_soon":
-      return "Coming Soon";
+      return "automation.status.comingSoon";
     case "disabled":
-      return "Disabled";
+      return "automation.status.disabled";
     default:
-      return "Planned";
+      return "automation.status.planned";
   }
 }
 
@@ -50,15 +54,15 @@ export function integrationTone(status: IntegrationStatus): StatusTone {
 export function runStatusLabel(status: RunStatus): string {
   switch (status) {
     case "success":
-      return "Success";
+      return "automation.status.success";
     case "failed":
-      return "Failed";
+      return "automation.status.failed";
     case "running":
-      return "Running";
+      return "automation.status.running";
     case "pending":
-      return "Pending";
+      return "automation.status.pending";
     case "retried":
-      return "Retry";
+      return "automation.status.retried";
     default:
       return status;
   }
@@ -83,10 +87,10 @@ export function runStatusTone(status: RunStatus): StatusTone {
 export function difficultyLabel(value: TemplateDifficulty): string {
   switch (value) {
     case "starter":
-      return "Starter";
+      return "automation.difficulty.starter";
     case "intermediate":
-      return "Intermediate";
+      return "automation.difficulty.intermediate";
     case "advanced":
-      return "Advanced";
+      return "automation.difficulty.advanced";
   }
 }

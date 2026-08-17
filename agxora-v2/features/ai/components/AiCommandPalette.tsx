@@ -172,13 +172,13 @@ function AiCommandPaletteOpen({
                     onMouseEnter={() => setIndex(i)}
                     onClick={() => run(command)}
                   >
-                    <span className="text-sm font-medium">{command.label}</span>
+                    <span className="text-sm font-medium">{t(`ai.commands.${command.id}.label`)}</span>
                     {command.description ? (
                       <span
                         className="text-xs"
                         style={{ color: "var(--agx-ds-text-muted)" }}
                       >
-                        {command.description}
+                        {t(`ai.commands.${command.id}.description`)}
                       </span>
                     ) : null}
                   </button>

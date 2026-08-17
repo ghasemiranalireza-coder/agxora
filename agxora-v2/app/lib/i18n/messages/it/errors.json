@@ -1,11 +1,34 @@
 {
   "required": "Questo campo è obbligatorio.",
-  "invalidEmail": "Inserisci un indirizzo email valido.",
+  "invalidEmail": "Inserisci un indirizzo e-mail valido.",
   "passwordMin": "La password deve contenere almeno 8 caratteri.",
   "passwordLettersNumbers": "La password deve includere lettere e numeri.",
   "passwordMismatch": "Le password non corrispondono.",
   "acceptTerms": "Si prega di accettare i termini per continuare.",
   "generic": "Qualcosa è andato storto.",
   "tryAgain": "Per favore riprova.",
-  "saved": "Salvato con successo."
+  "saved": "Salvato con successo.",
+  "invalidCredentials": "E-mail o password non validi.",
+  "signInRequired": "Accesso richiesto.",
+  "insufficientPermissions": "Autorizzazioni insufficienti.",
+  "noRouteAccess": "Non hai accesso a questo percorso.",
+  "accountLocked": "Questo account è bloccato. Contatta un amministratore.",
+  "sessionExpired": "La sessione è scaduta. Accedi di nuovo.",
+  "missingPermission": "Autorizzazione mancante: {permission}",
+  "roleCannotAccess": "Il tuo ruolo non può accedere a questa risorsa.",
+  "codes": {
+    "AUTH_INVALID_CREDENTIALS": "E-mail o password non validi.",
+    "AUTH_SESSION_EXPIRED": "La sessione è scaduta. Accedi di nuovo.",
+    "AUTH_ACCOUNT_LOCKED": "Questo account è bloccato. Contatta un amministratore.",
+    "AUTH_SIGN_IN_REQUIRED": "Accedi per continuare.",
+    "AUTH_INSUFFICIENT_PERMISSIONS": "Autorizzazioni insufficienti.",
+    "AUTH_NO_ROUTE_ACCESS": "Non hai accesso a questo percorso.",
+    "COMMON_SOMETHING_WENT_WRONG": "Qualcosa è andato storto.",
+    "COMMON_PAGE_NOT_FOUND": "Pagina non trovata.",
+    "COMMON_OFFLINE": "Sei offline.",
+    "COMMON_TIMEOUT": "La richiesta è scaduta.",
+    "COMMON_VALIDATION": "Controlla i dati inseriti e riprova.",
+    "COMMON_UNKNOWN": "Si è verificato un errore sconosciuto.",
+    "COMMON_INTERNAL": "Si è verificato un errore imprevisto. Riprova."
+  }
 }

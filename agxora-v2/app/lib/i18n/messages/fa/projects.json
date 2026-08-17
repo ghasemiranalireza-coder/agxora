@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "مدیریت پروژه",
     "title": "پروژه‌ها",
-    "lead": "تحویل را برنامه‌ریزی کنید، بودجه و سلامت را پیگیری کنید، تیم‌ها را تعیین کنید و وظایف را برای {سازمان} مدیریت کنید. داده‌ها به صورت محلی ذخیره می‌شوند و برای اتصال به backend آماده هستند.",
+    "lead": "تحویل را برنامه‌ریزی کنید، بودجه و سلامت را پیگیری کنید، تیم‌ها را تعیین کنید و وظایف را برای {organization} مدیریت کنید. داده‌ها به صورت محلی ذخیره می‌شوند و برای اتصال به backend آماده هستند.",
     "yourOrganization": "سازمان شما"
   },
   "list": {
@@ -65,7 +65,7 @@
     "tagsPlaceholder": "سازمانی، عرضه اولیه",
     "budgetPlaceholder": "0",
     "description": "توضیحات آگهی",
-    "selectColor": "انتخاب رنگ {رنگ}"
+    "selectColor": "انتخاب رنگ {color}"
   },
   "taskForm": {
     "createTitle": "ایجاد کار",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "پیشرفت",
-    "progressAria": "مقدار برچسب"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "برنامه‌ریزی",
@@ -132,24 +132,24 @@
     "emptyDescription": "تاریخ‌های شروع/موعد مقرر و وظایف را برای تکمیل برنامه اضافه کنید.",
     "title": "تایم‌لاین",
     "subtitle": "شروع، پایان، مدت زمان، نقاط عطف. وابستگی‌ها برای انتشار در آینده رزرو شده‌اند.",
-    "dateRange": "{شروع} → {پایان} · {روز}d",
-    "itemAria": "{عنوان} از {شروع} تا {پایان}",
+    "dateRange": "{start} → {end} · {days}d",
+    "itemAria": "{title} از {start} تا {end}",
     "dependenciesNone": "وابستگی: هیچ"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "پروژه‌های فعال",
-      "activeHint": "{برنامه‌ریزی} برنامه‌ریزی",
+      "activeHint": "{planning} برنامه‌ریزی",
       "completed": "تکمیل‌شده",
-      "completedHint": "{درصد}٪ از پرتفوی",
+      "completedHint": "{percent}٪ از پرتفوی",
       "onHold": "در انتظار",
-      "onHoldHint": "{بایگانی شده} بایگانی شده",
+      "onHoldHint": "{archived} بایگانی شده",
       "teamMembers": "اعضای تیم",
       "teamHint": "در تمام پروژه‌ها",
       "budgetOverview": "بررسی اجمالی بودجه",
-      "budgetHint": "{درصد}٪ استفاده شده · {خرج شده} خرج شده",
+      "budgetHint": "{percent}٪ استفاده شده · {spent} خرج شده",
       "openTasks": "وظایف باز",
-      "openTasksHint": "(از موعد گذشته) معوق",
+      "openTasksHint": "{overdue} overdue",
       "projectHealth": "سلامت پروژه",
       "healthHint": "امتیاز تحویل ترکیبی",
       "upcomingDeadlines": "مهلت‌های آتی",
@@ -176,7 +176,7 @@
     "emptyTitle": "هیچ وظیفه‌ای روی تخته نیست",
     "emptyDescription": "وظایفی را برای سازماندهی تحویل در بین موارد زیر ایجاد کنید: «برای انجام»، «در حال انجام»، «بررسی» و «انجام شده».",
     "addTask": "وظیفه اضافه نمایید",
-    "columnAria": "ستون {وضعیت}",
+    "columnAria": "ستون {status}",
     "taskProgress": " روند پیشرفت",
     "edit": "ویرایش",
     "complete": "کامل شده"
@@ -185,7 +185,7 @@
     "notFoundTitle": "هیچ پروژه ای یافت نشد.",
     "notFoundDescription": "این پروژه ممکن است حذف شده باشد یا برای سازمان فعلی در دسترس نباشد.",
     "backToProjects": "بازگشت به پروژه ها",
-    "ownerMeta": "{مشتری} · مالک {مالک}",
+    "ownerMeta": "{customer} · مالک {owner}",
     "edit": "ویرایش",
     "delete": "حذف",
     "sectionsAria": "بخش‌های جزئیات پروژه",
@@ -294,5 +294,30 @@
     "memberAdded": "کاربر اضافه شده",
     "settingsSaved": "تنظیمات ذخیره شد",
     "projectArchived": "بایگانی پروژه"
+  },
+  "validation": {
+    "nameRequired": "نام پروژه الزامی است.",
+    "nameMin": "نام پروژه باید حداقل ۲ نویسه باشد.",
+    "customerRequired": "مشتری الزامی است.",
+    "ownerRequired": "مالک پروژه الزامی است.",
+    "priorityInvalid": "یک اولویت معتبر انتخاب کنید.",
+    "statusInvalid": "یک وضعیت معتبر انتخاب کنید.",
+    "currencyInvalid": "یک ارز معتبر انتخاب کنید.",
+    "budgetInvalid": "بودجه باید عددی نامنفی باشد.",
+    "startDateRequired": "تاریخ شروع الزامی است.",
+    "startDateInvalid": "یک تاریخ شروع معتبر وارد کنید.",
+    "dueDateInvalid": "یک تاریخ سررسید معتبر وارد کنید.",
+    "dueDateOrder": "تاریخ سررسید باید در یا پس از تاریخ شروع باشد.",
+    "colorInvalid": "یک رنگ معتبر انتخاب کنید.",
+    "iconInvalid": "یک آیکون معتبر انتخاب کنید.",
+    "taskTitleRequired": "عنوان وظیفه الزامی است.",
+    "progressRange": "پیشرفت باید بین ۰ تا ۱۰۰ باشد.",
+    "memberNameRequired": "نام عضو الزامی است.",
+    "emailRequired": "ایمیل الزامی است.",
+    "emailInvalid": "یک نشانی ایمیل معتبر وارد کنید.",
+    "roleInvalid": "یک نقش معتبر انتخاب کنید.",
+    "noteTitleRequired": "عنوان یادداشت الزامی است.",
+    "noteBodyRequired": "متن یادداشت الزامی است.",
+    "authorRequired": "نویسنده الزامی است."
   }
 }

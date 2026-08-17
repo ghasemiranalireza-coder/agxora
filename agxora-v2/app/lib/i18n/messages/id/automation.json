@@ -100,7 +100,7 @@
     "noticeDefault": "Pratinjau templat sebelum memuatnya ke pembuat.",
     "noticeLoaded": "Memuat \"{name}\" ke pembuat alur kerja.",
     "nodesBadge": "{count} node",
-    "recommendedFor": "Direkomendasikan untuk: {untuk}",
+    "recommendedFor": "Direkomendasikan untuk: {for}",
     "preview": "Pratinjau",
     "useTemplate": "Gunakan Templat",
     "previewTitle": "Pratinjau Templat",
@@ -131,7 +131,7 @@
     "notice": {
       "missingWrite": "Izin alur kerja.tulis tidak ada.",
       "missingExecute": "Izin alur kerja.eksekusi tidak ada.",
-      "created": "Dibuat {nama}",
+      "created": "Dibuat {name}",
       "templateApplied": "Templat diterapkan: {name}",
       "runResult": "Jalankan {status} ({duration}ms)",
       "runFailed": "Alur kerja tidak dapat berjalan (dinonaktifkan atau hilang).",
@@ -193,8 +193,8 @@
       "emptyTitle": "Belum ada eksekusi.",
       "emptyDescription": "Jalankan alur kerja atau publikasikan peristiwa domain.",
       "latestRun": "Detail proses terbaru",
-      "path": "Jalur: {jalur}",
-      "error": "· Kesalahan: {kesalahan}",
+      "path": "Jalur: {path}",
+      "error": "· Kesalahan: {error}",
       "columns": {
         "workflow": "Alur kerja",
         "status": "Status",
@@ -226,7 +226,315 @@
       "concurrencyLimit": "Batas konkurensi",
       "timeoutMs": "Batas waktu (md)",
       "logLevel": "tingkat log",
-      "saveSettings": "Simpan pengaturan"
+      "saveSettings": "Simpan pengaturan",
+      "logLevels": {
+        "error": "error",
+        "warn": "peringatan",
+        "info": "info",
+        "debug": "debug"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Alur kerja kosong"
+  },
+  "status": {
+    "connected": "Terhubung",
+    "beta": "Beta",
+    "comingSoon": "Segera hadir",
+    "disabled": "Nonaktif",
+    "planned": "Direncanakan",
+    "success": "Berhasil",
+    "failed": "Gagal",
+    "running": "Berjalan",
+    "pending": "Tertunda",
+    "retried": "Coba lagi"
+  },
+  "difficulty": {
+    "starter": "Pemula",
+    "intermediate": "Menengah",
+    "advanced": "Lanjutan"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Pemicu",
+      "description": "Mulai saat suatu peristiwa terjadi"
+    },
+    "el-condition": {
+      "label": "Kondisi",
+      "description": "Cabangkan berdasarkan aturan"
+    },
+    "el-delay": {
+      "label": "Tunda",
+      "description": "Tunggu sebelum melanjutkan"
+    },
+    "el-approval": {
+      "label": "Persetujuan",
+      "description": "Gerbang persetujuan manusia"
+    },
+    "el-loop": {
+      "label": "Loop",
+      "description": "Ulangi koleksi"
+    },
+    "el-merge": {
+      "label": "Gabung",
+      "description": "Gabungkan jalur paralel"
+    },
+    "el-split": {
+      "label": "Pisah",
+      "description": "Sebarkan jalur paralel"
+    },
+    "el-ai-decision": {
+      "label": "Keputusan AI",
+      "description": "Rute via AI"
+    },
+    "el-notification": {
+      "label": "Notifikasi",
+      "description": "Peringatan dalam aplikasi"
+    },
+    "el-webhook": {
+      "label": "Placeholder Webhook",
+      "description": "Callback HTTP dicadangkan"
+    },
+    "el-custom": {
+      "label": "Tindakan kustom",
+      "description": "Slot tindakan yang dapat diperluas"
+    },
+    "tr-customer": {
+      "label": "Pelanggan dibuat",
+      "description": "Catatan pelanggan CRM dibuat"
+    },
+    "tr-lead": {
+      "label": "Prospek dibuat",
+      "description": "Prospek baru masuk pipeline"
+    },
+    "tr-invoice": {
+      "label": "Faktur dibuat",
+      "description": "Faktur keuangan diterbitkan"
+    },
+    "tr-invoice-paid": {
+      "label": "Faktur dibayar",
+      "description": "Pembayaran diselesaikan"
+    },
+    "tr-order": {
+      "label": "Pesanan dibuat",
+      "description": "Pesanan dimasukkan"
+    },
+    "tr-order-done": {
+      "label": "Pesanan selesai",
+      "description": "Pesanan dipenuhi"
+    },
+    "tr-doc": {
+      "label": "Dokumen diunggah",
+      "description": "Unggah brankas dokumen"
+    },
+    "tr-campaign": {
+      "label": "Kampanye dipublikasikan",
+      "description": "Publikasi Creator Studio"
+    },
+    "tr-employee": {
+      "label": "Karyawan ditambahkan",
+      "description": "Perubahan direktori tim"
+    },
+    "tr-task": {
+      "label": "Tugas selesai",
+      "description": "Tugas ditandai selesai"
+    },
+    "tr-manual": {
+      "label": "Pemicu manual",
+      "description": "Jalankan sesuai permintaan"
+    },
+    "tr-schedule": {
+      "label": "Pemicu jadwal",
+      "description": "Jadwal cron / kalender"
+    },
+    "tr-webhook": {
+      "label": "Pemicu Webhook",
+      "description": "Peristiwa HTTP masuk"
+    },
+    "tr-api": {
+      "label": "Pemicu API",
+      "description": "Mulai terprogram"
+    },
+    "ac-crm": {
+      "label": "Buat catatan CRM",
+      "description": "Tulis entitas CRM"
+    },
+    "ac-invoice": {
+      "label": "Buat faktur",
+      "description": "Faktur keuangan"
+    },
+    "ac-quote": {
+      "label": "Buat penawaran",
+      "description": "Buat dokumen penawaran"
+    },
+    "ac-delivery": {
+      "label": "Buat surat jalan",
+      "description": "Surat jalan"
+    },
+    "ac-task": {
+      "label": "Buat tugas",
+      "description": "Buka tugas"
+    },
+    "ac-assign": {
+      "label": "Tugaskan karyawan",
+      "description": "Rute ke rekan tim"
+    },
+    "ac-email": {
+      "label": "Kirim email",
+      "description": "Email keluar"
+    },
+    "ac-notify": {
+      "label": "Kirim notifikasi",
+      "description": "Notifikasi dalam aplikasi"
+    },
+    "ac-ai-summary": {
+      "label": "Buat ringkasan AI",
+      "description": "Ringkas konteks"
+    },
+    "ac-ai-content": {
+      "label": "Buat konten AI",
+      "description": "Draf Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "Perbarui pelanggan",
+      "description": "Patch pelanggan CRM"
+    },
+    "ac-update-status": {
+      "label": "Perbarui status",
+      "description": "Ubah status entitas"
+    },
+    "ac-pdf": {
+      "label": "Ekspor PDF",
+      "description": "Ekspor dokumen"
+    },
+    "ac-future": {
+      "label": "Placeholder API masa depan",
+      "description": "Slot tindakan cadangan"
+    },
+    "ai-decision": {
+      "label": "Keputusan AI",
+      "description": "Tentukan jalur berikutnya"
+    },
+    "ai-class": {
+      "label": "Klasifikasi AI",
+      "description": "Klasifikasikan catatan"
+    },
+    "ai-text": {
+      "label": "Pembuatan teks AI",
+      "description": "Buat teks"
+    },
+    "ai-translate": {
+      "label": "Terjemahan AI",
+      "description": "Terjemahkan konten"
+    },
+    "ai-email": {
+      "label": "Balasan email AI",
+      "description": "Buat draf balasan"
+    },
+    "ai-sum": {
+      "label": "Peringkasan AI",
+      "description": "Padatkan konteks"
+    },
+    "ai-rec": {
+      "label": "Rekomendasi AI",
+      "description": "Sarankan langkah berikutnya"
+    },
+    "ai-route": {
+      "label": "Perutean AI",
+      "description": "Rute ke pemilik / antrean"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Pelanggan dibuat",
+      "description": "Dipicu saat catatan pelanggan CRM dibuat."
+    },
+    "project_created": {
+      "label": "Proyek dibuat",
+      "description": "Dipicu saat proyek dibuat."
+    },
+    "task_completed": {
+      "label": "Tugas selesai",
+      "description": "Dipicu saat tugas ditandai selesai."
+    },
+    "document_uploaded": {
+      "label": "Dokumen diunggah",
+      "description": "Dipicu saat dokumen diunggah."
+    },
+    "schedule": {
+      "label": "Jadwal",
+      "description": "Pemicu jadwal cron / interval."
+    },
+    "invoice_issued": {
+      "label": "Faktur diterbitkan",
+      "description": "Dipicu saat faktur diterbitkan."
+    },
+    "user_invited": {
+      "label": "Pengguna diundang",
+      "description": "Dipicu saat anggota tim diundang."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Webhook HTTP masuk."
+    },
+    "api_event": {
+      "label": "Peristiwa API",
+      "description": "Peristiwa domain API umum."
+    },
+    "ai_event": {
+      "label": "Peristiwa AI",
+      "description": "Sinyal AI (selesai, wawasan, langkah agen)."
+    },
+    "manual": {
+      "label": "Pemicu manual",
+      "description": "Jalankan on-demand dari UI atau API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Buat Pelanggan",
+      "description": "Buat catatan pelanggan CRM."
+    },
+    "customer_update": {
+      "label": "Perbarui pelanggan",
+      "description": "Perbarui kolom pelanggan."
+    },
+    "project_create": {
+      "label": "Buat Proyek",
+      "description": "Buat proyek dari konteks alur kerja."
+    },
+    "notification_send": {
+      "label": "Kirim notifikasi",
+      "description": "Kirim notifikasi dalam aplikasi."
+    },
+    "email_send": {
+      "label": "Kirim email",
+      "description": "Antre email melalui penyedia mail."
+    },
+    "invoice_create": {
+      "label": "Buat Faktur",
+      "description": "Buat faktur keuangan."
+    },
+    "status_update": {
+      "label": "Perbarui status",
+      "description": "Perbarui status entitas di modul."
+    },
+    "document_generate": {
+      "label": "Buat dokumen",
+      "description": "Buat dokumen dari templat."
+    },
+    "api_call": {
+      "label": "Panggil API",
+      "description": "Panggilan HTTP ke API internal atau eksternal."
+    },
+    "ai_run": {
+      "label": "Jalankan AI",
+      "description": "Jalankan prompt AI / langkah agen dengan konteks."
+    },
+    "task_assign": {
+      "label": "Tetapkan tugas",
+      "description": "Tetapkan tugas ke pengguna."
     }
   }
 }

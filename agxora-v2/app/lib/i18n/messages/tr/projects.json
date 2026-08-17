@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "Proje Yönetimi İşletim Sistemi",
     "title": "Projeler",
-    "lead": "{organizasyon} için teslimatı planlayın, bütçeyi ve sağlığı takip edin, ekipler atayın ve görevleri yönetin. Veriler yerel olarak korunur ve arka uç bağlantısı için hazırdır.",
+    "lead": "{organization} için teslimatı planlayın, bütçeyi ve sağlığı takip edin, ekipler atayın ve görevleri yönetin. Veriler yerel olarak korunur ve arka uç bağlantısı için hazırdır.",
     "yourOrganization": "kuruluşunuz"
   },
   "list": {
@@ -25,13 +25,13 @@
     "emptyTitle": "Henüz proje yok",
     "emptyDescription": "Kilometre taşlarını, bütçeyi ve ekip sahipliğini takip etmek için bir teslimat çalışma alanı oluşturun.",
     "createProject": "Proje oluştur",
-    "pagination": "{total} / {from}–{to} arası gösteriliyor",
+    "pagination": "{from} / {to}–{total} arası gösteriliyor",
     "previous": "Öncesi",
     "next": "Sonraki",
     "noDescription": "Henüz açıklama yok.",
-    "duePrefix": "Bitiş tarihi}",
+    "duePrefix": "Due {date}",
     "openProject": "{name} projesini aç",
-    "sortBy": "{sütun}'a göre sırala",
+    "sortBy": "{column}'a göre sırala",
     "sort": {
       "name": "İsim",
       "customer": "Müşteri",
@@ -65,7 +65,7 @@
     "tagsPlaceholder": "kurumsal, kullanıma sunma",
     "budgetPlaceholder": "0",
     "description": "Tanım",
-    "selectColor": "{Renk} rengini seçin"
+    "selectColor": "{color} rengini seçin"
   },
   "taskForm": {
     "createTitle": "Görev Oluştur",
@@ -132,24 +132,24 @@
     "emptyDescription": "Zamanlamayı doldurmak için başlangıç/bitiş tarihlerini ve görevleri ekleyin.",
     "title": "Zaman çizelgesi",
     "subtitle": "Başlangıç, bitiş, süre, kilometre taşları. Bağımlılıklar gelecekteki bir sürüm için ayrılmıştır.",
-    "dateRange": "{başlangıç} → {bitiş} · {gün}g",
-    "itemAria": "{start} ile {end} arasında {title}",
+    "dateRange": "{start} → {end} · {days}g",
+    "itemAria": "{title} ile {start} arasında {end}",
     "dependenciesNone": "Bağımlılıklar: yok"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "Aktif Projeler",
-      "activeHint": "{planlama} planlama",
+      "activeHint": "{planning} planlama",
       "completed": "Tamamlanmış",
       "completedHint": "Portföyün %{percent}'i",
       "onHold": "Beklemede",
-      "onHoldHint": "{arşivlendi} arşivlendi",
+      "onHoldHint": "{archived} arşivlendi",
       "teamMembers": "Ekip Üyeleri",
       "teamHint": "Tüm projelerde",
       "budgetOverview": "Bütçeye Genel Bakış",
       "budgetHint": "Kullanılan %{percent} · {spent} harcandı",
       "openTasks": "Görevleri Aç",
-      "openTasksHint": "{gecikmiş} gecikmiş",
+      "openTasksHint": "{overdue} gecikmiş",
       "projectHealth": "Proje Sağlığı",
       "healthHint": "Bileşik teslimat puanı",
       "upcomingDeadlines": "Yaklaşan Son Tarihler",
@@ -176,7 +176,7 @@
     "emptyTitle": "Tahtada görev yok",
     "emptyDescription": "Yapılacaklar, Devam Ediyor, Gözden Geçirme ve Bitti genelinde teslimatı düzenlemek için görevler oluşturun.",
     "addTask": "Görev ekle",
-    "columnAria": "{durum} sütunu",
+    "columnAria": "{status} sütunu",
     "taskProgress": "Görev ilerlemesi",
     "edit": "Düzenlemek",
     "complete": "Tamamlamak"
@@ -185,7 +185,7 @@
     "notFoundTitle": "Proje bulunamadı",
     "notFoundDescription": "Bu proje silinmiş olabilir veya mevcut kuruluş için kullanılamıyor olabilir.",
     "backToProjects": "← Projelere geri dön",
-    "ownerMeta": "{müşteri} · Sahip {owner}",
+    "ownerMeta": "{customer} · Sahip {owner}",
     "edit": "Düzenlemek",
     "delete": "Silmek",
     "sectionsAria": "Proje detay bölümleri",
@@ -294,5 +294,30 @@
     "memberAdded": "Üye eklendi",
     "settingsSaved": "Ayarlar kaydedildi",
     "projectArchived": "Proje arşivlendi"
+  },
+  "validation": {
+    "nameRequired": "Proje adı zorunludur.",
+    "nameMin": "Proje adı en az 2 karakter olmalıdır.",
+    "customerRequired": "Müşteri zorunludur.",
+    "ownerRequired": "Proje sahibi zorunludur.",
+    "priorityInvalid": "Geçerli bir öncelik seçin.",
+    "statusInvalid": "Geçerli bir durum seçin.",
+    "currencyInvalid": "Geçerli bir para birimi seçin.",
+    "budgetInvalid": "Bütçe negatif olmayan bir sayı olmalıdır.",
+    "startDateRequired": "Başlangıç tarihi zorunludur.",
+    "startDateInvalid": "Geçerli bir başlangıç tarihi girin.",
+    "dueDateInvalid": "Geçerli bir bitiş tarihi girin.",
+    "dueDateOrder": "Bitiş tarihi başlangıç tarihinde veya sonrasında olmalıdır.",
+    "colorInvalid": "Geçerli bir renk seçin.",
+    "iconInvalid": "Geçerli bir simge seçin.",
+    "taskTitleRequired": "Görev başlığı zorunludur.",
+    "progressRange": "İlerleme 0 ile 100 arasında olmalıdır.",
+    "memberNameRequired": "Üye adı zorunludur.",
+    "emailRequired": "E-posta zorunludur.",
+    "emailInvalid": "Geçerli bir e-posta adresi girin.",
+    "roleInvalid": "Geçerli bir rol seçin.",
+    "noteTitleRequired": "Not başlığı zorunludur.",
+    "noteBodyRequired": "Not gövdesi zorunludur.",
+    "authorRequired": "Yazar zorunludur."
   }
 }

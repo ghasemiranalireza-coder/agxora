@@ -58,16 +58,16 @@
       "vat-due": {
         "label": "Należny podatek VAT",
         "caption": "Próbka · Okno Q2",
-        "delta": "Termin za {day}d"
+        "delta": "Termin za {days}d"
       },
       "open-invoices": {
         "label": "Otwarte faktury",
-        "caption": "Próbka · {pieniądze} zaległe"
+        "caption": "Próbka · {money} zaległe"
       },
       "paid-invoices": {
         "label": "Zapłacone faktury",
         "caption": "Próbka · w tym kwartale",
-        "delta": "+{liczba}"
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "Przepływ środków pieniężnych",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "Wynik finansowy AI",
         "caption": "Przykładowy wynik · nie punktacja ryzyka na żywo",
-        "delta": "+{liczba}"
+        "delta": "+{count}"
       }
     },
-    "scoreOutOf": "{wynik} / {maks.}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "Żadnych faktur",
@@ -142,7 +142,7 @@
     "uploadFiles": "Prześlij pliki",
     "emailImport": "Import poczty e-mail",
     "dropHint": "Upuść faktury w formacie PDF lub graficzne, aby przygotować je lokalnie — OCR nie jest podłączony.",
-    "filesStaged": "Liczba plików (liczba) wymieniona tylko lokalnie — ekstrakcja OCR/AI nie jest podłączona.",
+    "filesStaged": "Liczba plików (liczba) wymieniona tylko lokalnie — ekstrakcja OCR/AI nie jest podłączona. {count}",
     "emailReserved": "Złącze importu poczty e-mail zarezerwowane dla protokołu IMAP/Microsoft Graph.",
     "pipelineTitle": "Potok przetwarzania (demo)",
     "stages": {
@@ -251,8 +251,8 @@
   "insights": {
     "demoPrefix": "Demonstracja",
     "noticeDefault": "Działania wglądu nie są ze sobą powiązane — karty przedstawiają tylko przykładowe ustalenia.",
-    "actionUnavailable": "{akcja} niedostępna — działania związane z analizą finansów nie są połączone.",
-    "actionUnavailableTitle": "{akcja} niedostępna — brak połączenia",
+    "actionUnavailable": "{action} niedostępna — działania związane z analizą finansów nie są połączone.",
+    "actionUnavailableTitle": "{action} niedostępna — brak połączenia",
     "kinds": {
       "unusual_expense": "Nietypowe wydatki",
       "duplicate_invoice": "Duplikaty faktur",

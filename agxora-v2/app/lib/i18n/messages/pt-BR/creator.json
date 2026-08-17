@@ -69,7 +69,7 @@
     "aiRewrite": "Reescrita de IA",
     "translate": "Traduzir",
     "initialOutput": "Selecione um formato e a voz da marca e, em seguida, gere um rascunho. Os adaptadores do provedor estão reservados — ainda não há chamadas de modelo em tempo real.",
-    "draftStaged": "Rascunho encenado para {formato} · voz: {voz}. Adaptador de geração reservado.",
+    "draftStaged": "Rascunho encenado para {format} · voz: {voice}. Adaptador de geração reservado.",
     "rewriteQueued": "AI Rewrite enfileirado — adaptador de reescrita reservado.",
     "translateQueued": "Traduzir conteúdo na fila — adaptador multilíngue reservado.",
     "brandVoice": "Voz da marca",
@@ -94,8 +94,8 @@
   "analytics": {
     "title": "Análise",
     "topPosts": "Principais postagens",
-    "engagement": "Inglês {valor}",
-    "reach": "Alcance {valor}",
+    "engagement": "Inglês {value}",
+    "reach": "Alcance {value}",
     "recommendations": "Recomendações de IA"
   },
   "integrations": {
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "Mapa de recursos de IA – ideias, legendas, hashtags, calendário, campanhas, público, programação, consistência da marca, reescrever, traduzir, multilíngue."
+  },
+  "formats": {
+    "instagram_caption": "Legenda Instagram",
+    "tiktok_script": "Guião TikTok",
+    "linkedin_post": "Publicação LinkedIn",
+    "facebook_post": "Publicação Facebook",
+    "x_post": "Publicação X",
+    "blog_article": "Artigo de blogue",
+    "newsletter": "Newsletter",
+    "email_campaign": "Campanha de e-mail",
+    "product_description": "Descrição do produto",
+    "ad_copy": "Texto publicitário",
+    "seo_article": "Artigo SEO",
+    "landing_page_copy": "Texto de página de destino"
+  },
+  "publishStatus": {
+    "draft": "Rascunho",
+    "review": "Revisão",
+    "approved": "Aprovado",
+    "scheduled": "Agendado",
+    "published": "Publicado",
+    "archive": "Arquivo"
+  },
+  "mediaKind": {
+    "image": "Imagem",
+    "video": "Vídeo",
+    "document": "Documento",
+    "logo": "Logótipo da marca",
+    "template": "Modelo"
+  },
+  "voice": {
+    "professional": "Profissional",
+    "friendly": "Amigável",
+    "luxury": "Luxo",
+    "casual": "Informal"
+  },
+  "integrationStatus": {
+    "planned": "Planeado",
+    "ready": "Pronto",
+    "connected": "Ligado",
+    "disabled": "Desativado"
   }
 }

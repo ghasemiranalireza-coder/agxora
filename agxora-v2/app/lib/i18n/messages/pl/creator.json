@@ -94,8 +94,8 @@
   "analytics": {
     "title": "Analityka",
     "topPosts": "Najlepsze posty",
-    "engagement": "inż. {wartość}",
-    "reach": "Osiągnij {wartość}",
+    "engagement": "inż. {value}",
+    "reach": "Osiągnij {value}",
     "recommendations": "Zalecenia AI"
   },
   "integrations": {
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "Mapa funkcji AI — pomysły, podpisy, hashtagi, kalendarz, kampanie, odbiorcy, harmonogram, spójność marki, przepisywanie, tłumaczenie, wielojęzyczność."
+  },
+  "formats": {
+    "instagram_caption": "Podpis Instagram",
+    "tiktok_script": "Scenariusz TikTok",
+    "linkedin_post": "Post LinkedIn",
+    "facebook_post": "Post Facebook",
+    "x_post": "Post X",
+    "blog_article": "Artykuł na blogu",
+    "newsletter": "Newsletter",
+    "email_campaign": "Kampania e-mail",
+    "product_description": "Opis produktu",
+    "ad_copy": "Tekst reklamy",
+    "seo_article": "Artykuł SEO",
+    "landing_page_copy": "Tekst strony docelowej"
+  },
+  "publishStatus": {
+    "draft": "Szkic",
+    "review": "Recenzja",
+    "approved": "Zatwierdzono",
+    "scheduled": "Zaplanowano",
+    "published": "Opublikowano",
+    "archive": "Archiwum"
+  },
+  "mediaKind": {
+    "image": "Obraz",
+    "video": "Wideo",
+    "document": "Dokument",
+    "logo": "Logo marki",
+    "template": "Szablon"
+  },
+  "voice": {
+    "professional": "Profesjonalny",
+    "friendly": "Przyjazny",
+    "luxury": "Luksusowy",
+    "casual": "Swobodny"
+  },
+  "integrationStatus": {
+    "planned": "Zaplanowano",
+    "ready": "Gotowe",
+    "connected": "Połączono",
+    "disabled": "Wyłączono"
   }
 }

@@ -67,7 +67,7 @@
       "paid-invoices": {
         "label": "Fatture pagate",
         "caption": "Esempio · questo trimestre",
-        "delta": "+{conteggio}"
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "Flusso di cassa",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "Punteggio finanziario dell'intelligenza artificiale",
         "caption": "Punteggio campione · punteggio del rischio non in tempo reale",
-        "delta": "+{conteggio}"
+        "delta": "+{count}"
       }
     },
-    "scoreOutOf": "{punteggio} / {massimo}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "Nessuna fattura",
@@ -182,8 +182,8 @@
     "notConnected": "Non connesso",
     "intro": "La cronologia delle esportazioni di esempio riportata di seguito è illustrativa. Le credenziali e la generazione di file non sono cablate in questa build.",
     "noticeDefault": "Gli adattatori di esportazione non sono collegati: non verrà generato alcun file.",
-    "exportUnavailable": "{titolo} non disponibile: DATEV/esportazione file non connessa.",
-    "exportUnavailableAria": "{titolo}: non disponibile",
+    "exportUnavailable": "{title} non disponibile: DATEV/esportazione file non connessa.",
+    "exportUnavailableAria": "{title}: non disponibile",
     "historyTitle": "Cronologia esportazioni (esempio)",
     "refresh": "Aggiorna",
     "refreshUnavailable": "Aggiornamento non disponibile: la cronologia delle esportazioni è costituita da dati campione statici.",
@@ -251,7 +251,7 @@
   "insights": {
     "demoPrefix": "Dimostrazione",
     "noticeDefault": "Le azioni di approfondimento non sono collegate: le schede mostrano solo risultati di esempio.",
-    "actionUnavailable": "{azione} non disponibile: le azioni di insight finanziario non sono collegate.",
+    "actionUnavailable": "{action} non disponibile: le azioni di insight finanziario non sono collegate.",
     "actionUnavailableTitle": "{action} non disponibile: non connesso",
     "kinds": {
       "unusual_expense": "Spese insolite",

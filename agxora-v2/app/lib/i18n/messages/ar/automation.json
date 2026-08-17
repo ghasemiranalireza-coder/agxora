@@ -69,7 +69,7 @@
     "tabTriggers": "المشغلات",
     "tabActions": "الإجراءات",
     "tabAiActions": "إجراءات الذكاء الاصطناعي",
-    "builderTitle": "منشئ سير العمل · {الاسم}",
+    "builderTitle": "منشئ سير العمل · {name}",
     "builderHint": "الانطباق على شبكة {grid}px · ⌘/Ctrl+scroll Zoom · اسحب القماش للتحريك · انقر نقرًا مزدوجًا فوق Connect",
     "autoSaved": "تم الحفظ تلقائيًا",
     "saving": "توفير…",
@@ -99,7 +99,7 @@
     "title": "مكتبة النماذج",
     "noticeDefault": "قم بمعاينة القالب قبل تحميله في المنشئ.",
     "noticeLoaded": "تم تحميل \"{name}\" في منشئ سير العمل.",
-    "nodesBadge": "{عدد} العقد",
+    "nodesBadge": "{count} العقد",
     "recommendedFor": "موصى به لـ: {for}",
     "preview": "معاينة",
     "useTemplate": "استخدم القالب",
@@ -131,14 +131,14 @@
     "notice": {
       "missingWrite": "إذن سير العمل.الكتابة مفقود.",
       "missingExecute": "إذن Workflow.exe مفقود.",
-      "created": "تم إنشاء {الاسم}",
+      "created": "تم إنشاء {name}",
       "templateApplied": "تم تطبيق القالب: {name}",
-      "runResult": "تشغيل {الحالة} ({duration} مللي ثانية)",
+      "runResult": "تشغيل {status} ({duration} مللي ثانية)",
       "runFailed": "لا يمكن تشغيل سير العمل (معطل أو مفقود).",
       "publishedEvent": "حدث المجال المنشور: {type}",
-      "workflowStatus": "سير العمل {الحالة}",
+      "workflowStatus": "سير العمل {status}",
       "saved": "تم حفظ سير العمل",
-      "retryResult": "إعادة المحاولة {الحالة}",
+      "retryResult": "إعادة المحاولة {status}",
       "retryFailed": "فشلت إعادة المحاولة",
       "settingsSaved": "تم حفظ إعدادات الأتمتة"
     },
@@ -193,8 +193,8 @@
       "emptyTitle": "لا توجد عمليات إعدام حتى الآن.",
       "emptyDescription": "تشغيل سير عمل أو نشر حدث مجال.",
       "latestRun": "أحدث تفاصيل التشغيل",
-      "path": "المسار: {المسار}",
-      "error": "· خطأ: {خطأ}",
+      "path": "المسار: {path}",
+      "error": "· خطأ: {error}",
       "columns": {
         "workflow": "سير العمل",
         "status": "حالة",
@@ -226,7 +226,315 @@
       "concurrencyLimit": "حد التزامن",
       "timeoutMs": "المهلة (مللي ثانية)",
       "logLevel": "مستوى السجل",
-      "saveSettings": "حفظ الإعدادات"
+      "saveSettings": "حفظ الإعدادات",
+      "logLevels": {
+        "error": "خطأ",
+        "warn": "تحذير",
+        "info": "معلومات",
+        "debug": "تصحيح"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "سير عمل فارغ"
+  },
+  "status": {
+    "connected": "متصل",
+    "beta": "تجريبي",
+    "comingSoon": "قريبًا",
+    "disabled": "معطّل",
+    "planned": "مخطط",
+    "success": "نجاح",
+    "failed": "فشل",
+    "running": "قيد التشغيل",
+    "pending": "معلق",
+    "retried": "إعادة المحاولة"
+  },
+  "difficulty": {
+    "starter": "مبتدئ",
+    "intermediate": "متوسط",
+    "advanced": "متقدم"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "مشغّل",
+      "description": "ابدأ عند وقوع حدث"
+    },
+    "el-condition": {
+      "label": "شرط",
+      "description": "تفرع حسب القواعد"
+    },
+    "el-delay": {
+      "label": "تأخير",
+      "description": "انتظر قبل المتابعة"
+    },
+    "el-approval": {
+      "label": "اعتماد",
+      "description": "بوابة اعتماد بشري"
+    },
+    "el-loop": {
+      "label": "حلقة",
+      "description": "كرر على مجموعة"
+    },
+    "el-merge": {
+      "label": "دمج",
+      "description": "ادمج المسارات المتوازية"
+    },
+    "el-split": {
+      "label": "تقسيم",
+      "description": "وزّع المسارات المتوازية"
+    },
+    "el-ai-decision": {
+      "label": "قرار الذكاء الاصطناعي",
+      "description": "وجّه عبر الذكاء الاصطناعي"
+    },
+    "el-notification": {
+      "label": "إشعار",
+      "description": "تنبيه داخل التطبيق"
+    },
+    "el-webhook": {
+      "label": "عنصر نائب لـ Webhook",
+      "description": "تم حجز رد اتصال HTTP"
+    },
+    "el-custom": {
+      "label": "إجراء مخصص",
+      "description": "فتحة إجراء قابلة للتوسعة"
+    },
+    "tr-customer": {
+      "label": "تم إنشاء العميل",
+      "description": "تم إنشاء سجل عميل CRM"
+    },
+    "tr-lead": {
+      "label": "تم إنشاء العميل المحتمل",
+      "description": "عميل محتمل جديد يدخل المسار"
+    },
+    "tr-invoice": {
+      "label": "تم إنشاء الفاتورة",
+      "description": "تم إصدار فاتورة مالية"
+    },
+    "tr-invoice-paid": {
+      "label": "تم دفع الفاتورة",
+      "description": "تم تسوية الدفع"
+    },
+    "tr-order": {
+      "label": "تم إنشاء الطلب",
+      "description": "تم إدخال الطلب"
+    },
+    "tr-order-done": {
+      "label": "اكتمل الطلب",
+      "description": "تم تنفيذ الطلب"
+    },
+    "tr-doc": {
+      "label": "تم رفع المستند",
+      "description": "رفع إلى خزنة المستندات"
+    },
+    "tr-campaign": {
+      "label": "تم نشر الحملة",
+      "description": "نشر Creator Studio"
+    },
+    "tr-employee": {
+      "label": "تمت إضافة الموظف",
+      "description": "تغيير دليل الفريق"
+    },
+    "tr-task": {
+      "label": "اكتملت المهمة",
+      "description": "تم تعليم المهمة كمكتملة"
+    },
+    "tr-manual": {
+      "label": "مشغّل يدوي",
+      "description": "تشغيل عند الطلب"
+    },
+    "tr-schedule": {
+      "label": "مشغّل الجدولة",
+      "description": "جدولة cron / التقويم"
+    },
+    "tr-webhook": {
+      "label": "مشغّل Webhook",
+      "description": "حدث HTTP وارد"
+    },
+    "tr-api": {
+      "label": "مشغّل API",
+      "description": "بدء برمجي"
+    },
+    "ac-crm": {
+      "label": "إنشاء سجل CRM",
+      "description": "اكتب كيان CRM"
+    },
+    "ac-invoice": {
+      "label": "إنشاء فاتورة",
+      "description": "فاتورة مالية"
+    },
+    "ac-quote": {
+      "label": "إنشاء عرض سعر",
+      "description": "إنشاء مستند عرض السعر"
+    },
+    "ac-delivery": {
+      "label": "إنشاء إذن تسليم",
+      "description": "إذن تسليم"
+    },
+    "ac-task": {
+      "label": "إنشاء مهمة",
+      "description": "افتح مهمة"
+    },
+    "ac-assign": {
+      "label": "تعيين موظف",
+      "description": "وجّه إلى زميل"
+    },
+    "ac-email": {
+      "label": "إرسال بريد إلكتروني",
+      "description": "بريد صادر"
+    },
+    "ac-notify": {
+      "label": "إرسال إشعار",
+      "description": "إشعار داخل التطبيق"
+    },
+    "ac-ai-summary": {
+      "label": "إنشاء ملخص بالذكاء الاصطناعي",
+      "description": "لخّص السياق"
+    },
+    "ac-ai-content": {
+      "label": "إنشاء محتوى بالذكاء الاصطناعي",
+      "description": "مسودة Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "تحديث العميل",
+      "description": "ترقيع عميل CRM"
+    },
+    "ac-update-status": {
+      "label": "تحديث الحالة",
+      "description": "غيّر حالة الكيان"
+    },
+    "ac-pdf": {
+      "label": "تصدير PDF",
+      "description": "تصدير المستند"
+    },
+    "ac-future": {
+      "label": "عنصر نائب لـ API مستقبلي",
+      "description": "فتحة إجراء محجوزة"
+    },
+    "ai-decision": {
+      "label": "قرار الذكاء الاصطناعي",
+      "description": "قرر المسار التالي"
+    },
+    "ai-class": {
+      "label": "تصنيف بالذكاء الاصطناعي",
+      "description": "صنّف السجلات"
+    },
+    "ai-text": {
+      "label": "توليد نص بالذكاء الاصطناعي",
+      "description": "أنشئ نصًا"
+    },
+    "ai-translate": {
+      "label": "ترجمة بالذكاء الاصطناعي",
+      "description": "ترجم المحتوى"
+    },
+    "ai-email": {
+      "label": "رد بريد بالذكاء الاصطناعي",
+      "description": "صغ ردًا"
+    },
+    "ai-sum": {
+      "label": "تلخيص بالذكاء الاصطناعي",
+      "description": "كثّف السياق"
+    },
+    "ai-rec": {
+      "label": "توصيات الذكاء الاصطناعي",
+      "description": "اقترح الخطوات التالية"
+    },
+    "ai-route": {
+      "label": "توجيه بالذكاء الاصطناعي",
+      "description": "وجّه إلى المالك / قائمة الانتظار"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "تم إنشاء العميل",
+      "description": "يُشغَّل عند إنشاء سجل عميل في CRM."
+    },
+    "project_created": {
+      "label": "تم إنشاء المشروع",
+      "description": "يُشغَّل عند إنشاء مشروع."
+    },
+    "task_completed": {
+      "label": "اكتملت المهمة",
+      "description": "يُشغَّل عند تعليم مهمة كمكتملة."
+    },
+    "document_uploaded": {
+      "label": "تم تحميل المستند",
+      "description": "يُشغَّل عند رفع مستند."
+    },
+    "schedule": {
+      "label": "جدول",
+      "description": "مشغّل جدولة cron / فاصل زمني."
+    },
+    "invoice_issued": {
+      "label": "إصدار فاتورة",
+      "description": "يُشغَّل عند إصدار فاتورة."
+    },
+    "user_invited": {
+      "label": "تمت دعوة مستخدم",
+      "description": "يُشغَّل عند دعوة عضو في الفريق."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Webhook HTTP وارد."
+    },
+    "api_event": {
+      "label": "حدث API",
+      "description": "حدث نطاق API عام."
+    },
+    "ai_event": {
+      "label": "حدث الذكاء الاصطناعي",
+      "description": "إشارة ذكاء اصطناعي (اكتمال، رؤية، خطوة وكيل)."
+    },
+    "manual": {
+      "label": "مشغّل يدوي",
+      "description": "تشغيل عند الطلب من الواجهة أو API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "إنشاء عميل",
+      "description": "إنشاء سجل عميل في CRM."
+    },
+    "customer_update": {
+      "label": "تحديث العميل",
+      "description": "تحديث حقول العميل."
+    },
+    "project_create": {
+      "label": "إنشاء مشروع",
+      "description": "إنشاء مشروع من سياق سير العمل."
+    },
+    "notification_send": {
+      "label": "إرسال إشعار",
+      "description": "إرسال إشعار داخل التطبيق."
+    },
+    "email_send": {
+      "label": "إرسال بريد إلكتروني",
+      "description": "وضع بريد في قائمة الانتظار عبر الموفر."
+    },
+    "invoice_create": {
+      "label": "إنشاء فاتورة",
+      "description": "إنشاء فاتورة مالية."
+    },
+    "status_update": {
+      "label": "تحديث الحالة",
+      "description": "تحديث حالة كيان في وحدة."
+    },
+    "document_generate": {
+      "label": "إنشاء مستند",
+      "description": "إنشاء مستند من قالب."
+    },
+    "api_call": {
+      "label": "استدعاء API",
+      "description": "استدعاء HTTP لواجهة API داخلية أو خارجية."
+    },
+    "ai_run": {
+      "label": "تشغيل الذكاء الاصطناعي",
+      "description": "تنفيذ موجّه ذكاء اصطناعي / خطوة وكيل مع السياق."
+    },
+    "task_assign": {
+      "label": "تعيين مهمة",
+      "description": "تعيين مهمة لمستخدم."
     }
   }
 }

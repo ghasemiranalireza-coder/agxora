@@ -17,7 +17,7 @@
     "settings": "Налаштування"
   },
   "notice": {
-    "simulatedRun": "Змодельований запуск · {статус} ({тривалість} мс)",
+    "simulatedRun": "Змодельований запуск · {status} ({duration} мс)",
     "taskFailed": "Завдання не виконано",
     "activated": "Активовано локально: {agentId}",
     "agentPaused": "Агент зробив паузу",
@@ -42,15 +42,15 @@
   "registry": {
     "title": "компаній",
     "selectPrompt": "Виберіть агента з реєстру.",
-    "status": "Статус: {статус}",
-    "health": "Здоров'я: {здоров'я}",
+    "status": "Статус: {status}",
+    "health": "Здоров'я: {health}",
     "queue": "Черга: {queue}",
     "usage": "Використання: {usage}",
     "executeTask": "Виконати завдання",
     "supervisorDelegate": "Делегат керівника"
   },
   "marketplace": {
-    "tools": "Інструменти: {інструменти}",
+    "tools": "Інструменти: {tools}",
     "installed": "встановлено",
     "installActivate": "Встановити та активувати"
   },
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "Виконайте бізнес-ціль {agentId}",
     "planAndExecute": "Плануйте та виконуйте бізнес-ціль робочого простору"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Пріоритезувати вплив на клієнта",
+    "delegatedFollowUp": "Делегований фолоуап"
   }
 }

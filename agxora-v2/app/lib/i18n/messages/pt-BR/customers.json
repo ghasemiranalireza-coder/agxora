@@ -2,7 +2,7 @@
   "page": {
     "sectionTitle": "Gestão de Clientes",
     "title": "Clientes",
-    "lead": "Crie, edite, pesquise e gerencie registros de clientes de {organização}.",
+    "lead": "Crie, edite, pesquise e gerencie registros de clientes de {organization}.",
     "yourOrganization": "sua organização"
   },
   "table": {
@@ -17,9 +17,9 @@
     "view": "Visualizar",
     "edit": "Editar",
     "delete": "Excluir",
-    "viewAria": "Ver {empresa}",
-    "editAria": "Editar {empresa}",
-    "deleteAria": "Excluir {empresa}",
+    "viewAria": "Ver {company}",
+    "editAria": "Editar {company}",
+    "deleteAria": "Excluir {company}",
     "loading": "Carregando clientes…",
     "errorLoad": "Não foi possível carregar os clientes",
     "errorGeneric": "Algo deu errado",
@@ -74,7 +74,7 @@
     "title": "Excluir cliente",
     "cancel": "Cancelar",
     "confirm": "Excluir",
-    "confirmWithName": "Remover permanentemente {empresa}? Isto não pode ser desfeito.",
+    "confirmWithName": "Remover permanentemente {company}? Isto não pode ser desfeito.",
     "confirmGeneric": "Este cliente será removido permanentemente.",
     "success": "Cliente excluído",
     "failed": "Falha na exclusão",
@@ -96,5 +96,17 @@
     "updated": "Atualizado",
     "notes": "Notas",
     "noNotes": "Ainda não há notas."
+  },
+  "validation": {
+    "companyRequired": "O nome da empresa é obrigatório.",
+    "contactRequired": "A pessoa de contacto é obrigatória.",
+    "emailRequired": "O e-mail é obrigatório.",
+    "emailInvalid": "Introduza um endereço de e-mail válido.",
+    "phoneRequired": "O telefone é obrigatório.",
+    "phoneInvalid": "Introduza um número de telefone válido.",
+    "mobileInvalid": "Introduza um número de telemóvel válido.",
+    "statusInvalid": "Selecione um estado válido.",
+    "emailDuplicate": "Já existe um cliente com este e-mail.",
+    "companyDuplicate": "Já existe um cliente com este nome de empresa."
   }
 }

@@ -58,16 +58,16 @@
       "vat-due": {
         "label": "PPN Terutang",
         "caption": "Contoh · Jendela Q2",
-        "delta": "Jatuh tempo dalam {hari}d"
+        "delta": "Jatuh tempo dalam {days}d"
       },
       "open-invoices": {
         "label": "Buka Faktur",
-        "caption": "Contoh · {uang} beredar"
+        "caption": "Contoh · {money} beredar"
       },
       "paid-invoices": {
         "label": "Faktur Berbayar",
         "caption": "Contoh · kuartal ini",
-        "delta": "+{hitungan}"
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "Arus kas",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "Skor Keuangan AI",
         "caption": "Skor sampel · bukan penilaian risiko langsung",
-        "delta": "+{hitungan}"
+        "delta": "+{count}"
       }
     },
-    "scoreOutOf": "{skor} / {maks}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "Tidak ada faktur",

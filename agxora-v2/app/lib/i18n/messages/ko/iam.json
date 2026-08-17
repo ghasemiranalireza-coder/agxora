@@ -145,5 +145,30 @@
     "verify": "이메일 확인",
     "verifying": "확인 중…",
     "requestToken": "확인 토큰 요청"
+  },
+  "access": {
+    "eyebrow": "신원 및 액세스",
+    "signIn": "로그인",
+    "backToDashboard": "대시보드로 돌아가기",
+    "unauthorized": {
+      "title": "권한 없음",
+      "description": "AGXORA의 이 영역을 계속하려면 로그인하세요."
+    },
+    "forbidden": {
+      "title": "금지됨",
+      "description": "역할에 이 리소스에 대한 권한이 없습니다."
+    },
+    "expired_session": {
+      "title": "세션 만료",
+      "description": "세션이 만료되었습니다. 작업을 재개하려면 다시 로그인하세요."
+    },
+    "missing_permission": {
+      "title": "권한 없음",
+      "description": "소유자 또는 관리자에게 필요한 모듈 액세스를 부여해 달라고 요청하세요."
+    },
+    "account_locked": {
+      "title": "계정 잠김",
+      "description": "이 계정은 잠겨 있습니다. 조직 소유자에게 문의하거나 나중에 다시 시도하세요."
+    }
   }
 }

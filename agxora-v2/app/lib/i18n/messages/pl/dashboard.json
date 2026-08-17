@@ -148,7 +148,7 @@
     "title": "AGXORA AI",
     "emptyState": "Zapytaj AGXORĘ o klientów, projekty lub kolejne działania. Twoja rozmowa pozostanie w tej sesji obszaru roboczego.",
     "thinking": "AGXORA myśli…",
-    "errorDismiss": "{błąd} — kliknij, aby odrzucić",
+    "errorDismiss": "{error} — kliknij, aby odrzucić",
     "placeholder": "Zapytaj AGXORĘ AI…",
     "messageAria": "Wiadomość AGXORA AI",
     "sendAria": "Wyślij wiadomość",
@@ -381,7 +381,8 @@
         "title": "Odzyskiwanie wiedzy",
         "description": "Podstawowe odpowiedzi w korpusie Centrum wiedzy o dokumentach."
       }
-    }
+    },
+    "esc": "Esc"
   },
   "summary": "{name}: {customers} klienci · {projects} projekty · {updates} aktualizacje dzisiaj."
 }

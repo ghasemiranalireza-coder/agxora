@@ -2,7 +2,7 @@
   "page": {
     "sectionTitle": "Klantenbeheer",
     "title": "Klanten",
-    "lead": "Klantrecords voor {organisatie} maken, bewerken, doorzoeken en beheren.",
+    "lead": "Klantrecords voor {organization} maken, bewerken, doorzoeken en beheren.",
     "yourOrganization": "uw organisatie"
   },
   "table": {
@@ -17,9 +17,9 @@
     "view": "Weergave",
     "edit": "Bewerking",
     "delete": "Verwijderen",
-    "viewAria": "Bekijk {bedrijf}",
-    "editAria": "Bewerk {bedrijf}",
-    "deleteAria": "Verwijder {bedrijf}",
+    "viewAria": "Bekijk {company}",
+    "editAria": "Bewerk {company}",
+    "deleteAria": "Verwijder {company}",
     "loading": "Klanten laden…",
     "errorLoad": "Kan klanten niet laden",
     "errorGeneric": "Er is iets misgegaan",
@@ -74,7 +74,7 @@
     "title": "Klant verwijderen",
     "cancel": "Annuleren",
     "confirm": "Verwijderen",
-    "confirmWithName": "{bedrijf} definitief verwijderen? Dit kan niet ongedaan worden gemaakt.",
+    "confirmWithName": "{company} definitief verwijderen? Dit kan niet ongedaan worden gemaakt.",
     "confirmGeneric": "Deze klant wordt definitief verwijderd.",
     "success": "Klant verwijderd",
     "failed": "Verwijderen is mislukt",
@@ -96,5 +96,17 @@
     "updated": "Bijgewerkt",
     "notes": "Opmerkingen",
     "noNotes": "Nog geen opmerkingen."
+  },
+  "validation": {
+    "companyRequired": "Bedrijfsnaam is verplicht.",
+    "contactRequired": "Contactpersoon is verplicht.",
+    "emailRequired": "E-mail is verplicht.",
+    "emailInvalid": "Voer een geldig e-mailadres in.",
+    "phoneRequired": "Telefoon is verplicht.",
+    "phoneInvalid": "Voer een geldig telefoonnummer in.",
+    "mobileInvalid": "Voer een geldig mobiel nummer in.",
+    "statusInvalid": "Selecteer een geldige status.",
+    "emailDuplicate": "Er bestaat al een klant met dit e-mailadres.",
+    "companyDuplicate": "Er bestaat al een klant met deze bedrijfsnaam."
   }
 }

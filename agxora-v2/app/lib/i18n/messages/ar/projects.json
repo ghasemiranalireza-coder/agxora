@@ -25,13 +25,13 @@
     "emptyTitle": "لا توجد مشاريع حتى الآن",
     "emptyDescription": "قم بتدوير مساحة عمل التسليم لتتبع المعالم والميزانية وملكية الفريق.",
     "createProject": "إنشاء مشروع",
-    "pagination": "عرض {من}–{إلى} من {total}",
+    "pagination": "عرض {from}–{to} من {total}",
     "previous": "سابق",
     "next": "التالي",
     "noDescription": "لا يوجد وصف بعد.",
-    "duePrefix": "موعد الاستحقاق {التاريخ}",
-    "openProject": "فتح المشروع {الاسم}",
-    "sortBy": "الترتيب حسب {عمود}",
+    "duePrefix": "موعد الاستحقاق {date}",
+    "openProject": "فتح المشروع {name}",
+    "sortBy": "الترتيب حسب {column}",
     "sort": {
       "name": "اسم",
       "customer": "عميل",
@@ -65,7 +65,7 @@
     "tagsPlaceholder": "المؤسسة، الطرح",
     "budgetPlaceholder": "0",
     "description": "وصف",
-    "selectColor": "اختر اللون {اللون}"
+    "selectColor": "اختر اللون {color}"
   },
   "taskForm": {
     "createTitle": "إنشاء مهمة",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "تقدم",
-    "progressAria": "{التسمية}: {القيمة}%"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "تخطيط",
@@ -132,24 +132,24 @@
     "emptyDescription": "أضف تواريخ البدء/الاستحقاق والمهام لملء الجدول.",
     "title": "الجدول الزمني",
     "subtitle": "البداية، النهاية، المدة، المعالم. التبعيات محجوزة للإصدار المستقبلي.",
-    "dateRange": "{البدء} → {النهاية} · {أيام} د",
-    "itemAria": "{العنوان} من {البداية} إلى {النهاية}",
+    "dateRange": "{start} → {end} · {days} د",
+    "itemAria": "{title} من {start} إلى {end}",
     "dependenciesNone": "التبعيات: لا شيء"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "المشاريع النشطة",
-      "activeHint": "{تخطيط} تخطيط",
+      "activeHint": "{planning} تخطيط",
       "completed": "مكتمل",
       "completedHint": "{percent}% من المحفظة",
       "onHold": "في الانتظار",
-      "onHoldHint": "{مؤرشفة} مؤرشفة",
+      "onHoldHint": "{archived} مؤرشفة",
       "teamMembers": "أعضاء الفريق",
       "teamHint": "في جميع المشاريع",
       "budgetOverview": "نظرة عامة على الميزانية",
-      "budgetHint": "تم استخدام {percent}% · تم إنفاق {spect}.",
+      "budgetHint": "تم استخدام {percent}% · تم إنفاق {spent}.",
       "openTasks": "افتح المهام",
-      "openTasksHint": "{متأخرة} متأخرة",
+      "openTasksHint": "{overdue} متأخرة",
       "projectHealth": "صحة المشروع",
       "healthHint": "درجة التسليم المركب",
       "upcomingDeadlines": "المواعيد النهائية القادمة",
@@ -176,7 +176,7 @@
     "emptyTitle": "لا توجد مهام على متن الطائرة",
     "emptyDescription": "قم بإنشاء مهام لتنظيم التسليم عبر المهام قيد التنفيذ والمراجعة والتنفيذ.",
     "addTask": "أضف مهمة",
-    "columnAria": "عمود {الحالة}.",
+    "columnAria": "عمود {status}.",
     "taskProgress": "تقدم المهمة",
     "edit": "يحرر",
     "complete": "مكتمل"
@@ -185,7 +185,7 @@
     "notFoundTitle": "لم يتم العثور على المشروع",
     "notFoundDescription": "ربما تم حذف هذا المشروع أو أنه غير متوفر للمؤسسة الحالية.",
     "backToProjects": "← العودة إلى المشاريع",
-    "ownerMeta": "{العميل} · المالك {مالك}",
+    "ownerMeta": "{customer} · المالك {owner}",
     "edit": "يحرر",
     "delete": "يمسح",
     "sectionsAria": "أقسام تفاصيل المشروع",
@@ -294,5 +294,30 @@
     "memberAdded": "تمت إضافة العضو",
     "settingsSaved": "تم حفظ الإعدادات",
     "projectArchived": "تم أرشفة المشروع"
+  },
+  "validation": {
+    "nameRequired": "اسم المشروع مطلوب.",
+    "nameMin": "يجب أن يتكون اسم المشروع من حرفين على الأقل.",
+    "customerRequired": "العميل مطلوب.",
+    "ownerRequired": "مالك المشروع مطلوب.",
+    "priorityInvalid": "حدد أولوية صالحة.",
+    "statusInvalid": "حدد حالة صالحة.",
+    "currencyInvalid": "حدد عملة صالحة.",
+    "budgetInvalid": "يجب أن تكون الميزانية رقمًا غير سالب.",
+    "startDateRequired": "تاريخ البدء مطلوب.",
+    "startDateInvalid": "أدخل تاريخ بدء صالحًا.",
+    "dueDateInvalid": "أدخل تاريخ استحقاق صالحًا.",
+    "dueDateOrder": "يجب أن يكون تاريخ الاستحقاق في تاريخ البدء أو بعده.",
+    "colorInvalid": "اختر لونًا صالحًا.",
+    "iconInvalid": "اختر أيقونة صالحة.",
+    "taskTitleRequired": "عنوان المهمة مطلوب.",
+    "progressRange": "يجب أن يكون التقدم بين 0 و 100.",
+    "memberNameRequired": "اسم العضو مطلوب.",
+    "emailRequired": "البريد الإلكتروني مطلوب.",
+    "emailInvalid": "أدخل عنوان بريد إلكتروني صالحًا.",
+    "roleInvalid": "حدد دورًا صالحًا.",
+    "noteTitleRequired": "عنوان الملاحظة مطلوب.",
+    "noteBodyRequired": "نص الملاحظة مطلوب.",
+    "authorRequired": "المؤلف مطلوب."
   }
 }

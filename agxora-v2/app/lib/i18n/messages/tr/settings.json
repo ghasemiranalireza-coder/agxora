@@ -23,7 +23,7 @@
     "avatarUnavailable": "Avatar yükleme henüz kullanılamıyor.",
     "appearanceNote": "Görünüm yapılandırması Görünüm altında kalır. Başlık yalnızca temaya hızlı geçiş sağlar.",
     "prefsHint": "AI asistanları tarafından modüller arasında kullanılır.",
-    "themeResolved": "{mode} (çözüldü {görünüş})",
+    "themeResolved": "{mode} (çözüldü {appearance})",
     "regions": {
       "EU": "Avrupa Birliği",
       "US": "Amerika Birleşik Devletleri",
@@ -330,7 +330,7 @@
     "title": "Ayarlar",
     "lead": "Her AGXORA modülü için kurumsal yapılandırma - profil, organizasyon, yapay zeka, görünüm, güvenlik, faturalandırma ve geliştirici kontrolleri tek bir yerde.",
     "loading": "Ayarlar yükleniyor…",
-    "breadcrumb": "{etiket} · {açıklama}"
+    "breadcrumb": "{label} · {description}"
   },
   "saveChanges": "Değişiklikleri kaydet",
   "sessionNotice": "Bu oturum için güncellendi — {area} bağlı değil.",
@@ -368,7 +368,7 @@
     "owner": "Mal sahibi",
     "counts": "Üyeler · çalışma alanları",
     "orgUpdated": "Organizasyon güncellendi.",
-    "countsValue": "{üyeler} · {çalışma alanları}",
+    "countsValue": "{members} · {workspaces}",
     "joined": "Katıldı",
     "workspaceName": "Çalışma alanı adı",
     "switchWorkspace": "Aktif çalışma alanı",

@@ -98,12 +98,12 @@
       "previous": "Öncesi",
       "next": "Sonraki"
     },
-    "showing": "{total} / {from}–{to} arası gösteriliyor",
+    "showing": "{from} / {to}–{total} arası gösteriliyor",
     "aria": {
-      "openCustomer": "{Şirket} müşterisini açın"
+      "openCustomer": "{company} müşterisini açın"
     },
     "cardMeta": "Sahip {owner} · Oluşturuldu: {date}",
-    "sortBy": "{sütun}'a göre sırala"
+    "sortBy": "{column}'a göre sırala"
   },
   "status": {
     "lead": "Yol göstermek",
@@ -473,7 +473,7 @@
       "label": "Yapay Zeka Sağlık Puanı",
       "caption": "İlişki kalitesi sinyali"
     },
-    "scoreOutOf": "{puan} / {maks}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "Yol göstermek",

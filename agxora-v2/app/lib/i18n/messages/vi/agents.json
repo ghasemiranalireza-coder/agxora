@@ -42,15 +42,15 @@
   "registry": {
     "title": "Đăng ký",
     "selectPrompt": "Chọn một đại lý từ sổ đăng ký.",
-    "status": "Trạng thái: {trạng thái}",
-    "health": "Sức khỏe: {sức khỏe}",
-    "queue": "Hàng đợi: {hàng đợi}",
-    "usage": "Cách sử dụng: {cách sử dụng}",
+    "status": "Trạng thái: {status}",
+    "health": "Sức khỏe: {health}",
+    "queue": "Hàng đợi: {queue}",
+    "usage": "Cách sử dụng: {usage}",
     "executeTask": "Thực hiện nhiệm vụ",
     "supervisorDelegate": "Đại biểu giám sát"
   },
   "marketplace": {
-    "tools": "Công cụ: {công cụ}",
+    "tools": "Công cụ: {tools}",
     "installed": "Đã cài đặt",
     "installActivate": "Cài đặt và kích hoạt"
   },
@@ -58,7 +58,7 @@
     "title": "giám sát đại lý",
     "emptyTitle": "Không có đại lý để theo dõi",
     "emptyDescription": "Kích hoạt các đại lý từ thị trường.",
-    "latestConfidence": "Độ tin cậy lý luận mới nhất: {sự tự tin} — {bước}"
+    "latestConfidence": "Độ tin cậy lý luận mới nhất: {confidence} — {steps}"
   },
   "history": {
     "title": "Lịch sử thực hiện",
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "Thực thi mục tiêu kinh doanh {agentId}",
     "planAndExecute": "Lập kế hoạch và thực hiện mục tiêu kinh doanh tại không gian làm việc"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Ưu tiên tác động khách hàng",
+    "delegatedFollowUp": "Theo dõi được ủy thác"
   }
 }

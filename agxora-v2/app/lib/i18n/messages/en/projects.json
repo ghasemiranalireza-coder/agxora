@@ -294,5 +294,30 @@
     "memberAdded": "Member added",
     "settingsSaved": "Settings saved",
     "projectArchived": "Project archived"
+  },
+  "validation": {
+    "nameRequired": "Project name is required.",
+    "nameMin": "Project name must be at least 2 characters.",
+    "customerRequired": "Customer is required.",
+    "ownerRequired": "Project owner is required.",
+    "priorityInvalid": "Select a valid priority.",
+    "statusInvalid": "Select a valid status.",
+    "currencyInvalid": "Select a valid currency.",
+    "budgetInvalid": "Budget must be a non-negative number.",
+    "startDateRequired": "Start date is required.",
+    "startDateInvalid": "Enter a valid start date.",
+    "dueDateInvalid": "Enter a valid due date.",
+    "dueDateOrder": "Due date must be on or after the start date.",
+    "colorInvalid": "Choose a valid color.",
+    "iconInvalid": "Choose a valid icon.",
+    "taskTitleRequired": "Task title is required.",
+    "progressRange": "Progress must be between 0 and 100.",
+    "memberNameRequired": "Member name is required.",
+    "emailRequired": "Email is required.",
+    "emailInvalid": "Enter a valid email address.",
+    "roleInvalid": "Select a valid role.",
+    "noteTitleRequired": "Note title is required.",
+    "noteBodyRequired": "Note body is required.",
+    "authorRequired": "Author is required."
   }
 }

@@ -2,7 +2,7 @@
   "page": {
     "sectionTitle": "Gestione dei clienti",
     "title": "Clienti",
-    "lead": "Crea, modifica, cerca e gestisci i record dei clienti per {organizzazione}.",
+    "lead": "Crea, modifica, cerca e gestisci i record dei clienti per {organization}.",
     "yourOrganization": "la tua organizzazione"
   },
   "table": {
@@ -17,9 +17,9 @@
     "view": "Visualizzazione",
     "edit": "Modificare",
     "delete": "Eliminare",
-    "viewAria": "Visualizza {azienda}",
-    "editAria": "Modifica {azienda}",
-    "deleteAria": "Elimina {azienda}",
+    "viewAria": "Visualizza {company}",
+    "editAria": "Modifica {company}",
+    "deleteAria": "Elimina {company}",
     "loading": "Caricamento clienti…",
     "errorLoad": "Impossibile caricare i clienti",
     "errorGeneric": "Qualcosa è andato storto",
@@ -74,7 +74,7 @@
     "title": "Elimina cliente",
     "cancel": "Cancellare",
     "confirm": "Eliminare",
-    "confirmWithName": "Rimuovere definitivamente {azienda}? Questa operazione non può essere annullata.",
+    "confirmWithName": "Rimuovere definitivamente {company}? Questa operazione non può essere annullata.",
     "confirmGeneric": "Questo cliente verrà rimosso definitivamente.",
     "success": "Cliente eliminato",
     "failed": "Eliminazione non riuscita",
@@ -96,5 +96,17 @@
     "updated": "Aggiornato",
     "notes": "Note",
     "noNotes": "Nessuna nota ancora."
+  },
+  "validation": {
+    "companyRequired": "Il nome dell’azienda è obbligatorio.",
+    "contactRequired": "Il referente è obbligatorio.",
+    "emailRequired": "L’e-mail è obbligatorio.",
+    "emailInvalid": "Inserisci un indirizzo e-mail valido.",
+    "phoneRequired": "Il telefono è obbligatorio.",
+    "phoneInvalid": "Inserisci un numero di telefono valido.",
+    "mobileInvalid": "Inserisci un numero di cellulare valido.",
+    "statusInvalid": "Seleziona uno stato valido.",
+    "emailDuplicate": "Esiste già un cliente con questa e-mail.",
+    "companyDuplicate": "Esiste già un cliente con questo nome azienda."
   }
 }

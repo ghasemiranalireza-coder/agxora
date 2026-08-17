@@ -23,7 +23,7 @@
     "avatarUnavailable": "アバターのアップロードはまだ利用できません。",
     "appearanceNote": "外観設定は「外観」の下に残ります。ヘッダーはテーマのクイック切り替えのみを提供します。",
     "prefsHint": "モジュール全体で AI アシスタントによって使用されます。",
-    "themeResolved": "{mode} (解決された {Appearance})",
+    "themeResolved": "{mode} (解決された {appearance})",
     "regions": {
       "EU": "欧州連合",
       "US": "米国",
@@ -330,10 +330,10 @@
     "title": "設定",
     "lead": "すべての AGXORA モジュールのエンタープライズ構成 - プロファイル、組織、AI、外観、セキュリティ、請求、開発者制御を 1 か所で管理します。",
     "loading": "設定を読み込み中…",
-    "breadcrumb": "{ラベル} · {説明}"
+    "breadcrumb": "{label} · {description}"
   },
   "saveChanges": "変更を保存する",
-  "sessionNotice": "このセッション用に更新されました — {エリア} が接続されていません。",
+  "sessionNotice": "このセッション用に更新されました — {area} が接続されていません。",
   "kpi": {
     "members": {
       "label": "チームメンバー",
@@ -368,7 +368,7 @@
     "owner": "所有者",
     "counts": "メンバー · ワークスペース",
     "orgUpdated": "組織が更新されました。",
-    "countsValue": "{メンバー} · {ワークスペース}",
+    "countsValue": "{members} · {workspaces}",
     "joined": "参加しました",
     "workspaceName": "ワークスペース名",
     "switchWorkspace": "アクティブなワークスペース",
@@ -416,7 +416,7 @@
     "transferWarning": "これは危険な行為です。受信者が確認するまで、あなたは所有者のままです。確認後、あなたは管理者になり、彼らは所有者になります。",
     "transferTarget": "新しい所有者",
     "transferSelectMember": "既存のメンバーを選択してください…",
-    "transferTypeName": "確認のために「{名前}」と入力してください",
+    "transferTypeName": "確認のために「{name}」と入力してください",
     "transferConfirmMismatch": "入力された名前が選択されたメンバーと一致しません。",
     "transferInitiate": "転送の開始",
     "transferHonesty": "配信が設定されると、確認メールが送信されます。それ以外の場合は、確認リンクを受信者と直接共有します。",

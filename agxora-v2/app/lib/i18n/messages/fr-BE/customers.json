@@ -2,7 +2,7 @@
   "page": {
     "sectionTitle": "Gestion des clients",
     "title": "Clients",
-    "lead": "Créez, modifiez, recherchez et gérez les enregistrements clients pour {organisation}.",
+    "lead": "Créez, modifiez, recherchez et gérez les enregistrements clients pour {organization}.",
     "yourOrganization": "Votre organisation"
   },
   "table": {
@@ -17,9 +17,9 @@
     "view": "Voir",
     "edit": "Modifier",
     "delete": "Effacer",
-    "viewAria": "Voir {entreprise}",
-    "editAria": "Modifier la compagnie",
-    "deleteAria": "Supprimer {entreprise}",
+    "viewAria": "Voir {company}",
+    "editAria": "Edit {company}",
+    "deleteAria": "Supprimer {company}",
     "loading": "Chargement des clients…",
     "errorLoad": "Impossible de charger les clients",
     "errorGeneric": "Quelque chose s'est mal passé",
@@ -96,5 +96,17 @@
     "updated": "Mis à jour",
     "notes": "Remarques",
     "noNotes": "Aucune note pour l'instant."
+  },
+  "validation": {
+    "companyRequired": "Le nom de l’entreprise est obligatoire.",
+    "contactRequired": "La personne de contact est obligatoire.",
+    "emailRequired": "L’e-mail est obligatoire.",
+    "emailInvalid": "Saisissez une adresse e-mail valide.",
+    "phoneRequired": "Le téléphone est obligatoire.",
+    "phoneInvalid": "Saisissez un numéro de téléphone valide.",
+    "mobileInvalid": "Saisissez un numéro de mobile valide.",
+    "statusInvalid": "Sélectionnez un statut valide.",
+    "emailDuplicate": "Un client avec cet e-mail existe déjà.",
+    "companyDuplicate": "Un client avec ce nom d’entreprise existe déjà."
   }
 }

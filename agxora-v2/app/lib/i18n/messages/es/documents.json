@@ -50,42 +50,42 @@
     "documents": {
       "label": "Documentos",
       "caption": "Muestra · entre carpetas",
-      "delta": "+{cuenta}"
+      "delta": "+{count}"
     },
     "folders": {
       "label": "Carpetas",
       "caption": "Muestra · incluyendo colecciones inteligentes",
-      "delta": "+{cuenta}"
+      "delta": "+{count}"
     },
     "storage": {
       "label": "Almacenamiento utilizado",
       "caption": "Muestra · de plano ilustrativo",
-      "delta": "+{tamaño}"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "Documentos compartidos",
       "caption": "Muestra · organización + departamento + usuarios",
-      "delta": "+{cuenta}"
+      "delta": "+{count}"
     },
     "activity": {
       "label": "Actividad reciente",
       "caption": "Muestra · últimas 24 horas",
-      "delta": "+{cuenta}"
+      "delta": "+{count}"
     },
     "indexed": {
       "label": "Indexado por IA",
       "caption": "Ejemplo · La búsqueda de IA no está conectada",
-      "delta": "{por ciento}"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "Aprobaciones pendientes",
       "caption": "Muestra · automatización no conectada",
-      "delta": "{contar}"
+      "delta": "{count}"
     },
     "score": {
       "label": "Puntuación de conocimiento",
       "caption": "Ejemplo · ilustración de cobertura",
-      "delta": "+{cuenta}"
+      "delta": "+{count}"
     }
   },
   "library": {
@@ -112,8 +112,8 @@
     "favorite": "Favorito",
     "sharedBadge": "Compartido",
     "title": "Biblioteca de documentos",
-    "results": "{contar} resultados",
-    "resultOne": "{contar} resultado",
+    "results": "{count} resultados",
+    "resultOne": "{count} resultado",
     "selected": "· {count} seleccionado",
     "bulkAction": "Acción masiva",
     "bulkUnavailable": "Acción masiva no disponible para {count} elementos: las mutaciones de almacenamiento no están conectadas.",
@@ -130,7 +130,7 @@
     "favoritesOnly": "Sólo favoritos",
     "emptyTitle": "No hay documentos para mostrar",
     "emptyDescription": "Ajuste filtros, borre la búsqueda o agregue activos de conocimiento para hacer crecer la biblioteca.",
-    "selectAria": "Seleccione {nombre}",
+    "selectAria": "Seleccione {name}",
     "versionHistoryTitle": "Historial de versiones",
     "close": "Cerca",
     "context": {
@@ -151,7 +151,7 @@
     "zoomIn": "Ampliar +",
     "prev": "Anterior",
     "next": "Próximo",
-    "page": "Página {página} / {total}",
+    "page": "Página {page} / {total}",
     "searchInside": "buscar dentro",
     "findPlaceholder": "Buscar en vista previa…",
     "noMatches": "No hay coincidencias en el texto de vista previa.",
@@ -177,14 +177,14 @@
     "title": "Historial de versiones",
     "emptyTitle": "Ningún documento seleccionado",
     "emptyDescription": "Abra un documento para inspeccionar versiones, notas, restaurar y comparar.",
-    "current": "{nombre} · actual {versión}",
+    "current": "{name} · actual {version}",
     "restore": "Restaurar versión",
     "compare": "Comparar versiones",
     "restoreTitle": "La restauración requiere la API de almacenamiento",
     "compareTitle": "Comparar requiere la API de almacenamiento",
     "noticeDefault": "Restaurar y comparar requieren la API de almacenamiento.",
     "restoreUnavailable": "Restauración no disponible para {id}: la API de almacenamiento no está conectada.",
-    "compareUnavailable": "Comparar no disponible ({seleccionado} ↔ {actual}): la API de almacenamiento no está conectada."
+    "compareUnavailable": "Comparar no disponible ({selected} ↔ {current}): la API de almacenamiento no está conectada."
   },
   "approvals": {
     "title": "Flujo de trabajo de aprobación",
@@ -380,9 +380,9 @@
     "planned": "Planificado"
   },
   "bytes": {
-    "b": "{valor} B",
-    "kb": "{valor} KB",
-    "mb": "{valor}MB",
-    "gb": "{valor}GB"
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value}MB",
+    "gb": "{value}GB"
   }
 }

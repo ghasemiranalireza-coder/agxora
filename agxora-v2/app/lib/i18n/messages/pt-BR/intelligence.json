@@ -8,7 +8,7 @@
   "noPermission": "Você não tem permissão intelligence.read para esta área de trabalho.",
   "filtersUpdated": "Filtros atualizados",
   "demoReloaded": "Conjunto de dados de demonstração recarregado para este workspace.",
-  "acknowledged": "Reconhecido: {título}",
+  "acknowledged": "Reconhecido: {title}",
   "exportUnavailableTitle": "Exportação indisponível — a geração de relatórios ainda não está conectada.",
   "exportUnavailableAria": "Exportar {title} como {format} – indisponível",
   "tabs": {
@@ -58,7 +58,7 @@
     "operations": "Operações",
     "riskPosture": "Postura de risco",
     "growth": "Crescimento",
-    "observability": "Observabilidade: métricas {métricas} · {avgMs}média de ms · integridade do sistema {health}"
+    "observability": "Observabilidade: métricas {metrics} · {avgMs}média de ms · integridade do sistema {health}"
   },
   "workspace": {
     "noSeries": "Nenhuma série"
@@ -79,14 +79,14 @@
   "insights": {
     "emptyTitle": "Ainda não há insights",
     "emptyDescription": "Os insights de demonstração aparecem após as sementes do espaço de trabalho. A geração de insights de IA ao vivo não está conectada.",
-    "badge": "Demonstração · {tipo} · {domínio} · conf {confiança}"
+    "badge": "Demonstração · {kind} · {domain} · conf {confidence}"
   },
   "forecasts": {
     "emptyTitle": "Ainda não há previsões",
     "emptyDescription": "As previsões de demonstração aparecem após a sementeira. Os modelos preditivos não estão conectados.",
-    "title": "{tipo} previsão",
-    "baseline": "Linha de base {linha de base} → projetada {projetada} ({dias}d)",
-    "confidence": "Demonstração · Confiança {confiança} — {nota}"
+    "title": "{kind} previsão",
+    "baseline": "Linha de base {baseline} → projetada {projected} ({days}d)",
+    "confidence": "Demonstração · Confiança {confidence} — {note}"
   },
   "alerts": {
     "title": "Mecanismo de alerta",

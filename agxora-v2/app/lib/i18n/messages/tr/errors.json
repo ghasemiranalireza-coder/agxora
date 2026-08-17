@@ -1,5 +1,5 @@
 {
-  "required": "Bu alan gereklidir.",
+  "required": "Bu alan zorunludur.",
   "invalidEmail": "Geçerli bir e-posta adresi girin.",
   "passwordMin": "Şifre en az 8 karakter olmalıdır.",
   "passwordLettersNumbers": "Şifre harf ve rakamlardan oluşmalıdır.",
@@ -7,5 +7,28 @@
   "acceptTerms": "Devam etmek için lütfen şartları kabul edin.",
   "generic": "Bir şeyler ters gitti.",
   "tryAgain": "Lütfen tekrar deneyin.",
-  "saved": "Başarıyla kaydedildi."
+  "saved": "Başarıyla kaydedildi.",
+  "invalidCredentials": "E-posta veya parola geçersiz.",
+  "signInRequired": "Giriş gerekli.",
+  "insufficientPermissions": "Yetersiz izinler.",
+  "noRouteAccess": "Bu rotaya erişiminiz yok.",
+  "accountLocked": "Bu hesap kilitli. Bir yöneticiyle iletişime geçin.",
+  "sessionExpired": "Oturumunuzun süresi doldu. Tekrar giriş yapın.",
+  "missingPermission": "Eksik izin: {permission}",
+  "roleCannotAccess": "Rolünüz bu kaynağa erişemez.",
+  "codes": {
+    "AUTH_INVALID_CREDENTIALS": "E-posta veya parola geçersiz.",
+    "AUTH_SESSION_EXPIRED": "Oturumunuzun süresi doldu. Tekrar giriş yapın.",
+    "AUTH_ACCOUNT_LOCKED": "Bu hesap kilitli. Bir yöneticiyle iletişime geçin.",
+    "AUTH_SIGN_IN_REQUIRED": "Devam etmek için giriş yapın.",
+    "AUTH_INSUFFICIENT_PERMISSIONS": "Yetersiz izinler.",
+    "AUTH_NO_ROUTE_ACCESS": "Bu rotaya erişiminiz yok.",
+    "COMMON_SOMETHING_WENT_WRONG": "Bir şeyler ters gitti.",
+    "COMMON_PAGE_NOT_FOUND": "Sayfa bulunamadı.",
+    "COMMON_OFFLINE": "Çevrimdışısınız.",
+    "COMMON_TIMEOUT": "İstek zaman aşımına uğradı.",
+    "COMMON_VALIDATION": "Girdinizi kontrol edip tekrar deneyin.",
+    "COMMON_UNKNOWN": "Bilinmeyen bir hata oluştu.",
+    "COMMON_INTERNAL": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin."
+  }
 }

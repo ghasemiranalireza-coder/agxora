@@ -44,8 +44,8 @@
     "persistentLogin": "Masuk terus-menerus",
     "disabled": "Dengan disabilitas",
     "enabled": "Diaktifkan",
-    "days": "{hitung} hari",
-    "minutes": "{hitung} mnt",
+    "days": "{count} hari",
+    "minutes": "{count} mnt",
     "toggleIdlePolicy": "Alihkan placeholder kebijakan yang tidak aktif",
     "previewSessionExpired": "Sesi pratinjau berakhir",
     "previewAccountLocked": "Pratinjau akun terkunci",
@@ -145,5 +145,30 @@
     "verify": "Verifikasi Email",
     "verifying": "Memverifikasi…",
     "requestToken": "Minta token verifikasi"
+  },
+  "access": {
+    "eyebrow": "Identitas & akses",
+    "signIn": "Masuk",
+    "backToDashboard": "Kembali ke dasbor",
+    "unauthorized": {
+      "title": "Tidak diizinkan",
+      "description": "Masuk untuk melanjutkan ke area AGXORA ini."
+    },
+    "forbidden": {
+      "title": "Terlarang",
+      "description": "Peran Anda tidak mencakup izin untuk sumber daya ini."
+    },
+    "expired_session": {
+      "title": "Sesi berakhir",
+      "description": "Sesi Anda berakhir. Masuk lagi untuk melanjutkan pekerjaan."
+    },
+    "missing_permission": {
+      "title": "Izin tidak ada",
+      "description": "Minta Pemilik atau Admin untuk memberikan akses modul yang diperlukan."
+    },
+    "account_locked": {
+      "title": "Akun terkunci",
+      "description": "Akun ini terkunci. Hubungi pemilik organisasi atau coba lagi nanti."
+    }
   }
 }

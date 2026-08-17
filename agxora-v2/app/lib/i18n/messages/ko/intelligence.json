@@ -8,9 +8,9 @@
   "noPermission": "이 작업공간에 대한 Intelligence.read 권한이 없습니다.",
   "filtersUpdated": "필터가 업데이트되었습니다.",
   "demoReloaded": "이 작업공간에 대한 데모 데이터 세트가 다시 로드되었습니다.",
-  "acknowledged": "확인됨: {제목}",
+  "acknowledged": "확인됨: {title}",
   "exportUnavailableTitle": "내보내기 불가 - 보고서 생성이 아직 연결되지 않았습니다.",
-  "exportUnavailableAria": "{제목}을 {형식}으로 내보내기 — 사용할 수 없음",
+  "exportUnavailableAria": "{title}을 {format}으로 내보내기 — 사용할 수 없음",
   "tabs": {
     "executive": "경영진",
     "health": "비즈니스 건강",
@@ -79,12 +79,12 @@
   "insights": {
     "emptyTitle": "아직 통계가 없습니다.",
     "emptyDescription": "데모 통찰력은 작업 영역 시드 뒤에 나타납니다. 실시간 AI 인사이트 생성이 연결되지 않았습니다.",
-    "badge": "데모 · {종류} · {도메인} · conf {신뢰}"
+    "badge": "데모 · {kind} · {domain} · conf {confidence}"
   },
   "forecasts": {
     "emptyTitle": "아직 예측이 없습니다.",
     "emptyDescription": "데모 예측은 시드 다음에 나타납니다. 예측 모델이 연결되어 있지 않습니다.",
-    "title": "{종류} 예측",
+    "title": "{kind} 예측",
     "baseline": "기준 {baseline} → 예상 {projected}({days}d)",
     "confidence": "데모 · 자신감 {confidence} — {note}"
   },

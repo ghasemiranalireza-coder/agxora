@@ -117,7 +117,7 @@
     "title": "Atividade recente",
     "subtitle": "O que mudou hoje",
     "ariaLabel": "Atividade recente",
-    "todayCount": "{contar} HOJE",
+    "todayCount": "{count} HOJE",
     "localBadge": "LOCAL",
     "emptyTitle": "Nenhuma atividade ainda",
     "emptyBody": "Os eventos do espaço de trabalho aparecerão aqui conforme você adiciona clientes, projetos e muito mais.",
@@ -381,7 +381,8 @@
         "title": "Recuperação de Conhecimento",
         "description": "Respostas básicas no corpus do Documents Knowledge Hub."
       }
-    }
+    },
+    "esc": "Esc"
   },
-  "summary": "{nome}: {clientes} clientes · {projetos} projetos · {atualizações} atualizações hoje."
+  "summary": "{name}: {customers} clientes · {projects} projetos · {updates} atualizações hoje."
 }

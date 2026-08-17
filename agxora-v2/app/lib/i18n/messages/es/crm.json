@@ -98,12 +98,12 @@
       "previous": "Anterior",
       "next": "Próximo"
     },
-    "showing": "Mostrando {desde}–{hasta} de {total}",
+    "showing": "Mostrando {from}–{to} de {total}",
     "aria": {
-      "openCustomer": "Abrir cliente {empresa}"
+      "openCustomer": "Abrir cliente {company}"
     },
-    "cardMeta": "Propietario {propietario} · Creado {fecha}",
-    "sortBy": "Ordenar por {columna}"
+    "cardMeta": "Propietario {owner} · Creado {date}",
+    "sortBy": "Ordenar por {column}"
   },
   "status": {
     "lead": "Dirigir",
@@ -378,7 +378,7 @@
       "gross": "Bruto",
       "created": "Creado"
     },
-    "lineTax": "{impuestoPct}% de impuestos"
+    "lineTax": "{taxPct}% de impuestos"
   },
   "tasks": {
     "calendarTitle": "Calendario · Reuniones · Recordatorios · Seguimientos",
@@ -473,7 +473,7 @@
       "label": "Puntuación de salud de la IA",
       "caption": "Señal de calidad de relación"
     },
-    "scoreOutOf": "{puntuación} / {máx.}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "Dirigir",

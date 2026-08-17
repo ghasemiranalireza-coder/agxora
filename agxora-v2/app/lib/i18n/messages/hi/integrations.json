@@ -15,21 +15,21 @@
     "developer": "डेवलपर"
   },
   "notice": {
-    "demoConnection": "डेमो कनेक्शन: {नाम} (केवल स्थानीय आधार)",
+    "demoConnection": "डेमो कनेक्शन: {name} (केवल स्थानीय आधार)",
     "connectFailed": "कनेक्ट करने में विफल रहा",
-    "keyCreated": "एपीआई कुंजी बनाई गई: {उपसर्ग}",
-    "webhookCreated": "वेबहुक बनाया गया: {नाम}",
-    "webhookTest": "वेबहुक परीक्षण {स्थिति}",
-    "networkError": "एपीआई एक्सप्लोरर नेटवर्क त्रुटि: {संदेश}",
-    "explorerError": "एपीआई एक्सप्लोरर → {स्थिति}: {संदेश}",
-    "explorerSuccess": "एपीआई एक्सप्लोरर → {स्थिति}",
+    "keyCreated": "एपीआई कुंजी बनाई गई: {prefix}",
+    "webhookCreated": "वेबहुक बनाया गया: {name}",
+    "webhookTest": "वेबहुक परीक्षण {status}",
+    "networkError": "एपीआई एक्सप्लोरर नेटवर्क त्रुटि: {message}",
+    "explorerError": "एपीआई एक्सप्लोरर → {status}: {message}",
+    "explorerSuccess": "एपीआई एक्सप्लोरर → {status}",
     "explorerFailed": "एक्सप्लोरर विफल रहा",
-    "syncResult": "डेमो सिंक · {स्थिति} ({रिकॉर्ड} स्थानीय रिकॉर्ड) - कोई बाहरी डेटा स्थानांतरित नहीं किया गया।",
+    "syncResult": "डेमो सिंक · {status} ({records} स्थानीय रिकॉर्ड) - कोई बाहरी डेटा स्थानांतरित नहीं किया गया।",
     "diagnosed": "निदान",
-    "removedConnection": "डेमो कनेक्शन हटाया गया: {नाम}",
+    "removedConnection": "डेमो कनेक्शन हटाया गया: {name}",
     "keyRotated": "कुंजी घुमाई गई",
     "keyRevoked": "कुंजी निरस्त कर दी गई",
-    "publishedEvent": "प्रकाशित {प्रकार}",
+    "publishedEvent": "प्रकाशित {type}",
     "developerSaved": "डेवलपर सेटिंग सहेजी गईं"
   },
   "dashboard": {
@@ -52,10 +52,10 @@
     "title": "स्थापित एकीकरण",
     "emptyTitle": "कुछ भी स्थापित नहीं",
     "emptyDescription": "उपलब्ध कैटलॉग से इंस्टॉल करें.",
-    "latestSync": "नवीनतम सिंक: {स्थिति} · {रिकॉर्ड} रिकॉर्ड · मोड {मोड}"
+    "latestSync": "नवीनतम सिंक: {status} · {records} रिकॉर्ड · मोड {mode}"
   },
   "available": {
-    "protocols": "प्रोटोकॉल: {प्रोटोकॉल}",
+    "protocols": "प्रोटोकॉल: {protocols}",
     "demoConnection": "डेमो कनेक्शन",
     "connectDemo": "कनेक्ट करें (डेमो)",
     "installDemo": "डेमो स्थापित करें"
@@ -68,7 +68,7 @@
   "apiKeys": {
     "title": "एपीआई कुंजियाँ",
     "generateKey": "कुंजी उत्पन्न करें",
-    "copyOnce": "अभी कॉपी करें (एक बार दिखाया गया): {गुप्त}",
+    "copyOnce": "अभी कॉपी करें (एक बार दिखाया गया): {secret}",
     "emptyTitle": "कोई एपीआई कुंजी नहीं",
     "emptyDescription": "REST गेटवे एक्सेस के लिए एक कुंजी उत्पन्न करें।"
   },
@@ -88,9 +88,9 @@
     "webhookSigning": "वेबहुक हस्ताक्षर सक्षम",
     "saveSettings": "सेटिंग्स सेव करें",
     "apiDocs": "एपीआई दस्तावेज़ प्लेसहोल्डर: {url}",
-    "sdk": "एसडीके प्लेसहोल्डर: {यूआरएल}",
+    "sdk": "एसडीके प्लेसहोल्डर: {url}",
     "explorerTitle": "एपीआई एक्सप्लोरर",
-    "gatewayRoutes": "गेटवे मार्ग: {मार्ग}",
+    "gatewayRoutes": "गेटवे मार्ग: {routes}",
     "sendGet": "भेजें प्राप्त करें",
     "oauthProviders": "OAuth प्रदाता",
     "placeholdersHint": "ग्राफक्यूएल, वेबसॉकेट और जीआरपीसी गेटवे रूट प्लेसहोल्डर के रूप में पंजीकृत हैं। फ़ील्ड मैपिंग और सिंक विरोध समाधान बैकएंड कार्यान्वयन के लिए आर्किटेक्चर-तैयार हैं।"
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "लाने में विफल",
-    "httpStatus": "HTTP {स्थिति}"
+    "httpStatus": "HTTP {status}"
   }
 }

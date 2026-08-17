@@ -2,7 +2,7 @@
   "page": {
     "sectionTitle": "مدیریت ارتباط با مشتری",
     "title": "مشتریان",
-    "lead": "ایجاد، ویرایش، جستجو و مدیریت سوابق مشتری برای {سازمان}.",
+    "lead": "ایجاد، ویرایش، جستجو و مدیریت سوابق مشتری برای {organization}.",
     "yourOrganization": "سازمان شما"
   },
   "table": {
@@ -17,9 +17,9 @@
     "view": "نمایش",
     "edit": "ویرایش",
     "delete": "حذف",
-    "viewAria": "مشاهده شرکت",
-    "editAria": "ویرایش شرکت",
-    "deleteAria": "حذف شرکت",
+    "viewAria": "View {company}",
+    "editAria": "Edit {company}",
+    "deleteAria": "Delete {company}",
     "loading": "در حال بارگذاری مشتریان…",
     "errorLoad": "نتوانستم مشتریان را بارگذاری کنم",
     "errorGeneric": "در API افزونه اشتباه رخ داد.",
@@ -74,7 +74,7 @@
     "title": "حذف مشتری",
     "cancel": "لغو",
     "confirm": "حذف",
-    "confirmWithName": "حذف دائمی {شرکت}؟ این کار قابل بازگشت نیست.",
+    "confirmWithName": "حذف دائمی {company}؟ این کار قابل بازگشت نیست.",
     "confirmGeneric": "این مشتری برای همیشه حذف خواهد شد.",
     "success": "مشتری حذف شد",
     "failed": "حذف ناموفق بود",
@@ -96,5 +96,17 @@
     "updated": "به‌روزرسانی‌شده",
     "notes": "یادداشت‌ها",
     "noNotes": "بدون یادداشت."
+  },
+  "validation": {
+    "companyRequired": "نام شرکت الزامی است.",
+    "contactRequired": "شخص تماس الزامی است.",
+    "emailRequired": "ایمیل الزامی است.",
+    "emailInvalid": "یک نشانی ایمیل معتبر وارد کنید.",
+    "phoneRequired": "تلفن الزامی است.",
+    "phoneInvalid": "یک شماره تلفن معتبر وارد کنید.",
+    "mobileInvalid": "یک شماره موبایل معتبر وارد کنید.",
+    "statusInvalid": "یک وضعیت معتبر انتخاب کنید.",
+    "emailDuplicate": "مشتری با این ایمیل از قبل وجود دارد.",
+    "companyDuplicate": "مشتری با این نام شرکت از قبل وجود دارد."
   }
 }

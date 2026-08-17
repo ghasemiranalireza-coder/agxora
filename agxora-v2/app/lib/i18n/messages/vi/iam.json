@@ -44,8 +44,8 @@
     "persistentLogin": "Đăng nhập liên tục",
     "disabled": "Tàn tật",
     "enabled": "Đã bật",
-    "days": "{đếm} ngày",
-    "minutes": "{đếm} phút",
+    "days": "{count} ngày",
+    "minutes": "{count} phút",
     "toggleIdlePolicy": "Chuyển đổi trình giữ chỗ chính sách nhàn rỗi",
     "previewSessionExpired": "Phiên xem trước đã hết hạn",
     "previewAccountLocked": "Xem trước tài khoản đã bị khóa",
@@ -145,5 +145,30 @@
     "verify": "Xác minh email",
     "verifying": "Đang xác minh…",
     "requestToken": "Yêu cầu mã thông báo xác minh"
+  },
+  "access": {
+    "eyebrow": "Danh tính và truy cập",
+    "signIn": "Đăng nhập",
+    "backToDashboard": "Quay lại bảng điều khiển",
+    "unauthorized": {
+      "title": "Không được phép",
+      "description": "Đăng nhập để tiếp tục khu vực này của AGXORA."
+    },
+    "forbidden": {
+      "title": "Bị cấm",
+      "description": "Vai trò của bạn không bao gồm quyền cho tài nguyên này."
+    },
+    "expired_session": {
+      "title": "Phiên đã hết hạn",
+      "description": "Phiên của bạn đã hết hạn. Đăng nhập lại để tiếp tục công việc."
+    },
+    "missing_permission": {
+      "title": "Thiếu quyền",
+      "description": "Nhờ Chủ sở hữu hoặc Quản trị viên cấp quyền truy cập mô-đun cần thiết."
+    },
+    "account_locked": {
+      "title": "Tài khoản bị khóa",
+      "description": "Tài khoản này đã bị khóa. Liên hệ chủ sở hữu tổ chức hoặc thử lại sau."
+    }
   }
 }

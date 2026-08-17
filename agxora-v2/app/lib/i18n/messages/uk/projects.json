@@ -29,7 +29,7 @@
     "previous": "Попередній",
     "next": "Далі",
     "noDescription": "Опису ще немає.",
-    "duePrefix": "Термін {дата}",
+    "duePrefix": "Термін {date}",
     "openProject": "Відкрити проект {name}",
     "sortBy": "Сортувати за {column}",
     "sort": {
@@ -132,7 +132,7 @@
     "emptyDescription": "Додайте дати початку/завершення та завдання, щоб заповнити розклад.",
     "title": "Хронологія",
     "subtitle": "Початок, кінець, тривалість, віхи. Залежності зарезервовано для майбутнього випуску.",
-    "dateRange": "{початок} → {кінець} · {днів}d",
+    "dateRange": "{start} → {end} · {days}d",
     "itemAria": "{title} від {start} до {end}",
     "dependenciesNone": "Залежності: немає"
   },
@@ -147,7 +147,7 @@
       "teamMembers": "Члени команди",
       "teamHint": "По всіх проектах",
       "budgetOverview": "Огляд бюджету",
-      "budgetHint": "{percent}% використано · {spend} витрачено",
+      "budgetHint": "{percent}% використано · {spent} витрачено",
       "openTasks": "Відкрийте Завдання",
       "openTasksHint": "{overdue} прострочено",
       "projectHealth": "Проект Здоров'я",
@@ -176,7 +176,7 @@
     "emptyTitle": "Без завдань на дошці",
     "emptyDescription": "Створюйте завдання, щоб організувати доставку за завданнями, у виконанні, перегляді та виконанні.",
     "addTask": "Додати завдання",
-    "columnAria": "стовпець {статус}",
+    "columnAria": "стовпець {status}",
     "taskProgress": "Хід виконання завдання",
     "edit": "Редагувати",
     "complete": "Повний"
@@ -294,5 +294,30 @@
     "memberAdded": "Учасника додано",
     "settingsSaved": "Налаштування збережено",
     "projectArchived": "Проект заархівовано"
+  },
+  "validation": {
+    "nameRequired": "Назва проєкту обов’язкова.",
+    "nameMin": "Назва проєкту має містити щонайменше 2 символи.",
+    "customerRequired": "Клієнт обов’язковий.",
+    "ownerRequired": "Власник проєкту обов’язковий.",
+    "priorityInvalid": "Виберіть дійсний пріоритет.",
+    "statusInvalid": "Виберіть дійсний статус.",
+    "currencyInvalid": "Виберіть дійсну валюту.",
+    "budgetInvalid": "Бюджет має бути невід’ємним числом.",
+    "startDateRequired": "Дата початку обов’язкова.",
+    "startDateInvalid": "Введіть дійсну дату початку.",
+    "dueDateInvalid": "Введіть дійсну дату терміну.",
+    "dueDateOrder": "Термін має бути в день початку або пізніше.",
+    "colorInvalid": "Виберіть дійсний колір.",
+    "iconInvalid": "Виберіть дійсну піктограму.",
+    "taskTitleRequired": "Назва завдання обов’язкова.",
+    "progressRange": "Прогрес має бути від 0 до 100.",
+    "memberNameRequired": "Ім’я учасника обов’язкове.",
+    "emailRequired": "Ел. пошта обов’язкова.",
+    "emailInvalid": "Введіть дійсну адресу ел. пошти.",
+    "roleInvalid": "Виберіть дійсну роль.",
+    "noteTitleRequired": "Заголовок нотатки обов’язковий.",
+    "noteBodyRequired": "Текст нотатки обов’язковий.",
+    "authorRequired": "Автор обов’язковий."
   }
 }

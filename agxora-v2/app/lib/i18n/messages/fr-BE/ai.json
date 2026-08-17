@@ -79,5 +79,90 @@
     "placeholder": "Commande IA… résumer, proposer, analyser…",
     "noMatches": "Aucune commande correspondante",
     "footer": "Enregistrez les futures commandes via registerAiCommand - L'interface utilisateur reste inchangée."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Projets",
+    "finance": "Finance",
+    "marketing": "Marketing",
+    "documents": "Documents",
+    "automation": "Automatisation",
+    "general": "Général"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Résumer le client",
+      "description": "Synthèse exécutive d’une relation client"
+    },
+    "crm-follow-up-email": {
+      "title": "E-mail de suivi",
+      "description": "Rédiger un suivi CRM professionnel"
+    },
+    "projects-analyze": {
+      "title": "Analyser le projet",
+      "description": "Bilan de santé d’un projet"
+    },
+    "projects-task-list": {
+      "title": "Créer une liste de tâches",
+      "description": "Découper le travail en tâches actionnables"
+    },
+    "finance-explain-invoice": {
+      "title": "Expliquer la facture",
+      "description": "Explication de facture en langage simple"
+    },
+    "finance-cashflow-brief": {
+      "title": "Note de trésorerie",
+      "description": "Court récit de trésorerie"
+    },
+    "marketing-campaign-outline": {
+      "title": "Plan de campagne",
+      "description": "Structurer une campagne marketing"
+    },
+    "marketing-proposal": {
+      "title": "Générer une proposition",
+      "description": "Brouillon de proposition destiné au client"
+    },
+    "documents-summarize": {
+      "title": "Résumer le document",
+      "description": "Résumé de document structuré"
+    },
+    "automation-workflow": {
+      "title": "Concevoir un workflow",
+      "description": "Esquisse de workflow d’automatisation"
+    },
+    "general-brainstorm": {
+      "title": "Remue-méninges d’options",
+      "description": "Idéation structurée"
+    },
+    "general-explain": {
+      "title": "Expliquer simplement",
+      "description": "Explication claire pour les parties prenantes"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Résumer le client",
+      "description": "Synthèse exécutive du client actif"
+    },
+    "cmd-generate-proposal": {
+      "label": "Générer une proposition",
+      "description": "Rédiger le plan d’une proposition client"
+    },
+    "cmd-analyze-project": {
+      "label": "Analyser le projet",
+      "description": "Santé du projet et analyse des risques"
+    },
+    "cmd-create-task-list": {
+      "label": "Créer une liste de tâches",
+      "description": "Découper le travail en tâches actionnables"
+    },
+    "cmd-generate-email": {
+      "label": "Générer un e-mail",
+      "description": "Rédiger un e-mail professionnel"
+    },
+    "cmd-explain-invoice": {
+      "label": "Expliquer la facture",
+      "description": "Explication de facture en langage simple"
+    }
   }
 }

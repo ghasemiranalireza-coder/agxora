@@ -94,7 +94,7 @@
   "analytics": {
     "title": "해석학",
     "topPosts": "인기 게시물",
-    "engagement": "영어 {값}",
+    "engagement": "영어 {value}",
     "reach": "{value} 도달",
     "recommendations": "AI 추천"
   },
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "AI 기능 맵 — 아이디어, 캡션, 해시태그, 달력, 캠페인, 청중, 일정, 브랜드 일관성, 재작성, 번역, 다국어."
+  },
+  "formats": {
+    "instagram_caption": "Instagram 캡션",
+    "tiktok_script": "TikTok 스크립트",
+    "linkedin_post": "LinkedIn 게시물",
+    "facebook_post": "Facebook 게시물",
+    "x_post": "X 게시물",
+    "blog_article": "블로그 글",
+    "newsletter": "뉴스레터",
+    "email_campaign": "이메일 캠페인",
+    "product_description": "제품 설명",
+    "ad_copy": "광고 문구",
+    "seo_article": "SEO 글",
+    "landing_page_copy": "랜딩 페이지 문구"
+  },
+  "publishStatus": {
+    "draft": "초안",
+    "review": "검토",
+    "approved": "승인됨",
+    "scheduled": "예약됨",
+    "published": "게시됨",
+    "archive": "보관"
+  },
+  "mediaKind": {
+    "image": "이미지",
+    "video": "동영상",
+    "document": "문서",
+    "logo": "브랜드 로고",
+    "template": "템플릿"
+  },
+  "voice": {
+    "professional": "전문",
+    "friendly": "친근",
+    "luxury": "럭셔리",
+    "casual": "캐주얼"
+  },
+  "integrationStatus": {
+    "planned": "계획됨",
+    "ready": "준비됨",
+    "connected": "연결됨",
+    "disabled": "사용 안 함"
   }
 }

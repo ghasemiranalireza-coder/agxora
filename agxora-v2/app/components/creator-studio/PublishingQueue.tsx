@@ -61,13 +61,13 @@ export function PublishingQueue({
       {
         key: "format",
         header: t("creator.queue.columns.format"),
-        render: (row) => formatLabel(row.format),
+        render: (row) => t(formatLabel(row.format)),
       },
       {
         key: "status",
         header: t("creator.queue.columns.status"),
         render: (row) => (
-          <Badge tone={statusTone(row.status)}>{publishStatusLabel(row.status)}</Badge>
+          <Badge tone={statusTone(row.status)}>{t(publishStatusLabel(row.status))}</Badge>
         ),
       },
       {
@@ -98,7 +98,7 @@ export function PublishingQueue({
         <div className="flex flex-wrap gap-1.5">
           {STATUSES.map((s) => (
             <Badge key={s} tone={statusTone(s)}>
-              {publishStatusLabel(s)}
+              {t(publishStatusLabel(s))}
             </Badge>
           ))}
         </div>
@@ -125,7 +125,7 @@ export function PublishingQueue({
             <option value="all">{t("creator.queue.allStatuses")}</option>
             {STATUSES.map((s) => (
               <option key={s} value={s}>
-                {publishStatusLabel(s)}
+                {t(publishStatusLabel(s))}
               </option>
             ))}
           </FilterSelect>

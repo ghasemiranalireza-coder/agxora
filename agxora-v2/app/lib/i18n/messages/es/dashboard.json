@@ -70,7 +70,7 @@
   },
   "overview": {
     "title": "Lo que está sucediendo",
-    "subtitle": "El espacio de trabajo cuenta para {nombre}",
+    "subtitle": "El espacio de trabajo cuenta para {name}",
     "fallbackName": "tu espacio de trabajo",
     "ariaLabel": "Descripción general del negocio",
     "online": "En línea",
@@ -381,7 +381,8 @@
         "title": "Recuperación de conocimientos",
         "description": "Respuestas básicas en el corpus de Documents Knowledge Hub."
       }
-    }
+    },
+    "esc": "Esc"
   },
-  "summary": "{nombre}: {clientes} clientes · {proyectos} proyectos · {actualizaciones} actualizaciones hoy."
+  "summary": "{name}: {customers} clientes · {projects} proyectos · {updates} actualizaciones hoy."
 }

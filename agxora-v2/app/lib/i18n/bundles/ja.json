@@ -1,21 +1,21 @@
 {
   "common": {
     "save": "保存",
-    "saveChanges": "変更を保存する",
+    "saveChanges": "変更を保存",
     "cancel": "キャンセル",
-    "close": "近い",
-    "delete": "消去",
+    "close": "閉じる",
+    "delete": "削除",
     "edit": "編集",
     "search": "検索",
     "loading": "読み込み中…",
-    "retry": "リトライ",
+    "retry": "再試行",
     "language": "言語",
     "signIn": "サインイン",
     "signOut": "サインアウト",
     "contact": "接触",
     "privacy": "プライバシー",
     "terms": "条項",
-    "cookies": "クッキー",
+    "cookies": "Cookie",
     "imprint": "インプリント",
     "organization": "組織",
     "user": "ユーザー",
@@ -32,9 +32,16 @@
     "sample": "サンプル",
     "showPassword": "パスワードを表示",
     "hidePassword": "パスワードを隠す",
-    "continue": "続く",
+    "continue": "続行",
     "back": "戻る",
-    "home": "家"
+    "home": "ホーム",
+    "loadingShort": "読み込み中",
+    "create": "作成",
+    "next": "次へ",
+    "previous": "前へ",
+    "settings": "設定",
+    "profile": "プロフィール",
+    "dashboard": "ダッシュボード"
   },
   "navigation": {
     "dashboard": "ダッシュボード",
@@ -61,7 +68,7 @@
     "notificationsEmpty": "皆さんも追い込まれていますね。アラートとメンションがここに表示されます。",
     "accountSettings": "アカウント設定",
     "security": "安全",
-    "themeToggle": "テーマのクイック切り替え。設定: {モード}"
+    "themeToggle": "テーマのクイック切り替え。設定: {mode}"
   },
   "pricing": {
     "navLabel": "価格ナビゲーション",
@@ -156,16 +163,16 @@
       "currentPlan": "現在の計画",
       "recommended": "推奨",
       "contactSales": "営業担当者にお問い合わせください",
-      "pricePerMonth": "€{価格}/月",
+      "pricePerMonth": "€{price}/月",
       "users": "{count} 人のユーザー",
       "aiRequests": "月あたり {count} 個の AI リクエスト",
       "storage": "{count} MB のストレージ",
       "moduleFeatures": "{count} 個のモジュールの機能",
       "choosePlan": "プランを選ぶ",
       "processing": "処理…",
-      "currentPlanAria": "{名前} — 現在の計画",
-      "contactSalesAria": "{名前} — 営業担当者にお問い合わせください",
-      "choosePlanAria": "{名前} — プランを選択してください"
+      "currentPlanAria": "{name} — 現在の計画",
+      "contactSalesAria": "{name} — 営業担当者にお問い合わせください",
+      "choosePlanAria": "{name} — プランを選択してください"
     },
     "admin": {
       "eyebrow": "管理者",
@@ -233,7 +240,7 @@
       "notifications": "通知",
       "noNotifications": "請求通知はありません。",
       "noticeInitial": "請求は商用サービス層を通じて実行されます。UI には支払い SDK はありません。",
-      "noticeActivated": "{providerId} 経由で {planId} をアクティブ化しました (模擬チェックアウト)。",
+      "noticeActivated": "{planId} 経由で {providerId} をアクティブ化しました (模擬チェックアウト)。",
       "noticeCheckoutFailed": "チェックアウトに失敗しました",
       "noticeCancelled": "定期購入がキャンセルされました。",
       "noticeRenewed": "次の期間のサブスクリプションが更新されました。",
@@ -279,7 +286,7 @@
       "avatarUnavailable": "アバターのアップロードはまだ利用できません。",
       "appearanceNote": "外観設定は「外観」の下に残ります。ヘッダーはテーマのクイック切り替えのみを提供します。",
       "prefsHint": "モジュール全体で AI アシスタントによって使用されます。",
-      "themeResolved": "{mode} (解決された {Appearance})",
+      "themeResolved": "{mode} (解決された {appearance})",
       "regions": {
         "EU": "欧州連合",
         "US": "米国",
@@ -586,10 +593,10 @@
       "title": "設定",
       "lead": "すべての AGXORA モジュールのエンタープライズ構成 - プロファイル、組織、AI、外観、セキュリティ、請求、開発者制御を 1 か所で管理します。",
       "loading": "設定を読み込み中…",
-      "breadcrumb": "{ラベル} · {説明}"
+      "breadcrumb": "{label} · {description}"
     },
     "saveChanges": "変更を保存する",
-    "sessionNotice": "このセッション用に更新されました — {エリア} が接続されていません。",
+    "sessionNotice": "このセッション用に更新されました — {area} が接続されていません。",
     "kpi": {
       "members": {
         "label": "チームメンバー",
@@ -624,7 +631,7 @@
       "owner": "所有者",
       "counts": "メンバー · ワークスペース",
       "orgUpdated": "組織が更新されました。",
-      "countsValue": "{メンバー} · {ワークスペース}",
+      "countsValue": "{members} · {workspaces}",
       "joined": "参加しました",
       "workspaceName": "ワークスペース名",
       "switchWorkspace": "アクティブなワークスペース",
@@ -672,7 +679,7 @@
       "transferWarning": "これは危険な行為です。受信者が確認するまで、あなたは所有者のままです。確認後、あなたは管理者になり、彼らは所有者になります。",
       "transferTarget": "新しい所有者",
       "transferSelectMember": "既存のメンバーを選択してください…",
-      "transferTypeName": "確認のために「{名前}」と入力してください",
+      "transferTypeName": "確認のために「{name}」と入力してください",
       "transferConfirmMismatch": "入力された名前が選択されたメンバーと一致しません。",
       "transferInitiate": "転送の開始",
       "transferHonesty": "配信が設定されると、確認メールが送信されます。それ以外の場合は、確認リンクを受信者と直接共有します。",
@@ -698,14 +705,37 @@
   },
   "errors": {
     "required": "この項目は必須です。",
-    "invalidEmail": "有効な電子メール アドレスを入力してください。",
+    "invalidEmail": "有効なメールアドレスを入力してください。",
     "passwordMin": "パスワードは 8 文字以上である必要があります。",
     "passwordLettersNumbers": "パスワードには文字と数字を含める必要があります。",
     "passwordMismatch": "パスワードが一致しません。",
     "acceptTerms": "続行するには利用規約に同意してください。",
-    "generic": "何か問題が発生しました。",
+    "generic": "問題が発生しました。",
     "tryAgain": "もう一度試してください。",
-    "saved": "正常に保存されました。"
+    "saved": "正常に保存されました。",
+    "invalidCredentials": "メールアドレスまたはパスワードが正しくありません。",
+    "signInRequired": "サインインが必要です。",
+    "insufficientPermissions": "権限が不足しています。",
+    "noRouteAccess": "このルートにアクセスする権限がありません。",
+    "accountLocked": "このアカウントはロックされています。管理者に連絡してください。",
+    "sessionExpired": "セッションの有効期限が切れました。再度サインインしてください。",
+    "missingPermission": "権限がありません: {permission}",
+    "roleCannotAccess": "このロールではこのリソースにアクセスできません。",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "メールアドレスまたはパスワードが正しくありません。",
+      "AUTH_SESSION_EXPIRED": "セッションの有効期限が切れました。再度サインインしてください。",
+      "AUTH_ACCOUNT_LOCKED": "このアカウントはロックされています。管理者に連絡してください。",
+      "AUTH_SIGN_IN_REQUIRED": "続けるにはサインインしてください。",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "権限が不足しています。",
+      "AUTH_NO_ROUTE_ACCESS": "このルートにアクセスする権限がありません。",
+      "COMMON_SOMETHING_WENT_WRONG": "問題が発生しました。",
+      "COMMON_PAGE_NOT_FOUND": "ページが見つかりません。",
+      "COMMON_OFFLINE": "オフラインです。",
+      "COMMON_TIMEOUT": "リクエストがタイムアウトしました。",
+      "COMMON_VALIDATION": "入力内容を確認して、もう一度お試しください。",
+      "COMMON_UNKNOWN": "不明なエラーが発生しました。",
+      "COMMON_INTERNAL": "予期しないエラーが発生しました。もう一度お試しください。"
+    }
   },
   "dashboard": {
     "skipToContent": "ダッシュボードのコンテンツにスキップ",
@@ -857,7 +887,7 @@
       "title": "アグソラAI",
       "emptyState": "顧客、プロジェクト、次のアクションについて AGXORA に質問してください。会話はこのワークスペース セッションに残ります。",
       "thinking": "AGXORAは考えています…",
-      "errorDismiss": "{エラー} — タップして閉じます",
+      "errorDismiss": "{error} — タップして閉じます",
       "placeholder": "AGXORA AI に質問してください…",
       "messageAria": "メッセージ AGXORA AI",
       "sendAria": "メッセージを送信する",
@@ -1190,20 +1220,20 @@
       "viewPricing": "価格を見る",
       "bookDemo": "デモを予約する",
       "failed": "問い合わせを送信できませんでした",
-      "country": "Country",
-      "savedFor": "Saved for {company}. Sales delivery is not connected in this build.",
-      "preferWalkthrough": "Prefer a product walkthrough next?",
-      "preferSelfServe": "Prefer self-serve?"
+      "country": "国",
+      "savedFor": "{company} 向けに保存しました。このビルドでは営業配信は接続されていません。",
+      "preferWalkthrough": "次に製品ウォークスルーをご希望ですか？",
+      "preferSelfServe": "セルフサービスをご希望ですか？"
     },
     "welcome": {
       "title": "アグソラへようこそ",
       "subtitle": "ワークスペースの準備ができました。ダッシュボードに進みます。",
       "continue": "ダッシュボードに移動",
-      "checklistProfile": "Confirm your organization profile",
-      "checklistModules": "Choose modules that match how you work",
-      "checklistDashboard": "Enter the dashboard with a clear starting point",
-      "exploreFirst": "Prefer to explore first?",
-      "skipToDashboard": "Skip to dashboard"
+      "checklistProfile": "組織プロフィールを確認する",
+      "checklistModules": "働き方に合ったモジュールを選ぶ",
+      "checklistDashboard": "明確な出発点でダッシュボードに入る",
+      "exploreFirst": "まず探索しますか？",
+      "skipToDashboard": "ダッシュボードへスキップ"
     },
     "locked": {
       "title": "アカウントがロックされました",
@@ -1216,7 +1246,17 @@
       "subtitle": "続行するには、もう一度サインインしてください。",
       "signIn": "サインイン"
     },
-    "brand": "アグソラ"
+    "brand": "アグソラ",
+    "validation": {
+      "emailRequired": "メールアドレスは必須です。",
+      "emailInvalid": "有効なメールアドレスを入力してください。",
+      "passwordRequired": "パスワードは必須です。",
+      "passwordMin": "パスワードは 8 文字以上である必要があります。",
+      "nameRequired": "名前は必須です。",
+      "nameMin": "名前は 2 文字以上である必要があります。",
+      "passwordMismatch": "パスワードが一致しません。",
+      "slugFormat": "小文字・数字・ハイフンのみ使用してください。"
+    }
   },
   "crm": {
     "page": {
@@ -1318,12 +1358,12 @@
         "previous": "前の",
         "next": "次"
       },
-      "showing": "{total} 件中 {from} ～ {to} を表示中",
+      "showing": "{from} 件中 {to} ～ {total} を表示中",
       "aria": {
-        "openCustomer": "顧客 {会社} を開く"
+        "openCustomer": "顧客 {company} を開く"
       },
       "cardMeta": "所有者 {owner} · 作成日 {date}",
-      "sortBy": "{列}で並べ替え"
+      "sortBy": "{column}で並べ替え"
     },
     "status": {
       "lead": "鉛",
@@ -1693,7 +1733,7 @@
         "label": "AI 健康スコア",
         "caption": "関係性の質に関するシグナル"
       },
-      "scoreOutOf": "{スコア} / {最大}"
+      "scoreOutOf": "{score} / {max}"
     },
     "pipeline": {
       "lead": "鉛",
@@ -1801,7 +1841,7 @@
         "vat-due": {
           "label": "VAT の支払い義務がある",
           "caption": "サンプル・Q2ウィンドウ",
-          "delta": "{日}日以内に期限が切れる"
+          "delta": "{days}日以内に期限が切れる"
         },
         "open-invoices": {
           "label": "オープン請求書",
@@ -1810,7 +1850,7 @@
         "paid-invoices": {
           "label": "支払い済みの請求書",
           "caption": "サンプル・今四半期",
-          "delta": "+{カウント}"
+          "delta": "+{count}"
         },
         "cashflow": {
           "label": "キャッシュフロー",
@@ -1820,10 +1860,10 @@
         "ai-score": {
           "label": "AI財務スコア",
           "caption": "サンプルスコア – ライブリスクスコアではありません",
-          "delta": "+{カウント}"
+          "delta": "+{count}"
         }
       },
-      "scoreOutOf": "{スコア} / {最大}"
+      "scoreOutOf": "{score} / {max}"
     },
     "invoices": {
       "emptyTitle": "請求書はありません",
@@ -1926,7 +1966,7 @@
       "intro": "以下のエクスポート履歴のサンプルは一例です。このビルドでは、資格情報とファイル生成は関連付けられていません。",
       "noticeDefault": "エクスポート アダプターが接続されていないため、ファイルは生成されません。",
       "exportUnavailable": "{title} を利用できません — DATEV / ファイルのエクスポートが接続されていません。",
-      "exportUnavailableAria": "{タイトル} — 利用できません",
+      "exportUnavailableAria": "{title} — 利用できません",
       "historyTitle": "エクスポート履歴（サンプル）",
       "refresh": "リフレッシュ",
       "refreshUnavailable": "更新は利用できません — エクスポート履歴は静的なサンプル データです。",
@@ -2090,42 +2130,42 @@
       "documents": {
         "label": "書類",
         "caption": "サンプル・フォルダ間",
-        "delta": "+{カウント}"
+        "delta": "+{count}"
       },
       "folders": {
         "label": "フォルダー",
         "caption": "サンプル・スマートコレクションを含む",
-        "delta": "+{カウント}"
+        "delta": "+{count}"
       },
       "storage": {
         "label": "使用済みストレージ",
         "caption": "プラン説明書のサンプル・",
-        "delta": "+{サイズ}"
+        "delta": "+{size}"
       },
       "shared": {
         "label": "共有ドキュメント",
         "caption": "サンプル · 組織 + 部門 + ユーザー",
-        "delta": "+{カウント}"
+        "delta": "+{count}"
       },
       "activity": {
         "label": "最近の活動",
         "caption": "サンプル・過去24時間",
-        "delta": "+{カウント}"
+        "delta": "+{count}"
       },
       "indexed": {
         "label": "AI インデックス付き",
         "caption": "サンプル・AI検索が繋がらない",
-        "delta": "{パーセント}"
+        "delta": "{percent}"
       },
       "approvals": {
         "label": "承認待ち",
         "caption": "サンプル・オートメーションが接続されていません",
-        "delta": "{カウント}"
+        "delta": "{count}"
       },
       "score": {
         "label": "知識スコア",
         "caption": "サンプル・取材イラスト",
-        "delta": "+{カウント}"
+        "delta": "+{count}"
       }
     },
     "library": {
@@ -2170,7 +2210,7 @@
       "favoritesOnly": "お気に入りのみ",
       "emptyTitle": "提示する書類はありません",
       "emptyDescription": "フィルターを調整したり、検索をクリアしたり、ナレッジ資産を追加してライブラリを拡大します。",
-      "selectAria": "{名前}を選択してください",
+      "selectAria": "{name}を選択してください",
       "versionHistoryTitle": "バージョン履歴",
       "close": "近い",
       "context": {
@@ -2191,7 +2231,7 @@
       "zoomIn": "ズーム+",
       "prev": "前へ",
       "next": "次",
-      "page": "ページ {ページ} / {合計}",
+      "page": "ページ {page} / {total}",
       "searchInside": "内部を検索",
       "findPlaceholder": "プレビューで検索…",
       "noMatches": "プレビュー テキストに一致するものはありません。",
@@ -2217,7 +2257,7 @@
       "title": "バージョン履歴",
       "emptyTitle": "ドキュメントが選択されていません",
       "emptyDescription": "ドキュメントを開いて、バージョン、メモ、復元、比較を確認します。",
-      "current": "{名前} · 現在の {バージョン}",
+      "current": "{name} · 現在の {version}",
       "restore": "バージョンを復元する",
       "compare": "バージョンの比較",
       "restoreTitle": "復元にはストレージ API が必要です",
@@ -2235,7 +2275,7 @@
       "reject": "拒否する",
       "sendToReview": "レビューに送信",
       "noticeDefault": "承認の移行にはオートメーション ワークフロー エンジンが必要ですが、このビルドでは接続されていません。",
-      "unavailable": "{id} では {action} を利用できません — ワークフロー エンジンが接続されていません。サンプルドキュメントのステータスは変更されませんでした。",
+      "unavailable": "{action} では {id} を利用できません — ワークフロー エンジンが接続されていません。サンプルドキュメントのステータスは変更されませんでした。",
       "approveTitle": "承認を利用できません — ワークフロー エンジンが接続されていません",
       "rejectTitle": "拒否は利用できません — ワークフロー エンジンが接続されていません",
       "sendTitle": "レビューに送信できません — ワークフロー エンジンが接続されていません"
@@ -2420,10 +2460,10 @@
       "planned": "計画済み"
     },
     "bytes": {
-      "b": "{値} B",
-      "kb": "{値} KB",
-      "mb": "{値} MB",
-      "gb": "{値} GB"
+      "b": "{value} B",
+      "kb": "{value} KB",
+      "mb": "{value} MB",
+      "gb": "{value} GB"
     }
   },
   "landing": {
@@ -2535,8 +2575,9 @@
       "terms": "条項",
       "cookies": "クッキー",
       "imprint": "インプリント",
-      "copyright": "© {年} {会社}"
-    }
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — 3Dグローブ"
   },
   "ui": {
     "table": {
@@ -2544,7 +2585,7 @@
       "noResultsDescription": "現在のフィルターに一致するものはありません。",
       "previous": "前の",
       "next": "次",
-      "paginationRange": "{total} の {start} – {end}",
+      "paginationRange": "{start} の {end} – {total}",
       "sortAscending": "昇順に並べ替えます",
       "sortDescending": "降順で並べ替え"
     },
@@ -2589,7 +2630,7 @@
     "page": {
       "eyebrow": "プロジェクト管理OS",
       "title": "プロジェクト",
-      "lead": "{組織} の配信を計画し、予算と健全性を追跡し、チームを割り当て、タスクを管理します。データはローカルに保持され、バックエンド接続の準備が整います。",
+      "lead": "{organization} の配信を計画し、予算と健全性を追跡し、チームを割り当て、タスクを管理します。データはローカルに保持され、バックエンド接続の準備が整います。",
       "yourOrganization": "あなたの組織"
     },
     "list": {
@@ -2612,13 +2653,13 @@
       "emptyTitle": "まだプロジェクトはありません",
       "emptyDescription": "デリバリー ワークスペースを立ち上げて、マイルストーン、予算、チームの所有権を追跡します。",
       "createProject": "プロジェクトの作成",
-      "pagination": "{total} 件中 {from} ～ {to} を表示中",
+      "pagination": "{from} 件中 {to} ～ {total} を表示中",
       "previous": "前の",
       "next": "次",
       "noDescription": "まだ説明がありません。",
-      "duePrefix": "期日}",
-      "openProject": "プロジェクト {名前} を開く",
-      "sortBy": "{列}で並べ替え",
+      "duePrefix": "Due {date}",
+      "openProject": "プロジェクト {name} を開く",
+      "sortBy": "{column}で並べ替え",
       "sort": {
         "name": "名前",
         "customer": "お客様",
@@ -2680,7 +2721,7 @@
     },
     "badges": {
       "progress": "進捗",
-      "progressAria": "{ラベル}: {値}%"
+      "progressAria": "{label}: {value}%"
     },
     "status": {
       "planning": "企画",
@@ -2719,24 +2760,24 @@
       "emptyDescription": "開始日/期限とタスクを追加してスケジュールを設定します。",
       "title": "タイムライン",
       "subtitle": "開始、終了、期間、マイルストーン。依存関係は将来のリリースのために予約されています。",
-      "dateRange": "{開始} → {終了} · {日}日",
+      "dateRange": "{start} → {end} · {days}日",
       "itemAria": "{title} の {start} から {end} まで",
       "dependenciesNone": "依存関係: なし"
     },
     "dashboard": {
       "kpi": {
         "activeProjects": "アクティブなプロジェクト",
-        "activeHint": "{計画中} 計画中",
+        "activeHint": "{planning} 計画中",
         "completed": "完了",
         "completedHint": "ポートフォリオの {percent}%",
         "onHold": "保留中",
-        "onHoldHint": "{アーカイブ済み} アーカイブ済み",
+        "onHoldHint": "{archived} アーカイブ済み",
         "teamMembers": "チームメンバー",
         "teamHint": "すべてのプロジェクトにわたって",
         "budgetOverview": "予算概要",
         "budgetHint": "{percent}% が使用されました · {spent} が費やされました",
         "openTasks": "開いているタスク",
-        "openTasksHint": "{期限切れ} 期限切れ",
+        "openTasksHint": "{overdue} 期限切れ",
         "projectHealth": "プロジェクトの健全性",
         "healthHint": "複合配信スコア",
         "upcomingDeadlines": "今後の締め切り",
@@ -2763,7 +2804,7 @@
       "emptyTitle": "ボードにはタスクがありません",
       "emptyDescription": "タスクを作成して、To Do、進行中、レビュー、完了の配信を整理します。",
       "addTask": "タスクの追加",
-      "columnAria": "{ステータス}列",
+      "columnAria": "{status}列",
       "taskProgress": "タスクの進捗状況",
       "edit": "編集",
       "complete": "完了"
@@ -2772,7 +2813,7 @@
       "notFoundTitle": "プロジェクトが見つかりません",
       "notFoundDescription": "このプロジェクトは削除されたか、現在の組織では使用できない可能性があります。",
       "backToProjects": "← プロジェクトに戻る",
-      "ownerMeta": "{顧客} · 所有者 {owner}",
+      "ownerMeta": "{customer} · 所有者 {owner}",
       "edit": "編集",
       "delete": "消去",
       "sectionsAria": "プロジェクトの詳細セクション",
@@ -2881,6 +2922,31 @@
       "memberAdded": "メンバー追加",
       "settingsSaved": "設定が保存されました",
       "projectArchived": "プロジェクトがアーカイブされました"
+    },
+    "validation": {
+      "nameRequired": "プロジェクト名は必須です。",
+      "nameMin": "プロジェクト名は 2 文字以上である必要があります。",
+      "customerRequired": "顧客は必須です。",
+      "ownerRequired": "プロジェクトオーナーは必須です。",
+      "priorityInvalid": "有効な優先度を選択してください。",
+      "statusInvalid": "有効なステータスを選択してください。",
+      "currencyInvalid": "有効な通貨を選択してください。",
+      "budgetInvalid": "予算は 0 以上の数値である必要があります。",
+      "startDateRequired": "開始日は必須です。",
+      "startDateInvalid": "有効な開始日を入力してください。",
+      "dueDateInvalid": "有効な期限日を入力してください。",
+      "dueDateOrder": "期限日は開始日以降である必要があります。",
+      "colorInvalid": "有効な色を選択してください。",
+      "iconInvalid": "有効なアイコンを選択してください。",
+      "taskTitleRequired": "タスク名は必須です。",
+      "progressRange": "進捗は 0 から 100 の間である必要があります。",
+      "memberNameRequired": "メンバー名は必須です。",
+      "emailRequired": "メールアドレスは必須です。",
+      "emailInvalid": "有効なメールアドレスを入力してください。",
+      "roleInvalid": "有効なロールを選択してください。",
+      "noteTitleRequired": "メモのタイトルは必須です。",
+      "noteBodyRequired": "メモ本文は必須です。",
+      "authorRequired": "作成者は必須です。"
     }
   },
   "automation": {
@@ -2954,7 +3020,7 @@
       "tabTriggers": "トリガー",
       "tabActions": "アクション",
       "tabAiActions": "AI アクション",
-      "builderTitle": "ワークフロー ビルダー · {名前}",
+      "builderTitle": "ワークフロー ビルダー · {name}",
       "builderHint": "{grid}px グリッドにスナップ · ⌘/Ctrl+スクロール ズーム · キャンバスをドラッグしてパン · ダブルクリック接続",
       "autoSaved": "自動保存",
       "saving": "保存中…",
@@ -2981,7 +3047,7 @@
       "noMatches": "このフィルターに一致するワークフロー実行はありません。"
     },
     "miniPreview": {
-      "emptyWorkflow": "Empty workflow"
+      "emptyWorkflow": "空のワークフロー"
     },
     "workflowTemplates": {
       "title": "テンプレートライブラリ",
@@ -3019,14 +3085,14 @@
       "notice": {
         "missingWrite": "workflow.write 権限がありません。",
         "missingExecute": "workflow.execute 権限がありません。",
-        "created": "{名前}を作成しました",
-        "templateApplied": "適用されたテンプレート: {名前}",
+        "created": "{name}を作成しました",
+        "templateApplied": "適用されたテンプレート: {name}",
         "runResult": "{status} を実行 ({duration} ミリ秒)",
         "runFailed": "ワークフローを実行できませんでした (無効または欠落しています)。",
         "publishedEvent": "公開されたドメイン イベント: {type}",
-        "workflowStatus": "ワークフロー {ステータス}",
+        "workflowStatus": "ワークフロー {status}",
         "saved": "ワークフローが保存されました",
-        "retryResult": "再試行 {ステータス}",
+        "retryResult": "再試行 {status}",
         "retryFailed": "再試行に失敗しました",
         "settingsSaved": "自動化設定が保存されました"
       },
@@ -3081,8 +3147,8 @@
         "emptyTitle": "まだ処刑はされていない。",
         "emptyDescription": "ワークフローを実行するか、ドメイン イベントを公開します。",
         "latestRun": "最新の実行の詳細",
-        "path": "パス: {パス}",
-        "error": "· エラー: {エラー}",
+        "path": "パス: {path}",
+        "error": "· エラー: {error}",
         "columns": {
           "workflow": "ワークフロー",
           "status": "状態",
@@ -3115,12 +3181,311 @@
         "timeoutMs": "タイムアウト (ミリ秒)",
         "logLevel": "ログレベル",
         "logLevels": {
-          "error": "error",
-          "warn": "warn",
-          "info": "info",
-          "debug": "debug"
+          "error": "エラー",
+          "warn": "警告",
+          "info": "情報",
+          "debug": "デバッグ"
         },
         "saveSettings": "設定を保存する"
+      }
+    },
+    "status": {
+      "connected": "接続済み",
+      "beta": "ベータ",
+      "comingSoon": "近日公開",
+      "disabled": "無効",
+      "planned": "計画中",
+      "success": "成功",
+      "failed": "失敗",
+      "running": "実行中",
+      "pending": "保留中",
+      "retried": "再試行"
+    },
+    "difficulty": {
+      "starter": "入門",
+      "intermediate": "中級",
+      "advanced": "上級"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "トリガー",
+        "description": "イベント発生時に開始"
+      },
+      "el-condition": {
+        "label": "条件",
+        "description": "ルールで分岐"
+      },
+      "el-delay": {
+        "label": "遅延",
+        "description": "続行前に待機"
+      },
+      "el-approval": {
+        "label": "承認",
+        "description": "人手による承認ゲート"
+      },
+      "el-loop": {
+        "label": "ループ",
+        "description": "コレクションを反復"
+      },
+      "el-merge": {
+        "label": "結合",
+        "description": "並列パスを結合"
+      },
+      "el-split": {
+        "label": "分割",
+        "description": "並列パスを分岐"
+      },
+      "el-ai-decision": {
+        "label": "AI 判定",
+        "description": "AI でルーティング"
+      },
+      "el-notification": {
+        "label": "通知",
+        "description": "アプリ内アラート"
+      },
+      "el-webhook": {
+        "label": "Webhook プレースホルダー",
+        "description": "HTTP コールバック予約済み"
+      },
+      "el-custom": {
+        "label": "カスタムアクション",
+        "description": "拡張可能なアクション枠"
+      },
+      "tr-customer": {
+        "label": "顧客を作成",
+        "description": "CRM 顧客レコードを作成"
+      },
+      "tr-lead": {
+        "label": "リードを作成",
+        "description": "新しいリードがパイプラインに入る"
+      },
+      "tr-invoice": {
+        "label": "請求書を作成",
+        "description": "財務請求書を発行"
+      },
+      "tr-invoice-paid": {
+        "label": "請求書を入金",
+        "description": "支払いが決済された"
+      },
+      "tr-order": {
+        "label": "注文を作成",
+        "description": "注文が登録された"
+      },
+      "tr-order-done": {
+        "label": "注文完了",
+        "description": "注文が履行された"
+      },
+      "tr-doc": {
+        "label": "ドキュメントをアップロード",
+        "description": "ドキュメント保管庫へのアップロード"
+      },
+      "tr-campaign": {
+        "label": "キャンペーンを公開",
+        "description": "Creator Studio の公開"
+      },
+      "tr-employee": {
+        "label": "従業員を追加",
+        "description": "チームディレクトリの変更"
+      },
+      "tr-task": {
+        "label": "タスク完了",
+        "description": "タスクを完了に設定"
+      },
+      "tr-manual": {
+        "label": "手動トリガー",
+        "description": "オンデマンド実行"
+      },
+      "tr-schedule": {
+        "label": "スケジュールトリガー",
+        "description": "Cron / カレンダー予定"
+      },
+      "tr-webhook": {
+        "label": "Webhook トリガー",
+        "description": "受信 HTTP イベント"
+      },
+      "tr-api": {
+        "label": "API トリガー",
+        "description": "プログラムからの開始"
+      },
+      "ac-crm": {
+        "label": "CRM レコードを作成",
+        "description": "CRM エンティティを書き込む"
+      },
+      "ac-invoice": {
+        "label": "請求書を生成",
+        "description": "財務請求書"
+      },
+      "ac-quote": {
+        "label": "見積を生成",
+        "description": "見積ドキュメントを作成"
+      },
+      "ac-delivery": {
+        "label": "納品書を生成",
+        "description": "納品書"
+      },
+      "ac-task": {
+        "label": "タスクを作成",
+        "description": "タスクを開く"
+      },
+      "ac-assign": {
+        "label": "従業員を割り当て",
+        "description": "チームメイトへルーティング"
+      },
+      "ac-email": {
+        "label": "メールを送信",
+        "description": "送信メール"
+      },
+      "ac-notify": {
+        "label": "通知を送信",
+        "description": "アプリ内通知"
+      },
+      "ac-ai-summary": {
+        "label": "AI 要約を生成",
+        "description": "コンテキストを要約"
+      },
+      "ac-ai-content": {
+        "label": "AI コンテンツを生成",
+        "description": "Creator Studio の下書き"
+      },
+      "ac-update-customer": {
+        "label": "顧客を更新",
+        "description": "CRM 顧客をパッチ"
+      },
+      "ac-update-status": {
+        "label": "ステータスを更新",
+        "description": "エンティティのステータスを変更"
+      },
+      "ac-pdf": {
+        "label": "PDF を書き出す",
+        "description": "ドキュメント書き出し"
+      },
+      "ac-future": {
+        "label": "将来の API プレースホルダー",
+        "description": "予約済みアクション枠"
+      },
+      "ai-decision": {
+        "label": "AI 判定",
+        "description": "次のパスを決定"
+      },
+      "ai-class": {
+        "label": "AI 分類",
+        "description": "レコードを分類"
+      },
+      "ai-text": {
+        "label": "AI テキスト生成",
+        "description": "テキストを生成"
+      },
+      "ai-translate": {
+        "label": "AI 翻訳",
+        "description": "コンテンツを翻訳"
+      },
+      "ai-email": {
+        "label": "AI メール返信",
+        "description": "返信を下書き"
+      },
+      "ai-sum": {
+        "label": "AI 要約",
+        "description": "コンテキストを凝縮"
+      },
+      "ai-rec": {
+        "label": "AI 推奨",
+        "description": "次のステップを提案"
+      },
+      "ai-route": {
+        "label": "AI ルーティング",
+        "description": "オーナー / キューへルーティング"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "お客様が作成した",
+        "description": "CRM の顧客レコードが作成されたときに発火します。"
+      },
+      "project_created": {
+        "label": "プロジェクトが作成されました",
+        "description": "プロジェクトが作成されたときに発火します。"
+      },
+      "invoice_issued": {
+        "label": "請求書発行",
+        "description": "請求書が発行されたときに発火します。"
+      },
+      "task_completed": {
+        "label": "タスクが完了しました",
+        "description": "タスクが完了したときに発火します。"
+      },
+      "document_uploaded": {
+        "label": "ドキュメントがアップロードされました",
+        "description": "ドキュメントがアップロードされたときに発火します。"
+      },
+      "user_invited": {
+        "label": "ユーザー招待",
+        "description": "チームメンバーが招待されたときに発火します。"
+      },
+      "schedule": {
+        "label": "スケジュール",
+        "description": "Cron / 間隔スケジュールのトリガー。"
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "受信 HTTP Webhook。"
+      },
+      "api_event": {
+        "label": "API イベント",
+        "description": "汎用 API ドメインイベント。"
+      },
+      "ai_event": {
+        "label": "AI イベント",
+        "description": "AI シグナル（完了、洞察、エージェント手順）。"
+      },
+      "manual": {
+        "label": "手動トリガー",
+        "description": "自動化 UI または API からオンデマンド実行。"
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "顧客の作成",
+        "description": "CRM の顧客レコードを作成します。"
+      },
+      "customer_update": {
+        "label": "顧客を更新",
+        "description": "顧客のフィールドを更新します。"
+      },
+      "project_create": {
+        "label": "プロジェクトの作成",
+        "description": "ワークフローコンテキストからプロジェクトを作成します。"
+      },
+      "document_generate": {
+        "label": "ドキュメント生成",
+        "description": "テンプレートからドキュメントを生成します。"
+      },
+      "notification_send": {
+        "label": "通知を送信",
+        "description": "アプリ内通知を送信します。"
+      },
+      "email_send": {
+        "label": "メールを送信",
+        "description": "メールプロバイダー経由でメールをキューします。"
+      },
+      "api_call": {
+        "label": "API 呼び出し",
+        "description": "内部または外部 API への HTTP 呼び出し。"
+      },
+      "ai_run": {
+        "label": "AI を実行",
+        "description": "コンテキスト付きで AI プロンプト / エージェント手順を実行します。"
+      },
+      "task_assign": {
+        "label": "タスクを割り当て",
+        "description": "タスクをユーザーに割り当てます。"
+      },
+      "invoice_create": {
+        "label": "請求書の作成",
+        "description": "財務の請求書を作成します。"
+      },
+      "status_update": {
+        "label": "ステータスを更新",
+        "description": "モジュール内エンティティのステータスを更新します。"
       }
     }
   },
@@ -3128,7 +3493,7 @@
     "page": {
       "eyebrow": "アイデンティティとアクセス",
       "title": "チーム",
-      "lead": "{組織} のメンバー、役割、招待状。将来の ID API に備えたアーキテクチャ。",
+      "lead": "{organization} のメンバー、役割、招待状。将来の ID API に備えたアーキテクチャ。",
       "yourOrganization": "あなたの組織"
     },
     "invite": {
@@ -3175,7 +3540,7 @@
       "columnEmail": "電子メール",
       "columnRole": "役割",
       "columnStatus": "状態",
-      "roleFor": "{名前}の役割",
+      "roleFor": "{name}の役割",
       "emptyTitle": "まだメンバーがいません",
       "emptyDescription": "この組織のワークスペースに同僚を招待します。",
       "updated": "{name} を {role} に更新しました",
@@ -3185,7 +3550,7 @@
       "title": "保留中の招待状",
       "emptyTitle": "保留中の招待はありません",
       "emptyDescription": "新しい招待は、承認されるか期限が切れるまでここに表示されます。",
-      "expires": "{役割} · 有効期限は {日付} になります",
+      "expires": "{role} · 有効期限は {date} になります",
       "revoke": "取り消す",
       "pending": "保留中"
     },
@@ -3206,7 +3571,7 @@
     "page": {
       "sectionTitle": "顧客管理",
       "title": "お客様",
-      "lead": "{組織} の顧客レコードを作成、編集、検索、管理します。",
+      "lead": "{organization} の顧客レコードを作成、編集、検索、管理します。",
       "yourOrganization": "あなたの組織"
     },
     "table": {
@@ -3221,9 +3586,9 @@
       "view": "ビュー",
       "edit": "編集",
       "delete": "消去",
-      "viewAria": "{会社} を見る",
-      "editAria": "{会社} を編集",
-      "deleteAria": "{会社}を削除",
+      "viewAria": "{company} を見る",
+      "editAria": "{company} を編集",
+      "deleteAria": "{company}を削除",
       "loading": "顧客を読み込んでいます…",
       "errorLoad": "顧客を読み込めませんでした",
       "errorGeneric": "何か問題が発生しました",
@@ -3300,6 +3665,18 @@
       "updated": "更新されました",
       "notes": "注意事項",
       "noNotes": "まだメモはありません。"
+    },
+    "validation": {
+      "companyRequired": "会社名は必須です。",
+      "contactRequired": "担当者は必須です。",
+      "emailRequired": "メールアドレスは必須です。",
+      "emailInvalid": "有効なメールアドレスを入力してください。",
+      "phoneRequired": "電話番号は必須です。",
+      "phoneInvalid": "有効な電話番号を入力してください。",
+      "mobileInvalid": "有効な携帯電話番号を入力してください。",
+      "statusInvalid": "有効なステータスを選択してください。",
+      "emailDuplicate": "このメールの顧客は既に存在します。",
+      "companyDuplicate": "この会社名の顧客は既に存在します。"
     }
   },
   "ai": {
@@ -3383,6 +3760,91 @@
       "placeholder": "AIコマンド…まとめる、提案する、分析する…",
       "noMatches": "一致するコマンドはありません",
       "footer": "registerAiCommand 経由で今後のコマンドを登録します。UI は変更されません。"
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "プロジェクト",
+      "finance": "財務",
+      "marketing": "マーケティング",
+      "documents": "ドキュメント",
+      "automation": "自動化",
+      "general": "一般"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "顧客を要約",
+        "description": "顧客関係のエグゼクティブサマリー"
+      },
+      "crm-follow-up-email": {
+        "title": "フォローアップメール",
+        "description": "プロの CRM フォローアップを下書き"
+      },
+      "projects-analyze": {
+        "title": "プロジェクトを分析",
+        "description": "プロジェクトの健全性チェック"
+      },
+      "projects-task-list": {
+        "title": "タスクリストを作成",
+        "description": "作業を実行可能なタスクに分解"
+      },
+      "finance-explain-invoice": {
+        "title": "請求書を説明",
+        "description": "平易な請求書の説明"
+      },
+      "finance-cashflow-brief": {
+        "title": "キャッシュフロー概要",
+        "description": "短いキャッシュフロー説明"
+      },
+      "marketing-campaign-outline": {
+        "title": "キャンペーン概要",
+        "description": "マーケティングキャンペーンを構成"
+      },
+      "marketing-proposal": {
+        "title": "提案を生成",
+        "description": "顧客向け提案の下書き"
+      },
+      "documents-summarize": {
+        "title": "ドキュメントを要約",
+        "description": "構造化されたドキュメント要約"
+      },
+      "automation-workflow": {
+        "title": "ワークフローを設計",
+        "description": "自動化ワークフローのスケッチ"
+      },
+      "general-brainstorm": {
+        "title": "選択肢をブレインストーム",
+        "description": "構造化された発想"
+      },
+      "general-explain": {
+        "title": "わかりやすく説明",
+        "description": "ステークホルダー向けの明確な説明"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "顧客を要約",
+        "description": "アクティブな顧客のエグゼクティブサマリー"
+      },
+      "cmd-generate-proposal": {
+        "label": "提案を生成",
+        "description": "顧客提案のアウトラインを下書き"
+      },
+      "cmd-analyze-project": {
+        "label": "プロジェクトを分析",
+        "description": "プロジェクト健全性とリスク分析"
+      },
+      "cmd-create-task-list": {
+        "label": "タスクリストを作成",
+        "description": "作業を実行可能なタスクに分解"
+      },
+      "cmd-generate-email": {
+        "label": "メールを生成",
+        "description": "プロのメールを下書き"
+      },
+      "cmd-explain-invoice": {
+        "label": "請求書を説明",
+        "description": "平易な請求書の説明"
+      }
     }
   },
   "agents": {
@@ -3429,15 +3891,15 @@
     "registry": {
       "title": "レジストリ",
       "selectPrompt": "レジストリからエージェントを選択します。",
-      "status": "ステータス: {ステータス}",
-      "health": "健康: {健康}",
-      "queue": "キュー: {キュー}",
-      "usage": "使用法: {使用法}",
+      "status": "ステータス: {status}",
+      "health": "健康: {health}",
+      "queue": "キュー: {queue}",
+      "usage": "使用法: {usage}",
       "executeTask": "タスクの実行",
       "supervisorDelegate": "スーパーバイザーの代表者"
     },
     "marketplace": {
-      "tools": "ツール: {ツール}",
+      "tools": "ツール: {tools}",
       "installed": "インストール済み",
       "installActivate": "インストールとアクティベーション"
     },
@@ -3504,6 +3966,10 @@
     "goals": {
       "executeBusiness": "{agentId} ビジネス目標を実行する",
       "planAndExecute": "ワークスペースのビジネス目標を計画して実行する"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "顧客インパクトを優先",
+      "delegatedFollowUp": "委任フォローアップ"
     }
   },
   "integrations": {
@@ -3526,11 +3992,11 @@
       "demoConnection": "デモ接続: {name} (ローカル スタブのみ)",
       "connectFailed": "接続に失敗しました",
       "keyCreated": "作成された API キー: {prefix}",
-      "webhookCreated": "Webhook が作成されました: {名前}",
-      "webhookTest": "Webhook テスト {ステータス}",
-      "networkError": "API エクスプローラーのネットワーク エラー: {メッセージ}",
-      "explorerError": "API エクスプローラー → {ステータス}: {メッセージ}",
-      "explorerSuccess": "API エクスプローラー → {ステータス}",
+      "webhookCreated": "Webhook が作成されました: {name}",
+      "webhookTest": "Webhook テスト {status}",
+      "networkError": "API エクスプローラーのネットワーク エラー: {message}",
+      "explorerError": "API エクスプローラー → {status}: {message}",
+      "explorerSuccess": "API エクスプローラー → {status}",
       "explorerFailed": "エクスプローラーが失敗しました",
       "syncResult": "デモ同期 · {status} ({records} ローカル レコード) — 外部データは転送されません。",
       "diagnosed": "診断済み",
@@ -3563,7 +4029,7 @@
       "latestSync": "最新の同期: {status} · {records} レコード · モード {mode}"
     },
     "available": {
-      "protocols": "プロトコル: {プロトコル}",
+      "protocols": "プロトコル: {protocols}",
       "demoConnection": "デモ接続",
       "connectDemo": "接続（デモ）",
       "installDemo": "デモをインストールする"
@@ -3646,7 +4112,7 @@
     },
     "errors": {
       "failedToFetch": "取得に失敗しました",
-      "httpStatus": "HTTP {ステータス}"
+      "httpStatus": "HTTP {status}"
     }
   },
   "intelligence": {
@@ -3659,7 +4125,7 @@
     "noPermission": "このワークスペースに対するIntelligence.read権限がありません。",
     "filtersUpdated": "フィルターが更新されました",
     "demoReloaded": "このワークスペースのデモ データセットが再ロードされました。",
-    "acknowledged": "了承しました: {タイトル}",
+    "acknowledged": "了承しました: {title}",
     "exportUnavailableTitle": "エクスポートは利用できません — レポート生成はまだ接続されていません。",
     "exportUnavailableAria": "{title} を {format} としてエクスポート — 利用できません",
     "tabs": {
@@ -3730,7 +4196,7 @@
     "insights": {
       "emptyTitle": "まだ洞察はありません",
       "emptyDescription": "デモの分析情報は、ワークスペース シードの後に​​表示されます。ライブ AI インサイト生成は接続されていません。",
-      "badge": "デモ · {種類} · {ドメイン} · conf {信頼度}"
+      "badge": "デモ · {kind} · {domain} · conf {confidence}"
     },
     "forecasts": {
       "emptyTitle": "まだ予測はありません",
@@ -3789,8 +4255,8 @@
     "shell": {
       "brand": "アグソラ",
       "navLabel": "法的なナビゲーション",
-      "lastUpdated": "最終更新日: {日付}",
-      "footerCopyright": "© 2026 {会社}",
+      "lastUpdated": "最終更新日: {date}",
+      "footerCopyright": "© 2026 {company}",
       "footerNavLabel": "リーガルフッター",
       "nav": {
         "privacy": "プライバシー",
@@ -3824,7 +4290,7 @@
     "privacy": {
       "title": "プライバシーポリシー",
       "eyebrow": "法律上の",
-      "intro": "このプライバシー ポリシーでは、お客様が {siteUrl} にアクセスするとき、アカウントを作成するとき、または AGXORA プラットフォームを使用するときに、{legalName} (「AGXORA」、「当社」、「当社」) が個人データをどのように処理するかについて説明します。",
+      "intro": "このプライバシー ポリシーでは、お客様が {legalName} にアクセスするとき、アカウントを作成するとき、または AGXORA プラットフォームを使用するときに、{siteUrl} (「AGXORA」、「当社」、「当社」) が個人データをどのように処理するかについて説明します。",
       "controller": "1. コントローラー",
       "dataWeProcess": "2. 当社が処理するデータ",
       "dataAccount": "アカウント データ: 名前、電子メール、組織、役割。",
@@ -3944,7 +4410,134 @@
     "back": "戻る",
     "continue": "続く",
     "launching": "起動中…",
-    "enterDashboard": "ダッシュボードに入る"
+    "enterDashboard": "ダッシュボードに入る",
+    "defaultCountry": "アメリカ合衆国",
+    "businessTypes": {
+      "hotel": {
+        "label": "ホテル",
+        "description": "ホスピタリティ、客室、ゲスト、物件運営"
+      },
+      "restaurant": {
+        "label": "レストラン",
+        "description": "飲食、厨房、予約、ゲスト体験"
+      },
+      "cleaning": {
+        "label": "清掃",
+        "description": "商業・住宅の清掃業務"
+      },
+      "laundry": {
+        "label": "ランドリー",
+        "description": "洗濯工場、集荷ルート、テキスタイルケア"
+      },
+      "construction": {
+        "label": "建設",
+        "description": "現場、クルー、資材、プロジェクト納品"
+      },
+      "healthcare": {
+        "label": "ヘルスケア",
+        "description": "ケアネットワーク、患者、臨床運営"
+      },
+      "medical": {
+        "label": "医療",
+        "description": "クリニック、予約、ケアチーム"
+      },
+      "manufacturing": {
+        "label": "製造",
+        "description": "生産ライン、品質、供給オペレーション"
+      },
+      "retail": {
+        "label": "小売",
+        "description": "店舗、在庫、マーチャンダイジング、顧客"
+      },
+      "legal": {
+        "label": "法律事務所",
+        "description": "案件、依頼者、期限、請求"
+      },
+      "accounting": {
+        "label": "会計",
+        "description": "帳簿、顧客、申告、アドバイザリー"
+      },
+      "consulting": {
+        "label": "コンサルティング",
+        "description": "案件、成果物、顧客アウトカム"
+      },
+      "real_estate": {
+        "label": "不動産",
+        "description": "物件、顧客、内覧、取引"
+      },
+      "education": {
+        "label": "教育",
+        "description": "プログラム、学生、教員、入学"
+      },
+      "automotive": {
+        "label": "自動車",
+        "description": "ディーラー、サービスベイ、車両在庫"
+      },
+      "beauty": {
+        "label": "美容サロン",
+        "description": "予約、スタイリスト、物販、会員"
+      },
+      "fitness": {
+        "label": "ジム / フィットネス",
+        "description": "会員、クラス、トレーナー、継続"
+      },
+      "agriculture": {
+        "label": "農業",
+        "description": "作物、家畜、収量、サプライチェーン"
+      },
+      "transport": {
+        "label": "輸送",
+        "description": "フリート移動、ルート、旅客/貨物オペレーション"
+      },
+      "logistics": {
+        "label": "物流",
+        "description": "フリート、倉庫、ルート、フルフィルメント"
+      },
+      "warehouse": {
+        "label": "倉庫",
+        "description": "保管、ピッキング、梱包、在庫回転"
+      },
+      "insurance": {
+        "label": "保険",
+        "description": "契約、請求、引受、継続"
+      },
+      "finance": {
+        "label": "金融",
+        "description": "資本、ポートフォリオ、金融オペレーション"
+      },
+      "financial_services": {
+        "label": "金融サービス",
+        "description": "アドバイザリー、商品、コンプライアンス、顧客"
+      },
+      "technology": {
+        "label": "テクノロジー",
+        "description": "プロダクト、エンジニアリング、GTM チーム"
+      },
+      "saas": {
+        "label": "ソフトウェア / SaaS",
+        "description": "サブスクリプション、利用、カスタマーサクセス"
+      },
+      "ecommerce": {
+        "label": "Eコマース",
+        "description": "オンラインカタログ、カート、フルフィルメント、LTV"
+      },
+      "agency": {
+        "label": "マーケティング代理店",
+        "description": "顧客、キャンペーン、リテーナー、納品"
+      },
+      "freelancer": {
+        "label": "フリーランサー",
+        "description": "個人事業、顧客、パイプライン、キャッシュフロー"
+      },
+      "government": {
+        "label": "行政",
+        "description": "公共サービス、プログラム、住民"
+      },
+      "nonprofit": {
+        "label": "非営利",
+        "description": "ミッション、寄付者、プログラム、インパクト"
+      }
+    }
   },
   "creator": {
     "page": {
@@ -4042,8 +4635,8 @@
     "analytics": {
       "title": "分析",
       "topPosts": "人気の投稿",
-      "engagement": "英語 {値}",
-      "reach": "{値}に到達",
+      "engagement": "英語 {value}",
+      "reach": "{value}に到達",
       "recommendations": "AI によるレコメンデーション"
     },
     "integrations": {
@@ -4052,6 +4645,47 @@
     },
     "aiFeaturesPanel": {
       "lead": "AI 機能マップ — アイデア、キャプション、ハッシュタグ、カレンダー、キャンペーン、視聴者、スケジュール、ブランドの一貫性、リライト、翻訳、多言語。"
+    },
+    "formats": {
+      "instagram_caption": "Instagram キャプション",
+      "tiktok_script": "TikTok 脚本",
+      "linkedin_post": "LinkedIn 投稿",
+      "facebook_post": "Facebook 投稿",
+      "x_post": "X 投稿",
+      "blog_article": "ブログ記事",
+      "newsletter": "ニュースレター",
+      "email_campaign": "メールキャンペーン",
+      "product_description": "商品説明",
+      "ad_copy": "広告コピー",
+      "seo_article": "SEO 記事",
+      "landing_page_copy": "ランディングページのコピー"
+    },
+    "publishStatus": {
+      "draft": "下書き",
+      "review": "レビュー",
+      "approved": "承認済み",
+      "scheduled": "予約済み",
+      "published": "公開済み",
+      "archive": "アーカイブ"
+    },
+    "mediaKind": {
+      "image": "画像",
+      "video": "動画",
+      "document": "ドキュメント",
+      "logo": "ブランドロゴ",
+      "template": "テンプレート"
+    },
+    "voice": {
+      "professional": "プロフェッショナル",
+      "friendly": "フレンドリー",
+      "luxury": "ラグジュアリー",
+      "casual": "カジュアル"
+    },
+    "integrationStatus": {
+      "planned": "計画中",
+      "ready": "準備完了",
+      "connected": "接続済み",
+      "disabled": "無効"
     }
   },
   "backend": {
@@ -4065,7 +4699,7 @@
     },
     "network": {
       "offline": "オフラインのようです",
-      "offlineSyncHint": "Changes may not sync until the connection returns.",
+      "offlineSyncHint": "接続が戻るまで変更は同期されない場合があります。",
       "offlineHelp": "オフラインヘルプ",
       "reconnected": "接続が回復しました"
     },
@@ -4111,7 +4745,10 @@
       "startFree": "代わりに無料で始めましょう",
       "backHome": "家に戻る",
       "signIn": "サインイン"
-    }
+    },
+    "loading": "読み込み中",
+    "loadingEllipsis": "読み込み中…",
+    "loadingIdentity": "ID を読み込み中…"
   },
   "workspace": {
     "page": {
@@ -4120,9 +4757,9 @@
       "descriptionNamed": "{name} の分離されたテナント ワークスペース サーフェス。"
     },
     "idLabel": "ワークスペースID:",
-    "active": "アクティブ: {名前}",
+    "active": "アクティブ: {name}",
     "notInSession": "現在のセッションにありません",
-    "organization": "組織: {名前} ({slug})",
+    "organization": "組織: {name} ({slug})",
     "searchResults": "検索結果"
   },
   "iam": {
@@ -4262,28 +4899,28 @@
       "ariaLabel": "ワークスペースを切り替える"
     },
     "access": {
-      "eyebrow": "Identity & Access",
-      "signIn": "Sign in",
-      "backToDashboard": "Back to dashboard",
+      "eyebrow": "ID とアクセス",
+      "signIn": "サインイン",
+      "backToDashboard": "ダッシュボードに戻る",
       "unauthorized": {
-        "title": "Unauthorized",
-        "description": "Sign in to continue to this area of AGXORA."
+        "title": "未認証",
+        "description": "AGXORA のこの領域を続けるにはサインインしてください。"
       },
       "forbidden": {
-        "title": "Forbidden",
-        "description": "Your role does not include permission for this resource."
+        "title": "アクセス拒否",
+        "description": "このリソースの権限がロールに含まれていません。"
       },
       "expired_session": {
-        "title": "Expired Session",
-        "description": "Your session expired. Sign in again to resume work."
+        "title": "セッション期限切れ",
+        "description": "セッションの有効期限が切れました。作業を再開するには再度サインインしてください。"
       },
       "missing_permission": {
-        "title": "Missing Permission",
-        "description": "Ask an Owner or Admin to grant the required module access."
+        "title": "権限がありません",
+        "description": "必要なモジュールアクセスを付与するよう、オーナーまたは管理者に依頼してください。"
       },
       "account_locked": {
-        "title": "Account Locked",
-        "description": "This account is locked. Contact an organization owner or try again later."
+        "title": "アカウントロック中",
+        "description": "このアカウントはロックされています。組織のオーナーに連絡するか、後でもう一度お試しください。"
       }
     },
     "verifyEmail": {

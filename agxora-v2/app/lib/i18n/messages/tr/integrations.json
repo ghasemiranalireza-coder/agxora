@@ -19,7 +19,7 @@
     "connectFailed": "Bağlantı başarısız oldu",
     "keyCreated": "API anahtarı oluşturuldu: {prefix}",
     "webhookCreated": "Web kancası oluşturuldu: {name}",
-    "webhookTest": "Web kancası testi {durum}",
+    "webhookTest": "Web kancası testi {status}",
     "networkError": "API gezgini ağ hatası: {message}",
     "explorerError": "API gezgini → {status}: {message}",
     "explorerSuccess": "API gezgini → {status}",
@@ -55,7 +55,7 @@
     "latestSync": "En son senkronizasyon: {status} · {records} kayıt · mod {mode}"
   },
   "available": {
-    "protocols": "Protokoller: {protokoller}",
+    "protocols": "Protokoller: {protocols}",
     "demoConnection": "Demo bağlantısı",
     "connectDemo": "Bağlan (demo)",
     "installDemo": "Demoyu yükle"
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "Getirilemedi",
-    "httpStatus": "HTTP {durum}"
+    "httpStatus": "HTTP {status}"
   }
 }

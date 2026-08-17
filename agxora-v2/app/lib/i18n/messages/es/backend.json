@@ -10,7 +10,8 @@
   "network": {
     "offline": "Parece que estás desconectado",
     "offlineHelp": "Ayuda sin conexión",
-    "reconnected": "Conexión restaurada"
+    "reconnected": "Conexión restaurada",
+    "offlineSyncHint": "Es posible que los cambios no se sincronicen hasta que vuelva la conexión."
   },
   "errorBoundary": {
     "backToDashboard": "Volver al tablero",
@@ -54,5 +55,8 @@
     "startFree": "En su lugar, empieza gratis",
     "backHome": "De vuelta a casa",
     "signIn": "Iniciar sesión"
-  }
+  },
+  "loading": "Cargando",
+  "loadingEllipsis": "Cargando…",
+  "loadingIdentity": "Cargando identidad…"
 }

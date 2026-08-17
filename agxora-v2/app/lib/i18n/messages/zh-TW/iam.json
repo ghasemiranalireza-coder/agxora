@@ -145,5 +145,30 @@
     "verify": "驗證信箱",
     "verifying": "正在驗證...",
     "requestToken": "請求驗證令牌"
+  },
+  "access": {
+    "eyebrow": "身分與存取",
+    "signIn": "登入",
+    "backToDashboard": "返回儀表板",
+    "unauthorized": {
+      "title": "未授權",
+      "description": "請登入以繼續使用 AGXORA 的此區域。"
+    },
+    "forbidden": {
+      "title": "禁止存取",
+      "description": "您的角色不包含此資源的權限。"
+    },
+    "expired_session": {
+      "title": "工作階段已過期",
+      "description": "您的工作階段已過期。請重新登入以繼續工作。"
+    },
+    "missing_permission": {
+      "title": "缺少權限",
+      "description": "請請擁有者或管理員授予所需的模組存取權。"
+    },
+    "account_locked": {
+      "title": "帳戶已鎖定",
+      "description": "此帳戶已鎖定。請聯絡組織擁有者或稍後再試。"
+    }
   }
 }

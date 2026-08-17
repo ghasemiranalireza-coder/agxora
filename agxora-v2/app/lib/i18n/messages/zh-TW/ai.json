@@ -16,7 +16,7 @@
     "provider": "提供者",
     "model": "模型",
     "estimatedTokens": "預計。代幣",
-    "tokensInOut": "（輸入{輸入}/輸出{輸出}）",
+    "tokensInOut": "（輸入{in}/輸出{out}）",
     "cost": "整軸線價格",
     "context": "情境",
     "contextNone": "沒有任何",
@@ -79,5 +79,90 @@
     "placeholder": "AI指揮…總結、建議、分析…",
     "noMatches": "沒有符合的命令",
     "footer": "透過 registerAiCommand 註冊未來的命令 — UI 保持不變。"
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "專案",
+    "finance": "財務",
+    "marketing": "行銷",
+    "documents": "文件",
+    "automation": "自動化",
+    "general": "一般"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "彙整客戶",
+      "description": "客戶關係的高階摘要"
+    },
+    "crm-follow-up-email": {
+      "title": "後續郵件",
+      "description": "草擬專業 CRM 後續"
+    },
+    "projects-analyze": {
+      "title": "分析專案",
+      "description": "專案健康檢查"
+    },
+    "projects-task-list": {
+      "title": "建立任務清單",
+      "description": "將工作拆成可執行任務"
+    },
+    "finance-explain-invoice": {
+      "title": "解釋發票",
+      "description": "淺白發票說明"
+    },
+    "finance-cashflow-brief": {
+      "title": "現金流簡報",
+      "description": "簡短現金流敘述"
+    },
+    "marketing-campaign-outline": {
+      "title": "活動大綱",
+      "description": "建構行銷活動結構"
+    },
+    "marketing-proposal": {
+      "title": "產生提案",
+      "description": "面向客戶的提案草稿"
+    },
+    "documents-summarize": {
+      "title": "彙整文件",
+      "description": "結構化文件摘要"
+    },
+    "automation-workflow": {
+      "title": "設計工作流程",
+      "description": "自動化工作流程草圖"
+    },
+    "general-brainstorm": {
+      "title": "腦力激盪選項",
+      "description": "結構化構思"
+    },
+    "general-explain": {
+      "title": "淺白解釋",
+      "description": "給利害關係人的清楚說明"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "彙整客戶",
+      "description": "目前客戶的高階摘要"
+    },
+    "cmd-generate-proposal": {
+      "label": "產生提案",
+      "description": "草擬客戶提案大綱"
+    },
+    "cmd-analyze-project": {
+      "label": "分析專案",
+      "description": "專案健康與風險分析"
+    },
+    "cmd-create-task-list": {
+      "label": "建立任務清單",
+      "description": "將工作拆成可執行任務"
+    },
+    "cmd-generate-email": {
+      "label": "產生郵件",
+      "description": "草擬專業郵件"
+    },
+    "cmd-explain-invoice": {
+      "label": "解釋發票",
+      "description": "淺白發票說明"
+    }
   }
 }

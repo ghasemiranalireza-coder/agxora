@@ -148,7 +148,7 @@
     "title": "아그소라 AI",
     "emptyState": "고객, 프로젝트 또는 다음 조치에 대해 AGXORA에 문의하세요. 대화는 이 작업 공간 세션에 유지됩니다.",
     "thinking": "AGXORA는 생각하고 있습니다…",
-    "errorDismiss": "{오류} — 탭하여 닫으세요.",
+    "errorDismiss": "{error} — 탭하여 닫으세요.",
     "placeholder": "AGXORA AI에 물어보세요…",
     "messageAria": "메시지 AGXORA AI",
     "sendAria": "메시지 보내기",
@@ -381,7 +381,8 @@
         "title": "지식 검색",
         "description": "Documents Knowledge Hub 코퍼스에서 답변을 찾아보세요."
       }
-    }
+    },
+    "esc": "Esc"
   },
-  "summary": "{name}: {고객} 고객 · {프로젝트} 프로젝트 · 오늘 {업데이트} 업데이트."
+  "summary": "{name}: {customers} 고객 · {projects} 프로젝트 · 오늘 {updates} 업데이트."
 }

@@ -27,5 +27,132 @@
   "back": "Kembali",
   "continue": "Melanjutkan",
   "launching": "Meluncurkan…",
-  "enterDashboard": "Masuk ke dasbor"
+  "enterDashboard": "Masuk ke dasbor",
+  "defaultCountry": "Amerika Serikat",
+  "businessTypes": {
+    "hotel": {
+      "label": "Hotel",
+      "description": "Perhotelan, kamar, tamu, dan operasi properti"
+    },
+    "restaurant": {
+      "label": "Restoran",
+      "description": "Makan, dapur, reservasi, dan pengalaman tamu"
+    },
+    "cleaning": {
+      "label": "Pembersihan",
+      "description": "Operasi kebersihan komersial dan residensial"
+    },
+    "laundry": {
+      "label": "Binatu",
+      "description": "Pabrik cuci, rute penjemputan, dan perawatan tekstil"
+    },
+    "construction": {
+      "label": "Konstruksi",
+      "description": "Lokasi kerja, kru, material, dan pengiriman proyek"
+    },
+    "healthcare": {
+      "label": "Kesehatan",
+      "description": "Jaringan perawatan, pasien, dan operasi klinis"
+    },
+    "medical": {
+      "label": "Medis",
+      "description": "Klinik, janji temu, dan tim perawatan"
+    },
+    "manufacturing": {
+      "label": "Manufaktur",
+      "description": "Lini produksi, kualitas, dan operasi pasokan"
+    },
+    "retail": {
+      "label": "Ritel",
+      "description": "Toko, inventaris, merchandising, dan pelanggan"
+    },
+    "legal": {
+      "label": "Firma hukum",
+      "description": "Perkara, klien, tenggat, dan penagihan"
+    },
+    "accounting": {
+      "label": "Akuntansi",
+      "description": "Buku, klien, pelaporan, dan kerja advisory"
+    },
+    "consulting": {
+      "label": "Konsultasi",
+      "description": "Keterlibatan, deliverable, dan hasil klien"
+    },
+    "real_estate": {
+      "label": "Properti",
+      "description": "Listing, klien, showing, dan transaksi"
+    },
+    "education": {
+      "label": "Pendidikan",
+      "description": "Program, mahasiswa, dosen, dan pendaftaran"
+    },
+    "automotive": {
+      "label": "Otomotif",
+      "description": "Dealer, bengkel servis, dan inventaris kendaraan"
+    },
+    "beauty": {
+      "label": "Salon kecantikan",
+      "description": "Janji, penata, ritel, dan keanggotaan"
+    },
+    "fitness": {
+      "label": "Gym / kebugaran",
+      "description": "Keanggotaan, kelas, pelatih, dan retensi"
+    },
+    "agriculture": {
+      "label": "Pertanian",
+      "description": "Tanaman, ternak, hasil, dan rantai pasok"
+    },
+    "transport": {
+      "label": "Transportasi",
+      "description": "Pergerakan armada, rute, dan ops penumpang/kargo"
+    },
+    "logistics": {
+      "label": "Logistik",
+      "description": "Armada, gudang, rute, dan pemenuhan"
+    },
+    "warehouse": {
+      "label": "Gudang",
+      "description": "Penyimpanan, picking, packing, dan perputaran inventaris"
+    },
+    "insurance": {
+      "label": "Asuransi",
+      "description": "Polis, klaim, underwriting, dan retensi"
+    },
+    "finance": {
+      "label": "Keuangan",
+      "description": "Modal, portofolio, dan operasi keuangan"
+    },
+    "financial_services": {
+      "label": "Jasa keuangan",
+      "description": "Advisory, produk, kepatuhan, dan klien"
+    },
+    "technology": {
+      "label": "Teknologi",
+      "description": "Produk, engineering, dan tim go-to-market"
+    },
+    "saas": {
+      "label": "Perangkat lunak / SaaS",
+      "description": "Langganan, penggunaan, dan customer success"
+    },
+    "ecommerce": {
+      "label": "E-commerce",
+      "description": "Katalog online, keranjang, pemenuhan, dan LTV"
+    },
+    "agency": {
+      "label": "Agensi pemasaran",
+      "description": "Klien, kampanye, retainer, dan pengiriman"
+    },
+    "freelancer": {
+      "label": "Freelancer",
+      "description": "Praktik solo, klien, pipeline, dan arus kas"
+    },
+    "government": {
+      "label": "Pemerintah",
+      "description": "Layanan publik, program, dan warga"
+    },
+    "nonprofit": {
+      "label": "Nirlaba",
+      "description": "Misi, donatur, program, dan dampak"
+    }
+  }
 }

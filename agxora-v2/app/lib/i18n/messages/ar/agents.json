@@ -17,7 +17,7 @@
     "settings": "إعدادات"
   },
   "notice": {
-    "simulatedRun": "محاكاة التشغيل · {الحالة} ({duration} مللي ثانية)",
+    "simulatedRun": "محاكاة التشغيل · {status} ({duration} مللي ثانية)",
     "taskFailed": "فشلت المهمة",
     "activated": "تم التنشيط محليًا: {agentId}",
     "agentPaused": "توقف الوكيل مؤقتًا",
@@ -42,15 +42,15 @@
   "registry": {
     "title": "التسجيل",
     "selectPrompt": "حدد وكيلاً من التسجيل.",
-    "status": "الحالة: {الحالة}",
-    "health": "الصحة: ​​{الصحة}",
-    "queue": "قائمة الانتظار: {قائمة الانتظار}",
-    "usage": "الاستخدام: {استخدام}",
+    "status": "الحالة: {status}",
+    "health": "الصحة: ​​{health}",
+    "queue": "قائمة الانتظار: {queue}",
+    "usage": "الاستخدام: {usage}",
     "executeTask": "تنفيذ المهمة",
     "supervisorDelegate": "مندوب المشرف"
   },
   "marketplace": {
-    "tools": "الأدوات: {أدوات}",
+    "tools": "الأدوات: {tools}",
     "installed": "تم التثبيت",
     "installActivate": "التثبيت والتنشيط"
   },
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "تنفيذ هدف العمل {agentId}.",
     "planAndExecute": "تخطيط وتنفيذ هدف عمل مساحة العمل"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "أعطِ أولوية لأثر العميل",
+    "delegatedFollowUp": "متابعة مُفوَّضة"
   }
 }

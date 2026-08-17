@@ -79,14 +79,14 @@
   "insights": {
     "emptyTitle": "Belum ada wawasan",
     "emptyDescription": "Wawasan demo muncul setelah benih ruang kerja. Pembuatan wawasan AI langsung tidak terhubung.",
-    "badge": "Demo · {jenis} · {domain} · conf {kepercayaan}"
+    "badge": "Demo · {kind} · {domain} · conf {confidence}"
   },
   "forecasts": {
     "emptyTitle": "Belum ada perkiraan",
     "emptyDescription": "Perkiraan demo muncul setelah benih. Model prediktif tidak terhubung.",
-    "title": "perkiraan {jenis}",
-    "baseline": "Garis dasar {garis dasar} → diproyeksikan {diproyeksikan} ({hari}h)",
-    "confidence": "Demo · Keyakinan {keyakinan} — {note}"
+    "title": "perkiraan {kind}",
+    "baseline": "Garis dasar {baseline} → diproyeksikan {projected} ({days}h)",
+    "confidence": "Demo · Keyakinan {confidence} — {note}"
   },
   "alerts": {
     "title": "Mesin peringatan",

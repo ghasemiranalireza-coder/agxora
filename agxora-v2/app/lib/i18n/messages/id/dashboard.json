@@ -75,7 +75,7 @@
     "ariaLabel": "Ikhtisar bisnis",
     "online": "On line",
     "emDash": "—",
-    "capacitySignal": "{persen}% sinyal kapasitas",
+    "capacitySignal": "{percent}% sinyal kapasitas",
     "activeClients": {
       "title": "Klien aktif",
       "captionEmpty": "Belum ada pelanggan aktif",
@@ -117,7 +117,7 @@
     "title": "Aktivitas terkini",
     "subtitle": "Apa yang berubah hari ini",
     "ariaLabel": "Aktivitas terkini",
-    "todayCount": "{hitung} HARI INI",
+    "todayCount": "{count} HARI INI",
     "localBadge": "LOKAL",
     "emptyTitle": "Belum ada aktivitas",
     "emptyBody": "Acara ruang kerja akan muncul di sini saat Anda menambahkan pelanggan, proyek, dan lainnya.",
@@ -381,7 +381,8 @@
         "title": "Pengambilan Pengetahuan",
         "description": "Jawaban dasar di korpus Documents Knowledge Hub."
       }
-    }
+    },
+    "esc": "Esc"
   },
   "summary": "{name}: {customers} pelanggan · {projects} proyek · {updates} pembaruan hari ini."
 }

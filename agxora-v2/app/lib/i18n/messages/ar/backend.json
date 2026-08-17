@@ -10,7 +10,8 @@
   "network": {
     "offline": "يبدو أنك غير متصل",
     "offlineHelp": "مساعدة دون اتصال",
-    "reconnected": "تمت استعادة الاتصال"
+    "reconnected": "تمت استعادة الاتصال",
+    "offlineSyncHint": "قد لا تتم مزامنة التغييرات حتى يعود الاتصال."
   },
   "errorBoundary": {
     "backToDashboard": "العودة إلى لوحة القيادة",
@@ -54,5 +55,8 @@
     "startFree": "ابدأ مجانًا بدلاً من ذلك",
     "backHome": "العودة إلى المنزل",
     "signIn": "تسجيل الدخول"
-  }
+  },
+  "loading": "جارٍ التحميل",
+  "loadingEllipsis": "جارٍ التحميل…",
+  "loadingIdentity": "جارٍ تحميل الهوية…"
 }

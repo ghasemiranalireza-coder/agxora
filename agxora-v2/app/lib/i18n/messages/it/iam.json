@@ -145,5 +145,30 @@
     "verify": "Verifica e-mail",
     "verifying": "Verifica…",
     "requestToken": "Richiedi token di verifica"
+  },
+  "access": {
+    "eyebrow": "Identità e accesso",
+    "signIn": "Accedi",
+    "backToDashboard": "Torna alla dashboard",
+    "unauthorized": {
+      "title": "Non autorizzato",
+      "description": "Accedi per continuare in quest’area di AGXORA."
+    },
+    "forbidden": {
+      "title": "Vietato",
+      "description": "Il tuo ruolo non include l’autorizzazione per questa risorsa."
+    },
+    "expired_session": {
+      "title": "Sessione scaduta",
+      "description": "La sessione è scaduta. Accedi di nuovo per riprendere il lavoro."
+    },
+    "missing_permission": {
+      "title": "Autorizzazione mancante",
+      "description": "Chiedi a un proprietario o a un amministratore di concedere l’accesso al modulo richiesto."
+    },
+    "account_locked": {
+      "title": "Account bloccato",
+      "description": "Questo account è bloccato. Contatta un proprietario dell’organizzazione o riprova più tardi."
+    }
   }
 }

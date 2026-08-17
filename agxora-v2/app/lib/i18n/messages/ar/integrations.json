@@ -19,17 +19,17 @@
     "connectFailed": "فشل الاتصال",
     "keyCreated": "تم إنشاء مفتاح واجهة برمجة التطبيقات: {prefix}",
     "webhookCreated": "تم إنشاء خطاف الويب: {name}",
-    "webhookTest": "اختبار الرد التلقائي على الويب {الحالة}",
+    "webhookTest": "اختبار الرد التلقائي على الويب {status}",
     "networkError": "خطأ في شبكة مستكشف واجهة برمجة التطبيقات: {message}",
-    "explorerError": "مستكشف واجهة برمجة التطبيقات → {الحالة}: {message}",
+    "explorerError": "مستكشف واجهة برمجة التطبيقات → {status}: {message}",
     "explorerSuccess": "مستكشف واجهة برمجة التطبيقات → {status}",
     "explorerFailed": "فشل المستكشف",
-    "syncResult": "مزامنة العرض التوضيحي · {الحالة} ({السجلات} السجلات المحلية) — لم يتم نقل أي بيانات خارجية.",
+    "syncResult": "مزامنة العرض التوضيحي · {status} ({records} السجلات المحلية) — لم يتم نقل أي بيانات خارجية.",
     "diagnosed": "تم تشخيصه",
     "removedConnection": "تمت إزالة الاتصال التجريبي: {name}",
     "keyRotated": "تم تدوير المفتاح",
     "keyRevoked": "تم إبطال المفتاح",
-    "publishedEvent": "تم النشر {نوع}",
+    "publishedEvent": "تم النشر {type}",
     "developerSaved": "تم حفظ إعدادات المطور"
   },
   "dashboard": {
@@ -46,16 +46,16 @@
     "emptyDescription": "تصفح متاح للاتصال بمزود.",
     "eventBridgeDemo": "عرض جسر الحدث",
     "eventBridgeHint": "نشر حدث موصل على ناقل Workflow Automation.",
-    "emit": "تنبعث {معرف}"
+    "emit": "تنبعث {id}"
   },
   "installed": {
     "title": "التكاملات المثبتة",
     "emptyTitle": "لا شيء مثبت",
     "emptyDescription": "التثبيت من الكتالوج المتاح.",
-    "latestSync": "أحدث مزامنة: {الحالة} · {السجلات} السجلات · الوضع {الوضع}"
+    "latestSync": "أحدث مزامنة: {status} · {records} السجلات · الوضع {mode}"
   },
   "available": {
-    "protocols": "البروتوكولات: {بروتوكولات}",
+    "protocols": "البروتوكولات: {protocols}",
     "demoConnection": "اتصال تجريبي",
     "connectDemo": "اتصال (تجريبي)",
     "installDemo": "قم بتثبيت العرض التوضيحي"
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "فشل الجلب",
-    "httpStatus": "HTTP {الحالة}"
+    "httpStatus": "HTTP {status}"
   }
 }

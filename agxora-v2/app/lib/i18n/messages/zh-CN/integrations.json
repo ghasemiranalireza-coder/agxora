@@ -19,17 +19,17 @@
     "connectFailed": "连接失败",
     "keyCreated": "创建的 API 密钥：{prefix}",
     "webhookCreated": "已创建网络钩子：{name}",
-    "webhookTest": "Webhook 测试{状态}",
+    "webhookTest": "Webhook 测试{status}",
     "networkError": "API 浏览器网络错误：{message}",
-    "explorerError": "API 浏览器 → {状态}：{消息}",
-    "explorerSuccess": "API 浏览器 → {状态}",
+    "explorerError": "API 浏览器 → {status}：{message}",
+    "explorerSuccess": "API 浏览器 → {status}",
     "explorerFailed": "资源管理器失败",
     "syncResult": "演示同步 · {status} ({records} 本地记录) — 没有传输外部数据。",
     "diagnosed": "确诊",
     "removedConnection": "已删除演示连接：{name}",
     "keyRotated": "钥匙旋转",
     "keyRevoked": "密钥已撤销",
-    "publishedEvent": "已发布{类型}",
+    "publishedEvent": "已发布{type}",
     "developerSaved": "开发者设置已保存"
   },
   "dashboard": {
@@ -52,10 +52,10 @@
     "title": "已安装的集成",
     "emptyTitle": "没有安装任何东西",
     "emptyDescription": "从可用目录安装。",
-    "latestSync": "最新同步：{状态}·{记录}记录·模式{mode}"
+    "latestSync": "最新同步：{status}·{records}记录·模式{mode}"
   },
   "available": {
-    "protocols": "协议：{协议}",
+    "protocols": "协议：{protocols}",
     "demoConnection": "演示连接",
     "connectDemo": "连接（演示）",
     "installDemo": "安装演示"
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "获取失败",
-    "httpStatus": "HTTP {状态}"
+    "httpStatus": "HTTP {status}"
   }
 }

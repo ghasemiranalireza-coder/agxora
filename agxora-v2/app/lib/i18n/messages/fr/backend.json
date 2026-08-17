@@ -10,7 +10,8 @@
   "network": {
     "offline": "Vous semblez être hors ligne",
     "offlineHelp": "Aide hors ligne",
-    "reconnected": "Connexion rétablie"
+    "reconnected": "Connexion rétablie",
+    "offlineSyncHint": "Les modifications peuvent ne pas se synchroniser tant que la connexion n’est pas rétablie."
   },
   "errorBoundary": {
     "backToDashboard": "Retour au tableau de bord",
@@ -54,5 +55,8 @@
     "startFree": "Commencez plutôt gratuitement",
     "backHome": "Retour à l’accueil",
     "signIn": "Se connecter"
-  }
+  },
+  "loading": "Chargement",
+  "loadingEllipsis": "Chargement…",
+  "loadingIdentity": "Chargement de l’identité…"
 }

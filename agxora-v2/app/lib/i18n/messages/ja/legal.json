@@ -2,8 +2,8 @@
   "shell": {
     "brand": "アグソラ",
     "navLabel": "法的なナビゲーション",
-    "lastUpdated": "最終更新日: {日付}",
-    "footerCopyright": "© 2026 {会社}",
+    "lastUpdated": "最終更新日: {date}",
+    "footerCopyright": "© 2026 {company}",
     "footerNavLabel": "リーガルフッター",
     "nav": {
       "privacy": "プライバシー",
@@ -37,7 +37,7 @@
   "privacy": {
     "title": "プライバシーポリシー",
     "eyebrow": "法律上の",
-    "intro": "このプライバシー ポリシーでは、お客様が {siteUrl} にアクセスするとき、アカウントを作成するとき、または AGXORA プラットフォームを使用するときに、{legalName} (「AGXORA」、「当社」、「当社」) が個人データをどのように処理するかについて説明します。",
+    "intro": "このプライバシー ポリシーでは、お客様が {legalName} にアクセスするとき、アカウントを作成するとき、または AGXORA プラットフォームを使用するときに、{siteUrl} (「AGXORA」、「当社」、「当社」) が個人データをどのように処理するかについて説明します。",
     "controller": "1. コントローラー",
     "dataWeProcess": "2. 当社が処理するデータ",
     "dataAccount": "アカウント データ: 名前、電子メール、組織、役割。",

@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import { Geist, Geist_Mono, Noto_Sans_Arabic, Noto_Sans_JP, Noto_Sans_SC } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Noto_Sans_Arabic,
+  Noto_Sans_JP,
+  Noto_Sans_KR,
+  Noto_Sans_SC,
+  Noto_Sans_TC,
+} from "next/font/google";
 import { AppProviders } from "./providers/AppProviders";
 import { resolveServerLocale } from "./lib/i18n/cookie";
 import {
+  CjkFontLinks,
   LOCALE_COOKIE,
   localeDirection,
-  resolveMessage,
+  SkipToMainLink,
   toBcp47,
 } from "./lib/i18n";
 import "./globals.css";
@@ -31,20 +40,48 @@ const notoSansArabic = Noto_Sans_Arabic({
   weight: ["400", "500", "600", "700"],
 });
 
-/** Simplified Chinese — activated via [data-locale=zh-CN|zh-TW] CSS variable swap. */
+/** Simplified Chinese — latin subset only from next/font; glyphs via CjkFontLinks + system. */
 const notoSansSc = Noto_Sans_SC({
   variable: "--font-agx-cjk-sc",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
+  adjustFontFallback: false,
   weight: ["400", "500", "600", "700"],
+  fallback: ["PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC"],
 });
 
-/** Japanese — activated via [data-locale=ja] CSS variable swap. */
+/** Traditional Chinese. */
+const notoSansTc = Noto_Sans_TC({
+  variable: "--font-agx-cjk-tc",
+  subsets: ["latin"],
+  display: "swap",
+  preload: false,
+  adjustFontFallback: false,
+  weight: ["400", "500", "600", "700"],
+  fallback: ["PingFang TC", "Hiragino Sans TC", "Microsoft JhengHei", "Noto Sans TC", "Source Han Sans TC"],
+});
+
+/** Japanese. */
 const notoSansJp = Noto_Sans_JP({
   variable: "--font-agx-cjk-jp",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
+  adjustFontFallback: false,
   weight: ["400", "500", "600", "700"],
+  fallback: ["Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", "Meiryo"],
+});
+
+/** Korean. */
+const notoSansKr = Noto_Sans_KR({
+  variable: "--font-agx-cjk-kr",
+  subsets: ["latin"],
+  display: "swap",
+  preload: false,
+  adjustFontFallback: false,
+  weight: ["400", "500", "600", "700"],
+  fallback: ["Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "Nanum Gothic"],
 });
 
 const SITE_URL =
@@ -110,7 +147,6 @@ export default async function RootLayout({
   const initialLocale = resolveServerLocale(jar.get(LOCALE_COOKIE)?.value);
   const dir = localeDirection(initialLocale);
   const lang = toBcp47(initialLocale);
-  const skipToMain = resolveMessage(initialLocale, "backend.skipToMain");
 
   return (
     <html
@@ -118,12 +154,12 @@ export default async function RootLayout({
       dir={dir}
       data-locale={initialLocale}
       translate="no"
-      className={`notranslate ${geistSans.variable} ${geistMono.variable} ${notoSansArabic.variable} ${notoSansSc.variable} ${notoSansJp.variable} h-full antialiased`}
+      className={`notranslate ${geistSans.variable} ${geistMono.variable} ${notoSansArabic.variable} ${notoSansSc.variable} ${notoSansTc.variable} ${notoSansJp.variable} ${notoSansKr.variable} h-full antialiased`}
     >
+      <head>
+        <CjkFontLinks />
+      </head>
       <body className="min-h-full flex flex-col">
-        <a href="#agxora-main" className="agx-skip-link">
-          {skipToMain}
-        </a>
         <div
           id="agxora-live-region"
           className="sr-only"
@@ -131,6 +167,7 @@ export default async function RootLayout({
           aria-atomic="true"
         />
         <AppProviders initialLocale={initialLocale}>
+          <SkipToMainLink />
           <div id="agxora-main">{children}</div>
         </AppProviders>
       </body>

@@ -40,7 +40,7 @@ export function FutureIntegrations({
                   {platform.category}
                 </p>
               </div>
-              <Badge tone="warning">{integrationLabel(platform.status)}</Badge>
+              <Badge tone="warning">{t(integrationLabel(platform.status))}</Badge>
             </div>
             <p className="mt-3 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {t("creator.integrations.adapter")}{" "}
@@ -83,7 +83,7 @@ export function AiFeaturesPanel({
                 {feature.label}
               </h3>
               <Badge tone={feature.status === "ready" ? "accent" : "warning"}>
-                {integrationLabel(feature.status)}
+                {t(integrationLabel(feature.status))}
               </Badge>
             </div>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>

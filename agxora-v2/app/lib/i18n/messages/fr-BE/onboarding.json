@@ -27,5 +27,132 @@
   "back": "Retour",
   "continue": "Continuer",
   "launching": "Déclenchement",
-  "enterDashboard": "Entrez dans le tableau de bord"
+  "enterDashboard": "Entrez dans le tableau de bord",
+  "defaultCountry": "États-Unis",
+  "businessTypes": {
+    "hotel": {
+      "label": "Hôtel",
+      "description": "Hôtellerie, chambres, clients et exploitation immobilière"
+    },
+    "restaurant": {
+      "label": "Restaurant",
+      "description": "Restauration, cuisine, réservations et expérience client"
+    },
+    "cleaning": {
+      "label": "Nettoyage",
+      "description": "Opérations de nettoyage commercial et résidentiel"
+    },
+    "laundry": {
+      "label": "Blanchisserie",
+      "description": "Usines de lavage, tournées de collecte et soin textile"
+    },
+    "construction": {
+      "label": "Construction",
+      "description": "Chantiers, équipes, matériaux et livraison de projet"
+    },
+    "healthcare": {
+      "label": "Santé",
+      "description": "Réseaux de soins, patients et opérations cliniques"
+    },
+    "medical": {
+      "label": "Médical",
+      "description": "Cliniques, rendez-vous et équipes de soins"
+    },
+    "manufacturing": {
+      "label": "Fabrication",
+      "description": "Lignes de production, qualité et opérations d’approvisionnement"
+    },
+    "retail": {
+      "label": "Commerce de détail",
+      "description": "Magasins, stocks, merchandising et clients"
+    },
+    "legal": {
+      "label": "Cabinet d’avocats",
+      "description": "Dossiers, clients, échéances et facturation"
+    },
+    "accounting": {
+      "label": "Comptabilité",
+      "description": "Livres, clients, déclarations et conseil"
+    },
+    "consulting": {
+      "label": "Conseil",
+      "description": "Missions, livrables et résultats clients"
+    },
+    "real_estate": {
+      "label": "Immobilier",
+      "description": "Annonces, clients, visites et transactions"
+    },
+    "education": {
+      "label": "Éducation",
+      "description": "Programmes, étudiants, corps enseignant et inscriptions"
+    },
+    "automotive": {
+      "label": "Automobile",
+      "description": "Concessionnaires, ateliers et stock de véhicules"
+    },
+    "beauty": {
+      "label": "Salon de beauté",
+      "description": "Rendez-vous, stylistes, retail et adhésions"
+    },
+    "fitness": {
+      "label": "Salle / fitness",
+      "description": "Adhésions, cours, coachs et rétention"
+    },
+    "agriculture": {
+      "label": "Agriculture",
+      "description": "Cultures, bétail, rendements et chaînes d’approvisionnement"
+    },
+    "transport": {
+      "label": "Transport",
+      "description": "Mouvement de flotte, itinéraires et ops passagers/fret"
+    },
+    "logistics": {
+      "label": "Logistique",
+      "description": "Flotte, entrepôts, itinéraires et exécution"
+    },
+    "warehouse": {
+      "label": "Entrepôt",
+      "description": "Stockage, picking, packing et rotation des stocks"
+    },
+    "insurance": {
+      "label": "Assurance",
+      "description": "Polices, sinistres, souscription et rétention"
+    },
+    "finance": {
+      "label": "Finance",
+      "description": "Capital, portefeuilles et opérations financières"
+    },
+    "financial_services": {
+      "label": "Services financiers",
+      "description": "Conseil, produits, conformité et clients"
+    },
+    "technology": {
+      "label": "Technologie",
+      "description": "Produit, ingénierie et équipes go-to-market"
+    },
+    "saas": {
+      "label": "Logiciel / SaaS",
+      "description": "Abonnements, usage et customer success"
+    },
+    "ecommerce": {
+      "label": "E-commerce",
+      "description": "Catalogue en ligne, paniers, exécution et LTV"
+    },
+    "agency": {
+      "label": "Agence marketing",
+      "description": "Clients, campagnes, retainers et livraison"
+    },
+    "freelancer": {
+      "label": "Indépendant",
+      "description": "Pratique solo, clients, pipeline et trésorerie"
+    },
+    "government": {
+      "label": "Administration publique",
+      "description": "Services publics, programmes et administrés"
+    },
+    "nonprofit": {
+      "label": "Association",
+      "description": "Missions, donateurs, programmes et impact"
+    }
+  }
 }

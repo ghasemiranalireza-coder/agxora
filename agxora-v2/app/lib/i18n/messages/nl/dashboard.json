@@ -75,7 +75,7 @@
     "ariaLabel": "Zakelijk overzicht",
     "online": "Online",
     "emDash": "—",
-    "capacitySignal": "{procent}% capaciteitssignaal",
+    "capacitySignal": "{percent}% capaciteitssignaal",
     "activeClients": {
       "title": "Actieve klanten",
       "captionEmpty": "Nog geen actieve klanten",
@@ -381,7 +381,8 @@
         "title": "Kennis ophalen",
         "description": "Basisantwoorden in het Documents Knowledge Hub-corpus."
       }
-    }
+    },
+    "esc": "Esc"
   },
-  "summary": "{name}: {klanten} klanten · {projecten} projecten · {updates} updates vandaag."
+  "summary": "{name}: {customers} klanten · {projects} projecten · {updates} updates vandaag."
 }

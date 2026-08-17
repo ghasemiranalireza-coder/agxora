@@ -9,7 +9,7 @@ import {
   authInputStyle,
   authLabelStyle,
 } from "../components/auth/AuthCard";
-import { useT } from "../lib/i18n";
+import { useT, resolveUserFacingErrorKey } from "../lib/i18n";
 
 export default function ForgotPasswordPage(): JSX.Element {
   const t = useT();
@@ -26,7 +26,7 @@ export default function ForgotPasswordPage(): JSX.Element {
       await forgotPassword({ email });
       setMessage(t("auth.forgot.success"));
     } catch (err) {
-      setMessage(err instanceof Error ? err.message : t("auth.forgot.failed"));
+      setMessage(t(resolveUserFacingErrorKey(err, "auth.forgot.failed")));
     } finally {
       setBusy(false);
     }

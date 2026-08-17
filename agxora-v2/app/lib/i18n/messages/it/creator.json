@@ -94,8 +94,8 @@
   "analytics": {
     "title": "Analitica",
     "topPosts": "Messaggi principali",
-    "engagement": "Eng {valore}",
-    "reach": "Raggiungi {valore}",
+    "engagement": "Eng {value}",
+    "reach": "Raggiungi {value}",
     "recommendations": "Raccomandazioni sull'intelligenza artificiale"
   },
   "integrations": {
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "Mappa delle funzionalità AI: idee, didascalie, hashtag, calendario, campagne, pubblico, pianificazione, coerenza del marchio, riscrittura, traduzione, multilingue."
+  },
+  "formats": {
+    "instagram_caption": "Didascalia Instagram",
+    "tiktok_script": "Script TikTok",
+    "linkedin_post": "Post LinkedIn",
+    "facebook_post": "Post Facebook",
+    "x_post": "Post X",
+    "blog_article": "Articolo del blog",
+    "newsletter": "Newsletter",
+    "email_campaign": "Campagna e-mail",
+    "product_description": "Descrizione prodotto",
+    "ad_copy": "Copy pubblicitario",
+    "seo_article": "Articolo SEO",
+    "landing_page_copy": "Copy della landing page"
+  },
+  "publishStatus": {
+    "draft": "Bozza",
+    "review": "Revisione",
+    "approved": "Approvato",
+    "scheduled": "Programmato",
+    "published": "Pubblicato",
+    "archive": "Archivio"
+  },
+  "mediaKind": {
+    "image": "Immagine",
+    "video": "Video",
+    "document": "Documento",
+    "logo": "Logo del brand",
+    "template": "Modello"
+  },
+  "voice": {
+    "professional": "Professionale",
+    "friendly": "Amichevole",
+    "luxury": "Lusso",
+    "casual": "Informale"
+  },
+  "integrationStatus": {
+    "planned": "Pianificato",
+    "ready": "Pronto",
+    "connected": "Connesso",
+    "disabled": "Disattivato"
   }
 }

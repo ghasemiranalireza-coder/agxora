@@ -1,11 +1,11 @@
 {
   "common": {
-    "save": "Cứu",
+    "save": "Lưu",
     "saveChanges": "Lưu thay đổi",
-    "cancel": "Hủy bỏ",
+    "cancel": "Hủy",
     "close": "Đóng",
-    "delete": "Xóa bỏ",
-    "edit": "Biên tập",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
     "search": "Tìm kiếm",
     "loading": "Đang tải…",
     "retry": "Thử lại",
@@ -33,8 +33,15 @@
     "showPassword": "Hiển thị mật khẩu",
     "hidePassword": "Ẩn mật khẩu",
     "continue": "Tiếp tục",
-    "back": "Mặt sau",
-    "home": "Trang chủ"
+    "back": "Quay lại",
+    "home": "Trang chủ",
+    "loadingShort": "Đang tải",
+    "create": "Tạo",
+    "next": "Tiếp",
+    "previous": "Trước",
+    "settings": "Cài đặt",
+    "profile": "Hồ sơ",
+    "dashboard": "Bảng điều khiển"
   },
   "navigation": {
     "dashboard": "Trang tổng quan",
@@ -156,7 +163,7 @@
       "currentPlan": "Kế hoạch hiện tại",
       "recommended": "Khuyến khích",
       "contactSales": "Liên hệ bán hàng",
-      "pricePerMonth": "€{giá}/tháng",
+      "pricePerMonth": "€{price}/tháng",
       "users": "{count} người dùng",
       "aiRequests": "{count} yêu cầu AI/tháng",
       "storage": "{count} MB dung lượng lưu trữ",
@@ -177,7 +184,7 @@
       "allInvoices": "Tất cả hóa đơn",
       "planCatalog": "Danh mục kế hoạch",
       "custom": "Phong tục",
-      "features": "tính năng {đếm}",
+      "features": "tính năng {count}",
       "emailQueue": "Hàng đợi email (giả lập)",
       "noEmails": "Không có email xếp hàng đợi.",
       "commercialAudit": "Kiểm toán thương mại",
@@ -279,7 +286,7 @@
       "avatarUnavailable": "Tải lên hình đại diện chưa khả dụng.",
       "appearanceNote": "Cấu hình ngoại hình vẫn ở dưới Giao diện. Tiêu đề chỉ cung cấp một chủ đề chuyển đổi nhanh.",
       "prefsHint": "Được sử dụng bởi trợ lý AI trên các mô-đun.",
-      "themeResolved": "{mode} (đã giải quyết {xuất hiện})",
+      "themeResolved": "{mode} (đã giải quyết {appearance})",
       "regions": {
         "EU": "Liên minh Châu Âu",
         "US": "Hoa Kỳ",
@@ -491,7 +498,7 @@
       "createdAt": "Đã đăng nhập",
       "expiresAt": "Hết hạn",
       "revoke": "Thu hồi phiên",
-      "revokeAria": "Thu hồi phiên đã đăng nhập {khi}",
+      "revokeAria": "Thu hồi phiên đã đăng nhập {when}",
       "revokeOthers": "Đăng xuất các phiên khác",
       "revokeOthersAria": "Đăng xuất tất cả các phiên ngoại trừ phiên hiện tại",
       "revoked": "Phiên bị thu hồi.",
@@ -586,10 +593,10 @@
       "title": "Cài đặt",
       "lead": "Cấu hình doanh nghiệp cho mọi mô-đun AGXORA — hồ sơ, tổ chức, AI, giao diện, bảo mật, thanh toán và kiểm soát dành cho nhà phát triển ở cùng một nơi.",
       "loading": "Đang tải cài đặt…",
-      "breadcrumb": "{nhãn} · {mô tả}"
+      "breadcrumb": "{label} · {description}"
     },
     "saveChanges": "Lưu thay đổi",
-    "sessionNotice": "Đã cập nhật cho phiên này — {khu vực} chưa được kết nối.",
+    "sessionNotice": "Đã cập nhật cho phiên này — {area} chưa được kết nối.",
     "kpi": {
       "members": {
         "label": "Thành viên nhóm",
@@ -624,7 +631,7 @@
       "owner": "Người sở hữu",
       "counts": "Thành viên · không gian làm việc",
       "orgUpdated": "Đã cập nhật tổ chức.",
-      "countsValue": "{thành viên} · {không gian làm việc}",
+      "countsValue": "{members} · {workspaces}",
       "joined": "Đã tham gia",
       "workspaceName": "Tên không gian làm việc",
       "switchWorkspace": "Không gian làm việc năng động",
@@ -678,7 +685,7 @@
       "transferHonesty": "Một email xác nhận sẽ được gửi khi cấu hình phân phối. Nếu không hãy chia sẻ liên kết xác nhận trực tiếp với người nhận.",
       "transferLink": "Liên kết xác nhận",
       "transferPendingTitle": "Đang chờ chuyển quyền sở hữu",
-      "transferPendingBody": "Đang chờ {name} ({email}) xác nhận. Hết hạn {hết hạn}. Bạn vẫn là CHỦ SỞ HỮU cho đến lúc đó.",
+      "transferPendingBody": "Đang chờ {name} ({email}) xác nhận. Hết hạn {expires}. Bạn vẫn là CHỦ SỞ HỮU cho đến lúc đó.",
       "transferPendingNote": "Vai trò thành viên không thay đổi trong khi quá trình chuyển đang chờ xử lý.",
       "cancelTransfer": "Hủy chuyển khoản",
       "transferCancelled": "Chuyển quyền sở hữu bị hủy bỏ.",
@@ -703,9 +710,32 @@
     "passwordLettersNumbers": "Mật khẩu phải bao gồm chữ cái và số.",
     "passwordMismatch": "Mật khẩu không khớp.",
     "acceptTerms": "Vui lòng chấp nhận các điều khoản để tiếp tục.",
-    "generic": "Đã xảy ra lỗi.",
+    "generic": "Đã xảy ra sự cố.",
     "tryAgain": "Vui lòng thử lại.",
-    "saved": "Đã lưu thành công."
+    "saved": "Đã lưu thành công.",
+    "invalidCredentials": "Email hoặc mật khẩu không hợp lệ.",
+    "signInRequired": "Cần đăng nhập.",
+    "insufficientPermissions": "Không đủ quyền.",
+    "noRouteAccess": "Bạn không có quyền truy cập tuyến này.",
+    "accountLocked": "Tài khoản này đã bị khóa. Liên hệ quản trị viên.",
+    "sessionExpired": "Phiên của bạn đã hết hạn. Đăng nhập lại.",
+    "missingPermission": "Thiếu quyền: {permission}",
+    "roleCannotAccess": "Vai trò của bạn không thể truy cập tài nguyên này.",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "Email hoặc mật khẩu không hợp lệ.",
+      "AUTH_SESSION_EXPIRED": "Phiên của bạn đã hết hạn. Đăng nhập lại.",
+      "AUTH_ACCOUNT_LOCKED": "Tài khoản này đã bị khóa. Liên hệ quản trị viên.",
+      "AUTH_SIGN_IN_REQUIRED": "Đăng nhập để tiếp tục.",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "Không đủ quyền.",
+      "AUTH_NO_ROUTE_ACCESS": "Bạn không có quyền truy cập tuyến này.",
+      "COMMON_SOMETHING_WENT_WRONG": "Đã xảy ra sự cố.",
+      "COMMON_PAGE_NOT_FOUND": "Không tìm thấy trang.",
+      "COMMON_OFFLINE": "Bạn đang ngoại tuyến.",
+      "COMMON_TIMEOUT": "Yêu cầu đã hết thời gian.",
+      "COMMON_VALIDATION": "Kiểm tra dữ liệu nhập và thử lại.",
+      "COMMON_UNKNOWN": "Đã xảy ra lỗi không xác định.",
+      "COMMON_INTERNAL": "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại."
+    }
   },
   "dashboard": {
     "skipToContent": "Chuyển đến nội dung bảng điều khiển",
@@ -1190,20 +1220,20 @@
       "viewPricing": "Xem giá",
       "bookDemo": "Giới thiệu sách",
       "failed": "Không thể gửi yêu cầu",
-      "country": "Country",
-      "savedFor": "Saved for {company}. Sales delivery is not connected in this build.",
-      "preferWalkthrough": "Prefer a product walkthrough next?",
-      "preferSelfServe": "Prefer self-serve?"
+      "country": "Quốc gia",
+      "savedFor": "Đã lưu cho {company}. Gửi sales chưa được kết nối trong bản dựng này.",
+      "preferWalkthrough": "Muốn xem hướng dẫn sản phẩm tiếp theo?",
+      "preferSelfServe": "Muốn tự phục vụ?"
     },
     "welcome": {
       "title": "Chào mừng đến với AGXORA",
       "subtitle": "Không gian làm việc của bạn đã sẵn sàng. Tiếp tục đến bảng điều khiển.",
       "continue": "Đi tới trang tổng quan",
-      "checklistProfile": "Confirm your organization profile",
-      "checklistModules": "Choose modules that match how you work",
-      "checklistDashboard": "Enter the dashboard with a clear starting point",
-      "exploreFirst": "Prefer to explore first?",
-      "skipToDashboard": "Skip to dashboard"
+      "checklistProfile": "Xác nhận hồ sơ tổ chức của bạn",
+      "checklistModules": "Chọn mô-đun phù hợp với cách bạn làm việc",
+      "checklistDashboard": "Vào bảng điều khiển với điểm bắt đầu rõ ràng",
+      "exploreFirst": "Muốn khám phá trước?",
+      "skipToDashboard": "Bỏ qua tới bảng điều khiển"
     },
     "locked": {
       "title": "Tài khoản bị khóa",
@@ -1216,7 +1246,17 @@
       "subtitle": "Vui lòng đăng nhập lại để tiếp tục.",
       "signIn": "Đăng nhập"
     },
-    "brand": "AGXORA"
+    "brand": "AGXORA",
+    "validation": {
+      "emailRequired": "Email là bắt buộc.",
+      "emailInvalid": "Nhập địa chỉ email hợp lệ.",
+      "passwordRequired": "Mật khẩu là bắt buộc.",
+      "passwordMin": "Mật khẩu phải có ít nhất 8 ký tự.",
+      "nameRequired": "Tên là bắt buộc.",
+      "nameMin": "Tên phải có ít nhất 2 ký tự.",
+      "passwordMismatch": "Mật khẩu không khớp.",
+      "slugFormat": "Chỉ dùng chữ thường, số và dấu gạch ngang."
+    }
   },
   "crm": {
     "page": {
@@ -1318,12 +1358,12 @@
         "previous": "Trước",
         "next": "Kế tiếp"
       },
-      "showing": "Đang hiển thị {từ}–{to} trong tổng số {total}",
+      "showing": "Đang hiển thị {from}–{to} trong tổng số {total}",
       "aria": {
-        "openCustomer": "Mở khách hàng {công ty}"
+        "openCustomer": "Mở khách hàng {company}"
       },
       "cardMeta": "Chủ sở hữu {owner} · Đã tạo {date}",
-      "sortBy": "Sắp xếp theo {cột}"
+      "sortBy": "Sắp xếp theo {column}"
     },
     "status": {
       "lead": "Chỉ huy",
@@ -1693,7 +1733,7 @@
         "label": "Điểm sức khỏe AI",
         "caption": "Tín hiệu chất lượng mối quan hệ"
       },
-      "scoreOutOf": "{điểm} / {tối đa}"
+      "scoreOutOf": "{score} / {max}"
     },
     "pipeline": {
       "lead": "Chỉ huy",
@@ -1801,16 +1841,16 @@
         "vat-due": {
           "label": "VAT đến hạn",
           "caption": "Mẫu · Cửa sổ Q2",
-          "delta": "Đến hạn sau {ngày} ngày nữa"
+          "delta": "Đến hạn sau {days} ngày nữa"
         },
         "open-invoices": {
           "label": "Mở hóa đơn",
-          "caption": "Mẫu · {tiền} chưa thanh toán"
+          "caption": "Mẫu · {money} chưa thanh toán"
         },
         "paid-invoices": {
           "label": "Hóa đơn đã thanh toán",
           "caption": "Mẫu · quý này",
-          "delta": "+{đếm}"
+          "delta": "+{count}"
         },
         "cashflow": {
           "label": "Dòng tiền",
@@ -1820,10 +1860,10 @@
         "ai-score": {
           "label": "Điểm tài chính AI",
           "caption": "Điểm mẫu · không phải điểm rủi ro trực tiếp",
-          "delta": "+{đếm}"
+          "delta": "+{count}"
         }
       },
-      "scoreOutOf": "{điểm} / {tối đa}"
+      "scoreOutOf": "{score} / {max}"
     },
     "invoices": {
       "emptyTitle": "Không có hóa đơn",
@@ -1834,7 +1874,7 @@
       "sortBy": "Sắp xếp theo",
       "toggleSort": "Chuyển đổi hướng sắp xếp",
       "count": "{count} hóa đơn",
-      "countOne": "{đếm} hóa đơn",
+      "countOne": "{count} hóa đơn",
       "allStatuses": "Tất cả trạng thái",
       "allPayments": "Tất cả các khoản thanh toán",
       "columns": {
@@ -2090,42 +2130,42 @@
       "documents": {
         "label": "Tài liệu",
         "caption": "Mẫu · trên các thư mục",
-        "delta": "+{đếm}"
+        "delta": "+{count}"
       },
       "folders": {
         "label": "Thư mục",
         "caption": "Mẫu · bao gồm các bộ sưu tập thông minh",
-        "delta": "+{đếm}"
+        "delta": "+{count}"
       },
       "storage": {
         "label": "Bộ nhớ đã sử dụng",
         "caption": "Mẫu · sơ đồ minh họa",
-        "delta": "+{kích thước}"
+        "delta": "+{size}"
       },
       "shared": {
         "label": "Tài liệu được chia sẻ",
         "caption": "Mẫu · tổ chức + bộ phận + người dùng",
-        "delta": "+{đếm}"
+        "delta": "+{count}"
       },
       "activity": {
         "label": "Hoạt động gần đây",
         "caption": "Mẫu · 24 giờ qua",
-        "delta": "+{đếm}"
+        "delta": "+{count}"
       },
       "indexed": {
         "label": "AI được lập chỉ mục",
         "caption": "Mẫu · Tìm kiếm AI không được kết nối",
-        "delta": "{phần trăm}"
+        "delta": "{percent}"
       },
       "approvals": {
         "label": "Đang chờ phê duyệt",
         "caption": "Mẫu · tự động hóa không được kết nối",
-        "delta": "{đếm}"
+        "delta": "{count}"
       },
       "score": {
         "label": "Điểm kiến ​​thức",
         "caption": "Mẫu · minh họa phạm vi bảo hiểm",
-        "delta": "+{đếm}"
+        "delta": "+{count}"
       }
     },
     "library": {
@@ -2152,8 +2192,8 @@
       "favorite": "Yêu thích",
       "sharedBadge": "Đã chia sẻ",
       "title": "Thư viện tài liệu",
-      "results": "{đếm} kết quả",
-      "resultOne": "{đếm} kết quả",
+      "results": "{count} kết quả",
+      "resultOne": "{count} kết quả",
       "selected": "· Đã chọn {count}",
       "bulkAction": "Hành động hàng loạt",
       "bulkUnavailable": "Hành động hàng loạt không khả dụng cho (các) mục {count} — đột biến lưu trữ không được kết nối.",
@@ -2170,7 +2210,7 @@
       "favoritesOnly": "Chỉ mục yêu thích",
       "emptyTitle": "Không có tài liệu để hiển thị",
       "emptyDescription": "Điều chỉnh bộ lọc, xóa tìm kiếm hoặc thêm nội dung kiến ​​thức để phát triển thư viện.",
-      "selectAria": "Chọn {tên}",
+      "selectAria": "Chọn {name}",
       "versionHistoryTitle": "Lịch sử phiên bản",
       "close": "Đóng",
       "context": {
@@ -2191,7 +2231,7 @@
       "zoomIn": "Thu phóng +",
       "prev": "Trước",
       "next": "Kế tiếp",
-      "page": "Trang {trang} / {total}",
+      "page": "Trang {page} / {total}",
       "searchInside": "Tìm kiếm bên trong",
       "findPlaceholder": "Tìm trong bản xem trước…",
       "noMatches": "Không có kết quả phù hợp trong văn bản xem trước.",
@@ -2217,7 +2257,7 @@
       "title": "Lịch sử phiên bản",
       "emptyTitle": "Không có tài liệu nào được chọn",
       "emptyDescription": "Mở tài liệu để kiểm tra phiên bản, ghi chú, khôi phục và so sánh.",
-      "current": "{name} · hiện tại {phiên bản}",
+      "current": "{name} · hiện tại {version}",
       "restore": "Khôi phục phiên bản",
       "compare": "So sánh các phiên bản",
       "restoreTitle": "Khôi phục yêu cầu API lưu trữ",
@@ -2420,10 +2460,10 @@
       "planned": "Đã lên kế hoạch"
     },
     "bytes": {
-      "b": "{giá trị} B",
-      "kb": "{giá trị} KB",
-      "mb": "{giá trị} MB",
-      "gb": "{giá trị} GB"
+      "b": "{value} B",
+      "kb": "{value} KB",
+      "mb": "{value} MB",
+      "gb": "{value} GB"
     }
   },
   "landing": {
@@ -2535,8 +2575,9 @@
       "terms": "Điều khoản",
       "cookies": "Cookie",
       "imprint": "dấu ấn",
-      "copyright": "© {năm} {công ty}"
-    }
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — quả địa cầu 3D"
   },
   "ui": {
     "table": {
@@ -2544,7 +2585,7 @@
       "noResultsDescription": "Không có gì phù hợp với các bộ lọc hiện tại.",
       "previous": "Trước",
       "next": "Kế tiếp",
-      "paginationRange": "{bắt đầu}–{kết thúc} trong tổng số {tổng}",
+      "paginationRange": "{start}–{end} trong tổng số {total}",
       "sortAscending": "Sắp xếp tăng dần",
       "sortDescending": "Sắp xếp giảm dần"
     },
@@ -2589,7 +2630,7 @@
     "page": {
       "eyebrow": "Hệ điều hành quản lý dự án",
       "title": "Dự án",
-      "lead": "Lập kế hoạch phân phối, theo dõi ngân sách và tình trạng, phân công nhóm và quản lý nhiệm vụ cho {tổ chức}. Dữ liệu vẫn tồn tại cục bộ và sẵn sàng cho kết nối phụ trợ.",
+      "lead": "Lập kế hoạch phân phối, theo dõi ngân sách và tình trạng, phân công nhóm và quản lý nhiệm vụ cho {organization}. Dữ liệu vẫn tồn tại cục bộ và sẵn sàng cho kết nối phụ trợ.",
       "yourOrganization": "tổ chức của bạn"
     },
     "list": {
@@ -2612,13 +2653,13 @@
       "emptyTitle": "Chưa có dự án nào",
       "emptyDescription": "Tăng cường không gian làm việc phân phối để theo dõi các mốc quan trọng, ngân sách và quyền sở hữu nhóm.",
       "createProject": "Tạo dự án",
-      "pagination": "Đang hiển thị {từ}–{to} trong tổng số {total}",
+      "pagination": "Đang hiển thị {from}–{to} trong tổng số {total}",
       "previous": "Trước",
       "next": "Kế tiếp",
       "noDescription": "Chưa có mô tả nào.",
-      "duePrefix": "Đến hạn {ngày}",
+      "duePrefix": "Đến hạn {date}",
       "openProject": "Mở dự án {name}",
-      "sortBy": "Sắp xếp theo {cột}",
+      "sortBy": "Sắp xếp theo {column}",
       "sort": {
         "name": "Tên",
         "customer": "Khách hàng",
@@ -2680,7 +2721,7 @@
     },
     "badges": {
       "progress": "Tiến triển",
-      "progressAria": "{nhãn}: {value}%"
+      "progressAria": "{label}: {value}%"
     },
     "status": {
       "planning": "quy hoạch",
@@ -2719,24 +2760,24 @@
       "emptyDescription": "Thêm ngày bắt đầu/ngày đến hạn và nhiệm vụ để điền vào lịch trình.",
       "title": "Dòng thời gian",
       "subtitle": "Bắt đầu, kết thúc, thời lượng, các mốc quan trọng. Các phần phụ thuộc được dành riêng cho bản phát hành trong tương lai.",
-      "dateRange": "{bắt đầu} → {kết thúc} · {ngày}ngày",
-      "itemAria": "{title} từ {bắt đầu} đến {cuối}",
+      "dateRange": "{start} → {end} · {days}ngày",
+      "itemAria": "{title} từ {start} đến {end}",
       "dependenciesNone": "Người phụ thuộc: không có"
     },
     "dashboard": {
       "kpi": {
         "activeProjects": "Dự án đang hoạt động",
-        "activeHint": "{quy hoạch} quy hoạch",
+        "activeHint": "{planning} quy hoạch",
         "completed": "Hoàn thành",
         "completedHint": "{percent}% danh mục đầu tư",
         "onHold": "Đang chờ",
-        "onHoldHint": "{đã lưu trữ} đã được lưu trữ",
+        "onHoldHint": "{archived} đã được lưu trữ",
         "teamMembers": "Thành viên nhóm",
         "teamHint": "Trên tất cả các dự án",
         "budgetOverview": "Tổng quan về ngân sách",
         "budgetHint": "Đã sử dụng {percent}% · đã sử dụng {spent}",
         "openTasks": "Nhiệm vụ mở",
-        "openTasksHint": "{quá hạn} quá hạn",
+        "openTasksHint": "{overdue} quá hạn",
         "projectHealth": "Tình trạng dự án",
         "healthHint": "Điểm phân phối tổng hợp",
         "upcomingDeadlines": "Thời hạn sắp tới",
@@ -2763,7 +2804,7 @@
       "emptyTitle": "Không có nhiệm vụ trên bảng",
       "emptyDescription": "Tạo các nhiệm vụ để sắp xếp phân phối trên Việc cần làm, Đang tiến hành, Đánh giá và Hoàn thành.",
       "addTask": "Thêm nhiệm vụ",
-      "columnAria": "cột {trạng thái}",
+      "columnAria": "cột {status}",
       "taskProgress": "Tiến độ nhiệm vụ",
       "edit": "Biên tập",
       "complete": "Hoàn thành"
@@ -2772,7 +2813,7 @@
       "notFoundTitle": "Dự án không tìm thấy",
       "notFoundDescription": "Dự án này có thể đã bị xóa hoặc không có sẵn cho tổ chức hiện tại.",
       "backToProjects": "← Quay lại dự án",
-      "ownerMeta": "{khách hàng} · Chủ sở hữu {chủ sở hữu}",
+      "ownerMeta": "{customer} · Chủ sở hữu {owner}",
       "edit": "Biên tập",
       "delete": "Xóa bỏ",
       "sectionsAria": "Phần chi tiết dự án",
@@ -2881,6 +2922,31 @@
       "memberAdded": "Đã thêm thành viên",
       "settingsSaved": "Đã lưu cài đặt",
       "projectArchived": "Dự án đã lưu trữ"
+    },
+    "validation": {
+      "nameRequired": "Tên dự án là bắt buộc.",
+      "nameMin": "Tên dự án phải có ít nhất 2 ký tự.",
+      "customerRequired": "Khách hàng là bắt buộc.",
+      "ownerRequired": "Chủ dự án là bắt buộc.",
+      "priorityInvalid": "Chọn độ ưu tiên hợp lệ.",
+      "statusInvalid": "Chọn trạng thái hợp lệ.",
+      "currencyInvalid": "Chọn loại tiền hợp lệ.",
+      "budgetInvalid": "Ngân sách phải là số không âm.",
+      "startDateRequired": "Ngày bắt đầu là bắt buộc.",
+      "startDateInvalid": "Nhập ngày bắt đầu hợp lệ.",
+      "dueDateInvalid": "Nhập ngày đến hạn hợp lệ.",
+      "dueDateOrder": "Ngày đến hạn phải vào hoặc sau ngày bắt đầu.",
+      "colorInvalid": "Chọn màu hợp lệ.",
+      "iconInvalid": "Chọn biểu tượng hợp lệ.",
+      "taskTitleRequired": "Tiêu đề công việc là bắt buộc.",
+      "progressRange": "Tiến độ phải từ 0 đến 100.",
+      "memberNameRequired": "Tên thành viên là bắt buộc.",
+      "emailRequired": "Email là bắt buộc.",
+      "emailInvalid": "Nhập địa chỉ email hợp lệ.",
+      "roleInvalid": "Chọn vai trò hợp lệ.",
+      "noteTitleRequired": "Tiêu đề ghi chú là bắt buộc.",
+      "noteBodyRequired": "Nội dung ghi chú là bắt buộc.",
+      "authorRequired": "Tác giả là bắt buộc."
     }
   },
   "automation": {
@@ -2955,7 +3021,7 @@
       "tabActions": "hành động",
       "tabAiActions": "Hành động AI",
       "builderTitle": "Trình tạo quy trình làm việc · {name}",
-      "builderHint": "Bám vào lưới {lưới}px · ⌘/Ctrl+thu phóng cuộn · kéo khung vẽ để xoay · nhấp đúp vào kết nối",
+      "builderHint": "Bám vào lưới {grid}px · ⌘/Ctrl+thu phóng cuộn · kéo khung vẽ để xoay · nhấp đúp vào kết nối",
       "autoSaved": "Tự động lưu",
       "saving": "Đang lưu…",
       "undo": "Hoàn tác",
@@ -2981,13 +3047,13 @@
       "noMatches": "Không có luồng công việc nào phù hợp với bộ lọc này."
     },
     "miniPreview": {
-      "emptyWorkflow": "Empty workflow"
+      "emptyWorkflow": "Quy trình trống"
     },
     "workflowTemplates": {
       "title": "Thư viện mẫu",
       "noticeDefault": "Xem trước mẫu trước khi tải nó vào trình tạo.",
       "noticeLoaded": "Đã tải \"{name}\" vào trình tạo quy trình công việc.",
-      "nodesBadge": "nút {đếm}",
+      "nodesBadge": "nút {count}",
       "recommendedFor": "Được đề xuất cho: {for}",
       "preview": "Xem trước",
       "useTemplate": "Sử dụng mẫu",
@@ -3024,9 +3090,9 @@
         "runResult": "Chạy {status} ({duration}ms)",
         "runFailed": "Quy trình làm việc không thể chạy (bị vô hiệu hóa hoặc bị thiếu).",
         "publishedEvent": "Sự kiện miền đã xuất bản: {type}",
-        "workflowStatus": "Quy trình làm việc {trạng thái}",
+        "workflowStatus": "Quy trình làm việc {status}",
         "saved": "Đã lưu quy trình làm việc",
-        "retryResult": "Thử lại {trạng thái}",
+        "retryResult": "Thử lại {status}",
         "retryFailed": "Thử lại không thành công",
         "settingsSaved": "Đã lưu cài đặt tự động hóa"
       },
@@ -3081,7 +3147,7 @@
         "emptyTitle": "Chưa có vụ hành quyết nào.",
         "emptyDescription": "Chạy một quy trình công việc hoặc xuất bản một sự kiện trên miền.",
         "latestRun": "Chi tiết chạy mới nhất",
-        "path": "Đường dẫn: {đường dẫn}",
+        "path": "Đường dẫn: {path}",
         "error": "· Lỗi: {error}",
         "columns": {
           "workflow": "Quy trình làm việc",
@@ -3115,12 +3181,311 @@
         "timeoutMs": "Thời gian chờ (ms)",
         "logLevel": "Cấp độ nhật ký",
         "logLevels": {
-          "error": "error",
-          "warn": "warn",
-          "info": "info",
-          "debug": "debug"
+          "error": "lỗi",
+          "warn": "cảnh báo",
+          "info": "thông tin",
+          "debug": "gỡ lỗi"
         },
         "saveSettings": "Lưu cài đặt"
+      }
+    },
+    "status": {
+      "connected": "Đã kết nối",
+      "beta": "Beta",
+      "comingSoon": "Sắp ra mắt",
+      "disabled": "Đã tắt",
+      "planned": "Đã lên kế hoạch",
+      "success": "Thành công",
+      "failed": "Thất bại",
+      "running": "Đang chạy",
+      "pending": "Đang chờ",
+      "retried": "Thử lại"
+    },
+    "difficulty": {
+      "starter": "Cơ bản",
+      "intermediate": "Trung cấp",
+      "advanced": "Nâng cao"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "Bộ kích hoạt",
+        "description": "Bắt đầu khi một sự kiện xảy ra"
+      },
+      "el-condition": {
+        "label": "Điều kiện",
+        "description": "Rẽ nhánh theo quy tắc"
+      },
+      "el-delay": {
+        "label": "Độ trễ",
+        "description": "Chờ trước khi tiếp tục"
+      },
+      "el-approval": {
+        "label": "Phê duyệt",
+        "description": "Cổng phê duyệt của người"
+      },
+      "el-loop": {
+        "label": "Vòng lặp",
+        "description": "Lặp qua một tập hợp"
+      },
+      "el-merge": {
+        "label": "Gộp",
+        "description": "Gộp các nhánh song song"
+      },
+      "el-split": {
+        "label": "Tách",
+        "description": "Tỏa ra các nhánh song song"
+      },
+      "el-ai-decision": {
+        "label": "Quyết định AI",
+        "description": "Định tuyến qua AI"
+      },
+      "el-notification": {
+        "label": "Thông báo",
+        "description": "Cảnh báo trong ứng dụng"
+      },
+      "el-webhook": {
+        "label": "Giữ chỗ Webhook",
+        "description": "Đã dành callback HTTP"
+      },
+      "el-custom": {
+        "label": "Hành động tùy chỉnh",
+        "description": "Khe hành động mở rộng được"
+      },
+      "tr-customer": {
+        "label": "Đã tạo khách hàng",
+        "description": "Đã tạo bản ghi khách hàng CRM"
+      },
+      "tr-lead": {
+        "label": "Đã tạo lead",
+        "description": "Lead mới vào pipeline"
+      },
+      "tr-invoice": {
+        "label": "Đã tạo hóa đơn",
+        "description": "Đã phát hành hóa đơn tài chính"
+      },
+      "tr-invoice-paid": {
+        "label": "Hóa đơn đã thanh toán",
+        "description": "Thanh toán đã tất toán"
+      },
+      "tr-order": {
+        "label": "Đã tạo đơn hàng",
+        "description": "Đơn hàng đã nhập"
+      },
+      "tr-order-done": {
+        "label": "Đơn hàng hoàn tất",
+        "description": "Đơn hàng đã giao"
+      },
+      "tr-doc": {
+        "label": "Đã tải tài liệu lên",
+        "description": "Tải lên kho tài liệu"
+      },
+      "tr-campaign": {
+        "label": "Chiến dịch đã xuất bản",
+        "description": "Xuất bản Creator Studio"
+      },
+      "tr-employee": {
+        "label": "Đã thêm nhân viên",
+        "description": "Thay đổi thư mục nhóm"
+      },
+      "tr-task": {
+        "label": "Công việc hoàn tất",
+        "description": "Công việc được đánh dấu xong"
+      },
+      "tr-manual": {
+        "label": "Bộ kích hoạt thủ công",
+        "description": "Chạy khi cần"
+      },
+      "tr-schedule": {
+        "label": "Bộ kích hoạt lịch",
+        "description": "Lịch cron / lịch"
+      },
+      "tr-webhook": {
+        "label": "Bộ kích hoạt Webhook",
+        "description": "Sự kiện HTTP đến"
+      },
+      "tr-api": {
+        "label": "Bộ kích hoạt API",
+        "description": "Khởi động theo chương trình"
+      },
+      "ac-crm": {
+        "label": "Tạo bản ghi CRM",
+        "description": "Ghi thực thể CRM"
+      },
+      "ac-invoice": {
+        "label": "Tạo hóa đơn",
+        "description": "Hóa đơn tài chính"
+      },
+      "ac-quote": {
+        "label": "Tạo báo giá",
+        "description": "Tạo tài liệu báo giá"
+      },
+      "ac-delivery": {
+        "label": "Tạo phiếu giao hàng",
+        "description": "Phiếu giao hàng"
+      },
+      "ac-task": {
+        "label": "Tạo công việc",
+        "description": "Mở một công việc"
+      },
+      "ac-assign": {
+        "label": "Gán nhân viên",
+        "description": "Chuyển cho đồng đội"
+      },
+      "ac-email": {
+        "label": "Gửi email",
+        "description": "Email gửi đi"
+      },
+      "ac-notify": {
+        "label": "Gửi thông báo",
+        "description": "Thông báo trong ứng dụng"
+      },
+      "ac-ai-summary": {
+        "label": "Tạo tóm tắt AI",
+        "description": "Tóm tắt ngữ cảnh"
+      },
+      "ac-ai-content": {
+        "label": "Tạo nội dung AI",
+        "description": "Bản nháp Creator Studio"
+      },
+      "ac-update-customer": {
+        "label": "Cập nhật khách hàng",
+        "description": "Vá khách hàng CRM"
+      },
+      "ac-update-status": {
+        "label": "Cập nhật trạng thái",
+        "description": "Đổi trạng thái thực thể"
+      },
+      "ac-pdf": {
+        "label": "Xuất PDF",
+        "description": "Xuất tài liệu"
+      },
+      "ac-future": {
+        "label": "Giữ chỗ API tương lai",
+        "description": "Khe hành động dành sẵn"
+      },
+      "ai-decision": {
+        "label": "Quyết định AI",
+        "description": "Quyết định nhánh tiếp theo"
+      },
+      "ai-class": {
+        "label": "Phân loại AI",
+        "description": "Phân loại bản ghi"
+      },
+      "ai-text": {
+        "label": "Tạo văn bản AI",
+        "description": "Tạo văn bản"
+      },
+      "ai-translate": {
+        "label": "Dịch AI",
+        "description": "Dịch nội dung"
+      },
+      "ai-email": {
+        "label": "Thư trả lời AI",
+        "description": "Soạn thư trả lời"
+      },
+      "ai-sum": {
+        "label": "Tóm tắt AI",
+        "description": "Cô đọng ngữ cảnh"
+      },
+      "ai-rec": {
+        "label": "Gợi ý AI",
+        "description": "Đề xuất bước tiếp theo"
+      },
+      "ai-route": {
+        "label": "Định tuyến AI",
+        "description": "Định tuyến tới chủ sở hữu / hàng đợi"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "Khách hàng đã tạo",
+        "description": "Kích hoạt khi tạo bản ghi khách hàng CRM."
+      },
+      "project_created": {
+        "label": "Dự án đã được tạo",
+        "description": "Kích hoạt khi tạo dự án."
+      },
+      "invoice_issued": {
+        "label": "Hóa đơn đã phát hành",
+        "description": "Kích hoạt khi phát hành hóa đơn."
+      },
+      "task_completed": {
+        "label": "Nhiệm vụ đã hoàn thành",
+        "description": "Kích hoạt khi nhiệm vụ được đánh dấu hoàn tất."
+      },
+      "document_uploaded": {
+        "label": "Tài liệu đã được tải lên",
+        "description": "Kích hoạt khi tài liệu được tải lên."
+      },
+      "user_invited": {
+        "label": "Đã mời người dùng",
+        "description": "Kích hoạt khi một thành viên nhóm được mời."
+      },
+      "schedule": {
+        "label": "Lịch trình",
+        "description": "Trình kích hoạt lịch cron / khoảng thời gian."
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "Webhook HTTP đến."
+      },
+      "api_event": {
+        "label": "Sự kiện API",
+        "description": "Sự kiện miền API chung."
+      },
+      "ai_event": {
+        "label": "Sự kiện AI",
+        "description": "Tín hiệu AI (hoàn tất, insight, bước tác nhân)."
+      },
+      "manual": {
+        "label": "Kích hoạt thủ công",
+        "description": "Chạy theo yêu cầu từ giao diện hoặc API."
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "Tạo khách hàng",
+        "description": "Tạo bản ghi khách hàng CRM."
+      },
+      "customer_update": {
+        "label": "Cập nhật khách hàng",
+        "description": "Cập nhật trường khách hàng."
+      },
+      "project_create": {
+        "label": "Tạo dự án",
+        "description": "Tạo dự án từ ngữ cảnh quy trình."
+      },
+      "document_generate": {
+        "label": "Tạo tài liệu",
+        "description": "Tạo tài liệu từ mẫu."
+      },
+      "notification_send": {
+        "label": "Gửi thông báo",
+        "description": "Gửi thông báo trong ứng dụng."
+      },
+      "email_send": {
+        "label": "Gửi email",
+        "description": "Xếp hàng email qua nhà cung cấp thư."
+      },
+      "api_call": {
+        "label": "Gọi API",
+        "description": "Gọi HTTP tới API nội bộ hoặc bên ngoài."
+      },
+      "ai_run": {
+        "label": "Chạy AI",
+        "description": "Chạy prompt AI / bước tác nhân kèm ngữ cảnh."
+      },
+      "task_assign": {
+        "label": "Gán nhiệm vụ",
+        "description": "Gán nhiệm vụ cho người dùng."
+      },
+      "invoice_create": {
+        "label": "Tạo hóa đơn",
+        "description": "Tạo hóa đơn tài chính."
+      },
+      "status_update": {
+        "label": "Cập nhật trạng thái",
+        "description": "Cập nhật trạng thái thực thể trong mô-đun."
       }
     }
   },
@@ -3128,7 +3493,7 @@
     "page": {
       "eyebrow": "Nhận dạng & Quyền truy cập",
       "title": "Đội",
-      "lead": "Thành viên, vai trò và lời mời cho {tổ chức}. Kiến trúc sẵn sàng cho API nhận dạng trong tương lai.",
+      "lead": "Thành viên, vai trò và lời mời cho {organization}. Kiến trúc sẵn sàng cho API nhận dạng trong tương lai.",
       "yourOrganization": "tổ chức của bạn"
     },
     "invite": {
@@ -3185,7 +3550,7 @@
       "title": "Lời mời đang chờ xử lý",
       "emptyTitle": "Không có lời mời đang chờ xử lý",
       "emptyDescription": "Lời mời mới xuất hiện ở đây cho đến khi được chấp nhận hoặc hết hạn.",
-      "expires": "{role} · hết hạn vào {ngày}",
+      "expires": "{role} · hết hạn vào {date}",
       "revoke": "Thu hồi",
       "pending": "chưa giải quyết"
     },
@@ -3206,7 +3571,7 @@
     "page": {
       "sectionTitle": "Quản lý khách hàng",
       "title": "Khách hàng",
-      "lead": "Tạo, chỉnh sửa, tìm kiếm và quản lý hồ sơ khách hàng cho {tổ chức}.",
+      "lead": "Tạo, chỉnh sửa, tìm kiếm và quản lý hồ sơ khách hàng cho {organization}.",
       "yourOrganization": "tổ chức của bạn"
     },
     "table": {
@@ -3221,9 +3586,9 @@
       "view": "Xem",
       "edit": "Biên tập",
       "delete": "Xóa bỏ",
-      "viewAria": "Xem {công ty}",
-      "editAria": "Chỉnh sửa {công ty}",
-      "deleteAria": "Xóa {công ty}",
+      "viewAria": "Xem {company}",
+      "editAria": "Chỉnh sửa {company}",
+      "deleteAria": "Xóa {company}",
       "loading": "Đang tải khách hàng…",
       "errorLoad": "Không thể tải khách hàng",
       "errorGeneric": "Đã xảy ra lỗi",
@@ -3300,6 +3665,18 @@
       "updated": "Đã cập nhật",
       "notes": "Ghi chú",
       "noNotes": "Chưa có ghi chú nào."
+    },
+    "validation": {
+      "companyRequired": "Tên công ty là bắt buộc.",
+      "contactRequired": "Người liên hệ là bắt buộc.",
+      "emailRequired": "Email là bắt buộc.",
+      "emailInvalid": "Nhập địa chỉ email hợp lệ.",
+      "phoneRequired": "Điện thoại là bắt buộc.",
+      "phoneInvalid": "Nhập số điện thoại hợp lệ.",
+      "mobileInvalid": "Nhập số di động hợp lệ.",
+      "statusInvalid": "Chọn trạng thái hợp lệ.",
+      "emailDuplicate": "Đã có khách hàng với email này.",
+      "companyDuplicate": "Đã có khách hàng với tên công ty này."
     }
   },
   "ai": {
@@ -3320,7 +3697,7 @@
       "provider": "nhà cung cấp",
       "model": "Người mẫu",
       "estimatedTokens": "Ước tính. mã thông báo",
-      "tokensInOut": "(vào {vào} / ra {ra})",
+      "tokensInOut": "(vào {in} / ra {out})",
       "cost": "Trị giá",
       "context": "Bối cảnh",
       "contextNone": "không có",
@@ -3383,6 +3760,91 @@
       "placeholder": "Lệnh AI… tóm tắt, đề xuất, phân tích…",
       "noMatches": "Không có lệnh phù hợp",
       "footer": "Đăng ký các lệnh trong tương lai thông qua registerAiCommand - Giao diện người dùng không thay đổi."
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "Dự án",
+      "finance": "Tài chính",
+      "marketing": "Marketing",
+      "documents": "Tài liệu",
+      "automation": "Tự động hóa",
+      "general": "Chung"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "Tóm tắt khách hàng",
+        "description": "Tóm tắt điều hành mối quan hệ khách hàng"
+      },
+      "crm-follow-up-email": {
+        "title": "Email theo dõi",
+        "description": "Soạn email theo dõi CRM chuyên nghiệp"
+      },
+      "projects-analyze": {
+        "title": "Phân tích dự án",
+        "description": "Kiểm tra sức khỏe dự án"
+      },
+      "projects-task-list": {
+        "title": "Tạo danh sách công việc",
+        "description": "Chia công việc thành các nhiệm vụ có thể thực hiện"
+      },
+      "finance-explain-invoice": {
+        "title": "Giải thích hóa đơn",
+        "description": "Giải thích hóa đơn bằng ngôn ngữ dễ hiểu"
+      },
+      "finance-cashflow-brief": {
+        "title": "Tóm tắt dòng tiền",
+        "description": "Mô tả ngắn về dòng tiền"
+      },
+      "marketing-campaign-outline": {
+        "title": "Dàn ý chiến dịch",
+        "description": "Cấu trúc chiến dịch marketing"
+      },
+      "marketing-proposal": {
+        "title": "Tạo đề xuất",
+        "description": "Bản nháp đề xuất dành cho khách"
+      },
+      "documents-summarize": {
+        "title": "Tóm tắt tài liệu",
+        "description": "Tóm tắt tài liệu có cấu trúc"
+      },
+      "automation-workflow": {
+        "title": "Thiết kế quy trình",
+        "description": "Phác thảo quy trình tự động hóa"
+      },
+      "general-brainstorm": {
+        "title": "Động não các lựa chọn",
+        "description": "Lên ý tưởng có cấu trúc"
+      },
+      "general-explain": {
+        "title": "Giải thích đơn giản",
+        "description": "Giải thích rõ cho các bên liên quan"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "Tóm tắt khách hàng",
+        "description": "Tóm tắt điều hành khách hàng đang chọn"
+      },
+      "cmd-generate-proposal": {
+        "label": "Tạo đề xuất",
+        "description": "Soạn dàn ý đề xuất cho khách"
+      },
+      "cmd-analyze-project": {
+        "label": "Phân tích dự án",
+        "description": "Sức khỏe dự án và phân tích rủi ro"
+      },
+      "cmd-create-task-list": {
+        "label": "Tạo danh sách công việc",
+        "description": "Chia công việc thành các nhiệm vụ có thể thực hiện"
+      },
+      "cmd-generate-email": {
+        "label": "Tạo email",
+        "description": "Soạn email chuyên nghiệp"
+      },
+      "cmd-explain-invoice": {
+        "label": "Giải thích hóa đơn",
+        "description": "Giải thích hóa đơn bằng ngôn ngữ dễ hiểu"
+      }
     }
   },
   "agents": {
@@ -3429,15 +3891,15 @@
     "registry": {
       "title": "Đăng ký",
       "selectPrompt": "Chọn một đại lý từ sổ đăng ký.",
-      "status": "Trạng thái: {trạng thái}",
-      "health": "Sức khỏe: {sức khỏe}",
-      "queue": "Hàng đợi: {hàng đợi}",
-      "usage": "Cách sử dụng: {cách sử dụng}",
+      "status": "Trạng thái: {status}",
+      "health": "Sức khỏe: {health}",
+      "queue": "Hàng đợi: {queue}",
+      "usage": "Cách sử dụng: {usage}",
       "executeTask": "Thực hiện nhiệm vụ",
       "supervisorDelegate": "Đại biểu giám sát"
     },
     "marketplace": {
-      "tools": "Công cụ: {công cụ}",
+      "tools": "Công cụ: {tools}",
       "installed": "Đã cài đặt",
       "installActivate": "Cài đặt và kích hoạt"
     },
@@ -3445,7 +3907,7 @@
       "title": "giám sát đại lý",
       "emptyTitle": "Không có đại lý để theo dõi",
       "emptyDescription": "Kích hoạt các đại lý từ thị trường.",
-      "latestConfidence": "Độ tin cậy lý luận mới nhất: {sự tự tin} — {bước}"
+      "latestConfidence": "Độ tin cậy lý luận mới nhất: {confidence} — {steps}"
     },
     "history": {
       "title": "Lịch sử thực hiện",
@@ -3504,6 +3966,10 @@
     "goals": {
       "executeBusiness": "Thực thi mục tiêu kinh doanh {agentId}",
       "planAndExecute": "Lập kế hoạch và thực hiện mục tiêu kinh doanh tại không gian làm việc"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "Ưu tiên tác động khách hàng",
+      "delegatedFollowUp": "Theo dõi được ủy thác"
     }
   },
   "integrations": {
@@ -3527,17 +3993,17 @@
       "connectFailed": "Kết nối không thành công",
       "keyCreated": "Khóa API đã được tạo: {prefix}",
       "webhookCreated": "Webhook đã tạo: {name}",
-      "webhookTest": "Kiểm tra webhook {trạng thái}",
+      "webhookTest": "Kiểm tra webhook {status}",
       "networkError": "Lỗi mạng trình khám phá API: {message}",
-      "explorerError": "Trình khám phá API → {trạng thái}: {message}",
-      "explorerSuccess": "Trình khám phá API → {trạng thái}",
+      "explorerError": "Trình khám phá API → {status}: {message}",
+      "explorerSuccess": "Trình khám phá API → {status}",
       "explorerFailed": "Explorer không thành công",
-      "syncResult": "Đồng bộ hóa bản trình diễn · {trạng thái} ({records} bản ghi cục bộ) — không có dữ liệu bên ngoài nào được truyền.",
+      "syncResult": "Đồng bộ hóa bản trình diễn · {status} ({records} bản ghi cục bộ) — không có dữ liệu bên ngoài nào được truyền.",
       "diagnosed": "Đã chẩn đoán",
       "removedConnection": "Đã xóa kết nối demo: {name}",
       "keyRotated": "Đã xoay phím",
       "keyRevoked": "Khóa đã bị thu hồi",
-      "publishedEvent": "Đã xuất bản {loại}",
+      "publishedEvent": "Đã xuất bản {type}",
       "developerSaved": "Đã lưu cài đặt của nhà phát triển"
     },
     "dashboard": {
@@ -3563,7 +4029,7 @@
       "latestSync": "Đồng bộ hóa mới nhất: {status} · {records} bản ghi · chế độ {mode}"
     },
     "available": {
-      "protocols": "Giao thức: {giao thức}",
+      "protocols": "Giao thức: {protocols}",
       "demoConnection": "Kết nối thử nghiệm",
       "connectDemo": "Kết nối (bản demo)",
       "installDemo": "Cài đặt bản demo"
@@ -3576,7 +4042,7 @@
     "apiKeys": {
       "title": "Khóa API",
       "generateKey": "Tạo khóa",
-      "copyOnce": "Sao chép ngay (hiển thị một lần): {bí mật}",
+      "copyOnce": "Sao chép ngay (hiển thị một lần): {secret}",
       "emptyTitle": "Không có khóa API",
       "emptyDescription": "Tạo khóa để truy cập cổng REST."
     },
@@ -3598,7 +4064,7 @@
       "apiDocs": "Trình giữ chỗ tài liệu API: {url}",
       "sdk": "Trình giữ chỗ SDK: {url}",
       "explorerTitle": "Trình khám phá API",
-      "gatewayRoutes": "Các tuyến cửa ngõ: {tuyến}",
+      "gatewayRoutes": "Các tuyến cửa ngõ: {routes}",
       "sendGet": "Gửi NHẬN",
       "oauthProviders": "Nhà cung cấp OAuth",
       "placeholdersHint": "Các tuyến cổng GraphQL, WebSocket và gRPC được đăng ký làm phần giữ chỗ. Ánh xạ trường và giải quyết xung đột đồng bộ hóa đã sẵn sàng về mặt kiến ​​trúc để triển khai chương trình phụ trợ."
@@ -3646,7 +4112,7 @@
     },
     "errors": {
       "failedToFetch": "Không tìm nạp được",
-      "httpStatus": "HTTP {trạng thái}"
+      "httpStatus": "HTTP {status}"
     }
   },
   "intelligence": {
@@ -3730,14 +4196,14 @@
     "insights": {
       "emptyTitle": "Chưa có thông tin chi tiết nào",
       "emptyDescription": "Thông tin chi tiết về bản trình diễn xuất hiện sau hạt giống của không gian làm việc. Việc tạo cái nhìn sâu sắc về AI trực tiếp không được kết nối.",
-      "badge": "Demo · {loại} · {domain} · xác nhận {sự tự tin}"
+      "badge": "Demo · {kind} · {domain} · xác nhận {confidence}"
     },
     "forecasts": {
       "emptyTitle": "Chưa có dự báo nào",
       "emptyDescription": "Dự báo demo xuất hiện sau hạt giống. Các mô hình dự đoán không được kết nối.",
-      "title": "dự báo {loại}",
-      "baseline": "Đường cơ sở {đường cơ sở} → dự kiến ​​{dự kiến} ({ngày}d)",
-      "confidence": "Demo · Sự tự tin {sự tự tin} — {note}"
+      "title": "dự báo {kind}",
+      "baseline": "Đường cơ sở {baseline} → dự kiến ​​{projected} ({days}d)",
+      "confidence": "Demo · Sự tự tin {confidence} — {note}"
     },
     "alerts": {
       "title": "Công cụ cảnh báo",
@@ -3790,7 +4256,7 @@
       "brand": "AGXORA",
       "navLabel": "Điều hướng pháp lý",
       "lastUpdated": "Cập nhật lần cuối: {date}",
-      "footerCopyright": "© 2026 {công ty}",
+      "footerCopyright": "© 2026 {company}",
       "footerNavLabel": "Chân trang hợp pháp",
       "nav": {
         "privacy": "Sự riêng tư",
@@ -3944,7 +4410,134 @@
     "back": "Mặt sau",
     "continue": "Tiếp tục",
     "launching": "Đang khởi chạy…",
-    "enterDashboard": "Nhập trang tổng quan"
+    "enterDashboard": "Nhập trang tổng quan",
+    "defaultCountry": "Hoa Kỳ",
+    "businessTypes": {
+      "hotel": {
+        "label": "Khách sạn",
+        "description": "Khách sạn, phòng, khách và vận hành cơ sở"
+      },
+      "restaurant": {
+        "label": "Nhà hàng",
+        "description": "Ẩm thực, bếp, đặt chỗ và trải nghiệm khách"
+      },
+      "cleaning": {
+        "label": "Vệ sinh",
+        "description": "Vận hành vệ sinh thương mại và dân cư"
+      },
+      "laundry": {
+        "label": "Giặt là",
+        "description": "Xưởng giặt, tuyến thu gom và chăm sóc vải"
+      },
+      "construction": {
+        "label": "Xây dựng",
+        "description": "Công trường, tổ đội, vật tư và bàn giao dự án"
+      },
+      "healthcare": {
+        "label": "Y tế",
+        "description": "Mạng lưới chăm sóc, bệnh nhân và vận hành lâm sàng"
+      },
+      "medical": {
+        "label": "Y khoa",
+        "description": "Phòng khám, lịch hẹn và đội ngũ chăm sóc"
+      },
+      "manufacturing": {
+        "label": "Sản xuất",
+        "description": "Dây chuyền, chất lượng và vận hành cung ứng"
+      },
+      "retail": {
+        "label": "Bán lẻ",
+        "description": "Cửa hàng, tồn kho, trưng bày và khách hàng"
+      },
+      "legal": {
+        "label": "Công ty luật",
+        "description": "Vụ việc, khách, hạn chót và thanh toán"
+      },
+      "accounting": {
+        "label": "Kế toán",
+        "description": "Sổ sách, khách, tờ khai và tư vấn"
+      },
+      "consulting": {
+        "label": "Tư vấn",
+        "description": "Hợp đồng, sản phẩm bàn giao và kết quả khách"
+      },
+      "real_estate": {
+        "label": "Bất động sản",
+        "description": "Tin đăng, khách, xem nhà và giao dịch"
+      },
+      "education": {
+        "label": "Giáo dục",
+        "description": "Chương trình, sinh viên, giảng viên và tuyển sinh"
+      },
+      "automotive": {
+        "label": "Ô tô",
+        "description": "Đại lý, khu dịch vụ và tồn kho xe"
+      },
+      "beauty": {
+        "label": "Salon làm đẹp",
+        "description": "Lịch hẹn, stylist, bán lẻ và hội viên"
+      },
+      "fitness": {
+        "label": "Phòng gym / thể hình",
+        "description": "Hội viên, lớp học, HLV và giữ chân"
+      },
+      "agriculture": {
+        "label": "Nông nghiệp",
+        "description": "Cây trồng, chăn nuôi, năng suất và chuỗi cung ứng"
+      },
+      "transport": {
+        "label": "Vận tải",
+        "description": "Điều phối đội xe, tuyến và vận hành hành khách/hàng"
+      },
+      "logistics": {
+        "label": "Logistics",
+        "description": "Đội xe, kho, tuyến và hoàn tất đơn"
+      },
+      "warehouse": {
+        "label": "Kho",
+        "description": "Lưu kho, lấy hàng, đóng gói và vòng quay tồn"
+      },
+      "insurance": {
+        "label": "Bảo hiểm",
+        "description": "Hợp đồng, bồi thường, thẩm định và giữ chân"
+      },
+      "finance": {
+        "label": "Tài chính",
+        "description": "Vốn, danh mục và vận hành tài chính"
+      },
+      "financial_services": {
+        "label": "Dịch vụ tài chính",
+        "description": "Tư vấn, sản phẩm, tuân thủ và khách hàng"
+      },
+      "technology": {
+        "label": "Công nghệ",
+        "description": "Sản phẩm, kỹ thuật và đội ngũ ra thị trường"
+      },
+      "saas": {
+        "label": "Phần mềm / SaaS",
+        "description": "Thuê bao, mức dùng và thành công khách hàng"
+      },
+      "ecommerce": {
+        "label": "Thương mại điện tử",
+        "description": "Danh mục online, giỏ hàng, hoàn tất đơn và LTV"
+      },
+      "agency": {
+        "label": "Đại lý marketing",
+        "description": "Khách, chiến dịch, retainer và bàn giao"
+      },
+      "freelancer": {
+        "label": "Freelancer",
+        "description": "Hành nghề độc lập, khách, pipeline và dòng tiền"
+      },
+      "government": {
+        "label": "Chính phủ",
+        "description": "Dịch vụ công, chương trình và người dân"
+      },
+      "nonprofit": {
+        "label": "Phi lợi nhuận",
+        "description": "Sứ mệnh, nhà tài trợ, chương trình và tác động"
+      }
+    }
   },
   "creator": {
     "page": {
@@ -4042,8 +4635,8 @@
     "analytics": {
       "title": "Phân tích",
       "topPosts": "Bài viết hàng đầu",
-      "engagement": "Tiếng Anh {giá trị}",
-      "reach": "Đạt đến {giá trị}",
+      "engagement": "Tiếng Anh {value}",
+      "reach": "Đạt đến {value}",
       "recommendations": "Khuyến nghị AI"
     },
     "integrations": {
@@ -4052,6 +4645,47 @@
     },
     "aiFeaturesPanel": {
       "lead": "Bản đồ tính năng AI - ý tưởng, chú thích, hashtag, lịch, chiến dịch, đối tượng, lịch trình, tính nhất quán của thương hiệu, viết lại, dịch, đa ngôn ngữ."
+    },
+    "formats": {
+      "instagram_caption": "Chú thích Instagram",
+      "tiktok_script": "Kịch bản TikTok",
+      "linkedin_post": "Bài LinkedIn",
+      "facebook_post": "Bài Facebook",
+      "x_post": "Bài X",
+      "blog_article": "Bài blog",
+      "newsletter": "Bản tin",
+      "email_campaign": "Chiến dịch email",
+      "product_description": "Mô tả sản phẩm",
+      "ad_copy": "Nội dung quảng cáo",
+      "seo_article": "Bài SEO",
+      "landing_page_copy": "Nội dung trang đích"
+    },
+    "publishStatus": {
+      "draft": "Nháp",
+      "review": "Xem xét",
+      "approved": "Đã duyệt",
+      "scheduled": "Đã lên lịch",
+      "published": "Đã xuất bản",
+      "archive": "Lưu trữ"
+    },
+    "mediaKind": {
+      "image": "Hình ảnh",
+      "video": "Video",
+      "document": "Tài liệu",
+      "logo": "Logo thương hiệu",
+      "template": "Mẫu"
+    },
+    "voice": {
+      "professional": "Chuyên nghiệp",
+      "friendly": "Thân thiện",
+      "luxury": "Sang trọng",
+      "casual": "Thoải mái"
+    },
+    "integrationStatus": {
+      "planned": "Đã lên kế hoạch",
+      "ready": "Sẵn sàng",
+      "connected": "Đã kết nối",
+      "disabled": "Đã tắt"
     }
   },
   "backend": {
@@ -4065,7 +4699,7 @@
     },
     "network": {
       "offline": "Có vẻ như bạn đang ngoại tuyến",
-      "offlineSyncHint": "Changes may not sync until the connection returns.",
+      "offlineSyncHint": "Thay đổi có thể chưa đồng bộ cho đến khi kết nối trở lại.",
       "offlineHelp": "Trợ giúp ngoại tuyến",
       "reconnected": "Đã khôi phục kết nối"
     },
@@ -4111,7 +4745,10 @@
       "startFree": "Thay vào đó hãy bắt đầu miễn phí",
       "backHome": "Trở về nhà",
       "signIn": "Đăng nhập"
-    }
+    },
+    "loading": "Đang tải",
+    "loadingEllipsis": "Đang tải…",
+    "loadingIdentity": "Đang tải danh tính…"
   },
   "workspace": {
     "page": {
@@ -4171,8 +4808,8 @@
       "persistentLogin": "Đăng nhập liên tục",
       "disabled": "Tàn tật",
       "enabled": "Đã bật",
-      "days": "{đếm} ngày",
-      "minutes": "{đếm} phút",
+      "days": "{count} ngày",
+      "minutes": "{count} phút",
       "toggleIdlePolicy": "Chuyển đổi trình giữ chỗ chính sách nhàn rỗi",
       "previewSessionExpired": "Phiên xem trước đã hết hạn",
       "previewAccountLocked": "Xem trước tài khoản đã bị khóa",
@@ -4262,28 +4899,28 @@
       "ariaLabel": "Chuyển đổi không gian làm việc"
     },
     "access": {
-      "eyebrow": "Identity & Access",
-      "signIn": "Sign in",
-      "backToDashboard": "Back to dashboard",
+      "eyebrow": "Danh tính và truy cập",
+      "signIn": "Đăng nhập",
+      "backToDashboard": "Quay lại bảng điều khiển",
       "unauthorized": {
-        "title": "Unauthorized",
-        "description": "Sign in to continue to this area of AGXORA."
+        "title": "Không được phép",
+        "description": "Đăng nhập để tiếp tục khu vực này của AGXORA."
       },
       "forbidden": {
-        "title": "Forbidden",
-        "description": "Your role does not include permission for this resource."
+        "title": "Bị cấm",
+        "description": "Vai trò của bạn không bao gồm quyền cho tài nguyên này."
       },
       "expired_session": {
-        "title": "Expired Session",
-        "description": "Your session expired. Sign in again to resume work."
+        "title": "Phiên đã hết hạn",
+        "description": "Phiên của bạn đã hết hạn. Đăng nhập lại để tiếp tục công việc."
       },
       "missing_permission": {
-        "title": "Missing Permission",
-        "description": "Ask an Owner or Admin to grant the required module access."
+        "title": "Thiếu quyền",
+        "description": "Nhờ Chủ sở hữu hoặc Quản trị viên cấp quyền truy cập mô-đun cần thiết."
       },
       "account_locked": {
-        "title": "Account Locked",
-        "description": "This account is locked. Contact an organization owner or try again later."
+        "title": "Tài khoản bị khóa",
+        "description": "Tài khoản này đã bị khóa. Liên hệ chủ sở hữu tổ chức hoặc thử lại sau."
       }
     },
     "verifyEmail": {

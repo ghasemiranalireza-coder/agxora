@@ -10,7 +10,8 @@
   "network": {
     "offline": "Anda tampaknya sedang offline",
     "offlineHelp": "Bantuan luring",
-    "reconnected": "Koneksi dipulihkan"
+    "reconnected": "Koneksi dipulihkan",
+    "offlineSyncHint": "Perubahan mungkin tidak tersinkron sampai koneksi kembali."
   },
   "errorBoundary": {
     "backToDashboard": "Kembali ke dasbor",
@@ -54,5 +55,8 @@
     "startFree": "Mulailah dengan gratis",
     "backHome": "Kembali ke rumah",
     "signIn": "Masuk"
-  }
+  },
+  "loading": "Memuat",
+  "loadingEllipsis": "Memuat…",
+  "loadingIdentity": "Memuat identitas…"
 }

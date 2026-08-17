@@ -25,13 +25,13 @@
     "emptyTitle": "Nie ma jeszcze żadnych projektów",
     "emptyDescription": "Uruchom obszar roboczy dostawy, aby śledzić kamienie milowe, budżet i własność zespołu.",
     "createProject": "Utwórz projekt",
-    "pagination": "Wyświetlanie {od}–{do} z {total}",
+    "pagination": "Wyświetlanie {from}–{to} z {total}",
     "previous": "Poprzedni",
     "next": "Następny",
     "noDescription": "Nie ma jeszcze opisu.",
-    "duePrefix": "Termin {data}",
+    "duePrefix": "Termin {date}",
     "openProject": "Otwórz projekt {name}",
-    "sortBy": "Sortuj według {kolumny}",
+    "sortBy": "Sortuj według {column}",
     "sort": {
       "name": "Nazwa",
       "customer": "Klient",
@@ -65,7 +65,7 @@
     "tagsPlaceholder": "przedsiębiorstwo, wdrożenie",
     "budgetPlaceholder": "0",
     "description": "Opis",
-    "selectColor": "Wybierz kolor {kolor}"
+    "selectColor": "Wybierz kolor {color}"
   },
   "taskForm": {
     "createTitle": "Utwórz zadanie",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "Postęp",
-    "progressAria": "{label}: {wartość}%"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "Planowanie",
@@ -132,24 +132,24 @@
     "emptyDescription": "Dodaj daty rozpoczęcia/zakończenia i zadania, aby wypełnić harmonogram.",
     "title": "Oś czasu",
     "subtitle": "Początek, koniec, czas trwania, kamienie milowe. Zależności są zarezerwowane dla przyszłej wersji.",
-    "dateRange": "{start} → {koniec} · {dni}d",
+    "dateRange": "{start} → {end} · {days}d",
     "itemAria": "{title} od {start} do {end}",
     "dependenciesNone": "Zależności: brak"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "Aktywne projekty",
-      "activeHint": "{planowanie} planowanie",
+      "activeHint": "{planning} planowanie",
       "completed": "Zakończony",
       "completedHint": "{percent}% portfela",
       "onHold": "Wstrzymane",
-      "onHoldHint": "{archiwum} zarchiwizowane",
+      "onHoldHint": "{archived} zarchiwizowane",
       "teamMembers": "Członkowie zespołu",
       "teamHint": "We wszystkich projektach",
       "budgetOverview": "Przegląd budżetu",
-      "budgetHint": "Wykorzystano {percent}% · Wydano {wydane}",
+      "budgetHint": "Wykorzystano {percent}% · Wydano {spent}",
       "openTasks": "Otwórz Zadania",
-      "openTasksHint": "{zaległe} zaległe",
+      "openTasksHint": "{overdue} zaległe",
       "projectHealth": "Projekt Zdrowie",
       "healthHint": "Złożony wynik dostawy",
       "upcomingDeadlines": "Najbliższe terminy",
@@ -185,7 +185,7 @@
     "notFoundTitle": "Nie znaleziono projektu",
     "notFoundDescription": "Ten projekt mógł zostać usunięty lub jest niedostępny dla bieżącej organizacji.",
     "backToProjects": "← Powrót do projektów",
-    "ownerMeta": "{klient} · Właściciel {właściciel}",
+    "ownerMeta": "{customer} · Właściciel {owner}",
     "edit": "Redagować",
     "delete": "Usuwać",
     "sectionsAria": "Sekcje szczegółów projektu",
@@ -294,5 +294,30 @@
     "memberAdded": "Członek dodał",
     "settingsSaved": "Ustawienia zostały zapisane",
     "projectArchived": "Projekt zarchiwizowany"
+  },
+  "validation": {
+    "nameRequired": "Nazwa projektu jest wymagana.",
+    "nameMin": "Nazwa projektu musi mieć co najmniej 2 znaki.",
+    "customerRequired": "Klient jest wymagany.",
+    "ownerRequired": "Właściciel projektu jest wymagany.",
+    "priorityInvalid": "Wybierz prawidłowy priorytet.",
+    "statusInvalid": "Wybierz prawidłowy status.",
+    "currencyInvalid": "Wybierz prawidłową walutę.",
+    "budgetInvalid": "Budżet musi być liczbą nieujemną.",
+    "startDateRequired": "Data rozpoczęcia jest wymagana.",
+    "startDateInvalid": "Wpisz prawidłową datę rozpoczęcia.",
+    "dueDateInvalid": "Wpisz prawidłową datę terminu.",
+    "dueDateOrder": "Termin musi wypadać w dniu rozpoczęcia lub później.",
+    "colorInvalid": "Wybierz prawidłowy kolor.",
+    "iconInvalid": "Wybierz prawidłową ikonę.",
+    "taskTitleRequired": "Tytuł zadania jest wymagany.",
+    "progressRange": "Postęp musi być między 0 a 100.",
+    "memberNameRequired": "Nazwa członka jest wymagana.",
+    "emailRequired": "E-mail jest wymagany.",
+    "emailInvalid": "Wpisz prawidłowy adres e-mail.",
+    "roleInvalid": "Wybierz prawidłową rolę.",
+    "noteTitleRequired": "Tytuł notatki jest wymagany.",
+    "noteBodyRequired": "Treść notatki jest wymagana.",
+    "authorRequired": "Autor jest wymagany."
   }
 }

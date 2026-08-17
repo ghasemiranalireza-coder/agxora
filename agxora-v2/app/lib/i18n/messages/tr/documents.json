@@ -50,42 +50,42 @@
     "documents": {
       "label": "Belgeler",
       "caption": "Örnek · klasörler arası",
-      "delta": "+{sayım}"
+      "delta": "+{count}"
     },
     "folders": {
       "label": "Klasörler",
       "caption": "Örnek · akıllı koleksiyonlar dahil",
-      "delta": "+{sayım}"
+      "delta": "+{count}"
     },
     "storage": {
       "label": "Kullanılan Depolama",
       "caption": "Açıklayıcı plan örneği",
-      "delta": "+{boyut}"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "Paylaşılan Belgeler",
       "caption": "Örnek · kuruluş + departman + kullanıcılar",
-      "delta": "+{sayım}"
+      "delta": "+{count}"
     },
     "activity": {
       "label": "Son Etkinlik",
       "caption": "Örnek · son 24 saat",
-      "delta": "+{sayım}"
+      "delta": "+{count}"
     },
     "indexed": {
       "label": "AI İndeksli",
       "caption": "Örnek · AI araması bağlı değil",
-      "delta": "{yüzde}"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "Bekleyen Onaylar",
       "caption": "Örnek · otomasyon bağlı değil",
-      "delta": "{saymak}"
+      "delta": "{count}"
     },
     "score": {
       "label": "Bilgi Puanı",
       "caption": "Örnek · kapsam illüstrasyonu",
-      "delta": "+{sayım}"
+      "delta": "+{count}"
     }
   },
   "library": {
@@ -130,7 +130,7 @@
     "favoritesOnly": "Yalnızca favoriler",
     "emptyTitle": "Gösterilecek belge yok",
     "emptyDescription": "Kitaplığı büyütmek için filtreleri ayarlayın, aramayı temizleyin veya bilgi varlıkları ekleyin.",
-    "selectAria": "{isim}'i seçin",
+    "selectAria": "{name}'i seçin",
     "versionHistoryTitle": "Sürüm Geçmişi",
     "close": "Kapalı",
     "context": {
@@ -151,7 +151,7 @@
     "zoomIn": "Yakınlaştır +",
     "prev": "Önceki",
     "next": "Sonraki",
-    "page": "Sayfa {sayfa} / {toplam}",
+    "page": "Sayfa {page} / {total}",
     "searchInside": "İçeride ara",
     "findPlaceholder": "Önizlemede bul…",
     "noMatches": "Önizleme metninde eşleşme yok.",
@@ -195,7 +195,7 @@
     "reject": "Reddetmek",
     "sendToReview": "İncelemeye Gönder",
     "noticeDefault": "Onay geçişleri Otomasyon iş akışı motorunu gerektirir; bu yapıda bağlı değildir.",
-    "unavailable": "{id} için {action} kullanılamıyor — iş akışı motoru bağlı değil. Örnek belge durumu değiştirilmedi.",
+    "unavailable": "{action} için {id} kullanılamıyor — iş akışı motoru bağlı değil. Örnek belge durumu değiştirilmedi.",
     "approveTitle": "Onay kullanılamıyor — iş akışı motoru bağlı değil",
     "rejectTitle": "Reddetme kullanılamıyor — iş akışı motoru bağlı değil",
     "sendTitle": "İncelemeye gönder kullanılamıyor — iş akışı motoru bağlı değil"
@@ -380,9 +380,9 @@
     "planned": "Planlanan"
   },
   "bytes": {
-    "b": "{değer} B",
+    "b": "{value} B",
     "kb": "{value} KB",
-    "mb": "{değer} MB",
+    "mb": "{value} MB",
     "gb": "{value} GB"
   }
 }

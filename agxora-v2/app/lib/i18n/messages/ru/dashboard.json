@@ -148,7 +148,7 @@
     "title": "АГСОРА ИИ",
     "emptyState": "Спросите AGXORA о клиентах, проектах или следующих действиях. Ваш разговор останется в этом сеансе рабочей области.",
     "thinking": "АГСОРА думает…",
-    "errorDismiss": "{ошибка} — нажмите, чтобы закрыть",
+    "errorDismiss": "{error} — нажмите, чтобы закрыть",
     "placeholder": "Спросите AGXORA AI…",
     "messageAria": "Сообщение AGXORA AI",
     "sendAria": "Отправить сообщение",
@@ -381,7 +381,8 @@
         "title": "Поиск знаний",
         "description": "Основные ответы в корпусе Documents Knowledge Hub."
       }
-    }
+    },
+    "esc": "Esc"
   },
   "summary": "{name}: клиенты {customers} · проекты {projects} · сегодняшние обновления {updates}."
 }

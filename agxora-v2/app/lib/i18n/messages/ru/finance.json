@@ -62,12 +62,12 @@
       },
       "open-invoices": {
         "label": "Открытые счета",
-        "caption": "Образец · {деньги} в погашении"
+        "caption": "Образец · {money} в погашении"
       },
       "paid-invoices": {
         "label": "Оплаченные счета",
         "caption": "Образец · в этом квартале",
-        "delta": "+{количество}"
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "Денежный поток",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "Финансовый рейтинг ИИ",
         "caption": "Выборочная оценка · не оценка реального риска",
-        "delta": "+{количество}"
+        "delta": "+{count}"
       }
     },
-    "scoreOutOf": "{оценка} / {макс}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "Нет счетов-фактур",
@@ -252,7 +252,7 @@
     "demoPrefix": "Демо",
     "noticeDefault": "Действия по анализу не связаны друг с другом — на карточках показаны только выборочные результаты.",
     "actionUnavailable": "{action} недоступно — действия Finance Insight не связаны.",
-    "actionUnavailableTitle": "{действие} недоступно — не подключено",
+    "actionUnavailableTitle": "{action} недоступно — не подключено",
     "kinds": {
       "unusual_expense": "Необычные расходы",
       "duplicate_invoice": "Дублирующиеся счета",

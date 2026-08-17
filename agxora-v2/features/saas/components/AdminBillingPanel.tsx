@@ -239,7 +239,7 @@ export function AdminBillingPanel(): JSX.Element {
                 color: "var(--agx-text, #f8fafc)",
               }}
             >
-              <p className="font-medium">{plan.name}</p>
+              <p className="font-medium">{t(`pricing.plans.${plan.id}.name`)}</p>
               <p
                 className="mt-1 text-[11px]"
                 style={{ color: "var(--agx-text-muted, #94a3b8)" }}

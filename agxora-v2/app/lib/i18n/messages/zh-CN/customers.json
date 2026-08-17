@@ -17,9 +17,9 @@
     "view": "查看",
     "edit": "编辑",
     "delete": "删除",
-    "viewAria": "查看{公司}",
-    "editAria": "编辑{公司}",
-    "deleteAria": "删除{公司}",
+    "viewAria": "查看{company}",
+    "editAria": "编辑{company}",
+    "deleteAria": "删除{company}",
     "loading": "正在加载客户...",
     "errorLoad": "无法加载客户",
     "errorGeneric": "出了点问题",
@@ -96,5 +96,17 @@
     "updated": "已更新",
     "notes": "笔记",
     "noNotes": "还没有笔记。"
+  },
+  "validation": {
+    "companyRequired": "公司名称为必填。",
+    "contactRequired": "联系人为必填。",
+    "emailRequired": "电子邮件为必填。",
+    "emailInvalid": "请输入有效的电子邮件地址。",
+    "phoneRequired": "电话为必填。",
+    "phoneInvalid": "请输入有效的电话号码。",
+    "mobileInvalid": "请输入有效的手机号码。",
+    "statusInvalid": "请选择有效状态。",
+    "emailDuplicate": "已存在使用此电子邮件的客户。",
+    "companyDuplicate": "已存在使用此公司名称的客户。"
   }
 }

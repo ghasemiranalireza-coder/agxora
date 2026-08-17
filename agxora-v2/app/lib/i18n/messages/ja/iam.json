@@ -145,5 +145,30 @@
     "verify": "メールの確認",
     "verifying": "確認中…",
     "requestToken": "検証トークンをリクエストする"
+  },
+  "access": {
+    "eyebrow": "ID とアクセス",
+    "signIn": "サインイン",
+    "backToDashboard": "ダッシュボードに戻る",
+    "unauthorized": {
+      "title": "未認証",
+      "description": "AGXORA のこの領域を続けるにはサインインしてください。"
+    },
+    "forbidden": {
+      "title": "アクセス拒否",
+      "description": "このリソースの権限がロールに含まれていません。"
+    },
+    "expired_session": {
+      "title": "セッション期限切れ",
+      "description": "セッションの有効期限が切れました。作業を再開するには再度サインインしてください。"
+    },
+    "missing_permission": {
+      "title": "権限がありません",
+      "description": "必要なモジュールアクセスを付与するよう、オーナーまたは管理者に依頼してください。"
+    },
+    "account_locked": {
+      "title": "アカウントロック中",
+      "description": "このアカウントはロックされています。組織のオーナーに連絡するか、後でもう一度お試しください。"
+    }
   }
 }

@@ -21,7 +21,7 @@
     "webhookCreated": "Webhook dibuat: {name}",
     "webhookTest": "Tes webhook {status}",
     "networkError": "Kesalahan jaringan penjelajah API: {message}",
-    "explorerError": "Penjelajah API → {status}: {pesan}",
+    "explorerError": "Penjelajah API → {status}: {message}",
     "explorerSuccess": "Penjelajah API → {status}",
     "explorerFailed": "Penjelajah gagal",
     "syncResult": "Sinkronisasi demo · {status} ({records} catatan lokal) — tidak ada data eksternal yang ditransfer.",
@@ -55,7 +55,7 @@
     "latestSync": "Sinkronisasi terbaru: {status} · catatan {records} · mode {mode}"
   },
   "available": {
-    "protocols": "Protokol: {protokol}",
+    "protocols": "Protokol: {protocols}",
     "demoConnection": "Koneksi demo",
     "connectDemo": "Hubungkan (demo)",
     "installDemo": "Instal demo"
@@ -68,7 +68,7 @@
   "apiKeys": {
     "title": "Kunci API",
     "generateKey": "Hasilkan kunci",
-    "copyOnce": "Salin sekarang (ditampilkan satu kali): {rahasia}",
+    "copyOnce": "Salin sekarang (ditampilkan satu kali): {secret}",
     "emptyTitle": "Tidak ada kunci API",
     "emptyDescription": "Hasilkan kunci untuk akses gateway REST."
   },

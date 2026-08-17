@@ -385,12 +385,12 @@ export function AgentOperatingSystem(): JSX.Element {
                         agentOsService.supervise(
                           supervisor.instanceId,
                           selectedRuntime.instanceId,
-                          "Prioritize customer impact",
+                          t("agents.os.prioritizeCustomerImpact"),
                         );
                         agentOsService.delegate({
                           fromInstanceId: supervisor.instanceId,
                           toInstanceId: selectedRuntime.instanceId,
-                          title: "Delegated follow-up",
+                          title: t("agents.os.delegatedFollowUp"),
                           organizationId: aos.organizationId,
                         });
                         setNotice(t("agents.notice.supervisorDelegated"));

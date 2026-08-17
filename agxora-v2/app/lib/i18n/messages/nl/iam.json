@@ -45,7 +45,7 @@
     "disabled": "Gehandicapt",
     "enabled": "Ingeschakeld",
     "days": "{count} dagen",
-    "minutes": "{telling} min",
+    "minutes": "{count} min",
     "toggleIdlePolicy": "Schakel tijdelijke aanduiding voor inactief beleid in of uit",
     "previewSessionExpired": "Voorbeeldsessie verlopen",
     "previewAccountLocked": "Voorbeeldaccount vergrendeld",
@@ -145,5 +145,30 @@
     "verify": "E-mail verifiëren",
     "verifying": "Verifiëren…",
     "requestToken": "Verificatietoken aanvragen"
+  },
+  "access": {
+    "eyebrow": "Identiteit en toegang",
+    "signIn": "Inloggen",
+    "backToDashboard": "Terug naar dashboard",
+    "unauthorized": {
+      "title": "Ongeautoriseerd",
+      "description": "Log in om verder te gaan naar dit deel van AGXORA."
+    },
+    "forbidden": {
+      "title": "Verboden",
+      "description": "Uw rol bevat geen toestemming voor deze resource."
+    },
+    "expired_session": {
+      "title": "Sessie verlopen",
+      "description": "Uw sessie is verlopen. Log opnieuw in om verder te werken."
+    },
+    "missing_permission": {
+      "title": "Ontbrekende toestemming",
+      "description": "Vraag een eigenaar of beheerder om de vereiste moduletoegang te verlenen."
+    },
+    "account_locked": {
+      "title": "Account vergrendeld",
+      "description": "Dit account is vergrendeld. Neem contact op met een organisatie-eigenaar of probeer het later opnieuw."
+    }
   }
 }

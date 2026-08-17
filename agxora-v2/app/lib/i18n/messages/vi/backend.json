@@ -10,7 +10,8 @@
   "network": {
     "offline": "Có vẻ như bạn đang ngoại tuyến",
     "offlineHelp": "Trợ giúp ngoại tuyến",
-    "reconnected": "Đã khôi phục kết nối"
+    "reconnected": "Đã khôi phục kết nối",
+    "offlineSyncHint": "Thay đổi có thể chưa đồng bộ cho đến khi kết nối trở lại."
   },
   "errorBoundary": {
     "backToDashboard": "Quay lại trang tổng quan",
@@ -54,5 +55,8 @@
     "startFree": "Thay vào đó hãy bắt đầu miễn phí",
     "backHome": "Trở về nhà",
     "signIn": "Đăng nhập"
-  }
+  },
+  "loading": "Đang tải",
+  "loadingEllipsis": "Đang tải…",
+  "loadingIdentity": "Đang tải danh tính…"
 }

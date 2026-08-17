@@ -59,7 +59,7 @@ export function WorkflowTemplates({
             <div className="mt-3 flex flex-wrap gap-1.5">
               <Badge>{t("automation.workflowTemplates.nodesBadge", { count: tpl.nodeCount })}</Badge>
               <Badge>{tpl.estimatedRuntime}</Badge>
-              <Badge tone="warning">{difficultyLabel(tpl.difficulty)}</Badge>
+              <Badge tone="warning">{t(difficultyLabel(tpl.difficulty))}</Badge>
             </div>
             <p className="mt-2 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {t("automation.workflowTemplates.recommendedFor", { for: tpl.recommendedFor })}
@@ -114,7 +114,7 @@ export function WorkflowTemplates({
               </div>
               <div>
                 <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>{t("automation.workflowTemplates.difficulty")}</dt>
-                <dd style={{ color: "var(--agx-text, #f8fafc)" }}>{difficultyLabel(preview.difficulty)}</dd>
+                <dd style={{ color: "var(--agx-text, #f8fafc)" }}>{t(difficultyLabel(preview.difficulty))}</dd>
               </div>
             </dl>
             <div>

@@ -10,7 +10,8 @@
   "network": {
     "offline": "به نظر می رسد شما آفلاین هستید.",
     "offlineHelp": "کمک آفلاین",
-    "reconnected": "اتصال بازیابی شد"
+    "reconnected": "اتصال بازیابی شد",
+    "offlineSyncHint": "ممکن است تغییرات تا بازگشت اتصال همگام نشوند."
   },
   "errorBoundary": {
     "backToDashboard": "بازگشت به داشبرد",
@@ -54,5 +55,8 @@
     "startFree": "به جای آن، رایگان شروع کنید",
     "backHome": "بازگشت به صفحه اصلی",
     "signIn": "ورود"
-  }
+  },
+  "loading": "در حال بارگذاری",
+  "loadingEllipsis": "در حال بارگذاری…",
+  "loadingIdentity": "در حال بارگذاری هویت…"
 }

@@ -50,42 +50,42 @@
     "documents": {
       "label": "Dokumenty",
       "caption": "Próbka · w folderach",
-      "delta": "+{liczba}"
+      "delta": "+{count}"
     },
     "folders": {
       "label": "Lornetka składana",
       "caption": "Próbka · w tym inteligentne kolekcje",
-      "delta": "+{liczba}"
+      "delta": "+{count}"
     },
     "storage": {
       "label": "Pamięć używana",
       "caption": "Próbka · planu ilustracyjnego",
-      "delta": "+{rozmiar}"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "Udostępnione dokumenty",
       "caption": "Próbka · organizacja + dział + użytkownicy",
-      "delta": "+{liczba}"
+      "delta": "+{count}"
     },
     "activity": {
       "label": "Ostatnia aktywność",
       "caption": "Próbka · ostatnie 24 godziny",
-      "delta": "+{liczba}"
+      "delta": "+{count}"
     },
     "indexed": {
       "label": "Indeksowana sztuczna inteligencja",
       "caption": "Próbka · Wyszukiwanie AI nie jest połączone",
-      "delta": "{procent}"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "Oczekujące zatwierdzenia",
       "caption": "Próbka · automatyka nie podłączona",
-      "delta": "{liczyć}"
+      "delta": "{count}"
     },
     "score": {
       "label": "Wynik wiedzy",
       "caption": "Próbka · ilustracja zasięgu",
-      "delta": "+{liczba}"
+      "delta": "+{count}"
     }
   },
   "library": {
@@ -101,7 +101,7 @@
     },
     "dropzone": "Przeciągnij i upuść pliki tutaj, aby rozpocząć przesyłanie.",
     "uploadReserved": "Przesyłanie metodą „przeciągnij i upuść” jest zarezerwowanym interfejsem API pamięci masowej.",
-    "filesStaged": "Pliki (liczba) przygotowane do przesłania (bez zapisu w pamięci).",
+    "filesStaged": "Pliki (liczba) przygotowane do przesłania (bez zapisu w pamięci). {count}",
     "dropReceived": "Odebrano wiadomość (brak zapisu w pamięci).",
     "foldersTitle": "Foldery i kolekcje",
     "foldersHint": "Zagnieżdżone foldery, kolekcje, inteligentne kolekcje, tagi, przypięte i ulubione.",
@@ -130,7 +130,7 @@
     "favoritesOnly": "Tylko ulubione",
     "emptyTitle": "Brak dokumentów do okazania",
     "emptyDescription": "Dostosuj filtry, wyczyść wyszukiwanie lub dodaj zasoby wiedzy, aby powiększyć bibliotekę.",
-    "selectAria": "Wybierz {imię}",
+    "selectAria": "Wybierz {name}",
     "versionHistoryTitle": "Historia wersji",
     "close": "Zamknąć",
     "context": {
@@ -140,7 +140,7 @@
       "move": "Przenosić",
       "delete": "Usuwać",
       "dismiss": "Odrzucać",
-      "unavailable": "{akcja} niedostępna — mutacje dokumentu nie są połączone dla {id}."
+      "unavailable": "{action} niedostępna — mutacje dokumentu nie są połączone dla {id}."
     }
   },
   "viewer": {
@@ -151,7 +151,7 @@
     "zoomIn": "Powiększ +",
     "prev": "Poprzednia",
     "next": "Następny",
-    "page": "Strona {strona} / {razem}",
+    "page": "Strona {page} / {total}",
     "searchInside": "Szukaj w środku",
     "findPlaceholder": "Znajdź w podglądzie…",
     "noMatches": "Brak dopasowań w tekście podglądu.",
@@ -177,7 +177,7 @@
     "title": "Historia wersji",
     "emptyTitle": "Nie wybrano dokumentu",
     "emptyDescription": "Otwórz dokument, aby sprawdzić wersje, notatki, przywrócić i porównać.",
-    "current": "{imię} · aktualna {wersja}",
+    "current": "{name} · aktualna {version}",
     "restore": "Przywróć wersję",
     "compare": "Porównaj wersje",
     "restoreTitle": "Przywracanie wymaga interfejsu API magazynu",
@@ -195,7 +195,7 @@
     "reject": "Odrzucić",
     "sendToReview": "Wyślij do recenzji",
     "noticeDefault": "Przejścia zatwierdzania wymagają silnika przepływu pracy Automation — niepodłączonego w tej kompilacji.",
-    "unavailable": "{akcja} niedostępna dla {id} — silnik przepływu pracy nie jest podłączony. Przykładowy status dokumentu nie uległ zmianie.",
+    "unavailable": "{action} niedostępna dla {id} — silnik przepływu pracy nie jest podłączony. Przykładowy status dokumentu nie uległ zmianie.",
     "approveTitle": "Zatwierdzenie niedostępne — silnik przepływu pracy nie jest podłączony",
     "rejectTitle": "Odrzucenie niedostępne — silnik przepływu pracy nie jest podłączony",
     "sendTitle": "Wyślij do recenzji niedostępne — silnik przepływu pracy nie jest podłączony"
@@ -380,9 +380,9 @@
     "planned": "Planowany"
   },
   "bytes": {
-    "b": "{wartość} B",
-    "kb": "{wartość} KB",
-    "mb": "{wartość} MB",
-    "gb": "{wartość} GB"
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
   }
 }

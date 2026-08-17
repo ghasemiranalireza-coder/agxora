@@ -60,7 +60,7 @@
     "storage": {
       "label": "Verwendeter Speicher",
       "caption": "Beispiel · eines erläuternden Plans",
-      "delta": "Größe:"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "Geteilte Dokumente",
@@ -75,12 +75,12 @@
     "indexed": {
       "label": "KI-indiziert",
       "caption": "Beispiel · AI-Suche nicht verbunden",
-      "delta": "Prozent"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "Ausstehende Genehmigungen",
       "caption": "Beispiel · Automatisierung nicht angeschlossen",
-      "delta": "{zählen}"
+      "delta": "{count}"
     },
     "score": {
       "label": "Wissenswert",
@@ -130,7 +130,7 @@
     "favoritesOnly": "Nur Favoriten",
     "emptyTitle": "Keine Dokumente vorzeigbar",
     "emptyDescription": "Passen Sie Filter an, löschen Sie die Suche oder fügen Sie Wissensressourcen hinzu, um die Bibliothek zu erweitern.",
-    "selectAria": "Wählen Sie {Name}",
+    "selectAria": "Wählen Sie {name}",
     "versionHistoryTitle": "Versionsverlauf",
     "close": "Schließen",
     "context": {
@@ -177,7 +177,7 @@
     "title": "Versionsverlauf",
     "emptyTitle": "Kein Dokument ausgewählt",
     "emptyDescription": "Öffnen Sie ein Dokument, um Versionen zu überprüfen, Notizen zu machen, wiederherzustellen und zu vergleichen.",
-    "current": "{Name} · aktuelle {Version}",
+    "current": "{name} · aktuelle {version}",
     "restore": "Version wiederherstellen",
     "compare": "Versionen vergleichen",
     "restoreTitle": "Wiederherstellen erfordert die Speicher-API",
@@ -381,8 +381,8 @@
   },
   "bytes": {
     "b": "{value} Mrd.",
-    "kb": "{Wert} KB",
-    "mb": "{Wert} MB",
-    "gb": "{Wert} GB"
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
   }
 }

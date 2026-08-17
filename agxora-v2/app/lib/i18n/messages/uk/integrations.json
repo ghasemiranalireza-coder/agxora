@@ -17,14 +17,14 @@
   "notice": {
     "demoConnection": "Демонстраційне підключення: {name} (лише локальна заглушка)",
     "connectFailed": "Помилка підключення",
-    "keyCreated": "Ключ API створено: {префікс}",
+    "keyCreated": "Ключ API створено: {prefix}",
     "webhookCreated": "Вебхук створено: {name}",
-    "webhookTest": "Тест вебхуку {статус}",
+    "webhookTest": "Тест вебхуку {status}",
     "networkError": "Помилка мережі API Explorer: {message}",
-    "explorerError": "Провідник API → {статус}: {повідомлення}",
-    "explorerSuccess": "Провідник API → {статус}",
+    "explorerError": "Провідник API → {status}: {message}",
+    "explorerSuccess": "Провідник API → {status}",
     "explorerFailed": "Провідник не впорався",
-    "syncResult": "Демонстраційна синхронізація · {статус} ({записи} локальні записи) — зовнішні дані не передано.",
+    "syncResult": "Демонстраційна синхронізація · {status} ({records} локальні записи) — зовнішні дані не передано.",
     "diagnosed": "Діагностовано",
     "removedConnection": "Видалено демо-підключення: {name}",
     "keyRotated": "Ключ повернено",
@@ -52,10 +52,10 @@
     "title": "Встановлені інтеграції",
     "emptyTitle": "Нічого не встановлено",
     "emptyDescription": "Встановити з доступного каталогу.",
-    "latestSync": "Остання синхронізація: {статус} · {записів} записів · режим {режим}"
+    "latestSync": "Остання синхронізація: {status} · {records} записів · режим {mode}"
   },
   "available": {
-    "protocols": "Протоколи: {протоколи}",
+    "protocols": "Протоколи: {protocols}",
     "demoConnection": "Демо підключення",
     "connectDemo": "Connect (демо)",
     "installDemo": "Встановити демо"
@@ -68,7 +68,7 @@
   "apiKeys": {
     "title": "Ключі API",
     "generateKey": "Згенерувати ключ",
-    "copyOnce": "Копіювати зараз (показано один раз): {секрет}",
+    "copyOnce": "Копіювати зараз (показано один раз): {secret}",
     "emptyTitle": "Немає ключів API",
     "emptyDescription": "Згенеруйте ключ для доступу до шлюзу REST."
   },
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "Не вдалося отримати",
-    "httpStatus": "HTTP {статус}"
+    "httpStatus": "HTTP {status}"
   }
 }

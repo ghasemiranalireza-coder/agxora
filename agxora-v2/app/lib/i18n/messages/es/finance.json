@@ -58,16 +58,16 @@
       "vat-due": {
         "label": "IVA adeudado",
         "caption": "Muestra · Ventana Q2",
-        "delta": "Vencimiento en {días}d"
+        "delta": "Vencimiento en {days}d"
       },
       "open-invoices": {
         "label": "Facturas abiertas",
-        "caption": "Muestra · {dinero} pendiente"
+        "caption": "Muestra · {money} pendiente"
       },
       "paid-invoices": {
         "label": "Facturas pagadas",
         "caption": "Muestra · este trimestre",
-        "delta": "+{cuenta}"
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "Flujo de fondos",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "Puntuación financiera de IA",
         "caption": "Puntuación de muestra · no puntuación de riesgo real",
-        "delta": "+{cuenta}"
+        "delta": "+{count}"
       }
     },
-    "scoreOutOf": "{puntuación} / {máx.}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "Sin facturas",
@@ -91,7 +91,7 @@
     "sortBy": "Ordenar por",
     "toggleSort": "Alternar dirección de clasificación",
     "count": "{count} facturas",
-    "countOne": "{cuenta} factura",
+    "countOne": "{count} factura",
     "allStatuses": "Todos los estados",
     "allPayments": "Todos los pagos",
     "columns": {
@@ -183,7 +183,7 @@
     "intro": "El siguiente ejemplo del historial de exportación es ilustrativo. Las credenciales y la generación de archivos no están conectadas en esta compilación.",
     "noticeDefault": "Los adaptadores de exportación no están conectados; no se generarán archivos.",
     "exportUnavailable": "{title} no disponible: DATEV/exportación de archivos no está conectado.",
-    "exportUnavailableAria": "{título} — no disponible",
+    "exportUnavailableAria": "{title} — no disponible",
     "historyTitle": "Historial de exportación (muestra)",
     "refresh": "Refrescar",
     "refreshUnavailable": "Actualización no disponible: el historial de exportación son datos de muestra estáticos.",
@@ -252,7 +252,7 @@
     "demoPrefix": "Manifestación",
     "noticeDefault": "Las acciones de insight no están conectadas: las tarjetas muestran solo resultados de muestra.",
     "actionUnavailable": "{action} no disponible: las acciones de información financiera no están conectadas.",
-    "actionUnavailableTitle": "{acción} no disponible: no conectado",
+    "actionUnavailableTitle": "{action} no disponible: no conectado",
     "kinds": {
       "unusual_expense": "Gastos inusuales",
       "duplicate_invoice": "Facturas duplicadas",

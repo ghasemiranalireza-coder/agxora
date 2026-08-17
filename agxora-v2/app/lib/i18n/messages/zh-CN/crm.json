@@ -100,10 +100,10 @@
     },
     "showing": "显示 {from}–{to}，共 {total}",
     "aria": {
-      "openCustomer": "打开客户{公司}"
+      "openCustomer": "打开客户{company}"
     },
     "cardMeta": "所有者 {owner} · 创建日期 {date}",
-    "sortBy": "按{列}排序"
+    "sortBy": "按{column}排序"
   },
   "status": {
     "lead": "带领",
@@ -473,7 +473,7 @@
       "label": "人工智能健康评分",
       "caption": "关系质量信号"
     },
-    "scoreOutOf": "{分数} / {最大}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "带领",

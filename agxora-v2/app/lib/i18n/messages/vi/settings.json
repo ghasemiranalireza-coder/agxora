@@ -23,7 +23,7 @@
     "avatarUnavailable": "Tải lên hình đại diện chưa khả dụng.",
     "appearanceNote": "Cấu hình ngoại hình vẫn ở dưới Giao diện. Tiêu đề chỉ cung cấp một chủ đề chuyển đổi nhanh.",
     "prefsHint": "Được sử dụng bởi trợ lý AI trên các mô-đun.",
-    "themeResolved": "{mode} (đã giải quyết {xuất hiện})",
+    "themeResolved": "{mode} (đã giải quyết {appearance})",
     "regions": {
       "EU": "Liên minh Châu Âu",
       "US": "Hoa Kỳ",
@@ -235,7 +235,7 @@
     "createdAt": "Đã đăng nhập",
     "expiresAt": "Hết hạn",
     "revoke": "Thu hồi phiên",
-    "revokeAria": "Thu hồi phiên đã đăng nhập {khi}",
+    "revokeAria": "Thu hồi phiên đã đăng nhập {when}",
     "revokeOthers": "Đăng xuất các phiên khác",
     "revokeOthersAria": "Đăng xuất tất cả các phiên ngoại trừ phiên hiện tại",
     "revoked": "Phiên bị thu hồi.",
@@ -330,10 +330,10 @@
     "title": "Cài đặt",
     "lead": "Cấu hình doanh nghiệp cho mọi mô-đun AGXORA — hồ sơ, tổ chức, AI, giao diện, bảo mật, thanh toán và kiểm soát dành cho nhà phát triển ở cùng một nơi.",
     "loading": "Đang tải cài đặt…",
-    "breadcrumb": "{nhãn} · {mô tả}"
+    "breadcrumb": "{label} · {description}"
   },
   "saveChanges": "Lưu thay đổi",
-  "sessionNotice": "Đã cập nhật cho phiên này — {khu vực} chưa được kết nối.",
+  "sessionNotice": "Đã cập nhật cho phiên này — {area} chưa được kết nối.",
   "kpi": {
     "members": {
       "label": "Thành viên nhóm",
@@ -368,7 +368,7 @@
     "owner": "Người sở hữu",
     "counts": "Thành viên · không gian làm việc",
     "orgUpdated": "Đã cập nhật tổ chức.",
-    "countsValue": "{thành viên} · {không gian làm việc}",
+    "countsValue": "{members} · {workspaces}",
     "joined": "Đã tham gia",
     "workspaceName": "Tên không gian làm việc",
     "switchWorkspace": "Không gian làm việc năng động",
@@ -422,7 +422,7 @@
     "transferHonesty": "Một email xác nhận sẽ được gửi khi cấu hình phân phối. Nếu không hãy chia sẻ liên kết xác nhận trực tiếp với người nhận.",
     "transferLink": "Liên kết xác nhận",
     "transferPendingTitle": "Đang chờ chuyển quyền sở hữu",
-    "transferPendingBody": "Đang chờ {name} ({email}) xác nhận. Hết hạn {hết hạn}. Bạn vẫn là CHỦ SỞ HỮU cho đến lúc đó.",
+    "transferPendingBody": "Đang chờ {name} ({email}) xác nhận. Hết hạn {expires}. Bạn vẫn là CHỦ SỞ HỮU cho đến lúc đó.",
     "transferPendingNote": "Vai trò thành viên không thay đổi trong khi quá trình chuyển đang chờ xử lý.",
     "cancelTransfer": "Hủy chuyển khoản",
     "transferCancelled": "Chuyển quyền sở hữu bị hủy bỏ.",

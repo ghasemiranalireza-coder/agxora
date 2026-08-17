@@ -17,11 +17,11 @@
   "notice": {
     "demoConnection": "Connexion de démonstration : {name} (stub local uniquement)",
     "connectFailed": "Échec de la connexion",
-    "keyCreated": "Clé API créée : {préfixe}",
+    "keyCreated": "Clé API créée : {prefix}",
     "webhookCreated": "Webhook créé : {name}",
     "webhookTest": "Test Webhook {status}",
     "networkError": "Erreur réseau de l'explorateur d'API : {message}",
-    "explorerError": "Explorateur d'API → {statut} : {message}",
+    "explorerError": "Explorateur d'API → {status} : {message}",
     "explorerSuccess": "Explorateur d'API → {status}",
     "explorerFailed": "L'explorateur a échoué",
     "syncResult": "Synchronisation de démonstration · {status} ({records} enregistrements locaux) — aucune donnée externe transférée.",
@@ -55,7 +55,7 @@
     "latestSync": "Dernière synchronisation : {status} · {records} enregistrements · mode {mode}"
   },
   "available": {
-    "protocols": "Protocoles : {protocoles}",
+    "protocols": "Protocoles : {protocols}",
     "demoConnection": "Connexion de démonstration",
     "connectDemo": "Connectez-vous (démo)",
     "installDemo": "Installer la démo"
@@ -90,7 +90,7 @@
     "apiDocs": "Espace réservé pour la documentation de l'API : {url}",
     "sdk": "Espace réservé au SDK : {url}",
     "explorerTitle": "Explorateur d'API",
-    "gatewayRoutes": "Itinéraires de passerelle : {itinéraires}",
+    "gatewayRoutes": "Itinéraires de passerelle : {routes}",
     "sendGet": "Envoyer GET",
     "oauthProviders": "Fournisseurs OAuth",
     "placeholdersHint": "Les routes de passerelle GraphQL, WebSocket et gRPC sont enregistrées en tant qu'espaces réservés. Le mappage des champs et la résolution des conflits de synchronisation sont prêts pour l'architecture pour la mise en œuvre du backend."
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "Échec de la récupération",
-    "httpStatus": "Statut HTTP"
+    "httpStatus": "HTTP {status}"
   }
 }

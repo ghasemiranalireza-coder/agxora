@@ -20,8 +20,8 @@
     "keyCreated": "Utworzono klucz API: {prefix}",
     "webhookCreated": "Utworzono webhook: {name}",
     "webhookTest": "Test webhooka {status}",
-    "networkError": "Błąd sieciowy Eksploratora API: {wiadomość}",
-    "explorerError": "Eksplorator API → {status}: {wiadomość}",
+    "networkError": "Błąd sieciowy Eksploratora API: {message}",
+    "explorerError": "Eksplorator API → {status}: {message}",
     "explorerSuccess": "Eksplorator API → {status}",
     "explorerFailed": "Eksplorator nie powiódł się",
     "syncResult": "Synchronizacja demonstracyjna · {status} ({records} rekordy lokalne) — żadne dane zewnętrzne nie zostały przesłane.",
@@ -29,7 +29,7 @@
     "removedConnection": "Usunięto połączenie demonstracyjne: {name}",
     "keyRotated": "Klucz obrócony",
     "keyRevoked": "Klucz unieważniony",
-    "publishedEvent": "Opublikowano {typ}",
+    "publishedEvent": "Opublikowano {type}",
     "developerSaved": "Ustawienia programisty zostały zapisane"
   },
   "dashboard": {
@@ -55,7 +55,7 @@
     "latestSync": "Ostatnia synchronizacja: {status} · {records} rekordy · tryb {mode}"
   },
   "available": {
-    "protocols": "Protokoły: {protokoły}",
+    "protocols": "Protokoły: {protocols}",
     "demoConnection": "Połączenie demonstracyjne",
     "connectDemo": "Połącz (demo)",
     "installDemo": "Zainstaluj wersję demonstracyjną"
@@ -68,7 +68,7 @@
   "apiKeys": {
     "title": "Klucze API",
     "generateKey": "Wygeneruj klucz",
-    "copyOnce": "Skopiuj teraz (pokazane raz): {sekret}",
+    "copyOnce": "Skopiuj teraz (pokazane raz): {secret}",
     "emptyTitle": "Brak kluczy API",
     "emptyDescription": "Wygeneruj klucz dostępu do bramy REST."
   },
@@ -90,7 +90,7 @@
     "apiDocs": "Symbol zastępczy dokumentacji API: {url}",
     "sdk": "Symbol zastępczy pakietu SDK: {url}",
     "explorerTitle": "Eksplorator API",
-    "gatewayRoutes": "Trasy bram: {trasy}",
+    "gatewayRoutes": "Trasy bram: {routes}",
     "sendGet": "Wyślij POBIERZ",
     "oauthProviders": "Dostawcy OAuth",
     "placeholdersHint": "Trasy bram GraphQL, WebSocket i gRPC są rejestrowane jako obiekty zastępcze. Mapowanie pól i rozwiązywanie konfliktów synchronizacji są gotowe do wdrożenia w architekturze."
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "Nie udało się pobrać",
-    "httpStatus": "HTTP {stan}"
+    "httpStatus": "HTTP {status}"
   }
 }

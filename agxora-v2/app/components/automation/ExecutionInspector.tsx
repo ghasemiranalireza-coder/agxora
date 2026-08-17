@@ -68,7 +68,7 @@ export function ExecutionInspector({
         <DetailRow label={t("automation.executionInspector.duration")}>
           <span className="tabular-nums">{formatDuration(run.durationMs)}</span>
         </DetailRow>
-        <DetailRow label={t("automation.executionInspector.status")}>{runStatusLabel(run.status)}</DetailRow>
+        <DetailRow label={t("automation.executionInspector.status")}>{t(runStatusLabel(run.status))}</DetailRow>
         <DetailRow label={t("automation.executionInspector.success")}>{run.status === "success" || run.status === "retried" ? t("automation.executionInspector.yes") : t("automation.executionInspector.no")}</DetailRow>
         <DetailRow label={t("automation.executionInspector.failed")}>{run.status === "failed" ? t("automation.executionInspector.yes") : t("automation.executionInspector.no")}</DetailRow>
         <DetailRow label={t("automation.executionInspector.retryAvailable")}>{run.retryAvailable ? t("automation.executionInspector.yes") : t("automation.executionInspector.no")}</DetailRow>

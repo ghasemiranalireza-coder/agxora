@@ -69,7 +69,7 @@
     "aiRewrite": "人工智能重写",
     "translate": "翻译",
     "initialOutput": "选择格式和品牌声音，然后生成草稿。提供者适配器被保留——还没有实时模型调用。",
-    "draftStaged": "为{格式} · 语音起草的草稿：{语音}。保留一代适配器。",
+    "draftStaged": "为{format} · 语音起草的草稿：{voice}。保留一代适配器。",
     "rewriteQueued": "AI 重写已排队 — 保留重写适配器。",
     "translateQueued": "翻译内容排队 — 保留多语言适配器。",
     "brandVoice": "品牌声音",
@@ -94,8 +94,8 @@
   "analytics": {
     "title": "分析",
     "topPosts": "热门帖子",
-    "engagement": "工程{值}",
-    "reach": "达到{值}",
+    "engagement": "工程{value}",
+    "reach": "达到{value}",
     "recommendations": "人工智能建议"
   },
   "integrations": {
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "AI 功能图 — 想法、标题、主题标签、日历、活动、受众、日程、品牌一致性、重写、翻译、多语言。"
+  },
+  "formats": {
+    "instagram_caption": "Instagram 说明",
+    "tiktok_script": "TikTok 脚本",
+    "linkedin_post": "LinkedIn 帖子",
+    "facebook_post": "Facebook 帖子",
+    "x_post": "X 帖子",
+    "blog_article": "博客文章",
+    "newsletter": "新闻通讯",
+    "email_campaign": "电子邮件活动",
+    "product_description": "产品描述",
+    "ad_copy": "广告文案",
+    "seo_article": "SEO 文章",
+    "landing_page_copy": "落地页文案"
+  },
+  "publishStatus": {
+    "draft": "草稿",
+    "review": "审核",
+    "approved": "已批准",
+    "scheduled": "已排期",
+    "published": "已发布",
+    "archive": "归档"
+  },
+  "mediaKind": {
+    "image": "图片",
+    "video": "视频",
+    "document": "文档",
+    "logo": "品牌标志",
+    "template": "模板"
+  },
+  "voice": {
+    "professional": "专业",
+    "friendly": "友好",
+    "luxury": "奢华",
+    "casual": "轻松"
+  },
+  "integrationStatus": {
+    "planned": "已规划",
+    "ready": "就绪",
+    "connected": "已连接",
+    "disabled": "已停用"
   }
 }

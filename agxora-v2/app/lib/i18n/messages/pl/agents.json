@@ -43,14 +43,14 @@
     "title": "Rejestr",
     "selectPrompt": "Wybierz agenta z rejestru.",
     "status": "Stan: {status}",
-    "health": "Zdrowie: {zdrowie}",
-    "queue": "Kolejka: {kolejka}",
-    "usage": "Użycie: {użycie}",
+    "health": "Zdrowie: {health}",
+    "queue": "Kolejka: {queue}",
+    "usage": "Użycie: {usage}",
     "executeTask": "Wykonaj zadanie",
     "supervisorDelegate": "Delegat nadzorcy"
   },
   "marketplace": {
-    "tools": "Narzędzia: {narzędzia}",
+    "tools": "Narzędzia: {tools}",
     "installed": "Zainstalowany",
     "installActivate": "Zainstaluj i aktywuj"
   },
@@ -58,7 +58,7 @@
     "title": "Monitor agenta",
     "emptyTitle": "Brak agentów do monitorowania",
     "emptyDescription": "Aktywuj agentów z rynku.",
-    "latestConfidence": "Najnowsza pewność rozumowania: {pewność} — {kroki}"
+    "latestConfidence": "Najnowsza pewność rozumowania: {confidence} — {steps}"
   },
   "history": {
     "title": "Historia wykonania",
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "Zrealizuj cel biznesowy {agentId}",
     "planAndExecute": "Zaplanuj i zrealizuj cel biznesowy obszaru roboczego"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Priorytetyzuj wpływ na klienta",
+    "delegatedFollowUp": "Delegowane follow-up"
   }
 }

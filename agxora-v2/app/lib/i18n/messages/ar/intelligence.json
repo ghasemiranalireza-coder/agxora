@@ -8,7 +8,7 @@
   "noPermission": "ليس لديك إذن Intelligence.read لمساحة العمل هذه.",
   "filtersUpdated": "تم تحديث المرشحات",
   "demoReloaded": "تمت إعادة تحميل مجموعة البيانات التجريبية لمساحة العمل هذه.",
-  "acknowledged": "تم الإقرار به: {العنوان}",
+  "acknowledged": "تم الإقرار به: {title}",
   "exportUnavailableTitle": "التصدير غير متاح — لم يتم توصيل إنشاء التقرير بعد.",
   "exportUnavailableAria": "تصدير {title} كـ {format} — غير متوفر",
   "tabs": {
@@ -84,9 +84,9 @@
   "forecasts": {
     "emptyTitle": "لا توجد توقعات حتى الآن",
     "emptyDescription": "تظهر التوقعات التجريبية بعد البذور. النماذج التنبؤية غير متصلة.",
-    "title": "توقعات {نوع}.",
-    "baseline": "خط الأساس {خط الأساس} → المتوقع {المسقط} ({أيام} د)",
-    "confidence": "العرض التوضيحي · الثقة {الثقة} — {ملاحظة}"
+    "title": "توقعات {kind}.",
+    "baseline": "خط الأساس {baseline} → المتوقع {projected} ({days} د)",
+    "confidence": "العرض التوضيحي · الثقة {confidence} — {note}"
   },
   "alerts": {
     "title": "محرك التنبيه",

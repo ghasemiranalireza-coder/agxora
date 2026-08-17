@@ -237,5 +237,304 @@
       },
       "saveSettings": "Save settings"
     }
+  },
+  "status": {
+    "connected": "Connected",
+    "beta": "Beta",
+    "comingSoon": "Coming soon",
+    "disabled": "Disabled",
+    "planned": "Planned",
+    "success": "Success",
+    "failed": "Failed",
+    "running": "Running",
+    "pending": "Pending",
+    "retried": "Retry"
+  },
+  "difficulty": {
+    "starter": "Starter",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Trigger",
+      "description": "Start when an event fires"
+    },
+    "el-condition": {
+      "label": "Condition",
+      "description": "Branch on rules"
+    },
+    "el-delay": {
+      "label": "Delay",
+      "description": "Wait before continuing"
+    },
+    "el-approval": {
+      "label": "Approval",
+      "description": "Human approval gate"
+    },
+    "el-loop": {
+      "label": "Loop",
+      "description": "Iterate over a collection"
+    },
+    "el-merge": {
+      "label": "Merge",
+      "description": "Join parallel paths"
+    },
+    "el-split": {
+      "label": "Split",
+      "description": "Fan-out parallel paths"
+    },
+    "el-ai-decision": {
+      "label": "AI Decision",
+      "description": "Route via AI"
+    },
+    "el-notification": {
+      "label": "Notification",
+      "description": "In-app alert"
+    },
+    "el-webhook": {
+      "label": "Webhook Placeholder",
+      "description": "HTTP callback reserved"
+    },
+    "el-custom": {
+      "label": "Custom Action",
+      "description": "Extensible action slot"
+    },
+    "tr-customer": {
+      "label": "Customer Created",
+      "description": "CRM customer record created"
+    },
+    "tr-lead": {
+      "label": "Lead Created",
+      "description": "New lead enters pipeline"
+    },
+    "tr-invoice": {
+      "label": "Invoice Created",
+      "description": "Finance invoice issued"
+    },
+    "tr-invoice-paid": {
+      "label": "Invoice Paid",
+      "description": "Payment settled"
+    },
+    "tr-order": {
+      "label": "Order Created",
+      "description": "Order entered"
+    },
+    "tr-order-done": {
+      "label": "Order Completed",
+      "description": "Order fulfilled"
+    },
+    "tr-doc": {
+      "label": "Document Uploaded",
+      "description": "Document vault upload"
+    },
+    "tr-campaign": {
+      "label": "Campaign Published",
+      "description": "Creator Studio publish"
+    },
+    "tr-employee": {
+      "label": "Employee Added",
+      "description": "Team directory change"
+    },
+    "tr-task": {
+      "label": "Task Completed",
+      "description": "Task marked done"
+    },
+    "tr-manual": {
+      "label": "Manual Trigger",
+      "description": "Run on demand"
+    },
+    "tr-schedule": {
+      "label": "Schedule Trigger",
+      "description": "Cron / calendar schedule"
+    },
+    "tr-webhook": {
+      "label": "Webhook Trigger",
+      "description": "Inbound HTTP event"
+    },
+    "tr-api": {
+      "label": "API Trigger",
+      "description": "Programmatic start"
+    },
+    "ac-crm": {
+      "label": "Create CRM Record",
+      "description": "Write CRM entity"
+    },
+    "ac-invoice": {
+      "label": "Generate Invoice",
+      "description": "Finance invoice"
+    },
+    "ac-quote": {
+      "label": "Generate Quote",
+      "description": "Create quote document"
+    },
+    "ac-delivery": {
+      "label": "Generate Delivery Note",
+      "description": "Delivery note"
+    },
+    "ac-task": {
+      "label": "Create Task",
+      "description": "Open a task"
+    },
+    "ac-assign": {
+      "label": "Assign Employee",
+      "description": "Route to teammate"
+    },
+    "ac-email": {
+      "label": "Send Email",
+      "description": "Outbound email"
+    },
+    "ac-notify": {
+      "label": "Send Notification",
+      "description": "In-app notification"
+    },
+    "ac-ai-summary": {
+      "label": "Generate AI Summary",
+      "description": "Summarize context"
+    },
+    "ac-ai-content": {
+      "label": "Generate AI Content",
+      "description": "Creator Studio draft"
+    },
+    "ac-update-customer": {
+      "label": "Update Customer",
+      "description": "Patch CRM customer"
+    },
+    "ac-update-status": {
+      "label": "Update Status",
+      "description": "Change entity status"
+    },
+    "ac-pdf": {
+      "label": "Export PDF",
+      "description": "Document export"
+    },
+    "ac-future": {
+      "label": "Future API Placeholder",
+      "description": "Reserved action slot"
+    },
+    "ai-decision": {
+      "label": "AI Decision",
+      "description": "Decide next path"
+    },
+    "ai-class": {
+      "label": "AI Classification",
+      "description": "Classify records"
+    },
+    "ai-text": {
+      "label": "AI Text Generation",
+      "description": "Generate text"
+    },
+    "ai-translate": {
+      "label": "AI Translation",
+      "description": "Translate content"
+    },
+    "ai-email": {
+      "label": "AI Email Reply",
+      "description": "Draft reply"
+    },
+    "ai-sum": {
+      "label": "AI Summarization",
+      "description": "Condense context"
+    },
+    "ai-rec": {
+      "label": "AI Recommendations",
+      "description": "Suggest next steps"
+    },
+    "ai-route": {
+      "label": "AI Routing",
+      "description": "Route to owner / queue"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Customer created",
+      "description": "Fires when a CRM customer record is created."
+    },
+    "project_created": {
+      "label": "Project created",
+      "description": "Fires when a project is created."
+    },
+    "invoice_issued": {
+      "label": "Invoice issued",
+      "description": "Fires when an invoice is issued."
+    },
+    "task_completed": {
+      "label": "Task completed",
+      "description": "Fires when a task is marked complete."
+    },
+    "document_uploaded": {
+      "label": "Document uploaded",
+      "description": "Fires when a document is uploaded."
+    },
+    "user_invited": {
+      "label": "User invited",
+      "description": "Fires when a team member is invited."
+    },
+    "schedule": {
+      "label": "Schedule",
+      "description": "Cron / interval schedule trigger."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Inbound HTTP webhook trigger."
+    },
+    "api_event": {
+      "label": "API Event",
+      "description": "Generic API-emitted domain event."
+    },
+    "ai_event": {
+      "label": "AI Event",
+      "description": "AI platform signal (completion, insight, agent step)."
+    },
+    "manual": {
+      "label": "Manual trigger",
+      "description": "Run on demand from the Automation UI or API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Create Customer",
+      "description": "Create a CRM customer record."
+    },
+    "customer_update": {
+      "label": "Update Customer",
+      "description": "Update fields on a customer."
+    },
+    "project_create": {
+      "label": "Create Project",
+      "description": "Create a project from workflow context."
+    },
+    "document_generate": {
+      "label": "Generate Document",
+      "description": "Generate a document from a template."
+    },
+    "notification_send": {
+      "label": "Send Notification",
+      "description": "Push an in-app notification."
+    },
+    "email_send": {
+      "label": "Send Email",
+      "description": "Queue an email via the mail provider."
+    },
+    "api_call": {
+      "label": "Call API",
+      "description": "HTTP call to an external or internal API."
+    },
+    "ai_run": {
+      "label": "Run AI",
+      "description": "Execute an AI prompt / agent step with context."
+    },
+    "task_assign": {
+      "label": "Assign Task",
+      "description": "Assign a task to a user."
+    },
+    "invoice_create": {
+      "label": "Create Invoice",
+      "description": "Create a finance invoice."
+    },
+    "status_update": {
+      "label": "Update Status",
+      "description": "Update entity status in a module."
+    }
   }
 }

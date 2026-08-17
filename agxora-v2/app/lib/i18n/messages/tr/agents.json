@@ -43,14 +43,14 @@
     "title": "Kayıt defteri",
     "selectPrompt": "Kayıt defterinden bir aracı seçin.",
     "status": "Durum: {status}",
-    "health": "Sağlık: {sağlık}",
-    "queue": "Sıra: {kuyruk}",
-    "usage": "Kullanım: {kullanım}",
+    "health": "Sağlık: {health}",
+    "queue": "Sıra: {queue}",
+    "usage": "Kullanım: {usage}",
     "executeTask": "Görevi yürüt",
     "supervisorDelegate": "Süpervizör temsilcisi"
   },
   "marketplace": {
-    "tools": "Araçlar: {araçlar}",
+    "tools": "Araçlar: {tools}",
     "installed": "Yüklendi",
     "installActivate": "Yükle ve etkinleştir"
   },
@@ -58,7 +58,7 @@
     "title": "Temsilci monitörü",
     "emptyTitle": "İzlenecek aracı yok",
     "emptyDescription": "Temsilcileri pazardan etkinleştirin.",
-    "latestConfidence": "En son mantık yürütme güveni: {güven} — {adımlar}"
+    "latestConfidence": "En son mantık yürütme güveni: {confidence} — {steps}"
   },
   "history": {
     "title": "Yürütme geçmişi",
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "{agentId} iş hedefini yürütün",
     "planAndExecute": "Bir çalışma alanı iş hedefini planlayın ve yürütün"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Müşteri etkisini önceliklendir",
+    "delegatedFollowUp": "Devredilmiş takip"
   }
 }

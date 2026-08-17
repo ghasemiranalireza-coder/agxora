@@ -50,42 +50,42 @@
     "documents": {
       "label": "Documents",
       "caption": "Échantillon · dans tous les dossiers",
-      "delta": "+{compte}"
+      "delta": "+{count}"
     },
     "folders": {
       "label": "Dossiers",
       "caption": "Échantillon · y compris les collections intelligentes",
-      "delta": "+{compte}"
+      "delta": "+{count}"
     },
     "storage": {
       "label": "Stockage utilisé",
       "caption": "Échantillon · de plan illustratif",
-      "delta": "+{taille}"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "Documents partagés",
       "caption": "Échantillon · org + service + utilisateurs",
-      "delta": "+{compte}"
+      "delta": "+{count}"
     },
     "activity": {
       "label": "Activité récente",
       "caption": "Échantillon · dernières 24 heures",
-      "delta": "+{compte}"
+      "delta": "+{count}"
     },
     "indexed": {
       "label": "IA indexée",
       "caption": "Échantillon · Recherche AI ​​non connectée",
-      "delta": "Pour cent"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "Approbations en attente ",
       "caption": "Exemple · automatisation non connectée",
-      "delta": "{compter}"
+      "delta": "{count}"
     },
     "score": {
       "label": "Score de connaissances",
       "caption": "Exemple · illustration de la couverture",
-      "delta": "+{compte}"
+      "delta": "+{count}"
     }
   },
   "library": {
@@ -177,14 +177,14 @@
     "title": "Historique des versions",
     "emptyTitle": "Aucun document sélectionné",
     "emptyDescription": "Ouvrez un document pour inspecter les versions, les notes, restaurer et comparer.",
-    "current": "{nom} · {version} actuelle",
+    "current": "{name} · {version} actuelle",
     "restore": "Restaurer la version",
     "compare": "Comparer les versions",
     "restoreTitle": "La restauration nécessite l'API de stockage",
     "compareTitle": "La comparaison nécessite l'API de stockage",
     "noticeDefault": "La restauration et la comparaison nécessitent l'API de stockage.",
     "restoreUnavailable": "Restauration indisponible pour {id} : l'API de stockage n'est pas connectée.",
-    "compareUnavailable": "Comparer indisponible ({sélectionné} ↔ {actuel}) : l'API de stockage n'est pas connectée."
+    "compareUnavailable": "Comparer indisponible ({selected} ↔ {current}) : l'API de stockage n'est pas connectée."
   },
   "approvals": {
     "title": "Flux de travail d'approbation",
@@ -380,9 +380,9 @@
     "planned": "Planifié"
   },
   "bytes": {
-    "b": "{valeur} B",
-    "kb": "{valeur} Ko",
-    "mb": "{valeur} Mo",
+    "b": "{value} B",
+    "kb": "{value} Ko",
+    "mb": "{value} Mo",
     "gb": "{value} Go"
   }
 }

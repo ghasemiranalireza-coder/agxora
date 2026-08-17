@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "项目管理操作系统",
     "title": "项目",
-    "lead": "规划交付、跟踪预算和运行状况、分配团队以及管理{组织}的任务。数据保留在本地并准备好用于后端连接。",
+    "lead": "规划交付、跟踪预算和运行状况、分配团队以及管理{organization}的任务。数据保留在本地并准备好用于后端连接。",
     "yourOrganization": "你的主办"
   },
   "list": {
@@ -29,9 +29,9 @@
     "previous": "以前的",
     "next": "下一个",
     "noDescription": "还没有订购！",
-    "duePrefix": "到期日}",
-    "openProject": "打开项目{名称}",
-    "sortBy": "按{列}排序",
+    "duePrefix": "Due {date}",
+    "openProject": "打开项目{name}",
+    "sortBy": "按{column}排序",
     "sort": {
       "name": "姓名",
       "customer": "顾客",
@@ -65,7 +65,7 @@
     "tagsPlaceholder": "企业、推出",
     "budgetPlaceholder": "0",
     "description": "描述",
-    "selectColor": "选择颜色{颜色}"
+    "selectColor": "选择颜色{color}"
   },
   "taskForm": {
     "createTitle": "创建任务",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "进步",
-    "progressAria": "标签值"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "规划",
@@ -132,24 +132,24 @@
     "emptyDescription": "添加开始/截止日期和任务以填充时间表。",
     "title": "时间轴",
     "subtitle": "开始、结束、持续时间、里程碑。依赖项是为将来的版本保留的。",
-    "dateRange": "{开始} → {结束} · {天}d",
+    "dateRange": "{start} → {end} · {days}d",
     "itemAria": "{title} 从 {start} 到 {end}",
     "dependenciesNone": "依赖关系：无"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "活跃项目",
-      "activeHint": "{计划}计划",
+      "activeHint": "{planning}计划",
       "completed": "完全的",
       "completedHint": "投资组合的{percent} %",
       "onHold": "等候接听",
-      "onHoldHint": "{已存档}已存档",
+      "onHoldHint": "{archived}已存档",
       "teamMembers": "团队成员",
       "teamHint": "跨所有项目",
       "budgetOverview": "预算概览",
       "budgetHint": "已使用 {percent}% · 已花费 {spent}",
       "openTasks": "开放任务",
-      "openTasksHint": "{逾期}逾期",
+      "openTasksHint": "{overdue}逾期",
       "projectHealth": "健康项目",
       "healthHint": "综合交付分数",
       "upcomingDeadlines": "即将到来的截止日期",
@@ -176,7 +176,7 @@
     "emptyTitle": "板上没有任务",
     "emptyDescription": "创建任务以跨“待办事项”、“进行中”、“审核”和“已完成”组织交付。",
     "addTask": "添加任务",
-    "columnAria": "{状态}列",
+    "columnAria": "{status}列",
     "taskProgress": "任务进度",
     "edit": "编辑",
     "complete": "完全的"
@@ -185,7 +185,7 @@
     "notFoundTitle": "未找到项目",
     "notFoundDescription": "此项目可能已被删除或不可用于当前组织。",
     "backToProjects": "← 返回项目",
-    "ownerMeta": "{客户}·所有者{所有者}",
+    "ownerMeta": "{customer}·所有者{owner}",
     "edit": "编辑",
     "delete": "删除",
     "sectionsAria": "项目详细信息部分",
@@ -294,5 +294,30 @@
     "memberAdded": "成员添加：",
     "settingsSaved": "设置已保存",
     "projectArchived": "项目已存档"
+  },
+  "validation": {
+    "nameRequired": "项目名称为必填。",
+    "nameMin": "项目名称至少 2 个字符。",
+    "customerRequired": "客户为必填。",
+    "ownerRequired": "项目负责人为必填。",
+    "priorityInvalid": "请选择有效优先级。",
+    "statusInvalid": "请选择有效状态。",
+    "currencyInvalid": "请选择有效货币。",
+    "budgetInvalid": "预算必须为非负数。",
+    "startDateRequired": "开始日期为必填。",
+    "startDateInvalid": "请输入有效的开始日期。",
+    "dueDateInvalid": "请输入有效的截止日期。",
+    "dueDateOrder": "截止日期必须不早于开始日期。",
+    "colorInvalid": "请选择有效颜色。",
+    "iconInvalid": "请选择有效图标。",
+    "taskTitleRequired": "任务标题为必填。",
+    "progressRange": "进度必须介于 0 到 100 之间。",
+    "memberNameRequired": "成员名称为必填。",
+    "emailRequired": "电子邮件为必填。",
+    "emailInvalid": "请输入有效的电子邮件地址。",
+    "roleInvalid": "请选择有效角色。",
+    "noteTitleRequired": "备注标题为必填。",
+    "noteBodyRequired": "备注正文为必填。",
+    "authorRequired": "作者为必填。"
   }
 }

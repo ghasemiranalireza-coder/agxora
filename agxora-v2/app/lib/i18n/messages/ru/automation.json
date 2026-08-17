@@ -131,14 +131,14 @@
     "notice": {
       "missingWrite": "Отсутствует разрешение workflow.write.",
       "missingExecute": "Отсутствует разрешение workflow.execute.",
-      "created": "Создано {имя}",
+      "created": "Создано {name}",
       "templateApplied": "Применен шаблон: {name}",
       "runResult": "Запустить {status} ({duration} мс)",
       "runFailed": "Не удалось запустить рабочий процесс (отключен или отсутствует).",
       "publishedEvent": "Событие опубликованного домена: {type}",
-      "workflowStatus": "Рабочий процесс {статус}",
+      "workflowStatus": "Рабочий процесс {status}",
       "saved": "Рабочий процесс сохранен.",
-      "retryResult": "Повторить {статус}",
+      "retryResult": "Повторить {status}",
       "retryFailed": "Повторная попытка не удалась",
       "settingsSaved": "Настройки автоматизации сохранены."
     },
@@ -193,8 +193,8 @@
       "emptyTitle": "Казней пока нет.",
       "emptyDescription": "Запустите рабочий процесс или опубликуйте событие предметной области.",
       "latestRun": "Подробности последнего запуска",
-      "path": "Путь: {путь}",
-      "error": "· Ошибка: {ошибка}",
+      "path": "Путь: {path}",
+      "error": "· Ошибка: {error}",
       "columns": {
         "workflow": "Рабочий процесс",
         "status": "Статус",
@@ -226,7 +226,315 @@
       "concurrencyLimit": "Предел параллелизма",
       "timeoutMs": "Тайм-аут (мс)",
       "logLevel": "Уровень журнала",
-      "saveSettings": "Сохранить настройки"
+      "saveSettings": "Сохранить настройки",
+      "logLevels": {
+        "error": "ошибка",
+        "warn": "предупреждение",
+        "info": "инфо",
+        "debug": "отладка"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Пустой рабочий процесс"
+  },
+  "status": {
+    "connected": "Подключено",
+    "beta": "Бета",
+    "comingSoon": "Скоро",
+    "disabled": "Отключено",
+    "planned": "Запланировано",
+    "success": "Успех",
+    "failed": "Сбой",
+    "running": "Выполняется",
+    "pending": "Ожидание",
+    "retried": "Повтор"
+  },
+  "difficulty": {
+    "starter": "Начальный",
+    "intermediate": "Средний",
+    "advanced": "Продвинутый"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Триггер",
+      "description": "Запуск при срабатывании события"
+    },
+    "el-condition": {
+      "label": "Условие",
+      "description": "Ветвление по правилам"
+    },
+    "el-delay": {
+      "label": "Задержка",
+      "description": "Подождать перед продолжением"
+    },
+    "el-approval": {
+      "label": "Согласование",
+      "description": "Шлюз ручного согласования"
+    },
+    "el-loop": {
+      "label": "Цикл",
+      "description": "Перебор коллекции"
+    },
+    "el-merge": {
+      "label": "Объединение",
+      "description": "Соединить параллельные пути"
+    },
+    "el-split": {
+      "label": "Разделение",
+      "description": "Развести параллельные пути"
+    },
+    "el-ai-decision": {
+      "label": "Решение ИИ",
+      "description": "Маршрутизация через ИИ"
+    },
+    "el-notification": {
+      "label": "Уведомление",
+      "description": "Оповещение в приложении"
+    },
+    "el-webhook": {
+      "label": "Заполнитель Webhook",
+      "description": "HTTP-колбэк зарезервирован"
+    },
+    "el-custom": {
+      "label": "Пользовательское действие",
+      "description": "Расширяемый слот действия"
+    },
+    "tr-customer": {
+      "label": "Клиент создан",
+      "description": "Создана CRM-запись клиента"
+    },
+    "tr-lead": {
+      "label": "Лид создан",
+      "description": "Новый лид попадает в воронку"
+    },
+    "tr-invoice": {
+      "label": "Счёт создан",
+      "description": "Выставлен финансовый счёт"
+    },
+    "tr-invoice-paid": {
+      "label": "Счёт оплачен",
+      "description": "Платёж закрыт"
+    },
+    "tr-order": {
+      "label": "Заказ создан",
+      "description": "Заказ введён"
+    },
+    "tr-order-done": {
+      "label": "Заказ выполнен",
+      "description": "Заказ исполнен"
+    },
+    "tr-doc": {
+      "label": "Документ загружен",
+      "description": "Загрузка в хранилище документов"
+    },
+    "tr-campaign": {
+      "label": "Кампания опубликована",
+      "description": "Публикация Creator Studio"
+    },
+    "tr-employee": {
+      "label": "Сотрудник добавлен",
+      "description": "Изменение в справочнике команды"
+    },
+    "tr-task": {
+      "label": "Задача выполнена",
+      "description": "Задача отмечена выполненной"
+    },
+    "tr-manual": {
+      "label": "Ручной триггер",
+      "description": "Запуск по требованию"
+    },
+    "tr-schedule": {
+      "label": "Триггер расписания",
+      "description": "Расписание cron / календарь"
+    },
+    "tr-webhook": {
+      "label": "Триггер Webhook",
+      "description": "Входящее HTTP-событие"
+    },
+    "tr-api": {
+      "label": "Триггер API",
+      "description": "Программный запуск"
+    },
+    "ac-crm": {
+      "label": "Создать запись CRM",
+      "description": "Записать сущность CRM"
+    },
+    "ac-invoice": {
+      "label": "Сформировать счёт",
+      "description": "Финансовый счёт"
+    },
+    "ac-quote": {
+      "label": "Сформировать предложение",
+      "description": "Создать документ предложения"
+    },
+    "ac-delivery": {
+      "label": "Сформировать накладную",
+      "description": "Накладная"
+    },
+    "ac-task": {
+      "label": "Создать задачу",
+      "description": "Открыть задачу"
+    },
+    "ac-assign": {
+      "label": "Назначить сотрудника",
+      "description": "Направить коллеге"
+    },
+    "ac-email": {
+      "label": "Отправить эл. письмо",
+      "description": "Исходящее письмо"
+    },
+    "ac-notify": {
+      "label": "Отправить уведомление",
+      "description": "Уведомление в приложении"
+    },
+    "ac-ai-summary": {
+      "label": "Сформировать сводку ИИ",
+      "description": "Сжать контекст"
+    },
+    "ac-ai-content": {
+      "label": "Сформировать контент ИИ",
+      "description": "Черновик Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "Обновить клиента",
+      "description": "Частично обновить клиента CRM"
+    },
+    "ac-update-status": {
+      "label": "Обновить статус",
+      "description": "Изменить статус сущности"
+    },
+    "ac-pdf": {
+      "label": "Экспорт PDF",
+      "description": "Экспорт документа"
+    },
+    "ac-future": {
+      "label": "Заполнитель будущей API",
+      "description": "Зарезервированный слот действия"
+    },
+    "ai-decision": {
+      "label": "Решение ИИ",
+      "description": "Выбрать следующий путь"
+    },
+    "ai-class": {
+      "label": "Классификация ИИ",
+      "description": "Классифицировать записи"
+    },
+    "ai-text": {
+      "label": "Генерация текста ИИ",
+      "description": "Сгенерировать текст"
+    },
+    "ai-translate": {
+      "label": "Перевод ИИ",
+      "description": "Перевести содержимое"
+    },
+    "ai-email": {
+      "label": "Ответ ИИ по эл. почте",
+      "description": "Черновик ответа"
+    },
+    "ai-sum": {
+      "label": "Суммаризация ИИ",
+      "description": "Сжать контекст"
+    },
+    "ai-rec": {
+      "label": "Рекомендации ИИ",
+      "description": "Предложить следующие шаги"
+    },
+    "ai-route": {
+      "label": "Маршрутизация ИИ",
+      "description": "Направить владельцу / в очередь"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Клиент создан",
+      "description": "Срабатывает при создании клиента CRM."
+    },
+    "project_created": {
+      "label": "Проект создан",
+      "description": "Срабатывает при создании проекта."
+    },
+    "task_completed": {
+      "label": "Задача выполнена",
+      "description": "Срабатывает, когда задача отмечается выполненной."
+    },
+    "document_uploaded": {
+      "label": "Документ загружен",
+      "description": "Срабатывает при загрузке документа."
+    },
+    "schedule": {
+      "label": "Расписание",
+      "description": "Триггер расписания cron / интервала."
+    },
+    "invoice_issued": {
+      "label": "Счёт выставлен",
+      "description": "Срабатывает при выставлении счёта."
+    },
+    "user_invited": {
+      "label": "Пользователь приглашён",
+      "description": "Срабатывает при приглашении участника команды."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Входящий HTTP-webhook."
+    },
+    "api_event": {
+      "label": "Событие API",
+      "description": "Общее доменное событие API."
+    },
+    "ai_event": {
+      "label": "Событие ИИ",
+      "description": "Сигнал ИИ (завершение, инсайт, шаг агента)."
+    },
+    "manual": {
+      "label": "Ручной триггер",
+      "description": "Запуск по требованию из UI или API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Создать клиента",
+      "description": "Создать запись клиента CRM."
+    },
+    "customer_update": {
+      "label": "Обновить клиента",
+      "description": "Обновить поля клиента."
+    },
+    "project_create": {
+      "label": "Создать проект",
+      "description": "Создать проект из контекста сценария."
+    },
+    "notification_send": {
+      "label": "Отправить уведомление",
+      "description": "Отправить уведомление в приложении."
+    },
+    "email_send": {
+      "label": "Отправить эл. письмо",
+      "description": "Поставить письмо в очередь через провайдера."
+    },
+    "invoice_create": {
+      "label": "Создать счет",
+      "description": "Создать финансовый счёт."
+    },
+    "status_update": {
+      "label": "Обновить статус",
+      "description": "Обновить статус сущности в модуле."
+    },
+    "document_generate": {
+      "label": "Создать документ",
+      "description": "Создать документ из шаблона."
+    },
+    "api_call": {
+      "label": "Вызов API",
+      "description": "HTTP-вызов внутреннего или внешнего API."
+    },
+    "ai_run": {
+      "label": "Запустить ИИ",
+      "description": "Выполнить промпт ИИ / шаг агента с контекстом."
+    },
+    "task_assign": {
+      "label": "Назначить задачу",
+      "description": "Назначить задачу пользователю."
     }
   }
 }

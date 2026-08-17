@@ -94,8 +94,8 @@
   "analytics": {
     "title": "分析",
     "topPosts": "人気の投稿",
-    "engagement": "英語 {値}",
-    "reach": "{値}に到達",
+    "engagement": "英語 {value}",
+    "reach": "{value}に到達",
     "recommendations": "AI によるレコメンデーション"
   },
   "integrations": {
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "AI 機能マップ — アイデア、キャプション、ハッシュタグ、カレンダー、キャンペーン、視聴者、スケジュール、ブランドの一貫性、リライト、翻訳、多言語。"
+  },
+  "formats": {
+    "instagram_caption": "Instagram キャプション",
+    "tiktok_script": "TikTok 脚本",
+    "linkedin_post": "LinkedIn 投稿",
+    "facebook_post": "Facebook 投稿",
+    "x_post": "X 投稿",
+    "blog_article": "ブログ記事",
+    "newsletter": "ニュースレター",
+    "email_campaign": "メールキャンペーン",
+    "product_description": "商品説明",
+    "ad_copy": "広告コピー",
+    "seo_article": "SEO 記事",
+    "landing_page_copy": "ランディングページのコピー"
+  },
+  "publishStatus": {
+    "draft": "下書き",
+    "review": "レビュー",
+    "approved": "承認済み",
+    "scheduled": "予約済み",
+    "published": "公開済み",
+    "archive": "アーカイブ"
+  },
+  "mediaKind": {
+    "image": "画像",
+    "video": "動画",
+    "document": "ドキュメント",
+    "logo": "ブランドロゴ",
+    "template": "テンプレート"
+  },
+  "voice": {
+    "professional": "プロフェッショナル",
+    "friendly": "フレンドリー",
+    "luxury": "ラグジュアリー",
+    "casual": "カジュアル"
+  },
+  "integrationStatus": {
+    "planned": "計画中",
+    "ready": "準備完了",
+    "connected": "接続済み",
+    "disabled": "無効"
   }
 }

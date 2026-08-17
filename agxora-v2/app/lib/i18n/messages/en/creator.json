@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "AI feature map — ideas, captions, hashtags, calendar, campaigns, audience, schedule, brand consistency, rewrite, translate, multi-language."
+  },
+  "formats": {
+    "instagram_caption": "Instagram Caption",
+    "tiktok_script": "TikTok Script",
+    "linkedin_post": "LinkedIn Post",
+    "facebook_post": "Facebook Post",
+    "x_post": "X Post",
+    "blog_article": "Blog Article",
+    "newsletter": "Newsletter",
+    "email_campaign": "Email Campaign",
+    "product_description": "Product Description",
+    "ad_copy": "Ad Copy",
+    "seo_article": "SEO Article",
+    "landing_page_copy": "Landing Page Copy"
+  },
+  "publishStatus": {
+    "draft": "Draft",
+    "review": "Review",
+    "approved": "Approved",
+    "scheduled": "Scheduled",
+    "published": "Published",
+    "archive": "Archive"
+  },
+  "mediaKind": {
+    "image": "Image",
+    "video": "Video",
+    "document": "Document",
+    "logo": "Brand Logo",
+    "template": "Template"
+  },
+  "voice": {
+    "professional": "Professional",
+    "friendly": "Friendly",
+    "luxury": "Luxury",
+    "casual": "Casual"
+  },
+  "integrationStatus": {
+    "planned": "Planned",
+    "ready": "Ready",
+    "connected": "Connected",
+    "disabled": "Disabled"
   }
 }

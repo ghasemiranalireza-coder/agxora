@@ -10,7 +10,8 @@
   "network": {
     "offline": "Çevrimdışı görünüyorsunuz",
     "offlineHelp": "Çevrimdışı yardım",
-    "reconnected": "Bağlantı yeniden kuruldu"
+    "reconnected": "Bağlantı yeniden kuruldu",
+    "offlineSyncHint": "Bağlantı dönene kadar değişiklikler senkronize edilmeyebilir."
   },
   "errorBoundary": {
     "backToDashboard": "Kontrol paneline geri dön",
@@ -54,5 +55,8 @@
     "startFree": "Bunun yerine ücretsiz başlayın",
     "backHome": "Eve dön",
     "signIn": "Oturum aç"
-  }
+  },
+  "loading": "Yükleniyor",
+  "loadingEllipsis": "Yükleniyor…",
+  "loadingIdentity": "Kimlik yükleniyor…"
 }

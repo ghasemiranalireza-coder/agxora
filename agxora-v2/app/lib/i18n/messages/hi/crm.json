@@ -98,12 +98,12 @@
       "previous": "पहले का",
       "next": "अगला"
     },
-    "showing": "{कुल} में से {से}–{तक} दिखाया जा रहा है",
+    "showing": "{from} में से {to}–{total} दिखाया जा रहा है",
     "aria": {
-      "openCustomer": "ग्राहक {कंपनी} खोलें"
+      "openCustomer": "ग्राहक {company} खोलें"
     },
-    "cardMeta": "मालिक {मालिक} · बनाया गया {दिनांक}",
-    "sortBy": "{कॉलम} के अनुसार क्रमबद्ध करें"
+    "cardMeta": "मालिक {owner} · बनाया गया {date}",
+    "sortBy": "{column} के अनुसार क्रमबद्ध करें"
   },
   "status": {
     "lead": "नेतृत्व करना",
@@ -147,7 +147,7 @@
     "customerCouldNotBeRemoved": "ग्राहक को हटाया नहीं जा सका.",
     "contactSaved": "संपर्क सहेजा गया",
     "documentsAttached": "दस्तावेज़ संलग्न",
-    "documentsAttachedDetail": "{गिनती} फ़ाइल(फ़ाइलें)",
+    "documentsAttachedDetail": "{count} फ़ाइल(फ़ाइलें)",
     "noteSaved": "नोट सहेजा गया"
   },
   "deleteDialog": {
@@ -473,7 +473,7 @@
       "label": "एआई स्वास्थ्य स्कोर",
       "caption": "संबंध गुणवत्ता संकेत"
     },
-    "scoreOutOf": "{स्कोर} / {अधिकतम}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "नेतृत्व करना",

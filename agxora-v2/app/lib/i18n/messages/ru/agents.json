@@ -42,15 +42,15 @@
   "registry": {
     "title": "Реестр",
     "selectPrompt": "Выберите агента из реестра.",
-    "status": "Статус: {статус}",
-    "health": "Здоровье: {здоровье}",
-    "queue": "Очередь: {очередь}",
-    "usage": "Использование: {использование}",
+    "status": "Статус: {status}",
+    "health": "Здоровье: {health}",
+    "queue": "Очередь: {queue}",
+    "usage": "Использование: {usage}",
     "executeTask": "Выполнить задачу",
     "supervisorDelegate": "Делегат-супервайзер"
   },
   "marketplace": {
-    "tools": "Инструменты: {инструменты}",
+    "tools": "Инструменты: {tools}",
     "installed": "Установлено",
     "installActivate": "Установка & активация"
   },
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "Выполнить бизнес-цель {agentId}",
     "planAndExecute": "Планируйте и достигайте бизнес-целей рабочего пространства"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Приоритизировать влияние на клиента",
+    "delegatedFollowUp": "Делегированное последующее действие"
   }
 }

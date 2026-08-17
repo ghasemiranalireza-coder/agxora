@@ -148,7 +148,7 @@
     "title": "アグソラAI",
     "emptyState": "顧客、プロジェクト、次のアクションについて AGXORA に質問してください。会話はこのワークスペース セッションに残ります。",
     "thinking": "AGXORAは考えています…",
-    "errorDismiss": "{エラー} — タップして閉じます",
+    "errorDismiss": "{error} — タップして閉じます",
     "placeholder": "AGXORA AI に質問してください…",
     "messageAria": "メッセージ AGXORA AI",
     "sendAria": "メッセージを送信する",
@@ -381,7 +381,8 @@
         "title": "知識の検索",
         "description": "根拠のある答えは、Documents Knowledge Hub コーパスにあります。"
       }
-    }
+    },
+    "esc": "Esc"
   },
   "summary": "{name}: {customers} 人の顧客 · {projects} プロジェクト · {updates} 件の本日の更新。"
 }

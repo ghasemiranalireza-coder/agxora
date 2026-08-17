@@ -18,7 +18,7 @@
     "logoPlaceholder": "Os adaptadores de upload de logotipo e de faturamento do plano são espaços reservados para o futuro back-end de identidade.",
     "rbacTitle": "RBAC — funções padrão",
     "permissionMatrix": "Matriz de permissão",
-    "canManageSettings": "Pode gerenciar configurações: {value} · Autenticado: {autenticado}",
+    "canManageSettings": "Pode gerenciar configurações: {value} · Autenticado: {authenticated}",
     "yes": "sim",
     "no": "não",
     "securitySettings": "Configurações de segurança",
@@ -44,8 +44,8 @@
     "persistentLogin": "Login persistente",
     "disabled": "Desabilitado",
     "enabled": "Habilitado",
-    "days": "{contar} dias",
-    "minutes": "{contagem} minutos",
+    "days": "{count} dias",
+    "minutes": "{count} minutos",
     "toggleIdlePolicy": "Alternar espaço reservado para política ociosa",
     "previewSessionExpired": "A sessão de visualização expirou",
     "previewAccountLocked": "Pré-visualização da conta bloqueada",
@@ -145,5 +145,30 @@
     "verify": "Verificar e-mail",
     "verifying": "Verificando…",
     "requestToken": "Solicitar token de verificação"
+  },
+  "access": {
+    "eyebrow": "Identidade e acesso",
+    "signIn": "Iniciar sessão",
+    "backToDashboard": "Voltar ao painel",
+    "unauthorized": {
+      "title": "Não autorizado",
+      "description": "Inicie sessão para continuar nesta área da AGXORA."
+    },
+    "forbidden": {
+      "title": "Proibido",
+      "description": "A sua função não inclui permissão para este recurso."
+    },
+    "expired_session": {
+      "title": "Sessão expirada",
+      "description": "A sessão expirou. Inicie sessão novamente para retomar o trabalho."
+    },
+    "missing_permission": {
+      "title": "Permissão em falta",
+      "description": "Peça a um proprietário ou administrador que conceda o acesso ao módulo necessário."
+    },
+    "account_locked": {
+      "title": "Conta bloqueada",
+      "description": "Esta conta está bloqueada. Contacte um proprietário da organização ou tente novamente mais tarde."
+    }
   }
 }

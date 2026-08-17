@@ -1,11 +1,34 @@
 {
   "required": "Este campo é obrigatório.",
-  "invalidEmail": "Insira um endereço de e-mail válido.",
+  "invalidEmail": "Introduza um endereço de e-mail válido.",
   "passwordMin": "A senha deve ter pelo menos 8 caracteres.",
   "passwordLettersNumbers": "A senha deve incluir letras e números.",
   "passwordMismatch": "As senhas não coincidem.",
   "acceptTerms": "Aceite os termos para continuar.",
-  "generic": "Algo deu errado.",
+  "generic": "Algo correu mal.",
   "tryAgain": "Por favor, tente novamente.",
-  "saved": "Salvo com sucesso."
+  "saved": "Salvo com sucesso.",
+  "invalidCredentials": "E-mail ou palavra-passe inválidos.",
+  "signInRequired": "É necessário iniciar sessão.",
+  "insufficientPermissions": "Permissões insuficientes.",
+  "noRouteAccess": "Não tem acesso a esta rota.",
+  "accountLocked": "Esta conta está bloqueada. Contacte um administrador.",
+  "sessionExpired": "A sessão expirou. Inicie sessão novamente.",
+  "missingPermission": "Permissão em falta: {permission}",
+  "roleCannotAccess": "A sua função não pode aceder a este recurso.",
+  "codes": {
+    "AUTH_INVALID_CREDENTIALS": "E-mail ou palavra-passe inválidos.",
+    "AUTH_SESSION_EXPIRED": "A sessão expirou. Inicie sessão novamente.",
+    "AUTH_ACCOUNT_LOCKED": "Esta conta está bloqueada. Contacte um administrador.",
+    "AUTH_SIGN_IN_REQUIRED": "Inicie sessão para continuar.",
+    "AUTH_INSUFFICIENT_PERMISSIONS": "Permissões insuficientes.",
+    "AUTH_NO_ROUTE_ACCESS": "Não tem acesso a esta rota.",
+    "COMMON_SOMETHING_WENT_WRONG": "Algo correu mal.",
+    "COMMON_PAGE_NOT_FOUND": "Página não encontrada.",
+    "COMMON_OFFLINE": "Está offline.",
+    "COMMON_TIMEOUT": "O pedido expirou.",
+    "COMMON_VALIDATION": "Verifique os dados e tente novamente.",
+    "COMMON_UNKNOWN": "Ocorreu um erro desconhecido.",
+    "COMMON_INTERNAL": "Ocorreu um erro inesperado. Tente novamente."
+  }
 }

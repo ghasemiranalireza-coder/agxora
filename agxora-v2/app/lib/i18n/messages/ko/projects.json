@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "프로젝트 관리 OS",
     "title": "프로젝트",
-    "lead": "배송을 계획하고, 예산 및 상태를 추적하고, 팀을 할당하고, {조직}의 작업을 관리하세요. 데이터는 로컬로 유지되며 백엔드 연결이 가능합니다.",
+    "lead": "배송을 계획하고, 예산 및 상태를 추적하고, 팀을 할당하고, {organization}의 작업을 관리하세요. 데이터는 로컬로 유지되며 백엔드 연결이 가능합니다.",
     "yourOrganization": "당신의 조직"
   },
   "list": {
@@ -25,12 +25,12 @@
     "emptyTitle": "아직 프로젝트가 없습니다.",
     "emptyDescription": "전달 작업 공간을 가동하여 마일스톤, 예산, 팀 소유권을 추적하세요.",
     "createProject": "프로젝트 생성",
-    "pagination": "{total} 중 {from}~{to} 표시 중",
+    "pagination": "{from} 중 {to}~{total} 표시 중",
     "previous": "이전의",
     "next": "다음",
     "noDescription": "아직 설명이 없습니다.",
-    "duePrefix": "마감 {날짜}",
-    "openProject": "{이름} 프로젝트 열기",
+    "duePrefix": "마감 {date}",
+    "openProject": "{name} 프로젝트 열기",
     "sortBy": "{column} 기준으로 정렬",
     "sort": {
       "name": "이름",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "진전",
-    "progressAria": "{라벨}: {값}%"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "계획",
@@ -132,14 +132,14 @@
     "emptyDescription": "시작/기한 및 작업을 추가하여 일정을 채웁니다.",
     "title": "타임라인",
     "subtitle": "시작, 종료, 기간, 이정표. 종속성은 향후 릴리스를 위해 예약되어 있습니다.",
-    "dateRange": "{시작} → {끝} · {일}일",
-    "itemAria": "{제목}부터 {시작}부터 {끝}까지",
+    "dateRange": "{start} → {end} · {days}일",
+    "itemAria": "{title}부터 {start}부터 {end}까지",
     "dependenciesNone": "종속성: 없음"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "활성 프로젝트",
-      "activeHint": "{계획} 계획",
+      "activeHint": "{planning} 계획",
       "completed": "완전한",
       "completedHint": "포트폴리오의 {percent}%",
       "onHold": "보류 중",
@@ -149,7 +149,7 @@
       "budgetOverview": "예산 개요",
       "budgetHint": "{percent}% 사용됨 · {spent} 사용함",
       "openTasks": "열린 작업",
-      "openTasksHint": "{연체} 기한이 지났습니다",
+      "openTasksHint": "{overdue} 기한이 지났습니다",
       "projectHealth": "프로젝트 상태",
       "healthHint": "종합 배송 점수",
       "upcomingDeadlines": "다가오는 마감일",
@@ -176,7 +176,7 @@
     "emptyTitle": "보드에 작업이 없습니다.",
     "emptyDescription": "할 일, 진행 중, 검토 및 완료에 걸쳐 전달을 구성하는 작업을 만듭니다.",
     "addTask": "작업 추가",
-    "columnAria": "{상태} 열",
+    "columnAria": "{status} 열",
     "taskProgress": "작업 진행",
     "edit": "편집하다",
     "complete": "완벽한"
@@ -185,7 +185,7 @@
     "notFoundTitle": "프로젝트를 찾을 수 없습니다",
     "notFoundDescription": "이 프로젝트는 삭제되었거나 현재 조직에서 사용할 수 없습니다.",
     "backToProjects": "← 프로젝트로 돌아가기",
-    "ownerMeta": "{고객} · 소유자 {소유자}",
+    "ownerMeta": "{customer} · 소유자 {owner}",
     "edit": "편집하다",
     "delete": "삭제",
     "sectionsAria": "프로젝트 세부정보 섹션",
@@ -294,5 +294,30 @@
     "memberAdded": "회원이 추가되었습니다.",
     "settingsSaved": "설정이 저장되었습니다.",
     "projectArchived": "프로젝트가 보관되었습니다."
+  },
+  "validation": {
+    "nameRequired": "프로젝트 이름은 필수입니다.",
+    "nameMin": "프로젝트 이름은 2자 이상이어야 합니다.",
+    "customerRequired": "고객은 필수입니다.",
+    "ownerRequired": "프로젝트 소유자는 필수입니다.",
+    "priorityInvalid": "유효한 우선순위를 선택하세요.",
+    "statusInvalid": "유효한 상태를 선택하세요.",
+    "currencyInvalid": "유효한 통화를 선택하세요.",
+    "budgetInvalid": "예산은 음수가 아닌 숫자여야 합니다.",
+    "startDateRequired": "시작일은 필수입니다.",
+    "startDateInvalid": "유효한 시작일을 입력하세요.",
+    "dueDateInvalid": "유효한 마감일을 입력하세요.",
+    "dueDateOrder": "마감일은 시작일 당일 또는 이후여야 합니다.",
+    "colorInvalid": "유효한 색상을 선택하세요.",
+    "iconInvalid": "유효한 아이콘을 선택하세요.",
+    "taskTitleRequired": "작업 제목은 필수입니다.",
+    "progressRange": "진행률은 0에서 100 사이여야 합니다.",
+    "memberNameRequired": "멤버 이름은 필수입니다.",
+    "emailRequired": "이메일은 필수입니다.",
+    "emailInvalid": "유효한 이메일 주소를 입력하세요.",
+    "roleInvalid": "유효한 역할을 선택하세요.",
+    "noteTitleRequired": "메모 제목은 필수입니다.",
+    "noteBodyRequired": "메모 본문은 필수입니다.",
+    "authorRequired": "작성자는 필수입니다."
   }
 }

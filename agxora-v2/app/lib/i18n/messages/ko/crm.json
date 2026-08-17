@@ -98,9 +98,9 @@
       "previous": "이전의",
       "next": "다음"
     },
-    "showing": "{total} 중 {from}~{to} 표시 중",
+    "showing": "{from} 중 {to}~{total} 표시 중",
     "aria": {
-      "openCustomer": "고객 {회사} 개설"
+      "openCustomer": "고객 {company} 개설"
     },
     "cardMeta": "소유자 {owner} · 생성됨 {date}",
     "sortBy": "{column} 기준으로 정렬"
@@ -473,7 +473,7 @@
       "label": "AI 상태 점수",
       "caption": "관계 품질 신호"
     },
-    "scoreOutOf": "{점수} / {최대}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "선두",

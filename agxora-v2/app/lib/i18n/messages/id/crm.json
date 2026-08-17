@@ -98,12 +98,12 @@
       "previous": "Sebelumnya",
       "next": "Berikutnya"
     },
-    "showing": "Menampilkan {dari}–{ke} dari {total}",
+    "showing": "Menampilkan {from}–{to} dari {total}",
     "aria": {
-      "openCustomer": "Pelanggan terbuka {perusahaan}"
+      "openCustomer": "Pelanggan terbuka {company}"
     },
-    "cardMeta": "Pemilik {pemilik} · Dibuat pada tanggal {tanggal}",
-    "sortBy": "Urutkan berdasarkan {kolom}"
+    "cardMeta": "Pemilik {owner} · Dibuat pada tanggal {date}",
+    "sortBy": "Urutkan berdasarkan {column}"
   },
   "status": {
     "lead": "Memimpin",
@@ -378,7 +378,7 @@
       "gross": "Bruto",
       "created": "Dibuat"
     },
-    "lineTax": "{pajakPct}% pajak"
+    "lineTax": "{taxPct}% pajak"
   },
   "tasks": {
     "calendarTitle": "Kalender · Rapat · Pengingat · Tindak lanjut",
@@ -473,7 +473,7 @@
       "label": "Skor Kesehatan AI",
       "caption": "Sinyal kualitas hubungan"
     },
-    "scoreOutOf": "{skor} / {maks}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "Memimpin",

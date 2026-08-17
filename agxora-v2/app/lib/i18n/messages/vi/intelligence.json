@@ -79,14 +79,14 @@
   "insights": {
     "emptyTitle": "Chưa có thông tin chi tiết nào",
     "emptyDescription": "Thông tin chi tiết về bản trình diễn xuất hiện sau hạt giống của không gian làm việc. Việc tạo cái nhìn sâu sắc về AI trực tiếp không được kết nối.",
-    "badge": "Demo · {loại} · {domain} · xác nhận {sự tự tin}"
+    "badge": "Demo · {kind} · {domain} · xác nhận {confidence}"
   },
   "forecasts": {
     "emptyTitle": "Chưa có dự báo nào",
     "emptyDescription": "Dự báo demo xuất hiện sau hạt giống. Các mô hình dự đoán không được kết nối.",
-    "title": "dự báo {loại}",
-    "baseline": "Đường cơ sở {đường cơ sở} → dự kiến ​​{dự kiến} ({ngày}d)",
-    "confidence": "Demo · Sự tự tin {sự tự tin} — {note}"
+    "title": "dự báo {kind}",
+    "baseline": "Đường cơ sở {baseline} → dự kiến ​​{projected} ({days}d)",
+    "confidence": "Demo · Sự tự tin {confidence} — {note}"
   },
   "alerts": {
     "title": "Công cụ cảnh báo",

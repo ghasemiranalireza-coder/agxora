@@ -98,12 +98,12 @@
       "previous": "Poprzedni",
       "next": "Następny"
     },
-    "showing": "Wyświetlanie {od}–{do} z {total}",
+    "showing": "Wyświetlanie {from}–{to} z {total}",
     "aria": {
-      "openCustomer": "Otwórz klienta {firma}"
+      "openCustomer": "Otwórz klienta {company}"
     },
-    "cardMeta": "Właściciel {właściciel} · Utworzono {data}",
-    "sortBy": "Sortuj według {kolumny}"
+    "cardMeta": "Właściciel {owner} · Utworzono {date}",
+    "sortBy": "Sortuj według {column}"
   },
   "status": {
     "lead": "Ołów",
@@ -473,7 +473,7 @@
       "label": "Wynik zdrowia AI",
       "caption": "Sygnał jakości relacji"
     },
-    "scoreOutOf": "{wynik} / {maks.}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "Ołów",

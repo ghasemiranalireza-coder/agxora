@@ -23,7 +23,7 @@
     "avatarUnavailable": "아직 아바타 업로드를 사용할 수 없습니다.",
     "appearanceNote": "모양 구성은 모양 아래에 유지됩니다. 헤더는 테마 빠른 전환만 제공합니다.",
     "prefsHint": "여러 모듈에서 AI 보조자가 사용합니다.",
-    "themeResolved": "{모드}({외관} 해결됨)",
+    "themeResolved": "{mode}({appearance} 해결됨)",
     "regions": {
       "EU": "유럽연합",
       "US": "미국",
@@ -330,7 +330,7 @@
     "title": "설정",
     "lead": "모든 AGXORA 모듈에 대한 엔터프라이즈 구성 — 프로필, 조직, AI, 모양, 보안, 청구 및 개발자 제어가 한 곳에서 이루어집니다.",
     "loading": "설정 로드 중…",
-    "breadcrumb": "{라벨} · {설명}"
+    "breadcrumb": "{label} · {description}"
   },
   "saveChanges": "변경사항 저장",
   "sessionNotice": "이 세션에 대해 업데이트되었습니다. {area}이(가) 연결되지 않았습니다.",
@@ -368,7 +368,7 @@
     "owner": "소유자",
     "counts": "회원·워크스페이스",
     "orgUpdated": "조직이 업데이트되었습니다.",
-    "countsValue": "{회원} · {작업 공간}",
+    "countsValue": "{members} · {workspaces}",
     "joined": "가입됨",
     "workspaceName": "작업공간 이름",
     "switchWorkspace": "활성 작업공간",
@@ -422,7 +422,7 @@
     "transferHonesty": "배송이 구성되면 확인 이메일이 전송됩니다. 그렇지 않으면 확인 링크를 수신자와 직접 공유하세요.",
     "transferLink": "확인 링크",
     "transferPendingTitle": "소유권 이전 대기 중",
-    "transferPendingBody": "{name}({email})의 확인을 기다리는 중입니다. {만료}에 만료됩니다. 그때까지 귀하는 소유자로 남아 있습니다.",
+    "transferPendingBody": "{name}({email})의 확인을 기다리는 중입니다. {expires}에 만료됩니다. 그때까지 귀하는 소유자로 남아 있습니다.",
     "transferPendingNote": "이전이 보류되는 동안에는 멤버십 역할이 변경되지 않습니다.",
     "cancelTransfer": "전송 취소",
     "transferCancelled": "소유권 이전이 취소되었습니다.",

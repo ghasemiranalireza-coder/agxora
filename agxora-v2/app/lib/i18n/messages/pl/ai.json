@@ -16,7 +16,7 @@
     "provider": "Dostawca",
     "model": "Model",
     "estimatedTokens": "Szac. żetony",
-    "tokensInOut": "(wejście {wejście} / wyjście {wyjście})",
+    "tokensInOut": "(wejście {in} / wyjście {out})",
     "cost": "Koszt",
     "context": "Kontekst",
     "contextNone": "nic",
@@ -79,5 +79,90 @@
     "placeholder": "Polecenie AI…podsumuj, zaproponuj, przeanalizuj…",
     "noMatches": "Brak pasujących poleceń",
     "footer": "Rejestruj przyszłe polecenia za pomocą rejestruAiCommand — interfejs użytkownika pozostaje niezmieniony."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Projekty",
+    "finance": "Finanse",
+    "marketing": "Marketing",
+    "documents": "Dokumenty",
+    "automation": "Automatyzacja",
+    "general": "Ogólne"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Podsumuj klienta",
+      "description": "Streszczenie relacji z klientem"
+    },
+    "crm-follow-up-email": {
+      "title": "E-mail uzupełniający",
+      "description": "Szkic profesjonalnego follow-up CRM"
+    },
+    "projects-analyze": {
+      "title": "Analizuj projekt",
+      "description": "Kontrola kondycji projektu"
+    },
+    "projects-task-list": {
+      "title": "Utwórz listę zadań",
+      "description": "Podziel pracę na konkretne zadania"
+    },
+    "finance-explain-invoice": {
+      "title": "Wyjaśnij fakturę",
+      "description": "Wyjaśnienie faktury prostym językiem"
+    },
+    "finance-cashflow-brief": {
+      "title": "Skrót przepływów pieniężnych",
+      "description": "Krótka narracja przepływów"
+    },
+    "marketing-campaign-outline": {
+      "title": "Zarys kampanii",
+      "description": "Ustrukturyzuj kampanię marketingową"
+    },
+    "marketing-proposal": {
+      "title": "Wygeneruj propozycję",
+      "description": "Szkic oferty dla klienta"
+    },
+    "documents-summarize": {
+      "title": "Podsumuj dokument",
+      "description": "Ustrukturyzowane podsumowanie dokumentu"
+    },
+    "automation-workflow": {
+      "title": "Zaprojektuj przepływ",
+      "description": "Szkic przepływu automatyzacji"
+    },
+    "general-brainstorm": {
+      "title": "Burza mózgów opcji",
+      "description": "Ustrukturyzowane ideowanie"
+    },
+    "general-explain": {
+      "title": "Wyjaśnij prosto",
+      "description": "Jasne wyjaśnienie dla interesariuszy"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Podsumuj klienta",
+      "description": "Streszczenie aktywnego klienta"
+    },
+    "cmd-generate-proposal": {
+      "label": "Wygeneruj propozycję",
+      "description": "Szkic konspektu oferty dla klienta"
+    },
+    "cmd-analyze-project": {
+      "label": "Analizuj projekt",
+      "description": "Kondycja projektu i analiza ryzyka"
+    },
+    "cmd-create-task-list": {
+      "label": "Utwórz listę zadań",
+      "description": "Podziel pracę na konkretne zadania"
+    },
+    "cmd-generate-email": {
+      "label": "Wygeneruj e-mail",
+      "description": "Szkic profesjonalnego e-maila"
+    },
+    "cmd-explain-invoice": {
+      "label": "Wyjaśnij fakturę",
+      "description": "Wyjaśnienie faktury prostym językiem"
+    }
   }
 }

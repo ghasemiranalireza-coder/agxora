@@ -69,7 +69,7 @@
     "tabTriggers": "觸發器",
     "tabActions": "行動",
     "tabAiActions": "人工智慧行動",
-    "builderTitle": "工作流程產生器·{名稱}",
+    "builderTitle": "工作流程產生器·{name}",
     "builderHint": "對齊 {grid}px 網格 · ⌘/Ctrl+滾動縮放 · 拖動畫布進行平移 · 雙擊連接",
     "autoSaved": "自動儲存",
     "saving": "儲存中…",
@@ -133,12 +133,12 @@
       "missingExecute": "缺少工作流程.執行權限。",
       "created": "已建立{name}",
       "templateApplied": "應用的模板：{name}",
-      "runResult": "運行{狀態}（{持續時間}毫秒）",
+      "runResult": "運行{status}（{duration}毫秒）",
       "runFailed": "工作流無法運行（已禁用或缺失）。",
       "publishedEvent": "已發佈的網域事件：{type}",
-      "workflowStatus": "工作流程{狀態}",
+      "workflowStatus": "工作流程{status}",
       "saved": "工作流程已保存",
-      "retryResult": "重試{狀態}",
+      "retryResult": "重試{status}",
       "retryFailed": "重試失敗",
       "settingsSaved": "已儲存自動化設定"
     },
@@ -193,8 +193,8 @@
       "emptyTitle": "尚未執行死刑。",
       "emptyDescription": "執行工作流程或發佈網域事件。",
       "latestRun": "最新運行詳情",
-      "path": "路徑：{路徑}",
-      "error": "· 錯誤：{錯誤}",
+      "path": "路徑：{path}",
+      "error": "· 錯誤：{error}",
       "columns": {
         "workflow": "工作流程",
         "status": "地位",
@@ -226,7 +226,315 @@
       "concurrencyLimit": "並發限制",
       "timeoutMs": "超時（毫秒）",
       "logLevel": "日誌等級",
-      "saveSettings": "儲存設定"
+      "saveSettings": "儲存設定",
+      "logLevels": {
+        "error": "錯誤",
+        "warn": "警告",
+        "info": "資訊",
+        "debug": "偵錯"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "空工作流程"
+  },
+  "status": {
+    "connected": "已連線",
+    "beta": "測試版",
+    "comingSoon": "即將推出",
+    "disabled": "已停用",
+    "planned": "已規劃",
+    "success": "成功",
+    "failed": "失敗",
+    "running": "執行中",
+    "pending": "待處理",
+    "retried": "重試"
+  },
+  "difficulty": {
+    "starter": "入門",
+    "intermediate": "中級",
+    "advanced": "進階"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "觸發器",
+      "description": "在事件觸發時啟動"
+    },
+    "el-condition": {
+      "label": "條件",
+      "description": "依規則分支"
+    },
+    "el-delay": {
+      "label": "延遲",
+      "description": "繼續前等待"
+    },
+    "el-approval": {
+      "label": "核准",
+      "description": "人工核准關卡"
+    },
+    "el-loop": {
+      "label": "迴圈",
+      "description": "走訪集合"
+    },
+    "el-merge": {
+      "label": "合併",
+      "description": "合併平行路徑"
+    },
+    "el-split": {
+      "label": "拆分",
+      "description": "扇出平行路徑"
+    },
+    "el-ai-decision": {
+      "label": "AI 決策",
+      "description": "透過 AI 路由"
+    },
+    "el-notification": {
+      "label": "通知",
+      "description": "應用程式內提醒"
+    },
+    "el-webhook": {
+      "label": "Webhook 預留",
+      "description": "已預留 HTTP 回呼"
+    },
+    "el-custom": {
+      "label": "自訂動作",
+      "description": "可擴充動作槽"
+    },
+    "tr-customer": {
+      "label": "客戶已建立",
+      "description": "已建立 CRM 客戶紀錄"
+    },
+    "tr-lead": {
+      "label": "潛在客戶已建立",
+      "description": "新潛在客戶進入管道"
+    },
+    "tr-invoice": {
+      "label": "發票已建立",
+      "description": "已開立財務發票"
+    },
+    "tr-invoice-paid": {
+      "label": "發票已付款",
+      "description": "付款已結清"
+    },
+    "tr-order": {
+      "label": "訂單已建立",
+      "description": "訂單已登錄"
+    },
+    "tr-order-done": {
+      "label": "訂單已完成",
+      "description": "訂單已履約"
+    },
+    "tr-doc": {
+      "label": "文件已上傳",
+      "description": "文件庫上傳"
+    },
+    "tr-campaign": {
+      "label": "活動已發佈",
+      "description": "Creator Studio 發佈"
+    },
+    "tr-employee": {
+      "label": "員工已新增",
+      "description": "團隊目錄變更"
+    },
+    "tr-task": {
+      "label": "任務已完成",
+      "description": "任務已標為完成"
+    },
+    "tr-manual": {
+      "label": "手動觸發器",
+      "description": "按需執行"
+    },
+    "tr-schedule": {
+      "label": "排程觸發器",
+      "description": "Cron / 日曆排程"
+    },
+    "tr-webhook": {
+      "label": "Webhook 觸發器",
+      "description": "傳入 HTTP 事件"
+    },
+    "tr-api": {
+      "label": "API 觸發器",
+      "description": "程式化啟動"
+    },
+    "ac-crm": {
+      "label": "建立 CRM 紀錄",
+      "description": "寫入 CRM 實體"
+    },
+    "ac-invoice": {
+      "label": "產生發票",
+      "description": "財務發票"
+    },
+    "ac-quote": {
+      "label": "產生報價",
+      "description": "建立報價文件"
+    },
+    "ac-delivery": {
+      "label": "產生送貨單",
+      "description": "送貨單"
+    },
+    "ac-task": {
+      "label": "建立任務",
+      "description": "開啟任務"
+    },
+    "ac-assign": {
+      "label": "指派員工",
+      "description": "轉給隊友"
+    },
+    "ac-email": {
+      "label": "傳送電子郵件",
+      "description": "外寄郵件"
+    },
+    "ac-notify": {
+      "label": "傳送通知",
+      "description": "應用程式內通知"
+    },
+    "ac-ai-summary": {
+      "label": "產生 AI 摘要",
+      "description": "彙整脈絡"
+    },
+    "ac-ai-content": {
+      "label": "產生 AI 內容",
+      "description": "Creator Studio 草稿"
+    },
+    "ac-update-customer": {
+      "label": "更新客戶",
+      "description": "修補更新 CRM 客戶"
+    },
+    "ac-update-status": {
+      "label": "更新狀態",
+      "description": "變更實體狀態"
+    },
+    "ac-pdf": {
+      "label": "匯出 PDF",
+      "description": "文件匯出"
+    },
+    "ac-future": {
+      "label": "未來 API 預留",
+      "description": "預留動作槽"
+    },
+    "ai-decision": {
+      "label": "AI 決策",
+      "description": "決定下一條路徑"
+    },
+    "ai-class": {
+      "label": "AI 分類",
+      "description": "對紀錄分類"
+    },
+    "ai-text": {
+      "label": "AI 文字產生",
+      "description": "產生文字"
+    },
+    "ai-translate": {
+      "label": "AI 翻譯",
+      "description": "翻譯內容"
+    },
+    "ai-email": {
+      "label": "AI 郵件回覆",
+      "description": "草擬回覆"
+    },
+    "ai-sum": {
+      "label": "AI 摘要",
+      "description": "濃縮脈絡"
+    },
+    "ai-rec": {
+      "label": "AI 建議",
+      "description": "建議後續步驟"
+    },
+    "ai-route": {
+      "label": "AI 路由",
+      "description": "路由至擁有者 / 佇列"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "客戶創建",
+      "description": "在建立 CRM 客戶記錄時觸發。"
+    },
+    "project_created": {
+      "label": "專案已建立",
+      "description": "在建立專案時觸發。"
+    },
+    "task_completed": {
+      "label": "任務完成",
+      "description": "在任務標記為完成時觸發。"
+    },
+    "document_uploaded": {
+      "label": "文件已上傳",
+      "description": "在上傳文件時觸發。"
+    },
+    "schedule": {
+      "label": "行程",
+      "description": "Cron／間隔排程觸發。"
+    },
+    "invoice_issued": {
+      "label": "已開立發票",
+      "description": "在開立發票時觸發。"
+    },
+    "user_invited": {
+      "label": "已邀請使用者",
+      "description": "在邀請團隊成員時觸發。"
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "傳入 HTTP Webhook。"
+    },
+    "api_event": {
+      "label": "API 事件",
+      "description": "一般 API 網域事件。"
+    },
+    "ai_event": {
+      "label": "AI 事件",
+      "description": "AI 訊號（完成、洞察、代理步驟）。"
+    },
+    "manual": {
+      "label": "手動觸發",
+      "description": "依需求從自動化介面或 API 執行。"
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "創建客戶",
+      "description": "建立 CRM 客戶記錄。"
+    },
+    "customer_update": {
+      "label": "更新客戶",
+      "description": "更新客戶欄位。"
+    },
+    "project_create": {
+      "label": "創建專案",
+      "description": "從工作流程內容建立專案。"
+    },
+    "notification_send": {
+      "label": "傳送通知",
+      "description": "傳送應用程式內通知。"
+    },
+    "email_send": {
+      "label": "傳送電子郵件",
+      "description": "透過郵件服務將電子郵件加入佇列。"
+    },
+    "invoice_create": {
+      "label": "建立發票",
+      "description": "建立財務發票。"
+    },
+    "status_update": {
+      "label": "更新狀態",
+      "description": "更新模組中實體的狀態。"
+    },
+    "document_generate": {
+      "label": "產生文件",
+      "description": "從範本產生文件。"
+    },
+    "api_call": {
+      "label": "呼叫 API",
+      "description": "對內部或外部 API 發出 HTTP 呼叫。"
+    },
+    "ai_run": {
+      "label": "執行 AI",
+      "description": "使用內容執行 AI 提示／代理步驟。"
+    },
+    "task_assign": {
+      "label": "指派任務",
+      "description": "將任務指派給使用者。"
     }
   }
 }

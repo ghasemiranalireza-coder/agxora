@@ -50,42 +50,42 @@
     "documents": {
       "label": "書類",
       "caption": "サンプル・フォルダ間",
-      "delta": "+{カウント}"
+      "delta": "+{count}"
     },
     "folders": {
       "label": "フォルダー",
       "caption": "サンプル・スマートコレクションを含む",
-      "delta": "+{カウント}"
+      "delta": "+{count}"
     },
     "storage": {
       "label": "使用済みストレージ",
       "caption": "プラン説明書のサンプル・",
-      "delta": "+{サイズ}"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "共有ドキュメント",
       "caption": "サンプル · 組織 + 部門 + ユーザー",
-      "delta": "+{カウント}"
+      "delta": "+{count}"
     },
     "activity": {
       "label": "最近の活動",
       "caption": "サンプル・過去24時間",
-      "delta": "+{カウント}"
+      "delta": "+{count}"
     },
     "indexed": {
       "label": "AI インデックス付き",
       "caption": "サンプル・AI検索が繋がらない",
-      "delta": "{パーセント}"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "承認待ち",
       "caption": "サンプル・オートメーションが接続されていません",
-      "delta": "{カウント}"
+      "delta": "{count}"
     },
     "score": {
       "label": "知識スコア",
       "caption": "サンプル・取材イラスト",
-      "delta": "+{カウント}"
+      "delta": "+{count}"
     }
   },
   "library": {
@@ -130,7 +130,7 @@
     "favoritesOnly": "お気に入りのみ",
     "emptyTitle": "提示する書類はありません",
     "emptyDescription": "フィルターを調整したり、検索をクリアしたり、ナレッジ資産を追加してライブラリを拡大します。",
-    "selectAria": "{名前}を選択してください",
+    "selectAria": "{name}を選択してください",
     "versionHistoryTitle": "バージョン履歴",
     "close": "近い",
     "context": {
@@ -151,7 +151,7 @@
     "zoomIn": "ズーム+",
     "prev": "前へ",
     "next": "次",
-    "page": "ページ {ページ} / {合計}",
+    "page": "ページ {page} / {total}",
     "searchInside": "内部を検索",
     "findPlaceholder": "プレビューで検索…",
     "noMatches": "プレビュー テキストに一致するものはありません。",
@@ -177,7 +177,7 @@
     "title": "バージョン履歴",
     "emptyTitle": "ドキュメントが選択されていません",
     "emptyDescription": "ドキュメントを開いて、バージョン、メモ、復元、比較を確認します。",
-    "current": "{名前} · 現在の {バージョン}",
+    "current": "{name} · 現在の {version}",
     "restore": "バージョンを復元する",
     "compare": "バージョンの比較",
     "restoreTitle": "復元にはストレージ API が必要です",
@@ -195,7 +195,7 @@
     "reject": "拒否する",
     "sendToReview": "レビューに送信",
     "noticeDefault": "承認の移行にはオートメーション ワークフロー エンジンが必要ですが、このビルドでは接続されていません。",
-    "unavailable": "{id} では {action} を利用できません — ワークフロー エンジンが接続されていません。サンプルドキュメントのステータスは変更されませんでした。",
+    "unavailable": "{action} では {id} を利用できません — ワークフロー エンジンが接続されていません。サンプルドキュメントのステータスは変更されませんでした。",
     "approveTitle": "承認を利用できません — ワークフロー エンジンが接続されていません",
     "rejectTitle": "拒否は利用できません — ワークフロー エンジンが接続されていません",
     "sendTitle": "レビューに送信できません — ワークフロー エンジンが接続されていません"
@@ -380,9 +380,9 @@
     "planned": "計画済み"
   },
   "bytes": {
-    "b": "{値} B",
-    "kb": "{値} KB",
-    "mb": "{値} MB",
-    "gb": "{値} GB"
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
   }
 }

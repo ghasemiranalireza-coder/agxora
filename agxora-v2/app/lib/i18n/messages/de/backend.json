@@ -10,7 +10,8 @@
   "network": {
     "offline": "Sie scheinen offline zu sein.",
     "offlineHelp": "Offline-Hilfe",
-    "reconnected": "Verbindung wiederhergestellt"
+    "reconnected": "Verbindung wiederhergestellt",
+    "offlineSyncHint": "Änderungen werden möglicherweise erst synchronisiert, wenn die Verbindung zurückkehrt."
   },
   "errorBoundary": {
     "backToDashboard": "Zurück zum Dashboard",
@@ -54,5 +55,8 @@
     "startFree": "Start free instead",
     "backHome": "Back to home",
     "signIn": "Anmelden"
-  }
+  },
+  "loading": "Wird geladen",
+  "loadingEllipsis": "Wird geladen…",
+  "loadingIdentity": "Identität wird geladen…"
 }

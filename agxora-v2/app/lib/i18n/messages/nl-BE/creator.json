@@ -94,8 +94,8 @@
   "analytics": {
     "title": "Analyse",
     "topPosts": "Topberichten",
-    "engagement": "Eng {waarde}",
-    "reach": "Bereik {waarde}",
+    "engagement": "Eng {value}",
+    "reach": "Bereik {value}",
     "recommendations": "AI-aanbevelingen"
   },
   "integrations": {
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "AI-functiekaart - ideeën, bijschriften, hashtags, kalender, campagnes, doelgroep, planning, merkconsistentie, herschrijven, vertalen, meertalig."
+  },
+  "formats": {
+    "instagram_caption": "Instagram-bijschrift",
+    "tiktok_script": "TikTok-script",
+    "linkedin_post": "LinkedIn-bericht",
+    "facebook_post": "Facebook-bericht",
+    "x_post": "X-bericht",
+    "blog_article": "Blogartikel",
+    "newsletter": "Nieuwsbrief",
+    "email_campaign": "E-mailcampagne",
+    "product_description": "Productbeschrijving",
+    "ad_copy": "Advertentietekst",
+    "seo_article": "SEO-artikel",
+    "landing_page_copy": "Landingspaginatekst"
+  },
+  "publishStatus": {
+    "draft": "Concept",
+    "review": "Beoordeling",
+    "approved": "Goedgekeurd",
+    "scheduled": "Gepland",
+    "published": "Gepubliceerd",
+    "archive": "Archief"
+  },
+  "mediaKind": {
+    "image": "Afbeelding",
+    "video": "Video",
+    "document": "Document",
+    "logo": "Merklogo",
+    "template": "Sjabloon"
+  },
+  "voice": {
+    "professional": "Professioneel",
+    "friendly": "Vriendelijk",
+    "luxury": "Luxe",
+    "casual": "Informeel"
+  },
+  "integrationStatus": {
+    "planned": "Gepland",
+    "ready": "Klaar",
+    "connected": "Verbonden",
+    "disabled": "Uitgeschakeld"
   }
 }

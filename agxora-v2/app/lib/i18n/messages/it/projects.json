@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "Sistema operativo per la gestione dei progetti",
     "title": "Progetti",
-    "lead": "Pianifica la consegna, monitora il budget e lo stato, assegna i team e gestisci le attività per {organizzazione}. I dati persistono localmente e sono pronti per la connettività back-end.",
+    "lead": "Pianifica la consegna, monitora il budget e lo stato, assegna i team e gestisci le attività per {organization}. I dati persistono localmente e sono pronti per la connettività back-end.",
     "yourOrganization": "la tua organizzazione"
   },
   "list": {
@@ -25,13 +25,13 @@
     "emptyTitle": "Nessun progetto ancora",
     "emptyDescription": "Crea uno spazio di lavoro di consegna per tenere traccia dei traguardi, del budget e della proprietà del team.",
     "createProject": "Crea progetto",
-    "pagination": "Mostrando {da}–{a} di {totale}",
+    "pagination": "Mostrando {from}–{to} di {total}",
     "previous": "Precedente",
     "next": "Prossimo",
     "noDescription": "Nessuna descrizione ancora.",
-    "duePrefix": "Scadenza}",
-    "openProject": "Apri progetto {nome}",
-    "sortBy": "Ordina per {colonna}",
+    "duePrefix": "Due {date}",
+    "openProject": "Apri progetto {name}",
+    "sortBy": "Ordina per {column}",
     "sort": {
       "name": "Nome",
       "customer": "Cliente",
@@ -65,7 +65,7 @@
     "tagsPlaceholder": "impresa, implementazione",
     "budgetPlaceholder": "0",
     "description": "Descrizione",
-    "selectColor": "Seleziona il colore {colore}"
+    "selectColor": "Seleziona il colore {color}"
   },
   "taskForm": {
     "createTitle": "Crea attività",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "Progressi",
-    "progressAria": "{etichetta}: {valore}%"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "Pianificazione",
@@ -132,14 +132,14 @@
     "emptyDescription": "Aggiungi date di inizio/scadenza e attività per popolare la pianificazione.",
     "title": "Cronologia",
     "subtitle": "Inizio, fine, durata, tappe fondamentali. Le dipendenze sono riservate per una versione futura.",
-    "dateRange": "{inizio} → {fine} · {giorni}d",
-    "itemAria": "{titolo} dal {inizio} al {fine}",
+    "dateRange": "{start} → {end} · {days}d",
+    "itemAria": "{title} dal {start} al {end}",
     "dependenciesNone": "Dipendenze: nessuna"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "Progetti attivi",
-      "activeHint": "{pianificazione} pianificazione",
+      "activeHint": "{planning} pianificazione",
       "completed": "Completato",
       "completedHint": "{percent}% del portafoglio",
       "onHold": "In attesa",
@@ -149,7 +149,7 @@
       "budgetOverview": "Panoramica del budget",
       "budgetHint": "{percent}% utilizzato · {spent} speso",
       "openTasks": "Apri attività",
-      "openTasksHint": "{in ritardo} in ritardo",
+      "openTasksHint": "{overdue} in ritardo",
       "projectHealth": "Progetto Salute",
       "healthHint": "Punteggio di consegna composito",
       "upcomingDeadlines": "Prossime scadenze",
@@ -176,7 +176,7 @@
     "emptyTitle": "Nessun compito sul tabellone",
     "emptyDescription": "Crea attività per organizzare la consegna tra Da fare, In corso, Revisione e Fatto.",
     "addTask": "Aggiungi attività",
-    "columnAria": "colonna {stato}",
+    "columnAria": "colonna {status}",
     "taskProgress": "Avanzamento dell'attività",
     "edit": "Modificare",
     "complete": "Completare"
@@ -185,7 +185,7 @@
     "notFoundTitle": "Progetto non trovato",
     "notFoundDescription": "Questo progetto potrebbe essere stato eliminato o non è disponibile per l'organizzazione corrente.",
     "backToProjects": "← Torna ai progetti",
-    "ownerMeta": "{cliente} · Proprietario {proprietario}",
+    "ownerMeta": "{customer} · Proprietario {owner}",
     "edit": "Modificare",
     "delete": "Eliminare",
     "sectionsAria": "Sezioni di dettaglio del progetto",
@@ -294,5 +294,30 @@
     "memberAdded": "Membro aggiunto",
     "settingsSaved": "Impostazioni salvate",
     "projectArchived": "Progetto archiviato"
+  },
+  "validation": {
+    "nameRequired": "Il nome del progetto è obbligatorio.",
+    "nameMin": "Il nome del progetto deve avere almeno 2 caratteri.",
+    "customerRequired": "Il cliente è obbligatorio.",
+    "ownerRequired": "Il proprietario del progetto è obbligatorio.",
+    "priorityInvalid": "Seleziona una priorità valida.",
+    "statusInvalid": "Seleziona uno stato valido.",
+    "currencyInvalid": "Seleziona una valuta valida.",
+    "budgetInvalid": "Il budget deve essere un numero non negativo.",
+    "startDateRequired": "La data di inizio è obbligatoria.",
+    "startDateInvalid": "Inserisci una data di inizio valida.",
+    "dueDateInvalid": "Inserisci una data di scadenza valida.",
+    "dueDateOrder": "La data di scadenza deve essere il giorno di inizio o successiva.",
+    "colorInvalid": "Scegli un colore valido.",
+    "iconInvalid": "Scegli un’icona valida.",
+    "taskTitleRequired": "Il titolo dell’attività è obbligatorio.",
+    "progressRange": "L’avanzamento deve essere compreso tra 0 e 100.",
+    "memberNameRequired": "Il nome del membro è obbligatorio.",
+    "emailRequired": "L’e-mail è obbligatorio.",
+    "emailInvalid": "Inserisci un indirizzo e-mail valido.",
+    "roleInvalid": "Seleziona un ruolo valido.",
+    "noteTitleRequired": "Il titolo della nota è obbligatorio.",
+    "noteBodyRequired": "Il corpo della nota è obbligatorio.",
+    "authorRequired": "L’autore è obbligatorio."
   }
 }

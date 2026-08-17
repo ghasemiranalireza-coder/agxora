@@ -18,10 +18,10 @@
     "demoConnection": "Demoverbinding: {name} (alleen lokale stub)",
     "connectFailed": "Verbinding mislukt",
     "keyCreated": "API-sleutel gemaakt: {prefix}",
-    "webhookCreated": "Webhook gemaakt: {naam}",
+    "webhookCreated": "Webhook gemaakt: {name}",
     "webhookTest": "Webhooktest {status}",
     "networkError": "Netwerkfout in API-verkenner: {message}",
-    "explorerError": "API-verkenner → {status}: {bericht}",
+    "explorerError": "API-verkenner → {status}: {message}",
     "explorerSuccess": "API-verkenner → {status}",
     "explorerFailed": "Verkenner is mislukt",
     "syncResult": "Demosynchronisatie · {status} ({records} lokale records) — geen externe gegevens overgedragen.",
@@ -55,7 +55,7 @@
     "latestSync": "Laatste synchronisatie: {status} · {records} records · modus {mode}"
   },
   "available": {
-    "protocols": "Protocollen: {protocollen}",
+    "protocols": "Protocollen: {protocols}",
     "demoConnection": "Demo-verbinding",
     "connectDemo": "Verbinden (demo)",
     "installDemo": "Demo installeren"

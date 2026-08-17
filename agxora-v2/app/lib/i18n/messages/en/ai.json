@@ -79,5 +79,90 @@
     "placeholder": "AI command… summarize, propose, analyze…",
     "noMatches": "No matching commands",
     "footer": "Register future commands via registerAiCommand — UI stays unchanged."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Projects",
+    "finance": "Finance",
+    "marketing": "Marketing",
+    "documents": "Documents",
+    "automation": "Automation",
+    "general": "General"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Summarize customer",
+      "description": "Executive summary of a customer relationship"
+    },
+    "crm-follow-up-email": {
+      "title": "Follow-up email",
+      "description": "Draft a professional CRM follow-up"
+    },
+    "projects-analyze": {
+      "title": "Analyze project",
+      "description": "Health check for a project"
+    },
+    "projects-task-list": {
+      "title": "Create task list",
+      "description": "Break work into actionable tasks"
+    },
+    "finance-explain-invoice": {
+      "title": "Explain invoice",
+      "description": "Plain-language invoice explanation"
+    },
+    "finance-cashflow-brief": {
+      "title": "Cashflow brief",
+      "description": "Short cashflow narrative"
+    },
+    "marketing-campaign-outline": {
+      "title": "Campaign outline",
+      "description": "Structure a marketing campaign"
+    },
+    "marketing-proposal": {
+      "title": "Generate proposal",
+      "description": "Client-facing proposal draft"
+    },
+    "documents-summarize": {
+      "title": "Summarize document",
+      "description": "Structured document summary"
+    },
+    "automation-workflow": {
+      "title": "Design workflow",
+      "description": "Automation workflow sketch"
+    },
+    "general-brainstorm": {
+      "title": "Brainstorm options",
+      "description": "Structured ideation"
+    },
+    "general-explain": {
+      "title": "Explain simply",
+      "description": "Clear explanation for stakeholders"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Summarize customer",
+      "description": "Executive summary of the active customer"
+    },
+    "cmd-generate-proposal": {
+      "label": "Generate proposal",
+      "description": "Draft a client proposal outline"
+    },
+    "cmd-analyze-project": {
+      "label": "Analyze project",
+      "description": "Project health and risk analysis"
+    },
+    "cmd-create-task-list": {
+      "label": "Create task list",
+      "description": "Break work into actionable tasks"
+    },
+    "cmd-generate-email": {
+      "label": "Generate email",
+      "description": "Draft a professional email"
+    },
+    "cmd-explain-invoice": {
+      "label": "Explain invoice",
+      "description": "Plain-language invoice explanation"
+    }
   }
 }

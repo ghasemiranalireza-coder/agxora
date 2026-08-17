@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "Identidade e Acesso",
     "title": "Equipe",
-    "lead": "Membros, funções e convites para {organização}. Pronto para arquitetura para uma futura API de identidade.",
+    "lead": "Membros, funções e convites para {organization}. Pronto para arquitetura para uma futura API de identidade.",
     "yourOrganization": "sua organização"
   },
   "invite": {
@@ -49,17 +49,17 @@
     "columnEmail": "E-mail",
     "columnRole": "Papel",
     "columnStatus": "Status",
-    "roleFor": "Função para {nome}",
+    "roleFor": "Função para {name}",
     "emptyTitle": "Ainda não há membros",
     "emptyDescription": "Convide colegas para ingressar neste espaço de trabalho da organização.",
-    "updated": "{nome} atualizado para {role}",
+    "updated": "{name} atualizado para {role}",
     "roleChangeFailed": "Falha na mudança de função"
   },
   "pending": {
     "title": "Convites pendentes",
     "emptyTitle": "Nenhum convite pendente",
     "emptyDescription": "Novos convites aparecem aqui até serem aceitos ou expirarem.",
-    "expires": "{função} · expira em {data}",
+    "expires": "{role} · expira em {date}",
     "revoke": "Revogar",
     "pending": "pendente"
   },

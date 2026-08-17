@@ -145,5 +145,30 @@
     "verify": "Bitte E-Mail-Adresse verifizieren",
     "verifying": "Überprüfung…",
     "requestToken": "Verifizierungstoken anfordern"
+  },
+  "access": {
+    "eyebrow": "Identität & Zugriff",
+    "signIn": "Anmelden",
+    "backToDashboard": "Zurück zum Dashboard",
+    "unauthorized": {
+      "title": "Nicht autorisiert",
+      "description": "Melden Sie sich an, um diesen Bereich von AGXORA fortzusetzen."
+    },
+    "forbidden": {
+      "title": "Zugriff verweigert",
+      "description": "Ihre Rolle umfasst keine Berechtigung für diese Ressource."
+    },
+    "expired_session": {
+      "title": "Sitzung abgelaufen",
+      "description": "Ihre Sitzung ist abgelaufen. Melden Sie sich erneut an, um die Arbeit fortzusetzen."
+    },
+    "missing_permission": {
+      "title": "Fehlende Berechtigung",
+      "description": "Bitten Sie einen Inhaber oder Admin, den erforderlichen Modulzugriff zu gewähren."
+    },
+    "account_locked": {
+      "title": "Konto gesperrt",
+      "description": "Dieses Konto ist gesperrt. Kontaktieren Sie einen Organisationsinhaber oder versuchen Sie es später erneut."
+    }
   }
 }

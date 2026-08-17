@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "Identità e accesso",
     "title": "Squadra",
-    "lead": "Membri, ruoli e inviti per {organizzazione}. Architettura pronta per una futura API di identità.",
+    "lead": "Membri, ruoli e inviti per {organization}. Architettura pronta per una futura API di identità.",
     "yourOrganization": "la tua organizzazione"
   },
   "invite": {
@@ -49,7 +49,7 @@
     "columnEmail": "E-mail",
     "columnRole": "Ruolo",
     "columnStatus": "Stato",
-    "roleFor": "Ruolo per {nome}",
+    "roleFor": "Ruolo per {name}",
     "emptyTitle": "Nessun membro ancora",
     "emptyDescription": "Invita i colleghi a partecipare a quest'area di lavoro dell'organizzazione.",
     "updated": "{name} aggiornato in {role}",
@@ -59,7 +59,7 @@
     "title": "Inviti in sospeso",
     "emptyTitle": "Nessun invito in sospeso",
     "emptyDescription": "I nuovi inviti vengono visualizzati qui fino all'accettazione o alla scadenza.",
-    "expires": "{ruolo} · scade il {data}",
+    "expires": "{role} · scade il {date}",
     "revoke": "Revocare",
     "pending": "in attesa di"
   },

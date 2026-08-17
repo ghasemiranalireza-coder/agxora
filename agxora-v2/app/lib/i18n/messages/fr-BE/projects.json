@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "Système d'exploitation de gestion de projet",
     "title": "Projets",
-    "lead": "Planifiez la livraison, suivez le budget et l'état de santé, affectez des équipes et gérez les tâches pour {organisation}. Les données persistent localement et sont prêtes pour la connectivité backend.",
+    "lead": "Planifiez la livraison, suivez le budget et l'état de santé, affectez des équipes et gérez les tâches pour {organization}. Les données persistent localement et sont prêtes pour la connectivité backend.",
     "yourOrganization": "Votre organisation"
   },
   "list": {
@@ -30,8 +30,8 @@
     "next": "Suivant",
     "noDescription": "Aucune description pour l'instant.",
     "duePrefix": "Échéance {date}",
-    "openProject": "Ouvrir le projet {nom}",
-    "sortBy": "Trier par {colonne}",
+    "openProject": "Ouvrir le projet {name}",
+    "sortBy": "Trier par {column}",
     "sort": {
       "name": "Nom",
       "customer": "Client",
@@ -65,7 +65,7 @@
     "tagsPlaceholder": "entreprise, déploiement",
     "budgetPlaceholder": "0",
     "description": "Description",
-    "selectColor": "Sélectionnez la couleur {couleur}"
+    "selectColor": "Sélectionnez la couleur {color}"
   },
   "taskForm": {
     "createTitle": "Créer une tâche",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "Progrès",
-    "progressAria": "{étiquette} : {valeur} %"
+    "progressAria": "{label} : {value} %"
   },
   "status": {
     "planning": "Planification",
@@ -139,17 +139,17 @@
   "dashboard": {
     "kpi": {
       "activeProjects": "Projets actifs",
-      "activeHint": "{planification} planification",
+      "activeHint": "{planning} planification",
       "completed": "Terminé",
-      "completedHint": "Pourcentage du portefeuille",
+      "completedHint": "{percent}% of portfolio",
       "onHold": "En attente",
-      "onHoldHint": "{archivé} archivé",
+      "onHoldHint": "{archived} archivé",
       "teamMembers": "Membres d’équipe",
       "teamHint": "Dans tous les projets",
       "budgetOverview": "Aperçu budgétaire",
       "budgetHint": "{percent}% utilisés · {spent} dépensés",
       "openTasks": "Tâches ouvertes",
-      "openTasksHint": "{en retard} en retard",
+      "openTasksHint": "{overdue} en retard",
       "projectHealth": "État du projet:",
       "healthHint": "Score de livraison composite",
       "upcomingDeadlines": "Dates limites à venir",
@@ -176,7 +176,7 @@
     "emptyTitle": "Aucune tâche sur le tableau",
     "emptyDescription": "Créez des tâches pour organiser la livraison entre To Do, In Progress, Review et Done.",
     "addTask": "Ajouter une tâche",
-    "columnAria": "Colonne {statut}",
+    "columnAria": "Colonne {status}",
     "taskProgress": "Progression de la tâche",
     "edit": "Modifier",
     "complete": "Terminez"
@@ -185,7 +185,7 @@
     "notFoundTitle": "Projet introuvable",
     "notFoundDescription": "Ce projet a peut-être été supprimé ou n'est pas disponible pour l'organisation actuelle.",
     "backToProjects": "← Retour aux projets",
-    "ownerMeta": "{client} · Propriétaire {propriétaire}",
+    "ownerMeta": "{customer} · Propriétaire {owner}",
     "edit": "Modifier",
     "delete": "Effacer",
     "sectionsAria": "Sections détaillées du projet",
@@ -294,5 +294,30 @@
     "memberAdded": "Membre ajouté",
     "settingsSaved": "Options enregistrées",
     "projectArchived": "Projet archivé"
+  },
+  "validation": {
+    "nameRequired": "Le nom du projet est obligatoire.",
+    "nameMin": "Le nom du projet doit contenir au moins 2 caractères.",
+    "customerRequired": "Le client est obligatoire.",
+    "ownerRequired": "Le propriétaire du projet est obligatoire.",
+    "priorityInvalid": "Sélectionnez une priorité valide.",
+    "statusInvalid": "Sélectionnez un statut valide.",
+    "currencyInvalid": "Sélectionnez une devise valide.",
+    "budgetInvalid": "Le budget doit être un nombre non négatif.",
+    "startDateRequired": "La date de début est obligatoire.",
+    "startDateInvalid": "Saisissez une date de début valide.",
+    "dueDateInvalid": "Saisissez une date d’échéance valide.",
+    "dueDateOrder": "La date d’échéance doit être le jour de début ou après.",
+    "colorInvalid": "Choisissez une couleur valide.",
+    "iconInvalid": "Choisissez une icône valide.",
+    "taskTitleRequired": "Le titre de la tâche est obligatoire.",
+    "progressRange": "La progression doit être comprise entre 0 et 100.",
+    "memberNameRequired": "Le nom du membre est obligatoire.",
+    "emailRequired": "L’e-mail est obligatoire.",
+    "emailInvalid": "Saisissez une adresse e-mail valide.",
+    "roleInvalid": "Sélectionnez un rôle valide.",
+    "noteTitleRequired": "Le titre de la note est obligatoire.",
+    "noteBodyRequired": "Le corps de la note est obligatoire.",
+    "authorRequired": "L’auteur est obligatoire."
   }
 }

@@ -98,12 +98,12 @@
       "previous": "Precedente",
       "next": "Prossimo"
     },
-    "showing": "Mostrando {da}–{a} di {totale}",
+    "showing": "Mostrando {from}–{to} di {total}",
     "aria": {
-      "openCustomer": "Apri cliente {azienda}"
+      "openCustomer": "Apri cliente {company}"
     },
-    "cardMeta": "Proprietario {proprietario} · Creato il {data}",
-    "sortBy": "Ordina per {colonna}"
+    "cardMeta": "Proprietario {owner} · Creato il {date}",
+    "sortBy": "Ordina per {column}"
   },
   "status": {
     "lead": "Guida",
@@ -473,7 +473,7 @@
       "label": "Punteggio sulla salute dell'IA",
       "caption": "Segnale di qualità della relazione"
     },
-    "scoreOutOf": "{punteggio} / {massimo}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "Guida",

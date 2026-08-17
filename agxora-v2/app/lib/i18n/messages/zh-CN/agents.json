@@ -42,10 +42,10 @@
   "registry": {
     "title": "教务长",
     "selectPrompt": "从注册表中选择一个代理。",
-    "status": "状态：{状态}",
-    "health": "4. 健康（健康）",
-    "queue": "队列：{队列}",
-    "usage": "用法：{用法}",
+    "status": "状态：{status}",
+    "health": "Health: {health}",
+    "queue": "队列：{queue}",
+    "usage": "用法：{usage}",
     "executeTask": "执行任务",
     "supervisorDelegate": "监事代表"
   },
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "执行 {agentId} 业务目标",
     "planAndExecute": "规划和执行工作区业务目标"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "优先考虑客户影响",
+    "delegatedFollowUp": "已委派跟进"
   }
 }

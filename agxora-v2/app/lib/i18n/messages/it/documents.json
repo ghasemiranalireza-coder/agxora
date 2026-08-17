@@ -50,42 +50,42 @@
     "documents": {
       "label": "Documenti",
       "caption": "Esempio · tra cartelle",
-      "delta": "+{conteggio}"
+      "delta": "+{count}"
     },
     "folders": {
       "label": "Cartelle",
       "caption": "Campione · comprese le collezioni intelligenti",
-      "delta": "+{conteggio}"
+      "delta": "+{count}"
     },
     "storage": {
       "label": "Spazio di archiviazione utilizzato",
       "caption": "Esempio · di piano illustrativo",
-      "delta": "+{taglia}"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "Documenti condivisi",
       "caption": "Esempio · organizzazione + dipartimento + utenti",
-      "delta": "+{conteggio}"
+      "delta": "+{count}"
     },
     "activity": {
       "label": "Attività recente",
       "caption": "Campione · ultime 24 ore",
-      "delta": "+{conteggio}"
+      "delta": "+{count}"
     },
     "indexed": {
       "label": "Indicizzato dall'intelligenza artificiale",
       "caption": "Esempio · Ricerca AI non connessa",
-      "delta": "{percentuale}"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "Approvazioni in sospeso",
       "caption": "Esempio · automazione non collegata",
-      "delta": "{contare}"
+      "delta": "{count}"
     },
     "score": {
       "label": "Punteggio di conoscenza",
       "caption": "Esempio · illustrazione della copertura",
-      "delta": "+{conteggio}"
+      "delta": "+{count}"
     }
   },
   "library": {
@@ -130,7 +130,7 @@
     "favoritesOnly": "Solo preferiti",
     "emptyTitle": "Nessun documento da mostrare",
     "emptyDescription": "Modifica i filtri, cancella la ricerca o aggiungi risorse di conoscenza per ampliare la libreria.",
-    "selectAria": "Seleziona {nome}",
+    "selectAria": "Seleziona {name}",
     "versionHistoryTitle": "Cronologia delle versioni",
     "close": "Vicino",
     "context": {
@@ -151,7 +151,7 @@
     "zoomIn": "Zoom +",
     "prev": "Prec",
     "next": "Prossimo",
-    "page": "Pagina {pagina}/{totale}",
+    "page": "Pagina {page}/{total}",
     "searchInside": "Cerca dentro",
     "findPlaceholder": "Trova in anteprima...",
     "noMatches": "Nessuna corrispondenza nel testo di anteprima.",
@@ -177,7 +177,7 @@
     "title": "Cronologia delle versioni",
     "emptyTitle": "Nessun documento selezionato",
     "emptyDescription": "Apri un documento per esaminare versioni, note, ripristinare e confrontare.",
-    "current": "{nome} · {versione} attuale",
+    "current": "{name} · {version} attuale",
     "restore": "Ripristina versione",
     "compare": "Confronta versioni",
     "restoreTitle": "Il ripristino richiede l'API di archiviazione",
@@ -380,9 +380,9 @@
     "planned": "Pianificato"
   },
   "bytes": {
-    "b": "{valore} B",
-    "kb": "{valore} KB",
-    "mb": "{valore} MB",
-    "gb": "{valore} GB"
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
   }
 }

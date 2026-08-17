@@ -10,7 +10,7 @@ import Link from "next/link";
 import { resolveAppError, type AppErrorCode } from "@/app/lib/backend/errors";
 import { Button, Card } from "@/app/components/ui";
 import { sanitizeClientErrorMessage } from "@/app/lib/production/safeErrorMessage";
-import { useT } from "@/app/lib/i18n";
+import { isTranslationKey, resolveUserFacingErrorKey, useT } from "@/app/lib/i18n";
 
 type Props = {
   readonly children: ReactNode;
@@ -51,9 +51,7 @@ export class AppErrorBoundary extends Component<Props, State> {
   render(): ReactNode {
     if (!this.state.error) return this.props.children;
 
-    const shape = resolveAppError(this.props.fallbackCode ?? "INTERNAL", {
-      message: this.state.error.message || undefined,
-    });
+    const shape = resolveAppError(this.props.fallbackCode ?? "INTERNAL");
 
     return (
       <div className="flex min-h-[50vh] items-center justify-center px-4 py-16">
@@ -82,7 +80,18 @@ export function ErrorPanel({
   readonly code?: string;
 }): JSX.Element {
   const t = useT();
-  const safeMessage = sanitizeClientErrorMessage(message, message);
+  const titleKey = isTranslationKey(title)
+    ? title
+    : resolveUserFacingErrorKey(title, "backend.errorBoundary.title");
+  const messageKey = isTranslationKey(message)
+    ? message
+    : resolveUserFacingErrorKey(message, "errors.codes.COMMON_SOMETHING_WENT_WRONG");
+  const displayTitle = t(titleKey);
+  const translatedMessage = t(messageKey);
+  const safeMessage = sanitizeClientErrorMessage(
+    translatedMessage,
+    t("errors.codes.COMMON_SOMETHING_WENT_WRONG"),
+  );
   return (
     <Card className="mx-auto max-w-lg space-y-4 text-center" padding="32px" hover={false}>
       {code ? (
@@ -94,7 +103,7 @@ export function ErrorPanel({
         </p>
       ) : null}
       <h1 className="text-2xl font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-        {title}
+        {displayTitle}
       </h1>
       <p className="text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
         {safeMessage}

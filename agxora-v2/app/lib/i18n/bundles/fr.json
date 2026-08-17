@@ -1,17 +1,17 @@
 {
   "common": {
-    "save": "Sauvegarder",
+    "save": "Enregistrer",
     "saveChanges": "Enregistrer les modifications",
     "cancel": "Annuler",
     "close": "Fermer",
-    "delete": "Effacer",
+    "delete": "Supprimer",
     "edit": "Modifier",
     "search": "Rechercher",
     "loading": "Chargement…",
     "retry": "Réessayer",
     "language": "Langue",
     "signIn": "Se connecter",
-    "signOut": "se déconnecter",
+    "signOut": "Se déconnecter",
     "contact": "Contact",
     "privacy": "Confidentialité",
     "terms": "Termes",
@@ -34,7 +34,14 @@
     "hidePassword": "Masquer le mot de passe",
     "continue": "Continuer",
     "back": "Retour",
-    "home": "Maison"
+    "home": "Accueil",
+    "loadingShort": "Chargement",
+    "create": "Créer",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "settings": "Paramètres",
+    "profile": "Profil",
+    "dashboard": "Tableau de bord"
   },
   "navigation": {
     "dashboard": "Tableau de bord",
@@ -279,7 +286,7 @@
       "avatarUnavailable": "Le téléchargement d'avatar n'est pas encore disponible.",
       "appearanceNote": "La configuration de l'apparence reste sous Apparence. L'en-tête fournit un basculement rapide de thème uniquement.",
       "prefsHint": "Utilisé par les assistants IA dans tous les modules.",
-      "themeResolved": "{mode} (résolu {apparence})",
+      "themeResolved": "{mode} (résolu {appearance})",
       "regions": {
         "EU": "Union européenne",
         "US": "États-Unis",
@@ -491,7 +498,7 @@
       "createdAt": "Connecté",
       "expiresAt": "Expire",
       "revoke": "Révoquer la session",
-      "revokeAria": "Révoquer la session connectée {quand}",
+      "revokeAria": "Révoquer la session connectée {when}",
       "revokeOthers": "Se déconnecter des autres sessions",
       "revokeOthersAria": "Déconnectez-vous de toutes les sessions sauf la session en cours",
       "revoked": "Séance révoquée.",
@@ -586,7 +593,7 @@
       "title": "Paramètres",
       "lead": "Configuration d'entreprise pour chaque module AGXORA : profil, organisation, IA, apparence, sécurité, facturation et contrôles des développeurs en un seul endroit.",
       "loading": "Paramètres de chargement",
-      "breadcrumb": "{étiquette} · {description}"
+      "breadcrumb": "{label} · {description}"
     },
     "saveChanges": "Enregistrer les modifications",
     "sessionNotice": "Mis à jour pour cette session – {area} non connecté.",
@@ -624,7 +631,7 @@
       "owner": "Propriétaire",
       "counts": "Membres · espaces de travail",
       "orgUpdated": "Organisation mise à jour.",
-      "countsValue": "{membres} · {espaces de travail}",
+      "countsValue": "{members} · {workspaces}",
       "joined": "Rejoint",
       "workspaceName": "Nom de l'espace de travail",
       "switchWorkspace": "Espace de travail actif",
@@ -678,7 +685,7 @@
       "transferHonesty": "Un e-mail de confirmation est envoyé lorsque la livraison est configurée. Sinon, partagez le lien de confirmation directement avec le destinataire.",
       "transferLink": "Lien de confirmation",
       "transferPendingTitle": "En attente de transfert de propriété",
-      "transferPendingBody": "En attente de confirmation de {name} ({email}). Expire {expire}. Vous restez PROPRIÉTAIRE jusque-là.",
+      "transferPendingBody": "En attente de confirmation de {name} ({email}). Expire {expires}. Vous restez PROPRIÉTAIRE jusque-là.",
       "transferPendingNote": "Les rôles des membres ne changent pas pendant que le transfert est en attente.",
       "cancelTransfer": "Annuler le transfert",
       "transferCancelled": "Transfert de propriété annulé.",
@@ -698,14 +705,37 @@
   },
   "errors": {
     "required": "Ce champ est obligatoire.",
-    "invalidEmail": "Entrez une adresse e-mail valide.",
+    "invalidEmail": "Saisissez une adresse e-mail valide.",
     "passwordMin": "Le mot de passe doit comporter au moins 8 caractères.",
     "passwordLettersNumbers": "Le mot de passe doit inclure des lettres et des chiffres.",
     "passwordMismatch": "Les mots de passe ne correspondent pas.",
     "acceptTerms": "Veuillez lire et accepter les conditions pour continuer.",
-    "generic": "Quelque chose s'est mal passé.",
+    "generic": "Une erreur s’est produite.",
     "tryAgain": "Veuillez réessayer.",
-    "saved": "Enregistré avec succès."
+    "saved": "Enregistré avec succès.",
+    "invalidCredentials": "E-mail ou mot de passe invalide.",
+    "signInRequired": "Connexion requise.",
+    "insufficientPermissions": "Autorisations insuffisantes.",
+    "noRouteAccess": "Vous n’avez pas accès à cette route.",
+    "accountLocked": "Ce compte est verrouillé. Contactez un administrateur.",
+    "sessionExpired": "Votre session a expiré. Connectez-vous à nouveau.",
+    "missingPermission": "Autorisation manquante : {permission}",
+    "roleCannotAccess": "Votre rôle ne peut pas accéder à cette ressource.",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "E-mail ou mot de passe invalide.",
+      "AUTH_SESSION_EXPIRED": "Votre session a expiré. Connectez-vous à nouveau.",
+      "AUTH_ACCOUNT_LOCKED": "Ce compte est verrouillé. Contactez un administrateur.",
+      "AUTH_SIGN_IN_REQUIRED": "Connectez-vous pour continuer.",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "Autorisations insuffisantes.",
+      "AUTH_NO_ROUTE_ACCESS": "Vous n’avez pas accès à cette route.",
+      "COMMON_SOMETHING_WENT_WRONG": "Une erreur s’est produite.",
+      "COMMON_PAGE_NOT_FOUND": "Page introuvable.",
+      "COMMON_OFFLINE": "Vous êtes hors ligne.",
+      "COMMON_TIMEOUT": "La requête a expiré.",
+      "COMMON_VALIDATION": "Vérifiez votre saisie et réessayez.",
+      "COMMON_UNKNOWN": "Une erreur inconnue s’est produite.",
+      "COMMON_INTERNAL": "Une erreur inattendue s’est produite. Veuillez réessayer."
+    }
   },
   "dashboard": {
     "skipToContent": "Passer au contenu du tableau de bord",
@@ -1190,20 +1220,20 @@
       "viewPricing": "Voir la tarification",
       "bookDemo": "Livre démo",
       "failed": "Impossible de soumettre la demande",
-      "country": "Country",
-      "savedFor": "Saved for {company}. Sales delivery is not connected in this build.",
-      "preferWalkthrough": "Prefer a product walkthrough next?",
-      "preferSelfServe": "Prefer self-serve?"
+      "country": "Pays",
+      "savedFor": "Enregistré pour {company}. La livraison commerciale n’est pas connectée dans cette version.",
+      "preferWalkthrough": "Vous préférez une démonstration produit ensuite ?",
+      "preferSelfServe": "Vous préférez le libre-service ?"
     },
     "welcome": {
       "title": "Bienvenue chez AGXORA",
       "subtitle": "Votre espace de travail est prêt. Continuez vers le tableau de bord.",
       "continue": "Aller au tableau de bord",
-      "checklistProfile": "Confirm your organization profile",
-      "checklistModules": "Choose modules that match how you work",
-      "checklistDashboard": "Enter the dashboard with a clear starting point",
-      "exploreFirst": "Prefer to explore first?",
-      "skipToDashboard": "Skip to dashboard"
+      "checklistProfile": "Confirmez le profil de votre organisation",
+      "checklistModules": "Choisissez les modules adaptés à votre façon de travailler",
+      "checklistDashboard": "Entrez dans le tableau de bord avec un point de départ clair",
+      "exploreFirst": "Vous préférez d’abord explorer ?",
+      "skipToDashboard": "Passer au tableau de bord"
     },
     "locked": {
       "title": "Compte bloqué",
@@ -1216,7 +1246,17 @@
       "subtitle": "Veuillez vous reconnecter pour continuer.",
       "signIn": "Se connecter"
     },
-    "brand": "AGXORA"
+    "brand": "AGXORA",
+    "validation": {
+      "emailRequired": "L’e-mail est obligatoire.",
+      "emailInvalid": "Saisissez une adresse e-mail valide.",
+      "passwordRequired": "Le mot de passe est obligatoire.",
+      "passwordMin": "Le mot de passe doit contenir au moins 8 caractères.",
+      "nameRequired": "Le nom est obligatoire.",
+      "nameMin": "Le nom doit contenir au moins 2 caractères.",
+      "passwordMismatch": "Les mots de passe ne correspondent pas.",
+      "slugFormat": "Utilisez uniquement des minuscules, des chiffres et des traits d’union."
+    }
   },
   "crm": {
     "page": {
@@ -1320,10 +1360,10 @@
       },
       "showing": "Affichage de {from}–{to} sur {total}",
       "aria": {
-        "openCustomer": "Client ouvert {entreprise}"
+        "openCustomer": "Client ouvert {company}"
       },
       "cardMeta": "Propriétaire {owner} · Créé le {date}",
-      "sortBy": "Trier par {colonne}"
+      "sortBy": "Trier par {column}"
     },
     "status": {
       "lead": "Plomb",
@@ -1693,7 +1733,7 @@
         "label": "Score de santé",
         "caption": "Signal de qualité de la relation"
       },
-      "scoreOutOf": "{score} / {maximum}"
+      "scoreOutOf": "{score} / {max}"
     },
     "pipeline": {
       "lead": "Plomb",
@@ -1810,7 +1850,7 @@
         "paid-invoices": {
           "label": "Factures payées",
           "caption": "Échantillon · ce trimestre",
-          "delta": "+{compte}"
+          "delta": "+{count}"
         },
         "cashflow": {
           "label": "Flux de trésorerie",
@@ -1820,10 +1860,10 @@
         "ai-score": {
           "label": "Score financier de l'IA",
           "caption": "Exemple de score · pas de notation des risques en direct",
-          "delta": "+{compte}"
+          "delta": "+{count}"
         }
       },
-      "scoreOutOf": "{score} / {maximum}"
+      "scoreOutOf": "{score} / {max}"
     },
     "invoices": {
       "emptyTitle": "Pas de factures",
@@ -1926,7 +1966,7 @@
       "intro": "L’exemple d’historique d’exportation ci-dessous est illustratif. Les informations d'identification et la génération de fichiers ne sont pas câblées dans cette version.",
       "noticeDefault": "Les adaptateurs d'exportation ne sont pas connectés — aucun fichier ne sera généré.",
       "exportUnavailable": "{title} indisponible — L'exportation DATEV / fichier n'est pas connectée.",
-      "exportUnavailableAria": "{titre} — indisponible",
+      "exportUnavailableAria": "{title} — indisponible",
       "historyTitle": "Historique des exportations (échantillon)",
       "refresh": "Rafraîchir",
       "refreshUnavailable": "Actualisation indisponible — l'historique d'exportation est constitué d'échantillons de données statiques.",
@@ -2090,42 +2130,42 @@
       "documents": {
         "label": "Documents",
         "caption": "Échantillon · dans tous les dossiers",
-        "delta": "+{compte}"
+        "delta": "+{count}"
       },
       "folders": {
         "label": "Dossiers",
         "caption": "Échantillon · y compris les collections intelligentes",
-        "delta": "+{compte}"
+        "delta": "+{count}"
       },
       "storage": {
         "label": "Stockage utilisé",
         "caption": "Échantillon · de plan illustratif",
-        "delta": "+{taille}"
+        "delta": "+{size}"
       },
       "shared": {
         "label": "Documents partagés",
         "caption": "Échantillon · org + service + utilisateurs",
-        "delta": "+{compte}"
+        "delta": "+{count}"
       },
       "activity": {
         "label": "Activité récente",
         "caption": "Échantillon · dernières 24 heures",
-        "delta": "+{compte}"
+        "delta": "+{count}"
       },
       "indexed": {
         "label": "IA indexée",
         "caption": "Échantillon · Recherche AI ​​non connectée",
-        "delta": "Pour cent"
+        "delta": "{percent}"
       },
       "approvals": {
         "label": "Approbations en attente ",
         "caption": "Exemple · automatisation non connectée",
-        "delta": "{compter}"
+        "delta": "{count}"
       },
       "score": {
         "label": "Score de connaissances",
         "caption": "Exemple · illustration de la couverture",
-        "delta": "+{compte}"
+        "delta": "+{count}"
       }
     },
     "library": {
@@ -2217,14 +2257,14 @@
       "title": "Historique des versions",
       "emptyTitle": "Aucun document sélectionné",
       "emptyDescription": "Ouvrez un document pour inspecter les versions, les notes, restaurer et comparer.",
-      "current": "{nom} · {version} actuelle",
+      "current": "{name} · {version} actuelle",
       "restore": "Restaurer la version",
       "compare": "Comparer les versions",
       "restoreTitle": "La restauration nécessite l'API de stockage",
       "compareTitle": "La comparaison nécessite l'API de stockage",
       "noticeDefault": "La restauration et la comparaison nécessitent l'API de stockage.",
       "restoreUnavailable": "Restauration indisponible pour {id} : l'API de stockage n'est pas connectée.",
-      "compareUnavailable": "Comparer indisponible ({sélectionné} ↔ {actuel}) : l'API de stockage n'est pas connectée."
+      "compareUnavailable": "Comparer indisponible ({selected} ↔ {current}) : l'API de stockage n'est pas connectée."
     },
     "approvals": {
       "title": "Flux de travail d'approbation",
@@ -2420,9 +2460,9 @@
       "planned": "Planifié"
     },
     "bytes": {
-      "b": "{valeur} B",
-      "kb": "{valeur} Ko",
-      "mb": "{valeur} Mo",
+      "b": "{value} B",
+      "kb": "{value} Ko",
+      "mb": "{value} Mo",
       "gb": "{value} Go"
     }
   },
@@ -2535,8 +2575,9 @@
       "terms": "Termes",
       "cookies": "Cookies",
       "imprint": "Imprimer",
-      "copyright": "© {année} {entreprise}"
-    }
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — globe 3D"
   },
   "ui": {
     "table": {
@@ -2544,7 +2585,7 @@
       "noResultsDescription": "Rien ne correspond aux filtres actuels.",
       "previous": "Précédent",
       "next": "Suivant",
-      "paginationRange": "{début}–{fin} sur {total}",
+      "paginationRange": "{start}–{end} sur {total}",
       "sortAscending": "Trier par ordre croissant",
       "sortDescending": "Trier par ordre descendant"
     },
@@ -2589,7 +2630,7 @@
     "page": {
       "eyebrow": "Système d'exploitation de gestion de projet",
       "title": "Projets",
-      "lead": "Planifiez la livraison, suivez le budget et l'état de santé, affectez des équipes et gérez les tâches pour {organisation}. Les données persistent localement et sont prêtes pour la connectivité backend.",
+      "lead": "Planifiez la livraison, suivez le budget et l'état de santé, affectez des équipes et gérez les tâches pour {organization}. Les données persistent localement et sont prêtes pour la connectivité backend.",
       "yourOrganization": "Votre organisation"
     },
     "list": {
@@ -2617,8 +2658,8 @@
       "next": "Suivant",
       "noDescription": "Aucune description pour l'instant.",
       "duePrefix": "Échéance {date}",
-      "openProject": "Ouvrir le projet {nom}",
-      "sortBy": "Trier par {colonne}",
+      "openProject": "Ouvrir le projet {name}",
+      "sortBy": "Trier par {column}",
       "sort": {
         "name": "Nom",
         "customer": "Client",
@@ -2652,7 +2693,7 @@
       "tagsPlaceholder": "entreprise, déploiement",
       "budgetPlaceholder": "0",
       "description": "Description",
-      "selectColor": "Sélectionnez la couleur {couleur}"
+      "selectColor": "Sélectionnez la couleur {color}"
     },
     "taskForm": {
       "createTitle": "Créer une tâche",
@@ -2680,7 +2721,7 @@
     },
     "badges": {
       "progress": "Progrès",
-      "progressAria": "{étiquette} : {valeur} %"
+      "progressAria": "{label} : {value} %"
     },
     "status": {
       "planning": "Planification",
@@ -2726,17 +2767,17 @@
     "dashboard": {
       "kpi": {
         "activeProjects": "Projets actifs",
-        "activeHint": "{planification} planification",
+        "activeHint": "{planning} planification",
         "completed": "Terminé",
-        "completedHint": "Pourcentage du portefeuille",
+        "completedHint": "{percent}% of portfolio",
         "onHold": "En attente",
-        "onHoldHint": "{archivé} archivé",
+        "onHoldHint": "{archived} archivé",
         "teamMembers": "Membres d’équipe",
         "teamHint": "Dans tous les projets",
         "budgetOverview": "Aperçu budgétaire",
         "budgetHint": "{percent}% utilisés · {spent} dépensés",
         "openTasks": "Tâches ouvertes",
-        "openTasksHint": "{en retard} en retard",
+        "openTasksHint": "{overdue} en retard",
         "projectHealth": "État du projet:",
         "healthHint": "Score de livraison composite",
         "upcomingDeadlines": "Dates limites à venir",
@@ -2763,7 +2804,7 @@
       "emptyTitle": "Aucune tâche sur le tableau",
       "emptyDescription": "Créez des tâches pour organiser la livraison entre To Do, In Progress, Review et Done.",
       "addTask": "Ajouter une tâche",
-      "columnAria": "Colonne {statut}",
+      "columnAria": "Colonne {status}",
       "taskProgress": "Progression de la tâche",
       "edit": "Modifier",
       "complete": "Terminez"
@@ -2772,7 +2813,7 @@
       "notFoundTitle": "Projet introuvable",
       "notFoundDescription": "Ce projet a peut-être été supprimé ou n'est pas disponible pour l'organisation actuelle.",
       "backToProjects": "← Retour aux projets",
-      "ownerMeta": "{client} · Propriétaire {propriétaire}",
+      "ownerMeta": "{customer} · Propriétaire {owner}",
       "edit": "Modifier",
       "delete": "Effacer",
       "sectionsAria": "Sections détaillées du projet",
@@ -2881,6 +2922,31 @@
       "memberAdded": "Membre ajouté",
       "settingsSaved": "Options enregistrées",
       "projectArchived": "Projet archivé"
+    },
+    "validation": {
+      "nameRequired": "Le nom du projet est obligatoire.",
+      "nameMin": "Le nom du projet doit contenir au moins 2 caractères.",
+      "customerRequired": "Le client est obligatoire.",
+      "ownerRequired": "Le propriétaire du projet est obligatoire.",
+      "priorityInvalid": "Sélectionnez une priorité valide.",
+      "statusInvalid": "Sélectionnez un statut valide.",
+      "currencyInvalid": "Sélectionnez une devise valide.",
+      "budgetInvalid": "Le budget doit être un nombre non négatif.",
+      "startDateRequired": "La date de début est obligatoire.",
+      "startDateInvalid": "Saisissez une date de début valide.",
+      "dueDateInvalid": "Saisissez une date d’échéance valide.",
+      "dueDateOrder": "La date d’échéance doit être le jour de début ou après.",
+      "colorInvalid": "Choisissez une couleur valide.",
+      "iconInvalid": "Choisissez une icône valide.",
+      "taskTitleRequired": "Le titre de la tâche est obligatoire.",
+      "progressRange": "La progression doit être comprise entre 0 et 100.",
+      "memberNameRequired": "Le nom du membre est obligatoire.",
+      "emailRequired": "L’e-mail est obligatoire.",
+      "emailInvalid": "Saisissez une adresse e-mail valide.",
+      "roleInvalid": "Sélectionnez un rôle valide.",
+      "noteTitleRequired": "Le titre de la note est obligatoire.",
+      "noteBodyRequired": "Le corps de la note est obligatoire.",
+      "authorRequired": "L’auteur est obligatoire."
     }
   },
   "automation": {
@@ -2981,14 +3047,14 @@
       "noMatches": "Aucune exécution de workflow ne correspond à ce filtre."
     },
     "miniPreview": {
-      "emptyWorkflow": "Empty workflow"
+      "emptyWorkflow": "Workflow vide"
     },
     "workflowTemplates": {
       "title": "Bibliothèque de Modèles",
       "noticeDefault": "Prévisualisez un modèle avant de le charger dans le générateur.",
       "noticeLoaded": "Chargé \"{name}\" dans le générateur de workflow.",
       "nodesBadge": "{count} nœuds",
-      "recommendedFor": "Recommandé pour : {pour}",
+      "recommendedFor": "Recommandé pour : {for}",
       "preview": "Aperçu",
       "useTemplate": "Utiliser le modèle",
       "previewTitle": "Aperçu du modèle",
@@ -3019,14 +3085,14 @@
       "notice": {
         "missingWrite": "Autorisation d'écriture de workflow manquante.",
         "missingExecute": "Autorisation workflow.execute manquante.",
-        "created": "Créé {nom}",
+        "created": "Créé {name}",
         "templateApplied": "Modèle appliqué : {name}",
         "runResult": "Exécuter {status} ({duration} ms)",
         "runFailed": "Le flux de travail n'a pas pu s'exécuter (désactivé ou manquant).",
         "publishedEvent": "Événement de domaine publié : {type}",
-        "workflowStatus": "Flux de travail {statut}",
+        "workflowStatus": "Flux de travail {status}",
         "saved": "Workflow enregistré.",
-        "retryResult": "Réessayez {statut}",
+        "retryResult": "Réessayez {status}",
         "retryFailed": "Échec de la nouvelle tentative",
         "settingsSaved": "Paramètres d'automatisation enregistrés"
       },
@@ -3081,8 +3147,8 @@
         "emptyTitle": "Pas encore d'exécutions.",
         "emptyDescription": "Exécutez un flux de travail ou publiez un événement de domaine.",
         "latestRun": "Dernier détail de l'exécution",
-        "path": "Chemin : {chemin}",
-        "error": "· Erreur : {erreur}",
+        "path": "Chemin : {path}",
+        "error": "· Erreur : {error}",
         "columns": {
           "workflow": "Flux de travail",
           "status": "Statut",
@@ -3115,12 +3181,311 @@
         "timeoutMs": "Délai (ms)",
         "logLevel": "Niveau de journalisation",
         "logLevels": {
-          "error": "error",
-          "warn": "warn",
+          "error": "erreur",
+          "warn": "avertissement",
           "info": "info",
-          "debug": "debug"
+          "debug": "débogage"
         },
         "saveSettings": "Enregistrer les paramètres"
+      }
+    },
+    "status": {
+      "connected": "Connecté",
+      "beta": "Bêta",
+      "comingSoon": "Bientôt disponible",
+      "disabled": "Désactivé",
+      "planned": "Planifié",
+      "success": "Réussi",
+      "failed": "Échoué",
+      "running": "En cours",
+      "pending": "En attente",
+      "retried": "Nouvelle tentative"
+    },
+    "difficulty": {
+      "starter": "Débutant",
+      "intermediate": "Intermédiaire",
+      "advanced": "Avancé"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "Déclencheur",
+        "description": "Démarrer lorsqu’un événement se déclenche"
+      },
+      "el-condition": {
+        "label": "Condition",
+        "description": "Brancher selon des règles"
+      },
+      "el-delay": {
+        "label": "Délai",
+        "description": "Attendre avant de continuer"
+      },
+      "el-approval": {
+        "label": "Approbation",
+        "description": "Barrière d’approbation humaine"
+      },
+      "el-loop": {
+        "label": "Boucle",
+        "description": "Itérer sur une collection"
+      },
+      "el-merge": {
+        "label": "Fusionner",
+        "description": "Joindre des chemins parallèles"
+      },
+      "el-split": {
+        "label": "Diviser",
+        "description": "Dispersion de chemins parallèles"
+      },
+      "el-ai-decision": {
+        "label": "Décision IA",
+        "description": "Acheminer via l’IA"
+      },
+      "el-notification": {
+        "label": "Notification",
+        "description": "Alerte in-app"
+      },
+      "el-webhook": {
+        "label": "Espace réservé Webhook",
+        "description": "Rappel HTTP réservé"
+      },
+      "el-custom": {
+        "label": "Action personnalisée",
+        "description": "Emplacement d’action extensible"
+      },
+      "tr-customer": {
+        "label": "Client créé",
+        "description": "Enregistrement client CRM créé"
+      },
+      "tr-lead": {
+        "label": "Piste créée",
+        "description": "Une nouvelle piste entre dans le pipeline"
+      },
+      "tr-invoice": {
+        "label": "Facture créée",
+        "description": "Facture finance émise"
+      },
+      "tr-invoice-paid": {
+        "label": "Facture payée",
+        "description": "Paiement réglé"
+      },
+      "tr-order": {
+        "label": "Commande créée",
+        "description": "Commande saisie"
+      },
+      "tr-order-done": {
+        "label": "Commande terminée",
+        "description": "Commande honorée"
+      },
+      "tr-doc": {
+        "label": "Document importé",
+        "description": "Téléversement vers le coffre documents"
+      },
+      "tr-campaign": {
+        "label": "Campagne publiée",
+        "description": "Publication Creator Studio"
+      },
+      "tr-employee": {
+        "label": "Employé ajouté",
+        "description": "Changement dans l’annuaire d’équipe"
+      },
+      "tr-task": {
+        "label": "Tâche terminée",
+        "description": "Tâche marquée comme terminée"
+      },
+      "tr-manual": {
+        "label": "Déclencheur manuel",
+        "description": "Exécuter à la demande"
+      },
+      "tr-schedule": {
+        "label": "Déclencheur planifié",
+        "description": "Planning cron / calendrier"
+      },
+      "tr-webhook": {
+        "label": "Déclencheur Webhook",
+        "description": "Événement HTTP entrant"
+      },
+      "tr-api": {
+        "label": "Déclencheur API",
+        "description": "Démarrage programmatique"
+      },
+      "ac-crm": {
+        "label": "Créer un enregistrement CRM",
+        "description": "Écrire une entité CRM"
+      },
+      "ac-invoice": {
+        "label": "Générer une facture",
+        "description": "Facture finance"
+      },
+      "ac-quote": {
+        "label": "Générer un devis",
+        "description": "Créer un document de devis"
+      },
+      "ac-delivery": {
+        "label": "Générer un bon de livraison",
+        "description": "Bon de livraison"
+      },
+      "ac-task": {
+        "label": "Créer une tâche",
+        "description": "Ouvrir une tâche"
+      },
+      "ac-assign": {
+        "label": "Assigner un employé",
+        "description": "Acheminer vers un coéquipier"
+      },
+      "ac-email": {
+        "label": "Envoyer un e-mail",
+        "description": "E-mail sortant"
+      },
+      "ac-notify": {
+        "label": "Envoyer une notification",
+        "description": "Notification in-app"
+      },
+      "ac-ai-summary": {
+        "label": "Générer un résumé IA",
+        "description": "Résumer le contexte"
+      },
+      "ac-ai-content": {
+        "label": "Générer du contenu IA",
+        "description": "Brouillon Creator Studio"
+      },
+      "ac-update-customer": {
+        "label": "Mettre à jour le client",
+        "description": "Corriger le client CRM"
+      },
+      "ac-update-status": {
+        "label": "Mettre à jour le statut",
+        "description": "Changer le statut de l’entité"
+      },
+      "ac-pdf": {
+        "label": "Exporter en PDF",
+        "description": "Export de document"
+      },
+      "ac-future": {
+        "label": "Espace réservé API future",
+        "description": "Emplacement d’action réservé"
+      },
+      "ai-decision": {
+        "label": "Décision IA",
+        "description": "Décider du chemin suivant"
+      },
+      "ai-class": {
+        "label": "Classification IA",
+        "description": "Classer des enregistrements"
+      },
+      "ai-text": {
+        "label": "Génération de texte IA",
+        "description": "Générer du texte"
+      },
+      "ai-translate": {
+        "label": "Traduction IA",
+        "description": "Traduire le contenu"
+      },
+      "ai-email": {
+        "label": "Réponse e-mail IA",
+        "description": "Rédiger une réponse"
+      },
+      "ai-sum": {
+        "label": "Synthèse IA",
+        "description": "Condenser le contexte"
+      },
+      "ai-rec": {
+        "label": "Recommandations IA",
+        "description": "Suggérer les prochaines étapes"
+      },
+      "ai-route": {
+        "label": "Routage IA",
+        "description": "Acheminer vers le propriétaire / la file"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "Client créé",
+        "description": "Se déclenche lorsqu’un client CRM est créé."
+      },
+      "project_created": {
+        "label": "Projet crée",
+        "description": "Se déclenche lorsqu’un projet est créé."
+      },
+      "invoice_issued": {
+        "label": "Facture émise",
+        "description": "Se déclenche lorsqu’une facture est émise."
+      },
+      "task_completed": {
+        "label": "Tâche terminée",
+        "description": "Se déclenche lorsqu’une tâche est marquée comme terminée."
+      },
+      "document_uploaded": {
+        "label": "Document téléchargé",
+        "description": "Se déclenche lorsqu’un document est téléversé."
+      },
+      "user_invited": {
+        "label": "Utilisateur invité",
+        "description": "Se déclenche lorsqu’un membre d’équipe est invité."
+      },
+      "schedule": {
+        "label": "Calendrier",
+        "description": "Déclencheur de planification cron / intervalle."
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "Webhook HTTP entrant."
+      },
+      "api_event": {
+        "label": "Événement API",
+        "description": "Événement de domaine API générique."
+      },
+      "ai_event": {
+        "label": "Événement IA",
+        "description": "Signal IA (achèvement, insight, étape d’agent)."
+      },
+      "manual": {
+        "label": "Déclencheur manuel",
+        "description": "Exécution à la demande depuis l’UI ou l’API."
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "Créer un client",
+        "description": "Créer une fiche client CRM."
+      },
+      "customer_update": {
+        "label": "Mettre à jour le client",
+        "description": "Mettre à jour les champs d’un client."
+      },
+      "project_create": {
+        "label": "Envoyer ce projet",
+        "description": "Créer un projet à partir du contexte du workflow."
+      },
+      "document_generate": {
+        "label": "Générer un document",
+        "description": "Générer un document à partir d’un modèle."
+      },
+      "notification_send": {
+        "label": "Envoyer une notification",
+        "description": "Envoyer une notification in-app."
+      },
+      "email_send": {
+        "label": "Envoyer un e-mail",
+        "description": "Mettre un e-mail en file d’attente via le fournisseur."
+      },
+      "api_call": {
+        "label": "Appeler l’API",
+        "description": "Appel HTTP vers une API interne ou externe."
+      },
+      "ai_run": {
+        "label": "Exécuter l’IA",
+        "description": "Exécuter une invite IA / étape d’agent avec contexte."
+      },
+      "task_assign": {
+        "label": "Assigner une tâche",
+        "description": "Assigner une tâche à un utilisateur."
+      },
+      "invoice_create": {
+        "label": "Créer une facture",
+        "description": "Créer une facture financière."
+      },
+      "status_update": {
+        "label": "Mettre à jour le statut",
+        "description": "Mettre à jour le statut d’une entité dans un module."
       }
     }
   },
@@ -3128,7 +3493,7 @@
     "page": {
       "eyebrow": "Identité et accès",
       "title": "Équipe",
-      "lead": "Membres, rôles et invitations pour {organisation}. Prêt pour l'architecture d'une future API d'identité.",
+      "lead": "Membres, rôles et invitations pour {organization}. Prêt pour l'architecture d'une future API d'identité.",
       "yourOrganization": "Votre organisation"
     },
     "invite": {
@@ -3206,7 +3571,7 @@
     "page": {
       "sectionTitle": "Gestion des clients",
       "title": "Clients",
-      "lead": "Créez, modifiez, recherchez et gérez les enregistrements clients pour {organisation}.",
+      "lead": "Créez, modifiez, recherchez et gérez les enregistrements clients pour {organization}.",
       "yourOrganization": "Votre organisation"
     },
     "table": {
@@ -3221,9 +3586,9 @@
       "view": "Voir",
       "edit": "Modifier",
       "delete": "Effacer",
-      "viewAria": "Voir {entreprise}",
-      "editAria": "Modifier la compagnie",
-      "deleteAria": "Supprimer {entreprise}",
+      "viewAria": "Voir {company}",
+      "editAria": "Edit {company}",
+      "deleteAria": "Supprimer {company}",
       "loading": "Chargement des clients…",
       "errorLoad": "Impossible de charger les clients",
       "errorGeneric": "Quelque chose s'est mal passé",
@@ -3300,6 +3665,18 @@
       "updated": "Mis à jour",
       "notes": "Remarques",
       "noNotes": "Aucune note pour l'instant."
+    },
+    "validation": {
+      "companyRequired": "Le nom de l’entreprise est obligatoire.",
+      "contactRequired": "La personne de contact est obligatoire.",
+      "emailRequired": "L’e-mail est obligatoire.",
+      "emailInvalid": "Saisissez une adresse e-mail valide.",
+      "phoneRequired": "Le téléphone est obligatoire.",
+      "phoneInvalid": "Saisissez un numéro de téléphone valide.",
+      "mobileInvalid": "Saisissez un numéro de mobile valide.",
+      "statusInvalid": "Sélectionnez un statut valide.",
+      "emailDuplicate": "Un client avec cet e-mail existe déjà.",
+      "companyDuplicate": "Un client avec ce nom d’entreprise existe déjà."
     }
   },
   "ai": {
@@ -3383,6 +3760,91 @@
       "placeholder": "Commande IA… résumer, proposer, analyser…",
       "noMatches": "Aucune commande correspondante",
       "footer": "Enregistrez les futures commandes via registerAiCommand - L'interface utilisateur reste inchangée."
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "Projets",
+      "finance": "Finance",
+      "marketing": "Marketing",
+      "documents": "Documents",
+      "automation": "Automatisation",
+      "general": "Général"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "Résumer le client",
+        "description": "Synthèse exécutive d’une relation client"
+      },
+      "crm-follow-up-email": {
+        "title": "E-mail de suivi",
+        "description": "Rédiger un suivi CRM professionnel"
+      },
+      "projects-analyze": {
+        "title": "Analyser le projet",
+        "description": "Bilan de santé d’un projet"
+      },
+      "projects-task-list": {
+        "title": "Créer une liste de tâches",
+        "description": "Découper le travail en tâches actionnables"
+      },
+      "finance-explain-invoice": {
+        "title": "Expliquer la facture",
+        "description": "Explication de facture en langage simple"
+      },
+      "finance-cashflow-brief": {
+        "title": "Note de trésorerie",
+        "description": "Court récit de trésorerie"
+      },
+      "marketing-campaign-outline": {
+        "title": "Plan de campagne",
+        "description": "Structurer une campagne marketing"
+      },
+      "marketing-proposal": {
+        "title": "Générer une proposition",
+        "description": "Brouillon de proposition destiné au client"
+      },
+      "documents-summarize": {
+        "title": "Résumer le document",
+        "description": "Résumé de document structuré"
+      },
+      "automation-workflow": {
+        "title": "Concevoir un workflow",
+        "description": "Esquisse de workflow d’automatisation"
+      },
+      "general-brainstorm": {
+        "title": "Remue-méninges d’options",
+        "description": "Idéation structurée"
+      },
+      "general-explain": {
+        "title": "Expliquer simplement",
+        "description": "Explication claire pour les parties prenantes"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "Résumer le client",
+        "description": "Synthèse exécutive du client actif"
+      },
+      "cmd-generate-proposal": {
+        "label": "Générer une proposition",
+        "description": "Rédiger le plan d’une proposition client"
+      },
+      "cmd-analyze-project": {
+        "label": "Analyser le projet",
+        "description": "Santé du projet et analyse des risques"
+      },
+      "cmd-create-task-list": {
+        "label": "Créer une liste de tâches",
+        "description": "Découper le travail en tâches actionnables"
+      },
+      "cmd-generate-email": {
+        "label": "Générer un e-mail",
+        "description": "Rédiger un e-mail professionnel"
+      },
+      "cmd-explain-invoice": {
+        "label": "Expliquer la facture",
+        "description": "Explication de facture en langage simple"
+      }
     }
   },
   "agents": {
@@ -3429,15 +3891,15 @@
     "registry": {
       "title": "Greffe",
       "selectPrompt": "Sélectionnez un agent dans le registre.",
-      "status": "État : $status",
-      "health": "Santé : {santé}",
-      "queue": "File d'attente : {file d'attente}",
-      "usage": "Utilisation : {utilisation}",
+      "status": "État : {status}",
+      "health": "Santé : {health}",
+      "queue": "File d'attente : {queue}",
+      "usage": "Utilisation : {usage}",
       "executeTask": "Exécuter la tâche",
       "supervisorDelegate": "Délégué superviseur"
     },
     "marketplace": {
-      "tools": "Outils : {outils}",
+      "tools": "Outils : {tools}",
       "installed": "Installé",
       "installActivate": "Installer et activer"
     },
@@ -3445,7 +3907,7 @@
       "title": "Moniteur d'agent",
       "emptyTitle": "Aucun agent à surveiller",
       "emptyDescription": "Activez les agents du marché.",
-      "latestConfidence": "Dernière confiance du raisonnement : {confidence} – {étapes}"
+      "latestConfidence": "Dernière confiance du raisonnement : {confidence} – {steps}"
     },
     "history": {
       "title": "Historique d'exécution",
@@ -3504,6 +3966,10 @@
     "goals": {
       "executeBusiness": "Exécuter l'objectif commercial {agentId}",
       "planAndExecute": "Planifier et exécuter un objectif commercial d'espace de travail"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "Prioriser l’impact client",
+      "delegatedFollowUp": "Suivi délégué"
     }
   },
   "integrations": {
@@ -3525,11 +3991,11 @@
     "notice": {
       "demoConnection": "Connexion de démonstration : {name} (stub local uniquement)",
       "connectFailed": "Échec de la connexion",
-      "keyCreated": "Clé API créée : {préfixe}",
+      "keyCreated": "Clé API créée : {prefix}",
       "webhookCreated": "Webhook créé : {name}",
       "webhookTest": "Test Webhook {status}",
       "networkError": "Erreur réseau de l'explorateur d'API : {message}",
-      "explorerError": "Explorateur d'API → {statut} : {message}",
+      "explorerError": "Explorateur d'API → {status} : {message}",
       "explorerSuccess": "Explorateur d'API → {status}",
       "explorerFailed": "L'explorateur a échoué",
       "syncResult": "Synchronisation de démonstration · {status} ({records} enregistrements locaux) — aucune donnée externe transférée.",
@@ -3563,7 +4029,7 @@
       "latestSync": "Dernière synchronisation : {status} · {records} enregistrements · mode {mode}"
     },
     "available": {
-      "protocols": "Protocoles : {protocoles}",
+      "protocols": "Protocoles : {protocols}",
       "demoConnection": "Connexion de démonstration",
       "connectDemo": "Connectez-vous (démo)",
       "installDemo": "Installer la démo"
@@ -3598,7 +4064,7 @@
       "apiDocs": "Espace réservé pour la documentation de l'API : {url}",
       "sdk": "Espace réservé au SDK : {url}",
       "explorerTitle": "Explorateur d'API",
-      "gatewayRoutes": "Itinéraires de passerelle : {itinéraires}",
+      "gatewayRoutes": "Itinéraires de passerelle : {routes}",
       "sendGet": "Envoyer GET",
       "oauthProviders": "Fournisseurs OAuth",
       "placeholdersHint": "Les routes de passerelle GraphQL, WebSocket et gRPC sont enregistrées en tant qu'espaces réservés. Le mappage des champs et la résolution des conflits de synchronisation sont prêts pour l'architecture pour la mise en œuvre du backend."
@@ -3646,7 +4112,7 @@
     },
     "errors": {
       "failedToFetch": "Échec de la récupération",
-      "httpStatus": "Statut HTTP"
+      "httpStatus": "HTTP {status}"
     }
   },
   "intelligence": {
@@ -3709,7 +4175,7 @@
       "operations": "Opérations",
       "riskPosture": "Posture de risque",
       "growth": "Croissance",
-      "observability": "Observabilité : {metrics} metrics · {avgMs}ms moy · system health {santé}"
+      "observability": "Observabilité : {metrics} metrics · {avgMs}ms moy · system health {health}"
     },
     "workspace": {
       "noSeries": "Aucune série"
@@ -3736,7 +4202,7 @@
       "emptyTitle": "Pas encore de prévisions",
       "emptyDescription": "Les prévisions de démonstration apparaissent après la graine. Les modèles prédictifs ne sont pas connectés.",
       "title": "{kind} prévision",
-      "baseline": "Référence {baseline} → projeté {projeté} ({jours}j)",
+      "baseline": "Référence {baseline} → projeté {projected} ({days}j)",
       "confidence": "Démo · Confiance {confidence} — {note}"
     },
     "alerts": {
@@ -3790,7 +4256,7 @@
       "brand": "AGXORA",
       "navLabel": "Navigation informations légales",
       "lastUpdated": "Dernière mise à jour : {date}",
-      "footerCopyright": "© 2026 {entreprise}",
+      "footerCopyright": "© 2026 {company}",
       "footerNavLabel": "Pied de page légal",
       "nav": {
         "privacy": "Confidentialité",
@@ -3944,7 +4410,134 @@
     "back": "Retour",
     "continue": "Continuer",
     "launching": "Déclenchement",
-    "enterDashboard": "Entrez dans le tableau de bord"
+    "enterDashboard": "Entrez dans le tableau de bord",
+    "defaultCountry": "États-Unis",
+    "businessTypes": {
+      "hotel": {
+        "label": "Hôtel",
+        "description": "Hôtellerie, chambres, clients et exploitation immobilière"
+      },
+      "restaurant": {
+        "label": "Restaurant",
+        "description": "Restauration, cuisine, réservations et expérience client"
+      },
+      "cleaning": {
+        "label": "Nettoyage",
+        "description": "Opérations de nettoyage commercial et résidentiel"
+      },
+      "laundry": {
+        "label": "Blanchisserie",
+        "description": "Usines de lavage, tournées de collecte et soin textile"
+      },
+      "construction": {
+        "label": "Construction",
+        "description": "Chantiers, équipes, matériaux et livraison de projet"
+      },
+      "healthcare": {
+        "label": "Santé",
+        "description": "Réseaux de soins, patients et opérations cliniques"
+      },
+      "medical": {
+        "label": "Médical",
+        "description": "Cliniques, rendez-vous et équipes de soins"
+      },
+      "manufacturing": {
+        "label": "Fabrication",
+        "description": "Lignes de production, qualité et opérations d’approvisionnement"
+      },
+      "retail": {
+        "label": "Commerce de détail",
+        "description": "Magasins, stocks, merchandising et clients"
+      },
+      "legal": {
+        "label": "Cabinet d’avocats",
+        "description": "Dossiers, clients, échéances et facturation"
+      },
+      "accounting": {
+        "label": "Comptabilité",
+        "description": "Livres, clients, déclarations et conseil"
+      },
+      "consulting": {
+        "label": "Conseil",
+        "description": "Missions, livrables et résultats clients"
+      },
+      "real_estate": {
+        "label": "Immobilier",
+        "description": "Annonces, clients, visites et transactions"
+      },
+      "education": {
+        "label": "Éducation",
+        "description": "Programmes, étudiants, corps enseignant et inscriptions"
+      },
+      "automotive": {
+        "label": "Automobile",
+        "description": "Concessionnaires, ateliers et stock de véhicules"
+      },
+      "beauty": {
+        "label": "Salon de beauté",
+        "description": "Rendez-vous, stylistes, retail et adhésions"
+      },
+      "fitness": {
+        "label": "Salle / fitness",
+        "description": "Adhésions, cours, coachs et rétention"
+      },
+      "agriculture": {
+        "label": "Agriculture",
+        "description": "Cultures, bétail, rendements et chaînes d’approvisionnement"
+      },
+      "transport": {
+        "label": "Transport",
+        "description": "Mouvement de flotte, itinéraires et ops passagers/fret"
+      },
+      "logistics": {
+        "label": "Logistique",
+        "description": "Flotte, entrepôts, itinéraires et exécution"
+      },
+      "warehouse": {
+        "label": "Entrepôt",
+        "description": "Stockage, picking, packing et rotation des stocks"
+      },
+      "insurance": {
+        "label": "Assurance",
+        "description": "Polices, sinistres, souscription et rétention"
+      },
+      "finance": {
+        "label": "Finance",
+        "description": "Capital, portefeuilles et opérations financières"
+      },
+      "financial_services": {
+        "label": "Services financiers",
+        "description": "Conseil, produits, conformité et clients"
+      },
+      "technology": {
+        "label": "Technologie",
+        "description": "Produit, ingénierie et équipes go-to-market"
+      },
+      "saas": {
+        "label": "Logiciel / SaaS",
+        "description": "Abonnements, usage et customer success"
+      },
+      "ecommerce": {
+        "label": "E-commerce",
+        "description": "Catalogue en ligne, paniers, exécution et LTV"
+      },
+      "agency": {
+        "label": "Agence marketing",
+        "description": "Clients, campagnes, retainers et livraison"
+      },
+      "freelancer": {
+        "label": "Indépendant",
+        "description": "Pratique solo, clients, pipeline et trésorerie"
+      },
+      "government": {
+        "label": "Administration publique",
+        "description": "Services publics, programmes et administrés"
+      },
+      "nonprofit": {
+        "label": "Association",
+        "description": "Missions, donateurs, programmes et impact"
+      }
+    }
   },
   "creator": {
     "page": {
@@ -4017,7 +4610,7 @@
       "aiRewrite": "Réécriture de l'IA",
       "translate": "Traduire",
       "initialOutput": "Sélectionnez un format et une voix de marque, puis générez un brouillon. Les adaptateurs de fournisseur sont réservés — aucun appel de modèle en direct pour le moment.",
-      "draftStaged": "Brouillon préparé pour {format} · voix : {voix}. Adaptateur de génération réservé.",
+      "draftStaged": "Brouillon préparé pour {format} · voix : {voice}. Adaptateur de génération réservé.",
       "rewriteQueued": "AI Rewrite en file d’attente : adaptateur de réécriture réservé.",
       "translateQueued": "Traduire le contenu en file d'attente — adaptateur multilingue réservé.",
       "brandVoice": "Voix de la marque",
@@ -4042,8 +4635,8 @@
     "analytics": {
       "title": "Analytique",
       "topPosts": "Meilleurs articles",
-      "engagement": "Fr {valeur}",
-      "reach": "Atteindre {valeur}",
+      "engagement": "Fr {value}",
+      "reach": "Atteindre {value}",
       "recommendations": "Recommandations sur l'IA"
     },
     "integrations": {
@@ -4052,6 +4645,47 @@
     },
     "aiFeaturesPanel": {
       "lead": "Carte des fonctionnalités de l'IA — idées, légendes, hashtags, calendrier, campagnes, audience, calendrier, cohérence de la marque, réécriture, traduction, multilingue."
+    },
+    "formats": {
+      "instagram_caption": "Légende Instagram",
+      "tiktok_script": "Script TikTok",
+      "linkedin_post": "Publication LinkedIn",
+      "facebook_post": "Publication Facebook",
+      "x_post": "Publication X",
+      "blog_article": "Article de blog",
+      "newsletter": "Newsletter",
+      "email_campaign": "Campagne e-mail",
+      "product_description": "Description de produit",
+      "ad_copy": "Texte publicitaire",
+      "seo_article": "Article SEO",
+      "landing_page_copy": "Texte de page d’atterrissage"
+    },
+    "publishStatus": {
+      "draft": "Brouillon",
+      "review": "Revue",
+      "approved": "Approuvé",
+      "scheduled": "Planifié",
+      "published": "Publié",
+      "archive": "Archive"
+    },
+    "mediaKind": {
+      "image": "Image",
+      "video": "Vidéo",
+      "document": "Document",
+      "logo": "Logo de marque",
+      "template": "Modèle"
+    },
+    "voice": {
+      "professional": "Professionnel",
+      "friendly": "Amical",
+      "luxury": "Luxe",
+      "casual": "Décontracté"
+    },
+    "integrationStatus": {
+      "planned": "Planifié",
+      "ready": "Prêt",
+      "connected": "Connecté",
+      "disabled": "Désactivé"
     }
   },
   "backend": {
@@ -4065,7 +4699,7 @@
     },
     "network": {
       "offline": "Vous semblez être hors ligne",
-      "offlineSyncHint": "Changes may not sync until the connection returns.",
+      "offlineSyncHint": "Les modifications peuvent ne pas se synchroniser tant que la connexion n’est pas rétablie.",
       "offlineHelp": "Aide hors ligne",
       "reconnected": "Connexion rétablie"
     },
@@ -4111,7 +4745,10 @@
       "startFree": "Commencez plutôt gratuitement",
       "backHome": "Retour à l’accueil",
       "signIn": "Se connecter"
-    }
+    },
+    "loading": "Chargement",
+    "loadingEllipsis": "Chargement…",
+    "loadingIdentity": "Chargement de l’identité…"
   },
   "workspace": {
     "page": {
@@ -4171,7 +4808,7 @@
       "persistentLogin": "Connexion persistante",
       "disabled": "Handicapé",
       "enabled": "Activée",
-      "days": "{COUNT} jours",
+      "days": "{count} jours",
       "minutes": "{count} minutes",
       "toggleIdlePolicy": "Activer/désactiver l'espace réservé aux règles inactives",
       "previewSessionExpired": "Aperçu de la session expiré",
@@ -4262,28 +4899,28 @@
       "ariaLabel": "Changer d'espace de travail"
     },
     "access": {
-      "eyebrow": "Identity & Access",
-      "signIn": "Sign in",
-      "backToDashboard": "Back to dashboard",
+      "eyebrow": "Identité et accès",
+      "signIn": "Se connecter",
+      "backToDashboard": "Retour au tableau de bord",
       "unauthorized": {
-        "title": "Unauthorized",
-        "description": "Sign in to continue to this area of AGXORA."
+        "title": "Non autorisé",
+        "description": "Connectez-vous pour continuer vers cette zone d’AGXORA."
       },
       "forbidden": {
-        "title": "Forbidden",
-        "description": "Your role does not include permission for this resource."
+        "title": "Interdit",
+        "description": "Votre rôle n’inclut pas l’autorisation pour cette ressource."
       },
       "expired_session": {
-        "title": "Expired Session",
-        "description": "Your session expired. Sign in again to resume work."
+        "title": "Session expirée",
+        "description": "Votre session a expiré. Connectez-vous à nouveau pour reprendre le travail."
       },
       "missing_permission": {
-        "title": "Missing Permission",
-        "description": "Ask an Owner or Admin to grant the required module access."
+        "title": "Autorisation manquante",
+        "description": "Demandez à un propriétaire ou un administrateur d’accorder l’accès au module requis."
       },
       "account_locked": {
-        "title": "Account Locked",
-        "description": "This account is locked. Contact an organization owner or try again later."
+        "title": "Compte verrouillé",
+        "description": "Ce compte est verrouillé. Contactez un propriétaire de l’organisation ou réessayez plus tard."
       }
     },
     "verifyEmail": {

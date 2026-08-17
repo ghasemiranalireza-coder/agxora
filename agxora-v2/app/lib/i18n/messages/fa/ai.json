@@ -16,7 +16,7 @@
     "provider": "ارائه دهنده",
     "model": "Model",
     "estimatedTokens": "توکن‌های تثبیت‌شده",
-    "tokensInOut": "(در {درون} / بیرون {بیرون})",
+    "tokensInOut": "(در {in} / بیرون {out})",
     "cost": "هزینه",
     "context": "متن نوشته",
     "contextNone": "هیچ",
@@ -79,5 +79,90 @@
     "placeholder": "دستور هوش مصنوعی… خلاصه کردن، پیشنهاد دادن، تحلیل کردن…",
     "noMatches": "هیچ دستور منطبقی وجود ندارد",
     "footer": "دستورات آینده را از طریق registerAiCommand ثبت کنید - رابط کاربری بدون تغییر باقی می‌ماند."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "پروژه‌ها",
+    "finance": "مالی",
+    "marketing": "بازاریابی",
+    "documents": "اسناد",
+    "automation": "اتوماسیون",
+    "general": "عمومی"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "خلاصه مشتری",
+      "description": "خلاصه اجرایی رابطه مشتری"
+    },
+    "crm-follow-up-email": {
+      "title": "ایمیل پیگیری",
+      "description": "یک پیگیری حرفه‌ای CRM پیش‌نویس کن"
+    },
+    "projects-analyze": {
+      "title": "تحلیل پروژه",
+      "description": "بررسی سلامت یک پروژه"
+    },
+    "projects-task-list": {
+      "title": "ایجاد فهرست وظایف",
+      "description": "کار را به وظایف قابل اجرا بشکن"
+    },
+    "finance-explain-invoice": {
+      "title": "توضیح فاکتور",
+      "description": "توضیح فاکتور به زبان ساده"
+    },
+    "finance-cashflow-brief": {
+      "title": "خلاصه جریان نقدی",
+      "description": "روایت کوتاه جریان نقدی"
+    },
+    "marketing-campaign-outline": {
+      "title": "طرح کلی کمپین",
+      "description": "یک کمپین بازاریابی را ساختاربندی کن"
+    },
+    "marketing-proposal": {
+      "title": "تولید پیشنهاد",
+      "description": "پیش‌نویس پیشنهاد رو به مشتری"
+    },
+    "documents-summarize": {
+      "title": "خلاصه سند",
+      "description": "خلاصه ساختاریافته سند"
+    },
+    "automation-workflow": {
+      "title": "طراحی گردش‌کار",
+      "description": "طرح گردش‌کار اتوماسیون"
+    },
+    "general-brainstorm": {
+      "title": "طوفان فکری گزینه‌ها",
+      "description": "ایده‌پردازی ساختاریافته"
+    },
+    "general-explain": {
+      "title": "ساده توضیح بده",
+      "description": "توضیح روشن برای ذی‌نفعان"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "خلاصه مشتری",
+      "description": "خلاصه اجرایی مشتری فعال"
+    },
+    "cmd-generate-proposal": {
+      "label": "تولید پیشنهاد",
+      "description": "طرح کلی پیشنهاد مشتری پیش‌نویس کن"
+    },
+    "cmd-analyze-project": {
+      "label": "تحلیل پروژه",
+      "description": "سلامت پروژه و تحلیل ریسک"
+    },
+    "cmd-create-task-list": {
+      "label": "ایجاد فهرست وظایف",
+      "description": "کار را به وظایف قابل اجرا بشکن"
+    },
+    "cmd-generate-email": {
+      "label": "تولید ایمیل",
+      "description": "یک ایمیل حرفه‌ای پیش‌نویس کن"
+    },
+    "cmd-explain-invoice": {
+      "label": "توضیح فاکتور",
+      "description": "توضیح فاکتور به زبان ساده"
+    }
   }
 }

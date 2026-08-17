@@ -27,5 +27,132 @@
   "back": "Atrás",
   "continue": "Continuar",
   "launching": "Lanzamiento…",
-  "enterDashboard": "Ingresar al panel"
+  "enterDashboard": "Ingresar al panel",
+  "defaultCountry": "Estados Unidos",
+  "businessTypes": {
+    "hotel": {
+      "label": "Hotel",
+      "description": "Hostelería, habitaciones, huéspedes y operación del inmueble"
+    },
+    "restaurant": {
+      "label": "Restaurante",
+      "description": "Restauración, cocina, reservas y experiencia del huésped"
+    },
+    "cleaning": {
+      "label": "Limpieza",
+      "description": "Operaciones de limpieza comercial y residencial"
+    },
+    "laundry": {
+      "label": "Lavandería",
+      "description": "Plantas de lavado, rutas de recogida y cuidado textil"
+    },
+    "construction": {
+      "label": "Construcción",
+      "description": "Obras, cuadrillas, materiales y entrega de proyectos"
+    },
+    "healthcare": {
+      "label": "Salud",
+      "description": "Redes de atención, pacientes y operaciones clínicas"
+    },
+    "medical": {
+      "label": "Médico",
+      "description": "Clínicas, citas y equipos de atención"
+    },
+    "manufacturing": {
+      "label": "Manufactura",
+      "description": "Líneas de producción, calidad y operaciones de suministro"
+    },
+    "retail": {
+      "label": "Comercio minorista",
+      "description": "Tiendas, inventario, merchandising y clientes"
+    },
+    "legal": {
+      "label": "Bufete",
+      "description": "Asuntos, clientes, plazos y facturación"
+    },
+    "accounting": {
+      "label": "Contabilidad",
+      "description": "Libros, clientes, presentaciones y asesoría"
+    },
+    "consulting": {
+      "label": "Consultoría",
+      "description": "Encargos, entregables y resultados de cliente"
+    },
+    "real_estate": {
+      "label": "Bienes raíces",
+      "description": "Listados, clientes, visitas y transacciones"
+    },
+    "education": {
+      "label": "Educación",
+      "description": "Programas, estudiantes, profesorado e inscripción"
+    },
+    "automotive": {
+      "label": "Automoción",
+      "description": "Concesionarios, bahías de servicio e inventario de vehículos"
+    },
+    "beauty": {
+      "label": "Salón de belleza",
+      "description": "Citas, estilistas, retail y membresías"
+    },
+    "fitness": {
+      "label": "Gimnasio / fitness",
+      "description": "Membresías, clases, entrenadores y retención"
+    },
+    "agriculture": {
+      "label": "Agricultura",
+      "description": "Cultivos, ganado, rendimientos y cadenas de suministro"
+    },
+    "transport": {
+      "label": "Transporte",
+      "description": "Movimiento de flota, rutas y ops de pasajeros/carga"
+    },
+    "logistics": {
+      "label": "Logística",
+      "description": "Flota, almacenes, rutas y fulfillment"
+    },
+    "warehouse": {
+      "label": "Almacén",
+      "description": "Almacenaje, picking, packing y rotación de inventario"
+    },
+    "insurance": {
+      "label": "Seguros",
+      "description": "Pólizas, siniestros, suscripción y retención"
+    },
+    "finance": {
+      "label": "Finanzas",
+      "description": "Capital, carteras y operaciones financieras"
+    },
+    "financial_services": {
+      "label": "Servicios financieros",
+      "description": "Asesoría, productos, cumplimiento y clientes"
+    },
+    "technology": {
+      "label": "Tecnología",
+      "description": "Producto, ingeniería y equipos de go-to-market"
+    },
+    "saas": {
+      "label": "Software / SaaS",
+      "description": "Suscripciones, uso y customer success"
+    },
+    "ecommerce": {
+      "label": "Comercio electrónico",
+      "description": "Catálogo en línea, carritos, fulfillment y LTV"
+    },
+    "agency": {
+      "label": "Agencia de marketing",
+      "description": "Clientes, campañas, retainers y entrega"
+    },
+    "freelancer": {
+      "label": "Autónomo",
+      "description": "Práctica individual, clientes, pipeline y flujo de caja"
+    },
+    "government": {
+      "label": "Gobierno",
+      "description": "Servicios públicos, programas y ciudadanos"
+    },
+    "nonprofit": {
+      "label": "Organización sin ánimo de lucro",
+      "description": "Misiones, donantes, programas e impacto"
+    }
+  }
 }

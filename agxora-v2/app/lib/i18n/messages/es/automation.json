@@ -69,7 +69,7 @@
     "tabTriggers": "Desencadenantes",
     "tabActions": "Comportamiento",
     "tabAiActions": "Acciones de IA",
-    "builderTitle": "Generador de flujo de trabajo · {nombre}",
+    "builderTitle": "Generador de flujo de trabajo · {name}",
     "builderHint": "Ajustar a cuadrícula {grid}px · ⌘/Ctrl+zoom de desplazamiento · arrastrar lienzo para desplazar · hacer doble clic en conectar",
     "autoSaved": "Guardado automáticamente",
     "saving": "Ahorro…",
@@ -100,7 +100,7 @@
     "noticeDefault": "Obtenga una vista previa de una plantilla antes de cargarla en el generador.",
     "noticeLoaded": "Se cargó \"{name}\" en el generador de flujo de trabajo.",
     "nodesBadge": "{count} nodos",
-    "recommendedFor": "Recomendado para: {para}",
+    "recommendedFor": "Recomendado para: {for}",
     "preview": "Avance",
     "useTemplate": "Usar plantilla",
     "previewTitle": "Vista previa de plantilla",
@@ -131,14 +131,14 @@
     "notice": {
       "missingWrite": "Falta el permiso de escritura.",
       "missingExecute": "Falta el permiso de ejecución de flujo de trabajo.",
-      "created": "Creado {nombre}",
-      "templateApplied": "Plantilla aplicada: {nombre}",
+      "created": "Creado {name}",
+      "templateApplied": "Plantilla aplicada: {name}",
       "runResult": "Ejecutar {status} ({duration}ms)",
       "runFailed": "No se pudo ejecutar el flujo de trabajo (deshabilitado o faltante).",
-      "publishedEvent": "Evento de dominio publicado: {tipo}",
-      "workflowStatus": "Flujo de trabajo {estado}",
+      "publishedEvent": "Evento de dominio publicado: {type}",
+      "workflowStatus": "Flujo de trabajo {status}",
       "saved": "Flujo de trabajo guardado",
-      "retryResult": "Reintentar {estado}",
+      "retryResult": "Reintentar {status}",
       "retryFailed": "Reintentar falló",
       "settingsSaved": "Configuración de automatización guardada"
     },
@@ -193,7 +193,7 @@
       "emptyTitle": "Aún no hay ejecuciones.",
       "emptyDescription": "Ejecute un flujo de trabajo o publique un evento de dominio.",
       "latestRun": "Detalle de la última ejecución",
-      "path": "Ruta: {ruta}",
+      "path": "Ruta: {path}",
       "error": "· Error: {error}",
       "columns": {
         "workflow": "Flujo de trabajo",
@@ -226,7 +226,315 @@
       "concurrencyLimit": "Límite de concurrencia",
       "timeoutMs": "Tiempo de espera (ms)",
       "logLevel": "Nivel de registro",
-      "saveSettings": "Guardar configuración"
+      "saveSettings": "Guardar configuración",
+      "logLevels": {
+        "error": "error",
+        "warn": "advertencia",
+        "info": "info",
+        "debug": "depuración"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Flujo de trabajo vacío"
+  },
+  "status": {
+    "connected": "Conectado",
+    "beta": "Beta",
+    "comingSoon": "Próximamente",
+    "disabled": "Desactivado",
+    "planned": "Planificado",
+    "success": "Correcto",
+    "failed": "Error",
+    "running": "En curso",
+    "pending": "Pendiente",
+    "retried": "Reintento"
+  },
+  "difficulty": {
+    "starter": "Inicial",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzado"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Disparador",
+      "description": "Iniciar cuando ocurre un evento"
+    },
+    "el-condition": {
+      "label": "Condición",
+      "description": "Ramificar según reglas"
+    },
+    "el-delay": {
+      "label": "Retraso",
+      "description": "Esperar antes de continuar"
+    },
+    "el-approval": {
+      "label": "Aprobación",
+      "description": "Puerta de aprobación humana"
+    },
+    "el-loop": {
+      "label": "Bucle",
+      "description": "Iterar sobre una colección"
+    },
+    "el-merge": {
+      "label": "Combinar",
+      "description": "Unir rutas paralelas"
+    },
+    "el-split": {
+      "label": "Dividir",
+      "description": "Distribuir rutas paralelas"
+    },
+    "el-ai-decision": {
+      "label": "Decisión de IA",
+      "description": "Enrutar mediante IA"
+    },
+    "el-notification": {
+      "label": "Notificación",
+      "description": "Alerta en la app"
+    },
+    "el-webhook": {
+      "label": "Marcador de Webhook",
+      "description": "Devolución HTTP reservada"
+    },
+    "el-custom": {
+      "label": "Acción personalizada",
+      "description": "Ranura de acción extensible"
+    },
+    "tr-customer": {
+      "label": "Cliente creado",
+      "description": "Registro de cliente CRM creado"
+    },
+    "tr-lead": {
+      "label": "Prospecto creado",
+      "description": "Un nuevo prospecto entra en el pipeline"
+    },
+    "tr-invoice": {
+      "label": "Factura creada",
+      "description": "Factura financiera emitida"
+    },
+    "tr-invoice-paid": {
+      "label": "Factura pagada",
+      "description": "Pago liquidado"
+    },
+    "tr-order": {
+      "label": "Pedido creado",
+      "description": "Pedido registrado"
+    },
+    "tr-order-done": {
+      "label": "Pedido completado",
+      "description": "Pedido cumplido"
+    },
+    "tr-doc": {
+      "label": "Documento cargado",
+      "description": "Carga al depósito de documentos"
+    },
+    "tr-campaign": {
+      "label": "Campaña publicada",
+      "description": "Publicación de Creator Studio"
+    },
+    "tr-employee": {
+      "label": "Empleado añadido",
+      "description": "Cambio en el directorio del equipo"
+    },
+    "tr-task": {
+      "label": "Tarea completada",
+      "description": "Tarea marcada como hecha"
+    },
+    "tr-manual": {
+      "label": "Disparador manual",
+      "description": "Ejecutar bajo demanda"
+    },
+    "tr-schedule": {
+      "label": "Disparador programado",
+      "description": "Programación cron / calendario"
+    },
+    "tr-webhook": {
+      "label": "Disparador Webhook",
+      "description": "Evento HTTP entrante"
+    },
+    "tr-api": {
+      "label": "Disparador API",
+      "description": "Inicio programático"
+    },
+    "ac-crm": {
+      "label": "Crear registro CRM",
+      "description": "Escribir entidad CRM"
+    },
+    "ac-invoice": {
+      "label": "Generar factura",
+      "description": "Factura financiera"
+    },
+    "ac-quote": {
+      "label": "Generar presupuesto",
+      "description": "Crear documento de presupuesto"
+    },
+    "ac-delivery": {
+      "label": "Generar albarán",
+      "description": "Albarán"
+    },
+    "ac-task": {
+      "label": "Crear tarea",
+      "description": "Abrir una tarea"
+    },
+    "ac-assign": {
+      "label": "Asignar empleado",
+      "description": "Enrutar a un compañero"
+    },
+    "ac-email": {
+      "label": "Enviar correo",
+      "description": "Correo saliente"
+    },
+    "ac-notify": {
+      "label": "Enviar notificación",
+      "description": "Notificación en la app"
+    },
+    "ac-ai-summary": {
+      "label": "Generar resumen de IA",
+      "description": "Resumir el contexto"
+    },
+    "ac-ai-content": {
+      "label": "Generar contenido de IA",
+      "description": "Borrador de Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "Actualizar cliente",
+      "description": "Parchear cliente CRM"
+    },
+    "ac-update-status": {
+      "label": "Actualizar estado",
+      "description": "Cambiar el estado de la entidad"
+    },
+    "ac-pdf": {
+      "label": "Exportar PDF",
+      "description": "Exportación de documento"
+    },
+    "ac-future": {
+      "label": "Marcador de API futura",
+      "description": "Ranura de acción reservada"
+    },
+    "ai-decision": {
+      "label": "Decisión de IA",
+      "description": "Decidir el siguiente camino"
+    },
+    "ai-class": {
+      "label": "Clasificación de IA",
+      "description": "Clasificar registros"
+    },
+    "ai-text": {
+      "label": "Generación de texto IA",
+      "description": "Generar texto"
+    },
+    "ai-translate": {
+      "label": "Traducción de IA",
+      "description": "Traducir contenido"
+    },
+    "ai-email": {
+      "label": "Respuesta de correo IA",
+      "description": "Redactar una respuesta"
+    },
+    "ai-sum": {
+      "label": "Resumen de IA",
+      "description": "Condensar el contexto"
+    },
+    "ai-rec": {
+      "label": "Recomendaciones de IA",
+      "description": "Sugerir los siguientes pasos"
+    },
+    "ai-route": {
+      "label": "Enrutamiento de IA",
+      "description": "Enrutar al propietario / cola"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Cliente creado",
+      "description": "Se dispara cuando se crea un cliente CRM."
+    },
+    "project_created": {
+      "label": "Proyecto creado",
+      "description": "Se dispara cuando se crea un proyecto."
+    },
+    "task_completed": {
+      "label": "Tarea completada",
+      "description": "Se dispara cuando una tarea se marca como completada."
+    },
+    "document_uploaded": {
+      "label": "Documento subido",
+      "description": "Se dispara cuando se carga un documento."
+    },
+    "schedule": {
+      "label": "Cronograma",
+      "description": "Disparador de programación cron / intervalo."
+    },
+    "invoice_issued": {
+      "label": "Factura emitida",
+      "description": "Se dispara cuando se emite una factura."
+    },
+    "user_invited": {
+      "label": "Usuario invitado",
+      "description": "Se dispara cuando se invita a un miembro del equipo."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Webhook HTTP entrante."
+    },
+    "api_event": {
+      "label": "Evento API",
+      "description": "Evento de dominio API genérico."
+    },
+    "ai_event": {
+      "label": "Evento de IA",
+      "description": "Señal de IA (finalización, insight, paso de agente)."
+    },
+    "manual": {
+      "label": "Disparador manual",
+      "description": "Ejecutar bajo demanda desde la UI o la API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Crear cliente",
+      "description": "Crear un registro de cliente CRM."
+    },
+    "customer_update": {
+      "label": "Actualizar cliente",
+      "description": "Actualizar campos de un cliente."
+    },
+    "project_create": {
+      "label": "Crear proyecto",
+      "description": "Crear un proyecto desde el contexto del flujo."
+    },
+    "notification_send": {
+      "label": "Enviar notificación",
+      "description": "Enviar una notificación in-app."
+    },
+    "email_send": {
+      "label": "Enviar correo",
+      "description": "Poner un correo en cola a través del proveedor."
+    },
+    "invoice_create": {
+      "label": "Crear factura",
+      "description": "Crear una factura financiera."
+    },
+    "status_update": {
+      "label": "Actualizar estado",
+      "description": "Actualizar el estado de una entidad en un módulo."
+    },
+    "document_generate": {
+      "label": "Generar documento",
+      "description": "Generar un documento desde una plantilla."
+    },
+    "api_call": {
+      "label": "Llamar a la API",
+      "description": "Llamada HTTP a una API interna o externa."
+    },
+    "ai_run": {
+      "label": "Ejecutar IA",
+      "description": "Ejecutar un prompt de IA / paso de agente con contexto."
+    },
+    "task_assign": {
+      "label": "Asignar tarea",
+      "description": "Asignar una tarea a un usuario."
     }
   }
 }

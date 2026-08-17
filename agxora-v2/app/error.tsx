@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ErrorPanel } from "./components/backend";
 import { reportError } from "@/app/lib/production/observability";
 import { sanitizeClientErrorMessage } from "@/app/lib/production/safeErrorMessage";
-import { useT } from "@/app/lib/i18n";
+import { resolveUserFacingErrorKey, useT } from "@/app/lib/i18n";
 
 /** Segment error UI — sanitized message, retry, recovery links. */
 export default function RouteError({
@@ -26,7 +26,7 @@ export default function RouteError({
   }, [error]);
 
   const message = sanitizeClientErrorMessage(
-    error.message,
+    t(resolveUserFacingErrorKey(error, "backend.globalError.message")),
     t("backend.globalError.message"),
   );
 

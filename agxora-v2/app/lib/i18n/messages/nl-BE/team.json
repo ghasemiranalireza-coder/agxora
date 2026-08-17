@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "Identiteit & Toegang",
     "title": "Team",
-    "lead": "Leden, rollen en uitnodigingen voor {organisatie}. Klaar voor architectuur voor een toekomstige identiteits-API.",
+    "lead": "Leden, rollen en uitnodigingen voor {organization}. Klaar voor architectuur voor een toekomstige identiteits-API.",
     "yourOrganization": "uw organisatie"
   },
   "invite": {
@@ -49,17 +49,17 @@
     "columnEmail": "E-mail",
     "columnRole": "Rol",
     "columnStatus": "Status",
-    "roleFor": "Rol voor {naam}",
+    "roleFor": "Rol voor {name}",
     "emptyTitle": "Nog geen leden",
     "emptyDescription": "Nodig collega's uit om lid te worden van deze organisatiewerkruimte.",
-    "updated": "{naam} bijgewerkt naar {rol}",
+    "updated": "{name} bijgewerkt naar {role}",
     "roleChangeFailed": "Rolwijziging is mislukt"
   },
   "pending": {
     "title": "Openstaande uitnodigingen",
     "emptyTitle": "Geen openstaande uitnodigingen",
     "emptyDescription": "Nieuwe uitnodigingen verschijnen hier totdat ze worden geaccepteerd of verlopen.",
-    "expires": "{rol} · verloopt op {datum}",
+    "expires": "{role} · verloopt op {date}",
     "revoke": "Herroepen",
     "pending": "in behandeling"
   },

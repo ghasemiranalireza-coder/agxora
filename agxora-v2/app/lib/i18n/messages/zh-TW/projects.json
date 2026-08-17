@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "專案管理作業系統",
     "title": "專案",
-    "lead": "規劃交付、追蹤預算和運作狀況、分配團隊以及管理{組織}的任務。資料保留在本地並準備好用於後端連線。",
+    "lead": "規劃交付、追蹤預算和運作狀況、分配團隊以及管理{organization}的任務。資料保留在本地並準備好用於後端連線。",
     "yourOrganization": "你的組織"
   },
   "list": {
@@ -29,9 +29,9 @@
     "previous": "以前的",
     "next": "下一個",
     "noDescription": "還沒有描述。",
-    "duePrefix": "到期日}",
-    "openProject": "打開項目{名稱}",
-    "sortBy": "按{列}排序",
+    "duePrefix": "Due {date}",
+    "openProject": "打開項目{name}",
+    "sortBy": "按{column}排序",
     "sort": {
       "name": "姓名",
       "customer": "顧客",
@@ -65,7 +65,7 @@
     "tagsPlaceholder": "企業、推出",
     "budgetPlaceholder": "0",
     "description": "描述",
-    "selectColor": "選擇顏色{顏色}"
+    "selectColor": "選擇顏色{color}"
   },
   "taskForm": {
     "createTitle": "創建任務",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "進步",
-    "progressAria": "{標籤}：{值}%"
+    "progressAria": "{label}：{value}%"
   },
   "status": {
     "planning": "規劃",
@@ -132,24 +132,24 @@
     "emptyDescription": "新增開始/截止日期和任務以填入時間表。",
     "title": "時間軸",
     "subtitle": "開始、結束、持續時間、裏程碑。相依性保留給未來的版本。",
-    "dateRange": "{開始} → {結束} · {天}d",
+    "dateRange": "{start} → {end} · {days}d",
     "itemAria": "{title} 從 {start} 到 {end}",
     "dependenciesNone": "依賴關係：無"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "活躍專案",
-      "activeHint": "{計劃}計劃",
+      "activeHint": "{planning}計劃",
       "completed": "完全的",
       "completedHint": "投資組合的 {percent}%",
       "onHold": "等候接聽",
-      "onHoldHint": "{已存檔}已存檔",
+      "onHoldHint": "{archived}已存檔",
       "teamMembers": "團隊成員",
       "teamHint": "跨所有項目",
       "budgetOverview": "預算概覽",
       "budgetHint": "已使用 {percent}% · 已花費 {spent}",
       "openTasks": "開放任務",
-      "openTasksHint": "{逾期}逾期",
+      "openTasksHint": "{overdue}逾期",
       "projectHealth": "健康項目",
       "healthHint": "綜合交付分數",
       "upcomingDeadlines": "即將到來的截止日期",
@@ -176,7 +176,7 @@
     "emptyTitle": "板上沒有任務",
     "emptyDescription": "建立任務以跨「待辦事項」、「進行中」、「審核」和「已完成」組織交付。",
     "addTask": "新增任務",
-    "columnAria": "{狀態}列",
+    "columnAria": "{status}列",
     "taskProgress": "任務進度",
     "edit": "編輯",
     "complete": "已完成"
@@ -185,7 +185,7 @@
     "notFoundTitle": "未找到項目",
     "notFoundDescription": "該項目可能已被刪除或對於目前組織不可用。",
     "backToProjects": "← 回傳項目",
-    "ownerMeta": "{客戶}·所有者{所有者}",
+    "ownerMeta": "{customer}·所有者{owner}",
     "edit": "編輯",
     "delete": "刪除",
     "sectionsAria": "項目細節部分",
@@ -294,5 +294,30 @@
     "memberAdded": "已新增成員",
     "settingsSaved": "設定已儲存",
     "projectArchived": "項目已存檔"
+  },
+  "validation": {
+    "nameRequired": "專案名稱為必填。",
+    "nameMin": "專案名稱至少 2 個字元。",
+    "customerRequired": "客戶為必填。",
+    "ownerRequired": "專案擁有者為必填。",
+    "priorityInvalid": "請選擇有效優先順序。",
+    "statusInvalid": "請選擇有效狀態。",
+    "currencyInvalid": "請選擇有效貨幣。",
+    "budgetInvalid": "預算必須為非負數。",
+    "startDateRequired": "開始日期為必填。",
+    "startDateInvalid": "請輸入有效的開始日期。",
+    "dueDateInvalid": "請輸入有效的截止日期。",
+    "dueDateOrder": "截止日期必須不早於開始日期。",
+    "colorInvalid": "請選擇有效顏色。",
+    "iconInvalid": "請選擇有效圖示。",
+    "taskTitleRequired": "任務標題為必填。",
+    "progressRange": "進度必須介於 0 到 100。",
+    "memberNameRequired": "成員名稱為必填。",
+    "emailRequired": "電子郵件為必填。",
+    "emailInvalid": "請輸入有效的電子郵件地址。",
+    "roleInvalid": "請選擇有效角色。",
+    "noteTitleRequired": "備註標題為必填。",
+    "noteBodyRequired": "備註內容為必填。",
+    "authorRequired": "作者為必填。"
   }
 }

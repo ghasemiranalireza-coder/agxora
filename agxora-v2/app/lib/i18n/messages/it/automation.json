@@ -69,7 +69,7 @@
     "tabTriggers": "Trigger",
     "tabActions": "Azioni",
     "tabAiActions": "Azioni dell'IA",
-    "builderTitle": "Costruttore di flussi di lavoro · {nome}",
+    "builderTitle": "Costruttore di flussi di lavoro · {name}",
     "builderHint": "Blocca sulla griglia {grid}px · ⌘/Ctrl+scorri zoom · trascina la tela per eseguire la panoramica · fai doppio clic su Connetti",
     "autoSaved": "Salvato automaticamente",
     "saving": "Risparmio…",
@@ -100,7 +100,7 @@
     "noticeDefault": "Visualizza l'anteprima di un modello prima di caricarlo nel builder.",
     "noticeLoaded": "Caricato \"{name}\" nel generatore di flussi di lavoro.",
     "nodesBadge": "{count} nodi",
-    "recommendedFor": "Consigliato per: {per}",
+    "recommendedFor": "Consigliato per: {for}",
     "preview": "Anteprima",
     "useTemplate": "Usa modello",
     "previewTitle": "Anteprima del modello",
@@ -131,14 +131,14 @@
     "notice": {
       "missingWrite": "Workflow.autorizzazione di scrittura mancante.",
       "missingExecute": "Autorizzazione workflow.execute mancante.",
-      "created": "Creato {nome}",
-      "templateApplied": "Modello applicato: {nome}",
+      "created": "Creato {name}",
+      "templateApplied": "Modello applicato: {name}",
       "runResult": "Esegui {status} ({duration}ms)",
       "runFailed": "Impossibile eseguire il flusso di lavoro (disabilitato o mancante).",
       "publishedEvent": "Evento del dominio pubblicato: {type}",
-      "workflowStatus": "Flusso di lavoro {stato}",
+      "workflowStatus": "Flusso di lavoro {status}",
       "saved": "Flusso di lavoro salvato",
-      "retryResult": "Riprova {stato}",
+      "retryResult": "Riprova {status}",
       "retryFailed": "Nuovo tentativo fallito",
       "settingsSaved": "Impostazioni di automazione salvate"
     },
@@ -193,8 +193,8 @@
       "emptyTitle": "Nessuna esecuzione ancora.",
       "emptyDescription": "Esegui un flusso di lavoro o pubblica un evento del dominio.",
       "latestRun": "Dettaglio dell'ultima corsa",
-      "path": "Percorso: {percorso}",
-      "error": "· Errore: {errore}",
+      "path": "Percorso: {path}",
+      "error": "· Errore: {error}",
       "columns": {
         "workflow": "Flusso di lavoro",
         "status": "Stato",
@@ -226,7 +226,315 @@
       "concurrencyLimit": "Limite di concorrenza",
       "timeoutMs": "Timeout (ms)",
       "logLevel": "Livello di registro",
-      "saveSettings": "Salva impostazioni"
+      "saveSettings": "Salva impostazioni",
+      "logLevels": {
+        "error": "errore",
+        "warn": "avviso",
+        "info": "info",
+        "debug": "debug"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Flusso di lavoro vuoto"
+  },
+  "status": {
+    "connected": "Connesso",
+    "beta": "Beta",
+    "comingSoon": "Prossimamente",
+    "disabled": "Disattivato",
+    "planned": "Pianificato",
+    "success": "Riuscito",
+    "failed": "Non riuscito",
+    "running": "In esecuzione",
+    "pending": "In attesa",
+    "retried": "Nuovo tentativo"
+  },
+  "difficulty": {
+    "starter": "Base",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzato"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Trigger",
+      "description": "Avvia quando si verifica un evento"
+    },
+    "el-condition": {
+      "label": "Condizione",
+      "description": "Dirama in base a regole"
+    },
+    "el-delay": {
+      "label": "Ritardo",
+      "description": "Attendi prima di continuare"
+    },
+    "el-approval": {
+      "label": "Approvazione",
+      "description": "Soglia di approvazione umana"
+    },
+    "el-loop": {
+      "label": "Ciclo",
+      "description": "Itera su una raccolta"
+    },
+    "el-merge": {
+      "label": "Unisci",
+      "description": "Unisci percorsi paralleli"
+    },
+    "el-split": {
+      "label": "Dividi",
+      "description": "Distribuisci percorsi paralleli"
+    },
+    "el-ai-decision": {
+      "label": "Decisione IA",
+      "description": "Instrada tramite IA"
+    },
+    "el-notification": {
+      "label": "Notifica",
+      "description": "Avviso in-app"
+    },
+    "el-webhook": {
+      "label": "Segnaposto Webhook",
+      "description": "Callback HTTP riservato"
+    },
+    "el-custom": {
+      "label": "Azione personalizzata",
+      "description": "Slot azione estendibile"
+    },
+    "tr-customer": {
+      "label": "Cliente creato",
+      "description": "Record cliente CRM creato"
+    },
+    "tr-lead": {
+      "label": "Lead creato",
+      "description": "Un nuovo lead entra nella pipeline"
+    },
+    "tr-invoice": {
+      "label": "Fattura creata",
+      "description": "Fattura finance emessa"
+    },
+    "tr-invoice-paid": {
+      "label": "Fattura pagata",
+      "description": "Pagamento regolato"
+    },
+    "tr-order": {
+      "label": "Ordine creato",
+      "description": "Ordine inserito"
+    },
+    "tr-order-done": {
+      "label": "Ordine completato",
+      "description": "Ordine evaso"
+    },
+    "tr-doc": {
+      "label": "Documento caricato",
+      "description": "Caricamento nell’archivio documenti"
+    },
+    "tr-campaign": {
+      "label": "Campagna pubblicata",
+      "description": "Pubblicazione Creator Studio"
+    },
+    "tr-employee": {
+      "label": "Dipendente aggiunto",
+      "description": "Modifica nella directory del team"
+    },
+    "tr-task": {
+      "label": "Attività completata",
+      "description": "Attività contrassegnata come fatta"
+    },
+    "tr-manual": {
+      "label": "Trigger manuale",
+      "description": "Esegui su richiesta"
+    },
+    "tr-schedule": {
+      "label": "Trigger pianificato",
+      "description": "Pianificazione cron / calendario"
+    },
+    "tr-webhook": {
+      "label": "Trigger Webhook",
+      "description": "Evento HTTP in ingresso"
+    },
+    "tr-api": {
+      "label": "Trigger API",
+      "description": "Avvio programmatico"
+    },
+    "ac-crm": {
+      "label": "Crea record CRM",
+      "description": "Scrivi entità CRM"
+    },
+    "ac-invoice": {
+      "label": "Genera fattura",
+      "description": "Fattura finance"
+    },
+    "ac-quote": {
+      "label": "Genera preventivo",
+      "description": "Crea documento preventivo"
+    },
+    "ac-delivery": {
+      "label": "Genera bolla di consegna",
+      "description": "Bolla di consegna"
+    },
+    "ac-task": {
+      "label": "Crea attività",
+      "description": "Apri un’attività"
+    },
+    "ac-assign": {
+      "label": "Assegna dipendente",
+      "description": "Instrada a un collega"
+    },
+    "ac-email": {
+      "label": "Invia e-mail",
+      "description": "E-mail in uscita"
+    },
+    "ac-notify": {
+      "label": "Invia notifica",
+      "description": "Notifica in-app"
+    },
+    "ac-ai-summary": {
+      "label": "Genera riepilogo IA",
+      "description": "Riassumi il contesto"
+    },
+    "ac-ai-content": {
+      "label": "Genera contenuto IA",
+      "description": "Bozza Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "Aggiorna cliente",
+      "description": "Patch del cliente CRM"
+    },
+    "ac-update-status": {
+      "label": "Aggiorna stato",
+      "description": "Cambia lo stato dell’entità"
+    },
+    "ac-pdf": {
+      "label": "Esporta PDF",
+      "description": "Esportazione documento"
+    },
+    "ac-future": {
+      "label": "Segnaposto API futura",
+      "description": "Slot azione riservato"
+    },
+    "ai-decision": {
+      "label": "Decisione IA",
+      "description": "Decidi il percorso successivo"
+    },
+    "ai-class": {
+      "label": "Classificazione IA",
+      "description": "Classifica i record"
+    },
+    "ai-text": {
+      "label": "Generazione testo IA",
+      "description": "Genera testo"
+    },
+    "ai-translate": {
+      "label": "Traduzione IA",
+      "description": "Traduci il contenuto"
+    },
+    "ai-email": {
+      "label": "Risposta e-mail IA",
+      "description": "Bozza una risposta"
+    },
+    "ai-sum": {
+      "label": "Sintesi IA",
+      "description": "Condensa il contesto"
+    },
+    "ai-rec": {
+      "label": "Raccomandazioni IA",
+      "description": "Suggerisci i passi successivi"
+    },
+    "ai-route": {
+      "label": "Instradamento IA",
+      "description": "Instrada al proprietario / coda"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Cliente creato",
+      "description": "Si attiva quando viene creato un cliente CRM."
+    },
+    "project_created": {
+      "label": "Progetto creato",
+      "description": "Si attiva quando viene creato un progetto."
+    },
+    "task_completed": {
+      "label": "Attività completata",
+      "description": "Si attiva quando un’attività viene contrassegnata come completata."
+    },
+    "document_uploaded": {
+      "label": "Documento caricato",
+      "description": "Si attiva quando viene caricato un documento."
+    },
+    "schedule": {
+      "label": "Programma",
+      "description": "Trigger di pianificazione cron / intervallo."
+    },
+    "invoice_issued": {
+      "label": "Fattura emessa",
+      "description": "Si attiva quando viene emessa una fattura."
+    },
+    "user_invited": {
+      "label": "Utente invitato",
+      "description": "Si attiva quando un membro del team viene invitato."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Webhook HTTP in ingresso."
+    },
+    "api_event": {
+      "label": "Evento API",
+      "description": "Evento di dominio API generico."
+    },
+    "ai_event": {
+      "label": "Evento IA",
+      "description": "Segnale IA (completamento, insight, passo agente)."
+    },
+    "manual": {
+      "label": "Trigger manuale",
+      "description": "Esecuzione on demand da UI o API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Crea cliente",
+      "description": "Crea un record cliente CRM."
+    },
+    "customer_update": {
+      "label": "Aggiorna cliente",
+      "description": "Aggiorna i campi di un cliente."
+    },
+    "project_create": {
+      "label": "Crea progetto",
+      "description": "Crea un progetto dal contesto del workflow."
+    },
+    "notification_send": {
+      "label": "Invia notifica",
+      "description": "Invia una notifica in-app."
+    },
+    "email_send": {
+      "label": "Invia e-mail",
+      "description": "Accoda un’e-mail tramite il provider."
+    },
+    "invoice_create": {
+      "label": "Crea fattura",
+      "description": "Crea una fattura finanziaria."
+    },
+    "status_update": {
+      "label": "Aggiorna stato",
+      "description": "Aggiorna lo stato di un’entità in un modulo."
+    },
+    "document_generate": {
+      "label": "Genera documento",
+      "description": "Genera un documento da un modello."
+    },
+    "api_call": {
+      "label": "Chiama API",
+      "description": "Chiamata HTTP a un’API interna o esterna."
+    },
+    "ai_run": {
+      "label": "Esegui IA",
+      "description": "Esegui un prompt IA / passo agente con contesto."
+    },
+    "task_assign": {
+      "label": "Assegna attività",
+      "description": "Assegna un’attività a un utente."
     }
   }
 }

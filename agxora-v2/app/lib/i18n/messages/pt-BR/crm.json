@@ -98,12 +98,12 @@
       "previous": "Anterior",
       "next": "Próximo"
     },
-    "showing": "Mostrando {de}–{to} de {total}",
+    "showing": "Mostrando {from}–{to} de {total}",
     "aria": {
-      "openCustomer": "Cliente aberto {empresa}"
+      "openCustomer": "Cliente aberto {company}"
     },
-    "cardMeta": "Proprietário {proprietário} · Criado em {data}",
-    "sortBy": "Classificar por {coluna}"
+    "cardMeta": "Proprietário {owner} · Criado em {date}",
+    "sortBy": "Classificar por {column}"
   },
   "status": {
     "lead": "Liderar",
@@ -147,7 +147,7 @@
     "customerCouldNotBeRemoved": "Não foi possível remover o cliente.",
     "contactSaved": "Contato salvo",
     "documentsAttached": "Documentos anexados",
-    "documentsAttachedDetail": "{contar} arquivo(s)",
+    "documentsAttachedDetail": "{count} arquivo(s)",
     "noteSaved": "Nota salva"
   },
   "deleteDialog": {
@@ -473,7 +473,7 @@
       "label": "Pontuação de integridade da IA",
       "caption": "Sinal de qualidade de relacionamento"
     },
-    "scoreOutOf": "{pontuação} / {máx.}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "Liderar",

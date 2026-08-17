@@ -330,7 +330,7 @@
     "title": "設定",
     "lead": "每個 AGXORA 模組的企業配置 — 設定檔、組織、AI、外觀、安全性、計費和開發人員控制都集中在一個地方。",
     "loading": "正在加載設定...",
-    "breadcrumb": "{標籤} · {描述}"
+    "breadcrumb": "{label} · {description}"
   },
   "saveChanges": "儲存變更",
   "sessionNotice": "此會話已更新 — {area} 未連線。",
@@ -368,7 +368,7 @@
     "owner": "擁有者",
     "counts": "成員·工作區",
     "orgUpdated": "組織已更新。",
-    "countsValue": "{成員} · {工作空間}",
+    "countsValue": "{members} · {workspaces}",
     "joined": "已加入",
     "workspaceName": "工作區名稱",
     "switchWorkspace": "活躍的工作空間",
@@ -422,7 +422,7 @@
     "transferHonesty": "配置交付後，將發送一封確認電子郵件。否則直接與收件者分享確認連結。",
     "transferLink": "確認連結",
     "transferPendingTitle": "待定所有權轉讓",
-    "transferPendingBody": "等待{name} ({email}) 確認。過期{過期}。在此之前您仍然是所有者。",
+    "transferPendingBody": "等待{name} ({email}) 確認。過期{expires}。在此之前您仍然是所有者。",
     "transferPendingNote": "在轉移等待期間，成員角色不會改變。",
     "cancelTransfer": "取消轉帳",
     "transferCancelled": "所有權轉讓已取消。",

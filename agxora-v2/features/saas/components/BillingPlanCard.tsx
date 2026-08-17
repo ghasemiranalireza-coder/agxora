@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { JSX, KeyboardEvent } from "react";
 import type { CommercialPlan, CommercialPlanId } from "../types";
-import { useT } from "@/app/lib/i18n";
+import { useT, useFormatters } from "@/app/lib/i18n";
 import "./billing-plans.css";
 
 export function BillingPlanCard({
@@ -20,6 +20,9 @@ export function BillingPlanCard({
   readonly onSelect: (planId: CommercialPlanId) => void;
 }): JSX.Element {
   const t = useT();
+  const { number } = useFormatters();
+  const planName = t(`pricing.plans.${plan.id}.name`);
+  const planDescription = t(`pricing.plans.${plan.id}.description`);
   const isEnterprise = plan.priceMonthlyUsd == null;
   const recommended = Boolean(plan.highlighted);
   const stateClass = [
@@ -46,8 +49,8 @@ export function BillingPlanCard({
   const body = (
     <>
       {badge}
-      <p className="saas-plan-card__name">{plan.name}</p>
-      <p className="saas-plan-card__desc">{plan.description}</p>
+      <p className="saas-plan-card__name">{planName}</p>
+      <p className="saas-plan-card__desc">{planDescription}</p>
       <p className="saas-plan-card__price">
         {isEnterprise
           ? t("billing.planCard.contactSales")
@@ -57,12 +60,12 @@ export function BillingPlanCard({
         <li>{t("billing.planCard.users", { count: plan.limits.users })}</li>
         <li>
           {t("billing.planCard.aiRequests", {
-            count: plan.limits.aiRequestsPerMonth.toLocaleString(),
+            count: number(plan.limits.aiRequestsPerMonth),
           })}
         </li>
         <li>
           {t("billing.planCard.storage", {
-            count: plan.limits.storageMb.toLocaleString(),
+            count: number(plan.limits.storageMb),
           })}
         </li>
         <li>{t("billing.planCard.moduleFeatures", { count: plan.features.length })}</li>
@@ -84,7 +87,7 @@ export function BillingPlanCard({
       <article
         className={stateClass}
         aria-current="true"
-        aria-label={t("billing.planCard.currentPlanAria", { name: plan.name })}
+        aria-label={t("billing.planCard.currentPlanAria", { name: planName })}
       >
         {body}
       </article>
@@ -96,7 +99,7 @@ export function BillingPlanCard({
       <Link
         href="/contact-sales"
         className={stateClass}
-        aria-label={t("billing.planCard.contactSalesAria", { name: plan.name })}
+        aria-label={t("billing.planCard.contactSalesAria", { name: planName })}
       >
         {body}
       </Link>
@@ -117,7 +120,7 @@ export function BillingPlanCard({
       className={stateClass}
       disabled={disabled}
       aria-busy={selecting || undefined}
-      aria-label={t("billing.planCard.choosePlanAria", { name: plan.name })}
+      aria-label={t("billing.planCard.choosePlanAria", { name: planName })}
       onClick={() => onSelect(plan.id)}
       onKeyDown={onKeyDown}
     >

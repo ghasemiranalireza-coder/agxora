@@ -27,5 +27,132 @@
   "back": "뒤쪽에",
   "continue": "계속하다",
   "launching": "진수…",
-  "enterDashboard": "대시보드 입력"
+  "enterDashboard": "대시보드 입력",
+  "defaultCountry": "미국",
+  "businessTypes": {
+    "hotel": {
+      "label": "호텔",
+      "description": "숙박, 객실, 투숙객 및 시설 운영"
+    },
+    "restaurant": {
+      "label": "레스토랑",
+      "description": "다이닝, 주방, 예약 및 고객 경험"
+    },
+    "cleaning": {
+      "label": "청소",
+      "description": "상업 및 주거 청소 운영"
+    },
+    "laundry": {
+      "label": "세탁",
+      "description": "세탁 공장, 수거 경로 및 섬유 관리"
+    },
+    "construction": {
+      "label": "건설",
+      "description": "현장, 인력, 자재 및 프로젝트 납품"
+    },
+    "healthcare": {
+      "label": "헬스케어",
+      "description": "케어 네트워크, 환자 및 임상 운영"
+    },
+    "medical": {
+      "label": "의료",
+      "description": "클리닉, 예약 및 케어 팀"
+    },
+    "manufacturing": {
+      "label": "제조",
+      "description": "생산 라인, 품질 및 공급 운영"
+    },
+    "retail": {
+      "label": "소매",
+      "description": "매장, 재고, 머천다이징 및 고객"
+    },
+    "legal": {
+      "label": "법률 사무소",
+      "description": "사건, 고객, 기한 및 청구"
+    },
+    "accounting": {
+      "label": "회계",
+      "description": "장부, 고객, 신고 및 자문"
+    },
+    "consulting": {
+      "label": "컨설팅",
+      "description": "프로젝트, 산출물 및 고객 성과"
+    },
+    "real_estate": {
+      "label": "부동산",
+      "description": "매물, 고객, 방문 및 거래"
+    },
+    "education": {
+      "label": "교육",
+      "description": "프로그램, 학생, 교원 및 등록"
+    },
+    "automotive": {
+      "label": "자동차",
+      "description": "딜러, 서비스 베이 및 차량 재고"
+    },
+    "beauty": {
+      "label": "미용실",
+      "description": "예약, 스타일리스트, 리테일 및 멤버십"
+    },
+    "fitness": {
+      "label": "헬스장 / 피트니스",
+      "description": "멤버십, 수업, 트레이너 및 유지"
+    },
+    "agriculture": {
+      "label": "농업",
+      "description": "작물, 가축, 수확량 및 공급망"
+    },
+    "transport": {
+      "label": "운송",
+      "description": "차량 이동, 노선 및 여객/화물 운영"
+    },
+    "logistics": {
+      "label": "물류",
+      "description": "차량, 창고, 노선 및 풀필먼트"
+    },
+    "warehouse": {
+      "label": "창고",
+      "description": "보관, 피킹, 패킹 및 재고 회전"
+    },
+    "insurance": {
+      "label": "보험",
+      "description": "증권, 청구, 언더라이팅 및 유지"
+    },
+    "finance": {
+      "label": "금융",
+      "description": "자본, 포트폴리오 및 금융 운영"
+    },
+    "financial_services": {
+      "label": "금융 서비스",
+      "description": "자문, 상품, 컴플라이언스 및 고객"
+    },
+    "technology": {
+      "label": "기술",
+      "description": "제품, 엔지니어링 및 시장 진출 팀"
+    },
+    "saas": {
+      "label": "소프트웨어 / SaaS",
+      "description": "구독, 사용량 및 고객 성공"
+    },
+    "ecommerce": {
+      "label": "이커머스",
+      "description": "온라인 카탈로그, 장바구니, 풀필먼트 및 LTV"
+    },
+    "agency": {
+      "label": "마케팅 대행사",
+      "description": "고객, 캠페인, 리테이너 및 납품"
+    },
+    "freelancer": {
+      "label": "프리랜서",
+      "description": "1인 사업, 고객, 파이프라인 및 현금흐름"
+    },
+    "government": {
+      "label": "공공",
+      "description": "공공 서비스, 프로그램 및 주민"
+    },
+    "nonprofit": {
+      "label": "비영리",
+      "description": "미션, 기부자, 프로그램 및 영향"
+    }
+  }
 }

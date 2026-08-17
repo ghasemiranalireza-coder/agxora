@@ -69,7 +69,7 @@
     "aiRewrite": "ऐ पुनर्लेखन",
     "translate": "अनुवाद",
     "initialOutput": "एक प्रारूप और ब्रांड आवाज चुनें, फिर एक ड्राफ्ट तैयार करें। प्रदाता एडाप्टर आरक्षित हैं - अभी तक कोई लाइव मॉडल कॉल नहीं है।",
-    "draftStaged": "ड्राफ्ट का मंचन {प्रारूप} · आवाज: {आवाज} के लिए किया गया। जेनरेशन एडॉप्टर आरक्षित।",
+    "draftStaged": "ड्राफ्ट का मंचन {format} · आवाज: {voice} के लिए किया गया। जेनरेशन एडॉप्टर आरक्षित।",
     "rewriteQueued": "एआई पुनर्लेखन पंक्तिबद्ध - पुनर्लेखन एडाप्टर आरक्षित।",
     "translateQueued": "अनुवाद सामग्री कतारबद्ध - बहु-भाषा एडाप्टर आरक्षित।",
     "brandVoice": "ब्रांड आवाज",
@@ -94,8 +94,8 @@
   "analytics": {
     "title": "एनालिटिक्स",
     "topPosts": "शीर्ष पोस्ट",
-    "engagement": "इंजी {मूल्य}",
-    "reach": "{मूल्य} तक पहुंचें",
+    "engagement": "इंजी {value}",
+    "reach": "{value} तक पहुंचें",
     "recommendations": "एआई सिफ़ारिशें"
   },
   "integrations": {
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "एआई फीचर मैप - विचार, कैप्शन, हैशटैग, कैलेंडर, अभियान, दर्शक, शेड्यूल, ब्रांड स्थिरता, पुनर्लेखन, अनुवाद, बहु-भाषा।"
+  },
+  "formats": {
+    "instagram_caption": "Instagram कैप्शन",
+    "tiktok_script": "TikTok स्क्रिप्ट",
+    "linkedin_post": "LinkedIn पोस्ट",
+    "facebook_post": "Facebook पोस्ट",
+    "x_post": "X पोस्ट",
+    "blog_article": "ब्लॉग लेख",
+    "newsletter": "न्यूज़लेटर",
+    "email_campaign": "ईमेल अभियान",
+    "product_description": "उत्पाद विवरण",
+    "ad_copy": "विज्ञापन कॉपी",
+    "seo_article": "SEO लेख",
+    "landing_page_copy": "लैंडिंग पेज कॉपी"
+  },
+  "publishStatus": {
+    "draft": "ड्राफ्ट",
+    "review": "समीक्षा",
+    "approved": "अनुमोदित",
+    "scheduled": "निर्धारित",
+    "published": "प्रकाशित",
+    "archive": "संग्रह"
+  },
+  "mediaKind": {
+    "image": "छवि",
+    "video": "वीडियो",
+    "document": "दस्तावेज़",
+    "logo": "ब्रांड लोगो",
+    "template": "टेम्पलेट"
+  },
+  "voice": {
+    "professional": "पेशेवर",
+    "friendly": "मित्रवत",
+    "luxury": "लक्ज़री",
+    "casual": "आरामदायक"
+  },
+  "integrationStatus": {
+    "planned": "योजनाबद्ध",
+    "ready": "तैयार",
+    "connected": "कनेक्टेड",
+    "disabled": "अक्षम"
   }
 }

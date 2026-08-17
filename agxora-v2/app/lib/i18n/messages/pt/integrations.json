@@ -18,10 +18,10 @@
     "demoConnection": "Conexão de demonstração: {name} (somente stub local)",
     "connectFailed": "Falha na conexão",
     "keyCreated": "Chave de API criada: {prefix}",
-    "webhookCreated": "Webhook criado: {nome}",
+    "webhookCreated": "Webhook criado: {name}",
     "webhookTest": "Teste de webhook {status}",
     "networkError": "Erro de rede do API Explorer: {message}",
-    "explorerError": "Explorador de API → {status}: {mensagem}",
+    "explorerError": "Explorador de API → {status}: {message}",
     "explorerSuccess": "Explorador de API → {status}",
     "explorerFailed": "Falha no explorador",
     "syncResult": "Sincronização de demonstração · {status} ({records} registros locais) — nenhum dado externo é transferido.",
@@ -55,7 +55,7 @@
     "latestSync": "Última sincronização: {status} · {records} registros · modo {mode}"
   },
   "available": {
-    "protocols": "Protocolos: {protocolos}",
+    "protocols": "Protocolos: {protocols}",
     "demoConnection": "Conexão de demonstração",
     "connectDemo": "Conectar (demonstração)",
     "installDemo": "Instalar demonstração"
@@ -90,7 +90,7 @@
     "apiDocs": "Espaço reservado para documentos da API: {url}",
     "sdk": "Espaço reservado do SDK: {url}",
     "explorerTitle": "Explorador de API",
-    "gatewayRoutes": "Rotas de gateway: {rotas}",
+    "gatewayRoutes": "Rotas de gateway: {routes}",
     "sendGet": "Enviar GET",
     "oauthProviders": "Provedores OAuth",
     "placeholdersHint": "As rotas de gateway GraphQL, WebSocket e gRPC são registradas como espaços reservados. O mapeamento de campo e a resolução de conflitos de sincronização estão prontos para arquitetura para implementação de back-end."

@@ -60,7 +60,7 @@
     "storage": {
       "label": "Speicher belegt",
       "caption": "Beispiel · des illustrativen Plans",
-      "delta": "Größe:"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "Geteilte Dokumente",
@@ -75,7 +75,7 @@
     "indexed": {
       "label": "KI-indexiert",
       "caption": "Beispiel · KI-Suche nicht verbunden",
-      "delta": "Prozent"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "Offene Freigaben",

@@ -17,7 +17,7 @@
     "settings": "सेटिंग्स"
   },
   "notice": {
-    "simulatedRun": "सिम्युलेटेड रन · {स्थिति} ({अवधि}एमएस)",
+    "simulatedRun": "सिम्युलेटेड रन · {status} ({duration}एमएस)",
     "taskFailed": "कार्य विफल",
     "activated": "स्थानीय रूप से सक्रिय: {agentId}",
     "agentPaused": "एजेंट रुक गया",
@@ -42,15 +42,15 @@
   "registry": {
     "title": "रजिस्ट्री",
     "selectPrompt": "रजिस्ट्री से एक एजेंट का चयन करें.",
-    "status": "स्थिति: {स्थिति}",
-    "health": "स्वास्थ्य: {स्वास्थ्य}",
-    "queue": "कतार: {कतार}",
-    "usage": "उपयोग: {उपयोग}",
+    "status": "स्थिति: {status}",
+    "health": "स्वास्थ्य: {health}",
+    "queue": "कतार: {queue}",
+    "usage": "उपयोग: {usage}",
     "executeTask": "कार्य निष्पादित करें",
     "supervisorDelegate": "पर्यवेक्षक प्रतिनिधि"
   },
   "marketplace": {
-    "tools": "उपकरण: {उपकरण}",
+    "tools": "उपकरण: {tools}",
     "installed": "स्थापित",
     "installActivate": "इंस्टॉल करें और सक्रिय करें"
   },
@@ -58,7 +58,7 @@
     "title": "एजेंट मॉनिटर",
     "emptyTitle": "निगरानी के लिए कोई एजेंट नहीं",
     "emptyDescription": "बाज़ार से एजेंटों को सक्रिय करें.",
-    "latestConfidence": "नवीनतम तर्क आत्मविश्वास: {आत्मविश्वास} — {कदम}"
+    "latestConfidence": "नवीनतम तर्क आत्मविश्वास: {confidence} — {steps}"
   },
   "history": {
     "title": "निष्पादन इतिहास",
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "{agentId} व्यावसायिक लक्ष्य निष्पादित करें",
     "planAndExecute": "कार्यक्षेत्र व्यवसाय लक्ष्य की योजना बनाएं और उसे क्रियान्वित करें"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "ग्राहक प्रभाव को प्राथमिकता दें",
+    "delegatedFollowUp": "प्रत्यायोजित फ़ॉलो-अप"
   }
 }

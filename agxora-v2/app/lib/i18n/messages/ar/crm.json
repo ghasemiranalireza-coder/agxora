@@ -98,12 +98,12 @@
       "previous": "سابق",
       "next": "التالي"
     },
-    "showing": "عرض {من}–{إلى} من {total}",
+    "showing": "عرض {from}–{to} من {total}",
     "aria": {
-      "openCustomer": "فتح العميل {شركة}"
+      "openCustomer": "فتح العميل {company}"
     },
-    "cardMeta": "المالك {owner} · تم الإنشاء في {تاريخ}",
-    "sortBy": "الترتيب حسب {عمود}"
+    "cardMeta": "المالك {owner} · تم الإنشاء في {date}",
+    "sortBy": "الترتيب حسب {column}"
   },
   "status": {
     "lead": "يقود",
@@ -473,7 +473,7 @@
       "label": "النتيجة الصحية لمنظمة العفو الدولية",
       "caption": "إشارة جودة العلاقة"
     },
-    "scoreOutOf": "{النتيجة} / {الحد الأقصى}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "يقود",

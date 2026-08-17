@@ -58,7 +58,7 @@
     "operations": "Operasyonlar",
     "riskPosture": "Risk duruşu",
     "growth": "Büyüme",
-    "observability": "Gözlemlenebilirlik: {metrics} metrik · {avgMs}ms avg · sistem sağlığı {sağlık}"
+    "observability": "Gözlemlenebilirlik: {metrics} metrik · {avgMs}ms avg · sistem sağlığı {health}"
   },
   "workspace": {
     "noSeries": "Seri yok"
@@ -79,14 +79,14 @@
   "insights": {
     "emptyTitle": "Henüz analiz yok",
     "emptyDescription": "Demo öngörüleri, çalışma alanı tohumlamalarından sonra görünür. Canlı yapay zeka içgörüsü oluşturma bağlantılı değil.",
-    "badge": "Demo · {tür} · {etki alanı} · conf {güven}"
+    "badge": "Demo · {kind} · {domain} · conf {confidence}"
   },
   "forecasts": {
     "emptyTitle": "Henüz tahmin yok",
     "emptyDescription": "Demo tahminleri tohumlamadan sonra görünür. Tahmine dayalı modeller bağlı değildir.",
-    "title": "{tür} tahmin",
-    "baseline": "Temel {temel} → öngörülen {öngörülen} ({günler}d)",
-    "confidence": "Demo · Güven {güven} — {not}"
+    "title": "{kind} tahmin",
+    "baseline": "Temel {baseline} → öngörülen {projected} ({days}d)",
+    "confidence": "Demo · Güven {confidence} — {note}"
   },
   "alerts": {
     "title": "Uyarı motoru",

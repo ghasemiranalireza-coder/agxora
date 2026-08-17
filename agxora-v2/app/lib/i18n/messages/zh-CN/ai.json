@@ -16,7 +16,7 @@
     "provider": "提供者",
     "model": "模型",
     "estimatedTokens": "预计。代币",
-    "tokensInOut": "（输入{输入}/输出{输出}）",
+    "tokensInOut": "（输入{in}/输出{out}）",
     "cost": "成本",
     "context": "语境",
     "contextNone": "无",
@@ -79,5 +79,90 @@
     "placeholder": "AI指挥……总结、建议、分析……",
     "noMatches": "没有匹配的命令",
     "footer": "通过 registerAiCommand 注册未来的命令 — UI 保持不变。"
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "项目",
+    "finance": "财务",
+    "marketing": "营销",
+    "documents": "文档",
+    "automation": "自动化",
+    "general": "通用"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "汇总客户",
+      "description": "客户关系的高管摘要"
+    },
+    "crm-follow-up-email": {
+      "title": "跟进邮件",
+      "description": "起草专业的 CRM 跟进"
+    },
+    "projects-analyze": {
+      "title": "分析项目",
+      "description": "项目健康检查"
+    },
+    "projects-task-list": {
+      "title": "创建任务列表",
+      "description": "将工作拆成可执行任务"
+    },
+    "finance-explain-invoice": {
+      "title": "解释发票",
+      "description": "通俗发票说明"
+    },
+    "finance-cashflow-brief": {
+      "title": "现金流简报",
+      "description": "简短现金流叙述"
+    },
+    "marketing-campaign-outline": {
+      "title": "活动大纲",
+      "description": "构建营销活动结构"
+    },
+    "marketing-proposal": {
+      "title": "生成提案",
+      "description": "面向客户的提案草稿"
+    },
+    "documents-summarize": {
+      "title": "汇总文档",
+      "description": "结构化文档摘要"
+    },
+    "automation-workflow": {
+      "title": "设计工作流",
+      "description": "自动化工作流草图"
+    },
+    "general-brainstorm": {
+      "title": "头脑风暴选项",
+      "description": "结构化构思"
+    },
+    "general-explain": {
+      "title": "简明解释",
+      "description": "面向利益相关方的清晰说明"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "汇总客户",
+      "description": "当前客户的高管摘要"
+    },
+    "cmd-generate-proposal": {
+      "label": "生成提案",
+      "description": "起草客户提案大纲"
+    },
+    "cmd-analyze-project": {
+      "label": "分析项目",
+      "description": "项目健康与风险分析"
+    },
+    "cmd-create-task-list": {
+      "label": "创建任务列表",
+      "description": "将工作拆成可执行任务"
+    },
+    "cmd-generate-email": {
+      "label": "生成邮件",
+      "description": "起草专业邮件"
+    },
+    "cmd-explain-invoice": {
+      "label": "解释发票",
+      "description": "通俗发票说明"
+    }
   }
 }

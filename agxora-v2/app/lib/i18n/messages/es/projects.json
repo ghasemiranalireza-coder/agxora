@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "Sistema operativo de gestión de proyectos",
     "title": "Proyectos",
-    "lead": "Planifique la entrega, realice un seguimiento del presupuesto y el estado, asigne equipos y administre tareas para {organización}. Los datos persisten localmente y están listos para la conectividad backend.",
+    "lead": "Planifique la entrega, realice un seguimiento del presupuesto y el estado, asigne equipos y administre tareas para {organization}. Los datos persisten localmente y están listos para la conectividad backend.",
     "yourOrganization": "tu organización"
   },
   "list": {
@@ -25,13 +25,13 @@
     "emptyTitle": "Aún no hay proyectos",
     "emptyDescription": "Cree un espacio de trabajo de entrega para realizar un seguimiento de los hitos, el presupuesto y la propiedad del equipo.",
     "createProject": "Crear proyecto",
-    "pagination": "Mostrando {desde}–{hasta} de {total}",
+    "pagination": "Mostrando {from}–{to} de {total}",
     "previous": "Anterior",
     "next": "Próximo",
     "noDescription": "Aún no hay descripción.",
-    "duePrefix": "Fecha de vencimiento}",
-    "openProject": "Abrir proyecto {nombre}",
-    "sortBy": "Ordenar por {columna}",
+    "duePrefix": "Due {date}",
+    "openProject": "Abrir proyecto {name}",
+    "sortBy": "Ordenar por {column}",
     "sort": {
       "name": "Nombre",
       "customer": "Cliente",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "Progreso",
-    "progressAria": "{etiqueta}: {valor}%"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "Planificación",
@@ -132,24 +132,24 @@
     "emptyDescription": "Agregue fechas de inicio/vencimiento y tareas para completar el cronograma.",
     "title": "Línea de tiempo",
     "subtitle": "Inicio, fin, duración, hitos. Las dependencias están reservadas para una versión futura.",
-    "dateRange": "{inicio} → {fin} · {días}d",
-    "itemAria": "{título} desde {inicio} hasta {fin}",
+    "dateRange": "{start} → {end} · {days}d",
+    "itemAria": "{title} desde {start} hasta {end}",
     "dependenciesNone": "Dependencias: ninguna"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "Proyectos Activos",
-      "activeHint": "{planificación} planificación",
+      "activeHint": "{planning} planificación",
       "completed": "Terminado",
       "completedHint": "{percent}% de la cartera",
       "onHold": "En espera",
-      "onHoldHint": "{archivado} archivado",
+      "onHoldHint": "{archived} archivado",
       "teamMembers": "Miembros del equipo",
       "teamHint": "En todos los proyectos",
       "budgetOverview": "Resumen del presupuesto",
-      "budgetHint": "{porcentaje}% usado · {gastado} gastado",
+      "budgetHint": "{percent}% usado · {spent} gastado",
       "openTasks": "Tareas abiertas",
-      "openTasksHint": "{atrasado} atrasado",
+      "openTasksHint": "{overdue} atrasado",
       "projectHealth": "Salud del proyecto",
       "healthHint": "Puntuación de entrega compuesta",
       "upcomingDeadlines": "Próximos plazos",
@@ -176,7 +176,7 @@
     "emptyTitle": "No hay tareas en el tablero.",
     "emptyDescription": "Cree tareas para organizar la entrega en Tareas pendientes, En curso, Revisar y Listo.",
     "addTask": "Agregar tarea",
-    "columnAria": "columna {estado}",
+    "columnAria": "columna {status}",
     "taskProgress": "Progreso de la tarea",
     "edit": "Editar",
     "complete": "Completo"
@@ -185,7 +185,7 @@
     "notFoundTitle": "Proyecto no encontrado",
     "notFoundDescription": "Es posible que este proyecto se haya eliminado o no esté disponible para la organización actual.",
     "backToProjects": "← Volver a proyectos",
-    "ownerMeta": "{cliente} · Propietario {propietario}",
+    "ownerMeta": "{customer} · Propietario {owner}",
     "edit": "Editar",
     "delete": "Borrar",
     "sectionsAria": "Secciones de detalle del proyecto",
@@ -294,5 +294,30 @@
     "memberAdded": "Miembro agregado",
     "settingsSaved": "Configuración guardada",
     "projectArchived": "Proyecto archivado"
+  },
+  "validation": {
+    "nameRequired": "El nombre del proyecto es obligatorio.",
+    "nameMin": "El nombre del proyecto debe tener al menos 2 caracteres.",
+    "customerRequired": "El cliente es obligatorio.",
+    "ownerRequired": "El propietario del proyecto es obligatorio.",
+    "priorityInvalid": "Seleccione una prioridad válida.",
+    "statusInvalid": "Seleccione un estado válido.",
+    "currencyInvalid": "Seleccione una moneda válida.",
+    "budgetInvalid": "El presupuesto debe ser un número no negativo.",
+    "startDateRequired": "La fecha de inicio es obligatoria.",
+    "startDateInvalid": "Introduzca una fecha de inicio válida.",
+    "dueDateInvalid": "Introduzca una fecha de vencimiento válida.",
+    "dueDateOrder": "La fecha de vencimiento debe ser el día de inicio o posterior.",
+    "colorInvalid": "Elija un color válido.",
+    "iconInvalid": "Elija un icono válido.",
+    "taskTitleRequired": "El título de la tarea es obligatorio.",
+    "progressRange": "El progreso debe estar entre 0 y 100.",
+    "memberNameRequired": "El nombre del miembro es obligatorio.",
+    "emailRequired": "El correo es obligatorio.",
+    "emailInvalid": "Introduzca una dirección de correo válida.",
+    "roleInvalid": "Seleccione un rol válido.",
+    "noteTitleRequired": "El título de la nota es obligatorio.",
+    "noteBodyRequired": "El cuerpo de la nota es obligatorio.",
+    "authorRequired": "El autor es obligatorio."
   }
 }

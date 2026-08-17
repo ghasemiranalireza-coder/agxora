@@ -55,7 +55,9 @@ export function CustomerFormDialog(): JSX.Element {
       if (nextErrors.length > 0) {
         toast.warning(
           t("customers.form.checkForm"),
-          nextErrors[0]?.message ?? t("customers.form.validationFailed"),
+          nextErrors[0]?.message
+            ? t(nextErrors[0].message)
+            : t("customers.form.validationFailed"),
         );
         window.requestAnimationFrame(() => {
           document

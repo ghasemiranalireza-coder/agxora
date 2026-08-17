@@ -6,6 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -58,6 +59,13 @@ function mergeWithFallback(localeTree, enTree) {
 }
 
 fs.mkdirSync(BUNDLES, { recursive: true });
+
+const validated = spawnSync(
+  process.execPath,
+  [path.join(__dirname, "validate-i18n.mjs")],
+  { stdio: "inherit" },
+);
+if (validated.status) process.exit(validated.status);
 
 const enBundle = {};
 for (const ns of NAMESPACES) {

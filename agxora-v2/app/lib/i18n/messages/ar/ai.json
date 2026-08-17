@@ -16,7 +16,7 @@
     "provider": "مزود",
     "model": "نموذج",
     "estimatedTokens": "EST. الرموز",
-    "tokensInOut": "(داخل {داخل} / خارج {خارج})",
+    "tokensInOut": "(داخل {in} / خارج {out})",
     "cost": "يكلف",
     "context": "سياق",
     "contextNone": "لا أحد",
@@ -79,5 +79,90 @@
     "placeholder": "أمر الذكاء الاصطناعي...تلخيص، اقتراح، تحليل...",
     "noMatches": "لا توجد أوامر مطابقة",
     "footer": "قم بتسجيل الأوامر المستقبلية عبر RegisterAiCommand - تظل واجهة المستخدم دون تغيير."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "المشاريع",
+    "finance": "المالية",
+    "marketing": "التسويق",
+    "documents": "المستندات",
+    "automation": "الأتمتة",
+    "general": "عام"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "تلخيص العميل",
+      "description": "ملخص تنفيذي لعلاقة العميل"
+    },
+    "crm-follow-up-email": {
+      "title": "بريد المتابعة",
+      "description": "صغ متابعة CRM احترافية"
+    },
+    "projects-analyze": {
+      "title": "تحليل المشروع",
+      "description": "فحص صحة المشروع"
+    },
+    "projects-task-list": {
+      "title": "إنشاء قائمة مهام",
+      "description": "قسّم العمل إلى مهام قابلة للتنفيذ"
+    },
+    "finance-explain-invoice": {
+      "title": "شرح الفاتورة",
+      "description": "شرح الفاتورة بلغة بسيطة"
+    },
+    "finance-cashflow-brief": {
+      "title": "موجز التدفق النقدي",
+      "description": "سرد قصير للتدفق النقدي"
+    },
+    "marketing-campaign-outline": {
+      "title": "مخطط الحملة",
+      "description": "هيكل حملة تسويقية"
+    },
+    "marketing-proposal": {
+      "title": "إنشاء عرض",
+      "description": "مسودة عرض موجّهة للعميل"
+    },
+    "documents-summarize": {
+      "title": "تلخيص المستند",
+      "description": "ملخص مستند منظم"
+    },
+    "automation-workflow": {
+      "title": "تصميم سير عمل",
+      "description": "مسودة سير عمل الأتمتة"
+    },
+    "general-brainstorm": {
+      "title": "عصف ذهني للخيارات",
+      "description": "توليد أفكار منظم"
+    },
+    "general-explain": {
+      "title": "اشرح ببساطة",
+      "description": "شرح واضح لأصحاب المصلحة"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "تلخيص العميل",
+      "description": "ملخص تنفيذي للعميل النشط"
+    },
+    "cmd-generate-proposal": {
+      "label": "إنشاء عرض",
+      "description": "صغ مخطط عرض للعميل"
+    },
+    "cmd-analyze-project": {
+      "label": "تحليل المشروع",
+      "description": "صحة المشروع وتحليل المخاطر"
+    },
+    "cmd-create-task-list": {
+      "label": "إنشاء قائمة مهام",
+      "description": "قسّم العمل إلى مهام قابلة للتنفيذ"
+    },
+    "cmd-generate-email": {
+      "label": "إنشاء بريد إلكتروني",
+      "description": "صغ بريدًا احترافيًا"
+    },
+    "cmd-explain-invoice": {
+      "label": "شرح الفاتورة",
+      "description": "شرح الفاتورة بلغة بسيطة"
+    }
   }
 }

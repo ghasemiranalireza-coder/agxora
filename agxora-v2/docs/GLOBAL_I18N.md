@@ -85,9 +85,16 @@ Missing keys never crash the UI.
 
 ## CJK support
 
-- Noto Sans SC and Noto Sans JP loaded in root layout
-- CJK font stacks in `globals.css` for `zh-CN`, `zh-TW`, `ja`
-- Buttons and nav use flexible/min-width patterns to avoid clipping
+`next/font` for Noto Sans SC/TC/JP/KR only exposes latin/cyrillic/vietnamese subsets, so CJK glyphs are loaded via Google Fonts CSS2 (`CjkFontLinks`) plus system fallbacks:
+
+- `zh-CN`: Noto Sans SC, PingFang SC, Microsoft YaHei
+- `zh-TW`: Noto Sans TC, PingFang TC, Microsoft JhengHei
+- `ja`: Noto Sans JP, Hiragino Sans, Yu Gothic
+- `ko`: Noto Sans KR, Apple SD Gothic Neo, Malgun Gothic
+
+## Belgian locales
+
+`nl-BE`, `fr-BE`, and `de-BE` remain in the selector. Regional wording may match the parent language; formatting still uses the regional BCP-47 tag (`nl-BE`, `fr-BE`, `de-BE`).
 
 ## Locale-aware formatting
 
@@ -111,9 +118,40 @@ Use `formatDate`, `formatCurrency`, `formatNumber`, `formatPercent` from `app/li
 
 ```bash
 npm test                    # includes app/lib/i18n/i18n.test.ts
-node scripts/i18n/check-hardcoded.mjs
+npm run i18n:validate       # key + placeholder parity across all 24 locales
+npm run i18n:check          # hardcoded user-facing English audit
+npm run i18n:bundles        # validate sources, then merge bundles
+npm run type-check
 npm run build
 ```
+
+### Placeholder rule (blocking)
+
+Translation variables must never be renamed. If English contains `{amount}` / `{percent}`, every locale must keep those exact names. `scripts/i18n/validate-i18n.mjs` fails CI when placeholder sets differ or keys are missing.
+
+Generation scripts (`translate-google.mjs`, `translate-parallel.mjs`) protect `{placeholders}` before calling the translation API, restore them after, then run validation.
+
+## RTL support
+
+- `fa` and `ar` set `dir="rtl"` on `<html>` via SSR cookie + `HtmlLangSync`
+- Skip-link, password toggle, tables, and mobile sidebar use logical CSS (`inset-inline-*`, `text-align: start`)
+- `globals.css` maps leftover physical Tailwind utilities under `html[dir="rtl"]`
+- Noto Sans Arabic is loaded with the `arabic` subset
+
+## CJK support
+
+`next/font` for Noto Sans SC/TC/JP/KR only exposes latin/cyrillic/vietnamese subsets, so CJK glyphs are loaded via Google Fonts CSS2 (`CjkFontLinks`) plus system fallbacks:
+
+- `zh-CN`: Noto Sans SC, PingFang SC, Microsoft YaHei
+- `zh-TW`: Noto Sans TC, PingFang TC, Microsoft JhengHei
+- `ja`: Noto Sans JP, Hiragino Sans, Yu Gothic
+- `ko`: Noto Sans KR, Apple SD Gothic Neo, Malgun Gothic
+
+## Belgian locales
+
+`nl-BE`, `fr-BE`, and `de-BE` remain in the selector. Regional wording may match the parent language; formatting still uses the regional BCP-47 tag (`nl-BE`, `fr-BE`, `de-BE`).
+
+## Fallback strategy
 
 ## Translation coverage
 
@@ -130,9 +168,10 @@ node scripts/i18n/build-bundles.mjs
 
 ## Known limitations
 
-- Next.js `metadata` exports in some pages remain English (SEO); UI is fully localized
-- Some data-driven labels (enum values from API, workflow names) remain untranslated by design
-- Translation API rate limits may require re-running `translate-parallel.mjs` for full coverage
+- Next.js `metadata` exports in some pages remain English (SEO); UI copy is localized
+- Root `global-error.tsx` cannot use LocaleProvider; it renders English from `DEFAULT_LOCALE`
+- Stored workflow node labels and seed/demo data stay in their original language
+- Belgian locales may share parent-language wording where regional variants are identical
 - Legal page body copy length varies by language; layout uses flexible containers
 
 ## Out of scope

@@ -50,42 +50,42 @@
     "documents": {
       "label": "文件",
       "caption": "範例·跨資料夾",
-      "delta": "+{計數}"
+      "delta": "+{count}"
     },
     "folders": {
       "label": "資料夾",
       "caption": "示例·包括智能集合",
-      "delta": "+{計數}"
+      "delta": "+{count}"
     },
     "storage": {
       "label": "已用儲存空間",
       "caption": "說明性計劃樣本·",
-      "delta": "+{尺寸}"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "共享文件",
       "caption": "示例·組織+部門+用戶",
-      "delta": "+{計數}"
+      "delta": "+{count}"
     },
     "activity": {
       "label": "近期动态",
       "caption": "樣本·最近 24 小時",
-      "delta": "+{計數}"
+      "delta": "+{count}"
     },
     "indexed": {
       "label": "人工智慧索引",
       "caption": "範例·AI搜尋未連接",
-      "delta": "{百分比}"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "待核準",
       "caption": "範例·自動化未連接",
-      "delta": "{數數}"
+      "delta": "{count}"
     },
     "score": {
       "label": "知識分數",
       "caption": "範例·覆蓋圖",
-      "delta": "+{計數}"
+      "delta": "+{count}"
     }
   },
   "library": {
@@ -130,7 +130,7 @@
     "favoritesOnly": "僅限收藏夾",
     "emptyTitle": "沒有可顯示的文件",
     "emptyDescription": "調整過濾器、清除搜尋或添加知識資產以擴大圖書館。",
-    "selectAria": "選擇{名稱}",
+    "selectAria": "選擇{name}",
     "versionHistoryTitle": "版本歷史",
     "close": "關閉",
     "context": {
@@ -184,7 +184,7 @@
     "compareTitle": "比較需要儲存 API",
     "noticeDefault": "恢復和比較需要儲存 API。",
     "restoreUnavailable": "{id} 無法復原 — 儲存 API 未連線。",
-    "compareUnavailable": "比較不可用 ({select} ↔ {current}) — 儲存 API 未連線。"
+    "compareUnavailable": "比較不可用 ({selected} ↔ {current}) — 儲存 API 未連線。"
   },
   "approvals": {
     "title": "審批流程",
@@ -380,9 +380,9 @@
     "planned": "計劃"
   },
   "bytes": {
-    "b": "{值} B",
-    "kb": "{值} KB",
-    "mb": "{值} MB",
-    "gb": "{值} GB"
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
   }
 }

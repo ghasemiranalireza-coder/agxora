@@ -330,7 +330,7 @@
     "title": "设置",
     "lead": "每个 AGXORA 模块的企业配置 — 配置文件、组织、AI、外观、安全、计费和开发人员控制都集中在一个地方。",
     "loading": "正在加载设置...",
-    "breadcrumb": "{标签} · {描述}"
+    "breadcrumb": "{label} · {description}"
   },
   "saveChanges": "保存更改",
   "sessionNotice": "此会话已更新 — {area} 未连接。",
@@ -368,7 +368,7 @@
     "owner": "所有者",
     "counts": "成员·工作区",
     "orgUpdated": "组织已更新。",
-    "countsValue": "{成员} · {工作空间}",
+    "countsValue": "{members} · {workspaces}",
     "joined": "已加入",
     "workspaceName": "工作区名称",
     "switchWorkspace": "只显示使用中的工作区里的应用",
@@ -422,7 +422,7 @@
     "transferHonesty": "配置交付后，将发送一封确认电子邮件。否则直接与收件人共享确认链接。",
     "transferLink": "确认链接",
     "transferPendingTitle": "待定所有权转让",
-    "transferPendingBody": "等待{name} ({email}) 确认。过期{过期}。在此之前您仍然是所有者。",
+    "transferPendingBody": "等待{name} ({email}) 确认。过期{expires}。在此之前您仍然是所有者。",
     "transferPendingNote": "在转移等待期间，成员角色不会改变。",
     "cancelTransfer": "取消转账",
     "transferCancelled": "所有权转让已取消。",

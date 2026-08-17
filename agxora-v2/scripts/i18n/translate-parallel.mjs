@@ -7,6 +7,13 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
+import {
+  protectPlaceholders,
+  unprotectPlaceholders,
+  restorePlaceholders,
+  samePlaceholders,
+} from "./placeholders.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -105,11 +112,15 @@ async function translateOne(text, apiLang) {
   if (!text?.trim()) return text;
   if (/^[\d\s.,:;+\-–—/\\|()[\]{}#@$%^&*<>~`'"!?]+$/.test(text)) return text;
 
-  const key = cacheKey(text, apiLang);
+  const protectedText = protectPlaceholders(text);
+  const key = cacheKey(protectedText, apiLang);
   const cached = readCache(key);
-  if (cached) return cached;
+  if (cached) {
+    const restored = unprotectPlaceholders(cached);
+    return samePlaceholders(text, restored) ? restored : restorePlaceholders(text, restored);
+  }
 
-  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text.slice(0, 500))}&langpair=en|${apiLang}`;
+  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(protectedText.slice(0, 500))}&langpair=en|${apiLang}`;
   for (let i = 0; i < 4; i++) {
     try {
       const res = await fetch(url);
@@ -118,9 +129,11 @@ async function translateOne(text, apiLang) {
         await sleep(4000);
         continue;
       }
-      const out = data.responseData?.translatedText ?? text;
-      writeCache(key, out);
-      return out;
+      const raw = data.responseData?.translatedText ?? protectedText;
+      const out = unprotectPlaceholders(raw);
+      const final = samePlaceholders(text, out) ? out : restorePlaceholders(text, out);
+      writeCache(key, protectPlaceholders(final));
+      return final;
     } catch {
       await sleep(1500);
     }
@@ -186,7 +199,12 @@ async function main() {
     console.log(`\n=== ${code} ===`);
     await translateLocale(code, api);
   }
-  console.log("\nDone. Run: node scripts/i18n/build-bundles.mjs");
+  console.log("\nDone. Validating…");
+  const result = spawnSync(process.execPath, [path.join(__dirname, "validate-i18n.mjs")], {
+    stdio: "inherit",
+  });
+  if (result.status) process.exit(result.status);
+  console.log("Run: node scripts/i18n/build-bundles.mjs");
 }
 
 main().catch((e) => {

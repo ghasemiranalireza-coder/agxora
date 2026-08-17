@@ -18,8 +18,8 @@
     "edit": "編輯",
     "delete": "刪除",
     "viewAria": "查看{company}",
-    "editAria": "編輯{公司}",
-    "deleteAria": "刪除{公司}",
+    "editAria": "編輯{company}",
+    "deleteAria": "刪除{company}",
     "loading": "正在加載客戶...",
     "errorLoad": "無法載入顧客",
     "errorGeneric": "出了點問題",
@@ -96,5 +96,17 @@
     "updated": "已更新",
     "notes": "筆記",
     "noNotes": "還沒有筆記。"
+  },
+  "validation": {
+    "companyRequired": "公司名稱為必填。",
+    "contactRequired": "聯絡人為必填。",
+    "emailRequired": "電子郵件為必填。",
+    "emailInvalid": "請輸入有效的電子郵件地址。",
+    "phoneRequired": "電話為必填。",
+    "phoneInvalid": "請輸入有效的電話號碼。",
+    "mobileInvalid": "請輸入有效的手機號碼。",
+    "statusInvalid": "請選擇有效狀態。",
+    "emailDuplicate": "已存在使用此電子郵件的客戶。",
+    "companyDuplicate": "已存在使用此公司名稱的客戶。"
   }
 }

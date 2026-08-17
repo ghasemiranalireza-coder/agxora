@@ -58,7 +58,7 @@
       "vat-due": {
         "label": "VAT の支払い義務がある",
         "caption": "サンプル・Q2ウィンドウ",
-        "delta": "{日}日以内に期限が切れる"
+        "delta": "{days}日以内に期限が切れる"
       },
       "open-invoices": {
         "label": "オープン請求書",
@@ -67,7 +67,7 @@
       "paid-invoices": {
         "label": "支払い済みの請求書",
         "caption": "サンプル・今四半期",
-        "delta": "+{カウント}"
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "キャッシュフロー",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "AI財務スコア",
         "caption": "サンプルスコア – ライブリスクスコアではありません",
-        "delta": "+{カウント}"
+        "delta": "+{count}"
       }
     },
-    "scoreOutOf": "{スコア} / {最大}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "請求書はありません",
@@ -183,7 +183,7 @@
     "intro": "以下のエクスポート履歴のサンプルは一例です。このビルドでは、資格情報とファイル生成は関連付けられていません。",
     "noticeDefault": "エクスポート アダプターが接続されていないため、ファイルは生成されません。",
     "exportUnavailable": "{title} を利用できません — DATEV / ファイルのエクスポートが接続されていません。",
-    "exportUnavailableAria": "{タイトル} — 利用できません",
+    "exportUnavailableAria": "{title} — 利用できません",
     "historyTitle": "エクスポート履歴（サンプル）",
     "refresh": "リフレッシュ",
     "refreshUnavailable": "更新は利用できません — エクスポート履歴は静的なサンプル データです。",

@@ -95,7 +95,7 @@
     "title": "分析",
     "topPosts": "熱門貼文",
     "engagement": "ENG {value}",
-    "reach": "達到{值}",
+    "reach": "達到{value}",
     "recommendations": "人工智慧建議"
   },
   "integrations": {
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "AI 功能圖 — 想法、標題、主題標籤、日曆、活動、受眾、日程、品牌一致性、重寫、翻譯、多語言。"
+  },
+  "formats": {
+    "instagram_caption": "Instagram 說明",
+    "tiktok_script": "TikTok 腳本",
+    "linkedin_post": "LinkedIn 貼文",
+    "facebook_post": "Facebook 貼文",
+    "x_post": "X 貼文",
+    "blog_article": "部落格文章",
+    "newsletter": "電子報",
+    "email_campaign": "電子郵件活動",
+    "product_description": "產品說明",
+    "ad_copy": "廣告文案",
+    "seo_article": "SEO 文章",
+    "landing_page_copy": "登陸頁文案"
+  },
+  "publishStatus": {
+    "draft": "草稿",
+    "review": "審核",
+    "approved": "已核准",
+    "scheduled": "已排程",
+    "published": "已發佈",
+    "archive": "封存"
+  },
+  "mediaKind": {
+    "image": "圖片",
+    "video": "影片",
+    "document": "文件",
+    "logo": "品牌標誌",
+    "template": "範本"
+  },
+  "voice": {
+    "professional": "專業",
+    "friendly": "友善",
+    "luxury": "奢華",
+    "casual": "隨興"
+  },
+  "integrationStatus": {
+    "planned": "已規劃",
+    "ready": "就緒",
+    "connected": "已連線",
+    "disabled": "已停用"
   }
 }

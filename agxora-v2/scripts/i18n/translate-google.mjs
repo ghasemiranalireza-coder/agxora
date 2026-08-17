@@ -7,6 +7,13 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
+import {
+  protectPlaceholders,
+  unprotectPlaceholders,
+  restorePlaceholders,
+  samePlaceholders,
+} from "./placeholders.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "../..");
@@ -63,20 +70,26 @@ async function translateGoogle(text, tl) {
   if (!text?.trim()) return text;
   if (/^[\d\s.,:;+\-–—/\\|()[\]{}#@$%^&*<>~`'"!?]+$/.test(text)) return text;
 
-  const key = cacheKey(text, tl);
+  const protectedText = protectPlaceholders(text);
+  const key = cacheKey(protectedText, tl);
   const cached = readCache(key);
-  if (cached) return cached;
+  if (cached) {
+    const restored = unprotectPlaceholders(cached);
+    return samePlaceholders(text, restored) ? restored : restorePlaceholders(text, restored);
+  }
 
-  const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${encodeURIComponent(tl)}&dt=t&q=${encodeURIComponent(text.slice(0, 4500))}`;
+  const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${encodeURIComponent(tl)}&dt=t&q=${encodeURIComponent(protectedText.slice(0, 4500))}`;
 
   for (let i = 0; i < 4; i++) {
     try {
       const res = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0" } });
       const data = await res.json();
-      const out = data?.[0]?.map((seg) => seg[0]).join("") ?? text;
-      writeCache(key, out);
+      const raw = data?.[0]?.map((seg) => seg[0]).join("") ?? protectedText;
+      const out = unprotectPlaceholders(raw);
+      const final = samePlaceholders(text, out) ? out : restorePlaceholders(text, out);
+      writeCache(key, protectPlaceholders(final));
       await sleep(150);
-      return out;
+      return final;
     } catch {
       await sleep(1000);
     }
@@ -154,7 +167,12 @@ async function main() {
     console.log(`\n=== ${code} ===`);
     await translateLocale(code, tl);
   }
-  console.log("\nDone. Run: node scripts/i18n/build-bundles.mjs");
+  console.log("\nDone. Validating…");
+  const result = spawnSync(process.execPath, [path.join(__dirname, "validate-i18n.mjs")], {
+    stdio: "inherit",
+  });
+  if (result.status) process.exit(result.status);
+  console.log("Run: node scripts/i18n/build-bundles.mjs");
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

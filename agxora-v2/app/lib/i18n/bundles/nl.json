@@ -1,21 +1,21 @@
 {
   "common": {
-    "save": "Redden",
+    "save": "Opslaan",
     "saveChanges": "Wijzigingen opslaan",
     "cancel": "Annuleren",
-    "close": "Dichtbij",
+    "close": "Sluiten",
     "delete": "Verwijderen",
-    "edit": "Bewerking",
-    "search": "Zoekopdracht",
-    "loading": "Laden...",
+    "edit": "Bewerken",
+    "search": "Zoeken",
+    "loading": "Laden…",
     "retry": "Opnieuw proberen",
     "language": "Taal",
-    "signIn": "Log in",
-    "signOut": "Meld u af",
+    "signIn": "Inloggen",
+    "signOut": "Uitloggen",
     "contact": "Contact",
     "privacy": "Privacy",
     "terms": "Voorwaarden",
-    "cookies": "Koekjes",
+    "cookies": "Cookies",
     "imprint": "Afdruk",
     "organization": "Organisatie",
     "user": "Gebruiker",
@@ -33,8 +33,15 @@
     "showPassword": "Wachtwoord tonen",
     "hidePassword": "Wachtwoord verbergen",
     "continue": "Doorgaan",
-    "back": "Rug",
-    "home": "Thuis"
+    "back": "Terug",
+    "home": "Start",
+    "loadingShort": "Laden",
+    "create": "Aanmaken",
+    "next": "Volgende",
+    "previous": "Vorige",
+    "settings": "Instellingen",
+    "profile": "Profiel",
+    "dashboard": "Dashboard"
   },
   "navigation": {
     "dashboard": "Gösterge Paneli",
@@ -82,7 +89,7 @@
     "contactSales": "Neem contact op met Verkoop",
     "perMonth": "/mnd",
     "perMonthYearly": "/maand, jaarlijks gefactureerd",
-    "yearlyHint": "{bedrag}/jaar · bespaar {procent}%",
+    "yearlyHint": "{amount}/jaar · bespaar {percent}%",
     "commercialActions": "Commerciële acties",
     "legal": "Legaal",
     "planAria": "{name} abonnement — {cta}",
@@ -156,7 +163,7 @@
       "currentPlan": "Huidig ​​abonnement",
       "recommended": "Aanbevolen",
       "contactSales": "Neem contact op met de verkoop",
-      "pricePerMonth": "€{prijs}/maand",
+      "pricePerMonth": "€{price}/maand",
       "users": "{count} gebruikers",
       "aiRequests": "{count} AI-vereiste/maand",
       "storage": "{count} MB opslagruimte",
@@ -279,7 +286,7 @@
       "avatarUnavailable": "Avatar-upload is nog niet beschikbaar.",
       "appearanceNote": "Uiterlijkconfiguratie blijft onder Uiterlijk. Header biedt alleen een snelle themawisseling.",
       "prefsHint": "Gebruikt door AI-assistenten in verschillende modules.",
-      "themeResolved": "{mode} (opgelost {uiterlijk})",
+      "themeResolved": "{mode} (opgelost {appearance})",
       "regions": {
         "EU": "Europese Unie",
         "US": "Verenigde Staten",
@@ -586,7 +593,7 @@
       "title": "Instellingen",
       "lead": "Bedrijfsconfiguratie voor elke AGXORA-module: profiel, organisatie, AI, uiterlijk, beveiliging, facturering en ontwikkelaarscontroles op één plek.",
       "loading": "Instellingen laden…",
-      "breadcrumb": "{label} · {beschrijving}"
+      "breadcrumb": "{label} · {description}"
     },
     "saveChanges": "Wijzigingen opslaan",
     "sessionNotice": "Bijgewerkt voor deze sessie — {area} niet verbonden.",
@@ -624,7 +631,7 @@
       "owner": "Eigenaar",
       "counts": "Leden · werkruimten",
       "orgUpdated": "Organisatie bijgewerkt.",
-      "countsValue": "{leden} · {werkruimten}",
+      "countsValue": "{members} · {workspaces}",
       "joined": "Aangesloten",
       "workspaceName": "Naam van de werkruimte",
       "switchWorkspace": "Actieve werkruimte",
@@ -660,7 +667,7 @@
       "inviteLink": "Uitnodigingslink",
       "inviteInvalid": "Deze uitnodiging is niet geldig.",
       "accept": "Accepteer de uitnodiging",
-      "invitedAs": "{email} is uitgenodigd als {rol}.",
+      "invitedAs": "{email} is uitgenodigd als {role}.",
       "inviteStatus": {
         "pending": "In behandeling",
         "expired": "Deze uitnodiging is verlopen.",
@@ -672,13 +679,13 @@
       "transferWarning": "Dit is een gevaarlijke actie. U blijft EIGENAAR totdat de ontvanger bevestigt. Na bevestiging wordt u BEHEERDER en zij EIGENAAR.",
       "transferTarget": "Nieuwe eigenaar",
       "transferSelectMember": "Selecteer een bestaand lid…",
-      "transferTypeName": "Typ “{naam}” om te bevestigen",
+      "transferTypeName": "Typ “{name}” om te bevestigen",
       "transferConfirmMismatch": "De getypte naam komt niet overeen met het geselecteerde lid.",
       "transferInitiate": "Overdracht initiëren",
       "transferHonesty": "Er wordt een bevestigingsmail verzonden wanneer de bezorging is geconfigureerd. Deel anders de bevestigingslink rechtstreeks met de ontvanger.",
       "transferLink": "Bevestigingslink",
       "transferPendingTitle": "In afwachting van eigendomsoverdracht",
-      "transferPendingBody": "Wachten op bevestiging door {naam} ({email}). Verloopt {verloopt}. Tot die tijd blijft u EIGENAAR.",
+      "transferPendingBody": "Wachten op bevestiging door {name} ({email}). Verloopt {expires}. Tot die tijd blijft u EIGENAAR.",
       "transferPendingNote": "De lidmaatschapsrollen veranderen niet terwijl de overdracht in behandeling is.",
       "cancelTransfer": "Overdracht annuleren",
       "transferCancelled": "Eigendomsoverdracht geannuleerd.",
@@ -705,7 +712,30 @@
     "acceptTerms": "Accepteer de voorwaarden om door te gaan.",
     "generic": "Er is iets misgegaan.",
     "tryAgain": "Probeer het opnieuw.",
-    "saved": "Succesvol opgeslagen."
+    "saved": "Succesvol opgeslagen.",
+    "invalidCredentials": "Ongeldig e-mailadres of wachtwoord.",
+    "signInRequired": "Inloggen vereist.",
+    "insufficientPermissions": "Onvoldoende machtigingen.",
+    "noRouteAccess": "U hebt geen toegang tot deze route.",
+    "accountLocked": "Dit account is vergrendeld. Neem contact op met een beheerder.",
+    "sessionExpired": "Uw sessie is verlopen. Log opnieuw in.",
+    "missingPermission": "Ontbrekende toestemming: {permission}",
+    "roleCannotAccess": "Uw rol heeft geen toegang tot deze resource.",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "Ongeldig e-mailadres of wachtwoord.",
+      "AUTH_SESSION_EXPIRED": "Uw sessie is verlopen. Log opnieuw in.",
+      "AUTH_ACCOUNT_LOCKED": "Dit account is vergrendeld. Neem contact op met een beheerder.",
+      "AUTH_SIGN_IN_REQUIRED": "Log in om verder te gaan.",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "Onvoldoende machtigingen.",
+      "AUTH_NO_ROUTE_ACCESS": "U hebt geen toegang tot deze route.",
+      "COMMON_SOMETHING_WENT_WRONG": "Er is iets misgegaan.",
+      "COMMON_PAGE_NOT_FOUND": "Pagina niet gevonden.",
+      "COMMON_OFFLINE": "U bent offline.",
+      "COMMON_TIMEOUT": "Het verzoek is verlopen.",
+      "COMMON_VALIDATION": "Controleer uw invoer en probeer het opnieuw.",
+      "COMMON_UNKNOWN": "Er is een onbekende fout opgetreden.",
+      "COMMON_INTERNAL": "Er is een onverwachte fout opgetreden. Probeer het opnieuw."
+    }
   },
   "dashboard": {
     "skipToContent": "Ga naar de dashboardinhoud",
@@ -784,7 +814,7 @@
       "ariaLabel": "Zakelijk overzicht",
       "online": "Online",
       "emDash": "—",
-      "capacitySignal": "{procent}% capaciteitssignaal",
+      "capacitySignal": "{percent}% capaciteitssignaal",
       "activeClients": {
         "title": "Actieve klanten",
         "captionEmpty": "Nog geen actieve klanten",
@@ -1093,7 +1123,7 @@
         }
       }
     },
-    "summary": "{name}: {klanten} klanten · {projecten} projecten · {updates} updates vandaag."
+    "summary": "{name}: {customers} klanten · {projects} projecten · {updates} updates vandaag."
   },
   "auth": {
     "login": {
@@ -1190,20 +1220,20 @@
       "viewPricing": "Bekijk Tarieven",
       "bookDemo": "Boekdemo",
       "failed": "Kan onderzoek niet indienen",
-      "country": "Country",
-      "savedFor": "Saved for {company}. Sales delivery is not connected in this build.",
-      "preferWalkthrough": "Prefer a product walkthrough next?",
-      "preferSelfServe": "Prefer self-serve?"
+      "country": "Land",
+      "savedFor": "Opgeslagen voor {company}. Verkooplevering is in deze build niet verbonden.",
+      "preferWalkthrough": "Liever eerst een productrondleiding?",
+      "preferSelfServe": "Liever self-service?"
     },
     "welcome": {
       "title": "Welkom bij AGXORA",
       "subtitle": "Je werkruimte is klaar. Ga verder naar het dashboard.",
       "continue": "Ga naar dashboard",
-      "checklistProfile": "Confirm your organization profile",
-      "checklistModules": "Choose modules that match how you work",
-      "checklistDashboard": "Enter the dashboard with a clear starting point",
-      "exploreFirst": "Prefer to explore first?",
-      "skipToDashboard": "Skip to dashboard"
+      "checklistProfile": "Bevestig het profiel van uw organisatie",
+      "checklistModules": "Kies modules die passen bij hoe u werkt",
+      "checklistDashboard": "Ga naar het dashboard met een duidelijk startpunt",
+      "exploreFirst": "Liever eerst verkennen?",
+      "skipToDashboard": "Doorgaan naar dashboard"
     },
     "locked": {
       "title": "Account vergrendeld",
@@ -1216,7 +1246,17 @@
       "subtitle": "Meld u opnieuw aan om door te gaan.",
       "signIn": "Log in"
     },
-    "brand": "AGXORA"
+    "brand": "AGXORA",
+    "validation": {
+      "emailRequired": "E-mail is verplicht.",
+      "emailInvalid": "Voer een geldig e-mailadres in.",
+      "passwordRequired": "Wachtwoord is verplicht.",
+      "passwordMin": "Wachtwoord moet minstens 8 tekens bevatten.",
+      "nameRequired": "Naam is verplicht.",
+      "nameMin": "Naam moet minstens 2 tekens bevatten.",
+      "passwordMismatch": "Wachtwoorden komen niet overeen.",
+      "slugFormat": "Gebruik alleen kleine letters, cijfers en koppeltekens."
+    }
   },
   "crm": {
     "page": {
@@ -1318,12 +1358,12 @@
         "previous": "Vorig",
         "next": "Volgende"
       },
-      "showing": "Toont {van}–{tot} van {totaal}",
+      "showing": "Toont {from}–{to} van {total}",
       "aria": {
-        "openCustomer": "Open klant {bedrijf}"
+        "openCustomer": "Open klant {company}"
       },
-      "cardMeta": "Eigenaar {eigenaar} · Aangemaakt op {datum}",
-      "sortBy": "Sorteer op {kolom}"
+      "cardMeta": "Eigenaar {owner} · Aangemaakt op {date}",
+      "sortBy": "Sorteer op {column}"
     },
     "status": {
       "lead": "Leiding",
@@ -1801,16 +1841,16 @@
         "vat-due": {
           "label": "BTW verschuldigd",
           "caption": "Voorbeeld · Q2-venster",
-          "delta": "Verschijnt over {dagen}d"
+          "delta": "Verschijnt over {days}d"
         },
         "open-invoices": {
           "label": "Facturen openen",
-          "caption": "Voorbeeld · {geld} uitstaand"
+          "caption": "Voorbeeld · {money} uitstaand"
         },
         "paid-invoices": {
           "label": "Betaalde facturen",
           "caption": "Voorbeeld · dit kwartaal",
-          "delta": "+{tel}"
+          "delta": "+{count}"
         },
         "cashflow": {
           "label": "Cashflow",
@@ -1820,7 +1860,7 @@
         "ai-score": {
           "label": "AI financiële score",
           "caption": "Voorbeeldscore · geen live risicoscore",
-          "delta": "+{tel}"
+          "delta": "+{count}"
         }
       },
       "scoreOutOf": "{score} / {max}"
@@ -2090,42 +2130,42 @@
       "documents": {
         "label": "Documenten",
         "caption": "Voorbeeld · in verschillende mappen",
-        "delta": "+{tel}"
+        "delta": "+{count}"
       },
       "folders": {
         "label": "Mappen",
         "caption": "Voorbeeld · inclusief slimme collecties",
-        "delta": "+{tel}"
+        "delta": "+{count}"
       },
       "storage": {
         "label": "Opslag gebruikt",
         "caption": "Voorbeeld · van een illustratief plan",
-        "delta": "+{maat}"
+        "delta": "+{size}"
       },
       "shared": {
         "label": "Gedeelde documenten",
         "caption": "Voorbeeld · organisatie + afdeling + gebruikers",
-        "delta": "+{tel}"
+        "delta": "+{count}"
       },
       "activity": {
         "label": "Recente activiteit",
         "caption": "Monster · laatste 24 uur",
-        "delta": "+{tel}"
+        "delta": "+{count}"
       },
       "indexed": {
         "label": "AI geïndexeerd",
         "caption": "Voorbeeld · AI-zoekopdracht niet verbonden",
-        "delta": "{procent}"
+        "delta": "{percent}"
       },
       "approvals": {
         "label": "In afwachting van goedkeuringen",
         "caption": "Voorbeeld · automatisering niet aangesloten",
-        "delta": "{graaf}"
+        "delta": "{count}"
       },
       "score": {
         "label": "Kennisscore",
         "caption": "Voorbeeld · dekkingsillustratie",
-        "delta": "+{tel}"
+        "delta": "+{count}"
       }
     },
     "library": {
@@ -2154,7 +2194,7 @@
       "title": "Documentbibliotheek",
       "results": "{count} resultaten",
       "resultOne": "{count} resultaat",
-      "selected": "· {aantal} geselecteerd",
+      "selected": "· {count} geselecteerd",
       "bulkAction": "Bulkactie",
       "bulkUnavailable": "Bulkactie niet beschikbaar voor {count} item(s) - opslagmutaties zijn niet gekoppeld.",
       "searchLabel": "Globaal zoeken",
@@ -2170,7 +2210,7 @@
       "favoritesOnly": "Alleen favorieten",
       "emptyTitle": "Er zijn geen documenten om te tonen",
       "emptyDescription": "Pas filters aan, wis zoekopdrachten of voeg kennismiddelen toe om de bibliotheek te laten groeien.",
-      "selectAria": "Selecteer {naam}",
+      "selectAria": "Selecteer {name}",
       "versionHistoryTitle": "Versiegeschiedenis",
       "close": "Dichtbij",
       "context": {
@@ -2191,7 +2231,7 @@
       "zoomIn": "Zoom+",
       "prev": "Vorige",
       "next": "Volgende",
-      "page": "Pagina {pagina} / {totaal}",
+      "page": "Pagina {page} / {total}",
       "searchInside": "Zoek binnen",
       "findPlaceholder": "Vind in voorbeeld…",
       "noMatches": "Geen overeenkomsten in voorbeeldtekst.",
@@ -2217,7 +2257,7 @@
       "title": "Versiegeschiedenis",
       "emptyTitle": "Geen document geselecteerd",
       "emptyDescription": "Open een document om versies, notities te bekijken, te herstellen en te vergelijken.",
-      "current": "{naam} · huidige {versie}",
+      "current": "{name} · huidige {version}",
       "restore": "Versie herstellen",
       "compare": "Vergelijk versies",
       "restoreTitle": "Voor herstel is de opslag-API vereist",
@@ -2420,10 +2460,10 @@
       "planned": "Gepland"
     },
     "bytes": {
-      "b": "{waarde} B",
-      "kb": "{waarde} KB",
-      "mb": "{waarde} MB",
-      "gb": "{waarde} GB"
+      "b": "{value} B",
+      "kb": "{value} KB",
+      "mb": "{value} MB",
+      "gb": "{value} GB"
     }
   },
   "landing": {
@@ -2535,8 +2575,9 @@
       "terms": "Voorwaarden",
       "cookies": "Koekjes",
       "imprint": "Afdruk",
-      "copyright": "© {jaar} {bedrijf}"
-    }
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — 3D-globe"
   },
   "ui": {
     "table": {
@@ -2544,7 +2585,7 @@
       "noResultsDescription": "Niets komt overeen met de huidige filters.",
       "previous": "Vorig",
       "next": "Volgende",
-      "paginationRange": "{begin}–{eind} van {totaal}",
+      "paginationRange": "{start}–{end} van {total}",
       "sortAscending": "Sorteer oplopend",
       "sortDescending": "Sorteer aflopend"
     },
@@ -2589,7 +2630,7 @@
     "page": {
       "eyebrow": "Projectmanagement besturingssysteem",
       "title": "Projecten",
-      "lead": "Plan de levering, houd het budget en de status bij, wijs teams toe en beheer taken voor {organisatie}. Gegevens blijven lokaal bewaard en zijn klaar voor backend-connectiviteit.",
+      "lead": "Plan de levering, houd het budget en de status bij, wijs teams toe en beheer taken voor {organization}. Gegevens blijven lokaal bewaard en zijn klaar voor backend-connectiviteit.",
       "yourOrganization": "uw organisatie"
     },
     "list": {
@@ -2612,13 +2653,13 @@
       "emptyTitle": "Nog geen projecten",
       "emptyDescription": "Creëer een leveringswerkruimte om mijlpalen, budget en teameigendom bij te houden.",
       "createProject": "Project aanmaken",
-      "pagination": "Toont {van}–{tot} van {totaal}",
+      "pagination": "Toont {from}–{to} van {total}",
       "previous": "Vorig",
       "next": "Volgende",
       "noDescription": "Nog geen beschrijving.",
-      "duePrefix": "Deadline}",
-      "openProject": "Open project {naam}",
-      "sortBy": "Sorteer op {kolom}",
+      "duePrefix": "Due {date}",
+      "openProject": "Open project {name}",
+      "sortBy": "Sorteer op {column}",
       "sort": {
         "name": "Naam",
         "customer": "Klant",
@@ -2652,7 +2693,7 @@
       "tagsPlaceholder": "onderneming, uitrol",
       "budgetPlaceholder": "0",
       "description": "Beschrijving",
-      "selectColor": "Selecteer kleur {kleur}"
+      "selectColor": "Selecteer kleur {color}"
     },
     "taskForm": {
       "createTitle": "Taak maken",
@@ -2719,7 +2760,7 @@
       "emptyDescription": "Voeg start-/einddatums en taken toe om de planning te vullen.",
       "title": "Tijdlijn",
       "subtitle": "Begin, einde, duur, mijlpalen. Afhankelijkheden zijn gereserveerd voor een toekomstige release.",
-      "dateRange": "{begin} → {eind} · {dagen}d",
+      "dateRange": "{start} → {end} · {days}d",
       "itemAria": "{title} van {start} tot {end}",
       "dependenciesNone": "Afhankelijkheden: geen"
     },
@@ -2728,15 +2769,15 @@
         "activeProjects": "Actieve projecten",
         "activeHint": "{planning} planning",
         "completed": "Voltooid",
-        "completedHint": "{procent}% van portefeuille",
+        "completedHint": "{percent}% van portefeuille",
         "onHold": "In de wacht",
-        "onHoldHint": "{gearchiveerd} gearchiveerd",
+        "onHoldHint": "{archived} gearchiveerd",
         "teamMembers": "Teamleden",
         "teamHint": "Over alle projecten heen",
         "budgetOverview": "Budgetoverzicht",
-        "budgetHint": "{procent}% gebruikt · {uitgegeven} uitgegeven",
+        "budgetHint": "{percent}% gebruikt · {spent} uitgegeven",
         "openTasks": "Taken openen",
-        "openTasksHint": "{achterstallig} te laat",
+        "openTasksHint": "{overdue} te laat",
         "projectHealth": "Project Gezondheid",
         "healthHint": "Samengestelde bezorgscore",
         "upcomingDeadlines": "Aankomende deadlines",
@@ -2772,7 +2813,7 @@
       "notFoundTitle": "Project niet gevonden",
       "notFoundDescription": "Dit project is mogelijk verwijderd of is niet beschikbaar voor de huidige organisatie.",
       "backToProjects": "← Terug naar projecten",
-      "ownerMeta": "{klant} · Eigenaar {eigenaar}",
+      "ownerMeta": "{customer} · Eigenaar {owner}",
       "edit": "Bewerking",
       "delete": "Verwijderen",
       "sectionsAria": "Projectdetailsecties",
@@ -2881,6 +2922,31 @@
       "memberAdded": "Lid toegevoegd",
       "settingsSaved": "Instellingen opgeslagen",
       "projectArchived": "Project gearchiveerd"
+    },
+    "validation": {
+      "nameRequired": "Projectnaam is verplicht.",
+      "nameMin": "Projectnaam moet minstens 2 tekens bevatten.",
+      "customerRequired": "Klant is verplicht.",
+      "ownerRequired": "Projecteigenaar is verplicht.",
+      "priorityInvalid": "Selecteer een geldige prioriteit.",
+      "statusInvalid": "Selecteer een geldige status.",
+      "currencyInvalid": "Selecteer een geldige valuta.",
+      "budgetInvalid": "Het budget moet een niet-negatief getal zijn.",
+      "startDateRequired": "Startdatum is verplicht.",
+      "startDateInvalid": "Voer een geldige startdatum in.",
+      "dueDateInvalid": "Voer een geldige vervaldatum in.",
+      "dueDateOrder": "De vervaldatum moet op of na de startdatum liggen.",
+      "colorInvalid": "Kies een geldige kleur.",
+      "iconInvalid": "Kies een geldig pictogram.",
+      "taskTitleRequired": "Taaktitel is verplicht.",
+      "progressRange": "Voortgang moet tussen 0 en 100 liggen.",
+      "memberNameRequired": "Lidnaam is verplicht.",
+      "emailRequired": "E-mail is verplicht.",
+      "emailInvalid": "Voer een geldig e-mailadres in.",
+      "roleInvalid": "Selecteer een geldige rol.",
+      "noteTitleRequired": "Nottitel is verplicht.",
+      "noteBodyRequired": "Notinhoud is verplicht.",
+      "authorRequired": "Auteur is verplicht."
     }
   },
   "automation": {
@@ -2954,7 +3020,7 @@
       "tabTriggers": "Triggers",
       "tabActions": "Acties",
       "tabAiActions": "AI-acties",
-      "builderTitle": "Workflowbouwer · {naam}",
+      "builderTitle": "Workflowbouwer · {name}",
       "builderHint": "Uitlijnen op {grid}px-raster · ⌘/Ctrl+scrollzoom · sleep canvas om te pannen · dubbelklik op verbinden",
       "autoSaved": "Automatisch opgeslagen",
       "saving": "Besparing…",
@@ -2981,14 +3047,14 @@
       "noMatches": "Er zijn geen werkstroomuitvoeringen die overeenkomen met dit filter."
     },
     "miniPreview": {
-      "emptyWorkflow": "Empty workflow"
+      "emptyWorkflow": "Lege workflow"
     },
     "workflowTemplates": {
       "title": "Sjabloonbibliotheek",
       "noticeDefault": "Bekijk een voorbeeld van een sjabloon voordat u deze in de builder laadt.",
       "noticeLoaded": "\"{name}\" in de workflowbuilder geladen.",
       "nodesBadge": "{count} knooppunten",
-      "recommendedFor": "Aanbevolen voor: {voor}",
+      "recommendedFor": "Aanbevolen voor: {for}",
       "preview": "Voorbeeld",
       "useTemplate": "Gebruik sjabloon",
       "previewTitle": "Sjabloonvoorbeeld",
@@ -3019,7 +3085,7 @@
       "notice": {
         "missingWrite": "Ontbrekende machtiging workflow.write.",
         "missingExecute": "Ontbrekende machtiging workflow.execute.",
-        "created": "{naam} gemaakt",
+        "created": "{name} gemaakt",
         "templateApplied": "Sjabloon toegepast: {name}",
         "runResult": "Voer {status} uit ({duration} ms)",
         "runFailed": "De workflow kan niet worden uitgevoerd (uitgeschakeld of ontbreekt).",
@@ -3081,8 +3147,8 @@
         "emptyTitle": "Nog geen executies.",
         "emptyDescription": "Voer een workflow uit of publiceer een domeingebeurtenis.",
         "latestRun": "Laatste rundetails",
-        "path": "Pad: {pad}",
-        "error": "· Fout: {fout}",
+        "path": "Pad: {path}",
+        "error": "· Fout: {error}",
         "columns": {
           "workflow": "Werkstroom",
           "status": "Status",
@@ -3115,12 +3181,311 @@
         "timeoutMs": "Time-out (ms)",
         "logLevel": "Logniveau",
         "logLevels": {
-          "error": "error",
-          "warn": "warn",
+          "error": "fout",
+          "warn": "waarschuwing",
           "info": "info",
           "debug": "debug"
         },
         "saveSettings": "Instellingen opslaan"
+      }
+    },
+    "status": {
+      "connected": "Verbonden",
+      "beta": "Bèta",
+      "comingSoon": "Binnenkort",
+      "disabled": "Uitgeschakeld",
+      "planned": "Gepland",
+      "success": "Geslaagd",
+      "failed": "Mislukt",
+      "running": "Bezig",
+      "pending": "In behandeling",
+      "retried": "Opnieuw"
+    },
+    "difficulty": {
+      "starter": "Beginner",
+      "intermediate": "Gemiddeld",
+      "advanced": "Gevorderd"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "Trigger",
+        "description": "Start wanneer een gebeurtenis plaatsvindt"
+      },
+      "el-condition": {
+        "label": "Voorwaarde",
+        "description": "Vertakken op regels"
+      },
+      "el-delay": {
+        "label": "Vertraging",
+        "description": "Wacht voordat u doorgaat"
+      },
+      "el-approval": {
+        "label": "Goedkeuring",
+        "description": "Menselijke goedkeuringspoort"
+      },
+      "el-loop": {
+        "label": "Lus",
+        "description": "Itereren over een verzameling"
+      },
+      "el-merge": {
+        "label": "Samenvoegen",
+        "description": "Parallelle paden samenvoegen"
+      },
+      "el-split": {
+        "label": "Splitsen",
+        "description": "Parallelle paden uitspreiden"
+      },
+      "el-ai-decision": {
+        "label": "AI-beslissing",
+        "description": "Via AI routeren"
+      },
+      "el-notification": {
+        "label": "Melding",
+        "description": "In-app-melding"
+      },
+      "el-webhook": {
+        "label": "Webhook-plaatsaanduiding",
+        "description": "HTTP-callback gereserveerd"
+      },
+      "el-custom": {
+        "label": "Aangepaste actie",
+        "description": "Uitbreidbaar actieveld"
+      },
+      "tr-customer": {
+        "label": "Klant aangemaakt",
+        "description": "CRM-klantrecord aangemaakt"
+      },
+      "tr-lead": {
+        "label": "Lead aangemaakt",
+        "description": "Nieuwe lead komt in de pijplijn"
+      },
+      "tr-invoice": {
+        "label": "Factuur aangemaakt",
+        "description": "Financiële factuur uitgegeven"
+      },
+      "tr-invoice-paid": {
+        "label": "Factuur betaald",
+        "description": "Betaling afgehandeld"
+      },
+      "tr-order": {
+        "label": "Order aangemaakt",
+        "description": "Order ingevoerd"
+      },
+      "tr-order-done": {
+        "label": "Order voltooid",
+        "description": "Order vervuld"
+      },
+      "tr-doc": {
+        "label": "Document geüpload",
+        "description": "Upload naar documentkluis"
+      },
+      "tr-campaign": {
+        "label": "Campagne gepubliceerd",
+        "description": "Creator Studio-publicatie"
+      },
+      "tr-employee": {
+        "label": "Medewerker toegevoegd",
+        "description": "Wijziging in teamdirectory"
+      },
+      "tr-task": {
+        "label": "Taak voltooid",
+        "description": "Taak als gereed gemarkeerd"
+      },
+      "tr-manual": {
+        "label": "Handmatige trigger",
+        "description": "Op verzoek uitvoeren"
+      },
+      "tr-schedule": {
+        "label": "Planningstrigger",
+        "description": "Cron- / kalenderplanning"
+      },
+      "tr-webhook": {
+        "label": "Webhook-trigger",
+        "description": "Inkomend HTTP-event"
+      },
+      "tr-api": {
+        "label": "API-trigger",
+        "description": "Programmatische start"
+      },
+      "ac-crm": {
+        "label": "CRM-record aanmaken",
+        "description": "CRM-entiteit schrijven"
+      },
+      "ac-invoice": {
+        "label": "Factuur genereren",
+        "description": "Financiële factuur"
+      },
+      "ac-quote": {
+        "label": "Offerte genereren",
+        "description": "Offertedocument maken"
+      },
+      "ac-delivery": {
+        "label": "Leveringsbon genereren",
+        "description": "Leveringsbon"
+      },
+      "ac-task": {
+        "label": "Taak aanmaken",
+        "description": "Een taak openen"
+      },
+      "ac-assign": {
+        "label": "Medewerker toewijzen",
+        "description": "Naar een teammate routeren"
+      },
+      "ac-email": {
+        "label": "E-mail verzenden",
+        "description": "Uitgaande e-mail"
+      },
+      "ac-notify": {
+        "label": "Melding verzenden",
+        "description": "In-app-melding"
+      },
+      "ac-ai-summary": {
+        "label": "AI-samenvatting genereren",
+        "description": "Context samenvatten"
+      },
+      "ac-ai-content": {
+        "label": "AI-inhoud genereren",
+        "description": "Creator Studio-concept"
+      },
+      "ac-update-customer": {
+        "label": "Klant bijwerken",
+        "description": "CRM-klant patchen"
+      },
+      "ac-update-status": {
+        "label": "Status bijwerken",
+        "description": "Entiteitsstatus wijzigen"
+      },
+      "ac-pdf": {
+        "label": "PDF exporteren",
+        "description": "Documentexport"
+      },
+      "ac-future": {
+        "label": "Toekomstige API-plaatsaanduiding",
+        "description": "Gereserveerd actieveld"
+      },
+      "ai-decision": {
+        "label": "AI-beslissing",
+        "description": "Volgend pad bepalen"
+      },
+      "ai-class": {
+        "label": "AI-classificatie",
+        "description": "Records classificeren"
+      },
+      "ai-text": {
+        "label": "AI-tekstgeneratie",
+        "description": "Tekst genereren"
+      },
+      "ai-translate": {
+        "label": "AI-vertaling",
+        "description": "Inhoud vertalen"
+      },
+      "ai-email": {
+        "label": "AI-e-mailantwoord",
+        "description": "Antwoord opstellen"
+      },
+      "ai-sum": {
+        "label": "AI-samenvatting",
+        "description": "Context condenseren"
+      },
+      "ai-rec": {
+        "label": "AI-aanbevelingen",
+        "description": "Volgende stappen voorstellen"
+      },
+      "ai-route": {
+        "label": "AI-routering",
+        "description": "Naar eigenaar / wachtrij routeren"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "Klant aangemaakt",
+        "description": "Wordt geactiveerd wanneer een CRM-klantrecord wordt aangemaakt."
+      },
+      "project_created": {
+        "label": "Project gemaakt",
+        "description": "Wordt geactiveerd wanneer een project wordt aangemaakt."
+      },
+      "invoice_issued": {
+        "label": "Factuur uitgegeven",
+        "description": "Wordt geactiveerd wanneer een factuur wordt uitgegeven."
+      },
+      "task_completed": {
+        "label": "Taak voltooid",
+        "description": "Wordt geactiveerd wanneer een taak als voltooid wordt gemarkeerd."
+      },
+      "document_uploaded": {
+        "label": "Document geüpload",
+        "description": "Wordt geactiveerd wanneer een document wordt geüpload."
+      },
+      "user_invited": {
+        "label": "Gebruiker uitgenodigd",
+        "description": "Wordt geactiveerd wanneer een teammid wordt uitgenodigd."
+      },
+      "schedule": {
+        "label": "Schema",
+        "description": "Cron-/intervalschema."
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "Inkomende HTTP-webhook."
+      },
+      "api_event": {
+        "label": "API-gebeurtenis",
+        "description": "Algemeen API-domeinevent."
+      },
+      "ai_event": {
+        "label": "AI-gebeurtenis",
+        "description": "AI-signaal (voltooiing, inzicht, agentstap)."
+      },
+      "manual": {
+        "label": "Handmatige trigger",
+        "description": "On-demand vanuit de automatiserings-UI of API."
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "Klant aanmaken",
+        "description": "Een CRM-klantrecord aanmaken."
+      },
+      "customer_update": {
+        "label": "Klant bijwerken",
+        "description": "Velden van een klant bijwerken."
+      },
+      "project_create": {
+        "label": "Project maken",
+        "description": "Een project vanuit de workflowcontext aanmaken."
+      },
+      "document_generate": {
+        "label": "Document genereren",
+        "description": "Een document uit een sjabloon genereren."
+      },
+      "notification_send": {
+        "label": "Melding verzenden",
+        "description": "Een in-app-melding sturen."
+      },
+      "email_send": {
+        "label": "E-mail verzenden",
+        "description": "Een e-mail via de mailprovider in de wachtrij zetten."
+      },
+      "api_call": {
+        "label": "API aanroepen",
+        "description": "HTTP-aanroep naar een interne of externe API."
+      },
+      "ai_run": {
+        "label": "AI uitvoeren",
+        "description": "Een AI-prompt / agentstap met context uitvoeren."
+      },
+      "task_assign": {
+        "label": "Taak toewijzen",
+        "description": "Een taak aan een gebruiker toewijzen."
+      },
+      "invoice_create": {
+        "label": "Factuur maken",
+        "description": "Een financiële factuur aanmaken."
+      },
+      "status_update": {
+        "label": "Status bijwerken",
+        "description": "De status van een entiteit in een module bijwerken."
       }
     }
   },
@@ -3128,7 +3493,7 @@
     "page": {
       "eyebrow": "Identiteit & Toegang",
       "title": "Team",
-      "lead": "Leden, rollen en uitnodigingen voor {organisatie}. Klaar voor architectuur voor een toekomstige identiteits-API.",
+      "lead": "Leden, rollen en uitnodigingen voor {organization}. Klaar voor architectuur voor een toekomstige identiteits-API.",
       "yourOrganization": "uw organisatie"
     },
     "invite": {
@@ -3175,17 +3540,17 @@
       "columnEmail": "E-mail",
       "columnRole": "Rol",
       "columnStatus": "Status",
-      "roleFor": "Rol voor {naam}",
+      "roleFor": "Rol voor {name}",
       "emptyTitle": "Nog geen leden",
       "emptyDescription": "Nodig collega's uit om lid te worden van deze organisatiewerkruimte.",
-      "updated": "{naam} bijgewerkt naar {rol}",
+      "updated": "{name} bijgewerkt naar {role}",
       "roleChangeFailed": "Rolwijziging is mislukt"
     },
     "pending": {
       "title": "Openstaande uitnodigingen",
       "emptyTitle": "Geen openstaande uitnodigingen",
       "emptyDescription": "Nieuwe uitnodigingen verschijnen hier totdat ze worden geaccepteerd of verlopen.",
-      "expires": "{rol} · verloopt op {datum}",
+      "expires": "{role} · verloopt op {date}",
       "revoke": "Herroepen",
       "pending": "in behandeling"
     },
@@ -3206,7 +3571,7 @@
     "page": {
       "sectionTitle": "Klantenbeheer",
       "title": "Klanten",
-      "lead": "Klantrecords voor {organisatie} maken, bewerken, doorzoeken en beheren.",
+      "lead": "Klantrecords voor {organization} maken, bewerken, doorzoeken en beheren.",
       "yourOrganization": "uw organisatie"
     },
     "table": {
@@ -3221,9 +3586,9 @@
       "view": "Weergave",
       "edit": "Bewerking",
       "delete": "Verwijderen",
-      "viewAria": "Bekijk {bedrijf}",
-      "editAria": "Bewerk {bedrijf}",
-      "deleteAria": "Verwijder {bedrijf}",
+      "viewAria": "Bekijk {company}",
+      "editAria": "Bewerk {company}",
+      "deleteAria": "Verwijder {company}",
       "loading": "Klanten laden…",
       "errorLoad": "Kan klanten niet laden",
       "errorGeneric": "Er is iets misgegaan",
@@ -3278,7 +3643,7 @@
       "title": "Klant verwijderen",
       "cancel": "Annuleren",
       "confirm": "Verwijderen",
-      "confirmWithName": "{bedrijf} definitief verwijderen? Dit kan niet ongedaan worden gemaakt.",
+      "confirmWithName": "{company} definitief verwijderen? Dit kan niet ongedaan worden gemaakt.",
       "confirmGeneric": "Deze klant wordt definitief verwijderd.",
       "success": "Klant verwijderd",
       "failed": "Verwijderen is mislukt",
@@ -3300,6 +3665,18 @@
       "updated": "Bijgewerkt",
       "notes": "Opmerkingen",
       "noNotes": "Nog geen opmerkingen."
+    },
+    "validation": {
+      "companyRequired": "Bedrijfsnaam is verplicht.",
+      "contactRequired": "Contactpersoon is verplicht.",
+      "emailRequired": "E-mail is verplicht.",
+      "emailInvalid": "Voer een geldig e-mailadres in.",
+      "phoneRequired": "Telefoon is verplicht.",
+      "phoneInvalid": "Voer een geldig telefoonnummer in.",
+      "mobileInvalid": "Voer een geldig mobiel nummer in.",
+      "statusInvalid": "Selecteer een geldige status.",
+      "emailDuplicate": "Er bestaat al een klant met dit e-mailadres.",
+      "companyDuplicate": "Er bestaat al een klant met deze bedrijfsnaam."
     }
   },
   "ai": {
@@ -3320,7 +3697,7 @@
       "provider": "Aanbieder",
       "model": "Model",
       "estimatedTokens": "Geschat. tokens",
-      "tokensInOut": "(in {in} / uit {uit})",
+      "tokensInOut": "(in {in} / uit {out})",
       "cost": "Kosten",
       "context": "Context",
       "contextNone": "geen",
@@ -3383,6 +3760,91 @@
       "placeholder": "AI-opdracht… samenvatten, voorstellen, analyseren…",
       "noMatches": "Geen overeenkomende opdrachten",
       "footer": "Registreer toekomstige opdrachten via registerAiCommand - UI blijft ongewijzigd."
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "Projecten",
+      "finance": "Financiën",
+      "marketing": "Marketing",
+      "documents": "Documenten",
+      "automation": "Automatisering",
+      "general": "Algemeen"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "Klant samenvatten",
+        "description": "Managementsamenvatting van een klantrelatie"
+      },
+      "crm-follow-up-email": {
+        "title": "Opvolgmail",
+        "description": "Een professionele CRM-opvolging opstellen"
+      },
+      "projects-analyze": {
+        "title": "Project analyseren",
+        "description": "Gezondheidscheck voor een project"
+      },
+      "projects-task-list": {
+        "title": "Takenlijst maken",
+        "description": "Werk opsplitsen in uitvoerbare taken"
+      },
+      "finance-explain-invoice": {
+        "title": "Factuur uitleggen",
+        "description": "Factuurtoelichting in gewone taal"
+      },
+      "finance-cashflow-brief": {
+        "title": "Cashflow-briefing",
+        "description": "Kort cashflowverhaal"
+      },
+      "marketing-campaign-outline": {
+        "title": "Campagne-overzicht",
+        "description": "Een marketingcampagne structureren"
+      },
+      "marketing-proposal": {
+        "title": "Voorstel genereren",
+        "description": "Klantgericht voorstelconcept"
+      },
+      "documents-summarize": {
+        "title": "Document samenvatten",
+        "description": "Gestructureerde documentsamenvatting"
+      },
+      "automation-workflow": {
+        "title": "Workflow ontwerpen",
+        "description": "Schets van een automatiseringsworkflow"
+      },
+      "general-brainstorm": {
+        "title": "Opties brainstormen",
+        "description": "Gestructureerde ideevorming"
+      },
+      "general-explain": {
+        "title": "Eenvoudig uitleggen",
+        "description": "Duidelijke uitleg voor stakeholders"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "Klant samenvatten",
+        "description": "Managementsamenvatting van de actieve klant"
+      },
+      "cmd-generate-proposal": {
+        "label": "Voorstel genereren",
+        "description": "Een klantvoorsteloverzicht opstellen"
+      },
+      "cmd-analyze-project": {
+        "label": "Project analyseren",
+        "description": "Projectgezondheid en risicoanalyse"
+      },
+      "cmd-create-task-list": {
+        "label": "Takenlijst maken",
+        "description": "Werk opsplitsen in uitvoerbare taken"
+      },
+      "cmd-generate-email": {
+        "label": "E-mail genereren",
+        "description": "Een professionele e-mail opstellen"
+      },
+      "cmd-explain-invoice": {
+        "label": "Factuur uitleggen",
+        "description": "Factuurtoelichting in gewone taal"
+      }
     }
   },
   "agents": {
@@ -3430,14 +3892,14 @@
       "title": "Griffie",
       "selectPrompt": "Selecteer een agent uit het register.",
       "status": "Status: {status}",
-      "health": "Gezondheid: {gezondheid}",
-      "queue": "Wachtrij: {wachtrij}",
-      "usage": "Gebruik: {gebruik}",
+      "health": "Gezondheid: {health}",
+      "queue": "Wachtrij: {queue}",
+      "usage": "Gebruik: {usage}",
       "executeTask": "Taak uitvoeren",
       "supervisorDelegate": "Leidinggevende of gedelegeerde"
     },
     "marketplace": {
-      "tools": "Gereedschap: {gereedschappen}",
+      "tools": "Gereedschap: {tools}",
       "installed": "Geïnstalleerd",
       "installActivate": "Installeren en activeren"
     },
@@ -3445,7 +3907,7 @@
       "title": "Agentmonitor",
       "emptyTitle": "Geen agenten om te controleren",
       "emptyDescription": "Activeer agenten van de marktplaats.",
-      "latestConfidence": "Laatste redeneringsvertrouwen: {vertrouwen} — {stappen}"
+      "latestConfidence": "Laatste redeneringsvertrouwen: {confidence} — {steps}"
     },
     "history": {
       "title": "Uitvoeringsgeschiedenis",
@@ -3504,6 +3966,10 @@
     "goals": {
       "executeBusiness": "Voer het bedrijfsdoel van {agentId} uit",
       "planAndExecute": "Plan en voer een zakelijk doel voor de werkruimte uit"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "Klantimpact prioriteren",
+      "delegatedFollowUp": "Gedelegeerde opvolging"
     }
   },
   "integrations": {
@@ -3526,10 +3992,10 @@
       "demoConnection": "Demoverbinding: {name} (alleen lokale stub)",
       "connectFailed": "Verbinding mislukt",
       "keyCreated": "API-sleutel gemaakt: {prefix}",
-      "webhookCreated": "Webhook gemaakt: {naam}",
+      "webhookCreated": "Webhook gemaakt: {name}",
       "webhookTest": "Webhooktest {status}",
       "networkError": "Netwerkfout in API-verkenner: {message}",
-      "explorerError": "API-verkenner → {status}: {bericht}",
+      "explorerError": "API-verkenner → {status}: {message}",
       "explorerSuccess": "API-verkenner → {status}",
       "explorerFailed": "Verkenner is mislukt",
       "syncResult": "Demosynchronisatie · {status} ({records} lokale records) — geen externe gegevens overgedragen.",
@@ -3563,7 +4029,7 @@
       "latestSync": "Laatste synchronisatie: {status} · {records} records · modus {mode}"
     },
     "available": {
-      "protocols": "Protocollen: {protocollen}",
+      "protocols": "Protocollen: {protocols}",
       "demoConnection": "Demo-verbinding",
       "connectDemo": "Verbinden (demo)",
       "installDemo": "Demo installeren"
@@ -3730,14 +4196,14 @@
     "insights": {
       "emptyTitle": "Nog geen inzichten",
       "emptyDescription": "Demo-inzichten verschijnen na de zaden van de werkruimte. Het genereren van live AI-inzichten is niet gekoppeld.",
-      "badge": "Demo · {soort} · {domein} · conf {vertrouwen}"
+      "badge": "Demo · {kind} · {domain} · conf {confidence}"
     },
     "forecasts": {
       "emptyTitle": "Nog geen voorspellingen",
       "emptyDescription": "Demoprognoses verschijnen na het zaaien. Voorspellende modellen zijn niet met elkaar verbonden.",
-      "title": "{soort} voorspelling",
-      "baseline": "Basislijn {basislijn} → geprojecteerd {geprojecteerd} ({dagen}d)",
-      "confidence": "Demo · Vertrouwen {vertrouwen} — {note}"
+      "title": "{kind} voorspelling",
+      "baseline": "Basislijn {baseline} → geprojecteerd {projected} ({days}d)",
+      "confidence": "Demo · Vertrouwen {confidence} — {note}"
     },
     "alerts": {
       "title": "Waarschuwingsmotor",
@@ -3790,7 +4256,7 @@
       "brand": "AGXORA",
       "navLabel": "Juridische navigatie",
       "lastUpdated": "Laatst bijgewerkt: {date}",
-      "footerCopyright": "© 2026 {bedrijf}",
+      "footerCopyright": "© 2026 {company}",
       "footerNavLabel": "Juridische voettekst",
       "nav": {
         "privacy": "Privacy",
@@ -3944,7 +4410,134 @@
     "back": "Rug",
     "continue": "Doorgaan",
     "launching": "Lancering…",
-    "enterDashboard": "Ga naar het dashboard"
+    "enterDashboard": "Ga naar het dashboard",
+    "defaultCountry": "Verenigde Staten",
+    "businessTypes": {
+      "hotel": {
+        "label": "Hotel",
+        "description": "Horeca, kamers, gasten en vastgoedexploitatie"
+      },
+      "restaurant": {
+        "label": "Restaurant",
+        "description": "Horeca, keuken, reserveringen en gastervaring"
+      },
+      "cleaning": {
+        "label": "Schoonmaak",
+        "description": "Commerciële en residentiële schoonmaak"
+      },
+      "laundry": {
+        "label": "Wasserij",
+        "description": "Wasserijen, ophaalroutes en textielverzorging"
+      },
+      "construction": {
+        "label": "Bouw",
+        "description": "Bouwplaatsen, ploegen, materialen en projectoplevering"
+      },
+      "healthcare": {
+        "label": "Gezondheidszorg",
+        "description": "Zorgnetwerken, patiënten en klinische operaties"
+      },
+      "medical": {
+        "label": "Medisch",
+        "description": "Klinieken, afspraken en zorgteams"
+      },
+      "manufacturing": {
+        "label": "Productie",
+        "description": "Productielijnen, kwaliteit en toeleveringsoperaties"
+      },
+      "retail": {
+        "label": "Retail",
+        "description": "Winkels, voorraad, merchandising en klanten"
+      },
+      "legal": {
+        "label": "Advocatenkantoor",
+        "description": "Zaken, cliënten, deadlines en facturatie"
+      },
+      "accounting": {
+        "label": "Boekhouding",
+        "description": "Boeken, klanten, aangiften en advieswerk"
+      },
+      "consulting": {
+        "label": "Consulting",
+        "description": "Opdrachten, deliverables en klantresultaten"
+      },
+      "real_estate": {
+        "label": "Vastgoed",
+        "description": "Advertenties, klanten, bezichtigingen en transacties"
+      },
+      "education": {
+        "label": "Onderwijs",
+        "description": "Programma’s, studenten, docenten en inschrijving"
+      },
+      "automotive": {
+        "label": "Automotive",
+        "description": "Dealers, serviceplaatsen en voertuigvoorraad"
+      },
+      "beauty": {
+        "label": "Schoonheidssalon",
+        "description": "Afspraken, stylisten, retail en lidmaatschappen"
+      },
+      "fitness": {
+        "label": "Sportschool / fitness",
+        "description": "Lidmaatschappen, lessen, trainers en retentie"
+      },
+      "agriculture": {
+        "label": "Landbouw",
+        "description": "Gewassen, vee, opbrengsten en toeleveringsketens"
+      },
+      "transport": {
+        "label": "Transport",
+        "description": "Vlootbeweging, routes en personen-/vrachtoperaties"
+      },
+      "logistics": {
+        "label": "Logistiek",
+        "description": "Vloot, magazijnen, routes en fulfillment"
+      },
+      "warehouse": {
+        "label": "Magazijn",
+        "description": "Opslag, picking, packing en voorraadomloop"
+      },
+      "insurance": {
+        "label": "Verzekering",
+        "description": "Polissen, claims, underwriting en retentie"
+      },
+      "finance": {
+        "label": "Financiën",
+        "description": "Kapitaal, portefeuilles en financiële operaties"
+      },
+      "financial_services": {
+        "label": "Financiële diensten",
+        "description": "Advies, producten, compliance en klanten"
+      },
+      "technology": {
+        "label": "Technologie",
+        "description": "Product, engineering en go-to-market-teams"
+      },
+      "saas": {
+        "label": "Software / SaaS",
+        "description": "Abonnementen, gebruik en customer success"
+      },
+      "ecommerce": {
+        "label": "E-commerce",
+        "description": "Onlinecatalogus, winkelwagens, fulfillment en LTV"
+      },
+      "agency": {
+        "label": "Marketingbureau",
+        "description": "Klanten, campagnes, retainers en oplevering"
+      },
+      "freelancer": {
+        "label": "Freelancer",
+        "description": "Solopraktijk, klanten, pijplijn en cashflow"
+      },
+      "government": {
+        "label": "Overheid",
+        "description": "Publieke diensten, programma’s en inwoners"
+      },
+      "nonprofit": {
+        "label": "Non-profit",
+        "description": "Missies, donateurs, programma’s en impact"
+      }
+    }
   },
   "creator": {
     "page": {
@@ -4042,8 +4635,8 @@
     "analytics": {
       "title": "Analyse",
       "topPosts": "Topberichten",
-      "engagement": "Eng {waarde}",
-      "reach": "Bereik {waarde}",
+      "engagement": "Eng {value}",
+      "reach": "Bereik {value}",
       "recommendations": "AI-aanbevelingen"
     },
     "integrations": {
@@ -4052,6 +4645,47 @@
     },
     "aiFeaturesPanel": {
       "lead": "AI-functiekaart - ideeën, bijschriften, hashtags, kalender, campagnes, doelgroep, planning, merkconsistentie, herschrijven, vertalen, meertalig."
+    },
+    "formats": {
+      "instagram_caption": "Instagram-bijschrift",
+      "tiktok_script": "TikTok-script",
+      "linkedin_post": "LinkedIn-bericht",
+      "facebook_post": "Facebook-bericht",
+      "x_post": "X-bericht",
+      "blog_article": "Blogartikel",
+      "newsletter": "Nieuwsbrief",
+      "email_campaign": "E-mailcampagne",
+      "product_description": "Productbeschrijving",
+      "ad_copy": "Advertentietekst",
+      "seo_article": "SEO-artikel",
+      "landing_page_copy": "Landingspaginatekst"
+    },
+    "publishStatus": {
+      "draft": "Concept",
+      "review": "Beoordeling",
+      "approved": "Goedgekeurd",
+      "scheduled": "Gepland",
+      "published": "Gepubliceerd",
+      "archive": "Archief"
+    },
+    "mediaKind": {
+      "image": "Afbeelding",
+      "video": "Video",
+      "document": "Document",
+      "logo": "Merklogo",
+      "template": "Sjabloon"
+    },
+    "voice": {
+      "professional": "Professioneel",
+      "friendly": "Vriendelijk",
+      "luxury": "Luxe",
+      "casual": "Informeel"
+    },
+    "integrationStatus": {
+      "planned": "Gepland",
+      "ready": "Klaar",
+      "connected": "Verbonden",
+      "disabled": "Uitgeschakeld"
     }
   },
   "backend": {
@@ -4065,7 +4699,7 @@
     },
     "network": {
       "offline": "Het lijkt erop dat je offline bent",
-      "offlineSyncHint": "Changes may not sync until the connection returns.",
+      "offlineSyncHint": "Wijzigingen worden mogelijk pas gesynchroniseerd wanneer de verbinding terugkeert.",
       "offlineHelp": "Offline hulp",
       "reconnected": "Verbinding hersteld"
     },
@@ -4111,7 +4745,10 @@
       "startFree": "Begin in plaats daarvan gratis",
       "backHome": "Terug naar huis",
       "signIn": "Log in"
-    }
+    },
+    "loading": "Laden",
+    "loadingEllipsis": "Laden…",
+    "loadingIdentity": "Identiteit laden…"
   },
   "workspace": {
     "page": {
@@ -4120,9 +4757,9 @@
       "descriptionNamed": "Geïsoleerd tenantwerkruimteoppervlak voor {name}."
     },
     "idLabel": "Werkruimte-ID:",
-    "active": "Actief: {naam}",
+    "active": "Actief: {name}",
     "notInSession": "Niet in de huidige sessie",
-    "organization": "Organisatie: {naam} ({slug})",
+    "organization": "Organisatie: {name} ({slug})",
     "searchResults": "Zoekresultaten"
   },
   "iam": {
@@ -4172,7 +4809,7 @@
       "disabled": "Gehandicapt",
       "enabled": "Ingeschakeld",
       "days": "{count} dagen",
-      "minutes": "{telling} min",
+      "minutes": "{count} min",
       "toggleIdlePolicy": "Schakel tijdelijke aanduiding voor inactief beleid in of uit",
       "previewSessionExpired": "Voorbeeldsessie verlopen",
       "previewAccountLocked": "Voorbeeldaccount vergrendeld",
@@ -4262,28 +4899,28 @@
       "ariaLabel": "Wissel van werkruimte"
     },
     "access": {
-      "eyebrow": "Identity & Access",
-      "signIn": "Sign in",
-      "backToDashboard": "Back to dashboard",
+      "eyebrow": "Identiteit en toegang",
+      "signIn": "Inloggen",
+      "backToDashboard": "Terug naar dashboard",
       "unauthorized": {
-        "title": "Unauthorized",
-        "description": "Sign in to continue to this area of AGXORA."
+        "title": "Ongeautoriseerd",
+        "description": "Log in om verder te gaan naar dit deel van AGXORA."
       },
       "forbidden": {
-        "title": "Forbidden",
-        "description": "Your role does not include permission for this resource."
+        "title": "Verboden",
+        "description": "Uw rol bevat geen toestemming voor deze resource."
       },
       "expired_session": {
-        "title": "Expired Session",
-        "description": "Your session expired. Sign in again to resume work."
+        "title": "Sessie verlopen",
+        "description": "Uw sessie is verlopen. Log opnieuw in om verder te werken."
       },
       "missing_permission": {
-        "title": "Missing Permission",
-        "description": "Ask an Owner or Admin to grant the required module access."
+        "title": "Ontbrekende toestemming",
+        "description": "Vraag een eigenaar of beheerder om de vereiste moduletoegang te verlenen."
       },
       "account_locked": {
-        "title": "Account Locked",
-        "description": "This account is locked. Contact an organization owner or try again later."
+        "title": "Account vergrendeld",
+        "description": "Dit account is vergrendeld. Neem contact op met een organisatie-eigenaar of probeer het later opnieuw."
       }
     },
     "verifyEmail": {

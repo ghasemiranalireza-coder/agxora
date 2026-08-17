@@ -7,5 +7,28 @@
   "acceptTerms": "Accepteer de voorwaarden om door te gaan.",
   "generic": "Er is iets misgegaan.",
   "tryAgain": "Probeer het opnieuw.",
-  "saved": "Succesvol opgeslagen."
+  "saved": "Succesvol opgeslagen.",
+  "invalidCredentials": "Ongeldig e-mailadres of wachtwoord.",
+  "signInRequired": "Inloggen vereist.",
+  "insufficientPermissions": "Onvoldoende machtigingen.",
+  "noRouteAccess": "U hebt geen toegang tot deze route.",
+  "accountLocked": "Dit account is vergrendeld. Neem contact op met een beheerder.",
+  "sessionExpired": "Uw sessie is verlopen. Log opnieuw in.",
+  "missingPermission": "Ontbrekende toestemming: {permission}",
+  "roleCannotAccess": "Uw rol heeft geen toegang tot deze resource.",
+  "codes": {
+    "AUTH_INVALID_CREDENTIALS": "Ongeldig e-mailadres of wachtwoord.",
+    "AUTH_SESSION_EXPIRED": "Uw sessie is verlopen. Log opnieuw in.",
+    "AUTH_ACCOUNT_LOCKED": "Dit account is vergrendeld. Neem contact op met een beheerder.",
+    "AUTH_SIGN_IN_REQUIRED": "Log in om verder te gaan.",
+    "AUTH_INSUFFICIENT_PERMISSIONS": "Onvoldoende machtigingen.",
+    "AUTH_NO_ROUTE_ACCESS": "U hebt geen toegang tot deze route.",
+    "COMMON_SOMETHING_WENT_WRONG": "Er is iets misgegaan.",
+    "COMMON_PAGE_NOT_FOUND": "Pagina niet gevonden.",
+    "COMMON_OFFLINE": "U bent offline.",
+    "COMMON_TIMEOUT": "Het verzoek is verlopen.",
+    "COMMON_VALIDATION": "Controleer uw invoer en probeer het opnieuw.",
+    "COMMON_UNKNOWN": "Er is een onbekende fout opgetreden.",
+    "COMMON_INTERNAL": "Er is een onverwachte fout opgetreden. Probeer het opnieuw."
+  }
 }

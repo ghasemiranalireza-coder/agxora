@@ -42,15 +42,15 @@
   "registry": {
     "title": "Registro",
     "selectPrompt": "Seleccione un agente del registro.",
-    "status": "Estado: {estado}",
-    "health": "Salud: ${ health }",
-    "queue": "Cola: {cola}",
-    "usage": "Uso: {uso}",
+    "status": "Estado: {status}",
+    "health": "Salud: {health}",
+    "queue": "Cola: {queue}",
+    "usage": "Uso: {usage}",
     "executeTask": "Ejecutar tarea",
     "supervisorDelegate": "delegado supervisor"
   },
   "marketplace": {
-    "tools": "Herramientas: {herramientas}",
+    "tools": "Herramientas: {tools}",
     "installed": "Instalado",
     "installActivate": "Instalar y activar"
   },
@@ -58,7 +58,7 @@
     "title": "Monitor de agente",
     "emptyTitle": "No hay agentes para monitorear",
     "emptyDescription": "Activar agentes del mercado.",
-    "latestConfidence": "Confianza de razonamiento más reciente: {confianza} - {pasos}"
+    "latestConfidence": "Confianza de razonamiento más reciente: {confidence} - {steps}"
   },
   "history": {
     "title": "Historial de ejecución",
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "Ejecutar el objetivo comercial {agentId}",
     "planAndExecute": "Planificar y ejecutar un objetivo empresarial en el espacio de trabajo"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Priorizar el impacto en el cliente",
+    "delegatedFollowUp": "Seguimiento delegado"
   }
 }

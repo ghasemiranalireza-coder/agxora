@@ -50,42 +50,42 @@
     "documents": {
       "label": "서류",
       "caption": "샘플 · 폴더 전체",
-      "delta": "+{개수}"
+      "delta": "+{count}"
     },
     "folders": {
       "label": "폴더",
       "caption": "샘플 · 스마트 컬렉션 포함",
-      "delta": "+{개수}"
+      "delta": "+{count}"
     },
     "storage": {
       "label": "사용된 저장소",
       "caption": "예시 계획의 샘플 ·",
-      "delta": "+{크기}"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "공유 문서",
       "caption": "샘플 · 조직 + 부서 + 사용자",
-      "delta": "+{개수}"
+      "delta": "+{count}"
     },
     "activity": {
       "label": "최근 활동",
       "caption": "샘플 · 지난 24시간",
-      "delta": "+{개수}"
+      "delta": "+{count}"
     },
     "indexed": {
       "label": "AI 인덱스",
       "caption": "샘플 · AI 검색이 연결되지 않음",
-      "delta": "{퍼센트}"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "승인 보류 중",
       "caption": "샘플 · 자동화가 연결되지 않음",
-      "delta": "{세다}"
+      "delta": "{count}"
     },
     "score": {
       "label": "지식 점수",
       "caption": "샘플 · 취재 일러스트",
-      "delta": "+{개수}"
+      "delta": "+{count}"
     }
   },
   "library": {
@@ -130,7 +130,7 @@
     "favoritesOnly": "즐겨찾기만",
     "emptyTitle": "표시할 문서가 없습니다.",
     "emptyDescription": "필터를 조정하고, 검색을 지우고, 지식 자산을 추가하여 라이브러리를 확장하세요.",
-    "selectAria": "{이름}을 선택하세요",
+    "selectAria": "{name}을 선택하세요",
     "versionHistoryTitle": "버전 기록",
     "close": "닫다",
     "context": {
@@ -151,7 +151,7 @@
     "zoomIn": "줌 +",
     "prev": "이전",
     "next": "다음",
-    "page": "페이지 {페이지} / {전체}",
+    "page": "페이지 {page} / {total}",
     "searchInside": "내부 검색",
     "findPlaceholder": "미리보기에서 찾아보세요…",
     "noMatches": "미리보기 텍스트에 일치하는 항목이 없습니다.",
@@ -177,14 +177,14 @@
     "title": "버전 기록",
     "emptyTitle": "선택한 문서가 없습니다.",
     "emptyDescription": "문서를 열어 버전, 메모, 복원 및 비교를 검사하세요.",
-    "current": "{이름} · 현재 {버전}",
+    "current": "{name} · 현재 {version}",
     "restore": "버전 복원",
     "compare": "버전 비교",
     "restoreTitle": "복원에는 스토리지 API가 필요합니다.",
     "compareTitle": "비교하려면 스토리지 API가 필요합니다.",
     "noticeDefault": "복원 및 비교에는 스토리지 API가 필요합니다.",
     "restoreUnavailable": "{id}에 대한 복원을 사용할 수 없습니다. 스토리지 API가 연결되지 않았습니다.",
-    "compareUnavailable": "비교 불가({선택됨} ← {현재}) — 스토리지 API가 연결되지 않았습니다."
+    "compareUnavailable": "비교 불가({selected} ← {current}) — 스토리지 API가 연결되지 않았습니다."
   },
   "approvals": {
     "title": "승인 워크플로",
@@ -195,7 +195,7 @@
     "reject": "거부하다",
     "sendToReview": "리뷰로 보내기",
     "noticeDefault": "승인 전환에는 자동화 워크플로 엔진이 필요하지만 이 빌드에는 연결되어 있지 않습니다.",
-    "unavailable": "{id}에 대해 {action}을(를) 사용할 수 없습니다. 워크플로 엔진이 연결되지 않았습니다. 샘플 문서 상태가 변경되지 않았습니다.",
+    "unavailable": "{action}에 대해 {id}을(를) 사용할 수 없습니다. 워크플로 엔진이 연결되지 않았습니다. 샘플 문서 상태가 변경되지 않았습니다.",
     "approveTitle": "승인 불가 — 워크플로 엔진이 연결되지 않음",
     "rejectTitle": "거부할 수 없음 — 워크플로 엔진이 연결되지 않음",
     "sendTitle": "검토를 위해 보낼 수 없음 - 워크플로 엔진이 연결되지 않음"
@@ -380,8 +380,8 @@
     "planned": "예정"
   },
   "bytes": {
-    "b": "{값}B",
-    "kb": "{값}KB",
+    "b": "{value}B",
+    "kb": "{value}KB",
     "mb": "{value}MB",
     "gb": "{value}GB"
   }

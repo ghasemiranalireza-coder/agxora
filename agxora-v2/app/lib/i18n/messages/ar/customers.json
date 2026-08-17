@@ -17,9 +17,9 @@
     "view": "منظر",
     "edit": "يحرر",
     "delete": "يمسح",
-    "viewAria": "عرض {الشركة}",
-    "editAria": "تعديل {الشركة}",
-    "deleteAria": "حذف {الشركة}",
+    "viewAria": "عرض {company}",
+    "editAria": "تعديل {company}",
+    "deleteAria": "حذف {company}",
     "loading": "جارٍ تحميل العملاء…",
     "errorLoad": "تعذر تحميل العملاء",
     "errorGeneric": "حدث خطأ ما",
@@ -96,5 +96,17 @@
     "updated": "تم التحديث",
     "notes": "ملحوظات",
     "noNotes": "لا توجد ملاحظات حتى الآن."
+  },
+  "validation": {
+    "companyRequired": "اسم الشركة مطلوب.",
+    "contactRequired": "جهة الاتصال مطلوبة.",
+    "emailRequired": "البريد الإلكتروني مطلوب.",
+    "emailInvalid": "أدخل عنوان بريد إلكتروني صالحًا.",
+    "phoneRequired": "الهاتف مطلوب.",
+    "phoneInvalid": "أدخل رقم هاتف صالحًا.",
+    "mobileInvalid": "أدخل رقم جوال صالحًا.",
+    "statusInvalid": "حدد حالة صالحة.",
+    "emailDuplicate": "يوجد عميل بهذا البريد الإلكتروني بالفعل.",
+    "companyDuplicate": "يوجد عميل باسم الشركة هذا بالفعل."
   }
 }

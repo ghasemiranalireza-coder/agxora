@@ -27,5 +27,132 @@
   "back": "بازگشت",
   "continue": "ادامه",
   "launching": "راه اندازی",
-  "enterDashboard": "داشبورد را وارد کنید"
+  "enterDashboard": "داشبورد را وارد کنید",
+  "defaultCountry": "ایالات متحده",
+  "businessTypes": {
+    "hotel": {
+      "label": "هتل",
+      "description": "مهمان‌نوازی، اتاق، مهمان و عملیات ملک"
+    },
+    "restaurant": {
+      "label": "رستوران",
+      "description": "صرف غذا، آشپزخانه، رزرو و تجربه مهمان"
+    },
+    "cleaning": {
+      "label": "نظافت",
+      "description": "عملیات نظافت تجاری و مسکونی"
+    },
+    "laundry": {
+      "label": "خشکشویی",
+      "description": "کارخانه شست‌وشو، مسیر جمع‌آوری و مراقبت از منسوجات"
+    },
+    "construction": {
+      "label": "ساخت‌وساز",
+      "description": "کارگاه، عوامل، مصالح و تحویل پروژه"
+    },
+    "healthcare": {
+      "label": "بهداشت و درمان",
+      "description": "شبکه مراقبت، بیماران و عملیات بالینی"
+    },
+    "medical": {
+      "label": "پزشکی",
+      "description": "کلینیک، نوبت و تیم‌های مراقبت"
+    },
+    "manufacturing": {
+      "label": "تولید",
+      "description": "خطوط تولید، کیفیت و عملیات تأمین"
+    },
+    "retail": {
+      "label": "خرده‌فروشی",
+      "description": "فروشگاه، موجودی، مرچندایزینگ و مشتریان"
+    },
+    "legal": {
+      "label": "موسسه حقوقی",
+      "description": "پرونده، موکل، مهلت و صورتحساب"
+    },
+    "accounting": {
+      "label": "حسابداری",
+      "description": "دفاتر، مشتریان، اظهارنامه و مشاوره"
+    },
+    "consulting": {
+      "label": "مشاوره",
+      "description": "پروژه‌ها، اقلام تحویلی و نتایج مشتری"
+    },
+    "real_estate": {
+      "label": "املاک",
+      "description": "آگهی، مشتری، بازدید و معاملات"
+    },
+    "education": {
+      "label": "آموزش",
+      "description": "برنامه، دانشجو، هیئت علمی و ثبت‌نام"
+    },
+    "automotive": {
+      "label": "خودرو",
+      "description": "نمایندگی، جایگاه خدمات و موجودی خودرو"
+    },
+    "beauty": {
+      "label": "سالن زیبایی",
+      "description": "نوبت، آرایشگر، خرده‌فروشی و عضویت"
+    },
+    "fitness": {
+      "label": "باشگاه / تناسب اندام",
+      "description": "عضویت، کلاس، مربی و نگهداشت"
+    },
+    "agriculture": {
+      "label": "کشاورزی",
+      "description": "محصول، دام، عملکرد و زنجیره تأمین"
+    },
+    "transport": {
+      "label": "حمل‌ونقل",
+      "description": "حرکت ناوگان، مسیر و عملیات مسافر/بار"
+    },
+    "logistics": {
+      "label": "لجستیک",
+      "description": "ناوگان، انبار، مسیر و ایفای سفارش"
+    },
+    "warehouse": {
+      "label": "انبار",
+      "description": "ذخیره، برداشت، بسته‌بندی و گردش موجودی"
+    },
+    "insurance": {
+      "label": "بیمه",
+      "description": "بیمه‌نامه، خسارت، پذیره‌نویسی و نگهداشت"
+    },
+    "finance": {
+      "label": "مالی",
+      "description": "سرمایه، پرتفوی و عملیات مالی"
+    },
+    "financial_services": {
+      "label": "خدمات مالی",
+      "description": "مشاوره، محصول، انطباق و مشتریان"
+    },
+    "technology": {
+      "label": "فناوری",
+      "description": "محصول، مهندسی و تیم‌های ورود به بازار"
+    },
+    "saas": {
+      "label": "نرم‌افزار / SaaS",
+      "description": "اشتراک، مصرف و موفقیت مشتری"
+    },
+    "ecommerce": {
+      "label": "تجارت الکترونیک",
+      "description": "کاتالوگ آنلاین، سبد، ایفا و LTV"
+    },
+    "agency": {
+      "label": "آژانس بازاریابی",
+      "description": "مشتری، کمپین، قرارداد ماهانه و تحویل"
+    },
+    "freelancer": {
+      "label": "فریلنسر",
+      "description": "فعالیت انفرادی، مشتری، قیف و جریان نقدی"
+    },
+    "government": {
+      "label": "دولت",
+      "description": "خدمات عمومی، برنامه و شهروندان"
+    },
+    "nonprofit": {
+      "label": "غیرانتفاعی",
+      "description": "ماموریت، حامی، برنامه و اثر"
+    }
+  }
 }

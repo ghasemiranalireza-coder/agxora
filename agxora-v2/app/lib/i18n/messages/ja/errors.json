@@ -1,11 +1,34 @@
 {
   "required": "この項目は必須です。",
-  "invalidEmail": "有効な電子メール アドレスを入力してください。",
+  "invalidEmail": "有効なメールアドレスを入力してください。",
   "passwordMin": "パスワードは 8 文字以上である必要があります。",
   "passwordLettersNumbers": "パスワードには文字と数字を含める必要があります。",
   "passwordMismatch": "パスワードが一致しません。",
   "acceptTerms": "続行するには利用規約に同意してください。",
-  "generic": "何か問題が発生しました。",
+  "generic": "問題が発生しました。",
   "tryAgain": "もう一度試してください。",
-  "saved": "正常に保存されました。"
+  "saved": "正常に保存されました。",
+  "invalidCredentials": "メールアドレスまたはパスワードが正しくありません。",
+  "signInRequired": "サインインが必要です。",
+  "insufficientPermissions": "権限が不足しています。",
+  "noRouteAccess": "このルートにアクセスする権限がありません。",
+  "accountLocked": "このアカウントはロックされています。管理者に連絡してください。",
+  "sessionExpired": "セッションの有効期限が切れました。再度サインインしてください。",
+  "missingPermission": "権限がありません: {permission}",
+  "roleCannotAccess": "このロールではこのリソースにアクセスできません。",
+  "codes": {
+    "AUTH_INVALID_CREDENTIALS": "メールアドレスまたはパスワードが正しくありません。",
+    "AUTH_SESSION_EXPIRED": "セッションの有効期限が切れました。再度サインインしてください。",
+    "AUTH_ACCOUNT_LOCKED": "このアカウントはロックされています。管理者に連絡してください。",
+    "AUTH_SIGN_IN_REQUIRED": "続けるにはサインインしてください。",
+    "AUTH_INSUFFICIENT_PERMISSIONS": "権限が不足しています。",
+    "AUTH_NO_ROUTE_ACCESS": "このルートにアクセスする権限がありません。",
+    "COMMON_SOMETHING_WENT_WRONG": "問題が発生しました。",
+    "COMMON_PAGE_NOT_FOUND": "ページが見つかりません。",
+    "COMMON_OFFLINE": "オフラインです。",
+    "COMMON_TIMEOUT": "リクエストがタイムアウトしました。",
+    "COMMON_VALIDATION": "入力内容を確認して、もう一度お試しください。",
+    "COMMON_UNKNOWN": "不明なエラーが発生しました。",
+    "COMMON_INTERNAL": "予期しないエラーが発生しました。もう一度お試しください。"
+  }
 }

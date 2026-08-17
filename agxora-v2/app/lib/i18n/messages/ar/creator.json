@@ -69,7 +69,7 @@
     "aiRewrite": "إعادة كتابة الذكاء الاصطناعي",
     "translate": "يترجم",
     "initialOutput": "حدد التنسيق وصوت العلامة التجارية، ثم قم بإنشاء مسودة. محولات الموفر محجوزة - لا توجد مكالمات نموذجية مباشرة حتى الآن.",
-    "draftStaged": "مسودة نظمت لـ {تنسيق} · صوت: {صوت}. محول الجيل محجوز.",
+    "draftStaged": "مسودة نظمت لـ {format} · صوت: {voice}. محول الجيل محجوز.",
     "rewriteQueued": "إعادة الكتابة في قائمة الانتظار - محول إعادة الكتابة محجوز.",
     "translateQueued": "ترجمة المحتوى في قائمة الانتظار - تم حجز المحول متعدد اللغات.",
     "brandVoice": "صوت العلامة التجارية",
@@ -94,8 +94,8 @@
   "analytics": {
     "title": "التحليلات",
     "topPosts": "أعلى المشاركات",
-    "engagement": "المهندس {القيمة}",
-    "reach": "الوصول إلى {القيمة}",
+    "engagement": "المهندس {value}",
+    "reach": "الوصول إلى {value}",
     "recommendations": "توصيات الذكاء الاصطناعي"
   },
   "integrations": {
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "خريطة ميزات الذكاء الاصطناعي - الأفكار، والتسميات التوضيحية، وعلامات التصنيف، والتقويم، والحملات، والجمهور، والجدول الزمني، واتساق العلامة التجارية، وإعادة الكتابة، والترجمة، ومتعددة اللغات."
+  },
+  "formats": {
+    "instagram_caption": "تعليق Instagram",
+    "tiktok_script": "سيناريو TikTok",
+    "linkedin_post": "منشور LinkedIn",
+    "facebook_post": "منشور Facebook",
+    "x_post": "منشور X",
+    "blog_article": "مقالة مدونة",
+    "newsletter": "نشرة",
+    "email_campaign": "حملة بريد إلكتروني",
+    "product_description": "وصف المنتج",
+    "ad_copy": "نص إعلان",
+    "seo_article": "مقالة SEO",
+    "landing_page_copy": "نص صفحة الهبوط"
+  },
+  "publishStatus": {
+    "draft": "مسودة",
+    "review": "مراجعة",
+    "approved": "معتمد",
+    "scheduled": "مجدول",
+    "published": "منشور",
+    "archive": "أرشيف"
+  },
+  "mediaKind": {
+    "image": "صورة",
+    "video": "فيديو",
+    "document": "مستند",
+    "logo": "شعار العلامة",
+    "template": "قالب"
+  },
+  "voice": {
+    "professional": "احترافي",
+    "friendly": "ودّي",
+    "luxury": "فاخر",
+    "casual": "عفوي"
+  },
+  "integrationStatus": {
+    "planned": "مخطط",
+    "ready": "جاهز",
+    "connected": "متصل",
+    "disabled": "معطّل"
   }
 }

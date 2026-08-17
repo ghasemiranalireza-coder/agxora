@@ -63,29 +63,29 @@ export function validateCustomerDraft(
   const tags = parseTags(draft.tags);
 
   if (!companyName) {
-    errors.push({ field: "companyName", message: "Company name is required." });
+    errors.push({ field: "companyName", message: "customers.validation.companyRequired" });
   }
   if (!contactPerson) {
     errors.push({
       field: "contactPerson",
-      message: "Contact person is required.",
+      message: "customers.validation.contactRequired",
     });
   }
   if (!email) {
-    errors.push({ field: "email", message: "Email is required." });
+    errors.push({ field: "email", message: "customers.validation.emailRequired" });
   } else if (!EMAIL_RE.test(email)) {
-    errors.push({ field: "email", message: "Enter a valid email address." });
+    errors.push({ field: "email", message: "customers.validation.emailInvalid" });
   }
   if (!phone) {
-    errors.push({ field: "phone", message: "Phone is required." });
+    errors.push({ field: "phone", message: "customers.validation.phoneRequired" });
   } else if (!PHONE_RE.test(phone)) {
-    errors.push({ field: "phone", message: "Enter a valid phone number." });
+    errors.push({ field: "phone", message: "customers.validation.phoneInvalid" });
   }
   if (mobile && !PHONE_RE.test(mobile)) {
-    errors.push({ field: "mobile", message: "Enter a valid mobile number." });
+    errors.push({ field: "mobile", message: "customers.validation.mobileInvalid" });
   }
   if (!CUSTOMER_STATUSES.includes(status)) {
-    errors.push({ field: "status", message: "Select a valid status." });
+    errors.push({ field: "status", message: "customers.validation.statusInvalid" });
   }
 
   // Duplicate prevention — email and company name uniqueness within organization.
@@ -95,7 +95,7 @@ export function validateCustomerDraft(
   if (email && peers.some((row) => normalizeEmail(row.email) === email)) {
     errors.push({
       field: "email",
-      message: "A customer with this email already exists.",
+      message: "customers.validation.emailDuplicate",
     });
   }
   if (
@@ -107,7 +107,7 @@ export function validateCustomerDraft(
   ) {
     errors.push({
       field: "companyName",
-      message: "A customer with this company name already exists.",
+      message: "customers.validation.companyDuplicate",
     });
   }
 

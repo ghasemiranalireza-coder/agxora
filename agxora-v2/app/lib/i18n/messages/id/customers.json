@@ -17,9 +17,9 @@
     "view": "Melihat",
     "edit": "Sunting",
     "delete": "Menghapus",
-    "viewAria": "Lihat {perusahaan}",
-    "editAria": "Sunting {perusahaan}",
-    "deleteAria": "Hapus {perusahaan}",
+    "viewAria": "Lihat {company}",
+    "editAria": "Sunting {company}",
+    "deleteAria": "Hapus {company}",
     "loading": "Memuat pelanggan…",
     "errorLoad": "Tidak dapat memuat pelanggan",
     "errorGeneric": "Ada yang tidak beres",
@@ -74,7 +74,7 @@
     "title": "Hapus pelanggan",
     "cancel": "Membatalkan",
     "confirm": "Menghapus",
-    "confirmWithName": "Hapus {perusahaan} secara permanen? Hal ini tidak dapat dibatalkan.",
+    "confirmWithName": "Hapus {company} secara permanen? Hal ini tidak dapat dibatalkan.",
     "confirmGeneric": "Pelanggan ini akan dihapus secara permanen.",
     "success": "Pelanggan dihapus",
     "failed": "Penghapusan gagal",
@@ -96,5 +96,17 @@
     "updated": "Diperbarui",
     "notes": "Catatan",
     "noNotes": "Belum ada catatan."
+  },
+  "validation": {
+    "companyRequired": "Nama perusahaan wajib diisi.",
+    "contactRequired": "Narahubung wajib diisi.",
+    "emailRequired": "Email wajib diisi.",
+    "emailInvalid": "Masukkan alamat email yang valid.",
+    "phoneRequired": "Telepon wajib diisi.",
+    "phoneInvalid": "Masukkan nomor telepon yang valid.",
+    "mobileInvalid": "Masukkan nomor seluler yang valid.",
+    "statusInvalid": "Pilih status yang valid.",
+    "emailDuplicate": "Pelanggan dengan email ini sudah ada.",
+    "companyDuplicate": "Pelanggan dengan nama perusahaan ini sudah ada."
   }
 }

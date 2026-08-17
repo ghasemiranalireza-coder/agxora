@@ -42,15 +42,15 @@
   "registry": {
     "title": "レジストリ",
     "selectPrompt": "レジストリからエージェントを選択します。",
-    "status": "ステータス: {ステータス}",
-    "health": "健康: {健康}",
-    "queue": "キュー: {キュー}",
-    "usage": "使用法: {使用法}",
+    "status": "ステータス: {status}",
+    "health": "健康: {health}",
+    "queue": "キュー: {queue}",
+    "usage": "使用法: {usage}",
     "executeTask": "タスクの実行",
     "supervisorDelegate": "スーパーバイザーの代表者"
   },
   "marketplace": {
-    "tools": "ツール: {ツール}",
+    "tools": "ツール: {tools}",
     "installed": "インストール済み",
     "installActivate": "インストールとアクティベーション"
   },
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "{agentId} ビジネス目標を実行する",
     "planAndExecute": "ワークスペースのビジネス目標を計画して実行する"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "顧客インパクトを優先",
+    "delegatedFollowUp": "委任フォローアップ"
   }
 }

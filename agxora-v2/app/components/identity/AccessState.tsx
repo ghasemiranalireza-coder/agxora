@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { JSX } from "react";
 import type { AccessErrorCode } from "../../lib/identity";
 import { Card, Button } from "../ui";
-import { useT } from "../../lib/i18n";
+import { isTranslationKey, useT } from "../../lib/i18n";
 
 export function AccessState({
   code,
@@ -26,7 +26,9 @@ export function AccessState({
         {t(`iam.access.${code}.title`)}
       </h1>
       <p className="text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        {detail ?? t(`iam.access.${code}.description`)}
+        {detail && isTranslationKey(detail)
+          ? t(detail)
+          : t(`iam.access.${code}.description`)}
       </p>
       <div className="flex flex-wrap justify-center gap-2">
         <Link href="/login">

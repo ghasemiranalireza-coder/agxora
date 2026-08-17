@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "Identidad y acceso",
     "title": "Equipo",
-    "lead": "Miembros, roles e invitaciones para {organización}. Listo para la arquitectura para una futura API de identidad.",
+    "lead": "Miembros, roles e invitaciones para {organization}. Listo para la arquitectura para una futura API de identidad.",
     "yourOrganization": "tu organización"
   },
   "invite": {
@@ -49,17 +49,17 @@
     "columnEmail": "Correo electrónico",
     "columnRole": "Role",
     "columnStatus": "Estado",
-    "roleFor": "Rol para {nombre}",
+    "roleFor": "Rol para {name}",
     "emptyTitle": "Aún no hay miembros",
     "emptyDescription": "Invite a colegas a unirse a este espacio de trabajo de la organización.",
-    "updated": "Se actualizó {nombre} a {rol}",
+    "updated": "Se actualizó {name} a {role}",
     "roleChangeFailed": "El cambio de rol falló"
   },
   "pending": {
     "title": "Invitaciones pendientes",
     "emptyTitle": "No hay invitaciones pendientes",
     "emptyDescription": "Las nuevas invitaciones aparecen aquí hasta que se aceptan o caducan.",
-    "expires": "{rol} · vence el {fecha}",
+    "expires": "{role} · vence el {date}",
     "revoke": "Revocar",
     "pending": "pendiente"
   },

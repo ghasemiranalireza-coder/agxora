@@ -17,9 +17,9 @@
     "view": "Ansicht",
     "edit": "Bearbeiten",
     "delete": "Löschen",
-    "viewAria": "Unternehmen anzeigen",
-    "editAria": "Unternehmen {0} bearbeiten",
-    "deleteAria": "Firma löschen",
+    "viewAria": "View {company}",
+    "editAria": "Unternehmen {company} bearbeiten",
+    "deleteAria": "Delete {company}",
     "loading": "Kunden werden geladen…",
     "errorLoad": "Kunden konnten nicht geladen werden",
     "errorGeneric": "Etwas ist schiefgelaufen",
@@ -96,5 +96,17 @@
     "updated": "Aktualisiert",
     "notes": "Notizen",
     "noNotes": "Es gibt noch keine Notizen."
+  },
+  "validation": {
+    "companyRequired": "Der Firmenname ist erforderlich.",
+    "contactRequired": "Die Kontaktperson ist erforderlich.",
+    "emailRequired": "E-Mail ist erforderlich.",
+    "emailInvalid": "Geben Sie eine gültige E-Mail-Adresse ein.",
+    "phoneRequired": "Telefon ist erforderlich.",
+    "phoneInvalid": "Geben Sie eine gültige Telefonnummer ein.",
+    "mobileInvalid": "Geben Sie eine gültige Mobilnummer ein.",
+    "statusInvalid": "Wählen Sie einen gültigen Status.",
+    "emailDuplicate": "Ein Kunde mit dieser E-Mail existiert bereits.",
+    "companyDuplicate": "Ein Kunde mit diesem Firmennamen existiert bereits."
   }
 }

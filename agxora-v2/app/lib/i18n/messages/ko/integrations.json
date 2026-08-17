@@ -21,8 +21,8 @@
     "webhookCreated": "웹훅 생성됨: {name}",
     "webhookTest": "웹훅 테스트 {status}",
     "networkError": "API 탐색기 네트워크 오류: {message}",
-    "explorerError": "API 탐색기 → {상태}: {메시지}",
-    "explorerSuccess": "API 탐색기 → {상태}",
+    "explorerError": "API 탐색기 → {status}: {message}",
+    "explorerSuccess": "API 탐색기 → {status}",
     "explorerFailed": "탐색기 실패",
     "syncResult": "데모 동기화 · {status} ({records} 로컬 레코드) - 외부 데이터가 전송되지 않습니다.",
     "diagnosed": "진단됨",
@@ -55,7 +55,7 @@
     "latestSync": "최신 동기화: {status} · {records} 레코드 · 모드 {mode}"
   },
   "available": {
-    "protocols": "프로토콜: {프로토콜}",
+    "protocols": "프로토콜: {protocols}",
     "demoConnection": "데모 연결",
     "connectDemo": "연결(데모)",
     "installDemo": "데모 설치"
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "가져오지 못했습니다.",
-    "httpStatus": "HTTP {상태}"
+    "httpStatus": "HTTP {status}"
   }
 }

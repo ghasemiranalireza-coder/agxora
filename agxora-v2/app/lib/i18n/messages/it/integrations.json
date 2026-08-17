@@ -18,9 +18,9 @@
     "demoConnection": "Connessione demo: {name} (solo stub locale)",
     "connectFailed": "Connessione fallita",
     "keyCreated": "Chiave API creata: {prefix}",
-    "webhookCreated": "Webhook creato: {nome}",
-    "webhookTest": "Test del webhook {stato}",
-    "networkError": "Errore di rete dell'API Explorer: {messaggio}",
+    "webhookCreated": "Webhook creato: {name}",
+    "webhookTest": "Test del webhook {status}",
+    "networkError": "Errore di rete dell'API Explorer: {message}",
     "explorerError": "Esplora API → {status}: {message}",
     "explorerSuccess": "Esploratore API → {status}",
     "explorerFailed": "Explorer non è riuscito",
@@ -29,7 +29,7 @@
     "removedConnection": "Connessione demo rimossa: {name}",
     "keyRotated": "Chiave ruotata",
     "keyRevoked": "Chiave revocata",
-    "publishedEvent": "Pubblicato {tipo}",
+    "publishedEvent": "Pubblicato {type}",
     "developerSaved": "Impostazioni sviluppatore salvate"
   },
   "dashboard": {
@@ -55,7 +55,7 @@
     "latestSync": "Ultima sincronizzazione: {status} · {records} record · modalità {mode}"
   },
   "available": {
-    "protocols": "Protocolli: {protocolli}",
+    "protocols": "Protocolli: {protocols}",
     "demoConnection": "Connessione dimostrativa",
     "connectDemo": "Connetti (dimostrazione)",
     "installDemo": "Installa la demo"
@@ -68,7 +68,7 @@
   "apiKeys": {
     "title": "Chiavi API",
     "generateKey": "Genera chiave",
-    "copyOnce": "Copia ora (mostrato una volta): {segreto}",
+    "copyOnce": "Copia ora (mostrato una volta): {secret}",
     "emptyTitle": "Nessuna chiave API",
     "emptyDescription": "Genera una chiave per l'accesso al gateway REST."
   },
@@ -90,7 +90,7 @@
     "apiDocs": "Segnaposto documenti API: {url}",
     "sdk": "Segnaposto SDK: {url}",
     "explorerTitle": "Esploratore API",
-    "gatewayRoutes": "Percorsi gateway: {rotte}",
+    "gatewayRoutes": "Percorsi gateway: {routes}",
     "sendGet": "Invia GET",
     "oauthProviders": "Provider OAuth",
     "placeholdersHint": "Le rotte gateway GraphQL, WebSocket e gRPC vengono registrate come segnaposto. La mappatura dei campi e la risoluzione dei conflitti di sincronizzazione sono predisposti per l'architettura per l'implementazione del backend."
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "Impossibile recuperare",
-    "httpStatus": "{stato} HTTP"
+    "httpStatus": "{status} HTTP"
   }
 }

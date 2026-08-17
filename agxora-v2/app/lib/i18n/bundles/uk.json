@@ -1,6 +1,6 @@
 {
   "common": {
-    "save": "зберегти",
+    "save": "Зберегти",
     "saveChanges": "Зберегти зміни",
     "cancel": "Скасувати",
     "close": "Закрити",
@@ -8,14 +8,14 @@
     "edit": "Редагувати",
     "search": "Пошук",
     "loading": "Завантаження…",
-    "retry": "Повторіть спробу",
+    "retry": "Повторити",
     "language": "Мова",
-    "signIn": "Увійдіть",
+    "signIn": "Увійти",
     "signOut": "Вийти",
     "contact": "контакт",
     "privacy": "Конфіденційність",
     "terms": "Умови",
-    "cookies": "Печиво",
+    "cookies": "Cookies",
     "imprint": "Вихідні дані",
     "organization": "організація",
     "user": "Користувач",
@@ -34,7 +34,14 @@
     "hidePassword": "Приховати пароль",
     "continue": "Продовжити",
     "back": "Назад",
-    "home": "додому"
+    "home": "Головна",
+    "loadingShort": "Завантаження",
+    "create": "Створити",
+    "next": "Далі",
+    "previous": "Назад",
+    "settings": "Налаштування",
+    "profile": "Профіль",
+    "dashboard": "Панель"
   },
   "navigation": {
     "dashboard": "Приладова панель",
@@ -697,15 +704,38 @@
     }
   },
   "errors": {
-    "required": "Це поле є обов'язковим для заповнення.",
-    "invalidEmail": "Введіть дійсну адресу електронної пошти.",
+    "required": "Це поле обов’язкове.",
+    "invalidEmail": "Введіть дійсну адресу ел. пошти.",
     "passwordMin": "Пароль має бути не менше 8 символів.",
     "passwordLettersNumbers": "Пароль має містити букви та цифри.",
     "passwordMismatch": "Паролі не збігаються.",
     "acceptTerms": "Щоб продовжити, прийміть умови.",
     "generic": "Щось пішло не так.",
     "tryAgain": "Спробуйте ще раз.",
-    "saved": "Успішно збережено."
+    "saved": "Успішно збережено.",
+    "invalidCredentials": "Неправильна адреса ел. пошти або пароль.",
+    "signInRequired": "Потрібен вхід.",
+    "insufficientPermissions": "Недостатньо прав.",
+    "noRouteAccess": "У вас немає доступу до цього маршруту.",
+    "accountLocked": "Цей обліковий запис заблоковано. Зверніться до адміністратора.",
+    "sessionExpired": "Сеанс закінчився. Увійдіть знову.",
+    "missingPermission": "Відсутній дозвіл: {permission}",
+    "roleCannotAccess": "Ваша роль не може отримати доступ до цього ресурсу.",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "Неправильна адреса ел. пошти або пароль.",
+      "AUTH_SESSION_EXPIRED": "Сеанс закінчився. Увійдіть знову.",
+      "AUTH_ACCOUNT_LOCKED": "Цей обліковий запис заблоковано. Зверніться до адміністратора.",
+      "AUTH_SIGN_IN_REQUIRED": "Увійдіть, щоб продовжити.",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "Недостатньо прав.",
+      "AUTH_NO_ROUTE_ACCESS": "У вас немає доступу до цього маршруту.",
+      "COMMON_SOMETHING_WENT_WRONG": "Щось пішло не так.",
+      "COMMON_PAGE_NOT_FOUND": "Сторінку не знайдено.",
+      "COMMON_OFFLINE": "Ви офлайн.",
+      "COMMON_TIMEOUT": "Час очікування запиту минув.",
+      "COMMON_VALIDATION": "Перевірте введені дані та спробуйте ще раз.",
+      "COMMON_UNKNOWN": "Сталася невідома помилка.",
+      "COMMON_INTERNAL": "Сталася неочікувана помилка. Спробуйте ще раз."
+    }
   },
   "dashboard": {
     "skipToContent": "Перейти до вмісту інформаційної панелі",
@@ -1190,20 +1220,20 @@
       "viewPricing": "Переглянути ціни",
       "bookDemo": "Демонстрація книги",
       "failed": "Не вдалося надіслати запит",
-      "country": "Country",
-      "savedFor": "Saved for {company}. Sales delivery is not connected in this build.",
-      "preferWalkthrough": "Prefer a product walkthrough next?",
-      "preferSelfServe": "Prefer self-serve?"
+      "country": "Країна",
+      "savedFor": "Збережено для {company}. Доставка продажів не підключена в цій збірці.",
+      "preferWalkthrough": "Бажаєте далі огляд продукту?",
+      "preferSelfServe": "Бажаєте самостійно?"
     },
     "welcome": {
       "title": "Ласкаво просимо до AGXORA",
       "subtitle": "Ваше робоче місце готове. Перейдіть до інформаційної панелі.",
       "continue": "Перейдіть на інформаційну панель",
-      "checklistProfile": "Confirm your organization profile",
-      "checklistModules": "Choose modules that match how you work",
-      "checklistDashboard": "Enter the dashboard with a clear starting point",
-      "exploreFirst": "Prefer to explore first?",
-      "skipToDashboard": "Skip to dashboard"
+      "checklistProfile": "Підтвердьте профіль організації",
+      "checklistModules": "Оберіть модулі, що відповідають вашому способу роботи",
+      "checklistDashboard": "Увійдіть на панель із чіткою точкою старту",
+      "exploreFirst": "Бажаєте спочатку ознайомитися?",
+      "skipToDashboard": "Перейти до панелі"
     },
     "locked": {
       "title": "Обліковий запис заблоковано",
@@ -1216,7 +1246,17 @@
       "subtitle": "Увійдіть знову, щоб продовжити.",
       "signIn": "Увійдіть"
     },
-    "brand": "АГКСОРА"
+    "brand": "АГКСОРА",
+    "validation": {
+      "emailRequired": "Ел. пошта обов’язкова.",
+      "emailInvalid": "Введіть дійсну адресу ел. пошти.",
+      "passwordRequired": "Пароль обов’язковий.",
+      "passwordMin": "Пароль має містити щонайменше 8 символів.",
+      "nameRequired": "Ім’я обов’язкове.",
+      "nameMin": "Ім’я має містити щонайменше 2 символи.",
+      "passwordMismatch": "Паролі не збігаються.",
+      "slugFormat": "Використовуйте лише малі літери, цифри та дефіси."
+    }
   },
   "crm": {
     "page": {
@@ -1320,7 +1360,7 @@
       },
       "showing": "Показано {from}–{to} із {total}",
       "aria": {
-        "openCustomer": "Відкрити клієнта {компанія}"
+        "openCustomer": "Відкрити клієнта {company}"
       },
       "cardMeta": "Власник {owner} · Створено {date}",
       "sortBy": "Сортувати за {column}"
@@ -1693,7 +1733,7 @@
         "label": "ШІ оцінка здоров'я",
         "caption": "Сигнал якості стосунків"
       },
-      "scoreOutOf": "{бал} / {макс}"
+      "scoreOutOf": "{score} / {max}"
     },
     "pipeline": {
       "lead": "Свинець",
@@ -1801,7 +1841,7 @@
         "vat-due": {
           "label": "ПДВ до сплати",
           "caption": "Зразок · Вікно Q2",
-          "delta": "Оплата через {днів}д"
+          "delta": "Оплата через {days}д"
         },
         "open-invoices": {
           "label": "Відкриті рахунки-фактури",
@@ -1810,7 +1850,7 @@
         "paid-invoices": {
           "label": "Оплачені рахунки",
           "caption": "Зразок · цього кварталу",
-          "delta": "+{кількість}"
+          "delta": "+{count}"
         },
         "cashflow": {
           "label": "грошовий потік",
@@ -1820,10 +1860,10 @@
         "ai-score": {
           "label": "Фінансовий показник ШІ",
           "caption": "Зразок оцінки · не підрахунок ризику в реальному часі",
-          "delta": "+{кількість}"
+          "delta": "+{count}"
         }
       },
-      "scoreOutOf": "{бал} / {макс}"
+      "scoreOutOf": "{score} / {max}"
     },
     "invoices": {
       "emptyTitle": "Без рахунків",
@@ -2090,32 +2130,32 @@
       "documents": {
         "label": "Документи",
         "caption": "Зразок · у папках",
-        "delta": "+{кількість}"
+        "delta": "+{count}"
       },
       "folders": {
         "label": "Папки",
         "caption": "Зразок · включаючи розумні колекції",
-        "delta": "+{кількість}"
+        "delta": "+{count}"
       },
       "storage": {
         "label": "Пам'ять використано",
         "caption": "Зразок · ілюстративного плану",
-        "delta": "+{розмір}"
+        "delta": "+{size}"
       },
       "shared": {
         "label": "Спільні документи",
         "caption": "Зразок · організація + відділ + користувачі",
-        "delta": "+{кількість}"
+        "delta": "+{count}"
       },
       "activity": {
         "label": "Останні дії",
         "caption": "Зразок · останні 24 години",
-        "delta": "+{кількість}"
+        "delta": "+{count}"
       },
       "indexed": {
         "label": "Індексовано AI",
         "caption": "Зразок · Пошук AI не підключено",
-        "delta": "{відсоток}"
+        "delta": "{percent}"
       },
       "approvals": {
         "label": "Очікує на схвалення",
@@ -2125,7 +2165,7 @@
       "score": {
         "label": "Оцінка знань",
         "caption": "Зразок · освітлення ілюстрації",
-        "delta": "+{кількість}"
+        "delta": "+{count}"
       }
     },
     "library": {
@@ -2191,7 +2231,7 @@
       "zoomIn": "Збільшити +",
       "prev": "попередня",
       "next": "Далі",
-      "page": "Сторінка {сторінка} / {усього}",
+      "page": "Сторінка {page} / {total}",
       "searchInside": "Шукайте всередині",
       "findPlaceholder": "Знайти в попередньому перегляді…",
       "noMatches": "Немає збігів у тексті попереднього перегляду.",
@@ -2535,8 +2575,9 @@
       "terms": "Умови",
       "cookies": "Печиво",
       "imprint": "Вихідні дані",
-      "copyright": "© {рік} {компанія}"
-    }
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — 3D-глобус"
   },
   "ui": {
     "table": {
@@ -2616,7 +2657,7 @@
       "previous": "Попередній",
       "next": "Далі",
       "noDescription": "Опису ще немає.",
-      "duePrefix": "Термін {дата}",
+      "duePrefix": "Термін {date}",
       "openProject": "Відкрити проект {name}",
       "sortBy": "Сортувати за {column}",
       "sort": {
@@ -2719,7 +2760,7 @@
       "emptyDescription": "Додайте дати початку/завершення та завдання, щоб заповнити розклад.",
       "title": "Хронологія",
       "subtitle": "Початок, кінець, тривалість, віхи. Залежності зарезервовано для майбутнього випуску.",
-      "dateRange": "{початок} → {кінець} · {днів}d",
+      "dateRange": "{start} → {end} · {days}d",
       "itemAria": "{title} від {start} до {end}",
       "dependenciesNone": "Залежності: немає"
     },
@@ -2734,7 +2775,7 @@
         "teamMembers": "Члени команди",
         "teamHint": "По всіх проектах",
         "budgetOverview": "Огляд бюджету",
-        "budgetHint": "{percent}% використано · {spend} витрачено",
+        "budgetHint": "{percent}% використано · {spent} витрачено",
         "openTasks": "Відкрийте Завдання",
         "openTasksHint": "{overdue} прострочено",
         "projectHealth": "Проект Здоров'я",
@@ -2763,7 +2804,7 @@
       "emptyTitle": "Без завдань на дошці",
       "emptyDescription": "Створюйте завдання, щоб організувати доставку за завданнями, у виконанні, перегляді та виконанні.",
       "addTask": "Додати завдання",
-      "columnAria": "стовпець {статус}",
+      "columnAria": "стовпець {status}",
       "taskProgress": "Хід виконання завдання",
       "edit": "Редагувати",
       "complete": "Повний"
@@ -2881,6 +2922,31 @@
       "memberAdded": "Учасника додано",
       "settingsSaved": "Налаштування збережено",
       "projectArchived": "Проект заархівовано"
+    },
+    "validation": {
+      "nameRequired": "Назва проєкту обов’язкова.",
+      "nameMin": "Назва проєкту має містити щонайменше 2 символи.",
+      "customerRequired": "Клієнт обов’язковий.",
+      "ownerRequired": "Власник проєкту обов’язковий.",
+      "priorityInvalid": "Виберіть дійсний пріоритет.",
+      "statusInvalid": "Виберіть дійсний статус.",
+      "currencyInvalid": "Виберіть дійсну валюту.",
+      "budgetInvalid": "Бюджет має бути невід’ємним числом.",
+      "startDateRequired": "Дата початку обов’язкова.",
+      "startDateInvalid": "Введіть дійсну дату початку.",
+      "dueDateInvalid": "Введіть дійсну дату терміну.",
+      "dueDateOrder": "Термін має бути в день початку або пізніше.",
+      "colorInvalid": "Виберіть дійсний колір.",
+      "iconInvalid": "Виберіть дійсну піктограму.",
+      "taskTitleRequired": "Назва завдання обов’язкова.",
+      "progressRange": "Прогрес має бути від 0 до 100.",
+      "memberNameRequired": "Ім’я учасника обов’язкове.",
+      "emailRequired": "Ел. пошта обов’язкова.",
+      "emailInvalid": "Введіть дійсну адресу ел. пошти.",
+      "roleInvalid": "Виберіть дійсну роль.",
+      "noteTitleRequired": "Заголовок нотатки обов’язковий.",
+      "noteBodyRequired": "Текст нотатки обов’язковий.",
+      "authorRequired": "Автор обов’язковий."
     }
   },
   "automation": {
@@ -2981,14 +3047,14 @@
       "noMatches": "Жоден запуск робочого циклу не відповідає цьому фільтру."
     },
     "miniPreview": {
-      "emptyWorkflow": "Empty workflow"
+      "emptyWorkflow": "Порожній робочий процес"
     },
     "workflowTemplates": {
       "title": "Бібліотека шаблонів",
       "noticeDefault": "Перегляньте шаблон перед завантаженням у конструктор.",
       "noticeLoaded": "Завантажено \"{name}\" у конструктор робочих циклів.",
       "nodesBadge": "{count} вузлів",
-      "recommendedFor": "Рекомендовано для: {для}",
+      "recommendedFor": "Рекомендовано для: {for}",
       "preview": "Попередній перегляд",
       "useTemplate": "Використовуйте шаблон",
       "previewTitle": "Попередній перегляд шаблону",
@@ -3024,9 +3090,9 @@
         "runResult": "Запустити {status} ({duration} мс)",
         "runFailed": "Не вдалося запустити робочий процес (вимкнено або відсутній).",
         "publishedEvent": "Опублікована подія домену: {type}",
-        "workflowStatus": "Робочий процес {статус}",
+        "workflowStatus": "Робочий процес {status}",
         "saved": "Робочий процес збережено",
-        "retryResult": "Повторити {статус}",
+        "retryResult": "Повторити {status}",
         "retryFailed": "Повторна спроба не вдалася",
         "settingsSaved": "Налаштування автоматизації збережено"
       },
@@ -3115,12 +3181,311 @@
         "timeoutMs": "Час очікування (мс)",
         "logLevel": "Рівень журналу",
         "logLevels": {
-          "error": "error",
-          "warn": "warn",
-          "info": "info",
-          "debug": "debug"
+          "error": "помилка",
+          "warn": "попередження",
+          "info": "інфо",
+          "debug": "налагодження"
         },
         "saveSettings": "Зберегти налаштування"
+      }
+    },
+    "status": {
+      "connected": "Підключено",
+      "beta": "Бета",
+      "comingSoon": "Незабаром",
+      "disabled": "Вимкнено",
+      "planned": "Заплановано",
+      "success": "Успіх",
+      "failed": "Збій",
+      "running": "Виконується",
+      "pending": "Очікування",
+      "retried": "Повтор"
+    },
+    "difficulty": {
+      "starter": "Початковий",
+      "intermediate": "Середній",
+      "advanced": "Просунутий"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "Тригер",
+        "description": "Запустити, коли станеться подія"
+      },
+      "el-condition": {
+        "label": "Умова",
+        "description": "Розгалужуй за правилами"
+      },
+      "el-delay": {
+        "label": "Затримка",
+        "description": "Зачекати перед продовженням"
+      },
+      "el-approval": {
+        "label": "Затвердження",
+        "description": "Шлюз людського затвердження"
+      },
+      "el-loop": {
+        "label": "Цикл",
+        "description": "Ітерувати колекцію"
+      },
+      "el-merge": {
+        "label": "Об’єднати",
+        "description": "Об’єднати паралельні шляхи"
+      },
+      "el-split": {
+        "label": "Розділити",
+        "description": "Розвести паралельні шляхи"
+      },
+      "el-ai-decision": {
+        "label": "Рішення ШІ",
+        "description": "Маршрутизувати через ШІ"
+      },
+      "el-notification": {
+        "label": "Сповіщення",
+        "description": "Сповіщення в застосунку"
+      },
+      "el-webhook": {
+        "label": "Заповнювач Webhook",
+        "description": "HTTP-колбек зарезервовано"
+      },
+      "el-custom": {
+        "label": "Користувацька дія",
+        "description": "Розширюваний слот дії"
+      },
+      "tr-customer": {
+        "label": "Клієнта створено",
+        "description": "Створено запис клієнта CRM"
+      },
+      "tr-lead": {
+        "label": "Лід створено",
+        "description": "Новий лід потрапляє в воронку"
+      },
+      "tr-invoice": {
+        "label": "Рахунок створено",
+        "description": "Виставлено фінансовий рахунок"
+      },
+      "tr-invoice-paid": {
+        "label": "Рахунок оплачено",
+        "description": "Платіж завершено"
+      },
+      "tr-order": {
+        "label": "Замовлення створено",
+        "description": "Замовлення введено"
+      },
+      "tr-order-done": {
+        "label": "Замовлення виконано",
+        "description": "Замовлення виконано"
+      },
+      "tr-doc": {
+        "label": "Документ передано",
+        "description": "Передавання до сховища документів"
+      },
+      "tr-campaign": {
+        "label": "Кампанію опубліковано",
+        "description": "Публікація Creator Studio"
+      },
+      "tr-employee": {
+        "label": "Працівника додано",
+        "description": "Зміна в каталозі команди"
+      },
+      "tr-task": {
+        "label": "Завдання виконано",
+        "description": "Завдання позначено виконаним"
+      },
+      "tr-manual": {
+        "label": "Ручний тригер",
+        "description": "Запуск на вимогу"
+      },
+      "tr-schedule": {
+        "label": "Тригер розкладу",
+        "description": "Розклад cron / календар"
+      },
+      "tr-webhook": {
+        "label": "Тригер Webhook",
+        "description": "Вхідна HTTP-подія"
+      },
+      "tr-api": {
+        "label": "Тригер API",
+        "description": "Програмний запуск"
+      },
+      "ac-crm": {
+        "label": "Створити запис CRM",
+        "description": "Записати сутність CRM"
+      },
+      "ac-invoice": {
+        "label": "Сформувати рахунок",
+        "description": "Фінансовий рахунок"
+      },
+      "ac-quote": {
+        "label": "Сформувати пропозицію",
+        "description": "Створити документ пропозиції"
+      },
+      "ac-delivery": {
+        "label": "Сформувати накладну",
+        "description": "Накладна"
+      },
+      "ac-task": {
+        "label": "Створити завдання",
+        "description": "Відкрити завдання"
+      },
+      "ac-assign": {
+        "label": "Призначити працівника",
+        "description": "Направити колезі"
+      },
+      "ac-email": {
+        "label": "Надіслати ел. лист",
+        "description": "Вихідний лист"
+      },
+      "ac-notify": {
+        "label": "Надіслати сповіщення",
+        "description": "Сповіщення в застосунку"
+      },
+      "ac-ai-summary": {
+        "label": "Сформувати підсумок ШІ",
+        "description": "Стиснути контекст"
+      },
+      "ac-ai-content": {
+        "label": "Сформувати вміст ШІ",
+        "description": "Чернетка Creator Studio"
+      },
+      "ac-update-customer": {
+        "label": "Оновити клієнта",
+        "description": "Оновити клієнта CRM"
+      },
+      "ac-update-status": {
+        "label": "Оновити статус",
+        "description": "Змінити статус сутності"
+      },
+      "ac-pdf": {
+        "label": "Експорт PDF",
+        "description": "Експорт документа"
+      },
+      "ac-future": {
+        "label": "Заповнювач майбутнього API",
+        "description": "Зарезервований слот дії"
+      },
+      "ai-decision": {
+        "label": "Рішення ШІ",
+        "description": "Визначити наступний шлях"
+      },
+      "ai-class": {
+        "label": "Класифікація ШІ",
+        "description": "Класифікувати записи"
+      },
+      "ai-text": {
+        "label": "Генерація тексту ШІ",
+        "description": "Згенерувати текст"
+      },
+      "ai-translate": {
+        "label": "Переклад ШІ",
+        "description": "Перекласти вміст"
+      },
+      "ai-email": {
+        "label": "Відповідь ШІ ел. поштою",
+        "description": "Чернетка відповіді"
+      },
+      "ai-sum": {
+        "label": "Підсумок ШІ",
+        "description": "Стиснути контекст"
+      },
+      "ai-rec": {
+        "label": "Рекомендації ШІ",
+        "description": "Запропонувати наступні кроки"
+      },
+      "ai-route": {
+        "label": "Маршрутизація ШІ",
+        "description": "Направити власнику / в чергу"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "Клієнт створено",
+        "description": "Спрацьовує, коли створюється клієнт CRM."
+      },
+      "project_created": {
+        "label": "Проект створено",
+        "description": "Спрацьовує, коли створюється проєкт."
+      },
+      "invoice_issued": {
+        "label": "Рахунок виставлено",
+        "description": "Спрацьовує, коли виставляється рахунок."
+      },
+      "task_completed": {
+        "label": "Завдання виконано",
+        "description": "Спрацьовує, коли завдання позначено виконаним."
+      },
+      "document_uploaded": {
+        "label": "Документ завантажено",
+        "description": "Спрацьовує, коли документ завантажено."
+      },
+      "user_invited": {
+        "label": "Користувача запрошено",
+        "description": "Спрацьовує, коли запрошують учасника команди."
+      },
+      "schedule": {
+        "label": "розклад",
+        "description": "Тригер розкладу cron / інтервалу."
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "Вхідний HTTP-webhook."
+      },
+      "api_event": {
+        "label": "Подія API",
+        "description": "Загальна доменна подія API."
+      },
+      "ai_event": {
+        "label": "Подія ШІ",
+        "description": "Сигнал ШІ (завершення, інсайт, крок агента)."
+      },
+      "manual": {
+        "label": "Ручний тригер",
+        "description": "Запуск на вимогу з UI або API."
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "Створити клієнта",
+        "description": "Створити запис клієнта CRM."
+      },
+      "customer_update": {
+        "label": "Оновити клієнта",
+        "description": "Оновити поля клієнта."
+      },
+      "project_create": {
+        "label": "Створити проект",
+        "description": "Створити проєкт із контексту процесу."
+      },
+      "document_generate": {
+        "label": "Згенерувати документ",
+        "description": "Згенерувати документ із шаблону."
+      },
+      "notification_send": {
+        "label": "Надіслати сповіщення",
+        "description": "Надіслати сповіщення в застосунку."
+      },
+      "email_send": {
+        "label": "Надіслати ел. лист",
+        "description": "Поставити лист у чергу через провайдера."
+      },
+      "api_call": {
+        "label": "Виклик API",
+        "description": "HTTP-виклик внутрішнього або зовнішнього API."
+      },
+      "ai_run": {
+        "label": "Запустити ШІ",
+        "description": "Виконати промпт ШІ / крок агента з контекстом."
+      },
+      "task_assign": {
+        "label": "Призначити завдання",
+        "description": "Призначити завдання користувачу."
+      },
+      "invoice_create": {
+        "label": "Створити рахунок-фактуру",
+        "description": "Створити фінансовий рахунок."
+      },
+      "status_update": {
+        "label": "Оновити статус",
+        "description": "Оновити статус сутності в модулі."
       }
     }
   },
@@ -3185,7 +3550,7 @@
       "title": "Запрошення в очікуванні",
       "emptyTitle": "Немає незавершених запрошень",
       "emptyDescription": "Нові запрошення з’являтимуться тут, доки не буде прийнято або термін дії не закінчиться.",
-      "expires": "{роль} · закінчується {дата}",
+      "expires": "{role} · закінчується {date}",
       "revoke": "Відкликати",
       "pending": "в очікуванні"
     },
@@ -3221,9 +3586,9 @@
       "view": "Переглянути",
       "edit": "Редагувати",
       "delete": "Видалити",
-      "viewAria": "Переглянути {компанію}",
-      "editAria": "Редагувати {компанію}",
-      "deleteAria": "Видалити {компанію}",
+      "viewAria": "Переглянути {company}",
+      "editAria": "Редагувати {company}",
+      "deleteAria": "Видалити {company}",
       "loading": "Завантаження клієнтів…",
       "errorLoad": "Не вдалося завантажити клієнтів",
       "errorGeneric": "Щось пішло не так",
@@ -3300,6 +3665,18 @@
       "updated": "Оновлено",
       "notes": "Примітки",
       "noNotes": "Приміток ще немає."
+    },
+    "validation": {
+      "companyRequired": "Назва компанії обов’язкова.",
+      "contactRequired": "Контактна особа обов’язкова.",
+      "emailRequired": "Ел. пошта обов’язкова.",
+      "emailInvalid": "Введіть дійсну адресу ел. пошти.",
+      "phoneRequired": "Телефон обов’язковий.",
+      "phoneInvalid": "Введіть дійсний номер телефону.",
+      "mobileInvalid": "Введіть дійсний номер мобільного.",
+      "statusInvalid": "Виберіть дійсний статус.",
+      "emailDuplicate": "Клієнт із цією ел. поштою вже існує.",
+      "companyDuplicate": "Клієнт із цією назвою компанії вже існує."
     }
   },
   "ai": {
@@ -3320,7 +3697,7 @@
       "provider": "Провайдер",
       "model": "Модель",
       "estimatedTokens": "Приблизно жетони",
-      "tokensInOut": "(вхід {вхід} / вихід {вихід})",
+      "tokensInOut": "(вхід {in} / вихід {out})",
       "cost": "Вартість",
       "context": "Місцевість ",
       "contextNone": "немає",
@@ -3383,6 +3760,91 @@
       "placeholder": "ШІ командувати… підсумовувати, пропонувати, аналізувати…",
       "noMatches": "Немає відповідних команд",
       "footer": "Реєструйте майбутні команди через registerAiCommand — інтерфейс користувача залишається без змін."
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "Проєкти",
+      "finance": "Фінанси",
+      "marketing": "Маркетинг",
+      "documents": "Документи",
+      "automation": "Автоматизація",
+      "general": "Загальне"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "Підсумувати клієнта",
+        "description": "Короткий підсумок відносин із клієнтом"
+      },
+      "crm-follow-up-email": {
+        "title": "Лист для подальших кроків",
+        "description": "Чернетка професійного CRM-фолоуапу"
+      },
+      "projects-analyze": {
+        "title": "Проаналізувати проєкт",
+        "description": "Перевірка стану проєкту"
+      },
+      "projects-task-list": {
+        "title": "Створити список завдань",
+        "description": "Розбити роботу на дієві завдання"
+      },
+      "finance-explain-invoice": {
+        "title": "Пояснити рахунок",
+        "description": "Пояснення рахунку простою мовою"
+      },
+      "finance-cashflow-brief": {
+        "title": "Короткий огляд грошового потоку",
+        "description": "Короткий опис грошового потоку"
+      },
+      "marketing-campaign-outline": {
+        "title": "Контур кампанії",
+        "description": "Структурувати маркетингову кампанію"
+      },
+      "marketing-proposal": {
+        "title": "Сформувати пропозицію",
+        "description": "Чернетка пропозиції для клієнта"
+      },
+      "documents-summarize": {
+        "title": "Підсумувати документ",
+        "description": "Структурований підсумок документа"
+      },
+      "automation-workflow": {
+        "title": "Спроєктувати робочий процес",
+        "description": "Ескіз автоматизаційного процесу"
+      },
+      "general-brainstorm": {
+        "title": "Мозковий штурм варіантів",
+        "description": "Структуроване генерування ідей"
+      },
+      "general-explain": {
+        "title": "Пояснити просто",
+        "description": "Зрозуміле пояснення для зацікавлених сторін"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "Підсумувати клієнта",
+        "description": "Короткий підсумок активного клієнта"
+      },
+      "cmd-generate-proposal": {
+        "label": "Сформувати пропозицію",
+        "description": "Чернетка структури клієнтської пропозиції"
+      },
+      "cmd-analyze-project": {
+        "label": "Проаналізувати проєкт",
+        "description": "Стан проєкту та аналіз ризиків"
+      },
+      "cmd-create-task-list": {
+        "label": "Створити список завдань",
+        "description": "Розбити роботу на дієві завдання"
+      },
+      "cmd-generate-email": {
+        "label": "Сформувати лист",
+        "description": "Чернетка професійного листа"
+      },
+      "cmd-explain-invoice": {
+        "label": "Пояснити рахунок",
+        "description": "Пояснення рахунку простою мовою"
+      }
     }
   },
   "agents": {
@@ -3404,7 +3866,7 @@
       "settings": "Налаштування"
     },
     "notice": {
-      "simulatedRun": "Змодельований запуск · {статус} ({тривалість} мс)",
+      "simulatedRun": "Змодельований запуск · {status} ({duration} мс)",
       "taskFailed": "Завдання не виконано",
       "activated": "Активовано локально: {agentId}",
       "agentPaused": "Агент зробив паузу",
@@ -3429,15 +3891,15 @@
     "registry": {
       "title": "компаній",
       "selectPrompt": "Виберіть агента з реєстру.",
-      "status": "Статус: {статус}",
-      "health": "Здоров'я: {здоров'я}",
+      "status": "Статус: {status}",
+      "health": "Здоров'я: {health}",
       "queue": "Черга: {queue}",
       "usage": "Використання: {usage}",
       "executeTask": "Виконати завдання",
       "supervisorDelegate": "Делегат керівника"
     },
     "marketplace": {
-      "tools": "Інструменти: {інструменти}",
+      "tools": "Інструменти: {tools}",
       "installed": "встановлено",
       "installActivate": "Встановити та активувати"
     },
@@ -3504,6 +3966,10 @@
     "goals": {
       "executeBusiness": "Виконайте бізнес-ціль {agentId}",
       "planAndExecute": "Плануйте та виконуйте бізнес-ціль робочого простору"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "Пріоритезувати вплив на клієнта",
+      "delegatedFollowUp": "Делегований фолоуап"
     }
   },
   "integrations": {
@@ -3525,14 +3991,14 @@
     "notice": {
       "demoConnection": "Демонстраційне підключення: {name} (лише локальна заглушка)",
       "connectFailed": "Помилка підключення",
-      "keyCreated": "Ключ API створено: {префікс}",
+      "keyCreated": "Ключ API створено: {prefix}",
       "webhookCreated": "Вебхук створено: {name}",
-      "webhookTest": "Тест вебхуку {статус}",
+      "webhookTest": "Тест вебхуку {status}",
       "networkError": "Помилка мережі API Explorer: {message}",
-      "explorerError": "Провідник API → {статус}: {повідомлення}",
-      "explorerSuccess": "Провідник API → {статус}",
+      "explorerError": "Провідник API → {status}: {message}",
+      "explorerSuccess": "Провідник API → {status}",
       "explorerFailed": "Провідник не впорався",
-      "syncResult": "Демонстраційна синхронізація · {статус} ({записи} локальні записи) — зовнішні дані не передано.",
+      "syncResult": "Демонстраційна синхронізація · {status} ({records} локальні записи) — зовнішні дані не передано.",
       "diagnosed": "Діагностовано",
       "removedConnection": "Видалено демо-підключення: {name}",
       "keyRotated": "Ключ повернено",
@@ -3560,10 +4026,10 @@
       "title": "Встановлені інтеграції",
       "emptyTitle": "Нічого не встановлено",
       "emptyDescription": "Встановити з доступного каталогу.",
-      "latestSync": "Остання синхронізація: {статус} · {записів} записів · режим {режим}"
+      "latestSync": "Остання синхронізація: {status} · {records} записів · режим {mode}"
     },
     "available": {
-      "protocols": "Протоколи: {протоколи}",
+      "protocols": "Протоколи: {protocols}",
       "demoConnection": "Демо підключення",
       "connectDemo": "Connect (демо)",
       "installDemo": "Встановити демо"
@@ -3576,7 +4042,7 @@
     "apiKeys": {
       "title": "Ключі API",
       "generateKey": "Згенерувати ключ",
-      "copyOnce": "Копіювати зараз (показано один раз): {секрет}",
+      "copyOnce": "Копіювати зараз (показано один раз): {secret}",
       "emptyTitle": "Немає ключів API",
       "emptyDescription": "Згенеруйте ключ для доступу до шлюзу REST."
     },
@@ -3646,7 +4112,7 @@
     },
     "errors": {
       "failedToFetch": "Не вдалося отримати",
-      "httpStatus": "HTTP {статус}"
+      "httpStatus": "HTTP {status}"
     }
   },
   "intelligence": {
@@ -3736,7 +4202,7 @@
       "emptyTitle": "Прогнозів ще немає",
       "emptyDescription": "Демонстраційні прогнози з’являються після заповнення. Прогностичні моделі не пов'язані.",
       "title": "{kind} прогноз",
-      "baseline": "Базова лінія {базова лінія} → прогнозована {прогнозована} ({днів}д)",
+      "baseline": "Базова лінія {baseline} → прогнозована {projected} ({days}д)",
       "confidence": "Демо · Впевненість {confidence} — {note}"
     },
     "alerts": {
@@ -3790,7 +4256,7 @@
       "brand": "АГКСОРА",
       "navLabel": "Правова навігація",
       "lastUpdated": "Останнє оновлення: {date}",
-      "footerCopyright": "© 2026 {компанія}",
+      "footerCopyright": "© 2026 {company}",
       "footerNavLabel": "Юридичний колонтитул",
       "nav": {
         "privacy": "Конфіденційність",
@@ -3944,7 +4410,134 @@
     "back": "Назад",
     "continue": "Продовжити",
     "launching": "Запуск...",
-    "enterDashboard": "Введіть інформаційну панель"
+    "enterDashboard": "Введіть інформаційну панель",
+    "defaultCountry": "Сполучені Штати",
+    "businessTypes": {
+      "hotel": {
+        "label": "Готель",
+        "description": "Гостинність, номери, гості та експлуатація об’єкта"
+      },
+      "restaurant": {
+        "label": "Ресторан",
+        "description": "Ресторан, кухня, бронювання та досвід гостя"
+      },
+      "cleaning": {
+        "label": "Прибирання",
+        "description": "Комерційне та житлове прибирання"
+      },
+      "laundry": {
+        "label": "Пральня",
+        "description": "Пральні, маршрути збору та догляд за текстилем"
+      },
+      "construction": {
+        "label": "Будівництво",
+        "description": "Майданчики, бригади, матеріали та здача проєктів"
+      },
+      "healthcare": {
+        "label": "Охорона здоров’я",
+        "description": "Мережі допомоги, пацієнти та клінічні операції"
+      },
+      "medical": {
+        "label": "Медицина",
+        "description": "Клініки, прийоми та команди допомоги"
+      },
+      "manufacturing": {
+        "label": "Виробництво",
+        "description": "Лінії, якість і постачання"
+      },
+      "retail": {
+        "label": "Роздріб",
+        "description": "Магазини, запаси, мерчандайзинг і клієнти"
+      },
+      "legal": {
+        "label": "Юридична фірма",
+        "description": "Справи, клієнти, дедлайни та білінг"
+      },
+      "accounting": {
+        "label": "Бухгалтерія",
+        "description": "Книги, клієнти, подання та консультації"
+      },
+      "consulting": {
+        "label": "Консалтинг",
+        "description": "Завдання, результати та підсумки клієнтів"
+      },
+      "real_estate": {
+        "label": "Нерухомість",
+        "description": "Оголошення, клієнти, покази та угоди"
+      },
+      "education": {
+        "label": "Освіта",
+        "description": "Програми, студенти, викладачі та набір"
+      },
+      "automotive": {
+        "label": "Автомобільна галузь",
+        "description": "Дилери, пости ТО та склад авто"
+      },
+      "beauty": {
+        "label": "Салон краси",
+        "description": "Записи, стилісти, роздріб і членства"
+      },
+      "fitness": {
+        "label": "Зал / фітнес",
+        "description": "Членства, заняття, тренери та утримання"
+      },
+      "agriculture": {
+        "label": "Сільське господарство",
+        "description": "Культури, худоба, урожайність і ланцюги постачання"
+      },
+      "transport": {
+        "label": "Транспорт",
+        "description": "Рух флоту, маршрути та пасажирсько-вантажні операції"
+      },
+      "logistics": {
+        "label": "Логістика",
+        "description": "Флот, склади, маршрути та фулфілмент"
+      },
+      "warehouse": {
+        "label": "Склад",
+        "description": "Зберігання, комплектація, пакування та оборот запасів"
+      },
+      "insurance": {
+        "label": "Страхування",
+        "description": "Поліси, збитки, андерайтинг і утримання"
+      },
+      "finance": {
+        "label": "Фінанси",
+        "description": "Капітал, портфелі та фінансові операції"
+      },
+      "financial_services": {
+        "label": "Фінансові послуги",
+        "description": "Консультації, продукти, комплаєнс і клієнти"
+      },
+      "technology": {
+        "label": "Технології",
+        "description": "Продукт, інженерія та команди виходу на ринок"
+      },
+      "saas": {
+        "label": "ПЗ / SaaS",
+        "description": "Підписки, використання та customer success"
+      },
+      "ecommerce": {
+        "label": "Електронна комерція",
+        "description": "Онлайн-каталог, кошики, фулфілмент і LTV"
+      },
+      "agency": {
+        "label": "Маркетингове агентство",
+        "description": "Клієнти, кампанії, ретейнери та поставка"
+      },
+      "freelancer": {
+        "label": "Фрилансер",
+        "description": "Індивідуальна практика, клієнти, воронка та грошовий потік"
+      },
+      "government": {
+        "label": "Держава",
+        "description": "Держпослуги, програми та мешканці"
+      },
+      "nonprofit": {
+        "label": "Неприбуткова",
+        "description": "Місії, донори, програми та вплив"
+      }
+    }
   },
   "creator": {
     "page": {
@@ -4052,6 +4645,47 @@
     },
     "aiFeaturesPanel": {
       "lead": "Карта функцій ШІ — ідеї, підписи, хештеги, календар, кампанії, аудиторія, розклад, узгодженість бренду, переписування, переклад, багатомовність."
+    },
+    "formats": {
+      "instagram_caption": "Підпис Instagram",
+      "tiktok_script": "Сценарій TikTok",
+      "linkedin_post": "Допис LinkedIn",
+      "facebook_post": "Допис Facebook",
+      "x_post": "Допис X",
+      "blog_article": "Стаття блогу",
+      "newsletter": "Розсилка",
+      "email_campaign": "Поштова кампанія",
+      "product_description": "Опис товару",
+      "ad_copy": "Рекламний текст",
+      "seo_article": "Стаття SEO",
+      "landing_page_copy": "Текст цільової сторінки"
+    },
+    "publishStatus": {
+      "draft": "Чернетка",
+      "review": "Перевірка",
+      "approved": "Затверджено",
+      "scheduled": "Заплановано",
+      "published": "Опубліковано",
+      "archive": "Архів"
+    },
+    "mediaKind": {
+      "image": "Зображення",
+      "video": "Відео",
+      "document": "Документ",
+      "logo": "Логотип бренду",
+      "template": "Шаблон"
+    },
+    "voice": {
+      "professional": "Професійний",
+      "friendly": "Дружній",
+      "luxury": "Люкс",
+      "casual": "Неформальний"
+    },
+    "integrationStatus": {
+      "planned": "Заплановано",
+      "ready": "Готово",
+      "connected": "Підключено",
+      "disabled": "Вимкнено"
     }
   },
   "backend": {
@@ -4065,7 +4699,7 @@
     },
     "network": {
       "offline": "Здається, ви офлайн",
-      "offlineSyncHint": "Changes may not sync until the connection returns.",
+      "offlineSyncHint": "Зміни можуть не синхронізуватися, доки з’єднання не відновиться.",
       "offlineHelp": "Офлайн довідка",
       "reconnected": "З'єднання відновлено"
     },
@@ -4111,7 +4745,10 @@
       "startFree": "Натомість почніть безкоштовно",
       "backHome": "Назад додому",
       "signIn": "Увійдіть"
-    }
+    },
+    "loading": "Завантаження",
+    "loadingEllipsis": "Завантаження…",
+    "loadingIdentity": "Завантаження ідентичності…"
   },
   "workspace": {
     "page": {
@@ -4262,28 +4899,28 @@
       "ariaLabel": "Перемикання робочого простору"
     },
     "access": {
-      "eyebrow": "Identity & Access",
-      "signIn": "Sign in",
-      "backToDashboard": "Back to dashboard",
+      "eyebrow": "Ідентичність і доступ",
+      "signIn": "Увійти",
+      "backToDashboard": "Назад до панелі",
       "unauthorized": {
-        "title": "Unauthorized",
-        "description": "Sign in to continue to this area of AGXORA."
+        "title": "Не авторизовано",
+        "description": "Увійдіть, щоб продовжити в цій частині AGXORA."
       },
       "forbidden": {
-        "title": "Forbidden",
-        "description": "Your role does not include permission for this resource."
+        "title": "Заборонено",
+        "description": "Ваша роль не включає дозвіл на цей ресурс."
       },
       "expired_session": {
-        "title": "Expired Session",
-        "description": "Your session expired. Sign in again to resume work."
+        "title": "Сеанс закінчився",
+        "description": "Сеанс закінчився. Увійдіть знову, щоб продовжити роботу."
       },
       "missing_permission": {
-        "title": "Missing Permission",
-        "description": "Ask an Owner or Admin to grant the required module access."
+        "title": "Відсутній дозвіл",
+        "description": "Попросіть власника або адміністратора надати потрібний доступ до модуля."
       },
       "account_locked": {
-        "title": "Account Locked",
-        "description": "This account is locked. Contact an organization owner or try again later."
+        "title": "Обліковий запис заблоковано",
+        "description": "Цей обліковий запис заблоковано. Зверніться до власника організації або спробуйте пізніше."
       }
     },
     "verifyEmail": {

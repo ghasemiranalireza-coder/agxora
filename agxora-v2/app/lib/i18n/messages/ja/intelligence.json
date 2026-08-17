@@ -8,7 +8,7 @@
   "noPermission": "このワークスペースに対するIntelligence.read権限がありません。",
   "filtersUpdated": "フィルターが更新されました",
   "demoReloaded": "このワークスペースのデモ データセットが再ロードされました。",
-  "acknowledged": "了承しました: {タイトル}",
+  "acknowledged": "了承しました: {title}",
   "exportUnavailableTitle": "エクスポートは利用できません — レポート生成はまだ接続されていません。",
   "exportUnavailableAria": "{title} を {format} としてエクスポート — 利用できません",
   "tabs": {
@@ -79,7 +79,7 @@
   "insights": {
     "emptyTitle": "まだ洞察はありません",
     "emptyDescription": "デモの分析情報は、ワークスペース シードの後に​​表示されます。ライブ AI インサイト生成は接続されていません。",
-    "badge": "デモ · {種類} · {ドメイン} · conf {信頼度}"
+    "badge": "デモ · {kind} · {domain} · conf {confidence}"
   },
   "forecasts": {
     "emptyTitle": "まだ予測はありません",

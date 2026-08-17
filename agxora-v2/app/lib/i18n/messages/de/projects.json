@@ -29,7 +29,7 @@
     "previous": "Zurück",
     "next": "Weiter",
     "noDescription": "Keine Beschreibung.",
-    "duePrefix": "Fälligkeitstag",
+    "duePrefix": "Due {date}",
     "openProject": "Projekt {name} öffnen",
     "sortBy": "Sortieren nach {column}",
     "sort": {
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "Fortschritt",
-    "progressAria": "Wert des Labels"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "planung",
@@ -149,7 +149,7 @@
       "budgetOverview": "Budgetübersicht",
       "budgetHint": "{percent}% verwendet · {spent} ausgegeben",
       "openTasks": "Offene Aufgaben",
-      "openTasksHint": "{überfällig}",
+      "openTasksHint": "{overdue}",
       "projectHealth": "Projektstatus",
       "healthHint": "KOMPOSIT-LIEFER",
       "upcomingDeadlines": "Die nächsten Termine",
@@ -176,7 +176,7 @@
     "emptyTitle": "Keine Aufgaben auf dem Board",
     "emptyDescription": "Erstellen Sie Aufgaben, um die Lieferung über To Do, In Bearbeitung, Überprüfung und Fertig zu organisieren.",
     "addTask": "Aufgabe hinzufügen",
-    "columnAria": "Statusspalte",
+    "columnAria": "{status} column",
     "taskProgress": "Fortschritt der Aufgabe",
     "edit": "Bearbeiten",
     "complete": "Abgeschlossen"
@@ -294,5 +294,30 @@
     "memberAdded": "Mitglied hinzugefügt.",
     "settingsSaved": "Einstellungen gespeichert",
     "projectArchived": "Projekt archiviert"
+  },
+  "validation": {
+    "nameRequired": "Der Projektname ist erforderlich.",
+    "nameMin": "Der Projektname muss mindestens 2 Zeichen haben.",
+    "customerRequired": "Kunde ist erforderlich.",
+    "ownerRequired": "Projektinhaber ist erforderlich.",
+    "priorityInvalid": "Wählen Sie eine gültige Priorität.",
+    "statusInvalid": "Wählen Sie einen gültigen Status.",
+    "currencyInvalid": "Wählen Sie eine gültige Währung.",
+    "budgetInvalid": "Das Budget muss eine nicht negative Zahl sein.",
+    "startDateRequired": "Startdatum ist erforderlich.",
+    "startDateInvalid": "Geben Sie ein gültiges Startdatum ein.",
+    "dueDateInvalid": "Geben Sie ein gültiges Fälligkeitsdatum ein.",
+    "dueDateOrder": "Das Fälligkeitsdatum muss am oder nach dem Startdatum liegen.",
+    "colorInvalid": "Wählen Sie eine gültige Farbe.",
+    "iconInvalid": "Wählen Sie ein gültiges Symbol.",
+    "taskTitleRequired": "Der Aufgabentitel ist erforderlich.",
+    "progressRange": "Der Fortschritt muss zwischen 0 und 100 liegen.",
+    "memberNameRequired": "Der Mitgliedername ist erforderlich.",
+    "emailRequired": "E-Mail ist erforderlich.",
+    "emailInvalid": "Geben Sie eine gültige E-Mail-Adresse ein.",
+    "roleInvalid": "Wählen Sie eine gültige Rolle.",
+    "noteTitleRequired": "Der Notiztitel ist erforderlich.",
+    "noteBodyRequired": "Der Notizinhalt ist erforderlich.",
+    "authorRequired": "Autor ist erforderlich."
   }
 }

@@ -45,7 +45,7 @@
     "disabled": "Wyłączony",
     "enabled": "Włączony",
     "days": "{count} dni",
-    "minutes": "{liczba} min",
+    "minutes": "{count} min",
     "toggleIdlePolicy": "Przełącz symbol zastępczy bezczynnych zasad",
     "previewSessionExpired": "Sesja podglądu wygasła",
     "previewAccountLocked": "Konto podglądowe zablokowane",
@@ -145,5 +145,30 @@
     "verify": "Zweryfikuj adres e-mail",
     "verifying": "Weryfikuję…",
     "requestToken": "Poproś o token weryfikacyjny"
+  },
+  "access": {
+    "eyebrow": "Tożsamość i dostęp",
+    "signIn": "Zaloguj się",
+    "backToDashboard": "Powrót do pulpitu",
+    "unauthorized": {
+      "title": "Brak autoryzacji",
+      "description": "Zaloguj się, aby kontynuować w tym obszarze AGXORA."
+    },
+    "forbidden": {
+      "title": "Zabronione",
+      "description": "Twoja rola nie obejmuje uprawnienia do tego zasobu."
+    },
+    "expired_session": {
+      "title": "Sesja wygasła",
+      "description": "Sesja wygasła. Zaloguj się ponownie, aby wznowić pracę."
+    },
+    "missing_permission": {
+      "title": "Brak uprawnienia",
+      "description": "Poproś właściciela lub administratora o przyznanie wymaganego dostępu do modułu."
+    },
+    "account_locked": {
+      "title": "Konto zablokowane",
+      "description": "To konto jest zablokowane. Skontaktuj się z właścicielem organizacji lub spróbuj ponownie później."
+    }
   }
 }

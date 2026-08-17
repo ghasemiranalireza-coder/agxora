@@ -100,7 +100,7 @@
     "noticeDefault": "Перегляньте шаблон перед завантаженням у конструктор.",
     "noticeLoaded": "Завантажено \"{name}\" у конструктор робочих циклів.",
     "nodesBadge": "{count} вузлів",
-    "recommendedFor": "Рекомендовано для: {для}",
+    "recommendedFor": "Рекомендовано для: {for}",
     "preview": "Попередній перегляд",
     "useTemplate": "Використовуйте шаблон",
     "previewTitle": "Попередній перегляд шаблону",
@@ -136,9 +136,9 @@
       "runResult": "Запустити {status} ({duration} мс)",
       "runFailed": "Не вдалося запустити робочий процес (вимкнено або відсутній).",
       "publishedEvent": "Опублікована подія домену: {type}",
-      "workflowStatus": "Робочий процес {статус}",
+      "workflowStatus": "Робочий процес {status}",
       "saved": "Робочий процес збережено",
-      "retryResult": "Повторити {статус}",
+      "retryResult": "Повторити {status}",
       "retryFailed": "Повторна спроба не вдалася",
       "settingsSaved": "Налаштування автоматизації збережено"
     },
@@ -226,7 +226,315 @@
       "concurrencyLimit": "Ліміт паралельності",
       "timeoutMs": "Час очікування (мс)",
       "logLevel": "Рівень журналу",
-      "saveSettings": "Зберегти налаштування"
+      "saveSettings": "Зберегти налаштування",
+      "logLevels": {
+        "error": "помилка",
+        "warn": "попередження",
+        "info": "інфо",
+        "debug": "налагодження"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Порожній робочий процес"
+  },
+  "status": {
+    "connected": "Підключено",
+    "beta": "Бета",
+    "comingSoon": "Незабаром",
+    "disabled": "Вимкнено",
+    "planned": "Заплановано",
+    "success": "Успіх",
+    "failed": "Збій",
+    "running": "Виконується",
+    "pending": "Очікування",
+    "retried": "Повтор"
+  },
+  "difficulty": {
+    "starter": "Початковий",
+    "intermediate": "Середній",
+    "advanced": "Просунутий"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Тригер",
+      "description": "Запустити, коли станеться подія"
+    },
+    "el-condition": {
+      "label": "Умова",
+      "description": "Розгалужуй за правилами"
+    },
+    "el-delay": {
+      "label": "Затримка",
+      "description": "Зачекати перед продовженням"
+    },
+    "el-approval": {
+      "label": "Затвердження",
+      "description": "Шлюз людського затвердження"
+    },
+    "el-loop": {
+      "label": "Цикл",
+      "description": "Ітерувати колекцію"
+    },
+    "el-merge": {
+      "label": "Об’єднати",
+      "description": "Об’єднати паралельні шляхи"
+    },
+    "el-split": {
+      "label": "Розділити",
+      "description": "Розвести паралельні шляхи"
+    },
+    "el-ai-decision": {
+      "label": "Рішення ШІ",
+      "description": "Маршрутизувати через ШІ"
+    },
+    "el-notification": {
+      "label": "Сповіщення",
+      "description": "Сповіщення в застосунку"
+    },
+    "el-webhook": {
+      "label": "Заповнювач Webhook",
+      "description": "HTTP-колбек зарезервовано"
+    },
+    "el-custom": {
+      "label": "Користувацька дія",
+      "description": "Розширюваний слот дії"
+    },
+    "tr-customer": {
+      "label": "Клієнта створено",
+      "description": "Створено запис клієнта CRM"
+    },
+    "tr-lead": {
+      "label": "Лід створено",
+      "description": "Новий лід потрапляє в воронку"
+    },
+    "tr-invoice": {
+      "label": "Рахунок створено",
+      "description": "Виставлено фінансовий рахунок"
+    },
+    "tr-invoice-paid": {
+      "label": "Рахунок оплачено",
+      "description": "Платіж завершено"
+    },
+    "tr-order": {
+      "label": "Замовлення створено",
+      "description": "Замовлення введено"
+    },
+    "tr-order-done": {
+      "label": "Замовлення виконано",
+      "description": "Замовлення виконано"
+    },
+    "tr-doc": {
+      "label": "Документ передано",
+      "description": "Передавання до сховища документів"
+    },
+    "tr-campaign": {
+      "label": "Кампанію опубліковано",
+      "description": "Публікація Creator Studio"
+    },
+    "tr-employee": {
+      "label": "Працівника додано",
+      "description": "Зміна в каталозі команди"
+    },
+    "tr-task": {
+      "label": "Завдання виконано",
+      "description": "Завдання позначено виконаним"
+    },
+    "tr-manual": {
+      "label": "Ручний тригер",
+      "description": "Запуск на вимогу"
+    },
+    "tr-schedule": {
+      "label": "Тригер розкладу",
+      "description": "Розклад cron / календар"
+    },
+    "tr-webhook": {
+      "label": "Тригер Webhook",
+      "description": "Вхідна HTTP-подія"
+    },
+    "tr-api": {
+      "label": "Тригер API",
+      "description": "Програмний запуск"
+    },
+    "ac-crm": {
+      "label": "Створити запис CRM",
+      "description": "Записати сутність CRM"
+    },
+    "ac-invoice": {
+      "label": "Сформувати рахунок",
+      "description": "Фінансовий рахунок"
+    },
+    "ac-quote": {
+      "label": "Сформувати пропозицію",
+      "description": "Створити документ пропозиції"
+    },
+    "ac-delivery": {
+      "label": "Сформувати накладну",
+      "description": "Накладна"
+    },
+    "ac-task": {
+      "label": "Створити завдання",
+      "description": "Відкрити завдання"
+    },
+    "ac-assign": {
+      "label": "Призначити працівника",
+      "description": "Направити колезі"
+    },
+    "ac-email": {
+      "label": "Надіслати ел. лист",
+      "description": "Вихідний лист"
+    },
+    "ac-notify": {
+      "label": "Надіслати сповіщення",
+      "description": "Сповіщення в застосунку"
+    },
+    "ac-ai-summary": {
+      "label": "Сформувати підсумок ШІ",
+      "description": "Стиснути контекст"
+    },
+    "ac-ai-content": {
+      "label": "Сформувати вміст ШІ",
+      "description": "Чернетка Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "Оновити клієнта",
+      "description": "Оновити клієнта CRM"
+    },
+    "ac-update-status": {
+      "label": "Оновити статус",
+      "description": "Змінити статус сутності"
+    },
+    "ac-pdf": {
+      "label": "Експорт PDF",
+      "description": "Експорт документа"
+    },
+    "ac-future": {
+      "label": "Заповнювач майбутнього API",
+      "description": "Зарезервований слот дії"
+    },
+    "ai-decision": {
+      "label": "Рішення ШІ",
+      "description": "Визначити наступний шлях"
+    },
+    "ai-class": {
+      "label": "Класифікація ШІ",
+      "description": "Класифікувати записи"
+    },
+    "ai-text": {
+      "label": "Генерація тексту ШІ",
+      "description": "Згенерувати текст"
+    },
+    "ai-translate": {
+      "label": "Переклад ШІ",
+      "description": "Перекласти вміст"
+    },
+    "ai-email": {
+      "label": "Відповідь ШІ ел. поштою",
+      "description": "Чернетка відповіді"
+    },
+    "ai-sum": {
+      "label": "Підсумок ШІ",
+      "description": "Стиснути контекст"
+    },
+    "ai-rec": {
+      "label": "Рекомендації ШІ",
+      "description": "Запропонувати наступні кроки"
+    },
+    "ai-route": {
+      "label": "Маршрутизація ШІ",
+      "description": "Направити власнику / в чергу"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Клієнт створено",
+      "description": "Спрацьовує, коли створюється клієнт CRM."
+    },
+    "project_created": {
+      "label": "Проект створено",
+      "description": "Спрацьовує, коли створюється проєкт."
+    },
+    "task_completed": {
+      "label": "Завдання виконано",
+      "description": "Спрацьовує, коли завдання позначено виконаним."
+    },
+    "document_uploaded": {
+      "label": "Документ завантажено",
+      "description": "Спрацьовує, коли документ завантажено."
+    },
+    "schedule": {
+      "label": "розклад",
+      "description": "Тригер розкладу cron / інтервалу."
+    },
+    "invoice_issued": {
+      "label": "Рахунок виставлено",
+      "description": "Спрацьовує, коли виставляється рахунок."
+    },
+    "user_invited": {
+      "label": "Користувача запрошено",
+      "description": "Спрацьовує, коли запрошують учасника команди."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Вхідний HTTP-webhook."
+    },
+    "api_event": {
+      "label": "Подія API",
+      "description": "Загальна доменна подія API."
+    },
+    "ai_event": {
+      "label": "Подія ШІ",
+      "description": "Сигнал ШІ (завершення, інсайт, крок агента)."
+    },
+    "manual": {
+      "label": "Ручний тригер",
+      "description": "Запуск на вимогу з UI або API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Створити клієнта",
+      "description": "Створити запис клієнта CRM."
+    },
+    "customer_update": {
+      "label": "Оновити клієнта",
+      "description": "Оновити поля клієнта."
+    },
+    "project_create": {
+      "label": "Створити проект",
+      "description": "Створити проєкт із контексту процесу."
+    },
+    "notification_send": {
+      "label": "Надіслати сповіщення",
+      "description": "Надіслати сповіщення в застосунку."
+    },
+    "email_send": {
+      "label": "Надіслати ел. лист",
+      "description": "Поставити лист у чергу через провайдера."
+    },
+    "invoice_create": {
+      "label": "Створити рахунок-фактуру",
+      "description": "Створити фінансовий рахунок."
+    },
+    "status_update": {
+      "label": "Оновити статус",
+      "description": "Оновити статус сутності в модулі."
+    },
+    "document_generate": {
+      "label": "Згенерувати документ",
+      "description": "Згенерувати документ із шаблону."
+    },
+    "api_call": {
+      "label": "Виклик API",
+      "description": "HTTP-виклик внутрішнього або зовнішнього API."
+    },
+    "ai_run": {
+      "label": "Запустити ШІ",
+      "description": "Виконати промпт ШІ / крок агента з контекстом."
+    },
+    "task_assign": {
+      "label": "Призначити завдання",
+      "description": "Призначити завдання користувачу."
     }
   }
 }

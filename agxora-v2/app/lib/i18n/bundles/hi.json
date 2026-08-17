@@ -1,16 +1,16 @@
 {
   "common": {
-    "save": "बचाना",
-    "saveChanges": "परिवर्तनों को सुरक्षित करें",
-    "cancel": "रद्द करना",
-    "close": "बंद करना",
-    "delete": "मिटाना",
-    "edit": "संपादन करना",
-    "search": "खोज",
-    "loading": "लोड हो रहा है...",
-    "retry": "पुन: प्रयास करें",
+    "save": "सहेजें",
+    "saveChanges": "परिवर्तन सहेजें",
+    "cancel": "रद्द करें",
+    "close": "बंद करें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "search": "खोजें",
+    "loading": "लोड हो रहा है…",
+    "retry": "पुनः प्रयास करें",
     "language": "भाषा",
-    "signIn": "दाखिल करना",
+    "signIn": "साइन इन",
     "signOut": "साइन आउट",
     "contact": "संपर्क",
     "privacy": "गोपनीयता",
@@ -32,9 +32,16 @@
     "sample": "नमूना",
     "showPassword": "पासवर्ड दिखाए",
     "hidePassword": "पासवर्ड छिपाएं",
-    "continue": "जारी रखना",
-    "back": "पीछे",
-    "home": "घर"
+    "continue": "जारी रखें",
+    "back": "वापस",
+    "home": "होम",
+    "loadingShort": "लोड हो रहा है",
+    "create": "बनाएँ",
+    "next": "अगला",
+    "previous": "पिछला",
+    "settings": "सेटिंग्स",
+    "profile": "प्रोफ़ाइल",
+    "dashboard": "डैशबोर्ड"
   },
   "navigation": {
     "dashboard": "डैशबोर्ड",
@@ -61,7 +68,7 @@
     "notificationsEmpty": "आप सब फंस गये हैं। अलर्ट और उल्लेख यहां दिखाई देंगे.",
     "accountSettings": "अकाउंट सेटिंग",
     "security": "सुरक्षा",
-    "themeToggle": "त्वरित थीम टॉगल. प्राथमिकता: {मोड}"
+    "themeToggle": "त्वरित थीम टॉगल. प्राथमिकता: {mode}"
   },
   "pricing": {
     "navLabel": "मूल्य निर्धारण नेविगेशन",
@@ -82,10 +89,10 @@
     "contactSales": "बिक्री से संपर्क करें",
     "perMonth": "/मो",
     "perMonthYearly": "/माह वार्षिक बिल भेजा गया",
-    "yearlyHint": "{राशि}/वर्ष · बचाएं {प्रतिशत}%",
+    "yearlyHint": "{amount}/वर्ष · बचाएं {percent}%",
     "commercialActions": "वाणिज्यिक क्रियाएँ",
     "legal": "कानूनी",
-    "planAria": "{नाम} योजना - {सीटीए}",
+    "planAria": "{name} योजना - {cta}",
     "plans": {
       "starter": {
         "name": "स्टार्टर",
@@ -156,16 +163,16 @@
       "currentPlan": "वर्तमान योजना",
       "recommended": "अनुशंसित",
       "contactSales": "बिक्री से संपर्क करें",
-      "pricePerMonth": "€{कीमत}/माह",
-      "users": "{गिनती} उपयोगकर्ता",
-      "aiRequests": "{गिनती} एआई अनुरोध/महीना",
-      "storage": "{गिनती} एमबी भंडारण",
-      "moduleFeatures": "{गिनती} मॉड्यूल विशेषताएं",
+      "pricePerMonth": "€{price}/माह",
+      "users": "{count} उपयोगकर्ता",
+      "aiRequests": "{count} एआई अनुरोध/महीना",
+      "storage": "{count} एमबी भंडारण",
+      "moduleFeatures": "{count} मॉड्यूल विशेषताएं",
       "choosePlan": "योजना चुनें",
       "processing": "प्रसंस्करण...",
-      "currentPlanAria": "{नाम} - वर्तमान योजना",
-      "contactSalesAria": "{नाम} - संपर्क विक्रय",
-      "choosePlanAria": "{नाम} - योजना चुनें"
+      "currentPlanAria": "{name} - वर्तमान योजना",
+      "contactSalesAria": "{name} - संपर्क विक्रय",
+      "choosePlanAria": "{name} - योजना चुनें"
     },
     "admin": {
       "eyebrow": "व्यवस्थापक",
@@ -177,7 +184,7 @@
       "allInvoices": "सभी चालान",
       "planCatalog": "योजना सूची",
       "custom": "रिवाज़",
-      "features": "{गिनती} विशेषताएँ",
+      "features": "{count} विशेषताएँ",
       "emailQueue": "ईमेल कतार (नकली)",
       "noEmails": "कोई ईमेल कतारबद्ध नहीं.",
       "commercialAudit": "वाणिज्यिक लेखापरीक्षा",
@@ -209,7 +216,7 @@
       "status": "स्थिति",
       "seats": "सीटें",
       "renewsTrial": "नवीनीकरण / परीक्षण",
-      "enabledModules": "सक्षम मॉड्यूल: {मॉड्यूल}",
+      "enabledModules": "सक्षम मॉड्यूल: {modules}",
       "none": "कोई नहीं",
       "renew": "नवीकरण",
       "cancelSubscription": "सदस्यता रद्द करें",
@@ -233,7 +240,7 @@
       "notifications": "सूचनाएं",
       "noNotifications": "कोई बिलिंग सूचना नहीं.",
       "noticeInitial": "बिलिंग वाणिज्यिक सेवा परत के माध्यम से चलती है - यूआई में कोई भुगतान एसडीके नहीं।",
-      "noticeActivated": "{providerId} (नकली चेकआउट) के माध्यम से सक्रिय {planId}।",
+      "noticeActivated": "{planId} (नकली चेकआउट) के माध्यम से सक्रिय {providerId}।",
       "noticeCheckoutFailed": "चेकआउट विफल रहा",
       "noticeCancelled": "सदस्यता रद्द कर दी गई.",
       "noticeRenewed": "अगली अवधि के लिए सदस्यता नवीनीकृत की गई।",
@@ -279,7 +286,7 @@
       "avatarUnavailable": "अवतार अपलोड अभी तक उपलब्ध नहीं है.",
       "appearanceNote": "उपस्थिति विन्यास उपस्थिति के अंतर्गत रहता है। हेडर केवल थीम को त्वरित टॉगल प्रदान करता है।",
       "prefsHint": "सभी मॉड्यूल में AI सहायकों द्वारा उपयोग किया जाता है।",
-      "themeResolved": "{मोड} (समाधान {उपस्थिति})",
+      "themeResolved": "{mode} (समाधान {appearance})",
       "regions": {
         "EU": "यूरोपीय संघ",
         "US": "संयुक्त राज्य अमेरिका",
@@ -491,7 +498,7 @@
       "createdAt": "साइन इन किया गया",
       "expiresAt": "समय-सीमा समाप्त",
       "revoke": "सत्र निरस्त करें",
-      "revokeAria": "साइन इन किया गया सत्र निरस्त करें {कब}",
+      "revokeAria": "साइन इन किया गया सत्र निरस्त करें {when}",
       "revokeOthers": "अन्य सत्र साइन आउट करें",
       "revokeOthersAria": "मौजूदा सत्र को छोड़कर सभी सत्रों को साइन आउट करें",
       "revoked": "सत्र निरस्त कर दिया गया.",
@@ -586,10 +593,10 @@
       "title": "सेटिंग्स",
       "lead": "प्रत्येक AGXORA मॉड्यूल के लिए एंटरप्राइज़ कॉन्फ़िगरेशन - प्रोफ़ाइल, संगठन, AI, उपस्थिति, सुरक्षा, बिलिंग और डेवलपर नियंत्रण एक ही स्थान पर।",
       "loading": "सेटिंग लोड हो रही है...",
-      "breadcrumb": "{लेबल} · {विवरण}"
+      "breadcrumb": "{label} · {description}"
     },
     "saveChanges": "परिवर्तनों को सुरक्षित करें",
-    "sessionNotice": "इस सत्र के लिए अपडेट किया गया - {क्षेत्र} कनेक्ट नहीं है।",
+    "sessionNotice": "इस सत्र के लिए अपडेट किया गया - {area} कनेक्ट नहीं है।",
     "kpi": {
       "members": {
         "label": "टीम के सदस्य",
@@ -624,7 +631,7 @@
       "owner": "मालिक",
       "counts": "सदस्य · कार्यस्थान",
       "orgUpdated": "संगठन अद्यतन किया गया.",
-      "countsValue": "{सदस्य} · {कार्यस्थान}",
+      "countsValue": "{members} · {workspaces}",
       "joined": "सम्मिलित हुए",
       "workspaceName": "कार्यस्थल का नाम",
       "switchWorkspace": "सक्रिय कार्यक्षेत्र",
@@ -660,7 +667,7 @@
       "inviteLink": "लिंक आमंत्रित करें",
       "inviteInvalid": "यह आमंत्रण मान्य नहीं है.",
       "accept": "निमंत्रण स्वीकार करो",
-      "invitedAs": "{ईमेल} को {भूमिका} के रूप में आमंत्रित किया गया है।",
+      "invitedAs": "{email} को {role} के रूप में आमंत्रित किया गया है।",
       "inviteStatus": {
         "pending": "लंबित",
         "expired": "यह आमंत्रण समाप्त हो गया है.",
@@ -672,22 +679,22 @@
       "transferWarning": "यह एक खतरनाक कार्रवाई है. जब तक प्राप्तकर्ता पुष्टि नहीं कर देता तब तक आप स्वामी बने रहेंगे। पुष्टि के बाद, आप व्यवस्थापक बन जाते हैं और वे मालिक बन जाते हैं।",
       "transferTarget": "नया मालिक",
       "transferSelectMember": "किसी मौजूदा सदस्य का चयन करें...",
-      "transferTypeName": "पुष्टि करने के लिए \"{नाम}\" टाइप करें",
+      "transferTypeName": "पुष्टि करने के लिए \"{name}\" टाइप करें",
       "transferConfirmMismatch": "टाइप किया गया नाम चयनित सदस्य से मेल नहीं खाता.",
       "transferInitiate": "स्थानांतरण प्रारंभ करें",
       "transferHonesty": "डिलीवरी कॉन्फ़िगर होने पर एक पुष्टिकरण ईमेल भेजा जाता है। अन्यथा पुष्टिकरण लिंक सीधे प्राप्तकर्ता के साथ साझा करें।",
       "transferLink": "पुष्टिकरण लिंक",
       "transferPendingTitle": "स्वामित्व हस्तांतरण लंबित है",
-      "transferPendingBody": "पुष्टि के लिए {नाम} ({ईमेल}) की प्रतीक्षा की जा रही है। समाप्त हो जाता है {समाप्त हो जाता है}। आप तब तक मालिक बने रहेंगे.",
+      "transferPendingBody": "पुष्टि के लिए {name} ({email}) की प्रतीक्षा की जा रही है। समाप्त हो जाता है {expires}। आप तब तक मालिक बने रहेंगे.",
       "transferPendingNote": "स्थानांतरण लंबित होने पर सदस्यता भूमिकाएँ नहीं बदलतीं।",
       "cancelTransfer": "स्थानांतरण रद्द करें",
       "transferCancelled": "स्वामित्व हस्तांतरण रद्द कर दिया गया.",
       "transferInvalid": "यह स्वामित्व हस्तांतरण वैध नहीं है.",
       "transferConfirmTitle": "स्वामित्व हस्तांतरण की पुष्टि करें",
-      "transferConfirmBody": "{from} संगठन के स्वामित्व को {से} ({ईमेल}) में स्थानांतरित करना चाहता है।",
+      "transferConfirmBody": "{from} संगठन के स्वामित्व को {to} ({email}) में स्थानांतरित करना चाहता है।",
       "transferConfirmDanger": "पुष्टि करने के बाद, आप मालिक बन जाते हैं और पिछला मालिक व्यवस्थापक बन जाता है।",
       "transferConfirmAction": "पुष्टि करें कि मैं नया स्वामी बन गया हूँ",
-      "transferWrongAccount": "इस स्थानांतरण की पुष्टि के लिए {ईमेल} के रूप में साइन इन करें।",
+      "transferWrongAccount": "इस स्थानांतरण की पुष्टि के लिए {email} के रूप में साइन इन करें।",
       "transferStatus": {
         "pending": "पुष्टिकरण लंबित है",
         "expired": "यह स्वामित्व हस्तांतरण समाप्त हो गया है.",
@@ -697,7 +704,7 @@
     }
   },
   "errors": {
-    "required": "यह फ़ील्ड आवश्यक है.",
+    "required": "यह फ़ील्ड आवश्यक है।",
     "invalidEmail": "एक मान्य ईमेल पता दर्ज करें।",
     "passwordMin": "पासवर्ड कम से कम 8 वर्णों का होना चाहिए।",
     "passwordLettersNumbers": "पासवर्ड में अक्षर और संख्याएँ शामिल होनी चाहिए।",
@@ -705,7 +712,30 @@
     "acceptTerms": "कृपया जारी रखने के लिए शर्तें स्वीकार करें।",
     "generic": "कुछ गलत हो गया।",
     "tryAgain": "कृपया पुन: प्रयास करें।",
-    "saved": "सफलतापूर्वक बचाया।"
+    "saved": "सफलतापूर्वक बचाया।",
+    "invalidCredentials": "अमान्य ईमेल या पासवर्ड।",
+    "signInRequired": "साइन इन आवश्यक है।",
+    "insufficientPermissions": "अपर्याप्त अनुमतियाँ।",
+    "noRouteAccess": "आपके पास इस रूट की पहुँच नहीं है।",
+    "accountLocked": "यह खाता लॉक है। व्यवस्थापक से संपर्क करें।",
+    "sessionExpired": "आपका सत्र समाप्त हो गया। फिर से साइन इन करें।",
+    "missingPermission": "अनुमति नहीं है: {permission}",
+    "roleCannotAccess": "आपकी भूमिका इस संसाधन तक नहीं पहुँच सकती।",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "अमान्य ईमेल या पासवर्ड।",
+      "AUTH_SESSION_EXPIRED": "आपका सत्र समाप्त हो गया। फिर से साइन इन करें।",
+      "AUTH_ACCOUNT_LOCKED": "यह खाता लॉक है। व्यवस्थापक से संपर्क करें।",
+      "AUTH_SIGN_IN_REQUIRED": "जारी रखने के लिए साइन इन करें।",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "अपर्याप्त अनुमतियाँ।",
+      "AUTH_NO_ROUTE_ACCESS": "आपके पास इस रूट की पहुँच नहीं है।",
+      "COMMON_SOMETHING_WENT_WRONG": "कुछ गलत हो गया।",
+      "COMMON_PAGE_NOT_FOUND": "पृष्ठ नहीं मिला।",
+      "COMMON_OFFLINE": "आप ऑफ़लाइन हैं।",
+      "COMMON_TIMEOUT": "अनुरोध का समय समाप्त हो गया।",
+      "COMMON_VALIDATION": "अपना इनपुट जाँचें और पुनः प्रयास करें।",
+      "COMMON_UNKNOWN": "एक अज्ञात त्रुटि हुई।",
+      "COMMON_INTERNAL": "एक अप्रत्याशित त्रुटि हुई। कृपया पुनः प्रयास करें।"
+    }
   },
   "dashboard": {
     "skipToContent": "डैशबोर्ड सामग्री पर जाएं",
@@ -779,16 +809,16 @@
     },
     "overview": {
       "title": "क्या हो रहा है",
-      "subtitle": "{नाम} के लिए कार्यस्थान मायने रखता है",
+      "subtitle": "{name} के लिए कार्यस्थान मायने रखता है",
       "fallbackName": "आपका कार्यक्षेत्र",
       "ariaLabel": "व्यापार सिंहावलोकन",
       "online": "ऑनलाइन",
       "emDash": "—",
-      "capacitySignal": "{प्रतिशत}% क्षमता संकेत",
+      "capacitySignal": "{percent}% क्षमता संकेत",
       "activeClients": {
         "title": "सक्रिय ग्राहक",
         "captionEmpty": "अभी तक कोई सक्रिय ग्राहक नहीं है",
-        "captionTotal": "कार्यक्षेत्र में कुल {गिनती}",
+        "captionTotal": "कार्यक्षेत्र में कुल {count}",
         "add": "ग्राहक जोड़ें",
         "view": "ग्राहक देखें"
       },
@@ -826,7 +856,7 @@
       "title": "हाल की गतिविधि",
       "subtitle": "आज क्या बदल गया",
       "ariaLabel": "हाल की गतिविधि",
-      "todayCount": "{गिनती} आज",
+      "todayCount": "{count} आज",
       "localBadge": "स्थानीय",
       "emptyTitle": "अभी तक कोई गतिविधि नहीं",
       "emptyBody": "जैसे ही आप ग्राहक, प्रोजेक्ट और बहुत कुछ जोड़ेंगे, कार्यक्षेत्र ईवेंट यहां दिखाई देंगे।",
@@ -857,7 +887,7 @@
       "title": "एग्क्सोरा एआई",
       "emptyState": "AGXORA से ग्राहकों, परियोजनाओं या अगली कार्रवाइयों के बारे में पूछें। आपकी बातचीत इस कार्यक्षेत्र सत्र में रहती है.",
       "thinking": "एजीएक्सओआरए सोच रहा है...",
-      "errorDismiss": "{त्रुटि} - ख़ारिज करने के लिए टैप करें",
+      "errorDismiss": "{error} - ख़ारिज करने के लिए टैप करें",
       "placeholder": "एजीएक्सओआरए एआई से पूछें...",
       "messageAria": "संदेश एजीएक्सओआरए एआई",
       "sendAria": "मेसेज भेजें",
@@ -1093,7 +1123,7 @@
         }
       }
     },
-    "summary": "{नाम}: {ग्राहक} ग्राहक · {प्रोजेक्ट} परियोजनाएं · {अपडेट} आज अपडेट।"
+    "summary": "{name}: {customers} ग्राहक · {projects} परियोजनाएं · {updates} आज अपडेट।"
   },
   "auth": {
     "login": {
@@ -1190,20 +1220,20 @@
       "viewPricing": "मूल्य निर्धारण देखें",
       "bookDemo": "बुक डेमो",
       "failed": "जांच प्रस्तुत नहीं की जा सकी",
-      "country": "Country",
-      "savedFor": "Saved for {company}. Sales delivery is not connected in this build.",
-      "preferWalkthrough": "Prefer a product walkthrough next?",
-      "preferSelfServe": "Prefer self-serve?"
+      "country": "देश",
+      "savedFor": "{company} के लिए सहेजा गया। इस बिल्ड में सेल्स डिलीवरी कनेक्ट नहीं है।",
+      "preferWalkthrough": "आगे उत्पाद वॉकथ्रू पसंद करेंगे?",
+      "preferSelfServe": "सेल्फ-सर्व पसंद करेंगे?"
     },
     "welcome": {
       "title": "एजीएक्सओआरए में आपका स्वागत है",
       "subtitle": "आपका कार्यक्षेत्र तैयार है. डैशबोर्ड पर जारी रखें.",
       "continue": "डैशबोर्ड पर जाएँ",
-      "checklistProfile": "Confirm your organization profile",
-      "checklistModules": "Choose modules that match how you work",
-      "checklistDashboard": "Enter the dashboard with a clear starting point",
-      "exploreFirst": "Prefer to explore first?",
-      "skipToDashboard": "Skip to dashboard"
+      "checklistProfile": "अपनी संगठन प्रोफ़ाइल की पुष्टि करें",
+      "checklistModules": "अपने काम के तरीके से मेल खाने वाले मॉड्यूल चुनें",
+      "checklistDashboard": "स्पष्ट शुरुआती बिंदु के साथ डैशबोर्ड में प्रवेश करें",
+      "exploreFirst": "पहले एक्सप्लोर करना पसंद करेंगे?",
+      "skipToDashboard": "डैशबोर्ड पर जाएँ"
     },
     "locked": {
       "title": "खाता लॉक कर दिया गया",
@@ -1216,7 +1246,17 @@
       "subtitle": "कृपया जारी रखने के लिए पुनः साइन इन करें।",
       "signIn": "दाखिल करना"
     },
-    "brand": "एग्क्सोरा"
+    "brand": "एग्क्सोरा",
+    "validation": {
+      "emailRequired": "ईमेल आवश्यक है।",
+      "emailInvalid": "एक मान्य ईमेल पता दर्ज करें।",
+      "passwordRequired": "पासवर्ड आवश्यक है।",
+      "passwordMin": "पासवर्ड कम से कम 8 वर्ण का होना चाहिए।",
+      "nameRequired": "नाम आवश्यक है।",
+      "nameMin": "नाम कम से कम 2 वर्ण का होना चाहिए।",
+      "passwordMismatch": "पासवर्ड मेल नहीं खाते।",
+      "slugFormat": "केवल छोटे अक्षर, संख्याएँ और हाइफ़न उपयोग करें।"
+    }
   },
   "crm": {
     "page": {
@@ -1318,12 +1358,12 @@
         "previous": "पहले का",
         "next": "अगला"
       },
-      "showing": "{कुल} में से {से}–{तक} दिखाया जा रहा है",
+      "showing": "{from} में से {to}–{total} दिखाया जा रहा है",
       "aria": {
-        "openCustomer": "ग्राहक {कंपनी} खोलें"
+        "openCustomer": "ग्राहक {company} खोलें"
       },
-      "cardMeta": "मालिक {मालिक} · बनाया गया {दिनांक}",
-      "sortBy": "{कॉलम} के अनुसार क्रमबद्ध करें"
+      "cardMeta": "मालिक {owner} · बनाया गया {date}",
+      "sortBy": "{column} के अनुसार क्रमबद्ध करें"
     },
     "status": {
       "lead": "नेतृत्व करना",
@@ -1367,7 +1407,7 @@
       "customerCouldNotBeRemoved": "ग्राहक को हटाया नहीं जा सका.",
       "contactSaved": "संपर्क सहेजा गया",
       "documentsAttached": "दस्तावेज़ संलग्न",
-      "documentsAttachedDetail": "{गिनती} फ़ाइल(फ़ाइलें)",
+      "documentsAttachedDetail": "{count} फ़ाइल(फ़ाइलें)",
       "noteSaved": "नोट सहेजा गया"
     },
     "deleteDialog": {
@@ -1693,7 +1733,7 @@
         "label": "एआई स्वास्थ्य स्कोर",
         "caption": "संबंध गुणवत्ता संकेत"
       },
-      "scoreOutOf": "{स्कोर} / {अधिकतम}"
+      "scoreOutOf": "{score} / {max}"
     },
     "pipeline": {
       "lead": "नेतृत्व करना",
@@ -1801,16 +1841,16 @@
         "vat-due": {
           "label": "वैट बकाया",
           "caption": "नमूना · Q2 विंडो",
-          "delta": "{दिनों}में देय"
+          "delta": "{days}में देय"
         },
         "open-invoices": {
           "label": "चालान खोलें",
-          "caption": "नमूना · {पैसा} बकाया"
+          "caption": "नमूना · {money} बकाया"
         },
         "paid-invoices": {
           "label": "भुगतान किए गए चालान",
           "caption": "नमूना · इस तिमाही",
-          "delta": "+{गिनती}"
+          "delta": "+{count}"
         },
         "cashflow": {
           "label": "नकदी प्रवाह",
@@ -1820,10 +1860,10 @@
         "ai-score": {
           "label": "एआई वित्तीय स्कोर",
           "caption": "नमूना स्कोर · लाइव जोखिम स्कोरिंग नहीं",
-          "delta": "+{गिनती}"
+          "delta": "+{count}"
         }
       },
-      "scoreOutOf": "{स्कोर} / {अधिकतम}"
+      "scoreOutOf": "{score} / {max}"
     },
     "invoices": {
       "emptyTitle": "कोई चालान नहीं",
@@ -1833,8 +1873,8 @@
       "paymentFilter": "भुगतान फ़िल्टर",
       "sortBy": "इसके अनुसार क्रमबद्ध करें",
       "toggleSort": "क्रमबद्ध दिशा टॉगल करें",
-      "count": "{गिनती} चालान",
-      "countOne": "{गिनती} चालान",
+      "count": "{count} चालान",
+      "countOne": "{count} चालान",
       "allStatuses": "सभी स्थितियाँ",
       "allPayments": "सभी भुगतान",
       "columns": {
@@ -1885,7 +1925,7 @@
       "uploadFiles": "फाइलें अपलोड करें",
       "emailImport": "ईमेल आयात",
       "dropHint": "स्थानीय स्तर पर चरणबद्ध करने के लिए पीडीएफ या छवि चालान छोड़ें - ओसीआर कनेक्ट नहीं है।",
-      "filesStaged": "{गिनती} फ़ाइल(फ़ाइलें) केवल स्थानीय रूप से सूचीबद्ध - ओसीआर/एआई निष्कर्षण कनेक्ट नहीं है।",
+      "filesStaged": "{count} फ़ाइल(फ़ाइलें) केवल स्थानीय रूप से सूचीबद्ध - ओसीआर/एआई निष्कर्षण कनेक्ट नहीं है।",
       "emailReserved": "ईमेल आयात कनेक्टर IMAP/Microsoft ग्राफ़ के लिए आरक्षित है।",
       "pipelineTitle": "प्रसंस्करण पाइपलाइन (डेमो)",
       "stages": {
@@ -1925,8 +1965,8 @@
       "notConnected": "जुड़े नहीं हैं",
       "intro": "नीचे नमूना निर्यात इतिहास उदाहरणात्मक है। इस बिल्ड में क्रेडेंशियल्स और फ़ाइल जनरेशन को तार-तार नहीं किया गया है।",
       "noticeDefault": "निर्यात एडेप्टर कनेक्ट नहीं हैं - कोई फ़ाइल उत्पन्न नहीं होगी।",
-      "exportUnavailable": "{शीर्षक} अनुपलब्ध - DATEV / फ़ाइल निर्यात कनेक्ट नहीं है।",
-      "exportUnavailableAria": "{शीर्षक} - अनुपलब्ध",
+      "exportUnavailable": "{title} अनुपलब्ध - DATEV / फ़ाइल निर्यात कनेक्ट नहीं है।",
+      "exportUnavailableAria": "{title} - अनुपलब्ध",
       "historyTitle": "निर्यात इतिहास (नमूना)",
       "refresh": "ताज़ा करना",
       "refreshUnavailable": "रीफ्रेश अनुपलब्ध - निर्यात इतिहास स्थिर नमूना डेटा है।",
@@ -1994,8 +2034,8 @@
     "insights": {
       "demoPrefix": "डेमो",
       "noticeDefault": "अंतर्दृष्टि क्रियाएँ जुड़ी नहीं हैं - कार्ड केवल नमूना निष्कर्ष दिखाते हैं।",
-      "actionUnavailable": "{कार्रवाई} अनुपलब्ध - वित्त अंतर्दृष्टि क्रियाएँ जुड़ी नहीं हैं।",
-      "actionUnavailableTitle": "{कार्रवाई} अनुपलब्ध - कनेक्टेड नहीं",
+      "actionUnavailable": "{action} अनुपलब्ध - वित्त अंतर्दृष्टि क्रियाएँ जुड़ी नहीं हैं।",
+      "actionUnavailableTitle": "{action} अनुपलब्ध - कनेक्टेड नहीं",
       "kinds": {
         "unusual_expense": "असामान्य खर्चे",
         "duplicate_invoice": "डुप्लीकेट चालान",
@@ -2016,7 +2056,7 @@
         "july_expenses": "जुलाई व्यय-पक्ष गतिविधि दिखा रहा है।",
         "amazon": "अमेज़ॅन चालान और रसीदों का पता लगाना।",
         "vat_export": "DATEV/VAT निर्यात क्रियाएँ खोलना।",
-        "general": "\"{क्वेरी}\" के लिए बही-खाता खोजा जा रहा है।"
+        "general": "\"{query}\" के लिए बही-खाता खोजा जा रहा है।"
       },
       "examples": {
         "q1": {
@@ -2090,42 +2130,42 @@
       "documents": {
         "label": "दस्तावेज़",
         "caption": "नमूना · फ़ोल्डरों में",
-        "delta": "+{गिनती}"
+        "delta": "+{count}"
       },
       "folders": {
         "label": "फ़ोल्डर",
         "caption": "नमूना · स्मार्ट संग्रह सहित",
-        "delta": "+{गिनती}"
+        "delta": "+{count}"
       },
       "storage": {
         "label": "उपयोग किया गया भंडारण",
         "caption": "उदाहरणात्मक योजना का नमूना ·",
-        "delta": "+{आकार}"
+        "delta": "+{size}"
       },
       "shared": {
         "label": "साझा किए गए दस्तावेज़",
         "caption": "नमूना · संगठन + विभाग + उपयोगकर्ता",
-        "delta": "+{गिनती}"
+        "delta": "+{count}"
       },
       "activity": {
         "label": "हाल की गतिविधि",
         "caption": "नमूना · पिछले 24 घंटे",
-        "delta": "+{गिनती}"
+        "delta": "+{count}"
       },
       "indexed": {
         "label": "एआई अनुक्रमित",
         "caption": "नमूना · एआई खोज कनेक्ट नहीं है",
-        "delta": "{प्रतिशत}"
+        "delta": "{percent}"
       },
       "approvals": {
         "label": "लंबित स्वीकृतियाँ",
         "caption": "नमूना · स्वचालन कनेक्ट नहीं है",
-        "delta": "{गिनती करना}"
+        "delta": "{count}"
       },
       "score": {
         "label": "ज्ञान स्कोर",
         "caption": "नमूना · कवरेज चित्रण",
-        "delta": "+{गिनती}"
+        "delta": "+{count}"
       }
     },
     "library": {
@@ -2141,7 +2181,7 @@
       },
       "dropzone": "अपलोड चरणबद्ध करने के लिए फ़ाइलों को यहां खींचें और छोड़ें।",
       "uploadReserved": "ड्रैग एंड ड्रॉप अपलोड एक स्टोरेज एपीआई आरक्षित है।",
-      "filesStaged": "{गिनती} फ़ाइल(फ़ाइलों) को अपलोड के लिए चरणबद्ध किया गया (कोई भंडारण लेखन नहीं)।",
+      "filesStaged": "{count} फ़ाइल(फ़ाइलों) को अपलोड के लिए चरणबद्ध किया गया (कोई भंडारण लेखन नहीं)।",
       "dropReceived": "ड्रॉप प्राप्त हुआ (कोई संग्रहण नहीं लिखा गया)।",
       "foldersTitle": "फ़ोल्डर और संग्रह",
       "foldersHint": "नेस्टेड फ़ोल्डर, संग्रह, स्मार्ट संग्रह, टैग, पिन किए गए और पसंदीदा।",
@@ -2152,11 +2192,11 @@
       "favorite": "पसंदीदा",
       "sharedBadge": "साझा",
       "title": "दस्तावेज़ पुस्तकालय",
-      "results": "{गिनती} परिणाम",
-      "resultOne": "{गिनती} परिणाम",
-      "selected": "· {गिनती} चयनित",
+      "results": "{count} परिणाम",
+      "resultOne": "{count} परिणाम",
+      "selected": "· {count} चयनित",
       "bulkAction": "थोक कार्रवाई",
-      "bulkUnavailable": "{गिनती} आइटम के लिए थोक कार्रवाई अनुपलब्ध है - भंडारण उत्परिवर्तन जुड़े नहीं हैं।",
+      "bulkUnavailable": "{count} आइटम के लिए थोक कार्रवाई अनुपलब्ध है - भंडारण उत्परिवर्तन जुड़े नहीं हैं।",
       "searchLabel": "वैश्विक खोज",
       "searchPlaceholder": "नाम, टैग, मालिक, एआई सारांश…",
       "typeLabel": "प्रकार",
@@ -2170,7 +2210,7 @@
       "favoritesOnly": "केवल पसंदीदा",
       "emptyTitle": "दिखाने के लिए कोई दस्तावेज़ नहीं",
       "emptyDescription": "लाइब्रेरी को विकसित करने के लिए फ़िल्टर समायोजित करें, खोज साफ़ करें, या ज्ञान संपत्तियाँ जोड़ें।",
-      "selectAria": "{नाम} चुनें",
+      "selectAria": "{name} चुनें",
       "versionHistoryTitle": "संस्करण इतिहास",
       "close": "बंद करना",
       "context": {
@@ -2180,7 +2220,7 @@
         "move": "कदम",
         "delete": "मिटाना",
         "dismiss": "नकार देना",
-        "unavailable": "{कार्रवाई} अनुपलब्ध - दस्तावेज़ उत्परिवर्तन {id} के लिए कनेक्ट नहीं हैं।"
+        "unavailable": "{action} अनुपलब्ध - दस्तावेज़ उत्परिवर्तन {id} के लिए कनेक्ट नहीं हैं।"
       }
     },
     "viewer": {
@@ -2191,7 +2231,7 @@
       "zoomIn": "ज़ूम +",
       "prev": "पिछला",
       "next": "अगला",
-      "page": "पेज {पेज} / {कुल}",
+      "page": "पेज {page} / {total}",
       "searchInside": "अंदर खोजें",
       "findPlaceholder": "पूर्वावलोकन में खोजें...",
       "noMatches": "पूर्वावलोकन पाठ में कोई मिलान नहीं.",
@@ -2217,14 +2257,14 @@
       "title": "संस्करण इतिहास",
       "emptyTitle": "कोई दस्तावेज़ चयनित नहीं",
       "emptyDescription": "संस्करणों, नोट्स का निरीक्षण करने, पुनर्स्थापित करने और तुलना करने के लिए दस्तावेज़ खोलें।",
-      "current": "{नाम} · वर्तमान {संस्करण}",
+      "current": "{name} · वर्तमान {version}",
       "restore": "संस्करण पुनर्स्थापित करें",
       "compare": "संस्करणों की तुलना करें",
       "restoreTitle": "पुनर्स्थापना के लिए स्टोरेज एपीआई की आवश्यकता होती है",
       "compareTitle": "तुलना के लिए स्टोरेज एपीआई की आवश्यकता है",
       "noticeDefault": "पुनर्स्थापित करने और तुलना करने के लिए स्टोरेज एपीआई की आवश्यकता होती है।",
-      "restoreUnavailable": "{आईडी} के लिए पुनर्स्थापना अनुपलब्ध है - स्टोरेज एपीआई कनेक्ट नहीं है।",
-      "compareUnavailable": "अनुपलब्ध की तुलना करें ({चयनित} ↔ {वर्तमान}) - स्टोरेज एपीआई कनेक्ट नहीं है।"
+      "restoreUnavailable": "{id} के लिए पुनर्स्थापना अनुपलब्ध है - स्टोरेज एपीआई कनेक्ट नहीं है।",
+      "compareUnavailable": "अनुपलब्ध की तुलना करें ({selected} ↔ {current}) - स्टोरेज एपीआई कनेक्ट नहीं है।"
     },
     "approvals": {
       "title": "अनुमोदन कार्यप्रवाह",
@@ -2235,7 +2275,7 @@
       "reject": "अस्वीकार करना",
       "sendToReview": "समीक्षा हेतु भेजें",
       "noticeDefault": "अनुमोदन परिवर्तन के लिए ऑटोमेशन वर्कफ़्लो इंजन की आवश्यकता होती है - जो इस बिल्ड में कनेक्ट नहीं है।",
-      "unavailable": "{क्रिया} {आईडी} के लिए अनुपलब्ध है - वर्कफ़्लो इंजन कनेक्ट नहीं है। नमूना दस्तावेज़ स्थिति नहीं बदली गई.",
+      "unavailable": "{action} {id} के लिए अनुपलब्ध है - वर्कफ़्लो इंजन कनेक्ट नहीं है। नमूना दस्तावेज़ स्थिति नहीं बदली गई.",
       "approveTitle": "अनुमोदन अनुपलब्ध - वर्कफ़्लो इंजन कनेक्ट नहीं है",
       "rejectTitle": "अस्वीकृति अनुपलब्ध - वर्कफ़्लो इंजन कनेक्ट नहीं है",
       "sendTitle": "समीक्षा के लिए भेजें अनुपलब्ध - वर्कफ़्लो इंजन कनेक्ट नहीं है"
@@ -2420,10 +2460,10 @@
       "planned": "की योजना बनाई"
     },
     "bytes": {
-      "b": "{मान} बी",
-      "kb": "{मूल्य} केबी",
-      "mb": "{मान} एमबी",
-      "gb": "{मान} जीबी"
+      "b": "{value} बी",
+      "kb": "{value} केबी",
+      "mb": "{value} एमबी",
+      "gb": "{value} जीबी"
     }
   },
   "landing": {
@@ -2535,8 +2575,9 @@
       "terms": "शर्तें",
       "cookies": "कुकीज़",
       "imprint": "छाप",
-      "copyright": "© {वर्ष} {कंपनी}"
-    }
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — 3D ग्लोब"
   },
   "ui": {
     "table": {
@@ -2544,7 +2585,7 @@
       "noResultsDescription": "वर्तमान फ़िल्टर से कुछ भी मेल नहीं खाता.",
       "previous": "पहले का",
       "next": "अगला",
-      "paginationRange": "{कुल} का {शुरुआत}-{अंत}",
+      "paginationRange": "{start} का {end}-{total}",
       "sortAscending": "छोटे से बड़े क्रम में क्रमबद्ध करें",
       "sortDescending": "अवरोही छांट"
     },
@@ -2552,7 +2593,7 @@
       "close": "संवाद बंद करें"
     },
     "module": {
-      "notAvailableTitle": "{शीर्षक} अभी उपलब्ध नहीं है",
+      "notAvailableTitle": "{title} अभी उपलब्ध नहीं है",
       "notAvailableDescription": "यह मॉड्यूल शेल भविष्य में रिलीज़ के लिए तैयार किया गया है। यहां अभी तक कोई रिकार्ड संग्रहीत नहीं है।"
     },
     "states": {
@@ -2589,7 +2630,7 @@
     "page": {
       "eyebrow": "परियोजना प्रबंधन ओएस",
       "title": "परियोजनाओं",
-      "lead": "वितरण की योजना बनाएं, बजट और स्वास्थ्य पर नज़र रखें, टीमें नियुक्त करें और {संगठन} के लिए कार्यों का प्रबंधन करें। डेटा स्थानीय रूप से बना रहता है और बैकएंड कनेक्टिविटी के लिए तैयार है।",
+      "lead": "वितरण की योजना बनाएं, बजट और स्वास्थ्य पर नज़र रखें, टीमें नियुक्त करें और {organization} के लिए कार्यों का प्रबंधन करें। डेटा स्थानीय रूप से बना रहता है और बैकएंड कनेक्टिविटी के लिए तैयार है।",
       "yourOrganization": "आपकी संगठन"
     },
     "list": {
@@ -2612,13 +2653,13 @@
       "emptyTitle": "अभी तक कोई प्रोजेक्ट नहीं",
       "emptyDescription": "मील के पत्थर, बजट और टीम के स्वामित्व को ट्रैक करने के लिए एक डिलीवरी कार्यक्षेत्र को स्पिन करें।",
       "createProject": "प्रोजेक्ट बनाएं",
-      "pagination": "{कुल} में से {से}–{तक} दिखाया जा रहा है",
+      "pagination": "{from} में से {to}–{total} दिखाया जा रहा है",
       "previous": "पहले का",
       "next": "अगला",
       "noDescription": "अभी तक कोई विवरण नहीं.",
-      "duePrefix": "नियत तारीख}",
-      "openProject": "प्रोजेक्ट {नाम} खोलें",
-      "sortBy": "{कॉलम} के अनुसार क्रमबद्ध करें",
+      "duePrefix": "Due {date}",
+      "openProject": "प्रोजेक्ट {name} खोलें",
+      "sortBy": "{column} के अनुसार क्रमबद्ध करें",
       "sort": {
         "name": "नाम",
         "customer": "ग्राहक",
@@ -2652,7 +2693,7 @@
       "tagsPlaceholder": "उद्यम, रोलआउट",
       "budgetPlaceholder": "0",
       "description": "विवरण",
-      "selectColor": "रंग चुनें {रंग}"
+      "selectColor": "रंग चुनें {color}"
     },
     "taskForm": {
       "createTitle": "कार्य बनाएँ",
@@ -2680,7 +2721,7 @@
     },
     "badges": {
       "progress": "प्रगति",
-      "progressAria": "{लेबल}: {मान}%"
+      "progressAria": "{label}: {value}%"
     },
     "status": {
       "planning": "योजना",
@@ -2719,24 +2760,24 @@
       "emptyDescription": "शेड्यूल तैयार करने के लिए प्रारंभ/नियत तिथियां और कार्य जोड़ें।",
       "title": "समय",
       "subtitle": "प्रारंभ, अंत, अवधि, मील के पत्थर। निर्भरताएँ भविष्य में रिलीज़ के लिए आरक्षित हैं।",
-      "dateRange": "{प्रारंभ} → {अंत} · {दिन}डी",
-      "itemAria": "{शीर्षक} {प्रारंभ} से {अंत} तक",
+      "dateRange": "{start} → {end} · {days}डी",
+      "itemAria": "{title} {start} से {end} तक",
       "dependenciesNone": "निर्भरताएँ: कोई नहीं"
     },
     "dashboard": {
       "kpi": {
         "activeProjects": "सक्रिय परियोजनाएँ",
-        "activeHint": "{योजना} योजना बनाना",
+        "activeHint": "{planning} योजना बनाना",
         "completed": "पुरा होना।",
-        "completedHint": "पोर्टफोलियो का {प्रतिशत}%",
+        "completedHint": "पोर्टफोलियो का {percent}%",
         "onHold": "होल्ड पर",
-        "onHoldHint": "{संग्रहीत} संग्रहीत",
+        "onHoldHint": "{archived} संग्रहीत",
         "teamMembers": "टीम के सदस्य",
         "teamHint": "सभी परियोजनाओं में",
         "budgetOverview": "बजट अवलोकन",
-        "budgetHint": "{प्रतिशत}% उपयोग किया गया · {खर्च} किया गया",
+        "budgetHint": "{percent}% उपयोग किया गया · {spent} किया गया",
         "openTasks": "कार्य खोलें",
-        "openTasksHint": "{अतिदेय} अतिदेय",
+        "openTasksHint": "{overdue} अतिदेय",
         "projectHealth": "परियोजना स्वास्थ्य",
         "healthHint": "समग्र वितरण स्कोर",
         "upcomingDeadlines": "आने वाली डेड लाइन",
@@ -2763,7 +2804,7 @@
       "emptyTitle": "बोर्ड पर कोई कार्य नहीं",
       "emptyDescription": "टू डू, इन प्रोग्रेस, रिव्यू और डन में डिलीवरी को व्यवस्थित करने के लिए कार्य बनाएं।",
       "addTask": "कार्य जोड़ें",
-      "columnAria": "{स्थिति} कॉलम",
+      "columnAria": "{status} कॉलम",
       "taskProgress": "कार्य प्रगति",
       "edit": "संपादन करना",
       "complete": "पूरा"
@@ -2772,7 +2813,7 @@
       "notFoundTitle": "प्रोजेक्ट नहीं मिला",
       "notFoundDescription": "यह प्रोजेक्ट संभवतः हटा दिया गया है या वर्तमान संगठन के लिए अनुपलब्ध है।",
       "backToProjects": "← परियोजनाओं पर वापस जाएँ",
-      "ownerMeta": "{ग्राहक} · मालिक {मालिक}",
+      "ownerMeta": "{customer} · मालिक {owner}",
       "edit": "संपादन करना",
       "delete": "मिटाना",
       "sectionsAria": "परियोजना विवरण अनुभाग",
@@ -2875,12 +2916,37 @@
       "taskCompleted": "कार्य पूरा हो गया",
       "taskDeleted": "कार्य हटा दिया गया",
       "filesUploaded": "फ़ाइलें अपलोड की गईं",
-      "filesUploadedDetail": "{गिनती} फ़ाइल(फ़ाइलें)",
+      "filesUploadedDetail": "{count} फ़ाइल(फ़ाइलें)",
       "fileDeleted": "फ़ाइल हटा दी गई",
       "noteSaved": "नोट सहेजा गया",
       "memberAdded": "सदस्य जोड़ा गया",
       "settingsSaved": "सेटिंग्स को सहेजा गया",
       "projectArchived": "प्रोजेक्ट संग्रहीत"
+    },
+    "validation": {
+      "nameRequired": "प्रोजेक्ट का नाम आवश्यक है।",
+      "nameMin": "प्रोजेक्ट का नाम कम से कम 2 वर्ण का होना चाहिए।",
+      "customerRequired": "ग्राहक आवश्यक है।",
+      "ownerRequired": "प्रोजेक्ट स्वामी आवश्यक है।",
+      "priorityInvalid": "एक मान्य प्राथमिकता चुनें।",
+      "statusInvalid": "एक मान्य स्थिति चुनें।",
+      "currencyInvalid": "एक मान्य मुद्रा चुनें।",
+      "budgetInvalid": "बजट एक गैर-ऋणात्मक संख्या होनी चाहिए।",
+      "startDateRequired": "प्रारंभ तिथि आवश्यक है।",
+      "startDateInvalid": "एक मान्य प्रारंभ तिथि दर्ज करें।",
+      "dueDateInvalid": "एक मान्य नियत तिथि दर्ज करें।",
+      "dueDateOrder": "नियत तिथि प्रारंभ तिथि पर या उसके बाद होनी चाहिए।",
+      "colorInvalid": "एक मान्य रंग चुनें।",
+      "iconInvalid": "एक मान्य आइकन चुनें।",
+      "taskTitleRequired": "कार्य शीर्षक आवश्यक है।",
+      "progressRange": "प्रगति 0 से 100 के बीच होनी चाहिए।",
+      "memberNameRequired": "सदस्य का नाम आवश्यक है।",
+      "emailRequired": "ईमेल आवश्यक है।",
+      "emailInvalid": "एक मान्य ईमेल पता दर्ज करें।",
+      "roleInvalid": "एक मान्य भूमिका चुनें।",
+      "noteTitleRequired": "नोट शीर्षक आवश्यक है।",
+      "noteBodyRequired": "नोट का मुख्य भाग आवश्यक है।",
+      "authorRequired": "लेखक आवश्यक है।"
     }
   },
   "automation": {
@@ -2954,8 +3020,8 @@
       "tabTriggers": "चलाता है",
       "tabActions": "कार्रवाई",
       "tabAiActions": "एआई क्रियाएँ",
-      "builderTitle": "वर्कफ़्लो बिल्डर · {नाम}",
-      "builderHint": "{ग्रिड}px ग्रिड पर स्नैप करें · ⌘/Ctrl+स्क्रॉल ज़ूम · कैनवास को पैन करने के लिए खींचें · कनेक्ट पर डबल-क्लिक करें",
+      "builderTitle": "वर्कफ़्लो बिल्डर · {name}",
+      "builderHint": "{grid}px ग्रिड पर स्नैप करें · ⌘/Ctrl+स्क्रॉल ज़ूम · कैनवास को पैन करने के लिए खींचें · कनेक्ट पर डबल-क्लिक करें",
       "autoSaved": "स्वतः सहेजा गया",
       "saving": "सहेजा जा रहा है...",
       "undo": "पूर्ववत",
@@ -2981,14 +3047,14 @@
       "noMatches": "कोई भी वर्कफ़्लो रन इस फ़िल्टर से मेल नहीं खाता।"
     },
     "miniPreview": {
-      "emptyWorkflow": "Empty workflow"
+      "emptyWorkflow": "खाली वर्कफ़्लो"
     },
     "workflowTemplates": {
       "title": "टेम्प्लेट लाइब्रेरी",
       "noticeDefault": "किसी टेम्पलेट को बिल्डर में लोड करने से पहले उसका पूर्वावलोकन करें।",
-      "noticeLoaded": "वर्कफ़्लो बिल्डर में \"{नाम}\" लोड किया गया।",
-      "nodesBadge": "{गिनती} नोड्स",
-      "recommendedFor": "इसके लिए अनुशंसित: {के लिए}",
+      "noticeLoaded": "वर्कफ़्लो बिल्डर में \"{name}\" लोड किया गया।",
+      "nodesBadge": "{count} नोड्स",
+      "recommendedFor": "इसके लिए अनुशंसित: {for}",
       "preview": "पूर्व दर्शन",
       "useTemplate": "टेम्पलेट का इस्तेमाल करें",
       "previewTitle": "टेम्पलेट पूर्वावलोकन",
@@ -3019,14 +3085,14 @@
       "notice": {
         "missingWrite": "वर्कफ़्लो.लिखने की अनुमति गुम है.",
         "missingExecute": "वर्कफ़्लो.निष्पादन अनुमति अनुपलब्ध।",
-        "created": "{नाम} बनाया गया",
-        "templateApplied": "टेम्प्लेट लागू किया गया: {नाम}",
-        "runResult": "{स्थिति} चलाएँ ({अवधि}एमएस)",
+        "created": "{name} बनाया गया",
+        "templateApplied": "टेम्प्लेट लागू किया गया: {name}",
+        "runResult": "{status} चलाएँ ({duration}एमएस)",
         "runFailed": "वर्कफ़्लो नहीं चल सका (अक्षम या अनुपलब्ध)।",
-        "publishedEvent": "प्रकाशित डोमेन इवेंट: {प्रकार}",
-        "workflowStatus": "वर्कफ़्लो {स्थिति}",
+        "publishedEvent": "प्रकाशित डोमेन इवेंट: {type}",
+        "workflowStatus": "वर्कफ़्लो {status}",
         "saved": "वर्कफ़्लो सहेजा गया",
-        "retryResult": "पुनः प्रयास करें {स्थिति}",
+        "retryResult": "पुनः प्रयास करें {status}",
         "retryFailed": "पुनः प्रयास विफल रहा",
         "settingsSaved": "स्वचालन सेटिंग्स सहेजी गईं"
       },
@@ -3081,8 +3147,8 @@
         "emptyTitle": "अभी तक कोई निष्पादन नहीं.",
         "emptyDescription": "वर्कफ़्लो चलाएँ या डोमेन ईवेंट प्रकाशित करें।",
         "latestRun": "नवीनतम रन विवरण",
-        "path": "पथ: {पथ}",
-        "error": "· त्रुटि: {त्रुटि}",
+        "path": "पथ: {path}",
+        "error": "· त्रुटि: {error}",
         "columns": {
           "workflow": "कार्यप्रवाह",
           "status": "स्थिति",
@@ -3115,12 +3181,311 @@
         "timeoutMs": "टाइमआउट (एमएस)",
         "logLevel": "लॉग स्तर",
         "logLevels": {
-          "error": "error",
-          "warn": "warn",
-          "info": "info",
-          "debug": "debug"
+          "error": "त्रुटि",
+          "warn": "चेतावनी",
+          "info": "जानकारी",
+          "debug": "डिबग"
         },
         "saveSettings": "सेटिंग्स सेव करें"
+      }
+    },
+    "status": {
+      "connected": "कनेक्टेड",
+      "beta": "बीटा",
+      "comingSoon": "जल्द आ रहा है",
+      "disabled": "अक्षम",
+      "planned": "योजनाबद्ध",
+      "success": "सफल",
+      "failed": "विफल",
+      "running": "चल रहा है",
+      "pending": "लंबित",
+      "retried": "पुनः प्रयास"
+    },
+    "difficulty": {
+      "starter": "शुरुआती",
+      "intermediate": "मध्यम",
+      "advanced": "उन्नत"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "ट्रिगर",
+        "description": "घटना होने पर शुरू करें"
+      },
+      "el-condition": {
+        "label": "शर्त",
+        "description": "नियमों पर शाखा करें"
+      },
+      "el-delay": {
+        "label": "विलंब",
+        "description": "जारी रखने से पहले प्रतीक्षा करें"
+      },
+      "el-approval": {
+        "label": "अनुमोदन",
+        "description": "मानव अनुमोदन गेट"
+      },
+      "el-loop": {
+        "label": "लूप",
+        "description": "संग्रह पर दोहराएँ"
+      },
+      "el-merge": {
+        "label": "मर्ज",
+        "description": "समानांतर पथ जोड़ें"
+      },
+      "el-split": {
+        "label": "विभाजन",
+        "description": "समानांतर पथ फैलाएँ"
+      },
+      "el-ai-decision": {
+        "label": "AI निर्णय",
+        "description": "AI के माध्यम से रूट करें"
+      },
+      "el-notification": {
+        "label": "सूचना",
+        "description": "इन-ऐप अलर्ट"
+      },
+      "el-webhook": {
+        "label": "Webhook प्लेसहोल्डर",
+        "description": "HTTP कॉलबैक आरक्षित"
+      },
+      "el-custom": {
+        "label": "कस्टम कार्रवाई",
+        "description": "विस्तार योग्य कार्रवाई स्लॉट"
+      },
+      "tr-customer": {
+        "label": "ग्राहक बनाया गया",
+        "description": "CRM ग्राहक रिकॉर्ड बनाया गया"
+      },
+      "tr-lead": {
+        "label": "लीड बनाई गई",
+        "description": "नई लीड पाइपलाइन में आती है"
+      },
+      "tr-invoice": {
+        "label": "चालान बनाया गया",
+        "description": "वित्त चालान जारी किया गया"
+      },
+      "tr-invoice-paid": {
+        "label": "चालान भुगतान हुआ",
+        "description": "भुगतान निपटाया गया"
+      },
+      "tr-order": {
+        "label": "ऑर्डर बनाया गया",
+        "description": "ऑर्डर दर्ज किया गया"
+      },
+      "tr-order-done": {
+        "label": "ऑर्डर पूरा हुआ",
+        "description": "ऑर्डर पूरा किया गया"
+      },
+      "tr-doc": {
+        "label": "दस्तावेज़ अपलोड हुआ",
+        "description": "दस्तावेज़ वॉल्ट अपलोड"
+      },
+      "tr-campaign": {
+        "label": "अभियान प्रकाशित हुआ",
+        "description": "Creator Studio प्रकाशन"
+      },
+      "tr-employee": {
+        "label": "कर्मचारी जोड़ा गया",
+        "description": "टीम निर्देशिका में बदलाव"
+      },
+      "tr-task": {
+        "label": "कार्य पूरा हुआ",
+        "description": "कार्य पूर्ण चिह्नित"
+      },
+      "tr-manual": {
+        "label": "मैनुअल ट्रिगर",
+        "description": "मांग पर चलाएँ"
+      },
+      "tr-schedule": {
+        "label": "शेड्यूल ट्रिगर",
+        "description": "Cron / कैलेंडर शेड्यूल"
+      },
+      "tr-webhook": {
+        "label": "Webhook ट्रिगर",
+        "description": "इनबाउंड HTTP इवेंट"
+      },
+      "tr-api": {
+        "label": "API ट्रिगर",
+        "description": "प्रोग्रामेटिक प्रारंभ"
+      },
+      "ac-crm": {
+        "label": "CRM रिकॉर्ड बनाएँ",
+        "description": "CRM इकाई लिखें"
+      },
+      "ac-invoice": {
+        "label": "चालान बनाएँ",
+        "description": "वित्त चालान"
+      },
+      "ac-quote": {
+        "label": "कोट बनाएँ",
+        "description": "कोट दस्तावेज़ बनाएँ"
+      },
+      "ac-delivery": {
+        "label": "डिलीवरी नोट बनाएँ",
+        "description": "डिलीवरी नोट"
+      },
+      "ac-task": {
+        "label": "कार्य बनाएँ",
+        "description": "एक कार्य खोलें"
+      },
+      "ac-assign": {
+        "label": "कर्मचारी असाइन करें",
+        "description": "टीममेट को रूट करें"
+      },
+      "ac-email": {
+        "label": "ईमेल भेजें",
+        "description": "आउटबाउंड ईमेल"
+      },
+      "ac-notify": {
+        "label": "सूचना भेजें",
+        "description": "इन-ऐप सूचना"
+      },
+      "ac-ai-summary": {
+        "label": "AI सारांश बनाएँ",
+        "description": "संदर्भ सारांशित करें"
+      },
+      "ac-ai-content": {
+        "label": "AI सामग्री बनाएँ",
+        "description": "Creator Studio ड्राफ्ट"
+      },
+      "ac-update-customer": {
+        "label": "ग्राहक अपडेट करें",
+        "description": "CRM ग्राहक पैच करें"
+      },
+      "ac-update-status": {
+        "label": "स्थिति अपडेट करें",
+        "description": "इकाई की स्थिति बदलें"
+      },
+      "ac-pdf": {
+        "label": "PDF निर्यात करें",
+        "description": "दस्तावेज़ निर्यात"
+      },
+      "ac-future": {
+        "label": "भविष्य API प्लेसहोल्डर",
+        "description": "आरक्षित कार्रवाई स्लॉट"
+      },
+      "ai-decision": {
+        "label": "AI निर्णय",
+        "description": "अगला पथ तय करें"
+      },
+      "ai-class": {
+        "label": "AI वर्गीकरण",
+        "description": "रिकॉर्ड वर्गीकृत करें"
+      },
+      "ai-text": {
+        "label": "AI पाठ निर्माण",
+        "description": "पाठ बनाएँ"
+      },
+      "ai-translate": {
+        "label": "AI अनुवाद",
+        "description": "सामग्री का अनुवाद करें"
+      },
+      "ai-email": {
+        "label": "AI ईमेल जवाब",
+        "description": "उत्तर का मसौदा"
+      },
+      "ai-sum": {
+        "label": "AI सारांशीकरण",
+        "description": "संदर्भ संक्षिप्त करें"
+      },
+      "ai-rec": {
+        "label": "AI सिफ़ारिशें",
+        "description": "अगले कदम सुझाएँ"
+      },
+      "ai-route": {
+        "label": "AI रूटिंग",
+        "description": "स्वामी / कतार को रूट करें"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "ग्राहक बनाया गया",
+        "description": "CRM ग्राहक रिकॉर्ड बनने पर चलता है."
+      },
+      "project_created": {
+        "label": "प्रोजेक्ट बनाया गया",
+        "description": "प्रोजेक्ट बनने पर चलता है."
+      },
+      "invoice_issued": {
+        "label": "चालान जारी",
+        "description": "चालान जारी होने पर चलता है."
+      },
+      "task_completed": {
+        "label": "कार्य पूरा हो गया",
+        "description": "कार्य पूर्ण चिह्नित होने पर चलता है."
+      },
+      "document_uploaded": {
+        "label": "दस्तावेज़ अपलोड किया गया",
+        "description": "दस्तावेज़ अपलोड होने पर चलता है."
+      },
+      "user_invited": {
+        "label": "उपयोगकर्ता आमंत्रित",
+        "description": "टीम सदस्य आमंत्रित होने पर चलता है."
+      },
+      "schedule": {
+        "label": "अनुसूची",
+        "description": "क्रॉन / अंतराल शेड्यूल ट्रिगर."
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "इनबाउंड HTTP वेबहुक."
+      },
+      "api_event": {
+        "label": "API इवेंट",
+        "description": "सामान्य API डोमेन इवेंट."
+      },
+      "ai_event": {
+        "label": "AI इवेंट",
+        "description": "AI संकेत (पूर्णता, इनसाइट, एजेंट चरण)."
+      },
+      "manual": {
+        "label": "मैनुअल ट्रिगर",
+        "description": "UI या API से ऑन-डिमांड चलाएँ."
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "ग्राहक बनाएं",
+        "description": "CRM ग्राहक रिकॉर्ड बनाएँ."
+      },
+      "customer_update": {
+        "label": "ग्राहक अपडेट करें",
+        "description": "ग्राहक फ़ील्ड अपडेट करें."
+      },
+      "project_create": {
+        "label": "प्रोजेक्ट बनाएं",
+        "description": "वर्कफ़्लो संदर्भ से प्रोजेक्ट बनाएँ."
+      },
+      "document_generate": {
+        "label": "दस्तावेज़ बनाएँ",
+        "description": "टेम्पलेट से दस्तावेज़ बनाएँ."
+      },
+      "notification_send": {
+        "label": "सूचना भेजें",
+        "description": "इन-ऐप सूचना भेजें."
+      },
+      "email_send": {
+        "label": "ईमेल भेजें",
+        "description": "मेल प्रदाता के माध्यम से ईमेल कतार में डालें."
+      },
+      "api_call": {
+        "label": "API कॉल",
+        "description": "आंतरिक या बाहरी API पर HTTP कॉल."
+      },
+      "ai_run": {
+        "label": "AI चलाएँ",
+        "description": "संदर्भ के साथ AI प्रॉम्प्ट / एजेंट चरण चलाएँ."
+      },
+      "task_assign": {
+        "label": "कार्य असाइन करें",
+        "description": "उपयोगकर्ता को कार्य असाइन करें."
+      },
+      "invoice_create": {
+        "label": "चालान बनाएं",
+        "description": "वित्त चालान बनाएँ."
+      },
+      "status_update": {
+        "label": "स्थिति अपडेट करें",
+        "description": "मॉड्यूल में एंटिटी की स्थिति अपडेट करें."
       }
     }
   },
@@ -3128,7 +3493,7 @@
     "page": {
       "eyebrow": "पहचान एवं पहुंच",
       "title": "टीम",
-      "lead": "{संगठन} के सदस्य, भूमिकाएँ और निमंत्रण। भविष्य की पहचान एपीआई के लिए आर्किटेक्चर-तैयार।",
+      "lead": "{organization} के सदस्य, भूमिकाएँ और निमंत्रण। भविष्य की पहचान एपीआई के लिए आर्किटेक्चर-तैयार।",
       "yourOrganization": "आपकी संगठन"
     },
     "invite": {
@@ -3175,17 +3540,17 @@
       "columnEmail": "ईमेल",
       "columnRole": "भूमिका",
       "columnStatus": "स्थिति",
-      "roleFor": "{नाम} के लिए भूमिका",
+      "roleFor": "{name} के लिए भूमिका",
       "emptyTitle": "अभी तक कोई सदस्य नहीं",
       "emptyDescription": "सहकर्मियों को इस संगठन कार्यक्षेत्र में शामिल होने के लिए आमंत्रित करें।",
-      "updated": "{नाम} को {भूमिका} में अपडेट किया गया",
+      "updated": "{name} को {role} में अपडेट किया गया",
       "roleChangeFailed": "भूमिका परिवर्तन विफल"
     },
     "pending": {
       "title": "लंबित निमंत्रण",
       "emptyTitle": "कोई लंबित निमंत्रण नहीं",
       "emptyDescription": "नए आमंत्रण स्वीकार किए जाने या समाप्त होने तक यहां दिखाई देते हैं।",
-      "expires": "{भूमिका} · समाप्त हो रही है {तारीख}",
+      "expires": "{role} · समाप्त हो रही है {date}",
       "revoke": "रद्द करना",
       "pending": "लंबित"
     },
@@ -3206,7 +3571,7 @@
     "page": {
       "sectionTitle": "ग्राहक प्रबंधन",
       "title": "ग्राहकों",
-      "lead": "{संगठन} के लिए ग्राहक रिकॉर्ड बनाएं, संपादित करें, खोजें और प्रबंधित करें।",
+      "lead": "{organization} के लिए ग्राहक रिकॉर्ड बनाएं, संपादित करें, खोजें और प्रबंधित करें।",
       "yourOrganization": "आपकी संगठन"
     },
     "table": {
@@ -3221,9 +3586,9 @@
       "view": "देखना",
       "edit": "संपादन करना",
       "delete": "मिटाना",
-      "viewAria": "{कंपनी} देखें",
-      "editAria": "{कंपनी} संपादित करें",
-      "deleteAria": "{कंपनी} हटाएं",
+      "viewAria": "{company} देखें",
+      "editAria": "{company} संपादित करें",
+      "deleteAria": "{company} हटाएं",
       "loading": "ग्राहक लोड हो रहे हैं...",
       "errorLoad": "ग्राहकों को लोड नहीं किया जा सका",
       "errorGeneric": "कुछ गलत हो गया",
@@ -3278,7 +3643,7 @@
       "title": "ग्राहक हटाएँ",
       "cancel": "रद्द करना",
       "confirm": "मिटाना",
-      "confirmWithName": "{कंपनी} को स्थायी रूप से हटाएं? इसे असंपादित नहीं किया जा सकता है।",
+      "confirmWithName": "{company} को स्थायी रूप से हटाएं? इसे असंपादित नहीं किया जा सकता है।",
       "confirmGeneric": "इस ग्राहक को स्थायी रूप से हटा दिया जाएगा.",
       "success": "ग्राहक हटा दिया गया",
       "failed": "हटाना विफल",
@@ -3300,6 +3665,18 @@
       "updated": "अद्यतन",
       "notes": "टिप्पणियाँ",
       "noNotes": "अभी तक कोई नोट नहीं."
+    },
+    "validation": {
+      "companyRequired": "कंपनी का नाम आवश्यक है।",
+      "contactRequired": "संपर्क व्यक्ति आवश्यक है।",
+      "emailRequired": "ईमेल आवश्यक है।",
+      "emailInvalid": "एक मान्य ईमेल पता दर्ज करें।",
+      "phoneRequired": "फ़ोन आवश्यक है।",
+      "phoneInvalid": "एक मान्य फ़ोन नंबर दर्ज करें।",
+      "mobileInvalid": "एक मान्य मोबाइल नंबर दर्ज करें।",
+      "statusInvalid": "एक मान्य स्थिति चुनें।",
+      "emailDuplicate": "इस ईमेल वाला ग्राहक पहले से मौजूद है।",
+      "companyDuplicate": "इस कंपनी नाम वाला ग्राहक पहले से मौजूद है।"
     }
   },
   "ai": {
@@ -3320,7 +3697,7 @@
       "provider": "प्रदाता",
       "model": "नमूना",
       "estimatedTokens": "ईएसटी। टोकन",
-      "tokensInOut": "(अंदर {अंदर} / बाहर {बाहर})",
+      "tokensInOut": "(अंदर {in} / बाहर {out})",
       "cost": "लागत",
       "context": "प्रसंग",
       "contextNone": "कोई नहीं",
@@ -3383,6 +3760,91 @@
       "placeholder": "एआई कमांड... सारांशित करें, प्रस्तावित करें, विश्लेषण करें...",
       "noMatches": "कोई मिलान आदेश नहीं",
       "footer": "रजिस्टरएआईकमांड के माध्यम से भविष्य के आदेशों को पंजीकृत करें - यूआई अपरिवर्तित रहता है।"
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "प्रोजेक्ट",
+      "finance": "वित्त",
+      "marketing": "मार्केटिंग",
+      "documents": "दस्तावेज़",
+      "automation": "स्वचालन",
+      "general": "सामान्य"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "ग्राहक सारांश",
+        "description": "ग्राहक संबंध का कार्यकारी सारांश"
+      },
+      "crm-follow-up-email": {
+        "title": "फ़ॉलो-अप ईमेल",
+        "description": "पेशेवर CRM फ़ॉलो-अप का मसौदा"
+      },
+      "projects-analyze": {
+        "title": "प्रोजेक्ट विश्लेषण",
+        "description": "प्रोजेक्ट का स्वास्थ्य जाँच"
+      },
+      "projects-task-list": {
+        "title": "कार्य सूची बनाएँ",
+        "description": "काम को कार्रवाई योग्य कार्यों में तोड़ें"
+      },
+      "finance-explain-invoice": {
+        "title": "चालान समझाएँ",
+        "description": "सरल भाषा में चालान की व्याख्या"
+      },
+      "finance-cashflow-brief": {
+        "title": "कैशफ़्लो संक्षेप",
+        "description": "संक्षिप्त कैशफ़्लो विवरण"
+      },
+      "marketing-campaign-outline": {
+        "title": "अभियान रूपरेखा",
+        "description": "मार्केटिंग अभियान की संरचना करें"
+      },
+      "marketing-proposal": {
+        "title": "प्रस्ताव बनाएँ",
+        "description": "ग्राहक-मुखी प्रस्ताव का मसौदा"
+      },
+      "documents-summarize": {
+        "title": "दस्तावेज़ सारांश",
+        "description": "संरचित दस्तावेज़ सारांश"
+      },
+      "automation-workflow": {
+        "title": "वर्कफ़्लो डिज़ाइन करें",
+        "description": "स्वचालन वर्कफ़्लो का रेखाचित्र"
+      },
+      "general-brainstorm": {
+        "title": "विकल्पों पर विचार-मंथन",
+        "description": "संरचित विचार-सृजन"
+      },
+      "general-explain": {
+        "title": "सरलता से समझाएँ",
+        "description": "हितधारकों के लिए स्पष्ट व्याख्या"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "ग्राहक सारांश",
+        "description": "सक्रिय ग्राहक का कार्यकारी सारांश"
+      },
+      "cmd-generate-proposal": {
+        "label": "प्रस्ताव बनाएँ",
+        "description": "ग्राहक प्रस्ताव की रूपरेखा का मसौदा"
+      },
+      "cmd-analyze-project": {
+        "label": "प्रोजेक्ट विश्लेषण",
+        "description": "प्रोजेक्ट स्वास्थ्य और जोखिम विश्लेषण"
+      },
+      "cmd-create-task-list": {
+        "label": "कार्य सूची बनाएँ",
+        "description": "काम को कार्रवाई योग्य कार्यों में तोड़ें"
+      },
+      "cmd-generate-email": {
+        "label": "ईमेल बनाएँ",
+        "description": "पेशेवर ईमेल का मसौदा"
+      },
+      "cmd-explain-invoice": {
+        "label": "चालान समझाएँ",
+        "description": "सरल भाषा में चालान की व्याख्या"
+      }
     }
   },
   "agents": {
@@ -3404,7 +3866,7 @@
       "settings": "सेटिंग्स"
     },
     "notice": {
-      "simulatedRun": "सिम्युलेटेड रन · {स्थिति} ({अवधि}एमएस)",
+      "simulatedRun": "सिम्युलेटेड रन · {status} ({duration}एमएस)",
       "taskFailed": "कार्य विफल",
       "activated": "स्थानीय रूप से सक्रिय: {agentId}",
       "agentPaused": "एजेंट रुक गया",
@@ -3429,15 +3891,15 @@
     "registry": {
       "title": "रजिस्ट्री",
       "selectPrompt": "रजिस्ट्री से एक एजेंट का चयन करें.",
-      "status": "स्थिति: {स्थिति}",
-      "health": "स्वास्थ्य: {स्वास्थ्य}",
-      "queue": "कतार: {कतार}",
-      "usage": "उपयोग: {उपयोग}",
+      "status": "स्थिति: {status}",
+      "health": "स्वास्थ्य: {health}",
+      "queue": "कतार: {queue}",
+      "usage": "उपयोग: {usage}",
       "executeTask": "कार्य निष्पादित करें",
       "supervisorDelegate": "पर्यवेक्षक प्रतिनिधि"
     },
     "marketplace": {
-      "tools": "उपकरण: {उपकरण}",
+      "tools": "उपकरण: {tools}",
       "installed": "स्थापित",
       "installActivate": "इंस्टॉल करें और सक्रिय करें"
     },
@@ -3445,7 +3907,7 @@
       "title": "एजेंट मॉनिटर",
       "emptyTitle": "निगरानी के लिए कोई एजेंट नहीं",
       "emptyDescription": "बाज़ार से एजेंटों को सक्रिय करें.",
-      "latestConfidence": "नवीनतम तर्क आत्मविश्वास: {आत्मविश्वास} — {कदम}"
+      "latestConfidence": "नवीनतम तर्क आत्मविश्वास: {confidence} — {steps}"
     },
     "history": {
       "title": "निष्पादन इतिहास",
@@ -3504,6 +3966,10 @@
     "goals": {
       "executeBusiness": "{agentId} व्यावसायिक लक्ष्य निष्पादित करें",
       "planAndExecute": "कार्यक्षेत्र व्यवसाय लक्ष्य की योजना बनाएं और उसे क्रियान्वित करें"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "ग्राहक प्रभाव को प्राथमिकता दें",
+      "delegatedFollowUp": "प्रत्यायोजित फ़ॉलो-अप"
     }
   },
   "integrations": {
@@ -3523,21 +3989,21 @@
       "developer": "डेवलपर"
     },
     "notice": {
-      "demoConnection": "डेमो कनेक्शन: {नाम} (केवल स्थानीय आधार)",
+      "demoConnection": "डेमो कनेक्शन: {name} (केवल स्थानीय आधार)",
       "connectFailed": "कनेक्ट करने में विफल रहा",
-      "keyCreated": "एपीआई कुंजी बनाई गई: {उपसर्ग}",
-      "webhookCreated": "वेबहुक बनाया गया: {नाम}",
-      "webhookTest": "वेबहुक परीक्षण {स्थिति}",
-      "networkError": "एपीआई एक्सप्लोरर नेटवर्क त्रुटि: {संदेश}",
-      "explorerError": "एपीआई एक्सप्लोरर → {स्थिति}: {संदेश}",
-      "explorerSuccess": "एपीआई एक्सप्लोरर → {स्थिति}",
+      "keyCreated": "एपीआई कुंजी बनाई गई: {prefix}",
+      "webhookCreated": "वेबहुक बनाया गया: {name}",
+      "webhookTest": "वेबहुक परीक्षण {status}",
+      "networkError": "एपीआई एक्सप्लोरर नेटवर्क त्रुटि: {message}",
+      "explorerError": "एपीआई एक्सप्लोरर → {status}: {message}",
+      "explorerSuccess": "एपीआई एक्सप्लोरर → {status}",
       "explorerFailed": "एक्सप्लोरर विफल रहा",
-      "syncResult": "डेमो सिंक · {स्थिति} ({रिकॉर्ड} स्थानीय रिकॉर्ड) - कोई बाहरी डेटा स्थानांतरित नहीं किया गया।",
+      "syncResult": "डेमो सिंक · {status} ({records} स्थानीय रिकॉर्ड) - कोई बाहरी डेटा स्थानांतरित नहीं किया गया।",
       "diagnosed": "निदान",
-      "removedConnection": "डेमो कनेक्शन हटाया गया: {नाम}",
+      "removedConnection": "डेमो कनेक्शन हटाया गया: {name}",
       "keyRotated": "कुंजी घुमाई गई",
       "keyRevoked": "कुंजी निरस्त कर दी गई",
-      "publishedEvent": "प्रकाशित {प्रकार}",
+      "publishedEvent": "प्रकाशित {type}",
       "developerSaved": "डेवलपर सेटिंग सहेजी गईं"
     },
     "dashboard": {
@@ -3560,10 +4026,10 @@
       "title": "स्थापित एकीकरण",
       "emptyTitle": "कुछ भी स्थापित नहीं",
       "emptyDescription": "उपलब्ध कैटलॉग से इंस्टॉल करें.",
-      "latestSync": "नवीनतम सिंक: {स्थिति} · {रिकॉर्ड} रिकॉर्ड · मोड {मोड}"
+      "latestSync": "नवीनतम सिंक: {status} · {records} रिकॉर्ड · मोड {mode}"
     },
     "available": {
-      "protocols": "प्रोटोकॉल: {प्रोटोकॉल}",
+      "protocols": "प्रोटोकॉल: {protocols}",
       "demoConnection": "डेमो कनेक्शन",
       "connectDemo": "कनेक्ट करें (डेमो)",
       "installDemo": "डेमो स्थापित करें"
@@ -3576,7 +4042,7 @@
     "apiKeys": {
       "title": "एपीआई कुंजियाँ",
       "generateKey": "कुंजी उत्पन्न करें",
-      "copyOnce": "अभी कॉपी करें (एक बार दिखाया गया): {गुप्त}",
+      "copyOnce": "अभी कॉपी करें (एक बार दिखाया गया): {secret}",
       "emptyTitle": "कोई एपीआई कुंजी नहीं",
       "emptyDescription": "REST गेटवे एक्सेस के लिए एक कुंजी उत्पन्न करें।"
     },
@@ -3596,9 +4062,9 @@
       "webhookSigning": "वेबहुक हस्ताक्षर सक्षम",
       "saveSettings": "सेटिंग्स सेव करें",
       "apiDocs": "एपीआई दस्तावेज़ प्लेसहोल्डर: {url}",
-      "sdk": "एसडीके प्लेसहोल्डर: {यूआरएल}",
+      "sdk": "एसडीके प्लेसहोल्डर: {url}",
       "explorerTitle": "एपीआई एक्सप्लोरर",
-      "gatewayRoutes": "गेटवे मार्ग: {मार्ग}",
+      "gatewayRoutes": "गेटवे मार्ग: {routes}",
       "sendGet": "भेजें प्राप्त करें",
       "oauthProviders": "OAuth प्रदाता",
       "placeholdersHint": "ग्राफक्यूएल, वेबसॉकेट और जीआरपीसी गेटवे रूट प्लेसहोल्डर के रूप में पंजीकृत हैं। फ़ील्ड मैपिंग और सिंक विरोध समाधान बैकएंड कार्यान्वयन के लिए आर्किटेक्चर-तैयार हैं।"
@@ -3646,7 +4112,7 @@
     },
     "errors": {
       "failedToFetch": "लाने में विफल",
-      "httpStatus": "HTTP {स्थिति}"
+      "httpStatus": "HTTP {status}"
     }
   },
   "intelligence": {
@@ -3659,9 +4125,9 @@
     "noPermission": "आपके पास इस कार्यक्षेत्र के लिए इंटेलिजेंस.रीड अनुमति नहीं है।",
     "filtersUpdated": "फ़िल्टर अपडेट किए गए",
     "demoReloaded": "इस कार्यक्षेत्र के लिए डेमो डेटासेट पुनः लोड किया गया।",
-    "acknowledged": "स्वीकृत: {शीर्षक}",
+    "acknowledged": "स्वीकृत: {title}",
     "exportUnavailableTitle": "निर्यात अनुपलब्ध - रिपोर्ट जनरेशन अभी तक कनेक्ट नहीं हुआ है।",
-    "exportUnavailableAria": "{शीर्षक} को {प्रारूप} के रूप में निर्यात करें - अनुपलब्ध",
+    "exportUnavailableAria": "{title} को {format} के रूप में निर्यात करें - अनुपलब्ध",
     "tabs": {
       "executive": "कार्यकारिणी",
       "health": "व्यावसायिक स्वास्थ्य",
@@ -3709,7 +4175,7 @@
       "operations": "संचालन",
       "riskPosture": "जोखिम मुद्रा",
       "growth": "विकास",
-      "observability": "अवलोकनशीलता: {मेट्रिक्स} मेट्रिक्स · {avgMs}ms औसत · सिस्टम स्वास्थ्य {स्वास्थ्य}"
+      "observability": "अवलोकनशीलता: {metrics} मेट्रिक्स · {avgMs}ms औसत · सिस्टम स्वास्थ्य {health}"
     },
     "workspace": {
       "noSeries": "कोई शृंखला नहीं"
@@ -3730,14 +4196,14 @@
     "insights": {
       "emptyTitle": "अभी तक कोई अंतर्दृष्टि नहीं",
       "emptyDescription": "कार्यस्थल बीज के बाद डेमो अंतर्दृष्टि दिखाई देती है। लाइव एआई इनसाइट जनरेशन कनेक्ट नहीं है।",
-      "badge": "डेमो · {तरह} · {डोमेन} · आत्मविश्वास {आत्मविश्वास}"
+      "badge": "डेमो · {kind} · {domain} · आत्मविश्वास {confidence}"
     },
     "forecasts": {
       "emptyTitle": "अभी तक कोई पूर्वानुमान नहीं है",
       "emptyDescription": "डेमो पूर्वानुमान बीज के बाद दिखाई देते हैं। पूर्वानुमानित मॉडल जुड़े नहीं हैं.",
-      "title": "{दयालु} पूर्वानुमान",
-      "baseline": "बेसलाइन {बेसलाइन} → अनुमानित {प्रोजेक्टेड} ({दिन}डी)",
-      "confidence": "डेमो · आत्मविश्वास {विश्वास} — {नोट}"
+      "title": "{kind} पूर्वानुमान",
+      "baseline": "बेसलाइन {baseline} → अनुमानित {projected} ({days}डी)",
+      "confidence": "डेमो · आत्मविश्वास {confidence} — {note}"
     },
     "alerts": {
       "title": "चेतावनी इंजन",
@@ -3789,8 +4255,8 @@
     "shell": {
       "brand": "एग्क्सोरा",
       "navLabel": "कानूनी नेविगेशन",
-      "lastUpdated": "अंतिम अद्यतन: {दिनांक}",
-      "footerCopyright": "© 2026 {कंपनी}",
+      "lastUpdated": "अंतिम अद्यतन: {date}",
+      "footerCopyright": "© 2026 {company}",
       "footerNavLabel": "कानूनी पाद लेख",
       "nav": {
         "privacy": "गोपनीयता",
@@ -3824,7 +4290,7 @@
     "privacy": {
       "title": "गोपनीयता नीति",
       "eyebrow": "कानूनी",
-      "intro": "यह गोपनीयता नीति बताती है कि जब आप {siteUrl} पर जाते हैं, खाता बनाते हैं, या AGXORA प्लेटफ़ॉर्म का उपयोग करते हैं तो {legalName} (\"AGXORA\", \"हम\", \"हमें\") व्यक्तिगत डेटा को कैसे संसाधित करता है।",
+      "intro": "यह गोपनीयता नीति बताती है कि जब आप {legalName} पर जाते हैं, खाता बनाते हैं, या AGXORA प्लेटफ़ॉर्म का उपयोग करते हैं तो {siteUrl} (\"AGXORA\", \"हम\", \"हमें\") व्यक्तिगत डेटा को कैसे संसाधित करता है।",
       "controller": "1. नियंत्रक",
       "dataWeProcess": "2. डेटा जिसे हम प्रोसेस करते हैं",
       "dataAccount": "खाता डेटा: नाम, ईमेल, संगठन और भूमिका।",
@@ -3944,7 +4410,134 @@
     "back": "पीछे",
     "continue": "जारी रखना",
     "launching": "लॉन्च हो रहा है...",
-    "enterDashboard": "डैशबोर्ड दर्ज करें"
+    "enterDashboard": "डैशबोर्ड दर्ज करें",
+    "defaultCountry": "संयुक्त राज्य अमेरिका",
+    "businessTypes": {
+      "hotel": {
+        "label": "होटल",
+        "description": "आतिथ्य, कमरे, मेहमान और संपत्ति संचालन"
+      },
+      "restaurant": {
+        "label": "रेस्तरां",
+        "description": "भोजन, रसोई, आरक्षण और अतिथि अनुभव"
+      },
+      "cleaning": {
+        "label": "सफाई",
+        "description": "व्यावसायिक और आवासीय सफाई संचालन"
+      },
+      "laundry": {
+        "label": "लांड्री",
+        "description": "वॉश प्लांट, पिकअप रूट और कपड़ा देखभाल"
+      },
+      "construction": {
+        "label": "निर्माण",
+        "description": "जॉबसाइट, क्रू, सामग्री और प्रोजेक्ट डिलीवरी"
+      },
+      "healthcare": {
+        "label": "स्वास्थ्य सेवा",
+        "description": "देखभाल नेटवर्क, रोगी और क्लिनिकल संचालन"
+      },
+      "medical": {
+        "label": "चिकित्सा",
+        "description": "क्लिनिक, अपॉइंटमेंट और देखभाल टीमें"
+      },
+      "manufacturing": {
+        "label": "विनिर्माण",
+        "description": "उत्पादन लाइनें, गुणवत्ता और आपूर्ति संचालन"
+      },
+      "retail": {
+        "label": "खुदरा",
+        "description": "स्टोर, इन्वेंटरी, मर्चेंडाइज़िंग और ग्राहक"
+      },
+      "legal": {
+        "label": "लॉ फर्म",
+        "description": "मामले, ग्राहक, समयसीमा और बिलिंग"
+      },
+      "accounting": {
+        "label": "लेखांकन",
+        "description": "खाते, ग्राहक, फाइलिंग और सलाह"
+      },
+      "consulting": {
+        "label": "परामर्श",
+        "description": "एंगेजमेंट, डिलिवरेबल और ग्राहक परिणाम"
+      },
+      "real_estate": {
+        "label": "रियल एस्टेट",
+        "description": "लिस्टिंग, ग्राहक, शोइंग और लेन-देन"
+      },
+      "education": {
+        "label": "शिक्षा",
+        "description": "कार्यक्रम, छात्र, संकाय और नामांकन"
+      },
+      "automotive": {
+        "label": "ऑटोमोटिव",
+        "description": "डीलरशिप, सर्विस बे और वाहन इन्वेंटरी"
+      },
+      "beauty": {
+        "label": "ब्यूटी सैलून",
+        "description": "अपॉइंटमेंट, स्टाइलिस्ट, रिटेल और सदस्यता"
+      },
+      "fitness": {
+        "label": "जिम / फिटनेस",
+        "description": "सदस्यता, कक्षाएँ, ट्रेनर और रिटेंशन"
+      },
+      "agriculture": {
+        "label": "कृषि",
+        "description": "फसलें, पशुधन, उपज और आपूर्ति श्रृंखला"
+      },
+      "transport": {
+        "label": "परिवहन",
+        "description": "बेड़े की आवाजाही, रूट और यात्री/कार्गो संचालन"
+      },
+      "logistics": {
+        "label": "लॉजिस्टिक्स",
+        "description": "बेड़ा, गोदाम, रूट और फुलफिलमेंट"
+      },
+      "warehouse": {
+        "label": "गोदाम",
+        "description": "भंडारण, पिकिंग, पैकिंग और इन्वेंटरी टर्न"
+      },
+      "insurance": {
+        "label": "बीमा",
+        "description": "पॉलिसी, दावे, अंडरराइटिंग और रिटेंशन"
+      },
+      "finance": {
+        "label": "वित्त",
+        "description": "पूंजी, पोर्टफोलियो और वित्तीय संचालन"
+      },
+      "financial_services": {
+        "label": "वित्तीय सेवाएँ",
+        "description": "सलाह, उत्पाद, अनुपालन और ग्राहक"
+      },
+      "technology": {
+        "label": "प्रौद्योगिकी",
+        "description": "उत्पाद, इंजीनियरिंग और गो-टू-मार्केट टीमें"
+      },
+      "saas": {
+        "label": "सॉफ़्टवेयर / SaaS",
+        "description": "सदस्यता, उपयोग और कस्टमर सक्सेस"
+      },
+      "ecommerce": {
+        "label": "ई-कॉमर्स",
+        "description": "ऑनलाइन कैटलॉग, कार्ट, फुलफिलमेंट और LTV"
+      },
+      "agency": {
+        "label": "मार्केटिंग एजेंसी",
+        "description": "ग्राहक, अभियान, रिटेनर और डिलीवरी"
+      },
+      "freelancer": {
+        "label": "फ़्रीलांसर",
+        "description": "एकल अभ्यास, ग्राहक, पाइपलाइन और कैशफ़्लो"
+      },
+      "government": {
+        "label": "सरकार",
+        "description": "सार्वजनिक सेवाएँ, कार्यक्रम और नागरिक"
+      },
+      "nonprofit": {
+        "label": "गैर-लाभ",
+        "description": "मिशन, दानदाता, कार्यक्रम और प्रभाव"
+      }
+    }
   },
   "creator": {
     "page": {
@@ -4017,7 +4610,7 @@
       "aiRewrite": "ऐ पुनर्लेखन",
       "translate": "अनुवाद",
       "initialOutput": "एक प्रारूप और ब्रांड आवाज चुनें, फिर एक ड्राफ्ट तैयार करें। प्रदाता एडाप्टर आरक्षित हैं - अभी तक कोई लाइव मॉडल कॉल नहीं है।",
-      "draftStaged": "ड्राफ्ट का मंचन {प्रारूप} · आवाज: {आवाज} के लिए किया गया। जेनरेशन एडॉप्टर आरक्षित।",
+      "draftStaged": "ड्राफ्ट का मंचन {format} · आवाज: {voice} के लिए किया गया। जेनरेशन एडॉप्टर आरक्षित।",
       "rewriteQueued": "एआई पुनर्लेखन पंक्तिबद्ध - पुनर्लेखन एडाप्टर आरक्षित।",
       "translateQueued": "अनुवाद सामग्री कतारबद्ध - बहु-भाषा एडाप्टर आरक्षित।",
       "brandVoice": "ब्रांड आवाज",
@@ -4042,8 +4635,8 @@
     "analytics": {
       "title": "एनालिटिक्स",
       "topPosts": "शीर्ष पोस्ट",
-      "engagement": "इंजी {मूल्य}",
-      "reach": "{मूल्य} तक पहुंचें",
+      "engagement": "इंजी {value}",
+      "reach": "{value} तक पहुंचें",
       "recommendations": "एआई सिफ़ारिशें"
     },
     "integrations": {
@@ -4052,6 +4645,47 @@
     },
     "aiFeaturesPanel": {
       "lead": "एआई फीचर मैप - विचार, कैप्शन, हैशटैग, कैलेंडर, अभियान, दर्शक, शेड्यूल, ब्रांड स्थिरता, पुनर्लेखन, अनुवाद, बहु-भाषा।"
+    },
+    "formats": {
+      "instagram_caption": "Instagram कैप्शन",
+      "tiktok_script": "TikTok स्क्रिप्ट",
+      "linkedin_post": "LinkedIn पोस्ट",
+      "facebook_post": "Facebook पोस्ट",
+      "x_post": "X पोस्ट",
+      "blog_article": "ब्लॉग लेख",
+      "newsletter": "न्यूज़लेटर",
+      "email_campaign": "ईमेल अभियान",
+      "product_description": "उत्पाद विवरण",
+      "ad_copy": "विज्ञापन कॉपी",
+      "seo_article": "SEO लेख",
+      "landing_page_copy": "लैंडिंग पेज कॉपी"
+    },
+    "publishStatus": {
+      "draft": "ड्राफ्ट",
+      "review": "समीक्षा",
+      "approved": "अनुमोदित",
+      "scheduled": "निर्धारित",
+      "published": "प्रकाशित",
+      "archive": "संग्रह"
+    },
+    "mediaKind": {
+      "image": "छवि",
+      "video": "वीडियो",
+      "document": "दस्तावेज़",
+      "logo": "ब्रांड लोगो",
+      "template": "टेम्पलेट"
+    },
+    "voice": {
+      "professional": "पेशेवर",
+      "friendly": "मित्रवत",
+      "luxury": "लक्ज़री",
+      "casual": "आरामदायक"
+    },
+    "integrationStatus": {
+      "planned": "योजनाबद्ध",
+      "ready": "तैयार",
+      "connected": "कनेक्टेड",
+      "disabled": "अक्षम"
     }
   },
   "backend": {
@@ -4065,7 +4699,7 @@
     },
     "network": {
       "offline": "आप ऑफ़लाइन प्रतीत होते हैं",
-      "offlineSyncHint": "Changes may not sync until the connection returns.",
+      "offlineSyncHint": "कनेक्शन वापस आने तक बदलाव सिंक नहीं हो सकते।",
       "offlineHelp": "ऑफ़लाइन सहायता",
       "reconnected": "कनेक्शन बहाल कर दिया गया"
     },
@@ -4107,22 +4741,25 @@
       "title": "एक डेमो बुक करें",
       "subtitle": "AGXORA टीम के साथ लाइव वॉकथ्रू शेड्यूल करें। जब तक कैलेंडर बुकिंग सक्षम नहीं हो जाती, डेमो का अनुरोध करने के लिए हमें ईमेल करें।",
       "requestTitle": "डेमो का अनुरोध करें",
-      "requestBody": "हम शेड्यूलिंग पूरी कर रहे हैं ताकि आप अपनी टीम के लिए उपयुक्त समय चुन सकें। तब तक, निःशुल्क शुरुआत करें और अपनी गति से उत्पाद का अन्वेषण करें - या हमें {ईमेल} पर ईमेल करें।",
+      "requestBody": "हम शेड्यूलिंग पूरी कर रहे हैं ताकि आप अपनी टीम के लिए उपयुक्त समय चुन सकें। तब तक, निःशुल्क शुरुआत करें और अपनी गति से उत्पाद का अन्वेषण करें - या हमें {email} पर ईमेल करें।",
       "startFree": "इसके बजाय मुफ़्त प्रारंभ करें",
       "backHome": "घर वापिस जा रहा हूँ",
       "signIn": "दाखिल करना"
-    }
+    },
+    "loading": "लोड हो रहा है",
+    "loadingEllipsis": "लोड हो रहा है…",
+    "loadingIdentity": "पहचान लोड हो रही है…"
   },
   "workspace": {
     "page": {
       "title": "कार्यस्थान",
       "description": "मॉड्यूल और एआई के लिए पृथक किरायेदार कार्यक्षेत्र सतह।",
-      "descriptionNamed": "{नाम} के लिए पृथक किरायेदार कार्यस्थान सतह।"
+      "descriptionNamed": "{name} के लिए पृथक किरायेदार कार्यस्थान सतह।"
     },
     "idLabel": "कार्यस्थल आईडी:",
-    "active": "सक्रिय: {नाम}",
+    "active": "सक्रिय: {name}",
     "notInSession": "चालू सत्र में नहीं",
-    "organization": "संगठन: {नाम} ({स्लग})",
+    "organization": "संगठन: {name} ({slug})",
     "searchResults": "खोज के परिणाम"
   },
   "iam": {
@@ -4145,7 +4782,7 @@
       "logoPlaceholder": "लोगो अपलोड और योजना बिलिंग एडाप्टर भविष्य की पहचान बैकएंड के लिए प्लेसहोल्डर हैं।",
       "rbacTitle": "आरबीएसी - डिफ़ॉल्ट भूमिकाएँ",
       "permissionMatrix": "अनुमति मैट्रिक्स",
-      "canManageSettings": "सेटिंग्स प्रबंधित कर सकते हैं: {मान} · प्रमाणीकृत: {प्रमाणीकृत}",
+      "canManageSettings": "सेटिंग्स प्रबंधित कर सकते हैं: {value} · प्रमाणीकृत: {authenticated}",
       "yes": "हाँ",
       "no": "नहीं",
       "securitySettings": "सुरक्षा सेटिंग्स",
@@ -4171,8 +4808,8 @@
       "persistentLogin": "लगातार लॉगिन",
       "disabled": "अक्षम",
       "enabled": "सक्रिय",
-      "days": "{गिनती} दिन",
-      "minutes": "{गिनती} मि",
+      "days": "{count} दिन",
+      "minutes": "{count} मि",
       "toggleIdlePolicy": "निष्क्रिय नीति प्लेसहोल्डर को टॉगल करें",
       "previewSessionExpired": "पूर्वावलोकन सत्र समाप्त हो गया",
       "previewAccountLocked": "पूर्वावलोकन खाता लॉक कर दिया गया है",
@@ -4262,28 +4899,28 @@
       "ariaLabel": "कार्यक्षेत्र बदलें"
     },
     "access": {
-      "eyebrow": "Identity & Access",
-      "signIn": "Sign in",
-      "backToDashboard": "Back to dashboard",
+      "eyebrow": "पहचान और पहुँच",
+      "signIn": "साइन इन",
+      "backToDashboard": "डैशबोर्ड पर वापस जाएँ",
       "unauthorized": {
-        "title": "Unauthorized",
-        "description": "Sign in to continue to this area of AGXORA."
+        "title": "अनधिकृत",
+        "description": "AGXORA के इस क्षेत्र में जारी रखने के लिए साइन इन करें।"
       },
       "forbidden": {
-        "title": "Forbidden",
-        "description": "Your role does not include permission for this resource."
+        "title": "निषिद्ध",
+        "description": "आपकी भूमिका में इस संसाधन की अनुमति शामिल नहीं है।"
       },
       "expired_session": {
-        "title": "Expired Session",
-        "description": "Your session expired. Sign in again to resume work."
+        "title": "सत्र समाप्त",
+        "description": "आपका सत्र समाप्त हो गया। काम फिर शुरू करने के लिए फिर से साइन इन करें।"
       },
       "missing_permission": {
-        "title": "Missing Permission",
-        "description": "Ask an Owner or Admin to grant the required module access."
+        "title": "अनुमति नहीं है",
+        "description": "आवश्यक मॉड्यूल पहुँच देने के लिए किसी स्वामी या व्यवस्थापक से कहें।"
       },
       "account_locked": {
-        "title": "Account Locked",
-        "description": "This account is locked. Contact an organization owner or try again later."
+        "title": "खाता लॉक है",
+        "description": "यह खाता लॉक है। संगठन स्वामी से संपर्क करें या बाद में पुनः प्रयास करें।"
       }
     },
     "verifyEmail": {

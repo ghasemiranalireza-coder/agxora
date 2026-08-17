@@ -94,8 +94,8 @@
   "analytics": {
     "title": "Analítica",
     "topPosts": "Publicaciones principales",
-    "engagement": "Inglés {valor}",
-    "reach": "Alcanza {valor}",
+    "engagement": "Inglés {value}",
+    "reach": "Alcanza {value}",
     "recommendations": "Recomendaciones de IA"
   },
   "integrations": {
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "Mapa de funciones de IA: ideas, subtítulos, hashtags, calendario, campañas, audiencia, programación, coherencia de la marca, reescritura, traducción, multilingüe."
+  },
+  "formats": {
+    "instagram_caption": "Leyenda de Instagram",
+    "tiktok_script": "Guion de TikTok",
+    "linkedin_post": "Publicación de LinkedIn",
+    "facebook_post": "Publicación de Facebook",
+    "x_post": "Publicación de X",
+    "blog_article": "Artículo de blog",
+    "newsletter": "Boletín",
+    "email_campaign": "Campaña de correo",
+    "product_description": "Descripción del producto",
+    "ad_copy": "Texto publicitario",
+    "seo_article": "Artículo SEO",
+    "landing_page_copy": "Texto de página de destino"
+  },
+  "publishStatus": {
+    "draft": "Borrador",
+    "review": "Revisión",
+    "approved": "Aprobado",
+    "scheduled": "Programado",
+    "published": "Publicado",
+    "archive": "Archivo"
+  },
+  "mediaKind": {
+    "image": "Imagen",
+    "video": "Vídeo",
+    "document": "Documento",
+    "logo": "Logotipo de marca",
+    "template": "Plantilla"
+  },
+  "voice": {
+    "professional": "Profesional",
+    "friendly": "Amable",
+    "luxury": "Lujo",
+    "casual": "Informal"
+  },
+  "integrationStatus": {
+    "planned": "Planificado",
+    "ready": "Listo",
+    "connected": "Conectado",
+    "disabled": "Desactivado"
   }
 }

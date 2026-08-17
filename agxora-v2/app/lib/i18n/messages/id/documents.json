@@ -50,42 +50,42 @@
     "documents": {
       "label": "Dokumen",
       "caption": "Contoh · lintas folder",
-      "delta": "+{hitungan}"
+      "delta": "+{count}"
     },
     "folders": {
       "label": "Folder",
       "caption": "Sampel · termasuk koleksi cerdas",
-      "delta": "+{hitungan}"
+      "delta": "+{count}"
     },
     "storage": {
       "label": "Penyimpanan Digunakan",
       "caption": "Contoh · rencana ilustratif",
-      "delta": "+{ukuran}"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "Dokumen Bersama",
       "caption": "Contoh · organisasi + departemen + pengguna",
-      "delta": "+{hitungan}"
+      "delta": "+{count}"
     },
     "activity": {
       "label": "Aktivitas Terkini",
       "caption": "Contoh · 24 jam terakhir",
-      "delta": "+{hitungan}"
+      "delta": "+{count}"
     },
     "indexed": {
       "label": "Terindeks AI",
       "caption": "Contoh · Pencarian AI tidak terhubung",
-      "delta": "{persen}"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "Persetujuan yang Menunggu Keputusan",
       "caption": "Contoh · otomatisasi tidak terhubung",
-      "delta": "{menghitung}"
+      "delta": "{count}"
     },
     "score": {
       "label": "Skor Pengetahuan",
       "caption": "Contoh · ilustrasi liputan",
-      "delta": "+{hitungan}"
+      "delta": "+{count}"
     }
   },
   "library": {
@@ -112,9 +112,9 @@
     "favorite": "Favorit",
     "sharedBadge": "Dibagikan",
     "title": "Perpustakaan Dokumen",
-    "results": "{hitungan} hasil",
-    "resultOne": "{hitungan} hasil",
-    "selected": "· {hitungan} dipilih",
+    "results": "{count} hasil",
+    "resultOne": "{count} hasil",
+    "selected": "· {count} dipilih",
     "bulkAction": "Tindakan massal",
     "bulkUnavailable": "Tindakan massal tidak tersedia untuk {count} item — mutasi penyimpanan tidak terhubung.",
     "searchLabel": "Pencarian Global",
@@ -130,7 +130,7 @@
     "favoritesOnly": "Hanya favorit",
     "emptyTitle": "Tidak ada dokumen untuk ditunjukkan",
     "emptyDescription": "Sesuaikan filter, hapus pencarian, atau tambahkan aset pengetahuan untuk mengembangkan perpustakaan.",
-    "selectAria": "Pilih {nama}",
+    "selectAria": "Pilih {name}",
     "versionHistoryTitle": "Riwayat Versi",
     "close": "Menutup",
     "context": {
@@ -151,7 +151,7 @@
     "zoomIn": "Perbesar +",
     "prev": "Sebelumnya",
     "next": "Berikutnya",
-    "page": "Halaman {halaman} / {total}",
+    "page": "Halaman {page} / {total}",
     "searchInside": "Cari di dalam",
     "findPlaceholder": "Temukan di pratinjau…",
     "noMatches": "Tidak ada kecocokan dalam teks pratinjau.",
@@ -177,7 +177,7 @@
     "title": "Riwayat Versi",
     "emptyTitle": "Tidak ada dokumen yang dipilih",
     "emptyDescription": "Buka dokumen untuk memeriksa versi, catatan, memulihkan, dan membandingkan.",
-    "current": "{nama} · saat ini {versi}",
+    "current": "{name} · saat ini {version}",
     "restore": "Pulihkan Versi",
     "compare": "Bandingkan Versi",
     "restoreTitle": "Pemulihan memerlukan API penyimpanan",
@@ -380,9 +380,9 @@
     "planned": "Berencana"
   },
   "bytes": {
-    "b": "{nilai} B",
-    "kb": "{nilai} KB",
-    "mb": "{nilai} MB",
-    "gb": "{nilai} GB"
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
   }
 }

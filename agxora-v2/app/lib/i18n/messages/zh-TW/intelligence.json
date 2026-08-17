@@ -8,7 +8,7 @@
   "noPermission": "您沒有此工作區的 Intelligence.read 權限。",
   "filtersUpdated": "過濾器已更新",
   "demoReloaded": "已為此工作區重新載入演示資料集。",
-  "acknowledged": "已確認：{標題}",
+  "acknowledged": "已確認：{title}",
   "exportUnavailableTitle": "匯出不可用 — 報告產生尚未連線。",
   "exportUnavailableAria": "將{title}匯出為{format} —無法使用",
   "tabs": {
@@ -86,7 +86,7 @@
     "emptyDescription": "示範預測會顯示在種子之後。未連接預測模型。",
     "title": "{kind} 預測",
     "baseline": "基線 {baseline} → 預計 {projected} ({days}d)",
-    "confidence": "示範 · 信心 {confidence} — {註}"
+    "confidence": "示範 · 信心 {confidence} — {note}"
   },
   "alerts": {
     "title": "警報引擎",

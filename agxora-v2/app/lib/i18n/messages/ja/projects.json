@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "プロジェクト管理OS",
     "title": "プロジェクト",
-    "lead": "{組織} の配信を計画し、予算と健全性を追跡し、チームを割り当て、タスクを管理します。データはローカルに保持され、バックエンド接続の準備が整います。",
+    "lead": "{organization} の配信を計画し、予算と健全性を追跡し、チームを割り当て、タスクを管理します。データはローカルに保持され、バックエンド接続の準備が整います。",
     "yourOrganization": "あなたの組織"
   },
   "list": {
@@ -25,13 +25,13 @@
     "emptyTitle": "まだプロジェクトはありません",
     "emptyDescription": "デリバリー ワークスペースを立ち上げて、マイルストーン、予算、チームの所有権を追跡します。",
     "createProject": "プロジェクトの作成",
-    "pagination": "{total} 件中 {from} ～ {to} を表示中",
+    "pagination": "{from} 件中 {to} ～ {total} を表示中",
     "previous": "前の",
     "next": "次",
     "noDescription": "まだ説明がありません。",
-    "duePrefix": "期日}",
-    "openProject": "プロジェクト {名前} を開く",
-    "sortBy": "{列}で並べ替え",
+    "duePrefix": "Due {date}",
+    "openProject": "プロジェクト {name} を開く",
+    "sortBy": "{column}で並べ替え",
     "sort": {
       "name": "名前",
       "customer": "お客様",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "進捗",
-    "progressAria": "{ラベル}: {値}%"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "企画",
@@ -132,24 +132,24 @@
     "emptyDescription": "開始日/期限とタスクを追加してスケジュールを設定します。",
     "title": "タイムライン",
     "subtitle": "開始、終了、期間、マイルストーン。依存関係は将来のリリースのために予約されています。",
-    "dateRange": "{開始} → {終了} · {日}日",
+    "dateRange": "{start} → {end} · {days}日",
     "itemAria": "{title} の {start} から {end} まで",
     "dependenciesNone": "依存関係: なし"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "アクティブなプロジェクト",
-      "activeHint": "{計画中} 計画中",
+      "activeHint": "{planning} 計画中",
       "completed": "完了",
       "completedHint": "ポートフォリオの {percent}%",
       "onHold": "保留中",
-      "onHoldHint": "{アーカイブ済み} アーカイブ済み",
+      "onHoldHint": "{archived} アーカイブ済み",
       "teamMembers": "チームメンバー",
       "teamHint": "すべてのプロジェクトにわたって",
       "budgetOverview": "予算概要",
       "budgetHint": "{percent}% が使用されました · {spent} が費やされました",
       "openTasks": "開いているタスク",
-      "openTasksHint": "{期限切れ} 期限切れ",
+      "openTasksHint": "{overdue} 期限切れ",
       "projectHealth": "プロジェクトの健全性",
       "healthHint": "複合配信スコア",
       "upcomingDeadlines": "今後の締め切り",
@@ -176,7 +176,7 @@
     "emptyTitle": "ボードにはタスクがありません",
     "emptyDescription": "タスクを作成して、To Do、進行中、レビュー、完了の配信を整理します。",
     "addTask": "タスクの追加",
-    "columnAria": "{ステータス}列",
+    "columnAria": "{status}列",
     "taskProgress": "タスクの進捗状況",
     "edit": "編集",
     "complete": "完了"
@@ -185,7 +185,7 @@
     "notFoundTitle": "プロジェクトが見つかりません",
     "notFoundDescription": "このプロジェクトは削除されたか、現在の組織では使用できない可能性があります。",
     "backToProjects": "← プロジェクトに戻る",
-    "ownerMeta": "{顧客} · 所有者 {owner}",
+    "ownerMeta": "{customer} · 所有者 {owner}",
     "edit": "編集",
     "delete": "消去",
     "sectionsAria": "プロジェクトの詳細セクション",
@@ -294,5 +294,30 @@
     "memberAdded": "メンバー追加",
     "settingsSaved": "設定が保存されました",
     "projectArchived": "プロジェクトがアーカイブされました"
+  },
+  "validation": {
+    "nameRequired": "プロジェクト名は必須です。",
+    "nameMin": "プロジェクト名は 2 文字以上である必要があります。",
+    "customerRequired": "顧客は必須です。",
+    "ownerRequired": "プロジェクトオーナーは必須です。",
+    "priorityInvalid": "有効な優先度を選択してください。",
+    "statusInvalid": "有効なステータスを選択してください。",
+    "currencyInvalid": "有効な通貨を選択してください。",
+    "budgetInvalid": "予算は 0 以上の数値である必要があります。",
+    "startDateRequired": "開始日は必須です。",
+    "startDateInvalid": "有効な開始日を入力してください。",
+    "dueDateInvalid": "有効な期限日を入力してください。",
+    "dueDateOrder": "期限日は開始日以降である必要があります。",
+    "colorInvalid": "有効な色を選択してください。",
+    "iconInvalid": "有効なアイコンを選択してください。",
+    "taskTitleRequired": "タスク名は必須です。",
+    "progressRange": "進捗は 0 から 100 の間である必要があります。",
+    "memberNameRequired": "メンバー名は必須です。",
+    "emailRequired": "メールアドレスは必須です。",
+    "emailInvalid": "有効なメールアドレスを入力してください。",
+    "roleInvalid": "有効なロールを選択してください。",
+    "noteTitleRequired": "メモのタイトルは必須です。",
+    "noteBodyRequired": "メモ本文は必須です。",
+    "authorRequired": "作成者は必須です。"
   }
 }

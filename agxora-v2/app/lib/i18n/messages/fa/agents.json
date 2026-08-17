@@ -42,15 +42,15 @@
   "registry": {
     "title": "دفتر ثبت اسناد.",
     "selectPrompt": "یک نماینده از رجیستری انتخاب کنید.",
-    "status": "وضعیت: {وضعیت}",
-    "health": "سلامت: {سلامت}",
-    "queue": "صف: {صف}",
-    "usage": "کاربرد: {کاربرد}",
+    "status": "وضعیت: {status}",
+    "health": "سلامت: {health}",
+    "queue": "صف: {queue}",
+    "usage": "کاربرد: {usage}",
     "executeTask": "اجرای کار",
     "supervisorDelegate": "نماینده سرپرست"
   },
   "marketplace": {
-    "tools": "ابزارها: {ابزارها}",
+    "tools": "ابزارها: {tools}",
     "installed": "نصب شده",
     "installActivate": "نصب و فعال"
   },
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "اجرای هدف تجاری {agentId}",
     "planAndExecute": "یک هدف تجاری برای فضای کاری برنامه‌ریزی و اجرا کنید"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "تأثیر مشتری را اولویت بده",
+    "delegatedFollowUp": "پیگیری تفویض‌شده"
   }
 }

@@ -2,6 +2,7 @@
  * Global i18n regression tests — locale model, translation, fallback, RTL.
  */
 
+import { execFileSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 import {
   DEFAULT_LOCALE,
@@ -16,7 +17,11 @@ import {
   toBcp47,
 } from "./locale";
 import { getCatalog, getFallbackCatalog } from "./catalog";
-import { resolveMessage, resolveMessageList } from "./translate";
+import { resolveMessage } from "./translate";
+import { formatCurrency, formatDate, formatNumber, setActiveFormatLocale } from "./format";
+import { resolveUserFacingErrorKey } from "./errorMap";
+
+const ROOT = process.cwd();
 
 describe("locale model", () => {
   it("supports all required locales", () => {
@@ -139,5 +144,128 @@ describe("non-English translations differ from English for key terms", () => {
 describe("DEFAULT_LOCALE", () => {
   it("is English", () => {
     expect(DEFAULT_LOCALE).toBe("en");
+  });
+});
+
+describe("locale catalog completeness", () => {
+  it("loads all 24 supported locales", () => {
+    expect(SUPPORTED_LOCALES).toHaveLength(24);
+    for (const locale of SUPPORTED_LOCALES) {
+      const catalog = getCatalog(locale);
+      expect(catalog.common).toBeTruthy();
+      expect(resolveMessage(locale, "common.save")).not.toBe("common.save");
+      expect(resolveMessage(locale, "common.search")).not.toBe("common.search");
+    }
+  });
+});
+
+describe("RTL direction", () => {
+  it("marks fa and ar as rtl and every other supported locale as ltr", () => {
+    for (const locale of SUPPORTED_LOCALES) {
+      if (locale === "fa" || locale === "ar") {
+        expect(isRtlLocale(locale)).toBe(true);
+        expect(localeDirection(locale)).toBe("rtl");
+      } else {
+        expect(isRtlLocale(locale)).toBe(false);
+        expect(localeDirection(locale)).toBe("ltr");
+      }
+    }
+    expect(RTL_LOCALES.size).toBe(2);
+  });
+});
+
+describe("CJK locale configuration", () => {
+  it("identifies Simplified/Traditional Chinese, Japanese, and Korean", () => {
+    expect(isCjkLocale("zh-CN")).toBe(true);
+    expect(isCjkLocale("zh-TW")).toBe(true);
+    expect(isCjkLocale("ja")).toBe(true);
+    expect(isCjkLocale("ko")).toBe(true);
+    expect(isCjkLocale("en")).toBe(false);
+    expect(isCjkLocale("de")).toBe(false);
+  });
+});
+
+describe("translation switching", () => {
+  it("returns different UI copy when the locale changes", () => {
+    const en = resolveMessage("en", "common.save");
+    const de = resolveMessage("de", "common.save");
+    const fa = resolveMessage("fa", "common.search");
+    const ar = resolveMessage("ar", "common.cancel");
+    expect(en).toBe("Save");
+    expect(de).toBe("Speichern");
+    expect(fa).not.toBe("Search");
+    expect(ar).not.toBe("Cancel");
+    expect(resolveMessage("zh-CN", "common.home")).not.toBe(
+      resolveMessage("en", "common.home"),
+    );
+  });
+
+  it("preserves pricing interpolation placeholders and substitutes values", () => {
+    const en = resolveMessage("en", "pricing.yearlyHint", {
+      amount: "€191.90",
+      percent: 20,
+    });
+    expect(en).toContain("€191.90");
+    expect(en).toContain("20");
+    expect(en).not.toContain("{amount}");
+    expect(en).not.toContain("{percent}");
+    for (const locale of SUPPORTED_LOCALES) {
+      const msg = resolveMessage(locale, "pricing.yearlyHint", {
+        amount: "X",
+        percent: 9,
+      });
+      expect(msg).toContain("X");
+      expect(msg).toContain("9");
+      expect(msg).not.toContain("{amount}");
+      expect(msg).not.toContain("{percent}");
+    }
+  });
+});
+
+describe("number/date/currency formatting follows the active locale", () => {
+  it("formats numbers and currency with locale separators", () => {
+    setActiveFormatLocale("de");
+    expect(formatNumber(1234.5, "de")).toMatch(/1\.234/);
+    expect(formatCurrency(19.99, "de", "EUR")).toMatch(/€|EUR|19/);
+    setActiveFormatLocale("en");
+    expect(formatNumber(1234.5, "en")).toMatch(/1,234/);
+  });
+
+  it("formats dates with the requested locale", () => {
+    const iso = "2026-08-17T12:00:00.000Z";
+    const fa = formatDate(iso, "fa");
+    const en = formatDate(iso, "en");
+    expect(fa.length).toBeGreaterThan(0);
+    expect(en.length).toBeGreaterThan(0);
+  });
+});
+
+describe("error mapping", () => {
+  it("maps English auth errors onto stable translation keys", () => {
+    expect(resolveUserFacingErrorKey(new Error("Invalid email or password"))).toBe(
+      "errors.codes.AUTH_INVALID_CREDENTIALS",
+    );
+    expect(resolveUserFacingErrorKey({ code: "AUTH_SESSION_EXPIRED" })).toBe(
+      "errors.codes.AUTH_SESSION_EXPIRED",
+    );
+    expect(resolveMessage("de", "errors.codes.AUTH_INVALID_CREDENTIALS")).not.toBe(
+      "Invalid email or password.",
+    );
+  });
+});
+
+describe("i18n audits", () => {
+  it("passes placeholder and key parity validation", () => {
+    execFileSync(process.execPath, ["scripts/i18n/validate-i18n.mjs"], {
+      cwd: ROOT,
+      stdio: "pipe",
+    });
+  });
+
+  it("passes the hardcoded UI string audit", () => {
+    execFileSync(process.execPath, ["scripts/i18n/check-hardcoded.mjs"], {
+      cwd: ROOT,
+      stdio: "pipe",
+    });
   });
 });

@@ -145,5 +145,30 @@
     "verify": "E-postayı Doğrula",
     "verifying": "Doğrulanıyor…",
     "requestToken": "Doğrulama jetonu iste"
+  },
+  "access": {
+    "eyebrow": "Kimlik ve erişim",
+    "signIn": "Giriş yap",
+    "backToDashboard": "Kontrol paneline dön",
+    "unauthorized": {
+      "title": "Yetkisiz",
+      "description": "AGXORA’nın bu bölümüne devam etmek için giriş yapın."
+    },
+    "forbidden": {
+      "title": "Yasak",
+      "description": "Rolünüz bu kaynak için izin içermiyor."
+    },
+    "expired_session": {
+      "title": "Oturum süresi doldu",
+      "description": "Oturumunuzun süresi doldu. Çalışmaya devam etmek için tekrar giriş yapın."
+    },
+    "missing_permission": {
+      "title": "Eksik izin",
+      "description": "Gerekli modül erişimini vermesi için bir Sahip veya Yönetici’den isteyin."
+    },
+    "account_locked": {
+      "title": "Hesap kilitlendi",
+      "description": "Bu hesap kilitli. Bir kuruluş sahibiyle iletişime geçin veya daha sonra tekrar deneyin."
+    }
   }
 }

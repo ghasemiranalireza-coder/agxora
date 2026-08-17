@@ -235,7 +235,7 @@
     "createdAt": "Angemeldet",
     "expiresAt": "Läuft ab",
     "revoke": "Sitzung widerrufen",
-    "revokeAria": "Anmeldesitzung widerrufen {wann}",
+    "revokeAria": "Anmeldesitzung widerrufen {when}",
     "revokeOthers": "Melden Sie sich von anderen Sitzungen ab",
     "revokeOthersAria": "Melden Sie alle Sitzungen außer der aktuellen ab",
     "revoked": "Sitzung widerrufen.",
@@ -330,7 +330,7 @@
     "title": "Einstellungen",
     "lead": "Unternehmenskonfiguration für jedes AGXORA-Modul – Profil, Organisation, KI, Erscheinungsbild, Sicherheit, Abrechnung und Entwicklerkontrollen an einem Ort.",
     "loading": "Einstellungen werden geladen…",
-    "breadcrumb": "Beschreibung des Etiketts"
+    "breadcrumb": "{label} · {description}"
   },
   "saveChanges": "Änderungen speichern",
   "sessionNotice": "Für diese Sitzung aktualisiert – {area} nicht verbunden.",
@@ -368,7 +368,7 @@
     "owner": "Eigentümer",
     "counts": "Mitglieder · Arbeitsbereiche",
     "orgUpdated": "Organisation aktualisiert.",
-    "countsValue": "{Mitglieder} · {Arbeitsbereiche}",
+    "countsValue": "{members} · {workspaces}",
     "joined": "Beigetreten",
     "workspaceName": "Name des Arbeitsbereichs",
     "switchWorkspace": "Aktiver Arbeitsbereich",

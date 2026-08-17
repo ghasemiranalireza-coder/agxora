@@ -70,7 +70,7 @@
   },
   "overview": {
     "title": "Che cosa sta accadendo",
-    "subtitle": "Lo spazio di lavoro conta per {nome}",
+    "subtitle": "Lo spazio di lavoro conta per {name}",
     "fallbackName": "il tuo spazio di lavoro",
     "ariaLabel": "Panoramica aziendale",
     "online": "In linea",
@@ -148,7 +148,7 @@
     "title": "AGXORA AI",
     "emptyState": "Chiedi ad AGXORA informazioni su clienti, progetti o azioni successive. La tua conversazione rimane in questa sessione dell'area di lavoro.",
     "thinking": "AGXORA sta pensando...",
-    "errorDismiss": "{errore}: tocca per ignorare",
+    "errorDismiss": "{error}: tocca per ignorare",
     "placeholder": "Chiedi ad AGXORA AI...",
     "messageAria": "Messaggio AGXORA AI",
     "sendAria": "Invia messaggio",
@@ -381,7 +381,8 @@
         "title": "Recupero della conoscenza",
         "description": "Risposte concrete nel corpus di Documents Knowledge Hub."
       }
-    }
+    },
+    "esc": "Esc"
   },
   "summary": "{name}: {customers} clienti · {projects} progetti · {updates} aggiornamenti oggi."
 }

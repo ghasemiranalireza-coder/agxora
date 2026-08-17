@@ -42,15 +42,15 @@
   "registry": {
     "title": "Registro",
     "selectPrompt": "Seleziona un agente dal registro.",
-    "status": "Stato: {stato}",
-    "health": "Salute: {salute}",
-    "queue": "Coda: {coda}",
-    "usage": "Utilizzo: {utilizzo}",
+    "status": "Stato: {status}",
+    "health": "Salute: {health}",
+    "queue": "Coda: {queue}",
+    "usage": "Utilizzo: {usage}",
     "executeTask": "Esegui compito",
     "supervisorDelegate": "Delegato supervisore"
   },
   "marketplace": {
-    "tools": "Strumenti: {strumenti}",
+    "tools": "Strumenti: {tools}",
     "installed": "Installato",
     "installActivate": "Installa e attiva"
   },
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "Esegui l'obiettivo aziendale {agentId}",
     "planAndExecute": "Pianificare ed eseguire un obiettivo aziendale relativo allo spazio di lavoro"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Dai priorità all’impatto sul cliente",
+    "delegatedFollowUp": "Follow-up delegato"
   }
 }

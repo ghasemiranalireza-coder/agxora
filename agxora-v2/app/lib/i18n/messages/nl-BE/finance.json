@@ -58,16 +58,16 @@
       "vat-due": {
         "label": "BTW verschuldigd",
         "caption": "Voorbeeld · Q2-venster",
-        "delta": "Verschijnt over {dagen}d"
+        "delta": "Verschijnt over {days}d"
       },
       "open-invoices": {
         "label": "Facturen openen",
-        "caption": "Voorbeeld · {geld} uitstaand"
+        "caption": "Voorbeeld · {money} uitstaand"
       },
       "paid-invoices": {
         "label": "Betaalde facturen",
         "caption": "Voorbeeld · dit kwartaal",
-        "delta": "+{tel}"
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "Cashflow",
@@ -77,7 +77,7 @@
       "ai-score": {
         "label": "AI financiële score",
         "caption": "Voorbeeldscore · geen live risicoscore",
-        "delta": "+{tel}"
+        "delta": "+{count}"
       }
     },
     "scoreOutOf": "{score} / {max}"

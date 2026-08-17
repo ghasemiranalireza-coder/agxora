@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "Карта функцій ШІ — ідеї, підписи, хештеги, календар, кампанії, аудиторія, розклад, узгодженість бренду, переписування, переклад, багатомовність."
+  },
+  "formats": {
+    "instagram_caption": "Підпис Instagram",
+    "tiktok_script": "Сценарій TikTok",
+    "linkedin_post": "Допис LinkedIn",
+    "facebook_post": "Допис Facebook",
+    "x_post": "Допис X",
+    "blog_article": "Стаття блогу",
+    "newsletter": "Розсилка",
+    "email_campaign": "Поштова кампанія",
+    "product_description": "Опис товару",
+    "ad_copy": "Рекламний текст",
+    "seo_article": "Стаття SEO",
+    "landing_page_copy": "Текст цільової сторінки"
+  },
+  "publishStatus": {
+    "draft": "Чернетка",
+    "review": "Перевірка",
+    "approved": "Затверджено",
+    "scheduled": "Заплановано",
+    "published": "Опубліковано",
+    "archive": "Архів"
+  },
+  "mediaKind": {
+    "image": "Зображення",
+    "video": "Відео",
+    "document": "Документ",
+    "logo": "Логотип бренду",
+    "template": "Шаблон"
+  },
+  "voice": {
+    "professional": "Професійний",
+    "friendly": "Дружній",
+    "luxury": "Люкс",
+    "casual": "Неформальний"
+  },
+  "integrationStatus": {
+    "planned": "Заплановано",
+    "ready": "Готово",
+    "connected": "Підключено",
+    "disabled": "Вимкнено"
   }
 }

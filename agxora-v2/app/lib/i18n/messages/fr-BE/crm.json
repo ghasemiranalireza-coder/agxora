@@ -100,10 +100,10 @@
     },
     "showing": "Affichage de {from}–{to} sur {total}",
     "aria": {
-      "openCustomer": "Client ouvert {entreprise}"
+      "openCustomer": "Client ouvert {company}"
     },
     "cardMeta": "Propriétaire {owner} · Créé le {date}",
-    "sortBy": "Trier par {colonne}"
+    "sortBy": "Trier par {column}"
   },
   "status": {
     "lead": "Plomb",
@@ -473,7 +473,7 @@
       "label": "Score de santé",
       "caption": "Signal de qualité de la relation"
     },
-    "scoreOutOf": "{score} / {maximum}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "Plomb",

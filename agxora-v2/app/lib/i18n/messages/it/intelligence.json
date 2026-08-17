@@ -8,9 +8,9 @@
   "noPermission": "Non disponi dell'autorizzazione intelligence.read per quest'area di lavoro.",
   "filtersUpdated": "Filtri aggiornati",
   "demoReloaded": "Set di dati demo ricaricato per questa area di lavoro.",
-  "acknowledged": "Riconosciuto: {titolo}",
+  "acknowledged": "Riconosciuto: {title}",
   "exportUnavailableTitle": "Esportazione non disponibile: la generazione del report non è ancora connessa.",
-  "exportUnavailableAria": "Esporta {titolo} come {formato}: non disponibile",
+  "exportUnavailableAria": "Esporta {title} come {format}: non disponibile",
   "tabs": {
     "executive": "Esecutivo",
     "health": "Salute aziendale",
@@ -79,14 +79,14 @@
   "insights": {
     "emptyTitle": "Ancora nessun approfondimento",
     "emptyDescription": "Gli approfondimenti demo vengono visualizzati dopo i seed dell'area di lavoro. La generazione di informazioni dettagliate sull'intelligenza artificiale in tempo reale non è connessa.",
-    "badge": "Demo · {tipo} · {dominio} · conf {confidenza}"
+    "badge": "Demo · {kind} · {domain} · conf {confidence}"
   },
   "forecasts": {
     "emptyTitle": "Nessuna previsione ancora",
     "emptyDescription": "Le previsioni demo vengono visualizzate dopo il seed. I modelli predittivi non sono collegati.",
-    "title": "previsione {gentile}",
-    "baseline": "Baseline {baseline} → previsto {proiettato} ({giorni}d)",
-    "confidence": "Demo · Confidenza {confidenza} — {nota}"
+    "title": "previsione {kind}",
+    "baseline": "Baseline {baseline} → previsto {projected} ({days}d)",
+    "confidence": "Demo · Confidenza {confidence} — {note}"
   },
   "alerts": {
     "title": "Motore di allerta",

@@ -67,7 +67,7 @@
       "paid-invoices": {
         "label": "Factures payées",
         "caption": "Échantillon · ce trimestre",
-        "delta": "+{compte}"
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "Flux de trésorerie",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "Score financier de l'IA",
         "caption": "Exemple de score · pas de notation des risques en direct",
-        "delta": "+{compte}"
+        "delta": "+{count}"
       }
     },
-    "scoreOutOf": "{score} / {maximum}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "Pas de factures",
@@ -183,7 +183,7 @@
     "intro": "L’exemple d’historique d’exportation ci-dessous est illustratif. Les informations d'identification et la génération de fichiers ne sont pas câblées dans cette version.",
     "noticeDefault": "Les adaptateurs d'exportation ne sont pas connectés — aucun fichier ne sera généré.",
     "exportUnavailable": "{title} indisponible — L'exportation DATEV / fichier n'est pas connectée.",
-    "exportUnavailableAria": "{titre} — indisponible",
+    "exportUnavailableAria": "{title} — indisponible",
     "historyTitle": "Historique des exportations (échantillon)",
     "refresh": "Rafraîchir",
     "refreshUnavailable": "Actualisation indisponible — l'historique d'exportation est constitué d'échantillons de données statiques.",

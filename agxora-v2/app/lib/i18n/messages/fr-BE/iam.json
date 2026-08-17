@@ -44,7 +44,7 @@
     "persistentLogin": "Connexion persistante",
     "disabled": "Handicapé",
     "enabled": "Activée",
-    "days": "{COUNT} jours",
+    "days": "{count} jours",
     "minutes": "{count} minutes",
     "toggleIdlePolicy": "Activer/désactiver l'espace réservé aux règles inactives",
     "previewSessionExpired": "Aperçu de la session expiré",
@@ -145,5 +145,30 @@
     "verify": "Vérifier l'e-mail",
     "verifying": "Vérification…",
     "requestToken": "Demander un jeton de vérification"
+  },
+  "access": {
+    "eyebrow": "Identité et accès",
+    "signIn": "Se connecter",
+    "backToDashboard": "Retour au tableau de bord",
+    "unauthorized": {
+      "title": "Non autorisé",
+      "description": "Connectez-vous pour continuer vers cette zone d’AGXORA."
+    },
+    "forbidden": {
+      "title": "Interdit",
+      "description": "Votre rôle n’inclut pas l’autorisation pour cette ressource."
+    },
+    "expired_session": {
+      "title": "Session expirée",
+      "description": "Votre session a expiré. Connectez-vous à nouveau pour reprendre le travail."
+    },
+    "missing_permission": {
+      "title": "Autorisation manquante",
+      "description": "Demandez à un propriétaire ou un administrateur d’accorder l’accès au module requis."
+    },
+    "account_locked": {
+      "title": "Compte verrouillé",
+      "description": "Ce compte est verrouillé. Contactez un propriétaire de l’organisation ou réessayez plus tard."
+    }
   }
 }

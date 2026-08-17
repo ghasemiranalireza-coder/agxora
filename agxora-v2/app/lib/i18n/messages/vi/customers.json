@@ -2,7 +2,7 @@
   "page": {
     "sectionTitle": "Quản lý khách hàng",
     "title": "Khách hàng",
-    "lead": "Tạo, chỉnh sửa, tìm kiếm và quản lý hồ sơ khách hàng cho {tổ chức}.",
+    "lead": "Tạo, chỉnh sửa, tìm kiếm và quản lý hồ sơ khách hàng cho {organization}.",
     "yourOrganization": "tổ chức của bạn"
   },
   "table": {
@@ -17,9 +17,9 @@
     "view": "Xem",
     "edit": "Biên tập",
     "delete": "Xóa bỏ",
-    "viewAria": "Xem {công ty}",
-    "editAria": "Chỉnh sửa {công ty}",
-    "deleteAria": "Xóa {công ty}",
+    "viewAria": "Xem {company}",
+    "editAria": "Chỉnh sửa {company}",
+    "deleteAria": "Xóa {company}",
     "loading": "Đang tải khách hàng…",
     "errorLoad": "Không thể tải khách hàng",
     "errorGeneric": "Đã xảy ra lỗi",
@@ -96,5 +96,17 @@
     "updated": "Đã cập nhật",
     "notes": "Ghi chú",
     "noNotes": "Chưa có ghi chú nào."
+  },
+  "validation": {
+    "companyRequired": "Tên công ty là bắt buộc.",
+    "contactRequired": "Người liên hệ là bắt buộc.",
+    "emailRequired": "Email là bắt buộc.",
+    "emailInvalid": "Nhập địa chỉ email hợp lệ.",
+    "phoneRequired": "Điện thoại là bắt buộc.",
+    "phoneInvalid": "Nhập số điện thoại hợp lệ.",
+    "mobileInvalid": "Nhập số di động hợp lệ.",
+    "statusInvalid": "Chọn trạng thái hợp lệ.",
+    "emailDuplicate": "Đã có khách hàng với email này.",
+    "companyDuplicate": "Đã có khách hàng với tên công ty này."
   }
 }

@@ -23,7 +23,7 @@ import {
   passwordStrengthMessage,
 } from "../lib/auth/formValidation";
 import { markWelcomePending } from "../lib/auth/welcomeFlags";
-import { useT } from "../lib/i18n";
+import { useT, resolveUserFacingErrorKey } from "../lib/i18n";
 import { iamAuthService } from "../../features/auth";
 
 function RegisterForm(): JSX.Element {
@@ -89,7 +89,7 @@ function RegisterForm(): JSX.Element {
       markWelcomePending(result.userId);
       router.replace("/welcome");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "auth.register.failed");
+      setError(resolveUserFacingErrorKey(err, "auth.register.failed"));
     } finally {
       setBusy(false);
     }

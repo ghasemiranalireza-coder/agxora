@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "OS Manajemen Proyek",
     "title": "Proyek",
-    "lead": "Rencanakan penyampaian, lacak anggaran dan kesehatan, tetapkan tim, dan kelola tugas untuk {organisasi}. Data disimpan secara lokal dan siap untuk konektivitas backend.",
+    "lead": "Rencanakan penyampaian, lacak anggaran dan kesehatan, tetapkan tim, dan kelola tugas untuk {organization}. Data disimpan secara lokal dan siap untuk konektivitas backend.",
     "yourOrganization": "organisasi Anda"
   },
   "list": {
@@ -25,13 +25,13 @@
     "emptyTitle": "Belum ada proyek",
     "emptyDescription": "Siapkan ruang kerja pengiriman untuk melacak pencapaian, anggaran, dan kepemilikan tim.",
     "createProject": "Buat proyek",
-    "pagination": "Menampilkan {dari}–{ke} dari {total}",
+    "pagination": "Menampilkan {from}–{to} dari {total}",
     "previous": "Sebelumnya",
     "next": "Berikutnya",
     "noDescription": "Belum ada deskripsi.",
-    "duePrefix": "Tenggat waktu}",
+    "duePrefix": "Due {date}",
     "openProject": "Buka proyek {name}",
-    "sortBy": "Urutkan berdasarkan {kolom}",
+    "sortBy": "Urutkan berdasarkan {column}",
     "sort": {
       "name": "Nama",
       "customer": "Pelanggan",
@@ -65,7 +65,7 @@
     "tagsPlaceholder": "perusahaan, peluncuran",
     "budgetPlaceholder": "0",
     "description": "Keterangan",
-    "selectColor": "Pilih warna {warna}"
+    "selectColor": "Pilih warna {color}"
   },
   "taskForm": {
     "createTitle": "Buat Tugas",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "Kemajuan",
-    "progressAria": "{label}: {nilai}%"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "Perencanaan",
@@ -132,24 +132,24 @@
     "emptyDescription": "Tambahkan tanggal mulai/jatuh tempo dan tugas untuk mengisi jadwal.",
     "title": "Garis Waktu",
     "subtitle": "Mulai, akhir, durasi, pencapaian. Dependensi dicadangkan untuk rilis mendatang.",
-    "dateRange": "{mulai} → {akhir} · {hari}d",
+    "dateRange": "{start} → {end} · {days}d",
     "itemAria": "{title} dari {start} hingga {end}",
     "dependenciesNone": "Ketergantungan: tidak ada"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "Proyek Aktif",
-      "activeHint": "{perencanaan} perencanaan",
+      "activeHint": "{planning} perencanaan",
       "completed": "Selesai",
-      "completedHint": "{persen}% portofolio",
+      "completedHint": "{percent}% portofolio",
       "onHold": "Ditahan",
-      "onHoldHint": "{diarsipkan} diarsipkan",
+      "onHoldHint": "{archived} diarsipkan",
       "teamMembers": "Anggota Tim",
       "teamHint": "Di semua proyek",
       "budgetOverview": "Ikhtisar Anggaran",
       "budgetHint": "{percent}% digunakan · {spent} dibelanjakan",
       "openTasks": "Buka Tugas",
-      "openTasksHint": "{terlambat} terlambat",
+      "openTasksHint": "{overdue} terlambat",
       "projectHealth": "Kesehatan Proyek",
       "healthHint": "Skor pengiriman gabungan",
       "upcomingDeadlines": "Batas Waktu Mendatang",
@@ -185,7 +185,7 @@
     "notFoundTitle": "Proyek tidak ditemukan",
     "notFoundDescription": "Proyek ini mungkin telah dihapus atau tidak tersedia untuk organisasi saat ini.",
     "backToProjects": "← Kembali ke proyek",
-    "ownerMeta": "{pelanggan} · Pemilik {pemilik}",
+    "ownerMeta": "{customer} · Pemilik {owner}",
     "edit": "Sunting",
     "delete": "Menghapus",
     "sectionsAria": "Bagian detail proyek",
@@ -294,5 +294,30 @@
     "memberAdded": "Anggota ditambahkan",
     "settingsSaved": "Pengaturan disimpan",
     "projectArchived": "Proyek diarsipkan"
+  },
+  "validation": {
+    "nameRequired": "Nama proyek wajib diisi.",
+    "nameMin": "Nama proyek minimal 2 karakter.",
+    "customerRequired": "Pelanggan wajib diisi.",
+    "ownerRequired": "Pemilik proyek wajib diisi.",
+    "priorityInvalid": "Pilih prioritas yang valid.",
+    "statusInvalid": "Pilih status yang valid.",
+    "currencyInvalid": "Pilih mata uang yang valid.",
+    "budgetInvalid": "Anggaran harus berupa angka non-negatif.",
+    "startDateRequired": "Tanggal mulai wajib diisi.",
+    "startDateInvalid": "Masukkan tanggal mulai yang valid.",
+    "dueDateInvalid": "Masukkan tanggal jatuh tempo yang valid.",
+    "dueDateOrder": "Tanggal jatuh tempo harus pada atau setelah tanggal mulai.",
+    "colorInvalid": "Pilih warna yang valid.",
+    "iconInvalid": "Pilih ikon yang valid.",
+    "taskTitleRequired": "Judul tugas wajib diisi.",
+    "progressRange": "Progres harus antara 0 dan 100.",
+    "memberNameRequired": "Nama anggota wajib diisi.",
+    "emailRequired": "Email wajib diisi.",
+    "emailInvalid": "Masukkan alamat email yang valid.",
+    "roleInvalid": "Pilih peran yang valid.",
+    "noteTitleRequired": "Judul catatan wajib diisi.",
+    "noteBodyRequired": "Isi catatan wajib diisi.",
+    "authorRequired": "Penulis wajib diisi."
   }
 }

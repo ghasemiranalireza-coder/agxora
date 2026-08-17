@@ -10,7 +10,7 @@ import {
   authInputStyle,
   authLabelStyle,
 } from "../components/auth/AuthCard";
-import { useT } from "../lib/i18n";
+import { useT, resolveUserFacingErrorKey } from "../lib/i18n";
 
 function ResetPasswordForm(): JSX.Element {
   const t = useT();
@@ -30,7 +30,7 @@ function ResetPasswordForm(): JSX.Element {
       await resetPassword({ token, password });
       router.replace("/login");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "auth.reset.failed");
+      setError(resolveUserFacingErrorKey(err, "auth.reset.failed"));
     } finally {
       setBusy(false);
     }

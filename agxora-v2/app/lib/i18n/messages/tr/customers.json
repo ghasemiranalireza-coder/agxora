@@ -2,7 +2,7 @@
   "page": {
     "sectionTitle": "Müşteri Yönetimi",
     "title": "Müşteriler",
-    "lead": "{organizasyon} için müşteri kayıtlarını oluşturun, düzenleyin, arayın ve yönetin.",
+    "lead": "{organization} için müşteri kayıtlarını oluşturun, düzenleyin, arayın ve yönetin.",
     "yourOrganization": "kuruluşunuz"
   },
   "table": {
@@ -17,9 +17,9 @@
     "view": "Görüş",
     "edit": "Düzenlemek",
     "delete": "Silmek",
-    "viewAria": "{şirketi} görüntüle",
-    "editAria": "{şirketi} düzenle",
-    "deleteAria": "{şirketi} sil",
+    "viewAria": "{company} görüntüle",
+    "editAria": "{company} düzenle",
+    "deleteAria": "{company} sil",
     "loading": "Müşteriler yükleniyor…",
     "errorLoad": "Müşteriler yüklenemedi",
     "errorGeneric": "Bir şeyler ters gitti",
@@ -74,7 +74,7 @@
     "title": "Müşteriyi sil",
     "cancel": "İptal etmek",
     "confirm": "Silmek",
-    "confirmWithName": "{şirket} kalıcı olarak kaldırılsın mı? Bu geri alınamaz.",
+    "confirmWithName": "{company} kalıcı olarak kaldırılsın mı? Bu geri alınamaz.",
     "confirmGeneric": "Bu müşteri kalıcı olarak kaldırılacak.",
     "success": "Müşteri silindi",
     "failed": "Silinemedi",
@@ -96,5 +96,17 @@
     "updated": "Güncellendi",
     "notes": "Notlar",
     "noNotes": "Henüz not yok."
+  },
+  "validation": {
+    "companyRequired": "Şirket adı zorunludur.",
+    "contactRequired": "İlgili kişi zorunludur.",
+    "emailRequired": "E-posta zorunludur.",
+    "emailInvalid": "Geçerli bir e-posta adresi girin.",
+    "phoneRequired": "Telefon zorunludur.",
+    "phoneInvalid": "Geçerli bir telefon numarası girin.",
+    "mobileInvalid": "Geçerli bir cep numarası girin.",
+    "statusInvalid": "Geçerli bir durum seçin.",
+    "emailDuplicate": "Bu e-posta ile bir müşteri zaten var.",
+    "companyDuplicate": "Bu şirket adıyla bir müşteri zaten var."
   }
 }

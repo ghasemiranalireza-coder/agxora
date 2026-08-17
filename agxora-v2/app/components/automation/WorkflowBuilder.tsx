@@ -48,6 +48,7 @@ const PaletteList = memo(function PaletteList({
 }: {
   readonly items: readonly CatalogItem[];
 }): JSX.Element {
+  const t = useT();
   return (
     <ul className="max-h-[520px] space-y-2 overflow-y-auto pr-1">
       {items.map((item) => (
@@ -66,12 +67,12 @@ const PaletteList = memo(function PaletteList({
           >
             <div className="flex items-center justify-between gap-2">
               <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                {item.label}
+                {t(`automation.catalog.${item.id}.label`)}
               </p>
               <Badge tone={kindTone(item.kind)}>{item.kind.replaceAll("_", " ")}</Badge>
             </div>
             <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {item.description}
+              {t(`automation.catalog.${item.id}.description`)}
             </p>
           </div>
         </li>

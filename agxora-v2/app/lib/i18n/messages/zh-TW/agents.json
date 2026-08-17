@@ -42,15 +42,15 @@
   "registry": {
     "title": "登記處",
     "selectPrompt": "從登錄中選取客服人員。",
-    "status": "狀態：{狀態}",
-    "health": "健康：{健康}",
+    "status": "狀態：{status}",
+    "health": "健康：{health}",
     "queue": "佇列： {queue}",
-    "usage": "用法：{用法}",
+    "usage": "用法：{usage}",
     "executeTask": "執行任務",
     "supervisorDelegate": "監事代表"
   },
   "marketplace": {
-    "tools": "工具：{工具}",
+    "tools": "工具：{tools}",
     "installed": "已安裝",
     "installActivate": "安裝並啟用"
   },
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "執行 {agentId} 業務目標",
     "planAndExecute": "規劃並執行工作區業務目標"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "優先考量客戶影響",
+    "delegatedFollowUp": "已委派後續"
   }
 }

@@ -16,7 +16,7 @@
     "provider": "Penyedia",
     "model": "Model",
     "estimatedTokens": "Perkiraan. token",
-    "tokensInOut": "(masuk {masuk} / keluar {keluar})",
+    "tokensInOut": "(masuk {in} / keluar {out})",
     "cost": "Biaya",
     "context": "Konteks",
     "contextNone": "tidak ada",
@@ -79,5 +79,90 @@
     "placeholder": "Perintah AI… merangkum, mengusulkan, menganalisis…",
     "noMatches": "Tidak ada perintah yang cocok",
     "footer": "Daftarkan perintah selanjutnya melalui registerAiCommand — UI tetap tidak berubah."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Proyek",
+    "finance": "Keuangan",
+    "marketing": "Pemasaran",
+    "documents": "Dokumen",
+    "automation": "Otomatisasi",
+    "general": "Umum"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Ringkas pelanggan",
+      "description": "Ringkasan eksekutif hubungan pelanggan"
+    },
+    "crm-follow-up-email": {
+      "title": "Email tindak lanjut",
+      "description": "Buat draf tindak lanjut CRM profesional"
+    },
+    "projects-analyze": {
+      "title": "Analisis proyek",
+      "description": "Pemeriksaan kesehatan proyek"
+    },
+    "projects-task-list": {
+      "title": "Buat daftar tugas",
+      "description": "Pecah pekerjaan menjadi tugas yang dapat ditindaklanjuti"
+    },
+    "finance-explain-invoice": {
+      "title": "Jelaskan faktur",
+      "description": "Penjelasan faktur dalam bahasa sederhana"
+    },
+    "finance-cashflow-brief": {
+      "title": "Ringkasan arus kas",
+      "description": "Narasi singkat arus kas"
+    },
+    "marketing-campaign-outline": {
+      "title": "Kerangka kampanye",
+      "description": "Susun kampanye pemasaran"
+    },
+    "marketing-proposal": {
+      "title": "Buat proposal",
+      "description": "Draf proposal untuk klien"
+    },
+    "documents-summarize": {
+      "title": "Ringkas dokumen",
+      "description": "Ringkasan dokumen terstruktur"
+    },
+    "automation-workflow": {
+      "title": "Rancang alur kerja",
+      "description": "Sketsa alur kerja otomatisasi"
+    },
+    "general-brainstorm": {
+      "title": "Curah pendapat opsi",
+      "description": "Ideasi terstruktur"
+    },
+    "general-explain": {
+      "title": "Jelaskan secara sederhana",
+      "description": "Penjelasan jelas untuk pemangku kepentingan"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Ringkas pelanggan",
+      "description": "Ringkasan eksekutif pelanggan aktif"
+    },
+    "cmd-generate-proposal": {
+      "label": "Buat proposal",
+      "description": "Buat kerangka proposal klien"
+    },
+    "cmd-analyze-project": {
+      "label": "Analisis proyek",
+      "description": "Kesehatan proyek dan analisis risiko"
+    },
+    "cmd-create-task-list": {
+      "label": "Buat daftar tugas",
+      "description": "Pecah pekerjaan menjadi tugas yang dapat ditindaklanjuti"
+    },
+    "cmd-generate-email": {
+      "label": "Buat email",
+      "description": "Buat draf email profesional"
+    },
+    "cmd-explain-invoice": {
+      "label": "Jelaskan faktur",
+      "description": "Penjelasan faktur dalam bahasa sederhana"
+    }
   }
 }

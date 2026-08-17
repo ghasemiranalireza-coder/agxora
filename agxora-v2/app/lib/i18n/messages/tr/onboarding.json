@@ -27,5 +27,132 @@
   "back": "Geri",
   "continue": "Devam etmek",
   "launching": "Başlatılıyor…",
-  "enterDashboard": "Gösterge tablosuna girin"
+  "enterDashboard": "Gösterge tablosuna girin",
+  "defaultCountry": "Amerika Birleşik Devletleri",
+  "businessTypes": {
+    "hotel": {
+      "label": "Otel",
+      "description": "Konaklama, odalar, misafirler ve tesis operasyonu"
+    },
+    "restaurant": {
+      "label": "Restoran",
+      "description": "Yemek, mutfak, rezervasyon ve misafir deneyimi"
+    },
+    "cleaning": {
+      "label": "Temizlik",
+      "description": "Ticari ve konut temizlik operasyonları"
+    },
+    "laundry": {
+      "label": "Çamaşırhane",
+      "description": "Yıkama tesisleri, toplama rotaları ve tekstil bakımı"
+    },
+    "construction": {
+      "label": "İnşaat",
+      "description": "Şantiyeler, ekipler, malzemeler ve proje teslimi"
+    },
+    "healthcare": {
+      "label": "Sağlık",
+      "description": "Bakım ağları, hastalar ve klinik operasyonlar"
+    },
+    "medical": {
+      "label": "Tıbbi",
+      "description": "Klinikler, randevular ve bakım ekipleri"
+    },
+    "manufacturing": {
+      "label": "İmalat",
+      "description": "Üretim hatları, kalite ve tedarik operasyonları"
+    },
+    "retail": {
+      "label": "Perakende",
+      "description": "Mağazalar, stok, merchandising ve müşteriler"
+    },
+    "legal": {
+      "label": "Hukuk bürosu",
+      "description": "Dosyalar, müvekkiller, vadeler ve faturalama"
+    },
+    "accounting": {
+      "label": "Muhasebe",
+      "description": "Defterler, müşteriler, beyanlar ve danışmanlık"
+    },
+    "consulting": {
+      "label": "Danışmanlık",
+      "description": "Görevler, teslimatlar ve müşteri sonuçları"
+    },
+    "real_estate": {
+      "label": "Emlak",
+      "description": "İlanlar, müşteriler, geziler ve işlemler"
+    },
+    "education": {
+      "label": "Eğitim",
+      "description": "Programlar, öğrenciler, öğretim üyeleri ve kayıt"
+    },
+    "automotive": {
+      "label": "Otomotiv",
+      "description": "Bayiler, servis alanları ve araç stoğu"
+    },
+    "beauty": {
+      "label": "Güzellik salonu",
+      "description": "Randevular, stilistler, perakende ve üyelikler"
+    },
+    "fitness": {
+      "label": "Spor salonu / fitness",
+      "description": "Üyelikler, dersler, antrenörler ve elde tutma"
+    },
+    "agriculture": {
+      "label": "Tarım",
+      "description": "Ürünler, hayvanlar, verim ve tedarik zincirleri"
+    },
+    "transport": {
+      "label": "Ulaşım",
+      "description": "Filo hareketi, rotalar ve yolcu/yük operasyonları"
+    },
+    "logistics": {
+      "label": "Lojistik",
+      "description": "Filo, depolar, rotalar ve fulfillment"
+    },
+    "warehouse": {
+      "label": "Depo",
+      "description": "Depolama, toplama, paketleme ve stok devri"
+    },
+    "insurance": {
+      "label": "Sigorta",
+      "description": "Poliçeler, hasarlar, underwriting ve elde tutma"
+    },
+    "finance": {
+      "label": "Finans",
+      "description": "Sermaye, portföyler ve finansal operasyonlar"
+    },
+    "financial_services": {
+      "label": "Finansal hizmetler",
+      "description": "Danışmanlık, ürünler, uyum ve müşteriler"
+    },
+    "technology": {
+      "label": "Teknoloji",
+      "description": "Ürün, mühendislik ve go-to-market ekipleri"
+    },
+    "saas": {
+      "label": "Yazılım / SaaS",
+      "description": "Abonelikler, kullanım ve müşteri başarısı"
+    },
+    "ecommerce": {
+      "label": "E-ticaret",
+      "description": "Çevrimiçi katalog, sepetler, fulfillment ve LTV"
+    },
+    "agency": {
+      "label": "Pazarlama ajansı",
+      "description": "Müşteriler, kampanyalar, retainer’lar ve teslimat"
+    },
+    "freelancer": {
+      "label": "Serbest çalışan",
+      "description": "Tek kişilik pratik, müşteriler, hunisi ve nakit akışı"
+    },
+    "government": {
+      "label": "Kamu",
+      "description": "Kamu hizmetleri, programlar ve vatandaşlar"
+    },
+    "nonprofit": {
+      "label": "Kâr amacı gütmeyen",
+      "description": "Misyonlar, bağışçılar, programlar ve etki"
+    }
+  }
 }

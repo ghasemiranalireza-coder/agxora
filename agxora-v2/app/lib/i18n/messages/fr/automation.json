@@ -100,7 +100,7 @@
     "noticeDefault": "Prévisualisez un modèle avant de le charger dans le générateur.",
     "noticeLoaded": "Chargé \"{name}\" dans le générateur de workflow.",
     "nodesBadge": "{count} nœuds",
-    "recommendedFor": "Recommandé pour : {pour}",
+    "recommendedFor": "Recommandé pour : {for}",
     "preview": "Aperçu",
     "useTemplate": "Utiliser le modèle",
     "previewTitle": "Aperçu du modèle",
@@ -131,14 +131,14 @@
     "notice": {
       "missingWrite": "Autorisation d'écriture de workflow manquante.",
       "missingExecute": "Autorisation workflow.execute manquante.",
-      "created": "Créé {nom}",
+      "created": "Créé {name}",
       "templateApplied": "Modèle appliqué : {name}",
       "runResult": "Exécuter {status} ({duration} ms)",
       "runFailed": "Le flux de travail n'a pas pu s'exécuter (désactivé ou manquant).",
       "publishedEvent": "Événement de domaine publié : {type}",
-      "workflowStatus": "Flux de travail {statut}",
+      "workflowStatus": "Flux de travail {status}",
       "saved": "Workflow enregistré.",
-      "retryResult": "Réessayez {statut}",
+      "retryResult": "Réessayez {status}",
       "retryFailed": "Échec de la nouvelle tentative",
       "settingsSaved": "Paramètres d'automatisation enregistrés"
     },
@@ -193,8 +193,8 @@
       "emptyTitle": "Pas encore d'exécutions.",
       "emptyDescription": "Exécutez un flux de travail ou publiez un événement de domaine.",
       "latestRun": "Dernier détail de l'exécution",
-      "path": "Chemin : {chemin}",
-      "error": "· Erreur : {erreur}",
+      "path": "Chemin : {path}",
+      "error": "· Erreur : {error}",
       "columns": {
         "workflow": "Flux de travail",
         "status": "Statut",
@@ -226,7 +226,315 @@
       "concurrencyLimit": "Limite de concurrence",
       "timeoutMs": "Délai (ms)",
       "logLevel": "Niveau de journalisation",
-      "saveSettings": "Enregistrer les paramètres"
+      "saveSettings": "Enregistrer les paramètres",
+      "logLevels": {
+        "error": "erreur",
+        "warn": "avertissement",
+        "info": "info",
+        "debug": "débogage"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Workflow vide"
+  },
+  "status": {
+    "connected": "Connecté",
+    "beta": "Bêta",
+    "comingSoon": "Bientôt disponible",
+    "disabled": "Désactivé",
+    "planned": "Planifié",
+    "success": "Réussi",
+    "failed": "Échoué",
+    "running": "En cours",
+    "pending": "En attente",
+    "retried": "Nouvelle tentative"
+  },
+  "difficulty": {
+    "starter": "Débutant",
+    "intermediate": "Intermédiaire",
+    "advanced": "Avancé"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Déclencheur",
+      "description": "Démarrer lorsqu’un événement se déclenche"
+    },
+    "el-condition": {
+      "label": "Condition",
+      "description": "Brancher selon des règles"
+    },
+    "el-delay": {
+      "label": "Délai",
+      "description": "Attendre avant de continuer"
+    },
+    "el-approval": {
+      "label": "Approbation",
+      "description": "Barrière d’approbation humaine"
+    },
+    "el-loop": {
+      "label": "Boucle",
+      "description": "Itérer sur une collection"
+    },
+    "el-merge": {
+      "label": "Fusionner",
+      "description": "Joindre des chemins parallèles"
+    },
+    "el-split": {
+      "label": "Diviser",
+      "description": "Dispersion de chemins parallèles"
+    },
+    "el-ai-decision": {
+      "label": "Décision IA",
+      "description": "Acheminer via l’IA"
+    },
+    "el-notification": {
+      "label": "Notification",
+      "description": "Alerte in-app"
+    },
+    "el-webhook": {
+      "label": "Espace réservé Webhook",
+      "description": "Rappel HTTP réservé"
+    },
+    "el-custom": {
+      "label": "Action personnalisée",
+      "description": "Emplacement d’action extensible"
+    },
+    "tr-customer": {
+      "label": "Client créé",
+      "description": "Enregistrement client CRM créé"
+    },
+    "tr-lead": {
+      "label": "Piste créée",
+      "description": "Une nouvelle piste entre dans le pipeline"
+    },
+    "tr-invoice": {
+      "label": "Facture créée",
+      "description": "Facture finance émise"
+    },
+    "tr-invoice-paid": {
+      "label": "Facture payée",
+      "description": "Paiement réglé"
+    },
+    "tr-order": {
+      "label": "Commande créée",
+      "description": "Commande saisie"
+    },
+    "tr-order-done": {
+      "label": "Commande terminée",
+      "description": "Commande honorée"
+    },
+    "tr-doc": {
+      "label": "Document importé",
+      "description": "Téléversement vers le coffre documents"
+    },
+    "tr-campaign": {
+      "label": "Campagne publiée",
+      "description": "Publication Creator Studio"
+    },
+    "tr-employee": {
+      "label": "Employé ajouté",
+      "description": "Changement dans l’annuaire d’équipe"
+    },
+    "tr-task": {
+      "label": "Tâche terminée",
+      "description": "Tâche marquée comme terminée"
+    },
+    "tr-manual": {
+      "label": "Déclencheur manuel",
+      "description": "Exécuter à la demande"
+    },
+    "tr-schedule": {
+      "label": "Déclencheur planifié",
+      "description": "Planning cron / calendrier"
+    },
+    "tr-webhook": {
+      "label": "Déclencheur Webhook",
+      "description": "Événement HTTP entrant"
+    },
+    "tr-api": {
+      "label": "Déclencheur API",
+      "description": "Démarrage programmatique"
+    },
+    "ac-crm": {
+      "label": "Créer un enregistrement CRM",
+      "description": "Écrire une entité CRM"
+    },
+    "ac-invoice": {
+      "label": "Générer une facture",
+      "description": "Facture finance"
+    },
+    "ac-quote": {
+      "label": "Générer un devis",
+      "description": "Créer un document de devis"
+    },
+    "ac-delivery": {
+      "label": "Générer un bon de livraison",
+      "description": "Bon de livraison"
+    },
+    "ac-task": {
+      "label": "Créer une tâche",
+      "description": "Ouvrir une tâche"
+    },
+    "ac-assign": {
+      "label": "Assigner un employé",
+      "description": "Acheminer vers un coéquipier"
+    },
+    "ac-email": {
+      "label": "Envoyer un e-mail",
+      "description": "E-mail sortant"
+    },
+    "ac-notify": {
+      "label": "Envoyer une notification",
+      "description": "Notification in-app"
+    },
+    "ac-ai-summary": {
+      "label": "Générer un résumé IA",
+      "description": "Résumer le contexte"
+    },
+    "ac-ai-content": {
+      "label": "Générer du contenu IA",
+      "description": "Brouillon Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "Mettre à jour le client",
+      "description": "Corriger le client CRM"
+    },
+    "ac-update-status": {
+      "label": "Mettre à jour le statut",
+      "description": "Changer le statut de l’entité"
+    },
+    "ac-pdf": {
+      "label": "Exporter en PDF",
+      "description": "Export de document"
+    },
+    "ac-future": {
+      "label": "Espace réservé API future",
+      "description": "Emplacement d’action réservé"
+    },
+    "ai-decision": {
+      "label": "Décision IA",
+      "description": "Décider du chemin suivant"
+    },
+    "ai-class": {
+      "label": "Classification IA",
+      "description": "Classer des enregistrements"
+    },
+    "ai-text": {
+      "label": "Génération de texte IA",
+      "description": "Générer du texte"
+    },
+    "ai-translate": {
+      "label": "Traduction IA",
+      "description": "Traduire le contenu"
+    },
+    "ai-email": {
+      "label": "Réponse e-mail IA",
+      "description": "Rédiger une réponse"
+    },
+    "ai-sum": {
+      "label": "Synthèse IA",
+      "description": "Condenser le contexte"
+    },
+    "ai-rec": {
+      "label": "Recommandations IA",
+      "description": "Suggérer les prochaines étapes"
+    },
+    "ai-route": {
+      "label": "Routage IA",
+      "description": "Acheminer vers le propriétaire / la file"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Client créé",
+      "description": "Se déclenche lorsqu’un client CRM est créé."
+    },
+    "project_created": {
+      "label": "Projet crée",
+      "description": "Se déclenche lorsqu’un projet est créé."
+    },
+    "task_completed": {
+      "label": "Tâche terminée",
+      "description": "Se déclenche lorsqu’une tâche est marquée comme terminée."
+    },
+    "document_uploaded": {
+      "label": "Document téléchargé",
+      "description": "Se déclenche lorsqu’un document est téléversé."
+    },
+    "schedule": {
+      "label": "Calendrier",
+      "description": "Déclencheur de planification cron / intervalle."
+    },
+    "invoice_issued": {
+      "label": "Facture émise",
+      "description": "Se déclenche lorsqu’une facture est émise."
+    },
+    "user_invited": {
+      "label": "Utilisateur invité",
+      "description": "Se déclenche lorsqu’un membre d’équipe est invité."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Webhook HTTP entrant."
+    },
+    "api_event": {
+      "label": "Événement API",
+      "description": "Événement de domaine API générique."
+    },
+    "ai_event": {
+      "label": "Événement IA",
+      "description": "Signal IA (achèvement, insight, étape d’agent)."
+    },
+    "manual": {
+      "label": "Déclencheur manuel",
+      "description": "Exécution à la demande depuis l’UI ou l’API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Créer un client",
+      "description": "Créer une fiche client CRM."
+    },
+    "customer_update": {
+      "label": "Mettre à jour le client",
+      "description": "Mettre à jour les champs d’un client."
+    },
+    "project_create": {
+      "label": "Envoyer ce projet",
+      "description": "Créer un projet à partir du contexte du workflow."
+    },
+    "notification_send": {
+      "label": "Envoyer une notification",
+      "description": "Envoyer une notification in-app."
+    },
+    "email_send": {
+      "label": "Envoyer un e-mail",
+      "description": "Mettre un e-mail en file d’attente via le fournisseur."
+    },
+    "invoice_create": {
+      "label": "Créer une facture",
+      "description": "Créer une facture financière."
+    },
+    "status_update": {
+      "label": "Mettre à jour le statut",
+      "description": "Mettre à jour le statut d’une entité dans un module."
+    },
+    "document_generate": {
+      "label": "Générer un document",
+      "description": "Générer un document à partir d’un modèle."
+    },
+    "api_call": {
+      "label": "Appeler l’API",
+      "description": "Appel HTTP vers une API interne ou externe."
+    },
+    "ai_run": {
+      "label": "Exécuter l’IA",
+      "description": "Exécuter une invite IA / étape d’agent avec contexte."
+    },
+    "task_assign": {
+      "label": "Assigner une tâche",
+      "description": "Assigner une tâche à un utilisateur."
     }
   }
 }

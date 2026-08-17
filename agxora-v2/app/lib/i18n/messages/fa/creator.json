@@ -94,8 +94,8 @@
   "analytics": {
     "title": "تحلیل‌ها",
     "topPosts": "پست های محبوب",
-    "engagement": "انگلیسی {مقدار}",
-    "reach": "رسیدن به {مقدار}",
+    "engagement": "انگلیسی {value}",
+    "reach": "رسیدن به {value}",
     "recommendations": "توصیه‌های هوش مصنوعی"
   },
   "integrations": {
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "نقشه ویژگی‌های هوش مصنوعی - ایده‌ها، کپشن‌ها، هشتگ‌ها، تقویم، کمپین‌ها، مخاطبان، برنامه، ثبات برند، بازنویسی، ترجمه، چندزبانه."
+  },
+  "formats": {
+    "instagram_caption": "کپشن Instagram",
+    "tiktok_script": "اسکریپت TikTok",
+    "linkedin_post": "پست LinkedIn",
+    "facebook_post": "پست Facebook",
+    "x_post": "پست X",
+    "blog_article": "مقاله وبلاگ",
+    "newsletter": "خبرنامه",
+    "email_campaign": "کمپین ایمیل",
+    "product_description": "توضیحات محصول",
+    "ad_copy": "متن تبلیغ",
+    "seo_article": "مقاله SEO",
+    "landing_page_copy": "متن صفحه فرود"
+  },
+  "publishStatus": {
+    "draft": "پیش‌نویس",
+    "review": "بازبینی",
+    "approved": "تأییدشده",
+    "scheduled": "زمان‌بندی‌شده",
+    "published": "منتشرشده",
+    "archive": "بایگانی"
+  },
+  "mediaKind": {
+    "image": "تصویر",
+    "video": "ویدیو",
+    "document": "سند",
+    "logo": "لوگوی برند",
+    "template": "قالب"
+  },
+  "voice": {
+    "professional": "حرفه‌ای",
+    "friendly": "دوستانه",
+    "luxury": "لوکس",
+    "casual": "غیررسمی"
+  },
+  "integrationStatus": {
+    "planned": "برنامه‌ریزی‌شده",
+    "ready": "آماده",
+    "connected": "متصل",
+    "disabled": "غیرفعال"
   }
 }

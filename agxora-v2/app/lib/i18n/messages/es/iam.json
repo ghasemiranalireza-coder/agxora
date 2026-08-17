@@ -18,7 +18,7 @@
     "logoPlaceholder": "Los adaptadores de carga de logotipos y facturación de planes son marcadores de posición para el futuro backend de identidad.",
     "rbacTitle": "RBAC: roles predeterminados",
     "permissionMatrix": "Matriz de permisos",
-    "canManageSettings": "Puede administrar la configuración: {valor} · Autenticado: {autenticado}",
+    "canManageSettings": "Puede administrar la configuración: {value} · Autenticado: {authenticated}",
     "yes": "Sí",
     "no": "No",
     "securitySettings": "Configuraciones de seguridad",
@@ -45,7 +45,7 @@
     "disabled": "Desactivado",
     "enabled": "Activado",
     "days": "{count} días",
-    "minutes": "{cuenta} minutos",
+    "minutes": "{count} minutos",
     "toggleIdlePolicy": "Alternar marcador de posición de política inactiva",
     "previewSessionExpired": "La sesión de vista previa expiró",
     "previewAccountLocked": "Cuenta de vista previa bloqueada",
@@ -145,5 +145,30 @@
     "verify": "Verificar correo electrónico",
     "verifying": "Verificando…",
     "requestToken": "Solicitar token de verificación"
+  },
+  "access": {
+    "eyebrow": "Identidad y acceso",
+    "signIn": "Iniciar sesión",
+    "backToDashboard": "Volver al panel",
+    "unauthorized": {
+      "title": "No autorizado",
+      "description": "Inicie sesión para continuar en esta área de AGXORA."
+    },
+    "forbidden": {
+      "title": "Prohibido",
+      "description": "Su rol no incluye permiso para este recurso."
+    },
+    "expired_session": {
+      "title": "Sesión caducada",
+      "description": "Su sesión caducó. Inicie sesión de nuevo para reanudar el trabajo."
+    },
+    "missing_permission": {
+      "title": "Permiso faltante",
+      "description": "Pida a un propietario o administrador que conceda el acceso al módulo requerido."
+    },
+    "account_locked": {
+      "title": "Cuenta bloqueada",
+      "description": "Esta cuenta está bloqueada. Contacte a un propietario de la organización o inténtelo más tarde."
+    }
   }
 }

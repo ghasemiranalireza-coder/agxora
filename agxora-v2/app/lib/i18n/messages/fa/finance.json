@@ -67,7 +67,7 @@
       "paid-invoices": {
         "label": "فاکتورهای پرداخت‌شده",
         "caption": "نمونه · این فصل",
-        "delta": "شمردن "
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "جریان نقدی",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "امتیاز مالی هوش مصنوعی",
         "caption": "امتیاز نمونه · امتیازدهی ریسک زنده نیست",
-        "delta": "شمردن "
+        "delta": "+{count}"
       }
     },
-    "scoreOutOf": "{امتیاز} / {حداکثر}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "فاکتوری نیست",

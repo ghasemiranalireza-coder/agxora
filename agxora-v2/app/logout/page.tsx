@@ -5,7 +5,7 @@ import { useEffect, useState, type JSX } from "react";
 import { AuthCard } from "../components/auth/AuthCard";
 import { IdentityLoadingOverlay } from "../components/identity";
 import { useAuth } from "../lib/auth";
-import { useT } from "../lib/i18n";
+import { useT, resolveUserFacingErrorKey } from "../lib/i18n";
 import { iamAuthService } from "../../features/auth";
 
 /**
@@ -26,7 +26,7 @@ export default function LogoutPage(): JSX.Element {
         if (!cancelled) router.replace("/login");
       } catch (err) {
         if (!cancelled) {
-          setError(err instanceof Error ? err.message : t("backend.logout.failed"));
+          setError(t(resolveUserFacingErrorKey(err, "backend.logout.failed")));
           router.replace("/login");
         }
       }

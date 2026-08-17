@@ -44,8 +44,8 @@
     "persistentLogin": "تسجيل الدخول المستمر",
     "disabled": "عاجز",
     "enabled": "ممكّن",
-    "days": "{عدد} أيام",
-    "minutes": "{عدد} دقيقة",
+    "days": "{count} أيام",
+    "minutes": "{count} دقيقة",
     "toggleIdlePolicy": "تبديل العنصر النائب لسياسة الخمول",
     "previewSessionExpired": "انتهت صلاحية جلسة المعاينة",
     "previewAccountLocked": "تم قفل حساب المعاينة",
@@ -145,5 +145,30 @@
     "verify": "التحقق من البريد الإلكتروني",
     "verifying": "جارٍ التحقق…",
     "requestToken": "طلب رمز التحقق"
+  },
+  "access": {
+    "eyebrow": "الهوية والوصول",
+    "signIn": "تسجيل الدخول",
+    "backToDashboard": "العودة إلى لوحة التحكم",
+    "unauthorized": {
+      "title": "غير مصرح",
+      "description": "سجّل الدخول للمتابعة إلى هذا الجزء من AGXORA."
+    },
+    "forbidden": {
+      "title": "محظور",
+      "description": "دورك لا يتضمن صلاحية لهذا المورد."
+    },
+    "expired_session": {
+      "title": "انتهت الجلسة",
+      "description": "انتهت جلستك. سجّل الدخول مجددًا لاستئناف العمل."
+    },
+    "missing_permission": {
+      "title": "صلاحية مفقودة",
+      "description": "اطلب من مالك أو مسؤول منح صلاحية الوصول إلى الوحدة المطلوبة."
+    },
+    "account_locked": {
+      "title": "الحساب مقفل",
+      "description": "هذا الحساب مقفل. تواصل مع مالك المؤسسة أو حاول لاحقًا."
+    }
   }
 }

@@ -44,8 +44,8 @@
     "persistentLogin": "ورود دائمی",
     "disabled": "غیرفعال",
     "enabled": "فعال",
-    "days": "@count روز",
-    "minutes": "{تعداد} دقیقه",
+    "days": "{count} days",
+    "minutes": "{count} دقیقه",
     "toggleIdlePolicy": "تغییر وضعیت جایگذاری سیاست غیرفعال",
     "previewSessionExpired": "جلسه پیش‌نمایش منقضی شد",
     "previewAccountLocked": "پیش‌نمایش حساب قفل‌شده",
@@ -145,5 +145,30 @@
     "verify": "تایید ایمیل",
     "verifying": "تایید کردن",
     "requestToken": "درخواست توکن تأیید"
+  },
+  "access": {
+    "eyebrow": "هویت و دسترسی",
+    "signIn": "ورود",
+    "backToDashboard": "بازگشت به داشبورد",
+    "unauthorized": {
+      "title": "غیرمجاز",
+      "description": "برای ادامه در این بخش از AGXORA وارد شوید."
+    },
+    "forbidden": {
+      "title": "ممنوع",
+      "description": "نقش شما مجوز این منبع را شامل نمی‌شود."
+    },
+    "expired_session": {
+      "title": "نشست منقضی شده",
+      "description": "نشست شما منقضی شد. برای ادامه کار دوباره وارد شوید."
+    },
+    "missing_permission": {
+      "title": "مجوز ناموجود",
+      "description": "از مالک یا مدیر بخواهید دسترسی ماژول لازم را اعطا کند."
+    },
+    "account_locked": {
+      "title": "حساب قفل شده",
+      "description": "این حساب قفل شده است. با مالک سازمان تماس بگیرید یا بعداً دوباره تلاش کنید."
+    }
   }
 }

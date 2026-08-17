@@ -100,7 +100,7 @@
     "noticeDefault": "Wyświetl podgląd szablonu przed załadowaniem go do kreatora.",
     "noticeLoaded": "Załadowano „{name}” do kreatora przepływu pracy.",
     "nodesBadge": "{count} węzłów",
-    "recommendedFor": "Polecane dla: {dla}",
+    "recommendedFor": "Polecane dla: {for}",
     "preview": "Zapowiedź",
     "useTemplate": "Użyj szablonu",
     "previewTitle": "Podgląd szablonu",
@@ -131,14 +131,14 @@
     "notice": {
       "missingWrite": "Brak uprawnień do przepływu pracy.write.",
       "missingExecute": "Brak uprawnienia do przepływu pracy.execute.",
-      "created": "Utworzono {imię}",
+      "created": "Utworzono {name}",
       "templateApplied": "Zastosowano szablon: {name}",
       "runResult": "Uruchom {status} ({duration}ms)",
       "runFailed": "Nie można uruchomić przepływu pracy (wyłączony lub brakujący).",
       "publishedEvent": "Opublikowane zdarzenie domeny: {type}",
       "workflowStatus": "Przepływ pracy {status}",
       "saved": "Przepływ pracy został zapisany",
-      "retryResult": "Spróbuj ponownie {stan}",
+      "retryResult": "Spróbuj ponownie {status}",
       "retryFailed": "Ponowna próba nie powiodła się",
       "settingsSaved": "Ustawienia automatyki zostały zapisane"
     },
@@ -193,8 +193,8 @@
       "emptyTitle": "Nie ma jeszcze egzekucji.",
       "emptyDescription": "Uruchom przepływ pracy lub opublikuj wydarzenie domeny.",
       "latestRun": "Najnowsze szczegóły biegu",
-      "path": "Ścieżka: {ścieżka}",
-      "error": "· Błąd: {błąd}",
+      "path": "Ścieżka: {path}",
+      "error": "· Błąd: {error}",
       "columns": {
         "workflow": "Przepływ pracy",
         "status": "Status",
@@ -226,7 +226,315 @@
       "concurrencyLimit": "Limit współbieżności",
       "timeoutMs": "Limit czasu (ms)",
       "logLevel": "Poziom dziennika",
-      "saveSettings": "Zapisz ustawienia"
+      "saveSettings": "Zapisz ustawienia",
+      "logLevels": {
+        "error": "błąd",
+        "warn": "ostrzeżenie",
+        "info": "info",
+        "debug": "debug"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Pusty przepływ"
+  },
+  "status": {
+    "connected": "Połączono",
+    "beta": "Beta",
+    "comingSoon": "Wkrótce",
+    "disabled": "Wyłączono",
+    "planned": "Zaplanowano",
+    "success": "Sukces",
+    "failed": "Niepowodzenie",
+    "running": "W toku",
+    "pending": "Oczekujące",
+    "retried": "Ponów"
+  },
+  "difficulty": {
+    "starter": "Podstawowy",
+    "intermediate": "Średni",
+    "advanced": "Zaawansowany"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Wyzwalacz",
+      "description": "Uruchom, gdy wystąpi zdarzenie"
+    },
+    "el-condition": {
+      "label": "Warunek",
+      "description": "Rozgałęziaj według reguł"
+    },
+    "el-delay": {
+      "label": "Opóźnienie",
+      "description": "Poczekaj przed kontynuacją"
+    },
+    "el-approval": {
+      "label": "Zatwierdzenie",
+      "description": "Brama zatwierdzenia przez człowieka"
+    },
+    "el-loop": {
+      "label": "Pętla",
+      "description": "Iteruj po kolekcji"
+    },
+    "el-merge": {
+      "label": "Scal",
+      "description": "Połącz ścieżki równoległe"
+    },
+    "el-split": {
+      "label": "Podziel",
+      "description": "Rozdziel ścieżki równoległe"
+    },
+    "el-ai-decision": {
+      "label": "Decyzja AI",
+      "description": "Kieruj przez AI"
+    },
+    "el-notification": {
+      "label": "Powiadomienie",
+      "description": "Alert w aplikacji"
+    },
+    "el-webhook": {
+      "label": "Symbol zastępczy Webhook",
+      "description": "Zarezerwowano wywołanie HTTP"
+    },
+    "el-custom": {
+      "label": "Akcja niestandardowa",
+      "description": "Rozszerzalne gniazdo akcji"
+    },
+    "tr-customer": {
+      "label": "Utworzono klienta",
+      "description": "Utworzono rekord klienta CRM"
+    },
+    "tr-lead": {
+      "label": "Utworzono leada",
+      "description": "Nowy lead wchodzi do lejka"
+    },
+    "tr-invoice": {
+      "label": "Utworzono fakturę",
+      "description": "Wystawiono fakturę finansową"
+    },
+    "tr-invoice-paid": {
+      "label": "Faktura opłacona",
+      "description": "Płatność rozliczona"
+    },
+    "tr-order": {
+      "label": "Utworzono zamówienie",
+      "description": "Zamówienie wprowadzone"
+    },
+    "tr-order-done": {
+      "label": "Zamówienie ukończone",
+      "description": "Zamówienie zrealizowane"
+    },
+    "tr-doc": {
+      "label": "Przesłano dokument",
+      "description": "Przesłanie do skarbca dokumentów"
+    },
+    "tr-campaign": {
+      "label": "Opublikowano kampanię",
+      "description": "Publikacja Creator Studio"
+    },
+    "tr-employee": {
+      "label": "Dodano pracownika",
+      "description": "Zmiana w katalogu zespołu"
+    },
+    "tr-task": {
+      "label": "Zadanie ukończone",
+      "description": "Zadanie oznaczone jako wykonane"
+    },
+    "tr-manual": {
+      "label": "Wyzwalacz ręczny",
+      "description": "Uruchom na żądanie"
+    },
+    "tr-schedule": {
+      "label": "Wyzwalacz harmonogramu",
+      "description": "Harmonogram cron / kalendarz"
+    },
+    "tr-webhook": {
+      "label": "Wyzwalacz Webhook",
+      "description": "Przychodzące zdarzenie HTTP"
+    },
+    "tr-api": {
+      "label": "Wyzwalacz API",
+      "description": "Start programistyczny"
+    },
+    "ac-crm": {
+      "label": "Utwórz rekord CRM",
+      "description": "Zapisz encję CRM"
+    },
+    "ac-invoice": {
+      "label": "Wygeneruj fakturę",
+      "description": "Faktura finansowa"
+    },
+    "ac-quote": {
+      "label": "Wygeneruj ofertę",
+      "description": "Utwórz dokument oferty"
+    },
+    "ac-delivery": {
+      "label": "Wygeneruj list przewozowy",
+      "description": "List przewozowy"
+    },
+    "ac-task": {
+      "label": "Utwórz zadanie",
+      "description": "Otwórz zadanie"
+    },
+    "ac-assign": {
+      "label": "Przypisz pracownika",
+      "description": "Przekieruj do członka zespołu"
+    },
+    "ac-email": {
+      "label": "Wyślij e-mail",
+      "description": "Wychodzący e-mail"
+    },
+    "ac-notify": {
+      "label": "Wyślij powiadomienie",
+      "description": "Powiadomienie w aplikacji"
+    },
+    "ac-ai-summary": {
+      "label": "Wygeneruj podsumowanie AI",
+      "description": "Podsumuj kontekst"
+    },
+    "ac-ai-content": {
+      "label": "Wygeneruj treść AI",
+      "description": "Szkic Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "Zaktualizuj klienta",
+      "description": "Łatka klienta CRM"
+    },
+    "ac-update-status": {
+      "label": "Zaktualizuj status",
+      "description": "Zmień status encji"
+    },
+    "ac-pdf": {
+      "label": "Eksportuj PDF",
+      "description": "Eksport dokumentu"
+    },
+    "ac-future": {
+      "label": "Symbol zastępczy przyszłego API",
+      "description": "Zarezerwowane gniazdo akcji"
+    },
+    "ai-decision": {
+      "label": "Decyzja AI",
+      "description": "Wybierz następną ścieżkę"
+    },
+    "ai-class": {
+      "label": "Klasyfikacja AI",
+      "description": "Klasyfikuj rekordy"
+    },
+    "ai-text": {
+      "label": "Generowanie tekstu AI",
+      "description": "Wygeneruj tekst"
+    },
+    "ai-translate": {
+      "label": "Tłumaczenie AI",
+      "description": "Przetłumacz treść"
+    },
+    "ai-email": {
+      "label": "Odpowiedź e-mail AI",
+      "description": "Szkic odpowiedzi"
+    },
+    "ai-sum": {
+      "label": "Streszczenie AI",
+      "description": "Skróć kontekst"
+    },
+    "ai-rec": {
+      "label": "Rekomendacje AI",
+      "description": "Zasugeruj kolejne kroki"
+    },
+    "ai-route": {
+      "label": "Routing AI",
+      "description": "Kieruj do właściciela / kolejki"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Klient utworzony",
+      "description": "Uruchamia się po utworzeniu klienta CRM."
+    },
+    "project_created": {
+      "label": "Projekt stworzony",
+      "description": "Uruchamia się po utworzeniu projektu."
+    },
+    "task_completed": {
+      "label": "Zadanie zakończone",
+      "description": "Uruchamia się po oznaczeniu zadania jako ukończone."
+    },
+    "document_uploaded": {
+      "label": "Dokument przesłany",
+      "description": "Uruchamia się po przesłaniu dokumentu."
+    },
+    "schedule": {
+      "label": "Harmonogram",
+      "description": "Wyzwalacz harmonogramu cron / interwału."
+    },
+    "invoice_issued": {
+      "label": "Wystawiono fakturę",
+      "description": "Uruchamia się po wystawieniu faktury."
+    },
+    "user_invited": {
+      "label": "Zaproszono użytkownika",
+      "description": "Uruchamia się po zaproszeniu członka zespołu."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Przychodzący webhook HTTP."
+    },
+    "api_event": {
+      "label": "Zdarzenie API",
+      "description": "Ogólne zdarzenie domeny API."
+    },
+    "ai_event": {
+      "label": "Zdarzenie AI",
+      "description": "Sygnał AI (ukończenie, wgląd, krok agenta)."
+    },
+    "manual": {
+      "label": "Wyzwalacz ręczny",
+      "description": "Uruchomienie na żądanie z UI lub API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Utwórz Klienta",
+      "description": "Utwórz rekord klienta CRM."
+    },
+    "customer_update": {
+      "label": "Zaktualizuj klienta",
+      "description": "Zaktualizuj pola klienta."
+    },
+    "project_create": {
+      "label": "Utwórz projekt",
+      "description": "Utwórz projekt z kontekstu przepływu."
+    },
+    "notification_send": {
+      "label": "Wyślij powiadomienie",
+      "description": "Wyślij powiadomienie w aplikacji."
+    },
+    "email_send": {
+      "label": "Wyślij e-mail",
+      "description": "Dodaj e-mail do kolejki przez dostawcę."
+    },
+    "invoice_create": {
+      "label": "Utwórz fakturę",
+      "description": "Utwórz fakturę finansową."
+    },
+    "status_update": {
+      "label": "Zaktualizuj status",
+      "description": "Zaktualizuj status encji w module."
+    },
+    "document_generate": {
+      "label": "Wygeneruj dokument",
+      "description": "Wygeneruj dokument z szablonu."
+    },
+    "api_call": {
+      "label": "Wywołaj API",
+      "description": "Wywołanie HTTP do wewnętrznego lub zewnętrznego API."
+    },
+    "ai_run": {
+      "label": "Uruchom AI",
+      "description": "Uruchom prompt AI / krok agenta z kontekstem."
+    },
+    "task_assign": {
+      "label": "Przypisz zadanie",
+      "description": "Przypisz zadanie użytkownikowi."
     }
   }
 }

@@ -16,7 +16,7 @@
     "provider": "Fornitore",
     "model": "Modello",
     "estimatedTokens": "Est. gettoni",
-    "tokensInOut": "(entrata {entrata} / uscita {uscita})",
+    "tokensInOut": "(entrata {in} / uscita {out})",
     "cost": "Costo",
     "context": "Contesto",
     "contextNone": "nessuno",
@@ -79,5 +79,90 @@
     "placeholder": "Comando AI… riepiloga, proponi, analizza…",
     "noMatches": "Nessun comando corrispondente",
     "footer": "Registra i comandi futuri tramite RegisterAiCommand: l'interfaccia utente rimane invariata."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Progetti",
+    "finance": "Finanza",
+    "marketing": "Marketing",
+    "documents": "Documenti",
+    "automation": "Automazione",
+    "general": "Generale"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Riepiloga cliente",
+      "description": "Sintesi esecutiva di una relazione cliente"
+    },
+    "crm-follow-up-email": {
+      "title": "E-mail di follow-up",
+      "description": "Bozza un follow-up CRM professionale"
+    },
+    "projects-analyze": {
+      "title": "Analizza progetto",
+      "description": "Controllo di salute di un progetto"
+    },
+    "projects-task-list": {
+      "title": "Crea elenco attività",
+      "description": "Suddividi il lavoro in attività attuabili"
+    },
+    "finance-explain-invoice": {
+      "title": "Spiega fattura",
+      "description": "Spiegazione fattura in linguaggio semplice"
+    },
+    "finance-cashflow-brief": {
+      "title": "Sintesi del cashflow",
+      "description": "Breve narrazione del cashflow"
+    },
+    "marketing-campaign-outline": {
+      "title": "Schema campagna",
+      "description": "Struttura una campagna marketing"
+    },
+    "marketing-proposal": {
+      "title": "Genera proposta",
+      "description": "Bozza di proposta per il cliente"
+    },
+    "documents-summarize": {
+      "title": "Riepiloga documento",
+      "description": "Riepilogo documento strutturato"
+    },
+    "automation-workflow": {
+      "title": "Progetta workflow",
+      "description": "Schizzo di workflow di automazione"
+    },
+    "general-brainstorm": {
+      "title": "Brainstorm di opzioni",
+      "description": "Ideazione strutturata"
+    },
+    "general-explain": {
+      "title": "Spiega in modo semplice",
+      "description": "Spiegazione chiara per gli stakeholder"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Riepiloga cliente",
+      "description": "Sintesi esecutiva del cliente attivo"
+    },
+    "cmd-generate-proposal": {
+      "label": "Genera proposta",
+      "description": "Bozza lo schema di una proposta cliente"
+    },
+    "cmd-analyze-project": {
+      "label": "Analizza progetto",
+      "description": "Salute del progetto e analisi dei rischi"
+    },
+    "cmd-create-task-list": {
+      "label": "Crea elenco attività",
+      "description": "Suddividi il lavoro in attività attuabili"
+    },
+    "cmd-generate-email": {
+      "label": "Genera e-mail",
+      "description": "Bozza un’e-mail professionale"
+    },
+    "cmd-explain-invoice": {
+      "label": "Spiega fattura",
+      "description": "Spiegazione fattura in linguaggio semplice"
+    }
   }
 }

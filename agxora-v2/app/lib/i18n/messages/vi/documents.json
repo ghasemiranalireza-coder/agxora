@@ -50,42 +50,42 @@
     "documents": {
       "label": "Tài liệu",
       "caption": "Mẫu · trên các thư mục",
-      "delta": "+{đếm}"
+      "delta": "+{count}"
     },
     "folders": {
       "label": "Thư mục",
       "caption": "Mẫu · bao gồm các bộ sưu tập thông minh",
-      "delta": "+{đếm}"
+      "delta": "+{count}"
     },
     "storage": {
       "label": "Bộ nhớ đã sử dụng",
       "caption": "Mẫu · sơ đồ minh họa",
-      "delta": "+{kích thước}"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "Tài liệu được chia sẻ",
       "caption": "Mẫu · tổ chức + bộ phận + người dùng",
-      "delta": "+{đếm}"
+      "delta": "+{count}"
     },
     "activity": {
       "label": "Hoạt động gần đây",
       "caption": "Mẫu · 24 giờ qua",
-      "delta": "+{đếm}"
+      "delta": "+{count}"
     },
     "indexed": {
       "label": "AI được lập chỉ mục",
       "caption": "Mẫu · Tìm kiếm AI không được kết nối",
-      "delta": "{phần trăm}"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "Đang chờ phê duyệt",
       "caption": "Mẫu · tự động hóa không được kết nối",
-      "delta": "{đếm}"
+      "delta": "{count}"
     },
     "score": {
       "label": "Điểm kiến ​​thức",
       "caption": "Mẫu · minh họa phạm vi bảo hiểm",
-      "delta": "+{đếm}"
+      "delta": "+{count}"
     }
   },
   "library": {
@@ -112,8 +112,8 @@
     "favorite": "Yêu thích",
     "sharedBadge": "Đã chia sẻ",
     "title": "Thư viện tài liệu",
-    "results": "{đếm} kết quả",
-    "resultOne": "{đếm} kết quả",
+    "results": "{count} kết quả",
+    "resultOne": "{count} kết quả",
     "selected": "· Đã chọn {count}",
     "bulkAction": "Hành động hàng loạt",
     "bulkUnavailable": "Hành động hàng loạt không khả dụng cho (các) mục {count} — đột biến lưu trữ không được kết nối.",
@@ -130,7 +130,7 @@
     "favoritesOnly": "Chỉ mục yêu thích",
     "emptyTitle": "Không có tài liệu để hiển thị",
     "emptyDescription": "Điều chỉnh bộ lọc, xóa tìm kiếm hoặc thêm nội dung kiến ​​thức để phát triển thư viện.",
-    "selectAria": "Chọn {tên}",
+    "selectAria": "Chọn {name}",
     "versionHistoryTitle": "Lịch sử phiên bản",
     "close": "Đóng",
     "context": {
@@ -151,7 +151,7 @@
     "zoomIn": "Thu phóng +",
     "prev": "Trước",
     "next": "Kế tiếp",
-    "page": "Trang {trang} / {total}",
+    "page": "Trang {page} / {total}",
     "searchInside": "Tìm kiếm bên trong",
     "findPlaceholder": "Tìm trong bản xem trước…",
     "noMatches": "Không có kết quả phù hợp trong văn bản xem trước.",
@@ -177,7 +177,7 @@
     "title": "Lịch sử phiên bản",
     "emptyTitle": "Không có tài liệu nào được chọn",
     "emptyDescription": "Mở tài liệu để kiểm tra phiên bản, ghi chú, khôi phục và so sánh.",
-    "current": "{name} · hiện tại {phiên bản}",
+    "current": "{name} · hiện tại {version}",
     "restore": "Khôi phục phiên bản",
     "compare": "So sánh các phiên bản",
     "restoreTitle": "Khôi phục yêu cầu API lưu trữ",
@@ -380,9 +380,9 @@
     "planned": "Đã lên kế hoạch"
   },
   "bytes": {
-    "b": "{giá trị} B",
-    "kb": "{giá trị} KB",
-    "mb": "{giá trị} MB",
-    "gb": "{giá trị} GB"
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
   }
 }

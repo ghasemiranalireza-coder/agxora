@@ -98,12 +98,12 @@
       "previous": "Trước",
       "next": "Kế tiếp"
     },
-    "showing": "Đang hiển thị {từ}–{to} trong tổng số {total}",
+    "showing": "Đang hiển thị {from}–{to} trong tổng số {total}",
     "aria": {
-      "openCustomer": "Mở khách hàng {công ty}"
+      "openCustomer": "Mở khách hàng {company}"
     },
     "cardMeta": "Chủ sở hữu {owner} · Đã tạo {date}",
-    "sortBy": "Sắp xếp theo {cột}"
+    "sortBy": "Sắp xếp theo {column}"
   },
   "status": {
     "lead": "Chỉ huy",
@@ -473,7 +473,7 @@
       "label": "Điểm sức khỏe AI",
       "caption": "Tín hiệu chất lượng mối quan hệ"
     },
-    "scoreOutOf": "{điểm} / {tối đa}"
+    "scoreOutOf": "{score} / {max}"
   },
   "pipeline": {
     "lead": "Chỉ huy",

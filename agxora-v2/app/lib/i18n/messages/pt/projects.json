@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "SO de gerenciamento de projetos",
     "title": "Projetos",
-    "lead": "Planeje a entrega, acompanhe o orçamento e a saúde, atribua equipes e gerencie tarefas para {organização}. Os dados persistem localmente e estão prontos para conectividade de back-end.",
+    "lead": "Planeje a entrega, acompanhe o orçamento e a saúde, atribua equipes e gerencie tarefas para {organization}. Os dados persistem localmente e estão prontos para conectividade de back-end.",
     "yourOrganization": "sua organização"
   },
   "list": {
@@ -25,13 +25,13 @@
     "emptyTitle": "Ainda não há projetos",
     "emptyDescription": "Crie um espaço de trabalho de entrega para monitorar marcos, orçamento e propriedade da equipe.",
     "createProject": "Criar projeto",
-    "pagination": "Mostrando {de}–{to} de {total}",
+    "pagination": "Mostrando {from}–{to} de {total}",
     "previous": "Anterior",
     "next": "Próximo",
     "noDescription": "Nenhuma descrição ainda.",
-    "duePrefix": "Data de vencimento}",
-    "openProject": "Abra o projeto {nome}",
-    "sortBy": "Classificar por {coluna}",
+    "duePrefix": "Due {date}",
+    "openProject": "Abra o projeto {name}",
+    "sortBy": "Classificar por {column}",
     "sort": {
       "name": "Nome",
       "customer": "Cliente",
@@ -65,7 +65,7 @@
     "tagsPlaceholder": "empresa, lançamento",
     "budgetPlaceholder": "0",
     "description": "Descrição",
-    "selectColor": "Selecione a cor {cor}"
+    "selectColor": "Selecione a cor {color}"
   },
   "taskForm": {
     "createTitle": "Criar tarefa",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "Progresso",
-    "progressAria": "{rótulo}: {valor}%"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "Planejamento",
@@ -132,24 +132,24 @@
     "emptyDescription": "Adicione datas de início/vencimento e tarefas para preencher a programação.",
     "title": "Linha do tempo",
     "subtitle": "Início, fim, duração, marcos. As dependências são reservadas para uma versão futura.",
-    "dateRange": "{início} → {fim} · {dias}d",
-    "itemAria": "{title} de {início} a {fim}",
+    "dateRange": "{start} → {end} · {days}d",
+    "itemAria": "{title} de {start} a {end}",
     "dependenciesNone": "Dependências: nenhuma"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "Projetos Ativos",
-      "activeHint": "{planejando} planejamento",
+      "activeHint": "{planning} planejamento",
       "completed": "Concluído",
       "completedHint": "{percent}% do portfólio",
       "onHold": "Em espera",
-      "onHoldHint": "{arquivado} arquivado",
+      "onHoldHint": "{archived} arquivado",
       "teamMembers": "Membros da equipe",
       "teamHint": "Em todos os projetos",
       "budgetOverview": "Visão geral do orçamento",
-      "budgetHint": "{percent}% usado · {gasto} gasto",
+      "budgetHint": "{percent}% usado · {spent} gasto",
       "openTasks": "Abrir tarefas",
-      "openTasksHint": "{atrasado} atrasado",
+      "openTasksHint": "{overdue} atrasado",
       "projectHealth": "Saúde do Projeto",
       "healthHint": "Pontuação de entrega composta",
       "upcomingDeadlines": "Próximos Prazos",
@@ -185,7 +185,7 @@
     "notFoundTitle": "Projeto não encontrado",
     "notFoundDescription": "Este projeto pode ter sido excluído ou não está disponível para a organização atual.",
     "backToProjects": "← Voltar para projetos",
-    "ownerMeta": "{cliente} · Proprietário {proprietário}",
+    "ownerMeta": "{customer} · Proprietário {owner}",
     "edit": "Editar",
     "delete": "Excluir",
     "sectionsAria": "Seções de detalhes do projeto",
@@ -288,11 +288,36 @@
     "taskCompleted": "Tarefa concluída",
     "taskDeleted": "Tarefa excluída",
     "filesUploaded": "Arquivos enviados",
-    "filesUploadedDetail": "{contar} arquivo(s)",
+    "filesUploadedDetail": "{count} arquivo(s)",
     "fileDeleted": "Arquivo excluído",
     "noteSaved": "Nota salva",
     "memberAdded": "Membro adicionado",
     "settingsSaved": "Configurações salvas",
     "projectArchived": "Projeto arquivado"
+  },
+  "validation": {
+    "nameRequired": "O nome do projeto é obrigatório.",
+    "nameMin": "O nome do projeto deve ter pelo menos 2 caracteres.",
+    "customerRequired": "O cliente é obrigatório.",
+    "ownerRequired": "O proprietário do projeto é obrigatório.",
+    "priorityInvalid": "Selecione uma prioridade válida.",
+    "statusInvalid": "Selecione um estado válido.",
+    "currencyInvalid": "Selecione uma moeda válida.",
+    "budgetInvalid": "O orçamento deve ser um número não negativo.",
+    "startDateRequired": "A data de início é obrigatória.",
+    "startDateInvalid": "Introduza uma data de início válida.",
+    "dueDateInvalid": "Introduza uma data de vencimento válida.",
+    "dueDateOrder": "A data de vencimento deve ser no dia de início ou depois.",
+    "colorInvalid": "Escolha uma cor válida.",
+    "iconInvalid": "Escolha um ícone válido.",
+    "taskTitleRequired": "O título da tarefa é obrigatório.",
+    "progressRange": "O progresso deve estar entre 0 e 100.",
+    "memberNameRequired": "O nome do membro é obrigatório.",
+    "emailRequired": "O e-mail é obrigatório.",
+    "emailInvalid": "Introduza um endereço de e-mail válido.",
+    "roleInvalid": "Selecione uma função válida.",
+    "noteTitleRequired": "O título da nota é obrigatório.",
+    "noteBodyRequired": "O corpo da nota é obrigatório.",
+    "authorRequired": "O autor é obrigatório."
   }
 }

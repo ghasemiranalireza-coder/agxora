@@ -42,15 +42,15 @@
   "registry": {
     "title": "Greffe",
     "selectPrompt": "Sélectionnez un agent dans le registre.",
-    "status": "État : $status",
-    "health": "Santé : {santé}",
-    "queue": "File d'attente : {file d'attente}",
-    "usage": "Utilisation : {utilisation}",
+    "status": "État : {status}",
+    "health": "Santé : {health}",
+    "queue": "File d'attente : {queue}",
+    "usage": "Utilisation : {usage}",
     "executeTask": "Exécuter la tâche",
     "supervisorDelegate": "Délégué superviseur"
   },
   "marketplace": {
-    "tools": "Outils : {outils}",
+    "tools": "Outils : {tools}",
     "installed": "Installé",
     "installActivate": "Installer et activer"
   },
@@ -58,7 +58,7 @@
     "title": "Moniteur d'agent",
     "emptyTitle": "Aucun agent à surveiller",
     "emptyDescription": "Activez les agents du marché.",
-    "latestConfidence": "Dernière confiance du raisonnement : {confidence} – {étapes}"
+    "latestConfidence": "Dernière confiance du raisonnement : {confidence} – {steps}"
   },
   "history": {
     "title": "Historique d'exécution",
@@ -117,5 +117,9 @@
   "goals": {
     "executeBusiness": "Exécuter l'objectif commercial {agentId}",
     "planAndExecute": "Planifier et exécuter un objectif commercial d'espace de travail"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Prioriser l’impact client",
+    "delegatedFollowUp": "Suivi délégué"
   }
 }

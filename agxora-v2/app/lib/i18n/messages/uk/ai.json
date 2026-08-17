@@ -16,7 +16,7 @@
     "provider": "Провайдер",
     "model": "Модель",
     "estimatedTokens": "Приблизно жетони",
-    "tokensInOut": "(вхід {вхід} / вихід {вихід})",
+    "tokensInOut": "(вхід {in} / вихід {out})",
     "cost": "Вартість",
     "context": "Місцевість ",
     "contextNone": "немає",
@@ -79,5 +79,90 @@
     "placeholder": "ШІ командувати… підсумовувати, пропонувати, аналізувати…",
     "noMatches": "Немає відповідних команд",
     "footer": "Реєструйте майбутні команди через registerAiCommand — інтерфейс користувача залишається без змін."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Проєкти",
+    "finance": "Фінанси",
+    "marketing": "Маркетинг",
+    "documents": "Документи",
+    "automation": "Автоматизація",
+    "general": "Загальне"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Підсумувати клієнта",
+      "description": "Короткий підсумок відносин із клієнтом"
+    },
+    "crm-follow-up-email": {
+      "title": "Лист для подальших кроків",
+      "description": "Чернетка професійного CRM-фолоуапу"
+    },
+    "projects-analyze": {
+      "title": "Проаналізувати проєкт",
+      "description": "Перевірка стану проєкту"
+    },
+    "projects-task-list": {
+      "title": "Створити список завдань",
+      "description": "Розбити роботу на дієві завдання"
+    },
+    "finance-explain-invoice": {
+      "title": "Пояснити рахунок",
+      "description": "Пояснення рахунку простою мовою"
+    },
+    "finance-cashflow-brief": {
+      "title": "Короткий огляд грошового потоку",
+      "description": "Короткий опис грошового потоку"
+    },
+    "marketing-campaign-outline": {
+      "title": "Контур кампанії",
+      "description": "Структурувати маркетингову кампанію"
+    },
+    "marketing-proposal": {
+      "title": "Сформувати пропозицію",
+      "description": "Чернетка пропозиції для клієнта"
+    },
+    "documents-summarize": {
+      "title": "Підсумувати документ",
+      "description": "Структурований підсумок документа"
+    },
+    "automation-workflow": {
+      "title": "Спроєктувати робочий процес",
+      "description": "Ескіз автоматизаційного процесу"
+    },
+    "general-brainstorm": {
+      "title": "Мозковий штурм варіантів",
+      "description": "Структуроване генерування ідей"
+    },
+    "general-explain": {
+      "title": "Пояснити просто",
+      "description": "Зрозуміле пояснення для зацікавлених сторін"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Підсумувати клієнта",
+      "description": "Короткий підсумок активного клієнта"
+    },
+    "cmd-generate-proposal": {
+      "label": "Сформувати пропозицію",
+      "description": "Чернетка структури клієнтської пропозиції"
+    },
+    "cmd-analyze-project": {
+      "label": "Проаналізувати проєкт",
+      "description": "Стан проєкту та аналіз ризиків"
+    },
+    "cmd-create-task-list": {
+      "label": "Створити список завдань",
+      "description": "Розбити роботу на дієві завдання"
+    },
+    "cmd-generate-email": {
+      "label": "Сформувати лист",
+      "description": "Чернетка професійного листа"
+    },
+    "cmd-explain-invoice": {
+      "label": "Пояснити рахунок",
+      "description": "Пояснення рахунку простою мовою"
+    }
   }
 }

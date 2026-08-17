@@ -19,17 +19,17 @@
     "connectFailed": "連線失敗",
     "keyCreated": "建立的 API 金鑰：{prefix}",
     "webhookCreated": "已建立網路鉤子：{name}",
-    "webhookTest": "Webhook 測試{狀態}",
+    "webhookTest": "Webhook 測試{status}",
     "networkError": "API檔案總管網路錯誤： {message}",
-    "explorerError": "API 瀏覽器 → {狀態}：{訊息}",
-    "explorerSuccess": "API 瀏覽器 → {狀態}",
+    "explorerError": "API 瀏覽器 → {status}：{message}",
+    "explorerSuccess": "API 瀏覽器 → {status}",
     "explorerFailed": "資源管理器失敗",
     "syncResult": "演示同步 · {status} ({records} 本地記錄) — 沒有傳輸外部資料。",
     "diagnosed": "確診",
     "removedConnection": "已刪除演示連接：{name}",
     "keyRotated": "鑰匙旋轉",
     "keyRevoked": "密鑰已撤銷",
-    "publishedEvent": "已發布{類型}",
+    "publishedEvent": "已發布{type}",
     "developerSaved": "開發者設定已儲存"
   },
   "dashboard": {
@@ -55,7 +55,7 @@
     "latestSync": "最新同步： {status} · {records}記錄·模式{mode}"
   },
   "available": {
-    "protocols": "協定：{協定}",
+    "protocols": "協定：{protocols}",
     "demoConnection": "示範連接",
     "connectDemo": "連接（演示）",
     "installDemo": "安裝演示"
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "獲取失敗",
-    "httpStatus": "HTTP {狀態}"
+    "httpStatus": "HTTP {status}"
   }
 }

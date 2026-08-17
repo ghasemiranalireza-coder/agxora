@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "Hệ điều hành quản lý dự án",
     "title": "Dự án",
-    "lead": "Lập kế hoạch phân phối, theo dõi ngân sách và tình trạng, phân công nhóm và quản lý nhiệm vụ cho {tổ chức}. Dữ liệu vẫn tồn tại cục bộ và sẵn sàng cho kết nối phụ trợ.",
+    "lead": "Lập kế hoạch phân phối, theo dõi ngân sách và tình trạng, phân công nhóm và quản lý nhiệm vụ cho {organization}. Dữ liệu vẫn tồn tại cục bộ và sẵn sàng cho kết nối phụ trợ.",
     "yourOrganization": "tổ chức của bạn"
   },
   "list": {
@@ -25,13 +25,13 @@
     "emptyTitle": "Chưa có dự án nào",
     "emptyDescription": "Tăng cường không gian làm việc phân phối để theo dõi các mốc quan trọng, ngân sách và quyền sở hữu nhóm.",
     "createProject": "Tạo dự án",
-    "pagination": "Đang hiển thị {từ}–{to} trong tổng số {total}",
+    "pagination": "Đang hiển thị {from}–{to} trong tổng số {total}",
     "previous": "Trước",
     "next": "Kế tiếp",
     "noDescription": "Chưa có mô tả nào.",
-    "duePrefix": "Đến hạn {ngày}",
+    "duePrefix": "Đến hạn {date}",
     "openProject": "Mở dự án {name}",
-    "sortBy": "Sắp xếp theo {cột}",
+    "sortBy": "Sắp xếp theo {column}",
     "sort": {
       "name": "Tên",
       "customer": "Khách hàng",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "Tiến triển",
-    "progressAria": "{nhãn}: {value}%"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "quy hoạch",
@@ -132,24 +132,24 @@
     "emptyDescription": "Thêm ngày bắt đầu/ngày đến hạn và nhiệm vụ để điền vào lịch trình.",
     "title": "Dòng thời gian",
     "subtitle": "Bắt đầu, kết thúc, thời lượng, các mốc quan trọng. Các phần phụ thuộc được dành riêng cho bản phát hành trong tương lai.",
-    "dateRange": "{bắt đầu} → {kết thúc} · {ngày}ngày",
-    "itemAria": "{title} từ {bắt đầu} đến {cuối}",
+    "dateRange": "{start} → {end} · {days}ngày",
+    "itemAria": "{title} từ {start} đến {end}",
     "dependenciesNone": "Người phụ thuộc: không có"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "Dự án đang hoạt động",
-      "activeHint": "{quy hoạch} quy hoạch",
+      "activeHint": "{planning} quy hoạch",
       "completed": "Hoàn thành",
       "completedHint": "{percent}% danh mục đầu tư",
       "onHold": "Đang chờ",
-      "onHoldHint": "{đã lưu trữ} đã được lưu trữ",
+      "onHoldHint": "{archived} đã được lưu trữ",
       "teamMembers": "Thành viên nhóm",
       "teamHint": "Trên tất cả các dự án",
       "budgetOverview": "Tổng quan về ngân sách",
       "budgetHint": "Đã sử dụng {percent}% · đã sử dụng {spent}",
       "openTasks": "Nhiệm vụ mở",
-      "openTasksHint": "{quá hạn} quá hạn",
+      "openTasksHint": "{overdue} quá hạn",
       "projectHealth": "Tình trạng dự án",
       "healthHint": "Điểm phân phối tổng hợp",
       "upcomingDeadlines": "Thời hạn sắp tới",
@@ -176,7 +176,7 @@
     "emptyTitle": "Không có nhiệm vụ trên bảng",
     "emptyDescription": "Tạo các nhiệm vụ để sắp xếp phân phối trên Việc cần làm, Đang tiến hành, Đánh giá và Hoàn thành.",
     "addTask": "Thêm nhiệm vụ",
-    "columnAria": "cột {trạng thái}",
+    "columnAria": "cột {status}",
     "taskProgress": "Tiến độ nhiệm vụ",
     "edit": "Biên tập",
     "complete": "Hoàn thành"
@@ -185,7 +185,7 @@
     "notFoundTitle": "Dự án không tìm thấy",
     "notFoundDescription": "Dự án này có thể đã bị xóa hoặc không có sẵn cho tổ chức hiện tại.",
     "backToProjects": "← Quay lại dự án",
-    "ownerMeta": "{khách hàng} · Chủ sở hữu {chủ sở hữu}",
+    "ownerMeta": "{customer} · Chủ sở hữu {owner}",
     "edit": "Biên tập",
     "delete": "Xóa bỏ",
     "sectionsAria": "Phần chi tiết dự án",
@@ -294,5 +294,30 @@
     "memberAdded": "Đã thêm thành viên",
     "settingsSaved": "Đã lưu cài đặt",
     "projectArchived": "Dự án đã lưu trữ"
+  },
+  "validation": {
+    "nameRequired": "Tên dự án là bắt buộc.",
+    "nameMin": "Tên dự án phải có ít nhất 2 ký tự.",
+    "customerRequired": "Khách hàng là bắt buộc.",
+    "ownerRequired": "Chủ dự án là bắt buộc.",
+    "priorityInvalid": "Chọn độ ưu tiên hợp lệ.",
+    "statusInvalid": "Chọn trạng thái hợp lệ.",
+    "currencyInvalid": "Chọn loại tiền hợp lệ.",
+    "budgetInvalid": "Ngân sách phải là số không âm.",
+    "startDateRequired": "Ngày bắt đầu là bắt buộc.",
+    "startDateInvalid": "Nhập ngày bắt đầu hợp lệ.",
+    "dueDateInvalid": "Nhập ngày đến hạn hợp lệ.",
+    "dueDateOrder": "Ngày đến hạn phải vào hoặc sau ngày bắt đầu.",
+    "colorInvalid": "Chọn màu hợp lệ.",
+    "iconInvalid": "Chọn biểu tượng hợp lệ.",
+    "taskTitleRequired": "Tiêu đề công việc là bắt buộc.",
+    "progressRange": "Tiến độ phải từ 0 đến 100.",
+    "memberNameRequired": "Tên thành viên là bắt buộc.",
+    "emailRequired": "Email là bắt buộc.",
+    "emailInvalid": "Nhập địa chỉ email hợp lệ.",
+    "roleInvalid": "Chọn vai trò hợp lệ.",
+    "noteTitleRequired": "Tiêu đề ghi chú là bắt buộc.",
+    "noteBodyRequired": "Nội dung ghi chú là bắt buộc.",
+    "authorRequired": "Tác giả là bắt buộc."
   }
 }

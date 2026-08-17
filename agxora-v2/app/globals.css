@@ -79,22 +79,36 @@ html[dir="rtl"] body {
   font-family: var(--font-agx-arabic), var(--font-geist-sans), Tahoma, sans-serif;
 }
 
-html[data-locale="zh-CN"],
-html[data-locale="zh-TW"] {
-  --agx-ds-font-ui: var(--font-agx-cjk-sc), var(--font-geist-sans), system-ui, sans-serif;
+html[data-locale="zh-CN"] {
+  --agx-ds-font-ui: "Noto Sans SC", var(--font-agx-cjk-sc), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans SC", var(--font-geist-sans), system-ui, sans-serif;
 }
 
-html[data-locale="zh-CN"] body,
+html[data-locale="zh-CN"] body {
+  font-family: "Noto Sans SC", var(--font-agx-cjk-sc), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans SC", var(--font-geist-sans), system-ui, sans-serif;
+}
+
+html[data-locale="zh-TW"] {
+  --agx-ds-font-ui: "Noto Sans TC", var(--font-agx-cjk-tc), "PingFang TC", "Hiragino Sans TC", "Microsoft JhengHei", "Source Han Sans TC", var(--font-geist-sans), system-ui, sans-serif;
+}
+
 html[data-locale="zh-TW"] body {
-  font-family: var(--font-agx-cjk-sc), var(--font-geist-sans), system-ui, sans-serif;
+  font-family: "Noto Sans TC", var(--font-agx-cjk-tc), "PingFang TC", "Hiragino Sans TC", "Microsoft JhengHei", "Source Han Sans TC", var(--font-geist-sans), system-ui, sans-serif;
 }
 
 html[data-locale="ja"] {
-  --agx-ds-font-ui: var(--font-agx-cjk-jp), var(--font-geist-sans), system-ui, sans-serif;
+  --agx-ds-font-ui: "Noto Sans JP", var(--font-agx-cjk-jp), "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Meiryo", var(--font-geist-sans), system-ui, sans-serif;
 }
 
 html[data-locale="ja"] body {
-  font-family: var(--font-agx-cjk-jp), var(--font-geist-sans), system-ui, sans-serif;
+  font-family: "Noto Sans JP", var(--font-agx-cjk-jp), "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Meiryo", var(--font-geist-sans), system-ui, sans-serif;
+}
+
+html[data-locale="ko"] {
+  --agx-ds-font-ui: "Noto Sans KR", var(--font-agx-cjk-kr), "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", var(--font-geist-sans), system-ui, sans-serif;
+}
+
+html[data-locale="ko"] body {
+  font-family: "Noto Sans KR", var(--font-agx-cjk-kr), "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", var(--font-geist-sans), system-ui, sans-serif;
 }
 
 @media (max-width: 900px) {
@@ -132,7 +146,7 @@ select {
 
 .agx-skip-link {
   position: absolute;
-  left: 12px;
+  inset-inline-start: 12px;
   top: -48px;
   z-index: 100;
   padding: 10px 14px;
@@ -756,6 +770,56 @@ select {
     transparent
   );
   animation: agxora-loading-slide 1.1s ease-in-out infinite;
+}
+
+html[dir="rtl"] .agxora-global-loading-bar {
+  animation-name: agxora-loading-slide-rtl;
+}
+
+@keyframes agxora-loading-slide-rtl {
+  0% {
+    transform: translateX(100%);
+    width: 30%;
+  }
+  50% {
+    width: 55%;
+  }
+  100% {
+    transform: translateX(-350%);
+    width: 30%;
+  }
+}
+
+/* Logical-direction fallbacks for leftover physical Tailwind utilities. */
+html[dir="rtl"] .text-left {
+  text-align: start !important;
+}
+
+html[dir="rtl"] .text-right {
+  text-align: end !important;
+}
+
+html[dir="rtl"] .ml-auto {
+  margin-inline-start: auto !important;
+  margin-left: 0 !important;
+}
+
+html[dir="rtl"] .mr-auto {
+  margin-inline-end: auto !important;
+  margin-right: 0 !important;
+}
+
+html[dir="rtl"] .justify-start {
+  justify-content: flex-start;
+}
+
+html[dir="rtl"] .agx-topnav-theme {
+  justify-content: flex-start;
+}
+
+html[dir="rtl"] .agx-ui-table th,
+html[dir="rtl"] .agx-ui-table td {
+  text-align: start;
 }
 
 @media (prefers-reduced-motion: reduce) {

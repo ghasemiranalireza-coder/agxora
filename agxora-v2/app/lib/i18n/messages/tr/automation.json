@@ -136,7 +136,7 @@
       "runResult": "{status} ({duration}ms) komutunu çalıştırın",
       "runFailed": "İş akışı çalıştırılamadı (devre dışı veya eksik).",
       "publishedEvent": "Yayınlanan alan adı etkinliği: {type}",
-      "workflowStatus": "İş akışı {durum}",
+      "workflowStatus": "İş akışı {status}",
       "saved": "İş akışı kaydedildi",
       "retryResult": "{status}'u yeniden deneyin",
       "retryFailed": "Yeniden deneme başarısız oldu",
@@ -193,8 +193,8 @@
       "emptyTitle": "Henüz idam yok.",
       "emptyDescription": "Bir iş akışı çalıştırın veya bir etki alanı etkinliği yayınlayın.",
       "latestRun": "Son çalıştırma ayrıntısı",
-      "path": "Yol: {yol}",
-      "error": "· Hata: {hata}",
+      "path": "Yol: {path}",
+      "error": "· Hata: {error}",
       "columns": {
         "workflow": "İş akışı",
         "status": "Durum",
@@ -226,7 +226,315 @@
       "concurrencyLimit": "Eşzamanlılık sınırı",
       "timeoutMs": "Zaman aşımı (ms)",
       "logLevel": "Günlük düzeyi",
-      "saveSettings": "Ayarları kaydet"
+      "saveSettings": "Ayarları kaydet",
+      "logLevels": {
+        "error": "hata",
+        "warn": "uyarı",
+        "info": "bilgi",
+        "debug": "hata ayıklama"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Boş iş akışı"
+  },
+  "status": {
+    "connected": "Bağlı",
+    "beta": "Beta",
+    "comingSoon": "Yakında",
+    "disabled": "Devre dışı",
+    "planned": "Planlandı",
+    "success": "Başarılı",
+    "failed": "Başarısız",
+    "running": "Çalışıyor",
+    "pending": "Beklemede",
+    "retried": "Yeniden dene"
+  },
+  "difficulty": {
+    "starter": "Başlangıç",
+    "intermediate": "Orta",
+    "advanced": "İleri"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Tetikleyici",
+      "description": "Bir olay tetiklendiğinde başlat"
+    },
+    "el-condition": {
+      "label": "Koşul",
+      "description": "Kurallara göre dallan"
+    },
+    "el-delay": {
+      "label": "Gecikme",
+      "description": "Devam etmeden önce bekle"
+    },
+    "el-approval": {
+      "label": "Onay",
+      "description": "İnsan onay kapısı"
+    },
+    "el-loop": {
+      "label": "Döngü",
+      "description": "Bir koleksiyon üzerinde yinele"
+    },
+    "el-merge": {
+      "label": "Birleştir",
+      "description": "Paralel yolları birleştir"
+    },
+    "el-split": {
+      "label": "Böl",
+      "description": "Paralel yollara dağıt"
+    },
+    "el-ai-decision": {
+      "label": "YZ kararı",
+      "description": "YZ ile yönlendir"
+    },
+    "el-notification": {
+      "label": "Bildirim",
+      "description": "Uygulama içi uyarı"
+    },
+    "el-webhook": {
+      "label": "Webhook yer tutucu",
+      "description": "HTTP geri çağırma ayrıldı"
+    },
+    "el-custom": {
+      "label": "Özel eylem",
+      "description": "Genişletilebilir eylem yuvası"
+    },
+    "tr-customer": {
+      "label": "Müşteri oluşturuldu",
+      "description": "CRM müşteri kaydı oluşturuldu"
+    },
+    "tr-lead": {
+      "label": "Potansiyel oluşturuldu",
+      "description": "Yeni potansiyel müşteri hunisine girer"
+    },
+    "tr-invoice": {
+      "label": "Fatura oluşturuldu",
+      "description": "Finans faturası kesildi"
+    },
+    "tr-invoice-paid": {
+      "label": "Fatura ödendi",
+      "description": "Ödeme tamamlandı"
+    },
+    "tr-order": {
+      "label": "Sipariş oluşturuldu",
+      "description": "Sipariş girildi"
+    },
+    "tr-order-done": {
+      "label": "Sipariş tamamlandı",
+      "description": "Sipariş karşılandı"
+    },
+    "tr-doc": {
+      "label": "Belge yüklendi",
+      "description": "Belge kasasına yükleme"
+    },
+    "tr-campaign": {
+      "label": "Kampanya yayımlandı",
+      "description": "Creator Studio yayını"
+    },
+    "tr-employee": {
+      "label": "Çalışan eklendi",
+      "description": "Ekip dizininde değişiklik"
+    },
+    "tr-task": {
+      "label": "Görev tamamlandı",
+      "description": "Görev bitti olarak işaretlendi"
+    },
+    "tr-manual": {
+      "label": "Manuel tetikleyici",
+      "description": "İsteğe bağlı çalıştır"
+    },
+    "tr-schedule": {
+      "label": "Zamanlama tetikleyicisi",
+      "description": "Cron / takvim zamanlaması"
+    },
+    "tr-webhook": {
+      "label": "Webhook tetikleyicisi",
+      "description": "Gelen HTTP olayı"
+    },
+    "tr-api": {
+      "label": "API tetikleyicisi",
+      "description": "Programatik başlatma"
+    },
+    "ac-crm": {
+      "label": "CRM kaydı oluştur",
+      "description": "CRM varlığı yaz"
+    },
+    "ac-invoice": {
+      "label": "Fatura oluştur",
+      "description": "Finans faturası"
+    },
+    "ac-quote": {
+      "label": "Teklif oluştur",
+      "description": "Teklif belgesi oluştur"
+    },
+    "ac-delivery": {
+      "label": "İrsaliye oluştur",
+      "description": "İrsaliye"
+    },
+    "ac-task": {
+      "label": "Görev oluştur",
+      "description": "Bir görev aç"
+    },
+    "ac-assign": {
+      "label": "Çalışan ata",
+      "description": "Takım arkadaşına yönlendir"
+    },
+    "ac-email": {
+      "label": "E-posta gönder",
+      "description": "Giden e-posta"
+    },
+    "ac-notify": {
+      "label": "Bildirim gönder",
+      "description": "Uygulama içi bildirim"
+    },
+    "ac-ai-summary": {
+      "label": "YZ özeti oluştur",
+      "description": "Bağlamı özetle"
+    },
+    "ac-ai-content": {
+      "label": "YZ içeriği oluştur",
+      "description": "Creator Studio taslağı"
+    },
+    "ac-update-customer": {
+      "label": "Müşteriyi güncelle",
+      "description": "CRM müşterisini yama"
+    },
+    "ac-update-status": {
+      "label": "Durumu güncelle",
+      "description": "Varlık durumunu değiştir"
+    },
+    "ac-pdf": {
+      "label": "PDF dışa aktar",
+      "description": "Belge dışa aktarma"
+    },
+    "ac-future": {
+      "label": "Gelecek API yer tutucu",
+      "description": "Ayrılmış eylem yuvası"
+    },
+    "ai-decision": {
+      "label": "YZ kararı",
+      "description": "Sonraki yolu belirle"
+    },
+    "ai-class": {
+      "label": "YZ sınıflandırma",
+      "description": "Kayıtları sınıflandır"
+    },
+    "ai-text": {
+      "label": "YZ metin üretimi",
+      "description": "Metin oluştur"
+    },
+    "ai-translate": {
+      "label": "YZ çeviri",
+      "description": "İçeriği çevir"
+    },
+    "ai-email": {
+      "label": "YZ e-posta yanıtı",
+      "description": "Yanıt taslağı"
+    },
+    "ai-sum": {
+      "label": "YZ özetleme",
+      "description": "Bağlamı yoğunlaştır"
+    },
+    "ai-rec": {
+      "label": "YZ önerileri",
+      "description": "Sonraki adımları öner"
+    },
+    "ai-route": {
+      "label": "YZ yönlendirme",
+      "description": "Sahibe / kuyruğa yönlendir"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Müşteri oluşturuldu",
+      "description": "Bir CRM müşteri kaydı oluşturulduğunda tetiklenir."
+    },
+    "project_created": {
+      "label": "Proje oluşturuldu",
+      "description": "Bir proje oluşturulduğunda tetiklenir."
+    },
+    "task_completed": {
+      "label": "Görev tamamlandı",
+      "description": "Bir görev tamamlandı olarak işaretlendiğinde tetiklenir."
+    },
+    "document_uploaded": {
+      "label": "Doküman yüklendi",
+      "description": "Bir belge yüklendiğinde tetiklenir."
+    },
+    "schedule": {
+      "label": "Takvim",
+      "description": "Cron / aralık zamanlama tetikleyicisi."
+    },
+    "invoice_issued": {
+      "label": "Fatura kesildi",
+      "description": "Bir fatura kesildiğinde tetiklenir."
+    },
+    "user_invited": {
+      "label": "Kullanıcı davet edildi",
+      "description": "Bir ekip üyesi davet edildiğinde tetiklenir."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Gelen HTTP webhook."
+    },
+    "api_event": {
+      "label": "API olayı",
+      "description": "Genel API etki alanı olayı."
+    },
+    "ai_event": {
+      "label": "AI olayı",
+      "description": "AI sinyali (tamamlanma, içgörü, aracı adımı)."
+    },
+    "manual": {
+      "label": "Manuel tetikleyici",
+      "description": "UI veya API’den isteğe bağlı çalıştırma."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Müşteri Oluştur",
+      "description": "CRM müşteri kaydı oluştur."
+    },
+    "customer_update": {
+      "label": "Müşteriyi güncelle",
+      "description": "Müşteri alanlarını güncelle."
+    },
+    "project_create": {
+      "label": "Proje Oluştur",
+      "description": "İş akışı bağlamından proje oluştur."
+    },
+    "notification_send": {
+      "label": "Bildirim gönder",
+      "description": "Uygulama içi bildirim gönder."
+    },
+    "email_send": {
+      "label": "E-posta gönder",
+      "description": "Posta sağlayıcısı üzerinden e-posta kuyruğa al."
+    },
+    "invoice_create": {
+      "label": "Fatura Oluştur",
+      "description": "Finans faturası oluştur."
+    },
+    "status_update": {
+      "label": "Durumu güncelle",
+      "description": "Bir modüldeki varlığın durumunu güncelle."
+    },
+    "document_generate": {
+      "label": "Belge oluştur",
+      "description": "Şablondan belge oluştur."
+    },
+    "api_call": {
+      "label": "API çağır",
+      "description": "Dahili veya harici API’ye HTTP çağrısı."
+    },
+    "ai_run": {
+      "label": "AI çalıştır",
+      "description": "Bağlamla AI istemi / aracı adımı çalıştır."
+    },
+    "task_assign": {
+      "label": "Görev ata",
+      "description": "Bir kullanıcıya görev ata."
     }
   }
 }

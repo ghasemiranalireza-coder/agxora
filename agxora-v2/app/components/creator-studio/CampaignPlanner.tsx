@@ -104,7 +104,7 @@ export function CampaignPlanner({
                     {formatDate(item.date)} · {item.platform}
                   </p>
                 </div>
-                <Badge tone="accent">{publishStatusLabel(item.status)}</Badge>
+                <Badge tone="accent">{t(publishStatusLabel(item.status))}</Badge>
               </div>
             </li>
           ))}

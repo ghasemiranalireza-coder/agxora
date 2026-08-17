@@ -79,14 +79,14 @@
   "insights": {
     "emptyTitle": "Nog geen inzichten",
     "emptyDescription": "Demo-inzichten verschijnen na de zaden van de werkruimte. Het genereren van live AI-inzichten is niet gekoppeld.",
-    "badge": "Demo · {soort} · {domein} · conf {vertrouwen}"
+    "badge": "Demo · {kind} · {domain} · conf {confidence}"
   },
   "forecasts": {
     "emptyTitle": "Nog geen voorspellingen",
     "emptyDescription": "Demoprognoses verschijnen na het zaaien. Voorspellende modellen zijn niet met elkaar verbonden.",
-    "title": "{soort} voorspelling",
-    "baseline": "Basislijn {basislijn} → geprojecteerd {geprojecteerd} ({dagen}d)",
-    "confidence": "Demo · Vertrouwen {vertrouwen} — {note}"
+    "title": "{kind} voorspelling",
+    "baseline": "Basislijn {baseline} → geprojecteerd {projected} ({days}d)",
+    "confidence": "Demo · Vertrouwen {confidence} — {note}"
   },
   "alerts": {
     "title": "Waarschuwingsmotor",

@@ -19,7 +19,7 @@
     "connectFailed": "اتصال ناموفق بود",
     "keyCreated": "کلید API ایجاد شد: {prefix}",
     "webhookCreated": "وب هوک ایجاد شده: {name}",
-    "webhookTest": "تست وب هوک {وضعیت}",
+    "webhookTest": "تست وب هوک {status}",
     "networkError": "خطای شبکه کاوشگر API: {message}",
     "explorerError": "کاوشگر API → {status}: {message}",
     "explorerSuccess": "جستجوگر API → {status}",
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "دریافت نشد",
-    "httpStatus": "وضعیت HTTP"
+    "httpStatus": "HTTP {status}"
   }
 }

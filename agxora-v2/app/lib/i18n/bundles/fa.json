@@ -34,7 +34,14 @@
     "hidePassword": "پنهان کردن رمز عبور",
     "continue": "ادامه",
     "back": "بازگشت",
-    "home": "خانه"
+    "home": "صفحه اصلی",
+    "loadingShort": "در حال بارگذاری",
+    "create": "ایجاد",
+    "next": "بعدی",
+    "previous": "قبلی",
+    "settings": "تنظیمات",
+    "profile": "نمایه",
+    "dashboard": "داشبورد"
   },
   "navigation": {
     "dashboard": "داشبورد",
@@ -157,7 +164,7 @@
       "recommended": "پیشنهادی",
       "contactSales": "با فروش تماس بگیرید",
       "pricePerMonth": "قیمت هر ماه €{price}",
-      "users": "{تعداد} کاربران",
+      "users": "{count} کاربران",
       "aiRequests": "{count} نیاز به هوش مصنوعی در ماه",
       "storage": "{count} مگابایت فضای ذخیره‌سازی",
       "moduleFeatures": "ویژگی‌های ماژول {count}",
@@ -586,7 +593,7 @@
       "title": "تنظیمات",
       "lead": "پیکربندی سازمانی برای هر ماژول AGXORA — پروفایل، سازمان، AI، ظاهر، امنیت، صورتحساب و کنترل‌های توسعه‌دهنده در یک مکان.",
       "loading": "در حال بارگذاری تنظیمات…",
-      "breadcrumb": "توضیحات برچسب"
+      "breadcrumb": "{label} · {description}"
     },
     "saveChanges": "ذخیره تغییرات",
     "sessionNotice": "برای این نشست به‌روز شد — {area} هنوز متصل نیست.",
@@ -698,14 +705,37 @@
   },
   "errors": {
     "required": "این فیلد الزامی است.",
-    "invalidEmail": "یک ایمیل معتبر وارد کنید.",
+    "invalidEmail": "یک نشانی ایمیل معتبر وارد کنید.",
     "passwordMin": "رمز عبور باید حداقل ۸ نویسه باشد.",
     "passwordLettersNumbers": "رمز عبور باید شامل حرف و عدد باشد.",
     "passwordMismatch": "رمزهای عبور یکسان نیستند.",
     "acceptTerms": "برای ادامه شرایط را بپذیرید.",
     "generic": "مشکلی پیش آمد.",
     "tryAgain": "لطفاً دوباره تلاش کنید.",
-    "saved": "با موفقیت ذخیره شد."
+    "saved": "با موفقیت ذخیره شد.",
+    "invalidCredentials": "ایمیل یا رمز عبور نامعتبر است.",
+    "signInRequired": "ورود لازم است.",
+    "insufficientPermissions": "مجوز کافی نیست.",
+    "noRouteAccess": "به این مسیر دسترسی ندارید.",
+    "accountLocked": "این حساب قفل شده است. با مدیر تماس بگیرید.",
+    "sessionExpired": "نشست شما منقضی شد. دوباره وارد شوید.",
+    "missingPermission": "مجوز ناموجود: {permission}",
+    "roleCannotAccess": "نقش شما به این منبع دسترسی ندارد.",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "ایمیل یا رمز عبور نامعتبر است.",
+      "AUTH_SESSION_EXPIRED": "نشست شما منقضی شد. دوباره وارد شوید.",
+      "AUTH_ACCOUNT_LOCKED": "این حساب قفل شده است. با مدیر تماس بگیرید.",
+      "AUTH_SIGN_IN_REQUIRED": "برای ادامه وارد شوید.",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "مجوز کافی نیست.",
+      "AUTH_NO_ROUTE_ACCESS": "به این مسیر دسترسی ندارید.",
+      "COMMON_SOMETHING_WENT_WRONG": "مشکلی پیش آمد.",
+      "COMMON_PAGE_NOT_FOUND": "صفحه یافت نشد.",
+      "COMMON_OFFLINE": "آفلاین هستید.",
+      "COMMON_TIMEOUT": "درخواست منقضی شد.",
+      "COMMON_VALIDATION": "ورودی خود را بررسی کنید و دوباره تلاش کنید.",
+      "COMMON_UNKNOWN": "خطای ناشناخته‌ای رخ داد.",
+      "COMMON_INTERNAL": "خطای غیرمنتظره‌ای رخ داد. لطفاً دوباره تلاش کنید."
+    }
   },
   "dashboard": {
     "skipToContent": "رفتن به محتوای داشبورد",
@@ -1190,20 +1220,20 @@
       "viewPricing": "مشاهده قیمت‌ها",
       "bookDemo": "رزرو دمو",
       "failed": "ارسال درخواست ممکن نشد",
-      "country": "Country",
-      "savedFor": "Saved for {company}. Sales delivery is not connected in this build.",
-      "preferWalkthrough": "Prefer a product walkthrough next?",
-      "preferSelfServe": "Prefer self-serve?"
+      "country": "کشور",
+      "savedFor": "برای {company} ذخیره شد. ارسال فروش در این ساخت متصل نیست.",
+      "preferWalkthrough": "ترجیح می‌دهید در ادامه یک مرور محصول ببینید؟",
+      "preferSelfServe": "ترجیح می‌دهید خودتان پیش بروید؟"
     },
     "welcome": {
       "title": "به AGXORA خوش آمدید",
       "subtitle": "فضای کاری شما آماده است. به داشبورد بروید.",
       "continue": "رفتن به داشبورد",
-      "checklistProfile": "Confirm your organization profile",
-      "checklistModules": "Choose modules that match how you work",
-      "checklistDashboard": "Enter the dashboard with a clear starting point",
-      "exploreFirst": "Prefer to explore first?",
-      "skipToDashboard": "Skip to dashboard"
+      "checklistProfile": "نمایه سازمان خود را تأیید کنید",
+      "checklistModules": "ماژول‌هایی را انتخاب کنید که با نحوه کار شما سازگارند",
+      "checklistDashboard": "با یک نقطه شروع مشخص وارد داشبورد شوید",
+      "exploreFirst": "ترجیح می‌دهید ابتدا کاوش کنید؟",
+      "skipToDashboard": "رفتن به داشبورد"
     },
     "locked": {
       "title": "حساب قفل شد",
@@ -1216,7 +1246,17 @@
       "subtitle": "برای ادامه دوباره وارد شوید.",
       "signIn": "ورود"
     },
-    "brand": "آگکسورا"
+    "brand": "آگکسورا",
+    "validation": {
+      "emailRequired": "ایمیل الزامی است.",
+      "emailInvalid": "یک نشانی ایمیل معتبر وارد کنید.",
+      "passwordRequired": "رمز عبور الزامی است.",
+      "passwordMin": "رمز عبور باید حداقل ۸ نویسه باشد.",
+      "nameRequired": "نام الزامی است.",
+      "nameMin": "نام باید حداقل ۲ نویسه باشد.",
+      "passwordMismatch": "رمزهای عبور مطابقت ندارند.",
+      "slugFormat": "فقط حروف کوچک، عدد و خط تیره استفاده کنید."
+    }
   },
   "crm": {
     "page": {
@@ -1693,7 +1733,7 @@
         "label": "امتیاز سلامت AI",
         "caption": "سیگنال کیفیت رابطه"
       },
-      "scoreOutOf": "{امتیاز} / {حداکثر}"
+      "scoreOutOf": "{score} / {max}"
     },
     "pipeline": {
       "lead": "لید",
@@ -1810,7 +1850,7 @@
         "paid-invoices": {
           "label": "فاکتورهای پرداخت‌شده",
           "caption": "نمونه · این فصل",
-          "delta": "شمردن "
+          "delta": "+{count}"
         },
         "cashflow": {
           "label": "جریان نقدی",
@@ -1820,10 +1860,10 @@
         "ai-score": {
           "label": "امتیاز مالی هوش مصنوعی",
           "caption": "امتیاز نمونه · امتیازدهی ریسک زنده نیست",
-          "delta": "شمردن "
+          "delta": "+{count}"
         }
       },
-      "scoreOutOf": "{امتیاز} / {حداکثر}"
+      "scoreOutOf": "{score} / {max}"
     },
     "invoices": {
       "emptyTitle": "فاکتوری نیست",
@@ -2090,42 +2130,42 @@
       "documents": {
         "label": "اسناد",
         "caption": "نمونه · در همه پوشه‌ها",
-        "delta": "شمردن "
+        "delta": "+{count}"
       },
       "folders": {
         "label": "پوشه‌ها",
         "caption": "نمونه · شامل مجموعه‌های هوشمند",
-        "delta": "شمردن "
+        "delta": "+{count}"
       },
       "storage": {
         "label": "فضای استفاده‌شده",
         "caption": "نمونه · از طرح نمایشی",
-        "delta": "سایز"
+        "delta": "+{size}"
       },
       "shared": {
         "label": "اسناد اشتراک‌گذاری‌شده",
         "caption": "نمونه · سازمان + واحد + کاربران",
-        "delta": "شمردن "
+        "delta": "+{count}"
       },
       "activity": {
         "label": "فعالیت اخیر",
         "caption": "نمونه · ۲۴ ساعت گذشته",
-        "delta": "شمردن "
+        "delta": "+{count}"
       },
       "indexed": {
         "label": "ایندکس‌شده با هوش مصنوعی",
         "caption": "نمونه · جستجوی هوش مصنوعی متصل نیست",
-        "delta": "درصد"
+        "delta": "{percent}"
       },
       "approvals": {
         "label": "تأییدهای در انتظار",
         "caption": "نمونه · Automation متصل نیست",
-        "delta": "شمردن "
+        "delta": "{count}"
       },
       "score": {
         "label": "امتیاز دانش",
         "caption": "نمونه · نمایش پوشش",
-        "delta": "شمردن "
+        "delta": "+{count}"
       }
     },
     "library": {
@@ -2420,10 +2460,10 @@
       "planned": "برنامه‌ریزی‌شده"
     },
     "bytes": {
-      "b": "{مقدار} ب",
-      "kb": "{مقدار} کیلوبایت",
-      "mb": "{مقدار} مگابایت",
-      "gb": "{مقدار} گیگابایت"
+      "b": "{value} ب",
+      "kb": "{value} کیلوبایت",
+      "mb": "{value} مگابایت",
+      "gb": "{value} گیگابایت"
     }
   },
   "landing": {
@@ -2535,8 +2575,9 @@
       "terms": "شرایط",
       "cookies": "کوکی‌ها",
       "imprint": "شناسه قانونی",
-      "copyright": "© {سال} {شرکت}"
-    }
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — کره سه‌بعدی"
   },
   "ui": {
     "table": {
@@ -2544,7 +2585,7 @@
       "noResultsDescription": "هیچ چیز با فیلترهای فعلی مطابقت ندارد.",
       "previous": "قبلی",
       "next": "بعدی",
-      "paginationRange": "{شروع}–{پایان} از {مجموع}",
+      "paginationRange": "{start}–{end} از {total}",
       "sortAscending": "Sort ascending",
       "sortDescending": "Sort descending"
     },
@@ -2589,7 +2630,7 @@
     "page": {
       "eyebrow": "مدیریت پروژه",
       "title": "پروژه‌ها",
-      "lead": "تحویل را برنامه‌ریزی کنید، بودجه و سلامت را پیگیری کنید، تیم‌ها را تعیین کنید و وظایف را برای {سازمان} مدیریت کنید. داده‌ها به صورت محلی ذخیره می‌شوند و برای اتصال به backend آماده هستند.",
+      "lead": "تحویل را برنامه‌ریزی کنید، بودجه و سلامت را پیگیری کنید، تیم‌ها را تعیین کنید و وظایف را برای {organization} مدیریت کنید. داده‌ها به صورت محلی ذخیره می‌شوند و برای اتصال به backend آماده هستند.",
       "yourOrganization": "سازمان شما"
     },
     "list": {
@@ -2652,7 +2693,7 @@
       "tagsPlaceholder": "سازمانی، عرضه اولیه",
       "budgetPlaceholder": "0",
       "description": "توضیحات آگهی",
-      "selectColor": "انتخاب رنگ {رنگ}"
+      "selectColor": "انتخاب رنگ {color}"
     },
     "taskForm": {
       "createTitle": "ایجاد کار",
@@ -2680,7 +2721,7 @@
     },
     "badges": {
       "progress": "پیشرفت",
-      "progressAria": "مقدار برچسب"
+      "progressAria": "{label}: {value}%"
     },
     "status": {
       "planning": "برنامه‌ریزی",
@@ -2719,24 +2760,24 @@
       "emptyDescription": "تاریخ‌های شروع/موعد مقرر و وظایف را برای تکمیل برنامه اضافه کنید.",
       "title": "تایم‌لاین",
       "subtitle": "شروع، پایان، مدت زمان، نقاط عطف. وابستگی‌ها برای انتشار در آینده رزرو شده‌اند.",
-      "dateRange": "{شروع} → {پایان} · {روز}d",
-      "itemAria": "{عنوان} از {شروع} تا {پایان}",
+      "dateRange": "{start} → {end} · {days}d",
+      "itemAria": "{title} از {start} تا {end}",
       "dependenciesNone": "وابستگی: هیچ"
     },
     "dashboard": {
       "kpi": {
         "activeProjects": "پروژه‌های فعال",
-        "activeHint": "{برنامه‌ریزی} برنامه‌ریزی",
+        "activeHint": "{planning} برنامه‌ریزی",
         "completed": "تکمیل‌شده",
-        "completedHint": "{درصد}٪ از پرتفوی",
+        "completedHint": "{percent}٪ از پرتفوی",
         "onHold": "در انتظار",
-        "onHoldHint": "{بایگانی شده} بایگانی شده",
+        "onHoldHint": "{archived} بایگانی شده",
         "teamMembers": "اعضای تیم",
         "teamHint": "در تمام پروژه‌ها",
         "budgetOverview": "بررسی اجمالی بودجه",
-        "budgetHint": "{درصد}٪ استفاده شده · {خرج شده} خرج شده",
+        "budgetHint": "{percent}٪ استفاده شده · {spent} خرج شده",
         "openTasks": "وظایف باز",
-        "openTasksHint": "(از موعد گذشته) معوق",
+        "openTasksHint": "{overdue} overdue",
         "projectHealth": "سلامت پروژه",
         "healthHint": "امتیاز تحویل ترکیبی",
         "upcomingDeadlines": "مهلت‌های آتی",
@@ -2763,7 +2804,7 @@
       "emptyTitle": "هیچ وظیفه‌ای روی تخته نیست",
       "emptyDescription": "وظایفی را برای سازماندهی تحویل در بین موارد زیر ایجاد کنید: «برای انجام»، «در حال انجام»، «بررسی» و «انجام شده».",
       "addTask": "وظیفه اضافه نمایید",
-      "columnAria": "ستون {وضعیت}",
+      "columnAria": "ستون {status}",
       "taskProgress": " روند پیشرفت",
       "edit": "ویرایش",
       "complete": "کامل شده"
@@ -2772,7 +2813,7 @@
       "notFoundTitle": "هیچ پروژه ای یافت نشد.",
       "notFoundDescription": "این پروژه ممکن است حذف شده باشد یا برای سازمان فعلی در دسترس نباشد.",
       "backToProjects": "بازگشت به پروژه ها",
-      "ownerMeta": "{مشتری} · مالک {مالک}",
+      "ownerMeta": "{customer} · مالک {owner}",
       "edit": "ویرایش",
       "delete": "حذف",
       "sectionsAria": "بخش‌های جزئیات پروژه",
@@ -2881,6 +2922,31 @@
       "memberAdded": "کاربر اضافه شده",
       "settingsSaved": "تنظیمات ذخیره شد",
       "projectArchived": "بایگانی پروژه"
+    },
+    "validation": {
+      "nameRequired": "نام پروژه الزامی است.",
+      "nameMin": "نام پروژه باید حداقل ۲ نویسه باشد.",
+      "customerRequired": "مشتری الزامی است.",
+      "ownerRequired": "مالک پروژه الزامی است.",
+      "priorityInvalid": "یک اولویت معتبر انتخاب کنید.",
+      "statusInvalid": "یک وضعیت معتبر انتخاب کنید.",
+      "currencyInvalid": "یک ارز معتبر انتخاب کنید.",
+      "budgetInvalid": "بودجه باید عددی نامنفی باشد.",
+      "startDateRequired": "تاریخ شروع الزامی است.",
+      "startDateInvalid": "یک تاریخ شروع معتبر وارد کنید.",
+      "dueDateInvalid": "یک تاریخ سررسید معتبر وارد کنید.",
+      "dueDateOrder": "تاریخ سررسید باید در یا پس از تاریخ شروع باشد.",
+      "colorInvalid": "یک رنگ معتبر انتخاب کنید.",
+      "iconInvalid": "یک آیکون معتبر انتخاب کنید.",
+      "taskTitleRequired": "عنوان وظیفه الزامی است.",
+      "progressRange": "پیشرفت باید بین ۰ تا ۱۰۰ باشد.",
+      "memberNameRequired": "نام عضو الزامی است.",
+      "emailRequired": "ایمیل الزامی است.",
+      "emailInvalid": "یک نشانی ایمیل معتبر وارد کنید.",
+      "roleInvalid": "یک نقش معتبر انتخاب کنید.",
+      "noteTitleRequired": "عنوان یادداشت الزامی است.",
+      "noteBodyRequired": "متن یادداشت الزامی است.",
+      "authorRequired": "نویسنده الزامی است."
     }
   },
   "automation": {
@@ -2981,7 +3047,7 @@
       "noMatches": "هیچ جریان کاری با این فیلتر مطابقت ندارد."
     },
     "miniPreview": {
-      "emptyWorkflow": "Empty workflow"
+      "emptyWorkflow": "گردش‌کار خالی"
     },
     "workflowTemplates": {
       "title": "کتابخانه‌ قالب‌ها",
@@ -3024,9 +3090,9 @@
         "runResult": "اجرای {status} ({duration}ms)",
         "runFailed": "گردش کار اجرا نشد (غیرفعال یا مفقود).",
         "publishedEvent": "رویداد دامنه منتشر شده: {type}",
-        "workflowStatus": "وضعیت ",
+        "workflowStatus": "Workflow {status}",
         "saved": "گردش کار ذخیره شد",
-        "retryResult": "وضعیت دوباره",
+        "retryResult": "Retry {status}",
         "retryFailed": "تلاش ناموفق بود.  %s",
         "settingsSaved": "تنظیمات اتوماسیون ذخیره شد"
       },
@@ -3081,7 +3147,7 @@
         "emptyTitle": "هنوز خبری از اعدام نیست.",
         "emptyDescription": "یک گردش کار را اجرا کنید یا یک رویداد دامنه را منتشر کنید.",
         "latestRun": "آخرین جزئیات اجرا",
-        "path": "مسیر: {مسیر}",
+        "path": "مسیر: {path}",
         "error": "· خطا: {error}",
         "columns": {
           "workflow": "فضای کاری",
@@ -3115,12 +3181,311 @@
         "timeoutMs": "مهلت زمانی (میلی ثانیه)",
         "logLevel": "سطح لاگ",
         "logLevels": {
-          "error": "error",
-          "warn": "warn",
-          "info": "info",
-          "debug": "debug"
+          "error": "خطا",
+          "warn": "هشدار",
+          "info": "اطلاعات",
+          "debug": "اشکال‌زدایی"
         },
         "saveSettings": "تنظیمات را ذخیره کن"
+      }
+    },
+    "status": {
+      "connected": "متصل",
+      "beta": "بتا",
+      "comingSoon": "به‌زودی",
+      "disabled": "غیرفعال",
+      "planned": "برنامه‌ریزی‌شده",
+      "success": "موفق",
+      "failed": "ناموفق",
+      "running": "در حال اجرا",
+      "pending": "در انتظار",
+      "retried": "تلاش مجدد"
+    },
+    "difficulty": {
+      "starter": "مبتدی",
+      "intermediate": "متوسط",
+      "advanced": "پیشرفته"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "راه‌انداز",
+        "description": "با وقوع رویداد شروع شود"
+      },
+      "el-condition": {
+        "label": "شرط",
+        "description": "بر اساس قواعد شاخه بزن"
+      },
+      "el-delay": {
+        "label": "تأخیر",
+        "description": "پیش از ادامه صبر کن"
+      },
+      "el-approval": {
+        "label": "تأیید",
+        "description": "دروازه تأیید انسانی"
+      },
+      "el-loop": {
+        "label": "حلقه",
+        "description": "روی یک مجموعه تکرار کن"
+      },
+      "el-merge": {
+        "label": "ادغام",
+        "description": "مسیرهای موازی را وصل کن"
+      },
+      "el-split": {
+        "label": "تقسیم",
+        "description": "مسیرهای موازی را پخش کن"
+      },
+      "el-ai-decision": {
+        "label": "تصمیم هوش مصنوعی",
+        "description": "از طریق هوش مصنوعی مسیر بده"
+      },
+      "el-notification": {
+        "label": "اعلان",
+        "description": "هشدار درون‌برنامه"
+      },
+      "el-webhook": {
+        "label": "جایگاه Webhook",
+        "description": "بازخوان HTTP رزرو شده"
+      },
+      "el-custom": {
+        "label": "اقدام سفارشی",
+        "description": "جایگاه اقدام توسعه‌پذیر"
+      },
+      "tr-customer": {
+        "label": "مشتری ایجاد شد",
+        "description": "رکورد مشتری CRM ایجاد شد"
+      },
+      "tr-lead": {
+        "label": "سرنخ ایجاد شد",
+        "description": "سرنخ جدید وارد قیف می‌شود"
+      },
+      "tr-invoice": {
+        "label": "فاکتور ایجاد شد",
+        "description": "فاکتور مالی صادر شد"
+      },
+      "tr-invoice-paid": {
+        "label": "فاکتور پرداخت شد",
+        "description": "پرداخت تسویه شد"
+      },
+      "tr-order": {
+        "label": "سفارش ایجاد شد",
+        "description": "سفارش ثبت شد"
+      },
+      "tr-order-done": {
+        "label": "سفارش تکمیل شد",
+        "description": "سفارش تحویل شد"
+      },
+      "tr-doc": {
+        "label": "سند بارگذاری شد",
+        "description": "بارگذاری به مخزن اسناد"
+      },
+      "tr-campaign": {
+        "label": "کمپین منتشر شد",
+        "description": "انتشار Creator Studio"
+      },
+      "tr-employee": {
+        "label": "کارمند افزوده شد",
+        "description": "تغییر فهرست تیم"
+      },
+      "tr-task": {
+        "label": "وظیفه تکمیل شد",
+        "description": "وظیفه انجام‌شده علامت خورد"
+      },
+      "tr-manual": {
+        "label": "راه‌انداز دستی",
+        "description": "در صورت تقاضا اجرا کن"
+      },
+      "tr-schedule": {
+        "label": "راه‌انداز زمان‌بندی",
+        "description": "زمان‌بندی cron / تقویم"
+      },
+      "tr-webhook": {
+        "label": "راه‌انداز Webhook",
+        "description": "رویداد HTTP ورودی"
+      },
+      "tr-api": {
+        "label": "راه‌انداز API",
+        "description": "شروع برنامه‌ای"
+      },
+      "ac-crm": {
+        "label": "ایجاد رکورد CRM",
+        "description": "موجودیت CRM را بنویس"
+      },
+      "ac-invoice": {
+        "label": "تولید فاکتور",
+        "description": "فاکتور مالی"
+      },
+      "ac-quote": {
+        "label": "تولید پیشنهاد قیمت",
+        "description": "سند پیشنهاد قیمت بساز"
+      },
+      "ac-delivery": {
+        "label": "تولید حواله تحویل",
+        "description": "حواله تحویل"
+      },
+      "ac-task": {
+        "label": "ایجاد وظیفه",
+        "description": "یک وظیفه باز کن"
+      },
+      "ac-assign": {
+        "label": "اختصاص کارمند",
+        "description": "به هم‌تیمی مسیر بده"
+      },
+      "ac-email": {
+        "label": "ارسال ایمیل",
+        "description": "ایمیل خروجی"
+      },
+      "ac-notify": {
+        "label": "ارسال اعلان",
+        "description": "اعلان درون‌برنامه"
+      },
+      "ac-ai-summary": {
+        "label": "تولید خلاصه هوش مصنوعی",
+        "description": "زمینه را خلاصه کن"
+      },
+      "ac-ai-content": {
+        "label": "تولید محتوای هوش مصنوعی",
+        "description": "پیش‌نویس Creator Studio"
+      },
+      "ac-update-customer": {
+        "label": "به‌روزرسانی مشتری",
+        "description": "مشتری CRM را وصله کن"
+      },
+      "ac-update-status": {
+        "label": "به‌روزرسانی وضعیت",
+        "description": "وضعیت موجودیت را تغییر بده"
+      },
+      "ac-pdf": {
+        "label": "خروجی PDF",
+        "description": "خروجی سند"
+      },
+      "ac-future": {
+        "label": "جایگاه API آینده",
+        "description": "جایگاه اقدام رزروشده"
+      },
+      "ai-decision": {
+        "label": "تصمیم هوش مصنوعی",
+        "description": "مسیر بعدی را تصمیم بگیر"
+      },
+      "ai-class": {
+        "label": "طبقه‌بندی هوش مصنوعی",
+        "description": "رکوردها را طبقه‌بندی کن"
+      },
+      "ai-text": {
+        "label": "تولید متن هوش مصنوعی",
+        "description": "متن تولید کن"
+      },
+      "ai-translate": {
+        "label": "ترجمه هوش مصنوعی",
+        "description": "محتوا را ترجمه کن"
+      },
+      "ai-email": {
+        "label": "پاسخ ایمیل هوش مصنوعی",
+        "description": "پاسخ پیش‌نویس کن"
+      },
+      "ai-sum": {
+        "label": "خلاصه‌سازی هوش مصنوعی",
+        "description": "زمینه را فشرده کن"
+      },
+      "ai-rec": {
+        "label": "پیشنهادهای هوش مصنوعی",
+        "description": "گام‌های بعدی را پیشنهاد بده"
+      },
+      "ai-route": {
+        "label": "مسیریابی هوش مصنوعی",
+        "description": "به مالک / صف مسیر بده"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "مشتری ایجاد شد",
+        "description": "وقتی یک رکورد مشتری در CRM ایجاد شود فعال می‌شود."
+      },
+      "project_created": {
+        "label": "پروژه ایجاد شد",
+        "description": "وقتی یک پروژه ایجاد شود فعال می‌شود."
+      },
+      "invoice_issued": {
+        "label": "صدور فاکتور",
+        "description": "وقتی فاکتور صادر شود فعال می‌شود."
+      },
+      "task_completed": {
+        "label": "وظیفه تکمیل شد",
+        "description": "وقتی وظیفه‌ای تکمیل شود فعال می‌شود."
+      },
+      "document_uploaded": {
+        "label": "سند بارگذاری شد",
+        "description": "وقتی سندی بارگذاری شود فعال می‌شود."
+      },
+      "user_invited": {
+        "label": "دعوت کاربر",
+        "description": "وقتی عضوی به تیم دعوت شود فعال می‌شود."
+      },
+      "schedule": {
+        "label": "زمان‌بندی",
+        "description": "محرک زمان‌بندی کرون / بازه‌ای."
+      },
+      "webhook": {
+        "label": "وب‌هوک",
+        "description": "وب‌هوک ورودی HTTP."
+      },
+      "api_event": {
+        "label": "رویداد API",
+        "description": "رویداد دامنه‌ای عمومی API."
+      },
+      "ai_event": {
+        "label": "رویداد هوش مصنوعی",
+        "description": "سیگنال هوش مصنوعی (تکمیل، بینش، گام عامل)."
+      },
+      "manual": {
+        "label": "محرک دستی",
+        "description": "اجرا به‌صورت دستی از رابط یا API."
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "ایجاد مشتری",
+        "description": "ایجاد رکورد مشتری در CRM."
+      },
+      "customer_update": {
+        "label": "به‌روزرسانی مشتری",
+        "description": "به‌روزرسانی فیلدهای مشتری."
+      },
+      "project_create": {
+        "label": "ایجاد پروژه",
+        "description": "ایجاد پروژه از بافت گردش‌کار."
+      },
+      "document_generate": {
+        "label": "تولید سند",
+        "description": "تولید سند از روی قالب."
+      },
+      "notification_send": {
+        "label": "ارسال اعلان",
+        "description": "ارسال اعلان درون‌برنامه."
+      },
+      "email_send": {
+        "label": "ارسال ایمیل",
+        "description": "صف‌کردن ایمیل از طریق ارائه‌دهنده."
+      },
+      "api_call": {
+        "label": "فراخوانی API",
+        "description": "فراخوان HTTP به API داخلی یا خارجی."
+      },
+      "ai_run": {
+        "label": "اجرای هوش مصنوعی",
+        "description": "اجرای پرامپت / گام عامل با بافت."
+      },
+      "task_assign": {
+        "label": "واگذاری وظیفه",
+        "description": "واگذاری وظیفه به کاربر."
+      },
+      "invoice_create": {
+        "label": "ایجاد فاکتور",
+        "description": "ایجاد فاکتور مالی."
+      },
+      "status_update": {
+        "label": "به‌روزرسانی وضعیت",
+        "description": "به‌روزرسانی وضعیت موجودیت در یک ماژول."
       }
     }
   },
@@ -3128,7 +3493,7 @@
     "page": {
       "eyebrow": "هویت و دسترسی",
       "title": "تیم",
-      "lead": "اعضا، نقش‌ها و دعوت‌نامه‌ها برای {سازمان}. معماری آماده برای API هویت آینده.",
+      "lead": "اعضا، نقش‌ها و دعوت‌نامه‌ها برای {organization}. معماری آماده برای API هویت آینده.",
       "yourOrganization": "سازمان شما"
     },
     "invite": {
@@ -3206,7 +3571,7 @@
     "page": {
       "sectionTitle": "مدیریت ارتباط با مشتری",
       "title": "مشتریان",
-      "lead": "ایجاد، ویرایش، جستجو و مدیریت سوابق مشتری برای {سازمان}.",
+      "lead": "ایجاد، ویرایش، جستجو و مدیریت سوابق مشتری برای {organization}.",
       "yourOrganization": "سازمان شما"
     },
     "table": {
@@ -3221,9 +3586,9 @@
       "view": "نمایش",
       "edit": "ویرایش",
       "delete": "حذف",
-      "viewAria": "مشاهده شرکت",
-      "editAria": "ویرایش شرکت",
-      "deleteAria": "حذف شرکت",
+      "viewAria": "View {company}",
+      "editAria": "Edit {company}",
+      "deleteAria": "Delete {company}",
       "loading": "در حال بارگذاری مشتریان…",
       "errorLoad": "نتوانستم مشتریان را بارگذاری کنم",
       "errorGeneric": "در API افزونه اشتباه رخ داد.",
@@ -3278,7 +3643,7 @@
       "title": "حذف مشتری",
       "cancel": "لغو",
       "confirm": "حذف",
-      "confirmWithName": "حذف دائمی {شرکت}؟ این کار قابل بازگشت نیست.",
+      "confirmWithName": "حذف دائمی {company}؟ این کار قابل بازگشت نیست.",
       "confirmGeneric": "این مشتری برای همیشه حذف خواهد شد.",
       "success": "مشتری حذف شد",
       "failed": "حذف ناموفق بود",
@@ -3300,6 +3665,18 @@
       "updated": "به‌روزرسانی‌شده",
       "notes": "یادداشت‌ها",
       "noNotes": "بدون یادداشت."
+    },
+    "validation": {
+      "companyRequired": "نام شرکت الزامی است.",
+      "contactRequired": "شخص تماس الزامی است.",
+      "emailRequired": "ایمیل الزامی است.",
+      "emailInvalid": "یک نشانی ایمیل معتبر وارد کنید.",
+      "phoneRequired": "تلفن الزامی است.",
+      "phoneInvalid": "یک شماره تلفن معتبر وارد کنید.",
+      "mobileInvalid": "یک شماره موبایل معتبر وارد کنید.",
+      "statusInvalid": "یک وضعیت معتبر انتخاب کنید.",
+      "emailDuplicate": "مشتری با این ایمیل از قبل وجود دارد.",
+      "companyDuplicate": "مشتری با این نام شرکت از قبل وجود دارد."
     }
   },
   "ai": {
@@ -3320,7 +3697,7 @@
       "provider": "ارائه دهنده",
       "model": "Model",
       "estimatedTokens": "توکن‌های تثبیت‌شده",
-      "tokensInOut": "(در {درون} / بیرون {بیرون})",
+      "tokensInOut": "(در {in} / بیرون {out})",
       "cost": "هزینه",
       "context": "متن نوشته",
       "contextNone": "هیچ",
@@ -3383,6 +3760,91 @@
       "placeholder": "دستور هوش مصنوعی… خلاصه کردن، پیشنهاد دادن، تحلیل کردن…",
       "noMatches": "هیچ دستور منطبقی وجود ندارد",
       "footer": "دستورات آینده را از طریق registerAiCommand ثبت کنید - رابط کاربری بدون تغییر باقی می‌ماند."
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "پروژه‌ها",
+      "finance": "مالی",
+      "marketing": "بازاریابی",
+      "documents": "اسناد",
+      "automation": "اتوماسیون",
+      "general": "عمومی"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "خلاصه مشتری",
+        "description": "خلاصه اجرایی رابطه مشتری"
+      },
+      "crm-follow-up-email": {
+        "title": "ایمیل پیگیری",
+        "description": "یک پیگیری حرفه‌ای CRM پیش‌نویس کن"
+      },
+      "projects-analyze": {
+        "title": "تحلیل پروژه",
+        "description": "بررسی سلامت یک پروژه"
+      },
+      "projects-task-list": {
+        "title": "ایجاد فهرست وظایف",
+        "description": "کار را به وظایف قابل اجرا بشکن"
+      },
+      "finance-explain-invoice": {
+        "title": "توضیح فاکتور",
+        "description": "توضیح فاکتور به زبان ساده"
+      },
+      "finance-cashflow-brief": {
+        "title": "خلاصه جریان نقدی",
+        "description": "روایت کوتاه جریان نقدی"
+      },
+      "marketing-campaign-outline": {
+        "title": "طرح کلی کمپین",
+        "description": "یک کمپین بازاریابی را ساختاربندی کن"
+      },
+      "marketing-proposal": {
+        "title": "تولید پیشنهاد",
+        "description": "پیش‌نویس پیشنهاد رو به مشتری"
+      },
+      "documents-summarize": {
+        "title": "خلاصه سند",
+        "description": "خلاصه ساختاریافته سند"
+      },
+      "automation-workflow": {
+        "title": "طراحی گردش‌کار",
+        "description": "طرح گردش‌کار اتوماسیون"
+      },
+      "general-brainstorm": {
+        "title": "طوفان فکری گزینه‌ها",
+        "description": "ایده‌پردازی ساختاریافته"
+      },
+      "general-explain": {
+        "title": "ساده توضیح بده",
+        "description": "توضیح روشن برای ذی‌نفعان"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "خلاصه مشتری",
+        "description": "خلاصه اجرایی مشتری فعال"
+      },
+      "cmd-generate-proposal": {
+        "label": "تولید پیشنهاد",
+        "description": "طرح کلی پیشنهاد مشتری پیش‌نویس کن"
+      },
+      "cmd-analyze-project": {
+        "label": "تحلیل پروژه",
+        "description": "سلامت پروژه و تحلیل ریسک"
+      },
+      "cmd-create-task-list": {
+        "label": "ایجاد فهرست وظایف",
+        "description": "کار را به وظایف قابل اجرا بشکن"
+      },
+      "cmd-generate-email": {
+        "label": "تولید ایمیل",
+        "description": "یک ایمیل حرفه‌ای پیش‌نویس کن"
+      },
+      "cmd-explain-invoice": {
+        "label": "توضیح فاکتور",
+        "description": "توضیح فاکتور به زبان ساده"
+      }
     }
   },
   "agents": {
@@ -3429,15 +3891,15 @@
     "registry": {
       "title": "دفتر ثبت اسناد.",
       "selectPrompt": "یک نماینده از رجیستری انتخاب کنید.",
-      "status": "وضعیت: {وضعیت}",
-      "health": "سلامت: {سلامت}",
-      "queue": "صف: {صف}",
-      "usage": "کاربرد: {کاربرد}",
+      "status": "وضعیت: {status}",
+      "health": "سلامت: {health}",
+      "queue": "صف: {queue}",
+      "usage": "کاربرد: {usage}",
       "executeTask": "اجرای کار",
       "supervisorDelegate": "نماینده سرپرست"
     },
     "marketplace": {
-      "tools": "ابزارها: {ابزارها}",
+      "tools": "ابزارها: {tools}",
       "installed": "نصب شده",
       "installActivate": "نصب و فعال"
     },
@@ -3504,6 +3966,10 @@
     "goals": {
       "executeBusiness": "اجرای هدف تجاری {agentId}",
       "planAndExecute": "یک هدف تجاری برای فضای کاری برنامه‌ریزی و اجرا کنید"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "تأثیر مشتری را اولویت بده",
+      "delegatedFollowUp": "پیگیری تفویض‌شده"
     }
   },
   "integrations": {
@@ -3527,7 +3993,7 @@
       "connectFailed": "اتصال ناموفق بود",
       "keyCreated": "کلید API ایجاد شد: {prefix}",
       "webhookCreated": "وب هوک ایجاد شده: {name}",
-      "webhookTest": "تست وب هوک {وضعیت}",
+      "webhookTest": "تست وب هوک {status}",
       "networkError": "خطای شبکه کاوشگر API: {message}",
       "explorerError": "کاوشگر API → {status}: {message}",
       "explorerSuccess": "جستجوگر API → {status}",
@@ -3646,7 +4112,7 @@
     },
     "errors": {
       "failedToFetch": "دریافت نشد",
-      "httpStatus": "وضعیت HTTP"
+      "httpStatus": "HTTP {status}"
     }
   },
   "intelligence": {
@@ -3735,9 +4201,9 @@
     "forecasts": {
       "emptyTitle": "هنوز هیچ پیش‌بینی‌ای وجود ندارد",
       "emptyDescription": "پیش‌بینی‌های آزمایشی پس از مرحله‌ی بذرپاشی (Seed) ظاهر می‌شوند. مدل‌های پیش‌بینی به هم متصل نیستند.",
-      "title": "پیش‌بینی {نوع}",
-      "baseline": "خط پایه {خط پایه} → پیش‌بینی‌شده {پیش‌بینی‌شده} ({روز}d)",
-      "confidence": "نسخه آزمایشی · اعتماد به نفس {اعتماد به نفس} — {یادداشت}"
+      "title": "پیش‌بینی {kind}",
+      "baseline": "خط پایه {baseline} → پیش‌بینی‌شده {projected} ({days}d)",
+      "confidence": "نسخه آزمایشی · اعتماد به نفس {confidence} — {note}"
     },
     "alerts": {
       "title": "موتور هشدار",
@@ -3789,8 +4255,8 @@
     "shell": {
       "brand": "آگکسورا",
       "navLabel": "ناوبری حقوقی",
-      "lastUpdated": "آخرین تاریخ به روز رسانی",
-      "footerCopyright": "© 2026 {شرکت}",
+      "lastUpdated": "Last updated: {date}",
+      "footerCopyright": "© 2026 {company}",
       "footerNavLabel": "پاورقی قانونی",
       "nav": {
         "privacy": "حریم خصوصی",
@@ -3944,7 +4410,134 @@
     "back": "بازگشت",
     "continue": "ادامه",
     "launching": "راه اندازی",
-    "enterDashboard": "داشبورد را وارد کنید"
+    "enterDashboard": "داشبورد را وارد کنید",
+    "defaultCountry": "ایالات متحده",
+    "businessTypes": {
+      "hotel": {
+        "label": "هتل",
+        "description": "مهمان‌نوازی، اتاق، مهمان و عملیات ملک"
+      },
+      "restaurant": {
+        "label": "رستوران",
+        "description": "صرف غذا، آشپزخانه، رزرو و تجربه مهمان"
+      },
+      "cleaning": {
+        "label": "نظافت",
+        "description": "عملیات نظافت تجاری و مسکونی"
+      },
+      "laundry": {
+        "label": "خشکشویی",
+        "description": "کارخانه شست‌وشو، مسیر جمع‌آوری و مراقبت از منسوجات"
+      },
+      "construction": {
+        "label": "ساخت‌وساز",
+        "description": "کارگاه، عوامل، مصالح و تحویل پروژه"
+      },
+      "healthcare": {
+        "label": "بهداشت و درمان",
+        "description": "شبکه مراقبت، بیماران و عملیات بالینی"
+      },
+      "medical": {
+        "label": "پزشکی",
+        "description": "کلینیک، نوبت و تیم‌های مراقبت"
+      },
+      "manufacturing": {
+        "label": "تولید",
+        "description": "خطوط تولید، کیفیت و عملیات تأمین"
+      },
+      "retail": {
+        "label": "خرده‌فروشی",
+        "description": "فروشگاه، موجودی، مرچندایزینگ و مشتریان"
+      },
+      "legal": {
+        "label": "موسسه حقوقی",
+        "description": "پرونده، موکل، مهلت و صورتحساب"
+      },
+      "accounting": {
+        "label": "حسابداری",
+        "description": "دفاتر، مشتریان، اظهارنامه و مشاوره"
+      },
+      "consulting": {
+        "label": "مشاوره",
+        "description": "پروژه‌ها، اقلام تحویلی و نتایج مشتری"
+      },
+      "real_estate": {
+        "label": "املاک",
+        "description": "آگهی، مشتری، بازدید و معاملات"
+      },
+      "education": {
+        "label": "آموزش",
+        "description": "برنامه، دانشجو، هیئت علمی و ثبت‌نام"
+      },
+      "automotive": {
+        "label": "خودرو",
+        "description": "نمایندگی، جایگاه خدمات و موجودی خودرو"
+      },
+      "beauty": {
+        "label": "سالن زیبایی",
+        "description": "نوبت، آرایشگر، خرده‌فروشی و عضویت"
+      },
+      "fitness": {
+        "label": "باشگاه / تناسب اندام",
+        "description": "عضویت، کلاس، مربی و نگهداشت"
+      },
+      "agriculture": {
+        "label": "کشاورزی",
+        "description": "محصول، دام، عملکرد و زنجیره تأمین"
+      },
+      "transport": {
+        "label": "حمل‌ونقل",
+        "description": "حرکت ناوگان، مسیر و عملیات مسافر/بار"
+      },
+      "logistics": {
+        "label": "لجستیک",
+        "description": "ناوگان، انبار، مسیر و ایفای سفارش"
+      },
+      "warehouse": {
+        "label": "انبار",
+        "description": "ذخیره، برداشت، بسته‌بندی و گردش موجودی"
+      },
+      "insurance": {
+        "label": "بیمه",
+        "description": "بیمه‌نامه، خسارت، پذیره‌نویسی و نگهداشت"
+      },
+      "finance": {
+        "label": "مالی",
+        "description": "سرمایه، پرتفوی و عملیات مالی"
+      },
+      "financial_services": {
+        "label": "خدمات مالی",
+        "description": "مشاوره، محصول، انطباق و مشتریان"
+      },
+      "technology": {
+        "label": "فناوری",
+        "description": "محصول، مهندسی و تیم‌های ورود به بازار"
+      },
+      "saas": {
+        "label": "نرم‌افزار / SaaS",
+        "description": "اشتراک، مصرف و موفقیت مشتری"
+      },
+      "ecommerce": {
+        "label": "تجارت الکترونیک",
+        "description": "کاتالوگ آنلاین، سبد، ایفا و LTV"
+      },
+      "agency": {
+        "label": "آژانس بازاریابی",
+        "description": "مشتری، کمپین، قرارداد ماهانه و تحویل"
+      },
+      "freelancer": {
+        "label": "فریلنسر",
+        "description": "فعالیت انفرادی، مشتری، قیف و جریان نقدی"
+      },
+      "government": {
+        "label": "دولت",
+        "description": "خدمات عمومی، برنامه و شهروندان"
+      },
+      "nonprofit": {
+        "label": "غیرانتفاعی",
+        "description": "ماموریت، حامی، برنامه و اثر"
+      }
+    }
   },
   "creator": {
     "page": {
@@ -4042,8 +4635,8 @@
     "analytics": {
       "title": "تحلیل‌ها",
       "topPosts": "پست های محبوب",
-      "engagement": "انگلیسی {مقدار}",
-      "reach": "رسیدن به {مقدار}",
+      "engagement": "انگلیسی {value}",
+      "reach": "رسیدن به {value}",
       "recommendations": "توصیه‌های هوش مصنوعی"
     },
     "integrations": {
@@ -4052,6 +4645,47 @@
     },
     "aiFeaturesPanel": {
       "lead": "نقشه ویژگی‌های هوش مصنوعی - ایده‌ها، کپشن‌ها، هشتگ‌ها، تقویم، کمپین‌ها، مخاطبان، برنامه، ثبات برند، بازنویسی، ترجمه، چندزبانه."
+    },
+    "formats": {
+      "instagram_caption": "کپشن Instagram",
+      "tiktok_script": "اسکریپت TikTok",
+      "linkedin_post": "پست LinkedIn",
+      "facebook_post": "پست Facebook",
+      "x_post": "پست X",
+      "blog_article": "مقاله وبلاگ",
+      "newsletter": "خبرنامه",
+      "email_campaign": "کمپین ایمیل",
+      "product_description": "توضیحات محصول",
+      "ad_copy": "متن تبلیغ",
+      "seo_article": "مقاله SEO",
+      "landing_page_copy": "متن صفحه فرود"
+    },
+    "publishStatus": {
+      "draft": "پیش‌نویس",
+      "review": "بازبینی",
+      "approved": "تأییدشده",
+      "scheduled": "زمان‌بندی‌شده",
+      "published": "منتشرشده",
+      "archive": "بایگانی"
+    },
+    "mediaKind": {
+      "image": "تصویر",
+      "video": "ویدیو",
+      "document": "سند",
+      "logo": "لوگوی برند",
+      "template": "قالب"
+    },
+    "voice": {
+      "professional": "حرفه‌ای",
+      "friendly": "دوستانه",
+      "luxury": "لوکس",
+      "casual": "غیررسمی"
+    },
+    "integrationStatus": {
+      "planned": "برنامه‌ریزی‌شده",
+      "ready": "آماده",
+      "connected": "متصل",
+      "disabled": "غیرفعال"
     }
   },
   "backend": {
@@ -4065,7 +4699,7 @@
     },
     "network": {
       "offline": "به نظر می رسد شما آفلاین هستید.",
-      "offlineSyncHint": "Changes may not sync until the connection returns.",
+      "offlineSyncHint": "ممکن است تغییرات تا بازگشت اتصال همگام نشوند.",
       "offlineHelp": "کمک آفلاین",
       "reconnected": "اتصال بازیابی شد"
     },
@@ -4111,7 +4745,10 @@
       "startFree": "به جای آن، رایگان شروع کنید",
       "backHome": "بازگشت به صفحه اصلی",
       "signIn": "ورود"
-    }
+    },
+    "loading": "در حال بارگذاری",
+    "loadingEllipsis": "در حال بارگذاری…",
+    "loadingIdentity": "در حال بارگذاری هویت…"
   },
   "workspace": {
     "page": {
@@ -4171,8 +4808,8 @@
       "persistentLogin": "ورود دائمی",
       "disabled": "غیرفعال",
       "enabled": "فعال",
-      "days": "@count روز",
-      "minutes": "{تعداد} دقیقه",
+      "days": "{count} days",
+      "minutes": "{count} دقیقه",
       "toggleIdlePolicy": "تغییر وضعیت جایگذاری سیاست غیرفعال",
       "previewSessionExpired": "جلسه پیش‌نمایش منقضی شد",
       "previewAccountLocked": "پیش‌نمایش حساب قفل‌شده",
@@ -4262,28 +4899,28 @@
       "ariaLabel": "تغییر فضای کاری"
     },
     "access": {
-      "eyebrow": "Identity & Access",
-      "signIn": "Sign in",
-      "backToDashboard": "Back to dashboard",
+      "eyebrow": "هویت و دسترسی",
+      "signIn": "ورود",
+      "backToDashboard": "بازگشت به داشبورد",
       "unauthorized": {
-        "title": "Unauthorized",
-        "description": "Sign in to continue to this area of AGXORA."
+        "title": "غیرمجاز",
+        "description": "برای ادامه در این بخش از AGXORA وارد شوید."
       },
       "forbidden": {
-        "title": "Forbidden",
-        "description": "Your role does not include permission for this resource."
+        "title": "ممنوع",
+        "description": "نقش شما مجوز این منبع را شامل نمی‌شود."
       },
       "expired_session": {
-        "title": "Expired Session",
-        "description": "Your session expired. Sign in again to resume work."
+        "title": "نشست منقضی شده",
+        "description": "نشست شما منقضی شد. برای ادامه کار دوباره وارد شوید."
       },
       "missing_permission": {
-        "title": "Missing Permission",
-        "description": "Ask an Owner or Admin to grant the required module access."
+        "title": "مجوز ناموجود",
+        "description": "از مالک یا مدیر بخواهید دسترسی ماژول لازم را اعطا کند."
       },
       "account_locked": {
-        "title": "Account Locked",
-        "description": "This account is locked. Contact an organization owner or try again later."
+        "title": "حساب قفل شده",
+        "description": "این حساب قفل شده است. با مالک سازمان تماس بگیرید یا بعداً دوباره تلاش کنید."
       }
     },
     "verifyEmail": {

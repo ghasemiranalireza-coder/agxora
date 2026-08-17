@@ -58,7 +58,7 @@
     "operations": "Opérations",
     "riskPosture": "Posture de risque",
     "growth": "Croissance",
-    "observability": "Observabilité : {metrics} metrics · {avgMs}ms moy · system health {santé}"
+    "observability": "Observabilité : {metrics} metrics · {avgMs}ms moy · system health {health}"
   },
   "workspace": {
     "noSeries": "Aucune série"
@@ -85,7 +85,7 @@
     "emptyTitle": "Pas encore de prévisions",
     "emptyDescription": "Les prévisions de démonstration apparaissent après la graine. Les modèles prédictifs ne sont pas connectés.",
     "title": "{kind} prévision",
-    "baseline": "Référence {baseline} → projeté {projeté} ({jours}j)",
+    "baseline": "Référence {baseline} → projeté {projected} ({days}j)",
     "confidence": "Démo · Confiance {confidence} — {note}"
   },
   "alerts": {

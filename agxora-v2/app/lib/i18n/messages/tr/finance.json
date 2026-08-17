@@ -67,7 +67,7 @@
       "paid-invoices": {
         "label": "Ödenen Faturalar",
         "caption": "Örnek · bu çeyrek",
-        "delta": "+{sayım}"
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "Nakit akımı",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "Yapay Zeka Finansal Puanı",
         "caption": "Örnek puan · canlı risk puanlaması değil",
-        "delta": "+{sayım}"
+        "delta": "+{count}"
       }
     },
-    "scoreOutOf": "{puan} / {maks}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "Fatura yok",

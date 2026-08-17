@@ -15,21 +15,21 @@
     "developer": "Revelador"
   },
   "notice": {
-    "demoConnection": "Conexión de demostración: {nombre} (solo código auxiliar local)",
+    "demoConnection": "Conexión de demostración: {name} (solo código auxiliar local)",
     "connectFailed": "Conexión fallida",
-    "keyCreated": "Clave API creada: {prefijo}",
-    "webhookCreated": "Webhook creado: {nombre}",
-    "webhookTest": "Prueba de webhook {estado}",
-    "networkError": "Error de red del explorador API: {mensaje}",
-    "explorerError": "Explorador de API → {estado}: {mensaje}",
-    "explorerSuccess": "Explorador de API → {estado}",
+    "keyCreated": "Clave API creada: {prefix}",
+    "webhookCreated": "Webhook creado: {name}",
+    "webhookTest": "Prueba de webhook {status}",
+    "networkError": "Error de red del explorador API: {message}",
+    "explorerError": "Explorador de API → {status}: {message}",
+    "explorerSuccess": "Explorador de API → {status}",
     "explorerFailed": "El explorador falló",
     "syncResult": "Sincronización de demostración · {status} ({records} registros locales): no se transfieren datos externos.",
     "diagnosed": "Diagnosticado",
-    "removedConnection": "Conexión de demostración eliminada: {nombre}",
+    "removedConnection": "Conexión de demostración eliminada: {name}",
     "keyRotated": "Llave girada",
     "keyRevoked": "Clave revocada",
-    "publishedEvent": "Publicado {tipo}",
+    "publishedEvent": "Publicado {type}",
     "developerSaved": "Configuración de desarrollador guardada"
   },
   "dashboard": {
@@ -55,7 +55,7 @@
     "latestSync": "Última sincronización: {status} · {records} registros · modo {mode}"
   },
   "available": {
-    "protocols": "Protocolos: {protocolos}",
+    "protocols": "Protocolos: {protocols}",
     "demoConnection": "Conexión de demostración",
     "connectDemo": "Conectar (demostración)",
     "installDemo": "Instalar demostración"
@@ -68,7 +68,7 @@
   "apiKeys": {
     "title": "Claves API",
     "generateKey": "Generar clave",
-    "copyOnce": "Copiar ahora (se muestra una vez): {secreto}",
+    "copyOnce": "Copiar ahora (se muestra una vez): {secret}",
     "emptyTitle": "Sin claves API",
     "emptyDescription": "Genere una clave para el acceso a la puerta de enlace REST."
   },
@@ -90,7 +90,7 @@
     "apiDocs": "Marcador de posición de documentos API: {url}",
     "sdk": "Marcador de posición del SDK: {url}",
     "explorerTitle": "explorador de API",
-    "gatewayRoutes": "Rutas de puerta de enlace: {rutas}",
+    "gatewayRoutes": "Rutas de puerta de enlace: {routes}",
     "sendGet": "Enviar OBTENER",
     "oauthProviders": "Proveedores de OAuth",
     "placeholdersHint": "Las rutas de puerta de enlace GraphQL, WebSocket y gRPC se registran como marcadores de posición. El mapeo de campos y la resolución de conflictos de sincronización están listos para la arquitectura para la implementación de backend."
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "No se pudo recuperar",
-    "httpStatus": "HTTP {estado}"
+    "httpStatus": "HTTP {status}"
   }
 }

@@ -5,9 +5,11 @@ import { Badge } from "../../ui";
 import type { BadgeTone } from "../../ui";
 import { runStatusLabel, runStatusTone, integrationLabel, integrationTone } from "../../../lib/automation";
 import type { IntegrationStatus, RunStatus } from "../../../lib/automation";
+import { useT } from "@/app/lib/i18n";
 
 export function RunStatusBadge({ status }: { readonly status: RunStatus }): JSX.Element {
-  return <Badge tone={runStatusTone(status) as BadgeTone}>{runStatusLabel(status)}</Badge>;
+  const t = useT();
+  return <Badge tone={runStatusTone(status) as BadgeTone}>{t(runStatusLabel(status))}</Badge>;
 }
 
 export function IntegrationStatusBadge({
@@ -15,8 +17,9 @@ export function IntegrationStatusBadge({
 }: {
   readonly status: IntegrationStatus;
 }): JSX.Element {
+  const t = useT();
   return (
-    <Badge tone={integrationTone(status) as BadgeTone}>{integrationLabel(status)}</Badge>
+    <Badge tone={integrationTone(status) as BadgeTone}>{t(integrationLabel(status))}</Badge>
   );
 }
 

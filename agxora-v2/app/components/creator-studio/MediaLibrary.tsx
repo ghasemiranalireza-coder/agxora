@@ -40,7 +40,7 @@ export function MediaLibrary({
       {
         key: "kind",
         header: t("creator.media.columns.type"),
-        render: (row) => <Badge tone="accent">{mediaKindLabel(row.kind)}</Badge>,
+        render: (row) => <Badge tone="accent">{t(mediaKindLabel(row.kind))}</Badge>,
       },
       {
         key: "folder",

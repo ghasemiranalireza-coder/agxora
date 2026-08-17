@@ -1,11 +1,34 @@
 {
-  "required": "Це поле є обов'язковим для заповнення.",
-  "invalidEmail": "Введіть дійсну адресу електронної пошти.",
+  "required": "Це поле обов’язкове.",
+  "invalidEmail": "Введіть дійсну адресу ел. пошти.",
   "passwordMin": "Пароль має бути не менше 8 символів.",
   "passwordLettersNumbers": "Пароль має містити букви та цифри.",
   "passwordMismatch": "Паролі не збігаються.",
   "acceptTerms": "Щоб продовжити, прийміть умови.",
   "generic": "Щось пішло не так.",
   "tryAgain": "Спробуйте ще раз.",
-  "saved": "Успішно збережено."
+  "saved": "Успішно збережено.",
+  "invalidCredentials": "Неправильна адреса ел. пошти або пароль.",
+  "signInRequired": "Потрібен вхід.",
+  "insufficientPermissions": "Недостатньо прав.",
+  "noRouteAccess": "У вас немає доступу до цього маршруту.",
+  "accountLocked": "Цей обліковий запис заблоковано. Зверніться до адміністратора.",
+  "sessionExpired": "Сеанс закінчився. Увійдіть знову.",
+  "missingPermission": "Відсутній дозвіл: {permission}",
+  "roleCannotAccess": "Ваша роль не може отримати доступ до цього ресурсу.",
+  "codes": {
+    "AUTH_INVALID_CREDENTIALS": "Неправильна адреса ел. пошти або пароль.",
+    "AUTH_SESSION_EXPIRED": "Сеанс закінчився. Увійдіть знову.",
+    "AUTH_ACCOUNT_LOCKED": "Цей обліковий запис заблоковано. Зверніться до адміністратора.",
+    "AUTH_SIGN_IN_REQUIRED": "Увійдіть, щоб продовжити.",
+    "AUTH_INSUFFICIENT_PERMISSIONS": "Недостатньо прав.",
+    "AUTH_NO_ROUTE_ACCESS": "У вас немає доступу до цього маршруту.",
+    "COMMON_SOMETHING_WENT_WRONG": "Щось пішло не так.",
+    "COMMON_PAGE_NOT_FOUND": "Сторінку не знайдено.",
+    "COMMON_OFFLINE": "Ви офлайн.",
+    "COMMON_TIMEOUT": "Час очікування запиту минув.",
+    "COMMON_VALIDATION": "Перевірте введені дані та спробуйте ще раз.",
+    "COMMON_UNKNOWN": "Сталася невідома помилка.",
+    "COMMON_INTERNAL": "Сталася неочікувана помилка. Спробуйте ще раз."
+  }
 }

@@ -9,25 +9,25 @@ export interface FieldValidation {
 
 export function validateEmail(email: string): FieldValidation {
   const value = email.trim();
-  if (!value) return { ok: false, message: "Email is required." };
+  if (!value) return { ok: false, message: "auth.validation.emailRequired" };
   if (!value.includes("@") || value.length < 5) {
-    return { ok: false, message: "Enter a valid email address." };
+    return { ok: false, message: "auth.validation.emailInvalid" };
   }
   return { ok: true };
 }
 
 export function validatePassword(password: string): FieldValidation {
-  if (!password) return { ok: false, message: "Password is required." };
+  if (!password) return { ok: false, message: "auth.validation.passwordRequired" };
   if (password.length < 8) {
-    return { ok: false, message: "Password must be at least 8 characters." };
+    return { ok: false, message: "auth.validation.passwordMin" };
   }
   return { ok: true };
 }
 
 export function validateDisplayName(name: string): FieldValidation {
-  if (!name.trim()) return { ok: false, message: "Name is required." };
+  if (!name.trim()) return { ok: false, message: "auth.validation.nameRequired" };
   if (name.trim().length < 2) {
-    return { ok: false, message: "Name must be at least 2 characters." };
+    return { ok: false, message: "auth.validation.nameMin" };
   }
   return { ok: true };
 }
@@ -37,7 +37,7 @@ export function validatePasswordMatch(
   confirm: string,
 ): FieldValidation {
   if (password !== confirm) {
-    return { ok: false, message: "Passwords do not match." };
+    return { ok: false, message: "auth.validation.passwordMismatch" };
   }
   return { ok: true };
 }
@@ -47,7 +47,7 @@ export function validateSlug(slug: string): FieldValidation {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)) {
     return {
       ok: false,
-      message: "Use lowercase letters, numbers, and hyphens only.",
+      message: "auth.validation.slugFormat",
     };
   }
   return { ok: true };

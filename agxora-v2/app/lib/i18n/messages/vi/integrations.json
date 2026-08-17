@@ -19,17 +19,17 @@
     "connectFailed": "Kết nối không thành công",
     "keyCreated": "Khóa API đã được tạo: {prefix}",
     "webhookCreated": "Webhook đã tạo: {name}",
-    "webhookTest": "Kiểm tra webhook {trạng thái}",
+    "webhookTest": "Kiểm tra webhook {status}",
     "networkError": "Lỗi mạng trình khám phá API: {message}",
-    "explorerError": "Trình khám phá API → {trạng thái}: {message}",
-    "explorerSuccess": "Trình khám phá API → {trạng thái}",
+    "explorerError": "Trình khám phá API → {status}: {message}",
+    "explorerSuccess": "Trình khám phá API → {status}",
     "explorerFailed": "Explorer không thành công",
-    "syncResult": "Đồng bộ hóa bản trình diễn · {trạng thái} ({records} bản ghi cục bộ) — không có dữ liệu bên ngoài nào được truyền.",
+    "syncResult": "Đồng bộ hóa bản trình diễn · {status} ({records} bản ghi cục bộ) — không có dữ liệu bên ngoài nào được truyền.",
     "diagnosed": "Đã chẩn đoán",
     "removedConnection": "Đã xóa kết nối demo: {name}",
     "keyRotated": "Đã xoay phím",
     "keyRevoked": "Khóa đã bị thu hồi",
-    "publishedEvent": "Đã xuất bản {loại}",
+    "publishedEvent": "Đã xuất bản {type}",
     "developerSaved": "Đã lưu cài đặt của nhà phát triển"
   },
   "dashboard": {
@@ -55,7 +55,7 @@
     "latestSync": "Đồng bộ hóa mới nhất: {status} · {records} bản ghi · chế độ {mode}"
   },
   "available": {
-    "protocols": "Giao thức: {giao thức}",
+    "protocols": "Giao thức: {protocols}",
     "demoConnection": "Kết nối thử nghiệm",
     "connectDemo": "Kết nối (bản demo)",
     "installDemo": "Cài đặt bản demo"
@@ -68,7 +68,7 @@
   "apiKeys": {
     "title": "Khóa API",
     "generateKey": "Tạo khóa",
-    "copyOnce": "Sao chép ngay (hiển thị một lần): {bí mật}",
+    "copyOnce": "Sao chép ngay (hiển thị một lần): {secret}",
     "emptyTitle": "Không có khóa API",
     "emptyDescription": "Tạo khóa để truy cập cổng REST."
   },
@@ -90,7 +90,7 @@
     "apiDocs": "Trình giữ chỗ tài liệu API: {url}",
     "sdk": "Trình giữ chỗ SDK: {url}",
     "explorerTitle": "Trình khám phá API",
-    "gatewayRoutes": "Các tuyến cửa ngõ: {tuyến}",
+    "gatewayRoutes": "Các tuyến cửa ngõ: {routes}",
     "sendGet": "Gửi NHẬN",
     "oauthProviders": "Nhà cung cấp OAuth",
     "placeholdersHint": "Các tuyến cổng GraphQL, WebSocket và gRPC được đăng ký làm phần giữ chỗ. Ánh xạ trường và giải quyết xung đột đồng bộ hóa đã sẵn sàng về mặt kiến ​​trúc để triển khai chương trình phụ trợ."
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "Không tìm nạp được",
-    "httpStatus": "HTTP {trạng thái}"
+    "httpStatus": "HTTP {status}"
   }
 }

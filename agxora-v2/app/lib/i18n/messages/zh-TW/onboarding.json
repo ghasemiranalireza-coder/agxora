@@ -27,5 +27,132 @@
   "back": "後退",
   "continue": "繼續",
   "launching": "發射…",
-  "enterDashboard": "輸入儀表板"
+  "enterDashboard": "輸入儀表板",
+  "defaultCountry": "美國",
+  "businessTypes": {
+    "hotel": {
+      "label": "飯店",
+      "description": "飯店、客房、賓客與物業營運"
+    },
+    "restaurant": {
+      "label": "餐廳",
+      "description": "餐飲、廚房、訂位與賓客體驗"
+    },
+    "cleaning": {
+      "label": "清潔",
+      "description": "商業與住宅清潔營運"
+    },
+    "laundry": {
+      "label": "洗衣",
+      "description": "洗滌工廠、收件路線與紡織護理"
+    },
+    "construction": {
+      "label": "營建",
+      "description": "工地、班組、材料與專案交付"
+    },
+    "healthcare": {
+      "label": "醫療健康",
+      "description": "照護網絡、病人與臨床營運"
+    },
+    "medical": {
+      "label": "醫療",
+      "description": "診所、預約與照護團隊"
+    },
+    "manufacturing": {
+      "label": "製造",
+      "description": "生產線、品質與供應營運"
+    },
+    "retail": {
+      "label": "零售",
+      "description": "門市、庫存、陳列與客戶"
+    },
+    "legal": {
+      "label": "律師事務所",
+      "description": "案件、客戶、期限與計費"
+    },
+    "accounting": {
+      "label": "會計",
+      "description": "帳冊、客戶、申報與顧問工作"
+    },
+    "consulting": {
+      "label": "顧問",
+      "description": "專案、交付項目與客戶成果"
+    },
+    "real_estate": {
+      "label": "房地產",
+      "description": "物件、客戶、看屋與交易"
+    },
+    "education": {
+      "label": "教育",
+      "description": "學程、學生、教職員與招生"
+    },
+    "automotive": {
+      "label": "汽車",
+      "description": "經銷商、維修工位與車輛庫存"
+    },
+    "beauty": {
+      "label": "美容院",
+      "description": "預約、造型師、零售與會員"
+    },
+    "fitness": {
+      "label": "健身房 / 健身",
+      "description": "會員、課程、教練與留存"
+    },
+    "agriculture": {
+      "label": "農業",
+      "description": "作物、牲畜、產量與供應鏈"
+    },
+    "transport": {
+      "label": "運輸",
+      "description": "車隊調度、路線與客貨營運"
+    },
+    "logistics": {
+      "label": "物流",
+      "description": "車隊、倉儲、路線與履約"
+    },
+    "warehouse": {
+      "label": "倉儲",
+      "description": "倉儲、揀貨、包裝與庫存週轉"
+    },
+    "insurance": {
+      "label": "保險",
+      "description": "保單、理賠、核保與留存"
+    },
+    "finance": {
+      "label": "金融",
+      "description": "資本、投資組合與金融營運"
+    },
+    "financial_services": {
+      "label": "金融服務",
+      "description": "顧問、產品、合規與客戶"
+    },
+    "technology": {
+      "label": "科技",
+      "description": "產品、工程與上市團隊"
+    },
+    "saas": {
+      "label": "軟體 / SaaS",
+      "description": "訂閱、用量與客戶成功"
+    },
+    "ecommerce": {
+      "label": "電子商務",
+      "description": "線上型錄、購物車、履約與 LTV"
+    },
+    "agency": {
+      "label": "行銷公司",
+      "description": "客戶、活動、固定合約與交付"
+    },
+    "freelancer": {
+      "label": "自由工作者",
+      "description": "獨立執業、客戶、管道與現金流"
+    },
+    "government": {
+      "label": "政府",
+      "description": "公共服務、計畫與民眾"
+    },
+    "nonprofit": {
+      "label": "非營利",
+      "description": "使命、捐贈人、計畫與影響"
+    }
+  }
 }

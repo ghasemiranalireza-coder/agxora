@@ -67,7 +67,7 @@
       "paid-invoices": {
         "label": "已付發票",
         "caption": "樣本·本季",
-        "delta": "+{計數}"
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "現金週轉",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "人工智慧財務評分",
         "caption": "樣本分數 · 非即時風險評分",
-        "delta": "+{計數}"
+        "delta": "+{count}"
       }
     },
-    "scoreOutOf": "{分數} / {最大}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "無發票",

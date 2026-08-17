@@ -69,8 +69,8 @@
     "tabTriggers": "चलाता है",
     "tabActions": "कार्रवाई",
     "tabAiActions": "एआई क्रियाएँ",
-    "builderTitle": "वर्कफ़्लो बिल्डर · {नाम}",
-    "builderHint": "{ग्रिड}px ग्रिड पर स्नैप करें · ⌘/Ctrl+स्क्रॉल ज़ूम · कैनवास को पैन करने के लिए खींचें · कनेक्ट पर डबल-क्लिक करें",
+    "builderTitle": "वर्कफ़्लो बिल्डर · {name}",
+    "builderHint": "{grid}px ग्रिड पर स्नैप करें · ⌘/Ctrl+स्क्रॉल ज़ूम · कैनवास को पैन करने के लिए खींचें · कनेक्ट पर डबल-क्लिक करें",
     "autoSaved": "स्वतः सहेजा गया",
     "saving": "सहेजा जा रहा है...",
     "undo": "पूर्ववत",
@@ -98,9 +98,9 @@
   "workflowTemplates": {
     "title": "टेम्प्लेट लाइब्रेरी",
     "noticeDefault": "किसी टेम्पलेट को बिल्डर में लोड करने से पहले उसका पूर्वावलोकन करें।",
-    "noticeLoaded": "वर्कफ़्लो बिल्डर में \"{नाम}\" लोड किया गया।",
-    "nodesBadge": "{गिनती} नोड्स",
-    "recommendedFor": "इसके लिए अनुशंसित: {के लिए}",
+    "noticeLoaded": "वर्कफ़्लो बिल्डर में \"{name}\" लोड किया गया।",
+    "nodesBadge": "{count} नोड्स",
+    "recommendedFor": "इसके लिए अनुशंसित: {for}",
     "preview": "पूर्व दर्शन",
     "useTemplate": "टेम्पलेट का इस्तेमाल करें",
     "previewTitle": "टेम्पलेट पूर्वावलोकन",
@@ -131,14 +131,14 @@
     "notice": {
       "missingWrite": "वर्कफ़्लो.लिखने की अनुमति गुम है.",
       "missingExecute": "वर्कफ़्लो.निष्पादन अनुमति अनुपलब्ध।",
-      "created": "{नाम} बनाया गया",
-      "templateApplied": "टेम्प्लेट लागू किया गया: {नाम}",
-      "runResult": "{स्थिति} चलाएँ ({अवधि}एमएस)",
+      "created": "{name} बनाया गया",
+      "templateApplied": "टेम्प्लेट लागू किया गया: {name}",
+      "runResult": "{status} चलाएँ ({duration}एमएस)",
       "runFailed": "वर्कफ़्लो नहीं चल सका (अक्षम या अनुपलब्ध)।",
-      "publishedEvent": "प्रकाशित डोमेन इवेंट: {प्रकार}",
-      "workflowStatus": "वर्कफ़्लो {स्थिति}",
+      "publishedEvent": "प्रकाशित डोमेन इवेंट: {type}",
+      "workflowStatus": "वर्कफ़्लो {status}",
       "saved": "वर्कफ़्लो सहेजा गया",
-      "retryResult": "पुनः प्रयास करें {स्थिति}",
+      "retryResult": "पुनः प्रयास करें {status}",
       "retryFailed": "पुनः प्रयास विफल रहा",
       "settingsSaved": "स्वचालन सेटिंग्स सहेजी गईं"
     },
@@ -193,8 +193,8 @@
       "emptyTitle": "अभी तक कोई निष्पादन नहीं.",
       "emptyDescription": "वर्कफ़्लो चलाएँ या डोमेन ईवेंट प्रकाशित करें।",
       "latestRun": "नवीनतम रन विवरण",
-      "path": "पथ: {पथ}",
-      "error": "· त्रुटि: {त्रुटि}",
+      "path": "पथ: {path}",
+      "error": "· त्रुटि: {error}",
       "columns": {
         "workflow": "कार्यप्रवाह",
         "status": "स्थिति",
@@ -226,7 +226,315 @@
       "concurrencyLimit": "समवर्ती सीमा",
       "timeoutMs": "टाइमआउट (एमएस)",
       "logLevel": "लॉग स्तर",
-      "saveSettings": "सेटिंग्स सेव करें"
+      "saveSettings": "सेटिंग्स सेव करें",
+      "logLevels": {
+        "error": "त्रुटि",
+        "warn": "चेतावनी",
+        "info": "जानकारी",
+        "debug": "डिबग"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "खाली वर्कफ़्लो"
+  },
+  "status": {
+    "connected": "कनेक्टेड",
+    "beta": "बीटा",
+    "comingSoon": "जल्द आ रहा है",
+    "disabled": "अक्षम",
+    "planned": "योजनाबद्ध",
+    "success": "सफल",
+    "failed": "विफल",
+    "running": "चल रहा है",
+    "pending": "लंबित",
+    "retried": "पुनः प्रयास"
+  },
+  "difficulty": {
+    "starter": "शुरुआती",
+    "intermediate": "मध्यम",
+    "advanced": "उन्नत"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "ट्रिगर",
+      "description": "घटना होने पर शुरू करें"
+    },
+    "el-condition": {
+      "label": "शर्त",
+      "description": "नियमों पर शाखा करें"
+    },
+    "el-delay": {
+      "label": "विलंब",
+      "description": "जारी रखने से पहले प्रतीक्षा करें"
+    },
+    "el-approval": {
+      "label": "अनुमोदन",
+      "description": "मानव अनुमोदन गेट"
+    },
+    "el-loop": {
+      "label": "लूप",
+      "description": "संग्रह पर दोहराएँ"
+    },
+    "el-merge": {
+      "label": "मर्ज",
+      "description": "समानांतर पथ जोड़ें"
+    },
+    "el-split": {
+      "label": "विभाजन",
+      "description": "समानांतर पथ फैलाएँ"
+    },
+    "el-ai-decision": {
+      "label": "AI निर्णय",
+      "description": "AI के माध्यम से रूट करें"
+    },
+    "el-notification": {
+      "label": "सूचना",
+      "description": "इन-ऐप अलर्ट"
+    },
+    "el-webhook": {
+      "label": "Webhook प्लेसहोल्डर",
+      "description": "HTTP कॉलबैक आरक्षित"
+    },
+    "el-custom": {
+      "label": "कस्टम कार्रवाई",
+      "description": "विस्तार योग्य कार्रवाई स्लॉट"
+    },
+    "tr-customer": {
+      "label": "ग्राहक बनाया गया",
+      "description": "CRM ग्राहक रिकॉर्ड बनाया गया"
+    },
+    "tr-lead": {
+      "label": "लीड बनाई गई",
+      "description": "नई लीड पाइपलाइन में आती है"
+    },
+    "tr-invoice": {
+      "label": "चालान बनाया गया",
+      "description": "वित्त चालान जारी किया गया"
+    },
+    "tr-invoice-paid": {
+      "label": "चालान भुगतान हुआ",
+      "description": "भुगतान निपटाया गया"
+    },
+    "tr-order": {
+      "label": "ऑर्डर बनाया गया",
+      "description": "ऑर्डर दर्ज किया गया"
+    },
+    "tr-order-done": {
+      "label": "ऑर्डर पूरा हुआ",
+      "description": "ऑर्डर पूरा किया गया"
+    },
+    "tr-doc": {
+      "label": "दस्तावेज़ अपलोड हुआ",
+      "description": "दस्तावेज़ वॉल्ट अपलोड"
+    },
+    "tr-campaign": {
+      "label": "अभियान प्रकाशित हुआ",
+      "description": "Creator Studio प्रकाशन"
+    },
+    "tr-employee": {
+      "label": "कर्मचारी जोड़ा गया",
+      "description": "टीम निर्देशिका में बदलाव"
+    },
+    "tr-task": {
+      "label": "कार्य पूरा हुआ",
+      "description": "कार्य पूर्ण चिह्नित"
+    },
+    "tr-manual": {
+      "label": "मैनुअल ट्रिगर",
+      "description": "मांग पर चलाएँ"
+    },
+    "tr-schedule": {
+      "label": "शेड्यूल ट्रिगर",
+      "description": "Cron / कैलेंडर शेड्यूल"
+    },
+    "tr-webhook": {
+      "label": "Webhook ट्रिगर",
+      "description": "इनबाउंड HTTP इवेंट"
+    },
+    "tr-api": {
+      "label": "API ट्रिगर",
+      "description": "प्रोग्रामेटिक प्रारंभ"
+    },
+    "ac-crm": {
+      "label": "CRM रिकॉर्ड बनाएँ",
+      "description": "CRM इकाई लिखें"
+    },
+    "ac-invoice": {
+      "label": "चालान बनाएँ",
+      "description": "वित्त चालान"
+    },
+    "ac-quote": {
+      "label": "कोट बनाएँ",
+      "description": "कोट दस्तावेज़ बनाएँ"
+    },
+    "ac-delivery": {
+      "label": "डिलीवरी नोट बनाएँ",
+      "description": "डिलीवरी नोट"
+    },
+    "ac-task": {
+      "label": "कार्य बनाएँ",
+      "description": "एक कार्य खोलें"
+    },
+    "ac-assign": {
+      "label": "कर्मचारी असाइन करें",
+      "description": "टीममेट को रूट करें"
+    },
+    "ac-email": {
+      "label": "ईमेल भेजें",
+      "description": "आउटबाउंड ईमेल"
+    },
+    "ac-notify": {
+      "label": "सूचना भेजें",
+      "description": "इन-ऐप सूचना"
+    },
+    "ac-ai-summary": {
+      "label": "AI सारांश बनाएँ",
+      "description": "संदर्भ सारांशित करें"
+    },
+    "ac-ai-content": {
+      "label": "AI सामग्री बनाएँ",
+      "description": "Creator Studio ड्राफ्ट"
+    },
+    "ac-update-customer": {
+      "label": "ग्राहक अपडेट करें",
+      "description": "CRM ग्राहक पैच करें"
+    },
+    "ac-update-status": {
+      "label": "स्थिति अपडेट करें",
+      "description": "इकाई की स्थिति बदलें"
+    },
+    "ac-pdf": {
+      "label": "PDF निर्यात करें",
+      "description": "दस्तावेज़ निर्यात"
+    },
+    "ac-future": {
+      "label": "भविष्य API प्लेसहोल्डर",
+      "description": "आरक्षित कार्रवाई स्लॉट"
+    },
+    "ai-decision": {
+      "label": "AI निर्णय",
+      "description": "अगला पथ तय करें"
+    },
+    "ai-class": {
+      "label": "AI वर्गीकरण",
+      "description": "रिकॉर्ड वर्गीकृत करें"
+    },
+    "ai-text": {
+      "label": "AI पाठ निर्माण",
+      "description": "पाठ बनाएँ"
+    },
+    "ai-translate": {
+      "label": "AI अनुवाद",
+      "description": "सामग्री का अनुवाद करें"
+    },
+    "ai-email": {
+      "label": "AI ईमेल जवाब",
+      "description": "उत्तर का मसौदा"
+    },
+    "ai-sum": {
+      "label": "AI सारांशीकरण",
+      "description": "संदर्भ संक्षिप्त करें"
+    },
+    "ai-rec": {
+      "label": "AI सिफ़ारिशें",
+      "description": "अगले कदम सुझाएँ"
+    },
+    "ai-route": {
+      "label": "AI रूटिंग",
+      "description": "स्वामी / कतार को रूट करें"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "ग्राहक बनाया गया",
+      "description": "CRM ग्राहक रिकॉर्ड बनने पर चलता है."
+    },
+    "project_created": {
+      "label": "प्रोजेक्ट बनाया गया",
+      "description": "प्रोजेक्ट बनने पर चलता है."
+    },
+    "task_completed": {
+      "label": "कार्य पूरा हो गया",
+      "description": "कार्य पूर्ण चिह्नित होने पर चलता है."
+    },
+    "document_uploaded": {
+      "label": "दस्तावेज़ अपलोड किया गया",
+      "description": "दस्तावेज़ अपलोड होने पर चलता है."
+    },
+    "schedule": {
+      "label": "अनुसूची",
+      "description": "क्रॉन / अंतराल शेड्यूल ट्रिगर."
+    },
+    "invoice_issued": {
+      "label": "चालान जारी",
+      "description": "चालान जारी होने पर चलता है."
+    },
+    "user_invited": {
+      "label": "उपयोगकर्ता आमंत्रित",
+      "description": "टीम सदस्य आमंत्रित होने पर चलता है."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "इनबाउंड HTTP वेबहुक."
+    },
+    "api_event": {
+      "label": "API इवेंट",
+      "description": "सामान्य API डोमेन इवेंट."
+    },
+    "ai_event": {
+      "label": "AI इवेंट",
+      "description": "AI संकेत (पूर्णता, इनसाइट, एजेंट चरण)."
+    },
+    "manual": {
+      "label": "मैनुअल ट्रिगर",
+      "description": "UI या API से ऑन-डिमांड चलाएँ."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "ग्राहक बनाएं",
+      "description": "CRM ग्राहक रिकॉर्ड बनाएँ."
+    },
+    "customer_update": {
+      "label": "ग्राहक अपडेट करें",
+      "description": "ग्राहक फ़ील्ड अपडेट करें."
+    },
+    "project_create": {
+      "label": "प्रोजेक्ट बनाएं",
+      "description": "वर्कफ़्लो संदर्भ से प्रोजेक्ट बनाएँ."
+    },
+    "notification_send": {
+      "label": "सूचना भेजें",
+      "description": "इन-ऐप सूचना भेजें."
+    },
+    "email_send": {
+      "label": "ईमेल भेजें",
+      "description": "मेल प्रदाता के माध्यम से ईमेल कतार में डालें."
+    },
+    "invoice_create": {
+      "label": "चालान बनाएं",
+      "description": "वित्त चालान बनाएँ."
+    },
+    "status_update": {
+      "label": "स्थिति अपडेट करें",
+      "description": "मॉड्यूल में एंटिटी की स्थिति अपडेट करें."
+    },
+    "document_generate": {
+      "label": "दस्तावेज़ बनाएँ",
+      "description": "टेम्पलेट से दस्तावेज़ बनाएँ."
+    },
+    "api_call": {
+      "label": "API कॉल",
+      "description": "आंतरिक या बाहरी API पर HTTP कॉल."
+    },
+    "ai_run": {
+      "label": "AI चलाएँ",
+      "description": "संदर्भ के साथ AI प्रॉम्प्ट / एजेंट चरण चलाएँ."
+    },
+    "task_assign": {
+      "label": "कार्य असाइन करें",
+      "description": "उपयोगकर्ता को कार्य असाइन करें."
     }
   }
 }

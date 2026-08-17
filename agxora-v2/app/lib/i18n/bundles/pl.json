@@ -1,21 +1,21 @@
 {
   "common": {
-    "save": "Ratować",
+    "save": "Zapisz",
     "saveChanges": "Zapisz zmiany",
-    "cancel": "Anulować",
-    "close": "Zamknąć",
-    "delete": "Usuwać",
-    "edit": "Redagować",
+    "cancel": "Anuluj",
+    "close": "Zamknij",
+    "delete": "Usuń",
+    "edit": "Edytuj",
     "search": "Szukaj",
-    "loading": "Załadunek…",
-    "retry": "Spróbować ponownie",
+    "loading": "Ładowanie…",
+    "retry": "Ponów",
     "language": "Język",
-    "signIn": "Zalogować się",
+    "signIn": "Zaloguj się",
     "signOut": "Wyloguj się",
     "contact": "Kontakt",
     "privacy": "Prywatność",
     "terms": "Warunki",
-    "cookies": "Ciastka",
+    "cookies": "Cookies",
     "imprint": "Odcisk",
     "organization": "Organizacja",
     "user": "Użytkownik",
@@ -32,9 +32,16 @@
     "sample": "Próbka",
     "showPassword": "Pokaż hasło",
     "hidePassword": "Ukryj hasło",
-    "continue": "Kontynuować",
-    "back": "Z powrotem",
-    "home": "Dom"
+    "continue": "Kontynuuj",
+    "back": "Wstecz",
+    "home": "Strona główna",
+    "loadingShort": "Ładowanie",
+    "create": "Utwórz",
+    "next": "Dalej",
+    "previous": "Wstecz",
+    "settings": "Ustawienia",
+    "profile": "Profil",
+    "dashboard": "Pulpit"
   },
   "navigation": {
     "dashboard": "Panel",
@@ -61,7 +68,7 @@
     "notificationsEmpty": "Wszyscy jesteście zajęci. Tutaj pojawią się alerty i wzmianki.",
     "accountSettings": "Ustawienia konta",
     "security": "Bezpieczeństwo",
-    "themeToggle": "Szybka zmiana motywu. Preferencje: {tryb}"
+    "themeToggle": "Szybka zmiana motywu. Preferencje: {mode}"
   },
   "pricing": {
     "navLabel": "Nawigacja cenowa",
@@ -156,7 +163,7 @@
       "currentPlan": "Aktualny plan",
       "recommended": "Zalecony",
       "contactSales": "Skontaktuj się ze sprzedażą",
-      "pricePerMonth": "€{cena}/mies",
+      "pricePerMonth": "€{price}/mies",
       "users": "{count} użytkowników",
       "aiRequests": "{count} Zapotrzebowanie na sztuczną inteligencję/mies",
       "storage": "{count} MB pamięci",
@@ -209,7 +216,7 @@
       "status": "Status",
       "seats": "Siedzenia",
       "renewsTrial": "Odnawia / okres próbny",
-      "enabledModules": "Włączone moduły: {moduły}",
+      "enabledModules": "Włączone moduły: {modules}",
       "none": "nic",
       "renew": "Odnowić",
       "cancelSubscription": "Anuluj subskrypcję",
@@ -279,7 +286,7 @@
       "avatarUnavailable": "Przesyłanie awatarów nie jest jeszcze dostępne.",
       "appearanceNote": "Konfiguracja wyglądu pozostaje w obszarze Wygląd. Nagłówek zapewnia tylko szybkie przełączanie motywu.",
       "prefsHint": "Używany przez asystentów AI w różnych modułach.",
-      "themeResolved": "{tryb} (rozwiązany {wygląd})",
+      "themeResolved": "{mode} (rozwiązany {appearance})",
       "regions": {
         "EU": "Unia Europejska",
         "US": "Stany Zjednoczone",
@@ -491,7 +498,7 @@
       "createdAt": "Zalogowano",
       "expiresAt": "Wygasa",
       "revoke": "Odwołaj sesję",
-      "revokeAria": "Odwołaj sesję zalogowania się {kiedy}",
+      "revokeAria": "Odwołaj sesję zalogowania się {when}",
       "revokeOthers": "Wyloguj się z innych sesji",
       "revokeOthersAria": "Wyloguj się ze wszystkich sesji z wyjątkiem bieżącej",
       "revoked": "Sesja odwołana.",
@@ -586,7 +593,7 @@
       "title": "Ustawienia",
       "lead": "Konfiguracja korporacyjna dla każdego modułu AGXORA — profil, organizacja, sztuczna inteligencja, wygląd, bezpieczeństwo, rozliczenia i kontrola programistów w jednym miejscu.",
       "loading": "Ładowanie ustawień…",
-      "breadcrumb": "{etykieta} · {opis}"
+      "breadcrumb": "{label} · {description}"
     },
     "saveChanges": "Zapisz zmiany",
     "sessionNotice": "Zaktualizowano dla tej sesji — {area} nie jest połączony.",
@@ -624,7 +631,7 @@
       "owner": "Właściciel",
       "counts": "Członkowie · obszary robocze",
       "orgUpdated": "Organizacja zaktualizowana.",
-      "countsValue": "{członkowie} · {obszary robocze}",
+      "countsValue": "{members} · {workspaces}",
       "joined": "Dołączył",
       "workspaceName": "Nazwa obszaru roboczego",
       "switchWorkspace": "Aktywna przestrzeń robocza",
@@ -678,7 +685,7 @@
       "transferHonesty": "Po skonfigurowaniu dostawy zostanie wysłana wiadomość e-mail z potwierdzeniem. W przeciwnym razie udostępnij link potwierdzający bezpośrednio odbiorcy.",
       "transferLink": "Link potwierdzający",
       "transferPendingTitle": "Oczekuje na przeniesienie własności",
-      "transferPendingBody": "Czekam na potwierdzenie przez {name} ({email}). Wygasa {wygasa}. Do tego czasu pozostajesz WŁAŚCICIELEM.",
+      "transferPendingBody": "Czekam na potwierdzenie przez {name} ({email}). Wygasa {expires}. Do tego czasu pozostajesz WŁAŚCICIELEM.",
       "transferPendingNote": "Role członkowskie nie zmieniają się w czasie oczekiwania na przeniesienie.",
       "cancelTransfer": "Anuluj przelew",
       "transferCancelled": "Przeniesienie własności anulowane.",
@@ -705,7 +712,30 @@
     "acceptTerms": "Aby kontynuować, zaakceptuj warunki.",
     "generic": "Coś poszło nie tak.",
     "tryAgain": "Spróbuj ponownie.",
-    "saved": "Zapisano pomyślnie."
+    "saved": "Zapisano pomyślnie.",
+    "invalidCredentials": "Nieprawidłowy e-mail lub hasło.",
+    "signInRequired": "Wymagane logowanie.",
+    "insufficientPermissions": "Niewystarczające uprawnienia.",
+    "noRouteAccess": "Nie masz dostępu do tej trasy.",
+    "accountLocked": "To konto jest zablokowane. Skontaktuj się z administratorem.",
+    "sessionExpired": "Sesja wygasła. Zaloguj się ponownie.",
+    "missingPermission": "Brak uprawnienia: {permission}",
+    "roleCannotAccess": "Twoja rola nie ma dostępu do tego zasobu.",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "Nieprawidłowy e-mail lub hasło.",
+      "AUTH_SESSION_EXPIRED": "Sesja wygasła. Zaloguj się ponownie.",
+      "AUTH_ACCOUNT_LOCKED": "To konto jest zablokowane. Skontaktuj się z administratorem.",
+      "AUTH_SIGN_IN_REQUIRED": "Zaloguj się, aby kontynuować.",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "Niewystarczające uprawnienia.",
+      "AUTH_NO_ROUTE_ACCESS": "Nie masz dostępu do tej trasy.",
+      "COMMON_SOMETHING_WENT_WRONG": "Coś poszło nie tak.",
+      "COMMON_PAGE_NOT_FOUND": "Nie znaleziono strony.",
+      "COMMON_OFFLINE": "Jesteś offline.",
+      "COMMON_TIMEOUT": "Upłynął limit czasu żądania.",
+      "COMMON_VALIDATION": "Sprawdź wprowadzone dane i spróbuj ponownie.",
+      "COMMON_UNKNOWN": "Wystąpił nieznany błąd.",
+      "COMMON_INTERNAL": "Wystąpił nieoczekiwany błąd. Spróbuj ponownie."
+    }
   },
   "dashboard": {
     "skipToContent": "Przejdź do zawartości panelu",
@@ -857,7 +887,7 @@
       "title": "AGXORA AI",
       "emptyState": "Zapytaj AGXORĘ o klientów, projekty lub kolejne działania. Twoja rozmowa pozostanie w tej sesji obszaru roboczego.",
       "thinking": "AGXORA myśli…",
-      "errorDismiss": "{błąd} — kliknij, aby odrzucić",
+      "errorDismiss": "{error} — kliknij, aby odrzucić",
       "placeholder": "Zapytaj AGXORĘ AI…",
       "messageAria": "Wiadomość AGXORA AI",
       "sendAria": "Wyślij wiadomość",
@@ -1190,20 +1220,20 @@
       "viewPricing": "Zobacz ceny",
       "bookDemo": "Zarezerwuj demo",
       "failed": "Nie udało się przesłać zapytania",
-      "country": "Country",
-      "savedFor": "Saved for {company}. Sales delivery is not connected in this build.",
-      "preferWalkthrough": "Prefer a product walkthrough next?",
-      "preferSelfServe": "Prefer self-serve?"
+      "country": "Kraj",
+      "savedFor": "Zapisano dla {company}. Dostarczanie sprzedaży nie jest podłączone w tej kompilacji.",
+      "preferWalkthrough": "Wolisz teraz przewodnik po produkcie?",
+      "preferSelfServe": "Wolisz self-service?"
     },
     "welcome": {
       "title": "Witamy w AGXORA",
       "subtitle": "Twoje miejsce do pracy jest gotowe. Przejdź do pulpitu nawigacyjnego.",
       "continue": "Przejdź do pulpitu nawigacyjnego",
-      "checklistProfile": "Confirm your organization profile",
-      "checklistModules": "Choose modules that match how you work",
-      "checklistDashboard": "Enter the dashboard with a clear starting point",
-      "exploreFirst": "Prefer to explore first?",
-      "skipToDashboard": "Skip to dashboard"
+      "checklistProfile": "Potwierdź profil organizacji",
+      "checklistModules": "Wybierz moduły dopasowane do Twojego sposobu pracy",
+      "checklistDashboard": "Wejdź na pulpit z jasnym punktem startowym",
+      "exploreFirst": "Wolisz najpierw poszukać?",
+      "skipToDashboard": "Przejdź do pulpitu"
     },
     "locked": {
       "title": "Konto zablokowane",
@@ -1216,7 +1246,17 @@
       "subtitle": "Aby kontynuować, zaloguj się ponownie.",
       "signIn": "Zalogować się"
     },
-    "brand": "AGXORA"
+    "brand": "AGXORA",
+    "validation": {
+      "emailRequired": "E-mail jest wymagany.",
+      "emailInvalid": "Wpisz prawidłowy adres e-mail.",
+      "passwordRequired": "Hasło jest wymagane.",
+      "passwordMin": "Hasło musi mieć co najmniej 8 znaków.",
+      "nameRequired": "Imię jest wymagane.",
+      "nameMin": "Imię musi mieć co najmniej 2 znaki.",
+      "passwordMismatch": "Hasła nie są zgodne.",
+      "slugFormat": "Używaj tylko małych liter, cyfr i myślników."
+    }
   },
   "crm": {
     "page": {
@@ -1318,12 +1358,12 @@
         "previous": "Poprzedni",
         "next": "Następny"
       },
-      "showing": "Wyświetlanie {od}–{do} z {total}",
+      "showing": "Wyświetlanie {from}–{to} z {total}",
       "aria": {
-        "openCustomer": "Otwórz klienta {firma}"
+        "openCustomer": "Otwórz klienta {company}"
       },
-      "cardMeta": "Właściciel {właściciel} · Utworzono {data}",
-      "sortBy": "Sortuj według {kolumny}"
+      "cardMeta": "Właściciel {owner} · Utworzono {date}",
+      "sortBy": "Sortuj według {column}"
     },
     "status": {
       "lead": "Ołów",
@@ -1693,7 +1733,7 @@
         "label": "Wynik zdrowia AI",
         "caption": "Sygnał jakości relacji"
       },
-      "scoreOutOf": "{wynik} / {maks.}"
+      "scoreOutOf": "{score} / {max}"
     },
     "pipeline": {
       "lead": "Ołów",
@@ -1801,16 +1841,16 @@
         "vat-due": {
           "label": "Należny podatek VAT",
           "caption": "Próbka · Okno Q2",
-          "delta": "Termin za {day}d"
+          "delta": "Termin za {days}d"
         },
         "open-invoices": {
           "label": "Otwarte faktury",
-          "caption": "Próbka · {pieniądze} zaległe"
+          "caption": "Próbka · {money} zaległe"
         },
         "paid-invoices": {
           "label": "Zapłacone faktury",
           "caption": "Próbka · w tym kwartale",
-          "delta": "+{liczba}"
+          "delta": "+{count}"
         },
         "cashflow": {
           "label": "Przepływ środków pieniężnych",
@@ -1820,10 +1860,10 @@
         "ai-score": {
           "label": "Wynik finansowy AI",
           "caption": "Przykładowy wynik · nie punktacja ryzyka na żywo",
-          "delta": "+{liczba}"
+          "delta": "+{count}"
         }
       },
-      "scoreOutOf": "{wynik} / {maks.}"
+      "scoreOutOf": "{score} / {max}"
     },
     "invoices": {
       "emptyTitle": "Żadnych faktur",
@@ -1885,7 +1925,7 @@
       "uploadFiles": "Prześlij pliki",
       "emailImport": "Import poczty e-mail",
       "dropHint": "Upuść faktury w formacie PDF lub graficzne, aby przygotować je lokalnie — OCR nie jest podłączony.",
-      "filesStaged": "Liczba plików (liczba) wymieniona tylko lokalnie — ekstrakcja OCR/AI nie jest podłączona.",
+      "filesStaged": "Liczba plików (liczba) wymieniona tylko lokalnie — ekstrakcja OCR/AI nie jest podłączona. {count}",
       "emailReserved": "Złącze importu poczty e-mail zarezerwowane dla protokołu IMAP/Microsoft Graph.",
       "pipelineTitle": "Potok przetwarzania (demo)",
       "stages": {
@@ -1994,8 +2034,8 @@
     "insights": {
       "demoPrefix": "Demonstracja",
       "noticeDefault": "Działania wglądu nie są ze sobą powiązane — karty przedstawiają tylko przykładowe ustalenia.",
-      "actionUnavailable": "{akcja} niedostępna — działania związane z analizą finansów nie są połączone.",
-      "actionUnavailableTitle": "{akcja} niedostępna — brak połączenia",
+      "actionUnavailable": "{action} niedostępna — działania związane z analizą finansów nie są połączone.",
+      "actionUnavailableTitle": "{action} niedostępna — brak połączenia",
       "kinds": {
         "unusual_expense": "Nietypowe wydatki",
         "duplicate_invoice": "Duplikaty faktur",
@@ -2090,42 +2130,42 @@
       "documents": {
         "label": "Dokumenty",
         "caption": "Próbka · w folderach",
-        "delta": "+{liczba}"
+        "delta": "+{count}"
       },
       "folders": {
         "label": "Lornetka składana",
         "caption": "Próbka · w tym inteligentne kolekcje",
-        "delta": "+{liczba}"
+        "delta": "+{count}"
       },
       "storage": {
         "label": "Pamięć używana",
         "caption": "Próbka · planu ilustracyjnego",
-        "delta": "+{rozmiar}"
+        "delta": "+{size}"
       },
       "shared": {
         "label": "Udostępnione dokumenty",
         "caption": "Próbka · organizacja + dział + użytkownicy",
-        "delta": "+{liczba}"
+        "delta": "+{count}"
       },
       "activity": {
         "label": "Ostatnia aktywność",
         "caption": "Próbka · ostatnie 24 godziny",
-        "delta": "+{liczba}"
+        "delta": "+{count}"
       },
       "indexed": {
         "label": "Indeksowana sztuczna inteligencja",
         "caption": "Próbka · Wyszukiwanie AI nie jest połączone",
-        "delta": "{procent}"
+        "delta": "{percent}"
       },
       "approvals": {
         "label": "Oczekujące zatwierdzenia",
         "caption": "Próbka · automatyka nie podłączona",
-        "delta": "{liczyć}"
+        "delta": "{count}"
       },
       "score": {
         "label": "Wynik wiedzy",
         "caption": "Próbka · ilustracja zasięgu",
-        "delta": "+{liczba}"
+        "delta": "+{count}"
       }
     },
     "library": {
@@ -2141,7 +2181,7 @@
       },
       "dropzone": "Przeciągnij i upuść pliki tutaj, aby rozpocząć przesyłanie.",
       "uploadReserved": "Przesyłanie metodą „przeciągnij i upuść” jest zarezerwowanym interfejsem API pamięci masowej.",
-      "filesStaged": "Pliki (liczba) przygotowane do przesłania (bez zapisu w pamięci).",
+      "filesStaged": "Pliki (liczba) przygotowane do przesłania (bez zapisu w pamięci). {count}",
       "dropReceived": "Odebrano wiadomość (brak zapisu w pamięci).",
       "foldersTitle": "Foldery i kolekcje",
       "foldersHint": "Zagnieżdżone foldery, kolekcje, inteligentne kolekcje, tagi, przypięte i ulubione.",
@@ -2170,7 +2210,7 @@
       "favoritesOnly": "Tylko ulubione",
       "emptyTitle": "Brak dokumentów do okazania",
       "emptyDescription": "Dostosuj filtry, wyczyść wyszukiwanie lub dodaj zasoby wiedzy, aby powiększyć bibliotekę.",
-      "selectAria": "Wybierz {imię}",
+      "selectAria": "Wybierz {name}",
       "versionHistoryTitle": "Historia wersji",
       "close": "Zamknąć",
       "context": {
@@ -2180,7 +2220,7 @@
         "move": "Przenosić",
         "delete": "Usuwać",
         "dismiss": "Odrzucać",
-        "unavailable": "{akcja} niedostępna — mutacje dokumentu nie są połączone dla {id}."
+        "unavailable": "{action} niedostępna — mutacje dokumentu nie są połączone dla {id}."
       }
     },
     "viewer": {
@@ -2191,7 +2231,7 @@
       "zoomIn": "Powiększ +",
       "prev": "Poprzednia",
       "next": "Następny",
-      "page": "Strona {strona} / {razem}",
+      "page": "Strona {page} / {total}",
       "searchInside": "Szukaj w środku",
       "findPlaceholder": "Znajdź w podglądzie…",
       "noMatches": "Brak dopasowań w tekście podglądu.",
@@ -2217,7 +2257,7 @@
       "title": "Historia wersji",
       "emptyTitle": "Nie wybrano dokumentu",
       "emptyDescription": "Otwórz dokument, aby sprawdzić wersje, notatki, przywrócić i porównać.",
-      "current": "{imię} · aktualna {wersja}",
+      "current": "{name} · aktualna {version}",
       "restore": "Przywróć wersję",
       "compare": "Porównaj wersje",
       "restoreTitle": "Przywracanie wymaga interfejsu API magazynu",
@@ -2235,7 +2275,7 @@
       "reject": "Odrzucić",
       "sendToReview": "Wyślij do recenzji",
       "noticeDefault": "Przejścia zatwierdzania wymagają silnika przepływu pracy Automation — niepodłączonego w tej kompilacji.",
-      "unavailable": "{akcja} niedostępna dla {id} — silnik przepływu pracy nie jest podłączony. Przykładowy status dokumentu nie uległ zmianie.",
+      "unavailable": "{action} niedostępna dla {id} — silnik przepływu pracy nie jest podłączony. Przykładowy status dokumentu nie uległ zmianie.",
       "approveTitle": "Zatwierdzenie niedostępne — silnik przepływu pracy nie jest podłączony",
       "rejectTitle": "Odrzucenie niedostępne — silnik przepływu pracy nie jest podłączony",
       "sendTitle": "Wyślij do recenzji niedostępne — silnik przepływu pracy nie jest podłączony"
@@ -2420,10 +2460,10 @@
       "planned": "Planowany"
     },
     "bytes": {
-      "b": "{wartość} B",
-      "kb": "{wartość} KB",
-      "mb": "{wartość} MB",
-      "gb": "{wartość} GB"
+      "b": "{value} B",
+      "kb": "{value} KB",
+      "mb": "{value} MB",
+      "gb": "{value} GB"
     }
   },
   "landing": {
@@ -2535,8 +2575,9 @@
       "terms": "Warunki",
       "cookies": "Ciastka",
       "imprint": "Odcisk",
-      "copyright": "© {rok} {firma}"
-    }
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — globus 3D"
   },
   "ui": {
     "table": {
@@ -2612,13 +2653,13 @@
       "emptyTitle": "Nie ma jeszcze żadnych projektów",
       "emptyDescription": "Uruchom obszar roboczy dostawy, aby śledzić kamienie milowe, budżet i własność zespołu.",
       "createProject": "Utwórz projekt",
-      "pagination": "Wyświetlanie {od}–{do} z {total}",
+      "pagination": "Wyświetlanie {from}–{to} z {total}",
       "previous": "Poprzedni",
       "next": "Następny",
       "noDescription": "Nie ma jeszcze opisu.",
-      "duePrefix": "Termin {data}",
+      "duePrefix": "Termin {date}",
       "openProject": "Otwórz projekt {name}",
-      "sortBy": "Sortuj według {kolumny}",
+      "sortBy": "Sortuj według {column}",
       "sort": {
         "name": "Nazwa",
         "customer": "Klient",
@@ -2652,7 +2693,7 @@
       "tagsPlaceholder": "przedsiębiorstwo, wdrożenie",
       "budgetPlaceholder": "0",
       "description": "Opis",
-      "selectColor": "Wybierz kolor {kolor}"
+      "selectColor": "Wybierz kolor {color}"
     },
     "taskForm": {
       "createTitle": "Utwórz zadanie",
@@ -2680,7 +2721,7 @@
     },
     "badges": {
       "progress": "Postęp",
-      "progressAria": "{label}: {wartość}%"
+      "progressAria": "{label}: {value}%"
     },
     "status": {
       "planning": "Planowanie",
@@ -2719,24 +2760,24 @@
       "emptyDescription": "Dodaj daty rozpoczęcia/zakończenia i zadania, aby wypełnić harmonogram.",
       "title": "Oś czasu",
       "subtitle": "Początek, koniec, czas trwania, kamienie milowe. Zależności są zarezerwowane dla przyszłej wersji.",
-      "dateRange": "{start} → {koniec} · {dni}d",
+      "dateRange": "{start} → {end} · {days}d",
       "itemAria": "{title} od {start} do {end}",
       "dependenciesNone": "Zależności: brak"
     },
     "dashboard": {
       "kpi": {
         "activeProjects": "Aktywne projekty",
-        "activeHint": "{planowanie} planowanie",
+        "activeHint": "{planning} planowanie",
         "completed": "Zakończony",
         "completedHint": "{percent}% portfela",
         "onHold": "Wstrzymane",
-        "onHoldHint": "{archiwum} zarchiwizowane",
+        "onHoldHint": "{archived} zarchiwizowane",
         "teamMembers": "Członkowie zespołu",
         "teamHint": "We wszystkich projektach",
         "budgetOverview": "Przegląd budżetu",
-        "budgetHint": "Wykorzystano {percent}% · Wydano {wydane}",
+        "budgetHint": "Wykorzystano {percent}% · Wydano {spent}",
         "openTasks": "Otwórz Zadania",
-        "openTasksHint": "{zaległe} zaległe",
+        "openTasksHint": "{overdue} zaległe",
         "projectHealth": "Projekt Zdrowie",
         "healthHint": "Złożony wynik dostawy",
         "upcomingDeadlines": "Najbliższe terminy",
@@ -2772,7 +2813,7 @@
       "notFoundTitle": "Nie znaleziono projektu",
       "notFoundDescription": "Ten projekt mógł zostać usunięty lub jest niedostępny dla bieżącej organizacji.",
       "backToProjects": "← Powrót do projektów",
-      "ownerMeta": "{klient} · Właściciel {właściciel}",
+      "ownerMeta": "{customer} · Właściciel {owner}",
       "edit": "Redagować",
       "delete": "Usuwać",
       "sectionsAria": "Sekcje szczegółów projektu",
@@ -2881,6 +2922,31 @@
       "memberAdded": "Członek dodał",
       "settingsSaved": "Ustawienia zostały zapisane",
       "projectArchived": "Projekt zarchiwizowany"
+    },
+    "validation": {
+      "nameRequired": "Nazwa projektu jest wymagana.",
+      "nameMin": "Nazwa projektu musi mieć co najmniej 2 znaki.",
+      "customerRequired": "Klient jest wymagany.",
+      "ownerRequired": "Właściciel projektu jest wymagany.",
+      "priorityInvalid": "Wybierz prawidłowy priorytet.",
+      "statusInvalid": "Wybierz prawidłowy status.",
+      "currencyInvalid": "Wybierz prawidłową walutę.",
+      "budgetInvalid": "Budżet musi być liczbą nieujemną.",
+      "startDateRequired": "Data rozpoczęcia jest wymagana.",
+      "startDateInvalid": "Wpisz prawidłową datę rozpoczęcia.",
+      "dueDateInvalid": "Wpisz prawidłową datę terminu.",
+      "dueDateOrder": "Termin musi wypadać w dniu rozpoczęcia lub później.",
+      "colorInvalid": "Wybierz prawidłowy kolor.",
+      "iconInvalid": "Wybierz prawidłową ikonę.",
+      "taskTitleRequired": "Tytuł zadania jest wymagany.",
+      "progressRange": "Postęp musi być między 0 a 100.",
+      "memberNameRequired": "Nazwa członka jest wymagana.",
+      "emailRequired": "E-mail jest wymagany.",
+      "emailInvalid": "Wpisz prawidłowy adres e-mail.",
+      "roleInvalid": "Wybierz prawidłową rolę.",
+      "noteTitleRequired": "Tytuł notatki jest wymagany.",
+      "noteBodyRequired": "Treść notatki jest wymagana.",
+      "authorRequired": "Autor jest wymagany."
     }
   },
   "automation": {
@@ -2981,14 +3047,14 @@
       "noMatches": "Żadne przebiegi przepływu pracy nie pasują do tego filtra."
     },
     "miniPreview": {
-      "emptyWorkflow": "Empty workflow"
+      "emptyWorkflow": "Pusty przepływ"
     },
     "workflowTemplates": {
       "title": "Biblioteka szablonów",
       "noticeDefault": "Wyświetl podgląd szablonu przed załadowaniem go do kreatora.",
       "noticeLoaded": "Załadowano „{name}” do kreatora przepływu pracy.",
       "nodesBadge": "{count} węzłów",
-      "recommendedFor": "Polecane dla: {dla}",
+      "recommendedFor": "Polecane dla: {for}",
       "preview": "Zapowiedź",
       "useTemplate": "Użyj szablonu",
       "previewTitle": "Podgląd szablonu",
@@ -3019,14 +3085,14 @@
       "notice": {
         "missingWrite": "Brak uprawnień do przepływu pracy.write.",
         "missingExecute": "Brak uprawnienia do przepływu pracy.execute.",
-        "created": "Utworzono {imię}",
+        "created": "Utworzono {name}",
         "templateApplied": "Zastosowano szablon: {name}",
         "runResult": "Uruchom {status} ({duration}ms)",
         "runFailed": "Nie można uruchomić przepływu pracy (wyłączony lub brakujący).",
         "publishedEvent": "Opublikowane zdarzenie domeny: {type}",
         "workflowStatus": "Przepływ pracy {status}",
         "saved": "Przepływ pracy został zapisany",
-        "retryResult": "Spróbuj ponownie {stan}",
+        "retryResult": "Spróbuj ponownie {status}",
         "retryFailed": "Ponowna próba nie powiodła się",
         "settingsSaved": "Ustawienia automatyki zostały zapisane"
       },
@@ -3081,8 +3147,8 @@
         "emptyTitle": "Nie ma jeszcze egzekucji.",
         "emptyDescription": "Uruchom przepływ pracy lub opublikuj wydarzenie domeny.",
         "latestRun": "Najnowsze szczegóły biegu",
-        "path": "Ścieżka: {ścieżka}",
-        "error": "· Błąd: {błąd}",
+        "path": "Ścieżka: {path}",
+        "error": "· Błąd: {error}",
         "columns": {
           "workflow": "Przepływ pracy",
           "status": "Status",
@@ -3115,12 +3181,311 @@
         "timeoutMs": "Limit czasu (ms)",
         "logLevel": "Poziom dziennika",
         "logLevels": {
-          "error": "error",
-          "warn": "warn",
+          "error": "błąd",
+          "warn": "ostrzeżenie",
           "info": "info",
           "debug": "debug"
         },
         "saveSettings": "Zapisz ustawienia"
+      }
+    },
+    "status": {
+      "connected": "Połączono",
+      "beta": "Beta",
+      "comingSoon": "Wkrótce",
+      "disabled": "Wyłączono",
+      "planned": "Zaplanowano",
+      "success": "Sukces",
+      "failed": "Niepowodzenie",
+      "running": "W toku",
+      "pending": "Oczekujące",
+      "retried": "Ponów"
+    },
+    "difficulty": {
+      "starter": "Podstawowy",
+      "intermediate": "Średni",
+      "advanced": "Zaawansowany"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "Wyzwalacz",
+        "description": "Uruchom, gdy wystąpi zdarzenie"
+      },
+      "el-condition": {
+        "label": "Warunek",
+        "description": "Rozgałęziaj według reguł"
+      },
+      "el-delay": {
+        "label": "Opóźnienie",
+        "description": "Poczekaj przed kontynuacją"
+      },
+      "el-approval": {
+        "label": "Zatwierdzenie",
+        "description": "Brama zatwierdzenia przez człowieka"
+      },
+      "el-loop": {
+        "label": "Pętla",
+        "description": "Iteruj po kolekcji"
+      },
+      "el-merge": {
+        "label": "Scal",
+        "description": "Połącz ścieżki równoległe"
+      },
+      "el-split": {
+        "label": "Podziel",
+        "description": "Rozdziel ścieżki równoległe"
+      },
+      "el-ai-decision": {
+        "label": "Decyzja AI",
+        "description": "Kieruj przez AI"
+      },
+      "el-notification": {
+        "label": "Powiadomienie",
+        "description": "Alert w aplikacji"
+      },
+      "el-webhook": {
+        "label": "Symbol zastępczy Webhook",
+        "description": "Zarezerwowano wywołanie HTTP"
+      },
+      "el-custom": {
+        "label": "Akcja niestandardowa",
+        "description": "Rozszerzalne gniazdo akcji"
+      },
+      "tr-customer": {
+        "label": "Utworzono klienta",
+        "description": "Utworzono rekord klienta CRM"
+      },
+      "tr-lead": {
+        "label": "Utworzono leada",
+        "description": "Nowy lead wchodzi do lejka"
+      },
+      "tr-invoice": {
+        "label": "Utworzono fakturę",
+        "description": "Wystawiono fakturę finansową"
+      },
+      "tr-invoice-paid": {
+        "label": "Faktura opłacona",
+        "description": "Płatność rozliczona"
+      },
+      "tr-order": {
+        "label": "Utworzono zamówienie",
+        "description": "Zamówienie wprowadzone"
+      },
+      "tr-order-done": {
+        "label": "Zamówienie ukończone",
+        "description": "Zamówienie zrealizowane"
+      },
+      "tr-doc": {
+        "label": "Przesłano dokument",
+        "description": "Przesłanie do skarbca dokumentów"
+      },
+      "tr-campaign": {
+        "label": "Opublikowano kampanię",
+        "description": "Publikacja Creator Studio"
+      },
+      "tr-employee": {
+        "label": "Dodano pracownika",
+        "description": "Zmiana w katalogu zespołu"
+      },
+      "tr-task": {
+        "label": "Zadanie ukończone",
+        "description": "Zadanie oznaczone jako wykonane"
+      },
+      "tr-manual": {
+        "label": "Wyzwalacz ręczny",
+        "description": "Uruchom na żądanie"
+      },
+      "tr-schedule": {
+        "label": "Wyzwalacz harmonogramu",
+        "description": "Harmonogram cron / kalendarz"
+      },
+      "tr-webhook": {
+        "label": "Wyzwalacz Webhook",
+        "description": "Przychodzące zdarzenie HTTP"
+      },
+      "tr-api": {
+        "label": "Wyzwalacz API",
+        "description": "Start programistyczny"
+      },
+      "ac-crm": {
+        "label": "Utwórz rekord CRM",
+        "description": "Zapisz encję CRM"
+      },
+      "ac-invoice": {
+        "label": "Wygeneruj fakturę",
+        "description": "Faktura finansowa"
+      },
+      "ac-quote": {
+        "label": "Wygeneruj ofertę",
+        "description": "Utwórz dokument oferty"
+      },
+      "ac-delivery": {
+        "label": "Wygeneruj list przewozowy",
+        "description": "List przewozowy"
+      },
+      "ac-task": {
+        "label": "Utwórz zadanie",
+        "description": "Otwórz zadanie"
+      },
+      "ac-assign": {
+        "label": "Przypisz pracownika",
+        "description": "Przekieruj do członka zespołu"
+      },
+      "ac-email": {
+        "label": "Wyślij e-mail",
+        "description": "Wychodzący e-mail"
+      },
+      "ac-notify": {
+        "label": "Wyślij powiadomienie",
+        "description": "Powiadomienie w aplikacji"
+      },
+      "ac-ai-summary": {
+        "label": "Wygeneruj podsumowanie AI",
+        "description": "Podsumuj kontekst"
+      },
+      "ac-ai-content": {
+        "label": "Wygeneruj treść AI",
+        "description": "Szkic Creator Studio"
+      },
+      "ac-update-customer": {
+        "label": "Zaktualizuj klienta",
+        "description": "Łatka klienta CRM"
+      },
+      "ac-update-status": {
+        "label": "Zaktualizuj status",
+        "description": "Zmień status encji"
+      },
+      "ac-pdf": {
+        "label": "Eksportuj PDF",
+        "description": "Eksport dokumentu"
+      },
+      "ac-future": {
+        "label": "Symbol zastępczy przyszłego API",
+        "description": "Zarezerwowane gniazdo akcji"
+      },
+      "ai-decision": {
+        "label": "Decyzja AI",
+        "description": "Wybierz następną ścieżkę"
+      },
+      "ai-class": {
+        "label": "Klasyfikacja AI",
+        "description": "Klasyfikuj rekordy"
+      },
+      "ai-text": {
+        "label": "Generowanie tekstu AI",
+        "description": "Wygeneruj tekst"
+      },
+      "ai-translate": {
+        "label": "Tłumaczenie AI",
+        "description": "Przetłumacz treść"
+      },
+      "ai-email": {
+        "label": "Odpowiedź e-mail AI",
+        "description": "Szkic odpowiedzi"
+      },
+      "ai-sum": {
+        "label": "Streszczenie AI",
+        "description": "Skróć kontekst"
+      },
+      "ai-rec": {
+        "label": "Rekomendacje AI",
+        "description": "Zasugeruj kolejne kroki"
+      },
+      "ai-route": {
+        "label": "Routing AI",
+        "description": "Kieruj do właściciela / kolejki"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "Klient utworzony",
+        "description": "Uruchamia się po utworzeniu klienta CRM."
+      },
+      "project_created": {
+        "label": "Projekt stworzony",
+        "description": "Uruchamia się po utworzeniu projektu."
+      },
+      "invoice_issued": {
+        "label": "Wystawiono fakturę",
+        "description": "Uruchamia się po wystawieniu faktury."
+      },
+      "task_completed": {
+        "label": "Zadanie zakończone",
+        "description": "Uruchamia się po oznaczeniu zadania jako ukończone."
+      },
+      "document_uploaded": {
+        "label": "Dokument przesłany",
+        "description": "Uruchamia się po przesłaniu dokumentu."
+      },
+      "user_invited": {
+        "label": "Zaproszono użytkownika",
+        "description": "Uruchamia się po zaproszeniu członka zespołu."
+      },
+      "schedule": {
+        "label": "Harmonogram",
+        "description": "Wyzwalacz harmonogramu cron / interwału."
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "Przychodzący webhook HTTP."
+      },
+      "api_event": {
+        "label": "Zdarzenie API",
+        "description": "Ogólne zdarzenie domeny API."
+      },
+      "ai_event": {
+        "label": "Zdarzenie AI",
+        "description": "Sygnał AI (ukończenie, wgląd, krok agenta)."
+      },
+      "manual": {
+        "label": "Wyzwalacz ręczny",
+        "description": "Uruchomienie na żądanie z UI lub API."
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "Utwórz Klienta",
+        "description": "Utwórz rekord klienta CRM."
+      },
+      "customer_update": {
+        "label": "Zaktualizuj klienta",
+        "description": "Zaktualizuj pola klienta."
+      },
+      "project_create": {
+        "label": "Utwórz projekt",
+        "description": "Utwórz projekt z kontekstu przepływu."
+      },
+      "document_generate": {
+        "label": "Wygeneruj dokument",
+        "description": "Wygeneruj dokument z szablonu."
+      },
+      "notification_send": {
+        "label": "Wyślij powiadomienie",
+        "description": "Wyślij powiadomienie w aplikacji."
+      },
+      "email_send": {
+        "label": "Wyślij e-mail",
+        "description": "Dodaj e-mail do kolejki przez dostawcę."
+      },
+      "api_call": {
+        "label": "Wywołaj API",
+        "description": "Wywołanie HTTP do wewnętrznego lub zewnętrznego API."
+      },
+      "ai_run": {
+        "label": "Uruchom AI",
+        "description": "Uruchom prompt AI / krok agenta z kontekstem."
+      },
+      "task_assign": {
+        "label": "Przypisz zadanie",
+        "description": "Przypisz zadanie użytkownikowi."
+      },
+      "invoice_create": {
+        "label": "Utwórz fakturę",
+        "description": "Utwórz fakturę finansową."
+      },
+      "status_update": {
+        "label": "Zaktualizuj status",
+        "description": "Zaktualizuj status encji w module."
       }
     }
   },
@@ -3185,7 +3550,7 @@
       "title": "Oczekujące zaproszenia",
       "emptyTitle": "Brak oczekujących zaproszeń",
       "emptyDescription": "Nowe zaproszenia pojawiają się tutaj do czasu ich zaakceptowania lub wygaśnięcia.",
-      "expires": "{rola} · wygasa {data}",
+      "expires": "{role} · wygasa {date}",
       "revoke": "Unieważnić",
       "pending": "aż do"
     },
@@ -3221,9 +3586,9 @@
       "view": "Pogląd",
       "edit": "Redagować",
       "delete": "Usuwać",
-      "viewAria": "Wyświetl {firmę}",
-      "editAria": "Edytuj {firmę}",
-      "deleteAria": "Usuń {firmę}",
+      "viewAria": "Wyświetl {company}",
+      "editAria": "Edytuj {company}",
+      "deleteAria": "Usuń {company}",
       "loading": "Ładowanie klientów…",
       "errorLoad": "Nie udało się wczytać klientów",
       "errorGeneric": "Coś poszło nie tak",
@@ -3278,7 +3643,7 @@
       "title": "Usuń klienta",
       "cancel": "Anulować",
       "confirm": "Usuwać",
-      "confirmWithName": "Trwale usunąć firmę {firma}? Tego nie można cofnąć.",
+      "confirmWithName": "Trwale usunąć firmę {company}? Tego nie można cofnąć.",
       "confirmGeneric": "Ten klient zostanie trwale usunięty.",
       "success": "Klient usunięty",
       "failed": "Usunięcie nie powiodło się",
@@ -3300,6 +3665,18 @@
       "updated": "Zaktualizowano",
       "notes": "Notatki",
       "noNotes": "Nie ma jeszcze żadnych notatek."
+    },
+    "validation": {
+      "companyRequired": "Nazwa firmy jest wymagana.",
+      "contactRequired": "Osoba kontaktowa jest wymagana.",
+      "emailRequired": "E-mail jest wymagany.",
+      "emailInvalid": "Wpisz prawidłowy adres e-mail.",
+      "phoneRequired": "Telefon jest wymagany.",
+      "phoneInvalid": "Wpisz prawidłowy numer telefonu.",
+      "mobileInvalid": "Wpisz prawidłowy numer komórkowy.",
+      "statusInvalid": "Wybierz prawidłowy status.",
+      "emailDuplicate": "Klient z tym e-mailem już istnieje.",
+      "companyDuplicate": "Klient o tej nazwie firmy już istnieje."
     }
   },
   "ai": {
@@ -3320,7 +3697,7 @@
       "provider": "Dostawca",
       "model": "Model",
       "estimatedTokens": "Szac. żetony",
-      "tokensInOut": "(wejście {wejście} / wyjście {wyjście})",
+      "tokensInOut": "(wejście {in} / wyjście {out})",
       "cost": "Koszt",
       "context": "Kontekst",
       "contextNone": "nic",
@@ -3383,6 +3760,91 @@
       "placeholder": "Polecenie AI…podsumuj, zaproponuj, przeanalizuj…",
       "noMatches": "Brak pasujących poleceń",
       "footer": "Rejestruj przyszłe polecenia za pomocą rejestruAiCommand — interfejs użytkownika pozostaje niezmieniony."
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "Projekty",
+      "finance": "Finanse",
+      "marketing": "Marketing",
+      "documents": "Dokumenty",
+      "automation": "Automatyzacja",
+      "general": "Ogólne"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "Podsumuj klienta",
+        "description": "Streszczenie relacji z klientem"
+      },
+      "crm-follow-up-email": {
+        "title": "E-mail uzupełniający",
+        "description": "Szkic profesjonalnego follow-up CRM"
+      },
+      "projects-analyze": {
+        "title": "Analizuj projekt",
+        "description": "Kontrola kondycji projektu"
+      },
+      "projects-task-list": {
+        "title": "Utwórz listę zadań",
+        "description": "Podziel pracę na konkretne zadania"
+      },
+      "finance-explain-invoice": {
+        "title": "Wyjaśnij fakturę",
+        "description": "Wyjaśnienie faktury prostym językiem"
+      },
+      "finance-cashflow-brief": {
+        "title": "Skrót przepływów pieniężnych",
+        "description": "Krótka narracja przepływów"
+      },
+      "marketing-campaign-outline": {
+        "title": "Zarys kampanii",
+        "description": "Ustrukturyzuj kampanię marketingową"
+      },
+      "marketing-proposal": {
+        "title": "Wygeneruj propozycję",
+        "description": "Szkic oferty dla klienta"
+      },
+      "documents-summarize": {
+        "title": "Podsumuj dokument",
+        "description": "Ustrukturyzowane podsumowanie dokumentu"
+      },
+      "automation-workflow": {
+        "title": "Zaprojektuj przepływ",
+        "description": "Szkic przepływu automatyzacji"
+      },
+      "general-brainstorm": {
+        "title": "Burza mózgów opcji",
+        "description": "Ustrukturyzowane ideowanie"
+      },
+      "general-explain": {
+        "title": "Wyjaśnij prosto",
+        "description": "Jasne wyjaśnienie dla interesariuszy"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "Podsumuj klienta",
+        "description": "Streszczenie aktywnego klienta"
+      },
+      "cmd-generate-proposal": {
+        "label": "Wygeneruj propozycję",
+        "description": "Szkic konspektu oferty dla klienta"
+      },
+      "cmd-analyze-project": {
+        "label": "Analizuj projekt",
+        "description": "Kondycja projektu i analiza ryzyka"
+      },
+      "cmd-create-task-list": {
+        "label": "Utwórz listę zadań",
+        "description": "Podziel pracę na konkretne zadania"
+      },
+      "cmd-generate-email": {
+        "label": "Wygeneruj e-mail",
+        "description": "Szkic profesjonalnego e-maila"
+      },
+      "cmd-explain-invoice": {
+        "label": "Wyjaśnij fakturę",
+        "description": "Wyjaśnienie faktury prostym językiem"
+      }
     }
   },
   "agents": {
@@ -3430,14 +3892,14 @@
       "title": "Rejestr",
       "selectPrompt": "Wybierz agenta z rejestru.",
       "status": "Stan: {status}",
-      "health": "Zdrowie: {zdrowie}",
-      "queue": "Kolejka: {kolejka}",
-      "usage": "Użycie: {użycie}",
+      "health": "Zdrowie: {health}",
+      "queue": "Kolejka: {queue}",
+      "usage": "Użycie: {usage}",
       "executeTask": "Wykonaj zadanie",
       "supervisorDelegate": "Delegat nadzorcy"
     },
     "marketplace": {
-      "tools": "Narzędzia: {narzędzia}",
+      "tools": "Narzędzia: {tools}",
       "installed": "Zainstalowany",
       "installActivate": "Zainstaluj i aktywuj"
     },
@@ -3445,7 +3907,7 @@
       "title": "Monitor agenta",
       "emptyTitle": "Brak agentów do monitorowania",
       "emptyDescription": "Aktywuj agentów z rynku.",
-      "latestConfidence": "Najnowsza pewność rozumowania: {pewność} — {kroki}"
+      "latestConfidence": "Najnowsza pewność rozumowania: {confidence} — {steps}"
     },
     "history": {
       "title": "Historia wykonania",
@@ -3504,6 +3966,10 @@
     "goals": {
       "executeBusiness": "Zrealizuj cel biznesowy {agentId}",
       "planAndExecute": "Zaplanuj i zrealizuj cel biznesowy obszaru roboczego"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "Priorytetyzuj wpływ na klienta",
+      "delegatedFollowUp": "Delegowane follow-up"
     }
   },
   "integrations": {
@@ -3528,8 +3994,8 @@
       "keyCreated": "Utworzono klucz API: {prefix}",
       "webhookCreated": "Utworzono webhook: {name}",
       "webhookTest": "Test webhooka {status}",
-      "networkError": "Błąd sieciowy Eksploratora API: {wiadomość}",
-      "explorerError": "Eksplorator API → {status}: {wiadomość}",
+      "networkError": "Błąd sieciowy Eksploratora API: {message}",
+      "explorerError": "Eksplorator API → {status}: {message}",
       "explorerSuccess": "Eksplorator API → {status}",
       "explorerFailed": "Eksplorator nie powiódł się",
       "syncResult": "Synchronizacja demonstracyjna · {status} ({records} rekordy lokalne) — żadne dane zewnętrzne nie zostały przesłane.",
@@ -3537,7 +4003,7 @@
       "removedConnection": "Usunięto połączenie demonstracyjne: {name}",
       "keyRotated": "Klucz obrócony",
       "keyRevoked": "Klucz unieważniony",
-      "publishedEvent": "Opublikowano {typ}",
+      "publishedEvent": "Opublikowano {type}",
       "developerSaved": "Ustawienia programisty zostały zapisane"
     },
     "dashboard": {
@@ -3563,7 +4029,7 @@
       "latestSync": "Ostatnia synchronizacja: {status} · {records} rekordy · tryb {mode}"
     },
     "available": {
-      "protocols": "Protokoły: {protokoły}",
+      "protocols": "Protokoły: {protocols}",
       "demoConnection": "Połączenie demonstracyjne",
       "connectDemo": "Połącz (demo)",
       "installDemo": "Zainstaluj wersję demonstracyjną"
@@ -3576,7 +4042,7 @@
     "apiKeys": {
       "title": "Klucze API",
       "generateKey": "Wygeneruj klucz",
-      "copyOnce": "Skopiuj teraz (pokazane raz): {sekret}",
+      "copyOnce": "Skopiuj teraz (pokazane raz): {secret}",
       "emptyTitle": "Brak kluczy API",
       "emptyDescription": "Wygeneruj klucz dostępu do bramy REST."
     },
@@ -3598,7 +4064,7 @@
       "apiDocs": "Symbol zastępczy dokumentacji API: {url}",
       "sdk": "Symbol zastępczy pakietu SDK: {url}",
       "explorerTitle": "Eksplorator API",
-      "gatewayRoutes": "Trasy bram: {trasy}",
+      "gatewayRoutes": "Trasy bram: {routes}",
       "sendGet": "Wyślij POBIERZ",
       "oauthProviders": "Dostawcy OAuth",
       "placeholdersHint": "Trasy bram GraphQL, WebSocket i gRPC są rejestrowane jako obiekty zastępcze. Mapowanie pól i rozwiązywanie konfliktów synchronizacji są gotowe do wdrożenia w architekturze."
@@ -3646,7 +4112,7 @@
     },
     "errors": {
       "failedToFetch": "Nie udało się pobrać",
-      "httpStatus": "HTTP {stan}"
+      "httpStatus": "HTTP {status}"
     }
   },
   "intelligence": {
@@ -3730,14 +4196,14 @@
     "insights": {
       "emptyTitle": "Nie ma jeszcze żadnych spostrzeżeń",
       "emptyDescription": "Informacje demonstracyjne pojawiają się po nasionach obszaru roboczego. Generowanie wglądu w sztuczną inteligencję na żywo nie jest połączone.",
-      "badge": "Wersja demonstracyjna · {rodzaj} · {domena} · konf. {pewność}"
+      "badge": "Wersja demonstracyjna · {kind} · {domain} · konf. {confidence}"
     },
     "forecasts": {
       "emptyTitle": "Nie ma jeszcze prognoz",
       "emptyDescription": "Prognozy demonstracyjne pojawiają się po zasiewie. Modele predykcyjne nie są połączone.",
-      "title": "Prognoza {rodzaj}",
-      "baseline": "Wartość bazowa {linia bazowa} → przewidywana {przewidywana} ({days}d)",
-      "confidence": "Demo · Pewność {pewność} — {notatka}"
+      "title": "Prognoza {kind}",
+      "baseline": "Wartość bazowa {baseline} → przewidywana {projected} ({days}d)",
+      "confidence": "Demo · Pewność {confidence} — {note}"
     },
     "alerts": {
       "title": "Silnik ostrzegawczy",
@@ -3789,8 +4255,8 @@
     "shell": {
       "brand": "AGXORA",
       "navLabel": "Nawigacja prawna",
-      "lastUpdated": "Ostatnia aktualizacja: {data}",
-      "footerCopyright": "© 2026 {firma}",
+      "lastUpdated": "Ostatnia aktualizacja: {date}",
+      "footerCopyright": "© 2026 {company}",
       "footerNavLabel": "Stopka prawna",
       "nav": {
         "privacy": "Prywatność",
@@ -3944,7 +4410,134 @@
     "back": "Z powrotem",
     "continue": "Kontynuować",
     "launching": "Wodowanie…",
-    "enterDashboard": "Wejdź do panelu"
+    "enterDashboard": "Wejdź do panelu",
+    "defaultCountry": "Stany Zjednoczone",
+    "businessTypes": {
+      "hotel": {
+        "label": "Hotel",
+        "description": "Hotelarstwo, pokoje, goście i eksploatacja obiektu"
+      },
+      "restaurant": {
+        "label": "Restauracja",
+        "description": "Gastronomia, kuchnia, rezerwacje i doświadczenie gościa"
+      },
+      "cleaning": {
+        "label": "Sprzątanie",
+        "description": "Sprzątanie komercyjne i mieszkaniowe"
+      },
+      "laundry": {
+        "label": "Pralnia",
+        "description": "Pralnie, trasy odbioru i pielęgnacja tkanin"
+      },
+      "construction": {
+        "label": "Budownictwo",
+        "description": "Place budowy, ekipy, materiały i dostawa projektów"
+      },
+      "healthcare": {
+        "label": "Opieka zdrowotna",
+        "description": "Sieci opieki, pacjenci i operacje kliniczne"
+      },
+      "medical": {
+        "label": "Medycyna",
+        "description": "Kliniki, wizyty i zespoły opieki"
+      },
+      "manufacturing": {
+        "label": "Produkcja",
+        "description": "Linie produkcyjne, jakość i operacje zaopatrzenia"
+      },
+      "retail": {
+        "label": "Handel detaliczny",
+        "description": "Sklepy, zapasy, merchandising i klienci"
+      },
+      "legal": {
+        "label": "Kancelaria prawna",
+        "description": "Sprawy, klienci, terminy i rozliczenia"
+      },
+      "accounting": {
+        "label": "Księgowość",
+        "description": "Księgi, klienci, zgłoszenia i doradztwo"
+      },
+      "consulting": {
+        "label": "Doradztwo",
+        "description": "Zlecenia, dostawy i wyniki klientów"
+      },
+      "real_estate": {
+        "label": "Nieruchomości",
+        "description": "Oferty, klienci, pokazy i transakcje"
+      },
+      "education": {
+        "label": "Edukacja",
+        "description": "Programy, studenci, kadra i rekrutacja"
+      },
+      "automotive": {
+        "label": "Motoryzacja",
+        "description": "Salony, stanowiska serwisowe i zapas pojazdów"
+      },
+      "beauty": {
+        "label": "Salon urody",
+        "description": "Wizyty, styliści, sprzedaż i członkostwa"
+      },
+      "fitness": {
+        "label": "Siłownia / fitness",
+        "description": "Członkostwa, zajęcia, trenerzy i retencja"
+      },
+      "agriculture": {
+        "label": "Rolnictwo",
+        "description": "Uprawy, zwierzęta, plony i łańcuchy dostaw"
+      },
+      "transport": {
+        "label": "Transport",
+        "description": "Ruch floty, trasy oraz ops pasażerskie/ładunkowe"
+      },
+      "logistics": {
+        "label": "Logistyka",
+        "description": "Flota, magazyny, trasy i realizacja"
+      },
+      "warehouse": {
+        "label": "Magazyn",
+        "description": "Magazynowanie, kompletacja, pakowanie i rotacja zapasów"
+      },
+      "insurance": {
+        "label": "Ubezpieczenia",
+        "description": "Polisy, szkody, underwriting i retencja"
+      },
+      "finance": {
+        "label": "Finanse",
+        "description": "Kapitał, portfele i operacje finansowe"
+      },
+      "financial_services": {
+        "label": "Usługi finansowe",
+        "description": "Doradztwo, produkty, zgodność i klienci"
+      },
+      "technology": {
+        "label": "Technologia",
+        "description": "Produkt, inżynieria i zespoły go-to-market"
+      },
+      "saas": {
+        "label": "Oprogramowanie / SaaS",
+        "description": "Subskrypcje, użycie i customer success"
+      },
+      "ecommerce": {
+        "label": "E-commerce",
+        "description": "Katalog online, koszyki, realizacja i LTV"
+      },
+      "agency": {
+        "label": "Agencja marketingowa",
+        "description": "Klienci, kampanie, retainery i dostawa"
+      },
+      "freelancer": {
+        "label": "Freelancer",
+        "description": "Praktyka solo, klienci, lejek i cashflow"
+      },
+      "government": {
+        "label": "Administracja",
+        "description": "Usługi publiczne, programy i mieszkańcy"
+      },
+      "nonprofit": {
+        "label": "Organizacja non-profit",
+        "description": "Misje, darczyńcy, programy i wpływ"
+      }
+    }
   },
   "creator": {
     "page": {
@@ -4042,8 +4635,8 @@
     "analytics": {
       "title": "Analityka",
       "topPosts": "Najlepsze posty",
-      "engagement": "inż. {wartość}",
-      "reach": "Osiągnij {wartość}",
+      "engagement": "inż. {value}",
+      "reach": "Osiągnij {value}",
       "recommendations": "Zalecenia AI"
     },
     "integrations": {
@@ -4052,6 +4645,47 @@
     },
     "aiFeaturesPanel": {
       "lead": "Mapa funkcji AI — pomysły, podpisy, hashtagi, kalendarz, kampanie, odbiorcy, harmonogram, spójność marki, przepisywanie, tłumaczenie, wielojęzyczność."
+    },
+    "formats": {
+      "instagram_caption": "Podpis Instagram",
+      "tiktok_script": "Scenariusz TikTok",
+      "linkedin_post": "Post LinkedIn",
+      "facebook_post": "Post Facebook",
+      "x_post": "Post X",
+      "blog_article": "Artykuł na blogu",
+      "newsletter": "Newsletter",
+      "email_campaign": "Kampania e-mail",
+      "product_description": "Opis produktu",
+      "ad_copy": "Tekst reklamy",
+      "seo_article": "Artykuł SEO",
+      "landing_page_copy": "Tekst strony docelowej"
+    },
+    "publishStatus": {
+      "draft": "Szkic",
+      "review": "Recenzja",
+      "approved": "Zatwierdzono",
+      "scheduled": "Zaplanowano",
+      "published": "Opublikowano",
+      "archive": "Archiwum"
+    },
+    "mediaKind": {
+      "image": "Obraz",
+      "video": "Wideo",
+      "document": "Dokument",
+      "logo": "Logo marki",
+      "template": "Szablon"
+    },
+    "voice": {
+      "professional": "Profesjonalny",
+      "friendly": "Przyjazny",
+      "luxury": "Luksusowy",
+      "casual": "Swobodny"
+    },
+    "integrationStatus": {
+      "planned": "Zaplanowano",
+      "ready": "Gotowe",
+      "connected": "Połączono",
+      "disabled": "Wyłączono"
     }
   },
   "backend": {
@@ -4065,7 +4699,7 @@
     },
     "network": {
       "offline": "Wygląda na to, że jesteś offline",
-      "offlineSyncHint": "Changes may not sync until the connection returns.",
+      "offlineSyncHint": "Zmiany mogą nie zostać zsynchronizowane, dopóki połączenie nie wróci.",
       "offlineHelp": "Pomoc offline",
       "reconnected": "Połączenie przywrócone"
     },
@@ -4111,7 +4745,10 @@
       "startFree": "Zamiast tego zacznij bezpłatnie",
       "backHome": "Powrót do domu",
       "signIn": "Zalogować się"
-    }
+    },
+    "loading": "Ładowanie",
+    "loadingEllipsis": "Ładowanie…",
+    "loadingIdentity": "Ładowanie tożsamości…"
   },
   "workspace": {
     "page": {
@@ -4120,9 +4757,9 @@
       "descriptionNamed": "Izolowana powierzchnia robocza najemcy dla {name}."
     },
     "idLabel": "Identyfikator obszaru roboczego:",
-    "active": "Aktywny: {nazwa}",
+    "active": "Aktywny: {name}",
     "notInSession": "Nie w bieżącej sesji",
-    "organization": "Organizacja: {name} ({ślimak})",
+    "organization": "Organizacja: {name} ({slug})",
     "searchResults": "Wyniki wyszukiwania"
   },
   "iam": {
@@ -4172,7 +4809,7 @@
       "disabled": "Wyłączony",
       "enabled": "Włączony",
       "days": "{count} dni",
-      "minutes": "{liczba} min",
+      "minutes": "{count} min",
       "toggleIdlePolicy": "Przełącz symbol zastępczy bezczynnych zasad",
       "previewSessionExpired": "Sesja podglądu wygasła",
       "previewAccountLocked": "Konto podglądowe zablokowane",
@@ -4262,28 +4899,28 @@
       "ariaLabel": "Zmień obszar roboczy"
     },
     "access": {
-      "eyebrow": "Identity & Access",
-      "signIn": "Sign in",
-      "backToDashboard": "Back to dashboard",
+      "eyebrow": "Tożsamość i dostęp",
+      "signIn": "Zaloguj się",
+      "backToDashboard": "Powrót do pulpitu",
       "unauthorized": {
-        "title": "Unauthorized",
-        "description": "Sign in to continue to this area of AGXORA."
+        "title": "Brak autoryzacji",
+        "description": "Zaloguj się, aby kontynuować w tym obszarze AGXORA."
       },
       "forbidden": {
-        "title": "Forbidden",
-        "description": "Your role does not include permission for this resource."
+        "title": "Zabronione",
+        "description": "Twoja rola nie obejmuje uprawnienia do tego zasobu."
       },
       "expired_session": {
-        "title": "Expired Session",
-        "description": "Your session expired. Sign in again to resume work."
+        "title": "Sesja wygasła",
+        "description": "Sesja wygasła. Zaloguj się ponownie, aby wznowić pracę."
       },
       "missing_permission": {
-        "title": "Missing Permission",
-        "description": "Ask an Owner or Admin to grant the required module access."
+        "title": "Brak uprawnienia",
+        "description": "Poproś właściciela lub administratora o przyznanie wymaganego dostępu do modułu."
       },
       "account_locked": {
-        "title": "Account Locked",
-        "description": "This account is locked. Contact an organization owner or try again later."
+        "title": "Konto zablokowane",
+        "description": "To konto jest zablokowane. Skontaktuj się z właścicielem organizacji lub spróbuj ponownie później."
       }
     },
     "verifyEmail": {

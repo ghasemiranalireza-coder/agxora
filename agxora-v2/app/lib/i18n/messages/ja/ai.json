@@ -79,5 +79,90 @@
     "placeholder": "AIコマンド…まとめる、提案する、分析する…",
     "noMatches": "一致するコマンドはありません",
     "footer": "registerAiCommand 経由で今後のコマンドを登録します。UI は変更されません。"
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "プロジェクト",
+    "finance": "財務",
+    "marketing": "マーケティング",
+    "documents": "ドキュメント",
+    "automation": "自動化",
+    "general": "一般"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "顧客を要約",
+      "description": "顧客関係のエグゼクティブサマリー"
+    },
+    "crm-follow-up-email": {
+      "title": "フォローアップメール",
+      "description": "プロの CRM フォローアップを下書き"
+    },
+    "projects-analyze": {
+      "title": "プロジェクトを分析",
+      "description": "プロジェクトの健全性チェック"
+    },
+    "projects-task-list": {
+      "title": "タスクリストを作成",
+      "description": "作業を実行可能なタスクに分解"
+    },
+    "finance-explain-invoice": {
+      "title": "請求書を説明",
+      "description": "平易な請求書の説明"
+    },
+    "finance-cashflow-brief": {
+      "title": "キャッシュフロー概要",
+      "description": "短いキャッシュフロー説明"
+    },
+    "marketing-campaign-outline": {
+      "title": "キャンペーン概要",
+      "description": "マーケティングキャンペーンを構成"
+    },
+    "marketing-proposal": {
+      "title": "提案を生成",
+      "description": "顧客向け提案の下書き"
+    },
+    "documents-summarize": {
+      "title": "ドキュメントを要約",
+      "description": "構造化されたドキュメント要約"
+    },
+    "automation-workflow": {
+      "title": "ワークフローを設計",
+      "description": "自動化ワークフローのスケッチ"
+    },
+    "general-brainstorm": {
+      "title": "選択肢をブレインストーム",
+      "description": "構造化された発想"
+    },
+    "general-explain": {
+      "title": "わかりやすく説明",
+      "description": "ステークホルダー向けの明確な説明"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "顧客を要約",
+      "description": "アクティブな顧客のエグゼクティブサマリー"
+    },
+    "cmd-generate-proposal": {
+      "label": "提案を生成",
+      "description": "顧客提案のアウトラインを下書き"
+    },
+    "cmd-analyze-project": {
+      "label": "プロジェクトを分析",
+      "description": "プロジェクト健全性とリスク分析"
+    },
+    "cmd-create-task-list": {
+      "label": "タスクリストを作成",
+      "description": "作業を実行可能なタスクに分解"
+    },
+    "cmd-generate-email": {
+      "label": "メールを生成",
+      "description": "プロのメールを下書き"
+    },
+    "cmd-explain-invoice": {
+      "label": "請求書を説明",
+      "description": "平易な請求書の説明"
+    }
   }
 }

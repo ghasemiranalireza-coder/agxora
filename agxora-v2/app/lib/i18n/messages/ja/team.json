@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "アイデンティティとアクセス",
     "title": "チーム",
-    "lead": "{組織} のメンバー、役割、招待状。将来の ID API に備えたアーキテクチャ。",
+    "lead": "{organization} のメンバー、役割、招待状。将来の ID API に備えたアーキテクチャ。",
     "yourOrganization": "あなたの組織"
   },
   "invite": {
@@ -49,7 +49,7 @@
     "columnEmail": "電子メール",
     "columnRole": "役割",
     "columnStatus": "状態",
-    "roleFor": "{名前}の役割",
+    "roleFor": "{name}の役割",
     "emptyTitle": "まだメンバーがいません",
     "emptyDescription": "この組織のワークスペースに同僚を招待します。",
     "updated": "{name} を {role} に更新しました",
@@ -59,7 +59,7 @@
     "title": "保留中の招待状",
     "emptyTitle": "保留中の招待はありません",
     "emptyDescription": "新しい招待は、承認されるか期限が切れるまでここに表示されます。",
-    "expires": "{役割} · 有効期限は {日付} になります",
+    "expires": "{role} · 有効期限は {date} になります",
     "revoke": "取り消す",
     "pending": "保留中"
   },

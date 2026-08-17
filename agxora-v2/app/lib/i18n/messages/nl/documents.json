@@ -50,42 +50,42 @@
     "documents": {
       "label": "Documenten",
       "caption": "Voorbeeld · in verschillende mappen",
-      "delta": "+{tel}"
+      "delta": "+{count}"
     },
     "folders": {
       "label": "Mappen",
       "caption": "Voorbeeld · inclusief slimme collecties",
-      "delta": "+{tel}"
+      "delta": "+{count}"
     },
     "storage": {
       "label": "Opslag gebruikt",
       "caption": "Voorbeeld · van een illustratief plan",
-      "delta": "+{maat}"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "Gedeelde documenten",
       "caption": "Voorbeeld · organisatie + afdeling + gebruikers",
-      "delta": "+{tel}"
+      "delta": "+{count}"
     },
     "activity": {
       "label": "Recente activiteit",
       "caption": "Monster · laatste 24 uur",
-      "delta": "+{tel}"
+      "delta": "+{count}"
     },
     "indexed": {
       "label": "AI geïndexeerd",
       "caption": "Voorbeeld · AI-zoekopdracht niet verbonden",
-      "delta": "{procent}"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "In afwachting van goedkeuringen",
       "caption": "Voorbeeld · automatisering niet aangesloten",
-      "delta": "{graaf}"
+      "delta": "{count}"
     },
     "score": {
       "label": "Kennisscore",
       "caption": "Voorbeeld · dekkingsillustratie",
-      "delta": "+{tel}"
+      "delta": "+{count}"
     }
   },
   "library": {
@@ -114,7 +114,7 @@
     "title": "Documentbibliotheek",
     "results": "{count} resultaten",
     "resultOne": "{count} resultaat",
-    "selected": "· {aantal} geselecteerd",
+    "selected": "· {count} geselecteerd",
     "bulkAction": "Bulkactie",
     "bulkUnavailable": "Bulkactie niet beschikbaar voor {count} item(s) - opslagmutaties zijn niet gekoppeld.",
     "searchLabel": "Globaal zoeken",
@@ -130,7 +130,7 @@
     "favoritesOnly": "Alleen favorieten",
     "emptyTitle": "Er zijn geen documenten om te tonen",
     "emptyDescription": "Pas filters aan, wis zoekopdrachten of voeg kennismiddelen toe om de bibliotheek te laten groeien.",
-    "selectAria": "Selecteer {naam}",
+    "selectAria": "Selecteer {name}",
     "versionHistoryTitle": "Versiegeschiedenis",
     "close": "Dichtbij",
     "context": {
@@ -151,7 +151,7 @@
     "zoomIn": "Zoom+",
     "prev": "Vorige",
     "next": "Volgende",
-    "page": "Pagina {pagina} / {totaal}",
+    "page": "Pagina {page} / {total}",
     "searchInside": "Zoek binnen",
     "findPlaceholder": "Vind in voorbeeld…",
     "noMatches": "Geen overeenkomsten in voorbeeldtekst.",
@@ -177,7 +177,7 @@
     "title": "Versiegeschiedenis",
     "emptyTitle": "Geen document geselecteerd",
     "emptyDescription": "Open een document om versies, notities te bekijken, te herstellen en te vergelijken.",
-    "current": "{naam} · huidige {versie}",
+    "current": "{name} · huidige {version}",
     "restore": "Versie herstellen",
     "compare": "Vergelijk versies",
     "restoreTitle": "Voor herstel is de opslag-API vereist",
@@ -380,9 +380,9 @@
     "planned": "Gepland"
   },
   "bytes": {
-    "b": "{waarde} B",
-    "kb": "{waarde} KB",
-    "mb": "{waarde} MB",
-    "gb": "{waarde} GB"
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
   }
 }

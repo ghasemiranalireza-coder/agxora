@@ -67,7 +67,7 @@
       "paid-invoices": {
         "label": "Faturas pagas",
         "caption": "Amostra · neste trimestre",
-        "delta": "+{contar}"
+        "delta": "+{count}"
       },
       "cashflow": {
         "label": "Fluxo de caixa",
@@ -77,10 +77,10 @@
       "ai-score": {
         "label": "Pontuação financeira de IA",
         "caption": "Pontuação da amostra · pontuação de risco não real",
-        "delta": "+{contar}"
+        "delta": "+{count}"
       }
     },
-    "scoreOutOf": "{pontuação} / {máx.}"
+    "scoreOutOf": "{score} / {max}"
   },
   "invoices": {
     "emptyTitle": "Sem faturas",
@@ -90,7 +90,7 @@
     "paymentFilter": "Filtro de pagamento",
     "sortBy": "Ordenar por",
     "toggleSort": "Alternar direção de classificação",
-    "count": "{contar} faturas",
+    "count": "{count} faturas",
     "countOne": "{count} fatura",
     "allStatuses": "Todos os status",
     "allPayments": "Todos os pagamentos",

@@ -138,7 +138,7 @@ export function CustomerTable(): JSX.Element {
       <Card className="space-y-4" padding="24px" hover={false}>
         <ErrorState
           title={t("customers.table.errorLoad")}
-          description={state.error}
+          description={t(state.error)}
           onRetry={() =>
             void customerStore.hydrate(state.organizationId ?? "org_local_default")
           }
@@ -152,7 +152,7 @@ export function CustomerTable(): JSX.Element {
       {state.error ? (
         <ErrorState
           title={t("customers.table.errorGeneric")}
-          description={state.error}
+          description={t(state.error)}
           onRetry={() =>
             void customerStore.hydrate(state.organizationId ?? "org_local_default")
           }

@@ -7,5 +7,28 @@
   "acceptTerms": "Please accept the terms to continue.",
   "generic": "Something went wrong.",
   "tryAgain": "Please try again.",
-  "saved": "Saved successfully."
+  "saved": "Saved successfully.",
+  "invalidCredentials": "Invalid email or password.",
+  "signInRequired": "Sign in required.",
+  "insufficientPermissions": "Insufficient permissions.",
+  "noRouteAccess": "You do not have access to this route.",
+  "accountLocked": "This account is locked. Contact an administrator.",
+  "sessionExpired": "Your session expired. Sign in again.",
+  "missingPermission": "Missing permission: {permission}",
+  "roleCannotAccess": "Your role cannot access this resource.",
+  "codes": {
+    "AUTH_INVALID_CREDENTIALS": "Invalid email or password.",
+    "AUTH_SESSION_EXPIRED": "Your session expired. Sign in again.",
+    "AUTH_ACCOUNT_LOCKED": "This account is locked. Contact an administrator.",
+    "AUTH_SIGN_IN_REQUIRED": "Sign in to continue.",
+    "AUTH_INSUFFICIENT_PERMISSIONS": "Insufficient permissions.",
+    "AUTH_NO_ROUTE_ACCESS": "You do not have access to this route.",
+    "COMMON_SOMETHING_WENT_WRONG": "Something went wrong.",
+    "COMMON_PAGE_NOT_FOUND": "Page not found.",
+    "COMMON_OFFLINE": "You are offline.",
+    "COMMON_TIMEOUT": "The request timed out.",
+    "COMMON_VALIDATION": "Please check your input and try again.",
+    "COMMON_UNKNOWN": "An unknown error occurred.",
+    "COMMON_INTERNAL": "An unexpected error occurred. Please try again."
+  }
 }

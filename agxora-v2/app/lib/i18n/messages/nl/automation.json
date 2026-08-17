@@ -69,7 +69,7 @@
     "tabTriggers": "Triggers",
     "tabActions": "Acties",
     "tabAiActions": "AI-acties",
-    "builderTitle": "Workflowbouwer · {naam}",
+    "builderTitle": "Workflowbouwer · {name}",
     "builderHint": "Uitlijnen op {grid}px-raster · ⌘/Ctrl+scrollzoom · sleep canvas om te pannen · dubbelklik op verbinden",
     "autoSaved": "Automatisch opgeslagen",
     "saving": "Besparing…",
@@ -100,7 +100,7 @@
     "noticeDefault": "Bekijk een voorbeeld van een sjabloon voordat u deze in de builder laadt.",
     "noticeLoaded": "\"{name}\" in de workflowbuilder geladen.",
     "nodesBadge": "{count} knooppunten",
-    "recommendedFor": "Aanbevolen voor: {voor}",
+    "recommendedFor": "Aanbevolen voor: {for}",
     "preview": "Voorbeeld",
     "useTemplate": "Gebruik sjabloon",
     "previewTitle": "Sjabloonvoorbeeld",
@@ -131,7 +131,7 @@
     "notice": {
       "missingWrite": "Ontbrekende machtiging workflow.write.",
       "missingExecute": "Ontbrekende machtiging workflow.execute.",
-      "created": "{naam} gemaakt",
+      "created": "{name} gemaakt",
       "templateApplied": "Sjabloon toegepast: {name}",
       "runResult": "Voer {status} uit ({duration} ms)",
       "runFailed": "De workflow kan niet worden uitgevoerd (uitgeschakeld of ontbreekt).",
@@ -193,8 +193,8 @@
       "emptyTitle": "Nog geen executies.",
       "emptyDescription": "Voer een workflow uit of publiceer een domeingebeurtenis.",
       "latestRun": "Laatste rundetails",
-      "path": "Pad: {pad}",
-      "error": "· Fout: {fout}",
+      "path": "Pad: {path}",
+      "error": "· Fout: {error}",
       "columns": {
         "workflow": "Werkstroom",
         "status": "Status",
@@ -226,7 +226,315 @@
       "concurrencyLimit": "Gelijktijdigheidslimiet",
       "timeoutMs": "Time-out (ms)",
       "logLevel": "Logniveau",
-      "saveSettings": "Instellingen opslaan"
+      "saveSettings": "Instellingen opslaan",
+      "logLevels": {
+        "error": "fout",
+        "warn": "waarschuwing",
+        "info": "info",
+        "debug": "debug"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Lege workflow"
+  },
+  "status": {
+    "connected": "Verbonden",
+    "beta": "Bèta",
+    "comingSoon": "Binnenkort",
+    "disabled": "Uitgeschakeld",
+    "planned": "Gepland",
+    "success": "Geslaagd",
+    "failed": "Mislukt",
+    "running": "Bezig",
+    "pending": "In behandeling",
+    "retried": "Opnieuw"
+  },
+  "difficulty": {
+    "starter": "Beginner",
+    "intermediate": "Gemiddeld",
+    "advanced": "Gevorderd"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Trigger",
+      "description": "Start wanneer een gebeurtenis plaatsvindt"
+    },
+    "el-condition": {
+      "label": "Voorwaarde",
+      "description": "Vertakken op regels"
+    },
+    "el-delay": {
+      "label": "Vertraging",
+      "description": "Wacht voordat u doorgaat"
+    },
+    "el-approval": {
+      "label": "Goedkeuring",
+      "description": "Menselijke goedkeuringspoort"
+    },
+    "el-loop": {
+      "label": "Lus",
+      "description": "Itereren over een verzameling"
+    },
+    "el-merge": {
+      "label": "Samenvoegen",
+      "description": "Parallelle paden samenvoegen"
+    },
+    "el-split": {
+      "label": "Splitsen",
+      "description": "Parallelle paden uitspreiden"
+    },
+    "el-ai-decision": {
+      "label": "AI-beslissing",
+      "description": "Via AI routeren"
+    },
+    "el-notification": {
+      "label": "Melding",
+      "description": "In-app-melding"
+    },
+    "el-webhook": {
+      "label": "Webhook-plaatsaanduiding",
+      "description": "HTTP-callback gereserveerd"
+    },
+    "el-custom": {
+      "label": "Aangepaste actie",
+      "description": "Uitbreidbaar actieveld"
+    },
+    "tr-customer": {
+      "label": "Klant aangemaakt",
+      "description": "CRM-klantrecord aangemaakt"
+    },
+    "tr-lead": {
+      "label": "Lead aangemaakt",
+      "description": "Nieuwe lead komt in de pijplijn"
+    },
+    "tr-invoice": {
+      "label": "Factuur aangemaakt",
+      "description": "Financiële factuur uitgegeven"
+    },
+    "tr-invoice-paid": {
+      "label": "Factuur betaald",
+      "description": "Betaling afgehandeld"
+    },
+    "tr-order": {
+      "label": "Order aangemaakt",
+      "description": "Order ingevoerd"
+    },
+    "tr-order-done": {
+      "label": "Order voltooid",
+      "description": "Order vervuld"
+    },
+    "tr-doc": {
+      "label": "Document geüpload",
+      "description": "Upload naar documentkluis"
+    },
+    "tr-campaign": {
+      "label": "Campagne gepubliceerd",
+      "description": "Creator Studio-publicatie"
+    },
+    "tr-employee": {
+      "label": "Medewerker toegevoegd",
+      "description": "Wijziging in teamdirectory"
+    },
+    "tr-task": {
+      "label": "Taak voltooid",
+      "description": "Taak als gereed gemarkeerd"
+    },
+    "tr-manual": {
+      "label": "Handmatige trigger",
+      "description": "Op verzoek uitvoeren"
+    },
+    "tr-schedule": {
+      "label": "Planningstrigger",
+      "description": "Cron- / kalenderplanning"
+    },
+    "tr-webhook": {
+      "label": "Webhook-trigger",
+      "description": "Inkomend HTTP-event"
+    },
+    "tr-api": {
+      "label": "API-trigger",
+      "description": "Programmatische start"
+    },
+    "ac-crm": {
+      "label": "CRM-record aanmaken",
+      "description": "CRM-entiteit schrijven"
+    },
+    "ac-invoice": {
+      "label": "Factuur genereren",
+      "description": "Financiële factuur"
+    },
+    "ac-quote": {
+      "label": "Offerte genereren",
+      "description": "Offertedocument maken"
+    },
+    "ac-delivery": {
+      "label": "Leveringsbon genereren",
+      "description": "Leveringsbon"
+    },
+    "ac-task": {
+      "label": "Taak aanmaken",
+      "description": "Een taak openen"
+    },
+    "ac-assign": {
+      "label": "Medewerker toewijzen",
+      "description": "Naar een teammate routeren"
+    },
+    "ac-email": {
+      "label": "E-mail verzenden",
+      "description": "Uitgaande e-mail"
+    },
+    "ac-notify": {
+      "label": "Melding verzenden",
+      "description": "In-app-melding"
+    },
+    "ac-ai-summary": {
+      "label": "AI-samenvatting genereren",
+      "description": "Context samenvatten"
+    },
+    "ac-ai-content": {
+      "label": "AI-inhoud genereren",
+      "description": "Creator Studio-concept"
+    },
+    "ac-update-customer": {
+      "label": "Klant bijwerken",
+      "description": "CRM-klant patchen"
+    },
+    "ac-update-status": {
+      "label": "Status bijwerken",
+      "description": "Entiteitsstatus wijzigen"
+    },
+    "ac-pdf": {
+      "label": "PDF exporteren",
+      "description": "Documentexport"
+    },
+    "ac-future": {
+      "label": "Toekomstige API-plaatsaanduiding",
+      "description": "Gereserveerd actieveld"
+    },
+    "ai-decision": {
+      "label": "AI-beslissing",
+      "description": "Volgend pad bepalen"
+    },
+    "ai-class": {
+      "label": "AI-classificatie",
+      "description": "Records classificeren"
+    },
+    "ai-text": {
+      "label": "AI-tekstgeneratie",
+      "description": "Tekst genereren"
+    },
+    "ai-translate": {
+      "label": "AI-vertaling",
+      "description": "Inhoud vertalen"
+    },
+    "ai-email": {
+      "label": "AI-e-mailantwoord",
+      "description": "Antwoord opstellen"
+    },
+    "ai-sum": {
+      "label": "AI-samenvatting",
+      "description": "Context condenseren"
+    },
+    "ai-rec": {
+      "label": "AI-aanbevelingen",
+      "description": "Volgende stappen voorstellen"
+    },
+    "ai-route": {
+      "label": "AI-routering",
+      "description": "Naar eigenaar / wachtrij routeren"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Klant aangemaakt",
+      "description": "Wordt geactiveerd wanneer een CRM-klantrecord wordt aangemaakt."
+    },
+    "project_created": {
+      "label": "Project gemaakt",
+      "description": "Wordt geactiveerd wanneer een project wordt aangemaakt."
+    },
+    "task_completed": {
+      "label": "Taak voltooid",
+      "description": "Wordt geactiveerd wanneer een taak als voltooid wordt gemarkeerd."
+    },
+    "document_uploaded": {
+      "label": "Document geüpload",
+      "description": "Wordt geactiveerd wanneer een document wordt geüpload."
+    },
+    "schedule": {
+      "label": "Schema",
+      "description": "Cron-/intervalschema."
+    },
+    "invoice_issued": {
+      "label": "Factuur uitgegeven",
+      "description": "Wordt geactiveerd wanneer een factuur wordt uitgegeven."
+    },
+    "user_invited": {
+      "label": "Gebruiker uitgenodigd",
+      "description": "Wordt geactiveerd wanneer een teammid wordt uitgenodigd."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Inkomende HTTP-webhook."
+    },
+    "api_event": {
+      "label": "API-gebeurtenis",
+      "description": "Algemeen API-domeinevent."
+    },
+    "ai_event": {
+      "label": "AI-gebeurtenis",
+      "description": "AI-signaal (voltooiing, inzicht, agentstap)."
+    },
+    "manual": {
+      "label": "Handmatige trigger",
+      "description": "On-demand vanuit de automatiserings-UI of API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Klant aanmaken",
+      "description": "Een CRM-klantrecord aanmaken."
+    },
+    "customer_update": {
+      "label": "Klant bijwerken",
+      "description": "Velden van een klant bijwerken."
+    },
+    "project_create": {
+      "label": "Project maken",
+      "description": "Een project vanuit de workflowcontext aanmaken."
+    },
+    "notification_send": {
+      "label": "Melding verzenden",
+      "description": "Een in-app-melding sturen."
+    },
+    "email_send": {
+      "label": "E-mail verzenden",
+      "description": "Een e-mail via de mailprovider in de wachtrij zetten."
+    },
+    "invoice_create": {
+      "label": "Factuur maken",
+      "description": "Een financiële factuur aanmaken."
+    },
+    "status_update": {
+      "label": "Status bijwerken",
+      "description": "De status van een entiteit in een module bijwerken."
+    },
+    "document_generate": {
+      "label": "Document genereren",
+      "description": "Een document uit een sjabloon genereren."
+    },
+    "api_call": {
+      "label": "API aanroepen",
+      "description": "HTTP-aanroep naar een interne of externe API."
+    },
+    "ai_run": {
+      "label": "AI uitvoeren",
+      "description": "Een AI-prompt / agentstap met context uitvoeren."
+    },
+    "task_assign": {
+      "label": "Taak toewijzen",
+      "description": "Een taak aan een gebruiker toewijzen."
     }
   }
 }

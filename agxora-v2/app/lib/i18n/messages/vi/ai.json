@@ -16,7 +16,7 @@
     "provider": "nhà cung cấp",
     "model": "Người mẫu",
     "estimatedTokens": "Ước tính. mã thông báo",
-    "tokensInOut": "(vào {vào} / ra {ra})",
+    "tokensInOut": "(vào {in} / ra {out})",
     "cost": "Trị giá",
     "context": "Bối cảnh",
     "contextNone": "không có",
@@ -79,5 +79,90 @@
     "placeholder": "Lệnh AI… tóm tắt, đề xuất, phân tích…",
     "noMatches": "Không có lệnh phù hợp",
     "footer": "Đăng ký các lệnh trong tương lai thông qua registerAiCommand - Giao diện người dùng không thay đổi."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Dự án",
+    "finance": "Tài chính",
+    "marketing": "Marketing",
+    "documents": "Tài liệu",
+    "automation": "Tự động hóa",
+    "general": "Chung"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Tóm tắt khách hàng",
+      "description": "Tóm tắt điều hành mối quan hệ khách hàng"
+    },
+    "crm-follow-up-email": {
+      "title": "Email theo dõi",
+      "description": "Soạn email theo dõi CRM chuyên nghiệp"
+    },
+    "projects-analyze": {
+      "title": "Phân tích dự án",
+      "description": "Kiểm tra sức khỏe dự án"
+    },
+    "projects-task-list": {
+      "title": "Tạo danh sách công việc",
+      "description": "Chia công việc thành các nhiệm vụ có thể thực hiện"
+    },
+    "finance-explain-invoice": {
+      "title": "Giải thích hóa đơn",
+      "description": "Giải thích hóa đơn bằng ngôn ngữ dễ hiểu"
+    },
+    "finance-cashflow-brief": {
+      "title": "Tóm tắt dòng tiền",
+      "description": "Mô tả ngắn về dòng tiền"
+    },
+    "marketing-campaign-outline": {
+      "title": "Dàn ý chiến dịch",
+      "description": "Cấu trúc chiến dịch marketing"
+    },
+    "marketing-proposal": {
+      "title": "Tạo đề xuất",
+      "description": "Bản nháp đề xuất dành cho khách"
+    },
+    "documents-summarize": {
+      "title": "Tóm tắt tài liệu",
+      "description": "Tóm tắt tài liệu có cấu trúc"
+    },
+    "automation-workflow": {
+      "title": "Thiết kế quy trình",
+      "description": "Phác thảo quy trình tự động hóa"
+    },
+    "general-brainstorm": {
+      "title": "Động não các lựa chọn",
+      "description": "Lên ý tưởng có cấu trúc"
+    },
+    "general-explain": {
+      "title": "Giải thích đơn giản",
+      "description": "Giải thích rõ cho các bên liên quan"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Tóm tắt khách hàng",
+      "description": "Tóm tắt điều hành khách hàng đang chọn"
+    },
+    "cmd-generate-proposal": {
+      "label": "Tạo đề xuất",
+      "description": "Soạn dàn ý đề xuất cho khách"
+    },
+    "cmd-analyze-project": {
+      "label": "Phân tích dự án",
+      "description": "Sức khỏe dự án và phân tích rủi ro"
+    },
+    "cmd-create-task-list": {
+      "label": "Tạo danh sách công việc",
+      "description": "Chia công việc thành các nhiệm vụ có thể thực hiện"
+    },
+    "cmd-generate-email": {
+      "label": "Tạo email",
+      "description": "Soạn email chuyên nghiệp"
+    },
+    "cmd-explain-invoice": {
+      "label": "Giải thích hóa đơn",
+      "description": "Giải thích hóa đơn bằng ngôn ngữ dễ hiểu"
+    }
   }
 }

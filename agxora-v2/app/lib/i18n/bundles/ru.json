@@ -1,21 +1,21 @@
 {
   "common": {
-    "save": "Сохранять",
+    "save": "Сохранить",
     "saveChanges": "Сохранить изменения",
     "cancel": "Отмена",
-    "close": "Закрывать",
+    "close": "Закрыть",
     "delete": "Удалить",
     "edit": "Редактировать",
     "search": "Поиск",
     "loading": "Загрузка…",
-    "retry": "Повторить попытку",
+    "retry": "Повторить",
     "language": "Язык",
     "signIn": "Войти",
-    "signOut": "выход",
+    "signOut": "Выйти",
     "contact": "Контакт",
     "privacy": "Конфиденциальность",
     "terms": "Условия",
-    "cookies": "Файлы cookie",
+    "cookies": "Cookies",
     "imprint": "Выходные данные",
     "organization": "Организация",
     "user": "Пользователь",
@@ -32,9 +32,16 @@
     "sample": "Образец",
     "showPassword": "Показать пароль",
     "hidePassword": "Скрыть пароль",
-    "continue": "Продолжать",
+    "continue": "Продолжить",
     "back": "Назад",
-    "home": "Дом"
+    "home": "Главная",
+    "loadingShort": "Загрузка",
+    "create": "Создать",
+    "next": "Далее",
+    "previous": "Назад",
+    "settings": "Настройки",
+    "profile": "Профиль",
+    "dashboard": "Панель"
   },
   "navigation": {
     "dashboard": "Bнформационная панель",
@@ -61,7 +68,7 @@
     "notificationsEmpty": "Вы все в плену. Здесь будут появляться оповещения и упоминания.",
     "accountSettings": "Настройки учетной записи",
     "security": "Безопасность",
-    "themeToggle": "Быстрое переключение темы. Предпочтение: {режим}"
+    "themeToggle": "Быстрое переключение темы. Предпочтение: {mode}"
   },
   "pricing": {
     "navLabel": "Ценовая навигация",
@@ -157,15 +164,15 @@
       "recommended": "Рекомендуется",
       "contactSales": "Контактный отдел продаж",
       "pricePerMonth": "€{price}/мес.",
-      "users": "{количество} пользователей",
+      "users": "{count} пользователей",
       "aiRequests": "{count} требуется AI в месяц",
       "storage": "{count} МБ хранилища",
       "moduleFeatures": "{count} функций модуля",
       "choosePlan": "Выбрать план",
       "processing": "Обработка…",
-      "currentPlanAria": "{имя} — текущий план",
-      "contactSalesAria": "{имя} — свяжитесь с отделом продаж",
-      "choosePlanAria": "{имя} — выберите план"
+      "currentPlanAria": "{name} — текущий план",
+      "contactSalesAria": "{name} — свяжитесь с отделом продаж",
+      "choosePlanAria": "{name} — выберите план"
     },
     "admin": {
       "eyebrow": "Админ",
@@ -491,7 +498,7 @@
       "createdAt": "Вошёл в систему",
       "expiresAt": "Срок действия истекает",
       "revoke": "Отменить сеанс",
-      "revokeAria": "Отменить сеанс, вошедший в систему {когда}",
+      "revokeAria": "Отменить сеанс, вошедший в систему {when}",
       "revokeOthers": "Выйти из других сеансов",
       "revokeOthersAria": "Выйти из всех сеансов, кроме текущего",
       "revoked": "Сессия отменена.",
@@ -586,7 +593,7 @@
       "title": "Настройки",
       "lead": "Корпоративная конфигурация для каждого модуля AGXORA — профиль, организация, искусственный интеллект, внешний вид, безопасность, выставление счетов и элементы управления разработчика в одном месте.",
       "loading": "Загрузка настроек…",
-      "breadcrumb": "{ярлык} · {описание}"
+      "breadcrumb": "{label} · {description}"
     },
     "saveChanges": "Сохранить изменения",
     "sessionNotice": "Обновлено для этого сеанса — {area} не подключена.",
@@ -624,7 +631,7 @@
       "owner": "Владелец",
       "counts": "Участники · рабочие места",
       "orgUpdated": "Организация обновлена.",
-      "countsValue": "{участники} · {рабочие пространства}",
+      "countsValue": "{members} · {workspaces}",
       "joined": "Присоединился",
       "workspaceName": "Имя рабочей области",
       "switchWorkspace": "Активное рабочее пространство",
@@ -697,15 +704,38 @@
     }
   },
   "errors": {
-    "required": "Это поле обязательно к заполнению.",
-    "invalidEmail": "Введите действительный адрес электронной почты.",
+    "required": "Это поле обязательно.",
+    "invalidEmail": "Введите действительный адрес эл. почты.",
     "passwordMin": "Пароль должен быть не менее 8 символов.",
     "passwordLettersNumbers": "Пароль должен состоять из букв и цифр.",
     "passwordMismatch": "Пароли не совпадают.",
     "acceptTerms": "Пожалуйста, примите условия, чтобы продолжить.",
     "generic": "Что-то пошло не так.",
     "tryAgain": "Пожалуйста, попробуйте еще раз.",
-    "saved": "Сохранено успешно."
+    "saved": "Сохранено успешно.",
+    "invalidCredentials": "Неверный адрес эл. почты или пароль.",
+    "signInRequired": "Требуется вход.",
+    "insufficientPermissions": "Недостаточно прав.",
+    "noRouteAccess": "У вас нет доступа к этому маршруту.",
+    "accountLocked": "Эта учётная запись заблокирована. Обратитесь к администратору.",
+    "sessionExpired": "Сеанс истёк. Войдите снова.",
+    "missingPermission": "Нет разрешения: {permission}",
+    "roleCannotAccess": "Ваша роль не может получить доступ к этому ресурсу.",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "Неверный адрес эл. почты или пароль.",
+      "AUTH_SESSION_EXPIRED": "Сеанс истёк. Войдите снова.",
+      "AUTH_ACCOUNT_LOCKED": "Эта учётная запись заблокирована. Обратитесь к администратору.",
+      "AUTH_SIGN_IN_REQUIRED": "Войдите, чтобы продолжить.",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "Недостаточно прав.",
+      "AUTH_NO_ROUTE_ACCESS": "У вас нет доступа к этому маршруту.",
+      "COMMON_SOMETHING_WENT_WRONG": "Что-то пошло не так.",
+      "COMMON_PAGE_NOT_FOUND": "Страница не найдена.",
+      "COMMON_OFFLINE": "Вы не в сети.",
+      "COMMON_TIMEOUT": "Время запроса истекло.",
+      "COMMON_VALIDATION": "Проверьте введённые данные и повторите попытку.",
+      "COMMON_UNKNOWN": "Произошла неизвестная ошибка.",
+      "COMMON_INTERNAL": "Произошла непредвиденная ошибка. Повторите попытку."
+    }
   },
   "dashboard": {
     "skipToContent": "Перейти к содержимому информационной панели",
@@ -857,7 +887,7 @@
       "title": "АГСОРА ИИ",
       "emptyState": "Спросите AGXORA о клиентах, проектах или следующих действиях. Ваш разговор останется в этом сеансе рабочей области.",
       "thinking": "АГСОРА думает…",
-      "errorDismiss": "{ошибка} — нажмите, чтобы закрыть",
+      "errorDismiss": "{error} — нажмите, чтобы закрыть",
       "placeholder": "Спросите AGXORA AI…",
       "messageAria": "Сообщение AGXORA AI",
       "sendAria": "Отправить сообщение",
@@ -1190,20 +1220,20 @@
       "viewPricing": "Посмотреть цены",
       "bookDemo": "Забронировать демо",
       "failed": "Не удалось отправить запрос",
-      "country": "Country",
-      "savedFor": "Saved for {company}. Sales delivery is not connected in this build.",
-      "preferWalkthrough": "Prefer a product walkthrough next?",
-      "preferSelfServe": "Prefer self-serve?"
+      "country": "Страна",
+      "savedFor": "Сохранено для {company}. Доставка продаж не подключена в этой сборке.",
+      "preferWalkthrough": "Предпочитаете далее обзор продукта?",
+      "preferSelfServe": "Предпочитаете самостоятельную работу?"
     },
     "welcome": {
       "title": "Добро пожаловать в АГСОРА",
       "subtitle": "Ваше рабочее место готово. Перейдите к приборной панели.",
       "continue": "Перейти на панель управления",
-      "checklistProfile": "Confirm your organization profile",
-      "checklistModules": "Choose modules that match how you work",
-      "checklistDashboard": "Enter the dashboard with a clear starting point",
-      "exploreFirst": "Prefer to explore first?",
-      "skipToDashboard": "Skip to dashboard"
+      "checklistProfile": "Подтвердите профиль организации",
+      "checklistModules": "Выберите модули под ваш способ работы",
+      "checklistDashboard": "Войдите в панель с понятной отправной точкой",
+      "exploreFirst": "Предпочитаете сначала осмотреться?",
+      "skipToDashboard": "Перейти к панели"
     },
     "locked": {
       "title": "Аккаунт заблокирован",
@@ -1216,7 +1246,17 @@
       "subtitle": "Пожалуйста, войдите еще раз, чтобы продолжить.",
       "signIn": "Войти"
     },
-    "brand": "АГСОРА"
+    "brand": "АГСОРА",
+    "validation": {
+      "emailRequired": "Эл. почта обязательна.",
+      "emailInvalid": "Введите действительный адрес эл. почты.",
+      "passwordRequired": "Пароль обязателен.",
+      "passwordMin": "Пароль должен содержать не менее 8 символов.",
+      "nameRequired": "Имя обязательно.",
+      "nameMin": "Имя должно содержать не менее 2 символов.",
+      "passwordMismatch": "Пароли не совпадают.",
+      "slugFormat": "Используйте только строчные буквы, цифры и дефисы."
+    }
   },
   "crm": {
     "page": {
@@ -1318,12 +1358,12 @@
         "previous": "Предыдущий",
         "next": "Следующий"
       },
-      "showing": "Показаны {от}–{до} из {total}",
+      "showing": "Показаны {from}–{to} из {total}",
       "aria": {
-        "openCustomer": "Открыть клиента {компания}"
+        "openCustomer": "Открыть клиента {company}"
       },
-      "cardMeta": "Владелец {owner} · Создано {дата}",
-      "sortBy": "Сортировать по {столбцу}"
+      "cardMeta": "Владелец {owner} · Создано {date}",
+      "sortBy": "Сортировать по {column}"
     },
     "status": {
       "lead": "Вести",
@@ -1693,7 +1733,7 @@
         "label": "Оценка здоровья ИИ",
         "caption": "Сигнал качества отношений"
       },
-      "scoreOutOf": "{оценка} / {макс}"
+      "scoreOutOf": "{score} / {max}"
     },
     "pipeline": {
       "lead": "Вести",
@@ -1805,12 +1845,12 @@
         },
         "open-invoices": {
           "label": "Открытые счета",
-          "caption": "Образец · {деньги} в погашении"
+          "caption": "Образец · {money} в погашении"
         },
         "paid-invoices": {
           "label": "Оплаченные счета",
           "caption": "Образец · в этом квартале",
-          "delta": "+{количество}"
+          "delta": "+{count}"
         },
         "cashflow": {
           "label": "Денежный поток",
@@ -1820,10 +1860,10 @@
         "ai-score": {
           "label": "Финансовый рейтинг ИИ",
           "caption": "Выборочная оценка · не оценка реального риска",
-          "delta": "+{количество}"
+          "delta": "+{count}"
         }
       },
-      "scoreOutOf": "{оценка} / {макс}"
+      "scoreOutOf": "{score} / {max}"
     },
     "invoices": {
       "emptyTitle": "Нет счетов-фактур",
@@ -1995,7 +2035,7 @@
       "demoPrefix": "Демо",
       "noticeDefault": "Действия по анализу не связаны друг с другом — на карточках показаны только выборочные результаты.",
       "actionUnavailable": "{action} недоступно — действия Finance Insight не связаны.",
-      "actionUnavailableTitle": "{действие} недоступно — не подключено",
+      "actionUnavailableTitle": "{action} недоступно — не подключено",
       "kinds": {
         "unusual_expense": "Необычные расходы",
         "duplicate_invoice": "Дублирующиеся счета",
@@ -2090,42 +2130,42 @@
       "documents": {
         "label": "Документы",
         "caption": "Выборка · по папкам",
-        "delta": "+{количество}"
+        "delta": "+{count}"
       },
       "folders": {
         "label": "Папки",
         "caption": "Образец · включая умные коллекции",
-        "delta": "+{количество}"
+        "delta": "+{count}"
       },
       "storage": {
         "label": "Используемое хранилище",
         "caption": "Образец · иллюстративного плана",
-        "delta": "+{размер}"
+        "delta": "+{size}"
       },
       "shared": {
         "label": "Общие документы",
         "caption": "Пример · организация + отдел + пользователи",
-        "delta": "+{количество}"
+        "delta": "+{count}"
       },
       "activity": {
         "label": "Недавняя активность",
         "caption": "Образец · за последние 24 часа",
-        "delta": "+{количество}"
+        "delta": "+{count}"
       },
       "indexed": {
         "label": "Индексировано ИИ",
         "caption": "Пример · Поиск AI не подключен",
-        "delta": "{процент}"
+        "delta": "{percent}"
       },
       "approvals": {
         "label": "Ожидающие одобрения",
         "caption": "Образец · автоматизация не подключена",
-        "delta": "{считать}"
+        "delta": "{count}"
       },
       "score": {
         "label": "Оценка знаний",
         "caption": "Образец · иллюстрация покрытия",
-        "delta": "+{количество}"
+        "delta": "+{count}"
       }
     },
     "library": {
@@ -2170,7 +2210,7 @@
       "favoritesOnly": "Только избранное",
       "emptyTitle": "Нет документов для показа",
       "emptyDescription": "Настройте фильтры, очистите поиск или добавьте ресурсы знаний для расширения библиотеки.",
-      "selectAria": "Выберите {имя}",
+      "selectAria": "Выберите {name}",
       "versionHistoryTitle": "История версий",
       "close": "Закрывать",
       "context": {
@@ -2191,7 +2231,7 @@
       "zoomIn": "Увеличить +",
       "prev": "Предыдущий",
       "next": "Следующий",
-      "page": "Страница {страница} / {всего}",
+      "page": "Страница {page} / {total}",
       "searchInside": "Искать внутри",
       "findPlaceholder": "Найти в предварительном просмотре…",
       "noMatches": "Нет совпадений в тексте предварительного просмотра.",
@@ -2217,7 +2257,7 @@
       "title": "История версий",
       "emptyTitle": "Документ не выбран",
       "emptyDescription": "Откройте документ для проверки версий, примечаний, восстановления и сравнения.",
-      "current": "{имя} · текущая {версия}",
+      "current": "{name} · текущая {version}",
       "restore": "Восстановить версию",
       "compare": "Сравнить версии",
       "restoreTitle": "Для восстановления требуется API хранилища.",
@@ -2235,7 +2275,7 @@
       "reject": "Отклонять",
       "sendToReview": "Отправить на рассмотрение",
       "noticeDefault": "Для переходов утверждения требуется механизм рабочего процесса автоматизации, который не подключен в этой сборке.",
-      "unavailable": "{действие} недоступно для {id} — механизм рабочего процесса не подключен. Статус образца образца не изменился.",
+      "unavailable": "{action} недоступно для {id} — механизм рабочего процесса не подключен. Статус образца образца не изменился.",
       "approveTitle": "Утверждение недоступно — механизм рабочего процесса не подключен",
       "rejectTitle": "Отклонение невозможно — механизм рабочего процесса не подключен",
       "sendTitle": "Отправка на проверку недоступна — механизм рабочего процесса не подключен"
@@ -2420,7 +2460,7 @@
       "planned": "Планируется"
     },
     "bytes": {
-      "b": "{значение} Б",
+      "b": "{value} Б",
       "kb": "{value} КБ",
       "mb": "{value} МБ",
       "gb": "{value} ГБ"
@@ -2535,8 +2575,9 @@
       "terms": "Условия",
       "cookies": "Файлы cookie",
       "imprint": "Выходные данные",
-      "copyright": "© {год} {компания}"
-    }
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — 3D-глобус"
   },
   "ui": {
     "table": {
@@ -2612,13 +2653,13 @@
       "emptyTitle": "Пока нет проектов",
       "emptyDescription": "Раскрутите рабочую область доставки, чтобы отслеживать этапы, бюджет и ответственность команды.",
       "createProject": "Создать проект",
-      "pagination": "Показаны {от}–{до} из {total}",
+      "pagination": "Показаны {from}–{to} из {total}",
       "previous": "Предыдущий",
       "next": "Следующий",
       "noDescription": "Описания пока нет.",
-      "duePrefix": "Срок оплаты}",
-      "openProject": "Открыть проект {имя}",
-      "sortBy": "Сортировать по {столбцу}",
+      "duePrefix": "Due {date}",
+      "openProject": "Открыть проект {name}",
+      "sortBy": "Сортировать по {column}",
       "sort": {
         "name": "Имя",
         "customer": "Клиент",
@@ -2719,24 +2760,24 @@
       "emptyDescription": "Добавьте даты начала/срока и задачи, чтобы заполнить расписание.",
       "title": "Хронология",
       "subtitle": "Начало, конец, продолжительность, вехи. Зависимости зарезервированы для будущих версий.",
-      "dateRange": "{начало} → {конец} · {дней}д",
+      "dateRange": "{start} → {end} · {days}д",
       "itemAria": "{title} с {start} по {end}",
       "dependenciesNone": "Зависимости: нет"
     },
     "dashboard": {
       "kpi": {
         "activeProjects": "Активные проекты",
-        "activeHint": "{планирование} планирование",
+        "activeHint": "{planning} планирование",
         "completed": "Завершенный",
         "completedHint": "{percent}% портфеля",
         "onHold": "На удерживании",
-        "onHoldHint": "{в архиве} в архиве",
+        "onHoldHint": "{archived} в архиве",
         "teamMembers": "Члены команды",
         "teamHint": "Во всех проектах",
         "budgetOverview": "Обзор бюджета",
         "budgetHint": "Использовано: {percent} % · потрачено: {spent}",
         "openTasks": "Открытые задачи",
-        "openTasksHint": "{просрочено} просрочено",
+        "openTasksHint": "{overdue} просрочено",
         "projectHealth": "Здоровье проекта",
         "healthHint": "Совокупный показатель доставки",
         "upcomingDeadlines": "Ближайшие сроки",
@@ -2763,7 +2804,7 @@
       "emptyTitle": "На доске нет задач",
       "emptyDescription": "Создавайте задачи для организации доставки в разделах «Сделать», «В работе», «Проверка» и «Готово».",
       "addTask": "Добавить задачу",
-      "columnAria": "Столбец {статус}",
+      "columnAria": "Столбец {status}",
       "taskProgress": "Ход выполнения задачи",
       "edit": "Редактировать",
       "complete": "Полный"
@@ -2772,7 +2813,7 @@
       "notFoundTitle": "Проект не найден",
       "notFoundDescription": "Возможно, этот проект был удален или недоступен для текущей организации.",
       "backToProjects": "← Вернуться к проектам",
-      "ownerMeta": "{клиент} · Владелец {владелец}",
+      "ownerMeta": "{customer} · Владелец {owner}",
       "edit": "Редактировать",
       "delete": "Удалить",
       "sectionsAria": "Разделы сведений о проекте",
@@ -2881,6 +2922,31 @@
       "memberAdded": "Участник добавлен",
       "settingsSaved": "Настройки сохранены.",
       "projectArchived": "Проект в архиве"
+    },
+    "validation": {
+      "nameRequired": "Название проекта обязательно.",
+      "nameMin": "Название проекта должно содержать не менее 2 символов.",
+      "customerRequired": "Клиент обязателен.",
+      "ownerRequired": "Владелец проекта обязателен.",
+      "priorityInvalid": "Выберите допустимый приоритет.",
+      "statusInvalid": "Выберите допустимый статус.",
+      "currencyInvalid": "Выберите допустимую валюту.",
+      "budgetInvalid": "Бюджет должен быть неотрицательным числом.",
+      "startDateRequired": "Дата начала обязательна.",
+      "startDateInvalid": "Введите действительную дату начала.",
+      "dueDateInvalid": "Введите действительную дату срока.",
+      "dueDateOrder": "Срок должен быть не раньше даты начала.",
+      "colorInvalid": "Выберите допустимый цвет.",
+      "iconInvalid": "Выберите допустимый значок.",
+      "taskTitleRequired": "Название задачи обязательно.",
+      "progressRange": "Прогресс должен быть от 0 до 100.",
+      "memberNameRequired": "Имя участника обязательно.",
+      "emailRequired": "Эл. почта обязательна.",
+      "emailInvalid": "Введите действительный адрес эл. почты.",
+      "roleInvalid": "Выберите допустимую роль.",
+      "noteTitleRequired": "Заголовок заметки обязателен.",
+      "noteBodyRequired": "Текст заметки обязателен.",
+      "authorRequired": "Автор обязателен."
     }
   },
   "automation": {
@@ -2981,7 +3047,7 @@
       "noMatches": "Ни один запуск рабочего процесса не соответствует этому фильтру."
     },
     "miniPreview": {
-      "emptyWorkflow": "Empty workflow"
+      "emptyWorkflow": "Пустой рабочий процесс"
     },
     "workflowTemplates": {
       "title": "Библиотека шаблонов",
@@ -3019,14 +3085,14 @@
       "notice": {
         "missingWrite": "Отсутствует разрешение workflow.write.",
         "missingExecute": "Отсутствует разрешение workflow.execute.",
-        "created": "Создано {имя}",
+        "created": "Создано {name}",
         "templateApplied": "Применен шаблон: {name}",
         "runResult": "Запустить {status} ({duration} мс)",
         "runFailed": "Не удалось запустить рабочий процесс (отключен или отсутствует).",
         "publishedEvent": "Событие опубликованного домена: {type}",
-        "workflowStatus": "Рабочий процесс {статус}",
+        "workflowStatus": "Рабочий процесс {status}",
         "saved": "Рабочий процесс сохранен.",
-        "retryResult": "Повторить {статус}",
+        "retryResult": "Повторить {status}",
         "retryFailed": "Повторная попытка не удалась",
         "settingsSaved": "Настройки автоматизации сохранены."
       },
@@ -3081,8 +3147,8 @@
         "emptyTitle": "Казней пока нет.",
         "emptyDescription": "Запустите рабочий процесс или опубликуйте событие предметной области.",
         "latestRun": "Подробности последнего запуска",
-        "path": "Путь: {путь}",
-        "error": "· Ошибка: {ошибка}",
+        "path": "Путь: {path}",
+        "error": "· Ошибка: {error}",
         "columns": {
           "workflow": "Рабочий процесс",
           "status": "Статус",
@@ -3115,12 +3181,311 @@
         "timeoutMs": "Тайм-аут (мс)",
         "logLevel": "Уровень журнала",
         "logLevels": {
-          "error": "error",
-          "warn": "warn",
-          "info": "info",
-          "debug": "debug"
+          "error": "ошибка",
+          "warn": "предупреждение",
+          "info": "инфо",
+          "debug": "отладка"
         },
         "saveSettings": "Сохранить настройки"
+      }
+    },
+    "status": {
+      "connected": "Подключено",
+      "beta": "Бета",
+      "comingSoon": "Скоро",
+      "disabled": "Отключено",
+      "planned": "Запланировано",
+      "success": "Успех",
+      "failed": "Сбой",
+      "running": "Выполняется",
+      "pending": "Ожидание",
+      "retried": "Повтор"
+    },
+    "difficulty": {
+      "starter": "Начальный",
+      "intermediate": "Средний",
+      "advanced": "Продвинутый"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "Триггер",
+        "description": "Запуск при срабатывании события"
+      },
+      "el-condition": {
+        "label": "Условие",
+        "description": "Ветвление по правилам"
+      },
+      "el-delay": {
+        "label": "Задержка",
+        "description": "Подождать перед продолжением"
+      },
+      "el-approval": {
+        "label": "Согласование",
+        "description": "Шлюз ручного согласования"
+      },
+      "el-loop": {
+        "label": "Цикл",
+        "description": "Перебор коллекции"
+      },
+      "el-merge": {
+        "label": "Объединение",
+        "description": "Соединить параллельные пути"
+      },
+      "el-split": {
+        "label": "Разделение",
+        "description": "Развести параллельные пути"
+      },
+      "el-ai-decision": {
+        "label": "Решение ИИ",
+        "description": "Маршрутизация через ИИ"
+      },
+      "el-notification": {
+        "label": "Уведомление",
+        "description": "Оповещение в приложении"
+      },
+      "el-webhook": {
+        "label": "Заполнитель Webhook",
+        "description": "HTTP-колбэк зарезервирован"
+      },
+      "el-custom": {
+        "label": "Пользовательское действие",
+        "description": "Расширяемый слот действия"
+      },
+      "tr-customer": {
+        "label": "Клиент создан",
+        "description": "Создана CRM-запись клиента"
+      },
+      "tr-lead": {
+        "label": "Лид создан",
+        "description": "Новый лид попадает в воронку"
+      },
+      "tr-invoice": {
+        "label": "Счёт создан",
+        "description": "Выставлен финансовый счёт"
+      },
+      "tr-invoice-paid": {
+        "label": "Счёт оплачен",
+        "description": "Платёж закрыт"
+      },
+      "tr-order": {
+        "label": "Заказ создан",
+        "description": "Заказ введён"
+      },
+      "tr-order-done": {
+        "label": "Заказ выполнен",
+        "description": "Заказ исполнен"
+      },
+      "tr-doc": {
+        "label": "Документ загружен",
+        "description": "Загрузка в хранилище документов"
+      },
+      "tr-campaign": {
+        "label": "Кампания опубликована",
+        "description": "Публикация Creator Studio"
+      },
+      "tr-employee": {
+        "label": "Сотрудник добавлен",
+        "description": "Изменение в справочнике команды"
+      },
+      "tr-task": {
+        "label": "Задача выполнена",
+        "description": "Задача отмечена выполненной"
+      },
+      "tr-manual": {
+        "label": "Ручной триггер",
+        "description": "Запуск по требованию"
+      },
+      "tr-schedule": {
+        "label": "Триггер расписания",
+        "description": "Расписание cron / календарь"
+      },
+      "tr-webhook": {
+        "label": "Триггер Webhook",
+        "description": "Входящее HTTP-событие"
+      },
+      "tr-api": {
+        "label": "Триггер API",
+        "description": "Программный запуск"
+      },
+      "ac-crm": {
+        "label": "Создать запись CRM",
+        "description": "Записать сущность CRM"
+      },
+      "ac-invoice": {
+        "label": "Сформировать счёт",
+        "description": "Финансовый счёт"
+      },
+      "ac-quote": {
+        "label": "Сформировать предложение",
+        "description": "Создать документ предложения"
+      },
+      "ac-delivery": {
+        "label": "Сформировать накладную",
+        "description": "Накладная"
+      },
+      "ac-task": {
+        "label": "Создать задачу",
+        "description": "Открыть задачу"
+      },
+      "ac-assign": {
+        "label": "Назначить сотрудника",
+        "description": "Направить коллеге"
+      },
+      "ac-email": {
+        "label": "Отправить эл. письмо",
+        "description": "Исходящее письмо"
+      },
+      "ac-notify": {
+        "label": "Отправить уведомление",
+        "description": "Уведомление в приложении"
+      },
+      "ac-ai-summary": {
+        "label": "Сформировать сводку ИИ",
+        "description": "Сжать контекст"
+      },
+      "ac-ai-content": {
+        "label": "Сформировать контент ИИ",
+        "description": "Черновик Creator Studio"
+      },
+      "ac-update-customer": {
+        "label": "Обновить клиента",
+        "description": "Частично обновить клиента CRM"
+      },
+      "ac-update-status": {
+        "label": "Обновить статус",
+        "description": "Изменить статус сущности"
+      },
+      "ac-pdf": {
+        "label": "Экспорт PDF",
+        "description": "Экспорт документа"
+      },
+      "ac-future": {
+        "label": "Заполнитель будущей API",
+        "description": "Зарезервированный слот действия"
+      },
+      "ai-decision": {
+        "label": "Решение ИИ",
+        "description": "Выбрать следующий путь"
+      },
+      "ai-class": {
+        "label": "Классификация ИИ",
+        "description": "Классифицировать записи"
+      },
+      "ai-text": {
+        "label": "Генерация текста ИИ",
+        "description": "Сгенерировать текст"
+      },
+      "ai-translate": {
+        "label": "Перевод ИИ",
+        "description": "Перевести содержимое"
+      },
+      "ai-email": {
+        "label": "Ответ ИИ по эл. почте",
+        "description": "Черновик ответа"
+      },
+      "ai-sum": {
+        "label": "Суммаризация ИИ",
+        "description": "Сжать контекст"
+      },
+      "ai-rec": {
+        "label": "Рекомендации ИИ",
+        "description": "Предложить следующие шаги"
+      },
+      "ai-route": {
+        "label": "Маршрутизация ИИ",
+        "description": "Направить владельцу / в очередь"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "Клиент создан",
+        "description": "Срабатывает при создании клиента CRM."
+      },
+      "project_created": {
+        "label": "Проект создан",
+        "description": "Срабатывает при создании проекта."
+      },
+      "invoice_issued": {
+        "label": "Счёт выставлен",
+        "description": "Срабатывает при выставлении счёта."
+      },
+      "task_completed": {
+        "label": "Задача выполнена",
+        "description": "Срабатывает, когда задача отмечается выполненной."
+      },
+      "document_uploaded": {
+        "label": "Документ загружен",
+        "description": "Срабатывает при загрузке документа."
+      },
+      "user_invited": {
+        "label": "Пользователь приглашён",
+        "description": "Срабатывает при приглашении участника команды."
+      },
+      "schedule": {
+        "label": "Расписание",
+        "description": "Триггер расписания cron / интервала."
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "Входящий HTTP-webhook."
+      },
+      "api_event": {
+        "label": "Событие API",
+        "description": "Общее доменное событие API."
+      },
+      "ai_event": {
+        "label": "Событие ИИ",
+        "description": "Сигнал ИИ (завершение, инсайт, шаг агента)."
+      },
+      "manual": {
+        "label": "Ручной триггер",
+        "description": "Запуск по требованию из UI или API."
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "Создать клиента",
+        "description": "Создать запись клиента CRM."
+      },
+      "customer_update": {
+        "label": "Обновить клиента",
+        "description": "Обновить поля клиента."
+      },
+      "project_create": {
+        "label": "Создать проект",
+        "description": "Создать проект из контекста сценария."
+      },
+      "document_generate": {
+        "label": "Создать документ",
+        "description": "Создать документ из шаблона."
+      },
+      "notification_send": {
+        "label": "Отправить уведомление",
+        "description": "Отправить уведомление в приложении."
+      },
+      "email_send": {
+        "label": "Отправить эл. письмо",
+        "description": "Поставить письмо в очередь через провайдера."
+      },
+      "api_call": {
+        "label": "Вызов API",
+        "description": "HTTP-вызов внутреннего или внешнего API."
+      },
+      "ai_run": {
+        "label": "Запустить ИИ",
+        "description": "Выполнить промпт ИИ / шаг агента с контекстом."
+      },
+      "task_assign": {
+        "label": "Назначить задачу",
+        "description": "Назначить задачу пользователю."
+      },
+      "invoice_create": {
+        "label": "Создать счет",
+        "description": "Создать финансовый счёт."
+      },
+      "status_update": {
+        "label": "Обновить статус",
+        "description": "Обновить статус сущности в модуле."
       }
     }
   },
@@ -3221,9 +3586,9 @@
       "view": "Вид",
       "edit": "Редактировать",
       "delete": "Удалить",
-      "viewAria": "Посмотреть {компанию}",
-      "editAria": "Изменить {компанию}",
-      "deleteAria": "Удалить {компанию}",
+      "viewAria": "Посмотреть {company}",
+      "editAria": "Изменить {company}",
+      "deleteAria": "Удалить {company}",
       "loading": "Загрузка клиентов…",
       "errorLoad": "Не удалось загрузить клиентов",
       "errorGeneric": "Что-то пошло не так",
@@ -3300,6 +3665,18 @@
       "updated": "Обновлено",
       "notes": "Примечания",
       "noNotes": "Примечаний пока нет."
+    },
+    "validation": {
+      "companyRequired": "Название компании обязательно.",
+      "contactRequired": "Контактное лицо обязательно.",
+      "emailRequired": "Эл. почта обязательна.",
+      "emailInvalid": "Введите действительный адрес эл. почты.",
+      "phoneRequired": "Телефон обязателен.",
+      "phoneInvalid": "Введите действительный номер телефона.",
+      "mobileInvalid": "Введите действительный номер мобильного.",
+      "statusInvalid": "Выберите допустимый статус.",
+      "emailDuplicate": "Клиент с этой эл. почтой уже существует.",
+      "companyDuplicate": "Клиент с этим названием компании уже существует."
     }
   },
   "ai": {
@@ -3320,7 +3697,7 @@
       "provider": "Поставщик",
       "model": "Модель",
       "estimatedTokens": "Стандартное восточное время. жетоны",
-      "tokensInOut": "(вход {вход} / выход {выход})",
+      "tokensInOut": "(вход {in} / выход {out})",
       "cost": "Расходы",
       "context": "Контекст",
       "contextNone": "никто",
@@ -3383,6 +3760,91 @@
       "placeholder": "Команда ИИ… суммируйте, предлагайте, анализируйте…",
       "noMatches": "Нет подходящих команд",
       "footer": "Зарегистрируйте будущие команды через RegisterAiCommand — пользовательский интерфейс останется неизменным."
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "Проекты",
+      "finance": "Финансы",
+      "marketing": "Маркетинг",
+      "documents": "Документы",
+      "automation": "Автоматизация",
+      "general": "Общее"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "Суммировать клиента",
+        "description": "Краткая сводка отношений с клиентом"
+      },
+      "crm-follow-up-email": {
+        "title": "Письмо для последующих шагов",
+        "description": "Черновик профессионального CRM-фоллоу-апа"
+      },
+      "projects-analyze": {
+        "title": "Проанализировать проект",
+        "description": "Проверка состояния проекта"
+      },
+      "projects-task-list": {
+        "title": "Создать список задач",
+        "description": "Разбить работу на конкретные задачи"
+      },
+      "finance-explain-invoice": {
+        "title": "Объяснить счёт",
+        "description": "Пояснение счёта простым языком"
+      },
+      "finance-cashflow-brief": {
+        "title": "Краткий обзор денежного потока",
+        "description": "Короткое описание денежного потока"
+      },
+      "marketing-campaign-outline": {
+        "title": "Контур кампании",
+        "description": "Структурировать маркетинговую кампанию"
+      },
+      "marketing-proposal": {
+        "title": "Сформировать предложение",
+        "description": "Черновик предложения для клиента"
+      },
+      "documents-summarize": {
+        "title": "Суммировать документ",
+        "description": "Структурированная сводка документа"
+      },
+      "automation-workflow": {
+        "title": "Спроектировать рабочий процесс",
+        "description": "Эскиз автоматизационного процесса"
+      },
+      "general-brainstorm": {
+        "title": "Мозговой штурм вариантов",
+        "description": "Структурированная генерация идей"
+      },
+      "general-explain": {
+        "title": "Объяснить просто",
+        "description": "Понятное объяснение для заинтересованных сторон"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "Суммировать клиента",
+        "description": "Краткая сводка активного клиента"
+      },
+      "cmd-generate-proposal": {
+        "label": "Сформировать предложение",
+        "description": "Черновик структуры клиентского предложения"
+      },
+      "cmd-analyze-project": {
+        "label": "Проанализировать проект",
+        "description": "Состояние проекта и анализ рисков"
+      },
+      "cmd-create-task-list": {
+        "label": "Создать список задач",
+        "description": "Разбить работу на конкретные задачи"
+      },
+      "cmd-generate-email": {
+        "label": "Сформировать письмо",
+        "description": "Черновик профессионального письма"
+      },
+      "cmd-explain-invoice": {
+        "label": "Объяснить счёт",
+        "description": "Пояснение счёта простым языком"
+      }
     }
   },
   "agents": {
@@ -3429,15 +3891,15 @@
     "registry": {
       "title": "Реестр",
       "selectPrompt": "Выберите агента из реестра.",
-      "status": "Статус: {статус}",
-      "health": "Здоровье: {здоровье}",
-      "queue": "Очередь: {очередь}",
-      "usage": "Использование: {использование}",
+      "status": "Статус: {status}",
+      "health": "Здоровье: {health}",
+      "queue": "Очередь: {queue}",
+      "usage": "Использование: {usage}",
       "executeTask": "Выполнить задачу",
       "supervisorDelegate": "Делегат-супервайзер"
     },
     "marketplace": {
-      "tools": "Инструменты: {инструменты}",
+      "tools": "Инструменты: {tools}",
       "installed": "Установлено",
       "installActivate": "Установка & активация"
     },
@@ -3504,6 +3966,10 @@
     "goals": {
       "executeBusiness": "Выполнить бизнес-цель {agentId}",
       "planAndExecute": "Планируйте и достигайте бизнес-целей рабочего пространства"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "Приоритизировать влияние на клиента",
+      "delegatedFollowUp": "Делегированное последующее действие"
     }
   },
   "integrations": {
@@ -3525,19 +3991,19 @@
     "notice": {
       "demoConnection": "Демо-соединение: {name} (только локальная заглушка)",
       "connectFailed": "Не удалось подключиться",
-      "keyCreated": "Создан ключ API: {префикс}",
+      "keyCreated": "Создан ключ API: {prefix}",
       "webhookCreated": "Вебхук создан: {name}",
-      "webhookTest": "Проверка вебхука {статус}",
+      "webhookTest": "Проверка вебхука {status}",
       "networkError": "Сетевая ошибка API Explorer: {message}",
-      "explorerError": "API-проводник → {статус}: {сообщение}",
-      "explorerSuccess": "API-проводник → {статус}",
+      "explorerError": "API-проводник → {status}: {message}",
+      "explorerSuccess": "API-проводник → {status}",
       "explorerFailed": "Проводник не удался",
       "syncResult": "Демо-синхронизация · {status} (локальные записи {records}) — внешние данные не передаются.",
       "diagnosed": "Диагностирован",
       "removedConnection": "Удалено демонстрационное соединение: {name}",
       "keyRotated": "Ключ повернут",
       "keyRevoked": "Ключ отозван",
-      "publishedEvent": "Опубликовано {тип}",
+      "publishedEvent": "Опубликовано {type}",
       "developerSaved": "Настройки разработчика сохранены."
     },
     "dashboard": {
@@ -3563,7 +4029,7 @@
       "latestSync": "Последняя синхронизация: {status} · записи {records} · режим {mode}"
     },
     "available": {
-      "protocols": "Протоколы: {протоколы}",
+      "protocols": "Протоколы: {protocols}",
       "demoConnection": "Демо-соединение",
       "connectDemo": "Подключиться (демо)",
       "installDemo": "Установить демо"
@@ -3646,7 +4112,7 @@
     },
     "errors": {
       "failedToFetch": "Не удалось получить",
-      "httpStatus": "HTTP {статус}"
+      "httpStatus": "HTTP {status}"
     }
   },
   "intelligence": {
@@ -3730,13 +4196,13 @@
     "insights": {
       "emptyTitle": "Пока нет статистики",
       "emptyDescription": "Демо-информация появляется после семян рабочей области. Генерация аналитических данных в реальном времени с использованием искусственного интеллекта не подключена.",
-      "badge": "Демо · {вид} · {домен} · conf {уверенность}"
+      "badge": "Демо · {kind} · {domain} · conf {confidence}"
     },
     "forecasts": {
       "emptyTitle": "Прогнозов пока нет",
       "emptyDescription": "Демо-прогнозы появляются после посева. Прогнозирующие модели не связаны между собой.",
-      "title": "{вид} прогноз",
-      "baseline": "Базовый уровень {базовый уровень} → прогнозируемый {прогнозируемый} ({дней}д)",
+      "title": "{kind} прогноз",
+      "baseline": "Базовый уровень {baseline} → прогнозируемый {projected} ({days}д)",
       "confidence": "Демо · Уверенность {confidence} — {note}"
     },
     "alerts": {
@@ -3790,7 +4256,7 @@
       "brand": "АГСОРА",
       "navLabel": "Юридическая навигация",
       "lastUpdated": "Последнее обновление: {date}",
-      "footerCopyright": "© 2026 {компания}",
+      "footerCopyright": "© 2026 {company}",
       "footerNavLabel": "Юридический нижний колонтитул",
       "nav": {
         "privacy": "Конфиденциальность",
@@ -3944,7 +4410,134 @@
     "back": "Назад",
     "continue": "Продолжать",
     "launching": "Запуск…",
-    "enterDashboard": "Войти в панель управления"
+    "enterDashboard": "Войти в панель управления",
+    "defaultCountry": "Соединённые Штаты",
+    "businessTypes": {
+      "hotel": {
+        "label": "Отель",
+        "description": "Гостеприимство, номера, гости и эксплуатация объекта"
+      },
+      "restaurant": {
+        "label": "Ресторан",
+        "description": "Ресторан, кухня, бронирования и опыт гостя"
+      },
+      "cleaning": {
+        "label": "Клининг",
+        "description": "Коммерческая и жилая уборка"
+      },
+      "laundry": {
+        "label": "Прачечная",
+        "description": "Прачечные, маршруты сбора и уход за текстилем"
+      },
+      "construction": {
+        "label": "Строительство",
+        "description": "Площадки, бригады, материалы и сдача проектов"
+      },
+      "healthcare": {
+        "label": "Здравоохранение",
+        "description": "Сети помощи, пациенты и клинические операции"
+      },
+      "medical": {
+        "label": "Медицина",
+        "description": "Клиники, приёмы и команды помощи"
+      },
+      "manufacturing": {
+        "label": "Производство",
+        "description": "Линии, качество и снабжение"
+      },
+      "retail": {
+        "label": "Розница",
+        "description": "Магазины, запасы, мерчандайзинг и клиенты"
+      },
+      "legal": {
+        "label": "Юридическая фирма",
+        "description": "Дела, клиенты, сроки и биллинг"
+      },
+      "accounting": {
+        "label": "Бухгалтерия",
+        "description": "Книги, клиенты, подачи и консультации"
+      },
+      "consulting": {
+        "label": "Консалтинг",
+        "description": "Проекты, результаты и клиентские итоги"
+      },
+      "real_estate": {
+        "label": "Недвижимость",
+        "description": "Объявления, клиенты, показы и сделки"
+      },
+      "education": {
+        "label": "Образование",
+        "description": "Программы, студенты, преподаватели и набор"
+      },
+      "automotive": {
+        "label": "Автомобили",
+        "description": "Дилеры, посты ТО и склад автомобилей"
+      },
+      "beauty": {
+        "label": "Салон красоты",
+        "description": "Записи, стилисты, розница и членства"
+      },
+      "fitness": {
+        "label": "Зал / фитнес",
+        "description": "Членства, занятия, тренеры и удержание"
+      },
+      "agriculture": {
+        "label": "Сельское хозяйство",
+        "description": "Культуры, скот, урожайность и цепочки поставок"
+      },
+      "transport": {
+        "label": "Транспорт",
+        "description": "Движение флота, маршруты и пассажирско-грузовые операции"
+      },
+      "logistics": {
+        "label": "Логистика",
+        "description": "Флот, склады, маршруты и фулфилмент"
+      },
+      "warehouse": {
+        "label": "Склад",
+        "description": "Хранение, комплектация, упаковка и оборачиваемость"
+      },
+      "insurance": {
+        "label": "Страхование",
+        "description": "Полисы, убытки, андеррайтинг и удержание"
+      },
+      "finance": {
+        "label": "Финансы",
+        "description": "Капитал, портфели и финансовые операции"
+      },
+      "financial_services": {
+        "label": "Финансовые услуги",
+        "description": "Консультации, продукты, комплаенс и клиенты"
+      },
+      "technology": {
+        "label": "Технологии",
+        "description": "Продукт, инженерия и команды выхода на рынок"
+      },
+      "saas": {
+        "label": "ПО / SaaS",
+        "description": "Подписки, использование и customer success"
+      },
+      "ecommerce": {
+        "label": "Электронная коммерция",
+        "description": "Онлайн-каталог, корзины, фулфилмент и LTV"
+      },
+      "agency": {
+        "label": "Маркетинговое агентство",
+        "description": "Клиенты, кампании, ретейнеры и поставка"
+      },
+      "freelancer": {
+        "label": "Фрилансер",
+        "description": "Индивидуальная практика, клиенты, воронка и денежный поток"
+      },
+      "government": {
+        "label": "Государство",
+        "description": "Госуслуги, программы и жители"
+      },
+      "nonprofit": {
+        "label": "НКО",
+        "description": "Миссии, доноры, программы и эффект"
+      }
+    }
   },
   "creator": {
     "page": {
@@ -4052,6 +4645,47 @@
     },
     "aiFeaturesPanel": {
       "lead": "Карта функций ИИ — идеи, подписи, хэштеги, календарь, кампании, аудитория, график, согласованность бренда, переписывание, перевод, многоязычность."
+    },
+    "formats": {
+      "instagram_caption": "Подпись Instagram",
+      "tiktok_script": "Сценарий TikTok",
+      "linkedin_post": "Пост LinkedIn",
+      "facebook_post": "Пост Facebook",
+      "x_post": "Пост X",
+      "blog_article": "Статья блога",
+      "newsletter": "Рассылка",
+      "email_campaign": "Почтовая кампания",
+      "product_description": "Описание товара",
+      "ad_copy": "Рекламный текст",
+      "seo_article": "SEO-статья",
+      "landing_page_copy": "Текст посадочной страницы"
+    },
+    "publishStatus": {
+      "draft": "Черновик",
+      "review": "Проверка",
+      "approved": "Утверждено",
+      "scheduled": "Запланировано",
+      "published": "Опубликовано",
+      "archive": "Архив"
+    },
+    "mediaKind": {
+      "image": "Изображение",
+      "video": "Видео",
+      "document": "Документ",
+      "logo": "Логотип бренда",
+      "template": "Шаблон"
+    },
+    "voice": {
+      "professional": "Профессиональный",
+      "friendly": "Дружелюбный",
+      "luxury": "Люкс",
+      "casual": "Неформальный"
+    },
+    "integrationStatus": {
+      "planned": "Запланировано",
+      "ready": "Готово",
+      "connected": "Подключено",
+      "disabled": "Отключено"
     }
   },
   "backend": {
@@ -4065,7 +4699,7 @@
     },
     "network": {
       "offline": "Кажется, вы не в сети",
-      "offlineSyncHint": "Changes may not sync until the connection returns.",
+      "offlineSyncHint": "Изменения могут не синхронизироваться, пока соединение не восстановится.",
       "offlineHelp": "Офлайн-помощь",
       "reconnected": "Соединение восстановлено"
     },
@@ -4111,7 +4745,10 @@
       "startFree": "Вместо этого начните бесплатно",
       "backHome": "Вернуться домой",
       "signIn": "Войти"
-    }
+    },
+    "loading": "Загрузка",
+    "loadingEllipsis": "Загрузка…",
+    "loadingIdentity": "Загрузка идентификатора…"
   },
   "workspace": {
     "page": {
@@ -4120,7 +4757,7 @@
       "descriptionNamed": "Изолированная рабочая область арендатора для {name}."
     },
     "idLabel": "Идентификатор рабочей области:",
-    "active": "Активен: {имя}",
+    "active": "Активен: {name}",
     "notInSession": "Не в текущей сессии",
     "organization": "Организация: {name} ({slug})",
     "searchResults": "Результаты поиска"
@@ -4262,28 +4899,28 @@
       "ariaLabel": "Переключить рабочее пространство"
     },
     "access": {
-      "eyebrow": "Identity & Access",
-      "signIn": "Sign in",
-      "backToDashboard": "Back to dashboard",
+      "eyebrow": "Идентификация и доступ",
+      "signIn": "Войти",
+      "backToDashboard": "Назад к панели",
       "unauthorized": {
-        "title": "Unauthorized",
-        "description": "Sign in to continue to this area of AGXORA."
+        "title": "Не авторизовано",
+        "description": "Войдите, чтобы продолжить работу в этой области AGXORA."
       },
       "forbidden": {
-        "title": "Forbidden",
-        "description": "Your role does not include permission for this resource."
+        "title": "Запрещено",
+        "description": "Ваша роль не включает разрешение на этот ресурс."
       },
       "expired_session": {
-        "title": "Expired Session",
-        "description": "Your session expired. Sign in again to resume work."
+        "title": "Сеанс истёк",
+        "description": "Сеанс истёк. Войдите снова, чтобы продолжить работу."
       },
       "missing_permission": {
-        "title": "Missing Permission",
-        "description": "Ask an Owner or Admin to grant the required module access."
+        "title": "Нет разрешения",
+        "description": "Попросите владельца или администратора предоставить доступ к нужному модулю."
       },
       "account_locked": {
-        "title": "Account Locked",
-        "description": "This account is locked. Contact an organization owner or try again later."
+        "title": "Учётная запись заблокирована",
+        "description": "Эта учётная запись заблокирована. Свяжитесь с владельцем организации или повторите попытку позже."
       }
     },
     "verifyEmail": {

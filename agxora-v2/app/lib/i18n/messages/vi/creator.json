@@ -94,8 +94,8 @@
   "analytics": {
     "title": "Phân tích",
     "topPosts": "Bài viết hàng đầu",
-    "engagement": "Tiếng Anh {giá trị}",
-    "reach": "Đạt đến {giá trị}",
+    "engagement": "Tiếng Anh {value}",
+    "reach": "Đạt đến {value}",
     "recommendations": "Khuyến nghị AI"
   },
   "integrations": {
@@ -104,5 +104,46 @@
   },
   "aiFeaturesPanel": {
     "lead": "Bản đồ tính năng AI - ý tưởng, chú thích, hashtag, lịch, chiến dịch, đối tượng, lịch trình, tính nhất quán của thương hiệu, viết lại, dịch, đa ngôn ngữ."
+  },
+  "formats": {
+    "instagram_caption": "Chú thích Instagram",
+    "tiktok_script": "Kịch bản TikTok",
+    "linkedin_post": "Bài LinkedIn",
+    "facebook_post": "Bài Facebook",
+    "x_post": "Bài X",
+    "blog_article": "Bài blog",
+    "newsletter": "Bản tin",
+    "email_campaign": "Chiến dịch email",
+    "product_description": "Mô tả sản phẩm",
+    "ad_copy": "Nội dung quảng cáo",
+    "seo_article": "Bài SEO",
+    "landing_page_copy": "Nội dung trang đích"
+  },
+  "publishStatus": {
+    "draft": "Nháp",
+    "review": "Xem xét",
+    "approved": "Đã duyệt",
+    "scheduled": "Đã lên lịch",
+    "published": "Đã xuất bản",
+    "archive": "Lưu trữ"
+  },
+  "mediaKind": {
+    "image": "Hình ảnh",
+    "video": "Video",
+    "document": "Tài liệu",
+    "logo": "Logo thương hiệu",
+    "template": "Mẫu"
+  },
+  "voice": {
+    "professional": "Chuyên nghiệp",
+    "friendly": "Thân thiện",
+    "luxury": "Sang trọng",
+    "casual": "Thoải mái"
+  },
+  "integrationStatus": {
+    "planned": "Đã lên kế hoạch",
+    "ready": "Sẵn sàng",
+    "connected": "Đã kết nối",
+    "disabled": "Đã tắt"
   }
 }

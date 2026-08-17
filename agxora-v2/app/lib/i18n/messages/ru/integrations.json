@@ -17,19 +17,19 @@
   "notice": {
     "demoConnection": "Демо-соединение: {name} (только локальная заглушка)",
     "connectFailed": "Не удалось подключиться",
-    "keyCreated": "Создан ключ API: {префикс}",
+    "keyCreated": "Создан ключ API: {prefix}",
     "webhookCreated": "Вебхук создан: {name}",
-    "webhookTest": "Проверка вебхука {статус}",
+    "webhookTest": "Проверка вебхука {status}",
     "networkError": "Сетевая ошибка API Explorer: {message}",
-    "explorerError": "API-проводник → {статус}: {сообщение}",
-    "explorerSuccess": "API-проводник → {статус}",
+    "explorerError": "API-проводник → {status}: {message}",
+    "explorerSuccess": "API-проводник → {status}",
     "explorerFailed": "Проводник не удался",
     "syncResult": "Демо-синхронизация · {status} (локальные записи {records}) — внешние данные не передаются.",
     "diagnosed": "Диагностирован",
     "removedConnection": "Удалено демонстрационное соединение: {name}",
     "keyRotated": "Ключ повернут",
     "keyRevoked": "Ключ отозван",
-    "publishedEvent": "Опубликовано {тип}",
+    "publishedEvent": "Опубликовано {type}",
     "developerSaved": "Настройки разработчика сохранены."
   },
   "dashboard": {
@@ -55,7 +55,7 @@
     "latestSync": "Последняя синхронизация: {status} · записи {records} · режим {mode}"
   },
   "available": {
-    "protocols": "Протоколы: {протоколы}",
+    "protocols": "Протоколы: {protocols}",
     "demoConnection": "Демо-соединение",
     "connectDemo": "Подключиться (демо)",
     "installDemo": "Установить демо"
@@ -138,6 +138,6 @@
   },
   "errors": {
     "failedToFetch": "Не удалось получить",
-    "httpStatus": "HTTP {статус}"
+    "httpStatus": "HTTP {status}"
   }
 }

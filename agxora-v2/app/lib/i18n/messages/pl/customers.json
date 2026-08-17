@@ -17,9 +17,9 @@
     "view": "Pogląd",
     "edit": "Redagować",
     "delete": "Usuwać",
-    "viewAria": "Wyświetl {firmę}",
-    "editAria": "Edytuj {firmę}",
-    "deleteAria": "Usuń {firmę}",
+    "viewAria": "Wyświetl {company}",
+    "editAria": "Edytuj {company}",
+    "deleteAria": "Usuń {company}",
     "loading": "Ładowanie klientów…",
     "errorLoad": "Nie udało się wczytać klientów",
     "errorGeneric": "Coś poszło nie tak",
@@ -74,7 +74,7 @@
     "title": "Usuń klienta",
     "cancel": "Anulować",
     "confirm": "Usuwać",
-    "confirmWithName": "Trwale usunąć firmę {firma}? Tego nie można cofnąć.",
+    "confirmWithName": "Trwale usunąć firmę {company}? Tego nie można cofnąć.",
     "confirmGeneric": "Ten klient zostanie trwale usunięty.",
     "success": "Klient usunięty",
     "failed": "Usunięcie nie powiodło się",
@@ -96,5 +96,17 @@
     "updated": "Zaktualizowano",
     "notes": "Notatki",
     "noNotes": "Nie ma jeszcze żadnych notatek."
+  },
+  "validation": {
+    "companyRequired": "Nazwa firmy jest wymagana.",
+    "contactRequired": "Osoba kontaktowa jest wymagana.",
+    "emailRequired": "E-mail jest wymagany.",
+    "emailInvalid": "Wpisz prawidłowy adres e-mail.",
+    "phoneRequired": "Telefon jest wymagany.",
+    "phoneInvalid": "Wpisz prawidłowy numer telefonu.",
+    "mobileInvalid": "Wpisz prawidłowy numer komórkowy.",
+    "statusInvalid": "Wybierz prawidłowy status.",
+    "emailDuplicate": "Klient z tym e-mailem już istnieje.",
+    "companyDuplicate": "Klient o tej nazwie firmy już istnieje."
   }
 }

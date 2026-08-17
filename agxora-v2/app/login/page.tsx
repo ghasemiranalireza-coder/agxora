@@ -18,7 +18,7 @@ import { useAuth } from "../lib/auth";
 import { isValidEmail } from "../lib/auth/formValidation";
 import { needsWelcome } from "../lib/auth/welcomeFlags";
 import { getRememberedEmail } from "../lib/identity";
-import { useT } from "../lib/i18n";
+import { useT, resolveUserFacingErrorKey } from "../lib/i18n";
 import { iamAuthService } from "../../features/auth";
 
 function LoginForm(): JSX.Element {
@@ -67,7 +67,7 @@ function LoginForm(): JSX.Element {
       }
       router.replace(next && next.startsWith("/") ? next : "/dashboard");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "auth.login.failed");
+      setError(resolveUserFacingErrorKey(err, "auth.login.failed"));
     } finally {
       setBusy(false);
     }

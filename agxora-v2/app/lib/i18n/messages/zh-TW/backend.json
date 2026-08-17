@@ -10,7 +10,8 @@
   "network": {
     "offline": "您似乎處於離線狀態",
     "offlineHelp": "離線說明",
-    "reconnected": "連線已恢復"
+    "reconnected": "連線已恢復",
+    "offlineSyncHint": "連線恢復前，變更可能不會同步。"
   },
   "errorBoundary": {
     "backToDashboard": "返回儀表板",
@@ -54,5 +55,8 @@
     "startFree": "改為免費開始",
     "backHome": "回到家",
     "signIn": "登入"
-  }
+  },
+  "loading": "載入中",
+  "loadingEllipsis": "載入中…",
+  "loadingIdentity": "正在載入身分…"
 }

@@ -27,5 +27,132 @@
   "back": "Rug",
   "continue": "Doorgaan",
   "launching": "Lancering…",
-  "enterDashboard": "Ga naar het dashboard"
+  "enterDashboard": "Ga naar het dashboard",
+  "defaultCountry": "Verenigde Staten",
+  "businessTypes": {
+    "hotel": {
+      "label": "Hotel",
+      "description": "Horeca, kamers, gasten en vastgoedexploitatie"
+    },
+    "restaurant": {
+      "label": "Restaurant",
+      "description": "Horeca, keuken, reserveringen en gastervaring"
+    },
+    "cleaning": {
+      "label": "Schoonmaak",
+      "description": "Commerciële en residentiële schoonmaak"
+    },
+    "laundry": {
+      "label": "Wasserij",
+      "description": "Wasserijen, ophaalroutes en textielverzorging"
+    },
+    "construction": {
+      "label": "Bouw",
+      "description": "Bouwplaatsen, ploegen, materialen en projectoplevering"
+    },
+    "healthcare": {
+      "label": "Gezondheidszorg",
+      "description": "Zorgnetwerken, patiënten en klinische operaties"
+    },
+    "medical": {
+      "label": "Medisch",
+      "description": "Klinieken, afspraken en zorgteams"
+    },
+    "manufacturing": {
+      "label": "Productie",
+      "description": "Productielijnen, kwaliteit en toeleveringsoperaties"
+    },
+    "retail": {
+      "label": "Retail",
+      "description": "Winkels, voorraad, merchandising en klanten"
+    },
+    "legal": {
+      "label": "Advocatenkantoor",
+      "description": "Zaken, cliënten, deadlines en facturatie"
+    },
+    "accounting": {
+      "label": "Boekhouding",
+      "description": "Boeken, klanten, aangiften en advieswerk"
+    },
+    "consulting": {
+      "label": "Consulting",
+      "description": "Opdrachten, deliverables en klantresultaten"
+    },
+    "real_estate": {
+      "label": "Vastgoed",
+      "description": "Advertenties, klanten, bezichtigingen en transacties"
+    },
+    "education": {
+      "label": "Onderwijs",
+      "description": "Programma’s, studenten, docenten en inschrijving"
+    },
+    "automotive": {
+      "label": "Automotive",
+      "description": "Dealers, serviceplaatsen en voertuigvoorraad"
+    },
+    "beauty": {
+      "label": "Schoonheidssalon",
+      "description": "Afspraken, stylisten, retail en lidmaatschappen"
+    },
+    "fitness": {
+      "label": "Sportschool / fitness",
+      "description": "Lidmaatschappen, lessen, trainers en retentie"
+    },
+    "agriculture": {
+      "label": "Landbouw",
+      "description": "Gewassen, vee, opbrengsten en toeleveringsketens"
+    },
+    "transport": {
+      "label": "Transport",
+      "description": "Vlootbeweging, routes en personen-/vrachtoperaties"
+    },
+    "logistics": {
+      "label": "Logistiek",
+      "description": "Vloot, magazijnen, routes en fulfillment"
+    },
+    "warehouse": {
+      "label": "Magazijn",
+      "description": "Opslag, picking, packing en voorraadomloop"
+    },
+    "insurance": {
+      "label": "Verzekering",
+      "description": "Polissen, claims, underwriting en retentie"
+    },
+    "finance": {
+      "label": "Financiën",
+      "description": "Kapitaal, portefeuilles en financiële operaties"
+    },
+    "financial_services": {
+      "label": "Financiële diensten",
+      "description": "Advies, producten, compliance en klanten"
+    },
+    "technology": {
+      "label": "Technologie",
+      "description": "Product, engineering en go-to-market-teams"
+    },
+    "saas": {
+      "label": "Software / SaaS",
+      "description": "Abonnementen, gebruik en customer success"
+    },
+    "ecommerce": {
+      "label": "E-commerce",
+      "description": "Onlinecatalogus, winkelwagens, fulfillment en LTV"
+    },
+    "agency": {
+      "label": "Marketingbureau",
+      "description": "Klanten, campagnes, retainers en oplevering"
+    },
+    "freelancer": {
+      "label": "Freelancer",
+      "description": "Solopraktijk, klanten, pijplijn en cashflow"
+    },
+    "government": {
+      "label": "Overheid",
+      "description": "Publieke diensten, programma’s en inwoners"
+    },
+    "nonprofit": {
+      "label": "Non-profit",
+      "description": "Missies, donateurs, programma’s en impact"
+    }
+  }
 }

@@ -10,7 +10,8 @@
   "network": {
     "offline": "オフラインのようです",
     "offlineHelp": "オフラインヘルプ",
-    "reconnected": "接続が回復しました"
+    "reconnected": "接続が回復しました",
+    "offlineSyncHint": "接続が戻るまで変更は同期されない場合があります。"
   },
   "errorBoundary": {
     "backToDashboard": "ダッシュボードに戻る",
@@ -54,5 +55,8 @@
     "startFree": "代わりに無料で始めましょう",
     "backHome": "家に戻る",
     "signIn": "サインイン"
-  }
+  },
+  "loading": "読み込み中",
+  "loadingEllipsis": "読み込み中…",
+  "loadingIdentity": "ID を読み込み中…"
 }

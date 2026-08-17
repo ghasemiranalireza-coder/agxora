@@ -50,42 +50,42 @@
     "documents": {
       "label": "اسناد",
       "caption": "نمونه · در همه پوشه‌ها",
-      "delta": "شمردن "
+      "delta": "+{count}"
     },
     "folders": {
       "label": "پوشه‌ها",
       "caption": "نمونه · شامل مجموعه‌های هوشمند",
-      "delta": "شمردن "
+      "delta": "+{count}"
     },
     "storage": {
       "label": "فضای استفاده‌شده",
       "caption": "نمونه · از طرح نمایشی",
-      "delta": "سایز"
+      "delta": "+{size}"
     },
     "shared": {
       "label": "اسناد اشتراک‌گذاری‌شده",
       "caption": "نمونه · سازمان + واحد + کاربران",
-      "delta": "شمردن "
+      "delta": "+{count}"
     },
     "activity": {
       "label": "فعالیت اخیر",
       "caption": "نمونه · ۲۴ ساعت گذشته",
-      "delta": "شمردن "
+      "delta": "+{count}"
     },
     "indexed": {
       "label": "ایندکس‌شده با هوش مصنوعی",
       "caption": "نمونه · جستجوی هوش مصنوعی متصل نیست",
-      "delta": "درصد"
+      "delta": "{percent}"
     },
     "approvals": {
       "label": "تأییدهای در انتظار",
       "caption": "نمونه · Automation متصل نیست",
-      "delta": "شمردن "
+      "delta": "{count}"
     },
     "score": {
       "label": "امتیاز دانش",
       "caption": "نمونه · نمایش پوشش",
-      "delta": "شمردن "
+      "delta": "+{count}"
     }
   },
   "library": {
@@ -380,9 +380,9 @@
     "planned": "برنامه‌ریزی‌شده"
   },
   "bytes": {
-    "b": "{مقدار} ب",
-    "kb": "{مقدار} کیلوبایت",
-    "mb": "{مقدار} مگابایت",
-    "gb": "{مقدار} گیگابایت"
+    "b": "{value} ب",
+    "kb": "{value} کیلوبایت",
+    "mb": "{value} مگابایت",
+    "gb": "{value} گیگابایت"
   }
 }

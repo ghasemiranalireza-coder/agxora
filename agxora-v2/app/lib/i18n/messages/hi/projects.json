@@ -2,7 +2,7 @@
   "page": {
     "eyebrow": "परियोजना प्रबंधन ओएस",
     "title": "परियोजनाओं",
-    "lead": "वितरण की योजना बनाएं, बजट और स्वास्थ्य पर नज़र रखें, टीमें नियुक्त करें और {संगठन} के लिए कार्यों का प्रबंधन करें। डेटा स्थानीय रूप से बना रहता है और बैकएंड कनेक्टिविटी के लिए तैयार है।",
+    "lead": "वितरण की योजना बनाएं, बजट और स्वास्थ्य पर नज़र रखें, टीमें नियुक्त करें और {organization} के लिए कार्यों का प्रबंधन करें। डेटा स्थानीय रूप से बना रहता है और बैकएंड कनेक्टिविटी के लिए तैयार है।",
     "yourOrganization": "आपकी संगठन"
   },
   "list": {
@@ -25,13 +25,13 @@
     "emptyTitle": "अभी तक कोई प्रोजेक्ट नहीं",
     "emptyDescription": "मील के पत्थर, बजट और टीम के स्वामित्व को ट्रैक करने के लिए एक डिलीवरी कार्यक्षेत्र को स्पिन करें।",
     "createProject": "प्रोजेक्ट बनाएं",
-    "pagination": "{कुल} में से {से}–{तक} दिखाया जा रहा है",
+    "pagination": "{from} में से {to}–{total} दिखाया जा रहा है",
     "previous": "पहले का",
     "next": "अगला",
     "noDescription": "अभी तक कोई विवरण नहीं.",
-    "duePrefix": "नियत तारीख}",
-    "openProject": "प्रोजेक्ट {नाम} खोलें",
-    "sortBy": "{कॉलम} के अनुसार क्रमबद्ध करें",
+    "duePrefix": "Due {date}",
+    "openProject": "प्रोजेक्ट {name} खोलें",
+    "sortBy": "{column} के अनुसार क्रमबद्ध करें",
     "sort": {
       "name": "नाम",
       "customer": "ग्राहक",
@@ -65,7 +65,7 @@
     "tagsPlaceholder": "उद्यम, रोलआउट",
     "budgetPlaceholder": "0",
     "description": "विवरण",
-    "selectColor": "रंग चुनें {रंग}"
+    "selectColor": "रंग चुनें {color}"
   },
   "taskForm": {
     "createTitle": "कार्य बनाएँ",
@@ -93,7 +93,7 @@
   },
   "badges": {
     "progress": "प्रगति",
-    "progressAria": "{लेबल}: {मान}%"
+    "progressAria": "{label}: {value}%"
   },
   "status": {
     "planning": "योजना",
@@ -132,24 +132,24 @@
     "emptyDescription": "शेड्यूल तैयार करने के लिए प्रारंभ/नियत तिथियां और कार्य जोड़ें।",
     "title": "समय",
     "subtitle": "प्रारंभ, अंत, अवधि, मील के पत्थर। निर्भरताएँ भविष्य में रिलीज़ के लिए आरक्षित हैं।",
-    "dateRange": "{प्रारंभ} → {अंत} · {दिन}डी",
-    "itemAria": "{शीर्षक} {प्रारंभ} से {अंत} तक",
+    "dateRange": "{start} → {end} · {days}डी",
+    "itemAria": "{title} {start} से {end} तक",
     "dependenciesNone": "निर्भरताएँ: कोई नहीं"
   },
   "dashboard": {
     "kpi": {
       "activeProjects": "सक्रिय परियोजनाएँ",
-      "activeHint": "{योजना} योजना बनाना",
+      "activeHint": "{planning} योजना बनाना",
       "completed": "पुरा होना।",
-      "completedHint": "पोर्टफोलियो का {प्रतिशत}%",
+      "completedHint": "पोर्टफोलियो का {percent}%",
       "onHold": "होल्ड पर",
-      "onHoldHint": "{संग्रहीत} संग्रहीत",
+      "onHoldHint": "{archived} संग्रहीत",
       "teamMembers": "टीम के सदस्य",
       "teamHint": "सभी परियोजनाओं में",
       "budgetOverview": "बजट अवलोकन",
-      "budgetHint": "{प्रतिशत}% उपयोग किया गया · {खर्च} किया गया",
+      "budgetHint": "{percent}% उपयोग किया गया · {spent} किया गया",
       "openTasks": "कार्य खोलें",
-      "openTasksHint": "{अतिदेय} अतिदेय",
+      "openTasksHint": "{overdue} अतिदेय",
       "projectHealth": "परियोजना स्वास्थ्य",
       "healthHint": "समग्र वितरण स्कोर",
       "upcomingDeadlines": "आने वाली डेड लाइन",
@@ -176,7 +176,7 @@
     "emptyTitle": "बोर्ड पर कोई कार्य नहीं",
     "emptyDescription": "टू डू, इन प्रोग्रेस, रिव्यू और डन में डिलीवरी को व्यवस्थित करने के लिए कार्य बनाएं।",
     "addTask": "कार्य जोड़ें",
-    "columnAria": "{स्थिति} कॉलम",
+    "columnAria": "{status} कॉलम",
     "taskProgress": "कार्य प्रगति",
     "edit": "संपादन करना",
     "complete": "पूरा"
@@ -185,7 +185,7 @@
     "notFoundTitle": "प्रोजेक्ट नहीं मिला",
     "notFoundDescription": "यह प्रोजेक्ट संभवतः हटा दिया गया है या वर्तमान संगठन के लिए अनुपलब्ध है।",
     "backToProjects": "← परियोजनाओं पर वापस जाएँ",
-    "ownerMeta": "{ग्राहक} · मालिक {मालिक}",
+    "ownerMeta": "{customer} · मालिक {owner}",
     "edit": "संपादन करना",
     "delete": "मिटाना",
     "sectionsAria": "परियोजना विवरण अनुभाग",
@@ -288,11 +288,36 @@
     "taskCompleted": "कार्य पूरा हो गया",
     "taskDeleted": "कार्य हटा दिया गया",
     "filesUploaded": "फ़ाइलें अपलोड की गईं",
-    "filesUploadedDetail": "{गिनती} फ़ाइल(फ़ाइलें)",
+    "filesUploadedDetail": "{count} फ़ाइल(फ़ाइलें)",
     "fileDeleted": "फ़ाइल हटा दी गई",
     "noteSaved": "नोट सहेजा गया",
     "memberAdded": "सदस्य जोड़ा गया",
     "settingsSaved": "सेटिंग्स को सहेजा गया",
     "projectArchived": "प्रोजेक्ट संग्रहीत"
+  },
+  "validation": {
+    "nameRequired": "प्रोजेक्ट का नाम आवश्यक है।",
+    "nameMin": "प्रोजेक्ट का नाम कम से कम 2 वर्ण का होना चाहिए।",
+    "customerRequired": "ग्राहक आवश्यक है।",
+    "ownerRequired": "प्रोजेक्ट स्वामी आवश्यक है।",
+    "priorityInvalid": "एक मान्य प्राथमिकता चुनें।",
+    "statusInvalid": "एक मान्य स्थिति चुनें।",
+    "currencyInvalid": "एक मान्य मुद्रा चुनें।",
+    "budgetInvalid": "बजट एक गैर-ऋणात्मक संख्या होनी चाहिए।",
+    "startDateRequired": "प्रारंभ तिथि आवश्यक है।",
+    "startDateInvalid": "एक मान्य प्रारंभ तिथि दर्ज करें।",
+    "dueDateInvalid": "एक मान्य नियत तिथि दर्ज करें।",
+    "dueDateOrder": "नियत तिथि प्रारंभ तिथि पर या उसके बाद होनी चाहिए।",
+    "colorInvalid": "एक मान्य रंग चुनें।",
+    "iconInvalid": "एक मान्य आइकन चुनें।",
+    "taskTitleRequired": "कार्य शीर्षक आवश्यक है।",
+    "progressRange": "प्रगति 0 से 100 के बीच होनी चाहिए।",
+    "memberNameRequired": "सदस्य का नाम आवश्यक है।",
+    "emailRequired": "ईमेल आवश्यक है।",
+    "emailInvalid": "एक मान्य ईमेल पता दर्ज करें।",
+    "roleInvalid": "एक मान्य भूमिका चुनें।",
+    "noteTitleRequired": "नोट शीर्षक आवश्यक है।",
+    "noteBodyRequired": "नोट का मुख्य भाग आवश्यक है।",
+    "authorRequired": "लेखक आवश्यक है।"
   }
 }

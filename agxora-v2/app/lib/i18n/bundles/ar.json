@@ -1,14 +1,14 @@
 {
   "common": {
-    "save": "يحفظ",
+    "save": "حفظ",
     "saveChanges": "حفظ التغييرات",
-    "cancel": "يلغي",
-    "close": "يغلق",
-    "delete": "يمسح",
-    "edit": "يحرر",
-    "search": "يبحث",
-    "loading": "تحميل…",
-    "retry": "أعد المحاولة",
+    "cancel": "إلغاء",
+    "close": "إغلاق",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "search": "بحث",
+    "loading": "جارٍ التحميل…",
+    "retry": "إعادة المحاولة",
     "language": "لغة",
     "signIn": "تسجيل الدخول",
     "signOut": "تسجيل الخروج",
@@ -32,9 +32,16 @@
     "sample": "عينة",
     "showPassword": "إظهار كلمة المرور",
     "hidePassword": "إخفاء كلمة المرور",
-    "continue": "يكمل",
-    "back": "خلف",
-    "home": "بيت"
+    "continue": "متابعة",
+    "back": "رجوع",
+    "home": "الرئيسية",
+    "loadingShort": "جارٍ التحميل",
+    "create": "إنشاء",
+    "next": "التالي",
+    "previous": "السابق",
+    "settings": "الإعدادات",
+    "profile": "الملف الشخصي",
+    "dashboard": "لوحة التحكم"
   },
   "navigation": {
     "dashboard": "لوحة القيادة",
@@ -61,7 +68,7 @@
     "notificationsEmpty": "لقد تم القبض عليك جميعًا. ستظهر التنبيهات والإشارات هنا.",
     "accountSettings": "إعدادات الحساب",
     "security": "حماية",
-    "themeToggle": "تبديل سريع للموضوع. التفضيل: {الوضع}"
+    "themeToggle": "تبديل سريع للموضوع. التفضيل: {mode}"
   },
   "pricing": {
     "navLabel": "الملاحة التسعير",
@@ -156,16 +163,16 @@
       "currentPlan": "الخطة الحالية",
       "recommended": "مُستَحسَن",
       "contactSales": "اتصل بالمبيعات",
-      "pricePerMonth": "€{السعر}/شهر",
-      "users": "{عدد} من المستخدمين",
+      "pricePerMonth": "€{price}/شهر",
+      "users": "{count} من المستخدمين",
       "aiRequests": "{count} طلب/شهر الذكاء الاصطناعي",
       "storage": "{count} ميغابايت من التخزين",
       "moduleFeatures": "ميزات الوحدة {count}.",
       "choosePlan": "اختر الخطة",
       "processing": "يعالج…",
-      "currentPlanAria": "{الاسم} - الخطة الحالية",
-      "contactSalesAria": "{الاسم} - اتصل بالمبيعات",
-      "choosePlanAria": "{الاسم} - اختر الخطة"
+      "currentPlanAria": "{name} - الخطة الحالية",
+      "contactSalesAria": "{name} - اتصل بالمبيعات",
+      "choosePlanAria": "{name} - اختر الخطة"
     },
     "admin": {
       "eyebrow": "مسؤل",
@@ -177,7 +184,7 @@
       "allInvoices": "جميع الفواتير",
       "planCatalog": "كتالوج الخطة",
       "custom": "مخصص",
-      "features": "ميزات {عدد}.",
+      "features": "ميزات {count}.",
       "emailQueue": "قائمة انتظار البريد الإلكتروني (وهمية)",
       "noEmails": "لم يتم وضع أي رسائل بريد إلكتروني في قائمة الانتظار.",
       "commercialAudit": "التدقيق التجاري",
@@ -279,7 +286,7 @@
       "avatarUnavailable": "تحميل الصورة الرمزية غير متاح بعد.",
       "appearanceNote": "يظل تكوين المظهر ضمن المظهر. يوفر الرأس سمة للتبديل السريع فقط.",
       "prefsHint": "يستخدمه مساعدو الذكاء الاصطناعي عبر الوحدات.",
-      "themeResolved": "{الوضع} (تم حل {المظهر})",
+      "themeResolved": "{mode} (تم حل {appearance})",
       "regions": {
         "EU": "الاتحاد الأوروبي",
         "US": "الولايات المتحدة",
@@ -491,7 +498,7 @@
       "createdAt": "تم تسجيل الدخول",
       "expiresAt": "تنتهي",
       "revoke": "إبطال الجلسة",
-      "revokeAria": "إبطال الجلسة التي تم تسجيل الدخول فيها {متى}",
+      "revokeAria": "إبطال الجلسة التي تم تسجيل الدخول فيها {when}",
       "revokeOthers": "تسجيل الخروج من الجلسات الأخرى",
       "revokeOthersAria": "قم بتسجيل الخروج من جميع الجلسات باستثناء الجلسة الحالية",
       "revoked": "تم إلغاء الجلسة.",
@@ -586,7 +593,7 @@
       "title": "إعدادات",
       "lead": "التكوين المؤسسي لكل وحدة من وحدات AGXORA — الملف الشخصي، والمؤسسة، والذكاء الاصطناعي، والمظهر، والأمان، والفوترة، وعناصر تحكم المطور في مكان واحد.",
       "loading": "جارٍ تحميل الإعدادات…",
-      "breadcrumb": "{التسمية} · {الوصف}"
+      "breadcrumb": "{label} · {description}"
     },
     "saveChanges": "حفظ التغييرات",
     "sessionNotice": "تم التحديث لهذه الجلسة — {area} غير متصلة.",
@@ -624,7 +631,7 @@
       "owner": "مالك",
       "counts": "الأعضاء · مساحات العمل",
       "orgUpdated": "تم تحديث المنظمة.",
-      "countsValue": "{الأعضاء} · {مساحات العمل}",
+      "countsValue": "{members} · {workspaces}",
       "joined": "انضم",
       "workspaceName": "اسم مساحة العمل",
       "switchWorkspace": "مساحة عمل نشطة",
@@ -678,7 +685,7 @@
       "transferHonesty": "يتم إرسال رسالة تأكيد بالبريد الإلكتروني عند تكوين التسليم. بخلاف ذلك، قم بمشاركة رابط التأكيد مباشرة مع المستلم.",
       "transferLink": "رابط التأكيد",
       "transferPendingTitle": "في انتظار نقل الملكية",
-      "transferPendingBody": "في انتظار تأكيد {name} ({email}). تنتهي {انتهاء الصلاحية}. ستظل مالكًا حتى ذلك الحين.",
+      "transferPendingBody": "في انتظار تأكيد {name} ({email}). تنتهي {expires}. ستظل مالكًا حتى ذلك الحين.",
       "transferPendingNote": "لا تتغير أدوار العضوية أثناء تعليق النقل.",
       "cancelTransfer": "إلغاء النقل",
       "transferCancelled": "تم إلغاء نقل الملكية.",
@@ -697,7 +704,7 @@
     }
   },
   "errors": {
-    "required": "هذه الخانة مطلوبه.",
+    "required": "هذا الحقل مطلوب.",
     "invalidEmail": "أدخل عنوان بريد إلكتروني صالحًا.",
     "passwordMin": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل.",
     "passwordLettersNumbers": "كلمة المرور يجب أن تحتوي على حروف وأرقام.",
@@ -705,7 +712,30 @@
     "acceptTerms": "يرجى قبول الشروط للمتابعة.",
     "generic": "حدث خطأ ما.",
     "tryAgain": "يرجى المحاولة مرة أخرى.",
-    "saved": "تم الحفظ بنجاح."
+    "saved": "تم الحفظ بنجاح.",
+    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+    "signInRequired": "يلزم تسجيل الدخول.",
+    "insufficientPermissions": "صلاحيات غير كافية.",
+    "noRouteAccess": "ليست لديك صلاحية الوصول إلى هذا المسار.",
+    "accountLocked": "هذا الحساب مقفل. تواصل مع مسؤول.",
+    "sessionExpired": "انتهت جلستك. سجّل الدخول مجددًا.",
+    "missingPermission": "صلاحية مفقودة: {permission}",
+    "roleCannotAccess": "دورك لا يمكنه الوصول إلى هذا المورد.",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+      "AUTH_SESSION_EXPIRED": "انتهت جلستك. سجّل الدخول مجددًا.",
+      "AUTH_ACCOUNT_LOCKED": "هذا الحساب مقفل. تواصل مع مسؤول.",
+      "AUTH_SIGN_IN_REQUIRED": "سجّل الدخول للمتابعة.",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "صلاحيات غير كافية.",
+      "AUTH_NO_ROUTE_ACCESS": "ليست لديك صلاحية الوصول إلى هذا المسار.",
+      "COMMON_SOMETHING_WENT_WRONG": "حدث خطأ ما.",
+      "COMMON_PAGE_NOT_FOUND": "الصفحة غير موجودة.",
+      "COMMON_OFFLINE": "أنت غير متصل.",
+      "COMMON_TIMEOUT": "انتهت مهلة الطلب.",
+      "COMMON_VALIDATION": "تحقق من إدخالك وحاول مرة أخرى.",
+      "COMMON_UNKNOWN": "حدث خطأ غير معروف.",
+      "COMMON_INTERNAL": "حدث خطأ غير متوقع. يُرجى المحاولة مرة أخرى."
+    }
   },
   "dashboard": {
     "skipToContent": "انتقل إلى محتوى لوحة القيادة",
@@ -826,7 +856,7 @@
       "title": "النشاط الأخير",
       "subtitle": "ما تغير اليوم",
       "ariaLabel": "النشاط الأخير",
-      "todayCount": "{العدد} اليوم",
+      "todayCount": "{count} اليوم",
       "localBadge": "محلي",
       "emptyTitle": "لا يوجد نشاط بعد",
       "emptyBody": "ستظهر أحداث مساحة العمل هنا أثناء إضافة العملاء والمشاريع والمزيد.",
@@ -857,7 +887,7 @@
       "title": "أجكسورا منظمة العفو الدولية",
       "emptyState": "اسأل AGXORA عن العملاء أو المشاريع أو الإجراءات التالية. تبقى محادثتك في جلسة مساحة العمل هذه.",
       "thinking": "AGXORA تفكر...",
-      "errorDismiss": "{خطأ} — انقر للرفض",
+      "errorDismiss": "{error} — انقر للرفض",
       "placeholder": "اسأل AGXORA AI...",
       "messageAria": "رسالة AGXORA AI",
       "sendAria": "أرسل رسالة",
@@ -1093,7 +1123,7 @@
         }
       }
     },
-    "summary": "{الاسم}: عملاء {العملاء} · مشاريع {المشاريع} · تحديثات {التحديثات اليوم."
+    "summary": "{name}: عملاء {customers} · مشاريع {projects} · تحديثات {التحديثات اليوم. {updates}"
   },
   "auth": {
     "login": {
@@ -1190,20 +1220,20 @@
       "viewPricing": "عرض التسعير",
       "bookDemo": "كتاب تجريبي",
       "failed": "لا يمكن تقديم الاستفسار",
-      "country": "Country",
-      "savedFor": "Saved for {company}. Sales delivery is not connected in this build.",
-      "preferWalkthrough": "Prefer a product walkthrough next?",
-      "preferSelfServe": "Prefer self-serve?"
+      "country": "البلد",
+      "savedFor": "تم الحفظ لـ {company}. تسليم المبيعات غير متصل في هذا الإصدار.",
+      "preferWalkthrough": "هل تفضل جولة تعريفية بالمنتج بعد ذلك؟",
+      "preferSelfServe": "هل تفضل الخدمة الذاتية؟"
     },
     "welcome": {
       "title": "مرحبا بكم في أجكسورا",
       "subtitle": "مساحة العمل الخاصة بك جاهزة. تابع إلى لوحة القيادة.",
       "continue": "اذهب إلى لوحة القيادة",
-      "checklistProfile": "Confirm your organization profile",
-      "checklistModules": "Choose modules that match how you work",
-      "checklistDashboard": "Enter the dashboard with a clear starting point",
-      "exploreFirst": "Prefer to explore first?",
-      "skipToDashboard": "Skip to dashboard"
+      "checklistProfile": "أكد ملف مؤسستك",
+      "checklistModules": "اختر الوحدات التي تناسب طريقة عملك",
+      "checklistDashboard": "ادخل لوحة التحكم بنقطة انطلاق واضحة",
+      "exploreFirst": "هل تفضل الاستكشاف أولاً؟",
+      "skipToDashboard": "تخطي إلى لوحة التحكم"
     },
     "locked": {
       "title": "الحساب مغلق",
@@ -1216,7 +1246,17 @@
       "subtitle": "الرجاء تسجيل الدخول مرة أخرى للمتابعة.",
       "signIn": "تسجيل الدخول"
     },
-    "brand": "أجكسورا"
+    "brand": "أجكسورا",
+    "validation": {
+      "emailRequired": "البريد الإلكتروني مطلوب.",
+      "emailInvalid": "أدخل عنوان بريد إلكتروني صالحًا.",
+      "passwordRequired": "كلمة المرور مطلوبة.",
+      "passwordMin": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل.",
+      "nameRequired": "الاسم مطلوب.",
+      "nameMin": "يجب أن يتكون الاسم من حرفين على الأقل.",
+      "passwordMismatch": "كلمتا المرور غير متطابقتين.",
+      "slugFormat": "استخدم أحرفًا صغيرة وأرقامًا وواصلات فقط."
+    }
   },
   "crm": {
     "page": {
@@ -1318,12 +1358,12 @@
         "previous": "سابق",
         "next": "التالي"
       },
-      "showing": "عرض {من}–{إلى} من {total}",
+      "showing": "عرض {from}–{to} من {total}",
       "aria": {
-        "openCustomer": "فتح العميل {شركة}"
+        "openCustomer": "فتح العميل {company}"
       },
-      "cardMeta": "المالك {owner} · تم الإنشاء في {تاريخ}",
-      "sortBy": "الترتيب حسب {عمود}"
+      "cardMeta": "المالك {owner} · تم الإنشاء في {date}",
+      "sortBy": "الترتيب حسب {column}"
     },
     "status": {
       "lead": "يقود",
@@ -1693,7 +1733,7 @@
         "label": "النتيجة الصحية لمنظمة العفو الدولية",
         "caption": "إشارة جودة العلاقة"
       },
-      "scoreOutOf": "{النتيجة} / {الحد الأقصى}"
+      "scoreOutOf": "{score} / {max}"
     },
     "pipeline": {
       "lead": "يقود",
@@ -1805,12 +1845,12 @@
         },
         "open-invoices": {
           "label": "فتح الفواتير",
-          "caption": "عينة · {المال} المعلق"
+          "caption": "عينة · {money} المعلق"
         },
         "paid-invoices": {
           "label": "الفواتير المدفوعة",
           "caption": "عينة · هذا الربع",
-          "delta": "+ {عدد}"
+          "delta": "+ {count}"
         },
         "cashflow": {
           "label": "التدفق النقدي",
@@ -1820,10 +1860,10 @@
         "ai-score": {
           "label": "الذكاء الاصطناعي النتيجة المالية",
           "caption": "نقاط العينة · لا تسجل المخاطر المباشرة",
-          "delta": "+ {عدد}"
+          "delta": "+ {count}"
         }
       },
-      "scoreOutOf": "{النتيجة} / {الحد الأقصى}"
+      "scoreOutOf": "{score} / {max}"
     },
     "invoices": {
       "emptyTitle": "لا فواتير",
@@ -1834,7 +1874,7 @@
       "sortBy": "الترتيب حسب",
       "toggleSort": "تبديل اتجاه الفرز",
       "count": "{count} الفواتير",
-      "countOne": "{عدد} الفاتورة",
+      "countOne": "{count} الفاتورة",
       "allStatuses": "جميع الحالات",
       "allPayments": "جميع المدفوعات",
       "columns": {
@@ -1926,7 +1966,7 @@
       "intro": "نموذج تاريخ التصدير أدناه توضيحي. لا يتم توصيل بيانات الاعتماد وإنشاء الملفات في هذا الإصدار.",
       "noticeDefault": "محولات التصدير غير متصلة — لن يتم إنشاء أي ملفات.",
       "exportUnavailable": "{title} غير متاح — DATEV / تصدير الملف غير متصل.",
-      "exportUnavailableAria": "{العنوان} — غير متاح",
+      "exportUnavailableAria": "{title} — غير متاح",
       "historyTitle": "سجل التصدير (نموذج)",
       "refresh": "ينعش",
       "refreshUnavailable": "التحديث غير متاح — سجل التصدير عبارة عن بيانات نموذجية ثابتة.",
@@ -2090,42 +2130,42 @@
       "documents": {
         "label": "وثائق",
         "caption": "عينة · عبر المجلدات",
-        "delta": "+ {عدد}"
+        "delta": "+ {count}"
       },
       "folders": {
         "label": "المجلدات",
         "caption": "عينة · بما في ذلك المجموعات الذكية",
-        "delta": "+ {عدد}"
+        "delta": "+ {count}"
       },
       "storage": {
         "label": "التخزين المستخدمة",
         "caption": "نموذج · للخطة التوضيحية",
-        "delta": "+ {الحجم}"
+        "delta": "+ {size}"
       },
       "shared": {
         "label": "المستندات المشتركة",
         "caption": "عينة · مؤسسة + قسم + مستخدمين",
-        "delta": "+ {عدد}"
+        "delta": "+ {count}"
       },
       "activity": {
         "label": "النشاط الأخير",
         "caption": "عينة · آخر 24 ساعة",
-        "delta": "+ {عدد}"
+        "delta": "+ {count}"
       },
       "indexed": {
         "label": "منظمة العفو الدولية مفهرسة",
         "caption": "عينة · بحث الذكاء الاصطناعي غير متصل",
-        "delta": "{في المئة}"
+        "delta": "{percent}"
       },
       "approvals": {
         "label": "الموافقات المعلقة",
         "caption": "عينة · الأتمتة غير متصلة",
-        "delta": "{عدد}"
+        "delta": "{count}"
       },
       "score": {
         "label": "نقاط المعرفة",
         "caption": "عينة · التغطية التوضيحية",
-        "delta": "+ {عدد}"
+        "delta": "+ {count}"
       }
     },
     "library": {
@@ -2152,8 +2192,8 @@
       "favorite": "مفضل",
       "sharedBadge": "مشترك",
       "title": "مكتبة المستندات",
-      "results": "{عدد} النتائج",
-      "resultOne": "نتيجة {عدد}.",
+      "results": "{count} النتائج",
+      "resultOne": "نتيجة {count}.",
       "selected": "· تم تحديد {count}.",
       "bulkAction": "العمل بالجملة",
       "bulkUnavailable": "الإجراء المجمع غير متاح لعدد {count} من العناصر - طفرات التخزين غير متصلة.",
@@ -2170,7 +2210,7 @@
       "favoritesOnly": "المفضلة فقط",
       "emptyTitle": "لا توجد وثائق لإظهارها",
       "emptyDescription": "اضبط عوامل التصفية أو امسح البحث أو أضف أصول المعرفة لتنمية المكتبة.",
-      "selectAria": "حدد {الاسم}",
+      "selectAria": "حدد {name}",
       "versionHistoryTitle": "تاريخ الإصدار",
       "close": "يغلق",
       "context": {
@@ -2191,7 +2231,7 @@
       "zoomIn": "تكبير +",
       "prev": "السابق",
       "next": "التالي",
-      "page": "الصفحة {صفحة} / {المجموع}",
+      "page": "الصفحة {page} / {total}",
       "searchInside": "البحث في الداخل",
       "findPlaceholder": "البحث في المعاينة...",
       "noMatches": "لا توجد تطابقات في نص المعاينة.",
@@ -2217,7 +2257,7 @@
       "title": "تاريخ الإصدار",
       "emptyTitle": "لم يتم تحديد أي مستند",
       "emptyDescription": "افتح مستندًا لفحص الإصدارات والملاحظات والاستعادة والمقارنة.",
-      "current": "{الاسم} · {الإصدار} الحالي",
+      "current": "{name} · {version} الحالي",
       "restore": "استعادة النسخة",
       "compare": "قارن الإصدارات",
       "restoreTitle": "تتطلب الاستعادة واجهة برمجة تطبيقات التخزين",
@@ -2420,10 +2460,10 @@
       "planned": "المخطط لها"
     },
     "bytes": {
-      "b": "{القيمة} ب",
-      "kb": "{القيمة} كيلو بايت",
-      "mb": "{القيمة} ميغابايت",
-      "gb": "{القيمة} جيجا بايت"
+      "b": "{value} ب",
+      "kb": "{value} كيلو بايت",
+      "mb": "{value} ميغابايت",
+      "gb": "{value} جيجا بايت"
     }
   },
   "landing": {
@@ -2535,8 +2575,9 @@
       "terms": "شروط",
       "cookies": "ملفات تعريف الارتباط",
       "imprint": "بصمة",
-      "copyright": "© {السنة} {شركة}"
-    }
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — كرة أرضية ثلاثية الأبعاد"
   },
   "ui": {
     "table": {
@@ -2544,7 +2585,7 @@
       "noResultsDescription": "لا شيء يطابق المرشحات الحالية.",
       "previous": "سابق",
       "next": "التالي",
-      "paginationRange": "{البداية}–{النهاية} من {total}",
+      "paginationRange": "{start}–{end} من {total}",
       "sortAscending": "فرز تصاعدي",
       "sortDescending": "الترتيب تنازليًا"
     },
@@ -2612,13 +2653,13 @@
       "emptyTitle": "لا توجد مشاريع حتى الآن",
       "emptyDescription": "قم بتدوير مساحة عمل التسليم لتتبع المعالم والميزانية وملكية الفريق.",
       "createProject": "إنشاء مشروع",
-      "pagination": "عرض {من}–{إلى} من {total}",
+      "pagination": "عرض {from}–{to} من {total}",
       "previous": "سابق",
       "next": "التالي",
       "noDescription": "لا يوجد وصف بعد.",
-      "duePrefix": "موعد الاستحقاق {التاريخ}",
-      "openProject": "فتح المشروع {الاسم}",
-      "sortBy": "الترتيب حسب {عمود}",
+      "duePrefix": "موعد الاستحقاق {date}",
+      "openProject": "فتح المشروع {name}",
+      "sortBy": "الترتيب حسب {column}",
       "sort": {
         "name": "اسم",
         "customer": "عميل",
@@ -2652,7 +2693,7 @@
       "tagsPlaceholder": "المؤسسة، الطرح",
       "budgetPlaceholder": "0",
       "description": "وصف",
-      "selectColor": "اختر اللون {اللون}"
+      "selectColor": "اختر اللون {color}"
     },
     "taskForm": {
       "createTitle": "إنشاء مهمة",
@@ -2680,7 +2721,7 @@
     },
     "badges": {
       "progress": "تقدم",
-      "progressAria": "{التسمية}: {القيمة}%"
+      "progressAria": "{label}: {value}%"
     },
     "status": {
       "planning": "تخطيط",
@@ -2719,24 +2760,24 @@
       "emptyDescription": "أضف تواريخ البدء/الاستحقاق والمهام لملء الجدول.",
       "title": "الجدول الزمني",
       "subtitle": "البداية، النهاية، المدة، المعالم. التبعيات محجوزة للإصدار المستقبلي.",
-      "dateRange": "{البدء} → {النهاية} · {أيام} د",
-      "itemAria": "{العنوان} من {البداية} إلى {النهاية}",
+      "dateRange": "{start} → {end} · {days} د",
+      "itemAria": "{title} من {start} إلى {end}",
       "dependenciesNone": "التبعيات: لا شيء"
     },
     "dashboard": {
       "kpi": {
         "activeProjects": "المشاريع النشطة",
-        "activeHint": "{تخطيط} تخطيط",
+        "activeHint": "{planning} تخطيط",
         "completed": "مكتمل",
         "completedHint": "{percent}% من المحفظة",
         "onHold": "في الانتظار",
-        "onHoldHint": "{مؤرشفة} مؤرشفة",
+        "onHoldHint": "{archived} مؤرشفة",
         "teamMembers": "أعضاء الفريق",
         "teamHint": "في جميع المشاريع",
         "budgetOverview": "نظرة عامة على الميزانية",
-        "budgetHint": "تم استخدام {percent}% · تم إنفاق {spect}.",
+        "budgetHint": "تم استخدام {percent}% · تم إنفاق {spent}.",
         "openTasks": "افتح المهام",
-        "openTasksHint": "{متأخرة} متأخرة",
+        "openTasksHint": "{overdue} متأخرة",
         "projectHealth": "صحة المشروع",
         "healthHint": "درجة التسليم المركب",
         "upcomingDeadlines": "المواعيد النهائية القادمة",
@@ -2763,7 +2804,7 @@
       "emptyTitle": "لا توجد مهام على متن الطائرة",
       "emptyDescription": "قم بإنشاء مهام لتنظيم التسليم عبر المهام قيد التنفيذ والمراجعة والتنفيذ.",
       "addTask": "أضف مهمة",
-      "columnAria": "عمود {الحالة}.",
+      "columnAria": "عمود {status}.",
       "taskProgress": "تقدم المهمة",
       "edit": "يحرر",
       "complete": "مكتمل"
@@ -2772,7 +2813,7 @@
       "notFoundTitle": "لم يتم العثور على المشروع",
       "notFoundDescription": "ربما تم حذف هذا المشروع أو أنه غير متوفر للمؤسسة الحالية.",
       "backToProjects": "← العودة إلى المشاريع",
-      "ownerMeta": "{العميل} · المالك {مالك}",
+      "ownerMeta": "{customer} · المالك {owner}",
       "edit": "يحرر",
       "delete": "يمسح",
       "sectionsAria": "أقسام تفاصيل المشروع",
@@ -2881,6 +2922,31 @@
       "memberAdded": "تمت إضافة العضو",
       "settingsSaved": "تم حفظ الإعدادات",
       "projectArchived": "تم أرشفة المشروع"
+    },
+    "validation": {
+      "nameRequired": "اسم المشروع مطلوب.",
+      "nameMin": "يجب أن يتكون اسم المشروع من حرفين على الأقل.",
+      "customerRequired": "العميل مطلوب.",
+      "ownerRequired": "مالك المشروع مطلوب.",
+      "priorityInvalid": "حدد أولوية صالحة.",
+      "statusInvalid": "حدد حالة صالحة.",
+      "currencyInvalid": "حدد عملة صالحة.",
+      "budgetInvalid": "يجب أن تكون الميزانية رقمًا غير سالب.",
+      "startDateRequired": "تاريخ البدء مطلوب.",
+      "startDateInvalid": "أدخل تاريخ بدء صالحًا.",
+      "dueDateInvalid": "أدخل تاريخ استحقاق صالحًا.",
+      "dueDateOrder": "يجب أن يكون تاريخ الاستحقاق في تاريخ البدء أو بعده.",
+      "colorInvalid": "اختر لونًا صالحًا.",
+      "iconInvalid": "اختر أيقونة صالحة.",
+      "taskTitleRequired": "عنوان المهمة مطلوب.",
+      "progressRange": "يجب أن يكون التقدم بين 0 و 100.",
+      "memberNameRequired": "اسم العضو مطلوب.",
+      "emailRequired": "البريد الإلكتروني مطلوب.",
+      "emailInvalid": "أدخل عنوان بريد إلكتروني صالحًا.",
+      "roleInvalid": "حدد دورًا صالحًا.",
+      "noteTitleRequired": "عنوان الملاحظة مطلوب.",
+      "noteBodyRequired": "نص الملاحظة مطلوب.",
+      "authorRequired": "المؤلف مطلوب."
     }
   },
   "automation": {
@@ -2954,7 +3020,7 @@
       "tabTriggers": "المشغلات",
       "tabActions": "الإجراءات",
       "tabAiActions": "إجراءات الذكاء الاصطناعي",
-      "builderTitle": "منشئ سير العمل · {الاسم}",
+      "builderTitle": "منشئ سير العمل · {name}",
       "builderHint": "الانطباق على شبكة {grid}px · ⌘/Ctrl+scroll Zoom · اسحب القماش للتحريك · انقر نقرًا مزدوجًا فوق Connect",
       "autoSaved": "تم الحفظ تلقائيًا",
       "saving": "توفير…",
@@ -2981,13 +3047,13 @@
       "noMatches": "لا توجد عمليات تشغيل سير عمل تتطابق مع عامل التصفية هذا."
     },
     "miniPreview": {
-      "emptyWorkflow": "Empty workflow"
+      "emptyWorkflow": "سير عمل فارغ"
     },
     "workflowTemplates": {
       "title": "مكتبة النماذج",
       "noticeDefault": "قم بمعاينة القالب قبل تحميله في المنشئ.",
       "noticeLoaded": "تم تحميل \"{name}\" في منشئ سير العمل.",
-      "nodesBadge": "{عدد} العقد",
+      "nodesBadge": "{count} العقد",
       "recommendedFor": "موصى به لـ: {for}",
       "preview": "معاينة",
       "useTemplate": "استخدم القالب",
@@ -3019,14 +3085,14 @@
       "notice": {
         "missingWrite": "إذن سير العمل.الكتابة مفقود.",
         "missingExecute": "إذن Workflow.exe مفقود.",
-        "created": "تم إنشاء {الاسم}",
+        "created": "تم إنشاء {name}",
         "templateApplied": "تم تطبيق القالب: {name}",
-        "runResult": "تشغيل {الحالة} ({duration} مللي ثانية)",
+        "runResult": "تشغيل {status} ({duration} مللي ثانية)",
         "runFailed": "لا يمكن تشغيل سير العمل (معطل أو مفقود).",
         "publishedEvent": "حدث المجال المنشور: {type}",
-        "workflowStatus": "سير العمل {الحالة}",
+        "workflowStatus": "سير العمل {status}",
         "saved": "تم حفظ سير العمل",
-        "retryResult": "إعادة المحاولة {الحالة}",
+        "retryResult": "إعادة المحاولة {status}",
         "retryFailed": "فشلت إعادة المحاولة",
         "settingsSaved": "تم حفظ إعدادات الأتمتة"
       },
@@ -3081,8 +3147,8 @@
         "emptyTitle": "لا توجد عمليات إعدام حتى الآن.",
         "emptyDescription": "تشغيل سير عمل أو نشر حدث مجال.",
         "latestRun": "أحدث تفاصيل التشغيل",
-        "path": "المسار: {المسار}",
-        "error": "· خطأ: {خطأ}",
+        "path": "المسار: {path}",
+        "error": "· خطأ: {error}",
         "columns": {
           "workflow": "سير العمل",
           "status": "حالة",
@@ -3115,12 +3181,311 @@
         "timeoutMs": "المهلة (مللي ثانية)",
         "logLevel": "مستوى السجل",
         "logLevels": {
-          "error": "error",
-          "warn": "warn",
-          "info": "info",
-          "debug": "debug"
+          "error": "خطأ",
+          "warn": "تحذير",
+          "info": "معلومات",
+          "debug": "تصحيح"
         },
         "saveSettings": "حفظ الإعدادات"
+      }
+    },
+    "status": {
+      "connected": "متصل",
+      "beta": "تجريبي",
+      "comingSoon": "قريبًا",
+      "disabled": "معطّل",
+      "planned": "مخطط",
+      "success": "نجاح",
+      "failed": "فشل",
+      "running": "قيد التشغيل",
+      "pending": "معلق",
+      "retried": "إعادة المحاولة"
+    },
+    "difficulty": {
+      "starter": "مبتدئ",
+      "intermediate": "متوسط",
+      "advanced": "متقدم"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "مشغّل",
+        "description": "ابدأ عند وقوع حدث"
+      },
+      "el-condition": {
+        "label": "شرط",
+        "description": "تفرع حسب القواعد"
+      },
+      "el-delay": {
+        "label": "تأخير",
+        "description": "انتظر قبل المتابعة"
+      },
+      "el-approval": {
+        "label": "اعتماد",
+        "description": "بوابة اعتماد بشري"
+      },
+      "el-loop": {
+        "label": "حلقة",
+        "description": "كرر على مجموعة"
+      },
+      "el-merge": {
+        "label": "دمج",
+        "description": "ادمج المسارات المتوازية"
+      },
+      "el-split": {
+        "label": "تقسيم",
+        "description": "وزّع المسارات المتوازية"
+      },
+      "el-ai-decision": {
+        "label": "قرار الذكاء الاصطناعي",
+        "description": "وجّه عبر الذكاء الاصطناعي"
+      },
+      "el-notification": {
+        "label": "إشعار",
+        "description": "تنبيه داخل التطبيق"
+      },
+      "el-webhook": {
+        "label": "عنصر نائب لـ Webhook",
+        "description": "تم حجز رد اتصال HTTP"
+      },
+      "el-custom": {
+        "label": "إجراء مخصص",
+        "description": "فتحة إجراء قابلة للتوسعة"
+      },
+      "tr-customer": {
+        "label": "تم إنشاء العميل",
+        "description": "تم إنشاء سجل عميل CRM"
+      },
+      "tr-lead": {
+        "label": "تم إنشاء العميل المحتمل",
+        "description": "عميل محتمل جديد يدخل المسار"
+      },
+      "tr-invoice": {
+        "label": "تم إنشاء الفاتورة",
+        "description": "تم إصدار فاتورة مالية"
+      },
+      "tr-invoice-paid": {
+        "label": "تم دفع الفاتورة",
+        "description": "تم تسوية الدفع"
+      },
+      "tr-order": {
+        "label": "تم إنشاء الطلب",
+        "description": "تم إدخال الطلب"
+      },
+      "tr-order-done": {
+        "label": "اكتمل الطلب",
+        "description": "تم تنفيذ الطلب"
+      },
+      "tr-doc": {
+        "label": "تم رفع المستند",
+        "description": "رفع إلى خزنة المستندات"
+      },
+      "tr-campaign": {
+        "label": "تم نشر الحملة",
+        "description": "نشر Creator Studio"
+      },
+      "tr-employee": {
+        "label": "تمت إضافة الموظف",
+        "description": "تغيير دليل الفريق"
+      },
+      "tr-task": {
+        "label": "اكتملت المهمة",
+        "description": "تم تعليم المهمة كمكتملة"
+      },
+      "tr-manual": {
+        "label": "مشغّل يدوي",
+        "description": "تشغيل عند الطلب"
+      },
+      "tr-schedule": {
+        "label": "مشغّل الجدولة",
+        "description": "جدولة cron / التقويم"
+      },
+      "tr-webhook": {
+        "label": "مشغّل Webhook",
+        "description": "حدث HTTP وارد"
+      },
+      "tr-api": {
+        "label": "مشغّل API",
+        "description": "بدء برمجي"
+      },
+      "ac-crm": {
+        "label": "إنشاء سجل CRM",
+        "description": "اكتب كيان CRM"
+      },
+      "ac-invoice": {
+        "label": "إنشاء فاتورة",
+        "description": "فاتورة مالية"
+      },
+      "ac-quote": {
+        "label": "إنشاء عرض سعر",
+        "description": "إنشاء مستند عرض السعر"
+      },
+      "ac-delivery": {
+        "label": "إنشاء إذن تسليم",
+        "description": "إذن تسليم"
+      },
+      "ac-task": {
+        "label": "إنشاء مهمة",
+        "description": "افتح مهمة"
+      },
+      "ac-assign": {
+        "label": "تعيين موظف",
+        "description": "وجّه إلى زميل"
+      },
+      "ac-email": {
+        "label": "إرسال بريد إلكتروني",
+        "description": "بريد صادر"
+      },
+      "ac-notify": {
+        "label": "إرسال إشعار",
+        "description": "إشعار داخل التطبيق"
+      },
+      "ac-ai-summary": {
+        "label": "إنشاء ملخص بالذكاء الاصطناعي",
+        "description": "لخّص السياق"
+      },
+      "ac-ai-content": {
+        "label": "إنشاء محتوى بالذكاء الاصطناعي",
+        "description": "مسودة Creator Studio"
+      },
+      "ac-update-customer": {
+        "label": "تحديث العميل",
+        "description": "ترقيع عميل CRM"
+      },
+      "ac-update-status": {
+        "label": "تحديث الحالة",
+        "description": "غيّر حالة الكيان"
+      },
+      "ac-pdf": {
+        "label": "تصدير PDF",
+        "description": "تصدير المستند"
+      },
+      "ac-future": {
+        "label": "عنصر نائب لـ API مستقبلي",
+        "description": "فتحة إجراء محجوزة"
+      },
+      "ai-decision": {
+        "label": "قرار الذكاء الاصطناعي",
+        "description": "قرر المسار التالي"
+      },
+      "ai-class": {
+        "label": "تصنيف بالذكاء الاصطناعي",
+        "description": "صنّف السجلات"
+      },
+      "ai-text": {
+        "label": "توليد نص بالذكاء الاصطناعي",
+        "description": "أنشئ نصًا"
+      },
+      "ai-translate": {
+        "label": "ترجمة بالذكاء الاصطناعي",
+        "description": "ترجم المحتوى"
+      },
+      "ai-email": {
+        "label": "رد بريد بالذكاء الاصطناعي",
+        "description": "صغ ردًا"
+      },
+      "ai-sum": {
+        "label": "تلخيص بالذكاء الاصطناعي",
+        "description": "كثّف السياق"
+      },
+      "ai-rec": {
+        "label": "توصيات الذكاء الاصطناعي",
+        "description": "اقترح الخطوات التالية"
+      },
+      "ai-route": {
+        "label": "توجيه بالذكاء الاصطناعي",
+        "description": "وجّه إلى المالك / قائمة الانتظار"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "تم إنشاء العميل",
+        "description": "يُشغَّل عند إنشاء سجل عميل في CRM."
+      },
+      "project_created": {
+        "label": "تم إنشاء المشروع",
+        "description": "يُشغَّل عند إنشاء مشروع."
+      },
+      "invoice_issued": {
+        "label": "إصدار فاتورة",
+        "description": "يُشغَّل عند إصدار فاتورة."
+      },
+      "task_completed": {
+        "label": "اكتملت المهمة",
+        "description": "يُشغَّل عند تعليم مهمة كمكتملة."
+      },
+      "document_uploaded": {
+        "label": "تم تحميل المستند",
+        "description": "يُشغَّل عند رفع مستند."
+      },
+      "user_invited": {
+        "label": "تمت دعوة مستخدم",
+        "description": "يُشغَّل عند دعوة عضو في الفريق."
+      },
+      "schedule": {
+        "label": "جدول",
+        "description": "مشغّل جدولة cron / فاصل زمني."
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "Webhook HTTP وارد."
+      },
+      "api_event": {
+        "label": "حدث API",
+        "description": "حدث نطاق API عام."
+      },
+      "ai_event": {
+        "label": "حدث الذكاء الاصطناعي",
+        "description": "إشارة ذكاء اصطناعي (اكتمال، رؤية، خطوة وكيل)."
+      },
+      "manual": {
+        "label": "مشغّل يدوي",
+        "description": "تشغيل عند الطلب من الواجهة أو API."
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "إنشاء عميل",
+        "description": "إنشاء سجل عميل في CRM."
+      },
+      "customer_update": {
+        "label": "تحديث العميل",
+        "description": "تحديث حقول العميل."
+      },
+      "project_create": {
+        "label": "إنشاء مشروع",
+        "description": "إنشاء مشروع من سياق سير العمل."
+      },
+      "document_generate": {
+        "label": "إنشاء مستند",
+        "description": "إنشاء مستند من قالب."
+      },
+      "notification_send": {
+        "label": "إرسال إشعار",
+        "description": "إرسال إشعار داخل التطبيق."
+      },
+      "email_send": {
+        "label": "إرسال بريد إلكتروني",
+        "description": "وضع بريد في قائمة الانتظار عبر الموفر."
+      },
+      "api_call": {
+        "label": "استدعاء API",
+        "description": "استدعاء HTTP لواجهة API داخلية أو خارجية."
+      },
+      "ai_run": {
+        "label": "تشغيل الذكاء الاصطناعي",
+        "description": "تنفيذ موجّه ذكاء اصطناعي / خطوة وكيل مع السياق."
+      },
+      "task_assign": {
+        "label": "تعيين مهمة",
+        "description": "تعيين مهمة لمستخدم."
+      },
+      "invoice_create": {
+        "label": "إنشاء فاتورة",
+        "description": "إنشاء فاتورة مالية."
+      },
+      "status_update": {
+        "label": "تحديث الحالة",
+        "description": "تحديث حالة كيان في وحدة."
       }
     }
   },
@@ -3175,7 +3540,7 @@
       "columnEmail": "بريد إلكتروني",
       "columnRole": "دور",
       "columnStatus": "حالة",
-      "roleFor": "دور {الاسم}",
+      "roleFor": "دور {name}",
       "emptyTitle": "لا يوجد أعضاء حتى الآن",
       "emptyDescription": "قم بدعوة الزملاء للانضمام إلى مساحة عمل المؤسسة هذه.",
       "updated": "تم تحديث {name} إلى {role}",
@@ -3185,7 +3550,7 @@
       "title": "الدعوات المعلقة",
       "emptyTitle": "لا توجد دعوات معلقة",
       "emptyDescription": "تظهر الدعوات الجديدة هنا حتى يتم قبولها أو انتهاء صلاحيتها.",
-      "expires": "{الدور} · تنتهي الصلاحية في {التاريخ}",
+      "expires": "{role} · تنتهي الصلاحية في {date}",
       "revoke": "إبطال",
       "pending": "قيد الانتظار"
     },
@@ -3221,9 +3586,9 @@
       "view": "منظر",
       "edit": "يحرر",
       "delete": "يمسح",
-      "viewAria": "عرض {الشركة}",
-      "editAria": "تعديل {الشركة}",
-      "deleteAria": "حذف {الشركة}",
+      "viewAria": "عرض {company}",
+      "editAria": "تعديل {company}",
+      "deleteAria": "حذف {company}",
       "loading": "جارٍ تحميل العملاء…",
       "errorLoad": "تعذر تحميل العملاء",
       "errorGeneric": "حدث خطأ ما",
@@ -3300,6 +3665,18 @@
       "updated": "تم التحديث",
       "notes": "ملحوظات",
       "noNotes": "لا توجد ملاحظات حتى الآن."
+    },
+    "validation": {
+      "companyRequired": "اسم الشركة مطلوب.",
+      "contactRequired": "جهة الاتصال مطلوبة.",
+      "emailRequired": "البريد الإلكتروني مطلوب.",
+      "emailInvalid": "أدخل عنوان بريد إلكتروني صالحًا.",
+      "phoneRequired": "الهاتف مطلوب.",
+      "phoneInvalid": "أدخل رقم هاتف صالحًا.",
+      "mobileInvalid": "أدخل رقم جوال صالحًا.",
+      "statusInvalid": "حدد حالة صالحة.",
+      "emailDuplicate": "يوجد عميل بهذا البريد الإلكتروني بالفعل.",
+      "companyDuplicate": "يوجد عميل باسم الشركة هذا بالفعل."
     }
   },
   "ai": {
@@ -3320,7 +3697,7 @@
       "provider": "مزود",
       "model": "نموذج",
       "estimatedTokens": "EST. الرموز",
-      "tokensInOut": "(داخل {داخل} / خارج {خارج})",
+      "tokensInOut": "(داخل {in} / خارج {out})",
       "cost": "يكلف",
       "context": "سياق",
       "contextNone": "لا أحد",
@@ -3383,6 +3760,91 @@
       "placeholder": "أمر الذكاء الاصطناعي...تلخيص، اقتراح، تحليل...",
       "noMatches": "لا توجد أوامر مطابقة",
       "footer": "قم بتسجيل الأوامر المستقبلية عبر RegisterAiCommand - تظل واجهة المستخدم دون تغيير."
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "المشاريع",
+      "finance": "المالية",
+      "marketing": "التسويق",
+      "documents": "المستندات",
+      "automation": "الأتمتة",
+      "general": "عام"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "تلخيص العميل",
+        "description": "ملخص تنفيذي لعلاقة العميل"
+      },
+      "crm-follow-up-email": {
+        "title": "بريد المتابعة",
+        "description": "صغ متابعة CRM احترافية"
+      },
+      "projects-analyze": {
+        "title": "تحليل المشروع",
+        "description": "فحص صحة المشروع"
+      },
+      "projects-task-list": {
+        "title": "إنشاء قائمة مهام",
+        "description": "قسّم العمل إلى مهام قابلة للتنفيذ"
+      },
+      "finance-explain-invoice": {
+        "title": "شرح الفاتورة",
+        "description": "شرح الفاتورة بلغة بسيطة"
+      },
+      "finance-cashflow-brief": {
+        "title": "موجز التدفق النقدي",
+        "description": "سرد قصير للتدفق النقدي"
+      },
+      "marketing-campaign-outline": {
+        "title": "مخطط الحملة",
+        "description": "هيكل حملة تسويقية"
+      },
+      "marketing-proposal": {
+        "title": "إنشاء عرض",
+        "description": "مسودة عرض موجّهة للعميل"
+      },
+      "documents-summarize": {
+        "title": "تلخيص المستند",
+        "description": "ملخص مستند منظم"
+      },
+      "automation-workflow": {
+        "title": "تصميم سير عمل",
+        "description": "مسودة سير عمل الأتمتة"
+      },
+      "general-brainstorm": {
+        "title": "عصف ذهني للخيارات",
+        "description": "توليد أفكار منظم"
+      },
+      "general-explain": {
+        "title": "اشرح ببساطة",
+        "description": "شرح واضح لأصحاب المصلحة"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "تلخيص العميل",
+        "description": "ملخص تنفيذي للعميل النشط"
+      },
+      "cmd-generate-proposal": {
+        "label": "إنشاء عرض",
+        "description": "صغ مخطط عرض للعميل"
+      },
+      "cmd-analyze-project": {
+        "label": "تحليل المشروع",
+        "description": "صحة المشروع وتحليل المخاطر"
+      },
+      "cmd-create-task-list": {
+        "label": "إنشاء قائمة مهام",
+        "description": "قسّم العمل إلى مهام قابلة للتنفيذ"
+      },
+      "cmd-generate-email": {
+        "label": "إنشاء بريد إلكتروني",
+        "description": "صغ بريدًا احترافيًا"
+      },
+      "cmd-explain-invoice": {
+        "label": "شرح الفاتورة",
+        "description": "شرح الفاتورة بلغة بسيطة"
+      }
     }
   },
   "agents": {
@@ -3404,7 +3866,7 @@
       "settings": "إعدادات"
     },
     "notice": {
-      "simulatedRun": "محاكاة التشغيل · {الحالة} ({duration} مللي ثانية)",
+      "simulatedRun": "محاكاة التشغيل · {status} ({duration} مللي ثانية)",
       "taskFailed": "فشلت المهمة",
       "activated": "تم التنشيط محليًا: {agentId}",
       "agentPaused": "توقف الوكيل مؤقتًا",
@@ -3429,15 +3891,15 @@
     "registry": {
       "title": "التسجيل",
       "selectPrompt": "حدد وكيلاً من التسجيل.",
-      "status": "الحالة: {الحالة}",
-      "health": "الصحة: ​​{الصحة}",
-      "queue": "قائمة الانتظار: {قائمة الانتظار}",
-      "usage": "الاستخدام: {استخدام}",
+      "status": "الحالة: {status}",
+      "health": "الصحة: ​​{health}",
+      "queue": "قائمة الانتظار: {queue}",
+      "usage": "الاستخدام: {usage}",
       "executeTask": "تنفيذ المهمة",
       "supervisorDelegate": "مندوب المشرف"
     },
     "marketplace": {
-      "tools": "الأدوات: {أدوات}",
+      "tools": "الأدوات: {tools}",
       "installed": "تم التثبيت",
       "installActivate": "التثبيت والتنشيط"
     },
@@ -3504,6 +3966,10 @@
     "goals": {
       "executeBusiness": "تنفيذ هدف العمل {agentId}.",
       "planAndExecute": "تخطيط وتنفيذ هدف عمل مساحة العمل"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "أعطِ أولوية لأثر العميل",
+      "delegatedFollowUp": "متابعة مُفوَّضة"
     }
   },
   "integrations": {
@@ -3527,17 +3993,17 @@
       "connectFailed": "فشل الاتصال",
       "keyCreated": "تم إنشاء مفتاح واجهة برمجة التطبيقات: {prefix}",
       "webhookCreated": "تم إنشاء خطاف الويب: {name}",
-      "webhookTest": "اختبار الرد التلقائي على الويب {الحالة}",
+      "webhookTest": "اختبار الرد التلقائي على الويب {status}",
       "networkError": "خطأ في شبكة مستكشف واجهة برمجة التطبيقات: {message}",
-      "explorerError": "مستكشف واجهة برمجة التطبيقات → {الحالة}: {message}",
+      "explorerError": "مستكشف واجهة برمجة التطبيقات → {status}: {message}",
       "explorerSuccess": "مستكشف واجهة برمجة التطبيقات → {status}",
       "explorerFailed": "فشل المستكشف",
-      "syncResult": "مزامنة العرض التوضيحي · {الحالة} ({السجلات} السجلات المحلية) — لم يتم نقل أي بيانات خارجية.",
+      "syncResult": "مزامنة العرض التوضيحي · {status} ({records} السجلات المحلية) — لم يتم نقل أي بيانات خارجية.",
       "diagnosed": "تم تشخيصه",
       "removedConnection": "تمت إزالة الاتصال التجريبي: {name}",
       "keyRotated": "تم تدوير المفتاح",
       "keyRevoked": "تم إبطال المفتاح",
-      "publishedEvent": "تم النشر {نوع}",
+      "publishedEvent": "تم النشر {type}",
       "developerSaved": "تم حفظ إعدادات المطور"
     },
     "dashboard": {
@@ -3554,16 +4020,16 @@
       "emptyDescription": "تصفح متاح للاتصال بمزود.",
       "eventBridgeDemo": "عرض جسر الحدث",
       "eventBridgeHint": "نشر حدث موصل على ناقل Workflow Automation.",
-      "emit": "تنبعث {معرف}"
+      "emit": "تنبعث {id}"
     },
     "installed": {
       "title": "التكاملات المثبتة",
       "emptyTitle": "لا شيء مثبت",
       "emptyDescription": "التثبيت من الكتالوج المتاح.",
-      "latestSync": "أحدث مزامنة: {الحالة} · {السجلات} السجلات · الوضع {الوضع}"
+      "latestSync": "أحدث مزامنة: {status} · {records} السجلات · الوضع {mode}"
     },
     "available": {
-      "protocols": "البروتوكولات: {بروتوكولات}",
+      "protocols": "البروتوكولات: {protocols}",
       "demoConnection": "اتصال تجريبي",
       "connectDemo": "اتصال (تجريبي)",
       "installDemo": "قم بتثبيت العرض التوضيحي"
@@ -3646,7 +4112,7 @@
     },
     "errors": {
       "failedToFetch": "فشل الجلب",
-      "httpStatus": "HTTP {الحالة}"
+      "httpStatus": "HTTP {status}"
     }
   },
   "intelligence": {
@@ -3659,7 +4125,7 @@
     "noPermission": "ليس لديك إذن Intelligence.read لمساحة العمل هذه.",
     "filtersUpdated": "تم تحديث المرشحات",
     "demoReloaded": "تمت إعادة تحميل مجموعة البيانات التجريبية لمساحة العمل هذه.",
-    "acknowledged": "تم الإقرار به: {العنوان}",
+    "acknowledged": "تم الإقرار به: {title}",
     "exportUnavailableTitle": "التصدير غير متاح — لم يتم توصيل إنشاء التقرير بعد.",
     "exportUnavailableAria": "تصدير {title} كـ {format} — غير متوفر",
     "tabs": {
@@ -3735,9 +4201,9 @@
     "forecasts": {
       "emptyTitle": "لا توجد توقعات حتى الآن",
       "emptyDescription": "تظهر التوقعات التجريبية بعد البذور. النماذج التنبؤية غير متصلة.",
-      "title": "توقعات {نوع}.",
-      "baseline": "خط الأساس {خط الأساس} → المتوقع {المسقط} ({أيام} د)",
-      "confidence": "العرض التوضيحي · الثقة {الثقة} — {ملاحظة}"
+      "title": "توقعات {kind}.",
+      "baseline": "خط الأساس {baseline} → المتوقع {projected} ({days} د)",
+      "confidence": "العرض التوضيحي · الثقة {confidence} — {note}"
     },
     "alerts": {
       "title": "محرك التنبيه",
@@ -3789,8 +4255,8 @@
     "shell": {
       "brand": "أجكسورا",
       "navLabel": "الملاحة القانونية",
-      "lastUpdated": "آخر تحديث: {التاريخ}",
-      "footerCopyright": "© 2026 {الشركة}",
+      "lastUpdated": "آخر تحديث: {date}",
+      "footerCopyright": "© 2026 {company}",
       "footerNavLabel": "تذييل قانوني",
       "nav": {
         "privacy": "خصوصية",
@@ -3944,7 +4410,134 @@
     "back": "خلف",
     "continue": "يكمل",
     "launching": "جارٍ الإطلاق…",
-    "enterDashboard": "أدخل لوحة القيادة"
+    "enterDashboard": "أدخل لوحة القيادة",
+    "defaultCountry": "الولايات المتحدة",
+    "businessTypes": {
+      "hotel": {
+        "label": "فندق",
+        "description": "الضيافة والغرف والضيوف وتشغيل العقار"
+      },
+      "restaurant": {
+        "label": "مطعم",
+        "description": "المطاعم والمطبخ والحجوزات وتجربة الضيف"
+      },
+      "cleaning": {
+        "label": "تنظيف",
+        "description": "عمليات التنظيف التجارية والسكنية"
+      },
+      "laundry": {
+        "label": "مغسلة",
+        "description": "مغاسل ومسارات الاستلام والعناية بالنسيج"
+      },
+      "construction": {
+        "label": "إنشاءات",
+        "description": "مواقع العمل والفرق والمواد وتسليم المشاريع"
+      },
+      "healthcare": {
+        "label": "الرعاية الصحية",
+        "description": "شبكات الرعاية والمرضى والعمليات السريرية"
+      },
+      "medical": {
+        "label": "طبي",
+        "description": "العيادات والمواعيد وفرق الرعاية"
+      },
+      "manufacturing": {
+        "label": "تصنيع",
+        "description": "خطوط الإنتاج والجودة وعمليات التوريد"
+      },
+      "retail": {
+        "label": "تجزئة",
+        "description": "المتاجر والمخزون والترويج والعملاء"
+      },
+      "legal": {
+        "label": "مكتب محاماة",
+        "description": "القضايا والعملاء والمواعيد والفوترة"
+      },
+      "accounting": {
+        "label": "محاسبة",
+        "description": "الدفاتر والعملاء والإقرارات والاستشارات"
+      },
+      "consulting": {
+        "label": "استشارات",
+        "description": "التعاقدات والمخرجات ونتائج العملاء"
+      },
+      "real_estate": {
+        "label": "عقارات",
+        "description": "القوائم والعملاء والمعاينات والمعاملات"
+      },
+      "education": {
+        "label": "تعليم",
+        "description": "البرامج والطلاب وهيئة التدريس والتسجيل"
+      },
+      "automotive": {
+        "label": "سيارات",
+        "description": "الوكلاء ومناطق الخدمة ومخزون المركبات"
+      },
+      "beauty": {
+        "label": "صالون تجميل",
+        "description": "المواعيد والمصففون والتجزئة والعضويات"
+      },
+      "fitness": {
+        "label": "نادي رياضي / لياقة",
+        "description": "العضويات والحصص والمدربون والاحتفاظ"
+      },
+      "agriculture": {
+        "label": "زراعة",
+        "description": "المحاصيل والماشية والغلة وسلاسل التوريد"
+      },
+      "transport": {
+        "label": "نقل",
+        "description": "حركة الأسطول والمسارات وعمليات الركاب/البضائع"
+      },
+      "logistics": {
+        "label": "لوجستيات",
+        "description": "الأسطول والمستودعات والمسارات والتنفيذ"
+      },
+      "warehouse": {
+        "label": "مستودع",
+        "description": "التخزين والانتقاء والتعبئة ودوران المخزون"
+      },
+      "insurance": {
+        "label": "تأمين",
+        "description": "الوثائق والمطالبات والاكتتاب والاحتفاظ"
+      },
+      "finance": {
+        "label": "المالية",
+        "description": "رأس المال والمحافظ والعمليات المالية"
+      },
+      "financial_services": {
+        "label": "الخدمات المالية",
+        "description": "الاستشارات والمنتجات والامتثال والعملاء"
+      },
+      "technology": {
+        "label": "تقنية",
+        "description": "المنتج والهندسة وفرق طرح السوق"
+      },
+      "saas": {
+        "label": "برمجيات / SaaS",
+        "description": "الاشتراكات والاستخدام ونجاح العملاء"
+      },
+      "ecommerce": {
+        "label": "تجارة إلكترونية",
+        "description": "الكتالوج عبر الإنترنت والعربات والتنفيذ وLTV"
+      },
+      "agency": {
+        "label": "وكالة تسويق",
+        "description": "العملاء والحملات والعقود الشهرية والتسليم"
+      },
+      "freelancer": {
+        "label": "مستقل",
+        "description": "ممارسة فردية وعملاء ومسار وتدفق نقدي"
+      },
+      "government": {
+        "label": "حكومة",
+        "description": "الخدمات العامة والبرامج والمواطنون"
+      },
+      "nonprofit": {
+        "label": "غير ربحي",
+        "description": "المهام والمتبرعون والبرامج والأثر"
+      }
+    }
   },
   "creator": {
     "page": {
@@ -4017,7 +4610,7 @@
       "aiRewrite": "إعادة كتابة الذكاء الاصطناعي",
       "translate": "يترجم",
       "initialOutput": "حدد التنسيق وصوت العلامة التجارية، ثم قم بإنشاء مسودة. محولات الموفر محجوزة - لا توجد مكالمات نموذجية مباشرة حتى الآن.",
-      "draftStaged": "مسودة نظمت لـ {تنسيق} · صوت: {صوت}. محول الجيل محجوز.",
+      "draftStaged": "مسودة نظمت لـ {format} · صوت: {voice}. محول الجيل محجوز.",
       "rewriteQueued": "إعادة الكتابة في قائمة الانتظار - محول إعادة الكتابة محجوز.",
       "translateQueued": "ترجمة المحتوى في قائمة الانتظار - تم حجز المحول متعدد اللغات.",
       "brandVoice": "صوت العلامة التجارية",
@@ -4042,8 +4635,8 @@
     "analytics": {
       "title": "التحليلات",
       "topPosts": "أعلى المشاركات",
-      "engagement": "المهندس {القيمة}",
-      "reach": "الوصول إلى {القيمة}",
+      "engagement": "المهندس {value}",
+      "reach": "الوصول إلى {value}",
       "recommendations": "توصيات الذكاء الاصطناعي"
     },
     "integrations": {
@@ -4052,6 +4645,47 @@
     },
     "aiFeaturesPanel": {
       "lead": "خريطة ميزات الذكاء الاصطناعي - الأفكار، والتسميات التوضيحية، وعلامات التصنيف، والتقويم، والحملات، والجمهور، والجدول الزمني، واتساق العلامة التجارية، وإعادة الكتابة، والترجمة، ومتعددة اللغات."
+    },
+    "formats": {
+      "instagram_caption": "تعليق Instagram",
+      "tiktok_script": "سيناريو TikTok",
+      "linkedin_post": "منشور LinkedIn",
+      "facebook_post": "منشور Facebook",
+      "x_post": "منشور X",
+      "blog_article": "مقالة مدونة",
+      "newsletter": "نشرة",
+      "email_campaign": "حملة بريد إلكتروني",
+      "product_description": "وصف المنتج",
+      "ad_copy": "نص إعلان",
+      "seo_article": "مقالة SEO",
+      "landing_page_copy": "نص صفحة الهبوط"
+    },
+    "publishStatus": {
+      "draft": "مسودة",
+      "review": "مراجعة",
+      "approved": "معتمد",
+      "scheduled": "مجدول",
+      "published": "منشور",
+      "archive": "أرشيف"
+    },
+    "mediaKind": {
+      "image": "صورة",
+      "video": "فيديو",
+      "document": "مستند",
+      "logo": "شعار العلامة",
+      "template": "قالب"
+    },
+    "voice": {
+      "professional": "احترافي",
+      "friendly": "ودّي",
+      "luxury": "فاخر",
+      "casual": "عفوي"
+    },
+    "integrationStatus": {
+      "planned": "مخطط",
+      "ready": "جاهز",
+      "connected": "متصل",
+      "disabled": "معطّل"
     }
   },
   "backend": {
@@ -4065,7 +4699,7 @@
     },
     "network": {
       "offline": "يبدو أنك غير متصل",
-      "offlineSyncHint": "Changes may not sync until the connection returns.",
+      "offlineSyncHint": "قد لا تتم مزامنة التغييرات حتى يعود الاتصال.",
       "offlineHelp": "مساعدة دون اتصال",
       "reconnected": "تمت استعادة الاتصال"
     },
@@ -4111,7 +4745,10 @@
       "startFree": "ابدأ مجانًا بدلاً من ذلك",
       "backHome": "العودة إلى المنزل",
       "signIn": "تسجيل الدخول"
-    }
+    },
+    "loading": "جارٍ التحميل",
+    "loadingEllipsis": "جارٍ التحميل…",
+    "loadingIdentity": "جارٍ تحميل الهوية…"
   },
   "workspace": {
     "page": {
@@ -4120,9 +4757,9 @@
       "descriptionNamed": "سطح مساحة عمل مستأجر معزول لـ {name}."
     },
     "idLabel": "معرف مساحة العمل:",
-    "active": "نشط: {الاسم}",
+    "active": "نشط: {name}",
     "notInSession": "ليس في الجلسة الحالية",
-    "organization": "المنظمة: {الاسم} ({سبيكة})",
+    "organization": "المنظمة: {name} ({slug})",
     "searchResults": "نتائج البحث"
   },
   "iam": {
@@ -4171,8 +4808,8 @@
       "persistentLogin": "تسجيل الدخول المستمر",
       "disabled": "عاجز",
       "enabled": "ممكّن",
-      "days": "{عدد} أيام",
-      "minutes": "{عدد} دقيقة",
+      "days": "{count} أيام",
+      "minutes": "{count} دقيقة",
       "toggleIdlePolicy": "تبديل العنصر النائب لسياسة الخمول",
       "previewSessionExpired": "انتهت صلاحية جلسة المعاينة",
       "previewAccountLocked": "تم قفل حساب المعاينة",
@@ -4262,28 +4899,28 @@
       "ariaLabel": "تبديل مساحة العمل"
     },
     "access": {
-      "eyebrow": "Identity & Access",
-      "signIn": "Sign in",
-      "backToDashboard": "Back to dashboard",
+      "eyebrow": "الهوية والوصول",
+      "signIn": "تسجيل الدخول",
+      "backToDashboard": "العودة إلى لوحة التحكم",
       "unauthorized": {
-        "title": "Unauthorized",
-        "description": "Sign in to continue to this area of AGXORA."
+        "title": "غير مصرح",
+        "description": "سجّل الدخول للمتابعة إلى هذا الجزء من AGXORA."
       },
       "forbidden": {
-        "title": "Forbidden",
-        "description": "Your role does not include permission for this resource."
+        "title": "محظور",
+        "description": "دورك لا يتضمن صلاحية لهذا المورد."
       },
       "expired_session": {
-        "title": "Expired Session",
-        "description": "Your session expired. Sign in again to resume work."
+        "title": "انتهت الجلسة",
+        "description": "انتهت جلستك. سجّل الدخول مجددًا لاستئناف العمل."
       },
       "missing_permission": {
-        "title": "Missing Permission",
-        "description": "Ask an Owner or Admin to grant the required module access."
+        "title": "صلاحية مفقودة",
+        "description": "اطلب من مالك أو مسؤول منح صلاحية الوصول إلى الوحدة المطلوبة."
       },
       "account_locked": {
-        "title": "Account Locked",
-        "description": "This account is locked. Contact an organization owner or try again later."
+        "title": "الحساب مقفل",
+        "description": "هذا الحساب مقفل. تواصل مع مالك المؤسسة أو حاول لاحقًا."
       }
     },
     "verifyEmail": {

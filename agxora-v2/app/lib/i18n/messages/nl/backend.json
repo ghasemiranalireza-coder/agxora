@@ -10,7 +10,8 @@
   "network": {
     "offline": "Het lijkt erop dat je offline bent",
     "offlineHelp": "Offline hulp",
-    "reconnected": "Verbinding hersteld"
+    "reconnected": "Verbinding hersteld",
+    "offlineSyncHint": "Wijzigingen worden mogelijk pas gesynchroniseerd wanneer de verbinding terugkeert."
   },
   "errorBoundary": {
     "backToDashboard": "Terug naar dashboard",
@@ -54,5 +55,8 @@
     "startFree": "Begin in plaats daarvan gratis",
     "backHome": "Terug naar huis",
     "signIn": "Log in"
-  }
+  },
+  "loading": "Laden",
+  "loadingEllipsis": "Laden…",
+  "loadingIdentity": "Identiteit laden…"
 }

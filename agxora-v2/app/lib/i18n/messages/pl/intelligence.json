@@ -79,14 +79,14 @@
   "insights": {
     "emptyTitle": "Nie ma jeszcze żadnych spostrzeżeń",
     "emptyDescription": "Informacje demonstracyjne pojawiają się po nasionach obszaru roboczego. Generowanie wglądu w sztuczną inteligencję na żywo nie jest połączone.",
-    "badge": "Wersja demonstracyjna · {rodzaj} · {domena} · konf. {pewność}"
+    "badge": "Wersja demonstracyjna · {kind} · {domain} · konf. {confidence}"
   },
   "forecasts": {
     "emptyTitle": "Nie ma jeszcze prognoz",
     "emptyDescription": "Prognozy demonstracyjne pojawiają się po zasiewie. Modele predykcyjne nie są połączone.",
-    "title": "Prognoza {rodzaj}",
-    "baseline": "Wartość bazowa {linia bazowa} → przewidywana {przewidywana} ({days}d)",
-    "confidence": "Demo · Pewność {pewność} — {notatka}"
+    "title": "Prognoza {kind}",
+    "baseline": "Wartość bazowa {baseline} → przewidywana {projected} ({days}d)",
+    "confidence": "Demo · Pewność {confidence} — {note}"
   },
   "alerts": {
     "title": "Silnik ostrzegawczy",

@@ -145,5 +145,30 @@
     "verify": "验证邮箱",
     "verifying": "正在验证...",
     "requestToken": "请求验证令牌"
+  },
+  "access": {
+    "eyebrow": "身份与访问",
+    "signIn": "登录",
+    "backToDashboard": "返回仪表盘",
+    "unauthorized": {
+      "title": "未授权",
+      "description": "请登录以继续使用 AGXORA 的此区域。"
+    },
+    "forbidden": {
+      "title": "禁止访问",
+      "description": "您的角色不包含此资源的权限。"
+    },
+    "expired_session": {
+      "title": "会话已过期",
+      "description": "您的会话已过期。请重新登录以继续工作。"
+    },
+    "missing_permission": {
+      "title": "缺少权限",
+      "description": "请让所有者或管理员授予所需的模块访问权限。"
+    },
+    "account_locked": {
+      "title": "账户已锁定",
+      "description": "此账户已锁定。请联系组织所有者或稍后再试。"
+    }
   }
 }
