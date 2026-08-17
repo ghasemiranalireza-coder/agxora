@@ -4,27 +4,20 @@ import type { JSX } from "react";
 import { useToasts, useToast } from "@/app/lib/backend/hooks";
 import type { ToastTone } from "@/app/lib/backend/notifications";
 import { OVERLAY_Z } from "@/app/components/ui/overlayStack";
+import { useT } from "@/app/lib/i18n";
 
-const TONE_STYLE: Record<
-  ToastTone,
-  { readonly border: string; readonly label: string }
-> = {
-  success: {
-    border: "color-mix(in srgb, var(--agx-ds-success, #34d399) 45%, transparent)",
-    label: "Success",
-  },
-  warning: {
-    border: "color-mix(in srgb, var(--agx-ds-warning, #fbbf24) 45%, transparent)",
-    label: "Warning",
-  },
-  error: {
-    border: "color-mix(in srgb, var(--agx-ds-danger, #fb7185) 50%, transparent)",
-    label: "Error",
-  },
-  info: {
-    border: "color-mix(in srgb, var(--agx-ds-accent) 45%, transparent)",
-    label: "Info",
-  },
+const TONE_KEYS: Record<ToastTone, string> = {
+  success: "backend.toast.success",
+  warning: "backend.toast.warning",
+  error: "backend.toast.error",
+  info: "backend.toast.info",
+};
+
+const TONE_BORDER: Record<ToastTone, string> = {
+  success: "color-mix(in srgb, var(--agx-ds-success, #34d399) 45%, transparent)",
+  warning: "color-mix(in srgb, var(--agx-ds-warning, #fbbf24) 45%, transparent)",
+  error: "color-mix(in srgb, var(--agx-ds-danger, #fb7185) 50%, transparent)",
+  info: "color-mix(in srgb, var(--agx-ds-accent) 45%, transparent)",
 };
 
 /**
@@ -32,6 +25,7 @@ const TONE_STYLE: Record<
  * Empty queue renders a stable empty region (SSR/client identical).
  */
 export function ToastHost(): JSX.Element {
+  const t = useT();
   const toasts = useToasts();
   const { dismiss } = useToast();
 
@@ -44,14 +38,14 @@ export function ToastHost(): JSX.Element {
       data-toast-count={toasts.length}
     >
       {toasts.map((toast) => {
-        const tone = TONE_STYLE[toast.tone];
+        const border = TONE_BORDER[toast.tone];
         return (
           <div
             key={toast.id}
             className="pointer-events-auto w-full max-w-sm rounded-lg border px-4 py-3 shadow-lg"
             style={{
               background: "var(--agx-ds-elevated)",
-              borderColor: tone.border,
+              borderColor: border,
               color: "var(--agx-ds-text)",
               boxShadow: "var(--agx-ds-shadow-md)",
             }}
@@ -64,7 +58,7 @@ export function ToastHost(): JSX.Element {
                   className="text-[10px] font-semibold uppercase tracking-[0.16em]"
                   style={{ color: "var(--agx-ds-text-muted)" }}
                 >
-                  {tone.label}
+                  {t(TONE_KEYS[toast.tone])}
                 </p>
                 <p className="text-sm font-medium">{toast.title}</p>
                 {toast.description ? (
@@ -80,9 +74,9 @@ export function ToastHost(): JSX.Element {
                 type="button"
                 className="shrink-0 text-xs opacity-70 hover:opacity-100"
                 onClick={() => dismiss(toast.id)}
-                aria-label="Dismiss notification"
+                aria-label={t("backend.toast.dismiss")}
               >
-                Close
+                {t("backend.toast.close")}
               </button>
             </div>
           </div>

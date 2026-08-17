@@ -130,7 +130,7 @@ function RegisterForm(): JSX.Element {
             <input
               id="reg-first"
               type="text"
-              placeholder="Alex"
+              placeholder={t("auth.register.firstNamePlaceholder")}
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
@@ -147,7 +147,7 @@ function RegisterForm(): JSX.Element {
             <input
               id="reg-last"
               type="text"
-              placeholder="Morgan"
+              placeholder={t("auth.register.lastNamePlaceholder")}
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
@@ -165,7 +165,7 @@ function RegisterForm(): JSX.Element {
         <input
           id="reg-company"
           type="text"
-          placeholder="AGXORA GmbH"
+          placeholder={t("auth.register.companyPlaceholder")}
           value={companyName}
           onChange={(e) => setCompanyName(e.target.value)}
           required
@@ -181,7 +181,7 @@ function RegisterForm(): JSX.Element {
         <input
           id="reg-email"
           type="email"
-          placeholder="you@company.com"
+          placeholder={t("auth.register.emailPlaceholder")}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -198,7 +198,7 @@ function RegisterForm(): JSX.Element {
           <input
             id="reg-password"
             type={showPassword ? "text" : "password"}
-            placeholder="Min 8 characters, letters + numbers"
+            placeholder={t("auth.register.passwordPlaceholder")}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -231,7 +231,7 @@ function RegisterForm(): JSX.Element {
         <input
           id="reg-confirm"
           type={showPassword ? "text" : "password"}
-          placeholder="Repeat password"
+          placeholder={t("auth.register.confirmPasswordPlaceholder")}
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required

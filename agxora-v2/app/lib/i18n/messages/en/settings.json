@@ -22,7 +22,14 @@
     "localPrefsNotice": "Timezone, region, and personal preferences are not persisted yet. Saving them only updates this page until you leave.",
     "avatarUnavailable": "Avatar upload is not available yet.",
     "appearanceNote": "Appearance configuration remains under Appearance. Header provides a theme quick toggle only.",
-    "prefsHint": "Used by AI assistants across modules."
+    "prefsHint": "Used by AI assistants across modules.",
+    "themeResolved": "{mode} (resolved {appearance})",
+    "regions": {
+      "EU": "European Union",
+      "US": "United States",
+      "MENA": "MENA",
+      "APAC": "APAC"
+    }
   },
   "organization": {
     "label": "Organization",
@@ -46,37 +53,165 @@
     "label": "AI",
     "description": "Provider, model, creativity, and memory",
     "title": "AI",
-    "panelDescription": "Provider, model, creativity, temperature, and memory preferences."
+    "panelDescription": "Provider, model, creativity, temperature, and memory preferences.",
+    "openAgentOs": "Open Agent OS",
+    "openAiWorkspace": "Open AI Workspace",
+    "noticeSync": "AI settings sync through AISettingsProvider — keys never stored here.",
+    "noticeProvider": "Provider implementations stay behind the AI service layer. The UI never receives API keys or SDK details. Autonomous agents live in Agent OS.",
+    "preferredProvider": "Preferred AI Provider",
+    "defaultModel": "Default AI Model",
+    "temperature": "Temperature",
+    "topP": "Top P",
+    "maxTokens": "Max Tokens",
+    "writingStyle": "Writing Style",
+    "languagePreferences": "Language Preferences",
+    "systemPrompt": "System Prompt",
+    "systemPromptHint": "Applied as the default system instruction for the AI Platform.",
+    "systemPromptPlaceholder": "You are AGXORA AI — the enterprise operating assistant…",
+    "apiKeyManagement": "API Key Management",
+    "apiKeyHint": "Keys are supplied via server environment variables only.",
+    "apiKeyPlaceholder": "Configured via AGXORA_* environment variables (never in the browser)",
+    "memory": "Memory",
+    "memoryDescription": "Allow organization memory to inform AI replies across modules.",
+    "automationSuggestions": "Automation Suggestions",
+    "automationSuggestionsDescription": "Surface AI workflow suggestions in Automation Engine.",
+    "streaming": "Streaming",
+    "streamingDescription": "Stream model responses when the provider supports it.",
+    "providers": {
+      "mock": "Mock (local)",
+      "openai": "OpenAI",
+      "azure": "Azure OpenAI",
+      "anthropic": "Anthropic",
+      "google": "Google",
+      "openrouter": "OpenRouter",
+      "ollama": "Ollama",
+      "local": "Local Provider"
+    },
+    "writingStyles": {
+      "professional": "Professional",
+      "concise": "Concise",
+      "friendly": "Friendly",
+      "technical": "Technical"
+    },
+    "languages": {
+      "auto": "Match profile language",
+      "en": "English",
+      "de": "Deutsch"
+    }
   },
   "appearance": {
     "label": "Appearance",
     "description": "Theme, density, and glass effects",
     "title": "Appearance",
-    "panelDescription": "Theme, density, accent, animations, and glass effects."
+    "panelDescription": "Theme, density, accent, animations, and glass effects.",
+    "noticeTheme": "Theme mode is the single source of truth via ThemeProvider. Header offers a quick toggle only.",
+    "themeLabel": "Theme",
+    "themeModeAria": "Theme mode",
+    "resolvedAppearance": "Resolved appearance:",
+    "accentColor": "Accent Color",
+    "accentNotice": "Accent preference is stored for future CSS var wiring — does not mutate the locked color system yet.",
+    "density": "Density",
+    "compactMode": "Compact Mode",
+    "compactModeDescription": "Reduce padding across enterprise tables and panels.",
+    "animations": "Animations",
+    "animationsDescription": "Section motion and hover lifts. Respects reduced-motion OS setting.",
+    "glassEffects": "Glass Effects",
+    "glassEffectsDescription": "Frosted glass cards and sidebar blur intensity preference.",
+    "modes": {
+      "day": { "label": "Light", "hint": "Pearl / ice enterprise day palette" },
+      "night": { "label": "Dark", "hint": "Approved cinematic night look" },
+      "auto": { "label": "System", "hint": "Follow local schedule (Auto)" }
+    },
+    "densities": {
+      "comfortable": "Comfortable",
+      "compact": "Compact",
+      "spacious": "Spacious"
+    }
   },
   "notifications": {
     "label": "Notifications",
     "description": "Email, push, and module alerts",
     "title": "Notifications",
-    "panelDescription": "Email, push, desktop, mobile, and module-specific alerts."
+    "panelDescription": "Email, push, desktop, mobile, and module-specific alerts.",
+    "notice": "Notification channels are preferences only — delivery adapters reserved.",
+    "email": "Email",
+    "push": "Push",
+    "desktop": "Desktop",
+    "mobile": "Mobile",
+    "workflowAlerts": "Workflow Alerts",
+    "workflowAlertsDescription": "Automation Engine execution and approval events.",
+    "financeAlerts": "Finance Alerts",
+    "crmAlerts": "CRM Alerts",
+    "documentsAlerts": "Documents Alerts",
+    "deliveryNotice": "Delivery adapters ship at launch. Questions:",
+    "contactSupport": "Contact support"
   },
   "documents": {
     "label": "Documents",
     "description": "Storage, retention, and knowledge",
     "title": "Documents",
-    "panelDescription": "Storage preferences, retention, default folder, versioning, and knowledge settings."
+    "panelDescription": "Storage preferences, retention, default folder, versioning, and knowledge settings.",
+    "notice": "Documents settings integrate with the Knowledge Hub architecture.",
+    "storagePreferences": "Storage Preferences",
+    "retentionPolicy": "Retention Policy",
+    "defaultFolder": "Default Folder",
+    "versioning": "Versioning",
+    "versioningDescription": "Keep document version history for restore/compare.",
+    "knowledgeSettings": "Knowledge Settings",
+    "knowledgeDescription": "AI indexing for Knowledge Hub search.",
+    "storageOptions": {
+      "workspace-default": "Workspace default",
+      "eu-region": "EU region",
+      "encrypted-vault": "Encrypted vault"
+    },
+    "retentionOptions": {
+      "30-days": "30 days (scratch)",
+      "2-years": "2 years",
+      "7-years": "7 years",
+      "10-years": "10 years"
+    }
   },
   "automation": {
     "label": "Automation",
     "description": "Workflow defaults and retry policy",
     "title": "Automation",
-    "panelDescription": "Workflow defaults, AI suggestions, execution logs, history limits, and retry policy."
+    "panelDescription": "Workflow defaults, AI suggestions, execution logs, history limits, and retry policy.",
+    "notice": "Automation defaults apply to the Workflow Engine architecture.",
+    "workflowDefaults": "Workflow Defaults",
+    "historyLimits": "History Limits",
+    "retryPolicy": "Retry Policy",
+    "aiSuggestions": "AI Suggestions",
+    "executionLogs": "Execution Logs",
+    "executionLogsDescription": "Retain detailed run payloads in Workflow History.",
+    "workflowOptions": {
+      "require-approval": "Require approval gates",
+      "auto-run": "Auto-run trusted flows",
+      "draft-only": "Draft only"
+    },
+    "historyOptions": {
+      "30-days": "30 days",
+      "90-days": "90 days",
+      "365-days": "365 days"
+    },
+    "retryOptions": {
+      "none": "No retries",
+      "3-exponential": "3× exponential",
+      "5-linear": "5× linear"
+    }
   },
   "integrations": {
     "label": "Integrations",
     "description": "Installed, connected, and available",
     "title": "Integrations",
-    "panelDescription": "Installed, connected, and available adapters."
+    "panelDescription": "Installed, connected, and available adapters.",
+    "openCenter": "Open Integration Center",
+    "notice": "Enterprise Integration Platform lives in the Integration Center — connectors, OAuth, webhooks, API keys, and the workflow event bridge.",
+    "columns": {
+      "integration": "Integration",
+      "category": "Category",
+      "status": "Status",
+      "adapter": "Adapter"
+    }
   },
   "security": {
     "label": "Security",
@@ -134,19 +269,52 @@
     "label": "API & Developers",
     "description": "Keys, webhooks, tokens, sandbox",
     "title": "API & Developers",
-    "panelDescription": "Keys, webhooks, tokens, and sandbox access."
+    "panelDescription": "Keys, webhooks, tokens, and sandbox access.",
+    "openPortal": "Open developer portal",
+    "notice": "Generate, rotate, and revoke keys in the Integration Center. Gateway, webhook tester, and API explorer are available there.",
+    "webhooks": "Webhooks",
+    "sandbox": "Sandbox",
+    "sandboxEnabled": "Enabled",
+    "sandboxDisabled": "Disabled",
+    "tokensNotice": "Developer tokens never display full secrets — prefix only.",
+    "columns": {
+      "name": "Name",
+      "key": "Key",
+      "scope": "Scope",
+      "lastUsed": "Last used"
+    }
   },
   "audit": {
     "label": "Audit Logs",
     "description": "Activity, security, and system changes",
     "title": "Audit Logs",
-    "panelDescription": "Recent activity, security events, and system changes."
+    "panelDescription": "Recent activity, security events, and system changes.",
+    "columns": {
+      "when": "When",
+      "actor": "Actor",
+      "category": "Category",
+      "summary": "Summary"
+    },
+    "categories": {
+      "activity": "Recent Activity",
+      "security": "Security Events",
+      "system": "System Changes"
+    }
   },
   "advanced": {
     "label": "Advanced",
     "description": "Experimental, reset, import, export",
     "title": "Advanced",
-    "panelDescription": "Experimental features, reset, import, and export."
+    "panelDescription": "Experimental features, reset, import, and export.",
+    "notice": "Advanced actions require confirmation before applying.",
+    "experimentalFeatures": "Experimental Features",
+    "experimentalDescription": "Opt into unfinished Control Center capabilities.",
+    "export": "Export",
+    "import": "Import",
+    "reset": "Reset",
+    "exportUnavailable": "Export is not available yet.",
+    "importUnavailable": "Import is not available yet.",
+    "resetUnavailable": "Reset is not available yet."
   },
   "page": {
     "eyebrow": "AGXORA Control Center",

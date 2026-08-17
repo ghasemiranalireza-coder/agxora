@@ -141,7 +141,118 @@
     "openBillingPortal": "Abrechnungsportal öffnen",
     "billingQuestions": "Fragen zur Abrechnung:",
     "publicPricing": "Öffentliche Preise",
-    "recommended": "Empfohlen"
+    "recommended": "Empfohlen",
+    "account": {
+      "currentPlan": "Current Plan",
+      "status": "Status",
+      "renewalDate": "Renewal Date",
+      "seats": "Seats",
+      "usage": "Usage",
+      "noUsage": "No usage metrics yet.",
+      "invoices": "Invoices",
+      "noInvoices": "No billing history yet. Upgrade a plan to generate invoices and renewals."
+    },
+    "planCard": {
+      "currentPlan": "Current plan",
+      "recommended": "Recommended",
+      "contactSales": "Contact sales",
+      "pricePerMonth": "€{price}/mo",
+      "users": "{count} users",
+      "aiRequests": "{count} AI req/mo",
+      "storage": "{count} MB storage",
+      "moduleFeatures": "{count} module features",
+      "choosePlan": "Choose plan",
+      "processing": "Processing…",
+      "currentPlanAria": "{name} — current plan",
+      "contactSalesAria": "{name} — contact sales",
+      "choosePlanAria": "{name} — choose plan"
+    },
+    "admin": {
+      "eyebrow": "Admin",
+      "title": "Billing administration",
+      "lead": "Internal management for subscriptions, licenses, invoices, email queue, and commercial audit events.",
+      "customerPortal": "Customer portal",
+      "loading": "Loading admin billing…",
+      "licenses": "Licenses & subscriptions",
+      "allInvoices": "All invoices",
+      "planCatalog": "Plan catalog",
+      "custom": "Custom",
+      "features": "{count} features",
+      "emailQueue": "Email queue (mock)",
+      "noEmails": "No emails queued.",
+      "commercialAudit": "Commercial audit",
+      "columns": {
+        "organization": "Organization",
+        "plan": "Plan",
+        "status": "Status",
+        "seats": "Seats",
+        "actions": "Actions",
+        "invoice": "Invoice",
+        "org": "Org",
+        "amount": "Amount",
+        "when": "When",
+        "action": "Action"
+      },
+      "suspend": "Suspend",
+      "lifetime": "Lifetime",
+      "refund": "Refund"
+    },
+    "portal": {
+      "eyebrow": "Commercial SaaS",
+      "title": "Subscription & Billing",
+      "lead": "Manage your plan, usage quotas, invoices, and payment methods. Payment providers stay behind the billing service.",
+      "settingsBilling": "Settings billing",
+      "adminBilling": "Admin billing",
+      "loading": "Loading billing…",
+      "currentLicense": "Current license",
+      "plan": "Plan",
+      "status": "Status",
+      "seats": "Seats",
+      "renewsTrial": "Renews / trial",
+      "enabledModules": "Enabled modules: {modules}",
+      "none": "none",
+      "renew": "Renew",
+      "cancelSubscription": "Cancel subscription",
+      "plans": "Plans",
+      "provider": "Provider",
+      "couponPlaceholder": "Coupon (LAUNCH20)",
+      "usageQuotas": "Usage & quotas",
+      "invoices": "Invoices",
+      "noInvoices": "No invoices yet.",
+      "paymentMethods": "Payment methods",
+      "noPaymentMethods": "No payment methods on file.",
+      "default": "default",
+      "companyProfile": "Company billing profile",
+      "company": "Company",
+      "billingEmail": "Billing email",
+      "vatId": "VAT ID",
+      "taxId": "Tax ID",
+      "vatPlaceholder": "e.g. DE123456789",
+      "taxPlaceholder": "e.g. DE123456789",
+      "saveProfile": "Save profile",
+      "notifications": "Notifications",
+      "noNotifications": "No billing notifications.",
+      "noticeInitial": "Billing runs through the commercial service layer — no payment SDK in the UI.",
+      "noticeActivated": "Activated {planId} via {providerId} (mock checkout).",
+      "noticeCheckoutFailed": "Checkout failed",
+      "noticeCancelled": "Subscription cancelled.",
+      "noticeRenewed": "Subscription renewed for the next period.",
+      "noticeProfileSaved": "Billing profile saved.",
+      "columns": {
+        "invoice": "Invoice",
+        "status": "Status",
+        "amount": "Amount",
+        "issued": "Issued",
+        "metric": "Metric",
+        "used": "Used",
+        "limit": "Limit"
+      },
+      "quotaStatus": {
+        "exceeded": "Exceeded",
+        "warning": "Warning",
+        "ok": "OK"
+      }
+    }
   },
   "settings": {
     "controlCenter": "Control Center",
@@ -167,7 +278,14 @@
       "localPrefsNotice": "Zeitzone, Region und persönliche Einstellungen werden noch nicht gespeichert. Speichern aktualisiert nur diese Seite, bis Sie sie verlassen.",
       "avatarUnavailable": "Avatar-Upload ist noch nicht verfügbar.",
       "appearanceNote": "Die Darstellung bleibt unter Erscheinungsbild. Die Kopfzeile bietet nur einen Theme-Schnellwechsel.",
-      "prefsHint": "Wird von KI-Assistenten in den Modulen verwendet."
+      "prefsHint": "Wird von KI-Assistenten in den Modulen verwendet.",
+      "themeResolved": "{mode} (resolved {appearance})",
+      "regions": {
+        "EU": "European Union",
+        "US": "United States",
+        "MENA": "MENA",
+        "APAC": "APAC"
+      }
     },
     "organization": {
       "label": "Organisation",
@@ -191,37 +309,174 @@
       "label": "AI",
       "description": "Anbieter, Modell, Kreativität und Speicher",
       "title": "KI",
-      "panelDescription": "Anbieter, Modell, Kreativität, Temperatur und Speichereinstellungen."
+      "panelDescription": "Anbieter, Modell, Kreativität, Temperatur und Speichereinstellungen.",
+      "openAgentOs": "Open Agent OS",
+      "openAiWorkspace": "Open AI Workspace",
+      "noticeSync": "AI settings sync through AISettingsProvider — keys never stored here.",
+      "noticeProvider": "Provider implementations stay behind the AI service layer. The UI never receives API keys or SDK details. Autonomous agents live in Agent OS.",
+      "preferredProvider": "Preferred AI Provider",
+      "defaultModel": "Default AI Model",
+      "temperature": "Temperature",
+      "topP": "Top P",
+      "maxTokens": "Max Tokens",
+      "writingStyle": "Writing Style",
+      "languagePreferences": "Language Preferences",
+      "systemPrompt": "System Prompt",
+      "systemPromptHint": "Applied as the default system instruction for the AI Platform.",
+      "systemPromptPlaceholder": "You are AGXORA AI — the enterprise operating assistant…",
+      "apiKeyManagement": "API Key Management",
+      "apiKeyHint": "Keys are supplied via server environment variables only.",
+      "apiKeyPlaceholder": "Configured via AGXORA_* environment variables (never in the browser)",
+      "memory": "Memory",
+      "memoryDescription": "Allow organization memory to inform AI replies across modules.",
+      "automationSuggestions": "Automation Suggestions",
+      "automationSuggestionsDescription": "Surface AI workflow suggestions in Automation Engine.",
+      "streaming": "Streaming",
+      "streamingDescription": "Stream model responses when the provider supports it.",
+      "providers": {
+        "mock": "Mock (local)",
+        "openai": "OpenAI",
+        "azure": "Azure OpenAI",
+        "anthropic": "Anthropic",
+        "google": "Google",
+        "openrouter": "OpenRouter",
+        "ollama": "Ollama",
+        "local": "Local Provider"
+      },
+      "writingStyles": {
+        "professional": "Professional",
+        "concise": "Concise",
+        "friendly": "Friendly",
+        "technical": "Technical"
+      },
+      "languages": {
+        "auto": "Match profile language",
+        "en": "English",
+        "de": "Deutsch"
+      }
     },
     "appearance": {
       "label": "Darstellung",
       "description": "Theme, Dichte und Glas-Effekte",
       "title": "Erscheinungsbild",
-      "panelDescription": "Design, Dichte, Akzent, Animationen und Glaseffekte."
+      "panelDescription": "Design, Dichte, Akzent, Animationen und Glaseffekte.",
+      "noticeTheme": "Theme mode is the single source of truth via ThemeProvider. Header offers a quick toggle only.",
+      "themeLabel": "Theme",
+      "themeModeAria": "Theme mode",
+      "resolvedAppearance": "Resolved appearance:",
+      "accentColor": "Accent Color",
+      "accentNotice": "Accent preference is stored for future CSS var wiring — does not mutate the locked color system yet.",
+      "density": "Density",
+      "compactMode": "Compact Mode",
+      "compactModeDescription": "Reduce padding across enterprise tables and panels.",
+      "animations": "Animations",
+      "animationsDescription": "Section motion and hover lifts. Respects reduced-motion OS setting.",
+      "glassEffects": "Glass Effects",
+      "glassEffectsDescription": "Frosted glass cards and sidebar blur intensity preference.",
+      "modes": {
+        "day": {
+          "label": "Light",
+          "hint": "Pearl / ice enterprise day palette"
+        },
+        "night": {
+          "label": "Dark",
+          "hint": "Approved cinematic night look"
+        },
+        "auto": {
+          "label": "System",
+          "hint": "Follow local schedule (Auto)"
+        }
+      },
+      "densities": {
+        "comfortable": "Comfortable",
+        "compact": "Compact",
+        "spacious": "Spacious"
+      }
     },
     "notifications": {
       "label": "Benachrichtigungen",
       "description": "E-Mail, Push und Modulalarme",
       "title": "Benachrichtigungen",
-      "panelDescription": "E-Mail, Push, Desktop, Mobil und modulspezifische Alerts."
+      "panelDescription": "E-Mail, Push, Desktop, Mobil und modulspezifische Alerts.",
+      "notice": "Notification channels are preferences only — delivery adapters reserved.",
+      "email": "Email",
+      "push": "Push",
+      "desktop": "Desktop",
+      "mobile": "Mobile",
+      "workflowAlerts": "Workflow Alerts",
+      "workflowAlertsDescription": "Automation Engine execution and approval events.",
+      "financeAlerts": "Finance Alerts",
+      "crmAlerts": "CRM Alerts",
+      "documentsAlerts": "Documents Alerts",
+      "deliveryNotice": "Delivery adapters ship at launch. Questions:",
+      "contactSupport": "Contact support"
     },
     "documents": {
       "label": "Dokumente",
       "description": "Speicher, Aufbewahrung und Wissen",
       "title": "Dokumente",
-      "panelDescription": "Speicher, Aufbewahrung, Standardordner, Versionierung und Wissen."
+      "panelDescription": "Speicher, Aufbewahrung, Standardordner, Versionierung und Wissen.",
+      "notice": "Documents settings integrate with the Knowledge Hub architecture.",
+      "storagePreferences": "Storage Preferences",
+      "retentionPolicy": "Retention Policy",
+      "defaultFolder": "Default Folder",
+      "versioning": "Versioning",
+      "versioningDescription": "Keep document version history for restore/compare.",
+      "knowledgeSettings": "Knowledge Settings",
+      "knowledgeDescription": "AI indexing for Knowledge Hub search.",
+      "storageOptions": {
+        "workspace-default": "Workspace default",
+        "eu-region": "EU region",
+        "encrypted-vault": "Encrypted vault"
+      },
+      "retentionOptions": {
+        "30-days": "30 days (scratch)",
+        "2-years": "2 years",
+        "7-years": "7 years",
+        "10-years": "10 years"
+      }
     },
     "automation": {
       "label": "Automatisierung",
       "description": "Workflow-Standards und Wiederholungsrichtlinie",
       "title": "Automatisierung",
-      "panelDescription": "Workflow-Standards, KI-Vorschläge, Ausführungsprotokolle, Historie und Wiederholung."
+      "panelDescription": "Workflow-Standards, KI-Vorschläge, Ausführungsprotokolle, Historie und Wiederholung.",
+      "notice": "Automation defaults apply to the Workflow Engine architecture.",
+      "workflowDefaults": "Workflow Defaults",
+      "historyLimits": "History Limits",
+      "retryPolicy": "Retry Policy",
+      "aiSuggestions": "AI Suggestions",
+      "executionLogs": "Execution Logs",
+      "executionLogsDescription": "Retain detailed run payloads in Workflow History.",
+      "workflowOptions": {
+        "require-approval": "Require approval gates",
+        "auto-run": "Auto-run trusted flows",
+        "draft-only": "Draft only"
+      },
+      "historyOptions": {
+        "30-days": "30 days",
+        "90-days": "90 days",
+        "365-days": "365 days"
+      },
+      "retryOptions": {
+        "none": "No retries",
+        "3-exponential": "3× exponential",
+        "5-linear": "5× linear"
+      }
     },
     "integrations": {
       "label": "Integrationen",
       "description": "Installiert, verbunden und verfügbar",
       "title": "Integrationen",
-      "panelDescription": "Installierte, verbundene und verfügbare Adapter."
+      "panelDescription": "Installierte, verbundene und verfügbare Adapter.",
+      "openCenter": "Open Integration Center",
+      "notice": "Enterprise Integration Platform lives in the Integration Center — connectors, OAuth, webhooks, API keys, and the workflow event bridge.",
+      "columns": {
+        "integration": "Integration",
+        "category": "Category",
+        "status": "Status",
+        "adapter": "Adapter"
+      }
     },
     "security": {
       "label": "Sicherheit",
@@ -279,19 +534,52 @@
       "label": "API & Entwickler",
       "description": "Schlüssel, Webhooks, Tokens, Sandbox",
       "title": "API & Entwickler",
-      "panelDescription": "Schlüssel, Webhooks, Token und Sandbox-Zugang."
+      "panelDescription": "Schlüssel, Webhooks, Token und Sandbox-Zugang.",
+      "openPortal": "Open developer portal",
+      "notice": "Generate, rotate, and revoke keys in the Integration Center. Gateway, webhook tester, and API explorer are available there.",
+      "webhooks": "Webhooks",
+      "sandbox": "Sandbox",
+      "sandboxEnabled": "Enabled",
+      "sandboxDisabled": "Disabled",
+      "tokensNotice": "Developer tokens never display full secrets — prefix only.",
+      "columns": {
+        "name": "Name",
+        "key": "Key",
+        "scope": "Scope",
+        "lastUsed": "Last used"
+      }
     },
     "audit": {
       "label": "Audit-Protokolle",
       "description": "Aktivität, Sicherheit und Systemänderungen",
       "title": "Audit-Protokolle",
-      "panelDescription": "Aktuelle Aktivität, Sicherheitsereignisse und Systemänderungen."
+      "panelDescription": "Aktuelle Aktivität, Sicherheitsereignisse und Systemänderungen.",
+      "columns": {
+        "when": "When",
+        "actor": "Actor",
+        "category": "Category",
+        "summary": "Summary"
+      },
+      "categories": {
+        "activity": "Recent Activity",
+        "security": "Security Events",
+        "system": "System Changes"
+      }
     },
     "advanced": {
       "label": "Erweitert",
       "description": "Experimentell, Reset, Import, Export",
       "title": "Erweitert",
-      "panelDescription": "Experimentelle Funktionen, Zurücksetzen, Import und Export."
+      "panelDescription": "Experimentelle Funktionen, Zurücksetzen, Import und Export.",
+      "notice": "Advanced actions require confirmation before applying.",
+      "experimentalFeatures": "Experimental Features",
+      "experimentalDescription": "Opt into unfinished Control Center capabilities.",
+      "export": "Export",
+      "import": "Import",
+      "reset": "Reset",
+      "exportUnavailable": "Export is not available yet.",
+      "importUnavailable": "Import is not available yet.",
+      "resetUnavailable": "Reset is not available yet."
     },
     "page": {
       "eyebrow": "AGXORA Control Center",
@@ -846,6 +1134,12 @@
       "strengthWeak": "Schwach",
       "strengthFair": "Mittel",
       "strengthStrong": "Stark",
+      "firstNamePlaceholder": "Alex",
+      "lastNamePlaceholder": "Morgan",
+      "companyPlaceholder": "AGXORA GmbH",
+      "emailPlaceholder": "you@company.com",
+      "passwordPlaceholder": "Min 8 characters, letters + numbers",
+      "confirmPasswordPlaceholder": "Repeat password",
       "failed": "Registrierung fehlgeschlagen",
       "loading": "Konto erstellen"
     },
@@ -2247,6 +2541,10 @@
     "dialog": {
       "close": "Close dialog"
     },
+    "module": {
+      "notAvailableTitle": "{title} is not available yet",
+      "notAvailableDescription": "This module shell is prepared for a future release. No records are stored here yet."
+    },
     "states": {
       "errorLabel": "Error",
       "errorTitle": "Something went wrong",
@@ -2826,7 +3124,31 @@
       "noPermission": "Missing permission — Admin or Manager required to invite."
     },
     "roles": {
-      "title": "Roles"
+      "title": "Roles",
+      "owner": {
+        "name": "Owner",
+        "description": "Full organization control including Settings and billing."
+      },
+      "admin": {
+        "name": "Admin",
+        "description": "Manage Finance, Automation, Team, and workspace modules."
+      },
+      "manager": {
+        "name": "Manager",
+        "description": "Lead CRM, Projects, Documents, and Creator operations."
+      },
+      "employee": {
+        "name": "Employee",
+        "description": "Day-to-day CRM, Documents, Creator, and Projects access."
+      },
+      "guest": {
+        "name": "Guest",
+        "description": "Limited read access to Documents and Projects."
+      },
+      "viewer": {
+        "name": "Viewer",
+        "description": "Read-only access to shared modules."
+      }
     },
     "members": {
       "title": "Members",
@@ -2855,10 +3177,112 @@
     "status": {
       "accepted": "accepted",
       "expired": "expired",
-      "revoked": "revoked"
+      "revoked": "revoked",
+      "active": "active",
+      "inactive": "inactive",
+      "pending": "pending"
     }
   },
-  "customers": {},
+  "customers": {
+    "page": {
+      "sectionTitle": "Customer Management",
+      "title": "Customers",
+      "lead": "Create, edit, search, and manage customer records for {organization}.",
+      "yourOrganization": "your organization"
+    },
+    "table": {
+      "columns": {
+        "company": "Company",
+        "email": "Email",
+        "location": "Location",
+        "status": "Status",
+        "updated": "Updated",
+        "actions": "Actions"
+      },
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete",
+      "viewAria": "View {company}",
+      "editAria": "Edit {company}",
+      "deleteAria": "Delete {company}",
+      "loading": "Loading customers…",
+      "errorLoad": "Couldn't load customers",
+      "errorGeneric": "Something went wrong",
+      "emptyFilteredTitle": "No matching customers",
+      "emptyFilteredDescription": "Try adjusting search or filters.",
+      "emptyTitle": "No customers yet",
+      "emptyDescription": "Create your first customer to start managing your accounts.",
+      "searchLabel": "Search customers",
+      "searchPlaceholder": "Company, contact, email, city, tags…",
+      "statusFilter": "Status",
+      "tagFilter": "Tag",
+      "allStatuses": "All statuses",
+      "allTags": "All tags",
+      "clearFilters": "Clear filters",
+      "addCustomer": "Add Customer"
+    },
+    "status": {
+      "active": "Active",
+      "prospect": "Prospect",
+      "inactive": "Inactive",
+      "blocked": "Blocked"
+    },
+    "form": {
+      "editTitle": "Edit Customer",
+      "createTitle": "Add Customer",
+      "cancel": "Cancel",
+      "saveChanges": "Save changes",
+      "createCustomer": "Create customer",
+      "companyName": "Company Name",
+      "contactPerson": "Contact Person",
+      "email": "Email",
+      "status": "Status",
+      "statusAria": "Customer status",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "street": "Street",
+      "postalCode": "Postal Code",
+      "city": "City",
+      "country": "Country",
+      "taxNumber": "Tax Number",
+      "vatId": "VAT ID",
+      "tags": "Tags",
+      "tagsHint": "Comma-separated",
+      "tagsPlaceholder": "vip, retail, partner",
+      "notes": "Customer Notes",
+      "updated": "Customer updated",
+      "created": "Customer created",
+      "checkForm": "Check the form",
+      "validationFailed": "Validation failed."
+    },
+    "delete": {
+      "title": "Delete customer",
+      "cancel": "Cancel",
+      "confirm": "Delete",
+      "confirmWithName": "Permanently remove {company}? This cannot be undone.",
+      "confirmGeneric": "This customer will be permanently removed.",
+      "success": "Customer deleted",
+      "failed": "Delete failed",
+      "notFound": "Customer was not found or could not be removed.",
+      "errorGeneric": "Something went wrong while deleting."
+    },
+    "details": {
+      "titleFallback": "Customer",
+      "edit": "Edit",
+      "delete": "Delete",
+      "noTags": "No tags",
+      "contact": "Contact",
+      "email": "Email",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "address": "Address",
+      "taxNumber": "Tax Number",
+      "vatId": "VAT ID",
+      "updated": "Updated",
+      "notes": "Notes",
+      "noNotes": "No notes yet."
+    }
+  },
   "ai": {
     "platform": {
       "loading": "Loading AI Platform…",
@@ -3342,9 +3766,275 @@
     },
     "emDash": "—"
   },
-  "legal": {},
-  "onboarding": {},
-  "creator": {},
+  "legal": {
+    "shell": {
+      "brand": "AGXORA",
+      "navLabel": "Legal navigation",
+      "lastUpdated": "Last updated: {date}",
+      "footerCopyright": "© 2026 {company}",
+      "footerNavLabel": "Legal footer",
+      "nav": {
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "cookies": "Cookies",
+        "imprint": "Imprint",
+        "contact": "Contact"
+      },
+      "footer": {
+        "home": "Home",
+        "pricing": "Pricing",
+        "contact": "Contact"
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "eyebrow": "Company",
+      "introLead": "Reach the AGXORA team for product questions, support, or enterprise conversations. Prefer sales routing? Use",
+      "contactSales": "Contact Sales",
+      "companyEmail": "Company email",
+      "supportEmail": "Support email",
+      "sales": "Sales",
+      "enterpriseForm": "Enterprise form",
+      "businessAddress": "Business address",
+      "addressPending": "Available on request — set NEXT_PUBLIC_AGXORA_ADDRESS_* for production.",
+      "quickLinks": "Quick links",
+      "pricing": "Pricing",
+      "imprint": "Imprint",
+      "privacyPolicy": "Privacy Policy"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "eyebrow": "Legal",
+      "intro": "This Privacy Policy explains how {legalName} (“AGXORA”, “we”, “us”) processes personal data when you visit {siteUrl}, create an account, or use the AGXORA platform.",
+      "controller": "1. Controller",
+      "dataWeProcess": "2. Data we process",
+      "dataAccount": "Account data: name, email, organization, and role.",
+      "dataUsage": "Usage data: product interactions, device, and diagnostic logs.",
+      "dataBilling": "Billing data: plan, invoices, and payment references from providers.",
+      "dataSupport": "Support communications you send to us.",
+      "purposes": "3. Purposes and legal bases",
+      "purposesBody": "We process data to provide the service (contract), secure the platform (legitimate interest), meet legal obligations, and—where required—with your consent (for example optional analytics or marketing).",
+      "retention": "4. Retention",
+      "retentionBody": "We retain personal data only as long as needed for the purposes above, including statutory retention for billing and security records, then delete or anonymize it.",
+      "sharing": "5. Sharing",
+      "sharingBody": "We use vetted processors (hosting, email, payments) under appropriate contracts. We do not sell personal data.",
+      "yourRights": "6. Your rights",
+      "yourRightsBodyBefore": "Depending on your location, you may request access, correction, deletion, restriction, portability, or objection. Contact",
+      "yourRightsBodyAfter": "You may also lodge a complaint with a supervisory authority.",
+      "cookies": "7. Cookies",
+      "cookiesBodyBefore": "See our",
+      "cookiesBodyAfter": "for details on essential and optional cookies.",
+      "cookiePolicy": "Cookie Policy",
+      "contactSection": "8. Contact",
+      "contactBodyBefore": "Questions:",
+      "contactBodyMiddle": "or"
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "eyebrow": "Legal",
+      "intro": "These Terms of Service (“Terms”) govern access to and use of AGXORA products and websites operated by {legalName}. By creating an account or using the service, you agree to these Terms.",
+      "accounts": "1. Accounts",
+      "accountsBody": "You must provide accurate registration information, keep credentials secure, and are responsible for activity under your account. Organization administrators manage seats and access for their workspace.",
+      "billing": "2. Subscriptions and billing",
+      "billingBodyBefore": "Paid plans are billed according to the plan selected on",
+      "billingBodyAfter": "Enterprise agreements may supersede self-serve terms. Fees are non-refundable except where required by law or expressly agreed in writing.",
+      "pricing": "Pricing",
+      "acceptableUse": "3. Acceptable use",
+      "useNoMisuse": "Do not misuse the platform, attempt unauthorized access, or disrupt service.",
+      "useNoUnlawful": "Do not upload unlawful content or infringe third-party rights.",
+      "useCompliance": "Comply with export, sanctions, and industry regulations that apply to you.",
+      "customerData": "4. Customer data",
+      "customerDataBodyBefore": "You retain rights to your business content. You grant AGXORA a limited license to host and process that content solely to provide the service. Our",
+      "customerDataBodyAfter": "describes personal data handling.",
+      "privacyPolicy": "Privacy Policy",
+      "aiFeatures": "5. AI features",
+      "aiFeaturesBody": "AI outputs may be inaccurate or incomplete. You remain responsible for reviewing outputs before relying on them for business decisions.",
+      "availability": "6. Availability and changes",
+      "availabilityBody": "We aim for high availability but do not guarantee uninterrupted service. We may update features and these Terms; material changes will be communicated through the product or email where appropriate.",
+      "liability": "7. Limitation of liability",
+      "liabilityBody": "To the maximum extent permitted by law, AGXORA is not liable for indirect, incidental, or consequential damages. Our aggregate liability for paid subscriptions is limited to fees paid in the twelve months preceding the claim.",
+      "contact": "8. Contact",
+      "contactBodyBefore": "Legal questions:"
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "eyebrow": "Legal",
+      "intro": "This Cookie Policy describes how {companyName} uses cookies and similar technologies. Essential cookies are required for authentication and security. Optional analytics cookies are enabled only where consent is collected.",
+      "whatAre": "1. What are cookies?",
+      "whatAreBody": "Cookies are small files stored on your device. They help the site function, remember preferences, and—where allowed—measure performance.",
+      "categories": "2. Categories we use",
+      "essential": "Essential",
+      "essentialBody": "authentication, security, load balancing, and basic preferences. Required for the service.",
+      "functional": "Functional",
+      "functionalBody": "optional features such as remembered UI settings (when enabled).",
+      "analytics": "Analytics",
+      "analyticsBody": "aggregate usage measurement (only with consent where required).",
+      "managing": "3. Managing cookies",
+      "managingBody": "You can control non-essential cookies through browser settings and, once available, our on-site preference center. Blocking essential cookies may prevent sign-in or core product use.",
+      "moreInfo": "4. More information",
+      "moreInfoBodyBefore": "See the",
+      "moreInfoBodyMiddle": "or contact"
+    },
+    "imprint": {
+      "title": "Imprint",
+      "eyebrow": "Legal",
+      "intro": "Information according to applicable disclosure requirements. Configure production values with NEXT_PUBLIC_AGXORA_* environment variables before public launch.",
+      "company": "Company",
+      "address": "Address",
+      "email": "Email",
+      "support": "Support",
+      "representedBy": "Represented by",
+      "register": "Register",
+      "vatId": "VAT ID",
+      "pendingConfiguration": "Pending configuration",
+      "responsibleForContent": "Responsible for content",
+      "responsibleBody": "Editorial contact for this website: {legalName}{addressSuffix}.",
+      "contact": "Contact",
+      "contactBodyBefore": "Prefer a form? Visit",
+      "contactBodyMiddle": "or",
+      "contactBodyAfter": "for enterprise inquiries.",
+      "contactSales": "Contact Sales"
+    }
+  },
+  "onboarding": {
+    "eyebrow": "AGXORA OS",
+    "title": "Launch your business OS",
+    "lead": "Choose your industry template. AGXORA configures modules, agents, workflows, and company knowledge — without locking you into one vertical forever.",
+    "steps": {
+      "type": "Type",
+      "company": "Company",
+      "locale": "Locale",
+      "goals": "Goals"
+    },
+    "companyName": "Company name",
+    "companyPlaceholder": "Acme Hospitality Group",
+    "template": "Template",
+    "country": "Country",
+    "language": "Language",
+    "languagePlaceholder": "en",
+    "timezone": "Timezone",
+    "timezonePlaceholder": "UTC",
+    "goals": {
+      "increaseRevenue": "Increase revenue",
+      "improveOperations": "Improve operations",
+      "delightCustomers": "Delight customers",
+      "reduceCosts": "Reduce costs",
+      "scaleWithAi": "Scale with AI"
+    },
+    "failed": "Onboarding failed",
+    "back": "Back",
+    "continue": "Continue",
+    "launching": "Launching…",
+    "enterDashboard": "Enter dashboard"
+  },
+  "creator": {
+    "page": {
+      "eyebrow": "AGXORA Marketing OS",
+      "title": "AI Creator Studio",
+      "lead": "Enterprise content production — generate, brand, plan, publish, and measure AI-powered campaigns across every channel.",
+      "dashboard": "Dashboard",
+      "workspace": "Workspace",
+      "workspaceSubtitle": "Create Content · Campaigns · Media Library · Templates · Brand Assets · Publishing Queue · Analytics",
+      "workspaceAria": "Creator workspace",
+      "integrations": "Future Integrations",
+      "integrationsSubtitle": "Official platform adapters reserved — no fake live connections.",
+      "aiFeatures": "AI Features",
+      "aiFeaturesSubtitle": "Capability map for production, brand, schedule, and localization."
+    },
+    "tabs": {
+      "create": "Create Content",
+      "campaigns": "Campaigns",
+      "media": "Media Library",
+      "templates": "Templates",
+      "brand": "Brand Assets",
+      "queue": "Publishing Queue",
+      "analytics": "Analytics"
+    },
+    "templates": {
+      "emptyTitle": "No templates",
+      "emptyDescription": "Reusable content and design templates will live here."
+    },
+    "campaign": {
+      "title": "Campaign Planner",
+      "calendar": "Content Calendar",
+      "columns": {
+        "name": "Campaign Name",
+        "objective": "Objective",
+        "audience": "Audience",
+        "platforms": "Platforms",
+        "budget": "Budget",
+        "timeline": "Timeline",
+        "status": "Status"
+      },
+      "emptyTitle": "No campaigns",
+      "emptyDescription": "Create a campaign to plan objectives, audience, and timelines."
+    },
+    "media": {
+      "title": "Media Library",
+      "columns": {
+        "asset": "Asset",
+        "type": "Type",
+        "folder": "Folder",
+        "tags": "Tags",
+        "updated": "Updated"
+      },
+      "emptyTitle": "No media",
+      "emptyDescription": "Images, videos, documents, logos, and templates will appear here.",
+      "searchPlaceholder": "Search assets, folders, tags…",
+      "typeFilter": "Type",
+      "allTypes": "All types",
+      "images": "Images",
+      "videos": "Videos",
+      "documents": "Documents",
+      "logos": "Brand Logos",
+      "templates": "Templates"
+    },
+    "generator": {
+      "title": "AI Content Generator",
+      "lead": "Create Instagram captions, TikTok scripts, LinkedIn posts, ads, SEO articles, and more.",
+      "brief": "Brief",
+      "briefPlaceholder": "Describe the offer, audience, and CTA…",
+      "generateDraft": "Generate draft",
+      "aiRewrite": "AI Rewrite",
+      "translate": "Translate",
+      "initialOutput": "Select a format and brand voice, then generate a draft. Provider adapters are reserved — no live model calls yet.",
+      "draftStaged": "Draft staged for {format} · voice: {voice}. Generation adapter reserved.",
+      "rewriteQueued": "AI Rewrite queued — rewrite adapter reserved.",
+      "translateQueued": "Translate Content queued — multi-language adapter reserved.",
+      "brandVoice": "Brand Voice",
+      "brandVoiceLead": "Business tone presets plus custom brand voice for consistency.",
+      "active": "Active"
+    },
+    "queue": {
+      "title": "Publishing Queue",
+      "columns": {
+        "title": "Title",
+        "platform": "Platform",
+        "format": "Format",
+        "status": "Status",
+        "scheduled": "Scheduled",
+        "author": "Author"
+      },
+      "emptyTitle": "No posts in queue",
+      "emptyDescription": "Drafts, reviews, and scheduled posts will appear here.",
+      "filterStatus": "Filter status",
+      "allStatuses": "All statuses"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "topPosts": "Top Posts",
+      "engagement": "Eng {value}",
+      "reach": "Reach {value}",
+      "recommendations": "AI Recommendations"
+    },
+    "integrations": {
+      "lead": "Future integrations — optional. No live APIs until connected. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.",
+      "adapter": "Adapter:"
+    },
+    "aiFeaturesPanel": {
+      "lead": "AI feature map — ideas, captions, hashtags, calendar, campaigns, audience, schedule, brand consistency, rewrite, translate, multi-language."
+    }
+  },
   "backend": {
     "toast": {
       "success": "Success",
@@ -3384,9 +4074,162 @@
   "workspace": {
     "page": {
       "title": "Workspace",
-      "description": "Isolated tenant workspace surface for {name}."
+      "description": "Isolated tenant workspace surface for modules and AI.",
+      "descriptionNamed": "Isolated tenant workspace surface for {name}."
     },
+    "idLabel": "Workspace ID:",
+    "active": "Active: {name}",
+    "notInSession": "Not in current session",
+    "organization": "Organization: {name} ({slug})",
     "searchResults": "Search results"
   },
-  "iam": {}
+  "iam": {
+    "identity": {
+      "eyebrow": "Enterprise IAM",
+      "title": "Identity & Access",
+      "lead": "Organization, workspace, RBAC, security placeholders, and audit architecture. Backend adapters plug in without changing this surface.",
+      "openProfile": "Open profile",
+      "teamManagement": "Team management",
+      "tabs": {
+        "organization": "Organization",
+        "workspace": "Workspace",
+        "roles": "Roles & permissions",
+        "security": "Security",
+        "audit": "Audit log"
+      },
+      "organizationSettings": "Organization settings",
+      "workspaceSettings": "Workspace settings",
+      "noOrganization": "No organization active. Complete onboarding or create one from the organization service.",
+      "logoPlaceholder": "Logo upload and plan billing adapters are placeholders for the future identity backend.",
+      "rbacTitle": "RBAC — default roles",
+      "permissionMatrix": "Permission matrix",
+      "canManageSettings": "Can manage settings: {value} · Authenticated: {authenticated}",
+      "yes": "yes",
+      "no": "no",
+      "securitySettings": "Security settings",
+      "passwordChange": {
+        "title": "Password change",
+        "detail": "Password change connects through the auth provider when configured."
+      },
+      "twoFactor": {
+        "title": "Two-factor authentication (2FA)",
+        "detail": "TOTP and WebAuthn adapters register here when enabled."
+      },
+      "activeSessions": {
+        "title": "Active sessions",
+        "detail": "Device directory lives in identity sessions; revocation becomes authoritative with server sessions."
+      },
+      "apiKeys": {
+        "title": "API keys",
+        "detail": "Service accounts and scoped tokens for developers."
+      },
+      "absoluteTimeout": "Absolute timeout",
+      "idleTimeout": "Idle timeout",
+      "refreshSkew": "Refresh skew",
+      "persistentLogin": "Persistent login",
+      "disabled": "Disabled",
+      "enabled": "Enabled",
+      "days": "{count} days",
+      "minutes": "{count} min",
+      "toggleIdlePolicy": "Toggle idle policy placeholder",
+      "previewSessionExpired": "Preview session expired",
+      "previewAccountLocked": "Preview account locked",
+      "auditActivity": "Audit activity",
+      "auditLead": "Login, logout, role changes, invites, and organization events are recorded locally. Replace with an immutable backend audit store later.",
+      "auditEmpty": "No IAM events yet. Sign in or change a role to populate the log.",
+      "meta": {
+        "name": "Name",
+        "slug": "Slug",
+        "plan": "Plan",
+        "owner": "Owner",
+        "created": "Created",
+        "yourRole": "Your role",
+        "workspace": "Workspace",
+        "status": "Status",
+        "isolationKey": "Isolation key"
+      },
+      "matrix": {
+        "permission": "Permission",
+        "owner": "Owner",
+        "admin": "Admin",
+        "manager": "Manager",
+        "member": "Member",
+        "viewer": "Viewer",
+        "yes": "Yes"
+      },
+      "audit": {
+        "when": "When",
+        "action": "Action",
+        "actor": "Actor",
+        "resource": "Resource"
+      }
+    },
+    "roles": {
+      "owner": {
+        "name": "Owner",
+        "description": "Full control including billing and ownership transfer"
+      },
+      "admin": {
+        "name": "Admin",
+        "description": "Manage people, security, workspaces, and modules"
+      },
+      "manager": {
+        "name": "Manager",
+        "description": "Lead teams and operational modules; invite members"
+      },
+      "member": {
+        "name": "Member",
+        "description": "Day-to-day operational access"
+      },
+      "viewer": {
+        "name": "Viewer",
+        "description": "Read-only access"
+      }
+    },
+    "profile": {
+      "eyebrow": "Identity",
+      "title": "User Profile",
+      "lead": "Manage your account identity, preferences, and security. Organization and workspace controls live in Identity Settings.",
+      "guest": "Guest",
+      "notSignedIn": "Not signed in",
+      "identitySettings": "Identity settings",
+      "security": "Security",
+      "profileSection": "Profile",
+      "fullName": "Full name",
+      "email": "Email",
+      "language": "Language",
+      "timezone": "Timezone",
+      "languageEnGb": "English (UK)",
+      "languageEnUs": "English (US)",
+      "languageDe": "Deutsch",
+      "timezoneBerlin": "Europe/Berlin",
+      "timezoneLondon": "Europe/London",
+      "timezoneUtc": "UTC",
+      "timezoneNewYork": "America/New_York",
+      "notifications": "Notifications",
+      "emailNotifications": "Email notifications",
+      "pushNotifications": "Push notifications",
+      "workspace": "Workspace",
+      "noticeInitial": "Preferences save locally until the profile API is connected.",
+      "noticeSaved": "Profile preferences updated.",
+      "savePreferences": "Save preferences"
+    },
+    "workspaceSelector": {
+      "empty": "No workspaces yet — create an organization to provision one.",
+      "label": "Active workspace",
+      "ariaLabel": "Switch workspace"
+    },
+    "verifyEmail": {
+      "title": "Email Verification",
+      "loading": "Loading…",
+      "skipForNow": "Skip for now",
+      "tokenPlaceholder": "Verification token",
+      "tokenIssued": "Verification token issued for the current session.",
+      "issueFailed": "Could not issue token",
+      "verificationFailed": "Verification failed",
+      "verify": "Verify Email",
+      "verifying": "Verifying…",
+      "requestToken": "Request verification token"
+    }
+  }
 }

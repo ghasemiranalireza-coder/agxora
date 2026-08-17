@@ -3,6 +3,7 @@
 import type { JSX, ReactNode } from "react";
 import { Card, EmptyState } from "./ui";
 import { ModuleEmptyState, type ModuleEmptyKind } from "./ui/ModuleEmptyState";
+import { useT } from "../lib/i18n";
 
 const TITLE_KIND: Record<string, ModuleEmptyKind> = {
   CRM: "crm",
@@ -28,6 +29,7 @@ export function ModulePanel({
   readonly description: string;
   readonly children?: ReactNode;
 }): JSX.Element {
+  const t = useT();
   const kind = TITLE_KIND[title] ?? null;
 
   return (
@@ -42,8 +44,8 @@ export function ModulePanel({
             <ModuleEmptyState kind={kind} />
           ) : (
             <EmptyState
-              title={`${title} is not available yet`}
-              description="This module shell is prepared for a future release. No records are stored here yet."
+              title={t("ui.module.notAvailableTitle", { title })}
+              description={t("ui.module.notAvailableDescription")}
             />
           ))}
       </Card>

@@ -15,6 +15,7 @@ import {
   OVERLAY_Z,
   pushOverlay,
 } from "./overlayStack";
+import { useT } from "../../lib/i18n";
 
 /**
  * AGXORA Dialog — single modal primitive.
@@ -41,6 +42,7 @@ export function Dialog({
   /** When false, Escape / backdrop / close button do not dismiss (e.g. while saving). */
   readonly dismissible?: boolean;
 }): JSX.Element | null {
+  const t = useT();
   const titleId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
   const previouslyFocused = useRef<HTMLElement | null>(null);
@@ -185,7 +187,7 @@ export function Dialog({
           </h3>
           <button
             type="button"
-            aria-label="Close dialog"
+            aria-label={t("ui.dialog.close")}
             disabled={!dismissible}
             onClick={requestClose}
             className="inline-flex items-center justify-center rounded-xl border text-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-55"
@@ -199,7 +201,7 @@ export function Dialog({
               padding: "0 12px",
             }}
           >
-            Close
+            {t("common.close")}
           </button>
         </div>
         <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4">{children}</div>

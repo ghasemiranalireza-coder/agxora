@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import { Geist, Geist_Mono, Noto_Sans_Arabic } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Sans_Arabic, Noto_Sans_JP, Noto_Sans_SC } from "next/font/google";
 import { AppProviders } from "./providers/AppProviders";
 import { resolveServerLocale } from "./lib/i18n/cookie";
 import {
   LOCALE_COOKIE,
   localeDirection,
+  resolveMessage,
   toBcp47,
-} from "./lib/i18n/locale";
+} from "./lib/i18n";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,6 +27,22 @@ const geistMono = Geist_Mono({
 const notoSansArabic = Noto_Sans_Arabic({
   variable: "--font-agx-arabic",
   subsets: ["arabic"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
+/** Simplified Chinese — activated via [data-locale=zh-CN|zh-TW] CSS variable swap. */
+const notoSansSc = Noto_Sans_SC({
+  variable: "--font-agx-cjk-sc",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
+/** Japanese — activated via [data-locale=ja] CSS variable swap. */
+const notoSansJp = Noto_Sans_JP({
+  variable: "--font-agx-cjk-jp",
+  subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700"],
 });
@@ -93,6 +110,7 @@ export default async function RootLayout({
   const initialLocale = resolveServerLocale(jar.get(LOCALE_COOKIE)?.value);
   const dir = localeDirection(initialLocale);
   const lang = toBcp47(initialLocale);
+  const skipToMain = resolveMessage(initialLocale, "backend.skipToMain");
 
   return (
     <html
@@ -100,11 +118,11 @@ export default async function RootLayout({
       dir={dir}
       data-locale={initialLocale}
       translate="no"
-      className={`notranslate ${geistSans.variable} ${geistMono.variable} ${notoSansArabic.variable} h-full antialiased`}
+      className={`notranslate ${geistSans.variable} ${geistMono.variable} ${notoSansArabic.variable} ${notoSansSc.variable} ${notoSansJp.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <a href="#agxora-main" className="agx-skip-link">
-          Skip to main content
+          {skipToMain}
         </a>
         <div
           id="agxora-live-region"

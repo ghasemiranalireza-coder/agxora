@@ -79,6 +79,24 @@ html[dir="rtl"] body {
   font-family: var(--font-agx-arabic), var(--font-geist-sans), Tahoma, sans-serif;
 }
 
+html[data-locale="zh-CN"],
+html[data-locale="zh-TW"] {
+  --agx-ds-font-ui: var(--font-agx-cjk-sc), var(--font-geist-sans), system-ui, sans-serif;
+}
+
+html[data-locale="zh-CN"] body,
+html[data-locale="zh-TW"] body {
+  font-family: var(--font-agx-cjk-sc), var(--font-geist-sans), system-ui, sans-serif;
+}
+
+html[data-locale="ja"] {
+  --agx-ds-font-ui: var(--font-agx-cjk-jp), var(--font-geist-sans), system-ui, sans-serif;
+}
+
+html[data-locale="ja"] body {
+  font-family: var(--font-agx-cjk-jp), var(--font-geist-sans), system-ui, sans-serif;
+}
+
 @media (max-width: 900px) {
   html[dir="rtl"] .agx-sidebar {
     inset: 0 0 0 auto !important;
