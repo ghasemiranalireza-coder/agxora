@@ -1,0 +1,4016 @@
+{
+  "common": {
+    "save": "ذخیره",
+    "saveChanges": "ذخیره تغییرات",
+    "cancel": "لغو",
+    "close": "بستن",
+    "delete": "حذف",
+    "edit": "ویرایش",
+    "search": "جستجو",
+    "loading": "در حال بارگذاری…",
+    "retry": "تلاش مجدد",
+    "language": "زبان",
+    "signIn": "ورود",
+    "signOut": "خروج",
+    "contact": "تماس",
+    "privacy": "حریم خصوصی",
+    "terms": "شرایط",
+    "cookies": "کوکی‌ها",
+    "imprint": "اطلاعات حقوقی",
+    "organization": "سازمان",
+    "user": "کاربر",
+    "guest": "مهمان",
+    "member": "عضو",
+    "role": "نقش",
+    "signedIn": "وارد شده",
+    "guestSession": "نشست مهمان",
+    "noResults": "نتیجه‌ای نیست",
+    "noData": "داده‌ای نیست",
+    "comingSoon": "به‌زودی",
+    "notConnected": "متصل نیست",
+    "demo": "دمو",
+    "sample": "نمونه",
+    "showPassword": "نمایش رمز عبور",
+    "hidePassword": "پنهان کردن رمز عبور",
+    "continue": "ادامه",
+    "back": "بازگشت",
+    "home": "خانه"
+  },
+  "navigation": {
+    "dashboard": "داشبورد",
+    "projects": "پروژه‌ها",
+    "aiCrm": "CRM هوشمند",
+    "analytics": "تحلیل‌ها",
+    "billing": "صورتحساب",
+    "aiWorkspace": "فضای کاری AI",
+    "customers": "مشتریان",
+    "automation": "اتوماسیون",
+    "financeTax": "مالی و مالیات",
+    "aiCreatorStudio": "استودیوی سازنده AI",
+    "documents": "اسناد",
+    "team": "تیم",
+    "settings": "تنظیمات",
+    "toggleNavigation": "باز و بسته کردن ناوبری",
+    "primary": "اصلی",
+    "menu": "منو",
+    "search": "جستجو",
+    "notifications": "اعلان‌ها",
+    "profile": "پروفایل",
+    "currentOrganization": "سازمان فعلی",
+    "noNotifications": "اعلانی نیست",
+    "notificationsEmpty": "همه‌چیز به‌روز است. هشدارها و اشاره‌ها اینجا ظاهر می‌شوند.",
+    "accountSettings": "تنظیمات حساب",
+    "security": "امنیت",
+    "themeToggle": "تغییر سریع تم. ترجیح: {mode}"
+  },
+  "pricing": {
+    "navLabel": "ناوبری قیمت‌گذاری",
+    "navPricing": "قیمت‌گذاری",
+    "navContactSales": "تماس با فروش",
+    "navBookDemo": "رزرو دمو",
+    "navSignIn": "ورود",
+    "eyebrow": "قیمت‌گذاری",
+    "title": "طرح‌هایی برای تیم‌هایی که نتیجه می‌سازند.",
+    "lead": "سطوح تجاری شفاف. رایگان شروع کنید، هنگام آمادگی مقیاس دهید، یا برای شرایط سازمانی با فروش صحبت کنید.",
+    "billingInterval": "بازه صورتحساب",
+    "monthly": "ماهانه",
+    "yearly": "سالانه",
+    "savePercent": "حدود ۲۰٪ صرفه‌جویی",
+    "mostPopular": "محبوب‌ترین",
+    "startFree": "شروع رایگان",
+    "bookDemo": "رزرو دمو",
+    "contactSales": "تماس با فروش",
+    "perMonth": "/ماه",
+    "perMonthYearly": "/ماه با صورتحساب سالانه",
+    "yearlyHint": "{amount}/سال · {percent}٪ صرفه‌جویی",
+    "commercialActions": "اقدامات تجاری",
+    "legal": "حقوقی",
+    "planAria": "طرح {name} — {cta}",
+    "plans": {
+      "starter": {
+        "name": "استارتر",
+        "description": "برای فریلنسرها و کسب‌وکارهای کوچک.",
+        "features": [
+          "CRM و قیف مشتری",
+          "پروژه‌ها و اسناد",
+          "دستیار AI تحت نظارت",
+          "تا ۵ صندلی",
+          "پشتیبانی ایمیل"
+        ]
+      },
+      "business": {
+        "name": "بیزنس",
+        "description": "برای تیم‌های در حال رشد.",
+        "features": [
+          "همه امکانات استارتر",
+          "ماژول‌های مالی و تحلیل",
+          "اتوماسیون و خروجی ممیزی",
+          "همکاری تیمی",
+          "پشتیبانی اولویت‌دار"
+        ]
+      },
+      "professional": {
+        "name": "حرفه‌ای",
+        "description": "برای شرکت‌های پیشرفته.",
+        "features": [
+          "همه امکانات استارتر",
+          "ماژول‌های مالی و تحلیل",
+          "دسترسی API",
+          "گردش‌کارهای پیشرفته سازمانی",
+          "صندوق پشتیبانی اولویت‌دار"
+        ]
+      },
+      "enterprise": {
+        "name": "سازمانی",
+        "description": "قیمت‌گذاری سفارشی برای مقیاس نامحدود.",
+        "features": [
+          "قیمت‌گذاری سفارشی",
+          "مقیاس نامحدود",
+          "آنبوردینگ اختصاصی",
+          "یکپارچه‌سازی‌های سفارشی",
+          "پشتیبانی اولویت‌دار"
+        ]
+      }
+    }
+  },
+  "billing": {
+    "currentPlan": "طرح فعلی",
+    "upgrade": "ارتقا",
+    "viewPricing": "مشاهده قیمت‌ها",
+    "contactSales": "تماس با فروش",
+    "openBillingPortal": "باز کردن پرتال صورتحساب",
+    "billingQuestions": "سوالات صورتحساب:",
+    "publicPricing": "قیمت‌گذاری عمومی",
+    "recommended": "پیشنهادی",
+    "account": {
+      "currentPlan": "Current Plan",
+      "status": "Status",
+      "renewalDate": "Renewal Date",
+      "seats": "Seats",
+      "usage": "Usage",
+      "noUsage": "No usage metrics yet.",
+      "invoices": "Invoices",
+      "noInvoices": "No billing history yet. Upgrade a plan to generate invoices and renewals."
+    },
+    "planCard": {
+      "currentPlan": "Current plan",
+      "recommended": "Recommended",
+      "contactSales": "Contact sales",
+      "pricePerMonth": "€{price}/mo",
+      "users": "{count} users",
+      "aiRequests": "{count} AI req/mo",
+      "storage": "{count} MB storage",
+      "moduleFeatures": "{count} module features",
+      "choosePlan": "Choose plan",
+      "processing": "Processing…",
+      "currentPlanAria": "{name} — current plan",
+      "contactSalesAria": "{name} — contact sales",
+      "choosePlanAria": "{name} — choose plan"
+    },
+    "admin": {
+      "eyebrow": "Admin",
+      "title": "Billing administration",
+      "lead": "Internal management for subscriptions, licenses, invoices, email queue, and commercial audit events.",
+      "customerPortal": "Customer portal",
+      "loading": "Loading admin billing…",
+      "licenses": "Licenses & subscriptions",
+      "allInvoices": "All invoices",
+      "planCatalog": "Plan catalog",
+      "custom": "Custom",
+      "features": "{count} features",
+      "emailQueue": "Email queue (mock)",
+      "noEmails": "No emails queued.",
+      "commercialAudit": "Commercial audit",
+      "columns": {
+        "organization": "Organization",
+        "plan": "Plan",
+        "status": "Status",
+        "seats": "Seats",
+        "actions": "Actions",
+        "invoice": "Invoice",
+        "org": "Org",
+        "amount": "Amount",
+        "when": "When",
+        "action": "Action"
+      },
+      "suspend": "Suspend",
+      "lifetime": "Lifetime",
+      "refund": "Refund"
+    },
+    "portal": {
+      "eyebrow": "Commercial SaaS",
+      "title": "Subscription & Billing",
+      "lead": "Manage your plan, usage quotas, invoices, and payment methods. Payment providers stay behind the billing service.",
+      "settingsBilling": "Settings billing",
+      "adminBilling": "Admin billing",
+      "loading": "Loading billing…",
+      "currentLicense": "Current license",
+      "plan": "Plan",
+      "status": "Status",
+      "seats": "Seats",
+      "renewsTrial": "Renews / trial",
+      "enabledModules": "Enabled modules: {modules}",
+      "none": "none",
+      "renew": "Renew",
+      "cancelSubscription": "Cancel subscription",
+      "plans": "Plans",
+      "provider": "Provider",
+      "couponPlaceholder": "Coupon (LAUNCH20)",
+      "usageQuotas": "Usage & quotas",
+      "invoices": "Invoices",
+      "noInvoices": "No invoices yet.",
+      "paymentMethods": "Payment methods",
+      "noPaymentMethods": "No payment methods on file.",
+      "default": "default",
+      "companyProfile": "Company billing profile",
+      "company": "Company",
+      "billingEmail": "Billing email",
+      "vatId": "VAT ID",
+      "taxId": "Tax ID",
+      "vatPlaceholder": "e.g. DE123456789",
+      "taxPlaceholder": "e.g. DE123456789",
+      "saveProfile": "Save profile",
+      "notifications": "Notifications",
+      "noNotifications": "No billing notifications.",
+      "noticeInitial": "Billing runs through the commercial service layer — no payment SDK in the UI.",
+      "noticeActivated": "Activated {planId} via {providerId} (mock checkout).",
+      "noticeCheckoutFailed": "Checkout failed",
+      "noticeCancelled": "Subscription cancelled.",
+      "noticeRenewed": "Subscription renewed for the next period.",
+      "noticeProfileSaved": "Billing profile saved.",
+      "columns": {
+        "invoice": "Invoice",
+        "status": "Status",
+        "amount": "Amount",
+        "issued": "Issued",
+        "metric": "Metric",
+        "used": "Used",
+        "limit": "Limit"
+      },
+      "quotaStatus": {
+        "exceeded": "Exceeded",
+        "warning": "Warning",
+        "ok": "OK"
+      }
+    }
+  },
+  "settings": {
+    "controlCenter": "مرکز کنترل",
+    "settingsSections": "بخش‌های تنظیمات",
+    "profile": {
+      "label": "پروفایل",
+      "description": "آواتار، هویت و ترجیحات شخصی",
+      "title": "پروفایل",
+      "panelDescription": "آواتار، نام کامل، ایمیل، نقش، منطقه زمانی، زبان و تم.",
+      "language": "زبان",
+      "timezone": "منطقه زمانی",
+      "fullName": "نام کامل",
+      "email": "ایمیل",
+      "role": "نقش",
+      "theme": "تم",
+      "avatar": "آواتار",
+      "changeAvatar": "تغییر آواتار",
+      "region": "منطقه",
+      "personalPrefs": "ترجیحات شخصی",
+      "supportLinks": "پشتیبانی و حقوقی",
+      "signedOut": "برای دیدن هویت حساب خود وارد شوید.",
+      "serverIdentityNotice": "نام، ایمیل و نقش از نشست سرور می‌آیند. در این مرورگر ذخیره نمی‌شوند.",
+      "localPrefsNotice": "منطقه زمانی، منطقه و ترجیحات شخصی هنوز ذخیره نمی‌شوند. ذخیره فقط تا وقتی این صفحه باز است اعمال می‌شود.",
+      "avatarUnavailable": "بارگذاری آواتار هنوز در دسترس نیست.",
+      "appearanceNote": "پیکربندی ظاهر در بخش ظاهر باقی می‌ماند. هدر فقط یک تغییر سریع تم دارد.",
+      "prefsHint": "توسط دستیارهای هوش مصنوعی در ماژول‌ها استفاده می‌شود."
+    },
+    "organization": {
+      "label": "سازمان",
+      "description": "پروفایل شرکت و هویت مالیاتی",
+      "title": "سازمان",
+      "panelDescription": "نام شرکت، لوگو، آدرس، اطلاعات مالیاتی، بخش‌ها و واحدهای کسب‌وکار."
+    },
+    "workspace": {
+      "label": "فضای کاری",
+      "description": "برندینگ، صفحه اصلی و ماژول‌های پیش‌فرض",
+      "title": "فضای کاری",
+      "panelDescription": "تنظیمات فضای کاری، داشبورد پیش‌فرض، برندینگ، ماژول‌ها و صفحه اصلی."
+    },
+    "team": {
+      "label": "تیم",
+      "description": "اعضا، نقش‌ها، دعوت‌ها و گروه‌ها",
+      "title": "تیم",
+      "panelDescription": "اعضا، نقش‌ها، دعوت‌ها و گروه‌ها."
+    },
+    "ai": {
+      "label": "هوش مصنوعی",
+      "description": "ارائه‌دهنده، مدل، خلاقیت و حافظه",
+      "title": "هوش مصنوعی",
+      "panelDescription": "ارائه‌دهنده، مدل، خلاقیت، دما و ترجیحات حافظه."
+    },
+    "appearance": {
+      "label": "ظاهر",
+      "description": "تم، تراکم و جلوه‌های شیشه‌ای",
+      "title": "ظاهر",
+      "panelDescription": "تم، تراکم، رنگ تأکید، انیمیشن‌ها و جلوه‌های شیشه‌ای."
+    },
+    "notifications": {
+      "label": "اعلان‌ها",
+      "description": "ایمیل، پوش و هشدارهای ماژول",
+      "title": "اعلان‌ها",
+      "panelDescription": "ایمیل، پوش، دسکتاپ، موبایل و هشدارهای ماژول."
+    },
+    "documents": {
+      "label": "اسناد",
+      "description": "ذخیره‌سازی، نگهداری و دانش",
+      "title": "اسناد",
+      "panelDescription": "ذخیره‌سازی، نگهداری، پوشه پیش‌فرض، نسخه‌بندی و دانش."
+    },
+    "automation": {
+      "label": "اتوماسیون",
+      "description": "پیش‌فرض‌های گردش‌کار و سیاست تلاش مجدد",
+      "title": "اتوماسیون",
+      "panelDescription": "پیش‌فرض‌های گردش‌کار، پیشنهادهای AI، گزارش اجرا، تاریخچه و سیاست تلاش مجدد."
+    },
+    "integrations": {
+      "label": "یکپارچه‌سازی‌ها",
+      "description": "نصب‌شده، متصل و موجود",
+      "title": "یکپارچه‌سازی‌ها",
+      "panelDescription": "آداپترهای نصب‌شده، متصل و موجود."
+    },
+    "security": {
+      "label": "امنیت",
+      "description": "نشست‌ها، رمز عبور و حفاظت از حساب",
+      "title": "امنیت",
+      "panelDescription": "نشست‌های سرور برای این حساب. دستگاه، IP و احراز هویت دو مرحله‌ای ذخیره نمی‌شوند.",
+      "activeSessions": "نشست‌های فعال",
+      "currentSession": "نشست فعلی",
+      "otherSession": "نشست دیگر",
+      "currentBadge": "این نشست",
+      "otherBadge": "نشست دیگر",
+      "createdAt": "ورود",
+      "expiresAt": "انقضا",
+      "revoke": "لغو نشست",
+      "revokeAria": "لغو نشست واردشده در {when}",
+      "revokeOthers": "خروج از نشست‌های دیگر",
+      "revokeOthersAria": "خروج از همه نشست‌ها به‌جز نشست فعلی",
+      "revoked": "نشست لغو شد.",
+      "othersRevoked": "نشست‌های دیگر خارج شدند. این نشست همچنان فعال است.",
+      "loading": "در حال بارگذاری نشست‌ها…",
+      "empty": "نشست فعالی وجود ندارد",
+      "emptyBody": "برای این حساب نشست فعال سرور وجود ندارد.",
+      "demoEmpty": "وارد شوید تا یک نشست آزمایشی محلی در این مرورگر ثبت شود.",
+      "signedOutTitle": "وارد نشده‌اید",
+      "signedOut": "برای دیدن نشست‌های فعال سرور وارد شوید.",
+      "loadFailed": "بارگذاری نشست‌ها ممکن نشد.",
+      "revokeFailed": "لغو این نشست ممکن نشد.",
+      "logout": "خروج از این نشست",
+      "logoutAria": "خروج از نشست فعلی سرور",
+      "password": "رمز عبور",
+      "changePassword": "بازنشانی رمز عبور",
+      "passwordHint": "تغییر رمز عبور از جریان بازنشانی موجود استفاده می‌کند. فرم اختصاصی تغییر رمز هنوز در دسترس نیست.",
+      "mfaTitle": "احراز هویت دو مرحله‌ای",
+      "mfaUnavailable": "احراز هویت دو مرحله‌ای هنوز در دسترس نیست.",
+      "ssoTitle": "SSO و OAuth",
+      "ssoUnavailable": "ورود یکپارچه و ارائه‌دهندگان OAuth هنوز در دسترس نیستند.",
+      "encryptionTitle": "رمزنگاری",
+      "encryptionUnavailable": "مدیریت کلید و رمزنگاری در حالت سکون هنوز در دسترس نیست.",
+      "trustedDevices": "دستگاه‌های مورد اعتماد",
+      "trustedUnavailable": "دستگاه مورد اعتماد و تاریخچه IP ذخیره نمی‌شود. فراداده نشست فقط شامل زمان ایجاد و انقضا است.",
+      "apiKeys": "کلیدهای API",
+      "apiKeysHint": "کلیدهای توسعه‌دهنده در بخش API و توسعه‌دهندگان مدیریت می‌شوند. این پنل کلید صادر نمی‌کند.",
+      "openApi": "باز کردن تنظیمات API",
+      "serverNotice": "نشست‌ها روی سرور ذخیره می‌شوند. داده‌های هویت محلی این مرورگر مرجع نیستند.",
+      "demoNotice": "حالت نمایشی فقط از نشست‌های محلی مرورگر استفاده می‌کند. این احراز هویت تولیدی نیست.",
+      "noDeviceMeta": "دستگاه، IP و عامل کاربر ثبت نمی‌شوند."
+    },
+    "billing": {
+      "label": "صورتحساب",
+      "description": "طرح، مصرف، فاکتورها و پرداخت‌ها",
+      "title": "صورتحساب",
+      "panelDescription": "طرح فعلی، تمدید، مصرف، فاکتورها و مسیر ارتقا."
+    },
+    "api": {
+      "label": "API و توسعه‌دهندگان",
+      "description": "کلیدها، وب‌هوک‌ها، توکن‌ها، سندباکس",
+      "title": "API و توسعه‌دهندگان",
+      "panelDescription": "کلیدها، وب‌هوک‌ها، توکن‌ها و دسترسی سندباکس."
+    },
+    "audit": {
+      "label": "گزارش‌های ممیزی",
+      "description": "فعالیت، امنیت و تغییرات سیستم",
+      "title": "گزارش‌های ممیزی",
+      "panelDescription": "فعالیت اخیر، رویدادهای امنیتی و تغییرات سیستم."
+    },
+    "advanced": {
+      "label": "پیشرفته",
+      "description": "آزمایشی، بازنشانی، درون‌ریزی، برون‌ریزی",
+      "title": "پیشرفته",
+      "panelDescription": "قابلیت‌های آزمایشی، بازنشانی، درون‌ریزی و برون‌ریزی."
+    },
+    "page": {
+      "eyebrow": "مرکز کنترل AGXORA",
+      "title": "تنظیمات",
+      "lead": "پیکربندی سازمانی برای هر ماژول AGXORA — پروفایل، سازمان، AI، ظاهر، امنیت، صورتحساب و کنترل‌های توسعه‌دهنده در یک مکان.",
+      "loading": "در حال بارگذاری تنظیمات…",
+      "breadcrumb": "{label} · {description}"
+    },
+    "saveChanges": "ذخیره تغییرات",
+    "sessionNotice": "برای این نشست به‌روز شد — {area} هنوز متصل نیست.",
+    "kpi": {
+      "members": {
+        "label": "اعضای تیم",
+        "caption": "صندلی‌های فعال"
+      },
+      "integrations": {
+        "label": "یکپارچه‌سازی‌ها",
+        "caption": "آداپترهای متصل"
+      },
+      "api": {
+        "label": "کلیدهای API",
+        "caption": "توکن‌های توسعه‌دهنده"
+      },
+      "audit": {
+        "label": "رویدادهای ممیزی",
+        "caption": "۷ روز گذشته"
+      }
+    },
+    "unknown": {
+      "title": "تنظیمات",
+      "description": "بخش ناشناخته.",
+      "emptyTitle": "یافت نشد",
+      "emptyDescription": "یک بخش را از ناوبری مرکز کنترل انتخاب کنید."
+    },
+    "controlPlane": {
+      "loading": "در حال بارگذاری…",
+      "loadFailed": "بارگذاری داده‌های سازمان ممکن نشد. وارد شوید و دوباره تلاش کنید.",
+      "saveFailed": "ذخیره تغییرات ممکن نشد.",
+      "saving": "در حال ذخیره…",
+      "orgName": "نام سازمان",
+      "orgSlug": "اسلاگ",
+      "owner": "مالک",
+      "counts": "اعضا · فضاهای کاری",
+      "orgUpdated": "سازمان به‌روز شد.",
+      "countsValue": "{members} · {workspaces}",
+      "joined": "تاریخ عضویت",
+      "workspaceName": "نام فضای کاری",
+      "switchWorkspace": "فضای کاری فعال",
+      "active": "فعال",
+      "rename": "تغییر نام",
+      "archive": "بایگانی",
+      "create": "ایجاد فضای کاری",
+      "createWorkspace": "فضای کاری جدید",
+      "workspaceCreated": "فضای کاری ایجاد شد.",
+      "workspaceUpdated": "نام فضای کاری تغییر کرد.",
+      "workspaceArchived": "فضای کاری بایگانی شد.",
+      "workspaceSwitched": "فضای کاری فعال به‌روز شد.",
+      "member": "عضو",
+      "email": "ایمیل",
+      "role": "نقش",
+      "status": "وضعیت",
+      "actions": "اقدامات",
+      "roleOwner": "مالک",
+      "roleAdmin": "مدیر",
+      "roleMember": "عضو",
+      "changeRole": "تغییر نقش",
+      "remove": "حذف",
+      "invite": "دعوت عضو",
+      "inviteTitle": "دعوت به فضای کاری",
+      "sendInvite": "ایجاد دعوت",
+      "close": "بستن",
+      "pending": "دعوت‌های در انتظار",
+      "noPending": "دعوت در انتظاری نیست.",
+      "revoke": "لغو",
+      "noMembers": "هنوز عضوی نیست",
+      "noMembersBody": "همکاری را به این فضای کاری دعوت کنید.",
+      "inviteHonesty": "ارسال ایمیل پیکربندی نشده است. لینک دعوت را مستقیم به اشتراک بگذارید.",
+      "inviteLink": "لینک دعوت",
+      "inviteInvalid": "این دعوت معتبر نیست.",
+      "accept": "پذیرش دعوت",
+      "invitedAs": "{email} به‌عنوان {role} دعوت شده است.",
+      "inviteStatus": {
+        "pending": "در انتظار",
+        "expired": "این دعوت منقضی شده است.",
+        "revoked": "این دعوت لغو شده است.",
+        "accepted": "این دعوت قبلاً پذیرفته شده است."
+      },
+      "transferOwnership": "انتقال مالکیت",
+      "transferTitle": "انتقال مالکیت سازمان",
+      "transferWarning": "این یک اقدام حساس است. تا تأیید گیرنده، شما OWNER می‌مانید. پس از تأیید، شما ADMIN و گیرنده OWNER می‌شود.",
+      "transferTarget": "مالک جدید",
+      "transferSelectMember": "یک عضو موجود را انتخاب کنید…",
+      "transferTypeName": "برای تأیید «{name}» را تایپ کنید",
+      "transferConfirmMismatch": "نام واردشده با عضو انتخاب‌شده مطابقت ندارد.",
+      "transferInitiate": "شروع انتقال",
+      "transferHonesty": "در صورت پیکربندی ایمیل، پیام تأیید ارسال می‌شود؛ در غیر این صورت لینک را مستقیماً به اشتراک بگذارید.",
+      "transferLink": "لینک تأیید",
+      "transferPendingTitle": "انتقال مالکیت در انتظار",
+      "transferPendingBody": "در انتظار تأیید {name} ({email}). انقضا {expires}. تا آن زمان شما OWNER می‌مانید.",
+      "transferPendingNote": "تا وقتی انتقال در انتظار است، نقش‌ها تغییر نمی‌کنند.",
+      "cancelTransfer": "لغو انتقال",
+      "transferCancelled": "انتقال مالکیت لغو شد.",
+      "transferInvalid": "این انتقال مالکیت معتبر نیست.",
+      "transferConfirmTitle": "تأیید انتقال مالکیت",
+      "transferConfirmBody": "{from} می‌خواهد مالکیت سازمان را به {to} ({email}) منتقل کند.",
+      "transferConfirmDanger": "پس از تأیید، شما OWNER و مالک قبلی ADMIN می‌شود.",
+      "transferConfirmAction": "تأیید می‌کنم مالک جدید باشم",
+      "transferWrongAccount": "برای تأیید با حساب {email} وارد شوید.",
+      "transferStatus": {
+        "pending": "در انتظار تأیید",
+        "expired": "این انتقال مالکیت منقضی شده است.",
+        "cancelled": "این انتقال مالکیت لغو شده است.",
+        "confirmed": "این انتقال مالکیت قبلاً تکمیل شده است."
+      }
+    }
+  },
+  "errors": {
+    "required": "این فیلد الزامی است.",
+    "invalidEmail": "یک ایمیل معتبر وارد کنید.",
+    "passwordMin": "رمز عبور باید حداقل ۸ نویسه باشد.",
+    "passwordLettersNumbers": "رمز عبور باید شامل حرف و عدد باشد.",
+    "passwordMismatch": "رمزهای عبور یکسان نیستند.",
+    "acceptTerms": "برای ادامه شرایط را بپذیرید.",
+    "generic": "مشکلی پیش آمد.",
+    "tryAgain": "لطفاً دوباره تلاش کنید.",
+    "saved": "با موفقیت ذخیره شد."
+  },
+  "dashboard": {
+    "skipToContent": "رفتن به محتوای داشبورد",
+    "loading": "در حال بارگذاری داشبورد…",
+    "hero": {
+      "ariaLabel": "هیروی AGXORA CORE",
+      "eyebrow": "سیستم عامل کسب‌وکار مبتنی بر هوش مصنوعی",
+      "title": "AGXORA CORE",
+      "subtitle": "هوش لحظه‌ای و کنترل عملیاتی — سطح فرمان فضای کاری شما.",
+      "ctaGetStarted": "شروع کنید",
+      "ctaViewActivity": "مشاهده فعالیت",
+      "openQuickActionsAria": "باز کردن اقدامات سریع",
+      "viewActivityAria": "مشاهده فعالیت اخیر"
+    },
+    "quickActions": {
+      "title": "اقدامات سریع",
+      "subtitle": "قدم بعدی چیست؟",
+      "ariaLabel": "اقدامات سریع",
+      "addCustomer": {
+        "label": "افزودن مشتری",
+        "description": "ایجاد رکورد CRM"
+      },
+      "newProject": {
+        "label": "پروژه جدید",
+        "description": "شروع مسیر تحویل"
+      },
+      "askAi": {
+        "label": "پرسش از AI",
+        "description": "باز کردن فضای کاری AI"
+      },
+      "finance": {
+        "label": "مالی",
+        "description": "فاکتورها و جریان نقدی"
+      },
+      "automations": {
+        "label": "اتوماسیون",
+        "description": "موتور گردش‌کار"
+      },
+      "settings": {
+        "label": "تنظیمات",
+        "description": "ترجیحات فضای کاری"
+      }
+    },
+    "attention": {
+      "title": "نیاز به توجه",
+      "ariaLabel": "موارد نیازمند توجه",
+      "empty": "همه‌چیز مرتب است — مورد فوری نیست.",
+      "tone": {
+        "critical": "بحرانی",
+        "warning": "هشدار",
+        "info": "اطلاعات",
+        "success": "آماده",
+        "action": "قدم بعدی"
+      },
+      "addCustomer": {
+        "title": "اولین مشتری را اضافه کنید",
+        "detail": "CRM را با یک رکورد واقعی حساب شروع کنید."
+      },
+      "createProject": {
+        "title": "ایجاد پروژه",
+        "detail": "مسیر تحویل را برای همکاری بعدی باز کنید."
+      },
+      "exploreAi": {
+        "title": "فضای کاری AI را کاوش کنید",
+        "detail": "از AGXORA درباره مشتریان، پروژه‌ها یا گام‌های بعدی بپرسید."
+      },
+      "reviewBilling": {
+        "title": "بررسی صورتحساب",
+        "detail": "هنگام آمادگی برای مقیاس، طرح و مصرف را تأیید کنید."
+      }
+    },
+    "overview": {
+      "title": "چه می‌گذرد",
+      "subtitle": "شمارنده‌های فضای کاری برای {name}",
+      "fallbackName": "فضای کاری شما",
+      "ariaLabel": "نمای کلی کسب‌وکار",
+      "online": "آنلاین",
+      "emDash": "—",
+      "capacitySignal": "سیگنال ظرفیت {percent}٪",
+      "activeClients": {
+        "title": "مشتریان فعال",
+        "captionEmpty": "هنوز مشتری فعالی نیست",
+        "captionTotal": "{count} در مجموع در فضای کاری",
+        "add": "افزودن مشتری",
+        "view": "مشاهده مشتریان"
+      },
+      "projects": {
+        "title": "پروژه‌ها",
+        "captionEmpty": "پروژه‌ای در سبد نیست",
+        "captionOpen": "مسیرهای تحویل باز",
+        "create": "ایجاد پروژه",
+        "open": "باز کردن پروژه‌ها"
+      },
+      "activityToday": {
+        "title": "فعالیت امروز",
+        "captionEmpty": "امروز هنوز چیزی ثبت نشده",
+        "captionEvents": "رویدادهای فضای کاری از نیمه‌شب",
+        "viewFeed": "مشاهده فید"
+      },
+      "revenue": {
+        "title": "درآمد",
+        "caption": "صورتحساب را وصل کنید تا MRR نمایش داده شود",
+        "openBilling": "باز کردن صورتحساب"
+      },
+      "clientShell": {
+        "title": "پوسته کلاینت",
+        "caption": "نشست مرورگر آماده است — مانیتور عملیات زنده نیست",
+        "shellLoaded": "پوسته برنامه بارگذاری شد",
+        "storesReady": "ذخیره‌های محلی فضای کاری آماده است"
+      },
+      "growth": {
+        "title": "رشد",
+        "caption": "معیارهای روند به مصرف انباشته نیاز دارند",
+        "openAnalytics": "باز کردن تحلیل‌ها"
+      }
+    },
+    "activity": {
+      "title": "فعالیت اخیر",
+      "subtitle": "آنچه امروز تغییر کرد",
+      "ariaLabel": "فعالیت اخیر",
+      "todayCount": "{count} امروز",
+      "localBadge": "محلی",
+      "emptyTitle": "هنوز فعالیتی نیست",
+      "emptyBody": "رویدادهای فضای کاری با افزودن مشتری، پروژه و موارد دیگر اینجا ظاهر می‌شوند.",
+      "addCustomer": "افزودن مشتری",
+      "newProject": "پروژه جدید",
+      "kind": {
+        "customer": "مشتری",
+        "project": "پروژه",
+        "finance": "مالی",
+        "automation": "اتوماسیون",
+        "documents": "اسناد",
+        "team": "تیم",
+        "workspace": "فضای کاری"
+      },
+      "events": {
+        "customer_created": "مشتری ایجاد شد",
+        "customer_updated": "مشتری به‌روزرسانی شد",
+        "customer_deleted": "مشتری حذف شد",
+        "project_updated": "پروژه به‌روزرسانی شد",
+        "invoice_paid": "فاکتور پرداخت شد",
+        "document_uploaded": "سند بارگذاری شد",
+        "workflow_executed": "گردش‌کار اجرا شد",
+        "member_invited": "عضو تیم دعوت شد",
+        "generic": "به‌روزرسانی فضای کاری"
+      }
+    },
+    "chat": {
+      "title": "AGXORA AI",
+      "emptyState": "از AGXORA درباره مشتریان، پروژه‌ها یا اقدامات بعدی بپرسید. گفتگوی شما در این نشست فضای کاری باقی می‌ماند.",
+      "thinking": "AGXORA در حال فکر کردن است…",
+      "errorDismiss": "{error} — برای بستن ضربه بزنید",
+      "placeholder": "از AGXORA AI بپرسید…",
+      "messageAria": "پیام به AGXORA AI",
+      "sendAria": "ارسال پیام",
+      "send": "ارسال"
+    },
+    "routeLoading": {
+      "team": "در حال بارگذاری تیم…",
+      "projects": "در حال بارگذاری پروژه‌ها…",
+      "project": "در حال بارگذاری پروژه…",
+      "profile": "در حال بارگذاری پروفایل…",
+      "integrations": "در حال بارگذاری یکپارچه‌سازی‌ها…",
+      "identity": "در حال بارگذاری هویت…",
+      "finance": "در حال بارگذاری مالی…",
+      "documents": "در حال بارگذاری اسناد…",
+      "customers": "در حال بارگذاری مشتریان…",
+      "crm": "در حال بارگذاری CRM…",
+      "customer": "در حال بارگذاری مشتری…",
+      "creator": "در حال بارگذاری استودیوی سازنده…",
+      "billing": "در حال بارگذاری صورتحساب…",
+      "billingAdmin": "در حال بارگذاری صورتحساب مدیریت…",
+      "automation": "در حال بارگذاری اتوماسیون…",
+      "analytics": "در حال بارگذاری مرکز هوش…",
+      "ai": "در حال بارگذاری پلتفرم AI…",
+      "agents": "در حال بارگذاری Agent OS…"
+    },
+    "shell": {
+      "memory": {
+        "title": "حافظه",
+        "description": "حافظه سازمانی در این نسخه متصل نیست.",
+        "emptyTitle": "فضای کاری حافظه هنوز در دسترس نیست",
+        "emptyBody": "ذخیره‌سازی پایدار حافظه سازمانی متصل نیست. چت ممکن است زمینه کوتاه‌مدت را فقط در نشست نگه دارد — چیزی اینجا به‌عنوان حافظه سازمانی ذخیره نمی‌شود."
+      },
+      "invoices": {
+        "title": "فاکتورها",
+        "description": "معماری صورتحساب و فاکتور برای مستأجران سازمانی.",
+        "emptyTitle": "دفتر فاکتور هنوز در دسترس نیست",
+        "emptyBody": "این مسیر یک پوسته است — ایجاد و ذخیره فاکتور متصل نیست. برای پیش‌نمایش دفتر نمونه از مالی یا برای مدیریت طرح از صورتحساب استفاده کنید.",
+        "openFinance": "باز کردن مالی",
+        "openBilling": "باز کردن صورتحساب"
+      }
+    },
+    "search": {
+      "ariaLabel": "جستجوی سراسری",
+      "queryAria": "عبارت جستجوی سراسری",
+      "placeholder": "جستجوی مشتریان، فاکتورها، اسناد، گردش‌کارها، تنظیمات…",
+      "quickActions": "اقدامات سریع",
+      "favorites": "علاقه‌مندی‌ها",
+      "recentSearches": "جستجوهای اخیر",
+      "clear": "پاک کردن",
+      "noRecentSearches": "هنوز جستجوی اخیری نیست. «Nordlicht»، «invoice» یا «workflow» را امتحان کنید.",
+      "recentActivity": "فعالیت اخیر",
+      "aiReady": "AI آماده (معماری)",
+      "pinnedResults": "نتایج سنجاق‌شده",
+      "noMatches": "موردی یافت نشد",
+      "noMatchesBody": "کلمه دیگری امتحان کنید یا یک ماژول را از اقدامات سریع باز کنید.",
+      "close": "بستن",
+      "open": "باز کردن",
+      "keyboardHints": "↑↓ پیمایش · Enter باز کردن · Ctrl/⌘ K تغییر · Esc بستن",
+      "pinResult": "سنجاق کردن نتیجه",
+      "unpinResult": "برداشتن سنجاق",
+      "previewEmpty": "برای پیش‌نمایش، متاداده و پیوندهای هوشمند، روی نتیجه بایستید یا آن را برجسته کنید.",
+      "previewAria": "پیش‌نمایش سراسری",
+      "relatedItems": "موارد مرتبط",
+      "noSmartLinks": "پیوند هوشمندی برای این نتیجه نیست.",
+      "groups": {
+        "crm": "CRM",
+        "finance": "مالی",
+        "documents": "اسناد",
+        "automation": "اتوماسیون",
+        "projects": "پروژه‌ها",
+        "creator": "استودیوی سازنده",
+        "settings": "تنظیمات",
+        "commands": "دستورات",
+        "actions": "اقدامات سریع"
+      },
+      "status": {
+        "architecture": "معماری",
+        "planned": "برنامه‌ریزی‌شده"
+      },
+      "meta": {
+        "type": "نوع",
+        "module": "ماژول",
+        "quickAction": "اقدام سریع"
+      },
+      "actions": {
+        "createCustomer": {
+          "title": "ایجاد مشتری",
+          "subtitle": "باز کردن مشتریان برای افزودن رکورد"
+        },
+        "createInvoice": {
+          "title": "ایجاد فاکتور",
+          "subtitle": "باز کردن فضای کاری فاکتور مالی"
+        },
+        "uploadDocument": {
+          "title": "بارگذاری سند",
+          "subtitle": "باز کردن مرکز دانش اسناد"
+        },
+        "newWorkflow": {
+          "title": "گردش‌کار جدید",
+          "subtitle": "باز کردن سازنده موتور اتوماسیون"
+        },
+        "newProject": {
+          "title": "پروژه جدید",
+          "subtitle": "باز کردن فضای کاری پروژه‌ها"
+        },
+        "inviteMember": {
+          "title": "دعوت عضو تیم",
+          "subtitle": "باز کردن دعوت‌های تیم"
+        },
+        "openBilling": {
+          "title": "باز کردن صورتحساب",
+          "subtitle": "طرح‌ها، فاکتورها و اشتراک"
+        },
+        "openSettings": {
+          "title": "باز کردن تنظیمات",
+          "subtitle": "ترجیحات فضای کاری"
+        }
+      },
+      "commands": {
+        "openCrm": {
+          "title": "باز کردن CRM",
+          "subtitle": "ماژول CRM هوشمند"
+        },
+        "openCustomers": {
+          "title": "باز کردن مشتریان",
+          "subtitle": "مدیریت مشتری"
+        },
+        "openFinance": {
+          "title": "باز کردن مالی",
+          "subtitle": "ماژول مالی و مالیات"
+        },
+        "openDocuments": {
+          "title": "باز کردن اسناد",
+          "subtitle": "مرکز دانش"
+        },
+        "openAutomation": {
+          "title": "باز کردن اتوماسیون",
+          "subtitle": "موتور گردش‌کار"
+        },
+        "openSettings": {
+          "title": "باز کردن تنظیمات",
+          "subtitle": "تنظیمات فضای کاری"
+        },
+        "openProjects": {
+          "title": "باز کردن پروژه‌ها",
+          "subtitle": "سبد پروژه"
+        },
+        "openAi": {
+          "title": "باز کردن AI",
+          "subtitle": "فضای کاری پلتفرم AI"
+        },
+        "openAnalytics": {
+          "title": "باز کردن تحلیل‌ها",
+          "subtitle": "مرکز هوش"
+        },
+        "openIdentity": {
+          "title": "باز کردن هویت و دسترسی",
+          "subtitle": "تنظیمات IAM، RBAC، ممیزی"
+        },
+        "openBilling": {
+          "title": "باز کردن صورتحساب",
+          "subtitle": "پورتال اشتراک و طرح‌ها"
+        },
+        "openIntegrations": {
+          "title": "باز کردن یکپارچه‌سازی‌ها",
+          "subtitle": "مرکز یکپارچه‌سازی و اکوسیستم API"
+        }
+      },
+      "modules": {
+        "dashboard": {
+          "subtitle": "مرکز فرمان و نمای کلی کره"
+        },
+        "customers": {
+          "subtitle": "رکوردهای مشتری و CRM"
+        },
+        "projects": {
+          "subtitle": "تحویل و پیگیری پروژه"
+        },
+        "invoices": {
+          "title": "فاکتورها",
+          "subtitle": "صورتحساب و فاکتورها"
+        },
+        "finance": {
+          "subtitle": "حسابداری AI، بانکداری، مالیات و هوش مالی"
+        },
+        "crm": {
+          "subtitle": "CRM بومی AI و سیستم عامل سازنده"
+        },
+        "creator": {
+          "subtitle": "تولید محتوای AI و OS بازاریابی"
+        },
+        "documents": {
+          "subtitle": "اسناد AI و مرکز دانش"
+        },
+        "ai": {
+          "title": "AI",
+          "subtitle": "پلتفرم AGXORA AI — فضای کاری سازمانی"
+        },
+        "analytics": {
+          "subtitle": "هوش کسب‌وکار"
+        },
+        "automation": {
+          "subtitle": "موتور گردش‌کار و اتوماسیون AI"
+        },
+        "memory": {
+          "title": "حافظه",
+          "subtitle": "حافظه سازمانی"
+        },
+        "team": {
+          "subtitle": "اعضا و دعوت‌ها"
+        },
+        "settings": {
+          "subtitle": "تنظیمات فضای کاری و AI"
+        }
+      },
+      "capabilities": {
+        "aiSearch": {
+          "title": "جستجوی AI",
+          "description": "رتبه‌بندی نتایج با مدل بازیابی آینده در ماژول‌ها."
+        },
+        "semantic": {
+          "title": "جستجوی معنایی",
+          "description": "شباهت برداری روی اسناد، فاکتورها و دانش."
+        },
+        "nl": {
+          "title": "جستجوی زبان طبیعی",
+          "description": "تجزیه intentهایی مانند «فاکتورهای معوق Nordlicht»."
+        },
+        "rag": {
+          "title": "بازیابی دانش",
+          "description": "پاسخ‌ها را در corpus مرکز دانش اسناد زمینه‌گذاری کنید."
+        }
+      }
+    },
+    "summary": "{name}: {customers} مشتری · {projects} پروژه · {updates} به‌روزرسانی امروز."
+  },
+  "auth": {
+    "login": {
+      "title": "ورود",
+      "subtitle": "به AGXORA خوش آمدید.",
+      "email": "ایمیل",
+      "password": "رمز عبور",
+      "emailPlaceholder": "you@company.com",
+      "passwordPlaceholder": "رمز عبور",
+      "rememberMe": "مرا به خاطر بسپار",
+      "submit": "ورود",
+      "submitting": "در حال ورود…",
+      "noAccount": "حساب ندارید؟",
+      "startFree": "شروع رایگان",
+      "forgotPassword": "فراموشی رمز عبور",
+      "showPassword": "نمایش رمز عبور",
+      "hidePassword": "پنهان کردن رمز عبور",
+      "failed": "ورود ناموفق بود",
+      "loading": "ورود"
+    },
+    "register": {
+      "title": "ایجاد حساب",
+      "subtitle": "با AGXORA رایگان شروع کنید.",
+      "firstName": "نام",
+      "lastName": "نام خانوادگی",
+      "email": "ایمیل کاری",
+      "company": "شرکت",
+      "password": "رمز عبور",
+      "confirmPassword": "تأیید رمز عبور",
+      "acceptTerms": "می‌پذیرم",
+      "termsOfService": "شرایط استفاده",
+      "and": "و",
+      "privacyPolicy": "حریم خصوصی",
+      "submit": "ایجاد حساب",
+      "submitting": "در حال ایجاد حساب…",
+      "haveAccount": "قبلاً حساب دارید؟",
+      "signIn": "ورود",
+      "strength": "قدرت رمز عبور",
+      "strengthWeak": "ضعیف",
+      "strengthFair": "متوسط",
+      "strengthStrong": "قوی",
+      "failed": "ثبت‌نام ناموفق بود",
+      "loading": "ایجاد حساب"
+    },
+    "forgot": {
+      "title": "فراموشی رمز عبور",
+      "subtitle": "ایمیل خود را برای درخواست بازنشانی وارد کنید.",
+      "email": "ایمیل",
+      "submit": "درخواست بازنشانی",
+      "submitting": "در حال ارسال…",
+      "success": "اگر حسابی با آن ایمیل وجود داشته باشد، درخواست ثبت شد. ارسال ایمیل هنوز پیکربندی نشده است.",
+      "backToSignIn": "بازگشت به ورود",
+      "failed": "پردازش درخواست ممکن نشد",
+      "loading": "فراموشی رمز عبور"
+    },
+    "reset": {
+      "title": "بازنشانی رمز عبور",
+      "subtitle": "رمز عبور جدیدی برای حساب خود انتخاب کنید.",
+      "token": "توکن بازنشانی",
+      "newPassword": "رمز عبور جدید",
+      "confirmPassword": "تأیید رمز عبور",
+      "submit": "به‌روزرسانی رمز عبور",
+      "submitting": "در حال به‌روزرسانی…",
+      "success": "رمز عبور به‌روز شد. اکنون می‌توانید وارد شوید.",
+      "backToSignIn": "بازگشت به ورود",
+      "failed": "بازنشانی رمز عبور ممکن نشد",
+      "loading": "بازنشانی رمز عبور"
+    },
+    "contactSales": {
+      "title": "تماس با فروش",
+      "subtitle": "درباره تیم خود بگویید. گزینه‌های سازمانی را پیگیری می‌کنیم.",
+      "name": "نام کامل",
+      "email": "ایمیل کاری",
+      "company": "شرکت",
+      "employees": "تعداد کارکنان",
+      "employeesSelect": "بازه را انتخاب کنید",
+      "employees1_10": "۱–۱۰",
+      "employees11_50": "۱۱–۵۰",
+      "employees51_200": "۵۱–۲۰۰",
+      "employees201_1000": "۲۰۱–۱٬۰۰۰",
+      "employees1000plus": "۱٬۰۰۰+",
+      "message": "پیام",
+      "messagePlaceholder": "به دنبال حل چه مسئله‌ای هستید؟",
+      "submit": "ارسال درخواست",
+      "submitting": "در حال ارسال…",
+      "successTitle": "متشکریم",
+      "successBody": "درخواست شما دریافت شد. تیم ما به‌زودی پاسخ می‌دهد.",
+      "viewPricing": "مشاهده قیمت‌ها",
+      "bookDemo": "رزرو دمو",
+      "failed": "ارسال درخواست ممکن نشد"
+    },
+    "welcome": {
+      "title": "به AGXORA خوش آمدید",
+      "subtitle": "فضای کاری شما آماده است. به داشبورد بروید.",
+      "continue": "رفتن به داشبورد"
+    },
+    "locked": {
+      "title": "حساب قفل شد",
+      "subtitle": "تلاش‌های ورود ناموفق زیاد بود. بعداً دوباره امتحان کنید یا رمز عبور را بازنشانی کنید.",
+      "backToSignIn": "بازگشت به ورود",
+      "forgotPassword": "فراموشی رمز عبور"
+    },
+    "sessionExpired": {
+      "title": "نشست منقضی شد",
+      "subtitle": "برای ادامه دوباره وارد شوید.",
+      "signIn": "ورود"
+    },
+    "brand": "AGXORA"
+  },
+  "crm": {
+    "page": {
+      "brandOs": "AGXORA Business OS",
+      "title": "CRM مبتنی بر هوش مصنوعی",
+      "subtitle": "CRM بومی با هوش مصنوعی و سیستم‌عامل Creator — مشتریان، پایپ‌لاین، سفارش‌ها، تحویل، اسناد، ارتباطات و معماری سازنده برای هر صنعت."
+    },
+    "sections": {
+      "crmDashboard": {
+        "title": "داشبورد CRM"
+      },
+      "customer360": {
+        "title": "مشتری 360°",
+        "subtitle": "پروفایل، شرکت، مخاطبین، سفارش‌ها، فاکتورها، Lieferscheine، پرداخت‌ها، اسناد، تایم‌لاین، فعالیت‌ها، یادداشت‌ها، خلاصه AI و تاریخچه ارتباطات."
+      },
+      "salesPipeline": {
+        "title": "پایپ‌لاین فروش",
+        "subtitle": "مراحل کانبان با درگ و دراپ — Lead، Qualified، Proposal، Negotiation، Won، Lost."
+      },
+      "ordersModule": {
+        "title": "ماژول سفارش‌ها"
+      },
+      "deliveryModule": {
+        "title": "ماژول تحویل",
+        "subtitle": "سیستم حرفه‌ای Lieferschein با پیگیری، امضا، QR و آماده‌بودن بارکد."
+      },
+      "documentsModule": {
+        "title": "اسناد",
+        "subtitle": "پیشنهادات، قراردادها، فاکتورها، Lieferschein، سفارش خرید، رسیدها — با جستجوی AI."
+      },
+      "tasksModule": {
+        "title": "وظایف"
+      },
+      "communicationHub": {
+        "title": "مرکز ارتباطات",
+        "subtitle": "فهرست آداپتور فقط برای پیام‌رسانی، شبکه‌های اجتماعی، ایمیل، ویس و ویدیو."
+      },
+      "creatorStudio": {
+        "title": "بنیاد Creator Studio",
+        "subtitle": "آداپتورهای پلتفرم آماده برای اتصال رسمی در زمان بعد."
+      },
+      "aiCreator": {
+        "title": "سازنده AI",
+        "subtitle": "نقشه توانمندی سازمانی برای محتوا، تقویم، تولید و انتشار."
+      },
+      "industryPlatform": {
+        "title": "پلتفرم کسب‌وکار جهانی",
+        "subtitle": "رجیستر مدولار صنایع — هر حوزه می‌تواند ماژول‌های اختصاصی AI دریافت کند."
+      }
+    },
+    "directory": {
+      "errorTitle": "CRM قابل بارگذاری نیست",
+      "sort": {
+        "companyName": "شرکت",
+        "contactName": "مخاطب",
+        "email": "ایمیل",
+        "phone": "تلفن",
+        "industry": "صنعت",
+        "status": "وضعیت",
+        "owner": "مالک",
+        "createdAt": "ایجادشده"
+      },
+      "search": {
+        "label": "جستجوی مشتریان",
+        "placeholder": "شرکت، مخاطب، ایمیل، برچسب‌ها…"
+      },
+      "view": {
+        "table": "جدول",
+        "cards": "کارت‌ها"
+      },
+      "actions": {
+        "newCustomer": "مشتری جدید"
+      },
+      "filters": {
+        "status": "وضعیت",
+        "industry": "صنعت",
+        "owner": "مالک",
+        "country": "کشور",
+        "tags": "برچسب‌ها",
+        "allStatuses": "همه وضعیت‌ها",
+        "allIndustries": "همه صنایع",
+        "allOwners": "همه مالکان",
+        "allCountries": "همه کشورها",
+        "allTags": "همه برچسب‌ها"
+      },
+      "empty": {
+        "ready": {
+          "title": "CRM آماده است",
+          "description": "اولین رکورد مشتری را بسازید تا بخش دایرکتوری، پروفایل‌ها و فعالیت فعال شود.",
+          "action": "ایجاد مشتری"
+        },
+        "noMatches": {
+          "title": "مشتری مطابق یافت نشد",
+          "description": "جستجو یا فیلترها را تغییر دهید تا رکوردهای درست را پیدا کنید.",
+          "action": "پاک کردن فیلترها"
+        }
+      },
+      "pagination": {
+        "previous": "قبلی",
+        "next": "بعدی"
+      },
+      "showing": "نمایش: {from}–{to} از {total}",
+      "aria": {
+        "openCustomer": "باز کردن مشتری: {company}"
+      },
+      "cardMeta": "مالک {owner} · ایجاد {date}",
+      "sortBy": "مرتب‌سازی بر اساس {column}"
+    },
+    "status": {
+      "lead": "لید",
+      "prospect": "پیش‌مشتری",
+      "active": "فعال",
+      "inactive": "غیرفعال",
+      "vip": "VIP",
+      "archived": "آرشیو"
+    },
+    "form": {
+      "createTitle": "ایجاد مشتری",
+      "editTitle": "ویرایش مشتری",
+      "cancel": "لغو",
+      "saveChanges": "ذخیره تغییرات",
+      "createCustomer": "ایجاد مشتری",
+      "companyName": "نام شرکت",
+      "contactName": "نام مخاطب",
+      "email": "ایمیل",
+      "phone": "تلفن",
+      "website": "وب‌سایت",
+      "industry": "صنعت",
+      "country": "کشور",
+      "city": "شهر",
+      "address": "آدرس",
+      "taxNumber": "شماره مالیات",
+      "owner": "مالک",
+      "status": "وضعیت",
+      "tags": "برچسب‌ها",
+      "statusAria": "وضعیت مشتری",
+      "tagsHint": "با ویرگول جدا کنید، به‌طور خودکار رنگ‌بندی می‌شود",
+      "websitePlaceholder": "https://",
+      "tagsPlaceholder": "enterprise, retail"
+    },
+    "toasts": {
+      "customerCreated": "مشتری ایجاد شد",
+      "customerUpdated": "مشتری به‌روزرسانی شد",
+      "checkForm": "فرم را بررسی کنید",
+      "validationFailed": "اعتبارسنجی ناموفق بود.",
+      "customerDeleted": "مشتری حذف شد",
+      "deleteFailed": "حذف ناموفق بود",
+      "customerCouldNotBeRemoved": "مشتری قابل حذف نبود.",
+      "contactSaved": "مخاطب ذخیره شد",
+      "documentsAttached": "اسناد پیوست شد",
+      "documentsAttachedDetail": "{count} فایل",
+      "noteSaved": "یادداشت ذخیره شد"
+    },
+    "deleteDialog": {
+      "title": "حذف مشتری",
+      "cancel": "لغو",
+      "deletePermanently": "حذف دائم",
+      "thisCustomer": "این مشتری",
+      "bodyPrefix": "این موارد را حذف می‌کند",
+      "bodySuffix": "تماس‌های مرتبط، یادداشت‌ها، اسناد و فعالیت را از حافظه محلی. پروژه‌های متصل حذف نمی‌شوند."
+    },
+    "validation": {
+      "companyNameRequired": "نام شرکت الزامی است.",
+      "contactNameRequired": "نام مخاطب الزامی است.",
+      "emailRequired": "ایمیل الزامی است.",
+      "emailInvalid": "لطفاً یک آدرس ایمیل معتبر وارد کنید.",
+      "phoneRequired": "تلفن الزامی است.",
+      "phoneInvalid": "لطفاً یک شماره تلفن معتبر وارد کنید.",
+      "websiteInvalid": "لطفاً یک وب‌سایت معتبر وارد کنید.",
+      "industryRequired": "صنعت الزامی است.",
+      "ownerRequired": "مالک الزامی است.",
+      "statusInvalid": "لطفاً یک وضعیت معتبر انتخاب کنید.",
+      "emailDuplicate": "این ایمیل قبلاً برای یک مشتری ثبت شده است.",
+      "nameRequired": "نام الزامی است.",
+      "mobileInvalid": "لطفاً یک شماره موبایل معتبر وارد کنید.",
+      "mobileRequired": "موبایل الزامی است.",
+      "roleRequired": "نقش الزامی است.",
+      "noteTitleRequired": "عنوان الزامی است.",
+      "noteBodyRequired": "متن یادداشت الزامی است.",
+      "noteAuthorRequired": "نویسنده الزامی است."
+    },
+    "errors": {
+      "failedToLoadCustomers": "مشتری‌ها قابل بارگذاری نیستند.",
+      "failedToLoadCustomerProfile": "پروفایل مشتری قابل بارگذاری نیست.",
+      "organizationRequired": "سازمان الزامی است.",
+      "failedToSaveCustomer": "مشتری ذخیره نشد.",
+      "failedToDeleteCustomer": "مشتری حذف نشد.",
+      "failedToSaveContact": "مخاطب ذخیره نشد.",
+      "failedToSaveNote": "یادداشت ذخیره نشد.",
+      "failedToUploadDocument": "سند آپلود نشد."
+    },
+    "workspace": {
+      "badge": "Enterprise CRM 2.0",
+      "title": "مدیریت ارتباط با مشتری",
+      "subtitleBeforeOrg": "دایرکتوری مشتریان، پروفایل‌ها، مخاطبین، یادداشت‌ها و اسناد را برای",
+      "subtitleAfterOrg": "پروژه‌ها بر اساس نام شرکت از ماژول پروژه‌ها لینک می‌شوند — بدون تکرار داده.",
+      "yourOrganization": "سازمان شما"
+    },
+    "analytics": {
+      "totalCustomers": "کل مشتریان",
+      "activeCustomers": "مشتریان فعال",
+      "newCustomers": "مشتریان جدید",
+      "vipCustomers": "مشتریان VIP",
+      "createdThisMonth": "ایجادشده این ماه",
+      "leadConversion": "تبدیل لید",
+      "leadConversionHint": "سهم مشتریان فعال و VIP در قیف لید / پیش‌مشتری / تبدیل‌شده.",
+      "customerGrowth": "رشد مشتری"
+    },
+    "profile": {
+      "backToCrm": "← بازگشت به CRM",
+      "ownerLabel": "Owner",
+      "notFoundTitle": "مشتری یافت نشد",
+      "notFoundDescription": "این مشتری ممکن است حذف شده باشد.",
+      "missingCustomerTitle": "مشتری موجود نیست",
+      "missingOverviewDescription": "برای مشاهده نمای کلی یک مشتری را انتخاب کنید.",
+      "missingSettingsDescription": "برای مدیریت تنظیمات یک مشتری را انتخاب کنید.",
+      "ariaProfileNav": "پروفایل مشتری",
+      "tabs": {
+        "overview": "نمای کلی",
+        "contacts": "مخاطبین",
+        "projects": "پروژه‌ها",
+        "documents": "اسناد",
+        "invoices": "فاکتورها",
+        "activity": "فعالیت",
+        "notes": "یادداشت‌ها",
+        "settings": "تنظیمات"
+      },
+      "overview": {
+        "title": "نمای کلی",
+        "email": "ایمیل",
+        "phone": "تلفن",
+        "website": "وب‌سایت",
+        "taxNumber": "شماره مالیات",
+        "location": "موقعیت",
+        "address": "آدرس",
+        "created": "ایجادشده",
+        "updated": "به‌روزرسانی",
+        "emptyValue": "—"
+      },
+      "contacts": {
+        "addTitle": "افزودن مخاطب",
+        "editTitle": "ویرایش مخاطب",
+        "listTitle": "مخاطبین",
+        "name": "نام",
+        "role": "نقش",
+        "email": "ایمیل",
+        "phone": "تلفن",
+        "mobile": "موبایل",
+        "notes": "یادداشت‌ها",
+        "saveContact": "ذخیره مخاطب",
+        "emptyTitle": "هنوز مخاطبی نیست",
+        "emptyDescription": "ذینفعان را با نقش، ایمیل و تلفن اضافه کنید.",
+        "defaultRole": "مخاطب",
+        "mobilePrefix": "موبایل"
+      },
+      "projects": {
+        "title": "پروژه‌ها",
+        "emptyTitle": "پروژه متصل نیست",
+        "emptyDescription": "پروژه‌هایی که نام مشتری با این شرکت مطابقت دارد اینجا نمایش داده می‌شوند. داده از ماژول پروژه‌ها خوانده می‌شود — چیزی تکرار نمی‌شود.",
+        "openProjects": "باز کردن پروژه‌ها"
+      },
+      "documents": {
+        "title": "اسناد",
+        "subtitle": "تصاویر، PDF و اسناد آفیس — فقط متادیتا در Local Storage.",
+        "attachFiles": "پیوست فایل",
+        "emptyTitle": "سندی نیست",
+        "emptyDescription": "فایل‌های مشتری را برای تیم حساب پیوست کنید.",
+        "systemUploader": "سیستم"
+      },
+      "invoices": {
+        "emptyTitle": "هنوز فاکتوری نیست",
+        "emptyDescription": "فاکتورهای این مشتری پس از اتصال از Finance اینجا نمایش داده می‌شوند."
+      },
+      "activity": {
+        "title": "فعالیت",
+        "emptyTitle": "هنوز فعالیتی نیست",
+        "emptyDescription": "ایجاد، به‌روزرسانی، یادداشت و اسناد جدیدترین اول اینجا نمایش داده می‌شوند.",
+        "kinds": {
+          "customer_created": "مشتری ایجاد شد",
+          "customer_updated": "مشتری به‌روزرسانی شد",
+          "contact_added": "مخاطب اضافه شد",
+          "contact_updated": "مخاطب به‌روزرسانی شد",
+          "contact_deleted": "مخاطب حذف شد",
+          "note_added": "یادداشت اضافه شد",
+          "note_updated": "یادداشت به‌روزرسانی شد",
+          "note_deleted": "یادداشت حذف شد",
+          "document_added": "سند اضافه شد",
+          "document_deleted": "سند حذف شد",
+          "project_linked": "پروژه پیوند شد"
+        }
+      },
+      "notes": {
+        "newTitle": "یادداشت جدید",
+        "editTitle": "ویرایش یادداشت",
+        "title": "عنوان",
+        "author": "نویسنده",
+        "body": "متن",
+        "saveNote": "ذخیره یادداشت",
+        "emptyTitle": "هنوز یادداشتی نیست",
+        "emptyDescription": "زمینه حساب را با نویسنده و زمان‌بندی ثبت کنید."
+      },
+      "settings": {
+        "title": "تنظیمات",
+        "description": "همه فیلدهای پروفایل را ویرایش کنید یا این حساب را آرشیو کنید. حذف از طریق دیالوگ تأیید انجام می‌شود.",
+        "editAllFields": "ویرایش همه فیلدها",
+        "prepareArchive": "آماده‌سازی آرشیو",
+        "deleteCustomer": "حذف مشتری"
+      }
+    },
+    "customer360": {
+      "ariaSections": "بخش‌های Customer 360",
+      "email": "ایمیل",
+      "phone": "تلفن",
+      "aiHealth": "سلامت AI",
+      "tabs": {
+        "profile": "پروفایل",
+        "company": "شرکت",
+        "contacts": "مخاطبین",
+        "orders": "سفارش‌ها",
+        "invoices": "فاکتورها",
+        "lieferscheine": "Lieferscheine",
+        "payments": "پرداخت‌ها",
+        "documents": "اسناد",
+        "timeline": "تایم‌لاین",
+        "activities": "فعالیت‌ها",
+        "notes": "یادداشت‌ها",
+        "aiSummary": "خلاصه AI",
+        "communicationHistory": "تاریخچه ارتباطات"
+      },
+      "profileLines": {
+        "customerId": "شناسه مشتری",
+        "status": "وضعیت",
+        "primaryContact": "مخاطب اصلی"
+      },
+      "status": {
+        "churn_risk": "ریسک ریزش"
+      }
+    },
+    "delivery": {
+      "title": "سیستم حرفه‌ای Lieferschein",
+      "description": "برگه‌های تحویل، دریافت/تحویل، راننده، وسیله و پیگیری — فقط رکوردهای نمونه. آداپتورهای export متصل نیستند.",
+      "badges": {
+        "qrUnavailable": "QR در دسترس نیست",
+        "barcodeUnavailable": "بارکد در دسترس نیست",
+        "signatureDemo": "امضای دمو"
+      },
+      "exportPdf": "خروجی PDF",
+      "deliveryHistory": "تاریخچه تحویل",
+      "notices": {
+        "exportNotConnected": "خروجی PDF، QR و بارکد در این نسخه متصل نیست.",
+        "exportPdfUnavailable": "خروجی PDF در دسترس نیست — export تحویل متصل نیست.",
+        "historyNotConnected": "ذخیره تاریخچه تحویل در این نسخه متصل نیست."
+      },
+      "columns": {
+        "lieferschein": "Lieferschein",
+        "order": "سفارش",
+        "customer": "مشتری",
+        "kind": "نوع",
+        "driver": "راننده",
+        "vehicle": "وسیله",
+        "tracking": "پیگیری",
+        "scheduled": "زمان‌بندی"
+      }
+    },
+    "orders": {
+      "description": "محصولات، خدمات، قیمت، تخفیف، مالیات و مشتری — دفتر سفارش سازمانی.",
+      "createOrder": "ایجاد سفارش",
+      "notices": {
+        "apiReserved": "API ایجاد سفارش برای مسیر نوشتن آینده رزرو شده است.",
+        "draftStaged": "پیش‌نویس سفارش آماده شد (هنوز API نیست)."
+      },
+      "columns": {
+        "order": "سفارش",
+        "customer": "مشتری",
+        "status": "وضعیت",
+        "lines": "ردیف‌ها",
+        "net": "خالص",
+        "tax": "مالیات",
+        "gross": "ناخالص",
+        "created": "ایجادشده"
+      },
+      "lineTax": "{taxPct}% مالیات"
+    },
+    "tasks": {
+      "calendarTitle": "تقویم · جلسات · یادآورها · پیگیری‌ها",
+      "foundationTitle": "بنیاد Task OS",
+      "foundationDescription": "همگام‌سازی تقویم، ارائه‌دهندگان جلسه، صف یادآوری و قلاب‌های خودکارسازی پیگیری رزرو شده‌اند. این بورد سطح مشترک وظایف CRM برای هر ماژول صنعتی است.",
+      "badges": {
+        "calendarAdapter": "آداپتور تقویم",
+        "meetingAdapter": "آداپتور جلسه",
+        "reminderQueue": "صف یادآوری",
+        "followUpEngine": "موتور پیگیری"
+      },
+      "duePrefix": "سررسید",
+      "kinds": {
+        "follow_up": "پیگیری",
+        "meeting": "جلسه",
+        "reminder": "یادآوری",
+        "task": "وظیفه"
+      },
+      "statuses": {
+        "open": "باز",
+        "in_progress": "در حال انجام",
+        "done": "انجام‌شده",
+        "cancelled": "لغوشده"
+      }
+    },
+    "documentsModule": {
+      "emptyTitle": "سندی نیست",
+      "emptyDescription": "سندی با این جستجو مطابقت ندارد.",
+      "searchLabel": "جستجوی AI",
+      "searchPlaceholder": "پیشنهادات، قراردادها، فاکتورها، Lieferschein…",
+      "typeLabel": "نوع سند",
+      "allTypes": "همه انواع",
+      "columns": {
+        "type": "نوع",
+        "title": "عنوان",
+        "customer": "مشتری",
+        "status": "وضعیت",
+        "updated": "به‌روزرسانی"
+      },
+      "kinds": {
+        "quote": "پیشنهادات",
+        "contract": "قراردادها",
+        "invoice": "فاکتورها",
+        "lieferschein": "Lieferschein",
+        "purchase_order": "سفارش خرید",
+        "receipt": "رسیدها"
+      }
+    },
+    "communication": {
+      "intro": "معماری کانال مقیاس‌پذیر — ایمیل، واتساپ، اینستاگرام، فیسبوک، تیک‌تاک، لینkedIn، تلگرام، ویس و ویدیو. بدون اتصال جعلی زنده.",
+      "adapterPrefix": "آداپتور:"
+    },
+    "aiCreator": {
+      "intro": "سطح AI Creator آماده آینده — ایده، کپشن، هشتگ، تقویم، کمپین، صدای برند، تولید تصویر/ویدیو، analytics، زمان‌بندی، صف انتشار و insights. هنوز API واقعی provider متصل نیست."
+    },
+    "creatorStudio": {
+      "intro": "بنیاد Creator Studio — اتصال رسمی پلتفرم‌ها می‌تواند بعداً به این آداپتورها وصل شود. Instagram، TikTok، YouTube، Facebook، LinkedIn، Pinterest، Threads، X."
+    },
+    "industry": {
+      "intro": "پلتفرم کسب‌وکار جهانی — در onboarding بعداً صنعت انتخاب می‌شود. هر صنعت ماژول‌های AI اختصاصی بدون انشعاب از CRM اصلی دریافت می‌کند."
+    },
+    "kpi": {
+      "customers": {
+        "label": "مشتریان",
+        "caption": "روابط فعال"
+      },
+      "companies": {
+        "label": "شرکت‌ها",
+        "caption": "سازمان‌های حساب"
+      },
+      "leads": {
+        "label": "لیدها",
+        "caption": "جدید این ماه"
+      },
+      "deals": {
+        "label": "معاملات",
+        "caption": "پایپ‌لاین باز"
+      },
+      "revenue": {
+        "label": "درآمد",
+        "caption": "برنده YTD"
+      },
+      "projects": {
+        "label": "پروژه‌های فعال",
+        "caption": "تحویل در جریان"
+      },
+      "tasks": {
+        "label": "وظایف باز",
+        "caption": "در CRM + تحویل"
+      },
+      "ai-health": {
+        "label": "امتیاز سلامت AI",
+        "caption": "سیگنال کیفیت رابطه"
+      },
+      "scoreOutOf": "{score} / {max}"
+    },
+    "pipeline": {
+      "lead": "Lead",
+      "qualified": "Qualified",
+      "proposal": "Proposal",
+      "negotiation": "Negotiation",
+      "won": "Won",
+      "lost": "Lost"
+    },
+    "orderStatus": {
+      "draft": "پیش‌نویس",
+      "confirmed": "تأییدشده",
+      "in_fulfillment": "در حال اجرا",
+      "shipped": "ارسال‌شده",
+      "delivered": "تحویل‌شده",
+      "cancelled": "لغوشده"
+    },
+    "tracking": {
+      "scheduled": "زمان‌بندی‌شده",
+      "en_route": "در مسیر",
+      "arrived": "رسیده",
+      "completed": "تکمیل‌شده",
+      "failed": "ناموفق"
+    },
+    "documentKind": {
+      "quote": "پیشنهاد",
+      "contract": "قرارداد",
+      "invoice": "فاکتور",
+      "lieferschein": "Lieferschein",
+      "purchase_order": "سفارش خرید",
+      "receipt": "رسید"
+    },
+    "documentStatus": {
+      "sent": "ارسال‌شده",
+      "signed": "امضاشده",
+      "paid": "پرداخت‌شده",
+      "in_transit": "در مسیر",
+      "open": "باز",
+      "filed": "بایگانی‌شده"
+    },
+    "integration": {
+      "planned": "برنامه‌ریزی‌شده",
+      "ready": "آماده",
+      "connected": "متصل",
+      "disabled": "غیرفعال"
+    }
+  },
+  "finance": {
+    "page": {
+      "brand": "AGXORA Finance OS",
+      "title": "مالی و مالیات",
+      "subtitle": "حسابداری، بانکداری، مالیات و هوش مالی — با داده‌های نمونه تا اتصال دفاتر زنده.",
+      "sampleNotice": "مجموعه داده نمونه — ارقام و تاریخچه خروجی فقط جنبه نمایشی دارند. خروجی DATEV / فایل و فیدهای بانکی زنده متصل نیستند."
+    },
+    "sections": {
+      "overview": {
+        "title": "نمای کلی مالی"
+      },
+      "invoiceCenter": {
+        "title": "مرکز فاکتور",
+        "subtitle": "جستجو، فیلتر و مرتب‌سازی دفتر فاکتور سازمانی با امتیاز اطمینان هوش مصنوعی."
+      },
+      "aiInvoiceProcessing": {
+        "title": "پردازش فاکتور با هوش مصنوعی",
+        "subtitle": "پایپ‌لاین دمو — OCR و استخراج هوش مصنوعی متصل نیستند."
+      },
+      "banking": {
+        "title": "بانکداری",
+        "subtitle": "فقط حساب‌های نمونه — فیدهای Open Banking متصل نیستند."
+      },
+      "datev": {
+        "title": "یکپارچه‌سازی DATEV",
+        "subtitle": "تاریخچه خروجی نمونه — تولید فایل DATEV متصل نیست."
+      },
+      "taxCenter": {
+        "title": "مرکز مالیات",
+        "subtitle": "خلاصه مالیات بر ارزش افزوده، مهلت‌ها و پرداخت‌های پیش‌رو."
+      },
+      "aiInsights": {
+        "title": "بینش‌های هوش مصنوعی",
+        "subtitle": "فقط یافته‌های نمونه — اقدامات بینش متصل نیستند."
+      },
+      "smartSearch": {
+        "title": "جستجوی هوشمند",
+        "subtitle": "پرسش‌های زبان طبیعی در فاکتورها، هزینه‌ها، مالیات بر ارزش افزوده و خروجی‌ها."
+      }
+    },
+    "overview": {
+      "metrics": {
+        "revenue": {
+          "label": "درآمد",
+          "caption": "نمونه · ۳۰ روز گذشته",
+          "delta": "+۸٫۴٪"
+        },
+        "expenses": {
+          "label": "هزینه‌ها",
+          "caption": "نمونه · عملیاتی + COGS",
+          "delta": "+۲٫۱٪"
+        },
+        "profit": {
+          "label": "سود",
+          "caption": "نمونه · عملیاتی خالص",
+          "delta": "+۱۲٫۶٪"
+        },
+        "vat-due": {
+          "label": "مالیات بر ارزش افزوده سررسید",
+          "caption": "نمونه · پنجره Q2",
+          "delta": "سررسید در {days} روز"
+        },
+        "open-invoices": {
+          "label": "فاکتورهای باز",
+          "caption": "نمونه · {money} معوق"
+        },
+        "paid-invoices": {
+          "label": "فاکتورهای پرداخت‌شده",
+          "caption": "نمونه · این فصل",
+          "delta": "+{count}"
+        },
+        "cashflow": {
+          "label": "جریان نقدی",
+          "caption": "نمونه · پیش‌بینی ۳۰ روزه",
+          "delta": "+۴٫۲٪"
+        },
+        "ai-score": {
+          "label": "امتیاز مالی هوش مصنوعی",
+          "caption": "امتیاز نمونه · امتیازدهی ریسک زنده نیست",
+          "delta": "+{count}"
+        }
+      },
+      "scoreOutOf": "{score} / {max}"
+    },
+    "invoices": {
+      "emptyTitle": "فاکتوری نیست",
+      "emptyDescription": "هیچ فاکتوری با جستجو یا فیلترهای شما مطابقت ندارد.",
+      "searchPlaceholder": "شماره، شرکت، دسته…",
+      "statusFilter": "فیلتر وضعیت",
+      "paymentFilter": "فیلتر پرداخت",
+      "sortBy": "مرتب‌سازی بر اساس",
+      "toggleSort": "تغییر جهت مرتب‌سازی",
+      "count": "{count} فاکتور",
+      "countOne": "{count} فاکتور",
+      "allStatuses": "همه وضعیت‌ها",
+      "allPayments": "همه پرداخت‌ها",
+      "columns": {
+        "number": "شماره فاکتور",
+        "company": "شرکت",
+        "amount": "مبلغ",
+        "vat": "مالیات بر ارزش افزوده",
+        "status": "وضعیت",
+        "dueDate": "تاریخ سررسید",
+        "payment": "وضعیت پرداخت",
+        "category": "دسته",
+        "ai": "اطمینان هوش مصنوعی"
+      },
+      "sort": {
+        "dueDate": "تاریخ سررسید",
+        "amount": "مبلغ",
+        "company": "شرکت",
+        "status": "وضعیت",
+        "aiConfidence": "اطمینان هوش مصنوعی",
+        "number": "فاکتور #"
+      }
+    },
+    "status": {
+      "draft": "پیش‌نویس",
+      "open": "باز",
+      "paid": "پرداخت‌شده",
+      "overdue": "سررسید گذشته",
+      "cancelled": "لغوشده"
+    },
+    "payment": {
+      "unpaid": "پرداخت‌نشده",
+      "partial": "جزئی",
+      "paid": "پرداخت‌شده",
+      "refunded": "بازپرداخت‌شده"
+    },
+    "category": {
+      "saas": "SaaS",
+      "office": "دفتر",
+      "travel": "سفر",
+      "marketing": "بازاریابی",
+      "utilities": "خدمات شهری",
+      "professional": "حرفه‌ای",
+      "other": "سایر"
+    },
+    "processing": {
+      "dropTitle": "فایل‌های فاکتور را بکشید و رها کنید",
+      "dropFormats": "PDF · تصویر · ایمپورت ایمیل",
+      "uploadFiles": "آپلود فایل‌ها",
+      "emailImport": "ایمپورت ایمیل",
+      "dropHint": "فاکتورهای PDF یا تصویری را محلی مرحله‌بندی کنید — OCR متصل نیست.",
+      "filesStaged": "{count} فایل فقط به‌صورت محلی فهرست شد — OCR / استخراج هوش مصنوعی متصل نیست.",
+      "emailReserved": "اتصال‌دهنده ایمپورت ایمیل برای IMAP / Microsoft Graph رزرو شده است.",
+      "pipelineTitle": "پایپ‌لاین پردازش (دمو)",
+      "stages": {
+        "ocr": "وضعیت OCR",
+        "extraction": "استخراج هوش مصنوعی",
+        "categorization": "دسته‌بندی",
+        "duplicateDetection": "تشخیص تکراری"
+      }
+    },
+    "stage": {
+      "pending": "در دسترس نیست",
+      "running": "متصل نیست",
+      "complete": "دمو",
+      "failed": "ناموفق",
+      "skipped": "ردشده"
+    },
+    "banking": {
+      "connectionTitle": "اتصال بانک",
+      "connectBank": "اتصال بانک",
+      "description": "آداپترهای PSD2 / Open Banking متصل نیستند. تطبیق و تسویه زیر فقط جنبه نمایشی دارند.",
+      "feedUnavailable": "فید بانکی در دسترس نیست — اتصال ارائه‌دهنده برقرار نشده است.",
+      "noticeDefault": "Open Banking متصل نیست — حساب‌های زیر داده‌های نمونه هستند.",
+      "connectUnavailable": "اتصال بانک در دسترس نیست — Open Banking در این ساخت متصل نیست.",
+      "sampleAccounts": "حساب‌های نمونه",
+      "sample": "نمونه",
+      "offline": "آفلاین",
+      "demoPrefix": "دمو",
+      "latestTransactions": "آخرین تراکنش‌ها",
+      "sampleMatching": "تطبیق نمونه",
+      "demoOnly": "فقط دمو",
+      "sampleMatch": "تطبیق نمونه",
+      "unmatched": "تطبیق‌نشده",
+      "emptyBalance": "—"
+    },
+    "datev": {
+      "title": "یکپارچه‌سازی DATEV",
+      "notConnected": "متصل نیست",
+      "intro": "تاریخچه خروجی نمونه زیر جنبه نمایشی دارد. اعتبارنامه‌ها و تولید فایل در این ساخت متصل نیستند.",
+      "noticeDefault": "آداپترهای خروجی متصل نیستند — هیچ فایلی تولید نمی‌شود.",
+      "exportUnavailable": "{title} در دسترس نیست — خروجی DATEV / فایل متصل نیست.",
+      "exportUnavailableAria": "{title} — در دسترس نیست",
+      "historyTitle": "تاریخچه خروجی (نمونه)",
+      "refresh": "بازخوانی",
+      "refreshUnavailable": "بازخوانی در دسترس نیست — تاریخچه خروجی داده نمونه ثابت است.",
+      "steuerberaterSample": "نمونه",
+      "steuerberaterPending": "در انتظار",
+      "columns": {
+        "export": "خروجی",
+        "format": "قالب",
+        "period": "دوره",
+        "created": "ایجادشده",
+        "status": "وضعیت",
+        "steuerberater": "مشاور مالیاتی"
+      },
+      "actions": {
+        "datev": {
+          "title": "خروجی DATEV",
+          "description": "بسته Buchungsstapel برای گردش‌کار مشاور مالیاتی."
+        },
+        "csv": {
+          "title": "خروجی CSV",
+          "description": "CSV آماده دفترکل برای صفحات گسترده و ایمپورت."
+        },
+        "pdf": {
+          "title": "خروجی PDF",
+          "description": "بسته اسناد برای بررسی و بایگانی."
+        },
+        "xml": {
+          "title": "خروجی XML",
+          "description": "XML مالیاتی ساخت‌یافته برای پایپ‌لاین‌های ارسال."
+        }
+      }
+    },
+    "exportStatus": {
+      "queued": "نمونه · صف",
+      "ready": "نمونه · آماده",
+      "delivered": "نمایشی",
+      "failed": "ناموفق"
+    },
+    "tax": {
+      "vatSummaryTitle": "خلاصه مالیات بر ارزش افزوده",
+      "monthlyVat": "مالیات ماهانه",
+      "quarterlyVat": "مالیات فصلی",
+      "collected": "وصول‌شده",
+      "deductible": "قابل کسر",
+      "netDue": "خالص سررسید",
+      "deadlinesTitle": "مهلت‌های مالیاتی · پرداخت‌های پیش‌رو",
+      "duePrefix": "سررسید",
+      "deadlineStatus": {
+        "due_soon": "به‌زودی سررسید",
+        "upcoming": "آینده",
+        "overdue": "سررسید گذشته",
+        "paid": "پرداخت‌شده"
+      },
+      "deadlines": {
+        "td-1": "اظهارنامه ماهانه مالیات بر ارزش افزوده",
+        "td-2": "تسویه فصلی مالیات بر ارزش افزوده",
+        "td-3": "پیش‌پرداخت مالیات شرکت"
+      },
+      "period": {
+        "monthly": "ماهانه",
+        "quarterly": "فصلی",
+        "annual": "سالانه"
+      }
+    },
+    "insights": {
+      "demoPrefix": "دمو",
+      "noticeDefault": "اقدامات بینش متصل نیستند — کارت‌ها فقط یافته‌های نمونه را نشان می‌دهند.",
+      "actionUnavailable": "{action} در دسترس نیست — اقدامات بینش مالی متصل نیستند.",
+      "actionUnavailableTitle": "{action} در دسترس نیست — متصل نیست",
+      "kinds": {
+        "unusual_expense": "هزینه‌های غیرمعمول",
+        "duplicate_invoice": "فاکتورهای تکراری",
+        "missing_invoice": "فاکتورهای مفقود",
+        "late_payment": "پرداخت‌های دیرهنگام",
+        "cashflow_prediction": "پیش‌بینی جریان نقدی",
+        "tax_optimization": "بهینه‌سازی مالیات"
+      }
+    },
+    "search": {
+      "label": "جستجوی زبان طبیعی",
+      "placeholder": "مثلاً «فاکتورهای پرداخت‌نشده را نشان بده»",
+      "submit": "جستجو",
+      "examplesTitle": "نمونه‌ها",
+      "hints": {
+        "idle": "درباره فاکتورها، هزینه‌ها، مالیات بر ارزش افزوده یا خروجی‌ها بپرسید.",
+        "unpaid_invoices": "مرکز فاکتور به موارد پرداخت‌نشده / باز فیلتر می‌شود.",
+        "july_expenses": "فعالیت هزینه‌ای ژوئیه نمایش داده می‌شود.",
+        "amazon": "فاکتورها و رسیدهای Amazon پیدا می‌شوند.",
+        "vat_export": "اقدامات خروجی DATEV / مالیات بر ارزش افزوده باز می‌شود.",
+        "general": "دفترکل برای «{query}» جستجو می‌شود."
+      },
+      "examples": {
+        "q1": {
+          "query": "فاکتورهای پرداخت‌نشده را نشان بده",
+          "description": "مطالبات باز با وضعیت پرداخت‌نشده یا جزئی"
+        },
+        "q2": {
+          "query": "هزینه‌های ژوئیه را نشان بده",
+          "description": "فاکتورهای هزینه و خروج‌های بانکی در ژوئیه"
+        },
+        "q3": {
+          "query": "فاکتورهای Amazon را پیدا کن",
+          "description": "تطبیق فروشنده در مرکز فاکتور و آپلودها"
+        },
+        "q4": {
+          "query": "خروجی مالیات بر ارزش افزوده",
+          "description": "پرش به اقدامات خروجی DATEV / مالیات"
+        }
+      }
+    }
+  },
+  "documents": {
+    "page": {
+      "brand": "AGXORA Knowledge OS",
+      "title": "اسناد",
+      "subtitle": "مرکز اسناد و دانش سازمانی — پیش‌نمایش با محتوای نمونه تا اتصال بک‌اندهای ذخیره‌سازی و تأیید.",
+      "sampleNotice": "کتابخانه نمونه — مرور و فیلترها در جلسه کار می‌کنند. بارگذاری، تأیید و ایندکس هوش مصنوعی متصل نیستند."
+    },
+    "sections": {
+      "kpis": {
+        "title": "داشبورد دانش"
+      },
+      "library": {
+        "title": "کتابخانه اسناد",
+        "subtitle": "همه اسناد، اخیر، علاقه‌مندی‌ها، اشتراک‌گذاری‌شده، بایگانی، سطل زباله، پایگاه دانش — با پوشه، جستجو، نمایشگر و نسخه‌ها."
+      },
+      "knowledge": {
+        "title": "پایگاه دانش",
+        "subtitle": "مقالات، سیاست‌ها، فرایندها، راهنماها، پرسش‌های متداول و ویکی داخلی."
+      },
+      "approvals": {
+        "title": "تأییدها",
+        "subtitle": "پیش‌نویس، در حال بررسی، تأییدشده، ردشده، بایگانی‌شده — متصل به معماری Automation."
+      },
+      "ai": {
+        "title": "لایه دانش هوش مصنوعی",
+        "subtitle": "خلاصه، کلیدواژه، طبقه‌بندی، برچسب، پوشه، اسناد مرتبط، تکراری‌ها، ترجمه، OCR و جستجو — فقط معماری."
+      },
+      "activity": {
+        "title": "فعالیت",
+        "subtitle": "تغییرات اخیر، بارگذاری‌ها، بازدیدها، اشتراک‌گذاری‌ها و تاریخچه ممیزی."
+      },
+      "integrations": {
+        "title": "یکپارچه‌سازی‌ها",
+        "subtitle": "آداپترهای Drive رزرو شده‌اند — اتصال‌دهنده زنده نیست."
+      },
+      "security": {
+        "title": "امنیت و اشتراک‌گذاری",
+        "subtitle": "RBAC، مسیر ممیزی، رمزنگاری، نگهداری و دامنه اشتراک‌گذاری."
+      }
+    },
+    "loading": {
+      "knowledgeBase": "در حال بارگذاری پایگاه دانش…",
+      "approvals": "در حال بارگذاری صف تأیید…",
+      "aiInsights": "در حال بارگذاری بینش‌های هوش مصنوعی…",
+      "activity": "در حال بارگذاری فعالیت…",
+      "integrations": "در حال بارگذاری یکپارچه‌سازی‌ها…",
+      "security": "در حال بارگذاری امنیت…"
+    },
+    "kpi": {
+      "documents": {
+        "label": "اسناد",
+        "caption": "نمونه · در همه پوشه‌ها",
+        "delta": "+{count}"
+      },
+      "folders": {
+        "label": "پوشه‌ها",
+        "caption": "نمونه · شامل مجموعه‌های هوشمند",
+        "delta": "+{count}"
+      },
+      "storage": {
+        "label": "فضای استفاده‌شده",
+        "caption": "نمونه · از طرح نمایشی",
+        "delta": "+{size}"
+      },
+      "shared": {
+        "label": "اسناد اشتراک‌گذاری‌شده",
+        "caption": "نمونه · سازمان + واحد + کاربران",
+        "delta": "+{count}"
+      },
+      "activity": {
+        "label": "فعالیت اخیر",
+        "caption": "نمونه · ۲۴ ساعت گذشته",
+        "delta": "+{count}"
+      },
+      "indexed": {
+        "label": "ایندکس‌شده با هوش مصنوعی",
+        "caption": "نمونه · جستجوی هوش مصنوعی متصل نیست",
+        "delta": "{percent}"
+      },
+      "approvals": {
+        "label": "تأییدهای در انتظار",
+        "caption": "نمونه · Automation متصل نیست",
+        "delta": "{count}"
+      },
+      "score": {
+        "label": "امتیاز دانش",
+        "caption": "نمونه · نمایش پوشش",
+        "delta": "+{count}"
+      }
+    },
+    "library": {
+      "viewsAria": "نمای کتابخانه",
+      "views": {
+        "all": "همه اسناد",
+        "recent": "اخیر",
+        "favorites": "علاقه‌مندی‌ها",
+        "shared": "اشتراک‌گذاری‌شده",
+        "archived": "بایگانی‌شده",
+        "trash": "سطل زباله",
+        "knowledge": "پایگاه دانش"
+      },
+      "dropzone": "فایل‌ها را اینجا بکشید و رها کنید تا برای بارگذاری آماده شوند.",
+      "uploadReserved": "بارگذاری با کشیدن و رها کردن برای API ذخیره‌سازی رزرو شده است.",
+      "filesStaged": "{count} فایل برای بارگذاری آماده شد (بدون نوشتن در حافظه).",
+      "dropReceived": "رهاسازی دریافت شد (بدون نوشتن در حافظه).",
+      "foldersTitle": "پوشه‌ها و مجموعه‌ها",
+      "foldersHint": "پوشه‌های تو در تو، مجموعه‌ها، مجموعه‌های هوشمند، برچسب‌ها، پین‌شده و علاقه‌مندی‌ها.",
+      "allFolders": "همه پوشه‌ها",
+      "smart": "هوشمند",
+      "collection": "مجموعه",
+      "pinned": "پین‌شده",
+      "favorite": "علاقه‌مندی",
+      "sharedBadge": "اشتراک‌گذاری‌شده",
+      "title": "کتابخانه اسناد",
+      "results": "{count} نتیجه",
+      "resultOne": "{count} نتیجه",
+      "selected": "· {count} انتخاب‌شده",
+      "bulkAction": "اقدام گروهی",
+      "bulkUnavailable": "اقدام گروهی برای {count} مورد در دسترس نیست — تغییرات ذخیره‌سازی متصل نیستند.",
+      "searchLabel": "جستجوی سراسری",
+      "searchPlaceholder": "نام، برچسب، مالک، خلاصه هوش مصنوعی…",
+      "typeLabel": "نوع",
+      "statusLabel": "وضعیت",
+      "departmentLabel": "واحد",
+      "ownerLabel": "مالک",
+      "allTypes": "همه انواع",
+      "allStatuses": "همه وضعیت‌ها",
+      "allDepartments": "همه واحدها",
+      "allOwners": "همه مالکان",
+      "favoritesOnly": "فقط علاقه‌مندی‌ها",
+      "emptyTitle": "سندی برای نمایش نیست",
+      "emptyDescription": "فیلترها را تنظیم کنید، جستجو را پاک کنید یا دارایی‌های دانش اضافه کنید تا کتابخانه رشد کند.",
+      "selectAria": "انتخاب {name}",
+      "versionHistoryTitle": "تاریخچه نسخه",
+      "close": "بستن",
+      "context": {
+        "open": "باز کردن",
+        "share": "اشتراک‌گذاری",
+        "favorite": "علاقه‌مندی",
+        "move": "جابه‌جایی",
+        "delete": "حذف",
+        "dismiss": "بستن",
+        "unavailable": "{action} در دسترس نیست — تغییرات سند برای {id} متصل نیستند."
+      }
+    },
+    "viewer": {
+      "title": "نمایشگر سند",
+      "emptyTitle": "یک سند انتخاب کنید",
+      "emptyDescription": "فایلی از کتابخانه انتخاب کنید تا محتوا، متادیتا، برچسب‌ها، نسخه‌ها و ماژول‌های مرتبط را ببینید.",
+      "zoomOut": "بزرگ‌نمایی −",
+      "zoomIn": "بزرگ‌نمایی +",
+      "prev": "قبلی",
+      "next": "بعدی",
+      "page": "صفحه {page} / {total}",
+      "searchInside": "جستجو در سند",
+      "findPlaceholder": "جستجو در پیش‌نمایش…",
+      "noMatches": "موردی در متن پیش‌نمایش یافت نشد.",
+      "meta": {
+        "owner": "مالک",
+        "created": "ایجادشده",
+        "updated": "به‌روزرسانی‌شده",
+        "fileType": "نوع فایل",
+        "size": "اندازه",
+        "category": "دسته‌بندی",
+        "department": "واحد",
+        "status": "وضعیت",
+        "retention": "نگهداری",
+        "version": "نسخه",
+        "sharing": "اشتراک‌گذاری"
+      },
+      "tags": "برچسب‌ها",
+      "linkedModules": "ماژول‌های مرتبط",
+      "noModuleLinks": "هنوز پیوند ماژولی نیست",
+      "versionHistory": "تاریخچه نسخه"
+    },
+    "versions": {
+      "title": "تاریخچه نسخه",
+      "emptyTitle": "سندی انتخاب نشده",
+      "emptyDescription": "سندی باز کنید تا نسخه‌ها، یادداشت‌ها، بازیابی و مقایسه را بررسی کنید.",
+      "current": "{name} · نسخه فعلی {version}",
+      "restore": "بازیابی نسخه",
+      "compare": "مقایسه نسخه‌ها",
+      "restoreTitle": "بازیابی به API ذخیره‌سازی نیاز دارد",
+      "compareTitle": "مقایسه به API ذخیره‌سازی نیاز دارد",
+      "noticeDefault": "بازیابی و مقایسه به API ذخیره‌سازی نیاز دارند.",
+      "restoreUnavailable": "بازیابی برای {id} در دسترس نیست — API ذخیره‌سازی متصل نیست.",
+      "compareUnavailable": "مقایسه در دسترس نیست ({selected} ↔ {current}) — API ذخیره‌سازی متصل نیست."
+    },
+    "approvals": {
+      "title": "گردش‌کار تأیید",
+      "subtitle": "پیش‌نویس → در حال بررسی → تأییدشده / ردشده → بایگانی‌شده. موارد صف اسناد نمونه‌اند؛ اقدامات ذخیره نمی‌شوند.",
+      "emptyTitle": "صف خالی است",
+      "emptyDescription": "هیچ سند پیش‌نویس یا در حال بررسی در مجموعه نمونه نیست.",
+      "approve": "تأیید",
+      "reject": "رد",
+      "sendToReview": "ارسال برای بررسی",
+      "noticeDefault": "گذارهای تأیید به موتور گردش‌کار Automation نیاز دارند — در این ساخت متصل نیست.",
+      "unavailable": "{action} برای {id} در دسترس نیست — موتور گردش‌کار متصل نیست. وضعیت سند نمونه تغییر نکرد.",
+      "approveTitle": "تأیید در دسترس نیست — موتور گردش‌کار متصل نیست",
+      "rejectTitle": "رد در دسترس نیست — موتور گردش‌کار متصل نیست",
+      "sendTitle": "ارسال برای بررسی در دسترس نیست — موتور گردش‌کار متصل نیست"
+    },
+    "knowledge": {
+      "intro": "مقالات، سیاست‌ها، فرایندها، راهنماها، پرسش‌های متداول و ویکی داخلی — لایه روایی مرکز دانش."
+    },
+    "activity": {
+      "intro": "تغییرات اخیر، بارگذاری‌ها، بازدیدها، اشتراک‌گذاری‌ها و تاریخچه ممیزی — پایه مسیرهای انطباق."
+    },
+    "integrations": {
+      "intro": "آداپترهای درایو ابری فقط معماری هستند — Google Drive، OneDrive، Dropbox، Box، SharePoint، Nextcloud. API زنده نیست.",
+      "reservedAdapter": "آداپتر رزروشده:",
+      "architecture": "معماری",
+      "items": {
+        "google-drive": {
+          "description": "معماری واردات / همگام‌سازی رزرو شده — هنوز OAuth زنده نیست."
+        },
+        "onedrive": {
+          "description": "قلاب‌های فایل Microsoft Graph رزرو شده‌اند."
+        },
+        "dropbox": {
+          "description": "آداپتر API مربوط به Dropbox رزرو شده است."
+        },
+        "box": {
+          "description": "اتصال‌دهنده سازمانی Box رزرو شده است."
+        },
+        "sharepoint": {
+          "description": "کتابخانه‌های سایت + نگاشت متادیتا رزرو شده‌اند."
+        },
+        "nextcloud": {
+          "description": "آداپتر WebDAV رزرو شده — تا طرح میزبانی شخصی غیرفعال است."
+        }
+      }
+    },
+    "security": {
+      "architectureTitle": "معماری امنیت",
+      "sharingTitle": "مدل اشتراک‌گذاری",
+      "sharingIntro": "خصوصی، سازمان، واحد، کاربران مشخص و پیوند عمومی به‌عنوان جایگاه موقت.",
+      "enabled": "فعال",
+      "placeholder": "جایگاه موقت",
+      "notEnforced": "اعمال نشده",
+      "modelOnly": "فقط مدل",
+      "controls": {
+        "rbac": {
+          "title": "دسترسی مبتنی بر نقش",
+          "description": "نقش‌های مالک، ویرایشگر، بیننده و تأییدکننده به ACL اسناد نگاشت می‌شوند — در این ساخت اعمال نشده‌اند."
+        },
+        "permissions": {
+          "title": "معماری مجوزها",
+          "description": "وراثت پوشه با بازنویسی در سطح سند — در این ساخت اعمال نشده است."
+        },
+        "audit": {
+          "title": "مسیر ممیزی",
+          "description": "رویدادهای فعالیت برای بازدیدها، اشتراک‌گذاری‌ها، بازیابی‌ها و تأییدها — هنوز ذخیره نشده‌اند."
+        },
+        "encryption": {
+          "title": "رمزنگاری",
+          "description": "قلاب‌های رمزنگاری در حالت سکون و انتقال برای اتصال KMS رزرو شده‌اند."
+        },
+        "retention": {
+          "title": "سیاست نگهداری",
+          "description": "پنجره‌های نگهداری بر اساس دسته با پشتیبانی نگهداری قانونی — هنوز اعمال نشده است."
+        }
+      }
+    },
+    "ai": {
+      "architectureTitle": "معماری قابلیت‌های هوش مصنوعی",
+      "architectureIntro": "هر قابلیت برای ایندکس آینده هوش مصنوعی رزرو شده است. رابط کاربری بینش‌های نمونه قطعی نشان می‌دهد.",
+      "insightsTitle": "بینش‌ها برای سند انتخاب‌شده",
+      "emptyTitle": "یک سند انتخاب کنید",
+      "emptyDescription": "فایلی در کتابخانه باز کنید تا خلاصه، کلیدواژه‌ها و پیشنهادهای هوش مصنوعی را ببینید.",
+      "summary": "خلاصه هوش مصنوعی",
+      "keywords": "کلیدواژه‌های هوش مصنوعی",
+      "classification": "طبقه‌بندی هوش مصنوعی",
+      "suggestedFolder": "پوشه پیشنهادی هوش مصنوعی",
+      "translation": "ترجمه هوش مصنوعی",
+      "ocr": "OCR هوش مصنوعی",
+      "suggestedTags": "برچسب‌های پیشنهادی هوش مصنوعی",
+      "related": "اسناد مرتبط هوش مصنوعی",
+      "noRelated": "سند مرتبطی ایندکس نشده است.",
+      "duplicateOf": "تشخیص تکراری هوش مصنوعی: احتمال تکراری بودن با",
+      "noDuplicates": "تشخیص تکراری هوش مصنوعی: نزدیک‌تکراری علامت‌گذاری نشده است.",
+      "sampleReady": "نمونه آماده",
+      "notApplicable": "قابل اعمال نیست",
+      "runSearch": "اجرای جستجوی هوش مصنوعی",
+      "searchTitle": "جستجوی هوش مصنوعی متصل نیست",
+      "noticeDefault": "قابلیت‌های هوش مصنوعی فقط معماری هستند — فراخوان زنده مدل نیست.",
+      "searchUnavailable": "جستجوی هوش مصنوعی در دسترس نیست — ایندکس معنایی متصل نیست. بینش‌های نمونه بالا ایستا هستند.",
+      "features": {
+        "summary": {
+          "title": "خلاصه هوش مصنوعی",
+          "description": "درک فشرده سند برای هر ماژول."
+        },
+        "keywords": {
+          "title": "کلیدواژه‌های هوش مصنوعی",
+          "description": "سیگنال‌های موضوعی استخراج‌شده برای جستجو و مسیریابی."
+        },
+        "classification": {
+          "title": "طبقه‌بندی هوش مصنوعی",
+          "description": "پیشنهاد رده‌بندی دسته / واحد."
+        },
+        "tags": {
+          "title": "برچسب‌های پیشنهادی هوش مصنوعی",
+          "description": "توصیه برچسب بدون تغییر گراف."
+        },
+        "folder": {
+          "title": "پوشه پیشنهادی هوش مصنوعی",
+          "description": "جایگذاری هوشمند در پوشه‌های تو در تو."
+        },
+        "related": {
+          "title": "اسناد مرتبط هوش مصنوعی",
+          "description": "همسایگان گراف در سراسر مرکز دانش."
+        },
+        "duplicate": {
+          "title": "تشخیص تکراری هوش مصنوعی",
+          "description": "تشخیص نزدیک‌تکراری برای کتابخانه‌های اسناد."
+        },
+        "translation": {
+          "title": "ترجمه هوش مصنوعی",
+          "description": "پرچم آمادگی ترجمه — بدون مدل زنده."
+        },
+        "ocr": {
+          "title": "OCR هوش مصنوعی",
+          "description": "پایپ‌لاین OCR برای اسکن‌ها و PDFها رزرو شده است."
+        },
+        "search": {
+          "title": "جستجوی هوش مصنوعی",
+          "description": "جستجوی معنایی برای ایندکس آینده رزرو شده است."
+        }
+      }
+    },
+    "status": {
+      "draft": "پیش‌نویس",
+      "in_review": "در حال بررسی",
+      "approved": "تأییدشده",
+      "rejected": "ردشده",
+      "archived": "بایگانی‌شده"
+    },
+    "fileType": {
+      "pdf": "PDF",
+      "word": "Word",
+      "excel": "Excel",
+      "powerpoint": "PowerPoint",
+      "image": "تصویر",
+      "video": "ویدیو",
+      "audio": "صوت",
+      "markdown": "Markdown",
+      "text": "متن",
+      "json": "JSON",
+      "csv": "CSV",
+      "other": "سایر"
+    },
+    "share": {
+      "private": "خصوصی",
+      "organization": "سازمان",
+      "department": "واحد",
+      "specific_users": "کاربران مشخص",
+      "public_link": "پیوند عمومی"
+    },
+    "module": {
+      "crm": "CRM",
+      "finance": "مالی",
+      "automation": "Automation",
+      "creator": "Creator Studio",
+      "hr": "منابع انسانی آینده",
+      "projects": "پروژه‌های آینده"
+    },
+    "knowledgeKind": {
+      "article": "مقاله",
+      "policy": "سیاست",
+      "process": "فرایند",
+      "manual": "راهنما",
+      "faq": "پرسش‌های متداول",
+      "wiki": "ویکی داخلی"
+    },
+    "integrationStatus": {
+      "connected": "متصل",
+      "beta": "بتا",
+      "coming_soon": "به‌زودی",
+      "disabled": "غیرفعال",
+      "planned": "برنامه‌ریزی‌شده"
+    },
+    "bytes": {
+      "b": "{value} B",
+      "kb": "{value} KB",
+      "mb": "{value} MB",
+      "gb": "{value} GB"
+    }
+  },
+  "landing": {
+    "skipToProduct": "پرش به محصول",
+    "nav": {
+      "ariaPrimary": "ناوبری اصلی",
+      "product": "محصول",
+      "platform": "پلتفرم",
+      "pricing": "قیمت‌گذاری",
+      "sales": "فروش",
+      "getStarted": "شروع کنید",
+      "signIn": "ورود",
+      "startFree": "شروع رایگان",
+      "openMenu": "باز کردن منو",
+      "closeMenu": "بستن منو"
+    },
+    "hero": {
+      "brand": "AGXORA",
+      "headline": "سیستم‌عامل هوشمند کسب‌وکار.",
+      "subtitle": "مشتریان، مالی، اسناد و هوش مصنوعی را در یک مرکز فرمان آرام به هم وصل کنید — برای بنیان‌گذاران و اپراتورهایی که به شفافیت نیاز دارند، نه پشته‌ای دیگر از ابزارها.",
+      "ctaStart": "شروع رایگان",
+      "ctaExplore": "ببینید چگونه کار می‌کند",
+      "globeAria": "تجسم هوش جهانی"
+    },
+    "trust": {
+      "ariaLabel": "چرا AGXORA",
+      "eyebrow": "ساخته‌شده به‌عنوان یک سیستم",
+      "signals": {
+        "unified": {
+          "title": "فضای کاری یکپارچه",
+          "detail": "CRM، مالی و اسناد در کنار هم"
+        },
+        "intelligence": {
+          "title": "هوش مصنوعی کنترل‌شده",
+          "detail": "کمک در جریان‌های کاری واقعی شما"
+        },
+        "clarity": {
+          "title": "شفافیت برای اپراتور",
+          "detail": "جابه‌جایی کمتر. تصمیم سریع‌تر."
+        },
+        "path": {
+          "title": "مسیر رشد شفاف",
+          "detail": "رایگان شروع کنید. وقتی آماده بودید مقیاس دهید."
+        }
+      }
+    },
+    "product": {
+      "title": "داخل فضای کاری AGXORA",
+      "lead": "پیش‌نمایش تصویری از مرکز فرمان — ماژول‌هایی که همین حالا در AGXORA دارید.",
+      "chromePath": "agxora.app / dashboard",
+      "railAria": "ناوبری پیش‌نمایش",
+      "railBrand": "AGXORA",
+      "navCommand": "فرمان",
+      "navAi": "هوش مصنوعی",
+      "navAutomation": "اتوماسیون",
+      "navAnalytics": "تحلیل",
+      "navIntegrations": "یکپارچه‌سازی",
+      "stageTitle": "مرکز فرمان",
+      "stageBadge": "تصویری",
+      "moduleCustomers": "مشتریان",
+      "moduleFinance": "مالی",
+      "moduleDocuments": "اسناد",
+      "moduleAi": "دستیار هوش مصنوعی"
+    },
+    "platform": {
+      "ariaLabel": "داستان محصول",
+      "story": {
+        "fragmented": {
+          "title": "کار پراکنده",
+          "statement": "ابزارها توجه را در سراسر کسب‌وکار پخش می‌کنند.",
+          "detail": "مشتریان اینجا، فاکتورها آنجا، فایل‌ها جای دیگر — تصمیم‌ها کند می‌شوند."
+        },
+        "connect": {
+          "title": "یک سطح عملیاتی",
+          "statement": "AGXORA کسب‌وکار را در یک فضای کاری وصل می‌کند.",
+          "detail": "CRM، مالی، اسناد و هوش مصنوعی یک مرکز فرمان مشترک دارند — نه انبوهی از اپ‌های جدا."
+        },
+        "understand": {
+          "title": "هوش کسب‌وکار",
+          "statement": "بافت کار حفظ می‌شود.",
+          "detail": "پرسش، جست‌وجو و اقدام با هوش مصنوعی کنترل‌شده در فضای کاری — نه دموهای عمومی."
+        },
+        "execute": {
+          "title": "به سوی خودمختاری",
+          "statement": "مسیر به سیستم‌عامل خودمختار کسب‌وکار.",
+          "detail": "امروز: یک سیستم‌عامل متصل. پیش رو: عامل‌ها و اتوماسیون عمیق‌تر — صادقانه، وقتی واقعاً عرضه شوند."
+        }
+      }
+    },
+    "close": {
+      "title": "رایگان شروع کنید. وقتی آماده بودید مقیاس دهید.",
+      "lead": "یک فضای کاری بسازید و مرکز فرمان را کاوش کنید.",
+      "ctaStart": "شروع رایگان",
+      "ctaPricing": "مشاهده قیمت‌ها",
+      "ctaSales": "تماس با فروش"
+    },
+    "footer": {
+      "ariaNav": "پاورقی",
+      "ariaLegal": "حقوقی",
+      "product": "محصول",
+      "platform": "پلتفرم",
+      "pricing": "قیمت‌گذاری",
+      "signIn": "ورود",
+      "startFree": "شروع رایگان",
+      "bookDemo": "رزرو دمو",
+      "contact": "تماس",
+      "contactSales": "تماس با فروش",
+      "privacy": "حریم خصوصی",
+      "terms": "شرایط",
+      "cookies": "کوکی‌ها",
+      "imprint": "شناسه قانونی",
+      "copyright": "© {year} {company}"
+    }
+  },
+  "ui": {
+    "table": {
+      "noResults": "No results",
+      "noResultsDescription": "Nothing matches the current filters.",
+      "previous": "Previous",
+      "next": "Next",
+      "paginationRange": "{start}–{end} of {total}",
+      "sortAscending": "Sort ascending",
+      "sortDescending": "Sort descending"
+    },
+    "dialog": {
+      "close": "Close dialog"
+    },
+    "states": {
+      "errorLabel": "Error",
+      "errorTitle": "Something went wrong",
+      "errorDescription": "We couldn't complete that request. Try again in a moment.",
+      "retry": "Retry"
+    },
+    "empty": {
+      "crmTitle": "Your CRM is ready",
+      "crmDescription": "Create the first customer record to unlock directory, profiles, and activity.",
+      "crmAction": "Open CRM",
+      "projectsTitle": "No projects yet",
+      "projectsDescription": "Spin up a delivery workspace to track milestones, budget, and team ownership.",
+      "projectsAction": "Open Projects",
+      "analyticsTitle": "Analytics awaits signal",
+      "analyticsDescription": "Once your workspace generates activity, executive KPIs and alerts appear here.",
+      "analyticsAction": "Open Analytics",
+      "documentsTitle": "Document library is empty",
+      "documentsDescription": "Upload or create knowledge assets to power approvals, versions, and AI context.",
+      "documentsAction": "Open Documents",
+      "billingTitle": "No billing history yet",
+      "billingDescription": "Upgrade a plan to generate invoices, renewals, and payment history.",
+      "billingAction": "Open billing",
+      "agentsTitle": "No agents active",
+      "agentsDescription": "Install or activate an agent from the marketplace to start autonomous runs.",
+      "agentsAction": "Open Agent OS"
+    },
+    "yes": "Yes",
+    "no": "No",
+    "dash": "—"
+  },
+  "projects": {
+    "page": {
+      "eyebrow": "Project Management OS",
+      "title": "Projects",
+      "lead": "Plan delivery, track budget and health, assign teams, and manage tasks for {organization}. Data persists locally and is ready for backend connectivity.",
+      "yourOrganization": "your organization"
+    },
+    "list": {
+      "errorTitle": "Couldn't load projects",
+      "searchLabel": "Search projects",
+      "searchPlaceholder": "Search projects, customers, owners, tags…",
+      "viewCards": "Cards",
+      "viewTable": "Table",
+      "newProject": "New project",
+      "statusFilter": "Status",
+      "priorityFilter": "Priority",
+      "customerFilter": "Customer",
+      "ownerFilter": "Owner",
+      "allStatuses": "All statuses",
+      "allPriorities": "All priorities",
+      "allCustomers": "All customers",
+      "allOwners": "All owners",
+      "dateFrom": "From",
+      "dateTo": "To",
+      "emptyTitle": "No projects yet",
+      "emptyDescription": "Spin up a delivery workspace to track milestones, budget, and team ownership.",
+      "createProject": "Create project",
+      "pagination": "Showing {from}–{to} of {total}",
+      "previous": "Previous",
+      "next": "Next",
+      "noDescription": "No description yet.",
+      "duePrefix": "Due {date}",
+      "openProject": "Open project {name}",
+      "sortBy": "Sort by {column}",
+      "sort": {
+        "name": "Name",
+        "customer": "Customer",
+        "owner": "Owner",
+        "status": "Status",
+        "priority": "Priority",
+        "progress": "Progress",
+        "dueDate": "Due",
+        "budget": "Budget"
+      }
+    },
+    "form": {
+      "createTitle": "Create Project",
+      "editTitle": "Edit Project",
+      "cancel": "Cancel",
+      "saveChanges": "Save changes",
+      "createProject": "Create project",
+      "projectName": "Project Name",
+      "customer": "Customer",
+      "projectOwner": "Project Owner",
+      "priority": "Priority",
+      "status": "Status",
+      "budget": "Budget",
+      "currency": "Currency",
+      "startDate": "Start Date",
+      "dueDate": "Due Date",
+      "color": "Color",
+      "icon": "Icon",
+      "tags": "Tags",
+      "tagsHint": "Comma-separated",
+      "tagsPlaceholder": "enterprise, rollout",
+      "budgetPlaceholder": "0",
+      "description": "Description",
+      "selectColor": "Select color {color}"
+    },
+    "taskForm": {
+      "createTitle": "Create Task",
+      "editTitle": "Edit Task",
+      "cancel": "Cancel",
+      "saveChanges": "Save changes",
+      "createTask": "Create task",
+      "title": "Title",
+      "assignee": "Assignee",
+      "priority": "Priority",
+      "status": "Status",
+      "deadline": "Deadline",
+      "progress": "Progress",
+      "labels": "Labels",
+      "labelsHint": "Comma-separated",
+      "description": "Description"
+    },
+    "deleteDialog": {
+      "title": "Delete project",
+      "cancel": "Cancel",
+      "deletePermanently": "Delete permanently",
+      "bodyPrefix": "This removes",
+      "thisProject": "this project",
+      "bodySuffix": "and all related tasks, files, notes, and activity from local storage. This action cannot be undone."
+    },
+    "badges": {
+      "progress": "Progress",
+      "progressAria": "{label}: {value}%"
+    },
+    "status": {
+      "planning": "Planning",
+      "active": "Active",
+      "on_hold": "On Hold",
+      "completed": "Completed",
+      "archived": "Archived"
+    },
+    "taskStatus": {
+      "todo": "To Do",
+      "in_progress": "In Progress",
+      "review": "Review",
+      "done": "Done"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "critical": "Critical"
+    },
+    "role": {
+      "owner": "Owner",
+      "manager": "Manager",
+      "member": "Member",
+      "viewer": "Viewer"
+    },
+    "kind": {
+      "project": "project",
+      "task": "task",
+      "milestone": "milestone"
+    },
+    "timeline": {
+      "noTimelineTitle": "No timeline",
+      "noTimelineDescription": "Open a project to view schedule, duration, and milestones.",
+      "emptyTitle": "Timeline is empty",
+      "emptyDescription": "Add start/due dates and tasks to populate the schedule.",
+      "title": "Timeline",
+      "subtitle": "Start, end, duration, milestones. Dependencies are reserved for a future release.",
+      "dateRange": "{start} → {end} · {days}d",
+      "itemAria": "{title} from {start} to {end}",
+      "dependenciesNone": "Dependencies: none"
+    },
+    "dashboard": {
+      "kpi": {
+        "activeProjects": "Active Projects",
+        "activeHint": "{planning} planning",
+        "completed": "Completed",
+        "completedHint": "{percent}% of portfolio",
+        "onHold": "On Hold",
+        "onHoldHint": "{archived} archived",
+        "teamMembers": "Team Members",
+        "teamHint": "Across all projects",
+        "budgetOverview": "Budget Overview",
+        "budgetHint": "{percent}% used · {spent} spent",
+        "openTasks": "Open Tasks",
+        "openTasksHint": "{overdue} overdue",
+        "projectHealth": "Project Health",
+        "healthHint": "Composite delivery score",
+        "upcomingDeadlines": "Upcoming Deadlines",
+        "upcomingHint": "Next 30 days"
+      },
+      "analytics": {
+        "title": "Analytics",
+        "subtitle": "Portfolio health, completion, and budget usage.",
+        "statusMix": "Status mix",
+        "deliverySignals": "Delivery signals",
+        "completedPercent": "Completed %",
+        "budgetUsage": "Budget usage",
+        "health": "Health",
+        "upcomingDeadlines": "Upcoming deadlines",
+        "noUpcomingDeadlines": "No upcoming deadlines in the next window."
+      },
+      "recentActivity": {
+        "title": "Recent Activity",
+        "subtitle": "Newest project events first.",
+        "empty": "Activity will appear as projects and tasks are created."
+      }
+    },
+    "kanban": {
+      "emptyTitle": "No tasks on the board",
+      "emptyDescription": "Create tasks to organize delivery across To Do, In Progress, Review, and Done.",
+      "addTask": "Add task",
+      "columnAria": "{status} column",
+      "taskProgress": "Task progress",
+      "edit": "Edit",
+      "complete": "Complete"
+    },
+    "detail": {
+      "notFoundTitle": "Project not found",
+      "notFoundDescription": "This project may have been deleted or is unavailable for the current organization.",
+      "backToProjects": "← Back to projects",
+      "ownerMeta": "{customer} · Owner {owner}",
+      "edit": "Edit",
+      "delete": "Delete",
+      "sectionsAria": "Project detail sections",
+      "tabs": {
+        "overview": "Overview",
+        "tasks": "Tasks",
+        "files": "Files",
+        "notes": "Notes",
+        "activity": "Activity",
+        "team": "Team",
+        "settings": "Settings"
+      }
+    },
+    "overview": {
+      "missingTitle": "Missing project",
+      "missingDescription": "Select a project to view its overview.",
+      "title": "Overview",
+      "noDescription": "No description provided.",
+      "budget": "Budget",
+      "spent": "Spent",
+      "start": "Start",
+      "due": "Due",
+      "openTasks": "Open tasks",
+      "completedTasks": "Completed tasks"
+    },
+    "tasks": {
+      "title": "Task management",
+      "newTask": "New task",
+      "tableTitle": "Title",
+      "tableAssignee": "Assignee",
+      "tablePriority": "Priority",
+      "tableStatus": "Status",
+      "tableDue": "Due",
+      "tableProgress": "Progress",
+      "tableActions": "Actions",
+      "edit": "Edit",
+      "complete": "Complete",
+      "delete": "Delete",
+      "emptyTitle": "No tasks yet",
+      "emptyDescription": "Create tasks, assign owners, and track progress on the board.",
+      "createTask": "Create task"
+    },
+    "files": {
+      "title": "File manager",
+      "description": "Upload images, PDFs, and office documents. Metadata persists locally.",
+      "upload": "Upload",
+      "emptyTitle": "No files uploaded",
+      "emptyDescription": "Add project artifacts for the team to review and preview.",
+      "preview": "Preview",
+      "metadataOnly": "Metadata only",
+      "delete": "Delete"
+    },
+    "notes": {
+      "editTitle": "Edit note",
+      "newTitle": "New note",
+      "title": "Title",
+      "author": "Author",
+      "body": "Body",
+      "cancel": "Cancel",
+      "saveNote": "Save note",
+      "emptyTitle": "No notes yet",
+      "emptyDescription": "Capture decisions, meeting outcomes, and delivery context.",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "activity": {
+      "title": "Activity feed",
+      "emptyTitle": "No activity yet",
+      "emptyDescription": "Project events will appear here as the team works."
+    },
+    "team": {
+      "missingTitle": "Missing project",
+      "missingDescription": "Select a project to manage team members.",
+      "assignTitle": "Assign member",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "addMember": "Add member",
+      "teamTitle": "Team",
+      "remove": "Remove"
+    },
+    "settings": {
+      "missingTitle": "Missing project",
+      "missingDescription": "Select a project to manage settings.",
+      "title": "Project settings",
+      "description": "Update budget burn and archive status. Full field edits use the Edit dialog.",
+      "spentAmount": "Spent amount",
+      "saveSpent": "Save spent",
+      "archiveProject": "Archive project",
+      "editAllFields": "Edit all fields"
+    },
+    "toasts": {
+      "projectCreated": "Project created",
+      "projectUpdated": "Project updated",
+      "projectDeleted": "Project deleted",
+      "checkForm": "Check the form",
+      "validationFailed": "Validation failed.",
+      "taskCreated": "Task created",
+      "taskUpdated": "Task updated",
+      "taskCompleted": "Task completed",
+      "taskDeleted": "Task deleted",
+      "filesUploaded": "Files uploaded",
+      "filesUploadedDetail": "{count} file(s)",
+      "fileDeleted": "File deleted",
+      "noteSaved": "Note saved",
+      "memberAdded": "Member added",
+      "settingsSaved": "Settings saved",
+      "projectArchived": "Project archived"
+    }
+  },
+  "automation": {
+    "enginePage": {
+      "sectionTitle": "AGXORA Automation OS",
+      "title": "Automation",
+      "subtitle": "Enterprise AI Workflow & Automation Engine — the connective tissue for CRM, Finance, Creator Studio, and every future AGXORA module.",
+      "loadingHistory": "Loading workflow history…",
+      "loadingTemplates": "Loading template library…",
+      "loadingIntegrations": "Loading integration center…",
+      "dashboard": "Dashboard",
+      "workflowBuilder": "Workflow Builder",
+      "workflowBuilderSubtitle": "Node-based canvas with snap-to-grid, smooth zoom & pan, connection hover, and empty-state guidance.",
+      "openAssistant": "Open AI Workflow Assistant",
+      "workflowHistory": "Workflow History",
+      "workflowHistorySubtitle": "Execution log with colored status, clickable rows, and a full execution inspector.",
+      "templates": "Templates",
+      "templatesSubtitle": "Preview before load — node counts, difficulty, runtime, and recommended use cases.",
+      "integrationCenter": "Integration Center",
+      "integrationCenterSubtitle": "Adapter registry only — Connected, Beta, Planned, Coming soon, Disabled. No live APIs."
+    },
+    "assistant": {
+      "title": "AI Workflow Assistant",
+      "subtitle": "Local heuristics only — no live model required.",
+      "closeAria": "Close AI Workflow Assistant",
+      "close": "Close",
+      "workflowScore": "Workflow Score",
+      "scoreOutOf": "/ 100",
+      "optimizationSuggestions": "Optimization Suggestions",
+      "oneClickOptimize": "One Click Optimize",
+      "noticeDefault": "One Click Optimize is a no graph mutation yet.",
+      "noticeQueued": "Optimize queued. Future engine will rewrite delays & approvals."
+    },
+    "integrations": {
+      "intro": "Integration Center — optional. Statuses: Connected, Beta, Planned, Coming soon, Disabled. No live APIs.",
+      "category": "Category:",
+      "reservedAdapter": "Reserved adapter:",
+      "description": "Description:"
+    },
+    "executionInspector": {
+      "title": "Execution Details",
+      "emptyTitle": "Select an execution",
+      "emptyDescription": "Choose a run from Workflow History to inspect inputs, outputs, and AI summary.",
+      "workflowName": "Workflow Name",
+      "trigger": "Trigger",
+      "executionId": "Execution ID",
+      "started": "Started",
+      "finished": "Finished",
+      "duration": "Duration",
+      "status": "Status",
+      "success": "Success",
+      "failed": "Failed",
+      "retryAvailable": "Retry Available",
+      "executedBy": "Executed By",
+      "yes": "Yes",
+      "no": "No",
+      "emDash": "—",
+      "input": "Input",
+      "output": "Output",
+      "aiSummary": "AI Summary",
+      "errorMessage": "Error Message",
+      "retry": "Retry",
+      "retryUnavailable": "Retry unavailable",
+      "noticeDefault": "Retry adapter reserved — no live re-execution yet.",
+      "noticeQueued": "Retry queued for {id}."
+    },
+    "workflowBuilder": {
+      "elementsTitle": "Workflow Elements",
+      "paletteAria": "Palette",
+      "tabElements": "Elements",
+      "tabTriggers": "Triggers",
+      "tabActions": "Actions",
+      "tabAiActions": "AI Actions",
+      "builderTitle": "Workflow Builder · {name}",
+      "builderHint": "Snap to {grid}px grid · ⌘/Ctrl+scroll zoom · drag canvas to pan · double-click connect",
+      "autoSaved": "Auto saved",
+      "saving": "Saving…",
+      "undo": "Undo",
+      "redo": "Redo",
+      "zoomOut": "−",
+      "zoomIn": "+",
+      "resetView": "Reset view",
+      "emptyTitle": "Empty canvas",
+      "emptyDescription": "Drag a Trigger from the palette to start building. Snap-to-grid keeps nodes aligned.",
+      "connectHint": "Double-click target to connect",
+      "miniMapAria": "Mini map"
+    },
+    "workflowHistory": {
+      "title": "Workflow History · Execution Log",
+      "statusFilter": "Status",
+      "statusAll": "All",
+      "statusSuccess": "Success",
+      "statusFailed": "Failed",
+      "statusPending": "Pending",
+      "statusRetried": "Retry",
+      "statusRunning": "Running",
+      "runsAria": "Workflow runs",
+      "noMatches": "No workflow runs match this filter."
+    },
+    "workflowTemplates": {
+      "title": "Template Library",
+      "noticeDefault": "Preview a template before loading it into the builder.",
+      "noticeLoaded": "Loaded \"{name}\" into the workflow builder.",
+      "nodesBadge": "{count} nodes",
+      "recommendedFor": "Recommended for: {for}",
+      "preview": "Preview",
+      "useTemplate": "Use Template",
+      "previewTitle": "Template Preview",
+      "close": "Close",
+      "nodes": "Nodes",
+      "connections": "Connections",
+      "estimatedRuntime": "Estimated Runtime",
+      "difficulty": "Difficulty",
+      "requiredModules": "Required Modules",
+      "usedAiFeatures": "Used AI Features",
+      "none": "None"
+    },
+    "workspace": {
+      "loading": "Loading automation engine…",
+      "eyebrow": "Workflow Automation Engine",
+      "title": "Automation",
+      "subtitle": "Configurable business workflows across CRM, Projects, Finance, Documents, and AI — local event bus and in-browser engine. Distributed queue and backend workers are not connected.",
+      "noticeDefault": "Execution engine is UI-independent. Modules publish events; workflows subscribe.",
+      "tabs": {
+        "dashboard": "Dashboard",
+        "workflows": "Workflows",
+        "editor": "Editor",
+        "history": "History",
+        "templates": "Templates",
+        "analytics": "Analytics",
+        "settings": "Settings"
+      },
+      "notice": {
+        "missingWrite": "Missing workflow.write permission.",
+        "missingExecute": "Missing workflow.execute permission.",
+        "created": "Created {name}",
+        "templateApplied": "Template applied: {name}",
+        "runResult": "Run {status} ({duration}ms)",
+        "runFailed": "Workflow could not run (disabled or missing).",
+        "publishedEvent": "Published domain event: {type}",
+        "workflowStatus": "Workflow {status}",
+        "saved": "Workflow saved",
+        "retryResult": "Retry {status}",
+        "retryFailed": "Retry failed",
+        "settingsSaved": "Automation settings saved"
+      },
+      "defaults": {
+        "untitledName": "Untitled workflow",
+        "untitledDescription": "Draft workflow — configure trigger and actions."
+      },
+      "dashboard": {
+        "workflows": "Workflows",
+        "active": "Active",
+        "runsToday": "Runs today",
+        "successRate": "Success rate",
+        "recentWorkflows": "Recent workflows",
+        "newWorkflow": "New workflow",
+        "eventBusDemo": "Event bus demo",
+        "eventBusHint": "Publish a module event. Active workflows with matching triggers enqueue automatically.",
+        "notifications": "Notifications"
+      },
+      "workflowList": {
+        "title": "Workflow list",
+        "newWorkflow": "New workflow",
+        "emptyTitle": "No workflows yet.",
+        "emptyDescription": "Create a workflow or start from a template.",
+        "columns": {
+          "name": "Name",
+          "status": "Status",
+          "nodes": "Nodes",
+          "updated": "Updated",
+          "actions": "Actions"
+        },
+        "run": "Run",
+        "disable": "Disable",
+        "activate": "Activate"
+      },
+      "editor": {
+        "selectPrompt": "Select or create a workflow to edit.",
+        "workflows": "Workflows",
+        "title": "Workflow editor",
+        "hint": "Architecture supports trigger → condition → action → delay → branch → loop. Canvas drag-and-drop can plug into node positions without engine changes.",
+        "name": "Name",
+        "description": "Description",
+        "trigger": "Trigger",
+        "primaryAction": "Primary action",
+        "executionPath": "Execution path preview",
+        "save": "Save",
+        "runNow": "Run now",
+        "triggerFallback": "Trigger",
+        "actionFallback": "Action"
+      },
+      "history": {
+        "title": "Execution history",
+        "emptyTitle": "No executions yet.",
+        "emptyDescription": "Run a workflow or publish a domain event.",
+        "latestRun": "Latest run detail",
+        "path": "Path: {path}",
+        "error": " · Error: {error}",
+        "columns": {
+          "workflow": "Workflow",
+          "status": "Status",
+          "triggeredBy": "Triggered by",
+          "duration": "Duration",
+          "started": "Started",
+          "retry": "Retry"
+        },
+        "retry": "Retry",
+        "emDash": "—"
+      },
+      "templates": {
+        "useTemplate": "Use template"
+      },
+      "analytics": {
+        "totalWorkflows": "Total workflows",
+        "activeWorkflows": "Active workflows",
+        "executionsToday": "Executions today",
+        "successRate24h": "Success rate (24h)",
+        "failed24h": "Failed (24h)",
+        "avgDuration": "Avg duration"
+      },
+      "settings": {
+        "title": "Automation settings",
+        "subtitle": "Retry policy, execution limits, concurrency, timeout, and loggings for distributed execution.",
+        "maxRetryAttempts": "Max retry attempts",
+        "backoffMs": "Backoff (ms)",
+        "executionsPerHour": "Executions / hour",
+        "concurrencyLimit": "Concurrency limit",
+        "timeoutMs": "Timeout (ms)",
+        "logLevel": "Log level",
+        "saveSettings": "Save settings"
+      }
+    }
+  },
+  "team": {
+    "page": {
+      "eyebrow": "Identity & Access",
+      "title": "Team",
+      "lead": "Members, roles, and invitations for {organization}. Architecture-ready for a future identity API.",
+      "yourOrganization": "your organization"
+    },
+    "invite": {
+      "title": "Invite by Email",
+      "email": "Email",
+      "emailPlaceholder": "colleague@company.com",
+      "role": "Role",
+      "submit": "Invite",
+      "created": "Invitation created (pending).",
+      "failed": "Invite failed",
+      "signInFirst": "Sign in and activate an organization first.",
+      "noPermission": "Missing permission — Admin or Manager required to invite."
+    },
+    "roles": {
+      "title": "Roles"
+    },
+    "members": {
+      "title": "Members",
+      "columnMember": "Member",
+      "columnEmail": "Email",
+      "columnRole": "Role",
+      "columnStatus": "Status",
+      "roleFor": "Role for {name}",
+      "emptyTitle": "No members yet",
+      "emptyDescription": "Invite colleagues to join this organization workspace.",
+      "updated": "Updated {name} to {role}",
+      "roleChangeFailed": "Role change failed"
+    },
+    "pending": {
+      "title": "Pending Invitations",
+      "emptyTitle": "No pending invitations",
+      "emptyDescription": "New invites appear here until accepted or expired.",
+      "expires": "{role} · expires {date}",
+      "revoke": "Revoke",
+      "pending": "pending"
+    },
+    "history": {
+      "title": "Invitation History",
+      "empty": "Accepted, expired, and revoked invitations will appear here."
+    },
+    "status": {
+      "accepted": "accepted",
+      "expired": "expired",
+      "revoked": "revoked"
+    }
+  },
+  "customers": {
+    "page": {
+      "sectionTitle": "Customer Management",
+      "title": "Customers",
+      "lead": "Create, edit, search, and manage customer records for {organization}.",
+      "yourOrganization": "your organization"
+    },
+    "table": {
+      "columns": {
+        "company": "Company",
+        "email": "Email",
+        "location": "Location",
+        "status": "Status",
+        "updated": "Updated",
+        "actions": "Actions"
+      },
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete",
+      "viewAria": "View {company}",
+      "editAria": "Edit {company}",
+      "deleteAria": "Delete {company}",
+      "loading": "Loading customers…",
+      "errorLoad": "Couldn't load customers",
+      "errorGeneric": "Something went wrong",
+      "emptyFilteredTitle": "No matching customers",
+      "emptyFilteredDescription": "Try adjusting search or filters.",
+      "emptyTitle": "No customers yet",
+      "emptyDescription": "Create your first customer to start managing your accounts.",
+      "searchLabel": "Search customers",
+      "searchPlaceholder": "Company, contact, email, city, tags…",
+      "statusFilter": "Status",
+      "tagFilter": "Tag",
+      "allStatuses": "All statuses",
+      "allTags": "All tags",
+      "clearFilters": "Clear filters",
+      "addCustomer": "Add Customer"
+    },
+    "status": {
+      "active": "Active",
+      "prospect": "Prospect",
+      "inactive": "Inactive",
+      "blocked": "Blocked"
+    },
+    "form": {
+      "editTitle": "Edit Customer",
+      "createTitle": "Add Customer",
+      "cancel": "Cancel",
+      "saveChanges": "Save changes",
+      "createCustomer": "Create customer",
+      "companyName": "Company Name",
+      "contactPerson": "Contact Person",
+      "email": "Email",
+      "status": "Status",
+      "statusAria": "Customer status",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "street": "Street",
+      "postalCode": "Postal Code",
+      "city": "City",
+      "country": "Country",
+      "taxNumber": "Tax Number",
+      "vatId": "VAT ID",
+      "tags": "Tags",
+      "tagsHint": "Comma-separated",
+      "tagsPlaceholder": "vip, retail, partner",
+      "notes": "Customer Notes",
+      "updated": "Customer updated",
+      "created": "Customer created",
+      "checkForm": "Check the form",
+      "validationFailed": "Validation failed."
+    },
+    "delete": {
+      "title": "Delete customer",
+      "cancel": "Cancel",
+      "confirm": "Delete",
+      "confirmWithName": "Permanently remove {company}? This cannot be undone.",
+      "confirmGeneric": "This customer will be permanently removed.",
+      "success": "Customer deleted",
+      "failed": "Delete failed",
+      "notFound": "Customer was not found or could not be removed.",
+      "errorGeneric": "Something went wrong while deleting."
+    },
+    "details": {
+      "titleFallback": "Customer",
+      "edit": "Edit",
+      "delete": "Delete",
+      "noTags": "No tags",
+      "contact": "Contact",
+      "email": "Email",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "address": "Address",
+      "taxNumber": "Tax Number",
+      "vatId": "VAT ID",
+      "updated": "Updated",
+      "notes": "Notes",
+      "noNotes": "No notes yet."
+    }
+  },
+  "ai": {
+    "platform": {
+      "loading": "Loading AI Platform…",
+      "eyebrow": "AGXORA AI Platform",
+      "title": "Enterprise AI Workspace",
+      "subtitle": "Provider-independent intelligence for CRM, Projects, Finance, Documents, and Automation. Configure providers in Settings → AI.",
+      "newConversation": "New conversation",
+      "aiCommands": "AI Commands"
+    },
+    "mobileTabs": {
+      "chat": "Chat",
+      "conversations": "Conversations",
+      "prompts": "Prompts"
+    },
+    "usageBar": {
+      "provider": "Provider",
+      "model": "Model",
+      "estimatedTokens": "Est. tokens",
+      "tokensInOut": "(in {in} / out {out})",
+      "cost": "Cost",
+      "context": "Context",
+      "contextNone": "none",
+      "emDash": "—"
+    },
+    "chatThread": {
+      "title": "AGXORA AI Workspace",
+      "emptyHint": "Start a conversation, pick a prompt from the library, or open the command palette (⌘⇧K / Ctrl⇧K)."
+    },
+    "conversationSidebar": {
+      "title": "Conversations",
+      "new": "New",
+      "searchPlaceholder": "Search chats…",
+      "searchAria": "Search conversations",
+      "showArchived": "Show archived",
+      "pinned": "Pinned",
+      "emptyPreview": "Empty conversation",
+      "noConversations": "No conversations yet",
+      "pin": "Pin",
+      "unpin": "Unpin",
+      "rename": "Rename",
+      "archive": "Archive",
+      "unarchive": "Unarchive",
+      "delete": "Delete"
+    },
+    "composer": {
+      "placeholder": "Message AGXORA AI… (Enter to send, Shift+Enter for newline)",
+      "ariaLabel": "Message composer",
+      "commandsShortcut": "Commands ⌘⇧K",
+      "stop": "Stop",
+      "send": "Send"
+    },
+    "messageBubble": {
+      "ellipsis": "…",
+      "copy": "Copy",
+      "retry": "Retry"
+    },
+    "typingIndicator": {
+      "ariaLabel": "Assistant is typing"
+    },
+    "promptLibrary": {
+      "title": "Prompt library",
+      "subtitle": "Reusable templates across CRM, Projects, Finance, and more.",
+      "searchPlaceholder": "Search prompts…",
+      "searchAria": "Search prompts",
+      "all": "All",
+      "favorites": "Favorites",
+      "recent": "Recent",
+      "library": "Library",
+      "noMatches": "No prompts match",
+      "removeFavoriteAria": "Remove favorite",
+      "addFavoriteAria": "Add favorite",
+      "favorited": "Favorited",
+      "favorite": "Favorite",
+      "usePrompt": "Use prompt"
+    },
+    "commandPalette": {
+      "ariaLabel": "AI command palette",
+      "filterAria": "Filter AI commands",
+      "placeholder": "AI command… summarize, propose, analyze…",
+      "noMatches": "No matching commands",
+      "footer": "Register future commands via registerAiCommand — UI stays unchanged."
+    }
+  },
+  "agents": {
+    "loading": "Loading Agent Operating System…",
+    "eyebrow": "AI Agent Operating System",
+    "title": "Agent OS",
+    "subtitle": "Local agent workspace — agents can be activated and run as simulations across CRM, Projects, Finance, Workflows, and Integrations. Production autonomous execution is not connected.",
+    "noticeDefault": "Local Agent OS — runs are simulated in this workspace.",
+    "aiChat": "AI Chat",
+    "tabs": {
+      "dashboard": "Dashboard",
+      "registry": "Registry",
+      "marketplace": "Marketplace",
+      "monitor": "Monitor",
+      "history": "History",
+      "memory": "Memory",
+      "knowledge": "Knowledge",
+      "tools": "Tools",
+      "settings": "Settings"
+    },
+    "notice": {
+      "simulatedRun": "Simulated run · {status} ({duration}ms)",
+      "taskFailed": "Task failed",
+      "activated": "Activated locally: {agentId}",
+      "agentPaused": "Agent paused",
+      "agentActivated": "Agent activated",
+      "taskCancelled": "Task cancelled",
+      "supervisorDelegated": "Supervisor delegated a follow-up",
+      "settingsUpdated": "Agent OS settings updated for this local workspace."
+    },
+    "dashboard": {
+      "agents": "Agents",
+      "active": "Active",
+      "localReady": "Local ready",
+      "simulatedToday": "Simulated today",
+      "failedToday": "Failed today",
+      "avgExec": "Avg exec",
+      "toolCalls": "Tool calls",
+      "knowledge": "Knowledge",
+      "activeFleet": "Active fleet",
+      "emptyTitle": "No agents active",
+      "emptyDescription": "Install or activate an agent from the marketplace to start simulated runs."
+    },
+    "registry": {
+      "title": "Registry",
+      "selectPrompt": "Select an agent from the registry.",
+      "status": "Status: {status}",
+      "health": "Health: {health}",
+      "queue": "Queue: {queue}",
+      "usage": "Usage: {usage}",
+      "executeTask": "Execute task",
+      "supervisorDelegate": "Supervisor delegate"
+    },
+    "marketplace": {
+      "tools": "Tools: {tools}",
+      "installed": "Installed",
+      "installActivate": "Install & activate"
+    },
+    "monitor": {
+      "title": "Agent monitor",
+      "emptyTitle": "No agents to monitor",
+      "emptyDescription": "Activate agents from the marketplace.",
+      "latestConfidence": "Latest reasoning confidence: {confidence} — {steps}"
+    },
+    "history": {
+      "title": "Execution history",
+      "emptyTitle": "No executions yet",
+      "emptyDescription": "Run an agent task from the registry or monitor."
+    },
+    "memory": {
+      "title": "Memory center",
+      "subtitle": "Working · Conversation · Business · Long-term · Workspace · Agent scopes (architecture-ready).",
+      "emptyTitle": "No memory records",
+      "emptyDescription": "Execute a task to populate working/agent memory."
+    },
+    "knowledge": {
+      "title": "Knowledge center",
+      "subtitle": "Company, documents, projects, CRM, policies, procedures — plus vector/RAG placeholders.",
+      "emptyTitle": "No knowledge docs",
+      "emptyDescription": "Seed knowledge appears after workspace bootstrap."
+    },
+    "tools": {
+      "sensitive": " · sensitive",
+      "mcpReady": " · MCP-ready"
+    },
+    "settings": {
+      "title": "Agent OS settings",
+      "defaultLlmProvider": "Default LLM provider",
+      "enableSupervisor": "Enable supervisor agent architecture",
+      "isolateSensitive": "Isolate sensitive tools",
+      "saveSettings": "Save settings",
+      "providersHint": "Providers ready: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Swap adapters via registerLlmProvider without UI changes."
+    },
+    "columns": {
+      "agent": "Agent",
+      "status": "Status",
+      "health": "Health",
+      "queue": "Queue",
+      "usage": "Usage",
+      "actions": "Actions",
+      "task": "Task",
+      "duration": "Duration",
+      "created": "Created",
+      "scope": "Scope",
+      "key": "Key",
+      "value": "Value",
+      "at": "At",
+      "title": "Title",
+      "kind": "Kind",
+      "summary": "Summary"
+    },
+    "actions": {
+      "run": "Run",
+      "pause": "Pause",
+      "activate": "Activate",
+      "cancel": "Cancel",
+      "emDash": "—"
+    },
+    "goals": {
+      "executeBusiness": "Execute {agentId} business goal",
+      "planAndExecute": "Plan and execute a workspace business goal"
+    }
+  },
+  "integrations": {
+    "loading": "Loading integration platform…",
+    "eyebrow": "Enterprise Integration Platform",
+    "title": "Integration Center",
+    "subtitle": "Connectors for Microsoft 365, Google, Slack, CRM, storage, and automation ecosystems. Connections and sync in this build are local demos — live OAuth is not connected.",
+    "noticeDefault": "Local demo connectors — OAuth and live sync are not connected.",
+    "settings": "Settings",
+    "tabs": {
+      "dashboard": "Dashboard",
+      "installed": "Installed",
+      "available": "Available",
+      "logs": "Logs",
+      "apiKeys": "API Keys",
+      "webhooks": "Webhooks",
+      "developer": "Developer"
+    },
+    "notice": {
+      "demoConnection": "Demo connection: {name} (local stub only)",
+      "connectFailed": "Connect failed",
+      "keyCreated": "API key created: {prefix}",
+      "webhookCreated": "Webhook created: {name}",
+      "webhookTest": "Webhook test {status}",
+      "networkError": "API explorer network error: {message}",
+      "explorerError": "API explorer → {status}: {message}",
+      "explorerSuccess": "API explorer → {status}",
+      "explorerFailed": "Explorer failed",
+      "syncResult": "Demo sync · {status} ({records} local records) — no external data transferred.",
+      "diagnosed": "Diagnosed",
+      "removedConnection": "Removed demo connection: {name}",
+      "keyRotated": "Key rotated",
+      "keyRevoked": "Key revoked",
+      "publishedEvent": "Published {type}",
+      "developerSaved": "Developer settings saved"
+    },
+    "dashboard": {
+      "demoLinks": "Demo links",
+      "catalog": "Catalog",
+      "api24h": "API (24h)",
+      "webhooks24h": "Webhooks (24h)",
+      "webhookFailures": "Webhook failures",
+      "syncJobs": "Sync jobs",
+      "conflicts": "Conflicts",
+      "errors": "Errors",
+      "connectionStatus": "Connection status",
+      "emptyTitle": "No integrations installed",
+      "emptyDescription": "Browse Available to connect a provider.",
+      "eventBridgeDemo": "Event bridge demo",
+      "eventBridgeHint": "Publish a connector event onto the Workflow Automation bus.",
+      "emit": "Emit {id}"
+    },
+    "installed": {
+      "title": "Installed integrations",
+      "emptyTitle": "Nothing installed",
+      "emptyDescription": "Install from the Available catalog.",
+      "latestSync": "Latest sync: {status} · {records} records · mode {mode}"
+    },
+    "available": {
+      "protocols": "Protocols: {protocols}",
+      "demoConnection": "Demo connection",
+      "connectDemo": "Connect (demo)",
+      "installDemo": "Install demo"
+    },
+    "logs": {
+      "title": "Integration logs",
+      "emptyTitle": "No logs yet",
+      "emptyDescription": "Connect a provider or run diagnostics."
+    },
+    "apiKeys": {
+      "title": "API keys",
+      "generateKey": "Generate key",
+      "copyOnce": "Copy now (shown once): {secret}",
+      "emptyTitle": "No API keys",
+      "emptyDescription": "Generate a key for REST gateway access."
+    },
+    "webhooks": {
+      "endpointsTitle": "Webhook endpoints",
+      "urlPlaceholder": "https://…",
+      "addOutgoing": "Add outgoing webhook",
+      "emptyTitle": "No webhooks",
+      "emptyDescription": "Create an outgoing endpoint to test delivery.",
+      "deliveryLogs": "Delivery logs",
+      "deliveriesEmptyTitle": "No deliveries",
+      "deliveriesEmptyDescription": "Send a test webhook to populate logs."
+    },
+    "developer": {
+      "title": "Developer settings",
+      "sandboxMode": "Sandbox mode",
+      "webhookSigning": "Webhook signing enabled",
+      "saveSettings": "Save settings",
+      "apiDocs": "API docs placeholder: {url}",
+      "sdk": "SDK placeholder: {url}",
+      "explorerTitle": "API explorer",
+      "gatewayRoutes": "Gateway routes: {routes}",
+      "sendGet": "Send GET",
+      "oauthProviders": "OAuth providers",
+      "placeholdersHint": "GraphQL, WebSocket, and gRPC gateway routes are registered as placeholders. Field mapping and sync conflict resolution are architecture-ready for backend implementation."
+    },
+    "connectionStatus": {
+      "connected": "Demo connection",
+      "pendingAuth": "Pending (demo)",
+      "error": "Error",
+      "disabled": "Disabled",
+      "installed": "Installed",
+      "available": "Available",
+      "localDemo": "Local demo"
+    },
+    "columns": {
+      "integration": "Integration",
+      "status": "Status",
+      "health": "Health",
+      "latency": "Latency",
+      "actions": "Actions",
+      "when": "When",
+      "level": "Level",
+      "source": "Source",
+      "message": "Message",
+      "name": "Name",
+      "key": "Key",
+      "scopes": "Scopes",
+      "usage": "Usage",
+      "direction": "Direction",
+      "url": "URL",
+      "enabled": "Enabled",
+      "event": "Event",
+      "attempt": "Attempt"
+    },
+    "actions": {
+      "diagnose": "Diagnose",
+      "demoSync": "Demo sync",
+      "demoSyncTitle": "Demo sync only — no external transfer",
+      "disconnect": "Disconnect",
+      "rotate": "Rotate",
+      "revoke": "Revoke",
+      "test": "Test",
+      "emDash": "—",
+      "yes": "yes",
+      "no": "no"
+    },
+    "errors": {
+      "failedToFetch": "Failed to fetch",
+      "httpStatus": "HTTP {status}"
+    }
+  },
+  "intelligence": {
+    "loading": "Loading Enterprise Intelligence Center…",
+    "eyebrow": "Enterprise Intelligence Center",
+    "title": "Intelligence",
+    "subtitle": "KPIs, scorecards, alerts, and reports for every AGXORA module. Values below are a seeded demo dataset until live analytics backends connect.",
+    "demoBanner": "Demo dataset — filters and acknowledge work in-session; export and live model calls are not available yet.",
+    "noticeDefault": "Showing seeded demo analytics — not live production telemetry.",
+    "noPermission": "You do not have intelligence.read permission for this workspace.",
+    "filtersUpdated": "Filters updated",
+    "demoReloaded": "Demo dataset reloaded for this workspace.",
+    "acknowledged": "Acknowledged: {title}",
+    "exportUnavailableTitle": "Export unavailable — report generation is not connected yet.",
+    "exportUnavailableAria": "Export {title} as {format} — unavailable",
+    "tabs": {
+      "executive": "Executive",
+      "health": "Business Health",
+      "workspace": "Analytics",
+      "kpis": "KPI Center",
+      "reports": "Reports",
+      "insights": "Insights",
+      "forecasts": "Forecasts",
+      "alerts": "Alerts",
+      "scorecards": "Scorecards",
+      "explorer": "Data Explorer"
+    },
+    "filters": {
+      "from": "From",
+      "to": "To",
+      "domain": "Domain",
+      "allDomains": "All domains",
+      "apply": "Apply filters",
+      "reloadDemo": "Reload demo data",
+      "viewsAria": "Intelligence views"
+    },
+    "executive": {
+      "companyHealth": "Company Health",
+      "revenueScore": "Revenue score",
+      "customerHealth": "Customer health",
+      "projectHealth": "Project health",
+      "workflowSuccess": "Workflow success",
+      "aiActivity": "AI activity",
+      "finance": "Finance",
+      "riskGrowth": "Risk / Growth",
+      "kpiStrip": "Executive KPI strip",
+      "visualizationPreviews": "Visualization previews",
+      "visualizationHint": "Illustrative charts from the demo series — not interactive drill-downs.",
+      "noSeries": "No series bound"
+    },
+    "health": {
+      "title": "Business health decomposition",
+      "overall": "Overall",
+      "revenue": "Revenue",
+      "customers": "Customers",
+      "projects": "Projects",
+      "workflows": "Workflows",
+      "ai": "AI",
+      "finance": "Finance",
+      "operations": "Operations",
+      "riskPosture": "Risk posture",
+      "growth": "Growth",
+      "observability": "Observability: {metrics} metrics · {avgMs}ms avg · system health {health}"
+    },
+    "workspace": {
+      "noSeries": "No series"
+    },
+    "kpis": {
+      "title": "KPI Center",
+      "subtitle": "Configurable KPI catalog across revenue, customers, projects, workflows, agents, and automation.",
+      "emptyTitle": "Analytics awaits signal",
+      "emptyDescription": "Once your workspace generates activity, executive KPIs and alerts appear here."
+    },
+    "reports": {
+      "title": "Reporting engine",
+      "subtitle": "Report definitions are seeded for review. File export is unavailable until a reporting backend is connected.",
+      "emptyTitle": "No reports",
+      "emptyDescription": "Reports seed on workspace bootstrap.",
+      "scheduleOnDemand": "on-demand"
+    },
+    "insights": {
+      "emptyTitle": "No insights yet",
+      "emptyDescription": "Demo insights appear after the workspace seeds. Live AI insight generation is not connected.",
+      "badge": "Demo · {kind} · {domain} · conf {confidence}"
+    },
+    "forecasts": {
+      "emptyTitle": "No forecasts yet",
+      "emptyDescription": "Demo forecasts appear after seed. Predictive models are not connected.",
+      "title": "{kind} forecast",
+      "baseline": "Baseline {baseline} → projected {projected} ({days}d)",
+      "confidence": "Demo · Confidence {confidence} — {note}"
+    },
+    "alerts": {
+      "title": "Alert engine",
+      "emptyTitle": "No alerts",
+      "emptyDescription": "Alerts seed from risk heuristics.",
+      "acked": "acked",
+      "open": "open",
+      "acknowledge": "Acknowledge"
+    },
+    "scorecards": {
+      "title": "Scorecard engine",
+      "emptyTitle": "No scorecards",
+      "emptyDescription": "Scorecards seed on bootstrap."
+    },
+    "explorer": {
+      "title": "Data explorer",
+      "searchPlaceholder": "Search demo rows…",
+      "searchAria": "Search demo explorer rows",
+      "emptyTitle": "No rows match",
+      "emptyDescription": "Adjust filters or search, or reload the demo dataset.",
+      "hint": "Client-side search on seeded tuples — backend aggregation and drill-down are not connected."
+    },
+    "columns": {
+      "kpi": "KPI",
+      "value": "Value",
+      "delta": "Δ%",
+      "trend": "Trend",
+      "target": "Target",
+      "severity": "Severity",
+      "alert": "Alert",
+      "domain": "Domain",
+      "status": "Status",
+      "actions": "Actions",
+      "report": "Report",
+      "kind": "Kind",
+      "schedule": "Schedule",
+      "export": "Export",
+      "scorecard": "Scorecard",
+      "score": "Score",
+      "topDriver": "Top driver",
+      "label": "Label",
+      "entity": "Entity",
+      "measure": "Measure",
+      "date": "Date"
+    },
+    "emDash": "—"
+  },
+  "legal": {
+    "shell": {
+      "brand": "AGXORA",
+      "navLabel": "Legal navigation",
+      "lastUpdated": "Last updated: {date}",
+      "footerCopyright": "© 2026 {company}",
+      "footerNavLabel": "Legal footer",
+      "nav": {
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "cookies": "Cookies",
+        "imprint": "Imprint",
+        "contact": "Contact"
+      },
+      "footer": {
+        "home": "Home",
+        "pricing": "Pricing",
+        "contact": "Contact"
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "eyebrow": "Company",
+      "introLead": "Reach the AGXORA team for product questions, support, or enterprise conversations. Prefer sales routing? Use",
+      "contactSales": "Contact Sales",
+      "companyEmail": "Company email",
+      "supportEmail": "Support email",
+      "sales": "Sales",
+      "enterpriseForm": "Enterprise form",
+      "businessAddress": "Business address",
+      "addressPending": "Available on request — set NEXT_PUBLIC_AGXORA_ADDRESS_* for production.",
+      "quickLinks": "Quick links",
+      "pricing": "Pricing",
+      "imprint": "Imprint",
+      "privacyPolicy": "Privacy Policy"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "eyebrow": "Legal",
+      "intro": "This Privacy Policy explains how {legalName} (“AGXORA”, “we”, “us”) processes personal data when you visit {siteUrl}, create an account, or use the AGXORA platform.",
+      "controller": "1. Controller",
+      "dataWeProcess": "2. Data we process",
+      "dataAccount": "Account data: name, email, organization, and role.",
+      "dataUsage": "Usage data: product interactions, device, and diagnostic logs.",
+      "dataBilling": "Billing data: plan, invoices, and payment references from providers.",
+      "dataSupport": "Support communications you send to us.",
+      "purposes": "3. Purposes and legal bases",
+      "purposesBody": "We process data to provide the service (contract), secure the platform (legitimate interest), meet legal obligations, and—where required—with your consent (for example optional analytics or marketing).",
+      "retention": "4. Retention",
+      "retentionBody": "We retain personal data only as long as needed for the purposes above, including statutory retention for billing and security records, then delete or anonymize it.",
+      "sharing": "5. Sharing",
+      "sharingBody": "We use vetted processors (hosting, email, payments) under appropriate contracts. We do not sell personal data.",
+      "yourRights": "6. Your rights",
+      "yourRightsBodyBefore": "Depending on your location, you may request access, correction, deletion, restriction, portability, or objection. Contact",
+      "yourRightsBodyAfter": "You may also lodge a complaint with a supervisory authority.",
+      "cookies": "7. Cookies",
+      "cookiesBodyBefore": "See our",
+      "cookiesBodyAfter": "for details on essential and optional cookies.",
+      "cookiePolicy": "Cookie Policy",
+      "contactSection": "8. Contact",
+      "contactBodyBefore": "Questions:",
+      "contactBodyMiddle": "or"
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "eyebrow": "Legal",
+      "intro": "These Terms of Service (“Terms”) govern access to and use of AGXORA products and websites operated by {legalName}. By creating an account or using the service, you agree to these Terms.",
+      "accounts": "1. Accounts",
+      "accountsBody": "You must provide accurate registration information, keep credentials secure, and are responsible for activity under your account. Organization administrators manage seats and access for their workspace.",
+      "billing": "2. Subscriptions and billing",
+      "billingBodyBefore": "Paid plans are billed according to the plan selected on",
+      "billingBodyAfter": "Enterprise agreements may supersede self-serve terms. Fees are non-refundable except where required by law or expressly agreed in writing.",
+      "pricing": "Pricing",
+      "acceptableUse": "3. Acceptable use",
+      "useNoMisuse": "Do not misuse the platform, attempt unauthorized access, or disrupt service.",
+      "useNoUnlawful": "Do not upload unlawful content or infringe third-party rights.",
+      "useCompliance": "Comply with export, sanctions, and industry regulations that apply to you.",
+      "customerData": "4. Customer data",
+      "customerDataBodyBefore": "You retain rights to your business content. You grant AGXORA a limited license to host and process that content solely to provide the service. Our",
+      "customerDataBodyAfter": "describes personal data handling.",
+      "privacyPolicy": "Privacy Policy",
+      "aiFeatures": "5. AI features",
+      "aiFeaturesBody": "AI outputs may be inaccurate or incomplete. You remain responsible for reviewing outputs before relying on them for business decisions.",
+      "availability": "6. Availability and changes",
+      "availabilityBody": "We aim for high availability but do not guarantee uninterrupted service. We may update features and these Terms; material changes will be communicated through the product or email where appropriate.",
+      "liability": "7. Limitation of liability",
+      "liabilityBody": "To the maximum extent permitted by law, AGXORA is not liable for indirect, incidental, or consequential damages. Our aggregate liability for paid subscriptions is limited to fees paid in the twelve months preceding the claim.",
+      "contact": "8. Contact",
+      "contactBodyBefore": "Legal questions:"
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "eyebrow": "Legal",
+      "intro": "This Cookie Policy describes how {companyName} uses cookies and similar technologies. Essential cookies are required for authentication and security. Optional analytics cookies are enabled only where consent is collected.",
+      "whatAre": "1. What are cookies?",
+      "whatAreBody": "Cookies are small files stored on your device. They help the site function, remember preferences, and—where allowed—measure performance.",
+      "categories": "2. Categories we use",
+      "essential": "Essential",
+      "essentialBody": "authentication, security, load balancing, and basic preferences. Required for the service.",
+      "functional": "Functional",
+      "functionalBody": "optional features such as remembered UI settings (when enabled).",
+      "analytics": "Analytics",
+      "analyticsBody": "aggregate usage measurement (only with consent where required).",
+      "managing": "3. Managing cookies",
+      "managingBody": "You can control non-essential cookies through browser settings and, once available, our on-site preference center. Blocking essential cookies may prevent sign-in or core product use.",
+      "moreInfo": "4. More information",
+      "moreInfoBodyBefore": "See the",
+      "moreInfoBodyMiddle": "or contact"
+    },
+    "imprint": {
+      "title": "Imprint",
+      "eyebrow": "Legal",
+      "intro": "Information according to applicable disclosure requirements. Configure production values with NEXT_PUBLIC_AGXORA_* environment variables before public launch.",
+      "company": "Company",
+      "address": "Address",
+      "email": "Email",
+      "support": "Support",
+      "representedBy": "Represented by",
+      "register": "Register",
+      "vatId": "VAT ID",
+      "pendingConfiguration": "Pending configuration",
+      "responsibleForContent": "Responsible for content",
+      "responsibleBody": "Editorial contact for this website: {legalName}{addressSuffix}.",
+      "contact": "Contact",
+      "contactBodyBefore": "Prefer a form? Visit",
+      "contactBodyMiddle": "or",
+      "contactBodyAfter": "for enterprise inquiries.",
+      "contactSales": "Contact Sales"
+    }
+  },
+  "onboarding": {
+    "eyebrow": "AGXORA OS",
+    "title": "Launch your business OS",
+    "lead": "Choose your industry template. AGXORA configures modules, agents, workflows, and company knowledge — without locking you into one vertical forever.",
+    "steps": {
+      "type": "Type",
+      "company": "Company",
+      "locale": "Locale",
+      "goals": "Goals"
+    },
+    "companyName": "Company name",
+    "companyPlaceholder": "Acme Hospitality Group",
+    "template": "Template",
+    "country": "Country",
+    "language": "Language",
+    "languagePlaceholder": "en",
+    "timezone": "Timezone",
+    "timezonePlaceholder": "UTC",
+    "goals": {
+      "increaseRevenue": "Increase revenue",
+      "improveOperations": "Improve operations",
+      "delightCustomers": "Delight customers",
+      "reduceCosts": "Reduce costs",
+      "scaleWithAi": "Scale with AI"
+    },
+    "failed": "Onboarding failed",
+    "back": "Back",
+    "continue": "Continue",
+    "launching": "Launching…",
+    "enterDashboard": "Enter dashboard"
+  },
+  "creator": {
+    "page": {
+      "eyebrow": "AGXORA Marketing OS",
+      "title": "AI Creator Studio",
+      "lead": "Enterprise content production — generate, brand, plan, publish, and measure AI-powered campaigns across every channel.",
+      "dashboard": "Dashboard",
+      "workspace": "Workspace",
+      "workspaceSubtitle": "Create Content · Campaigns · Media Library · Templates · Brand Assets · Publishing Queue · Analytics",
+      "workspaceAria": "Creator workspace",
+      "integrations": "Future Integrations",
+      "integrationsSubtitle": "Official platform adapters reserved — no fake live connections.",
+      "aiFeatures": "AI Features",
+      "aiFeaturesSubtitle": "Capability map for production, brand, schedule, and localization."
+    },
+    "tabs": {
+      "create": "Create Content",
+      "campaigns": "Campaigns",
+      "media": "Media Library",
+      "templates": "Templates",
+      "brand": "Brand Assets",
+      "queue": "Publishing Queue",
+      "analytics": "Analytics"
+    },
+    "templates": {
+      "emptyTitle": "No templates",
+      "emptyDescription": "Reusable content and design templates will live here."
+    },
+    "campaign": {
+      "title": "Campaign Planner",
+      "calendar": "Content Calendar",
+      "columns": {
+        "name": "Campaign Name",
+        "objective": "Objective",
+        "audience": "Audience",
+        "platforms": "Platforms",
+        "budget": "Budget",
+        "timeline": "Timeline",
+        "status": "Status"
+      },
+      "emptyTitle": "No campaigns",
+      "emptyDescription": "Create a campaign to plan objectives, audience, and timelines."
+    },
+    "media": {
+      "title": "Media Library",
+      "columns": {
+        "asset": "Asset",
+        "type": "Type",
+        "folder": "Folder",
+        "tags": "Tags",
+        "updated": "Updated"
+      },
+      "emptyTitle": "No media",
+      "emptyDescription": "Images, videos, documents, logos, and templates will appear here.",
+      "searchPlaceholder": "Search assets, folders, tags…",
+      "typeFilter": "Type",
+      "allTypes": "All types",
+      "images": "Images",
+      "videos": "Videos",
+      "documents": "Documents",
+      "logos": "Brand Logos",
+      "templates": "Templates"
+    },
+    "generator": {
+      "title": "AI Content Generator",
+      "lead": "Create Instagram captions, TikTok scripts, LinkedIn posts, ads, SEO articles, and more.",
+      "brief": "Brief",
+      "briefPlaceholder": "Describe the offer, audience, and CTA…",
+      "generateDraft": "Generate draft",
+      "aiRewrite": "AI Rewrite",
+      "translate": "Translate",
+      "initialOutput": "Select a format and brand voice, then generate a draft. Provider adapters are reserved — no live model calls yet.",
+      "draftStaged": "Draft staged for {format} · voice: {voice}. Generation adapter reserved.",
+      "rewriteQueued": "AI Rewrite queued — rewrite adapter reserved.",
+      "translateQueued": "Translate Content queued — multi-language adapter reserved.",
+      "brandVoice": "Brand Voice",
+      "brandVoiceLead": "Business tone presets plus custom brand voice for consistency.",
+      "active": "Active"
+    },
+    "queue": {
+      "title": "Publishing Queue",
+      "columns": {
+        "title": "Title",
+        "platform": "Platform",
+        "format": "Format",
+        "status": "Status",
+        "scheduled": "Scheduled",
+        "author": "Author"
+      },
+      "emptyTitle": "No posts in queue",
+      "emptyDescription": "Drafts, reviews, and scheduled posts will appear here.",
+      "filterStatus": "Filter status",
+      "allStatuses": "All statuses"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "topPosts": "Top Posts",
+      "engagement": "Eng {value}",
+      "reach": "Reach {value}",
+      "recommendations": "AI Recommendations"
+    },
+    "integrations": {
+      "lead": "Future integrations — optional. No live APIs until connected. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.",
+      "adapter": "Adapter:"
+    },
+    "aiFeaturesPanel": {
+      "lead": "AI feature map — ideas, captions, hashtags, calendar, campaigns, audience, schedule, brand consistency, rewrite, translate, multi-language."
+    }
+  },
+  "backend": {
+    "toast": {
+      "success": "Success",
+      "warning": "Warning",
+      "error": "Error",
+      "info": "Info",
+      "dismiss": "Dismiss notification",
+      "close": "Close"
+    },
+    "network": {
+      "offline": "You appear to be offline",
+      "offlineHelp": "Offline help",
+      "reconnected": "Connection restored"
+    },
+    "errorBoundary": {
+      "backToDashboard": "Back to dashboard",
+      "title": "Something went wrong",
+      "retry": "Retry"
+    },
+    "notFound": {
+      "title": "Page not found",
+      "message": "The page you requested does not exist, was moved, or is no longer available.",
+      "recoveryNav": "Recovery",
+      "home": "Home",
+      "pricing": "Pricing",
+      "contact": "Contact",
+      "signIn": "Sign in",
+      "dashboard": "Dashboard"
+    },
+    "globalError": {
+      "title": "Something went wrong",
+      "message": "An unexpected error occurred. Please try again.",
+      "retry": "Retry"
+    },
+    "skipToMain": "Skip to main content"
+  },
+  "workspace": {
+    "page": {
+      "title": "Workspace",
+      "description": "Isolated tenant workspace surface for {name}."
+    },
+    "searchResults": "Search results"
+  },
+  "iam": {
+    "identity": {
+      "eyebrow": "Enterprise IAM",
+      "title": "Identity & Access",
+      "lead": "Organization, workspace, RBAC, security placeholders, and audit architecture. Backend adapters plug in without changing this surface.",
+      "openProfile": "Open profile",
+      "teamManagement": "Team management",
+      "tabs": {
+        "organization": "Organization",
+        "workspace": "Workspace",
+        "roles": "Roles & permissions",
+        "security": "Security",
+        "audit": "Audit log"
+      },
+      "organizationSettings": "Organization settings",
+      "workspaceSettings": "Workspace settings",
+      "noOrganization": "No organization active. Complete onboarding or create one from the organization service.",
+      "logoPlaceholder": "Logo upload and plan billing adapters are placeholders for the future identity backend.",
+      "rbacTitle": "RBAC — default roles",
+      "permissionMatrix": "Permission matrix",
+      "canManageSettings": "Can manage settings: {value} · Authenticated: {authenticated}",
+      "yes": "yes",
+      "no": "no",
+      "securitySettings": "Security settings",
+      "passwordChange": {
+        "title": "Password change",
+        "detail": "Password change connects through the auth provider when configured."
+      },
+      "twoFactor": {
+        "title": "Two-factor authentication (2FA)",
+        "detail": "TOTP and WebAuthn adapters register here when enabled."
+      },
+      "activeSessions": {
+        "title": "Active sessions",
+        "detail": "Device directory lives in identity sessions; revocation becomes authoritative with server sessions."
+      },
+      "apiKeys": {
+        "title": "API keys",
+        "detail": "Service accounts and scoped tokens for developers."
+      },
+      "absoluteTimeout": "Absolute timeout",
+      "idleTimeout": "Idle timeout",
+      "refreshSkew": "Refresh skew",
+      "persistentLogin": "Persistent login",
+      "disabled": "Disabled",
+      "enabled": "Enabled",
+      "days": "{count} days",
+      "minutes": "{count} min",
+      "toggleIdlePolicy": "Toggle idle policy placeholder",
+      "previewSessionExpired": "Preview session expired",
+      "previewAccountLocked": "Preview account locked",
+      "auditActivity": "Audit activity",
+      "auditLead": "Login, logout, role changes, invites, and organization events are recorded locally. Replace with an immutable backend audit store later.",
+      "auditEmpty": "No IAM events yet. Sign in or change a role to populate the log.",
+      "meta": {
+        "name": "Name",
+        "slug": "Slug",
+        "plan": "Plan",
+        "owner": "Owner",
+        "created": "Created",
+        "yourRole": "Your role",
+        "workspace": "Workspace",
+        "status": "Status",
+        "isolationKey": "Isolation key"
+      },
+      "matrix": {
+        "permission": "Permission",
+        "owner": "Owner",
+        "admin": "Admin",
+        "manager": "Manager",
+        "member": "Member",
+        "viewer": "Viewer",
+        "yes": "Yes"
+      },
+      "audit": {
+        "when": "When",
+        "action": "Action",
+        "actor": "Actor",
+        "resource": "Resource"
+      }
+    },
+    "roles": {
+      "owner": {
+        "name": "Owner",
+        "description": "Full control including billing and ownership transfer"
+      },
+      "admin": {
+        "name": "Admin",
+        "description": "Manage people, security, workspaces, and modules"
+      },
+      "manager": {
+        "name": "Manager",
+        "description": "Lead teams and operational modules; invite members"
+      },
+      "member": {
+        "name": "Member",
+        "description": "Day-to-day operational access"
+      },
+      "viewer": {
+        "name": "Viewer",
+        "description": "Read-only access"
+      }
+    },
+    "profile": {
+      "eyebrow": "Identity",
+      "title": "User Profile",
+      "lead": "Manage your account identity, preferences, and security. Organization and workspace controls live in Identity Settings.",
+      "guest": "Guest",
+      "notSignedIn": "Not signed in",
+      "identitySettings": "Identity settings",
+      "security": "Security",
+      "profileSection": "Profile",
+      "fullName": "Full name",
+      "email": "Email",
+      "language": "Language",
+      "timezone": "Timezone",
+      "languageEnGb": "English (UK)",
+      "languageEnUs": "English (US)",
+      "languageDe": "Deutsch",
+      "timezoneBerlin": "Europe/Berlin",
+      "timezoneLondon": "Europe/London",
+      "timezoneUtc": "UTC",
+      "timezoneNewYork": "America/New_York",
+      "notifications": "Notifications",
+      "emailNotifications": "Email notifications",
+      "pushNotifications": "Push notifications",
+      "workspace": "Workspace",
+      "noticeInitial": "Preferences save locally until the profile API is connected.",
+      "noticeSaved": "Profile preferences updated.",
+      "savePreferences": "Save preferences"
+    },
+    "workspaceSelector": {
+      "empty": "No workspaces yet — create an organization to provision one.",
+      "label": "Active workspace",
+      "ariaLabel": "Switch workspace"
+    },
+    "verifyEmail": {
+      "title": "Email Verification",
+      "loading": "Loading…",
+      "skipForNow": "Skip for now",
+      "tokenPlaceholder": "Verification token",
+      "tokenIssued": "Verification token issued for the current session.",
+      "issueFailed": "Could not issue token",
+      "verificationFailed": "Verification failed",
+      "verify": "Verify Email",
+      "verifying": "Verifying…",
+      "requestToken": "Request verification token"
+    }
+  }
+}

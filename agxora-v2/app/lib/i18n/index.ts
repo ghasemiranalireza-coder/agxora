@@ -11,8 +11,6 @@ export {
   normalizeToAppLocale,
   toBcp47,
   type AppLocale,
-  type FutureLocale,
-  type KnownLocale,
 } from "./locale";
 
 export {

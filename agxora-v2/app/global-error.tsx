@@ -4,6 +4,8 @@ import type { JSX } from "react";
 import { useEffect } from "react";
 import { reportError } from "@/app/lib/production/observability";
 import { sanitizeClientErrorMessage } from "@/app/lib/production/safeErrorMessage";
+import { resolveMessage } from "@/app/lib/i18n";
+import { DEFAULT_LOCALE } from "@/app/lib/i18n/locale";
 
 /**
  * Root layout error boundary — must define its own html/body.
@@ -25,8 +27,13 @@ export default function GlobalError({
 
   const message = sanitizeClientErrorMessage(
     error.message,
-    "An unexpected error occurred. Please try again.",
+    resolveMessage(DEFAULT_LOCALE, "backend.globalError.message"),
   );
+
+  const title = resolveMessage(DEFAULT_LOCALE, "backend.globalError.title");
+  const retry = resolveMessage(DEFAULT_LOCALE, "backend.globalError.retry");
+  const home = resolveMessage(DEFAULT_LOCALE, "backend.notFound.home");
+  const contact = resolveMessage(DEFAULT_LOCALE, "backend.notFound.contact");
 
   return (
     <html lang="en">
@@ -68,7 +75,7 @@ export default function GlobalError({
             500
           </p>
           <h1 style={{ fontSize: 24, margin: "14px 0 10px", fontWeight: 650 }}>
-            Something went wrong
+            {title}
           </h1>
           <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.55, margin: 0 }}>
             {message}
@@ -87,17 +94,17 @@ export default function GlobalError({
               cursor: "pointer",
             }}
           >
-            Retry
+            {retry}
           </button>
           <p style={{ marginTop: 18, fontSize: 12, color: "#94a3b8" }}>
             {/* Plain anchors required: root layout may be unavailable. */}
             {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
             <a href="/" style={{ color: "#22d3ee" }}>
-              Home
+              {home}
             </a>
             {" · "}
             <a href="/contact" style={{ color: "#22d3ee" }}>
-              Contact
+              {contact}
             </a>
           </p>
         </div>

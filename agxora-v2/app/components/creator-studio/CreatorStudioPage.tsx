@@ -18,6 +18,7 @@ import {
   WORKSPACE_TABS,
   type WorkspaceTab,
 } from "../../lib/creator-studio";
+import { useT } from "../../lib/i18n";
 import { Badge, Card, EmptyState, Section } from "../ui";
 import { AiContentGenerator } from "./AiContentGenerator";
 import { CampaignPlanner } from "./CampaignPlanner";
@@ -32,6 +33,7 @@ import { PublishingQueue } from "./PublishingQueue";
  * Additive module; does not import or mutate Hero / Globe / Finance / CRM.
  */
 export function CreatorStudioPage(): JSX.Element {
+  const t = useT();
   const reduceMotion = useReducedMotion();
   const [tab, setTab] = useState<WorkspaceTab>("create");
 
@@ -52,33 +54,32 @@ export function CreatorStudioPage(): JSX.Element {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="agx-ui-section-title">AGXORA Marketing OS</p>
+        <p className="agx-ui-section-title">{t("creator.page.eyebrow")}</p>
         <h1
           className="text-3xl font-semibold tracking-tight sm:text-4xl"
           style={{ color: "var(--agx-text, #f8fafc)", letterSpacing: "-0.03em" }}
         >
-          AI Creator Studio
+          {t("creator.page.title")}
         </h1>
         <p className="max-w-2xl text-sm sm:text-base" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Enterprise content production — generate, brand, plan, publish, and measure AI-powered
-          campaigns across every channel.
+          {t("creator.page.lead")}
         </p>
       </motion.header>
 
-      <Section id="creator-kpis" title="Dashboard" delay={0.04}>
+      <Section id="creator-kpis" title={t("creator.page.dashboard")} delay={0.04}>
         <CreatorKpiOverview metrics={CREATOR_KPI_METRICS} />
       </Section>
 
       <Section
         id="creator-workspace"
-        title="Workspace"
-        subtitle="Create Content · Campaigns · Media Library · Templates · Brand Assets · Publishing Queue · Analytics"
+        title={t("creator.page.workspace")}
+        subtitle={t("creator.page.workspaceSubtitle")}
         delay={0.06}
       >
         <div
           className="mb-4 flex gap-2 overflow-x-auto pb-1"
           role="tablist"
-          aria-label="Creator workspace"
+          aria-label={t("creator.page.workspaceAria")}
         >
           {WORKSPACE_TABS.map((item) => {
             const active = item.id === tab;
@@ -102,7 +103,7 @@ export function CreatorStudioPage(): JSX.Element {
                     : "var(--agx-text-muted, #94a3b8)",
                 }}
               >
-                {item.label}
+                {t(`creator.tabs.${item.id}`)}
               </button>
             );
           })}
@@ -120,9 +121,9 @@ export function CreatorStudioPage(): JSX.Element {
             <Card padding="24px">
               {templates.length > 0 ? (
                 <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  {templates.map((t) => (
+                  {templates.map((item) => (
                     <li
-                      key={t.id}
+                      key={item.id}
                       className="rounded-2xl border p-4"
                       style={{
                         borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
@@ -130,13 +131,13 @@ export function CreatorStudioPage(): JSX.Element {
                       }}
                     >
                       <p className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                        {t.name}
+                        {item.name}
                       </p>
                       <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                        {t.folder}
+                        {item.folder}
                       </p>
                       <div className="mt-3 flex flex-wrap gap-1.5">
-                        {t.tags.map((tag) => (
+                        {item.tags.map((tag) => (
                           <Badge key={tag}>{tag}</Badge>
                         ))}
                       </div>
@@ -145,8 +146,8 @@ export function CreatorStudioPage(): JSX.Element {
                 </ul>
               ) : (
                 <EmptyState
-                  title="No templates"
-                  description="Reusable content and design templates will live here."
+                  title={t("creator.templates.emptyTitle")}
+                  description={t("creator.templates.emptyDescription")}
                 />
               )}
             </Card>
@@ -187,8 +188,8 @@ export function CreatorStudioPage(): JSX.Element {
 
       <Section
         id="creator-integrations"
-        title="Future Integrations"
-        subtitle="Official platform adapters reserved — no fake live connections."
+        title={t("creator.page.integrations")}
+        subtitle={t("creator.page.integrationsSubtitle")}
         delay={0.1}
       >
         <FutureIntegrations platforms={CREATOR_PLATFORM_INTEGRATIONS} />
@@ -196,8 +197,8 @@ export function CreatorStudioPage(): JSX.Element {
 
       <Section
         id="creator-ai-features"
-        title="AI Features"
-        subtitle="Capability map for production, brand, schedule, and localization."
+        title={t("creator.page.aiFeatures")}
+        subtitle={t("creator.page.aiFeaturesSubtitle")}
         delay={0.12}
       >
         <AiFeaturesPanel features={AI_CREATOR_FEATURES} />

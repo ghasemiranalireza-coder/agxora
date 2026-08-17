@@ -3,9 +3,11 @@
 import type { JSX } from "react";
 import { customerStore, useCustomerStore } from "../../lib/customers";
 import { useToast } from "../../lib/backend/hooks";
+import { useT } from "../../lib/i18n";
 import { Button, Dialog } from "../ui";
 
 export function CustomerDeleteDialog(): JSX.Element {
+  const t = useT();
   const state = useCustomerStore();
   const toast = useToast();
   const target = state.items.find((row) => row.id === state.deleteId) ?? null;
@@ -14,7 +16,7 @@ export function CustomerDeleteDialog(): JSX.Element {
   return (
     <Dialog
       open={Boolean(state.deleteId)}
-      title="Delete customer"
+      title={t("customers.delete.title")}
       dismissible={!busy}
       onClose={() => customerStore.cancelDelete()}
       footer={
@@ -25,7 +27,7 @@ export function CustomerDeleteDialog(): JSX.Element {
             disabled={busy}
             onClick={() => customerStore.cancelDelete()}
           >
-            Cancel
+            {t("customers.delete.cancel")}
           </Button>
           <Button
             variant="danger"
@@ -37,25 +39,28 @@ export function CustomerDeleteDialog(): JSX.Element {
                 .confirmDelete()
                 .then((removed) => {
                   if (removed) {
-                    toast.success("Customer deleted", removed.companyName);
+                    toast.success(
+                      t("customers.delete.success"),
+                      removed.companyName,
+                    );
                   } else {
                     toast.error(
-                      "Delete failed",
-                      "Customer was not found or could not be removed.",
+                      t("customers.delete.failed"),
+                      t("customers.delete.notFound"),
                     );
                   }
                 })
                 .catch((error: unknown) => {
                   toast.error(
-                    "Delete failed",
+                    t("customers.delete.failed"),
                     error instanceof Error
                       ? error.message
-                      : "Something went wrong while deleting.",
+                      : t("customers.delete.errorGeneric"),
                   );
                 });
             }}
           >
-            Delete
+            {t("customers.delete.confirm")}
           </Button>
         </>
       }
@@ -65,8 +70,8 @@ export function CustomerDeleteDialog(): JSX.Element {
         style={{ color: "var(--agx-ds-text-muted, #94a3b8)" }}
       >
         {target
-          ? `Permanently remove ${target.companyName}? This cannot be undone.`
-          : "This customer will be permanently removed."}
+          ? t("customers.delete.confirmWithName", { company: target.companyName })
+          : t("customers.delete.confirmGeneric")}
       </p>
     </Dialog>
   );

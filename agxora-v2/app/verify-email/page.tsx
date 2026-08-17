@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useState, type FormEvent, type JSX } from "react";
 import { useAuth } from "../lib/auth";
+import { useT } from "../lib/i18n";
 import {
   AuthCard,
   AuthLink,
@@ -11,6 +12,7 @@ import {
 } from "../components/auth/AuthCard";
 
 function VerifyEmailForm(): JSX.Element {
+  const t = useT();
   const { verifyEmail, requestEmailVerification, peekVerifyToken, isAuthenticated } =
     useAuth();
   const router = useRouter();
@@ -27,9 +29,11 @@ function VerifyEmailForm(): JSX.Element {
       await requestEmailVerification();
       const peeked = peekVerifyToken();
       if (peeked) setToken(peeked);
-      setMessage("Verification token issued for the current session.");
+      setMessage(t("iam.verifyEmail.tokenIssued"));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not issue token");
+      setError(
+        err instanceof Error ? err.message : t("iam.verifyEmail.issueFailed"),
+      );
     } finally {
       setBusy(false);
     }
@@ -43,7 +47,9 @@ function VerifyEmailForm(): JSX.Element {
       await verifyEmail({ token });
       router.replace("/dashboard");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Verification failed");
+      setError(
+        err instanceof Error ? err.message : t("iam.verifyEmail.verificationFailed"),
+      );
     } finally {
       setBusy(false);
     }
@@ -51,13 +57,13 @@ function VerifyEmailForm(): JSX.Element {
 
   return (
     <AuthCard
-      title="Email Verification"
-      footer={<AuthLink href="/dashboard">Skip for now</AuthLink>}
+      title={t("iam.verifyEmail.title")}
+      footer={<AuthLink href="/dashboard">{t("iam.verifyEmail.skipForNow")}</AuthLink>}
     >
       <form onSubmit={(event) => void onSubmit(event)}>
         <input
           type="text"
-          placeholder="Verification token"
+          placeholder={t("iam.verifyEmail.tokenPlaceholder")}
           value={token}
           onChange={(event) => setToken(event.target.value)}
           required
@@ -70,7 +76,7 @@ function VerifyEmailForm(): JSX.Element {
           <p style={{ color: "#f87171", fontSize: 13, marginTop: 0 }}>{error}</p>
         ) : null}
         <button type="submit" disabled={busy} style={authButtonStyle}>
-          {busy ? "Verifying…" : "Verify Email"}
+          {busy ? t("iam.verifyEmail.verifying") : t("iam.verifyEmail.verify")}
         </button>
       </form>
       {isAuthenticated ? (
@@ -86,7 +92,7 @@ function VerifyEmailForm(): JSX.Element {
             color: "#22d3ee",
           }}
         >
-          Request verification token
+          {t("iam.verifyEmail.requestToken")}
         </button>
       ) : null}
     </AuthCard>
@@ -94,11 +100,14 @@ function VerifyEmailForm(): JSX.Element {
 }
 
 export default function VerifyEmailPage(): JSX.Element {
+  const t = useT();
   return (
     <Suspense
       fallback={
-        <AuthCard title="Email Verification">
-          <p style={{ color: "#94a3b8", textAlign: "center" }}>Loading…</p>
+        <AuthCard title={t("iam.verifyEmail.title")}>
+          <p style={{ color: "#94a3b8", textAlign: "center" }}>
+            {t("iam.verifyEmail.loading")}
+          </p>
         </AuthCard>
       }
     >

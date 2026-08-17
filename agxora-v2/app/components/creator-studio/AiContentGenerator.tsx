@@ -2,6 +2,7 @@
 
 import { useState, type JSX } from "react";
 import type { BrandVoice, BrandVoiceOption, ContentFormat, ContentFormatOption } from "../../lib/creator-studio";
+import { useT } from "../../lib/i18n";
 import { Badge, Button, Card } from "../ui";
 
 export function AiContentGenerator({
@@ -11,21 +12,20 @@ export function AiContentGenerator({
   readonly formats: readonly ContentFormatOption[];
   readonly voices: readonly BrandVoiceOption[];
 }): JSX.Element {
+  const t = useT();
   const [format, setFormat] = useState<ContentFormat>("instagram_caption");
   const [voice, setVoice] = useState<BrandVoice>("professional");
   const [brief, setBrief] = useState("");
-  const [output, setOutput] = useState(
-    "Select a format and brand voice, then generate a draft. Provider adapters are reserved — no live model calls yet.",
-  );
+  const [output, setOutput] = useState(t("creator.generator.initialOutput"));
 
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-5">
       <Card className="space-y-4 xl:col-span-3" padding="24px">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          AI Content Generator
+          {t("creator.generator.title")}
         </h3>
         <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Create Instagram captions, TikTok scripts, LinkedIn posts, ads, SEO articles, and more.
+          {t("creator.generator.lead")}
         </p>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
           {formats.map((item) => {
@@ -52,12 +52,12 @@ export function AiContentGenerator({
           })}
         </div>
         <label className="block space-y-1.5 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Brief
+          {t("creator.generator.brief")}
           <textarea
             value={brief}
             onChange={(e) => setBrief(e.target.value)}
             rows={4}
-            placeholder="Describe the offer, audience, and CTA…"
+            placeholder={t("creator.generator.briefPlaceholder")}
             className="w-full rounded-xl border px-3 py-2 text-sm outline-none"
             style={{
               borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
@@ -72,23 +72,26 @@ export function AiContentGenerator({
             variant="primary"
             onClick={() =>
               setOutput(
-                `Draft staged for ${formats.find((f) => f.id === format)?.label ?? format} · voice: ${voice}. Generation adapter reserved.`,
+                t("creator.generator.draftStaged", {
+                  format: formats.find((f) => f.id === format)?.label ?? format,
+                  voice,
+                }),
               )
             }
           >
-            Generate draft
+            {t("creator.generator.generateDraft")}
           </Button>
           <Button
             variant="secondary"
-            onClick={() => setOutput("AI Rewrite queued — rewrite adapter reserved.")}
+            onClick={() => setOutput(t("creator.generator.rewriteQueued"))}
           >
-            AI Rewrite
+            {t("creator.generator.aiRewrite")}
           </Button>
           <Button
             variant="ghost"
-            onClick={() => setOutput("Translate Content queued — multi-language adapter reserved.")}
+            onClick={() => setOutput(t("creator.generator.translateQueued"))}
           >
-            Translate
+            {t("creator.generator.translate")}
           </Button>
         </div>
         <div
@@ -105,10 +108,10 @@ export function AiContentGenerator({
 
       <Card className="space-y-3 xl:col-span-2" padding="24px">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Brand Voice
+          {t("creator.generator.brandVoice")}
         </h3>
         <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Business tone presets plus custom brand voice for consistency.
+          {t("creator.generator.brandVoiceLead")}
         </p>
         <ul className="space-y-2">
           {voices.map((item) => {
@@ -136,7 +139,7 @@ export function AiContentGenerator({
                       {item.description}
                     </p>
                   </div>
-                  {active ? <Badge tone="accent">Active</Badge> : null}
+                  {active ? <Badge tone="accent">{t("creator.generator.active")}</Badge> : null}
                 </button>
               </li>
             );
