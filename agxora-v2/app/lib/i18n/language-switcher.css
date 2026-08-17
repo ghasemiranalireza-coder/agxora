@@ -1,0 +1,124 @@
+/**
+ * Compact language control. Native <select> in RTL (fa/ar) with 24 options
+ * expands in-document (Chrome) into a tall listbox. This combobox keeps a
+ * fixed closed height and a max-height scrolling panel.
+ */
+
+.agx-lang-switcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  max-width: 12rem;
+  vertical-align: middle;
+  font-size: 12px;
+  color: var(--agx-text-muted, #94a3b8);
+}
+
+.agx-lang-switcher--md {
+  font-size: 13px;
+}
+
+.agx-lang-switcher__trigger {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-width: 5.5rem;
+  max-width: 12rem;
+  height: 36px;
+  min-height: 36px;
+  max-height: 36px;
+  margin: 0;
+  padding: 0 10px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--agx-ds-border, rgba(255, 255, 255, 0.12));
+  background: var(--agx-ds-surface, rgba(12, 18, 32, 0.92));
+  color: var(--agx-ds-text, #f4f8fb);
+  font: inherit;
+  line-height: 1.2;
+  cursor: pointer;
+  text-align: start;
+  appearance: none;
+  field-sizing: fixed;
+}
+
+.agx-lang-switcher__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.agx-lang-switcher__chevron {
+  flex: 0 0 auto;
+  width: 0;
+  height: 0;
+  border-inline-start: 4px solid transparent;
+  border-inline-end: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  opacity: 0.7;
+}
+
+.agx-lang-switcher__trigger:focus-visible {
+  outline: 2px solid var(--agx-accent, #7dd3fc);
+  outline-offset: 2px;
+}
+
+.agx-lang-switcher__list {
+  position: absolute;
+  top: calc(100% + 4px);
+  inset-inline-end: 0;
+  z-index: 80;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  min-width: 100%;
+  width: max-content;
+  max-width: min(16rem, 80vw);
+  max-height: min(16rem, 50vh);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: 12px;
+  border: 1px solid var(--agx-ds-border, rgba(255, 255, 255, 0.12));
+  background: var(--agx-ds-elevated, rgba(12, 18, 32, 0.98));
+  box-shadow: var(--agx-ds-shadow-md, 0 12px 32px rgba(0, 0, 0, 0.26));
+  color: var(--agx-ds-text, #f4f8fb);
+}
+
+.agx-lang-switcher__option {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  line-height: 1.35;
+}
+
+.agx-lang-switcher__option[aria-selected="true"] {
+  background: color-mix(in srgb, var(--agx-accent, #22d3ee) 16%, transparent);
+}
+
+.agx-lang-switcher__option.is-active,
+.agx-lang-switcher__option:hover,
+.agx-lang-switcher__option:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+html[dir="rtl"] .agx-lang-switcher__list {
+  inset-inline-end: 0;
+  inset-inline-start: auto;
+}
