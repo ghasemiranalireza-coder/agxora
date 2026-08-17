@@ -1,0 +1,70 @@
+{
+  "navLabel": "Navigation sur les tarifs",
+  "navPricing": "Tarification",
+  "navContactSales": "Contact commercial",
+  "navBookDemo": "Livre démo",
+  "navSignIn": "Se connecter",
+  "eyebrow": "Tarification",
+  "title": "Plans conçus pour les opérateurs qui expédient.",
+  "lead": "Terminez les niveaux commerciaux. Commencez gratuitement, évoluez lorsque vous êtes prêt ou parlez aux ventes à des conditions d'entreprise.",
+  "billingInterval": "Intervalle de facturation",
+  "monthly": "Mensuellement",
+  "yearly": "Annuel",
+  "savePercent": "Économisez ~20 %",
+  "mostPopular": "LES PLUS POPULAIRES",
+  "startFree": "Commencer Gratuitement",
+  "bookDemo": "Livre démo",
+  "contactSales": "Contact commercial",
+  "perMonth": " par mois",
+  "perMonthYearly": "/mois facturé annuellement",
+  "yearlyHint": "{amount}/an · économisez {percent} %",
+  "commercialActions": "Actions commerciales",
+  "legal": "Légal",
+  "planAria": "Forfait {name} — {cta}",
+  "plans": {
+    "starter": {
+      "name": "Démarreur",
+      "description": "Pour les indépendants et les petites entreprises.",
+      "features": [
+        "CRM et pipeline client",
+        "Projets et documents",
+        "Assistant IA gouverné",
+        "Jusqu'à 5 places",
+        "Assistance par e-mail"
+      ]
+    },
+    "business": {
+      "name": "Entreprise",
+      "description": "Pour les équipes en pleine croissance.",
+      "features": [
+        "Tout dans Starter",
+        "Modules de finance et d'analyse",
+        "Exportation d'automatisation et d'audit",
+        "Collaboration en équipe",
+        "Assistance prioritaire"
+      ]
+    },
+    "professional": {
+      "name": "Professionnel",
+      "description": "Pour les entreprises avancées.",
+      "features": [
+        "Tout dans Starter",
+        "Modules de finance et d'analyse",
+        "Accès aux API",
+        "Flux de travail avancés de l'entreprise",
+        "Boîte de réception d'assistance prioritaire"
+      ]
+    },
+    "enterprise": {
+      "name": "Entreprise",
+      "description": "Tarification personnalisée pour une échelle illimitée.",
+      "features": [
+        "Tarification fixée sur devis",
+        "Échelle illimitée",
+        "Intégration dédiée",
+        "Intégrations personnalisées",
+        "Assistance prioritaire"
+      ]
+    }
+  }
+}

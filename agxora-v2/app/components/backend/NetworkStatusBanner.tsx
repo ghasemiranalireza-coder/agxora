@@ -5,12 +5,14 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "../ui/Button";
 import { OVERLAY_Z } from "../ui/overlayStack";
+import { useT } from "@/app/lib/i18n";
 
 /**
  * Network / offline banner — non-intrusive, retry-capable.
  * Does not alter module business logic.
  */
 export function NetworkStatusBanner(): JSX.Element | null {
+  const t = useT();
   const [online, setOnline] = useState(true);
 
   useEffect(() => {
@@ -45,11 +47,11 @@ export function NetworkStatusBanner(): JSX.Element | null {
         }}
       >
         <div className="min-w-0">
-          <p className="text-sm font-semibold">You appear to be offline</p>
+          <p className="text-sm font-semibold">{t("backend.network.offline")}</p>
           <p className="text-xs" style={{ color: "var(--agx-ds-text-muted)" }}>
-            Changes may not sync until the connection returns.{" "}
+            {t("backend.network.offlineSyncHint")}{" "}
             <Link href="/offline" className="underline underline-offset-2">
-              Offline help
+              {t("backend.network.offlineHelp")}
             </Link>
           </p>
         </div>
@@ -60,7 +62,7 @@ export function NetworkStatusBanner(): JSX.Element | null {
             if (typeof window !== "undefined") window.location.reload();
           }}
         >
-          Retry
+          {t("backend.errorBoundary.retry")}
         </Button>
       </div>
     </div>

@@ -1,7 +1,7 @@
 {
   "page": {
-    "brandOs": "AGXORA Business OS",
-    "title": "CRM مبتنی بر هوش مصنوعی",
+    "brandOs": "سیستم عامل تجاری AGXORA",
+    "title": "CRM هوشمند",
     "subtitle": "CRM بومی با هوش مصنوعی و سیستم‌عامل Creator — مشتریان، پایپ‌لاین، سفارش‌ها، تحویل، اسناد، ارتباطات و معماری سازنده برای هر صنعت."
   },
   "sections": {
@@ -51,7 +51,7 @@
     "errorTitle": "CRM قابل بارگذاری نیست",
     "sort": {
       "companyName": "شرکت",
-      "contactName": "مخاطب",
+      "contactName": "تماس",
       "email": "ایمیل",
       "phone": "تلفن",
       "industry": "صنعت",
@@ -110,8 +110,8 @@
     "prospect": "پیش‌مشتری",
     "active": "فعال",
     "inactive": "غیرفعال",
-    "vip": "VIP",
-    "archived": "آرشیو"
+    "vip": "بخش ویژه",
+    "archived": "بایگانی‌شده"
   },
   "form": {
     "createTitle": "ایجاد مشتری",
@@ -135,7 +135,7 @@
     "statusAria": "وضعیت مشتری",
     "tagsHint": "با ویرگول جدا کنید، به‌طور خودکار رنگ‌بندی می‌شود",
     "websitePlaceholder": "https://",
-    "tagsPlaceholder": "enterprise, retail"
+    "tagsPlaceholder": "سازمانی، خرده فروشی"
   },
   "toasts": {
     "customerCreated": "مشتری ایجاد شد",
@@ -162,7 +162,7 @@
     "companyNameRequired": "نام شرکت الزامی است.",
     "contactNameRequired": "نام مخاطب الزامی است.",
     "emailRequired": "ایمیل الزامی است.",
-    "emailInvalid": "لطفاً یک آدرس ایمیل معتبر وارد کنید.",
+    "emailInvalid": "یک ایمیل معتبر وارد کنید.",
     "phoneRequired": "تلفن الزامی است.",
     "phoneInvalid": "لطفاً یک شماره تلفن معتبر وارد کنید.",
     "websiteInvalid": "لطفاً یک وب‌سایت معتبر وارد کنید.",
@@ -189,7 +189,7 @@
     "failedToUploadDocument": "سند آپلود نشد."
   },
   "workspace": {
-    "badge": "Enterprise CRM 2.0",
+    "badge": "CRM سازمانی ۲.۰",
     "title": "مدیریت ارتباط با مشتری",
     "subtitleBeforeOrg": "دایرکتوری مشتریان، پروفایل‌ها، مخاطبین، یادداشت‌ها و اسناد را برای",
     "subtitleAfterOrg": "پروژه‌ها بر اساس نام شرکت از ماژول پروژه‌ها لینک می‌شوند — بدون تکرار داده.",
@@ -207,7 +207,7 @@
   },
   "profile": {
     "backToCrm": "← بازگشت به CRM",
-    "ownerLabel": "Owner",
+    "ownerLabel": "مالک",
     "notFoundTitle": "مشتری یافت نشد",
     "notFoundDescription": "این مشتری ممکن است حذف شده باشد.",
     "missingCustomerTitle": "مشتری موجود نیست",
@@ -233,7 +233,7 @@
       "location": "موقعیت",
       "address": "آدرس",
       "created": "ایجادشده",
-      "updated": "به‌روزرسانی",
+      "updated": "به‌روزرسانی‌شده",
       "emptyValue": "—"
     },
     "contacts": {
@@ -249,7 +249,7 @@
       "saveContact": "ذخیره مخاطب",
       "emptyTitle": "هنوز مخاطبی نیست",
       "emptyDescription": "ذینفعان را با نقش، ایمیل و تلفن اضافه کنید.",
-      "defaultRole": "مخاطب",
+      "defaultRole": "تماس",
       "mobilePrefix": "موبایل"
     },
     "projects": {
@@ -317,13 +317,13 @@
       "contacts": "مخاطبین",
       "orders": "سفارش‌ها",
       "invoices": "فاکتورها",
-      "lieferscheine": "Lieferscheine",
+      "lieferscheine": "لیفرشاین",
       "payments": "پرداخت‌ها",
       "documents": "اسناد",
       "timeline": "تایم‌لاین",
       "activities": "فعالیت‌ها",
       "notes": "یادداشت‌ها",
-      "aiSummary": "خلاصه AI",
+      "aiSummary": "خلاصه هوش مصنوعی",
       "communicationHistory": "تاریخچه ارتباطات"
     },
     "profileLines": {
@@ -351,14 +351,14 @@
       "historyNotConnected": "ذخیره تاریخچه تحویل در این نسخه متصل نیست."
     },
     "columns": {
-      "lieferschein": "Lieferschein",
+      "lieferschein": "لیفرشاین",
       "order": "سفارش",
       "customer": "مشتری",
       "kind": "نوع",
       "driver": "راننده",
       "vehicle": "وسیله",
       "tracking": "پیگیری",
-      "scheduled": "زمان‌بندی"
+      "scheduled": "زمان‌بندی‌شده"
     }
   },
   "orders": {
@@ -407,7 +407,7 @@
   "documentsModule": {
     "emptyTitle": "سندی نیست",
     "emptyDescription": "سندی با این جستجو مطابقت ندارد.",
-    "searchLabel": "جستجوی AI",
+    "searchLabel": "جستجوی هوش مصنوعی",
     "searchPlaceholder": "پیشنهادات، قراردادها، فاکتورها، Lieferschein…",
     "typeLabel": "نوع سند",
     "allTypes": "همه انواع",
@@ -416,13 +416,13 @@
       "title": "عنوان",
       "customer": "مشتری",
       "status": "وضعیت",
-      "updated": "به‌روزرسانی"
+      "updated": "به‌روزرسانی‌شده"
     },
     "kinds": {
       "quote": "پیشنهادات",
       "contract": "قراردادها",
       "invoice": "فاکتورها",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "لیفرشاین",
       "purchase_order": "سفارش خرید",
       "receipt": "رسیدها"
     }
@@ -473,15 +473,15 @@
       "label": "امتیاز سلامت AI",
       "caption": "سیگنال کیفیت رابطه"
     },
-    "scoreOutOf": "{score} / {max}"
+    "scoreOutOf": "{امتیاز} / {حداکثر}"
   },
   "pipeline": {
-    "lead": "Lead",
-    "qualified": "Qualified",
-    "proposal": "Proposal",
-    "negotiation": "Negotiation",
-    "won": "Won",
-    "lost": "Lost"
+    "lead": "لید",
+    "qualified": "□ واجد شرایط",
+    "proposal": "پیشنهاد",
+    "negotiation": "مذاکره",
+    "won": "وون",
+    "lost": "کم شده"
   },
   "orderStatus": {
     "draft": "پیش‌نویس",
@@ -502,7 +502,7 @@
     "quote": "پیشنهاد",
     "contract": "قرارداد",
     "invoice": "فاکتور",
-    "lieferschein": "Lieferschein",
+    "lieferschein": "لیفرشاین",
     "purchase_order": "سفارش خرید",
     "receipt": "رسید"
   },

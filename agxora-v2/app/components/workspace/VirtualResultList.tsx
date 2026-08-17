@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useState, type JSX, type ReactNode, type UIEvent } from "react";
+import { useT } from "../../lib/i18n";
 
 const ROW_HEIGHT = 64;
 const OVERSCAN = 6;
@@ -20,6 +21,7 @@ export function VirtualResultList<T>({
   readonly renderItem: (item: T, index: number) => ReactNode;
   readonly getKey: (item: T, index: number) => string;
 }): JSX.Element {
+  const t = useT();
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [scrollTop, setScrollTop] = useState(0);
 
@@ -49,7 +51,7 @@ export function VirtualResultList<T>({
       className="overflow-y-auto pr-1"
       style={{ height }}
       role="listbox"
-      aria-label="Search results"
+      aria-label={t("workspace.searchResults")}
     >
       <div style={{ height: totalHeight, position: "relative" }}>
         <div style={{ transform: `translateY(${offsetY}px)` }}>

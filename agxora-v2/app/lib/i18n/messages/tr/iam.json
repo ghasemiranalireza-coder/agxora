@@ -1,0 +1,149 @@
+{
+  "identity": {
+    "eyebrow": "Kurumsal IAM",
+    "title": "Kimlik ve Erişim",
+    "lead": "Organizasyon, çalışma alanı, RBAC, güvenlik yer tutucuları ve denetim mimarisi. Arka uç adaptörleri bu yüzeyi değiştirmeden takılır.",
+    "openProfile": "Profili aç",
+    "teamManagement": "Ekip yönetimi",
+    "tabs": {
+      "organization": "Organizasyon",
+      "workspace": "Çalışma alanı",
+      "roles": "Roller ve izinler",
+      "security": "Güvenlik",
+      "audit": "Denetim günlüğü"
+    },
+    "organizationSettings": "Organizasyon ayarları",
+    "workspaceSettings": "Çalışma alanı ayarları",
+    "noOrganization": "Aktif bir kuruluş yok. Katılımı tamamlayın veya organizasyon hizmetinden bir tane oluşturun.",
+    "logoPlaceholder": "Logo yükleme ve plan faturalandırma bağdaştırıcıları, gelecekteki kimlik arka ucu için yer tutuculardır.",
+    "rbacTitle": "RBAC — varsayılan roller",
+    "permissionMatrix": "İzin matrisi",
+    "canManageSettings": "Ayarları yönetebilir: {value} · Kimliği doğrulandı: {authenticated}",
+    "yes": "Evet",
+    "no": "HAYIR",
+    "securitySettings": "Güvenlik ayarları",
+    "passwordChange": {
+      "title": "Şifre değişikliği",
+      "detail": "Parola değişikliği, yapılandırıldığında kimlik doğrulama sağlayıcısı aracılığıyla bağlanır."
+    },
+    "twoFactor": {
+      "title": "İki faktörlü kimlik doğrulama (2FA)",
+      "detail": "TOTP ve WebAuthn bağdaştırıcıları etkinleştirildiğinde buraya kaydedilir."
+    },
+    "activeSessions": {
+      "title": "Aktif oturumlar",
+      "detail": "Cihaz dizini kimlik oturumlarında bulunur; İptal, sunucu oturumlarında yetkili hale gelir."
+    },
+    "apiKeys": {
+      "title": "API anahtarları",
+      "detail": "Geliştiriciler için hizmet hesapları ve kapsamlı belirteçler."
+    },
+    "absoluteTimeout": "Mutlak zaman aşımı",
+    "idleTimeout": "Boşta kalma zaman aşımı",
+    "refreshSkew": "Eğikliği yenile",
+    "persistentLogin": "Kalıcı giriş",
+    "disabled": "Engelli",
+    "enabled": "Etkinleştirilmiş",
+    "days": "{count} gün",
+    "minutes": "{count} dakika",
+    "toggleIdlePolicy": "Boşta kalma ilkesi yer tutucusunu aç/kapat",
+    "previewSessionExpired": "Önizleme oturumunun süresi doldu",
+    "previewAccountLocked": "Önizleme hesabı kilitlendi",
+    "auditActivity": "Denetim faaliyeti",
+    "auditLead": "Oturum açma, oturum kapatma, rol değişiklikleri, davetler ve organizasyon etkinlikleri yerel olarak kaydedilir. Daha sonra değişmez bir arka uç denetim deposuyla değiştirin.",
+    "auditEmpty": "Henüz IAM etkinliği yok. Günlüğü doldurmak için oturum açın veya bir rolü değiştirin.",
+    "meta": {
+      "name": "İsim",
+      "slug": "Sümüklüböcek",
+      "plan": "Planı",
+      "owner": "Mal sahibi",
+      "created": "Oluşturuldu",
+      "yourRole": "Rolünüz",
+      "workspace": "Çalışma alanı",
+      "status": "Durum",
+      "isolationKey": "İzolasyon anahtarı"
+    },
+    "matrix": {
+      "permission": "İzin",
+      "owner": "Mal sahibi",
+      "admin": "Yönetici",
+      "manager": "Müdür",
+      "member": "Üye",
+      "viewer": "Görüntüleyici",
+      "yes": "Evet"
+    },
+    "audit": {
+      "when": "Ne zaman",
+      "action": "Aksiyon",
+      "actor": "Aktör",
+      "resource": "Kaynak"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "Mal sahibi",
+      "description": "Faturalandırma ve sahiplik aktarımı dahil tam kontrol"
+    },
+    "admin": {
+      "name": "Yönetici",
+      "description": "İnsanları, güvenliği, çalışma alanlarını ve modülleri yönetin"
+    },
+    "manager": {
+      "name": "Müdür",
+      "description": "Lider ekipler ve operasyonel modüller; üyeleri davet et"
+    },
+    "member": {
+      "name": "Üye",
+      "description": "Günlük operasyonel erişim"
+    },
+    "viewer": {
+      "name": "Görüntüleyici",
+      "description": "Salt okunur erişim"
+    }
+  },
+  "profile": {
+    "eyebrow": "Kimlik",
+    "title": "Kullanıcı Profili",
+    "lead": "Hesap kimliğinizi, tercihlerinizi ve güvenliğinizi yönetin. Organizasyon ve çalışma alanı kontrolleri Kimlik Ayarlarında mevcuttur.",
+    "guest": "Misafir",
+    "notSignedIn": "Oturum açılmadı",
+    "identitySettings": "Kimlik ayarları",
+    "security": "Güvenlik",
+    "profileSection": "Profil",
+    "fullName": "Ad Soyad",
+    "email": "E-posta",
+    "language": "Dil",
+    "timezone": "Saat dilimi",
+    "languageEnGb": "İngilizce (İngiltere)",
+    "languageEnUs": "İngilizce (ABD)",
+    "languageDe": "Almanca",
+    "timezoneBerlin": "Avrupa/Berlin",
+    "timezoneLondon": "Avrupa/Londra",
+    "timezoneUtc": "UTC",
+    "timezoneNewYork": "Amerika/New_York",
+    "notifications": "Bildirimler",
+    "emailNotifications": "E-posta bildirimleri",
+    "pushNotifications": "Anında bildirimler",
+    "workspace": "Çalışma alanı",
+    "noticeInitial": "Profil API'si bağlanana kadar tercihler yerel olarak kaydedilir.",
+    "noticeSaved": "Profil tercihleri ​​güncellendi.",
+    "savePreferences": "Tercihleri ​​kaydet"
+  },
+  "workspaceSelector": {
+    "empty": "Henüz çalışma alanı yok; bir çalışma alanı sağlamak için bir kuruluş oluşturun.",
+    "label": "Aktif çalışma alanı",
+    "ariaLabel": "Çalışma alanını değiştir"
+  },
+  "verifyEmail": {
+    "title": "E-posta Doğrulaması",
+    "loading": "Yükleniyor…",
+    "skipForNow": "Şimdilik atla",
+    "tokenPlaceholder": "Doğrulama jetonu",
+    "tokenIssued": "Geçerli oturum için verilen doğrulama jetonu.",
+    "issueFailed": "Jeton verilemedi",
+    "verificationFailed": "Doğrulama başarısız oldu",
+    "verify": "E-postayı Doğrula",
+    "verifying": "Doğrulanıyor…",
+    "requestToken": "Doğrulama jetonu iste"
+  }
+}

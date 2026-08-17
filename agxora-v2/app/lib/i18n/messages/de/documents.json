@@ -1,6 +1,6 @@
 {
   "page": {
-    "brand": "AGXORA Knowledge OS",
+    "brand": "AGXORA Wissen OS",
     "title": "Dokumente",
     "subtitle": "Unternehmensdokumente & Wissenszentrale — Vorschau mit Beispielinhalten, bis Speicher- und Freigabe-Backends angebunden sind.",
     "sampleNotice": "Beispielbibliothek — Browse und Filter funktionieren in der Sitzung. Upload, Freigabe und KI-Indexierung sind nicht verbunden."
@@ -60,7 +60,7 @@
     "storage": {
       "label": "Speicher belegt",
       "caption": "Beispiel · des illustrativen Plans",
-      "delta": "+{size}"
+      "delta": "Größe:"
     },
     "shared": {
       "label": "Geteilte Dokumente",
@@ -75,7 +75,7 @@
     "indexed": {
       "label": "KI-indexiert",
       "caption": "Beispiel · KI-Suche nicht verbunden",
-      "delta": "{percent}"
+      "delta": "Prozent"
     },
     "approvals": {
       "label": "Offene Freigaben",
@@ -106,7 +106,7 @@
     "foldersTitle": "Ordner & Sammlungen",
     "foldersHint": "Verschachtelte Ordner, Sammlungen, Smart Collections, Tags, angeheftet & Favoriten.",
     "allFolders": "Alle Ordner",
-    "smart": "Smart",
+    "smart": "Intelligent",
     "collection": "Sammlung",
     "pinned": "Angeheftet",
     "favorite": "Favorit",
@@ -122,7 +122,7 @@
     "typeLabel": "Typ",
     "statusLabel": "Status",
     "departmentLabel": "Abteilung",
-    "ownerLabel": "Eigentümer",
+    "ownerLabel": "Inhaber",
     "allTypes": "Alle Typen",
     "allStatuses": "Alle Status",
     "allDepartments": "Alle Abteilungen",
@@ -134,7 +134,7 @@
     "versionHistoryTitle": "Versionshistorie",
     "close": "Schließen",
     "context": {
-      "open": "Öffnen",
+      "open": "Offen",
       "share": "Teilen",
       "favorite": "Favorit",
       "move": "Verschieben",
@@ -147,7 +147,7 @@
     "title": "Dokumentenviewer",
     "emptyTitle": "Dokument auswählen",
     "emptyDescription": "Wählen Sie eine Datei aus der Bibliothek, um Inhalt, Metadaten, Tags, Versionen und verknüpfte Module anzuzeigen.",
-    "zoomOut": "Zoom −",
+    "zoomOut": "Zoomen",
     "zoomIn": "Zoom +",
     "prev": "Zurück",
     "next": "Weiter",
@@ -156,7 +156,7 @@
     "findPlaceholder": "In Vorschau suchen…",
     "noMatches": "Keine Treffer im Vorschautext.",
     "meta": {
-      "owner": "Eigentümer",
+      "owner": "Inhaber",
       "created": "Erstellt",
       "updated": "Aktualisiert",
       "fileType": "Dateityp",
@@ -168,7 +168,7 @@
       "version": "Version",
       "sharing": "Freigabe"
     },
-    "tags": "Tags",
+    "tags": "Schlagwörter",
     "linkedModules": "Verknüpfte Module",
     "noModuleLinks": "Noch keine Modulverknüpfungen",
     "versionHistory": "Versionshistorie"
@@ -337,7 +337,7 @@
   },
   "fileType": {
     "pdf": "PDF",
-    "word": "Word",
+    "word": "Wort",
     "excel": "Excel",
     "powerpoint": "PowerPoint",
     "image": "Bild",
@@ -359,8 +359,8 @@
   "module": {
     "crm": "CRM",
     "finance": "Finanzen",
-    "automation": "Automation",
-    "creator": "Creator Studio",
+    "automation": "Automatisierung",
+    "creator": "Kreativstudio",
     "hr": "Zukünftiges HR",
     "projects": "Zukünftige Projekte"
   },
@@ -380,7 +380,7 @@
     "planned": "Geplant"
   },
   "bytes": {
-    "b": "{value} B",
+    "b": "{value} Mrd.",
     "kb": "{value} KB",
     "mb": "{value} MB",
     "gb": "{value} GB"

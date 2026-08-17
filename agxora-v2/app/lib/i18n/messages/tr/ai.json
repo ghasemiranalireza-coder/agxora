@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "AI Platformu yükleniyor…",
+    "eyebrow": "AGXORA Yapay Zeka Platformu",
+    "title": "Kurumsal Yapay Zeka Çalışma Alanı",
+    "subtitle": "CRM, Projeler, Finans, Belgeler ve Otomasyon için sağlayıcıdan bağımsız zeka. Sağlayıcıları Ayarlar → AI bölümünde yapılandırın.",
+    "newConversation": "Yeni görüşme",
+    "aiCommands": "Yapay Zeka Komutları"
+  },
+  "mobileTabs": {
+    "chat": "Sohbet",
+    "conversations": "Konuşmalar",
+    "prompts": "İstemler"
+  },
+  "usageBar": {
+    "provider": "sağlayıcı",
+    "model": "Modeli",
+    "estimatedTokens": "Avustralya, Brezilya ve Kuzey Amerika ülkelerinin kullandığı saat uygulaması. jetonlar",
+    "tokensInOut": "({giriş} / çıkış {çıkış})",
+    "cost": "Maliyet",
+    "context": "Bağlam",
+    "contextNone": "hiçbiri",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "AGXORA Yapay Zeka Çalışma Alanı",
+    "emptyHint": "Bir konuşma başlatın, kitaplıktan bir bilgi istemi seçin veya komut paletini açın (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Konuşmalar",
+    "new": "Yeni",
+    "searchPlaceholder": "Sohbetlerde ara…",
+    "searchAria": "Konuşmaları arayın",
+    "showArchived": "Arşivlenenleri göster",
+    "pinned": "Sabitlendi",
+    "emptyPreview": "Boş görüşme",
+    "noConversations": "Henüz görüşme yok",
+    "pin": "Sabitle",
+    "unpin": "Sabitlemeyi kaldır",
+    "rename": "Yeniden isimlendirmek",
+    "archive": "Arşiv",
+    "unarchive": "Arşivden kaldır",
+    "delete": "Silmek"
+  },
+  "composer": {
+    "placeholder": "AGXORA AI mesajı… (Göndermek için Enter, yeni satır için Shift+Enter)",
+    "ariaLabel": "Mesaj oluşturucu",
+    "commandsShortcut": "Komutlar ⌘⇧K",
+    "stop": "Durmak",
+    "send": "Göndermek"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Kopyala",
+    "retry": "Yeniden dene"
+  },
+  "typingIndicator": {
+    "ariaLabel": "Asistan yazıyor"
+  },
+  "promptLibrary": {
+    "title": "Bilgi istemi kitaplığı",
+    "subtitle": "CRM, Projeler, Finans ve daha fazlasında yeniden kullanılabilir şablonlar.",
+    "searchPlaceholder": "Arama istemleri…",
+    "searchAria": "Arama istemleri",
+    "all": "Tüm",
+    "favorites": "Favoriler",
+    "recent": "Son",
+    "library": "Kütüphane",
+    "noMatches": "Hiçbir bilgi istemi eşleşmiyor",
+    "removeFavoriteAria": "Favoriyi kaldır",
+    "addFavoriteAria": "Favori ekle",
+    "favorited": "Favorilere eklendi",
+    "favorite": "Favori",
+    "usePrompt": "İstemi kullan"
+  },
+  "commandPalette": {
+    "ariaLabel": "Yapay zeka komut paleti",
+    "filterAria": "AI komutlarını filtrele",
+    "placeholder": "Yapay zeka komutu… özetleyin, önerin, analiz edin…",
+    "noMatches": "Eşleşen komut yok",
+    "footer": "Gelecekteki komutları RegisterAiCommand aracılığıyla kaydedin — Kullanıcı arayüzü değişmeden kalır."
+  }
+}

@@ -95,6 +95,9 @@
     "runsAria": "Workflow runs",
     "noMatches": "No workflow runs match this filter."
   },
+  "miniPreview": {
+    "emptyWorkflow": "Empty workflow"
+  },
   "workflowTemplates": {
     "title": "Template Library",
     "noticeDefault": "Preview a template before loading it into the builder.",
@@ -226,6 +229,12 @@
       "concurrencyLimit": "Concurrency limit",
       "timeoutMs": "Timeout (ms)",
       "logLevel": "Log level",
+      "logLevels": {
+        "error": "error",
+        "warn": "warn",
+        "info": "info",
+        "debug": "debug"
+      },
       "saveSettings": "Save settings"
     }
   }

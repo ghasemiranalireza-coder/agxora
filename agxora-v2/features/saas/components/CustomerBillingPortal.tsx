@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState, type JSX, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type JSX, type ReactNode } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
+import { useT } from "@/app/lib/i18n";
 import { saasCommercialStore } from "../store";
 import { billingService } from "../billing";
 import { listPaymentProviders } from "../payments";
@@ -21,12 +22,11 @@ import { SaasNavLink } from "./SaasNavLink";
  * Customer subscription portal — upgrade/downgrade/cancel, invoices, usage, methods.
  */
 export function CustomerBillingPortal(): JSX.Element {
+  const t = useT();
   const saas = useSaasCommercial();
   const [providerId, setProviderId] = useState<PaymentProviderId>("stripe");
   const [coupon, setCoupon] = useState("");
-  const [notice, setNotice] = useState(
-    "Billing runs through the commercial service layer — no payment SDK in the UI.",
-  );
+  const [notice, setNotice] = useState(t("billing.portal.noticeInitial"));
   const [busy, setBusy] = useState(false);
   const [selectingPlanId, setSelectingPlanId] = useState<CommercialPlanId | null>(
     null,
@@ -59,32 +59,62 @@ export function CustomerBillingPortal(): JSX.Element {
   const vatId = draftProfile?.vatId ?? saas.profile?.vatId ?? "";
   const taxId = draftProfile?.taxId ?? saas.profile?.taxId ?? "";
 
-  const invoiceColumns: DataTableColumn<BillingInvoice>[] = [
-    { key: "number", header: "Invoice", render: (r) => r.number },
-    { key: "status", header: "Status", render: (r) => r.status },
-    {
-      key: "amountUsd",
-      header: "Amount",
-      render: (r) => `€${r.amountUsd.toFixed(2)}`,
-    },
-    {
-      key: "issuedAt",
-      header: "Issued",
-      render: (r) => r.issuedAt.slice(0, 10),
-    },
-  ];
+  const invoiceColumns: DataTableColumn<BillingInvoice>[] = useMemo(
+    () => [
+      {
+        key: "number",
+        header: t("billing.portal.columns.invoice"),
+        render: (r) => r.number,
+      },
+      {
+        key: "status",
+        header: t("billing.portal.columns.status"),
+        render: (r) => r.status,
+      },
+      {
+        key: "amountUsd",
+        header: t("billing.portal.columns.amount"),
+        render: (r) => `€${r.amountUsd.toFixed(2)}`,
+      },
+      {
+        key: "issuedAt",
+        header: t("billing.portal.columns.issued"),
+        render: (r) => r.issuedAt.slice(0, 10),
+      },
+    ],
+    [t],
+  );
 
-  const quotaColumns: DataTableColumn<QuotaCheckResult>[] = [
-    { key: "metric", header: "Metric", render: (r) => r.metric },
-    { key: "used", header: "Used", render: (r) => String(r.used) },
-    { key: "limit", header: "Limit", render: (r) => String(r.limit) },
-    {
-      key: "status",
-      header: "Status",
-      render: (r) =>
-        r.exceeded ? "Exceeded" : r.softWarning ? "Warning" : "OK",
-    },
-  ];
+  const quotaColumns: DataTableColumn<QuotaCheckResult>[] = useMemo(
+    () => [
+      {
+        key: "metric",
+        header: t("billing.portal.columns.metric"),
+        render: (r) => r.metric,
+      },
+      {
+        key: "used",
+        header: t("billing.portal.columns.used"),
+        render: (r) => String(r.used),
+      },
+      {
+        key: "limit",
+        header: t("billing.portal.columns.limit"),
+        render: (r) => String(r.limit),
+      },
+      {
+        key: "status",
+        header: t("billing.portal.columns.status"),
+        render: (r) =>
+          r.exceeded
+            ? t("billing.portal.quotaStatus.exceeded")
+            : r.softWarning
+              ? t("billing.portal.quotaStatus.warning")
+              : t("billing.portal.quotaStatus.ok"),
+      },
+    ],
+    [t],
+  );
 
   const onCheckout = async (planId: CommercialPlanId) => {
     setBusy(true);
@@ -106,9 +136,16 @@ export function CustomerBillingPortal(): JSX.Element {
         actorUserId: saas.userId ?? undefined,
         email: saas.email,
       });
-      setNotice(`Activated ${planId} via ${session.providerId} (mock checkout).`);
+      setNotice(
+        t("billing.portal.noticeActivated", {
+          planId,
+          providerId: session.providerId,
+        }),
+      );
     } catch (error) {
-      setNotice(error instanceof Error ? error.message : "Checkout failed");
+      setNotice(
+        error instanceof Error ? error.message : t("billing.portal.noticeCheckoutFailed"),
+      );
     } finally {
       setBusy(false);
       setSelectingPlanId(null);
@@ -121,7 +158,7 @@ export function CustomerBillingPortal(): JSX.Element {
       saas.userId ?? undefined,
       saas.email,
     );
-    setNotice("Subscription cancelled.");
+    setNotice(t("billing.portal.noticeCancelled"));
   };
 
   const onRenew = () => {
@@ -130,7 +167,7 @@ export function CustomerBillingPortal(): JSX.Element {
       saas.userId ?? undefined,
       saas.email,
     );
-    setNotice("Subscription renewed for the next period.");
+    setNotice(t("billing.portal.noticeRenewed"));
   };
 
   const saveProfile = () => {
@@ -143,7 +180,7 @@ export function CustomerBillingPortal(): JSX.Element {
       country: saas.profile?.country ?? "DE",
       updatedAt: new Date().toISOString(),
     });
-    setNotice("Billing profile saved.");
+    setNotice(t("billing.portal.noticeProfileSaved"));
   };
 
   if (!saas.hydrated) {
@@ -152,7 +189,7 @@ export function CustomerBillingPortal(): JSX.Element {
         className="py-16 text-center text-sm"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        Loading billing…
+        {t("billing.portal.loading")}
       </div>
     );
   }
@@ -164,47 +201,46 @@ export function CustomerBillingPortal(): JSX.Element {
           className="text-[11px] font-semibold uppercase tracking-[0.16em]"
           style={{ color: "var(--agx-accent, #22d3ee)" }}
         >
-          Commercial SaaS
+          {t("billing.portal.eyebrow")}
         </p>
         <h1
           className="text-2xl font-semibold tracking-tight"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Subscription & Billing
+          {t("billing.portal.title")}
         </h1>
         <p
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Manage your plan, usage quotas, invoices, and payment methods.
-          Payment providers stay behind the billing service.
+          {t("billing.portal.lead")}
         </p>
         <div className="flex flex-wrap gap-2 pt-1">
           <SaasNavLink href="/pricing" variant="secondary">
-            Public pricing
+            {t("billing.publicPricing")}
           </SaasNavLink>
           <SaasNavLink href="/contact-sales" variant="secondary">
-            Contact Sales
+            {t("billing.contactSales")}
           </SaasNavLink>
           <SaasNavLink href="/dashboard/billing/admin" variant="secondary">
-            Admin billing
+            {t("billing.portal.adminBilling")}
           </SaasNavLink>
           <SaasNavLink href="/dashboard/settings#billing" variant="ghost">
-            Settings billing
+            {t("billing.portal.settingsBilling")}
           </SaasNavLink>
         </div>
       </Card>
 
       <Card className="space-y-3" padding="20px" hover={false}>
         <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Current license
+          {t("billing.portal.currentLicense")}
         </h2>
         <dl className="grid gap-3 sm:grid-cols-4 text-sm">
-          <Meta label="Plan" value={saas.license?.planId ?? "—"} />
-          <Meta label="Status" value={saas.licenseStatus ?? "—"} />
-          <Meta label="Seats" value={String(saas.license?.seats ?? "—")} />
+          <Meta label={t("billing.portal.plan")} value={saas.license?.planId ?? "—"} />
+          <Meta label={t("billing.portal.status")} value={saas.licenseStatus ?? "—"} />
+          <Meta label={t("billing.portal.seats")} value={String(saas.license?.seats ?? "—")} />
           <Meta
-            label="Renews / trial"
+            label={t("billing.portal.renewsTrial")}
             value={
               (saas.license?.renewsAt ?? saas.license?.trialEndsAt ?? "—").slice(
                 0,
@@ -214,14 +250,16 @@ export function CustomerBillingPortal(): JSX.Element {
           />
         </dl>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Enabled modules: {saas.features.join(", ") || "none"}
+          {t("billing.portal.enabledModules", {
+            modules: saas.features.join(", ") || t("billing.portal.none"),
+          })}
         </p>
         <div className="flex flex-wrap gap-2">
           <Button size="sm" variant="primary" onClick={onRenew} disabled={busy}>
-            Renew
+            {t("billing.portal.renew")}
           </Button>
           <Button size="sm" variant="danger" onClick={onCancel} disabled={busy}>
-            Cancel subscription
+            {t("billing.portal.cancelSubscription")}
           </Button>
         </div>
       </Card>
@@ -229,11 +267,11 @@ export function CustomerBillingPortal(): JSX.Element {
       <Card className="space-y-4" padding="20px" hover={false}>
         <div className="flex flex-wrap items-end justify-between gap-3">
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Plans
+            {t("billing.portal.plans")}
           </h2>
           <div className="flex flex-wrap gap-2 text-xs">
             <label className="flex items-center gap-2" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Provider
+              {t("billing.portal.provider")}
               <select
                 value={providerId}
                 onChange={(e) => setProviderId(e.target.value as PaymentProviderId)}
@@ -249,7 +287,7 @@ export function CustomerBillingPortal(): JSX.Element {
             <input
               value={coupon}
               onChange={(e) => setCoupon(e.target.value)}
-              placeholder="Coupon (LAUNCH20)"
+              placeholder={t("billing.portal.couponPlaceholder")}
               className="agx-ui-control rounded-lg border px-2 py-1"
             />
           </div>
@@ -273,7 +311,7 @@ export function CustomerBillingPortal(): JSX.Element {
 
       <Card className="space-y-3" padding="20px" hover={false}>
         <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Usage & quotas
+          {t("billing.portal.usageQuotas")}
         </h2>
         <DataTable
           columns={quotaColumns}
@@ -286,11 +324,11 @@ export function CustomerBillingPortal(): JSX.Element {
       <div className="grid gap-4 lg:grid-cols-2">
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Invoices
+            {t("billing.portal.invoices")}
           </h2>
           {saas.invoices.length === 0 ? (
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              No invoices yet.
+              {t("billing.portal.noInvoices")}
             </p>
           ) : (
             <DataTable
@@ -304,11 +342,11 @@ export function CustomerBillingPortal(): JSX.Element {
 
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Payment methods
+            {t("billing.portal.paymentMethods")}
           </h2>
           {saas.paymentMethods.length === 0 ? (
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              No payment methods on file.
+              {t("billing.portal.noPaymentMethods")}
             </p>
           ) : (
             <ul className="space-y-2 text-sm">
@@ -323,7 +361,7 @@ export function CustomerBillingPortal(): JSX.Element {
                   }}
                 >
                   {m.brand} ···· {m.last4} · {m.providerId}
-                  {m.isDefault ? " · default" : ""}
+                  {m.isDefault ? ` · ${t("billing.portal.default")}` : ""}
                 </li>
               ))}
             </ul>
@@ -333,10 +371,10 @@ export function CustomerBillingPortal(): JSX.Element {
 
       <Card className="space-y-3" padding="20px" hover={false}>
         <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Company billing profile
+          {t("billing.portal.companyProfile")}
         </h2>
         <div className="grid gap-3 sm:grid-cols-2">
-          <Field label="Company">
+          <Field label={t("billing.portal.company")}>
             <input
               value={profileName}
               onChange={(e) =>
@@ -348,7 +386,7 @@ export function CustomerBillingPortal(): JSX.Element {
               className="agx-ui-control w-full rounded-xl border px-3 py-2 text-sm"
             />
           </Field>
-          <Field label="Billing email">
+          <Field label={t("billing.portal.billingEmail")}>
             <input
               value={profileEmail}
               onChange={(e) =>
@@ -360,7 +398,7 @@ export function CustomerBillingPortal(): JSX.Element {
               className="agx-ui-control w-full rounded-xl border px-3 py-2 text-sm"
             />
           </Field>
-          <Field label="VAT ID">
+          <Field label={t("billing.portal.vatId")}>
             <input
               value={vatId}
               onChange={(e) =>
@@ -370,10 +408,10 @@ export function CustomerBillingPortal(): JSX.Element {
                 }))
               }
               className="agx-ui-control w-full rounded-xl border px-3 py-2 text-sm"
-              placeholder="e.g. DE123456789"
+              placeholder={t("billing.portal.vatPlaceholder")}
             />
           </Field>
-          <Field label="Tax ID">
+          <Field label={t("billing.portal.taxId")}>
             <input
               value={taxId}
               onChange={(e) =>
@@ -383,18 +421,18 @@ export function CustomerBillingPortal(): JSX.Element {
                 }))
               }
               className="agx-ui-control w-full rounded-xl border px-3 py-2 text-sm"
-              placeholder="e.g. DE123456789"
+              placeholder={t("billing.portal.taxPlaceholder")}
             />
           </Field>
         </div>
         <Button size="sm" variant="primary" onClick={saveProfile}>
-          Save profile
+          {t("billing.portal.saveProfile")}
         </Button>
       </Card>
 
       <Card className="space-y-2" padding="20px" hover={false}>
         <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Notifications
+          {t("billing.portal.notifications")}
         </h2>
         {saas.notifications.slice(0, 6).map((n) => (
           <div
@@ -415,7 +453,7 @@ export function CustomerBillingPortal(): JSX.Element {
         ))}
         {saas.notifications.length === 0 ? (
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            No billing notifications.
+            {t("billing.portal.noNotifications")}
           </p>
         ) : null}
       </Card>

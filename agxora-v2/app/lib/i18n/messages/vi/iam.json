@@ -1,0 +1,149 @@
+{
+  "identity": {
+    "eyebrow": "IAM doanh nghiệp",
+    "title": "Nhận dạng & Quyền truy cập",
+    "lead": "Tổ chức, không gian làm việc, RBAC, phần giữ chỗ bảo mật và kiến ​​trúc kiểm tra. Bộ điều hợp phụ trợ cắm vào mà không thay đổi bề mặt này.",
+    "openProfile": "Mở hồ sơ",
+    "teamManagement": "Quản lý đội",
+    "tabs": {
+      "organization": "Tổ chức",
+      "workspace": "Không gian làm việc",
+      "roles": "Vai trò và quyền",
+      "security": "Bảo vệ",
+      "audit": "Nhật ký kiểm tra"
+    },
+    "organizationSettings": "Cài đặt tổ chức",
+    "workspaceSettings": "Cài đặt không gian làm việc",
+    "noOrganization": "Không có tổ chức nào hoạt động Hoàn tất quá trình giới thiệu hoặc tạo một quy trình từ dịch vụ của tổ chức.",
+    "logoPlaceholder": "Bộ điều hợp thanh toán gói và tải lên logo là phần giữ chỗ cho phần phụ trợ danh tính trong tương lai.",
+    "rbacTitle": "RBAC - vai trò mặc định",
+    "permissionMatrix": "Ma trận quyền",
+    "canManageSettings": "Có thể quản lý cài đặt: {value} · Đã xác thực: {authenticated}",
+    "yes": "Đúng",
+    "no": "KHÔNG",
+    "securitySettings": "Cài đặt bảo mật",
+    "passwordChange": {
+      "title": "Thay đổi mật khẩu",
+      "detail": "Thay đổi mật khẩu kết nối thông qua nhà cung cấp xác thực khi được định cấu hình."
+    },
+    "twoFactor": {
+      "title": "Xác thực hai yếu tố (2FA)",
+      "detail": "Bộ điều hợp TOTP và WebAuthn đăng ký tại đây khi được bật."
+    },
+    "activeSessions": {
+      "title": "Phiên hoạt động",
+      "detail": "Thư mục thiết bị tồn tại trong các phiên nhận dạng; việc thu hồi trở nên có thẩm quyền với các phiên máy chủ."
+    },
+    "apiKeys": {
+      "title": "Khóa API",
+      "detail": "Tài khoản dịch vụ và mã thông báo có phạm vi dành cho nhà phát triển."
+    },
+    "absoluteTimeout": "Thời gian chờ tuyệt đối",
+    "idleTimeout": "Hết thời gian chờ",
+    "refreshSkew": "Làm mới nghiêng",
+    "persistentLogin": "Đăng nhập liên tục",
+    "disabled": "Tàn tật",
+    "enabled": "Đã bật",
+    "days": "{đếm} ngày",
+    "minutes": "{đếm} phút",
+    "toggleIdlePolicy": "Chuyển đổi trình giữ chỗ chính sách nhàn rỗi",
+    "previewSessionExpired": "Phiên xem trước đã hết hạn",
+    "previewAccountLocked": "Xem trước tài khoản đã bị khóa",
+    "auditActivity": "Hoạt động kiểm toán",
+    "auditLead": "Đăng nhập, đăng xuất, thay đổi vai trò, lời mời và các sự kiện của tổ chức được ghi lại cục bộ. Thay thế bằng một cửa hàng kiểm tra phụ trợ bất biến sau này.",
+    "auditEmpty": "Chưa có sự kiện IAM nào. Đăng nhập hoặc thay đổi vai trò để điền nhật ký.",
+    "meta": {
+      "name": "Tên",
+      "slug": "sên",
+      "plan": "Kế hoạch",
+      "owner": "Người sở hữu",
+      "created": "Tạo",
+      "yourRole": "Vai trò của bạn",
+      "workspace": "Không gian làm việc",
+      "status": "Trạng thái",
+      "isolationKey": "Phím cách ly"
+    },
+    "matrix": {
+      "permission": "Sự cho phép",
+      "owner": "Người sở hữu",
+      "admin": "Quản trị viên",
+      "manager": "Giám đốc",
+      "member": "Thành viên",
+      "viewer": "Người xem",
+      "yes": "Đúng"
+    },
+    "audit": {
+      "when": "Khi",
+      "action": "Hoạt động",
+      "actor": "Diễn viên",
+      "resource": "Tài nguyên"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "Người sở hữu",
+      "description": "Kiểm soát hoàn toàn bao gồm thanh toán và chuyển quyền sở hữu"
+    },
+    "admin": {
+      "name": "Quản trị viên",
+      "description": "Quản lý con người, bảo mật, không gian làm việc và mô-đun"
+    },
+    "manager": {
+      "name": "Giám đốc",
+      "description": "Các nhóm lãnh đạo và các mô-đun vận hành; mời thành viên"
+    },
+    "member": {
+      "name": "Thành viên",
+      "description": "Truy cập hoạt động hàng ngày"
+    },
+    "viewer": {
+      "name": "Người xem",
+      "description": "Quyền truy cập chỉ đọc"
+    }
+  },
+  "profile": {
+    "eyebrow": "Danh tính",
+    "title": "Hồ sơ người dùng",
+    "lead": "Quản lý danh tính, tùy chọn và bảo mật tài khoản của bạn. Kiểm soát tổ chức và không gian làm việc trực tiếp trong Cài đặt danh tính.",
+    "guest": "Khách mời",
+    "notSignedIn": "Chưa đăng nhập",
+    "identitySettings": "Cài đặt nhận dạng",
+    "security": "Bảo vệ",
+    "profileSection": "Hồ sơ",
+    "fullName": "Tên đầy đủ",
+    "email": "E-mail",
+    "language": "Ngôn ngữ",
+    "timezone": "Múi giờ",
+    "languageEnGb": "Tiếng Anh (Anh)",
+    "languageEnUs": "Tiếng Anh (Mỹ)",
+    "languageDe": "tiếng Đức",
+    "timezoneBerlin": "Châu Âu/Berlin",
+    "timezoneLondon": "Châu Âu/Luân Đôn",
+    "timezoneUtc": "UTC",
+    "timezoneNewYork": "Mỹ/New_York",
+    "notifications": "Thông báo",
+    "emailNotifications": "Thông báo qua email",
+    "pushNotifications": "Thông báo đẩy",
+    "workspace": "Không gian làm việc",
+    "noticeInitial": "Tùy chọn lưu cục bộ cho đến khi API hồ sơ được kết nối.",
+    "noticeSaved": "Đã cập nhật tùy chọn hồ sơ.",
+    "savePreferences": "Lưu tùy chọn"
+  },
+  "workspaceSelector": {
+    "empty": "Chưa có không gian làm việc nào — hãy tạo một tổ chức để cung cấp không gian làm việc.",
+    "label": "Không gian làm việc năng động",
+    "ariaLabel": "Chuyển đổi không gian làm việc"
+  },
+  "verifyEmail": {
+    "title": "Xác minh email",
+    "loading": "Đang tải…",
+    "skipForNow": "Bỏ qua bây giờ",
+    "tokenPlaceholder": "Mã thông báo xác minh",
+    "tokenIssued": "Mã thông báo xác minh được cấp cho phiên hiện tại.",
+    "issueFailed": "Không thể phát hành mã thông báo",
+    "verificationFailed": "Xác minh không thành công",
+    "verify": "Xác minh email",
+    "verifying": "Đang xác minh…",
+    "requestToken": "Yêu cầu mã thông báo xác minh"
+  }
+}

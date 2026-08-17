@@ -1,0 +1,298 @@
+{
+  "page": {
+    "eyebrow": "プロジェクト管理OS",
+    "title": "プロジェクト",
+    "lead": "{組織} の配信を計画し、予算と健全性を追跡し、チームを割り当て、タスクを管理します。データはローカルに保持され、バックエンド接続の準備が整います。",
+    "yourOrganization": "あなたの組織"
+  },
+  "list": {
+    "errorTitle": "プロジェクトを読み込めませんでした",
+    "searchLabel": "プロジェクトを検索する",
+    "searchPlaceholder": "プロジェクト、顧客、所有者、タグなどを検索します。",
+    "viewCards": "カード",
+    "viewTable": "テーブル",
+    "newProject": "新しいプロジェクト",
+    "statusFilter": "状態",
+    "priorityFilter": "優先度",
+    "customerFilter": "お客様",
+    "ownerFilter": "所有者",
+    "allStatuses": "すべてのステータス",
+    "allPriorities": "すべての優先事項",
+    "allCustomers": "すべてのお客様",
+    "allOwners": "すべての所有者",
+    "dateFrom": "から",
+    "dateTo": "に",
+    "emptyTitle": "まだプロジェクトはありません",
+    "emptyDescription": "デリバリー ワークスペースを立ち上げて、マイルストーン、予算、チームの所有権を追跡します。",
+    "createProject": "プロジェクトの作成",
+    "pagination": "{total} 件中 {from} ～ {to} を表示中",
+    "previous": "前の",
+    "next": "次",
+    "noDescription": "まだ説明がありません。",
+    "duePrefix": "期日}",
+    "openProject": "プロジェクト {名前} を開く",
+    "sortBy": "{列}で並べ替え",
+    "sort": {
+      "name": "名前",
+      "customer": "お客様",
+      "owner": "所有者",
+      "status": "状態",
+      "priority": "優先度",
+      "progress": "進捗",
+      "dueDate": "期限",
+      "budget": "予算"
+    }
+  },
+  "form": {
+    "createTitle": "プロジェクトの作成",
+    "editTitle": "プロジェクトの編集",
+    "cancel": "キャンセル",
+    "saveChanges": "変更を保存する",
+    "createProject": "プロジェクトの作成",
+    "projectName": "プロジェクト名",
+    "customer": "お客様",
+    "projectOwner": "プロジェクトオーナー",
+    "priority": "優先度",
+    "status": "状態",
+    "budget": "予算",
+    "currency": "通貨",
+    "startDate": "開始日",
+    "dueDate": "期日",
+    "color": "色",
+    "icon": "アイコン",
+    "tags": "タグ",
+    "tagsHint": "カンマ区切り",
+    "tagsPlaceholder": "エンタープライズ、ロールアウト",
+    "budgetPlaceholder": "0",
+    "description": "説明",
+    "selectColor": "色を選択してください {color}"
+  },
+  "taskForm": {
+    "createTitle": "タスクの作成",
+    "editTitle": "タスクの編集",
+    "cancel": "キャンセル",
+    "saveChanges": "変更を保存する",
+    "createTask": "タスクの作成",
+    "title": "タイトル",
+    "assignee": "譲受人",
+    "priority": "優先度",
+    "status": "状態",
+    "deadline": "締め切り",
+    "progress": "進捗",
+    "labels": "ラベル",
+    "labelsHint": "カンマ区切り",
+    "description": "説明"
+  },
+  "deleteDialog": {
+    "title": "プロジェクトの削除",
+    "cancel": "キャンセル",
+    "deletePermanently": "完全に削除",
+    "bodyPrefix": "これにより削除されます",
+    "thisProject": "このプロジェクト",
+    "bodySuffix": "ローカル ストレージからのすべての関連タスク、ファイル、メモ、およびアクティビティ。この操作は元に戻すことができません。"
+  },
+  "badges": {
+    "progress": "進捗",
+    "progressAria": "{ラベル}: {値}%"
+  },
+  "status": {
+    "planning": "企画",
+    "active": "アクティブ",
+    "on_hold": "保留中",
+    "completed": "完了",
+    "archived": "アーカイブ済み"
+  },
+  "taskStatus": {
+    "todo": "やるべきこと",
+    "in_progress": "進行中",
+    "review": "レビュー",
+    "done": "終わり"
+  },
+  "priority": {
+    "low": "低い",
+    "medium": "中くらい",
+    "high": "高い",
+    "critical": "致命的"
+  },
+  "role": {
+    "owner": "所有者",
+    "manager": "マネージャー",
+    "member": "メンバー",
+    "viewer": "ビューア"
+  },
+  "kind": {
+    "project": "プロジェクト",
+    "task": "タスク",
+    "milestone": "マイルストーン"
+  },
+  "timeline": {
+    "noTimelineTitle": "タイムラインなし",
+    "noTimelineDescription": "プロジェクトを開いて、スケジュール、期間、マイルストーンを表示します。",
+    "emptyTitle": "タイムラインが空です",
+    "emptyDescription": "開始日/期限とタスクを追加してスケジュールを設定します。",
+    "title": "タイムライン",
+    "subtitle": "開始、終了、期間、マイルストーン。依存関係は将来のリリースのために予約されています。",
+    "dateRange": "{開始} → {終了} · {日}日",
+    "itemAria": "{title} の {start} から {end} まで",
+    "dependenciesNone": "依存関係: なし"
+  },
+  "dashboard": {
+    "kpi": {
+      "activeProjects": "アクティブなプロジェクト",
+      "activeHint": "{計画中} 計画中",
+      "completed": "完了",
+      "completedHint": "ポートフォリオの {percent}%",
+      "onHold": "保留中",
+      "onHoldHint": "{アーカイブ済み} アーカイブ済み",
+      "teamMembers": "チームメンバー",
+      "teamHint": "すべてのプロジェクトにわたって",
+      "budgetOverview": "予算概要",
+      "budgetHint": "{percent}% が使用されました · {spent} が費やされました",
+      "openTasks": "開いているタスク",
+      "openTasksHint": "{期限切れ} 期限切れ",
+      "projectHealth": "プロジェクトの健全性",
+      "healthHint": "複合配信スコア",
+      "upcomingDeadlines": "今後の締め切り",
+      "upcomingHint": "今後 30 日間"
+    },
+    "analytics": {
+      "title": "分析",
+      "subtitle": "ポートフォリオの健全性、完了、予算の使用状況。",
+      "statusMix": "ステータスミックス",
+      "deliverySignals": "配信シグナル",
+      "completedPercent": "完了率 (%)",
+      "budgetUsage": "予算の使用状況",
+      "health": "健康",
+      "upcomingDeadlines": "今後の締め切り",
+      "noUpcomingDeadlines": "次のウィンドウには今後の期限はありません。"
+    },
+    "recentActivity": {
+      "title": "最近の活動",
+      "subtitle": "最新のプロジェクト イベントが最初です。",
+      "empty": "プロジェクトやタスクが作成されると、アクティビティが表示されます。"
+    }
+  },
+  "kanban": {
+    "emptyTitle": "ボードにはタスクがありません",
+    "emptyDescription": "タスクを作成して、To Do、進行中、レビュー、完了の配信を整理します。",
+    "addTask": "タスクの追加",
+    "columnAria": "{ステータス}列",
+    "taskProgress": "タスクの進捗状況",
+    "edit": "編集",
+    "complete": "完了"
+  },
+  "detail": {
+    "notFoundTitle": "プロジェクトが見つかりません",
+    "notFoundDescription": "このプロジェクトは削除されたか、現在の組織では使用できない可能性があります。",
+    "backToProjects": "← プロジェクトに戻る",
+    "ownerMeta": "{顧客} · 所有者 {owner}",
+    "edit": "編集",
+    "delete": "消去",
+    "sectionsAria": "プロジェクトの詳細セクション",
+    "tabs": {
+      "overview": "概要",
+      "tasks": "タスク",
+      "files": "ファイル",
+      "notes": "注意事項",
+      "activity": "活動",
+      "team": "チーム",
+      "settings": "設定"
+    }
+  },
+  "overview": {
+    "missingTitle": "不足しているプロジェクト",
+    "missingDescription": "プロジェクトを選択してその概要を表示します。",
+    "title": "概要",
+    "noDescription": "説明はありません。",
+    "budget": "予算",
+    "spent": "過ごした",
+    "start": "始める",
+    "due": "期限",
+    "openTasks": "開いているタスク",
+    "completedTasks": "完了したタスク"
+  },
+  "tasks": {
+    "title": "タスク管理",
+    "newTask": "新しいタスク",
+    "tableTitle": "タイトル",
+    "tableAssignee": "譲受人",
+    "tablePriority": "優先度",
+    "tableStatus": "状態",
+    "tableDue": "期限",
+    "tableProgress": "進捗",
+    "tableActions": "アクション",
+    "edit": "編集",
+    "complete": "完了",
+    "delete": "消去",
+    "emptyTitle": "まだタスクはありません",
+    "emptyDescription": "タスクを作成し、所有者を割り当て、ボード上で進捗状況を追跡します。",
+    "createTask": "タスクの作成"
+  },
+  "files": {
+    "title": "ファイルマネージャー",
+    "description": "画像、PDF、オフィス文書をアップロードします。メタデータはローカルに保持されます。",
+    "upload": "アップロード",
+    "emptyTitle": "ファイルがアップロードされていません",
+    "emptyDescription": "チームがレビューおよびプレビューできるようにプロジェクト成果物を追加します。",
+    "preview": "プレビュー",
+    "metadataOnly": "メタデータのみ",
+    "delete": "消去"
+  },
+  "notes": {
+    "editTitle": "メモを編集する",
+    "newTitle": "新しいメモ",
+    "title": "タイトル",
+    "author": "著者",
+    "body": "体",
+    "cancel": "キャンセル",
+    "saveNote": "メモを保存する",
+    "emptyTitle": "まだメモはありません",
+    "emptyDescription": "意思決定、会議の結果、配信のコンテキストをキャプチャします。",
+    "edit": "編集",
+    "delete": "消去"
+  },
+  "activity": {
+    "title": "アクティビティフィード",
+    "emptyTitle": "まだ活動はありません",
+    "emptyDescription": "チームの作業中、プロジェクトのイベントがここに表示されます。"
+  },
+  "team": {
+    "missingTitle": "不足しているプロジェクト",
+    "missingDescription": "チームメンバーを管理するプロジェクトを選択します。",
+    "assignTitle": "メンバーの割り当て",
+    "name": "名前",
+    "email": "電子メール",
+    "role": "役割",
+    "addMember": "メンバーを追加",
+    "teamTitle": "チーム",
+    "remove": "取り除く"
+  },
+  "settings": {
+    "missingTitle": "不足しているプロジェクト",
+    "missingDescription": "設定を管理するプロジェクトを選択します。",
+    "title": "プロジェクト設定",
+    "description": "予算の書き込みとアーカイブのステータスを更新します。フィールド全体を編集するには、「編集」ダイアログを使用します。",
+    "spentAmount": "使用金額",
+    "saveSpent": "支出済みの節約",
+    "archiveProject": "アーカイブプロジェクト",
+    "editAllFields": "すべてのフィールドを編集する"
+  },
+  "toasts": {
+    "projectCreated": "プロジェクトが作成されました",
+    "projectUpdated": "プロジェクトが更新されました",
+    "projectDeleted": "プロジェクトが削除されました",
+    "checkForm": "フォームを確認する",
+    "validationFailed": "検証が失敗しました。",
+    "taskCreated": "タスクが作成されました",
+    "taskUpdated": "タスクが更新されました",
+    "taskCompleted": "タスクが完了しました",
+    "taskDeleted": "タスクが削除されました",
+    "filesUploaded": "アップロードされたファイル",
+    "filesUploadedDetail": "{count} ファイル",
+    "fileDeleted": "ファイルが削除されました",
+    "noteSaved": "メモが保存されました",
+    "memberAdded": "メンバー追加",
+    "settingsSaved": "設定が保存されました",
+    "projectArchived": "プロジェクトがアーカイブされました"
+  }
+}

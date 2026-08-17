@@ -1,0 +1,121 @@
+{
+  "loading": "Agent-Betriebssystem wird geladen...",
+  "eyebrow": "AI-Agent-Betriebssystem",
+  "title": "Agenten-Betriebssystem",
+  "subtitle": "Lokaler Agentenarbeitsbereich — Agenten können als Simulationen für CRM, Projekte, Finanzen, Workflows und Integrationen aktiviert und ausgeführt werden. Die autonome Produktionsausführung ist nicht verbunden.",
+  "noticeDefault": "Lokales Agenten-Betriebssystem — Läufe werden in diesem Arbeitsbereich simuliert.",
+  "aiChat": "KI-Chat",
+  "tabs": {
+    "dashboard": "Armaturenbrett",
+    "registry": "Register",
+    "marketplace": "Marktplatz",
+    "monitor": "Monitor",
+    "history": "Geschichte",
+    "memory": "Speicher",
+    "knowledge": "Kenntnisse",
+    "tools": "Werkzeuge",
+    "settings": "Einstellungen"
+  },
+  "notice": {
+    "simulatedRun": "Simulierter Lauf · {status} ({duration}ms)",
+    "taskFailed": "Aufgabe fehlgeschlagen",
+    "activated": "Lokal aktiviert: {agentId}",
+    "agentPaused": "Agent pausiert",
+    "agentActivated": "Agent aktiviert",
+    "taskCancelled": "Aufgabe abgebrochen.",
+    "supervisorDelegated": "Der Vorgesetzte delegierte ein Follow-up",
+    "settingsUpdated": "Agent-Betriebssystemeinstellungen für diesen lokalen Arbeitsbereich aktualisiert."
+  },
+  "dashboard": {
+    "agents": "Agenten",
+    "active": "Aktiv",
+    "localReady": "Lokal bereit",
+    "simulatedToday": "Heute simuliert",
+    "failedToday": "Heute fehlgeschlagen",
+    "avgExec": "Durchschn. Ausf.",
+    "toolCalls": "Werkzeugaufrufe",
+    "knowledge": "Kenntnisse",
+    "activeFleet": "Aktive Flotte",
+    "emptyTitle": "Keine Agenten aktiv",
+    "emptyDescription": "Installieren oder aktivieren Sie einen Agenten vom Marktplatz aus, um simulierte Läufe zu starten."
+  },
+  "registry": {
+    "title": "Register",
+    "selectPrompt": "Wählen Sie einen Agenten aus der Registrierung aus.",
+    "status": "Stend&#x09;Stand",
+    "health": "Gesundheit: ${ health }",
+    "queue": "Warteschlange: {queue}",
+    "usage": "usage=\"Usage: $0\"",
+    "executeTask": "Aufgabe starten",
+    "supervisorDelegate": "Vorgesetzter Delegierter"
+  },
+  "marketplace": {
+    "tools": "die Instrumente",
+    "installed": "Installiert",
+    "installActivate": "Installieren & Aktivieren"
+  },
+  "monitor": {
+    "title": "Agentenmonitor",
+    "emptyTitle": "Keine zu überwachenden Agenten",
+    "emptyDescription": "Agenten vom Marktplatz aus aktivieren.",
+    "latestConfidence": "Zuversicht der neuesten Argumentation: {confidence} — {steps}"
+  },
+  "history": {
+    "title": "Ausführungshistorie",
+    "emptyTitle": "Noch keine Hinrichtungen",
+    "emptyDescription": "Führen Sie eine Agentenaufgabe aus der Registrierung oder dem Monitor aus."
+  },
+  "memory": {
+    "title": "Speicherzentrum",
+    "subtitle": "Arbeiten · Konversation · Geschäft · Langfristig · Arbeitsbereich · Agentenumfänge (architekturfähig).",
+    "emptyTitle": "Keine Speicheraufzeichnungen",
+    "emptyDescription": "Führen Sie eine Aufgabe aus, um den Arbeits-/Agentenspeicher zu füllen."
+  },
+  "knowledge": {
+    "title": "Knowledge Center",
+    "subtitle": "Unternehmen, Dokumente, Projekte, CRM, Richtlinien, Verfahren — plus Vektor-/RAG-Platzhalter.",
+    "emptyTitle": "Keine Wissensdokumente",
+    "emptyDescription": "Seed-Wissen erscheint nach dem Workspace-Bootstrap."
+  },
+  "tools": {
+    "sensitive": "Empfindlich",
+    "mcpReady": "· MCP-ready"
+  },
+  "settings": {
+    "title": "Agent-Betriebssystemeinstellungen",
+    "defaultLlmProvider": "Standard-LLM-Anbieter",
+    "enableSupervisor": "Supervisor-Agent-Architektur aktivieren",
+    "isolateSensitive": "Isolieren Sie empfindliche Werkzeuge",
+    "saveSettings": "Einstellungen speichern",
+    "providersHint": "Bereit für Anbieter: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Adapter über registerLlmProvider ohne UI-Änderungen tauschen."
+  },
+  "columns": {
+    "agent": "Vertreter",
+    "status": "Status",
+    "health": "Gesundheit",
+    "queue": "Warteschlange",
+    "usage": "Verwendung",
+    "actions": "Aktionen",
+    "task": "Aufgabe",
+    "duration": "Dauer",
+    "created": "Erstellt",
+    "scope": "Reichweite",
+    "key": "Passfeder",
+    "value": "Wert",
+    "at": "Bei",
+    "title": "Titel",
+    "kind": "Art",
+    "summary": "Kurzdarstellung"
+  },
+  "actions": {
+    "run": "Ausführen",
+    "pause": "Pause",
+    "activate": "Aktivieren",
+    "cancel": "Stornieren",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "{agentId} Geschäftsziel ausführen",
+    "planAndExecute": "Planen und Ausführen eines Geschäftsziels für den Arbeitsbereich"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "page": {
+    "eyebrow": "Hệ điều hành tiếp thị AGXORA",
+    "title": "Studio sáng tạo AI",
+    "lead": "Sản xuất nội dung doanh nghiệp - tạo, xây dựng thương hiệu, lập kế hoạch, xuất bản và đo lường các chiến dịch do AI cung cấp trên mọi kênh.",
+    "dashboard": "Trang tổng quan",
+    "workspace": "Không gian làm việc",
+    "workspaceSubtitle": "Tạo nội dung · Chiến dịch · Thư viện phương tiện · Mẫu · Tài sản thương hiệu · Hàng xuất bản · Phân tích",
+    "workspaceAria": "Không gian làm việc của người sáng tạo",
+    "integrations": "Tích hợp trong tương lai",
+    "integrationsSubtitle": "Bộ điều hợp nền tảng chính thức được bảo lưu - không có kết nối trực tiếp giả mạo.",
+    "aiFeatures": "Tính năng AI",
+    "aiFeaturesSubtitle": "Bản đồ năng lực sản xuất, thương hiệu, tiến độ và nội địa hóa."
+  },
+  "tabs": {
+    "create": "Tạo nội dung",
+    "campaigns": "Chiến dịch",
+    "media": "Thư viện phương tiện",
+    "templates": "Mẫu",
+    "brand": "Tài sản thương hiệu",
+    "queue": "Hàng đợi xuất bản",
+    "analytics": "Phân tích"
+  },
+  "templates": {
+    "emptyTitle": "Không có mẫu",
+    "emptyDescription": "Nội dung và mẫu thiết kế có thể tái sử dụng sẽ tồn tại ở đây."
+  },
+  "campaign": {
+    "title": "Người lập kế hoạch chiến dịch",
+    "calendar": "Lịch nội dung",
+    "columns": {
+      "name": "Tên chiến dịch",
+      "objective": "Khách quan",
+      "audience": "Khán giả",
+      "platforms": "Nền tảng",
+      "budget": "Ngân sách",
+      "timeline": "Dòng thời gian",
+      "status": "Trạng thái"
+    },
+    "emptyTitle": "Không có chiến dịch",
+    "emptyDescription": "Tạo một chiến dịch để lên kế hoạch cho mục tiêu, đối tượng và mốc thời gian."
+  },
+  "media": {
+    "title": "Thư viện phương tiện",
+    "columns": {
+      "asset": "Tài sản",
+      "type": "Kiểu",
+      "folder": "Thư mục",
+      "tags": "Thẻ",
+      "updated": "Đã cập nhật"
+    },
+    "emptyTitle": "Không có phương tiện truyền thông",
+    "emptyDescription": "Hình ảnh, video, tài liệu, logo và mẫu sẽ xuất hiện ở đây.",
+    "searchPlaceholder": "Tìm kiếm nội dung, thư mục, thẻ…",
+    "typeFilter": "Kiểu",
+    "allTypes": "Tất cả các loại",
+    "images": "Hình ảnh",
+    "videos": "Video",
+    "documents": "Tài liệu",
+    "logos": "Logo thương hiệu",
+    "templates": "Mẫu"
+  },
+  "generator": {
+    "title": "Trình tạo nội dung AI",
+    "lead": "Tạo chú thích trên Instagram, tập lệnh TikTok, bài đăng trên LinkedIn, quảng cáo, bài viết SEO, v.v.",
+    "brief": "Ngắn gọn",
+    "briefPlaceholder": "Mô tả ưu đãi, đối tượng và CTA…",
+    "generateDraft": "Tạo bản nháp",
+    "aiRewrite": "Viết lại AI",
+    "translate": "Dịch",
+    "initialOutput": "Chọn định dạng và tiếng nói thương hiệu, sau đó tạo bản nháp. Bộ điều hợp nhà cung cấp được bảo lưu - chưa có cuộc gọi mô hình trực tiếp nào.",
+    "draftStaged": "Bản nháp được dàn dựng cho {format} · giọng nói: {voice}. Bộ chuyển đổi thế hệ được bảo lưu.",
+    "rewriteQueued": "AI Rewrite đã được xếp hàng đợi - bộ chuyển đổi viết lại được dành riêng.",
+    "translateQueued": "Dịch Nội dung được xếp hàng đợi - dành riêng bộ điều hợp đa ngôn ngữ.",
+    "brandVoice": "Tiếng nói thương hiệu",
+    "brandVoiceLead": "Cài đặt trước tông màu kinh doanh cộng với tiếng nói thương hiệu tùy chỉnh để đảm bảo tính nhất quán.",
+    "active": "Tích cực"
+  },
+  "queue": {
+    "title": "Hàng đợi xuất bản",
+    "columns": {
+      "title": "Tiêu đề",
+      "platform": "Nền tảng",
+      "format": "Định dạng",
+      "status": "Trạng thái",
+      "scheduled": "Đã lên lịch",
+      "author": "Tác giả"
+    },
+    "emptyTitle": "Không có bài viết nào trong hàng đợi",
+    "emptyDescription": "Bản nháp, đánh giá và bài đăng theo lịch sẽ xuất hiện ở đây.",
+    "filterStatus": "Trạng thái lọc",
+    "allStatuses": "Tất cả trạng thái"
+  },
+  "analytics": {
+    "title": "Phân tích",
+    "topPosts": "Bài viết hàng đầu",
+    "engagement": "Tiếng Anh {giá trị}",
+    "reach": "Đạt đến {giá trị}",
+    "recommendations": "Khuyến nghị AI"
+  },
+  "integrations": {
+    "lead": "Tích hợp trong tương lai - tùy chọn. Không có API trực tiếp cho đến khi được kết nối. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.",
+    "adapter": "Bộ chuyển đổi:"
+  },
+  "aiFeaturesPanel": {
+    "lead": "Bản đồ tính năng AI - ý tưởng, chú thích, hashtag, lịch, chiến dịch, đối tượng, lịch trình, tính nhất quán của thương hiệu, viết lại, dịch, đa ngôn ngữ."
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "loading": "Enterprise Intelligence Center laden...",
+  "eyebrow": "Enterprise Intelligence-centrum",
+  "title": "Intelligentie",
+  "subtitle": "KPI's, scorekaarten, waarschuwingen en rapporten voor elke AGXORA-module. De onderstaande waarden zijn een geplaatste demo-dataset totdat backends voor live-analyse verbinding maken.",
+  "demoBanner": "Demodataset — filtert en erkent werk tijdens de sessie; export en live modeloproepen zijn nog niet beschikbaar.",
+  "noticeDefault": "Gezaaide demo-analyses worden getoond, geen live productietelemetrie.",
+  "noPermission": "U heeft geen intelligence.read-rechten voor deze werkruimte.",
+  "filtersUpdated": "Filters bijgewerkt",
+  "demoReloaded": "Demogegevensset opnieuw geladen voor deze werkruimte.",
+  "acknowledged": "Erkend: {title}",
+  "exportUnavailableTitle": "Exporteren niet beschikbaar: het genereren van rapporten is nog niet verbonden.",
+  "exportUnavailableAria": "Exporteer {title} als {format}: niet beschikbaar",
+  "tabs": {
+    "executive": "Leidinggevend",
+    "health": "Zakelijke gezondheid",
+    "workspace": "Analyse",
+    "kpis": "KPI-centrum",
+    "reports": "Rapporten",
+    "insights": "Inzichten",
+    "forecasts": "Voorspellingen",
+    "alerts": "Waarschuwingen",
+    "scorecards": "Scorekaarten",
+    "explorer": "Gegevensverkenner"
+  },
+  "filters": {
+    "from": "Van",
+    "to": "Naar",
+    "domain": "Domein",
+    "allDomains": "Alle domeinen",
+    "apply": "Pas filters toe",
+    "reloadDemo": "Demogegevens opnieuw laden",
+    "viewsAria": "Intelligentie-weergaven"
+  },
+  "executive": {
+    "companyHealth": "Bedrijfsgezondheid",
+    "revenueScore": "Inkomstenscore",
+    "customerHealth": "Gezondheid van de klant",
+    "projectHealth": "Projectgezondheid",
+    "workflowSuccess": "Workflow-succes",
+    "aiActivity": "AI-activiteit",
+    "finance": "Financiën",
+    "riskGrowth": "Risico / Groei",
+    "kpiStrip": "Executive KPI-strook",
+    "visualizationPreviews": "Visualisatievoorbeelden",
+    "visualizationHint": "Illustratieve grafieken uit de demoserie – geen interactieve drill-downs.",
+    "noSeries": "Geen seriegebonden"
+  },
+  "health": {
+    "title": "Decompositie van de bedrijfsgezondheid",
+    "overall": "Algemeen",
+    "revenue": "Winst",
+    "customers": "Klanten",
+    "projects": "Projecten",
+    "workflows": "Werkstromen",
+    "ai": "AI",
+    "finance": "Financiën",
+    "operations": "Operaties",
+    "riskPosture": "Risicohouding",
+    "growth": "Groei",
+    "observability": "Waarneembaarheid: {metrics} statistieken · {avgMs}ms gem · systeemgezondheid {health}"
+  },
+  "workspace": {
+    "noSeries": "Geen serie"
+  },
+  "kpis": {
+    "title": "KPI-centrum",
+    "subtitle": "Configureerbare KPI-catalogus voor omzet, klanten, projecten, workflows, agenten en automatisering.",
+    "emptyTitle": "Analytics wacht op signaal",
+    "emptyDescription": "Zodra uw werkruimte activiteit genereert, verschijnen hier uitvoerende KPI's en waarschuwingen."
+  },
+  "reports": {
+    "title": "Rapportage-engine",
+    "subtitle": "Rapportdefinities worden ter beoordeling geplaatst. Bestandsexport is pas beschikbaar als er een rapportage-backend is aangesloten.",
+    "emptyTitle": "Geen rapporten",
+    "emptyDescription": "Rapporteert zaad over de bootstrap van de werkruimte.",
+    "scheduleOnDemand": "op aanvraag"
+  },
+  "insights": {
+    "emptyTitle": "Nog geen inzichten",
+    "emptyDescription": "Demo-inzichten verschijnen na de zaden van de werkruimte. Het genereren van live AI-inzichten is niet gekoppeld.",
+    "badge": "Demo · {soort} · {domein} · conf {vertrouwen}"
+  },
+  "forecasts": {
+    "emptyTitle": "Nog geen voorspellingen",
+    "emptyDescription": "Demoprognoses verschijnen na het zaaien. Voorspellende modellen zijn niet met elkaar verbonden.",
+    "title": "{soort} voorspelling",
+    "baseline": "Basislijn {basislijn} → geprojecteerd {geprojecteerd} ({dagen}d)",
+    "confidence": "Demo · Vertrouwen {vertrouwen} — {note}"
+  },
+  "alerts": {
+    "title": "Waarschuwingsmotor",
+    "emptyTitle": "Geen waarschuwingen",
+    "emptyDescription": "Waarschuwingen komen voort uit risicoheuristieken.",
+    "acked": "aangevallen",
+    "open": "open",
+    "acknowledge": "Erkennen"
+  },
+  "scorecards": {
+    "title": "Scorekaart-engine",
+    "emptyTitle": "Geen scorekaarten",
+    "emptyDescription": "Scorekaarten zaad op bootstrap."
+  },
+  "explorer": {
+    "title": "Gegevensverkenner",
+    "searchPlaceholder": "Zoek demorijen…",
+    "searchAria": "Zoek in demo-verkennerrijen",
+    "emptyTitle": "Er komen geen rijen overeen",
+    "emptyDescription": "Pas filters aan, zoek of laad de demo-dataset opnieuw.",
+    "hint": "Zoeken aan de clientzijde op gezaaide tupels: backend-aggregatie en drill-down zijn niet met elkaar verbonden."
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "Waarde",
+    "delta": "Δ%",
+    "trend": "Trend",
+    "target": "Doel",
+    "severity": "Ernst",
+    "alert": "Waarschuw",
+    "domain": "Domein",
+    "status": "Status",
+    "actions": "Acties",
+    "report": "Rapport",
+    "kind": "Vriendelijk",
+    "schedule": "Schema",
+    "export": "Exporteren",
+    "scorecard": "Scorekaart",
+    "score": "Scoren",
+    "topDriver": "Topchauffeur",
+    "label": "Label",
+    "entity": "Entiteit",
+    "measure": "Meeteenheid",
+    "date": "Datum"
+  },
+  "emDash": "—"
+}

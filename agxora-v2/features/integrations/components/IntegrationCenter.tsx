@@ -171,15 +171,15 @@ export function IntegrationCenter(): JSX.Element {
           typeof result.body.message === "string"
             ? result.body.message
             : t("integrations.errors.failedToFetch");
-        setNotice(`API explorer network error: ${msg}`);
+        setNotice(t("integrations.notice.networkError", { message: msg }));
       } else if (result.statusCode >= 400) {
         const msg =
           typeof result.body.message === "string"
             ? result.body.message
-            : `HTTP ${result.statusCode}`;
-        setNotice(`API explorer → ${result.statusCode}: ${msg}`);
+            : t("integrations.errors.httpStatus", { status: result.statusCode });
+        setNotice(t("integrations.notice.explorerError", { status: result.statusCode, message: msg }));
       } else {
-        setNotice(`API explorer → ${result.statusCode}`);
+        setNotice(t("integrations.notice.explorerSuccess", { status: result.statusCode }));
       }
     } catch (err) {
       setNotice(err instanceof Error ? err.message : t("integrations.notice.explorerFailed"));
@@ -197,7 +197,10 @@ export function IntegrationCenter(): JSX.Element {
         mode,
       });
       setNotice(
-        `Demo sync · ${job.status} (${job.recordsProcessed} local records) — no external data transferred.`,
+        t("integrations.notice.syncResult", {
+          status: job.status,
+          records: job.recordsProcessed,
+        }),
       );
     } finally {
       setBusy(false);
@@ -235,7 +238,7 @@ export function IntegrationCenter(): JSX.Element {
               setNotice(c?.health.message ?? t("integrations.notice.diagnosed"));
             })}
           >
-            Diagnose
+            {t("integrations.actions.diagnose")}
           </Button>
           <Button
             size="sm"
@@ -244,17 +247,17 @@ export function IntegrationCenter(): JSX.Element {
             title={t("integrations.actions.demoSyncTitle")}
             onClick={() => void onSync(r.id, "manual")}
           >
-            Demo sync
+            {t("integrations.actions.demoSync")}
           </Button>
           <Button
             size="sm"
             variant="ghost"
             onClick={() => {
               integrationService.disconnect(r.id);
-              setNotice(`Removed demo connection: ${r.displayName}`);
+              setNotice(t("integrations.notice.removedConnection", { name: r.displayName }));
             }}
           >
-            Disconnect
+            {t("integrations.actions.disconnect")}
           </Button>
         </div>
       ),
@@ -305,7 +308,7 @@ export function IntegrationCenter(): JSX.Element {
               setNotice(t("integrations.notice.keyRotated"));
             }}
           >
-            Rotate
+            {t("integrations.actions.rotate")}
           </Button>
           <Button
             size="sm"
@@ -316,7 +319,7 @@ export function IntegrationCenter(): JSX.Element {
               setNotice(t("integrations.notice.keyRevoked"));
             }}
           >
-            Revoke
+            {t("integrations.actions.revoke")}
           </Button>
         </div>
       ),
@@ -346,7 +349,7 @@ export function IntegrationCenter(): JSX.Element {
           disabled={busy}
           onClick={() => void onTestWebhook(r)}
         >
-          Test
+          {t("integrations.actions.test")}
         </Button>
       ),
     },
@@ -442,7 +445,7 @@ export function IntegrationCenter(): JSX.Element {
           </Card>
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Event bridge demo
+              {t("integrations.dashboard.eventBridgeDemo")}
             </h2>
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {t("integrations.dashboard.eventBridgeHint")}
@@ -473,7 +476,7 @@ export function IntegrationCenter(): JSX.Element {
       {tab === "installed" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Installed integrations
+            {t("integrations.installed.title")}
           </h2>
           <DataTable
             columns={connectionColumns}
@@ -485,9 +488,11 @@ export function IntegrationCenter(): JSX.Element {
           />
           {platform.syncJobs[0] ? (
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {t("integrations.installed.latestSync", { status: platform.syncJobs[0].status, records: platform.syncJobs[0].recordsProcessed, mode: platform.syncJobs[0].mode })} {platform.syncJobs[0].status} ·{" "}
-              {platform.syncJobs[0].recordsProcessed} records · mode{" "}
-              {platform.syncJobs[0].mode}
+              {t("integrations.installed.latestSync", {
+                status: platform.syncJobs[0].status,
+                records: platform.syncJobs[0].recordsProcessed,
+                mode: platform.syncJobs[0].mode,
+              })}
             </p>
           ) : null}
         </Card>
@@ -539,7 +544,7 @@ export function IntegrationCenter(): JSX.Element {
       {tab === "logs" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Integration logs
+            {t("integrations.logs.title")}
           </h2>
           <DataTable
             columns={logColumns}
@@ -556,10 +561,10 @@ export function IntegrationCenter(): JSX.Element {
         <Card className="space-y-3" padding="20px" hover={false}>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              API keys
+              {t("integrations.apiKeys.title")}
             </h2>
             <Button size="sm" onClick={onCreateKey}>
-              Generate key
+              {t("integrations.apiKeys.generateKey")}
             </Button>
           </div>
           {createdKeySecret ? (
@@ -589,17 +594,17 @@ export function IntegrationCenter(): JSX.Element {
         <>
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Webhook endpoints
+              {t("integrations.webhooks.endpointsTitle")}
             </h2>
             <div className="flex flex-wrap gap-2">
               <input
                 value={webhookUrl}
                 onChange={(e) => setWebhookUrl(e.target.value)}
                 className="agx-ui-control min-w-[240px] flex-1 rounded-xl border px-3 py-2 text-sm"
-                placeholder="https://…"
+                placeholder={t("integrations.webhooks.urlPlaceholder")}
               />
               <Button size="sm" onClick={onCreateWebhook}>
-                Add outgoing webhook
+                {t("integrations.webhooks.addOutgoing")}
               </Button>
             </div>
             <DataTable
@@ -613,7 +618,7 @@ export function IntegrationCenter(): JSX.Element {
           </Card>
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Delivery logs
+              {t("integrations.webhooks.deliveryLogs")}
             </h2>
             <DataTable
               columns={deliveryColumns}
@@ -631,7 +636,7 @@ export function IntegrationCenter(): JSX.Element {
         <div className="grid gap-4 lg:grid-cols-2">
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Developer settings
+              {t("integrations.developer.title")}
             </h2>
             <label className="flex items-center gap-2 text-sm" style={{ color: "var(--agx-ds-text)" }}>
               <input
@@ -645,7 +650,7 @@ export function IntegrationCenter(): JSX.Element {
                   }))
                 }
               />
-              Sandbox mode
+              {t("integrations.developer.sandboxMode")}
             </label>
             <label className="flex items-center gap-2 text-sm" style={{ color: "var(--agx-ds-text)" }}>
               <input
@@ -659,7 +664,7 @@ export function IntegrationCenter(): JSX.Element {
                   }))
                 }
               />
-              Webhook signing enabled
+              {t("integrations.developer.webhookSigning")}
             </label>
             <Button
               size="sm"
@@ -673,7 +678,7 @@ export function IntegrationCenter(): JSX.Element {
                 setNotice(t("integrations.notice.developerSaved"));
               }}
             >
-              Save settings
+              {t("integrations.developer.saveSettings")}
             </Button>
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {t("integrations.developer.apiDocs", { url: platform.developerSettings.apiDocsUrl })} {platform.developerSettings.apiDocsUrl}
@@ -684,11 +689,12 @@ export function IntegrationCenter(): JSX.Element {
 
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              API explorer
+              {t("integrations.developer.explorerTitle")}
             </h2>
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {t("integrations.developer.gatewayRoutes", { routes: platform.gatewayRoutes.map((r) => r.protocol).join(", ") })}{" "}
-              {platform.gatewayRoutes.map((r) => r.protocol).join(", ")}
+              {t("integrations.developer.gatewayRoutes", {
+                routes: platform.gatewayRoutes.map((r) => r.protocol).join(", "),
+              })}
             </p>
             <input
               value={explorerPath}
@@ -696,7 +702,7 @@ export function IntegrationCenter(): JSX.Element {
               className="agx-ui-control w-full rounded-xl border px-3 py-2 font-mono text-sm"
             />
             <Button size="sm" disabled={busy} onClick={() => void onExplore()}>
-              Send GET
+              {t("integrations.developer.sendGet")}
             </Button>
             {explorerResult ? (
               <pre
@@ -714,7 +720,7 @@ export function IntegrationCenter(): JSX.Element {
 
           <Card className="space-y-2 lg:col-span-2" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              OAuth providers
+              {t("integrations.developer.oauthProviders")}
             </h2>
             <ul className="flex flex-wrap gap-2 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {platform.oauthProviders.map((p) => (

@@ -68,9 +68,9 @@ export default function WelcomePage(): JSX.Element {
             lineHeight: 1.65,
           }}
         >
-          <li>Confirm your organization profile</li>
-          <li>Choose modules that match how you work</li>
-          <li>Enter the dashboard with a clear starting point</li>
+          <li>{t("auth.welcome.checklistProfile")}</li>
+          <li>{t("auth.welcome.checklistModules")}</li>
+          <li>{t("auth.welcome.checklistDashboard")}</li>
         </ul>
 
         <button type="button" onClick={onContinue} style={authButtonStyle}>
@@ -78,13 +78,13 @@ export default function WelcomePage(): JSX.Element {
         </button>
 
         <p style={{ ...authMutedStyle, textAlign: "center", margin: 0 }}>
-          Prefer to explore first?{" "}
+          {t("auth.welcome.exploreFirst")}{" "}
           <Link
             href="/dashboard"
             onClick={() => completeWelcome(user.id)}
             style={{ color: "#7dd3fc", fontWeight: 600 }}
           >
-            Skip to dashboard
+            {t("auth.welcome.skipToDashboard")}
           </Link>
         </p>
       </div>

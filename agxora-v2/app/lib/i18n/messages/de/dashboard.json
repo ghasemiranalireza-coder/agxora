@@ -15,12 +15,30 @@
     "title": "Schnellaktionen",
     "subtitle": "Was sollten Sie als Nächstes tun?",
     "ariaLabel": "Schnellaktionen",
-    "addCustomer": { "label": "Kunde hinzufügen", "description": "CRM-Datensatz anlegen" },
-    "newProject": { "label": "Neues Projekt", "description": "Lieferpfad starten" },
-    "askAi": { "label": "KI fragen", "description": "KI-Arbeitsbereich öffnen" },
-    "finance": { "label": "Finanzen", "description": "Rechnungen und Cashflow" },
-    "automations": { "label": "Automatisierungen", "description": "Workflow-Engine" },
-    "settings": { "label": "Einstellungen", "description": "Workspace-Einstellungen" }
+    "addCustomer": {
+      "label": "Kunde hinzufügen",
+      "description": "CRM-Datensatz anlegen"
+    },
+    "newProject": {
+      "label": "Neues Projekt",
+      "description": "Lieferpfad starten"
+    },
+    "askAi": {
+      "label": "KI fragen",
+      "description": "KI-Arbeitsbereich öffnen"
+    },
+    "finance": {
+      "label": "Finanzen",
+      "description": "Rechnungen und Cashflow"
+    },
+    "automations": {
+      "label": "Automatisierungen",
+      "description": "Workflow-Engine"
+    },
+    "settings": {
+      "label": "Einstellungen",
+      "description": "Workspace-Einstellungen"
+    }
   },
   "attention": {
     "title": "Aufmerksamkeit erforderlich",
@@ -112,7 +130,7 @@
       "automation": "Automatisierung",
       "documents": "Dokumente",
       "team": "Team",
-      "workspace": "Workspace"
+      "workspace": "Arbeitsbereich"
     },
     "events": {
       "customer_created": "Kunde erstellt",
@@ -158,7 +176,7 @@
   },
   "shell": {
     "memory": {
-      "title": "Memory",
+      "title": "Speicher",
       "description": "Organisationsgedächtnis ist in diesem Build nicht verbunden.",
       "emptyTitle": "Memory-Arbeitsbereich ist noch nicht verfügbar",
       "emptyBody": "Persistenter Speicher für Organisationsgedächtnis ist nicht verbunden. Chat kann kurzlebigen Kontext nur in der Sitzung halten — hier wird nichts als Enterprise-Memory gespeichert."
@@ -187,7 +205,7 @@
     "noMatches": "Keine Treffer",
     "noMatchesBody": "Anderes Stichwort versuchen oder ein Modul über Schnellaktionen öffnen.",
     "close": "Schließen",
-    "open": "Öffnen",
+    "open": "Offen",
     "keyboardHints": "↑↓ navigieren · Enter öffnen · Strg/⌘ K umschalten · Esc schließen",
     "pinResult": "Ergebnis anheften",
     "unpinResult": "Anheftung aufheben",
@@ -201,7 +219,7 @@
       "documents": "Dokumente",
       "automation": "Automatisierung",
       "projects": "Projekte",
-      "creator": "Creator Studio",
+      "creator": "Kreativstudio",
       "settings": "Einstellungen",
       "commands": "Befehle",
       "actions": "Schnellaktionen"
@@ -250,34 +268,101 @@
       }
     },
     "commands": {
-      "openCrm": { "title": "CRM öffnen", "subtitle": "KI-CRM-Modul" },
-      "openCustomers": { "title": "Kunden öffnen", "subtitle": "Kundenverwaltung" },
-      "openFinance": { "title": "Finanzen öffnen", "subtitle": "Finanzen- & Steuer-Modul" },
-      "openDocuments": { "title": "Dokumente öffnen", "subtitle": "Knowledge Hub" },
-      "openAutomation": { "title": "Automatisierung öffnen", "subtitle": "Workflow-Engine" },
-      "openSettings": { "title": "Einstellungen öffnen", "subtitle": "Workspace-Einstellungen" },
-      "openProjects": { "title": "Projekte öffnen", "subtitle": "Projektportfolio" },
-      "openAi": { "title": "KI öffnen", "subtitle": "KI-Plattform-Arbeitsbereich" },
-      "openAnalytics": { "title": "Analysen öffnen", "subtitle": "Intelligence Center" },
-      "openIdentity": { "title": "Identity & Access öffnen", "subtitle": "IAM-Einstellungen, RBAC, Audit" },
-      "openBilling": { "title": "Abrechnung öffnen", "subtitle": "Abonnementportal & Pläne" },
-      "openIntegrations": { "title": "Integrationen öffnen", "subtitle": "Integration Center & API-Ökosystem" }
+      "openCrm": {
+        "title": "CRM öffnen",
+        "subtitle": "KI-CRM-Modul"
+      },
+      "openCustomers": {
+        "title": "Kunden öffnen",
+        "subtitle": "Kundenverwaltung"
+      },
+      "openFinance": {
+        "title": "Finanzen öffnen",
+        "subtitle": "Finanzen- & Steuer-Modul"
+      },
+      "openDocuments": {
+        "title": "Dokumente öffnen",
+        "subtitle": "Wissenszentrum"
+      },
+      "openAutomation": {
+        "title": "Automatisierung öffnen",
+        "subtitle": "Workflow-Engine"
+      },
+      "openSettings": {
+        "title": "Einstellungen öffnen",
+        "subtitle": "Workspace-Einstellungen"
+      },
+      "openProjects": {
+        "title": "Projekte öffnen",
+        "subtitle": "Projektportfolio"
+      },
+      "openAi": {
+        "title": "KI öffnen",
+        "subtitle": "KI-Plattform-Arbeitsbereich"
+      },
+      "openAnalytics": {
+        "title": "Analysen öffnen",
+        "subtitle": "Intelligence Center"
+      },
+      "openIdentity": {
+        "title": "Identity & Access öffnen",
+        "subtitle": "IAM-Einstellungen, RBAC, Audit"
+      },
+      "openBilling": {
+        "title": "Abrechnung öffnen",
+        "subtitle": "Abonnementportal & Pläne"
+      },
+      "openIntegrations": {
+        "title": "Integrationen öffnen",
+        "subtitle": "Integration Center & API-Ökosystem"
+      }
     },
     "modules": {
-      "dashboard": { "subtitle": "Kommandozentrale und Globus-Übersicht" },
-      "customers": { "subtitle": "Kundendatensätze und CRM" },
-      "projects": { "subtitle": "Projektlieferung und Tracking" },
-      "invoices": { "title": "Rechnungen", "subtitle": "Abrechnung und Rechnungen" },
-      "finance": { "subtitle": "KI-Buchhaltung, Banking, Steuern & Finanzintelligenz" },
-      "crm": { "subtitle": "KI-natives CRM und Creator Operating System" },
-      "creator": { "subtitle": "KI-Content-Produktion und Marketing-OS" },
-      "documents": { "subtitle": "KI-Dokumente & Knowledge Hub" },
-      "ai": { "title": "KI", "subtitle": "AGXORA AI Platform — Enterprise-Workspace" },
-      "analytics": { "subtitle": "Business Intelligence" },
-      "automation": { "subtitle": "KI-Workflow- und Automatisierungs-Engine" },
-      "memory": { "title": "Memory", "subtitle": "Organisationsgedächtnis" },
-      "team": { "subtitle": "Mitglieder und Einladungen" },
-      "settings": { "subtitle": "Workspace- und KI-Einstellungen" }
+      "dashboard": {
+        "subtitle": "Kommandozentrale und Globus-Übersicht"
+      },
+      "customers": {
+        "subtitle": "Kundendatensätze und CRM"
+      },
+      "projects": {
+        "subtitle": "Projektlieferung und Tracking"
+      },
+      "invoices": {
+        "title": "Rechnungen",
+        "subtitle": "Abrechnung und Rechnungen"
+      },
+      "finance": {
+        "subtitle": "KI-Buchhaltung, Banking, Steuern & Finanzintelligenz"
+      },
+      "crm": {
+        "subtitle": "KI-natives CRM und Creator Operating System"
+      },
+      "creator": {
+        "subtitle": "KI-Content-Produktion und Marketing-OS"
+      },
+      "documents": {
+        "subtitle": "KI-Dokumente & Knowledge Hub"
+      },
+      "ai": {
+        "title": "KI",
+        "subtitle": "AGXORA AI Platform — Enterprise-Workspace"
+      },
+      "analytics": {
+        "subtitle": "Business Intelligence"
+      },
+      "automation": {
+        "subtitle": "KI-Workflow- und Automatisierungs-Engine"
+      },
+      "memory": {
+        "title": "Speicher",
+        "subtitle": "Organisationsgedächtnis"
+      },
+      "team": {
+        "subtitle": "Mitglieder und Einladungen"
+      },
+      "settings": {
+        "subtitle": "Workspace- und KI-Einstellungen"
+      }
     },
     "capabilities": {
       "aiSearch": {
@@ -289,7 +374,7 @@
         "description": "Vektorähnlichkeit über Dokumente, Rechnungen und Wissen."
       },
       "nl": {
-        "title": "Natürlichsprachliche Suche",
+        "title": "Natürliche Sprachsuche",
         "description": "Absichten wie „überfällige Rechnungen für Nordlicht“ parsen."
       },
       "rag": {

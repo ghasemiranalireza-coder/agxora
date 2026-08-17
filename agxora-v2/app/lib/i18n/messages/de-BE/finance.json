@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "AGXORA Finance OS",
+    "title": "Finance / Tax",
+    "subtitle": "Buchhaltungs-, Bank-, Steuer- und Finanzinformationen – Vorschau mit Beispieldaten, bis Live-Ledger-Verbindungen hergestellt werden.",
+    "sampleNotice": "Beispieldatensatz – Zahlen und Exporthistorie dienen der Veranschaulichung. DATEV/Dateiexport und Live-Bank-Feeds sind nicht verbunden."
+  },
+  "sections": {
+    "overview": {
+      "title": "Finanzübersicht"
+    },
+    "invoiceCenter": {
+      "title": "Rechnungscenter",
+      "subtitle": "Suchen, filtern und sortieren Sie das Rechnungsbuch des Unternehmens mit KI-Konfidenzbewertung."
+    },
+    "aiInvoiceProcessing": {
+      "title": "KI-Rechnungsverarbeitung",
+      "subtitle": "Demo-Pipeline – OCR und KI-Extraktion sind nicht verbunden."
+    },
+    "banking": {
+      "title": "Bankwesen",
+      "subtitle": "Nur Beispielkonten – Open Banking-Feeds sind nicht verbunden."
+    },
+    "datev": {
+      "title": "DATEV-Integration",
+      "subtitle": "Beispiel-Exporthistorie — Die DATEV-Dateierzeugung ist nicht verbunden."
+    },
+    "taxCenter": {
+      "title": "Steuerzentrum",
+      "subtitle": "Mehrwertsteuerübersichten, Fristen und anstehende Zahlungen."
+    },
+    "aiInsights": {
+      "title": "KI-Einblicke",
+      "subtitle": "Nur Beispielergebnisse – Erkenntnisaktionen sind nicht miteinander verbunden."
+    },
+    "smartSearch": {
+      "title": "Intelligente Suche",
+      "subtitle": "Abfragen in natürlicher Sprache für Rechnungen, Ausgaben, Mehrwertsteuer und Exporte."
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "Einnahmen",
+        "caption": "Probe · letzte 30 Tage",
+        "delta": "+8.4%"
+      },
+      "expenses": {
+        "label": "Aufwen-dungen",
+        "caption": "Beispiel · Betrieb + Selbstkosten",
+        "delta": "+2.1%"
+      },
+      "profit": {
+        "label": "Profitieren",
+        "caption": "Muster · Nettobetrieb",
+        "delta": "+12.6%"
+      },
+      "vat-due": {
+        "label": "Mehrwertsteuer fällig",
+        "caption": "Beispiel · Q2-Fenster",
+        "delta": "Fällig in {Tagen}d"
+      },
+      "open-invoices": {
+        "label": "Offene Rechnungen",
+        "caption": "Probe · {Geld} ausstehend"
+      },
+      "paid-invoices": {
+        "label": "Bezahlte Rechnungen",
+        "caption": "Probe · dieses Quartal",
+        "delta": "+{count}"
+      },
+      "cashflow": {
+        "label": "Cashflow",
+        "caption": "Beispiel · 30-Tage-Projektion",
+        "delta": "+4.2%"
+      },
+      "ai-score": {
+        "label": "KI-Finanzbewertung",
+        "caption": "Beispielbewertung · nicht Live-Risikobewertung",
+        "delta": "+{count}"
+      }
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "invoices": {
+    "emptyTitle": "Keine Rechnungen",
+    "emptyDescription": "Keine Rechnungen entsprechen Ihrer Suche oder Ihren Filtern.",
+    "searchPlaceholder": "Nummer, Firma, Kategorie…",
+    "statusFilter": "Statusfilter",
+    "paymentFilter": "Zahlungsfilter",
+    "sortBy": "Sortieren nach",
+    "toggleSort": "Sortierrichtung umschalten",
+    "count": "{count} Rechnungen",
+    "countOne": "{count} Rechnung",
+    "allStatuses": "Alle Status",
+    "allPayments": "Alle Zahlungen",
+    "columns": {
+      "number": "Buchungsnummer",
+      "company": "Unternehmen",
+      "amount": "Betrag",
+      "vat": "MwSt",
+      "status": "Status",
+      "dueDate": "Fälligkeitsdatum",
+      "payment": "Zahlungsstatus",
+      "category": "Kategorie",
+      "ai": "KI-Vertrauen"
+    },
+    "sort": {
+      "dueDate": "Fälligkeitsdatum",
+      "amount": "Betrag",
+      "company": "Unternehmen",
+      "status": "Status",
+      "aiConfidence": "KI-Vertrauen",
+      "number": "Rechnung #"
+    }
+  },
+  "status": {
+    "draft": "Entwurf",
+    "open": "Offen",
+    "paid": "Bezahlt",
+    "overdue": "Überfällig",
+    "cancelled": "Abgesagt"
+  },
+  "payment": {
+    "unpaid": "Unbezahlt",
+    "partial": "Teilweise",
+    "paid": "Bezahlt",
+    "refunded": "Erstattet"
+  },
+  "category": {
+    "saas": "SaaS",
+    "office": "Büro",
+    "travel": "Reisen",
+    "marketing": "Marketing",
+    "utilities": "Dienstprogramme",
+    "professional": "Professional",
+    "other": "Andere"
+  },
+  "processing": {
+    "dropTitle": "Rechnungsdateien per Drag & Drop verschieben",
+    "dropFormats": "PDF · Bild · E-Mail-Import",
+    "uploadFiles": "Dateien hochladen",
+    "emailImport": "E-Mail-Import",
+    "dropHint": "Legen Sie PDF- oder Bildrechnungen ab, um sie lokal bereitzustellen – OCR ist nicht verbunden.",
+    "filesStaged": "{count} Datei(en) nur lokal aufgelistet – OCR/AI-Extraktion ist nicht verbunden.",
+    "emailReserved": "E-Mail-Import-Connector für IMAP / Microsoft Graph reserviert.",
+    "pipelineTitle": "Verarbeitungspipeline (Demo)",
+    "stages": {
+      "ocr": "OCR-Status",
+      "extraction": "KI-Extraktion",
+      "categorization": "Kategorisierung",
+      "duplicateDetection": "- Dublettenerkennung"
+    }
+  },
+  "stage": {
+    "pending": "Nicht verfügbar",
+    "running": "Nicht verbunden",
+    "complete": "Demo",
+    "failed": "Fehlgeschlagen",
+    "skipped": "Übersprungen"
+  },
+  "banking": {
+    "connectionTitle": "Bankverbindung",
+    "connectBank": "Bank verbinden",
+    "description": "PSD2-/Open-Banking-Adapter sind nicht verkabelt. Die nachstehenden Zuordnungen und Abstimmungen dienen lediglich der Veranschaulichung.",
+    "feedUnavailable": "Bankeinspeisung nicht verfügbar – Anbieterverbindung ist nicht verbunden.",
+    "noticeDefault": "Open Banking ist nicht verbunden – die folgenden Konten sind Beispieldaten.",
+    "connectUnavailable": "Connect Bank nicht verfügbar – Open Banking ist in diesem Build nicht verbunden.",
+    "sampleAccounts": "Beispielkonten",
+    "sample": "Probe",
+    "offline": "Offline",
+    "demoPrefix": "Demo",
+    "latestTransactions": "Neueste Transaktionen",
+    "sampleMatching": "Probenabgleich",
+    "demoOnly": "Nur Demo",
+    "sampleMatch": "Beispielübereinstimmung",
+    "unmatched": "Unübertroffen",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "DATEV-Integration",
+    "notConnected": "Nicht verbunden",
+    "intro": "Der folgende Beispielexportverlauf dient der Veranschaulichung. Anmeldeinformationen und Dateigenerierung sind in diesem Build nicht verknüpft.",
+    "noticeDefault": "Exportadapter sind nicht verbunden – es werden keine Dateien generiert.",
+    "exportUnavailable": "{title} nicht verfügbar – DATEV/Dateiexport ist nicht verbunden.",
+    "exportUnavailableAria": "{title} – nicht verfügbar",
+    "historyTitle": "Exportverlauf (Beispiel)",
+    "refresh": "Aktualisieren",
+    "refreshUnavailable": "Aktualisierung nicht verfügbar – der Exportverlauf besteht aus statischen Beispieldaten.",
+    "steuerberaterSample": "Probe",
+    "steuerberaterPending": "Ausstehend",
+    "columns": {
+      "export": "Export",
+      "format": "Format",
+      "period": "Zeitraum",
+      "created": "Erstellt",
+      "status": "Status",
+      "steuerberater": "Steuerberater"
+    },
+    "actions": {
+      "datev": {
+        "title": "DATEV-Export",
+        "description": "Buchungsstapel-Paket für Steuerberater-Workflows."
+      },
+      "csv": {
+        "title": "CSV-Export",
+        "description": "Ledger-fähige CSV-Datei für Tabellenkalkulationen und Importe."
+      },
+      "pdf": {
+        "title": "PDF-Export",
+        "description": "Dokumentenpaket zur Überprüfung und Archivierung."
+      },
+      "xml": {
+        "title": "XML-Export",
+        "description": "Strukturiertes Steuer-XML für Ablagepipelines."
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "Probe · In der Warteschlange",
+    "ready": "Probe · Fertig",
+    "delivered": "Illustrativ",
+    "failed": "Fehlgeschlagen"
+  },
+  "tax": {
+    "vatSummaryTitle": "Mehrwertsteuerübersicht",
+    "monthlyVat": "Monatliche Mehrwertsteuer",
+    "quarterlyVat": "Vierteljährliche Mehrwertsteuer",
+    "collected": "Erfasst",
+    "deductible": "Selbstbehalt",
+    "netDue": "Netto fällig",
+    "deadlinesTitle": "Steuerfristen · Anstehende Zahlungen",
+    "duePrefix": "Fällig",
+    "deadlineStatus": {
+      "due_soon": "Bald fällig",
+      "upcoming": "Demnächst",
+      "overdue": "Überfällig",
+      "paid": "Bezahlt"
+    },
+    "deadlines": {
+      "td-1": "Monatliche Umsatzsteuererklärung",
+      "td-2": "Vierteljährliche Mehrwertsteuerabrechnung",
+      "td-3": "Körperschaftssteuer vorziehen"
+    },
+    "period": {
+      "monthly": "Monatlich",
+      "quarterly": "quater yearly",
+      "annual": "Jährlich"
+    }
+  },
+  "insights": {
+    "demoPrefix": "Demo",
+    "noticeDefault": "Insight-Aktionen sind nicht miteinander verbunden – Karten zeigen nur Beispielergebnisse.",
+    "actionUnavailable": "{action} nicht verfügbar – Finance Insight-Aktionen sind nicht verbunden.",
+    "actionUnavailableTitle": "{action} nicht verfügbar – nicht verbunden",
+    "kinds": {
+      "unusual_expense": "Ungewöhnliche Ausgaben",
+      "duplicate_invoice": "Doppelte Rechnungen",
+      "missing_invoice": "Fehlende Rechnungen",
+      "late_payment": "Verspätete Zahlungen",
+      "cashflow_prediction": "Cashflow-Prognose",
+      "tax_optimization": "Steueroptimierung"
+    }
+  },
+  "search": {
+    "label": "Suche in natürlicher Sprache",
+    "placeholder": "Versuchen Sie es mit „Offene Rechnungen anzeigen“",
+    "submit": "Suche",
+    "examplesTitle": "Beispiele",
+    "hints": {
+      "idle": "Fragen Sie nach Rechnungen, Ausgaben, Mehrwertsteuer oder Exporten.",
+      "unpaid_invoices": "Filtern des Rechnungszentrums nach unbezahlten / offenen Posten.",
+      "july_expenses": "Zeigt die ausgabenseitige Aktivität im Juli.",
+      "amazon": "Auffinden von Amazon-Rechnungen und -Quittungen.",
+      "vat_export": "Eröffnung von DATEV-/Mehrwertsteuer-Exportaktionen.",
+      "general": "Hauptbuch wird nach „{query}“ durchsucht."
+    },
+    "examples": {
+      "q1": {
+        "query": "Unbezahlte Rechnungen anzeigen",
+        "description": "Offene Forderungen mit unbezahltem oder teilweisem Status"
+      },
+      "q2": {
+        "query": "Juli-Ausgaben anzeigen",
+        "description": "Aufwandsseitige Rechnungen und Bankabflüsse im Juli"
+      },
+      "q3": {
+        "query": "Finden Sie Amazon-Rechnungen",
+        "description": "Lieferantenabgleich über Rechnungscenter und Uploads hinweg"
+      },
+      "q4": {
+        "query": "Ausfuhrumsatzsteuer",
+        "description": "Zu DATEV /Steuerexportaktionen springen"
+      }
+    }
+  }
+}

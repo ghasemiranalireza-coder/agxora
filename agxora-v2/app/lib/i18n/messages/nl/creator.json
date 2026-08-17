@@ -1,0 +1,108 @@
+{
+  "page": {
+    "eyebrow": "AGXORA Marketing-besturingssysteem",
+    "title": "AI Creator Studio",
+    "lead": "Productie van zakelijke content: genereer, merk, plan, publiceer en meet AI-aangedreven campagnes via elk kanaal.",
+    "dashboard": "Gösterge Paneli",
+    "workspace": "Werkruimte",
+    "workspaceSubtitle": "Inhoud creëren · Campagnes · Mediabibliotheek · Sjablonen · Merkmiddelen · Publicatiewachtrij · Analyses",
+    "workspaceAria": "Werkruimte van de maker",
+    "integrations": "Toekomstige integraties",
+    "integrationsSubtitle": "Officiële platformadapters gereserveerd — geen nep-liveverbindingen.",
+    "aiFeatures": "AI-functies",
+    "aiFeaturesSubtitle": "Capaciteitskaart voor productie, merk, planning en lokalisatie."
+  },
+  "tabs": {
+    "create": "Creëer inhoud",
+    "campaigns": "Campagnes",
+    "media": "Mediabibliotheek",
+    "templates": "Sjablonen",
+    "brand": "Merkactiva",
+    "queue": "Publicatiewachtrij",
+    "analytics": "Analyse"
+  },
+  "templates": {
+    "emptyTitle": "Geen sjablonen",
+    "emptyDescription": "Herbruikbare inhoud en ontwerpsjablonen zullen hier te vinden zijn."
+  },
+  "campaign": {
+    "title": "Campagneplanner",
+    "calendar": "Inhoud Kalender",
+    "columns": {
+      "name": "Campagnenaam",
+      "objective": "Objectief",
+      "audience": "Publiek",
+      "platforms": "Platformen",
+      "budget": "Begroting",
+      "timeline": "Tijdlijn",
+      "status": "Status"
+    },
+    "emptyTitle": "Geen campagnes",
+    "emptyDescription": "Maak een campagne om doelstellingen, doelgroep en tijdlijnen te plannen."
+  },
+  "media": {
+    "title": "Mediabibliotheek",
+    "columns": {
+      "asset": "Bezit",
+      "type": "Type",
+      "folder": "Map",
+      "tags": "Labels",
+      "updated": "Bijgewerkt"
+    },
+    "emptyTitle": "Geen media",
+    "emptyDescription": "Afbeeldingen, video's, documenten, logo's en sjablonen verschijnen hier.",
+    "searchPlaceholder": "Zoek naar middelen, mappen, tags…",
+    "typeFilter": "Type",
+    "allTypes": "Alle soorten",
+    "images": "Afbeeldingen",
+    "videos": "Video's",
+    "documents": "Documenten",
+    "logos": "Merklogo's",
+    "templates": "Sjablonen"
+  },
+  "generator": {
+    "title": "AI-inhoudsgenerator",
+    "lead": "Maak Instagram-onderschriften, TikTok-scripts, LinkedIn-berichten, advertenties, SEO-artikelen en meer.",
+    "brief": "Kort",
+    "briefPlaceholder": "Beschrijf het aanbod, het publiek en de CTA...",
+    "generateDraft": "Concept genereren",
+    "aiRewrite": "AI herschrijven",
+    "translate": "Vertalen",
+    "initialOutput": "Selecteer een format en merkstem en genereer vervolgens een concept. Provideradapters zijn gereserveerd - nog geen live modeloproepen.",
+    "draftStaged": "Concept geënsceneerd voor {format} · stem: {voice}. Generatie-adapter gereserveerd.",
+    "rewriteQueued": "AI Herschrijven in wachtrij - herschrijfadapter gereserveerd.",
+    "translateQueued": "Vertaal inhoud in wachtrij - meertalige adapter gereserveerd.",
+    "brandVoice": "Merk stem",
+    "brandVoiceLead": "Voorinstellingen voor zakelijke tonen plus aangepaste merkstem voor consistentie.",
+    "active": "Actief"
+  },
+  "queue": {
+    "title": "Publicatiewachtrij",
+    "columns": {
+      "title": "Titel",
+      "platform": "Platform",
+      "format": "Formaat",
+      "status": "Status",
+      "scheduled": "Gepland",
+      "author": "Auteur"
+    },
+    "emptyTitle": "Geen berichten in de wachtrij",
+    "emptyDescription": "Concepten, recensies en geplande berichten verschijnen hier.",
+    "filterStatus": "Filterstatus",
+    "allStatuses": "Alle statussen"
+  },
+  "analytics": {
+    "title": "Analyse",
+    "topPosts": "Topberichten",
+    "engagement": "Eng {waarde}",
+    "reach": "Bereik {waarde}",
+    "recommendations": "AI-aanbevelingen"
+  },
+  "integrations": {
+    "lead": "Toekomstige integraties – optioneel. Geen live API's totdat verbinding is gemaakt. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.",
+    "adapter": "Adapter:"
+  },
+  "aiFeaturesPanel": {
+    "lead": "AI-functiekaart - ideeën, bijschriften, hashtags, kalender, campagnes, doelgroep, planning, merkconsistentie, herschrijven, vertalen, meertalig."
+  }
+}

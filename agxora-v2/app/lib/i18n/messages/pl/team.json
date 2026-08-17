@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "Tożsamość i dostęp",
+    "title": "Zespół",
+    "lead": "Członkowie, role i zaproszenia dla {organization}. Gotowa architektura dla przyszłego interfejsu API tożsamości.",
+    "yourOrganization": "Twoja organizacja"
+  },
+  "invite": {
+    "title": "Zaproś e-mailem",
+    "email": "E-mail",
+    "emailPlaceholder": "kolega@firma.com",
+    "role": "Rola",
+    "submit": "Zapraszać",
+    "created": "Zaproszenie utworzone (oczekujące).",
+    "failed": "Zaproszenie nie powiodło się",
+    "signInFirst": "Najpierw zaloguj się i aktywuj organizację.",
+    "noPermission": "Brak uprawnień — aby zaprosić, wymagany jest administrator lub menedżer."
+  },
+  "roles": {
+    "title": "Role",
+    "owner": {
+      "name": "Właściciel",
+      "description": "Pełna kontrola organizacji, w tym ustawienia i rozliczenia."
+    },
+    "admin": {
+      "name": "Administrator",
+      "description": "Zarządzaj modułami finansów, automatyzacji, zespołu i obszaru roboczego."
+    },
+    "manager": {
+      "name": "Menedżer",
+      "description": "Kieruj operacjami CRM, projektami, dokumentami i kreatorami."
+    },
+    "employee": {
+      "name": "Pracownik",
+      "description": "Codzienny dostęp do CRM, dokumentów, kreatorów i projektów."
+    },
+    "guest": {
+      "name": "Gość",
+      "description": "Ograniczony dostęp do odczytu dokumentów i projektów."
+    },
+    "viewer": {
+      "name": "Dozorca",
+      "description": "Dostęp tylko do odczytu do modułów współdzielonych."
+    }
+  },
+  "members": {
+    "title": "Członkowie",
+    "columnMember": "Członek",
+    "columnEmail": "E-mail",
+    "columnRole": "Rola",
+    "columnStatus": "Status",
+    "roleFor": "Rola dla {name}",
+    "emptyTitle": "Nie ma jeszcze członków",
+    "emptyDescription": "Zaproś współpracowników do dołączenia do tego obszaru roboczego organizacji.",
+    "updated": "Zaktualizowano {name} do {role}",
+    "roleChangeFailed": "Zmiana roli nie powiodła się"
+  },
+  "pending": {
+    "title": "Oczekujące zaproszenia",
+    "emptyTitle": "Brak oczekujących zaproszeń",
+    "emptyDescription": "Nowe zaproszenia pojawiają się tutaj do czasu ich zaakceptowania lub wygaśnięcia.",
+    "expires": "{rola} · wygasa {data}",
+    "revoke": "Unieważnić",
+    "pending": "aż do"
+  },
+  "history": {
+    "title": "Historia zaproszeń",
+    "empty": "Tutaj pojawią się zaakceptowane, wygasłe i odwołane zaproszenia."
+  },
+  "status": {
+    "accepted": "przyjęty",
+    "expired": "wygasły",
+    "revoked": "odwołany",
+    "active": "aktywny",
+    "inactive": "nieaktywny",
+    "pending": "aż do"
+  }
+}

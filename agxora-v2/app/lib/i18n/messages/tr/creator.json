@@ -1,0 +1,108 @@
+{
+  "page": {
+    "eyebrow": "AGXORA Pazarlama İşletim Sistemi",
+    "title": "Yapay Zeka İçerik Stüdyosu",
+    "lead": "Kurumsal içerik üretimi: Her kanalda yapay zeka destekli kampanyalar oluşturun, markalayın, planlayın, yayınlayın ve ölçün.",
+    "dashboard": "Kontrol Paneli",
+    "workspace": "Çalışma alanı",
+    "workspaceSubtitle": "İçerik Oluşturma · Kampanyalar · Medya Kitaplığı · Şablonlar · Marka Varlıkları · Yayınlama Kuyruğu · Analizler",
+    "workspaceAria": "Yaratıcı çalışma alanı",
+    "integrations": "Gelecekteki Entegrasyonlar",
+    "integrationsSubtitle": "Resmi platform adaptörleri saklıdır — sahte canlı bağlantı yoktur.",
+    "aiFeatures": "Yapay Zeka Özellikleri",
+    "aiFeaturesSubtitle": "Üretim, marka, program ve yerelleştirmeye yönelik yetenek haritası."
+  },
+  "tabs": {
+    "create": "İçerik Oluştur",
+    "campaigns": "Kampanyalar",
+    "media": "Medya Kitaplığı",
+    "templates": "Şablonlar",
+    "brand": "Marka Varlıkları",
+    "queue": "Yayınlama Sırası",
+    "analytics": "Analitik"
+  },
+  "templates": {
+    "emptyTitle": "Şablon yok",
+    "emptyDescription": "Yeniden kullanılabilir içerik ve tasarım şablonları burada yer alacak."
+  },
+  "campaign": {
+    "title": "Kampanya Planlayıcı",
+    "calendar": "İçerik Takvimi",
+    "columns": {
+      "name": "Kampanya Adı",
+      "objective": "Amaç",
+      "audience": "Kitle",
+      "platforms": "Platformlar",
+      "budget": "Bütçe",
+      "timeline": "Zaman çizelgesi",
+      "status": "Durum"
+    },
+    "emptyTitle": "Kampanya yok",
+    "emptyDescription": "Hedefleri, kitleyi ve zaman çizelgelerini planlamak için bir kampanya oluşturun."
+  },
+  "media": {
+    "title": "Medya Kitaplığı",
+    "columns": {
+      "asset": "Varlık",
+      "type": "Tip",
+      "folder": "Dosya",
+      "tags": "Etiketler",
+      "updated": "Güncellendi"
+    },
+    "emptyTitle": "Medya yok",
+    "emptyDescription": "Resimler, videolar, belgeler, logolar ve şablonlar burada görünecektir.",
+    "searchPlaceholder": "Varlıkları, klasörleri, etiketleri arayın…",
+    "typeFilter": "Tip",
+    "allTypes": "Tüm türler",
+    "images": "Görseller",
+    "videos": "Videolar",
+    "documents": "Belgeler",
+    "logos": "Marka Logoları",
+    "templates": "Şablonlar"
+  },
+  "generator": {
+    "title": "Yapay Zeka İçerik Oluşturucu",
+    "lead": "Instagram altyazıları, TikTok komut dosyaları, LinkedIn gönderileri, reklamlar, SEO makaleleri ve daha fazlasını oluşturun.",
+    "brief": "Kısa bilgi",
+    "briefPlaceholder": "Teklifi, hedef kitleyi ve CTA'yı açıklayın…",
+    "generateDraft": "Taslak oluştur",
+    "aiRewrite": "Yapay Zeka Yeniden Yazma",
+    "translate": "Çevir",
+    "initialOutput": "Bir format ve marka sesi seçin, ardından bir taslak oluşturun. Sağlayıcı bağdaştırıcıları ayrılmıştır; henüz canlı model çağrısı yapılmamıştır.",
+    "draftStaged": "Taslak {format} için hazırlandı · ses: {voice}. Nesil adaptör saklıdır.",
+    "rewriteQueued": "AI Yeniden Yazma sıraya alındı ​​— yeniden yazma bağdaştırıcısı ayrıldı.",
+    "translateQueued": "Çeviri İçeriği sıraya alındı ​​— çoklu dil bağdaştırıcısı ayrıldı.",
+    "brandVoice": "Marka Sesi",
+    "brandVoiceLead": "İş tonu ön ayarları ve tutarlılık için özel marka sesi.",
+    "active": "Aktif"
+  },
+  "queue": {
+    "title": "Yayınlama Sırası",
+    "columns": {
+      "title": "Başlık",
+      "platform": "platformu",
+      "format": "Biçim",
+      "status": "Durum",
+      "scheduled": "planlanmış",
+      "author": "Yazar"
+    },
+    "emptyTitle": "Sırada gönderi yok",
+    "emptyDescription": "Taslaklar, incelemeler ve planlanmış gönderiler burada görünecektir.",
+    "filterStatus": "Filtre durumu",
+    "allStatuses": "Tüm durumlar"
+  },
+  "analytics": {
+    "title": "Analitik",
+    "topPosts": "En Popüler Gönderiler",
+    "engagement": "Müh {value}",
+    "reach": "{value} değerine ulaşın",
+    "recommendations": "Yapay Zeka Önerileri"
+  },
+  "integrations": {
+    "lead": "Gelecekteki entegrasyonlar — isteğe bağlı. Bağlanana kadar canlı API yok. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Konular, X, Meta Business, Google Ads, Google Analytics.",
+    "adapter": "Adaptör:"
+  },
+  "aiFeaturesPanel": {
+    "lead": "Yapay zeka özellik haritası — fikirler, altyazılar, hashtag'ler, takvim, kampanyalar, hedef kitle, program, marka tutarlılığı, yeniden yazma, tercüme etme, çoklu dil."
+  }
+}

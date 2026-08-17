@@ -1,0 +1,298 @@
+{
+  "page": {
+    "eyebrow": "ОС управління проектами",
+    "title": "Проекти",
+    "lead": "Плануйте доставку, відстежуйте бюджет і стан справ, призначайте команди та керуйте завданнями для {organization}. Дані зберігаються локально та готові до серверного підключення.",
+    "yourOrganization": "ваша організація"
+  },
+  "list": {
+    "errorTitle": "Не вдалося завантажити проекти",
+    "searchLabel": "Пошукові проекти",
+    "searchPlaceholder": "Пошук проектів, клієнтів, власників, тегів…",
+    "viewCards": "картки",
+    "viewTable": "Таблиця",
+    "newProject": "Новий проект",
+    "statusFilter": "Статус",
+    "priorityFilter": "Пріоритет",
+    "customerFilter": "Замовник",
+    "ownerFilter": "Власник",
+    "allStatuses": "Всі статуси",
+    "allPriorities": "Всі пріоритети",
+    "allCustomers": "Всі клієнти",
+    "allOwners": "Всі власники",
+    "dateFrom": "Від",
+    "dateTo": "до",
+    "emptyTitle": "Проектів ще немає",
+    "emptyDescription": "Розгорніть робочу область доставки, щоб відстежувати етапи, бюджет і володіння командою.",
+    "createProject": "Створити проект",
+    "pagination": "Показано {from}–{to} із {total}",
+    "previous": "Попередній",
+    "next": "Далі",
+    "noDescription": "Опису ще немає.",
+    "duePrefix": "Термін {дата}",
+    "openProject": "Відкрити проект {name}",
+    "sortBy": "Сортувати за {column}",
+    "sort": {
+      "name": "Ім'я",
+      "customer": "Замовник",
+      "owner": "Власник",
+      "status": "Статус",
+      "priority": "Пріоритет",
+      "progress": "Прогрес",
+      "dueDate": "належний",
+      "budget": "Бюджет"
+    }
+  },
+  "form": {
+    "createTitle": "Створити проект",
+    "editTitle": "Редагувати проект",
+    "cancel": "Скасувати",
+    "saveChanges": "Зберегти зміни",
+    "createProject": "Створити проект",
+    "projectName": "Назва проекту",
+    "customer": "Замовник",
+    "projectOwner": "Власник проекту",
+    "priority": "Пріоритет",
+    "status": "Статус",
+    "budget": "Бюджет",
+    "currency": "Валюта",
+    "startDate": "Дата початку",
+    "dueDate": "Термін виконання",
+    "color": "колір",
+    "icon": "значок",
+    "tags": "Теги",
+    "tagsHint": "Через кому",
+    "tagsPlaceholder": "підприємства, розв",
+    "budgetPlaceholder": "0",
+    "description": "опис",
+    "selectColor": "Виберіть колір {color}"
+  },
+  "taskForm": {
+    "createTitle": "Створити завдання",
+    "editTitle": "Редагувати завдання",
+    "cancel": "Скасувати",
+    "saveChanges": "Зберегти зміни",
+    "createTask": "Створити завдання",
+    "title": "Назва",
+    "assignee": "Цесіонарій",
+    "priority": "Пріоритет",
+    "status": "Статус",
+    "deadline": "Дедлайн",
+    "progress": "Прогрес",
+    "labels": "етикетки",
+    "labelsHint": "Через кому",
+    "description": "опис"
+  },
+  "deleteDialog": {
+    "title": "Видалити проект",
+    "cancel": "Скасувати",
+    "deletePermanently": "Видалити остаточно",
+    "bodyPrefix": "Це видаляє",
+    "thisProject": "цей проект",
+    "bodySuffix": "і всі пов’язані завдання, файли, нотатки та дії з локального сховища. Цю дію не можна скасувати."
+  },
+  "badges": {
+    "progress": "Прогрес",
+    "progressAria": "{label}: {value}%"
+  },
+  "status": {
+    "planning": "Планування",
+    "active": "Активний",
+    "on_hold": "На утриманні",
+    "completed": "Виконано",
+    "archived": "Архівовано"
+  },
+  "taskStatus": {
+    "todo": "To Do",
+    "in_progress": "В роботі",
+    "review": "огляд",
+    "done": "Готово"
+  },
+  "priority": {
+    "low": "Низький",
+    "medium": "Середній",
+    "high": "Високий",
+    "critical": "Критичний"
+  },
+  "role": {
+    "owner": "Власник",
+    "manager": "Менеджер",
+    "member": "Член",
+    "viewer": "Переглядач"
+  },
+  "kind": {
+    "project": "демонструвати",
+    "task": "завдання",
+    "milestone": "віха"
+  },
+  "timeline": {
+    "noTimelineTitle": "Немає хронології",
+    "noTimelineDescription": "Відкрийте проект, щоб переглянути розклад, тривалість і етапи.",
+    "emptyTitle": "Часова шкала порожня",
+    "emptyDescription": "Додайте дати початку/завершення та завдання, щоб заповнити розклад.",
+    "title": "Хронологія",
+    "subtitle": "Початок, кінець, тривалість, віхи. Залежності зарезервовано для майбутнього випуску.",
+    "dateRange": "{початок} → {кінець} · {днів}d",
+    "itemAria": "{title} від {start} до {end}",
+    "dependenciesNone": "Залежності: немає"
+  },
+  "dashboard": {
+    "kpi": {
+      "activeProjects": "Активні проекти",
+      "activeHint": "{planning} планування",
+      "completed": "Виконано",
+      "completedHint": "{percent}% портфоліо",
+      "onHold": "На утриманні",
+      "onHoldHint": "{archived} заархівовано",
+      "teamMembers": "Члени команди",
+      "teamHint": "По всіх проектах",
+      "budgetOverview": "Огляд бюджету",
+      "budgetHint": "{percent}% використано · {spend} витрачено",
+      "openTasks": "Відкрийте Завдання",
+      "openTasksHint": "{overdue} прострочено",
+      "projectHealth": "Проект Здоров'я",
+      "healthHint": "Загальна оцінка доставки",
+      "upcomingDeadlines": "Найближчі терміни",
+      "upcomingHint": "Наступні 30 днів"
+    },
+    "analytics": {
+      "title": "Аналітика",
+      "subtitle": "Справність портфоліо, завершення та використання бюджету.",
+      "statusMix": "Мікс статусу",
+      "deliverySignals": "Сигнали доставки",
+      "completedPercent": "Виконано %",
+      "budgetUsage": "Використання бюджету",
+      "health": "Здоров'я",
+      "upcomingDeadlines": "Найближчі терміни",
+      "noUpcomingDeadlines": "Немає найближчих термінів у наступному вікні."
+    },
+    "recentActivity": {
+      "title": "Останні дії",
+      "subtitle": "Спершу найновіші події проекту.",
+      "empty": "Діяльність з’являтиметься під час створення проектів і завдань."
+    }
+  },
+  "kanban": {
+    "emptyTitle": "Без завдань на дошці",
+    "emptyDescription": "Створюйте завдання, щоб організувати доставку за завданнями, у виконанні, перегляді та виконанні.",
+    "addTask": "Додати завдання",
+    "columnAria": "стовпець {статус}",
+    "taskProgress": "Хід виконання завдання",
+    "edit": "Редагувати",
+    "complete": "Повний"
+  },
+  "detail": {
+    "notFoundTitle": "Проект не знайдено",
+    "notFoundDescription": "Цей проект, можливо, було видалено або недоступний для поточної організації.",
+    "backToProjects": "← Повернутися до проектів",
+    "ownerMeta": "{customer} · Власник {owner}",
+    "edit": "Редагувати",
+    "delete": "Видалити",
+    "sectionsAria": "Розділи деталей проекту",
+    "tabs": {
+      "overview": "Огляд",
+      "tasks": "завдання",
+      "files": "Файли",
+      "notes": "Примітки",
+      "activity": "діяльність",
+      "team": "Команда",
+      "settings": "Налаштування"
+    }
+  },
+  "overview": {
+    "missingTitle": "Відсутній проект",
+    "missingDescription": "Виберіть проект, щоб переглянути його огляд.",
+    "title": "Огляд",
+    "noDescription": "Опис не надано.",
+    "budget": "Бюджет",
+    "spent": "Витрачено",
+    "start": "старт",
+    "due": "належний",
+    "openTasks": "Відкриті завдання",
+    "completedTasks": "Виконані завдання"
+  },
+  "tasks": {
+    "title": "Управління завданнями",
+    "newTask": "Нове завдання",
+    "tableTitle": "Назва",
+    "tableAssignee": "Цесіонарій",
+    "tablePriority": "Пріоритет",
+    "tableStatus": "Статус",
+    "tableDue": "належний",
+    "tableProgress": "Прогрес",
+    "tableActions": "Дії",
+    "edit": "Редагувати",
+    "complete": "Повний",
+    "delete": "Видалити",
+    "emptyTitle": "Завдань ще немає",
+    "emptyDescription": "Створюйте завдання, призначайте власників і відстежуйте прогрес на дошці.",
+    "createTask": "Створити завдання"
+  },
+  "files": {
+    "title": "Файловий менеджер",
+    "description": "Завантажуйте зображення, PDF-файли та офісні документи. Метадані зберігаються локально.",
+    "upload": "Завантажити",
+    "emptyTitle": "Немає завантажених файлів",
+    "emptyDescription": "Додайте артефакти проекту для перегляду та попереднього перегляду командою.",
+    "preview": "Попередній перегляд",
+    "metadataOnly": "Лише метадані",
+    "delete": "Видалити"
+  },
+  "notes": {
+    "editTitle": "Редагувати примітку",
+    "newTitle": "Нова нотатка",
+    "title": "Назва",
+    "author": "Автор",
+    "body": "Тіло",
+    "cancel": "Скасувати",
+    "saveNote": "Зберегти нотатку",
+    "emptyTitle": "Приміток ще немає",
+    "emptyDescription": "Фіксуйте рішення, результати зустрічей і контекст доставки.",
+    "edit": "Редагувати",
+    "delete": "Видалити"
+  },
+  "activity": {
+    "title": "Стрічка активності",
+    "emptyTitle": "Активності ще немає",
+    "emptyDescription": "Події проекту з’являтимуться тут у міру роботи команди."
+  },
+  "team": {
+    "missingTitle": "Відсутній проект",
+    "missingDescription": "Виберіть проект для керування членами команди.",
+    "assignTitle": "Призначити учасника",
+    "name": "Ім'я",
+    "email": "Електронна пошта",
+    "role": "роль",
+    "addMember": "Додати учасника",
+    "teamTitle": "Команда",
+    "remove": "видалити"
+  },
+  "settings": {
+    "missingTitle": "Відсутній проект",
+    "missingDescription": "Виберіть проект для керування налаштуваннями.",
+    "title": "Параметри проекту",
+    "description": "Оновлення стану спалювання та архівування бюджету. Для повного редагування полів використовується діалогове вікно редагування.",
+    "spentAmount": "Витрачена сума",
+    "saveSpent": "Зберегти витрачене",
+    "archiveProject": "Архівний проект",
+    "editAllFields": "Відредагуйте всі поля"
+  },
+  "toasts": {
+    "projectCreated": "Проект створено",
+    "projectUpdated": "Проект оновлений",
+    "projectDeleted": "Проект видалено",
+    "checkForm": "Перевірте форму",
+    "validationFailed": "Помилка перевірки.",
+    "taskCreated": "Завдання створено",
+    "taskUpdated": "Завдання оновлено",
+    "taskCompleted": "Завдання виконано",
+    "taskDeleted": "Завдання видалено",
+    "filesUploaded": "Файли завантажено",
+    "filesUploadedDetail": "{count} файлів",
+    "fileDeleted": "Файл видалено",
+    "noteSaved": "Нотатку збережено",
+    "memberAdded": "Учасника додано",
+    "settingsSaved": "Налаштування збережено",
+    "projectArchived": "Проект заархівовано"
+  }
+}

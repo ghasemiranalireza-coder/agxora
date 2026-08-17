@@ -914,6 +914,7 @@
       "noMatches": "No matches",
       "noMatchesBody": "Try another keyword, or open a module via Quick Actions.",
       "close": "Close",
+      "esc": "Esc",
       "open": "Open",
       "keyboardHints": "↑↓ navigate · Enter open · Ctrl/⌘ K toggle · Esc close",
       "pinResult": "Pin result",
@@ -1188,12 +1189,21 @@
       "successBody": "Your inquiry was received. Our team will respond shortly.",
       "viewPricing": "View pricing",
       "bookDemo": "Book Demo",
-      "failed": "Could not submit inquiry"
+      "failed": "Could not submit inquiry",
+      "country": "Country",
+      "savedFor": "Saved for {company}. Sales delivery is not connected in this build.",
+      "preferWalkthrough": "Prefer a product walkthrough next?",
+      "preferSelfServe": "Prefer self-serve?"
     },
     "welcome": {
       "title": "Welcome to AGXORA",
       "subtitle": "Your workspace is ready. Continue to the dashboard.",
-      "continue": "Go to dashboard"
+      "continue": "Go to dashboard",
+      "checklistProfile": "Confirm your organization profile",
+      "checklistModules": "Choose modules that match how you work",
+      "checklistDashboard": "Enter the dashboard with a clear starting point",
+      "exploreFirst": "Prefer to explore first?",
+      "skipToDashboard": "Skip to dashboard"
     },
     "locked": {
       "title": "Account locked",
@@ -2970,6 +2980,9 @@
       "runsAria": "Workflow runs",
       "noMatches": "No workflow runs match this filter."
     },
+    "miniPreview": {
+      "emptyWorkflow": "Empty workflow"
+    },
     "workflowTemplates": {
       "title": "Template Library",
       "noticeDefault": "Preview a template before loading it into the builder.",
@@ -3101,6 +3114,12 @@
         "concurrencyLimit": "Concurrency limit",
         "timeoutMs": "Timeout (ms)",
         "logLevel": "Log level",
+        "logLevels": {
+          "error": "error",
+          "warn": "warn",
+          "info": "info",
+          "debug": "debug"
+        },
         "saveSettings": "Save settings"
       }
     }
@@ -4046,6 +4065,7 @@
     },
     "network": {
       "offline": "You appear to be offline",
+      "offlineSyncHint": "Changes may not sync until the connection returns.",
       "offlineHelp": "Offline help",
       "reconnected": "Connection restored"
     },
@@ -4069,7 +4089,29 @@
       "message": "An unexpected error occurred. Please try again.",
       "retry": "Retry"
     },
-    "skipToMain": "Skip to main content"
+    "skipToMain": "Skip to main content",
+    "offline": {
+      "title": "You are offline",
+      "message": "Check your connection and retry when you are back online. Cached screens may still work.",
+      "home": "Home",
+      "contact": "Contact",
+      "signIn": "Sign in"
+    },
+    "logout": {
+      "title": "Sign out",
+      "signingOut": "Signing you out…",
+      "endingSession": "Ending session…",
+      "failed": "Logout failed"
+    },
+    "demo": {
+      "title": "Book a demo",
+      "subtitle": "Schedule a live walkthrough with the AGXORA team. Until calendar booking is enabled, email us to request a demo.",
+      "requestTitle": "Request a demo",
+      "requestBody": "We're finishing scheduling so you can pick a time that works for your team. Until then, start free and explore the product at your own pace — or email us at {email}.",
+      "startFree": "Start free instead",
+      "backHome": "Back to home",
+      "signIn": "Sign in"
+    }
   },
   "workspace": {
     "page": {
@@ -4218,6 +4260,31 @@
       "empty": "No workspaces yet — create an organization to provision one.",
       "label": "Active workspace",
       "ariaLabel": "Switch workspace"
+    },
+    "access": {
+      "eyebrow": "Identity & Access",
+      "signIn": "Sign in",
+      "backToDashboard": "Back to dashboard",
+      "unauthorized": {
+        "title": "Unauthorized",
+        "description": "Sign in to continue to this area of AGXORA."
+      },
+      "forbidden": {
+        "title": "Forbidden",
+        "description": "Your role does not include permission for this resource."
+      },
+      "expired_session": {
+        "title": "Expired Session",
+        "description": "Your session expired. Sign in again to resume work."
+      },
+      "missing_permission": {
+        "title": "Missing Permission",
+        "description": "Ask an Owner or Admin to grant the required module access."
+      },
+      "account_locked": {
+        "title": "Account Locked",
+        "description": "This account is locked. Contact an organization owner or try again later."
+      }
     },
     "verifyEmail": {
       "title": "Email Verification",

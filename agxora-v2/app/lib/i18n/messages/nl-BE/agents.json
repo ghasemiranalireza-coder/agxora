@@ -1,0 +1,121 @@
+{
+  "loading": "Agentbesturingssysteem laden...",
+  "eyebrow": "AI Agent-besturingssysteem",
+  "title": "Agent-besturingssysteem",
+  "subtitle": "Lokale agentwerkruimte: agenten kunnen worden geactiveerd en als simulaties worden uitgevoerd in CRM, Projecten, Financiën, Workflows en Integraties. Productie-autonome uitvoering is niet aangesloten.",
+  "noticeDefault": "Lokaal agentbesturingssysteem: in deze werkruimte worden uitvoeringen gesimuleerd.",
+  "aiChat": "AI-chat",
+  "tabs": {
+    "dashboard": "Gösterge Paneli",
+    "registry": "Griffie",
+    "marketplace": "Marktplaats",
+    "monitor": "Monitor",
+    "history": "Geschiedenis",
+    "memory": "Geheugen",
+    "knowledge": "Kennis",
+    "tools": "Hulpmiddelen",
+    "settings": "Instellingen"
+  },
+  "notice": {
+    "simulatedRun": "Gesimuleerde hardloopsessie · {status} ({duration}ms)",
+    "taskFailed": "Taak is mislukt",
+    "activated": "Lokaal geactiveerd: {agentId}",
+    "agentPaused": "Agent pauzeerde",
+    "agentActivated": "Agent geactiveerd",
+    "taskCancelled": "Taak geannuleerd",
+    "supervisorDelegated": "De toezichthouder heeft een vervolgopdracht gedelegeerd",
+    "settingsUpdated": "Agent OS-instellingen bijgewerkt voor deze lokale werkruimte."
+  },
+  "dashboard": {
+    "agents": "Agenten",
+    "active": "Actief",
+    "localReady": "Lokaal klaar",
+    "simulatedToday": "Vandaag gesimuleerd",
+    "failedToday": "Vandaag mislukt",
+    "avgExec": "Gem. exec",
+    "toolCalls": "Gereedschapsoproepen",
+    "knowledge": "Kennis",
+    "activeFleet": "Actieve vloot",
+    "emptyTitle": "Geen agenten actief",
+    "emptyDescription": "Installeer of activeer een agent van de marktplaats om gesimuleerde uitvoeringen te starten."
+  },
+  "registry": {
+    "title": "Griffie",
+    "selectPrompt": "Selecteer een agent uit het register.",
+    "status": "Status: {status}",
+    "health": "Gezondheid: {gezondheid}",
+    "queue": "Wachtrij: {wachtrij}",
+    "usage": "Gebruik: {gebruik}",
+    "executeTask": "Taak uitvoeren",
+    "supervisorDelegate": "Leidinggevende of gedelegeerde"
+  },
+  "marketplace": {
+    "tools": "Gereedschap: {gereedschappen}",
+    "installed": "Geïnstalleerd",
+    "installActivate": "Installeren en activeren"
+  },
+  "monitor": {
+    "title": "Agentmonitor",
+    "emptyTitle": "Geen agenten om te controleren",
+    "emptyDescription": "Activeer agenten van de marktplaats.",
+    "latestConfidence": "Laatste redeneringsvertrouwen: {vertrouwen} — {stappen}"
+  },
+  "history": {
+    "title": "Uitvoeringsgeschiedenis",
+    "emptyTitle": "Nog geen executies",
+    "emptyDescription": "Voer een agenttaak uit vanuit het register of de monitor."
+  },
+  "memory": {
+    "title": "Geheugen centrum",
+    "subtitle": "Werken · Gesprek · Zakelijk · Lange termijn · Werkruimte · Agentscopes (klaar voor architectuur).",
+    "emptyTitle": "Geen geheugenrecords",
+    "emptyDescription": "Voer een taak uit om het werk-/agentgeheugen te vullen."
+  },
+  "knowledge": {
+    "title": "Kenniscentrum",
+    "subtitle": "Bedrijf, documenten, projecten, CRM, beleid, procedures — plus tijdelijke aanduidingen voor vector/RAG.",
+    "emptyTitle": "Geen kennisdocumenten",
+    "emptyDescription": "Seed-kennis verschijnt na de bootstrap van de werkruimte."
+  },
+  "tools": {
+    "sensitive": "· gevoelig",
+    "mcpReady": "· MCP-klaar"
+  },
+  "settings": {
+    "title": "Agent OS-instellingen",
+    "defaultLlmProvider": "Standaard LLM-provider",
+    "enableSupervisor": "Schakel supervisor-agentarchitectuur in",
+    "isolateSensitive": "Isoleer gevoelige gereedschappen",
+    "saveSettings": "Instellingen opslaan",
+    "providersHint": "Providers klaar: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Verwissel adapters via registerLlmProvider zonder UI-wijzigingen."
+  },
+  "columns": {
+    "agent": "Tussenpersoon",
+    "status": "Status",
+    "health": "Gezondheid",
+    "queue": "Wachtrij",
+    "usage": "Gebruik",
+    "actions": "Acties",
+    "task": "Taak",
+    "duration": "Duur",
+    "created": "Gemaakt",
+    "scope": "Domein",
+    "key": "Sleutel",
+    "value": "Waarde",
+    "at": "Bij",
+    "title": "Titel",
+    "kind": "Vriendelijk",
+    "summary": "Samenvatting"
+  },
+  "actions": {
+    "run": "Loop",
+    "pause": "Pauze",
+    "activate": "Inschakelen",
+    "cancel": "Annuleren",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "Voer het bedrijfsdoel van {agentId} uit",
+    "planAndExecute": "Plan en voer een zakelijk doel voor de werkruimte uit"
+  }
+}

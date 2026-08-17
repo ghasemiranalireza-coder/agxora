@@ -1,0 +1,298 @@
+{
+  "page": {
+    "eyebrow": "OS Manajemen Proyek",
+    "title": "Proyek",
+    "lead": "Rencanakan penyampaian, lacak anggaran dan kesehatan, tetapkan tim, dan kelola tugas untuk {organisasi}. Data disimpan secara lokal dan siap untuk konektivitas backend.",
+    "yourOrganization": "organisasi Anda"
+  },
+  "list": {
+    "errorTitle": "Tidak dapat memuat proyek",
+    "searchLabel": "Cari proyek",
+    "searchPlaceholder": "Cari proyek, pelanggan, pemilik, tag…",
+    "viewCards": "Kartu-kartu",
+    "viewTable": "Meja",
+    "newProject": "Proyek baru",
+    "statusFilter": "Status",
+    "priorityFilter": "Prioritas",
+    "customerFilter": "Pelanggan",
+    "ownerFilter": "Pemilik",
+    "allStatuses": "Semua status",
+    "allPriorities": "Semua prioritas",
+    "allCustomers": "Semua pelanggan",
+    "allOwners": "Semua pemilik",
+    "dateFrom": "Dari",
+    "dateTo": "Ke",
+    "emptyTitle": "Belum ada proyek",
+    "emptyDescription": "Siapkan ruang kerja pengiriman untuk melacak pencapaian, anggaran, dan kepemilikan tim.",
+    "createProject": "Buat proyek",
+    "pagination": "Menampilkan {dari}–{ke} dari {total}",
+    "previous": "Sebelumnya",
+    "next": "Berikutnya",
+    "noDescription": "Belum ada deskripsi.",
+    "duePrefix": "Tenggat waktu}",
+    "openProject": "Buka proyek {name}",
+    "sortBy": "Urutkan berdasarkan {kolom}",
+    "sort": {
+      "name": "Nama",
+      "customer": "Pelanggan",
+      "owner": "Pemilik",
+      "status": "Status",
+      "priority": "Prioritas",
+      "progress": "Kemajuan",
+      "dueDate": "Jatuh tempo",
+      "budget": "Anggaran"
+    }
+  },
+  "form": {
+    "createTitle": "Buat Proyek",
+    "editTitle": "Sunting Proyek",
+    "cancel": "Membatalkan",
+    "saveChanges": "Simpan perubahan",
+    "createProject": "Buat proyek",
+    "projectName": "Nama Proyek",
+    "customer": "Pelanggan",
+    "projectOwner": "Pemilik Proyek",
+    "priority": "Prioritas",
+    "status": "Status",
+    "budget": "Anggaran",
+    "currency": "Mata uang",
+    "startDate": "Tanggal Mulai",
+    "dueDate": "Tenggat waktu",
+    "color": "Warna",
+    "icon": "Ikon",
+    "tags": "Tag",
+    "tagsHint": "Dipisahkan koma",
+    "tagsPlaceholder": "perusahaan, peluncuran",
+    "budgetPlaceholder": "0",
+    "description": "Keterangan",
+    "selectColor": "Pilih warna {warna}"
+  },
+  "taskForm": {
+    "createTitle": "Buat Tugas",
+    "editTitle": "Sunting Tugas",
+    "cancel": "Membatalkan",
+    "saveChanges": "Simpan perubahan",
+    "createTask": "Buat tugas",
+    "title": "Judul",
+    "assignee": "Penerima tugas",
+    "priority": "Prioritas",
+    "status": "Status",
+    "deadline": "Tenggat waktu",
+    "progress": "Kemajuan",
+    "labels": "Label",
+    "labelsHint": "Dipisahkan koma",
+    "description": "Keterangan"
+  },
+  "deleteDialog": {
+    "title": "Hapus proyek",
+    "cancel": "Membatalkan",
+    "deletePermanently": "Hapus secara permanen",
+    "bodyPrefix": "Ini menghilangkan",
+    "thisProject": "proyek ini",
+    "bodySuffix": "dan semua tugas, file, catatan, dan aktivitas terkait dari penyimpanan lokal. Tindakan ini tidak dapat dibatalkan."
+  },
+  "badges": {
+    "progress": "Kemajuan",
+    "progressAria": "{label}: {nilai}%"
+  },
+  "status": {
+    "planning": "Perencanaan",
+    "active": "Aktif",
+    "on_hold": "Ditahan",
+    "completed": "Selesai",
+    "archived": "Diarsipkan"
+  },
+  "taskStatus": {
+    "todo": "Yang Harus Dilakukan",
+    "in_progress": "Sedang Berlangsung",
+    "review": "Tinjauan",
+    "done": "Selesai"
+  },
+  "priority": {
+    "low": "Rendah",
+    "medium": "Sedang",
+    "high": "Tinggi",
+    "critical": "Kritis"
+  },
+  "role": {
+    "owner": "Pemilik",
+    "manager": "Manajer",
+    "member": "Anggota",
+    "viewer": "Penonton"
+  },
+  "kind": {
+    "project": "proyek",
+    "task": "tugas",
+    "milestone": "tonggak pencapaian"
+  },
+  "timeline": {
+    "noTimelineTitle": "Tidak ada garis waktu",
+    "noTimelineDescription": "Buka proyek untuk melihat jadwal, durasi, dan pencapaian.",
+    "emptyTitle": "Garis waktu kosong",
+    "emptyDescription": "Tambahkan tanggal mulai/jatuh tempo dan tugas untuk mengisi jadwal.",
+    "title": "Garis Waktu",
+    "subtitle": "Mulai, akhir, durasi, pencapaian. Dependensi dicadangkan untuk rilis mendatang.",
+    "dateRange": "{mulai} → {akhir} · {hari}d",
+    "itemAria": "{title} dari {start} hingga {end}",
+    "dependenciesNone": "Ketergantungan: tidak ada"
+  },
+  "dashboard": {
+    "kpi": {
+      "activeProjects": "Proyek Aktif",
+      "activeHint": "{perencanaan} perencanaan",
+      "completed": "Selesai",
+      "completedHint": "{persen}% portofolio",
+      "onHold": "Ditahan",
+      "onHoldHint": "{diarsipkan} diarsipkan",
+      "teamMembers": "Anggota Tim",
+      "teamHint": "Di semua proyek",
+      "budgetOverview": "Ikhtisar Anggaran",
+      "budgetHint": "{percent}% digunakan · {spent} dibelanjakan",
+      "openTasks": "Buka Tugas",
+      "openTasksHint": "{terlambat} terlambat",
+      "projectHealth": "Kesehatan Proyek",
+      "healthHint": "Skor pengiriman gabungan",
+      "upcomingDeadlines": "Batas Waktu Mendatang",
+      "upcomingHint": "30 hari berikutnya"
+    },
+    "analytics": {
+      "title": "Analisis",
+      "subtitle": "Kesehatan portofolio, penyelesaian, dan penggunaan anggaran.",
+      "statusMix": "Campuran status",
+      "deliverySignals": "Sinyal pengiriman",
+      "completedPercent": "Selesai %",
+      "budgetUsage": "Penggunaan anggaran",
+      "health": "Kesehatan",
+      "upcomingDeadlines": "Batas waktu yang akan datang",
+      "noUpcomingDeadlines": "Tidak ada tenggat waktu mendatang di jendela berikutnya."
+    },
+    "recentActivity": {
+      "title": "Aktivitas Terkini",
+      "subtitle": "Acara proyek terbaru terlebih dahulu.",
+      "empty": "Aktivitas akan muncul saat proyek dan tugas dibuat."
+    }
+  },
+  "kanban": {
+    "emptyTitle": "Tidak ada tugas di papan",
+    "emptyDescription": "Buat tugas untuk mengatur penyampaian To Do, In Progress, Review, dan Done.",
+    "addTask": "Tambahkan tugas",
+    "columnAria": "kolom {status}",
+    "taskProgress": "Kemajuan tugas",
+    "edit": "Sunting",
+    "complete": "Menyelesaikan"
+  },
+  "detail": {
+    "notFoundTitle": "Proyek tidak ditemukan",
+    "notFoundDescription": "Proyek ini mungkin telah dihapus atau tidak tersedia untuk organisasi saat ini.",
+    "backToProjects": "← Kembali ke proyek",
+    "ownerMeta": "{pelanggan} · Pemilik {pemilik}",
+    "edit": "Sunting",
+    "delete": "Menghapus",
+    "sectionsAria": "Bagian detail proyek",
+    "tabs": {
+      "overview": "Ringkasan",
+      "tasks": "Tugas",
+      "files": "File",
+      "notes": "Catatan",
+      "activity": "Aktivitas",
+      "team": "Tim",
+      "settings": "Pengaturan"
+    }
+  },
+  "overview": {
+    "missingTitle": "Proyek hilang",
+    "missingDescription": "Pilih proyek untuk melihat ikhtisarnya.",
+    "title": "Ringkasan",
+    "noDescription": "Tidak ada deskripsi yang diberikan.",
+    "budget": "Anggaran",
+    "spent": "Dihabiskan",
+    "start": "Awal",
+    "due": "Jatuh tempo",
+    "openTasks": "Buka tugas",
+    "completedTasks": "Tugas selesai"
+  },
+  "tasks": {
+    "title": "Manajemen tugas",
+    "newTask": "Tugas baru",
+    "tableTitle": "Judul",
+    "tableAssignee": "Penerima tugas",
+    "tablePriority": "Prioritas",
+    "tableStatus": "Status",
+    "tableDue": "Jatuh tempo",
+    "tableProgress": "Kemajuan",
+    "tableActions": "Tindakan",
+    "edit": "Sunting",
+    "complete": "Menyelesaikan",
+    "delete": "Menghapus",
+    "emptyTitle": "Belum ada tugas",
+    "emptyDescription": "Buat tugas, tetapkan pemilik, dan lacak kemajuan di papan.",
+    "createTask": "Buat tugas"
+  },
+  "files": {
+    "title": "Manajer file",
+    "description": "Unggah gambar, PDF, dan dokumen kantor. Metadata tetap ada secara lokal.",
+    "upload": "Mengunggah",
+    "emptyTitle": "Tidak ada file yang diunggah",
+    "emptyDescription": "Tambahkan artefak proyek untuk ditinjau dan dipratinjau oleh tim.",
+    "preview": "Pratinjau",
+    "metadataOnly": "Hanya metadata",
+    "delete": "Menghapus"
+  },
+  "notes": {
+    "editTitle": "Sunting catatan",
+    "newTitle": "Catatan baru",
+    "title": "Judul",
+    "author": "Pengarang",
+    "body": "Tubuh",
+    "cancel": "Membatalkan",
+    "saveNote": "Simpan catatan",
+    "emptyTitle": "Belum ada catatan",
+    "emptyDescription": "Menangkap keputusan, hasil pertemuan, dan konteks penyampaian.",
+    "edit": "Sunting",
+    "delete": "Menghapus"
+  },
+  "activity": {
+    "title": "Umpan aktivitas",
+    "emptyTitle": "Belum ada aktivitas",
+    "emptyDescription": "Acara proyek akan muncul di sini saat tim bekerja."
+  },
+  "team": {
+    "missingTitle": "Proyek hilang",
+    "missingDescription": "Pilih proyek untuk mengelola anggota tim.",
+    "assignTitle": "Tetapkan anggota",
+    "name": "Nama",
+    "email": "E-mail",
+    "role": "Peran",
+    "addMember": "Tambahkan anggota",
+    "teamTitle": "Tim",
+    "remove": "Menghapus"
+  },
+  "settings": {
+    "missingTitle": "Proyek hilang",
+    "missingDescription": "Pilih proyek untuk mengelola pengaturan.",
+    "title": "Pengaturan proyek",
+    "description": "Perbarui status pembakaran anggaran dan arsipkan. Pengeditan bidang penuh menggunakan dialog Edit.",
+    "spentAmount": "Jumlah yang dibelanjakan",
+    "saveSpent": "Menghemat pengeluaran",
+    "archiveProject": "Proyek arsip",
+    "editAllFields": "Edit semua bidang"
+  },
+  "toasts": {
+    "projectCreated": "Proyek dibuat",
+    "projectUpdated": "Proyek diperbarui",
+    "projectDeleted": "Proyek dihapus",
+    "checkForm": "Periksa formulirnya",
+    "validationFailed": "Validasi gagal.",
+    "taskCreated": "Tugas dibuat",
+    "taskUpdated": "Tugas diperbarui",
+    "taskCompleted": "Tugas selesai",
+    "taskDeleted": "Tugas dihapus",
+    "filesUploaded": "File diunggah",
+    "filesUploadedDetail": "{count} file",
+    "fileDeleted": "Berkas dihapus",
+    "noteSaved": "Catatan disimpan",
+    "memberAdded": "Anggota ditambahkan",
+    "settingsSaved": "Pengaturan disimpan",
+    "projectArchived": "Proyek diarsipkan"
+  }
+}

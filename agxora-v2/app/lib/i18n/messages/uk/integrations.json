@@ -1,0 +1,143 @@
+{
+  "loading": "Завантаження інтеграційної платформи…",
+  "eyebrow": "Платформа корпоративної інтеграції",
+  "title": "Інтеграційний центр",
+  "subtitle": "З’єднувачі для екосистем Microsoft 365, Google, Slack, CRM, сховищ і автоматизації. З’єднання та синхронізація в цій збірці є локальними демонстраціями — живий OAuth не підключається.",
+  "noticeDefault": "Локальні демонстраційні конектори — OAuth і синхронізація в реальному часі не підключені.",
+  "settings": "Налаштування",
+  "tabs": {
+    "dashboard": "Приладова панель",
+    "installed": "встановлено",
+    "available": "в наявності",
+    "logs": "Журнали",
+    "apiKeys": "Ключі API",
+    "webhooks": "Вебхуки",
+    "developer": "Розробник"
+  },
+  "notice": {
+    "demoConnection": "Демонстраційне підключення: {name} (лише локальна заглушка)",
+    "connectFailed": "Помилка підключення",
+    "keyCreated": "Ключ API створено: {префікс}",
+    "webhookCreated": "Вебхук створено: {name}",
+    "webhookTest": "Тест вебхуку {статус}",
+    "networkError": "Помилка мережі API Explorer: {message}",
+    "explorerError": "Провідник API → {статус}: {повідомлення}",
+    "explorerSuccess": "Провідник API → {статус}",
+    "explorerFailed": "Провідник не впорався",
+    "syncResult": "Демонстраційна синхронізація · {статус} ({записи} локальні записи) — зовнішні дані не передано.",
+    "diagnosed": "Діагностовано",
+    "removedConnection": "Видалено демо-підключення: {name}",
+    "keyRotated": "Ключ повернено",
+    "keyRevoked": "Ключ анульовано",
+    "publishedEvent": "Опубліковано {type}",
+    "developerSaved": "Налаштування розробника збережено"
+  },
+  "dashboard": {
+    "demoLinks": "Демо посилання",
+    "catalog": "Каталог",
+    "api24h": "API (24 години)",
+    "webhooks24h": "Вебхуки (24 години)",
+    "webhookFailures": "Збої вебхуку",
+    "syncJobs": "Синхронізація завдань",
+    "conflicts": "Конфлікти",
+    "errors": "Помилки",
+    "connectionStatus": "Статус підключення",
+    "emptyTitle": "Інтеграції не встановлено",
+    "emptyDescription": "Огляд Доступно для підключення провайдера.",
+    "eventBridgeDemo": "Демонстрація Event bridge",
+    "eventBridgeHint": "Опублікуйте подію конектора на шині автоматизації робочого процесу.",
+    "emit": "Видавати {id}"
+  },
+  "installed": {
+    "title": "Встановлені інтеграції",
+    "emptyTitle": "Нічого не встановлено",
+    "emptyDescription": "Встановити з доступного каталогу.",
+    "latestSync": "Остання синхронізація: {статус} · {записів} записів · режим {режим}"
+  },
+  "available": {
+    "protocols": "Протоколи: {протоколи}",
+    "demoConnection": "Демо підключення",
+    "connectDemo": "Connect (демо)",
+    "installDemo": "Встановити демо"
+  },
+  "logs": {
+    "title": "Журнали інтеграції",
+    "emptyTitle": "Журналів ще немає",
+    "emptyDescription": "Підключіть провайдера або запустіть діагностику."
+  },
+  "apiKeys": {
+    "title": "Ключі API",
+    "generateKey": "Згенерувати ключ",
+    "copyOnce": "Копіювати зараз (показано один раз): {секрет}",
+    "emptyTitle": "Немає ключів API",
+    "emptyDescription": "Згенеруйте ключ для доступу до шлюзу REST."
+  },
+  "webhooks": {
+    "endpointsTitle": "Кінцеві точки вебхуку",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "Додати вихідний вебхук",
+    "emptyTitle": "Без веб-хуків",
+    "emptyDescription": "Створіть вихідну кінцеву точку для перевірки доставки.",
+    "deliveryLogs": "Журнали доставки",
+    "deliveriesEmptyTitle": "Ніяких поставок",
+    "deliveriesEmptyDescription": "Надішліть тестовий вебхук для заповнення журналів."
+  },
+  "developer": {
+    "title": "Налаштування розробника",
+    "sandboxMode": "Режим пісочниці",
+    "webhookSigning": "Підпис вебхуку ввімкнено",
+    "saveSettings": "Зберегти налаштування",
+    "apiDocs": "Заповнювач документів API: {url}",
+    "sdk": "Заповнювач SDK: {url}",
+    "explorerTitle": "Провідник API",
+    "gatewayRoutes": "Маршрути шлюзу: {routes}",
+    "sendGet": "Надіслати GET",
+    "oauthProviders": "Постачальники OAuth",
+    "placeholdersHint": "Маршрути шлюзу GraphQL, WebSocket і gRPC зареєстровані як заповнювачі. Відображення полів і розв’язання конфліктів синхронізації готові до архітектури для внутрішньої реалізації."
+  },
+  "connectionStatus": {
+    "connected": "Демо підключення",
+    "pendingAuth": "Очікує на розгляд (демо)",
+    "error": "Помилка",
+    "disabled": "Вимкнено",
+    "installed": "встановлено",
+    "available": "в наявності",
+    "localDemo": "Локальна демонстрація"
+  },
+  "columns": {
+    "integration": "Інтеграція",
+    "status": "Статус",
+    "health": "Здоров'я",
+    "latency": "Затримка",
+    "actions": "Дії",
+    "when": "Коли",
+    "level": "Рівень",
+    "source": "Джерело",
+    "message": "повідомлення",
+    "name": "Ім'я",
+    "key": "ключ",
+    "scopes": "Області застосування",
+    "usage": "Використання",
+    "direction": "Напрямок",
+    "url": "URL",
+    "enabled": "Увімкнено",
+    "event": "Подія",
+    "attempt": "Спроба"
+  },
+  "actions": {
+    "diagnose": "Діагностувати",
+    "demoSync": "Демо синхронізація",
+    "demoSyncTitle": "Лише демонстраційна синхронізація — без зовнішньої передачі",
+    "disconnect": "Відключити",
+    "rotate": "Обертати",
+    "revoke": "Відкликати",
+    "test": "Тест",
+    "emDash": "—",
+    "yes": "так",
+    "no": "немає"
+  },
+  "errors": {
+    "failedToFetch": "Не вдалося отримати",
+    "httpStatus": "HTTP {статус}"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "身份和访问",
+    "title": "团队",
+    "lead": "{organization} 的成员、角色和邀请。为未来的身份 API 做好架构准备。",
+    "yourOrganization": "你的主办"
+  },
+  "invite": {
+    "title": "通过电子邮件邀请",
+    "email": "电子邮件",
+    "emailPlaceholder": "同事@company.com",
+    "role": "角色",
+    "submit": "邀请",
+    "created": "邀请已创建（待处理）。",
+    "failed": "邀请失败",
+    "signInFirst": "首先登录并激活组织。",
+    "noPermission": "缺少权限 - 需要管理员或经理邀请。"
+  },
+  "roles": {
+    "title": "角色",
+    "owner": {
+      "name": "所有者",
+      "description": "全面的组织控制，包括设置和计费。"
+    },
+    "admin": {
+      "name": "行政",
+      "description": "管理财务、自动化、团队和工作区模块。"
+    },
+    "manager": {
+      "name": "经理",
+      "description": "领导 CRM、项目、文档和创建者运营。"
+    },
+    "employee": {
+      "name": "员工",
+      "description": "日常 CRM、文档、创建者和项目访问。"
+    },
+    "guest": {
+      "name": "客人",
+      "description": "对文档和项目的读取权限有限。"
+    },
+    "viewer": {
+      "name": "查看器",
+      "description": "对共享模块的只读访问。"
+    }
+  },
+  "members": {
+    "title": "会员",
+    "columnMember": "成员",
+    "columnEmail": "电子邮件",
+    "columnRole": "角色",
+    "columnStatus": "地位",
+    "roleFor": "{name} 的角色",
+    "emptyTitle": "还没有会员",
+    "emptyDescription": "邀请同事加入此组织工作区。",
+    "updated": "将 {name} 更新为 {role}",
+    "roleChangeFailed": "角色更改失败"
+  },
+  "pending": {
+    "title": "待处理的邀请",
+    "emptyTitle": "没有待处理的邀请",
+    "emptyDescription": "新邀请将显示在此处，直至被接受或过期。",
+    "expires": "{role} · {date}到期",
+    "revoke": "撤销",
+    "pending": "待办的"
+  },
+  "history": {
+    "title": "邀请历史",
+    "empty": "已接受、已过期和已撤销的邀请将显示在此处。"
+  },
+  "status": {
+    "accepted": "公认",
+    "expired": "已到期",
+    "revoked": "撤销",
+    "active": "积极的",
+    "inactive": "不活跃的",
+    "pending": "待办的"
+  }
+}

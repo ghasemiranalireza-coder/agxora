@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "Nhận dạng & Quyền truy cập",
+    "title": "Đội",
+    "lead": "Thành viên, vai trò và lời mời cho {tổ chức}. Kiến trúc sẵn sàng cho API nhận dạng trong tương lai.",
+    "yourOrganization": "tổ chức của bạn"
+  },
+  "invite": {
+    "title": "Mời qua email",
+    "email": "E-mail",
+    "emailPlaceholder": "đồng nghiệp@company.com",
+    "role": "Vai trò",
+    "submit": "Mời",
+    "created": "Đã tạo lời mời (đang chờ xử lý).",
+    "failed": "Mời không thành công",
+    "signInFirst": "Đăng nhập và kích hoạt một tổ chức trước tiên.",
+    "noPermission": "Thiếu quyền — Cần có quản trị viên hoặc người quản lý để mời."
+  },
+  "roles": {
+    "title": "Vai trò",
+    "owner": {
+      "name": "Người sở hữu",
+      "description": "Kiểm soát toàn bộ tổ chức bao gồm Cài đặt và thanh toán."
+    },
+    "admin": {
+      "name": "Quản trị viên",
+      "description": "Quản lý các mô-đun Tài chính, Tự động hóa, Nhóm và không gian làm việc."
+    },
+    "manager": {
+      "name": "Giám đốc",
+      "description": "Dẫn dắt các hoạt động CRM, Dự án, Tài liệu và Người sáng tạo."
+    },
+    "employee": {
+      "name": "Người lao động",
+      "description": "Quyền truy cập CRM, Tài liệu, Người tạo và Dự án hàng ngày."
+    },
+    "guest": {
+      "name": "Khách mời",
+      "description": "Quyền truy cập đọc hạn chế vào Tài liệu và Dự án."
+    },
+    "viewer": {
+      "name": "Người xem",
+      "description": "Quyền truy cập chỉ đọc vào các mô-đun được chia sẻ."
+    }
+  },
+  "members": {
+    "title": "Thành viên",
+    "columnMember": "Thành viên",
+    "columnEmail": "E-mail",
+    "columnRole": "Vai trò",
+    "columnStatus": "Trạng thái",
+    "roleFor": "Vai trò của {name}",
+    "emptyTitle": "Chưa có thành viên nào",
+    "emptyDescription": "Mời đồng nghiệp tham gia không gian làm việc của tổ chức này.",
+    "updated": "Đã cập nhật {name} thành {role}",
+    "roleChangeFailed": "Thay đổi vai trò không thành công"
+  },
+  "pending": {
+    "title": "Lời mời đang chờ xử lý",
+    "emptyTitle": "Không có lời mời đang chờ xử lý",
+    "emptyDescription": "Lời mời mới xuất hiện ở đây cho đến khi được chấp nhận hoặc hết hạn.",
+    "expires": "{role} · hết hạn vào {ngày}",
+    "revoke": "Thu hồi",
+    "pending": "chưa giải quyết"
+  },
+  "history": {
+    "title": "Lịch sử lời mời",
+    "empty": "Lời mời được chấp nhận, hết hạn và bị thu hồi sẽ xuất hiện ở đây."
+  },
+  "status": {
+    "accepted": "được chấp nhận",
+    "expired": "hết hạn",
+    "revoked": "bị thu hồi",
+    "active": "tích cực",
+    "inactive": "không hoạt động",
+    "pending": "chưa giải quyết"
+  }
+}

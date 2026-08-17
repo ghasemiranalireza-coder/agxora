@@ -1,0 +1,387 @@
+{
+  "skipToContent": "Ga naar de dashboardinhoud",
+  "loading": "Dashboard laden…",
+  "hero": {
+    "ariaLabel": "AGXORA CORE-held",
+    "eyebrow": "AI zakelijk besturingssysteem",
+    "title": "AGXORA-KERN",
+    "subtitle": "Real-time intelligentie en operationele controle: het commandooppervlak van uw werkruimte.",
+    "ctaGetStarted": "Ga aan de slag",
+    "ctaViewActivity": "Activiteit bekijken",
+    "openQuickActionsAria": "Snelle acties openen",
+    "viewActivityAria": "Bekijk recente activiteit"
+  },
+  "quickActions": {
+    "title": "Snelle acties",
+    "subtitle": "Wat moet je nu doen?",
+    "ariaLabel": "Snelle acties",
+    "addCustomer": {
+      "label": "Klant toevoegen",
+      "description": "Maak een CRM-record"
+    },
+    "newProject": {
+      "label": "Nieuw project",
+      "description": "Start een bezorgtraject"
+    },
+    "askAi": {
+      "label": "Vraag het AI",
+      "description": "Open de AI-werkruimte"
+    },
+    "finance": {
+      "label": "Financiën",
+      "description": "Facturen en cashflow"
+    },
+    "automations": {
+      "label": "Automatiseringen",
+      "description": "Workflow-motor"
+    },
+    "settings": {
+      "label": "Instellingen",
+      "description": "Voorkeuren voor werkruimte"
+    }
+  },
+  "attention": {
+    "title": "Heeft aandacht nodig",
+    "ariaLabel": "Wat aandacht nodig heeft",
+    "empty": "U bent duidelijk: er zijn momenteel geen dringende zaken.",
+    "tone": {
+      "critical": "Kritisch",
+      "warning": "Waarschuwing",
+      "info": "Info",
+      "success": "Klaar",
+      "action": "Doe het volgende"
+    },
+    "addCustomer": {
+      "title": "Voeg uw eerste klant toe",
+      "detail": "Start de CRM met een echt accountrecord."
+    },
+    "createProject": {
+      "title": "Maak een project",
+      "detail": "Open een leveringstraject voor uw volgende opdracht."
+    },
+    "exploreAi": {
+      "title": "Verken de AI-werkruimte",
+      "detail": "Vraag AGXORA naar klanten, projecten of volgende stappen."
+    },
+    "reviewBilling": {
+      "title": "Controleer de facturering",
+      "detail": "Bevestig het abonnement en gebruik wanneer u klaar bent om te schalen."
+    }
+  },
+  "overview": {
+    "title": "Wat gebeurt er",
+    "subtitle": "Werkruimte telt voor {name}",
+    "fallbackName": "jouw werkruimte",
+    "ariaLabel": "Zakelijk overzicht",
+    "online": "Online",
+    "emDash": "—",
+    "capacitySignal": "{procent}% capaciteitssignaal",
+    "activeClients": {
+      "title": "Actieve klanten",
+      "captionEmpty": "Nog geen actieve klanten",
+      "captionTotal": "{count} totaal in werkruimte",
+      "add": "Klant toevoegen",
+      "view": "Bekijk klanten"
+    },
+    "projects": {
+      "title": "Projecten",
+      "captionEmpty": "Geen projecten in portefeuille",
+      "captionOpen": "Open leveringstracks",
+      "create": "Project aanmaken",
+      "open": "Openstaande projecten"
+    },
+    "activityToday": {
+      "title": "Activiteit vandaag",
+      "captionEmpty": "Vandaag nog niets gelogd",
+      "captionEvents": "Werkruimtegebeurtenissen sinds middernacht",
+      "viewFeed": "Bekijk feed"
+    },
+    "revenue": {
+      "title": "Winst",
+      "caption": "Koppel facturering om MRR weer te geven",
+      "openBilling": "Facturering openen"
+    },
+    "clientShell": {
+      "title": "Klantschil",
+      "caption": "Browsersessie klaar - geen live operationele monitor",
+      "shellLoaded": "Applicatieshell geladen",
+      "storesReady": "Lokale werkruimtewinkels klaar"
+    },
+    "growth": {
+      "title": "Groei",
+      "caption": "Trendstatistieken hebben geaccumuleerd gebruik nodig",
+      "openAnalytics": "Open analyses"
+    }
+  },
+  "activity": {
+    "title": "Recente activiteit",
+    "subtitle": "Wat is er vandaag veranderd",
+    "ariaLabel": "Recente activiteit",
+    "todayCount": "{count} VANDAAG",
+    "localBadge": "LOKAAL",
+    "emptyTitle": "Nog geen activiteit",
+    "emptyBody": "Werkruimtegebeurtenissen verschijnen hier wanneer u klanten, projecten en meer toevoegt.",
+    "addCustomer": "Klant toevoegen",
+    "newProject": "Nieuw project",
+    "kind": {
+      "customer": "Klant",
+      "project": "Project",
+      "finance": "Financiën",
+      "automation": "Automatisering",
+      "documents": "Documenten",
+      "team": "Team",
+      "workspace": "Werkruimte"
+    },
+    "events": {
+      "customer_created": "Klant aangemaakt",
+      "customer_updated": "Klant bijgewerkt",
+      "customer_deleted": "Klant verwijderd",
+      "project_updated": "Project bijgewerkt",
+      "invoice_paid": "Factuur betaald",
+      "document_uploaded": "Document geüpload",
+      "workflow_executed": "Werkstroom uitgevoerd",
+      "member_invited": "Teamlid uitgenodigd",
+      "generic": "Update van de werkruimte"
+    }
+  },
+  "chat": {
+    "title": "AGXORA AI",
+    "emptyState": "Vraag AGXORA naar klanten, projecten of volgende acties. Uw gesprek blijft in deze werkruimtesessie.",
+    "thinking": "AGXORA denkt...",
+    "errorDismiss": "{error} — tik om te negeren",
+    "placeholder": "Vraag AGXORA AI…",
+    "messageAria": "Bericht AGXORA AI",
+    "sendAria": "Bericht verzenden",
+    "send": "Versturen"
+  },
+  "routeLoading": {
+    "team": "Team laden…",
+    "projects": "Projecten laden…",
+    "project": "Project laden…",
+    "profile": "Profiel laden…",
+    "integrations": "Integraties laden…",
+    "identity": "Identiteit laden…",
+    "finance": "Financiën laden…",
+    "documents": "Documenten laden…",
+    "customers": "Klanten laden…",
+    "crm": "CRM laden...",
+    "customer": "Klant laden…",
+    "creator": "Creatorstudio laden…",
+    "billing": "Facturering laden…",
+    "billingAdmin": "Beheerfacturering laden…",
+    "automation": "Automatisering laden…",
+    "analytics": "Intelligentiecentrum laden...",
+    "ai": "AI-platform laden...",
+    "agents": "Agent-besturingssysteem laden..."
+  },
+  "shell": {
+    "memory": {
+      "title": "Geheugen",
+      "description": "Het organisatiegeheugen is in deze build niet aangesloten.",
+      "emptyTitle": "Geheugenwerkruimte is nog niet beschikbaar",
+      "emptyBody": "Permanente organisatiegeheugenopslag is niet aangesloten. Chat houdt mogelijk alleen de context van korte duur tijdens de sessie vast; niets wordt hier opgeslagen als bedrijfsgeheugen."
+    },
+    "invoices": {
+      "title": "Facturen",
+      "description": "Facturering en factuurarchitectuur voor zakelijke huurders.",
+      "emptyTitle": "Factuurgrootboek is nog niet beschikbaar",
+      "emptyBody": "Deze route is een shell: het maken en persistent maken van facturen is niet met elkaar verbonden. Gebruik Finance voor het voorbeeld van het grootboek, of Facturering voor planbeheer.",
+      "openFinance": "Financiën openen",
+      "openBilling": "Facturering openen"
+    }
+  },
+  "search": {
+    "ariaLabel": "Universeel zoeken",
+    "queryAria": "Universele zoekopdracht",
+    "placeholder": "Zoek klanten, facturen, documenten, workflows, instellingen…",
+    "quickActions": "Snelle acties",
+    "favorites": "Favorieten",
+    "recentSearches": "Recente zoekopdrachten",
+    "clear": "Duidelijk",
+    "noRecentSearches": "Nog geen recente zoekopdrachten. Probeer “Nordlicht”, “factuur” of “workflow”.",
+    "recentActivity": "Recente activiteit",
+    "aiReady": "AI gereed (architectuur)",
+    "pinnedResults": "Vastgezette resultaten",
+    "noMatches": "Geen overeenkomsten",
+    "noMatchesBody": "Probeer een ander trefwoord, of open een module via Snelle Acties.",
+    "close": "Dichtbij",
+    "open": "Open",
+    "keyboardHints": "↑↓ navigeren · Enter openen · Ctrl/⌘ K schakelen · Esc sluiten",
+    "pinResult": "Resultaat vastzetten",
+    "unpinResult": "Resultaat losmaken",
+    "previewEmpty": "Plaats de muisaanwijzer op een resultaat of markeer het voor een voorbeeld, metagegevens en slimme koppelingen.",
+    "previewAria": "Universeel voorbeeld",
+    "relatedItems": "Gerelateerde artikelen",
+    "noSmartLinks": "Geen slimme links voor dit resultaat.",
+    "groups": {
+      "crm": "CRM",
+      "finance": "Financiën",
+      "documents": "Documenten",
+      "automation": "Automatisering",
+      "projects": "Projecten",
+      "creator": "Makerstudio",
+      "settings": "Instellingen",
+      "commands": "Commando's",
+      "actions": "Snelle acties"
+    },
+    "status": {
+      "architecture": "architectuur",
+      "planned": "gepland"
+    },
+    "meta": {
+      "type": "Type",
+      "module": "Module",
+      "quickAction": "Snelle actie"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "Klant aanmaken",
+        "subtitle": "Open Klanten om een ​​record toe te voegen"
+      },
+      "createInvoice": {
+        "title": "Factuur maken",
+        "subtitle": "Open de werkruimte Finance-facturen"
+      },
+      "uploadDocument": {
+        "title": "Document uploaden",
+        "subtitle": "Open Documenten Kennishub"
+      },
+      "newWorkflow": {
+        "title": "Nieuwe workflow",
+        "subtitle": "Open de Automation Engine-bouwer"
+      },
+      "newProject": {
+        "title": "Nieuw project",
+        "subtitle": "Open de Projecten-werkruimte"
+      },
+      "inviteMember": {
+        "title": "Nodig teamlid uit",
+        "subtitle": "Open teamuitnodigingen"
+      },
+      "openBilling": {
+        "title": "Facturering openen",
+        "subtitle": "Abonnementen, facturen en abonnementen"
+      },
+      "openSettings": {
+        "title": "Instellingen openen",
+        "subtitle": "Voorkeuren voor werkruimte"
+      }
+    },
+    "commands": {
+      "openCrm": {
+        "title": "CRM openen",
+        "subtitle": "AI CRM-module"
+      },
+      "openCustomers": {
+        "title": "Klanten openen",
+        "subtitle": "Klantenbeheer"
+      },
+      "openFinance": {
+        "title": "Financiën openen",
+        "subtitle": "Financiën & Belastingen module"
+      },
+      "openDocuments": {
+        "title": "Documenten openen",
+        "subtitle": "Kennis hub"
+      },
+      "openAutomation": {
+        "title": "Automatisering openen",
+        "subtitle": "Workflow-motor"
+      },
+      "openSettings": {
+        "title": "Instellingen openen",
+        "subtitle": "Werkruimte-instellingen"
+      },
+      "openProjects": {
+        "title": "Projecten openen",
+        "subtitle": "Projectportfolio"
+      },
+      "openAi": {
+        "title": "Open AI",
+        "subtitle": "AI-platformwerkruimte"
+      },
+      "openAnalytics": {
+        "title": "Analytics openen",
+        "subtitle": "Intelligentie centrum"
+      },
+      "openIdentity": {
+        "title": "Open identiteit en toegang",
+        "subtitle": "IAM-instellingen, RBAC, audit"
+      },
+      "openBilling": {
+        "title": "Facturering openen",
+        "subtitle": "Abonnementsportaal en abonnementen"
+      },
+      "openIntegrations": {
+        "title": "Open integraties",
+        "subtitle": "Integratiecentrum en API-ecosysteem"
+      }
+    },
+    "modules": {
+      "dashboard": {
+        "subtitle": "Commandocentrum en wereldboloverzicht"
+      },
+      "customers": {
+        "subtitle": "Klantgegevens en CRM"
+      },
+      "projects": {
+        "subtitle": "Levering en opvolging van projecten"
+      },
+      "invoices": {
+        "title": "Facturen",
+        "subtitle": "Facturatie en facturen"
+      },
+      "finance": {
+        "subtitle": "AI-boekhouding, bankwezen, belasting- en financiële intelligentie"
+      },
+      "crm": {
+        "subtitle": "AI-native CRM en Creator-besturingssysteem"
+      },
+      "creator": {
+        "subtitle": "AI-inhoudproductie en marketingbesturingssysteem"
+      },
+      "documents": {
+        "subtitle": "AI-documenten en kennishub"
+      },
+      "ai": {
+        "title": "AI",
+        "subtitle": "AGXORA AI Platform – zakelijke werkruimte"
+      },
+      "analytics": {
+        "subtitle": "Bedrijfsinformatie"
+      },
+      "automation": {
+        "subtitle": "AI-workflow en automatiseringsengine"
+      },
+      "memory": {
+        "title": "Geheugen",
+        "subtitle": "Organisatie geheugen"
+      },
+      "team": {
+        "subtitle": "Leden en uitnodigingen"
+      },
+      "settings": {
+        "subtitle": "Werkruimte- en AI-instellingen"
+      }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "AI-zoekopdracht",
+        "description": "Rangschik resultaten met een toekomstig ophaalmodel over modules heen."
+      },
+      "semantic": {
+        "title": "Semantisch zoeken",
+        "description": "Vectorovereenkomst over documenten, facturen en kennis."
+      },
+      "nl": {
+        "title": "Zoeken in natuurlijke taal",
+        "description": "Parseer intenties zoals “achterstallige facturen voor Nordlicht”."
+      },
+      "rag": {
+        "title": "Kennis ophalen",
+        "description": "Basisantwoorden in het Documents Knowledge Hub-corpus."
+      }
+    }
+  },
+  "summary": "{name}: {klanten} klanten · {projecten} projecten · {updates} updates vandaag."
+}

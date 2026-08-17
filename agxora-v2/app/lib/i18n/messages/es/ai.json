@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "Cargando plataforma AI...",
+    "eyebrow": "Plataforma de IA AGXORA",
+    "title": "Espacio de trabajo de IA empresarial",
+    "subtitle": "Inteligencia independiente del proveedor para CRM, proyectos, finanzas, documentos y automatización. Configure proveedores en Configuración → AI.",
+    "newConversation": "Nueva conversación",
+    "aiCommands": "Comandos de IA"
+  },
+  "mobileTabs": {
+    "chat": "Charlar",
+    "conversations": "Conversaciones",
+    "prompts": "Indicaciones"
+  },
+  "usageBar": {
+    "provider": "Proveedor",
+    "model": "Modelo",
+    "estimatedTokens": "Est. fichas",
+    "tokensInOut": "(en {entrada} / fuera {fuera})",
+    "cost": "Costo",
+    "context": "Contexto",
+    "contextNone": "ninguno",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "Espacio de trabajo de IA AGXORA",
+    "emptyHint": "Inicie una conversación, elija un mensaje de la biblioteca o abra la paleta de comandos (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Conversaciones",
+    "new": "Nuevo",
+    "searchPlaceholder": "Buscar chats…",
+    "searchAria": "Buscar conversaciones",
+    "showArchived": "Mostrar archivado",
+    "pinned": "Fijado",
+    "emptyPreview": "conversación vacía",
+    "noConversations": "Aún no hay conversaciones",
+    "pin": "Alfiler",
+    "unpin": "Desprender",
+    "rename": "Rebautizar",
+    "archive": "Archivo",
+    "unarchive": "Desarchivar",
+    "delete": "Borrar"
+  },
+  "composer": {
+    "placeholder": "Mensaje AGXORA AI… (Intro para enviar, Mayús+Intro para nueva línea)",
+    "ariaLabel": "Compositor de mensajes",
+    "commandsShortcut": "Comandos ⌘⇧K",
+    "stop": "Detener",
+    "send": "Enviar"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Copiar",
+    "retry": "Rever"
+  },
+  "typingIndicator": {
+    "ariaLabel": "El asistente está escribiendo"
+  },
+  "promptLibrary": {
+    "title": "biblioteca inmediata",
+    "subtitle": "Plantillas reutilizables en CRM, Proyectos, Finanzas y más.",
+    "searchPlaceholder": "Mensajes de búsqueda...",
+    "searchAria": "Mensajes de búsqueda",
+    "all": "Todo",
+    "favorites": "Favoritos",
+    "recent": "Reciente",
+    "library": "Biblioteca",
+    "noMatches": "Ninguna indicación coincide",
+    "removeFavoriteAria": "Eliminar favorito",
+    "addFavoriteAria": "Agregar favorito",
+    "favorited": "Favorito",
+    "favorite": "Favorito",
+    "usePrompt": "Usar mensaje"
+  },
+  "commandPalette": {
+    "ariaLabel": "Paleta de comandos de IA",
+    "filterAria": "Filtrar comandos de IA",
+    "placeholder": "Comando de IA… resumir, proponer, analizar…",
+    "noMatches": "No hay comandos coincidentes",
+    "footer": "Registre comandos futuros a través de RegisterAiCommand: la interfaz de usuario permanece sin cambios."
+  }
+}

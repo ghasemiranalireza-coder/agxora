@@ -1,0 +1,143 @@
+{
+  "loading": "Chargement de la plateforme d'intégration…",
+  "eyebrow": "plateforme d'intégration d'entreprise (EIP)",
+  "title": "Centre d'intégration",
+  "subtitle": "Connecteurs pour les écosystèmes Microsoft 365, Google, Slack, CRM, de stockage et d'automatisation. Les connexions et la synchronisation dans cette version sont des démonstrations locales — OAuth en direct n'est pas connecté.",
+  "noticeDefault": "Connecteurs de démonstration locaux — OAuth et Live Sync ne sont pas connectés.",
+  "settings": "Paramètres",
+  "tabs": {
+    "dashboard": "Tableau de bord",
+    "installed": "Installé",
+    "available": "Disponible",
+    "logs": "Journaux",
+    "apiKeys": "Clés API",
+    "webhooks": "Webhook",
+    "developer": "Promoteur"
+  },
+  "notice": {
+    "demoConnection": "Connexion de démonstration : {name} (stub local uniquement)",
+    "connectFailed": "Échec de la connexion",
+    "keyCreated": "Clé API créée : {préfixe}",
+    "webhookCreated": "Webhook créé : {name}",
+    "webhookTest": "Test Webhook {status}",
+    "networkError": "Erreur réseau de l'explorateur d'API : {message}",
+    "explorerError": "Explorateur d'API → {statut} : {message}",
+    "explorerSuccess": "Explorateur d'API → {status}",
+    "explorerFailed": "L'explorateur a échoué",
+    "syncResult": "Synchronisation de démonstration · {status} ({records} enregistrements locaux) — aucune donnée externe transférée.",
+    "diagnosed": "Diagnostiqué",
+    "removedConnection": "Connexion de démonstration supprimée : {name}",
+    "keyRotated": "Touche tournée",
+    "keyRevoked": "Clé révoquée",
+    "publishedEvent": "Publié {type}",
+    "developerSaved": "Paramètres du développeur enregistrés"
+  },
+  "dashboard": {
+    "demoLinks": "Liens de démonstration",
+    "catalog": "Catalogue",
+    "api24h": "API (24h)",
+    "webhooks24h": "Webhooks (24h)",
+    "webhookFailures": "Échecs Webhook",
+    "syncJobs": "Synchroniser les tâches",
+    "conflicts": "Conflits",
+    "errors": "Erreurs",
+    "connectionStatus": "État de la connexion",
+    "emptyTitle": "Aucune intégration installée",
+    "emptyDescription": "Parcourir Disponible pour connecter un fournisseur.",
+    "eventBridgeDemo": "Démo du pont d'événement",
+    "eventBridgeHint": "Publiez un événement de connecteur sur le bus Workflow Automation.",
+    "emit": "Émettre {id}"
+  },
+  "installed": {
+    "title": "Intégrations installées",
+    "emptyTitle": "Rien d'installé",
+    "emptyDescription": "Installez à partir du catalogue Disponible.",
+    "latestSync": "Dernière synchronisation : {status} · {records} enregistrements · mode {mode}"
+  },
+  "available": {
+    "protocols": "Protocoles : {protocoles}",
+    "demoConnection": "Connexion de démonstration",
+    "connectDemo": "Connectez-vous (démo)",
+    "installDemo": "Installer la démo"
+  },
+  "logs": {
+    "title": "Journaux d'intégration",
+    "emptyTitle": "Aucun journal pour l'instant",
+    "emptyDescription": "Connectez un fournisseur ou exécutez des diagnostics."
+  },
+  "apiKeys": {
+    "title": "Clés d'API",
+    "generateKey": "Générer la clé",
+    "copyOnce": "Copier maintenant (affiché une fois) : {secret}",
+    "emptyTitle": "Pas de clés API",
+    "emptyDescription": "Générez une clé pour l'accès à la passerelle REST."
+  },
+  "webhooks": {
+    "endpointsTitle": "Points de terminaison Webhook",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "Ajouter un webhook sortant",
+    "emptyTitle": "Aucun webhook",
+    "emptyDescription": "Créez un point de terminaison sortant pour tester la livraison.",
+    "deliveryLogs": "Journaux de livraison",
+    "deliveriesEmptyTitle": "Pas de livraisons.",
+    "deliveriesEmptyDescription": "Envoyez un webhook de test pour remplir les journaux."
+  },
+  "developer": {
+    "title": "Paramètres du développeur",
+    "sandboxMode": "Mode bac à sable",
+    "webhookSigning": "Signature Webhook activée",
+    "saveSettings": "Enregistrer les paramètres",
+    "apiDocs": "Espace réservé pour la documentation de l'API : {url}",
+    "sdk": "Espace réservé au SDK : {url}",
+    "explorerTitle": "Explorateur d'API",
+    "gatewayRoutes": "Itinéraires de passerelle : {itinéraires}",
+    "sendGet": "Envoyer GET",
+    "oauthProviders": "Fournisseurs OAuth",
+    "placeholdersHint": "Les routes de passerelle GraphQL, WebSocket et gRPC sont enregistrées en tant qu'espaces réservés. Le mappage des champs et la résolution des conflits de synchronisation sont prêts pour l'architecture pour la mise en œuvre du backend."
+  },
+  "connectionStatus": {
+    "connected": "Connexion de démonstration",
+    "pendingAuth": "En attente (démo)",
+    "error": "Erreur",
+    "disabled": "Handicapé",
+    "installed": "Installé",
+    "available": "Disponible",
+    "localDemo": "Démonstration locale"
+  },
+  "columns": {
+    "integration": "Intégration",
+    "status": "Statut",
+    "health": "Santé",
+    "latency": "Latence",
+    "actions": "Actes",
+    "when": "Quand",
+    "level": "Niveau",
+    "source": "Source",
+    "message": "Message",
+    "name": "Nom",
+    "key": "Légende",
+    "scopes": "Portées",
+    "usage": "Usage",
+    "direction": "Direction",
+    "url": "URL",
+    "enabled": "Activée",
+    "event": "Événement",
+    "attempt": "Tentative"
+  },
+  "actions": {
+    "diagnose": "Diagnostiquer",
+    "demoSync": "Synchronisation de la démo",
+    "demoSyncTitle": "Synchronisation de démonstration uniquement — pas de transfert externe",
+    "disconnect": "Déconnecter",
+    "rotate": "Tourner",
+    "revoke": "Révoquer",
+    "test": "Test",
+    "emDash": "—",
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "errors": {
+    "failedToFetch": "Échec de la récupération",
+    "httpStatus": "Statut HTTP"
+  }
+}

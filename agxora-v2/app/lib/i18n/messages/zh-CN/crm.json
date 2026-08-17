@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "AGXORA商业操作系统",
+    "title": "人工智能客户关系管理",
+    "subtitle": "AI原生CRM和创作者操作系统—每个行业的客户、渠道、订单、交付、文档、通信和创作者架构。"
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "客户关系管理仪表板"
+    },
+    "customer360": {
+      "title": "客户360°",
+      "subtitle": "个人资料、公司、联系人、订单、发票、Lieferscheine、付款、文档、时间表、活动、笔记、AI 摘要和通信历史记录。"
+    },
+    "salesPipeline": {
+      "title": "销售渠道",
+      "subtitle": "具有拖放功能的看板阶段 — 领导、合格、提案、谈判、获胜、失败。"
+    },
+    "ordersModule": {
+      "title": "订单模块"
+    },
+    "deliveryModule": {
+      "title": "交付模块",
+      "subtitle": "专业的 Lieferschein 系统，具备跟踪、签名、QR 和条形码功能。"
+    },
+    "documentsModule": {
+      "title": "文件",
+      "subtitle": "报价、合同、发票、Lieferschein、采购订单、收据 - 通过人工智能搜索。"
+    },
+    "tasksModule": {
+      "title": "任务"
+    },
+    "communicationHub": {
+      "title": "通讯中心",
+      "subtitle": "仅适用于消息、社交、电子邮件、语音和视频的适配器注册表。"
+    },
+    "creatorStudio": {
+      "title": "创作者工作室基金会",
+      "subtitle": "平台适配器已准备好稍后进行正式集成。"
+    },
+    "aiCreator": {
+      "title": "人工智能创造者",
+      "subtitle": "内容、日历、生成和发布的企业功能映射。"
+    },
+    "industryPlatform": {
+      "title": "通用商业平台",
+      "subtitle": "模块化行业注册——每个垂直行业都可以接收专用的人工智能模块。"
+    }
+  },
+  "directory": {
+    "errorTitle": "无法加载 CRM",
+    "sort": {
+      "companyName": "公司",
+      "contactName": "联系方式",
+      "email": "电子邮件",
+      "phone": "电话",
+      "industry": "行业",
+      "status": "地位",
+      "owner": "所有者",
+      "createdAt": "已创建"
+    },
+    "search": {
+      "label": "搜寻客户",
+      "placeholder": "公司、联系人、电子邮件、标签……"
+    },
+    "view": {
+      "table": "桌子",
+      "cards": "牌"
+    },
+    "actions": {
+      "newCustomer": "新客户"
+    },
+    "filters": {
+      "status": "地位",
+      "industry": "行业",
+      "owner": "所有者",
+      "country": "国家",
+      "tags": "標籤",
+      "allStatuses": "所有状态",
+      "allIndustries": "所有行业",
+      "allOwners": "所有业主",
+      "allCountries": "所有国家",
+      "allTags": "删除除以下内容之外的所有标记"
+    },
+    "empty": {
+      "ready": {
+        "title": "您的 CRM 已准备就绪",
+        "description": "创建第一个客户记录以解锁目录、个人资料和活动。",
+        "action": "创建客户"
+      },
+      "noMatches": {
+        "title": "没有匹配的客户",
+        "description": "请尝试调整搜索或筛选条件，以查找正确的记录。",
+        "action": "清除过滤器"
+      }
+    },
+    "pagination": {
+      "previous": "以前的",
+      "next": "下一个"
+    },
+    "showing": "显示 {from}–{to}，共 {total}",
+    "aria": {
+      "openCustomer": "打开客户{公司}"
+    },
+    "cardMeta": "所有者 {owner} · 创建日期 {date}",
+    "sortBy": "按{列}排序"
+  },
+  "status": {
+    "lead": "带领",
+    "prospect": "前景",
+    "active": "积极的",
+    "inactive": "不活跃",
+    "vip": "#alliance_list_check_info#VIP",
+    "archived": "已存档"
+  },
+  "form": {
+    "createTitle": "创建客户",
+    "editTitle": "编辑客户",
+    "cancel": "取消",
+    "saveChanges": "保存更改",
+    "createCustomer": "创建客户",
+    "companyName": "公司名称",
+    "contactName": "联系人姓名",
+    "email": "电子邮件",
+    "phone": "电话",
+    "website": "网站",
+    "industry": "行业",
+    "country": "国家",
+    "city": "城市",
+    "address": "地址",
+    "taxNumber": "税号",
+    "owner": "所有者",
+    "status": "地位",
+    "tags": "標籤",
+    "statusAria": "客户状态",
+    "tagsHint": "逗号分隔，自动进行颜色编码",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "企业、零售"
+  },
+  "toasts": {
+    "customerCreated": "客户创建",
+    "customerUpdated": "客户更新",
+    "checkForm": "检查表格",
+    "validationFailed": "验证失败。",
+    "customerDeleted": "客户已删除",
+    "deleteFailed": "删除失败",
+    "customerCouldNotBeRemoved": "无法删除客户。",
+    "contactSaved": "联系方式已保存",
+    "documentsAttached": "所附文件",
+    "documentsAttachedDetail": "{count} 个文件",
+    "noteSaved": "注释已保存"
+  },
+  "deleteDialog": {
+    "title": "删除客户",
+    "cancel": "取消",
+    "deletePermanently": "永久删除",
+    "thisCustomer": "这位顾客",
+    "bodyPrefix": "这删除了",
+    "bodySuffix": "以及本地存储中的相关联系人、笔记、文档和活动。链接的项目不会被删除。"
+  },
+  "validation": {
+    "companyNameRequired": "公司名称为必填项。",
+    "contactNameRequired": "联系人姓名为必填项。",
+    "emailRequired": "需要电子邮件。",
+    "emailInvalid": "输入有效的电子邮件地址。",
+    "phoneRequired": "需要电话。",
+    "phoneInvalid": "输入有效的电话号码。",
+    "websiteInvalid": "输入有效的网站。",
+    "industryRequired": "需要工业。",
+    "ownerRequired": "需要业主。",
+    "statusInvalid": "选择有效状态。",
+    "emailDuplicate": "使用此电子邮件的客户已存在。",
+    "nameRequired": "姓名为必填项。",
+    "mobileInvalid": "输入有效的手机号码。",
+    "mobileRequired": "需要手机。",
+    "roleRequired": "角色是必需的。",
+    "noteTitleRequired": "标题为必填项。",
+    "noteBodyRequired": "注意正文是必需的。",
+    "noteAuthorRequired": "作者为必填项。"
+  },
+  "errors": {
+    "failedToLoadCustomers": "加载客户失败。",
+    "failedToLoadCustomerProfile": "无法加载客户资料。",
+    "organizationRequired": "需要组织。",
+    "failedToSaveCustomer": "未能挽救客户。",
+    "failedToDeleteCustomer": "删除客户失败。",
+    "failedToSaveContact": "无法保存联系人。",
+    "failedToSaveNote": "保存笔记失败。",
+    "failedToUploadDocument": "上传文档失败。"
+  },
+  "workspace": {
+    "badge": "企业客户关系管理2.0",
+    "title": "客户关系管理",
+    "subtitleBeforeOrg": "管理客户目录、个人资料、联系人、注释和文档",
+    "subtitleAfterOrg": "项目通过项目模块中的公司名称进行链接，无需重复数据。",
+    "yourOrganization": "你的主办"
+  },
+  "analytics": {
+    "totalCustomers": "客户总数",
+    "activeCustomers": "活跃的客户",
+    "newCustomers": "新客户",
+    "vipCustomers": "贵宾客户",
+    "createdThisMonth": "本月创建",
+    "leadConversion": "潜在客户转化",
+    "leadConversionHint": "潜在客户/潜在客户/转化渠道的活跃和 VIP 份额。",
+    "customerGrowth": "客户成长"
+  },
+  "profile": {
+    "backToCrm": "← 返回客户关系管理",
+    "ownerLabel": "所有者",
+    "notFoundTitle": "未找到客户",
+    "notFoundDescription": "该客户可能已被删除。",
+    "missingCustomerTitle": "缺少顾客",
+    "missingOverviewDescription": "选择客户以查看概览。",
+    "missingSettingsDescription": "选择要管理设置的客户。",
+    "ariaProfileNav": "客户简介",
+    "tabs": {
+      "overview": "概述",
+      "contacts": "联系方式",
+      "projects": "项目",
+      "documents": "文件",
+      "invoices": "发票",
+      "activity": "活动",
+      "notes": "笔记",
+      "settings": "设置"
+    },
+    "overview": {
+      "title": "概述",
+      "email": "电子邮件",
+      "phone": "电话",
+      "website": "网站",
+      "taxNumber": "税号",
+      "location": "地点",
+      "address": "地址",
+      "created": "已创建",
+      "updated": "已更新",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "添加联系人",
+      "editTitle": "编辑联系人",
+      "listTitle": "联系方式",
+      "name": "姓名",
+      "role": "角色",
+      "email": "电子邮件",
+      "phone": "电话",
+      "mobile": "移动的",
+      "notes": "笔记",
+      "saveContact": "保存联系方式",
+      "emptyTitle": "还没有联系方式",
+      "emptyDescription": "添加利益相关者的角色、电子邮件和电话详细信息。",
+      "defaultRole": "联系方式",
+      "mobilePrefix": "移动的"
+    },
+    "projects": {
+      "title": "项目",
+      "emptyTitle": "没有链接的项目",
+      "emptyDescription": "此处显示客户名称与此公司匹配的项目。数据从项目模块读取—没有重复。",
+      "openProjects": "开放项目"
+    },
+    "documents": {
+      "title": "文件",
+      "subtitle": "图像、PDF 和办公文档 - 仅本地存储中的元数据。",
+      "attachFiles": "附加文件",
+      "emptyTitle": "没有文件",
+      "emptyDescription": "附上客户团队的客户文件。",
+      "systemUploader": "系统"
+    },
+    "invoices": {
+      "emptyTitle": "还没有发票",
+      "emptyDescription": "从财务链接时，此客户的发票将显示在此处。"
+    },
+    "activity": {
+      "title": "活动",
+      "emptyTitle": "还没有活动",
+      "emptyDescription": "创建、更新、注释和文档首先显示在此处。",
+      "kinds": {
+        "customer_created": "客户创建",
+        "customer_updated": "客户更新",
+        "contact_added": "已添加联系人",
+        "contact_updated": "联系方式已更新",
+        "contact_deleted": "联系方式已删除",
+        "note_added": "添加注释",
+        "note_updated": "注释已更新",
+        "note_deleted": "备注已删除。",
+        "document_added": "文档已添加",
+        "document_deleted": "文档已删除",
+        "project_linked": "项目链接"
+      }
+    },
+    "notes": {
+      "newTitle": "新笔记",
+      "editTitle": "编辑备注",
+      "title": "标题",
+      "author": "作者",
+      "body": "正文",
+      "saveNote": "保存备注",
+      "emptyTitle": "还没有笔记",
+      "emptyDescription": "捕获带有作者和时间戳的帐户上下文。"
+    },
+    "settings": {
+      "title": "设置",
+      "description": "编辑所有个人资料字段或存档该帐户。删除使用确认对话框。",
+      "editAllFields": "编辑所有字段",
+      "prepareArchive": "准备存档",
+      "deleteCustomer": "删除客户"
+    }
+  },
+  "customer360": {
+    "ariaSections": "客户360版块",
+    "email": "电子邮件",
+    "phone": "电话",
+    "aiHealth": "人工智能健康",
+    "tabs": {
+      "profile": "轮廓",
+      "company": "公司",
+      "contacts": "联系方式",
+      "orders": "订单",
+      "invoices": "发票",
+      "lieferscheine": "利弗沙因",
+      "payments": "付款方式",
+      "documents": "文件",
+      "timeline": "时间轴",
+      "activities": "活动",
+      "notes": "笔记",
+      "aiSummary": "人工智能总结",
+      "communicationHistory": "传播史"
+    },
+    "profileLines": {
+      "customerId": "客户 ID",
+      "status": "地位",
+      "primaryContact": "主要联系人"
+    },
+    "status": {
+      "churn_risk": "流失风险"
+    }
+  },
+  "delivery": {
+    "title": "专业 Lieferschein 系统",
+    "description": "送货单、提货/送货、司机、车辆和跟踪 - 仅样本记录。未连接导出适配器。",
+    "badges": {
+      "qrUnavailable": "二维码不可用",
+      "barcodeUnavailable": "条形码不可用",
+      "signatureDemo": "签名演示"
+    },
+    "exportPdf": "导出PDF",
+    "deliveryHistory": "交货历史",
+    "notices": {
+      "exportNotConnected": "此版本中未连接 PDF、QR 和条形码导出。",
+      "exportPdfUnavailable": "导出 PDF 不可用 — 未连接传送导出。",
+      "historyNotConnected": "此版本中未连接交货历史记录存储区。"
+    },
+    "columns": {
+      "lieferschein": "利弗沙因",
+      "order": "命令",
+      "customer": "顾客",
+      "kind": "种类",
+      "driver": "司机",
+      "vehicle": "车辆",
+      "tracking": "追踪",
+      "scheduled": "预定"
+    }
+  },
+  "orders": {
+    "description": "产品、服务、价格、折扣、税收和客户——企业订单分类账。",
+    "createOrder": "创建订单",
+    "notices": {
+      "apiReserved": "为将来的写入路径保留的订单创建 API。",
+      "draftStaged": "创建已上演的订单草稿（尚无 API）。"
+    },
+    "columns": {
+      "order": "命令",
+      "customer": "顾客",
+      "status": "地位",
+      "lines": "线路",
+      "net": "网",
+      "tax": "税",
+      "gross": "名義金額",
+      "created": "已创建"
+    },
+    "lineTax": "{taxPct}% 税"
+  },
+  "tasks": {
+    "calendarTitle": "日历·会议·提醒·跟进",
+    "foundationTitle": "任务操作系统基础",
+    "foundationDescription": "保留日历同步、会议提供商、提醒作业和后续自动化挂钩。该板是每个行业模块的共享 CRM 任务界面。",
+    "badges": {
+      "calendarAdapter": "日历适配器",
+      "meetingAdapter": "会议适配器",
+      "reminderQueue": "提醒队列",
+      "followUpEngine": "后续发动机"
+    },
+    "duePrefix": "到期的",
+    "kinds": {
+      "follow_up": "跟进",
+      "meeting": "会议",
+      "reminder": "提醒",
+      "task": "任务"
+    },
+    "statuses": {
+      "open": "打开",
+      "in_progress": "进行中",
+      "done": "完成",
+      "cancelled": "取消"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "没有文件",
+    "emptyDescription": "没有与此搜索匹配的文档。",
+    "searchLabel": "人工智能搜索",
+    "searchPlaceholder": "报价单、合同、发票、Lieferschein...",
+    "typeLabel": "文件类型",
+    "allTypes": "所有类型",
+    "columns": {
+      "type": "类型",
+      "title": "标题",
+      "customer": "顾客",
+      "status": "地位",
+      "updated": "已更新"
+    },
+    "kinds": {
+      "quote": "引号",
+      "contract": "合同",
+      "invoice": "发票",
+      "lieferschein": "利弗沙因",
+      "purchase_order": "采购订单",
+      "receipt": "收据"
+    }
+  },
+  "communication": {
+    "intro": "仅可扩展的渠道架构 - 电子邮件、WhatsApp、Instagram、Facebook、TikTok、LinkedIn、Telegram、语音和视频。没有虚假的实时集成。",
+    "adapterPrefix": "适配器："
+  },
+  "aiCreator": {
+    "intro": "面向未来的人工智能创作者界面—创意、字幕、主题标签、日历、活动、品牌声音、图像/视频生成、分析、调度、发布队列和见解。尚未连接真正的提供商API。"
+  },
+  "creatorStudio": {
+    "intro": "Creator Studio 基础 - 官方平台集成可以稍后插入这些适配器。 Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X。"
+  },
+  "industry": {
+    "intro": "通用业务平台——入职后将选择一个行业。每个行业都会获得专用的人工智能模块，而无需分叉核心 CRM 操作系统。"
+  },
+  "kpi": {
+    "customers": {
+      "label": "顾客",
+      "caption": "活跃的关系"
+    },
+    "companies": {
+      "label": "公司",
+      "caption": "机构帐户"
+    },
+    "leads": {
+      "label": "潜在客户",
+      "caption": "本月新品"
+    },
+    "deals": {
+      "label": "优惠",
+      "caption": "开放管道"
+    },
+    "revenue": {
+      "label": "收入",
+      "caption": "今年迄今赢了"
+    },
+    "projects": {
+      "label": "活跃项目",
+      "caption": "飞行中交付"
+    },
+    "tasks": {
+      "label": "开放任务",
+      "caption": "跨 CRM + 交付"
+    },
+    "ai-health": {
+      "label": "人工智能健康评分",
+      "caption": "关系质量信号"
+    },
+    "scoreOutOf": "{分数} / {最大}"
+  },
+  "pipeline": {
+    "lead": "带领",
+    "qualified": "合格的",
+    "proposal": "提议",
+    "negotiation": "谈判",
+    "won": "韩元",
+    "lost": "丢失的"
+  },
+  "orderStatus": {
+    "draft": "草稿",
+    "confirmed": "确认的",
+    "in_fulfillment": "在履行中",
+    "shipped": "已发货",
+    "delivered": "发表",
+    "cancelled": "取消"
+  },
+  "tracking": {
+    "scheduled": "预定",
+    "en_route": "途中",
+    "arrived": "到达的",
+    "completed": "完全的",
+    "failed": "失败的"
+  },
+  "documentKind": {
+    "quote": "引用",
+    "contract": "合同",
+    "invoice": "发票",
+    "lieferschein": "利弗沙因",
+    "purchase_order": "采购订单",
+    "receipt": "收据"
+  },
+  "documentStatus": {
+    "sent": "发送",
+    "signed": "签名",
+    "paid": "有薪酬的",
+    "in_transit": "在途中",
+    "open": "打开",
+    "filed": "提起"
+  },
+  "integration": {
+    "planned": "计划",
+    "ready": "准备好",
+    "connected": "已连接",
+    "disabled": "残疾人"
+  }
+}

@@ -4,7 +4,7 @@
   "hero": {
     "ariaLabel": "هیروی AGXORA CORE",
     "eyebrow": "سیستم عامل کسب‌وکار مبتنی بر هوش مصنوعی",
-    "title": "AGXORA CORE",
+    "title": "هسته آگکسورا",
     "subtitle": "هوش لحظه‌ای و کنترل عملیاتی — سطح فرمان فضای کاری شما.",
     "ctaGetStarted": "شروع کنید",
     "ctaViewActivity": "مشاهده فعالیت",
@@ -15,12 +15,30 @@
     "title": "اقدامات سریع",
     "subtitle": "قدم بعدی چیست؟",
     "ariaLabel": "اقدامات سریع",
-    "addCustomer": { "label": "افزودن مشتری", "description": "ایجاد رکورد CRM" },
-    "newProject": { "label": "پروژه جدید", "description": "شروع مسیر تحویل" },
-    "askAi": { "label": "پرسش از AI", "description": "باز کردن فضای کاری AI" },
-    "finance": { "label": "مالی", "description": "فاکتورها و جریان نقدی" },
-    "automations": { "label": "اتوماسیون", "description": "موتور گردش‌کار" },
-    "settings": { "label": "تنظیمات", "description": "ترجیحات فضای کاری" }
+    "addCustomer": {
+      "label": "افزودن مشتری",
+      "description": "ایجاد رکورد CRM"
+    },
+    "newProject": {
+      "label": "پروژه جدید",
+      "description": "شروع مسیر تحویل"
+    },
+    "askAi": {
+      "label": "پرسش از AI",
+      "description": "باز کردن فضای کاری AI"
+    },
+    "finance": {
+      "label": "مالی",
+      "description": "فاکتورها و جریان نقدی"
+    },
+    "automations": {
+      "label": "اتوماسیون",
+      "description": "موتور گردش‌کار"
+    },
+    "settings": {
+      "label": "تنظیمات",
+      "description": "ترجیحات فضای کاری"
+    }
   },
   "attention": {
     "title": "نیاز به توجه",
@@ -127,7 +145,7 @@
     }
   },
   "chat": {
-    "title": "AGXORA AI",
+    "title": "هوش مصنوعی آگکسورا",
     "emptyState": "از AGXORA درباره مشتریان، پروژه‌ها یا اقدامات بعدی بپرسید. گفتگوی شما در این نشست فضای کاری باقی می‌ماند.",
     "thinking": "AGXORA در حال فکر کردن است…",
     "errorDismiss": "{error} — برای بستن ضربه بزنید",
@@ -187,7 +205,7 @@
     "noMatches": "موردی یافت نشد",
     "noMatchesBody": "کلمه دیگری امتحان کنید یا یک ماژول را از اقدامات سریع باز کنید.",
     "close": "بستن",
-    "open": "باز کردن",
+    "open": "باز",
     "keyboardHints": "↑↓ پیمایش · Enter باز کردن · Ctrl/⌘ K تغییر · Esc بستن",
     "pinResult": "سنجاق کردن نتیجه",
     "unpinResult": "برداشتن سنجاق",
@@ -196,7 +214,7 @@
     "relatedItems": "موارد مرتبط",
     "noSmartLinks": "پیوند هوشمندی برای این نتیجه نیست.",
     "groups": {
-      "crm": "CRM",
+      "crm": "مدیریت ارتباط مشتری CRM",
       "finance": "مالی",
       "documents": "اسناد",
       "automation": "اتوماسیون",
@@ -250,38 +268,105 @@
       }
     },
     "commands": {
-      "openCrm": { "title": "باز کردن CRM", "subtitle": "ماژول CRM هوشمند" },
-      "openCustomers": { "title": "باز کردن مشتریان", "subtitle": "مدیریت مشتری" },
-      "openFinance": { "title": "باز کردن مالی", "subtitle": "ماژول مالی و مالیات" },
-      "openDocuments": { "title": "باز کردن اسناد", "subtitle": "مرکز دانش" },
-      "openAutomation": { "title": "باز کردن اتوماسیون", "subtitle": "موتور گردش‌کار" },
-      "openSettings": { "title": "باز کردن تنظیمات", "subtitle": "تنظیمات فضای کاری" },
-      "openProjects": { "title": "باز کردن پروژه‌ها", "subtitle": "سبد پروژه" },
-      "openAi": { "title": "باز کردن AI", "subtitle": "فضای کاری پلتفرم AI" },
-      "openAnalytics": { "title": "باز کردن تحلیل‌ها", "subtitle": "مرکز هوش" },
-      "openIdentity": { "title": "باز کردن هویت و دسترسی", "subtitle": "تنظیمات IAM، RBAC، ممیزی" },
-      "openBilling": { "title": "باز کردن صورتحساب", "subtitle": "پورتال اشتراک و طرح‌ها" },
-      "openIntegrations": { "title": "باز کردن یکپارچه‌سازی‌ها", "subtitle": "مرکز یکپارچه‌سازی و اکوسیستم API" }
+      "openCrm": {
+        "title": "باز کردن CRM",
+        "subtitle": "ماژول CRM هوشمند"
+      },
+      "openCustomers": {
+        "title": "باز کردن مشتریان",
+        "subtitle": "مدیریت مشتری"
+      },
+      "openFinance": {
+        "title": "باز کردن مالی",
+        "subtitle": "ماژول مالی و مالیات"
+      },
+      "openDocuments": {
+        "title": "باز کردن اسناد",
+        "subtitle": "مرکز دانش"
+      },
+      "openAutomation": {
+        "title": "باز کردن اتوماسیون",
+        "subtitle": "موتور گردش‌کار"
+      },
+      "openSettings": {
+        "title": "باز کردن تنظیمات",
+        "subtitle": "تنظیمات فضای کاری"
+      },
+      "openProjects": {
+        "title": "باز کردن پروژه‌ها",
+        "subtitle": "سبد پروژه"
+      },
+      "openAi": {
+        "title": "باز کردن AI",
+        "subtitle": "فضای کاری پلتفرم AI"
+      },
+      "openAnalytics": {
+        "title": "باز کردن تحلیل‌ها",
+        "subtitle": "مرکز هوش"
+      },
+      "openIdentity": {
+        "title": "باز کردن هویت و دسترسی",
+        "subtitle": "تنظیمات IAM، RBAC، ممیزی"
+      },
+      "openBilling": {
+        "title": "باز کردن صورتحساب",
+        "subtitle": "پورتال اشتراک و طرح‌ها"
+      },
+      "openIntegrations": {
+        "title": "باز کردن یکپارچه‌سازی‌ها",
+        "subtitle": "مرکز یکپارچه‌سازی و اکوسیستم API"
+      }
     },
     "modules": {
-      "dashboard": { "subtitle": "مرکز فرمان و نمای کلی کره" },
-      "customers": { "subtitle": "رکوردهای مشتری و CRM" },
-      "projects": { "subtitle": "تحویل و پیگیری پروژه" },
-      "invoices": { "title": "فاکتورها", "subtitle": "صورتحساب و فاکتورها" },
-      "finance": { "subtitle": "حسابداری AI، بانکداری، مالیات و هوش مالی" },
-      "crm": { "subtitle": "CRM بومی AI و سیستم عامل سازنده" },
-      "creator": { "subtitle": "تولید محتوای AI و OS بازاریابی" },
-      "documents": { "subtitle": "اسناد AI و مرکز دانش" },
-      "ai": { "title": "AI", "subtitle": "پلتفرم AGXORA AI — فضای کاری سازمانی" },
-      "analytics": { "subtitle": "هوش کسب‌وکار" },
-      "automation": { "subtitle": "موتور گردش‌کار و اتوماسیون AI" },
-      "memory": { "title": "حافظه", "subtitle": "حافظه سازمانی" },
-      "team": { "subtitle": "اعضا و دعوت‌ها" },
-      "settings": { "subtitle": "تنظیمات فضای کاری و AI" }
+      "dashboard": {
+        "subtitle": "مرکز فرمان و نمای کلی کره"
+      },
+      "customers": {
+        "subtitle": "رکوردهای مشتری و CRM"
+      },
+      "projects": {
+        "subtitle": "تحویل و پیگیری پروژه"
+      },
+      "invoices": {
+        "title": "فاکتورها",
+        "subtitle": "صورتحساب و فاکتورها"
+      },
+      "finance": {
+        "subtitle": "حسابداری AI، بانکداری، مالیات و هوش مالی"
+      },
+      "crm": {
+        "subtitle": "CRM بومی AI و سیستم عامل سازنده"
+      },
+      "creator": {
+        "subtitle": "تولید محتوای AI و OS بازاریابی"
+      },
+      "documents": {
+        "subtitle": "اسناد AI و مرکز دانش"
+      },
+      "ai": {
+        "title": "هوش مصنوعی",
+        "subtitle": "پلتفرم AGXORA AI — فضای کاری سازمانی"
+      },
+      "analytics": {
+        "subtitle": "هوش کسب‌وکار"
+      },
+      "automation": {
+        "subtitle": "موتور گردش‌کار و اتوماسیون AI"
+      },
+      "memory": {
+        "title": "حافظه",
+        "subtitle": "حافظه سازمانی"
+      },
+      "team": {
+        "subtitle": "اعضا و دعوت‌ها"
+      },
+      "settings": {
+        "subtitle": "تنظیمات فضای کاری و AI"
+      }
     },
     "capabilities": {
       "aiSearch": {
-        "title": "جستجوی AI",
+        "title": "جستجوی هوش مصنوعی",
         "description": "رتبه‌بندی نتایج با مدل بازیابی آینده در ماژول‌ها."
       },
       "semantic": {

@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "正在加载人工智能平台...",
+    "eyebrow": "AGXORA人工智能平台",
+    "title": "企业人工智能工作空间",
+    "subtitle": "独立于提供商的 CRM、项目、财务、文档和自动化智能。在“设置”→“AI”中配置提供商。",
+    "newConversation": "新的对话",
+    "aiCommands": "人工智能命令"
+  },
+  "mobileTabs": {
+    "chat": "聊天",
+    "conversations": "对话",
+    "prompts": "提示"
+  },
+  "usageBar": {
+    "provider": "提供者",
+    "model": "模型",
+    "estimatedTokens": "预计。代币",
+    "tokensInOut": "（输入{输入}/输出{输出}）",
+    "cost": "成本",
+    "context": "语境",
+    "contextNone": "无",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "AGXORA 人工智能工作空间",
+    "emptyHint": "开始对话，从库中选择提示，或打开命令选项板 (⌘⇧K / Ctrl⇧K)。"
+  },
+  "conversationSidebar": {
+    "title": "对话",
+    "new": "新",
+    "searchPlaceholder": "搜索聊天记录...",
+    "searchAria": "搜索对话",
+    "showArchived": "显示已存档",
+    "pinned": "已固定",
+    "emptyPreview": "空谈",
+    "noConversations": "还没有对话",
+    "pin": "别针",
+    "unpin": "取消固定",
+    "rename": "重命名",
+    "archive": "档案",
+    "unarchive": "取消存档",
+    "delete": "删除"
+  },
+  "composer": {
+    "placeholder": "消息 AGXORA AI…（Enter 发送，Shift+Enter 换行）",
+    "ariaLabel": "信件撰写器",
+    "commandsShortcut": "命令 ⌘⇧K",
+    "stop": "停止",
+    "send": "发送"
+  },
+  "messageBubble": {
+    "ellipsis": "……",
+    "copy": "复制",
+    "retry": "重试"
+  },
+  "typingIndicator": {
+    "ariaLabel": "助理正在打字"
+  },
+  "promptLibrary": {
+    "title": "提示库",
+    "subtitle": "可在 CRM、项目、财务等领域重复使用的模板。",
+    "searchPlaceholder": "搜索提示...",
+    "searchAria": "搜索提示",
+    "all": "全部",
+    "favorites": "收藏夹",
+    "recent": "最近",
+    "library": "图书馆",
+    "noMatches": "没有匹配的提示",
+    "removeFavoriteAria": "删除收藏夹",
+    "addFavoriteAria": "添加收藏夹",
+    "favorited": "已收藏",
+    "favorite": "最喜欢的",
+    "usePrompt": "使用提示"
+  },
+  "commandPalette": {
+    "ariaLabel": "AI命令面板",
+    "filterAria": "过滤AI命令",
+    "placeholder": "AI指挥……总结、建议、分析……",
+    "noMatches": "没有匹配的命令",
+    "footer": "通过 registerAiCommand 注册未来的命令 — UI 保持不变。"
+  }
+}

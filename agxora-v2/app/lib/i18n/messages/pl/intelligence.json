@@ -1,0 +1,136 @@
+{
+  "loading": "Ładowanie Centrum analizy korporacyjnej…",
+  "eyebrow": "Centrum inteligencji przedsiębiorstw",
+  "title": "Inteligencja",
+  "subtitle": "KPI, karty wyników, alerty i raporty dla każdego modułu AGXORA. Poniższe wartości to początkowy zestaw danych demonstracyjnych do czasu połączenia się z narzędziami analitycznymi na żywo.",
+  "demoBanner": "Zestaw danych demonstracyjnych — filtruje i potwierdza pracę w trakcie sesji; eksportowanie i rozmowy z modelami na żywo nie są jeszcze dostępne.",
+  "noticeDefault": "Wyświetlanie wstępnych analiz demonstracyjnych — a nie telemetrii produkcyjnej na żywo.",
+  "noPermission": "Nie masz uprawnień Intelligence.read do tego obszaru roboczego.",
+  "filtersUpdated": "Filtry zaktualizowane",
+  "demoReloaded": "Ponownie załadowano demonstracyjny zestaw danych dla tego obszaru roboczego.",
+  "acknowledged": "Potwierdzono: {title}",
+  "exportUnavailableTitle": "Eksport niedostępny — generowanie raportu nie jest jeszcze połączone.",
+  "exportUnavailableAria": "Eksportuj {title} jako {format} — niedostępne",
+  "tabs": {
+    "executive": "Wykonawczy",
+    "health": "Zdrowie Biznesu",
+    "workspace": "Analityka",
+    "kpis": "Centrum KPI",
+    "reports": "Raporty",
+    "insights": "Spostrzeżenia",
+    "forecasts": "Prognozy",
+    "alerts": "Alerty",
+    "scorecards": "Karty wyników",
+    "explorer": "Eksplorator danych"
+  },
+  "filters": {
+    "from": "Z",
+    "to": "Do",
+    "domain": "Domena",
+    "allDomains": "Wszystkie domeny",
+    "apply": "Zastosuj filtry",
+    "reloadDemo": "Załaduj ponownie dane demonstracyjne",
+    "viewsAria": "Poglądy wywiadowcze"
+  },
+  "executive": {
+    "companyHealth": "Zdrowie firmy",
+    "revenueScore": "Wynik przychodów",
+    "customerHealth": "Zdrowie klienta",
+    "projectHealth": "Zdrowie projektu",
+    "workflowSuccess": "Sukces przepływu pracy",
+    "aiActivity": "Aktywność sztucznej inteligencji",
+    "finance": "Finanse",
+    "riskGrowth": "Ryzyko / Rozwój",
+    "kpiStrip": "Pasek wykonawczy KPI",
+    "visualizationPreviews": "Podglądy wizualizacji",
+    "visualizationHint": "Przykładowe wykresy z serii demonstracyjnej — nie interaktywne analizy.",
+    "noSeries": "Brak ograniczeń serii"
+  },
+  "health": {
+    "title": "Rozkład zdrowia biznesowego",
+    "overall": "Ogólnie",
+    "revenue": "Przychód",
+    "customers": "Klienci",
+    "projects": "Projektowanie",
+    "workflows": "Przepływy pracy",
+    "ai": "sztuczna inteligencja",
+    "finance": "Finanse",
+    "operations": "Operacje",
+    "riskPosture": "Postawa ryzyka",
+    "growth": "Wzrost",
+    "observability": "Obserwowalność: metryki {metrics} · {avgMs}średnia ms · kondycja systemu {health}"
+  },
+  "workspace": {
+    "noSeries": "Brak serii"
+  },
+  "kpis": {
+    "title": "Centrum KPI",
+    "subtitle": "Konfigurowalny katalog KPI obejmujący przychody, klientów, projekty, przepływy pracy, agentów i automatyzację.",
+    "emptyTitle": "Analityka czeka na sygnał",
+    "emptyDescription": "Gdy obszar roboczy wygeneruje aktywność, w tym miejscu pojawią się wskaźniki KPI dla kadry kierowniczej i alerty."
+  },
+  "reports": {
+    "title": "Silnik raportowania",
+    "subtitle": "Definicje raportów są wysyłane do przeglądu. Eksport plików jest niedostępny, dopóki nie zostanie podłączony moduł raportowania.",
+    "emptyTitle": "Żadnych raportów",
+    "emptyDescription": "Ziarnowanie raportów w bootstrapie obszaru roboczego.",
+    "scheduleOnDemand": "na żądanie"
+  },
+  "insights": {
+    "emptyTitle": "Nie ma jeszcze żadnych spostrzeżeń",
+    "emptyDescription": "Informacje demonstracyjne pojawiają się po nasionach obszaru roboczego. Generowanie wglądu w sztuczną inteligencję na żywo nie jest połączone.",
+    "badge": "Wersja demonstracyjna · {rodzaj} · {domena} · konf. {pewność}"
+  },
+  "forecasts": {
+    "emptyTitle": "Nie ma jeszcze prognoz",
+    "emptyDescription": "Prognozy demonstracyjne pojawiają się po zasiewie. Modele predykcyjne nie są połączone.",
+    "title": "Prognoza {rodzaj}",
+    "baseline": "Wartość bazowa {linia bazowa} → przewidywana {przewidywana} ({days}d)",
+    "confidence": "Demo · Pewność {pewność} — {notatka}"
+  },
+  "alerts": {
+    "title": "Silnik ostrzegawczy",
+    "emptyTitle": "Brak alertów",
+    "emptyDescription": "Ostrzega nasiona przed heurystyką ryzyka.",
+    "acked": "potwierdzony",
+    "open": "Otwarte",
+    "acknowledge": "Uznawać"
+  },
+  "scorecards": {
+    "title": "Silnik karty wyników",
+    "emptyTitle": "Brak kart wyników",
+    "emptyDescription": "Ziarno kart wyników na bootstrapie."
+  },
+  "explorer": {
+    "title": "Eksplorator danych",
+    "searchPlaceholder": "Wyszukaj wiersze demonstracyjne…",
+    "searchAria": "Wyszukaj wiersze eksploratora wersji demonstracyjnej",
+    "emptyTitle": "Żadne wiersze nie pasują",
+    "emptyDescription": "Dostosuj filtry lub wyszukaj albo ponownie załaduj zestaw danych demonstracyjnych.",
+    "hint": "Wyszukiwanie po stronie klienta w przypadku krotek inicjowanych — agregacja zaplecza i drążenie w dół nie są połączone."
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "Wartość",
+    "delta": "Δ%",
+    "trend": "Tendencja",
+    "target": "Cel",
+    "severity": "Powaga",
+    "alert": "Alarm",
+    "domain": "Domena",
+    "status": "Status",
+    "actions": "Działania",
+    "report": "Raport",
+    "kind": "Rodzaj",
+    "schedule": "Harmonogram",
+    "export": "Eksport",
+    "scorecard": "Karta wyników",
+    "score": "Wynik",
+    "topDriver": "Najlepszy kierowca",
+    "label": "Etykieta",
+    "entity": "Podmiot",
+    "measure": "Mierzyć",
+    "date": "Data"
+  },
+  "emDash": "—"
+}

@@ -1,0 +1,121 @@
+{
+  "loading": "Đang tải hệ điều hành tác nhân…",
+  "eyebrow": "Hệ điều hành đại lý AI",
+  "title": "Hệ điều hành đại lý",
+  "subtitle": "Không gian làm việc của đại lý cục bộ — các đại lý có thể được kích hoạt và chạy dưới dạng mô phỏng trên CRM, Dự án, Tài chính, Quy trình làm việc và Tích hợp. Việc thực hiện tự chủ sản xuất không được kết nối.",
+  "noticeDefault": "Hệ điều hành tác nhân cục bộ - các lần chạy được mô phỏng trong không gian làm việc này.",
+  "aiChat": "Trò chuyện AI",
+  "tabs": {
+    "dashboard": "Trang tổng quan",
+    "registry": "Đăng ký",
+    "marketplace": "Thị trường",
+    "monitor": "Màn hình",
+    "history": "Lịch sử",
+    "memory": "Ký ức",
+    "knowledge": "Kiến thức",
+    "tools": "Công cụ",
+    "settings": "Cài đặt"
+  },
+  "notice": {
+    "simulatedRun": "Chạy mô phỏng · {status} ({duration}ms)",
+    "taskFailed": "Nhiệm vụ thất bại",
+    "activated": "Đã kích hoạt cục bộ: {agentId}",
+    "agentPaused": "Đại lý đã tạm dừng",
+    "agentActivated": "Tác nhân đã kích hoạt",
+    "taskCancelled": "Nhiệm vụ đã bị hủy",
+    "supervisorDelegated": "Người giám sát ủy quyền theo dõi",
+    "settingsUpdated": "Đã cập nhật cài đặt hệ điều hành của tác nhân cho không gian làm việc cục bộ này."
+  },
+  "dashboard": {
+    "agents": "Đại lý",
+    "active": "Tích cực",
+    "localReady": "Sẵn sàng tại địa phương",
+    "simulatedToday": "Mô phỏng ngày hôm nay",
+    "failedToday": "Hôm nay thất bại",
+    "avgExec": "Người điều hành trung bình",
+    "toolCalls": "Cuộc gọi công cụ",
+    "knowledge": "Kiến thức",
+    "activeFleet": "Đội tàu đang hoạt động",
+    "emptyTitle": "Không có đại lý nào hoạt động",
+    "emptyDescription": "Cài đặt hoặc kích hoạt một đại lý từ thị trường để bắt đầu chạy mô phỏng."
+  },
+  "registry": {
+    "title": "Đăng ký",
+    "selectPrompt": "Chọn một đại lý từ sổ đăng ký.",
+    "status": "Trạng thái: {trạng thái}",
+    "health": "Sức khỏe: {sức khỏe}",
+    "queue": "Hàng đợi: {hàng đợi}",
+    "usage": "Cách sử dụng: {cách sử dụng}",
+    "executeTask": "Thực hiện nhiệm vụ",
+    "supervisorDelegate": "Đại biểu giám sát"
+  },
+  "marketplace": {
+    "tools": "Công cụ: {công cụ}",
+    "installed": "Đã cài đặt",
+    "installActivate": "Cài đặt và kích hoạt"
+  },
+  "monitor": {
+    "title": "giám sát đại lý",
+    "emptyTitle": "Không có đại lý để theo dõi",
+    "emptyDescription": "Kích hoạt các đại lý từ thị trường.",
+    "latestConfidence": "Độ tin cậy lý luận mới nhất: {sự tự tin} — {bước}"
+  },
+  "history": {
+    "title": "Lịch sử thực hiện",
+    "emptyTitle": "Chưa có vụ hành quyết nào",
+    "emptyDescription": "Chạy tác vụ đại lý từ sổ đăng ký hoặc màn hình."
+  },
+  "memory": {
+    "title": "Trung tâm trí nhớ",
+    "subtitle": "Làm việc · Hội thoại · Kinh doanh · Dài hạn · Không gian làm việc · Phạm vi tác nhân (sẵn sàng cho kiến ​​trúc).",
+    "emptyTitle": "Không có bản ghi bộ nhớ",
+    "emptyDescription": "Thực thi một tác vụ để điền vào bộ nhớ làm việc/tác nhân."
+  },
+  "knowledge": {
+    "title": "Trung tâm kiến ​​thức",
+    "subtitle": "Công ty, tài liệu, dự án, CRM, chính sách, thủ tục — cùng với phần giữ chỗ vector/RAG.",
+    "emptyTitle": "Không có tài liệu kiến ​​thức",
+    "emptyDescription": "Kiến thức hạt giống xuất hiện sau khi khởi động không gian làm việc."
+  },
+  "tools": {
+    "sensitive": "· nhạy cảm",
+    "mcpReady": "· Sẵn sàng cho MCP"
+  },
+  "settings": {
+    "title": "Cài đặt hệ điều hành đại lý",
+    "defaultLlmProvider": "Nhà cung cấp LLM mặc định",
+    "enableSupervisor": "Kích hoạt kiến ​​trúc tác nhân giám sát",
+    "isolateSensitive": "Cô lập các công cụ nhạy cảm",
+    "saveSettings": "Lưu cài đặt",
+    "providersHint": "Các nhà cung cấp đã sẵn sàng: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Hoán đổi bộ điều hợp thông qua registerLlmProvider mà không thay đổi giao diện người dùng."
+  },
+  "columns": {
+    "agent": "Đại lý",
+    "status": "Trạng thái",
+    "health": "Sức khỏe",
+    "queue": "Hàng đợi",
+    "usage": "Cách sử dụng",
+    "actions": "hành động",
+    "task": "Nhiệm vụ",
+    "duration": "Khoảng thời gian",
+    "created": "Tạo",
+    "scope": "Phạm vi",
+    "key": "Chìa khóa",
+    "value": "Giá trị",
+    "at": "Tại",
+    "title": "Tiêu đề",
+    "kind": "Loại",
+    "summary": "Bản tóm tắt"
+  },
+  "actions": {
+    "run": "Chạy",
+    "pause": "Tạm dừng",
+    "activate": "Kích hoạt",
+    "cancel": "Hủy bỏ",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "Thực thi mục tiêu kinh doanh {agentId}",
+    "planAndExecute": "Lập kế hoạch và thực hiện mục tiêu kinh doanh tại không gian làm việc"
+  }
+}

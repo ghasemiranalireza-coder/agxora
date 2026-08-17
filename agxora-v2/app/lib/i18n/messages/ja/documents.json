@@ -1,0 +1,388 @@
+{
+  "page": {
+    "brand": "AGXORA ナレッジ OS",
+    "title": "書類",
+    "subtitle": "エンタープライズ ドキュメントとナレッジ ハブ — ストレージと承認バックエンドが接続されるまで、サンプル コンテンツでプレビューされます。",
+    "sampleNotice": "サンプル ライブラリ — ブラウズとフィルターはセッション内で機能します。アップロード、承認、および AI インデックスのアクションは接続されていません。"
+  },
+  "sections": {
+    "kpis": {
+      "title": "ナレッジダッシュボード"
+    },
+    "library": {
+      "title": "ドキュメントライブラリ",
+      "subtitle": "すべてのドキュメント、最近使用したドキュメント、お気に入り、共有、アーカイブ済み、ゴミ箱、ナレッジ ベース — フォルダ、検索、ビューア、およびバージョンを備えています。"
+    },
+    "knowledge": {
+      "title": "ナレッジベース",
+      "subtitle": "記事、ポリシー、プロセス、マニュアル、FAQ、および内部 Wiki。"
+    },
+    "approvals": {
+      "title": "承認",
+      "subtitle": "ドラフト、レビュー中、承認済み、拒否済み、アーカイブ済み - 自動化アーキテクチャにリンクされています。"
+    },
+    "ai": {
+      "title": "AI ナレッジ レイヤー",
+      "subtitle": "概要、キーワード、分類、タグ、フォルダー、関連ドキュメント、重複、翻訳、OCR、検索 - アーキテクチャのみ。"
+    },
+    "activity": {
+      "title": "活動",
+      "subtitle": "最近の変更、アップロード、表示、共有、監査履歴。"
+    },
+    "integrations": {
+      "title": "統合",
+      "subtitle": "ドライブ アダプタは予約済みです - ライブ コネクタはありません。"
+    },
+    "security": {
+      "title": "セキュリティと共有",
+      "subtitle": "RBAC、監査証跡、暗号化、保持、および共有スコープ。"
+    }
+  },
+  "loading": {
+    "knowledgeBase": "ナレッジベースを読み込み中…",
+    "approvals": "承認キューを読み込んでいます…",
+    "aiInsights": "AI の分析情報を読み込んでいます…",
+    "activity": "アクティビティを読み込み中…",
+    "integrations": "統合を読み込み中…",
+    "security": "セキュリティを読み込んでいます…"
+  },
+  "kpi": {
+    "documents": {
+      "label": "書類",
+      "caption": "サンプル・フォルダ間",
+      "delta": "+{カウント}"
+    },
+    "folders": {
+      "label": "フォルダー",
+      "caption": "サンプル・スマートコレクションを含む",
+      "delta": "+{カウント}"
+    },
+    "storage": {
+      "label": "使用済みストレージ",
+      "caption": "プラン説明書のサンプル・",
+      "delta": "+{サイズ}"
+    },
+    "shared": {
+      "label": "共有ドキュメント",
+      "caption": "サンプル · 組織 + 部門 + ユーザー",
+      "delta": "+{カウント}"
+    },
+    "activity": {
+      "label": "最近の活動",
+      "caption": "サンプル・過去24時間",
+      "delta": "+{カウント}"
+    },
+    "indexed": {
+      "label": "AI インデックス付き",
+      "caption": "サンプル・AI検索が繋がらない",
+      "delta": "{パーセント}"
+    },
+    "approvals": {
+      "label": "承認待ち",
+      "caption": "サンプル・オートメーションが接続されていません",
+      "delta": "{カウント}"
+    },
+    "score": {
+      "label": "知識スコア",
+      "caption": "サンプル・取材イラスト",
+      "delta": "+{カウント}"
+    }
+  },
+  "library": {
+    "viewsAria": "ライブラリビュー",
+    "views": {
+      "all": "すべてのドキュメント",
+      "recent": "最近の",
+      "favorites": "お気に入り",
+      "shared": "共有",
+      "archived": "アーカイブ済み",
+      "trash": "ごみ",
+      "knowledge": "ナレッジベース"
+    },
+    "dropzone": "ここにファイルをドラッグ アンド ドロップして、アップロードを段階的に行います。",
+    "uploadReserved": "ドラッグ アンド ドロップ アップロードは、予約されたストレージ API です。",
+    "filesStaged": "{count} 個のファイルがアップロード用にステージングされました (ストレージへの書き込みはありません)。",
+    "dropReceived": "ドロップを受信しました (ストレージへの書き込みはありません)。",
+    "foldersTitle": "フォルダーとコレクション",
+    "foldersHint": "ネストされたフォルダー、コレクション、スマート コレクション、タグ、ピン留め、お気に入り。",
+    "allFolders": "すべてのフォルダー",
+    "smart": "頭いい",
+    "collection": "コレクション",
+    "pinned": "固定された",
+    "favorite": "お気に入り",
+    "sharedBadge": "共有",
+    "title": "ドキュメントライブラリ",
+    "results": "{count} 件の結果",
+    "resultOne": "{count} 件の結果",
+    "selected": "· {count} 個が選択されました",
+    "bulkAction": "一括アクション",
+    "bulkUnavailable": "{count} 個のアイテムに対して一括アクションを使用できません — ストレージのミューテーションが接続されていません。",
+    "searchLabel": "グローバル検索",
+    "searchPlaceholder": "名前、タグ、所有者、AI の概要…",
+    "typeLabel": "タイプ",
+    "statusLabel": "状態",
+    "departmentLabel": "部門",
+    "ownerLabel": "所有者",
+    "allTypes": "全種類",
+    "allStatuses": "すべてのステータス",
+    "allDepartments": "すべての部門",
+    "allOwners": "すべての所有者",
+    "favoritesOnly": "お気に入りのみ",
+    "emptyTitle": "提示する書類はありません",
+    "emptyDescription": "フィルターを調整したり、検索をクリアしたり、ナレッジ資産を追加してライブラリを拡大します。",
+    "selectAria": "{名前}を選択してください",
+    "versionHistoryTitle": "バージョン履歴",
+    "close": "近い",
+    "context": {
+      "open": "開ける",
+      "share": "共有",
+      "favorite": "お気に入り",
+      "move": "動く",
+      "delete": "消去",
+      "dismiss": "却下する",
+      "unavailable": "{action} は利用できません — ドキュメントのミューテーションは {id} に接続されていません。"
+    }
+  },
+  "viewer": {
+    "title": "ドキュメントビューア",
+    "emptyTitle": "ドキュメントを選択してください",
+    "emptyDescription": "ライブラリからファイルを選択して、コンテンツ、メタデータ、タグ、バージョン、リンクされたモジュールをプレビューします。",
+    "zoomOut": "ズーム−",
+    "zoomIn": "ズーム+",
+    "prev": "前へ",
+    "next": "次",
+    "page": "ページ {ページ} / {合計}",
+    "searchInside": "内部を検索",
+    "findPlaceholder": "プレビューで検索…",
+    "noMatches": "プレビュー テキストに一致するものはありません。",
+    "meta": {
+      "owner": "所有者",
+      "created": "作成されました",
+      "updated": "更新されました",
+      "fileType": "ファイルの種類",
+      "size": "サイズ",
+      "category": "カテゴリ",
+      "department": "部門",
+      "status": "状態",
+      "retention": "保持",
+      "version": "バージョン",
+      "sharing": "共有"
+    },
+    "tags": "タグ",
+    "linkedModules": "リンクされたモジュール",
+    "noModuleLinks": "モジュールリンクはまだありません",
+    "versionHistory": "バージョン履歴"
+  },
+  "versions": {
+    "title": "バージョン履歴",
+    "emptyTitle": "ドキュメントが選択されていません",
+    "emptyDescription": "ドキュメントを開いて、バージョン、メモ、復元、比較を確認します。",
+    "current": "{名前} · 現在の {バージョン}",
+    "restore": "バージョンを復元する",
+    "compare": "バージョンの比較",
+    "restoreTitle": "復元にはストレージ API が必要です",
+    "compareTitle": "比較にはストレージ API が必要です",
+    "noticeDefault": "復元と比較にはストレージ API が必要です。",
+    "restoreUnavailable": "{id} では復元できません — ストレージ API が接続されていません。",
+    "compareUnavailable": "比較できません ({selected} ↔ {current}) — ストレージ API が接続されていません。"
+  },
+  "approvals": {
+    "title": "承認ワークフロー",
+    "subtitle": "ドラフト→レビュー中→承認/拒否→アーカイブ。キューアイテムはサンプルドキュメントです。アクションは持続しません。",
+    "emptyTitle": "キュークリア",
+    "emptyDescription": "サンプル セットにはドラフトまたはレビュー中のドキュメントはありません。",
+    "approve": "承認する",
+    "reject": "拒否する",
+    "sendToReview": "レビューに送信",
+    "noticeDefault": "承認の移行にはオートメーション ワークフロー エンジンが必要ですが、このビルドでは接続されていません。",
+    "unavailable": "{id} では {action} を利用できません — ワークフロー エンジンが接続されていません。サンプルドキュメントのステータスは変更されませんでした。",
+    "approveTitle": "承認を利用できません — ワークフロー エンジンが接続されていません",
+    "rejectTitle": "拒否は利用できません — ワークフロー エンジンが接続されていません",
+    "sendTitle": "レビューに送信できません — ワークフロー エンジンが接続されていません"
+  },
+  "knowledge": {
+    "intro": "記事、ポリシー、プロセス、マニュアル、FAQ、および内部 Wiki — ナレッジ ハブのナラティブ層。"
+  },
+  "activity": {
+    "intro": "最近の変更、アップロード、表示、共有、監査履歴 - コンプライアンス証跡の基礎。"
+  },
+  "integrations": {
+    "intro": "クラウド ドライブ アダプターはアーキテクチャのみです (Google Drive、OneDrive、Dropbox、Box、SharePoint、Nextcloud)。ライブ API はありません。",
+    "reservedAdapter": "予約済みアダプター:",
+    "architecture": "建築",
+    "items": {
+      "google-drive": {
+        "description": "インポート/同期アーキテクチャは予約済みです - ライブ OAuth はまだありません。"
+      },
+      "onedrive": {
+        "description": "Microsoft Graph ファイルフックは予約されています。"
+      },
+      "dropbox": {
+        "description": "Dropbox API アダプターが予約されています。"
+      },
+      "box": {
+        "description": "Enterprise Box コネクタは予約済みです。"
+      },
+      "sharepoint": {
+        "description": "サイト ライブラリ + メタデータ マッピングは予約されています。"
+      },
+      "nextcloud": {
+        "description": "WebDAV アダプターは予約済み - セルフホスト プランまで無効になっています。"
+      }
+    }
+  },
+  "security": {
+    "architectureTitle": "セキュリティアーキテクチャ",
+    "sharingTitle": "共有モデル",
+    "sharingIntro": "プライベート、組織、部門、特定のユーザー、およびパブリック リンクのプレースホルダー。",
+    "enabled": "有効",
+    "placeholder": "プレースホルダー",
+    "notEnforced": "強制されない",
+    "modelOnly": "モデルのみ",
+    "controls": {
+      "rbac": {
+        "title": "役割ベースのアクセス",
+        "description": "所有者、編集者、閲覧者、承認者の役割はドキュメント ACL にマップされますが、このビルドでは強制されません。"
+      },
+      "permissions": {
+        "title": "権限のアーキテクチャ",
+        "description": "ドキュメントレベルの上書きによるフォルダー継承 - このビルドでは強制されません。"
+      },
+      "audit": {
+        "title": "監査証跡",
+        "description": "ビュー、共有、復元、承認のアクティビティ イベント - まだ永続化されていません。"
+      },
+      "encryption": {
+        "title": "暗号化",
+        "description": "KMS ワイヤリング用に予約された保存中および転送中の暗号化フック。"
+      },
+      "retention": {
+        "title": "保存ポリシー",
+        "description": "訴訟ホールドのサポートを備えたカテゴリごとの保持期間 - まだ施行されていません。"
+      }
+    }
+  },
+  "ai": {
+    "architectureTitle": "AI 機能のアーキテクチャ",
+    "architectureIntro": "すべての機能は将来の AI インデックス用に予約されています。 UI には決定論的な模擬洞察が表示されます。",
+    "insightsTitle": "選択したドキュメントの洞察",
+    "emptyTitle": "ドキュメントを選択してください",
+    "emptyDescription": "ライブラリ内のファイルを開いて、AI の概要、キーワード、提案を調べます。",
+    "summary": "AIの概要",
+    "keywords": "AIキーワード",
+    "classification": "AI 分類",
+    "suggestedFolder": "AI が提案するフォルダー",
+    "translation": "AI翻訳",
+    "ocr": "AI OCR",
+    "suggestedTags": "AI が推奨するタグ",
+    "related": "AI関連資料",
+    "noRelated": "関連文書のインデックスが作成されていません。",
+    "duplicateOf": "AI 重複検出: 重複の可能性",
+    "noDuplicates": "AI 重複検出: 重複に近いフラグは立てられません。",
+    "sampleReady": "サンプル準備完了",
+    "notApplicable": "適用できない",
+    "runSearch": "AI検索を実行する",
+    "searchTitle": "AI検索が接続されていません",
+    "noticeDefault": "AI 機能はアーキテクチャのみであり、ライブ モデル呼び出しはありません。",
+    "searchUnavailable": "AI 検索は利用できません — セマンティック インデックスが接続されていません。上記のサンプル洞察は静的なものです。",
+    "features": {
+      "summary": {
+        "title": "AIの概要",
+        "description": "すべてのモジュールについての文書の理解が凝縮されています。"
+      },
+      "keywords": {
+        "title": "AIキーワード",
+        "description": "検索とルーティングのために抽出されたトピック信号。"
+      },
+      "classification": {
+        "title": "AI 分類",
+        "description": "カテゴリ/部門分類の提案。"
+      },
+      "tags": {
+        "title": "AI が推奨するタグ",
+        "description": "グラフを変更せずに推奨事項にタグを付けます。"
+      },
+      "folder": {
+        "title": "AI が提案するフォルダー",
+        "description": "ネストされたフォルダーへのスマートな配置。"
+      },
+      "related": {
+        "title": "AI関連資料",
+        "description": "ナレッジ ハブ全体で近隣のグラフを作成します。"
+      },
+      "duplicate": {
+        "title": "AIによる重複検出",
+        "description": "ドキュメント ライブラリの準重複検出。"
+      },
+      "translation": {
+        "title": "AI翻訳",
+        "description": "翻訳準備フラグ - ライブ モデルなし。"
+      },
+      "ocr": {
+        "title": "AI OCR",
+        "description": "スキャンと PDF 用に予約された OCR パイプライン。"
+      },
+      "search": {
+        "title": "AI検索",
+        "description": "セマンティック検索は将来のインデックス用に予約されています。"
+      }
+    }
+  },
+  "status": {
+    "draft": "下書き",
+    "in_review": "レビュー中",
+    "approved": "承認された",
+    "rejected": "拒否されました",
+    "archived": "アーカイブ済み"
+  },
+  "fileType": {
+    "pdf": "PDF",
+    "word": "言葉",
+    "excel": "エクセル",
+    "powerpoint": "パワーポイント",
+    "image": "画像",
+    "video": "ビデオ",
+    "audio": "オーディオ",
+    "markdown": "マークダウン",
+    "text": "文章",
+    "json": "JSON",
+    "csv": "CSV",
+    "other": "他の"
+  },
+  "share": {
+    "private": "プライベート",
+    "organization": "組織",
+    "department": "部門",
+    "specific_users": "特定のユーザー",
+    "public_link": "パブリックリンク"
+  },
+  "module": {
+    "crm": "CRM",
+    "finance": "ファイナンス",
+    "automation": "オートメーション",
+    "creator": "クリエイター スタジオ",
+    "hr": "未来の人事",
+    "projects": "今後のプロジェクト"
+  },
+  "knowledgeKind": {
+    "article": "記事",
+    "policy": "ポリシー",
+    "process": "プロセス",
+    "manual": "マニュアル",
+    "faq": "よくある質問",
+    "wiki": "内部ウィキ"
+  },
+  "integrationStatus": {
+    "connected": "接続済み",
+    "beta": "ベータ",
+    "coming_soon": "近日公開",
+    "disabled": "無効",
+    "planned": "計画済み"
+  },
+  "bytes": {
+    "b": "{値} B",
+    "kb": "{値} KB",
+    "mb": "{値} MB",
+    "gb": "{値} GB"
+  }
+}

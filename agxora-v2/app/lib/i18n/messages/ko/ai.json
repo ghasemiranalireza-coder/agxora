@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "AI Platform 로드 중…",
+    "eyebrow": "AGXORA AI 플랫폼",
+    "title": "엔터프라이즈 AI 작업 공간",
+    "subtitle": "CRM, 프로젝트, 재무, 문서 및 자동화를 위한 공급자 독립적 인텔리전스입니다. 설정 → AI에서 공급자를 구성하세요.",
+    "newConversation": "새로운 대화",
+    "aiCommands": "AI 명령"
+  },
+  "mobileTabs": {
+    "chat": "채팅",
+    "conversations": "대화",
+    "prompts": "프롬프트"
+  },
+  "usageBar": {
+    "provider": "공급자",
+    "model": "모델",
+    "estimatedTokens": "예상 토큰",
+    "tokensInOut": "(인 {in} / 아웃 {아웃})",
+    "cost": "비용",
+    "context": "문맥",
+    "contextNone": "없음",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "AGXORA AI 작업공간",
+    "emptyHint": "대화를 시작하고, 라이브러리에서 프롬프트를 선택하거나, 명령 팔레트(⌘⇧K / Ctrl⇧K)를 엽니다."
+  },
+  "conversationSidebar": {
+    "title": "대화",
+    "new": "새로운",
+    "searchPlaceholder": "채팅 검색…",
+    "searchAria": "대화 검색",
+    "showArchived": "보관된 항목 표시",
+    "pinned": "고정됨",
+    "emptyPreview": "빈 대화",
+    "noConversations": "아직 대화가 없습니다.",
+    "pin": "핀",
+    "unpin": "고정 해제",
+    "rename": "이름 바꾸기",
+    "archive": "보관소",
+    "unarchive": "보관 취소",
+    "delete": "삭제"
+  },
+  "composer": {
+    "placeholder": "메시지 AGXORA AI… (보내려면 Enter, 줄바꿈하려면 Shift+Enter)",
+    "ariaLabel": "메시지 작성기",
+    "commandsShortcut": "명령 ⌘⇧K",
+    "stop": "멈추다",
+    "send": "보내다"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "복사",
+    "retry": "다시 해 보다"
+  },
+  "typingIndicator": {
+    "ariaLabel": "어시스턴트가 입력 중입니다."
+  },
+  "promptLibrary": {
+    "title": "프롬프트 라이브러리",
+    "subtitle": "CRM, 프로젝트, 재무 등에서 재사용 가능한 템플릿입니다.",
+    "searchPlaceholder": "검색 프롬프트…",
+    "searchAria": "검색 프롬프트",
+    "all": "모두",
+    "favorites": "즐겨찾기",
+    "recent": "최근의",
+    "library": "도서관",
+    "noMatches": "일치하는 프롬프트가 없습니다.",
+    "removeFavoriteAria": "즐겨찾기 삭제",
+    "addFavoriteAria": "즐겨찾기 추가",
+    "favorited": "즐겨찾기",
+    "favorite": "가장 좋아하는",
+    "usePrompt": "프롬프트 사용"
+  },
+  "commandPalette": {
+    "ariaLabel": "AI 명령 팔레트",
+    "filterAria": "AI 명령 필터링",
+    "placeholder": "AI 명령… 요약, 제안, 분석…",
+    "noMatches": "일치하는 명령이 없습니다.",
+    "footer": "RegisterAiCommand를 통해 향후 명령을 등록하세요. UI는 변경되지 않습니다."
+  }
+}

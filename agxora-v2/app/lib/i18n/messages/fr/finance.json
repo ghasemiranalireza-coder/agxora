@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "Système d'exploitation AGXORA Finance",
+    "title": "Finance et fiscalité",
+    "subtitle": "Informations comptables, bancaires, fiscales et financières — prévisualisées avec des exemples de données jusqu'à ce que les grands livres en direct se connectent.",
+    "sampleNotice": "Exemple d’ensemble de données – les chiffres et l’historique des exportations sont illustratifs. L'export DATEV/fichier et les flux bancaires en direct ne sont pas connectés."
+  },
+  "sections": {
+    "overview": {
+      "title": "Aperçu des finances"
+    },
+    "invoiceCenter": {
+      "title": "Centre de facturation",
+      "subtitle": "Recherchez, filtrez et triez le grand livre des factures d'entreprise avec le score de confiance de l'IA."
+    },
+    "aiInvoiceProcessing": {
+      "title": "Traitement des factures IA",
+      "subtitle": "Pipeline de démonstration — OCR et extraction d'IA ne sont pas connectés."
+    },
+    "banking": {
+      "title": "Banque",
+      "subtitle": "Exemples de comptes uniquement : les flux Open Banking ne sont pas connectés."
+    },
+    "datev": {
+      "title": "Intégration DATEV",
+      "subtitle": "Exemple d'historique d'exportation : la génération de fichiers DATEV n'est pas connectée."
+    },
+    "taxCenter": {
+      "title": "Centre d'imposition",
+      "subtitle": "Récapitulatifs de TVA, délais et paiements à venir."
+    },
+    "aiInsights": {
+      "title": "Informations sur l'IA",
+      "subtitle": "Résultats de l'échantillon uniquement — les actions d'analyse ne sont pas connectées."
+    },
+    "smartSearch": {
+      "title": "Recherche intelligente",
+      "subtitle": "Requêtes en langage naturel sur les factures, les dépenses, la TVA et les exportations."
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "Revenu",
+        "caption": "Échantillon · 30 derniers jours",
+        "delta": "+8.4%"
+      },
+      "expenses": {
+        "label": "Dépenses&#10;",
+        "caption": "Échantillon · fonctionnement + COGS",
+        "delta": "+2.1%"
+      },
+      "profit": {
+        "label": "Bénéfice",
+        "caption": "Échantillon · net opérationnel",
+        "delta": "+12.6%"
+      },
+      "vat-due": {
+        "label": "TVA  Due",
+        "caption": "Échantillon · Fenêtre Q2",
+        "delta": "Dû dans {days}j"
+      },
+      "open-invoices": {
+        "label": "Factures ouvertes",
+        "caption": "Échantillon · {money} en circulation"
+      },
+      "paid-invoices": {
+        "label": "Factures payées",
+        "caption": "Échantillon · ce trimestre",
+        "delta": "+{compte}"
+      },
+      "cashflow": {
+        "label": "Flux de trésorerie",
+        "caption": "Échantillon · Projection sur 30 jours",
+        "delta": "+4.2%"
+      },
+      "ai-score": {
+        "label": "Score financier de l'IA",
+        "caption": "Exemple de score · pas de notation des risques en direct",
+        "delta": "+{compte}"
+      }
+    },
+    "scoreOutOf": "{score} / {maximum}"
+  },
+  "invoices": {
+    "emptyTitle": "Pas de factures",
+    "emptyDescription": "Aucune facture ne correspond à votre recherche ou à vos filtres.",
+    "searchPlaceholder": "Numéro, entreprise, catégorie…",
+    "statusFilter": "Filtre de statut",
+    "paymentFilter": "Filtre de paiement",
+    "sortBy": "Trier par",
+    "toggleSort": "Basculer le sens de tri",
+    "count": "{count} factures",
+    "countOne": "{count} facture",
+    "allStatuses": "Tous les statuts",
+    "allPayments": "Tous les paiements",
+    "columns": {
+      "number": "Numéro de facture",
+      "company": "Entreprise",
+      "amount": "Montant",
+      "vat": "T.V.A.",
+      "status": "Statut",
+      "dueDate": "Date d'échéance",
+      "payment": "Statut du paiement",
+      "category": "Catégorie",
+      "ai": "Confiance en l'IA"
+    },
+    "sort": {
+      "dueDate": "Date d'échéance",
+      "amount": "Montant",
+      "company": "Entreprise",
+      "status": "Statut",
+      "aiConfidence": "Confiance en l'IA",
+      "number": "Facture #"
+    }
+  },
+  "status": {
+    "draft": "Brouillon",
+    "open": "Ouvrir",
+    "paid": "Payé",
+    "overdue": "En retard",
+    "cancelled": "Annulé"
+  },
+  "payment": {
+    "unpaid": "Impayé",
+    "partial": "En partie",
+    "paid": "Payé",
+    "refunded": "Remboursé"
+  },
+  "category": {
+    "saas": "SaaS",
+    "office": "Bureau",
+    "travel": "Les voyages",
+    "marketing": "Commercialisation",
+    "utilities": "Utilitaires",
+    "professional": "Professionnel",
+    "other": "Autre"
+  },
+  "processing": {
+    "dropTitle": "Glissez-déposez les fichiers de factures",
+    "dropFormats": "PDF · Image · Importation par courrier électronique",
+    "uploadFiles": "Télécharger des fichiers",
+    "emailImport": "Importation d'e-mails",
+    "dropHint": "Déposez les factures PDF ou image pour les préparer localement : l'OCR n'est pas connecté.",
+    "filesStaged": "{count} fichier(s) répertorié(s) localement uniquement : l'extraction OCR/AI n'est pas connectée.",
+    "emailReserved": "Connecteur d'import d'email réservé à IMAP / Microsoft Graph.",
+    "pipelineTitle": "Pipeline de traitement (démo)",
+    "stages": {
+      "ocr": "Statut OCR",
+      "extraction": "Extraction d'IA",
+      "categorization": "Catégorisation",
+      "duplicateDetection": "détection des doublons"
+    }
+  },
+  "stage": {
+    "pending": "Indisponible",
+    "running": "Non connecté",
+    "complete": "Démo",
+    "failed": "Échec",
+    "skipped": "Sauté"
+  },
+  "banking": {
+    "connectionTitle": "Connexion bancaire",
+    "connectBank": "Connecter la banque",
+    "description": "Les adaptateurs PSD2 / Open Banking ne sont pas câblés. L'appariement et le rapprochement ci-dessous sont donnés à titre indicatif uniquement.",
+    "feedUnavailable": "Flux bancaire indisponible — la connexion du fournisseur n'est pas connectée.",
+    "noticeDefault": "Open Banking n'est pas connecté — les comptes ci-dessous sont des exemples de données.",
+    "connectUnavailable": "Connexion bancaire indisponible — Open Banking n'est pas connecté dans cette version.",
+    "sampleAccounts": "Exemples de comptes",
+    "sample": "Échantillon",
+    "offline": "Hors ligne",
+    "demoPrefix": "Démo",
+    "latestTransactions": "Dernières opérations",
+    "sampleMatching": "Appariement des échantillons",
+    "demoOnly": "Démo uniquement",
+    "sampleMatch": "ÉCHANTILLON - CORRESPONDANCE",
+    "unmatched": "Incomparable",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "Intégration DATEV",
+    "notConnected": "Non connecté",
+    "intro": "L’exemple d’historique d’exportation ci-dessous est illustratif. Les informations d'identification et la génération de fichiers ne sont pas câblées dans cette version.",
+    "noticeDefault": "Les adaptateurs d'exportation ne sont pas connectés — aucun fichier ne sera généré.",
+    "exportUnavailable": "{title} indisponible — L'exportation DATEV / fichier n'est pas connectée.",
+    "exportUnavailableAria": "{titre} — indisponible",
+    "historyTitle": "Historique des exportations (échantillon)",
+    "refresh": "Rafraîchir",
+    "refreshUnavailable": "Actualisation indisponible — l'historique d'exportation est constitué d'échantillons de données statiques.",
+    "steuerberaterSample": "Échantillon",
+    "steuerberaterPending": "En attente",
+    "columns": {
+      "export": "Exporter",
+      "format": "Format",
+      "period": "Période",
+      "created": "Créé",
+      "status": "Statut",
+      "steuerberater": "Steuerberater"
+    },
+    "actions": {
+      "datev": {
+        "title": "Exportation DATEV",
+        "description": "Pack Buchungsstapel pour les flux de travail Steuerberater."
+      },
+      "csv": {
+        "title": "Exporter CSV",
+        "description": "CSV prêt pour le grand livre pour les feuilles de calcul et les importations."
+      },
+      "pdf": {
+        "title": "Exportation PDF",
+        "description": "Pack de documents pour examen et archivage."
+      },
+      "xml": {
+        "title": "Exportation XML",
+        "description": "XML fiscal structuré pour les pipelines de dépôt."
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "Échantillon · En file d'attente",
+    "ready": "Échantillon · Prêt",
+    "delivered": "Illustration",
+    "failed": "Échec"
+  },
+  "tax": {
+    "vatSummaryTitle": "Résumé TVA",
+    "monthlyVat": "TVA mensuelle",
+    "quarterlyVat": "TVA trimestrielle",
+    "collected": "Collecté",
+    "deductible": "Franchise",
+    "netDue": "Net dû",
+    "deadlinesTitle": "Délais fiscaux · Paiements à venir",
+    "duePrefix": "Exigible",
+    "deadlineStatus": {
+      "due_soon": "Bientôt à rendre",
+      "upcoming": "A Venir",
+      "overdue": "En retard",
+      "paid": "Payé"
+    },
+    "deadlines": {
+      "td-1": "Déclaration mensuelle de TVA",
+      "td-2": "Règlement trimestriel de la TVA",
+      "td-3": "Impôt anticipé sur les sociétés"
+    },
+    "period": {
+      "monthly": "Mensuellement",
+      "quarterly": "Trimestriel",
+      "annual": "Annuelle"
+    }
+  },
+  "insights": {
+    "demoPrefix": "Démo",
+    "noticeDefault": "Les actions Insight ne sont pas connectées — les cartes ne montrent que des exemples de résultats.",
+    "actionUnavailable": "{action} indisponible : les actions Finance Insight ne sont pas connectées.",
+    "actionUnavailableTitle": "{action} indisponible — non connecté",
+    "kinds": {
+      "unusual_expense": "Dépenses inhabituelles",
+      "duplicate_invoice": "Factures en double",
+      "missing_invoice": "Factures manquantes",
+      "late_payment": "Retards de paiement",
+      "cashflow_prediction": "Prévision de trésorerie",
+      "tax_optimization": "Optimisation fiscale "
+    }
+  },
+  "search": {
+    "label": "Recherche en langage naturel",
+    "placeholder": "Essayez « Afficher les factures impayées »",
+    "submit": "Rechercher",
+    "examplesTitle": "Il peut s’agir notamment",
+    "hints": {
+      "idle": "Renseignez-vous sur les factures, les dépenses, la TVA ou les exportations.",
+      "unpaid_invoices": "Filtrage du centre de facturation sur les articles impayés / ouverts.",
+      "july_expenses": "Affichage de l'activité côté dépenses en juillet.",
+      "amazon": "Localisation des factures et reçus Amazon.",
+      "vat_export": "Ouverture des actions d'export DATEV / TVA.",
+      "general": "Recherche dans le grand livre de « {query} »."
+    },
+    "examples": {
+      "q1": {
+        "query": "Afficher les factures impayées",
+        "description": "Créances ouvertes avec statut impayé ou partiel"
+      },
+      "q2": {
+        "query": "Afficher les dépenses de juillet",
+        "description": "Factures de dépenses et sorties bancaires en juillet"
+      },
+      "q3": {
+        "query": "Rechercher des factures Amazon",
+        "description": "Correspondance des fournisseurs entre le centre de facturation et les téléchargements"
+      },
+      "q4": {
+        "query": "Exporter la TVA",
+        "description": "Accéder aux actions DATEV/export de taxes"
+      }
+    }
+  }
+}

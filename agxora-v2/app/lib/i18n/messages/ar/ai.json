@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "جارٍ تحميل النظام الأساسي للذكاء الاصطناعي…",
+    "eyebrow": "منصة AGXORA للذكاء الاصطناعي",
+    "title": "مساحة عمل الذكاء الاصطناعي للمؤسسات",
+    "subtitle": "معلومات مستقلة عن الموفر لإدارة علاقات العملاء والمشاريع والتمويل والمستندات والأتمتة. قم بتكوين الموفرين في الإعدادات → AI.",
+    "newConversation": "محادثة جديدة",
+    "aiCommands": "أوامر الذكاء الاصطناعي"
+  },
+  "mobileTabs": {
+    "chat": "محادثة",
+    "conversations": "المحادثات",
+    "prompts": "يطالب"
+  },
+  "usageBar": {
+    "provider": "مزود",
+    "model": "نموذج",
+    "estimatedTokens": "EST. الرموز",
+    "tokensInOut": "(داخل {داخل} / خارج {خارج})",
+    "cost": "يكلف",
+    "context": "سياق",
+    "contextNone": "لا أحد",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "مساحة عمل AGXORA AI",
+    "emptyHint": "ابدأ محادثة، أو اختر مطالبة من المكتبة، أو افتح لوحة الأوامر (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "المحادثات",
+    "new": "جديد",
+    "searchPlaceholder": "بحث في الدردشات...",
+    "searchAria": "بحث في المحادثات",
+    "showArchived": "عرض المؤرشفة",
+    "pinned": "مثبت",
+    "emptyPreview": "محادثة فارغة",
+    "noConversations": "لا توجد محادثات حتى الآن",
+    "pin": "دبوس",
+    "unpin": "إزالة التثبيت",
+    "rename": "إعادة تسمية",
+    "archive": "أرشيف",
+    "unarchive": "إلغاء الأرشفة",
+    "delete": "يمسح"
+  },
+  "composer": {
+    "placeholder": "رسالة AGXORA AI... (أدخل للإرسال، Shift+Enter للسطر الجديد)",
+    "ariaLabel": "مؤلف الرسالة",
+    "commandsShortcut": "الأوامر ⌘⇧K",
+    "stop": "قف",
+    "send": "يرسل"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "ينسخ",
+    "retry": "أعد المحاولة"
+  },
+  "typingIndicator": {
+    "ariaLabel": "المساعد يكتب"
+  },
+  "promptLibrary": {
+    "title": "مكتبة عاجلة",
+    "subtitle": "قوالب قابلة لإعادة الاستخدام عبر إدارة علاقات العملاء والمشاريع والتمويل والمزيد.",
+    "searchPlaceholder": "مطالبات البحث…",
+    "searchAria": "مطالبات البحث",
+    "all": "الجميع",
+    "favorites": "المفضلة",
+    "recent": "مؤخرًا",
+    "library": "مكتبة",
+    "noMatches": "لا توجد مطالبات متطابقة",
+    "removeFavoriteAria": "إزالة المفضلة",
+    "addFavoriteAria": "أضف المفضلة",
+    "favorited": "المفضلة",
+    "favorite": "مفضل",
+    "usePrompt": "استخدم موجه"
+  },
+  "commandPalette": {
+    "ariaLabel": "لوحة أوامر الذكاء الاصطناعي",
+    "filterAria": "تصفية أوامر الذكاء الاصطناعي",
+    "placeholder": "أمر الذكاء الاصطناعي...تلخيص، اقتراح، تحليل...",
+    "noMatches": "لا توجد أوامر مطابقة",
+    "footer": "قم بتسجيل الأوامر المستقبلية عبر RegisterAiCommand - تظل واجهة المستخدم دون تغيير."
+  }
+}

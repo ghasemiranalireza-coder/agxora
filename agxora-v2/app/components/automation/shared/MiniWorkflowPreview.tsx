@@ -2,6 +2,7 @@
 
 import { memo, type JSX } from "react";
 import type { WorkflowDefinition } from "../../../lib/automation";
+import { useT } from "../../../lib/i18n";
 
 const NODE_W = 56;
 const NODE_H = 28;
@@ -14,6 +15,7 @@ export const MiniWorkflowPreview = memo(function MiniWorkflowPreview({
   readonly workflow: WorkflowDefinition;
   readonly height?: number;
 }): JSX.Element {
+  const t = useT();
   if (workflow.nodes.length === 0) {
     return (
       <div
@@ -24,7 +26,7 @@ export const MiniWorkflowPreview = memo(function MiniWorkflowPreview({
           color: "var(--agx-text-muted, #94a3b8)",
         }}
       >
-        Empty workflow
+        {t("automation.miniPreview.emptyWorkflow")}
       </div>
     );
   }

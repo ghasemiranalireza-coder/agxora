@@ -1,0 +1,387 @@
+{
+  "skipToContent": "Zum Dashboard-Inhalt springen",
+  "loading": "Dashboard wird geladen…",
+  "hero": {
+    "ariaLabel": "AGXORA CORE HERO",
+    "eyebrow": "KI-Geschäftsbetriebssystem",
+    "title": "AGXORA-KERN",
+    "subtitle": "Echtzeitinformationen und Betriebskontrolle – Ihre Arbeitsplatz-Befehlsoberfläche.",
+    "ctaGetStarted": "Erste Schritte",
+    "ctaViewActivity": "Aktivität anzeigen",
+    "openQuickActionsAria": "Schnellaktionen öffnen",
+    "viewActivityAria": "Aktuelle Aktivitäten anzeigen"
+  },
+  "quickActions": {
+    "title": "Schnelle Aktionen",
+    "subtitle": "Was sollten Sie als Nächstes tun? ",
+    "ariaLabel": "Schnelle Aktionen",
+    "addCustomer": {
+      "label": "Kunde hinzufügen",
+      "description": "Erstellen Sie einen CRM-Datensatz"
+    },
+    "newProject": {
+      "label": "Neues Projekt",
+      "description": "Starten Sie eine Lieferverfolgung"
+    },
+    "askAi": {
+      "label": "Fragen Sie die KI",
+      "description": "Öffnen Sie den AI-Arbeitsbereich"
+    },
+    "finance": {
+      "label": "Finanzen",
+      "description": "Rechnungen und Cashflow"
+    },
+    "automations": {
+      "label": "Automatisierungen",
+      "description": "Workflow-Engine"
+    },
+    "settings": {
+      "label": "Einstellungen",
+      "description": "Arbeitsbereichseinstellungen"
+    }
+  },
+  "attention": {
+    "title": "Braucht Aufmerksamkeit",
+    "ariaLabel": "Was Aufmerksamkeit braucht",
+    "empty": "Ihnen ist klar: Im Moment gibt es keine dringenden Dinge.",
+    "tone": {
+      "critical": "Kritisch",
+      "warning": "Warnung",
+      "info": "Info",
+      "success": "Bereit",
+      "action": "Als Nächstes ausführen"
+    },
+    "addCustomer": {
+      "title": "Fügen Sie Ihren ersten Kunden hinzu",
+      "detail": "Starten Sie das CRM mit einem echten Kontodatensatz."
+    },
+    "createProject": {
+      "title": "Ein Projekt erstellen",
+      "detail": "Öffne eine Lieferkette für deinen nächsten Auftrag."
+    },
+    "exploreAi": {
+      "title": "Entdecken Sie den KI-Arbeitsbereich",
+      "detail": "Fragen Sie AGXORA nach Kunden, Projekten oder nächsten Schritten."
+    },
+    "reviewBilling": {
+      "title": "Überprüfen Sie die Abrechnung",
+      "detail": "Bestätigen Sie Plan und Nutzung, wenn Sie zur Skalierung bereit sind."
+    }
+  },
+  "overview": {
+    "title": "Was passiert",
+    "subtitle": "Arbeitsbereichsanzahl für {name}",
+    "fallbackName": "Ihren Arbeitsplatz",
+    "ariaLabel": "Unternehmensüberblick",
+    "online": "Online",
+    "emDash": "—",
+    "capacitySignal": "{percent}% Kapazitätssignal",
+    "activeClients": {
+      "title": "Aktive Kunden",
+      "captionEmpty": "Noch keine aktiven Kunden",
+      "captionTotal": "Insgesamt {count} im Arbeitsbereich",
+      "add": "Kunde hinzufügen",
+      "view": "Kunden anzeigen"
+    },
+    "projects": {
+      "title": "Projekte",
+      "captionEmpty": "Keine Projekte im Portfolio",
+      "captionOpen": "Lieferspuren öffnen",
+      "create": "Projekt erstellen",
+      "open": "Offene Projekte"
+    },
+    "activityToday": {
+      "title": "Aktivität heute",
+      "captionEmpty": "Heute wurde noch nichts protokolliert",
+      "captionEvents": "Workspace-Ereignisse seit Mitternacht",
+      "viewFeed": "Feed ansehen"
+    },
+    "revenue": {
+      "title": "Einnahmen",
+      "caption": "Verbinden Sie die Abrechnung, um MRR anzuzeigen",
+      "openBilling": "Abrechnung öffnen"
+    },
+    "clientShell": {
+      "title": "Client-Shell",
+      "caption": "Bereit für die Browsersitzung – kein Live-Betriebsmonitor",
+      "shellLoaded": "Anwendungsshell geladen",
+      "storesReady": "Lokale Workspace-Stores bereit"
+    },
+    "growth": {
+      "title": "Wachstum",
+      "caption": "Trendmetriken erfordern eine akkumulierte Nutzung",
+      "openAnalytics": "Offene Analysen"
+    }
+  },
+  "activity": {
+    "title": "Aktuelle Aktivität",
+    "subtitle": "Was sich heute geändert hat",
+    "ariaLabel": "Aktuelle Aktivität",
+    "todayCount": "{count} HEUTE",
+    "localBadge": "LOKAL",
+    "emptyTitle": "Noch keine Aktivität",
+    "emptyBody": "Workspace-Ereignisse werden hier angezeigt, wenn Sie Kunden, Projekte usw. hinzufügen.",
+    "addCustomer": "Kunde hinzufügen",
+    "newProject": "Neues Projekt",
+    "kind": {
+      "customer": "Kunde",
+      "project": "Projekt",
+      "finance": "Finanzen",
+      "automation": "Automatisierung",
+      "documents": "Unterlagen",
+      "team": "Team",
+      "workspace": "Arbeitsbereich"
+    },
+    "events": {
+      "customer_created": "Kunde erstellt",
+      "customer_updated": "Kunde aktualisiert",
+      "customer_deleted": "Kunde gelöscht",
+      "project_updated": "Projekt aktualisiert",
+      "invoice_paid": "Rechnung bezahlt",
+      "document_uploaded": "Dokument hochgeladen",
+      "workflow_executed": "Workflow ausgeführt",
+      "member_invited": "Teammitglied eingeladen",
+      "generic": "Aktualisierung des Arbeitsbereichs"
+    }
+  },
+  "chat": {
+    "title": "AGXORA KI",
+    "emptyState": "Fragen Sie AGXORA nach Kunden, Projekten oder nächsten Aktionen. Ihr Gespräch bleibt in dieser Arbeitsbereichssitzung.",
+    "thinking": "AGXORA denkt…",
+    "errorDismiss": "{error} — Zum Verwerfen tippen",
+    "placeholder": "Fragen Sie AGXORA AI…",
+    "messageAria": "Nachricht AGXORA AI",
+    "sendAria": "Nachricht senden",
+    "send": "Schicken"
+  },
+  "routeLoading": {
+    "team": "Team wird geladen…",
+    "projects": "Projekte werden geladen…",
+    "project": "Projekt wird geladen…",
+    "profile": "Profil wird geladen…",
+    "integrations": "Lade Integrationen…",
+    "identity": "Identität wird geladen…",
+    "finance": "Finanzen werden geladen...",
+    "documents": "Dokumente werden geladen…",
+    "customers": "Kunden werden geladen…",
+    "crm": "CRM wird geladen…",
+    "customer": "Kunde laden",
+    "creator": "Creator Studio wird geladen…",
+    "billing": "Abrechnung wird geladen…",
+    "billingAdmin": "Administratorabrechnung wird geladen…",
+    "automation": "Automatisierung wird geladen…",
+    "analytics": "Laden des Intelligence Center…",
+    "ai": "AI Platform wird geladen…",
+    "agents": "Agent-Betriebssystem wird geladen..."
+  },
+  "shell": {
+    "memory": {
+      "title": "Speicher",
+      "description": "Der Organisationsspeicher ist in diesem Build nicht verbunden.",
+      "emptyTitle": "Der Speicherarbeitsbereich ist noch nicht verfügbar",
+      "emptyBody": "Der persistente Organisationsspeicher ist nicht verbunden. Der Chat behält möglicherweise nur kurzlebigen Kontext während der Sitzung – hier wird nichts im Unternehmensspeicher gespeichert."
+    },
+    "invoices": {
+      "title": "Rechnungen",
+      "description": "Abrechnungs- und Rechnungsarchitektur für Enterprise Tenants.",
+      "emptyTitle": "Das Rechnungsbuch ist noch nicht verfügbar",
+      "emptyBody": "Diese Route ist eine Shell – Rechnungserstellung und Persistenz sind nicht miteinander verbunden. Verwenden Sie „Finanzen“ für die Beispielvorschau des Hauptbuchs oder „Abrechnung“ für die Planverwaltung.",
+      "openFinance": "Öffnen Sie Finanzen",
+      "openBilling": "Offene Abrechnung"
+    }
+  },
+  "search": {
+    "ariaLabel": "Universelle Suche",
+    "queryAria": "Universelle Suchanfrage",
+    "placeholder": "Suchen Sie nach Kunden, Rechnungen, Dokumenten, Arbeitsabläufen, Einstellungen ...",
+    "quickActions": "Schnelle Aktionen",
+    "favorites": "Favoriten",
+    "recentSearches": "Aktuelle Suchanfragen",
+    "clear": "Klar",
+    "noRecentSearches": "Noch keine aktuellen Suchanfragen. Versuchen Sie es mit „Nordlicht“, „Rechnung“ oder „Workflow“.",
+    "recentActivity": "Letzte Aktivität",
+    "aiReady": "AI Ready (Architektur)",
+    "pinnedResults": "Angepinnte Ergebnisse",
+    "noMatches": "Keine Übereinstimmungen",
+    "noMatchesBody": "Versuchen Sie es mit einem anderen Schlüsselwort oder öffnen Sie ein Modul über Schnellaktionen.",
+    "close": "Schließen",
+    "open": "Offen",
+    "keyboardHints": "↑↓ navigate · Enter open · Ctrl/⊲ K toggle · Esc close",
+    "pinResult": "Ergebnis pinnen",
+    "unpinResult": "Ergebnis lösen",
+    "previewEmpty": "Bewegen Sie den Mauszeiger über ein Ergebnis oder markieren Sie es, um eine Vorschau, Metadaten und intelligente Links anzuzeigen.",
+    "previewAria": "Universelle Vorschau",
+    "relatedItems": "Passende Artikel",
+    "noSmartLinks": "Keine intelligenten Links für dieses Ergebnis.",
+    "groups": {
+      "crm": "CRM",
+      "finance": "Finanzen",
+      "documents": "Unterlagen",
+      "automation": "Automatisierung",
+      "projects": "Projekte",
+      "creator": "Kreativstudio",
+      "settings": "Einstellungen",
+      "commands": "Befehle",
+      "actions": "Schnelle Aktionen"
+    },
+    "status": {
+      "architecture": "Architektur",
+      "planned": "geplant"
+    },
+    "meta": {
+      "type": "Typ",
+      "module": "Modul",
+      "quickAction": "Schnelle Aktion"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "Debitor anlegen",
+        "subtitle": "Öffnen Sie Kunden, um einen Datensatz hinzuzufügen"
+      },
+      "createInvoice": {
+        "title": "Rechnung erstellen",
+        "subtitle": "Öffnen Sie den Arbeitsbereich „Finanzrechnung“."
+      },
+      "uploadDocument": {
+        "title": "Dokument hochladen",
+        "subtitle": "Öffnen Sie den Knowledge Hub für Dokumente"
+      },
+      "newWorkflow": {
+        "title": "Neuer Workflow",
+        "subtitle": "Öffnen Sie den Automation Engine-Builder"
+      },
+      "newProject": {
+        "title": "Neues Projekt",
+        "subtitle": "Öffnen Sie den Arbeitsbereich „Projekte“."
+      },
+      "inviteMember": {
+        "title": "Teammitglied einladen",
+        "subtitle": "Offene Teameinladungen"
+      },
+      "openBilling": {
+        "title": "Offene Abrechnung",
+        "subtitle": "Pläne, Rechnungen und Abonnement"
+      },
+      "openSettings": {
+        "title": "Einstellungen öffnen",
+        "subtitle": "Arbeitsbereichseinstellungen"
+      }
+    },
+    "commands": {
+      "openCrm": {
+        "title": "CRM öffnen",
+        "subtitle": "AI CRM-Modul"
+      },
+      "openCustomers": {
+        "title": "Offene Kunden",
+        "subtitle": "Kundenmanagement"
+      },
+      "openFinance": {
+        "title": "Öffnen Sie Finanzen",
+        "subtitle": "Modul „Finanzen und Steuern“."
+      },
+      "openDocuments": {
+        "title": "Dokumente öffnen",
+        "subtitle": "Wissenszentrum"
+      },
+      "openAutomation": {
+        "title": "Offene Automatisierung",
+        "subtitle": "Workflow-Engine"
+      },
+      "openSettings": {
+        "title": "Einstellungen öffnen",
+        "subtitle": "Arbeitsbereichseinstellungen"
+      },
+      "openProjects": {
+        "title": "Offene Projekte",
+        "subtitle": "Projektportfolio"
+      },
+      "openAi": {
+        "title": "OPENAI  •  <x id=\"1\"/>",
+        "subtitle": "KI-Plattform-Arbeitsbereich"
+      },
+      "openAnalytics": {
+        "title": "Offene Analysen",
+        "subtitle": "Geheimdienstzentrum"
+      },
+      "openIdentity": {
+        "title": "Offene Identität und Zugriff",
+        "subtitle": "IAM-Einstellungen, RBAC, Audit"
+      },
+      "openBilling": {
+        "title": "Offene Abrechnung",
+        "subtitle": "Abonnementportal und Pläne"
+      },
+      "openIntegrations": {
+        "title": "Offene Integrationen",
+        "subtitle": "Integrationszentrum und API-Ökosystem"
+      }
+    },
+    "modules": {
+      "dashboard": {
+        "subtitle": "Übersicht über Kommandozentrale und Globus"
+      },
+      "customers": {
+        "subtitle": "Kundendatensätze und CRM"
+      },
+      "projects": {
+        "subtitle": "Projektabwicklung und -verfolgung"
+      },
+      "invoices": {
+        "title": "Rechnungen",
+        "subtitle": "Abrechnung und Rechnungen"
+      },
+      "finance": {
+        "subtitle": "KI-Buchhaltung, Bank-, Steuer- und Finanzinformationen"
+      },
+      "crm": {
+        "subtitle": "KI-natives CRM- und Creator-Betriebssystem"
+      },
+      "creator": {
+        "subtitle": "KI-Content-Produktion und Marketing-Betriebssystem"
+      },
+      "documents": {
+        "subtitle": "KI-Dokumente und Wissenszentrum"
+      },
+      "ai": {
+        "title": "KI",
+        "subtitle": "AGXORA AI Platform — Enterprise Workspace"
+      },
+      "analytics": {
+        "subtitle": "Business Intelligence"
+      },
+      "automation": {
+        "subtitle": "KI-Workflow und Automatisierungs-Engine"
+      },
+      "memory": {
+        "title": "Speicher",
+        "subtitle": "Organisationsgedächtnis"
+      },
+      "team": {
+        "subtitle": "Mitglieder und Einladungen"
+      },
+      "settings": {
+        "subtitle": "Arbeitsbereich- und KI-Einstellungen"
+      }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "KI-Suche",
+        "description": "Ordnen Sie die Ergebnisse mit einem zukünftigen Abrufmodell modulübergreifend."
+      },
+      "semantic": {
+        "title": "SEMANTISCHE SUCHE",
+        "description": "Vektorähnlichkeit über Dokumente, Rechnungen und Wissen."
+      },
+      "nl": {
+        "title": "Suche in natürlicher Sprache",
+        "description": "Analysieren Sie Absichten wie „überfällige Rechnungen für Nordlicht“."
+      },
+      "rag": {
+        "title": "Wissensabruf",
+        "description": "Ground Answers im Documents Knowledge Hub Corpus."
+      }
+    }
+  },
+  "summary": "{name}: {customers} Kunden · {projects} Projekte · {updates} Updates heute."
+}

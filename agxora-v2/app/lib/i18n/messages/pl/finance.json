@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "System operacyjny AGXORA Finance",
+    "title": "Finanse i podatki",
+    "subtitle": "Inteligencja księgowa, bankowa, podatkowa i finansowa — podgląd z przykładowymi danymi do momentu połączenia ksiąg na żywo.",
+    "sampleNotice": "Przykładowy zbiór danych — liczby i historia eksportu mają charakter poglądowy. DATEV / eksport plików i bieżące źródła bankowe nie są połączone."
+  },
+  "sections": {
+    "overview": {
+      "title": "Przegląd finansów"
+    },
+    "invoiceCenter": {
+      "title": "Centrum faktur",
+      "subtitle": "Wyszukuj, filtruj i sortuj księgę faktur korporacyjnych za pomocą punktacji zaufania AI."
+    },
+    "aiInvoiceProcessing": {
+      "title": "Przetwarzanie faktur AI",
+      "subtitle": "Potok demonstracyjny — ekstrakcja OCR i AI nie jest połączona."
+    },
+    "banking": {
+      "title": "Bankowy",
+      "subtitle": "Tylko przykładowe konta — kanały Open Banking nie są połączone."
+    },
+    "datev": {
+      "title": "Integracja DATEV",
+      "subtitle": "Przykładowa historia eksportu — generacja pliku DATEV nie jest podłączona."
+    },
+    "taxCenter": {
+      "title": "Centrum podatkowe",
+      "subtitle": "Podsumowania podatku VAT, terminy i nadchodzące płatności."
+    },
+    "aiInsights": {
+      "title": "Wgląd w sztuczną inteligencję",
+      "subtitle": "Tylko przykładowe wyniki — działania związane z analizą nie są ze sobą powiązane."
+    },
+    "smartSearch": {
+      "title": "Inteligentne wyszukiwanie",
+      "subtitle": "Zapytania w języku naturalnym dotyczące faktur, wydatków, podatku VAT i eksportu."
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "Przychód",
+        "caption": "Próbka · ostatnie 30 dni",
+        "delta": "+8.4%"
+      },
+      "expenses": {
+        "label": "Wydatki",
+        "caption": "Próbka · działanie + COGS",
+        "delta": "+2.1%"
+      },
+      "profit": {
+        "label": "Zysk",
+        "caption": "Próbka · Operacja netto",
+        "delta": "+12.6%"
+      },
+      "vat-due": {
+        "label": "Należny podatek VAT",
+        "caption": "Próbka · Okno Q2",
+        "delta": "Termin za {day}d"
+      },
+      "open-invoices": {
+        "label": "Otwarte faktury",
+        "caption": "Próbka · {pieniądze} zaległe"
+      },
+      "paid-invoices": {
+        "label": "Zapłacone faktury",
+        "caption": "Próbka · w tym kwartale",
+        "delta": "+{liczba}"
+      },
+      "cashflow": {
+        "label": "Przepływ środków pieniężnych",
+        "caption": "Próbka · Projekcja 30-dniowa",
+        "delta": "+4.2%"
+      },
+      "ai-score": {
+        "label": "Wynik finansowy AI",
+        "caption": "Przykładowy wynik · nie punktacja ryzyka na żywo",
+        "delta": "+{liczba}"
+      }
+    },
+    "scoreOutOf": "{wynik} / {maks.}"
+  },
+  "invoices": {
+    "emptyTitle": "Żadnych faktur",
+    "emptyDescription": "Żadne faktury nie pasują do Twojego wyszukiwania ani filtrów.",
+    "searchPlaceholder": "Numer, firma, kategoria…",
+    "statusFilter": "Filtr stanu",
+    "paymentFilter": "Filtr płatności",
+    "sortBy": "Sortuj według",
+    "toggleSort": "Przełącz kierunek sortowania",
+    "count": "{count} faktur",
+    "countOne": "{count} faktura",
+    "allStatuses": "Wszystkie statusy",
+    "allPayments": "Wszystkie płatności",
+    "columns": {
+      "number": "Numer faktury",
+      "company": "Firma",
+      "amount": "Kwota",
+      "vat": "KADŹ",
+      "status": "Status",
+      "dueDate": "Termin",
+      "payment": "Stan płatności",
+      "category": "Kategoria",
+      "ai": "Zaufanie AI"
+    },
+    "sort": {
+      "dueDate": "Termin",
+      "amount": "Kwota",
+      "company": "Firma",
+      "status": "Status",
+      "aiConfidence": "Pewność sztucznej inteligencji",
+      "number": "Faktura #"
+    }
+  },
+  "status": {
+    "draft": "Projekt",
+    "open": "Otwarte",
+    "paid": "Płatny",
+    "overdue": "Zaległy",
+    "cancelled": "Odwołany"
+  },
+  "payment": {
+    "unpaid": "Nie zapłacony",
+    "partial": "Częściowy",
+    "paid": "Płatny",
+    "refunded": "Zwrócono pieniądze"
+  },
+  "category": {
+    "saas": "SaaS",
+    "office": "Biuro",
+    "travel": "Podróż",
+    "marketing": "Marketing",
+    "utilities": "Narzędzia",
+    "professional": "Profesjonalny",
+    "other": "Inny"
+  },
+  "processing": {
+    "dropTitle": "Przeciągnij i upuść pliki faktur",
+    "dropFormats": "PDF · Obraz · Import e-mailem",
+    "uploadFiles": "Prześlij pliki",
+    "emailImport": "Import poczty e-mail",
+    "dropHint": "Upuść faktury w formacie PDF lub graficzne, aby przygotować je lokalnie — OCR nie jest podłączony.",
+    "filesStaged": "Liczba plików (liczba) wymieniona tylko lokalnie — ekstrakcja OCR/AI nie jest podłączona.",
+    "emailReserved": "Złącze importu poczty e-mail zarezerwowane dla protokołu IMAP/Microsoft Graph.",
+    "pipelineTitle": "Potok przetwarzania (demo)",
+    "stages": {
+      "ocr": "Stan OCR",
+      "extraction": "Ekstrakcja AI",
+      "categorization": "Kategoryzacja",
+      "duplicateDetection": "Wykrywanie duplikatów"
+    }
+  },
+  "stage": {
+    "pending": "Nie płynny",
+    "running": "Nie podłączony",
+    "complete": "Demonstracja",
+    "failed": "Przegrany",
+    "skipped": "Pominięte"
+  },
+  "banking": {
+    "connectionTitle": "Połączenie z bankiem",
+    "connectBank": "Podłącz bank",
+    "description": "Adaptery PSD2 / Open Banking nie są okablowane. Dopasowanie i uzgodnienie poniżej mają charakter wyłącznie ilustracyjny.",
+    "feedUnavailable": "Kanał bankowy niedostępny — połączenie z dostawcą nie jest nawiązane.",
+    "noticeDefault": "Otwarta bankowość nie jest połączona — konta poniżej to przykładowe dane.",
+    "connectUnavailable": "Połącz bank niedostępny — w tej kompilacji usługa Open Banking nie jest podłączona.",
+    "sampleAccounts": "Przykładowe konta",
+    "sample": "Próbka",
+    "offline": "Nieaktywny",
+    "demoPrefix": "Demonstracja",
+    "latestTransactions": "Najnowsze transakcje",
+    "sampleMatching": "Dopasowanie próbek",
+    "demoOnly": "Tylko wersja demonstracyjna",
+    "sampleMatch": "Przykładowe dopasowanie",
+    "unmatched": "Niezrównany",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "Integracja DATEV",
+    "notConnected": "Nie podłączony",
+    "intro": "Przykładowa historia eksportu poniżej ma charakter ilustracyjny. W tej kompilacji poświadczenia i generowanie plików nie są połączone.",
+    "noticeDefault": "Adaptery eksportowe nie są podłączone — nie zostaną wygenerowane żadne pliki.",
+    "exportUnavailable": "{title} niedostępny — DATEV / eksport pliku nie jest podłączony.",
+    "exportUnavailableAria": "{title} — niedostępny",
+    "historyTitle": "Eksportuj historię (przykład)",
+    "refresh": "Odświeżać",
+    "refreshUnavailable": "Odświeżanie niedostępne — historia eksportu to statyczne przykładowe dane.",
+    "steuerberaterSample": "Próbka",
+    "steuerberaterPending": "Aż do",
+    "columns": {
+      "export": "Eksport",
+      "format": "Format",
+      "period": "Okres",
+      "created": "Stworzony",
+      "status": "Status",
+      "steuerberater": "Steuerberater"
+    },
+    "actions": {
+      "datev": {
+        "title": "DATEV Eksport",
+        "description": "Pakiet Buchungsstapel dla przepływów pracy Steuerberater."
+      },
+      "csv": {
+        "title": "Eksport CSV",
+        "description": "Plik CSV gotowy do obsługi księgi dla arkuszy kalkulacyjnych i importu."
+      },
+      "pdf": {
+        "title": "Eksport PDF",
+        "description": "Pakiet dokumentów do recenzji i archiwizacji."
+      },
+      "xml": {
+        "title": "Eksport XML",
+        "description": "Ustrukturyzowany kod XML dotyczący podatków do składania potoków."
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "Próbka · W kolejce",
+    "ready": "Próbka · Gotowe",
+    "delivered": "Ilustracyjny",
+    "failed": "Przegrany"
+  },
+  "tax": {
+    "vatSummaryTitle": "Podsumowanie podatku VAT",
+    "monthlyVat": "Miesięczny podatek VAT",
+    "quarterlyVat": "Kwartalny podatek VAT",
+    "collected": "Zebrane",
+    "deductible": "Podlegający potrąceniu",
+    "netDue": "Należność netto",
+    "deadlinesTitle": "Terminy podatkowe · Nadchodzące płatności",
+    "duePrefix": "Należny",
+    "deadlineStatus": {
+      "due_soon": "Termin wkrótce",
+      "upcoming": "Nadchodzące",
+      "overdue": "Zaległy",
+      "paid": "Płatny"
+    },
+    "deadlines": {
+      "td-1": "Miesięczna deklaracja VAT",
+      "td-2": "Kwartalne rozliczenie podatku VAT",
+      "td-3": "Zaliczka na podatek dochodowy od osób prawnych"
+    },
+    "period": {
+      "monthly": "Miesięczny",
+      "quarterly": "Kwartalny",
+      "annual": "Coroczny"
+    }
+  },
+  "insights": {
+    "demoPrefix": "Demonstracja",
+    "noticeDefault": "Działania wglądu nie są ze sobą powiązane — karty przedstawiają tylko przykładowe ustalenia.",
+    "actionUnavailable": "{akcja} niedostępna — działania związane z analizą finansów nie są połączone.",
+    "actionUnavailableTitle": "{akcja} niedostępna — brak połączenia",
+    "kinds": {
+      "unusual_expense": "Nietypowe wydatki",
+      "duplicate_invoice": "Duplikaty faktur",
+      "missing_invoice": "Brakujące faktury",
+      "late_payment": "Opóźnione płatności",
+      "cashflow_prediction": "Przewidywanie przepływów pieniężnych",
+      "tax_optimization": "Optymalizacja podatkowa"
+    }
+  },
+  "search": {
+    "label": "Wyszukiwanie w języku naturalnym",
+    "placeholder": "Wypróbuj opcję „Pokaż niezapłacone faktury”",
+    "submit": "Szukaj",
+    "examplesTitle": "Przykłady",
+    "hints": {
+      "idle": "Zapytaj o faktury, wydatki, podatek VAT lub eksport.",
+      "unpaid_invoices": "Filtrowanie Centrum faktur pod kątem niezapłaconych/otwartych pozycji.",
+      "july_expenses": "Wyświetlanie lipcowej aktywności po stronie wydatków.",
+      "amazon": "Lokalizowanie faktur i rachunków Amazon.",
+      "vat_export": "Otwarcie akcji eksportowych DATEV/VAT.",
+      "general": "Przeszukiwanie księgi dla „{query}”."
+    },
+    "examples": {
+      "q1": {
+        "query": "Pokaż niezapłacone faktury",
+        "description": "Należności otwarte o statusie niezapłaconym lub częściowym"
+      },
+      "q2": {
+        "query": "Pokaż wydatki w lipcu",
+        "description": "Faktury po stronie kosztowej i wypływy bankowe w lipcu"
+      },
+      "q3": {
+        "query": "Znajdź faktury Amazon",
+        "description": "Dopasowanie dostawcy w centrum fakturowania i przesyłanych plikach"
+      },
+      "q4": {
+        "query": "Eksport VAT",
+        "description": "Przejdź do działań eksportowych DATEV / podatkowych"
+      }
+    }
+  }
+}

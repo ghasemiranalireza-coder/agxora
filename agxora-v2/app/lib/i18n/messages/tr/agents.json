@@ -1,0 +1,121 @@
+{
+  "loading": "Aracı İşletim Sistemi Yükleniyor…",
+  "eyebrow": "Yapay Zeka Aracısı İşletim Sistemi",
+  "title": "Aracı İşletim Sistemi",
+  "subtitle": "Yerel aracı çalışma alanı — aracılar CRM, Projeler, Finans, İş Akışları ve Entegrasyonlar genelinde simülasyonlar olarak etkinleştirilebilir ve çalıştırılabilir. Üretim özerk yürütmesi bağlı değil.",
+  "noticeDefault": "Yerel Aracı İşletim Sistemi — çalıştırmalar bu çalışma alanında simüle edilir.",
+  "aiChat": "Yapay Zeka Sohbeti",
+  "tabs": {
+    "dashboard": "Kontrol Paneli",
+    "registry": "Kayıt defteri",
+    "marketplace": "Pazar yeri",
+    "monitor": "Monitör",
+    "history": "Tarih",
+    "memory": "Hafıza",
+    "knowledge": "Bilgi",
+    "tools": "Aletler",
+    "settings": "Ayarlar"
+  },
+  "notice": {
+    "simulatedRun": "Simüle edilmiş çalıştırma · {status} ({duration}ms)",
+    "taskFailed": "Görev başarısız oldu",
+    "activated": "Yerel olarak etkinleştirildi: {agentId}",
+    "agentPaused": "Temsilci duraklatıldı",
+    "agentActivated": "Temsilci etkinleştirildi",
+    "taskCancelled": "Görev iptal edildi",
+    "supervisorDelegated": "Süpervizör takip yetkisi verdi",
+    "settingsUpdated": "Bu yerel çalışma alanı için Ajan İşletim Sistemi ayarları güncellendi."
+  },
+  "dashboard": {
+    "agents": "Temsilciler",
+    "active": "Aktif",
+    "localReady": "Yerel hazır",
+    "simulatedToday": "Bugün simüle edildi",
+    "failedToday": "Bugün başarısız oldu",
+    "avgExec": "Ortalama yönetici",
+    "toolCalls": "Araç çağrıları",
+    "knowledge": "Bilgi",
+    "activeFleet": "Aktif filo",
+    "emptyTitle": "Aktif temsilci yok",
+    "emptyDescription": "Simüle edilmiş çalıştırmaları başlatmak için piyasadan bir aracı yükleyin veya etkinleştirin."
+  },
+  "registry": {
+    "title": "Kayıt defteri",
+    "selectPrompt": "Kayıt defterinden bir aracı seçin.",
+    "status": "Durum: {status}",
+    "health": "Sağlık: {sağlık}",
+    "queue": "Sıra: {kuyruk}",
+    "usage": "Kullanım: {kullanım}",
+    "executeTask": "Görevi yürüt",
+    "supervisorDelegate": "Süpervizör temsilcisi"
+  },
+  "marketplace": {
+    "tools": "Araçlar: {araçlar}",
+    "installed": "Yüklendi",
+    "installActivate": "Yükle ve etkinleştir"
+  },
+  "monitor": {
+    "title": "Temsilci monitörü",
+    "emptyTitle": "İzlenecek aracı yok",
+    "emptyDescription": "Temsilcileri pazardan etkinleştirin.",
+    "latestConfidence": "En son mantık yürütme güveni: {güven} — {adımlar}"
+  },
+  "history": {
+    "title": "Yürütme geçmişi",
+    "emptyTitle": "Henüz idam yok",
+    "emptyDescription": "Kayıt defterinden veya monitörden bir aracı görevi çalıştırın."
+  },
+  "memory": {
+    "title": "Hafıza merkezi",
+    "subtitle": "Çalışma · Konuşma · İş · Uzun Süreli · Çalışma Alanı · Aracı kapsamları (mimariye hazır).",
+    "emptyTitle": "Bellek kaydı yok",
+    "emptyDescription": "Çalışma/aracı belleğini doldurmak için bir görevi yürütün."
+  },
+  "knowledge": {
+    "title": "Bilgi merkezi",
+    "subtitle": "Şirket, belgeler, projeler, CRM, politikalar, prosedürler ve ayrıca vektör/RAG yer tutucuları.",
+    "emptyTitle": "Bilgi belgesi yok",
+    "emptyDescription": "Çekirdek bilgisi, çalışma alanı önyüklemesinden sonra görünür."
+  },
+  "tools": {
+    "sensitive": "· hassas",
+    "mcpReady": "· MCP'ye hazır"
+  },
+  "settings": {
+    "title": "Aracı İşletim Sistemi ayarları",
+    "defaultLlmProvider": "Varsayılan LLM sağlayıcısı",
+    "enableSupervisor": "Denetleyici aracısı mimarisini etkinleştir",
+    "isolateSensitive": "Hassas araçları izole edin",
+    "saveSettings": "Ayarları kaydet",
+    "providersHint": "Sağlayıcılar hazır: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Bağdaştırıcıları, kullanıcı arayüzü değişikliği olmadan, RegisterLlmProvider aracılığıyla değiştirin."
+  },
+  "columns": {
+    "agent": "Ajan",
+    "status": "Durum",
+    "health": "Sağlık",
+    "queue": "Sıra",
+    "usage": "Kullanım",
+    "actions": "Eylemler",
+    "task": "Görev",
+    "duration": "Süre",
+    "created": "Oluşturuldu",
+    "scope": "Kapsam",
+    "key": "Anahtar",
+    "value": "Değer",
+    "at": "Şu tarihte:",
+    "title": "Başlık",
+    "kind": "Tür",
+    "summary": "Özet"
+  },
+  "actions": {
+    "run": "Koşmak",
+    "pause": "Duraklat",
+    "activate": "Etkinleştir",
+    "cancel": "İptal etmek",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "{agentId} iş hedefini yürütün",
+    "planAndExecute": "Bir çalışma alanı iş hedefini planlayın ve yürütün"
+  }
+}

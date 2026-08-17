@@ -1,0 +1,143 @@
+{
+  "loading": "Đang tải nền tảng tích hợp…",
+  "eyebrow": "Nền tảng tích hợp doanh nghiệp",
+  "title": "Trung tâm tích hợp",
+  "subtitle": "Trình kết nối dành cho hệ sinh thái Microsoft 365, Google, Slack, CRM, bộ lưu trữ và tự động hóa. Các kết nối và đồng bộ hóa trong bản dựng này là bản demo cục bộ — OAuth trực tiếp không được kết nối.",
+  "noticeDefault": "Trình kết nối demo cục bộ — OAuth và đồng bộ hóa trực tiếp chưa được kết nối.",
+  "settings": "Cài đặt",
+  "tabs": {
+    "dashboard": "Trang tổng quan",
+    "installed": "Đã cài đặt",
+    "available": "Có sẵn",
+    "logs": "Nhật ký",
+    "apiKeys": "Khóa API",
+    "webhooks": "Webhook",
+    "developer": "Nhà phát triển"
+  },
+  "notice": {
+    "demoConnection": "Kết nối demo: {name} (chỉ sơ khai cục bộ)",
+    "connectFailed": "Kết nối không thành công",
+    "keyCreated": "Khóa API đã được tạo: {prefix}",
+    "webhookCreated": "Webhook đã tạo: {name}",
+    "webhookTest": "Kiểm tra webhook {trạng thái}",
+    "networkError": "Lỗi mạng trình khám phá API: {message}",
+    "explorerError": "Trình khám phá API → {trạng thái}: {message}",
+    "explorerSuccess": "Trình khám phá API → {trạng thái}",
+    "explorerFailed": "Explorer không thành công",
+    "syncResult": "Đồng bộ hóa bản trình diễn · {trạng thái} ({records} bản ghi cục bộ) — không có dữ liệu bên ngoài nào được truyền.",
+    "diagnosed": "Đã chẩn đoán",
+    "removedConnection": "Đã xóa kết nối demo: {name}",
+    "keyRotated": "Đã xoay phím",
+    "keyRevoked": "Khóa đã bị thu hồi",
+    "publishedEvent": "Đã xuất bản {loại}",
+    "developerSaved": "Đã lưu cài đặt của nhà phát triển"
+  },
+  "dashboard": {
+    "demoLinks": "Liên kết demo",
+    "catalog": "Danh mục",
+    "api24h": "API (24h)",
+    "webhooks24h": "Webhook (24h)",
+    "webhookFailures": "Lỗi webhook",
+    "syncJobs": "Đồng bộ hóa công việc",
+    "conflicts": "Xung đột",
+    "errors": "Lỗi",
+    "connectionStatus": "Trạng thái kết nối",
+    "emptyTitle": "Không có tích hợp nào được cài đặt",
+    "emptyDescription": "Duyệt Có sẵn để kết nối một nhà cung cấp.",
+    "eventBridgeDemo": "Bản demo cầu sự kiện",
+    "eventBridgeHint": "Xuất bản sự kiện trình kết nối lên bus Tự động hóa quy trình làm việc.",
+    "emit": "Phát ra {id}"
+  },
+  "installed": {
+    "title": "Tích hợp đã cài đặt",
+    "emptyTitle": "Không có gì được cài đặt",
+    "emptyDescription": "Cài đặt từ danh mục có sẵn.",
+    "latestSync": "Đồng bộ hóa mới nhất: {status} · {records} bản ghi · chế độ {mode}"
+  },
+  "available": {
+    "protocols": "Giao thức: {giao thức}",
+    "demoConnection": "Kết nối thử nghiệm",
+    "connectDemo": "Kết nối (bản demo)",
+    "installDemo": "Cài đặt bản demo"
+  },
+  "logs": {
+    "title": "Nhật ký tích hợp",
+    "emptyTitle": "Chưa có nhật ký nào",
+    "emptyDescription": "Kết nối nhà cung cấp hoặc chạy chẩn đoán."
+  },
+  "apiKeys": {
+    "title": "Khóa API",
+    "generateKey": "Tạo khóa",
+    "copyOnce": "Sao chép ngay (hiển thị một lần): {bí mật}",
+    "emptyTitle": "Không có khóa API",
+    "emptyDescription": "Tạo khóa để truy cập cổng REST."
+  },
+  "webhooks": {
+    "endpointsTitle": "Điểm cuối webhook",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "Thêm webhook gửi đi",
+    "emptyTitle": "Không có webhook",
+    "emptyDescription": "Tạo điểm cuối gửi đi để phân phối thử nghiệm.",
+    "deliveryLogs": "Nhật ký giao hàng",
+    "deliveriesEmptyTitle": "Không giao hàng",
+    "deliveriesEmptyDescription": "Gửi webhook thử nghiệm để điền nhật ký."
+  },
+  "developer": {
+    "title": "Cài đặt dành cho nhà phát triển",
+    "sandboxMode": "Chế độ hộp cát",
+    "webhookSigning": "Đã bật tính năng ký webhook",
+    "saveSettings": "Lưu cài đặt",
+    "apiDocs": "Trình giữ chỗ tài liệu API: {url}",
+    "sdk": "Trình giữ chỗ SDK: {url}",
+    "explorerTitle": "Trình khám phá API",
+    "gatewayRoutes": "Các tuyến cửa ngõ: {tuyến}",
+    "sendGet": "Gửi NHẬN",
+    "oauthProviders": "Nhà cung cấp OAuth",
+    "placeholdersHint": "Các tuyến cổng GraphQL, WebSocket và gRPC được đăng ký làm phần giữ chỗ. Ánh xạ trường và giải quyết xung đột đồng bộ hóa đã sẵn sàng về mặt kiến ​​trúc để triển khai chương trình phụ trợ."
+  },
+  "connectionStatus": {
+    "connected": "Kết nối thử nghiệm",
+    "pendingAuth": "Đang chờ xử lý (bản demo)",
+    "error": "Lỗi",
+    "disabled": "Tàn tật",
+    "installed": "Đã cài đặt",
+    "available": "Có sẵn",
+    "localDemo": "Bản trình diễn cục bộ"
+  },
+  "columns": {
+    "integration": "Tích hợp",
+    "status": "Trạng thái",
+    "health": "Sức khỏe",
+    "latency": "Độ trễ",
+    "actions": "hành động",
+    "when": "Khi",
+    "level": "Mức độ",
+    "source": "Nguồn",
+    "message": "Tin nhắn",
+    "name": "Tên",
+    "key": "Chìa khóa",
+    "scopes": "Phạm vi",
+    "usage": "Cách sử dụng",
+    "direction": "Phương hướng",
+    "url": "URL",
+    "enabled": "Đã bật",
+    "event": "Sự kiện",
+    "attempt": "Nỗ lực"
+  },
+  "actions": {
+    "diagnose": "Chẩn đoán",
+    "demoSync": "Đồng bộ hóa bản trình diễn",
+    "demoSyncTitle": "Chỉ đồng bộ hóa bản demo - không chuyển ra bên ngoài",
+    "disconnect": "Ngắt kết nối",
+    "rotate": "Quay",
+    "revoke": "Thu hồi",
+    "test": "Bài kiểm tra",
+    "emDash": "—",
+    "yes": "Đúng",
+    "no": "KHÔNG"
+  },
+  "errors": {
+    "failedToFetch": "Không tìm nạp được",
+    "httpStatus": "HTTP {trạng thái}"
+  }
+}

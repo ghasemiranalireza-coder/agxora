@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "Không có kết quả",
+    "noResultsDescription": "Không có gì phù hợp với các bộ lọc hiện tại.",
+    "previous": "Trước",
+    "next": "Kế tiếp",
+    "paginationRange": "{bắt đầu}–{kết thúc} trong tổng số {tổng}",
+    "sortAscending": "Sắp xếp tăng dần",
+    "sortDescending": "Sắp xếp giảm dần"
+  },
+  "dialog": {
+    "close": "Đóng hộp thoại"
+  },
+  "module": {
+    "notAvailableTitle": "{title} chưa có sẵn",
+    "notAvailableDescription": "Vỏ mô-đun này được chuẩn bị cho bản phát hành trong tương lai. Chưa có hồ sơ nào được lưu trữ ở đây."
+  },
+  "states": {
+    "errorLabel": "Lỗi",
+    "errorTitle": "Đã xảy ra lỗi",
+    "errorDescription": "Chúng tôi không thể hoàn thành yêu cầu đó. Hãy thử lại sau giây lát.",
+    "retry": "Thử lại"
+  },
+  "empty": {
+    "crmTitle": "CRM của bạn đã sẵn sàng",
+    "crmDescription": "Tạo bản ghi khách hàng đầu tiên để mở khóa thư mục, hồ sơ và hoạt động.",
+    "crmAction": "Mở CRM",
+    "projectsTitle": "Chưa có dự án nào",
+    "projectsDescription": "Tăng cường không gian làm việc phân phối để theo dõi các mốc quan trọng, ngân sách và quyền sở hữu nhóm.",
+    "projectsAction": "Dự án mở",
+    "analyticsTitle": "Analytics đang chờ tín hiệu",
+    "analyticsDescription": "Khi không gian làm việc của bạn tạo ra hoạt động, các KPI điều hành và cảnh báo sẽ xuất hiện ở đây.",
+    "analyticsAction": "Mở phân tích",
+    "documentsTitle": "Thư viện tài liệu trống",
+    "documentsDescription": "Tải lên hoặc tạo nội dung kiến ​​thức để hỗ trợ phê duyệt, phiên bản và bối cảnh AI.",
+    "documentsAction": "Mở tài liệu",
+    "billingTitle": "Chưa có lịch sử thanh toán",
+    "billingDescription": "Nâng cấp gói tạo hóa đơn, gia hạn và lịch sử thanh toán.",
+    "billingAction": "Thanh toán mở",
+    "agentsTitle": "Không có đại lý nào hoạt động",
+    "agentsDescription": "Cài đặt hoặc kích hoạt một đại lý từ thị trường để bắt đầu các hoạt động tự động.",
+    "agentsAction": "Hệ điều hành đại lý mở"
+  },
+  "yes": "Đúng",
+  "no": "KHÔNG",
+  "dash": "—"
+}

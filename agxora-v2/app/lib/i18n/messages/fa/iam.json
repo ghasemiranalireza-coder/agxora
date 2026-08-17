@@ -1,0 +1,149 @@
+{
+  "identity": {
+    "eyebrow": "مدیریت هویت سازمانی سازمانی (IAM)",
+    "title": "هویت و دسترسی",
+    "lead": "سازمان، فضای کاری، RBAC، متغیرهای امنیتی و معماری حسابرسی. آداپتورهای Backend بدون تغییر این سطح متصل می‌شوند.",
+    "openProfile": "نمایه باز",
+    "teamManagement": "مدیریت تیم",
+    "tabs": {
+      "organization": "سازمان",
+      "workspace": "فضای کاری",
+      "roles": "نقشها و مجوزها",
+      "security": "امنیت",
+      "audit": "واقعه‌نگار بازرسی"
+    },
+    "organizationSettings": "‏%organization% settings",
+    "workspaceSettings": "تنظیمات فضای کاری",
+    "noOrganization": "هیچ سازمانی فعال نیست. فرآیند جذب نیرو را تکمیل کنید یا از طریق سرویس سازمان، سازمانی ایجاد کنید.",
+    "logoPlaceholder": "آداپتورهای آپلود لوگو و پرداخت صورتحساب، جایگزین‌هایی برای هویت آینده هستند.",
+    "rbacTitle": "نقش های پیش فرض",
+    "permissionMatrix": "ماتریس مجوز",
+    "canManageSettings": "می‌تواند تنظیمات را مدیریت کند: {value} · احراز هویت شده: {authenticated}",
+    "yes": "Yes",
+    "no": "بله",
+    "securitySettings": "تنظیمات امنیتی",
+    "passwordChange": {
+      "title": "تغییر گذرواژه",
+      "detail": "تغییر رمز عبور هنگام پیکربندی از طریق ارائه دهنده احراز هویت متصل می‌شود."
+    },
+    "twoFactor": {
+      "title": "احراز هویت دو مرحله‌ای",
+      "detail": "آداپتورهای TOTP و WebAuthn هنگام فعال بودن در اینجا ثبت می‌شوند."
+    },
+    "activeSessions": {
+      "title": "نشست‌های فعال",
+      "detail": "دایرکتوری دستگاه در جلسات هویت وجود دارد؛ ابطال با جلسات سرور معتبر می‌شود."
+    },
+    "apiKeys": {
+      "title": "کلیدهای API",
+      "detail": "حساب‌های کاربری سرویس و توکن‌های محدود برای توسعه‌دهندگان."
+    },
+    "absoluteTimeout": "تایم اوت مطلق",
+    "idleTimeout": "مهلت زمانی بیکار بودن",
+    "refreshSkew": "تازه کردن مورب",
+    "persistentLogin": "ورود دائمی",
+    "disabled": "غیرفعال",
+    "enabled": "فعال",
+    "days": "@count روز",
+    "minutes": "{تعداد} دقیقه",
+    "toggleIdlePolicy": "تغییر وضعیت جایگذاری سیاست غیرفعال",
+    "previewSessionExpired": "جلسه پیش‌نمایش منقضی شد",
+    "previewAccountLocked": "پیش‌نمایش حساب قفل‌شده",
+    "auditActivity": "گزارش/فعالیت های حسابرسی",
+    "auditLead": "رویدادهای ورود، خروج، تغییر نقش، دعوت‌ها و سازماندهی به صورت محلی ثبت می‌شوند. بعداً با یک مخزن حسابرسی تغییرناپذیر backend جایگزین کنید.",
+    "auditEmpty": "هنوز هیچ رویدادی در IAM وجود ندارد. برای پر کردن گزارش، وارد سیستم شوید یا نقش خود را تغییر دهید.",
+    "meta": {
+      "name": "نام",
+      "slug": "اسلاگ",
+      "plan": "برنامه",
+      "owner": "مالک",
+      "created": "ایجادشده",
+      "yourRole": "وظیفه‌ی شما",
+      "workspace": "فضای کاری",
+      "status": "وضعیت",
+      "isolationKey": "کلید جداسازی"
+    },
+    "matrix": {
+      "permission": "سطح دسترسی",
+      "owner": "مالک",
+      "admin": "مدیر",
+      "manager": "مدیر",
+      "member": "عضو",
+      "viewer": "مشاهده‌گر",
+      "yes": "بله"
+    },
+    "audit": {
+      "when": "When",
+      "action": "اقدام",
+      "actor": "هنرمند",
+      "resource": "منبع"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "مالک",
+      "description": "کنترل کامل شامل صدور صورتحساب و انتقال مالکیت"
+    },
+    "admin": {
+      "name": "مدیر",
+      "description": "مدیریت افراد، امنیت، فضاهای کاری و ماژول‌ها"
+    },
+    "manager": {
+      "name": "مدیر",
+      "description": "رهبری تیم‌ها و ماژول‌های عملیاتی؛ دعوت از اعضا"
+    },
+    "member": {
+      "name": "عضو",
+      "description": "دسترسی عملیاتی روزانه"
+    },
+    "viewer": {
+      "name": "مشاهده‌گر",
+      "description": "دسترسی فقط خواندنی"
+    }
+  },
+  "profile": {
+    "eyebrow": "هویت",
+    "title": "نمایه کاربر",
+    "lead": "هویت، تنظیمات برگزیده و امنیت حساب خود را مدیریت کنید. کنترل‌های سازماندهی و فضای کاری در تنظیمات هویت قرار دارند.",
+    "guest": "مهمان",
+    "notSignedIn": "وارد نشده‌اید",
+    "identitySettings": "تنظیمات هویت",
+    "security": "امنیت",
+    "profileSection": "پروفایل",
+    "fullName": "نام کامل",
+    "email": "ایمیل",
+    "language": "زبان",
+    "timezone": "منطقه زمانی",
+    "languageEnGb": "English (UK)",
+    "languageEnUs": "English (US)",
+    "languageDe": "آلمانی",
+    "timezoneBerlin": "اروپا/برلین",
+    "timezoneLondon": "اروپا/لندن",
+    "timezoneUtc": "یو تی سی ",
+    "timezoneNewYork": "آمریکا/نیویورک",
+    "notifications": "اعلان‌ها",
+    "emailNotifications": "اعلان‌های ایمیلی",
+    "pushNotifications": "اعلانهای انتقال",
+    "workspace": "فضای کاری",
+    "noticeInitial": "تنظیمات برگزیده تا زمان اتصال API پروفایل، به صورت محلی ذخیره می‌شوند.",
+    "noticeSaved": "تنظیمات پروفایل به‌روزرسانی شد.",
+    "savePreferences": "ذخیره کارایی"
+  },
+  "workspaceSelector": {
+    "empty": "هنوز هیچ فضای کاری وجود ندارد - برای تهیه یکی، سازمانی ایجاد کنید.",
+    "label": "فضای کاری فعال",
+    "ariaLabel": "تغییر فضای کاری"
+  },
+  "verifyEmail": {
+    "title": "تاییدیه ایمیل",
+    "loading": "در حال بارگذاری…",
+    "skipForNow": "فعلا رد شوید",
+    "tokenPlaceholder": "Token تأیید",
+    "tokenIssued": "توکن تأیید برای جلسه فعلی صادر شده است.",
+    "issueFailed": "امکان بررسی دسترسی توکن وجود ندارد.",
+    "verificationFailed": "تاییدیه ناموفق بود",
+    "verify": "تایید ایمیل",
+    "verifying": "تایید کردن",
+    "requestToken": "درخواست توکن تأیید"
+  }
+}

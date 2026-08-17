@@ -1,0 +1,442 @@
+{
+  "controlCenter": "Trung tâm điều khiển",
+  "settingsSections": "Phần cài đặt",
+  "profile": {
+    "label": "Hồ sơ",
+    "description": "Hình đại diện, danh tính và sở thích cá nhân",
+    "title": "Hồ sơ",
+    "panelDescription": "Hình đại diện, tên đầy đủ, email, vai trò, múi giờ, ngôn ngữ và tùy chọn chủ đề.",
+    "language": "Ngôn ngữ",
+    "timezone": "Múi giờ",
+    "fullName": "Tên đầy đủ",
+    "email": "E-mail",
+    "role": "Vai trò",
+    "theme": "chủ đề",
+    "avatar": "Hình đại diện",
+    "changeAvatar": "Thay đổi hình đại diện",
+    "region": "Vùng đất",
+    "personalPrefs": "Sở thích cá nhân",
+    "supportLinks": "Hỗ trợ & pháp lý",
+    "signedOut": "Đăng nhập để xem danh tính tài khoản của bạn.",
+    "serverIdentityNotice": "Tên, email và vai trò đến từ phiên máy chủ của bạn. Chúng không được lưu trữ trong trình duyệt này.",
+    "localPrefsNotice": "Múi giờ, khu vực và sở thích cá nhân vẫn chưa được duy trì. Việc lưu chúng chỉ cập nhật trang này cho đến khi bạn rời đi.",
+    "avatarUnavailable": "Tải lên hình đại diện chưa khả dụng.",
+    "appearanceNote": "Cấu hình ngoại hình vẫn ở dưới Giao diện. Tiêu đề chỉ cung cấp một chủ đề chuyển đổi nhanh.",
+    "prefsHint": "Được sử dụng bởi trợ lý AI trên các mô-đun.",
+    "themeResolved": "{mode} (đã giải quyết {xuất hiện})",
+    "regions": {
+      "EU": "Liên minh Châu Âu",
+      "US": "Hoa Kỳ",
+      "MENA": "MENA",
+      "APAC": "Châu Á Thái Bình Dương"
+    }
+  },
+  "organization": {
+    "label": "Tổ chức",
+    "description": "Hồ sơ công ty và mã số thuế",
+    "title": "Tổ chức",
+    "panelDescription": "Tên công ty, logo, địa chỉ, thông tin thuế, các phòng ban, đơn vị kinh doanh."
+  },
+  "workspace": {
+    "label": "Không gian làm việc",
+    "description": "Xây dựng thương hiệu, trang chủ và mô-đun mặc định",
+    "title": "Không gian làm việc",
+    "panelDescription": "Cài đặt không gian làm việc, trang tổng quan mặc định, nhãn hiệu, mô-đun và trang chủ."
+  },
+  "team": {
+    "label": "Đội",
+    "description": "Thành viên, vai trò, lời mời và nhóm",
+    "title": "Đội",
+    "panelDescription": "Thành viên, vai trò, lời mời và nhóm."
+  },
+  "ai": {
+    "label": "trí tuệ nhân tạo",
+    "description": "Nhà cung cấp, mô hình, sự sáng tạo và trí nhớ",
+    "title": "trí tuệ nhân tạo",
+    "panelDescription": "Tùy chọn nhà cung cấp, mô hình, sự sáng tạo, nhiệt độ và bộ nhớ.",
+    "openAgentOs": "Hệ điều hành đại lý mở",
+    "openAiWorkspace": "Không gian làm việc AI mở",
+    "noticeSync": "Đồng bộ hóa cài đặt AI thông qua AISettingsProvider - các khóa không bao giờ được lưu trữ ở đây.",
+    "noticeProvider": "Việc triển khai của nhà cung cấp nằm phía sau lớp dịch vụ AI. Giao diện người dùng không bao giờ nhận được khóa API hoặc thông tin chi tiết về SDK. Các tác nhân tự trị sống trong Agent OS.",
+    "preferredProvider": "Nhà cung cấp AI ưa thích",
+    "defaultModel": "Mô hình AI mặc định",
+    "temperature": "Nhiệt độ",
+    "topP": "Top P",
+    "maxTokens": "Mã thông báo tối đa",
+    "writingStyle": "Phong cách viết",
+    "languagePreferences": "Tùy chọn ngôn ngữ",
+    "systemPrompt": "Lời nhắc hệ thống",
+    "systemPromptHint": "Được áp dụng làm hướng dẫn hệ thống mặc định cho Nền tảng AI.",
+    "systemPromptPlaceholder": "Bạn là AGXORA AI — trợ lý điều hành doanh nghiệp…",
+    "apiKeyManagement": "Quản lý khóa API",
+    "apiKeyHint": "Khóa chỉ được cung cấp thông qua các biến môi trường máy chủ.",
+    "apiKeyPlaceholder": "Được định cấu hình thông qua các biến môi trường AGXORA_* (không bao giờ có trong trình duyệt)",
+    "memory": "Ký ức",
+    "memoryDescription": "Cho phép bộ nhớ tổ chức thông báo phản hồi của AI trên các mô-đun.",
+    "automationSuggestions": "Đề xuất tự động hóa",
+    "automationSuggestionsDescription": "Đề xuất quy trình làm việc Surface AI trong Công cụ tự động hóa.",
+    "streaming": "Truyền phát",
+    "streamingDescription": "Truyền phát các phản hồi của mô hình khi nhà cung cấp hỗ trợ nó.",
+    "providers": {
+      "mock": "Mô phỏng (địa phương)",
+      "openai": "OpenAI",
+      "azure": "Azure OpenAI",
+      "anthropic": "nhân loại",
+      "google": "Google",
+      "openrouter": "Bộ định tuyến mở",
+      "ollama": "Ollama",
+      "local": "Nhà cung cấp địa phương"
+    },
+    "writingStyles": {
+      "professional": "Chuyên nghiệp",
+      "concise": "ngắn gọn",
+      "friendly": "Thân thiện",
+      "technical": "Kỹ thuật"
+    },
+    "languages": {
+      "auto": "Phù hợp với ngôn ngữ hồ sơ",
+      "en": "Tiếng Anh",
+      "de": "tiếng Đức"
+    }
+  },
+  "appearance": {
+    "label": "Vẻ bề ngoài",
+    "description": "Chủ đề, mật độ và hiệu ứng kính",
+    "title": "Vẻ bề ngoài",
+    "panelDescription": "Chủ đề, mật độ, điểm nhấn, hoạt ảnh và hiệu ứng kính.",
+    "noticeTheme": "Chế độ chủ đề là nguồn thông tin duy nhất thông qua ThemeProvider. Tiêu đề chỉ cung cấp một chuyển đổi nhanh chóng.",
+    "themeLabel": "chủ đề",
+    "themeModeAria": "Chế độ chủ đề",
+    "resolvedAppearance": "Đã giải quyết sự xuất hiện:",
+    "accentColor": "Màu nhấn",
+    "accentNotice": "Tùy chọn giọng được lưu trữ cho hệ thống dây CSS var trong tương lai - chưa làm thay đổi hệ thống màu bị khóa.",
+    "density": "Tỉ trọng",
+    "compactMode": "Chế độ nhỏ gọn",
+    "compactModeDescription": "Giảm phần đệm trên các bảng và bảng doanh nghiệp.",
+    "animations": "Hoạt hình",
+    "animationsDescription": "Phần chuyển động và thang máy di chuột. Tôn trọng cài đặt hệ điều hành giảm chuyển động.",
+    "glassEffects": "Hiệu ứng kính",
+    "glassEffectsDescription": "Thẻ kính mờ và tùy chọn cường độ mờ của thanh bên.",
+    "modes": {
+      "day": {
+        "label": "Ánh sáng",
+        "hint": "Bảng màu ngày doanh nghiệp ngọc trai / băng"
+      },
+      "night": {
+        "label": "Tối tăm",
+        "hint": "Giao diện ban đêm của rạp chiếu phim đã được phê duyệt"
+      },
+      "auto": {
+        "label": "Hệ thống",
+        "hint": "Thực hiện theo lịch trình địa phương (Tự động)"
+      }
+    },
+    "densities": {
+      "comfortable": "Thoải mái",
+      "compact": "Nhỏ gọn",
+      "spacious": "Rộng rãi"
+    }
+  },
+  "notifications": {
+    "label": "Thông báo",
+    "description": "Cảnh báo qua email, đẩy và mô-đun",
+    "title": "Thông báo",
+    "panelDescription": "Cảnh báo qua email, đẩy, máy tính để bàn, thiết bị di động và mô-đun cụ thể.",
+    "notice": "Các kênh thông báo chỉ mang tính ưu tiên — bộ điều hợp phân phối được dành riêng.",
+    "email": "E-mail",
+    "push": "Xô",
+    "desktop": "Máy tính để bàn",
+    "mobile": "Điện thoại di động",
+    "workflowAlerts": "Cảnh báo quy trình làm việc",
+    "workflowAlertsDescription": "Các sự kiện phê duyệt và thực thi Công cụ tự động hóa.",
+    "financeAlerts": "Cảnh báo tài chính",
+    "crmAlerts": "Cảnh báo CRM",
+    "documentsAlerts": "Cảnh báo tài liệu",
+    "deliveryNotice": "Bộ chuyển đổi giao hàng sẽ xuất xưởng khi ra mắt. Câu hỏi:",
+    "contactSupport": "Liên hệ hỗ trợ"
+  },
+  "documents": {
+    "label": "Tài liệu",
+    "description": "Lưu trữ, lưu giữ và kiến ​​thức",
+    "title": "Tài liệu",
+    "panelDescription": "Tùy chọn lưu trữ, lưu giữ, thư mục mặc định, phiên bản và cài đặt kiến ​​​​thức.",
+    "notice": "Cài đặt tài liệu tích hợp với kiến ​​trúc Trung tâm Kiến thức.",
+    "storagePreferences": "Tùy chọn lưu trữ",
+    "retentionPolicy": "Chính sách lưu giữ",
+    "defaultFolder": "Thư mục mặc định",
+    "versioning": "Phiên bản",
+    "versioningDescription": "Giữ lịch sử phiên bản tài liệu để khôi phục/so sánh.",
+    "knowledgeSettings": "Cài đặt kiến ​​thức",
+    "knowledgeDescription": "Lập chỉ mục AI cho tìm kiếm trong Trung tâm Kiến thức.",
+    "storageOptions": {
+      "workspace-default": "Mặc định không gian làm việc",
+      "eu-region": "khu vực EU",
+      "encrypted-vault": "Kho tiền được mã hóa"
+    },
+    "retentionOptions": {
+      "30-days": "30 ngày (trầy xước)",
+      "2-years": "2 năm",
+      "7-years": "7 năm",
+      "10-years": "10 năm"
+    }
+  },
+  "automation": {
+    "label": "Tự động hóa",
+    "description": "Mặc định của quy trình làm việc và chính sách thử lại",
+    "title": "Tự động hóa",
+    "panelDescription": "Giá trị mặc định của quy trình làm việc, đề xuất AI, nhật ký thực thi, giới hạn lịch sử và chính sách thử lại.",
+    "notice": "Các giá trị mặc định tự động hóa áp dụng cho kiến ​​trúc Workflow Engine.",
+    "workflowDefaults": "Mặc định quy trình làm việc",
+    "historyLimits": "Giới hạn lịch sử",
+    "retryPolicy": "Chính sách thử lại",
+    "aiSuggestions": "Đề xuất AI",
+    "executionLogs": "Nhật ký thực thi",
+    "executionLogsDescription": "Giữ lại tải trọng chạy chi tiết trong Lịch sử quy trình công việc.",
+    "workflowOptions": {
+      "require-approval": "Yêu cầu cổng phê duyệt",
+      "auto-run": "Tự động chạy các luồng đáng tin cậy",
+      "draft-only": "Chỉ bản nháp"
+    },
+    "historyOptions": {
+      "30-days": "30 ngày",
+      "90-days": "90 ngày",
+      "365-days": "365 ngày"
+    },
+    "retryOptions": {
+      "none": "Không thử lại",
+      "3-exponential": "3× số mũ",
+      "5-linear": "tuyến tính 5×"
+    }
+  },
+  "integrations": {
+    "label": "Tích hợp",
+    "description": "Đã cài đặt, kết nối và khả dụng",
+    "title": "Tích hợp",
+    "panelDescription": "Các bộ điều hợp đã được cài đặt, kết nối và có sẵn.",
+    "openCenter": "Trung tâm tích hợp mở",
+    "notice": "Nền tảng tích hợp doanh nghiệp nằm trong Trung tâm tích hợp — trình kết nối, OAuth, webhook, khóa API và cầu nối sự kiện quy trình công việc.",
+    "columns": {
+      "integration": "Tích hợp",
+      "category": "Loại",
+      "status": "Trạng thái",
+      "adapter": "Bộ chuyển đổi"
+    }
+  },
+  "security": {
+    "label": "Bảo vệ",
+    "description": "Phiên, mật khẩu và bảo vệ tài khoản",
+    "title": "Bảo vệ",
+    "panelDescription": "Phiên máy chủ cho tài khoản này. Thiết bị, IP và MFA không được lưu trữ.",
+    "activeSessions": "Phiên hoạt động",
+    "currentSession": "Phiên hiện tại",
+    "otherSession": "Phiên khác",
+    "currentBadge": "Phiên này",
+    "otherBadge": "Phiên khác",
+    "createdAt": "Đã đăng nhập",
+    "expiresAt": "Hết hạn",
+    "revoke": "Thu hồi phiên",
+    "revokeAria": "Thu hồi phiên đã đăng nhập {khi}",
+    "revokeOthers": "Đăng xuất các phiên khác",
+    "revokeOthersAria": "Đăng xuất tất cả các phiên ngoại trừ phiên hiện tại",
+    "revoked": "Phiên bị thu hồi.",
+    "othersRevoked": "Các phiên khác đã đăng xuất. Phiên này vẫn còn hoạt động.",
+    "loading": "Đang tải phiên…",
+    "empty": "Không có phiên hoạt động nào",
+    "emptyBody": "Không có phiên máy chủ đang hoạt động cho tài khoản này.",
+    "demoEmpty": "Đăng nhập để đăng ký phiên demo cục bộ trong trình duyệt này.",
+    "signedOutTitle": "Chưa đăng nhập",
+    "signedOut": "Đăng nhập để xem các phiên máy chủ đang hoạt động của bạn.",
+    "loadFailed": "Không thể tải phiên.",
+    "revokeFailed": "Không thể thu hồi phiên đó.",
+    "logout": "Đăng xuất phiên này",
+    "logoutAria": "Đăng xuất phiên máy chủ hiện tại",
+    "password": "Mật khẩu",
+    "changePassword": "Đặt lại mật khẩu",
+    "passwordHint": "Thay đổi mật khẩu sử dụng quy trình đặt lại hiện có. Hiện chưa có biểu mẫu thay đổi mật khẩu chuyên dụng.",
+    "mfaTitle": "Xác thực hai yếu tố",
+    "mfaUnavailable": "Xác thực hai yếu tố chưa có sẵn.",
+    "ssoTitle": "SSO và OAuth",
+    "ssoUnavailable": "Hiện chưa có nhà cung cấp dịch vụ đăng nhập một lần và OAuth.",
+    "encryptionTitle": "Mã hóa",
+    "encryptionUnavailable": "Hiện chưa có tính năng quản lý khóa và kiểm soát mã hóa ở phần còn lại.",
+    "trustedDevices": "Thiết bị đáng tin cậy",
+    "trustedUnavailable": "Lịch sử IP và thiết bị đáng tin cậy không được lưu trữ. Siêu dữ liệu phiên được giới hạn ở thời gian tạo và hết hạn.",
+    "apiKeys": "Khóa API",
+    "apiKeysHint": "Khóa nhà phát triển được quản lý trong API & Nhà phát triển. Bảng này không phát hành chìa khóa.",
+    "openApi": "Mở cài đặt API",
+    "serverNotice": "Phiên được lưu trữ trên máy chủ. Trình duyệt này không bao giờ coi dữ liệu nhận dạng cục bộ là có thẩm quyền.",
+    "demoNotice": "Chế độ demo chỉ sử dụng các phiên trình duyệt cục bộ. Đây không phải là xác thực sản xuất.",
+    "noDeviceMeta": "Thiết bị, IP và tác nhân người dùng không được ghi lại."
+  },
+  "billing": {
+    "label": "Thanh toán",
+    "description": "Kế hoạch, cách sử dụng, hóa đơn và thanh toán",
+    "title": "Thanh toán",
+    "panelDescription": "Gói hiện tại, gia hạn, sử dụng, hóa đơn và lộ trình nâng cấp."
+  },
+  "api": {
+    "label": "API & Nhà phát triển",
+    "description": "Khóa, webhooks, mã thông báo, hộp cát",
+    "title": "API & Nhà phát triển",
+    "panelDescription": "Truy cập khóa, webhooks, mã thông báo và hộp cát.",
+    "openPortal": "Mở cổng thông tin dành cho nhà phát triển",
+    "notice": "Tạo, xoay và thu hồi khóa trong Trung tâm tích hợp. Cổng, trình kiểm tra webhook và trình khám phá API đều có sẵn ở đó.",
+    "webhooks": "Webhook",
+    "sandbox": "Hộp cát",
+    "sandboxEnabled": "Đã bật",
+    "sandboxDisabled": "Tàn tật",
+    "tokensNotice": "Mã thông báo của nhà phát triển không bao giờ hiển thị đầy đủ bí mật - chỉ có tiền tố.",
+    "columns": {
+      "name": "Tên",
+      "key": "Chìa khóa",
+      "scope": "Phạm vi",
+      "lastUsed": "Lần sử dụng cuối cùng"
+    }
+  },
+  "audit": {
+    "label": "Nhật ký kiểm tra",
+    "description": "Các thay đổi về hoạt động, bảo mật và hệ thống",
+    "title": "Nhật ký kiểm tra",
+    "panelDescription": "Hoạt động gần đây, sự kiện bảo mật và thay đổi hệ thống.",
+    "columns": {
+      "when": "Khi",
+      "actor": "Diễn viên",
+      "category": "Loại",
+      "summary": "Bản tóm tắt"
+    },
+    "categories": {
+      "activity": "Hoạt động gần đây",
+      "security": "Sự kiện bảo mật",
+      "system": "Thay đổi hệ thống"
+    }
+  },
+  "advanced": {
+    "label": "Trình độ cao",
+    "description": "Thử nghiệm, đặt lại, nhập, xuất",
+    "title": "Trình độ cao",
+    "panelDescription": "Các tính năng thử nghiệm, đặt lại, nhập và xuất.",
+    "notice": "Các hành động nâng cao yêu cầu xác nhận trước khi áp dụng.",
+    "experimentalFeatures": "Tính năng thử nghiệm",
+    "experimentalDescription": "Chọn tham gia các khả năng của Trung tâm điều khiển chưa hoàn thiện.",
+    "export": "Xuất khẩu",
+    "import": "Nhập khẩu",
+    "reset": "Cài lại",
+    "exportUnavailable": "Xuất khẩu vẫn chưa có sẵn.",
+    "importUnavailable": "Nhập khẩu chưa có sẵn.",
+    "resetUnavailable": "Việc đặt lại vẫn chưa có sẵn."
+  },
+  "page": {
+    "eyebrow": "Trung tâm điều khiển AGXORA",
+    "title": "Cài đặt",
+    "lead": "Cấu hình doanh nghiệp cho mọi mô-đun AGXORA — hồ sơ, tổ chức, AI, giao diện, bảo mật, thanh toán và kiểm soát dành cho nhà phát triển ở cùng một nơi.",
+    "loading": "Đang tải cài đặt…",
+    "breadcrumb": "{nhãn} · {mô tả}"
+  },
+  "saveChanges": "Lưu thay đổi",
+  "sessionNotice": "Đã cập nhật cho phiên này — {khu vực} chưa được kết nối.",
+  "kpi": {
+    "members": {
+      "label": "Thành viên nhóm",
+      "caption": "Ghế hoạt động"
+    },
+    "integrations": {
+      "label": "Tích hợp",
+      "caption": "Bộ điều hợp được kết nối"
+    },
+    "api": {
+      "label": "Khóa API",
+      "caption": "Mã thông báo của nhà phát triển"
+    },
+    "audit": {
+      "label": "Sự kiện kiểm toán",
+      "caption": "7 ngày qua"
+    }
+  },
+  "unknown": {
+    "title": "Cài đặt",
+    "description": "Phần không xác định.",
+    "emptyTitle": "Không tìm thấy",
+    "emptyDescription": "Chọn một phần từ điều hướng Trung tâm điều khiển."
+  },
+  "controlPlane": {
+    "loading": "Đang tải…",
+    "loadFailed": "Không thể tải dữ liệu tổ chức. Đăng nhập và thử lại.",
+    "saveFailed": "Không thể lưu các thay đổi.",
+    "saving": "Đang lưu…",
+    "orgName": "Tên tổ chức",
+    "orgSlug": "sên",
+    "owner": "Người sở hữu",
+    "counts": "Thành viên · không gian làm việc",
+    "orgUpdated": "Đã cập nhật tổ chức.",
+    "countsValue": "{thành viên} · {không gian làm việc}",
+    "joined": "Đã tham gia",
+    "workspaceName": "Tên không gian làm việc",
+    "switchWorkspace": "Không gian làm việc năng động",
+    "active": "tích cực",
+    "rename": "Đổi tên",
+    "archive": "Lưu trữ",
+    "create": "Tạo không gian làm việc",
+    "createWorkspace": "Không gian làm việc mới",
+    "workspaceCreated": "Đã tạo không gian làm việc.",
+    "workspaceUpdated": "Không gian làm việc được đổi tên.",
+    "workspaceArchived": "Đã lưu trữ không gian làm việc.",
+    "workspaceSwitched": "Đã cập nhật không gian làm việc đang hoạt động.",
+    "member": "Thành viên",
+    "email": "E-mail",
+    "role": "Vai trò",
+    "status": "Trạng thái",
+    "actions": "hành động",
+    "roleOwner": "Người sở hữu",
+    "roleAdmin": "Quản trị viên",
+    "roleMember": "Thành viên",
+    "changeRole": "Thay đổi vai trò",
+    "remove": "Di dời",
+    "invite": "Mời thành viên",
+    "inviteTitle": "Mời vào không gian làm việc",
+    "sendInvite": "Tạo lời mời",
+    "close": "Đóng",
+    "pending": "Lời mời đang chờ xử lý",
+    "noPending": "Không có lời mời đang chờ xử lý.",
+    "revoke": "Thu hồi",
+    "noMembers": "Chưa có thành viên nào",
+    "noMembersBody": "Mời đồng đội đến không gian làm việc này.",
+    "inviteHonesty": "Việc gửi email chưa được định cấu hình. Chia sẻ liên kết mời trực tiếp.",
+    "inviteLink": "Mời liên kết",
+    "inviteInvalid": "Lời mời này không hợp lệ.",
+    "accept": "Chấp nhận lời mời",
+    "invitedAs": "{email} được mời với tư cách là {role}.",
+    "inviteStatus": {
+      "pending": "Chưa giải quyết",
+      "expired": "Lời mời này đã hết hạn.",
+      "revoked": "Lời mời này đã bị thu hồi.",
+      "accepted": "Lời mời này đã được chấp nhận."
+    },
+    "transferOwnership": "Chuyển quyền sở hữu",
+    "transferTitle": "Chuyển quyền sở hữu tổ chức",
+    "transferWarning": "Đây là một hành động nguy hiểm. Bạn vẫn là CHỦ SỞ HỮU cho đến khi người nhận xác nhận. Sau khi xác nhận, bạn trở thành QUẢN TRỊ VIÊN và họ trở thành CHỦ SỞ HỮU.",
+    "transferTarget": "Chủ sở hữu mới",
+    "transferSelectMember": "Chọn một thành viên hiện có…",
+    "transferTypeName": "Nhập “{name}” để xác nhận",
+    "transferConfirmMismatch": "Tên gõ không khớp với thành viên đã chọn.",
+    "transferInitiate": "Bắt đầu chuyển khoản",
+    "transferHonesty": "Một email xác nhận sẽ được gửi khi cấu hình phân phối. Nếu không hãy chia sẻ liên kết xác nhận trực tiếp với người nhận.",
+    "transferLink": "Liên kết xác nhận",
+    "transferPendingTitle": "Đang chờ chuyển quyền sở hữu",
+    "transferPendingBody": "Đang chờ {name} ({email}) xác nhận. Hết hạn {hết hạn}. Bạn vẫn là CHỦ SỞ HỮU cho đến lúc đó.",
+    "transferPendingNote": "Vai trò thành viên không thay đổi trong khi quá trình chuyển đang chờ xử lý.",
+    "cancelTransfer": "Hủy chuyển khoản",
+    "transferCancelled": "Chuyển quyền sở hữu bị hủy bỏ.",
+    "transferInvalid": "Việc chuyển quyền sở hữu này không hợp lệ.",
+    "transferConfirmTitle": "Xác nhận chuyển quyền sở hữu",
+    "transferConfirmBody": "{from} muốn chuyển quyền sở hữu tổ chức cho {to} ({email}).",
+    "transferConfirmDanger": "Sau khi xác nhận, bạn trở thành CHỦ SỞ HỮU và chủ sở hữu trước đó trở thành QUẢN TRỊ.",
+    "transferConfirmAction": "Xác nhận tôi trở thành chủ sở hữu mới",
+    "transferWrongAccount": "Đăng nhập bằng {email} để xác nhận việc chuyển này.",
+    "transferStatus": {
+      "pending": "Đang chờ xác nhận",
+      "expired": "Việc chuyển quyền sở hữu này đã hết hạn.",
+      "cancelled": "Việc chuyển quyền sở hữu này đã bị hủy.",
+      "confirmed": "Việc chuyển quyền sở hữu này đã hoàn tất."
+    }
+  }
+}

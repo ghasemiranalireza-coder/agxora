@@ -899,10 +899,10 @@ function SettingsPanel({
             }
             className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
           >
-            <option value="error">error</option>
-            <option value="warn">warn</option>
-            <option value="info">info</option>
-            <option value="debug">debug</option>
+            <option value="error">{t("automation.workspace.settings.logLevels.error")}</option>
+            <option value="warn">{t("automation.workspace.settings.logLevels.warn")}</option>
+            <option value="info">{t("automation.workspace.settings.logLevels.info")}</option>
+            <option value="debug">{t("automation.workspace.settings.logLevels.debug")}</option>
           </select>
         </label>
       </div>

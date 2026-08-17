@@ -5,12 +5,14 @@ import { useEffect, useState, type JSX } from "react";
 import { AuthCard } from "../components/auth/AuthCard";
 import { IdentityLoadingOverlay } from "../components/identity";
 import { useAuth } from "../lib/auth";
+import { useT } from "../lib/i18n";
 import { iamAuthService } from "../../features/auth";
 
 /**
  * /logout — clears the local session and redirects to login.
  */
 export default function LogoutPage(): JSX.Element {
+  const t = useT();
   const { signOut } = useAuth();
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
@@ -24,7 +26,7 @@ export default function LogoutPage(): JSX.Element {
         if (!cancelled) router.replace("/login");
       } catch (err) {
         if (!cancelled) {
-          setError(err instanceof Error ? err.message : "Logout failed");
+          setError(err instanceof Error ? err.message : t("backend.logout.failed"));
           router.replace("/login");
         }
       }
@@ -32,16 +34,16 @@ export default function LogoutPage(): JSX.Element {
     return () => {
       cancelled = true;
     };
-  }, [router, signOut]);
+  }, [router, signOut, t]);
 
   if (error) {
-    return <AuthCard title="Sign Out">{error}</AuthCard>;
+    return <AuthCard title={t("backend.logout.title")}>{error}</AuthCard>;
   }
 
   return (
     <>
-      <AuthCard title="Sign Out">Signing you out…</AuthCard>
-      <IdentityLoadingOverlay label="Ending session…" />
+      <AuthCard title={t("backend.logout.title")}>{t("backend.logout.signingOut")}</AuthCard>
+      <IdentityLoadingOverlay label={t("backend.logout.endingSession")} />
     </>
   );
 }

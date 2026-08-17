@@ -10,6 +10,7 @@ import Link from "next/link";
 import { resolveAppError, type AppErrorCode } from "@/app/lib/backend/errors";
 import { Button, Card } from "@/app/components/ui";
 import { sanitizeClientErrorMessage } from "@/app/lib/production/safeErrorMessage";
+import { useT } from "@/app/lib/i18n";
 
 type Props = {
   readonly children: ReactNode;
@@ -80,6 +81,7 @@ export function ErrorPanel({
   readonly onRetry?: () => void;
   readonly code?: string;
 }): JSX.Element {
+  const t = useT();
   const safeMessage = sanitizeClientErrorMessage(message, message);
   return (
     <Card className="mx-auto max-w-lg space-y-4 text-center" padding="32px" hover={false}>
@@ -100,12 +102,12 @@ export function ErrorPanel({
       <div className="flex flex-wrap justify-center gap-2">
         {retryable && onRetry ? (
           <Button variant="primary" size="sm" onClick={onRetry}>
-            Retry
+            {t("backend.errorBoundary.retry")}
           </Button>
         ) : null}
         <Link href="/dashboard">
           <Button variant="secondary" size="sm">
-            Back to dashboard
+            {t("backend.errorBoundary.backToDashboard")}
           </Button>
         </Link>
       </div>

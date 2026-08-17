@@ -1,0 +1,388 @@
+{
+  "page": {
+    "brand": "AGXORA 지식 OS",
+    "title": "서류",
+    "subtitle": "엔터프라이즈 문서 및 지식 허브 — 스토리지 및 승인 백엔드가 연결될 때까지 샘플 콘텐츠로 미리 볼 수 있습니다.",
+    "sampleNotice": "샘플 라이브러리 — 탐색 및 필터는 세션 중에 작동합니다. 업로드, 승인, AI 인덱스 작업이 연결되지 않습니다."
+  },
+  "sections": {
+    "kpis": {
+      "title": "지식 대시보드"
+    },
+    "library": {
+      "title": "문서 라이브러리",
+      "subtitle": "모든 문서, 최근 항목, 즐겨찾기, 공유 항목, 보관 항목, 휴지통, 기술 자료 — 폴더, 검색, 뷰어 및 버전 포함."
+    },
+    "knowledge": {
+      "title": "기술 자료",
+      "subtitle": "기사, 정책, 프로세스, 매뉴얼, FAQ 및 내부 위키."
+    },
+    "approvals": {
+      "title": "승인",
+      "subtitle": "초안, 검토 중, 승인됨, 거부됨, 보관됨 - 자동화 아키텍처와 연결됩니다."
+    },
+    "ai": {
+      "title": "AI 지식 레이어",
+      "subtitle": "요약, 키워드, 분류, 태그, 폴더, 관련 문서, 중복, 번역, OCR 및 검색 — 아키텍처에만 해당됩니다."
+    },
+    "activity": {
+      "title": "활동",
+      "subtitle": "최근 변경사항, 업로드, 조회수, 공유 및 감사 기록입니다."
+    },
+    "integrations": {
+      "title": "통합",
+      "subtitle": "드라이브 어댑터 예약됨 - 라이브 커넥터가 없습니다."
+    },
+    "security": {
+      "title": "보안 및 공유",
+      "subtitle": "RBAC, 감사 추적, 암호화, 보존 및 공유 범위."
+    }
+  },
+  "loading": {
+    "knowledgeBase": "기술 자료 로드 중…",
+    "approvals": "승인 대기열 로드 중…",
+    "aiInsights": "AI 통계 로드 중…",
+    "activity": "활동 로드 중…",
+    "integrations": "통합 로드 중…",
+    "security": "보안 로드 중…"
+  },
+  "kpi": {
+    "documents": {
+      "label": "서류",
+      "caption": "샘플 · 폴더 전체",
+      "delta": "+{개수}"
+    },
+    "folders": {
+      "label": "폴더",
+      "caption": "샘플 · 스마트 컬렉션 포함",
+      "delta": "+{개수}"
+    },
+    "storage": {
+      "label": "사용된 저장소",
+      "caption": "예시 계획의 샘플 ·",
+      "delta": "+{크기}"
+    },
+    "shared": {
+      "label": "공유 문서",
+      "caption": "샘플 · 조직 + 부서 + 사용자",
+      "delta": "+{개수}"
+    },
+    "activity": {
+      "label": "최근 활동",
+      "caption": "샘플 · 지난 24시간",
+      "delta": "+{개수}"
+    },
+    "indexed": {
+      "label": "AI 인덱스",
+      "caption": "샘플 · AI 검색이 연결되지 않음",
+      "delta": "{퍼센트}"
+    },
+    "approvals": {
+      "label": "승인 보류 중",
+      "caption": "샘플 · 자동화가 연결되지 않음",
+      "delta": "{세다}"
+    },
+    "score": {
+      "label": "지식 점수",
+      "caption": "샘플 · 취재 일러스트",
+      "delta": "+{개수}"
+    }
+  },
+  "library": {
+    "viewsAria": "라이브러리 보기",
+    "views": {
+      "all": "모든 문서",
+      "recent": "최근의",
+      "favorites": "즐겨찾기",
+      "shared": "공유됨",
+      "archived": "보관됨",
+      "trash": "쓰레기",
+      "knowledge": "기술 자료"
+    },
+    "dropzone": "업로드를 준비하려면 여기에 파일을 드래그 앤 드롭하세요.",
+    "uploadReserved": "드래그 앤 드롭 업로드는 예약된 스토리지 API입니다.",
+    "filesStaged": "업로드를 위해 준비된 파일 {count}개(저장소 쓰기 없음)",
+    "dropReceived": "삭제가 수신되었습니다(스토리지 쓰기 없음).",
+    "foldersTitle": "폴더 및 컬렉션",
+    "foldersHint": "중첩된 폴더, 컬렉션, 스마트 컬렉션, 태그, 고정 및 즐겨찾기.",
+    "allFolders": "모든 폴더",
+    "smart": "똑똑한",
+    "collection": "수집",
+    "pinned": "고정됨",
+    "favorite": "가장 좋아하는",
+    "sharedBadge": "공유됨",
+    "title": "문서 라이브러리",
+    "results": "{count} 결과",
+    "resultOne": "{count} 결과",
+    "selected": "· {count}개 선택됨",
+    "bulkAction": "대량 작업",
+    "bulkUnavailable": "{count}개 항목에 대해 대량 작업을 수행할 수 없습니다. 저장소 변형이 연결되지 않았습니다.",
+    "searchLabel": "글로벌 검색",
+    "searchPlaceholder": "이름, 태그, 소유자, AI 요약…",
+    "typeLabel": "유형",
+    "statusLabel": "상태",
+    "departmentLabel": "부서",
+    "ownerLabel": "소유자",
+    "allTypes": "모든 유형",
+    "allStatuses": "모든 상태",
+    "allDepartments": "모든 부서",
+    "allOwners": "모든 소유자",
+    "favoritesOnly": "즐겨찾기만",
+    "emptyTitle": "표시할 문서가 없습니다.",
+    "emptyDescription": "필터를 조정하고, 검색을 지우고, 지식 자산을 추가하여 라이브러리를 확장하세요.",
+    "selectAria": "{이름}을 선택하세요",
+    "versionHistoryTitle": "버전 기록",
+    "close": "닫다",
+    "context": {
+      "open": "열려 있는",
+      "share": "공유하다",
+      "favorite": "가장 좋아하는",
+      "move": "이동하다",
+      "delete": "삭제",
+      "dismiss": "해고하다",
+      "unavailable": "{action}을(를) 사용할 수 없습니다. {id}에 대한 문서 변형이 연결되지 않았습니다."
+    }
+  },
+  "viewer": {
+    "title": "문서뷰어",
+    "emptyTitle": "문서를 선택하세요",
+    "emptyDescription": "콘텐츠, 메타데이터, 태그, 버전 및 연결된 모듈을 미리 보려면 라이브러리에서 파일을 선택하세요.",
+    "zoomOut": "줌 -",
+    "zoomIn": "줌 +",
+    "prev": "이전",
+    "next": "다음",
+    "page": "페이지 {페이지} / {전체}",
+    "searchInside": "내부 검색",
+    "findPlaceholder": "미리보기에서 찾아보세요…",
+    "noMatches": "미리보기 텍스트에 일치하는 항목이 없습니다.",
+    "meta": {
+      "owner": "소유자",
+      "created": "생성됨",
+      "updated": "업데이트됨",
+      "fileType": "파일 유형",
+      "size": "크기",
+      "category": "범주",
+      "department": "부서",
+      "status": "상태",
+      "retention": "보유",
+      "version": "버전",
+      "sharing": "공유"
+    },
+    "tags": "태그",
+    "linkedModules": "연결된 모듈",
+    "noModuleLinks": "아직 모듈 링크가 없습니다.",
+    "versionHistory": "버전 기록"
+  },
+  "versions": {
+    "title": "버전 기록",
+    "emptyTitle": "선택한 문서가 없습니다.",
+    "emptyDescription": "문서를 열어 버전, 메모, 복원 및 비교를 검사하세요.",
+    "current": "{이름} · 현재 {버전}",
+    "restore": "버전 복원",
+    "compare": "버전 비교",
+    "restoreTitle": "복원에는 스토리지 API가 필요합니다.",
+    "compareTitle": "비교하려면 스토리지 API가 필요합니다.",
+    "noticeDefault": "복원 및 비교에는 스토리지 API가 필요합니다.",
+    "restoreUnavailable": "{id}에 대한 복원을 사용할 수 없습니다. 스토리지 API가 연결되지 않았습니다.",
+    "compareUnavailable": "비교 불가({선택됨} ← {현재}) — 스토리지 API가 연결되지 않았습니다."
+  },
+  "approvals": {
+    "title": "승인 워크플로",
+    "subtitle": "초안 → 검토 중 → 승인/거절 → 보관됨. 대기열 항목은 샘플 문서입니다. 행동이 지속되지 않습니다.",
+    "emptyTitle": "대기열 삭제",
+    "emptyDescription": "샘플 세트에는 초안 또는 검토 중인 문서가 없습니다.",
+    "approve": "승인하다",
+    "reject": "거부하다",
+    "sendToReview": "리뷰로 보내기",
+    "noticeDefault": "승인 전환에는 자동화 워크플로 엔진이 필요하지만 이 빌드에는 연결되어 있지 않습니다.",
+    "unavailable": "{id}에 대해 {action}을(를) 사용할 수 없습니다. 워크플로 엔진이 연결되지 않았습니다. 샘플 문서 상태가 변경되지 않았습니다.",
+    "approveTitle": "승인 불가 — 워크플로 엔진이 연결되지 않음",
+    "rejectTitle": "거부할 수 없음 — 워크플로 엔진이 연결되지 않음",
+    "sendTitle": "검토를 위해 보낼 수 없음 - 워크플로 엔진이 연결되지 않음"
+  },
+  "knowledge": {
+    "intro": "기사, 정책, 프로세스, 매뉴얼, FAQ 및 내부 위키 — 지식 허브의 서술적 계층입니다."
+  },
+  "activity": {
+    "intro": "최근 변경 사항, 업로드, 보기, 공유 및 감사 기록은 규정 준수 추적의 기반입니다."
+  },
+  "integrations": {
+    "intro": "클라우드 드라이브 어댑터는 아키텍처 전용입니다(Google Drive, OneDrive, Dropbox, Box, SharePoint, Nextcloud). 라이브 API가 없습니다.",
+    "reservedAdapter": "예약된 어댑터:",
+    "architecture": "건축학",
+    "items": {
+      "google-drive": {
+        "description": "가져오기/동기화 아키텍처가 예약되었습니다. 아직 실시간 OAuth가 없습니다."
+      },
+      "onedrive": {
+        "description": "Microsoft Graph 파일 후크가 예약되었습니다."
+      },
+      "dropbox": {
+        "description": "Dropbox API 어댑터가 예약되었습니다."
+      },
+      "box": {
+        "description": "Enterprise Box 커넥터가 예약되었습니다."
+      },
+      "sharepoint": {
+        "description": "사이트 라이브러리 + 메타데이터 매핑이 예약되었습니다."
+      },
+      "nextcloud": {
+        "description": "WebDAV 어댑터 예약됨 - 자체 호스트 계획까지 비활성화됩니다."
+      }
+    }
+  },
+  "security": {
+    "architectureTitle": "보안 아키텍처",
+    "sharingTitle": "모델 공유",
+    "sharingIntro": "개인, 조직, 부서, 특정 사용자 및 공개 링크 자리 표시자.",
+    "enabled": "활성화됨",
+    "placeholder": "자리 표시자",
+    "notEnforced": "시행되지 않음",
+    "modelOnly": "모델만",
+    "controls": {
+      "rbac": {
+        "title": "역할 기반 액세스",
+        "description": "소유자, 편집자, 뷰어 및 승인자 역할은 문서 ACL에 매핑되며 이 빌드에서는 적용되지 않습니다."
+      },
+      "permissions": {
+        "title": "권한 아키텍처",
+        "description": "문서 수준 재정의를 통한 폴더 상속 — 이 빌드에서는 적용되지 않습니다."
+      },
+      "audit": {
+        "title": "감사 추적",
+        "description": "보기, 공유, 복원 및 승인에 대한 활동 이벤트는 아직 지속되지 않습니다."
+      },
+      "encryption": {
+        "title": "암호화",
+        "description": "KMS 배선용으로 예약된 미사용 및 전송 중 암호화 후크입니다."
+      },
+      "retention": {
+        "title": "보존 정책",
+        "description": "법적 보존을 지원하는 카테고리별 보존 기간은 아직 시행되지 않습니다."
+      }
+    }
+  },
+  "ai": {
+    "architectureTitle": "AI 기능 아키텍처",
+    "architectureIntro": "모든 기능은 미래 AI 인덱스를 위해 예약되어 있습니다. UI는 결정론적 모의 통찰력을 보여줍니다.",
+    "insightsTitle": "선택한 문서에 대한 통찰력",
+    "emptyTitle": "문서를 선택하세요",
+    "emptyDescription": "AI 요약, 키워드 및 제안을 검사하려면 라이브러리에서 파일을 엽니다.",
+    "summary": "AI 요약",
+    "keywords": "AI 키워드",
+    "classification": "AI 분류",
+    "suggestedFolder": "AI 추천 폴더",
+    "translation": "AI번역",
+    "ocr": "AI OCR",
+    "suggestedTags": "AI 추천 태그",
+    "related": "AI 관련 문서",
+    "noRelated": "색인된 관련 문서가 없습니다.",
+    "duplicateOf": "AI 중복 감지: 중복 가능성",
+    "noDuplicates": "AI 중복 감지: 거의 중복된 항목이 표시되지 않습니다.",
+    "sampleReady": "샘플 준비",
+    "notApplicable": "해당 없음",
+    "runSearch": "AI 검색 실행",
+    "searchTitle": "AI 검색이 연결되지 않았습니다",
+    "noticeDefault": "AI 기능은 아키텍처에만 해당되며 실시간 모델 호출은 없습니다.",
+    "searchUnavailable": "AI 검색 불가 — 의미 인덱스가 연결되지 않았습니다. 위의 샘플 통계는 정적입니다.",
+    "features": {
+      "summary": {
+        "title": "AI 요약",
+        "description": "모든 모듈에 대한 요약된 문서 이해."
+      },
+      "keywords": {
+        "title": "AI 키워드",
+        "description": "검색 및 라우팅을 위해 주제 신호를 추출했습니다."
+      },
+      "classification": {
+        "title": "AI 분류",
+        "description": "카테고리/부서 분류 제안."
+      },
+      "tags": {
+        "title": "AI 추천 태그",
+        "description": "그래프를 변경하지 않고 추천에 태그를 지정하세요."
+      },
+      "folder": {
+        "title": "AI 추천 폴더",
+        "description": "중첩된 폴더에 스마트하게 배치합니다."
+      },
+      "related": {
+        "title": "AI 관련 문서",
+        "description": "지식 허브 전반에 걸쳐 이웃을 그래프로 표시합니다."
+      },
+      "duplicate": {
+        "title": "AI 중복 감지",
+        "description": "문서 라이브러리에 대한 거의 중복된 항목을 감지합니다."
+      },
+      "translation": {
+        "title": "AI번역",
+        "description": "번역 준비 플래그 - 라이브 모델이 없습니다."
+      },
+      "ocr": {
+        "title": "AI OCR",
+        "description": "스캔 및 PDF용으로 예약된 OCR 파이프라인입니다."
+      },
+      "search": {
+        "title": "AI 검색",
+        "description": "향후 인덱스를 위해 예약된 의미 검색입니다."
+      }
+    }
+  },
+  "status": {
+    "draft": "초안",
+    "in_review": "검토 중",
+    "approved": "승인됨",
+    "rejected": "거부됨",
+    "archived": "보관됨"
+  },
+  "fileType": {
+    "pdf": "PDF",
+    "word": "단어",
+    "excel": "뛰어나다",
+    "powerpoint": "파워포인트",
+    "image": "영상",
+    "video": "동영상",
+    "audio": "오디오",
+    "markdown": "가격 인하",
+    "text": "텍스트",
+    "json": "JSON",
+    "csv": "CSV",
+    "other": "다른"
+  },
+  "share": {
+    "private": "사적인",
+    "organization": "조직",
+    "department": "부서",
+    "specific_users": "특정 사용자",
+    "public_link": "공개 링크"
+  },
+  "module": {
+    "crm": "CRM",
+    "finance": "재원",
+    "automation": "오토메이션",
+    "creator": "크리에이터 스튜디오",
+    "hr": "미래인재",
+    "projects": "미래 프로젝트"
+  },
+  "knowledgeKind": {
+    "article": "기사",
+    "policy": "정책",
+    "process": "프로세스",
+    "manual": "수동",
+    "faq": "FAQ",
+    "wiki": "내부 위키"
+  },
+  "integrationStatus": {
+    "connected": "연결됨",
+    "beta": "베타",
+    "coming_soon": "출시 예정",
+    "disabled": "장애가 있는",
+    "planned": "예정"
+  },
+  "bytes": {
+    "b": "{값}B",
+    "kb": "{값}KB",
+    "mb": "{value}MB",
+    "gb": "{value}GB"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "identity": {
+    "eyebrow": "IAM empresarial",
+    "title": "Identidad y acceso",
+    "lead": "Organización, espacio de trabajo, RBAC, marcadores de posición de seguridad y arquitectura de auditoría. Los adaptadores backend se conectan sin cambiar esta superficie.",
+    "openProfile": "Abrir perfil",
+    "teamManagement": "Gestión de equipos",
+    "tabs": {
+      "organization": "Organización",
+      "workspace": "Espacio de trabajo",
+      "roles": "Roles y permisos",
+      "security": "Seguridad",
+      "audit": "Registro de auditoría"
+    },
+    "organizationSettings": "Configuración de la organización",
+    "workspaceSettings": "Configuración del espacio de trabajo",
+    "noOrganization": "Ninguna organización activa. Complete la incorporación o cree una desde el servicio de organización.",
+    "logoPlaceholder": "Los adaptadores de carga de logotipos y facturación de planes son marcadores de posición para el futuro backend de identidad.",
+    "rbacTitle": "RBAC: roles predeterminados",
+    "permissionMatrix": "Matriz de permisos",
+    "canManageSettings": "Puede administrar la configuración: {valor} · Autenticado: {autenticado}",
+    "yes": "Sí",
+    "no": "No",
+    "securitySettings": "Configuraciones de seguridad",
+    "passwordChange": {
+      "title": "cambio de contraseña",
+      "detail": "El cambio de contraseña se conecta a través del proveedor de autenticación cuando está configurado."
+    },
+    "twoFactor": {
+      "title": "Autenticación de dos factores (2FA)",
+      "detail": "Los adaptadores TOTP y WebAuthn se registran aquí cuando están habilitados."
+    },
+    "activeSessions": {
+      "title": "Sesiones activas",
+      "detail": "El directorio de dispositivos se encuentra en las sesiones de identidad; la revocación adquiere autoridad con las sesiones del servidor."
+    },
+    "apiKeys": {
+      "title": "Claves API",
+      "detail": "Cuentas de servicio y tokens con alcance para desarrolladores."
+    },
+    "absoluteTimeout": "tiempo de espera absoluto",
+    "idleTimeout": "Tiempo de inactividad",
+    "refreshSkew": "Actualizar sesgado",
+    "persistentLogin": "Inicio de sesión persistente",
+    "disabled": "Desactivado",
+    "enabled": "Activado",
+    "days": "{count} días",
+    "minutes": "{cuenta} minutos",
+    "toggleIdlePolicy": "Alternar marcador de posición de política inactiva",
+    "previewSessionExpired": "La sesión de vista previa expiró",
+    "previewAccountLocked": "Cuenta de vista previa bloqueada",
+    "auditActivity": "Actividad de auditoría",
+    "auditLead": "El inicio de sesión, el cierre de sesión, los cambios de roles, las invitaciones y los eventos de la organización se registran localmente. Reemplácelo con un almacén de auditoría de backend inmutable más adelante.",
+    "auditEmpty": "Aún no hay eventos de IAM. Inicie sesión o cambie una función para completar el registro.",
+    "meta": {
+      "name": "Nombre",
+      "slug": "Babosa",
+      "plan": "Plan",
+      "owner": "Dueño",
+      "created": "Creado",
+      "yourRole": "Tu papel",
+      "workspace": "Espacio de trabajo",
+      "status": "Estado",
+      "isolationKey": "clave de aislamiento"
+    },
+    "matrix": {
+      "permission": "Permiso",
+      "owner": "Dueño",
+      "admin": "Administración",
+      "manager": "Gerente",
+      "member": "Miembro",
+      "viewer": "Espectador",
+      "yes": "Sí"
+    },
+    "audit": {
+      "when": "Cuando",
+      "action": "Acción",
+      "actor": "Actor",
+      "resource": "Recurso"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "Dueño",
+      "description": "Control total, incluida la facturación y la transferencia de propiedad."
+    },
+    "admin": {
+      "name": "Administración",
+      "description": "Gestione personas, seguridad, espacios de trabajo y módulos."
+    },
+    "manager": {
+      "name": "Gerente",
+      "description": "Liderar equipos y módulos operativos; invitar miembros"
+    },
+    "member": {
+      "name": "Miembro",
+      "description": "Acceso operativo diario"
+    },
+    "viewer": {
+      "name": "Espectador",
+      "description": "Acceso de solo lectura"
+    }
+  },
+  "profile": {
+    "eyebrow": "Identidad",
+    "title": "Perfil de usuario",
+    "lead": "Administre la identidad, las preferencias y la seguridad de su cuenta. Los controles de organización y espacio de trabajo se encuentran en la configuración de identidad.",
+    "guest": "Invitado",
+    "notSignedIn": "No iniciado sesión",
+    "identitySettings": "Configuración de identidad",
+    "security": "Seguridad",
+    "profileSection": "Perfil",
+    "fullName": "nombre completo",
+    "email": "Correo electrónico",
+    "language": "Idioma",
+    "timezone": "Zona horaria",
+    "languageEnGb": "Inglés (Reino Unido)",
+    "languageEnUs": "Inglés (Estados Unidos)",
+    "languageDe": "alemán",
+    "timezoneBerlin": "Europa/Berlín",
+    "timezoneLondon": "Europa/Londres",
+    "timezoneUtc": "UTC",
+    "timezoneNewYork": "América/Nueva_York",
+    "notifications": "Notificaciones",
+    "emailNotifications": "Notificaciones por correo electrónico",
+    "pushNotifications": "Notificaciones push",
+    "workspace": "Espacio de trabajo",
+    "noticeInitial": "Las preferencias se guardan localmente hasta que se conecta la API del perfil.",
+    "noticeSaved": "Preferencias de perfil actualizadas.",
+    "savePreferences": "Guardar preferencias"
+  },
+  "workspaceSelector": {
+    "empty": "Aún no hay espacios de trabajo: cree una organización para aprovisionar uno.",
+    "label": "Espacio de trabajo activo",
+    "ariaLabel": "Cambiar espacio de trabajo"
+  },
+  "verifyEmail": {
+    "title": "Verificación de correo electrónico",
+    "loading": "Cargando…",
+    "skipForNow": "Saltar por ahora",
+    "tokenPlaceholder": "Token de verificación",
+    "tokenIssued": "Token de verificación emitido para la sesión actual.",
+    "issueFailed": "No se pudo emitir el token",
+    "verificationFailed": "La verificación falló",
+    "verify": "Verificar correo electrónico",
+    "verifying": "Verificando…",
+    "requestToken": "Solicitar token de verificación"
+  }
+}

@@ -155,7 +155,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
       header: t("intelligence.columns.actions"),
       render: (r) =>
         r.acknowledged ? (
-          "—"
+          t("intelligence.emDash")
         ) : (
           <Button
             size="sm"
@@ -165,7 +165,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
               setNotice(t("intelligence.acknowledged", { title: r.title }));
             }}
           >
-            Acknowledge
+            {t("intelligence.alerts.acknowledge")}
           </Button>
         ),
     },
@@ -238,7 +238,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
           className="text-2xl font-semibold tracking-tight"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Intelligence
+          {t("intelligence.title")}
         </h1>
         <p
           className="max-w-2xl text-sm leading-relaxed"
@@ -269,7 +269,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
         </p>
         <div className="flex flex-wrap items-end gap-2 pt-1">
           <label className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            From
+            {t("intelligence.filters.from")}
             <input
               type="date"
               value={filterFrom}
@@ -278,7 +278,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             />
           </label>
           <label className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            To
+            {t("intelligence.filters.to")}
             <input
               type="date"
               value={filterTo}
@@ -287,7 +287,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             />
           </label>
           <label className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Domain
+            {t("intelligence.filters.domain")}
             <select
               value={domainFilter}
               onChange={(e) =>
@@ -304,7 +304,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             </select>
           </label>
           <Button size="sm" variant="secondary" onClick={applyDates}>
-            Apply filters
+            {t("intelligence.filters.apply")}
           </Button>
           <Button
             size="sm"
@@ -314,7 +314,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
               setNotice(t("intelligence.demoReloaded"));
             }}
           >
-            Reload demo data
+            {t("intelligence.filters.reloadDemo")}
           </Button>
         </div>
         <div
@@ -352,7 +352,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
           </div>
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Executive KPI strip
+              {t("intelligence.executive.kpiStrip")}
             </h2>
             <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
               {eic.kpis.slice(0, 6).map((k) => (
@@ -362,7 +362,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
           </Card>
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Visualization previews
+              {t("intelligence.executive.visualizationPreviews")}
             </h2>
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {t("intelligence.executive.visualizationHint")}
@@ -389,7 +389,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
                       </p>
                       {series ? <MiniChart points={series.points} /> : (
                         <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                          No series bound
+                          {t("intelligence.executive.noSeries")}
                         </p>
                       )}
                     </div>
@@ -403,7 +403,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
       {tab === "health" && health ? (
         <Card className="space-y-4" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Business health decomposition
+            {t("intelligence.health.title")}
           </h2>
           <HealthBar label={t("intelligence.health.overall")} value={health.overall} />
           <HealthBar label={t("intelligence.health.revenue")} value={health.revenue} />
@@ -416,9 +416,11 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
           <HealthBar label={t("intelligence.health.riskPosture")} value={health.risk} />
           <HealthBar label={t("intelligence.health.growth")} value={health.growth} />
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Observability: {eic.observability.businessMetricsCount} metrics ·{" "}
-            {eic.observability.avgQueryMs}ms avg · system health{" "}
-            {eic.observability.systemHealth}
+            {t("intelligence.health.observability", {
+              metrics: eic.observability.businessMetricsCount,
+              avgMs: eic.observability.avgQueryMs,
+              health: eic.observability.systemHealth,
+            })}
           </p>
         </Card>
       ) : null}
@@ -447,11 +449,10 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
       {tab === "kpis" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            KPI Center
+            {t("intelligence.kpis.title")}
           </h2>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Configurable KPI catalog across revenue, customers, projects, workflows,
-            agents, and automation.
+            {t("intelligence.kpis.subtitle")}
           </p>
           <DataTable
             columns={kpiColumns}
@@ -467,11 +468,10 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
       {tab === "reports" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Reporting engine
+            {t("intelligence.reports.title")}
           </h2>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Report definitions are seeded for review. File export is unavailable
-            until a reporting backend is connected.
+            {t("intelligence.reports.subtitle")}
           </p>
           <DataTable
             columns={reportColumns}
@@ -488,11 +488,10 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
         eic.insights.length === 0 ? (
           <Card padding="20px" hover={false}>
             <p className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              No insights yet
+              {t("intelligence.insights.emptyTitle")}
             </p>
             <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Demo insights appear after the workspace seeds. Live AI insight
-              generation is not connected.
+              {t("intelligence.insights.emptyDescription")}
             </p>
           </Card>
         ) : (
@@ -500,7 +499,11 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             {eic.insights.map((i) => (
               <Card key={i.id} className="space-y-2" padding="20px" hover={false}>
                 <p className="text-[11px] uppercase tracking-wide" style={{ color: "var(--agx-accent, #22d3ee)" }}>
-                  Demo · {i.kind} · {i.domain} · conf {i.confidence}
+                  {t("intelligence.insights.badge", {
+                    kind: i.kind,
+                    domain: i.domain,
+                    confidence: i.confidence,
+                  })}
                 </p>
                 <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
                   {i.title}
@@ -518,10 +521,10 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
         eic.forecasts.length === 0 ? (
           <Card padding="20px" hover={false}>
             <p className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              No forecasts yet
+              {t("intelligence.forecasts.emptyTitle")}
             </p>
             <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Demo forecasts appear after seed. Predictive models are not connected.
+              {t("intelligence.forecasts.emptyDescription")}
             </p>
           </Card>
         ) : (
@@ -529,14 +532,20 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             {eic.forecasts.map((f) => (
               <Card key={f.id} className="space-y-2" padding="20px" hover={false}>
                 <h3 className="text-sm font-semibold capitalize" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {f.kind.replace("_", " ")} forecast
+                  {t("intelligence.forecasts.title", { kind: f.kind.replace("_", " ") })}
                 </h3>
                 <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  Baseline {f.baseline.toLocaleString()} → projected{" "}
-                  {f.projected.toLocaleString()} ({f.horizonDays}d)
+                  {t("intelligence.forecasts.baseline", {
+                    baseline: f.baseline.toLocaleString(),
+                    projected: f.projected.toLocaleString(),
+                    days: f.horizonDays,
+                  })}
                 </p>
                 <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  Demo · Confidence {f.confidence} — {f.note}
+                  {t("intelligence.forecasts.confidence", {
+                    confidence: f.confidence,
+                    note: f.note,
+                  })}
                 </p>
               </Card>
             ))}
@@ -547,14 +556,14 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
       {tab === "alerts" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Alert engine
+            {t("intelligence.alerts.title")}
           </h2>
           <DataTable
             columns={alertColumns}
             rows={[...eic.alerts]}
             rowKey={(r) => r.id}
             emptyTitle={t("intelligence.alerts.emptyTitle")}
-            emptyDescription="Alerts seed from risk heuristics."
+            emptyDescription={t("intelligence.alerts.emptyDescription")}
             minWidth={720}
           />
         </Card>
@@ -563,14 +572,14 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
       {tab === "scorecards" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Scorecard engine
+            {t("intelligence.scorecards.title")}
           </h2>
           <DataTable
             columns={scoreColumns}
             rows={[...eic.scorecards]}
             rowKey={(r) => r.id}
             emptyTitle={t("intelligence.scorecards.emptyTitle")}
-            emptyDescription="Scorecards seed on bootstrap."
+            emptyDescription={t("intelligence.scorecards.emptyDescription")}
             minWidth={640}
           />
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
@@ -586,7 +595,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
       {tab === "explorer" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Data explorer
+            {t("intelligence.explorer.title")}
           </h2>
           <input
             value={explorerQuery}
@@ -600,12 +609,11 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             rows={[...explorerRows]}
             rowKey={(r) => r.id}
             emptyTitle={t("intelligence.explorer.emptyTitle")}
-            emptyDescription="Adjust filters or search, or reload the demo dataset."
+            emptyDescription={t("intelligence.explorer.emptyDescription")}
             minWidth={720}
           />
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Client-side search on seeded tuples — backend aggregation and
-            drill-down are not connected.
+            {t("intelligence.explorer.hint")}
           </p>
         </Card>
       ) : null}

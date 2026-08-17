@@ -1,0 +1,387 @@
+{
+  "skipToContent": "跳至儀表板內容",
+  "loading": "正在加載儀表板...",
+  "hero": {
+    "ariaLabel": "AGXORA CORE HERO",
+    "eyebrow": "人工智慧商業作業系統",
+    "title": "AGXORA核心",
+    "subtitle": "即時智慧與操作控制－您的工作空間指令介面。",
+    "ctaGetStarted": "開始使用",
+    "ctaViewActivity": "檢視活動",
+    "openQuickActionsAria": "開啟快速操作",
+    "viewActivityAria": "查看最近的活動"
+  },
+  "quickActions": {
+    "title": "快速行動",
+    "subtitle": "接下來該怎麼做？",
+    "ariaLabel": "快速行動",
+    "addCustomer": {
+      "label": "新增客戶",
+      "description": "建立 CRM 記錄"
+    },
+    "newProject": {
+      "label": "新專案",
+      "description": "啟動交付軌跡"
+    },
+    "askAi": {
+      "label": "詢問人工智慧",
+      "description": "開啟 AI 工作區"
+    },
+    "finance": {
+      "label": "金融",
+      "description": "收據和現金流量"
+    },
+    "automations": {
+      "label": "自動化",
+      "description": "工作流程引擎"
+    },
+    "settings": {
+      "label": "設定",
+      "description": "工作空間偏好"
+    }
+  },
+  "attention": {
+    "title": "需要注意",
+    "ariaLabel": "需要注意什麼",
+    "empty": "你很清楚——現在沒有緊急物品。",
+    "tone": {
+      "critical": "批判的",
+      "warning": "警告",
+      "info": "資訊",
+      "success": "準備就緒",
+      "action": "下一步做"
+    },
+    "addCustomer": {
+      "title": "新增首位顧客",
+      "detail": "使用真實帳戶記錄啟動 CRM。"
+    },
+    "createProject": {
+      "title": "創建一個專案",
+      "detail": "為您的下一次約會打開交付軌道。"
+    },
+    "exploreAi": {
+      "title": "探索 AI 工作區",
+      "detail": "向 AGXORA 詢問有關客戶、專案或後續步驟的資訊。"
+    },
+    "reviewBilling": {
+      "title": "查看帳單",
+      "detail": "當您準備好擴展時，請確認計劃和使用情況。"
+    }
+  },
+  "overview": {
+    "title": "工程情況",
+    "subtitle": "{name} 的工作空間計數",
+    "fallbackName": "你的工作空間",
+    "ariaLabel": "業務概況",
+    "online": "在線的",
+    "emDash": "—",
+    "capacitySignal": "{percent}% 容量訊號",
+    "activeClients": {
+      "title": "活躍客戶",
+      "captionEmpty": "尚無活躍顧客",
+      "captionTotal": "工作區總共 {count} 個",
+      "add": "新增客戶",
+      "view": "查看客戶"
+    },
+    "projects": {
+      "title": "專案",
+      "captionEmpty": "投資組合中沒有項目",
+      "captionOpen": "開放交付軌道",
+      "create": "創建專案",
+      "open": "開放項目"
+    },
+    "activityToday": {
+      "title": "今日活動",
+      "captionEmpty": "今天還沒有記錄任何內容",
+      "captionEvents": "午夜以來的工作區活動",
+      "viewFeed": "查看提要"
+    },
+    "revenue": {
+      "title": "收入",
+      "caption": "連結帳單以顯示MRR",
+      "openBilling": "開放式計費"
+    },
+    "clientShell": {
+      "title": "客戶端外殼",
+      "caption": "瀏覽器工作階段就緒—不是即時作業系統監視器",
+      "shellLoaded": "已載入應用程式外殼",
+      "storesReady": "本地工作區商店準備就緒"
+    },
+    "growth": {
+      "title": "成長",
+      "caption": "趨勢指標需要累積使用量",
+      "openAnalytics": "開放分析"
+    }
+  },
+  "activity": {
+    "title": "最近的活動",
+    "subtitle": "今天發生了什麼變化",
+    "ariaLabel": "最近的活動",
+    "todayCount": "今天 {count}",
+    "localBadge": "當地的",
+    "emptyTitle": "還沒有活動",
+    "emptyBody": "當您新增客戶、專案等時，工作區事件將顯示在此。",
+    "addCustomer": "新增客戶",
+    "newProject": "新專案",
+    "kind": {
+      "customer": "顧客",
+      "project": "專案",
+      "finance": "金融",
+      "automation": "自動化",
+      "documents": "文件",
+      "team": "團隊",
+      "workspace": "工作空間"
+    },
+    "events": {
+      "customer_created": "客戶創建",
+      "customer_updated": "客戶已更新",
+      "customer_deleted": "顧客已刪除",
+      "project_updated": "項目已更新",
+      "invoice_paid": "已付發票",
+      "document_uploaded": "文件已上傳",
+      "workflow_executed": "執行的工作流程",
+      "member_invited": "已邀請團隊成員",
+      "generic": "工作區更新"
+    }
+  },
+  "chat": {
+    "title": "艾克索拉人工智慧",
+    "emptyState": "向 AGXORA 詢問有關客戶、專案或下一步行動的資訊。您的對話將保留在此工作區會話中。",
+    "thinking": "AGXORA 正在思考…",
+    "errorDismiss": "{error} — 點擊即可關閉",
+    "placeholder": "詢問 AGXORA AI...",
+    "messageAria": "向AGXORA AI發送訊息",
+    "sendAria": "發送訊息",
+    "send": "傳送"
+  },
+  "routeLoading": {
+    "team": "正在加載團隊...",
+    "projects": "正在加載項目...",
+    "project": "正在加載項目...",
+    "profile": "正在載入個人資料...",
+    "integrations": "正在加載集成...",
+    "identity": "正在載入身份...",
+    "finance": "正在加載財務...",
+    "documents": "正在載入文檔...",
+    "customers": "正在加載客戶...",
+    "crm": "正在載入客戶關係管理...",
+    "customer": "正在加載客戶...",
+    "creator": "正在加載創作者工作室...",
+    "billing": "正在載入帳單...",
+    "billingAdmin": "正在載入管理帳單...",
+    "automation": "正在載入自動化…",
+    "analytics": "正在載入情報中心...",
+    "ai": "正在載入人工智慧平臺…",
+    "agents": "正在載入代理程式作業系統…"
+  },
+  "shell": {
+    "memory": {
+      "title": "記憶",
+      "description": "此版本中未連接組織記憶體。",
+      "emptyTitle": "記憶體工作區尚不可用",
+      "emptyBody": "持久組織記憶體儲存未連接。聊天可能僅在會話中保留短暫的上下文 - 這裡沒有任何內容被儲存為企業記憶體。"
+    },
+    "invoices": {
+      "title": "發票",
+      "description": "企業租戶的計費和發票架構。",
+      "emptyTitle": "發票分類帳尚不可用",
+      "emptyBody": "該路由是一個外殼 - 發票創建和持久性沒有連接。使用 Finance 進行範本分類帳預覽，或使用 Billing 進行規劃管理。",
+      "openFinance": "開放金融",
+      "openBilling": "開放式帳單"
+    }
+  },
+  "search": {
+    "ariaLabel": "通用搜尋",
+    "queryAria": "通用搜尋查詢",
+    "placeholder": "搜尋客戶、發票、文件、工作流程、設定…",
+    "quickActions": "快速行動",
+    "favorites": "收藏夾",
+    "recentSearches": "最近搜尋",
+    "clear": "清除",
+    "noRecentSearches": "還沒有最近的搜尋。嘗試使用“Nordlicht”、“發票”或“工作流程”。",
+    "recentActivity": "近期动态",
+    "aiReady": "人工智慧就緒（架構）",
+    "pinnedResults": "固定結果",
+    "noMatches": "沒有匹配項",
+    "noMatchesBody": "嘗試其他關鍵字，或透過快速操作開啟模組。",
+    "close": "關閉",
+    "open": "打開",
+    "keyboardHints": "↑↓ 導覽 · Enter 開啟 · Ctrl/⌘ K 切換 · Esc 關閉",
+    "pinResult": "固定結果",
+    "unpinResult": "取消固定結果",
+    "previewEmpty": "將滑鼠懸停或突出顯示預覽、元資料和智慧連結的結果。",
+    "previewAria": "通用預覽",
+    "relatedItems": "相關項目",
+    "noSmartLinks": "此結果沒有智慧連結。",
+    "groups": {
+      "crm": "客戶關係管理",
+      "finance": "金融",
+      "documents": "文件",
+      "automation": "自動化",
+      "projects": "專案",
+      "creator": "創作人工作室",
+      "settings": "設定",
+      "commands": "命令",
+      "actions": "快速行動"
+    },
+    "status": {
+      "architecture": "建築學",
+      "planned": "計劃"
+    },
+    "meta": {
+      "type": "類型",
+      "module": "模組",
+      "quickAction": "快速行動"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "創建客戶",
+        "subtitle": "開啟「客戶」以新增記錄"
+      },
+      "createInvoice": {
+        "title": "建立發票",
+        "subtitle": "開啟財務發票工作區"
+      },
+      "uploadDocument": {
+        "title": "上傳文件",
+        "subtitle": "開啟文件知識中心"
+      },
+      "newWorkflow": {
+        "title": "新工作流程",
+        "subtitle": "開放自動化引擎建構器"
+      },
+      "newProject": {
+        "title": "新專案",
+        "subtitle": "開啟專案工作區"
+      },
+      "inviteMember": {
+        "title": "邀請團隊成員",
+        "subtitle": "開啟團隊邀請"
+      },
+      "openBilling": {
+        "title": "開放式帳單",
+        "subtitle": "計劃、發票和訂閱"
+      },
+      "openSettings": {
+        "title": "開啟設定",
+        "subtitle": "工作空間偏好"
+      }
+    },
+    "commands": {
+      "openCrm": {
+        "title": "開放式客戶關係管理",
+        "subtitle": "人工智慧CRM模組"
+      },
+      "openCustomers": {
+        "title": "開放客戶",
+        "subtitle": "客戶管理"
+      },
+      "openFinance": {
+        "title": "開放金融",
+        "subtitle": "財稅模組"
+      },
+      "openDocuments": {
+        "title": "開啟文件",
+        "subtitle": "知識中心"
+      },
+      "openAutomation": {
+        "title": "開放式自動化",
+        "subtitle": "工作流程引擎"
+      },
+      "openSettings": {
+        "title": "開啟設定",
+        "subtitle": "工作區設定"
+      },
+      "openProjects": {
+        "title": "打開項目",
+        "subtitle": "專案集"
+      },
+      "openAi": {
+        "title": "開放人工智慧",
+        "subtitle": "AI平台工作區"
+      },
+      "openAnalytics": {
+        "title": "開放分析",
+        "subtitle": "情報中心"
+      },
+      "openIdentity": {
+        "title": "開放身份和訪問",
+        "subtitle": "IAM 設定、RBAC、審核"
+      },
+      "openBilling": {
+        "title": "開放式帳單",
+        "subtitle": "訂閱門戶和計劃"
+      },
+      "openIntegrations": {
+        "title": "開放式集成",
+        "subtitle": "整合中心和API生態系統"
+      }
+    },
+    "modules": {
+      "dashboard": {
+        "subtitle": "指揮中心和全球概覽"
+      },
+      "customers": {
+        "subtitle": "客戶記錄和客戶關係管理"
+      },
+      "projects": {
+        "subtitle": "專案交付和追蹤"
+      },
+      "invoices": {
+        "title": "發票",
+        "subtitle": "帳單和發票"
+      },
+      "finance": {
+        "subtitle": "人工智慧會計、銀行、稅務和金融智能"
+      },
+      "crm": {
+        "subtitle": "AI原生CRM和Creator作業系統"
+      },
+      "creator": {
+        "subtitle": "AI內容製作及行銷作業系統"
+      },
+      "documents": {
+        "subtitle": "AI 文件和知識中心"
+      },
+      "ai": {
+        "title": "人工智慧",
+        "subtitle": "AGXORA AI 平台 — 企業工作區"
+      },
+      "analytics": {
+        "subtitle": "商業智能"
+      },
+      "automation": {
+        "subtitle": "AI工作流程與自動化引擎"
+      },
+      "memory": {
+        "title": "記憶",
+        "subtitle": "組織記憶"
+      },
+      "team": {
+        "subtitle": "成員及邀請"
+      },
+      "settings": {
+        "subtitle": "工作區和 AI 設定"
+      }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "人工智慧搜尋",
+        "description": "使用未來跨模組的檢索模型對結果進行排名。"
+      },
+      "semantic": {
+        "title": "語意搜尋",
+        "description": "文件、發票和知識的向量相似性。"
+      },
+      "nl": {
+        "title": "自然語言搜尋",
+        "description": "解析「Nordlicht 逾期發票」等意圖。"
+      },
+      "rag": {
+        "title": "知識檢索",
+        "description": "文檔知識中心語料庫中的基本答案。"
+      }
+    }
+  },
+  "summary": "{name}：{customers} 客戶 · {projects} 項目 · {updates} 今天更新。"
+}

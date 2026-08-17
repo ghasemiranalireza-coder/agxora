@@ -1,0 +1,136 @@
+{
+  "loading": "엔터프라이즈 인텔리전스 센터 로드 중…",
+  "eyebrow": "엔터프라이즈 인텔리전스 센터",
+  "title": "지능",
+  "subtitle": "모든 AGXORA 모듈에 대한 KPI, 성과표, 경고 및 보고서. 아래 값은 라이브 분석 백엔드가 연결될 때까지 시드된 데모 데이터세트입니다.",
+  "demoBanner": "데모 데이터 세트 — 세션 중 작업을 필터링하고 확인합니다. 내보내기 및 라이브 모델 호출은 아직 사용할 수 없습니다.",
+  "noticeDefault": "실시간 프로덕션 원격 측정이 아닌 시드된 데모 분석을 표시합니다.",
+  "noPermission": "이 작업공간에 대한 Intelligence.read 권한이 없습니다.",
+  "filtersUpdated": "필터가 업데이트되었습니다.",
+  "demoReloaded": "이 작업공간에 대한 데모 데이터 세트가 다시 로드되었습니다.",
+  "acknowledged": "확인됨: {제목}",
+  "exportUnavailableTitle": "내보내기 불가 - 보고서 생성이 아직 연결되지 않았습니다.",
+  "exportUnavailableAria": "{제목}을 {형식}으로 내보내기 — 사용할 수 없음",
+  "tabs": {
+    "executive": "경영진",
+    "health": "비즈니스 건강",
+    "workspace": "해석학",
+    "kpis": "KPI 센터",
+    "reports": "보고서",
+    "insights": "통찰력",
+    "forecasts": "예측",
+    "alerts": "경고",
+    "scorecards": "스코어카드",
+    "explorer": "데이터 탐색기"
+  },
+  "filters": {
+    "from": "에서",
+    "to": "에게",
+    "domain": "도메인",
+    "allDomains": "모든 도메인",
+    "apply": "필터 적용",
+    "reloadDemo": "데모 데이터 다시 로드",
+    "viewsAria": "인텔리전스 보기"
+  },
+  "executive": {
+    "companyHealth": "회사 상태",
+    "revenueScore": "수익 점수",
+    "customerHealth": "고객 건강",
+    "projectHealth": "프로젝트 상태",
+    "workflowSuccess": "워크플로 성공",
+    "aiActivity": "AI 활동",
+    "finance": "재원",
+    "riskGrowth": "위험 / 성장",
+    "kpiStrip": "경영진 KPI 스트립",
+    "visualizationPreviews": "시각화 미리보기",
+    "visualizationHint": "대화형 드릴다운이 아닌 데모 시리즈의 예시 차트입니다.",
+    "noSeries": "시리즈 바인딩 없음"
+  },
+  "health": {
+    "title": "비즈니스 상태 분해",
+    "overall": "전반적인",
+    "revenue": "수익",
+    "customers": "고객",
+    "projects": "프로젝트",
+    "workflows": "워크플로우",
+    "ai": "일체 포함",
+    "finance": "재원",
+    "operations": "운영",
+    "riskPosture": "위험태세",
+    "growth": "성장",
+    "observability": "관찰 가능성: {metrics} 지표 · 평균 {avgMs}ms · 시스템 상태 {health}"
+  },
+  "workspace": {
+    "noSeries": "시리즈 없음"
+  },
+  "kpis": {
+    "title": "KPI 센터",
+    "subtitle": "수익, 고객, 프로젝트, 워크플로, 에이전트 및 자동화 전반에 걸쳐 구성 가능한 KPI 카탈로그입니다.",
+    "emptyTitle": "분석이 신호를 기다립니다",
+    "emptyDescription": "작업 공간에서 활동이 생성되면 여기에 임원 KPI 및 알림이 표시됩니다."
+  },
+  "reports": {
+    "title": "보고 엔진",
+    "subtitle": "보고서 정의는 검토를 위해 초기 설정됩니다. 보고 백엔드가 연결될 때까지 파일 내보내기를 사용할 수 없습니다.",
+    "emptyTitle": "보고서 없음",
+    "emptyDescription": "작업공간 부트스트랩에서 시드를 보고합니다.",
+    "scheduleOnDemand": "주문형"
+  },
+  "insights": {
+    "emptyTitle": "아직 통계가 없습니다.",
+    "emptyDescription": "데모 통찰력은 작업 영역 시드 뒤에 나타납니다. 실시간 AI 인사이트 생성이 연결되지 않았습니다.",
+    "badge": "데모 · {종류} · {도메인} · conf {신뢰}"
+  },
+  "forecasts": {
+    "emptyTitle": "아직 예측이 없습니다.",
+    "emptyDescription": "데모 예측은 시드 다음에 나타납니다. 예측 모델이 연결되어 있지 않습니다.",
+    "title": "{종류} 예측",
+    "baseline": "기준 {baseline} → 예상 {projected}({days}d)",
+    "confidence": "데모 · 자신감 {confidence} — {note}"
+  },
+  "alerts": {
+    "title": "경고 엔진",
+    "emptyTitle": "알림 없음",
+    "emptyDescription": "위험 휴리스틱으로부터 시드를 경고합니다.",
+    "acked": "확인됨",
+    "open": "열려 있는",
+    "acknowledge": "인정하다"
+  },
+  "scorecards": {
+    "title": "스코어카드 엔진",
+    "emptyTitle": "스코어카드 없음",
+    "emptyDescription": "부트스트랩의 스코어카드 시드."
+  },
+  "explorer": {
+    "title": "데이터 탐색기",
+    "searchPlaceholder": "데모 행 검색…",
+    "searchAria": "데모 탐색기 행 검색",
+    "emptyTitle": "일치하는 행이 없습니다.",
+    "emptyDescription": "필터를 조정하거나 검색하거나 데모 데이터세트를 다시 로드하세요.",
+    "hint": "시드된 튜플에 대한 클라이언트 측 검색 - 백엔드 집계와 드릴다운이 연결되지 않습니다."
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "값",
+    "delta": "Δ%",
+    "trend": "경향",
+    "target": "목표",
+    "severity": "심각성",
+    "alert": "알리다",
+    "domain": "도메인",
+    "status": "상태",
+    "actions": "행위",
+    "report": "보고서",
+    "kind": "친절한",
+    "schedule": "일정",
+    "export": "내보내다",
+    "scorecard": "스코어카드",
+    "score": "점수",
+    "topDriver": "탑 드라이버",
+    "label": "상표",
+    "entity": "실재",
+    "measure": "측정하다",
+    "date": "날짜"
+  },
+  "emDash": "—"
+}

@@ -1,0 +1,108 @@
+{
+  "page": {
+    "eyebrow": "AGXORA 마케팅 OS",
+    "title": "AI 크리에이터 스튜디오",
+    "lead": "엔터프라이즈 콘텐츠 제작 — 모든 채널에서 AI 기반 캠페인을 생성, 브랜딩, 계획, 게시 및 측정합니다.",
+    "dashboard": "계기반",
+    "workspace": "작업공간",
+    "workspaceSubtitle": "콘텐츠 만들기 · 캠페인 · 미디어 라이브러리 · 템플릿 · 브랜드 자산 · 게시 대기열 · 분석",
+    "workspaceAria": "크리에이터 작업공간",
+    "integrations": "미래 통합",
+    "integrationsSubtitle": "공식 플랫폼 어댑터가 예약되어 있습니다. 가짜 라이브 연결이 없습니다.",
+    "aiFeatures": "AI 기능",
+    "aiFeaturesSubtitle": "생산, 브랜드, 일정, 현지화에 대한 역량 맵입니다."
+  },
+  "tabs": {
+    "create": "콘텐츠 만들기",
+    "campaigns": "캠페인",
+    "media": "미디어 라이브러리",
+    "templates": "템플릿",
+    "brand": "브랜드 자산",
+    "queue": "게시 대기열",
+    "analytics": "해석학"
+  },
+  "templates": {
+    "emptyTitle": "템플릿 없음",
+    "emptyDescription": "재사용 가능한 콘텐츠와 디자인 템플릿이 여기에 있습니다."
+  },
+  "campaign": {
+    "title": "캠페인 플래너",
+    "calendar": "콘텐츠 캘린더",
+    "columns": {
+      "name": "캠페인 이름",
+      "objective": "목적",
+      "audience": "청중",
+      "platforms": "플랫폼",
+      "budget": "예산",
+      "timeline": "타임라인",
+      "status": "상태"
+    },
+    "emptyTitle": "캠페인 없음",
+    "emptyDescription": "목표, 대상, 타임라인을 계획하는 캠페인을 만듭니다."
+  },
+  "media": {
+    "title": "미디어 라이브러리",
+    "columns": {
+      "asset": "유산",
+      "type": "유형",
+      "folder": "접는 사람",
+      "tags": "태그",
+      "updated": "업데이트됨"
+    },
+    "emptyTitle": "미디어 없음",
+    "emptyDescription": "이미지, 동영상, 문서, 로고, 템플릿이 여기에 표시됩니다.",
+    "searchPlaceholder": "자산, 폴더, 태그 검색…",
+    "typeFilter": "유형",
+    "allTypes": "모든 유형",
+    "images": "이미지",
+    "videos": "비디오",
+    "documents": "서류",
+    "logos": "브랜드 로고",
+    "templates": "템플릿"
+  },
+  "generator": {
+    "title": "AI 콘텐츠 생성기",
+    "lead": "Instagram 캡션, TikTok 스크립트, LinkedIn 게시물, 광고, SEO 기사 등을 만드세요.",
+    "brief": "짧은",
+    "briefPlaceholder": "제안, 청중 및 CTA를 설명하십시오…",
+    "generateDraft": "초안 생성",
+    "aiRewrite": "AI 재작성",
+    "translate": "번역하다",
+    "initialOutput": "형식과 브랜드 목소리를 선택한 다음 초안을 생성하세요. 공급자 어댑터는 예약되어 있습니다. 아직 실시간 모델 호출이 없습니다.",
+    "draftStaged": "{format} · 음성: {voice}에 대한 초안이 준비되었습니다. 생성 어댑터가 예약되었습니다.",
+    "rewriteQueued": "AI 재작성 대기 중 - 재작성 어댑터가 예약되었습니다.",
+    "translateQueued": "콘텐츠 번역 대기 중 — 다중 언어 어댑터가 예약되어 있습니다.",
+    "brandVoice": "브랜드 보이스",
+    "brandVoiceLead": "일관성을 위한 비즈니스 톤 사전 설정과 맞춤형 브랜드 음성.",
+    "active": "활동적인"
+  },
+  "queue": {
+    "title": "게시 대기열",
+    "columns": {
+      "title": "제목",
+      "platform": "플랫폼",
+      "format": "체재",
+      "status": "상태",
+      "scheduled": "예정됨",
+      "author": "작가"
+    },
+    "emptyTitle": "대기열에 게시물이 없습니다.",
+    "emptyDescription": "초안, 리뷰, 예정된 게시물이 여기에 표시됩니다.",
+    "filterStatus": "필터 상태",
+    "allStatuses": "모든 상태"
+  },
+  "analytics": {
+    "title": "해석학",
+    "topPosts": "인기 게시물",
+    "engagement": "영어 {값}",
+    "reach": "{value} 도달",
+    "recommendations": "AI 추천"
+  },
+  "integrations": {
+    "lead": "향후 통합 - 선택 사항입니다. 연결될 때까지 라이브 API가 없습니다. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, 메타 비즈니스, Google Ads, Google Analytics.",
+    "adapter": "어댑터:"
+  },
+  "aiFeaturesPanel": {
+    "lead": "AI 기능 맵 — 아이디어, 캡션, 해시태그, 달력, 캠페인, 청중, 일정, 브랜드 일관성, 재작성, 번역, 다국어."
+  }
+}

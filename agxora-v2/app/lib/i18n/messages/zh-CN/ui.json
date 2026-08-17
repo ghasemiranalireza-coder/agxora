@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "没有结果",
+    "noResultsDescription": "没有任何内容与当前过滤器匹配。",
+    "previous": "以前的",
+    "next": "下一个",
+    "paginationRange": "{开始}–{结束}，共 {总计}",
+    "sortAscending": "升序排序",
+    "sortDescending": "降序排序"
+  },
+  "dialog": {
+    "close": "关闭对话框"
+  },
+  "module": {
+    "notAvailableTitle": "{title}尚不可用",
+    "notAvailableDescription": "该模块外壳是为将来的版本准备的。这里尚未存储任何记录。"
+  },
+  "states": {
+    "errorLabel": "错误",
+    "errorTitle": "出了点问题",
+    "errorDescription": "我们无法完成该申请。请稍后重试。",
+    "retry": "重试"
+  },
+  "empty": {
+    "crmTitle": "您的 CRM 已准备就绪",
+    "crmDescription": "创建第一个客户记录以解锁目录、个人资料和活动。",
+    "crmAction": "开放式客户关系管理",
+    "projectsTitle": "还没有项目",
+    "projectsDescription": "启动交付工作区来跟踪里程碑、预算和团队所有权。",
+    "projectsAction": "开放项目",
+    "analyticsTitle": "分析等待信号",
+    "analyticsDescription": "一旦您的工作区产生活动，执行 KPI 和警报就会出现在此处。",
+    "analyticsAction": "开放分析",
+    "documentsTitle": "文档库为空",
+    "documentsDescription": "上传或创建知识资产以支持审批、版本和 AI 上下文。",
+    "documentsAction": "打开文件",
+    "billingTitle": "还没有账单历史记录",
+    "billingDescription": "升级计划以生成发票、续订和付款历史记录。",
+    "billingAction": "开放式计费",
+    "agentsTitle": "没有活跃的代理",
+    "agentsDescription": "从市场安装或激活代理以启动自主运行。",
+    "agentsAction": "开放代理操作系统"
+  },
+  "yes": "是的",
+  "no": "不",
+  "dash": "—"
+}

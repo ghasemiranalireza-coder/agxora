@@ -1,0 +1,70 @@
+{
+  "navLabel": "Navigasi harga",
+  "navPricing": "Harga",
+  "navContactSales": "Hubungi Penjualan",
+  "navBookDemo": "Demo Buku",
+  "navSignIn": "Masuk",
+  "eyebrow": "Harga",
+  "title": "Rencana dibuat untuk operator yang melakukan pengiriman.",
+  "lead": "Hapus tingkatan komersial. Mulai secara gratis, skalakan jika sudah siap, atau bicarakan dengan bagian penjualan untuk persyaratan perusahaan.",
+  "billingInterval": "Interval penagihan",
+  "monthly": "Bulanan",
+  "yearly": "Tahunan",
+  "savePercent": "Hemat ~20%",
+  "mostPopular": "PALING POPULER",
+  "startFree": "Mulai Gratis",
+  "bookDemo": "Demo Buku",
+  "contactSales": "Hubungi Penjualan",
+  "perMonth": "/bln",
+  "perMonthYearly": "/bln ditagih setiap tahun",
+  "yearlyHint": "{amount}/tahun · hemat {percent}%",
+  "commercialActions": "Tindakan komersial",
+  "legal": "Legal",
+  "planAria": "rencana {name} — {cta}",
+  "plans": {
+    "starter": {
+      "name": "Starter",
+      "description": "Untuk pekerja lepas dan usaha kecil.",
+      "features": [
+        "CRM & saluran pelanggan",
+        "Proyek dan dokumen",
+        "Asisten AI yang diatur",
+        "Hingga 5 kursi",
+        "Dukungan email"
+      ]
+    },
+    "business": {
+      "name": "Bisnis",
+      "description": "Untuk tim yang sedang berkembang.",
+      "features": [
+        "Semuanya ada di Pemula",
+        "Modul keuangan & analitik",
+        "Ekspor otomatisasi & audit",
+        "Kolaborasi tim",
+        "Dukungan prioritas"
+      ]
+    },
+    "professional": {
+      "name": "Profesional",
+      "description": "Untuk perusahaan maju.",
+      "features": [
+        "Semuanya ada di Pemula",
+        "Modul keuangan & analitik",
+        "akses API",
+        "Alur kerja perusahaan tingkat lanjut",
+        "Kotak masuk dukungan prioritas"
+      ]
+    },
+    "enterprise": {
+      "name": "Perusahaan",
+      "description": "Harga khusus untuk skala tak terbatas.",
+      "features": [
+        "Harga khusus",
+        "Skala tidak terbatas",
+        "Orientasi khusus",
+        "Integrasi khusus",
+        "Dukungan prioritas"
+      ]
+    }
+  }
+}

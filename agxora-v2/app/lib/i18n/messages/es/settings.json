@@ -1,0 +1,442 @@
+{
+  "controlCenter": "Centro de control",
+  "settingsSections": "Secciones de configuración",
+  "profile": {
+    "label": "Perfil",
+    "description": "Avatar, identidad y preferencias personales",
+    "title": "Perfil",
+    "panelDescription": "Avatar, nombre completo, correo electrónico, función, zona horaria, idioma y preferencia de tema.",
+    "language": "Idioma",
+    "timezone": "Zona horaria",
+    "fullName": "nombre completo",
+    "email": "Correo electrónico",
+    "role": "Role",
+    "theme": "Tema",
+    "avatar": "Avatar",
+    "changeAvatar": "Cambiar avatar",
+    "region": "Región",
+    "personalPrefs": "Preferencias personales",
+    "supportLinks": "Soporte y asuntos legales",
+    "signedOut": "Inicie sesión para ver la identidad de su cuenta.",
+    "serverIdentityNotice": "El nombre, el correo electrónico y la función provienen de la sesión de su servidor. No se almacenan en este navegador.",
+    "localPrefsNotice": "La zona horaria, la región y las preferencias personales aún no persisten. Guardarlos solo actualiza esta página hasta que usted la abandone.",
+    "avatarUnavailable": "La carga de avatar aún no está disponible.",
+    "appearanceNote": "La configuración de apariencia permanece en Apariencia. El encabezado proporciona solo un cambio rápido de tema.",
+    "prefsHint": "Utilizado por asistentes de IA en todos los módulos.",
+    "themeResolved": "{modo} (resuelto {apariencia})",
+    "regions": {
+      "EU": "unión Europea",
+      "US": "Estados Unidos",
+      "MENA": "MENA",
+      "APAC": "Asia Pacífico"
+    }
+  },
+  "organization": {
+    "label": "Organización",
+    "description": "Perfil de la empresa e identidad fiscal",
+    "title": "Organización",
+    "panelDescription": "Nombre de la empresa, logotipo, dirección, información fiscal, departamentos y unidades de negocio."
+  },
+  "workspace": {
+    "label": "Espacio de trabajo",
+    "description": "Branding, página de inicio y módulos predeterminados",
+    "title": "Espacio de trabajo",
+    "panelDescription": "Configuración del espacio de trabajo, panel predeterminado, marca, módulos y página de inicio."
+  },
+  "team": {
+    "label": "Equipo",
+    "description": "Miembros, roles, invitaciones y grupos",
+    "title": "Equipo",
+    "panelDescription": "Miembros, roles, invitaciones y grupos."
+  },
+  "ai": {
+    "label": "AI",
+    "description": "Proveedor, modelo, creatividad y memoria.",
+    "title": "AI",
+    "panelDescription": "Preferencias de proveedor, modelo, creatividad, temperatura y memoria.",
+    "openAgentOs": "Abrir sistema operativo del agente",
+    "openAiWorkspace": "Espacio de trabajo abierto de IA",
+    "noticeSync": "La configuración de AI se sincroniza a través de AISettingsProvider: las claves nunca se almacenan aquí.",
+    "noticeProvider": "Las implementaciones de los proveedores permanecen detrás de la capa de servicios de IA. La interfaz de usuario nunca recibe claves API ni detalles del SDK. Los agentes autónomos viven en Agent OS.",
+    "preferredProvider": "Proveedor de IA preferido",
+    "defaultModel": "Modelo de IA predeterminado",
+    "temperature": "Temperatura",
+    "topP": "P superior",
+    "maxTokens": "Fichas máximas",
+    "writingStyle": "Estilo de escritura",
+    "languagePreferences": "Preferencias de idioma",
+    "systemPrompt": "Aviso del sistema",
+    "systemPromptHint": "Se aplica como instrucción del sistema predeterminada para AI Platform.",
+    "systemPromptPlaceholder": "Eres AGXORA AI, el asistente operativo empresarial...",
+    "apiKeyManagement": "Gestión de claves API",
+    "apiKeyHint": "Las claves se proporcionan únicamente a través de variables de entorno del servidor.",
+    "apiKeyPlaceholder": "Configurado mediante variables de entorno AGXORA_* (nunca en el navegador)",
+    "memory": "Memoria",
+    "memoryDescription": "Permita que la memoria de la organización informe las respuestas de la IA entre los módulos.",
+    "automationSuggestions": "Sugerencias de automatización",
+    "automationSuggestionsDescription": "Sugerencias de flujo de trabajo de IA superficial en Automation Engine.",
+    "streaming": "Transmisión",
+    "streamingDescription": "Transmita respuestas del modelo cuando el proveedor lo admita.",
+    "providers": {
+      "mock": "simulacro (local)",
+      "openai": "AbiertoAI",
+      "azure": "Azure abierto AI",
+      "anthropic": "antrópico",
+      "google": "Google",
+      "openrouter": "enrutador abierto",
+      "ollama": "Ollama",
+      "local": "Proveedor local"
+    },
+    "writingStyles": {
+      "professional": "Profesional",
+      "concise": "Conciso",
+      "friendly": "Amigable",
+      "technical": "Técnico"
+    },
+    "languages": {
+      "auto": "Coincidir con el idioma del perfil",
+      "en": "Inglés",
+      "de": "alemán"
+    }
+  },
+  "appearance": {
+    "label": "Apariencia",
+    "description": "Tema, densidad y efectos de vidrio.",
+    "title": "Apariencia",
+    "panelDescription": "Tema, densidad, acento, animaciones y efectos de cristal.",
+    "noticeTheme": "El modo temático es la única fuente de verdad a través de ThemeProvider. El encabezado ofrece solo un cambio rápido.",
+    "themeLabel": "Tema",
+    "themeModeAria": "Modo tema",
+    "resolvedAppearance": "Aspecto resuelto:",
+    "accentColor": "Color de acento",
+    "accentNotice": "La preferencia de acento se almacena para futuros cableados de var CSS; aún no muta el sistema de color bloqueado.",
+    "density": "Densidad",
+    "compactMode": "Modo compacto",
+    "compactModeDescription": "Reduzca el relleno en tablas y paneles empresariales.",
+    "animations": "animaciones",
+    "animationsDescription": "Movimiento de sección y elevaciones flotantes. Respeta la configuración del sistema operativo de movimiento reducido.",
+    "glassEffects": "Efectos de vidrio",
+    "glassEffectsDescription": "Las tarjetas de vidrio esmerilado y la barra lateral difuminan la preferencia de intensidad.",
+    "modes": {
+      "day": {
+        "label": "Luz",
+        "hint": "Paleta del día empresarial perla/hielo"
+      },
+      "night": {
+        "label": "Oscuro",
+        "hint": "Aspecto nocturno cinematográfico aprobado."
+      },
+      "auto": {
+        "label": "Sistema",
+        "hint": "Seguir horario local (Auto)"
+      }
+    },
+    "densities": {
+      "comfortable": "Cómodo",
+      "compact": "Compacto",
+      "spacious": "Espacioso"
+    }
+  },
+  "notifications": {
+    "label": "Notificaciones",
+    "description": "Alertas por correo electrónico, push y de módulo",
+    "title": "Notificaciones",
+    "panelDescription": "Alertas por correo electrónico, push, de escritorio, móviles y específicas de módulos.",
+    "notice": "Los canales de notificación son solo preferencias: los adaptadores de entrega están reservados.",
+    "email": "Correo electrónico",
+    "push": "Empujar",
+    "desktop": "De oficina",
+    "mobile": "Móvil",
+    "workflowAlerts": "Alertas de flujo de trabajo",
+    "workflowAlertsDescription": "Eventos de ejecución y aprobación de Automation Engine.",
+    "financeAlerts": "Alertas financieras",
+    "crmAlerts": "Alertas de CRM",
+    "documentsAlerts": "Alertas de documentos",
+    "deliveryNotice": "Los adaptadores de entrega se envían en el momento del lanzamiento. Preguntas:",
+    "contactSupport": "Contactar con soporte"
+  },
+  "documents": {
+    "label": "Documentos",
+    "description": "Almacenamiento, retención y conocimiento.",
+    "title": "Documentos",
+    "panelDescription": "Preferencias de almacenamiento, retención, carpeta predeterminada, control de versiones y configuración de conocimientos.",
+    "notice": "La configuración de documentos se integra con la arquitectura de Knowledge Hub.",
+    "storagePreferences": "Preferencias de almacenamiento",
+    "retentionPolicy": "Política de retención",
+    "defaultFolder": "Carpeta predeterminada",
+    "versioning": "Versionado",
+    "versioningDescription": "Mantenga el historial de versiones del documento para restaurar/comparar.",
+    "knowledgeSettings": "Configuración de conocimiento",
+    "knowledgeDescription": "Indexación de IA para la búsqueda en Knowledge Hub.",
+    "storageOptions": {
+      "workspace-default": "Valor predeterminado del espacio de trabajo",
+      "eu-region": "Región de la UE",
+      "encrypted-vault": "Bóveda cifrada"
+    },
+    "retentionOptions": {
+      "30-days": "30 días (cero)",
+      "2-years": "2 años",
+      "7-years": "7 años",
+      "10-years": "10 años"
+    }
+  },
+  "automation": {
+    "label": "Automatización",
+    "description": "Valores predeterminados del flujo de trabajo y política de reintento",
+    "title": "Automatización",
+    "panelDescription": "Valores predeterminados del flujo de trabajo, sugerencias de IA, registros de ejecución, límites del historial y política de reintento.",
+    "notice": "Los valores predeterminados de automatización se aplican a la arquitectura de Workflow Engine.",
+    "workflowDefaults": "Valores predeterminados del flujo de trabajo",
+    "historyLimits": "Límites históricos",
+    "retryPolicy": "Política de reintento",
+    "aiSuggestions": "Sugerencias de IA",
+    "executionLogs": "Registros de ejecución",
+    "executionLogsDescription": "Conserve cargas útiles de ejecución detalladas en el Historial del flujo de trabajo.",
+    "workflowOptions": {
+      "require-approval": "Requerir puertas de aprobación",
+      "auto-run": "Ejecutar automáticamente flujos confiables",
+      "draft-only": "Solo borrador"
+    },
+    "historyOptions": {
+      "30-days": "30 dias",
+      "90-days": "90 dias",
+      "365-days": "365 días"
+    },
+    "retryOptions": {
+      "none": "Sin reintentos",
+      "3-exponential": "3× exponencial",
+      "5-linear": "5× lineal"
+    }
+  },
+  "integrations": {
+    "label": "Integraciones",
+    "description": "Instalado, conectado y disponible",
+    "title": "Integraciones",
+    "panelDescription": "Adaptadores instalados, conectados y disponibles.",
+    "openCenter": "Centro de integración abierto",
+    "notice": "Enterprise Integration Platform se encuentra en el Centro de integración: conectores, OAuth, webhooks, claves API y el puente de eventos del flujo de trabajo.",
+    "columns": {
+      "integration": "Integración",
+      "category": "Categoría",
+      "status": "Estado",
+      "adapter": "Adaptador"
+    }
+  },
+  "security": {
+    "label": "Seguridad",
+    "description": "Sesiones, contraseña y protección de cuentas",
+    "title": "Seguridad",
+    "panelDescription": "Sesiones de servidor para esta cuenta. El dispositivo, la IP y la MFA no se almacenan.",
+    "activeSessions": "Sesiones activas",
+    "currentSession": "Sesión actual",
+    "otherSession": "Otra sesión",
+    "currentBadge": "Esta sesión",
+    "otherBadge": "Otra sesión",
+    "createdAt": "Iniciado sesión",
+    "expiresAt": "Vence",
+    "revoke": "Revocar sesión",
+    "revokeAria": "Revocar sesión iniciada en {when}",
+    "revokeOthers": "Cerrar sesión en otras sesiones",
+    "revokeOthersAria": "Cerrar sesión en todas las sesiones excepto en la actual",
+    "revoked": "Sesión revocada.",
+    "othersRevoked": "Otras sesiones cerraron sesión. Esta sesión todavía está activa.",
+    "loading": "Cargando sesiones…",
+    "empty": "No hay sesiones activas",
+    "emptyBody": "No hay sesiones de servidor activas para esta cuenta.",
+    "demoEmpty": "Inicie sesión para registrar una sesión de demostración local en este navegador.",
+    "signedOutTitle": "No iniciado sesión",
+    "signedOut": "Inicie sesión para ver sus sesiones activas del servidor.",
+    "loadFailed": "No se pudieron cargar las sesiones.",
+    "revokeFailed": "No se pudo revocar esa sesión.",
+    "logout": "Cerrar sesión en esta sesión",
+    "logoutAria": "Cerrar sesión en la sesión actual del servidor",
+    "password": "Contraseña",
+    "changePassword": "Restablecer contraseña",
+    "passwordHint": "Los cambios de contraseña utilizan el flujo de restablecimiento existente. Aún no está disponible un formulario exclusivo para cambiar contraseña.",
+    "mfaTitle": "Autenticación de dos factores",
+    "mfaUnavailable": "La autenticación de dos factores aún no está disponible.",
+    "ssoTitle": "SSO y OAuth",
+    "ssoUnavailable": "Los proveedores de inicio de sesión único y OAuth aún no están disponibles.",
+    "encryptionTitle": "Cifrado",
+    "encryptionUnavailable": "Los controles de administración de claves y cifrado en reposo aún no están disponibles.",
+    "trustedDevices": "Dispositivos confiables",
+    "trustedUnavailable": "El historial de IP y de dispositivos confiables no se almacena. Los metadatos de la sesión se limitan a los tiempos de creación y caducidad.",
+    "apiKeys": "Claves API",
+    "apiKeysHint": "Las claves de desarrollador se administran en API y desarrolladores. Este panel no emite claves.",
+    "openApi": "Abrir configuración de API",
+    "serverNotice": "Las sesiones se almacenan en el servidor. Este navegador nunca trata los datos de identidad local como autorizados.",
+    "demoNotice": "El modo de demostración utiliza únicamente sesiones del navegador local. Esta no es una autenticación de producción.",
+    "noDeviceMeta": "El dispositivo, la IP y el agente de usuario no se registran."
+  },
+  "billing": {
+    "label": "Facturación III.",
+    "description": "Plan, uso, facturas y pagos.",
+    "title": "Facturación III.",
+    "panelDescription": "Plan actual, renovación, uso, facturas y ruta de actualización."
+  },
+  "api": {
+    "label": "API y desarrolladores",
+    "description": "Claves, webhooks, tokens, sandbox",
+    "title": "API y desarrolladores",
+    "panelDescription": "Claves, webhooks, tokens y acceso al sandbox.",
+    "openPortal": "Abrir portal de desarrolladores",
+    "notice": "Genere, rote y revoque claves en el Centro de integración. Allí están disponibles la puerta de enlace, el probador de webhooks y el explorador de API.",
+    "webhooks": "Ganchos web",
+    "sandbox": "Salvadera",
+    "sandboxEnabled": "Activado",
+    "sandboxDisabled": "Desactivado",
+    "tokensNotice": "Los tokens de desarrollador nunca muestran secretos completos: solo prefijo.",
+    "columns": {
+      "name": "Nombre",
+      "key": "Llave",
+      "scope": "Alcance",
+      "lastUsed": "último usado"
+    }
+  },
+  "audit": {
+    "label": "Registros de auditoría",
+    "description": "Cambios de actividad, seguridad y sistema.",
+    "title": "Registros de auditoría",
+    "panelDescription": "Actividad reciente, eventos de seguridad y cambios en el sistema.",
+    "columns": {
+      "when": "Cuando",
+      "actor": "Actor",
+      "category": "Categoría",
+      "summary": "Resumen"
+    },
+    "categories": {
+      "activity": "Actividad reciente",
+      "security": "Eventos de seguridad",
+      "system": "Cambios en el sistema"
+    }
+  },
+  "advanced": {
+    "label": "Avanzado",
+    "description": "Experimental, restablecer, importar, exportar",
+    "title": "Avanzado",
+    "panelDescription": "Funciones experimentales, restablecer, importar y exportar.",
+    "notice": "Las acciones avanzadas requieren confirmación antes de aplicar.",
+    "experimentalFeatures": "Funciones experimentales",
+    "experimentalDescription": "Opte por las capacidades del Centro de control inacabadas.",
+    "export": "Exportar",
+    "import": "Importar",
+    "reset": "Reiniciar",
+    "exportUnavailable": "La exportación aún no está disponible.",
+    "importUnavailable": "La importación aún no está disponible.",
+    "resetUnavailable": "El reinicio aún no está disponible."
+  },
+  "page": {
+    "eyebrow": "Centro de control AGXORA",
+    "title": "Ajustes",
+    "lead": "Configuración empresarial para cada módulo de AGXORA: perfil, organización, IA, apariencia, seguridad, facturación y controles de desarrollador en un solo lugar.",
+    "loading": "Cargando configuración…",
+    "breadcrumb": "{etiqueta} · {descripción}"
+  },
+  "saveChanges": "Guardar cambios",
+  "sessionNotice": "Actualizado para esta sesión: {area} no está conectada.",
+  "kpi": {
+    "members": {
+      "label": "Miembros del equipo",
+      "caption": "Asientos activos"
+    },
+    "integrations": {
+      "label": "Integraciones",
+      "caption": "Adaptadores conectados"
+    },
+    "api": {
+      "label": "Claves API",
+      "caption": "Fichas de desarrollador"
+    },
+    "audit": {
+      "label": "Eventos de auditoría",
+      "caption": "últimos 7 días"
+    }
+  },
+  "unknown": {
+    "title": "Ajustes",
+    "description": "Sección desconocida.",
+    "emptyTitle": "Extraviado",
+    "emptyDescription": "Seleccione una sección de la navegación del Centro de control."
+  },
+  "controlPlane": {
+    "loading": "Cargando…",
+    "loadFailed": "No se pudieron cargar los datos de la organización. Inicia sesión e inténtalo de nuevo.",
+    "saveFailed": "No se pudieron guardar los cambios.",
+    "saving": "Ahorro…",
+    "orgName": "Nombre de la organización",
+    "orgSlug": "Babosa",
+    "owner": "Dueño",
+    "counts": "Miembros · espacios de trabajo",
+    "orgUpdated": "Organización actualizada.",
+    "countsValue": "{miembros} · {espacios de trabajo}",
+    "joined": "Unido",
+    "workspaceName": "Nombre del espacio de trabajo",
+    "switchWorkspace": "Espacio de trabajo activo",
+    "active": "activo",
+    "rename": "Rebautizar",
+    "archive": "Archivo",
+    "create": "Crear espacio de trabajo",
+    "createWorkspace": "Nuevo espacio de trabajo",
+    "workspaceCreated": "Espacio de trabajo creado.",
+    "workspaceUpdated": "Espacio de trabajo renombrado.",
+    "workspaceArchived": "Espacio de trabajo archivado.",
+    "workspaceSwitched": "Espacio de trabajo activo actualizado.",
+    "member": "Miembro",
+    "email": "Correo electrónico",
+    "role": "Role",
+    "status": "Estado",
+    "actions": "Comportamiento",
+    "roleOwner": "Dueño",
+    "roleAdmin": "Administración",
+    "roleMember": "Miembro",
+    "changeRole": "Cambiar rol",
+    "remove": "Eliminar",
+    "invite": "Invitar miembro",
+    "inviteTitle": "Invitar al espacio de trabajo",
+    "sendInvite": "Crear invitación",
+    "close": "Cerca",
+    "pending": "Invitaciones pendientes",
+    "noPending": "No hay invitaciones pendientes.",
+    "revoke": "Revocar",
+    "noMembers": "Aún no hay miembros",
+    "noMembersBody": "Invita a un compañero de equipo a este espacio de trabajo.",
+    "inviteHonesty": "La entrega de correo electrónico no está configurada. Comparta el enlace de invitación directamente.",
+    "inviteLink": "Enlace de invitación",
+    "inviteInvalid": "Esta invitación no es válida.",
+    "accept": "Aceptar invitación",
+    "invitedAs": "{email} está invitado como {role}.",
+    "inviteStatus": {
+      "pending": "Pendiente",
+      "expired": "Esta invitación ha caducado.",
+      "revoked": "Esta invitación fue revocada.",
+      "accepted": "Esta invitación ya fue aceptada."
+    },
+    "transferOwnership": "Transferir propiedad",
+    "transferTitle": "Transferir la propiedad de la organización",
+    "transferWarning": "Esta es una acción peligrosa. Eres PROPIETARIO hasta que el destinatario lo confirme. Después de la confirmación, usted se convierte en ADMIN y él en PROPIETARIO.",
+    "transferTarget": "Nuevo dueño",
+    "transferSelectMember": "Seleccione un miembro existente...",
+    "transferTypeName": "Escribe “{nombre}” para confirmar",
+    "transferConfirmMismatch": "El nombre escrito no coincide con el miembro seleccionado.",
+    "transferInitiate": "Iniciar transferencia",
+    "transferHonesty": "Se envía un correo electrónico de confirmación cuando se configura la entrega. De lo contrario, comparta el enlace de confirmación directamente con el destinatario.",
+    "transferLink": "Enlace de confirmación",
+    "transferPendingTitle": "Transferencia de propiedad pendiente",
+    "transferPendingBody": "Esperando a que {nombre} ({email}) confirme. Caduca {caduca}. Eres PROPIETARIO hasta entonces.",
+    "transferPendingNote": "Los roles de membresía no cambian mientras la transferencia esté pendiente.",
+    "cancelTransfer": "Cancelar transferencia",
+    "transferCancelled": "Transferencia de propiedad cancelada.",
+    "transferInvalid": "Esta transferencia de propiedad no es válida.",
+    "transferConfirmTitle": "Confirmar transferencia de propiedad",
+    "transferConfirmBody": "{from} quiere transferir la propiedad de la organización a {to} ({email}).",
+    "transferConfirmDanger": "Después de confirmar, usted se convierte en PROPIETARIO y el propietario anterior se convierte en ADMIN.",
+    "transferConfirmAction": "Confirmar que me convierto en el nuevo propietario",
+    "transferWrongAccount": "Inicie sesión como {email} para confirmar esta transferencia.",
+    "transferStatus": {
+      "pending": "Pendiente de confirmación",
+      "expired": "Esta transferencia de propiedad ha expirado.",
+      "cancelled": "Esta transferencia de propiedad fue cancelada.",
+      "confirmed": "Esta transferencia de propiedad ya se completó."
+    }
+  }
+}

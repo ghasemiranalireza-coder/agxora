@@ -1,6 +1,7 @@
 "use client";
 
 import type { JSX, ReactNode } from "react";
+import { useT } from "../../lib/i18n";
 import { EmptyState } from "./States";
 import { Button } from "./Button";
 import { UI } from "./tokens";
@@ -42,8 +43,8 @@ export function DataTable<T>({
   rows,
   rowKey,
   minWidth = 720,
-  emptyTitle = "No results",
-  emptyDescription = "Nothing matches the current filters.",
+  emptyTitle,
+  emptyDescription,
   toolbar,
   page = 1,
   pageSize = 25,
@@ -55,6 +56,10 @@ export function DataTable<T>({
   onSort,
   onRowClick,
 }: DataTableProps<T>): JSX.Element {
+  const t = useT();
+  const resolvedEmptyTitle = emptyTitle ?? t("ui.table.noResults");
+  const resolvedEmptyDescription =
+    emptyDescription ?? t("ui.table.noResultsDescription");
   const total = totalCount ?? rows.length;
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const start = (page - 1) * pageSize;
@@ -71,7 +76,7 @@ export function DataTable<T>({
       ) : null}
 
       {pageRows.length === 0 ? (
-        <EmptyState title={emptyTitle} description={emptyDescription} />
+        <EmptyState title={resolvedEmptyTitle} description={resolvedEmptyDescription} />
       ) : (
         <div className="overflow-x-auto">
           <table className="agx-ui-table" style={{ minWidth }}>
@@ -157,8 +162,11 @@ export function DataTable<T>({
             className="text-xs tabular-nums"
             style={{ color: UI.color.textMuted }}
           >
-            {Math.min(start + 1, total)}–{Math.min(start + pageSize, total)} of{" "}
-            {total}
+            {t("ui.table.paginationRange", {
+              start: Math.min(start + 1, total),
+              end: Math.min(start + pageSize, total),
+              total,
+            })}
           </p>
           <div className="flex gap-2">
             <Button
@@ -167,7 +175,7 @@ export function DataTable<T>({
               disabled={page <= 1}
               onClick={() => onPageChange(page - 1)}
             >
-              Previous
+              {t("ui.table.previous")}
             </Button>
             <Button
               size="sm"
@@ -175,7 +183,7 @@ export function DataTable<T>({
               disabled={page >= totalPages}
               onClick={() => onPageChange(page + 1)}
             >
-              Next
+              {t("ui.table.next")}
             </Button>
           </div>
         </div>

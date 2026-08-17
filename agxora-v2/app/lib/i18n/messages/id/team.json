@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "Identitas & Akses",
+    "title": "Tim",
+    "lead": "Anggota, peran, dan undangan untuk {organization}. Arsitektur siap untuk API identitas masa depan.",
+    "yourOrganization": "organisasi Anda"
+  },
+  "invite": {
+    "title": "Undang melalui Email",
+    "email": "E-mail",
+    "emailPlaceholder": "kolega@perusahaan.com",
+    "role": "Peran",
+    "submit": "Mengundang",
+    "created": "Undangan dibuat (menunggu keputusan).",
+    "failed": "Undangan gagal",
+    "signInFirst": "Masuk dan aktifkan organisasi terlebih dahulu.",
+    "noPermission": "Izin tidak ada — Admin atau Manajer perlu mengundang."
+  },
+  "roles": {
+    "title": "Peran",
+    "owner": {
+      "name": "Pemilik",
+      "description": "Kontrol organisasi penuh termasuk Pengaturan dan penagihan."
+    },
+    "admin": {
+      "name": "Admin",
+      "description": "Kelola modul Keuangan, Otomatisasi, Tim, dan ruang kerja."
+    },
+    "manager": {
+      "name": "Manajer",
+      "description": "Pimpin operasi CRM, Proyek, Dokumen, dan Pencipta."
+    },
+    "employee": {
+      "name": "Karyawan",
+      "description": "Akses CRM, Dokumen, Pembuat, dan Proyek sehari-hari."
+    },
+    "guest": {
+      "name": "Tamu",
+      "description": "Akses baca terbatas ke Dokumen dan Proyek."
+    },
+    "viewer": {
+      "name": "Penonton",
+      "description": "Akses hanya baca ke modul bersama."
+    }
+  },
+  "members": {
+    "title": "Anggota",
+    "columnMember": "Anggota",
+    "columnEmail": "E-mail",
+    "columnRole": "Peran",
+    "columnStatus": "Status",
+    "roleFor": "Peran untuk {name}",
+    "emptyTitle": "Belum ada anggota",
+    "emptyDescription": "Undang rekan kerja untuk bergabung dalam ruang kerja organisasi ini.",
+    "updated": "Memperbarui {name} menjadi {role}",
+    "roleChangeFailed": "Perubahan peran gagal"
+  },
+  "pending": {
+    "title": "Undangan yang Menunggu Keputusan",
+    "emptyTitle": "Tidak ada undangan yang menunggu keputusan",
+    "emptyDescription": "Undangan baru muncul di sini hingga diterima atau habis masa berlakunya.",
+    "expires": "{peran} · habis masa berlakunya pada tanggal {tanggal}",
+    "revoke": "Menarik kembali",
+    "pending": "tertunda"
+  },
+  "history": {
+    "title": "Sejarah Undangan",
+    "empty": "Undangan yang diterima, kedaluwarsa, dan dicabut akan muncul di sini."
+  },
+  "status": {
+    "accepted": "diterima",
+    "expired": "kedaluwarsa",
+    "revoked": "dicabut",
+    "active": "aktif",
+    "inactive": "tidak aktif",
+    "pending": "tertunda"
+  }
+}

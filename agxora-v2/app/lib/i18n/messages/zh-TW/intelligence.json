@@ -1,0 +1,136 @@
+{
+  "loading": "正在載入企業智慧中心...",
+  "eyebrow": "企業智慧中心",
+  "title": "智力",
+  "subtitle": "每個 AGXORA 模組的 KPI、記分卡、警報和報告。以下值是即時分析後端連接之前的種子演示資料集。",
+  "demoBanner": "演示資料集 — 過濾並確認會話中的工作；導出和即時模型呼叫尚不可用。",
+  "noticeDefault": "顯示種子演示分析——而不是即時生產遙測。",
+  "noPermission": "您沒有此工作區的 Intelligence.read 權限。",
+  "filtersUpdated": "過濾器已更新",
+  "demoReloaded": "已為此工作區重新載入演示資料集。",
+  "acknowledged": "已確認：{標題}",
+  "exportUnavailableTitle": "匯出不可用 — 報告產生尚未連線。",
+  "exportUnavailableAria": "將{title}匯出為{format} —無法使用",
+  "tabs": {
+    "executive": "管理人員",
+    "health": "商業健康",
+    "workspace": "分析",
+    "kpis": "關鍵績效指標中心",
+    "reports": "報告",
+    "insights": "深入解析",
+    "forecasts": "預測",
+    "alerts": "警報",
+    "scorecards": "記分卡",
+    "explorer": "資料瀏覽器"
+  },
+  "filters": {
+    "from": "從",
+    "to": "到",
+    "domain": "領域",
+    "allDomains": "所有域名",
+    "apply": "應用過濾器",
+    "reloadDemo": "重新載入演示數據",
+    "viewsAria": "情報觀點"
+  },
+  "executive": {
+    "companyHealth": "公司健康",
+    "revenueScore": "收入分數",
+    "customerHealth": "客戶健康",
+    "projectHealth": "專案健全度",
+    "workflowSuccess": "工作流程成功",
+    "aiActivity": "人工智慧活動",
+    "finance": "金融",
+    "riskGrowth": "風險/成長",
+    "kpiStrip": "執行 KPI 條",
+    "visualizationPreviews": "視覺化預覽",
+    "visualizationHint": "示範系列中的說明圖表 - 非互動式深入分析。",
+    "noSeries": "無系列綁定"
+  },
+  "health": {
+    "title": "業務健康分解",
+    "overall": "全面的",
+    "revenue": "收入",
+    "customers": "顧客",
+    "projects": "專案",
+    "workflows": "工作流程",
+    "ai": "人工智慧",
+    "finance": "金融",
+    "operations": "營運",
+    "riskPosture": "風險態勢",
+    "growth": "成長",
+    "observability": "可觀察性：{metrics} 指標 · {avgMs}ms 平均值 · 系統運作狀況 {health}"
+  },
+  "workspace": {
+    "noSeries": "無系列"
+  },
+  "kpis": {
+    "title": "關鍵績效指標中心",
+    "subtitle": "跨收入、客戶、專案、工作流程、代理商和自動化的可配置 KPI 目錄。",
+    "emptyTitle": "分析等待訊號",
+    "emptyDescription": "一旦您的工作區產生活動，執行 KPI 和警報就會出現在此。"
+  },
+  "reports": {
+    "title": "報告引擎",
+    "subtitle": "報告定義已播種以供審核。在連接報告後端之前，文件匯出不可用。",
+    "emptyTitle": "沒有報告",
+    "emptyDescription": "報告工作區引導程式上的種子。",
+    "scheduleOnDemand": "一經請求"
+  },
+  "insights": {
+    "emptyTitle": "還沒有任何見解",
+    "emptyDescription": "演示見解出現在工作區種子之後。即時 AI 洞察產生未連線。",
+    "badge": "演示 · {kind} · {domain} · conf {confidence}"
+  },
+  "forecasts": {
+    "emptyTitle": "還沒有預測",
+    "emptyDescription": "示範預測會顯示在種子之後。未連接預測模型。",
+    "title": "{kind} 預測",
+    "baseline": "基線 {baseline} → 預計 {projected} ({days}d)",
+    "confidence": "示範 · 信心 {confidence} — {註}"
+  },
+  "alerts": {
+    "title": "警報引擎",
+    "emptyTitle": "無警報",
+    "emptyDescription": "來自風險啟發的警報種子。",
+    "acked": "確認",
+    "open": "開立",
+    "acknowledge": "承認"
+  },
+  "scorecards": {
+    "title": "記分卡引擎",
+    "emptyTitle": "沒有計分卡",
+    "emptyDescription": "記分卡在引導程式上種子。"
+  },
+  "explorer": {
+    "title": "資料瀏覽器",
+    "searchPlaceholder": "搜尋演示行...",
+    "searchAria": "搜尋演示瀏覽器行",
+    "emptyTitle": "沒有行匹配",
+    "emptyDescription": "調整過濾器或搜索，或重新載入演示資料集。",
+    "hint": "用戶端對種子元組的搜尋 - 後端聚合和向下鑽取未連線。"
+  },
+  "columns": {
+    "kpi": "關鍵績效指標",
+    "value": "價值",
+    "delta": "Δ%",
+    "trend": "趨勢",
+    "target": "目標",
+    "severity": "嚴重性",
+    "alert": "警報",
+    "domain": "領域",
+    "status": "地位",
+    "actions": "行動",
+    "report": "報告",
+    "kind": "種類",
+    "schedule": "行程",
+    "export": "出口",
+    "scorecard": "記分卡",
+    "score": "分數",
+    "topDriver": "頂尖車手",
+    "label": "標籤",
+    "entity": "實體",
+    "measure": "测量",
+    "date": "日期"
+  },
+  "emDash": "—"
+}

@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "AI プラットフォームを読み込み中…",
+    "eyebrow": "AGXORA AI プラットフォーム",
+    "title": "エンタープライズ AI ワークスペース",
+    "subtitle": "CRM、プロジェクト、財務、ドキュメント、自動化のためのプロバイダーに依存しないインテリジェンス。 「設定」→「AI」でプロバイダーを設定します。",
+    "newConversation": "新しい会話",
+    "aiCommands": "AIコマンド"
+  },
+  "mobileTabs": {
+    "chat": "チャット",
+    "conversations": "会話",
+    "prompts": "プロンプト"
+  },
+  "usageBar": {
+    "provider": "プロバイダー",
+    "model": "モデル",
+    "estimatedTokens": "EST（東部基準時。トークン",
+    "tokensInOut": "(入力 {in} / 出力 {out})",
+    "cost": "料金",
+    "context": "コンテクスト",
+    "contextNone": "なし",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "AGXORA AI ワークスペース",
+    "emptyHint": "会話を開始するか、ライブラリからプロンプトを選択するか、コマンド パレット (⌘⇧K / Ctrl⇧K) を開きます。"
+  },
+  "conversationSidebar": {
+    "title": "会話",
+    "new": "新しい",
+    "searchPlaceholder": "チャットを検索…",
+    "searchAria": "会話を検索する",
+    "showArchived": "アーカイブ済みを表示",
+    "pinned": "固定された",
+    "emptyPreview": "空虚な会話",
+    "noConversations": "まだ会話はありません",
+    "pin": "ピン",
+    "unpin": "固定を解除する",
+    "rename": "名前の変更",
+    "archive": "アーカイブ",
+    "unarchive": "アーカイブを解除する",
+    "delete": "消去"
+  },
+  "composer": {
+    "placeholder": "メッセージ AGXORA AI… (送信するには Enter、改行には Shift+Enter)",
+    "ariaLabel": "メッセージ作成者",
+    "commandsShortcut": "コマンド ⌘⇧K",
+    "stop": "停止",
+    "send": "送信"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "コピー",
+    "retry": "リトライ"
+  },
+  "typingIndicator": {
+    "ariaLabel": "アシスタントが入力中です"
+  },
+  "promptLibrary": {
+    "title": "プロンプトライブラリ",
+    "subtitle": "CRM、プロジェクト、財務などで再利用可能なテンプレート。",
+    "searchPlaceholder": "検索プロンプト…",
+    "searchAria": "検索プロンプト",
+    "all": "全て",
+    "favorites": "お気に入り",
+    "recent": "最近の",
+    "library": "図書館",
+    "noMatches": "一致するプロンプトはありません",
+    "removeFavoriteAria": "お気に入りを削除",
+    "addFavoriteAria": "お気に入りを追加",
+    "favorited": "お気に入りに追加しました",
+    "favorite": "お気に入り",
+    "usePrompt": "プロンプトを使用する"
+  },
+  "commandPalette": {
+    "ariaLabel": "AIコマンドパレット",
+    "filterAria": "AI コマンドをフィルタリングする",
+    "placeholder": "AIコマンド…まとめる、提案する、分析する…",
+    "noMatches": "一致するコマンドはありません",
+    "footer": "registerAiCommand 経由で今後のコマンドを登録します。UI は変更されません。"
+  }
+}

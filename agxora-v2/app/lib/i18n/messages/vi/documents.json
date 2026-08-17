@@ -1,0 +1,388 @@
+{
+  "page": {
+    "brand": "Hệ điều hành kiến ​​thức AGXORA",
+    "title": "Tài liệu",
+    "subtitle": "Trung tâm kiến ​​thức và tài liệu doanh nghiệp — được xem trước với nội dung mẫu cho đến khi phần phụ trợ lưu trữ và phê duyệt kết nối.",
+    "sampleNotice": "Thư viện mẫu - trình duyệt và bộ lọc hoạt động trong phiên. Các hành động tải lên, phê duyệt và lập chỉ mục AI không được kết nối."
+  },
+  "sections": {
+    "kpis": {
+      "title": "Trang tổng quan kiến ​​thức"
+    },
+    "library": {
+      "title": "Thư viện tài liệu",
+      "subtitle": "Tất cả Tài liệu, Gần đây, Yêu thích, Chia sẻ, Đã lưu trữ, Thùng rác, Cơ sở Kiến thức — với các thư mục, tìm kiếm, trình xem và phiên bản."
+    },
+    "knowledge": {
+      "title": "Cơ sở kiến ​​thức",
+      "subtitle": "Các bài viết, chính sách, quy trình, hướng dẫn sử dụng, Câu hỏi thường gặp và wiki nội bộ."
+    },
+    "approvals": {
+      "title": "Phê duyệt",
+      "subtitle": "Bản nháp, Đang xem xét, Đã phê duyệt, Bị từ chối, Đã lưu trữ - được liên kết với kiến ​​trúc Tự động hóa."
+    },
+    "ai": {
+      "title": "Lớp kiến ​​thức AI",
+      "subtitle": "Tóm tắt, từ khóa, phân loại, thẻ, thư mục, tài liệu liên quan, bản sao, bản dịch, OCR và tìm kiếm — chỉ kiến ​​trúc."
+    },
+    "activity": {
+      "title": "Hoạt động",
+      "subtitle": "Những thay đổi gần đây, nội dung tải lên, lượt xem, lượt chia sẻ và lịch sử kiểm tra."
+    },
+    "integrations": {
+      "title": "Tích hợp",
+      "subtitle": "Bộ điều hợp ổ đĩa dành riêng - không có đầu nối trực tiếp."
+    },
+    "security": {
+      "title": "Bảo mật & Chia sẻ",
+      "subtitle": "RBAC, phạm vi kiểm tra, mã hóa, lưu giữ và chia sẻ."
+    }
+  },
+  "loading": {
+    "knowledgeBase": "Đang tải cơ sở kiến ​​thức…",
+    "approvals": "Đang tải hàng đợi phê duyệt…",
+    "aiInsights": "Đang tải thông tin chi tiết về AI…",
+    "activity": "Đang tải hoạt động…",
+    "integrations": "Đang tải tích hợp…",
+    "security": "Đang tải bảo mật…"
+  },
+  "kpi": {
+    "documents": {
+      "label": "Tài liệu",
+      "caption": "Mẫu · trên các thư mục",
+      "delta": "+{đếm}"
+    },
+    "folders": {
+      "label": "Thư mục",
+      "caption": "Mẫu · bao gồm các bộ sưu tập thông minh",
+      "delta": "+{đếm}"
+    },
+    "storage": {
+      "label": "Bộ nhớ đã sử dụng",
+      "caption": "Mẫu · sơ đồ minh họa",
+      "delta": "+{kích thước}"
+    },
+    "shared": {
+      "label": "Tài liệu được chia sẻ",
+      "caption": "Mẫu · tổ chức + bộ phận + người dùng",
+      "delta": "+{đếm}"
+    },
+    "activity": {
+      "label": "Hoạt động gần đây",
+      "caption": "Mẫu · 24 giờ qua",
+      "delta": "+{đếm}"
+    },
+    "indexed": {
+      "label": "AI được lập chỉ mục",
+      "caption": "Mẫu · Tìm kiếm AI không được kết nối",
+      "delta": "{phần trăm}"
+    },
+    "approvals": {
+      "label": "Đang chờ phê duyệt",
+      "caption": "Mẫu · tự động hóa không được kết nối",
+      "delta": "{đếm}"
+    },
+    "score": {
+      "label": "Điểm kiến ​​thức",
+      "caption": "Mẫu · minh họa phạm vi bảo hiểm",
+      "delta": "+{đếm}"
+    }
+  },
+  "library": {
+    "viewsAria": "Lượt xem thư viện",
+    "views": {
+      "all": "Tất cả tài liệu",
+      "recent": "Gần đây",
+      "favorites": "Yêu thích",
+      "shared": "Đã chia sẻ",
+      "archived": "Đã lưu trữ",
+      "trash": "Rác",
+      "knowledge": "Cơ sở kiến ​​thức"
+    },
+    "dropzone": "Kéo và thả tệp vào đây để tiến hành tải lên.",
+    "uploadReserved": "Tải lên bằng cách kéo và thả là API lưu trữ dành riêng.",
+    "filesStaged": "{count} tệp được sắp xếp để tải lên (không ghi vào bộ nhớ).",
+    "dropReceived": "Đã nhận được thả (không ghi vào bộ nhớ).",
+    "foldersTitle": "Thư mục & Bộ sưu tập",
+    "foldersHint": "Các thư mục lồng nhau, bộ sưu tập, bộ sưu tập thông minh, thẻ, được ghim và mục yêu thích.",
+    "allFolders": "Tất cả các thư mục",
+    "smart": "Thông minh",
+    "collection": "Bộ sưu tập",
+    "pinned": "Đã ghim",
+    "favorite": "Yêu thích",
+    "sharedBadge": "Đã chia sẻ",
+    "title": "Thư viện tài liệu",
+    "results": "{đếm} kết quả",
+    "resultOne": "{đếm} kết quả",
+    "selected": "· Đã chọn {count}",
+    "bulkAction": "Hành động hàng loạt",
+    "bulkUnavailable": "Hành động hàng loạt không khả dụng cho (các) mục {count} — đột biến lưu trữ không được kết nối.",
+    "searchLabel": "Tìm kiếm toàn cầu",
+    "searchPlaceholder": "Tên, thẻ, chủ sở hữu, tóm tắt AI…",
+    "typeLabel": "Kiểu",
+    "statusLabel": "Trạng thái",
+    "departmentLabel": "Phòng",
+    "ownerLabel": "Người sở hữu",
+    "allTypes": "Tất cả các loại",
+    "allStatuses": "Tất cả trạng thái",
+    "allDepartments": "Tất cả các phòng ban",
+    "allOwners": "Tất cả chủ sở hữu",
+    "favoritesOnly": "Chỉ mục yêu thích",
+    "emptyTitle": "Không có tài liệu để hiển thị",
+    "emptyDescription": "Điều chỉnh bộ lọc, xóa tìm kiếm hoặc thêm nội dung kiến ​​thức để phát triển thư viện.",
+    "selectAria": "Chọn {tên}",
+    "versionHistoryTitle": "Lịch sử phiên bản",
+    "close": "Đóng",
+    "context": {
+      "open": "Mở",
+      "share": "Chia sẻ",
+      "favorite": "Yêu thích",
+      "move": "Di chuyển",
+      "delete": "Xóa bỏ",
+      "dismiss": "Miễn nhiệm",
+      "unavailable": "{action} không khả dụng — các đột biến tài liệu không được kết nối với {id}."
+    }
+  },
+  "viewer": {
+    "title": "Trình xem tài liệu",
+    "emptyTitle": "Chọn một tài liệu",
+    "emptyDescription": "Chọn tệp từ thư viện để xem trước nội dung, siêu dữ liệu, thẻ, phiên bản và mô-đun được liên kết.",
+    "zoomOut": "Thu phóng −",
+    "zoomIn": "Thu phóng +",
+    "prev": "Trước",
+    "next": "Kế tiếp",
+    "page": "Trang {trang} / {total}",
+    "searchInside": "Tìm kiếm bên trong",
+    "findPlaceholder": "Tìm trong bản xem trước…",
+    "noMatches": "Không có kết quả phù hợp trong văn bản xem trước.",
+    "meta": {
+      "owner": "Người sở hữu",
+      "created": "Tạo",
+      "updated": "Đã cập nhật",
+      "fileType": "Loại tệp",
+      "size": "Kích cỡ",
+      "category": "Loại",
+      "department": "Phòng",
+      "status": "Trạng thái",
+      "retention": "giữ lại",
+      "version": "Phiên bản",
+      "sharing": "Chia sẻ"
+    },
+    "tags": "Thẻ",
+    "linkedModules": "Các mô-đun được liên kết",
+    "noModuleLinks": "Chưa có liên kết mô-đun nào",
+    "versionHistory": "Lịch sử phiên bản"
+  },
+  "versions": {
+    "title": "Lịch sử phiên bản",
+    "emptyTitle": "Không có tài liệu nào được chọn",
+    "emptyDescription": "Mở tài liệu để kiểm tra phiên bản, ghi chú, khôi phục và so sánh.",
+    "current": "{name} · hiện tại {phiên bản}",
+    "restore": "Khôi phục phiên bản",
+    "compare": "So sánh các phiên bản",
+    "restoreTitle": "Khôi phục yêu cầu API lưu trữ",
+    "compareTitle": "So sánh yêu cầu API lưu trữ",
+    "noticeDefault": "Khôi phục và so sánh yêu cầu API lưu trữ.",
+    "restoreUnavailable": "Khôi phục không có sẵn cho {id} — API lưu trữ chưa được kết nối.",
+    "compareUnavailable": "So sánh không có sẵn ({selected} ↔ {current}) — API lưu trữ chưa được kết nối."
+  },
+  "approvals": {
+    "title": "Quy trình phê duyệt",
+    "subtitle": "Bản nháp → Đang xem xét → Đã phê duyệt / Từ chối → Đã lưu trữ. Các mục trong hàng đợi là các tài liệu mẫu; hành động không kéo dài.",
+    "emptyTitle": "Xóa hàng đợi",
+    "emptyDescription": "Không có tài liệu dự thảo hoặc đang xem xét nào trong bộ mẫu.",
+    "approve": "Chấp thuận",
+    "reject": "Từ chối",
+    "sendToReview": "Gửi để xem xét",
+    "noticeDefault": "Quá trình chuyển đổi phê duyệt yêu cầu công cụ quy trình làm việc Tự động hóa — chưa được kết nối trong bản dựng này.",
+    "unavailable": "{action} không có sẵn cho {id} — công cụ xử lý công việc chưa được kết nối. Trạng thái tài liệu mẫu không thay đổi.",
+    "approveTitle": "Không có phê duyệt - công cụ xử lý công việc không được kết nối",
+    "rejectTitle": "Không thể từ chối — công cụ xử lý công việc chưa được kết nối",
+    "sendTitle": "Gửi để xem xét không có sẵn — công cụ xử lý công việc không được kết nối"
+  },
+  "knowledge": {
+    "intro": "Các bài viết, chính sách, quy trình, hướng dẫn sử dụng, Câu hỏi thường gặp và wiki nội bộ — lớp tường thuật của Trung tâm Kiến thức."
+  },
+  "activity": {
+    "intro": "Những thay đổi gần đây, nội dung tải lên, lượt xem, lượt chia sẻ và lịch sử kiểm tra — nền tảng cho các quy trình tuân thủ."
+  },
+  "integrations": {
+    "intro": "Bộ điều hợp ổ đĩa đám mây chỉ có cấu trúc - Google Drive, OneDrive, Dropbox, Box, SharePoint, Nextcloud. Không có API trực tiếp.",
+    "reservedAdapter": "Bộ chuyển đổi dành riêng:",
+    "architecture": "Ngành kiến ​​​​trúc",
+    "items": {
+      "google-drive": {
+        "description": "Kiến trúc nhập/đồng bộ hóa được bảo lưu - chưa có OAuth trực tiếp."
+      },
+      "onedrive": {
+        "description": "Đã bảo lưu các móc tệp Microsoft Graph."
+      },
+      "dropbox": {
+        "description": "Bộ điều hợp API Dropbox được bảo lưu."
+      },
+      "box": {
+        "description": "Đầu nối Enterprise Box dành riêng."
+      },
+      "sharepoint": {
+        "description": "Thư viện trang web + ánh xạ siêu dữ liệu dành riêng."
+      },
+      "nextcloud": {
+        "description": "Bộ điều hợp WebDAV dành riêng - bị vô hiệu hóa cho đến khi có gói tự lưu trữ."
+      }
+    }
+  },
+  "security": {
+    "architectureTitle": "Kiến trúc bảo mật",
+    "sharingTitle": "Mô hình chia sẻ",
+    "sharingIntro": "Giữ chỗ riêng tư, tổ chức, bộ phận, người dùng cụ thể và liên kết công cộng.",
+    "enabled": "Đã bật",
+    "placeholder": "Trình giữ chỗ",
+    "notEnforced": "Không thực thi",
+    "modelOnly": "Chỉ mô hình",
+    "controls": {
+      "rbac": {
+        "title": "Quyền truy cập dựa trên vai trò",
+        "description": "Vai trò của chủ sở hữu, người chỉnh sửa, người xem và người phê duyệt ánh xạ tới ACL tài liệu — không được thực thi trong bản dựng này."
+      },
+      "permissions": {
+        "title": "Kiến trúc quyền",
+        "description": "Kế thừa thư mục với tính năng ghi đè cấp tài liệu — không được thực thi trong bản dựng này."
+      },
+      "audit": {
+        "title": "Đường mòn kiểm toán",
+        "description": "Các sự kiện hoạt động về lượt xem, chia sẻ, khôi phục và phê duyệt — chưa được duy trì."
+      },
+      "encryption": {
+        "title": "Mã hóa",
+        "description": "Móc mã hóa ở trạng thái nghỉ và đang chuyển tiếp dành riêng cho hệ thống dây KMS."
+      },
+      "retention": {
+        "title": "Chính sách lưu giữ",
+        "description": "Khoảng thời gian lưu giữ theo danh mục có hỗ trợ lưu giữ pháp lý — chưa được thực thi."
+      }
+    }
+  },
+  "ai": {
+    "architectureTitle": "Kiến trúc tính năng AI",
+    "architectureIntro": "Mọi khả năng đều được dành riêng cho chỉ số AI trong tương lai. Giao diện người dùng hiển thị thông tin chi tiết mô phỏng xác định.",
+    "insightsTitle": "Thông tin chi tiết về tài liệu đã chọn",
+    "emptyTitle": "Chọn một tài liệu",
+    "emptyDescription": "Mở một tệp trong thư viện để kiểm tra tóm tắt, từ khóa và đề xuất AI.",
+    "summary": "Tóm tắt AI",
+    "keywords": "Từ khóa AI",
+    "classification": "Phân loại AI",
+    "suggestedFolder": "Thư mục được đề xuất AI",
+    "translation": "Dịch AI",
+    "ocr": "AI OCR",
+    "suggestedTags": "Thẻ được đề xuất bởi AI",
+    "related": "Tài liệu liên quan đến AI",
+    "noRelated": "Không có tài liệu liên quan được lập chỉ mục.",
+    "duplicateOf": "Phát hiện trùng lặp AI: có thể trùng lặp",
+    "noDuplicates": "Phát hiện trùng lặp AI: không có trường hợp gần trùng lặp nào được gắn cờ.",
+    "sampleReady": "Mẫu đã sẵn sàng",
+    "notApplicable": "Không áp dụng",
+    "runSearch": "Chạy tìm kiếm AI",
+    "searchTitle": "Tìm kiếm AI không được kết nối",
+    "noticeDefault": "Các tính năng AI chỉ mang tính kiến ​​trúc — không có lệnh gọi mô hình trực tiếp.",
+    "searchUnavailable": "Tìm kiếm AI không khả dụng - chỉ mục ngữ nghĩa không được kết nối. Thông tin chi tiết mẫu ở trên là tĩnh.",
+    "features": {
+      "summary": {
+        "title": "Tóm tắt AI",
+        "description": "Hiểu biết tài liệu cô đọng cho mọi mô-đun."
+      },
+      "keywords": {
+        "title": "Từ khóa AI",
+        "description": "Trích xuất tín hiệu chủ đề để tìm kiếm và định tuyến."
+      },
+      "classification": {
+        "title": "Phân loại AI",
+        "description": "Đề xuất phân loại danh mục/bộ phận."
+      },
+      "tags": {
+        "title": "Thẻ được đề xuất bởi AI",
+        "description": "Đề xuất gắn thẻ mà không làm thay đổi biểu đồ."
+      },
+      "folder": {
+        "title": "Thư mục được đề xuất AI",
+        "description": "Vị trí thông minh vào các thư mục lồng nhau."
+      },
+      "related": {
+        "title": "Tài liệu liên quan đến AI",
+        "description": "Vẽ biểu đồ hàng xóm trên trung tâm kiến ​​thức."
+      },
+      "duplicate": {
+        "title": "Phát hiện trùng lặp AI",
+        "description": "Phát hiện gần như trùng lặp cho các thư viện tài liệu."
+      },
+      "translation": {
+        "title": "Dịch AI",
+        "description": "Cờ sẵn sàng dịch - không có mô hình trực tiếp."
+      },
+      "ocr": {
+        "title": "AI OCR",
+        "description": "Đường dẫn OCR dành riêng cho quét và PDF."
+      },
+      "search": {
+        "title": "Tìm kiếm AI",
+        "description": "Tìm kiếm ngữ nghĩa dành riêng cho chỉ mục trong tương lai."
+      }
+    }
+  },
+  "status": {
+    "draft": "Bản nháp",
+    "in_review": "Đang xem xét",
+    "approved": "Tán thành",
+    "rejected": "Vật bị loại bỏ",
+    "archived": "Đã lưu trữ"
+  },
+  "fileType": {
+    "pdf": "PDF",
+    "word": "Từ",
+    "excel": "Excel",
+    "powerpoint": "PowerPoint",
+    "image": "Hình ảnh",
+    "video": "Băng hình",
+    "audio": "Âm thanh",
+    "markdown": "Giảm giá",
+    "text": "Chữ",
+    "json": "JSON",
+    "csv": "CSV",
+    "other": "Khác"
+  },
+  "share": {
+    "private": "Riêng tư",
+    "organization": "Tổ chức",
+    "department": "Phòng",
+    "specific_users": "Người dùng cụ thể",
+    "public_link": "Liên kết công khai"
+  },
+  "module": {
+    "crm": "CRM",
+    "finance": "Tài chính",
+    "automation": "Tự động hóa",
+    "creator": "Studio sáng tạo",
+    "hr": "Nhân sự tương lai",
+    "projects": "Dự án tương lai"
+  },
+  "knowledgeKind": {
+    "article": "Bài báo",
+    "policy": "Chính sách",
+    "process": "Quá trình",
+    "manual": "Thủ công",
+    "faq": "Câu hỏi thường gặp",
+    "wiki": "Wiki nội bộ"
+  },
+  "integrationStatus": {
+    "connected": "Đã kết nối",
+    "beta": "bản thử nghiệm",
+    "coming_soon": "Sắp ra mắt",
+    "disabled": "Tàn tật",
+    "planned": "Đã lên kế hoạch"
+  },
+  "bytes": {
+    "b": "{giá trị} B",
+    "kb": "{giá trị} KB",
+    "mb": "{giá trị} MB",
+    "gb": "{giá trị} GB"
+  }
+}

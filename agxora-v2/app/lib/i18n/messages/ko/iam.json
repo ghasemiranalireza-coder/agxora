@@ -1,0 +1,149 @@
+{
+  "identity": {
+    "eyebrow": "엔터프라이즈 IAM",
+    "title": "신원 및 액세스",
+    "lead": "조직, 작업 영역, RBAC, 보안 자리 표시자 및 감사 아키텍처. 백엔드 어댑터는 이 표면을 변경하지 않고 연결됩니다.",
+    "openProfile": "프로필 열기",
+    "teamManagement": "팀 관리",
+    "tabs": {
+      "organization": "조직",
+      "workspace": "작업공간",
+      "roles": "역할 및 권한",
+      "security": "보안",
+      "audit": "감사 로그"
+    },
+    "organizationSettings": "조직 설정",
+    "workspaceSettings": "작업공간 설정",
+    "noOrganization": "활성화된 조직이 없습니다. 온보딩을 완료하거나 조직 서비스에서 하나를 만드세요.",
+    "logoPlaceholder": "로고 업로드 및 계획 청구 어댑터는 향후 ID 백엔드를 위한 자리 표시자입니다.",
+    "rbacTitle": "RBAC — 기본 역할",
+    "permissionMatrix": "권한 매트릭스",
+    "canManageSettings": "설정 관리 가능: {value} · 인증됨: {authenticated}",
+    "yes": "예",
+    "no": "아니요",
+    "securitySettings": "보안 설정",
+    "passwordChange": {
+      "title": "비밀번호 변경",
+      "detail": "비밀번호 변경은 구성 시 인증 공급자를 통해 연결됩니다."
+    },
+    "twoFactor": {
+      "title": "이중 인증(2FA)",
+      "detail": "활성화되면 TOTP 및 WebAuthn 어댑터가 여기에 등록됩니다."
+    },
+    "activeSessions": {
+      "title": "활성 세션",
+      "detail": "장치 디렉터리는 ID 세션에 있습니다. 서버 세션을 통해 해지를 신뢰할 수 있게 됩니다."
+    },
+    "apiKeys": {
+      "title": "API 키",
+      "detail": "개발자를 위한 서비스 계정 및 범위가 지정된 토큰입니다."
+    },
+    "absoluteTimeout": "절대 시간 초과",
+    "idleTimeout": "유휴 시간 초과",
+    "refreshSkew": "새로고침 편향",
+    "persistentLogin": "영구 로그인",
+    "disabled": "장애가 있는",
+    "enabled": "활성화됨",
+    "days": "{count}일",
+    "minutes": "{count}분",
+    "toggleIdlePolicy": "유휴 정책 자리 표시자 전환",
+    "previewSessionExpired": "미리보기 세션이 만료되었습니다.",
+    "previewAccountLocked": "미리보기 계정이 잠겼습니다.",
+    "auditActivity": "감사 활동",
+    "auditLead": "로그인, 로그아웃, 역할 변경, 초대, 조직 이벤트가 로컬에 기록됩니다. 나중에 변경할 수 없는 백엔드 감사 저장소로 교체하세요.",
+    "auditEmpty": "아직 IAM 이벤트가 없습니다. 로그를 입력하려면 로그인하거나 역할을 변경하세요.",
+    "meta": {
+      "name": "이름",
+      "slug": "강타",
+      "plan": "계획",
+      "owner": "소유자",
+      "created": "생성됨",
+      "yourRole": "귀하의 역할",
+      "workspace": "작업공간",
+      "status": "상태",
+      "isolationKey": "격리 키"
+    },
+    "matrix": {
+      "permission": "허가",
+      "owner": "소유자",
+      "admin": "관리자",
+      "manager": "관리자",
+      "member": "회원",
+      "viewer": "뷰어",
+      "yes": "예"
+    },
+    "audit": {
+      "when": "언제",
+      "action": "행동",
+      "actor": "배우",
+      "resource": "의지"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "소유자",
+      "description": "청구 및 소유권 이전을 포함한 모든 권한"
+    },
+    "admin": {
+      "name": "관리자",
+      "description": "인력, 보안, 작업 공간 및 모듈 관리"
+    },
+    "manager": {
+      "name": "관리자",
+      "description": "리드 팀 및 운영 모듈 회원 초대"
+    },
+    "member": {
+      "name": "회원",
+      "description": "일상적인 운영 액세스"
+    },
+    "viewer": {
+      "name": "뷰어",
+      "description": "읽기 전용 액세스"
+    }
+  },
+  "profile": {
+    "eyebrow": "신원",
+    "title": "사용자 프로필",
+    "lead": "계정 신원, 기본 설정 및 보안을 관리하세요. 조직 및 작업 영역 제어는 ID 설정에 있습니다.",
+    "guest": "손님",
+    "notSignedIn": "로그인되지 않음",
+    "identitySettings": "신원 설정",
+    "security": "보안",
+    "profileSection": "윤곽",
+    "fullName": "이름",
+    "email": "이메일",
+    "language": "언어",
+    "timezone": "시간대",
+    "languageEnGb": "영어(영국)",
+    "languageEnUs": "영어(미국)",
+    "languageDe": "독일어",
+    "timezoneBerlin": "유럽/베를린",
+    "timezoneLondon": "유럽/런던",
+    "timezoneUtc": "UTC",
+    "timezoneNewYork": "미국/New_York",
+    "notifications": "알림",
+    "emailNotifications": "이메일 알림",
+    "pushNotifications": "푸시 알림",
+    "workspace": "작업공간",
+    "noticeInitial": "기본 설정은 프로필 API가 연결될 때까지 로컬에 저장됩니다.",
+    "noticeSaved": "프로필 환경설정이 업데이트되었습니다.",
+    "savePreferences": "환경설정 저장"
+  },
+  "workspaceSelector": {
+    "empty": "아직 작업공간이 없습니다. 조직을 만들어 프로비저닝하세요.",
+    "label": "활성 작업공간",
+    "ariaLabel": "작업공간 전환"
+  },
+  "verifyEmail": {
+    "title": "이메일 확인",
+    "loading": "로드 중…",
+    "skipForNow": "지금은 건너뛰기",
+    "tokenPlaceholder": "인증 토큰",
+    "tokenIssued": "현재 세션에 대해 발급된 확인 토큰입니다.",
+    "issueFailed": "토큰을 발행할 수 없습니다.",
+    "verificationFailed": "확인 실패",
+    "verify": "이메일 확인",
+    "verifying": "확인 중…",
+    "requestToken": "확인 토큰 요청"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "page": {
+    "eyebrow": "AGXORA マーケティング OS",
+    "title": "AIクリエイタースタジオ",
+    "lead": "エンタープライズ コンテンツ制作 — あらゆるチャネルにわたる AI を活用したキャンペーンの生成、ブランド化、計画、公開、測定を行います。",
+    "dashboard": "ダッシュボード",
+    "workspace": "ワークスペース",
+    "workspaceSubtitle": "コンテンツの作成 · キャンペーン · メディア ライブラリ · テンプレート · ブランド資産 · 公開キュー · 分析",
+    "workspaceAria": "クリエイターワークスペース",
+    "integrations": "将来の統合",
+    "integrationsSubtitle": "公式プラットフォーム アダプターが予約されています - 偽のライブ接続はありません。",
+    "aiFeatures": "AIの機能",
+    "aiFeaturesSubtitle": "生産、ブランド、スケジュール、ローカリゼーションの能力マップ。"
+  },
+  "tabs": {
+    "create": "コンテンツの作成",
+    "campaigns": "キャンペーン",
+    "media": "メディアライブラリ",
+    "templates": "テンプレート",
+    "brand": "ブランド資産",
+    "queue": "公開キュー",
+    "analytics": "分析"
+  },
+  "templates": {
+    "emptyTitle": "テンプレートなし",
+    "emptyDescription": "再利用可能なコンテンツとデザイン テンプレートがここに存在します。"
+  },
+  "campaign": {
+    "title": "キャンペーンプランナー",
+    "calendar": "コンテンツカレンダー",
+    "columns": {
+      "name": "キャンペーン名",
+      "objective": "客観的",
+      "audience": "観客",
+      "platforms": "プラットフォーム",
+      "budget": "予算",
+      "timeline": "タイムライン",
+      "status": "状態"
+    },
+    "emptyTitle": "キャンペーンはありません",
+    "emptyDescription": "キャンペーンを作成して、目的、対象者、スケジュールを計画します。"
+  },
+  "media": {
+    "title": "メディアライブラリ",
+    "columns": {
+      "asset": "資産",
+      "type": "タイプ",
+      "folder": "フォルダ",
+      "tags": "タグ",
+      "updated": "更新されました"
+    },
+    "emptyTitle": "メディアなし",
+    "emptyDescription": "画像、ビデオ、ドキュメント、ロゴ、テンプレートがここに表示されます。",
+    "searchPlaceholder": "アセット、フォルダー、タグを検索…",
+    "typeFilter": "タイプ",
+    "allTypes": "全種類",
+    "images": "画像",
+    "videos": "動画",
+    "documents": "書類",
+    "logos": "ブランドロゴ",
+    "templates": "テンプレート"
+  },
+  "generator": {
+    "title": "AI コンテンツ ジェネレーター",
+    "lead": "Instagram のキャプション、TikTok スクリプト、LinkedIn の投稿、広告、SEO 記事などを作成します。",
+    "brief": "簡単な",
+    "briefPlaceholder": "オファー、対象ユーザー、CTA について説明します。",
+    "generateDraft": "ドラフトの生成",
+    "aiRewrite": "AIリライト",
+    "translate": "翻訳する",
+    "initialOutput": "フォーマットとブランドの声を選択し、下書きを生成します。プロバイダー アダプターは予約されています。ライブ モデル呼び出しはまだありません。",
+    "draftStaged": "{format} · voice: {voice} のドラフトがステージングされました。生成アダプターは予約済みです。",
+    "rewriteQueued": "AI 書き換えがキューに登録されています — 書き換えアダプターが予約されています。",
+    "translateQueued": "翻訳コンテンツがキューに追加されました — 多言語アダプターが予約されています。",
+    "brandVoice": "ブランドボイス",
+    "brandVoiceLead": "ビジネストーンのプリセットに加えて、一貫性を保つためのカスタムブランドボイス。",
+    "active": "アクティブ"
+  },
+  "queue": {
+    "title": "公開キュー",
+    "columns": {
+      "title": "タイトル",
+      "platform": "プラットフォーム",
+      "format": "形式",
+      "status": "状態",
+      "scheduled": "予定されている",
+      "author": "著者"
+    },
+    "emptyTitle": "キューに投稿はありません",
+    "emptyDescription": "下書き、レビュー、予定された投稿がここに表示されます。",
+    "filterStatus": "フィルターステータス",
+    "allStatuses": "すべてのステータス"
+  },
+  "analytics": {
+    "title": "分析",
+    "topPosts": "人気の投稿",
+    "engagement": "英語 {値}",
+    "reach": "{値}に到達",
+    "recommendations": "AI によるレコメンデーション"
+  },
+  "integrations": {
+    "lead": "将来の統合 — オプション。接続するまでライブ API はありません。 Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X、メタ ビジネス、Google 広告、Google アナリティクス。",
+    "adapter": "アダプタ："
+  },
+  "aiFeaturesPanel": {
+    "lead": "AI 機能マップ — アイデア、キャプション、ハッシュタグ、カレンダー、キャンペーン、視聴者、スケジュール、ブランドの一貫性、リライト、翻訳、多言語。"
+  }
+}

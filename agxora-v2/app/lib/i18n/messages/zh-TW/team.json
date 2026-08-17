@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "身份和訪問",
+    "title": "團隊",
+    "lead": "{organization} 的成員、角色和邀請。為未來的身份 API 做好架構準備。",
+    "yourOrganization": "你的組織"
+  },
+  "invite": {
+    "title": "透過電子郵件邀請",
+    "email": "電子郵件",
+    "emailPlaceholder": "同事@company.com",
+    "role": "角色",
+    "submit": "邀請",
+    "created": "邀請已建立（待處理）。",
+    "failed": "邀請失敗",
+    "signInFirst": "首先登入並啟動組織。",
+    "noPermission": "缺少權限 - 需要管理員或經理邀請。"
+  },
+  "roles": {
+    "title": "角色",
+    "owner": {
+      "name": "擁有者",
+      "description": "全面的組織控制，包括設定和計費。"
+    },
+    "admin": {
+      "name": "行政",
+      "description": "管理財務、自動化、團隊和工作區模組。"
+    },
+    "manager": {
+      "name": "主管",
+      "description": "領導 CRM、專案、文件和創作者營運。"
+    },
+    "employee": {
+      "name": "員工",
+      "description": "日常 CRM、文件、創建者和專案存取。"
+    },
+    "guest": {
+      "name": "客人",
+      "description": "文件和項目的讀取權限有限。"
+    },
+    "viewer": {
+      "name": "一般檢視",
+      "description": "對共享模組的唯讀存取。"
+    }
+  },
+  "members": {
+    "title": "會員",
+    "columnMember": "成員",
+    "columnEmail": "電子郵件",
+    "columnRole": "角色",
+    "columnStatus": "地位",
+    "roleFor": "{name} 的角色",
+    "emptyTitle": "還沒有會員",
+    "emptyDescription": "邀請同事加入此組織工作區。",
+    "updated": "將 {name} 更新為 {role}",
+    "roleChangeFailed": "角色變更失敗"
+  },
+  "pending": {
+    "title": "待處理的邀請",
+    "emptyTitle": "沒有待處理的邀請",
+    "emptyDescription": "新邀請將顯示在此處，直至被接受或過期。",
+    "expires": "{角色} · 到期於 {日期}",
+    "revoke": "撤銷",
+    "pending": "待辦的"
+  },
+  "history": {
+    "title": "邀請歷史",
+    "empty": "已接受、已過期和已撤銷的邀請將顯示在此。"
+  },
+  "status": {
+    "accepted": "公認",
+    "expired": "已到期",
+    "revoked": "撤銷",
+    "active": "積極的",
+    "inactive": "不活躍的",
+    "pending": "待辦的"
+  }
+}

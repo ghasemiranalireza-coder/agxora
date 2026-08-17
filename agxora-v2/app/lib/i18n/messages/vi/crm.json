@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "Hệ điều hành kinh doanh AGXORA",
+    "title": "AI CRM",
+    "subtitle": "Hệ điều hành dành cho người sáng tạo và CRM gốc AI — khách hàng, quy trình, đơn đặt hàng, giao hàng, tài liệu, thông tin liên lạc và kiến ​​trúc của người sáng tạo cho mọi ngành."
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "Bảng điều khiển CRM"
+    },
+    "customer360": {
+      "title": "Khách hàng 360°",
+      "subtitle": "Hồ sơ, công ty, địa chỉ liên hệ, đơn đặt hàng, hóa đơn, Lieferscheine, thanh toán, tài liệu, dòng thời gian, hoạt động, ghi chú, tóm tắt AI và lịch sử liên lạc."
+    },
+    "salesPipeline": {
+      "title": "Quy trình bán hàng",
+      "subtitle": "Các giai đoạn Kanban có thể kéo và thả — Dẫn đầu, Đủ điều kiện, Đề xuất, Đàm phán, Thắng, Thua."
+    },
+    "ordersModule": {
+      "title": "Mô-đun đơn đặt hàng"
+    },
+    "deliveryModule": {
+      "title": "Mô-đun phân phối",
+      "subtitle": "Hệ thống Lieferschein chuyên nghiệp có khả năng theo dõi, chữ ký, QR và mã vạch."
+    },
+    "documentsModule": {
+      "title": "Tài liệu",
+      "subtitle": "Báo giá, hợp đồng, hóa đơn, Lieferschein, đơn đặt hàng, biên lai – với tìm kiếm AI."
+    },
+    "tasksModule": {
+      "title": "Nhiệm vụ"
+    },
+    "communicationHub": {
+      "title": "Trung tâm truyền thông",
+      "subtitle": "Sổ đăng ký bộ điều hợp chỉ dành cho nhắn tin, mạng xã hội, email, giọng nói và video."
+    },
+    "creatorStudio": {
+      "title": "Quỹ Creator Studio",
+      "subtitle": "Bộ điều hợp nền tảng đã sẵn sàng để tích hợp chính thức sau này."
+    },
+    "aiCreator": {
+      "title": "Người sáng tạo AI",
+      "subtitle": "Bản đồ năng lực doanh nghiệp về nội dung, lịch, tạo và xuất bản."
+    },
+    "industryPlatform": {
+      "title": "Nền tảng kinh doanh phổ quát",
+      "subtitle": "Đăng ký ngành mô-đun - mọi ngành dọc đều có thể nhận được các mô-đun AI chuyên dụng."
+    }
+  },
+  "directory": {
+    "errorTitle": "Không thể tải CRM",
+    "sort": {
+      "companyName": "Công ty",
+      "contactName": "Liên hệ",
+      "email": "E-mail",
+      "phone": "Điện thoại",
+      "industry": "Ngành công nghiệp",
+      "status": "Trạng thái",
+      "owner": "Người sở hữu",
+      "createdAt": "Tạo"
+    },
+    "search": {
+      "label": "Tìm kiếm khách hàng",
+      "placeholder": "Công ty, liên hệ, email, thẻ…"
+    },
+    "view": {
+      "table": "Bàn",
+      "cards": "Thẻ"
+    },
+    "actions": {
+      "newCustomer": "Khách hàng mới"
+    },
+    "filters": {
+      "status": "Trạng thái",
+      "industry": "Ngành công nghiệp",
+      "owner": "Người sở hữu",
+      "country": "Quốc gia",
+      "tags": "Thẻ",
+      "allStatuses": "Tất cả trạng thái",
+      "allIndustries": "Tất cả các ngành",
+      "allOwners": "Tất cả chủ sở hữu",
+      "allCountries": "Tất cả các nước",
+      "allTags": "Tất cả các thẻ"
+    },
+    "empty": {
+      "ready": {
+        "title": "CRM của bạn đã sẵn sàng",
+        "description": "Tạo bản ghi khách hàng đầu tiên để mở khóa thư mục, hồ sơ và hoạt động.",
+        "action": "Tạo khách hàng"
+      },
+      "noMatches": {
+        "title": "Không có khách hàng phù hợp",
+        "description": "Hãy thử điều chỉnh tìm kiếm hoặc bộ lọc để tìm bản ghi phù hợp.",
+        "action": "Xóa bộ lọc"
+      }
+    },
+    "pagination": {
+      "previous": "Trước",
+      "next": "Kế tiếp"
+    },
+    "showing": "Đang hiển thị {từ}–{to} trong tổng số {total}",
+    "aria": {
+      "openCustomer": "Mở khách hàng {công ty}"
+    },
+    "cardMeta": "Chủ sở hữu {owner} · Đã tạo {date}",
+    "sortBy": "Sắp xếp theo {cột}"
+  },
+  "status": {
+    "lead": "Chỉ huy",
+    "prospect": "triển vọng",
+    "active": "Tích cực",
+    "inactive": "Không hoạt động",
+    "vip": "VIP",
+    "archived": "Đã lưu trữ"
+  },
+  "form": {
+    "createTitle": "Tạo khách hàng",
+    "editTitle": "Chỉnh sửa khách hàng",
+    "cancel": "Hủy bỏ",
+    "saveChanges": "Lưu thay đổi",
+    "createCustomer": "Tạo khách hàng",
+    "companyName": "Tên công ty",
+    "contactName": "Tên liên hệ",
+    "email": "E-mail",
+    "phone": "Điện thoại",
+    "website": "Trang web",
+    "industry": "Ngành công nghiệp",
+    "country": "Quốc gia",
+    "city": "Thành phố",
+    "address": "Địa chỉ",
+    "taxNumber": "Mã số thuế",
+    "owner": "Người sở hữu",
+    "status": "Trạng thái",
+    "tags": "Thẻ",
+    "statusAria": "Trạng thái khách hàng",
+    "tagsHint": "Được phân tách bằng dấu phẩy, mã màu tự động",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "doanh nghiệp, bán lẻ"
+  },
+  "toasts": {
+    "customerCreated": "Khách hàng đã tạo",
+    "customerUpdated": "Khách hàng đã cập nhật",
+    "checkForm": "Kiểm tra biểu mẫu",
+    "validationFailed": "Xác thực không thành công.",
+    "customerDeleted": "Khách hàng đã xóa",
+    "deleteFailed": "Xóa không thành công",
+    "customerCouldNotBeRemoved": "Không thể xóa khách hàng.",
+    "contactSaved": "Đã lưu liên hệ",
+    "documentsAttached": "Tài liệu đính kèm",
+    "documentsAttachedDetail": "{count} tệp",
+    "noteSaved": "Đã lưu ghi chú"
+  },
+  "deleteDialog": {
+    "title": "Xóa khách hàng",
+    "cancel": "Hủy bỏ",
+    "deletePermanently": "Xóa vĩnh viễn",
+    "thisCustomer": "khách hàng này",
+    "bodyPrefix": "Điều này loại bỏ",
+    "bodySuffix": "và các liên hệ, ghi chú, tài liệu và hoạt động liên quan từ bộ nhớ cục bộ. Các dự án được liên kết không bị xóa."
+  },
+  "validation": {
+    "companyNameRequired": "Tên công ty là bắt buộc.",
+    "contactNameRequired": "Tên liên hệ là bắt buộc.",
+    "emailRequired": "Email là bắt buộc.",
+    "emailInvalid": "Nhập địa chỉ email hợp lệ.",
+    "phoneRequired": "Cần có điện thoại.",
+    "phoneInvalid": "Nhập số điện thoại hợp lệ.",
+    "websiteInvalid": "Nhập một trang web hợp lệ.",
+    "industryRequired": "Ngành công nghiệp là cần thiết.",
+    "ownerRequired": "Chủ sở hữu là cần thiết.",
+    "statusInvalid": "Chọn trạng thái hợp lệ.",
+    "emailDuplicate": "Một khách hàng có email này đã tồn tại.",
+    "nameRequired": "Tên là bắt buộc.",
+    "mobileInvalid": "Nhập số điện thoại di động hợp lệ.",
+    "mobileRequired": "Điện thoại di động là bắt buộc.",
+    "roleRequired": "Vai trò là bắt buộc.",
+    "noteTitleRequired": "Tiêu đề là bắt buộc.",
+    "noteBodyRequired": "Phần thân lưu ý là bắt buộc.",
+    "noteAuthorRequired": "Tác giả là bắt buộc."
+  },
+  "errors": {
+    "failedToLoadCustomers": "Không thể tải khách hàng.",
+    "failedToLoadCustomerProfile": "Không tải được hồ sơ khách hàng.",
+    "organizationRequired": "Tổ chức là cần thiết.",
+    "failedToSaveCustomer": "Không thể lưu khách hàng.",
+    "failedToDeleteCustomer": "Không thể xóa khách hàng.",
+    "failedToSaveContact": "Không lưu được liên hệ.",
+    "failedToSaveNote": "Không lưu được ghi chú.",
+    "failedToUploadDocument": "Không thể tải tài liệu lên."
+  },
+  "workspace": {
+    "badge": "CRM doanh nghiệp 2.0",
+    "title": "Quản lý quan hệ khách hàng",
+    "subtitleBeforeOrg": "Quản lý danh mục, hồ sơ, danh bạ, ghi chú và tài liệu của khách hàng",
+    "subtitleAfterOrg": "Các dự án được liên kết theo tên công ty từ mô-đun Dự án mà không trùng lặp dữ liệu.",
+    "yourOrganization": "tổ chức của bạn"
+  },
+  "analytics": {
+    "totalCustomers": "Tổng số khách hàng",
+    "activeCustomers": "Khách hàng đang hoạt động",
+    "newCustomers": "Khách hàng mới",
+    "vipCustomers": "Khách hàng VIP",
+    "createdThisMonth": "Được tạo trong tháng này",
+    "leadConversion": "Chuyển đổi khách hàng tiềm năng",
+    "leadConversionHint": "Tỷ lệ hoạt động và VIP của kênh khách hàng tiềm năng/khách hàng tiềm năng/chuyển đổi.",
+    "customerGrowth": "Tăng trưởng khách hàng"
+  },
+  "profile": {
+    "backToCrm": "← Quay lại CRM",
+    "ownerLabel": "Người sở hữu",
+    "notFoundTitle": "Không tìm thấy khách hàng",
+    "notFoundDescription": "Khách hàng này có thể đã bị xóa.",
+    "missingCustomerTitle": "Thiếu khách hàng",
+    "missingOverviewDescription": "Chọn một khách hàng để xem tổng quan.",
+    "missingSettingsDescription": "Chọn một khách hàng để quản lý cài đặt.",
+    "ariaProfileNav": "Hồ sơ khách hàng",
+    "tabs": {
+      "overview": "Tổng quan",
+      "contacts": "Danh bạ",
+      "projects": "Dự án",
+      "documents": "Tài liệu",
+      "invoices": "Hóa đơn",
+      "activity": "Hoạt động",
+      "notes": "Ghi chú",
+      "settings": "Cài đặt"
+    },
+    "overview": {
+      "title": "Tổng quan",
+      "email": "E-mail",
+      "phone": "Điện thoại",
+      "website": "Trang web",
+      "taxNumber": "Mã số thuế",
+      "location": "Vị trí",
+      "address": "Địa chỉ",
+      "created": "Tạo",
+      "updated": "Đã cập nhật",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "Thêm liên hệ",
+      "editTitle": "Chỉnh sửa liên hệ",
+      "listTitle": "Danh bạ",
+      "name": "Tên",
+      "role": "Vai trò",
+      "email": "E-mail",
+      "phone": "Điện thoại",
+      "mobile": "Điện thoại di động",
+      "notes": "Ghi chú",
+      "saveContact": "Lưu liên hệ",
+      "emptyTitle": "Chưa có liên hệ nào",
+      "emptyDescription": "Thêm các bên liên quan với thông tin chi tiết về vai trò, email và số điện thoại.",
+      "defaultRole": "Liên hệ",
+      "mobilePrefix": "Điện thoại di động"
+    },
+    "projects": {
+      "title": "Dự án",
+      "emptyTitle": "Không có dự án được liên kết",
+      "emptyDescription": "Các dự án có tên khách hàng trùng với công ty này sẽ xuất hiện ở đây. Dữ liệu được đọc từ mô-đun Dự án - không có dữ liệu nào bị trùng lặp.",
+      "openProjects": "Dự án mở"
+    },
+    "documents": {
+      "title": "Tài liệu",
+      "subtitle": "Hình ảnh, tệp PDF và tài liệu văn phòng - siêu dữ liệu chỉ có trong Bộ nhớ cục bộ.",
+      "attachFiles": "Đính kèm tập tin",
+      "emptyTitle": "Không có tài liệu",
+      "emptyDescription": "Đính kèm tệp khách hàng cho nhóm tài khoản.",
+      "systemUploader": "Hệ thống"
+    },
+    "invoices": {
+      "emptyTitle": "Chưa có hoá đơn",
+      "emptyDescription": "Hóa đơn cho khách hàng này xuất hiện ở đây khi được liên kết từ Finance."
+    },
+    "activity": {
+      "title": "Hoạt động",
+      "emptyTitle": "Chưa có hoạt động nào",
+      "emptyDescription": "Việc tạo, cập nhật, ghi chú và tài liệu sẽ xuất hiện ở đây mới nhất trước tiên.",
+      "kinds": {
+        "customer_created": "Khách hàng đã tạo",
+        "customer_updated": "Khách hàng đã cập nhật",
+        "contact_added": "Đã thêm liên hệ",
+        "contact_updated": "Đã cập nhật liên hệ",
+        "contact_deleted": "Đã xóa liên hệ",
+        "note_added": "Đã thêm ghi chú",
+        "note_updated": "Đã cập nhật ghi chú",
+        "note_deleted": "Đã xóa ghi chú",
+        "document_added": "Đã thêm tài liệu",
+        "document_deleted": "Đã xóa tài liệu",
+        "project_linked": "Đã liên kết dự án"
+      }
+    },
+    "notes": {
+      "newTitle": "Ghi chú mới",
+      "editTitle": "Chỉnh sửa ghi chú",
+      "title": "Tiêu đề",
+      "author": "Tác giả",
+      "body": "Thân hình",
+      "saveNote": "Lưu ghi chú",
+      "emptyTitle": "Chưa có ghi chú nào",
+      "emptyDescription": "Nắm bắt bối cảnh tài khoản với tác giả và dấu thời gian."
+    },
+    "settings": {
+      "title": "Cài đặt",
+      "description": "Chỉnh sửa tất cả các trường hồ sơ hoặc lưu trữ tài khoản này. Việc xóa sử dụng hộp thoại xác nhận.",
+      "editAllFields": "Chỉnh sửa tất cả các trường",
+      "prepareArchive": "Chuẩn bị kho lưu trữ",
+      "deleteCustomer": "Xóa khách hàng"
+    }
+  },
+  "customer360": {
+    "ariaSections": "Chuyên mục 360 khách hàng",
+    "email": "E-mail",
+    "phone": "Điện thoại",
+    "aiHealth": "Sức khỏe AI",
+    "tabs": {
+      "profile": "Hồ sơ",
+      "company": "Công ty",
+      "contacts": "Danh bạ",
+      "orders": "Đơn đặt hàng",
+      "invoices": "Hóa đơn",
+      "lieferscheine": "Lieferscheine",
+      "payments": "Thanh toán",
+      "documents": "Tài liệu",
+      "timeline": "Dòng thời gian",
+      "activities": "Các hoạt động",
+      "notes": "Ghi chú",
+      "aiSummary": "Tóm tắt AI",
+      "communicationHistory": "Lịch sử giao tiếp"
+    },
+    "profileLines": {
+      "customerId": "Mã khách hàng",
+      "status": "Trạng thái",
+      "primaryContact": "Liên hệ chính"
+    },
+    "status": {
+      "churn_risk": "Rủi ro rời bỏ"
+    }
+  },
+  "delivery": {
+    "title": "Hệ thống Lieferschein chuyên nghiệp",
+    "description": "Phiếu giao hàng, nhận/giao hàng, tài xế, phương tiện và theo dõi — chỉ có hồ sơ mẫu. Bộ điều hợp xuất không được kết nối.",
+    "badges": {
+      "qrUnavailable": "QR không có sẵn",
+      "barcodeUnavailable": "Mã vạch không có sẵn",
+      "signatureDemo": "Bản demo chữ ký"
+    },
+    "exportPdf": "Xuất PDF",
+    "deliveryHistory": "Lịch sử giao hàng",
+    "notices": {
+      "exportNotConnected": "Xuất PDF, QR và mã vạch không được kết nối trong bản dựng này.",
+      "exportPdfUnavailable": "Xuất PDF không khả dụng - xuất phân phối không được kết nối.",
+      "historyNotConnected": "Cửa hàng lịch sử giao hàng không được kết nối trong bản dựng này."
+    },
+    "columns": {
+      "lieferschein": "Lieferschein",
+      "order": "Đặt hàng",
+      "customer": "Khách hàng",
+      "kind": "Loại",
+      "driver": "Tài xế",
+      "vehicle": "Phương tiện giao thông",
+      "tracking": "Theo dõi",
+      "scheduled": "Đã lên lịch"
+    }
+  },
+  "orders": {
+    "description": "Sản phẩm, dịch vụ, giá cả, chiết khấu, thuế và sổ cái đặt hàng của khách hàng - doanh nghiệp.",
+    "createOrder": "Tạo đơn hàng",
+    "notices": {
+      "apiReserved": "API tạo đơn hàng dành riêng cho đường dẫn ghi trong tương lai.",
+      "draftStaged": "Tạo bản nháp đơn hàng theo giai đoạn (chưa có API)."
+    },
+    "columns": {
+      "order": "Đặt hàng",
+      "customer": "Khách hàng",
+      "status": "Trạng thái",
+      "lines": "dòng",
+      "net": "Mạng lưới",
+      "tax": "Thuế",
+      "gross": "Tổng",
+      "created": "Tạo"
+    },
+    "lineTax": "thuế {taxPct}%"
+  },
+  "tasks": {
+    "calendarTitle": "Lịch · Cuộc họp · Nhắc nhở · Theo dõi",
+    "foundationTitle": "Nền tảng hệ điều hành nhiệm vụ",
+    "foundationDescription": "Đồng bộ hóa lịch, nhà cung cấp cuộc họp, công việc nhắc nhở và móc nối tự động hóa theo dõi đều được bảo lưu. Bảng này là bề mặt nhiệm vụ CRM được chia sẻ cho mọi mô-đun ngành.",
+    "badges": {
+      "calendarAdapter": "Bộ chuyển đổi lịch",
+      "meetingAdapter": "Bộ điều hợp cuộc họp",
+      "reminderQueue": "Hàng đợi nhắc nhở",
+      "followUpEngine": "Động cơ theo dõi"
+    },
+    "duePrefix": "Quá hạn",
+    "kinds": {
+      "follow_up": "Theo dõi",
+      "meeting": "Cuộc họp",
+      "reminder": "Lời nhắc nhở",
+      "task": "Nhiệm vụ"
+    },
+    "statuses": {
+      "open": "Mở",
+      "in_progress": "Đang tiến hành",
+      "done": "Xong",
+      "cancelled": "Đã hủy"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "Không có tài liệu",
+    "emptyDescription": "Không có tài liệu phù hợp với tìm kiếm này.",
+    "searchLabel": "Tìm kiếm AI",
+    "searchPlaceholder": "Báo giá, hợp đồng, hóa đơn, Lieferschein…",
+    "typeLabel": "Loại tài liệu",
+    "allTypes": "Tất cả các loại",
+    "columns": {
+      "type": "Kiểu",
+      "title": "Tiêu đề",
+      "customer": "Khách hàng",
+      "status": "Trạng thái",
+      "updated": "Đã cập nhật"
+    },
+    "kinds": {
+      "quote": "Báo giá",
+      "contract": "Hợp đồng",
+      "invoice": "Hóa đơn",
+      "lieferschein": "Lieferschein",
+      "purchase_order": "Đơn đặt hàng",
+      "receipt": "Biên lai"
+    }
+  },
+  "communication": {
+    "intro": "Chỉ kiến ​​trúc kênh có thể mở rộng — Email, WhatsApp, Instagram, Facebook, TikTok, LinkedIn, Telegram, Voice và Video. Không có tích hợp trực tiếp giả mạo.",
+    "adapterPrefix": "Bộ chuyển đổi:"
+  },
+  "aiCreator": {
+    "intro": "Bề mặt AI Creator sẵn sàng cho tương lai — ý tưởng, chú thích, hashtag, lịch, chiến dịch, tiếng nói thương hiệu, tạo hình ảnh/video, phân tích, lập lịch, hàng đợi xuất bản và thông tin chi tiết. Chưa có API nhà cung cấp thực sự nào được kết nối."
+  },
+  "creatorStudio": {
+    "intro": "Nền tảng Creator Studio — các tiện ích tích hợp nền tảng chính thức có thể được cắm vào các bộ điều hợp này sau. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Chủ đề, X."
+  },
+  "industry": {
+    "intro": "Nền tảng kinh doanh toàn cầu - việc giới thiệu sau này sẽ chọn một ngành. Mỗi ngành đều nhận được các mô-đun AI chuyên dụng mà không cần chuyển đổi hệ điều hành CRM cốt lõi."
+  },
+  "kpi": {
+    "customers": {
+      "label": "Khách hàng",
+      "caption": "Mối quan hệ tích cực"
+    },
+    "companies": {
+      "label": "Công ty",
+      "caption": "Tổ chức tài khoản"
+    },
+    "leads": {
+      "label": "Khách hàng tiềm năng",
+      "caption": "Mới trong tháng này"
+    },
+    "deals": {
+      "label": "Ưu đãi",
+      "caption": "Đường ống mở"
+    },
+    "revenue": {
+      "label": "Doanh thu",
+      "caption": "thắng từ đầu năm"
+    },
+    "projects": {
+      "label": "Dự án đang hoạt động",
+      "caption": "Giao hàng trên chuyến bay"
+    },
+    "tasks": {
+      "label": "Nhiệm vụ mở",
+      "caption": "Trên khắp CRM + giao hàng"
+    },
+    "ai-health": {
+      "label": "Điểm sức khỏe AI",
+      "caption": "Tín hiệu chất lượng mối quan hệ"
+    },
+    "scoreOutOf": "{điểm} / {tối đa}"
+  },
+  "pipeline": {
+    "lead": "Chỉ huy",
+    "qualified": "Đạt tiêu chuẩn",
+    "proposal": "Đề xuất",
+    "negotiation": "đàm phán",
+    "won": "Thắng",
+    "lost": "Mất"
+  },
+  "orderStatus": {
+    "draft": "Bản nháp",
+    "confirmed": "Đã xác nhận",
+    "in_fulfillment": "Trong sự hoàn thành",
+    "shipped": "Đã vận chuyển",
+    "delivered": "Đã giao hàng",
+    "cancelled": "Đã hủy"
+  },
+  "tracking": {
+    "scheduled": "Đã lên lịch",
+    "en_route": "Đang trên đường",
+    "arrived": "Tới nơi",
+    "completed": "Hoàn thành",
+    "failed": "Thất bại"
+  },
+  "documentKind": {
+    "quote": "Trích dẫn",
+    "contract": "Hợp đồng",
+    "invoice": "Hóa đơn",
+    "lieferschein": "Lieferschein",
+    "purchase_order": "Đơn đặt hàng",
+    "receipt": "Biên lai"
+  },
+  "documentStatus": {
+    "sent": "Đã gửi",
+    "signed": "Đã ký",
+    "paid": "Trả",
+    "in_transit": "Đang chuyển tiếp",
+    "open": "Mở",
+    "filed": "Đã nộp"
+  },
+  "integration": {
+    "planned": "Đã lên kế hoạch",
+    "ready": "Sẵn sàng",
+    "connected": "Đã kết nối",
+    "disabled": "Tàn tật"
+  }
+}

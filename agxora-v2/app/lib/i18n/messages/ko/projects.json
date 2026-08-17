@@ -1,0 +1,298 @@
+{
+  "page": {
+    "eyebrow": "프로젝트 관리 OS",
+    "title": "프로젝트",
+    "lead": "배송을 계획하고, 예산 및 상태를 추적하고, 팀을 할당하고, {조직}의 작업을 관리하세요. 데이터는 로컬로 유지되며 백엔드 연결이 가능합니다.",
+    "yourOrganization": "당신의 조직"
+  },
+  "list": {
+    "errorTitle": "프로젝트를 로드할 수 없습니다.",
+    "searchLabel": "프로젝트 검색",
+    "searchPlaceholder": "프로젝트, 고객, 소유자, 태그 검색…",
+    "viewCards": "카드",
+    "viewTable": "테이블",
+    "newProject": "새 프로젝트",
+    "statusFilter": "상태",
+    "priorityFilter": "우선 사항",
+    "customerFilter": "고객",
+    "ownerFilter": "소유자",
+    "allStatuses": "모든 상태",
+    "allPriorities": "모든 우선순위",
+    "allCustomers": "모든 고객",
+    "allOwners": "모든 소유자",
+    "dateFrom": "에서",
+    "dateTo": "에게",
+    "emptyTitle": "아직 프로젝트가 없습니다.",
+    "emptyDescription": "전달 작업 공간을 가동하여 마일스톤, 예산, 팀 소유권을 추적하세요.",
+    "createProject": "프로젝트 생성",
+    "pagination": "{total} 중 {from}~{to} 표시 중",
+    "previous": "이전의",
+    "next": "다음",
+    "noDescription": "아직 설명이 없습니다.",
+    "duePrefix": "마감 {날짜}",
+    "openProject": "{이름} 프로젝트 열기",
+    "sortBy": "{column} 기준으로 정렬",
+    "sort": {
+      "name": "이름",
+      "customer": "고객",
+      "owner": "소유자",
+      "status": "상태",
+      "priority": "우선 사항",
+      "progress": "진전",
+      "dueDate": "로 인한",
+      "budget": "예산"
+    }
+  },
+  "form": {
+    "createTitle": "프로젝트 생성",
+    "editTitle": "프로젝트 편집",
+    "cancel": "취소",
+    "saveChanges": "변경사항 저장",
+    "createProject": "프로젝트 생성",
+    "projectName": "프로젝트 이름",
+    "customer": "고객",
+    "projectOwner": "프로젝트 소유자",
+    "priority": "우선 사항",
+    "status": "상태",
+    "budget": "예산",
+    "currency": "통화",
+    "startDate": "시작일",
+    "dueDate": "마감일",
+    "color": "색상",
+    "icon": "상",
+    "tags": "태그",
+    "tagsHint": "쉼표로 구분",
+    "tagsPlaceholder": "기업, 출시",
+    "budgetPlaceholder": "0",
+    "description": "설명",
+    "selectColor": "색상 선택 {color}"
+  },
+  "taskForm": {
+    "createTitle": "작업 생성",
+    "editTitle": "작업 편집",
+    "cancel": "취소",
+    "saveChanges": "변경사항 저장",
+    "createTask": "작업 만들기",
+    "title": "제목",
+    "assignee": "양수인",
+    "priority": "우선 사항",
+    "status": "상태",
+    "deadline": "사선",
+    "progress": "진전",
+    "labels": "라벨",
+    "labelsHint": "쉼표로 구분",
+    "description": "설명"
+  },
+  "deleteDialog": {
+    "title": "프로젝트 삭제",
+    "cancel": "취소",
+    "deletePermanently": "영구 삭제",
+    "bodyPrefix": "이는 제거됩니다",
+    "thisProject": "이 프로젝트",
+    "bodySuffix": "로컬 저장소의 모든 관련 작업, 파일, 메모 및 활동. 이 작업은 취소할 수 없습니다."
+  },
+  "badges": {
+    "progress": "진전",
+    "progressAria": "{라벨}: {값}%"
+  },
+  "status": {
+    "planning": "계획",
+    "active": "활동적인",
+    "on_hold": "보류 중",
+    "completed": "완전한",
+    "archived": "보관됨"
+  },
+  "taskStatus": {
+    "todo": "할 일",
+    "in_progress": "진행 중",
+    "review": "검토",
+    "done": "완료"
+  },
+  "priority": {
+    "low": "낮은",
+    "medium": "중간",
+    "high": "높은",
+    "critical": "비판적인"
+  },
+  "role": {
+    "owner": "소유자",
+    "manager": "관리자",
+    "member": "회원",
+    "viewer": "뷰어"
+  },
+  "kind": {
+    "project": "프로젝트",
+    "task": "일",
+    "milestone": "중요한 단계"
+  },
+  "timeline": {
+    "noTimelineTitle": "타임라인 없음",
+    "noTimelineDescription": "프로젝트를 열어 일정, 기간, 마일스톤을 확인하세요.",
+    "emptyTitle": "타임라인이 비어 있습니다.",
+    "emptyDescription": "시작/기한 및 작업을 추가하여 일정을 채웁니다.",
+    "title": "타임라인",
+    "subtitle": "시작, 종료, 기간, 이정표. 종속성은 향후 릴리스를 위해 예약되어 있습니다.",
+    "dateRange": "{시작} → {끝} · {일}일",
+    "itemAria": "{제목}부터 {시작}부터 {끝}까지",
+    "dependenciesNone": "종속성: 없음"
+  },
+  "dashboard": {
+    "kpi": {
+      "activeProjects": "활성 프로젝트",
+      "activeHint": "{계획} 계획",
+      "completed": "완전한",
+      "completedHint": "포트폴리오의 {percent}%",
+      "onHold": "보류 중",
+      "onHoldHint": "{archived} 보관됨",
+      "teamMembers": "팀원",
+      "teamHint": "모든 프로젝트에서",
+      "budgetOverview": "예산 개요",
+      "budgetHint": "{percent}% 사용됨 · {spent} 사용함",
+      "openTasks": "열린 작업",
+      "openTasksHint": "{연체} 기한이 지났습니다",
+      "projectHealth": "프로젝트 상태",
+      "healthHint": "종합 배송 점수",
+      "upcomingDeadlines": "다가오는 마감일",
+      "upcomingHint": "다음 30일"
+    },
+    "analytics": {
+      "title": "해석학",
+      "subtitle": "포트폴리오 상태, 완료 및 예산 사용.",
+      "statusMix": "상태 혼합",
+      "deliverySignals": "배달 신호",
+      "completedPercent": "완전한 %",
+      "budgetUsage": "예산 사용량",
+      "health": "건강",
+      "upcomingDeadlines": "다가오는 마감일",
+      "noUpcomingDeadlines": "다음 창에는 예정된 마감일이 없습니다."
+    },
+    "recentActivity": {
+      "title": "최근 활동",
+      "subtitle": "최신 프로젝트 이벤트가 먼저 표시됩니다.",
+      "empty": "프로젝트와 작업이 생성되면 활동이 표시됩니다."
+    }
+  },
+  "kanban": {
+    "emptyTitle": "보드에 작업이 없습니다.",
+    "emptyDescription": "할 일, 진행 중, 검토 및 완료에 걸쳐 전달을 구성하는 작업을 만듭니다.",
+    "addTask": "작업 추가",
+    "columnAria": "{상태} 열",
+    "taskProgress": "작업 진행",
+    "edit": "편집하다",
+    "complete": "완벽한"
+  },
+  "detail": {
+    "notFoundTitle": "프로젝트를 찾을 수 없습니다",
+    "notFoundDescription": "이 프로젝트는 삭제되었거나 현재 조직에서 사용할 수 없습니다.",
+    "backToProjects": "← 프로젝트로 돌아가기",
+    "ownerMeta": "{고객} · 소유자 {소유자}",
+    "edit": "편집하다",
+    "delete": "삭제",
+    "sectionsAria": "프로젝트 세부정보 섹션",
+    "tabs": {
+      "overview": "개요",
+      "tasks": "작업",
+      "files": "파일",
+      "notes": "메모",
+      "activity": "활동",
+      "team": "팀",
+      "settings": "설정"
+    }
+  },
+  "overview": {
+    "missingTitle": "누락된 프로젝트",
+    "missingDescription": "개요를 보려면 프로젝트를 선택하세요.",
+    "title": "개요",
+    "noDescription": "설명이 제공되지 않았습니다.",
+    "budget": "예산",
+    "spent": "지출",
+    "start": "시작",
+    "due": "로 인한",
+    "openTasks": "열린 작업",
+    "completedTasks": "완료된 작업"
+  },
+  "tasks": {
+    "title": "작업 관리",
+    "newTask": "새 작업",
+    "tableTitle": "제목",
+    "tableAssignee": "양수인",
+    "tablePriority": "우선 사항",
+    "tableStatus": "상태",
+    "tableDue": "로 인한",
+    "tableProgress": "진전",
+    "tableActions": "행위",
+    "edit": "편집하다",
+    "complete": "완벽한",
+    "delete": "삭제",
+    "emptyTitle": "아직 할 일이 없습니다.",
+    "emptyDescription": "작업을 생성하고, 소유자를 할당하고, 보드에서 진행 상황을 추적하세요.",
+    "createTask": "작업 만들기"
+  },
+  "files": {
+    "title": "파일 관리자",
+    "description": "이미지, PDF, 사무실 문서를 업로드하세요. 메타데이터는 로컬로 유지됩니다.",
+    "upload": "업로드",
+    "emptyTitle": "업로드된 파일이 없습니다.",
+    "emptyDescription": "팀이 검토하고 미리 볼 수 있도록 프로젝트 아티팩트를 추가하세요.",
+    "preview": "시사",
+    "metadataOnly": "메타데이터만",
+    "delete": "삭제"
+  },
+  "notes": {
+    "editTitle": "메모 수정",
+    "newTitle": "새 메모",
+    "title": "제목",
+    "author": "작가",
+    "body": "몸",
+    "cancel": "취소",
+    "saveNote": "메모 저장",
+    "emptyTitle": "아직 메모가 없습니다.",
+    "emptyDescription": "의사결정, 회의 결과, 전달 상황을 파악하세요.",
+    "edit": "편집하다",
+    "delete": "삭제"
+  },
+  "activity": {
+    "title": "활동 피드",
+    "emptyTitle": "아직 활동이 없습니다",
+    "emptyDescription": "팀이 작업하는 동안 프로젝트 이벤트가 여기에 표시됩니다."
+  },
+  "team": {
+    "missingTitle": "누락된 프로젝트",
+    "missingDescription": "팀원을 관리할 프로젝트를 선택하세요.",
+    "assignTitle": "구성원 지정",
+    "name": "이름",
+    "email": "이메일",
+    "role": "역할",
+    "addMember": "회원 추가",
+    "teamTitle": "팀",
+    "remove": "제거하다"
+  },
+  "settings": {
+    "missingTitle": "누락된 프로젝트",
+    "missingDescription": "설정을 관리할 프로젝트를 선택하세요.",
+    "title": "프로젝트 설정",
+    "description": "예산 소각 및 보관 상태를 업데이트합니다. 전체 필드 편집은 편집 대화 상자를 사용합니다.",
+    "spentAmount": "지출 금액",
+    "saveSpent": "소비된 금액을 절약하세요",
+    "archiveProject": "프로젝트 보관",
+    "editAllFields": "모든 필드 편집"
+  },
+  "toasts": {
+    "projectCreated": "프로젝트가 생성되었습니다.",
+    "projectUpdated": "프로젝트가 업데이트되었습니다.",
+    "projectDeleted": "프로젝트가 삭제되었습니다.",
+    "checkForm": "양식을 확인하세요",
+    "validationFailed": "유효성 검사에 실패했습니다.",
+    "taskCreated": "작업이 생성되었습니다.",
+    "taskUpdated": "작업이 업데이트되었습니다.",
+    "taskCompleted": "작업 완료",
+    "taskDeleted": "작업이 삭제되었습니다.",
+    "filesUploaded": "업로드된 파일",
+    "filesUploadedDetail": "{count} 파일",
+    "fileDeleted": "파일이 삭제되었습니다.",
+    "noteSaved": "메모가 저장되었습니다.",
+    "memberAdded": "회원이 추가되었습니다.",
+    "settingsSaved": "설정이 저장되었습니다.",
+    "projectArchived": "프로젝트가 보관되었습니다."
+  }
+}

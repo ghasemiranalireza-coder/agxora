@@ -1,0 +1,136 @@
+{
+  "loading": "Caricamento Enterprise Intelligence Center…",
+  "eyebrow": "Centro di intelligence aziendale",
+  "title": "Intelligenza",
+  "subtitle": "KPI, scorecard, avvisi e report per ogni modulo AGXORA. I valori riportati di seguito rappresentano un set di dati demo seed finché i backend di analisi in tempo reale non si connettono.",
+  "demoBanner": "Set di dati demo: filtra e riconosce il lavoro durante la sessione; l'esportazione e le chiamate di modelli dal vivo non sono ancora disponibili.",
+  "noticeDefault": "Visualizzazione dell'analisi demo seminata, non della telemetria della produzione in tempo reale.",
+  "noPermission": "Non disponi dell'autorizzazione intelligence.read per quest'area di lavoro.",
+  "filtersUpdated": "Filtri aggiornati",
+  "demoReloaded": "Set di dati demo ricaricato per questa area di lavoro.",
+  "acknowledged": "Riconosciuto: {titolo}",
+  "exportUnavailableTitle": "Esportazione non disponibile: la generazione del report non è ancora connessa.",
+  "exportUnavailableAria": "Esporta {titolo} come {formato}: non disponibile",
+  "tabs": {
+    "executive": "Esecutivo",
+    "health": "Salute aziendale",
+    "workspace": "Analitica",
+    "kpis": "Centro KPI",
+    "reports": "Rapporti",
+    "insights": "Approfondimenti",
+    "forecasts": "Previsioni",
+    "alerts": "Avvisi",
+    "scorecards": "Segnapunti",
+    "explorer": "Esploratore dati"
+  },
+  "filters": {
+    "from": "Da",
+    "to": "A",
+    "domain": "Dominio",
+    "allDomains": "Tutti i domini",
+    "apply": "Applica filtri",
+    "reloadDemo": "Ricarica i dati demo",
+    "viewsAria": "Viste dell'intelligence"
+  },
+  "executive": {
+    "companyHealth": "Salute aziendale",
+    "revenueScore": "Punteggio delle entrate",
+    "customerHealth": "Salute del cliente",
+    "projectHealth": "Salute del progetto",
+    "workflowSuccess": "Successo del flusso di lavoro",
+    "aiActivity": "Attività dell'intelligenza artificiale",
+    "finance": "Finanza",
+    "riskGrowth": "Rischio/Crescita",
+    "kpiStrip": "Striscia KPI esecutiva",
+    "visualizationPreviews": "Anteprime di visualizzazione",
+    "visualizationHint": "Grafici illustrativi della serie demo, non approfondimenti interattivi.",
+    "noSeries": "Nessuna serie legata"
+  },
+  "health": {
+    "title": "Scomposizione della salute aziendale",
+    "overall": "Complessivamente",
+    "revenue": "Reddito",
+    "customers": "Clienti",
+    "projects": "Progetti",
+    "workflows": "Flussi di lavoro",
+    "ai": "AI",
+    "finance": "Finanza",
+    "operations": "Operazioni",
+    "riskPosture": "Atteggiamento al rischio",
+    "growth": "Crescita",
+    "observability": "Osservabilità: {metrics} metriche · {avgMs} ms avg · integrità del sistema {health}"
+  },
+  "workspace": {
+    "noSeries": "Nessuna serie"
+  },
+  "kpis": {
+    "title": "Centro KPI",
+    "subtitle": "Catalogo KPI configurabile per entrate, clienti, progetti, flussi di lavoro, agenti e automazione.",
+    "emptyTitle": "Analytics attende il segnale",
+    "emptyDescription": "Una volta che l'area di lavoro genera attività, i KPI esecutivi e gli avvisi vengono visualizzati qui."
+  },
+  "reports": {
+    "title": "Motore di reporting",
+    "subtitle": "Le definizioni dei report vengono seminate per la revisione. L'esportazione di file non è disponibile finché non viene connesso un backend di reporting.",
+    "emptyTitle": "Nessun rapporto",
+    "emptyDescription": "Riporta il seed sul bootstrap dell'area di lavoro.",
+    "scheduleOnDemand": "su richiesta"
+  },
+  "insights": {
+    "emptyTitle": "Ancora nessun approfondimento",
+    "emptyDescription": "Gli approfondimenti demo vengono visualizzati dopo i seed dell'area di lavoro. La generazione di informazioni dettagliate sull'intelligenza artificiale in tempo reale non è connessa.",
+    "badge": "Demo · {tipo} · {dominio} · conf {confidenza}"
+  },
+  "forecasts": {
+    "emptyTitle": "Nessuna previsione ancora",
+    "emptyDescription": "Le previsioni demo vengono visualizzate dopo il seed. I modelli predittivi non sono collegati.",
+    "title": "previsione {gentile}",
+    "baseline": "Baseline {baseline} → previsto {proiettato} ({giorni}d)",
+    "confidence": "Demo · Confidenza {confidenza} — {nota}"
+  },
+  "alerts": {
+    "title": "Motore di allerta",
+    "emptyTitle": "Nessun avviso",
+    "emptyDescription": "Gli avvisi provengono dall'euristica del rischio.",
+    "acked": "colpito",
+    "open": "aprire",
+    "acknowledge": "Riconoscere"
+  },
+  "scorecards": {
+    "title": "Motore di scorecard",
+    "emptyTitle": "Niente scorecard",
+    "emptyDescription": "Seme delle scorecard sul bootstrap."
+  },
+  "explorer": {
+    "title": "Esploratore di dati",
+    "searchPlaceholder": "Cerca righe demo...",
+    "searchAria": "Cerca nelle righe dell'Explorer demo",
+    "emptyTitle": "Nessuna riga corrisponde",
+    "emptyDescription": "Modifica i filtri, cerca o ricarica il set di dati demo.",
+    "hint": "Ricerca lato client sulle tuple seedate: l'aggregazione backend e il drill-down non sono collegati."
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "Valore",
+    "delta": "Δ%",
+    "trend": "Tendenza",
+    "target": "Bersaglio",
+    "severity": "Gravità",
+    "alert": "Avviso",
+    "domain": "Dominio",
+    "status": "Stato",
+    "actions": "Azioni",
+    "report": "Rapporto",
+    "kind": "Tipo",
+    "schedule": "Programma",
+    "export": "Esportare",
+    "scorecard": "Scheda segnapunti",
+    "score": "Punto",
+    "topDriver": "Il miglior pilota",
+    "label": "Etichetta",
+    "entity": "Entità",
+    "measure": "Misura",
+    "date": "Data"
+  },
+  "emDash": "—"
+}

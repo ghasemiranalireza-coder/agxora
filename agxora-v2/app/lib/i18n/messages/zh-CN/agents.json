@@ -1,0 +1,121 @@
+{
+  "loading": "正在加载代理操作系统...",
+  "eyebrow": "人工智能代理操作系统",
+  "title": "客服代表OS",
+  "subtitle": "本地代理工作区 - 代理可以作为跨 CRM、项目、财务、工作流程和集成的模拟来激活和运行。生产自主执行未连接。",
+  "noticeDefault": "本地代理操作系统—在此工作区中模拟运行。",
+  "aiChat": "人工智能聊天",
+  "tabs": {
+    "dashboard": "仪表板",
+    "registry": "教务长",
+    "marketplace": "市场",
+    "monitor": "监视器",
+    "history": "历史",
+    "memory": "记忆",
+    "knowledge": "知识",
+    "tools": "工具",
+    "settings": "设置"
+  },
+  "notice": {
+    "simulatedRun": "模拟运行· {status} （ {duration}毫秒）",
+    "taskFailed": "任务失败",
+    "activated": "已在本地激活： {agentId}",
+    "agentPaused": "客服代表已暂停",
+    "agentActivated": "代理激活",
+    "taskCancelled": "任务已取消",
+    "supervisorDelegated": "主管委派跟进",
+    "settingsUpdated": "为此本地工作区更新了代理操作系统设置。"
+  },
+  "dashboard": {
+    "agents": "代理",
+    "active": "积极的",
+    "localReady": "本地准备就绪",
+    "simulatedToday": "今天模拟",
+    "failedToday": "今天失败",
+    "avgExec": "平均执行次数",
+    "toolCalls": "工具调用",
+    "knowledge": "知识",
+    "activeFleet": "活跃机队",
+    "emptyTitle": "没有活跃的代理",
+    "emptyDescription": "从市场安装或激活代理以开始模拟运行。"
+  },
+  "registry": {
+    "title": "教务长",
+    "selectPrompt": "从注册表中选择一个代理。",
+    "status": "状态：{状态}",
+    "health": "4. 健康（健康）",
+    "queue": "队列：{队列}",
+    "usage": "用法：{用法}",
+    "executeTask": "执行任务",
+    "supervisorDelegate": "监事代表"
+  },
+  "marketplace": {
+    "tools": "工具： {tools}",
+    "installed": "已安装",
+    "installActivate": "安装并激活"
+  },
+  "monitor": {
+    "title": "代理监控",
+    "emptyTitle": "没有代理可以监控",
+    "emptyDescription": "从市场激活代理。",
+    "latestConfidence": "最新推理置信度： {confidence} — {steps}"
+  },
+  "history": {
+    "title": "执行历史",
+    "emptyTitle": "尚未执行死刑",
+    "emptyDescription": "从注册表或监视器运行代理任务。"
+  },
+  "memory": {
+    "title": "记忆中心",
+    "subtitle": "工作·对话·业务·长期·工作空间·代理范围（架构就绪）。",
+    "emptyTitle": "无记忆记录",
+    "emptyDescription": "执行任务以填充工作/代理内存。"
+  },
+  "knowledge": {
+    "title": "知识中心",
+    "subtitle": "公司、文档、项目、CRM、政策、程序 — 以及矢量/RAG 占位符。",
+    "emptyTitle": "无知识文档",
+    "emptyDescription": "种子知识在工作区引导后出现。"
+  },
+  "tools": {
+    "sensitive": "· 敏感的",
+    "mcpReady": "· MCP 就绪"
+  },
+  "settings": {
+    "title": "代理操作系统设置",
+    "defaultLlmProvider": "默认法学硕士提供商",
+    "enableSupervisor": "启用主管代理架构",
+    "isolateSensitive": "隔离敏感工具",
+    "saveSettings": "保存设置",
+    "providersHint": "准备就绪的提供商：OpenAI、Azure OpenAI、Anthropic、Gemini、Local、Ollama、MCP、Custom。通过 registerLlmProvider 交换适配器，无需更改 UI。"
+  },
+  "columns": {
+    "agent": "代理人",
+    "status": "地位",
+    "health": "健康",
+    "queue": "队列",
+    "usage": "使用本手册",
+    "actions": "行动",
+    "task": "任务",
+    "duration": "课时",
+    "created": "已创建",
+    "scope": "范围",
+    "key": "钥匙",
+    "value": "价值",
+    "at": "在",
+    "title": "标题",
+    "kind": "种类",
+    "summary": "概括"
+  },
+  "actions": {
+    "run": "潛襲",
+    "pause": "暂停",
+    "activate": "激活",
+    "cancel": "取消",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "执行 {agentId} 业务目标",
+    "planAndExecute": "规划和执行工作区业务目标"
+  }
+}

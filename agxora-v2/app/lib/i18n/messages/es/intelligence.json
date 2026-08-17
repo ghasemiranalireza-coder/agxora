@@ -1,0 +1,136 @@
+{
+  "loading": "Cargando Centro de inteligencia empresarial…",
+  "eyebrow": "Centro de inteligencia empresarial",
+  "title": "Inteligencia",
+  "subtitle": "KPI, cuadros de mando, alertas e informes para cada módulo de AGXORA. Los valores a continuación son un conjunto de datos de demostración inicializados hasta que se conectan los backends de análisis en vivo.",
+  "demoBanner": "Conjunto de datos de demostración: filtra y reconoce el trabajo durante la sesión; Las llamadas de modelos en vivo y de exportación aún no están disponibles.",
+  "noticeDefault": "Mostrando análisis de demostración inicializados, no telemetría de producción en vivo.",
+  "noPermission": "No tienes permiso de Intelligence.read para este espacio de trabajo.",
+  "filtersUpdated": "Filtros actualizados",
+  "demoReloaded": "Conjunto de datos de demostración recargado para este espacio de trabajo.",
+  "acknowledged": "Reconocido: {título}",
+  "exportUnavailableTitle": "Exportación no disponible: la generación de informes aún no está conectada.",
+  "exportUnavailableAria": "Exportar {título} como {formato} — no disponible",
+  "tabs": {
+    "executive": "Ejecutivo",
+    "health": "Salud empresarial",
+    "workspace": "Analítica",
+    "kpis": "Centro de KPI",
+    "reports": "Informes",
+    "insights": "Perspectivas",
+    "forecasts": "Previsiones",
+    "alerts": "Alertas",
+    "scorecards": "Cuadros de mando",
+    "explorer": "Explorador de datos"
+  },
+  "filters": {
+    "from": "De",
+    "to": "A",
+    "domain": "Dominio",
+    "allDomains": "Todos los dominios",
+    "apply": "Aplicar filtros",
+    "reloadDemo": "Recargar datos de demostración",
+    "viewsAria": "Vistas de inteligencia"
+  },
+  "executive": {
+    "companyHealth": "Salud de la empresa",
+    "revenueScore": "Puntuación de ingresos",
+    "customerHealth": "Salud del cliente",
+    "projectHealth": "Salud del proyecto",
+    "workflowSuccess": "Éxito del flujo de trabajo",
+    "aiActivity": "Actividad de IA",
+    "finance": "Finanzas",
+    "riskGrowth": "Riesgo / Crecimiento",
+    "kpiStrip": "Tira de KPI ejecutivos",
+    "visualizationPreviews": "Vistas previas de visualización",
+    "visualizationHint": "Gráficos ilustrativos de la serie de demostración, no desgloses interactivos.",
+    "noSeries": "Sin serie vinculada"
+  },
+  "health": {
+    "title": "Descomposición de la salud empresarial",
+    "overall": "En general",
+    "revenue": "Ganancia",
+    "customers": "Clientes",
+    "projects": "Proyectos",
+    "workflows": "Flujos de trabajo",
+    "ai": "AI",
+    "finance": "Finanzas",
+    "operations": "Operaciones",
+    "riskPosture": "Postura de riesgo",
+    "growth": "Crecimiento",
+    "observability": "Observabilidad: {metrics} métricas · {avgMs}ms avg · salud del sistema {health}"
+  },
+  "workspace": {
+    "noSeries": "Ninguna serie"
+  },
+  "kpis": {
+    "title": "Centro de KPI",
+    "subtitle": "Catálogo de KPI configurable para ingresos, clientes, proyectos, flujos de trabajo, agentes y automatización.",
+    "emptyTitle": "La analítica espera señal",
+    "emptyDescription": "Una vez que su espacio de trabajo genera actividad, aquí aparecen alertas y KPI ejecutivos."
+  },
+  "reports": {
+    "title": "Motor de informes",
+    "subtitle": "Las definiciones de informes se envían para su revisión. La exportación de archivos no está disponible hasta que se conecte un servidor de informes.",
+    "emptyTitle": "Sin informes",
+    "emptyDescription": "Generación de informes en el arranque del espacio de trabajo.",
+    "scheduleOnDemand": "Bajo demanda"
+  },
+  "insights": {
+    "emptyTitle": "Aún no hay información",
+    "emptyDescription": "La información de demostración aparece después de las semillas del espacio de trabajo. La generación de información de Live AI no está conectada.",
+    "badge": "Demostración · {tipo} · {dominio} · conf {confianza}"
+  },
+  "forecasts": {
+    "emptyTitle": "Aún no hay previsiones",
+    "emptyDescription": "Los pronósticos de demostración aparecen después de la semilla. Los modelos predictivos no están conectados.",
+    "title": "pronóstico {tipo}",
+    "baseline": "Línea base {línea base} → proyectada {proyectada} ({días}d)",
+    "confidence": "Demostración · Confianza {confianza} — {nota}"
+  },
+  "alerts": {
+    "title": "Motor de alerta",
+    "emptyTitle": "Sin alertas",
+    "emptyDescription": "Las alertas surgen de la heurística del riesgo.",
+    "acked": "atacado",
+    "open": "abierto",
+    "acknowledge": "Reconocer"
+  },
+  "scorecards": {
+    "title": "Motor de cuadro de mando",
+    "emptyTitle": "Sin cuadros de mando",
+    "emptyDescription": "Semillas de cuadros de mando en bootstrap."
+  },
+  "explorer": {
+    "title": "Explorador de datos",
+    "searchPlaceholder": "Buscar filas de demostración...",
+    "searchAria": "Buscar filas del explorador de demostración",
+    "emptyTitle": "Ninguna fila coincide",
+    "emptyDescription": "Ajuste los filtros o busque, o vuelva a cargar el conjunto de datos de demostración.",
+    "hint": "Búsqueda del lado del cliente en tuplas inicializadas: la agregación de backend y el desglose no están conectados."
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "Valor",
+    "delta": "Δ%",
+    "trend": "Tendencia",
+    "target": "Objetivo",
+    "severity": "Gravedad",
+    "alert": "Alerta",
+    "domain": "Dominio",
+    "status": "Estado",
+    "actions": "Comportamiento",
+    "report": "Informe",
+    "kind": "Amable",
+    "schedule": "Cronograma",
+    "export": "Exportar",
+    "scorecard": "Tanteador",
+    "score": "Puntaje",
+    "topDriver": "Mejor conductor",
+    "label": "Etiqueta",
+    "entity": "Entidad",
+    "measure": "Medida",
+    "date": "Fecha"
+  },
+  "emDash": "—"
+}

@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "正在載入人工智慧平臺…",
+    "eyebrow": "AGXORA人工智慧平台",
+    "title": "企業人工智慧工作空間",
+    "subtitle": "針對客戶關係管理、專案、財務、文件和自動化的供應商獨立情報。在設定→AI中設定提供者。",
+    "newConversation": "新對話",
+    "aiCommands": "人工智慧命令"
+  },
+  "mobileTabs": {
+    "chat": "聊天",
+    "conversations": "對話",
+    "prompts": "提示"
+  },
+  "usageBar": {
+    "provider": "提供者",
+    "model": "模型",
+    "estimatedTokens": "預計。代幣",
+    "tokensInOut": "（輸入{輸入}/輸出{輸出}）",
+    "cost": "整軸線價格",
+    "context": "情境",
+    "contextNone": "沒有任何",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "AGXORA 人工智慧工作空間",
+    "emptyHint": "開始對話，從庫中選擇提示，或開啟指令選項板 (⌘⇧K / Ctrl⇧K)。"
+  },
+  "conversationSidebar": {
+    "title": "對話",
+    "new": "剛剛",
+    "searchPlaceholder": "搜尋聊天記錄...",
+    "searchAria": "搜尋對話",
+    "showArchived": "顯示已存檔",
+    "pinned": "已固定",
+    "emptyPreview": "空談",
+    "noConversations": "還沒有對話",
+    "pin": "別針",
+    "unpin": "取消固定",
+    "rename": "重新命名",
+    "archive": "檔案",
+    "unarchive": "取消歸檔",
+    "delete": "刪除"
+  },
+  "composer": {
+    "placeholder": "訊息 AGXORA AI…（Enter 發送，Shift+Enter 換行）",
+    "ariaLabel": "訊息編輯器",
+    "commandsShortcut": "指令 ⌘⇧K",
+    "stop": "停止",
+    "send": "傳送"
+  },
+  "messageBubble": {
+    "ellipsis": "……",
+    "copy": "複製",
+    "retry": "重試"
+  },
+  "typingIndicator": {
+    "ariaLabel": "助理正在打字"
+  },
+  "promptLibrary": {
+    "title": "提示庫",
+    "subtitle": "可在 CRM、專案、財務等領域重複使用的範本。",
+    "searchPlaceholder": "搜尋提示...",
+    "searchAria": "搜尋提示",
+    "all": "全部",
+    "favorites": "收藏夾",
+    "recent": "最近項目",
+    "library": "圖書館",
+    "noMatches": "沒有相符的提示",
+    "removeFavoriteAria": "刪除收藏夾",
+    "addFavoriteAria": "新增收藏夾",
+    "favorited": "已收藏",
+    "favorite": "最喜歡的",
+    "usePrompt": "使用提示"
+  },
+  "commandPalette": {
+    "ariaLabel": "AI指令面板",
+    "filterAria": "篩選AI指令",
+    "placeholder": "AI指揮…總結、建議、分析…",
+    "noMatches": "沒有符合的命令",
+    "footer": "透過 registerAiCommand 註冊未來的命令 — UI 保持不變。"
+  }
+}

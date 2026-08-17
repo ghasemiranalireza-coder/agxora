@@ -1,0 +1,298 @@
+{
+  "page": {
+    "eyebrow": "專案管理作業系統",
+    "title": "專案",
+    "lead": "規劃交付、追蹤預算和運作狀況、分配團隊以及管理{組織}的任務。資料保留在本地並準備好用於後端連線。",
+    "yourOrganization": "你的組織"
+  },
+  "list": {
+    "errorTitle": "無法載入項目",
+    "searchLabel": "搜尋項目",
+    "searchPlaceholder": "搜尋項目、客戶、所有者、標籤…",
+    "viewCards": "牌",
+    "viewTable": "桌子",
+    "newProject": "新專案",
+    "statusFilter": "地位",
+    "priorityFilter": "優先順序高",
+    "customerFilter": "顧客",
+    "ownerFilter": "擁有者",
+    "allStatuses": "所有狀態",
+    "allPriorities": "所有優先事項",
+    "allCustomers": "所有客戶",
+    "allOwners": "所有所有者",
+    "dateFrom": "從",
+    "dateTo": "到",
+    "emptyTitle": "還沒有項目",
+    "emptyDescription": "啟動交付工作區來追蹤里程碑、預算和團隊所有權。",
+    "createProject": "創建專案",
+    "pagination": "顯示 {from}–{to}，共 {total}",
+    "previous": "以前的",
+    "next": "下一個",
+    "noDescription": "還沒有描述。",
+    "duePrefix": "到期日}",
+    "openProject": "打開項目{名稱}",
+    "sortBy": "按{列}排序",
+    "sort": {
+      "name": "姓名",
+      "customer": "顧客",
+      "owner": "擁有者",
+      "status": "地位",
+      "priority": "優先順序高",
+      "progress": "進步",
+      "dueDate": "到期的",
+      "budget": "預算"
+    }
+  },
+  "form": {
+    "createTitle": "創建專案",
+    "editTitle": "編輯項目",
+    "cancel": "取消",
+    "saveChanges": "儲存變更",
+    "createProject": "創建專案",
+    "projectName": "項目名稱",
+    "customer": "顧客",
+    "projectOwner": "專案業主",
+    "priority": "優先順序高",
+    "status": "地位",
+    "budget": "預算",
+    "currency": "貨幣",
+    "startDate": "開始日期",
+    "dueDate": "到期日",
+    "color": "顏色",
+    "icon": "圖示",
+    "tags": "標籤",
+    "tagsHint": "逗號分隔",
+    "tagsPlaceholder": "企業、推出",
+    "budgetPlaceholder": "0",
+    "description": "描述",
+    "selectColor": "選擇顏色{顏色}"
+  },
+  "taskForm": {
+    "createTitle": "創建任務",
+    "editTitle": "編輯任務",
+    "cancel": "取消",
+    "saveChanges": "儲存變更",
+    "createTask": "創建任務",
+    "title": "標題",
+    "assignee": "受讓人",
+    "priority": "優先順序高",
+    "status": "地位",
+    "deadline": "最後期限",
+    "progress": "進步",
+    "labels": "標籤",
+    "labelsHint": "逗號分隔",
+    "description": "描述"
+  },
+  "deleteDialog": {
+    "title": "刪除項目",
+    "cancel": "取消",
+    "deletePermanently": "永久刪除",
+    "bodyPrefix": "這刪除了",
+    "thisProject": "這個項目",
+    "bodySuffix": "以及本地儲存中的所有相關任務、文件、註釋和活動。此操作無法撤銷。"
+  },
+  "badges": {
+    "progress": "進步",
+    "progressAria": "{標籤}：{值}%"
+  },
+  "status": {
+    "planning": "規劃",
+    "active": "積極的",
+    "on_hold": "等候接聽",
+    "completed": "完全的",
+    "archived": "已存檔"
+  },
+  "taskStatus": {
+    "todo": "待辦事項",
+    "in_progress": "進行中",
+    "review": "審查",
+    "done": "完畢"
+  },
+  "priority": {
+    "low": "低的",
+    "medium": "中等的",
+    "high": "高的",
+    "critical": "批判的"
+  },
+  "role": {
+    "owner": "擁有者",
+    "manager": "主管",
+    "member": "成員",
+    "viewer": "一般檢視"
+  },
+  "kind": {
+    "project": "專案",
+    "task": "任務",
+    "milestone": "里程碑"
+  },
+  "timeline": {
+    "noTimelineTitle": "沒有時間表",
+    "noTimelineDescription": "打開專案以查看計劃、持續時間和里程碑。",
+    "emptyTitle": "時間線為空",
+    "emptyDescription": "新增開始/截止日期和任務以填入時間表。",
+    "title": "時間軸",
+    "subtitle": "開始、結束、持續時間、裏程碑。相依性保留給未來的版本。",
+    "dateRange": "{開始} → {結束} · {天}d",
+    "itemAria": "{title} 從 {start} 到 {end}",
+    "dependenciesNone": "依賴關係：無"
+  },
+  "dashboard": {
+    "kpi": {
+      "activeProjects": "活躍專案",
+      "activeHint": "{計劃}計劃",
+      "completed": "完全的",
+      "completedHint": "投資組合的 {percent}%",
+      "onHold": "等候接聽",
+      "onHoldHint": "{已存檔}已存檔",
+      "teamMembers": "團隊成員",
+      "teamHint": "跨所有項目",
+      "budgetOverview": "預算概覽",
+      "budgetHint": "已使用 {percent}% · 已花費 {spent}",
+      "openTasks": "開放任務",
+      "openTasksHint": "{逾期}逾期",
+      "projectHealth": "健康項目",
+      "healthHint": "綜合交付分數",
+      "upcomingDeadlines": "即將到來的截止日期",
+      "upcomingHint": "接下來 30 天"
+    },
+    "analytics": {
+      "title": "分析",
+      "subtitle": "投資組合的健康狀況、完成情況和預算使用情況。",
+      "statusMix": "狀態組合",
+      "deliverySignals": "傳遞訊號",
+      "completedPercent": "完全的 ％",
+      "budgetUsage": "預算使用情形",
+      "health": "健康",
+      "upcomingDeadlines": "即將到來的最後期限",
+      "noUpcomingDeadlines": "下一個視窗中沒有即將到來的截止日期。"
+    },
+    "recentActivity": {
+      "title": "近期动态",
+      "subtitle": "首先是最新的專案活動。",
+      "empty": "活動將在建立專案和任務時出現。"
+    }
+  },
+  "kanban": {
+    "emptyTitle": "板上沒有任務",
+    "emptyDescription": "建立任務以跨「待辦事項」、「進行中」、「審核」和「已完成」組織交付。",
+    "addTask": "新增任務",
+    "columnAria": "{狀態}列",
+    "taskProgress": "任務進度",
+    "edit": "編輯",
+    "complete": "已完成"
+  },
+  "detail": {
+    "notFoundTitle": "未找到項目",
+    "notFoundDescription": "該項目可能已被刪除或對於目前組織不可用。",
+    "backToProjects": "← 回傳項目",
+    "ownerMeta": "{客戶}·所有者{所有者}",
+    "edit": "編輯",
+    "delete": "刪除",
+    "sectionsAria": "項目細節部分",
+    "tabs": {
+      "overview": "概述",
+      "tasks": "任務",
+      "files": "文件",
+      "notes": "筆記",
+      "activity": "活動",
+      "team": "團隊",
+      "settings": "設定"
+    }
+  },
+  "overview": {
+    "missingTitle": "缺少項目",
+    "missingDescription": "選擇一個項目以查看其概述。",
+    "title": "概述",
+    "noDescription": "沒有提供描述。",
+    "budget": "預算",
+    "spent": "花費",
+    "start": "開始",
+    "due": "到期的",
+    "openTasks": "開放任務",
+    "completedTasks": "已完成的任務"
+  },
+  "tasks": {
+    "title": "工作管理",
+    "newTask": "新增工作",
+    "tableTitle": "標題",
+    "tableAssignee": "受讓人",
+    "tablePriority": "優先順序高",
+    "tableStatus": "地位",
+    "tableDue": "到期的",
+    "tableProgress": "進步",
+    "tableActions": "行動",
+    "edit": "編輯",
+    "complete": "已完成",
+    "delete": "刪除",
+    "emptyTitle": "還沒有任務",
+    "emptyDescription": "在看板上建立任務、分配所有者並追蹤進度。",
+    "createTask": "創建任務"
+  },
+  "files": {
+    "title": "文件管理器",
+    "description": "上傳影像、PDF 和 Office 文件。元資料保留在本地。",
+    "upload": "上傳",
+    "emptyTitle": "沒有上傳文件",
+    "emptyDescription": "新增專案工件供團隊查看和預覽。",
+    "preview": "預覽",
+    "metadataOnly": "僅元數據",
+    "delete": "刪除"
+  },
+  "notes": {
+    "editTitle": "編輯備註",
+    "newTitle": "新筆記",
+    "title": "標題",
+    "author": "作者",
+    "body": "內文",
+    "cancel": "取消",
+    "saveNote": "保存備註",
+    "emptyTitle": "還沒筆記",
+    "emptyDescription": "捕獲決策、會議結果和交付背景。",
+    "edit": "編輯",
+    "delete": "刪除"
+  },
+  "activity": {
+    "title": "活動動態",
+    "emptyTitle": "還沒有活動",
+    "emptyDescription": "當團隊工作時，專案事件將出現在此。"
+  },
+  "team": {
+    "missingTitle": "缺少項目",
+    "missingDescription": "選擇一個專案來管理團隊成員。",
+    "assignTitle": "指定成員",
+    "name": "姓名",
+    "email": "電子郵件",
+    "role": "角色",
+    "addMember": "新增會員",
+    "teamTitle": "團隊",
+    "remove": "移除"
+  },
+  "settings": {
+    "missingTitle": "缺少項目",
+    "missingDescription": "選擇一個項目來管理設定。",
+    "title": "項目設定",
+    "description": "更新預算消耗和存檔狀態。完整欄位編輯使用「編輯」對話方塊。",
+    "spentAmount": "消費金額",
+    "saveSpent": "節省花費",
+    "archiveProject": "存檔項目",
+    "editAllFields": "編輯所有字段"
+  },
+  "toasts": {
+    "projectCreated": "專案已建立",
+    "projectUpdated": "項目已更新",
+    "projectDeleted": "項目已刪除",
+    "checkForm": "檢查表格",
+    "validationFailed": "驗證失敗。",
+    "taskCreated": "任務已創建",
+    "taskUpdated": "任務已更新",
+    "taskCompleted": "任務完成",
+    "taskDeleted": "任務已刪除",
+    "filesUploaded": "文件已上傳",
+    "filesUploadedDetail": "{count} 個文件",
+    "fileDeleted": "文件已刪除",
+    "noteSaved": "註釋已儲存",
+    "memberAdded": "已新增成員",
+    "settingsSaved": "設定已儲存",
+    "projectArchived": "項目已存檔"
+  }
+}

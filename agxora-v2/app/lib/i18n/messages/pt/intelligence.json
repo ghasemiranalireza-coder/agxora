@@ -1,0 +1,136 @@
+{
+  "loading": "Carregando Centro de Inteligência Empresarial…",
+  "eyebrow": "Centro de Inteligência Empresarial",
+  "title": "Inteligência",
+  "subtitle": "KPIs, scorecards, alertas e relatórios para cada módulo AGXORA. Os valores abaixo são um conjunto de dados de demonstração propagado até que os back-ends de análise ao vivo se conectem.",
+  "demoBanner": "Conjunto de dados de demonstração – filtra e reconhece o trabalho na sessão; chamadas de exportação e modelo ao vivo ainda não estão disponíveis.",
+  "noticeDefault": "Mostrando análises de demonstração semeadas - não telemetria de produção ao vivo.",
+  "noPermission": "Você não tem permissão intelligence.read para esta área de trabalho.",
+  "filtersUpdated": "Filtros atualizados",
+  "demoReloaded": "Conjunto de dados de demonstração recarregado para este workspace.",
+  "acknowledged": "Reconhecido: {título}",
+  "exportUnavailableTitle": "Exportação indisponível — a geração de relatórios ainda não está conectada.",
+  "exportUnavailableAria": "Exportar {title} como {format} – indisponível",
+  "tabs": {
+    "executive": "Executivo",
+    "health": "Saúde Empresarial",
+    "workspace": "Análise",
+    "kpis": "Centro de KPI",
+    "reports": "Relatórios",
+    "insights": "Percepções",
+    "forecasts": "Previsões",
+    "alerts": "Alertas",
+    "scorecards": "Cartões de pontuação",
+    "explorer": "Explorador de dados"
+  },
+  "filters": {
+    "from": "De",
+    "to": "Para",
+    "domain": "Domínio",
+    "allDomains": "Todos os domínios",
+    "apply": "Aplicar filtros",
+    "reloadDemo": "Recarregar dados de demonstração",
+    "viewsAria": "Visualizações de inteligência"
+  },
+  "executive": {
+    "companyHealth": "Saúde da Empresa",
+    "revenueScore": "Pontuação de receita",
+    "customerHealth": "Saúde do cliente",
+    "projectHealth": "Saúde do projeto",
+    "workflowSuccess": "Sucesso no fluxo de trabalho",
+    "aiActivity": "Atividade de IA",
+    "finance": "Financiar",
+    "riskGrowth": "Risco / Crescimento",
+    "kpiStrip": "Faixa executiva de KPI",
+    "visualizationPreviews": "Visualizações de visualização",
+    "visualizationHint": "Gráficos ilustrativos da série de demonstração – não detalhamentos interativos.",
+    "noSeries": "Sem limite de série"
+  },
+  "health": {
+    "title": "Decomposição da saúde empresarial",
+    "overall": "Geral",
+    "revenue": "Receita",
+    "customers": "Clientes",
+    "projects": "Projetos",
+    "workflows": "Fluxos de trabalho",
+    "ai": "IA",
+    "finance": "Financiar",
+    "operations": "Operações",
+    "riskPosture": "Postura de risco",
+    "growth": "Crescimento",
+    "observability": "Observabilidade: métricas {métricas} · {avgMs}média de ms · integridade do sistema {health}"
+  },
+  "workspace": {
+    "noSeries": "Nenhuma série"
+  },
+  "kpis": {
+    "title": "Centro de KPI",
+    "subtitle": "Catálogo de KPI configurável sobre receitas, clientes, projetos, fluxos de trabalho, agentes e automação.",
+    "emptyTitle": "Analytics aguarda sinal",
+    "emptyDescription": "Assim que seu espaço de trabalho gerar atividade, KPIs executivos e alertas aparecerão aqui."
+  },
+  "reports": {
+    "title": "Mecanismo de relatórios",
+    "subtitle": "As definições de relatório são propagadas para revisão. A exportação de arquivos não estará disponível até que um back-end de relatórios esteja conectado.",
+    "emptyTitle": "Nenhum relatório",
+    "emptyDescription": "Semente de relatórios na inicialização do espaço de trabalho.",
+    "scheduleOnDemand": "Sob demanda"
+  },
+  "insights": {
+    "emptyTitle": "Ainda não há insights",
+    "emptyDescription": "Os insights de demonstração aparecem após as sementes do espaço de trabalho. A geração de insights de IA ao vivo não está conectada.",
+    "badge": "Demonstração · {tipo} · {domínio} · conf {confiança}"
+  },
+  "forecasts": {
+    "emptyTitle": "Ainda não há previsões",
+    "emptyDescription": "As previsões de demonstração aparecem após a sementeira. Os modelos preditivos não estão conectados.",
+    "title": "{tipo} previsão",
+    "baseline": "Linha de base {linha de base} → projetada {projetada} ({dias}d)",
+    "confidence": "Demonstração · Confiança {confiança} — {nota}"
+  },
+  "alerts": {
+    "title": "Mecanismo de alerta",
+    "emptyTitle": "Sem alertas",
+    "emptyDescription": "Semente de alertas de heurística de risco.",
+    "acked": "acusou",
+    "open": "abrir",
+    "acknowledge": "Reconhecer"
+  },
+  "scorecards": {
+    "title": "Mecanismo de scorecard",
+    "emptyTitle": "Sem scorecards",
+    "emptyDescription": "Semente de scorecards no bootstrap."
+  },
+  "explorer": {
+    "title": "Explorador de dados",
+    "searchPlaceholder": "Pesquisar linhas de demonstração…",
+    "searchAria": "Pesquisar linhas do explorador de demonstração",
+    "emptyTitle": "Nenhuma linha corresponde",
+    "emptyDescription": "Ajuste filtros ou pesquise ou recarregue o conjunto de dados de demonstração.",
+    "hint": "Pesquisa do lado do cliente em tuplas propagadas – agregação de back-end e detalhamento não estão conectados."
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "Valor",
+    "delta": "Δ%",
+    "trend": "Tendência",
+    "target": "Alvo",
+    "severity": "Gravidade",
+    "alert": "Alerta",
+    "domain": "Domínio",
+    "status": "Status",
+    "actions": "Ações",
+    "report": "Relatório",
+    "kind": "Tipo",
+    "schedule": "Agendar",
+    "export": "Exportar",
+    "scorecard": "Cartão de pontuação",
+    "score": "Pontuação",
+    "topDriver": "Melhor piloto",
+    "label": "Rótulo",
+    "entity": "Entidade",
+    "measure": "Medir",
+    "date": "Data"
+  },
+  "emDash": "—"
+}

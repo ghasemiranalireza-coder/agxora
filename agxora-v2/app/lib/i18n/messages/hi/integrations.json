@@ -1,0 +1,143 @@
+{
+  "loading": "एकीकरण प्लेटफ़ॉर्म लोड हो रहा है…",
+  "eyebrow": "एंटरप्राइज़ एकीकरण प्लेटफ़ॉर्म",
+  "title": "एकीकरण केंद्र",
+  "subtitle": "Microsoft 365, Google, Slack, CRM, स्टोरेज और ऑटोमेशन इकोसिस्टम के लिए कनेक्टर। इस बिल्ड में कनेक्शन और सिंक स्थानीय डेमो हैं - लाइव OAuth कनेक्ट नहीं है।",
+  "noticeDefault": "स्थानीय डेमो कनेक्टर - OAuth और लाइव सिंक कनेक्ट नहीं हैं।",
+  "settings": "सेटिंग्स",
+  "tabs": {
+    "dashboard": "डैशबोर्ड",
+    "installed": "स्थापित",
+    "available": "उपलब्ध",
+    "logs": "लॉग्स",
+    "apiKeys": "एपीआई कुंजी",
+    "webhooks": "वेबहुक",
+    "developer": "डेवलपर"
+  },
+  "notice": {
+    "demoConnection": "डेमो कनेक्शन: {नाम} (केवल स्थानीय आधार)",
+    "connectFailed": "कनेक्ट करने में विफल रहा",
+    "keyCreated": "एपीआई कुंजी बनाई गई: {उपसर्ग}",
+    "webhookCreated": "वेबहुक बनाया गया: {नाम}",
+    "webhookTest": "वेबहुक परीक्षण {स्थिति}",
+    "networkError": "एपीआई एक्सप्लोरर नेटवर्क त्रुटि: {संदेश}",
+    "explorerError": "एपीआई एक्सप्लोरर → {स्थिति}: {संदेश}",
+    "explorerSuccess": "एपीआई एक्सप्लोरर → {स्थिति}",
+    "explorerFailed": "एक्सप्लोरर विफल रहा",
+    "syncResult": "डेमो सिंक · {स्थिति} ({रिकॉर्ड} स्थानीय रिकॉर्ड) - कोई बाहरी डेटा स्थानांतरित नहीं किया गया।",
+    "diagnosed": "निदान",
+    "removedConnection": "डेमो कनेक्शन हटाया गया: {नाम}",
+    "keyRotated": "कुंजी घुमाई गई",
+    "keyRevoked": "कुंजी निरस्त कर दी गई",
+    "publishedEvent": "प्रकाशित {प्रकार}",
+    "developerSaved": "डेवलपर सेटिंग सहेजी गईं"
+  },
+  "dashboard": {
+    "demoLinks": "डेमो लिंक",
+    "catalog": "सूची",
+    "api24h": "एपीआई (24 घंटे)",
+    "webhooks24h": "वेबहुक (24 घंटे)",
+    "webhookFailures": "वेबहुक विफलताएँ",
+    "syncJobs": "कार्य सिंक करें",
+    "conflicts": "संघर्ष",
+    "errors": "त्रुटियाँ",
+    "connectionStatus": "कनेक्शन की स्थिति",
+    "emptyTitle": "कोई एकीकरण स्थापित नहीं",
+    "emptyDescription": "किसी प्रदाता को कनेक्ट करने के लिए उपलब्ध ब्राउज़ करें।",
+    "eventBridgeDemo": "इवेंट ब्रिज डेमो",
+    "eventBridgeHint": "वर्कफ़्लो ऑटोमेशन बस पर एक कनेक्टर इवेंट प्रकाशित करें।",
+    "emit": "उत्सर्जित करें {id}"
+  },
+  "installed": {
+    "title": "स्थापित एकीकरण",
+    "emptyTitle": "कुछ भी स्थापित नहीं",
+    "emptyDescription": "उपलब्ध कैटलॉग से इंस्टॉल करें.",
+    "latestSync": "नवीनतम सिंक: {स्थिति} · {रिकॉर्ड} रिकॉर्ड · मोड {मोड}"
+  },
+  "available": {
+    "protocols": "प्रोटोकॉल: {प्रोटोकॉल}",
+    "demoConnection": "डेमो कनेक्शन",
+    "connectDemo": "कनेक्ट करें (डेमो)",
+    "installDemo": "डेमो स्थापित करें"
+  },
+  "logs": {
+    "title": "एकीकरण लॉग",
+    "emptyTitle": "अभी तक कोई लॉग नहीं",
+    "emptyDescription": "किसी प्रदाता से कनेक्ट करें या डायग्नोस्टिक्स चलाएँ।"
+  },
+  "apiKeys": {
+    "title": "एपीआई कुंजियाँ",
+    "generateKey": "कुंजी उत्पन्न करें",
+    "copyOnce": "अभी कॉपी करें (एक बार दिखाया गया): {गुप्त}",
+    "emptyTitle": "कोई एपीआई कुंजी नहीं",
+    "emptyDescription": "REST गेटवे एक्सेस के लिए एक कुंजी उत्पन्न करें।"
+  },
+  "webhooks": {
+    "endpointsTitle": "वेबहुक समापन बिंदु",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "आउटगोइंग वेबहुक जोड़ें",
+    "emptyTitle": "कोई वेबहुक नहीं",
+    "emptyDescription": "डिलीवरी का परीक्षण करने के लिए एक आउटगोइंग एंडपॉइंट बनाएं।",
+    "deliveryLogs": "डिलिवरी लॉग",
+    "deliveriesEmptyTitle": "कोई डिलीवरी नहीं",
+    "deliveriesEmptyDescription": "लॉग भरने के लिए एक परीक्षण वेबहुक भेजें।"
+  },
+  "developer": {
+    "title": "डेवलपर सेटिंग्स",
+    "sandboxMode": "सैंडबॉक्स मोड",
+    "webhookSigning": "वेबहुक हस्ताक्षर सक्षम",
+    "saveSettings": "सेटिंग्स सेव करें",
+    "apiDocs": "एपीआई दस्तावेज़ प्लेसहोल्डर: {url}",
+    "sdk": "एसडीके प्लेसहोल्डर: {यूआरएल}",
+    "explorerTitle": "एपीआई एक्सप्लोरर",
+    "gatewayRoutes": "गेटवे मार्ग: {मार्ग}",
+    "sendGet": "भेजें प्राप्त करें",
+    "oauthProviders": "OAuth प्रदाता",
+    "placeholdersHint": "ग्राफक्यूएल, वेबसॉकेट और जीआरपीसी गेटवे रूट प्लेसहोल्डर के रूप में पंजीकृत हैं। फ़ील्ड मैपिंग और सिंक विरोध समाधान बैकएंड कार्यान्वयन के लिए आर्किटेक्चर-तैयार हैं।"
+  },
+  "connectionStatus": {
+    "connected": "डेमो कनेक्शन",
+    "pendingAuth": "लंबित (डेमो)",
+    "error": "गलती",
+    "disabled": "अक्षम",
+    "installed": "स्थापित",
+    "available": "उपलब्ध",
+    "localDemo": "स्थानीय डेमो"
+  },
+  "columns": {
+    "integration": "एकीकरण",
+    "status": "स्थिति",
+    "health": "स्वास्थ्य",
+    "latency": "विलंब",
+    "actions": "कार्रवाई",
+    "when": "कब",
+    "level": "स्तर",
+    "source": "स्रोत",
+    "message": "संदेश",
+    "name": "नाम",
+    "key": "चाबी",
+    "scopes": "कार्यक्षेत्र",
+    "usage": "प्रयोग",
+    "direction": "दिशा",
+    "url": "यूआरएल",
+    "enabled": "सक्रिय",
+    "event": "आयोजन",
+    "attempt": "कोशिश करना"
+  },
+  "actions": {
+    "diagnose": "निदान",
+    "demoSync": "डेमो सिंक",
+    "demoSyncTitle": "केवल डेमो सिंक - कोई बाहरी स्थानांतरण नहीं",
+    "disconnect": "डिस्कनेक्ट",
+    "rotate": "घुमाएँ",
+    "revoke": "रद्द करना",
+    "test": "परीक्षा",
+    "emDash": "—",
+    "yes": "हाँ",
+    "no": "नहीं"
+  },
+  "errors": {
+    "failedToFetch": "लाने में विफल",
+    "httpStatus": "HTTP {स्थिति}"
+  }
+}

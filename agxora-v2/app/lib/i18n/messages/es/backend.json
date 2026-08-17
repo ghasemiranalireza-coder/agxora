@@ -1,0 +1,58 @@
+{
+  "toast": {
+    "success": "Éxito",
+    "warning": "Advertencia",
+    "error": "Error",
+    "info": "Información",
+    "dismiss": "Descartar notificación",
+    "close": "Cerca"
+  },
+  "network": {
+    "offline": "Parece que estás desconectado",
+    "offlineHelp": "Ayuda sin conexión",
+    "reconnected": "Conexión restaurada"
+  },
+  "errorBoundary": {
+    "backToDashboard": "Volver al tablero",
+    "title": "algo salió mal",
+    "retry": "Rever"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "message": "La página que solicitó no existe, fue movida o ya no está disponible.",
+    "recoveryNav": "Recuperación",
+    "home": "Hogar",
+    "pricing": "Precios",
+    "contact": "Contacto",
+    "signIn": "Iniciar sesión",
+    "dashboard": "Panel"
+  },
+  "globalError": {
+    "title": "algo salió mal",
+    "message": "Se produjo un error inesperado. Por favor inténtalo de nuevo.",
+    "retry": "Rever"
+  },
+  "skipToMain": "Saltar al contenido principal",
+  "offline": {
+    "title": "Estás desconectado",
+    "message": "Verifique su conexión y vuelva a intentarlo cuando vuelva a estar en línea. Es posible que las pantallas almacenadas en caché aún funcionen.",
+    "home": "Hogar",
+    "contact": "Contacto",
+    "signIn": "Iniciar sesión"
+  },
+  "logout": {
+    "title": "desconectar",
+    "signingOut": "Cerrándote la sesión...",
+    "endingSession": "Terminando sesión…",
+    "failed": "Error al cerrar sesión"
+  },
+  "demo": {
+    "title": "Reserva una demostración",
+    "subtitle": "Programe un recorrido en vivo con el equipo de AGXORA. Hasta que se habilite la reserva del calendario, envíenos un correo electrónico para solicitar una demostración.",
+    "requestTitle": "Solicitar una demostración",
+    "requestBody": "Estamos terminando de programar para que puedas elegir un horario que funcione para tu equipo. Hasta entonces, comience gratis y explore el producto a su propio ritmo, o envíenos un correo electrónico a {email}.",
+    "startFree": "En su lugar, empieza gratis",
+    "backHome": "De vuelta a casa",
+    "signIn": "Iniciar sesión"
+  }
+}

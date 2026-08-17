@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "Identidade e Acesso",
+    "title": "Equipe",
+    "lead": "Membros, funções e convites para {organização}. Pronto para arquitetura para uma futura API de identidade.",
+    "yourOrganization": "sua organização"
+  },
+  "invite": {
+    "title": "Convidar por e-mail",
+    "email": "E-mail",
+    "emailPlaceholder": "colega@empresa.com",
+    "role": "Papel",
+    "submit": "Convidar",
+    "created": "Convite criado (pendente).",
+    "failed": "Falha no convite",
+    "signInFirst": "Faça login e ative uma organização primeiro.",
+    "noPermission": "Permissão ausente – administrador ou gerente necessário para convidar."
+  },
+  "roles": {
+    "title": "Funções",
+    "owner": {
+      "name": "Proprietário",
+      "description": "Controle total da organização, incluindo configurações e faturamento."
+    },
+    "admin": {
+      "name": "Administrador",
+      "description": "Gerencie módulos de finanças, automação, equipe e espaço de trabalho."
+    },
+    "manager": {
+      "name": "Gerente",
+      "description": "Liderar operações de CRM, projetos, documentos e criadores."
+    },
+    "employee": {
+      "name": "Funcionário",
+      "description": "Acesso diário a CRM, documentos, criador e projetos."
+    },
+    "guest": {
+      "name": "Convidado",
+      "description": "Acesso de leitura limitado a Documentos e Projetos."
+    },
+    "viewer": {
+      "name": "Visualizador",
+      "description": "Acesso somente leitura a módulos compartilhados."
+    }
+  },
+  "members": {
+    "title": "Membros",
+    "columnMember": "Membro",
+    "columnEmail": "E-mail",
+    "columnRole": "Papel",
+    "columnStatus": "Status",
+    "roleFor": "Função para {nome}",
+    "emptyTitle": "Ainda não há membros",
+    "emptyDescription": "Convide colegas para ingressar neste espaço de trabalho da organização.",
+    "updated": "{nome} atualizado para {role}",
+    "roleChangeFailed": "Falha na mudança de função"
+  },
+  "pending": {
+    "title": "Convites pendentes",
+    "emptyTitle": "Nenhum convite pendente",
+    "emptyDescription": "Novos convites aparecem aqui até serem aceitos ou expirarem.",
+    "expires": "{função} · expira em {data}",
+    "revoke": "Revogar",
+    "pending": "pendente"
+  },
+  "history": {
+    "title": "Histórico de convites",
+    "empty": "Convites aceitos, expirados e revogados aparecerão aqui."
+  },
+  "status": {
+    "accepted": "aceito",
+    "expired": "expirado",
+    "revoked": "revogado",
+    "active": "ativo",
+    "inactive": "inativo",
+    "pending": "pendente"
+  }
+}

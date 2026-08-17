@@ -1,0 +1,298 @@
+{
+  "page": {
+    "eyebrow": "مدیریت پروژه",
+    "title": "پروژه‌ها",
+    "lead": "تحویل را برنامه‌ریزی کنید، بودجه و سلامت را پیگیری کنید، تیم‌ها را تعیین کنید و وظایف را برای {سازمان} مدیریت کنید. داده‌ها به صورت محلی ذخیره می‌شوند و برای اتصال به backend آماده هستند.",
+    "yourOrganization": "سازمان شما"
+  },
+  "list": {
+    "errorTitle": "پروژه‌ها بارگیری نشدند",
+    "searchLabel": "جستجو پروژه",
+    "searchPlaceholder": "جستجوی پروژه‌ها، مشتریان، مالکان، برچسب‌ها…",
+    "viewCards": "کارت‌ها",
+    "viewTable": "جدول",
+    "newProject": "پروژه جدید",
+    "statusFilter": "وضعیت",
+    "priorityFilter": "اولویت",
+    "customerFilter": "مشتری",
+    "ownerFilter": "مالک",
+    "allStatuses": "همه وضعیت‌ها",
+    "allPriorities": "همه درجه ها",
+    "allCustomers": "همۀ مشتریان",
+    "allOwners": "همه مالکان",
+    "dateFrom": "از",
+    "dateTo": "به",
+    "emptyTitle": "هیچ پروژه ای وجود ندارد",
+    "emptyDescription": "یک فضای کاری تحویل راه‌اندازی کنید تا بتوانید مراحل مهم، بودجه و مالکیت تیم را پیگیری کنید.",
+    "createProject": "ایجاد پروژه",
+    "pagination": "نمایش: {from}–{to} از {total}",
+    "previous": "قبلی",
+    "next": "بعدی",
+    "noDescription": "بدون توضیح",
+    "duePrefix": "موعد {date}",
+    "openProject": "پروژه را باز کنید {name}",
+    "sortBy": "مرتب‌سازی بر اساس {column}",
+    "sort": {
+      "name": "نام",
+      "customer": "مشتری",
+      "owner": "مالک",
+      "status": "وضعیت",
+      "priority": "اولویت",
+      "progress": "پیشرفت",
+      "dueDate": "سررسید",
+      "budget": "بودجه"
+    }
+  },
+  "form": {
+    "createTitle": "ایجاد پروژه",
+    "editTitle": "ویرایش پروژه",
+    "cancel": "لغو",
+    "saveChanges": "ذخیره تغییرات",
+    "createProject": "ایجاد پروژه",
+    "projectName": "نام پروژه",
+    "customer": "مشتری",
+    "projectOwner": "صاحب پروژه/خریدار",
+    "priority": "اولویت",
+    "status": "وضعیت",
+    "budget": "بودجه",
+    "currency": "واحد پول",
+    "startDate": "تاریخ شروع",
+    "dueDate": "تاریخ سررسید",
+    "color": "رنگ ",
+    "icon": "آیکون",
+    "tags": "برچسب‌ها",
+    "tagsHint": "با کامای انگلیسی از هم جدا کنید.",
+    "tagsPlaceholder": "سازمانی، عرضه اولیه",
+    "budgetPlaceholder": "0",
+    "description": "توضیحات آگهی",
+    "selectColor": "انتخاب رنگ {رنگ}"
+  },
+  "taskForm": {
+    "createTitle": "ایجاد کار",
+    "editTitle": "وظیفه ویرایش",
+    "cancel": "لغو",
+    "saveChanges": "ذخیره تغییرات",
+    "createTask": "ایجاد کار",
+    "title": "عنوان",
+    "assignee": "کارشناس",
+    "priority": "اولویت",
+    "status": "وضعیت",
+    "deadline": "سررسید",
+    "progress": "پیشرفت",
+    "labels": "برچسب‌ ها",
+    "labelsHint": "با کامای انگلیسی از هم جدا کنید.",
+    "description": "توضیحات آگهی"
+  },
+  "deleteDialog": {
+    "title": "حذف پروژه",
+    "cancel": "لغو",
+    "deletePermanently": "حذف دائم",
+    "bodyPrefix": "این موارد را حذف می‌کند",
+    "thisProject": "این پروژه",
+    "bodySuffix": "و تمام وظایف، فایل‌ها، یادداشت‌ها و فعالیت‌های مرتبط از حافظه محلی. این اقدام قابل لغو نیست."
+  },
+  "badges": {
+    "progress": "پیشرفت",
+    "progressAria": "مقدار برچسب"
+  },
+  "status": {
+    "planning": "برنامه‌ریزی",
+    "active": "فعال",
+    "on_hold": "در انتظار",
+    "completed": "تکمیل‌شده",
+    "archived": "بایگانی‌شده"
+  },
+  "taskStatus": {
+    "todo": "انجام دهید",
+    "in_progress": "پیشرفت لرن پرس",
+    "review": "نقد و بررسی",
+    "done": "انجام‌شده"
+  },
+  "priority": {
+    "low": "پایین",
+    "medium": "متوسط",
+    "high": "بالا",
+    "critical": "بحرانی"
+  },
+  "role": {
+    "owner": "مالک",
+    "manager": "مدیر",
+    "member": "عضو",
+    "viewer": "مشاهده‌گر"
+  },
+  "kind": {
+    "project": "کلاس",
+    "task": "سرویس",
+    "milestone": "نقطه عطف"
+  },
+  "timeline": {
+    "noTimelineTitle": "بدون جدول زمانی",
+    "noTimelineDescription": "برای مشاهده برنامه، مدت زمان و مراحل انجام پروژه، آن را باز کنید.",
+    "emptyTitle": "جدول زمانی خالی است",
+    "emptyDescription": "تاریخ‌های شروع/موعد مقرر و وظایف را برای تکمیل برنامه اضافه کنید.",
+    "title": "تایم‌لاین",
+    "subtitle": "شروع، پایان، مدت زمان، نقاط عطف. وابستگی‌ها برای انتشار در آینده رزرو شده‌اند.",
+    "dateRange": "{شروع} → {پایان} · {روز}d",
+    "itemAria": "{عنوان} از {شروع} تا {پایان}",
+    "dependenciesNone": "وابستگی: هیچ"
+  },
+  "dashboard": {
+    "kpi": {
+      "activeProjects": "پروژه‌های فعال",
+      "activeHint": "{برنامه‌ریزی} برنامه‌ریزی",
+      "completed": "تکمیل‌شده",
+      "completedHint": "{درصد}٪ از پرتفوی",
+      "onHold": "در انتظار",
+      "onHoldHint": "{بایگانی شده} بایگانی شده",
+      "teamMembers": "اعضای تیم",
+      "teamHint": "در تمام پروژه‌ها",
+      "budgetOverview": "بررسی اجمالی بودجه",
+      "budgetHint": "{درصد}٪ استفاده شده · {خرج شده} خرج شده",
+      "openTasks": "وظایف باز",
+      "openTasksHint": "(از موعد گذشته) معوق",
+      "projectHealth": "سلامت پروژه",
+      "healthHint": "امتیاز تحویل ترکیبی",
+      "upcomingDeadlines": "مهلت‌های آتی",
+      "upcomingHint": "30 روز بعدی"
+    },
+    "analytics": {
+      "title": "تحلیل‌ها",
+      "subtitle": "سلامت پرتفوی، تکمیل و استفاده از بودجه.",
+      "statusMix": "ترکیب وضعیت",
+      "deliverySignals": "سیگنال‌های تحویل",
+      "completedPercent": "تکمیل",
+      "budgetUsage": "استفاده از بودجه",
+      "health": "سلامتی",
+      "upcomingDeadlines": "مهلت‌های آتی",
+      "noUpcomingDeadlines": "در پنجره بعدی هیچ مهلتی وجود ندارد."
+    },
+    "recentActivity": {
+      "title": "فعالیت اخیر",
+      "subtitle": "جدیدترین رویدادهای پروژه ابتدا.",
+      "empty": "فعالیت همزمان با ایجاد پروژه‌ها و وظایف ظاهر می‌شود."
+    }
+  },
+  "kanban": {
+    "emptyTitle": "هیچ وظیفه‌ای روی تخته نیست",
+    "emptyDescription": "وظایفی را برای سازماندهی تحویل در بین موارد زیر ایجاد کنید: «برای انجام»، «در حال انجام»، «بررسی» و «انجام شده».",
+    "addTask": "وظیفه اضافه نمایید",
+    "columnAria": "ستون {وضعیت}",
+    "taskProgress": " روند پیشرفت",
+    "edit": "ویرایش",
+    "complete": "کامل شده"
+  },
+  "detail": {
+    "notFoundTitle": "هیچ پروژه ای یافت نشد.",
+    "notFoundDescription": "این پروژه ممکن است حذف شده باشد یا برای سازمان فعلی در دسترس نباشد.",
+    "backToProjects": "بازگشت به پروژه ها",
+    "ownerMeta": "{مشتری} · مالک {مالک}",
+    "edit": "ویرایش",
+    "delete": "حذف",
+    "sectionsAria": "بخش‌های جزئیات پروژه",
+    "tabs": {
+      "overview": "نمای کلی",
+      "tasks": "وظایف",
+      "files": "فایل",
+      "notes": "یادداشت‌ها",
+      "activity": "فعالیت",
+      "team": "تیم",
+      "settings": "تنظیمات"
+    }
+  },
+  "overview": {
+    "missingTitle": "پروژه گمشده",
+    "missingDescription": "برای مشاهده نمای کلی پروژه، آن را انتخاب کنید.",
+    "title": "نمای کلی",
+    "noDescription": "توضیحی ارائه نشده است",
+    "budget": "بودجه",
+    "spent": "هزینه شده",
+    "start": "شروع",
+    "due": "سررسید",
+    "openTasks": "باز کردن وظایف",
+    "completedTasks": "تکالیف های انجام شده"
+  },
+  "tasks": {
+    "title": "مدیریت تسکها<x id=\"1\"/> ",
+    "newTask": "وظیفه جدید",
+    "tableTitle": "عنوان",
+    "tableAssignee": "کارشناس",
+    "tablePriority": "اولویت",
+    "tableStatus": "وضعیت",
+    "tableDue": "سررسید",
+    "tableProgress": "پیشرفت",
+    "tableActions": "اقدامات",
+    "edit": "ویرایش",
+    "complete": "کامل شده",
+    "delete": "حذف",
+    "emptyTitle": "بدون وظیفه",
+    "emptyDescription": "وظایف را ایجاد کنید، به صاحبان وظایف اختصاص دهید و پیشرفت را روی تخته پیگیری کنید.",
+    "createTask": "ایجاد کار"
+  },
+  "files": {
+    "title": "مدیر فایل",
+    "description": "تصاویر، فایل‌های PDF و اسناد آفیس را آپلود کنید. متادیتا به صورت محلی باقی می‌ماند.",
+    "upload": "بارگذاری",
+    "emptyTitle": "فایلی ساخته نشده",
+    "emptyDescription": "مصنوعات پروژه را برای بررسی و پیش‌نمایش تیم اضافه کنید.",
+    "preview": "پیش‌نمایش",
+    "metadataOnly": "فقط فراداده",
+    "delete": "حذف"
+  },
+  "notes": {
+    "editTitle": "ویرایش یادداشت",
+    "newTitle": "یادداشت جدید",
+    "title": "عنوان",
+    "author": "نویسنده",
+    "body": "متن",
+    "cancel": "لغو",
+    "saveNote": "ذخیره یادداشت",
+    "emptyTitle": "هنوز یادداشتی نیست",
+    "emptyDescription": "تصمیمات، نتایج جلسات و زمینه‌های ارائه خدمات را ثبت کنید.",
+    "edit": "ویرایش",
+    "delete": "حذف"
+  },
+  "activity": {
+    "title": "پست فعالیت",
+    "emptyTitle": "هنوز فعالیتی نیست",
+    "emptyDescription": "رویدادهای پروژه همزمان با کار تیم در اینجا نمایش داده می‌شوند."
+  },
+  "team": {
+    "missingTitle": "پروژه گمشده",
+    "missingDescription": "یک پروژه برای مدیریت اعضای تیم انتخاب کنید.",
+    "assignTitle": "عضو اختصاصی",
+    "name": "نام",
+    "email": "ایمیل",
+    "role": "نقش",
+    "addMember": "افزودن کاربر",
+    "teamTitle": "تیم",
+    "remove": "حذف"
+  },
+  "settings": {
+    "missingTitle": "پروژه گمشده",
+    "missingDescription": "یک پروژه را برای مدیریت تنظیمات انتخاب کنید.",
+    "title": "تنظیمات پروژه",
+    "description": "به‌روزرسانی وضعیت مصرف بودجه و بایگانی. ویرایش‌های کامل فیلد از پنجره ویرایش استفاده می‌کنند.",
+    "spentAmount": "مبلغ خرج شده",
+    "saveSpent": "پس‌انداز خرج‌شده",
+    "archiveProject": "آرشیو کردن سفارش",
+    "editAllFields": "ویرایش همه فیلدها"
+  },
+  "toasts": {
+    "projectCreated": "پروژه ایجاد شد",
+    "projectUpdated": "پروژه به‌روزرسانی شد",
+    "projectDeleted": "پروژه حذف شد",
+    "checkForm": "فرم را بررسی کنید",
+    "validationFailed": "اعتبارسنجی ناموفق بود.",
+    "taskCreated": "وظیفه ایجاد شد",
+    "taskUpdated": "برنامه کاری بروز شد.",
+    "taskCompleted": "وظیفه تکمیل شد",
+    "taskDeleted": "وظیفه حذف شده است",
+    "filesUploaded": "فایلی ساخته نشده",
+    "filesUploadedDetail": "{count} فایل",
+    "fileDeleted": "پرونده حذف شد",
+    "noteSaved": "یادداشت ذخیره شد",
+    "memberAdded": "کاربر اضافه شده",
+    "settingsSaved": "تنظیمات ذخیره شد",
+    "projectArchived": "بایگانی پروژه"
+  }
+}

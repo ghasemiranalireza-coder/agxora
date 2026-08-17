@@ -11,6 +11,7 @@ import {
   Switch,
 } from "@/app/components/ui";
 import { useAuth } from "@/app/lib/auth";
+import { useT } from "@/app/lib/i18n";
 import { useIamAuth } from "../hooks/useIamAuth";
 import { useIamProfilePreferences } from "../hooks/useIamStores";
 import { iamProfileStore } from "../store/profileStore";
@@ -29,12 +30,11 @@ type ProfileDraft = {
  * Professional user profile — avatar, identity, preferences, security links.
  */
 export function IamProfileWorkspace(): JSX.Element {
+  const t = useT();
   const auth = useAuth();
   const { role, identity } = useIamAuth();
   const prefs = useIamProfilePreferences();
-  const [notice, setNotice] = useState(
-    "Preferences save locally until the profile API is connected.",
-  );
+  const [notice, setNotice] = useState(t("iam.profile.noticeInitial"));
   const [draft, setDraft] = useState<ProfileDraft | null>(null);
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export function IamProfileWorkspace(): JSX.Element {
       notificationsPush: form.notificationsPush,
     });
     setDraft(null);
-    setNotice("Profile preferences updated.");
+    setNotice(t("iam.profile.noticeSaved"));
   };
 
   const patch = (partial: Partial<ProfileDraft>) => {
@@ -82,20 +82,19 @@ export function IamProfileWorkspace(): JSX.Element {
           className="text-[11px] font-semibold uppercase tracking-[0.16em]"
           style={{ color: "var(--agx-accent, #22d3ee)" }}
         >
-          Identity
+          {t("iam.profile.eyebrow")}
         </p>
         <h1
           className="text-2xl font-semibold tracking-tight"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          User Profile
+          {t("iam.profile.title")}
         </h1>
         <p
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Manage your account identity, preferences, and security. Organization
-          and workspace controls live in Identity Settings.
+          {t("iam.profile.lead")}
         </p>
       </Card>
 
@@ -119,13 +118,13 @@ export function IamProfileWorkspace(): JSX.Element {
               className="text-sm font-medium"
               style={{ color: "var(--agx-text, #f8fafc)" }}
             >
-              {form.displayName || auth.user?.displayName || "Guest"}
+              {form.displayName || auth.user?.displayName || t("iam.profile.guest")}
             </p>
             <p
               className="mt-1 text-xs"
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
             >
-              {auth.user?.email || "Not signed in"}
+              {auth.user?.email || t("iam.profile.notSignedIn")}
             </p>
             <p
               className="mt-2 text-[11px] uppercase tracking-wider"
@@ -137,12 +136,12 @@ export function IamProfileWorkspace(): JSX.Element {
           <div className="flex flex-col gap-2">
             <Link href="/dashboard/identity">
               <Button size="sm" variant="secondary">
-                Identity settings
+                {t("iam.profile.identitySettings")}
               </Button>
             </Link>
             <Link href="/dashboard/settings#security">
               <Button size="sm" variant="ghost">
-                Security
+                {t("iam.profile.security")}
               </Button>
             </Link>
           </div>
@@ -154,16 +153,16 @@ export function IamProfileWorkspace(): JSX.Element {
               className="text-sm font-semibold"
               style={{ color: "var(--agx-text, #f8fafc)" }}
             >
-              Profile
+              {t("iam.profile.profileSection")}
             </h2>
-            <FormField label="Full name" required>
+            <FormField label={t("iam.profile.fullName")} required>
               <FormInput
                 value={form.displayName}
                 onChange={(e) => patch({ displayName: e.target.value })}
                 autoComplete="name"
               />
             </FormField>
-            <FormField label="Email">
+            <FormField label={t("iam.profile.email")}>
               <FormInput
                 value={auth.user?.email ?? ""}
                 readOnly
@@ -172,25 +171,25 @@ export function IamProfileWorkspace(): JSX.Element {
               />
             </FormField>
             <div className="grid gap-3 sm:grid-cols-2">
-              <FormField label="Language">
+              <FormField label={t("iam.profile.language")}>
                 <FormSelect
                   value={form.language}
                   onChange={(e) => patch({ language: e.target.value })}
                 >
-                  <option value="en-GB">English (UK)</option>
-                  <option value="en-US">English (US)</option>
-                  <option value="de-DE">Deutsch</option>
+                  <option value="en-GB">{t("iam.profile.languageEnGb")}</option>
+                  <option value="en-US">{t("iam.profile.languageEnUs")}</option>
+                  <option value="de-DE">{t("iam.profile.languageDe")}</option>
                 </FormSelect>
               </FormField>
-              <FormField label="Timezone">
+              <FormField label={t("iam.profile.timezone")}>
                 <FormSelect
                   value={form.timezone}
                   onChange={(e) => patch({ timezone: e.target.value })}
                 >
-                  <option value="Europe/Berlin">Europe/Berlin</option>
-                  <option value="Europe/London">Europe/London</option>
-                  <option value="UTC">UTC</option>
-                  <option value="America/New_York">America/New_York</option>
+                  <option value="Europe/Berlin">{t("iam.profile.timezoneBerlin")}</option>
+                  <option value="Europe/London">{t("iam.profile.timezoneLondon")}</option>
+                  <option value="UTC">{t("iam.profile.timezoneUtc")}</option>
+                  <option value="America/New_York">{t("iam.profile.timezoneNewYork")}</option>
                 </FormSelect>
               </FormField>
             </div>
@@ -201,15 +200,15 @@ export function IamProfileWorkspace(): JSX.Element {
               className="text-sm font-semibold"
               style={{ color: "var(--agx-ds-text)" }}
             >
-              Notifications
+              {t("iam.profile.notifications")}
             </h2>
             <Switch
-              label="Email notifications"
+              label={t("iam.profile.emailNotifications")}
               checked={form.notificationsEmail}
               onChange={(value) => patch({ notificationsEmail: value })}
             />
             <Switch
-              label="Push notifications"
+              label={t("iam.profile.pushNotifications")}
               checked={form.notificationsPush}
               onChange={(value) => patch({ notificationsPush: value })}
             />
@@ -220,7 +219,7 @@ export function IamProfileWorkspace(): JSX.Element {
               className="text-sm font-semibold"
               style={{ color: "var(--agx-text, #f8fafc)" }}
             >
-              Workspace
+              {t("iam.profile.workspace")}
             </h2>
             <WorkspaceSelector />
           </Card>
@@ -233,7 +232,7 @@ export function IamProfileWorkspace(): JSX.Element {
               {notice}
             </p>
             <Button type="submit" size="sm" variant="primary">
-              Save preferences
+              {t("iam.profile.savePreferences")}
             </Button>
           </div>
         </form>
@@ -241,4 +240,3 @@ export function IamProfileWorkspace(): JSX.Element {
     </div>
   );
 }
-

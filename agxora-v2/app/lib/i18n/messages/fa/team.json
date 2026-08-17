@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "هویت و دسترسی",
+    "title": "تیم",
+    "lead": "اعضا، نقش‌ها و دعوت‌نامه‌ها برای {سازمان}. معماری آماده برای API هویت آینده.",
+    "yourOrganization": "سازمان شما"
+  },
+  "invite": {
+    "title": "Invite by Email",
+    "email": "ایمیل",
+    "emailPlaceholder": "همکار@company.com",
+    "role": "نقش",
+    "submit": "Invite",
+    "created": "دعوتنامه ایجاد شد (در انتظار).",
+    "failed": "Invite failed",
+    "signInFirst": "Sign in and activate an organization first.",
+    "noPermission": "Missing permission — Admin or Manager required to invite."
+  },
+  "roles": {
+    "title": "نقش های کاربری",
+    "owner": {
+      "name": "مالک",
+      "description": "کنترل کامل سازمان شامل تنظیمات و صورتحساب."
+    },
+    "admin": {
+      "name": "مدیر",
+      "description": "Manage Finance, Automation, Team, and workspace modules."
+    },
+    "manager": {
+      "name": "مدیر",
+      "description": "رهبری مدیریت ارتباط با مشتری (CRM)، پروژه‌ها، اسناد و عملیات ایجاد محتوا."
+    },
+    "employee": {
+      "name": "Employee",
+      "description": "Day-to-day CRM, Documents, Creator, and Projects access."
+    },
+    "guest": {
+      "name": "مهمان",
+      "description": "دسترسی محدود به خواندن اسناد و پروژه‌ها."
+    },
+    "viewer": {
+      "name": "مشاهده‌گر",
+      "description": "دسترسی فقط خواندنی به ماژول‌های مشترک."
+    }
+  },
+  "members": {
+    "title": "Members",
+    "columnMember": "عضو",
+    "columnEmail": "ایمیل",
+    "columnRole": "نقش",
+    "columnStatus": "وضعیت",
+    "roleFor": "Role for {name}",
+    "emptyTitle": "هنوز عضوی نیست",
+    "emptyDescription": "از همکاران دعوت کنید تا به این فضای کاری سازمانی بپیوندند.",
+    "updated": "Updated {name} to {role}",
+    "roleChangeFailed": "خرابی در تغییر"
+  },
+  "pending": {
+    "title": "Pending Invitations",
+    "emptyTitle": "در انتظار دعوت",
+    "emptyDescription": "New invites appear here until accepted or expired.",
+    "expires": "{role} · expires {date}",
+    "revoke": "لغو",
+    "pending": "در حال بررسی"
+  },
+  "history": {
+    "title": "تاریخچه دعوت",
+    "empty": "Accepted, expired, and revoked invitations will appear here."
+  },
+  "status": {
+    "accepted": "accepted",
+    "expired": "منقضی شده",
+    "revoked": "لغو شد",
+    "active": "فعال",
+    "inactive": "inactive",
+    "pending": "در حال بررسی"
+  }
+}

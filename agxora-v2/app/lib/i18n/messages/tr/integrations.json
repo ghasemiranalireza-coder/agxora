@@ -1,0 +1,143 @@
+{
+  "loading": "Entegrasyon platformu yükleniyor…",
+  "eyebrow": "Kurumsal Entegrasyon Platformu",
+  "title": "Entegrasyon Merkezi",
+  "subtitle": "Microsoft 365, Google, Slack, CRM, depolama ve otomasyon ekosistemlerine yönelik bağlayıcılar. Bu yapıdaki bağlantılar ve senkronizasyon yerel demolardır; canlı OAuth bağlı değildir.",
+  "noticeDefault": "Yerel demo bağlayıcıları — OAuth ve canlı senkronizasyon bağlı değil.",
+  "settings": "Ayarlar",
+  "tabs": {
+    "dashboard": "Kontrol Paneli",
+    "installed": "Yüklendi",
+    "available": "Mevcut",
+    "logs": "Günlükler",
+    "apiKeys": "API Anahtarları",
+    "webhooks": "Web kancaları",
+    "developer": "Geliştirici"
+  },
+  "notice": {
+    "demoConnection": "Demo bağlantısı: {name} (yalnızca yerel taslak)",
+    "connectFailed": "Bağlantı başarısız oldu",
+    "keyCreated": "API anahtarı oluşturuldu: {prefix}",
+    "webhookCreated": "Web kancası oluşturuldu: {name}",
+    "webhookTest": "Web kancası testi {durum}",
+    "networkError": "API gezgini ağ hatası: {message}",
+    "explorerError": "API gezgini → {status}: {message}",
+    "explorerSuccess": "API gezgini → {status}",
+    "explorerFailed": "Gezgin başarısız oldu",
+    "syncResult": "Demo senkronizasyonu · {status} ({records} yerel kayıt) — harici veri aktarılmaz.",
+    "diagnosed": "Teşhis edildi",
+    "removedConnection": "Demo bağlantısı kaldırıldı: {name}",
+    "keyRotated": "Anahtar döndürüldü",
+    "keyRevoked": "Anahtar iptal edildi",
+    "publishedEvent": "Yayınlandı {type}",
+    "developerSaved": "Geliştirici ayarları kaydedildi"
+  },
+  "dashboard": {
+    "demoLinks": "Demo bağlantıları",
+    "catalog": "Katalog",
+    "api24h": "API (24 saat)",
+    "webhooks24h": "Web kancaları (24 saat)",
+    "webhookFailures": "Web kancası hataları",
+    "syncJobs": "İşleri senkronize et",
+    "conflicts": "Çatışmalar",
+    "errors": "Hatalar",
+    "connectionStatus": "Bağlantı durumu",
+    "emptyTitle": "Hiçbir entegrasyon yüklü değil",
+    "emptyDescription": "Gözat Bir sağlayıcıya bağlanmak için kullanılabilir.",
+    "eventBridgeDemo": "Etkinlik köprüsü demosu",
+    "eventBridgeHint": "İş Akışı Otomasyonu veriyolunda bir bağlayıcı olayı yayınlayın.",
+    "emit": "{id} gönder"
+  },
+  "installed": {
+    "title": "Kurulu entegrasyonlar",
+    "emptyTitle": "Hiçbir şey yüklü değil",
+    "emptyDescription": "Mevcut katalogdan yükleyin.",
+    "latestSync": "En son senkronizasyon: {status} · {records} kayıt · mod {mode}"
+  },
+  "available": {
+    "protocols": "Protokoller: {protokoller}",
+    "demoConnection": "Demo bağlantısı",
+    "connectDemo": "Bağlan (demo)",
+    "installDemo": "Demoyu yükle"
+  },
+  "logs": {
+    "title": "Entegrasyon günlükleri",
+    "emptyTitle": "Henüz günlük yok",
+    "emptyDescription": "Bir sağlayıcıya bağlanın veya tanılamayı çalıştırın."
+  },
+  "apiKeys": {
+    "title": "API anahtarları",
+    "generateKey": "Anahtar oluştur",
+    "copyOnce": "Şimdi kopyala (bir kez gösterilir): {secret}",
+    "emptyTitle": "API anahtarı yok",
+    "emptyDescription": "REST ağ geçidi erişimi için bir anahtar oluşturun."
+  },
+  "webhooks": {
+    "endpointsTitle": "Web kancası uç noktaları",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "Giden web kancasını ekle",
+    "emptyTitle": "Web kancası yok",
+    "emptyDescription": "Teslimatı test etmek için giden bir uç nokta oluşturun.",
+    "deliveryLogs": "Teslimat günlükleri",
+    "deliveriesEmptyTitle": "Teslimat yok",
+    "deliveriesEmptyDescription": "Günlükleri doldurmak için bir test web kancası gönderin."
+  },
+  "developer": {
+    "title": "Geliştirici ayarları",
+    "sandboxMode": "Korumalı alan modu",
+    "webhookSigning": "Web kancası imzalama etkin",
+    "saveSettings": "Ayarları kaydet",
+    "apiDocs": "API belgeleri yer tutucusu: {url}",
+    "sdk": "SDK yer tutucusu: {url}",
+    "explorerTitle": "API gezgini",
+    "gatewayRoutes": "Ağ geçidi rotaları: {routes}",
+    "sendGet": "GET'i gönder",
+    "oauthProviders": "OAuth sağlayıcıları",
+    "placeholdersHint": "GraphQL, WebSocket ve gRPC ağ geçidi rotaları yer tutucu olarak kaydedilir. Alan eşleme ve senkronizasyon çakışması çözümü, arka uç uygulaması için mimariye hazırdır."
+  },
+  "connectionStatus": {
+    "connected": "Demo bağlantısı",
+    "pendingAuth": "Beklemede (demo)",
+    "error": "Hata",
+    "disabled": "Engelli",
+    "installed": "Yüklendi",
+    "available": "Mevcut",
+    "localDemo": "Yerel demo"
+  },
+  "columns": {
+    "integration": "Entegrasyon",
+    "status": "Durum",
+    "health": "Sağlık",
+    "latency": "Gecikme",
+    "actions": "Eylemler",
+    "when": "Ne zaman",
+    "level": "Seviye",
+    "source": "Kaynak",
+    "message": "Mesaj",
+    "name": "İsim",
+    "key": "Anahtar",
+    "scopes": "Kapsamlar",
+    "usage": "Kullanım",
+    "direction": "Yön",
+    "url": "URL'si",
+    "enabled": "Etkinleştirilmiş",
+    "event": "Etkinlik",
+    "attempt": "Girişim"
+  },
+  "actions": {
+    "diagnose": "Teşhis",
+    "demoSync": "Demo senkronizasyonu",
+    "demoSyncTitle": "Yalnızca demo senkronizasyonu — harici aktarım yok",
+    "disconnect": "Bağlantıyı kes",
+    "rotate": "Döndür",
+    "revoke": "Geri çekmek",
+    "test": "Test",
+    "emDash": "—",
+    "yes": "Evet",
+    "no": "HAYIR"
+  },
+  "errors": {
+    "failedToFetch": "Getirilemedi",
+    "httpStatus": "HTTP {durum}"
+  }
+}

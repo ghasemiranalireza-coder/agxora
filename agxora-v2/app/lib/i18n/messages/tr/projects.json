@@ -1,0 +1,298 @@
+{
+  "page": {
+    "eyebrow": "Proje Yönetimi İşletim Sistemi",
+    "title": "Projeler",
+    "lead": "{organizasyon} için teslimatı planlayın, bütçeyi ve sağlığı takip edin, ekipler atayın ve görevleri yönetin. Veriler yerel olarak korunur ve arka uç bağlantısı için hazırdır.",
+    "yourOrganization": "kuruluşunuz"
+  },
+  "list": {
+    "errorTitle": "Projeler yüklenemedi",
+    "searchLabel": "Proje ara",
+    "searchPlaceholder": "Projeleri, müşterileri, sahipleri, etiketleri arayın…",
+    "viewCards": "Kartlar",
+    "viewTable": "Masa",
+    "newProject": "Yeni proje",
+    "statusFilter": "Durum",
+    "priorityFilter": "Öncelik",
+    "customerFilter": "Müşteri",
+    "ownerFilter": "Mal sahibi",
+    "allStatuses": "Tüm durumlar",
+    "allPriorities": "Tüm öncelikler",
+    "allCustomers": "Tüm müşteriler",
+    "allOwners": "Tüm sahipler",
+    "dateFrom": "İtibaren",
+    "dateTo": "İle",
+    "emptyTitle": "Henüz proje yok",
+    "emptyDescription": "Kilometre taşlarını, bütçeyi ve ekip sahipliğini takip etmek için bir teslimat çalışma alanı oluşturun.",
+    "createProject": "Proje oluştur",
+    "pagination": "{total} / {from}–{to} arası gösteriliyor",
+    "previous": "Öncesi",
+    "next": "Sonraki",
+    "noDescription": "Henüz açıklama yok.",
+    "duePrefix": "Bitiş tarihi}",
+    "openProject": "{name} projesini aç",
+    "sortBy": "{sütun}'a göre sırala",
+    "sort": {
+      "name": "İsim",
+      "customer": "Müşteri",
+      "owner": "Mal sahibi",
+      "status": "Durum",
+      "priority": "Öncelik",
+      "progress": "İlerlemek",
+      "dueDate": "Vadesi dolmuş",
+      "budget": "Bütçe"
+    }
+  },
+  "form": {
+    "createTitle": "Proje Oluştur",
+    "editTitle": "Projeyi Düzenle",
+    "cancel": "İptal etmek",
+    "saveChanges": "Değişiklikleri kaydet",
+    "createProject": "Proje oluştur",
+    "projectName": "Proje Adı",
+    "customer": "Müşteri",
+    "projectOwner": "Proje Sahibi",
+    "priority": "Öncelik",
+    "status": "Durum",
+    "budget": "Bütçe",
+    "currency": "Para birimi",
+    "startDate": "Başlangıç ​​Tarihi",
+    "dueDate": "Bitiş tarihi",
+    "color": "Renk",
+    "icon": "Simge",
+    "tags": "Etiketler",
+    "tagsHint": "Virgülle ayrılmış",
+    "tagsPlaceholder": "kurumsal, kullanıma sunma",
+    "budgetPlaceholder": "0",
+    "description": "Tanım",
+    "selectColor": "{Renk} rengini seçin"
+  },
+  "taskForm": {
+    "createTitle": "Görev Oluştur",
+    "editTitle": "Görevi Düzenle",
+    "cancel": "İptal etmek",
+    "saveChanges": "Değişiklikleri kaydet",
+    "createTask": "Görev oluştur",
+    "title": "Başlık",
+    "assignee": "Vekil",
+    "priority": "Öncelik",
+    "status": "Durum",
+    "deadline": "Son teslim tarihi",
+    "progress": "İlerlemek",
+    "labels": "Etiketler",
+    "labelsHint": "Virgülle ayrılmış",
+    "description": "Tanım"
+  },
+  "deleteDialog": {
+    "title": "Projeyi sil",
+    "cancel": "İptal etmek",
+    "deletePermanently": "Kalıcı olarak sil",
+    "bodyPrefix": "Bu kaldırır",
+    "thisProject": "bu proje",
+    "bodySuffix": "ve yerel depolama alanındaki tüm ilgili görevler, dosyalar, notlar ve etkinlikler. Bu eylem geri alınamaz."
+  },
+  "badges": {
+    "progress": "İlerlemek",
+    "progressAria": "{label}: %{value}"
+  },
+  "status": {
+    "planning": "Planlama",
+    "active": "Aktif",
+    "on_hold": "Beklemede",
+    "completed": "Tamamlanmış",
+    "archived": "Arşivlendi"
+  },
+  "taskStatus": {
+    "todo": "Yapılacaklar",
+    "in_progress": "Devam etmekte",
+    "review": "Gözden geçirmek",
+    "done": "Tamamlamak"
+  },
+  "priority": {
+    "low": "Düşük",
+    "medium": "Orta",
+    "high": "Yüksek",
+    "critical": "Kritik"
+  },
+  "role": {
+    "owner": "Mal sahibi",
+    "manager": "Müdür",
+    "member": "Üye",
+    "viewer": "Görüntüleyici"
+  },
+  "kind": {
+    "project": "proje",
+    "task": "görev",
+    "milestone": "dönüm noktası"
+  },
+  "timeline": {
+    "noTimelineTitle": "Zaman çizelgesi yok",
+    "noTimelineDescription": "Zamanlamayı, süreyi ve kilometre taşlarını görüntülemek için bir proje açın.",
+    "emptyTitle": "Zaman çizelgesi boş",
+    "emptyDescription": "Zamanlamayı doldurmak için başlangıç/bitiş tarihlerini ve görevleri ekleyin.",
+    "title": "Zaman çizelgesi",
+    "subtitle": "Başlangıç, bitiş, süre, kilometre taşları. Bağımlılıklar gelecekteki bir sürüm için ayrılmıştır.",
+    "dateRange": "{başlangıç} → {bitiş} · {gün}g",
+    "itemAria": "{start} ile {end} arasında {title}",
+    "dependenciesNone": "Bağımlılıklar: yok"
+  },
+  "dashboard": {
+    "kpi": {
+      "activeProjects": "Aktif Projeler",
+      "activeHint": "{planlama} planlama",
+      "completed": "Tamamlanmış",
+      "completedHint": "Portföyün %{percent}'i",
+      "onHold": "Beklemede",
+      "onHoldHint": "{arşivlendi} arşivlendi",
+      "teamMembers": "Ekip Üyeleri",
+      "teamHint": "Tüm projelerde",
+      "budgetOverview": "Bütçeye Genel Bakış",
+      "budgetHint": "Kullanılan %{percent} · {spent} harcandı",
+      "openTasks": "Görevleri Aç",
+      "openTasksHint": "{gecikmiş} gecikmiş",
+      "projectHealth": "Proje Sağlığı",
+      "healthHint": "Bileşik teslimat puanı",
+      "upcomingDeadlines": "Yaklaşan Son Tarihler",
+      "upcomingHint": "Sonraki 30 gün"
+    },
+    "analytics": {
+      "title": "Analitik",
+      "subtitle": "Portföy sağlığı, tamamlanması ve bütçe kullanımı.",
+      "statusMix": "Durum karışımı",
+      "deliverySignals": "Teslimat sinyalleri",
+      "completedPercent": "Tamamlanmış %",
+      "budgetUsage": "Bütçe kullanımı",
+      "health": "Sağlık",
+      "upcomingDeadlines": "Yaklaşan son teslim tarihleri",
+      "noUpcomingDeadlines": "Bir sonraki pencerede yaklaşan son tarih yok."
+    },
+    "recentActivity": {
+      "title": "Son Etkinlik",
+      "subtitle": "Önce en yeni proje etkinlikleri.",
+      "empty": "Etkinlik, projeler ve görevler oluşturuldukça görünecektir."
+    }
+  },
+  "kanban": {
+    "emptyTitle": "Tahtada görev yok",
+    "emptyDescription": "Yapılacaklar, Devam Ediyor, Gözden Geçirme ve Bitti genelinde teslimatı düzenlemek için görevler oluşturun.",
+    "addTask": "Görev ekle",
+    "columnAria": "{durum} sütunu",
+    "taskProgress": "Görev ilerlemesi",
+    "edit": "Düzenlemek",
+    "complete": "Tamamlamak"
+  },
+  "detail": {
+    "notFoundTitle": "Proje bulunamadı",
+    "notFoundDescription": "Bu proje silinmiş olabilir veya mevcut kuruluş için kullanılamıyor olabilir.",
+    "backToProjects": "← Projelere geri dön",
+    "ownerMeta": "{müşteri} · Sahip {owner}",
+    "edit": "Düzenlemek",
+    "delete": "Silmek",
+    "sectionsAria": "Proje detay bölümleri",
+    "tabs": {
+      "overview": "Genel Bakış",
+      "tasks": "Görevler",
+      "files": "Dosyalar",
+      "notes": "Notlar",
+      "activity": "Etkinlik",
+      "team": "Takım",
+      "settings": "Ayarlar"
+    }
+  },
+  "overview": {
+    "missingTitle": "Eksik proje",
+    "missingDescription": "Genel bakışını görüntülemek için bir proje seçin.",
+    "title": "Genel Bakış",
+    "noDescription": "Açıklama sağlanmadı.",
+    "budget": "Bütçe",
+    "spent": "Harcanan",
+    "start": "Başlangıç",
+    "due": "Vadesi dolmuş",
+    "openTasks": "Görevleri aç",
+    "completedTasks": "Tamamlanan görevler"
+  },
+  "tasks": {
+    "title": "Görev yönetimi",
+    "newTask": "Yeni görev",
+    "tableTitle": "Başlık",
+    "tableAssignee": "Vekil",
+    "tablePriority": "Öncelik",
+    "tableStatus": "Durum",
+    "tableDue": "Vadesi dolmuş",
+    "tableProgress": "İlerlemek",
+    "tableActions": "Eylemler",
+    "edit": "Düzenlemek",
+    "complete": "Tamamlamak",
+    "delete": "Silmek",
+    "emptyTitle": "Henüz görev yok",
+    "emptyDescription": "Panoda görevler oluşturun, sahipleri atayın ve ilerlemeyi takip edin.",
+    "createTask": "Görev oluştur"
+  },
+  "files": {
+    "title": "Dosya yöneticisi",
+    "description": "Görüntüleri, PDF'leri ve ofis belgelerini yükleyin. Meta veriler yerel olarak varlığını sürdürür.",
+    "upload": "Yüklemek",
+    "emptyTitle": "Hiçbir dosya yüklenmedi",
+    "emptyDescription": "Ekibin incelemesi ve önizlemesi için proje yapıtları ekleyin.",
+    "preview": "Önizleme",
+    "metadataOnly": "Yalnızca meta veriler",
+    "delete": "Silmek"
+  },
+  "notes": {
+    "editTitle": "Notu düzenle",
+    "newTitle": "Yeni not",
+    "title": "Başlık",
+    "author": "Yazar",
+    "body": "Vücut",
+    "cancel": "İptal etmek",
+    "saveNote": "Notu kaydet",
+    "emptyTitle": "Henüz not yok",
+    "emptyDescription": "Kararları, toplantı sonuçlarını ve teslimat bağlamını yakalayın.",
+    "edit": "Düzenlemek",
+    "delete": "Silmek"
+  },
+  "activity": {
+    "title": "Etkinlik feed'i",
+    "emptyTitle": "Henüz etkinlik yok",
+    "emptyDescription": "Ekip çalışırken proje etkinlikleri burada görünecektir."
+  },
+  "team": {
+    "missingTitle": "Eksik proje",
+    "missingDescription": "Ekip üyelerini yönetmek için bir proje seçin.",
+    "assignTitle": "Üye ata",
+    "name": "İsim",
+    "email": "E-posta",
+    "role": "Rol",
+    "addMember": "Üye ekle",
+    "teamTitle": "Takım",
+    "remove": "Kaldırmak"
+  },
+  "settings": {
+    "missingTitle": "Eksik proje",
+    "missingDescription": "Ayarları yönetmek için bir proje seçin.",
+    "title": "Proje ayarları",
+    "description": "Bütçe yakma ve arşiv durumunu güncelleyin. Tam alan düzenlemeleri Düzenle iletişim kutusunu kullanır.",
+    "spentAmount": "Harcanan miktar",
+    "saveSpent": "Harcanan tasarruf",
+    "archiveProject": "Arşiv projesi",
+    "editAllFields": "Tüm alanları düzenle"
+  },
+  "toasts": {
+    "projectCreated": "Proje oluşturuldu",
+    "projectUpdated": "Proje güncellendi",
+    "projectDeleted": "Proje silindi",
+    "checkForm": "Formu kontrol edin",
+    "validationFailed": "Doğrulama başarısız oldu.",
+    "taskCreated": "Görev oluşturuldu",
+    "taskUpdated": "Görev güncellendi",
+    "taskCompleted": "Görev tamamlandı",
+    "taskDeleted": "Görev silindi",
+    "filesUploaded": "Yüklenen dosyalar",
+    "filesUploadedDetail": "{count} dosya(lar)",
+    "fileDeleted": "Dosya silindi",
+    "noteSaved": "Not kaydedildi",
+    "memberAdded": "Üye eklendi",
+    "settingsSaved": "Ayarlar kaydedildi",
+    "projectArchived": "Proje arşivlendi"
+  }
+}

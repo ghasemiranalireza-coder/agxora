@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "AGXORA Finans İşletim Sistemi",
+    "title": "Finans ve Vergi",
+    "subtitle": "Muhasebe, bankacılık, vergi ve finansal istihbarat; canlı defterler bağlanana kadar örnek verilerle önizlenir.",
+    "sampleNotice": "Örnek veri kümesi — rakamlar ve dışa aktarma geçmişi açıklayıcıdır. DATEV / dosya aktarımı ve canlı banka yayınları birbirine bağlı değil."
+  },
+  "sections": {
+    "overview": {
+      "title": "Finansa Genel Bakış"
+    },
+    "invoiceCenter": {
+      "title": "Fatura Merkezi",
+      "subtitle": "Yapay zeka güven puanlamasıyla kurumsal fatura defterini arayın, filtreleyin ve sıralayın."
+    },
+    "aiInvoiceProcessing": {
+      "title": "Yapay Zeka Fatura İşleme",
+      "subtitle": "Demo hattı — OCR ve AI çıkarma bağlı değil."
+    },
+    "banking": {
+      "title": "Bankacılık",
+      "subtitle": "Yalnızca örnek hesaplar — Açık Bankacılık akışları bağlı değildir."
+    },
+    "datev": {
+      "title": "DATEV Entegrasyonu",
+      "subtitle": "Örnek dışa aktarma geçmişi — DATEV dosyası oluşturma işlemi bağlı değil."
+    },
+    "taxCenter": {
+      "title": "Vergi Merkezi",
+      "subtitle": "KDV özetleri, son teslim tarihleri ​​ve yaklaşan ödemeler."
+    },
+    "aiInsights": {
+      "title": "Yapay Zeka Analizleri",
+      "subtitle": "Yalnızca örnek bulgular — içgörü eylemleri bağlantılı değildir."
+    },
+    "smartSearch": {
+      "title": "Akıllı Arama",
+      "subtitle": "Faturalar, giderler, KDV ve ihracatlarda doğal dil sorguları."
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "Hasılat",
+        "caption": "Örnek · son 30 gün",
+        "delta": "+8.4%"
+      },
+      "expenses": {
+        "label": "Giderler",
+        "caption": "Örnek · işletim + SMM",
+        "delta": "+2.1%"
+      },
+      "profit": {
+        "label": "Kâr",
+        "caption": "Örnek · net işletim",
+        "delta": "+12.6%"
+      },
+      "vat-due": {
+        "label": "KDV Ödenmesi",
+        "caption": "Örnek · Q2 penceresi",
+        "delta": "{days} gün içinde teslim edilecek"
+      },
+      "open-invoices": {
+        "label": "Faturaları Aç",
+        "caption": "Örnek · {money} ödenmemiş"
+      },
+      "paid-invoices": {
+        "label": "Ödenen Faturalar",
+        "caption": "Örnek · bu çeyrek",
+        "delta": "+{sayım}"
+      },
+      "cashflow": {
+        "label": "Nakit akımı",
+        "caption": "Örnek · 30 günlük projeksiyon",
+        "delta": "+4.2%"
+      },
+      "ai-score": {
+        "label": "Yapay Zeka Finansal Puanı",
+        "caption": "Örnek puan · canlı risk puanlaması değil",
+        "delta": "+{sayım}"
+      }
+    },
+    "scoreOutOf": "{puan} / {maks}"
+  },
+  "invoices": {
+    "emptyTitle": "Fatura yok",
+    "emptyDescription": "Aramanızla veya filtrelerinizle eşleşen fatura yok.",
+    "searchPlaceholder": "Numara, şirket, kategori…",
+    "statusFilter": "Durum filtresi",
+    "paymentFilter": "Ödeme filtresi",
+    "sortBy": "Göre sırala",
+    "toggleSort": "Sıralama yönünü değiştir",
+    "count": "{count} fatura",
+    "countOne": "{count} fatura",
+    "allStatuses": "Tüm durumlar",
+    "allPayments": "Tüm ödemeler",
+    "columns": {
+      "number": "Fatura Numarası",
+      "company": "Şirket",
+      "amount": "Miktar",
+      "vat": "KDV",
+      "status": "Durum",
+      "dueDate": "Bitiş tarihi",
+      "payment": "Ödeme Durumu",
+      "category": "Kategori",
+      "ai": "Yapay Zeka Güveni"
+    },
+    "sort": {
+      "dueDate": "Bitiş tarihi",
+      "amount": "Miktar",
+      "company": "Şirket",
+      "status": "Durum",
+      "aiConfidence": "Yapay zeka güveni",
+      "number": "Fatura #"
+    }
+  },
+  "status": {
+    "draft": "Taslak",
+    "open": "Açık",
+    "paid": "Paralı",
+    "overdue": "vadesi geçmiş",
+    "cancelled": "İptal edildi"
+  },
+  "payment": {
+    "unpaid": "ödenmemiş",
+    "partial": "Kısmi",
+    "paid": "Paralı",
+    "refunded": "Geri ödeme yapıldı"
+  },
+  "category": {
+    "saas": "SaaS",
+    "office": "Ofis",
+    "travel": "Seyahat",
+    "marketing": "Pazarlama",
+    "utilities": "Yardımcı programlar",
+    "professional": "Profesyonel",
+    "other": "Diğer"
+  },
+  "processing": {
+    "dropTitle": "Fatura dosyalarını sürükleyip bırakın",
+    "dropFormats": "PDF · Resim · E-posta İçe Aktarma",
+    "uploadFiles": "Dosyaları yükle",
+    "emailImport": "E-postayı İçe Aktarma",
+    "dropHint": "Yerel olarak hazırlamak için PDF veya resim faturalarını bırakın; OCR bağlı değil.",
+    "filesStaged": "{count} dosya yalnızca yerel olarak listeleniyor — OCR / AI çıkarma bağlı değil.",
+    "emailReserved": "IMAP / Microsoft Graph için ayrılmış e-posta içe aktarma bağlayıcısı.",
+    "pipelineTitle": "İşleme hattı (demo)",
+    "stages": {
+      "ocr": "OCR Durumu",
+      "extraction": "Yapay Zeka Çıkarma",
+      "categorization": "Kategorizasyon",
+      "duplicateDetection": "Yinelenen Algılama"
+    }
+  },
+  "stage": {
+    "pending": "Kullanılamıyor",
+    "running": "Bağlı değil",
+    "complete": "Demo",
+    "failed": "Arızalı",
+    "skipped": "Atlandı"
+  },
+  "banking": {
+    "connectionTitle": "Banka Bağlantısı",
+    "connectBank": "Bankayı bağla",
+    "description": "PSD2 / Açık Bankacılık adaptörleri kablolu değildir. Aşağıdaki eşleştirme ve mutabakat yalnızca açıklama amaçlıdır.",
+    "feedUnavailable": "Banka beslemesi kullanılamıyor — sağlayıcı bağlantısı bağlı değil.",
+    "noticeDefault": "Açık Bankacılık bağlı değil — aşağıdaki hesaplar örnek verilerdir.",
+    "connectUnavailable": "Banka bağlantısı kullanılamıyor — Açık Bankacılık bu yapıda bağlı değil.",
+    "sampleAccounts": "Örnek Hesaplar",
+    "sample": "Örnek",
+    "offline": "Çevrimdışı",
+    "demoPrefix": "Demo",
+    "latestTransactions": "Son İşlemler",
+    "sampleMatching": "Örnek eşleştirme",
+    "demoOnly": "Yalnızca demo",
+    "sampleMatch": "Örnek eşleşme",
+    "unmatched": "Eşsiz",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "DATEV Entegrasyonu",
+    "notConnected": "Bağlı değil",
+    "intro": "Aşağıdaki örnek dışa aktarma geçmişi açıklayıcıdır. Kimlik bilgileri ve dosya oluşturma bu yapıda bağlantılı değildir.",
+    "noticeDefault": "Dışa aktarma bağdaştırıcıları bağlı değil; hiçbir dosya oluşturulmayacak.",
+    "exportUnavailable": "{title} kullanılamıyor — DATEV / dosya dışa aktarımı bağlı değil.",
+    "exportUnavailableAria": "{title} — kullanılamıyor",
+    "historyTitle": "Dışa Aktarma Geçmişi (örnek)",
+    "refresh": "Yenile",
+    "refreshUnavailable": "Yenileme kullanılamıyor — dışa aktarma geçmişi statik örnek verilerdir.",
+    "steuerberaterSample": "Örnek",
+    "steuerberaterPending": "Askıda olması",
+    "columns": {
+      "export": "İhracat",
+      "format": "Biçim",
+      "period": "Dönem",
+      "created": "Oluşturuldu",
+      "status": "Durum",
+      "steuerberater": "Steuerberater"
+    },
+    "actions": {
+      "datev": {
+        "title": "DATEV Dışa Aktarma",
+        "description": "Steuerberater iş akışları için Buchungsstapel paketi."
+      },
+      "csv": {
+        "title": "CSV Dışa Aktarma",
+        "description": "Elektronik tablolar ve içe aktarmalar için deftere hazır CSV."
+      },
+      "pdf": {
+        "title": "PDF Dışa Aktarma",
+        "description": "İnceleme ve arşivleme için belge paketi."
+      },
+      "xml": {
+        "title": "XML Dışa Aktarımı",
+        "description": "İşlem hatlarını dosyalamak için yapılandırılmış vergi XML'si."
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "Örnek · Sıraya Alındı",
+    "ready": "Örnek · Hazır",
+    "delivered": "açıklayıcı",
+    "failed": "Arızalı"
+  },
+  "tax": {
+    "vatSummaryTitle": "KDV Özeti",
+    "monthlyVat": "Aylık KDV",
+    "quarterlyVat": "Üç aylık KDV",
+    "collected": "Toplanan",
+    "deductible": "İndirilebilir",
+    "netDue": "Net vade",
+    "deadlinesTitle": "Vergi Son Tarihleri ​​· Yaklaşan Ödemeler",
+    "duePrefix": "Vadesi dolmuş",
+    "deadlineStatus": {
+      "due_soon": "Yakında",
+      "upcoming": "Yaklaşan",
+      "overdue": "vadesi geçmiş",
+      "paid": "Paralı"
+    },
+    "deadlines": {
+      "td-1": "Aylık KDV beyannamesi",
+      "td-2": "Üç aylık KDV ödemesi",
+      "td-3": "Peşin kurumlar vergisi"
+    },
+    "period": {
+      "monthly": "Aylık",
+      "quarterly": "Üç ayda bir",
+      "annual": "Yıllık"
+    }
+  },
+  "insights": {
+    "demoPrefix": "Demo",
+    "noticeDefault": "İçgörü eylemleri birbirine bağlı değildir; kartlar yalnızca örnek bulguları gösterir.",
+    "actionUnavailable": "{action} kullanılamıyor — finans analizi işlemleri bağlı değil.",
+    "actionUnavailableTitle": "{action} kullanılamıyor — bağlı değil",
+    "kinds": {
+      "unusual_expense": "Olağandışı harcamalar",
+      "duplicate_invoice": "Yinelenen faturalar",
+      "missing_invoice": "Eksik faturalar",
+      "late_payment": "Geç ödemeler",
+      "cashflow_prediction": "Nakit akışı tahmini",
+      "tax_optimization": "Vergi optimizasyonu"
+    }
+  },
+  "search": {
+    "label": "Doğal Dil Arama",
+    "placeholder": "\"Ödenmemiş faturaları göster\"i deneyin",
+    "submit": "Aramak",
+    "examplesTitle": "Örnekler",
+    "hints": {
+      "idle": "Faturalar, harcamalar, KDV veya ihracat hakkında bilgi alın.",
+      "unpaid_invoices": "Fatura Merkezini ödenmemiş / açık kalemlere göre filtreleme.",
+      "july_expenses": "Temmuz ayı gider tarafı faaliyeti gösteriliyor.",
+      "amazon": "Amazon faturalarını ve makbuzlarını bulma.",
+      "vat_export": "DATEV / KDV ihracat işlemlerinin açılması.",
+      "general": "“{query}” için defter aranıyor."
+    },
+    "examples": {
+      "q1": {
+        "query": "Ödenmemiş faturaları göster",
+        "description": "Ödenmemiş veya kısmi durumdaki açık alacaklar"
+      },
+      "q2": {
+        "query": "Temmuz giderlerini göster",
+        "description": "Temmuz ayında gider tarafı faturalar ve banka çıkışları"
+      },
+      "q3": {
+        "query": "Amazon faturalarını bulun",
+        "description": "Fatura merkezinde ve yüklemelerde satıcı eşleşmesi"
+      },
+      "q4": {
+        "query": "İhracat KDV'si",
+        "description": "DATEV / vergi ihracat işlemlerine git"
+      }
+    }
+  }
+}

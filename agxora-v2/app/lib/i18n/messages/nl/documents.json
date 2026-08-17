@@ -1,0 +1,388 @@
+{
+  "page": {
+    "brand": "AGXORA Kennisbesturingssysteem",
+    "title": "Documenten",
+    "subtitle": "Enterprise-documenten en kennishub – vooraf bekeken met voorbeeldinhoud totdat opslag- en goedkeuringsbackends verbinding maken.",
+    "sampleNotice": "Voorbeeldbibliotheek: bladeren en filters werken tijdens de sessie. Acties voor uploaden, goedkeuren en AI-index zijn niet met elkaar verbonden."
+  },
+  "sections": {
+    "kpis": {
+      "title": "Kennisdashboard"
+    },
+    "library": {
+      "title": "Documentbibliotheek",
+      "subtitle": "Alle documenten, Recent, Favorieten, Gedeeld, Gearchiveerd, Prullenbak, Kennisbank – met mappen, zoeken, viewer en versies."
+    },
+    "knowledge": {
+      "title": "Kennisbank",
+      "subtitle": "Artikelen, beleid, processen, handleidingen, veelgestelde vragen en interne wiki."
+    },
+    "approvals": {
+      "title": "Goedkeuringen",
+      "subtitle": "Concept, in beoordeling, goedgekeurd, afgewezen, gearchiveerd – gekoppeld aan de automatiseringsarchitectuur."
+    },
+    "ai": {
+      "title": "AI-kennislaag",
+      "subtitle": "Samenvatting, trefwoorden, classificatie, tags, mappen, gerelateerde documenten, duplicaten, vertaling, OCR en zoeken: alleen architectuur."
+    },
+    "activity": {
+      "title": "Activiteit",
+      "subtitle": "Recente wijzigingen, uploads, weergaven, shares en auditgeschiedenis."
+    },
+    "integrations": {
+      "title": "Integraties",
+      "subtitle": "Drive-adapters gereserveerd - geen actieve connectoren."
+    },
+    "security": {
+      "title": "Beveiliging en delen",
+      "subtitle": "RBAC, audittrail, versleuteling, retentie en bereik voor delen."
+    }
+  },
+  "loading": {
+    "knowledgeBase": "Kennisbank laden…",
+    "approvals": "Goedkeuringswachtrij laden…",
+    "aiInsights": "AI-inzichten laden…",
+    "activity": "Activiteit laden…",
+    "integrations": "Integraties laden…",
+    "security": "Beveiliging laden…"
+  },
+  "kpi": {
+    "documents": {
+      "label": "Documenten",
+      "caption": "Voorbeeld · in verschillende mappen",
+      "delta": "+{tel}"
+    },
+    "folders": {
+      "label": "Mappen",
+      "caption": "Voorbeeld · inclusief slimme collecties",
+      "delta": "+{tel}"
+    },
+    "storage": {
+      "label": "Opslag gebruikt",
+      "caption": "Voorbeeld · van een illustratief plan",
+      "delta": "+{maat}"
+    },
+    "shared": {
+      "label": "Gedeelde documenten",
+      "caption": "Voorbeeld · organisatie + afdeling + gebruikers",
+      "delta": "+{tel}"
+    },
+    "activity": {
+      "label": "Recente activiteit",
+      "caption": "Monster · laatste 24 uur",
+      "delta": "+{tel}"
+    },
+    "indexed": {
+      "label": "AI geïndexeerd",
+      "caption": "Voorbeeld · AI-zoekopdracht niet verbonden",
+      "delta": "{procent}"
+    },
+    "approvals": {
+      "label": "In afwachting van goedkeuringen",
+      "caption": "Voorbeeld · automatisering niet aangesloten",
+      "delta": "{graaf}"
+    },
+    "score": {
+      "label": "Kennisscore",
+      "caption": "Voorbeeld · dekkingsillustratie",
+      "delta": "+{tel}"
+    }
+  },
+  "library": {
+    "viewsAria": "Bibliotheekweergaven",
+    "views": {
+      "all": "Alle documenten",
+      "recent": "Recent",
+      "favorites": "Favorieten",
+      "shared": "Gedeeld",
+      "archived": "Gearchiveerd",
+      "trash": "Afval",
+      "knowledge": "Kennisbank"
+    },
+    "dropzone": "Sleep bestanden hierheen om een ​​upload uit te voeren.",
+    "uploadReserved": "Uploaden via slepen en neerzetten is een gereserveerde opslag-API.",
+    "filesStaged": "{count} bestand(en) geënsceneerd voor uploaden (geen opslagschrijven).",
+    "dropReceived": "Drop ontvangen (geen opslagschrijven).",
+    "foldersTitle": "Mappen en collecties",
+    "foldersHint": "Geneste mappen, collecties, slimme collecties, tags, vastgezette en favorieten.",
+    "allFolders": "Alle mappen",
+    "smart": "Slim",
+    "collection": "Verzameling",
+    "pinned": "Vastgezet",
+    "favorite": "Favoriet",
+    "sharedBadge": "Gedeeld",
+    "title": "Documentbibliotheek",
+    "results": "{count} resultaten",
+    "resultOne": "{count} resultaat",
+    "selected": "· {aantal} geselecteerd",
+    "bulkAction": "Bulkactie",
+    "bulkUnavailable": "Bulkactie niet beschikbaar voor {count} item(s) - opslagmutaties zijn niet gekoppeld.",
+    "searchLabel": "Globaal zoeken",
+    "searchPlaceholder": "Naam, tags, eigenaar, AI-samenvatting…",
+    "typeLabel": "Type",
+    "statusLabel": "Status",
+    "departmentLabel": "Afdeling",
+    "ownerLabel": "Eigenaar",
+    "allTypes": "Alle soorten",
+    "allStatuses": "Alle statussen",
+    "allDepartments": "Alle afdelingen",
+    "allOwners": "Alle eigenaren",
+    "favoritesOnly": "Alleen favorieten",
+    "emptyTitle": "Er zijn geen documenten om te tonen",
+    "emptyDescription": "Pas filters aan, wis zoekopdrachten of voeg kennismiddelen toe om de bibliotheek te laten groeien.",
+    "selectAria": "Selecteer {naam}",
+    "versionHistoryTitle": "Versiegeschiedenis",
+    "close": "Dichtbij",
+    "context": {
+      "open": "Open",
+      "share": "Deel",
+      "favorite": "Favoriet",
+      "move": "Beweging",
+      "delete": "Verwijderen",
+      "dismiss": "Afwijzen",
+      "unavailable": "{action} niet beschikbaar — documentmutaties zijn niet gekoppeld voor {id}."
+    }
+  },
+  "viewer": {
+    "title": "Documentviewer",
+    "emptyTitle": "Selecteer een document",
+    "emptyDescription": "Kies een bestand uit de bibliotheek om een ​​voorbeeld van de inhoud, metagegevens, tags, versies en gekoppelde modules te bekijken.",
+    "zoomOut": "Zoomen −",
+    "zoomIn": "Zoom+",
+    "prev": "Vorige",
+    "next": "Volgende",
+    "page": "Pagina {pagina} / {totaal}",
+    "searchInside": "Zoek binnen",
+    "findPlaceholder": "Vind in voorbeeld…",
+    "noMatches": "Geen overeenkomsten in voorbeeldtekst.",
+    "meta": {
+      "owner": "Eigenaar",
+      "created": "Gemaakt",
+      "updated": "Bijgewerkt",
+      "fileType": "Bestandstype",
+      "size": "Maat",
+      "category": "Categorie",
+      "department": "Afdeling",
+      "status": "Status",
+      "retention": "Behoud",
+      "version": "Versie",
+      "sharing": "Delen"
+    },
+    "tags": "Labels",
+    "linkedModules": "Gekoppelde modules",
+    "noModuleLinks": "Nog geen modulelinks",
+    "versionHistory": "Versiegeschiedenis"
+  },
+  "versions": {
+    "title": "Versiegeschiedenis",
+    "emptyTitle": "Geen document geselecteerd",
+    "emptyDescription": "Open een document om versies, notities te bekijken, te herstellen en te vergelijken.",
+    "current": "{naam} · huidige {versie}",
+    "restore": "Versie herstellen",
+    "compare": "Vergelijk versies",
+    "restoreTitle": "Voor herstel is de opslag-API vereist",
+    "compareTitle": "Voor Vergelijken is de opslag-API vereist",
+    "noticeDefault": "Voor herstellen en vergelijken is de opslag-API vereist.",
+    "restoreUnavailable": "Herstel niet beschikbaar voor {id}: opslag-API is niet verbonden.",
+    "compareUnavailable": "Vergelijken niet beschikbaar ({selected} ↔ {current}) — opslag-API is niet verbonden."
+  },
+  "approvals": {
+    "title": "Goedkeuringsworkflow",
+    "subtitle": "Concept → In beoordeling → Goedgekeurd/afgewezen → Gearchiveerd. Wachtrijitems zijn voorbeelddocumenten; acties blijven niet bestaan.",
+    "emptyTitle": "Wachtrij leeg",
+    "emptyDescription": "Er zijn geen concept- of in-review-documenten in de voorbeeldset.",
+    "approve": "Goedkeuren",
+    "reject": "Afwijzen",
+    "sendToReview": "Verzenden naar beoordeling",
+    "noticeDefault": "Voor goedkeuringsovergangen is de Automation-workflow-engine vereist, die in deze build niet is aangesloten.",
+    "unavailable": "{action} niet beschikbaar voor {id} — workflow-engine is niet verbonden. De status van het voorbeelddocument is niet gewijzigd.",
+    "approveTitle": "Goedkeuring niet beschikbaar: workflow-engine niet verbonden",
+    "rejectTitle": "Afwijzing niet beschikbaar: workflow-engine niet verbonden",
+    "sendTitle": "Verzenden naar revisie niet beschikbaar: workflow-engine niet aangesloten"
+  },
+  "knowledge": {
+    "intro": "Artikelen, beleid, processen, handleidingen, veelgestelde vragen en interne wiki: de verhalende laag van de Kennishub."
+  },
+  "activity": {
+    "intro": "Recente wijzigingen, uploads, weergaven, gedeelde gegevens en auditgeschiedenis: de basis voor nalevingstrajecten."
+  },
+  "integrations": {
+    "intro": "Clouddrive-adapters zijn alleen architectuur: Google Drive, OneDrive, Dropbox, Box, SharePoint, Nextcloud. Geen live API's.",
+    "reservedAdapter": "Gereserveerde adapter:",
+    "architecture": "Architectuur",
+    "items": {
+      "google-drive": {
+        "description": "Import-/synchronisatiearchitectuur gereserveerd — nog geen live OAuth."
+      },
+      "onedrive": {
+        "description": "Microsoft Graph-bestandshooks gereserveerd."
+      },
+      "dropbox": {
+        "description": "Dropbox API-adapter gereserveerd."
+      },
+      "box": {
+        "description": "Enterprise Box-connector gereserveerd."
+      },
+      "sharepoint": {
+        "description": "Sitebibliotheken + metadata-toewijzing gereserveerd."
+      },
+      "nextcloud": {
+        "description": "WebDAV-adapter gereserveerd: uitgeschakeld tot self-host-abonnement."
+      }
+    }
+  },
+  "security": {
+    "architectureTitle": "Beveiligingsarchitectuur",
+    "sharingTitle": "Deelmodel",
+    "sharingIntro": "Tijdelijke aanduiding voor Privé, Organisatie, Afdeling, Specifieke gebruikers en Openbare link.",
+    "enabled": "Ingeschakeld",
+    "placeholder": "Tijdelijke aanduiding",
+    "notEnforced": "Niet afgedwongen",
+    "modelOnly": "Alleen model",
+    "controls": {
+      "rbac": {
+        "title": "Op rollen gebaseerde toegang",
+        "description": "De rollen van eigenaar, redacteur, kijker en goedkeurder worden toegewezen aan document-ACL's – niet afgedwongen in deze build."
+      },
+      "permissions": {
+        "title": "Toestemmingsarchitectuur",
+        "description": "Mapovererving met overschrijvingen op documentniveau: niet afgedwongen in deze build."
+      },
+      "audit": {
+        "title": "Audittraject",
+        "description": "Activiteitsgebeurtenissen voor weergaven, shares, herstelbewerkingen en goedkeuringen: nog niet bewaard gebleven."
+      },
+      "encryption": {
+        "title": "Encryptie",
+        "description": "Encryptiehaken in rust en onderweg gereserveerd voor KMS-bedrading."
+      },
+      "retention": {
+        "title": "Bewaarbeleid",
+        "description": "Bewaarperioden per categorie met ondersteuning voor juridische bewaring – nog niet afgedwongen."
+      }
+    }
+  },
+  "ai": {
+    "architectureTitle": "AI-functiearchitectuur",
+    "architectureIntro": "Elke mogelijkheid is gereserveerd voor de toekomstige AI-index. UI toont deterministische nep-inzichten.",
+    "insightsTitle": "Inzichten voor geselecteerd document",
+    "emptyTitle": "Selecteer een document",
+    "emptyDescription": "Open een bestand in de bibliotheek om de AI-samenvatting, trefwoorden en suggesties te bekijken.",
+    "summary": "AI-samenvatting",
+    "keywords": "AI-trefwoorden",
+    "classification": "AI-classificatie",
+    "suggestedFolder": "AI voorgestelde map",
+    "translation": "AI-vertaling",
+    "ocr": "AI-OCR",
+    "suggestedTags": "Door AI voorgestelde tags",
+    "related": "AI-gerelateerde documenten",
+    "noRelated": "Geen gerelateerde documenten geïndexeerd.",
+    "duplicateOf": "AI Duplicate Detection: mogelijk duplicaat van",
+    "noDuplicates": "AI Duplicaatdetectie: geen bijna-duplicaten gemarkeerd.",
+    "sampleReady": "Monster klaar",
+    "notApplicable": "Niet van toepassing",
+    "runSearch": "Voer AI-zoekopdracht uit",
+    "searchTitle": "AI Search is niet verbonden",
+    "noticeDefault": "AI-functies zijn alleen bedoeld voor architectuur – geen live modelaanroepen.",
+    "searchUnavailable": "AI Search niet beschikbaar: semantische index is niet verbonden. De bovenstaande voorbeeldinzichten zijn statisch.",
+    "features": {
+      "summary": {
+        "title": "AI-samenvatting",
+        "description": "Gecondenseerd documentbegrip voor elke module."
+      },
+      "keywords": {
+        "title": "AI-trefwoorden",
+        "description": "Geëxtraheerde onderwerpsignalen voor zoeken en routeren."
+      },
+      "classification": {
+        "title": "AI-classificatie",
+        "description": "Suggestie voor categorie-/afdelingtaxonomie."
+      },
+      "tags": {
+        "title": "Door AI voorgestelde tags",
+        "description": "Tag aanbevelingen zonder de grafiek te muteren."
+      },
+      "folder": {
+        "title": "AI voorgestelde map",
+        "description": "Slimme plaatsing in geneste mappen."
+      },
+      "related": {
+        "title": "AI-gerelateerde documenten",
+        "description": "Breng buren in de kennishub in kaart."
+      },
+      "duplicate": {
+        "title": "AI Duplicaatdetectie",
+        "description": "Detectie van bijna-duplicaten voor documentbibliotheken."
+      },
+      "translation": {
+        "title": "AI-vertaling",
+        "description": "Vlag van gereedheid voor vertaling: geen live model."
+      },
+      "ocr": {
+        "title": "AI-OCR",
+        "description": "OCR-pijplijn gereserveerd voor scans en PDF's."
+      },
+      "search": {
+        "title": "AI-zoekopdracht",
+        "description": "Semantisch zoeken gereserveerd voor toekomstige index."
+      }
+    }
+  },
+  "status": {
+    "draft": "Voorlopige versie",
+    "in_review": "Ter beoordeling",
+    "approved": "Goedgekeurd",
+    "rejected": "Afgewezen",
+    "archived": "Gearchiveerd"
+  },
+  "fileType": {
+    "pdf": "Pdf",
+    "word": "Woord",
+    "excel": "Excel",
+    "powerpoint": "PowerPoint",
+    "image": "Afbeelding",
+    "video": "Video",
+    "audio": "Audio",
+    "markdown": "Afwaardering",
+    "text": "Tekst",
+    "json": "JSON",
+    "csv": "CSV",
+    "other": "Ander"
+  },
+  "share": {
+    "private": "Privé",
+    "organization": "Organisatie",
+    "department": "Afdeling",
+    "specific_users": "Specifieke gebruikers",
+    "public_link": "Openbare link"
+  },
+  "module": {
+    "crm": "CRM",
+    "finance": "Financiën",
+    "automation": "Automatisering",
+    "creator": "Makerstudio",
+    "hr": "Toekomstige HR",
+    "projects": "Toekomstige projecten"
+  },
+  "knowledgeKind": {
+    "article": "Artikel",
+    "policy": "Beleid",
+    "process": "Proces",
+    "manual": "Handmatig",
+    "faq": "Veelgestelde vragen",
+    "wiki": "Interne wiki"
+  },
+  "integrationStatus": {
+    "connected": "Aangesloten",
+    "beta": "Bèta",
+    "coming_soon": "Binnenkort beschikbaar",
+    "disabled": "Gehandicapt",
+    "planned": "Gepland"
+  },
+  "bytes": {
+    "b": "{waarde} B",
+    "kb": "{waarde} KB",
+    "mb": "{waarde} MB",
+    "gb": "{waarde} GB"
+  }
+}

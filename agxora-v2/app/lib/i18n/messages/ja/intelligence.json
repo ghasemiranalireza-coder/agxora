@@ -1,0 +1,136 @@
+{
+  "loading": "エンタープライズ インテリジェンス センターを読み込んでいます…",
+  "eyebrow": "エンタープライズ インテリジェンス センター",
+  "title": "知能",
+  "subtitle": "すべての AGXORA モジュールの KPI、スコアカード、アラート、およびレポート。以下の値は、ライブ分析バックエンドが接続するまでのシードされたデモ データセットです。",
+  "demoBanner": "デモ データセット — セッション中の作業をフィルタリングして確認します。エクスポートおよびライブ モデル呼び出しはまだ利用できません。",
+  "noticeDefault": "ライブ本番テレメトリではなく、シードされたデモ分析を表示します。",
+  "noPermission": "このワークスペースに対するIntelligence.read権限がありません。",
+  "filtersUpdated": "フィルターが更新されました",
+  "demoReloaded": "このワークスペースのデモ データセットが再ロードされました。",
+  "acknowledged": "了承しました: {タイトル}",
+  "exportUnavailableTitle": "エクスポートは利用できません — レポート生成はまだ接続されていません。",
+  "exportUnavailableAria": "{title} を {format} としてエクスポート — 利用できません",
+  "tabs": {
+    "executive": "エグゼクティブ",
+    "health": "ビジネスの健全性",
+    "workspace": "分析",
+    "kpis": "KPIセンター",
+    "reports": "レポート",
+    "insights": "洞察",
+    "forecasts": "予報",
+    "alerts": "アラート",
+    "scorecards": "スコアカード",
+    "explorer": "データエクスプローラー"
+  },
+  "filters": {
+    "from": "から",
+    "to": "に",
+    "domain": "ドメイン",
+    "allDomains": "すべてのドメイン",
+    "apply": "フィルターを適用する",
+    "reloadDemo": "デモデータをリロードする",
+    "viewsAria": "インテリジェンスのビュー"
+  },
+  "executive": {
+    "companyHealth": "会社の健康",
+    "revenueScore": "収益スコア",
+    "customerHealth": "顧客の健康",
+    "projectHealth": "プロジェクトの健全性",
+    "workflowSuccess": "ワークフローの成功",
+    "aiActivity": "AIの活動",
+    "finance": "ファイナンス",
+    "riskGrowth": "リスクと成長",
+    "kpiStrip": "エグゼクティブ KPI ストリップ",
+    "visualizationPreviews": "視覚化プレビュー",
+    "visualizationHint": "インタラクティブなドリルダウンではなく、デモ シリーズの説明図です。",
+    "noSeries": "シリーズの縛りなし"
+  },
+  "health": {
+    "title": "ビジネスの健全性の分解",
+    "overall": "全体",
+    "revenue": "収益",
+    "customers": "お客様",
+    "projects": "プロジェクト",
+    "workflows": "ワークフロー",
+    "ai": "AI",
+    "finance": "ファイナンス",
+    "operations": "運営",
+    "riskPosture": "リスク姿勢",
+    "growth": "成長",
+    "observability": "可観測性: {metrics} メトリック · {avgMs}ms avg · システムの健全性 {health}"
+  },
+  "workspace": {
+    "noSeries": "シリーズなし"
+  },
+  "kpis": {
+    "title": "KPIセンター",
+    "subtitle": "収益、顧客、プロジェクト、ワークフロー、エージェント、自動化にわたる構成可能な KPI カタログ。",
+    "emptyTitle": "分析はシグナルを待っています",
+    "emptyDescription": "ワークスペースでアクティビティが生成されると、エグゼクティブ KPI とアラートがここに表示されます。"
+  },
+  "reports": {
+    "title": "レポートエンジン",
+    "subtitle": "レポート定義はレビュー用にシードされます。ファイルのエクスポートは、レポート バックエンドが接続されるまで使用できません。",
+    "emptyTitle": "報告はありません",
+    "emptyDescription": "ワークスペースブートストラップのシードをレポートします。",
+    "scheduleOnDemand": "オンデマンド"
+  },
+  "insights": {
+    "emptyTitle": "まだ洞察はありません",
+    "emptyDescription": "デモの分析情報は、ワークスペース シードの後に​​表示されます。ライブ AI インサイト生成は接続されていません。",
+    "badge": "デモ · {種類} · {ドメイン} · conf {信頼度}"
+  },
+  "forecasts": {
+    "emptyTitle": "まだ予測はありません",
+    "emptyDescription": "デモ予測はシードの後に​​表示されます。予測モデルは接続されていません。",
+    "title": "{kind} の予報",
+    "baseline": "ベースライン {baseline} → 予測 {projected} ({days}d)",
+    "confidence": "デモ · 自信 {confidence} — {note}"
+  },
+  "alerts": {
+    "title": "アラートエンジン",
+    "emptyTitle": "アラートはありません",
+    "emptyDescription": "リスクヒューリスティックからシードをアラートします。",
+    "acked": "肯定された",
+    "open": "開ける",
+    "acknowledge": "認める"
+  },
+  "scorecards": {
+    "title": "スコアカード エンジン",
+    "emptyTitle": "スコアカードなし",
+    "emptyDescription": "ブートストラップのスコアカード シード。"
+  },
+  "explorer": {
+    "title": "データエクスプローラー",
+    "searchPlaceholder": "デモ行を検索…",
+    "searchAria": "デモ エクスプローラーの行を検索",
+    "emptyTitle": "一致する行はありません",
+    "emptyDescription": "フィルターを調整するか、検索するか、デモ データセットを再読み込みします。",
+    "hint": "シードされたタプルに対するクライアント側の検索 - バックエンドの集約とドリルダウンは接続されていません。"
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "価値",
+    "delta": "Δ%",
+    "trend": "傾向",
+    "target": "ターゲット",
+    "severity": "重大度",
+    "alert": "アラート",
+    "domain": "ドメイン",
+    "status": "状態",
+    "actions": "アクション",
+    "report": "報告",
+    "kind": "親切",
+    "schedule": "スケジュール",
+    "export": "輸出",
+    "scorecard": "スコアカード",
+    "score": "スコア",
+    "topDriver": "トップドライバー",
+    "label": "ラベル",
+    "entity": "実在物",
+    "measure": "測定",
+    "date": "日付"
+  },
+  "emDash": "—"
+}

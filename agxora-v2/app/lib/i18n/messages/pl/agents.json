@@ -1,0 +1,121 @@
+{
+  "loading": "Ładowanie systemu operacyjnego agenta…",
+  "eyebrow": "System operacyjny agenta AI",
+  "title": "System operacyjny agenta",
+  "subtitle": "Obszar roboczy lokalnego agenta — agentów można aktywować i uruchamiać jako symulacje w CRM, projektach, finansach, przepływach pracy i integracjach. Wykonanie autonomiczne produkcji nie jest połączone.",
+  "noticeDefault": "Lokalny system operacyjny agenta — w tym obszarze roboczym symulowane są uruchomienia.",
+  "aiChat": "Czat AI",
+  "tabs": {
+    "dashboard": "Panel",
+    "registry": "Rejestr",
+    "marketplace": "Rynek",
+    "monitor": "Monitor",
+    "history": "Historia",
+    "memory": "Pamięć",
+    "knowledge": "Wiedza",
+    "tools": "Narzędzia",
+    "settings": "Ustawienia"
+  },
+  "notice": {
+    "simulatedRun": "Symulowany przebieg · {status} ({duration}ms)",
+    "taskFailed": "Zadanie nie powiodło się",
+    "activated": "Aktywowano lokalnie: {agentId}",
+    "agentPaused": "Agent zrobił pauzę",
+    "agentActivated": "Aktywowano agenta",
+    "taskCancelled": "Zadanie anulowane",
+    "supervisorDelegated": "Przełożony zlecił dalsze czynności",
+    "settingsUpdated": "Zaktualizowano ustawienia systemu operacyjnego agenta dla tego lokalnego obszaru roboczego."
+  },
+  "dashboard": {
+    "agents": "Agenci",
+    "active": "Aktywny",
+    "localReady": "Lokalnie gotowy",
+    "simulatedToday": "Symulacja dzisiaj",
+    "failedToday": "Dzisiaj się nie udało",
+    "avgExec": "Średnia wykonawstwo",
+    "toolCalls": "Wywołania narzędzi",
+    "knowledge": "Wiedza",
+    "activeFleet": "Aktywna flota",
+    "emptyTitle": "Brak aktywnych agentów",
+    "emptyDescription": "Zainstaluj lub aktywuj agenta z rynku, aby rozpocząć symulowane przebiegi."
+  },
+  "registry": {
+    "title": "Rejestr",
+    "selectPrompt": "Wybierz agenta z rejestru.",
+    "status": "Stan: {status}",
+    "health": "Zdrowie: {zdrowie}",
+    "queue": "Kolejka: {kolejka}",
+    "usage": "Użycie: {użycie}",
+    "executeTask": "Wykonaj zadanie",
+    "supervisorDelegate": "Delegat nadzorcy"
+  },
+  "marketplace": {
+    "tools": "Narzędzia: {narzędzia}",
+    "installed": "Zainstalowany",
+    "installActivate": "Zainstaluj i aktywuj"
+  },
+  "monitor": {
+    "title": "Monitor agenta",
+    "emptyTitle": "Brak agentów do monitorowania",
+    "emptyDescription": "Aktywuj agentów z rynku.",
+    "latestConfidence": "Najnowsza pewność rozumowania: {pewność} — {kroki}"
+  },
+  "history": {
+    "title": "Historia wykonania",
+    "emptyTitle": "Nie ma jeszcze egzekucji",
+    "emptyDescription": "Uruchom zadanie agenta z rejestru lub monitora."
+  },
+  "memory": {
+    "title": "Centrum pamięci",
+    "subtitle": "Praca · Rozmowa · Biznes · Długoterminowo · Przestrzeń robocza · Zakresy agentów (gotowe na architekturę).",
+    "emptyTitle": "Brak zapisów pamięci",
+    "emptyDescription": "Wykonaj zadanie zapełnienia pamięci roboczej/agenta."
+  },
+  "knowledge": {
+    "title": "Centrum wiedzy",
+    "subtitle": "Firma, dokumenty, projekty, CRM, zasady, procedury — plus symbole zastępcze wektorów/RAG.",
+    "emptyTitle": "Brak dokumentów wiedzy",
+    "emptyDescription": "Wiedza siewna pojawia się po uruchomieniu obszaru roboczego."
+  },
+  "tools": {
+    "sensitive": "Wrażliwe",
+    "mcpReady": "· Gotowy do obsługi MCP"
+  },
+  "settings": {
+    "title": "Ustawienia systemu operacyjnego agenta",
+    "defaultLlmProvider": "Domyślny dostawca LLM",
+    "enableSupervisor": "Włącz architekturę agenta nadzorującego",
+    "isolateSensitive": "Odizoluj wrażliwe narzędzia",
+    "saveSettings": "Zapisz ustawienia",
+    "providersHint": "Gotowi dostawcy: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Zamień adaptery za pośrednictwem rejestruLlmProvider bez zmian w interfejsie użytkownika."
+  },
+  "columns": {
+    "agent": "Agent",
+    "status": "Status",
+    "health": "Zdrowie",
+    "queue": "Kolejka",
+    "usage": "Stosowanie",
+    "actions": "Działania",
+    "task": "Zadanie",
+    "duration": "Czas trwania",
+    "created": "Stworzony",
+    "scope": "Zakres",
+    "key": "Klawisz",
+    "value": "Wartość",
+    "at": "Na ",
+    "title": "Tytuł",
+    "kind": "Rodzaj",
+    "summary": "Streszczenie"
+  },
+  "actions": {
+    "run": "Uruchomić",
+    "pause": "Pauza",
+    "activate": "Aktywować",
+    "cancel": "Anulować",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "Zrealizuj cel biznesowy {agentId}",
+    "planAndExecute": "Zaplanuj i zrealizuj cel biznesowy obszaru roboczego"
+  }
+}

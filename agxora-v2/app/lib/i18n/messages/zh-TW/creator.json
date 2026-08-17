@@ -1,0 +1,108 @@
+{
+  "page": {
+    "eyebrow": "AGXORA 行銷作業系統",
+    "title": "人工智慧創作工作室",
+    "lead": "企業內容製作－跨每個管道產生、品牌化、規劃、發布和衡量人工智慧驅動的活動。",
+    "dashboard": "儀表板",
+    "workspace": "工作空間",
+    "workspaceSubtitle": "創建內容·行銷活動·媒體庫·模板·品牌資產·發布隊列·分析",
+    "workspaceAria": "創作人工作空間",
+    "integrations": "未來的整合",
+    "integrationsSubtitle": "保留官方平台適配器－無虛假即時連線。",
+    "aiFeatures": "AI功能",
+    "aiFeaturesSubtitle": "生產、品牌、進度和在地化的能力圖。"
+  },
+  "tabs": {
+    "create": "創建內容",
+    "campaigns": "活動",
+    "media": "媒體庫",
+    "templates": "範本",
+    "brand": "品牌資產",
+    "queue": "發布隊列",
+    "analytics": "分析"
+  },
+  "templates": {
+    "emptyTitle": "沒有模板",
+    "emptyDescription": "可重複使用的內容和設計模板將位於此處。"
+  },
+  "campaign": {
+    "title": "活動策劃師",
+    "calendar": "內容日曆",
+    "columns": {
+      "name": "活動名稱",
+      "objective": "客觀的",
+      "audience": "受眾",
+      "platforms": "平台",
+      "budget": "預算",
+      "timeline": "時間軸",
+      "status": "地位"
+    },
+    "emptyTitle": "尚無廣告活動",
+    "emptyDescription": "建立活動來規劃目標、受眾和時間表。"
+  },
+  "media": {
+    "title": "媒體庫",
+    "columns": {
+      "asset": "資產",
+      "type": "類型",
+      "folder": "資料夾",
+      "tags": "標籤",
+      "updated": "已更新"
+    },
+    "emptyTitle": "沒有媒體",
+    "emptyDescription": "圖片、影片、文件、標誌和範本會顯示在此處。",
+    "searchPlaceholder": "搜尋資產、資料夾、標籤...",
+    "typeFilter": "類型",
+    "allTypes": "所有類型",
+    "images": "圖片",
+    "videos": "影片",
+    "documents": "文件",
+    "logos": "品牌標誌",
+    "templates": "範本"
+  },
+  "generator": {
+    "title": "人工智慧內容產生器",
+    "lead": "建立 Instagram 標題、TikTok 腳本、LinkedIn 貼文、廣告、SEO 文章等。",
+    "brief": "簡短的",
+    "briefPlaceholder": "描述優惠、受眾和 CTA…",
+    "generateDraft": "產生草稿",
+    "aiRewrite": "人工智慧重寫",
+    "translate": "翻譯",
+    "initialOutput": "選擇格式和品牌聲音，然後產生草稿。提供者適配器被保留——還沒有即時模型呼叫。",
+    "draftStaged": "為{format}暫存的草稿·語音： {voice}。已保留生成適配器。",
+    "rewriteQueued": "AI 重寫已排隊 — 保留重寫適配器。",
+    "translateQueued": "翻譯內容已佇列—保留多語言適配器。",
+    "brandVoice": "品牌聲音",
+    "brandVoiceLead": "商務語氣預設加上自訂品牌聲音以保持一致性。",
+    "active": "積極的"
+  },
+  "queue": {
+    "title": "發布隊列",
+    "columns": {
+      "title": "標題",
+      "platform": "平台",
+      "format": "格式",
+      "status": "地位",
+      "scheduled": "預定",
+      "author": "作者"
+    },
+    "emptyTitle": "隊列中沒有帖子",
+    "emptyDescription": "草稿、評論和預定帖子將顯示在此。",
+    "filterStatus": "過濾器狀態",
+    "allStatuses": "所有狀態"
+  },
+  "analytics": {
+    "title": "分析",
+    "topPosts": "熱門貼文",
+    "engagement": "ENG {value}",
+    "reach": "達到{值}",
+    "recommendations": "人工智慧建議"
+  },
+  "integrations": {
+    "lead": "未來的整合——可選。連線之前沒有即時 API。 Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X、元業務、Google廣告、Google分析。",
+    "adapter": "適配器"
+  },
+  "aiFeaturesPanel": {
+    "lead": "AI 功能圖 — 想法、標題、主題標籤、日曆、活動、受眾、日程、品牌一致性、重寫、翻譯、多語言。"
+  }
+}

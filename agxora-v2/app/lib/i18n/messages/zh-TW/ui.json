@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "沒有結果",
+    "noResultsDescription": "沒有任何內容與目前過濾器相符。",
+    "previous": "以前的",
+    "next": "下一個",
+    "paginationRange": "{開始}–{結束}，共 {總計}",
+    "sortAscending": "升序排序",
+    "sortDescending": "降序排序"
+  },
+  "dialog": {
+    "close": "關閉對話框"
+  },
+  "module": {
+    "notAvailableTitle": "{title} 尚不可用",
+    "notAvailableDescription": "這個模組外殼是為將來的版本準備的。這裡尚未儲存任何記錄。"
+  },
+  "states": {
+    "errorLabel": "錯誤",
+    "errorTitle": "出了點問題",
+    "errorDescription": "我們無法完成該請求。稍後再試一次。",
+    "retry": "重試"
+  },
+  "empty": {
+    "crmTitle": "您的CRM已準備就緒",
+    "crmDescription": "建立第一個客戶記錄以解鎖目錄、個人資料和活動。",
+    "crmAction": "開放式客戶關係管理",
+    "projectsTitle": "還沒有項目",
+    "projectsDescription": "啟動交付工作區來追蹤里程碑、預算和團隊所有權。",
+    "projectsAction": "打開項目",
+    "analyticsTitle": "分析等待訊號",
+    "analyticsDescription": "一旦您的工作區產生活動，執行 KPI 和警報就會出現在此。",
+    "analyticsAction": "開放分析",
+    "documentsTitle": "文件庫為空",
+    "documentsDescription": "上傳或建立知識資產以支援審批、版本和 AI 上下文。",
+    "documentsAction": "開啟文件",
+    "billingTitle": "還沒有帳單歷史記錄",
+    "billingDescription": "升級計劃以產生發票、續約和付款記錄。",
+    "billingAction": "開放式計費",
+    "agentsTitle": "沒有活躍的代理",
+    "agentsDescription": "從市場安裝或啟動代理程式以啟動自主運作。",
+    "agentsAction": "開放代理作業系統"
+  },
+  "yes": "是的",
+  "no": "不",
+  "dash": "—"
+}

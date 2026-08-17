@@ -1,0 +1,108 @@
+{
+  "page": {
+    "eyebrow": "Sistema operativo di marketing AGXORA",
+    "title": "AI Creator Studio",
+    "lead": "Produzione di contenuti aziendali: genera, brandizza, pianifica, pubblica e misura campagne basate sull'intelligenza artificiale su ogni canale.",
+    "dashboard": "Pannello di controllo",
+    "workspace": "Spazio di lavoro",
+    "workspaceSubtitle": "Crea contenuti · Campagne · Libreria multimediale · Modelli · Risorse del marchio · Coda di pubblicazione · Analisi",
+    "workspaceAria": "Area di lavoro del creatore",
+    "integrations": "Integrazioni future",
+    "integrationsSubtitle": "Adattatori di piattaforma ufficiali riservati: nessuna connessione live falsa.",
+    "aiFeatures": "Funzionalità dell'intelligenza artificiale",
+    "aiFeaturesSubtitle": "Mappa delle capacità per produzione, marchio, pianificazione e localizzazione."
+  },
+  "tabs": {
+    "create": "Crea contenuto",
+    "campaigns": "Campagne",
+    "media": "Biblioteca multimediale",
+    "templates": "Template",
+    "brand": "Risorse del marchio",
+    "queue": "Coda di pubblicazione",
+    "analytics": "Analitica"
+  },
+  "templates": {
+    "emptyTitle": "Nessun modello",
+    "emptyDescription": "Contenuti riutilizzabili e modelli di progettazione vivranno qui."
+  },
+  "campaign": {
+    "title": "Pianificatore di campagne",
+    "calendar": "Calendario dei contenuti",
+    "columns": {
+      "name": "Nome della campagna",
+      "objective": "Obiettivo",
+      "audience": "Pubblico",
+      "platforms": "Piattaforme",
+      "budget": "Bilancio",
+      "timeline": "Cronologia",
+      "status": "Stato"
+    },
+    "emptyTitle": "Nessuna campagna",
+    "emptyDescription": "Crea una campagna per pianificare obiettivi, pubblico e tempistiche."
+  },
+  "media": {
+    "title": "Biblioteca multimediale",
+    "columns": {
+      "asset": "Risorsa",
+      "type": "Tipo",
+      "folder": "Cartella",
+      "tags": "Tag",
+      "updated": "Aggiornato"
+    },
+    "emptyTitle": "Nessun supporto",
+    "emptyDescription": "Immagini, video, documenti, loghi e modelli verranno visualizzati qui.",
+    "searchPlaceholder": "Cerca risorse, cartelle, tag...",
+    "typeFilter": "Tipo",
+    "allTypes": "Tutti i tipi",
+    "images": "Immagini",
+    "videos": "Video",
+    "documents": "Documenti",
+    "logos": "Loghi del marchio",
+    "templates": "Template"
+  },
+  "generator": {
+    "title": "Generatore di contenuti AI",
+    "lead": "Crea didascalie Instagram, script TikTok, post LinkedIn, annunci, articoli SEO e altro ancora.",
+    "brief": "Breve",
+    "briefPlaceholder": "Descrivi l'offerta, il pubblico e il CTA...",
+    "generateDraft": "Genera bozza",
+    "aiRewrite": "Riscrittura dell'intelligenza artificiale",
+    "translate": "Tradurre",
+    "initialOutput": "Seleziona un formato e la voce del brand, quindi genera una bozza. Gli adattatori del fornitore sono riservati: ancora nessuna chiamata di modello dal vivo.",
+    "draftStaged": "Bozza messa in scena per {format} · voce: {voice}. Adattatore di generazione riservato.",
+    "rewriteQueued": "AI Riscrittura in coda: adattatore di riscrittura riservato.",
+    "translateQueued": "Traduci contenuto in coda: adattatore multilingue riservato.",
+    "brandVoice": "La voce del marchio",
+    "brandVoiceLead": "Preimpostazioni di tono aziendale e voce del marchio personalizzata per coerenza.",
+    "active": "Attivo"
+  },
+  "queue": {
+    "title": "Coda di pubblicazione",
+    "columns": {
+      "title": "Titolo",
+      "platform": "Piattaforma",
+      "format": "Formato",
+      "status": "Stato",
+      "scheduled": "Programmato",
+      "author": "Autore"
+    },
+    "emptyTitle": "Nessun post in coda",
+    "emptyDescription": "Bozze, recensioni e post programmati verranno visualizzati qui.",
+    "filterStatus": "Stato del filtro",
+    "allStatuses": "Tutti gli stati"
+  },
+  "analytics": {
+    "title": "Analitica",
+    "topPosts": "Messaggi principali",
+    "engagement": "Eng {valore}",
+    "reach": "Raggiungi {valore}",
+    "recommendations": "Raccomandazioni sull'intelligenza artificiale"
+  },
+  "integrations": {
+    "lead": "Integrazioni future: facoltative. Nessuna API attiva fino alla connessione. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Discussioni, X, Meta Business, Google Ads, Google Analytics.",
+    "adapter": "Adattatore:"
+  },
+  "aiFeaturesPanel": {
+    "lead": "Mappa delle funzionalità AI: idee, didascalie, hashtag, calendario, campagne, pubblico, pianificazione, coerenza del marchio, riscrittura, traduzione, multilingue."
+  }
+}

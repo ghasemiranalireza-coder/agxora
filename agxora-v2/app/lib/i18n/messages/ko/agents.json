@@ -1,0 +1,121 @@
+{
+  "loading": "에이전트 운영 체제 로드 중…",
+  "eyebrow": "AI 에이전트 운영 체제",
+  "title": "에이전트 OS",
+  "subtitle": "로컬 에이전트 작업 공간 - 에이전트를 활성화하고 CRM, 프로젝트, 재무, 워크플로 및 통합 전반에 걸쳐 시뮬레이션으로 실행할 수 있습니다. 생산 자율 실행이 연결되지 않았습니다.",
+  "noticeDefault": "로컬 에이전트 OS - 이 작업 공간에서 실행이 시뮬레이션됩니다.",
+  "aiChat": "AI채팅",
+  "tabs": {
+    "dashboard": "계기반",
+    "registry": "레지스트리",
+    "marketplace": "시장",
+    "monitor": "감시 장치",
+    "history": "역사",
+    "memory": "메모리",
+    "knowledge": "지식",
+    "tools": "도구",
+    "settings": "설정"
+  },
+  "notice": {
+    "simulatedRun": "시뮬레이션된 실행 · {status}({duration}ms)",
+    "taskFailed": "작업 실패",
+    "activated": "로컬에서 활성화됨: {agentId}",
+    "agentPaused": "상담원이 일시중지되었습니다.",
+    "agentActivated": "에이전트 활성화됨",
+    "taskCancelled": "작업이 취소되었습니다.",
+    "supervisorDelegated": "감독관이 후속 조치를 위임함",
+    "settingsUpdated": "이 로컬 작업공간에 대한 에이전트 OS 설정이 업데이트되었습니다."
+  },
+  "dashboard": {
+    "agents": "자치령 대표",
+    "active": "활동적인",
+    "localReady": "로컬 준비",
+    "simulatedToday": "오늘 시뮬레이션됨",
+    "failedToday": "오늘은 실패했습니다",
+    "avgExec": "평균 집행",
+    "toolCalls": "도구 호출",
+    "knowledge": "지식",
+    "activeFleet": "활성 함대",
+    "emptyTitle": "활성 에이전트가 없습니다.",
+    "emptyDescription": "시뮬레이션 실행을 시작하려면 마켓플레이스에서 에이전트를 설치하거나 활성화하세요."
+  },
+  "registry": {
+    "title": "레지스트리",
+    "selectPrompt": "레지스트리에서 에이전트를 선택합니다.",
+    "status": "상태: {상태}",
+    "health": "건강: {건강}",
+    "queue": "대기열: {대기열}",
+    "usage": "사용법: {사용법}",
+    "executeTask": "작업 실행",
+    "supervisorDelegate": "감독 대리인"
+  },
+  "marketplace": {
+    "tools": "도구: {도구}",
+    "installed": "설치됨",
+    "installActivate": "설치 및 활성화"
+  },
+  "monitor": {
+    "title": "에이전트 모니터",
+    "emptyTitle": "모니터링할 에이전트 없음",
+    "emptyDescription": "마켓플레이스에서 에이전트를 활성화하세요.",
+    "latestConfidence": "최근 추론 신뢰도: {confidence} — {steps}"
+  },
+  "history": {
+    "title": "실행 이력",
+    "emptyTitle": "아직 실행이 없습니다.",
+    "emptyDescription": "레지스트리 또는 모니터에서 에이전트 작업을 실행합니다."
+  },
+  "memory": {
+    "title": "기억센터",
+    "subtitle": "작업 · 대화 · 비즈니스 · 장기 · 작업 공간 · 에이전트 범위(아키텍처 지원).",
+    "emptyTitle": "기억 기록 없음",
+    "emptyDescription": "작업/에이전트 메모리를 채우는 작업을 실행합니다."
+  },
+  "knowledge": {
+    "title": "지식센터",
+    "subtitle": "회사, 문서, 프로젝트, CRM, 정책, 절차 및 벡터/RAG 자리 표시자.",
+    "emptyTitle": "지식 문서 없음",
+    "emptyDescription": "작업 공간 부트스트랩 후에 시드 지식이 나타납니다."
+  },
+  "tools": {
+    "sensitive": "· 예민한",
+    "mcpReady": "· MCP 지원"
+  },
+  "settings": {
+    "title": "에이전트 OS 설정",
+    "defaultLlmProvider": "기본 LLM 제공업체",
+    "enableSupervisor": "감독자 에이전트 아키텍처 활성화",
+    "isolateSensitive": "민감한 도구를 분리하세요",
+    "saveSettings": "설정 저장",
+    "providersHint": "준비된 공급자: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. UI 변경 없이 RegisterLlmProvider를 통해 어댑터를 교환합니다."
+  },
+  "columns": {
+    "agent": "대리인",
+    "status": "상태",
+    "health": "건강",
+    "queue": "대기줄",
+    "usage": "용법",
+    "actions": "행위",
+    "task": "일",
+    "duration": "지속",
+    "created": "생성됨",
+    "scope": "범위",
+    "key": "열쇠",
+    "value": "값",
+    "at": "~에",
+    "title": "제목",
+    "kind": "친절한",
+    "summary": "요약"
+  },
+  "actions": {
+    "run": "달리다",
+    "pause": "정지시키다",
+    "activate": "활성화",
+    "cancel": "취소",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "{agentId} 비즈니스 목표 실행",
+    "planAndExecute": "업무 공간 비즈니스 목표를 계획하고 실행합니다."
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "AI-platform laden...",
+    "eyebrow": "AGXORA AI-platform",
+    "title": "Enterprise AI-werkruimte",
+    "subtitle": "Provider-onafhankelijke intelligentie voor CRM, projecten, financiën, documenten en automatisering. Configureer providers in Instellingen → AI.",
+    "newConversation": "Nieuw gesprek",
+    "aiCommands": "AI-opdrachten"
+  },
+  "mobileTabs": {
+    "chat": "Chatten",
+    "conversations": "Gesprekken",
+    "prompts": "Prompts"
+  },
+  "usageBar": {
+    "provider": "Aanbieder",
+    "model": "Model",
+    "estimatedTokens": "Geschat. tokens",
+    "tokensInOut": "(in {in} / uit {uit})",
+    "cost": "Kosten",
+    "context": "Context",
+    "contextNone": "geen",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "AGXORA AI-werkruimte",
+    "emptyHint": "Start een gesprek, kies een prompt uit de bibliotheek of open het opdrachtpalet (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Gesprekken",
+    "new": "Nieuw",
+    "searchPlaceholder": "Zoek chats...",
+    "searchAria": "Zoek gesprekken",
+    "showArchived": "Gearchiveerd weergeven",
+    "pinned": "Vastgezet",
+    "emptyPreview": "Leeg gesprek",
+    "noConversations": "Nog geen gesprekken",
+    "pin": "Pin",
+    "unpin": "Losmaken",
+    "rename": "Hernoemen",
+    "archive": "Archief",
+    "unarchive": "Uit het archief halen",
+    "delete": "Verwijderen"
+  },
+  "composer": {
+    "placeholder": "Bericht AGXORA AI… (Enter om te verzenden, Shift+Enter voor nieuwe regel)",
+    "ariaLabel": "Berichtcomponist",
+    "commandsShortcut": "Commando's ⌘⇧K",
+    "stop": "Stop",
+    "send": "Versturen"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Kopiëren",
+    "retry": "Opnieuw proberen"
+  },
+  "typingIndicator": {
+    "ariaLabel": "De assistent is aan het typen"
+  },
+  "promptLibrary": {
+    "title": "Snelle bibliotheek",
+    "subtitle": "Herbruikbare sjablonen voor CRM, Projecten, Financiën en meer.",
+    "searchPlaceholder": "Zoekaanwijzingen...",
+    "searchAria": "Zoekaanwijzingen",
+    "all": "Alle",
+    "favorites": "Favorieten",
+    "recent": "Recent",
+    "library": "Bibliotheek",
+    "noMatches": "Er komen geen aanwijzingen overeen",
+    "removeFavoriteAria": "Favoriet verwijderen",
+    "addFavoriteAria": "Favoriet toevoegen",
+    "favorited": "Favoriet",
+    "favorite": "Favoriet",
+    "usePrompt": "Gebruik prompt"
+  },
+  "commandPalette": {
+    "ariaLabel": "AI-opdrachtpalet",
+    "filterAria": "Filter AI-opdrachten",
+    "placeholder": "AI-opdracht… samenvatten, voorstellen, analyseren…",
+    "noMatches": "Geen overeenkomende opdrachten",
+    "footer": "Registreer toekomstige opdrachten via registerAiCommand - UI blijft ongewijzigd."
+  }
+}

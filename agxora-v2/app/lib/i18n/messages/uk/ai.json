@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "Завантаження платформи AI…",
+    "eyebrow": "Платформа AGXORA AI",
+    "title": "Робочий простір Enterprise AI",
+    "subtitle": "Незалежні від постачальника інтелектуальні дані для CRM, проектів, фінансів, документів і автоматизації. Налаштуйте постачальників у Параметрах → AI.",
+    "newConversation": "Нова розмова",
+    "aiCommands": "Команди ШІ"
+  },
+  "mobileTabs": {
+    "chat": "Чат",
+    "conversations": "Розмови",
+    "prompts": "Підказки"
+  },
+  "usageBar": {
+    "provider": "Провайдер",
+    "model": "Модель",
+    "estimatedTokens": "Приблизно жетони",
+    "tokensInOut": "(вхід {вхід} / вихід {вихід})",
+    "cost": "Вартість",
+    "context": "Місцевість ",
+    "contextNone": "немає",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "Робоча область AGXORA AI",
+    "emptyHint": "Почніть розмову, виберіть підказку з бібліотеки або відкрийте панель команд (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Розмови",
+    "new": "новий",
+    "searchPlaceholder": "Шукати в чатах…",
+    "searchAria": "Пошук розмов",
+    "showArchived": "Показати в архіві",
+    "pinned": "Закріплено",
+    "emptyPreview": "Пуста розмова",
+    "noConversations": "Розмов ще немає",
+    "pin": "Pin",
+    "unpin": "Відкріпити",
+    "rename": "Перейменувати",
+    "archive": "Архів",
+    "unarchive": "Розархівувати",
+    "delete": "Видалити"
+  },
+  "composer": {
+    "placeholder": "Повідомлення AGXORA AI… (Enter для надсилання, Shift+Enter для нового рядка)",
+    "ariaLabel": "Композитор повідомлення",
+    "commandsShortcut": "Команди ⌘⇧K",
+    "stop": "СТІЙ",
+    "send": "Надіслати"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Копія",
+    "retry": "Повторіть спробу"
+  },
+  "typingIndicator": {
+    "ariaLabel": "Асистент друкує"
+  },
+  "promptLibrary": {
+    "title": "Бібліотека підказок",
+    "subtitle": "Багаторазові шаблони для CRM, проектів, фінансів тощо.",
+    "searchPlaceholder": "Пошукові підказки…",
+    "searchAria": "Пошукові підказки",
+    "all": "все",
+    "favorites": "Вибране",
+    "recent": "Останні",
+    "library": "Бібліотека",
+    "noMatches": "Немає відповідних підказок",
+    "removeFavoriteAria": "Видалити улюблене",
+    "addFavoriteAria": "Додати улюблене",
+    "favorited": "Вибране",
+    "favorite": "улюблений",
+    "usePrompt": "Використовуйте підказку"
+  },
+  "commandPalette": {
+    "ariaLabel": "Палітра команд AI",
+    "filterAria": "Фільтр команд ШІ",
+    "placeholder": "ШІ командувати… підсумовувати, пропонувати, аналізувати…",
+    "noMatches": "Немає відповідних команд",
+    "footer": "Реєструйте майбутні команди через registerAiCommand — інтерфейс користувача залишається без змін."
+  }
+}

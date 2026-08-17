@@ -1,0 +1,143 @@
+{
+  "loading": "Memuat platform integrasi…",
+  "eyebrow": "Platform Integrasi Perusahaan",
+  "title": "Pusat Integrasi",
+  "subtitle": "Konektor untuk ekosistem Microsoft 365, Google, Slack, CRM, penyimpanan, dan otomatisasi. Koneksi dan sinkronisasi dalam build ini adalah demo lokal — OAuth langsung tidak terhubung.",
+  "noticeDefault": "Konektor demo lokal — OAuth dan sinkronisasi langsung tidak terhubung.",
+  "settings": "Pengaturan",
+  "tabs": {
+    "dashboard": "Dasbor",
+    "installed": "Dipasang",
+    "available": "Tersedia",
+    "logs": "Log",
+    "apiKeys": "Kunci API",
+    "webhooks": "Webhook",
+    "developer": "Pengembang"
+  },
+  "notice": {
+    "demoConnection": "Koneksi demo: {name} (khusus rintisan lokal)",
+    "connectFailed": "Sambungan gagal",
+    "keyCreated": "Kunci API dibuat: {prefix}",
+    "webhookCreated": "Webhook dibuat: {name}",
+    "webhookTest": "Tes webhook {status}",
+    "networkError": "Kesalahan jaringan penjelajah API: {message}",
+    "explorerError": "Penjelajah API → {status}: {pesan}",
+    "explorerSuccess": "Penjelajah API → {status}",
+    "explorerFailed": "Penjelajah gagal",
+    "syncResult": "Sinkronisasi demo · {status} ({records} catatan lokal) — tidak ada data eksternal yang ditransfer.",
+    "diagnosed": "Didiagnosis",
+    "removedConnection": "Koneksi demo dihapus: {name}",
+    "keyRotated": "Kunci diputar",
+    "keyRevoked": "Kunci dicabut",
+    "publishedEvent": "Diterbitkan {type}",
+    "developerSaved": "Pengaturan pengembang disimpan"
+  },
+  "dashboard": {
+    "demoLinks": "Tautan demo",
+    "catalog": "Katalog",
+    "api24h": "API (24 jam)",
+    "webhooks24h": "Webhook (24 jam)",
+    "webhookFailures": "Kegagalan webhook",
+    "syncJobs": "Sinkronkan pekerjaan",
+    "conflicts": "Konflik",
+    "errors": "Kesalahan",
+    "connectionStatus": "Status koneksi",
+    "emptyTitle": "Tidak ada integrasi yang diinstal",
+    "emptyDescription": "Telusuri Tersedia untuk menghubungkan penyedia.",
+    "eventBridgeDemo": "Demo jembatan acara",
+    "eventBridgeHint": "Publikasikan peristiwa konektor ke bus Otomatisasi Alur Kerja.",
+    "emit": "Keluarkan {id}"
+  },
+  "installed": {
+    "title": "Integrasi yang terinstal",
+    "emptyTitle": "Tidak ada yang terpasang",
+    "emptyDescription": "Instal dari katalog yang Tersedia.",
+    "latestSync": "Sinkronisasi terbaru: {status} · catatan {records} · mode {mode}"
+  },
+  "available": {
+    "protocols": "Protokol: {protokol}",
+    "demoConnection": "Koneksi demo",
+    "connectDemo": "Hubungkan (demo)",
+    "installDemo": "Instal demo"
+  },
+  "logs": {
+    "title": "Log integrasi",
+    "emptyTitle": "Belum ada log",
+    "emptyDescription": "Hubungkan penyedia atau jalankan diagnostik."
+  },
+  "apiKeys": {
+    "title": "Kunci API",
+    "generateKey": "Hasilkan kunci",
+    "copyOnce": "Salin sekarang (ditampilkan satu kali): {rahasia}",
+    "emptyTitle": "Tidak ada kunci API",
+    "emptyDescription": "Hasilkan kunci untuk akses gateway REST."
+  },
+  "webhooks": {
+    "endpointsTitle": "Titik akhir webhook",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "Tambahkan webhook keluar",
+    "emptyTitle": "Tidak ada webhook",
+    "emptyDescription": "Buat titik akhir keluar untuk menguji pengiriman.",
+    "deliveryLogs": "Log pengiriman",
+    "deliveriesEmptyTitle": "Tidak ada pengiriman",
+    "deliveriesEmptyDescription": "Kirim webhook pengujian untuk mengisi log."
+  },
+  "developer": {
+    "title": "Pengaturan pengembang",
+    "sandboxMode": "Modus kotak pasir",
+    "webhookSigning": "Penandatanganan webhook diaktifkan",
+    "saveSettings": "Simpan pengaturan",
+    "apiDocs": "Placeholder dokumen API: {url}",
+    "sdk": "Pengganti SDK: {url}",
+    "explorerTitle": "penjelajah API",
+    "gatewayRoutes": "Rute gerbang: {routes}",
+    "sendGet": "Kirim DAPATKAN",
+    "oauthProviders": "Penyedia OAuth",
+    "placeholdersHint": "Rute gateway GraphQL, WebSocket, dan gRPC didaftarkan sebagai placeholder. Pemetaan lapangan dan resolusi konflik sinkronisasi merupakan arsitektur yang siap untuk implementasi backend."
+  },
+  "connectionStatus": {
+    "connected": "Koneksi demo",
+    "pendingAuth": "Menunggu keputusan (demo)",
+    "error": "Kesalahan",
+    "disabled": "Dengan disabilitas",
+    "installed": "Dipasang",
+    "available": "Tersedia",
+    "localDemo": "Demo lokal"
+  },
+  "columns": {
+    "integration": "Integrasi",
+    "status": "Status",
+    "health": "Kesehatan",
+    "latency": "Latensi",
+    "actions": "Tindakan",
+    "when": "Kapan",
+    "level": "Tingkat",
+    "source": "Sumber",
+    "message": "Pesan",
+    "name": "Nama",
+    "key": "Kunci",
+    "scopes": "Lingkup",
+    "usage": "Penggunaan",
+    "direction": "Arah",
+    "url": "URL",
+    "enabled": "Diaktifkan",
+    "event": "Peristiwa",
+    "attempt": "Percobaan"
+  },
+  "actions": {
+    "diagnose": "Diagnosis",
+    "demoSync": "Sinkronisasi demo",
+    "demoSyncTitle": "Hanya sinkronisasi demo — tidak ada transfer eksternal",
+    "disconnect": "Memutuskan",
+    "rotate": "Memutar",
+    "revoke": "Menarik kembali",
+    "test": "Tes",
+    "emDash": "—",
+    "yes": "Ya",
+    "no": "TIDAK"
+  },
+  "errors": {
+    "failedToFetch": "Gagal mengambil",
+    "httpStatus": "HTTP {status}"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "Chargement de la plate-forme AI…",
+    "eyebrow": "Plateforme d'IA AGXORA",
+    "title": "Espace de travail IA d'entreprise",
+    "subtitle": "Intelligence indépendante du fournisseur pour le CRM, les projets, les finances, les documents et l'automatisation. Configurez les fournisseurs dans Paramètres → AI.",
+    "newConversation": "Nouvelle conversation",
+    "aiCommands": "Commandes IA"
+  },
+  "mobileTabs": {
+    "chat": "Chat",
+    "conversations": "Conversations",
+    "prompts": "Incitations au débat"
+  },
+  "usageBar": {
+    "provider": "Fournisseur",
+    "model": "Modèle",
+    "estimatedTokens": "HNE. jetons",
+    "tokensInOut": "(dans {in} / dehors {out})",
+    "cost": "Coût",
+    "context": "Contexte",
+    "contextNone": "aucun",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "Espace de travail IA AGXORA",
+    "emptyHint": "Démarrez une conversation, choisissez une invite dans la bibliothèque ou ouvrez la palette de commandes (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Conversations",
+    "new": "Nouveau",
+    "searchPlaceholder": "Rechercher des discussions…",
+    "searchAria": "Rechercher des conversations",
+    "showArchived": "Afficher les archivés",
+    "pinned": "Épinglé",
+    "emptyPreview": "Conversation vide",
+    "noConversations": "Aucune conversation pour l'instant",
+    "pin": "mâle",
+    "unpin": "Détacher",
+    "rename": "Rebaptiser",
+    "archive": "Archive",
+    "unarchive": "Désarchiver",
+    "delete": "Effacer"
+  },
+  "composer": {
+    "placeholder": "Message AGXORA AI… (Entrée pour envoyer, Maj+Entrée pour une nouvelle ligne)",
+    "ariaLabel": "Composeur de messages",
+    "commandsShortcut": "Commandes ⌘⇧K",
+    "stop": "Arrêter",
+    "send": "Envoyer"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Copie",
+    "retry": "Réessayer"
+  },
+  "typingIndicator": {
+    "ariaLabel": "L'assistant est en train de taper"
+  },
+  "promptLibrary": {
+    "title": "Bibliothèque d'invites",
+    "subtitle": "Modèles réutilisables dans CRM, Projets, Finance, etc.",
+    "searchPlaceholder": "Invites de recherche…",
+    "searchAria": "Invites de recherche",
+    "all": "Tous",
+    "favorites": "Favoris",
+    "recent": "Récent",
+    "library": "Bibliothèque",
+    "noMatches": "Aucune invite ne correspond",
+    "removeFavoriteAria": "Supprimer favori",
+    "addFavoriteAria": "Ajouter un favori",
+    "favorited": "Favoris",
+    "favorite": "Favori",
+    "usePrompt": "Utiliser l'invite"
+  },
+  "commandPalette": {
+    "ariaLabel": "Palette de commandes IA",
+    "filterAria": "Filtrer les commandes AI",
+    "placeholder": "Commande IA… résumer, proposer, analyser…",
+    "noMatches": "Aucune commande correspondante",
+    "footer": "Enregistrez les futures commandes via registerAiCommand - L'interface utilisateur reste inchangée."
+  }
+}

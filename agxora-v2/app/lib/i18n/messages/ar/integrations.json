@@ -1,0 +1,143 @@
+{
+  "loading": "جارٍ تحميل منصة التكامل…",
+  "eyebrow": "منصة التكامل المؤسسي",
+  "title": "مركز التكامل",
+  "subtitle": "موصلات لأنظمة Microsoft 365 وGoogle وSlack وCRM والتخزين والأتمتة. تعتبر الاتصالات والمزامنة في هذا الإصدار عروضًا توضيحية محلية، ولا يتم توصيل OAuth المباشر.",
+  "noticeDefault": "الموصلات التجريبية المحلية — OAuth والمزامنة المباشرة غير متصلتين.",
+  "settings": "إعدادات",
+  "tabs": {
+    "dashboard": "لوحة القيادة",
+    "installed": "تم التثبيت",
+    "available": "متاح",
+    "logs": "سجلات",
+    "apiKeys": "مفاتيح واجهة برمجة التطبيقات",
+    "webhooks": "خطافات الويب",
+    "developer": "المطور"
+  },
+  "notice": {
+    "demoConnection": "اتصال تجريبي: {name} (كعب روتين محلي فقط)",
+    "connectFailed": "فشل الاتصال",
+    "keyCreated": "تم إنشاء مفتاح واجهة برمجة التطبيقات: {prefix}",
+    "webhookCreated": "تم إنشاء خطاف الويب: {name}",
+    "webhookTest": "اختبار الرد التلقائي على الويب {الحالة}",
+    "networkError": "خطأ في شبكة مستكشف واجهة برمجة التطبيقات: {message}",
+    "explorerError": "مستكشف واجهة برمجة التطبيقات → {الحالة}: {message}",
+    "explorerSuccess": "مستكشف واجهة برمجة التطبيقات → {status}",
+    "explorerFailed": "فشل المستكشف",
+    "syncResult": "مزامنة العرض التوضيحي · {الحالة} ({السجلات} السجلات المحلية) — لم يتم نقل أي بيانات خارجية.",
+    "diagnosed": "تم تشخيصه",
+    "removedConnection": "تمت إزالة الاتصال التجريبي: {name}",
+    "keyRotated": "تم تدوير المفتاح",
+    "keyRevoked": "تم إبطال المفتاح",
+    "publishedEvent": "تم النشر {نوع}",
+    "developerSaved": "تم حفظ إعدادات المطور"
+  },
+  "dashboard": {
+    "demoLinks": "الروابط التجريبية",
+    "catalog": "كتالوج",
+    "api24h": "واجهة برمجة التطبيقات (24 ساعة)",
+    "webhooks24h": "خطافات الويب (24 ساعة)",
+    "webhookFailures": "فشل Webhook",
+    "syncJobs": "وظائف المزامنة",
+    "conflicts": "الصراعات",
+    "errors": "أخطاء",
+    "connectionStatus": "حالة الاتصال",
+    "emptyTitle": "لم يتم تثبيت أي تكاملات",
+    "emptyDescription": "تصفح متاح للاتصال بمزود.",
+    "eventBridgeDemo": "عرض جسر الحدث",
+    "eventBridgeHint": "نشر حدث موصل على ناقل Workflow Automation.",
+    "emit": "تنبعث {معرف}"
+  },
+  "installed": {
+    "title": "التكاملات المثبتة",
+    "emptyTitle": "لا شيء مثبت",
+    "emptyDescription": "التثبيت من الكتالوج المتاح.",
+    "latestSync": "أحدث مزامنة: {الحالة} · {السجلات} السجلات · الوضع {الوضع}"
+  },
+  "available": {
+    "protocols": "البروتوكولات: {بروتوكولات}",
+    "demoConnection": "اتصال تجريبي",
+    "connectDemo": "اتصال (تجريبي)",
+    "installDemo": "قم بتثبيت العرض التوضيحي"
+  },
+  "logs": {
+    "title": "سجلات التكامل",
+    "emptyTitle": "لا توجد سجلات حتى الآن",
+    "emptyDescription": "قم بتوصيل الموفر أو قم بتشغيل التشخيص."
+  },
+  "apiKeys": {
+    "title": "مفاتيح واجهة برمجة التطبيقات",
+    "generateKey": "توليد المفتاح",
+    "copyOnce": "انسخ الآن (يظهر مرة واحدة): {secret}",
+    "emptyTitle": "لا توجد مفاتيح API",
+    "emptyDescription": "قم بإنشاء مفتاح للوصول إلى بوابة REST."
+  },
+  "webhooks": {
+    "endpointsTitle": "نقاط نهاية Webhook",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "إضافة خطاف ويب صادر",
+    "emptyTitle": "لا توجد خطافات على الويب",
+    "emptyDescription": "قم بإنشاء نقطة نهاية صادرة لاختبار التسليم.",
+    "deliveryLogs": "سجلات التسليم",
+    "deliveriesEmptyTitle": "لا يوجد تسليمات",
+    "deliveriesEmptyDescription": "إرسال خطاف ويب اختباري لملء السجلات."
+  },
+  "developer": {
+    "title": "إعدادات المطور",
+    "sandboxMode": "وضع الحماية",
+    "webhookSigning": "تم تفعيل توقيع الرد التلقائي على الويب",
+    "saveSettings": "حفظ الإعدادات",
+    "apiDocs": "العنصر النائب لمستندات واجهة برمجة التطبيقات: {url}",
+    "sdk": "العنصر النائب لـ SDK: {url}",
+    "explorerTitle": "مستكشف واجهة برمجة التطبيقات",
+    "gatewayRoutes": "طرق البوابة: {routes}",
+    "sendGet": "أرسل احصل",
+    "oauthProviders": "موفري OAuth",
+    "placeholdersHint": "يتم تسجيل مسارات بوابة GraphQL وWebSocket وgRPC كعناصر نائبة. إن تعيين الحقول وحل تعارضات المزامنة جاهزان للهندسة المعمارية للتنفيذ الخلفي."
+  },
+  "connectionStatus": {
+    "connected": "اتصال تجريبي",
+    "pendingAuth": "في انتظار (تجريبي)",
+    "error": "خطأ",
+    "disabled": "عاجز",
+    "installed": "تم التثبيت",
+    "available": "متاح",
+    "localDemo": "العرض المحلي"
+  },
+  "columns": {
+    "integration": "اندماج",
+    "status": "حالة",
+    "health": "صحة",
+    "latency": "كمون",
+    "actions": "الإجراءات",
+    "when": "متى",
+    "level": "مستوى",
+    "source": "مصدر",
+    "message": "رسالة",
+    "name": "اسم",
+    "key": "مفتاح",
+    "scopes": "النطاقات",
+    "usage": "الاستخدام",
+    "direction": "اتجاه",
+    "url": "عنوان URL",
+    "enabled": "ممكّن",
+    "event": "حدث",
+    "attempt": "محاولة"
+  },
+  "actions": {
+    "diagnose": "تشخيص",
+    "demoSync": "المزامنة التجريبية",
+    "demoSyncTitle": "مزامنة تجريبية فقط - لا يوجد نقل خارجي",
+    "disconnect": "قطع الاتصال",
+    "rotate": "تناوب",
+    "revoke": "إبطال",
+    "test": "امتحان",
+    "emDash": "—",
+    "yes": "نعم",
+    "no": "لا"
+  },
+  "errors": {
+    "failedToFetch": "فشل الجلب",
+    "httpStatus": "HTTP {الحالة}"
+  }
+}

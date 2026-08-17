@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "AGXORA ファイナンス OS",
+    "title": "財務と税金",
+    "subtitle": "会計、銀行、税務、財務インテリジェンス - ライブ台帳が接続されるまでサンプル データでプレビューされます。",
+    "sampleNotice": "サンプル データセット — 数値とエクスポート履歴は例示です。 DATEV / ファイルのエクスポートとライブ バンク フィードは接続されていません。"
+  },
+  "sections": {
+    "overview": {
+      "title": "財務概要"
+    },
+    "invoiceCenter": {
+      "title": "請求書センター",
+      "subtitle": "AI 信頼スコアリングを使用して企業の請求書台帳を検索、フィルター、並べ替えます。"
+    },
+    "aiInvoiceProcessing": {
+      "title": "AI請求書処理",
+      "subtitle": "デモ パイプライン — OCR と AI 抽出は接続されていません。"
+    },
+    "banking": {
+      "title": "銀行業",
+      "subtitle": "サンプル アカウントのみ - オープン バンキング フィードは接続されません。"
+    },
+    "datev": {
+      "title": "DATEVの統合",
+      "subtitle": "エクスポート履歴のサンプル — DATEV ファイルの生成は接続されていません。"
+    },
+    "taxCenter": {
+      "title": "税務センター",
+      "subtitle": "VAT の概要、期限、今後の支払い。"
+    },
+    "aiInsights": {
+      "title": "AI の洞察",
+      "subtitle": "サンプル結果のみ - インサイトアクションは関連付けられていません。"
+    },
+    "smartSearch": {
+      "title": "スマート検索",
+      "subtitle": "請求書、経費、VAT、輸出に関する自然言語クエリ。"
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "収益",
+        "caption": "サンプル · 過去 30 日間",
+        "delta": "+8.4%"
+      },
+      "expenses": {
+        "label": "経費",
+        "caption": "サンプル · 稼働 + COGS",
+        "delta": "+2.1%"
+      },
+      "profit": {
+        "label": "利益",
+        "caption": "サンプル・ネット稼働中",
+        "delta": "+12.6%"
+      },
+      "vat-due": {
+        "label": "VAT の支払い義務がある",
+        "caption": "サンプル・Q2ウィンドウ",
+        "delta": "{日}日以内に期限が切れる"
+      },
+      "open-invoices": {
+        "label": "オープン請求書",
+        "caption": "サンプル · 未払いの {money}"
+      },
+      "paid-invoices": {
+        "label": "支払い済みの請求書",
+        "caption": "サンプル・今四半期",
+        "delta": "+{カウント}"
+      },
+      "cashflow": {
+        "label": "キャッシュフロー",
+        "caption": "サンプル・30日間予測",
+        "delta": "+4.2%"
+      },
+      "ai-score": {
+        "label": "AI財務スコア",
+        "caption": "サンプルスコア – ライブリスクスコアではありません",
+        "delta": "+{カウント}"
+      }
+    },
+    "scoreOutOf": "{スコア} / {最大}"
+  },
+  "invoices": {
+    "emptyTitle": "請求書はありません",
+    "emptyDescription": "検索またはフィルターに一致する請求書はありません。",
+    "searchPlaceholder": "番号、会社、カテゴリ…",
+    "statusFilter": "ステータスフィルター",
+    "paymentFilter": "支払いフィルター",
+    "sortBy": "並べ替え",
+    "toggleSort": "並べ替え方向の切り替え",
+    "count": "{count} 件の請求書",
+    "countOne": "{count} 個の請求書",
+    "allStatuses": "すべてのステータス",
+    "allPayments": "すべての支払い",
+    "columns": {
+      "number": "請求書番号",
+      "company": "会社",
+      "amount": "額",
+      "vat": "バット",
+      "status": "状態",
+      "dueDate": "期日",
+      "payment": "支払い状況",
+      "category": "カテゴリ",
+      "ai": "AI の信頼性"
+    },
+    "sort": {
+      "dueDate": "期日",
+      "amount": "額",
+      "company": "会社",
+      "status": "状態",
+      "aiConfidence": "AIの信頼性",
+      "number": "請求書 ＃"
+    }
+  },
+  "status": {
+    "draft": "下書き",
+    "open": "開ける",
+    "paid": "有料",
+    "overdue": "期限を過ぎました",
+    "cancelled": "キャンセル"
+  },
+  "payment": {
+    "unpaid": "未払い",
+    "partial": "部分的",
+    "paid": "有料",
+    "refunded": "返金されました"
+  },
+  "category": {
+    "saas": "SaaS",
+    "office": "オフィス",
+    "travel": "旅行",
+    "marketing": "マーケティング",
+    "utilities": "公共事業",
+    "professional": "プロ",
+    "other": "他の"
+  },
+  "processing": {
+    "dropTitle": "請求書ファイルをドラッグ＆ドロップ",
+    "dropFormats": "PDF・画像・メールインポート",
+    "uploadFiles": "ファイルをアップロードする",
+    "emailImport": "電子メールのインポート",
+    "dropHint": "PDF または画像の請求書をローカルにステージングします。OCR は接続されていません。",
+    "filesStaged": "{count} 個のファイルがローカルのみにリストされています - OCR / AI 抽出は接続されていません。",
+    "emailReserved": "IMAP / Microsoft Graph 用に予約された電子メール インポート コネクタ。",
+    "pipelineTitle": "処理パイプライン (デモ)",
+    "stages": {
+      "ocr": "OCRステータス",
+      "extraction": "AI抽出",
+      "categorization": "分類",
+      "duplicateDetection": "重複の検出"
+    }
+  },
+  "stage": {
+    "pending": "利用不可",
+    "running": "接続されていません",
+    "complete": "デモ",
+    "failed": "失敗した",
+    "skipped": "スキップされました"
+  },
+  "banking": {
+    "connectionTitle": "銀行接続",
+    "connectBank": "銀行を接続する",
+    "description": "PSD2 / Open Banking アダプターは配線されていません。以下のマッチングと調整は単なる例です。",
+    "feedUnavailable": "銀行フィードが利用できません — プロバイダー接続が接続されていません。",
+    "noticeDefault": "オープン バンキングが接続されていません。以下のアカウントはサンプル データです。",
+    "connectUnavailable": "接続銀行は利用できません — このビルドではオープン バンキングは接続されていません。",
+    "sampleAccounts": "サンプルアカウント",
+    "sample": "サンプル",
+    "offline": "オフライン",
+    "demoPrefix": "デモ",
+    "latestTransactions": "最新の取引",
+    "sampleMatching": "サンプルマッチング",
+    "demoOnly": "デモのみ",
+    "sampleMatch": "サンプルマッチ",
+    "unmatched": "比類のない",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "DATEVの統合",
+    "notConnected": "接続されていません",
+    "intro": "以下のエクスポート履歴のサンプルは一例です。このビルドでは、資格情報とファイル生成は関連付けられていません。",
+    "noticeDefault": "エクスポート アダプターが接続されていないため、ファイルは生成されません。",
+    "exportUnavailable": "{title} を利用できません — DATEV / ファイルのエクスポートが接続されていません。",
+    "exportUnavailableAria": "{タイトル} — 利用できません",
+    "historyTitle": "エクスポート履歴（サンプル）",
+    "refresh": "リフレッシュ",
+    "refreshUnavailable": "更新は利用できません — エクスポート履歴は静的なサンプル データです。",
+    "steuerberaterSample": "サンプル",
+    "steuerberaterPending": "保留中",
+    "columns": {
+      "export": "輸出",
+      "format": "形式",
+      "period": "期間",
+      "created": "作成されました",
+      "status": "状態",
+      "steuerberater": "シュトイアベラター"
+    },
+    "actions": {
+      "datev": {
+        "title": "DATEV エクスポート",
+        "description": "Steuerberater ワークフロー用の Buchungsstapel パッケージ。"
+      },
+      "csv": {
+        "title": "CSVエクスポート",
+        "description": "スプレッドシートおよびインポート用の台帳対応 CSV。"
+      },
+      "pdf": {
+        "title": "PDF エクスポート",
+        "description": "レビューとアーカイブ用のドキュメント パック。"
+      },
+      "xml": {
+        "title": "XML エクスポート",
+        "description": "パイプラインを申告するための構造化された税務 XML。"
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "サンプル · キューに登録されました",
+    "ready": "サンプル・準備完了",
+    "delivered": "実例",
+    "failed": "失敗した"
+  },
+  "tax": {
+    "vatSummaryTitle": "VAT の概要",
+    "monthlyVat": "毎月の付加価値税",
+    "quarterlyVat": "四半期ごとの VAT",
+    "collected": "集めた",
+    "deductible": "免責金額",
+    "netDue": "正味未払い額",
+    "deadlinesTitle": "納税期限・今後の支払い",
+    "duePrefix": "期限",
+    "deadlineStatus": {
+      "due_soon": "もうすぐ期限",
+      "upcoming": "今後の予定",
+      "overdue": "期限を過ぎました",
+      "paid": "有料"
+    },
+    "deadlines": {
+      "td-1": "毎月の VAT 還付",
+      "td-2": "四半期ごとの VAT 決済",
+      "td-3": "法人税の前納"
+    },
+    "period": {
+      "monthly": "毎月",
+      "quarterly": "四半期ごと",
+      "annual": "年間"
+    }
+  },
+  "insights": {
+    "demoPrefix": "デモ",
+    "noticeDefault": "インサイト アクションは接続されていません。カードにはサンプル結果のみが表示されます。",
+    "actionUnavailable": "{action} を利用できません — 財務分析アクションが接続されていません。",
+    "actionUnavailableTitle": "{action} を利用できません — 接続されていません",
+    "kinds": {
+      "unusual_expense": "異常な出費",
+      "duplicate_invoice": "請求書の重複",
+      "missing_invoice": "請求書の紛失",
+      "late_payment": "支払いの遅れ",
+      "cashflow_prediction": "キャッシュフロー予測",
+      "tax_optimization": "税金の最適化"
+    }
+  },
+  "search": {
+    "label": "自然言語検索",
+    "placeholder": "「未払いの請求書を表示」を試してください",
+    "submit": "検索",
+    "examplesTitle": "例",
+    "hints": {
+      "idle": "請求書、経費、VAT、輸出について質問してください。",
+      "unpaid_invoices": "請求書センターを未払い/未決済アイテムにフィルタリングします。",
+      "july_expenses": "7月の支出面の活動を示しています。",
+      "amazon": "Amazonの請求書と領収書を見つける。",
+      "vat_export": "DATEV / VAT エクスポート アクションを開きます。",
+      "general": "「{query}」の台帳を検索しています。"
+    },
+    "examples": {
+      "q1": {
+        "query": "未払いの請求書を表示する",
+        "description": "未支払または部分的なステータスの未処理債権"
+      },
+      "q2": {
+        "query": "7月の支出を表示",
+        "description": "7月の経費側請求書と銀行流出"
+      },
+      "q3": {
+        "query": "Amazonの請求書を探す",
+        "description": "請求書センターとアップロード全体でのベンダーの一致"
+      },
+      "q4": {
+        "query": "輸出付加価値税",
+        "description": "DATEV / 税金輸出アクションにジャンプ"
+      }
+    }
+  }
+}

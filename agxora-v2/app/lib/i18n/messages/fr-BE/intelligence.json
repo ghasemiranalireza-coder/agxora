@@ -1,0 +1,136 @@
+{
+  "loading": "Chargement du centre de renseignement d'entreprise…",
+  "eyebrow": "Centre d'intelligence d'entreprise",
+  "title": "Intelligence",
+  "subtitle": "KPI, tableaux de bord, alertes et rapports pour chaque module AGXORA. Les valeurs ci-dessous sont un ensemble de données de démonstration prédéfinies jusqu'à ce que les backends d'analyse en direct se connectent.",
+  "demoBanner": "Ensemble de données de démonstration — filtre et reconnaît le travail en session ; les appels de modèle d'exportation et en direct ne sont pas encore disponibles.",
+  "noticeDefault": "Affichage d'analyses de démonstration prédéfinies – et non de télémétrie de production en direct.",
+  "noPermission": "Vous ne disposez pas de l'autorisation intelligence.read pour cet espace de travail.",
+  "filtersUpdated": "Filtres mis à jour",
+  "demoReloaded": "Ensemble de données de démonstration rechargé pour cet espace de travail.",
+  "acknowledged": "Reconnu : {title}",
+  "exportUnavailableTitle": "Exportation indisponible — la génération de rapport n'est pas encore connectée.",
+  "exportUnavailableAria": "Exporter {title} au format {format} – indisponible",
+  "tabs": {
+    "executive": "Exécutif",
+    "health": "SANTÉ DE L'ENTREPRISE",
+    "workspace": "Analytique",
+    "kpis": "Centre KPI",
+    "reports": "Rapports",
+    "insights": "Connaissances",
+    "forecasts": "Prévisions",
+    "alerts": "Alertes",
+    "scorecards": "Cartes de pointage",
+    "explorer": "Explorateur de données"
+  },
+  "filters": {
+    "from": "Depuis",
+    "to": "A",
+    "domain": "Domaine",
+    "allDomains": "Tous les domaines",
+    "apply": "Appliquer les filtres",
+    "reloadDemo": "Recharger les données de démonstration",
+    "viewsAria": "Vues de renseignement"
+  },
+  "executive": {
+    "companyHealth": "PBMP Entreprise Santé",
+    "revenueScore": "Score de revenus",
+    "customerHealth": "Santé du client",
+    "projectHealth": "Santé du projet",
+    "workflowSuccess": "Workflow réussi",
+    "aiActivity": "Activité IA",
+    "finance": "Finance",
+    "riskGrowth": "Risque / Croissance",
+    "kpiStrip": "Bandelette KPI exécutive",
+    "visualizationPreviews": "Aperçus de visualisation",
+    "visualizationHint": "Graphiques illustratifs de la série de démonstrations – et non des analyses interactives.",
+    "noSeries": "Aucune série liée"
+  },
+  "health": {
+    "title": "Décomposition de la santé des entreprises",
+    "overall": "Dans l'ensemble",
+    "revenue": "Revenu",
+    "customers": "Clients",
+    "projects": "Projets",
+    "workflows": "Flux de travail",
+    "ai": "PA",
+    "finance": "Finance",
+    "operations": "Opérations",
+    "riskPosture": "Posture de risque",
+    "growth": "Croissance",
+    "observability": "Observabilité : {metrics} metrics · {avgMs}ms moy · system health {santé}"
+  },
+  "workspace": {
+    "noSeries": "Aucune série"
+  },
+  "kpis": {
+    "title": "Centre KPI",
+    "subtitle": "Catalogue de KPI configurable pour les revenus, les clients, les projets, les flux de travail, les agents et l'automatisation.",
+    "emptyTitle": "L'analyse attend le signal",
+    "emptyDescription": "Une fois que votre espace de travail génère une activité, les KPI et les alertes des dirigeants apparaissent ici."
+  },
+  "reports": {
+    "title": "Moteur de reporting",
+    "subtitle": "Les définitions des rapports sont ensemencées pour examen. L'exportation de fichiers n'est pas disponible tant qu'un backend de reporting n'est pas connecté.",
+    "emptyTitle": "Aucun rapport",
+    "emptyDescription": "Rapporte la graine lors du bootstrap de l’espace de travail.",
+    "scheduleOnDemand": "à la demande"
+  },
+  "insights": {
+    "emptyTitle": "Aucune information pour l'instant",
+    "emptyDescription": "Les informations de démonstration apparaissent après les graines de l'espace de travail. La génération d’insights AI en direct n’est pas connectée.",
+    "badge": "Démo · {kind} · {domain} · conf {confidence}"
+  },
+  "forecasts": {
+    "emptyTitle": "Pas encore de prévisions",
+    "emptyDescription": "Les prévisions de démonstration apparaissent après la graine. Les modèles prédictifs ne sont pas connectés.",
+    "title": "{kind} prévision",
+    "baseline": "Référence {baseline} → projeté {projeté} ({jours}j)",
+    "confidence": "Démo · Confiance {confidence} — {note}"
+  },
+  "alerts": {
+    "title": "Moteur d'alerte",
+    "emptyTitle": "Aucune alerte",
+    "emptyDescription": "Alerte Seed à partir d'heuristiques de risque.",
+    "acked": "accusé de réception",
+    "open": "ouvrir",
+    "acknowledge": "Confirmer"
+  },
+  "scorecards": {
+    "title": "Moteur de tableau de bord",
+    "emptyTitle": "Pas de tableaux de bord",
+    "emptyDescription": "Seed des cartes de pointage lors du bootstrap."
+  },
+  "explorer": {
+    "title": "Explorateur de données",
+    "searchPlaceholder": "Rechercher des lignes de démonstration…",
+    "searchAria": "Rechercher dans les lignes de l'explorateur de dém",
+    "emptyTitle": "Aucune ligne ne correspond",
+    "emptyDescription": "Ajustez les filtres ou effectuez une recherche, ou rechargez l'ensemble de données de démonstration.",
+    "hint": "Recherche côté client sur les tuples ensemencés — l'agrégation backend et l'analyse approfondie ne sont pas connectées."
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "Valeur",
+    "delta": "Δ%",
+    "trend": "Tendance",
+    "target": "Cible",
+    "severity": "Gravité",
+    "alert": "Alerter",
+    "domain": "Domaine",
+    "status": "Statut",
+    "actions": "Actes",
+    "report": "Rapport",
+    "kind": "Gentil",
+    "schedule": "Calendrier",
+    "export": "Exporter",
+    "scorecard": "Tableau de bord",
+    "score": "Score",
+    "topDriver": "Meilleur pilote",
+    "label": "Étiquette",
+    "entity": "Entité",
+    "measure": "Mesure",
+    "date": "Date"
+  },
+  "emDash": "—"
+}

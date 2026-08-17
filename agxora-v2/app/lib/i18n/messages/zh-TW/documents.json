@@ -1,0 +1,388 @@
+{
+  "page": {
+    "brand": "AGXORA知識作業系統",
+    "title": "文件",
+    "subtitle": "企業文件和知識中心－在儲存和審核後端連線之前預覽範例內容。",
+    "sampleNotice": "範例庫 - 瀏覽和過濾在會話中工作。上傳、核准和 AI 索引操作未連線。"
+  },
+  "sections": {
+    "kpis": {
+      "title": "知識儀表板"
+    },
+    "library": {
+      "title": "文件庫",
+      "subtitle": "所有文件、最近的文件、收藏夾、共享的文件、已存檔的文件、垃圾桶、知識庫 — 包括資料夾、搜尋、檢視器和版本。"
+    },
+    "knowledge": {
+      "title": "知識庫",
+      "subtitle": "文章、政策、流程、手冊、常見問題和內部維基。"
+    },
+    "approvals": {
+      "title": "核准",
+      "subtitle": "草稿、審查中、批准、拒絕、存檔－與自動化架構相關聯。"
+    },
+    "ai": {
+      "title": "AI知識層",
+      "subtitle": "摘要、關鍵字、分類、標籤、資料夾、相關文件、重複文件、翻譯、OCR和搜尋—僅限架構。"
+    },
+    "activity": {
+      "title": "活動",
+      "subtitle": "最近的更改、上傳、檢視、分享和審核歷史記錄。"
+    },
+    "integrations": {
+      "title": "串接",
+      "subtitle": "保留驅動器轉接器 — 無帶電連接器。"
+    },
+    "security": {
+      "title": "安全與共享",
+      "subtitle": "RBAC、稽核追蹤、加密、保留和共享範圍。"
+    }
+  },
+  "loading": {
+    "knowledgeBase": "正在加載知識庫...",
+    "approvals": "正在加載批准隊列...",
+    "aiInsights": "正在加載人工智慧見解...",
+    "activity": "正在加載活動...",
+    "integrations": "正在加載集成...",
+    "security": "正在載入安全性…"
+  },
+  "kpi": {
+    "documents": {
+      "label": "文件",
+      "caption": "範例·跨資料夾",
+      "delta": "+{計數}"
+    },
+    "folders": {
+      "label": "資料夾",
+      "caption": "示例·包括智能集合",
+      "delta": "+{計數}"
+    },
+    "storage": {
+      "label": "已用儲存空間",
+      "caption": "說明性計劃樣本·",
+      "delta": "+{尺寸}"
+    },
+    "shared": {
+      "label": "共享文件",
+      "caption": "示例·組織+部門+用戶",
+      "delta": "+{計數}"
+    },
+    "activity": {
+      "label": "近期动态",
+      "caption": "樣本·最近 24 小時",
+      "delta": "+{計數}"
+    },
+    "indexed": {
+      "label": "人工智慧索引",
+      "caption": "範例·AI搜尋未連接",
+      "delta": "{百分比}"
+    },
+    "approvals": {
+      "label": "待核準",
+      "caption": "範例·自動化未連接",
+      "delta": "{數數}"
+    },
+    "score": {
+      "label": "知識分數",
+      "caption": "範例·覆蓋圖",
+      "delta": "+{計數}"
+    }
+  },
+  "library": {
+    "viewsAria": "圖書館景觀",
+    "views": {
+      "all": "所有文件",
+      "recent": "最近項目",
+      "favorites": "收藏夾",
+      "shared": "共享",
+      "archived": "已存檔",
+      "trash": "垃圾",
+      "knowledge": "知識庫"
+    },
+    "dropzone": "將文件拖放到此處以進行上傳。",
+    "uploadReserved": "拖放上傳是保留的儲存 API。",
+    "filesStaged": "{count}個檔案已上傳（無儲存寫入）。",
+    "dropReceived": "收到丟棄（無儲存寫入）。",
+    "foldersTitle": "資料夾和收藏",
+    "foldersHint": "嵌套資料夾、收藏夾、智慧型收藏夾、標籤、固定和收藏夾。",
+    "allFolders": "所有資料夾",
+    "smart": "聰明的",
+    "collection": "集合",
+    "pinned": "已固定",
+    "favorite": "最喜歡的",
+    "sharedBadge": "共享",
+    "title": "文件庫",
+    "results": "{count} 個結果",
+    "resultOne": "{count} 個結果",
+    "selected": "· 已選擇 {count} 個",
+    "bulkAction": "批量操作",
+    "bulkUnavailable": "無法對 {count} 個項目執行批次操作 - 儲存突變未連線。",
+    "searchLabel": "全球搜尋",
+    "searchPlaceholder": "名稱、標籤、所有者、AI摘要…",
+    "typeLabel": "類型",
+    "statusLabel": "地位",
+    "departmentLabel": "科別",
+    "ownerLabel": "擁有者",
+    "allTypes": "所有類型",
+    "allStatuses": "所有狀態",
+    "allDepartments": "所有部門",
+    "allOwners": "所有所有者",
+    "favoritesOnly": "僅限收藏夾",
+    "emptyTitle": "沒有可顯示的文件",
+    "emptyDescription": "調整過濾器、清除搜尋或添加知識資產以擴大圖書館。",
+    "selectAria": "選擇{名稱}",
+    "versionHistoryTitle": "版本歷史",
+    "close": "關閉",
+    "context": {
+      "open": "打開",
+      "share": "分享",
+      "favorite": "最喜歡的",
+      "move": "移動",
+      "delete": "刪除",
+      "dismiss": "解僱",
+      "unavailable": "{action} 不可用 — 文件突變未與 {id} 連結。"
+    }
+  },
+  "viewer": {
+    "title": "文件檢視器",
+    "emptyTitle": "選擇一個文檔",
+    "emptyDescription": "從程式庫中選擇一個檔案以預覽內容、中繼資料、標籤、版本和連結的模組。",
+    "zoomOut": "縮放 -",
+    "zoomIn": "變焦+",
+    "prev": "上一篇",
+    "next": "下一個",
+    "page": "第{page}頁，共{total}頁",
+    "searchInside": "裡面搜尋",
+    "findPlaceholder": "在預覽中尋找...",
+    "noMatches": "預覽文字中沒有符合項。",
+    "meta": {
+      "owner": "擁有者",
+      "created": "已創建",
+      "updated": "已更新",
+      "fileType": "文件類型",
+      "size": "尺寸",
+      "category": "類別",
+      "department": "科別",
+      "status": "地位",
+      "retention": "保留",
+      "version": "版本",
+      "sharing": "分享"
+    },
+    "tags": "標籤",
+    "linkedModules": "連結的模組",
+    "noModuleLinks": "還沒有模組鏈接",
+    "versionHistory": "版本歷史"
+  },
+  "versions": {
+    "title": "版本歷史",
+    "emptyTitle": "未選擇文檔",
+    "emptyDescription": "開啟文件以檢查版本、註釋、復原和比較。",
+    "current": "{name} ·當前{version}",
+    "restore": "恢復版本",
+    "compare": "比較版本",
+    "restoreTitle": "恢復需要儲存 API",
+    "compareTitle": "比較需要儲存 API",
+    "noticeDefault": "恢復和比較需要儲存 API。",
+    "restoreUnavailable": "{id} 無法復原 — 儲存 API 未連線。",
+    "compareUnavailable": "比較不可用 ({select} ↔ {current}) — 儲存 API 未連線。"
+  },
+  "approvals": {
+    "title": "審批流程",
+    "subtitle": "草稿→審核中→批准/拒絕→存檔。隊列項目是樣本文檔；行動不會持續。",
+    "emptyTitle": "隊列清空",
+    "emptyDescription": "樣本集中沒有草稿或審查中文件。",
+    "approve": "核准",
+    "reject": "拒絕",
+    "sendToReview": "寄至審核",
+    "noticeDefault": "批准轉換需要自動化工作流程引擎 - 在此版本中未連接。",
+    "unavailable": "{action} 對於 {id} 不可用 — 工作流程引擎未連線。範例文檔狀態未變更。",
+    "approveTitle": "無法批准 - 工作流程引擎未連接",
+    "rejectTitle": "拒絕不可用 - 工作流引擎未連接",
+    "sendTitle": "傳送至審閱不可用 — 工作流程引擎未連接"
+  },
+  "knowledge": {
+    "intro": "文章、政策、流程、手冊、常見問題與內部 wiki — 知識中心的敘述層。"
+  },
+  "activity": {
+    "intro": "最近的更改、上傳、查看、共享和審核歷史記錄 - 合規性追蹤的基礎。"
+  },
+  "integrations": {
+    "intro": "雲端硬碟僅是架構 - Google Drive、OneDrive、Dropbox、Box、SharePoint、Nextcloud。沒有即時 API。",
+    "reservedAdapter": "預留適配器：",
+    "architecture": "建築學",
+    "items": {
+      "google-drive": {
+        "description": "保留導入/同步架構 — 尚無即時 OAuth。"
+      },
+      "onedrive": {
+        "description": "保留 Microsoft Graph 檔案掛鉤。"
+      },
+      "dropbox": {
+        "description": "保留 Dropbox API 適配器。"
+      },
+      "box": {
+        "description": "保留 Enterprise Box 連接器。"
+      },
+      "sharepoint": {
+        "description": "已保留網站程式庫+中繼資料對應。"
+      },
+      "nextcloud": {
+        "description": "WebDAV 適配器保留 — 在自託管計劃之前停用。"
+      }
+    }
+  },
+  "security": {
+    "architectureTitle": "安全架構",
+    "sharingTitle": "共享模式",
+    "sharingIntro": "私人、組織、部門、特定使用者和公共連結佔位符。",
+    "enabled": "啟用",
+    "placeholder": "佔位符",
+    "notEnforced": "不強制執行",
+    "modelOnly": "僅型號",
+    "controls": {
+      "rbac": {
+        "title": "基於角色的訪問",
+        "description": "所有者、編輯器、檢視者和核準者角色對應到文件ACL ，而非在此組建中強制執行。"
+      },
+      "permissions": {
+        "title": "權限架構",
+        "description": "具有文件級覆蓋的資料夾繼承 - 在此版本中未強制執行。"
+      },
+      "audit": {
+        "title": "審計追蹤",
+        "description": "檢視、分享、還原和核準的活動事件尚未持久化。"
+      },
+      "encryption": {
+        "title": "加密",
+        "description": "為 KMS 接線保留的靜態和傳輸中加密掛鉤。"
+      },
+      "retention": {
+        "title": "保留政策",
+        "description": "具有法律保留支援的按類別保留視窗 - 尚未強制執行。"
+      }
+    }
+  },
+  "ai": {
+    "architectureTitle": "AI特徵架構",
+    "architectureIntro": "每項能力都是為未來的AI指數預留的。 UI 顯示確定性模擬見解。",
+    "insightsTitle": "選定文件的見解",
+    "emptyTitle": "選擇一個文檔",
+    "emptyDescription": "開啟庫中的文件以檢查 AI 摘要、關鍵字和建議。",
+    "summary": "人工智慧總結",
+    "keywords": "人工智慧關鍵字",
+    "classification": "AI分類",
+    "suggestedFolder": "AI建議資料夾",
+    "translation": "人工智慧翻譯",
+    "ocr": "人工智慧OCR",
+    "suggestedTags": "AI建議標籤",
+    "related": "人工智慧相關文檔",
+    "noRelated": "沒有索引相關文件。",
+    "duplicateOf": "AI重複檢測：可能的重複",
+    "noDuplicates": "AI 重複偵測：沒有標記近似重複。",
+    "sampleReady": "樣品準備好",
+    "notApplicable": "不適用",
+    "runSearch": "運行人工智慧搜尋",
+    "searchTitle": "AI搜尋未連接",
+    "noticeDefault": "AI功能僅限架構，無需即時模型呼叫。",
+    "searchUnavailable": "AI 搜尋不可用 — 語意索引未連接。以上範例見解是靜態的。",
+    "features": {
+      "summary": {
+        "title": "人工智慧總結",
+        "description": "每個模組的濃縮文件理解。"
+      },
+      "keywords": {
+        "title": "人工智慧關鍵字",
+        "description": "提取主題訊號用於搜尋和路由。"
+      },
+      "classification": {
+        "title": "AI分類",
+        "description": "類別/部門分類建議。"
+      },
+      "tags": {
+        "title": "AI建議標籤",
+        "description": "在不改變圖表的情況下標記推薦。"
+      },
+      "folder": {
+        "title": "AI建議資料夾",
+        "description": "智慧放置到嵌套資料夾中。"
+      },
+      "related": {
+        "title": "人工智慧相關文檔",
+        "description": "繪製整個知識中心的鄰居圖。"
+      },
+      "duplicate": {
+        "title": "AI重複偵測",
+        "description": "文檔庫的近似重複檢測。"
+      },
+      "translation": {
+        "title": "人工智慧翻譯",
+        "description": "翻譯準備標誌 - 沒有即時模型。"
+      },
+      "ocr": {
+        "title": "人工智慧OCR",
+        "description": "OCR 管道保留用於掃描和 PDF。"
+      },
+      "search": {
+        "title": "人工智慧搜尋",
+        "description": "語義搜尋為將來的索引保留。"
+      }
+    }
+  },
+  "status": {
+    "draft": "草稿",
+    "in_review": "審核中",
+    "approved": "得到正式認可的",
+    "rejected": "被拒絕",
+    "archived": "已存檔"
+  },
+  "fileType": {
+    "pdf": "PDF",
+    "word": "單字",
+    "excel": "Excel",
+    "powerpoint": "微軟幻燈片軟體",
+    "image": "影像",
+    "video": "影片",
+    "audio": "錄音檔",
+    "markdown": "降價",
+    "text": "文字",
+    "json": "JSON",
+    "csv": "CSV",
+    "other": "其他"
+  },
+  "share": {
+    "private": "私人的",
+    "organization": "組織",
+    "department": "科別",
+    "specific_users": "特定用戶",
+    "public_link": "公開連結"
+  },
+  "module": {
+    "crm": "客戶關係管理",
+    "finance": "金融",
+    "automation": "自動化",
+    "creator": "創作人工作室",
+    "hr": "未來人力資源",
+    "projects": "未來的項目"
+  },
+  "knowledgeKind": {
+    "article": "文章",
+    "policy": "政策",
+    "process": "過程",
+    "manual": "手動的",
+    "faq": "常問問題",
+    "wiki": "內部Wiki"
+  },
+  "integrationStatus": {
+    "connected": "已連接",
+    "beta": "貝塔",
+    "coming_soon": "即將推出",
+    "disabled": "殘障人士",
+    "planned": "計劃"
+  },
+  "bytes": {
+    "b": "{值} B",
+    "kb": "{值} KB",
+    "mb": "{值} MB",
+    "gb": "{值} GB"
+  }
+}

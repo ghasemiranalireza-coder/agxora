@@ -3,9 +3,12 @@
 import type { JSX } from "react";
 import Link from "next/link";
 import { ErrorPanel } from "../components/backend";
+import { useT } from "../lib/i18n";
 
 /** Offline state — reconnect / retry with clear recovery paths. */
 export default function OfflinePage(): JSX.Element {
+  const t = useT();
+
   return (
     <div
       className="flex min-h-[70vh] items-center justify-center px-4 py-16"
@@ -17,8 +20,8 @@ export default function OfflinePage(): JSX.Element {
       <div className="w-full max-w-lg space-y-4">
         <ErrorPanel
           code="OFFLINE"
-          title="You are offline"
-          message="Check your connection and retry when you are back online. Cached screens may still work."
+          title={t("backend.offline.title")}
+          message={t("backend.offline.message")}
           retryable
           onRetry={() => {
             if (typeof window !== "undefined") window.location.reload();
@@ -29,15 +32,15 @@ export default function OfflinePage(): JSX.Element {
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
           <Link href="/" className="underline-offset-2 hover:underline">
-            Home
+            {t("backend.offline.home")}
           </Link>
           {" · "}
           <Link href="/contact" className="underline-offset-2 hover:underline">
-            Contact
+            {t("backend.offline.contact")}
           </Link>
           {" · "}
           <Link href="/login" className="underline-offset-2 hover:underline">
-            Sign in
+            {t("backend.offline.signIn")}
           </Link>
         </p>
       </div>

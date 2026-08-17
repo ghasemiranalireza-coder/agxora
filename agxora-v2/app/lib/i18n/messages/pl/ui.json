@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "Brak wyników",
+    "noResultsDescription": "Nic nie pasuje do obecnych filtrów.",
+    "previous": "Poprzedni",
+    "next": "Następny",
+    "paginationRange": "{start}–{end} z {total}",
+    "sortAscending": "Sortuj rosnąco",
+    "sortDescending": "Sortuj malejąco"
+  },
+  "dialog": {
+    "close": "Zamknij okno dialogowe"
+  },
+  "module": {
+    "notAvailableTitle": "{title} nie jest jeszcze dostępny",
+    "notAvailableDescription": "Powłoka tego modułu jest przygotowana na przyszłą wersję. Nie zapisano tu jeszcze żadnych rekordów."
+  },
+  "states": {
+    "errorLabel": "Błąd",
+    "errorTitle": "Coś poszło nie tak",
+    "errorDescription": "Nie mogliśmy zrealizować tego żądania. Spróbuj ponownie za chwilę.",
+    "retry": "Spróbować ponownie"
+  },
+  "empty": {
+    "crmTitle": "Twój CRM jest gotowy",
+    "crmDescription": "Utwórz pierwszy rekord klienta, aby odblokować katalog, profile i aktywność.",
+    "crmAction": "Otwórz CRM-a",
+    "projectsTitle": "Nie ma jeszcze żadnych projektów",
+    "projectsDescription": "Uruchom obszar roboczy dostawy, aby śledzić kamienie milowe, budżet i własność zespołu.",
+    "projectsAction": "Otwórz projekty",
+    "analyticsTitle": "Analityka czeka na sygnał",
+    "analyticsDescription": "Gdy obszar roboczy wygeneruje aktywność, w tym miejscu pojawią się wskaźniki KPI dla kadry kierowniczej i alerty.",
+    "analyticsAction": "Otwórz Analitykę",
+    "documentsTitle": "Biblioteka dokumentów jest pusta",
+    "documentsDescription": "Przesyłaj lub twórz zasoby wiedzy, aby zapewnić zatwierdzanie, wersje i kontekst AI.",
+    "documentsAction": "Otwórz dokumenty",
+    "billingTitle": "Nie ma jeszcze historii rozliczeń",
+    "billingDescription": "Uaktualnij plan, aby generować faktury, odnowienia i historię płatności.",
+    "billingAction": "Otwórz rozliczenia",
+    "agentsTitle": "Brak aktywnych agentów",
+    "agentsDescription": "Zainstaluj lub aktywuj agenta z rynku, aby rozpocząć autonomiczne uruchamianie.",
+    "agentsAction": "Otwórz system operacyjny agenta"
+  },
+  "yes": "Tak",
+  "no": "NIE",
+  "dash": "—"
+}

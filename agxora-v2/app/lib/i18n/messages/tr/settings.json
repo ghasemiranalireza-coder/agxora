@@ -1,0 +1,442 @@
+{
+  "controlCenter": "Kontrol Merkezi",
+  "settingsSections": "Ayarlar bölümleri",
+  "profile": {
+    "label": "Profil",
+    "description": "Avatar, kimlik ve kişisel tercihler",
+    "title": "Profil",
+    "panelDescription": "Avatar, tam ad, e-posta, rol, saat dilimi, dil ve tema tercihi.",
+    "language": "Dil",
+    "timezone": "Saat dilimi",
+    "fullName": "Ad Soyad",
+    "email": "E-posta",
+    "role": "Rol",
+    "theme": "Tema",
+    "avatar": "avatar",
+    "changeAvatar": "Avatarı değiştir",
+    "region": "Bölge",
+    "personalPrefs": "Kişisel tercihler",
+    "supportLinks": "Destek ve yasal",
+    "signedOut": "Hesap kimliğinizi görmek için oturum açın.",
+    "serverIdentityNotice": "Ad, e-posta ve rol sunucu oturumunuzdan gelir. Bu tarayıcıda saklanmazlar.",
+    "localPrefsNotice": "Saat dilimi, bölge ve kişisel tercihler henüz kalıcı değil. Bunları kaydetmek yalnızca siz ayrılana kadar bu sayfayı günceller.",
+    "avatarUnavailable": "Avatar yükleme henüz kullanılamıyor.",
+    "appearanceNote": "Görünüm yapılandırması Görünüm altında kalır. Başlık yalnızca temaya hızlı geçiş sağlar.",
+    "prefsHint": "AI asistanları tarafından modüller arasında kullanılır.",
+    "themeResolved": "{mode} (çözüldü {görünüş})",
+    "regions": {
+      "EU": "Avrupa Birliği",
+      "US": "Amerika Birleşik Devletleri",
+      "MENA": "MENA",
+      "APAC": "Asya Pasifik"
+    }
+  },
+  "organization": {
+    "label": "Organizasyon",
+    "description": "Şirket profili ve vergi kimliği",
+    "title": "Organizasyon",
+    "panelDescription": "Şirket adı, logosu, adresi, vergi bilgileri, departmanları ve iş birimleri."
+  },
+  "workspace": {
+    "label": "Çalışma alanı",
+    "description": "Marka bilinci oluşturma, ana sayfa ve varsayılan modüller",
+    "title": "Çalışma alanı",
+    "panelDescription": "Çalışma alanı ayarları, varsayılan kontrol paneli, markalama, modüller ve ana sayfa."
+  },
+  "team": {
+    "label": "Takım",
+    "description": "Üyeler, roller, davetler ve gruplar",
+    "title": "Takım",
+    "panelDescription": "Üyeler, roller, davetler ve gruplar."
+  },
+  "ai": {
+    "label": "yapay zeka",
+    "description": "Sağlayıcı, model, yaratıcılık ve hafıza",
+    "title": "yapay zeka",
+    "panelDescription": "Sağlayıcı, model, yaratıcılık, sıcaklık ve hafıza tercihleri.",
+    "openAgentOs": "Ajan İşletim Sistemini Aç",
+    "openAiWorkspace": "AI Çalışma Alanını Aç",
+    "noticeSync": "AI ayarları AISettingsProvider aracılığıyla senkronize edilir; anahtarlar hiçbir zaman burada saklanmaz.",
+    "noticeProvider": "Sağlayıcı uygulamaları yapay zeka hizmet katmanının gerisinde kalır. Kullanıcı arayüzü hiçbir zaman API anahtarlarını veya SDK ayrıntılarını almaz. Otonom ajanlar Agent OS'de yaşar.",
+    "preferredProvider": "Tercih Edilen Yapay Zeka Sağlayıcısı",
+    "defaultModel": "Varsayılan Yapay Zeka Modeli",
+    "temperature": "Sıcaklık",
+    "topP": "Üst P",
+    "maxTokens": "Maksimum Jeton",
+    "writingStyle": "Yazma Stili",
+    "languagePreferences": "Dil Tercihleri",
+    "systemPrompt": "Sistem İstemi",
+    "systemPromptHint": "AI Platform için varsayılan sistem talimatı olarak uygulanır.",
+    "systemPromptPlaceholder": "Siz AGXORA AI'sınız — kurumsal işletim asistanı…",
+    "apiKeyManagement": "API Anahtar Yönetimi",
+    "apiKeyHint": "Anahtarlar yalnızca sunucu ortamı değişkenleri aracılığıyla sağlanır.",
+    "apiKeyPlaceholder": "AGXORA_* ortam değişkenleri aracılığıyla yapılandırılır (hiçbir zaman tarayıcıda değildir)",
+    "memory": "Hafıza",
+    "memoryDescription": "Kuruluş belleğinin modüller genelinde AI yanıtlarını bilgilendirmesine izin verin.",
+    "automationSuggestions": "Otomasyon Önerileri",
+    "automationSuggestionsDescription": "Automation Engine'de Surface AI iş akışı önerileri.",
+    "streaming": "Akış",
+    "streamingDescription": "Sağlayıcı desteklediğinde model yanıtlarını yayınlayın.",
+    "providers": {
+      "mock": "Sahte (yerel)",
+      "openai": "OpenAI",
+      "azure": "Azure OpenAI",
+      "anthropic": "Antropik",
+      "google": "Google",
+      "openrouter": "Açık Yönlendirici",
+      "ollama": "Ollama",
+      "local": "Yerel Sağlayıcı"
+    },
+    "writingStyles": {
+      "professional": "Profesyonel",
+      "concise": "Kısa",
+      "friendly": "Arkadaşça",
+      "technical": "Teknik"
+    },
+    "languages": {
+      "auto": "Profil dilini eşleştir",
+      "en": "İngilizce",
+      "de": "Almanca"
+    }
+  },
+  "appearance": {
+    "label": "Dış görünüş",
+    "description": "Tema, yoğunluk ve cam efektleri",
+    "title": "Dış görünüş",
+    "panelDescription": "Tema, yoğunluk, vurgu, animasyonlar ve cam efektleri.",
+    "noticeTheme": "Tema modu, ThemeProvider aracılığıyla gerçeğin tek kaynağıdır. Başlık yalnızca hızlı bir geçiş sunar.",
+    "themeLabel": "Tema",
+    "themeModeAria": "Tema modu",
+    "resolvedAppearance": "Çözülmüş görünüm:",
+    "accentColor": "Vurgu Rengi",
+    "accentNotice": "Vurgu tercihi gelecekteki CSS var kablolaması için saklanır; kilitli renk sistemini henüz değiştirmez.",
+    "density": "Yoğunluk",
+    "compactMode": "Kompakt Mod",
+    "compactModeDescription": "Kurumsal masa ve panellerdeki dolguyu azaltın.",
+    "animations": "Animasyonlar",
+    "animationsDescription": "Bölüm hareketi ve vurgulu kaldırmalar. Azaltılmış hareketli işletim sistemi ayarına saygı duyar.",
+    "glassEffects": "Cam Efektleri",
+    "glassEffectsDescription": "Buzlu cam kartlar ve kenar çubuğu bulanıklık yoğunluğu tercihi.",
+    "modes": {
+      "day": {
+        "label": "Işık",
+        "hint": "İnci / buz kurumsal gün paleti"
+      },
+      "night": {
+        "label": "Karanlık",
+        "hint": "Onaylanmış sinematik gece görünümü"
+      },
+      "auto": {
+        "label": "Sistem",
+        "hint": "Yerel programı takip et (Otomatik)"
+      }
+    },
+    "densities": {
+      "comfortable": "Rahat",
+      "compact": "Kompakt",
+      "spacious": "Ferah"
+    }
+  },
+  "notifications": {
+    "label": "Bildirimler",
+    "description": "E-posta, push ve modül uyarıları",
+    "title": "Bildirimler",
+    "panelDescription": "E-posta, push, masaüstü, mobil ve modüle özel uyarılar.",
+    "notice": "Bildirim kanalları yalnızca tercihlere yöneliktir; dağıtım bağdaştırıcıları saklıdır.",
+    "email": "E-posta",
+    "push": "İtmek",
+    "desktop": "Masaüstü",
+    "mobile": "Mobil",
+    "workflowAlerts": "İş Akışı Uyarıları",
+    "workflowAlertsDescription": "Automation Engine yürütme ve onay olayları.",
+    "financeAlerts": "Finans Uyarıları",
+    "crmAlerts": "CRM Uyarıları",
+    "documentsAlerts": "Belge Uyarıları",
+    "deliveryNotice": "Teslimat adaptörleri lansman sırasında gönderilir. Sorular:",
+    "contactSupport": "Desteğe başvurun"
+  },
+  "documents": {
+    "label": "Belgeler",
+    "description": "Depolama, saklama ve bilgi",
+    "title": "Belgeler",
+    "panelDescription": "Depolama tercihleri, saklama, varsayılan klasör, sürüm oluşturma ve bilgi ayarları.",
+    "notice": "Belge ayarları Bilgi Merkezi mimarisiyle entegre olur.",
+    "storagePreferences": "Depolama Tercihleri",
+    "retentionPolicy": "Saklama Politikası",
+    "defaultFolder": "Varsayılan Klasör",
+    "versioning": "Sürüm oluşturma",
+    "versioningDescription": "Geri yükleme/karşılaştırma için belge sürüm geçmişini saklayın.",
+    "knowledgeSettings": "Bilgi Ayarları",
+    "knowledgeDescription": "Bilgi Merkezi araması için yapay zeka indeksleme.",
+    "storageOptions": {
+      "workspace-default": "Çalışma alanı varsayılanı",
+      "eu-region": "AB bölgesi",
+      "encrypted-vault": "Şifreli kasa"
+    },
+    "retentionOptions": {
+      "30-days": "30 gün (kayıp)",
+      "2-years": "2 yıl",
+      "7-years": "7 yıl",
+      "10-years": "10 yıl"
+    }
+  },
+  "automation": {
+    "label": "Otomasyon",
+    "description": "İş akışı varsayılanları ve yeniden deneme politikası",
+    "title": "Otomasyon",
+    "panelDescription": "İş akışı varsayılanları, AI önerileri, yürütme günlükleri, geçmiş sınırları ve yeniden deneme politikası.",
+    "notice": "Otomasyon varsayılanları İş Akışı Motoru mimarisine uygulanır.",
+    "workflowDefaults": "İş Akışı Varsayılanları",
+    "historyLimits": "Geçmiş Sınırları",
+    "retryPolicy": "Yeniden Deneme Politikası",
+    "aiSuggestions": "Yapay Zeka Önerileri",
+    "executionLogs": "Yürütme Günlükleri",
+    "executionLogsDescription": "Ayrıntılı çalıştırma verilerini İş Akışı Geçmişinde saklayın.",
+    "workflowOptions": {
+      "require-approval": "Onay kapıları gerektir",
+      "auto-run": "Güvenilir akışları otomatik çalıştır",
+      "draft-only": "Yalnızca taslak"
+    },
+    "historyOptions": {
+      "30-days": "30 gün",
+      "90-days": "90 gün",
+      "365-days": "365 gün"
+    },
+    "retryOptions": {
+      "none": "Yeniden deneme yok",
+      "3-exponential": "3× üstel",
+      "5-linear": "5× doğrusal"
+    }
+  },
+  "integrations": {
+    "label": "Entegrasyonlar",
+    "description": "Kurulu, bağlı ve kullanılabilir",
+    "title": "Entegrasyonlar",
+    "panelDescription": "Kurulu, bağlı ve mevcut adaptörler.",
+    "openCenter": "Entegrasyon Merkezini Aç",
+    "notice": "Kurumsal Entegrasyon Platformu, bağlayıcılar, OAuth, web kancaları, API anahtarları ve iş akışı olay köprüsünden oluşan Entegrasyon Merkezi'nde bulunur.",
+    "columns": {
+      "integration": "Entegrasyon",
+      "category": "Kategori",
+      "status": "Durum",
+      "adapter": "Adaptör"
+    }
+  },
+  "security": {
+    "label": "Güvenlik",
+    "description": "Oturumlar, şifre ve hesap koruması",
+    "title": "Güvenlik",
+    "panelDescription": "Bu hesap için sunucu oturumları. Cihaz, IP ve MFA saklanmaz.",
+    "activeSessions": "Aktif oturumlar",
+    "currentSession": "Geçerli oturum",
+    "otherSession": "Diğer oturum",
+    "currentBadge": "Bu oturum",
+    "otherBadge": "Diğer oturum",
+    "createdAt": "Oturum açıldı",
+    "expiresAt": "Süresi doluyor",
+    "revoke": "Oturumu iptal et",
+    "revokeAria": "{when} oturumunun açıldığı oturumu iptal et",
+    "revokeOthers": "Diğer oturumlardan çıkış yapın",
+    "revokeOthersAria": "Geçerli oturum dışındaki tüm oturumları kapat",
+    "revoked": "Oturum iptal edildi.",
+    "othersRevoked": "Diğer oturumlar kapatıldı. Bu oturum halen aktiftir.",
+    "loading": "Oturumlar yükleniyor…",
+    "empty": "Aktif oturum yok",
+    "emptyBody": "Bu hesap için aktif sunucu oturumu yok.",
+    "demoEmpty": "Bu tarayıcıda yerel bir demo oturumu kaydetmek için oturum açın.",
+    "signedOutTitle": "Oturum açılmadı",
+    "signedOut": "Aktif sunucu oturumlarınızı görmek için oturum açın.",
+    "loadFailed": "Oturumlar yüklenemedi.",
+    "revokeFailed": "Bu oturum iptal edilemedi.",
+    "logout": "Bu oturumu kapat",
+    "logoutAria": "Geçerli sunucu oturumundan çıkış yapın",
+    "password": "Şifre",
+    "changePassword": "Şifreyi sıfırla",
+    "passwordHint": "Parola değişiklikleri mevcut sıfırlama akışını kullanır. Özel bir şifre değiştirme formu henüz mevcut değil.",
+    "mfaTitle": "İki faktörlü kimlik doğrulama",
+    "mfaUnavailable": "İki faktörlü kimlik doğrulama henüz mevcut değil.",
+    "ssoTitle": "TOA ve OAuth",
+    "ssoUnavailable": "Tek oturum açma ve OAuth sağlayıcıları henüz mevcut değil.",
+    "encryptionTitle": "Şifreleme",
+    "encryptionUnavailable": "Anahtar yönetimi ve kullanımda olmayan şifreleme kontrolleri henüz mevcut değildir.",
+    "trustedDevices": "Güvenilir cihazlar",
+    "trustedUnavailable": "Güvenilir cihaz ve IP geçmişi saklanmaz. Oturum meta verileri oluşturma ve sona erme zamanlarıyla sınırlıdır.",
+    "apiKeys": "API anahtarları",
+    "apiKeysHint": "Geliştirici anahtarları API ve Geliştiriciler altında yönetilir. Bu panel anahtar vermez.",
+    "openApi": "API ayarlarını aç",
+    "serverNotice": "Oturumlar sunucuda saklanır. Bu tarayıcı hiçbir zaman yerel kimlik verilerini yetkili veri olarak değerlendirmez.",
+    "demoNotice": "Demo modu yalnızca yerel tarayıcı oturumlarını kullanır. Bu üretim kimlik doğrulaması değildir.",
+    "noDeviceMeta": "Cihaz, IP ve kullanıcı aracısı kaydedilmez."
+  },
+  "billing": {
+    "label": "Faturalandırma",
+    "description": "Plan, kullanım, faturalar ve ödemeler",
+    "title": "Faturalandırma",
+    "panelDescription": "Mevcut plan, yenileme, kullanım, faturalar ve yükseltme yolu."
+  },
+  "api": {
+    "label": "API ve Geliştiriciler",
+    "description": "Anahtarlar, web kancaları, belirteçler, korumalı alan",
+    "title": "API ve Geliştiriciler",
+    "panelDescription": "Anahtarlar, web kancaları, belirteçler ve korumalı alan erişimi.",
+    "openPortal": "Geliştirici portalını aç",
+    "notice": "Entegrasyon Merkezi'nde anahtarlar oluşturun, döndürün ve iptal edin. Ağ geçidi, web kancası test aracı ve API gezgini burada mevcuttur.",
+    "webhooks": "Web kancaları",
+    "sandbox": "Korumalı alan",
+    "sandboxEnabled": "Etkinleştirilmiş",
+    "sandboxDisabled": "Engelli",
+    "tokensNotice": "Geliştirici belirteçleri hiçbir zaman gizli dizilerin tamamını görüntülemez; yalnızca önek.",
+    "columns": {
+      "name": "İsim",
+      "key": "Anahtar",
+      "scope": "Kapsam",
+      "lastUsed": "Son kullanılan"
+    }
+  },
+  "audit": {
+    "label": "Denetim Günlükleri",
+    "description": "Etkinlik, güvenlik ve sistem değişiklikleri",
+    "title": "Denetim Günlükleri",
+    "panelDescription": "Son etkinlik, güvenlik olayları ve sistem değişiklikleri.",
+    "columns": {
+      "when": "Ne zaman",
+      "actor": "Aktör",
+      "category": "Kategori",
+      "summary": "Özet"
+    },
+    "categories": {
+      "activity": "Son Etkinlik",
+      "security": "Güvenlik Etkinlikleri",
+      "system": "Sistem Değişiklikleri"
+    }
+  },
+  "advanced": {
+    "label": "Gelişmiş",
+    "description": "Deneysel, sıfırlama, içe aktarma, dışa aktarma",
+    "title": "Gelişmiş",
+    "panelDescription": "Deneysel özellikler, sıfırlama, içe aktarma ve dışa aktarma.",
+    "notice": "Gelişmiş eylemler, başvurudan önce onay gerektirir.",
+    "experimentalFeatures": "Deneysel Özellikler",
+    "experimentalDescription": "Tamamlanmamış Kontrol Merkezi özelliklerini etkinleştirin.",
+    "export": "İhracat",
+    "import": "İçe aktarmak",
+    "reset": "Sıfırla",
+    "exportUnavailable": "İhracat henüz kullanılamıyor.",
+    "importUnavailable": "İthalat henüz kullanılamıyor.",
+    "resetUnavailable": "Sıfırlama henüz mevcut değil."
+  },
+  "page": {
+    "eyebrow": "AGXORA Kontrol Merkezi",
+    "title": "Ayarlar",
+    "lead": "Her AGXORA modülü için kurumsal yapılandırma - profil, organizasyon, yapay zeka, görünüm, güvenlik, faturalandırma ve geliştirici kontrolleri tek bir yerde.",
+    "loading": "Ayarlar yükleniyor…",
+    "breadcrumb": "{etiket} · {açıklama}"
+  },
+  "saveChanges": "Değişiklikleri kaydet",
+  "sessionNotice": "Bu oturum için güncellendi — {area} bağlı değil.",
+  "kpi": {
+    "members": {
+      "label": "Ekip Üyeleri",
+      "caption": "Aktif koltuklar"
+    },
+    "integrations": {
+      "label": "Entegrasyonlar",
+      "caption": "Bağlı adaptörler"
+    },
+    "api": {
+      "label": "API Anahtarları",
+      "caption": "Geliştirici belirteçleri"
+    },
+    "audit": {
+      "label": "Denetim Etkinlikleri",
+      "caption": "Son 7 gün"
+    }
+  },
+  "unknown": {
+    "title": "Ayarlar",
+    "description": "Bilinmeyen bölüm.",
+    "emptyTitle": "Bulunamadı",
+    "emptyDescription": "Kontrol Merkezi navigasyonundan bir bölüm seçin."
+  },
+  "controlPlane": {
+    "loading": "Yükleniyor…",
+    "loadFailed": "Kuruluş verileri yüklenemedi. Oturum açın ve tekrar deneyin.",
+    "saveFailed": "Değişiklikler kaydedilemedi.",
+    "saving": "Kaydediliyor…",
+    "orgName": "Kuruluş adı",
+    "orgSlug": "Sümüklüböcek",
+    "owner": "Mal sahibi",
+    "counts": "Üyeler · çalışma alanları",
+    "orgUpdated": "Organizasyon güncellendi.",
+    "countsValue": "{üyeler} · {çalışma alanları}",
+    "joined": "Katıldı",
+    "workspaceName": "Çalışma alanı adı",
+    "switchWorkspace": "Aktif çalışma alanı",
+    "active": "aktif",
+    "rename": "Yeniden isimlendirmek",
+    "archive": "Arşiv",
+    "create": "Çalışma alanı oluştur",
+    "createWorkspace": "Yeni çalışma alanı",
+    "workspaceCreated": "Çalışma alanı oluşturuldu.",
+    "workspaceUpdated": "Çalışma alanı yeniden adlandırıldı.",
+    "workspaceArchived": "Çalışma alanı arşivlendi.",
+    "workspaceSwitched": "Aktif çalışma alanı güncellendi.",
+    "member": "Üye",
+    "email": "E-posta",
+    "role": "Rol",
+    "status": "Durum",
+    "actions": "Eylemler",
+    "roleOwner": "Mal sahibi",
+    "roleAdmin": "Yönetici",
+    "roleMember": "Üye",
+    "changeRole": "Rolü değiştir",
+    "remove": "Kaldırmak",
+    "invite": "Üyeyi davet et",
+    "inviteTitle": "Çalışma alanına davet et",
+    "sendInvite": "Davetiye oluştur",
+    "close": "Kapalı",
+    "pending": "Bekleyen davetiyeler",
+    "noPending": "Bekleyen davetiye yok.",
+    "revoke": "Geri çekmek",
+    "noMembers": "Henüz üye yok",
+    "noMembersBody": "Bu çalışma alanına bir ekip arkadaşınızı davet edin.",
+    "inviteHonesty": "E-posta teslimi yapılandırılmamış. Davet bağlantısını doğrudan paylaşın.",
+    "inviteLink": "Bağlantıyı davet et",
+    "inviteInvalid": "Bu davetiye geçerli değil.",
+    "accept": "Daveti kabul et",
+    "invitedAs": "{email}, {role} olarak davet edildi.",
+    "inviteStatus": {
+      "pending": "Askıda olması",
+      "expired": "Bu davetiyenin süresi doldu.",
+      "revoked": "Bu davet iptal edildi.",
+      "accepted": "Bu davet zaten kabul edildi."
+    },
+    "transferOwnership": "Sahipliği aktar",
+    "transferTitle": "Kuruluş sahipliğini aktarma",
+    "transferWarning": "Bu tehlikeli bir eylemdir. Alıcı onaylayana kadar SAHİP kalırsınız. Onaylandıktan sonra siz YÖNETİCİ olursunuz ve onlar da SAHİP olur.",
+    "transferTarget": "Yeni sahip",
+    "transferSelectMember": "Mevcut bir üyeyi seçin…",
+    "transferTypeName": "Onaylamak için “{name}” yazın",
+    "transferConfirmMismatch": "Yazılan ad seçilen üyeyle eşleşmiyor.",
+    "transferInitiate": "Aktarımı başlat",
+    "transferHonesty": "Teslimat yapılandırıldığında bir onay e-postası gönderilir. Aksi takdirde onay bağlantısını doğrudan alıcıyla paylaşın.",
+    "transferLink": "Onay bağlantısı",
+    "transferPendingTitle": "Sahiplik aktarımı bekleniyor",
+    "transferPendingBody": "{name}'in ({email}) onaylaması bekleniyor. Süresi doluyor {expires}. O zamana kadar SAHİP kalırsınız.",
+    "transferPendingNote": "Aktarım beklemedeyken üyelik rolleri değişmez.",
+    "cancelTransfer": "Aktarımı iptal et",
+    "transferCancelled": "Sahiplik aktarımı iptal edildi.",
+    "transferInvalid": "Bu sahiplik aktarımı geçerli değil.",
+    "transferConfirmTitle": "Sahiplik aktarımını onaylayın",
+    "transferConfirmBody": "{from}, kuruluşun sahipliğini {to}'a ({email}) aktarmak istiyor.",
+    "transferConfirmDanger": "Onayladıktan sonra SAHİP olursunuz ve önceki sahibi YÖNETİCİ olur.",
+    "transferConfirmAction": "Yeni sahip olduğumu onayla",
+    "transferWrongAccount": "Bu aktarımı onaylamak için {email} olarak oturum açın.",
+    "transferStatus": {
+      "pending": "Onay bekleniyor",
+      "expired": "Bu sahiplik aktarımının süresi doldu.",
+      "cancelled": "Bu sahiplik aktarımı iptal edildi.",
+      "confirmed": "Bu sahiplik aktarımı zaten tamamlandı."
+    }
+  }
+}

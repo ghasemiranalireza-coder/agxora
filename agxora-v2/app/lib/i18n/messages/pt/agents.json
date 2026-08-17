@@ -1,0 +1,121 @@
+{
+  "loading": "Carregando o sistema operacional do agente…",
+  "eyebrow": "Sistema operacional do agente AI",
+  "title": "SO do agente",
+  "subtitle": "Espaço de trabalho do agente local – os agentes podem ser ativados e executados como simulações em CRM, Projetos, Finanças, Fluxos de Trabalho e Integrações. A execução autônoma da produção não está conectada.",
+  "noticeDefault": "SO do Agente Local — as execuções são simuladas neste espaço de trabalho.",
+  "aiChat": "Bate-papo com IA",
+  "tabs": {
+    "dashboard": "Painel",
+    "registry": "Registro",
+    "marketplace": "Mercado",
+    "monitor": "Monitor",
+    "history": "História",
+    "memory": "Memória",
+    "knowledge": "Conhecimento",
+    "tools": "Ferramentas",
+    "settings": "Configurações"
+  },
+  "notice": {
+    "simulatedRun": "Execução simulada · {status} ({duration}ms)",
+    "taskFailed": "Falha na tarefa",
+    "activated": "Ativado localmente: {agentId}",
+    "agentPaused": "Agente pausado",
+    "agentActivated": "Agente ativado",
+    "taskCancelled": "Tarefa cancelada",
+    "supervisorDelegated": "O supervisor delegou um acompanhamento",
+    "settingsUpdated": "Configurações do SO do agente atualizadas para este espaço de trabalho local."
+  },
+  "dashboard": {
+    "agents": "Agentes",
+    "active": "Ativo",
+    "localReady": "Preparado localmente",
+    "simulatedToday": "Simulado hoje",
+    "failedToday": "Falha hoje",
+    "avgExec": "Média de executivos",
+    "toolCalls": "Chamadas de ferramentas",
+    "knowledge": "Conhecimento",
+    "activeFleet": "Frota ativa",
+    "emptyTitle": "Nenhum agente ativo",
+    "emptyDescription": "Instale ou ative um agente do marketplace para iniciar execuções simuladas."
+  },
+  "registry": {
+    "title": "Registro",
+    "selectPrompt": "Selecione um agente do registro.",
+    "status": "Status: {status}",
+    "health": "Saúde: {saúde}",
+    "queue": "Fila: {fila}",
+    "usage": "Uso: {uso}",
+    "executeTask": "Executar tarefa",
+    "supervisorDelegate": "Delegado supervisor"
+  },
+  "marketplace": {
+    "tools": "Ferramentas: {ferramentas}",
+    "installed": "Instalado",
+    "installActivate": "Instalar e ativar"
+  },
+  "monitor": {
+    "title": "Monitor de agente",
+    "emptyTitle": "Nenhum agente para monitorar",
+    "emptyDescription": "Ative agentes do mercado.",
+    "latestConfidence": "Confiança de raciocínio mais recente: {confiança} — {etapas}"
+  },
+  "history": {
+    "title": "Histórico de execução",
+    "emptyTitle": "Ainda não há execuções",
+    "emptyDescription": "Execute uma tarefa de agente no registro ou monitor."
+  },
+  "memory": {
+    "title": "Centro de memória",
+    "subtitle": "Trabalho · Conversação · Negócios · Longo prazo · Espaço de trabalho · Escopos de agente (pronto para arquitetura).",
+    "emptyTitle": "Sem registros de memória",
+    "emptyDescription": "Execute uma tarefa para preencher a memória de trabalho/agente."
+  },
+  "knowledge": {
+    "title": "Centro de conhecimento",
+    "subtitle": "Empresa, documentos, projetos, CRM, políticas, procedimentos — além de espaços reservados para vetores/RAG.",
+    "emptyTitle": "Nenhum documento de conhecimento",
+    "emptyDescription": "O conhecimento inicial aparece após a inicialização do espaço de trabalho."
+  },
+  "tools": {
+    "sensitive": "· confidencial",
+    "mcpReady": "· Pronto para MCP"
+  },
+  "settings": {
+    "title": "Configurações do SO do agente",
+    "defaultLlmProvider": "Provedor LLM padrão",
+    "enableSupervisor": "Habilitar arquitetura de agente supervisor",
+    "isolateSensitive": "Isole ferramentas confidenciais",
+    "saveSettings": "Salvar configurações",
+    "providersHint": "Provedores prontos: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Troque adaptadores por meio de RegisterLlmProvider sem alterações na interface do usuário."
+  },
+  "columns": {
+    "agent": "Agente",
+    "status": "Status",
+    "health": "Saúde",
+    "queue": "Fila",
+    "usage": "Uso",
+    "actions": "Ações",
+    "task": "Tarefa",
+    "duration": "Duração",
+    "created": "Criado",
+    "scope": "Escopo",
+    "key": "Chave",
+    "value": "Valor",
+    "at": "No",
+    "title": "Título",
+    "kind": "Tipo",
+    "summary": "Resumo"
+  },
+  "actions": {
+    "run": "Correr",
+    "pause": "Pausa",
+    "activate": "Ativar",
+    "cancel": "Cancelar",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "Execute a meta de negócios {agentId}",
+    "planAndExecute": "Planejar e executar uma meta de negócios do espaço de trabalho"
+  }
+}

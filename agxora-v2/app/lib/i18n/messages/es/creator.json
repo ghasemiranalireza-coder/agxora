@@ -1,0 +1,108 @@
+{
+  "page": {
+    "eyebrow": "SO de marketing AGXORA",
+    "title": "Estudio de creación de IA",
+    "lead": "Producción de contenido empresarial: genere, marque, planifique, publique y mida campañas impulsadas por IA en todos los canales.",
+    "dashboard": "Panel",
+    "workspace": "Espacio de trabajo",
+    "workspaceSubtitle": "Crear contenido · Campañas · Biblioteca multimedia · Plantillas · Recursos de marca · Cola de publicación · Análisis",
+    "workspaceAria": "Espacio de trabajo del creador",
+    "integrations": "Integraciones futuras",
+    "integrationsSubtitle": "Adaptadores de plataforma oficiales reservados: no hay conexiones en vivo falsas.",
+    "aiFeatures": "Funciones de IA",
+    "aiFeaturesSubtitle": "Mapa de capacidades para producción, marca, cronograma y localización."
+  },
+  "tabs": {
+    "create": "Crear contenido",
+    "campaigns": "Campañas",
+    "media": "Biblioteca multimedia",
+    "templates": "Plantillas",
+    "brand": "Activos de marca",
+    "queue": "Cola de publicación",
+    "analytics": "Analítica"
+  },
+  "templates": {
+    "emptyTitle": "Sin plantillas",
+    "emptyDescription": "El contenido reutilizable y las plantillas de diseño residirán aquí."
+  },
+  "campaign": {
+    "title": "Planificador de campaña",
+    "calendar": "Calendario de contenido",
+    "columns": {
+      "name": "Nombre de la campaña",
+      "objective": "Objetivo",
+      "audience": "Audiencia",
+      "platforms": "Plataformas",
+      "budget": "Presupuesto",
+      "timeline": "Línea de tiempo",
+      "status": "Estado"
+    },
+    "emptyTitle": "Sin campañas",
+    "emptyDescription": "Cree una campaña para planificar objetivos, audiencia y cronogramas."
+  },
+  "media": {
+    "title": "Biblioteca multimedia",
+    "columns": {
+      "asset": "Activo",
+      "type": "Tipo",
+      "folder": "Carpeta",
+      "tags": "Etiquetas",
+      "updated": "Actualizado"
+    },
+    "emptyTitle": "Sin medios",
+    "emptyDescription": "Aquí aparecerán imágenes, vídeos, documentos, logotipos y plantillas.",
+    "searchPlaceholder": "Buscar recursos, carpetas, etiquetas…",
+    "typeFilter": "Tipo",
+    "allTypes": "Todos los tipos",
+    "images": "Imágenes",
+    "videos": "Vídeos",
+    "documents": "Documentos",
+    "logos": "Logotipos de marca",
+    "templates": "Plantillas"
+  },
+  "generator": {
+    "title": "Generador de contenido de IA",
+    "lead": "Cree subtítulos de Instagram, scripts de TikTok, publicaciones de LinkedIn, anuncios, artículos de SEO y más.",
+    "brief": "Breve",
+    "briefPlaceholder": "Describe la oferta, la audiencia y el CTA...",
+    "generateDraft": "Generar borrador",
+    "aiRewrite": "Reescritura de IA",
+    "translate": "Traducir",
+    "initialOutput": "Seleccione un formato y una voz de marca, luego genere un borrador. Los adaptadores de proveedores están reservados; aún no hay llamadas de modelos en vivo.",
+    "draftStaged": "Borrador preparado para {format} · voz: {voice}. Adaptador de generación reservado.",
+    "rewriteQueued": "Reescritura AI en cola: adaptador de reescritura reservado.",
+    "translateQueued": "Traducir contenido en cola: adaptador multilingüe reservado.",
+    "brandVoice": "Voz de marca",
+    "brandVoiceLead": "Ajustes preestablecidos de tonos comerciales más voz de marca personalizada para mayor coherencia.",
+    "active": "Activo"
+  },
+  "queue": {
+    "title": "Cola de publicación",
+    "columns": {
+      "title": "Título",
+      "platform": "Plataforma",
+      "format": "Formato",
+      "status": "Estado",
+      "scheduled": "Programado",
+      "author": "Autor"
+    },
+    "emptyTitle": "No hay publicaciones en cola",
+    "emptyDescription": "Aquí aparecerán borradores, reseñas y publicaciones programadas.",
+    "filterStatus": "Estado del filtro",
+    "allStatuses": "Todos los estados"
+  },
+  "analytics": {
+    "title": "Analítica",
+    "topPosts": "Publicaciones principales",
+    "engagement": "Inglés {valor}",
+    "reach": "Alcanza {valor}",
+    "recommendations": "Recomendaciones de IA"
+  },
+  "integrations": {
+    "lead": "Integraciones futuras: opcionales. No hay API activas hasta que esté conectado. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.",
+    "adapter": "Adaptador:"
+  },
+  "aiFeaturesPanel": {
+    "lead": "Mapa de funciones de IA: ideas, subtítulos, hashtags, calendario, campañas, audiencia, programación, coherencia de la marca, reescritura, traducción, multilingüe."
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "loading": "正在加载集成平台...",
+  "eyebrow": "企业集成平台",
+  "title": "整合中心",
+  "subtitle": "适用于 Microsoft 365、Google、Slack、CRM、存储和自动化生态系统的连接器。此版本中的连接和同步是本地演示 - 未连接实时 OAuth。",
+  "noticeDefault": "本地演示连接器 - OAuth 和实时同步未连接。",
+  "settings": "设置",
+  "tabs": {
+    "dashboard": "仪表板",
+    "installed": "已安装",
+    "available": "可领奖",
+    "logs": "日志",
+    "apiKeys": "API 密钥",
+    "webhooks": "网络钩子",
+    "developer": "开发商"
+  },
+  "notice": {
+    "demoConnection": "演示连接： {name} （仅限本地存根）",
+    "connectFailed": "连接失败",
+    "keyCreated": "创建的 API 密钥：{prefix}",
+    "webhookCreated": "已创建网络钩子：{name}",
+    "webhookTest": "Webhook 测试{状态}",
+    "networkError": "API 浏览器网络错误：{message}",
+    "explorerError": "API 浏览器 → {状态}：{消息}",
+    "explorerSuccess": "API 浏览器 → {状态}",
+    "explorerFailed": "资源管理器失败",
+    "syncResult": "演示同步 · {status} ({records} 本地记录) — 没有传输外部数据。",
+    "diagnosed": "确诊",
+    "removedConnection": "已删除演示连接：{name}",
+    "keyRotated": "钥匙旋转",
+    "keyRevoked": "密钥已撤销",
+    "publishedEvent": "已发布{类型}",
+    "developerSaved": "开发者设置已保存"
+  },
+  "dashboard": {
+    "demoLinks": "演示链接",
+    "catalog": "目录",
+    "api24h": "API（24小时）",
+    "webhooks24h": "Webhook（24 小时）",
+    "webhookFailures": "Webhook 失败",
+    "syncJobs": "同步作业",
+    "conflicts": "冲突",
+    "errors": "错误",
+    "connectionStatus": "连接状态",
+    "emptyTitle": "未安装集成",
+    "emptyDescription": "浏览 可用于连接提供商。",
+    "eventBridgeDemo": "事件桥演示",
+    "eventBridgeHint": "将连接器事件发布到工作流自动化总线。",
+    "emit": "发出 {id}"
+  },
+  "installed": {
+    "title": "已安装的集成",
+    "emptyTitle": "没有安装任何东西",
+    "emptyDescription": "从可用目录安装。",
+    "latestSync": "最新同步：{状态}·{记录}记录·模式{mode}"
+  },
+  "available": {
+    "protocols": "协议：{协议}",
+    "demoConnection": "演示连接",
+    "connectDemo": "连接（演示）",
+    "installDemo": "安装演示"
+  },
+  "logs": {
+    "title": "集成日志",
+    "emptyTitle": "尚无日志",
+    "emptyDescription": "连接提供商或运行诊断。"
+  },
+  "apiKeys": {
+    "title": "API 密钥",
+    "generateKey": "生成密钥",
+    "copyOnce": "立即复制（显示一次） ： {secret}",
+    "emptyTitle": "没有 API 密钥",
+    "emptyDescription": "生成用于 REST 网关访问的密钥。"
+  },
+  "webhooks": {
+    "endpointsTitle": "Webhook 端点",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "添加传出 webhook",
+    "emptyTitle": "没有网络钩子",
+    "emptyDescription": "创建传出端点来测试传送。",
+    "deliveryLogs": "交付日志",
+    "deliveriesEmptyTitle": "没有送货",
+    "deliveriesEmptyDescription": "发送测试 Webhook 以填充日志。"
+  },
+  "developer": {
+    "title": "开发选项",
+    "sandboxMode": "沙盒模式",
+    "webhookSigning": "已启用 Webhook 签名",
+    "saveSettings": "保存设置",
+    "apiDocs": "API 文档占位符：{url}",
+    "sdk": "SDK占位符： {url}",
+    "explorerTitle": "API浏览器",
+    "gatewayRoutes": "网关路由：{routes}",
+    "sendGet": "发送获取",
+    "oauthProviders": "OAuth 提供商",
+    "placeholdersHint": "GraphQL、WebSocket 和 gRPC 网关路由注册为占位符。字段映射和同步冲突解决在架构上已准备好用于后端实现。"
+  },
+  "connectionStatus": {
+    "connected": "演示连接",
+    "pendingAuth": "待定（演示）",
+    "error": "错误",
+    "disabled": "残疾人",
+    "installed": "已安装",
+    "available": "可领奖",
+    "localDemo": "本地演示"
+  },
+  "columns": {
+    "integration": "一体<g id=\"1077\">化</g>",
+    "status": "地位",
+    "health": "健康",
+    "latency": "延迟",
+    "actions": "行动",
+    "when": "什么时候",
+    "level": "等级",
+    "source": "来源",
+    "message": "信息",
+    "name": "姓名",
+    "key": "钥匙",
+    "scopes": "范围",
+    "usage": "使用本手册",
+    "direction": "方向",
+    "url": "网址",
+    "enabled": "启用",
+    "event": "事件",
+    "attempt": "试图"
+  },
+  "actions": {
+    "diagnose": "诊断",
+    "demoSync": "演示同步",
+    "demoSyncTitle": "仅演示同步 — 无外部传输",
+    "disconnect": "断开",
+    "rotate": "旋转",
+    "revoke": "撤销",
+    "test": "测试",
+    "emDash": "—",
+    "yes": "是的",
+    "no": "不"
+  },
+  "errors": {
+    "failedToFetch": "获取失败",
+    "httpStatus": "HTTP {状态}"
+  }
+}

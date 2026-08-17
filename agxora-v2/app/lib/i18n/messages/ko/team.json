@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "신원 및 액세스",
+    "title": "팀",
+    "lead": "{조직}의 구성원, 역할 및 초대입니다. 미래의 ID API를 위한 아키텍처 지원.",
+    "yourOrganization": "당신의 조직"
+  },
+  "invite": {
+    "title": "이메일로 초대",
+    "email": "이메일",
+    "emailPlaceholder": "동료@company.com",
+    "role": "역할",
+    "submit": "초대하다",
+    "created": "초대장이 생성되었습니다(보류 중).",
+    "failed": "초대 실패",
+    "signInFirst": "먼저 로그인하고 조직을 활성화하세요.",
+    "noPermission": "권한 누락 — 초대하려면 관리자가 필요합니다."
+  },
+  "roles": {
+    "title": "역할",
+    "owner": {
+      "name": "소유자",
+      "description": "설정 및 청구를 포함한 전체 조직 제어."
+    },
+    "admin": {
+      "name": "관리자",
+      "description": "재무, 자동화, 팀 및 작업 공간 모듈을 관리합니다."
+    },
+    "manager": {
+      "name": "관리자",
+      "description": "CRM, 프로젝트, 문서 및 작성자 작업을 주도합니다."
+    },
+    "employee": {
+      "name": "직원",
+      "description": "일상적인 CRM, 문서, 작성자 및 프로젝트 액세스."
+    },
+    "guest": {
+      "name": "손님",
+      "description": "문서 및 프로젝트에 대한 읽기 액세스가 제한되어 있습니다."
+    },
+    "viewer": {
+      "name": "뷰어",
+      "description": "공유 모듈에 대한 읽기 전용 액세스입니다."
+    }
+  },
+  "members": {
+    "title": "회원",
+    "columnMember": "회원",
+    "columnEmail": "이메일",
+    "columnRole": "역할",
+    "columnStatus": "상태",
+    "roleFor": "{name}의 역할",
+    "emptyTitle": "아직 회원이 없습니다.",
+    "emptyDescription": "이 조직 작업 공간에 동료를 초대하세요.",
+    "updated": "{name}을(를) {role}(으)로 업데이트했습니다.",
+    "roleChangeFailed": "역할 변경 실패"
+  },
+  "pending": {
+    "title": "보류 중인 초대",
+    "emptyTitle": "대기 중인 초대가 없습니다.",
+    "emptyDescription": "새 초대는 수락되거나 만료될 때까지 여기에 표시됩니다.",
+    "expires": "{역할} · {날짜}에 만료됨",
+    "revoke": "취소",
+    "pending": "보류 중"
+  },
+  "history": {
+    "title": "초대 내역",
+    "empty": "수락, 만료, 취소된 초대가 여기에 표시됩니다."
+  },
+  "status": {
+    "accepted": "수락됨",
+    "expired": "만료됨",
+    "revoked": "취소됨",
+    "active": "활동적인",
+    "inactive": "비활성",
+    "pending": "보류 중"
+  }
+}

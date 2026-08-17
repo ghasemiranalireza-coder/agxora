@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "AI Platform wird geladen…",
+    "eyebrow": "AGXORA KI-Plattform",
+    "title": "Enterprise AI-Arbeitsbereich",
+    "subtitle": "Anbieterunabhängige Intelligenz für CRM, Projekte, Finanzen, Dokumente und Automatisierung. Konfigurieren Sie Anbieter in den Einstellungen → AI.",
+    "newConversation": "Neues Gespräch",
+    "aiCommands": "KI-Befehle"
+  },
+  "mobileTabs": {
+    "chat": "Chatten",
+    "conversations": "Unterhaltungen ",
+    "prompts": "Anzeigen"
+  },
+  "usageBar": {
+    "provider": "Anbieter",
+    "model": "Typ",
+    "estimatedTokens": "Geschätzte Token",
+    "tokensInOut": "(in {in} / out {out})",
+    "cost": "Kosten",
+    "context": "Allgemeine Angaben",
+    "contextNone": "keine",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "AGXORA AI-Arbeitsbereich",
+    "emptyHint": "Starten Sie eine Konversation, wählen Sie eine Eingabeaufforderung aus der Bibliothek oder öffnen Sie die Befehlspalette (+⇧K / Strg +⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Unterhaltungen ",
+    "new": "Neu",
+    "searchPlaceholder": "Chats suchen",
+    "searchAria": "Unterhaltungen suchen",
+    "showArchived": "Archivierte anzeigen",
+    "pinned": "Angepinnt",
+    "emptyPreview": "Leere Konversation",
+    "noConversations": "Noch keine Gespräche",
+    "pin": "Absteckpin",
+    "unpin": "Lösen",
+    "rename": "Umbenennen",
+    "archive": "Archiv",
+    "unarchive": "Archivierung aufheben",
+    "delete": "Löschen"
+  },
+  "composer": {
+    "placeholder": "Nachricht AGXORA AI… (Enter to send, Shift+Enter for newline)",
+    "ariaLabel": "Nachrichten-Composer",
+    "commandsShortcut": "Befehle⇧K",
+    "stop": "Stopp",
+    "send": "Schicken"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Ausfertigung",
+    "retry": "Wiederholen"
+  },
+  "typingIndicator": {
+    "ariaLabel": "Der Assistent tippt"
+  },
+  "promptLibrary": {
+    "title": "Prompt-Bibliothek",
+    "subtitle": "Wiederverwendbare Vorlagen für CRM, Projekte, Finanzen und mehr.",
+    "searchPlaceholder": "Eingabeaufforderungen suchen...",
+    "searchAria": "Eingabeaufforderungen suchen",
+    "all": "Alle",
+    "favorites": "Favoriten",
+    "recent": "Jüngste",
+    "library": "Bibliothek",
+    "noMatches": "Keine übereinstimmenden Eingabeaufforderungen",
+    "removeFavoriteAria": "Favorit entfernen",
+    "addFavoriteAria": "Favoriten hinzufügen",
+    "favorited": "Favorisiert",
+    "favorite": "Favorit",
+    "usePrompt": "Eingabeaufforderung verwenden"
+  },
+  "commandPalette": {
+    "ariaLabel": "AI-Befehlspalette",
+    "filterAria": "AI-Befehle filtern",
+    "placeholder": "KI-Befehl… zusammenfassen, vorschlagen, analysieren…",
+    "noMatches": "Keine passenden Befehle",
+    "footer": "Registrieren Sie zukünftige Befehle über registerAiCommand — UI bleibt unverändert."
+  }
+}

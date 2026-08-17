@@ -1,0 +1,149 @@
+{
+  "identity": {
+    "eyebrow": "IAM corporativo",
+    "title": "Identidade e Acesso",
+    "lead": "Organização, espaço de trabalho, RBAC, espaços reservados de segurança e arquitetura de auditoria. Os adaptadores de back-end são conectados sem alterar essa superfície.",
+    "openProfile": "Abrir perfil",
+    "teamManagement": "Gestão de equipe",
+    "tabs": {
+      "organization": "Organização",
+      "workspace": "Espaço de trabalho",
+      "roles": "Funções e permissões",
+      "security": "Segurança",
+      "audit": "Registro de auditoria"
+    },
+    "organizationSettings": "Configurações da organização",
+    "workspaceSettings": "Configurações do espaço de trabalho",
+    "noOrganization": "Nenhuma organização ativa. Conclua a integração ou crie uma no serviço da organização.",
+    "logoPlaceholder": "Os adaptadores de upload de logotipo e de faturamento do plano são espaços reservados para o futuro back-end de identidade.",
+    "rbacTitle": "RBAC — funções padrão",
+    "permissionMatrix": "Matriz de permissão",
+    "canManageSettings": "Pode gerenciar configurações: {value} · Autenticado: {autenticado}",
+    "yes": "sim",
+    "no": "não",
+    "securitySettings": "Configurações de segurança",
+    "passwordChange": {
+      "title": "Alteração de senha",
+      "detail": "A alteração de senha se conecta por meio do provedor de autenticação quando configurada."
+    },
+    "twoFactor": {
+      "title": "Autenticação de dois fatores (2FA)",
+      "detail": "Os adaptadores TOTP e WebAuthn são registrados aqui quando habilitados."
+    },
+    "activeSessions": {
+      "title": "Sessões ativas",
+      "detail": "O diretório de dispositivos reside em sessões de identidade; a revogação se torna oficial com sessões do servidor."
+    },
+    "apiKeys": {
+      "title": "Chaves de API",
+      "detail": "Contas de serviço e tokens com escopo definido para desenvolvedores."
+    },
+    "absoluteTimeout": "Tempo limite absoluto",
+    "idleTimeout": "Tempo limite de inatividade",
+    "refreshSkew": "Atualizar inclinação",
+    "persistentLogin": "Login persistente",
+    "disabled": "Desabilitado",
+    "enabled": "Habilitado",
+    "days": "{contar} dias",
+    "minutes": "{contagem} minutos",
+    "toggleIdlePolicy": "Alternar espaço reservado para política ociosa",
+    "previewSessionExpired": "A sessão de visualização expirou",
+    "previewAccountLocked": "Pré-visualização da conta bloqueada",
+    "auditActivity": "Atividade de auditoria",
+    "auditLead": "Login, logout, mudanças de função, convites e eventos da organização são registrados localmente. Substitua posteriormente por um armazenamento de auditoria de back-end imutável.",
+    "auditEmpty": "Nenhum evento IAM ainda. Faça login ou altere uma função para preencher o log.",
+    "meta": {
+      "name": "Nome",
+      "slug": "Lesma",
+      "plan": "Plano",
+      "owner": "Proprietário",
+      "created": "Criado",
+      "yourRole": "Seu papel",
+      "workspace": "Espaço de trabalho",
+      "status": "Status",
+      "isolationKey": "Chave de isolamento"
+    },
+    "matrix": {
+      "permission": "Permissão",
+      "owner": "Proprietário",
+      "admin": "Administrador",
+      "manager": "Gerente",
+      "member": "Membro",
+      "viewer": "Visualizador",
+      "yes": "Sim"
+    },
+    "audit": {
+      "when": "Quando",
+      "action": "Ação",
+      "actor": "Ator",
+      "resource": "Recurso"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "Proprietário",
+      "description": "Controle total, incluindo faturamento e transferência de propriedade"
+    },
+    "admin": {
+      "name": "Administrador",
+      "description": "Gerencie pessoas, segurança, espaços de trabalho e módulos"
+    },
+    "manager": {
+      "name": "Gerente",
+      "description": "Liderar equipes e módulos operacionais; convidar membros"
+    },
+    "member": {
+      "name": "Membro",
+      "description": "Acesso operacional diário"
+    },
+    "viewer": {
+      "name": "Visualizador",
+      "description": "Acesso somente leitura"
+    }
+  },
+  "profile": {
+    "eyebrow": "Identidade",
+    "title": "Perfil de usuário",
+    "lead": "Gerencie a identidade, as preferências e a segurança da sua conta. Os controles da organização e do espaço de trabalho ficam nas configurações de identidade.",
+    "guest": "Convidado",
+    "notSignedIn": "Não conectado",
+    "identitySettings": "Configurações de identidade",
+    "security": "Segurança",
+    "profileSection": "Perfil",
+    "fullName": "Nome completo",
+    "email": "E-mail",
+    "language": "Linguagem",
+    "timezone": "Fuso horário",
+    "languageEnGb": "Inglês (Reino Unido)",
+    "languageEnUs": "Inglês (EUA)",
+    "languageDe": "Alemão",
+    "timezoneBerlin": "Europa/Berlim",
+    "timezoneLondon": "Europa/Londres",
+    "timezoneUtc": "UTC",
+    "timezoneNewYork": "América/Nova_Iorque",
+    "notifications": "Notificações",
+    "emailNotifications": "Notificações por e-mail",
+    "pushNotifications": "Notificações push",
+    "workspace": "Espaço de trabalho",
+    "noticeInitial": "As preferências são salvas localmente até que a API do perfil seja conectada.",
+    "noticeSaved": "Preferências de perfil atualizadas.",
+    "savePreferences": "Salvar preferências"
+  },
+  "workspaceSelector": {
+    "empty": "Ainda não há espaços de trabalho. Crie uma organização para provisionar um.",
+    "label": "Espaço de trabalho ativo",
+    "ariaLabel": "Alternar espaço de trabalho"
+  },
+  "verifyEmail": {
+    "title": "Verificação de e-mail",
+    "loading": "Carregando…",
+    "skipForNow": "Pular por enquanto",
+    "tokenPlaceholder": "Token de verificação",
+    "tokenIssued": "Token de verificação emitido para a sessão atual.",
+    "issueFailed": "Não foi possível emitir o token",
+    "verificationFailed": "Falha na verificação",
+    "verify": "Verificar e-mail",
+    "verifying": "Verificando…",
+    "requestToken": "Solicitar token de verificação"
+  }
+}

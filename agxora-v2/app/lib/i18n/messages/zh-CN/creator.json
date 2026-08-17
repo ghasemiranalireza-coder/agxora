@@ -1,0 +1,108 @@
+{
+  "page": {
+    "eyebrow": "AGXORA营销操作系统",
+    "title": "人工智能创作工作室",
+    "lead": "企业内容制作——跨每个渠道生成、品牌化、规划、发布和衡量人工智能驱动的活动。",
+    "dashboard": "仪表板",
+    "workspace": "工作空间",
+    "workspaceSubtitle": "创建内容·营销活动·媒体库·模板·品牌资产·发布队列·分析",
+    "workspaceAria": "创作者工作区",
+    "integrations": "未来的整合",
+    "integrationsSubtitle": "保留官方平台适配器——无虚假实时连接。",
+    "aiFeatures": "人工智能特点",
+    "aiFeaturesSubtitle": "生产、品牌、进度和本地化的能力图。"
+  },
+  "tabs": {
+    "create": "创建内容",
+    "campaigns": "活动",
+    "media": "媒体库",
+    "templates": "模板",
+    "brand": "品牌资产",
+    "queue": "发布队列",
+    "analytics": "分析"
+  },
+  "templates": {
+    "emptyTitle": "没有模板",
+    "emptyDescription": "可重复使用的内容和设计模板将位于此处。"
+  },
+  "campaign": {
+    "title": "活动策划师",
+    "calendar": "内容日历",
+    "columns": {
+      "name": "活动名称",
+      "objective": "客观的",
+      "audience": "观众",
+      "platforms": "平台",
+      "budget": "预算",
+      "timeline": "时间轴",
+      "status": "地位"
+    },
+    "emptyTitle": "没有广告活动",
+    "emptyDescription": "创建活动来规划目标、受众和时间表。"
+  },
+  "media": {
+    "title": "媒体库",
+    "columns": {
+      "asset": "资产",
+      "type": "类型",
+      "folder": "文件夹",
+      "tags": "標籤",
+      "updated": "已更新"
+    },
+    "emptyTitle": "没有媒体",
+    "emptyDescription": "图像、视频、文档、徽标和模板将出现在此处。",
+    "searchPlaceholder": "搜索资产、文件夹、标签...",
+    "typeFilter": "类型",
+    "allTypes": "所有类型",
+    "images": "图片",
+    "videos": "视频",
+    "documents": "文件",
+    "logos": "品牌标志",
+    "templates": "模板"
+  },
+  "generator": {
+    "title": "AI内容生成器",
+    "lead": "创建 Instagram 标题、TikTok 脚本、LinkedIn 帖子、广告、SEO 文章等。",
+    "brief": "概述",
+    "briefPlaceholder": "描述优惠、受众和 CTA……",
+    "generateDraft": "生成草稿",
+    "aiRewrite": "人工智能重写",
+    "translate": "翻译",
+    "initialOutput": "选择格式和品牌声音，然后生成草稿。提供者适配器被保留——还没有实时模型调用。",
+    "draftStaged": "为{格式} · 语音起草的草稿：{语音}。保留一代适配器。",
+    "rewriteQueued": "AI 重写已排队 — 保留重写适配器。",
+    "translateQueued": "翻译内容排队 — 保留多语言适配器。",
+    "brandVoice": "品牌声音",
+    "brandVoiceLead": "商务语气预设加上自定义品牌声音以保持一致性。",
+    "active": "积极的"
+  },
+  "queue": {
+    "title": "发布队列",
+    "columns": {
+      "title": "标题",
+      "platform": "平台",
+      "format": "格式",
+      "status": "地位",
+      "scheduled": "预定",
+      "author": "作者"
+    },
+    "emptyTitle": "队列中没有帖子",
+    "emptyDescription": "草稿、评论和预定帖子将显示在此处。",
+    "filterStatus": "过滤器状态",
+    "allStatuses": "所有状态"
+  },
+  "analytics": {
+    "title": "分析",
+    "topPosts": "热门帖子",
+    "engagement": "工程{值}",
+    "reach": "达到{值}",
+    "recommendations": "人工智能建议"
+  },
+  "integrations": {
+    "lead": "未来的集成——可选。连接之前没有实时 API。 Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X、元业务、谷歌广告、谷歌分析。",
+    "adapter": "适配器："
+  },
+  "aiFeaturesPanel": {
+    "lead": "AI 功能图 — 想法、标题、主题标签、日历、活动、受众、日程、品牌一致性、重写、翻译、多语言。"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "loading": "Загрузка платформы интеграции…",
+  "eyebrow": "Платформа корпоративной интеграции",
+  "title": "Интеграционный центр",
+  "subtitle": "Соединители для Microsoft 365, Google, Slack, CRM, экосистем хранения и автоматизации. Подключения и синхронизация в этой сборке являются локальными демонстрациями — живой OAuth не подключен.",
+  "noticeDefault": "Локальные демонстрационные разъемы — OAuth и живая синхронизация не подключены.",
+  "settings": "Настройки",
+  "tabs": {
+    "dashboard": "Bнформационная панель",
+    "installed": "Установлено",
+    "available": "Доступный",
+    "logs": "Журналы",
+    "apiKeys": "API-ключи",
+    "webhooks": "Вебхуки",
+    "developer": "Разработчик"
+  },
+  "notice": {
+    "demoConnection": "Демо-соединение: {name} (только локальная заглушка)",
+    "connectFailed": "Не удалось подключиться",
+    "keyCreated": "Создан ключ API: {префикс}",
+    "webhookCreated": "Вебхук создан: {name}",
+    "webhookTest": "Проверка вебхука {статус}",
+    "networkError": "Сетевая ошибка API Explorer: {message}",
+    "explorerError": "API-проводник → {статус}: {сообщение}",
+    "explorerSuccess": "API-проводник → {статус}",
+    "explorerFailed": "Проводник не удался",
+    "syncResult": "Демо-синхронизация · {status} (локальные записи {records}) — внешние данные не передаются.",
+    "diagnosed": "Диагностирован",
+    "removedConnection": "Удалено демонстрационное соединение: {name}",
+    "keyRotated": "Ключ повернут",
+    "keyRevoked": "Ключ отозван",
+    "publishedEvent": "Опубликовано {тип}",
+    "developerSaved": "Настройки разработчика сохранены."
+  },
+  "dashboard": {
+    "demoLinks": "Демо-ссылки",
+    "catalog": "Каталог",
+    "api24h": "API (24 часа)",
+    "webhooks24h": "Вебхуки (24 часа)",
+    "webhookFailures": "Сбои вебхука",
+    "syncJobs": "Синхронизировать задания",
+    "conflicts": "Конфликты",
+    "errors": "Ошибки",
+    "connectionStatus": "Статус подключения",
+    "emptyTitle": "Интеграции не установлены",
+    "emptyDescription": "Просмотр Доступно для подключения провайдера.",
+    "eventBridgeDemo": "Демонстрация моста событий",
+    "eventBridgeHint": "Опубликуйте событие соединителя в шине автоматизации рабочих процессов.",
+    "emit": "Выпустить {id}"
+  },
+  "installed": {
+    "title": "Установленные интеграции",
+    "emptyTitle": "Ничего не установлено",
+    "emptyDescription": "Установить из доступного каталога.",
+    "latestSync": "Последняя синхронизация: {status} · записи {records} · режим {mode}"
+  },
+  "available": {
+    "protocols": "Протоколы: {протоколы}",
+    "demoConnection": "Демо-соединение",
+    "connectDemo": "Подключиться (демо)",
+    "installDemo": "Установить демо"
+  },
+  "logs": {
+    "title": "Журналы интеграции",
+    "emptyTitle": "Журналов пока нет",
+    "emptyDescription": "Подключите провайдера или запустите диагностику."
+  },
+  "apiKeys": {
+    "title": "Ключи API",
+    "generateKey": "Сгенерировать ключ",
+    "copyOnce": "Скопировать сейчас (показано один раз): {secret}",
+    "emptyTitle": "Нет ключей API",
+    "emptyDescription": "Создайте ключ для доступа к шлюзу REST."
+  },
+  "webhooks": {
+    "endpointsTitle": "Конечные точки вебхука",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "Добавить исходящий вебхук",
+    "emptyTitle": "Нет вебхуков",
+    "emptyDescription": "Создайте исходящую конечную точку для проверки доставки.",
+    "deliveryLogs": "Журналы доставки",
+    "deliveriesEmptyTitle": "Нет поставок",
+    "deliveriesEmptyDescription": "Отправьте тестовый вебхук для заполнения журналов."
+  },
+  "developer": {
+    "title": "Настройки разработчика",
+    "sandboxMode": "Режим песочницы",
+    "webhookSigning": "Подписание вебхука включено",
+    "saveSettings": "Сохранить настройки",
+    "apiDocs": "Заполнитель документации API: {url}",
+    "sdk": "Заполнитель SDK: {url}",
+    "explorerTitle": "API-проводник",
+    "gatewayRoutes": "Маршруты шлюза: {routes}",
+    "sendGet": "Отправить ПОЛУЧИТЬ",
+    "oauthProviders": "Поставщики OAuth",
+    "placeholdersHint": "Маршруты шлюзов GraphQL, WebSocket и gRPC регистрируются как заполнители. Сопоставление полей и разрешение конфликтов синхронизации готовы к реализации на серверной стороне."
+  },
+  "connectionStatus": {
+    "connected": "Демо-соединение",
+    "pendingAuth": "В ожидании (демо)",
+    "error": "Ошибка",
+    "disabled": "Неполноценный",
+    "installed": "Установлено",
+    "available": "Доступный",
+    "localDemo": "Локальная демо-версия"
+  },
+  "columns": {
+    "integration": "Интеграция",
+    "status": "Статус",
+    "health": "Здоровье",
+    "latency": "Задержка",
+    "actions": "Действия",
+    "when": "Когда",
+    "level": "Уровень",
+    "source": "Источник",
+    "message": "Сообщение",
+    "name": "Имя",
+    "key": "Ключ",
+    "scopes": "Области применения",
+    "usage": "Использование",
+    "direction": "Направление",
+    "url": "URL-адрес",
+    "enabled": "Включено",
+    "event": "Событие",
+    "attempt": "Пытаться"
+  },
+  "actions": {
+    "diagnose": "Диагностика",
+    "demoSync": "Демо-синхронизация",
+    "demoSyncTitle": "Только демо-синхронизация — без внешней передачи",
+    "disconnect": "Отключить",
+    "rotate": "Поворот",
+    "revoke": "Отозвать",
+    "test": "Тест",
+    "emDash": "—",
+    "yes": "да",
+    "no": "нет"
+  },
+  "errors": {
+    "failedToFetch": "Не удалось получить",
+    "httpStatus": "HTTP {статус}"
+  }
+}

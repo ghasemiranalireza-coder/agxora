@@ -1,0 +1,136 @@
+{
+  "loading": "Đang tải Trung tâm thông minh doanh nghiệp…",
+  "eyebrow": "Trung tâm thông tin doanh nghiệp",
+  "title": "Tình báo",
+  "subtitle": "KPI, thẻ điểm, cảnh báo và báo cáo cho mọi mô-đun AGXORA. Các giá trị bên dưới là tập dữ liệu demo được tạo hạt giống cho đến khi phần phụ trợ phân tích trực tiếp kết nối.",
+  "demoBanner": "Tập dữ liệu demo - lọc và xác nhận công việc trong phiên; cuộc gọi xuất và mô hình trực tiếp chưa khả dụng.",
+  "noticeDefault": "Hiển thị phân tích demo gốc - không phải dữ liệu đo từ xa sản xuất trực tiếp.",
+  "noPermission": "Bạn không có quyền thông minh.đọc đối với không gian làm việc này.",
+  "filtersUpdated": "Đã cập nhật bộ lọc",
+  "demoReloaded": "Đã tải lại tập dữ liệu demo cho không gian làm việc này.",
+  "acknowledged": "Đã xác nhận: {title}",
+  "exportUnavailableTitle": "Không thể xuất - việc tạo báo cáo chưa được kết nối.",
+  "exportUnavailableAria": "Xuất {title} dưới dạng {format} — không có sẵn",
+  "tabs": {
+    "executive": "Điều hành",
+    "health": "Sức khỏe doanh nghiệp",
+    "workspace": "Phân tích",
+    "kpis": "Trung tâm KPI",
+    "reports": "Báo cáo",
+    "insights": "Thông tin chi tiết",
+    "forecasts": "Dự báo",
+    "alerts": "Cảnh báo",
+    "scorecards": "Thẻ điểm",
+    "explorer": "Trình khám phá dữ liệu"
+  },
+  "filters": {
+    "from": "Từ",
+    "to": "ĐẾN",
+    "domain": "Lãnh địa",
+    "allDomains": "Tất cả các miền",
+    "apply": "Áp dụng bộ lọc",
+    "reloadDemo": "Tải lại dữ liệu demo",
+    "viewsAria": "Chế độ xem thông minh"
+  },
+  "executive": {
+    "companyHealth": "Sức khỏe công ty",
+    "revenueScore": "Điểm doanh thu",
+    "customerHealth": "Sức khỏe khách hàng",
+    "projectHealth": "Tình trạng dự án",
+    "workflowSuccess": "Quy trình làm việc thành công",
+    "aiActivity": "hoạt động trí tuệ nhân tạo",
+    "finance": "Tài chính",
+    "riskGrowth": "Rủi ro/Tăng trưởng",
+    "kpiStrip": "Dải KPI điều hành",
+    "visualizationPreviews": "Xem trước trực quan",
+    "visualizationHint": "Biểu đồ minh họa từ loạt bản demo — không phải phần chi tiết mang tính tương tác.",
+    "noSeries": "Không có chuỗi ràng buộc"
+  },
+  "health": {
+    "title": "Phân hủy sức khỏe doanh nghiệp",
+    "overall": "Tổng thể",
+    "revenue": "Doanh thu",
+    "customers": "Khách hàng",
+    "projects": "Dự án",
+    "workflows": "Quy trình làm việc",
+    "ai": "trí tuệ nhân tạo",
+    "finance": "Tài chính",
+    "operations": "Hoạt động",
+    "riskPosture": "Tư thế rủi ro",
+    "growth": "Sự phát triển",
+    "observability": "Khả năng quan sát: {metrics} số liệu · {avgMs}ms avg · tình trạng hệ thống {health}"
+  },
+  "workspace": {
+    "noSeries": "Không có loạt phim"
+  },
+  "kpis": {
+    "title": "Trung tâm KPI",
+    "subtitle": "Danh mục KPI có thể định cấu hình theo doanh thu, khách hàng, dự án, quy trình làm việc, đại lý và tự động hóa.",
+    "emptyTitle": "Analytics đang chờ tín hiệu",
+    "emptyDescription": "Khi không gian làm việc của bạn tạo ra hoạt động, các KPI điều hành và cảnh báo sẽ xuất hiện ở đây."
+  },
+  "reports": {
+    "title": "Công cụ báo cáo",
+    "subtitle": "Định nghĩa báo cáo được chọn để xem xét. Xuất tệp không khả dụng cho đến khi phần phụ trợ báo cáo được kết nối.",
+    "emptyTitle": "Không có báo cáo",
+    "emptyDescription": "Báo cáo hạt giống trên bootstrap của không gian làm việc.",
+    "scheduleOnDemand": "theo yêu cầu"
+  },
+  "insights": {
+    "emptyTitle": "Chưa có thông tin chi tiết nào",
+    "emptyDescription": "Thông tin chi tiết về bản trình diễn xuất hiện sau hạt giống của không gian làm việc. Việc tạo cái nhìn sâu sắc về AI trực tiếp không được kết nối.",
+    "badge": "Demo · {loại} · {domain} · xác nhận {sự tự tin}"
+  },
+  "forecasts": {
+    "emptyTitle": "Chưa có dự báo nào",
+    "emptyDescription": "Dự báo demo xuất hiện sau hạt giống. Các mô hình dự đoán không được kết nối.",
+    "title": "dự báo {loại}",
+    "baseline": "Đường cơ sở {đường cơ sở} → dự kiến ​​{dự kiến} ({ngày}d)",
+    "confidence": "Demo · Sự tự tin {sự tự tin} — {note}"
+  },
+  "alerts": {
+    "title": "Công cụ cảnh báo",
+    "emptyTitle": "Không có cảnh báo",
+    "emptyDescription": "Cảnh báo hạt giống từ chẩn đoán rủi ro.",
+    "acked": "bị tấn công",
+    "open": "mở",
+    "acknowledge": "Thừa nhận"
+  },
+  "scorecards": {
+    "title": "Công cụ thẻ điểm",
+    "emptyTitle": "Không có phiếu ghi điểm",
+    "emptyDescription": "Hạt giống thẻ điểm trên bootstrap."
+  },
+  "explorer": {
+    "title": "Trình khám phá dữ liệu",
+    "searchPlaceholder": "Tìm kiếm các hàng demo…",
+    "searchAria": "Tìm kiếm hàng trình khám phá demo",
+    "emptyTitle": "Không có hàng nào khớp",
+    "emptyDescription": "Điều chỉnh bộ lọc hoặc tìm kiếm hoặc tải lại tập dữ liệu demo.",
+    "hint": "Tìm kiếm phía máy khách trên các bộ dữ liệu được chọn lọc - tổng hợp phụ trợ và truy sâu xuống không được kết nối."
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "Giá trị",
+    "delta": "∆%",
+    "trend": "Xu hướng",
+    "target": "Mục tiêu",
+    "severity": "Mức độ nghiêm trọng",
+    "alert": "Báo động",
+    "domain": "Lãnh địa",
+    "status": "Trạng thái",
+    "actions": "hành động",
+    "report": "Báo cáo",
+    "kind": "Loại",
+    "schedule": "Lịch trình",
+    "export": "Xuất khẩu",
+    "scorecard": "Thẻ điểm",
+    "score": "Điểm",
+    "topDriver": "Trình điều khiển hàng đầu",
+    "label": "Nhãn",
+    "entity": "thực thể",
+    "measure": "Đo lường",
+    "date": "Ngày"
+  },
+  "emDash": "—"
+}

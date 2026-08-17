@@ -1,0 +1,298 @@
+{
+  "page": {
+    "eyebrow": "Sistema operativo de gestión de proyectos",
+    "title": "Proyectos",
+    "lead": "Planifique la entrega, realice un seguimiento del presupuesto y el estado, asigne equipos y administre tareas para {organización}. Los datos persisten localmente y están listos para la conectividad backend.",
+    "yourOrganization": "tu organización"
+  },
+  "list": {
+    "errorTitle": "No se pudieron cargar proyectos",
+    "searchLabel": "Buscar proyectos",
+    "searchPlaceholder": "Busca proyectos, clientes, propietarios, etiquetas…",
+    "viewCards": "Tarjetas",
+    "viewTable": "Mesa",
+    "newProject": "Nuevo proyecto",
+    "statusFilter": "Estado",
+    "priorityFilter": "Prioridad",
+    "customerFilter": "Cliente",
+    "ownerFilter": "Dueño",
+    "allStatuses": "Todos los estados",
+    "allPriorities": "Todas las prioridades",
+    "allCustomers": "Todos los clientes",
+    "allOwners": "Todos los propietarios",
+    "dateFrom": "De",
+    "dateTo": "A",
+    "emptyTitle": "Aún no hay proyectos",
+    "emptyDescription": "Cree un espacio de trabajo de entrega para realizar un seguimiento de los hitos, el presupuesto y la propiedad del equipo.",
+    "createProject": "Crear proyecto",
+    "pagination": "Mostrando {desde}–{hasta} de {total}",
+    "previous": "Anterior",
+    "next": "Próximo",
+    "noDescription": "Aún no hay descripción.",
+    "duePrefix": "Fecha de vencimiento}",
+    "openProject": "Abrir proyecto {nombre}",
+    "sortBy": "Ordenar por {columna}",
+    "sort": {
+      "name": "Nombre",
+      "customer": "Cliente",
+      "owner": "Dueño",
+      "status": "Estado",
+      "priority": "Prioridad",
+      "progress": "Progreso",
+      "dueDate": "Pendiente",
+      "budget": "Presupuesto"
+    }
+  },
+  "form": {
+    "createTitle": "Crear proyecto",
+    "editTitle": "Editar proyecto",
+    "cancel": "Cancelar",
+    "saveChanges": "Guardar cambios",
+    "createProject": "Crear proyecto",
+    "projectName": "Nombre del proyecto",
+    "customer": "Cliente",
+    "projectOwner": "Dueño del proyecto",
+    "priority": "Prioridad",
+    "status": "Estado",
+    "budget": "Presupuesto",
+    "currency": "Moneda",
+    "startDate": "Fecha de inicio",
+    "dueDate": "Fecha de vencimiento",
+    "color": "Color",
+    "icon": "Icono",
+    "tags": "Etiquetas",
+    "tagsHint": "Separados por comas",
+    "tagsPlaceholder": "empresa, lanzamiento",
+    "budgetPlaceholder": "0",
+    "description": "Descripción",
+    "selectColor": "Seleccione color {color}"
+  },
+  "taskForm": {
+    "createTitle": "Crear tarea",
+    "editTitle": "Editar tarea",
+    "cancel": "Cancelar",
+    "saveChanges": "Guardar cambios",
+    "createTask": "Crear tarea",
+    "title": "Título",
+    "assignee": "Cesionario",
+    "priority": "Prioridad",
+    "status": "Estado",
+    "deadline": "Fecha límite",
+    "progress": "Progreso",
+    "labels": "Etiquetas",
+    "labelsHint": "Separados por comas",
+    "description": "Descripción"
+  },
+  "deleteDialog": {
+    "title": "Eliminar proyecto",
+    "cancel": "Cancelar",
+    "deletePermanently": "Eliminar permanentemente",
+    "bodyPrefix": "Esto elimina",
+    "thisProject": "este proyecto",
+    "bodySuffix": "y todas las tareas, archivos, notas y actividades relacionadas desde el almacenamiento local. Esta acción no se puede deshacer."
+  },
+  "badges": {
+    "progress": "Progreso",
+    "progressAria": "{etiqueta}: {valor}%"
+  },
+  "status": {
+    "planning": "Planificación",
+    "active": "Activo",
+    "on_hold": "En espera",
+    "completed": "Terminado",
+    "archived": "Archivado"
+  },
+  "taskStatus": {
+    "todo": "Hacer",
+    "in_progress": "En curso",
+    "review": "Revisar",
+    "done": "Hecho"
+  },
+  "priority": {
+    "low": "Bajo",
+    "medium": "Medio",
+    "high": "Alto",
+    "critical": "Crítico"
+  },
+  "role": {
+    "owner": "Dueño",
+    "manager": "Gerente",
+    "member": "Miembro",
+    "viewer": "Espectador"
+  },
+  "kind": {
+    "project": "proyecto",
+    "task": "tarea",
+    "milestone": "hito"
+  },
+  "timeline": {
+    "noTimelineTitle": "Sin cronograma",
+    "noTimelineDescription": "Abra un proyecto para ver el cronograma, la duración y los hitos.",
+    "emptyTitle": "La línea de tiempo está vacía",
+    "emptyDescription": "Agregue fechas de inicio/vencimiento y tareas para completar el cronograma.",
+    "title": "Línea de tiempo",
+    "subtitle": "Inicio, fin, duración, hitos. Las dependencias están reservadas para una versión futura.",
+    "dateRange": "{inicio} → {fin} · {días}d",
+    "itemAria": "{título} desde {inicio} hasta {fin}",
+    "dependenciesNone": "Dependencias: ninguna"
+  },
+  "dashboard": {
+    "kpi": {
+      "activeProjects": "Proyectos Activos",
+      "activeHint": "{planificación} planificación",
+      "completed": "Terminado",
+      "completedHint": "{percent}% de la cartera",
+      "onHold": "En espera",
+      "onHoldHint": "{archivado} archivado",
+      "teamMembers": "Miembros del equipo",
+      "teamHint": "En todos los proyectos",
+      "budgetOverview": "Resumen del presupuesto",
+      "budgetHint": "{porcentaje}% usado · {gastado} gastado",
+      "openTasks": "Tareas abiertas",
+      "openTasksHint": "{atrasado} atrasado",
+      "projectHealth": "Salud del proyecto",
+      "healthHint": "Puntuación de entrega compuesta",
+      "upcomingDeadlines": "Próximos plazos",
+      "upcomingHint": "Los próximos 30 días"
+    },
+    "analytics": {
+      "title": "Analítica",
+      "subtitle": "Estado, finalización y uso del presupuesto de la cartera.",
+      "statusMix": "Mezcla de estados",
+      "deliverySignals": "señales de entrega",
+      "completedPercent": "% completado",
+      "budgetUsage": "Uso del presupuesto",
+      "health": "Salud",
+      "upcomingDeadlines": "Próximos plazos",
+      "noUpcomingDeadlines": "No hay fechas límite próximas en la próxima ventana."
+    },
+    "recentActivity": {
+      "title": "Actividad reciente",
+      "subtitle": "Primero los eventos más recientes del proyecto.",
+      "empty": "La actividad aparecerá a medida que se creen proyectos y tareas."
+    }
+  },
+  "kanban": {
+    "emptyTitle": "No hay tareas en el tablero.",
+    "emptyDescription": "Cree tareas para organizar la entrega en Tareas pendientes, En curso, Revisar y Listo.",
+    "addTask": "Agregar tarea",
+    "columnAria": "columna {estado}",
+    "taskProgress": "Progreso de la tarea",
+    "edit": "Editar",
+    "complete": "Completo"
+  },
+  "detail": {
+    "notFoundTitle": "Proyecto no encontrado",
+    "notFoundDescription": "Es posible que este proyecto se haya eliminado o no esté disponible para la organización actual.",
+    "backToProjects": "← Volver a proyectos",
+    "ownerMeta": "{cliente} · Propietario {propietario}",
+    "edit": "Editar",
+    "delete": "Borrar",
+    "sectionsAria": "Secciones de detalle del proyecto",
+    "tabs": {
+      "overview": "Descripción general",
+      "tasks": "Tareas",
+      "files": "Archivos",
+      "notes": "Notas",
+      "activity": "Actividad",
+      "team": "Equipo",
+      "settings": "Ajustes"
+    }
+  },
+  "overview": {
+    "missingTitle": "Proyecto perdido",
+    "missingDescription": "Seleccione un proyecto para ver su descripción general.",
+    "title": "Descripción general",
+    "noDescription": "No se proporciona descripción.",
+    "budget": "Presupuesto",
+    "spent": "Gastado",
+    "start": "Comenzar",
+    "due": "Pendiente",
+    "openTasks": "Tareas abiertas",
+    "completedTasks": "Tareas completadas"
+  },
+  "tasks": {
+    "title": "Gestión de tareas",
+    "newTask": "Nueva tarea",
+    "tableTitle": "Título",
+    "tableAssignee": "Cesionario",
+    "tablePriority": "Prioridad",
+    "tableStatus": "Estado",
+    "tableDue": "Pendiente",
+    "tableProgress": "Progreso",
+    "tableActions": "Comportamiento",
+    "edit": "Editar",
+    "complete": "Completo",
+    "delete": "Borrar",
+    "emptyTitle": "Aún no hay tareas",
+    "emptyDescription": "Cree tareas, asigne propietarios y realice un seguimiento del progreso en el tablero.",
+    "createTask": "Crear tarea"
+  },
+  "files": {
+    "title": "Gestor de archivos",
+    "description": "Cargue imágenes, archivos PDF y documentos de Office. Los metadatos persisten localmente.",
+    "upload": "Subir",
+    "emptyTitle": "No se subieron archivos",
+    "emptyDescription": "Agregue artefactos del proyecto para que el equipo los revise y obtenga una vista previa.",
+    "preview": "Avance",
+    "metadataOnly": "Solo metadatos",
+    "delete": "Borrar"
+  },
+  "notes": {
+    "editTitle": "Editar nota",
+    "newTitle": "Nueva nota",
+    "title": "Título",
+    "author": "Autor",
+    "body": "Cuerpo",
+    "cancel": "Cancelar",
+    "saveNote": "guardar nota",
+    "emptyTitle": "Aún no hay notas",
+    "emptyDescription": "Capture decisiones, resultados de reuniones y contexto de entrega.",
+    "edit": "Editar",
+    "delete": "Borrar"
+  },
+  "activity": {
+    "title": "Feed de actividades",
+    "emptyTitle": "Aún no hay actividad",
+    "emptyDescription": "Los eventos del proyecto aparecerán aquí mientras el equipo trabaja."
+  },
+  "team": {
+    "missingTitle": "Proyecto perdido",
+    "missingDescription": "Seleccione un proyecto para administrar los miembros del equipo.",
+    "assignTitle": "Asignar miembro",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "role": "Role",
+    "addMember": "Agregar miembro",
+    "teamTitle": "Equipo",
+    "remove": "Eliminar"
+  },
+  "settings": {
+    "missingTitle": "Proyecto perdido",
+    "missingDescription": "Seleccione un proyecto para administrar la configuración.",
+    "title": "Configuración del proyecto",
+    "description": "Actualice el estado de archivo y quema del presupuesto. Las ediciones de campos completos utilizan el cuadro de diálogo Editar.",
+    "spentAmount": "Cantidad gastada",
+    "saveSpent": "Guardar gastado",
+    "archiveProject": "Proyecto de archivo",
+    "editAllFields": "Editar todos los campos"
+  },
+  "toasts": {
+    "projectCreated": "Proyecto creado",
+    "projectUpdated": "Proyecto actualizado",
+    "projectDeleted": "Proyecto eliminado",
+    "checkForm": "Consulta el formulario",
+    "validationFailed": "La validación falló.",
+    "taskCreated": "Tarea creada",
+    "taskUpdated": "Tarea actualizada",
+    "taskCompleted": "Tarea completada",
+    "taskDeleted": "Tarea eliminada",
+    "filesUploaded": "Archivos cargados",
+    "filesUploadedDetail": "{count} archivo(s)",
+    "fileDeleted": "Archivo eliminado",
+    "noteSaved": "Nota guardada",
+    "memberAdded": "Miembro agregado",
+    "settingsSaved": "Configuración guardada",
+    "projectArchived": "Proyecto archivado"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "نتیجه‌ای نیست",
+    "noResultsDescription": "هیچ چیز با فیلترهای فعلی مطابقت ندارد.",
+    "previous": "قبلی",
+    "next": "بعدی",
+    "paginationRange": "{شروع}–{پایان} از {مجموع}",
+    "sortAscending": "Sort ascending",
+    "sortDescending": "Sort descending"
+  },
+  "dialog": {
+    "close": "بستن گفتگو"
+  },
+  "module": {
+    "notAvailableTitle": "{title} is not available yet",
+    "notAvailableDescription": "این پوسته ماژول برای انتشار در آینده آماده شده است. هنوز هیچ رکوردی در اینجا ذخیره نشده است."
+  },
+  "states": {
+    "errorLabel": "خطا",
+    "errorTitle": "در API افزونه اشتباه رخ داد.",
+    "errorDescription": "We couldn't complete that request. Try again in a moment.",
+    "retry": "تلاش مجدد"
+  },
+  "empty": {
+    "crmTitle": "CRM آماده است",
+    "crmDescription": "اولین رکورد مشتری را بسازید تا بخش دایرکتوری، پروفایل‌ها و فعالیت فعال شود.",
+    "crmAction": "باز کردن CRM",
+    "projectsTitle": "هیچ پروژه ای وجود ندارد",
+    "projectsDescription": "یک فضای کاری تحویل راه‌اندازی کنید تا بتوانید مراحل مهم، بودجه و مالکیت تیم را پیگیری کنید.",
+    "projectsAction": "باز کردن پروژه‌ها",
+    "analyticsTitle": "تحلیل‌ها منتظر سیگنال هستند",
+    "analyticsDescription": "به محض اینکه فضای کاری شما فعالیتی را ایجاد کند، شاخص‌های کلیدی عملکرد (KPI) و هشدارهای اجرایی در اینجا ظاهر می‌شوند.",
+    "analyticsAction": "باز کردن تحلیل‌ها",
+    "documentsTitle": "کتابخانه اسناد خالی است",
+    "documentsDescription": "دارایی‌های دانش را برای تأیید، نسخه‌ها و زمینه هوش مصنوعی بارگذاری یا ایجاد کنید.",
+    "documentsAction": "باز کردن اسناد",
+    "billingTitle": "No billing history yet",
+    "billingDescription": "Upgrade a plan to generate invoices, renewals, and payment history.",
+    "billingAction": "باز کردن صورتحساب",
+    "agentsTitle": "هیچ نماینده‌ای فعال نیست",
+    "agentsDescription": "Install or activate an agent from the marketplace to start autonomous runs.",
+    "agentsAction": "سیستم عامل عامل باز"
+  },
+  "yes": "بله",
+  "no": "خیر",
+  "dash": "—"
+}

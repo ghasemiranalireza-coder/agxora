@@ -2,6 +2,7 @@
 
 import type { JSX } from "react";
 import type { AnalyticsMetric, TopPost } from "../../lib/creator-studio";
+import { useT } from "../../lib/i18n";
 import { Badge, Card } from "../ui";
 
 export function CreatorAnalytics({
@@ -13,11 +14,13 @@ export function CreatorAnalytics({
   readonly topPosts: readonly TopPost[];
   readonly recommendations: readonly string[];
 }): JSX.Element {
+  const t = useT();
+
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-5">
       <Card className="xl:col-span-3 space-y-4" padding="24px">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Analytics
+          {t("creator.analytics.title")}
         </h3>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {metrics.map((metric) => (
@@ -53,7 +56,7 @@ export function CreatorAnalytics({
 
         <div>
           <h4 className="mb-3 text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Top Posts
+            {t("creator.analytics.topPosts")}
           </h4>
           <ul className="space-y-2">
             {topPosts.map((post) => (
@@ -74,8 +77,10 @@ export function CreatorAnalytics({
                   </p>
                 </div>
                 <div className="flex gap-2">
-                  <Badge tone="accent">Eng {post.engagement}</Badge>
-                  <Badge>Reach {post.reach}</Badge>
+                  <Badge tone="accent">
+                    {t("creator.analytics.engagement", { value: post.engagement })}
+                  </Badge>
+                  <Badge>{t("creator.analytics.reach", { value: post.reach })}</Badge>
                 </div>
               </li>
             ))}
@@ -85,7 +90,7 @@ export function CreatorAnalytics({
 
       <Card className="xl:col-span-2 space-y-3" padding="24px">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          AI Recommendations
+          {t("creator.analytics.recommendations")}
         </h3>
         <ul className="space-y-3">
           {recommendations.map((rec) => (

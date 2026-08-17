@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "AGXORA 金融作業系統",
+    "title": "財務與稅務",
+    "subtitle": "會計、銀行、稅務和金融情報－在即時帳本連接之前使用樣本資料進行預覽。",
+    "sampleNotice": "樣本資料集—數據和出口歷史是說明性的。DATEV/檔案匯出與即時銀行摘要未連接。"
+  },
+  "sections": {
+    "overview": {
+      "title": "財務概覽"
+    },
+    "invoiceCenter": {
+      "title": "發票中心",
+      "subtitle": "透過 AI 置信度評分對企業發票分類帳進行搜尋、過濾和排序。"
+    },
+    "aiInvoiceProcessing": {
+      "title": "AI發票處理",
+      "subtitle": "演示管道 — OCR 和 AI 提取未連接。"
+    },
+    "banking": {
+      "title": "銀行業",
+      "subtitle": "僅範例帳戶 - 未連接開放式銀行提要。"
+    },
+    "datev": {
+      "title": "DATEV集成",
+      "subtitle": "匯出歷史記錄範例 — DATEV 檔案產生未連線。"
+    },
+    "taxCenter": {
+      "title": "稅務中心",
+      "subtitle": "增值稅摘要、截止日期和即將付款。"
+    },
+    "aiInsights": {
+      "title": "人工智慧洞察",
+      "subtitle": "僅限調查結果範例—洞察分析動作未連結。"
+    },
+    "smartSearch": {
+      "title": "智慧搜尋",
+      "subtitle": "跨發票、費用、增值稅和出口的自然語言查詢。"
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "收入",
+        "caption": "樣本·最近 30 天",
+        "delta": "+8.4%"
+      },
+      "expenses": {
+        "label": "開支",
+        "caption": "樣品·營運+銷貨成本",
+        "delta": "+2.1%"
+      },
+      "profit": {
+        "label": "利潤",
+        "caption": "樣品·網路運營",
+        "delta": "+12.6%"
+      },
+      "vat-due": {
+        "label": "應繳增值稅",
+        "caption": "範例·Q2 視窗",
+        "delta": "{days}天後到期"
+      },
+      "open-invoices": {
+        "label": "開立發票",
+        "caption": "例 · {money} 未結清"
+      },
+      "paid-invoices": {
+        "label": "已付發票",
+        "caption": "樣本·本季",
+        "delta": "+{計數}"
+      },
+      "cashflow": {
+        "label": "現金週轉",
+        "caption": "範例·30 天預測",
+        "delta": "+4.2%"
+      },
+      "ai-score": {
+        "label": "人工智慧財務評分",
+        "caption": "樣本分數 · 非即時風險評分",
+        "delta": "+{計數}"
+      }
+    },
+    "scoreOutOf": "{分數} / {最大}"
+  },
+  "invoices": {
+    "emptyTitle": "無發票",
+    "emptyDescription": "沒有符合搜尋條件或篩選條件的收據。",
+    "searchPlaceholder": "數量、公司、類別…",
+    "statusFilter": "狀態篩選規則",
+    "paymentFilter": "支付過濾器",
+    "sortBy": "排序方式",
+    "toggleSort": "切換排序方向",
+    "count": "{count}張發票",
+    "countOne": "{count}張發票",
+    "allStatuses": "所有狀態",
+    "allPayments": "所有付款",
+    "columns": {
+      "number": "發票號碼",
+      "company": "公司",
+      "amount": "數量",
+      "vat": "加值稅",
+      "status": "地位",
+      "dueDate": "到期日",
+      "payment": "付款狀態",
+      "category": "類別",
+      "ai": "人工智能信心"
+    },
+    "sort": {
+      "dueDate": "到期日",
+      "amount": "數量",
+      "company": "公司",
+      "status": "地位",
+      "aiConfidence": "人工智慧信心",
+      "number": "發票 ＃"
+    }
+  },
+  "status": {
+    "draft": "草稿",
+    "open": "打開",
+    "paid": "滿意",
+    "overdue": "逾期",
+    "cancelled": "取消"
+  },
+  "payment": {
+    "unpaid": "未付",
+    "partial": "部分的",
+    "paid": "滿意",
+    "refunded": "已退款"
+  },
+  "category": {
+    "saas": "軟體即服務",
+    "office": "辦公室",
+    "travel": "旅行",
+    "marketing": "行銷",
+    "utilities": "公用事業",
+    "professional": "專業的",
+    "other": "其他"
+  },
+  "processing": {
+    "dropTitle": "拖放發票文件",
+    "dropFormats": "PDF·圖片·電子郵件匯入",
+    "uploadFiles": "上傳文件",
+    "emailImport": "電子郵件導入",
+    "dropHint": "將 PDF 或影像發票拖曳到本地 — OCR 未連線。",
+    "filesStaged": "僅在本地列出{count}個文件—未連接OCR/AI提取。",
+    "emailReserved": "為 IMAP / Microsoft Graph 保留的電子郵件匯入連接器。",
+    "pipelineTitle": "處理管道（演示）",
+    "stages": {
+      "ocr": "OCR 狀態",
+      "extraction": "人工智慧提取",
+      "categorization": "分類",
+      "duplicateDetection": "重複檢測"
+    }
+  },
+  "stage": {
+    "pending": "不可用",
+    "running": "未連接",
+    "complete": "示範",
+    "failed": "失敗的",
+    "skipped": "跳過"
+  },
+  "banking": {
+    "connectionTitle": "銀行連接",
+    "connectBank": "連接銀行",
+    "description": "PSD2 / Open Banking 轉接器未接線。下面的匹配和協調僅是說明性的。",
+    "feedUnavailable": "銀行提要不可用 — 提供者連線未連線。",
+    "noticeDefault": "開放式銀行未連接 - 以下帳戶是範例資料。",
+    "connectUnavailable": "連接銀行不可用 - 開放式銀行在此版本中未連接。",
+    "sampleAccounts": "樣本帳戶",
+    "sample": "簡單",
+    "offline": "離線",
+    "demoPrefix": "示範",
+    "latestTransactions": "最新交易",
+    "sampleMatching": "樣品匹配",
+    "demoOnly": "僅演示",
+    "sampleMatch": "樣本匹配",
+    "unmatched": "無與倫比",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "DATEV集成",
+    "notConnected": "未連接",
+    "intro": "下面的示例匯出歷史記錄是說明性的。憑證與檔案產生在此組建中未連線。",
+    "noticeDefault": "匯出適配器未連接 - 不會產生任何檔案。",
+    "exportUnavailable": "{title} 不可用 — DATEV/檔案匯出未連線。",
+    "exportUnavailableAria": "{title} — 不可用",
+    "historyTitle": "出口歷史記錄（樣本）",
+    "refresh": "重新整理",
+    "refreshUnavailable": "刷新不可用 — 匯出歷史記錄是靜態樣本資料。",
+    "steuerberaterSample": "簡單",
+    "steuerberaterPending": "待辦的",
+    "columns": {
+      "export": "出口",
+      "format": "格式",
+      "period": "時期",
+      "created": "已創建",
+      "status": "地位",
+      "steuerberater": "斯圖爾伯拉特"
+    },
+    "actions": {
+      "datev": {
+        "title": "數據導出",
+        "description": "用於 Steuerberater 工作流程的 Buchungsstapel 包。"
+      },
+      "csv": {
+        "title": "CSV 匯出",
+        "description": "用於電子表格和導入的 Ledger-ready CSV。"
+      },
+      "pdf": {
+        "title": "PDF匯出",
+        "description": "用於審查和存檔的文件包。"
+      },
+      "xml": {
+        "title": "XML匯出",
+        "description": "用於歸檔管道的結構化稅 XML。"
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "樣本·排隊",
+    "ready": "樣品·準備好",
+    "delivered": "說明性的",
+    "failed": "失敗的"
+  },
+  "tax": {
+    "vatSummaryTitle": "增值稅匯總",
+    "monthlyVat": "每月增值稅",
+    "quarterlyVat": "季度增值稅",
+    "collected": "集",
+    "deductible": "免賠額",
+    "netDue": "淨到期日",
+    "deadlinesTitle": "納稅期間·即將付款",
+    "duePrefix": "到期的",
+    "deadlineStatus": {
+      "due_soon": "即將到期",
+      "upcoming": "即將發行",
+      "overdue": "逾期",
+      "paid": "滿意"
+    },
+    "deadlines": {
+      "td-1": "每月增值稅申報表",
+      "td-2": "季度增值稅結算",
+      "td-3": "預繳企業稅"
+    },
+    "period": {
+      "monthly": "每月",
+      "quarterly": "季刊",
+      "annual": "年度的"
+    }
+  },
+  "insights": {
+    "demoPrefix": "示範",
+    "noticeDefault": "洞察操作沒有關聯－卡片僅顯示範例結果。",
+    "actionUnavailable": "{action} 不可用 — 財務洞察操作未連線。",
+    "actionUnavailableTitle": "{action} 不可用 — 未連接",
+    "kinds": {
+      "unusual_expense": "異常開支",
+      "duplicate_invoice": "重複發票",
+      "missing_invoice": "遺漏收據",
+      "late_payment": "逾期付款",
+      "cashflow_prediction": "現金流量預測",
+      "tax_optimization": "稅務優化"
+    }
+  },
+  "search": {
+    "label": "自然語言搜尋",
+    "placeholder": "請嘗試「顯示未付收據」",
+    "submit": "搜尋",
+    "examplesTitle": "範例",
+    "hints": {
+      "idle": "詢問收據、費用、增值稅或出口相關事宜。",
+      "unpaid_invoices": "過濾發票中心以查找未付款/未清項目。",
+      "july_expenses": "顯示 7 月份的支出活動。",
+      "amazon": "查找亞馬遜發票和收據。",
+      "vat_export": "開放 DATEV / VAT 出口作業。",
+      "general": "正在分類帳中搜尋“{query}”。"
+    },
+    "examples": {
+      "q1": {
+        "query": "顯示未付發票",
+        "description": "未付或部分狀態的未清應收帳款"
+      },
+      "q2": {
+        "query": "顯示七月費用",
+        "description": "7月費用方發票及銀行資金流出"
+      },
+      "q3": {
+        "query": "查找亞馬遜發票",
+        "description": "跨發票中心的供應商匹配和上傳"
+      },
+      "q4": {
+        "query": "出口增值稅",
+        "description": "跳至 DATEV / 稅務出口行動"
+      }
+    }
+  }
+}

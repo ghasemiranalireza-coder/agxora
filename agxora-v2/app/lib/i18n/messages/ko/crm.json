@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "AGXORA 비즈니스 OS",
+    "title": "AI CRM",
+    "subtitle": "AI 기반 CRM 및 제작자 운영 체제 — 모든 산업 분야의 고객, 파이프라인, 주문, 배송, 문서, 커뮤니케이션 및 제작자 아키텍처."
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "CRM 대시보드"
+    },
+    "customer360": {
+      "title": "고객 360°",
+      "subtitle": "프로필, 회사, 연락처, 주문, 송장, Lieferscheine, 결제, 문서, 타임라인, 활동, 메모, AI 요약 및 커뮤니케이션 기록."
+    },
+    "salesPipeline": {
+      "title": "판매 파이프라인",
+      "subtitle": "드래그 앤 드롭 기능을 갖춘 Kanban 단계 — 리드, 적격, 제안, 협상, 성공, 손실."
+    },
+    "ordersModule": {
+      "title": "주문 모듈"
+    },
+    "deliveryModule": {
+      "title": "전달 모듈",
+      "subtitle": "추적, 서명, QR 및 바코드 준비 기능을 갖춘 전문 Lieferschein 시스템."
+    },
+    "documentsModule": {
+      "title": "서류",
+      "subtitle": "견적, 계약서, 송장, Lieferschein, 구매 주문서, 영수증 — AI 검색을 사용하세요."
+    },
+    "tasksModule": {
+      "title": "작업"
+    },
+    "communicationHub": {
+      "title": "커뮤니케이션 허브",
+      "subtitle": "메시징, 소셜, 이메일, 음성 및 비디오 전용 어댑터 레지스트리입니다."
+    },
+    "creatorStudio": {
+      "title": "크리에이터 스튜디오 재단",
+      "subtitle": "나중에 공식 통합을 위한 플랫폼 어댑터가 준비되었습니다."
+    },
+    "aiCreator": {
+      "title": "AI 크리에이터",
+      "subtitle": "콘텐츠, 일정, 생성 및 게시를 위한 엔터프라이즈 기능 맵입니다."
+    },
+    "industryPlatform": {
+      "title": "유니버설 비즈니스 플랫폼",
+      "subtitle": "모듈형 산업 등록 - 모든 업종은 전용 AI 모듈을 받을 수 있습니다."
+    }
+  },
+  "directory": {
+    "errorTitle": "CRM을 로드할 수 없습니다.",
+    "sort": {
+      "companyName": "회사",
+      "contactName": "연락하다",
+      "email": "이메일",
+      "phone": "핸드폰",
+      "industry": "산업",
+      "status": "상태",
+      "owner": "소유자",
+      "createdAt": "생성됨"
+    },
+    "search": {
+      "label": "고객 검색",
+      "placeholder": "회사, 연락처, 이메일, 태그…"
+    },
+    "view": {
+      "table": "테이블",
+      "cards": "카드"
+    },
+    "actions": {
+      "newCustomer": "신규 고객"
+    },
+    "filters": {
+      "status": "상태",
+      "industry": "산업",
+      "owner": "소유자",
+      "country": "국가",
+      "tags": "태그",
+      "allStatuses": "모든 상태",
+      "allIndustries": "모든 산업",
+      "allOwners": "모든 소유자",
+      "allCountries": "제국",
+      "allTags": "모든 태그"
+    },
+    "empty": {
+      "ready": {
+        "title": "CRM이 준비되었습니다",
+        "description": "디렉터리, 프로필 및 활동을 잠금 해제하려면 첫 번째 고객 기록을 만드세요.",
+        "action": "고객 생성"
+      },
+      "noMatches": {
+        "title": "일치하는 고객이 없습니다.",
+        "description": "검색이나 필터를 조정하여 올바른 기록을 찾아보세요.",
+        "action": "필터 지우기"
+      }
+    },
+    "pagination": {
+      "previous": "이전의",
+      "next": "다음"
+    },
+    "showing": "{total} 중 {from}~{to} 표시 중",
+    "aria": {
+      "openCustomer": "고객 {회사} 개설"
+    },
+    "cardMeta": "소유자 {owner} · 생성됨 {date}",
+    "sortBy": "{column} 기준으로 정렬"
+  },
+  "status": {
+    "lead": "선두",
+    "prospect": "전망",
+    "active": "활동적인",
+    "inactive": "비활성",
+    "vip": "요일",
+    "archived": "보관됨"
+  },
+  "form": {
+    "createTitle": "고객 생성",
+    "editTitle": "고객 편집",
+    "cancel": "취소",
+    "saveChanges": "변경사항 저장",
+    "createCustomer": "고객 생성",
+    "companyName": "회사명",
+    "contactName": "담당자 이름",
+    "email": "이메일",
+    "phone": "핸드폰",
+    "website": "웹사이트",
+    "industry": "산업",
+    "country": "국가",
+    "city": "도시",
+    "address": "주소",
+    "taxNumber": "세금 번호",
+    "owner": "소유자",
+    "status": "상태",
+    "tags": "태그",
+    "statusAria": "고객현황",
+    "tagsHint": "쉼표로 구분되어 자동으로 색상으로 구분됨",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "기업, 소매"
+  },
+  "toasts": {
+    "customerCreated": "고객이 생성됨",
+    "customerUpdated": "고객이 업데이트됨",
+    "checkForm": "양식을 확인하세요",
+    "validationFailed": "유효성 검사에 실패했습니다.",
+    "customerDeleted": "고객이 삭제되었습니다.",
+    "deleteFailed": "삭제 실패",
+    "customerCouldNotBeRemoved": "고객을 삭제할 수 없습니다.",
+    "contactSaved": "연락처가 저장되었습니다.",
+    "documentsAttached": "첨부서류",
+    "documentsAttachedDetail": "{count} 파일",
+    "noteSaved": "메모가 저장되었습니다."
+  },
+  "deleteDialog": {
+    "title": "고객 삭제",
+    "cancel": "취소",
+    "deletePermanently": "영구 삭제",
+    "thisCustomer": "이 고객",
+    "bodyPrefix": "이는 제거됩니다",
+    "bodySuffix": "로컬 저장소의 관련 연락처, 메모, 문서 및 활동. 연결된 프로젝트는 삭제되지 않습니다."
+  },
+  "validation": {
+    "companyNameRequired": "회사 이름이 필요합니다.",
+    "contactNameRequired": "연락처 이름이 필요합니다.",
+    "emailRequired": "이메일이 필요합니다.",
+    "emailInvalid": "유효한 이메일 주소를 입력하세요.",
+    "phoneRequired": "전화가 필요합니다.",
+    "phoneInvalid": "유효한 전화번호를 입력하세요.",
+    "websiteInvalid": "유효한 웹사이트를 입력하세요.",
+    "industryRequired": "산업이 필요합니다.",
+    "ownerRequired": "소유자가 필요합니다.",
+    "statusInvalid": "유효한 상태를 선택하세요.",
+    "emailDuplicate": "이 이메일을 받은 고객이 이미 존재합니다.",
+    "nameRequired": "이름은 필수입니다.",
+    "mobileInvalid": "유효한 휴대폰 번호를 입력하세요.",
+    "mobileRequired": "모바일이 필요합니다.",
+    "roleRequired": "역할은 필수입니다.",
+    "noteTitleRequired": "제목이 필요합니다.",
+    "noteBodyRequired": "메모 본문이 필요합니다.",
+    "noteAuthorRequired": "작성자는 필수입니다."
+  },
+  "errors": {
+    "failedToLoadCustomers": "고객을 로드하지 못했습니다.",
+    "failedToLoadCustomerProfile": "고객 프로필을 로드하지 못했습니다.",
+    "organizationRequired": "조직은 필수 항목입니다.",
+    "failedToSaveCustomer": "고객을 저장하지 못했습니다.",
+    "failedToDeleteCustomer": "고객을 삭제하지 못했습니다.",
+    "failedToSaveContact": "연락처를 저장하지 못했습니다.",
+    "failedToSaveNote": "메모를 저장하지 못했습니다.",
+    "failedToUploadDocument": "문서를 업로드하지 못했습니다."
+  },
+  "workspace": {
+    "badge": "엔터프라이즈 CRM 2.0",
+    "title": "고객 관계 관리",
+    "subtitleBeforeOrg": "고객 디렉터리, 프로필, 연락처, 메모 및 문서를 관리합니다.",
+    "subtitleAfterOrg": "프로젝트는 데이터 중복 없이 프로젝트 모듈에서 회사 이름으로 연결됩니다.",
+    "yourOrganization": "당신의 조직"
+  },
+  "analytics": {
+    "totalCustomers": "총 고객",
+    "activeCustomers": "활성 고객",
+    "newCustomers": "신규 고객",
+    "vipCustomers": "VIP 고객",
+    "createdThisMonth": "이번 달에 생성됨",
+    "leadConversion": "리드 전환",
+    "leadConversionHint": "리드/잠재고객/전환 유입경로의 활성 및 VIP 점유율.",
+    "customerGrowth": "고객 성장"
+  },
+  "profile": {
+    "backToCrm": "← CRM으로 돌아가기",
+    "ownerLabel": "소유자",
+    "notFoundTitle": "고객을 찾을 수 없습니다",
+    "notFoundDescription": "이 고객은 삭제되었을 수 있습니다.",
+    "missingCustomerTitle": "누락된 고객",
+    "missingOverviewDescription": "개요를 보려면 고객을 선택하세요.",
+    "missingSettingsDescription": "설정을 관리할 고객을 선택하세요.",
+    "ariaProfileNav": "고객 프로필",
+    "tabs": {
+      "overview": "개요",
+      "contacts": "콘택트 렌즈",
+      "projects": "프로젝트",
+      "documents": "서류",
+      "invoices": "송장",
+      "activity": "활동",
+      "notes": "메모",
+      "settings": "설정"
+    },
+    "overview": {
+      "title": "개요",
+      "email": "이메일",
+      "phone": "핸드폰",
+      "website": "웹사이트",
+      "taxNumber": "세금 번호",
+      "location": "위치",
+      "address": "주소",
+      "created": "생성됨",
+      "updated": "업데이트됨",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "연락처 추가",
+      "editTitle": "연락처 편집",
+      "listTitle": "콘택트 렌즈",
+      "name": "이름",
+      "role": "역할",
+      "email": "이메일",
+      "phone": "핸드폰",
+      "mobile": "이동하는",
+      "notes": "메모",
+      "saveContact": "연락처 저장",
+      "emptyTitle": "아직 연락처가 없습니다.",
+      "emptyDescription": "역할, 이메일, 전화 세부정보로 이해관계자를 추가하세요.",
+      "defaultRole": "연락하다",
+      "mobilePrefix": "이동하는"
+    },
+    "projects": {
+      "title": "프로젝트",
+      "emptyTitle": "연결된 프로젝트 없음",
+      "emptyDescription": "고객 이름이 이 회사와 일치하는 프로젝트가 여기에 표시됩니다. 프로젝트 모듈에서 데이터를 읽으며 중복되는 내용은 없습니다.",
+      "openProjects": "프로젝트 열기"
+    },
+    "documents": {
+      "title": "서류",
+      "subtitle": "이미지, PDF 및 사무실 문서 — 로컬 저장소에만 있는 메타데이터입니다.",
+      "attachFiles": "파일 첨부",
+      "emptyTitle": "문서 없음",
+      "emptyDescription": "계정팀을 위한 고객 파일을 첨부하세요.",
+      "systemUploader": "체계"
+    },
+    "invoices": {
+      "emptyTitle": "아직 인보이스가 없습니다.",
+      "emptyDescription": "Finance에서 연결되면 이 고객의 송장이 여기에 표시됩니다."
+    },
+    "activity": {
+      "title": "활동",
+      "emptyTitle": "아직 활동이 없습니다",
+      "emptyDescription": "여기에는 생성, 업데이트, 메모 및 문서가 최신 항목부터 표시됩니다.",
+      "kinds": {
+        "customer_created": "고객이 생성됨",
+        "customer_updated": "고객이 업데이트됨",
+        "contact_added": "연락처가 추가되었습니다.",
+        "contact_updated": "연락처가 업데이트되었습니다.",
+        "contact_deleted": "연락처가 삭제되었습니다.",
+        "note_added": "메모가 추가됨",
+        "note_updated": "메모가 업데이트되었습니다.",
+        "note_deleted": "메모가 삭제되었습니다.",
+        "document_added": "문서가 추가됨",
+        "document_deleted": "문서가 삭제되었습니다.",
+        "project_linked": "프로젝트 연결됨"
+      }
+    },
+    "notes": {
+      "newTitle": "새 메모",
+      "editTitle": "메모 수정",
+      "title": "제목",
+      "author": "작가",
+      "body": "몸",
+      "saveNote": "메모 저장",
+      "emptyTitle": "아직 메모가 없습니다.",
+      "emptyDescription": "작성자 및 타임스탬프로 계정 컨텍스트를 캡처하세요."
+    },
+    "settings": {
+      "title": "설정",
+      "description": "모든 프로필 필드를 편집하거나 이 계정을 보관하세요. 삭제는 확인 대화 상자를 사용합니다.",
+      "editAllFields": "모든 필드 편집",
+      "prepareArchive": "아카이브 준비",
+      "deleteCustomer": "고객 삭제"
+    }
+  },
+  "customer360": {
+    "ariaSections": "고객 360 섹션",
+    "email": "이메일",
+    "phone": "핸드폰",
+    "aiHealth": "AI 건강",
+    "tabs": {
+      "profile": "윤곽",
+      "company": "회사",
+      "contacts": "콘택트 렌즈",
+      "orders": "명령",
+      "invoices": "송장",
+      "lieferscheine": "리페르샤이네",
+      "payments": "결제",
+      "documents": "서류",
+      "timeline": "타임라인",
+      "activities": "활동",
+      "notes": "메모",
+      "aiSummary": "AI 요약",
+      "communicationHistory": "커뮤니케이션 이력"
+    },
+    "profileLines": {
+      "customerId": "고객 ID",
+      "status": "상태",
+      "primaryContact": "기본 연락처"
+    },
+    "status": {
+      "churn_risk": "이탈 위험"
+    }
+  },
+  "delivery": {
+    "title": "전문적인 Lieferschein 시스템",
+    "description": "배송 메모, 픽업/배송, 운전자, 차량 및 추적 - 샘플 기록만 가능합니다. 내보내기 어댑터가 연결되지 않았습니다.",
+    "badges": {
+      "qrUnavailable": "QR을 사용할 수 없음",
+      "barcodeUnavailable": "바코드를 사용할 수 없음",
+      "signatureDemo": "시그니처 데모"
+    },
+    "exportPdf": "PDF 내보내기",
+    "deliveryHistory": "배송 내역",
+    "notices": {
+      "exportNotConnected": "PDF, QR 및 바코드 내보내기는 이 빌드에 연결되지 않습니다.",
+      "exportPdfUnavailable": "PDF 내보내기 불가 — 배달 내보내기가 연결되지 않았습니다.",
+      "historyNotConnected": "이 빌드에는 전송 기록 저장소가 연결되어 있지 않습니다."
+    },
+    "columns": {
+      "lieferschein": "리퍼샤인",
+      "order": "주문하다",
+      "customer": "고객",
+      "kind": "친절한",
+      "driver": "운전사",
+      "vehicle": "차량",
+      "tracking": "추적",
+      "scheduled": "예정됨"
+    }
+  },
+  "orders": {
+    "description": "제품, 서비스, 가격, 할인, 세금 및 고객 — 기업 주문 원장.",
+    "createOrder": "주문 생성",
+    "notices": {
+      "apiReserved": "향후 쓰기 경로를 위해 예약된 주문 생성 API입니다.",
+      "draftStaged": "주문 초안 생성 단계(아직 API 없음)"
+    },
+    "columns": {
+      "order": "주문하다",
+      "customer": "고객",
+      "status": "상태",
+      "lines": "윤곽",
+      "net": "그물",
+      "tax": "세",
+      "gross": "역겨운",
+      "created": "생성됨"
+    },
+    "lineTax": "{taxPct}% 세금"
+  },
+  "tasks": {
+    "calendarTitle": "캘린더 · 회의 · 알림 · 후속 조치",
+    "foundationTitle": "태스크 OS 기반",
+    "foundationDescription": "캘린더 동기화, 회의 제공자, 미리 알림 작업 및 후속 자동화 후크가 예약되어 있습니다. 이 보드는 모든 산업 모듈에 대한 공유 CRM 작업 표면입니다.",
+    "badges": {
+      "calendarAdapter": "캘린더 어댑터",
+      "meetingAdapter": "회의 어댑터",
+      "reminderQueue": "알림 대기열",
+      "followUpEngine": "후속 엔진"
+    },
+    "duePrefix": "로 인한",
+    "kinds": {
+      "follow_up": "후속 조치",
+      "meeting": "회의",
+      "reminder": "알림",
+      "task": "일"
+    },
+    "statuses": {
+      "open": "열려 있는",
+      "in_progress": "진행중",
+      "done": "완료",
+      "cancelled": "취소"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "문서 없음",
+    "emptyDescription": "이 검색과 일치하는 문서가 없습니다.",
+    "searchLabel": "AI 검색",
+    "searchPlaceholder": "견적, 계약서, 송장, Lieferschein…",
+    "typeLabel": "문서 유형",
+    "allTypes": "모든 유형",
+    "columns": {
+      "type": "유형",
+      "title": "제목",
+      "customer": "고객",
+      "status": "상태",
+      "updated": "업데이트됨"
+    },
+    "kinds": {
+      "quote": "인용 부호",
+      "contract": "계약",
+      "invoice": "송장",
+      "lieferschein": "리퍼샤인",
+      "purchase_order": "구매 주문",
+      "receipt": "영수증"
+    }
+  },
+  "communication": {
+    "intro": "확장 가능한 채널 아키텍처만 해당 — 이메일, WhatsApp, Instagram, Facebook, TikTok, LinkedIn, Telegram, Voice 및 Video. 가짜 라이브 통합이 없습니다.",
+    "adapterPrefix": "어댑터:"
+  },
+  "aiCreator": {
+    "intro": "미래를 대비한 AI Creator 표면 — 아이디어, 캡션, 해시태그, 달력, 캠페인, 브랜드 음성, 이미지/비디오 생성, 분석, 일정, 게시 대기열 및 통찰력. 아직 실제 공급자 API가 연결되어 있지 않습니다."
+  },
+  "creatorStudio": {
+    "intro": "Creator Studio 기반 — 공식 플랫폼 통합은 나중에 이러한 어댑터에 연결할 수 있습니다. 인스타그램, 틱톡, 유튜브, 페이스북, 링크드인, 핀터레스트, 스레드, X."
+  },
+  "industry": {
+    "intro": "범용 비즈니스 플랫폼 — 온보딩은 나중에 산업을 선택합니다. 각 산업은 핵심 CRM OS를 포크하지 않고도 전용 AI 모듈을 받습니다."
+  },
+  "kpi": {
+    "customers": {
+      "label": "고객",
+      "caption": "활발한 관계"
+    },
+    "companies": {
+      "label": "회사",
+      "caption": "계정 조직"
+    },
+    "leads": {
+      "label": "리드",
+      "caption": "이번 달 새로운"
+    },
+    "deals": {
+      "label": "거래",
+      "caption": "오픈 파이프라인"
+    },
+    "revenue": {
+      "label": "수익",
+      "caption": "YTD에서 승리함"
+    },
+    "projects": {
+      "label": "활성 프로젝트",
+      "caption": "비행 중 배송"
+    },
+    "tasks": {
+      "label": "열린 작업",
+      "caption": "CRM + 배송 전반에 걸쳐"
+    },
+    "ai-health": {
+      "label": "AI 상태 점수",
+      "caption": "관계 품질 신호"
+    },
+    "scoreOutOf": "{점수} / {최대}"
+  },
+  "pipeline": {
+    "lead": "선두",
+    "qualified": "자격 있는",
+    "proposal": "제안",
+    "negotiation": "협상",
+    "won": "이겼다",
+    "lost": "잃어버린"
+  },
+  "orderStatus": {
+    "draft": "초안",
+    "confirmed": "확인됨",
+    "in_fulfillment": "이행 중",
+    "shipped": "배송됨",
+    "delivered": "배달됨",
+    "cancelled": "취소"
+  },
+  "tracking": {
+    "scheduled": "예정됨",
+    "en_route": "도중에",
+    "arrived": "도착했다",
+    "completed": "완전한",
+    "failed": "실패한"
+  },
+  "documentKind": {
+    "quote": "인용하다",
+    "contract": "계약",
+    "invoice": "송장",
+    "lieferschein": "리퍼샤인",
+    "purchase_order": "구매 주문",
+    "receipt": "영수증"
+  },
+  "documentStatus": {
+    "sent": "전송된",
+    "signed": "서명됨",
+    "paid": "유급의",
+    "in_transit": "운송 중",
+    "open": "열려 있는",
+    "filed": "더럽히는"
+  },
+  "integration": {
+    "planned": "예정",
+    "ready": "준비가 된",
+    "connected": "연결됨",
+    "disabled": "장애가 있는"
+  }
+}

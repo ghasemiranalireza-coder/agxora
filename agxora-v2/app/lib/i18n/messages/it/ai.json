@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "Caricamento della piattaforma AI…",
+    "eyebrow": "Piattaforma AI AGXORA",
+    "title": "Spazio di lavoro aziendale basato sull'intelligenza artificiale",
+    "subtitle": "Intelligenza indipendente dal fornitore per CRM, progetti, finanza, documenti e automazione. Configura i provider in Impostazioni → AI.",
+    "newConversation": "Nuova conversazione",
+    "aiCommands": "Comandi dell'IA"
+  },
+  "mobileTabs": {
+    "chat": "Chiacchierata",
+    "conversations": "Conversazioni",
+    "prompts": "Richiede"
+  },
+  "usageBar": {
+    "provider": "Fornitore",
+    "model": "Modello",
+    "estimatedTokens": "Est. gettoni",
+    "tokensInOut": "(entrata {entrata} / uscita {uscita})",
+    "cost": "Costo",
+    "context": "Contesto",
+    "contextNone": "nessuno",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "Area di lavoro AI AGXORA",
+    "emptyHint": "Avvia una conversazione, scegli un prompt dalla libreria o apri la tavolozza dei comandi (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Conversazioni",
+    "new": "Nuovo",
+    "searchPlaceholder": "Cerca chat...",
+    "searchAria": "Cerca conversazioni",
+    "showArchived": "Mostra archiviato",
+    "pinned": "Appuntato",
+    "emptyPreview": "Conversazione vuota",
+    "noConversations": "Nessuna conversazione ancora",
+    "pin": "Spillo",
+    "unpin": "Sblocca",
+    "rename": "Rinominare",
+    "archive": "Archivio",
+    "unarchive": "Annulla l'archiviazione",
+    "delete": "Eliminare"
+  },
+  "composer": {
+    "placeholder": "Messaggio AGXORA AI… (Invio per inviare, Maiusc+Invio per una nuova riga)",
+    "ariaLabel": "Compositore di messaggi",
+    "commandsShortcut": "Comandi ⌘⇧K",
+    "stop": "Fermare",
+    "send": "Inviare"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Copia",
+    "retry": "Riprova"
+  },
+  "typingIndicator": {
+    "ariaLabel": "L'assistente sta scrivendo"
+  },
+  "promptLibrary": {
+    "title": "Biblioteca rapida",
+    "subtitle": "Modelli riutilizzabili in CRM, Progetti, Finanza e altro ancora.",
+    "searchPlaceholder": "Richieste di ricerca...",
+    "searchAria": "Richieste di ricerca",
+    "all": "Tutto",
+    "favorites": "Preferiti",
+    "recent": "Recente",
+    "library": "Biblioteca",
+    "noMatches": "Nessuna richiesta corrisponde",
+    "removeFavoriteAria": "Rimuovi preferito",
+    "addFavoriteAria": "Aggiungi preferito",
+    "favorited": "Preferito",
+    "favorite": "Preferito",
+    "usePrompt": "Usa il prompt"
+  },
+  "commandPalette": {
+    "ariaLabel": "Tavolozza dei comandi AI",
+    "filterAria": "Filtra i comandi dell'IA",
+    "placeholder": "Comando AI… riepiloga, proponi, analizza…",
+    "noMatches": "Nessun comando corrispondente",
+    "footer": "Registra i comandi futuri tramite RegisterAiCommand: l'interfaccia utente rimane invariata."
+  }
+}

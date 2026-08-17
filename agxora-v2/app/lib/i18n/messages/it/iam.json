@@ -1,0 +1,149 @@
+{
+  "identity": {
+    "eyebrow": "IAM aziendale",
+    "title": "Identità e accesso",
+    "lead": "Organizzazione, area di lavoro, RBAC, segnaposto di sicurezza e architettura di controllo. Gli adattatori backend si collegano senza modificare questa superficie.",
+    "openProfile": "Apri profilo",
+    "teamManagement": "Gestione della squadra",
+    "tabs": {
+      "organization": "Organizzazione",
+      "workspace": "Spazio di lavoro",
+      "roles": "Ruoli e autorizzazioni",
+      "security": "Sicurezza",
+      "audit": "Registro di controllo"
+    },
+    "organizationSettings": "Impostazioni dell'organizzazione",
+    "workspaceSettings": "Impostazioni dell'area di lavoro",
+    "noOrganization": "Nessuna organizzazione attiva. Completa l'onboarding o creane uno dal servizio dell'organizzazione.",
+    "logoPlaceholder": "Il caricamento del logo e gli adattatori di fatturazione del piano sono segnaposto per il futuro backend dell'identità.",
+    "rbacTitle": "RBAC: ruoli predefiniti",
+    "permissionMatrix": "Matrice dei permessi",
+    "canManageSettings": "Può gestire le impostazioni: {value} · Autenticato: {authenticated}",
+    "yes": "SÌ",
+    "no": "NO",
+    "securitySettings": "Impostazioni di sicurezza",
+    "passwordChange": {
+      "title": "Modifica della password",
+      "detail": "La modifica della password si connette tramite il provider di autenticazione quando configurata."
+    },
+    "twoFactor": {
+      "title": "Autenticazione a due fattori (2FA)",
+      "detail": "Gli adattatori TOTP e WebAuthn si registrano qui quando abilitati."
+    },
+    "activeSessions": {
+      "title": "Sessioni attive",
+      "detail": "La directory del dispositivo risiede nelle sessioni di identità; la revoca diventa autorevole con le sessioni del server."
+    },
+    "apiKeys": {
+      "title": "Chiavi API",
+      "detail": "Account di servizio e token con ambito per gli sviluppatori."
+    },
+    "absoluteTimeout": "Timeout assoluto",
+    "idleTimeout": "Timeout di inattività",
+    "refreshSkew": "Aggiorna l'inclinazione",
+    "persistentLogin": "Accesso persistente",
+    "disabled": "Disabilitato",
+    "enabled": "Abilitato",
+    "days": "{count} giorni",
+    "minutes": "{count} min",
+    "toggleIdlePolicy": "Attiva/disattiva il segnaposto dei criteri inattivi",
+    "previewSessionExpired": "La sessione di anteprima è scaduta",
+    "previewAccountLocked": "Account di anteprima bloccato",
+    "auditActivity": "Attività di verifica",
+    "auditLead": "Accesso, disconnessione, modifiche di ruolo, inviti ed eventi dell'organizzazione vengono registrati localmente. Sostituiscilo con un archivio di controllo backend immutabile in un secondo momento.",
+    "auditEmpty": "Nessun evento IAM ancora. Accedi o modifica un ruolo per popolare il registro.",
+    "meta": {
+      "name": "Nome",
+      "slug": "Lumaca",
+      "plan": "Piano",
+      "owner": "Proprietario",
+      "created": "Creato",
+      "yourRole": "Il tuo ruolo",
+      "workspace": "Spazio di lavoro",
+      "status": "Stato",
+      "isolationKey": "Chiave di isolamento"
+    },
+    "matrix": {
+      "permission": "Autorizzazione",
+      "owner": "Proprietario",
+      "admin": "Ammin",
+      "manager": "Manager",
+      "member": "Membro",
+      "viewer": "Spettatore",
+      "yes": "SÌ"
+    },
+    "audit": {
+      "when": "Quando",
+      "action": "Azione",
+      "actor": "Attore",
+      "resource": "Risorsa"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "Proprietario",
+      "description": "Controllo completo, inclusa fatturazione e trasferimento di proprietà"
+    },
+    "admin": {
+      "name": "Ammin",
+      "description": "Gestisci persone, sicurezza, spazi di lavoro e moduli"
+    },
+    "manager": {
+      "name": "Manager",
+      "description": "Guidare squadre e moduli operativi; invitare membri"
+    },
+    "member": {
+      "name": "Membro",
+      "description": "Accesso operativo quotidiano"
+    },
+    "viewer": {
+      "name": "Spettatore",
+      "description": "Accesso in sola lettura"
+    }
+  },
+  "profile": {
+    "eyebrow": "Identità",
+    "title": "Profilo utente",
+    "lead": "Gestisci l'identità, le preferenze e la sicurezza del tuo account. I controlli dell'organizzazione e dell'area di lavoro si trovano nelle Impostazioni identità.",
+    "guest": "Ospite",
+    "notSignedIn": "Non ho effettuato l'accesso",
+    "identitySettings": "Impostazioni dell'identità",
+    "security": "Sicurezza",
+    "profileSection": "Profilo",
+    "fullName": "Nome e cognome",
+    "email": "E-mail",
+    "language": "Lingua",
+    "timezone": "Fuso orario",
+    "languageEnGb": "Inglese (Regno Unito)",
+    "languageEnUs": "Inglese (Stati Uniti)",
+    "languageDe": "Tedesco",
+    "timezoneBerlin": "Europa/Berlino",
+    "timezoneLondon": "Europa/Londra",
+    "timezoneUtc": "UTC",
+    "timezoneNewYork": "America/New_York",
+    "notifications": "Notifiche",
+    "emailNotifications": "Notifiche e-mail",
+    "pushNotifications": "Notifiche push",
+    "workspace": "Spazio di lavoro",
+    "noticeInitial": "Le preferenze vengono salvate localmente finché l'API del profilo non viene connessa.",
+    "noticeSaved": "Preferenze del profilo aggiornate.",
+    "savePreferences": "Salva le preferenze"
+  },
+  "workspaceSelector": {
+    "empty": "Ancora nessuno spazio di lavoro: crea un'organizzazione per fornirne uno.",
+    "label": "Spazio di lavoro attivo",
+    "ariaLabel": "Cambia area di lavoro"
+  },
+  "verifyEmail": {
+    "title": "Verifica e-mail",
+    "loading": "Caricamento…",
+    "skipForNow": "Salta per ora",
+    "tokenPlaceholder": "Token di verifica",
+    "tokenIssued": "Token di verifica emesso per la sessione corrente.",
+    "issueFailed": "Impossibile emettere il token",
+    "verificationFailed": "Verifica non riuscita",
+    "verify": "Verifica e-mail",
+    "verifying": "Verifica…",
+    "requestToken": "Richiedi token di verifica"
+  }
+}

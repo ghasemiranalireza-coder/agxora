@@ -1,0 +1,149 @@
+{
+  "identity": {
+    "eyebrow": "Perusahaan IAM",
+    "title": "Identitas & Akses",
+    "lead": "Organisasi, ruang kerja, RBAC, placeholder keamanan, dan arsitektur audit. Adaptor backend dipasang tanpa mengubah permukaan ini.",
+    "openProfile": "Buka profil",
+    "teamManagement": "Manajemen tim",
+    "tabs": {
+      "organization": "Organisasi",
+      "workspace": "Ruang kerja",
+      "roles": "Peran & izin",
+      "security": "Keamanan",
+      "audit": "Catatan audit"
+    },
+    "organizationSettings": "Pengaturan organisasi",
+    "workspaceSettings": "Pengaturan ruang kerja",
+    "noOrganization": "Tidak ada organisasi yang aktif. Selesaikan orientasi atau buat orientasi dari layanan organisasi.",
+    "logoPlaceholder": "Pengunggahan logo dan adaptor penagihan paket adalah pengganti untuk backend identitas masa depan.",
+    "rbacTitle": "RBAC — peran default",
+    "permissionMatrix": "Matriks izin",
+    "canManageSettings": "Dapat mengelola pengaturan: {value} · Diautentikasi: {authenticated}",
+    "yes": "Ya",
+    "no": "TIDAK",
+    "securitySettings": "Pengaturan keamanan",
+    "passwordChange": {
+      "title": "Perubahan kata sandi",
+      "detail": "Perubahan kata sandi terhubung melalui penyedia autentikasi saat dikonfigurasi."
+    },
+    "twoFactor": {
+      "title": "Otentikasi dua faktor (2FA)",
+      "detail": "Adaptor TOTP dan WebAuthn mendaftar di sini saat diaktifkan."
+    },
+    "activeSessions": {
+      "title": "Sesi aktif",
+      "detail": "Direktori perangkat berada dalam sesi identitas; pencabutan menjadi otoritatif dengan sesi server."
+    },
+    "apiKeys": {
+      "title": "Kunci API",
+      "detail": "Akun layanan dan token terbatas untuk pengembang."
+    },
+    "absoluteTimeout": "Batas waktu mutlak",
+    "idleTimeout": "Batas waktu menganggur",
+    "refreshSkew": "Segarkan kemiringan",
+    "persistentLogin": "Masuk terus-menerus",
+    "disabled": "Dengan disabilitas",
+    "enabled": "Diaktifkan",
+    "days": "{hitung} hari",
+    "minutes": "{hitung} mnt",
+    "toggleIdlePolicy": "Alihkan placeholder kebijakan yang tidak aktif",
+    "previewSessionExpired": "Sesi pratinjau berakhir",
+    "previewAccountLocked": "Pratinjau akun terkunci",
+    "auditActivity": "Aktivitas audit",
+    "auditLead": "Login, logout, perubahan peran, undangan, dan acara organisasi dicatat secara lokal. Ganti dengan penyimpanan audit backend yang tidak dapat diubah nanti.",
+    "auditEmpty": "Belum ada acara IAM. Masuk atau ubah peran untuk mengisi log.",
+    "meta": {
+      "name": "Nama",
+      "slug": "Siput",
+      "plan": "Rencana",
+      "owner": "Pemilik",
+      "created": "Dibuat",
+      "yourRole": "Peran Anda",
+      "workspace": "Ruang kerja",
+      "status": "Status",
+      "isolationKey": "Kunci isolasi"
+    },
+    "matrix": {
+      "permission": "Izin",
+      "owner": "Pemilik",
+      "admin": "Admin",
+      "manager": "Manajer",
+      "member": "Anggota",
+      "viewer": "Penonton",
+      "yes": "Ya"
+    },
+    "audit": {
+      "when": "Kapan",
+      "action": "Tindakan",
+      "actor": "Aktor",
+      "resource": "Sumber"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "Pemilik",
+      "description": "Kontrol penuh termasuk penagihan dan transfer kepemilikan"
+    },
+    "admin": {
+      "name": "Admin",
+      "description": "Kelola orang, keamanan, ruang kerja, dan modul"
+    },
+    "manager": {
+      "name": "Manajer",
+      "description": "Memimpin tim dan modul operasional; mengundang anggota"
+    },
+    "member": {
+      "name": "Anggota",
+      "description": "Akses operasional sehari-hari"
+    },
+    "viewer": {
+      "name": "Penonton",
+      "description": "Akses hanya baca"
+    }
+  },
+  "profile": {
+    "eyebrow": "Identitas",
+    "title": "Profil Pengguna",
+    "lead": "Kelola identitas, preferensi, dan keamanan akun Anda. Kontrol organisasi dan ruang kerja ada di Pengaturan Identitas.",
+    "guest": "Tamu",
+    "notSignedIn": "Tidak masuk",
+    "identitySettings": "Pengaturan identitas",
+    "security": "Keamanan",
+    "profileSection": "Profil",
+    "fullName": "Nama lengkap",
+    "email": "E-mail",
+    "language": "Bahasa",
+    "timezone": "Zona waktu",
+    "languageEnGb": "Bahasa Inggris (Inggris Raya)",
+    "languageEnUs": "Inggris (AS)",
+    "languageDe": "Jerman",
+    "timezoneBerlin": "Eropa/Berlin",
+    "timezoneLondon": "Eropa/London",
+    "timezoneUtc": "UTC",
+    "timezoneNewYork": "Amerika/New_York",
+    "notifications": "Pemberitahuan",
+    "emailNotifications": "Pemberitahuan email",
+    "pushNotifications": "Pemberitahuan push",
+    "workspace": "Ruang kerja",
+    "noticeInitial": "Preferensi disimpan secara lokal hingga API profil terhubung.",
+    "noticeSaved": "Preferensi profil diperbarui.",
+    "savePreferences": "Simpan preferensi"
+  },
+  "workspaceSelector": {
+    "empty": "Belum ada ruang kerja — buat organisasi untuk menyediakan ruang kerja.",
+    "label": "Ruang kerja aktif",
+    "ariaLabel": "Ganti ruang kerja"
+  },
+  "verifyEmail": {
+    "title": "Verifikasi Email",
+    "loading": "Memuat…",
+    "skipForNow": "Lewati untuk saat ini",
+    "tokenPlaceholder": "Token verifikasi",
+    "tokenIssued": "Token verifikasi dikeluarkan untuk sesi saat ini.",
+    "issueFailed": "Tidak dapat mengeluarkan token",
+    "verificationFailed": "Verifikasi gagal",
+    "verify": "Verifikasi Email",
+    "verifying": "Memverifikasi…",
+    "requestToken": "Minta token verifikasi"
+  }
+}

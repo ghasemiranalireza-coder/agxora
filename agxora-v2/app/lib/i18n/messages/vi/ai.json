@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "Đang tải nền tảng AI…",
+    "eyebrow": "Nền tảng AI AGXORA",
+    "title": "Không gian làm việc AI dành cho doanh nghiệp",
+    "subtitle": "Thông tin độc lập dành cho nhà cung cấp dành cho CRM, Dự án, Tài chính, Tài liệu và Tự động hóa. Định cấu hình nhà cung cấp trong Cài đặt → AI.",
+    "newConversation": "Cuộc trò chuyện mới",
+    "aiCommands": "Lệnh AI"
+  },
+  "mobileTabs": {
+    "chat": "Trò chuyện",
+    "conversations": "Cuộc trò chuyện",
+    "prompts": "Lời nhắc"
+  },
+  "usageBar": {
+    "provider": "nhà cung cấp",
+    "model": "Người mẫu",
+    "estimatedTokens": "Ước tính. mã thông báo",
+    "tokensInOut": "(vào {vào} / ra {ra})",
+    "cost": "Trị giá",
+    "context": "Bối cảnh",
+    "contextNone": "không có",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "Không gian làm việc AGXORA AI",
+    "emptyHint": "Bắt đầu cuộc trò chuyện, chọn lời nhắc từ thư viện hoặc mở bảng lệnh (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Cuộc trò chuyện",
+    "new": "Mới",
+    "searchPlaceholder": "Tìm kiếm cuộc trò chuyện…",
+    "searchAria": "Tìm kiếm cuộc trò chuyện",
+    "showArchived": "Hiển thị đã lưu trữ",
+    "pinned": "Đã ghim",
+    "emptyPreview": "Cuộc trò chuyện trống",
+    "noConversations": "Chưa có cuộc trò chuyện nào",
+    "pin": "Ghim",
+    "unpin": "Bỏ ghim",
+    "rename": "Đổi tên",
+    "archive": "Lưu trữ",
+    "unarchive": "Hủy lưu trữ",
+    "delete": "Xóa bỏ"
+  },
+  "composer": {
+    "placeholder": "Tin nhắn AGXORA AI… (Enter để gửi, Shift+Enter để xuống dòng)",
+    "ariaLabel": "Người soạn tin nhắn",
+    "commandsShortcut": "Lệnh ⌘⇧K",
+    "stop": "Dừng lại",
+    "send": "Gửi"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Sao chép",
+    "retry": "Thử lại"
+  },
+  "typingIndicator": {
+    "ariaLabel": "Trợ lý đang nhập văn bản"
+  },
+  "promptLibrary": {
+    "title": "Thư viện nhắc nhở",
+    "subtitle": "Các mẫu có thể tái sử dụng trên CRM, Dự án, Tài chính, v.v.",
+    "searchPlaceholder": "Lời nhắc tìm kiếm…",
+    "searchAria": "Lời nhắc tìm kiếm",
+    "all": "Tất cả",
+    "favorites": "Yêu thích",
+    "recent": "Gần đây",
+    "library": "Thư viện",
+    "noMatches": "Không có lời nhắc nào phù hợp",
+    "removeFavoriteAria": "Xóa yêu thích",
+    "addFavoriteAria": "Thêm yêu thích",
+    "favorited": "Yêu thích",
+    "favorite": "Yêu thích",
+    "usePrompt": "Sử dụng lời nhắc"
+  },
+  "commandPalette": {
+    "ariaLabel": "Bảng lệnh AI",
+    "filterAria": "Lọc lệnh AI",
+    "placeholder": "Lệnh AI… tóm tắt, đề xuất, phân tích…",
+    "noMatches": "Không có lệnh phù hợp",
+    "footer": "Đăng ký các lệnh trong tương lai thông qua registerAiCommand - Giao diện người dùng không thay đổi."
+  }
+}

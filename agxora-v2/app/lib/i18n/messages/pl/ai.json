@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "Ładowanie platformy AI…",
+    "eyebrow": "Platforma AI AGXORA",
+    "title": "Obszar roboczy sztucznej inteligencji przedsiębiorstwa",
+    "subtitle": "Niezależna od dostawcy inteligencja dla CRM, projektów, finansów, dokumentów i automatyzacji. Skonfiguruj dostawców w Ustawieniach → AI.",
+    "newConversation": "Nowa rozmowa",
+    "aiCommands": "Polecenia AI"
+  },
+  "mobileTabs": {
+    "chat": "Pogawędzić",
+    "conversations": "Rozmowy",
+    "prompts": "Podpowiedzi"
+  },
+  "usageBar": {
+    "provider": "Dostawca",
+    "model": "Model",
+    "estimatedTokens": "Szac. żetony",
+    "tokensInOut": "(wejście {wejście} / wyjście {wyjście})",
+    "cost": "Koszt",
+    "context": "Kontekst",
+    "contextNone": "nic",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "Obszar roboczy AI AGXORA",
+    "emptyHint": "Rozpocznij rozmowę, wybierz podpowiedź z biblioteki lub otwórz paletę poleceń (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Rozmowy",
+    "new": "Nowy",
+    "searchPlaceholder": "Wyszukaj czaty…",
+    "searchAria": "Wyszukaj rozmowy",
+    "showArchived": "Pokaż zarchiwizowane",
+    "pinned": "Przypięty",
+    "emptyPreview": "Pusta rozmowa",
+    "noConversations": "Nie ma jeszcze żadnych rozmów",
+    "pin": "Szpilka",
+    "unpin": "Odpiąć",
+    "rename": "Przemianować",
+    "archive": "Archiwum",
+    "unarchive": "Cofnij archiwizację",
+    "delete": "Usuwać"
+  },
+  "composer": {
+    "placeholder": "Wiadomość AGXORA AI… (Enter, aby wysłać, Shift+Enter, aby przejść do nowej linii)",
+    "ariaLabel": "Kompozytor wiadomości",
+    "commandsShortcut": "Polecenia ⌘⇧K",
+    "stop": "Zatrzymywać się",
+    "send": "Wysłać"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Kopia",
+    "retry": "Spróbować ponownie"
+  },
+  "typingIndicator": {
+    "ariaLabel": "Asystent pisze"
+  },
+  "promptLibrary": {
+    "title": "Szybka biblioteka",
+    "subtitle": "Szablony do wielokrotnego użytku w CRM, projektach, finansach i nie tylko.",
+    "searchPlaceholder": "Monity wyszukiwania…",
+    "searchAria": "Monity wyszukiwania",
+    "all": "Wszystko",
+    "favorites": "Ulubione",
+    "recent": "Ostatni",
+    "library": "Biblioteka",
+    "noMatches": "Żadne monity nie pasują",
+    "removeFavoriteAria": "Usuń ulubione",
+    "addFavoriteAria": "Dodaj ulubione",
+    "favorited": "Ulubione",
+    "favorite": "Ulubiony",
+    "usePrompt": "Użyj podpowiedzi"
+  },
+  "commandPalette": {
+    "ariaLabel": "Paleta poleceń AI",
+    "filterAria": "Filtruj polecenia AI",
+    "placeholder": "Polecenie AI…podsumuj, zaproponuj, przeanalizuj…",
+    "noMatches": "Brak pasujących poleceń",
+    "footer": "Rejestruj przyszłe polecenia za pomocą rejestruAiCommand — interfejs użytkownika pozostaje niezmieniony."
+  }
+}

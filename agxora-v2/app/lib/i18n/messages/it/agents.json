@@ -1,0 +1,121 @@
+{
+  "loading": "Caricamento del sistema operativo dell'agente…",
+  "eyebrow": "Sistema operativo dell'agente AI",
+  "title": "Sistema operativo dell'agente",
+  "subtitle": "Area di lavoro dell'agente locale: gli agenti possono essere attivati ​​ed eseguiti come simulazioni su CRM, progetti, finanza, flussi di lavoro e integrazioni. L'esecuzione autonoma della produzione non è collegata.",
+  "noticeDefault": "Sistema operativo dell'agente locale: le esecuzioni vengono simulate in questa area di lavoro.",
+  "aiChat": "Chatta sull'intelligenza artificiale",
+  "tabs": {
+    "dashboard": "Pannello di controllo",
+    "registry": "Registro",
+    "marketplace": "Mercato",
+    "monitor": "Monitorare",
+    "history": "Storia",
+    "memory": "Memoria",
+    "knowledge": "Conoscenza",
+    "tools": "Utensili",
+    "settings": "Impostazioni"
+  },
+  "notice": {
+    "simulatedRun": "Corsa simulata · {status} ({duration}ms)",
+    "taskFailed": "Attività fallita",
+    "activated": "Attivato localmente: {agentId}",
+    "agentPaused": "L'agente fece una pausa",
+    "agentActivated": "Agente attivato",
+    "taskCancelled": "Attività annullata",
+    "supervisorDelegated": "Il supervisore ha delegato un follow-up",
+    "settingsUpdated": "Impostazioni del sistema operativo dell'agente aggiornate per questa area di lavoro locale."
+  },
+  "dashboard": {
+    "agents": "Agenti",
+    "active": "Attivo",
+    "localReady": "Locale pronto",
+    "simulatedToday": "Simulato oggi",
+    "failedToday": "Fallito oggi",
+    "avgExec": "Media esecutivo",
+    "toolCalls": "Chiamate degli strumenti",
+    "knowledge": "Conoscenza",
+    "activeFleet": "Flotta attiva",
+    "emptyTitle": "Nessun agente attivo",
+    "emptyDescription": "Installa o attiva un agente dal marketplace per avviare esecuzioni simulate."
+  },
+  "registry": {
+    "title": "Registro",
+    "selectPrompt": "Seleziona un agente dal registro.",
+    "status": "Stato: {stato}",
+    "health": "Salute: {salute}",
+    "queue": "Coda: {coda}",
+    "usage": "Utilizzo: {utilizzo}",
+    "executeTask": "Esegui compito",
+    "supervisorDelegate": "Delegato supervisore"
+  },
+  "marketplace": {
+    "tools": "Strumenti: {strumenti}",
+    "installed": "Installato",
+    "installActivate": "Installa e attiva"
+  },
+  "monitor": {
+    "title": "Monitoraggio dell'agente",
+    "emptyTitle": "Nessun agente da monitorare",
+    "emptyDescription": "Attiva gli agenti dal marketplace.",
+    "latestConfidence": "Confidenza del ragionamento più recente: {confidence} — {steps}"
+  },
+  "history": {
+    "title": "Cronologia delle esecuzioni",
+    "emptyTitle": "Nessuna esecuzione ancora",
+    "emptyDescription": "Eseguire un'attività dell'agente dal registro o dal monitor."
+  },
+  "memory": {
+    "title": "Centro della memoria",
+    "subtitle": "Lavoro · Conversazione · Affari · A lungo termine · Area di lavoro · Ambiti dell'agente (predisposto per l'architettura).",
+    "emptyTitle": "Nessun record di memoria",
+    "emptyDescription": "Eseguire un'attività per popolare la memoria di lavoro/agente."
+  },
+  "knowledge": {
+    "title": "Centro di conoscenza",
+    "subtitle": "Azienda, documenti, progetti, CRM, politiche, procedure, oltre a segnaposto vettoriali/RAG.",
+    "emptyTitle": "Nessun documento di conoscenza",
+    "emptyDescription": "La conoscenza seed viene visualizzata dopo il bootstrap dell'area di lavoro."
+  },
+  "tools": {
+    "sensitive": "· sensibile",
+    "mcpReady": "· Predisposizione per MCP"
+  },
+  "settings": {
+    "title": "Impostazioni del sistema operativo dell'agente",
+    "defaultLlmProvider": "Provider LLM predefinito",
+    "enableSupervisor": "Abilita l'architettura dell'agente supervisore",
+    "isolateSensitive": "Isolare gli strumenti sensibili",
+    "saveSettings": "Salva impostazioni",
+    "providersHint": "Provider pronti: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Scambia gli adattatori tramite RegisterLlmProvider senza modifiche dell'interfaccia utente."
+  },
+  "columns": {
+    "agent": "Agente",
+    "status": "Stato",
+    "health": "Salute",
+    "queue": "Coda",
+    "usage": "Utilizzo",
+    "actions": "Azioni",
+    "task": "Compito",
+    "duration": "Durata",
+    "created": "Creato",
+    "scope": "Ambito",
+    "key": "Chiave",
+    "value": "Valore",
+    "at": "A",
+    "title": "Titolo",
+    "kind": "Tipo",
+    "summary": "Riepilogo"
+  },
+  "actions": {
+    "run": "Correre",
+    "pause": "Pausa",
+    "activate": "Attivare",
+    "cancel": "Cancellare",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "Esegui l'obiettivo aziendale {agentId}",
+    "planAndExecute": "Pianificare ed eseguire un obiettivo aziendale relativo allo spazio di lavoro"
+  }
+}

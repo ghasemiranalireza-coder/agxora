@@ -1,0 +1,442 @@
+{
+  "controlCenter": "コントロールセンター",
+  "settingsSections": "設定セクション",
+  "profile": {
+    "label": "プロフィール",
+    "description": "アバター、アイデンティティ、個人の好み",
+    "title": "プロフィール",
+    "panelDescription": "アバター、フルネーム、電子メール、役割、タイムゾーン、言語、およびテーマの設定。",
+    "language": "言語",
+    "timezone": "タイムゾーン",
+    "fullName": "フルネーム",
+    "email": "電子メール",
+    "role": "役割",
+    "theme": "テーマ",
+    "avatar": "アバター",
+    "changeAvatar": "アバターの変更",
+    "region": "地域",
+    "personalPrefs": "個人的な好み",
+    "supportLinks": "サポートと法務",
+    "signedOut": "サインインしてアカウント ID を確認します。",
+    "serverIdentityNotice": "名前、電子メール、役割はサーバー セッションから取得されます。これらはこのブラウザには保存されません。",
+    "localPrefsNotice": "タイムゾーン、地域、個人の設定はまだ保持されていません。保存すると、終了するまでこのページのみが更新されます。",
+    "avatarUnavailable": "アバターのアップロードはまだ利用できません。",
+    "appearanceNote": "外観設定は「外観」の下に残ります。ヘッダーはテーマのクイック切り替えのみを提供します。",
+    "prefsHint": "モジュール全体で AI アシスタントによって使用されます。",
+    "themeResolved": "{mode} (解決された {Appearance})",
+    "regions": {
+      "EU": "欧州連合",
+      "US": "米国",
+      "MENA": "メナ",
+      "APAC": "アジア太平洋"
+    }
+  },
+  "organization": {
+    "label": "組織",
+    "description": "会社概要と納税者情報",
+    "title": "組織",
+    "panelDescription": "会社名、ロゴ、住所、税務情報、部門、事業単位。"
+  },
+  "workspace": {
+    "label": "ワークスペース",
+    "description": "ブランディング、ホームページ、デフォルトのモジュール",
+    "title": "ワークスペース",
+    "panelDescription": "ワークスペース設定、デフォルトのダッシュボード、ブランド、モジュール、ホームページ。"
+  },
+  "team": {
+    "label": "チーム",
+    "description": "メンバー、役割、招待状、およびグループ",
+    "title": "チーム",
+    "panelDescription": "メンバー、役割、招待状、およびグループ。"
+  },
+  "ai": {
+    "label": "AI",
+    "description": "プロバイダー、モデル、創造性、記憶",
+    "title": "AI",
+    "panelDescription": "プロバイダー、モデル、創造性、温度、メモリの設定。",
+    "openAgentOs": "オープンエージェントOS",
+    "openAiWorkspace": "AI ワークスペースを開く",
+    "noticeSync": "AI 設定は AISettingsProvider を通じて同期されます。キーはここには保存されません。",
+    "noticeProvider": "プロバイダーの実装は AI サービス層の背後にあります。 UI が API キーや SDK の詳細を受け取ることはありません。自律エージェントはエージェント OS 内に存在します。",
+    "preferredProvider": "優先される AI プロバイダー",
+    "defaultModel": "デフォルトの AI モデル",
+    "temperature": "温度",
+    "topP": "トップP",
+    "maxTokens": "最大トークン数",
+    "writingStyle": "文体",
+    "languagePreferences": "言語設定",
+    "systemPrompt": "システムプロンプト",
+    "systemPromptHint": "AI プラットフォームのデフォルトのシステム命令として適用されます。",
+    "systemPromptPlaceholder": "あなたは AGXORA AI — エンタープライズ オペレーティング アシスタントです…",
+    "apiKeyManagement": "APIキー管理",
+    "apiKeyHint": "キーはサーバー環境変数を介してのみ提供されます。",
+    "apiKeyPlaceholder": "AGXORA_* 環境変数を介して構成されます (ブラウザでは決して構成されません)",
+    "memory": "メモリ",
+    "memoryDescription": "組織のメモリがモジュール全体で AI 応答を通知できるようにします。",
+    "automationSuggestions": "自動化の提案",
+    "automationSuggestionsDescription": "Automation Engine で AI ワークフローの提案を表示します。",
+    "streaming": "ストリーミング",
+    "streamingDescription": "プロバイダーがサポートしている場合は、モデル応答をストリーミングします。",
+    "providers": {
+      "mock": "モック (ローカル)",
+      "openai": "OpenAI",
+      "azure": "Azure OpenAI",
+      "anthropic": "人間的",
+      "google": "グーグル",
+      "openrouter": "オープンルーター",
+      "ollama": "オラマ",
+      "local": "ローカルプロバイダー"
+    },
+    "writingStyles": {
+      "professional": "プロ",
+      "concise": "簡潔",
+      "friendly": "フレンドリー",
+      "technical": "テクニカル"
+    },
+    "languages": {
+      "auto": "プロフィールの言語を一致させる",
+      "en": "英語",
+      "de": "ドイツ語"
+    }
+  },
+  "appearance": {
+    "label": "外観",
+    "description": "テーマ、密度、ガラス効果",
+    "title": "外観",
+    "panelDescription": "テーマ、密度、アクセント、アニメーション、ガラス効果。",
+    "noticeTheme": "テーマ モードは、ThemeProvider を介した唯一の信頼できる情報源です。ヘッダーではクイックトグルのみが提供されます。",
+    "themeLabel": "テーマ",
+    "themeModeAria": "テーマモード",
+    "resolvedAppearance": "解決された外観:",
+    "accentColor": "アクセントカラー",
+    "accentNotice": "アクセントの設定は、将来の CSS var ワイヤリングのために保存されます。ロックされたカラー システムはまだ変更されません。",
+    "density": "密度",
+    "compactMode": "コンパクトモード",
+    "compactModeDescription": "エンタープライズテーブルおよびパネル全体のパディングを削減します。",
+    "animations": "アニメーション",
+    "animationsDescription": "セクションモーションとホバーリフト。モーション軽減OSの設定を尊重します。",
+    "glassEffects": "ガラス効果",
+    "glassEffectsDescription": "曇りガラスのカードとサイドバーのぼかし強度の設定。",
+    "modes": {
+      "day": {
+        "label": "ライト",
+        "hint": "パール/アイスエンタープライズデイパレット"
+      },
+      "night": {
+        "label": "暗い",
+        "hint": "承認された映画のような夜の外観"
+      },
+      "auto": {
+        "label": "システム",
+        "hint": "現地のスケジュールに従う (自動)"
+      }
+    },
+    "densities": {
+      "comfortable": "快適",
+      "compact": "コンパクト",
+      "spacious": "広々とした"
+    }
+  },
+  "notifications": {
+    "label": "通知",
+    "description": "電子メール、プッシュ、モジュールのアラート",
+    "title": "通知",
+    "panelDescription": "電子メール、プッシュ、デスクトップ、モバイル、およびモジュール固有のアラート。",
+    "notice": "通知チャネルは設定のみであり、配信アダプターは予約されています。",
+    "email": "電子メール",
+    "push": "押す",
+    "desktop": "デスクトップ",
+    "mobile": "携帯",
+    "workflowAlerts": "ワークフローアラート",
+    "workflowAlertsDescription": "Automation Engine の実行および承認イベント。",
+    "financeAlerts": "財務アラート",
+    "crmAlerts": "CRMアラート",
+    "documentsAlerts": "ドキュメントアラート",
+    "deliveryNotice": "配信アダプターは発売時に出荷されます。質問:",
+    "contactSupport": "サポートに連絡する"
+  },
+  "documents": {
+    "label": "書類",
+    "description": "保管、保持、および知識",
+    "title": "書類",
+    "panelDescription": "ストレージの設定、保存、デフォルトのフォルダー、バージョン管理、およびナレッジ設定。",
+    "notice": "ドキュメント設定は、Knowledge Hub アーキテクチャと統合されます。",
+    "storagePreferences": "ストレージの設定",
+    "retentionPolicy": "保存ポリシー",
+    "defaultFolder": "デフォルトのフォルダー",
+    "versioning": "バージョン管理",
+    "versioningDescription": "復元/比較のためにドキュメントのバージョン履歴を保存します。",
+    "knowledgeSettings": "ナレッジ設定",
+    "knowledgeDescription": "Knowledge Hub 検索のための AI インデックス作成。",
+    "storageOptions": {
+      "workspace-default": "ワークスペースのデフォルト",
+      "eu-region": "EU地域",
+      "encrypted-vault": "暗号化された保管庫"
+    },
+    "retentionOptions": {
+      "30-days": "30 日間 (スクラッチ)",
+      "2-years": "2年",
+      "7-years": "7年",
+      "10-years": "10年"
+    }
+  },
+  "automation": {
+    "label": "オートメーション",
+    "description": "ワークフローのデフォルトと再試行ポリシー",
+    "title": "オートメーション",
+    "panelDescription": "ワークフローのデフォルト、AI の提案、実行ログ、履歴制限、および再試行ポリシー。",
+    "notice": "自動化のデフォルトはワークフロー エンジン アーキテクチャに適用されます。",
+    "workflowDefaults": "ワークフローのデフォルト",
+    "historyLimits": "履歴の制限",
+    "retryPolicy": "再試行ポリシー",
+    "aiSuggestions": "AIによる提案",
+    "executionLogs": "実行ログ",
+    "executionLogsDescription": "詳細な実行ペイロードをワークフロー履歴に保持します。",
+    "workflowOptions": {
+      "require-approval": "承認ゲートを必要とする",
+      "auto-run": "信頼できるフローを自動実行する",
+      "draft-only": "ドラフトのみ"
+    },
+    "historyOptions": {
+      "30-days": "30日",
+      "90-days": "90日",
+      "365-days": "365日"
+    },
+    "retryOptions": {
+      "none": "再試行なし",
+      "3-exponential": "3×指数関数",
+      "5-linear": "5×リニア"
+    }
+  },
+  "integrations": {
+    "label": "統合",
+    "description": "インストール、接続、利用可能",
+    "title": "統合",
+    "panelDescription": "インストールされ、接続され、使用可能なアダプター。",
+    "openCenter": "オープンインテグレーションセンター",
+    "notice": "Enterprise Integration Platform は、コネクタ、OAuth、Webhook、API キー、ワークフロー イベント ブリッジなどの統合センター内に存在します。",
+    "columns": {
+      "integration": "統合",
+      "category": "カテゴリ",
+      "status": "状態",
+      "adapter": "アダプタ"
+    }
+  },
+  "security": {
+    "label": "安全",
+    "description": "セッション、パスワード、アカウントの保護",
+    "title": "安全",
+    "panelDescription": "このアカウントのサーバーセッション。デバイス、IP、MFA は保存されません。",
+    "activeSessions": "アクティブなセッション",
+    "currentSession": "現在のセッション",
+    "otherSession": "その他のセッション",
+    "currentBadge": "このセッション",
+    "otherBadge": "その他のセッション",
+    "createdAt": "サインインしました",
+    "expiresAt": "有効期限が切れます",
+    "revoke": "セッションを取り消す",
+    "revokeAria": "{when} サインインしたセッションを取り消す",
+    "revokeOthers": "他のセッションからサインアウトする",
+    "revokeOthersAria": "現在のセッションを除くすべてのセッションからサインアウトします",
+    "revoked": "セッションが取り消されました。",
+    "othersRevoked": "他のセッションはサインアウトしました。このセッションはまだアクティブです。",
+    "loading": "セッションを読み込み中…",
+    "empty": "アクティブなセッションはありません",
+    "emptyBody": "このアカウントにはアクティブなサーバー セッションがありません。",
+    "demoEmpty": "サインインして、このブラウザーでローカル デモ セッションを登録します。",
+    "signedOutTitle": "サインインしていません",
+    "signedOut": "サインインして、アクティブなサーバー セッションを確認します。",
+    "loadFailed": "セッションをロードできませんでした。",
+    "revokeFailed": "そのセッションを取り消すことができませんでした。",
+    "logout": "このセッションからサインアウトします",
+    "logoutAria": "現在のサーバーセッションからサインアウトします",
+    "password": "パスワード",
+    "changePassword": "パスワードをリセットする",
+    "passwordHint": "パスワードの変更には既存のリセット フローが使用されます。専用のパスワード変更フォームはまだ利用できません。",
+    "mfaTitle": "二要素認証",
+    "mfaUnavailable": "二要素認証はまだ利用できません。",
+    "ssoTitle": "SSO と OAuth",
+    "ssoUnavailable": "シングル サインオンと OAuth プロバイダーはまだ利用できません。",
+    "encryptionTitle": "暗号化",
+    "encryptionUnavailable": "キー管理と保存時の暗号化制御はまだ利用できません。",
+    "trustedDevices": "信頼できるデバイス",
+    "trustedUnavailable": "信頼できるデバイスと IP 履歴は保存されません。セッション メタデータは、作成時間と有効期限に制限されます。",
+    "apiKeys": "APIキー",
+    "apiKeysHint": "開発者キーは、「API と開発者」の下で管理されます。このパネルではキーは発行されません。",
+    "openApi": "API設定を開く",
+    "serverNotice": "セッションはサーバーに保存されます。このブラウザは、ローカル ID データを信頼できるものとして扱うことはありません。",
+    "demoNotice": "デモ モードでは、ローカル ブラウザ セッションのみが使用されます。これは本番認証ではありません。",
+    "noDeviceMeta": "デバイス、IP、ユーザーエージェントは記録されません。"
+  },
+  "billing": {
+    "label": "請求する",
+    "description": "プラン、使用量、請求書、支払い",
+    "title": "請求する",
+    "panelDescription": "現在のプラン、更新、使用量、請求書、アップグレード パス。"
+  },
+  "api": {
+    "label": "APIと開発者",
+    "description": "キー、Webhook、トークン、サンドボックス",
+    "title": "APIと開発者",
+    "panelDescription": "キー、Webhook、トークン、サンドボックスへのアクセス。",
+    "openPortal": "開発者ポータルを開く",
+    "notice": "統合センターでキーを生成、回転、取り消します。ゲートウェイ、Webhook テスター、API エクスプローラーがそこで利用可能です。",
+    "webhooks": "Webhook",
+    "sandbox": "サンドボックス",
+    "sandboxEnabled": "有効",
+    "sandboxDisabled": "無効",
+    "tokensNotice": "開発者トークンは完全なシークレットを表示することはなく、プレフィックスのみを表示します。",
+    "columns": {
+      "name": "名前",
+      "key": "鍵",
+      "scope": "範囲",
+      "lastUsed": "最後に使用した"
+    }
+  },
+  "audit": {
+    "label": "監査ログ",
+    "description": "アクティビティ、セキュリティ、システムの変更",
+    "title": "監査ログ",
+    "panelDescription": "最近のアクティビティ、セキュリティ イベント、システムの変更。",
+    "columns": {
+      "when": "いつ",
+      "actor": "俳優",
+      "category": "カテゴリ",
+      "summary": "まとめ"
+    },
+    "categories": {
+      "activity": "最近の活動",
+      "security": "セキュリティイベント",
+      "system": "システム変更"
+    }
+  },
+  "advanced": {
+    "label": "高度な",
+    "description": "実験的、リセット、インポート、エクスポート",
+    "title": "高度な",
+    "panelDescription": "実験的な機能、リセット、インポート、エクスポート。",
+    "notice": "高度なアクションを適用するには、適用する前に確認が必要です。",
+    "experimentalFeatures": "実験的な機能",
+    "experimentalDescription": "未完成のコントロール センター機能をオプトインします。",
+    "export": "輸出",
+    "import": "輸入",
+    "reset": "リセット",
+    "exportUnavailable": "エクスポートはまだ利用できません。",
+    "importUnavailable": "インポートはまだ利用できません。",
+    "resetUnavailable": "リセットはまだ利用できません。"
+  },
+  "page": {
+    "eyebrow": "AGXORA コントロール センター",
+    "title": "設定",
+    "lead": "すべての AGXORA モジュールのエンタープライズ構成 - プロファイル、組織、AI、外観、セキュリティ、請求、開発者制御を 1 か所で管理します。",
+    "loading": "設定を読み込み中…",
+    "breadcrumb": "{ラベル} · {説明}"
+  },
+  "saveChanges": "変更を保存する",
+  "sessionNotice": "このセッション用に更新されました — {エリア} が接続されていません。",
+  "kpi": {
+    "members": {
+      "label": "チームメンバー",
+      "caption": "アクティブシート"
+    },
+    "integrations": {
+      "label": "統合",
+      "caption": "接続されているアダプター"
+    },
+    "api": {
+      "label": "APIキー",
+      "caption": "開発者トークン"
+    },
+    "audit": {
+      "label": "監査イベント",
+      "caption": "過去 7 日間"
+    }
+  },
+  "unknown": {
+    "title": "設定",
+    "description": "不明なセクション。",
+    "emptyTitle": "見つかりません",
+    "emptyDescription": "コントロール センターのナビゲーションからセクションを選択します。"
+  },
+  "controlPlane": {
+    "loading": "読み込み中…",
+    "loadFailed": "組織データをロードできませんでした。サインインして再試行してください。",
+    "saveFailed": "変更を保存できませんでした。",
+    "saving": "保存中…",
+    "orgName": "組織名",
+    "orgSlug": "ナメクジ",
+    "owner": "所有者",
+    "counts": "メンバー · ワークスペース",
+    "orgUpdated": "組織が更新されました。",
+    "countsValue": "{メンバー} · {ワークスペース}",
+    "joined": "参加しました",
+    "workspaceName": "ワークスペース名",
+    "switchWorkspace": "アクティブなワークスペース",
+    "active": "アクティブ",
+    "rename": "名前の変更",
+    "archive": "アーカイブ",
+    "create": "ワークスペースの作成",
+    "createWorkspace": "新しいワークスペース",
+    "workspaceCreated": "ワークスペースが作成されました。",
+    "workspaceUpdated": "ワークスペースの名前が変更されました。",
+    "workspaceArchived": "ワークスペースがアーカイブされました。",
+    "workspaceSwitched": "アクティブなワークスペースが更新されました。",
+    "member": "メンバー",
+    "email": "電子メール",
+    "role": "役割",
+    "status": "状態",
+    "actions": "アクション",
+    "roleOwner": "所有者",
+    "roleAdmin": "管理者",
+    "roleMember": "メンバー",
+    "changeRole": "役割を変更する",
+    "remove": "取り除く",
+    "invite": "メンバーを招待する",
+    "inviteTitle": "ワークスペースに招待する",
+    "sendInvite": "招待状を作成する",
+    "close": "近い",
+    "pending": "保留中の招待状",
+    "noPending": "保留中の招待はありません。",
+    "revoke": "取り消す",
+    "noMembers": "まだメンバーがいません",
+    "noMembersBody": "チームメイトをこのワークスペースに招待します。",
+    "inviteHonesty": "電子メール配信が設定されていません。招待リンクを直接共有します。",
+    "inviteLink": "招待リンク",
+    "inviteInvalid": "この招待は無効です。",
+    "accept": "招待を承諾する",
+    "invitedAs": "{email} は {role} として招待されています。",
+    "inviteStatus": {
+      "pending": "保留中",
+      "expired": "この招待状の有効期限は切れています。",
+      "revoked": "この招待は取り消されました。",
+      "accepted": "この招待はすでに受け入れられています。"
+    },
+    "transferOwnership": "所有権を譲渡する",
+    "transferTitle": "組織の所有権を譲渡する",
+    "transferWarning": "これは危険な行為です。受信者が確認するまで、あなたは所有者のままです。確認後、あなたは管理者になり、彼らは所有者になります。",
+    "transferTarget": "新しい所有者",
+    "transferSelectMember": "既存のメンバーを選択してください…",
+    "transferTypeName": "確認のために「{名前}」と入力してください",
+    "transferConfirmMismatch": "入力された名前が選択されたメンバーと一致しません。",
+    "transferInitiate": "転送の開始",
+    "transferHonesty": "配信が設定されると、確認メールが送信されます。それ以外の場合は、確認リンクを受信者と直接共有します。",
+    "transferLink": "確認リンク",
+    "transferPendingTitle": "所有権移転保留中",
+    "transferPendingBody": "{name} ({email}) による確認を待っています。有効期限は {expires} です。それまではあなたは所有者のままです。",
+    "transferPendingNote": "移管が保留されている間、メンバーシップの役割は変更されません。",
+    "cancelTransfer": "転送のキャンセル",
+    "transferCancelled": "所有権移転はキャンセルされました。",
+    "transferInvalid": "この所有権の譲渡は無効です。",
+    "transferConfirmTitle": "所有権移転の確認",
+    "transferConfirmBody": "{from} は組織の所有権を {to} ({email}) に譲渡したいと考えています。",
+    "transferConfirmDanger": "確認すると、あなたは所有者になり、前の所有者は管理者になります。",
+    "transferConfirmAction": "私が新しい所有者になることを確認します",
+    "transferWrongAccount": "この転送を確認するには、{email} としてサインインしてください。",
+    "transferStatus": {
+      "pending": "確認待ち",
+      "expired": "この所有権の譲渡は期限切れになりました。",
+      "cancelled": "この所有権移転はキャンセルされました。",
+      "confirmed": "この所有権移転はすでに完了しています。"
+    }
+  }
+}

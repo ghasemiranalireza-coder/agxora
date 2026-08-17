@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "نظام التشغيل AGXORA للأعمال",
+    "title": "الذكاء الاصطناعي لإدارة علاقات العملاء",
+    "subtitle": "إدارة علاقات العملاء (CRM) الأصلية ونظام التشغيل المبتكر - العملاء، وخطوط الأنابيب، والطلبات، والتسليم، والمستندات، والاتصالات، وبنية المبدعين لكل صناعة."
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "لوحة تحكم إدارة علاقات العملاء"
+    },
+    "customer360": {
+      "title": "العميل 360 درجة",
+      "subtitle": "الملف الشخصي والشركة وجهات الاتصال والأوامر والفواتير وLieferscheine والمدفوعات والمستندات والجدول الزمني والأنشطة والملاحظات وملخص الذكاء الاصطناعي وتاريخ الاتصالات."
+    },
+    "salesPipeline": {
+      "title": "خط أنابيب المبيعات",
+      "subtitle": "مراحل كانبان مع السحب والإفلات - العميل المحتمل، المؤهل، العرض، التفاوض، الفوز، الخسارة."
+    },
+    "ordersModule": {
+      "title": "وحدة الطلبات"
+    },
+    "deliveryModule": {
+      "title": "وحدة التسليم",
+      "subtitle": "نظام Lieferschein الاحترافي مع إمكانية التتبع والتوقيع وQR والباركود."
+    },
+    "documentsModule": {
+      "title": "وثائق",
+      "subtitle": "عروض الأسعار، والعقود، والفواتير، وLieferschein، وأوامر الشراء، والإيصالات - مع بحث الذكاء الاصطناعي."
+    },
+    "tasksModule": {
+      "title": "المهام"
+    },
+    "communicationHub": {
+      "title": "محور الاتصالات",
+      "subtitle": "سجل المحول للمراسلة والتواصل الاجتماعي والبريد الإلكتروني والصوت والفيديو فقط."
+    },
+    "creatorStudio": {
+      "title": "مؤسسة استوديو المبدعين",
+      "subtitle": "محولات النظام الأساسي جاهزة للتكامل الرسمي لاحقًا."
+    },
+    "aiCreator": {
+      "title": "منظمة العفو الدولية الخالق",
+      "subtitle": "خريطة قدرات المؤسسة للمحتوى والتقويم والإنشاء والنشر."
+    },
+    "industryPlatform": {
+      "title": "منصة الأعمال العالمية",
+      "subtitle": "سجل الصناعة المعياري - يمكن لكل قطاع أن يتلقى وحدات مخصصة للذكاء الاصطناعي."
+    }
+  },
+  "directory": {
+    "errorTitle": "تعذر تحميل CRM",
+    "sort": {
+      "companyName": "شركة",
+      "contactName": "اتصال",
+      "email": "بريد إلكتروني",
+      "phone": "هاتف",
+      "industry": "صناعة",
+      "status": "حالة",
+      "owner": "مالك",
+      "createdAt": "مخلوق"
+    },
+    "search": {
+      "label": "عملاء البحث",
+      "placeholder": "الشركة، جهة الاتصال، البريد الإلكتروني، العلامات..."
+    },
+    "view": {
+      "table": "طاولة",
+      "cards": "بطاقات"
+    },
+    "actions": {
+      "newCustomer": "عميل جديد"
+    },
+    "filters": {
+      "status": "حالة",
+      "industry": "صناعة",
+      "owner": "مالك",
+      "country": "دولة",
+      "tags": "العلامات",
+      "allStatuses": "جميع الحالات",
+      "allIndustries": "جميع الصناعات",
+      "allOwners": "جميع أصحاب",
+      "allCountries": "جميع البلدان",
+      "allTags": "جميع العلامات"
+    },
+    "empty": {
+      "ready": {
+        "title": "نظام إدارة علاقات العملاء (CRM) الخاص بك جاهز",
+        "description": "قم بإنشاء سجل العميل الأول لفتح الدليل والملفات الشخصية والنشاط.",
+        "action": "إنشاء العميل"
+      },
+      "noMatches": {
+        "title": "لا يوجد عملاء مطابقين",
+        "description": "حاول ضبط البحث أو عوامل التصفية للعثور على السجلات الصحيحة.",
+        "action": "مسح المرشحات"
+      }
+    },
+    "pagination": {
+      "previous": "سابق",
+      "next": "التالي"
+    },
+    "showing": "عرض {من}–{إلى} من {total}",
+    "aria": {
+      "openCustomer": "فتح العميل {شركة}"
+    },
+    "cardMeta": "المالك {owner} · تم الإنشاء في {تاريخ}",
+    "sortBy": "الترتيب حسب {عمود}"
+  },
+  "status": {
+    "lead": "يقود",
+    "prospect": "احتمال",
+    "active": "نشيط",
+    "inactive": "غير نشط",
+    "vip": "VIP",
+    "archived": "مؤرشف"
+  },
+  "form": {
+    "createTitle": "إنشاء عميل",
+    "editTitle": "تحرير العميل",
+    "cancel": "يلغي",
+    "saveChanges": "حفظ التغييرات",
+    "createCustomer": "إنشاء العميل",
+    "companyName": "اسم الشركة",
+    "contactName": "اسم جهة الاتصال",
+    "email": "بريد إلكتروني",
+    "phone": "هاتف",
+    "website": "موقع إلكتروني",
+    "industry": "صناعة",
+    "country": "دولة",
+    "city": "مدينة",
+    "address": "عنوان",
+    "taxNumber": "الرقم الضريبي",
+    "owner": "مالك",
+    "status": "حالة",
+    "tags": "العلامات",
+    "statusAria": "حالة العميل",
+    "tagsHint": "مفصولة بفواصل، ومرمزة بالألوان تلقائيًا",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "المؤسسة والتجزئة"
+  },
+  "toasts": {
+    "customerCreated": "تم إنشاء العميل",
+    "customerUpdated": "تم تحديث العميل",
+    "checkForm": "تحقق من النموذج",
+    "validationFailed": "فشل التحقق من الصحة.",
+    "customerDeleted": "تم حذف العميل",
+    "deleteFailed": "فشل الحذف",
+    "customerCouldNotBeRemoved": "لا يمكن إزالة العميل.",
+    "contactSaved": "تم حفظ جهة الاتصال",
+    "documentsAttached": "المستندات المرفقة",
+    "documentsAttachedDetail": "{count} ملف (ملفات)",
+    "noteSaved": "تم حفظ الملاحظة"
+  },
+  "deleteDialog": {
+    "title": "حذف العميل",
+    "cancel": "يلغي",
+    "deletePermanently": "حذف نهائيا",
+    "thisCustomer": "هذا العميل",
+    "bodyPrefix": "هذا يزيل",
+    "bodySuffix": "وجهات الاتصال والملاحظات والمستندات والأنشطة ذات الصلة من التخزين المحلي. لا يتم حذف المشاريع المرتبطة."
+  },
+  "validation": {
+    "companyNameRequired": "اسم الشركة مطلوب.",
+    "contactNameRequired": "اسم جهة الاتصال مطلوب.",
+    "emailRequired": "البريد الإلكتروني مطلوب.",
+    "emailInvalid": "أدخل عنوان بريد إلكتروني صالحًا.",
+    "phoneRequired": "الهاتف مطلوب.",
+    "phoneInvalid": "أدخل رقم هاتف صالحًا.",
+    "websiteInvalid": "أدخل موقع ويب صالحًا.",
+    "industryRequired": "الصناعة مطلوبة.",
+    "ownerRequired": "مطلوب المالك.",
+    "statusInvalid": "حدد حالة صالحة.",
+    "emailDuplicate": "العميل الذي لديه هذا البريد الإلكتروني موجود بالفعل.",
+    "nameRequired": "الاسم مطلوب.",
+    "mobileInvalid": "أدخل رقم جوال صالح.",
+    "mobileRequired": "الجوال مطلوب .",
+    "roleRequired": "الدور مطلوب.",
+    "noteTitleRequired": "العنوان مطلوب.",
+    "noteBodyRequired": "نص الملاحظة مطلوب.",
+    "noteAuthorRequired": "مطلوب المؤلف."
+  },
+  "errors": {
+    "failedToLoadCustomers": "فشل في تحميل العملاء.",
+    "failedToLoadCustomerProfile": "فشل تحميل ملف تعريف العميل.",
+    "organizationRequired": "التنظيم مطلوب.",
+    "failedToSaveCustomer": "فشل في حفظ العميل.",
+    "failedToDeleteCustomer": "فشل حذف العميل.",
+    "failedToSaveContact": "فشل حفظ جهة الاتصال.",
+    "failedToSaveNote": "فشل حفظ الملاحظة.",
+    "failedToUploadDocument": "فشل تحميل المستند."
+  },
+  "workspace": {
+    "badge": "إدارة علاقات العملاء للمؤسسات 2.0",
+    "title": "إدارة علاقات العملاء",
+    "subtitleBeforeOrg": "إدارة دليل العملاء وملفات التعريف وجهات الاتصال والملاحظات والمستندات الخاصة بـ",
+    "subtitleAfterOrg": "يتم ربط المشاريع حسب اسم الشركة من وحدة المشاريع دون تكرار البيانات.",
+    "yourOrganization": "مؤسستك"
+  },
+  "analytics": {
+    "totalCustomers": "إجمالي العملاء",
+    "activeCustomers": "العملاء النشطين",
+    "newCustomers": "العملاء الجدد",
+    "vipCustomers": "عملاء VIP",
+    "createdThisMonth": "تم إنشاؤها هذا الشهر",
+    "leadConversion": "تحويل الرصاص",
+    "leadConversionHint": "حصة نشطة وVIP من مسار التحويل المحتمل/المحتمل/المحول.",
+    "customerGrowth": "نمو العملاء"
+  },
+  "profile": {
+    "backToCrm": "← العودة إلى إدارة علاقات العملاء",
+    "ownerLabel": "مالك",
+    "notFoundTitle": "لم يتم العثور على العميل",
+    "notFoundDescription": "ربما تم حذف هذا العميل.",
+    "missingCustomerTitle": "العميل المفقود",
+    "missingOverviewDescription": "حدد عميلاً لعرض النظرة العامة.",
+    "missingSettingsDescription": "حدد عميلاً لإدارة الإعدادات.",
+    "ariaProfileNav": "الملف الشخصي للعميل",
+    "tabs": {
+      "overview": "ملخص",
+      "contacts": "اتصالات",
+      "projects": "المشاريع",
+      "documents": "وثائق",
+      "invoices": "الفواتير",
+      "activity": "نشاط",
+      "notes": "ملحوظات",
+      "settings": "إعدادات"
+    },
+    "overview": {
+      "title": "ملخص",
+      "email": "بريد إلكتروني",
+      "phone": "هاتف",
+      "website": "موقع إلكتروني",
+      "taxNumber": "الرقم الضريبي",
+      "location": "موقع",
+      "address": "عنوان",
+      "created": "مخلوق",
+      "updated": "تم التحديث",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "أضف جهة اتصال",
+      "editTitle": "تحرير جهة الاتصال",
+      "listTitle": "اتصالات",
+      "name": "اسم",
+      "role": "دور",
+      "email": "بريد إلكتروني",
+      "phone": "هاتف",
+      "mobile": "متحرك",
+      "notes": "ملحوظات",
+      "saveContact": "حفظ جهة الاتصال",
+      "emptyTitle": "لا توجد اتصالات حتى الآن",
+      "emptyDescription": "أضف أصحاب المصلحة مع تفاصيل الدور والبريد الإلكتروني والهاتف.",
+      "defaultRole": "اتصال",
+      "mobilePrefix": "متحرك"
+    },
+    "projects": {
+      "title": "المشاريع",
+      "emptyTitle": "لا توجد مشاريع مرتبطة",
+      "emptyDescription": "تظهر هنا المشاريع التي يتطابق اسم عملائها مع هذه الشركة. تتم قراءة البيانات من وحدة المشاريع - ولا يتم تكرار أي شيء.",
+      "openProjects": "المشاريع المفتوحة"
+    },
+    "documents": {
+      "title": "وثائق",
+      "subtitle": "الصور وملفات PDF والمستندات المكتبية - البيانات التعريفية موجودة فقط في وحدة التخزين المحلية.",
+      "attachFiles": "إرفاق الملفات",
+      "emptyTitle": "لا توجد وثائق",
+      "emptyDescription": "إرفاق ملفات العملاء لفريق الحساب.",
+      "systemUploader": "نظام"
+    },
+    "invoices": {
+      "emptyTitle": "لا توجد فواتير بعد",
+      "emptyDescription": "تظهر الفواتير الخاصة بهذا العميل هنا عند ربطها من Finance."
+    },
+    "activity": {
+      "title": "نشاط",
+      "emptyTitle": "لا يوجد نشاط بعد",
+      "emptyDescription": "تظهر هنا عمليات الإنشاء والتحديثات والملاحظات والمستندات الأحدث أولاً.",
+      "kinds": {
+        "customer_created": "تم إنشاء العميل",
+        "customer_updated": "تم تحديث العميل",
+        "contact_added": "تمت إضافة جهة الاتصال",
+        "contact_updated": "تم تحديث جهة الاتصال",
+        "contact_deleted": "تم حذف جهة الاتصال",
+        "note_added": "تمت إضافة الملاحظة",
+        "note_updated": "تم تحديث الملاحظة",
+        "note_deleted": "تم حذف الملاحظة",
+        "document_added": "تمت إضافة المستند",
+        "document_deleted": "تم حذف المستند",
+        "project_linked": "المشروع مرتبط"
+      }
+    },
+    "notes": {
+      "newTitle": "ملاحظة جديدة",
+      "editTitle": "تحرير الملاحظة",
+      "title": "عنوان",
+      "author": "مؤلف",
+      "body": "جسم",
+      "saveNote": "حفظ الملاحظة",
+      "emptyTitle": "لا توجد ملاحظات حتى الآن",
+      "emptyDescription": "التقاط سياق الحساب مع المؤلف والطوابع الزمنية."
+    },
+    "settings": {
+      "title": "إعدادات",
+      "description": "تحرير جميع حقول الملف الشخصي أو أرشفة هذا الحساب. يستخدم الحذف مربع حوار التأكيد.",
+      "editAllFields": "تحرير كافة الحقول",
+      "prepareArchive": "تحضير الأرشيف",
+      "deleteCustomer": "حذف العميل"
+    }
+  },
+  "customer360": {
+    "ariaSections": "أقسام العملاء 360",
+    "email": "بريد إلكتروني",
+    "phone": "هاتف",
+    "aiHealth": "صحة الذكاء الاصطناعي",
+    "tabs": {
+      "profile": "حساب تعريفي",
+      "company": "شركة",
+      "contacts": "اتصالات",
+      "orders": "طلبات",
+      "invoices": "الفواتير",
+      "lieferscheine": "ليفيرشين",
+      "payments": "المدفوعات",
+      "documents": "وثائق",
+      "timeline": "الجدول الزمني",
+      "activities": "أنشطة",
+      "notes": "ملحوظات",
+      "aiSummary": "ملخص الذكاء الاصطناعي",
+      "communicationHistory": "تاريخ الاتصالات"
+    },
+    "profileLines": {
+      "customerId": "معرف العميل",
+      "status": "حالة",
+      "primaryContact": "جهة الاتصال الأولية"
+    },
+    "status": {
+      "churn_risk": "خطر التقلب"
+    }
+  },
+  "delivery": {
+    "title": "نظام ليفيرشين الاحترافي",
+    "description": "ملاحظات التسليم، والالتقاط/التسليم، والسائق، والمركبة، والتتبع - سجلات العينات فقط. محولات التصدير غير متصلة.",
+    "badges": {
+      "qrUnavailable": "الاستجابة السريعة غير متاحة",
+      "barcodeUnavailable": "الباركود غير متوفر",
+      "signatureDemo": "عرض التوقيع"
+    },
+    "exportPdf": "تصدير قوات الدفاع الشعبي",
+    "deliveryHistory": "تاريخ التسليم",
+    "notices": {
+      "exportNotConnected": "لا يتم توصيل تصدير PDF وQR والرمز الشريطي في هذا الإصدار.",
+      "exportPdfUnavailable": "تصدير ملف PDF غير متاح - تصدير التسليم غير متصل.",
+      "historyNotConnected": "متجر سجل التسليم غير متصل في هذا الإصدار."
+    },
+    "columns": {
+      "lieferschein": "ليفيرشين",
+      "order": "طلب",
+      "customer": "عميل",
+      "kind": "عطوف",
+      "driver": "سائق",
+      "vehicle": "عربة",
+      "tracking": "تتبع",
+      "scheduled": "المقرر"
+    }
+  },
+  "orders": {
+    "description": "المنتجات والخدمات والسعر والخصم والضرائب والعملاء - دفتر أستاذ أوامر المؤسسة.",
+    "createOrder": "إنشاء الطلب",
+    "notices": {
+      "apiReserved": "واجهة برمجة تطبيقات إنشاء الطلب محجوزة لمسار الكتابة المستقبلي.",
+      "draftStaged": "إنشاء مسودة أمر على مراحل (لا توجد واجهة برمجة تطبيقات حتى الآن)."
+    },
+    "columns": {
+      "order": "طلب",
+      "customer": "عميل",
+      "status": "حالة",
+      "lines": "خطوط",
+      "net": "شبكة",
+      "tax": "ضريبة",
+      "gross": "إجمالي",
+      "created": "مخلوق"
+    },
+    "lineTax": "{taxPct}% ضريبة"
+  },
+  "tasks": {
+    "calendarTitle": "التقويم · الاجتماعات · التذكيرات · المتابعات",
+    "foundationTitle": "أساس مهمة نظام التشغيل",
+    "foundationDescription": "يتم حجز مزامنة التقويم وموفري الاجتماعات ومهام التذكير وخطافات أتمتة المتابعة. هذه اللوحة هي سطح مهام CRM المشترك لكل وحدة صناعية.",
+    "badges": {
+      "calendarAdapter": "محول التقويم",
+      "meetingAdapter": "محول الاجتماع",
+      "reminderQueue": "قائمة انتظار التذكير",
+      "followUpEngine": "محرك المتابعة"
+    },
+    "duePrefix": "حق",
+    "kinds": {
+      "follow_up": "المتابعة",
+      "meeting": "مقابلة",
+      "reminder": "تذكير",
+      "task": "مهمة"
+    },
+    "statuses": {
+      "open": "يفتح",
+      "in_progress": "في تَقَدم",
+      "done": "منتهي",
+      "cancelled": "تم الإلغاء"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "لا توجد وثائق",
+    "emptyDescription": "لا توجد وثائق تطابق هذا البحث.",
+    "searchLabel": "بحث الذكاء الاصطناعي",
+    "searchPlaceholder": "عروض الأسعار، العقود، الفواتير، Lieferschein…",
+    "typeLabel": "نوع الوثيقة",
+    "allTypes": "جميع الأنواع",
+    "columns": {
+      "type": "يكتب",
+      "title": "عنوان",
+      "customer": "عميل",
+      "status": "حالة",
+      "updated": "تم التحديث"
+    },
+    "kinds": {
+      "quote": "يقتبس",
+      "contract": "العقود",
+      "invoice": "الفواتير",
+      "lieferschein": "ليفيرشين",
+      "purchase_order": "طلبات الشراء",
+      "receipt": "الإيصالات"
+    }
+  },
+  "communication": {
+    "intro": "بنية قناة قابلة للتطوير فقط – البريد الإلكتروني وWhatsApp وInstagram وFacebook وTikTok وLinkedIn وTelegram والصوت والفيديو. لا توجد عمليات تكامل حية مزيفة.",
+    "adapterPrefix": "محول:"
+  },
+  "aiCreator": {
+    "intro": "سطح AI Creator الجاهز للمستقبل - الأفكار، والتسميات التوضيحية، وعلامات التصنيف، والتقويم، والحملات، وصوت العلامة التجارية، وإنشاء الصور/الفيديو، والتحليلات، والجدولة، وقائمة انتظار النشر، والرؤى. لا توجد واجهات برمجة تطبيقات لموفر حقيقي سلكية حتى الآن."
+  },
+  "creatorStudio": {
+    "intro": "أساس Creator Studio - يمكن أن يتم توصيل عمليات تكامل النظام الأساسي الرسمية بهذه المحولات لاحقًا. إنستغرام، تيك توك، يوتيوب، فيسبوك، لينكدإن، بينتريست، ثريدس، إكس."
+  },
+  "industry": {
+    "intro": "منصة الأعمال العالمية - سيختار الإعداد لاحقًا الصناعة. تتلقى كل صناعة وحدات مخصصة للذكاء الاصطناعي دون التفرع عن نظام التشغيل CRM الأساسي."
+  },
+  "kpi": {
+    "customers": {
+      "label": "عملاء",
+      "caption": "علاقات نشطة"
+    },
+    "companies": {
+      "label": "شركات",
+      "caption": "منظمات الحساب"
+    },
+    "leads": {
+      "label": "يؤدي",
+      "caption": "جديد هذا الشهر"
+    },
+    "deals": {
+      "label": "العروض",
+      "caption": "فتح خط الأنابيب"
+    },
+    "revenue": {
+      "label": "ربح",
+      "caption": "فاز حتى تاريخه"
+    },
+    "projects": {
+      "label": "المشاريع النشطة",
+      "caption": "التسليم في الرحلة"
+    },
+    "tasks": {
+      "label": "افتح المهام",
+      "caption": "عبر إدارة علاقات العملاء + التسليم"
+    },
+    "ai-health": {
+      "label": "النتيجة الصحية لمنظمة العفو الدولية",
+      "caption": "إشارة جودة العلاقة"
+    },
+    "scoreOutOf": "{النتيجة} / {الحد الأقصى}"
+  },
+  "pipeline": {
+    "lead": "يقود",
+    "qualified": "مؤهَل",
+    "proposal": "عرض",
+    "negotiation": "التفاوض",
+    "won": "فاز",
+    "lost": "ضائع"
+  },
+  "orderStatus": {
+    "draft": "مسودة",
+    "confirmed": "مؤكد",
+    "in_fulfillment": "في الوفاء",
+    "shipped": "تم الشحن",
+    "delivered": "تم التوصيل",
+    "cancelled": "تم الإلغاء"
+  },
+  "tracking": {
+    "scheduled": "المقرر",
+    "en_route": "في الطريق",
+    "arrived": "وصل",
+    "completed": "مكتمل",
+    "failed": "فشل"
+  },
+  "documentKind": {
+    "quote": "يقتبس",
+    "contract": "عقد",
+    "invoice": "فاتورة",
+    "lieferschein": "ليفيرشين",
+    "purchase_order": "أمر شراء",
+    "receipt": "إيصال"
+  },
+  "documentStatus": {
+    "sent": "مرسل",
+    "signed": "وقعت",
+    "paid": "مدفوع",
+    "in_transit": "في مرحلة انتقالية",
+    "open": "يفتح",
+    "filed": "قدم"
+  },
+  "integration": {
+    "planned": "المخطط لها",
+    "ready": "مستعد",
+    "connected": "متصل",
+    "disabled": "عاجز"
+  }
+}
