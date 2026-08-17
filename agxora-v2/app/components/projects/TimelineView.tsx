@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, type JSX } from "react";
-import { formatDisplayDate } from "../../lib/i18n";
+import { formatDisplayDate, useT } from "../../lib/i18n";
 import {
   useProjectStore,
   useSelectedProject,
@@ -35,6 +35,7 @@ function durationDays(start: string, end: string): number {
 export function TimelineView(): JSX.Element {
   const project = useSelectedProject();
   const state = useProjectStore();
+  const t = useT();
 
   const items = useMemo(() => {
     if (!project) return [] as TimelineItem[];
@@ -77,7 +78,6 @@ export function TimelineView(): JSX.Element {
       .flatMap((item) => [parseDay(item.start), parseDay(item.end)])
       .filter((value): value is number => value !== null);
     if (times.length === 0) {
-      // Deterministic fallback range (no Date.now during render).
       const start = parseDay(project?.startDate ?? "") ?? Date.UTC(2026, 0, 1);
       return { min: start, max: start + 86_400_000 * 30 };
     }
@@ -89,8 +89,8 @@ export function TimelineView(): JSX.Element {
   if (!project) {
     return (
       <EmptyState
-        title="No timeline"
-        description="Open a project to view schedule, duration, and milestones."
+        title={t("projects.timeline.noTimelineTitle")}
+        description={t("projects.timeline.noTimelineDescription")}
       />
     );
   }
@@ -98,8 +98,8 @@ export function TimelineView(): JSX.Element {
   if (items.length === 0) {
     return (
       <EmptyState
-        title="Timeline is empty"
-        description="Add start/due dates and tasks to populate the schedule."
+        title={t("projects.timeline.emptyTitle")}
+        description={t("projects.timeline.emptyDescription")}
       />
     );
   }
@@ -111,11 +111,10 @@ export function TimelineView(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Timeline
+          {t("projects.timeline.title")}
         </h3>
         <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Start, end, duration, milestones. Dependencies are reserved for a
-          future release.
+          {t("projects.timeline.subtitle")}
         </p>
       </div>
       <div className="space-y-3 overflow-x-auto">
@@ -133,18 +132,25 @@ export function TimelineView(): JSX.Element {
                     className="ml-2 uppercase tracking-wide"
                     style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                   >
-                    {item.kind}
+                    {t(`projects.kind.${item.kind}`)}
                   </span>
                 </span>
                 <span style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  {formatDisplayDate(item.start)} → {formatDisplayDate(item.end)}{" "}
-                  · {durationDays(item.start, item.end)}d
+                  {t("projects.timeline.dateRange", {
+                    start: formatDisplayDate(item.start),
+                    end: formatDisplayDate(item.end),
+                    days: durationDays(item.start, item.end),
+                  })}
                 </span>
               </div>
               <div
                 className="relative h-8 rounded-xl"
                 style={{ background: "rgba(255,255,255,0.04)" }}
-                aria-label={`${item.title} from ${item.start} to ${item.end}`}
+                aria-label={t("projects.timeline.itemAria", {
+                  title: item.title,
+                  start: item.start,
+                  end: item.end,
+                })}
               >
                 <div
                   className="absolute top-1 h-6 rounded-lg"
@@ -163,7 +169,7 @@ export function TimelineView(): JSX.Element {
                 className="text-[11px]"
                 style={{ color: "var(--agx-text-muted, #94a3b8)" }}
               >
-                Dependencies: none
+                {t("projects.timeline.dependenciesNone")}
               </p>
             </div>
           );

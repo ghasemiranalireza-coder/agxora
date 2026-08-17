@@ -1,0 +1,298 @@
+{
+  "page": {
+    "eyebrow": "Project Management OS",
+    "title": "Projects",
+    "lead": "Plan delivery, track budget and health, assign teams, and manage tasks for {organization}. Data persists locally and is ready for backend connectivity.",
+    "yourOrganization": "your organization"
+  },
+  "list": {
+    "errorTitle": "Couldn't load projects",
+    "searchLabel": "Search projects",
+    "searchPlaceholder": "Search projects, customers, owners, tags…",
+    "viewCards": "Cards",
+    "viewTable": "Table",
+    "newProject": "New project",
+    "statusFilter": "Status",
+    "priorityFilter": "Priority",
+    "customerFilter": "Customer",
+    "ownerFilter": "Owner",
+    "allStatuses": "All statuses",
+    "allPriorities": "All priorities",
+    "allCustomers": "All customers",
+    "allOwners": "All owners",
+    "dateFrom": "From",
+    "dateTo": "To",
+    "emptyTitle": "No projects yet",
+    "emptyDescription": "Spin up a delivery workspace to track milestones, budget, and team ownership.",
+    "createProject": "Create project",
+    "pagination": "Showing {from}–{to} of {total}",
+    "previous": "Previous",
+    "next": "Next",
+    "noDescription": "No description yet.",
+    "duePrefix": "Due {date}",
+    "openProject": "Open project {name}",
+    "sortBy": "Sort by {column}",
+    "sort": {
+      "name": "Name",
+      "customer": "Customer",
+      "owner": "Owner",
+      "status": "Status",
+      "priority": "Priority",
+      "progress": "Progress",
+      "dueDate": "Due",
+      "budget": "Budget"
+    }
+  },
+  "form": {
+    "createTitle": "Create Project",
+    "editTitle": "Edit Project",
+    "cancel": "Cancel",
+    "saveChanges": "Save changes",
+    "createProject": "Create project",
+    "projectName": "Project Name",
+    "customer": "Customer",
+    "projectOwner": "Project Owner",
+    "priority": "Priority",
+    "status": "Status",
+    "budget": "Budget",
+    "currency": "Currency",
+    "startDate": "Start Date",
+    "dueDate": "Due Date",
+    "color": "Color",
+    "icon": "Icon",
+    "tags": "Tags",
+    "tagsHint": "Comma-separated",
+    "tagsPlaceholder": "enterprise, rollout",
+    "budgetPlaceholder": "0",
+    "description": "Description",
+    "selectColor": "Select color {color}"
+  },
+  "taskForm": {
+    "createTitle": "Create Task",
+    "editTitle": "Edit Task",
+    "cancel": "Cancel",
+    "saveChanges": "Save changes",
+    "createTask": "Create task",
+    "title": "Title",
+    "assignee": "Assignee",
+    "priority": "Priority",
+    "status": "Status",
+    "deadline": "Deadline",
+    "progress": "Progress",
+    "labels": "Labels",
+    "labelsHint": "Comma-separated",
+    "description": "Description"
+  },
+  "deleteDialog": {
+    "title": "Delete project",
+    "cancel": "Cancel",
+    "deletePermanently": "Delete permanently",
+    "bodyPrefix": "This removes",
+    "thisProject": "this project",
+    "bodySuffix": "and all related tasks, files, notes, and activity from local storage. This action cannot be undone."
+  },
+  "badges": {
+    "progress": "Progress",
+    "progressAria": "{label}: {value}%"
+  },
+  "status": {
+    "planning": "Planning",
+    "active": "Active",
+    "on_hold": "On Hold",
+    "completed": "Completed",
+    "archived": "Archived"
+  },
+  "taskStatus": {
+    "todo": "To Do",
+    "in_progress": "In Progress",
+    "review": "Review",
+    "done": "Done"
+  },
+  "priority": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High",
+    "critical": "Critical"
+  },
+  "role": {
+    "owner": "Owner",
+    "manager": "Manager",
+    "member": "Member",
+    "viewer": "Viewer"
+  },
+  "kind": {
+    "project": "project",
+    "task": "task",
+    "milestone": "milestone"
+  },
+  "timeline": {
+    "noTimelineTitle": "No timeline",
+    "noTimelineDescription": "Open a project to view schedule, duration, and milestones.",
+    "emptyTitle": "Timeline is empty",
+    "emptyDescription": "Add start/due dates and tasks to populate the schedule.",
+    "title": "Timeline",
+    "subtitle": "Start, end, duration, milestones. Dependencies are reserved for a future release.",
+    "dateRange": "{start} → {end} · {days}d",
+    "itemAria": "{title} from {start} to {end}",
+    "dependenciesNone": "Dependencies: none"
+  },
+  "dashboard": {
+    "kpi": {
+      "activeProjects": "Active Projects",
+      "activeHint": "{planning} planning",
+      "completed": "Completed",
+      "completedHint": "{percent}% of portfolio",
+      "onHold": "On Hold",
+      "onHoldHint": "{archived} archived",
+      "teamMembers": "Team Members",
+      "teamHint": "Across all projects",
+      "budgetOverview": "Budget Overview",
+      "budgetHint": "{percent}% used · {spent} spent",
+      "openTasks": "Open Tasks",
+      "openTasksHint": "{overdue} overdue",
+      "projectHealth": "Project Health",
+      "healthHint": "Composite delivery score",
+      "upcomingDeadlines": "Upcoming Deadlines",
+      "upcomingHint": "Next 30 days"
+    },
+    "analytics": {
+      "title": "Analytics",
+      "subtitle": "Portfolio health, completion, and budget usage.",
+      "statusMix": "Status mix",
+      "deliverySignals": "Delivery signals",
+      "completedPercent": "Completed %",
+      "budgetUsage": "Budget usage",
+      "health": "Health",
+      "upcomingDeadlines": "Upcoming deadlines",
+      "noUpcomingDeadlines": "No upcoming deadlines in the next window."
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "subtitle": "Newest project events first.",
+      "empty": "Activity will appear as projects and tasks are created."
+    }
+  },
+  "kanban": {
+    "emptyTitle": "No tasks on the board",
+    "emptyDescription": "Create tasks to organize delivery across To Do, In Progress, Review, and Done.",
+    "addTask": "Add task",
+    "columnAria": "{status} column",
+    "taskProgress": "Task progress",
+    "edit": "Edit",
+    "complete": "Complete"
+  },
+  "detail": {
+    "notFoundTitle": "Project not found",
+    "notFoundDescription": "This project may have been deleted or is unavailable for the current organization.",
+    "backToProjects": "← Back to projects",
+    "ownerMeta": "{customer} · Owner {owner}",
+    "edit": "Edit",
+    "delete": "Delete",
+    "sectionsAria": "Project detail sections",
+    "tabs": {
+      "overview": "Overview",
+      "tasks": "Tasks",
+      "files": "Files",
+      "notes": "Notes",
+      "activity": "Activity",
+      "team": "Team",
+      "settings": "Settings"
+    }
+  },
+  "overview": {
+    "missingTitle": "Missing project",
+    "missingDescription": "Select a project to view its overview.",
+    "title": "Overview",
+    "noDescription": "No description provided.",
+    "budget": "Budget",
+    "spent": "Spent",
+    "start": "Start",
+    "due": "Due",
+    "openTasks": "Open tasks",
+    "completedTasks": "Completed tasks"
+  },
+  "tasks": {
+    "title": "Task management",
+    "newTask": "New task",
+    "tableTitle": "Title",
+    "tableAssignee": "Assignee",
+    "tablePriority": "Priority",
+    "tableStatus": "Status",
+    "tableDue": "Due",
+    "tableProgress": "Progress",
+    "tableActions": "Actions",
+    "edit": "Edit",
+    "complete": "Complete",
+    "delete": "Delete",
+    "emptyTitle": "No tasks yet",
+    "emptyDescription": "Create tasks, assign owners, and track progress on the board.",
+    "createTask": "Create task"
+  },
+  "files": {
+    "title": "File manager",
+    "description": "Upload images, PDFs, and office documents. Metadata persists locally.",
+    "upload": "Upload",
+    "emptyTitle": "No files uploaded",
+    "emptyDescription": "Add project artifacts for the team to review and preview.",
+    "preview": "Preview",
+    "metadataOnly": "Metadata only",
+    "delete": "Delete"
+  },
+  "notes": {
+    "editTitle": "Edit note",
+    "newTitle": "New note",
+    "title": "Title",
+    "author": "Author",
+    "body": "Body",
+    "cancel": "Cancel",
+    "saveNote": "Save note",
+    "emptyTitle": "No notes yet",
+    "emptyDescription": "Capture decisions, meeting outcomes, and delivery context.",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "activity": {
+    "title": "Activity feed",
+    "emptyTitle": "No activity yet",
+    "emptyDescription": "Project events will appear here as the team works."
+  },
+  "team": {
+    "missingTitle": "Missing project",
+    "missingDescription": "Select a project to manage team members.",
+    "assignTitle": "Assign member",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "addMember": "Add member",
+    "teamTitle": "Team",
+    "remove": "Remove"
+  },
+  "settings": {
+    "missingTitle": "Missing project",
+    "missingDescription": "Select a project to manage settings.",
+    "title": "Project settings",
+    "description": "Update budget burn and archive status. Full field edits use the Edit dialog.",
+    "spentAmount": "Spent amount",
+    "saveSpent": "Save spent",
+    "archiveProject": "Archive project",
+    "editAllFields": "Edit all fields"
+  },
+  "toasts": {
+    "projectCreated": "Project created",
+    "projectUpdated": "Project updated",
+    "projectDeleted": "Project deleted",
+    "checkForm": "Check the form",
+    "validationFailed": "Validation failed.",
+    "taskCreated": "Task created",
+    "taskUpdated": "Task updated",
+    "taskCompleted": "Task completed",
+    "taskDeleted": "Task deleted",
+    "filesUploaded": "Files uploaded",
+    "filesUploadedDetail": "{count} file(s)",
+    "fileDeleted": "File deleted",
+    "noteSaved": "Note saved",
+    "memberAdded": "Member added",
+    "settingsSaved": "Settings saved",
+    "projectArchived": "Project archived"
+  }
+}
