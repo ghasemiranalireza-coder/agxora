@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
-import { useT } from "@/app/lib/i18n";
+import { catalogCopy, slugLabel, useT } from "@/app/lib/i18n";
 import { intelligenceStore } from "../store";
 import { intelligenceService } from "../services";
 import { useEnterpriseIntelligence } from "../hooks";
@@ -17,6 +17,11 @@ import type {
   ReportDefinition,
   Scorecard,
 } from "../types";
+
+type ExplorerRowView = DataExplorerRow & {
+  displayDomain: string;
+  displayLabel: string;
+};
 
 type TabId =
   | "executive"
@@ -72,19 +77,31 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
   const filterTo = dateTo || eic.filter.dateTo || "";
 
   const explorerRows = useMemo(() => {
-    const base = eic.explorerRows;
+    const withLabels = eic.explorerRows.map((r) => {
+      const domainLabel = catalogCopy(t, `intelligence.domains.${r.domain}`, r.domain);
+      const index = /_entity_(\d+)$/.exec(r.entity)?.[1] ?? "";
+      return {
+        ...r,
+        displayDomain: domainLabel,
+        displayLabel: t("intelligence.explorer.metricLabel", {
+          domain: domainLabel,
+          index,
+        }),
+      };
+    });
     const q = explorerQuery.trim().toLowerCase();
     const searched = !q
-      ? base
-      : base.filter(
+      ? withLabels
+      : withLabels.filter(
           (r) =>
-            r.label.toLowerCase().includes(q) ||
+            r.displayLabel.toLowerCase().includes(q) ||
+            r.displayDomain.toLowerCase().includes(q) ||
             r.entity.toLowerCase().includes(q) ||
             r.domain.includes(q),
         );
     if (domainFilter === "all") return searched;
     return searched.filter((r) => r.domain === domainFilter);
-  }, [eic.explorerRows, explorerQuery, domainFilter]);
+  }, [eic.explorerRows, explorerQuery, domainFilter, t]);
 
   if (!eic.hydrated) {
     return (
@@ -120,7 +137,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
     {
       key: "name",
       header: t("intelligence.columns.kpi"),
-      render: (r) => getKpiDefinition(r.kpiId)?.name ?? r.kpiId,
+      render: (r) => catalogCopy(t, `intelligence.kpis.${r.kpiId}.name`, getKpiDefinition(r.kpiId)?.name ?? r.kpiId),
     },
     {
       key: "value",
@@ -133,7 +150,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
       render: (r) =>
         r.deltaPercent == null ? t("intelligence.emDash") : `${r.deltaPercent > 0 ? "+" : ""}${r.deltaPercent}%`,
     },
-    { key: "trend", header: t("intelligence.columns.trend"), render: (r) => r.trend },
+    { key: "trend", header: t("intelligence.columns.trend"), render: (r) => catalogCopy(t, `intelligence.trend.${r.trend}`, r.trend) },
     {
       key: "target",
       header: t("intelligence.columns.target"),
@@ -142,9 +159,21 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
   ];
 
   const alertColumns: DataTableColumn<IntelligenceAlert>[] = [
-    { key: "severity", header: t("intelligence.columns.severity"), render: (r) => r.severity },
-    { key: "title", header: t("intelligence.columns.alert"), render: (r) => r.title },
-    { key: "domain", header: t("intelligence.columns.domain"), render: (r) => r.domain },
+    {
+      key: "severity",
+      header: t("intelligence.columns.severity"),
+      render: (r) => catalogCopy(t, `intelligence.severity.${r.severity}`, r.severity),
+    },
+    {
+      key: "title",
+      header: t("intelligence.columns.alert"),
+      render: (r) => catalogCopy(t, `intelligence.alerts.${r.kind}.title`, r.title),
+    },
+    {
+      key: "domain",
+      header: t("intelligence.columns.domain"),
+      render: (r) => catalogCopy(t, `intelligence.domains.${r.domain}`, r.domain),
+    },
     {
       key: "ack",
       header: t("intelligence.columns.status"),
@@ -162,7 +191,11 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             variant="secondary"
             onClick={() => {
               intelligenceService.acknowledgeAlert(r.id);
-              setNotice(t("intelligence.acknowledged", { title: r.title }));
+              setNotice(
+                t("intelligence.acknowledged", {
+                  title: catalogCopy(t, `intelligence.alerts.${r.kind}.title`, r.title),
+                }),
+              );
             }}
           >
             {t("intelligence.alerts.acknowledge")}
@@ -172,8 +205,16 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
   ];
 
   const reportColumns: DataTableColumn<ReportDefinition>[] = [
-    { key: "title", header: t("intelligence.columns.report"), render: (r) => r.title },
-    { key: "kind", header: t("intelligence.columns.kind"), render: (r) => r.kind },
+    {
+      key: "title",
+      header: t("intelligence.columns.report"),
+      render: (r) => catalogCopy(t, `intelligence.reports.${r.kind}.title`, r.title),
+    },
+    {
+      key: "kind",
+      header: t("intelligence.columns.kind"),
+      render: (r) => catalogCopy(t, `intelligence.reportKinds.${r.kind}`, r.kind),
+    },
     {
       key: "schedule",
       header: t("intelligence.columns.schedule"),
@@ -191,7 +232,10 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
               variant="ghost"
               disabled
               title={t("intelligence.exportUnavailableTitle")}
-              aria-label={t("intelligence.exportUnavailableAria", { title: r.title, format: f })}
+              aria-label={t("intelligence.exportUnavailableAria", {
+                title: catalogCopy(t, `intelligence.reports.${r.kind}.title`, r.title),
+                format: f,
+              })}
               onClick={() => {
                 const res = intelligenceService.exportReport(r, f);
                 setNotice(res.reason);
@@ -206,18 +250,29 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
   ];
 
   const scoreColumns: DataTableColumn<Scorecard>[] = [
-    { key: "name", header: t("intelligence.columns.scorecard"), render: (r) => r.name },
+    {
+      key: "name",
+      header: t("intelligence.columns.scorecard"),
+      render: (r) => catalogCopy(t, `intelligence.scorecards.${r.id}.name`, r.name),
+    },
     { key: "score", header: t("intelligence.columns.score"), render: (r) => String(r.score) },
     {
       key: "drivers",
       header: t("intelligence.columns.topDriver"),
-      render: (r) => r.drivers[0]?.label ?? t("intelligence.emDash"),
+      render: (r) =>
+        r.drivers[0]
+          ? catalogCopy(
+              t,
+              `intelligence.scorecards.${r.id}.drivers.${slugLabel(r.drivers[0].label)}`,
+              r.drivers[0].label,
+            )
+          : t("intelligence.emDash"),
     },
   ];
 
-  const explorerColumns: DataTableColumn<DataExplorerRow>[] = [
-    { key: "domain", header: t("intelligence.columns.domain"), render: (r) => r.domain },
-    { key: "label", header: t("intelligence.columns.label"), render: (r) => r.label },
+  const explorerColumns: DataTableColumn<ExplorerRowView>[] = [
+    { key: "domain", header: t("intelligence.columns.domain"), render: (r) => r.displayDomain },
+    { key: "label", header: t("intelligence.columns.label"), render: (r) => r.displayLabel },
     { key: "entity", header: t("intelligence.columns.entity"), render: (r) => r.entity },
     { key: "measure", header: t("intelligence.columns.measure"), render: (r) => String(r.measure) },
     { key: "at", header: t("intelligence.columns.date"), render: (r) => r.at },
@@ -298,7 +353,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
               <option value="all">{t("intelligence.filters.allDomains")}</option>
               {eic.domains.map((d) => (
                 <option key={d.domain} value={d.domain}>
-                  {d.label}
+                  {catalogCopy(t, `intelligence.domains.${d.domain}`, d.label)}
                 </option>
               ))}
             </select>
@@ -385,7 +440,8 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
                       }}
                     >
                       <p className="mb-2 text-xs font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                        {chart.title} · {chart.kind}
+                        {catalogCopy(t, `intelligence.charts.${chart.id}`, chart.title)} ·{" "}
+                        {catalogCopy(t, `intelligence.chartKinds.${chart.kind}`, chart.kind)}
                       </p>
                       {series ? <MiniChart points={series.points} /> : (
                         <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
@@ -432,13 +488,15 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             return (
               <Card key={d.domain} className="space-y-2" padding="20px" hover={false}>
                 <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {d.label}
+                  {catalogCopy(t, `intelligence.domains.${d.domain}`, d.label)}
                 </h3>
                 {domainSeries[0] ? (
                   <MiniChart points={domainSeries[0].points} />
                 ) : null}
                 <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  {domainSeries.map((s) => s.label).join(" · ") || t("intelligence.workspace.noSeries")}
+                  {domainSeries
+                    .map((s) => catalogCopy(t, `intelligence.series.${s.id}`, s.label))
+                    .join(" · ") || t("intelligence.workspace.noSeries")}
                 </p>
               </Card>
             );
@@ -500,16 +558,16 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
               <Card key={i.id} className="space-y-2" padding="20px" hover={false}>
                 <p className="text-[11px] uppercase tracking-wide" style={{ color: "var(--agx-accent, #22d3ee)" }}>
                   {t("intelligence.insights.badge", {
-                    kind: i.kind,
-                    domain: i.domain,
+                    kind: catalogCopy(t, `intelligence.insightKinds.${i.kind}`, i.kind),
+                    domain: catalogCopy(t, `intelligence.domains.${i.domain}`, i.domain),
                     confidence: i.confidence,
                   })}
                 </p>
                 <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {i.title}
+                  {catalogCopy(t, `intelligence.insightItems.${i.kind}.title`, i.title)}
                 </h3>
                 <p className="text-xs leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  {i.summary}
+                  {catalogCopy(t, `intelligence.insightItems.${i.kind}.summary`, i.summary)}
                 </p>
               </Card>
             ))}
@@ -532,7 +590,9 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
             {eic.forecasts.map((f) => (
               <Card key={f.id} className="space-y-2" padding="20px" hover={false}>
                 <h3 className="text-sm font-semibold capitalize" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {t("intelligence.forecasts.title", { kind: f.kind.replace("_", " ") })}
+                  {t("intelligence.forecasts.title", {
+                    kind: catalogCopy(t, `intelligence.forecastKinds.${f.kind}`, f.kind.replace("_", " ")),
+                  })}
                 </h3>
                 <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                   {t("intelligence.forecasts.baseline", {
@@ -544,7 +604,7 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
                 <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                   {t("intelligence.forecasts.confidence", {
                     confidence: f.confidence,
-                    note: f.note,
+                    note: catalogCopy(t, `intelligence.forecastNotes.${f.kind}`, f.note),
                   })}
                 </p>
               </Card>
@@ -585,7 +645,10 @@ export function EnterpriseIntelligenceCenter(): JSX.Element {
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {eic.scorecards.map((s) => (
               <div key={s.id} className="space-y-2">
-                <HealthBar label={s.name} value={s.score} />
+                <HealthBar
+                  label={catalogCopy(t, `intelligence.scorecards.${s.id}.name`, s.name)}
+                  value={s.score}
+                />
               </div>
             ))}
           </div>
@@ -632,6 +695,7 @@ function formatKpi(snapshot: KpiSnapshot): string {
 }
 
 function KpiCard({ snapshot }: { snapshot: KpiSnapshot }): JSX.Element {
+  const t = useT();
   const def = getKpiDefinition(snapshot.kpiId);
   return (
     <div
@@ -642,13 +706,13 @@ function KpiCard({ snapshot }: { snapshot: KpiSnapshot }): JSX.Element {
       }}
     >
       <p className="text-[11px] uppercase tracking-wide" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        {def?.name ?? snapshot.kpiId}
+        {catalogCopy(t, `intelligence.kpis.${snapshot.kpiId}.name`, def?.name ?? snapshot.kpiId)}
       </p>
       <p className="text-xl font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
         {formatKpi(snapshot)}
       </p>
       <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        {snapshot.trend}
+        {catalogCopy(t, `intelligence.trend.${snapshot.trend}`, snapshot.trend)}
         {snapshot.deltaPercent != null
           ? ` · ${snapshot.deltaPercent > 0 ? "+" : ""}${snapshot.deltaPercent}%`
           : ""}

@@ -3,7 +3,7 @@
 import { useMemo, type JSX } from "react";
 import type { CalendarItem, CampaignPlan } from "../../lib/creator-studio";
 import { formatDate, publishStatusLabel } from "../../lib/creator-studio";
-import { useT } from "../../lib/i18n";
+import { catalogCopy, useT } from "../../lib/i18n";
 import { Badge, Card, DataTable } from "../ui";
 import type { DataTableColumn } from "../ui";
 
@@ -21,17 +21,21 @@ export function CampaignPlanner({
       {
         key: "name",
         header: t("creator.campaign.columns.name"),
-        render: (row) => <span className="font-medium">{row.name}</span>,
+        render: (row) => (
+          <span className="font-medium">
+            {catalogCopy(t, `creator.campaigns.${row.id}.name`, row.name)}
+          </span>
+        ),
       },
       {
         key: "objective",
         header: t("creator.campaign.columns.objective"),
-        render: (row) => row.objective,
+        render: (row) => catalogCopy(t, `creator.campaigns.${row.id}.objective`, row.objective),
       },
       {
         key: "audience",
         header: t("creator.campaign.columns.audience"),
-        render: (row) => row.audience,
+        render: (row) => catalogCopy(t, `creator.campaigns.${row.id}.audience`, row.audience),
       },
       {
         key: "platforms",
@@ -49,17 +53,19 @@ export function CampaignPlanner({
       {
         key: "budget",
         header: t("creator.campaign.columns.budget"),
-        render: (row) => row.budgetPlaceholder,
+        render: (row) => catalogCopy(t, `creator.campaigns.${row.id}.budget`, row.budgetPlaceholder),
       },
       {
         key: "timeline",
         header: t("creator.campaign.columns.timeline"),
-        render: (row) => row.timeline,
+        render: (row) => catalogCopy(t, `creator.campaigns.${row.id}.timeline`, row.timeline),
       },
       {
         key: "status",
         header: t("creator.campaign.columns.status"),
-        render: (row) => <Badge>{row.status}</Badge>,
+        render: (row) => (
+          <Badge>{catalogCopy(t, `creator.campaignStatus.${row.status}`, row.status)}</Badge>
+        ),
       },
     ],
     [t],
@@ -98,7 +104,7 @@ export function CampaignPlanner({
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <p className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                    {item.title}
+                    {catalogCopy(t, `creator.calendarItems.${item.id}`, item.title)}
                   </p>
                   <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                     {formatDate(item.date)} · {item.platform}

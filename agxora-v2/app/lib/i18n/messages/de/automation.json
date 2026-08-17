@@ -580,5 +580,188 @@
       "label": "Aufgabe zuweisen",
       "description": "Eine Aufgabe einem Benutzer zuweisen."
     }
+  },
+  "kinds": {
+    "trigger": "Auslöser",
+    "action": "Aktion",
+    "condition": "Bedingung",
+    "delay": "Verzögerung",
+    "approval": "Freigabe",
+    "loop": "Schleife",
+    "merge": "Zusammenführen",
+    "split": "Aufteilen",
+    "ai_decision": "KI-Entscheidung",
+    "ai_action": "KI-Aktion",
+    "notification": "Benachrichtigung",
+    "webhook": "Webhook",
+    "custom_action": "Benutzerdefinierte Aktion",
+    "branch": "Verzweigung",
+    "variable": "Variable"
+  },
+  "kpi": {
+    "active": {
+      "label": "Aktive Workflows",
+      "caption": "Im Workspace aktiviert"
+    },
+    "runs-today": {
+      "label": "Workflow-Läufe heute",
+      "caption": "Über alle Auslöser"
+    },
+    "success": {
+      "label": "Erfolgreiche Automatisierungen",
+      "caption": "Heute"
+    },
+    "failed": {
+      "label": "Fehlgeschlagene Läufe",
+      "caption": "Handlungsbedarf"
+    },
+    "pending": {
+      "label": "Ausstehende Aufgaben",
+      "caption": "Freigaben + Wiederholungen"
+    },
+    "avg-time": {
+      "label": "Mittlere Ausführungszeit",
+      "caption": "Median 1,2 s"
+    },
+    "ai-suggestions": {
+      "label": "KI-Vorschläge",
+      "caption": "Automatisierungschancen"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "Produktivität",
+    "Communication": "Kommunikation",
+    "Commerce": "Commerce",
+    "Finance": "Finanzen",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "Gmail- / Drive- / Kalender-Hooks für OAuth-Verdrahtung reserviert.",
+    "m365": "Outlook- / Teams- / Graph-Hooks reserviert.",
+    "slack": "Events-API + Chat-Posts reserviert.",
+    "teams": "Bot-Framework-Adapter reserviert.",
+    "discord": "Webhook- + Bot-Adapter reserviert.",
+    "whatsapp": "Meta-Cloud-API-Adapter reserviert.",
+    "stripe": "Zahlungs-Webhooks reserviert — keine Live-Schlüssel.",
+    "shopify": "Bestell- / Produkt-Ereignisse reserviert.",
+    "datev": "Export- / Buchungsstapel-Hooks reserviert.",
+    "sap": "ERP-Ereignisbrücke reserviert — bis Enterprise-Plan deaktiviert.",
+    "hubspot": "CRM-Sync-Adapter reserviert.",
+    "salesforce": "Platform-Events-Adapter reserviert."
+  },
+  "defaultWorkflow": {
+    "name": "Kunden-Onboarding",
+    "description": "Willkommenssequenz, wenn ein Kunde erstellt wird."
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "Finanzen",
+    "Sales": "Vertrieb",
+    "Marketing": "Marketing",
+    "HR": "HR",
+    "Creator": "Creator",
+    "Ops": "Betrieb",
+    "Projects": "Projekte",
+    "AI": "AI"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "Kunden-Onboarding",
+      "description": "Willkommens-E-Mail, KI-Zusammenfassung und Owner-Aufgabe nach Kundenerstellung.",
+      "category": "CRM",
+      "recommendedFor": "Teams, die neue B2B-Kunden onboarden"
+    },
+    "tpl-invoice": {
+      "name": "Rechnungserinnerung",
+      "description": "Geplante Erinnerungen für offene Rechnungen mit Eskalationspfad.",
+      "category": "Finanzen",
+      "recommendedFor": "Finance-Ops zur Senkung überfälliger Forderungen"
+    },
+    "tpl-lead": {
+      "name": "Lead-Nachverfolgung",
+      "description": "KI-E-Mail-Antwort plus Pipeline-Statusupdate für neue Leads.",
+      "category": "Vertrieb",
+      "recommendedFor": "Vertriebsteams mit hohem Inbound-Leadvolumen"
+    },
+    "tpl-welcome": {
+      "name": "Willkommens-E-Mail",
+      "description": "Einfache Willkommenssequenz bei der Anmeldung.",
+      "category": "Marketing",
+      "recommendedFor": "Jeder Workspace, der mit E-Mail-Automatisierung startet"
+    },
+    "tpl-pipeline": {
+      "name": "Vertriebspipeline",
+      "description": "Stufenwechsel mit Benachrichtigungen und Aufgaben.",
+      "category": "Vertrieb",
+      "recommendedFor": "Teams mit mehrstufigem Deal-Fortschritt"
+    },
+    "tpl-recruit": {
+      "name": "Recruiting",
+      "description": "Kandidatenrouting und Interviewaufgaben.",
+      "category": "HR",
+      "recommendedFor": "Hiring Manager und People Ops"
+    },
+    "tpl-content": {
+      "name": "Content-Veröffentlichung",
+      "description": "Creator Studio: veröffentlichen → benachrichtigen → Analytics.",
+      "category": "Creator",
+      "recommendedFor": "Marketing- und Creator-Teams"
+    },
+    "tpl-approval": {
+      "name": "Freigabeprozess",
+      "description": "Mehrstufige Freigabe mit KI-Empfehlungen.",
+      "category": "Betrieb",
+      "recommendedFor": "Finance-/Ops-Freigaben vor Seiteneffekten",
+      "estimatedRuntime": "Menschliches Gate"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "Willkommen neuer Kunde",
+      "description": "Willkommens-E-Mail + Benachrichtigung, wenn ein Kunde erstellt wird.",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "Rechnungserinnerung",
+      "description": "Kunden nach Rechnungsstellung erinnern.",
+      "category": "Finanzen"
+    },
+    "tpl_project_kickoff": {
+      "name": "Projekt-Kickoff",
+      "description": "Kickoff-Aufgabe zuweisen und bei Projekterstellung benachrichtigen.",
+      "category": "Projekte"
+    },
+    "tpl_task_assignment": {
+      "name": "Aufgabenzuweisung",
+      "description": "E-Mail an den Zuständigen, wenn eine Aufgabe erledigt ist — nächste Arbeit verketten.",
+      "category": "Projekte"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "KI-Kundenzusammenfassung",
+      "description": "KI-Zusammenfassung ausführen, wenn ein Kunde erstellt wird; Ausgabe speichern.",
+      "category": "AI"
+    },
+    "tpl_followup_reminder": {
+      "name": "Follow-up-Erinnerung",
+      "description": "Zeitplanbasiertes Follow-up mit Verzweigung nach Status.",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "Willkommens-E-Mail senden",
+    "notify_team": "Team benachrichtigen",
+    "wait_3_days": "3 Tage warten",
+    "still_unpaid": "Noch unbezahlt?",
+    "send_reminder": "Erinnerung senden",
+    "assign_kickoff_task": "Kickoff-Aufgabe zuweisen",
+    "notify_owner": "Owner benachrichtigen",
+    "notify_stakeholders": "Stakeholder benachrichtigen",
+    "run_ai_summary": "KI-Zusammenfassung ausführen",
+    "generate_document": "Dokument erzeugen",
+    "daily_schedule": "Täglicher Zeitplan",
+    "by_priority": "Nach Priorität",
+    "urgent_notification": "Dringende Benachrichtigung",
+    "standard_email": "Standard-E-Mail"
   }
 }

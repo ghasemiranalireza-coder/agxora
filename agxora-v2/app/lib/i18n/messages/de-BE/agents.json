@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "Kundenwirkung priorisieren",
     "delegatedFollowUp": "Delegiertes Follow-up"
+  },
+  "categories": {
+    "Leadership": "Führung",
+    "Revenue": "Umsatz",
+    "CRM": "CRM",
+    "Delivery": "Lieferung",
+    "Automation": "Automatisierung",
+    "Finance": "Finanzen",
+    "Knowledge": "Wissen",
+    "Support": "Support",
+    "Productivity": "Produktivität",
+    "Custom": "Benutzerdefiniert"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "Executive-Berater",
+      "description": "Strategische Briefings, KPI-Synthese und Entscheidungsunterstützung."
+    },
+    "sales_agent": {
+      "name": "Vertriebsagent",
+      "description": "Pipeline-Coaching, Outreach-Entwürfe und nächste Deal-Schritte."
+    },
+    "crm_assistant": {
+      "name": "CRM-Assistent",
+      "description": "Kundenanreicherung, Datenhygiene und Beziehungseinblicke."
+    },
+    "project_manager": {
+      "name": "Projektmanager",
+      "description": "Pläne, Aufgabenzerlegung und Lieferrisikosignale."
+    },
+    "workflow_coordinator": {
+      "name": "Workflow-Koordinator",
+      "description": "Löst aus und orchestriert AGXORA-Automatisierungsworkflows."
+    },
+    "finance_assistant": {
+      "name": "Finanzassistent",
+      "description": "Rechnungsüberblick, Cashflow-Hinweise und Finanzzusammenfassungen."
+    },
+    "document_analyst": {
+      "name": "Dokumentenanalyst",
+      "description": "Extrahiert Struktur, Risiken und Zusammenfassungen aus Dokumenten."
+    },
+    "knowledge_assistant": {
+      "name": "Wissensassistent",
+      "description": "Antwortet aus Unternehmenswissen mit RAG-fähiger Suche."
+    },
+    "support_assistant": {
+      "name": "Support-Assistent",
+      "description": "Kundensupport-Triage, Antworten und Eskalationswege."
+    },
+    "meeting_assistant": {
+      "name": "Meeting-Assistent",
+      "description": "Agenda-Vorbereitung, Notiz-Platzhalter und Follow-ups."
+    },
+    "custom": {
+      "name": "Benutzerdefinierter Agent",
+      "description": "Erweiterungspunkt für organisationsspezifische Agenten."
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "CRM-Tool",
+      "description": "Kunden anlegen/aktualisieren und Kontokontext lesen."
+    },
+    "projects": {
+      "name": "Projekte-Tool",
+      "description": "Projekte, Aufgaben und Lieferstatus verwalten."
+    },
+    "finance": {
+      "name": "Finanzen-Tool",
+      "description": "Rechnungen, Salden und Finanzzusammenfassungen."
+    },
+    "documents": {
+      "name": "Dokumente-Tool",
+      "description": "Workspace-Dokumente lesen und zusammenfassen."
+    },
+    "workflow": {
+      "name": "Workflow-Tool",
+      "description": "Automatisierungsworkflows auslösen und prüfen."
+    },
+    "integration": {
+      "name": "Integrations-Tool",
+      "description": "Angeschlossene Drittanbieter-Konnektoren aufrufen."
+    },
+    "email": {
+      "name": "E-Mail-Tool",
+      "description": "Ausgehende E-Mails entwerfen und in die Warteschlange stellen."
+    },
+    "calendar": {
+      "name": "Kalender-Tool",
+      "description": "Kalenderereignisse planen und prüfen."
+    },
+    "search": {
+      "name": "Such-Tool",
+      "description": "Universelle Workspace-Suche."
+    },
+    "notification": {
+      "name": "Benachrichtigungs-Tool",
+      "description": "In-App-Benachrichtigungen senden."
+    },
+    "api": {
+      "name": "API-Tool",
+      "description": "Interne API-Gateway-Routen aufrufen."
+    },
+    "mcp": {
+      "name": "MCP-Tool",
+      "description": "Zukünftige Model-Context-Protocol-Servertools."
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "AGXORA-Betriebsprinzipien",
+      "summary": "Enterprise-OS-Prinzipien für modulare, sichere KI-Agenten."
+    },
+    "policies": {
+      "title": "Richtlinie zur Datenverarbeitung",
+      "summary": "Isolation sensibler Tools und Least-Privilege-Zugriff."
+    },
+    "procedures": {
+      "title": "Verfahren zur Kundeneskalation",
+      "summary": "Eskalationsweg des Support-Assistenten bei geringer Konfidenz."
+    },
+    "rag": {
+      "title": "RAG-Index-Platzhalter",
+      "summary": "Zukünftige Vektorsuche über Dokumente und CRM-Notizen."
+    }
+  },
+  "llm": {
+    "local": "Lokales LLM",
+    "mcp": "MCP-Server",
+    "custom": "Benutzerdefiniertes Modell"
+  },
+  "lifecycle": {
+    "draft": "Entwurf",
+    "registered": "Registriert",
+    "active": "Aktiv",
+    "paused": "Pausiert",
+    "error": "Fehler",
+    "retired": "Außer Betrieb"
+  },
+  "healthStatus": {
+    "healthy": "Gesund",
+    "degraded": "Beeinträchtigt",
+    "down": "Ausgefallen",
+    "unknown": "Unbekannt"
+  },
+  "taskStatus": {
+    "pending": "Ausstehend",
+    "running": "Läuft",
+    "completed": "Abgeschlossen",
+    "cancelled": "Abgebrochen",
+    "failed": "Fehlgeschlagen",
+    "retrying": "Wird wiederholt"
+  },
+  "memoryScope": {
+    "working": "Arbeitspeicher",
+    "conversation": "Konversation",
+    "business": "Business",
+    "long_term": "Langzeit",
+    "workspace": "Workspace",
+    "agent": "Agent"
+  },
+  "knowledgeKind": {
+    "company": "Unternehmen",
+    "documents": "Dokumente",
+    "projects": "Projekte",
+    "crm": "CRM",
+    "policies": "Richtlinien",
+    "procedures": "Verfahren",
+    "vector": "Vektor",
+    "rag": "RAG"
   }
 }

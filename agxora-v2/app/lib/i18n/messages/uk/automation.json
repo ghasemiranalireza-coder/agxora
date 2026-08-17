@@ -580,5 +580,188 @@
       "label": "Призначити завдання",
       "description": "Призначити завдання користувачу."
     }
+  },
+  "kinds": {
+    "trigger": "Тригер",
+    "action": "Дія",
+    "condition": "Умова",
+    "delay": "Затримка",
+    "approval": "Затвердження",
+    "loop": "Цикл",
+    "merge": "Об’єднання",
+    "split": "Розгалуження",
+    "ai_decision": "Рішення ШІ",
+    "ai_action": "Дія ШІ",
+    "notification": "Сповіщення",
+    "webhook": "Вебхук",
+    "custom_action": "Власна дія",
+    "branch": "Розгалуження",
+    "variable": "Змінна"
+  },
+  "kpi": {
+    "active": {
+      "label": "Активні процеси",
+      "caption": "Увімкнені в просторі"
+    },
+    "runs-today": {
+      "label": "Запуски сьогодні",
+      "caption": "Усі тригери"
+    },
+    "success": {
+      "label": "Успішні автоматизації",
+      "caption": "Сьогодні"
+    },
+    "failed": {
+      "label": "Невдалі запуски",
+      "caption": "Потребує уваги"
+    },
+    "pending": {
+      "label": "Очікувані завдання",
+      "caption": "Затвердження + повтори"
+    },
+    "avg-time": {
+      "label": "Середній час виконання",
+      "caption": "Медіана 1,2 с"
+    },
+    "ai-suggestions": {
+      "label": "Пропозиції ШІ",
+      "caption": "Можливості автоматизації"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "Продуктивність",
+    "Communication": "Комунікація",
+    "Commerce": "Комерція",
+    "Finance": "Фінанси",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "Хуки Gmail / Drive / Календаря зарезервовані під OAuth.",
+    "m365": "Хуки Outlook / Teams / Graph зарезервовані.",
+    "slack": "Events API + дописи в чат зарезервовані.",
+    "teams": "Адаптер Bot Framework зарезервовано.",
+    "discord": "Адаптер вебхука + бота зарезервовано.",
+    "whatsapp": "Адаптер Meta Cloud API зарезервовано.",
+    "stripe": "Платіжні вебхуки зарезервовані — без живих ключів.",
+    "shopify": "Події замовлень / товарів зарезервовані.",
+    "datev": "Хуки експорту DATEV / пакетів проводок зарезервовані.",
+    "sap": "Міст подій ERP зарезервовано — вимкнено до плану enterprise.",
+    "hubspot": "Адаптер синхронізації CRM зарезервовано.",
+    "salesforce": "Адаптер Platform Events зарезервовано."
+  },
+  "defaultWorkflow": {
+    "name": "Онбординг клієнтів",
+    "description": "Вітальна послідовність після створення клієнта."
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "Фінанси",
+    "Sales": "Продажі",
+    "Marketing": "Маркетинг",
+    "HR": "HR",
+    "Creator": "Кріейтор",
+    "Ops": "Операції",
+    "Projects": "Проєкти",
+    "AI": "ШІ"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "Онбординг клієнтів",
+      "description": "Вітальний лист, резюме ШІ й завдання власника після створення клієнта.",
+      "category": "CRM",
+      "recommendedFor": "Команди, що онбордять нових B2B-клієнтів"
+    },
+    "tpl-invoice": {
+      "name": "Нагадування про рахунок",
+      "description": "Планові нагадування за відкритими рахунками з ескалацією.",
+      "category": "Фінанси",
+      "recommendedFor": "Фінопс, що зменшують прострочену дебіторку"
+    },
+    "tpl-lead": {
+      "name": "Follow-up ліда",
+      "description": "Відповідь ШІ ел. поштою й оновлення воронки для нових лідів.",
+      "category": "Продажі",
+      "recommendedFor": "Відділи продажів із великим inbound-потоком лідів"
+    },
+    "tpl-welcome": {
+      "name": "Вітальний лист",
+      "description": "Проста вітальна послідовність під час реєстрації.",
+      "category": "Маркетинг",
+      "recommendedFor": "Будь-який простір, що починає з поштової автоматизації"
+    },
+    "tpl-pipeline": {
+      "name": "Воронка продажів",
+      "description": "Зміни етапів зі сповіщеннями й завданнями.",
+      "category": "Продажі",
+      "recommendedFor": "Команди з багатоетапним рухом угод"
+    },
+    "tpl-recruit": {
+      "name": "Рекрутинг",
+      "description": "Маршрутизація кандидатів і завдання співбесід.",
+      "category": "HR",
+      "recommendedFor": "Менеджери з найму й people ops"
+    },
+    "tpl-content": {
+      "name": "Публікація контенту",
+      "description": "Creator Studio: опублікувати → сповістити → аналітика.",
+      "category": "Кріейтор",
+      "recommendedFor": "Команди маркетингу й кріейторів"
+    },
+    "tpl-approval": {
+      "name": "Процес затвердження",
+      "description": "Багатокрокове затвердження з рекомендаціями ШІ.",
+      "category": "Операції",
+      "recommendedFor": "Затвердження finance/ops перед побічними ефектами",
+      "estimatedRuntime": "Людський шлюз"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "Вітання нового клієнта",
+      "description": "Вітальний лист + сповіщення при створенні клієнта.",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "Нагадування про рахунок",
+      "description": "Нагадайте клієнтам після виставлення рахунку.",
+      "category": "Фінанси"
+    },
+    "tpl_project_kickoff": {
+      "name": "Кікоф проєкту",
+      "description": "Призначте завдання кікоффу й сповістіть при створенні проєкту.",
+      "category": "Проєкти"
+    },
+    "tpl_task_assignment": {
+      "name": "Призначення завдання",
+      "description": "Лист виконавцю після завершення завдання — зв’яжіть наступну роботу.",
+      "category": "Проєкти"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "Резюме клієнта ШІ",
+      "description": "Запустіть резюме ШІ при створенні клієнта; збережіть вивід.",
+      "category": "ШІ"
+    },
+    "tpl_followup_reminder": {
+      "name": "Нагадування follow-up",
+      "description": "Плановий follow-up з розгалуженням за статусом.",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "Надіслати вітальний лист",
+    "notify_team": "Сповістити команду",
+    "wait_3_days": "Зачекати 3 дні",
+    "still_unpaid": "Ще не оплачено?",
+    "send_reminder": "Надіслати нагадування",
+    "assign_kickoff_task": "Призначити завдання кікоффу",
+    "notify_owner": "Сповістити власника",
+    "notify_stakeholders": "Сповістити стейкхолдерів",
+    "run_ai_summary": "Запустити резюме ШІ",
+    "generate_document": "Згенерувати документ",
+    "daily_schedule": "Щоденний розклад",
+    "by_priority": "За пріоритетом",
+    "urgent_notification": "Термінове сповіщення",
+    "standard_email": "Стандартний лист"
   }
 }

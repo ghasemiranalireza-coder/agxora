@@ -117,5 +117,30 @@
       "warning": "Peringatan",
       "ok": "OKE"
     }
+  },
+  "licenseStatus": {
+    "trial": "Uji coba",
+    "active": "Aktif",
+    "expired": "Kedaluwarsa",
+    "cancelled": "Dibatalkan",
+    "suspended": "Ditangguhkan",
+    "lifetime": "Seumur hidup"
+  },
+  "quotas": {
+    "ai_requests": "Permintaan AI",
+    "projects": "Proyek",
+    "customers": "Pelanggan",
+    "documents": "Dokumen",
+    "storage_mb": "Penyimpanan (MB)",
+    "users": "Pengguna",
+    "api_requests": "Permintaan API"
+  },
+  "invoiceStatus": {
+    "draft": "Draf",
+    "open": "Terbuka",
+    "paid": "Lunas",
+    "void": "Batal",
+    "uncollectible": "Tidak tertagih",
+    "refunded": "Dikembalikan"
   }
 }

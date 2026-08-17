@@ -67,14 +67,78 @@
     "title": "KPI Merkezi",
     "subtitle": "Gelir, müşteriler, projeler, iş akışları, aracılar ve otomasyon genelinde yapılandırılabilir KPI kataloğu.",
     "emptyTitle": "Analitik sinyal bekliyor",
-    "emptyDescription": "Çalışma alanınız etkinlik oluşturduğunda yönetici KPI'ları ve uyarılar burada görünür."
+    "emptyDescription": "Çalışma alanınız etkinlik oluşturduğunda yönetici KPI'ları ve uyarılar burada görünür.",
+    "revenue": {
+      "name": "Gelir",
+      "description": "Dönemde muhasebeleştirilen toplam gelir."
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "Aylık yinelenen gelir."
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "Yıllık yinelenen gelir."
+    },
+    "growth": {
+      "name": "Büyüme",
+      "description": "Önceki döneme göre büyüme oranı."
+    },
+    "customer_acquisition": {
+      "name": "Müşteri kazanımı",
+      "description": "Kazanılan yeni müşteriler."
+    },
+    "retention": {
+      "name": "Elde tutma",
+      "description": "Müşteri elde tutma oranı."
+    },
+    "churn": {
+      "name": "Kayıp",
+      "description": "Müşteri kayıp oranı."
+    },
+    "project_success": {
+      "name": "Proje başarısı",
+      "description": "Zamanında / kapsamda teslim edilen projeler."
+    },
+    "workflow_success": {
+      "name": "İş akışı başarısı",
+      "description": "Başarılı iş akışı çalıştırmaları."
+    },
+    "agent_performance": {
+      "name": "Ajan performansı",
+      "description": "YZ ajan görev başarı skoru."
+    },
+    "automation_success": {
+      "name": "Otomasyon başarısı",
+      "description": "Otomasyon / entegrasyon güvenilirliği."
+    },
+    "custom": {
+      "name": "Özel KPI",
+      "description": "Kuruluşun tanımladığı KPI’lar için genişletme noktası."
+    }
   },
   "reports": {
     "title": "Raporlama motoru",
     "subtitle": "Rapor tanımları incelenmek üzere ekilir. Bir raporlama arka ucu bağlanana kadar dosya dışa aktarma kullanılamaz.",
     "emptyTitle": "Rapor yok",
     "emptyDescription": "Çalışma alanı önyüklemesindeki tohumu raporlar.",
-    "scheduleOnDemand": "Talep üzerine"
+    "scheduleOnDemand": "Talep üzerine",
+    "executive": {
+      "title": "Yönetici haftalık",
+      "description": "Sağlık, gelir, risk ve büyüme için CEO brifingi."
+    },
+    "department": {
+      "title": "Satış birimi raporu",
+      "description": "Satış liderliği için pipeline, kazanım ve elde tutma."
+    },
+    "operational": {
+      "title": "Operasyon günlük",
+      "description": "İş akışları, entegrasyonlar ve kimlik duruşu."
+    },
+    "management": {
+      "title": "Teslimat yönetimi",
+      "description": "Proje başarısı, kapasite ve belge çıktısı."
+    }
   },
   "insights": {
     "emptyTitle": "Henüz analiz yok",
@@ -94,12 +158,88 @@
     "emptyDescription": "Tohumu risk buluşsal yöntemlerinden uyarır.",
     "acked": "Onaylandı",
     "open": "açık",
-    "acknowledge": "Kabullenmek"
+    "acknowledge": "Kabullenmek",
+    "revenue_drop": {
+      "title": "Segmentte gelir yumuşaması",
+      "body": "KOBI’de WoW gelir %4 düştü — pipeline kapsamını gözden geçirin."
+    },
+    "project_delay": {
+      "title": "Proje gecikme riskinde",
+      "body": "İki teslim projesi kilometre taşlarını geçti."
+    },
+    "churn_risk": {
+      "title": "Müşteri kayıp riski yükseldi",
+      "body": "Üç hesapta etkileşim skorları düşüyor."
+    },
+    "workflow_failure": {
+      "title": "İş akışı hataları tespit edildi",
+      "body": "Fatura hatırlatma iş akışı 24 saatte iki kez başarısız oldu."
+    },
+    "ai_failure": {
+      "title": "YZ görev yeniden denemeleri arttı",
+      "body": "Ajan görev yeniden deneme oranı yumuşak eşiği aştı."
+    },
+    "integration_error": {
+      "title": "Entegrasyon hataları",
+      "body": "Slack bağlayıcısı aralıklı 5xx yanıtladı."
+    },
+    "security": {
+      "title": "Güvenlik uyarısı",
+      "body": "Olağandışı API anahtarı kullanım kalıbı tespit edildi."
+    }
   },
   "scorecards": {
     "title": "Puan kartı motoru",
     "emptyTitle": "Puan kartı yok",
-    "emptyDescription": "Önyükleme işleminde puan kartlarının tohumu."
+    "emptyDescription": "Önyükleme işleminde puan kartlarının tohumu.",
+    "sales": {
+      "name": "Satış skoru",
+      "drivers": {
+        "pipeline_coverage": "Pipeline kapsamı",
+        "win_rate": "Kazanma oranı",
+        "cycle_time": "Döngü süresi"
+      }
+    },
+    "customer_health": {
+      "name": "Müşteri sağlık skoru",
+      "drivers": {
+        "retention": "Elde tutma",
+        "nps_proxy": "NPS vekili",
+        "support_load": "Destek yükü"
+      }
+    },
+    "project_success": {
+      "name": "Proje başarı skoru",
+      "drivers": {
+        "on_time_delivery": "Zamanında teslim",
+        "scope_control": "Kapsam kontrolü",
+        "utilization": "Kullanım"
+      }
+    },
+    "automation_efficiency": {
+      "name": "Otomasyon verimliliği",
+      "drivers": {
+        "workflow_success": "İş akışı başarısı",
+        "manual_effort_saved": "Tasarruf edilen manuel efor",
+        "retry_rate": "Yeniden deneme oranı"
+      }
+    },
+    "ai_quality": {
+      "name": "YZ kalitesi",
+      "drivers": {
+        "task_success": "Görev başarısı",
+        "confidence_avg": "Ort. güven",
+        "escalation_rate": "Yükseltme oranı"
+      }
+    },
+    "operational_health": {
+      "name": "Operasyonel sağlık",
+      "drivers": {
+        "system_health": "Sistem sağlığı",
+        "integration_reliability": "Entegrasyon güvenilirliği",
+        "identity_posture": "Kimlik duruşu"
+      }
+    }
   },
   "explorer": {
     "title": "Veri gezgini",
@@ -107,7 +247,8 @@
     "searchAria": "Demo gezgini satırlarında ara",
     "emptyTitle": "Eşleşen satır yok",
     "emptyDescription": "Filtreleri ayarlayın veya arayın veya demo veri kümesini yeniden yükleyin.",
-    "hint": "Tohumlanmış kayıtlarda istemci tarafı arama — arka uç toplama ve detaya inme bağlantılı değildir."
+    "hint": "Tohumlanmış kayıtlarda istemci tarafı arama — arka uç toplama ve detaya inme bağlantılı değildir.",
+    "metricLabel": "{domain} metriği {index}"
   },
   "columns": {
     "kpi": "KPI",
@@ -132,5 +273,121 @@
     "measure": "Ölçüm",
     "date": "Tarih"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "CRM analitiği",
+    "projects": "Proje analitiği",
+    "finance": "Finans analitiği",
+    "documents": "Belge analitiği",
+    "workflow": "İş akışı analitiği",
+    "identity": "Kimlik analitiği",
+    "ai": "YZ analitiği",
+    "integration": "Entegrasyon analitiği",
+    "executive": "Yönetici"
+  },
+  "series": {
+    "crm_leads": "Potansiyel müşteriler",
+    "crm_pipeline": "Pipeline (bin $)",
+    "proj_active": "Aktif projeler",
+    "proj_on_time": "Zamanında %",
+    "fin_revenue": "Gelir (bin $)",
+    "fin_margin": "Brüt marj %",
+    "doc_created": "Oluşturulan belgeler",
+    "doc_views": "Belge görüntüleme",
+    "wf_runs": "İş akışı çalıştırma",
+    "wf_success": "Başarı %",
+    "id_users": "Aktif kullanıcılar",
+    "id_sessions": "Oturumlar",
+    "ai_tasks": "Ajan görevleri",
+    "ai_success": "Ajan başarı %",
+    "int_calls": "API / webhook çağrıları",
+    "int_errors": "Entegrasyon hataları"
+  },
+  "bands": {
+    "Critical": "Kritik",
+    "Watch": "İzle",
+    "Healthy": "Sağlıklı",
+    "Excellent": "Mükemmel"
+  },
+  "charts": {
+    "chart_revenue": "Gelir eğilimi",
+    "chart_pipeline": "CRM pipeline",
+    "chart_workflows": "İş akışı etkinliği",
+    "chart_ai": "YZ etkinlik karışımı",
+    "chart_ops_table": "Operasyon anlık görüntüsü",
+    "chart_heatmap_placeholder": "Etkileşim ısı haritası"
+  },
+  "chartKinds": {
+    "line": "Çizgi",
+    "bar": "Çubuk",
+    "area": "Alan",
+    "pie": "Pasta",
+    "heatmap": "Isı haritası",
+    "table": "Tablo",
+    "card": "Kart"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "MRR hızlanıyor",
+      "summary": "MRR büyümesi üç dönem üst üste iyileşti."
+    },
+    "pattern": {
+      "title": "Fatura günlerinde iş akışı zirveleri",
+      "summary": "Otomasyon yükü ay sonu faturalamayla ilişkilidir."
+    },
+    "recommendation": {
+      "title": "Elde tutma playbook’unu genişlet",
+      "summary": "CSM outreach’ini sağlığı düşen üç hesaba odaklayın."
+    },
+    "executive_summary": {
+      "title": "Yönetici brifingi",
+      "summary": "Şirket sağlığı güçlü; kayıp riski ve teslim gecikmelerini izleyin."
+    },
+    "risk": {
+      "title": "Teslimat risk kümesi",
+      "summary": "İki proje kaynak çekişmesi paylaşıyor — kapasite tahmini yüksek."
+    },
+    "opportunity": {
+      "title": "Upsell fırsatı",
+      "summary": "Business planı olmayan yüksek kullanımlı hesaplarda genişleme potansiyeli var."
+    }
+  },
+  "forecastNotes": {
+    "revenue": "Doğrusal eğilim yer tutucusu — model servisiyle değiştirin.",
+    "customer": "Kazanım + elde tutma bileşimi.",
+    "project": "Kapasiteye duyarlı teslimat tahmini.",
+    "capacity": "Ekip kullanım tahmini.",
+    "growth": "Büyüme oranı tahmini."
+  },
+  "forecastKinds": {
+    "revenue": "Gelir",
+    "customer": "Müşteri",
+    "project": "Proje",
+    "capacity": "Kapasite",
+    "growth": "Büyüme"
+  },
+  "severity": {
+    "info": "Bilgi",
+    "warning": "Uyarı",
+    "critical": "Kritik"
+  },
+  "trend": {
+    "up": "Yukarı",
+    "down": "Aşağı",
+    "flat": "Yatay"
+  },
+  "insightKinds": {
+    "trend": "Eğilim",
+    "pattern": "Örüntü",
+    "recommendation": "Öneri",
+    "executive_summary": "Yönetici özeti",
+    "risk": "Risk",
+    "opportunity": "Fırsat"
+  },
+  "reportKinds": {
+    "executive": "Yönetici",
+    "department": "Birim",
+    "operational": "Operasyonel",
+    "management": "Yönetim"
+  }
 }

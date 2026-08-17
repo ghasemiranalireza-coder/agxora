@@ -580,5 +580,188 @@
       "label": "Taak toewijzen",
       "description": "Een taak aan een gebruiker toewijzen."
     }
+  },
+  "kinds": {
+    "trigger": "Trigger",
+    "action": "Actie",
+    "condition": "Voorwaarde",
+    "delay": "Vertraging",
+    "approval": "Goedkeuring",
+    "loop": "Lus",
+    "merge": "Samenvoegen",
+    "split": "Splitsen",
+    "ai_decision": "AI-beslissing",
+    "ai_action": "AI-actie",
+    "notification": "Melding",
+    "webhook": "Webhook",
+    "custom_action": "Aangepaste actie",
+    "branch": "Vertakking",
+    "variable": "Variabele"
+  },
+  "kpi": {
+    "active": {
+      "label": "Actieve workflows",
+      "caption": "Ingeschakeld in de workspace"
+    },
+    "runs-today": {
+      "label": "Workflowruns vandaag",
+      "caption": "Over alle triggers"
+    },
+    "success": {
+      "label": "Geslaagde automatiseringen",
+      "caption": "Vandaag"
+    },
+    "failed": {
+      "label": "Mislukte runs",
+      "caption": "Aandacht nodig"
+    },
+    "pending": {
+      "label": "Openstaande taken",
+      "caption": "Goedkeuringen + retries"
+    },
+    "avg-time": {
+      "label": "Gemiddelde looptijd",
+      "caption": "Mediaan 1,2s"
+    },
+    "ai-suggestions": {
+      "label": "AI-suggesties",
+      "caption": "Automatiseringskansen"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "Productiviteit",
+    "Communication": "Communicatie",
+    "Commerce": "Commerce",
+    "Finance": "Financiën",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "Gmail-/Drive-/Agenda-hooks gereserveerd voor OAuth-bekabeling.",
+    "m365": "Outlook-/Teams-/Graph-hooks gereserveerd.",
+    "slack": "Events API + chatposts gereserveerd.",
+    "teams": "Bot Framework-adapter gereserveerd.",
+    "discord": "Webhook- + botadapter gereserveerd.",
+    "whatsapp": "Meta Cloud API-adapter gereserveerd.",
+    "stripe": "Betalingswebhooks gereserveerd — geen livesleutels.",
+    "shopify": "Order-/productevents gereserveerd.",
+    "datev": "DATEV-export- / boekingsbatch-hooks gereserveerd.",
+    "sap": "ERP-eventbrug gereserveerd — uitgeschakeld tot enterprise-plan.",
+    "hubspot": "CRM-sync-adapter gereserveerd.",
+    "salesforce": "Platform Events-adapter gereserveerd."
+  },
+  "defaultWorkflow": {
+    "name": "Klantonboarding",
+    "description": "Welkomstreeks wanneer een klant wordt aangemaakt."
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "Financiën",
+    "Sales": "Verkoop",
+    "Marketing": "Marketing",
+    "HR": "HR",
+    "Creator": "Creator",
+    "Ops": "Ops",
+    "Projects": "Projecten",
+    "AI": "AI"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "Klant-onboarding",
+      "description": "Welkomstmail, AI-samenvatting en ownertaak na klantaanmaak.",
+      "category": "CRM",
+      "recommendedFor": "Teams die nieuwe B2B-klanten onboarden"
+    },
+    "tpl-invoice": {
+      "name": "Factuurherinnering",
+      "description": "Geplande herinneringen voor open facturen met escalatiepad.",
+      "category": "Financiën",
+      "recommendedFor": "Finance-ops die achterstallige vorderingen verlagen"
+    },
+    "tpl-lead": {
+      "name": "Leadopvolging",
+      "description": "AI-e-mailantwoord plus pipelinestatusupdate voor nieuwe leads.",
+      "category": "Verkoop",
+      "recommendedFor": "Verkoopteams met hoog inbound-leadvolume"
+    },
+    "tpl-welcome": {
+      "name": "Welkomst-e-mail",
+      "description": "Eenvoudige welkomstreeks bij aanmelding.",
+      "category": "Marketing",
+      "recommendedFor": "Elke workspace die met e-mailautomatisering start"
+    },
+    "tpl-pipeline": {
+      "name": "Verkooppijplijn",
+      "description": "Fasewijzigingen met meldingen en taken.",
+      "category": "Verkoop",
+      "recommendedFor": "Teams die meerfasige dealvoortgang beheren"
+    },
+    "tpl-recruit": {
+      "name": "Werving",
+      "description": "Kandidaatrouting en interviewtaken.",
+      "category": "HR",
+      "recommendedFor": "Hiring managers en people ops"
+    },
+    "tpl-content": {
+      "name": "Contentpublicatie",
+      "description": "Creator Studio: publiceren → melden → analytics.",
+      "category": "Creator",
+      "recommendedFor": "Marketing- en creatorteams"
+    },
+    "tpl-approval": {
+      "name": "Goedkeuringsproces",
+      "description": "Meerfasige goedkeuring met AI-aanbevelingen.",
+      "category": "Ops",
+      "recommendedFor": "Finance-/ops-goedkeuringen vóór neveneffecten",
+      "estimatedRuntime": "Menselijke poort"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "Welkom nieuwe klant",
+      "description": "Welkomstmail + melding wanneer een klant wordt aangemaakt.",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "Factuurherinnering",
+      "description": "Herinner klanten nadat een factuur is uitgegeven.",
+      "category": "Financiën"
+    },
+    "tpl_project_kickoff": {
+      "name": "Projectkickoff",
+      "description": "Wijs een kickoff-taak toe en meld bij projectaanmaak.",
+      "category": "Projecten"
+    },
+    "tpl_task_assignment": {
+      "name": "Taaktoewijzing",
+      "description": "E-mail de assignee wanneer een taak klaar is — ketting volgend werk.",
+      "category": "Projecten"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "AI-klantsamenvatting",
+      "description": "Voer een AI-samenvatting uit bij klantaanmaak; sla de output op.",
+      "category": "AI"
+    },
+    "tpl_followup_reminder": {
+      "name": "Opvolgherinnering",
+      "description": "Schema-gebaseerde opvolging met vertakking op status.",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "Welkomst-e-mail verzenden",
+    "notify_team": "Team waarschuwen",
+    "wait_3_days": "3 dagen wachten",
+    "still_unpaid": "Nog onbetaald?",
+    "send_reminder": "Herinnering verzenden",
+    "assign_kickoff_task": "Kickoff-taak toewijzen",
+    "notify_owner": "Owner waarschuwen",
+    "notify_stakeholders": "Stakeholders waarschuwen",
+    "run_ai_summary": "AI-samenvatting uitvoeren",
+    "generate_document": "Document genereren",
+    "daily_schedule": "Dagelijks schema",
+    "by_priority": "Op prioriteit",
+    "urgent_notification": "Urgente melding",
+    "standard_email": "Standaard-e-mail"
   }
 }

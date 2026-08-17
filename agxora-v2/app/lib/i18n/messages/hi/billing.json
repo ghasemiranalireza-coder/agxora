@@ -117,5 +117,30 @@
       "warning": "चेतावनी",
       "ok": "ठीक है"
     }
+  },
+  "licenseStatus": {
+    "trial": "ट्रायल",
+    "active": "सक्रिय",
+    "expired": "समाप्त",
+    "cancelled": "रद्द",
+    "suspended": "निलंबित",
+    "lifetime": "आजीवन"
+  },
+  "quotas": {
+    "ai_requests": "AI अनुरोध",
+    "projects": "प्रोजेक्ट",
+    "customers": "ग्राहक",
+    "documents": "दस्तावेज़",
+    "storage_mb": "स्टोरेज (MB)",
+    "users": "उपयोगकर्ता",
+    "api_requests": "API अनुरोध"
+  },
+  "invoiceStatus": {
+    "draft": "ड्राफ्ट",
+    "open": "खुला",
+    "paid": "भुगतान",
+    "void": "रद्द",
+    "uncollectible": "वसूली अयोग्य",
+    "refunded": "वापस"
   }
 }

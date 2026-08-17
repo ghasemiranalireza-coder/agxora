@@ -17,7 +17,8 @@ import {
   toBcp47,
 } from "./locale";
 import { getCatalog, getFallbackCatalog } from "./catalog";
-import { resolveMessage } from "./translate";
+import { resolveMessage, resolveMessageList } from "./translate";
+import { catalogCopy } from "./catalogCopy";
 import { formatCurrency, formatDate, formatNumber, setActiveFormatLocale } from "./format";
 import { resolveUserFacingErrorKey } from "./errorMap";
 
@@ -265,6 +266,40 @@ describe("error mapping", () => {
     expect(resolveMessage("en", "crm.documentKind.lieferschein")).toBe("Delivery note");
     expect(resolveMessage("fa", "settings.appearance.accentNotice")).not.toMatch(/^Accent /);
     expect(resolveMessage("de-BE", "auth.login.title")).toBe("Anmelden");
+  });
+
+  it("localizes remaining catalog surfaces instead of English data maps", () => {
+    expect(resolveMessage("de", "automation.catalog.ac-delivery.label")).toContain("Lieferschein");
+    expect(resolveMessage("de", "automation.integrationNotes.datev")).toContain("Buchungsstapel");
+    expect(resolveMessage("de", "agents.catalog.executive_advisor.name")).toBe("Executive-Berater");
+    expect(resolveMessage("fa", "agents.catalog.sales_agent.name")).not.toBe(
+      resolveMessage("en", "agents.catalog.sales_agent.name"),
+    );
+    expect(resolveMessage("fa", "agents.catalog.sales_agent.name")).not.toMatch(/[A-Za-z]{4,}/);
+    expect(resolveMessage("fa", "integrations.connectors.slack.description")).not.toBe(
+      resolveMessage("en", "integrations.connectors.slack.description"),
+    );
+    expect(resolveMessage("zh-CN", "intelligence.kpis.revenue.name")).not.toBe("Revenue");
+    expect(resolveMessage("ja", "creator.features.ideas.label")).not.toBe("Content Ideas");
+    expect(resolveMessage("de", "automation.studioTemplates.tpl-onboarding.name")).not.toBe(
+      "Customer Onboarding",
+    );
+    for (const locale of SUPPORTED_LOCALES) {
+      const metric = resolveMessage(locale, "intelligence.explorer.metricLabel", {
+        domain: "X",
+        index: "1",
+      });
+      expect(metric).toContain("X");
+      expect(metric).toContain("1");
+      expect(metric).not.toContain("{domain}");
+      expect(metric).not.toContain("{index}");
+    }
+  });
+
+  it("keeps stored catalog copy when a key is missing", () => {
+    const t = (key: string) => resolveMessage("de", key);
+    expect(catalogCopy(t, "agents.catalog.sales_agent.name", "Sales Agent")).not.toBe("Sales Agent");
+    expect(catalogCopy(t, "agents.catalog.missing_agent.name", "Fallback")).toBe("Fallback");
   });
 
   it("strips leaked translation markup from locale catalogs", () => {

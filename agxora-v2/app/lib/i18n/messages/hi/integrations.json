@@ -139,5 +139,75 @@
   "errors": {
     "failedToFetch": "लाने में विफल",
     "httpStatus": "HTTP {status}"
+  },
+  "categories": {
+    "productivity": "उत्पादकता",
+    "communication": "संचार",
+    "storage": "स्टोरेज",
+    "crm": "CRM",
+    "automation": "ऑटोमेशन",
+    "devtools": "डेवलपर टूल",
+    "custom": "कस्टम"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "API कुंजी",
+    "webhook": "वेबहुक"
+  },
+  "oauth": {
+    "custom": "कस्टम OAuth"
+  },
+  "connectorNames": {
+    "custom": "कस्टम कनेक्टर"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Microsoft Graph के माध्यम से मेल, कैलेंडर और Teams।"
+    },
+    "google_workspace": {
+      "description": "Workspace टेनेंट के लिए Gmail, कैलेंडर और Drive।"
+    },
+    "slack": {
+      "description": "चैनल, संदेश और इंटरैक्टिव सूचनाएँ।"
+    },
+    "discord": {
+      "description": "सर्वर सूचनाएँ और बॉट संदेश डिलीवरी।"
+    },
+    "dropbox": {
+      "description": "फ़ाइल सिंक और साझा फ़ोल्डर इवेंट।"
+    },
+    "onedrive": {
+      "description": "Microsoft OneDrive फ़ाइल स्टोरेज और डेल्टा सिंक।"
+    },
+    "google_drive": {
+      "description": "Drive फ़ाइलें, फ़ोल्डर और परिवर्तन सूचनाएँ।"
+    },
+    "hubspot": {
+      "description": "CRM संपर्क, डील और मार्केटिंग इवेंट।"
+    },
+    "salesforce": {
+      "description": "एंटरप्राइज़ CRM ऑब्जेक्ट और Platform Events।"
+    },
+    "zapier": {
+      "description": "Zapier zap में आउटबाउंड हुक।"
+    },
+    "make": {
+      "description": "Make (Integromat) के लिए सिनेरियो वेबहुक।"
+    },
+    "github": {
+      "description": "रेपो, इश्यू, पुल रिक्वेस्ट और Actions।"
+    },
+    "gitlab": {
+      "description": "प्रोजेक्ट, मर्ज रिक्वेस्ट, पाइपलाइन और वेबहुक।"
+    },
+    "custom": {
+      "description": "स्वामित्व वाले एंटरप्राइज़ सिस्टम के लिए विस्तार बिंदु।"
+    }
+  },
+  "healthStatus": {
+    "healthy": "स्वस्थ",
+    "degraded": "गिरा हुआ",
+    "down": "डाउन",
+    "unknown": "अज्ञात"
   }
 }

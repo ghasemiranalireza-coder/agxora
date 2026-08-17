@@ -139,5 +139,75 @@
   "errors": {
     "failedToFetch": "Échec de la récupération",
     "httpStatus": "HTTP {status}"
+  },
+  "categories": {
+    "productivity": "Productivité",
+    "communication": "Communication",
+    "storage": "Stockage",
+    "crm": "CRM",
+    "automation": "Automatisation",
+    "devtools": "Outils développeur",
+    "custom": "Personnalisé"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "Clé API",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "OAuth personnalisé"
+  },
+  "connectorNames": {
+    "custom": "Connecteur personnalisé"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Mail, calendrier et Teams via Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail, Agenda et Drive pour les locataires Workspace."
+    },
+    "slack": {
+      "description": "Canaux, messages et notifications interactives."
+    },
+    "discord": {
+      "description": "Notifications serveur et livraison de messages bot."
+    },
+    "dropbox": {
+      "description": "Synchronisation de fichiers et événements de dossiers partagés."
+    },
+    "onedrive": {
+      "description": "Stockage de fichiers Microsoft OneDrive et sync delta."
+    },
+    "google_drive": {
+      "description": "Fichiers Drive, dossiers et notifications de changement."
+    },
+    "hubspot": {
+      "description": "Contacts CRM, deals et événements marketing."
+    },
+    "salesforce": {
+      "description": "Objets CRM entreprise et Platform Events."
+    },
+    "zapier": {
+      "description": "Hooks sortants vers les zaps Zapier."
+    },
+    "make": {
+      "description": "Webhooks de scénario pour Make (Integromat)."
+    },
+    "github": {
+      "description": "Dépôts, issues, pull requests et Actions."
+    },
+    "gitlab": {
+      "description": "Projets, merge requests, pipelines et webhooks."
+    },
+    "custom": {
+      "description": "Point d’extension pour systèmes d’entreprise propriétaires."
+    }
+  },
+  "healthStatus": {
+    "healthy": "Sain",
+    "degraded": "Dégradé",
+    "down": "Hors service",
+    "unknown": "Inconnu"
   }
 }

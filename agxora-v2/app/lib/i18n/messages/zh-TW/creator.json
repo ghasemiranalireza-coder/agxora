@@ -138,12 +138,222 @@
     "professional": "專業",
     "friendly": "友善",
     "luxury": "奢華",
-    "casual": "隨興"
+    "casual": "隨興",
+    "minimal": "極簡",
+    "corporate": "企業",
+    "creative": "創意",
+    "custom": "自訂品牌聲線"
   },
   "integrationStatus": {
     "planned": "已規劃",
     "ready": "就緒",
     "connected": "已連線",
     "disabled": "已停用"
+  },
+  "categories": {
+    "social": "社群",
+    "ads": "廣告",
+    "analytics": "分析"
+  },
+  "platforms": {
+    "instagram": {
+      "notes": "已預留官方 Graph API 發佈與洞察。"
+    },
+    "tiktok": {
+      "notes": "已預留 TikTok Content Posting API 轉接器。"
+    },
+    "youtube": {
+      "notes": "已預留 YouTube Data API 上傳與分析。"
+    },
+    "facebook": {
+      "notes": "已預留 Pages 發佈轉接器。"
+    },
+    "linkedin": {
+      "notes": "已預留 UGC／組織貼文轉接器。"
+    },
+    "pinterest": {
+      "notes": "已預留 Pins + Boards 轉接器。"
+    },
+    "threads": {
+      "notes": "已預留 Threads API 轉接器。"
+    },
+    "x": {
+      "notes": "已預留 X API v2 發文轉接器。"
+    },
+    "meta-business": {
+      "notes": "已預留 Meta Business Suite／Ads Manager 勾點。"
+    },
+    "google-ads": {
+      "notes": "已預留 Google Ads API 廣告活動同步。"
+    },
+    "google-analytics": {
+      "notes": "已預留 GA4 衡量與報表轉接器。"
+    }
+  },
+  "features": {
+    "ideas": {
+      "label": "內容構想",
+      "description": "面向產業的活動與貼文構想引擎。"
+    },
+    "captions": {
+      "label": "文案產生器",
+      "description": "依平台格式產生品牌聲線文案。"
+    },
+    "hashtags": {
+      "label": "主題標籤建議",
+      "description": "主題標籤組的相關性與觸及評分。"
+    },
+    "calendar": {
+      "label": "內容日曆",
+      "description": "跨平台編輯日曆基礎。"
+    },
+    "campaigns": {
+      "label": "活動規劃",
+      "description": "目標、受眾、平台與時程。"
+    },
+    "audience": {
+      "label": "受眾建議",
+      "description": "來自 CRM＋創作者訊號的區隔建議。"
+    },
+    "schedule": {
+      "label": "發佈排程",
+      "description": "考量時區的最佳發佈時段。"
+    },
+    "brand": {
+      "label": "品牌一致性",
+      "description": "對照品牌聲線檢查語氣與素材。"
+    },
+    "rewrite": {
+      "label": "AI 改寫",
+      "description": "依清晰度、長度或通路改寫草稿。"
+    },
+    "translate": {
+      "label": "翻譯內容",
+      "description": "已預留多語翻譯管線。"
+    },
+    "i18n": {
+      "label": "多語支援",
+      "description": "發佈與分析介面的語言套件。"
+    }
+  },
+  "kpi": {
+    "content": {
+      "label": "已創作內容",
+      "caption": "本季"
+    },
+    "campaigns": {
+      "label": "活動",
+      "caption": "進行中＋已規劃"
+    },
+    "scheduled": {
+      "label": "已排程貼文",
+      "caption": "未來 14 天"
+    },
+    "engagement": {
+      "label": "互動",
+      "caption": "各通路平均比率"
+    },
+    "followers": {
+      "label": "追蹤成長",
+      "caption": "過去 30 天"
+    },
+    "reach": {
+      "label": "觸及",
+      "caption": "獨立曝光"
+    },
+    "conversions": {
+      "label": "轉換",
+      "caption": "歸因動作"
+    },
+    "ai-score": {
+      "label": "AI 表現分",
+      "caption": "內容品質訊號"
+    }
+  },
+  "analyticsMetrics": {
+    "a1": "互動",
+    "a2": "觸及",
+    "a3": "CTR",
+    "a4": "轉換",
+    "a5": "受眾成長",
+    "a6": "內容表現"
+  },
+  "voiceDesc": {
+    "professional": "清晰、可信、業務優先的語氣。",
+    "luxury": "精煉、克制、高端表述。",
+    "friendly": "溫暖、親切、口語化。",
+    "casual": "輕鬆日常用語。",
+    "minimal": "短句、高清晰度。",
+    "corporate": "正式企業溝通。",
+    "creative": "面向活動的表現力敘事。",
+    "custom": "稍後上傳指南與範例文案。"
+  },
+  "formatDesc": {
+    "instagram_caption": "帶 CTA 鉤子的動態／Reels 文案。",
+    "tiktok_script": "短腳本：鉤子 → 價值 → CTA。",
+    "linkedin_post": "思想領導力與 B2B 敘事。",
+    "facebook_post": "面向社群與粉絲專頁的貼文。",
+    "x_post": "簡潔串文與單篇貼文。",
+    "blog_article": "長文編輯草稿。",
+    "newsletter": "電子報章節與主旨列。",
+    "email_campaign": "活動序列與培育文案。",
+    "product_description": "面向電商的產品敘述。",
+    "ad_copy": "付費社群與搜尋廣告變體。",
+    "seo_article": "帶大綱結構的搜尋意圖文章。",
+    "landing_page_copy": "主視覺、賣點、證據與 CTA 區塊。"
+  },
+  "campaignStatus": {
+    "Active": "進行中",
+    "In review": "審核中",
+    "Planned": "已規劃"
+  },
+  "campaigns": {
+    "camp-1": {
+      "name": "Q3 產品發表",
+      "objective": "認知＋候補名單註冊",
+      "audience": "歐盟中小企業營運者",
+      "budget": "€8,500（佔位）",
+      "timeline": "8 月 4 日 – 9 月 12 日"
+    },
+    "camp-2": {
+      "name": "創作者合作衝刺",
+      "objective": "觸及＋社群成長",
+      "audience": "創作者 18–34 DE/AT",
+      "budget": "€4,200（佔位）",
+      "timeline": "7 月 20 日 – 8 月 20 日"
+    },
+    "camp-3": {
+      "name": "代理作品集推廣",
+      "objective": "潛在客戶獲取",
+      "audience": "行銷總監",
+      "budget": "€2,900（佔位）",
+      "timeline": "9 月 1 日 – 9 月 30 日"
+    }
+  },
+  "calendarItems": {
+    "cal-1": "發表預熱短片",
+    "cal-2": "創辦人 LinkedIn 敘事",
+    "cal-3": "候補名單郵件 #1",
+    "cal-4": "TikTok 示範腳本"
+  },
+  "queueItems": {
+    "q-1": "發表預熱短片文案",
+    "q-2": "創辦人敘事貼文",
+    "q-3": "候補名單培育郵件",
+    "q-4": "產品落地頁主文案",
+    "q-5": "TikTok 示範腳本 v2",
+    "q-6": "六月回顧輪播",
+    "q-7": "舊促銷串文"
+  },
+  "topPosts": {
+    "tp-1": "倉儲自動化拆解",
+    "tp-2": "30 秒產品示範短片",
+    "tp-3": "創作者合作鉤子"
+  },
+  "recommendations": {
+    "r1": "本週把 LinkedIn 拆解改成三頁輪播。",
+    "r2": "將 TikTok 示範排在週二至週四 18:00–20:00 CET 以提高完播。",
+    "r3": "收緊 Instagram CTA 的奢華品牌聲線 — 縮短約 20%。",
+    "r4": "將熱門短片文案譯為 DE/FR 以拓展歐盟受眾。"
   }
 }

@@ -138,12 +138,222 @@
     "professional": "专业",
     "friendly": "友好",
     "luxury": "奢华",
-    "casual": "轻松"
+    "casual": "轻松",
+    "minimal": "极简",
+    "corporate": "企业",
+    "creative": "创意",
+    "custom": "自定义品牌声线"
   },
   "integrationStatus": {
     "planned": "已规划",
     "ready": "就绪",
     "connected": "已连接",
     "disabled": "已停用"
+  },
+  "categories": {
+    "social": "社交",
+    "ads": "广告",
+    "analytics": "分析"
+  },
+  "platforms": {
+    "instagram": {
+      "notes": "已预留官方 Graph API 发布与洞察。"
+    },
+    "tiktok": {
+      "notes": "已预留 TikTok Content Posting API 适配器。"
+    },
+    "youtube": {
+      "notes": "已预留 YouTube Data API 上传与分析。"
+    },
+    "facebook": {
+      "notes": "已预留 Pages 发布适配器。"
+    },
+    "linkedin": {
+      "notes": "已预留 UGC / 组织帖子适配器。"
+    },
+    "pinterest": {
+      "notes": "已预留 Pins + Boards 适配器。"
+    },
+    "threads": {
+      "notes": "已预留 Threads API 适配器。"
+    },
+    "x": {
+      "notes": "已预留 X API v2 发帖适配器。"
+    },
+    "meta-business": {
+      "notes": "已预留 Meta Business Suite / Ads Manager 钩子。"
+    },
+    "google-ads": {
+      "notes": "已预留 Google Ads API 广告系列同步。"
+    },
+    "google-analytics": {
+      "notes": "已预留 GA4 衡量与报告适配器。"
+    }
+  },
+  "features": {
+    "ideas": {
+      "label": "内容创意",
+      "description": "面向行业的活动与帖子创意引擎。"
+    },
+    "captions": {
+      "label": "文案生成器",
+      "description": "按平台格式生成品牌声线文案。"
+    },
+    "hashtags": {
+      "label": "话题标签建议",
+      "description": "话题标签组的相关性与触达评分。"
+    },
+    "calendar": {
+      "label": "内容日历",
+      "description": "跨平台编辑日历基础。"
+    },
+    "campaigns": {
+      "label": "活动策划",
+      "description": "目标、受众、平台与时间线。"
+    },
+    "audience": {
+      "label": "受众建议",
+      "description": "来自 CRM + 创作者信号的细分建议。"
+    },
+    "schedule": {
+      "label": "发布排期",
+      "description": "考虑时区的最佳发布时间窗。"
+    },
+    "brand": {
+      "label": "品牌一致性",
+      "description": "对照品牌声线检查语气与素材。"
+    },
+    "rewrite": {
+      "label": "AI 改写",
+      "description": "按清晰度、长度或渠道改写草稿。"
+    },
+    "translate": {
+      "label": "翻译内容",
+      "description": "已预留多语言翻译流水线。"
+    },
+    "i18n": {
+      "label": "多语言支持",
+      "description": "发布与分析界面的语言包。"
+    }
+  },
+  "kpi": {
+    "content": {
+      "label": "已创作内容",
+      "caption": "本季度"
+    },
+    "campaigns": {
+      "label": "活动",
+      "caption": "进行中 + 已计划"
+    },
+    "scheduled": {
+      "label": "已排期帖子",
+      "caption": "未来 14 天"
+    },
+    "engagement": {
+      "label": "互动",
+      "caption": "各渠道平均比率"
+    },
+    "followers": {
+      "label": "粉丝增长",
+      "caption": "过去 30 天"
+    },
+    "reach": {
+      "label": "触达",
+      "caption": "独立展示"
+    },
+    "conversions": {
+      "label": "转化",
+      "caption": "归因动作"
+    },
+    "ai-score": {
+      "label": "AI 表现分",
+      "caption": "内容质量信号"
+    }
+  },
+  "analyticsMetrics": {
+    "a1": "互动",
+    "a2": "触达",
+    "a3": "CTR",
+    "a4": "转化",
+    "a5": "受众增长",
+    "a6": "内容表现"
+  },
+  "voiceDesc": {
+    "professional": "清晰、可信、业务优先的语气。",
+    "luxury": "精炼、克制、高端表述。",
+    "friendly": "温暖、亲切、口语化。",
+    "casual": "轻松日常用语。",
+    "minimal": "短句、高清晰度。",
+    "corporate": "正式企业沟通。",
+    "creative": "面向活动的表现力叙事。",
+    "custom": "稍后上传指南与示例文案。"
+  },
+  "formatDesc": {
+    "instagram_caption": "带 CTA 钩子的动态/Reels 文案。",
+    "tiktok_script": "短脚本：钩子 → 价值 → CTA。",
+    "linkedin_post": "思想领导力与 B2B 叙事。",
+    "facebook_post": "面向社区与主页的帖子。",
+    "x_post": "简洁串文与单帖。",
+    "blog_article": "长文编辑草稿。",
+    "newsletter": "邮件通讯章节与主题行。",
+    "email_campaign": "活动序列与培育文案。",
+    "product_description": "面向电商的产品叙述。",
+    "ad_copy": "付费社交与搜索广告变体。",
+    "seo_article": "带大纲结构的搜索意图文章。",
+    "landing_page_copy": "主视觉、卖点、证据与 CTA 区块。"
+  },
+  "campaignStatus": {
+    "Active": "进行中",
+    "In review": "审核中",
+    "Planned": "已计划"
+  },
+  "campaigns": {
+    "camp-1": {
+      "name": "Q3 产品发布",
+      "objective": "认知 + 候补名单注册",
+      "audience": "欧盟中小企业经营者",
+      "budget": "€8,500（占位）",
+      "timeline": "8 月 4 日 – 9 月 12 日"
+    },
+    "camp-2": {
+      "name": "创作者合作冲刺",
+      "objective": "触达 + 社区增长",
+      "audience": "创作者 18–34 DE/AT",
+      "budget": "€4,200（占位）",
+      "timeline": "7 月 20 日 – 8 月 20 日"
+    },
+    "camp-3": {
+      "name": "代理作品集推广",
+      "objective": "线索获取",
+      "audience": "市场总监",
+      "budget": "€2,900（占位）",
+      "timeline": "9 月 1 日 – 9 月 30 日"
+    }
+  },
+  "calendarItems": {
+    "cal-1": "发布预热短视频",
+    "cal-2": "创始人 LinkedIn 叙事",
+    "cal-3": "候补名单邮件 #1",
+    "cal-4": "TikTok 演示脚本"
+  },
+  "queueItems": {
+    "q-1": "发布预热短视频文案",
+    "q-2": "创始人叙事帖",
+    "q-3": "候补名单培育邮件",
+    "q-4": "产品落地页主文案",
+    "q-5": "TikTok 演示脚本 v2",
+    "q-6": "六月回顾轮播",
+    "q-7": "旧促销串文"
+  },
+  "topPosts": {
+    "tp-1": "仓储自动化拆解",
+    "tp-2": "30 秒产品演示短视频",
+    "tp-3": "创作者合作钩子"
+  },
+  "recommendations": {
+    "r1": "本周把 LinkedIn 拆解改成三页轮播。",
+    "r2": "将 TikTok 演示排在周二至周四 18:00–20:00 CET 以提高完播。",
+    "r3": "收紧 Instagram CTA 的奢华品牌声线 — 缩短约 20%。",
+    "r4": "将热门短视频文案译为 DE/FR 以拓展欧盟受众。"
   }
 }

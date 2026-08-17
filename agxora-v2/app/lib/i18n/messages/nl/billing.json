@@ -117,5 +117,30 @@
       "warning": "Waarschuwing",
       "ok": "OK"
     }
+  },
+  "licenseStatus": {
+    "trial": "Proef",
+    "active": "Actief",
+    "expired": "Verlopen",
+    "cancelled": "Geannuleerd",
+    "suspended": "Opgeschort",
+    "lifetime": "Levenslang"
+  },
+  "quotas": {
+    "ai_requests": "AI-verzoeken",
+    "projects": "Projecten",
+    "customers": "Klanten",
+    "documents": "Documenten",
+    "storage_mb": "Opslag (MB)",
+    "users": "Gebruikers",
+    "api_requests": "API-verzoeken"
+  },
+  "invoiceStatus": {
+    "draft": "Concept",
+    "open": "Open",
+    "paid": "Betaald",
+    "void": "Nietig",
+    "uncollectible": "Oninbaar",
+    "refunded": "Terugbetaald"
   }
 }

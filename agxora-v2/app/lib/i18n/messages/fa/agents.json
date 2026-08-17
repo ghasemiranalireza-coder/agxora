@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "تأثیر مشتری را اولویت بده",
     "delegatedFollowUp": "پیگیری تفویض‌شده"
+  },
+  "categories": {
+    "Leadership": "رهبری",
+    "Revenue": "درآمد",
+    "CRM": "CRM",
+    "Delivery": "تحویل",
+    "Automation": "اتوماسیون",
+    "Finance": "مالی",
+    "Knowledge": "دانش",
+    "Support": "پشتیبانی",
+    "Productivity": "بهره‌وری",
+    "Custom": "سفارشی"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "مشاور اجرایی",
+      "description": "بریفینگ راهبردی، جمع‌بندی KPI و پشتیبانی تصمیم."
+    },
+    "sales_agent": {
+      "name": "ایجنت فروش",
+      "description": "کوچینگ قیف، پیش‌نویس ارتباط و گام بعدی معاملات."
+    },
+    "crm_assistant": {
+      "name": "دستیار CRM",
+      "description": "غنی‌سازی مشتری، پاکسازی داده و بینش رابطه."
+    },
+    "project_manager": {
+      "name": "مدیر پروژه",
+      "description": "برنامه، شکست کار و سیگنال ریسک تحویل."
+    },
+    "workflow_coordinator": {
+      "name": "هماهنگ‌کننده گردش‌کار",
+      "description": "گردش‌کارهای اتوماسیون AGXORA را راه‌اندازی و هماهنگ می‌کند."
+    },
+    "finance_assistant": {
+      "name": "دستیار مالی",
+      "description": "آگاهی از فاکتور، یادداشت جریان نقد و خلاصه مالی."
+    },
+    "document_analyst": {
+      "name": "تحلیلگر اسناد",
+      "description": "ساختار، ریسک و خلاصه را از اسناد استخراج می‌کند."
+    },
+    "knowledge_assistant": {
+      "name": "دستیار دانش",
+      "description": "با بازیابی آماده RAG از دانش شرکت پاسخ می‌دهد."
+    },
+    "support_assistant": {
+      "name": "دستیار پشتیبانی",
+      "description": "تریاج پشتیبانی مشتری، پاسخ‌ها و مسیرهای ارجاع."
+    },
+    "meeting_assistant": {
+      "name": "دستیار جلسه",
+      "description": "آماده‌سازی دستور جلسه، جای‌نگهدار یادداشت و پیگیری."
+    },
+    "custom": {
+      "name": "ایجنت سفارشی",
+      "description": "نقطه گسترش برای ایجنت‌های مخصوص سازمان."
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "ابزار CRM",
+      "description": "ایجاد/به‌روزرسانی مشتری و خواندن بافت حساب."
+    },
+    "projects": {
+      "name": "ابزار پروژه‌ها",
+      "description": "مدیریت پروژه، کار و وضعیت تحویل."
+    },
+    "finance": {
+      "name": "ابزار مالی",
+      "description": "فاکتور، مانده و خلاصه مالی."
+    },
+    "documents": {
+      "name": "ابزار اسناد",
+      "description": "خواندن و خلاصه‌کردن اسناد فضای کاری."
+    },
+    "workflow": {
+      "name": "ابزار گردش‌کار",
+      "description": "راه‌اندازی و بررسی گردش‌کارهای اتوماسیون."
+    },
+    "integration": {
+      "name": "ابزار یکپارچه‌سازی",
+      "description": "فراخوانی کانکتورهای شخص ثالث متصل."
+    },
+    "email": {
+      "name": "ابزار ایمیل",
+      "description": "پیش‌نویس و صف ایمیل خروجی."
+    },
+    "calendar": {
+      "name": "ابزار تقویم",
+      "description": "زمان‌بندی و بررسی رویدادهای تقویم."
+    },
+    "search": {
+      "name": "ابزار جستجو",
+      "description": "جستجوی سراسری فضای کاری."
+    },
+    "notification": {
+      "name": "ابزار اعلان",
+      "description": "ارسال اعلان درون‌برنامه."
+    },
+    "api": {
+      "name": "ابزار API",
+      "description": "فراخوانی مسیرهای دروازه API داخلی."
+    },
+    "mcp": {
+      "name": "ابزار MCP",
+      "description": "ابزارهای آینده سرور Model Context Protocol."
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "اصول عملیاتی AGXORA",
+      "summary": "اصول سیستم‌عامل سازمانی برای ایجنت‌های هوش مصنوعی ماژولار و امن."
+    },
+    "policies": {
+      "title": "سیاست مدیریت داده",
+      "summary": "جداسازی ابزار حساس و دسترسی با کمترین امتیاز."
+    },
+    "procedures": {
+      "title": "رویۀ ارجاع مشتری",
+      "summary": "مسیر ارجاع دستیار پشتیبانی برای موارد با اطمینان پایین."
+    },
+    "rag": {
+      "title": "جای‌نگهدار نمایه RAG",
+      "summary": "بازیابی برداری آینده روی اسناد و یادداشت‌های CRM."
+    }
+  },
+  "llm": {
+    "local": "مدل زبانی محلی",
+    "mcp": "سرورهای MCP",
+    "custom": "مدل سفارشی"
+  },
+  "lifecycle": {
+    "draft": "پیش‌نویس",
+    "registered": "ثبت‌شده",
+    "active": "فعال",
+    "paused": "متوقف",
+    "error": "خطا",
+    "retired": "بازنشسته"
+  },
+  "healthStatus": {
+    "healthy": "سالم",
+    "degraded": "کاهش‌یافته",
+    "down": "ازکارافتاده",
+    "unknown": "نامشخص"
+  },
+  "taskStatus": {
+    "pending": "در انتظار",
+    "running": "در حال اجرا",
+    "completed": "تکمیل‌شده",
+    "cancelled": "لغوشده",
+    "failed": "ناموفق",
+    "retrying": "تلاش مجدد"
+  },
+  "memoryScope": {
+    "working": "کاری",
+    "conversation": "گفتگو",
+    "business": "کسب‌وکار",
+    "long_term": "بلندمدت",
+    "workspace": "فضای کاری",
+    "agent": "ایجنت"
+  },
+  "knowledgeKind": {
+    "company": "شرکت",
+    "documents": "اسناد",
+    "projects": "پروژه‌ها",
+    "crm": "CRM",
+    "policies": "سیاست‌ها",
+    "procedures": "رویه‌ها",
+    "vector": "بردار",
+    "rag": "RAG"
   }
 }

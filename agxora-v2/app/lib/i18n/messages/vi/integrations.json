@@ -139,5 +139,75 @@
   "errors": {
     "failedToFetch": "Không tìm nạp được",
     "httpStatus": "HTTP {status}"
+  },
+  "categories": {
+    "productivity": "Năng suất",
+    "communication": "Giao tiếp",
+    "storage": "Lưu trữ",
+    "crm": "CRM",
+    "automation": "Tự động hóa",
+    "devtools": "Công cụ lập trình",
+    "custom": "Tùy chỉnh"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "Khóa API",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "OAuth tùy chỉnh"
+  },
+  "connectorNames": {
+    "custom": "Connector tùy chỉnh"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Thư, lịch và Teams qua Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail, Lịch và Drive cho tenant Workspace."
+    },
+    "slack": {
+      "description": "Kênh, tin nhắn và thông báo tương tác."
+    },
+    "discord": {
+      "description": "Thông báo máy chủ và gửi tin nhắn bot."
+    },
+    "dropbox": {
+      "description": "Đồng bộ tệp và sự kiện thư mục chia sẻ."
+    },
+    "onedrive": {
+      "description": "Lưu trữ tệp Microsoft OneDrive và đồng bộ delta."
+    },
+    "google_drive": {
+      "description": "Tệp Drive, thư mục và thông báo thay đổi."
+    },
+    "hubspot": {
+      "description": "Liên hệ CRM, deal và sự kiện marketing."
+    },
+    "salesforce": {
+      "description": "Đối tượng CRM doanh nghiệp và Platform Events."
+    },
+    "zapier": {
+      "description": "Hook gửi đi tới zap Zapier."
+    },
+    "make": {
+      "description": "Webhook kịch bản cho Make (Integromat)."
+    },
+    "github": {
+      "description": "Kho, issue, pull request và Actions."
+    },
+    "gitlab": {
+      "description": "Dự án, merge request, pipeline và webhook."
+    },
+    "custom": {
+      "description": "Điểm mở rộng cho hệ thống doanh nghiệp riêng."
+    }
+  },
+  "healthStatus": {
+    "healthy": "Ổn định",
+    "degraded": "Suy giảm",
+    "down": "Ngừng",
+    "unknown": "Không rõ"
   }
 }

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
-import { localizeThrownError, useT } from "@/app/lib/i18n";
+import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
 import { integrationsStore } from "../store";
 import { integrationService } from "../services";
 import { useIntegrationPlatform } from "../hooks";
@@ -208,7 +208,11 @@ export function IntegrationCenter(): JSX.Element {
   };
 
   const connectionColumns: DataTableColumn<IntegrationConnection>[] = [
-    { key: "name", header: t("integrations.columns.integration"), render: (r) => r.displayName },
+    { key: "name", header: t("integrations.columns.integration"), render: (r) =>
+      r.connectorId === "custom"
+        ? catalogCopy(t, "integrations.connectorNames.custom", r.displayName)
+        : r.displayName
+    },
     {
       key: "status",
       header: t("integrations.columns.status"),
@@ -217,7 +221,10 @@ export function IntegrationCenter(): JSX.Element {
     {
       key: "health",
       header: t("integrations.columns.health"),
-      render: (r) => (r.status === "connected" ? t("integrations.connectionStatus.localDemo") : r.health.status),
+      render: (r) =>
+        r.status === "connected"
+          ? t("integrations.connectionStatus.localDemo")
+          : catalogCopy(t, `integrations.healthStatus.${r.health.status}`, r.health.status),
     },
     {
       key: "latency",
@@ -462,7 +469,9 @@ export function IntegrationCenter(): JSX.Element {
                       .emitConnectorEvent(platform.organizationId, id, "ping", {
                         demo: true,
                       })
-                      .then((e) => setNotice(`Published ${e.type}`));
+                      .then((e) =>
+                        setNotice(t("integrations.notice.publishedEvent", { type: e.type })),
+                      );
                   }}
                 >
                   {t("integrations.dashboard.emit", { id })}
@@ -510,16 +519,19 @@ export function IntegrationCenter(): JSX.Element {
                   className="text-[11px] uppercase tracking-wide"
                   style={{ color: "var(--agx-accent, #22d3ee)" }}
                 >
-                  {c.category} · {c.authMethod}
+                  {catalogCopy(t, `integrations.categories.${c.category}`, c.category)} ·{" "}
+                  {catalogCopy(t, `integrations.auth.${c.authMethod}`, c.authMethod)}
                 </p>
                 <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {c.name}
+                  {c.id === "custom"
+                    ? catalogCopy(t, "integrations.connectorNames.custom", c.name)
+                    : c.name}
                 </h3>
                 <p
                   className="flex-1 text-xs leading-relaxed"
                   style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                 >
-                  {c.description}
+                  {catalogCopy(t, `integrations.connectors.${c.id}.description`, c.description)}
                 </p>
                 <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                   {t("integrations.available.protocols", { protocols: c.protocols.join(", ") })}
@@ -733,7 +745,9 @@ export function IntegrationCenter(): JSX.Element {
                     color: "var(--agx-text, #f8fafc)",
                   }}
                 >
-                  {p.displayName}
+                  {p.id === "custom"
+                    ? catalogCopy(t, "integrations.oauth.custom", p.displayName)
+                    : p.displayName}
                 </li>
               ))}
             </ul>

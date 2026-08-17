@@ -139,5 +139,75 @@
   "errors": {
     "failedToFetch": "Fehler bei der Detanabruf",
     "httpStatus": "HTTP {status}"
+  },
+  "categories": {
+    "productivity": "Produktivität",
+    "communication": "Kommunikation",
+    "storage": "Speicher",
+    "crm": "CRM",
+    "automation": "Automatisierung",
+    "devtools": "Entwicklertools",
+    "custom": "Benutzerdefiniert"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "API-Schlüssel",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "Benutzerdefiniertes OAuth"
+  },
+  "connectorNames": {
+    "custom": "Benutzerdefinierter Konnektor"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Mail, Kalender und Teams über Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail, Kalender und Drive für Workspace-Mandanten."
+    },
+    "slack": {
+      "description": "Kanäle, Nachrichten und interaktive Benachrichtigungen."
+    },
+    "discord": {
+      "description": "Serverbenachrichtigungen und Bot-Nachrichtenzustellung."
+    },
+    "dropbox": {
+      "description": "Dateisynchronisierung und Ereignisse geteilter Ordner."
+    },
+    "onedrive": {
+      "description": "Microsoft-OneDrive-Dateispeicher und Delta-Sync."
+    },
+    "google_drive": {
+      "description": "Drive-Dateien, Ordner und Änderungsbenachrichtigungen."
+    },
+    "hubspot": {
+      "description": "CRM-Kontakte, Deals und Marketingereignisse."
+    },
+    "salesforce": {
+      "description": "Enterprise-CRM-Objekte und Platform Events."
+    },
+    "zapier": {
+      "description": "Ausgehende Hooks in Zapier-Zaps."
+    },
+    "make": {
+      "description": "Szenario-Webhooks für Make (Integromat)."
+    },
+    "github": {
+      "description": "Repos, Issues, Pull Requests und Actions."
+    },
+    "gitlab": {
+      "description": "Projekte, Merge Requests, Pipelines und Webhooks."
+    },
+    "custom": {
+      "description": "Erweiterungspunkt für proprietäre Unternehmenssysteme."
+    }
+  },
+  "healthStatus": {
+    "healthy": "Gesund",
+    "degraded": "Beeinträchtigt",
+    "down": "Ausgefallen",
+    "unknown": "Unbekannt"
   }
 }

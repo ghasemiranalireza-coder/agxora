@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState, type JSX, type ReactNode } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
-import { localizeThrownError, useT } from "@/app/lib/i18n";
+import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
 import { saasCommercialStore } from "../store";
 import { billingService } from "../billing";
 import { listPaymentProviders } from "../payments";
@@ -69,7 +69,7 @@ export function CustomerBillingPortal(): JSX.Element {
       {
         key: "status",
         header: t("billing.portal.columns.status"),
-        render: (r) => r.status,
+        render: (r) => catalogCopy(t, `billing.invoiceStatus.${r.status}`, r.status),
       },
       {
         key: "amountUsd",
@@ -90,7 +90,7 @@ export function CustomerBillingPortal(): JSX.Element {
       {
         key: "metric",
         header: t("billing.portal.columns.metric"),
-        render: (r) => r.metric,
+        render: (r) => catalogCopy(t, `billing.quotas.${r.metric}`, r.metric),
       },
       {
         key: "used",
@@ -138,7 +138,7 @@ export function CustomerBillingPortal(): JSX.Element {
       });
       setNotice(
         t("billing.portal.noticeActivated", {
-          planId,
+          planId: catalogCopy(t, `pricing.plans.${planId}.name`, planId),
           providerId: session.providerId,
         }),
       );
@@ -236,8 +236,26 @@ export function CustomerBillingPortal(): JSX.Element {
           {t("billing.portal.currentLicense")}
         </h2>
         <dl className="grid gap-3 sm:grid-cols-4 text-sm">
-          <Meta label={t("billing.portal.plan")} value={saas.license?.planId ?? "—"} />
-          <Meta label={t("billing.portal.status")} value={saas.licenseStatus ?? "—"} />
+          <Meta
+            label={t("billing.portal.plan")}
+            value={
+              saas.license
+                ? catalogCopy(
+                    t,
+                    `pricing.plans.${saas.license.planId}.name`,
+                    saas.license.planId,
+                  )
+                : "—"
+            }
+          />
+          <Meta
+            label={t("billing.portal.status")}
+            value={
+              saas.licenseStatus
+                ? catalogCopy(t, `billing.licenseStatus.${saas.licenseStatus}`, saas.licenseStatus)
+                : "—"
+            }
+          />
           <Meta label={t("billing.portal.seats")} value={String(saas.license?.seats ?? "—")} />
           <Meta
             label={t("billing.portal.renewsTrial")}

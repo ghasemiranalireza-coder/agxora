@@ -67,14 +67,78 @@
     "title": "केपीआई केंद्र",
     "subtitle": "राजस्व, ग्राहकों, परियोजनाओं, वर्कफ़्लो, एजेंटों और स्वचालन में कॉन्फ़िगर करने योग्य KPI कैटलॉग।",
     "emptyTitle": "एनालिटिक्स सिग्नल का इंतजार कर रहा है",
-    "emptyDescription": "एक बार जब आपका कार्यक्षेत्र गतिविधि उत्पन्न करता है, तो कार्यकारी KPI और अलर्ट यहां दिखाई देते हैं।"
+    "emptyDescription": "एक बार जब आपका कार्यक्षेत्र गतिविधि उत्पन्न करता है, तो कार्यकारी KPI और अलर्ट यहां दिखाई देते हैं।",
+    "revenue": {
+      "name": "राजस्व",
+      "description": "अवधि में मान्य कुल राजस्व।"
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "मासिक आवर्ती राजस्व।"
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "वार्षिक आवर्ती राजस्व।"
+    },
+    "growth": {
+      "name": "वृद्धि",
+      "description": "पिछली अवधि की तुलना में वृद्धि दर।"
+    },
+    "customer_acquisition": {
+      "name": "ग्राहक अधिग्रहण",
+      "description": "नए प्राप्त ग्राहक।"
+    },
+    "retention": {
+      "name": "रिटेंशन",
+      "description": "ग्राहक रिटेंशन दर।"
+    },
+    "churn": {
+      "name": "चर्न",
+      "description": "ग्राहक चर्न दर।"
+    },
+    "project_success": {
+      "name": "प्रोजेक्ट सफलता",
+      "description": "समय पर / स्कोप में डिलीवर प्रोजेक्ट।"
+    },
+    "workflow_success": {
+      "name": "वर्कफ़्लो सफलता",
+      "description": "सफल वर्कफ़्लो निष्पादन।"
+    },
+    "agent_performance": {
+      "name": "एजेंट प्रदर्शन",
+      "description": "AI एजेंट कार्य सफलता स्कोर।"
+    },
+    "automation_success": {
+      "name": "ऑटोमेशन सफलता",
+      "description": "ऑटोमेशन / इंटीग्रेशन विश्वसनीयता।"
+    },
+    "custom": {
+      "name": "कस्टम KPI",
+      "description": "संगठन-परिभाषित KPI के लिए विस्तार बिंदु।"
+    }
   },
   "reports": {
     "title": "रिपोर्टिंग इंजन",
     "subtitle": "रिपोर्ट परिभाषाएँ समीक्षा के लिए रखी गई हैं। रिपोर्टिंग बैकएंड कनेक्ट होने तक फ़ाइल निर्यात अनुपलब्ध है।",
     "emptyTitle": "कोई रिपोर्ट नहीं",
     "emptyDescription": "कार्यक्षेत्र बूटस्ट्रैप पर रिपोर्ट बीज।",
-    "scheduleOnDemand": "मांग पर"
+    "scheduleOnDemand": "मांग पर",
+    "executive": {
+      "title": "कार्यकारी साप्ताहिक",
+      "description": "स्वास्थ्य, राजस्व, जोखिम और वृद्धि का CEO ब्रीफ।"
+    },
+    "department": {
+      "title": "सेल्स विभाग रिपोर्ट",
+      "description": "सेल्स लीडरशिप के लिए पाइपलाइन, अधिग्रहण और रिटेंशन।"
+    },
+    "operational": {
+      "title": "परिचालन दैनिक",
+      "description": "वर्कफ़्लो, इंटीग्रेशन और पहचान मुद्रा।"
+    },
+    "management": {
+      "title": "डिलीवरी प्रबंधन",
+      "description": "प्रोजेक्ट सफलता, क्षमता और दस्तावेज़ थ्रूपुट।"
+    }
   },
   "insights": {
     "emptyTitle": "अभी तक कोई अंतर्दृष्टि नहीं",
@@ -94,12 +158,88 @@
     "emptyDescription": "जोखिम अनुमान से अलर्ट बीज।",
     "acked": "acked",
     "open": "खुला",
-    "acknowledge": "स्वीकार करना"
+    "acknowledge": "स्वीकार करना",
+    "revenue_drop": {
+      "title": "सेगमेंट में राजस्व नरमी",
+      "body": "SMB में सप्ताह-दर-सप्ताह राजस्व 4% गिरा — पाइपलाइन कवरेज देखें।"
+    },
+    "project_delay": {
+      "title": "प्रोजेक्ट विलंब जोखिम में",
+      "body": "दो डिलीवरी प्रोजेक्ट माइलस्टोन गेट पार कर गए।"
+    },
+    "churn_risk": {
+      "title": "ग्राहक चर्न जोखिम बढ़ा",
+      "body": "तीन खातों में एंगेजमेंट स्कोर घट रहे हैं।"
+    },
+    "workflow_failure": {
+      "title": "वर्कफ़्लो विफलताएँ मिलीं",
+      "body": "चालान रिमाइंडर वर्कफ़्लो 24 घंटे में दो बार विफल हुआ।"
+    },
+    "ai_failure": {
+      "title": "AI कार्य पुनः प्रयास बढ़े",
+      "body": "एजेंट कार्य पुनः प्रयास दर सॉफ्ट थ्रेशोल्ड पार कर गई।"
+    },
+    "integration_error": {
+      "title": "इंटीग्रेशन त्रुटियाँ",
+      "body": "Slack कनेक्टर ने रुक-रुक कर 5xx लौटाए।"
+    },
+    "security": {
+      "title": "सुरक्षा अलर्ट",
+      "body": "असामान्य API कुंजी उपयोग पैटर्न मिला।"
+    }
   },
   "scorecards": {
     "title": "स्कोरकार्ड इंजन",
     "emptyTitle": "कोई स्कोरकार्ड नहीं",
-    "emptyDescription": "बूटस्ट्रैप पर स्कोरकार्ड बीज।"
+    "emptyDescription": "बूटस्ट्रैप पर स्कोरकार्ड बीज।",
+    "sales": {
+      "name": "सेल्स स्कोर",
+      "drivers": {
+        "pipeline_coverage": "पाइपलाइन कवरेज",
+        "win_rate": "विन रेट",
+        "cycle_time": "चक्र समय"
+      }
+    },
+    "customer_health": {
+      "name": "ग्राहक स्वास्थ्य स्कोर",
+      "drivers": {
+        "retention": "रिटेंशन",
+        "nps_proxy": "NPS प्रॉक्सी",
+        "support_load": "सपोर्ट लोड"
+      }
+    },
+    "project_success": {
+      "name": "प्रोजेक्ट सफलता स्कोर",
+      "drivers": {
+        "on_time_delivery": "समय पर डिलीवरी",
+        "scope_control": "स्कोप नियंत्रण",
+        "utilization": "उपयोग"
+      }
+    },
+    "automation_efficiency": {
+      "name": "ऑटोमेशन दक्षता",
+      "drivers": {
+        "workflow_success": "वर्कफ़्लो सफलता",
+        "manual_effort_saved": "बची मैनुअल मेहनत",
+        "retry_rate": "पुनः प्रयास दर"
+      }
+    },
+    "ai_quality": {
+      "name": "AI गुणवत्ता",
+      "drivers": {
+        "task_success": "कार्य सफलता",
+        "confidence_avg": "औसत कॉन्फिडेंस",
+        "escalation_rate": "एस्केलेशन दर"
+      }
+    },
+    "operational_health": {
+      "name": "परिचालन स्वास्थ्य",
+      "drivers": {
+        "system_health": "सिस्टम स्वास्थ्य",
+        "integration_reliability": "इंटीग्रेशन विश्वसनीयता",
+        "identity_posture": "पहचान मुद्रा"
+      }
+    }
   },
   "explorer": {
     "title": "डेटा एक्सप्लोरर",
@@ -107,7 +247,8 @@
     "searchAria": "डेमो एक्सप्लोरर पंक्तियाँ खोजें",
     "emptyTitle": "कोई पंक्तियाँ मेल नहीं खातीं",
     "emptyDescription": "फ़िल्टर समायोजित करें या खोजें, या डेमो डेटासेट पुनः लोड करें।",
-    "hint": "सीडेड टुपल्स पर क्लाइंट-साइड खोज - बैकएंड एकत्रीकरण और ड्रिल-डाउन जुड़े नहीं हैं।"
+    "hint": "सीडेड टुपल्स पर क्लाइंट-साइड खोज - बैकएंड एकत्रीकरण और ड्रिल-डाउन जुड़े नहीं हैं।",
+    "metricLabel": "{domain} मेट्रिक {index}"
   },
   "columns": {
     "kpi": "के.पी.आई",
@@ -132,5 +273,121 @@
     "measure": "उपाय",
     "date": "तारीख"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "CRM विश्लेषण",
+    "projects": "प्रोजेक्ट विश्लेषण",
+    "finance": "वित्त विश्लेषण",
+    "documents": "दस्तावेज़ विश्लेषण",
+    "workflow": "वर्कफ़्लो विश्लेषण",
+    "identity": "पहचान विश्लेषण",
+    "ai": "AI विश्लेषण",
+    "integration": "इंटीग्रेशन विश्लेषण",
+    "executive": "कार्यकारी"
+  },
+  "series": {
+    "crm_leads": "लीड",
+    "crm_pipeline": "पाइपलाइन ($k)",
+    "proj_active": "सक्रिय प्रोजेक्ट",
+    "proj_on_time": "समय पर %",
+    "fin_revenue": "राजस्व ($k)",
+    "fin_margin": "सकल मार्जिन %",
+    "doc_created": "बनाए गए दस्तावेज़",
+    "doc_views": "दस्तावेज़ व्यू",
+    "wf_runs": "वर्कफ़्लो रन",
+    "wf_success": "सफलता %",
+    "id_users": "सक्रिय उपयोगकर्ता",
+    "id_sessions": "सत्र",
+    "ai_tasks": "एजेंट कार्य",
+    "ai_success": "एजेंट सफलता %",
+    "int_calls": "API / वेबहुक कॉल",
+    "int_errors": "इंटीग्रेशन त्रुटियाँ"
+  },
+  "bands": {
+    "Critical": "गंभीर",
+    "Watch": "निगरानी",
+    "Healthy": "स्वस्थ",
+    "Excellent": "उत्कृष्ट"
+  },
+  "charts": {
+    "chart_revenue": "राजस्व प्रवृत्ति",
+    "chart_pipeline": "CRM पाइपलाइन",
+    "chart_workflows": "वर्कफ़्लो गतिविधि",
+    "chart_ai": "AI गतिविधि मिश्रण",
+    "chart_ops_table": "परिचालन स्नैपशॉट",
+    "chart_heatmap_placeholder": "एंगेजमेंट हीटमैप"
+  },
+  "chartKinds": {
+    "line": "रेखा",
+    "bar": "बार",
+    "area": "क्षेत्र",
+    "pie": "पाई",
+    "heatmap": "हीटमैप",
+    "table": "तालिका",
+    "card": "कार्ड"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "MRR तेज़ हो रहा",
+      "summary": "MRR वृद्धि तीन अवधियों तक बेहतर हुई।"
+    },
+    "pattern": {
+      "title": "चालान दिनों पर वर्कफ़्लो शिखर",
+      "summary": "ऑटोमेशन लोड महीने के अंत की बिलिंग से जुड़ा है।"
+    },
+    "recommendation": {
+      "title": "रिटेंशन प्लेबुक बढ़ाएँ",
+      "summary": "घटते स्वास्थ्य वाले तीन खातों पर CSM आउटरीच केंद्रित करें।"
+    },
+    "executive_summary": {
+      "title": "कार्यकारी ब्रीफ",
+      "summary": "कंपनी स्वास्थ्य मजबूत है; चर्न जोखिम और डिलीवरी देरी देखें।"
+    },
+    "risk": {
+      "title": "डिलीवरी जोखिम समूह",
+      "summary": "दो प्रोजेक्ट संसाधन विवाद साझा करते हैं — क्षमता पूर्वानुमान ऊंचा।"
+    },
+    "opportunity": {
+      "title": "अपसेल अवसर",
+      "summary": "बिना Business प्लान वाले हाई-यूसेज खातों में विस्तार संभावना है।"
+    }
+  },
+  "forecastNotes": {
+    "revenue": "रैखिक प्रवृत्ति प्लेसहोल्डर — मॉडल सेवा से बदलें।",
+    "customer": "अधिग्रहण + रिटेंशन मिश्रण।",
+    "project": "क्षमता-जागरूक डिलीवरी पूर्वानुमान।",
+    "capacity": "टीम उपयोग पूर्वानुमान।",
+    "growth": "वृद्धि दर पूर्वानुमान।"
+  },
+  "forecastKinds": {
+    "revenue": "राजस्व",
+    "customer": "ग्राहक",
+    "project": "प्रोजेक्ट",
+    "capacity": "क्षमता",
+    "growth": "वृद्धि"
+  },
+  "severity": {
+    "info": "जानकारी",
+    "warning": "चेतावनी",
+    "critical": "गंभीर"
+  },
+  "trend": {
+    "up": "ऊपर",
+    "down": "नीचे",
+    "flat": "सपाट"
+  },
+  "insightKinds": {
+    "trend": "प्रवृत्ति",
+    "pattern": "पैटर्न",
+    "recommendation": "सुझाव",
+    "executive_summary": "कार्यकारी सारांश",
+    "risk": "जोखिम",
+    "opportunity": "अवसर"
+  },
+  "reportKinds": {
+    "executive": "कार्यकारी",
+    "department": "विभाग",
+    "operational": "परिचालन",
+    "management": "प्रबंधन"
+  }
 }

@@ -259,6 +259,31 @@
         "warning": "Cảnh báo",
         "ok": "ĐƯỢC RỒI"
       }
+    },
+    "licenseStatus": {
+      "trial": "Dùng thử",
+      "active": "Đang hoạt động",
+      "expired": "Hết hạn",
+      "cancelled": "Đã hủy",
+      "suspended": "Tạm khóa",
+      "lifetime": "Trọn đời"
+    },
+    "quotas": {
+      "ai_requests": "Yêu cầu AI",
+      "projects": "Dự án",
+      "customers": "Khách hàng",
+      "documents": "Tài liệu",
+      "storage_mb": "Lưu trữ (MB)",
+      "users": "Người dùng",
+      "api_requests": "Yêu cầu API"
+    },
+    "invoiceStatus": {
+      "draft": "Nháp",
+      "open": "Chưa thanh toán",
+      "paid": "Đã trả",
+      "void": "Hủy bỏ",
+      "uncollectible": "Không thu được",
+      "refunded": "Đã hoàn"
     }
   },
   "settings": {
@@ -3668,6 +3693,189 @@
         "label": "Cập nhật trạng thái",
         "description": "Cập nhật trạng thái thực thể trong mô-đun."
       }
+    },
+    "kinds": {
+      "trigger": "Trigger",
+      "action": "Hành động",
+      "condition": "Điều kiện",
+      "delay": "Độ trễ",
+      "approval": "Phê duyệt",
+      "loop": "Vòng lặp",
+      "merge": "Gộp",
+      "split": "Tách",
+      "ai_decision": "Quyết định AI",
+      "ai_action": "Hành động AI",
+      "notification": "Thông báo",
+      "webhook": "Webhook",
+      "custom_action": "Hành động tùy chỉnh",
+      "branch": "Nhánh",
+      "variable": "Biến"
+    },
+    "kpi": {
+      "active": {
+        "label": "Workflow đang chạy",
+        "caption": "Đã bật trong không gian"
+      },
+      "runs-today": {
+        "label": "Lần chạy hôm nay",
+        "caption": "Mọi trigger"
+      },
+      "success": {
+        "label": "Tự động hóa thành công",
+        "caption": "Hôm nay"
+      },
+      "failed": {
+        "label": "Lần chạy thất bại",
+        "caption": "Cần chú ý"
+      },
+      "pending": {
+        "label": "Tác vụ đang chờ",
+        "caption": "Phê duyệt + thử lại"
+      },
+      "avg-time": {
+        "label": "Thời gian chạy trung bình",
+        "caption": "Trung vị 1,2 giây"
+      },
+      "ai-suggestions": {
+        "label": "Gợi ý AI",
+        "caption": "Cơ hội tự động hóa"
+      }
+    },
+    "integrationCategories": {
+      "Productivity": "Năng suất",
+      "Communication": "Giao tiếp",
+      "Commerce": "Thương mại",
+      "Finance": "Tài chính",
+      "ERP": "ERP",
+      "CRM": "CRM"
+    },
+    "integrationNotes": {
+      "google-workspace": "Hook Gmail / Drive / Lịch được giữ chỗ cho nối OAuth.",
+      "m365": "Hook Outlook / Teams / Graph được giữ chỗ.",
+      "slack": "Events API + bài chat được giữ chỗ.",
+      "teams": "Adapter Bot Framework được giữ chỗ.",
+      "discord": "Adapter webhook + bot được giữ chỗ.",
+      "whatsapp": "Adapter Meta Cloud API được giữ chỗ.",
+      "stripe": "Webhook thanh toán được giữ chỗ — không khóa live.",
+      "shopify": "Sự kiện đơn / sản phẩm được giữ chỗ.",
+      "datev": "Hook xuất DATEV / lô bút toán được giữ chỗ.",
+      "sap": "Cầu sự kiện ERP được giữ chỗ — tắt đến gói enterprise.",
+      "hubspot": "Adapter đồng bộ CRM được giữ chỗ.",
+      "salesforce": "Adapter Platform Events được giữ chỗ."
+    },
+    "defaultWorkflow": {
+      "name": "Onboarding khách",
+      "description": "Chuỗi chào mừng khi tạo khách."
+    },
+    "templateCategories": {
+      "CRM": "CRM",
+      "Finance": "Tài chính",
+      "Sales": "Bán hàng",
+      "Marketing": "Marketing",
+      "HR": "Nhân sự",
+      "Creator": "Nhà sáng tạo",
+      "Ops": "Vận hành",
+      "Projects": "Dự án",
+      "AI": "AI"
+    },
+    "studioTemplates": {
+      "tpl-onboarding": {
+        "name": "Onboarding khách",
+        "description": "Email chào, tóm tắt AI và việc owner sau khi tạo khách.",
+        "category": "CRM",
+        "recommendedFor": "Nhóm onboard khách B2B mới"
+      },
+      "tpl-invoice": {
+        "name": "Nhắc hóa đơn",
+        "description": "Nhắc lịch cho hóa đơn mở kèm đường leo thang.",
+        "category": "Tài chính",
+        "recommendedFor": "Ops tài chính giảm khoản phải thu quá hạn"
+      },
+      "tpl-lead": {
+        "name": "Theo dõi lead",
+        "description": "Trả lời email AI và cập nhật pipeline cho lead mới.",
+        "category": "Bán hàng",
+        "recommendedFor": "Nhóm bán hàng có lượng lead inbound lớn"
+      },
+      "tpl-welcome": {
+        "name": "Email chào mừng",
+        "description": "Chuỗi chào đơn giản khi đăng ký.",
+        "category": "Marketing",
+        "recommendedFor": "Mọi workspace bắt đầu với tự động hóa email"
+      },
+      "tpl-pipeline": {
+        "name": "Pipeline bán hàng",
+        "description": "Đổi giai đoạn kèm thông báo và việc.",
+        "category": "Bán hàng",
+        "recommendedFor": "Nhóm quản lý tiến độ deal nhiều giai đoạn"
+      },
+      "tpl-recruit": {
+        "name": "Tuyển dụng",
+        "description": "Định tuyến ứng viên và việc phỏng vấn.",
+        "category": "Nhân sự",
+        "recommendedFor": "Quản lý tuyển dụng và people ops"
+      },
+      "tpl-content": {
+        "name": "Xuất bản nội dung",
+        "description": "Creator Studio: xuất bản → thông báo → phân tích.",
+        "category": "Nhà sáng tạo",
+        "recommendedFor": "Nhóm marketing và nhà sáng tạo"
+      },
+      "tpl-approval": {
+        "name": "Quy trình phê duyệt",
+        "description": "Phê duyệt nhiều bước với khuyến nghị AI.",
+        "category": "Vận hành",
+        "recommendedFor": "Phê duyệt finance/ops trước tác dụng phụ",
+        "estimatedRuntime": "Cổng con người"
+      }
+    },
+    "engineTemplates": {
+      "tpl_customer_welcome": {
+        "name": "Chào khách mới",
+        "description": "Email chào + thông báo khi tạo khách.",
+        "category": "CRM"
+      },
+      "tpl_invoice_reminder": {
+        "name": "Nhắc hóa đơn",
+        "description": "Nhắc khách sau khi phát hành hóa đơn.",
+        "category": "Tài chính"
+      },
+      "tpl_project_kickoff": {
+        "name": "Kickoff dự án",
+        "description": "Gán việc kickoff và thông báo khi tạo dự án.",
+        "category": "Dự án"
+      },
+      "tpl_task_assignment": {
+        "name": "Gán việc",
+        "description": "Email người được giao khi việc xong — nối việc tiếp.",
+        "category": "Dự án"
+      },
+      "tpl_ai_customer_summary": {
+        "name": "Tóm tắt khách AI",
+        "description": "Chạy tóm tắt AI khi tạo khách; lưu đầu ra.",
+        "category": "AI"
+      },
+      "tpl_followup_reminder": {
+        "name": "Nhắc follow-up",
+        "description": "Follow-up theo lịch với nhánh theo trạng thái.",
+        "category": "CRM"
+      }
+    },
+    "nodeLabels": {
+      "send_welcome_email": "Gửi email chào",
+      "notify_team": "Thông báo nhóm",
+      "wait_3_days": "Chờ 3 ngày",
+      "still_unpaid": "Vẫn chưa trả?",
+      "send_reminder": "Gửi nhắc",
+      "assign_kickoff_task": "Gán việc kickoff",
+      "notify_owner": "Thông báo owner",
+      "notify_stakeholders": "Thông báo bên liên quan",
+      "run_ai_summary": "Chạy tóm tắt AI",
+      "generate_document": "Tạo tài liệu",
+      "daily_schedule": "Lịch hàng ngày",
+      "by_priority": "Theo ưu tiên",
+      "urgent_notification": "Thông báo khẩn",
+      "standard_email": "Email chuẩn"
     }
   },
   "team": {
@@ -4151,6 +4359,177 @@
     "os": {
       "prioritizeCustomerImpact": "Ưu tiên tác động khách hàng",
       "delegatedFollowUp": "Theo dõi được ủy thác"
+    },
+    "categories": {
+      "Leadership": "Lãnh đạo",
+      "Revenue": "Doanh thu",
+      "CRM": "CRM",
+      "Delivery": "Giao hàng",
+      "Automation": "Tự động hóa",
+      "Finance": "Tài chính",
+      "Knowledge": "Tri thức",
+      "Support": "Hỗ trợ",
+      "Productivity": "Năng suất",
+      "Custom": "Tùy chỉnh"
+    },
+    "catalog": {
+      "executive_advisor": {
+        "name": "Cố vấn điều hành",
+        "description": "Tóm tắt chiến lược, tổng hợp KPI và hỗ trợ quyết định."
+      },
+      "sales_agent": {
+        "name": "Đại lý bán hàng",
+        "description": "Huấn luyện pipeline, bản nháp outreach và bước deal tiếp theo."
+      },
+      "crm_assistant": {
+        "name": "Trợ lý CRM",
+        "description": "Làm giàu khách hàng, vệ sinh dữ liệu và insight quan hệ."
+      },
+      "project_manager": {
+        "name": "Quản lý dự án",
+        "description": "Kế hoạch, tách việc và tín hiệu rủi ro giao hàng."
+      },
+      "workflow_coordinator": {
+        "name": "Điều phối workflow",
+        "description": "Kích hoạt và điều phối workflow tự động AGXORA."
+      },
+      "finance_assistant": {
+        "name": "Trợ lý tài chính",
+        "description": "Theo dõi hóa đơn, ghi chú dòng tiền và tóm tắt tài chính."
+      },
+      "document_analyst": {
+        "name": "Chuyên gia phân tích tài liệu",
+        "description": "Trích cấu trúc, rủi ro và tóm tắt từ tài liệu."
+      },
+      "knowledge_assistant": {
+        "name": "Trợ lý tri thức",
+        "description": "Trả lời từ tri thức công ty với truy xuất sẵn sàng RAG."
+      },
+      "support_assistant": {
+        "name": "Trợ lý hỗ trợ",
+        "description": "Phân loại hỗ trợ, trả lời và đường leo thang."
+      },
+      "meeting_assistant": {
+        "name": "Trợ lý họp",
+        "description": "Chuẩn bị agenda, chỗ ghi chú và follow-up."
+      },
+      "custom": {
+        "name": "Tác nhân tùy chỉnh",
+        "description": "Điểm mở rộng cho tác nhân riêng của tổ chức."
+      }
+    },
+    "toolsCatalog": {
+      "crm": {
+        "name": "Công cụ CRM",
+        "description": "Tạo/cập nhật khách và đọc ngữ cảnh tài khoản."
+      },
+      "projects": {
+        "name": "Công cụ dự án",
+        "description": "Quản lý dự án, việc và trạng thái giao hàng."
+      },
+      "finance": {
+        "name": "Công cụ tài chính",
+        "description": "Hóa đơn, số dư và tóm tắt tài chính."
+      },
+      "documents": {
+        "name": "Công cụ tài liệu",
+        "description": "Đọc và tóm tắt tài liệu không gian làm việc."
+      },
+      "workflow": {
+        "name": "Công cụ workflow",
+        "description": "Kích hoạt và kiểm tra workflow tự động."
+      },
+      "integration": {
+        "name": "Công cụ tích hợp",
+        "description": "Gọi connector bên thứ ba đã kết nối."
+      },
+      "email": {
+        "name": "Công cụ email",
+        "description": "Soạn và xếp hàng email gửi đi."
+      },
+      "calendar": {
+        "name": "Công cụ lịch",
+        "description": "Lên lịch và kiểm tra sự kiện lịch."
+      },
+      "search": {
+        "name": "Công cụ tìm kiếm",
+        "description": "Tìm kiếm không gian làm việc toàn cục."
+      },
+      "notification": {
+        "name": "Công cụ thông báo",
+        "description": "Gửi thông báo trong ứng dụng."
+      },
+      "api": {
+        "name": "Công cụ API",
+        "description": "Gọi tuyến cổng API nội bộ."
+      },
+      "mcp": {
+        "name": "Công cụ MCP",
+        "description": "Công cụ máy chủ Model Context Protocol trong tương lai."
+      }
+    },
+    "knowledgeDocs": {
+      "company": {
+        "title": "Nguyên tắc vận hành AGXORA",
+        "summary": "Nguyên tắc OS doanh nghiệp cho tác nhân AI mô-đun, an toàn."
+      },
+      "policies": {
+        "title": "Chính sách xử lý dữ liệu",
+        "summary": "Cô lập công cụ nhạy cảm và truy cập quyền tối thiểu."
+      },
+      "procedures": {
+        "title": "Quy trình leo thang khách hàng",
+        "summary": "Đường leo thang của trợ lý hỗ trợ khi độ tin thấp."
+      },
+      "rag": {
+        "title": "Chỗ dành chỉ mục RAG",
+        "summary": "Truy xuất vector tương lai trên tài liệu và ghi chú CRM."
+      }
+    },
+    "llm": {
+      "local": "LLM cục bộ",
+      "mcp": "Máy chủ MCP",
+      "custom": "Mô hình tùy chỉnh"
+    },
+    "lifecycle": {
+      "draft": "Nháp",
+      "registered": "Đã đăng ký",
+      "active": "Đang hoạt động",
+      "paused": "Tạm dừng",
+      "error": "Lỗi",
+      "retired": "Ngừng dùng"
+    },
+    "healthStatus": {
+      "healthy": "Ổn định",
+      "degraded": "Suy giảm",
+      "down": "Ngừng",
+      "unknown": "Không rõ"
+    },
+    "taskStatus": {
+      "pending": "Đang chờ",
+      "running": "Đang chạy",
+      "completed": "Hoàn tất",
+      "cancelled": "Đã hủy",
+      "failed": "Thất bại",
+      "retrying": "Đang thử lại"
+    },
+    "memoryScope": {
+      "working": "Làm việc",
+      "conversation": "Hội thoại",
+      "business": "Kinh doanh",
+      "long_term": "Dài hạn",
+      "workspace": "Không gian",
+      "agent": "Tác nhân"
+    },
+    "knowledgeKind": {
+      "company": "Công ty",
+      "documents": "Tài liệu",
+      "projects": "Dự án",
+      "crm": "CRM",
+      "policies": "Chính sách",
+      "procedures": "Quy trình",
+      "vector": "Vector",
+      "rag": "RAG"
     }
   },
   "integrations": {
@@ -4294,6 +4673,76 @@
     "errors": {
       "failedToFetch": "Không tìm nạp được",
       "httpStatus": "HTTP {status}"
+    },
+    "categories": {
+      "productivity": "Năng suất",
+      "communication": "Giao tiếp",
+      "storage": "Lưu trữ",
+      "crm": "CRM",
+      "automation": "Tự động hóa",
+      "devtools": "Công cụ lập trình",
+      "custom": "Tùy chỉnh"
+    },
+    "auth": {
+      "oauth2": "OAuth 2.0",
+      "api_key": "Khóa API",
+      "webhook": "Webhook"
+    },
+    "oauth": {
+      "custom": "OAuth tùy chỉnh"
+    },
+    "connectorNames": {
+      "custom": "Connector tùy chỉnh"
+    },
+    "connectors": {
+      "microsoft365": {
+        "description": "Thư, lịch và Teams qua Microsoft Graph."
+      },
+      "google_workspace": {
+        "description": "Gmail, Lịch và Drive cho tenant Workspace."
+      },
+      "slack": {
+        "description": "Kênh, tin nhắn và thông báo tương tác."
+      },
+      "discord": {
+        "description": "Thông báo máy chủ và gửi tin nhắn bot."
+      },
+      "dropbox": {
+        "description": "Đồng bộ tệp và sự kiện thư mục chia sẻ."
+      },
+      "onedrive": {
+        "description": "Lưu trữ tệp Microsoft OneDrive và đồng bộ delta."
+      },
+      "google_drive": {
+        "description": "Tệp Drive, thư mục và thông báo thay đổi."
+      },
+      "hubspot": {
+        "description": "Liên hệ CRM, deal và sự kiện marketing."
+      },
+      "salesforce": {
+        "description": "Đối tượng CRM doanh nghiệp và Platform Events."
+      },
+      "zapier": {
+        "description": "Hook gửi đi tới zap Zapier."
+      },
+      "make": {
+        "description": "Webhook kịch bản cho Make (Integromat)."
+      },
+      "github": {
+        "description": "Kho, issue, pull request và Actions."
+      },
+      "gitlab": {
+        "description": "Dự án, merge request, pipeline và webhook."
+      },
+      "custom": {
+        "description": "Điểm mở rộng cho hệ thống doanh nghiệp riêng."
+      }
+    },
+    "healthStatus": {
+      "healthy": "Ổn định",
+      "degraded": "Suy giảm",
+      "down": "Ngừng",
+      "unknown": "Không rõ"
     }
   },
   "intelligence": {
@@ -4365,14 +4814,78 @@
       "title": "Trung tâm KPI",
       "subtitle": "Danh mục KPI có thể định cấu hình theo doanh thu, khách hàng, dự án, quy trình làm việc, đại lý và tự động hóa.",
       "emptyTitle": "Analytics đang chờ tín hiệu",
-      "emptyDescription": "Khi không gian làm việc của bạn tạo ra hoạt động, các KPI điều hành và cảnh báo sẽ xuất hiện ở đây."
+      "emptyDescription": "Khi không gian làm việc của bạn tạo ra hoạt động, các KPI điều hành và cảnh báo sẽ xuất hiện ở đây.",
+      "revenue": {
+        "name": "Doanh thu",
+        "description": "Tổng doanh thu ghi nhận trong kỳ."
+      },
+      "mrr": {
+        "name": "MRR",
+        "description": "Doanh thu định kỳ hàng tháng."
+      },
+      "arr": {
+        "name": "ARR",
+        "description": "Doanh thu định kỳ hàng năm."
+      },
+      "growth": {
+        "name": "Tăng trưởng",
+        "description": "Tốc độ tăng so với kỳ trước."
+      },
+      "customer_acquisition": {
+        "name": "Thu hút khách",
+        "description": "Khách mới thu hút."
+      },
+      "retention": {
+        "name": "Giữ chân",
+        "description": "Tỷ lệ giữ chân khách."
+      },
+      "churn": {
+        "name": "Rời bỏ",
+        "description": "Tỷ lệ rời bỏ khách."
+      },
+      "project_success": {
+        "name": "Thành công dự án",
+        "description": "Dự án giao đúng hạn / đúng phạm vi."
+      },
+      "workflow_success": {
+        "name": "Thành công workflow",
+        "description": "Lần chạy workflow thành công."
+      },
+      "agent_performance": {
+        "name": "Hiệu năng tác nhân",
+        "description": "Điểm thành công tác vụ tác nhân AI."
+      },
+      "automation_success": {
+        "name": "Thành công tự động hóa",
+        "description": "Độ tin cậy tự động hóa / tích hợp."
+      },
+      "custom": {
+        "name": "KPI tùy chỉnh",
+        "description": "Điểm mở rộng cho KPI do tổ chức định nghĩa."
+      }
     },
     "reports": {
       "title": "Công cụ báo cáo",
       "subtitle": "Định nghĩa báo cáo được chọn để xem xét. Xuất tệp không khả dụng cho đến khi phần phụ trợ báo cáo được kết nối.",
       "emptyTitle": "Không có báo cáo",
       "emptyDescription": "Báo cáo hạt giống trên bootstrap của không gian làm việc.",
-      "scheduleOnDemand": "theo yêu cầu"
+      "scheduleOnDemand": "theo yêu cầu",
+      "executive": {
+        "title": "Tuần điều hành",
+        "description": "Brief CEO về sức khỏe, doanh thu, rủi ro và tăng trưởng."
+      },
+      "department": {
+        "title": "Báo cáo phòng bán hàng",
+        "description": "Pipeline, thu hút và giữ chân cho lãnh đạo bán hàng."
+      },
+      "operational": {
+        "title": "Ngày vận hành",
+        "description": "Workflow, tích hợp và tư thế danh tính."
+      },
+      "management": {
+        "title": "Quản lý giao hàng",
+        "description": "Thành công dự án, năng lực và thông lượng tài liệu."
+      }
     },
     "insights": {
       "emptyTitle": "Chưa có thông tin chi tiết nào",
@@ -4392,12 +4905,88 @@
       "emptyDescription": "Cảnh báo hạt giống từ chẩn đoán rủi ro.",
       "acked": "bị tấn công",
       "open": "mở",
-      "acknowledge": "Thừa nhận"
+      "acknowledge": "Thừa nhận",
+      "revenue_drop": {
+        "title": "Doanh thu phân khúc chậm lại",
+        "body": "Doanh thu WoW SMB giảm 4% — rà phủ pipeline."
+      },
+      "project_delay": {
+        "title": "Dự án có nguy cơ trễ",
+        "body": "Hai dự án giao hàng đã vượt cổng mốc."
+      },
+      "churn_risk": {
+        "title": "Rủi ro rời bỏ khách tăng",
+        "body": "Ba tài khoản có điểm tương tác giảm."
+      },
+      "workflow_failure": {
+        "title": "Phát hiện lỗi workflow",
+        "body": "Workflow nhắc hóa đơn thất bại hai lần trong 24 giờ."
+      },
+      "ai_failure": {
+        "title": "Thử lại tác vụ AI tăng",
+        "body": "Tỷ lệ thử lại tác vụ tác nhân vượt ngưỡng mềm."
+      },
+      "integration_error": {
+        "title": "Lỗi tích hợp",
+        "body": "Connector Slack trả 5xx không đều."
+      },
+      "security": {
+        "title": "Cảnh báo bảo mật",
+        "body": "Phát hiện mẫu dùng khóa API bất thường."
+      }
     },
     "scorecards": {
       "title": "Công cụ thẻ điểm",
       "emptyTitle": "Không có phiếu ghi điểm",
-      "emptyDescription": "Hạt giống thẻ điểm trên bootstrap."
+      "emptyDescription": "Hạt giống thẻ điểm trên bootstrap.",
+      "sales": {
+        "name": "Điểm bán hàng",
+        "drivers": {
+          "pipeline_coverage": "Phủ pipeline",
+          "win_rate": "Tỷ lệ thắng",
+          "cycle_time": "Thời gian chu kỳ"
+        }
+      },
+      "customer_health": {
+        "name": "Điểm sức khỏe khách",
+        "drivers": {
+          "retention": "Giữ chân",
+          "nps_proxy": "Proxy NPS",
+          "support_load": "Tải hỗ trợ"
+        }
+      },
+      "project_success": {
+        "name": "Điểm thành công dự án",
+        "drivers": {
+          "on_time_delivery": "Giao đúng hạn",
+          "scope_control": "Kiểm soát phạm vi",
+          "utilization": "Mức sử dụng"
+        }
+      },
+      "automation_efficiency": {
+        "name": "Hiệu quả tự động hóa",
+        "drivers": {
+          "workflow_success": "Thành công workflow",
+          "manual_effort_saved": "Công sức thủ công tiết kiệm",
+          "retry_rate": "Tỷ lệ thử lại"
+        }
+      },
+      "ai_quality": {
+        "name": "Chất lượng AI",
+        "drivers": {
+          "task_success": "Thành công tác vụ",
+          "confidence_avg": "Độ tin trung bình",
+          "escalation_rate": "Tỷ lệ leo thang"
+        }
+      },
+      "operational_health": {
+        "name": "Sức khỏe vận hành",
+        "drivers": {
+          "system_health": "Sức khỏe hệ thống",
+          "integration_reliability": "Độ tin cậy tích hợp",
+          "identity_posture": "Tư thế danh tính"
+        }
+      }
     },
     "explorer": {
       "title": "Trình khám phá dữ liệu",
@@ -4405,7 +4994,8 @@
       "searchAria": "Tìm kiếm hàng trình khám phá demo",
       "emptyTitle": "Không có hàng nào khớp",
       "emptyDescription": "Điều chỉnh bộ lọc hoặc tìm kiếm hoặc tải lại tập dữ liệu demo.",
-      "hint": "Tìm kiếm phía máy khách trên các bộ dữ liệu được chọn lọc - tổng hợp phụ trợ và truy sâu xuống không được kết nối."
+      "hint": "Tìm kiếm phía máy khách trên các bộ dữ liệu được chọn lọc - tổng hợp phụ trợ và truy sâu xuống không được kết nối.",
+      "metricLabel": "Chỉ số {domain} {index}"
     },
     "columns": {
       "kpi": "KPI",
@@ -4430,7 +5020,123 @@
       "measure": "Đo lường",
       "date": "Ngày"
     },
-    "emDash": "—"
+    "emDash": "—",
+    "domains": {
+      "crm": "Phân tích CRM",
+      "projects": "Phân tích dự án",
+      "finance": "Phân tích tài chính",
+      "documents": "Phân tích tài liệu",
+      "workflow": "Phân tích workflow",
+      "identity": "Phân tích danh tính",
+      "ai": "Phân tích AI",
+      "integration": "Phân tích tích hợp",
+      "executive": "Điều hành"
+    },
+    "series": {
+      "crm_leads": "Lead",
+      "crm_pipeline": "Pipeline (nghìn $)",
+      "proj_active": "Dự án đang chạy",
+      "proj_on_time": "Đúng hạn %",
+      "fin_revenue": "Doanh thu (nghìn $)",
+      "fin_margin": "Biên gộp %",
+      "doc_created": "Tài liệu đã tạo",
+      "doc_views": "Lượt xem tài liệu",
+      "wf_runs": "Lần chạy workflow",
+      "wf_success": "Thành công %",
+      "id_users": "Người dùng đang hoạt động",
+      "id_sessions": "Phiên",
+      "ai_tasks": "Tác vụ tác nhân",
+      "ai_success": "Tỷ lệ thành công tác nhân %",
+      "int_calls": "Lần gọi API / webhook",
+      "int_errors": "Lỗi tích hợp"
+    },
+    "bands": {
+      "Critical": "Nghiêm trọng",
+      "Watch": "Theo dõi",
+      "Healthy": "Ổn định",
+      "Excellent": "Xuất sắc"
+    },
+    "charts": {
+      "chart_revenue": "Xu hướng doanh thu",
+      "chart_pipeline": "Pipeline CRM",
+      "chart_workflows": "Hoạt động workflow",
+      "chart_ai": "Cơ cấu hoạt động AI",
+      "chart_ops_table": "Ảnh chụp vận hành",
+      "chart_heatmap_placeholder": "Bản đồ nhiệt tương tác"
+    },
+    "chartKinds": {
+      "line": "Đường",
+      "bar": "Cột",
+      "area": "Vùng",
+      "pie": "Tròn",
+      "heatmap": "Bản đồ nhiệt",
+      "table": "Bảng",
+      "card": "Thẻ"
+    },
+    "insightItems": {
+      "trend": {
+        "title": "MRR tăng tốc",
+        "summary": "Tăng trưởng MRR cải thiện ba kỳ liên tiếp."
+      },
+      "pattern": {
+        "title": "Đỉnh workflow vào ngày hóa đơn",
+        "summary": "Tải tự động hóa tương quan với xuất hóa đơn cuối tháng."
+      },
+      "recommendation": {
+        "title": "Mở rộng playbook giữ chân",
+        "summary": "Tập trung outreach CSM vào ba tài khoản sức khỏe giảm."
+      },
+      "executive_summary": {
+        "title": "Brief điều hành",
+        "summary": "Sức khỏe công ty vững; theo dõi rủi ro rời bỏ và trễ giao."
+      },
+      "risk": {
+        "title": "Cụm rủi ro giao hàng",
+        "summary": "Hai dự án tranh chấp tài nguyên — dự báo năng lực tăng."
+      },
+      "opportunity": {
+        "title": "Cơ hội upsell",
+        "summary": "Tài khoản dùng nhiều chưa có gói Business có tiềm năng mở rộng."
+      }
+    },
+    "forecastNotes": {
+      "revenue": "Chỗ xu hướng tuyến tính — thay bằng dịch vụ mô hình.",
+      "customer": "Tổ hợp thu hút + giữ chân.",
+      "project": "Dự báo giao hàng có xét năng lực.",
+      "capacity": "Dự báo mức sử dụng nhóm.",
+      "growth": "Dự báo tốc độ tăng."
+    },
+    "forecastKinds": {
+      "revenue": "Doanh thu",
+      "customer": "Khách",
+      "project": "Dự án",
+      "capacity": "Năng lực",
+      "growth": "Tăng trưởng"
+    },
+    "severity": {
+      "info": "Thông tin",
+      "warning": "Cảnh báo",
+      "critical": "Nghiêm trọng"
+    },
+    "trend": {
+      "up": "Tăng",
+      "down": "Giảm",
+      "flat": "Ổn định"
+    },
+    "insightKinds": {
+      "trend": "Xu hướng",
+      "pattern": "Mẫu",
+      "recommendation": "Khuyến nghị",
+      "executive_summary": "Tóm tắt điều hành",
+      "risk": "Rủi ro",
+      "opportunity": "Cơ hội"
+    },
+    "reportKinds": {
+      "executive": "Điều hành",
+      "department": "Phòng ban",
+      "operational": "Vận hành",
+      "management": "Quản lý"
+    }
   },
   "legal": {
     "shell": {
@@ -4860,13 +5566,223 @@
       "professional": "Chuyên nghiệp",
       "friendly": "Thân thiện",
       "luxury": "Sang trọng",
-      "casual": "Thoải mái"
+      "casual": "Thoải mái",
+      "minimal": "Tối giản",
+      "corporate": "Doanh nghiệp",
+      "creative": "Sáng tạo",
+      "custom": "Giọng thương hiệu tùy chỉnh"
     },
     "integrationStatus": {
       "planned": "Đã lên kế hoạch",
       "ready": "Sẵn sàng",
       "connected": "Đã kết nối",
       "disabled": "Đã tắt"
+    },
+    "categories": {
+      "social": "Mạng xã hội",
+      "ads": "Quảng cáo",
+      "analytics": "Phân tích"
+    },
+    "platforms": {
+      "instagram": {
+        "notes": "Xuất bản Graph API chính thức + insight được giữ chỗ."
+      },
+      "tiktok": {
+        "notes": "Adapter TikTok Content Posting API được giữ chỗ."
+      },
+      "youtube": {
+        "notes": "Tải lên YouTube Data API + phân tích được giữ chỗ."
+      },
+      "facebook": {
+        "notes": "Adapter đăng Pages được giữ chỗ."
+      },
+      "linkedin": {
+        "notes": "Adapter bài UGC / tổ chức được giữ chỗ."
+      },
+      "pinterest": {
+        "notes": "Adapter ghim + bảng được giữ chỗ."
+      },
+      "threads": {
+        "notes": "Adapter Threads API được giữ chỗ."
+      },
+      "x": {
+        "notes": "Adapter bài X API v2 được giữ chỗ."
+      },
+      "meta-business": {
+        "notes": "Hook Meta Business Suite / Ads Manager được giữ chỗ."
+      },
+      "google-ads": {
+        "notes": "Đồng bộ chiến dịch Google Ads API được giữ chỗ."
+      },
+      "google-analytics": {
+        "notes": "Adapter đo lường + báo cáo GA4 được giữ chỗ."
+      }
+    },
+    "features": {
+      "ideas": {
+        "label": "Ý tưởng nội dung",
+        "description": "Công cụ ý tưởng theo ngành cho chiến dịch và bài."
+      },
+      "captions": {
+        "label": "Trình tạo chú thích",
+        "description": "Chú thích giọng thương hiệu theo định dạng nền tảng."
+      },
+      "hashtags": {
+        "label": "Gợi ý hashtag",
+        "description": "Điểm liên quan và tiếp cận cho bộ hashtag."
+      },
+      "calendar": {
+        "label": "Lịch nội dung",
+        "description": "Nền tảng lịch biên tập đa nền tảng."
+      },
+      "campaigns": {
+        "label": "Lập kế hoạch chiến dịch",
+        "description": "Mục tiêu, đối tượng, nền tảng và mốc thời gian."
+      },
+      "audience": {
+        "label": "Gợi ý đối tượng",
+        "description": "Gợi ý phân khúc từ tín hiệu CRM + nhà sáng tạo."
+      },
+      "schedule": {
+        "label": "Lịch đăng",
+        "description": "Khung giờ đăng tối ưu theo múi giờ."
+      },
+      "brand": {
+        "label": "Nhất quán thương hiệu",
+        "description": "Kiểm tra giọng và tài sản so với giọng thương hiệu."
+      },
+      "rewrite": {
+        "label": "Viết lại AI",
+        "description": "Viết lại bản nháp cho rõ, độ dài hoặc kênh."
+      },
+      "translate": {
+        "label": "Dịch nội dung",
+        "description": "Đường ống dịch đa ngôn ngữ được giữ chỗ."
+      },
+      "i18n": {
+        "label": "Hỗ trợ đa ngôn ngữ",
+        "description": "Gói locale cho bề mặt xuất bản và phân tích."
+      }
+    },
+    "kpi": {
+      "content": {
+        "label": "Nội dung đã tạo",
+        "caption": "Quý này"
+      },
+      "campaigns": {
+        "label": "Chiến dịch",
+        "caption": "Đang chạy + đã lên kế hoạch"
+      },
+      "scheduled": {
+        "label": "Bài đã lên lịch",
+        "caption": "14 ngày tới"
+      },
+      "engagement": {
+        "label": "Tương tác",
+        "caption": "Tỷ lệ TB trên các kênh"
+      },
+      "followers": {
+        "label": "Tăng người theo dõi",
+        "caption": "30 ngày qua"
+      },
+      "reach": {
+        "label": "Tiếp cận",
+        "caption": "Lượt hiển thị duy nhất"
+      },
+      "conversions": {
+        "label": "Chuyển đổi",
+        "caption": "Hành động quy kết"
+      },
+      "ai-score": {
+        "label": "Điểm hiệu năng AI",
+        "caption": "Tín hiệu chất lượng nội dung"
+      }
+    },
+    "analyticsMetrics": {
+      "a1": "Tương tác",
+      "a2": "Tiếp cận",
+      "a3": "CTR",
+      "a4": "Chuyển đổi",
+      "a5": "Tăng đối tượng",
+      "a6": "Hiệu suất nội dung"
+    },
+    "voiceDesc": {
+      "professional": "Giọng rõ, đáng tin, ưu tiên kinh doanh.",
+      "luxury": "Tinh tế, kiệm lời, khung cao cấp.",
+      "friendly": "Ấm áp, gần gũi, trò chuyện.",
+      "casual": "Ngôn ngữ đời thường thoải mái.",
+      "minimal": "Câu ngắn, rõ ràng cao.",
+      "corporate": "Giao tiếp doanh nghiệp trang trọng.",
+      "creative": "Kể chuyện giàu biểu cảm cho chiến dịch.",
+      "custom": "Tải hướng dẫn và bản mẫu sau."
+    },
+    "formatDesc": {
+      "instagram_caption": "Chú thích Feed / Reels với móc CTA.",
+      "tiktok_script": "Kịch bản ngắn: móc → giá trị → CTA.",
+      "linkedin_post": "Thought leadership và câu chuyện B2B.",
+      "facebook_post": "Bài sẵn cho cộng đồng và trang.",
+      "x_post": "Chuỗi ngắn gọn và bài đơn.",
+      "blog_article": "Bản nháp biên tập dài.",
+      "newsletter": "Mục bản tin và dòng chủ đề.",
+      "email_campaign": "Chuỗi chiến dịch và copy nuôi dưỡng.",
+      "product_description": "Mô tả sản phẩm sẵn cho thương mại.",
+      "ad_copy": "Biến thể quảng cáo social trả phí và search.",
+      "seo_article": "Bài ý định tìm kiếm với cấu trúc dàn ý.",
+      "landing_page_copy": "Hero, lợi ích, bằng chứng và khối CTA."
+    },
+    "campaignStatus": {
+      "Active": "Đang chạy",
+      "In review": "Đang xét",
+      "Planned": "Đã lên kế hoạch"
+    },
+    "campaigns": {
+      "camp-1": {
+        "name": "Ra mắt sản phẩm Q3",
+        "objective": "Nhận biết + đăng ký danh sách chờ",
+        "audience": "Nhà vận hành SMB EU",
+        "budget": "€8.500 (chỗ dành)",
+        "timeline": "4 thg 8 – 12 thg 9"
+      },
+      "camp-2": {
+        "name": "Sprint collab nhà sáng tạo",
+        "objective": "Tiếp cận + tăng cộng đồng",
+        "audience": "Nhà sáng tạo 18–34 DE/AT",
+        "budget": "€4.200 (chỗ dành)",
+        "timeline": "20 thg 7 – 20 thg 8"
+      },
+      "camp-3": {
+        "name": "Đẩy portfolio agency",
+        "objective": "Tạo lead",
+        "audience": "Giám đốc marketing",
+        "budget": "€2.900 (chỗ dành)",
+        "timeline": "1 thg 9 – 30 thg 9"
+      }
+    },
+    "calendarItems": {
+      "cal-1": "Reel teaser ra mắt",
+      "cal-2": "Câu chuyện LinkedIn của founder",
+      "cal-3": "Email danh sách chờ #1",
+      "cal-4": "Kịch bản demo TikTok"
+    },
+    "queueItems": {
+      "q-1": "Chú thích reel teaser ra mắt",
+      "q-2": "Bài kể chuyện founder",
+      "q-3": "Email nuôi dưỡng danh sách chờ",
+      "q-4": "Copy hero landing sản phẩm",
+      "q-5": "Kịch bản demo TikTok v2",
+      "q-6": "Carousel tổng kết tháng 6",
+      "q-7": "Chuỗi promo cũ"
+    },
+    "topPosts": {
+      "tp-1": "Mổ xẻ tự động hóa kho",
+      "tp-2": "Reel demo sản phẩm 30 giây",
+      "tp-3": "Hook collab nhà sáng tạo"
+    },
+    "recommendations": {
+      "r1": "Tuần này tái sử dụng teardown LinkedIn thành carousel 3 phần.",
+      "r2": "Lên lịch demo TikTok T3–T5 18:00–20:00 CET để completion cao hơn.",
+      "r3": "Siết giọng luxury trên CTA Instagram — rút ~20%.",
+      "r4": "Dịch chú thích reel top sang DE/FR để mở rộng khán giả EU."
     }
   },
   "backend": {

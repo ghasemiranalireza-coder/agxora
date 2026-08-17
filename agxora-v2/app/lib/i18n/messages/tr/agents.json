@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "Müşteri etkisini önceliklendir",
     "delegatedFollowUp": "Devredilmiş takip"
+  },
+  "categories": {
+    "Leadership": "Liderlik",
+    "Revenue": "Gelir",
+    "CRM": "CRM",
+    "Delivery": "Teslimat",
+    "Automation": "Otomasyon",
+    "Finance": "Finans",
+    "Knowledge": "Bilgi",
+    "Support": "Destek",
+    "Productivity": "Verimlilik",
+    "Custom": "Özel"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "Yönetici danışmanı",
+      "description": "Stratejik brifing, KPI özeti ve karar desteği."
+    },
+    "sales_agent": {
+      "name": "Satış ajanı",
+      "description": "Pipeline koçluğu, outreach taslakları ve sonraki anlaşma adımları."
+    },
+    "crm_assistant": {
+      "name": "CRM asistanı",
+      "description": "Müşteri zenginleştirme, veri hijyeni ve ilişki içgörüleri."
+    },
+    "project_manager": {
+      "name": "Proje yöneticisi",
+      "description": "Planlar, görev kırılımı ve teslim risk sinyalleri."
+    },
+    "workflow_coordinator": {
+      "name": "İş akışı koordinatörü",
+      "description": "AGXORA otomasyon iş akışlarını tetikler ve yönetir."
+    },
+    "finance_assistant": {
+      "name": "Finans asistanı",
+      "description": "Fatura farkındalığı, nakit akışı notları ve finans özetleri."
+    },
+    "document_analyst": {
+      "name": "Belge analisti",
+      "description": "Belgelerden yapı, risk ve özet çıkarır."
+    },
+    "knowledge_assistant": {
+      "name": "Bilgi asistanı",
+      "description": "RAG’a hazır erişimle şirket bilgisinden yanıtlar."
+    },
+    "support_assistant": {
+      "name": "Destek asistanı",
+      "description": "Destek triyajı, yanıtlar ve yükseltme yolları."
+    },
+    "meeting_assistant": {
+      "name": "Toplantı asistanı",
+      "description": "Gündem hazırlığı, not yer tutucuları ve takip."
+    },
+    "custom": {
+      "name": "Özel ajan",
+      "description": "Kuruluşa özel ajanlar için genişletme noktası."
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "CRM aracı",
+      "description": "Müşteri oluştur/güncelle ve hesap bağlamını oku."
+    },
+    "projects": {
+      "name": "Projeler aracı",
+      "description": "Proje, görev ve teslim durumunu yönet."
+    },
+    "finance": {
+      "name": "Finans aracı",
+      "description": "Faturalar, bakiyeler ve finans özetleri."
+    },
+    "documents": {
+      "name": "Belgeler aracı",
+      "description": "Çalışma alanı belgelerini oku ve özetle."
+    },
+    "workflow": {
+      "name": "İş akışı aracı",
+      "description": "Otomasyon iş akışlarını tetikle ve incele."
+    },
+    "integration": {
+      "name": "Entegrasyon aracı",
+      "description": "Bağlı üçüncü taraf konektörleri çağır."
+    },
+    "email": {
+      "name": "E-posta aracı",
+      "description": "Giden e-postayı tasarla ve kuyruğa al."
+    },
+    "calendar": {
+      "name": "Takvim aracı",
+      "description": "Takvim etkinliklerini planla ve incele."
+    },
+    "search": {
+      "name": "Arama aracı",
+      "description": "Evrensel çalışma alanı araması."
+    },
+    "notification": {
+      "name": "Bildirim aracı",
+      "description": "Uygulama içi bildirim gönder."
+    },
+    "api": {
+      "name": "API aracı",
+      "description": "Dahili API ağ geçidi rotalarını çağır."
+    },
+    "mcp": {
+      "name": "MCP aracı",
+      "description": "Gelecekteki Model Context Protocol sunucu araçları."
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "AGXORA işletim ilkeleri",
+      "summary": "Modüler, güvenli yapay zeka ajanları için kurumsal OS ilkeleri."
+    },
+    "policies": {
+      "title": "Veri işleme politikası",
+      "summary": "Hassas araçların yalıtımı ve en az yetki erişimi."
+    },
+    "procedures": {
+      "title": "Müşteri yükseltme prosedürü",
+      "summary": "Düşük güven durumunda destek asistanının yükseltme yolu."
+    },
+    "rag": {
+      "title": "RAG dizin yer tutucusu",
+      "summary": "Belgeler ve CRM notları üzerinde gelecekteki vektör erişimi."
+    }
+  },
+  "llm": {
+    "local": "Yerel LLM",
+    "mcp": "MCP sunucuları",
+    "custom": "Özel model"
+  },
+  "lifecycle": {
+    "draft": "Taslak",
+    "registered": "Kayıtlı",
+    "active": "Etkin",
+    "paused": "Duraklatıldı",
+    "error": "Hata",
+    "retired": "Emekli"
+  },
+  "healthStatus": {
+    "healthy": "Sağlıklı",
+    "degraded": "Bozulmuş",
+    "down": "Kapalı",
+    "unknown": "Bilinmiyor"
+  },
+  "taskStatus": {
+    "pending": "Beklemede",
+    "running": "Çalışıyor",
+    "completed": "Tamamlandı",
+    "cancelled": "İptal",
+    "failed": "Başarısız",
+    "retrying": "Yeniden deneniyor"
+  },
+  "memoryScope": {
+    "working": "Çalışma",
+    "conversation": "Konuşma",
+    "business": "İş",
+    "long_term": "Uzun vadeli",
+    "workspace": "Çalışma alanı",
+    "agent": "Ajan"
+  },
+  "knowledgeKind": {
+    "company": "Şirket",
+    "documents": "Belgeler",
+    "projects": "Projeler",
+    "crm": "CRM",
+    "policies": "Politikalar",
+    "procedures": "Prosedürler",
+    "vector": "Vektör",
+    "rag": "RAG"
   }
 }

@@ -117,5 +117,30 @@
       "warning": "УВАГА",
       "ok": "добре"
     }
+  },
+  "licenseStatus": {
+    "trial": "Пробний",
+    "active": "Активна",
+    "expired": "Закінчилась",
+    "cancelled": "Скасована",
+    "suspended": "Призупинена",
+    "lifetime": "Довічна"
+  },
+  "quotas": {
+    "ai_requests": "Запити ШІ",
+    "projects": "Проєкти",
+    "customers": "Клієнти",
+    "documents": "Документи",
+    "storage_mb": "Сховище (МБ)",
+    "users": "Користувачі",
+    "api_requests": "Запити API"
+  },
+  "invoiceStatus": {
+    "draft": "Чернетка",
+    "open": "Відкритий",
+    "paid": "Оплачений",
+    "void": "Анульований",
+    "uncollectible": "Безнадійний",
+    "refunded": "Повернений"
   }
 }

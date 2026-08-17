@@ -139,5 +139,75 @@
   "errors": {
     "failedToFetch": "Не удалось получить",
     "httpStatus": "HTTP {status}"
+  },
+  "categories": {
+    "productivity": "Продуктивность",
+    "communication": "Коммуникации",
+    "storage": "Хранилище",
+    "crm": "CRM",
+    "automation": "Автоматизация",
+    "devtools": "Инструменты разработчика",
+    "custom": "Пользовательский"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "Ключ API",
+    "webhook": "Вебхук"
+  },
+  "oauth": {
+    "custom": "Пользовательский OAuth"
+  },
+  "connectorNames": {
+    "custom": "Пользовательский коннектор"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Почта, календарь и Teams через Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail, Календарь и Диск для тенантов Workspace."
+    },
+    "slack": {
+      "description": "Каналы, сообщения и интерактивные уведомления."
+    },
+    "discord": {
+      "description": "Серверные уведомления и доставка сообщений бота."
+    },
+    "dropbox": {
+      "description": "Синхронизация файлов и события общих папок."
+    },
+    "onedrive": {
+      "description": "Файловое хранилище Microsoft OneDrive и дельта-синхронизация."
+    },
+    "google_drive": {
+      "description": "Файлы Drive, папки и уведомления об изменениях."
+    },
+    "hubspot": {
+      "description": "CRM-контакты, сделки и маркетинговые события."
+    },
+    "salesforce": {
+      "description": "Корпоративные объекты CRM и Platform Events."
+    },
+    "zapier": {
+      "description": "Исходящие хуки в Zapier-запы."
+    },
+    "make": {
+      "description": "Вебхуки сценариев для Make (Integromat)."
+    },
+    "github": {
+      "description": "Репозитории, issues, pull request и Actions."
+    },
+    "gitlab": {
+      "description": "Проекты, merge request, пайплайны и вебхуки."
+    },
+    "custom": {
+      "description": "Точка расширения для собственных корпоративных систем."
+    }
+  },
+  "healthStatus": {
+    "healthy": "В норме",
+    "degraded": "Деградация",
+    "down": "Недоступен",
+    "unknown": "Неизвестно"
   }
 }

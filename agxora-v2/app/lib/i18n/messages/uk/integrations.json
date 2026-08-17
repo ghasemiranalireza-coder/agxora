@@ -139,5 +139,75 @@
   "errors": {
     "failedToFetch": "Не вдалося отримати",
     "httpStatus": "HTTP {status}"
+  },
+  "categories": {
+    "productivity": "Продуктивність",
+    "communication": "Комунікація",
+    "storage": "Сховище",
+    "crm": "CRM",
+    "automation": "Автоматизація",
+    "devtools": "Інструменти розробника",
+    "custom": "Власний"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "Ключ API",
+    "webhook": "Вебхук"
+  },
+  "oauth": {
+    "custom": "Власний OAuth"
+  },
+  "connectorNames": {
+    "custom": "Власний конектор"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Пошта, календар і Teams через Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail, Календар і Диск для тенантів Workspace."
+    },
+    "slack": {
+      "description": "Канали, повідомлення й інтерактивні сповіщення."
+    },
+    "discord": {
+      "description": "Сповіщення сервера й доставка повідомлень бота."
+    },
+    "dropbox": {
+      "description": "Синхронізація файлів і події спільних тек."
+    },
+    "onedrive": {
+      "description": "Сховище файлів Microsoft OneDrive і дельта-синхронізація."
+    },
+    "google_drive": {
+      "description": "Файли Drive, теки й сповіщення про зміни."
+    },
+    "hubspot": {
+      "description": "Контакти CRM, угоди й маркетингові події."
+    },
+    "salesforce": {
+      "description": "Корпоративні об’єкти CRM і Platform Events."
+    },
+    "zapier": {
+      "description": "Вихідні хуки в zap’и Zapier."
+    },
+    "make": {
+      "description": "Вебхуки сценаріїв для Make (Integromat)."
+    },
+    "github": {
+      "description": "Репозиторії, issues, pull request і Actions."
+    },
+    "gitlab": {
+      "description": "Проєкти, merge request, пайплайни й вебхуки."
+    },
+    "custom": {
+      "description": "Точка розширення для власних корпоративних систем."
+    }
+  },
+  "healthStatus": {
+    "healthy": "Здоровий",
+    "degraded": "Погіршений",
+    "down": "Недоступний",
+    "unknown": "Невідомо"
   }
 }

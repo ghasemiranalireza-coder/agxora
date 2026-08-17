@@ -117,5 +117,30 @@
       "warning": "Avertissement",
       "ok": "D'ACCORD"
     }
+  },
+  "licenseStatus": {
+    "trial": "Essai",
+    "active": "Actif",
+    "expired": "Expiré",
+    "cancelled": "Annulé",
+    "suspended": "Suspendu",
+    "lifetime": "À vie"
+  },
+  "quotas": {
+    "ai_requests": "Requêtes IA",
+    "projects": "Projets",
+    "customers": "Clients",
+    "documents": "Documents",
+    "storage_mb": "Stockage (Mo)",
+    "users": "Utilisateurs",
+    "api_requests": "Requêtes API"
+  },
+  "invoiceStatus": {
+    "draft": "Brouillon",
+    "open": "Ouverte",
+    "paid": "Payée",
+    "void": "Annulée",
+    "uncollectible": "Irrécouvrable",
+    "refunded": "Remboursée"
   }
 }

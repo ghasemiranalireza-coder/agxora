@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "أعطِ أولوية لأثر العميل",
     "delegatedFollowUp": "متابعة مُفوَّضة"
+  },
+  "categories": {
+    "Leadership": "قيادة",
+    "Revenue": "الإيرادات",
+    "CRM": "CRM",
+    "Delivery": "التسليم",
+    "Automation": "الأتمتة",
+    "Finance": "المالية",
+    "Knowledge": "المعرفة",
+    "Support": "الدعم",
+    "Productivity": "الإنتاجية",
+    "Custom": "مخصص"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "مستشار تنفيذي",
+      "description": "إحاطات استراتيجية وتوليف مؤشرات الأداء ودعم القرار."
+    },
+    "sales_agent": {
+      "name": "وكيل مبيعات",
+      "description": "تدريب المسار ومسودات التواصل وخطوات الصفقة التالية."
+    },
+    "crm_assistant": {
+      "name": "مساعد CRM",
+      "description": "إثراء العملاء ونظافة البيانات ورؤى العلاقات."
+    },
+    "project_manager": {
+      "name": "مدير مشاريع",
+      "description": "الخطط وتفكيك المهام وإشارات مخاطر التسليم."
+    },
+    "workflow_coordinator": {
+      "name": "منسق سير العمل",
+      "description": "يشغّل وينسّق تدفقات أتمتة AGXORA."
+    },
+    "finance_assistant": {
+      "name": "مساعد مالي",
+      "description": "متابعة الفواتير وملاحظات التدفق النقدي وملخصات مالية."
+    },
+    "document_analyst": {
+      "name": "محلل مستندات",
+      "description": "يستخرج الهيكل والمخاطر والملخصات من المستندات."
+    },
+    "knowledge_assistant": {
+      "name": "مساعد معرفة",
+      "description": "يجيب من معرفة الشركة باسترجاع جاهز لـ RAG."
+    },
+    "support_assistant": {
+      "name": "مساعد الدعم",
+      "description": "فرز الدعم والردود ومسارات التصعيد."
+    },
+    "meeting_assistant": {
+      "name": "مساعد الاجتماعات",
+      "description": "إعداد جدول الأعمال وعناصر الملاحظات والمتابعات."
+    },
+    "custom": {
+      "name": "وكيل مخصص",
+      "description": "نقطة توسعة للوكلاء الخاصة بالمؤسسة."
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "أداة CRM",
+      "description": "إنشاء/تحديث العملاء وقراءة سياق الحساب."
+    },
+    "projects": {
+      "name": "أداة المشاريع",
+      "description": "إدارة المشاريع والمهام وحالة التسليم."
+    },
+    "finance": {
+      "name": "أداة المالية",
+      "description": "الفواتير والأرصدة والملخصات المالية."
+    },
+    "documents": {
+      "name": "أداة المستندات",
+      "description": "قراءة مستندات مساحة العمل وتلخيصها."
+    },
+    "workflow": {
+      "name": "أداة سير العمل",
+      "description": "تشغيل تدفقات الأتمتة وفحصها."
+    },
+    "integration": {
+      "name": "أداة التكامل",
+      "description": "استدعاء موصلات الجهات الخارجية المتصلة."
+    },
+    "email": {
+      "name": "أداة البريد",
+      "description": "صياغة البريد الصادر ووضعه في قائمة الانتظار."
+    },
+    "calendar": {
+      "name": "أداة التقويم",
+      "description": "جدولة أحداث التقويم وفحصها."
+    },
+    "search": {
+      "name": "أداة البحث",
+      "description": "بحث شامل في مساحة العمل."
+    },
+    "notification": {
+      "name": "أداة الإشعارات",
+      "description": "إرسال إشعارات داخل التطبيق."
+    },
+    "api": {
+      "name": "أداة API",
+      "description": "استدعاء مسارات بوابة API الداخلية."
+    },
+    "mcp": {
+      "name": "أداة MCP",
+      "description": "أدوات خادم Model Context Protocol المستقبلية."
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "مبادئ تشغيل AGXORA",
+      "summary": "مبادئ نظام تشغيل مؤسسي للوكلاء المعياريين والآمنين."
+    },
+    "policies": {
+      "title": "سياسة التعامل مع البيانات",
+      "summary": "عزل الأدوات الحساسة والوصول بأقل صلاحيات."
+    },
+    "procedures": {
+      "title": "إجراء تصعيد العملاء",
+      "summary": "مسار تصعيد مساعد الدعم عند انخفاض الثقة."
+    },
+    "rag": {
+      "title": "عنصر نائب لفهرس RAG",
+      "summary": "استرجاع متجهي مستقبلي للمستندات وملاحظات CRM."
+    }
+  },
+  "llm": {
+    "local": "نموذج لغوي محلي",
+    "mcp": "خوادم MCP",
+    "custom": "نموذج مخصص"
+  },
+  "lifecycle": {
+    "draft": "مسودة",
+    "registered": "مسجّل",
+    "active": "نشط",
+    "paused": "متوقف مؤقتاً",
+    "error": "خطأ",
+    "retired": "متقاعد"
+  },
+  "healthStatus": {
+    "healthy": "سليم",
+    "degraded": "متدهور",
+    "down": "متوقف",
+    "unknown": "غير معروف"
+  },
+  "taskStatus": {
+    "pending": "قيد الانتظار",
+    "running": "قيد التشغيل",
+    "completed": "مكتمل",
+    "cancelled": "ملغى",
+    "failed": "فشل",
+    "retrying": "إعادة المحاولة"
+  },
+  "memoryScope": {
+    "working": "عمل",
+    "conversation": "محادثة",
+    "business": "أعمال",
+    "long_term": "طويل الأمد",
+    "workspace": "مساحة العمل",
+    "agent": "وكيل"
+  },
+  "knowledgeKind": {
+    "company": "الشركة",
+    "documents": "المستندات",
+    "projects": "المشاريع",
+    "crm": "CRM",
+    "policies": "السياسات",
+    "procedures": "الإجراءات",
+    "vector": "متجه",
+    "rag": "RAG"
   }
 }

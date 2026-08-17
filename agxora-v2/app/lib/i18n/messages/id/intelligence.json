@@ -67,14 +67,78 @@
     "title": "Pusat KPI",
     "subtitle": "Katalog KPI yang dapat dikonfigurasi di seluruh pendapatan, pelanggan, proyek, alur kerja, agen, dan otomatisasi.",
     "emptyTitle": "Analytics menunggu sinyal",
-    "emptyDescription": "Setelah ruang kerja Anda menghasilkan aktivitas, KPI eksekutif dan peringatan akan muncul di sini."
+    "emptyDescription": "Setelah ruang kerja Anda menghasilkan aktivitas, KPI eksekutif dan peringatan akan muncul di sini.",
+    "revenue": {
+      "name": "Pendapatan",
+      "description": "Total pendapatan diakui dalam periode."
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "Pendapatan berulang bulanan."
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "Pendapatan berulang tahunan."
+    },
+    "growth": {
+      "name": "Pertumbuhan",
+      "description": "Laju pertumbuhan dibanding periode sebelumnya."
+    },
+    "customer_acquisition": {
+      "name": "Akuisisi pelanggan",
+      "description": "Pelanggan baru yang didapat."
+    },
+    "retention": {
+      "name": "Retensi",
+      "description": "Tingkat retensi pelanggan."
+    },
+    "churn": {
+      "name": "Churn",
+      "description": "Tingkat churn pelanggan."
+    },
+    "project_success": {
+      "name": "Sukses proyek",
+      "description": "Proyek terkirim tepat waktu / sesuai cakupan."
+    },
+    "workflow_success": {
+      "name": "Sukses alur kerja",
+      "description": "Eksekusi alur kerja berhasil."
+    },
+    "agent_performance": {
+      "name": "Performa agen",
+      "description": "Skor keberhasilan tugas agen AI."
+    },
+    "automation_success": {
+      "name": "Sukses otomasi",
+      "description": "Keandalan otomasi / integrasi."
+    },
+    "custom": {
+      "name": "KPI kustom",
+      "description": "Titik perluasan untuk KPI yang didefinisikan organisasi."
+    }
   },
   "reports": {
     "title": "Mesin pelaporan",
     "subtitle": "Definisi laporan diunggulkan untuk ditinjau. Ekspor file tidak tersedia hingga backend pelaporan terhubung.",
     "emptyTitle": "Tidak ada laporan",
     "emptyDescription": "Melaporkan benih pada bootstrap ruang kerja.",
-    "scheduleOnDemand": "sesuai permintaan"
+    "scheduleOnDemand": "sesuai permintaan",
+    "executive": {
+      "title": "Mingguan eksekutif",
+      "description": "Brief CEO tentang kesehatan, pendapatan, risiko, dan pertumbuhan."
+    },
+    "department": {
+      "title": "Laporan departemen penjualan",
+      "description": "Pipeline, akuisisi, dan retensi untuk pimpinan penjualan."
+    },
+    "operational": {
+      "title": "Harian operasi",
+      "description": "Alur kerja, integrasi, dan postur identitas."
+    },
+    "management": {
+      "title": "Manajemen pengiriman",
+      "description": "Sukses proyek, kapasitas, dan throughput dokumen."
+    }
   },
   "insights": {
     "emptyTitle": "Belum ada wawasan",
@@ -94,12 +158,88 @@
     "emptyDescription": "Memperingatkan benih dari heuristik risiko.",
     "acked": "tersinggung",
     "open": "membuka",
-    "acknowledge": "Mengakui"
+    "acknowledge": "Mengakui",
+    "revenue_drop": {
+      "title": "Pendapatan segmen melambat",
+      "body": "Pendapatan WoW SMB turun 4% — tinjau cakupan pipeline."
+    },
+    "project_delay": {
+      "title": "Proyek berisiko terlambat",
+      "body": "Dua proyek pengiriman melewati gerbang milestone."
+    },
+    "churn_risk": {
+      "title": "Risiko churn pelanggan naik",
+      "body": "Tiga akun menunjukkan skor engagement menurun."
+    },
+    "workflow_failure": {
+      "title": "Kegagalan alur terdeteksi",
+      "body": "Alur pengingat faktur gagal dua kali dalam 24 jam."
+    },
+    "ai_failure": {
+      "title": "Retry tugas AI naik",
+      "body": "Tingkat retry tugas agen melewati ambang lunak."
+    },
+    "integration_error": {
+      "title": "Kesalahan integrasi",
+      "body": "Konektor Slack mengembalikan 5xx sesekali."
+    },
+    "security": {
+      "title": "Peringatan keamanan",
+      "body": "Pola penggunaan kunci API yang tidak biasa terdeteksi."
+    }
   },
   "scorecards": {
     "title": "Mesin kartu skor",
     "emptyTitle": "Tidak ada kartu skor",
-    "emptyDescription": "Benih kartu skor di bootstrap."
+    "emptyDescription": "Benih kartu skor di bootstrap.",
+    "sales": {
+      "name": "Skor penjualan",
+      "drivers": {
+        "pipeline_coverage": "Cakupan pipeline",
+        "win_rate": "Tingkat menang",
+        "cycle_time": "Waktu siklus"
+      }
+    },
+    "customer_health": {
+      "name": "Skor kesehatan pelanggan",
+      "drivers": {
+        "retention": "Retensi",
+        "nps_proxy": "Proksi NPS",
+        "support_load": "Beban dukungan"
+      }
+    },
+    "project_success": {
+      "name": "Skor sukses proyek",
+      "drivers": {
+        "on_time_delivery": "Pengiriman tepat waktu",
+        "scope_control": "Kontrol cakupan",
+        "utilization": "Utilisasi"
+      }
+    },
+    "automation_efficiency": {
+      "name": "Efisiensi otomasi",
+      "drivers": {
+        "workflow_success": "Sukses alur kerja",
+        "manual_effort_saved": "Upaya manual tersimpan",
+        "retry_rate": "Tingkat coba ulang"
+      }
+    },
+    "ai_quality": {
+      "name": "Kualitas AI",
+      "drivers": {
+        "task_success": "Sukses tugas",
+        "confidence_avg": "Rata kepercayaan",
+        "escalation_rate": "Tingkat eskalasi"
+      }
+    },
+    "operational_health": {
+      "name": "Kesehatan operasional",
+      "drivers": {
+        "system_health": "Kesehatan sistem",
+        "integration_reliability": "Keandalan integrasi",
+        "identity_posture": "Postur identitas"
+      }
+    }
   },
   "explorer": {
     "title": "Penjelajah data",
@@ -107,7 +247,8 @@
     "searchAria": "Telusuri baris penjelajah demo",
     "emptyTitle": "Tidak ada baris yang cocok",
     "emptyDescription": "Sesuaikan filter atau cari, atau muat ulang kumpulan data demo.",
-    "hint": "Pencarian sisi klien pada tupel yang diunggulkan — agregasi backend dan penelusuran tidak terhubung."
+    "hint": "Pencarian sisi klien pada tupel yang diunggulkan — agregasi backend dan penelusuran tidak terhubung.",
+    "metricLabel": "Metrik {domain} {index}"
   },
   "columns": {
     "kpi": "KPI",
@@ -132,5 +273,121 @@
     "measure": "Ukuran",
     "date": "Tanggal"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "Analitik CRM",
+    "projects": "Analitik proyek",
+    "finance": "Analitik keuangan",
+    "documents": "Analitik dokumen",
+    "workflow": "Analitik alur kerja",
+    "identity": "Analitik identitas",
+    "ai": "Analitik AI",
+    "integration": "Analitik integrasi",
+    "executive": "Eksekutif"
+  },
+  "series": {
+    "crm_leads": "Prospek",
+    "crm_pipeline": "Pipeline (rb $)",
+    "proj_active": "Proyek aktif",
+    "proj_on_time": "Tepat waktu %",
+    "fin_revenue": "Pendapatan (rb $)",
+    "fin_margin": "Margin kotor %",
+    "doc_created": "Dokumen dibuat",
+    "doc_views": "Tampilan dokumen",
+    "wf_runs": "Jalankan alur",
+    "wf_success": "Sukses %",
+    "id_users": "Pengguna aktif",
+    "id_sessions": "Sesi",
+    "ai_tasks": "Tugas agen",
+    "ai_success": "Sukses agen %",
+    "int_calls": "Panggilan API / webhook",
+    "int_errors": "Kesalahan integrasi"
+  },
+  "bands": {
+    "Critical": "Kritis",
+    "Watch": "Pantau",
+    "Healthy": "Sehat",
+    "Excellent": "Sangat baik"
+  },
+  "charts": {
+    "chart_revenue": "Tren pendapatan",
+    "chart_pipeline": "Pipeline CRM",
+    "chart_workflows": "Aktivitas alur kerja",
+    "chart_ai": "Campuran aktivitas AI",
+    "chart_ops_table": "Cuplikan operasional",
+    "chart_heatmap_placeholder": "Peta panas engagement"
+  },
+  "chartKinds": {
+    "line": "Garis",
+    "bar": "Batang",
+    "area": "Area",
+    "pie": "Lingkaran",
+    "heatmap": "Peta panas",
+    "table": "Tabel",
+    "card": "Kartu"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "MRR semakin cepat",
+      "summary": "Pertumbuhan MRR membaik tiga periode beruntun."
+    },
+    "pattern": {
+      "title": "Lonjakan alur pada hari faktur",
+      "summary": "Beban otomasi berkorelasi dengan faktur akhir bulan."
+    },
+    "recommendation": {
+      "title": "Perluas playbook retensi",
+      "summary": "Fokuskan outreach CSM pada tiga akun dengan kesehatan menurun."
+    },
+    "executive_summary": {
+      "title": "Brief eksekutif",
+      "summary": "Kesehatan perusahaan kuat; pantau risiko churn dan keterlambatan pengiriman."
+    },
+    "risk": {
+      "title": "Klaster risiko pengiriman",
+      "summary": "Dua proyek berbagi persaingan sumber daya — prakiraan kapasitas tinggi."
+    },
+    "opportunity": {
+      "title": "Peluang upsell",
+      "summary": "Akun pemakaian tinggi tanpa paket Business punya potensi ekspansi."
+    }
+  },
+  "forecastNotes": {
+    "revenue": "Placeholder tren linier — ganti dengan layanan model.",
+    "customer": "Gabungan akuisisi + retensi.",
+    "project": "Prakiraan pengiriman sadar kapasitas.",
+    "capacity": "Prakiraan utilisasi tim.",
+    "growth": "Prakiraan laju pertumbuhan."
+  },
+  "forecastKinds": {
+    "revenue": "Pendapatan",
+    "customer": "Pelanggan",
+    "project": "Proyek",
+    "capacity": "Kapasitas",
+    "growth": "Pertumbuhan"
+  },
+  "severity": {
+    "info": "Info",
+    "warning": "Peringatan",
+    "critical": "Kritis"
+  },
+  "trend": {
+    "up": "Naik",
+    "down": "Turun",
+    "flat": "Datar"
+  },
+  "insightKinds": {
+    "trend": "Tren",
+    "pattern": "Pola",
+    "recommendation": "Rekomendasi",
+    "executive_summary": "Ringkasan eksekutif",
+    "risk": "Risiko",
+    "opportunity": "Peluang"
+  },
+  "reportKinds": {
+    "executive": "Eksekutif",
+    "department": "Departemen",
+    "operational": "Operasional",
+    "management": "Manajemen"
+  }
 }

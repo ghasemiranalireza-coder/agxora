@@ -138,12 +138,222 @@
     "professional": "Profesional",
     "friendly": "Amable",
     "luxury": "Lujo",
-    "casual": "Informal"
+    "casual": "Informal",
+    "minimal": "Minimal",
+    "corporate": "Corporativo",
+    "creative": "Creativo",
+    "custom": "Voz de marca personalizada"
   },
   "integrationStatus": {
     "planned": "Planificado",
     "ready": "Listo",
     "connected": "Conectado",
     "disabled": "Desactivado"
+  },
+  "categories": {
+    "social": "Social",
+    "ads": "Anuncios",
+    "analytics": "Analítica"
+  },
+  "platforms": {
+    "instagram": {
+      "notes": "Publicación Graph API oficial + insights reservados."
+    },
+    "tiktok": {
+      "notes": "Adaptador TikTok Content Posting API reservado."
+    },
+    "youtube": {
+      "notes": "Carga YouTube Data API + analytics reservados."
+    },
+    "facebook": {
+      "notes": "Adaptador de publicación de Pages reservado."
+    },
+    "linkedin": {
+      "notes": "Adaptador de publicaciones UGC / organización reservado."
+    },
+    "pinterest": {
+      "notes": "Adaptador de Pins + tableros reservado."
+    },
+    "threads": {
+      "notes": "Adaptador Threads API reservado."
+    },
+    "x": {
+      "notes": "Adaptador de publicaciones X API v2 reservado."
+    },
+    "meta-business": {
+      "notes": "Hooks de Meta Business Suite / Ads Manager reservados."
+    },
+    "google-ads": {
+      "notes": "Sincronización de campañas Google Ads API reservada."
+    },
+    "google-analytics": {
+      "notes": "Adaptador de medición + informes GA4 reservado."
+    }
+  },
+  "features": {
+    "ideas": {
+      "label": "Ideas de contenido",
+      "description": "Motor de ideas consciente del sector para campañas y publicaciones."
+    },
+    "captions": {
+      "label": "Generador de pies",
+      "description": "Pies con voz de marca por formato de plataforma."
+    },
+    "hashtags": {
+      "label": "Sugerencias de hashtags",
+      "description": "Puntuación de relevancia y alcance para conjuntos de hashtags."
+    },
+    "calendar": {
+      "label": "Calendario de contenidos",
+      "description": "Base de calendario editorial multiplataforma."
+    },
+    "campaigns": {
+      "label": "Planificador de campañas",
+      "description": "Objetivos, audiencia, plataformas y plazos."
+    },
+    "audience": {
+      "label": "Sugerencias de audiencia",
+      "description": "Sugerencias de segmentos desde señales CRM + creador."
+    },
+    "schedule": {
+      "label": "Programación de publicaciones",
+      "description": "Ventanas de publicación óptimas conscientes de zona horaria."
+    },
+    "brand": {
+      "label": "Consistencia de marca",
+      "description": "Controles de tono y activos frente a la voz de marca."
+    },
+    "rewrite": {
+      "label": "Reescritura IA",
+      "description": "Reescribir borradores por claridad, longitud o canal."
+    },
+    "translate": {
+      "label": "Traducir contenido",
+      "description": "Canal de traducción multilingüe reservado."
+    },
+    "i18n": {
+      "label": "Compatibilidad multilingüe",
+      "description": "Paquetes de locale para superficies de publicación y analítica."
+    }
+  },
+  "kpi": {
+    "content": {
+      "label": "Contenido creado",
+      "caption": "Este trimestre"
+    },
+    "campaigns": {
+      "label": "Campañas",
+      "caption": "Activas + planificadas"
+    },
+    "scheduled": {
+      "label": "Publicaciones programadas",
+      "caption": "Próximos 14 días"
+    },
+    "engagement": {
+      "label": "Engagement",
+      "caption": "Tasa media entre canales"
+    },
+    "followers": {
+      "label": "Crecimiento de seguidores",
+      "caption": "Últimos 30 días"
+    },
+    "reach": {
+      "label": "Alcance",
+      "caption": "Impresiones únicas"
+    },
+    "conversions": {
+      "label": "Conversiones",
+      "caption": "Acciones atribuidas"
+    },
+    "ai-score": {
+      "label": "Puntuación de rendimiento IA",
+      "caption": "Señal de calidad de contenido"
+    }
+  },
+  "analyticsMetrics": {
+    "a1": "Engagement",
+    "a2": "Alcance",
+    "a3": "CTR",
+    "a4": "Conversiones",
+    "a5": "Crecimiento de audiencia",
+    "a6": "Rendimiento de contenido"
+  },
+  "voiceDesc": {
+    "professional": "Tono claro, creíble y de negocio.",
+    "luxury": "Refinado, parco, encuadre premium.",
+    "friendly": "Cálido, cercano, conversacional.",
+    "casual": "Lenguaje cotidiano relajado.",
+    "minimal": "Frases cortas, alta claridad.",
+    "corporate": "Comunicación empresarial formal.",
+    "creative": "Narrativa expresiva para campañas.",
+    "custom": "Sube más adelante directrices y copys de muestra."
+  },
+  "formatDesc": {
+    "instagram_caption": "Pies de Feed / Reels con ganchos CTA.",
+    "tiktok_script": "Guiones cortos: gancho → valor → CTA.",
+    "linkedin_post": "Liderazgo de pensamiento y narrativas B2B.",
+    "facebook_post": "Publicaciones listas para comunidad y página.",
+    "x_post": "Hilos concisos y publicaciones sueltas.",
+    "blog_article": "Borradores editoriales de formato largo.",
+    "newsletter": "Secciones de boletín y asuntos.",
+    "email_campaign": "Secuencias de campaña y copy de nurture.",
+    "product_description": "Narrativas de producto listas para comercio.",
+    "ad_copy": "Variantes de anuncios social de pago y search.",
+    "seo_article": "Artículos de intención de búsqueda con esquema.",
+    "landing_page_copy": "Hero, beneficios, prueba y bloques CTA."
+  },
+  "campaignStatus": {
+    "Active": "Activa",
+    "In review": "En revisión",
+    "Planned": "Planificada"
+  },
+  "campaigns": {
+    "camp-1": {
+      "name": "Lanzamiento de producto T3",
+      "objective": "Notoriedad + altas en lista de espera",
+      "audience": "Operadores pyme UE",
+      "budget": "8.500 € (marcador)",
+      "timeline": "4 ago – 12 sep"
+    },
+    "camp-2": {
+      "name": "Sprint de collab de creadores",
+      "objective": "Alcance + crecimiento de comunidad",
+      "audience": "Creadores 18–34 DE/AT",
+      "budget": "4.200 € (marcador)",
+      "timeline": "20 jul – 20 ago"
+    },
+    "camp-3": {
+      "name": "Impulso de portafolio de agencia",
+      "objective": "Generación de leads",
+      "audience": "Directores de marketing",
+      "budget": "2.900 € (marcador)",
+      "timeline": "1 sep – 30 sep"
+    }
+  },
+  "calendarItems": {
+    "cal-1": "Reel teaser de lanzamiento",
+    "cal-2": "Narrativa LinkedIn del fundador",
+    "cal-3": "Correo de lista de espera n.º 1",
+    "cal-4": "Guion demo de TikTok"
+  },
+  "queueItems": {
+    "q-1": "Pie de reel teaser de lanzamiento",
+    "q-2": "Publicación narrativa del fundador",
+    "q-3": "Correo de nurture de lista de espera",
+    "q-4": "Copy hero de landing de producto",
+    "q-5": "Guion demo TikTok v2",
+    "q-6": "Carrusel recap de junio",
+    "q-7": "Hilo promo antiguo"
+  },
+  "topPosts": {
+    "tp-1": "Teardown de automatización de almacén",
+    "tp-2": "Reel demo de producto de 30 s",
+    "tp-3": "Gancho de collab de creadores"
+  },
+  "recommendations": {
+    "r1": "Reutiliza el teardown de LinkedIn en un carrusel de 3 partes esta semana.",
+    "r2": "Programa demos de TikTok mar–jue 18:00–20:00 CET para más completion.",
+    "r3": "Aprieta la voz luxury en CTA de Instagram: acorta ~20%.",
+    "r4": "Traduce el pie del reel top a DE/FR para expandir audiencia UE."
   }
 }

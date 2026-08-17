@@ -139,5 +139,75 @@
   "errors": {
     "failedToFetch": "獲取失敗",
     "httpStatus": "HTTP {status}"
+  },
+  "categories": {
+    "productivity": "生產力",
+    "communication": "通訊",
+    "storage": "儲存",
+    "crm": "CRM",
+    "automation": "自動化",
+    "devtools": "開發者工具",
+    "custom": "自訂"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "API 金鑰",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "自訂 OAuth"
+  },
+  "connectorNames": {
+    "custom": "自訂連接器"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "透過 Microsoft Graph 使用郵件、日曆與 Teams。"
+    },
+    "google_workspace": {
+      "description": "面向 Workspace 租用戶的 Gmail、日曆與雲端硬碟。"
+    },
+    "slack": {
+      "description": "頻道、訊息與互動通知。"
+    },
+    "discord": {
+      "description": "伺服器通知與機器人訊息投遞。"
+    },
+    "dropbox": {
+      "description": "檔案同步與共用資料夾事件。"
+    },
+    "onedrive": {
+      "description": "Microsoft OneDrive 檔案儲存與差異同步。"
+    },
+    "google_drive": {
+      "description": "雲端硬碟檔案、資料夾與變更通知。"
+    },
+    "hubspot": {
+      "description": "CRM 聯絡人、交易與行銷事件。"
+    },
+    "salesforce": {
+      "description": "企業 CRM 物件與 Platform Events。"
+    },
+    "zapier": {
+      "description": "發往 Zapier zap 的外送勾點。"
+    },
+    "make": {
+      "description": "Make（Integromat）情境 Webhook。"
+    },
+    "github": {
+      "description": "儲存庫、議題、提取要求與 Actions。"
+    },
+    "gitlab": {
+      "description": "專案、合併請求、管線與 Webhook。"
+    },
+    "custom": {
+      "description": "專有企業系統的擴充點。"
+    }
+  },
+  "healthStatus": {
+    "healthy": "健康",
+    "degraded": "降級",
+    "down": "停機",
+    "unknown": "未知"
   }
 }

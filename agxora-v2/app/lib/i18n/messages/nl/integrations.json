@@ -139,5 +139,75 @@
   "errors": {
     "failedToFetch": "Ophalen is mislukt",
     "httpStatus": "HTTP-{status}"
+  },
+  "categories": {
+    "productivity": "Productiviteit",
+    "communication": "Communicatie",
+    "storage": "Opslag",
+    "crm": "CRM",
+    "automation": "Automatisering",
+    "devtools": "Developertools",
+    "custom": "Aangepast"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "API-sleutel",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "Aangepaste OAuth"
+  },
+  "connectorNames": {
+    "custom": "Aangepaste connector"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Mail, agenda en Teams via Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail, Agenda en Drive voor Workspace-tenants."
+    },
+    "slack": {
+      "description": "Kanalen, berichten en interactieve meldingen."
+    },
+    "discord": {
+      "description": "Servermeldingen en botberichtbezorging."
+    },
+    "dropbox": {
+      "description": "Bestandssync en gebeurtenissen van gedeelde mappen."
+    },
+    "onedrive": {
+      "description": "Microsoft OneDrive-bestandsopslag en deltasynchronisatie."
+    },
+    "google_drive": {
+      "description": "Drive-bestanden, mappen en wijzigingsmeldingen."
+    },
+    "hubspot": {
+      "description": "CRM-contacten, deals en marketingevents."
+    },
+    "salesforce": {
+      "description": "Enterprise-CRM-objecten en Platform Events."
+    },
+    "zapier": {
+      "description": "Uitgaande hooks naar Zapier-zaps."
+    },
+    "make": {
+      "description": "Scenario-webhooks voor Make (Integromat)."
+    },
+    "github": {
+      "description": "Repo’s, issues, pull requests en Actions."
+    },
+    "gitlab": {
+      "description": "Projecten, merge requests, pipelines en webhooks."
+    },
+    "custom": {
+      "description": "Uitbreidingspunt voor propriëtaire enterprise-systemen."
+    }
+  },
+  "healthStatus": {
+    "healthy": "Gezond",
+    "degraded": "Verminderd",
+    "down": "Offline",
+    "unknown": "Onbekend"
   }
 }

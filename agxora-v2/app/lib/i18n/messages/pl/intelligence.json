@@ -67,14 +67,78 @@
     "title": "Centrum KPI",
     "subtitle": "Konfigurowalny katalog KPI obejmujący przychody, klientów, projekty, przepływy pracy, agentów i automatyzację.",
     "emptyTitle": "Analityka czeka na sygnał",
-    "emptyDescription": "Gdy obszar roboczy wygeneruje aktywność, w tym miejscu pojawią się wskaźniki KPI dla kadry kierowniczej i alerty."
+    "emptyDescription": "Gdy obszar roboczy wygeneruje aktywność, w tym miejscu pojawią się wskaźniki KPI dla kadry kierowniczej i alerty.",
+    "revenue": {
+      "name": "Przychód",
+      "description": "Łączny ujęty przychód w okresie."
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "Miesięczny przychód cykliczny."
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "Roczny przychód cykliczny."
+    },
+    "growth": {
+      "name": "Wzrost",
+      "description": "Stopa wzrostu wobec poprzedniego okresu."
+    },
+    "customer_acquisition": {
+      "name": "Pozyskanie klientów",
+      "description": "Nowo pozyskani klienci."
+    },
+    "retention": {
+      "name": "Retencja",
+      "description": "Wskaźnik retencji klientów."
+    },
+    "churn": {
+      "name": "Odpływ",
+      "description": "Wskaźnik odpływu klientów."
+    },
+    "project_success": {
+      "name": "Sukces projektów",
+      "description": "Projekty dostarczone na czas / w zakresie."
+    },
+    "workflow_success": {
+      "name": "Sukces workflow",
+      "description": "Udane wykonania workflow."
+    },
+    "agent_performance": {
+      "name": "Wydajność agentów",
+      "description": "Wynik sukcesu zadań agentów AI."
+    },
+    "automation_success": {
+      "name": "Sukces automatyzacji",
+      "description": "Niezawodność automatyzacji / integracji."
+    },
+    "custom": {
+      "name": "Niestandardowe KPI",
+      "description": "Punkt rozszerzenia dla KPI organizacji."
+    }
   },
   "reports": {
     "title": "Silnik raportowania",
     "subtitle": "Definicje raportów są wysyłane do przeglądu. Eksport plików jest niedostępny, dopóki nie zostanie podłączony moduł raportowania.",
     "emptyTitle": "Żadnych raportów",
     "emptyDescription": "Ziarnowanie raportów w bootstrapie obszaru roboczego.",
-    "scheduleOnDemand": "na żądanie"
+    "scheduleOnDemand": "na żądanie",
+    "executive": {
+      "title": "Tygodnik zarządu",
+      "description": "Briefing CEO o zdrowiu, przychodzie, ryzyku i wzroście."
+    },
+    "department": {
+      "title": "Raport działu sprzedaży",
+      "description": "Lejek, pozyskanie i retencja dla kierownictwa sprzedaży."
+    },
+    "operational": {
+      "title": "Dziennik operacji",
+      "description": "Workflow, integracje i postawa tożsamości."
+    },
+    "management": {
+      "title": "Zarządzanie realizacją",
+      "description": "Sukces projektów, zdolność i przepustowość dokumentów."
+    }
   },
   "insights": {
     "emptyTitle": "Nie ma jeszcze żadnych spostrzeżeń",
@@ -94,12 +158,88 @@
     "emptyDescription": "Ostrzega nasiona przed heurystyką ryzyka.",
     "acked": "potwierdzony",
     "open": "Otwarte",
-    "acknowledge": "Uznawać"
+    "acknowledge": "Uznawać",
+    "revenue_drop": {
+      "title": "Osłabienie przychodu w segmencie",
+      "body": "Przychód WoW w SMB spadł o 4% — sprawdź pokrycie lejka."
+    },
+    "project_delay": {
+      "title": "Projekt zagrożony opóźnieniem",
+      "body": "Dwa projekty realizacji przekroczyły bramki kamieni milowych."
+    },
+    "churn_risk": {
+      "title": "Podwyższone ryzyko odpływu",
+      "body": "Trzy konta mają spadające wyniki zaangażowania."
+    },
+    "workflow_failure": {
+      "title": "Wykryto błędy workflow",
+      "body": "Workflow przypomnienia o fakturze padł dwukrotnie w 24h."
+    },
+    "ai_failure": {
+      "title": "Wzrost ponowień zadań AI",
+      "body": "Wskaźnik ponowień zadań agentów przekroczył miękki próg."
+    },
+    "integration_error": {
+      "title": "Błędy integracji",
+      "body": "Konektor Slack zwracał okresowe odpowiedzi 5xx."
+    },
+    "security": {
+      "title": "Alert bezpieczeństwa",
+      "body": "Wykryto nietypowy wzorzec użycia klucza API."
+    }
   },
   "scorecards": {
     "title": "Silnik karty wyników",
     "emptyTitle": "Brak kart wyników",
-    "emptyDescription": "Ziarno kart wyników na bootstrapie."
+    "emptyDescription": "Ziarno kart wyników na bootstrapie.",
+    "sales": {
+      "name": "Wynik sprzedaży",
+      "drivers": {
+        "pipeline_coverage": "Pokrycie lejka",
+        "win_rate": "Wskaźnik wygranych",
+        "cycle_time": "Czas cyklu"
+      }
+    },
+    "customer_health": {
+      "name": "Wynik zdrowia klienta",
+      "drivers": {
+        "retention": "Retencja",
+        "nps_proxy": "Proxy NPS",
+        "support_load": "Obciążenie wsparcia"
+      }
+    },
+    "project_success": {
+      "name": "Wynik sukcesu projektów",
+      "drivers": {
+        "on_time_delivery": "Dostawa na czas",
+        "scope_control": "Kontrola zakresu",
+        "utilization": "Wykorzystanie"
+      }
+    },
+    "automation_efficiency": {
+      "name": "Efektywność automatyzacji",
+      "drivers": {
+        "workflow_success": "Sukces workflow",
+        "manual_effort_saved": "Zaoszczędzony wysiłek ręczny",
+        "retry_rate": "Wskaźnik ponowień"
+      }
+    },
+    "ai_quality": {
+      "name": "Jakość AI",
+      "drivers": {
+        "task_success": "Sukces zadań",
+        "confidence_avg": "Śr. pewność",
+        "escalation_rate": "Wskaźnik eskalacji"
+      }
+    },
+    "operational_health": {
+      "name": "Zdrowie operacyjne",
+      "drivers": {
+        "system_health": "Zdrowie systemu",
+        "integration_reliability": "Niezawodność integracji",
+        "identity_posture": "Postawa tożsamości"
+      }
+    }
   },
   "explorer": {
     "title": "Eksplorator danych",
@@ -107,7 +247,8 @@
     "searchAria": "Wyszukaj wiersze eksploratora wersji demonstracyjnej",
     "emptyTitle": "Żadne wiersze nie pasują",
     "emptyDescription": "Dostosuj filtry lub wyszukaj albo ponownie załaduj zestaw danych demonstracyjnych.",
-    "hint": "Wyszukiwanie po stronie klienta w przypadku krotek inicjowanych — agregacja zaplecza i drążenie w dół nie są połączone."
+    "hint": "Wyszukiwanie po stronie klienta w przypadku krotek inicjowanych — agregacja zaplecza i drążenie w dół nie są połączone.",
+    "metricLabel": "Metryka {domain} {index}"
   },
   "columns": {
     "kpi": "KPI",
@@ -132,5 +273,121 @@
     "measure": "Mierzyć",
     "date": "Data"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "Analityka CRM",
+    "projects": "Analityka projektów",
+    "finance": "Analityka finansowa",
+    "documents": "Analityka dokumentów",
+    "workflow": "Analityka workflow",
+    "identity": "Analityka tożsamości",
+    "ai": "Analityka AI",
+    "integration": "Analityka integracji",
+    "executive": "Zarząd"
+  },
+  "series": {
+    "crm_leads": "Leady",
+    "crm_pipeline": "Lejek (tys. $)",
+    "proj_active": "Aktywne projekty",
+    "proj_on_time": "Na czas %",
+    "fin_revenue": "Przychód (tys. $)",
+    "fin_margin": "Marża brutto %",
+    "doc_created": "Utworzone dokumenty",
+    "doc_views": "Wyświetlenia dokumentów",
+    "wf_runs": "Uruchomienia workflow",
+    "wf_success": "Sukces %",
+    "id_users": "Aktywni użytkownicy",
+    "id_sessions": "Sesje",
+    "ai_tasks": "Zadania agentów",
+    "ai_success": "Sukces agentów %",
+    "int_calls": "Wywołania API / webhook",
+    "int_errors": "Błędy integracji"
+  },
+  "bands": {
+    "Critical": "Krytyczny",
+    "Watch": "Obserwacja",
+    "Healthy": "Zdrowy",
+    "Excellent": "Doskonały"
+  },
+  "charts": {
+    "chart_revenue": "Trend przychodu",
+    "chart_pipeline": "Lejek CRM",
+    "chart_workflows": "Aktywność workflow",
+    "chart_ai": "Mix aktywności AI",
+    "chart_ops_table": "Migawka operacyjna",
+    "chart_heatmap_placeholder": "Mapa ciepła zaangażowania"
+  },
+  "chartKinds": {
+    "line": "Linia",
+    "bar": "Słupki",
+    "area": "Obszar",
+    "pie": "Kołowy",
+    "heatmap": "Mapa ciepła",
+    "table": "Tabela",
+    "card": "Karta"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "MRR przyspiesza",
+      "summary": "Wzrost MRR poprawił się przez trzy kolejne okresy."
+    },
+    "pattern": {
+      "title": "Szczyty workflow w dniach faktur",
+      "summary": "Obciążenie automatyzacji koreluje z fakturowaniem na koniec miesiąca."
+    },
+    "recommendation": {
+      "title": "Rozszerz playbook retencji",
+      "summary": "Skup outreach CSM na trzech kontach o spadającym zdrowiu."
+    },
+    "executive_summary": {
+      "title": "Briefing zarządu",
+      "summary": "Zdrowie firmy jest silne; obserwuj odpływ i opóźnienia realizacji."
+    },
+    "risk": {
+      "title": "Klaster ryzyka realizacji",
+      "summary": "Dwa projekty dzielą konflikt zasobów — prognoza zdolności podwyższona."
+    },
+    "opportunity": {
+      "title": "Szansa upsell",
+      "summary": "Konta o wysokim użyciu bez planu Business mają potencjał ekspansji."
+    }
+  },
+  "forecastNotes": {
+    "revenue": "Symbol zastępczy trendu liniowego — zastąp usługą modelu.",
+    "customer": "Złożenie pozyskania + retencji.",
+    "project": "Prognoza realizacji uwzględniająca zdolność.",
+    "capacity": "Prognoza wykorzystania zespołu.",
+    "growth": "Prognoza stopy wzrostu."
+  },
+  "forecastKinds": {
+    "revenue": "Przychód",
+    "customer": "Klient",
+    "project": "Projekt",
+    "capacity": "Zdolność",
+    "growth": "Wzrost"
+  },
+  "severity": {
+    "info": "Info",
+    "warning": "Ostrzeżenie",
+    "critical": "Krytyczny"
+  },
+  "trend": {
+    "up": "Wzrost",
+    "down": "Spadek",
+    "flat": "Płaski"
+  },
+  "insightKinds": {
+    "trend": "Trend",
+    "pattern": "Wzorzec",
+    "recommendation": "Rekomendacja",
+    "executive_summary": "Streszczenie zarządu",
+    "risk": "Ryzyko",
+    "opportunity": "Szansa"
+  },
+  "reportKinds": {
+    "executive": "Zarząd",
+    "department": "Dział",
+    "operational": "Operacyjny",
+    "management": "Zarządzanie"
+  }
 }

@@ -259,6 +259,31 @@
         "warning": "Avertissement",
         "ok": "D'ACCORD"
       }
+    },
+    "licenseStatus": {
+      "trial": "Essai",
+      "active": "Actif",
+      "expired": "Expiré",
+      "cancelled": "Annulé",
+      "suspended": "Suspendu",
+      "lifetime": "À vie"
+    },
+    "quotas": {
+      "ai_requests": "Requêtes IA",
+      "projects": "Projets",
+      "customers": "Clients",
+      "documents": "Documents",
+      "storage_mb": "Stockage (Mo)",
+      "users": "Utilisateurs",
+      "api_requests": "Requêtes API"
+    },
+    "invoiceStatus": {
+      "draft": "Brouillon",
+      "open": "Ouverte",
+      "paid": "Payée",
+      "void": "Annulée",
+      "uncollectible": "Irrécouvrable",
+      "refunded": "Remboursée"
     }
   },
   "settings": {
@@ -3668,6 +3693,189 @@
         "label": "Mettre à jour le statut",
         "description": "Mettre à jour le statut d’une entité dans un module."
       }
+    },
+    "kinds": {
+      "trigger": "Déclencheur",
+      "action": "Action",
+      "condition": "Condition",
+      "delay": "Délai",
+      "approval": "Approbation",
+      "loop": "Boucle",
+      "merge": "Fusion",
+      "split": "Division",
+      "ai_decision": "Décision IA",
+      "ai_action": "Action IA",
+      "notification": "Notification",
+      "webhook": "Webhook",
+      "custom_action": "Action personnalisée",
+      "branch": "Branche",
+      "variable": "Variable"
+    },
+    "kpi": {
+      "active": {
+        "label": "Workflows actifs",
+        "caption": "Activés dans l’espace"
+      },
+      "runs-today": {
+        "label": "Exécutions aujourd’hui",
+        "caption": "Tous déclencheurs"
+      },
+      "success": {
+        "label": "Automatisations réussies",
+        "caption": "Aujourd’hui"
+      },
+      "failed": {
+        "label": "Exécutions échouées",
+        "caption": "À surveiller"
+      },
+      "pending": {
+        "label": "Tâches en attente",
+        "caption": "Validations + retries"
+      },
+      "avg-time": {
+        "label": "Durée d’exécution moyenne",
+        "caption": "Médiane 1,2 s"
+      },
+      "ai-suggestions": {
+        "label": "Suggestions IA",
+        "caption": "Opportunités d’automatisation"
+      }
+    },
+    "integrationCategories": {
+      "Productivity": "Productivité",
+      "Communication": "Communication",
+      "Commerce": "Commerce",
+      "Finance": "Finance",
+      "ERP": "ERP",
+      "CRM": "CRM"
+    },
+    "integrationNotes": {
+      "google-workspace": "Hooks Gmail / Drive / Agenda réservés pour le câblage OAuth.",
+      "m365": "Hooks Outlook / Teams / Graph réservés.",
+      "slack": "Events API + posts chat réservés.",
+      "teams": "Adaptateur Bot Framework réservé.",
+      "discord": "Adaptateur webhook + bot réservé.",
+      "whatsapp": "Adaptateur Meta Cloud API réservé.",
+      "stripe": "Webhooks paiement réservés — pas de clés live.",
+      "shopify": "Événements commande / produit réservés.",
+      "datev": "Hooks export DATEV / lots d’écritures réservés.",
+      "sap": "Pont d’événements ERP réservé — désactivé jusqu’au plan enterprise.",
+      "hubspot": "Adaptateur de sync CRM réservé.",
+      "salesforce": "Adaptateur Platform Events réservé."
+    },
+    "defaultWorkflow": {
+      "name": "Onboarding client",
+      "description": "Séquence de bienvenue à la création d’un client."
+    },
+    "templateCategories": {
+      "CRM": "CRM",
+      "Finance": "Finance",
+      "Sales": "Ventes",
+      "Marketing": "Marketing",
+      "HR": "RH",
+      "Creator": "Créateur",
+      "Ops": "Ops",
+      "Projects": "Projets",
+      "AI": "IA"
+    },
+    "studioTemplates": {
+      "tpl-onboarding": {
+        "name": "Onboarding client",
+        "description": "E-mail de bienvenue, résumé IA et tâche owner après création client.",
+        "category": "CRM",
+        "recommendedFor": "Équipes qui onboardent de nouveaux clients B2B"
+      },
+      "tpl-invoice": {
+        "name": "Relance de facture",
+        "description": "Rappels planifiés pour factures ouvertes avec escalade.",
+        "category": "Finance",
+        "recommendedFor": "Ops finance réduisant les créances en retard"
+      },
+      "tpl-lead": {
+        "name": "Suivi de lead",
+        "description": "Réponse e-mail IA plus mise à jour du pipeline pour nouveaux leads.",
+        "category": "Ventes",
+        "recommendedFor": "Équipes commerciales à fort volume de leads inbound"
+      },
+      "tpl-welcome": {
+        "name": "E-mail de bienvenue",
+        "description": "Séquence de bienvenue simple à l’inscription.",
+        "category": "Marketing",
+        "recommendedFor": "Tout espace qui démarre l’automatisation e-mail"
+      },
+      "tpl-pipeline": {
+        "name": "Pipeline commercial",
+        "description": "Changements d’étape avec notifications et tâches.",
+        "category": "Ventes",
+        "recommendedFor": "Équipes gérant une progression d’affaire multi-étapes"
+      },
+      "tpl-recruit": {
+        "name": "Recrutement",
+        "description": "Routage des candidatures et tâches d’entretien.",
+        "category": "RH",
+        "recommendedFor": "Managers recrutement et people ops"
+      },
+      "tpl-content": {
+        "name": "Publication de contenu",
+        "description": "Creator Studio : publier → notifier → analytique.",
+        "category": "Créateur",
+        "recommendedFor": "Équipes marketing et créateurs"
+      },
+      "tpl-approval": {
+        "name": "Processus d’approbation",
+        "description": "Approbation en plusieurs étapes avec recommandations IA.",
+        "category": "Ops",
+        "recommendedFor": "Validations finance/ops avant effets de bord",
+        "estimatedRuntime": "Porte humaine"
+      }
+    },
+    "engineTemplates": {
+      "tpl_customer_welcome": {
+        "name": "Bienvenue nouveau client",
+        "description": "E-mail de bienvenue + notification à la création d’un client.",
+        "category": "CRM"
+      },
+      "tpl_invoice_reminder": {
+        "name": "Relance de facture",
+        "description": "Rappelez les clients après émission d’une facture.",
+        "category": "Finance"
+      },
+      "tpl_project_kickoff": {
+        "name": "Kickoff projet",
+        "description": "Assignez une tâche de kickoff et notifiez à la création du projet.",
+        "category": "Projets"
+      },
+      "tpl_task_assignment": {
+        "name": "Affectation de tâche",
+        "description": "E-mail au destinataire quand une tâche est terminée — enchaînez le travail suivant.",
+        "category": "Projets"
+      },
+      "tpl_ai_customer_summary": {
+        "name": "Résumé client IA",
+        "description": "Exécutez un résumé IA à la création d’un client ; stockez la sortie.",
+        "category": "IA"
+      },
+      "tpl_followup_reminder": {
+        "name": "Rappel de suivi",
+        "description": "Suivi planifié avec branchement selon le statut.",
+        "category": "CRM"
+      }
+    },
+    "nodeLabels": {
+      "send_welcome_email": "Envoyer l’e-mail de bienvenue",
+      "notify_team": "Notifier l’équipe",
+      "wait_3_days": "Attendre 3 jours",
+      "still_unpaid": "Toujours impayée ?",
+      "send_reminder": "Envoyer un rappel",
+      "assign_kickoff_task": "Assigner la tâche de kickoff",
+      "notify_owner": "Notifier l’owner",
+      "notify_stakeholders": "Notifier les parties prenantes",
+      "run_ai_summary": "Exécuter le résumé IA",
+      "generate_document": "Générer un document",
+      "daily_schedule": "Planning quotidien",
+      "by_priority": "Par priorité",
+      "urgent_notification": "Notification urgente",
+      "standard_email": "E-mail standard"
     }
   },
   "team": {
@@ -4151,6 +4359,177 @@
     "os": {
       "prioritizeCustomerImpact": "Prioriser l’impact client",
       "delegatedFollowUp": "Suivi délégué"
+    },
+    "categories": {
+      "Leadership": "Direction",
+      "Revenue": "Revenu",
+      "CRM": "CRM",
+      "Delivery": "Livraison",
+      "Automation": "Automatisation",
+      "Finance": "Finance",
+      "Knowledge": "Connaissance",
+      "Support": "Support",
+      "Productivity": "Productivité",
+      "Custom": "Personnalisé"
+    },
+    "catalog": {
+      "executive_advisor": {
+        "name": "Conseiller exécutif",
+        "description": "Briefings stratégiques, synthèse des KPI et aide à la décision."
+      },
+      "sales_agent": {
+        "name": "Agent commercial",
+        "description": "Coaching pipeline, brouillons d’outreach et prochaines étapes."
+      },
+      "crm_assistant": {
+        "name": "Assistant CRM",
+        "description": "Enrichissement client, hygiène des données et insights relationnels."
+      },
+      "project_manager": {
+        "name": "Chef de projet",
+        "description": "Plans, découpage des tâches et signaux de risque de livraison."
+      },
+      "workflow_coordinator": {
+        "name": "Coordinateur de workflows",
+        "description": "Déclenche et orchestre les workflows d’automatisation AGXORA."
+      },
+      "finance_assistant": {
+        "name": "Assistant finance",
+        "description": "Suivi des factures, notes de trésorerie et synthèses financières."
+      },
+      "document_analyst": {
+        "name": "Analyste documentaire",
+        "description": "Extrait structure, risques et synthèses des documents."
+      },
+      "knowledge_assistant": {
+        "name": "Assistant connaissances",
+        "description": "Répond depuis la connaissance entreprise avec une recherche prête pour RAG."
+      },
+      "support_assistant": {
+        "name": "Assistant support",
+        "description": "Triage support, réponses et chemins d’escalade."
+      },
+      "meeting_assistant": {
+        "name": "Assistant réunion",
+        "description": "Préparation d’agenda, espaces notes et suivis."
+      },
+      "custom": {
+        "name": "Agent personnalisé",
+        "description": "Point d’extension pour agents propres à l’organisation."
+      }
+    },
+    "toolsCatalog": {
+      "crm": {
+        "name": "Outil CRM",
+        "description": "Créer/mettre à jour des clients et lire le contexte compte."
+      },
+      "projects": {
+        "name": "Outil projets",
+        "description": "Gérer projets, tâches et statut de livraison."
+      },
+      "finance": {
+        "name": "Outil finance",
+        "description": "Factures, soldes et synthèses financières."
+      },
+      "documents": {
+        "name": "Outil documents",
+        "description": "Lire et résumer les documents de l’espace."
+      },
+      "workflow": {
+        "name": "Outil workflow",
+        "description": "Déclencher et inspecter les workflows d’automatisation."
+      },
+      "integration": {
+        "name": "Outil intégration",
+        "description": "Appeler les connecteurs tiers connectés."
+      },
+      "email": {
+        "name": "Outil e-mail",
+        "description": "Rédiger et mettre en file les e-mails sortants."
+      },
+      "calendar": {
+        "name": "Outil calendrier",
+        "description": "Planifier et inspecter les événements du calendrier."
+      },
+      "search": {
+        "name": "Outil recherche",
+        "description": "Recherche universelle dans l’espace."
+      },
+      "notification": {
+        "name": "Outil notifications",
+        "description": "Envoyer des notifications in-app."
+      },
+      "api": {
+        "name": "Outil API",
+        "description": "Invoquer les routes de la passerelle API interne."
+      },
+      "mcp": {
+        "name": "Outil MCP",
+        "description": "Outils serveur Model Context Protocol à venir."
+      }
+    },
+    "knowledgeDocs": {
+      "company": {
+        "title": "Principes d’exploitation AGXORA",
+        "summary": "Principes d’OS entreprise pour agents IA modulaires et sûrs."
+      },
+      "policies": {
+        "title": "Politique de traitement des données",
+        "summary": "Isolation des outils sensibles et accès au moindre privilège."
+      },
+      "procedures": {
+        "title": "Procédure d’escalade client",
+        "summary": "Chemin d’escalade de l’assistant support en cas de faible confiance."
+      },
+      "rag": {
+        "title": "Espace réservé index RAG",
+        "summary": "Recherche vectorielle future sur documents et notes CRM."
+      }
+    },
+    "llm": {
+      "local": "LLM local",
+      "mcp": "Serveurs MCP",
+      "custom": "Modèle personnalisé"
+    },
+    "lifecycle": {
+      "draft": "Brouillon",
+      "registered": "Enregistré",
+      "active": "Actif",
+      "paused": "En pause",
+      "error": "Erreur",
+      "retired": "Retiré"
+    },
+    "healthStatus": {
+      "healthy": "Sain",
+      "degraded": "Dégradé",
+      "down": "Hors service",
+      "unknown": "Inconnu"
+    },
+    "taskStatus": {
+      "pending": "En attente",
+      "running": "En cours",
+      "completed": "Terminé",
+      "cancelled": "Annulé",
+      "failed": "Échoué",
+      "retrying": "Nouvel essai"
+    },
+    "memoryScope": {
+      "working": "Travail",
+      "conversation": "Conversation",
+      "business": "Métier",
+      "long_term": "Long terme",
+      "workspace": "Espace",
+      "agent": "Agent"
+    },
+    "knowledgeKind": {
+      "company": "Entreprise",
+      "documents": "Documents",
+      "projects": "Projets",
+      "crm": "CRM",
+      "policies": "Politiques",
+      "procedures": "Procédures",
+      "vector": "Vecteur",
+      "rag": "RAG"
     }
   },
   "integrations": {
@@ -4294,6 +4673,76 @@
     "errors": {
       "failedToFetch": "Échec de la récupération",
       "httpStatus": "HTTP {status}"
+    },
+    "categories": {
+      "productivity": "Productivité",
+      "communication": "Communication",
+      "storage": "Stockage",
+      "crm": "CRM",
+      "automation": "Automatisation",
+      "devtools": "Outils développeur",
+      "custom": "Personnalisé"
+    },
+    "auth": {
+      "oauth2": "OAuth 2.0",
+      "api_key": "Clé API",
+      "webhook": "Webhook"
+    },
+    "oauth": {
+      "custom": "OAuth personnalisé"
+    },
+    "connectorNames": {
+      "custom": "Connecteur personnalisé"
+    },
+    "connectors": {
+      "microsoft365": {
+        "description": "Mail, calendrier et Teams via Microsoft Graph."
+      },
+      "google_workspace": {
+        "description": "Gmail, Agenda et Drive pour les locataires Workspace."
+      },
+      "slack": {
+        "description": "Canaux, messages et notifications interactives."
+      },
+      "discord": {
+        "description": "Notifications serveur et livraison de messages bot."
+      },
+      "dropbox": {
+        "description": "Synchronisation de fichiers et événements de dossiers partagés."
+      },
+      "onedrive": {
+        "description": "Stockage de fichiers Microsoft OneDrive et sync delta."
+      },
+      "google_drive": {
+        "description": "Fichiers Drive, dossiers et notifications de changement."
+      },
+      "hubspot": {
+        "description": "Contacts CRM, deals et événements marketing."
+      },
+      "salesforce": {
+        "description": "Objets CRM entreprise et Platform Events."
+      },
+      "zapier": {
+        "description": "Hooks sortants vers les zaps Zapier."
+      },
+      "make": {
+        "description": "Webhooks de scénario pour Make (Integromat)."
+      },
+      "github": {
+        "description": "Dépôts, issues, pull requests et Actions."
+      },
+      "gitlab": {
+        "description": "Projets, merge requests, pipelines et webhooks."
+      },
+      "custom": {
+        "description": "Point d’extension pour systèmes d’entreprise propriétaires."
+      }
+    },
+    "healthStatus": {
+      "healthy": "Sain",
+      "degraded": "Dégradé",
+      "down": "Hors service",
+      "unknown": "Inconnu"
     }
   },
   "intelligence": {
@@ -4365,14 +4814,78 @@
       "title": "Centre KPI",
       "subtitle": "Catalogue de KPI configurable pour les revenus, les clients, les projets, les flux de travail, les agents et l'automatisation.",
       "emptyTitle": "L'analyse attend le signal",
-      "emptyDescription": "Une fois que votre espace de travail génère une activité, les KPI et les alertes des dirigeants apparaissent ici."
+      "emptyDescription": "Une fois que votre espace de travail génère une activité, les KPI et les alertes des dirigeants apparaissent ici.",
+      "revenue": {
+        "name": "Revenu",
+        "description": "Revenu total reconnu sur la période."
+      },
+      "mrr": {
+        "name": "MRR",
+        "description": "Revenu récurrent mensuel."
+      },
+      "arr": {
+        "name": "ARR",
+        "description": "Revenu récurrent annuel."
+      },
+      "growth": {
+        "name": "Croissance",
+        "description": "Taux de croissance d’une période à l’autre."
+      },
+      "customer_acquisition": {
+        "name": "Acquisition clients",
+        "description": "Nouveaux clients acquis."
+      },
+      "retention": {
+        "name": "Rétention",
+        "description": "Taux de rétention client."
+      },
+      "churn": {
+        "name": "Attrition",
+        "description": "Taux d’attrition client."
+      },
+      "project_success": {
+        "name": "Succès projet",
+        "description": "Projets livrés à temps / dans le périmètre."
+      },
+      "workflow_success": {
+        "name": "Succès workflow",
+        "description": "Exécutions de workflow réussies."
+      },
+      "agent_performance": {
+        "name": "Performance agent",
+        "description": "Score de succès des tâches d’agent IA."
+      },
+      "automation_success": {
+        "name": "Succès automatisation",
+        "description": "Fiabilité de l’automatisation / intégration."
+      },
+      "custom": {
+        "name": "KPI personnalisé",
+        "description": "Point d’extension pour KPI définis par l’organisation."
+      }
     },
     "reports": {
       "title": "Moteur de reporting",
       "subtitle": "Les définitions des rapports sont ensemencées pour examen. L'exportation de fichiers n'est pas disponible tant qu'un backend de reporting n'est pas connecté.",
       "emptyTitle": "Aucun rapport",
       "emptyDescription": "Rapporte la graine lors du bootstrap de l’espace de travail.",
-      "scheduleOnDemand": "à la demande"
+      "scheduleOnDemand": "à la demande",
+      "executive": {
+        "title": "Hebdo exécutif",
+        "description": "Brief CEO sur santé, revenu, risque et croissance."
+      },
+      "department": {
+        "title": "Rapport département ventes",
+        "description": "Pipeline, acquisition et rétention pour le leadership ventes."
+      },
+      "operational": {
+        "title": "Quotidien opérations",
+        "description": "Workflows, intégrations et posture identité."
+      },
+      "management": {
+        "title": "Management livraison",
+        "description": "Succès projet, capacité et débit documentaire."
+      }
     },
     "insights": {
       "emptyTitle": "Aucune information pour l'instant",
@@ -4392,12 +4905,88 @@
       "emptyDescription": "Alerte Seed à partir d'heuristiques de risque.",
       "acked": "accusé de réception",
       "open": "ouvrir",
-      "acknowledge": "Confirmer"
+      "acknowledge": "Confirmer",
+      "revenue_drop": {
+        "title": "Ralentissement du revenu par segment",
+        "body": "Revenu hebdo −4 % en PME — vérifiez la couverture pipeline."
+      },
+      "project_delay": {
+        "title": "Projet à risque de retard",
+        "body": "Deux projets de livraison ont dépassé des jalons."
+      },
+      "churn_risk": {
+        "title": "Risque d’attrition client élevé",
+        "body": "Trois comptes montrent des scores d’engagement en baisse."
+      },
+      "workflow_failure": {
+        "title": "Échecs de workflow détectés",
+        "body": "Le workflow de rappel de facture a échoué deux fois en 24 h."
+      },
+      "ai_failure": {
+        "title": "Retries de tâches IA élevés",
+        "body": "Le taux de retry des tâches d’agent a dépassé le seuil souple."
+      },
+      "integration_error": {
+        "title": "Erreurs d’intégration",
+        "body": "Le connecteur Slack a renvoyé des 5xx intermittents."
+      },
+      "security": {
+        "title": "Alerte de sécurité",
+        "body": "Schéma d’usage inhabituel d’une clé API détecté."
+      }
     },
     "scorecards": {
       "title": "Moteur de tableau de bord",
       "emptyTitle": "Pas de tableaux de bord",
-      "emptyDescription": "Seed des cartes de pointage lors du bootstrap."
+      "emptyDescription": "Seed des cartes de pointage lors du bootstrap.",
+      "sales": {
+        "name": "Score ventes",
+        "drivers": {
+          "pipeline_coverage": "Couverture pipeline",
+          "win_rate": "Taux de gain",
+          "cycle_time": "Durée de cycle"
+        }
+      },
+      "customer_health": {
+        "name": "Score santé client",
+        "drivers": {
+          "retention": "Rétention",
+          "nps_proxy": "Proxy NPS",
+          "support_load": "Charge support"
+        }
+      },
+      "project_success": {
+        "name": "Score succès projet",
+        "drivers": {
+          "on_time_delivery": "Livraison à temps",
+          "scope_control": "Maîtrise du périmètre",
+          "utilization": "Utilisation"
+        }
+      },
+      "automation_efficiency": {
+        "name": "Efficacité d’automatisation",
+        "drivers": {
+          "workflow_success": "Succès workflow",
+          "manual_effort_saved": "Effort manuel économisé",
+          "retry_rate": "Taux de retry"
+        }
+      },
+      "ai_quality": {
+        "name": "Qualité IA",
+        "drivers": {
+          "task_success": "Succès des tâches",
+          "confidence_avg": "Confiance moy.",
+          "escalation_rate": "Taux d’escalade"
+        }
+      },
+      "operational_health": {
+        "name": "Santé opérationnelle",
+        "drivers": {
+          "system_health": "Santé système",
+          "integration_reliability": "Fiabilité d’intégration",
+          "identity_posture": "Posture identité"
+        }
+      }
     },
     "explorer": {
       "title": "Explorateur de données",
@@ -4405,7 +4994,8 @@
       "searchAria": "Rechercher dans les lignes de l'explorateur de dém",
       "emptyTitle": "Aucune ligne ne correspond",
       "emptyDescription": "Ajustez les filtres ou effectuez une recherche, ou rechargez l'ensemble de données de démonstration.",
-      "hint": "Recherche côté client sur les tuples ensemencés — l'agrégation backend et l'analyse approfondie ne sont pas connectées."
+      "hint": "Recherche côté client sur les tuples ensemencés — l'agrégation backend et l'analyse approfondie ne sont pas connectées.",
+      "metricLabel": "Métrique {domain} {index}"
     },
     "columns": {
       "kpi": "KPI",
@@ -4430,7 +5020,123 @@
       "measure": "Mesure",
       "date": "Date"
     },
-    "emDash": "—"
+    "emDash": "—",
+    "domains": {
+      "crm": "Analytique CRM",
+      "projects": "Analytique projets",
+      "finance": "Analytique finance",
+      "documents": "Analytique documents",
+      "workflow": "Analytique workflows",
+      "identity": "Analytique identité",
+      "ai": "Analytique IA",
+      "integration": "Analytique intégrations",
+      "executive": "Exécutif"
+    },
+    "series": {
+      "crm_leads": "Leads",
+      "crm_pipeline": "Pipeline (k$)",
+      "proj_active": "Projets actifs",
+      "proj_on_time": "À temps %",
+      "fin_revenue": "Revenu (k$)",
+      "fin_margin": "Marge brute %",
+      "doc_created": "Documents créés",
+      "doc_views": "Vues de documents",
+      "wf_runs": "Exécutions de workflow",
+      "wf_success": "Succès %",
+      "id_users": "Utilisateurs actifs",
+      "id_sessions": "Sessions",
+      "ai_tasks": "Tâches d’agent",
+      "ai_success": "Succès agent %",
+      "int_calls": "Appels API / webhook",
+      "int_errors": "Erreurs d’intégration"
+    },
+    "bands": {
+      "Critical": "Critique",
+      "Watch": "À surveiller",
+      "Healthy": "Sain",
+      "Excellent": "Excellent"
+    },
+    "charts": {
+      "chart_revenue": "Tendance du revenu",
+      "chart_pipeline": "Pipeline CRM",
+      "chart_workflows": "Activité workflow",
+      "chart_ai": "Mix d’activité IA",
+      "chart_ops_table": "Instantané opérationnel",
+      "chart_heatmap_placeholder": "Carte de chaleur d’engagement"
+    },
+    "chartKinds": {
+      "line": "Ligne",
+      "bar": "Barres",
+      "area": "Aires",
+      "pie": "Camembert",
+      "heatmap": "Carte de chaleur",
+      "table": "Tableau",
+      "card": "Carte"
+    },
+    "insightItems": {
+      "trend": {
+        "title": "MRR en accélération",
+        "summary": "La croissance MRR s’est améliorée trois périodes de suite."
+      },
+      "pattern": {
+        "title": "Pics de workflow les jours de facture",
+        "summary": "La charge d’automatisation corrèle avec la facturation de fin de mois."
+      },
+      "recommendation": {
+        "title": "Élargir le playbook rétention",
+        "summary": "Concentrez l’outreach CSM sur trois comptes à santé déclinante."
+      },
+      "executive_summary": {
+        "title": "Brief exécutif",
+        "summary": "La santé entreprise est solide ; surveillez attrition et retards de livraison."
+      },
+      "risk": {
+        "title": "Cluster de risque de livraison",
+        "summary": "Deux projets partagent une contention de ressources — prévision de capacité élevée."
+      },
+      "opportunity": {
+        "title": "Opportunité d’upsell",
+        "summary": "Les comptes à fort usage sans plan Business montrent un potentiel d’expansion."
+      }
+    },
+    "forecastNotes": {
+      "revenue": "Espace tendance linéaire — à remplacer par un service de modèle.",
+      "customer": "Composite acquisition + rétention.",
+      "project": "Prévision de livraison consciente de la capacité.",
+      "capacity": "Prévision d’utilisation d’équipe.",
+      "growth": "Prévision du taux de croissance."
+    },
+    "forecastKinds": {
+      "revenue": "Revenu",
+      "customer": "Client",
+      "project": "Projet",
+      "capacity": "Capacité",
+      "growth": "Croissance"
+    },
+    "severity": {
+      "info": "Info",
+      "warning": "Avertissement",
+      "critical": "Critique"
+    },
+    "trend": {
+      "up": "Hausse",
+      "down": "Baisse",
+      "flat": "Stable"
+    },
+    "insightKinds": {
+      "trend": "Tendance",
+      "pattern": "Schéma",
+      "recommendation": "Recommandation",
+      "executive_summary": "Synthèse exécutive",
+      "risk": "Risque",
+      "opportunity": "Opportunité"
+    },
+    "reportKinds": {
+      "executive": "Exécutif",
+      "department": "Département",
+      "operational": "Opérationnel",
+      "management": "Management"
+    }
   },
   "legal": {
     "shell": {
@@ -4860,13 +5566,223 @@
       "professional": "Professionnel",
       "friendly": "Amical",
       "luxury": "Luxe",
-      "casual": "Décontracté"
+      "casual": "Décontracté",
+      "minimal": "Minimal",
+      "corporate": "Corporate",
+      "creative": "Créatif",
+      "custom": "Voix de marque personnalisée"
     },
     "integrationStatus": {
       "planned": "Planifié",
       "ready": "Prêt",
       "connected": "Connecté",
       "disabled": "Désactivé"
+    },
+    "categories": {
+      "social": "Social",
+      "ads": "Pubs",
+      "analytics": "Analytique"
+    },
+    "platforms": {
+      "instagram": {
+        "notes": "Publication Graph API officielle + insights réservés."
+      },
+      "tiktok": {
+        "notes": "Adaptateur TikTok Content Posting API réservé."
+      },
+      "youtube": {
+        "notes": "Upload YouTube Data API + analytics réservés."
+      },
+      "facebook": {
+        "notes": "Adaptateur de publication Pages réservé."
+      },
+      "linkedin": {
+        "notes": "Adaptateur posts UGC / organisation réservé."
+      },
+      "pinterest": {
+        "notes": "Adaptateur Pins + boards réservé."
+      },
+      "threads": {
+        "notes": "Adaptateur Threads API réservé."
+      },
+      "x": {
+        "notes": "Adaptateur posts X API v2 réservé."
+      },
+      "meta-business": {
+        "notes": "Hooks Meta Business Suite / Ads Manager réservés."
+      },
+      "google-ads": {
+        "notes": "Sync campagnes Google Ads API réservé."
+      },
+      "google-analytics": {
+        "notes": "Adaptateur mesure + reporting GA4 réservé."
+      }
+    },
+    "features": {
+      "ideas": {
+        "label": "Idées de contenu",
+        "description": "Moteur d’idées conscient du secteur pour campagnes et posts."
+      },
+      "captions": {
+        "label": "Générateur de légendes",
+        "description": "Légendes voix de marque par format de plateforme."
+      },
+      "hashtags": {
+        "label": "Suggestions de hashtags",
+        "description": "Score de pertinence et portée pour jeux de hashtags."
+      },
+      "calendar": {
+        "label": "Calendrier éditorial",
+        "description": "Fondation de calendrier éditorial multiplateforme."
+      },
+      "campaigns": {
+        "label": "Planificateur de campagnes",
+        "description": "Objectifs, audience, plateformes et calendriers."
+      },
+      "audience": {
+        "label": "Suggestions d’audience",
+        "description": "Suggestions de segments depuis signaux CRM + créateur."
+      },
+      "schedule": {
+        "label": "Calendrier de publication",
+        "description": "Fenêtres de publication optimales conscientes du fuseau."
+      },
+      "brand": {
+        "label": "Cohérence de marque",
+        "description": "Contrôles de ton et d’assets par rapport à la voix de marque."
+      },
+      "rewrite": {
+        "label": "Réécriture IA",
+        "description": "Réécrire les brouillons pour clarté, longueur ou canal."
+      },
+      "translate": {
+        "label": "Traduire le contenu",
+        "description": "Pipeline de traduction multilingue réservée."
+      },
+      "i18n": {
+        "label": "Prise en charge multilingue",
+        "description": "Packs de locale pour surfaces de publication et d’analytique."
+      }
+    },
+    "kpi": {
+      "content": {
+        "label": "Contenu créé",
+        "caption": "Ce trimestre"
+      },
+      "campaigns": {
+        "label": "Campagnes",
+        "caption": "Actives + planifiées"
+      },
+      "scheduled": {
+        "label": "Posts planifiés",
+        "caption": "14 prochains jours"
+      },
+      "engagement": {
+        "label": "Engagement",
+        "caption": "Taux moy. tous canaux"
+      },
+      "followers": {
+        "label": "Croissance d’abonnés",
+        "caption": "30 derniers jours"
+      },
+      "reach": {
+        "label": "Portée",
+        "caption": "Impressions uniques"
+      },
+      "conversions": {
+        "label": "Conversions",
+        "caption": "Actions attribuées"
+      },
+      "ai-score": {
+        "label": "Score de performance IA",
+        "caption": "Signal de qualité de contenu"
+      }
+    },
+    "analyticsMetrics": {
+      "a1": "Engagement",
+      "a2": "Portée",
+      "a3": "CTR",
+      "a4": "Conversions",
+      "a5": "Croissance d’audience",
+      "a6": "Performance du contenu"
+    },
+    "voiceDesc": {
+      "professional": "Ton clair, crédible, orienté métier.",
+      "luxury": "Raffiné, économe, cadrage premium.",
+      "friendly": "Chaleureux, abordable, conversationnel.",
+      "casual": "Langage quotidien détendu.",
+      "minimal": "Phrases courtes, grande clarté.",
+      "corporate": "Communications d’entreprise formelles.",
+      "creative": "Storytelling expressif pour les campagnes.",
+      "custom": "Téléchargez plus tard consignes et exemples."
+    },
+    "formatDesc": {
+      "instagram_caption": "Légendes Feed / Reels avec accroches CTA.",
+      "tiktok_script": "Scripts courts : accroche → valeur → CTA.",
+      "linkedin_post": "Thought leadership et récits B2B.",
+      "facebook_post": "Posts prêts pour communauté et page.",
+      "x_post": "Fils concis et posts uniques.",
+      "blog_article": "Brouillons éditoriaux long format.",
+      "newsletter": "Sections de newsletter et objets.",
+      "email_campaign": "Séquences de campagne et copy nurture.",
+      "product_description": "Récits produit prêts pour le commerce.",
+      "ad_copy": "Variantes d’ads social payant et search.",
+      "seo_article": "Articles d’intention de recherche avec plan.",
+      "landing_page_copy": "Hero, bénéfices, preuves et blocs CTA."
+    },
+    "campaignStatus": {
+      "Active": "Active",
+      "In review": "En revue",
+      "Planned": "Planifiée"
+    },
+    "campaigns": {
+      "camp-1": {
+        "name": "Lancement produit T3",
+        "objective": "Notoriété + inscriptions liste d’attente",
+        "audience": "Opérateurs PME UE",
+        "budget": "8 500 € (espace réservé)",
+        "timeline": "4 août – 12 sept."
+      },
+      "camp-2": {
+        "name": "Sprint collab créateurs",
+        "objective": "Portée + croissance communauté",
+        "audience": "Créateurs 18–34 DE/AT",
+        "budget": "4 200 € (espace réservé)",
+        "timeline": "20 juil. – 20 août"
+      },
+      "camp-3": {
+        "name": "Poussée portfolio agence",
+        "objective": "Génération de leads",
+        "audience": "Directeurs marketing",
+        "budget": "2 900 € (espace réservé)",
+        "timeline": "1 sept. – 30 sept."
+      }
+    },
+    "calendarItems": {
+      "cal-1": "Reel teaser de lancement",
+      "cal-2": "Récit LinkedIn fondateur",
+      "cal-3": "E-mail liste d’attente n°1",
+      "cal-4": "Script démo TikTok"
+    },
+    "queueItems": {
+      "q-1": "Légende reel teaser de lancement",
+      "q-2": "Post récit fondateur",
+      "q-3": "E-mail nurture liste d’attente",
+      "q-4": "Copy hero landing produit",
+      "q-5": "Script démo TikTok v2",
+      "q-6": "Carrousel récap juin",
+      "q-7": "Ancien fil promo"
+    },
+    "topPosts": {
+      "tp-1": "Teardown automatisation entrepôt",
+      "tp-2": "Reel démo produit 30 s",
+      "tp-3": "Hook collab créateurs"
+    },
+    "recommendations": {
+      "r1": "Réutilisez le teardown LinkedIn en carrousel 3 parties cette semaine.",
+      "r2": "Planifiez les démos TikTok mar–jeu 18:00–20:00 CET pour plus de completion.",
+      "r3": "Serrez la voix luxe des CTA Instagram — raccourcissez d’environ 20 %.",
+      "r4": "Traduisez la légende du reel phare en DE/FR pour l’UE."
     }
   },
   "backend": {

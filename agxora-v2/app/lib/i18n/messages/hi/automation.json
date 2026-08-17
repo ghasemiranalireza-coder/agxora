@@ -580,5 +580,188 @@
       "label": "कार्य असाइन करें",
       "description": "उपयोगकर्ता को कार्य असाइन करें."
     }
+  },
+  "kinds": {
+    "trigger": "ट्रिगर",
+    "action": "कार्रवाई",
+    "condition": "शर्त",
+    "delay": "विलंब",
+    "approval": "अनुमोदन",
+    "loop": "लूप",
+    "merge": "मर्ज",
+    "split": "स्प्लिट",
+    "ai_decision": "AI निर्णय",
+    "ai_action": "AI कार्रवाई",
+    "notification": "सूचना",
+    "webhook": "वेबहुक",
+    "custom_action": "कस्टम कार्रवाई",
+    "branch": "शाखा",
+    "variable": "चर"
+  },
+  "kpi": {
+    "active": {
+      "label": "सक्रिय वर्कफ़्लो",
+      "caption": "वर्कस्पेस में सक्षम"
+    },
+    "runs-today": {
+      "label": "आज वर्कफ़्लो रन",
+      "caption": "सभी ट्रिगर पर"
+    },
+    "success": {
+      "label": "सफल ऑटोमेशन",
+      "caption": "आज"
+    },
+    "failed": {
+      "label": "विफल रन",
+      "caption": "ध्यान चाहिए"
+    },
+    "pending": {
+      "label": "लंबित कार्य",
+      "caption": "अनुमोदन + पुनः प्रयास"
+    },
+    "avg-time": {
+      "label": "औसत निष्पादन समय",
+      "caption": "माध्यिका 1.2 सेकंड"
+    },
+    "ai-suggestions": {
+      "label": "AI सुझाव",
+      "caption": "ऑटोमेशन अवसर"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "उत्पादकता",
+    "Communication": "संचार",
+    "Commerce": "कॉमर्स",
+    "Finance": "वित्त",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "OAuth वायरिंग के लिए Gmail / Drive / कैलेंडर हुक आरक्षित।",
+    "m365": "Outlook / Teams / Graph हुक आरक्षित।",
+    "slack": "Events API + चैट पोस्ट आरक्षित।",
+    "teams": "Bot Framework एडाप्टर आरक्षित।",
+    "discord": "वेबहुक + बॉट एडाप्टर आरक्षित।",
+    "whatsapp": "Meta Cloud API एडाप्टर आरक्षित।",
+    "stripe": "भुगतान वेबहुक आरक्षित — कोई लाइव कुंजी नहीं।",
+    "shopify": "ऑर्डर / उत्पाद इवेंट आरक्षित।",
+    "datev": "DATEV निर्यात / बुकिंग-बैच हुक आरक्षित।",
+    "sap": "ERP इवेंट ब्रिज आरक्षित — एंटरप्राइज़ प्लान तक अक्षम।",
+    "hubspot": "CRM सिंक एडाप्टर आरक्षित।",
+    "salesforce": "Platform Events एडाप्टर आरक्षित।"
+  },
+  "defaultWorkflow": {
+    "name": "ग्राहक ऑनबोर्डिंग",
+    "description": "ग्राहक बनने पर स्वागत अनुक्रम।"
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "वित्त",
+    "Sales": "बिक्री",
+    "Marketing": "मार्केटिंग",
+    "HR": "एचआर",
+    "Creator": "क्रिएटर",
+    "Ops": "ऑप्स",
+    "Projects": "प्रोजेक्ट",
+    "AI": "AI"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "ग्राहक ऑनबोर्डिंग",
+      "description": "ग्राहक बनने पर स्वागत ईमेल, AI सारांश और मालिक कार्य।",
+      "category": "CRM",
+      "recommendedFor": "नए B2B ग्राहकों को ऑनबोर्ड करने वाली टीमें"
+    },
+    "tpl-invoice": {
+      "name": "चालान रिमाइंडर",
+      "description": "खुले चालानों के लिए अनुसूचित रिमाइंडर और एस्केलेशन पथ।",
+      "category": "वित्त",
+      "recommendedFor": "अतिदेय प्राप्तियों को घटाने वाला फाइनेंस ऑप्स"
+    },
+    "tpl-lead": {
+      "name": "लीड फॉलो-अप",
+      "description": "नए लीड के लिए AI ईमेल जवाब और पाइपलाइन स्थिति अपडेट।",
+      "category": "बिक्री",
+      "recommendedFor": "उच्च इनबाउंड लीड वॉल्यूम वाली सेल्स टीमें"
+    },
+    "tpl-welcome": {
+      "name": "स्वागत ईमेल",
+      "description": "साइनअप पर सरल स्वागत अनुक्रम।",
+      "category": "मार्केटिंग",
+      "recommendedFor": "ईमेल ऑटोमेशन से शुरू करने वाला कोई भी वर्कस्पेस"
+    },
+    "tpl-pipeline": {
+      "name": "सेल्स पाइपलाइन",
+      "description": "सूचनाओं और कार्यों के साथ चरण परिवर्तन।",
+      "category": "बिक्री",
+      "recommendedFor": "बहु-चरण डील प्रगति प्रबंधित करने वाली टीमें"
+    },
+    "tpl-recruit": {
+      "name": "भर्ती",
+      "description": "उम्मीदवार रूटिंग और इंटरव्यू कार्य।",
+      "category": "एचआर",
+      "recommendedFor": "हायरिंग मैनेजर और पीपल ऑप्स"
+    },
+    "tpl-content": {
+      "name": "कंटेंट प्रकाशन",
+      "description": "क्रिएटर स्टूडियो: प्रकाशित → सूचित → एनालिटिक्स।",
+      "category": "क्रिएटर",
+      "recommendedFor": "मार्केटिंग और क्रिएटर टीमें"
+    },
+    "tpl-approval": {
+      "name": "अनुमोदन प्रक्रिया",
+      "description": "AI सुझावों के साथ बहु-चरण अनुमोदन।",
+      "category": "ऑप्स",
+      "recommendedFor": "साइड इफेक्ट से पहले फाइनेंस/ऑप्स अनुमोदन",
+      "estimatedRuntime": "मानव गेट"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "नए ग्राहक का स्वागत",
+      "description": "ग्राहक बनने पर स्वागत ईमेल + सूचना।",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "चालान रिमाइंडर",
+      "description": "चालान जारी होने के बाद ग्राहकों को याद दिलाएँ।",
+      "category": "वित्त"
+    },
+    "tpl_project_kickoff": {
+      "name": "प्रोजेक्ट किकऑफ",
+      "description": "किकऑफ कार्य असाइन करें और प्रोजेक्ट बनने पर सूचित करें।",
+      "category": "प्रोजेक्ट"
+    },
+    "tpl_task_assignment": {
+      "name": "कार्य असाइनमेंट",
+      "description": "कार्य पूरा होने पर असाइनी को ईमेल — अगला काम जोड़ें।",
+      "category": "प्रोजेक्ट"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "AI ग्राहक सारांश",
+      "description": "ग्राहक बनने पर AI सारांश चलाएँ; आउटपुट सहेजें।",
+      "category": "AI"
+    },
+    "tpl_followup_reminder": {
+      "name": "फॉलो-अप रिमाइंडर",
+      "description": "स्थिति के अनुसार शाखा वाला शेड्यूल-आधारित फॉलो-अप।",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "स्वागत ईमेल भेजें",
+    "notify_team": "टीम को सूचित करें",
+    "wait_3_days": "3 दिन प्रतीक्षा",
+    "still_unpaid": "अभी भी unpaid?",
+    "send_reminder": "रिमाइंडर भेजें",
+    "assign_kickoff_task": "किकऑफ कार्य असाइन करें",
+    "notify_owner": "मालिक को सूचित करें",
+    "notify_stakeholders": "स्टेकहोल्डर को सूचित करें",
+    "run_ai_summary": "AI सारांश चलाएँ",
+    "generate_document": "दस्तावेज़ बनाएँ",
+    "daily_schedule": "दैनिक शेड्यूल",
+    "by_priority": "प्राथमिकता के अनुसार",
+    "urgent_notification": "जरूरी सूचना",
+    "standard_email": "मानक ईमेल"
   }
 }

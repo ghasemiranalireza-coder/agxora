@@ -138,12 +138,222 @@
     "professional": "전문",
     "friendly": "친근",
     "luxury": "럭셔리",
-    "casual": "캐주얼"
+    "casual": "캐주얼",
+    "minimal": "미니멀",
+    "corporate": "기업",
+    "creative": "크리에이티브",
+    "custom": "사용자 지정 브랜드 보이스"
   },
   "integrationStatus": {
     "planned": "계획됨",
     "ready": "준비됨",
     "connected": "연결됨",
     "disabled": "사용 안 함"
+  },
+  "categories": {
+    "social": "소셜",
+    "ads": "광고",
+    "analytics": "분석"
+  },
+  "platforms": {
+    "instagram": {
+      "notes": "공식 Graph API 게시 + 인사이트 예약."
+    },
+    "tiktok": {
+      "notes": "TikTok Content Posting API 어댑터 예약."
+    },
+    "youtube": {
+      "notes": "YouTube Data API 업로드 + 분석 예약."
+    },
+    "facebook": {
+      "notes": "Pages 게시 어댑터 예약."
+    },
+    "linkedin": {
+      "notes": "UGC / 조직 게시 어댑터 예약."
+    },
+    "pinterest": {
+      "notes": "핀 + 보드 어댑터 예약."
+    },
+    "threads": {
+      "notes": "Threads API 어댑터 예약."
+    },
+    "x": {
+      "notes": "X API v2 게시 어댑터 예약."
+    },
+    "meta-business": {
+      "notes": "Meta Business Suite / Ads Manager 훅 예약."
+    },
+    "google-ads": {
+      "notes": "Google Ads API 캠페인 동기화 예약."
+    },
+    "google-analytics": {
+      "notes": "GA4 측정 + 보고 어댑터 예약."
+    }
+  },
+  "features": {
+    "ideas": {
+      "label": "콘텐츠 아이디어",
+      "description": "업종을 아는 캠페인·게시 아이디어 엔진."
+    },
+    "captions": {
+      "label": "캡션 생성기",
+      "description": "플랫폼 형식별 브랜드 보이스 캡션."
+    },
+    "hashtags": {
+      "label": "해시태그 제안",
+      "description": "해시태그 세트의 관련성·도달 점수."
+    },
+    "calendar": {
+      "label": "콘텐츠 캘린더",
+      "description": "크로스플랫폼 편집 캘린더 기반."
+    },
+    "campaigns": {
+      "label": "캠페인 플래너",
+      "description": "목표, 오디언스, 플랫폼, 일정."
+    },
+    "audience": {
+      "label": "오디언스 제안",
+      "description": "CRM + 크리에이터 신호의 세그먼트 제안."
+    },
+    "schedule": {
+      "label": "게시 일정",
+      "description": "시간대를 고려한 최적 게시 창."
+    },
+    "brand": {
+      "label": "브랜드 일관성",
+      "description": "브랜드 보이스 대비 톤·에셋 검사."
+    },
+    "rewrite": {
+      "label": "AI 재작성",
+      "description": "명확성·길이·채널에 맞게 초안을 다시 씁니다."
+    },
+    "translate": {
+      "label": "콘텐츠 번역",
+      "description": "다국어 번역 파이프라인 예약."
+    },
+    "i18n": {
+      "label": "다국어 지원",
+      "description": "게시·분석 화면용 로케일 팩."
+    }
+  },
+  "kpi": {
+    "content": {
+      "label": "생성된 콘텐츠",
+      "caption": "이번 분기"
+    },
+    "campaigns": {
+      "label": "캠페인",
+      "caption": "활성 + 예정"
+    },
+    "scheduled": {
+      "label": "예약 게시물",
+      "caption": "향후 14일"
+    },
+    "engagement": {
+      "label": "참여",
+      "caption": "채널 평균 비율"
+    },
+    "followers": {
+      "label": "팔로워 성장",
+      "caption": "지난 30일"
+    },
+    "reach": {
+      "label": "도달",
+      "caption": "고유 노출"
+    },
+    "conversions": {
+      "label": "전환",
+      "caption": "기여 액션"
+    },
+    "ai-score": {
+      "label": "AI 성능 점수",
+      "caption": "콘텐츠 품질 신호"
+    }
+  },
+  "analyticsMetrics": {
+    "a1": "참여",
+    "a2": "도달",
+    "a3": "CTR",
+    "a4": "전환",
+    "a5": "오디언스 성장",
+    "a6": "콘텐츠 성과"
+  },
+  "voiceDesc": {
+    "professional": "명확하고 신뢰할 수 있는 비즈니스 우선 톤.",
+    "luxury": "세련되고 절제된 프리미엄 프레이밍.",
+    "friendly": "따뜻하고 친근한 대화체.",
+    "casual": "편한 일상 언어.",
+    "minimal": "짧은 문장, 높은 명확성.",
+    "corporate": "격식 있는 기업 커뮤니케이션.",
+    "creative": "캠페인을 위한 표현력 있는 스토리텔링.",
+    "custom": "가이드라인과 샘플 카피는 나중에 업로드하세요."
+  },
+  "formatDesc": {
+    "instagram_caption": "CTA 훅이 있는 Feed / Reels 캡션.",
+    "tiktok_script": "짧은 스크립트: 훅 → 가치 → CTA.",
+    "linkedin_post": "Thought leadership와 B2B 내러티브.",
+    "facebook_post": "커뮤니티·페이지용 게시물.",
+    "x_post": "간결한 스레드와 단일 게시물.",
+    "blog_article": "롱폼 편집 초안.",
+    "newsletter": "뉴스레터 섹션과 제목줄.",
+    "email_campaign": "캠페인 시퀀스와 너처 카피.",
+    "product_description": "커머스용 제품 내러티브.",
+    "ad_copy": "유료 소셜·검색 광고 변형.",
+    "seo_article": "검색 의도 기사(개요 구조).",
+    "landing_page_copy": "히어로, 이점, 증거, CTA 블록."
+  },
+  "campaignStatus": {
+    "Active": "활성",
+    "In review": "검토 중",
+    "Planned": "예정"
+  },
+  "campaigns": {
+    "camp-1": {
+      "name": "Q3 제품 출시",
+      "objective": "인지도 + 대기자 등록",
+      "audience": "EU SMB 운영자",
+      "budget": "€8,500(자리 표시)",
+      "timeline": "8월 4일 – 9월 12일"
+    },
+    "camp-2": {
+      "name": "크리에이터 콜라보 스프린트",
+      "objective": "도달 + 커뮤니티 성장",
+      "audience": "크리에이터 18–34 DE/AT",
+      "budget": "€4,200(자리 표시)",
+      "timeline": "7월 20일 – 8월 20일"
+    },
+    "camp-3": {
+      "name": "에이전시 포트폴리오 푸시",
+      "objective": "리드 생성",
+      "audience": "마케팅 디렉터",
+      "budget": "€2,900(자리 표시)",
+      "timeline": "9월 1일 – 9월 30일"
+    }
+  },
+  "calendarItems": {
+    "cal-1": "런치 티저 릴",
+    "cal-2": "창업자 LinkedIn 내러티브",
+    "cal-3": "대기자 이메일 #1",
+    "cal-4": "TikTok 데모 스크립트"
+  },
+  "queueItems": {
+    "q-1": "런치 티저 릴 캡션",
+    "q-2": "창업자 내러티브 게시물",
+    "q-3": "대기자 너처 이메일",
+    "q-4": "제품 랜딩 히어로 카피",
+    "q-5": "TikTok 데모 스크립트 v2",
+    "q-6": "6월 리캡 캐러셀",
+    "q-7": "오래된 프로모 스레드"
+  },
+  "topPosts": {
+    "tp-1": "창고 자동화 분해",
+    "tp-2": "30초 제품 데모 릴",
+    "tp-3": "크리에이터 콜라보 훅"
+  },
+  "recommendations": {
+    "r1": "이번 주 LinkedIn 분해를 3부 캐러셀로 재사용하세요.",
+    "r2": "완료율을 높이려면 TikTok 데모를 화–목 18:00–20:00 CET에 예약하세요.",
+    "r3": "Instagram CTA의 럭셔리 브랜드 보이스를 조이세요. 약 20% 줄입니다.",
+    "r4": "EU 오디언스 확장을 위해 톱 릴 캡션을 DE/FR로 번역하세요."
   }
 }

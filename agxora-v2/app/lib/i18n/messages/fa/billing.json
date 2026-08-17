@@ -117,5 +117,30 @@
       "warning": "هشدار",
       "ok": "تایید"
     }
+  },
+  "licenseStatus": {
+    "trial": "آزمایشی",
+    "active": "فعال",
+    "expired": "منقضی",
+    "cancelled": "لغوشده",
+    "suspended": "تعلیق‌شده",
+    "lifetime": "مادام‌العمر"
+  },
+  "quotas": {
+    "ai_requests": "درخواست‌های هوش مصنوعی",
+    "projects": "پروژه‌ها",
+    "customers": "مشتریان",
+    "documents": "اسناد",
+    "storage_mb": "فضای ذخیره (مگابایت)",
+    "users": "کاربران",
+    "api_requests": "درخواست‌های API"
+  },
+  "invoiceStatus": {
+    "draft": "پیش‌نویس",
+    "open": "باز",
+    "paid": "پرداخت‌شده",
+    "void": "باطل",
+    "uncollectible": "غیرقابل وصول",
+    "refunded": "بازپرداخت‌شده"
   }
 }

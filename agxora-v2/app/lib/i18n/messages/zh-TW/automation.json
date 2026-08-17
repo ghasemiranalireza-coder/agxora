@@ -580,5 +580,188 @@
       "label": "指派任務",
       "description": "將任務指派給使用者。"
     }
+  },
+  "kinds": {
+    "trigger": "觸發",
+    "action": "動作",
+    "condition": "條件",
+    "delay": "延遲",
+    "approval": "核准",
+    "loop": "迴圈",
+    "merge": "合併",
+    "split": "拆分",
+    "ai_decision": "AI 決策",
+    "ai_action": "AI 動作",
+    "notification": "通知",
+    "webhook": "Webhook",
+    "custom_action": "自訂動作",
+    "branch": "分支",
+    "variable": "變數"
+  },
+  "kpi": {
+    "active": {
+      "label": "進行中的工作流程",
+      "caption": "已在工作區啟用"
+    },
+    "runs-today": {
+      "label": "今日工作流程執行",
+      "caption": "涵蓋全部觸發"
+    },
+    "success": {
+      "label": "成功的自動化",
+      "caption": "今日"
+    },
+    "failed": {
+      "label": "失敗執行",
+      "caption": "需要關注"
+    },
+    "pending": {
+      "label": "待處理任務",
+      "caption": "核准＋重試"
+    },
+    "avg-time": {
+      "label": "平均執行時間",
+      "caption": "中位數 1.2 秒"
+    },
+    "ai-suggestions": {
+      "label": "AI 建議",
+      "caption": "自動化機會"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "生產力",
+    "Communication": "通訊",
+    "Commerce": "商務",
+    "Finance": "財務",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "已預留 Gmail／Drive／日曆勾點供 OAuth 接線。",
+    "m365": "已預留 Outlook／Teams／Graph 勾點。",
+    "slack": "已預留 Events API＋聊天發文。",
+    "teams": "已預留 Bot Framework 轉接器。",
+    "discord": "已預留 Webhook＋機器人轉接器。",
+    "whatsapp": "已預留 Meta Cloud API 轉接器。",
+    "stripe": "已預留付款 Webhook — 無即時金鑰。",
+    "shopify": "已預留訂單／產品事件。",
+    "datev": "已預留 DATEV 匯出／過帳批次勾點。",
+    "sap": "已預留 ERP 事件橋 — 企業方案前停用。",
+    "hubspot": "已預留 CRM 同步轉接器。",
+    "salesforce": "已預留 Platform Events 轉接器。"
+  },
+  "defaultWorkflow": {
+    "name": "客戶導入",
+    "description": "建立客戶時的歡迎序列。"
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "財務",
+    "Sales": "銷售",
+    "Marketing": "行銷",
+    "HR": "人資",
+    "Creator": "創作者",
+    "Ops": "營運",
+    "Projects": "專案",
+    "AI": "AI"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "客戶入職",
+      "description": "客戶建立後發送歡迎郵件、AI 摘要與負責人任務。",
+      "category": "CRM",
+      "recommendedFor": "正在接入新 B2B 客戶的團隊"
+    },
+    "tpl-invoice": {
+      "name": "發票提醒",
+      "description": "針對未結發票的排程提醒與升級路徑。",
+      "category": "財務",
+      "recommendedFor": "希望降低逾期應收的財務營運"
+    },
+    "tpl-lead": {
+      "name": "潛在客戶跟進",
+      "description": "新潛在客戶的 AI 郵件回覆與管道狀態更新。",
+      "category": "銷售",
+      "recommendedFor": "入站潛在客戶量大的銷售團隊"
+    },
+    "tpl-welcome": {
+      "name": "歡迎郵件",
+      "description": "註冊時的簡單歡迎序列。",
+      "category": "行銷",
+      "recommendedFor": "任何剛開始做郵件自動化的工作區"
+    },
+    "tpl-pipeline": {
+      "name": "銷售管道",
+      "description": "階段變更並附帶通知與任務。",
+      "category": "銷售",
+      "recommendedFor": "管理多階段成交推進的團隊"
+    },
+    "tpl-recruit": {
+      "name": "招募",
+      "description": "候選人分流與面試任務。",
+      "category": "人資",
+      "recommendedFor": "招募主管與人資營運"
+    },
+    "tpl-content": {
+      "name": "內容發佈",
+      "description": "創作者工作室：發佈 → 通知 → 分析。",
+      "category": "創作者",
+      "recommendedFor": "行銷與創作者團隊"
+    },
+    "tpl-approval": {
+      "name": "核准流程",
+      "description": "帶 AI 建議的多步核准。",
+      "category": "營運",
+      "recommendedFor": "副作用發生前的財務／營運核准",
+      "estimatedRuntime": "人工關卡"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "新客戶歡迎",
+      "description": "客戶建立時發送歡迎郵件並通知。",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "發票提醒",
+      "description": "開票後提醒客戶。",
+      "category": "財務"
+    },
+    "tpl_project_kickoff": {
+      "name": "專案啟動",
+      "description": "專案建立時指派啟動任務並通知。",
+      "category": "專案"
+    },
+    "tpl_task_assignment": {
+      "name": "任務指派",
+      "description": "任務完成時寄信給負責人 — 銜接下一項工作。",
+      "category": "專案"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "AI 客戶摘要",
+      "description": "客戶建立時執行 AI 摘要並儲存輸出。",
+      "category": "AI"
+    },
+    "tpl_followup_reminder": {
+      "name": "跟進提醒",
+      "description": "依排程跟進，並依狀態分支。",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "發送歡迎郵件",
+    "notify_team": "通知團隊",
+    "wait_3_days": "等待 3 天",
+    "still_unpaid": "仍未付款？",
+    "send_reminder": "發送提醒",
+    "assign_kickoff_task": "指派啟動任務",
+    "notify_owner": "通知負責人",
+    "notify_stakeholders": "通知利害關係人",
+    "run_ai_summary": "執行 AI 摘要",
+    "generate_document": "產生文件",
+    "daily_schedule": "每日排程",
+    "by_priority": "依優先順序",
+    "urgent_notification": "緊急通知",
+    "standard_email": "標準郵件"
   }
 }

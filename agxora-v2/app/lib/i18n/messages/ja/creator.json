@@ -138,12 +138,222 @@
     "professional": "プロフェッショナル",
     "friendly": "フレンドリー",
     "luxury": "ラグジュアリー",
-    "casual": "カジュアル"
+    "casual": "カジュアル",
+    "minimal": "ミニマル",
+    "corporate": "コーポレート",
+    "creative": "クリエイティブ",
+    "custom": "カスタムブランドボイス"
   },
   "integrationStatus": {
     "planned": "計画中",
     "ready": "準備完了",
     "connected": "接続済み",
     "disabled": "無効"
+  },
+  "categories": {
+    "social": "ソーシャル",
+    "ads": "広告",
+    "analytics": "分析"
+  },
+  "platforms": {
+    "instagram": {
+      "notes": "公式Graph API投稿＋インサイトを予約。"
+    },
+    "tiktok": {
+      "notes": "TikTok Content Posting APIアダプターを予約。"
+    },
+    "youtube": {
+      "notes": "YouTube Data APIアップロード＋分析を予約。"
+    },
+    "facebook": {
+      "notes": "Pages公開アダプターを予約。"
+    },
+    "linkedin": {
+      "notes": "UGC／組織投稿アダプターを予約。"
+    },
+    "pinterest": {
+      "notes": "Pins＋Boardsアダプターを予約。"
+    },
+    "threads": {
+      "notes": "Threads APIアダプターを予約。"
+    },
+    "x": {
+      "notes": "X API v2投稿アダプターを予約。"
+    },
+    "meta-business": {
+      "notes": "Meta Business Suite／Ads Managerフックを予約。"
+    },
+    "google-ads": {
+      "notes": "Google Ads APIキャンペーン同期を予約。"
+    },
+    "google-analytics": {
+      "notes": "GA4計測＋レポートアダプターを予約。"
+    }
+  },
+  "features": {
+    "ideas": {
+      "label": "コンテンツアイデア",
+      "description": "業界を踏まえたキャンペーン・投稿アイデアエンジン。"
+    },
+    "captions": {
+      "label": "キャプション生成",
+      "description": "プラットフォーム形式ごとのブランドボイキャプション。"
+    },
+    "hashtags": {
+      "label": "ハッシュタグ提案",
+      "description": "ハッシュタグセットの関連性とリーチ採点。"
+    },
+    "calendar": {
+      "label": "コンテンツカレンダー",
+      "description": "クロスプラットフォームの編集カレンダー基盤。"
+    },
+    "campaigns": {
+      "label": "キャンペーンプランナー",
+      "description": "目的・オーディエンス・プラットフォーム・タイムライン。"
+    },
+    "audience": {
+      "label": "オーディエンス提案",
+      "description": "CRM＋クリエイター信号からのセグメント提案。"
+    },
+    "schedule": {
+      "label": "投稿スケジュール",
+      "description": "タイムゾーンを踏まえた最適投稿ウィンドウ。"
+    },
+    "brand": {
+      "label": "ブランド一貫性",
+      "description": "ブランドボイスに対するトーンとアセット検査。"
+    },
+    "rewrite": {
+      "label": "AIリライト",
+      "description": "明瞭さ・長さ・チャネル向けに下書きをリライト。"
+    },
+    "translate": {
+      "label": "コンテンツ翻訳",
+      "description": "多言語翻訳パイプラインを予約。"
+    },
+    "i18n": {
+      "label": "多言語サポート",
+      "description": "公開・分析画面向けロケールパック。"
+    }
+  },
+  "kpi": {
+    "content": {
+      "label": "作成コンテンツ",
+      "caption": "今四半期"
+    },
+    "campaigns": {
+      "label": "キャンペーン",
+      "caption": "進行中＋予定"
+    },
+    "scheduled": {
+      "label": "予約投稿",
+      "caption": "今後14日"
+    },
+    "engagement": {
+      "label": "エンゲージメント",
+      "caption": "チャネル平均率"
+    },
+    "followers": {
+      "label": "フォロワー成長",
+      "caption": "過去30日"
+    },
+    "reach": {
+      "label": "リーチ",
+      "caption": "ユニークインプレッション"
+    },
+    "conversions": {
+      "label": "コンバージョン",
+      "caption": "帰属アクション"
+    },
+    "ai-score": {
+      "label": "AIパフォーマンススコア",
+      "caption": "コンテンツ品質シグナル"
+    }
+  },
+  "analyticsMetrics": {
+    "a1": "エンゲージメント",
+    "a2": "リーチ",
+    "a3": "CTR",
+    "a4": "コンバージョン",
+    "a5": "オーディエンス成長",
+    "a6": "コンテンツパフォーマンス"
+  },
+  "voiceDesc": {
+    "professional": "明確で信頼できるビジネス優先のトーン。",
+    "luxury": "洗練され、余白が多く、プレミアムな枠組み。",
+    "friendly": "温かく親しみやすく会話的。",
+    "casual": "気軽な日常語。",
+    "minimal": "短い文、高い明瞭さ。",
+    "corporate": "正式な企業コミュニケーション。",
+    "creative": "キャンペーン向けの表現豊かなストーリーテリング。",
+    "custom": "ガイドラインとサンプル文は後でアップロード。"
+  },
+  "formatDesc": {
+    "instagram_caption": "CTAフック付きフィード／リールキャプション。",
+    "tiktok_script": "短尺脚本：フック→価値→CTA。",
+    "linkedin_post": "ソートリーダーシップとB2Bナラティブ。",
+    "facebook_post": "コミュニティ／ページ向け投稿。",
+    "x_post": "簡潔なスレッドと単発投稿。",
+    "blog_article": "長文の編集下書き。",
+    "newsletter": "ニュースレターのセクションと件名。",
+    "email_campaign": "キャンペーンシーケンスとナーチャコピー。",
+    "product_description": "コマース向け製品ナラティブ。",
+    "ad_copy": "有料ソーシャル／検索広告のバリエーション。",
+    "seo_article": "検索意図の記事（アウトライン付き）。",
+    "landing_page_copy": "ヒーロー、利点、証拠、CTAブロック。"
+  },
+  "campaignStatus": {
+    "Active": "進行中",
+    "In review": "レビュー中",
+    "Planned": "予定"
+  },
+  "campaigns": {
+    "camp-1": {
+      "name": "Q3製品ローンチ",
+      "objective": "認知＋ウェイトリスト登録",
+      "audience": "EUの中小事業者",
+      "budget": "€8,500（プレースホルダ）",
+      "timeline": "8月4日〜9月12日"
+    },
+    "camp-2": {
+      "name": "クリエイターコラボスプリント",
+      "objective": "リーチ＋コミュニティ成長",
+      "audience": "クリエイター18–34 DE/AT",
+      "budget": "€4,200（プレースホルダ）",
+      "timeline": "7月20日〜8月20日"
+    },
+    "camp-3": {
+      "name": "代理店ポートフォリオプッシュ",
+      "objective": "リード獲得",
+      "audience": "マーケティングディレクター",
+      "budget": "€2,900（プレースホルダ）",
+      "timeline": "9月1日〜9月30日"
+    }
+  },
+  "calendarItems": {
+    "cal-1": "ローンチティーザーリール",
+    "cal-2": "創業者LinkedInナラティブ",
+    "cal-3": "ウェイトリストメール#1",
+    "cal-4": "TikTokデモ脚本"
+  },
+  "queueItems": {
+    "q-1": "ローンチティーザーリールのキャプション",
+    "q-2": "創業者ナラティブ投稿",
+    "q-3": "ウェイトリスト育成メール",
+    "q-4": "製品ランディングヒーローコピー",
+    "q-5": "TikTokデモ脚本v2",
+    "q-6": "6月振り返りカルーセル",
+    "q-7": "古いプロモスレッド"
+  },
+  "topPosts": {
+    "tp-1": "倉庫自動化ティアダウン",
+    "tp-2": "30秒製品デモリール",
+    "tp-3": "クリエイターコラボフック"
+  },
+  "recommendations": {
+    "r1": "今週LinkedInティアダウンを3部カルーセルに再利用。",
+    "r2": "完了率向上のためTikTokデモを火–木18:00–20:00 CETに予約。",
+    "r3": "Instagram CTAのラグジュアリーブランドボイスを引き締め、約20%短縮。",
+    "r4": "トップリールキャプションをDE/FRに翻訳しEU視聴を拡大。"
   }
 }

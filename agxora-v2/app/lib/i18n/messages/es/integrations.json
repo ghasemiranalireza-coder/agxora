@@ -139,5 +139,75 @@
   "errors": {
     "failedToFetch": "No se pudo recuperar",
     "httpStatus": "HTTP {status}"
+  },
+  "categories": {
+    "productivity": "Productividad",
+    "communication": "Comunicación",
+    "storage": "Almacenamiento",
+    "crm": "CRM",
+    "automation": "Automatización",
+    "devtools": "Herramientas de desarrollo",
+    "custom": "Personalizado"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "Clave API",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "OAuth personalizado"
+  },
+  "connectorNames": {
+    "custom": "Conector personalizado"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Correo, calendario y Teams a través de Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail, Calendar y Drive para inquilinos de Workspace."
+    },
+    "slack": {
+      "description": "Canales, mensajes y notificaciones interactivas."
+    },
+    "discord": {
+      "description": "Notificaciones de servidor y entrega de mensajes de bot."
+    },
+    "dropbox": {
+      "description": "Sincronización de archivos y eventos de carpetas compartidas."
+    },
+    "onedrive": {
+      "description": "Almacenamiento de archivos Microsoft OneDrive y sincronización delta."
+    },
+    "google_drive": {
+      "description": "Archivos de Drive, carpetas y notificaciones de cambio."
+    },
+    "hubspot": {
+      "description": "Contactos CRM, deals y eventos de marketing."
+    },
+    "salesforce": {
+      "description": "Objetos CRM empresariales y Platform Events."
+    },
+    "zapier": {
+      "description": "Hooks salientes a zaps de Zapier."
+    },
+    "make": {
+      "description": "Webhooks de escenario para Make (Integromat)."
+    },
+    "github": {
+      "description": "Repositorios, issues, pull requests y Actions."
+    },
+    "gitlab": {
+      "description": "Proyectos, merge requests, pipelines y webhooks."
+    },
+    "custom": {
+      "description": "Punto de extensión para sistemas empresariales propietarios."
+    }
+  },
+  "healthStatus": {
+    "healthy": "Correcto",
+    "degraded": "Degradado",
+    "down": "Caído",
+    "unknown": "Desconocido"
   }
 }

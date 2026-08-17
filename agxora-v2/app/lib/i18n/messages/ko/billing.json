@@ -117,5 +117,30 @@
       "warning": "경고",
       "ok": "좋아요"
     }
+  },
+  "licenseStatus": {
+    "trial": "체험",
+    "active": "활성",
+    "expired": "만료",
+    "cancelled": "취소됨",
+    "suspended": "정지",
+    "lifetime": "평생"
+  },
+  "quotas": {
+    "ai_requests": "AI 요청",
+    "projects": "프로젝트",
+    "customers": "고객",
+    "documents": "문서",
+    "storage_mb": "스토리지(MB)",
+    "users": "사용자",
+    "api_requests": "API 요청"
+  },
+  "invoiceStatus": {
+    "draft": "초안",
+    "open": "미결제",
+    "paid": "결제됨",
+    "void": "무효",
+    "uncollectible": "회수 불가",
+    "refunded": "환불됨"
   }
 }

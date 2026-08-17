@@ -117,5 +117,30 @@
       "warning": "Warnung",
       "ok": "i.O."
     }
+  },
+  "licenseStatus": {
+    "trial": "Testphase",
+    "active": "Aktiv",
+    "expired": "Abgelaufen",
+    "cancelled": "Gekündigt",
+    "suspended": "Gesperrt",
+    "lifetime": "Lebenslang"
+  },
+  "quotas": {
+    "ai_requests": "KI-Anfragen",
+    "projects": "Projekte",
+    "customers": "Kunden",
+    "documents": "Dokumente",
+    "storage_mb": "Speicher (MB)",
+    "users": "Nutzer",
+    "api_requests": "API-Anfragen"
+  },
+  "invoiceStatus": {
+    "draft": "Entwurf",
+    "open": "Offen",
+    "paid": "Bezahlt",
+    "void": "Storniert",
+    "uncollectible": "Uneinbringlich",
+    "refunded": "Erstattet"
   }
 }

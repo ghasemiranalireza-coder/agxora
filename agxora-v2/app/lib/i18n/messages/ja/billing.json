@@ -117,5 +117,30 @@
       "warning": "警告",
       "ok": "わかりました"
     }
+  },
+  "licenseStatus": {
+    "trial": "トライアル",
+    "active": "有効",
+    "expired": "期限切れ",
+    "cancelled": "キャンセル",
+    "suspended": "停止",
+    "lifetime": "生涯"
+  },
+  "quotas": {
+    "ai_requests": "AIリクエスト",
+    "projects": "プロジェクト",
+    "customers": "顧客",
+    "documents": "文書",
+    "storage_mb": "ストレージ (MB)",
+    "users": "ユーザー",
+    "api_requests": "APIリクエスト"
+  },
+  "invoiceStatus": {
+    "draft": "下書き",
+    "open": "未払い",
+    "paid": "支払済み",
+    "void": "無効",
+    "uncollectible": "回収不能",
+    "refunded": "返金済み"
   }
 }

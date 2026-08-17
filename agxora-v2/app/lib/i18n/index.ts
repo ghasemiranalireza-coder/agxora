@@ -51,6 +51,7 @@ export {
 export { LanguageSwitcher } from "./LanguageSwitcher";
 export type { TranslateValues } from "./translate";
 export { resolveMessage, resolveMessageList } from "./translate";
+export { catalogCopy, slugLabel } from "./catalogCopy";
 export {
   isTranslationKey,
   resolveUserFacingErrorKey,

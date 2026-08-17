@@ -67,14 +67,78 @@
     "title": "关键绩效指标中心",
     "subtitle": "跨收入、客户、项目、工作流程、代理和自动化的可配置 KPI 目录。",
     "emptyTitle": "分析等待信号",
-    "emptyDescription": "一旦您的工作区产生活动，执行 KPI 和警报就会出现在此处。"
+    "emptyDescription": "一旦您的工作区产生活动，执行 KPI 和警报就会出现在此处。",
+    "revenue": {
+      "name": "收入",
+      "description": "期间内已确认总收入。"
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "月经常性收入。"
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "年经常性收入。"
+    },
+    "growth": {
+      "name": "增长",
+      "description": "相对上期的增长率。"
+    },
+    "customer_acquisition": {
+      "name": "获客",
+      "description": "新获得的客户。"
+    },
+    "retention": {
+      "name": "留存",
+      "description": "客户留存率。"
+    },
+    "churn": {
+      "name": "流失",
+      "description": "客户流失率。"
+    },
+    "project_success": {
+      "name": "项目成功",
+      "description": "按时/按范围交付的项目。"
+    },
+    "workflow_success": {
+      "name": "工作流成功",
+      "description": "成功的工作流执行。"
+    },
+    "agent_performance": {
+      "name": "代理表现",
+      "description": "AI 代理任务成功分数。"
+    },
+    "automation_success": {
+      "name": "自动化成功",
+      "description": "自动化 / 集成可靠性。"
+    },
+    "custom": {
+      "name": "自定义 KPI",
+      "description": "面向组织自定义 KPI 的扩展点。"
+    }
   },
   "reports": {
     "title": "报告引擎",
     "subtitle": "报告定义已播种以供审核。在连接报告后端之前，文件导出不可用。",
     "emptyTitle": "没有报告",
     "emptyDescription": "报告工作区引导的种子。",
-    "scheduleOnDemand": "一经请求"
+    "scheduleOnDemand": "一经请求",
+    "executive": {
+      "title": "高管周报",
+      "description": "面向 CEO 的健康、收入、风险与增长简报。"
+    },
+    "department": {
+      "title": "销售部门报告",
+      "description": "面向销售领导的管道、获客与留存。"
+    },
+    "operational": {
+      "title": "运营日报",
+      "description": "工作流、集成与身份态势。"
+    },
+    "management": {
+      "title": "交付管理",
+      "description": "项目成功、产能与文档吞吐。"
+    }
   },
   "insights": {
     "emptyTitle": "还没有任何见解",
@@ -94,12 +158,88 @@
     "emptyDescription": "来自风险启发的警报种子。",
     "acked": "确认",
     "open": "打开",
-    "acknowledge": "承认"
+    "acknowledge": "承认",
+    "revenue_drop": {
+      "title": "细分收入走弱",
+      "body": "SMB 周环比收入下降 4% — 请检查管道覆盖。"
+    },
+    "project_delay": {
+      "title": "项目有延期风险",
+      "body": "两个交付项目已越过里程碑关口。"
+    },
+    "churn_risk": {
+      "title": "客户流失风险升高",
+      "body": "三个账户的互动分数下降。"
+    },
+    "workflow_failure": {
+      "title": "检测到工作流失败",
+      "body": "发票提醒工作流 24 小时内失败两次。"
+    },
+    "ai_failure": {
+      "title": "AI 任务重试升高",
+      "body": "代理任务重试率越过软阈值。"
+    },
+    "integration_error": {
+      "title": "集成错误",
+      "body": "Slack 连接器间歇返回 5xx。"
+    },
+    "security": {
+      "title": "安全警报",
+      "body": "检测到异常 API 密钥使用模式。"
+    }
   },
   "scorecards": {
     "title": "记分卡引擎",
     "emptyTitle": "没有记分卡",
-    "emptyDescription": "记分卡在引导程序上种子。"
+    "emptyDescription": "记分卡在引导程序上种子。",
+    "sales": {
+      "name": "销售评分",
+      "drivers": {
+        "pipeline_coverage": "管道覆盖",
+        "win_rate": "赢单率",
+        "cycle_time": "周期时长"
+      }
+    },
+    "customer_health": {
+      "name": "客户健康评分",
+      "drivers": {
+        "retention": "留存",
+        "nps_proxy": "NPS 代理",
+        "support_load": "支持负载"
+      }
+    },
+    "project_success": {
+      "name": "项目成功评分",
+      "drivers": {
+        "on_time_delivery": "准时交付",
+        "scope_control": "范围控制",
+        "utilization": "利用率"
+      }
+    },
+    "automation_efficiency": {
+      "name": "自动化效率",
+      "drivers": {
+        "workflow_success": "工作流成功",
+        "manual_effort_saved": "节省的人工",
+        "retry_rate": "重试率"
+      }
+    },
+    "ai_quality": {
+      "name": "AI 质量",
+      "drivers": {
+        "task_success": "任务成功",
+        "confidence_avg": "平均置信度",
+        "escalation_rate": "升级率"
+      }
+    },
+    "operational_health": {
+      "name": "运营健康",
+      "drivers": {
+        "system_health": "系统健康",
+        "integration_reliability": "集成可靠性",
+        "identity_posture": "身份态势"
+      }
+    }
   },
   "explorer": {
     "title": "数据浏览器",
@@ -107,7 +247,8 @@
     "searchAria": "搜索演示浏览器行",
     "emptyTitle": "没有匹配的行",
     "emptyDescription": "调整过滤器或搜索，或重新加载演示数据集。",
-    "hint": "客户端对种子元组的搜索 - 后端聚合和向下钻取未连接。"
+    "hint": "客户端对种子元组的搜索 - 后端聚合和向下钻取未连接。",
+    "metricLabel": "{domain} 指标 {index}"
   },
   "columns": {
     "kpi": "关键绩效指标",
@@ -132,5 +273,121 @@
     "measure": "措施",
     "date": "日期"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "CRM 分析",
+    "projects": "项目分析",
+    "finance": "财务分析",
+    "documents": "文档分析",
+    "workflow": "工作流分析",
+    "identity": "身份分析",
+    "ai": "AI 分析",
+    "integration": "集成分析",
+    "executive": "高管"
+  },
+  "series": {
+    "crm_leads": "线索",
+    "crm_pipeline": "管道（千美元）",
+    "proj_active": "进行中的项目",
+    "proj_on_time": "准时 %",
+    "fin_revenue": "收入（千美元）",
+    "fin_margin": "毛利率 %",
+    "doc_created": "已创建文档",
+    "doc_views": "文档浏览",
+    "wf_runs": "工作流运行",
+    "wf_success": "成功率 %",
+    "id_users": "活跃用户",
+    "id_sessions": "会话",
+    "ai_tasks": "代理任务",
+    "ai_success": "代理成功率 %",
+    "int_calls": "API / Webhook 调用",
+    "int_errors": "集成错误"
+  },
+  "bands": {
+    "Critical": "严重",
+    "Watch": "观察",
+    "Healthy": "健康",
+    "Excellent": "优秀"
+  },
+  "charts": {
+    "chart_revenue": "收入趋势",
+    "chart_pipeline": "CRM 管道",
+    "chart_workflows": "工作流活动",
+    "chart_ai": "AI 活动构成",
+    "chart_ops_table": "运营快照",
+    "chart_heatmap_placeholder": "互动热图"
+  },
+  "chartKinds": {
+    "line": "折线",
+    "bar": "柱状",
+    "area": "面积",
+    "pie": "饼图",
+    "heatmap": "热图",
+    "table": "表格",
+    "card": "卡片"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "MRR 加速",
+      "summary": "MRR 增长连续三个周期改善。"
+    },
+    "pattern": {
+      "title": "开票日工作流高峰",
+      "summary": "自动化负载与月末开票相关。"
+    },
+    "recommendation": {
+      "title": "扩展留存手册",
+      "summary": "将 CSM 外联聚焦于三个健康度下降的账户。"
+    },
+    "executive_summary": {
+      "title": "高管简报",
+      "summary": "公司健康良好；关注流失风险与交付延期。"
+    },
+    "risk": {
+      "title": "交付风险集群",
+      "summary": "两个项目共享资源争用 — 产能预测升高。"
+    },
+    "opportunity": {
+      "title": "增购机会",
+      "summary": "高用量但未使用 Business 方案的账户有扩展潜力。"
+    }
+  },
+  "forecastNotes": {
+    "revenue": "线性趋势占位 — 请替换为模型服务。",
+    "customer": "获客 + 留存合成。",
+    "project": "考虑产能的交付预测。",
+    "capacity": "团队利用率预测。",
+    "growth": "增长率预测。"
+  },
+  "forecastKinds": {
+    "revenue": "收入",
+    "customer": "客户",
+    "project": "项目",
+    "capacity": "产能",
+    "growth": "增长"
+  },
+  "severity": {
+    "info": "信息",
+    "warning": "警告",
+    "critical": "严重"
+  },
+  "trend": {
+    "up": "上升",
+    "down": "下降",
+    "flat": "持平"
+  },
+  "insightKinds": {
+    "trend": "趋势",
+    "pattern": "模式",
+    "recommendation": "建议",
+    "executive_summary": "高管摘要",
+    "risk": "风险",
+    "opportunity": "机会"
+  },
+  "reportKinds": {
+    "executive": "高管",
+    "department": "部门",
+    "operational": "运营",
+    "management": "管理"
+  }
 }

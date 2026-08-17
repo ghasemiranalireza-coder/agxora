@@ -67,14 +67,78 @@
     "title": "مرکز شاخص‌های کلیدی عملکرد (KPI)",
     "subtitle": "فهرست KPI قابل تنظیم برای درآمد، مشتریان، پروژه‌ها، گردش‌های کاری، نمایندگان و اتوماسیون.",
     "emptyTitle": "تحلیل‌ها منتظر سیگنال هستند",
-    "emptyDescription": "به محض اینکه فضای کاری شما فعالیتی را ایجاد کند، شاخص‌های کلیدی عملکرد (KPI) و هشدارهای اجرایی در اینجا ظاهر می‌شوند."
+    "emptyDescription": "به محض اینکه فضای کاری شما فعالیتی را ایجاد کند، شاخص‌های کلیدی عملکرد (KPI) و هشدارهای اجرایی در اینجا ظاهر می‌شوند.",
+    "revenue": {
+      "name": "درآمد",
+      "description": "کل درآمد شناسایی‌شده در دوره."
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "درآمد تکرارشونده ماهانه."
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "درآمد تکرارشونده سالانه."
+    },
+    "growth": {
+      "name": "رشد",
+      "description": "نرخ رشد نسبت به دوره قبل."
+    },
+    "customer_acquisition": {
+      "name": "جذب مشتری",
+      "description": "مشتریان تازه‌جذب‌شده."
+    },
+    "retention": {
+      "name": "نگه‌داشت",
+      "description": "نرخ نگه‌داشت مشتری."
+    },
+    "churn": {
+      "name": "ریزش",
+      "description": "نرخ ریزش مشتری."
+    },
+    "project_success": {
+      "name": "موفقیت پروژه",
+      "description": "پروژه‌های تحویل‌شده به‌موقع / در محدوده."
+    },
+    "workflow_success": {
+      "name": "موفقیت گردش‌کار",
+      "description": "اجراهای موفق گردش‌کار."
+    },
+    "agent_performance": {
+      "name": "عملکرد ایجنت",
+      "description": "امتیاز موفقیت وظایف ایجنت هوش مصنوعی."
+    },
+    "automation_success": {
+      "name": "موفقیت اتوماسیون",
+      "description": "قابلیت اطمینان اتوماسیون / یکپارچه‌سازی."
+    },
+    "custom": {
+      "name": "KPI سفارشی",
+      "description": "نقطه گسترش برای KPIهای تعریف‌شده سازمان."
+    }
   },
   "reports": {
     "title": "موتور گزارش‌دهی",
     "subtitle": "تعاریف گزارش برای بررسی آماده می‌شوند. تا زمانی که یک backend گزارش‌دهی متصل نشود، امکان صدور فایل وجود ندارد.",
     "emptyTitle": "بدون گزارش",
     "emptyDescription": "گزارش‌ها در فضای کاری بوت‌استرپ منتشر می‌شوند.",
-    "scheduleOnDemand": "بستگی دارد"
+    "scheduleOnDemand": "بستگی دارد",
+    "executive": {
+      "title": "هفتگی اجرایی",
+      "description": "بریف سطح مدیرعامل درباره سلامت، درآمد، ریسک و رشد."
+    },
+    "department": {
+      "title": "گزارش واحد فروش",
+      "description": "قیف، جذب و نگه‌داشت برای رهبری فروش."
+    },
+    "operational": {
+      "title": "عملیات روزانه",
+      "description": "گردش‌کارها، یکپارچه‌سازی‌ها و وضعیت هویت."
+    },
+    "management": {
+      "title": "مدیریت تحویل",
+      "description": "موفقیت پروژه، ظرفیت و توان اسناد."
+    }
   },
   "insights": {
     "emptyTitle": "هنوز هیچ بینشی وجود ندارد",
@@ -94,12 +158,88 @@
     "emptyDescription": "هشدارها از اکتشافات ریسک سرچشمه می‌گیرند.",
     "acked": "ACKed",
     "open": "باز",
-    "acknowledge": "تصدیق کنید"
+    "acknowledge": "تصدیق کنید",
+    "revenue_drop": {
+      "title": "نرم‌شدن درآمد در بخش",
+      "body": "درآمد هفته‌به‌هفته در SMB ۴٪ افت کرد — پوشش قیف را بررسی کنید."
+    },
+    "project_delay": {
+      "title": "پروژه در معرض تأخیر",
+      "body": "دو پروژه تحویل از دروازه مایل‌استون گذشته‌اند."
+    },
+    "churn_risk": {
+      "title": "ریسک ریزش مشتری بالا رفته",
+      "body": "سه حساب امتیاز تعامل نزولی نشان می‌دهند."
+    },
+    "workflow_failure": {
+      "title": "شکست گردش‌کار شناسایی شد",
+      "body": "گردش‌کار یادآوری فاکتور در ۲۴ ساعت دو بار شکست خورد."
+    },
+    "ai_failure": {
+      "title": "تلاش مجدد وظایف هوش مصنوعی بالا رفته",
+      "body": "نرخ تلاش مجدد وظایف ایجنت از آستانه نرم گذشت."
+    },
+    "integration_error": {
+      "title": "خطاهای یکپارچه‌سازی",
+      "body": "کانکتور Slack پاسخ‌های ۵xx متناوب برگرداند."
+    },
+    "security": {
+      "title": "هشدار امنیتی",
+      "body": "الگوی غیرمعمول استفاده از کلید API شناسایی شد."
+    }
   },
   "scorecards": {
     "title": "موتور کارت امتیازی",
     "emptyTitle": "بدون کارت امتیاز",
-    "emptyDescription": "کارت‌های امتیازدهی روی بوت‌استرپ قرار می‌گیرند."
+    "emptyDescription": "کارت‌های امتیازدهی روی بوت‌استرپ قرار می‌گیرند.",
+    "sales": {
+      "name": "امتیاز فروش",
+      "drivers": {
+        "pipeline_coverage": "پوشش قیف",
+        "win_rate": "نرخ برد",
+        "cycle_time": "زمان چرخه"
+      }
+    },
+    "customer_health": {
+      "name": "امتیاز سلامت مشتری",
+      "drivers": {
+        "retention": "نگه‌داشت",
+        "nps_proxy": "نماینده NPS",
+        "support_load": "بار پشتیبانی"
+      }
+    },
+    "project_success": {
+      "name": "امتیاز موفقیت پروژه",
+      "drivers": {
+        "on_time_delivery": "تحویل به‌موقع",
+        "scope_control": "کنترل محدوده",
+        "utilization": "بهره‌برداری"
+      }
+    },
+    "automation_efficiency": {
+      "name": "کارایی اتوماسیون",
+      "drivers": {
+        "workflow_success": "موفقیت گردش‌کار",
+        "manual_effort_saved": "صرفه‌جویی تلاش دستی",
+        "retry_rate": "نرخ تلاش مجدد"
+      }
+    },
+    "ai_quality": {
+      "name": "کیفیت هوش مصنوعی",
+      "drivers": {
+        "task_success": "موفقیت وظیفه",
+        "confidence_avg": "میانگین اطمینان",
+        "escalation_rate": "نرخ ارجاع"
+      }
+    },
+    "operational_health": {
+      "name": "سلامت عملیاتی",
+      "drivers": {
+        "system_health": "سلامت سامانه",
+        "integration_reliability": "اطمینان یکپارچه‌سازی",
+        "identity_posture": "وضعیت هویت"
+      }
+    }
   },
   "explorer": {
     "title": "کاوشگر داده",
@@ -107,7 +247,8 @@
     "searchAria": "جستجوی ردیف‌های کاوشگر نسخه آزمایشی",
     "emptyTitle": "هیچ ردیفی مطابقت ندارد",
     "emptyDescription": "فیلترها یا جستجو را تنظیم کنید، یا مجموعه داده‌های آزمایشی را دوباره بارگذاری کنید.",
-    "hint": "جستجوی سمت کلاینت روی تاپل‌های Seeded - تجمیع backend و drill-down به هم متصل نیستند."
+    "hint": "جستجوی سمت کلاینت روی تاپل‌های Seeded - تجمیع backend و drill-down به هم متصل نیستند.",
+    "metricLabel": "معیار {domain} {index}"
   },
   "columns": {
     "kpi": "KPI",
@@ -132,5 +273,121 @@
     "measure": "اندازه گیری",
     "date": "تاریخ"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "تحلیل CRM",
+    "projects": "تحلیل پروژه‌ها",
+    "finance": "تحلیل مالی",
+    "documents": "تحلیل اسناد",
+    "workflow": "تحلیل گردش‌کار",
+    "identity": "تحلیل هویت",
+    "ai": "تحلیل هوش مصنوعی",
+    "integration": "تحلیل یکپارچه‌سازی",
+    "executive": "اجرایی"
+  },
+  "series": {
+    "crm_leads": "سرنخ‌ها",
+    "crm_pipeline": "قیف (هزار دلار)",
+    "proj_active": "پروژه‌های فعال",
+    "proj_on_time": "به‌موقع ٪",
+    "fin_revenue": "درآمد (هزار دلار)",
+    "fin_margin": "حاشیه ناخالص ٪",
+    "doc_created": "اسناد ایجادشده",
+    "doc_views": "بازدید اسناد",
+    "wf_runs": "اجرای گردش‌کار",
+    "wf_success": "موفقیت ٪",
+    "id_users": "کاربران فعال",
+    "id_sessions": "نشست‌ها",
+    "ai_tasks": "وظایف ایجنت",
+    "ai_success": "موفقیت ایجنت ٪",
+    "int_calls": "فراخوانی API / وب‌هوک",
+    "int_errors": "خطاهای یکپارچه‌سازی"
+  },
+  "bands": {
+    "Critical": "بحرانی",
+    "Watch": "تحت نظر",
+    "Healthy": "سالم",
+    "Excellent": "عالی"
+  },
+  "charts": {
+    "chart_revenue": "روند درآمد",
+    "chart_pipeline": "قیف CRM",
+    "chart_workflows": "فعالیت گردش‌کار",
+    "chart_ai": "ترکیب فعالیت هوش مصنوعی",
+    "chart_ops_table": "نمای عملیاتی",
+    "chart_heatmap_placeholder": "نقشه حرارتی تعامل"
+  },
+  "chartKinds": {
+    "line": "خط",
+    "bar": "میله",
+    "area": "مساحت",
+    "pie": "دایره",
+    "heatmap": "نقشه حرارتی",
+    "table": "جدول",
+    "card": "کارت"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "شتاب MRR",
+      "summary": "رشد MRR سه دوره پیاپی بهتر شد."
+    },
+    "pattern": {
+      "title": "اوج گردش‌کار در روزهای فاکتور",
+      "summary": "بار اتوماسیون با صدور فاکتور پایان ماه همبستگی دارد."
+    },
+    "recommendation": {
+      "title": "دفترچه نگه‌داشت را گسترش دهید",
+      "summary": "ارتباط CSM را روی سه حساب با سلامت نزولی متمرکز کنید."
+    },
+    "executive_summary": {
+      "title": "بریف اجرایی",
+      "summary": "سلامت شرکت قوی است؛ ریسک ریزش و تأخیر تحویل را زیر نظر بگیرید."
+    },
+    "risk": {
+      "title": "خوشه ریسک تحویل",
+      "summary": "دو پروژه رقابت منابع دارند — پیش‌بینی ظرفیت بالاست."
+    },
+    "opportunity": {
+      "title": "فرصت افزایش فروش",
+      "summary": "حساب‌های پرمصرف بدون پلن Business پتانسیل گسترش دارند."
+    }
+  },
+  "forecastNotes": {
+    "revenue": "جای‌نگهدار روند خطی — با سرویس مدل جایگزین شود.",
+    "customer": "ترکیب جذب + نگه‌داشت.",
+    "project": "پیش‌بینی تحویل آگاه از ظرفیت.",
+    "capacity": "پیش‌بینی بهره‌برداری تیم.",
+    "growth": "پیش‌بینی نرخ رشد."
+  },
+  "forecastKinds": {
+    "revenue": "درآمد",
+    "customer": "مشتری",
+    "project": "پروژه",
+    "capacity": "ظرفیت",
+    "growth": "رشد"
+  },
+  "severity": {
+    "info": "اطلاعات",
+    "warning": "هشدار",
+    "critical": "بحرانی"
+  },
+  "trend": {
+    "up": "صعودی",
+    "down": "نزولی",
+    "flat": "ثابت"
+  },
+  "insightKinds": {
+    "trend": "روند",
+    "pattern": "الگو",
+    "recommendation": "توصیه",
+    "executive_summary": "خلاصه اجرایی",
+    "risk": "ریسک",
+    "opportunity": "فرصت"
+  },
+  "reportKinds": {
+    "executive": "اجرایی",
+    "department": "واحد",
+    "operational": "عملیاتی",
+    "management": "مدیریت"
+  }
 }

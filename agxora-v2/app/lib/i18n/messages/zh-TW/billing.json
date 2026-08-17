@@ -117,5 +117,30 @@
       "warning": "警告",
       "ok": "好的"
     }
+  },
+  "licenseStatus": {
+    "trial": "試用",
+    "active": "有效",
+    "expired": "已過期",
+    "cancelled": "已取消",
+    "suspended": "已停權",
+    "lifetime": "終身"
+  },
+  "quotas": {
+    "ai_requests": "AI 請求",
+    "projects": "專案",
+    "customers": "客戶",
+    "documents": "文件",
+    "storage_mb": "儲存 (MB)",
+    "users": "使用者",
+    "api_requests": "API 請求"
+  },
+  "invoiceStatus": {
+    "draft": "草稿",
+    "open": "未結",
+    "paid": "已付",
+    "void": "作廢",
+    "uncollectible": "無法收回",
+    "refunded": "已退款"
   }
 }

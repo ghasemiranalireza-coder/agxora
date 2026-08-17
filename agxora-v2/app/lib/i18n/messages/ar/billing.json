@@ -117,5 +117,30 @@
       "warning": "تحذير",
       "ok": "نعم"
     }
+  },
+  "licenseStatus": {
+    "trial": "تجريبي",
+    "active": "نشط",
+    "expired": "منتهٍ",
+    "cancelled": "ملغى",
+    "suspended": "موقوف",
+    "lifetime": "مدى الحياة"
+  },
+  "quotas": {
+    "ai_requests": "طلبات الذكاء الاصطناعي",
+    "projects": "المشاريع",
+    "customers": "العملاء",
+    "documents": "المستندات",
+    "storage_mb": "التخزين (MB)",
+    "users": "المستخدمون",
+    "api_requests": "طلبات API"
+  },
+  "invoiceStatus": {
+    "draft": "مسودة",
+    "open": "مفتوحة",
+    "paid": "مدفوعة",
+    "void": "ملغاة",
+    "uncollectible": "غير قابل للتحصيل",
+    "refunded": "مستردة"
   }
 }

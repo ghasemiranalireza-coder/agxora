@@ -139,5 +139,75 @@
   "errors": {
     "failedToFetch": "取得に失敗しました",
     "httpStatus": "HTTP {status}"
+  },
+  "categories": {
+    "productivity": "生産性",
+    "communication": "コミュニケーション",
+    "storage": "ストレージ",
+    "crm": "CRM",
+    "automation": "自動化",
+    "devtools": "開発者ツール",
+    "custom": "カスタム"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "APIキー",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "カスタムOAuth"
+  },
+  "connectorNames": {
+    "custom": "カスタムコネクタ"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Microsoft Graph経由のメール、カレンダー、Teams。"
+    },
+    "google_workspace": {
+      "description": "Workspaceテナント向けGmail、カレンダー、Drive。"
+    },
+    "slack": {
+      "description": "チャンネル、メッセージ、インタラクティブ通知。"
+    },
+    "discord": {
+      "description": "サーバー通知とボットメッセージ配信。"
+    },
+    "dropbox": {
+      "description": "ファイル同期と共有フォルダイベント。"
+    },
+    "onedrive": {
+      "description": "Microsoft OneDriveのファイル保存と差分同期。"
+    },
+    "google_drive": {
+      "description": "Driveのファイル、フォルダ、変更通知。"
+    },
+    "hubspot": {
+      "description": "CRM連絡先、案件、マーケティングイベント。"
+    },
+    "salesforce": {
+      "description": "エンタープライズCRMオブジェクトとPlatform Events。"
+    },
+    "zapier": {
+      "description": "ZapierのZapへの送信フック。"
+    },
+    "make": {
+      "description": "Make（Integromat）のシナリオWebhook。"
+    },
+    "github": {
+      "description": "リポジトリ、Issue、プルリクエスト、Actions。"
+    },
+    "gitlab": {
+      "description": "プロジェクト、マージリクエスト、パイプライン、Webhook。"
+    },
+    "custom": {
+      "description": "独自の企業システム向け拡張ポイント。"
+    }
+  },
+  "healthStatus": {
+    "healthy": "健全",
+    "degraded": "劣化",
+    "down": "停止",
+    "unknown": "不明"
   }
 }

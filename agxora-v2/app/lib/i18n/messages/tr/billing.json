@@ -117,5 +117,30 @@
       "warning": "Uyarı",
       "ok": "TAMAM"
     }
+  },
+  "licenseStatus": {
+    "trial": "Deneme",
+    "active": "Etkin",
+    "expired": "Süresi doldu",
+    "cancelled": "İptal",
+    "suspended": "Askıya alındı",
+    "lifetime": "Ömür boyu"
+  },
+  "quotas": {
+    "ai_requests": "YZ istekleri",
+    "projects": "Projeler",
+    "customers": "Müşteriler",
+    "documents": "Belgeler",
+    "storage_mb": "Depolama (MB)",
+    "users": "Kullanıcılar",
+    "api_requests": "API istekleri"
+  },
+  "invoiceStatus": {
+    "draft": "Taslak",
+    "open": "Açık",
+    "paid": "Ödendi",
+    "void": "Geçersiz",
+    "uncollectible": "Tahsil edilemez",
+    "refunded": "İade edildi"
   }
 }

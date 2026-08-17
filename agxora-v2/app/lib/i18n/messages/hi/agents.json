@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "ग्राहक प्रभाव को प्राथमिकता दें",
     "delegatedFollowUp": "प्रत्यायोजित फ़ॉलो-अप"
+  },
+  "categories": {
+    "Leadership": "नेतृत्व",
+    "Revenue": "राजस्व",
+    "CRM": "CRM",
+    "Delivery": "डिलीवरी",
+    "Automation": "ऑटोमेशन",
+    "Finance": "वित्त",
+    "Knowledge": "ज्ञान",
+    "Support": "सपोर्ट",
+    "Productivity": "उत्पादकता",
+    "Custom": "कस्टम"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "कार्यकारी सलाहकार",
+      "description": "रणनीतिक ब्रीफिंग, KPI सार और निर्णय सहायता।"
+    },
+    "sales_agent": {
+      "name": "सेल्स एजेंट",
+      "description": "पाइपलाइन कोचिंग, आउटरीच ड्राफ्ट और डील के अगले कदम।"
+    },
+    "crm_assistant": {
+      "name": "CRM सहायक",
+      "description": "ग्राहक समृद्धि, डेटा स्वच्छता और संबंध इनसाइट।"
+    },
+    "project_manager": {
+      "name": "प्रोजेक्ट मैनेजर",
+      "description": "योजना, कार्य विभाजन और डिलीवरी जोखिम संकेत।"
+    },
+    "workflow_coordinator": {
+      "name": "वर्कफ़्लो समन्वयक",
+      "description": "AGXORA ऑटोमेशन वर्कफ़्लो को ट्रिगर और समन्वयित करता है।"
+    },
+    "finance_assistant": {
+      "name": "वित्त सहायक",
+      "description": "चालान जागरूकता, कैशफ़्लो नोट और वित्त सार।"
+    },
+    "document_analyst": {
+      "name": "दस्तावेज़ विश्लेषक",
+      "description": "दस्तावेज़ों से संरचना, जोखिम और सार निकालता है।"
+    },
+    "knowledge_assistant": {
+      "name": "ज्ञान सहायक",
+      "description": "कंपनी ज्ञान से उत्तर देता है, RAG-तैयार retrieval के साथ।"
+    },
+    "support_assistant": {
+      "name": "सपोर्ट सहायक",
+      "description": "सपोर्ट ट्रायज, जवाब और एस्केलेशन पथ।"
+    },
+    "meeting_assistant": {
+      "name": "मीटिंग सहायक",
+      "description": "एजेंडा तैयारी, नोट प्लेसहोल्डर और फॉलो-अप।"
+    },
+    "custom": {
+      "name": "कस्टम एजेंट",
+      "description": "संगठन-विशिष्ट एजेंटों के लिए विस्तार बिंदु।"
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "CRM टूल",
+      "description": "ग्राहक बनाएँ/अपडेट करें और खाता संदर्भ पढ़ें।"
+    },
+    "projects": {
+      "name": "प्रोजेक्ट टूल",
+      "description": "प्रोजेक्ट, कार्य और डिलीवरी स्थिति प्रबंधित करें।"
+    },
+    "finance": {
+      "name": "वित्त टूल",
+      "description": "चालान, शेष और वित्त सार।"
+    },
+    "documents": {
+      "name": "दस्तावेज़ टूल",
+      "description": "वर्कस्पेस दस्तावेज़ पढ़ें और सार करें।"
+    },
+    "workflow": {
+      "name": "वर्कफ़्लो टूल",
+      "description": "ऑटोमेशन वर्कफ़्लो ट्रिगर और जांचें।"
+    },
+    "integration": {
+      "name": "इंटीग्रेशन टूल",
+      "description": "कनेक्टेड थर्ड-पार्टी कनेक्टर कॉल करें।"
+    },
+    "email": {
+      "name": "ईमेल टूल",
+      "description": "आउटबाउंड ईमेल ड्राफ्ट करें और कतार में डालें।"
+    },
+    "calendar": {
+      "name": "कैलेंडर टूल",
+      "description": "कैलेंडर इवेंट शेड्यूल और जांचें।"
+    },
+    "search": {
+      "name": "खोज टूल",
+      "description": "यूनिवर्सल वर्कस्पेस खोज।"
+    },
+    "notification": {
+      "name": "सूचना टूल",
+      "description": "इन-ऐप सूचनाएँ भेजें।"
+    },
+    "api": {
+      "name": "API टूल",
+      "description": "आंतरिक API गेटवे रूट कॉल करें।"
+    },
+    "mcp": {
+      "name": "MCP टूल",
+      "description": "भविष्य के Model Context Protocol सर्वर टूल।"
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "AGXORA संचालन सिद्धांत",
+      "summary": "मॉड्यूलर, सुरक्षित AI एजेंटों के लिए एंटरप्राइज़ OS सिद्धांत।"
+    },
+    "policies": {
+      "title": "डेटा हैंडलिंग नीति",
+      "summary": "संवेदनशील टूल अलगाव और न्यूनतम अधिकार पहुंच।"
+    },
+    "procedures": {
+      "title": "ग्राहक एस्केलेशन प्रक्रिया",
+      "summary": "कम कॉन्फिडेंस पर सपोर्ट सहायक का एस्केलेशन पथ।"
+    },
+    "rag": {
+      "title": "RAG इंडेक्स प्लेसहोल्डर",
+      "summary": "दस्तावेज़ और CRM नोट्स पर भविष्य का वेक्टर retrieval।"
+    }
+  },
+  "llm": {
+    "local": "स्थानीय LLM",
+    "mcp": "MCP सर्वर",
+    "custom": "कस्टम मॉडल"
+  },
+  "lifecycle": {
+    "draft": "ड्राफ्ट",
+    "registered": "पंजीकृत",
+    "active": "सक्रिय",
+    "paused": "रोका गया",
+    "error": "त्रुटि",
+    "retired": "सेवानिवृत्त"
+  },
+  "healthStatus": {
+    "healthy": "स्वस्थ",
+    "degraded": "गिरा हुआ",
+    "down": "डाउन",
+    "unknown": "अज्ञात"
+  },
+  "taskStatus": {
+    "pending": "लंबित",
+    "running": "चल रहा",
+    "completed": "पूर्ण",
+    "cancelled": "रद्द",
+    "failed": "विफल",
+    "retrying": "पुनः प्रयास"
+  },
+  "memoryScope": {
+    "working": "कार्य",
+    "conversation": "बातचीत",
+    "business": "व्यवसाय",
+    "long_term": "दीर्घकालिक",
+    "workspace": "वर्कस्पेस",
+    "agent": "एजेंट"
+  },
+  "knowledgeKind": {
+    "company": "कंपनी",
+    "documents": "दस्तावेज़",
+    "projects": "प्रोजेक्ट",
+    "crm": "CRM",
+    "policies": "नीतियाँ",
+    "procedures": "प्रक्रियाएँ",
+    "vector": "वेक्टर",
+    "rag": "RAG"
   }
 }

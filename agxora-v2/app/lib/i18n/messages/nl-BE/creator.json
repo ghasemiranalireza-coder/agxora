@@ -138,12 +138,222 @@
     "professional": "Professioneel",
     "friendly": "Vriendelijk",
     "luxury": "Luxe",
-    "casual": "Informeel"
+    "casual": "Informeel",
+    "minimal": "Minimaal",
+    "corporate": "Zakelijk",
+    "creative": "Creatief",
+    "custom": "Aangepaste merkstem"
   },
   "integrationStatus": {
     "planned": "Gepland",
     "ready": "Klaar",
     "connected": "Verbonden",
     "disabled": "Uitgeschakeld"
+  },
+  "categories": {
+    "social": "Social",
+    "ads": "Ads",
+    "analytics": "Analyse"
+  },
+  "platforms": {
+    "instagram": {
+      "notes": "Officiële Graph API-publicatie + inzichten gereserveerd."
+    },
+    "tiktok": {
+      "notes": "TikTok Content Posting API-adapter gereserveerd."
+    },
+    "youtube": {
+      "notes": "YouTube Data API-upload + analytics gereserveerd."
+    },
+    "facebook": {
+      "notes": "Pages-publicatieadapter gereserveerd."
+    },
+    "linkedin": {
+      "notes": "UGC-/organisatiepost-adapter gereserveerd."
+    },
+    "pinterest": {
+      "notes": "Pins- + boards-adapter gereserveerd."
+    },
+    "threads": {
+      "notes": "Threads API-adapter gereserveerd."
+    },
+    "x": {
+      "notes": "X API v2-postadapter gereserveerd."
+    },
+    "meta-business": {
+      "notes": "Meta Business Suite- / Ads Manager-hooks gereserveerd."
+    },
+    "google-ads": {
+      "notes": "Google Ads API-campagnesync gereserveerd."
+    },
+    "google-analytics": {
+      "notes": "GA4-measurement- + reporting-adapter gereserveerd."
+    }
+  },
+  "features": {
+    "ideas": {
+      "label": "Contentideeën",
+      "description": "Branchebewuste idee-engine voor campagnes en posts."
+    },
+    "captions": {
+      "label": "Caption-generator",
+      "description": "Merkstem-captions per platformformaat."
+    },
+    "hashtags": {
+      "label": "Hashtag-suggesties",
+      "description": "Relevantie- en bereikscore voor hashtagsets."
+    },
+    "calendar": {
+      "label": "Contentkalender",
+      "description": "Cross-platform redactionele kalenderfundering."
+    },
+    "campaigns": {
+      "label": "Campagneplanner",
+      "description": "Doelen, doelgroep, platformen en tijdlijnen."
+    },
+    "audience": {
+      "label": "Doelgroepsuggesties",
+      "description": "Segmentsuggesties uit CRM- + creatorsignalen."
+    },
+    "schedule": {
+      "label": "Plaatsingsschema",
+      "description": "Tijdzonebewuste optimale plaatsingsvensters."
+    },
+    "brand": {
+      "label": "Merkconsistentie",
+      "description": "Toon- en assetchecks t.o.v. de merkstem."
+    },
+    "rewrite": {
+      "label": "AI-herschrijven",
+      "description": "Concepten herschrijven voor helderheid, lengte of kanaal."
+    },
+    "translate": {
+      "label": "Content vertalen",
+      "description": "Meertalige vertaalpipeline gereserveerd."
+    },
+    "i18n": {
+      "label": "Meertalige ondersteuning",
+      "description": "Localepakketten voor publish- en analytics-oppervlakken."
+    }
+  },
+  "kpi": {
+    "content": {
+      "label": "Gemaakte content",
+      "caption": "Dit kwartaal"
+    },
+    "campaigns": {
+      "label": "Campagnes",
+      "caption": "Actief + gepland"
+    },
+    "scheduled": {
+      "label": "Geplande posts",
+      "caption": "Komende 14 dagen"
+    },
+    "engagement": {
+      "label": "Engagement",
+      "caption": "Gem. tarief over kanalen"
+    },
+    "followers": {
+      "label": "Volgersgroei",
+      "caption": "Laatste 30 dagen"
+    },
+    "reach": {
+      "label": "Bereik",
+      "caption": "Unieke impressies"
+    },
+    "conversions": {
+      "label": "Conversies",
+      "caption": "Toegeschreven acties"
+    },
+    "ai-score": {
+      "label": "AI-prestatiesscore",
+      "caption": "Contentkwaliteitssignaal"
+    }
+  },
+  "analyticsMetrics": {
+    "a1": "Engagement",
+    "a2": "Bereik",
+    "a3": "CTR",
+    "a4": "Conversies",
+    "a5": "Doelgroepgroei",
+    "a6": "Contentprestaties"
+  },
+  "voiceDesc": {
+    "professional": "Heldere, geloofwaardige, business-first toon.",
+    "luxury": "Verfijnd, spaarzaam, premium framing.",
+    "friendly": "Warm, toegankelijk, conversatief.",
+    "casual": "Ontspannen alledaagse taal.",
+    "minimal": "Korte zinnen, hoge helderheid.",
+    "corporate": "Formele enterprise-communicatie.",
+    "creative": "Expressieve storytelling voor campagnes.",
+    "custom": "Richtlijnen en voorbeeldcopy later uploaden."
+  },
+  "formatDesc": {
+    "instagram_caption": "Feed-/Reels-captions met CTA-hooks.",
+    "tiktok_script": "Korte scripts: hook → waarde → CTA.",
+    "linkedin_post": "Thought leadership en B2B-verhalen.",
+    "facebook_post": "Community- en page-klare posts.",
+    "x_post": "Korte threads en losse posts.",
+    "blog_article": "Longform redactionele concepten.",
+    "newsletter": "Nieuwsbriefsecties en onderwerpregels.",
+    "email_campaign": "Campagnesequenties en nurture-copy.",
+    "product_description": "Commerce-klare productverhalen.",
+    "ad_copy": "Varianten voor paid social en zoekads.",
+    "seo_article": "Zoekintent-artikelen met outlinestructuur.",
+    "landing_page_copy": "Hero, voordelen, bewijs en CTA-blokken."
+  },
+  "campaignStatus": {
+    "Active": "Actief",
+    "In review": "In beoordeling",
+    "Planned": "Gepland"
+  },
+  "campaigns": {
+    "camp-1": {
+      "name": "Q3-productlancering",
+      "objective": "Awareness + wachtlijstaanmeldingen",
+      "audience": "EU-mkb-operators",
+      "budget": "€8.500 (placeholder)",
+      "timeline": "4 aug – 12 sep"
+    },
+    "camp-2": {
+      "name": "Creator-collab-sprint",
+      "objective": "Bereik + communitygroei",
+      "audience": "Creators 18–34 DE/AT",
+      "budget": "€4.200 (placeholder)",
+      "timeline": "20 jul – 20 aug"
+    },
+    "camp-3": {
+      "name": "Agency-portfolioduw",
+      "objective": "Leadgeneratie",
+      "audience": "Marketingdirecteurs",
+      "budget": "€2.900 (placeholder)",
+      "timeline": "1 sep – 30 sep"
+    }
+  },
+  "calendarItems": {
+    "cal-1": "Launch-teaser-reel",
+    "cal-2": "Founder-LinkedIn-narratief",
+    "cal-3": "Wachtlijst-e-mail #1",
+    "cal-4": "TikTok-demoscript"
+  },
+  "queueItems": {
+    "q-1": "Launch-teaser-reel-caption",
+    "q-2": "Founder-narratiefpost",
+    "q-3": "Wachtlijst-nurture-e-mail",
+    "q-4": "Product-landing-hero-copy",
+    "q-5": "TikTok-demoscript v2",
+    "q-6": "Junirecap-carrousel",
+    "q-7": "Oude promo-thread"
+  },
+  "topPosts": {
+    "tp-1": "Warehouse-automatisering teardown",
+    "tp-2": "30s productdemo-reel",
+    "tp-3": "Creator-collab-hook"
+  },
+  "recommendations": {
+    "r1": "Werk de LinkedIn-teardown deze week om tot een carrousel in 3 delen.",
+    "r2": "Plan TikTok-demo’s di–do 18:00–20:00 CET voor hogere completion.",
+    "r3": "Strak de luxury-merkstem op Instagram-CTA’s — verkort ~20%.",
+    "r4": "Vertaal de top-reelcaption naar DE/FR voor EU-uitbreiding."
   }
 }

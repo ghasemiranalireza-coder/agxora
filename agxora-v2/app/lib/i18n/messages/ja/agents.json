@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "顧客インパクトを優先",
     "delegatedFollowUp": "委任フォローアップ"
+  },
+  "categories": {
+    "Leadership": "リーダーシップ",
+    "Revenue": "収益",
+    "CRM": "CRM",
+    "Delivery": "デリバリー",
+    "Automation": "自動化",
+    "Finance": "財務",
+    "Knowledge": "ナレッジ",
+    "Support": "サポート",
+    "Productivity": "生産性",
+    "Custom": "カスタム"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "エグゼクティブアドバイザー",
+      "description": "戦略ブリーフィング、KPI要約、意思決定支援。"
+    },
+    "sales_agent": {
+      "name": "セールスエージェント",
+      "description": "パイプライン指導、アウトリーチ草案、案件の次アクション。"
+    },
+    "crm_assistant": {
+      "name": "CRMアシスタント",
+      "description": "顧客エンリッチメント、データ衛生、関係インサイト。"
+    },
+    "project_manager": {
+      "name": "プロジェクトマネージャー",
+      "description": "計画、タスク分解、納期リスク信号。"
+    },
+    "workflow_coordinator": {
+      "name": "ワークフローコーディネーター",
+      "description": "AGXORA自動化ワークフローを起動・編成します。"
+    },
+    "finance_assistant": {
+      "name": "財務アシスタント",
+      "description": "請求書の把握、キャッシュフローメモ、財務サマリー。"
+    },
+    "document_analyst": {
+      "name": "ドキュメントアナリスト",
+      "description": "文書から構造・リスク・要約を抽出します。"
+    },
+    "knowledge_assistant": {
+      "name": "ナレッジアシスタント",
+      "description": "企業ナレッジから回答。RAG向け検索に対応。"
+    },
+    "support_assistant": {
+      "name": "サポートアシスタント",
+      "description": "カスタマーサポートのトリアージ、返信、エスカレーション。"
+    },
+    "meeting_assistant": {
+      "name": "ミーティングアシスタント",
+      "description": "アジェンダ準備、メモのプレースホルダ、フォローアップ。"
+    },
+    "custom": {
+      "name": "カスタムエージェント",
+      "description": "組織固有エージェントの拡張ポイント。"
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "CRMツール",
+      "description": "顧客の作成/更新とアカウント文脈の参照。"
+    },
+    "projects": {
+      "name": "プロジェクトツール",
+      "description": "プロジェクト・タスク・納品状況を管理。"
+    },
+    "finance": {
+      "name": "財務ツール",
+      "description": "請求書、残高、財務サマリー。"
+    },
+    "documents": {
+      "name": "ドキュメントツール",
+      "description": "ワークスペース文書の参照と要約。"
+    },
+    "workflow": {
+      "name": "ワークフローツール",
+      "description": "自動化ワークフローの起動と検査。"
+    },
+    "integration": {
+      "name": "インテグレーションツール",
+      "description": "接続済みサードパーティコネクタを呼び出す。"
+    },
+    "email": {
+      "name": "メールツール",
+      "description": "送信メールの下書きとキューイング。"
+    },
+    "calendar": {
+      "name": "カレンダーツール",
+      "description": "カレンダー予定の作成と確認。"
+    },
+    "search": {
+      "name": "検索ツール",
+      "description": "ワークスペース横断検索。"
+    },
+    "notification": {
+      "name": "通知ツール",
+      "description": "アプリ内通知を送信。"
+    },
+    "api": {
+      "name": "APIツール",
+      "description": "内部APIゲートウェイ経路を呼び出す。"
+    },
+    "mcp": {
+      "name": "MCPツール",
+      "description": "将来のModel Context Protocolサーバーツール。"
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "AGXORA運営原則",
+      "summary": "モジュール型で安全なAIエージェント向けエンタープライズOS原則。"
+    },
+    "policies": {
+      "title": "データ取扱ポリシー",
+      "summary": "機密ツールの分離と最小権限アクセス。"
+    },
+    "procedures": {
+      "title": "顧客エスカレーション手順",
+      "summary": "信頼度が低い場合のサポートアシスタントのエスカレーション経路。"
+    },
+    "rag": {
+      "title": "RAGインデックスのプレースホルダ",
+      "summary": "文書とCRMメモに対する将来のベクトル検索。"
+    }
+  },
+  "llm": {
+    "local": "ローカルLLM",
+    "mcp": "MCPサーバー",
+    "custom": "カスタムモデル"
+  },
+  "lifecycle": {
+    "draft": "下書き",
+    "registered": "登録済み",
+    "active": "有効",
+    "paused": "一時停止",
+    "error": "エラー",
+    "retired": "廃止"
+  },
+  "healthStatus": {
+    "healthy": "健全",
+    "degraded": "劣化",
+    "down": "停止",
+    "unknown": "不明"
+  },
+  "taskStatus": {
+    "pending": "保留中",
+    "running": "実行中",
+    "completed": "完了",
+    "cancelled": "キャンセル",
+    "failed": "失敗",
+    "retrying": "再試行中"
+  },
+  "memoryScope": {
+    "working": "ワーキング",
+    "conversation": "会話",
+    "business": "ビジネス",
+    "long_term": "長期",
+    "workspace": "ワークスペース",
+    "agent": "エージェント"
+  },
+  "knowledgeKind": {
+    "company": "会社",
+    "documents": "文書",
+    "projects": "プロジェクト",
+    "crm": "CRM",
+    "policies": "ポリシー",
+    "procedures": "手順",
+    "vector": "ベクトル",
+    "rag": "RAG"
   }
 }

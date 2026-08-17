@@ -138,12 +138,222 @@
     "professional": "Professional",
     "friendly": "Friendly",
     "luxury": "Luxury",
-    "casual": "Casual"
+    "casual": "Casual",
+    "minimal": "Minimal",
+    "corporate": "Corporate",
+    "creative": "Creative",
+    "custom": "Custom Brand Voice"
   },
   "integrationStatus": {
     "planned": "Planned",
     "ready": "Ready",
     "connected": "Connected",
     "disabled": "Disabled"
+  },
+  "categories": {
+    "social": "Social",
+    "ads": "Ads",
+    "analytics": "Analytics"
+  },
+  "platforms": {
+    "instagram": {
+      "notes": "Official Graph API publish + insights reserved."
+    },
+    "tiktok": {
+      "notes": "TikTok Content Posting API adapter reserved."
+    },
+    "youtube": {
+      "notes": "YouTube Data API upload + analytics reserved."
+    },
+    "facebook": {
+      "notes": "Pages publishing adapter reserved."
+    },
+    "linkedin": {
+      "notes": "UGC / organization posts adapter reserved."
+    },
+    "pinterest": {
+      "notes": "Pins + boards adapter reserved."
+    },
+    "threads": {
+      "notes": "Threads API adapter reserved."
+    },
+    "x": {
+      "notes": "X API v2 posts adapter reserved."
+    },
+    "meta-business": {
+      "notes": "Meta Business Suite / Ads Manager hooks reserved."
+    },
+    "google-ads": {
+      "notes": "Google Ads API campaign sync reserved."
+    },
+    "google-analytics": {
+      "notes": "GA4 measurement + reporting adapter reserved."
+    }
+  },
+  "features": {
+    "ideas": {
+      "label": "Content Ideas",
+      "description": "Industry-aware idea engine for campaigns and posts."
+    },
+    "captions": {
+      "label": "Caption Generator",
+      "description": "Brand-voice captions per platform format."
+    },
+    "hashtags": {
+      "label": "Hashtag Suggestions",
+      "description": "Relevance and reach scoring for hashtag sets."
+    },
+    "calendar": {
+      "label": "Content Calendar",
+      "description": "Cross-platform editorial calendar foundation."
+    },
+    "campaigns": {
+      "label": "Campaign Planner",
+      "description": "Objectives, audience, platforms, and timelines."
+    },
+    "audience": {
+      "label": "Audience Suggestions",
+      "description": "Segment suggestions from CRM + creator signals."
+    },
+    "schedule": {
+      "label": "Posting Schedule",
+      "description": "Timezone-aware optimal posting windows."
+    },
+    "brand": {
+      "label": "Brand Consistency",
+      "description": "Tone and asset checks against brand voice."
+    },
+    "rewrite": {
+      "label": "AI Rewrite",
+      "description": "Rewrite drafts for clarity, length, or channel."
+    },
+    "translate": {
+      "label": "Translate Content",
+      "description": "Multi-language translation pipeline reserved."
+    },
+    "i18n": {
+      "label": "Multi-language Support",
+      "description": "Locale packs for publish and analytics surfaces."
+    }
+  },
+  "kpi": {
+    "content": {
+      "label": "Content Created",
+      "caption": "This quarter"
+    },
+    "campaigns": {
+      "label": "Campaigns",
+      "caption": "Active + planned"
+    },
+    "scheduled": {
+      "label": "Scheduled Posts",
+      "caption": "Next 14 days"
+    },
+    "engagement": {
+      "label": "Engagement",
+      "caption": "Avg rate across channels"
+    },
+    "followers": {
+      "label": "Followers Growth",
+      "caption": "Last 30 days"
+    },
+    "reach": {
+      "label": "Reach",
+      "caption": "Unique impressions"
+    },
+    "conversions": {
+      "label": "Conversions",
+      "caption": "Attributed actions"
+    },
+    "ai-score": {
+      "label": "AI Performance Score",
+      "caption": "Content quality signal"
+    }
+  },
+  "analyticsMetrics": {
+    "a1": "Engagement",
+    "a2": "Reach",
+    "a3": "CTR",
+    "a4": "Conversions",
+    "a5": "Audience Growth",
+    "a6": "Content Performance"
+  },
+  "voiceDesc": {
+    "professional": "Clear, credible, business-first tone.",
+    "luxury": "Refined, sparse, premium framing.",
+    "friendly": "Warm, approachable, conversational.",
+    "casual": "Relaxed everyday language.",
+    "minimal": "Short sentences, high clarity.",
+    "corporate": "Formal enterprise communications.",
+    "creative": "Expressive storytelling for campaigns.",
+    "custom": "Upload guidelines and sample copy later."
+  },
+  "formatDesc": {
+    "instagram_caption": "Feed / Reels captions with CTA hooks.",
+    "tiktok_script": "Hook → value → CTA short-form scripts.",
+    "linkedin_post": "Thought leadership and B2B narratives.",
+    "facebook_post": "Community and page-ready posts.",
+    "x_post": "Concise threads and single posts.",
+    "blog_article": "Long-form editorial drafts.",
+    "newsletter": "Email newsletter sections and subject lines.",
+    "email_campaign": "Campaign sequences and nurture copy.",
+    "product_description": "Commerce-ready product narratives.",
+    "ad_copy": "Paid social and search ad variants.",
+    "seo_article": "Search-intent articles with outline structure.",
+    "landing_page_copy": "Hero, benefits, proof, and CTA blocks."
+  },
+  "campaignStatus": {
+    "Active": "Active",
+    "In review": "In review",
+    "Planned": "Planned"
+  },
+  "campaigns": {
+    "camp-1": {
+      "name": "Q3 Product Launch",
+      "objective": "Awareness + waitlist signups",
+      "audience": "EU SMB operators",
+      "budget": "€8,500 (placeholder)",
+      "timeline": "Aug 4 – Sep 12"
+    },
+    "camp-2": {
+      "name": "Creator Collab Sprint",
+      "objective": "Reach + community growth",
+      "audience": "Creators 18–34 DE/AT",
+      "budget": "€4,200 (placeholder)",
+      "timeline": "Jul 20 – Aug 20"
+    },
+    "camp-3": {
+      "name": "Agency Portfolio Push",
+      "objective": "Lead generation",
+      "audience": "Marketing directors",
+      "budget": "€2,900 (placeholder)",
+      "timeline": "Sep 1 – Sep 30"
+    }
+  },
+  "calendarItems": {
+    "cal-1": "Launch teaser Reel",
+    "cal-2": "Founder LinkedIn narrative",
+    "cal-3": "Waitlist email #1",
+    "cal-4": "TikTok demo script"
+  },
+  "queueItems": {
+    "q-1": "Launch teaser Reel caption",
+    "q-2": "Founder narrative post",
+    "q-3": "Waitlist nurture email",
+    "q-4": "Product landing hero copy",
+    "q-5": "TikTok demo script v2",
+    "q-6": "June recap carousel",
+    "q-7": "Old promo thread"
+  },
+  "topPosts": {
+    "tp-1": "Warehouse automation teardown",
+    "tp-2": "30s product demo Reel",
+    "tp-3": "Creator collab hook"
+  },
+  "recommendations": {
+    "r1": "Repurpose the LinkedIn teardown into a 3-part carousel this week.",
+    "r2": "Schedule TikTok demos Tue–Thu 18:00–20:00 CET for higher completion.",
+    "r3": "Tighten luxury brand voice on Instagram CTAs — shorten by ~20%.",
+    "r4": "Translate top Reel caption into DE/FR for EU audience expansion."
   }
 }

@@ -3,7 +3,7 @@
 import type { JSX } from "react";
 import type { AiFeaturePlan, PlatformIntegrationPlan } from "../../lib/creator-studio";
 import { integrationLabel } from "../../lib/creator-studio";
-import { useT } from "../../lib/i18n";
+import { catalogCopy, useT } from "../../lib/i18n";
 import { Badge, Card } from "../ui";
 
 export function FutureIntegrations({
@@ -37,7 +37,7 @@ export function FutureIntegrations({
                   className="mt-1 text-xs uppercase tracking-[0.12em]"
                   style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                 >
-                  {platform.category}
+                  {catalogCopy(t, `creator.categories.${platform.category}`, platform.category)}
                 </p>
               </div>
               <Badge tone="warning">{t(integrationLabel(platform.status))}</Badge>
@@ -47,7 +47,7 @@ export function FutureIntegrations({
               <span style={{ color: "var(--agx-text, #f8fafc)" }}>{platform.adapter}</span>
             </p>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {platform.notes}
+              {catalogCopy(t, `creator.platforms.${platform.id}.notes`, platform.notes)}
             </p>
           </article>
         ))}
@@ -80,14 +80,14 @@ export function AiFeaturesPanel({
           >
             <div className="flex items-start justify-between gap-2">
               <h3 className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                {feature.label}
+                {catalogCopy(t, `creator.features.${feature.id}.label`, feature.label)}
               </h3>
               <Badge tone={feature.status === "ready" ? "accent" : "warning"}>
                 {t(integrationLabel(feature.status))}
               </Badge>
             </div>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {feature.description}
+              {catalogCopy(t, `creator.features.${feature.id}.description`, feature.description)}
             </p>
           </article>
         ))}

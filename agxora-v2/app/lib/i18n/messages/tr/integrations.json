@@ -139,5 +139,75 @@
   "errors": {
     "failedToFetch": "Getirilemedi",
     "httpStatus": "HTTP {status}"
+  },
+  "categories": {
+    "productivity": "Verimlilik",
+    "communication": "İletişim",
+    "storage": "Depolama",
+    "crm": "CRM",
+    "automation": "Otomasyon",
+    "devtools": "Geliştirici araçları",
+    "custom": "Özel"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "API anahtarı",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "Özel OAuth"
+  },
+  "connectorNames": {
+    "custom": "Özel bağlayıcı"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Microsoft Graph ile e-posta, takvim ve Teams."
+    },
+    "google_workspace": {
+      "description": "Workspace kiracıları için Gmail, Takvim ve Drive."
+    },
+    "slack": {
+      "description": "Kanallar, mesajlar ve etkileşimli bildirimler."
+    },
+    "discord": {
+      "description": "Sunucu bildirimleri ve bot mesaj teslimi."
+    },
+    "dropbox": {
+      "description": "Dosya senkronu ve paylaşılan klasör olayları."
+    },
+    "onedrive": {
+      "description": "Microsoft OneDrive dosya depolama ve delta senkron."
+    },
+    "google_drive": {
+      "description": "Drive dosyaları, klasörler ve değişiklik bildirimleri."
+    },
+    "hubspot": {
+      "description": "CRM kişileri, fırsatlar ve pazarlama olayları."
+    },
+    "salesforce": {
+      "description": "Kurumsal CRM nesneleri ve Platform Events."
+    },
+    "zapier": {
+      "description": "Zapier zap’lerine giden kancalar."
+    },
+    "make": {
+      "description": "Make (Integromat) senaryo webhook’ları."
+    },
+    "github": {
+      "description": "Depolar, issue’lar, pull request’ler ve Actions."
+    },
+    "gitlab": {
+      "description": "Projeler, merge request’ler, pipeline’lar ve webhook’lar."
+    },
+    "custom": {
+      "description": "Kuruluşa özel kurumsal sistemler için genişletme noktası."
+    }
+  },
+  "healthStatus": {
+    "healthy": "Sağlıklı",
+    "degraded": "Bozulmuş",
+    "down": "Kapalı",
+    "unknown": "Bilinmiyor"
   }
 }

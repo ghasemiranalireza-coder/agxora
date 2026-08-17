@@ -259,6 +259,31 @@
         "warning": "警告",
         "ok": "好的"
       }
+    },
+    "licenseStatus": {
+      "trial": "试用",
+      "active": "有效",
+      "expired": "已过期",
+      "cancelled": "已取消",
+      "suspended": "已暂停",
+      "lifetime": "终身"
+    },
+    "quotas": {
+      "ai_requests": "AI 请求",
+      "projects": "项目",
+      "customers": "客户",
+      "documents": "文档",
+      "storage_mb": "存储 (MB)",
+      "users": "用户",
+      "api_requests": "API 请求"
+    },
+    "invoiceStatus": {
+      "draft": "草稿",
+      "open": "未结",
+      "paid": "已付",
+      "void": "作废",
+      "uncollectible": "无法收回",
+      "refunded": "已退款"
     }
   },
   "settings": {
@@ -3668,6 +3693,189 @@
         "label": "更新状态",
         "description": "更新模块中实体的状态。"
       }
+    },
+    "kinds": {
+      "trigger": "触发器",
+      "action": "操作",
+      "condition": "条件",
+      "delay": "延迟",
+      "approval": "审批",
+      "loop": "循环",
+      "merge": "合并",
+      "split": "拆分",
+      "ai_decision": "AI 决策",
+      "ai_action": "AI 操作",
+      "notification": "通知",
+      "webhook": "Webhook",
+      "custom_action": "自定义操作",
+      "branch": "分支",
+      "variable": "变量"
+    },
+    "kpi": {
+      "active": {
+        "label": "进行中的工作流",
+        "caption": "已在工作区启用"
+      },
+      "runs-today": {
+        "label": "今日工作流运行",
+        "caption": "覆盖全部触发器"
+      },
+      "success": {
+        "label": "成功的自动化",
+        "caption": "今日"
+      },
+      "failed": {
+        "label": "失败运行",
+        "caption": "需要关注"
+      },
+      "pending": {
+        "label": "待处理任务",
+        "caption": "审批 + 重试"
+      },
+      "avg-time": {
+        "label": "平均执行时间",
+        "caption": "中位数 1.2 秒"
+      },
+      "ai-suggestions": {
+        "label": "AI 建议",
+        "caption": "自动化机会"
+      }
+    },
+    "integrationCategories": {
+      "Productivity": "效率",
+      "Communication": "沟通",
+      "Commerce": "商务",
+      "Finance": "财务",
+      "ERP": "ERP",
+      "CRM": "CRM"
+    },
+    "integrationNotes": {
+      "google-workspace": "已预留 Gmail / Drive / 日历钩子供 OAuth 接线。",
+      "m365": "已预留 Outlook / Teams / Graph 钩子。",
+      "slack": "已预留 Events API + 聊天发帖。",
+      "teams": "已预留 Bot Framework 适配器。",
+      "discord": "已预留 Webhook + 机器人适配器。",
+      "whatsapp": "已预留 Meta Cloud API 适配器。",
+      "stripe": "已预留支付 Webhook — 无实时密钥。",
+      "shopify": "已预留订单 / 产品事件。",
+      "datev": "已预留 DATEV 导出 / 过账批次钩子。",
+      "sap": "已预留 ERP 事件桥 — 企业方案前禁用。",
+      "hubspot": "已预留 CRM 同步适配器。",
+      "salesforce": "已预留 Platform Events 适配器。"
+    },
+    "defaultWorkflow": {
+      "name": "客户入职",
+      "description": "创建客户时的欢迎序列。"
+    },
+    "templateCategories": {
+      "CRM": "CRM",
+      "Finance": "财务",
+      "Sales": "销售",
+      "Marketing": "营销",
+      "HR": "人力资源",
+      "Creator": "创作者",
+      "Ops": "运营",
+      "Projects": "项目",
+      "AI": "AI"
+    },
+    "studioTemplates": {
+      "tpl-onboarding": {
+        "name": "客户入职",
+        "description": "客户创建后发送欢迎邮件、AI 摘要和负责人任务。",
+        "category": "CRM",
+        "recommendedFor": "正在接入新 B2B 客户的团队"
+      },
+      "tpl-invoice": {
+        "name": "发票提醒",
+        "description": "针对未结发票的定时提醒与升级路径。",
+        "category": "财务",
+        "recommendedFor": "希望降低逾期应收的财务运营"
+      },
+      "tpl-lead": {
+        "name": "线索跟进",
+        "description": "新线索的 AI 邮件回复与管道状态更新。",
+        "category": "销售",
+        "recommendedFor": "入站线索量大的销售团队"
+      },
+      "tpl-welcome": {
+        "name": "欢迎邮件",
+        "description": "注册时的简单欢迎序列。",
+        "category": "营销",
+        "recommendedFor": "任何刚开始做邮件自动化的工作区"
+      },
+      "tpl-pipeline": {
+        "name": "销售管道",
+        "description": "阶段变更并附带通知与任务。",
+        "category": "销售",
+        "recommendedFor": "管理多阶段成交推进的团队"
+      },
+      "tpl-recruit": {
+        "name": "招聘",
+        "description": "候选人分流与面试任务。",
+        "category": "人力资源",
+        "recommendedFor": "招聘经理与人事运营"
+      },
+      "tpl-content": {
+        "name": "内容发布",
+        "description": "创作者工作室：发布 → 通知 → 分析。",
+        "category": "创作者",
+        "recommendedFor": "营销与创作者团队"
+      },
+      "tpl-approval": {
+        "name": "审批流程",
+        "description": "带 AI 建议的多步审批。",
+        "category": "运营",
+        "recommendedFor": "副作用发生前的财务/运营审批",
+        "estimatedRuntime": "人工关卡"
+      }
+    },
+    "engineTemplates": {
+      "tpl_customer_welcome": {
+        "name": "新客户欢迎",
+        "description": "客户创建时发送欢迎邮件并通知。",
+        "category": "CRM"
+      },
+      "tpl_invoice_reminder": {
+        "name": "发票提醒",
+        "description": "开票后提醒客户。",
+        "category": "财务"
+      },
+      "tpl_project_kickoff": {
+        "name": "项目启动",
+        "description": "项目创建时分配启动任务并通知。",
+        "category": "项目"
+      },
+      "tpl_task_assignment": {
+        "name": "任务分配",
+        "description": "任务完成时给负责人发邮件 — 衔接下一项工作。",
+        "category": "项目"
+      },
+      "tpl_ai_customer_summary": {
+        "name": "AI 客户摘要",
+        "description": "客户创建时运行 AI 摘要并存储输出。",
+        "category": "AI"
+      },
+      "tpl_followup_reminder": {
+        "name": "跟进提醒",
+        "description": "按计划跟进，并按状态分支。",
+        "category": "CRM"
+      }
+    },
+    "nodeLabels": {
+      "send_welcome_email": "发送欢迎邮件",
+      "notify_team": "通知团队",
+      "wait_3_days": "等待 3 天",
+      "still_unpaid": "仍未付款？",
+      "send_reminder": "发送提醒",
+      "assign_kickoff_task": "分配启动任务",
+      "notify_owner": "通知负责人",
+      "notify_stakeholders": "通知相关方",
+      "run_ai_summary": "运行 AI 摘要",
+      "generate_document": "生成文档",
+      "daily_schedule": "每日计划",
+      "by_priority": "按优先级",
+      "urgent_notification": "紧急通知",
+      "standard_email": "标准邮件"
     }
   },
   "team": {
@@ -4151,6 +4359,177 @@
     "os": {
       "prioritizeCustomerImpact": "优先考虑客户影响",
       "delegatedFollowUp": "已委派跟进"
+    },
+    "categories": {
+      "Leadership": "领导力",
+      "Revenue": "营收",
+      "CRM": "CRM",
+      "Delivery": "交付",
+      "Automation": "自动化",
+      "Finance": "财务",
+      "Knowledge": "知识",
+      "Support": "支持",
+      "Productivity": "效率",
+      "Custom": "自定义"
+    },
+    "catalog": {
+      "executive_advisor": {
+        "name": "高管顾问",
+        "description": "战略简报、KPI 汇总与决策支持。"
+      },
+      "sales_agent": {
+        "name": "销售代理",
+        "description": "管道辅导、外联草稿与交易下一步。"
+      },
+      "crm_assistant": {
+        "name": "CRM 助手",
+        "description": "客户数据充实、数据卫生与关系洞察。"
+      },
+      "project_manager": {
+        "name": "项目经理",
+        "description": "计划、任务拆解与交付风险信号。"
+      },
+      "workflow_coordinator": {
+        "name": "工作流协调员",
+        "description": "触发并编排 AGXORA 自动化工作流。"
+      },
+      "finance_assistant": {
+        "name": "财务助手",
+        "description": "发票洞察、现金流备注与财务摘要。"
+      },
+      "document_analyst": {
+        "name": "文档分析师",
+        "description": "从文档中提取结构、风险与摘要。"
+      },
+      "knowledge_assistant": {
+        "name": "知识助手",
+        "description": "基于企业知识作答，检索已为 RAG 预留。"
+      },
+      "support_assistant": {
+        "name": "支持助手",
+        "description": "客户支持分诊、回复与升级路径。"
+      },
+      "meeting_assistant": {
+        "name": "会议助手",
+        "description": "议程准备、笔记占位与跟进。"
+      },
+      "custom": {
+        "name": "自定义代理",
+        "description": "面向组织专属代理的扩展点。"
+      }
+    },
+    "toolsCatalog": {
+      "crm": {
+        "name": "CRM 工具",
+        "description": "创建/更新客户并读取账户上下文。"
+      },
+      "projects": {
+        "name": "项目工具",
+        "description": "管理项目、任务与交付状态。"
+      },
+      "finance": {
+        "name": "财务工具",
+        "description": "发票、余额与财务摘要。"
+      },
+      "documents": {
+        "name": "文档工具",
+        "description": "读取并摘要工作区文档。"
+      },
+      "workflow": {
+        "name": "工作流工具",
+        "description": "触发并检查自动化工作流。"
+      },
+      "integration": {
+        "name": "集成工具",
+        "description": "调用已连接的第三方连接器。"
+      },
+      "email": {
+        "name": "邮件工具",
+        "description": "起草并排队外发邮件。"
+      },
+      "calendar": {
+        "name": "日历工具",
+        "description": "安排并查看日历事件。"
+      },
+      "search": {
+        "name": "搜索工具",
+        "description": "通用工作区搜索。"
+      },
+      "notification": {
+        "name": "通知工具",
+        "description": "发送应用内通知。"
+      },
+      "api": {
+        "name": "API 工具",
+        "description": "调用内部 API 网关路由。"
+      },
+      "mcp": {
+        "name": "MCP 工具",
+        "description": "未来的 Model Context Protocol 服务器工具。"
+      }
+    },
+    "knowledgeDocs": {
+      "company": {
+        "title": "AGXORA 运营原则",
+        "summary": "面向模块化安全 AI 代理的企业操作系统原则。"
+      },
+      "policies": {
+        "title": "数据处理政策",
+        "summary": "敏感工具隔离与最小权限访问。"
+      },
+      "procedures": {
+        "title": "客户升级流程",
+        "summary": "支持助手在低置信度时的升级路径。"
+      },
+      "rag": {
+        "title": "RAG 索引占位",
+        "summary": "未来对文档与 CRM 笔记的向量检索。"
+      }
+    },
+    "llm": {
+      "local": "本地 LLM",
+      "mcp": "MCP 服务器",
+      "custom": "自定义模型"
+    },
+    "lifecycle": {
+      "draft": "草稿",
+      "registered": "已注册",
+      "active": "启用",
+      "paused": "已暂停",
+      "error": "错误",
+      "retired": "已停用"
+    },
+    "healthStatus": {
+      "healthy": "健康",
+      "degraded": "降级",
+      "down": "停机",
+      "unknown": "未知"
+    },
+    "taskStatus": {
+      "pending": "待处理",
+      "running": "运行中",
+      "completed": "已完成",
+      "cancelled": "已取消",
+      "failed": "失败",
+      "retrying": "重试中"
+    },
+    "memoryScope": {
+      "working": "工作",
+      "conversation": "对话",
+      "business": "业务",
+      "long_term": "长期",
+      "workspace": "工作区",
+      "agent": "代理"
+    },
+    "knowledgeKind": {
+      "company": "公司",
+      "documents": "文档",
+      "projects": "项目",
+      "crm": "CRM",
+      "policies": "政策",
+      "procedures": "流程",
+      "vector": "向量",
+      "rag": "RAG"
     }
   },
   "integrations": {
@@ -4294,6 +4673,76 @@
     "errors": {
       "failedToFetch": "获取失败",
       "httpStatus": "HTTP {status}"
+    },
+    "categories": {
+      "productivity": "效率",
+      "communication": "沟通",
+      "storage": "存储",
+      "crm": "CRM",
+      "automation": "自动化",
+      "devtools": "开发者工具",
+      "custom": "自定义"
+    },
+    "auth": {
+      "oauth2": "OAuth 2.0",
+      "api_key": "API 密钥",
+      "webhook": "Webhook"
+    },
+    "oauth": {
+      "custom": "自定义 OAuth"
+    },
+    "connectorNames": {
+      "custom": "自定义连接器"
+    },
+    "connectors": {
+      "microsoft365": {
+        "description": "通过 Microsoft Graph 使用邮件、日历和 Teams。"
+      },
+      "google_workspace": {
+        "description": "面向 Workspace 租户的 Gmail、日历和云端硬盘。"
+      },
+      "slack": {
+        "description": "频道、消息与交互通知。"
+      },
+      "discord": {
+        "description": "服务器通知与机器人消息投递。"
+      },
+      "dropbox": {
+        "description": "文件同步与共享文件夹事件。"
+      },
+      "onedrive": {
+        "description": "Microsoft OneDrive 文件存储与增量同步。"
+      },
+      "google_drive": {
+        "description": "云端硬盘文件、文件夹与变更通知。"
+      },
+      "hubspot": {
+        "description": "CRM 联系人、交易与营销事件。"
+      },
+      "salesforce": {
+        "description": "企业 CRM 对象与 Platform Events。"
+      },
+      "zapier": {
+        "description": "发往 Zapier zap 的出站钩子。"
+      },
+      "make": {
+        "description": "Make（Integromat）场景 Webhook。"
+      },
+      "github": {
+        "description": "仓库、议题、拉取请求与 Actions。"
+      },
+      "gitlab": {
+        "description": "项目、合并请求、流水线与 Webhook。"
+      },
+      "custom": {
+        "description": "面向专有企业系统的扩展点。"
+      }
+    },
+    "healthStatus": {
+      "healthy": "健康",
+      "degraded": "降级",
+      "down": "停机",
+      "unknown": "未知"
     }
   },
   "intelligence": {
@@ -4365,14 +4814,78 @@
       "title": "关键绩效指标中心",
       "subtitle": "跨收入、客户、项目、工作流程、代理和自动化的可配置 KPI 目录。",
       "emptyTitle": "分析等待信号",
-      "emptyDescription": "一旦您的工作区产生活动，执行 KPI 和警报就会出现在此处。"
+      "emptyDescription": "一旦您的工作区产生活动，执行 KPI 和警报就会出现在此处。",
+      "revenue": {
+        "name": "收入",
+        "description": "期间内已确认总收入。"
+      },
+      "mrr": {
+        "name": "MRR",
+        "description": "月经常性收入。"
+      },
+      "arr": {
+        "name": "ARR",
+        "description": "年经常性收入。"
+      },
+      "growth": {
+        "name": "增长",
+        "description": "相对上期的增长率。"
+      },
+      "customer_acquisition": {
+        "name": "获客",
+        "description": "新获得的客户。"
+      },
+      "retention": {
+        "name": "留存",
+        "description": "客户留存率。"
+      },
+      "churn": {
+        "name": "流失",
+        "description": "客户流失率。"
+      },
+      "project_success": {
+        "name": "项目成功",
+        "description": "按时/按范围交付的项目。"
+      },
+      "workflow_success": {
+        "name": "工作流成功",
+        "description": "成功的工作流执行。"
+      },
+      "agent_performance": {
+        "name": "代理表现",
+        "description": "AI 代理任务成功分数。"
+      },
+      "automation_success": {
+        "name": "自动化成功",
+        "description": "自动化 / 集成可靠性。"
+      },
+      "custom": {
+        "name": "自定义 KPI",
+        "description": "面向组织自定义 KPI 的扩展点。"
+      }
     },
     "reports": {
       "title": "报告引擎",
       "subtitle": "报告定义已播种以供审核。在连接报告后端之前，文件导出不可用。",
       "emptyTitle": "没有报告",
       "emptyDescription": "报告工作区引导的种子。",
-      "scheduleOnDemand": "一经请求"
+      "scheduleOnDemand": "一经请求",
+      "executive": {
+        "title": "高管周报",
+        "description": "面向 CEO 的健康、收入、风险与增长简报。"
+      },
+      "department": {
+        "title": "销售部门报告",
+        "description": "面向销售领导的管道、获客与留存。"
+      },
+      "operational": {
+        "title": "运营日报",
+        "description": "工作流、集成与身份态势。"
+      },
+      "management": {
+        "title": "交付管理",
+        "description": "项目成功、产能与文档吞吐。"
+      }
     },
     "insights": {
       "emptyTitle": "还没有任何见解",
@@ -4392,12 +4905,88 @@
       "emptyDescription": "来自风险启发的警报种子。",
       "acked": "确认",
       "open": "打开",
-      "acknowledge": "承认"
+      "acknowledge": "承认",
+      "revenue_drop": {
+        "title": "细分收入走弱",
+        "body": "SMB 周环比收入下降 4% — 请检查管道覆盖。"
+      },
+      "project_delay": {
+        "title": "项目有延期风险",
+        "body": "两个交付项目已越过里程碑关口。"
+      },
+      "churn_risk": {
+        "title": "客户流失风险升高",
+        "body": "三个账户的互动分数下降。"
+      },
+      "workflow_failure": {
+        "title": "检测到工作流失败",
+        "body": "发票提醒工作流 24 小时内失败两次。"
+      },
+      "ai_failure": {
+        "title": "AI 任务重试升高",
+        "body": "代理任务重试率越过软阈值。"
+      },
+      "integration_error": {
+        "title": "集成错误",
+        "body": "Slack 连接器间歇返回 5xx。"
+      },
+      "security": {
+        "title": "安全警报",
+        "body": "检测到异常 API 密钥使用模式。"
+      }
     },
     "scorecards": {
       "title": "记分卡引擎",
       "emptyTitle": "没有记分卡",
-      "emptyDescription": "记分卡在引导程序上种子。"
+      "emptyDescription": "记分卡在引导程序上种子。",
+      "sales": {
+        "name": "销售评分",
+        "drivers": {
+          "pipeline_coverage": "管道覆盖",
+          "win_rate": "赢单率",
+          "cycle_time": "周期时长"
+        }
+      },
+      "customer_health": {
+        "name": "客户健康评分",
+        "drivers": {
+          "retention": "留存",
+          "nps_proxy": "NPS 代理",
+          "support_load": "支持负载"
+        }
+      },
+      "project_success": {
+        "name": "项目成功评分",
+        "drivers": {
+          "on_time_delivery": "准时交付",
+          "scope_control": "范围控制",
+          "utilization": "利用率"
+        }
+      },
+      "automation_efficiency": {
+        "name": "自动化效率",
+        "drivers": {
+          "workflow_success": "工作流成功",
+          "manual_effort_saved": "节省的人工",
+          "retry_rate": "重试率"
+        }
+      },
+      "ai_quality": {
+        "name": "AI 质量",
+        "drivers": {
+          "task_success": "任务成功",
+          "confidence_avg": "平均置信度",
+          "escalation_rate": "升级率"
+        }
+      },
+      "operational_health": {
+        "name": "运营健康",
+        "drivers": {
+          "system_health": "系统健康",
+          "integration_reliability": "集成可靠性",
+          "identity_posture": "身份态势"
+        }
+      }
     },
     "explorer": {
       "title": "数据浏览器",
@@ -4405,7 +4994,8 @@
       "searchAria": "搜索演示浏览器行",
       "emptyTitle": "没有匹配的行",
       "emptyDescription": "调整过滤器或搜索，或重新加载演示数据集。",
-      "hint": "客户端对种子元组的搜索 - 后端聚合和向下钻取未连接。"
+      "hint": "客户端对种子元组的搜索 - 后端聚合和向下钻取未连接。",
+      "metricLabel": "{domain} 指标 {index}"
     },
     "columns": {
       "kpi": "关键绩效指标",
@@ -4430,7 +5020,123 @@
       "measure": "措施",
       "date": "日期"
     },
-    "emDash": "—"
+    "emDash": "—",
+    "domains": {
+      "crm": "CRM 分析",
+      "projects": "项目分析",
+      "finance": "财务分析",
+      "documents": "文档分析",
+      "workflow": "工作流分析",
+      "identity": "身份分析",
+      "ai": "AI 分析",
+      "integration": "集成分析",
+      "executive": "高管"
+    },
+    "series": {
+      "crm_leads": "线索",
+      "crm_pipeline": "管道（千美元）",
+      "proj_active": "进行中的项目",
+      "proj_on_time": "准时 %",
+      "fin_revenue": "收入（千美元）",
+      "fin_margin": "毛利率 %",
+      "doc_created": "已创建文档",
+      "doc_views": "文档浏览",
+      "wf_runs": "工作流运行",
+      "wf_success": "成功率 %",
+      "id_users": "活跃用户",
+      "id_sessions": "会话",
+      "ai_tasks": "代理任务",
+      "ai_success": "代理成功率 %",
+      "int_calls": "API / Webhook 调用",
+      "int_errors": "集成错误"
+    },
+    "bands": {
+      "Critical": "严重",
+      "Watch": "观察",
+      "Healthy": "健康",
+      "Excellent": "优秀"
+    },
+    "charts": {
+      "chart_revenue": "收入趋势",
+      "chart_pipeline": "CRM 管道",
+      "chart_workflows": "工作流活动",
+      "chart_ai": "AI 活动构成",
+      "chart_ops_table": "运营快照",
+      "chart_heatmap_placeholder": "互动热图"
+    },
+    "chartKinds": {
+      "line": "折线",
+      "bar": "柱状",
+      "area": "面积",
+      "pie": "饼图",
+      "heatmap": "热图",
+      "table": "表格",
+      "card": "卡片"
+    },
+    "insightItems": {
+      "trend": {
+        "title": "MRR 加速",
+        "summary": "MRR 增长连续三个周期改善。"
+      },
+      "pattern": {
+        "title": "开票日工作流高峰",
+        "summary": "自动化负载与月末开票相关。"
+      },
+      "recommendation": {
+        "title": "扩展留存手册",
+        "summary": "将 CSM 外联聚焦于三个健康度下降的账户。"
+      },
+      "executive_summary": {
+        "title": "高管简报",
+        "summary": "公司健康良好；关注流失风险与交付延期。"
+      },
+      "risk": {
+        "title": "交付风险集群",
+        "summary": "两个项目共享资源争用 — 产能预测升高。"
+      },
+      "opportunity": {
+        "title": "增购机会",
+        "summary": "高用量但未使用 Business 方案的账户有扩展潜力。"
+      }
+    },
+    "forecastNotes": {
+      "revenue": "线性趋势占位 — 请替换为模型服务。",
+      "customer": "获客 + 留存合成。",
+      "project": "考虑产能的交付预测。",
+      "capacity": "团队利用率预测。",
+      "growth": "增长率预测。"
+    },
+    "forecastKinds": {
+      "revenue": "收入",
+      "customer": "客户",
+      "project": "项目",
+      "capacity": "产能",
+      "growth": "增长"
+    },
+    "severity": {
+      "info": "信息",
+      "warning": "警告",
+      "critical": "严重"
+    },
+    "trend": {
+      "up": "上升",
+      "down": "下降",
+      "flat": "持平"
+    },
+    "insightKinds": {
+      "trend": "趋势",
+      "pattern": "模式",
+      "recommendation": "建议",
+      "executive_summary": "高管摘要",
+      "risk": "风险",
+      "opportunity": "机会"
+    },
+    "reportKinds": {
+      "executive": "高管",
+      "department": "部门",
+      "operational": "运营",
+      "management": "管理"
+    }
   },
   "legal": {
     "shell": {
@@ -4860,13 +5566,223 @@
       "professional": "专业",
       "friendly": "友好",
       "luxury": "奢华",
-      "casual": "轻松"
+      "casual": "轻松",
+      "minimal": "极简",
+      "corporate": "企业",
+      "creative": "创意",
+      "custom": "自定义品牌声线"
     },
     "integrationStatus": {
       "planned": "已规划",
       "ready": "就绪",
       "connected": "已连接",
       "disabled": "已停用"
+    },
+    "categories": {
+      "social": "社交",
+      "ads": "广告",
+      "analytics": "分析"
+    },
+    "platforms": {
+      "instagram": {
+        "notes": "已预留官方 Graph API 发布与洞察。"
+      },
+      "tiktok": {
+        "notes": "已预留 TikTok Content Posting API 适配器。"
+      },
+      "youtube": {
+        "notes": "已预留 YouTube Data API 上传与分析。"
+      },
+      "facebook": {
+        "notes": "已预留 Pages 发布适配器。"
+      },
+      "linkedin": {
+        "notes": "已预留 UGC / 组织帖子适配器。"
+      },
+      "pinterest": {
+        "notes": "已预留 Pins + Boards 适配器。"
+      },
+      "threads": {
+        "notes": "已预留 Threads API 适配器。"
+      },
+      "x": {
+        "notes": "已预留 X API v2 发帖适配器。"
+      },
+      "meta-business": {
+        "notes": "已预留 Meta Business Suite / Ads Manager 钩子。"
+      },
+      "google-ads": {
+        "notes": "已预留 Google Ads API 广告系列同步。"
+      },
+      "google-analytics": {
+        "notes": "已预留 GA4 衡量与报告适配器。"
+      }
+    },
+    "features": {
+      "ideas": {
+        "label": "内容创意",
+        "description": "面向行业的活动与帖子创意引擎。"
+      },
+      "captions": {
+        "label": "文案生成器",
+        "description": "按平台格式生成品牌声线文案。"
+      },
+      "hashtags": {
+        "label": "话题标签建议",
+        "description": "话题标签组的相关性与触达评分。"
+      },
+      "calendar": {
+        "label": "内容日历",
+        "description": "跨平台编辑日历基础。"
+      },
+      "campaigns": {
+        "label": "活动策划",
+        "description": "目标、受众、平台与时间线。"
+      },
+      "audience": {
+        "label": "受众建议",
+        "description": "来自 CRM + 创作者信号的细分建议。"
+      },
+      "schedule": {
+        "label": "发布排期",
+        "description": "考虑时区的最佳发布时间窗。"
+      },
+      "brand": {
+        "label": "品牌一致性",
+        "description": "对照品牌声线检查语气与素材。"
+      },
+      "rewrite": {
+        "label": "AI 改写",
+        "description": "按清晰度、长度或渠道改写草稿。"
+      },
+      "translate": {
+        "label": "翻译内容",
+        "description": "已预留多语言翻译流水线。"
+      },
+      "i18n": {
+        "label": "多语言支持",
+        "description": "发布与分析界面的语言包。"
+      }
+    },
+    "kpi": {
+      "content": {
+        "label": "已创作内容",
+        "caption": "本季度"
+      },
+      "campaigns": {
+        "label": "活动",
+        "caption": "进行中 + 已计划"
+      },
+      "scheduled": {
+        "label": "已排期帖子",
+        "caption": "未来 14 天"
+      },
+      "engagement": {
+        "label": "互动",
+        "caption": "各渠道平均比率"
+      },
+      "followers": {
+        "label": "粉丝增长",
+        "caption": "过去 30 天"
+      },
+      "reach": {
+        "label": "触达",
+        "caption": "独立展示"
+      },
+      "conversions": {
+        "label": "转化",
+        "caption": "归因动作"
+      },
+      "ai-score": {
+        "label": "AI 表现分",
+        "caption": "内容质量信号"
+      }
+    },
+    "analyticsMetrics": {
+      "a1": "互动",
+      "a2": "触达",
+      "a3": "CTR",
+      "a4": "转化",
+      "a5": "受众增长",
+      "a6": "内容表现"
+    },
+    "voiceDesc": {
+      "professional": "清晰、可信、业务优先的语气。",
+      "luxury": "精炼、克制、高端表述。",
+      "friendly": "温暖、亲切、口语化。",
+      "casual": "轻松日常用语。",
+      "minimal": "短句、高清晰度。",
+      "corporate": "正式企业沟通。",
+      "creative": "面向活动的表现力叙事。",
+      "custom": "稍后上传指南与示例文案。"
+    },
+    "formatDesc": {
+      "instagram_caption": "带 CTA 钩子的动态/Reels 文案。",
+      "tiktok_script": "短脚本：钩子 → 价值 → CTA。",
+      "linkedin_post": "思想领导力与 B2B 叙事。",
+      "facebook_post": "面向社区与主页的帖子。",
+      "x_post": "简洁串文与单帖。",
+      "blog_article": "长文编辑草稿。",
+      "newsletter": "邮件通讯章节与主题行。",
+      "email_campaign": "活动序列与培育文案。",
+      "product_description": "面向电商的产品叙述。",
+      "ad_copy": "付费社交与搜索广告变体。",
+      "seo_article": "带大纲结构的搜索意图文章。",
+      "landing_page_copy": "主视觉、卖点、证据与 CTA 区块。"
+    },
+    "campaignStatus": {
+      "Active": "进行中",
+      "In review": "审核中",
+      "Planned": "已计划"
+    },
+    "campaigns": {
+      "camp-1": {
+        "name": "Q3 产品发布",
+        "objective": "认知 + 候补名单注册",
+        "audience": "欧盟中小企业经营者",
+        "budget": "€8,500（占位）",
+        "timeline": "8 月 4 日 – 9 月 12 日"
+      },
+      "camp-2": {
+        "name": "创作者合作冲刺",
+        "objective": "触达 + 社区增长",
+        "audience": "创作者 18–34 DE/AT",
+        "budget": "€4,200（占位）",
+        "timeline": "7 月 20 日 – 8 月 20 日"
+      },
+      "camp-3": {
+        "name": "代理作品集推广",
+        "objective": "线索获取",
+        "audience": "市场总监",
+        "budget": "€2,900（占位）",
+        "timeline": "9 月 1 日 – 9 月 30 日"
+      }
+    },
+    "calendarItems": {
+      "cal-1": "发布预热短视频",
+      "cal-2": "创始人 LinkedIn 叙事",
+      "cal-3": "候补名单邮件 #1",
+      "cal-4": "TikTok 演示脚本"
+    },
+    "queueItems": {
+      "q-1": "发布预热短视频文案",
+      "q-2": "创始人叙事帖",
+      "q-3": "候补名单培育邮件",
+      "q-4": "产品落地页主文案",
+      "q-5": "TikTok 演示脚本 v2",
+      "q-6": "六月回顾轮播",
+      "q-7": "旧促销串文"
+    },
+    "topPosts": {
+      "tp-1": "仓储自动化拆解",
+      "tp-2": "30 秒产品演示短视频",
+      "tp-3": "创作者合作钩子"
+    },
+    "recommendations": {
+      "r1": "本周把 LinkedIn 拆解改成三页轮播。",
+      "r2": "将 TikTok 演示排在周二至周四 18:00–20:00 CET 以提高完播。",
+      "r3": "收紧 Instagram CTA 的奢华品牌声线 — 缩短约 20%。",
+      "r4": "将热门短视频文案译为 DE/FR 以拓展欧盟受众。"
     }
   },
   "backend": {

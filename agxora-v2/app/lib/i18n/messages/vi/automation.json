@@ -580,5 +580,188 @@
       "label": "Gán nhiệm vụ",
       "description": "Gán nhiệm vụ cho người dùng."
     }
+  },
+  "kinds": {
+    "trigger": "Trigger",
+    "action": "Hành động",
+    "condition": "Điều kiện",
+    "delay": "Độ trễ",
+    "approval": "Phê duyệt",
+    "loop": "Vòng lặp",
+    "merge": "Gộp",
+    "split": "Tách",
+    "ai_decision": "Quyết định AI",
+    "ai_action": "Hành động AI",
+    "notification": "Thông báo",
+    "webhook": "Webhook",
+    "custom_action": "Hành động tùy chỉnh",
+    "branch": "Nhánh",
+    "variable": "Biến"
+  },
+  "kpi": {
+    "active": {
+      "label": "Workflow đang chạy",
+      "caption": "Đã bật trong không gian"
+    },
+    "runs-today": {
+      "label": "Lần chạy hôm nay",
+      "caption": "Mọi trigger"
+    },
+    "success": {
+      "label": "Tự động hóa thành công",
+      "caption": "Hôm nay"
+    },
+    "failed": {
+      "label": "Lần chạy thất bại",
+      "caption": "Cần chú ý"
+    },
+    "pending": {
+      "label": "Tác vụ đang chờ",
+      "caption": "Phê duyệt + thử lại"
+    },
+    "avg-time": {
+      "label": "Thời gian chạy trung bình",
+      "caption": "Trung vị 1,2 giây"
+    },
+    "ai-suggestions": {
+      "label": "Gợi ý AI",
+      "caption": "Cơ hội tự động hóa"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "Năng suất",
+    "Communication": "Giao tiếp",
+    "Commerce": "Thương mại",
+    "Finance": "Tài chính",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "Hook Gmail / Drive / Lịch được giữ chỗ cho nối OAuth.",
+    "m365": "Hook Outlook / Teams / Graph được giữ chỗ.",
+    "slack": "Events API + bài chat được giữ chỗ.",
+    "teams": "Adapter Bot Framework được giữ chỗ.",
+    "discord": "Adapter webhook + bot được giữ chỗ.",
+    "whatsapp": "Adapter Meta Cloud API được giữ chỗ.",
+    "stripe": "Webhook thanh toán được giữ chỗ — không khóa live.",
+    "shopify": "Sự kiện đơn / sản phẩm được giữ chỗ.",
+    "datev": "Hook xuất DATEV / lô bút toán được giữ chỗ.",
+    "sap": "Cầu sự kiện ERP được giữ chỗ — tắt đến gói enterprise.",
+    "hubspot": "Adapter đồng bộ CRM được giữ chỗ.",
+    "salesforce": "Adapter Platform Events được giữ chỗ."
+  },
+  "defaultWorkflow": {
+    "name": "Onboarding khách",
+    "description": "Chuỗi chào mừng khi tạo khách."
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "Tài chính",
+    "Sales": "Bán hàng",
+    "Marketing": "Marketing",
+    "HR": "Nhân sự",
+    "Creator": "Nhà sáng tạo",
+    "Ops": "Vận hành",
+    "Projects": "Dự án",
+    "AI": "AI"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "Onboarding khách",
+      "description": "Email chào, tóm tắt AI và việc owner sau khi tạo khách.",
+      "category": "CRM",
+      "recommendedFor": "Nhóm onboard khách B2B mới"
+    },
+    "tpl-invoice": {
+      "name": "Nhắc hóa đơn",
+      "description": "Nhắc lịch cho hóa đơn mở kèm đường leo thang.",
+      "category": "Tài chính",
+      "recommendedFor": "Ops tài chính giảm khoản phải thu quá hạn"
+    },
+    "tpl-lead": {
+      "name": "Theo dõi lead",
+      "description": "Trả lời email AI và cập nhật pipeline cho lead mới.",
+      "category": "Bán hàng",
+      "recommendedFor": "Nhóm bán hàng có lượng lead inbound lớn"
+    },
+    "tpl-welcome": {
+      "name": "Email chào mừng",
+      "description": "Chuỗi chào đơn giản khi đăng ký.",
+      "category": "Marketing",
+      "recommendedFor": "Mọi workspace bắt đầu với tự động hóa email"
+    },
+    "tpl-pipeline": {
+      "name": "Pipeline bán hàng",
+      "description": "Đổi giai đoạn kèm thông báo và việc.",
+      "category": "Bán hàng",
+      "recommendedFor": "Nhóm quản lý tiến độ deal nhiều giai đoạn"
+    },
+    "tpl-recruit": {
+      "name": "Tuyển dụng",
+      "description": "Định tuyến ứng viên và việc phỏng vấn.",
+      "category": "Nhân sự",
+      "recommendedFor": "Quản lý tuyển dụng và people ops"
+    },
+    "tpl-content": {
+      "name": "Xuất bản nội dung",
+      "description": "Creator Studio: xuất bản → thông báo → phân tích.",
+      "category": "Nhà sáng tạo",
+      "recommendedFor": "Nhóm marketing và nhà sáng tạo"
+    },
+    "tpl-approval": {
+      "name": "Quy trình phê duyệt",
+      "description": "Phê duyệt nhiều bước với khuyến nghị AI.",
+      "category": "Vận hành",
+      "recommendedFor": "Phê duyệt finance/ops trước tác dụng phụ",
+      "estimatedRuntime": "Cổng con người"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "Chào khách mới",
+      "description": "Email chào + thông báo khi tạo khách.",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "Nhắc hóa đơn",
+      "description": "Nhắc khách sau khi phát hành hóa đơn.",
+      "category": "Tài chính"
+    },
+    "tpl_project_kickoff": {
+      "name": "Kickoff dự án",
+      "description": "Gán việc kickoff và thông báo khi tạo dự án.",
+      "category": "Dự án"
+    },
+    "tpl_task_assignment": {
+      "name": "Gán việc",
+      "description": "Email người được giao khi việc xong — nối việc tiếp.",
+      "category": "Dự án"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "Tóm tắt khách AI",
+      "description": "Chạy tóm tắt AI khi tạo khách; lưu đầu ra.",
+      "category": "AI"
+    },
+    "tpl_followup_reminder": {
+      "name": "Nhắc follow-up",
+      "description": "Follow-up theo lịch với nhánh theo trạng thái.",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "Gửi email chào",
+    "notify_team": "Thông báo nhóm",
+    "wait_3_days": "Chờ 3 ngày",
+    "still_unpaid": "Vẫn chưa trả?",
+    "send_reminder": "Gửi nhắc",
+    "assign_kickoff_task": "Gán việc kickoff",
+    "notify_owner": "Thông báo owner",
+    "notify_stakeholders": "Thông báo bên liên quan",
+    "run_ai_summary": "Chạy tóm tắt AI",
+    "generate_document": "Tạo tài liệu",
+    "daily_schedule": "Lịch hàng ngày",
+    "by_priority": "Theo ưu tiên",
+    "urgent_notification": "Thông báo khẩn",
+    "standard_email": "Email chuẩn"
   }
 }

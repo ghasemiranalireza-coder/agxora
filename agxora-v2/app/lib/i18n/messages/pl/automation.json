@@ -580,5 +580,188 @@
       "label": "Przypisz zadanie",
       "description": "Przypisz zadanie użytkownikowi."
     }
+  },
+  "kinds": {
+    "trigger": "Wyzwalacz",
+    "action": "Akcja",
+    "condition": "Warunek",
+    "delay": "Opóźnienie",
+    "approval": "Zatwierdzenie",
+    "loop": "Pętla",
+    "merge": "Scal",
+    "split": "Podział",
+    "ai_decision": "Decyzja AI",
+    "ai_action": "Akcja AI",
+    "notification": "Powiadomienie",
+    "webhook": "Webhook",
+    "custom_action": "Akcja niestandardowa",
+    "branch": "Rozgałęzienie",
+    "variable": "Zmienna"
+  },
+  "kpi": {
+    "active": {
+      "label": "Aktywne workflow",
+      "caption": "Włączone w przestrzeni"
+    },
+    "runs-today": {
+      "label": "Uruchomienia dziś",
+      "caption": "We wszystkich wyzwalaczach"
+    },
+    "success": {
+      "label": "Udane automatyzacje",
+      "caption": "Dziś"
+    },
+    "failed": {
+      "label": "Nieudane uruchomienia",
+      "caption": "Wymaga uwagi"
+    },
+    "pending": {
+      "label": "Zadania oczekujące",
+      "caption": "Zatwierdzenia + ponowienia"
+    },
+    "avg-time": {
+      "label": "Średni czas wykonania",
+      "caption": "Mediana 1,2 s"
+    },
+    "ai-suggestions": {
+      "label": "Sugestie AI",
+      "caption": "Szanse automatyzacji"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "Produktywność",
+    "Communication": "Komunikacja",
+    "Commerce": "Handel",
+    "Finance": "Finanse",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "Hooki Gmail / Drive / Kalendarza zarezerwowane pod OAuth.",
+    "m365": "Hooki Outlook / Teams / Graph zarezerwowane.",
+    "slack": "Events API + posty czatu zarezerwowane.",
+    "teams": "Adapter Bot Framework zarezerwowany.",
+    "discord": "Adapter webhook + bota zarezerwowany.",
+    "whatsapp": "Adapter Meta Cloud API zarezerwowany.",
+    "stripe": "Webhooki płatności zarezerwowane — bez kluczy live.",
+    "shopify": "Zdarzenia zamówień / produktów zarezerwowane.",
+    "datev": "Hooki eksportu DATEV / paczek księgowań zarezerwowane.",
+    "sap": "Most zdarzeń ERP zarezerwowany — wyłączony do planu enterprise.",
+    "hubspot": "Adapter synchronizacji CRM zarezerwowany.",
+    "salesforce": "Adapter Platform Events zarezerwowany."
+  },
+  "defaultWorkflow": {
+    "name": "Onboarding klientów",
+    "description": "Sekwencja powitalna po utworzeniu klienta."
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "Finanse",
+    "Sales": "Sprzedaż",
+    "Marketing": "Marketing",
+    "HR": "HR",
+    "Creator": "Twórca",
+    "Ops": "Operacje",
+    "Projects": "Projekty",
+    "AI": "AI"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "Onboarding klientów",
+      "description": "Mail powitalny, podsumowanie AI i zadanie właściciela po utworzeniu klienta.",
+      "category": "CRM",
+      "recommendedFor": "Zespoły wdrażające nowych klientów B2B"
+    },
+    "tpl-invoice": {
+      "name": "Przypomnienie o fakturze",
+      "description": "Zaplanowane przypomnienia o otwartych fakturach ze ścieżką eskalacji.",
+      "category": "Finanse",
+      "recommendedFor": "Ops finansowe ograniczające przeterminowane należności"
+    },
+    "tpl-lead": {
+      "name": "Follow-up leada",
+      "description": "Odpowiedź e-mail AI i aktualizacja statusu lejka dla nowych leadów.",
+      "category": "Sprzedaż",
+      "recommendedFor": "Zespoły sprzedaży z dużym wolumenem leadów inbound"
+    },
+    "tpl-welcome": {
+      "name": "E-mail powitalny",
+      "description": "Prosta sekwencja powitalna przy rejestracji.",
+      "category": "Marketing",
+      "recommendedFor": "Każdy workspace zaczynający od automatyzacji e-mail"
+    },
+    "tpl-pipeline": {
+      "name": "Lejek sprzedaży",
+      "description": "Zmiany etapu z powiadomieniami i zadaniami.",
+      "category": "Sprzedaż",
+      "recommendedFor": "Zespoły zarządzające wieloetapowym postępem dealu"
+    },
+    "tpl-recruit": {
+      "name": "Rekrutacja",
+      "description": "Routing kandydatów i zadania rozmów.",
+      "category": "HR",
+      "recommendedFor": "Hiring managerzy i people ops"
+    },
+    "tpl-content": {
+      "name": "Publikacja treści",
+      "description": "Creator Studio: opublikuj → powiadom → analityka.",
+      "category": "Twórca",
+      "recommendedFor": "Zespoły marketingu i twórców"
+    },
+    "tpl-approval": {
+      "name": "Proces zatwierdzania",
+      "description": "Wieloetapowe zatwierdzenie z rekomendacjami AI.",
+      "category": "Operacje",
+      "recommendedFor": "Zatwierdzenia finance/ops przed skutkami ubocznymi",
+      "estimatedRuntime": "Brama ludzka"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "Powitanie nowego klienta",
+      "description": "Mail powitalny + powiadomienie przy utworzeniu klienta.",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "Przypomnienie o fakturze",
+      "description": "Przypomnij klientom po wystawieniu faktury.",
+      "category": "Finanse"
+    },
+    "tpl_project_kickoff": {
+      "name": "Kickoff projektu",
+      "description": "Przydziel zadanie kickoff i powiadom przy utworzeniu projektu.",
+      "category": "Projekty"
+    },
+    "tpl_task_assignment": {
+      "name": "Przydział zadania",
+      "description": "E-mail do wykonawcy po ukończeniu zadania — powiąż kolejną pracę.",
+      "category": "Projekty"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "Podsumowanie klienta AI",
+      "description": "Uruchom podsumowanie AI przy utworzeniu klienta; zapisz wynik.",
+      "category": "AI"
+    },
+    "tpl_followup_reminder": {
+      "name": "Przypomnienie follow-up",
+      "description": "Follow-up według harmonogramu z rozgałęzieniem wg statusu.",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "Wyślij e-mail powitalny",
+    "notify_team": "Powiadom zespół",
+    "wait_3_days": "Czekaj 3 dni",
+    "still_unpaid": "Nadal nieopłacona?",
+    "send_reminder": "Wyślij przypomnienie",
+    "assign_kickoff_task": "Przydziel zadanie kickoff",
+    "notify_owner": "Powiadom właściciela",
+    "notify_stakeholders": "Powiadom interesariuszy",
+    "run_ai_summary": "Uruchom podsumowanie AI",
+    "generate_document": "Wygeneruj dokument",
+    "daily_schedule": "Harmonogram dzienny",
+    "by_priority": "Według priorytetu",
+    "urgent_notification": "Pilne powiadomienie",
+    "standard_email": "Standardowy e-mail"
   }
 }

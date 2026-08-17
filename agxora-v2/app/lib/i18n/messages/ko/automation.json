@@ -580,5 +580,188 @@
       "label": "작업 할당",
       "description": "작업을 사용자에게 할당합니다."
     }
+  },
+  "kinds": {
+    "trigger": "트리거",
+    "action": "작업",
+    "condition": "조건",
+    "delay": "지연",
+    "approval": "승인",
+    "loop": "루프",
+    "merge": "병합",
+    "split": "분할",
+    "ai_decision": "AI 결정",
+    "ai_action": "AI 작업",
+    "notification": "알림",
+    "webhook": "웹훅",
+    "custom_action": "사용자 지정 작업",
+    "branch": "분기",
+    "variable": "변수"
+  },
+  "kpi": {
+    "active": {
+      "label": "활성 워크플로",
+      "caption": "워크스페이스에서 사용 중"
+    },
+    "runs-today": {
+      "label": "오늘 워크플로 실행",
+      "caption": "모든 트리거"
+    },
+    "success": {
+      "label": "성공한 자동화",
+      "caption": "오늘"
+    },
+    "failed": {
+      "label": "실패한 실행",
+      "caption": "주의 필요"
+    },
+    "pending": {
+      "label": "대기 작업",
+      "caption": "승인 + 재시도"
+    },
+    "avg-time": {
+      "label": "평균 실행 시간",
+      "caption": "중앙값 1.2초"
+    },
+    "ai-suggestions": {
+      "label": "AI 제안",
+      "caption": "자동화 기회"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "생산성",
+    "Communication": "커뮤니케이션",
+    "Commerce": "커머스",
+    "Finance": "재무",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "OAuth 연결용 Gmail / Drive / 캘린더 훅 예약.",
+    "m365": "Outlook / Teams / Graph 훅 예약.",
+    "slack": "Events API + 채팅 게시 예약.",
+    "teams": "Bot Framework 어댑터 예약.",
+    "discord": "웹훅 + 봇 어댑터 예약.",
+    "whatsapp": "Meta Cloud API 어댑터 예약.",
+    "stripe": "결제 웹훅 예약 — 라이브 키 없음.",
+    "shopify": "주문 / 상품 이벤트 예약.",
+    "datev": "DATEV 내보내기 / 분개 배치 훅 예약.",
+    "sap": "ERP 이벤트 브리지 예약 — 엔터프라이즈 플랜까지 비활성.",
+    "hubspot": "CRM 동기화 어댑터 예약.",
+    "salesforce": "Platform Events 어댑터 예약."
+  },
+  "defaultWorkflow": {
+    "name": "고객 온보딩",
+    "description": "고객 생성 시 환영 시퀀스."
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "재무",
+    "Sales": "영업",
+    "Marketing": "마케팅",
+    "HR": "HR",
+    "Creator": "크리에이터",
+    "Ops": "운영",
+    "Projects": "프로젝트",
+    "AI": "AI"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "고객 온보딩",
+      "description": "고객 생성 후 환영 메일, AI 요약, 담당 작업.",
+      "category": "CRM",
+      "recommendedFor": "신규 B2B 고객을 온보딩하는 팀"
+    },
+    "tpl-invoice": {
+      "name": "청구서 리마인더",
+      "description": "미결제 청구서의 예약 알림과 에스컬레이션 경로.",
+      "category": "재무",
+      "recommendedFor": "연체 매출채권을 줄이는 재무 운영"
+    },
+    "tpl-lead": {
+      "name": "리드 팔로업",
+      "description": "신규 리드용 AI 이메일 회신과 파이프라인 상태 업데이트.",
+      "category": "영업",
+      "recommendedFor": "인바운드 리드가 많은 영업 팀"
+    },
+    "tpl-welcome": {
+      "name": "환영 이메일",
+      "description": "가입 시 간단한 환영 시퀀스.",
+      "category": "마케팅",
+      "recommendedFor": "이메일 자동화를 시작하는 모든 워크스페이스"
+    },
+    "tpl-pipeline": {
+      "name": "세일즈 파이프라인",
+      "description": "알림과 작업이 있는 단계 변경.",
+      "category": "영업",
+      "recommendedFor": "다단계 딜 진행을 관리하는 팀"
+    },
+    "tpl-recruit": {
+      "name": "채용",
+      "description": "후보자 라우팅과 면접 작업.",
+      "category": "HR",
+      "recommendedFor": "채용 매니저와 피플옵스"
+    },
+    "tpl-content": {
+      "name": "콘텐츠 게시",
+      "description": "크리에이터 스튜디오: 게시 → 알림 → 분석.",
+      "category": "크리에이터",
+      "recommendedFor": "마케팅·크리에이터 팀"
+    },
+    "tpl-approval": {
+      "name": "승인 프로세스",
+      "description": "AI 권장이 있는 다단계 승인.",
+      "category": "운영",
+      "recommendedFor": "부작용 전 재무/운영 승인",
+      "estimatedRuntime": "사람 게이트"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "신규 고객 환영",
+      "description": "고객 생성 시 환영 메일 + 알림.",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "청구서 리마인더",
+      "description": "청구서 발행 후 고객에게 알리세요.",
+      "category": "재무"
+    },
+    "tpl_project_kickoff": {
+      "name": "프로젝트 킥오프",
+      "description": "프로젝트 생성 시 킥오프 작업을 할당하고 알리세요.",
+      "category": "프로젝트"
+    },
+    "tpl_task_assignment": {
+      "name": "작업 할당",
+      "description": "작업 완료 시 담당자에게 이메일 — 다음 작업을 연결하세요.",
+      "category": "프로젝트"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "AI 고객 요약",
+      "description": "고객 생성 시 AI 요약을 실행하고 출력을 저장하세요.",
+      "category": "AI"
+    },
+    "tpl_followup_reminder": {
+      "name": "팔로업 리마인더",
+      "description": "상태별 분기가 있는 일정 기반 팔로업.",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "환영 메일 보내기",
+    "notify_team": "팀에 알리기",
+    "wait_3_days": "3일 대기",
+    "still_unpaid": "아직 미결제인가요?",
+    "send_reminder": "리마인더 보내기",
+    "assign_kickoff_task": "킥오프 작업 할당",
+    "notify_owner": "오너에게 알리기",
+    "notify_stakeholders": "이해관계자에게 알리기",
+    "run_ai_summary": "AI 요약 실행",
+    "generate_document": "문서 생성",
+    "daily_schedule": "일일 일정",
+    "by_priority": "우선순위별",
+    "urgent_notification": "긴급 알림",
+    "standard_email": "표준 이메일"
   }
 }

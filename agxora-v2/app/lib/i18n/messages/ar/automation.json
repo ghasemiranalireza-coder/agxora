@@ -580,5 +580,188 @@
       "label": "تعيين مهمة",
       "description": "تعيين مهمة لمستخدم."
     }
+  },
+  "kinds": {
+    "trigger": "مشغّل",
+    "action": "إجراء",
+    "condition": "شرط",
+    "delay": "تأخير",
+    "approval": "اعتماد",
+    "loop": "حلقة",
+    "merge": "دمج",
+    "split": "تقسيم",
+    "ai_decision": "قرار الذكاء الاصطناعي",
+    "ai_action": "إجراء الذكاء الاصطناعي",
+    "notification": "إشعار",
+    "webhook": "ويب هوك",
+    "custom_action": "إجراء مخصص",
+    "branch": "فرع",
+    "variable": "متغير"
+  },
+  "kpi": {
+    "active": {
+      "label": "تدفقات العمل النشطة",
+      "caption": "مفعّلة في مساحة العمل"
+    },
+    "runs-today": {
+      "label": "تشغيلات اليوم",
+      "caption": "عبر كل المشغّلات"
+    },
+    "success": {
+      "label": "الأتمتة الناجحة",
+      "caption": "اليوم"
+    },
+    "failed": {
+      "label": "تشغيلات فاشلة",
+      "caption": "يحتاج انتباهاً"
+    },
+    "pending": {
+      "label": "المهام المعلقة",
+      "caption": "الاعتمادات + إعادة المحاولة"
+    },
+    "avg-time": {
+      "label": "متوسط زمن التنفيذ",
+      "caption": "الوسيط 1.2 ث"
+    },
+    "ai-suggestions": {
+      "label": "اقتراحات الذكاء الاصطناعي",
+      "caption": "فرص الأتمتة"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "الإنتاجية",
+    "Communication": "التواصل",
+    "Commerce": "تجارة",
+    "Finance": "المالية",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "خطافات Gmail / Drive / التقويم محجوزة لتوصيل OAuth.",
+    "m365": "خطافات Outlook / Teams / Graph محجوزة.",
+    "slack": "Events API + منشورات الدردشة محجوزة.",
+    "teams": "محول Bot Framework محجوز.",
+    "discord": "محول ويب هوك + بوت محجوز.",
+    "whatsapp": "محول Meta Cloud API محجوز.",
+    "stripe": "ويب هوك الدفع محجوزة — بلا مفاتيح حية.",
+    "shopify": "أحداث الطلب / المنتج محجوزة.",
+    "datev": "خطافات تصدير DATEV / دفعات القيود محجوزة.",
+    "sap": "جسر أحداث ERP محجوز — معطّل حتى خطة enterprise.",
+    "hubspot": "محول مزامنة CRM محجوز.",
+    "salesforce": "محول Platform Events محجوز."
+  },
+  "defaultWorkflow": {
+    "name": "تهيئة العملاء",
+    "description": "تسلسل ترحيب عند إنشاء عميل."
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "المالية",
+    "Sales": "المبيعات",
+    "Marketing": "التسويق",
+    "HR": "الموارد البشرية",
+    "Creator": "منشئ",
+    "Ops": "التشغيل",
+    "Projects": "المشاريع",
+    "AI": "الذكاء الاصطناعي"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "تهيئة العملاء",
+      "description": "بريد ترحيب وملخص ذكاء اصطناعي ومهمة المالك بعد إنشاء العميل.",
+      "category": "CRM",
+      "recommendedFor": "الفرق التي تهيّئ عملاء B2B جدد"
+    },
+    "tpl-invoice": {
+      "name": "تذكير الفاتورة",
+      "description": "تذكيرات مجدولة للفواتير المفتوحة مع مسار تصعيد.",
+      "category": "المالية",
+      "recommendedFor": "تشغيل المالية لتقليل المستحقات المتأخرة"
+    },
+    "tpl-lead": {
+      "name": "متابعة العميل المحتمل",
+      "description": "رد بريد بالذكاء الاصطناعي وتحديث حالة المسار للعملاء المحتملين الجدد.",
+      "category": "المبيعات",
+      "recommendedFor": "فرق المبيعات ذات حجم كبير من العملاء المحتملين الواردين"
+    },
+    "tpl-welcome": {
+      "name": "بريد ترحيب",
+      "description": "تسلسل ترحيب بسيط عند التسجيل.",
+      "category": "التسويق",
+      "recommendedFor": "أي مساحة عمل تبدأ بأتمتة البريد"
+    },
+    "tpl-pipeline": {
+      "name": "مسار المبيعات",
+      "description": "تغييرات المرحلة مع إشعارات ومهام.",
+      "category": "المبيعات",
+      "recommendedFor": "الفرق التي تدير تقدّم الصفقات متعددة المراحل"
+    },
+    "tpl-recruit": {
+      "name": "التوظيف",
+      "description": "توجيه المرشحين ومهام المقابلات.",
+      "category": "الموارد البشرية",
+      "recommendedFor": "مديرو التوظيف وعمليات الأفراد"
+    },
+    "tpl-content": {
+      "name": "نشر المحتوى",
+      "description": "استوديو المنشئين: نشر → إشعار → تحليلات.",
+      "category": "منشئ",
+      "recommendedFor": "فرق التسويق والمنشئين"
+    },
+    "tpl-approval": {
+      "name": "عملية الاعتماد",
+      "description": "اعتماد متعدد الخطوات مع توصيات الذكاء الاصطناعي.",
+      "category": "التشغيل",
+      "recommendedFor": "اعتمادات المالية/التشغيل قبل الآثار الجانبية",
+      "estimatedRuntime": "بوابة بشرية"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "ترحيب بالعميل الجديد",
+      "description": "بريد ترحيب + إشعار عند إنشاء عميل.",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "تذكير الفاتورة",
+      "description": "ذكّر العملاء بعد إصدار الفاتورة.",
+      "category": "المالية"
+    },
+    "tpl_project_kickoff": {
+      "name": "انطلاق المشروع",
+      "description": "عيّن مهمة الانطلاق وأبلغ عند إنشاء المشروع.",
+      "category": "المشاريع"
+    },
+    "tpl_task_assignment": {
+      "name": "تعيين المهمة",
+      "description": "أرسل بريداً إلى المعيَّن عند اكتمال مهمة — اربط العمل التالي.",
+      "category": "المشاريع"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "ملخص عميل بالذكاء الاصطناعي",
+      "description": "شغّل ملخص الذكاء الاصطناعي عند إنشاء عميل؛ خزّن الناتج.",
+      "category": "الذكاء الاصطناعي"
+    },
+    "tpl_followup_reminder": {
+      "name": "تذكير المتابعة",
+      "description": "متابعة حسب الجدول مع تفرع حسب الحالة.",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "إرسال بريد الترحيب",
+    "notify_team": "إشعار الفريق",
+    "wait_3_days": "انتظر 3 أيام",
+    "still_unpaid": "ما زالت غير مدفوعة؟",
+    "send_reminder": "إرسال تذكير",
+    "assign_kickoff_task": "تعيين مهمة الانطلاق",
+    "notify_owner": "إشعار المالك",
+    "notify_stakeholders": "إشعار أصحاب المصلحة",
+    "run_ai_summary": "تشغيل ملخص الذكاء الاصطناعي",
+    "generate_document": "إنشاء مستند",
+    "daily_schedule": "جدول يومي",
+    "by_priority": "حسب الأولوية",
+    "urgent_notification": "إشعار عاجل",
+    "standard_email": "بريد قياسي"
   }
 }

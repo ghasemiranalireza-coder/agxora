@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "Prioritize customer impact",
     "delegatedFollowUp": "Delegated follow-up"
+  },
+  "categories": {
+    "Leadership": "Leadership",
+    "Revenue": "Revenue",
+    "CRM": "CRM",
+    "Delivery": "Delivery",
+    "Automation": "Automation",
+    "Finance": "Finance",
+    "Knowledge": "Knowledge",
+    "Support": "Support",
+    "Productivity": "Productivity",
+    "Custom": "Custom"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "Executive Advisor",
+      "description": "Strategic briefings, KPI synthesis, and decision support."
+    },
+    "sales_agent": {
+      "name": "Sales Agent",
+      "description": "Pipeline coaching, outreach drafts, and deal next steps."
+    },
+    "crm_assistant": {
+      "name": "CRM Assistant",
+      "description": "Customer enrichment, hygiene, and relationship insights."
+    },
+    "project_manager": {
+      "name": "Project Manager",
+      "description": "Plans, task breakdowns, and delivery risk signals."
+    },
+    "workflow_coordinator": {
+      "name": "Workflow Coordinator",
+      "description": "Triggers and orchestrates AGXORA automation workflows."
+    },
+    "finance_assistant": {
+      "name": "Finance Assistant",
+      "description": "Invoice awareness, cashflow notes, and finance summaries."
+    },
+    "document_analyst": {
+      "name": "Document Analyst",
+      "description": "Extracts structure, risks, and summaries from documents."
+    },
+    "knowledge_assistant": {
+      "name": "Knowledge Assistant",
+      "description": "Answers from company knowledge with RAG-ready retrieval."
+    },
+    "support_assistant": {
+      "name": "Support Assistant",
+      "description": "Customer support triage, replies, and escalation paths."
+    },
+    "meeting_assistant": {
+      "name": "Meeting Assistant",
+      "description": "Agenda prep, note capture placeholders, and follow-ups."
+    },
+    "custom": {
+      "name": "Custom Agent",
+      "description": "Extension point for organization-specific agents."
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "CRM Tool",
+      "description": "Create/update customers and read account context."
+    },
+    "projects": {
+      "name": "Projects Tool",
+      "description": "Manage projects, tasks, and delivery status."
+    },
+    "finance": {
+      "name": "Finance Tool",
+      "description": "Invoices, balances, and finance summaries."
+    },
+    "documents": {
+      "name": "Documents Tool",
+      "description": "Read and summarize workspace documents."
+    },
+    "workflow": {
+      "name": "Workflow Tool",
+      "description": "Trigger and inspect automation workflows."
+    },
+    "integration": {
+      "name": "Integration Tool",
+      "description": "Call connected third-party connectors."
+    },
+    "email": {
+      "name": "Email Tool",
+      "description": "Draft and queue outbound email."
+    },
+    "calendar": {
+      "name": "Calendar Tool",
+      "description": "Schedule and inspect calendar events."
+    },
+    "search": {
+      "name": "Search Tool",
+      "description": "Universal workspace search."
+    },
+    "notification": {
+      "name": "Notification Tool",
+      "description": "Send in-app notifications."
+    },
+    "api": {
+      "name": "API Tool",
+      "description": "Invoke internal API gateway routes."
+    },
+    "mcp": {
+      "name": "MCP Tool",
+      "description": "Future Model Context Protocol server tools."
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "AGXORA Operating Principles",
+      "summary": "Enterprise OS principles for modular, secure AI agents."
+    },
+    "policies": {
+      "title": "Data Handling Policy",
+      "summary": "Sensitive tool isolation and least-privilege access."
+    },
+    "procedures": {
+      "title": "Customer Escalation Procedure",
+      "summary": "Support assistant escalation path for low-confidence cases."
+    },
+    "rag": {
+      "title": "RAG Index Placeholder",
+      "summary": "Future vector retrieval over documents and CRM notes."
+    }
+  },
+  "llm": {
+    "local": "Local LLM",
+    "mcp": "MCP Servers",
+    "custom": "Custom Model"
+  },
+  "lifecycle": {
+    "draft": "Draft",
+    "registered": "Registered",
+    "active": "Active",
+    "paused": "Paused",
+    "error": "Error",
+    "retired": "Retired"
+  },
+  "healthStatus": {
+    "healthy": "Healthy",
+    "degraded": "Degraded",
+    "down": "Down",
+    "unknown": "Unknown"
+  },
+  "taskStatus": {
+    "pending": "Pending",
+    "running": "Running",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "failed": "Failed",
+    "retrying": "Retrying"
+  },
+  "memoryScope": {
+    "working": "Working",
+    "conversation": "Conversation",
+    "business": "Business",
+    "long_term": "Long-term",
+    "workspace": "Workspace",
+    "agent": "Agent"
+  },
+  "knowledgeKind": {
+    "company": "Company",
+    "documents": "Documents",
+    "projects": "Projects",
+    "crm": "CRM",
+    "policies": "Policies",
+    "procedures": "Procedures",
+    "vector": "Vector",
+    "rag": "RAG"
   }
 }

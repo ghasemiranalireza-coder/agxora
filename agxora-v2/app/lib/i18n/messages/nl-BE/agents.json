@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "Klantimpact prioriteren",
     "delegatedFollowUp": "Gedelegeerde opvolging"
+  },
+  "categories": {
+    "Leadership": "Leiderschap",
+    "Revenue": "Omzet",
+    "CRM": "CRM",
+    "Delivery": "Levering",
+    "Automation": "Automatisering",
+    "Finance": "Financiën",
+    "Knowledge": "Kennis",
+    "Support": "Support",
+    "Productivity": "Productiviteit",
+    "Custom": "Aangepast"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "Executive-adviseur",
+      "description": "Strategische briefings, KPI-synthese en beslissingsondersteuning."
+    },
+    "sales_agent": {
+      "name": "Sales-agent",
+      "description": "Pipelinecoaching, outreach-concepten en volgende dealstappen."
+    },
+    "crm_assistant": {
+      "name": "CRM-assistent",
+      "description": "Klantverrijking, datahygiëne en relatie-inzichten."
+    },
+    "project_manager": {
+      "name": "Projectmanager",
+      "description": "Plannen, taakopsplitsing en leveringsrisico’s."
+    },
+    "workflow_coordinator": {
+      "name": "Workflowcoördinator",
+      "description": "Start en orkestreert AGXORA-automatiseringsworkflows."
+    },
+    "finance_assistant": {
+      "name": "Financieel assistent",
+      "description": "Factuuroverzicht, cashflownotities en financiële samenvattingen."
+    },
+    "document_analyst": {
+      "name": "Documentanalist",
+      "description": "Haalt structuur, risico’s en samenvattingen uit documenten."
+    },
+    "knowledge_assistant": {
+      "name": "Kennisassistent",
+      "description": "Antwoordt vanuit bedrijfskennis met RAG-klare retrieval."
+    },
+    "support_assistant": {
+      "name": "Supportassistent",
+      "description": "Triage van klantensupport, antwoorden en escalatiepaden."
+    },
+    "meeting_assistant": {
+      "name": "Vergaderassistent",
+      "description": "Agendavoorbereiding, notitieplaceholders en follow-ups."
+    },
+    "custom": {
+      "name": "Aangepaste agent",
+      "description": "Uitbreidingspunt voor organisatiespecifieke agents."
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "CRM-tool",
+      "description": "Klanten aanmaken/bijwerken en accountcontext lezen."
+    },
+    "projects": {
+      "name": "Projectentool",
+      "description": "Projecten, taken en leverstatus beheren."
+    },
+    "finance": {
+      "name": "Financieel tool",
+      "description": "Facturen, saldi en financiële samenvattingen."
+    },
+    "documents": {
+      "name": "Documententool",
+      "description": "Workspacedocumenten lezen en samenvatten."
+    },
+    "workflow": {
+      "name": "Workflowtool",
+      "description": "Automatiseringsworkflows starten en inspecteren."
+    },
+    "integration": {
+      "name": "Integratietool",
+      "description": "Aangesloten third-partyconnectors aanroepen."
+    },
+    "email": {
+      "name": "E-mailtool",
+      "description": "Uitgaande e-mail opstellen en in de wachtrij zetten."
+    },
+    "calendar": {
+      "name": "Kalendertool",
+      "description": "Agenda-items plannen en inspecteren."
+    },
+    "search": {
+      "name": "Zoektool",
+      "description": "Universele workspacezoekopdracht."
+    },
+    "notification": {
+      "name": "Meldingentool",
+      "description": "In-appmeldingen versturen."
+    },
+    "api": {
+      "name": "API-tool",
+      "description": "Interne API-gatewayroutes aanroepen."
+    },
+    "mcp": {
+      "name": "MCP-tool",
+      "description": "Toekomstige Model Context Protocol-servertools."
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "AGXORA-bedrijfsprincipes",
+      "summary": "Enterprise-OS-principes voor modulaire, veilige AI-agents."
+    },
+    "policies": {
+      "title": "Gegevensverwerkingsbeleid",
+      "summary": "Isolatie van gevoelige tools en least-privilege-toegang."
+    },
+    "procedures": {
+      "title": "Klantescalatieprocedure",
+      "summary": "Escalatiepad van de supportassistent bij lage confidence."
+    },
+    "rag": {
+      "title": "RAG-indexplaceholder",
+      "summary": "Toekomstige vectorretrieval over documenten en CRM-notities."
+    }
+  },
+  "llm": {
+    "local": "Lokaal LLM",
+    "mcp": "MCP-servers",
+    "custom": "Aangepast model"
+  },
+  "lifecycle": {
+    "draft": "Concept",
+    "registered": "Geregistreerd",
+    "active": "Actief",
+    "paused": "Gepauzeerd",
+    "error": "Fout",
+    "retired": "Buiten gebruik"
+  },
+  "healthStatus": {
+    "healthy": "Gezond",
+    "degraded": "Verminderd",
+    "down": "Offline",
+    "unknown": "Onbekend"
+  },
+  "taskStatus": {
+    "pending": "In behandeling",
+    "running": "Actief",
+    "completed": "Voltooid",
+    "cancelled": "Geannuleerd",
+    "failed": "Mislukt",
+    "retrying": "Opnieuw"
+  },
+  "memoryScope": {
+    "working": "Werkgeheugen",
+    "conversation": "Gesprek",
+    "business": "Business",
+    "long_term": "Langetermijn",
+    "workspace": "Werkruimte",
+    "agent": "Agent"
+  },
+  "knowledgeKind": {
+    "company": "Bedrijf",
+    "documents": "Documenten",
+    "projects": "Projecten",
+    "crm": "CRM",
+    "policies": "Beleid",
+    "procedures": "Procedures",
+    "vector": "Vector",
+    "rag": "RAG"
   }
 }

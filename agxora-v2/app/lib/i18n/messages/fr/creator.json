@@ -138,12 +138,222 @@
     "professional": "Professionnel",
     "friendly": "Amical",
     "luxury": "Luxe",
-    "casual": "Décontracté"
+    "casual": "Décontracté",
+    "minimal": "Minimal",
+    "corporate": "Corporate",
+    "creative": "Créatif",
+    "custom": "Voix de marque personnalisée"
   },
   "integrationStatus": {
     "planned": "Planifié",
     "ready": "Prêt",
     "connected": "Connecté",
     "disabled": "Désactivé"
+  },
+  "categories": {
+    "social": "Social",
+    "ads": "Pubs",
+    "analytics": "Analytique"
+  },
+  "platforms": {
+    "instagram": {
+      "notes": "Publication Graph API officielle + insights réservés."
+    },
+    "tiktok": {
+      "notes": "Adaptateur TikTok Content Posting API réservé."
+    },
+    "youtube": {
+      "notes": "Upload YouTube Data API + analytics réservés."
+    },
+    "facebook": {
+      "notes": "Adaptateur de publication Pages réservé."
+    },
+    "linkedin": {
+      "notes": "Adaptateur posts UGC / organisation réservé."
+    },
+    "pinterest": {
+      "notes": "Adaptateur Pins + boards réservé."
+    },
+    "threads": {
+      "notes": "Adaptateur Threads API réservé."
+    },
+    "x": {
+      "notes": "Adaptateur posts X API v2 réservé."
+    },
+    "meta-business": {
+      "notes": "Hooks Meta Business Suite / Ads Manager réservés."
+    },
+    "google-ads": {
+      "notes": "Sync campagnes Google Ads API réservé."
+    },
+    "google-analytics": {
+      "notes": "Adaptateur mesure + reporting GA4 réservé."
+    }
+  },
+  "features": {
+    "ideas": {
+      "label": "Idées de contenu",
+      "description": "Moteur d’idées conscient du secteur pour campagnes et posts."
+    },
+    "captions": {
+      "label": "Générateur de légendes",
+      "description": "Légendes voix de marque par format de plateforme."
+    },
+    "hashtags": {
+      "label": "Suggestions de hashtags",
+      "description": "Score de pertinence et portée pour jeux de hashtags."
+    },
+    "calendar": {
+      "label": "Calendrier éditorial",
+      "description": "Fondation de calendrier éditorial multiplateforme."
+    },
+    "campaigns": {
+      "label": "Planificateur de campagnes",
+      "description": "Objectifs, audience, plateformes et calendriers."
+    },
+    "audience": {
+      "label": "Suggestions d’audience",
+      "description": "Suggestions de segments depuis signaux CRM + créateur."
+    },
+    "schedule": {
+      "label": "Calendrier de publication",
+      "description": "Fenêtres de publication optimales conscientes du fuseau."
+    },
+    "brand": {
+      "label": "Cohérence de marque",
+      "description": "Contrôles de ton et d’assets par rapport à la voix de marque."
+    },
+    "rewrite": {
+      "label": "Réécriture IA",
+      "description": "Réécrire les brouillons pour clarté, longueur ou canal."
+    },
+    "translate": {
+      "label": "Traduire le contenu",
+      "description": "Pipeline de traduction multilingue réservée."
+    },
+    "i18n": {
+      "label": "Prise en charge multilingue",
+      "description": "Packs de locale pour surfaces de publication et d’analytique."
+    }
+  },
+  "kpi": {
+    "content": {
+      "label": "Contenu créé",
+      "caption": "Ce trimestre"
+    },
+    "campaigns": {
+      "label": "Campagnes",
+      "caption": "Actives + planifiées"
+    },
+    "scheduled": {
+      "label": "Posts planifiés",
+      "caption": "14 prochains jours"
+    },
+    "engagement": {
+      "label": "Engagement",
+      "caption": "Taux moy. tous canaux"
+    },
+    "followers": {
+      "label": "Croissance d’abonnés",
+      "caption": "30 derniers jours"
+    },
+    "reach": {
+      "label": "Portée",
+      "caption": "Impressions uniques"
+    },
+    "conversions": {
+      "label": "Conversions",
+      "caption": "Actions attribuées"
+    },
+    "ai-score": {
+      "label": "Score de performance IA",
+      "caption": "Signal de qualité de contenu"
+    }
+  },
+  "analyticsMetrics": {
+    "a1": "Engagement",
+    "a2": "Portée",
+    "a3": "CTR",
+    "a4": "Conversions",
+    "a5": "Croissance d’audience",
+    "a6": "Performance du contenu"
+  },
+  "voiceDesc": {
+    "professional": "Ton clair, crédible, orienté métier.",
+    "luxury": "Raffiné, économe, cadrage premium.",
+    "friendly": "Chaleureux, abordable, conversationnel.",
+    "casual": "Langage quotidien détendu.",
+    "minimal": "Phrases courtes, grande clarté.",
+    "corporate": "Communications d’entreprise formelles.",
+    "creative": "Storytelling expressif pour les campagnes.",
+    "custom": "Téléchargez plus tard consignes et exemples."
+  },
+  "formatDesc": {
+    "instagram_caption": "Légendes Feed / Reels avec accroches CTA.",
+    "tiktok_script": "Scripts courts : accroche → valeur → CTA.",
+    "linkedin_post": "Thought leadership et récits B2B.",
+    "facebook_post": "Posts prêts pour communauté et page.",
+    "x_post": "Fils concis et posts uniques.",
+    "blog_article": "Brouillons éditoriaux long format.",
+    "newsletter": "Sections de newsletter et objets.",
+    "email_campaign": "Séquences de campagne et copy nurture.",
+    "product_description": "Récits produit prêts pour le commerce.",
+    "ad_copy": "Variantes d’ads social payant et search.",
+    "seo_article": "Articles d’intention de recherche avec plan.",
+    "landing_page_copy": "Hero, bénéfices, preuves et blocs CTA."
+  },
+  "campaignStatus": {
+    "Active": "Active",
+    "In review": "En revue",
+    "Planned": "Planifiée"
+  },
+  "campaigns": {
+    "camp-1": {
+      "name": "Lancement produit T3",
+      "objective": "Notoriété + inscriptions liste d’attente",
+      "audience": "Opérateurs PME UE",
+      "budget": "8 500 € (espace réservé)",
+      "timeline": "4 août – 12 sept."
+    },
+    "camp-2": {
+      "name": "Sprint collab créateurs",
+      "objective": "Portée + croissance communauté",
+      "audience": "Créateurs 18–34 DE/AT",
+      "budget": "4 200 € (espace réservé)",
+      "timeline": "20 juil. – 20 août"
+    },
+    "camp-3": {
+      "name": "Poussée portfolio agence",
+      "objective": "Génération de leads",
+      "audience": "Directeurs marketing",
+      "budget": "2 900 € (espace réservé)",
+      "timeline": "1 sept. – 30 sept."
+    }
+  },
+  "calendarItems": {
+    "cal-1": "Reel teaser de lancement",
+    "cal-2": "Récit LinkedIn fondateur",
+    "cal-3": "E-mail liste d’attente n°1",
+    "cal-4": "Script démo TikTok"
+  },
+  "queueItems": {
+    "q-1": "Légende reel teaser de lancement",
+    "q-2": "Post récit fondateur",
+    "q-3": "E-mail nurture liste d’attente",
+    "q-4": "Copy hero landing produit",
+    "q-5": "Script démo TikTok v2",
+    "q-6": "Carrousel récap juin",
+    "q-7": "Ancien fil promo"
+  },
+  "topPosts": {
+    "tp-1": "Teardown automatisation entrepôt",
+    "tp-2": "Reel démo produit 30 s",
+    "tp-3": "Hook collab créateurs"
+  },
+  "recommendations": {
+    "r1": "Réutilisez le teardown LinkedIn en carrousel 3 parties cette semaine.",
+    "r2": "Planifiez les démos TikTok mar–jeu 18:00–20:00 CET pour plus de completion.",
+    "r3": "Serrez la voix luxe des CTA Instagram — raccourcissez d’environ 20 %.",
+    "r4": "Traduisez la légende du reel phare en DE/FR pour l’UE."
   }
 }
