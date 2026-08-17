@@ -16,7 +16,7 @@ type Body = { readonly email?: string };
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     requireDatabase();
-    const limited = rateLimitResponse({
+    const limited = await rateLimitResponse({
       request,
       policyId: "auth.forgot_password",
     });

@@ -2,7 +2,7 @@
  * Phase 46-A — in-memory sliding-window store.
  *
  * Deployment limitation: process-local only. Multiple Node instances do not
- * share counters. Do not claim horizontal consistency without a shared store.
+ * share counters unless AGXORA_RATE_LIMIT_STORE=http is configured (Phase 46-B).
  */
 
 import type { RateLimitDecisionBase, RateLimitStore } from "./types";
@@ -14,12 +14,12 @@ export class MemoryRateLimitStore implements RateLimitStore {
 
   constructor(readonly maxKeys: number) {}
 
-  consume(input: {
+  async consume(input: {
     readonly key: string;
     readonly max: number;
     readonly windowMs: number;
     readonly now?: number;
-  }): RateLimitDecisionBase {
+  }): Promise<RateLimitDecisionBase> {
     const now = input.now ?? Date.now();
     const windowStart = now - input.windowMs;
     const existing = this.buckets.get(input.key) ?? [];
@@ -75,7 +75,6 @@ export class MemoryRateLimitStore implements RateLimitStore {
 
 let sharedStore: MemoryRateLimitStore | null = null;
 let sharedMaxKeys = 0;
-let testStore: RateLimitStore | null = null;
 
 export function getMemoryRateLimitStore(maxKeys: number): MemoryRateLimitStore {
   if (!sharedStore || sharedMaxKeys !== maxKeys) {
@@ -85,20 +84,6 @@ export function getMemoryRateLimitStore(maxKeys: number): MemoryRateLimitStore {
   return sharedStore;
 }
 
-/** Vitest / unit tests — inject a fresh store. */
-export function setRateLimitStoreForTests(store: RateLimitStore | null): void {
-  testStore = store;
-  if (!store) {
-    sharedStore = null;
-  }
-}
-
-export function getActiveRateLimitStore(maxKeys: number): RateLimitStore {
-  if (testStore) return testStore;
-  return getMemoryRateLimitStore(maxKeys);
-}
-
-export function resetRateLimitStore(): void {
-  testStore?.reset();
+export function resetMemoryRateLimitStore(): void {
   sharedStore?.reset();
 }

@@ -16,7 +16,7 @@ export async function POST(
   try {
     requireDatabase();
     const actor = await requireCurrentActor();
-    const limited = rateLimitResponse({
+    const limited = await rateLimitResponse({
       request,
       policyId: "control.ownership_transfer_confirm",
       userId: actor.userId,

@@ -1,5 +1,5 @@
 /**
- * Phase 46-A — server-side rate limiting surface.
+ * Phase 46-A / 46-B — server-side rate limiting surface.
  */
 
 import "server-only";
@@ -16,16 +16,20 @@ export {
   RATE_LIMIT_POLICIES,
   getRateLimitPolicy,
   getRateLimitRuntimeConfig,
+  getRateLimitStoreConfig,
 } from "./config";
+export type { RateLimitStoreConfig, RateLimitStoreId } from "./config";
 
 export { resolveClientIpKey, UNTRUSTED_IP_KEY } from "./clientIp";
 
+export { MemoryRateLimitStore } from "./memoryStore";
 export {
-  MemoryRateLimitStore,
-  getActiveRateLimitStore,
+  getRateLimitStore,
   resetRateLimitStore,
   setRateLimitStoreForTests,
-} from "./memoryStore";
+} from "./provider";
+
+export { parseHttpRateLimitResponse } from "./providers/http";
 
 export { enforceRateLimit } from "./enforce";
 export type { EnforceRateLimitInput } from "./enforce";

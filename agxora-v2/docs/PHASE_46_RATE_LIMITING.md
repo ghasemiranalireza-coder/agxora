@@ -12,10 +12,10 @@ This is **not** a full Phase 46 delivery (monitoring, browser QA, MFA, etc.).
 
 ```
 API route handler
-  → rateLimitResponse({ request, policyId, userId? })
+  → await rateLimitResponse({ request, policyId, userId? })
        → resolveClientIpKey(request)   // trust-proxy gated
        → build bucket key (ip | user | ip_user)
-       → MemoryRateLimitStore.consume()
+       → getRateLimitStore() → MemoryRateLimitStore (default) or HTTP store (Phase 46-B)
        → allow OR 429 + Retry-After
   → existing auth / control-plane logic unchanged
 ```
@@ -79,15 +79,17 @@ the `untrusted` IP key (spoof-safe, coarse).
 
 ## Storage / deployment
 
-**Implemented store:** process-local in-memory sliding window.
+**Default store:** process-local in-memory sliding window (`AGXORA_RATE_LIMIT_STORE=memory` or unset).
 
-### Known deployment limitation
+**Optional shared store (Phase 46-B):** set `AGXORA_RATE_LIMIT_STORE=http` and
+`AGXORA_RATE_LIMIT_HTTP_URL`. See `docs/PHASE_46B_DISTRIBUTED_RATE_LIMITING.md`.
+
+### Known deployment limitation (memory store)
 
 In-memory counters are **not shared across Node processes / instances**.
-Horizontal scale does **not** provide a global limit. This slice documents that
-limitation instead of claiming Redis-level consistency.
+Horizontal scale requires the Phase 46-B HTTP shared store.
 
-No Redis / Upstash dependency was added (none exists in the repo today).
+No Redis / Upstash npm dependency was added.
 
 ### Failure behavior
 
@@ -105,9 +107,9 @@ Sensitive policies use **fail-closed**:
 - Key map is capped to reduce unbounded memory growth
 - Generic 429 messages preserve anti-enumeration for forgot-password / login
 
-## Deferred (not in 46-A)
+## Deferred (not in 46-A; 46-B delivers shared store)
 
-- Distributed / Redis shared limiter
+- ~~Distributed / Redis shared limiter~~ → **Phase 46-B** (HTTP worker, no npm Redis)
 - Broad API-wide rate limiting
 - Advanced abuse scoring / bot detection
 - Monitoring / alerting infrastructure beyond structured 429 responses

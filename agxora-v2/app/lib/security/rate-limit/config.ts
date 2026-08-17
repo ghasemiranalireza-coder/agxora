@@ -77,6 +77,15 @@ export const RATE_LIMIT_POLICIES: Record<RateLimitPolicyId, RateLimitPolicy> = {
   },
 };
 
+export type RateLimitStoreId = "memory" | "http";
+
+export type RateLimitStoreConfig = {
+  readonly store: RateLimitStoreId;
+  readonly httpUrl: string | null;
+  readonly httpToken: string | null;
+  readonly httpTimeoutMs: number;
+};
+
 export type RateLimitRuntimeConfig = {
   /** Master switch — when false, all checks allow. */
   readonly enabled: boolean;
@@ -111,6 +120,21 @@ export function getRateLimitRuntimeConfig(): RateLimitRuntimeConfig {
     enabled: envFlag("AGXORA_RATE_LIMIT_ENABLED", true),
     trustProxy: envFlag("AGXORA_TRUST_PROXY", false),
     maxKeys: envInt("AGXORA_RATE_LIMIT_MAX_KEYS", 10_000),
+  };
+}
+
+function parseStoreId(raw: string | undefined): RateLimitStoreId {
+  const value = (raw ?? "memory").trim().toLowerCase();
+  return value === "http" ? "http" : "memory";
+}
+
+/** Shared store selection — defaults to memory unless explicitly set to http. */
+export function getRateLimitStoreConfig(): RateLimitStoreConfig {
+  return {
+    store: parseStoreId(process.env.AGXORA_RATE_LIMIT_STORE),
+    httpUrl: process.env.AGXORA_RATE_LIMIT_HTTP_URL?.trim() || null,
+    httpToken: process.env.AGXORA_RATE_LIMIT_HTTP_TOKEN?.trim() || null,
+    httpTimeoutMs: envInt("AGXORA_RATE_LIMIT_HTTP_TIMEOUT_MS", 2_500),
   };
 }
 

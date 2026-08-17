@@ -14,7 +14,7 @@ export async function POST(request: Request): Promise<NextResponse> {
   try {
     requireDatabase();
     const actor = await requireCurrentActor();
-    const limited = rateLimitResponse({
+    const limited = await rateLimitResponse({
       request,
       policyId: "auth.request_verification",
       userId: actor.userId,
