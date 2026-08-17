@@ -515,13 +515,13 @@ describe("Phase 45 auth email delivery", () => {
   });
 
   it("does not report queued when password-reset handoff fails", async () => {
-    setEmailProviderForTests(memoryEmailProvider);
-    forceMemoryEmailFailure("smtp down");
     await registerWithPassword({
       email: "mail-fail@agxora.test",
       password: "SecurePass1!",
       displayName: "Mail Fail",
     });
+    setEmailProviderForTests(memoryEmailProvider);
+    forceMemoryEmailFailure("smtp down");
     const forgot = await requestPasswordReset("mail-fail@agxora.test");
     expect(forgot.delivery).toBe("not_configured");
     expect(listMemoryEmailOutbox()).toHaveLength(0);
