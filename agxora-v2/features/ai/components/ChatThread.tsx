@@ -6,6 +6,7 @@ import {
   useRef,
   type JSX,
 } from "react";
+import { useT } from "@/app/lib/i18n";
 import type { AiMessage } from "../types";
 import { MessageBubble } from "./MessageBubble";
 import { TypingIndicator } from "./TypingIndicator";
@@ -21,6 +22,7 @@ function ChatThreadInner({
   generating,
   onRetry,
 }: ChatThreadProps): JSX.Element {
+  const t = useT();
   const endRef = useRef<HTMLDivElement | null>(null);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
 
@@ -50,11 +52,10 @@ function ChatThreadInner({
             className="text-sm font-medium"
             style={{ color: "var(--agx-text, #f8fafc)" }}
           >
-            AGXORA AI Workspace
+            {t("ai.chatThread.title")}
           </p>
           <p className="max-w-md text-sm leading-relaxed">
-            Start a conversation, pick a prompt from the library, or open the
-            command palette (⌘⇧K / Ctrl⇧K).
+            {t("ai.chatThread.emptyHint")}
           </p>
         </div>
       ) : (

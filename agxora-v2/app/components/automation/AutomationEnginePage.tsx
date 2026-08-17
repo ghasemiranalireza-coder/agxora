@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useCallback, useState, type JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useT } from "@/app/lib/i18n";
 import {
   AUTOMATION_INTEGRATIONS,
   AUTOMATION_KPIS,
@@ -15,30 +16,6 @@ import { Card, Section, Skeleton } from "../ui";
 import { AiWorkflowAssistant } from "./AiWorkflowAssistant";
 import { AutomationKpiOverview } from "./AutomationKpiOverview";
 import { WorkflowBuilder } from "./WorkflowBuilder";
-
-const WorkflowHistory = dynamic(
-  () => import("./WorkflowHistory").then((m) => m.WorkflowHistory),
-  {
-    ssr: false,
-    loading: () => <SectionSkeleton label="Loading workflow history…" />,
-  },
-);
-
-const WorkflowTemplates = dynamic(
-  () => import("./WorkflowTemplates").then((m) => m.WorkflowTemplates),
-  {
-    ssr: false,
-    loading: () => <SectionSkeleton label="Loading template library…" />,
-  },
-);
-
-const AutomationIntegrations = dynamic(
-  () => import("./AutomationIntegrations").then((m) => m.AutomationIntegrations),
-  {
-    ssr: false,
-    loading: () => <SectionSkeleton label="Loading integration center…" />,
-  },
-);
 
 function SectionSkeleton({ label }: { readonly label: string }): JSX.Element {
   return (
@@ -55,11 +32,51 @@ function SectionSkeleton({ label }: { readonly label: string }): JSX.Element {
   );
 }
 
+function HistoryLoading(): JSX.Element {
+  const t = useT();
+  return <SectionSkeleton label={t("automation.enginePage.loadingHistory")} />;
+}
+
+function TemplatesLoading(): JSX.Element {
+  const t = useT();
+  return <SectionSkeleton label={t("automation.enginePage.loadingTemplates")} />;
+}
+
+function IntegrationsLoading(): JSX.Element {
+  const t = useT();
+  return <SectionSkeleton label={t("automation.enginePage.loadingIntegrations")} />;
+}
+
+const WorkflowHistory = dynamic(
+  () => import("./WorkflowHistory").then((m) => m.WorkflowHistory),
+  {
+    ssr: false,
+    loading: () => <HistoryLoading />,
+  },
+);
+
+const WorkflowTemplates = dynamic(
+  () => import("./WorkflowTemplates").then((m) => m.WorkflowTemplates),
+  {
+    ssr: false,
+    loading: () => <TemplatesLoading />,
+  },
+);
+
+const AutomationIntegrations = dynamic(
+  () => import("./AutomationIntegrations").then((m) => m.AutomationIntegrations),
+  {
+    ssr: false,
+    loading: () => <IntegrationsLoading />,
+  },
+);
+
 /**
  * AI Workflow & Automation Engine — enterprise polish layer.
  * Additive module; does not modify Hero, Finance, CRM, or Creator Studio.
  */
 export function AutomationEnginePage(): JSX.Element {
+  const t = useT();
   const reduceMotion = useReducedMotion();
   const [workflow, setWorkflow] = useState<WorkflowDefinition>(DEFAULT_WORKFLOW);
   const [builderKey, setBuilderKey] = useState(DEFAULT_WORKFLOW.id);
@@ -86,27 +103,26 @@ export function AutomationEnginePage(): JSX.Element {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
       >
-        <p className="agx-ui-section-title">AGXORA Automation OS</p>
+        <p className="agx-ui-section-title">{t("automation.enginePage.sectionTitle")}</p>
         <h1
           className="text-3xl font-semibold tracking-tight sm:text-4xl"
           style={{ color: "var(--agx-text, #f8fafc)", letterSpacing: "-0.03em" }}
         >
-          Automation
+          {t("automation.enginePage.title")}
         </h1>
         <p className="max-w-2xl text-sm sm:text-base" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Enterprise AI Workflow & Automation Engine — the connective tissue for CRM, Finance,
-          Creator Studio, and every future AGXORA module.
+          {t("automation.enginePage.subtitle")}
         </p>
       </motion.header>
 
-      <Section id="automation-kpis" title="Dashboard" delay={0.04}>
+      <Section id="automation-kpis" title={t("automation.enginePage.dashboard")} delay={0.04}>
         <AutomationKpiOverview metrics={AUTOMATION_KPIS} />
       </Section>
 
       <Section
         id="workflow-builder"
-        title="Workflow Builder"
-        subtitle="Node-based canvas with snap-to-grid, smooth zoom & pan, connection hover, and empty-state guidance."
+        title={t("automation.enginePage.workflowBuilder")}
+        subtitle={t("automation.enginePage.workflowBuilderSubtitle")}
         delay={0.06}
       >
         <div className="grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_300px]">
@@ -139,7 +155,7 @@ export function AutomationEnginePage(): JSX.Element {
                   background: "rgba(255,255,255,0.03)",
                 }}
               >
-                Open AI Workflow Assistant
+                {t("automation.enginePage.openAssistant")}
               </button>
             </Card>
           )}
@@ -148,8 +164,8 @@ export function AutomationEnginePage(): JSX.Element {
 
       <Section
         id="workflow-history"
-        title="Workflow History"
-        subtitle="Execution log with colored status, clickable rows, and a full execution inspector."
+        title={t("automation.enginePage.workflowHistory")}
+        subtitle={t("automation.enginePage.workflowHistorySubtitle")}
         delay={0.08}
       >
         <WorkflowHistory runs={WORKFLOW_RUNS} />
@@ -157,8 +173,8 @@ export function AutomationEnginePage(): JSX.Element {
 
       <Section
         id="workflow-templates"
-        title="Templates"
-        subtitle="Preview before load — node counts, difficulty, runtime, and recommended use cases."
+        title={t("automation.enginePage.templates")}
+        subtitle={t("automation.enginePage.templatesSubtitle")}
         delay={0.1}
       >
         <WorkflowTemplates
@@ -169,8 +185,8 @@ export function AutomationEnginePage(): JSX.Element {
 
       <Section
         id="automation-integrations"
-        title="Integration Center"
-        subtitle="Adapter registry only — Connected, Beta, Planned, Coming soon, Disabled. No live APIs."
+        title={t("automation.enginePage.integrationCenter")}
+        subtitle={t("automation.enginePage.integrationCenterSubtitle")}
         delay={0.12}
       >
         <AutomationIntegrations integrations={AUTOMATION_INTEGRATIONS} />

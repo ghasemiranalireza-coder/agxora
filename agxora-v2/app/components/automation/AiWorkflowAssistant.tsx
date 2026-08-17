@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, type JSX } from "react";
+import { useT } from "@/app/lib/i18n";
 import type { WorkflowDefinition } from "../../lib/automation";
 import { scoreWorkflow } from "../../lib/automation";
 import { Badge, Button, Card } from "../ui";
@@ -27,24 +28,25 @@ export function AiWorkflowAssistant({
   readonly workflow: WorkflowDefinition;
   readonly onClose?: () => void;
 }): JSX.Element {
+  const t = useT();
   const report = useMemo(() => scoreWorkflow(workflow), [workflow]);
-  const [notice, setNotice] = useState("One Click Optimize is a no graph mutation yet.");
+  const [notice, setNotice] = useState(t("automation.assistant.noticeDefault"));
 
   return (
     <Card className="h-full space-y-4" padding="24px" hover={false}>
       <div className="flex items-start justify-between gap-2">
         <div>
           <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            AI Workflow Assistant
+            {t("automation.assistant.title")}
           </h3>
           <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Local heuristics only — no live model required.
+            {t("automation.assistant.subtitle")}
           </p>
         </div>
         {onClose ? (
           <button
             type="button"
-            aria-label="Close AI Workflow Assistant"
+            aria-label={t("automation.assistant.closeAria")}
             onClick={onClose}
             className="rounded-lg border px-2 py-1 text-xs transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
             style={{
@@ -53,7 +55,7 @@ export function AiWorkflowAssistant({
               color: "var(--agx-text-muted, #94a3b8)",
             }}
           >
-            Close
+            {t("automation.assistant.close")}
           </button>
         ) : null}
       </div>
@@ -66,13 +68,13 @@ export function AiWorkflowAssistant({
         }}
       >
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Workflow Score
+          {t("automation.assistant.workflowScore")}
         </p>
         <p className="mt-2 text-3xl font-semibold tabular-nums" style={{ color: "var(--agx-text, #f8fafc)" }}>
           {report.score}
           <span className="text-base font-medium" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
             {" "}
-            / 100
+            {t("automation.assistant.scoreOutOf")}
           </span>
         </p>
         <Badge tone="accent">{report.label}</Badge>
@@ -80,7 +82,7 @@ export function AiWorkflowAssistant({
 
       <div className="space-y-2">
         <p className="text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Optimization Suggestions
+          {t("automation.assistant.optimizationSuggestions")}
         </p>
         <ul className="max-h-[420px] space-y-2 overflow-y-auto pr-1">
           {report.suggestions.map((sug) => (
@@ -108,11 +110,9 @@ export function AiWorkflowAssistant({
 
       <Button
         variant="primary"
-        onClick={() =>
-          setNotice("Optimize queued. Future engine will rewrite delays & approvals.")
-        }
+        onClick={() => setNotice(t("automation.assistant.noticeQueued"))}
       >
-        One Click Optimize
+        {t("automation.assistant.oneClickOptimize")}
       </Button>
       <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
         {notice}

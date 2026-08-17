@@ -7,6 +7,7 @@ import {
   type KeyboardEvent,
 } from "react";
 import { Button } from "@/app/components/ui";
+import { useT } from "@/app/lib/i18n";
 
 export interface ComposerProps {
   readonly disabled?: boolean;
@@ -27,6 +28,8 @@ export function Composer({
   onStop,
   onOpenCommands,
 }: ComposerProps): JSX.Element {
+  const t = useT();
+
   const submit = useCallback(() => {
     const value = draft.trim();
     if (!value || disabled || generating) return;
@@ -63,10 +66,10 @@ export function Composer({
           onKeyDown={onKeyDown}
           rows={3}
           disabled={disabled}
-          placeholder="Message AGXORA AI… (Enter to send, Shift+Enter for newline)"
+          placeholder={t("ai.composer.placeholder")}
           className="w-full resize-none bg-transparent px-2 py-1.5 text-sm outline-none"
           style={{ color: "var(--agx-text, #f8fafc)" }}
-          aria-label="Message composer"
+          aria-label={t("ai.composer.ariaLabel")}
         />
         <div className="flex items-center justify-between gap-2 px-1 pt-1">
           <div className="flex items-center gap-2">
@@ -77,14 +80,14 @@ export function Composer({
                 style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                 onClick={onOpenCommands}
               >
-                Commands ⌘⇧K
+                {t("ai.composer.commandsShortcut")}
               </button>
             ) : null}
           </div>
           <div className="flex items-center gap-2">
             {generating && onStop ? (
               <Button type="button" size="sm" variant="secondary" onClick={onStop}>
-                Stop
+                {t("ai.composer.stop")}
               </Button>
             ) : null}
             <Button
@@ -93,7 +96,7 @@ export function Composer({
               variant="primary"
               disabled={disabled || generating || !draft.trim()}
             >
-              Send
+              {t("ai.composer.send")}
             </Button>
           </div>
         </div>

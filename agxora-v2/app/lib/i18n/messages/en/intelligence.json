@@ -1,0 +1,136 @@
+{
+  "loading": "Loading Enterprise Intelligence Center…",
+  "eyebrow": "Enterprise Intelligence Center",
+  "title": "Intelligence",
+  "subtitle": "KPIs, scorecards, alerts, and reports for every AGXORA module. Values below are a seeded demo dataset until live analytics backends connect.",
+  "demoBanner": "Demo dataset — filters and acknowledge work in-session; export and live model calls are not available yet.",
+  "noticeDefault": "Showing seeded demo analytics — not live production telemetry.",
+  "noPermission": "You do not have intelligence.read permission for this workspace.",
+  "filtersUpdated": "Filters updated",
+  "demoReloaded": "Demo dataset reloaded for this workspace.",
+  "acknowledged": "Acknowledged: {title}",
+  "exportUnavailableTitle": "Export unavailable — report generation is not connected yet.",
+  "exportUnavailableAria": "Export {title} as {format} — unavailable",
+  "tabs": {
+    "executive": "Executive",
+    "health": "Business Health",
+    "workspace": "Analytics",
+    "kpis": "KPI Center",
+    "reports": "Reports",
+    "insights": "Insights",
+    "forecasts": "Forecasts",
+    "alerts": "Alerts",
+    "scorecards": "Scorecards",
+    "explorer": "Data Explorer"
+  },
+  "filters": {
+    "from": "From",
+    "to": "To",
+    "domain": "Domain",
+    "allDomains": "All domains",
+    "apply": "Apply filters",
+    "reloadDemo": "Reload demo data",
+    "viewsAria": "Intelligence views"
+  },
+  "executive": {
+    "companyHealth": "Company Health",
+    "revenueScore": "Revenue score",
+    "customerHealth": "Customer health",
+    "projectHealth": "Project health",
+    "workflowSuccess": "Workflow success",
+    "aiActivity": "AI activity",
+    "finance": "Finance",
+    "riskGrowth": "Risk / Growth",
+    "kpiStrip": "Executive KPI strip",
+    "visualizationPreviews": "Visualization previews",
+    "visualizationHint": "Illustrative charts from the demo series — not interactive drill-downs.",
+    "noSeries": "No series bound"
+  },
+  "health": {
+    "title": "Business health decomposition",
+    "overall": "Overall",
+    "revenue": "Revenue",
+    "customers": "Customers",
+    "projects": "Projects",
+    "workflows": "Workflows",
+    "ai": "AI",
+    "finance": "Finance",
+    "operations": "Operations",
+    "riskPosture": "Risk posture",
+    "growth": "Growth",
+    "observability": "Observability: {metrics} metrics · {avgMs}ms avg · system health {health}"
+  },
+  "workspace": {
+    "noSeries": "No series"
+  },
+  "kpis": {
+    "title": "KPI Center",
+    "subtitle": "Configurable KPI catalog across revenue, customers, projects, workflows, agents, and automation.",
+    "emptyTitle": "Analytics awaits signal",
+    "emptyDescription": "Once your workspace generates activity, executive KPIs and alerts appear here."
+  },
+  "reports": {
+    "title": "Reporting engine",
+    "subtitle": "Report definitions are seeded for review. File export is unavailable until a reporting backend is connected.",
+    "emptyTitle": "No reports",
+    "emptyDescription": "Reports seed on workspace bootstrap.",
+    "scheduleOnDemand": "on-demand"
+  },
+  "insights": {
+    "emptyTitle": "No insights yet",
+    "emptyDescription": "Demo insights appear after the workspace seeds. Live AI insight generation is not connected.",
+    "badge": "Demo · {kind} · {domain} · conf {confidence}"
+  },
+  "forecasts": {
+    "emptyTitle": "No forecasts yet",
+    "emptyDescription": "Demo forecasts appear after seed. Predictive models are not connected.",
+    "title": "{kind} forecast",
+    "baseline": "Baseline {baseline} → projected {projected} ({days}d)",
+    "confidence": "Demo · Confidence {confidence} — {note}"
+  },
+  "alerts": {
+    "title": "Alert engine",
+    "emptyTitle": "No alerts",
+    "emptyDescription": "Alerts seed from risk heuristics.",
+    "acked": "acked",
+    "open": "open",
+    "acknowledge": "Acknowledge"
+  },
+  "scorecards": {
+    "title": "Scorecard engine",
+    "emptyTitle": "No scorecards",
+    "emptyDescription": "Scorecards seed on bootstrap."
+  },
+  "explorer": {
+    "title": "Data explorer",
+    "searchPlaceholder": "Search demo rows…",
+    "searchAria": "Search demo explorer rows",
+    "emptyTitle": "No rows match",
+    "emptyDescription": "Adjust filters or search, or reload the demo dataset.",
+    "hint": "Client-side search on seeded tuples — backend aggregation and drill-down are not connected."
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "Value",
+    "delta": "Δ%",
+    "trend": "Trend",
+    "target": "Target",
+    "severity": "Severity",
+    "alert": "Alert",
+    "domain": "Domain",
+    "status": "Status",
+    "actions": "Actions",
+    "report": "Report",
+    "kind": "Kind",
+    "schedule": "Schedule",
+    "export": "Export",
+    "scorecard": "Scorecard",
+    "score": "Score",
+    "topDriver": "Top driver",
+    "label": "Label",
+    "entity": "Entity",
+    "measure": "Measure",
+    "date": "Date"
+  },
+  "emDash": "—"
+}

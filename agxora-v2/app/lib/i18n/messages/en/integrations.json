@@ -1,0 +1,143 @@
+{
+  "loading": "Loading integration platform…",
+  "eyebrow": "Enterprise Integration Platform",
+  "title": "Integration Center",
+  "subtitle": "Connectors for Microsoft 365, Google, Slack, CRM, storage, and automation ecosystems. Connections and sync in this build are local demos — live OAuth is not connected.",
+  "noticeDefault": "Local demo connectors — OAuth and live sync are not connected.",
+  "settings": "Settings",
+  "tabs": {
+    "dashboard": "Dashboard",
+    "installed": "Installed",
+    "available": "Available",
+    "logs": "Logs",
+    "apiKeys": "API Keys",
+    "webhooks": "Webhooks",
+    "developer": "Developer"
+  },
+  "notice": {
+    "demoConnection": "Demo connection: {name} (local stub only)",
+    "connectFailed": "Connect failed",
+    "keyCreated": "API key created: {prefix}",
+    "webhookCreated": "Webhook created: {name}",
+    "webhookTest": "Webhook test {status}",
+    "networkError": "API explorer network error: {message}",
+    "explorerError": "API explorer → {status}: {message}",
+    "explorerSuccess": "API explorer → {status}",
+    "explorerFailed": "Explorer failed",
+    "syncResult": "Demo sync · {status} ({records} local records) — no external data transferred.",
+    "diagnosed": "Diagnosed",
+    "removedConnection": "Removed demo connection: {name}",
+    "keyRotated": "Key rotated",
+    "keyRevoked": "Key revoked",
+    "publishedEvent": "Published {type}",
+    "developerSaved": "Developer settings saved"
+  },
+  "dashboard": {
+    "demoLinks": "Demo links",
+    "catalog": "Catalog",
+    "api24h": "API (24h)",
+    "webhooks24h": "Webhooks (24h)",
+    "webhookFailures": "Webhook failures",
+    "syncJobs": "Sync jobs",
+    "conflicts": "Conflicts",
+    "errors": "Errors",
+    "connectionStatus": "Connection status",
+    "emptyTitle": "No integrations installed",
+    "emptyDescription": "Browse Available to connect a provider.",
+    "eventBridgeDemo": "Event bridge demo",
+    "eventBridgeHint": "Publish a connector event onto the Workflow Automation bus.",
+    "emit": "Emit {id}"
+  },
+  "installed": {
+    "title": "Installed integrations",
+    "emptyTitle": "Nothing installed",
+    "emptyDescription": "Install from the Available catalog.",
+    "latestSync": "Latest sync: {status} · {records} records · mode {mode}"
+  },
+  "available": {
+    "protocols": "Protocols: {protocols}",
+    "demoConnection": "Demo connection",
+    "connectDemo": "Connect (demo)",
+    "installDemo": "Install demo"
+  },
+  "logs": {
+    "title": "Integration logs",
+    "emptyTitle": "No logs yet",
+    "emptyDescription": "Connect a provider or run diagnostics."
+  },
+  "apiKeys": {
+    "title": "API keys",
+    "generateKey": "Generate key",
+    "copyOnce": "Copy now (shown once): {secret}",
+    "emptyTitle": "No API keys",
+    "emptyDescription": "Generate a key for REST gateway access."
+  },
+  "webhooks": {
+    "endpointsTitle": "Webhook endpoints",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "Add outgoing webhook",
+    "emptyTitle": "No webhooks",
+    "emptyDescription": "Create an outgoing endpoint to test delivery.",
+    "deliveryLogs": "Delivery logs",
+    "deliveriesEmptyTitle": "No deliveries",
+    "deliveriesEmptyDescription": "Send a test webhook to populate logs."
+  },
+  "developer": {
+    "title": "Developer settings",
+    "sandboxMode": "Sandbox mode",
+    "webhookSigning": "Webhook signing enabled",
+    "saveSettings": "Save settings",
+    "apiDocs": "API docs placeholder: {url}",
+    "sdk": "SDK placeholder: {url}",
+    "explorerTitle": "API explorer",
+    "gatewayRoutes": "Gateway routes: {routes}",
+    "sendGet": "Send GET",
+    "oauthProviders": "OAuth providers",
+    "placeholdersHint": "GraphQL, WebSocket, and gRPC gateway routes are registered as placeholders. Field mapping and sync conflict resolution are architecture-ready for backend implementation."
+  },
+  "connectionStatus": {
+    "connected": "Demo connection",
+    "pendingAuth": "Pending (demo)",
+    "error": "Error",
+    "disabled": "Disabled",
+    "installed": "Installed",
+    "available": "Available",
+    "localDemo": "Local demo"
+  },
+  "columns": {
+    "integration": "Integration",
+    "status": "Status",
+    "health": "Health",
+    "latency": "Latency",
+    "actions": "Actions",
+    "when": "When",
+    "level": "Level",
+    "source": "Source",
+    "message": "Message",
+    "name": "Name",
+    "key": "Key",
+    "scopes": "Scopes",
+    "usage": "Usage",
+    "direction": "Direction",
+    "url": "URL",
+    "enabled": "Enabled",
+    "event": "Event",
+    "attempt": "Attempt"
+  },
+  "actions": {
+    "diagnose": "Diagnose",
+    "demoSync": "Demo sync",
+    "demoSyncTitle": "Demo sync only — no external transfer",
+    "disconnect": "Disconnect",
+    "rotate": "Rotate",
+    "revoke": "Revoke",
+    "test": "Test",
+    "emDash": "—",
+    "yes": "yes",
+    "no": "no"
+  },
+  "errors": {
+    "failedToFetch": "Failed to fetch",
+    "httpStatus": "HTTP {status}"
+  }
+}

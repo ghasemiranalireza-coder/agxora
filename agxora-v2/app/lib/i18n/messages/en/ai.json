@@ -1,0 +1,83 @@
+{
+  "platform": {
+    "loading": "Loading AI Platform…",
+    "eyebrow": "AGXORA AI Platform",
+    "title": "Enterprise AI Workspace",
+    "subtitle": "Provider-independent intelligence for CRM, Projects, Finance, Documents, and Automation. Configure providers in Settings → AI.",
+    "newConversation": "New conversation",
+    "aiCommands": "AI Commands"
+  },
+  "mobileTabs": {
+    "chat": "Chat",
+    "conversations": "Conversations",
+    "prompts": "Prompts"
+  },
+  "usageBar": {
+    "provider": "Provider",
+    "model": "Model",
+    "estimatedTokens": "Est. tokens",
+    "tokensInOut": "(in {in} / out {out})",
+    "cost": "Cost",
+    "context": "Context",
+    "contextNone": "none",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "AGXORA AI Workspace",
+    "emptyHint": "Start a conversation, pick a prompt from the library, or open the command palette (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Conversations",
+    "new": "New",
+    "searchPlaceholder": "Search chats…",
+    "searchAria": "Search conversations",
+    "showArchived": "Show archived",
+    "pinned": "Pinned",
+    "emptyPreview": "Empty conversation",
+    "noConversations": "No conversations yet",
+    "pin": "Pin",
+    "unpin": "Unpin",
+    "rename": "Rename",
+    "archive": "Archive",
+    "unarchive": "Unarchive",
+    "delete": "Delete"
+  },
+  "composer": {
+    "placeholder": "Message AGXORA AI… (Enter to send, Shift+Enter for newline)",
+    "ariaLabel": "Message composer",
+    "commandsShortcut": "Commands ⌘⇧K",
+    "stop": "Stop",
+    "send": "Send"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Copy",
+    "retry": "Retry"
+  },
+  "typingIndicator": {
+    "ariaLabel": "Assistant is typing"
+  },
+  "promptLibrary": {
+    "title": "Prompt library",
+    "subtitle": "Reusable templates across CRM, Projects, Finance, and more.",
+    "searchPlaceholder": "Search prompts…",
+    "searchAria": "Search prompts",
+    "all": "All",
+    "favorites": "Favorites",
+    "recent": "Recent",
+    "library": "Library",
+    "noMatches": "No prompts match",
+    "removeFavoriteAria": "Remove favorite",
+    "addFavoriteAria": "Add favorite",
+    "favorited": "Favorited",
+    "favorite": "Favorite",
+    "usePrompt": "Use prompt"
+  },
+  "commandPalette": {
+    "ariaLabel": "AI command palette",
+    "filterAria": "Filter AI commands",
+    "placeholder": "AI command… summarize, propose, analyze…",
+    "noMatches": "No matching commands",
+    "footer": "Register future commands via registerAiCommand — UI stays unchanged."
+  }
+}

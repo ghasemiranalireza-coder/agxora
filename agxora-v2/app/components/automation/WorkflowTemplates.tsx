@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type JSX } from "react";
+import { useT } from "@/app/lib/i18n";
 import type { WorkflowDefinition, WorkflowTemplate } from "../../lib/automation";
 import { difficultyLabel } from "../../lib/automation";
 import { Badge, Button, Card } from "../ui";
@@ -14,12 +15,13 @@ export function WorkflowTemplates({
   readonly templates: readonly WorkflowTemplate[];
   readonly onUseTemplate?: (workflow: WorkflowDefinition) => void;
 }): JSX.Element {
+  const t = useT();
   const [preview, setPreview] = useState<WorkflowTemplate | null>(null);
-  const [notice, setNotice] = useState("Preview a template before loading it into the builder.");
+  const [notice, setNotice] = useState(t("automation.workflowTemplates.noticeDefault"));
 
   const applyTemplate = (tpl: WorkflowTemplate): void => {
     onUseTemplate?.(tpl.preview);
-    setNotice(`Loaded “${tpl.name}” into the workflow builder.`);
+    setNotice(t("automation.workflowTemplates.noticeLoaded", { name: tpl.name }));
     setPreview(null);
     document.getElementById("workflow-builder")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -28,7 +30,7 @@ export function WorkflowTemplates({
     <Card padding="24px" hover={false}>
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Template Library
+          {t("automation.workflowTemplates.title")}
         </h3>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           {notice}
@@ -55,19 +57,19 @@ export function WorkflowTemplates({
               {tpl.description}
             </p>
             <div className="mt-3 flex flex-wrap gap-1.5">
-              <Badge>{tpl.nodeCount} nodes</Badge>
+              <Badge>{t("automation.workflowTemplates.nodesBadge", { count: tpl.nodeCount })}</Badge>
               <Badge>{tpl.estimatedRuntime}</Badge>
               <Badge tone="warning">{difficultyLabel(tpl.difficulty)}</Badge>
             </div>
             <p className="mt-2 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Recommended for: {tpl.recommendedFor}
+              {t("automation.workflowTemplates.recommendedFor", { for: tpl.recommendedFor })}
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               <Button size="sm" variant="secondary" onClick={() => setPreview(tpl)}>
-                Preview
+                {t("automation.workflowTemplates.preview")}
               </Button>
               <Button size="sm" variant="primary" onClick={() => applyTemplate(tpl)}>
-                Use Template
+                {t("automation.workflowTemplates.useTemplate")}
               </Button>
             </div>
           </article>
@@ -76,16 +78,16 @@ export function WorkflowTemplates({
 
       <AutomationDialog
         open={preview != null}
-        title={preview?.name ?? "Template Preview"}
+        title={preview?.name ?? t("automation.workflowTemplates.previewTitle")}
         onClose={() => setPreview(null)}
         footer={
           preview ? (
             <>
               <Button variant="secondary" onClick={() => setPreview(null)}>
-                Close
+                {t("automation.workflowTemplates.close")}
               </Button>
               <Button variant="primary" onClick={() => applyTemplate(preview)}>
-                Use Template
+                {t("automation.workflowTemplates.useTemplate")}
               </Button>
             </>
           ) : null
@@ -99,25 +101,25 @@ export function WorkflowTemplates({
             </p>
             <dl className="grid grid-cols-1 gap-2 text-sm sm:grid-cols-2">
               <div>
-                <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>Nodes</dt>
+                <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>{t("automation.workflowTemplates.nodes")}</dt>
                 <dd style={{ color: "var(--agx-text, #f8fafc)" }}>{preview.nodeCount}</dd>
               </div>
               <div>
-                <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>Connections</dt>
+                <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>{t("automation.workflowTemplates.connections")}</dt>
                 <dd style={{ color: "var(--agx-text, #f8fafc)" }}>{preview.preview.edges.length}</dd>
               </div>
               <div>
-                <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>Estimated Runtime</dt>
+                <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>{t("automation.workflowTemplates.estimatedRuntime")}</dt>
                 <dd style={{ color: "var(--agx-text, #f8fafc)" }}>{preview.estimatedRuntime}</dd>
               </div>
               <div>
-                <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>Difficulty</dt>
+                <dt style={{ color: "var(--agx-text-muted, #94a3b8)" }}>{t("automation.workflowTemplates.difficulty")}</dt>
                 <dd style={{ color: "var(--agx-text, #f8fafc)" }}>{difficultyLabel(preview.difficulty)}</dd>
               </div>
             </dl>
             <div>
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                Required Modules
+                {t("automation.workflowTemplates.requiredModules")}
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {preview.requiredModules.map((m) => (
@@ -129,14 +131,14 @@ export function WorkflowTemplates({
             </div>
             <div>
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                Used AI Features
+                {t("automation.workflowTemplates.usedAiFeatures")}
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {preview.aiFeatures.length > 0 ? (
                   preview.aiFeatures.map((f) => <Badge key={f}>{f}</Badge>)
                 ) : (
                   <span className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                    None
+                    {t("automation.workflowTemplates.none")}
                   </span>
                 )}
               </div>

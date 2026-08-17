@@ -1,6 +1,7 @@
 "use client";
 
 import { memo, useCallback, type JSX } from "react";
+import { useT } from "@/app/lib/i18n";
 import { MarkdownContent } from "../utils/markdown";
 import type { AiMessage } from "../types";
 import { TypingIndicator } from "./TypingIndicator";
@@ -25,6 +26,7 @@ function MessageBubbleInner({
   message,
   onRetry,
 }: MessageBubbleProps): JSX.Element {
+  const t = useT();
   const isUser = message.role === "user";
   const isStreaming = message.status === "streaming";
   const isError = message.status === "error";
@@ -60,7 +62,7 @@ function MessageBubbleInner({
           ) : isStreaming && !message.content ? (
             <TypingIndicator />
           ) : (
-            <MarkdownContent content={message.content || "…"} />
+            <MarkdownContent content={message.content || t("ai.messageBubble.ellipsis")} />
           )}
           {isError && message.error ? (
             <p
@@ -86,7 +88,7 @@ function MessageBubbleInner({
               className="opacity-80 hover:opacity-100"
               onClick={copy}
             >
-              Copy
+              {t("ai.messageBubble.copy")}
             </button>
           ) : null}
           {!isUser && (isError || message.status === "complete") && onRetry ? (
@@ -95,7 +97,7 @@ function MessageBubbleInner({
               className="opacity-80 hover:opacity-100"
               onClick={() => onRetry(message.id)}
             >
-              Retry
+              {t("ai.messageBubble.retry")}
             </button>
           ) : null}
         </div>

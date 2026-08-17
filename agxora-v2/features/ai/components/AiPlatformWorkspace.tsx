@@ -7,6 +7,7 @@ import {
   type JSX,
 } from "react";
 import { Card } from "@/app/components/ui";
+import { useT } from "@/app/lib/i18n";
 import { useAiChat } from "../hooks/useAiChat";
 import {
   useAiPlatformHydrated,
@@ -25,6 +26,7 @@ import { PromptLibrary } from "./PromptLibrary";
  * Lazy-loaded from /dashboard/ai. Does not alter dashboard shell.
  */
 export function AiPlatformWorkspace(): JSX.Element {
+  const t = useT();
   const hydrated = useAiPlatformHydrated();
   const { conversation, generating, send, retry, stop, ensureConversation } =
     useAiChat();
@@ -81,7 +83,7 @@ export function AiPlatformWorkspace(): JSX.Element {
         className="mx-auto w-full max-w-[1200px] py-16 text-center text-sm"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        Loading AI Platform…
+        {t("ai.platform.loading")}
       </div>
     );
   }
@@ -93,20 +95,19 @@ export function AiPlatformWorkspace(): JSX.Element {
           className="text-[11px] font-semibold uppercase tracking-[0.16em]"
           style={{ color: "var(--agx-accent, #22d3ee)" }}
         >
-          AGXORA AI Platform
+          {t("ai.platform.eyebrow")}
         </p>
         <h1
           className="text-2xl font-semibold tracking-tight"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Enterprise AI Workspace
+          {t("ai.platform.title")}
         </h1>
         <p
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Provider-independent intelligence for CRM, Projects, Finance,
-          Documents, and Automation. Configure providers in Settings → AI.
+          {t("ai.platform.subtitle")}
         </p>
       </Card>
 
@@ -115,9 +116,9 @@ export function AiPlatformWorkspace(): JSX.Element {
       <div className="flex gap-2 lg:hidden">
         {(
           [
-            ["chat", "Chat"],
-            ["chats", "Conversations"],
-            ["prompts", "Prompts"],
+            ["chat", t("ai.mobileTabs.chat")],
+            ["chats", t("ai.mobileTabs.conversations")],
+            ["prompts", t("ai.mobileTabs.prompts")],
           ] as const
         ).map(([id, label]) => (
           <button
@@ -168,7 +169,7 @@ export function AiPlatformWorkspace(): JSX.Element {
               className="truncate text-sm font-medium"
               style={{ color: "var(--agx-text, #f8fafc)" }}
             >
-              {conversation?.title ?? "New conversation"}
+              {conversation?.title ?? t("ai.platform.newConversation")}
             </p>
             <button
               type="button"
@@ -176,7 +177,7 @@ export function AiPlatformWorkspace(): JSX.Element {
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
               onClick={() => setCommandsOpen(true)}
             >
-              AI Commands
+              {t("ai.platform.aiCommands")}
             </button>
           </div>
           <ChatThread

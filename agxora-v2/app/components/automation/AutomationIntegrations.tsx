@@ -1,6 +1,7 @@
 "use client";
 
 import type { JSX } from "react";
+import { useT } from "@/app/lib/i18n";
 import type { IntegrationPlan } from "../../lib/automation";
 import { Badge, Card } from "../ui";
 import { IntegrationStatusBadge } from "./shared/StatusAndDialog";
@@ -10,11 +11,12 @@ export function AutomationIntegrations({
 }: {
   readonly integrations: readonly IntegrationPlan[];
 }): JSX.Element {
+  const t = useT();
+
   return (
     <Card padding="24px" hover={false}>
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Integration Center — optional. Statuses: Connected, Beta, Planned, Coming soon,
-        Disabled. No live APIs.
+        {t("automation.integrations.intro")}
       </p>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
         {integrations.map((item) => (
@@ -42,18 +44,18 @@ export function AutomationIntegrations({
               <IntegrationStatusBadge status={item.status} />
             </div>
             <p className="mt-3 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Category:{" "}
+              {t("automation.integrations.category")}{" "}
               <span style={{ color: "var(--agx-text, #f8fafc)" }}>{item.category}</span>
             </p>
             <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Reserved adapter:{" "}
+              {t("automation.integrations.reservedAdapter")}{" "}
               <span className="font-mono" style={{ color: "var(--agx-text, #f8fafc)" }}>
                 {item.adapter}
               </span>
             </p>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               <span className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                Description:{" "}
+                {t("automation.integrations.description")}{" "}
               </span>
               {item.notes}
             </p>

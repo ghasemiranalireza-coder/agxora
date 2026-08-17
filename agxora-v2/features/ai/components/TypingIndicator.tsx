@@ -1,8 +1,10 @@
 "use client";
 
 import { memo, type JSX } from "react";
+import { useT } from "@/app/lib/i18n";
 
 export const TypingIndicator = memo(function TypingIndicator(): JSX.Element {
+  const t = useT();
   return (
     <div
       className="inline-flex items-center gap-1.5 rounded-2xl px-3 py-2"
@@ -12,7 +14,7 @@ export const TypingIndicator = memo(function TypingIndicator(): JSX.Element {
         border:
           "1px solid color-mix(in srgb, var(--agx-border, #334155) 70%, transparent)",
       }}
-      aria-label="Assistant is typing"
+      aria-label={t("ai.typingIndicator.ariaLabel")}
     >
       {[0, 1, 2].map((i) => (
         <span

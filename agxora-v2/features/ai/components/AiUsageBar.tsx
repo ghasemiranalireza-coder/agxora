@@ -1,11 +1,13 @@
 "use client";
 
 import type { JSX } from "react";
+import { useT } from "@/app/lib/i18n";
 import { useAiUsage } from "../hooks/useAiUsage";
 import { useAiPlatformContext } from "../hooks/useAiContext";
 import { useAISettings } from "@/app/lib/ai/AIProviderContext";
 
 export function AiUsageBar(): JSX.Element {
+  const t = useT();
   const usage = useAiUsage();
   const { settings } = useAISettings();
   const { context } = useAiPlatformContext();
@@ -22,40 +24,43 @@ export function AiUsageBar(): JSX.Element {
       }}
     >
       <span>
-        Provider{" "}
+        {t("ai.usageBar.provider")}{" "}
         <strong style={{ color: "var(--agx-text, #f8fafc)", fontWeight: 600 }}>
           {settings.defaultProviderId}
         </strong>
       </span>
       <span>
-        Model{" "}
+        {t("ai.usageBar.model")}{" "}
         <strong style={{ color: "var(--agx-text, #f8fafc)", fontWeight: 600 }}>
           {settings.defaultModelId}
         </strong>
       </span>
       <span>
-        Est. tokens{" "}
+        {t("ai.usageBar.estimatedTokens")}{" "}
         <strong style={{ color: "var(--agx-text, #f8fafc)", fontWeight: 600 }}>
           {usage.estimatedTotalTokens}
         </strong>
         <span className="opacity-70">
           {" "}
-          (in {usage.estimatedPromptTokens} / out {usage.estimatedCompletionTokens})
+          {t("ai.usageBar.tokensInOut", {
+            in: usage.estimatedPromptTokens,
+            out: usage.estimatedCompletionTokens,
+          })}
         </span>
       </span>
       <span>
-        Cost{" "}
+        {t("ai.usageBar.cost")}{" "}
         <strong style={{ color: "var(--agx-text, #f8fafc)", fontWeight: 600 }}>
           {usage.estimatedCostUsd == null
-            ? "—"
+            ? t("ai.usageBar.emDash")
             : `$${usage.estimatedCostUsd.toFixed(4)}`}
         </strong>
       </span>
       <span>
-        Context{" "}
+        {t("ai.usageBar.context")}{" "}
         <strong style={{ color: "var(--agx-text, #f8fafc)", fontWeight: 600 }}>
           {context.active.type === "none"
-            ? "none"
+            ? t("ai.usageBar.contextNone")
             : `${context.active.type}${context.active.label ? `: ${context.active.label}` : ""}`}
         </strong>
       </span>
