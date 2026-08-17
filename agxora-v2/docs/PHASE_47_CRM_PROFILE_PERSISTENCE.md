@@ -6,7 +6,8 @@ Make **CRM Contacts** server-authoritative and persistent on PostgreSQL, using t
 existing Phase 42.1–44 tenancy / auth architecture.
 
 This is the Contacts slice of CRM profile persistence. Notes follow in
-**Phase 48** (`docs/PHASE_48_CRM_NOTES_PERSISTENCE.md`).
+**Phase 48** (`docs/PHASE_48_CRM_NOTES_PERSISTENCE.md`) and **Phase 49**
+(`docs/PHASE_49_CRM_DOCUMENT_METADATA_PERSISTENCE.md`).
 
 ## Why Contacts are being persisted
 
@@ -85,7 +86,7 @@ Server checks:
 | Mode | Customers | Contacts | Notes / documents / activities |
 |------|-----------|----------|--------------------------------|
 | `local` (default) | LocalStorage | LocalStorage | LocalStorage |
-| `database` | PostgreSQL API | PostgreSQL API (Phase 47) | Notes: Phase 48; documents/activities still LocalStorage |
+| `database` | PostgreSQL API | PostgreSQL API (Phase 47) | Notes: Phase 48 | Document metadata: Phase 49; activities still LocalStorage |
 
 Production expectation: set `NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE=database` when
 server auth + `DATABASE_URL` are live.
@@ -116,21 +117,25 @@ app/lib/crm/directory/service.ts        # database-mode branch for contacts
 
 - Notes entity persistence is implemented in **Phase 48** — see
   `docs/PHASE_48_CRM_NOTES_PERSISTENCE.md`
-- Documents / file blobs remain LocalStorage
+- Document metadata persistence is implemented in **Phase 49** — see
+  `docs/PHASE_49_CRM_DOCUMENT_METADATA_PERSISTENCE.md`
+- Documents / file blobs remain LocalStorage *(metadata-only: Phase 49)*
 - CRM channel integrations unchanged
 - Dual-mode default remains `local` until operators flip the flag
 - Contact person `notes` string field is persisted; that is **not** the Notes entity
 
-## Deferred to next slice (after Contacts; Notes now Phase 48)
+## Deferred to next slice (after Contacts; Notes: Phase 48; Documents metadata: Phase 49)
 
 - ~~**Notes** (`CrmNoteRecord` → Postgres)~~ → **Phase 48**
-- Documents / blob storage
+- ~~**Document metadata** (`CrmDocumentRecord` → Postgres)~~ → **Phase 49** (metadata only; blob storage deferred)
+- **Activities** (`CrmActivityRecord` → Postgres)
 - Optional consented LocalStorage → Postgres import
 - Activities server persistence
 
 ## Explicit out of scope
 
 - Notes (entity) — delivered in Phase 48
+- Document metadata — delivered in Phase 49 (blob storage still deferred)
 - Documents / blob storage
 - CRM channel integrations
 - Stripe / billing

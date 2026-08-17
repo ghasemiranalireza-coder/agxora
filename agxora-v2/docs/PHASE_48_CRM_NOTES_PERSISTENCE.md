@@ -5,7 +5,7 @@
 Make **CRM Notes** (`CrmNoteRecord`) server-authoritative and persistent on
 PostgreSQL, using the existing Phase 42.1–47 tenancy / auth architecture.
 
-This is the Notes-only slice. **Documents and Activities remain deferred.**
+This is the Notes-only slice. **Document metadata is Phase 49; Activities remain deferred.**
 
 ## Why Notes are being persisted
 
@@ -81,10 +81,10 @@ Server checks:
 
 ## Database / local mode behavior
 
-| Mode | Customers | Contacts | Notes | Documents / activities |
-|------|-----------|----------|-------|------------------------|
-| `local` (default) | LocalStorage | LocalStorage | LocalStorage | LocalStorage |
-| `database` | PostgreSQL API | PostgreSQL API | PostgreSQL API (Phase 48) | **Still LocalStorage** |
+| Mode | Customers | Contacts | Notes | Documents | Activities |
+|------|-----------|----------|-------|-----------|------------|
+| `local` (default) | LocalStorage | LocalStorage | LocalStorage | LocalStorage | LocalStorage |
+| `database` | PostgreSQL API | PostgreSQL API | PostgreSQL API (Phase 48) | PostgreSQL API (Phase 49) | **Still LocalStorage** |
 
 ## Module layout
 
@@ -110,14 +110,14 @@ app/lib/crm/directory/service.ts        # database-mode branch for notes
 
 ## Known limitations
 
-- Documents / file blobs remain LocalStorage
+- Document metadata is persisted in **Phase 49** (`docs/PHASE_49_CRM_DOCUMENT_METADATA_PERSISTENCE.md`); binary/blob storage remains deferred
 - Activities remain LocalStorage
 - Dual-mode default remains `local` until operators flip the flag
 - Contact.`notes` string is unrelated to this entity
 
 ## Explicitly deferred
 
-- Documents / blob storage
+- Binary/blob storage (S3, filesystem, presigned URLs) — see Phase 49 for metadata-only persistence
 - Activities server persistence
 - Optional consented LocalStorage → Postgres import
 - Stripe / billing

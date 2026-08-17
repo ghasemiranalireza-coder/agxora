@@ -10,6 +10,8 @@ import type {
   CrmCustomerDraft,
   CrmCustomerId,
   CrmCustomerRecord,
+  CrmDocumentDraft,
+  CrmDocumentRecord,
   CrmNoteDraft,
   CrmNoteRecord,
 } from "./types";
@@ -213,6 +215,37 @@ export async function remoteUpdateNote(
 
 export async function remoteDeleteNote(id: string): Promise<void> {
   await crmFetch(`/api/v1/crm/notes/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+  });
+}
+
+/** Phase 49 — Documents metadata (database mode). */
+
+export async function remoteListDocuments(
+  customerId: CrmCustomerId,
+): Promise<CrmDocumentRecord[]> {
+  const data = await crmFetch<{ items: CrmDocumentRecord[] }>(
+    `/api/v1/crm/customers/${encodeURIComponent(customerId)}/documents`,
+  );
+  return [...(data.items ?? [])];
+}
+
+export async function remoteCreateDocument(
+  customerId: CrmCustomerId,
+  draft: CrmDocumentDraft,
+): Promise<CrmDocumentRecord> {
+  const data = await crmFetch<{ document: CrmDocumentRecord }>(
+    `/api/v1/crm/customers/${encodeURIComponent(customerId)}/documents`,
+    {
+      method: "POST",
+      body: JSON.stringify({ draft }),
+    },
+  );
+  return data.document;
+}
+
+export async function remoteDeleteDocument(id: string): Promise<void> {
+  await crmFetch(`/api/v1/crm/documents/${encodeURIComponent(id)}`, {
     method: "DELETE",
   });
 }

@@ -1,4 +1,4 @@
-// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48
+// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49
 // PostgreSQL source of truth for User / Organization / Workspace / Membership /
 // Session / Customer / Contact / Note / Invitation / OwnershipTransfer /
 // ControlPlaneAuditEvent
@@ -73,6 +73,7 @@ model Organization {
   customers   Customer[]
   contacts    Contact[]
   notes       Note[]
+  customerDocuments CustomerDocument[]
   invitations         Invitation[]
   ownershipTransfers  OwnershipTransfer[]
   auditEvents         ControlPlaneAuditEvent[]
@@ -96,6 +97,7 @@ model Workspace {
   customers    Customer[]
   contacts     Contact[]
   notes        Note[]
+  customerDocuments CustomerDocument[]
   invitations         Invitation[]
   ownershipTransfers  OwnershipTransfer[]
   auditEvents         ControlPlaneAuditEvent[]
@@ -282,6 +284,7 @@ model Customer {
   workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
   contacts     Contact[]
   notes        Note[]
+  customerDocuments CustomerDocument[]
 
   @@index([workspaceId])
   @@index([organizationId])
@@ -342,4 +345,30 @@ model Note {
   @@index([customerId, createdAt])
   @@index([workspaceId, customerId])
   @@map("notes")
+}
+
+/// Phase 49 — CRM document metadata (no blob/binary storage).
+model CustomerDocument {
+  id             String   @id @default(uuid()) @db.Uuid
+  organizationId String   @db.Uuid
+  workspaceId    String   @db.Uuid
+  customerId     String   @db.Uuid
+  name           String
+  mimeType       String   @default("application/octet-stream")
+  size           Int      @default(0)
+  /// Display uploader string (matches CrmDocumentRecord / LocalStorage pattern).
+  uploadedBy     String   @default("")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  customer     Customer     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@index([customerId])
+  @@index([workspaceId])
+  @@index([organizationId])
+  @@index([customerId, createdAt])
+  @@index([workspaceId, customerId])
+  @@map("customer_documents")
 }

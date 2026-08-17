@@ -41,7 +41,20 @@ export {
   deleteNoteRecord,
 } from "./noteRepository";
 export {
+  listDocumentsForActor,
+  getDocumentForActor,
+  createDocumentForActor,
+  deleteDocumentForActor,
+} from "./documentService";
+export {
+  listDocumentsForCustomerInWorkspace,
+  getDocumentInWorkspace,
+  createDocumentRecord,
+  deleteDocumentRecord,
+} from "./documentRepository";
+export {
   toCrmCustomerRecord,
   toCrmContactRecord,
   toCrmNoteRecord,
+  toCrmDocumentRecord,
 } from "./mappers";
