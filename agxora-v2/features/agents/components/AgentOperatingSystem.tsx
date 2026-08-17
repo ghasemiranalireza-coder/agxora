@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
-import { useT } from "@/app/lib/i18n";
+import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
 import type { DataTableColumn } from "@/app/components/ui";
 import { agentsStore } from "../store";
 import { agentOsService } from "../services";
@@ -96,7 +96,7 @@ export function AgentOperatingSystem(): JSX.Element {
       setNotice(t("agents.notice.simulatedRun", { status: task.status, duration: task.durationMs ?? 0 }));
       setTab("history");
     } catch (err) {
-      setNotice(err instanceof Error ? err.message : t("agents.notice.taskFailed"));
+      setNotice(localizeThrownError(t, err, "agents.notice.taskFailed"));
     } finally {
       setBusy(false);
     }
@@ -114,11 +114,23 @@ export function AgentOperatingSystem(): JSX.Element {
       key: "agent",
       header: t("agents.columns.agent"),
       render: (r) =>
-        aos.agentsWithDefs.find((a) => a.runtime.instanceId === r.instanceId)
-          ?.definition?.name ?? r.agentId,
+        catalogCopy(
+          t,
+          `agents.catalog.${r.agentId}.name`,
+          aos.agentsWithDefs.find((a) => a.runtime.instanceId === r.instanceId)
+            ?.definition?.name ?? r.agentId,
+        ),
     },
-    { key: "status", header: t("agents.columns.status"), render: (r) => r.status },
-    { key: "health", header: t("agents.columns.health"), render: (r) => r.health },
+    {
+      key: "status",
+      header: t("agents.columns.status"),
+      render: (r) => catalogCopy(t, `agents.lifecycle.${r.status}`, r.status),
+    },
+    {
+      key: "health",
+      header: t("agents.columns.health"),
+      render: (r) => catalogCopy(t, `agents.healthStatus.${r.health}`, r.health),
+    },
     {
       key: "queue",
       header: t("agents.columns.queue"),
@@ -166,14 +178,22 @@ export function AgentOperatingSystem(): JSX.Element {
 
   const taskColumns: DataTableColumn<AgentTask>[] = [
     { key: "title", header: t("agents.columns.task"), render: (r) => r.title },
-    { key: "status", header: t("agents.columns.status"), render: (r) => r.status },
+    {
+      key: "status",
+      header: t("agents.columns.status"),
+      render: (r) => catalogCopy(t, `agents.taskStatus.${r.status}`, r.status),
+    },
     {
       key: "agent",
       header: t("agents.columns.agent"),
-      render: (r) =>
-        aos.agentsWithDefs.find(
+      render: (r) => {
+        const agentId = aos.agentsWithDefs.find(
           (a) => a.runtime.instanceId === r.agentInstanceId,
-        )?.definition?.name ?? r.agentInstanceId.slice(0, 10),
+        )?.runtime.agentId;
+        return agentId
+          ? catalogCopy(t, `agents.catalog.${agentId}.name`, agentId)
+          : r.agentInstanceId.slice(0, 10);
+      },
     },
     {
       key: "duration",
@@ -207,7 +227,11 @@ export function AgentOperatingSystem(): JSX.Element {
   ];
 
   const memoryColumns: DataTableColumn<MemoryRecord>[] = [
-    { key: "scope", header: t("agents.columns.scope"), render: (r) => r.scope },
+    {
+      key: "scope",
+      header: t("agents.columns.scope"),
+      render: (r) => catalogCopy(t, `agents.memoryScope.${r.scope}`, r.scope),
+    },
     { key: "key", header: t("agents.columns.key"), render: (r) => r.key },
     {
       key: "value",
@@ -222,12 +246,21 @@ export function AgentOperatingSystem(): JSX.Element {
   ];
 
   const knowledgeColumns: DataTableColumn<KnowledgeDocument>[] = [
-    { key: "title", header: t("agents.columns.title"), render: (r) => r.title },
-    { key: "kind", header: t("agents.columns.kind"), render: (r) => r.kind },
+    {
+      key: "title",
+      header: t("agents.columns.title"),
+      render: (r) => catalogCopy(t, `agents.knowledgeDocs.${r.kind}.title`, r.title),
+    },
+    {
+      key: "kind",
+      header: t("agents.columns.kind"),
+      render: (r) => catalogCopy(t, `agents.knowledgeKind.${r.kind}`, r.kind),
+    },
     {
       key: "summary",
       header: t("agents.columns.summary"),
-      render: (r) => r.summary.slice(0, 72),
+      render: (r) =>
+        catalogCopy(t, `agents.knowledgeDocs.${r.kind}.summary`, r.summary).slice(0, 72),
     },
   ];
 
@@ -336,7 +369,11 @@ export function AgentOperatingSystem(): JSX.Element {
                     <span className="mr-2 font-mono text-[11px] opacity-70">
                       {definition?.avatar ?? "AG"}
                     </span>
-                    {definition?.name ?? runtime.agentId}
+                    {catalogCopy(
+                      t,
+                      `agents.catalog.${runtime.agentId}.name`,
+                      definition?.name ?? runtime.agentId,
+                    )}
                   </button>
                 </li>
               ))}
@@ -346,20 +383,42 @@ export function AgentOperatingSystem(): JSX.Element {
             {selectedRuntime ? (
               <>
                 <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {aos.agentsWithDefs.find(
-                    (a) => a.runtime.instanceId === selectedRuntime.instanceId,
-                  )?.definition?.name ?? selectedRuntime.agentId}
-                </h2>
-                <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  {
+                  {catalogCopy(
+                    t,
+                    `agents.catalog.${selectedRuntime.agentId}.name`,
                     aos.agentsWithDefs.find(
                       (a) => a.runtime.instanceId === selectedRuntime.instanceId,
-                    )?.definition?.description
-                  }
+                    )?.definition?.name ?? selectedRuntime.agentId,
+                  )}
+                </h2>
+                <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                  {catalogCopy(
+                    t,
+                    `agents.catalog.${selectedRuntime.agentId}.description`,
+                    aos.agentsWithDefs.find(
+                      (a) => a.runtime.instanceId === selectedRuntime.instanceId,
+                    )?.definition?.description ?? "",
+                  )}
                 </p>
                 <dl className="grid gap-2 text-xs sm:grid-cols-2" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  <div>{t("agents.registry.status", { status: selectedRuntime.status })}</div>
-                  <div>{t("agents.registry.health", { health: selectedRuntime.health })}</div>
+                  <div>
+                    {t("agents.registry.status", {
+                      status: catalogCopy(
+                        t,
+                        `agents.lifecycle.${selectedRuntime.status}`,
+                        selectedRuntime.status,
+                      ),
+                    })}
+                  </div>
+                  <div>
+                    {t("agents.registry.health", {
+                      health: catalogCopy(
+                        t,
+                        `agents.healthStatus.${selectedRuntime.health}`,
+                        selectedRuntime.health,
+                      ),
+                    })}
+                  </div>
                   <div>{t("agents.registry.queue", { queue: selectedRuntime.queueDepth })}</div>
                   <div>{t("agents.registry.usage", { usage: selectedRuntime.analytics.usageCount })}</div>
                 </dl>
@@ -429,18 +488,22 @@ export function AgentOperatingSystem(): JSX.Element {
                   </span>
                   <div>
                     <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                      {agent.name}
+                      {catalogCopy(t, `agents.catalog.${agent.id}.name`, agent.name)}
                     </h3>
                     <p className="text-[11px]" style={{ color: "var(--agx-accent, #22d3ee)" }}>
-                      {agent.category}
+                      {catalogCopy(t, `agents.categories.${agent.category}`, agent.category)}
                     </p>
                   </div>
                 </div>
                 <p className="flex-1 text-xs leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  {agent.description}
+                  {catalogCopy(t, `agents.catalog.${agent.id}.description`, agent.description)}
                 </p>
                 <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  {t("agents.marketplace.tools", { tools: agent.tools.join(", ") })}
+                  {t("agents.marketplace.tools", {
+                    tools: agent.tools
+                      .map((id) => catalogCopy(t, `agents.toolsCatalog.${id}.name`, id))
+                      .join(", "),
+                  })}
                 </p>
                 <Button
                   size="sm"
@@ -538,10 +601,10 @@ export function AgentOperatingSystem(): JSX.Element {
           {aos.tools.map((tool) => (
             <Card key={tool.id} className="space-y-2" padding="20px" hover={false}>
               <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                {tool.name}
+                {catalogCopy(t, `agents.toolsCatalog.${tool.id}.name`, tool.name)}
               </h3>
               <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                {tool.description}
+                {catalogCopy(t, `agents.toolsCatalog.${tool.id}.description`, tool.description)}
               </p>
               <p className="text-[11px]" style={{ color: "var(--agx-accent, #22d3ee)" }}>
                 {tool.module}
@@ -567,7 +630,9 @@ export function AgentOperatingSystem(): JSX.Element {
             >
               {aos.llmProviders.map((p) => (
                 <option key={p.id} value={p.id}>
-                  {p.displayName}
+                  {p.id === "local" || p.id === "mcp" || p.id === "custom"
+                    ? catalogCopy(t, `agents.llm.${p.id}`, p.displayName)
+                    : p.displayName}
                 </option>
               ))}
             </select>

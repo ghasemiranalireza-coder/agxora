@@ -67,14 +67,78 @@
     "title": "KPI Center",
     "subtitle": "Configurable KPI catalog across revenue, customers, projects, workflows, agents, and automation.",
     "emptyTitle": "Analytics awaits signal",
-    "emptyDescription": "Once your workspace generates activity, executive KPIs and alerts appear here."
+    "emptyDescription": "Once your workspace generates activity, executive KPIs and alerts appear here.",
+    "revenue": {
+      "name": "Revenue",
+      "description": "Total recognized revenue in period."
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "Monthly recurring revenue."
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "Annual recurring revenue."
+    },
+    "growth": {
+      "name": "Growth",
+      "description": "Period-over-period growth rate."
+    },
+    "customer_acquisition": {
+      "name": "Customer Acquisition",
+      "description": "New customers acquired."
+    },
+    "retention": {
+      "name": "Retention",
+      "description": "Customer retention rate."
+    },
+    "churn": {
+      "name": "Churn",
+      "description": "Customer churn rate."
+    },
+    "project_success": {
+      "name": "Project Success",
+      "description": "Projects delivered on time / scope."
+    },
+    "workflow_success": {
+      "name": "Workflow Success",
+      "description": "Successful workflow executions."
+    },
+    "agent_performance": {
+      "name": "Agent Performance",
+      "description": "AI agent task success score."
+    },
+    "automation_success": {
+      "name": "Automation Success",
+      "description": "Automation / integration reliability."
+    },
+    "custom": {
+      "name": "Custom KPI",
+      "description": "Extension point for organization-defined KPIs."
+    }
   },
   "reports": {
     "title": "Reporting engine",
     "subtitle": "Report definitions are seeded for review. File export is unavailable until a reporting backend is connected.",
     "emptyTitle": "No reports",
     "emptyDescription": "Reports seed on workspace bootstrap.",
-    "scheduleOnDemand": "on-demand"
+    "scheduleOnDemand": "on-demand",
+    "executive": {
+      "title": "Executive Weekly",
+      "description": "CEO-level health, revenue, risk, and growth brief."
+    },
+    "department": {
+      "title": "Sales Department Report",
+      "description": "Pipeline, acquisition, and retention for sales leadership."
+    },
+    "operational": {
+      "title": "Operations Daily",
+      "description": "Workflows, integrations, and identity posture."
+    },
+    "management": {
+      "title": "Delivery Management",
+      "description": "Project success, capacity, and document throughput."
+    }
   },
   "insights": {
     "emptyTitle": "No insights yet",
@@ -94,12 +158,88 @@
     "emptyDescription": "Alerts seed from risk heuristics.",
     "acked": "acked",
     "open": "open",
-    "acknowledge": "Acknowledge"
+    "acknowledge": "Acknowledge",
+    "revenue_drop": {
+      "title": "Revenue softening in segment",
+      "body": "Week-over-week revenue dipped 4% in SMB — review pipeline coverage."
+    },
+    "project_delay": {
+      "title": "Project at risk of delay",
+      "body": "Two delivery projects slipped past milestone gates."
+    },
+    "churn_risk": {
+      "title": "Customer churn risk elevated",
+      "body": "Three accounts show declining engagement scores."
+    },
+    "workflow_failure": {
+      "title": "Workflow failures detected",
+      "body": "Invoice reminder workflow failed twice in 24h."
+    },
+    "ai_failure": {
+      "title": "AI task retries elevated",
+      "body": "Agent task retry rate crossed soft threshold."
+    },
+    "integration_error": {
+      "title": "Integration errors",
+      "body": "Slack connector returned intermittent 5xx responses."
+    },
+    "security": {
+      "title": "Security alert",
+      "body": "Unusual API key usage pattern detected."
+    }
   },
   "scorecards": {
     "title": "Scorecard engine",
     "emptyTitle": "No scorecards",
-    "emptyDescription": "Scorecards seed on bootstrap."
+    "emptyDescription": "Scorecards seed on bootstrap.",
+    "sales": {
+      "name": "Sales Score",
+      "drivers": {
+        "pipeline_coverage": "Pipeline coverage",
+        "win_rate": "Win rate",
+        "cycle_time": "Cycle time"
+      }
+    },
+    "customer_health": {
+      "name": "Customer Health Score",
+      "drivers": {
+        "retention": "Retention",
+        "nps_proxy": "NPS proxy",
+        "support_load": "Support load"
+      }
+    },
+    "project_success": {
+      "name": "Project Success Score",
+      "drivers": {
+        "on_time_delivery": "On-time delivery",
+        "scope_control": "Scope control",
+        "utilization": "Utilization"
+      }
+    },
+    "automation_efficiency": {
+      "name": "Automation Efficiency",
+      "drivers": {
+        "workflow_success": "Workflow success",
+        "manual_effort_saved": "Manual effort saved",
+        "retry_rate": "Retry rate"
+      }
+    },
+    "ai_quality": {
+      "name": "AI Quality",
+      "drivers": {
+        "task_success": "Task success",
+        "confidence_avg": "Confidence avg",
+        "escalation_rate": "Escalation rate"
+      }
+    },
+    "operational_health": {
+      "name": "Operational Health",
+      "drivers": {
+        "system_health": "System health",
+        "integration_reliability": "Integration reliability",
+        "identity_posture": "Identity posture"
+      }
+    }
   },
   "explorer": {
     "title": "Data explorer",
@@ -107,7 +247,8 @@
     "searchAria": "Search demo explorer rows",
     "emptyTitle": "No rows match",
     "emptyDescription": "Adjust filters or search, or reload the demo dataset.",
-    "hint": "Client-side search on seeded tuples — backend aggregation and drill-down are not connected."
+    "hint": "Client-side search on seeded tuples — backend aggregation and drill-down are not connected.",
+    "metricLabel": "{domain} metric {index}"
   },
   "columns": {
     "kpi": "KPI",
@@ -132,5 +273,121 @@
     "measure": "Measure",
     "date": "Date"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "CRM Analytics",
+    "projects": "Projects Analytics",
+    "finance": "Finance Analytics",
+    "documents": "Documents Analytics",
+    "workflow": "Workflow Analytics",
+    "identity": "Identity Analytics",
+    "ai": "AI Analytics",
+    "integration": "Integration Analytics",
+    "executive": "Executive"
+  },
+  "series": {
+    "crm_leads": "Leads",
+    "crm_pipeline": "Pipeline ($k)",
+    "proj_active": "Active projects",
+    "proj_on_time": "On-time %",
+    "fin_revenue": "Revenue ($k)",
+    "fin_margin": "Gross margin %",
+    "doc_created": "Documents created",
+    "doc_views": "Document views",
+    "wf_runs": "Workflow runs",
+    "wf_success": "Success %",
+    "id_users": "Active users",
+    "id_sessions": "Sessions",
+    "ai_tasks": "Agent tasks",
+    "ai_success": "Agent success %",
+    "int_calls": "API / webhook calls",
+    "int_errors": "Integration errors"
+  },
+  "bands": {
+    "Critical": "Critical",
+    "Watch": "Watch",
+    "Healthy": "Healthy",
+    "Excellent": "Excellent"
+  },
+  "charts": {
+    "chart_revenue": "Revenue trend",
+    "chart_pipeline": "CRM pipeline",
+    "chart_workflows": "Workflow activity",
+    "chart_ai": "AI activity mix",
+    "chart_ops_table": "Operational snapshot",
+    "chart_heatmap_placeholder": "Engagement heatmap"
+  },
+  "chartKinds": {
+    "line": "Line",
+    "bar": "Bar",
+    "area": "Area",
+    "pie": "Pie",
+    "heatmap": "Heatmap",
+    "table": "Table",
+    "card": "Card"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "MRR accelerating",
+      "summary": "MRR growth improved for three consecutive periods."
+    },
+    "pattern": {
+      "title": "Workflow spikes on invoice days",
+      "summary": "Automation load correlates with month-end invoice issuance."
+    },
+    "recommendation": {
+      "title": "Expand retention playbook",
+      "summary": "Focus CSM outreach on three accounts with declining health."
+    },
+    "executive_summary": {
+      "title": "Executive brief",
+      "summary": "Company health is strong; watch churn risk and project delays in delivery."
+    },
+    "risk": {
+      "title": "Delivery risk cluster",
+      "summary": "Two projects share resource contention — capacity forecast elevated."
+    },
+    "opportunity": {
+      "title": "Upsell opportunity",
+      "summary": "High-usage accounts without Business plan show expansion potential."
+    }
+  },
+  "forecastNotes": {
+    "revenue": "Linear trend placeholder — replace with model service.",
+    "customer": "Acquisition + retention composite.",
+    "project": "Capacity-aware delivery forecast.",
+    "capacity": "Team utilization forecast.",
+    "growth": "Growth rate forecast."
+  },
+  "forecastKinds": {
+    "revenue": "Revenue",
+    "customer": "Customer",
+    "project": "Project",
+    "capacity": "Capacity",
+    "growth": "Growth"
+  },
+  "severity": {
+    "info": "Info",
+    "warning": "Warning",
+    "critical": "Critical"
+  },
+  "trend": {
+    "up": "Up",
+    "down": "Down",
+    "flat": "Flat"
+  },
+  "insightKinds": {
+    "trend": "Trend",
+    "pattern": "Pattern",
+    "recommendation": "Recommendation",
+    "executive_summary": "Executive summary",
+    "risk": "Risk",
+    "opportunity": "Opportunity"
+  },
+  "reportKinds": {
+    "executive": "Executive",
+    "department": "Department",
+    "operational": "Operational",
+    "management": "Management"
+  }
 }

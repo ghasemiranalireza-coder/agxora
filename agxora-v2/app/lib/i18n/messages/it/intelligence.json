@@ -67,14 +67,78 @@
     "title": "Centro KPI",
     "subtitle": "Catalogo KPI configurabile per entrate, clienti, progetti, flussi di lavoro, agenti e automazione.",
     "emptyTitle": "Analytics attende il segnale",
-    "emptyDescription": "Una volta che l'area di lavoro genera attività, i KPI esecutivi e gli avvisi vengono visualizzati qui."
+    "emptyDescription": "Una volta che l'area di lavoro genera attività, i KPI esecutivi e gli avvisi vengono visualizzati qui.",
+    "revenue": {
+      "name": "Ricavi",
+      "description": "Ricavi totali riconosciuti nel periodo."
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "Ricavi ricorrenti mensili."
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "Ricavi ricorrenti annuali."
+    },
+    "growth": {
+      "name": "Crescita",
+      "description": "Tasso di crescita periodo su periodo."
+    },
+    "customer_acquisition": {
+      "name": "Acquisizione clienti",
+      "description": "Nuovi clienti acquisiti."
+    },
+    "retention": {
+      "name": "Ritenzione",
+      "description": "Tasso di retention clienti."
+    },
+    "churn": {
+      "name": "Abbandono",
+      "description": "Tasso di churn clienti."
+    },
+    "project_success": {
+      "name": "Successo progetti",
+      "description": "Progetti consegnati in tempo / nello scope."
+    },
+    "workflow_success": {
+      "name": "Successo workflow",
+      "description": "Esecuzioni workflow riuscite."
+    },
+    "agent_performance": {
+      "name": "Prestazioni agente",
+      "description": "Punteggio di successo dei task agente IA."
+    },
+    "automation_success": {
+      "name": "Successo automazione",
+      "description": "Affidabilità di automazione / integrazione."
+    },
+    "custom": {
+      "name": "KPI personalizzato",
+      "description": "Punto di estensione per KPI definiti dall’organizzazione."
+    }
   },
   "reports": {
     "title": "Motore di reporting",
     "subtitle": "Le definizioni dei report vengono seminate per la revisione. L'esportazione di file non è disponibile finché non viene connesso un backend di reporting.",
     "emptyTitle": "Nessun rapporto",
     "emptyDescription": "Riporta il seed sul bootstrap dell'area di lavoro.",
-    "scheduleOnDemand": "su richiesta"
+    "scheduleOnDemand": "su richiesta",
+    "executive": {
+      "title": "Report executive settimanale",
+      "description": "Brief CEO su salute, ricavi, rischio e crescita."
+    },
+    "department": {
+      "title": "Report dipartimento vendite",
+      "description": "Pipeline, acquisizione e retention per la leadership vendite."
+    },
+    "operational": {
+      "title": "Operazioni giornaliere",
+      "description": "Workflow, integrazioni e postura identità."
+    },
+    "management": {
+      "title": "Management consegna",
+      "description": "Successo progetti, capacità e throughput documenti."
+    }
   },
   "insights": {
     "emptyTitle": "Ancora nessun approfondimento",
@@ -94,12 +158,88 @@
     "emptyDescription": "Gli avvisi provengono dall'euristica del rischio.",
     "acked": "colpito",
     "open": "aprire",
-    "acknowledge": "Riconoscere"
+    "acknowledge": "Riconoscere",
+    "revenue_drop": {
+      "title": "Rallentamento ricavi nel segmento",
+      "body": "Ricavi WoW −4% nelle PMI: verifica copertura pipeline."
+    },
+    "project_delay": {
+      "title": "Progetto a rischio ritardo",
+      "body": "Due progetti di consegna hanno superato i gate milestone."
+    },
+    "churn_risk": {
+      "title": "Rischio churn elevato",
+      "body": "Tre account mostrano score di engagement in calo."
+    },
+    "workflow_failure": {
+      "title": "Errori workflow rilevati",
+      "body": "Il workflow reminder fatture è fallito due volte in 24h."
+    },
+    "ai_failure": {
+      "title": "Retry task IA elevati",
+      "body": "Il tasso di retry dei task agente ha superato la soglia soft."
+    },
+    "integration_error": {
+      "title": "Errori di integrazione",
+      "body": "Il connettore Slack ha restituito 5xx intermittenti."
+    },
+    "security": {
+      "title": "Avviso di sicurezza",
+      "body": "Rilevato un uso insolito di una chiave API."
+    }
   },
   "scorecards": {
     "title": "Motore di scorecard",
     "emptyTitle": "Niente scorecard",
-    "emptyDescription": "Seme delle scorecard sul bootstrap."
+    "emptyDescription": "Seme delle scorecard sul bootstrap.",
+    "sales": {
+      "name": "Punteggio vendite",
+      "drivers": {
+        "pipeline_coverage": "Copertura pipeline",
+        "win_rate": "Tasso di vittoria",
+        "cycle_time": "Tempo di ciclo"
+      }
+    },
+    "customer_health": {
+      "name": "Punteggio salute cliente",
+      "drivers": {
+        "retention": "Retention",
+        "nps_proxy": "Proxy NPS",
+        "support_load": "Carico di supporto"
+      }
+    },
+    "project_success": {
+      "name": "Punteggio successo progetti",
+      "drivers": {
+        "on_time_delivery": "Consegna in tempo",
+        "scope_control": "Controllo dello scope",
+        "utilization": "Utilizzo"
+      }
+    },
+    "automation_efficiency": {
+      "name": "Efficienza automazione",
+      "drivers": {
+        "workflow_success": "Successo workflow",
+        "manual_effort_saved": "Sforzo manuale risparmiato",
+        "retry_rate": "Tasso di retry"
+      }
+    },
+    "ai_quality": {
+      "name": "Qualità IA",
+      "drivers": {
+        "task_success": "Successo task",
+        "confidence_avg": "Confidence media",
+        "escalation_rate": "Tasso di escalation"
+      }
+    },
+    "operational_health": {
+      "name": "Salute operativa",
+      "drivers": {
+        "system_health": "Salute sistema",
+        "integration_reliability": "Affidabilità integrazione",
+        "identity_posture": "Postura identità"
+      }
+    }
   },
   "explorer": {
     "title": "Esploratore di dati",
@@ -107,7 +247,8 @@
     "searchAria": "Cerca nelle righe dell'Explorer demo",
     "emptyTitle": "Nessuna riga corrisponde",
     "emptyDescription": "Modifica i filtri, cerca o ricarica il set di dati demo.",
-    "hint": "Ricerca lato client sulle tuple seedate: l'aggregazione backend e il drill-down non sono collegati."
+    "hint": "Ricerca lato client sulle tuple seedate: l'aggregazione backend e il drill-down non sono collegati.",
+    "metricLabel": "Metrica {domain} {index}"
   },
   "columns": {
     "kpi": "KPI",
@@ -132,5 +273,121 @@
     "measure": "Misura",
     "date": "Data"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "Analytics CRM",
+    "projects": "Analytics progetti",
+    "finance": "Analytics finance",
+    "documents": "Analytics documenti",
+    "workflow": "Analytics workflow",
+    "identity": "Analytics identità",
+    "ai": "Analytics IA",
+    "integration": "Analytics integrazioni",
+    "executive": "Executive"
+  },
+  "series": {
+    "crm_leads": "Lead",
+    "crm_pipeline": "Pipeline (k$)",
+    "proj_active": "Progetti attivi",
+    "proj_on_time": "In tempo %",
+    "fin_revenue": "Ricavi (k$)",
+    "fin_margin": "Margine lordo %",
+    "doc_created": "Documenti creati",
+    "doc_views": "Visualizzazioni documenti",
+    "wf_runs": "Esecuzioni workflow",
+    "wf_success": "Successo %",
+    "id_users": "Utenti attivi",
+    "id_sessions": "Sessioni",
+    "ai_tasks": "Task agente",
+    "ai_success": "Successo agente %",
+    "int_calls": "Chiamate API / webhook",
+    "int_errors": "Errori di integrazione"
+  },
+  "bands": {
+    "Critical": "Critico",
+    "Watch": "Da osservare",
+    "Healthy": "Integro",
+    "Excellent": "Eccellente"
+  },
+  "charts": {
+    "chart_revenue": "Trend ricavi",
+    "chart_pipeline": "Pipeline CRM",
+    "chart_workflows": "Attività workflow",
+    "chart_ai": "Mix attività IA",
+    "chart_ops_table": "Snapshot operativo",
+    "chart_heatmap_placeholder": "Heatmap engagement"
+  },
+  "chartKinds": {
+    "line": "Linea",
+    "bar": "Barre",
+    "area": "Aree",
+    "pie": "Torta",
+    "heatmap": "Heatmap",
+    "table": "Tabella",
+    "card": "Scheda"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "MRR in accelerazione",
+      "summary": "La crescita MRR è migliorata per tre periodi consecutivi."
+    },
+    "pattern": {
+      "title": "Picchi workflow nei giorni fattura",
+      "summary": "Il carico di automazione correla con la fatturazione di fine mese."
+    },
+    "recommendation": {
+      "title": "Espandi il playbook di retention",
+      "summary": "Concentra l’outreach CSM su tre account con salute in calo."
+    },
+    "executive_summary": {
+      "title": "Brief executive",
+      "summary": "La salute aziendale è solida; monitora churn e ritardi di consegna."
+    },
+    "risk": {
+      "title": "Cluster di rischio consegna",
+      "summary": "Due progetti condividono contention risorse — forecast capacità elevato."
+    },
+    "opportunity": {
+      "title": "Opportunità di upsell",
+      "summary": "Account ad alto usage senza piano Business mostrano potenziale di espansione."
+    }
+  },
+  "forecastNotes": {
+    "revenue": "Placeholder di trend lineare — sostituire con servizio modello.",
+    "customer": "Composito acquisizione + retention.",
+    "project": "Forecast di consegna consapevole della capacità.",
+    "capacity": "Forecast di utilizzo del team.",
+    "growth": "Forecast del tasso di crescita."
+  },
+  "forecastKinds": {
+    "revenue": "Ricavi",
+    "customer": "Cliente",
+    "project": "Progetto",
+    "capacity": "Capacità",
+    "growth": "Crescita"
+  },
+  "severity": {
+    "info": "Info",
+    "warning": "Avviso",
+    "critical": "Critico"
+  },
+  "trend": {
+    "up": "In salita",
+    "down": "In calo",
+    "flat": "Stabile"
+  },
+  "insightKinds": {
+    "trend": "Trend",
+    "pattern": "Schema",
+    "recommendation": "Raccomandazione",
+    "executive_summary": "Sintesi executive",
+    "risk": "Rischio",
+    "opportunity": "Opportunità"
+  },
+  "reportKinds": {
+    "executive": "Executive",
+    "department": "Dipartimento",
+    "operational": "Operativo",
+    "management": "Management"
+  }
 }

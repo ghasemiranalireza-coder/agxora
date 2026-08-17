@@ -14,7 +14,7 @@
     "signOut": "Abmelden",
     "contact": "Kontakt",
     "privacy": "Privatsphäre",
-    "terms": "Begriﬀe",
+    "terms": "Bedingungen",
     "cookies": "Cookies",
     "imprint": "Impressum",
     "organization": "Organisation",
@@ -23,7 +23,7 @@
     "member": "Mitglied",
     "role": "Rolle",
     "signedIn": "Angemeldet",
-    "guestSession": "Gästesitzung",
+    "guestSession": "Gastsitzung",
     "noResults": "Keine Ergebnisse",
     "noData": "Keine Daten",
     "comingSoon": "Kommt bald",
@@ -44,7 +44,7 @@
     "dashboard": "Dashboard"
   },
   "navigation": {
-    "dashboard": "Armaturenbrett",
+    "dashboard": "Dashboard",
     "projects": "Projekte",
     "aiCrm": "KI-CRM",
     "analytics": "Analytik",
@@ -63,9 +63,9 @@
     "search": "Suche",
     "notifications": "Benachrichtigungen",
     "profile": "Profil",
-    "currentOrganization": "Aktuelles Unternehmen",
+    "currentOrganization": "Aktuelle Organisation",
     "noNotifications": "Keine Benachrichtigungen",
-    "notificationsEmpty": "Ihr seid alle beschäftigt. Hier werden Warnungen und Erwähnungen angezeigt.",
+    "notificationsEmpty": "Alles erledigt. Hinweise und Erwähnungen erscheinen hier.",
     "accountSettings": "Kontoeinstellungen",
     "security": "Sicherheit",
     "themeToggle": "Schneller Themenwechsel. Präferenz: {mode}"
@@ -241,7 +241,7 @@
       "noNotifications": "Keine Rechnungsbenachrichtigungen.",
       "noticeInitial": "Die Abrechnung läuft über die kommerzielle Serviceschicht — kein Zahlungs-SDK in der Benutzeroberfläche.",
       "noticeActivated": "{planId} über {providerId} aktiviert (Scheinkasse).",
-      "noticeCheckoutFailed": "Check-out fehlgeschlagen. ",
+      "noticeCheckoutFailed": "Check-out fehlgeschlagen.",
       "noticeCancelled": "Abo gekündigt",
       "noticeRenewed": "Abonnement für den nächsten Zeitraum verlängert.",
       "noticeProfileSaved": "Rechnungsprofil gespeichert.",
@@ -258,6 +258,61 @@
         "exceeded": "Übertroffen",
         "warning": "Warnung",
         "ok": "i.O."
+      }
+    },
+    "licenseStatus": {
+      "trial": "Testphase",
+      "active": "Aktiv",
+      "expired": "Abgelaufen",
+      "cancelled": "Gekündigt",
+      "suspended": "Gesperrt",
+      "lifetime": "Lebenslang"
+    },
+    "quotas": {
+      "ai_requests": "KI-Anfragen",
+      "projects": "Projekte",
+      "customers": "Kunden",
+      "documents": "Dokumente",
+      "storage_mb": "Speicher (MB)",
+      "users": "Nutzer",
+      "api_requests": "API-Anfragen"
+    },
+    "invoiceStatus": {
+      "draft": "Entwurf",
+      "open": "Offen",
+      "paid": "Bezahlt",
+      "void": "Storniert",
+      "uncollectible": "Uneinbringlich",
+      "refunded": "Erstattet"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "Testphase endet bald",
+        "body": "Ihre Testphase endet in etwa {days} Tag(en). Wechseln Sie den Tarif, um vollen Zugriff zu behalten."
+      },
+      "expired": {
+        "title": "Abonnement abgelaufen",
+        "body": "Verlängern oder upgraden Sie Ihren Tarif, um kommerzielle Funktionen wiederherzustellen."
+      },
+      "cancelled": {
+        "title": "Abonnement gekündigt",
+        "body": "Ihr AGXORA-Abonnement wurde gekündigt. Der Zugriff bleibt bis Periodenende bestehen."
+      },
+      "quotaWarning": {
+        "title": "{metric}-Limit fast erreicht",
+        "body": "Verbraucht {used} von {limit}. Erwägen Sie ein Upgrade."
+      },
+      "upgradeAvailable": {
+        "title": "Upgrade verfügbar",
+        "body": "Business und Enterprise schalten Automatisierung, höhere KI-Kontingente und API-Zugang frei."
+      },
+      "invoiceReady": {
+        "title": "Rechnung bereit",
+        "body": "Rechnung {number} wurde erfolgreich bezahlt."
+      },
+      "renewed": {
+        "title": "Abonnement verlängert",
+        "body": "Ihr Tarif verlängert sich am {date}."
       }
     }
   },
@@ -290,7 +345,7 @@
       "regions": {
         "EU": "Europäische Union",
         "US": "Vereinigte Staaten von Amerika",
-        "MENA": "MenaCity in Arkansas USA",
+        "MENA": "MENA",
         "APAC": "APAC"
       }
     },
@@ -344,7 +399,7 @@
         "mock": "Mock (lokal)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "Anthropisch",
+        "anthropic": "Anthropic",
         "google": "Google",
         "openrouter": "OpenRouter",
         "ollama": "Ollama",
@@ -372,9 +427,16 @@
       "themeModeAria": "Theme-Modus",
       "resolvedAppearance": "Aufgelöstes Erscheinungsbild:",
       "accentColor": "Akzentfarbe",
-      "accentNotice": "Akzentpräferenz wird für zukünftige CSS-VAR-Verkabelung gespeichert — verändert das gesperrte Farbsystem noch nicht.",
+      "accentNotice": "Die Akzentfarbe wird für diese Sitzung gespeichert und ändert das gesperrte Farbsystem noch nicht.",
+      "accents": {
+        "cyan": "Cyan",
+        "blue": "Blau",
+        "emerald": "Smaragd",
+        "violet": "Violett",
+        "amber": "Bernstein"
+      },
       "density": "Dichte",
-      "compactMode": "Kompakt-Modus",
+      "compactMode": "Kompaktmodus",
       "compactModeDescription": "Reduzieren Sie die Polsterung über Enterprise-Tische und -Panels hinweg.",
       "animations": "Animationen",
       "animationsDescription": "Abschnittsbewegung und Schwebehebebühnen. Respektiert die Einstellung des Betriebssystems mit reduzierter Bewegung.",
@@ -407,7 +469,7 @@
       "panelDescription": "E-Mail-, Push-, Desktop-, Mobil- und modulspezifische Benachrichtigungen.",
       "notice": "Benachrichtigungskanäle sind nur Präferenzen — Lieferadapter sind reserviert.",
       "email": "E-Mail",
-      "push": "Schieben ",
+      "push": "Schieben",
       "desktop": "Desktop",
       "mobile": "Mobile",
       "workflowAlerts": "Workflow-Warnungen",
@@ -707,7 +769,7 @@
     "required": "Dieses Feld ist erforderlich.",
     "invalidEmail": "Geben Sie eine gültige E-Mail-Adresse ein.",
     "passwordMin": "Das Passwort muss mindestens 8 Zeichen lang sein.",
-    "passwordLettersNumbers": "<g id=\"1\">Kennwort muss aus Ziffern und Zahlen bestehen</g>. ",
+    "passwordLettersNumbers": "Kennwort muss aus Ziffern und Zahlen bestehen.",
     "passwordMismatch": "Passwörter stimmen nicht überein.",
     "acceptTerms": "Bitte akzeptieren Sie die Bedingungen, um fortzufahren.",
     "generic": "Etwas ist schiefgelaufen.",
@@ -741,7 +803,7 @@
     "skipToContent": "Zum Dashboard-Inhalt springen",
     "loading": "Dashboard wird geladen…",
     "hero": {
-      "ariaLabel": "AGXORA CORE HERO",
+      "ariaLabel": "AGXORA CORE",
       "eyebrow": "KI-Geschäftsbetriebssystem",
       "title": "AGXORA-KERN",
       "subtitle": "Echtzeitinformationen und Betriebskontrolle – Ihre Arbeitsplatz-Befehlsoberfläche.",
@@ -752,11 +814,11 @@
     },
     "quickActions": {
       "title": "Schnelle Aktionen",
-      "subtitle": "Was sollten Sie als Nächstes tun? ",
+      "subtitle": "Was sollten Sie als Nächstes tun?",
       "ariaLabel": "Schnelle Aktionen",
       "addCustomer": {
         "label": "Kunde hinzufügen",
-        "description": "Erstellen Sie einen CRM-Datensatz"
+        "description": "CRM-Datensatz anlegen"
       },
       "newProject": {
         "label": "Neues Projekt",
@@ -782,7 +844,7 @@
     "attention": {
       "title": "Braucht Aufmerksamkeit",
       "ariaLabel": "Was Aufmerksamkeit braucht",
-      "empty": "Ihnen ist klar: Im Moment gibt es keine dringenden Dinge.",
+      "empty": "Alles in Ordnung — derzeit keine dringenden Punkte.",
       "tone": {
         "critical": "Kritisch",
         "warning": "Warnung",
@@ -808,8 +870,8 @@
       }
     },
     "overview": {
-      "title": "Was passiert",
-      "subtitle": "Arbeitsbereichsanzahl für {name}",
+      "title": "Was gerade passiert",
+      "subtitle": "Kennzahlen für {name}",
       "fallbackName": "Ihren Arbeitsplatz",
       "ariaLabel": "Unternehmensüberblick",
       "online": "Online",
@@ -836,12 +898,12 @@
         "viewFeed": "Feed ansehen"
       },
       "revenue": {
-        "title": "Einnahmen",
+        "title": "Umsatz",
         "caption": "Verbinden Sie die Abrechnung, um MRR anzuzeigen",
         "openBilling": "Abrechnung öffnen"
       },
       "clientShell": {
-        "title": "Client-Shell",
+        "title": "Anwendungsshell",
         "caption": "Bereit für die Browsersitzung – kein Live-Betriebsmonitor",
         "shellLoaded": "Anwendungsshell geladen",
         "storesReady": "Lokale Workspace-Stores bereit"
@@ -856,8 +918,8 @@
       "title": "Aktuelle Aktivität",
       "subtitle": "Was sich heute geändert hat",
       "ariaLabel": "Aktuelle Aktivität",
-      "todayCount": "{count} HEUTE",
-      "localBadge": "LOKAL",
+      "todayCount": "{count} heute",
+      "localBadge": "Lokal",
       "emptyTitle": "Noch keine Aktivität",
       "emptyBody": "Workspace-Ereignisse werden hier angezeigt, wenn Sie Kunden, Projekte usw. hinzufügen.",
       "addCustomer": "Kunde hinzufügen",
@@ -1037,7 +1099,7 @@
           "subtitle": "Projektportfolio"
         },
         "openAi": {
-          "title": "OPENAI  •  <x id=\"1\"/>",
+          "title": "OPENAI  •",
           "subtitle": "KI-Plattform-Arbeitsbereich"
         },
         "openAnalytics": {
@@ -1127,14 +1189,14 @@
   },
   "auth": {
     "login": {
-      "title": "anmelden",
+      "title": "Anmelden",
       "subtitle": "Willkommen zurück bei AGXORA.",
       "email": "E-Mail",
       "password": "Passwort",
       "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Passwort",
-      "rememberMe": "Erinnere dich an mich",
-      "submit": "anmelden",
+      "rememberMe": "Angemeldet bleiben",
+      "submit": "Anmelden",
       "submitting": "Anmeldevorgang läuft ...",
       "noAccount": "Kein Konto?",
       "startFree": "Kostenlos starten",
@@ -1142,7 +1204,7 @@
       "showPassword": "Passwort anzeigen",
       "hidePassword": "Passwort verbergen",
       "failed": "Die Anmeldung ist fehlgeschlagen",
-      "loading": "anmelden"
+      "loading": "Anmelden"
     },
     "register": {
       "title": "Benutzerkonto erstellen",
@@ -1153,17 +1215,17 @@
       "company": "Unternehmen",
       "password": "Passwort",
       "confirmPassword": "Passwort bestätigen",
-      "acceptTerms": "Ich akzeptiere das",
+      "acceptTerms": "Ich akzeptiere die",
       "termsOfService": "Nutzungsbedingungen",
       "and": "und",
       "privacyPolicy": "Datenschutzrichtlinie",
       "submit": "Benutzerkonto erstellen",
       "submitting": "Konto erstellen…",
       "haveAccount": "Haben Sie ein Konto?",
-      "signIn": "anmelden",
+      "signIn": "Anmelden",
       "strength": "Passwortstärke",
       "strengthWeak": "Schwach",
-      "strengthFair": "Gerecht",
+      "strengthFair": "Mittel",
       "strengthStrong": "Stark",
       "firstNamePlaceholder": "Alex",
       "lastNamePlaceholder": "Morgan",
@@ -1218,7 +1280,7 @@
       "successTitle": "Danke",
       "successBody": "Ihre Anfrage ist eingegangen. Unser Team wird in Kürze antworten.",
       "viewPricing": "Preise ansehen",
-      "bookDemo": "Buchdemo",
+      "bookDemo": "Demo buchen",
       "failed": "Die Anfrage konnte nicht gesendet werden",
       "country": "Land",
       "savedFor": "Für {company} gespeichert. Die Vertriebszustellung ist in diesem Build nicht verbunden.",
@@ -1698,7 +1760,137 @@
       "intro": "Creator Studio Foundation – offizielle Plattformintegrationen können später an diese Adapter angeschlossen werden. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
     },
     "industry": {
-      "intro": "Universelle Business-Plattform – beim Onboarding wird später eine Branche ausgewählt. Jede Branche erhält dedizierte KI-Module, ohne das Kern-CRM-Betriebssystem abzuspalten."
+      "intro": "Universelle Business-Plattform – beim Onboarding wird später eine Branche ausgewählt. Jede Branche erhält dedizierte KI-Module, ohne das Kern-CRM-Betriebssystem abzuspalten.",
+      "catalog": {
+        "business": {
+          "label": "Unternehmen",
+          "description": "Allgemeines B2B-Betriebssystem"
+        },
+        "freelancer": {
+          "label": "Freelancer",
+          "description": "CRM, Rechnungen und Kundenpipeline für Einzelunternehmer"
+        },
+        "creator": {
+          "label": "Creator",
+          "description": "Creator Studio und Marken-CRM"
+        },
+        "influencer": {
+          "label": "Influencer",
+          "description": "Sponsoring-CRM und Kampagnen-OS"
+        },
+        "agency": {
+          "label": "Agentur",
+          "description": "Lieferung und Retainer für mehrere Kunden"
+        },
+        "retail": {
+          "label": "Einzelhandel",
+          "description": "Filialbestand, POS und Treue"
+        },
+        "restaurant": {
+          "label": "Restaurant",
+          "description": "Reservierungen, Küche und Lieferung"
+        },
+        "hotel": {
+          "label": "Hotel",
+          "description": "Zimmer, Gäste und Housekeeping"
+        },
+        "laundry": {
+          "label": "Wäscherei",
+          "description": "Abholung, Tickets und Routenlogistik"
+        },
+        "healthcare": {
+          "label": "Gesundheitswesen",
+          "description": "Patienten, Termine, Compliance"
+        },
+        "law_firm": {
+          "label": "Kanzlei",
+          "description": "Mandate, Abrechnung und Dokumentensafe"
+        },
+        "accounting": {
+          "label": "Buchhaltung",
+          "description": "Mandantenbücher und DATEV-exporte"
+        },
+        "construction": {
+          "label": "Bau",
+          "description": "Baustellen, Teams und Fortschrittsabrechnung"
+        },
+        "real_estate": {
+          "label": "Immobilien",
+          "description": "Inserate, Besichtigungen und Abschlüsse"
+        },
+        "education": {
+          "label": "Bildung",
+          "description": "Studierende, Kurse und Einschreibung"
+        },
+        "manufacturing": {
+          "label": "Fertigung",
+          "description": "Stückliste, Fertigung und QS"
+        },
+        "logistics": {
+          "label": "Logistik",
+          "description": "Flotte, Sendungsverfolgung und Lieferscheine"
+        },
+        "ecommerce": {
+          "label": "E-Commerce",
+          "description": "Katalog, Warenkörbe und Omnichannel-Aufträge"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Vertrieb",
+        "finance": "Finanzen",
+        "projects": "Projekte",
+        "clients": "Kunden",
+        "proposals": "Angebote",
+        "time_tracking": "Zeiterfassung",
+        "invoices": "Rechnungen",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Markenkooperationen",
+        "content_calendar": "Content-Kalender",
+        "sponsorships": "Sponsorings",
+        "audience_insights": "Zielgruppen-Insights",
+        "campaigns": "Kampagnen",
+        "client_portals": "Kundenportale",
+        "retainers": "Retainer",
+        "campaign_ops": "Kampagnenbetrieb",
+        "inventory": "Bestand",
+        "pos": "POS",
+        "loyalty": "Treue",
+        "reservations": "Reservierungen",
+        "menu": "Speisekarte",
+        "kitchen_display": "Küchenanzeige",
+        "housekeeping": "Housekeeping",
+        "guest_crm": "Gäste-CRM",
+        "tickets": "Tickets",
+        "routes": "Routen",
+        "delivery_notes": "Lieferscheine",
+        "patients": "Patienten",
+        "appointments": "Termine",
+        "compliance": "Compliance",
+        "matters": "Mandate",
+        "billing": "Abrechnung",
+        "documents": "Dokumente",
+        "client_books": "Mandantenbücher",
+        "datev": "DATEV",
+        "tax_deadlines": "Steuerfristen",
+        "sites": "Baustellen",
+        "crews": "Teams",
+        "progress_billing": "Fortschrittsabrechnung",
+        "listings": "Inserate",
+        "viewings": "Besichtigungen",
+        "closings": "Abschlüsse",
+        "students": "Studierende",
+        "courses": "Kurse",
+        "enrollment": "Einschreibung",
+        "bom": "BOM",
+        "production": "Fertigung",
+        "qc": "QC",
+        "fleet": "Flotte",
+        "tracking": "Sendungsverfolgung",
+        "catalog": "Katalog",
+        "orders": "Aufträge",
+        "fulfillment": "Fulfillment"
+      }
     },
     "kpi": {
       "customers": {
@@ -2769,7 +2961,7 @@
         "activeProjects": "Aktive Projekte",
         "activeHint": "{planning} Planung",
         "completed": "Vollendet",
-        "completedHint": "{percent}% des Portfolios",
+        "completedHint": "{percent} % des Portfolios",
         "onHold": "Wartend",
         "onHoldHint": "{archived} archiviert",
         "teamMembers": "Teammitglieder",
@@ -2831,7 +3023,7 @@
       "missingTitle": "Fehlende Projekt-ID",
       "missingDescription": "Wählen Sie ein Projekt aus, um die Übersicht anzuzeigen.",
       "title": "Überblick",
-      "noDescription": "Keine Beschreibung angegeben.",
+      "noDescription": "Keine Beschreibung vorhanden.",
       "budget": "Budget",
       "spent": "Verausgabt",
       "start": "Beginnen",
@@ -2911,9 +3103,9 @@
       "projectDeleted": "Projekt gelöscht",
       "checkForm": "Überprüfen Sie das Formular",
       "validationFailed": "Überprüfung fehlgeschlagen.",
-      "taskCreated": "Aufgabe erstellt ",
-      "taskUpdated": "Aufgabe aktualisiert ",
-      "taskCompleted": "Aufgabe abgeschlossen ",
+      "taskCreated": "Aufgabe erstellt",
+      "taskUpdated": "Aufgabe aktualisiert",
+      "taskCompleted": "Aufgabe abgeschlossen",
       "taskDeleted": "Aufgabe gelöscht.",
       "filesUploaded": "Dateien hochgeladen",
       "filesUploadedDetail": "{count} Datei(en)",
@@ -2977,8 +3169,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Optimierungsvorschläge:",
       "oneClickOptimize": "Ein-Klick-Optimierung",
-      "noticeDefault": "One Click Optimize ist noch keine Graph-Mutation.",
-      "noticeQueued": "Optimierung in der Warteschlange. Zukünftige Engine schreibt Verzögerungen und Genehmigungen neu."
+      "noticeDefault": "Ein-Klick-Optimierung ändert den Graphen noch nicht.",
+      "noticeQueued": "Optimierung vorgemerkt. Eine künftige Engine schreibt Verzögerungen und Freigaben um.",
+      "score": {
+        "healthy": "Gesund",
+        "needsAttention": "Handlungsbedarf",
+        "atRisk": "Gefährdet"
+      },
+      "kinds": {
+        "missing_approval": "Freigabe",
+        "possible_delay": "Verzögerung",
+        "unused_trigger": "Auslöser",
+        "duplicate_nodes": "Duplikate",
+        "unused_action": "Aktion",
+        "security": "Sicherheit",
+        "performance": "Leistung"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Fehlende Freigabe",
+          "description": "Längere Abläufe profitieren oft von einer Freigabe vor Seiteneffekten."
+        },
+        "possible_delay": {
+          "title": "Mögliche Verzögerung",
+          "description": "Erwägen Sie eine Verzögerung vor Erinnerungs-E-Mails, um Lastspitzen zu vermeiden."
+        },
+        "unused_trigger": {
+          "title": "Unbenutzter Auslöser",
+          "description": "Dieser Graph hat keinen Startauslöser — fügen Sie einen vor der Aktivierung hinzu."
+        },
+        "duplicate_nodes": {
+          "title": "Doppelte Knoten",
+          "description": "„{label}“ kommt {count}-mal vor — konsolidieren Sie, falls überflüssig."
+        },
+        "unused_action": {
+          "title": "Unbenutzte Aktion",
+          "description": "{label} ist nicht verbunden — verdrahten oder entfernen."
+        },
+        "security": {
+          "title": "Sicherheitsempfehlung",
+          "description": "Nutzen Sie Adapter mit geringsten Rechten für Webhook- und E-Mail-Aktionen."
+        },
+        "performance": {
+          "title": "Leistungsempfehlung",
+          "description": "Bündeln Sie KI-Schritte, wo möglich, um die mittlere Laufzeit zu senken."
+        }
+      }
     },
     "integrations": {
       "intro": "Integrationscenter — optional. Status: Verbunden, Beta, Geplant, Demnächst verfügbar, Deaktiviert. Keine Live-APIs.",
@@ -3029,7 +3265,7 @@
       "zoomOut": "−",
       "zoomIn": "+",
       "resetView": "Ansicht zurücksetzen",
-      "emptyTitle": "Leere Leinwand ",
+      "emptyTitle": "Leere Leinwand",
       "emptyDescription": "Ziehen Sie einen Auslöser aus der Palette, um mit dem Bauen zu beginnen. Snap-to-Grid hält Knoten ausgerichtet.",
       "connectHint": "Doppelklicken Sie auf das Ziel, um eine Verbindung herzustellen",
       "miniMapAria": "Minikarte"
@@ -3410,7 +3646,7 @@
         "description": "Wird ausgelöst, wenn eine Rechnung ausgestellt wird."
       },
       "task_completed": {
-        "label": "Aufgabe abgeschlossen ",
+        "label": "Aufgabe abgeschlossen",
         "description": "Wird ausgelöst, wenn eine Aufgabe als erledigt markiert wird."
       },
       "document_uploaded": {
@@ -3487,6 +3723,192 @@
         "label": "Status aktualisieren",
         "description": "Status einer Entität in einem Modul aktualisieren."
       }
+    },
+    "kinds": {
+      "trigger": "Auslöser",
+      "action": "Aktion",
+      "condition": "Bedingung",
+      "delay": "Verzögerung",
+      "approval": "Freigabe",
+      "loop": "Schleife",
+      "merge": "Zusammenführen",
+      "split": "Aufteilen",
+      "ai_decision": "KI-Entscheidung",
+      "ai_action": "KI-Aktion",
+      "notification": "Benachrichtigung",
+      "webhook": "Webhook",
+      "custom_action": "Benutzerdefinierte Aktion",
+      "branch": "Verzweigung",
+      "variable": "Variable"
+    },
+    "kpi": {
+      "active": {
+        "label": "Aktive Workflows",
+        "caption": "Im Workspace aktiviert"
+      },
+      "runs-today": {
+        "label": "Workflow-Läufe heute",
+        "caption": "Über alle Auslöser"
+      },
+      "success": {
+        "label": "Erfolgreiche Automatisierungen",
+        "caption": "Heute"
+      },
+      "failed": {
+        "label": "Fehlgeschlagene Läufe",
+        "caption": "Handlungsbedarf"
+      },
+      "pending": {
+        "label": "Ausstehende Aufgaben",
+        "caption": "Freigaben + Wiederholungen"
+      },
+      "avg-time": {
+        "label": "Mittlere Ausführungszeit",
+        "caption": "Median 1,2 s"
+      },
+      "ai-suggestions": {
+        "label": "KI-Vorschläge",
+        "caption": "Automatisierungschancen"
+      }
+    },
+    "integrationCategories": {
+      "Productivity": "Produktivität",
+      "Communication": "Kommunikation",
+      "Commerce": "Commerce",
+      "Finance": "Finanzen",
+      "ERP": "ERP",
+      "CRM": "CRM"
+    },
+    "integrationNotes": {
+      "google-workspace": "Gmail- / Drive- / Kalender-Hooks für OAuth-Verdrahtung reserviert.",
+      "m365": "Outlook- / Teams- / Graph-Hooks reserviert.",
+      "slack": "Events-API + Chat-Posts reserviert.",
+      "teams": "Bot-Framework-Adapter reserviert.",
+      "discord": "Webhook- + Bot-Adapter reserviert.",
+      "whatsapp": "Meta-Cloud-API-Adapter reserviert.",
+      "stripe": "Zahlungs-Webhooks reserviert — keine Live-Schlüssel.",
+      "shopify": "Bestell- / Produkt-Ereignisse reserviert.",
+      "datev": "Export- / Buchungsstapel-Hooks reserviert.",
+      "sap": "ERP-Ereignisbrücke reserviert — bis Enterprise-Plan deaktiviert.",
+      "hubspot": "CRM-Sync-Adapter reserviert.",
+      "salesforce": "Platform-Events-Adapter reserviert."
+    },
+    "defaultWorkflow": {
+      "name": "Kunden-Onboarding",
+      "description": "Willkommenssequenz, wenn ein Kunde erstellt wird."
+    },
+    "templateCategories": {
+      "CRM": "CRM",
+      "Finance": "Finanzen",
+      "Sales": "Vertrieb",
+      "Marketing": "Marketing",
+      "HR": "HR",
+      "Creator": "Creator",
+      "Ops": "Betrieb",
+      "Projects": "Projekte",
+      "AI": "AI"
+    },
+    "studioTemplates": {
+      "tpl-onboarding": {
+        "name": "Kunden-Onboarding",
+        "description": "Willkommens-E-Mail, KI-Zusammenfassung und Owner-Aufgabe nach Kundenerstellung.",
+        "category": "CRM",
+        "recommendedFor": "Teams, die neue B2B-Kunden onboarden"
+      },
+      "tpl-invoice": {
+        "name": "Rechnungserinnerung",
+        "description": "Geplante Erinnerungen für offene Rechnungen mit Eskalationspfad.",
+        "category": "Finanzen",
+        "recommendedFor": "Finance-Ops zur Senkung überfälliger Forderungen"
+      },
+      "tpl-lead": {
+        "name": "Lead-Nachverfolgung",
+        "description": "KI-E-Mail-Antwort plus Pipeline-Statusupdate für neue Leads.",
+        "category": "Vertrieb",
+        "recommendedFor": "Vertriebsteams mit hohem Inbound-Leadvolumen"
+      },
+      "tpl-welcome": {
+        "name": "Willkommens-E-Mail",
+        "description": "Einfache Willkommenssequenz bei der Anmeldung.",
+        "category": "Marketing",
+        "recommendedFor": "Jeder Workspace, der mit E-Mail-Automatisierung startet"
+      },
+      "tpl-pipeline": {
+        "name": "Vertriebspipeline",
+        "description": "Stufenwechsel mit Benachrichtigungen und Aufgaben.",
+        "category": "Vertrieb",
+        "recommendedFor": "Teams mit mehrstufigem Deal-Fortschritt"
+      },
+      "tpl-recruit": {
+        "name": "Recruiting",
+        "description": "Kandidatenrouting und Interviewaufgaben.",
+        "category": "HR",
+        "recommendedFor": "Hiring Manager und People Ops"
+      },
+      "tpl-content": {
+        "name": "Content-Veröffentlichung",
+        "description": "Creator Studio: veröffentlichen → benachrichtigen → Analytics.",
+        "category": "Creator",
+        "recommendedFor": "Marketing- und Creator-Teams"
+      },
+      "tpl-approval": {
+        "name": "Freigabeprozess",
+        "description": "Mehrstufige Freigabe mit KI-Empfehlungen.",
+        "category": "Betrieb",
+        "recommendedFor": "Finance-/Ops-Freigaben vor Seiteneffekten",
+        "estimatedRuntime": "Menschliches Gate"
+      }
+    },
+    "engineTemplates": {
+      "tpl_customer_welcome": {
+        "name": "Willkommen neuer Kunde",
+        "description": "Willkommens-E-Mail + Benachrichtigung, wenn ein Kunde erstellt wird.",
+        "category": "CRM"
+      },
+      "tpl_invoice_reminder": {
+        "name": "Rechnungserinnerung",
+        "description": "Kunden nach Rechnungsstellung erinnern.",
+        "category": "Finanzen"
+      },
+      "tpl_project_kickoff": {
+        "name": "Projekt-Kickoff",
+        "description": "Kickoff-Aufgabe zuweisen und bei Projekterstellung benachrichtigen.",
+        "category": "Projekte"
+      },
+      "tpl_task_assignment": {
+        "name": "Aufgabenzuweisung",
+        "description": "E-Mail an den Zuständigen, wenn eine Aufgabe erledigt ist — nächste Arbeit verketten.",
+        "category": "Projekte"
+      },
+      "tpl_ai_customer_summary": {
+        "name": "KI-Kundenzusammenfassung",
+        "description": "KI-Zusammenfassung ausführen, wenn ein Kunde erstellt wird; Ausgabe speichern.",
+        "category": "AI"
+      },
+      "tpl_followup_reminder": {
+        "name": "Follow-up-Erinnerung",
+        "description": "Zeitplanbasiertes Follow-up mit Verzweigung nach Status.",
+        "category": "CRM"
+      }
+    },
+    "nodeLabels": {
+      "send_welcome_email": "Willkommens-E-Mail senden",
+      "notify_team": "Team benachrichtigen",
+      "wait_3_days": "3 Tage warten",
+      "still_unpaid": "Noch unbezahlt?",
+      "send_reminder": "Erinnerung senden",
+      "assign_kickoff_task": "Kickoff-Aufgabe zuweisen",
+      "notify_owner": "Owner benachrichtigen",
+      "notify_stakeholders": "Stakeholder benachrichtigen",
+      "run_ai_summary": "KI-Zusammenfassung ausführen",
+      "generate_document": "Dokument erzeugen",
+      "daily_schedule": "Täglicher Zeitplan",
+      "by_priority": "Nach Priorität",
+      "urgent_notification": "Dringende Benachrichtigung",
+      "standard_email": "Standard-E-Mail"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "KI-Inhalte erzeugen"
     }
   },
   "team": {
@@ -3690,7 +4112,7 @@
     },
     "mobileTabs": {
       "chat": "Chatten",
-      "conversations": "Unterhaltungen ",
+      "conversations": "Unterhaltungen",
       "prompts": "Anzeigen"
     },
     "usageBar": {
@@ -3708,7 +4130,7 @@
       "emptyHint": "Starten Sie eine Konversation, wählen Sie eine Eingabeaufforderung aus der Bibliothek oder öffnen Sie die Befehlspalette (+⇧K / Strg +⇧K)."
     },
     "conversationSidebar": {
-      "title": "Unterhaltungen ",
+      "title": "Unterhaltungen",
       "new": "Neu",
       "searchPlaceholder": "Chats suchen",
       "searchAria": "Unterhaltungen suchen",
@@ -3970,6 +4392,177 @@
     "os": {
       "prioritizeCustomerImpact": "Kundenwirkung priorisieren",
       "delegatedFollowUp": "Delegiertes Follow-up"
+    },
+    "categories": {
+      "Leadership": "Führung",
+      "Revenue": "Umsatz",
+      "CRM": "CRM",
+      "Delivery": "Lieferung",
+      "Automation": "Automatisierung",
+      "Finance": "Finanzen",
+      "Knowledge": "Wissen",
+      "Support": "Support",
+      "Productivity": "Produktivität",
+      "Custom": "Benutzerdefiniert"
+    },
+    "catalog": {
+      "executive_advisor": {
+        "name": "Executive-Berater",
+        "description": "Strategische Briefings, KPI-Synthese und Entscheidungsunterstützung."
+      },
+      "sales_agent": {
+        "name": "Vertriebsagent",
+        "description": "Pipeline-Coaching, Outreach-Entwürfe und nächste Deal-Schritte."
+      },
+      "crm_assistant": {
+        "name": "CRM-Assistent",
+        "description": "Kundenanreicherung, Datenhygiene und Beziehungseinblicke."
+      },
+      "project_manager": {
+        "name": "Projektmanager",
+        "description": "Pläne, Aufgabenzerlegung und Lieferrisikosignale."
+      },
+      "workflow_coordinator": {
+        "name": "Workflow-Koordinator",
+        "description": "Löst aus und orchestriert AGXORA-Automatisierungsworkflows."
+      },
+      "finance_assistant": {
+        "name": "Finanzassistent",
+        "description": "Rechnungsüberblick, Cashflow-Hinweise und Finanzzusammenfassungen."
+      },
+      "document_analyst": {
+        "name": "Dokumentenanalyst",
+        "description": "Extrahiert Struktur, Risiken und Zusammenfassungen aus Dokumenten."
+      },
+      "knowledge_assistant": {
+        "name": "Wissensassistent",
+        "description": "Antwortet aus Unternehmenswissen mit RAG-fähiger Suche."
+      },
+      "support_assistant": {
+        "name": "Support-Assistent",
+        "description": "Kundensupport-Triage, Antworten und Eskalationswege."
+      },
+      "meeting_assistant": {
+        "name": "Meeting-Assistent",
+        "description": "Agenda-Vorbereitung, Notiz-Platzhalter und Follow-ups."
+      },
+      "custom": {
+        "name": "Benutzerdefinierter Agent",
+        "description": "Erweiterungspunkt für organisationsspezifische Agenten."
+      }
+    },
+    "toolsCatalog": {
+      "crm": {
+        "name": "CRM-Tool",
+        "description": "Kunden anlegen/aktualisieren und Kontokontext lesen."
+      },
+      "projects": {
+        "name": "Projekte-Tool",
+        "description": "Projekte, Aufgaben und Lieferstatus verwalten."
+      },
+      "finance": {
+        "name": "Finanzen-Tool",
+        "description": "Rechnungen, Salden und Finanzzusammenfassungen."
+      },
+      "documents": {
+        "name": "Dokumente-Tool",
+        "description": "Workspace-Dokumente lesen und zusammenfassen."
+      },
+      "workflow": {
+        "name": "Workflow-Tool",
+        "description": "Automatisierungsworkflows auslösen und prüfen."
+      },
+      "integration": {
+        "name": "Integrations-Tool",
+        "description": "Angeschlossene Drittanbieter-Konnektoren aufrufen."
+      },
+      "email": {
+        "name": "E-Mail-Tool",
+        "description": "Ausgehende E-Mails entwerfen und in die Warteschlange stellen."
+      },
+      "calendar": {
+        "name": "Kalender-Tool",
+        "description": "Kalenderereignisse planen und prüfen."
+      },
+      "search": {
+        "name": "Such-Tool",
+        "description": "Universelle Workspace-Suche."
+      },
+      "notification": {
+        "name": "Benachrichtigungs-Tool",
+        "description": "In-App-Benachrichtigungen senden."
+      },
+      "api": {
+        "name": "API-Tool",
+        "description": "Interne API-Gateway-Routen aufrufen."
+      },
+      "mcp": {
+        "name": "MCP-Tool",
+        "description": "Zukünftige Model-Context-Protocol-Servertools."
+      }
+    },
+    "knowledgeDocs": {
+      "company": {
+        "title": "AGXORA-Betriebsprinzipien",
+        "summary": "Enterprise-OS-Prinzipien für modulare, sichere KI-Agenten."
+      },
+      "policies": {
+        "title": "Richtlinie zur Datenverarbeitung",
+        "summary": "Isolation sensibler Tools und Least-Privilege-Zugriff."
+      },
+      "procedures": {
+        "title": "Verfahren zur Kundeneskalation",
+        "summary": "Eskalationsweg des Support-Assistenten bei geringer Konfidenz."
+      },
+      "rag": {
+        "title": "RAG-Index-Platzhalter",
+        "summary": "Zukünftige Vektorsuche über Dokumente und CRM-Notizen."
+      }
+    },
+    "llm": {
+      "local": "Lokales LLM",
+      "mcp": "MCP-Server",
+      "custom": "Benutzerdefiniertes Modell"
+    },
+    "lifecycle": {
+      "draft": "Entwurf",
+      "registered": "Registriert",
+      "active": "Aktiv",
+      "paused": "Pausiert",
+      "error": "Fehler",
+      "retired": "Außer Betrieb"
+    },
+    "healthStatus": {
+      "healthy": "Gesund",
+      "degraded": "Beeinträchtigt",
+      "down": "Ausgefallen",
+      "unknown": "Unbekannt"
+    },
+    "taskStatus": {
+      "pending": "Ausstehend",
+      "running": "Läuft",
+      "completed": "Abgeschlossen",
+      "cancelled": "Abgebrochen",
+      "failed": "Fehlgeschlagen",
+      "retrying": "Wird wiederholt"
+    },
+    "memoryScope": {
+      "working": "Arbeitspeicher",
+      "conversation": "Konversation",
+      "business": "Business",
+      "long_term": "Langzeit",
+      "workspace": "Workspace",
+      "agent": "Agent"
+    },
+    "knowledgeKind": {
+      "company": "Unternehmen",
+      "documents": "Dokumente",
+      "projects": "Projekte",
+      "crm": "CRM",
+      "policies": "Richtlinien",
+      "procedures": "Verfahren",
+      "vector": "Vektor",
+      "rag": "RAG"
     }
   },
   "integrations": {
@@ -4037,7 +4630,17 @@
     "logs": {
       "title": "Integrationsprotokolle",
       "emptyTitle": "Noch keine Log",
-      "emptyDescription": "Schließen Sie einen Anbieter an oder führen Sie eine Diagnose durch."
+      "emptyDescription": "Schließen Sie einen Anbieter an oder führen Sie eine Diagnose durch.",
+      "installed": "Installiert {name}",
+      "demoConnected": "Demo verbunden {name}",
+      "disconnected": "Getrennt {name}",
+      "webhookCreated": "Webhook erstellt {name}",
+      "keyCreated": "API-Schlüssel erstellt {name}",
+      "keyRotated": "Schlüssel rotiert {name}",
+      "keyRevoked": "Schlüssel widerrufen {name}",
+      "stubHealthy": "{name} Stub ist gesund",
+      "diagnosticsComplete": "Diagnose abgeschlossen",
+      "outgoing": "Ausgehend {status}: {eventType}"
     },
     "apiKeys": {
       "title": "API-Schlüssel",
@@ -4112,7 +4715,92 @@
     },
     "errors": {
       "failedToFetch": "Fehler bei der Detanabruf",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "Unbekannter Konnektor.",
+      "webhookNotFound": "Webhook nicht gefunden.",
+      "apiKeyInactive": "API-Schlüssel inaktiv oder abgelaufen."
+    },
+    "categories": {
+      "productivity": "Produktivität",
+      "communication": "Kommunikation",
+      "storage": "Speicher",
+      "crm": "CRM",
+      "automation": "Automatisierung",
+      "devtools": "Entwicklertools",
+      "custom": "Benutzerdefiniert"
+    },
+    "auth": {
+      "oauth2": "OAuth 2.0",
+      "api_key": "API-Schlüssel",
+      "webhook": "Webhook"
+    },
+    "oauth": {
+      "custom": "Benutzerdefiniertes OAuth"
+    },
+    "connectorNames": {
+      "custom": "Benutzerdefinierter Konnektor"
+    },
+    "connectors": {
+      "microsoft365": {
+        "description": "Mail, Kalender und Teams über Microsoft Graph."
+      },
+      "google_workspace": {
+        "description": "Gmail, Kalender und Drive für Workspace-Mandanten."
+      },
+      "slack": {
+        "description": "Kanäle, Nachrichten und interaktive Benachrichtigungen."
+      },
+      "discord": {
+        "description": "Serverbenachrichtigungen und Bot-Nachrichtenzustellung."
+      },
+      "dropbox": {
+        "description": "Dateisynchronisierung und Ereignisse geteilter Ordner."
+      },
+      "onedrive": {
+        "description": "Microsoft-OneDrive-Dateispeicher und Delta-Sync."
+      },
+      "google_drive": {
+        "description": "Drive-Dateien, Ordner und Änderungsbenachrichtigungen."
+      },
+      "hubspot": {
+        "description": "CRM-Kontakte, Deals und Marketingereignisse."
+      },
+      "salesforce": {
+        "description": "Enterprise-CRM-Objekte und Platform Events."
+      },
+      "zapier": {
+        "description": "Ausgehende Hooks in Zapier-Zaps."
+      },
+      "make": {
+        "description": "Szenario-Webhooks für Make (Integromat)."
+      },
+      "github": {
+        "description": "Repos, Issues, Pull Requests und Actions."
+      },
+      "gitlab": {
+        "description": "Projekte, Merge Requests, Pipelines und Webhooks."
+      },
+      "custom": {
+        "description": "Erweiterungspunkt für proprietäre Unternehmenssysteme."
+      }
+    },
+    "healthStatus": {
+      "healthy": "Gesund",
+      "degraded": "Beeinträchtigt",
+      "down": "Ausgefallen",
+      "unknown": "Unbekannt"
+    },
+    "health": {
+      "installedAuthorize": "Installiert — verbinden zum Autorisieren",
+      "oauthStubPlaceholder": "Lokale OAuth-Demo (Platzhalter)",
+      "oauthStubLive": "Lokale OAuth-Demo (Live)",
+      "demoCredential": "Lokales Demo-Geheimnis gespeichert — keine Live-API",
+      "demoConnection": "Lokale Demo-Verbindung — kein Live-Anbieterlink",
+      "disconnected": "Getrennt"
+    },
+    "generated": {
+      "keyName": "Schlüssel {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {
@@ -4184,14 +4872,78 @@
       "title": "KPI-Center",
       "subtitle": "Konfigurierbarer KPI-Katalog für Umsatz, Kunden, Projekte, Workflows, Agenten und Automatisierung.",
       "emptyTitle": "Analytik wartet auf Signal",
-      "emptyDescription": "Sobald Ihr Arbeitsbereich Aktivitäten generiert, werden hier Executive KPIs und Warnungen angezeigt."
+      "emptyDescription": "Sobald Ihr Arbeitsbereich Aktivitäten generiert, werden hier Executive KPIs und Warnungen angezeigt.",
+      "revenue": {
+        "name": "Umsatz",
+        "description": "Anerkannter Gesamtumsatz im Zeitraum."
+      },
+      "mrr": {
+        "name": "MRR",
+        "description": "Monatlich wiederkehrender Umsatz."
+      },
+      "arr": {
+        "name": "ARR",
+        "description": "Jährlich wiederkehrender Umsatz."
+      },
+      "growth": {
+        "name": "Wachstum",
+        "description": "Wachstumsrate gegenüber Vorperiode."
+      },
+      "customer_acquisition": {
+        "name": "Kundengewinnung",
+        "description": "Neu gewonnene Kunden."
+      },
+      "retention": {
+        "name": "Bindung",
+        "description": "Kundenbindungsrate."
+      },
+      "churn": {
+        "name": "Abwanderung",
+        "description": "Kundenabwanderungsrate."
+      },
+      "project_success": {
+        "name": "Projekterfolg",
+        "description": "Pünktlich / im Scope gelieferte Projekte."
+      },
+      "workflow_success": {
+        "name": "Workflow-Erfolg",
+        "description": "Erfolgreiche Workflow-Ausführungen."
+      },
+      "agent_performance": {
+        "name": "Agentenleistung",
+        "description": "Erfolgsbewertung der KI-Agentenaufgaben."
+      },
+      "automation_success": {
+        "name": "Automatisierungserfolg",
+        "description": "Zuverlässigkeit von Automatisierung / Integration."
+      },
+      "custom": {
+        "name": "Benutzerdefinierte KPI",
+        "description": "Erweiterungspunkt für organisationsdefinierte KPIs."
+      }
     },
     "reports": {
       "title": "Neue Reporting Engine",
       "subtitle": "Berichtsdefinitionen werden zur Überprüfung ausgesät. Der Dateiexport ist nicht verfügbar, bis ein Berichts-Backend verbunden ist.",
       "emptyTitle": "Keine Berichte",
       "emptyDescription": "Meldet Seed auf dem Workspace-Bootstrap.",
-      "scheduleOnDemand": "auf-Anfrage"
+      "scheduleOnDemand": "auf-Anfrage",
+      "executive": {
+        "title": "Executive-Wochenbericht",
+        "description": "CEO-Briefing zu Gesundheit, Umsatz, Risiko und Wachstum."
+      },
+      "department": {
+        "title": "Vertriebsabteilungsbericht",
+        "description": "Pipeline, Gewinnung und Bindung für Vertriebsleitung."
+      },
+      "operational": {
+        "title": "Täglicher Betrieb",
+        "description": "Workflows, Integrationen und Identitätspostur."
+      },
+      "management": {
+        "title": "Liefermanagement",
+        "description": "Projekterfolg, Kapazität und Dokumentendurchsatz."
+      }
     },
     "insights": {
       "emptyTitle": "Noch keine Erkenntnisse",
@@ -4211,12 +4963,88 @@
       "emptyDescription": "Warnt Seed vor Risikoheuristiken.",
       "acked": "ackgedruckt",
       "open": "offen",
-      "acknowledge": "Quittieren"
+      "acknowledge": "Quittieren",
+      "revenue_drop": {
+        "title": "Umsatzabschwächung im Segment",
+        "body": "Umsatz Woche-zu-Woche um 4 % im SMB gesunken — Pipeline-Abdeckung prüfen."
+      },
+      "project_delay": {
+        "title": "Projekt verzögerungsgefährdet",
+        "body": "Zwei Lieferprojekte haben Meilensteine überschritten."
+      },
+      "churn_risk": {
+        "title": "Kundenabwanderungsrisiko erhöht",
+        "body": "Drei Konten zeigen sinkende Engagement-Werte."
+      },
+      "workflow_failure": {
+        "title": "Workflow-Fehler erkannt",
+        "body": "Workflow für Rechnungserinnerung ist in 24 h zweimal fehlgeschlagen."
+      },
+      "ai_failure": {
+        "title": "KI-Aufgabenwiederholungen erhöht",
+        "body": "Wiederholungsrate der Agentenaufgaben hat den Soft-Schwellenwert überschritten."
+      },
+      "integration_error": {
+        "title": "Integrationsfehler",
+        "body": "Slack-Konnektor lieferte intermittierende 5xx-Antworten."
+      },
+      "security": {
+        "title": "Sicherheitswarnung",
+        "body": "Ungewöhnliches Nutzungsmuster eines API-Schlüssels erkannt."
+      }
     },
     "scorecards": {
       "title": "Scorecard-Engine",
       "emptyTitle": "Keine Scorecards",
-      "emptyDescription": "Scorecards Seed am Bootstrap."
+      "emptyDescription": "Scorecards Seed am Bootstrap.",
+      "sales": {
+        "name": "Vertriebsscore",
+        "drivers": {
+          "pipeline_coverage": "Pipeline-Abdeckung",
+          "win_rate": "Abschlussquote",
+          "cycle_time": "Zykluszeit"
+        }
+      },
+      "customer_health": {
+        "name": "Kundengesundheitsscore",
+        "drivers": {
+          "retention": "Bindung",
+          "nps_proxy": "NPS-Proxy",
+          "support_load": "Supportlast"
+        }
+      },
+      "project_success": {
+        "name": "Projekterfolgsscore",
+        "drivers": {
+          "on_time_delivery": "Pünktliche Lieferung",
+          "scope_control": "Scope-Kontrolle",
+          "utilization": "Auslastung"
+        }
+      },
+      "automation_efficiency": {
+        "name": "Automatisierungseffizienz",
+        "drivers": {
+          "workflow_success": "Workflow-Erfolg",
+          "manual_effort_saved": "Eingespannter manueller Aufwand",
+          "retry_rate": "Wiederholungsrate"
+        }
+      },
+      "ai_quality": {
+        "name": "KI-Qualität",
+        "drivers": {
+          "task_success": "Aufgabenerfolg",
+          "confidence_avg": "Konfidenz Ø",
+          "escalation_rate": "Eskalationsrate"
+        }
+      },
+      "operational_health": {
+        "name": "Betriebliche Gesundheit",
+        "drivers": {
+          "system_health": "Systemgesundheit",
+          "integration_reliability": "Integrationszuverlässigkeit",
+          "identity_posture": "Identitätspostur"
+        }
+      }
     },
     "explorer": {
       "title": "Data Explorer",
@@ -4224,7 +5052,8 @@
       "searchAria": "Demo-Explorer-Zeilen durchsuchen",
       "emptyTitle": "Keine Zeilen stimmen überein",
       "emptyDescription": "Passen Sie Filter an oder suchen Sie oder laden Sie das Demo-Dataset neu.",
-      "hint": "Clientseitige Suche nach gesetzten Tupeln — Backend-Aggregation und Drilldown sind nicht verbunden."
+      "hint": "Clientseitige Suche nach gesetzten Tupeln — Backend-Aggregation und Drilldown sind nicht verbunden.",
+      "metricLabel": "{domain}-Metrik {index}"
     },
     "columns": {
       "kpi": "KPI",
@@ -4249,7 +5078,123 @@
       "measure": "Massnahme",
       "date": "Datum"
     },
-    "emDash": "—"
+    "emDash": "—",
+    "domains": {
+      "crm": "CRM-Analytik",
+      "projects": "Projektanalytik",
+      "finance": "Finanzanalytik",
+      "documents": "Dokumentenanalytik",
+      "workflow": "Workflow-Analytik",
+      "identity": "Identitätsanalytik",
+      "ai": "KI-Analytik",
+      "integration": "Integrationsanalytik",
+      "executive": "Executive"
+    },
+    "series": {
+      "crm_leads": "Leads",
+      "crm_pipeline": "Pipeline (Tsd. $)",
+      "proj_active": "Aktive Projekte",
+      "proj_on_time": "Pünktlich %",
+      "fin_revenue": "Umsatz (Tsd. $)",
+      "fin_margin": "Bruttomarge %",
+      "doc_created": "Erstellte Dokumente",
+      "doc_views": "Dokumentaufrufe",
+      "wf_runs": "Workflow-Läufe",
+      "wf_success": "Erfolg %",
+      "id_users": "Aktive Nutzer",
+      "id_sessions": "Sitzungen",
+      "ai_tasks": "Agentenaufgaben",
+      "ai_success": "Agentenerfolg %",
+      "int_calls": "API- / Webhook-Aufrufe",
+      "int_errors": "Integrationsfehler"
+    },
+    "bands": {
+      "Critical": "Kritisch",
+      "Watch": "Beobachten",
+      "Healthy": "Gesund",
+      "Excellent": "Ausgezeichnet"
+    },
+    "charts": {
+      "chart_revenue": "Umsatztrend",
+      "chart_pipeline": "CRM-Pipeline",
+      "chart_workflows": "Workflow-Aktivität",
+      "chart_ai": "KI-Aktivitätsmix",
+      "chart_ops_table": "Betriebs-Snapshot",
+      "chart_heatmap_placeholder": "Engagement-Heatmap"
+    },
+    "chartKinds": {
+      "line": "Linie",
+      "bar": "Balken",
+      "area": "Fläche",
+      "pie": "Kreis",
+      "heatmap": "Heatmap",
+      "table": "Tabelle",
+      "card": "Karte"
+    },
+    "insightItems": {
+      "trend": {
+        "title": "MRR beschleunigt",
+        "summary": "MRR-Wachstum verbesserte sich drei Perioden in Folge."
+      },
+      "pattern": {
+        "title": "Workflow-Spitzen an Rechnungstagen",
+        "summary": "Automatisierungslast korreliert mit Monatsende-Rechnungsstellung."
+      },
+      "recommendation": {
+        "title": "Retention-Playbook erweitern",
+        "summary": "CSM-Outreach auf drei Konten mit sinkender Gesundheit fokussieren."
+      },
+      "executive_summary": {
+        "title": "Executive-Brief",
+        "summary": "Unternehmensgesundheit ist stark; Abwanderung und Lieferverzögerungen beobachten."
+      },
+      "risk": {
+        "title": "Lieferrisiko-Cluster",
+        "summary": "Zwei Projekte teilen Ressourcenengpässe — Kapazitätsprognose erhöht."
+      },
+      "opportunity": {
+        "title": "Upsell-Chance",
+        "summary": "Konten mit hoher Nutzung ohne Business-Plan zeigen Expansionspotenzial."
+      }
+    },
+    "forecastNotes": {
+      "revenue": "Linearer Trend-Platzhalter — durch Modelldienst ersetzen.",
+      "customer": "Verbund aus Gewinnung + Bindung.",
+      "project": "Kapazitätsbewusste Lieferprognose.",
+      "capacity": "Prognose der Teamauslastung.",
+      "growth": "Wachstumsratenprognose."
+    },
+    "forecastKinds": {
+      "revenue": "Umsatz",
+      "customer": "Kunde",
+      "project": "Projekt",
+      "capacity": "Kapazität",
+      "growth": "Wachstum"
+    },
+    "severity": {
+      "info": "Info",
+      "warning": "Warnung",
+      "critical": "Kritisch"
+    },
+    "trend": {
+      "up": "Aufwärts",
+      "down": "Abwärts",
+      "flat": "Unverändert"
+    },
+    "insightKinds": {
+      "trend": "Trend",
+      "pattern": "Muster",
+      "recommendation": "Empfehlung",
+      "executive_summary": "Executive-Zusammenfassung",
+      "risk": "Risiko",
+      "opportunity": "Chance"
+    },
+    "reportKinds": {
+      "executive": "Executive",
+      "department": "Abteilung",
+      "operational": "Operativ",
+      "management": "Management"
+    }
   },
   "legal": {
     "shell": {
@@ -4305,7 +5250,7 @@
       "sharingBody": "Wir setzen geprüfte Auftragsverarbeiter (Hosting, E-Mail, Zahlungen) im Rahmen entsprechender Verträge ein. Wir verkaufen keine personenbezogenen Daten.",
       "yourRights": "6. Ihre Rechte",
       "yourRightsBodyBefore": "Abhängig von Ihrem Standort können Sie Zugriff, Korrektur, Löschung, Einschränkung, Übertragbarkeit oder Widerspruch verlangen. Kontakt",
-      "yourRightsBodyAfter": "Außerdem hast Du das Recht auf <g id=\"1\">Beschwerde bei einer Aufsichtsbehörde</g>. ",
+      "yourRightsBodyAfter": "Außerdem hast Du das Recht auf Beschwerde bei einer Aufsichtsbehörde.",
       "cookies": "7. Cookies",
       "cookiesBodyBefore": "S. den",
       "cookiesBodyAfter": "für Details zu essentiellen und optionalen Cookies.",
@@ -4358,7 +5303,7 @@
       "managingBody": "Sie können nicht wesentliche Cookies über die Browsereinstellungen und, sobald verfügbar, über unser Vor-Ort-Einstellungscenter steuern. Das Blockieren wesentlicher Cookies kann die Anmeldung oder die Verwendung des Kernprodukts verhindern.",
       "moreInfo": "4. Weitere Informationen",
       "moreInfoBodyBefore": "Siehe die",
-      "moreInfoBodyMiddle": "oder kontaktieren Sie "
+      "moreInfoBodyMiddle": "oder kontaktieren Sie"
     },
     "imprint": {
       "title": "Impressum",
@@ -4679,13 +5624,223 @@
       "professional": "Professionell",
       "friendly": "Freundlich",
       "luxury": "Luxus",
-      "casual": "Locker"
+      "casual": "Locker",
+      "minimal": "Minimal",
+      "corporate": "Corporate",
+      "creative": "Kreativ",
+      "custom": "Benutzerdefinierte Markenstimme"
     },
     "integrationStatus": {
       "planned": "Geplant",
       "ready": "Bereit",
       "connected": "Verbunden",
       "disabled": "Deaktiviert"
+    },
+    "categories": {
+      "social": "Social",
+      "ads": "Anzeigen",
+      "analytics": "Analytik"
+    },
+    "platforms": {
+      "instagram": {
+        "notes": "Offizielles Graph-API-Publish + Insights reserviert."
+      },
+      "tiktok": {
+        "notes": "TikTok-Content-Posting-API-Adapter reserviert."
+      },
+      "youtube": {
+        "notes": "YouTube-Data-API-Upload + Analytics reserviert."
+      },
+      "facebook": {
+        "notes": "Pages-Publishing-Adapter reserviert."
+      },
+      "linkedin": {
+        "notes": "UGC- / Organisationsbeitrags-Adapter reserviert."
+      },
+      "pinterest": {
+        "notes": "Pins- + Boards-Adapter reserviert."
+      },
+      "threads": {
+        "notes": "Threads-API-Adapter reserviert."
+      },
+      "x": {
+        "notes": "X-API-v2-Beitragsadapter reserviert."
+      },
+      "meta-business": {
+        "notes": "Meta-Business-Suite- / Ads-Manager-Hooks reserviert."
+      },
+      "google-ads": {
+        "notes": "Google-Ads-API-Kampagnensync reserviert."
+      },
+      "google-analytics": {
+        "notes": "GA4-Measurement- + Reporting-Adapter reserviert."
+      }
+    },
+    "features": {
+      "ideas": {
+        "label": "Content-Ideen",
+        "description": "Branchenbewusste Ideen-Engine für Kampagnen und Beiträge."
+      },
+      "captions": {
+        "label": "Caption-Generator",
+        "description": "Markenstimmen-Captions je Plattformformat."
+      },
+      "hashtags": {
+        "label": "Hashtag-Vorschläge",
+        "description": "Relevanz- und Reichweitenbewertung für Hashtag-Sets."
+      },
+      "calendar": {
+        "label": "Content-Kalender",
+        "description": "Plattformübergreifendes redaktionelles Kalenderfundament."
+      },
+      "campaigns": {
+        "label": "Kampagnenplaner",
+        "description": "Ziele, Zielgruppe, Plattformen und Zeitpläne."
+      },
+      "audience": {
+        "label": "Zielgruppenvorschläge",
+        "description": "Segmentvorschläge aus CRM- + Creator-Signalen."
+      },
+      "schedule": {
+        "label": "Veröffentlichungsplan",
+        "description": "Zeitzonenbewusste optimale Veröffentlichungsfenster."
+      },
+      "brand": {
+        "label": "Markenkonsistenz",
+        "description": "Ton- und Asset-Prüfungen gegen die Markenstimme."
+      },
+      "rewrite": {
+        "label": "KI-Umschreiben",
+        "description": "Entwürfe für Klarheit, Länge oder Kanal umschreiben."
+      },
+      "translate": {
+        "label": "Inhalt übersetzen",
+        "description": "Mehrsprachige Übersetzungspipeline reserviert."
+      },
+      "i18n": {
+        "label": "Mehrsprachige Unterstützung",
+        "description": "Locale-Pakete für Publish- und Analytics-Oberflächen."
+      }
+    },
+    "kpi": {
+      "content": {
+        "label": "Erstellte Inhalte",
+        "caption": "Dieses Quartal"
+      },
+      "campaigns": {
+        "label": "Kampagnen",
+        "caption": "Aktiv + geplant"
+      },
+      "scheduled": {
+        "label": "Geplante Beiträge",
+        "caption": "Nächste 14 Tage"
+      },
+      "engagement": {
+        "label": "Engagement",
+        "caption": "Ø-Rate über Kanäle"
+      },
+      "followers": {
+        "label": "Follower-Wachstum",
+        "caption": "Letzte 30 Tage"
+      },
+      "reach": {
+        "label": "Reichweite",
+        "caption": "Einzigartige Impressionen"
+      },
+      "conversions": {
+        "label": "Conversions",
+        "caption": "Zugeschriebene Aktionen"
+      },
+      "ai-score": {
+        "label": "KI-Leistungswert",
+        "caption": "Content-Qualitätssignal"
+      }
+    },
+    "analyticsMetrics": {
+      "a1": "Engagement",
+      "a2": "Reichweite",
+      "a3": "CTR",
+      "a4": "Conversions",
+      "a5": "Zielgruppenwachstum",
+      "a6": "Content-Performance"
+    },
+    "voiceDesc": {
+      "professional": "Klarer, glaubwürdiger, geschäftsorientierter Ton.",
+      "luxury": "Verfeinert, sparsam, premium gerahmt.",
+      "friendly": "Warm, nahbar, gesprächig.",
+      "casual": "Lockere Alltagssprache.",
+      "minimal": "Kurze Sätze, hohe Klarheit.",
+      "corporate": "Formelle Unternehmenskommunikation.",
+      "creative": "Ausdrucksstarkes Storytelling für Kampagnen.",
+      "custom": "Richtlinien und Beispieltexte später hochladen."
+    },
+    "formatDesc": {
+      "instagram_caption": "Feed-/Reels-Captions mit CTA-Hooks.",
+      "tiktok_script": "Kurzskripte: Hook → Nutzen → CTA.",
+      "linkedin_post": "Thought Leadership und B2B-Narrative.",
+      "facebook_post": "Community- und seitenfertige Beiträge.",
+      "x_post": "Knapp gehaltene Threads und Einzelposts.",
+      "blog_article": "Longform-Redaktionsentwürfe.",
+      "newsletter": "Newsletter-Abschnitte und Betreffzeilen.",
+      "email_campaign": "Kampagnensequenzen und Nurture-Texte.",
+      "product_description": "Handelsfertige Produkttexte.",
+      "ad_copy": "Paid-Social- und Suchanzeigen-Varianten.",
+      "seo_article": "Suchintent-Artikel mit Gliederung.",
+      "landing_page_copy": "Hero, Nutzen, Belege und CTA-Blöcke."
+    },
+    "campaignStatus": {
+      "Active": "Aktiv",
+      "In review": "In Prüfung",
+      "Planned": "Geplant"
+    },
+    "campaigns": {
+      "camp-1": {
+        "name": "Q3-Produktlaunch",
+        "objective": "Awareness + Wartelisten-Anmeldungen",
+        "audience": "EU-KMU-Betreiber",
+        "budget": "8.500 € (Platzhalter)",
+        "timeline": "4. Aug. – 12. Sep."
+      },
+      "camp-2": {
+        "name": "Creator-Collab-Sprint",
+        "objective": "Reichweite + Community-Wachstum",
+        "audience": "Creator 18–34 DE/AT",
+        "budget": "4.200 € (Platzhalter)",
+        "timeline": "20. Jul. – 20. Aug."
+      },
+      "camp-3": {
+        "name": "Agentur-Portfolio-Push",
+        "objective": "Leadgenerierung",
+        "audience": "Marketingdirektoren",
+        "budget": "2.900 € (Platzhalter)",
+        "timeline": "1. Sep. – 30. Sep."
+      }
+    },
+    "calendarItems": {
+      "cal-1": "Launch-Teaser-Reel",
+      "cal-2": "Gründer-LinkedIn-Narrativ",
+      "cal-3": "Wartelisten-E-Mail #1",
+      "cal-4": "TikTok-Demo-Skript"
+    },
+    "queueItems": {
+      "q-1": "Launch-Teaser-Reel-Caption",
+      "q-2": "Gründer-Narrativ-Post",
+      "q-3": "Wartelisten-Nurture-E-Mail",
+      "q-4": "Produkt-Landing-Hero-Copy",
+      "q-5": "TikTok-Demo-Skript v2",
+      "q-6": "Juni-Rückblick-Karussell",
+      "q-7": "Alter Promo-Thread"
+    },
+    "topPosts": {
+      "tp-1": "Warehouse-Automatisierung Teardown",
+      "tp-2": "30s-Produkt-Demo-Reel",
+      "tp-3": "Creator-Collab-Hook"
+    },
+    "recommendations": {
+      "r1": "Den LinkedIn-Teardown diese Woche in ein 3-teiliges Karussell umwandeln.",
+      "r2": "TikTok-Demos Di–Do 18:00–20:00 MEZ für höhere Completion planen.",
+      "r3": "Luxury-Markenstimme bei Instagram-CTAs straffen — um ~20 % kürzen.",
+      "r4": "Top-Reel-Caption ins DE/FR übersetzen für EU-Reichweite."
     }
   },
   "backend": {
@@ -4726,7 +5881,7 @@
     "skipToMain": "     Skip to main content",
     "offline": {
       "title": "Du bist Offline",
-      "message": "Überprüfen Sie Ihre Verbindung und versuchen Sie es erneut, wenn Sie wieder online sind. Zwischengespeicherte Bildschirme funktionieren möglicherweise noch.",
+      "message": "Prüfen Sie die Verbindung und versuchen Sie es erneut, sobald Sie wieder online sind. Zwischengespeicherte Ansichten können weiter funktionieren.",
       "home": "Heim",
       "contact": "Kontakt",
       "signIn": "anmelden"

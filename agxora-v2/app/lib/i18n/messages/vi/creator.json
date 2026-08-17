@@ -138,12 +138,222 @@
     "professional": "Chuyên nghiệp",
     "friendly": "Thân thiện",
     "luxury": "Sang trọng",
-    "casual": "Thoải mái"
+    "casual": "Thoải mái",
+    "minimal": "Tối giản",
+    "corporate": "Doanh nghiệp",
+    "creative": "Sáng tạo",
+    "custom": "Giọng thương hiệu tùy chỉnh"
   },
   "integrationStatus": {
     "planned": "Đã lên kế hoạch",
     "ready": "Sẵn sàng",
     "connected": "Đã kết nối",
     "disabled": "Đã tắt"
+  },
+  "categories": {
+    "social": "Mạng xã hội",
+    "ads": "Quảng cáo",
+    "analytics": "Phân tích"
+  },
+  "platforms": {
+    "instagram": {
+      "notes": "Xuất bản Graph API chính thức + insight được giữ chỗ."
+    },
+    "tiktok": {
+      "notes": "Adapter TikTok Content Posting API được giữ chỗ."
+    },
+    "youtube": {
+      "notes": "Tải lên YouTube Data API + phân tích được giữ chỗ."
+    },
+    "facebook": {
+      "notes": "Adapter đăng Pages được giữ chỗ."
+    },
+    "linkedin": {
+      "notes": "Adapter bài UGC / tổ chức được giữ chỗ."
+    },
+    "pinterest": {
+      "notes": "Adapter ghim + bảng được giữ chỗ."
+    },
+    "threads": {
+      "notes": "Adapter Threads API được giữ chỗ."
+    },
+    "x": {
+      "notes": "Adapter bài X API v2 được giữ chỗ."
+    },
+    "meta-business": {
+      "notes": "Hook Meta Business Suite / Ads Manager được giữ chỗ."
+    },
+    "google-ads": {
+      "notes": "Đồng bộ chiến dịch Google Ads API được giữ chỗ."
+    },
+    "google-analytics": {
+      "notes": "Adapter đo lường + báo cáo GA4 được giữ chỗ."
+    }
+  },
+  "features": {
+    "ideas": {
+      "label": "Ý tưởng nội dung",
+      "description": "Công cụ ý tưởng theo ngành cho chiến dịch và bài."
+    },
+    "captions": {
+      "label": "Trình tạo chú thích",
+      "description": "Chú thích giọng thương hiệu theo định dạng nền tảng."
+    },
+    "hashtags": {
+      "label": "Gợi ý hashtag",
+      "description": "Điểm liên quan và tiếp cận cho bộ hashtag."
+    },
+    "calendar": {
+      "label": "Lịch nội dung",
+      "description": "Nền tảng lịch biên tập đa nền tảng."
+    },
+    "campaigns": {
+      "label": "Lập kế hoạch chiến dịch",
+      "description": "Mục tiêu, đối tượng, nền tảng và mốc thời gian."
+    },
+    "audience": {
+      "label": "Gợi ý đối tượng",
+      "description": "Gợi ý phân khúc từ tín hiệu CRM + nhà sáng tạo."
+    },
+    "schedule": {
+      "label": "Lịch đăng",
+      "description": "Khung giờ đăng tối ưu theo múi giờ."
+    },
+    "brand": {
+      "label": "Nhất quán thương hiệu",
+      "description": "Kiểm tra giọng và tài sản so với giọng thương hiệu."
+    },
+    "rewrite": {
+      "label": "Viết lại AI",
+      "description": "Viết lại bản nháp cho rõ, độ dài hoặc kênh."
+    },
+    "translate": {
+      "label": "Dịch nội dung",
+      "description": "Đường ống dịch đa ngôn ngữ được giữ chỗ."
+    },
+    "i18n": {
+      "label": "Hỗ trợ đa ngôn ngữ",
+      "description": "Gói locale cho bề mặt xuất bản và phân tích."
+    }
+  },
+  "kpi": {
+    "content": {
+      "label": "Nội dung đã tạo",
+      "caption": "Quý này"
+    },
+    "campaigns": {
+      "label": "Chiến dịch",
+      "caption": "Đang chạy + đã lên kế hoạch"
+    },
+    "scheduled": {
+      "label": "Bài đã lên lịch",
+      "caption": "14 ngày tới"
+    },
+    "engagement": {
+      "label": "Tương tác",
+      "caption": "Tỷ lệ TB trên các kênh"
+    },
+    "followers": {
+      "label": "Tăng người theo dõi",
+      "caption": "30 ngày qua"
+    },
+    "reach": {
+      "label": "Tiếp cận",
+      "caption": "Lượt hiển thị duy nhất"
+    },
+    "conversions": {
+      "label": "Chuyển đổi",
+      "caption": "Hành động quy kết"
+    },
+    "ai-score": {
+      "label": "Điểm hiệu năng AI",
+      "caption": "Tín hiệu chất lượng nội dung"
+    }
+  },
+  "analyticsMetrics": {
+    "a1": "Tương tác",
+    "a2": "Tiếp cận",
+    "a3": "CTR",
+    "a4": "Chuyển đổi",
+    "a5": "Tăng đối tượng",
+    "a6": "Hiệu suất nội dung"
+  },
+  "voiceDesc": {
+    "professional": "Giọng rõ, đáng tin, ưu tiên kinh doanh.",
+    "luxury": "Tinh tế, kiệm lời, khung cao cấp.",
+    "friendly": "Ấm áp, gần gũi, trò chuyện.",
+    "casual": "Ngôn ngữ đời thường thoải mái.",
+    "minimal": "Câu ngắn, rõ ràng cao.",
+    "corporate": "Giao tiếp doanh nghiệp trang trọng.",
+    "creative": "Kể chuyện giàu biểu cảm cho chiến dịch.",
+    "custom": "Tải hướng dẫn và bản mẫu sau."
+  },
+  "formatDesc": {
+    "instagram_caption": "Chú thích Feed / Reels với móc CTA.",
+    "tiktok_script": "Kịch bản ngắn: móc → giá trị → CTA.",
+    "linkedin_post": "Thought leadership và câu chuyện B2B.",
+    "facebook_post": "Bài sẵn cho cộng đồng và trang.",
+    "x_post": "Chuỗi ngắn gọn và bài đơn.",
+    "blog_article": "Bản nháp biên tập dài.",
+    "newsletter": "Mục bản tin và dòng chủ đề.",
+    "email_campaign": "Chuỗi chiến dịch và copy nuôi dưỡng.",
+    "product_description": "Mô tả sản phẩm sẵn cho thương mại.",
+    "ad_copy": "Biến thể quảng cáo social trả phí và search.",
+    "seo_article": "Bài ý định tìm kiếm với cấu trúc dàn ý.",
+    "landing_page_copy": "Hero, lợi ích, bằng chứng và khối CTA."
+  },
+  "campaignStatus": {
+    "Active": "Đang chạy",
+    "In review": "Đang xét",
+    "Planned": "Đã lên kế hoạch"
+  },
+  "campaigns": {
+    "camp-1": {
+      "name": "Ra mắt sản phẩm Q3",
+      "objective": "Nhận biết + đăng ký danh sách chờ",
+      "audience": "Nhà vận hành SMB EU",
+      "budget": "€8.500 (chỗ dành)",
+      "timeline": "4 thg 8 – 12 thg 9"
+    },
+    "camp-2": {
+      "name": "Sprint collab nhà sáng tạo",
+      "objective": "Tiếp cận + tăng cộng đồng",
+      "audience": "Nhà sáng tạo 18–34 DE/AT",
+      "budget": "€4.200 (chỗ dành)",
+      "timeline": "20 thg 7 – 20 thg 8"
+    },
+    "camp-3": {
+      "name": "Đẩy portfolio agency",
+      "objective": "Tạo lead",
+      "audience": "Giám đốc marketing",
+      "budget": "€2.900 (chỗ dành)",
+      "timeline": "1 thg 9 – 30 thg 9"
+    }
+  },
+  "calendarItems": {
+    "cal-1": "Reel teaser ra mắt",
+    "cal-2": "Câu chuyện LinkedIn của founder",
+    "cal-3": "Email danh sách chờ #1",
+    "cal-4": "Kịch bản demo TikTok"
+  },
+  "queueItems": {
+    "q-1": "Chú thích reel teaser ra mắt",
+    "q-2": "Bài kể chuyện founder",
+    "q-3": "Email nuôi dưỡng danh sách chờ",
+    "q-4": "Copy hero landing sản phẩm",
+    "q-5": "Kịch bản demo TikTok v2",
+    "q-6": "Carousel tổng kết tháng 6",
+    "q-7": "Chuỗi promo cũ"
+  },
+  "topPosts": {
+    "tp-1": "Mổ xẻ tự động hóa kho",
+    "tp-2": "Reel demo sản phẩm 30 giây",
+    "tp-3": "Hook collab nhà sáng tạo"
+  },
+  "recommendations": {
+    "r1": "Tuần này tái sử dụng teardown LinkedIn thành carousel 3 phần.",
+    "r2": "Lên lịch demo TikTok T3–T5 18:00–20:00 CET để completion cao hơn.",
+    "r3": "Siết giọng luxury trên CTA Instagram — rút ~20%.",
+    "r4": "Dịch chú thích reel top sang DE/FR để mở rộng khán giả EU."
   }
 }

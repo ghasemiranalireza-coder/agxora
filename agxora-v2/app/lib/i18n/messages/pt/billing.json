@@ -117,5 +117,60 @@
       "warning": "Aviso",
       "ok": "OK"
     }
+  },
+  "licenseStatus": {
+    "trial": "Teste",
+    "active": "Ativo",
+    "expired": "Expirado",
+    "cancelled": "Cancelado",
+    "suspended": "Suspenso",
+    "lifetime": "Vitalício"
+  },
+  "quotas": {
+    "ai_requests": "Pedidos de IA",
+    "projects": "Projetos",
+    "customers": "Clientes",
+    "documents": "Documentos",
+    "storage_mb": "Armazenamento (MB)",
+    "users": "Utilizadores",
+    "api_requests": "Pedidos API"
+  },
+  "invoiceStatus": {
+    "draft": "Rascunho",
+    "open": "Em aberto",
+    "paid": "Paga",
+    "void": "Anulada",
+    "uncollectible": "Incobrável",
+    "refunded": "Reembolsada"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "O teste termina em breve",
+      "body": "O teste termina em cerca de {days} dia(s). Atualize para manter o acesso completo."
+    },
+    "expired": {
+      "title": "Subscrição expirada",
+      "body": "Renove ou atualize o plano para restaurar as funções comerciais."
+    },
+    "cancelled": {
+      "title": "Subscrição cancelada",
+      "body": "A subscrição AGXORA foi cancelada. O acesso permanece até ao fim do período."
+    },
+    "quotaWarning": {
+      "title": "Limite de {metric} quase atingido",
+      "body": "Usado {used} de {limit}. Considere atualizar."
+    },
+    "upgradeAvailable": {
+      "title": "Atualização disponível",
+      "body": "Business e Enterprise desbloqueiam automação, quotas de IA mais altas e API."
+    },
+    "invoiceReady": {
+      "title": "Fatura pronta",
+      "body": "A fatura {number} foi paga com sucesso."
+    },
+    "renewed": {
+      "title": "Subscrição renovada",
+      "body": "O plano renova-se em {date}."
+    }
   }
 }

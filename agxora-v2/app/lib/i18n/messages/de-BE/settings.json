@@ -27,7 +27,7 @@
     "regions": {
       "EU": "Europäische Union",
       "US": "Vereinigte Staaten von Amerika",
-      "MENA": "MenaCity in Arkansas USA",
+      "MENA": "MENA",
       "APAC": "APAC"
     }
   },
@@ -81,7 +81,7 @@
       "mock": "Mock (lokal)",
       "openai": "OpenAI",
       "azure": "Azure OpenAI",
-      "anthropic": "Anthropisch",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "OpenRouter",
       "ollama": "Ollama",
@@ -109,9 +109,9 @@
     "themeModeAria": "Theme-Modus",
     "resolvedAppearance": "Aufgelöstes Erscheinungsbild:",
     "accentColor": "Akzentfarbe",
-    "accentNotice": "Akzentpräferenz wird für zukünftige CSS-VAR-Verkabelung gespeichert — verändert das gesperrte Farbsystem noch nicht.",
+    "accentNotice": "Die Akzentfarbe wird für diese Sitzung gespeichert und ändert das gesperrte Farbsystem noch nicht.",
     "density": "Dichte",
-    "compactMode": "Kompakt-Modus",
+    "compactMode": "Kompaktmodus",
     "compactModeDescription": "Reduzieren Sie die Polsterung über Enterprise-Tische und -Panels hinweg.",
     "animations": "Animationen",
     "animationsDescription": "Abschnittsbewegung und Schwebehebebühnen. Respektiert die Einstellung des Betriebssystems mit reduzierter Bewegung.",
@@ -135,6 +135,13 @@
       "comfortable": "Bequem",
       "compact": "Kompakt",
       "spacious": "Geräumig"
+    },
+    "accents": {
+      "cyan": "Cyan",
+      "blue": "Blau",
+      "emerald": "Smaragd",
+      "violet": "Violett",
+      "amber": "Bernstein"
     }
   },
   "notifications": {
@@ -144,7 +151,7 @@
     "panelDescription": "E-Mail-, Push-, Desktop-, Mobil- und modulspezifische Benachrichtigungen.",
     "notice": "Benachrichtigungskanäle sind nur Präferenzen — Lieferadapter sind reserviert.",
     "email": "E-Mail",
-    "push": "Schieben ",
+    "push": "Schieben",
     "desktop": "Desktop",
     "mobile": "Mobile",
     "workflowAlerts": "Workflow-Warnungen",

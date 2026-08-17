@@ -16,13 +16,13 @@
     "privacy": "Privacy",
     "terms": "Termini",
     "cookies": "Cookie",
-    "imprint": "Impronta",
+    "imprint": "Note legali",
     "organization": "Organizzazione",
     "user": "Utente",
     "guest": "Ospite",
     "member": "Membro",
     "role": "Ruolo",
-    "signedIn": "Effettuato l'accesso",
+    "signedIn": "Accesso effettuato",
     "guestSession": "Sessione ospite",
     "noResults": "Nessun risultato",
     "noData": "Nessun dato",
@@ -44,12 +44,12 @@
     "dashboard": "Dashboard"
   },
   "navigation": {
-    "dashboard": "Pannello di controllo",
+    "dashboard": "Dashboard",
     "projects": "Progetti",
     "aiCrm": "CRM dell'intelligenza artificiale",
     "analytics": "Analitica",
     "billing": "Fatturazione",
-    "aiWorkspace": "Spazio di lavoro dell'intelligenza artificiale",
+    "aiWorkspace": "Spazio di lavoro IA",
     "customers": "Clienti",
     "automation": "Automazione",
     "financeTax": "Finanza e tasse",
@@ -60,12 +60,12 @@
     "toggleNavigation": "Attiva/disattiva la navigazione",
     "primary": "Primario",
     "menu": "Menu",
-    "search": "Ricerca",
+    "search": "Cerca",
     "notifications": "Notifiche",
     "profile": "Profilo",
     "currentOrganization": "Organizzazione attuale",
     "noNotifications": "Nessuna notifica",
-    "notificationsEmpty": "Sei tutto preso. Avvisi e menzioni appariranno qui.",
+    "notificationsEmpty": "Sei in pari. Avvisi e menzioni appariranno qui.",
     "accountSettings": "Impostazioni dell'account",
     "security": "Sicurezza",
     "themeToggle": "Attivazione/disattivazione rapida del tema. Preferenza: {mode}"
@@ -259,6 +259,61 @@
         "warning": "Avvertimento",
         "ok": "OK"
       }
+    },
+    "licenseStatus": {
+      "trial": "Prova",
+      "active": "Attivo",
+      "expired": "Scaduto",
+      "cancelled": "Annullato",
+      "suspended": "Sospeso",
+      "lifetime": "A vita"
+    },
+    "quotas": {
+      "ai_requests": "Richieste IA",
+      "projects": "Progetti",
+      "customers": "Clienti",
+      "documents": "Documenti",
+      "storage_mb": "Archiviazione (MB)",
+      "users": "Utenti",
+      "api_requests": "Richieste API"
+    },
+    "invoiceStatus": {
+      "draft": "Bozza",
+      "open": "Aperta",
+      "paid": "Pagata",
+      "void": "Annullata",
+      "uncollectible": "Inesigibile",
+      "refunded": "Rimborsata"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "La prova scade a breve",
+        "body": "La prova termina tra circa {days} giorno/i. Passa a un piano per mantenere l’accesso completo."
+      },
+      "expired": {
+        "title": "Abbonamento scaduto",
+        "body": "Rinnova o passa a un piano per ripristinare le funzioni commerciali."
+      },
+      "cancelled": {
+        "title": "Abbonamento annullato",
+        "body": "L’abbonamento AGXORA è stato annullato. L’accesso resta fino alla fine del periodo."
+      },
+      "quotaWarning": {
+        "title": "Limite {metric} quasi raggiunto",
+        "body": "Usati {used} di {limit}. Valuta un upgrade."
+      },
+      "upgradeAvailable": {
+        "title": "Upgrade disponibile",
+        "body": "Business ed Enterprise sbloccano automazione, quote IA più alte e accesso API."
+      },
+      "invoiceReady": {
+        "title": "Fattura pronta",
+        "body": "La fattura {number} è stata pagata."
+      },
+      "renewed": {
+        "title": "Abbonamento rinnovato",
+        "body": "Il piano si rinnova il {date}."
+      }
     }
   },
   "settings": {
@@ -324,7 +379,7 @@
       "preferredProvider": "Fornitore di IA preferito",
       "defaultModel": "Modello AI predefinito",
       "temperature": "Temperatura",
-      "topP": "Superiore P",
+      "topP": "Top P",
       "maxTokens": "Gettoni massimi",
       "writingStyle": "Stile di scrittura",
       "languagePreferences": "Preferenze della lingua",
@@ -341,10 +396,10 @@
       "streaming": "Streaming",
       "streamingDescription": "Trasmettere le risposte del modello quando il provider lo supporta.",
       "providers": {
-        "mock": "Finto (locale)",
+        "mock": "Mock (locale)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "Antropico",
+        "anthropic": "Anthropic",
         "google": "Google",
         "openrouter": "OpenRouter",
         "ollama": "Ollama",
@@ -371,8 +426,15 @@
       "themeLabel": "Tema",
       "themeModeAria": "Modalità tema",
       "resolvedAppearance": "Aspetto risolto:",
-      "accentColor": "Colore accento",
-      "accentNotice": "La preferenza dell'accento viene memorizzata per il futuro cablaggio della var CSS: non modifica ancora il sistema di colore bloccato.",
+      "accentColor": "Colore di accento",
+      "accentNotice": "La preferenza di accento è salvata per questa sessione e non modifica ancora il sistema colori bloccato.",
+      "accents": {
+        "cyan": "Ciano",
+        "blue": "Blu",
+        "emerald": "Smeraldo",
+        "violet": "Violetto",
+        "amber": "Ambra"
+      },
       "density": "Densità",
       "compactMode": "Modalità compatta",
       "compactModeDescription": "Riduci il riempimento tra tabelle e pannelli aziendali.",
@@ -741,8 +803,8 @@
     "skipToContent": "Passa al contenuto della dashboard",
     "loading": "Caricamento dashboard…",
     "hero": {
-      "ariaLabel": "Eroe AGXORA CORE",
-      "eyebrow": "Sistema operativo aziendale AI",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "Sistema operativo aziendale IA",
       "title": "NUCLEO DI AGXORA",
       "subtitle": "Intelligenza in tempo reale e controllo operativo: la superficie di comando del tuo spazio di lavoro.",
       "ctaGetStarted": "Inizia",
@@ -752,7 +814,7 @@
     },
     "quickActions": {
       "title": "Azioni rapide",
-      "subtitle": "Cosa dovresti fare dopo?",
+      "subtitle": "Cosa dovresti fare adesso?",
       "ariaLabel": "Azioni rapide",
       "addCustomer": {
         "label": "Aggiungi cliente",
@@ -782,11 +844,11 @@
     "attention": {
       "title": "Ha bisogno di attenzione",
       "ariaLabel": "Ciò che richiede attenzione",
-      "empty": "Sei chiaro: non ci sono questioni urgenti in questo momento.",
+      "empty": "Tutto a posto: nessun elemento urgente al momento.",
       "tone": {
         "critical": "Critico",
         "warning": "Avvertimento",
-        "info": "Informazioni",
+        "info": "Info",
         "success": "Pronto",
         "action": "Fai il prossimo"
       },
@@ -808,11 +870,11 @@
       }
     },
     "overview": {
-      "title": "Che cosa sta accadendo",
-      "subtitle": "Lo spazio di lavoro conta per {name}",
+      "title": "Cosa sta succedendo",
+      "subtitle": "Conteggi dello spazio per {name}",
       "fallbackName": "il tuo spazio di lavoro",
       "ariaLabel": "Panoramica aziendale",
-      "online": "In linea",
+      "online": "Online",
       "emDash": "—",
       "capacitySignal": "{percent}% segnale di capacità",
       "activeClients": {
@@ -836,15 +898,15 @@
         "viewFeed": "Visualizza feed"
       },
       "revenue": {
-        "title": "Reddito",
+        "title": "Ricavi",
         "caption": "Collega la fatturazione per mostrare l'MRR",
-        "openBilling": "Fatturazione aperta"
+        "openBilling": "Apri fatturazione"
       },
       "clientShell": {
-        "title": "Guscio del cliente",
+        "title": "Shell applicazione",
         "caption": "Sessione del browser pronta, non un monitor operativo dal vivo",
         "shellLoaded": "Shell dell'applicazione caricata",
-        "storesReady": "Negozi di spazi di lavoro locali pronti"
+        "storesReady": "Store locali dello spazio pronti"
       },
       "growth": {
         "title": "Crescita",
@@ -856,8 +918,8 @@
       "title": "Attività recente",
       "subtitle": "Cosa è cambiato oggi",
       "ariaLabel": "Attività recente",
-      "todayCount": "{count} OGGI",
-      "localBadge": "LOCALE",
+      "todayCount": "{count} oggi",
+      "localBadge": "Locale",
       "emptyTitle": "Nessuna attività ancora",
       "emptyBody": "Gli eventi dell'area di lavoro verranno visualizzati qui man mano che aggiungi clienti, progetti e altro ancora.",
       "addCustomer": "Aggiungi cliente",
@@ -1127,14 +1189,14 @@
   },
   "auth": {
     "login": {
-      "title": "Registrazione",
-      "subtitle": "Bentornati ad AGXORA.",
+      "title": "Accedi",
+      "subtitle": "Bentornato su AGXORA.",
       "email": "E-mail",
       "password": "Password",
-      "emailPlaceholder": "tu@azienda.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Password",
-      "rememberMe": "Ricordati di me",
-      "submit": "Registrazione",
+      "rememberMe": "Ricordami",
+      "submit": "Accedi",
       "submitting": "Accesso…",
       "noAccount": "Nessun conto?",
       "startFree": "Inizia gratis",
@@ -1142,7 +1204,7 @@
       "showPassword": "Mostra password",
       "hidePassword": "Nascondi password",
       "failed": "Accesso non riuscito",
-      "loading": "Registrazione"
+      "loading": "Accedi"
     },
     "register": {
       "title": "Creare un account",
@@ -1153,22 +1215,22 @@
       "company": "Azienda",
       "password": "Password",
       "confirmPassword": "Conferma password",
-      "acceptTerms": "Accetto il",
+      "acceptTerms": "Accetto i",
       "termsOfService": "Termini di servizio",
       "and": "E",
       "privacyPolicy": "politica sulla riservatezza",
       "submit": "Creare un account",
       "submitting": "Creazione dell'account...",
       "haveAccount": "Hai già un account?",
-      "signIn": "Registrazione",
+      "signIn": "Accedi",
       "strength": "Forza della password",
       "strengthWeak": "Debole",
-      "strengthFair": "Giusto",
+      "strengthFair": "Discreta",
       "strengthStrong": "Forte",
       "firstNamePlaceholder": "Alex",
       "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "AGXORA GmbH",
-      "emailPlaceholder": "tu@azienda.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Minimo 8 caratteri, lettere + numeri",
       "confirmPasswordPlaceholder": "Ripeti la password",
       "failed": "La registrazione non è riuscita",
@@ -1218,7 +1280,7 @@
       "successTitle": "Grazie",
       "successBody": "La tua richiesta è stata ricevuta. Il nostro team risponderà a breve.",
       "viewPricing": "Visualizza i prezzi.",
-      "bookDemo": "Dimostrazione del libro",
+      "bookDemo": "Prenota una demo",
       "failed": "Impossibile inviare la richiesta",
       "country": "Paese",
       "savedFor": "Salvato per {company}. La consegna commerciale non è collegata in questa build.",
@@ -1270,7 +1332,7 @@
       },
       "customer360": {
         "title": "Cliente a 360°",
-        "subtitle": "Profilo, azienda, contatti, ordini, fatture, Lieferscheine, pagamenti, documenti, sequenza temporale, attività, note, riepilogo AI e cronologia delle comunicazioni."
+        "subtitle": "Profilo, azienda, contatti, ordini, fatture, bolle di consegna, pagamenti, documenti, sequenza temporale, attività, note, riepilogo AI e cronologia delle comunicazioni."
       },
       "salesPipeline": {
         "title": "Pipeline di vendita",
@@ -1281,11 +1343,11 @@
       },
       "deliveryModule": {
         "title": "Modulo di consegna",
-        "subtitle": "Sistema Lieferschein professionale con tracciabilità, firma, QR e disponibilità di codici a barre."
+        "subtitle": "Sistema bolla di consegna professionale con tracciabilità, firma, QR e disponibilità di codici a barre."
       },
       "documentsModule": {
         "title": "Documenti",
-        "subtitle": "Preventivi, contratti, fatture, Lieferschein, ordini d'acquisto, ricevute - con ricerca AI."
+        "subtitle": "Preventivi, contratti, fatture, bolla di consegna, ordini d'acquisto, ricevute - con ricerca AI."
       },
       "tasksModule": {
         "title": "Compiti"
@@ -1577,7 +1639,7 @@
         "contacts": "Contatti",
         "orders": "Ordini",
         "invoices": "Fatture",
-        "lieferscheine": "Lieferscheine",
+        "lieferscheine": "bolle di consegna",
         "payments": "Pagamenti",
         "documents": "Documenti",
         "timeline": "Cronologia",
@@ -1596,7 +1658,7 @@
       }
     },
     "delivery": {
-      "title": "Sistema Lieferschein professionale",
+      "title": "Sistema bolla di consegna professionale",
       "description": "Bolle di consegna, ritiro/consegna, autista, veicolo e tracciabilità: solo record di campioni. Gli adattatori di esportazione non sono collegati.",
       "badges": {
         "qrUnavailable": "QR non disponibile",
@@ -1611,7 +1673,7 @@
         "historyNotConnected": "L'archivio della cronologia delle consegne non è connesso in questa build."
       },
       "columns": {
-        "lieferschein": "Lieferschein",
+        "lieferschein": "bolla di consegna",
         "order": "Ordine",
         "customer": "Cliente",
         "kind": "Tipo",
@@ -1668,7 +1730,7 @@
       "emptyTitle": "Nessun documento",
       "emptyDescription": "Nessun documento corrisponde a questa ricerca.",
       "searchLabel": "Ricerca AI",
-      "searchPlaceholder": "Preventivi, contratti, fatture, Lieferschein...",
+      "searchPlaceholder": "Preventivi, contratti, fatture, bolla di consegna...",
       "typeLabel": "Tipo di documento",
       "allTypes": "Tutti i tipi",
       "columns": {
@@ -1682,7 +1744,7 @@
         "quote": "Citazioni",
         "contract": "Contratti",
         "invoice": "Fatture",
-        "lieferschein": "Lieferschein",
+        "lieferschein": "bolla di consegna",
         "purchase_order": "Ordini di acquisto",
         "receipt": "Ricevute"
       }
@@ -1698,7 +1760,137 @@
       "intro": "Creator Studio Foundation: le integrazioni ufficiali della piattaforma possono essere collegate a questi adattatori in un secondo momento. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Discussioni, X."
     },
     "industry": {
-      "intro": "Universal Business Platform: l'onboarding sceglierà successivamente un settore. Ogni settore riceve moduli AI dedicati senza biforcare il sistema operativo CRM principale."
+      "intro": "Universal Business Platform: l'onboarding sceglierà successivamente un settore. Ogni settore riceve moduli AI dedicati senza biforcare il sistema operativo CRM principale.",
+      "catalog": {
+        "business": {
+          "label": "Azienda",
+          "description": "Sistema operativo B2B generale"
+        },
+        "freelancer": {
+          "label": "Freelance",
+          "description": "CRM, fatture e pipeline clienti per freelance"
+        },
+        "creator": {
+          "label": "Creator",
+          "description": "Creator Studio + CRM di brand"
+        },
+        "influencer": {
+          "label": "Influencer",
+          "description": "CRM sponsorship e OS campagne"
+        },
+        "agency": {
+          "label": "Agenzia",
+          "description": "Consegna multi-cliente e retainer"
+        },
+        "retail": {
+          "label": "Retail",
+          "description": "Inventario, POS e loyalty"
+        },
+        "restaurant": {
+          "label": "Ristorante",
+          "description": "Prenotazioni, cucina e consegna"
+        },
+        "hotel": {
+          "label": "Hotel",
+          "description": "Camere, ospiti e housekeeping"
+        },
+        "laundry": {
+          "label": "Lavanderia",
+          "description": "Ritiro, ticket e logistica dei percorsi"
+        },
+        "healthcare": {
+          "label": "Sanità",
+          "description": "Pazienti, appuntamenti, conformità"
+        },
+        "law_firm": {
+          "label": "Studio legale",
+          "description": "Pratiche, fatturazione e archivio documenti"
+        },
+        "accounting": {
+          "label": "Contabilità",
+          "description": "Libri clienti ed export DATEV"
+        },
+        "construction": {
+          "label": "Edilizia",
+          "description": "Cantieri, squadre e fatturazione avanzamento"
+        },
+        "real_estate": {
+          "label": "Immobiliare",
+          "description": "Annunci, visite e chiusure"
+        },
+        "education": {
+          "label": "Istruzione",
+          "description": "Studenti, corsi e iscrizioni"
+        },
+        "manufacturing": {
+          "label": "Manifattura",
+          "description": "Distinta base, produzione e QC"
+        },
+        "logistics": {
+          "label": "Logistica",
+          "description": "Flotta, tracking e bolle di consegna"
+        },
+        "ecommerce": {
+          "label": "E-commerce",
+          "description": "Catalogo, carrelli e ordini omnicanale"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Vendite",
+        "finance": "Finanza",
+        "projects": "Progetti",
+        "clients": "Clienti",
+        "proposals": "Proposte",
+        "time_tracking": "Timesheet",
+        "invoices": "Fatture",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Deal di brand",
+        "content_calendar": "Calendario contenuti",
+        "sponsorships": "Sponsorship",
+        "audience_insights": "Insight audience",
+        "campaigns": "Campagne",
+        "client_portals": "Portali clienti",
+        "retainers": "Retainer",
+        "campaign_ops": "Ops campagne",
+        "inventory": "Inventario",
+        "pos": "POS",
+        "loyalty": "Loyalty",
+        "reservations": "Prenotazioni",
+        "menu": "Menu",
+        "kitchen_display": "Display cucina",
+        "housekeeping": "Housekeeping",
+        "guest_crm": "CRM ospiti",
+        "tickets": "Ticket",
+        "routes": "Percorsi",
+        "delivery_notes": "Bolle di consegna",
+        "patients": "Pazienti",
+        "appointments": "Appuntamenti",
+        "compliance": "Conformità",
+        "matters": "Pratiche",
+        "billing": "Fatturazione",
+        "documents": "Documenti",
+        "client_books": "Libri clienti",
+        "datev": "DATEV",
+        "tax_deadlines": "Scadenze fiscali",
+        "sites": "Cantieri",
+        "crews": "Squadre",
+        "progress_billing": "Fatturazione avanzamento",
+        "listings": "Annunci",
+        "viewings": "Visite",
+        "closings": "Chiusure",
+        "students": "Studenti",
+        "courses": "Corsi",
+        "enrollment": "Iscrizione",
+        "bom": "BOM",
+        "production": "Produzione",
+        "qc": "QC",
+        "fleet": "Flotta",
+        "tracking": "Tracking",
+        "catalog": "Catalogo",
+        "orders": "Ordini",
+        "fulfillment": "Fulfillment"
+      }
     },
     "kpi": {
       "customers": {
@@ -1762,7 +1954,7 @@
       "quote": "Citazione",
       "contract": "Contrarre",
       "invoice": "Fattura",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "bolla di consegna",
       "purchase_order": "Ordinazione d'acquisto",
       "receipt": "Ricevuta"
     },
@@ -2831,7 +3023,7 @@
       "missingTitle": "Progetto mancante",
       "missingDescription": "Seleziona un progetto per visualizzarne la panoramica.",
       "title": "Panoramica",
-      "noDescription": "Nessuna descrizione fornita.",
+      "noDescription": "Nessuna descrizione.",
       "budget": "Bilancio",
       "spent": "Speso",
       "start": "Inizio",
@@ -2977,8 +3169,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Suggerimenti per l'ottimizzazione",
       "oneClickOptimize": "Ottimizza con un clic",
-      "noticeDefault": "One Click Optimize non è ancora una mutazione del grafico.",
-      "noticeQueued": "Ottimizza in coda. Il motore futuro riscriverà ritardi e approvazioni."
+      "noticeDefault": "L’ottimizzazione in un clic non modifica ancora il grafo.",
+      "noticeQueued": "Ottimizzazione in coda. Un motore futuro riscriverà ritardi e approvazioni.",
+      "score": {
+        "healthy": "Integro",
+        "needsAttention": "Da controllare",
+        "atRisk": "A rischio"
+      },
+      "kinds": {
+        "missing_approval": "Approvazione",
+        "possible_delay": "Ritardo",
+        "unused_trigger": "Trigger",
+        "duplicate_nodes": "Duplicati",
+        "unused_action": "Azione",
+        "security": "Sicurezza",
+        "performance": "Prestazioni"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Approvazione mancante",
+          "description": "I flussi più lunghi spesso richiedono un gate di approvazione prima degli effetti collaterali."
+        },
+        "possible_delay": {
+          "title": "Possibile ritardo",
+          "description": "Valuta un ritardo prima delle e-mail di reminder per evitare burst."
+        },
+        "unused_trigger": {
+          "title": "Trigger inutilizzato",
+          "description": "Questo grafo non ha un trigger di avvio: aggiungine uno prima dell’attivazione."
+        },
+        "duplicate_nodes": {
+          "title": "Nodi duplicati",
+          "description": "“{label}” compare {count} volte: consolida se è ridondante."
+        },
+        "unused_action": {
+          "title": "Azione inutilizzata",
+          "description": "{label} non è collegato: collegalo o rimuovilo."
+        },
+        "security": {
+          "title": "Raccomandazione di sicurezza",
+          "description": "Preferisci adapter a privilegio minimo per webhook ed e-mail."
+        },
+        "performance": {
+          "title": "Raccomandazione di prestazione",
+          "description": "Raggruppa i passaggi IA dove possibile per ridurre il tempo medio."
+        }
+      }
     },
     "integrations": {
       "intro": "Centro di integrazione: facoltativo. Stati: Connesso, Beta, Pianificato, Prossimamente, Disabilitato. Nessuna API live.",
@@ -3487,6 +3723,192 @@
         "label": "Aggiorna stato",
         "description": "Aggiorna lo stato di un’entità in un modulo."
       }
+    },
+    "kinds": {
+      "trigger": "Trigger",
+      "action": "Azione",
+      "condition": "Condizione",
+      "delay": "Ritardo",
+      "approval": "Approvazione",
+      "loop": "Loop",
+      "merge": "Unisci",
+      "split": "Dividi",
+      "ai_decision": "Decisione IA",
+      "ai_action": "Azione IA",
+      "notification": "Notifica",
+      "webhook": "Webhook",
+      "custom_action": "Azione personalizzata",
+      "branch": "Branch",
+      "variable": "Variabile"
+    },
+    "kpi": {
+      "active": {
+        "label": "Workflow attivi",
+        "caption": "Abilitati nello spazio"
+      },
+      "runs-today": {
+        "label": "Esecuzioni di oggi",
+        "caption": "Tutti i trigger"
+      },
+      "success": {
+        "label": "Automazioni riuscite",
+        "caption": "Oggi"
+      },
+      "failed": {
+        "label": "Esecuzioni non riuscite",
+        "caption": "Da controllare"
+      },
+      "pending": {
+        "label": "Task in attesa",
+        "caption": "Approvazioni + retry"
+      },
+      "avg-time": {
+        "label": "Tempo medio di esecuzione",
+        "caption": "Mediana 1,2s"
+      },
+      "ai-suggestions": {
+        "label": "Suggerimenti IA",
+        "caption": "Opportunità di automazione"
+      }
+    },
+    "integrationCategories": {
+      "Productivity": "Produttività",
+      "Communication": "Comunicazione",
+      "Commerce": "Commerce",
+      "Finance": "Finanza",
+      "ERP": "ERP",
+      "CRM": "CRM"
+    },
+    "integrationNotes": {
+      "google-workspace": "Hook Gmail / Drive / Calendar riservati per il cablaggio OAuth.",
+      "m365": "Hook Outlook / Teams / Graph riservati.",
+      "slack": "Events API + post chat riservati.",
+      "teams": "Adapter Bot Framework riservato.",
+      "discord": "Adapter webhook + bot riservato.",
+      "whatsapp": "Adapter Meta Cloud API riservato.",
+      "stripe": "Webhook di pagamento riservati — nessuna chiave live.",
+      "shopify": "Eventi ordine / prodotto riservati.",
+      "datev": "Hook export DATEV / lotti di registrazione riservati.",
+      "sap": "Ponte eventi ERP riservato — disabilitato fino al piano enterprise.",
+      "hubspot": "Adapter di sync CRM riservato.",
+      "salesforce": "Adapter Platform Events riservato."
+    },
+    "defaultWorkflow": {
+      "name": "Onboarding cliente",
+      "description": "Sequenza di benvenuto quando si crea un cliente."
+    },
+    "templateCategories": {
+      "CRM": "CRM",
+      "Finance": "Finanza",
+      "Sales": "Vendite",
+      "Marketing": "Marketing",
+      "HR": "HR",
+      "Creator": "Creator",
+      "Ops": "Ops",
+      "Projects": "Progetti",
+      "AI": "IA"
+    },
+    "studioTemplates": {
+      "tpl-onboarding": {
+        "name": "Onboarding clienti",
+        "description": "Email di benvenuto, summary IA e task owner dopo la creazione cliente.",
+        "category": "CRM",
+        "recommendedFor": "Team che onbordano nuovi clienti B2B"
+      },
+      "tpl-invoice": {
+        "name": "Reminder fattura",
+        "description": "Reminder pianificati per fatture aperte con escalation.",
+        "category": "Finanza",
+        "recommendedFor": "Ops finance che riducono i crediti scaduti"
+      },
+      "tpl-lead": {
+        "name": "Follow-up lead",
+        "description": "Risposta e-mail IA più aggiornamento pipeline per nuovi lead.",
+        "category": "Vendite",
+        "recommendedFor": "Team vendite con alto volume di lead inbound"
+      },
+      "tpl-welcome": {
+        "name": "Email di benvenuto",
+        "description": "Sequenza di benvenuto semplice alla registrazione.",
+        "category": "Marketing",
+        "recommendedFor": "Qualsiasi workspace che inizia con l’automazione e-mail"
+      },
+      "tpl-pipeline": {
+        "name": "Pipeline vendite",
+        "description": "Cambi di stage con notifiche e task.",
+        "category": "Vendite",
+        "recommendedFor": "Team che gestiscono avanzamento deal multi-stage"
+      },
+      "tpl-recruit": {
+        "name": "Recruiting",
+        "description": "Routing candidati e task di colloquio.",
+        "category": "HR",
+        "recommendedFor": "Hiring manager e people ops"
+      },
+      "tpl-content": {
+        "name": "Pubblicazione contenuti",
+        "description": "Creator Studio: pubblica → notifica → analytics.",
+        "category": "Creator",
+        "recommendedFor": "Team marketing e creator"
+      },
+      "tpl-approval": {
+        "name": "Processo di approvazione",
+        "description": "Approvazione multi-step con raccomandazioni IA.",
+        "category": "Ops",
+        "recommendedFor": "Approvazioni finance/ops prima degli effetti collaterali",
+        "estimatedRuntime": "Gate umano"
+      }
+    },
+    "engineTemplates": {
+      "tpl_customer_welcome": {
+        "name": "Benvenuto nuovo cliente",
+        "description": "Email di benvenuto + notifica quando si crea un cliente.",
+        "category": "CRM"
+      },
+      "tpl_invoice_reminder": {
+        "name": "Reminder fattura",
+        "description": "Ricorda i clienti dopo l’emissione di una fattura.",
+        "category": "Finanza"
+      },
+      "tpl_project_kickoff": {
+        "name": "Kickoff progetto",
+        "description": "Assegna un task di kickoff e notifica alla creazione del progetto.",
+        "category": "Progetti"
+      },
+      "tpl_task_assignment": {
+        "name": "Assegnazione task",
+        "description": "Email all’assegnatario a task completato — concatena il lavoro successivo.",
+        "category": "Progetti"
+      },
+      "tpl_ai_customer_summary": {
+        "name": "Summary cliente IA",
+        "description": "Esegui un summary IA alla creazione cliente; memorizza l’output.",
+        "category": "IA"
+      },
+      "tpl_followup_reminder": {
+        "name": "Reminder di follow-up",
+        "description": "Follow-up su schedule con branch per stato.",
+        "category": "CRM"
+      }
+    },
+    "nodeLabels": {
+      "send_welcome_email": "Invia email di benvenuto",
+      "notify_team": "Notifica il team",
+      "wait_3_days": "Attendi 3 giorni",
+      "still_unpaid": "Ancora non pagata?",
+      "send_reminder": "Invia reminder",
+      "assign_kickoff_task": "Assegna task di kickoff",
+      "notify_owner": "Notifica l’owner",
+      "notify_stakeholders": "Notifica gli stakeholder",
+      "run_ai_summary": "Esegui summary IA",
+      "generate_document": "Genera documento",
+      "daily_schedule": "Schedule giornaliero",
+      "by_priority": "Per priorità",
+      "urgent_notification": "Notifica urgente",
+      "standard_email": "Email standard"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "Genera contenuti IA"
     }
   },
   "team": {
@@ -3970,6 +4392,177 @@
     "os": {
       "prioritizeCustomerImpact": "Dai priorità all’impatto sul cliente",
       "delegatedFollowUp": "Follow-up delegato"
+    },
+    "categories": {
+      "Leadership": "Leadership",
+      "Revenue": "Ricavi",
+      "CRM": "CRM",
+      "Delivery": "Consegna",
+      "Automation": "Automazione",
+      "Finance": "Finanza",
+      "Knowledge": "Conoscenza",
+      "Support": "Supporto",
+      "Productivity": "Produttività",
+      "Custom": "Personalizzato"
+    },
+    "catalog": {
+      "executive_advisor": {
+        "name": "Advisor esecutivo",
+        "description": "Briefing strategici, sintesi KPI e supporto alle decisioni."
+      },
+      "sales_agent": {
+        "name": "Agente vendite",
+        "description": "Coaching pipeline, bozze di outreach e passi successivi."
+      },
+      "crm_assistant": {
+        "name": "Assistente CRM",
+        "description": "Arricchimento clienti, igiene dati e insight relazionali."
+      },
+      "project_manager": {
+        "name": "Responsabile di progetto",
+        "description": "Piani, scomposizione task e segnali di rischio consegna."
+      },
+      "workflow_coordinator": {
+        "name": "Coordinatore workflow",
+        "description": "Avvia e orchestra i workflow di automazione AGXORA."
+      },
+      "finance_assistant": {
+        "name": "Assistente finance",
+        "description": "Visibilità fatture, note di cashflow e sintesi finanziarie."
+      },
+      "document_analyst": {
+        "name": "Analista documenti",
+        "description": "Estrae struttura, rischi e sintesi dai documenti."
+      },
+      "knowledge_assistant": {
+        "name": "Assistente knowledge",
+        "description": "Risponde dalla knowledge aziendale con retrieval pronto per RAG."
+      },
+      "support_assistant": {
+        "name": "Assistente di supporto",
+        "description": "Triage del supporto, risposte e percorsi di escalation."
+      },
+      "meeting_assistant": {
+        "name": "Assistente meeting",
+        "description": "Preparazione agenda, placeholder note e follow-up."
+      },
+      "custom": {
+        "name": "Agente personalizzato",
+        "description": "Punto di estensione per agenti specifici dell’organizzazione."
+      }
+    },
+    "toolsCatalog": {
+      "crm": {
+        "name": "Strumento CRM",
+        "description": "Crea/aggiorna clienti e leggi il contesto account."
+      },
+      "projects": {
+        "name": "Strumento progetti",
+        "description": "Gestisci progetti, task e stato di consegna."
+      },
+      "finance": {
+        "name": "Strumento finance",
+        "description": "Fatture, saldi e sintesi finanziarie."
+      },
+      "documents": {
+        "name": "Strumento documenti",
+        "description": "Leggi e riassumi i documenti dello spazio."
+      },
+      "workflow": {
+        "name": "Strumento workflow",
+        "description": "Avvia e ispeziona i workflow di automazione."
+      },
+      "integration": {
+        "name": "Strumento integrazione",
+        "description": "Chiama i connettori di terze parti collegati."
+      },
+      "email": {
+        "name": "Strumento e-mail",
+        "description": "Bozza e accoda e-mail in uscita."
+      },
+      "calendar": {
+        "name": "Strumento calendario",
+        "description": "Pianifica e ispeziona eventi del calendario."
+      },
+      "search": {
+        "name": "Strumento ricerca",
+        "description": "Ricerca universale dello spazio."
+      },
+      "notification": {
+        "name": "Strumento notifiche",
+        "description": "Invia notifiche in-app."
+      },
+      "api": {
+        "name": "Strumento API",
+        "description": "Invoca le route del gateway API interno."
+      },
+      "mcp": {
+        "name": "Strumento MCP",
+        "description": "Strumenti server Model Context Protocol futuri."
+      }
+    },
+    "knowledgeDocs": {
+      "company": {
+        "title": "Principi operativi AGXORA",
+        "summary": "Principi di OS enterprise per agenti IA modulari e sicuri."
+      },
+      "policies": {
+        "title": "Policy di gestione dati",
+        "summary": "Isolamento degli strumenti sensibili e accesso least-privilege."
+      },
+      "procedures": {
+        "title": "Procedura di escalation clienti",
+        "summary": "Percorso di escalation dell’assistente di supporto a bassa confidence."
+      },
+      "rag": {
+        "title": "Placeholder indice RAG",
+        "summary": "Retrieval vettoriale futuro su documenti e note CRM."
+      }
+    },
+    "llm": {
+      "local": "LLM locale",
+      "mcp": "Server MCP",
+      "custom": "Modello personalizzato"
+    },
+    "lifecycle": {
+      "draft": "Bozza",
+      "registered": "Registrato",
+      "active": "Attivo",
+      "paused": "In pausa",
+      "error": "Errore",
+      "retired": "Ritirato"
+    },
+    "healthStatus": {
+      "healthy": "Integro",
+      "degraded": "Degradato",
+      "down": "Non disponibile",
+      "unknown": "Sconosciuto"
+    },
+    "taskStatus": {
+      "pending": "In attesa",
+      "running": "In esecuzione",
+      "completed": "Completato",
+      "cancelled": "Annullato",
+      "failed": "Non riuscito",
+      "retrying": "Nuovo tentativo"
+    },
+    "memoryScope": {
+      "working": "Operativa",
+      "conversation": "Conversazione",
+      "business": "Business",
+      "long_term": "Lungo termine",
+      "workspace": "Workspace",
+      "agent": "Agente"
+    },
+    "knowledgeKind": {
+      "company": "Azienda",
+      "documents": "Documenti",
+      "projects": "Progetti",
+      "crm": "CRM",
+      "policies": "Policy",
+      "procedures": "Procedure",
+      "vector": "Vettore",
+      "rag": "RAG"
     }
   },
   "integrations": {
@@ -4037,7 +4630,17 @@
     "logs": {
       "title": "Registri di integrazione",
       "emptyTitle": "Nessun registro ancora",
-      "emptyDescription": "Connetti un provider o esegui la diagnostica."
+      "emptyDescription": "Connetti un provider o esegui la diagnostica.",
+      "installed": "{name} installato",
+      "demoConnected": "Demo connesso {name}",
+      "disconnected": "{name} disconnesso",
+      "webhookCreated": "Webhook creato {name}",
+      "keyCreated": "Chiave API creata {name}",
+      "keyRotated": "Chiave ruotata {name}",
+      "keyRevoked": "Chiave revocata {name}",
+      "stubHealthy": "{name} stub integro",
+      "diagnosticsComplete": "Diagnostica completata",
+      "outgoing": "In uscita {status}: {eventType}"
     },
     "apiKeys": {
       "title": "Chiavi API",
@@ -4112,7 +4715,92 @@
     },
     "errors": {
       "failedToFetch": "Impossibile recuperare",
-      "httpStatus": "{status} HTTP"
+      "httpStatus": "{status} HTTP",
+      "unknownConnector": "Connettore sconosciuto.",
+      "webhookNotFound": "Webhook non trovato.",
+      "apiKeyInactive": "Chiave API inattiva o scaduta."
+    },
+    "categories": {
+      "productivity": "Produttività",
+      "communication": "Comunicazione",
+      "storage": "Archiviazione",
+      "crm": "CRM",
+      "automation": "Automazione",
+      "devtools": "Strumenti per sviluppatori",
+      "custom": "Personalizzato"
+    },
+    "auth": {
+      "oauth2": "OAuth 2.0",
+      "api_key": "Chiave API",
+      "webhook": "Webhook"
+    },
+    "oauth": {
+      "custom": "OAuth personalizzato"
+    },
+    "connectorNames": {
+      "custom": "Connettore personalizzato"
+    },
+    "connectors": {
+      "microsoft365": {
+        "description": "Posta, calendario e Teams tramite Microsoft Graph."
+      },
+      "google_workspace": {
+        "description": "Gmail, Calendar e Drive per tenant Workspace."
+      },
+      "slack": {
+        "description": "Canali, messaggi e notifiche interattive."
+      },
+      "discord": {
+        "description": "Notifiche server e consegna messaggi bot."
+      },
+      "dropbox": {
+        "description": "Sincronizzazione file ed eventi di cartelle condivise."
+      },
+      "onedrive": {
+        "description": "Archiviazione file Microsoft OneDrive e sync delta."
+      },
+      "google_drive": {
+        "description": "File Drive, cartelle e notifiche di modifica."
+      },
+      "hubspot": {
+        "description": "Contatti CRM, deal ed eventi marketing."
+      },
+      "salesforce": {
+        "description": "Oggetti CRM enterprise e Platform Events."
+      },
+      "zapier": {
+        "description": "Hook in uscita verso gli zap di Zapier."
+      },
+      "make": {
+        "description": "Webhook di scenario per Make (Integromat)."
+      },
+      "github": {
+        "description": "Repo, issue, pull request e Actions."
+      },
+      "gitlab": {
+        "description": "Progetti, merge request, pipeline e webhook."
+      },
+      "custom": {
+        "description": "Punto di estensione per sistemi enterprise proprietari."
+      }
+    },
+    "healthStatus": {
+      "healthy": "Integro",
+      "degraded": "Degradato",
+      "down": "Non disponibile",
+      "unknown": "Sconosciuto"
+    },
+    "health": {
+      "installedAuthorize": "Installato — connetti per autorizzare",
+      "oauthStubPlaceholder": "Demo OAuth locale (stub)",
+      "oauthStubLive": "Demo OAuth locale (live)",
+      "demoCredential": "Credenziale demo locale salvata — API live non connessa",
+      "demoConnection": "Connessione demo locale — non è un collegamento provider live",
+      "disconnected": "Disconnesso"
+    },
+    "generated": {
+      "keyName": "Chiave {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {
@@ -4184,14 +4872,78 @@
       "title": "Centro KPI",
       "subtitle": "Catalogo KPI configurabile per entrate, clienti, progetti, flussi di lavoro, agenti e automazione.",
       "emptyTitle": "Analytics attende il segnale",
-      "emptyDescription": "Una volta che l'area di lavoro genera attività, i KPI esecutivi e gli avvisi vengono visualizzati qui."
+      "emptyDescription": "Una volta che l'area di lavoro genera attività, i KPI esecutivi e gli avvisi vengono visualizzati qui.",
+      "revenue": {
+        "name": "Ricavi",
+        "description": "Ricavi totali riconosciuti nel periodo."
+      },
+      "mrr": {
+        "name": "MRR",
+        "description": "Ricavi ricorrenti mensili."
+      },
+      "arr": {
+        "name": "ARR",
+        "description": "Ricavi ricorrenti annuali."
+      },
+      "growth": {
+        "name": "Crescita",
+        "description": "Tasso di crescita periodo su periodo."
+      },
+      "customer_acquisition": {
+        "name": "Acquisizione clienti",
+        "description": "Nuovi clienti acquisiti."
+      },
+      "retention": {
+        "name": "Ritenzione",
+        "description": "Tasso di retention clienti."
+      },
+      "churn": {
+        "name": "Abbandono",
+        "description": "Tasso di churn clienti."
+      },
+      "project_success": {
+        "name": "Successo progetti",
+        "description": "Progetti consegnati in tempo / nello scope."
+      },
+      "workflow_success": {
+        "name": "Successo workflow",
+        "description": "Esecuzioni workflow riuscite."
+      },
+      "agent_performance": {
+        "name": "Prestazioni agente",
+        "description": "Punteggio di successo dei task agente IA."
+      },
+      "automation_success": {
+        "name": "Successo automazione",
+        "description": "Affidabilità di automazione / integrazione."
+      },
+      "custom": {
+        "name": "KPI personalizzato",
+        "description": "Punto di estensione per KPI definiti dall’organizzazione."
+      }
     },
     "reports": {
       "title": "Motore di reporting",
       "subtitle": "Le definizioni dei report vengono seminate per la revisione. L'esportazione di file non è disponibile finché non viene connesso un backend di reporting.",
       "emptyTitle": "Nessun rapporto",
       "emptyDescription": "Riporta il seed sul bootstrap dell'area di lavoro.",
-      "scheduleOnDemand": "su richiesta"
+      "scheduleOnDemand": "su richiesta",
+      "executive": {
+        "title": "Report executive settimanale",
+        "description": "Brief CEO su salute, ricavi, rischio e crescita."
+      },
+      "department": {
+        "title": "Report dipartimento vendite",
+        "description": "Pipeline, acquisizione e retention per la leadership vendite."
+      },
+      "operational": {
+        "title": "Operazioni giornaliere",
+        "description": "Workflow, integrazioni e postura identità."
+      },
+      "management": {
+        "title": "Management consegna",
+        "description": "Successo progetti, capacità e throughput documenti."
+      }
     },
     "insights": {
       "emptyTitle": "Ancora nessun approfondimento",
@@ -4211,12 +4963,88 @@
       "emptyDescription": "Gli avvisi provengono dall'euristica del rischio.",
       "acked": "colpito",
       "open": "aprire",
-      "acknowledge": "Riconoscere"
+      "acknowledge": "Riconoscere",
+      "revenue_drop": {
+        "title": "Rallentamento ricavi nel segmento",
+        "body": "Ricavi WoW −4% nelle PMI: verifica copertura pipeline."
+      },
+      "project_delay": {
+        "title": "Progetto a rischio ritardo",
+        "body": "Due progetti di consegna hanno superato i gate milestone."
+      },
+      "churn_risk": {
+        "title": "Rischio churn elevato",
+        "body": "Tre account mostrano score di engagement in calo."
+      },
+      "workflow_failure": {
+        "title": "Errori workflow rilevati",
+        "body": "Il workflow reminder fatture è fallito due volte in 24h."
+      },
+      "ai_failure": {
+        "title": "Retry task IA elevati",
+        "body": "Il tasso di retry dei task agente ha superato la soglia soft."
+      },
+      "integration_error": {
+        "title": "Errori di integrazione",
+        "body": "Il connettore Slack ha restituito 5xx intermittenti."
+      },
+      "security": {
+        "title": "Avviso di sicurezza",
+        "body": "Rilevato un uso insolito di una chiave API."
+      }
     },
     "scorecards": {
       "title": "Motore di scorecard",
       "emptyTitle": "Niente scorecard",
-      "emptyDescription": "Seme delle scorecard sul bootstrap."
+      "emptyDescription": "Seme delle scorecard sul bootstrap.",
+      "sales": {
+        "name": "Punteggio vendite",
+        "drivers": {
+          "pipeline_coverage": "Copertura pipeline",
+          "win_rate": "Tasso di vittoria",
+          "cycle_time": "Tempo di ciclo"
+        }
+      },
+      "customer_health": {
+        "name": "Punteggio salute cliente",
+        "drivers": {
+          "retention": "Retention",
+          "nps_proxy": "Proxy NPS",
+          "support_load": "Carico di supporto"
+        }
+      },
+      "project_success": {
+        "name": "Punteggio successo progetti",
+        "drivers": {
+          "on_time_delivery": "Consegna in tempo",
+          "scope_control": "Controllo dello scope",
+          "utilization": "Utilizzo"
+        }
+      },
+      "automation_efficiency": {
+        "name": "Efficienza automazione",
+        "drivers": {
+          "workflow_success": "Successo workflow",
+          "manual_effort_saved": "Sforzo manuale risparmiato",
+          "retry_rate": "Tasso di retry"
+        }
+      },
+      "ai_quality": {
+        "name": "Qualità IA",
+        "drivers": {
+          "task_success": "Successo task",
+          "confidence_avg": "Confidence media",
+          "escalation_rate": "Tasso di escalation"
+        }
+      },
+      "operational_health": {
+        "name": "Salute operativa",
+        "drivers": {
+          "system_health": "Salute sistema",
+          "integration_reliability": "Affidabilità integrazione",
+          "identity_posture": "Postura identità"
+        }
+      }
     },
     "explorer": {
       "title": "Esploratore di dati",
@@ -4224,7 +5052,8 @@
       "searchAria": "Cerca nelle righe dell'Explorer demo",
       "emptyTitle": "Nessuna riga corrisponde",
       "emptyDescription": "Modifica i filtri, cerca o ricarica il set di dati demo.",
-      "hint": "Ricerca lato client sulle tuple seedate: l'aggregazione backend e il drill-down non sono collegati."
+      "hint": "Ricerca lato client sulle tuple seedate: l'aggregazione backend e il drill-down non sono collegati.",
+      "metricLabel": "Metrica {domain} {index}"
     },
     "columns": {
       "kpi": "KPI",
@@ -4249,7 +5078,123 @@
       "measure": "Misura",
       "date": "Data"
     },
-    "emDash": "—"
+    "emDash": "—",
+    "domains": {
+      "crm": "Analytics CRM",
+      "projects": "Analytics progetti",
+      "finance": "Analytics finance",
+      "documents": "Analytics documenti",
+      "workflow": "Analytics workflow",
+      "identity": "Analytics identità",
+      "ai": "Analytics IA",
+      "integration": "Analytics integrazioni",
+      "executive": "Executive"
+    },
+    "series": {
+      "crm_leads": "Lead",
+      "crm_pipeline": "Pipeline (k$)",
+      "proj_active": "Progetti attivi",
+      "proj_on_time": "In tempo %",
+      "fin_revenue": "Ricavi (k$)",
+      "fin_margin": "Margine lordo %",
+      "doc_created": "Documenti creati",
+      "doc_views": "Visualizzazioni documenti",
+      "wf_runs": "Esecuzioni workflow",
+      "wf_success": "Successo %",
+      "id_users": "Utenti attivi",
+      "id_sessions": "Sessioni",
+      "ai_tasks": "Task agente",
+      "ai_success": "Successo agente %",
+      "int_calls": "Chiamate API / webhook",
+      "int_errors": "Errori di integrazione"
+    },
+    "bands": {
+      "Critical": "Critico",
+      "Watch": "Da osservare",
+      "Healthy": "Integro",
+      "Excellent": "Eccellente"
+    },
+    "charts": {
+      "chart_revenue": "Trend ricavi",
+      "chart_pipeline": "Pipeline CRM",
+      "chart_workflows": "Attività workflow",
+      "chart_ai": "Mix attività IA",
+      "chart_ops_table": "Snapshot operativo",
+      "chart_heatmap_placeholder": "Heatmap engagement"
+    },
+    "chartKinds": {
+      "line": "Linea",
+      "bar": "Barre",
+      "area": "Aree",
+      "pie": "Torta",
+      "heatmap": "Heatmap",
+      "table": "Tabella",
+      "card": "Scheda"
+    },
+    "insightItems": {
+      "trend": {
+        "title": "MRR in accelerazione",
+        "summary": "La crescita MRR è migliorata per tre periodi consecutivi."
+      },
+      "pattern": {
+        "title": "Picchi workflow nei giorni fattura",
+        "summary": "Il carico di automazione correla con la fatturazione di fine mese."
+      },
+      "recommendation": {
+        "title": "Espandi il playbook di retention",
+        "summary": "Concentra l’outreach CSM su tre account con salute in calo."
+      },
+      "executive_summary": {
+        "title": "Brief executive",
+        "summary": "La salute aziendale è solida; monitora churn e ritardi di consegna."
+      },
+      "risk": {
+        "title": "Cluster di rischio consegna",
+        "summary": "Due progetti condividono contention risorse — forecast capacità elevato."
+      },
+      "opportunity": {
+        "title": "Opportunità di upsell",
+        "summary": "Account ad alto usage senza piano Business mostrano potenziale di espansione."
+      }
+    },
+    "forecastNotes": {
+      "revenue": "Placeholder di trend lineare — sostituire con servizio modello.",
+      "customer": "Composito acquisizione + retention.",
+      "project": "Forecast di consegna consapevole della capacità.",
+      "capacity": "Forecast di utilizzo del team.",
+      "growth": "Forecast del tasso di crescita."
+    },
+    "forecastKinds": {
+      "revenue": "Ricavi",
+      "customer": "Cliente",
+      "project": "Progetto",
+      "capacity": "Capacità",
+      "growth": "Crescita"
+    },
+    "severity": {
+      "info": "Info",
+      "warning": "Avviso",
+      "critical": "Critico"
+    },
+    "trend": {
+      "up": "In salita",
+      "down": "In calo",
+      "flat": "Stabile"
+    },
+    "insightKinds": {
+      "trend": "Trend",
+      "pattern": "Schema",
+      "recommendation": "Raccomandazione",
+      "executive_summary": "Sintesi executive",
+      "risk": "Rischio",
+      "opportunity": "Opportunità"
+    },
+    "reportKinds": {
+      "executive": "Executive",
+      "department": "Dipartimento",
+      "operational": "Operativo",
+      "management": "Management"
+    }
   },
   "legal": {
     "shell": {
@@ -4679,13 +5624,223 @@
       "professional": "Professionale",
       "friendly": "Amichevole",
       "luxury": "Lusso",
-      "casual": "Informale"
+      "casual": "Informale",
+      "minimal": "Minimale",
+      "corporate": "Corporate",
+      "creative": "Creativo",
+      "custom": "Brand voice personalizzata"
     },
     "integrationStatus": {
       "planned": "Pianificato",
       "ready": "Pronto",
       "connected": "Connesso",
       "disabled": "Disattivato"
+    },
+    "categories": {
+      "social": "Social",
+      "ads": "Annunci",
+      "analytics": "Analytics"
+    },
+    "platforms": {
+      "instagram": {
+        "notes": "Publish Graph API ufficiale + insight riservati."
+      },
+      "tiktok": {
+        "notes": "Adapter TikTok Content Posting API riservato."
+      },
+      "youtube": {
+        "notes": "Upload YouTube Data API + analytics riservati."
+      },
+      "facebook": {
+        "notes": "Adapter di pubblicazione Pages riservato."
+      },
+      "linkedin": {
+        "notes": "Adapter post UGC / organizzazione riservato."
+      },
+      "pinterest": {
+        "notes": "Adapter Pin + board riservato."
+      },
+      "threads": {
+        "notes": "Adapter Threads API riservato."
+      },
+      "x": {
+        "notes": "Adapter post X API v2 riservato."
+      },
+      "meta-business": {
+        "notes": "Hook Meta Business Suite / Ads Manager riservati."
+      },
+      "google-ads": {
+        "notes": "Sync campagne Google Ads API riservata."
+      },
+      "google-analytics": {
+        "notes": "Adapter misurazione + reporting GA4 riservato."
+      }
+    },
+    "features": {
+      "ideas": {
+        "label": "Idee di contenuto",
+        "description": "Motore di idee consapevole del settore per campagne e post."
+      },
+      "captions": {
+        "label": "Generatore didascalie",
+        "description": "Didascalie in brand voice per formato piattaforma."
+      },
+      "hashtags": {
+        "label": "Suggerimenti hashtag",
+        "description": "Punteggio di rilevanza e reach per set di hashtag."
+      },
+      "calendar": {
+        "label": "Calendario contenuti",
+        "description": "Fondazione di calendario editoriale multipiattaforma."
+      },
+      "campaigns": {
+        "label": "Planner campagne",
+        "description": "Obiettivi, audience, piattaforme e timeline."
+      },
+      "audience": {
+        "label": "Suggerimenti audience",
+        "description": "Suggerimenti di segmento da segnali CRM + creator."
+      },
+      "schedule": {
+        "label": "Schedule di pubblicazione",
+        "description": "Finestre di pubblicazione ottimali consapevoli del fuso."
+      },
+      "brand": {
+        "label": "Coerenza di brand",
+        "description": "Controlli di tono e asset rispetto alla brand voice."
+      },
+      "rewrite": {
+        "label": "Riscrivere con IA",
+        "description": "Riscrivi le bozze per chiarezza, lunghezza o canale."
+      },
+      "translate": {
+        "label": "Traduci contenuto",
+        "description": "Pipeline di traduzione multilingue riservata."
+      },
+      "i18n": {
+        "label": "Supporto multilingue",
+        "description": "Pacchetti locale per superfici di publish e analytics."
+      }
+    },
+    "kpi": {
+      "content": {
+        "label": "Contenuti creati",
+        "caption": "Questo trimestre"
+      },
+      "campaigns": {
+        "label": "Campagne",
+        "caption": "Attive + pianificate"
+      },
+      "scheduled": {
+        "label": "Post programmati",
+        "caption": "Prossimi 14 giorni"
+      },
+      "engagement": {
+        "label": "Engagement",
+        "caption": "Tasso medio tra canali"
+      },
+      "followers": {
+        "label": "Crescita follower",
+        "caption": "Ultimi 30 giorni"
+      },
+      "reach": {
+        "label": "Reach",
+        "caption": "Impression uniche"
+      },
+      "conversions": {
+        "label": "Conversion",
+        "caption": "Azioni attribuite"
+      },
+      "ai-score": {
+        "label": "Punteggio prestazione IA",
+        "caption": "Segnale qualità contenuto"
+      }
+    },
+    "analyticsMetrics": {
+      "a1": "Engagement",
+      "a2": "Reach",
+      "a3": "CTR",
+      "a4": "Conversion",
+      "a5": "Crescita audience",
+      "a6": "Prestazioni contenuto"
+    },
+    "voiceDesc": {
+      "professional": "Tono chiaro, credibile, business-first.",
+      "luxury": "Raffinato, scarso, inquadratura premium.",
+      "friendly": "Caldo, accessibile, colloquiale.",
+      "casual": "Linguaggio quotidiano rilassato.",
+      "minimal": "Frasi brevi, alta chiarezza.",
+      "corporate": "Comunicazioni enterprise formali.",
+      "creative": "Storytelling espressivo per le campagne.",
+      "custom": "Carica in seguito linee guida e copy di esempio."
+    },
+    "formatDesc": {
+      "instagram_caption": "Didascalie Feed / Reels con hook CTA.",
+      "tiktok_script": "Script brevi: hook → valore → CTA.",
+      "linkedin_post": "Thought leadership e narrative B2B.",
+      "facebook_post": "Post pronti per community e pagina.",
+      "x_post": "Thread concisi e post singoli.",
+      "blog_article": "Bozze editoriali long-form.",
+      "newsletter": "Sezioni newsletter e oggetti.",
+      "email_campaign": "Sequenze campagna e copy nurture.",
+      "product_description": "Narrazioni prodotto pronte per il commerce.",
+      "ad_copy": "Varianti ads social a pagamento e search.",
+      "seo_article": "Articoli search-intent con struttura outline.",
+      "landing_page_copy": "Hero, benefit, proof e blocchi CTA."
+    },
+    "campaignStatus": {
+      "Active": "Attiva",
+      "In review": "In revisione",
+      "Planned": "Pianificata"
+    },
+    "campaigns": {
+      "camp-1": {
+        "name": "Lancio prodotto Q3",
+        "objective": "Awareness + iscrizioni waitlist",
+        "audience": "Operatori PMI UE",
+        "budget": "8.500 € (placeholder)",
+        "timeline": "4 ago – 12 set"
+      },
+      "camp-2": {
+        "name": "Sprint collab creator",
+        "objective": "Reach + crescita community",
+        "audience": "Creator 18–34 DE/AT",
+        "budget": "4.200 € (placeholder)",
+        "timeline": "20 lug – 20 ago"
+      },
+      "camp-3": {
+        "name": "Push portfolio agency",
+        "objective": "Generazione lead",
+        "audience": "Direttori marketing",
+        "budget": "2.900 € (placeholder)",
+        "timeline": "1 set – 30 set"
+      }
+    },
+    "calendarItems": {
+      "cal-1": "Reel teaser di lancio",
+      "cal-2": "Narrazione LinkedIn founder",
+      "cal-3": "Email waitlist #1",
+      "cal-4": "Script demo TikTok"
+    },
+    "queueItems": {
+      "q-1": "Didascalia reel teaser di lancio",
+      "q-2": "Post narrazione founder",
+      "q-3": "Email nurture waitlist",
+      "q-4": "Copy hero landing prodotto",
+      "q-5": "Script demo TikTok v2",
+      "q-6": "Carousel recap di giugno",
+      "q-7": "Vecchio thread promo"
+    },
+    "topPosts": {
+      "tp-1": "Teardown automazione magazzino",
+      "tp-2": "Reel demo prodotto 30s",
+      "tp-3": "Hook collab creator"
+    },
+    "recommendations": {
+      "r1": "Riproponi il teardown LinkedIn in un carousel in 3 parti questa settimana.",
+      "r2": "Programma demo TikTok mar–gio 18:00–20:00 CET per completion più alta.",
+      "r3": "Stringi la luxury brand voice sui CTA Instagram — accorcia ~20%.",
+      "r4": "Traduci la didascalia del reel top in DE/FR per l’audience UE."
     }
   },
   "backend": {
@@ -4726,7 +5881,7 @@
     "skipToMain": "Passa al contenuto principale",
     "offline": {
       "title": "Sei offline",
-      "message": "Controlla la connessione e riprova quando sei di nuovo online. Le schermate memorizzate nella cache potrebbero continuare a funzionare.",
+      "message": "Controlla la connessione e riprova quando torni online. Le schermate in cache potrebbero ancora funzionare.",
       "home": "Casa",
       "contact": "Contatto",
       "signIn": "Registrazione"

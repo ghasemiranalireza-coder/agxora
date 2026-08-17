@@ -63,7 +63,17 @@
   "logs": {
     "title": "整合日誌",
     "emptyTitle": "還沒有日誌",
-    "emptyDescription": "連接提供者或運行診斷。"
+    "emptyDescription": "連接提供者或運行診斷。",
+    "installed": "已安裝 {name}",
+    "demoConnected": "示範已連線 {name}",
+    "disconnected": "已中斷 {name}",
+    "webhookCreated": "已建立 Webhook {name}",
+    "keyCreated": "已建立 API 金鑰 {name}",
+    "keyRotated": "已輪替金鑰 {name}",
+    "keyRevoked": "已撤銷金鑰 {name}",
+    "stubHealthy": "{name} 佔位健康",
+    "diagnosticsComplete": "診斷完成",
+    "outgoing": "外送 {status}: {eventType}"
   },
   "apiKeys": {
     "title": "API 金鑰",
@@ -138,6 +148,91 @@
   },
   "errors": {
     "failedToFetch": "獲取失敗",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "未知連接器。",
+    "webhookNotFound": "找不到 Webhook。",
+    "apiKeyInactive": "API 金鑰未啟用或已過期。"
+  },
+  "categories": {
+    "productivity": "生產力",
+    "communication": "通訊",
+    "storage": "儲存",
+    "crm": "CRM",
+    "automation": "自動化",
+    "devtools": "開發者工具",
+    "custom": "自訂"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "API 金鑰",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "自訂 OAuth"
+  },
+  "connectorNames": {
+    "custom": "自訂連接器"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "透過 Microsoft Graph 使用郵件、日曆與 Teams。"
+    },
+    "google_workspace": {
+      "description": "面向 Workspace 租用戶的 Gmail、日曆與雲端硬碟。"
+    },
+    "slack": {
+      "description": "頻道、訊息與互動通知。"
+    },
+    "discord": {
+      "description": "伺服器通知與機器人訊息投遞。"
+    },
+    "dropbox": {
+      "description": "檔案同步與共用資料夾事件。"
+    },
+    "onedrive": {
+      "description": "Microsoft OneDrive 檔案儲存與差異同步。"
+    },
+    "google_drive": {
+      "description": "雲端硬碟檔案、資料夾與變更通知。"
+    },
+    "hubspot": {
+      "description": "CRM 聯絡人、交易與行銷事件。"
+    },
+    "salesforce": {
+      "description": "企業 CRM 物件與 Platform Events。"
+    },
+    "zapier": {
+      "description": "發往 Zapier zap 的外送勾點。"
+    },
+    "make": {
+      "description": "Make（Integromat）情境 Webhook。"
+    },
+    "github": {
+      "description": "儲存庫、議題、提取要求與 Actions。"
+    },
+    "gitlab": {
+      "description": "專案、合併請求、管線與 Webhook。"
+    },
+    "custom": {
+      "description": "專有企業系統的擴充點。"
+    }
+  },
+  "healthStatus": {
+    "healthy": "健康",
+    "degraded": "降級",
+    "down": "停機",
+    "unknown": "未知"
+  },
+  "health": {
+    "installedAuthorize": "已安裝 — 連線以授權",
+    "oauthStubPlaceholder": "本機 OAuth 示範（佔位）",
+    "oauthStubLive": "本機 OAuth 示範（即時）",
+    "demoCredential": "已儲存本機示範憑證 — 未連線即時 API",
+    "demoConnection": "本機示範連線 — 非即時供應商連結",
+    "disconnected": "已中斷"
+  },
+  "generated": {
+    "keyName": "金鑰 {n}",
+    "webhookName": "Webhook {n}"
   }
 }

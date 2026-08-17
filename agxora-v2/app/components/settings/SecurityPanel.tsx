@@ -16,7 +16,7 @@ import {
   useIdentity,
   type SessionRecord,
 } from "../../lib/identity";
-import { useFormatters, useT } from "../../lib/i18n";
+import { localizeThrownError, useFormatters, useT } from "../../lib/i18n";
 import { Badge, Button, EmptyState } from "../ui";
 import {
   SettingsField,
@@ -119,7 +119,7 @@ function ServerSessionList(): JSX.Element {
       setSessions(data.sessions);
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.security.loadFailed"));
+      setError(localizeThrownError(t, err, "settings.security.loadFailed"));
       setSessions([]);
     } finally {
       setLoading(false);
@@ -142,7 +142,7 @@ function ServerSessionList(): JSX.Element {
       setNotice(t("settings.security.revoked"));
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.security.revokeFailed"));
+      setError(localizeThrownError(t, err, "settings.security.revokeFailed"));
     } finally {
       setBusyId(null);
     }
@@ -156,7 +156,7 @@ function ServerSessionList(): JSX.Element {
       setNotice(t("settings.security.othersRevoked"));
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.security.revokeFailed"));
+      setError(localizeThrownError(t, err, "settings.security.revokeFailed"));
     } finally {
       setBusyId(null);
     }
@@ -169,7 +169,7 @@ function ServerSessionList(): JSX.Element {
       setSessions([]);
       setNotice(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.security.revokeFailed"));
+      setError(localizeThrownError(t, err, "settings.security.revokeFailed"));
     } finally {
       setBusyId(null);
     }

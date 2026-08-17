@@ -2,7 +2,7 @@
   "skipToContent": "Skip to dashboard content",
   "loading": "Loading dashboard…",
   "hero": {
-    "ariaLabel": "AGXORA CORE hero",
+    "ariaLabel": "AGXORA CORE",
     "eyebrow": "AI Business Operating System",
     "title": "AGXORA CORE",
     "subtitle": "Real-time intelligence and operational control — your workspace command surface.",
@@ -25,7 +25,7 @@
   "attention": {
     "title": "Needs attention",
     "ariaLabel": "What needs attention",
-    "empty": "You are clear — no urgent items right now.",
+    "empty": "You're all set — no urgent items right now.",
     "tone": {
       "critical": "Critical",
       "warning": "Warning",
@@ -51,7 +51,7 @@
     }
   },
   "overview": {
-    "title": "What is happening",
+    "title": "What's happening",
     "subtitle": "Workspace counts for {name}",
     "fallbackName": "your workspace",
     "ariaLabel": "Business overview",
@@ -59,7 +59,7 @@
     "emDash": "—",
     "capacitySignal": "{percent}% capacity signal",
     "activeClients": {
-      "title": "Active clients",
+      "title": "Active customers",
       "captionEmpty": "No active customers yet",
       "captionTotal": "{count} total in workspace",
       "add": "Add customer",
@@ -99,8 +99,8 @@
     "title": "Recent activity",
     "subtitle": "What changed today",
     "ariaLabel": "Recent activity",
-    "todayCount": "{count} TODAY",
-    "localBadge": "LOCAL",
+    "todayCount": "{count} today",
+    "localBadge": "Local",
     "emptyTitle": "No activity yet",
     "emptyBody": "Workspace events will appear here as you add customers, projects, and more.",
     "addCustomer": "Add customer",

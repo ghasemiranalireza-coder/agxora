@@ -16,13 +16,13 @@
     "privacy": "Mahremiyet",
     "terms": "Şartlar",
     "cookies": "Çerezler",
-    "imprint": "Baskı",
+    "imprint": "Künye",
     "organization": "Organizasyon",
     "user": "Kullanıcı",
     "guest": "Misafir",
     "member": "Üye",
     "role": "Rol",
-    "signedIn": "Oturum açıldı",
+    "signedIn": "Oturum açık",
     "guestSession": "Misafir oturumu",
     "noResults": "Sonuç yok",
     "noData": "Veri yok",
@@ -44,12 +44,12 @@
     "dashboard": "Kontrol paneli"
   },
   "navigation": {
-    "dashboard": "Kontrol Paneli",
+    "dashboard": "Kontrol paneli",
     "projects": "Projeler",
     "aiCrm": "Yapay Zeka CRM",
     "analytics": "Analitik",
     "billing": "Faturalandırma",
-    "aiWorkspace": "Yapay Zeka Çalışma Alanı",
+    "aiWorkspace": "AI çalışma alanı",
     "customers": "Müşteriler",
     "automation": "Otomasyon",
     "financeTax": "Finans ve Vergi",
@@ -60,12 +60,12 @@
     "toggleNavigation": "Gezinmeyi değiştir",
     "primary": "Öncelik",
     "menu": "Menü",
-    "search": "Aramak",
+    "search": "Ara",
     "notifications": "Bildirimler",
     "profile": "Profil",
-    "currentOrganization": "Mevcut organizasyon",
+    "currentOrganization": "Geçerli kuruluş",
     "noNotifications": "Bildirim yok",
-    "notificationsEmpty": "Hepiniz yakalandınız. Uyarılar ve bahsetmeler burada görünecektir.",
+    "notificationsEmpty": "Hepsi tamam. Uyarılar ve bahsetmeler burada görünür.",
     "accountSettings": "Hesap ayarları",
     "security": "Güvenlik",
     "themeToggle": "Hızlı tema geçişi. Tercih: {mode}"
@@ -259,6 +259,61 @@
         "warning": "Uyarı",
         "ok": "TAMAM"
       }
+    },
+    "licenseStatus": {
+      "trial": "Deneme",
+      "active": "Etkin",
+      "expired": "Süresi doldu",
+      "cancelled": "İptal",
+      "suspended": "Askıya alındı",
+      "lifetime": "Ömür boyu"
+    },
+    "quotas": {
+      "ai_requests": "YZ istekleri",
+      "projects": "Projeler",
+      "customers": "Müşteriler",
+      "documents": "Belgeler",
+      "storage_mb": "Depolama (MB)",
+      "users": "Kullanıcılar",
+      "api_requests": "API istekleri"
+    },
+    "invoiceStatus": {
+      "draft": "Taslak",
+      "open": "Açık",
+      "paid": "Ödendi",
+      "void": "Geçersiz",
+      "uncollectible": "Tahsil edilemez",
+      "refunded": "İade edildi"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "Deneme yakında bitiyor",
+        "body": "Denemeniz yaklaşık {days} gün içinde bitiyor. Tam erişimi korumak için yükseltin."
+      },
+      "expired": {
+        "title": "Abonelik süresi doldu",
+        "body": "Ticari özellikleri geri yüklemek için planı yenileyin veya yükseltin."
+      },
+      "cancelled": {
+        "title": "Abonelik iptal edildi",
+        "body": "AGXORA aboneliğiniz iptal edildi. Erişim dönem sonuna kadar sürer."
+      },
+      "quotaWarning": {
+        "title": "{metric} limitine yaklaşıldı",
+        "body": "{used} / {limit} kullanıldı. Yükseltmeyi düşünün."
+      },
+      "upgradeAvailable": {
+        "title": "Yükseltme mevcut",
+        "body": "Business ve Enterprise otomasyonu, daha yüksek YZ kotalarını ve API erişimini açar."
+      },
+      "invoiceReady": {
+        "title": "Fatura hazır",
+        "body": "{number} faturası başarıyla ödendi."
+      },
+      "renewed": {
+        "title": "Abonelik yenilendi",
+        "body": "Planınız {date} tarihinde yenilenir."
+      }
     }
   },
   "settings": {
@@ -324,7 +379,7 @@
       "preferredProvider": "Tercih Edilen Yapay Zeka Sağlayıcısı",
       "defaultModel": "Varsayılan Yapay Zeka Modeli",
       "temperature": "Sıcaklık",
-      "topP": "Üst P",
+      "topP": "Top P",
       "maxTokens": "Maksimum Jeton",
       "writingStyle": "Yazma Stili",
       "languagePreferences": "Dil Tercihleri",
@@ -341,10 +396,10 @@
       "streaming": "Akış",
       "streamingDescription": "Sağlayıcı desteklediğinde model yanıtlarını yayınlayın.",
       "providers": {
-        "mock": "Sahte (yerel)",
+        "mock": "Mock (yerel)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "Antropik",
+        "anthropic": "Anthropic",
         "google": "Google",
         "openrouter": "Açık Yönlendirici",
         "ollama": "Ollama",
@@ -371,10 +426,17 @@
       "themeLabel": "Tema",
       "themeModeAria": "Tema modu",
       "resolvedAppearance": "Çözülmüş görünüm:",
-      "accentColor": "Vurgu Rengi",
-      "accentNotice": "Vurgu tercihi gelecekteki CSS var kablolaması için saklanır; kilitli renk sistemini henüz değiştirmez.",
+      "accentColor": "Vurgu rengi",
+      "accentNotice": "Vurgu rengi bu oturum için saklanır ve kilitli renk sistemini henüz değiştirmez.",
+      "accents": {
+        "cyan": "Camgöbeği",
+        "blue": "Mavi",
+        "emerald": "Zümrüt",
+        "violet": "Menekşe",
+        "amber": "Kehribar"
+      },
       "density": "Yoğunluk",
-      "compactMode": "Kompakt Mod",
+      "compactMode": "Kompakt mod",
       "compactModeDescription": "Kurumsal masa ve panellerdeki dolguyu azaltın.",
       "animations": "Animasyonlar",
       "animationsDescription": "Bölüm hareketi ve vurgulu kaldırmalar. Azaltılmış hareketli işletim sistemi ayarına saygı duyar.",
@@ -741,8 +803,8 @@
     "skipToContent": "Kontrol paneli içeriğine atla",
     "loading": "Kontrol paneli yükleniyor…",
     "hero": {
-      "ariaLabel": "AGXORA CORE kahramanı",
-      "eyebrow": "Yapay Zeka İş İşletim Sistemi",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "AI iş işletim sistemi",
       "title": "AGXORA ÇEKİRDEK",
       "subtitle": "Gerçek zamanlı zeka ve operasyonel kontrol — çalışma alanınız komut yüzeyi.",
       "ctaGetStarted": "Başlayın",
@@ -752,11 +814,11 @@
     },
     "quickActions": {
       "title": "Hızlı eylemler",
-      "subtitle": "Bundan sonra ne yapmalısınız?",
+      "subtitle": "Sırada ne yapmalısınız?",
       "ariaLabel": "Hızlı eylemler",
       "addCustomer": {
         "label": "Müşteri ekle",
-        "description": "CRM kaydı oluşturma"
+        "description": "CRM kaydı oluştur"
       },
       "newProject": {
         "label": "Yeni proje",
@@ -782,7 +844,7 @@
     "attention": {
       "title": "Dikkat edilmesi gerekiyor",
       "ariaLabel": "Dikkat edilmesi gerekenler",
-      "empty": "Açıksınız; şu anda acil bir öğe yok.",
+      "empty": "Her şey yolunda — şu an acil öğe yok.",
       "tone": {
         "critical": "Kritik",
         "warning": "Uyarı",
@@ -808,7 +870,7 @@
       }
     },
     "overview": {
-      "title": "Ne oluyor",
+      "title": "Neler oluyor",
       "subtitle": "{name} için çalışma alanı sayıları",
       "fallbackName": "çalışma alanınız",
       "ariaLabel": "İşletmeye genel bakış",
@@ -816,7 +878,7 @@
       "emDash": "—",
       "capacitySignal": "%{percent} kapasite sinyali",
       "activeClients": {
-        "title": "Aktif istemciler",
+        "title": "Aktif müşteriler",
         "captionEmpty": "Henüz aktif müşteri yok",
         "captionTotal": "Çalışma alanında toplam {count}",
         "add": "Müşteri ekle",
@@ -836,15 +898,15 @@
         "viewFeed": "Özet akışını görüntüle"
       },
       "revenue": {
-        "title": "Hasılat",
+        "title": "Gelir",
         "caption": "MRR'yi göstermek için faturalandırmayı bağlayın",
-        "openBilling": "Faturalandırmayı aç"
+        "openBilling": "Faturalamayı aç"
       },
       "clientShell": {
-        "title": "İstemci kabuğu",
+        "title": "Uygulama kabuğu",
         "caption": "Tarayıcı oturumu hazır; canlı operasyon monitörü değil",
         "shellLoaded": "Uygulama kabuğu yüklendi",
-        "storesReady": "Yerel çalışma alanı mağazaları hazır"
+        "storesReady": "Yerel çalışma alanı depoları hazır"
       },
       "growth": {
         "title": "Büyüme",
@@ -856,8 +918,8 @@
       "title": "Son etkinlik",
       "subtitle": "Bugün ne değişti",
       "ariaLabel": "Son etkinlik",
-      "todayCount": "{count} BUGÜN",
-      "localBadge": "YEREL",
+      "todayCount": "bugün {count}",
+      "localBadge": "Yerel",
       "emptyTitle": "Henüz etkinlik yok",
       "emptyBody": "Siz müşteri, proje ve daha fazlasını ekledikçe çalışma alanı etkinlikleri burada görünecektir.",
       "addCustomer": "Müşteri ekle",
@@ -1127,14 +1189,14 @@
   },
   "auth": {
     "login": {
-      "title": "Oturum aç",
-      "subtitle": "AGXORA'ya tekrar hoş geldiniz.",
+      "title": "Giriş yap",
+      "subtitle": "AGXORA’ya tekrar hoş geldiniz.",
       "email": "E-posta",
       "password": "Şifre",
-      "emailPlaceholder": "sen@şirket.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Şifre",
-      "rememberMe": "Beni Hatırla",
-      "submit": "Oturum aç",
+      "rememberMe": "Beni hatırla",
+      "submit": "Giriş yap",
       "submitting": "Oturum açılıyor…",
       "noAccount": "Hesabın yok mu?",
       "startFree": "Ücretsiz başlayın",
@@ -1142,7 +1204,7 @@
       "showPassword": "Şifreyi göster",
       "hidePassword": "Şifreyi gizle",
       "failed": "Oturum açma başarısız oldu",
-      "loading": "Oturum aç"
+      "loading": "Giriş yap"
     },
     "register": {
       "title": "Hesap oluşturmak",
@@ -1153,22 +1215,22 @@
       "company": "Şirket",
       "password": "Şifre",
       "confirmPassword": "Şifreyi onayla",
-      "acceptTerms": "kabul ediyorum",
+      "acceptTerms": "Kabul ediyorum:",
       "termsOfService": "Hizmet Şartları",
       "and": "Ve",
       "privacyPolicy": "Gizlilik Politikası",
       "submit": "Hesap oluşturmak",
       "submitting": "Hesap oluşturuluyor…",
       "haveAccount": "Zaten bir hesabınız var mı?",
-      "signIn": "Oturum aç",
+      "signIn": "Giriş yap",
       "strength": "Şifre gücü",
       "strengthWeak": "Zayıf",
-      "strengthFair": "Adil",
+      "strengthFair": "Orta",
       "strengthStrong": "Güçlü",
       "firstNamePlaceholder": "Alex",
       "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "AGXORA GmbH",
-      "emailPlaceholder": "sen@şirket.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "En az 8 karakter, harf + rakam",
       "confirmPasswordPlaceholder": "Şifreyi tekrar girin",
       "failed": "Kayıt başarısız oldu",
@@ -1199,7 +1261,7 @@
       "loading": "Şifreyi sıfırla"
     },
     "contactSales": {
-      "title": "Satış Ekibiyle İletişime Geçin",
+      "title": "Satış ile iletişim",
       "subtitle": "Bize ekibinizden bahsedin. Kurumsal seçenekleri takip edeceğiz.",
       "name": "Ad Soyad",
       "email": "İş e-postası",
@@ -1218,7 +1280,7 @@
       "successTitle": "Teşekkür ederim",
       "successBody": "Sorunuz alındı. Ekibimiz kısa sürede yanıt verecektir.",
       "viewPricing": "Fiyatlandırmayı görüntüle",
-      "bookDemo": "Kitap Demosu",
+      "bookDemo": "Demo rezervasyonu",
       "failed": "Soruşturma gönderilemedi",
       "country": "Ülke",
       "savedFor": "{company} için kaydedildi. Bu sürümde satış teslimatı bağlı değil.",
@@ -1270,7 +1332,7 @@
       },
       "customer360": {
         "title": "Müşteri 360°",
-        "subtitle": "Profil, şirket, kişiler, siparişler, faturalar, Lieferscheine, ödemeler, belgeler, zaman çizelgesi, etkinlikler, notlar, AI özeti ve iletişim geçmişi."
+        "subtitle": "Profil, şirket, kişiler, siparişler, faturalar, irsaliyeler, ödemeler, belgeler, zaman çizelgesi, etkinlikler, notlar, AI özeti ve iletişim geçmişi."
       },
       "salesPipeline": {
         "title": "Satış Hattı",
@@ -1281,11 +1343,11 @@
       },
       "deliveryModule": {
         "title": "Teslimat Modülü",
-        "subtitle": "Takip, imza, QR ve barkod hazırlığına sahip profesyonel Lieferschein sistemi."
+        "subtitle": "Takip, imza, QR ve barkod hazırlığına sahip profesyonel irsaliye sistemi."
       },
       "documentsModule": {
         "title": "Belgeler",
-        "subtitle": "Teklifler, sözleşmeler, faturalar, Lieferschein, satın alma siparişleri, makbuzlar — AI aramayla."
+        "subtitle": "Teklifler, sözleşmeler, faturalar, irsaliye, satın alma siparişleri, makbuzlar — AI aramayla."
       },
       "tasksModule": {
         "title": "Görevler"
@@ -1577,7 +1639,7 @@
         "contacts": "Kişiler",
         "orders": "Siparişler",
         "invoices": "Faturalar",
-        "lieferscheine": "Lieferscheine",
+        "lieferscheine": "irsaliyeler",
         "payments": "Ödemeler",
         "documents": "Belgeler",
         "timeline": "Zaman çizelgesi",
@@ -1596,7 +1658,7 @@
       }
     },
     "delivery": {
-      "title": "Profesyonel Lieferschein Sistemi",
+      "title": "Profesyonel irsaliye Sistemi",
       "description": "Teslimat notları, teslim alma / teslimat, sürücü, araç ve takip - yalnızca örnek kayıtlar. Dışa aktarma bağdaştırıcıları bağlı değil.",
       "badges": {
         "qrUnavailable": "QR kullanılamıyor",
@@ -1611,7 +1673,7 @@
         "historyNotConnected": "Teslimat geçmişi deposu bu yapıya bağlı değil."
       },
       "columns": {
-        "lieferschein": "Lieferschein",
+        "lieferschein": "irsaliye",
         "order": "Emir",
         "customer": "Müşteri",
         "kind": "Tür",
@@ -1668,7 +1730,7 @@
       "emptyTitle": "Belge yok",
       "emptyDescription": "Bu aramayla eşleşen belge yok.",
       "searchLabel": "Yapay Zeka Arama",
-      "searchPlaceholder": "Fiyat teklifleri, sözleşmeler, faturalar, Lieferschein…",
+      "searchPlaceholder": "Fiyat teklifleri, sözleşmeler, faturalar, irsaliye…",
       "typeLabel": "Belge türü",
       "allTypes": "Tüm türler",
       "columns": {
@@ -1682,7 +1744,7 @@
         "quote": "Alıntılar",
         "contract": "Sözleşmeler",
         "invoice": "Faturalar",
-        "lieferschein": "Lieferschein",
+        "lieferschein": "irsaliye",
         "purchase_order": "Satınalma Siparişleri",
         "receipt": "Makbuzlar"
       }
@@ -1698,7 +1760,137 @@
       "intro": "İçerik Stüdyosu temeli — Resmi platform entegrasyonları daha sonra bu bağdaştırıcılara takılabilir. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Konular, X."
     },
     "industry": {
-      "intro": "Evrensel İş Platformu — katılım daha sonra bir sektör seçecektir. Her sektör, çekirdek CRM işletim sistemini zorlamadan özel yapay zeka modülleri alır."
+      "intro": "Evrensel İş Platformu — katılım daha sonra bir sektör seçecektir. Her sektör, çekirdek CRM işletim sistemini zorlamadan özel yapay zeka modülleri alır.",
+      "catalog": {
+        "business": {
+          "label": "İş",
+          "description": "Genel B2B işletim sistemi"
+        },
+        "freelancer": {
+          "label": "Serbest çalışan",
+          "description": "Serbest çalışanlar için CRM, fatura ve müşteri hattı"
+        },
+        "creator": {
+          "label": "İçerik üreticisi",
+          "description": "Creator Studio + marka CRM"
+        },
+        "influencer": {
+          "label": "Influencer",
+          "description": "Sponsorluk CRM ve kampanya OS"
+        },
+        "agency": {
+          "label": "Ajans",
+          "description": "Çok müşterili teslim ve retainer"
+        },
+        "retail": {
+          "label": "Perakende",
+          "description": "Mağaza stoğu, POS ve sadakat"
+        },
+        "restaurant": {
+          "label": "Restoran",
+          "description": "Rezervasyon, mutfak ve teslimat"
+        },
+        "hotel": {
+          "label": "Otel",
+          "description": "Odalar, misafirler ve kat hizmetleri"
+        },
+        "laundry": {
+          "label": "Çamaşırhane",
+          "description": "Alım, bilet ve güzergâh lojistiği"
+        },
+        "healthcare": {
+          "label": "Sağlık",
+          "description": "Hastalar, randevular, uyum"
+        },
+        "law_firm": {
+          "label": "Hukuk bürosu",
+          "description": "Dosyalar, faturalama ve belge kasası"
+        },
+        "accounting": {
+          "label": "Muhasebe",
+          "description": "Müşteri defterleri ve DATEV aktarımı"
+        },
+        "construction": {
+          "label": "İnşaat",
+          "description": "Şantiyeler, ekipler ve hakediş"
+        },
+        "real_estate": {
+          "label": "Gayrimenkul",
+          "description": "İlanlar, geziler ve kapanışlar"
+        },
+        "education": {
+          "label": "Eğitim",
+          "description": "Öğrenciler, kurslar ve kayıt"
+        },
+        "manufacturing": {
+          "label": "Üretim",
+          "description": "BOM, üretim ve kalite"
+        },
+        "logistics": {
+          "label": "Lojistik",
+          "description": "Filo, izleme ve irsaliyeler"
+        },
+        "ecommerce": {
+          "label": "E-ticaret",
+          "description": "Katalog, sepetler ve omnichannel siparişler"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Satış",
+        "finance": "Finans",
+        "projects": "Projeler",
+        "clients": "Müşteriler",
+        "proposals": "Teklifler",
+        "time_tracking": "Zaman takibi",
+        "invoices": "Faturalar",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Marka anlaşmaları",
+        "content_calendar": "İçerik takvimi",
+        "sponsorships": "Sponsorluklar",
+        "audience_insights": "Kitle içgörüleri",
+        "campaigns": "Kampanyalar",
+        "client_portals": "Müşteri portalları",
+        "retainers": "Retainer",
+        "campaign_ops": "Kampanya operasyonları",
+        "inventory": "Stok",
+        "pos": "POS",
+        "loyalty": "Sadakat",
+        "reservations": "Rezervasyonlar",
+        "menu": "Menü",
+        "kitchen_display": "Mutfak ekranı",
+        "housekeeping": "Kat hizmetleri",
+        "guest_crm": "Misafir CRM",
+        "tickets": "Biletler",
+        "routes": "Güzergâhlar",
+        "delivery_notes": "İrsaliyeler",
+        "patients": "Hastalar",
+        "appointments": "Randevular",
+        "compliance": "Uyum",
+        "matters": "Dosyalar",
+        "billing": "Faturalama",
+        "documents": "Belgeler",
+        "client_books": "Müşteri defterleri",
+        "datev": "DATEV",
+        "tax_deadlines": "Vergi vadeleri",
+        "sites": "Şantiyeler",
+        "crews": "Ekipler",
+        "progress_billing": "Hakediş",
+        "listings": "İlanlar",
+        "viewings": "Geziler",
+        "closings": "Kapanışlar",
+        "students": "Öğrenciler",
+        "courses": "Kurslar",
+        "enrollment": "Kayıt",
+        "bom": "BOM",
+        "production": "Üretim",
+        "qc": "QC",
+        "fleet": "Filo",
+        "tracking": "İzleme",
+        "catalog": "Katalog",
+        "orders": "Siparişler",
+        "fulfillment": "Karşılama"
+      }
     },
     "kpi": {
       "customers": {
@@ -1762,7 +1954,7 @@
       "quote": "Alıntı",
       "contract": "Sözleşme",
       "invoice": "Fatura",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "irsaliye",
       "purchase_order": "Satın alma emri",
       "receipt": "Fiş"
     },
@@ -2769,7 +2961,7 @@
         "activeProjects": "Aktif Projeler",
         "activeHint": "{planning} planlama",
         "completed": "Tamamlanmış",
-        "completedHint": "Portföyün %{percent}'i",
+        "completedHint": "portföyün %{percent}",
         "onHold": "Beklemede",
         "onHoldHint": "{archived} arşivlendi",
         "teamMembers": "Ekip Üyeleri",
@@ -2831,7 +3023,7 @@
       "missingTitle": "Eksik proje",
       "missingDescription": "Genel bakışını görüntülemek için bir proje seçin.",
       "title": "Genel Bakış",
-      "noDescription": "Açıklama sağlanmadı.",
+      "noDescription": "Açıklama yok.",
       "budget": "Bütçe",
       "spent": "Harcanan",
       "start": "Başlangıç",
@@ -2977,8 +3169,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Optimizasyon Önerileri",
       "oneClickOptimize": "Tek Tıklamayla Optimize Etme",
-      "noticeDefault": "Tek Tıklamayla Optimize henüz bir grafik mutasyonu değildir.",
-      "noticeQueued": "Optimize edildi sıraya alındı. Gelecekteki motor gecikmeleri ve onayları yeniden yazacak."
+      "noticeDefault": "Tek tıkla optimize henüz grafiği değiştirmez.",
+      "noticeQueued": "Optimizasyon kuyrukta. Gelecek motor gecikmeleri ve onayları yeniden yazar.",
+      "score": {
+        "healthy": "Sağlıklı",
+        "needsAttention": "İlgi gerekli",
+        "atRisk": "Risk altında"
+      },
+      "kinds": {
+        "missing_approval": "Onay",
+        "possible_delay": "Gecikme",
+        "unused_trigger": "Tetikleyici",
+        "duplicate_nodes": "Yinelenenler",
+        "unused_action": "Eylem",
+        "security": "Güvenlik",
+        "performance": "Performans"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Eksik onay",
+          "description": "Uzun akışlar yan etkilerden önce onay kapısından yararlanır."
+        },
+        "possible_delay": {
+          "title": "Olası gecikme",
+          "description": "Gürültülü patlamaları önlemek için hatırlatma e-postalarından önce gecikme ekleyin."
+        },
+        "unused_trigger": {
+          "title": "Kullanılmayan tetikleyici",
+          "description": "Bu grafikte başlangıç tetikleyicisi yok — etkinleştirmeden önce ekleyin."
+        },
+        "duplicate_nodes": {
+          "title": "Yinelenen düğümler",
+          "description": "“{label}” {count} kez geçiyor — gereksizse birleştirin."
+        },
+        "unused_action": {
+          "title": "Kullanılmayan eylem",
+          "description": "{label} bağlı değil — bağlayın veya kaldırın."
+        },
+        "security": {
+          "title": "Güvenlik önerisi",
+          "description": "Webhook ve e-posta eylemleri için en az yetkili bağdaştırıcıları tercih edin."
+        },
+        "performance": {
+          "title": "Performans önerisi",
+          "description": "Ortalama süreyi düşürmek için mümkünse AI adımlarını gruplayın."
+        }
+      }
     },
     "integrations": {
       "intro": "Entegrasyon Merkezi — isteğe bağlı. Durumlar: Bağlandı, Beta, Planlandı, Çok yakında, Devre Dışı. Canlı API yok.",
@@ -3487,6 +3723,192 @@
         "label": "Durumu güncelle",
         "description": "Bir modüldeki varlığın durumunu güncelle."
       }
+    },
+    "kinds": {
+      "trigger": "Tetikleyici",
+      "action": "Eylem",
+      "condition": "Koşul",
+      "delay": "Gecikme",
+      "approval": "Onay",
+      "loop": "Döngü",
+      "merge": "Birleştir",
+      "split": "Böl",
+      "ai_decision": "YZ kararı",
+      "ai_action": "YZ eylemi",
+      "notification": "Bildirim",
+      "webhook": "Webhook",
+      "custom_action": "Özel eylem",
+      "branch": "Dal",
+      "variable": "Değişken"
+    },
+    "kpi": {
+      "active": {
+        "label": "Aktif iş akışları",
+        "caption": "Çalışma alanında etkin"
+      },
+      "runs-today": {
+        "label": "Bugünkü iş akışı çalıştırmaları",
+        "caption": "Tüm tetikleyiciler"
+      },
+      "success": {
+        "label": "Başarılı otomasyonlar",
+        "caption": "Bugün"
+      },
+      "failed": {
+        "label": "Başarısız çalıştırmalar",
+        "caption": "İlgi gerekli"
+      },
+      "pending": {
+        "label": "Bekleyen görevler",
+        "caption": "Onaylar + yeniden denemeler"
+      },
+      "avg-time": {
+        "label": "Ortalama yürütme süresi",
+        "caption": "Medyan 1,2 sn"
+      },
+      "ai-suggestions": {
+        "label": "YZ önerileri",
+        "caption": "Otomasyon fırsatları"
+      }
+    },
+    "integrationCategories": {
+      "Productivity": "Verimlilik",
+      "Communication": "İletişim",
+      "Commerce": "Ticaret",
+      "Finance": "Finans",
+      "ERP": "ERP",
+      "CRM": "CRM"
+    },
+    "integrationNotes": {
+      "google-workspace": "OAuth kablolaması için Gmail / Drive / Takvim kancaları ayrıldı.",
+      "m365": "Outlook / Teams / Graph kancaları ayrıldı.",
+      "slack": "Events API + sohbet gönderileri ayrıldı.",
+      "teams": "Bot Framework bağdaştırıcısı ayrıldı.",
+      "discord": "Webhook + bot bağdaştırıcısı ayrıldı.",
+      "whatsapp": "Meta Cloud API bağdaştırıcısı ayrıldı.",
+      "stripe": "Ödeme webhook’ları ayrıldı — canlı anahtar yok.",
+      "shopify": "Sipariş / ürün olayları ayrıldı.",
+      "datev": "DATEV dışa aktarma / fiş yığını kancaları ayrıldı.",
+      "sap": "ERP olay köprüsü ayrıldı — enterprise plana kadar kapalı.",
+      "hubspot": "CRM senkron bağdaştırıcısı ayrıldı.",
+      "salesforce": "Platform Events bağdaştırıcısı ayrıldı."
+    },
+    "defaultWorkflow": {
+      "name": "Müşteri onboarding",
+      "description": "Müşteri oluşturulunca karşılama dizisi."
+    },
+    "templateCategories": {
+      "CRM": "CRM",
+      "Finance": "Finans",
+      "Sales": "Satış",
+      "Marketing": "Pazarlama",
+      "HR": "İK",
+      "Creator": "İçerik üreticisi",
+      "Ops": "Operasyon",
+      "Projects": "Projeler",
+      "AI": "YZ"
+    },
+    "studioTemplates": {
+      "tpl-onboarding": {
+        "name": "Müşteri onboarding",
+        "description": "Müşteri oluşturulunca hoş geldin e-postası, YZ özeti ve sahip görevi.",
+        "category": "CRM",
+        "recommendedFor": "Yeni B2B müşterileri karşılayan ekipler"
+      },
+      "tpl-invoice": {
+        "name": "Fatura hatırlatması",
+        "description": "Açık faturalar için zamanlanmış hatırlatma ve yükseltme yolu.",
+        "category": "Finans",
+        "recommendedFor": "Gecikmiş alacakları azaltan finans operasyonları"
+      },
+      "tpl-lead": {
+        "name": "Potansiyel müşteri takibi",
+        "description": "Yeni potansiyel müşteriler için YZ e-posta yanıtı ve pipeline güncellemesi.",
+        "category": "Satış",
+        "recommendedFor": "Yüksek inbound potansiyel hacimli satış ekipleri"
+      },
+      "tpl-welcome": {
+        "name": "Hoş geldin e-postası",
+        "description": "Kayıtta basit hoş geldin dizisi.",
+        "category": "Pazarlama",
+        "recommendedFor": "E-posta otomasyonuna başlayan her çalışma alanı"
+      },
+      "tpl-pipeline": {
+        "name": "Satış pipeline’ı",
+        "description": "Bildirim ve görevlerle aşama değişiklikleri.",
+        "category": "Satış",
+        "recommendedFor": "Çok aşamalı anlaşma ilerlemesi yöneten ekipler"
+      },
+      "tpl-recruit": {
+        "name": "İşe alım",
+        "description": "Aday yönlendirme ve mülakat görevleri.",
+        "category": "İK",
+        "recommendedFor": "İşe alım yöneticileri ve people ops"
+      },
+      "tpl-content": {
+        "name": "İçerik yayını",
+        "description": "Creator Studio: yayınla → bildir → analitik.",
+        "category": "İçerik üreticisi",
+        "recommendedFor": "Pazarlama ve creator ekipleri"
+      },
+      "tpl-approval": {
+        "name": "Onay süreci",
+        "description": "YZ önerileriyle çok adımlı onay.",
+        "category": "Operasyon",
+        "recommendedFor": "Yan etkilerden önce finans/ops onayları",
+        "estimatedRuntime": "İnsan kapısı"
+      }
+    },
+    "engineTemplates": {
+      "tpl_customer_welcome": {
+        "name": "Yeni müşteri hoş geldin",
+        "description": "Müşteri oluşturulunca hoş geldin e-postası + bildirim.",
+        "category": "CRM"
+      },
+      "tpl_invoice_reminder": {
+        "name": "Fatura hatırlatması",
+        "description": "Fatura kesildikten sonra müşterileri hatırlatın.",
+        "category": "Finans"
+      },
+      "tpl_project_kickoff": {
+        "name": "Proje kickoff",
+        "description": "Kickoff görevi atayın ve proje oluşturulunca bildirin.",
+        "category": "Projeler"
+      },
+      "tpl_task_assignment": {
+        "name": "Görev atama",
+        "description": "Görev tamamlanınca atanan kişiye e-posta — sonraki işi zincirleyin.",
+        "category": "Projeler"
+      },
+      "tpl_ai_customer_summary": {
+        "name": "YZ müşteri özeti",
+        "description": "Müşteri oluşturulunca YZ özeti çalıştırın; çıktıyı saklayın.",
+        "category": "YZ"
+      },
+      "tpl_followup_reminder": {
+        "name": "Takip hatırlatması",
+        "description": "Duruma göre dallanan zamanlamalı takip.",
+        "category": "CRM"
+      }
+    },
+    "nodeLabels": {
+      "send_welcome_email": "Hoş geldin e-postası gönder",
+      "notify_team": "Ekibi bilgilendir",
+      "wait_3_days": "3 gün bekle",
+      "still_unpaid": "Hâlâ ödenmedi mi?",
+      "send_reminder": "Hatırlatma gönder",
+      "assign_kickoff_task": "Kickoff görevi ata",
+      "notify_owner": "Sahibi bilgilendir",
+      "notify_stakeholders": "Paydaşları bilgilendir",
+      "run_ai_summary": "YZ özeti çalıştır",
+      "generate_document": "Belge oluştur",
+      "daily_schedule": "Günlük zamanlama",
+      "by_priority": "Önceliğe göre",
+      "urgent_notification": "Acil bildirim",
+      "standard_email": "Standart e-posta"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "YZ içeriği oluştur"
     }
   },
   "team": {
@@ -3970,6 +4392,177 @@
     "os": {
       "prioritizeCustomerImpact": "Müşteri etkisini önceliklendir",
       "delegatedFollowUp": "Devredilmiş takip"
+    },
+    "categories": {
+      "Leadership": "Liderlik",
+      "Revenue": "Gelir",
+      "CRM": "CRM",
+      "Delivery": "Teslimat",
+      "Automation": "Otomasyon",
+      "Finance": "Finans",
+      "Knowledge": "Bilgi",
+      "Support": "Destek",
+      "Productivity": "Verimlilik",
+      "Custom": "Özel"
+    },
+    "catalog": {
+      "executive_advisor": {
+        "name": "Yönetici danışmanı",
+        "description": "Stratejik brifing, KPI özeti ve karar desteği."
+      },
+      "sales_agent": {
+        "name": "Satış ajanı",
+        "description": "Pipeline koçluğu, outreach taslakları ve sonraki anlaşma adımları."
+      },
+      "crm_assistant": {
+        "name": "CRM asistanı",
+        "description": "Müşteri zenginleştirme, veri hijyeni ve ilişki içgörüleri."
+      },
+      "project_manager": {
+        "name": "Proje yöneticisi",
+        "description": "Planlar, görev kırılımı ve teslim risk sinyalleri."
+      },
+      "workflow_coordinator": {
+        "name": "İş akışı koordinatörü",
+        "description": "AGXORA otomasyon iş akışlarını tetikler ve yönetir."
+      },
+      "finance_assistant": {
+        "name": "Finans asistanı",
+        "description": "Fatura farkındalığı, nakit akışı notları ve finans özetleri."
+      },
+      "document_analyst": {
+        "name": "Belge analisti",
+        "description": "Belgelerden yapı, risk ve özet çıkarır."
+      },
+      "knowledge_assistant": {
+        "name": "Bilgi asistanı",
+        "description": "RAG’a hazır erişimle şirket bilgisinden yanıtlar."
+      },
+      "support_assistant": {
+        "name": "Destek asistanı",
+        "description": "Destek triyajı, yanıtlar ve yükseltme yolları."
+      },
+      "meeting_assistant": {
+        "name": "Toplantı asistanı",
+        "description": "Gündem hazırlığı, not yer tutucuları ve takip."
+      },
+      "custom": {
+        "name": "Özel ajan",
+        "description": "Kuruluşa özel ajanlar için genişletme noktası."
+      }
+    },
+    "toolsCatalog": {
+      "crm": {
+        "name": "CRM aracı",
+        "description": "Müşteri oluştur/güncelle ve hesap bağlamını oku."
+      },
+      "projects": {
+        "name": "Projeler aracı",
+        "description": "Proje, görev ve teslim durumunu yönet."
+      },
+      "finance": {
+        "name": "Finans aracı",
+        "description": "Faturalar, bakiyeler ve finans özetleri."
+      },
+      "documents": {
+        "name": "Belgeler aracı",
+        "description": "Çalışma alanı belgelerini oku ve özetle."
+      },
+      "workflow": {
+        "name": "İş akışı aracı",
+        "description": "Otomasyon iş akışlarını tetikle ve incele."
+      },
+      "integration": {
+        "name": "Entegrasyon aracı",
+        "description": "Bağlı üçüncü taraf konektörleri çağır."
+      },
+      "email": {
+        "name": "E-posta aracı",
+        "description": "Giden e-postayı tasarla ve kuyruğa al."
+      },
+      "calendar": {
+        "name": "Takvim aracı",
+        "description": "Takvim etkinliklerini planla ve incele."
+      },
+      "search": {
+        "name": "Arama aracı",
+        "description": "Evrensel çalışma alanı araması."
+      },
+      "notification": {
+        "name": "Bildirim aracı",
+        "description": "Uygulama içi bildirim gönder."
+      },
+      "api": {
+        "name": "API aracı",
+        "description": "Dahili API ağ geçidi rotalarını çağır."
+      },
+      "mcp": {
+        "name": "MCP aracı",
+        "description": "Gelecekteki Model Context Protocol sunucu araçları."
+      }
+    },
+    "knowledgeDocs": {
+      "company": {
+        "title": "AGXORA işletim ilkeleri",
+        "summary": "Modüler, güvenli yapay zeka ajanları için kurumsal OS ilkeleri."
+      },
+      "policies": {
+        "title": "Veri işleme politikası",
+        "summary": "Hassas araçların yalıtımı ve en az yetki erişimi."
+      },
+      "procedures": {
+        "title": "Müşteri yükseltme prosedürü",
+        "summary": "Düşük güven durumunda destek asistanının yükseltme yolu."
+      },
+      "rag": {
+        "title": "RAG dizin yer tutucusu",
+        "summary": "Belgeler ve CRM notları üzerinde gelecekteki vektör erişimi."
+      }
+    },
+    "llm": {
+      "local": "Yerel LLM",
+      "mcp": "MCP sunucuları",
+      "custom": "Özel model"
+    },
+    "lifecycle": {
+      "draft": "Taslak",
+      "registered": "Kayıtlı",
+      "active": "Etkin",
+      "paused": "Duraklatıldı",
+      "error": "Hata",
+      "retired": "Emekli"
+    },
+    "healthStatus": {
+      "healthy": "Sağlıklı",
+      "degraded": "Bozulmuş",
+      "down": "Kapalı",
+      "unknown": "Bilinmiyor"
+    },
+    "taskStatus": {
+      "pending": "Beklemede",
+      "running": "Çalışıyor",
+      "completed": "Tamamlandı",
+      "cancelled": "İptal",
+      "failed": "Başarısız",
+      "retrying": "Yeniden deneniyor"
+    },
+    "memoryScope": {
+      "working": "Çalışma",
+      "conversation": "Konuşma",
+      "business": "İş",
+      "long_term": "Uzun vadeli",
+      "workspace": "Çalışma alanı",
+      "agent": "Ajan"
+    },
+    "knowledgeKind": {
+      "company": "Şirket",
+      "documents": "Belgeler",
+      "projects": "Projeler",
+      "crm": "CRM",
+      "policies": "Politikalar",
+      "procedures": "Prosedürler",
+      "vector": "Vektör",
+      "rag": "RAG"
     }
   },
   "integrations": {
@@ -4037,7 +4630,17 @@
     "logs": {
       "title": "Entegrasyon günlükleri",
       "emptyTitle": "Henüz günlük yok",
-      "emptyDescription": "Bir sağlayıcıya bağlanın veya tanılamayı çalıştırın."
+      "emptyDescription": "Bir sağlayıcıya bağlanın veya tanılamayı çalıştırın.",
+      "installed": "{name} yüklendi",
+      "demoConnected": "Demo bağlandı {name}",
+      "disconnected": "{name} bağlantısı kesildi",
+      "webhookCreated": "Webhook oluşturuldu {name}",
+      "keyCreated": "API anahtarı oluşturuldu {name}",
+      "keyRotated": "Anahtar yenilendi {name}",
+      "keyRevoked": "Anahtar iptal edildi {name}",
+      "stubHealthy": "{name} stub sağlıklı",
+      "diagnosticsComplete": "Tanılama tamamlandı",
+      "outgoing": "Giden {status}: {eventType}"
     },
     "apiKeys": {
       "title": "API anahtarları",
@@ -4112,7 +4715,92 @@
     },
     "errors": {
       "failedToFetch": "Getirilemedi",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "Bilinmeyen bağlayıcı.",
+      "webhookNotFound": "Webhook bulunamadı.",
+      "apiKeyInactive": "API anahtarı etkin değil veya süresi dolmuş."
+    },
+    "categories": {
+      "productivity": "Verimlilik",
+      "communication": "İletişim",
+      "storage": "Depolama",
+      "crm": "CRM",
+      "automation": "Otomasyon",
+      "devtools": "Geliştirici araçları",
+      "custom": "Özel"
+    },
+    "auth": {
+      "oauth2": "OAuth 2.0",
+      "api_key": "API anahtarı",
+      "webhook": "Webhook"
+    },
+    "oauth": {
+      "custom": "Özel OAuth"
+    },
+    "connectorNames": {
+      "custom": "Özel bağlayıcı"
+    },
+    "connectors": {
+      "microsoft365": {
+        "description": "Microsoft Graph ile e-posta, takvim ve Teams."
+      },
+      "google_workspace": {
+        "description": "Workspace kiracıları için Gmail, Takvim ve Drive."
+      },
+      "slack": {
+        "description": "Kanallar, mesajlar ve etkileşimli bildirimler."
+      },
+      "discord": {
+        "description": "Sunucu bildirimleri ve bot mesaj teslimi."
+      },
+      "dropbox": {
+        "description": "Dosya senkronu ve paylaşılan klasör olayları."
+      },
+      "onedrive": {
+        "description": "Microsoft OneDrive dosya depolama ve delta senkron."
+      },
+      "google_drive": {
+        "description": "Drive dosyaları, klasörler ve değişiklik bildirimleri."
+      },
+      "hubspot": {
+        "description": "CRM kişileri, fırsatlar ve pazarlama olayları."
+      },
+      "salesforce": {
+        "description": "Kurumsal CRM nesneleri ve Platform Events."
+      },
+      "zapier": {
+        "description": "Zapier zap’lerine giden kancalar."
+      },
+      "make": {
+        "description": "Make (Integromat) senaryo webhook’ları."
+      },
+      "github": {
+        "description": "Depolar, issue’lar, pull request’ler ve Actions."
+      },
+      "gitlab": {
+        "description": "Projeler, merge request’ler, pipeline’lar ve webhook’lar."
+      },
+      "custom": {
+        "description": "Kuruluşa özel kurumsal sistemler için genişletme noktası."
+      }
+    },
+    "healthStatus": {
+      "healthy": "Sağlıklı",
+      "degraded": "Bozulmuş",
+      "down": "Kapalı",
+      "unknown": "Bilinmiyor"
+    },
+    "health": {
+      "installedAuthorize": "Yüklendi — yetkilendirmek için bağlanın",
+      "oauthStubPlaceholder": "Yerel OAuth demosu (stub)",
+      "oauthStubLive": "Yerel OAuth demosu (live)",
+      "demoCredential": "Yerel demo kimliği kaydedildi — canlı API bağlı değil",
+      "demoConnection": "Yerel demo bağlantısı — canlı sağlayıcı bağlantısı değil",
+      "disconnected": "Bağlantı kesildi"
+    },
+    "generated": {
+      "keyName": "Anahtar {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {
@@ -4184,14 +4872,78 @@
       "title": "KPI Merkezi",
       "subtitle": "Gelir, müşteriler, projeler, iş akışları, aracılar ve otomasyon genelinde yapılandırılabilir KPI kataloğu.",
       "emptyTitle": "Analitik sinyal bekliyor",
-      "emptyDescription": "Çalışma alanınız etkinlik oluşturduğunda yönetici KPI'ları ve uyarılar burada görünür."
+      "emptyDescription": "Çalışma alanınız etkinlik oluşturduğunda yönetici KPI'ları ve uyarılar burada görünür.",
+      "revenue": {
+        "name": "Gelir",
+        "description": "Dönemde muhasebeleştirilen toplam gelir."
+      },
+      "mrr": {
+        "name": "MRR",
+        "description": "Aylık yinelenen gelir."
+      },
+      "arr": {
+        "name": "ARR",
+        "description": "Yıllık yinelenen gelir."
+      },
+      "growth": {
+        "name": "Büyüme",
+        "description": "Önceki döneme göre büyüme oranı."
+      },
+      "customer_acquisition": {
+        "name": "Müşteri kazanımı",
+        "description": "Kazanılan yeni müşteriler."
+      },
+      "retention": {
+        "name": "Elde tutma",
+        "description": "Müşteri elde tutma oranı."
+      },
+      "churn": {
+        "name": "Kayıp",
+        "description": "Müşteri kayıp oranı."
+      },
+      "project_success": {
+        "name": "Proje başarısı",
+        "description": "Zamanında / kapsamda teslim edilen projeler."
+      },
+      "workflow_success": {
+        "name": "İş akışı başarısı",
+        "description": "Başarılı iş akışı çalıştırmaları."
+      },
+      "agent_performance": {
+        "name": "Ajan performansı",
+        "description": "YZ ajan görev başarı skoru."
+      },
+      "automation_success": {
+        "name": "Otomasyon başarısı",
+        "description": "Otomasyon / entegrasyon güvenilirliği."
+      },
+      "custom": {
+        "name": "Özel KPI",
+        "description": "Kuruluşun tanımladığı KPI’lar için genişletme noktası."
+      }
     },
     "reports": {
       "title": "Raporlama motoru",
       "subtitle": "Rapor tanımları incelenmek üzere ekilir. Bir raporlama arka ucu bağlanana kadar dosya dışa aktarma kullanılamaz.",
       "emptyTitle": "Rapor yok",
       "emptyDescription": "Çalışma alanı önyüklemesindeki tohumu raporlar.",
-      "scheduleOnDemand": "Talep üzerine"
+      "scheduleOnDemand": "Talep üzerine",
+      "executive": {
+        "title": "Yönetici haftalık",
+        "description": "Sağlık, gelir, risk ve büyüme için CEO brifingi."
+      },
+      "department": {
+        "title": "Satış birimi raporu",
+        "description": "Satış liderliği için pipeline, kazanım ve elde tutma."
+      },
+      "operational": {
+        "title": "Operasyon günlük",
+        "description": "İş akışları, entegrasyonlar ve kimlik duruşu."
+      },
+      "management": {
+        "title": "Teslimat yönetimi",
+        "description": "Proje başarısı, kapasite ve belge çıktısı."
+      }
     },
     "insights": {
       "emptyTitle": "Henüz analiz yok",
@@ -4211,12 +4963,88 @@
       "emptyDescription": "Tohumu risk buluşsal yöntemlerinden uyarır.",
       "acked": "Onaylandı",
       "open": "açık",
-      "acknowledge": "Kabullenmek"
+      "acknowledge": "Kabullenmek",
+      "revenue_drop": {
+        "title": "Segmentte gelir yumuşaması",
+        "body": "KOBI’de WoW gelir %4 düştü — pipeline kapsamını gözden geçirin."
+      },
+      "project_delay": {
+        "title": "Proje gecikme riskinde",
+        "body": "İki teslim projesi kilometre taşlarını geçti."
+      },
+      "churn_risk": {
+        "title": "Müşteri kayıp riski yükseldi",
+        "body": "Üç hesapta etkileşim skorları düşüyor."
+      },
+      "workflow_failure": {
+        "title": "İş akışı hataları tespit edildi",
+        "body": "Fatura hatırlatma iş akışı 24 saatte iki kez başarısız oldu."
+      },
+      "ai_failure": {
+        "title": "YZ görev yeniden denemeleri arttı",
+        "body": "Ajan görev yeniden deneme oranı yumuşak eşiği aştı."
+      },
+      "integration_error": {
+        "title": "Entegrasyon hataları",
+        "body": "Slack bağlayıcısı aralıklı 5xx yanıtladı."
+      },
+      "security": {
+        "title": "Güvenlik uyarısı",
+        "body": "Olağandışı API anahtarı kullanım kalıbı tespit edildi."
+      }
     },
     "scorecards": {
       "title": "Puan kartı motoru",
       "emptyTitle": "Puan kartı yok",
-      "emptyDescription": "Önyükleme işleminde puan kartlarının tohumu."
+      "emptyDescription": "Önyükleme işleminde puan kartlarının tohumu.",
+      "sales": {
+        "name": "Satış skoru",
+        "drivers": {
+          "pipeline_coverage": "Pipeline kapsamı",
+          "win_rate": "Kazanma oranı",
+          "cycle_time": "Döngü süresi"
+        }
+      },
+      "customer_health": {
+        "name": "Müşteri sağlık skoru",
+        "drivers": {
+          "retention": "Elde tutma",
+          "nps_proxy": "NPS vekili",
+          "support_load": "Destek yükü"
+        }
+      },
+      "project_success": {
+        "name": "Proje başarı skoru",
+        "drivers": {
+          "on_time_delivery": "Zamanında teslim",
+          "scope_control": "Kapsam kontrolü",
+          "utilization": "Kullanım"
+        }
+      },
+      "automation_efficiency": {
+        "name": "Otomasyon verimliliği",
+        "drivers": {
+          "workflow_success": "İş akışı başarısı",
+          "manual_effort_saved": "Tasarruf edilen manuel efor",
+          "retry_rate": "Yeniden deneme oranı"
+        }
+      },
+      "ai_quality": {
+        "name": "YZ kalitesi",
+        "drivers": {
+          "task_success": "Görev başarısı",
+          "confidence_avg": "Ort. güven",
+          "escalation_rate": "Yükseltme oranı"
+        }
+      },
+      "operational_health": {
+        "name": "Operasyonel sağlık",
+        "drivers": {
+          "system_health": "Sistem sağlığı",
+          "integration_reliability": "Entegrasyon güvenilirliği",
+          "identity_posture": "Kimlik duruşu"
+        }
+      }
     },
     "explorer": {
       "title": "Veri gezgini",
@@ -4224,7 +5052,8 @@
       "searchAria": "Demo gezgini satırlarında ara",
       "emptyTitle": "Eşleşen satır yok",
       "emptyDescription": "Filtreleri ayarlayın veya arayın veya demo veri kümesini yeniden yükleyin.",
-      "hint": "Tohumlanmış kayıtlarda istemci tarafı arama — arka uç toplama ve detaya inme bağlantılı değildir."
+      "hint": "Tohumlanmış kayıtlarda istemci tarafı arama — arka uç toplama ve detaya inme bağlantılı değildir.",
+      "metricLabel": "{domain} metriği {index}"
     },
     "columns": {
       "kpi": "KPI",
@@ -4249,7 +5078,123 @@
       "measure": "Ölçüm",
       "date": "Tarih"
     },
-    "emDash": "—"
+    "emDash": "—",
+    "domains": {
+      "crm": "CRM analitiği",
+      "projects": "Proje analitiği",
+      "finance": "Finans analitiği",
+      "documents": "Belge analitiği",
+      "workflow": "İş akışı analitiği",
+      "identity": "Kimlik analitiği",
+      "ai": "YZ analitiği",
+      "integration": "Entegrasyon analitiği",
+      "executive": "Yönetici"
+    },
+    "series": {
+      "crm_leads": "Potansiyel müşteriler",
+      "crm_pipeline": "Pipeline (bin $)",
+      "proj_active": "Aktif projeler",
+      "proj_on_time": "Zamanında %",
+      "fin_revenue": "Gelir (bin $)",
+      "fin_margin": "Brüt marj %",
+      "doc_created": "Oluşturulan belgeler",
+      "doc_views": "Belge görüntüleme",
+      "wf_runs": "İş akışı çalıştırma",
+      "wf_success": "Başarı %",
+      "id_users": "Aktif kullanıcılar",
+      "id_sessions": "Oturumlar",
+      "ai_tasks": "Ajan görevleri",
+      "ai_success": "Ajan başarı %",
+      "int_calls": "API / webhook çağrıları",
+      "int_errors": "Entegrasyon hataları"
+    },
+    "bands": {
+      "Critical": "Kritik",
+      "Watch": "İzle",
+      "Healthy": "Sağlıklı",
+      "Excellent": "Mükemmel"
+    },
+    "charts": {
+      "chart_revenue": "Gelir eğilimi",
+      "chart_pipeline": "CRM hunisi",
+      "chart_workflows": "İş akışı etkinliği",
+      "chart_ai": "YZ etkinlik karışımı",
+      "chart_ops_table": "Operasyon anlık görüntüsü",
+      "chart_heatmap_placeholder": "Etkileşim ısı haritası"
+    },
+    "chartKinds": {
+      "line": "Çizgi",
+      "bar": "Çubuk",
+      "area": "Alan",
+      "pie": "Pasta",
+      "heatmap": "Isı haritası",
+      "table": "Tablo",
+      "card": "Kart"
+    },
+    "insightItems": {
+      "trend": {
+        "title": "MRR hızlanıyor",
+        "summary": "MRR büyümesi üç dönem üst üste iyileşti."
+      },
+      "pattern": {
+        "title": "Fatura günlerinde iş akışı zirveleri",
+        "summary": "Otomasyon yükü ay sonu faturalamayla ilişkilidir."
+      },
+      "recommendation": {
+        "title": "Elde tutma playbook’unu genişlet",
+        "summary": "CSM outreach’ini sağlığı düşen üç hesaba odaklayın."
+      },
+      "executive_summary": {
+        "title": "Yönetici brifingi",
+        "summary": "Şirket sağlığı güçlü; kayıp riski ve teslim gecikmelerini izleyin."
+      },
+      "risk": {
+        "title": "Teslimat risk kümesi",
+        "summary": "İki proje kaynak çekişmesi paylaşıyor — kapasite tahmini yüksek."
+      },
+      "opportunity": {
+        "title": "Upsell fırsatı",
+        "summary": "Business planı olmayan yüksek kullanımlı hesaplarda genişleme potansiyeli var."
+      }
+    },
+    "forecastNotes": {
+      "revenue": "Doğrusal eğilim yer tutucusu — model servisiyle değiştirin.",
+      "customer": "Kazanım + elde tutma bileşimi.",
+      "project": "Kapasiteye duyarlı teslimat tahmini.",
+      "capacity": "Ekip kullanım tahmini.",
+      "growth": "Büyüme oranı tahmini."
+    },
+    "forecastKinds": {
+      "revenue": "Gelir",
+      "customer": "Müşteri",
+      "project": "Proje",
+      "capacity": "Kapasite",
+      "growth": "Büyüme"
+    },
+    "severity": {
+      "info": "Bilgi",
+      "warning": "Uyarı",
+      "critical": "Kritik"
+    },
+    "trend": {
+      "up": "Yukarı",
+      "down": "Aşağı",
+      "flat": "Yatay"
+    },
+    "insightKinds": {
+      "trend": "Eğilim",
+      "pattern": "Örüntü",
+      "recommendation": "Öneri",
+      "executive_summary": "Yönetici özeti",
+      "risk": "Risk",
+      "opportunity": "Fırsat"
+    },
+    "reportKinds": {
+      "executive": "Yönetici",
+      "department": "Birim",
+      "operational": "Operasyonel",
+      "management": "Yönetim"
+    }
   },
   "legal": {
     "shell": {
@@ -4679,13 +5624,223 @@
       "professional": "Profesyonel",
       "friendly": "Samimi",
       "luxury": "Lüks",
-      "casual": "Günlük"
+      "casual": "Günlük",
+      "minimal": "Minimal",
+      "corporate": "Kurumsal",
+      "creative": "Yaratıcı",
+      "custom": "Özel marka sesi"
     },
     "integrationStatus": {
       "planned": "Planlandı",
       "ready": "Hazır",
       "connected": "Bağlı",
       "disabled": "Devre dışı"
+    },
+    "categories": {
+      "social": "Sosyal",
+      "ads": "Reklamlar",
+      "analytics": "Analitik"
+    },
+    "platforms": {
+      "instagram": {
+        "notes": "Resmi Graph API yayın + içgörüler ayrıldı."
+      },
+      "tiktok": {
+        "notes": "TikTok Content Posting API bağdaştırıcısı ayrıldı."
+      },
+      "youtube": {
+        "notes": "YouTube Data API yükleme + analitik ayrıldı."
+      },
+      "facebook": {
+        "notes": "Pages yayın bağdaştırıcısı ayrıldı."
+      },
+      "linkedin": {
+        "notes": "UGC / kuruluş gönderi bağdaştırıcısı ayrıldı."
+      },
+      "pinterest": {
+        "notes": "Pin + pano bağdaştırıcısı ayrıldı."
+      },
+      "threads": {
+        "notes": "Threads API bağdaştırıcısı ayrıldı."
+      },
+      "x": {
+        "notes": "X API v2 gönderi bağdaştırıcısı ayrıldı."
+      },
+      "meta-business": {
+        "notes": "Meta Business Suite / Ads Manager kancaları ayrıldı."
+      },
+      "google-ads": {
+        "notes": "Google Ads API kampanya senkronu ayrıldı."
+      },
+      "google-analytics": {
+        "notes": "GA4 ölçüm + raporlama bağdaştırıcısı ayrıldı."
+      }
+    },
+    "features": {
+      "ideas": {
+        "label": "İçerik fikirleri",
+        "description": "Sektöre duyarlı fikir motoru: kampanyalar ve gönderiler."
+      },
+      "captions": {
+        "label": "Altyazı üretici",
+        "description": "Platform formatına göre marka sesi altyazılar."
+      },
+      "hashtags": {
+        "label": "Hashtag önerileri",
+        "description": "Hashtag setleri için alaka ve erişim puanı."
+      },
+      "calendar": {
+        "label": "İçerik takvimi",
+        "description": "Çok platformlu editoryal takvim temeli."
+      },
+      "campaigns": {
+        "label": "Kampanya planlayıcı",
+        "description": "Hedefler, kitle, platformlar ve zaman çizelgeleri."
+      },
+      "audience": {
+        "label": "Kitle önerileri",
+        "description": "CRM + creator sinyallerinden segment önerileri."
+      },
+      "schedule": {
+        "label": "Yayın takvimi",
+        "description": "Saat dilimine duyarlı en iyi yayın pencereleri."
+      },
+      "brand": {
+        "label": "Marka tutarlılığı",
+        "description": "Marka sesine göre ton ve varlık kontrolleri."
+      },
+      "rewrite": {
+        "label": "YZ yeniden yazma",
+        "description": "Taslakları netlik, uzunluk veya kanal için yeniden yaz."
+      },
+      "translate": {
+        "label": "İçeriği çevir",
+        "description": "Çok dilli çeviri hattı ayrıldı."
+      },
+      "i18n": {
+        "label": "Çok dilli destek",
+        "description": "Yayın ve analitik yüzeyleri için yerel paketler."
+      }
+    },
+    "kpi": {
+      "content": {
+        "label": "Oluşturulan içerik",
+        "caption": "Bu çeyrek"
+      },
+      "campaigns": {
+        "label": "Kampanyalar",
+        "caption": "Aktif + planlı"
+      },
+      "scheduled": {
+        "label": "Zamanlanmış gönderiler",
+        "caption": "Sonraki 14 gün"
+      },
+      "engagement": {
+        "label": "Etkileşim",
+        "caption": "Kanallar arası ort. oran"
+      },
+      "followers": {
+        "label": "Takipçi büyümesi",
+        "caption": "Son 30 gün"
+      },
+      "reach": {
+        "label": "Erişim",
+        "caption": "Benzersiz gösterimler"
+      },
+      "conversions": {
+        "label": "Dönüşümler",
+        "caption": "Atfedilen eylemler"
+      },
+      "ai-score": {
+        "label": "YZ performans skoru",
+        "caption": "İçerik kalite sinyali"
+      }
+    },
+    "analyticsMetrics": {
+      "a1": "Etkileşim",
+      "a2": "Erişim",
+      "a3": "CTR",
+      "a4": "Dönüşümler",
+      "a5": "Kitle büyümesi",
+      "a6": "İçerik performansı"
+    },
+    "voiceDesc": {
+      "professional": "Net, güvenilir, iş odaklı ton.",
+      "luxury": "İnce, sade, premium çerçeve.",
+      "friendly": "Sıcak, samimi, sohbet gibi.",
+      "casual": "Rahat günlük dil.",
+      "minimal": "Kısa cümleler, yüksek netlik.",
+      "corporate": "Resmi kurumsal iletişim.",
+      "creative": "Kampanyalar için ifade dolu hikâye anlatımı.",
+      "custom": "Yönergeleri ve örnek metinleri sonra yükleyin."
+    },
+    "formatDesc": {
+      "instagram_caption": "CTA kancalı Feed / Reels altyazıları.",
+      "tiktok_script": "Kısa senaryo: kanca → değer → CTA.",
+      "linkedin_post": "Düşünce liderliği ve B2B anlatıları.",
+      "facebook_post": "Topluluk ve sayfa hazır gönderiler.",
+      "x_post": "Özlü diziler ve tek gönderiler.",
+      "blog_article": "Uzun form editoryal taslaklar.",
+      "newsletter": "Bülten bölümleri ve konu satırları.",
+      "email_campaign": "Kampanya dizileri ve nurture metinleri.",
+      "product_description": "Ticarete hazır ürün anlatıları.",
+      "ad_copy": "Ücretli sosyal ve arama reklamı varyantları.",
+      "seo_article": "Arama niyeti makaleleri (ana hatlı).",
+      "landing_page_copy": "Hero, faydalar, kanıt ve CTA blokları."
+    },
+    "campaignStatus": {
+      "Active": "Aktif",
+      "In review": "İncelemede",
+      "Planned": "Planlı"
+    },
+    "campaigns": {
+      "camp-1": {
+        "name": "Q3 ürün lansmanı",
+        "objective": "Farkındalık + bekleme listesi kayıtları",
+        "audience": "AB KOBİ işletmecileri",
+        "budget": "€8.500 (yer tutucu)",
+        "timeline": "4 Ağu – 12 Eyl"
+      },
+      "camp-2": {
+        "name": "Creator iş birliği sprinti",
+        "objective": "Erişim + topluluk büyümesi",
+        "audience": "Creator 18–34 DE/AT",
+        "budget": "€4.200 (yer tutucu)",
+        "timeline": "20 Tem – 20 Ağu"
+      },
+      "camp-3": {
+        "name": "Ajans portföy hamlesi",
+        "objective": "Potansiyel müşteri üretimi",
+        "audience": "Pazarlama direktörleri",
+        "budget": "€2.900 (yer tutucu)",
+        "timeline": "1 Eyl – 30 Eyl"
+      }
+    },
+    "calendarItems": {
+      "cal-1": "Lansman teaser reel",
+      "cal-2": "Kurucu LinkedIn anlatısı",
+      "cal-3": "Bekleme listesi e-postası #1",
+      "cal-4": "TikTok demo senaryosu"
+    },
+    "queueItems": {
+      "q-1": "Lansman teaser reel altyazısı",
+      "q-2": "Kurucu anlatı gönderisi",
+      "q-3": "Bekleme listesi nurture e-postası",
+      "q-4": "Ürün landing hero metni",
+      "q-5": "TikTok demo senaryosu v2",
+      "q-6": "Haziran özet karuseli",
+      "q-7": "Eski promo dizisi"
+    },
+    "topPosts": {
+      "tp-1": "Depo otomasyonu teardown",
+      "tp-2": "30 sn ürün demo reel",
+      "tp-3": "Creator iş birliği kancası"
+    },
+    "recommendations": {
+      "r1": "Bu hafta LinkedIn teardown’unu 3 bölümlük karusele dönüştürün.",
+      "r2": "Daha yüksek completion için TikTok demolarını Sal–Per 18:00–20:00 CET’e alın.",
+      "r3": "Instagram CTA’larında lüks marka sesini sıkılaştırın — ~%20 kısaltın.",
+      "r4": "AB kitlesi için en iyi reel altyazısını DE/FR’ye çevirin."
     }
   },
   "backend": {
@@ -4726,7 +5881,7 @@
     "skipToMain": "Ana içeriğe atla",
     "offline": {
       "title": "Çevrimdışısınız",
-      "message": "Bağlantınızı kontrol edin ve tekrar çevrimiçi olduğunuzda tekrar deneyin. Önbelleğe alınmış ekranlar yine de çalışabilir.",
+      "message": "Bağlantınızı kontrol edin ve tekrar çevrimiçi olunca deneyin. Önbelleğe alınan ekranlar hâlâ çalışabilir.",
       "home": "Ev",
       "contact": "Temas etmek",
       "signIn": "Oturum aç"

@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "客戶360°",
-      "subtitle": "個人資料、公司、聯絡人、訂單、發票、Lieferscheine、付款、文件、時間表、活動、筆記、AI 摘要和通訊歷史記錄。"
+      "subtitle": "個人資料、公司、聯絡人、訂單、發票、送貨單、付款、文件、時間表、活動、筆記、AI 摘要和通訊歷史記錄。"
     },
     "salesPipeline": {
       "title": "銷售通路",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "交付模組",
-      "subtitle": "專業的 Lieferschein 系統，具備追蹤、簽章、QR 和條碼功能。"
+      "subtitle": "專業的 送貨單 系統，具備追蹤、簽章、QR 和條碼功能。"
     },
     "documentsModule": {
       "title": "文件",
-      "subtitle": "報價、合約、發票、Lieferschein、採購訂單、收據 - 透過人工智慧搜尋。"
+      "subtitle": "報價、合約、發票、送貨單、採購訂單、收據 - 透過人工智慧搜尋。"
     },
     "tasksModule": {
       "title": "任務"
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "專業 Lieferschein 系統",
+    "title": "專業 送貨單 系統",
     "description": "送貨單、取貨/送貨、司機、車輛和追蹤 - 僅樣本記錄。未連接匯出適配器。",
     "badges": {
       "qrUnavailable": "二維碼不可用",
@@ -408,7 +408,7 @@
     "emptyTitle": "沒有文件",
     "emptyDescription": "沒有與此搜尋相符的文件。",
     "searchLabel": "人工智慧搜尋",
-    "searchPlaceholder": "報價單、合約、發票、Lieferschein...",
+    "searchPlaceholder": "報價單、合約、發票、送貨單...",
     "typeLabel": "文件類型",
     "allTypes": "所有類型",
     "columns": {
@@ -438,7 +438,137 @@
     "intro": "Creator Studio基礎—官方平臺整合可以稍後插入這些適配器。Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X。"
   },
   "industry": {
-    "intro": "通用業務平台－入職後將選擇一個產業。每個行業都會獲得專用的人工智慧模組，而無需分叉核心 CRM 作業系統。"
+    "intro": "通用業務平台－入職後將選擇一個產業。每個行業都會獲得專用的人工智慧模組，而無需分叉核心 CRM 作業系統。",
+    "catalog": {
+      "business": {
+        "label": "企業",
+        "description": "通用 B2B 作業系統"
+      },
+      "freelancer": {
+        "label": "自由工作者",
+        "description": "個人工作者的 CRM、發票與客戶管道"
+      },
+      "creator": {
+        "label": "創作者",
+        "description": "創作者工作室 + 品牌 CRM"
+      },
+      "influencer": {
+        "label": "網紅",
+        "description": "贊助 CRM 與活動作業系統"
+      },
+      "agency": {
+        "label": "代理商",
+        "description": "多客戶交付與顧問合約"
+      },
+      "retail": {
+        "label": "零售",
+        "description": "門市庫存、POS 與忠誠度"
+      },
+      "restaurant": {
+        "label": "餐廳",
+        "description": "訂位、廚房與外送"
+      },
+      "hotel": {
+        "label": "飯店",
+        "description": "客房、賓客與房務"
+      },
+      "laundry": {
+        "label": "洗衣",
+        "description": "取件、工單與路線物流"
+      },
+      "healthcare": {
+        "label": "醫療",
+        "description": "病人、預約、合規"
+      },
+      "law_firm": {
+        "label": "律師事務所",
+        "description": "案件、帳單與文件庫"
+      },
+      "accounting": {
+        "label": "會計",
+        "description": "客戶帳簿與 DATEV 匯出"
+      },
+      "construction": {
+        "label": "營建",
+        "description": "工地、班組與進度請款"
+      },
+      "real_estate": {
+        "label": "房地產",
+        "description": "物件、看屋與成交"
+      },
+      "education": {
+        "label": "教育",
+        "description": "學生、課程與註冊"
+      },
+      "manufacturing": {
+        "label": "製造",
+        "description": "BOM、生產與品管"
+      },
+      "logistics": {
+        "label": "物流",
+        "description": "車隊、追蹤與送貨單"
+      },
+      "ecommerce": {
+        "label": "電子商務",
+        "description": "目錄、購物車與全通路訂單"
+      }
+    },
+    "modules": {
+      "sales": "銷售",
+      "finance": "財務",
+      "projects": "專案",
+      "clients": "客戶",
+      "proposals": "提案",
+      "time_tracking": "工時追蹤",
+      "invoices": "發票",
+      "creator_studio": "創作者工作室",
+      "brand_deals": "品牌合作",
+      "content_calendar": "內容日曆",
+      "sponsorships": "贊助",
+      "audience_insights": "受眾洞察",
+      "campaigns": "活動",
+      "client_portals": "客戶入口",
+      "retainers": "顧問合約",
+      "campaign_ops": "活動營運",
+      "inventory": "庫存",
+      "loyalty": "忠誠度",
+      "reservations": "訂位",
+      "menu": "菜單",
+      "kitchen_display": "廚房顯示",
+      "housekeeping": "房務",
+      "guest_crm": "賓客 CRM",
+      "tickets": "工單",
+      "routes": "路線",
+      "delivery_notes": "送貨單",
+      "patients": "病人",
+      "appointments": "預約",
+      "compliance": "合規",
+      "matters": "案件",
+      "billing": "帳單",
+      "documents": "文件",
+      "client_books": "客戶帳簿",
+      "tax_deadlines": "報稅截止",
+      "sites": "工地",
+      "crews": "班組",
+      "progress_billing": "進度請款",
+      "listings": "物件",
+      "viewings": "看屋",
+      "closings": "成交",
+      "students": "學生",
+      "courses": "課程",
+      "enrollment": "註冊",
+      "production": "生產",
+      "fleet": "車隊",
+      "tracking": "追蹤",
+      "catalog": "目錄",
+      "orders": "訂單",
+      "fulfillment": "履約",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {

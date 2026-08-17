@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "مشتری 360°",
-      "subtitle": "پروفایل، شرکت، مخاطبین، سفارش‌ها، فاکتورها، Lieferscheine، پرداخت‌ها، اسناد، تایم‌لاین، فعالیت‌ها، یادداشت‌ها، خلاصه AI و تاریخچه ارتباطات."
+      "subtitle": "پروفایل، شرکت، مخاطبین، سفارش‌ها، فاکتورها، برگه‌های تحویل، پرداخت‌ها، اسناد، تایم‌لاین، فعالیت‌ها، یادداشت‌ها، خلاصه AI و تاریخچه ارتباطات."
     },
     "salesPipeline": {
       "title": "پایپ‌لاین فروش",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "ماژول تحویل",
-      "subtitle": "سیستم حرفه‌ای Lieferschein با پیگیری، امضا، QR و آماده‌بودن بارکد."
+      "subtitle": "سیستم حرفه‌ای برگه تحویل با پیگیری، امضا، QR و آماده‌بودن بارکد."
     },
     "documentsModule": {
       "title": "اسناد",
-      "subtitle": "پیشنهادات، قراردادها، فاکتورها، Lieferschein، سفارش خرید، رسیدها — با جستجوی AI."
+      "subtitle": "پیشنهادات، قراردادها، فاکتورها، برگه تحویل، سفارش خرید، رسیدها — با جستجوی AI."
     },
     "tasksModule": {
       "title": "وظایف"
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "سیستم حرفه‌ای Lieferschein",
+    "title": "سیستم حرفه‌ای برگه تحویل",
     "description": "برگه‌های تحویل، دریافت/تحویل، راننده، وسیله و پیگیری — فقط رکوردهای نمونه. آداپتورهای export متصل نیستند.",
     "badges": {
       "qrUnavailable": "QR در دسترس نیست",
@@ -408,7 +408,7 @@
     "emptyTitle": "سندی نیست",
     "emptyDescription": "سندی با این جستجو مطابقت ندارد.",
     "searchLabel": "جستجوی هوش مصنوعی",
-    "searchPlaceholder": "پیشنهادات، قراردادها، فاکتورها، Lieferschein…",
+    "searchPlaceholder": "پیشنهادات، قراردادها، فاکتورها، برگه تحویل…",
     "typeLabel": "نوع سند",
     "allTypes": "همه انواع",
     "columns": {
@@ -438,7 +438,137 @@
     "intro": "بنیاد Creator Studio — اتصال رسمی پلتفرم‌ها می‌تواند بعداً به این آداپتورها وصل شود. Instagram، TikTok، YouTube، Facebook، LinkedIn، Pinterest، Threads، X."
   },
   "industry": {
-    "intro": "پلتفرم کسب‌وکار جهانی — در onboarding بعداً صنعت انتخاب می‌شود. هر صنعت ماژول‌های AI اختصاصی بدون انشعاب از CRM اصلی دریافت می‌کند."
+    "intro": "پلتفرم کسب‌وکار جهانی — در onboarding بعداً صنعت انتخاب می‌شود. هر صنعت ماژول‌های AI اختصاصی بدون انشعاب از CRM اصلی دریافت می‌کند.",
+    "catalog": {
+      "business": {
+        "label": "کسب‌وکار",
+        "description": "سیستم عامل عمومی B2B"
+      },
+      "freelancer": {
+        "label": "فریلنسر",
+        "description": "CRM، فاکتور و قیف مشتری برای کار مستقل"
+      },
+      "creator": {
+        "label": "کریتور",
+        "description": "استودیو کریتور و CRM برند"
+      },
+      "influencer": {
+        "label": "اینفلوئنسر",
+        "description": "CRM اسپانسرشیپ و سیستم کمپین"
+      },
+      "agency": {
+        "label": "آژانس",
+        "description": "تحویل چندمشتری و قراردادهای نگهداشت"
+      },
+      "retail": {
+        "label": "خرده‌فروشی",
+        "description": "موجودی فروشگاه، صندوق و وفاداری"
+      },
+      "restaurant": {
+        "label": "رستوران",
+        "description": "رزرو، آشپزخانه و ارسال"
+      },
+      "hotel": {
+        "label": "هتل",
+        "description": "اتاق، مهمان و خانه‌داری"
+      },
+      "laundry": {
+        "label": "خشکشویی",
+        "description": "جمع‌آوری، بلیت و لجستیک مسیر"
+      },
+      "healthcare": {
+        "label": "سلامت",
+        "description": "بیماران، نوبت‌ها، انطباق"
+      },
+      "law_firm": {
+        "label": "موسسه حقوقی",
+        "description": "پرونده‌ها، صورتحساب و خزانه اسناد"
+      },
+      "accounting": {
+        "label": "حسابداری",
+        "description": "دفتر مشتریان و خروجی آماده DATEV"
+      },
+      "construction": {
+        "label": "ساخت‌وساز",
+        "description": "سایت‌ها، گروه‌ها و صورت‌وضعیت پیشرفت"
+      },
+      "real_estate": {
+        "label": "املاک",
+        "description": "آگهی‌ها، بازدیدها و قراردادها"
+      },
+      "education": {
+        "label": "آموزش",
+        "description": "دانشجویان، دوره‌ها و ثبت‌نام"
+      },
+      "manufacturing": {
+        "label": "تولید",
+        "description": "BOM، تولید و کنترل کیفیت"
+      },
+      "logistics": {
+        "label": "لجستیک",
+        "description": "ناوگان، ردیابی و برگه‌های تحویل"
+      },
+      "ecommerce": {
+        "label": "تجارت الکترونیک",
+        "description": "کاتالوگ، سبد و سفارش‌های چندکاناله"
+      }
+    },
+    "modules": {
+      "sales": "فروش",
+      "finance": "مالی",
+      "projects": "پروژه‌ها",
+      "clients": "مشتریان",
+      "proposals": "پیشنهادها",
+      "time_tracking": "ثبت زمان",
+      "invoices": "فاکتورها",
+      "creator_studio": "استودیو کریتور",
+      "brand_deals": "توافق‌های برند",
+      "content_calendar": "تقویم محتوا",
+      "sponsorships": "اسپانسرشیپ‌ها",
+      "audience_insights": "بینش مخاطب",
+      "campaigns": "کمپین‌ها",
+      "client_portals": "پورتال مشتریان",
+      "retainers": "قرارداد نگهداشت",
+      "campaign_ops": "عملیات کمپین",
+      "inventory": "موجودی",
+      "loyalty": "وفاداری",
+      "reservations": "رزروها",
+      "menu": "منو",
+      "kitchen_display": "نمایشگر آشپزخانه",
+      "housekeeping": "خانه‌داری",
+      "guest_crm": "CRM مهمان",
+      "tickets": "بلیت‌ها",
+      "routes": "مسیرها",
+      "delivery_notes": "برگه‌های تحویل",
+      "patients": "بیماران",
+      "appointments": "نوبت‌ها",
+      "compliance": "انطباق",
+      "matters": "پرونده‌ها",
+      "billing": "صورتحساب",
+      "documents": "اسناد",
+      "client_books": "دفتر مشتریان",
+      "tax_deadlines": "مهلت مالیاتی",
+      "sites": "سایت‌ها",
+      "crews": "گروه‌ها",
+      "progress_billing": "صورت‌وضعیت پیشرفت",
+      "listings": "آگهی‌ها",
+      "viewings": "بازدیدها",
+      "closings": "قراردادها",
+      "students": "دانشجویان",
+      "courses": "دوره‌ها",
+      "enrollment": "ثبت‌نام",
+      "production": "تولید",
+      "fleet": "ناوگان",
+      "tracking": "ردیابی",
+      "catalog": "کاتالوگ",
+      "orders": "سفارش‌ها",
+      "fulfillment": "تکمیل سفارش",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {

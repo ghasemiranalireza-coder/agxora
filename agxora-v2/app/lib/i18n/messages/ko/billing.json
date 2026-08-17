@@ -117,5 +117,60 @@
       "warning": "경고",
       "ok": "좋아요"
     }
+  },
+  "licenseStatus": {
+    "trial": "체험",
+    "active": "활성",
+    "expired": "만료",
+    "cancelled": "취소됨",
+    "suspended": "정지",
+    "lifetime": "평생"
+  },
+  "quotas": {
+    "ai_requests": "AI 요청",
+    "projects": "프로젝트",
+    "customers": "고객",
+    "documents": "문서",
+    "storage_mb": "스토리지(MB)",
+    "users": "사용자",
+    "api_requests": "API 요청"
+  },
+  "invoiceStatus": {
+    "draft": "초안",
+    "open": "미결제",
+    "paid": "결제됨",
+    "void": "무효",
+    "uncollectible": "회수 불가",
+    "refunded": "환불됨"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "체험이 곧 종료됩니다",
+      "body": "체험이 약 {days}일 후 종료됩니다. 전체 액세스를 유지하려면 업그레이드하세요."
+    },
+    "expired": {
+      "title": "구독이 만료됨",
+      "body": "상업 기능을 복원하려면 플랜을 갱신하거나 업그레이드하세요."
+    },
+    "cancelled": {
+      "title": "구독이 취소됨",
+      "body": "AGXORA 구독이 취소되었습니다. 기간이 끝날 때까지 액세스는 유지됩니다."
+    },
+    "quotaWarning": {
+      "title": "{metric} 한도에 근접",
+      "body": "{used} / {limit} 사용. 업그레이드를 검토하세요."
+    },
+    "upgradeAvailable": {
+      "title": "업그레이드 가능",
+      "body": "Business와 Enterprise는 자동화, 더 높은 AI 할당량, API 접근을 엽니다."
+    },
+    "invoiceReady": {
+      "title": "청구서 준비됨",
+      "body": "청구서 {number}가 결제되었습니다."
+    },
+    "renewed": {
+      "title": "구독이 갱신됨",
+      "body": "플랜이 {date}에 갱신됩니다."
+    }
   }
 }

@@ -63,7 +63,17 @@
   "logs": {
     "title": "集成日志",
     "emptyTitle": "尚无日志",
-    "emptyDescription": "连接提供商或运行诊断。"
+    "emptyDescription": "连接提供商或运行诊断。",
+    "installed": "已安装 {name}",
+    "demoConnected": "演示已连接 {name}",
+    "disconnected": "已断开 {name}",
+    "webhookCreated": "已创建 Webhook {name}",
+    "keyCreated": "已创建 API 密钥 {name}",
+    "keyRotated": "已轮换密钥 {name}",
+    "keyRevoked": "已吊销密钥 {name}",
+    "stubHealthy": "{name} 占位健康",
+    "diagnosticsComplete": "诊断完成",
+    "outgoing": "出站 {status}: {eventType}"
   },
   "apiKeys": {
     "title": "API 密钥",
@@ -105,7 +115,7 @@
     "localDemo": "本地演示"
   },
   "columns": {
-    "integration": "一体<g id=\"1077\">化</g>",
+    "integration": "一体化",
     "status": "地位",
     "health": "健康",
     "latency": "延迟",
@@ -138,6 +148,91 @@
   },
   "errors": {
     "failedToFetch": "获取失败",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "未知连接器。",
+    "webhookNotFound": "未找到 Webhook。",
+    "apiKeyInactive": "API 密钥未激活或已过期。"
+  },
+  "categories": {
+    "productivity": "效率",
+    "communication": "沟通",
+    "storage": "存储",
+    "crm": "CRM",
+    "automation": "自动化",
+    "devtools": "开发者工具",
+    "custom": "自定义"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "API 密钥",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "自定义 OAuth"
+  },
+  "connectorNames": {
+    "custom": "自定义连接器"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "通过 Microsoft Graph 使用邮件、日历和 Teams。"
+    },
+    "google_workspace": {
+      "description": "面向 Workspace 租户的 Gmail、日历和云端硬盘。"
+    },
+    "slack": {
+      "description": "频道、消息与交互通知。"
+    },
+    "discord": {
+      "description": "服务器通知与机器人消息投递。"
+    },
+    "dropbox": {
+      "description": "文件同步与共享文件夹事件。"
+    },
+    "onedrive": {
+      "description": "Microsoft OneDrive 文件存储与增量同步。"
+    },
+    "google_drive": {
+      "description": "云端硬盘文件、文件夹与变更通知。"
+    },
+    "hubspot": {
+      "description": "CRM 联系人、交易与营销事件。"
+    },
+    "salesforce": {
+      "description": "企业 CRM 对象与 Platform Events。"
+    },
+    "zapier": {
+      "description": "发往 Zapier zap 的出站钩子。"
+    },
+    "make": {
+      "description": "Make（Integromat）场景 Webhook。"
+    },
+    "github": {
+      "description": "仓库、议题、拉取请求与 Actions。"
+    },
+    "gitlab": {
+      "description": "项目、合并请求、流水线与 Webhook。"
+    },
+    "custom": {
+      "description": "面向专有企业系统的扩展点。"
+    }
+  },
+  "healthStatus": {
+    "healthy": "健康",
+    "degraded": "降级",
+    "down": "停机",
+    "unknown": "未知"
+  },
+  "health": {
+    "installedAuthorize": "已安装 — 连接以授权",
+    "oauthStubPlaceholder": "本地 OAuth 演示（占位）",
+    "oauthStubLive": "本地 OAuth 演示（实时）",
+    "demoCredential": "已存储本地演示凭据 — 未连接实时 API",
+    "demoConnection": "本地演示连接 — 非实时提供商链接",
+    "disconnected": "已断开"
+  },
+  "generated": {
+    "keyName": "密钥 {n}",
+    "webhookName": "Webhook {n}"
   }
 }

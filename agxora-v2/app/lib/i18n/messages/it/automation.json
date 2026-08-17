@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Suggerimenti per l'ottimizzazione",
     "oneClickOptimize": "Ottimizza con un clic",
-    "noticeDefault": "One Click Optimize non è ancora una mutazione del grafico.",
-    "noticeQueued": "Ottimizza in coda. Il motore futuro riscriverà ritardi e approvazioni."
+    "noticeDefault": "L’ottimizzazione in un clic non modifica ancora il grafo.",
+    "noticeQueued": "Ottimizzazione in coda. Un motore futuro riscriverà ritardi e approvazioni.",
+    "score": {
+      "healthy": "Integro",
+      "needsAttention": "Da controllare",
+      "atRisk": "A rischio"
+    },
+    "kinds": {
+      "missing_approval": "Approvazione",
+      "possible_delay": "Ritardo",
+      "unused_trigger": "Trigger",
+      "duplicate_nodes": "Duplicati",
+      "unused_action": "Azione",
+      "security": "Sicurezza",
+      "performance": "Prestazioni"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Approvazione mancante",
+        "description": "I flussi più lunghi spesso richiedono un gate di approvazione prima degli effetti collaterali."
+      },
+      "possible_delay": {
+        "title": "Possibile ritardo",
+        "description": "Valuta un ritardo prima delle e-mail di reminder per evitare burst."
+      },
+      "unused_trigger": {
+        "title": "Trigger inutilizzato",
+        "description": "Questo grafo non ha un trigger di avvio: aggiungine uno prima dell’attivazione."
+      },
+      "duplicate_nodes": {
+        "title": "Nodi duplicati",
+        "description": "“{label}” compare {count} volte: consolida se è ridondante."
+      },
+      "unused_action": {
+        "title": "Azione inutilizzata",
+        "description": "{label} non è collegato: collegalo o rimuovilo."
+      },
+      "security": {
+        "title": "Raccomandazione di sicurezza",
+        "description": "Preferisci adapter a privilegio minimo per webhook ed e-mail."
+      },
+      "performance": {
+        "title": "Raccomandazione di prestazione",
+        "description": "Raggruppa i passaggi IA dove possibile per ridurre il tempo medio."
+      }
+    }
   },
   "integrations": {
     "intro": "Centro di integrazione: facoltativo. Stati: Connesso, Beta, Pianificato, Prossimamente, Disabilitato. Nessuna API live.",
@@ -536,5 +580,191 @@
       "label": "Assegna attività",
       "description": "Assegna un’attività a un utente."
     }
+  },
+  "kinds": {
+    "trigger": "Trigger",
+    "action": "Azione",
+    "condition": "Condizione",
+    "delay": "Ritardo",
+    "approval": "Approvazione",
+    "loop": "Loop",
+    "merge": "Unisci",
+    "split": "Dividi",
+    "ai_decision": "Decisione IA",
+    "ai_action": "Azione IA",
+    "notification": "Notifica",
+    "webhook": "Webhook",
+    "custom_action": "Azione personalizzata",
+    "branch": "Branch",
+    "variable": "Variabile"
+  },
+  "kpi": {
+    "active": {
+      "label": "Workflow attivi",
+      "caption": "Abilitati nello spazio"
+    },
+    "runs-today": {
+      "label": "Esecuzioni di oggi",
+      "caption": "Tutti i trigger"
+    },
+    "success": {
+      "label": "Automazioni riuscite",
+      "caption": "Oggi"
+    },
+    "failed": {
+      "label": "Esecuzioni non riuscite",
+      "caption": "Da controllare"
+    },
+    "pending": {
+      "label": "Task in attesa",
+      "caption": "Approvazioni + retry"
+    },
+    "avg-time": {
+      "label": "Tempo medio di esecuzione",
+      "caption": "Mediana 1,2s"
+    },
+    "ai-suggestions": {
+      "label": "Suggerimenti IA",
+      "caption": "Opportunità di automazione"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "Produttività",
+    "Communication": "Comunicazione",
+    "Commerce": "Commerce",
+    "Finance": "Finanza",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "Hook Gmail / Drive / Calendar riservati per il cablaggio OAuth.",
+    "m365": "Hook Outlook / Teams / Graph riservati.",
+    "slack": "Events API + post chat riservati.",
+    "teams": "Adapter Bot Framework riservato.",
+    "discord": "Adapter webhook + bot riservato.",
+    "whatsapp": "Adapter Meta Cloud API riservato.",
+    "stripe": "Webhook di pagamento riservati — nessuna chiave live.",
+    "shopify": "Eventi ordine / prodotto riservati.",
+    "datev": "Hook export DATEV / lotti di registrazione riservati.",
+    "sap": "Ponte eventi ERP riservato — disabilitato fino al piano enterprise.",
+    "hubspot": "Adapter di sync CRM riservato.",
+    "salesforce": "Adapter Platform Events riservato."
+  },
+  "defaultWorkflow": {
+    "name": "Onboarding cliente",
+    "description": "Sequenza di benvenuto quando si crea un cliente."
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "Finanza",
+    "Sales": "Vendite",
+    "Marketing": "Marketing",
+    "HR": "HR",
+    "Creator": "Creator",
+    "Ops": "Ops",
+    "Projects": "Progetti",
+    "AI": "IA"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "Onboarding clienti",
+      "description": "Email di benvenuto, summary IA e task owner dopo la creazione cliente.",
+      "category": "CRM",
+      "recommendedFor": "Team che onbordano nuovi clienti B2B"
+    },
+    "tpl-invoice": {
+      "name": "Reminder fattura",
+      "description": "Reminder pianificati per fatture aperte con escalation.",
+      "category": "Finanza",
+      "recommendedFor": "Ops finance che riducono i crediti scaduti"
+    },
+    "tpl-lead": {
+      "name": "Follow-up lead",
+      "description": "Risposta e-mail IA più aggiornamento pipeline per nuovi lead.",
+      "category": "Vendite",
+      "recommendedFor": "Team vendite con alto volume di lead inbound"
+    },
+    "tpl-welcome": {
+      "name": "Email di benvenuto",
+      "description": "Sequenza di benvenuto semplice alla registrazione.",
+      "category": "Marketing",
+      "recommendedFor": "Qualsiasi workspace che inizia con l’automazione e-mail"
+    },
+    "tpl-pipeline": {
+      "name": "Pipeline vendite",
+      "description": "Cambi di stage con notifiche e task.",
+      "category": "Vendite",
+      "recommendedFor": "Team che gestiscono avanzamento deal multi-stage"
+    },
+    "tpl-recruit": {
+      "name": "Recruiting",
+      "description": "Routing candidati e task di colloquio.",
+      "category": "HR",
+      "recommendedFor": "Hiring manager e people ops"
+    },
+    "tpl-content": {
+      "name": "Pubblicazione contenuti",
+      "description": "Creator Studio: pubblica → notifica → analytics.",
+      "category": "Creator",
+      "recommendedFor": "Team marketing e creator"
+    },
+    "tpl-approval": {
+      "name": "Processo di approvazione",
+      "description": "Approvazione multi-step con raccomandazioni IA.",
+      "category": "Ops",
+      "recommendedFor": "Approvazioni finance/ops prima degli effetti collaterali",
+      "estimatedRuntime": "Gate umano"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "Benvenuto nuovo cliente",
+      "description": "Email di benvenuto + notifica quando si crea un cliente.",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "Reminder fattura",
+      "description": "Ricorda i clienti dopo l’emissione di una fattura.",
+      "category": "Finanza"
+    },
+    "tpl_project_kickoff": {
+      "name": "Kickoff progetto",
+      "description": "Assegna un task di kickoff e notifica alla creazione del progetto.",
+      "category": "Progetti"
+    },
+    "tpl_task_assignment": {
+      "name": "Assegnazione task",
+      "description": "Email all’assegnatario a task completato — concatena il lavoro successivo.",
+      "category": "Progetti"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "Summary cliente IA",
+      "description": "Esegui un summary IA alla creazione cliente; memorizza l’output.",
+      "category": "IA"
+    },
+    "tpl_followup_reminder": {
+      "name": "Reminder di follow-up",
+      "description": "Follow-up su schedule con branch per stato.",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "Invia email di benvenuto",
+    "notify_team": "Notifica il team",
+    "wait_3_days": "Attendi 3 giorni",
+    "still_unpaid": "Ancora non pagata?",
+    "send_reminder": "Invia reminder",
+    "assign_kickoff_task": "Assegna task di kickoff",
+    "notify_owner": "Notifica l’owner",
+    "notify_stakeholders": "Notifica gli stakeholder",
+    "run_ai_summary": "Esegui summary IA",
+    "generate_document": "Genera documento",
+    "daily_schedule": "Schedule giornaliero",
+    "by_priority": "Per priorità",
+    "urgent_notification": "Notifica urgente",
+    "standard_email": "Email standard"
+  },
+  "studioAiFeatures": {
+    "generate_ai_content": "Genera contenuti IA"
   }
 }

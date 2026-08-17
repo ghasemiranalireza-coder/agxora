@@ -67,14 +67,78 @@
     "title": "KPIセンター",
     "subtitle": "収益、顧客、プロジェクト、ワークフロー、エージェント、自動化にわたる構成可能な KPI カタログ。",
     "emptyTitle": "分析はシグナルを待っています",
-    "emptyDescription": "ワークスペースでアクティビティが生成されると、エグゼクティブ KPI とアラートがここに表示されます。"
+    "emptyDescription": "ワークスペースでアクティビティが生成されると、エグゼクティブ KPI とアラートがここに表示されます。",
+    "revenue": {
+      "name": "売上",
+      "description": "期間内の認識売上合計。"
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "月次経常収益。"
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "年次経常収益。"
+    },
+    "growth": {
+      "name": "成長",
+      "description": "前期比成長率。"
+    },
+    "customer_acquisition": {
+      "name": "顧客獲得",
+      "description": "新規獲得顧客。"
+    },
+    "retention": {
+      "name": "リテンション",
+      "description": "顧客リテンション率。"
+    },
+    "churn": {
+      "name": "チャーン",
+      "description": "顧客チャーン率。"
+    },
+    "project_success": {
+      "name": "プロジェクト成功",
+      "description": "納期内・スコープ内で納品したプロジェクト。"
+    },
+    "workflow_success": {
+      "name": "ワークフロー成功",
+      "description": "成功したワークフロー実行。"
+    },
+    "agent_performance": {
+      "name": "エージェント性能",
+      "description": "AIエージェントタスクの成功スコア。"
+    },
+    "automation_success": {
+      "name": "自動化成功",
+      "description": "自動化 / インテグレーションの信頼性。"
+    },
+    "custom": {
+      "name": "カスタムKPI",
+      "description": "組織定義KPIの拡張ポイント。"
+    }
   },
   "reports": {
     "title": "レポートエンジン",
     "subtitle": "レポート定義はレビュー用にシードされます。ファイルのエクスポートは、レポート バックエンドが接続されるまで使用できません。",
     "emptyTitle": "報告はありません",
     "emptyDescription": "ワークスペースブートストラップのシードをレポートします。",
-    "scheduleOnDemand": "オンデマンド"
+    "scheduleOnDemand": "オンデマンド",
+    "executive": {
+      "title": "エグゼクティブ週次",
+      "description": "健全性・売上・リスク・成長のCEO向けブリーフ。"
+    },
+    "department": {
+      "title": "営業部門レポート",
+      "description": "営業リーダー向けパイプライン・獲得・リテンション。"
+    },
+    "operational": {
+      "title": "オペレーション日次",
+      "description": "ワークフロー、インテグレーション、IDポスチャ。"
+    },
+    "management": {
+      "title": "デリバリーマネジメント",
+      "description": "プロジェクト成功、キャパシティ、文書スループット。"
+    }
   },
   "insights": {
     "emptyTitle": "まだ洞察はありません",
@@ -94,12 +158,88 @@
     "emptyDescription": "リスクヒューリスティックからシードをアラートします。",
     "acked": "肯定された",
     "open": "開ける",
-    "acknowledge": "認める"
+    "acknowledge": "認める",
+    "revenue_drop": {
+      "title": "セグメント売上の軟化",
+      "body": "SMBの売上が前週比4%低下 — パイプラインカバレッジを確認。"
+    },
+    "project_delay": {
+      "title": "プロジェクト遅延リスク",
+      "body": "納品プロジェクト2件がマイルストーンを超過。"
+    },
+    "churn_risk": {
+      "title": "顧客チャーンリスク上昇",
+      "body": "3アカウントでエンゲージメントスコアが低下。"
+    },
+    "workflow_failure": {
+      "title": "ワークフロー失敗を検出",
+      "body": "請求リマインダーワークフローが24時間で2回失敗。"
+    },
+    "ai_failure": {
+      "title": "AIタスク再試行が増加",
+      "body": "エージェントタスク再試行率がソフト閾値を超過。"
+    },
+    "integration_error": {
+      "title": "インテグレーションエラー",
+      "body": "Slackコネクタが断続的に5xxを返しました。"
+    },
+    "security": {
+      "title": "セキュリティアラート",
+      "body": "異常なAPIキー使用パターンを検出。"
+    }
   },
   "scorecards": {
     "title": "スコアカード エンジン",
     "emptyTitle": "スコアカードなし",
-    "emptyDescription": "ブートストラップのスコアカード シード。"
+    "emptyDescription": "ブートストラップのスコアカード シード。",
+    "sales": {
+      "name": "セールススコア",
+      "drivers": {
+        "pipeline_coverage": "パイプラインカバレッジ",
+        "win_rate": "勝率",
+        "cycle_time": "サイクルタイム"
+      }
+    },
+    "customer_health": {
+      "name": "顧客ヘルススコア",
+      "drivers": {
+        "retention": "リテンション",
+        "nps_proxy": "NPSプロキシ",
+        "support_load": "サポート負荷"
+      }
+    },
+    "project_success": {
+      "name": "プロジェクト成功スコア",
+      "drivers": {
+        "on_time_delivery": "納期遵守",
+        "scope_control": "スコープ管理",
+        "utilization": "稼働率"
+      }
+    },
+    "automation_efficiency": {
+      "name": "自動化効率",
+      "drivers": {
+        "workflow_success": "ワークフロー成功",
+        "manual_effort_saved": "削減した手作業",
+        "retry_rate": "再試行率"
+      }
+    },
+    "ai_quality": {
+      "name": "AI品質",
+      "drivers": {
+        "task_success": "タスク成功",
+        "confidence_avg": "平均信頼度",
+        "escalation_rate": "エスカレーション率"
+      }
+    },
+    "operational_health": {
+      "name": "オペレーション健全性",
+      "drivers": {
+        "system_health": "システム健全性",
+        "integration_reliability": "インテグレーション信頼性",
+        "identity_posture": "IDポスチャ"
+      }
+    }
   },
   "explorer": {
     "title": "データエクスプローラー",
@@ -107,7 +247,8 @@
     "searchAria": "デモ エクスプローラーの行を検索",
     "emptyTitle": "一致する行はありません",
     "emptyDescription": "フィルターを調整するか、検索するか、デモ データセットを再読み込みします。",
-    "hint": "シードされたタプルに対するクライアント側の検索 - バックエンドの集約とドリルダウンは接続されていません。"
+    "hint": "シードされたタプルに対するクライアント側の検索 - バックエンドの集約とドリルダウンは接続されていません。",
+    "metricLabel": "{domain}メトリクス {index}"
   },
   "columns": {
     "kpi": "KPI",
@@ -132,5 +273,121 @@
     "measure": "測定",
     "date": "日付"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "CRM分析",
+    "projects": "プロジェクト分析",
+    "finance": "財務分析",
+    "documents": "ドキュメント分析",
+    "workflow": "ワークフロー分析",
+    "identity": "ID分析",
+    "ai": "AI分析",
+    "integration": "インテグレーション分析",
+    "executive": "エグゼクティブ"
+  },
+  "series": {
+    "crm_leads": "リード",
+    "crm_pipeline": "パイプライン（千ドル）",
+    "proj_active": "進行中プロジェクト",
+    "proj_on_time": "納期遵守率",
+    "fin_revenue": "売上（千ドル）",
+    "fin_margin": "粗利益率",
+    "doc_created": "作成ドキュメント",
+    "doc_views": "ドキュメント閲覧",
+    "wf_runs": "ワークフロー実行",
+    "wf_success": "成功率",
+    "id_users": "アクティブユーザー",
+    "id_sessions": "セッション",
+    "ai_tasks": "エージェントタスク",
+    "ai_success": "エージェント成功率",
+    "int_calls": "API / Webhook呼び出し",
+    "int_errors": "インテグレーションエラー"
+  },
+  "bands": {
+    "Critical": "重大",
+    "Watch": "注視",
+    "Healthy": "健全",
+    "Excellent": "優秀"
+  },
+  "charts": {
+    "chart_revenue": "売上トレンド",
+    "chart_pipeline": "CRMパイプライン",
+    "chart_workflows": "ワークフロー活動",
+    "chart_ai": "AI活動ミックス",
+    "chart_ops_table": "運用スナップショット",
+    "chart_heatmap_placeholder": "エンゲージメントヒートマップ"
+  },
+  "chartKinds": {
+    "line": "折れ線",
+    "bar": "棒",
+    "area": "面",
+    "pie": "円",
+    "heatmap": "ヒートマップ",
+    "table": "表",
+    "card": "カード"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "MRR加速",
+      "summary": "MRR成長が3期連続で改善。"
+    },
+    "pattern": {
+      "title": "請求日のワークフロー急増",
+      "summary": "自動化負荷は月末請求と相関。"
+    },
+    "recommendation": {
+      "title": "リテンションプレイブックを拡充",
+      "summary": "健全性が低下した3アカウントにCSMアウトリーチを集中。"
+    },
+    "executive_summary": {
+      "title": "エグゼクティブブリーフ",
+      "summary": "会社健全性は良好。チャーンリスクと納期遅延に注意。"
+    },
+    "risk": {
+      "title": "デリバリーリスククラスタ",
+      "summary": "2プロジェクトがリソース競合 — キャパシティ予測が上昇。"
+    },
+    "opportunity": {
+      "title": "アップセル機会",
+      "summary": "Businessプラン未加入の高利用アカウントに拡大余地。"
+    }
+  },
+  "forecastNotes": {
+    "revenue": "線形トレンドのプレースホルダ — モデルサービスに置換。",
+    "customer": "獲得＋リテンションの合成。",
+    "project": "キャパシティを考慮した納品予測。",
+    "capacity": "チーム稼働率予測。",
+    "growth": "成長率予測。"
+  },
+  "forecastKinds": {
+    "revenue": "売上",
+    "customer": "顧客",
+    "project": "プロジェクト",
+    "capacity": "キャパシティ",
+    "growth": "成長"
+  },
+  "severity": {
+    "info": "情報",
+    "warning": "警告",
+    "critical": "重大"
+  },
+  "trend": {
+    "up": "上昇",
+    "down": "下降",
+    "flat": "横ばい"
+  },
+  "insightKinds": {
+    "trend": "トレンド",
+    "pattern": "パターン",
+    "recommendation": "推奨",
+    "executive_summary": "エグゼクティブ要約",
+    "risk": "リスク",
+    "opportunity": "機会"
+  },
+  "reportKinds": {
+    "executive": "エグゼクティブ",
+    "department": "部門",
+    "operational": "オペレーション",
+    "management": "マネジメント"
+  }
 }

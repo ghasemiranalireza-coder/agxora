@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "最適化の提案",
     "oneClickOptimize": "ワンクリックで最適化",
-    "noticeDefault": "One Click Optimize にはまだグラフの変更はありません。",
-    "noticeQueued": "キューを最適化します。将来のエンジンは遅延と承認を書き換えます。"
+    "noticeDefault": "ワンクリック最適化はまだグラフを変更しません。",
+    "noticeQueued": "最適化をキューしました。将来のエンジンが遅延と承認を書き換えます。",
+    "score": {
+      "healthy": "健全",
+      "needsAttention": "要確認",
+      "atRisk": "リスクあり"
+    },
+    "kinds": {
+      "missing_approval": "承認",
+      "possible_delay": "遅延",
+      "unused_trigger": "トリガー",
+      "duplicate_nodes": "重複",
+      "unused_action": "アクション",
+      "security": "セキュリティ",
+      "performance": "パフォーマンス"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "承認がありません",
+        "description": "長いフローは副作用の前に承認ゲートがあると安全です。"
+      },
+      "possible_delay": {
+        "title": "遅延の検討",
+        "description": "リマインドメールの前に遅延を入れ、バーストを避けてください。"
+      },
+      "unused_trigger": {
+        "title": "未使用のトリガー",
+        "description": "開始トリガーがありません。有効化前に追加してください。"
+      },
+      "duplicate_nodes": {
+        "title": "重複ノード",
+        "description": "「{label}」が{count}回あります。不要なら統合してください。"
+      },
+      "unused_action": {
+        "title": "未使用のアクション",
+        "description": "{label}は未接続です。配線するか削除してください。"
+      },
+      "security": {
+        "title": "セキュリティの推奨",
+        "description": "Webhookとメール操作には最小権限のアダプターを使ってください。"
+      },
+      "performance": {
+        "title": "パフォーマンスの推奨",
+        "description": "可能ならAIステップをまとめて平均実行時間を下げてください。"
+      }
+    }
   },
   "integrations": {
     "intro": "統合センター — オプション。ステータス: 接続済み、ベータ版、計画中、近日公開予定、無効。ライブ API はありません。",
@@ -536,5 +580,191 @@
       "label": "タスクを割り当て",
       "description": "タスクをユーザーに割り当てます。"
     }
+  },
+  "kinds": {
+    "trigger": "トリガー",
+    "action": "アクション",
+    "condition": "条件",
+    "delay": "遅延",
+    "approval": "承認",
+    "loop": "ループ",
+    "merge": "マージ",
+    "split": "スプリット",
+    "ai_decision": "AI判定",
+    "ai_action": "AIアクション",
+    "notification": "通知",
+    "webhook": "Webhook",
+    "custom_action": "カスタムアクション",
+    "branch": "分岐",
+    "variable": "変数"
+  },
+  "kpi": {
+    "active": {
+      "label": "有効なワークフロー",
+      "caption": "ワークスペースで有効"
+    },
+    "runs-today": {
+      "label": "本日のワークフロー実行",
+      "caption": "全トリガー対象"
+    },
+    "success": {
+      "label": "成功した自動化",
+      "caption": "本日"
+    },
+    "failed": {
+      "label": "失敗した実行",
+      "caption": "要確認"
+    },
+    "pending": {
+      "label": "保留中タスク",
+      "caption": "承認＋再試行"
+    },
+    "avg-time": {
+      "label": "平均実行時間",
+      "caption": "中央値1.2秒"
+    },
+    "ai-suggestions": {
+      "label": "AI提案",
+      "caption": "自動化の機会"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "生産性",
+    "Communication": "コミュニケーション",
+    "Commerce": "コマース",
+    "Finance": "財務",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "OAuth配線用にGmail／Drive／カレンダーフックを予約。",
+    "m365": "Outlook／Teams／Graphフックを予約。",
+    "slack": "Events API＋チャット投稿を予約。",
+    "teams": "Bot Frameworkアダプターを予約。",
+    "discord": "Webhook＋ボットアダプターを予約。",
+    "whatsapp": "Meta Cloud APIアダプターを予約。",
+    "stripe": "支払いWebhookを予約 — ライブキーなし。",
+    "shopify": "注文／商品イベントを予約。",
+    "datev": "DATEVエクスポート／仕訳バッチフックを予約。",
+    "sap": "ERPイベントブリッジを予約 — エンタープライズプランまで無効。",
+    "hubspot": "CRM同期アダプターを予約。",
+    "salesforce": "Platform Eventsアダプターを予約。"
+  },
+  "defaultWorkflow": {
+    "name": "顧客オンボーディング",
+    "description": "顧客作成時のウェルカムシーケンス。"
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "財務",
+    "Sales": "営業",
+    "Marketing": "マーケティング",
+    "HR": "人事",
+    "Creator": "クリエイター",
+    "Ops": "オペレーション",
+    "Projects": "プロジェクト",
+    "AI": "AI"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "顧客オンボーディング",
+      "description": "顧客作成後にウェルカムメール、AI要約、オーナータスク。",
+      "category": "CRM",
+      "recommendedFor": "新規B2B顧客をオンボーディングするチーム"
+    },
+    "tpl-invoice": {
+      "name": "請求リマインダー",
+      "description": "未払い請求のスケジュールリマインドとエスカレーション。",
+      "category": "財務",
+      "recommendedFor": "延滞債権を減らす財務オペレーション"
+    },
+    "tpl-lead": {
+      "name": "リードフォローアップ",
+      "description": "新規リード向けAIメール返信とパイプライン更新。",
+      "category": "営業",
+      "recommendedFor": "インバウンドリードが多い営業チーム"
+    },
+    "tpl-welcome": {
+      "name": "ウェルカムメール",
+      "description": "サインアップ時のシンプルなウェルカムシーケンス。",
+      "category": "マーケティング",
+      "recommendedFor": "メール自動化を始めるすべてのワークスペース"
+    },
+    "tpl-pipeline": {
+      "name": "セールスパイプライン",
+      "description": "ステージ変更時の通知とタスク。",
+      "category": "営業",
+      "recommendedFor": "多段階の案件進行を管理するチーム"
+    },
+    "tpl-recruit": {
+      "name": "採用",
+      "description": "候補者ルーティングと面接タスク。",
+      "category": "人事",
+      "recommendedFor": "採用マネージャーとピープルオプス"
+    },
+    "tpl-content": {
+      "name": "コンテンツ公開",
+      "description": "Creator Studio：公開→通知→分析。",
+      "category": "クリエイター",
+      "recommendedFor": "マーケティングとクリエイターチーム"
+    },
+    "tpl-approval": {
+      "name": "承認プロセス",
+      "description": "AI推奨付きの多段階承認。",
+      "category": "オペレーション",
+      "recommendedFor": "副作用の前の財務／オペ承認",
+      "estimatedRuntime": "人手ゲート"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "新規顧客ウェルカム",
+      "description": "顧客作成時にウェルカムメールと通知。",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "請求リマインダー",
+      "description": "請求発行後に顧客へリマインド。",
+      "category": "財務"
+    },
+    "tpl_project_kickoff": {
+      "name": "プロジェクトキックオフ",
+      "description": "プロジェクト作成時にキックオフタスクを割り当てて通知。",
+      "category": "プロジェクト"
+    },
+    "tpl_task_assignment": {
+      "name": "タスク割り当て",
+      "description": "タスク完了時に担当へメール — 次の作業をつなぐ。",
+      "category": "プロジェクト"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "AI顧客サマリー",
+      "description": "顧客作成時にAI要約を実行し出力を保存。",
+      "category": "AI"
+    },
+    "tpl_followup_reminder": {
+      "name": "フォローアップリマインダー",
+      "description": "スケジュールベースのフォローアップ（ステータスで分岐）。",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "ウェルカムメールを送信",
+    "notify_team": "チームに通知",
+    "wait_3_days": "3日待つ",
+    "still_unpaid": "まだ未払い？",
+    "send_reminder": "リマインダーを送信",
+    "assign_kickoff_task": "キックオフタスクを割り当て",
+    "notify_owner": "オーナーに通知",
+    "notify_stakeholders": "ステークホルダーに通知",
+    "run_ai_summary": "AI要約を実行",
+    "generate_document": "ドキュメントを生成",
+    "daily_schedule": "日次スケジュール",
+    "by_priority": "優先度別",
+    "urgent_notification": "緊急通知",
+    "standard_email": "標準メール"
+  },
+  "studioAiFeatures": {
+    "generate_ai_content": "AIコンテンツを生成"
   }
 }

@@ -67,14 +67,78 @@
     "title": "關鍵績效指標中心",
     "subtitle": "跨收入、客戶、專案、工作流程、代理商和自動化的可配置 KPI 目錄。",
     "emptyTitle": "分析等待訊號",
-    "emptyDescription": "一旦您的工作區產生活動，執行 KPI 和警報就會出現在此。"
+    "emptyDescription": "一旦您的工作區產生活動，執行 KPI 和警報就會出現在此。",
+    "revenue": {
+      "name": "營收",
+      "description": "期間內已確認總營收。"
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "月經常性收入。"
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "年經常性收入。"
+    },
+    "growth": {
+      "name": "成長",
+      "description": "相對上期的成長率。"
+    },
+    "customer_acquisition": {
+      "name": "獲客",
+      "description": "新獲得的客戶。"
+    },
+    "retention": {
+      "name": "留存",
+      "description": "客戶留存率。"
+    },
+    "churn": {
+      "name": "流失",
+      "description": "客戶流失率。"
+    },
+    "project_success": {
+      "name": "專案成功",
+      "description": "準時／符合範圍交付的專案。"
+    },
+    "workflow_success": {
+      "name": "工作流程成功",
+      "description": "成功的工作流程執行。"
+    },
+    "agent_performance": {
+      "name": "代理表現",
+      "description": "AI 代理任務成功分數。"
+    },
+    "automation_success": {
+      "name": "自動化成功",
+      "description": "自動化／整合可靠度。"
+    },
+    "custom": {
+      "name": "自訂 KPI",
+      "description": "組織自訂 KPI 的擴充點。"
+    }
   },
   "reports": {
     "title": "報告引擎",
     "subtitle": "報告定義已播種以供審核。在連接報告後端之前，文件匯出不可用。",
     "emptyTitle": "沒有報告",
     "emptyDescription": "報告工作區引導程式上的種子。",
-    "scheduleOnDemand": "一經請求"
+    "scheduleOnDemand": "一經請求",
+    "executive": {
+      "title": "高階週報",
+      "description": "面向 CEO 的健康、營收、風險與成長簡報。"
+    },
+    "department": {
+      "title": "銷售部門報告",
+      "description": "面向銷售領導的管道、獲客與留存。"
+    },
+    "operational": {
+      "title": "營運日報",
+      "description": "工作流程、整合與身分態勢。"
+    },
+    "management": {
+      "title": "交付管理",
+      "description": "專案成功、產能與文件吞吐。"
+    }
   },
   "insights": {
     "emptyTitle": "還沒有任何見解",
@@ -94,12 +158,88 @@
     "emptyDescription": "來自風險啟發的警報種子。",
     "acked": "確認",
     "open": "開立",
-    "acknowledge": "承認"
+    "acknowledge": "承認",
+    "revenue_drop": {
+      "title": "區隔營收走弱",
+      "body": "SMB 週環比營收下降 4% — 請檢查管道覆蓋。"
+    },
+    "project_delay": {
+      "title": "專案有延遲風險",
+      "body": "兩個交付專案已越過里程碑關卡。"
+    },
+    "churn_risk": {
+      "title": "客戶流失風險升高",
+      "body": "三個帳戶的互動分數下降。"
+    },
+    "workflow_failure": {
+      "title": "偵測到工作流程失敗",
+      "body": "發票提醒工作流程 24 小時內失敗兩次。"
+    },
+    "ai_failure": {
+      "title": "AI 任務重試升高",
+      "body": "代理任務重試率越過軟門檻。"
+    },
+    "integration_error": {
+      "title": "整合錯誤",
+      "body": "Slack 連接器間歇回傳 5xx。"
+    },
+    "security": {
+      "title": "安全性警示",
+      "body": "偵測到異常 API 金鑰使用模式。"
+    }
   },
   "scorecards": {
     "title": "記分卡引擎",
     "emptyTitle": "沒有計分卡",
-    "emptyDescription": "記分卡在引導程式上種子。"
+    "emptyDescription": "記分卡在引導程式上種子。",
+    "sales": {
+      "name": "銷售分數",
+      "drivers": {
+        "pipeline_coverage": "管道覆蓋",
+        "win_rate": "贏單率",
+        "cycle_time": "週期時間"
+      }
+    },
+    "customer_health": {
+      "name": "客戶健康分數",
+      "drivers": {
+        "retention": "留存",
+        "nps_proxy": "NPS 代理",
+        "support_load": "支援負載"
+      }
+    },
+    "project_success": {
+      "name": "專案成功分數",
+      "drivers": {
+        "on_time_delivery": "準時交付",
+        "scope_control": "範圍控制",
+        "utilization": "使用率"
+      }
+    },
+    "automation_efficiency": {
+      "name": "自動化效率",
+      "drivers": {
+        "workflow_success": "工作流程成功",
+        "manual_effort_saved": "節省的人工",
+        "retry_rate": "重試率"
+      }
+    },
+    "ai_quality": {
+      "name": "AI 品質",
+      "drivers": {
+        "task_success": "任務成功",
+        "confidence_avg": "平均信心",
+        "escalation_rate": "升級率"
+      }
+    },
+    "operational_health": {
+      "name": "營運健康",
+      "drivers": {
+        "system_health": "系統健康",
+        "integration_reliability": "整合可靠度",
+        "identity_posture": "身分態勢"
+      }
+    }
   },
   "explorer": {
     "title": "資料瀏覽器",
@@ -107,7 +247,8 @@
     "searchAria": "搜尋演示瀏覽器行",
     "emptyTitle": "沒有行匹配",
     "emptyDescription": "調整過濾器或搜索，或重新載入演示資料集。",
-    "hint": "用戶端對種子元組的搜尋 - 後端聚合和向下鑽取未連線。"
+    "hint": "用戶端對種子元組的搜尋 - 後端聚合和向下鑽取未連線。",
+    "metricLabel": "{domain} 指標 {index}"
   },
   "columns": {
     "kpi": "關鍵績效指標",
@@ -132,5 +273,121 @@
     "measure": "测量",
     "date": "日期"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "CRM 分析",
+    "projects": "專案分析",
+    "finance": "財務分析",
+    "documents": "文件分析",
+    "workflow": "工作流程分析",
+    "identity": "身分分析",
+    "ai": "AI 分析",
+    "integration": "整合分析",
+    "executive": "高階"
+  },
+  "series": {
+    "crm_leads": "潛在客戶",
+    "crm_pipeline": "管道（千美元）",
+    "proj_active": "進行中的專案",
+    "proj_on_time": "準時 %",
+    "fin_revenue": "營收（千美元）",
+    "fin_margin": "毛利率 %",
+    "doc_created": "已建立文件",
+    "doc_views": "文件瀏覽",
+    "wf_runs": "工作流程執行",
+    "wf_success": "成功率 %",
+    "id_users": "活躍使用者",
+    "id_sessions": "工作階段",
+    "ai_tasks": "代理任務",
+    "ai_success": "代理成功率 %",
+    "int_calls": "API / Webhook 呼叫",
+    "int_errors": "整合錯誤"
+  },
+  "bands": {
+    "Critical": "嚴重",
+    "Watch": "觀察",
+    "Healthy": "健康",
+    "Excellent": "優秀"
+  },
+  "charts": {
+    "chart_revenue": "營收趨勢",
+    "chart_pipeline": "CRM 管道",
+    "chart_workflows": "工作流程活動",
+    "chart_ai": "AI 活動構成",
+    "chart_ops_table": "營運快照",
+    "chart_heatmap_placeholder": "互動熱圖"
+  },
+  "chartKinds": {
+    "line": "折線",
+    "bar": "長條",
+    "area": "面積",
+    "pie": "圓餅",
+    "heatmap": "熱圖",
+    "table": "表格",
+    "card": "卡片"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "MRR 加速",
+      "summary": "MRR 成長連續三個週期改善。"
+    },
+    "pattern": {
+      "title": "開票日工作流程高峰",
+      "summary": "自動化負載與月底開票相關。"
+    },
+    "recommendation": {
+      "title": "擴充留存手冊",
+      "summary": "將 CSM 外聯聚焦於三個健康度下降的帳戶。"
+    },
+    "executive_summary": {
+      "title": "高階簡報",
+      "summary": "公司健康良好；關注流失風險與交付延遲。"
+    },
+    "risk": {
+      "title": "交付風險群集",
+      "summary": "兩個專案共享資源爭用 — 產能預測升高。"
+    },
+    "opportunity": {
+      "title": "加購機會",
+      "summary": "高用量但未使用 Business 方案的帳戶有擴充潛力。"
+    }
+  },
+  "forecastNotes": {
+    "revenue": "線性趨勢佔位 — 請改為模型服務。",
+    "customer": "獲客 + 留存合成。",
+    "project": "考量產能的交付預測。",
+    "capacity": "團隊使用率預測。",
+    "growth": "成長率預測。"
+  },
+  "forecastKinds": {
+    "revenue": "營收",
+    "customer": "客戶",
+    "project": "專案",
+    "capacity": "產能",
+    "growth": "成長"
+  },
+  "severity": {
+    "info": "資訊",
+    "warning": "警告",
+    "critical": "嚴重"
+  },
+  "trend": {
+    "up": "上升",
+    "down": "下降",
+    "flat": "持平"
+  },
+  "insightKinds": {
+    "trend": "趨勢",
+    "pattern": "模式",
+    "recommendation": "建議",
+    "executive_summary": "高階摘要",
+    "risk": "風險",
+    "opportunity": "機會"
+  },
+  "reportKinds": {
+    "executive": "高階",
+    "department": "部門",
+    "operational": "營運",
+    "management": "管理"
+  }
 }

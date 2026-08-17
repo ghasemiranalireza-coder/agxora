@@ -10,7 +10,7 @@ import { billingService } from "../billing";
 import { getCommercialPlan } from "../plans";
 import { useSaasCommercial } from "../hooks/useSaasCommercial";
 import { SaasNavLink } from "./SaasNavLink";
-import { useT } from "@/app/lib/i18n";
+import { catalogCopy, useT } from "@/app/lib/i18n";
 
 export function AccountBillingSection(): JSX.Element {
   const saas = useSaasCommercial();
@@ -38,7 +38,11 @@ export function AccountBillingSection(): JSX.Element {
   }
 
   const planName = saas.license
-    ? getCommercialPlan(saas.license.planId).name
+    ? catalogCopy(
+        t,
+        `pricing.plans.${saas.license.planId}.name`,
+        getCommercialPlan(saas.license.planId).name,
+      )
     : "—";
   const renewal =
     (saas.license?.renewsAt ?? saas.license?.trialEndsAt ?? "—").slice(0, 10);
@@ -49,7 +53,14 @@ export function AccountBillingSection(): JSX.Element {
     <div className="space-y-5">
       <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-sm">
         <Meta label={t("billing.account.currentPlan")} value={planName} />
-        <Meta label={t("billing.account.status")} value={saas.licenseStatus ?? "—"} />
+        <Meta
+          label={t("billing.account.status")}
+          value={
+            saas.licenseStatus
+              ? catalogCopy(t, `billing.licenseStatus.${saas.licenseStatus}`, saas.licenseStatus)
+              : "—"
+          }
+        />
         <Meta label={t("billing.account.renewalDate")} value={renewal} />
         <Meta label={t("billing.account.seats")} value={String(saas.license?.seats ?? "—")} />
       </dl>
@@ -78,7 +89,7 @@ export function AccountBillingSection(): JSX.Element {
                 }}
               >
                 <span className="block text-[11px] uppercase tracking-wider" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  {q.metric.replace(/_/g, " ")}
+                  {catalogCopy(t, `billing.quotas.${q.metric}`, q.metric.replace(/_/g, " "))}
                 </span>
                 {q.used.toLocaleString()} / {q.limit.toLocaleString()}
               </li>
@@ -111,7 +122,7 @@ export function AccountBillingSection(): JSX.Element {
                 }}
               >
                 <span>
-                  {inv.number} · {inv.status}
+                  {inv.number} · {catalogCopy(t, `billing.invoiceStatus.${inv.status}`, inv.status)}
                 </span>
                 <span style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                   €{inv.amountUsd.toFixed(2)} · {inv.issuedAt.slice(0, 10)}

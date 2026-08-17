@@ -3,7 +3,7 @@
 import { useMemo, useState, type JSX } from "react";
 import type { PublishStatus, QueueItem } from "../../lib/creator-studio";
 import { formatDateTime, formatLabel, publishStatusLabel } from "../../lib/creator-studio";
-import { useT } from "../../lib/i18n";
+import { catalogCopy, useT } from "../../lib/i18n";
 import { Badge, Card, DataTable, FilterSelect } from "../ui";
 import type { DataTableColumn, BadgeTone } from "../ui";
 
@@ -51,7 +51,11 @@ export function PublishingQueue({
       {
         key: "title",
         header: t("creator.queue.columns.title"),
-        render: (row) => <span className="font-medium">{row.title}</span>,
+        render: (row) => (
+          <span className="font-medium">
+            {catalogCopy(t, `creator.queueItems.${row.id}`, row.title)}
+          </span>
+        ),
       },
       {
         key: "platform",

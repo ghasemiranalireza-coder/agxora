@@ -1,7 +1,7 @@
 "use client";
 
 import type { JSX } from "react";
-import { useT } from "@/app/lib/i18n";
+import { catalogCopy, useT } from "@/app/lib/i18n";
 import type { IntegrationPlan } from "../../lib/automation";
 import { Badge, Card } from "../ui";
 import { IntegrationStatusBadge } from "./shared/StatusAndDialog";
@@ -38,14 +38,24 @@ export function AutomationIntegrations({
                   className="mt-1 text-xs uppercase tracking-[0.12em]"
                   style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                 >
-                  {item.category}
+                  {catalogCopy(
+                    t,
+                    `automation.integrationCategories.${item.category}`,
+                    item.category,
+                  )}
                 </p>
               </div>
               <IntegrationStatusBadge status={item.status} />
             </div>
             <p className="mt-3 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {t("automation.integrations.category")}{" "}
-              <span style={{ color: "var(--agx-text, #f8fafc)" }}>{item.category}</span>
+              <span style={{ color: "var(--agx-text, #f8fafc)" }}>
+                {catalogCopy(
+                  t,
+                  `automation.integrationCategories.${item.category}`,
+                  item.category,
+                )}
+              </span>
             </p>
             <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {t("automation.integrations.reservedAdapter")}{" "}
@@ -57,10 +67,16 @@ export function AutomationIntegrations({
               <span className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
                 {t("automation.integrations.description")}{" "}
               </span>
-              {item.notes}
+              {catalogCopy(t, `automation.integrationNotes.${item.id}`, item.notes)}
             </p>
             <div className="mt-3">
-              <Badge>{item.category}</Badge>
+              <Badge>
+                {catalogCopy(
+                  t,
+                  `automation.integrationCategories.${item.category}`,
+                  item.category,
+                )}
+              </Badge>
             </div>
           </article>
         ))}

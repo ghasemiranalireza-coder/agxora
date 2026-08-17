@@ -2,7 +2,7 @@
 
 import { memo, useCallback, type JSX, type KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
-import { formatDisplayDate, useT } from "../../lib/i18n";
+import { formatDisplayDate, localizeThrownError, useT } from "../../lib/i18n";
 import {
   formatMoney,
   projectStore,
@@ -154,7 +154,7 @@ export function ProjectList(): JSX.Element {
     return (
       <ErrorState
         title={t("projects.list.errorTitle")}
-        description={state.error}
+        description={localizeThrownError(t, state.error, "projects.list.errorTitle")}
         onRetry={() => void projectStore.hydrate(state.organizationId)}
       />
     );

@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Saran Pengoptimalan",
     "oneClickOptimize": "Optimalkan Satu Klik",
-    "noticeDefault": "One Click Optimize belum ada mutasi grafik.",
-    "noticeQueued": "Optimalkan antri. Mesin masa depan akan menulis ulang penundaan & persetujuan."
+    "noticeDefault": "Optimasi satu klik belum mengubah graf.",
+    "noticeQueued": "Optimasi mengantri. Mesin nanti akan menulis ulang jeda dan persetujuan.",
+    "score": {
+      "healthy": "Sehat",
+      "needsAttention": "Perlu perhatian",
+      "atRisk": "Berisiko"
+    },
+    "kinds": {
+      "missing_approval": "Persetujuan",
+      "possible_delay": "Penundaan",
+      "unused_trigger": "Pemicu",
+      "duplicate_nodes": "Duplikat",
+      "unused_action": "Tindakan",
+      "security": "Keamanan",
+      "performance": "Performa"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Persetujuan hilang",
+        "description": "Alur yang lebih panjang sering butuh gerbang persetujuan sebelum efek samping."
+      },
+      "possible_delay": {
+        "title": "Kemungkinan penundaan",
+        "description": "Pertimbangkan jeda sebelum email pengingat agar tidak beruntun."
+      },
+      "unused_trigger": {
+        "title": "Pemicu tidak terpakai",
+        "description": "Graf ini tidak punya pemicu awal — tambahkan sebelum aktivasi."
+      },
+      "duplicate_nodes": {
+        "title": "Node duplikat",
+        "description": "“{label}” muncul {count} kali — gabungkan jika berlebih."
+      },
+      "unused_action": {
+        "title": "Tindakan tidak terpakai",
+        "description": "{label} tidak terhubung — sambungkan atau hapus."
+      },
+      "security": {
+        "title": "Rekomendasi keamanan",
+        "description": "Untuk webhook dan email, pilih adapter dengan hak paling kecil."
+      },
+      "performance": {
+        "title": "Rekomendasi performa",
+        "description": "Jika mungkin, gabungkan langkah AI agar waktu rata-rata turun."
+      }
+    }
   },
   "integrations": {
     "intro": "Pusat Integrasi — opsional. Status: Terhubung, Beta, Direncanakan, Segera Hadir, Dinonaktifkan. Tidak ada API langsung.",
@@ -536,5 +580,191 @@
       "label": "Tetapkan tugas",
       "description": "Tetapkan tugas ke pengguna."
     }
+  },
+  "kinds": {
+    "trigger": "Pemicu",
+    "action": "Tindakan",
+    "condition": "Kondisi",
+    "delay": "Penundaan",
+    "approval": "Persetujuan",
+    "loop": "Loop",
+    "merge": "Gabung",
+    "split": "Pisah",
+    "ai_decision": "Keputusan AI",
+    "ai_action": "Tindakan AI",
+    "notification": "Notifikasi",
+    "webhook": "Webhook",
+    "custom_action": "Tindakan kustom",
+    "branch": "Cabang",
+    "variable": "Variabel"
+  },
+  "kpi": {
+    "active": {
+      "label": "Alur kerja aktif",
+      "caption": "Diaktifkan di ruang kerja"
+    },
+    "runs-today": {
+      "label": "Jalankan alur hari ini",
+      "caption": "Semua pemicu"
+    },
+    "success": {
+      "label": "Otomasi berhasil",
+      "caption": "Hari ini"
+    },
+    "failed": {
+      "label": "Jalankan gagal",
+      "caption": "Perlu perhatian"
+    },
+    "pending": {
+      "label": "Tugas tertunda",
+      "caption": "Persetujuan + coba ulang"
+    },
+    "avg-time": {
+      "label": "Waktu eksekusi rata-rata",
+      "caption": "Median 1,2 dtk"
+    },
+    "ai-suggestions": {
+      "label": "Saran AI",
+      "caption": "Peluang otomasi"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "Produktivitas",
+    "Communication": "Komunikasi",
+    "Commerce": "Perdagangan",
+    "Finance": "Keuangan",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "Hook Gmail / Drive / Calendar dicadangkan untuk kabel OAuth.",
+    "m365": "Hook Outlook / Teams / Graph dicadangkan.",
+    "slack": "Events API + pos obrolan dicadangkan.",
+    "teams": "Adapter Bot Framework dicadangkan.",
+    "discord": "Adapter webhook + bot dicadangkan.",
+    "whatsapp": "Adapter Meta Cloud API dicadangkan.",
+    "stripe": "Webhook pembayaran dicadangkan — tanpa kunci live.",
+    "shopify": "Peristiwa pesanan / produk dicadangkan.",
+    "datev": "Hook ekspor DATEV / batch pembukuan dicadangkan.",
+    "sap": "Jembatan peristiwa ERP dicadangkan — dinonaktifkan hingga paket enterprise.",
+    "hubspot": "Adapter sinkron CRM dicadangkan.",
+    "salesforce": "Adapter Platform Events dicadangkan."
+  },
+  "defaultWorkflow": {
+    "name": "Onboarding pelanggan",
+    "description": "Urutan sambutan saat pelanggan dibuat."
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "Keuangan",
+    "Sales": "Penjualan",
+    "Marketing": "Pemasaran",
+    "HR": "HR",
+    "Creator": "Kreator",
+    "Ops": "Ops",
+    "Projects": "Proyek",
+    "AI": "AI"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "Onboarding pelanggan",
+      "description": "Email selamat datang, ringkasan AI, dan tugas pemilik setelah pelanggan dibuat.",
+      "category": "CRM",
+      "recommendedFor": "Tim yang onboarding pelanggan B2B baru"
+    },
+    "tpl-invoice": {
+      "name": "Pengingat faktur",
+      "description": "Pengingat terjadwal untuk faktur terbuka dengan jalur eskalasi.",
+      "category": "Keuangan",
+      "recommendedFor": "Ops keuangan yang mengurangi piutang tertunggak"
+    },
+    "tpl-lead": {
+      "name": "Tindak lanjut prospek",
+      "description": "Balasan email AI plus pembaruan status pipeline untuk prospek baru.",
+      "category": "Penjualan",
+      "recommendedFor": "Tim penjualan dengan volume prospek inbound tinggi"
+    },
+    "tpl-welcome": {
+      "name": "Email selamat datang",
+      "description": "Urutan selamat datang sederhana saat daftar.",
+      "category": "Pemasaran",
+      "recommendedFor": "Setiap workspace yang mulai dengan otomasi email"
+    },
+    "tpl-pipeline": {
+      "name": "Pipeline penjualan",
+      "description": "Perubahan tahap dengan notifikasi dan tugas.",
+      "category": "Penjualan",
+      "recommendedFor": "Tim yang mengelola progres deal multi-tahap"
+    },
+    "tpl-recruit": {
+      "name": "Rekrutmen",
+      "description": "Perutean kandidat dan tugas wawancara.",
+      "category": "HR",
+      "recommendedFor": "Manajer rekrutmen dan people ops"
+    },
+    "tpl-content": {
+      "name": "Penerbitan konten",
+      "description": "Creator Studio: terbitkan → beri tahu → analitik.",
+      "category": "Kreator",
+      "recommendedFor": "Tim pemasaran dan kreator"
+    },
+    "tpl-approval": {
+      "name": "Proses persetujuan",
+      "description": "Persetujuan multi-langkah dengan rekomendasi AI.",
+      "category": "Ops",
+      "recommendedFor": "Persetujuan finance/ops sebelum efek samping",
+      "estimatedRuntime": "Gerbang manusia"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "Selamat datang pelanggan baru",
+      "description": "Email selamat datang + notifikasi saat pelanggan dibuat.",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "Pengingat faktur",
+      "description": "Ingatkan pelanggan setelah faktur diterbitkan.",
+      "category": "Keuangan"
+    },
+    "tpl_project_kickoff": {
+      "name": "Kickoff proyek",
+      "description": "Tugaskan tugas kickoff dan beri tahu saat proyek dibuat.",
+      "category": "Proyek"
+    },
+    "tpl_task_assignment": {
+      "name": "Penugasan tugas",
+      "description": "Email ke penerima saat tugas selesai — rangkai pekerjaan berikutnya.",
+      "category": "Proyek"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "Ringkasan pelanggan AI",
+      "description": "Jalankan ringkasan AI saat pelanggan dibuat; simpan keluaran.",
+      "category": "AI"
+    },
+    "tpl_followup_reminder": {
+      "name": "Pengingat tindak lanjut",
+      "description": "Tindak lanjut berbasis jadwal dengan cabang menurut status.",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "Kirim email selamat datang",
+    "notify_team": "Beritahu tim",
+    "wait_3_days": "Tunggu 3 hari",
+    "still_unpaid": "Masih belum dibayar?",
+    "send_reminder": "Kirim pengingat",
+    "assign_kickoff_task": "Tugaskan tugas kickoff",
+    "notify_owner": "Beritahu pemilik",
+    "notify_stakeholders": "Beritahu pemangku kepentingan",
+    "run_ai_summary": "Jalankan ringkasan AI",
+    "generate_document": "Buat dokumen",
+    "daily_schedule": "Jadwal harian",
+    "by_priority": "Menurut prioritas",
+    "urgent_notification": "Notifikasi mendesak",
+    "standard_email": "Email standar"
+  },
+  "studioAiFeatures": {
+    "generate_ai_content": "Buat konten AI"
   }
 }

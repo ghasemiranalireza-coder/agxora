@@ -16,14 +16,14 @@
     "privacy": "隱私",
     "terms": "條款",
     "cookies": "Cookie",
-    "imprint": "印記",
+    "imprint": "法律資訊",
     "organization": "組織",
     "user": "使用者",
     "guest": "客人",
     "member": "成員",
     "role": "角色",
     "signedIn": "已登入",
-    "guestSession": "訪客作業階段",
+    "guestSession": "訪客工作階段",
     "noResults": "沒有結果",
     "noData": "無數據",
     "comingSoon": "即將推出",
@@ -49,7 +49,7 @@
     "aiCrm": "人工智慧客戶關係管理",
     "analytics": "分析",
     "billing": "計費",
-    "aiWorkspace": "人工智慧工作空間",
+    "aiWorkspace": "AI 工作區",
     "customers": "顧客",
     "automation": "自動化",
     "financeTax": "財務與稅務",
@@ -62,10 +62,10 @@
     "menu": "選單",
     "search": "搜尋",
     "notifications": "通知",
-    "profile": "輪廓",
+    "profile": "個人資料",
     "currentOrganization": "目前組織",
-    "noNotifications": "無通知",
-    "notificationsEmpty": "你們都被困住了。警報和提及將出現在此。",
+    "noNotifications": "沒有通知",
+    "notificationsEmpty": "全部已處理。提醒與提及會顯示在這裡。",
     "accountSettings": "帳戶設定",
     "security": "安全性",
     "themeToggle": "快速主題切換。偏好：{mode}"
@@ -259,6 +259,61 @@
         "warning": "警告",
         "ok": "好的"
       }
+    },
+    "licenseStatus": {
+      "trial": "試用",
+      "active": "有效",
+      "expired": "已過期",
+      "cancelled": "已取消",
+      "suspended": "已停權",
+      "lifetime": "終身"
+    },
+    "quotas": {
+      "ai_requests": "AI 請求",
+      "projects": "專案",
+      "customers": "客戶",
+      "documents": "文件",
+      "storage_mb": "儲存 (MB)",
+      "users": "使用者",
+      "api_requests": "API 請求"
+    },
+    "invoiceStatus": {
+      "draft": "草稿",
+      "open": "未結",
+      "paid": "已付",
+      "void": "作廢",
+      "uncollectible": "無法收回",
+      "refunded": "已退款"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "試用即將結束",
+        "body": "試用約 {days} 天後結束。請升級以保留完整存取權限。"
+      },
+      "expired": {
+        "title": "訂閱已過期",
+        "body": "續訂或升級方案以恢復商業功能。"
+      },
+      "cancelled": {
+        "title": "訂閱已取消",
+        "body": "您的 AGXORA 訂閱已取消。存取權限會保留至本期結束。"
+      },
+      "quotaWarning": {
+        "title": "即將達到 {metric} 上限",
+        "body": "已用 {used} / {limit}。建議升級。"
+      },
+      "upgradeAvailable": {
+        "title": "可升級",
+        "body": "Business 與 Enterprise 可解鎖自動化、更高的 AI 配額與 API 存取。"
+      },
+      "invoiceReady": {
+        "title": "發票已就緒",
+        "body": "發票 {number} 已成功付款。"
+      },
+      "renewed": {
+        "title": "訂閱已續訂",
+        "body": "您的方案將於 {date} 續訂。"
+      }
     }
   },
   "settings": {
@@ -290,7 +345,7 @@
       "regions": {
         "EU": "歐洲聯盟",
         "US": "美國",
-        "MENA": "中東和北非地區",
+        "MENA": "中東與北非",
         "APAC": "亞太地區"
       }
     },
@@ -324,7 +379,7 @@
       "preferredProvider": "首選人工智慧提供者",
       "defaultModel": "預設AI模型",
       "temperature": "溫度",
-      "topP": "頂P",
+      "topP": "Top P",
       "maxTokens": "最大代幣數",
       "writingStyle": "寫作風格",
       "languagePreferences": "語言偏好",
@@ -341,10 +396,10 @@
       "streaming": "串流媒體",
       "streamingDescription": "當提供者支援時流模型響應。",
       "providers": {
-        "mock": "模擬（本地）",
+        "mock": "模擬（本機）",
         "openai": "開放人工智慧",
         "azure": "Azure 開放人工智慧",
-        "anthropic": "人擇",
+        "anthropic": "Anthropic",
         "google": "Google",
         "openrouter": "開放路由器",
         "ollama": "奧拉瑪",
@@ -372,7 +427,14 @@
       "themeModeAria": "主題模式",
       "resolvedAppearance": "解決外觀：",
       "accentColor": "強調色",
-      "accentNotice": "重音首選項被儲存以供將來的 CSS var 接線使用——還不會改變鎖定的顏色系統。",
+      "accentNotice": "強調色偏好會保存在此次工作階段，尚不會改動鎖定的色彩系統。",
+      "accents": {
+        "cyan": "青色",
+        "blue": "藍色",
+        "emerald": "翠綠",
+        "violet": "紫色",
+        "amber": "琥珀色"
+      },
       "density": "密度",
       "compactMode": "緊湊模式",
       "compactModeDescription": "減少企業表格和麵板之間的填充。",
@@ -741,8 +803,8 @@
     "skipToContent": "跳至儀表板內容",
     "loading": "正在加載儀表板...",
     "hero": {
-      "ariaLabel": "AGXORA CORE HERO",
-      "eyebrow": "人工智慧商業作業系統",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "AI 商業作業系統",
       "title": "AGXORA核心",
       "subtitle": "即時智慧與操作控制－您的工作空間指令介面。",
       "ctaGetStarted": "開始使用",
@@ -752,7 +814,7 @@
     },
     "quickActions": {
       "title": "快速行動",
-      "subtitle": "接下來該怎麼做？",
+      "subtitle": "接下來該做什麼？",
       "ariaLabel": "快速行動",
       "addCustomer": {
         "label": "新增客戶",
@@ -767,7 +829,7 @@
         "description": "開啟 AI 工作區"
       },
       "finance": {
-        "label": "金融",
+        "label": "財務",
         "description": "收據和現金流量"
       },
       "automations": {
@@ -782,9 +844,9 @@
     "attention": {
       "title": "需要注意",
       "ariaLabel": "需要注意什麼",
-      "empty": "你很清楚——現在沒有緊急物品。",
+      "empty": "一切正常 — 目前沒有緊急事項。",
       "tone": {
-        "critical": "批判的",
+        "critical": "嚴重",
         "warning": "警告",
         "info": "資訊",
         "success": "準備就緒",
@@ -808,11 +870,11 @@
       }
     },
     "overview": {
-      "title": "工程情況",
-      "subtitle": "{name} 的工作空間計數",
+      "title": "目前動態",
+      "subtitle": "{name} 的工作區計數",
       "fallbackName": "你的工作空間",
       "ariaLabel": "業務概況",
-      "online": "在線的",
+      "online": "在線",
       "emDash": "—",
       "capacitySignal": "{percent}% 容量訊號",
       "activeClients": {
@@ -836,15 +898,15 @@
         "viewFeed": "查看提要"
       },
       "revenue": {
-        "title": "收入",
+        "title": "營收",
         "caption": "連結帳單以顯示MRR",
-        "openBilling": "開放式計費"
+        "openBilling": "開啟帳單"
       },
       "clientShell": {
-        "title": "客戶端外殼",
+        "title": "應用程式外殼",
         "caption": "瀏覽器工作階段就緒—不是即時作業系統監視器",
         "shellLoaded": "已載入應用程式外殼",
-        "storesReady": "本地工作區商店準備就緒"
+        "storesReady": "本機工作區儲存已就緒"
       },
       "growth": {
         "title": "成長",
@@ -856,8 +918,8 @@
       "title": "最近的活動",
       "subtitle": "今天發生了什麼變化",
       "ariaLabel": "最近的活動",
-      "todayCount": "今天 {count}",
-      "localBadge": "當地的",
+      "todayCount": "今日 {count} 則",
+      "localBadge": "本機",
       "emptyTitle": "還沒有活動",
       "emptyBody": "當您新增客戶、專案等時，工作區事件將顯示在此。",
       "addCustomer": "新增客戶",
@@ -1131,9 +1193,9 @@
       "subtitle": "歡迎回到 AGXORA。",
       "email": "電子郵件",
       "password": "密碼",
-      "emailPlaceholder": "你@company.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "密碼",
-      "rememberMe": "記住帳號",
+      "rememberMe": "記住我",
       "submit": "登入",
       "submitting": "正在登入...",
       "noAccount": "還沒有帳戶?",
@@ -1153,7 +1215,7 @@
       "company": "公司",
       "password": "密碼",
       "confirmPassword": "確認密碼",
-      "acceptTerms": "我接受 ",
+      "acceptTerms": "我接受",
       "termsOfService": "服務條款",
       "and": "和",
       "privacyPolicy": "隱私權政策",
@@ -1162,13 +1224,13 @@
       "haveAccount": "已經有帳戶？",
       "signIn": "登入",
       "strength": "密碼強度",
-      "strengthWeak": "虛弱的",
-      "strengthFair": "公平的",
-      "strengthStrong": "強的",
+      "strengthWeak": "弱",
+      "strengthFair": "普通",
+      "strengthStrong": "強",
       "firstNamePlaceholder": "亞歷克斯",
-      "lastNamePlaceholder": "摩根",
+      "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "艾格索拉有限公司",
-      "emailPlaceholder": "你@company.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "最少8個字符，字母+數字",
       "confirmPasswordPlaceholder": "重複密碼",
       "failed": "註冊失敗",
@@ -1199,7 +1261,7 @@
       "loading": "重設密碼"
     },
     "contactSales": {
-      "title": "聯繫銷售人員",
+      "title": "聯絡業務",
       "subtitle": "告訴我們您的團隊。我們將跟進企業選項。",
       "name": "姓名",
       "email": "工作信箱",
@@ -1211,14 +1273,14 @@
       "employees51_200": "51–200",
       "employees201_1000": "201–1,000",
       "employees1000plus": "1,000+",
-      "message": "訊息",
+      "message": "留言",
       "messagePlaceholder": "你想解決什麼問題？",
       "submit": "發送諮詢",
       "submitting": "正在發送...",
       "successTitle": "感謝您",
       "successBody": "您的詢問已收到。我們的團隊將很快回覆。",
       "viewPricing": "查看定價",
-      "bookDemo": "預訂示範",
+      "bookDemo": "預約示範",
       "failed": "無法提交查詢",
       "country": "國家",
       "savedFor": "已為 {company} 儲存。此建置未連接銷售傳送。",
@@ -1270,7 +1332,7 @@
       },
       "customer360": {
         "title": "客戶360°",
-        "subtitle": "個人資料、公司、聯絡人、訂單、發票、Lieferscheine、付款、文件、時間表、活動、筆記、AI 摘要和通訊歷史記錄。"
+        "subtitle": "個人資料、公司、聯絡人、訂單、發票、送貨單、付款、文件、時間表、活動、筆記、AI 摘要和通訊歷史記錄。"
       },
       "salesPipeline": {
         "title": "銷售通路",
@@ -1281,11 +1343,11 @@
       },
       "deliveryModule": {
         "title": "交付模組",
-        "subtitle": "專業的 Lieferschein 系統，具備追蹤、簽章、QR 和條碼功能。"
+        "subtitle": "專業的 送貨單 系統，具備追蹤、簽章、QR 和條碼功能。"
       },
       "documentsModule": {
         "title": "文件",
-        "subtitle": "報價、合約、發票、Lieferschein、採購訂單、收據 - 透過人工智慧搜尋。"
+        "subtitle": "報價、合約、發票、送貨單、採購訂單、收據 - 透過人工智慧搜尋。"
       },
       "tasksModule": {
         "title": "任務"
@@ -1596,7 +1658,7 @@
       }
     },
     "delivery": {
-      "title": "專業 Lieferschein 系統",
+      "title": "專業 送貨單 系統",
       "description": "送貨單、取貨/送貨、司機、車輛和追蹤 - 僅樣本記錄。未連接匯出適配器。",
       "badges": {
         "qrUnavailable": "二維碼不可用",
@@ -1668,7 +1730,7 @@
       "emptyTitle": "沒有文件",
       "emptyDescription": "沒有與此搜尋相符的文件。",
       "searchLabel": "人工智慧搜尋",
-      "searchPlaceholder": "報價單、合約、發票、Lieferschein...",
+      "searchPlaceholder": "報價單、合約、發票、送貨單...",
       "typeLabel": "文件類型",
       "allTypes": "所有類型",
       "columns": {
@@ -1698,7 +1760,137 @@
       "intro": "Creator Studio基礎—官方平臺整合可以稍後插入這些適配器。Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X。"
     },
     "industry": {
-      "intro": "通用業務平台－入職後將選擇一個產業。每個行業都會獲得專用的人工智慧模組，而無需分叉核心 CRM 作業系統。"
+      "intro": "通用業務平台－入職後將選擇一個產業。每個行業都會獲得專用的人工智慧模組，而無需分叉核心 CRM 作業系統。",
+      "catalog": {
+        "business": {
+          "label": "企業",
+          "description": "通用 B2B 作業系統"
+        },
+        "freelancer": {
+          "label": "自由工作者",
+          "description": "個人工作者的 CRM、發票與客戶管道"
+        },
+        "creator": {
+          "label": "創作者",
+          "description": "創作者工作室 + 品牌 CRM"
+        },
+        "influencer": {
+          "label": "網紅",
+          "description": "贊助 CRM 與活動作業系統"
+        },
+        "agency": {
+          "label": "代理商",
+          "description": "多客戶交付與顧問合約"
+        },
+        "retail": {
+          "label": "零售",
+          "description": "門市庫存、POS 與忠誠度"
+        },
+        "restaurant": {
+          "label": "餐廳",
+          "description": "訂位、廚房與外送"
+        },
+        "hotel": {
+          "label": "飯店",
+          "description": "客房、賓客與房務"
+        },
+        "laundry": {
+          "label": "洗衣",
+          "description": "取件、工單與路線物流"
+        },
+        "healthcare": {
+          "label": "醫療",
+          "description": "病人、預約、合規"
+        },
+        "law_firm": {
+          "label": "律師事務所",
+          "description": "案件、帳單與文件庫"
+        },
+        "accounting": {
+          "label": "會計",
+          "description": "客戶帳簿與 DATEV 匯出"
+        },
+        "construction": {
+          "label": "營建",
+          "description": "工地、班組與進度請款"
+        },
+        "real_estate": {
+          "label": "房地產",
+          "description": "物件、看屋與成交"
+        },
+        "education": {
+          "label": "教育",
+          "description": "學生、課程與註冊"
+        },
+        "manufacturing": {
+          "label": "製造",
+          "description": "BOM、生產與品管"
+        },
+        "logistics": {
+          "label": "物流",
+          "description": "車隊、追蹤與送貨單"
+        },
+        "ecommerce": {
+          "label": "電子商務",
+          "description": "目錄、購物車與全通路訂單"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "銷售",
+        "finance": "財務",
+        "projects": "專案",
+        "clients": "客戶",
+        "proposals": "提案",
+        "time_tracking": "工時追蹤",
+        "invoices": "發票",
+        "creator_studio": "創作者工作室",
+        "brand_deals": "品牌合作",
+        "content_calendar": "內容日曆",
+        "sponsorships": "贊助",
+        "audience_insights": "受眾洞察",
+        "campaigns": "活動",
+        "client_portals": "客戶入口",
+        "retainers": "顧問合約",
+        "campaign_ops": "活動營運",
+        "inventory": "庫存",
+        "pos": "POS",
+        "loyalty": "忠誠度",
+        "reservations": "訂位",
+        "menu": "菜單",
+        "kitchen_display": "廚房顯示",
+        "housekeeping": "房務",
+        "guest_crm": "賓客 CRM",
+        "tickets": "工單",
+        "routes": "路線",
+        "delivery_notes": "送貨單",
+        "patients": "病人",
+        "appointments": "預約",
+        "compliance": "合規",
+        "matters": "案件",
+        "billing": "帳單",
+        "documents": "文件",
+        "client_books": "客戶帳簿",
+        "datev": "DATEV",
+        "tax_deadlines": "報稅截止",
+        "sites": "工地",
+        "crews": "班組",
+        "progress_billing": "進度請款",
+        "listings": "物件",
+        "viewings": "看屋",
+        "closings": "成交",
+        "students": "學生",
+        "courses": "課程",
+        "enrollment": "註冊",
+        "bom": "BOM",
+        "production": "生產",
+        "qc": "QC",
+        "fleet": "車隊",
+        "tracking": "追蹤",
+        "catalog": "目錄",
+        "orders": "訂單",
+        "fulfillment": "履約"
+      }
     },
     "kpi": {
       "customers": {
@@ -2769,7 +2961,7 @@
         "activeProjects": "活躍專案",
         "activeHint": "{planning}計劃",
         "completed": "完全的",
-        "completedHint": "投資組合的 {percent}%",
+        "completedHint": "佔組合的 {percent}%",
         "onHold": "等候接聽",
         "onHoldHint": "{archived}已存檔",
         "teamMembers": "團隊成員",
@@ -2831,7 +3023,7 @@
       "missingTitle": "缺少項目",
       "missingDescription": "選擇一個項目以查看其概述。",
       "title": "概述",
-      "noDescription": "沒有提供描述。",
+      "noDescription": "尚無說明。",
       "budget": "預算",
       "spent": "花費",
       "start": "開始",
@@ -2977,8 +3169,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "優化建議",
       "oneClickOptimize": "一鍵優化",
-      "noticeDefault": "一鍵優化還沒有圖形突變。",
-      "noticeQueued": "優化排隊。未來的引擎將重寫延遲和批准。"
+      "noticeDefault": "一鍵最佳化尚不會改動流程圖。",
+      "noticeQueued": "已排入最佳化。後續引擎將改寫延遲與核准。",
+      "score": {
+        "healthy": "健康",
+        "needsAttention": "需要關注",
+        "atRisk": "存在風險"
+      },
+      "kinds": {
+        "missing_approval": "核准",
+        "possible_delay": "延遲",
+        "unused_trigger": "觸發",
+        "duplicate_nodes": "重複",
+        "unused_action": "動作",
+        "security": "安全性",
+        "performance": "效能"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "缺少核准",
+          "description": "較長流程通常應在產生副作用前加入核准關卡。"
+        },
+        "possible_delay": {
+          "title": "可能需要延遲",
+          "description": "可在提醒郵件前加入延遲，避免突發打擾。"
+        },
+        "unused_trigger": {
+          "title": "未使用的觸發",
+          "description": "此圖沒有起始觸發 — 啟用前請新增一個。"
+        },
+        "duplicate_nodes": {
+          "title": "重複節點",
+          "description": "「{label}」出現 {count} 次 — 若多餘請合併。"
+        },
+        "unused_action": {
+          "title": "未使用的動作",
+          "description": "{label} 未連接 — 請連線或刪除。"
+        },
+        "security": {
+          "title": "安全性建議",
+          "description": "Webhook 與郵件操作請使用最小權限轉接器。"
+        },
+        "performance": {
+          "title": "效能建議",
+          "description": "盡可能批次處理 AI 步驟以縮短平均執行時間。"
+        }
+      }
     },
     "integrations": {
       "intro": "整合中心—選用。狀態：已連線、測試版、已計劃、即將推出、已停用。沒有即時API。",
@@ -3487,6 +3723,192 @@
         "label": "更新狀態",
         "description": "更新模組中實體的狀態。"
       }
+    },
+    "kinds": {
+      "trigger": "觸發",
+      "action": "動作",
+      "condition": "條件",
+      "delay": "延遲",
+      "approval": "核准",
+      "loop": "迴圈",
+      "merge": "合併",
+      "split": "拆分",
+      "ai_decision": "AI 決策",
+      "ai_action": "AI 動作",
+      "notification": "通知",
+      "webhook": "Webhook",
+      "custom_action": "自訂動作",
+      "branch": "分支",
+      "variable": "變數"
+    },
+    "kpi": {
+      "active": {
+        "label": "進行中的工作流程",
+        "caption": "已在工作區啟用"
+      },
+      "runs-today": {
+        "label": "今日工作流程執行",
+        "caption": "涵蓋全部觸發"
+      },
+      "success": {
+        "label": "成功的自動化",
+        "caption": "今日"
+      },
+      "failed": {
+        "label": "失敗執行",
+        "caption": "需要關注"
+      },
+      "pending": {
+        "label": "待處理任務",
+        "caption": "核准＋重試"
+      },
+      "avg-time": {
+        "label": "平均執行時間",
+        "caption": "中位數 1.2 秒"
+      },
+      "ai-suggestions": {
+        "label": "AI 建議",
+        "caption": "自動化機會"
+      }
+    },
+    "integrationCategories": {
+      "Productivity": "生產力",
+      "Communication": "通訊",
+      "Commerce": "商務",
+      "Finance": "財務",
+      "ERP": "ERP",
+      "CRM": "CRM"
+    },
+    "integrationNotes": {
+      "google-workspace": "已預留 Gmail／Drive／日曆勾點供 OAuth 接線。",
+      "m365": "已預留 Outlook／Teams／Graph 勾點。",
+      "slack": "已預留 Events API＋聊天發文。",
+      "teams": "已預留 Bot Framework 轉接器。",
+      "discord": "已預留 Webhook＋機器人轉接器。",
+      "whatsapp": "已預留 Meta Cloud API 轉接器。",
+      "stripe": "已預留付款 Webhook — 無即時金鑰。",
+      "shopify": "已預留訂單／產品事件。",
+      "datev": "已預留 DATEV 匯出／過帳批次勾點。",
+      "sap": "已預留 ERP 事件橋 — 企業方案前停用。",
+      "hubspot": "已預留 CRM 同步轉接器。",
+      "salesforce": "已預留 Platform Events 轉接器。"
+    },
+    "defaultWorkflow": {
+      "name": "客戶導入",
+      "description": "建立客戶時的歡迎序列。"
+    },
+    "templateCategories": {
+      "CRM": "CRM",
+      "Finance": "財務",
+      "Sales": "銷售",
+      "Marketing": "行銷",
+      "HR": "人資",
+      "Creator": "創作者",
+      "Ops": "營運",
+      "Projects": "專案",
+      "AI": "AI"
+    },
+    "studioTemplates": {
+      "tpl-onboarding": {
+        "name": "客戶入職",
+        "description": "客戶建立後發送歡迎郵件、AI 摘要與負責人任務。",
+        "category": "CRM",
+        "recommendedFor": "正在接入新 B2B 客戶的團隊"
+      },
+      "tpl-invoice": {
+        "name": "發票提醒",
+        "description": "針對未結發票的排程提醒與升級路徑。",
+        "category": "財務",
+        "recommendedFor": "希望降低逾期應收的財務營運"
+      },
+      "tpl-lead": {
+        "name": "潛在客戶跟進",
+        "description": "新潛在客戶的 AI 郵件回覆與管道狀態更新。",
+        "category": "銷售",
+        "recommendedFor": "入站潛在客戶量大的銷售團隊"
+      },
+      "tpl-welcome": {
+        "name": "歡迎郵件",
+        "description": "註冊時的簡單歡迎序列。",
+        "category": "行銷",
+        "recommendedFor": "任何剛開始做郵件自動化的工作區"
+      },
+      "tpl-pipeline": {
+        "name": "銷售管道",
+        "description": "階段變更並附帶通知與任務。",
+        "category": "銷售",
+        "recommendedFor": "管理多階段成交推進的團隊"
+      },
+      "tpl-recruit": {
+        "name": "招募",
+        "description": "候選人分流與面試任務。",
+        "category": "人資",
+        "recommendedFor": "招募主管與人資營運"
+      },
+      "tpl-content": {
+        "name": "內容發佈",
+        "description": "創作者工作室：發佈 → 通知 → 分析。",
+        "category": "創作者",
+        "recommendedFor": "行銷與創作者團隊"
+      },
+      "tpl-approval": {
+        "name": "核准流程",
+        "description": "帶 AI 建議的多步核准。",
+        "category": "營運",
+        "recommendedFor": "副作用發生前的財務／營運核准",
+        "estimatedRuntime": "人工關卡"
+      }
+    },
+    "engineTemplates": {
+      "tpl_customer_welcome": {
+        "name": "新客戶歡迎",
+        "description": "客戶建立時發送歡迎郵件並通知。",
+        "category": "CRM"
+      },
+      "tpl_invoice_reminder": {
+        "name": "發票提醒",
+        "description": "開票後提醒客戶。",
+        "category": "財務"
+      },
+      "tpl_project_kickoff": {
+        "name": "專案啟動",
+        "description": "專案建立時指派啟動任務並通知。",
+        "category": "專案"
+      },
+      "tpl_task_assignment": {
+        "name": "任務指派",
+        "description": "任務完成時寄信給負責人 — 銜接下一項工作。",
+        "category": "專案"
+      },
+      "tpl_ai_customer_summary": {
+        "name": "AI 客戶摘要",
+        "description": "客戶建立時執行 AI 摘要並儲存輸出。",
+        "category": "AI"
+      },
+      "tpl_followup_reminder": {
+        "name": "跟進提醒",
+        "description": "依排程跟進，並依狀態分支。",
+        "category": "CRM"
+      }
+    },
+    "nodeLabels": {
+      "send_welcome_email": "發送歡迎郵件",
+      "notify_team": "通知團隊",
+      "wait_3_days": "等待 3 天",
+      "still_unpaid": "仍未付款？",
+      "send_reminder": "發送提醒",
+      "assign_kickoff_task": "指派啟動任務",
+      "notify_owner": "通知負責人",
+      "notify_stakeholders": "通知利害關係人",
+      "run_ai_summary": "執行 AI 摘要",
+      "generate_document": "產生文件",
+      "daily_schedule": "每日排程",
+      "by_priority": "依優先順序",
+      "urgent_notification": "緊急通知",
+      "standard_email": "標準郵件"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "產生 AI 內容"
     }
   },
   "team": {
@@ -3970,6 +4392,177 @@
     "os": {
       "prioritizeCustomerImpact": "優先考量客戶影響",
       "delegatedFollowUp": "已委派後續"
+    },
+    "categories": {
+      "Leadership": "領導力",
+      "Revenue": "營收",
+      "CRM": "CRM",
+      "Delivery": "交付",
+      "Automation": "自動化",
+      "Finance": "財務",
+      "Knowledge": "知識",
+      "Support": "支援",
+      "Productivity": "生產力",
+      "Custom": "自訂"
+    },
+    "catalog": {
+      "executive_advisor": {
+        "name": "高階顧問",
+        "description": "策略簡報、KPI 彙整與決策支援。"
+      },
+      "sales_agent": {
+        "name": "銷售代理",
+        "description": "管道輔導、外聯草稿與交易下一步。"
+      },
+      "crm_assistant": {
+        "name": "CRM 助理",
+        "description": "客戶資料充實、資料衛生與關係洞察。"
+      },
+      "project_manager": {
+        "name": "專案經理",
+        "description": "計畫、任務拆解與交付風險訊號。"
+      },
+      "workflow_coordinator": {
+        "name": "工作流程協調員",
+        "description": "觸發並編排 AGXORA 自動化工作流程。"
+      },
+      "finance_assistant": {
+        "name": "財務助理",
+        "description": "發票洞察、現金流備註與財務摘要。"
+      },
+      "document_analyst": {
+        "name": "文件分析師",
+        "description": "從文件擷取結構、風險與摘要。"
+      },
+      "knowledge_assistant": {
+        "name": "知識助理",
+        "description": "依企業知識作答，檢索已為 RAG 預留。"
+      },
+      "support_assistant": {
+        "name": "支援助理",
+        "description": "客戶支援分流、回覆與升級路徑。"
+      },
+      "meeting_assistant": {
+        "name": "會議助理",
+        "description": "議程準備、筆記佔位與後續追蹤。"
+      },
+      "custom": {
+        "name": "自訂代理",
+        "description": "組織專屬代理的擴充點。"
+      }
+    },
+    "toolsCatalog": {
+      "crm": {
+        "name": "CRM 工具",
+        "description": "建立/更新客戶並讀取帳戶脈絡。"
+      },
+      "projects": {
+        "name": "專案工具",
+        "description": "管理專案、任務與交付狀態。"
+      },
+      "finance": {
+        "name": "財務工具",
+        "description": "發票、餘額與財務摘要。"
+      },
+      "documents": {
+        "name": "文件工具",
+        "description": "讀取並摘要工作區文件。"
+      },
+      "workflow": {
+        "name": "工作流程工具",
+        "description": "觸發並檢查自動化工作流程。"
+      },
+      "integration": {
+        "name": "整合工具",
+        "description": "呼叫已連線的第三方連接器。"
+      },
+      "email": {
+        "name": "郵件工具",
+        "description": "草擬並排隊外寄郵件。"
+      },
+      "calendar": {
+        "name": "日曆工具",
+        "description": "安排並檢視日曆活動。"
+      },
+      "search": {
+        "name": "搜尋工具",
+        "description": "通用工作區搜尋。"
+      },
+      "notification": {
+        "name": "通知工具",
+        "description": "傳送應用內通知。"
+      },
+      "api": {
+        "name": "API 工具",
+        "description": "呼叫內部 API 閘道路由。"
+      },
+      "mcp": {
+        "name": "MCP 工具",
+        "description": "未來的 Model Context Protocol 伺服器工具。"
+      }
+    },
+    "knowledgeDocs": {
+      "company": {
+        "title": "AGXORA 營運原則",
+        "summary": "面向模組化安全 AI 代理的企業作業系統原則。"
+      },
+      "policies": {
+        "title": "資料處理政策",
+        "summary": "敏感工具隔離與最小權限存取。"
+      },
+      "procedures": {
+        "title": "客戶升級程序",
+        "summary": "支援助理在低信心時的升級路徑。"
+      },
+      "rag": {
+        "title": "RAG 索引佔位",
+        "summary": "未來對文件與 CRM 筆記的向量檢索。"
+      }
+    },
+    "llm": {
+      "local": "本機 LLM",
+      "mcp": "MCP 伺服器",
+      "custom": "自訂模型"
+    },
+    "lifecycle": {
+      "draft": "草稿",
+      "registered": "已註冊",
+      "active": "啟用",
+      "paused": "已暫停",
+      "error": "錯誤",
+      "retired": "已停用"
+    },
+    "healthStatus": {
+      "healthy": "健康",
+      "degraded": "降級",
+      "down": "停機",
+      "unknown": "未知"
+    },
+    "taskStatus": {
+      "pending": "待處理",
+      "running": "執行中",
+      "completed": "已完成",
+      "cancelled": "已取消",
+      "failed": "失敗",
+      "retrying": "重試中"
+    },
+    "memoryScope": {
+      "working": "工作",
+      "conversation": "對話",
+      "business": "業務",
+      "long_term": "長期",
+      "workspace": "工作區",
+      "agent": "代理"
+    },
+    "knowledgeKind": {
+      "company": "公司",
+      "documents": "文件",
+      "projects": "專案",
+      "crm": "CRM",
+      "policies": "政策",
+      "procedures": "程序",
+      "vector": "向量",
+      "rag": "RAG"
     }
   },
   "integrations": {
@@ -4037,7 +4630,17 @@
     "logs": {
       "title": "整合日誌",
       "emptyTitle": "還沒有日誌",
-      "emptyDescription": "連接提供者或運行診斷。"
+      "emptyDescription": "連接提供者或運行診斷。",
+      "installed": "已安裝 {name}",
+      "demoConnected": "示範已連線 {name}",
+      "disconnected": "已中斷 {name}",
+      "webhookCreated": "已建立 Webhook {name}",
+      "keyCreated": "已建立 API 金鑰 {name}",
+      "keyRotated": "已輪替金鑰 {name}",
+      "keyRevoked": "已撤銷金鑰 {name}",
+      "stubHealthy": "{name} 佔位健康",
+      "diagnosticsComplete": "診斷完成",
+      "outgoing": "外送 {status}: {eventType}"
     },
     "apiKeys": {
       "title": "API 金鑰",
@@ -4112,7 +4715,92 @@
     },
     "errors": {
       "failedToFetch": "獲取失敗",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "未知連接器。",
+      "webhookNotFound": "找不到 Webhook。",
+      "apiKeyInactive": "API 金鑰未啟用或已過期。"
+    },
+    "categories": {
+      "productivity": "生產力",
+      "communication": "通訊",
+      "storage": "儲存",
+      "crm": "CRM",
+      "automation": "自動化",
+      "devtools": "開發者工具",
+      "custom": "自訂"
+    },
+    "auth": {
+      "oauth2": "OAuth 2.0",
+      "api_key": "API 金鑰",
+      "webhook": "Webhook"
+    },
+    "oauth": {
+      "custom": "自訂 OAuth"
+    },
+    "connectorNames": {
+      "custom": "自訂連接器"
+    },
+    "connectors": {
+      "microsoft365": {
+        "description": "透過 Microsoft Graph 使用郵件、日曆與 Teams。"
+      },
+      "google_workspace": {
+        "description": "面向 Workspace 租用戶的 Gmail、日曆與雲端硬碟。"
+      },
+      "slack": {
+        "description": "頻道、訊息與互動通知。"
+      },
+      "discord": {
+        "description": "伺服器通知與機器人訊息投遞。"
+      },
+      "dropbox": {
+        "description": "檔案同步與共用資料夾事件。"
+      },
+      "onedrive": {
+        "description": "Microsoft OneDrive 檔案儲存與差異同步。"
+      },
+      "google_drive": {
+        "description": "雲端硬碟檔案、資料夾與變更通知。"
+      },
+      "hubspot": {
+        "description": "CRM 聯絡人、交易與行銷事件。"
+      },
+      "salesforce": {
+        "description": "企業 CRM 物件與 Platform Events。"
+      },
+      "zapier": {
+        "description": "發往 Zapier zap 的外送勾點。"
+      },
+      "make": {
+        "description": "Make（Integromat）情境 Webhook。"
+      },
+      "github": {
+        "description": "儲存庫、議題、提取要求與 Actions。"
+      },
+      "gitlab": {
+        "description": "專案、合併請求、管線與 Webhook。"
+      },
+      "custom": {
+        "description": "專有企業系統的擴充點。"
+      }
+    },
+    "healthStatus": {
+      "healthy": "健康",
+      "degraded": "降級",
+      "down": "停機",
+      "unknown": "未知"
+    },
+    "health": {
+      "installedAuthorize": "已安裝 — 連線以授權",
+      "oauthStubPlaceholder": "本機 OAuth 示範（佔位）",
+      "oauthStubLive": "本機 OAuth 示範（即時）",
+      "demoCredential": "已儲存本機示範憑證 — 未連線即時 API",
+      "demoConnection": "本機示範連線 — 非即時供應商連結",
+      "disconnected": "已中斷"
+    },
+    "generated": {
+      "keyName": "金鑰 {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {
@@ -4184,14 +4872,78 @@
       "title": "關鍵績效指標中心",
       "subtitle": "跨收入、客戶、專案、工作流程、代理商和自動化的可配置 KPI 目錄。",
       "emptyTitle": "分析等待訊號",
-      "emptyDescription": "一旦您的工作區產生活動，執行 KPI 和警報就會出現在此。"
+      "emptyDescription": "一旦您的工作區產生活動，執行 KPI 和警報就會出現在此。",
+      "revenue": {
+        "name": "營收",
+        "description": "期間內已確認總營收。"
+      },
+      "mrr": {
+        "name": "MRR",
+        "description": "月經常性收入。"
+      },
+      "arr": {
+        "name": "ARR",
+        "description": "年經常性收入。"
+      },
+      "growth": {
+        "name": "成長",
+        "description": "相對上期的成長率。"
+      },
+      "customer_acquisition": {
+        "name": "獲客",
+        "description": "新獲得的客戶。"
+      },
+      "retention": {
+        "name": "留存",
+        "description": "客戶留存率。"
+      },
+      "churn": {
+        "name": "流失",
+        "description": "客戶流失率。"
+      },
+      "project_success": {
+        "name": "專案成功",
+        "description": "準時／符合範圍交付的專案。"
+      },
+      "workflow_success": {
+        "name": "工作流程成功",
+        "description": "成功的工作流程執行。"
+      },
+      "agent_performance": {
+        "name": "代理表現",
+        "description": "AI 代理任務成功分數。"
+      },
+      "automation_success": {
+        "name": "自動化成功",
+        "description": "自動化／整合可靠度。"
+      },
+      "custom": {
+        "name": "自訂 KPI",
+        "description": "組織自訂 KPI 的擴充點。"
+      }
     },
     "reports": {
       "title": "報告引擎",
       "subtitle": "報告定義已播種以供審核。在連接報告後端之前，文件匯出不可用。",
       "emptyTitle": "沒有報告",
       "emptyDescription": "報告工作區引導程式上的種子。",
-      "scheduleOnDemand": "一經請求"
+      "scheduleOnDemand": "一經請求",
+      "executive": {
+        "title": "高階週報",
+        "description": "面向 CEO 的健康、營收、風險與成長簡報。"
+      },
+      "department": {
+        "title": "銷售部門報告",
+        "description": "面向銷售領導的管道、獲客與留存。"
+      },
+      "operational": {
+        "title": "營運日報",
+        "description": "工作流程、整合與身分態勢。"
+      },
+      "management": {
+        "title": "交付管理",
+        "description": "專案成功、產能與文件吞吐。"
+      }
     },
     "insights": {
       "emptyTitle": "還沒有任何見解",
@@ -4211,12 +4963,88 @@
       "emptyDescription": "來自風險啟發的警報種子。",
       "acked": "確認",
       "open": "開立",
-      "acknowledge": "承認"
+      "acknowledge": "承認",
+      "revenue_drop": {
+        "title": "區隔營收走弱",
+        "body": "SMB 週環比營收下降 4% — 請檢查管道覆蓋。"
+      },
+      "project_delay": {
+        "title": "專案有延遲風險",
+        "body": "兩個交付專案已越過里程碑關卡。"
+      },
+      "churn_risk": {
+        "title": "客戶流失風險升高",
+        "body": "三個帳戶的互動分數下降。"
+      },
+      "workflow_failure": {
+        "title": "偵測到工作流程失敗",
+        "body": "發票提醒工作流程 24 小時內失敗兩次。"
+      },
+      "ai_failure": {
+        "title": "AI 任務重試升高",
+        "body": "代理任務重試率越過軟門檻。"
+      },
+      "integration_error": {
+        "title": "整合錯誤",
+        "body": "Slack 連接器間歇回傳 5xx。"
+      },
+      "security": {
+        "title": "安全性警示",
+        "body": "偵測到異常 API 金鑰使用模式。"
+      }
     },
     "scorecards": {
       "title": "記分卡引擎",
       "emptyTitle": "沒有計分卡",
-      "emptyDescription": "記分卡在引導程式上種子。"
+      "emptyDescription": "記分卡在引導程式上種子。",
+      "sales": {
+        "name": "銷售分數",
+        "drivers": {
+          "pipeline_coverage": "管道覆蓋",
+          "win_rate": "贏單率",
+          "cycle_time": "週期時間"
+        }
+      },
+      "customer_health": {
+        "name": "客戶健康分數",
+        "drivers": {
+          "retention": "留存",
+          "nps_proxy": "NPS 代理",
+          "support_load": "支援負載"
+        }
+      },
+      "project_success": {
+        "name": "專案成功分數",
+        "drivers": {
+          "on_time_delivery": "準時交付",
+          "scope_control": "範圍控制",
+          "utilization": "使用率"
+        }
+      },
+      "automation_efficiency": {
+        "name": "自動化效率",
+        "drivers": {
+          "workflow_success": "工作流程成功",
+          "manual_effort_saved": "節省的人工",
+          "retry_rate": "重試率"
+        }
+      },
+      "ai_quality": {
+        "name": "AI 品質",
+        "drivers": {
+          "task_success": "任務成功",
+          "confidence_avg": "平均信心",
+          "escalation_rate": "升級率"
+        }
+      },
+      "operational_health": {
+        "name": "營運健康",
+        "drivers": {
+          "system_health": "系統健康",
+          "integration_reliability": "整合可靠度",
+          "identity_posture": "身分態勢"
+        }
+      }
     },
     "explorer": {
       "title": "資料瀏覽器",
@@ -4224,7 +5052,8 @@
       "searchAria": "搜尋演示瀏覽器行",
       "emptyTitle": "沒有行匹配",
       "emptyDescription": "調整過濾器或搜索，或重新載入演示資料集。",
-      "hint": "用戶端對種子元組的搜尋 - 後端聚合和向下鑽取未連線。"
+      "hint": "用戶端對種子元組的搜尋 - 後端聚合和向下鑽取未連線。",
+      "metricLabel": "{domain} 指標 {index}"
     },
     "columns": {
       "kpi": "關鍵績效指標",
@@ -4249,7 +5078,123 @@
       "measure": "测量",
       "date": "日期"
     },
-    "emDash": "—"
+    "emDash": "—",
+    "domains": {
+      "crm": "CRM 分析",
+      "projects": "專案分析",
+      "finance": "財務分析",
+      "documents": "文件分析",
+      "workflow": "工作流程分析",
+      "identity": "身分分析",
+      "ai": "AI 分析",
+      "integration": "整合分析",
+      "executive": "高階"
+    },
+    "series": {
+      "crm_leads": "潛在客戶",
+      "crm_pipeline": "管道（千美元）",
+      "proj_active": "進行中的專案",
+      "proj_on_time": "準時 %",
+      "fin_revenue": "營收（千美元）",
+      "fin_margin": "毛利率 %",
+      "doc_created": "已建立文件",
+      "doc_views": "文件瀏覽",
+      "wf_runs": "工作流程執行",
+      "wf_success": "成功率 %",
+      "id_users": "活躍使用者",
+      "id_sessions": "工作階段",
+      "ai_tasks": "代理任務",
+      "ai_success": "代理成功率 %",
+      "int_calls": "API / Webhook 呼叫",
+      "int_errors": "整合錯誤"
+    },
+    "bands": {
+      "Critical": "嚴重",
+      "Watch": "觀察",
+      "Healthy": "健康",
+      "Excellent": "優秀"
+    },
+    "charts": {
+      "chart_revenue": "營收趨勢",
+      "chart_pipeline": "CRM 管道",
+      "chart_workflows": "工作流程活動",
+      "chart_ai": "AI 活動構成",
+      "chart_ops_table": "營運快照",
+      "chart_heatmap_placeholder": "互動熱圖"
+    },
+    "chartKinds": {
+      "line": "折線",
+      "bar": "長條",
+      "area": "面積",
+      "pie": "圓餅",
+      "heatmap": "熱圖",
+      "table": "表格",
+      "card": "卡片"
+    },
+    "insightItems": {
+      "trend": {
+        "title": "MRR 加速",
+        "summary": "MRR 成長連續三個週期改善。"
+      },
+      "pattern": {
+        "title": "開票日工作流程高峰",
+        "summary": "自動化負載與月底開票相關。"
+      },
+      "recommendation": {
+        "title": "擴充留存手冊",
+        "summary": "將 CSM 外聯聚焦於三個健康度下降的帳戶。"
+      },
+      "executive_summary": {
+        "title": "高階簡報",
+        "summary": "公司健康良好；關注流失風險與交付延遲。"
+      },
+      "risk": {
+        "title": "交付風險群集",
+        "summary": "兩個專案共享資源爭用 — 產能預測升高。"
+      },
+      "opportunity": {
+        "title": "加購機會",
+        "summary": "高用量但未使用 Business 方案的帳戶有擴充潛力。"
+      }
+    },
+    "forecastNotes": {
+      "revenue": "線性趨勢佔位 — 請改為模型服務。",
+      "customer": "獲客 + 留存合成。",
+      "project": "考量產能的交付預測。",
+      "capacity": "團隊使用率預測。",
+      "growth": "成長率預測。"
+    },
+    "forecastKinds": {
+      "revenue": "營收",
+      "customer": "客戶",
+      "project": "專案",
+      "capacity": "產能",
+      "growth": "成長"
+    },
+    "severity": {
+      "info": "資訊",
+      "warning": "警告",
+      "critical": "嚴重"
+    },
+    "trend": {
+      "up": "上升",
+      "down": "下降",
+      "flat": "持平"
+    },
+    "insightKinds": {
+      "trend": "趨勢",
+      "pattern": "模式",
+      "recommendation": "建議",
+      "executive_summary": "高階摘要",
+      "risk": "風險",
+      "opportunity": "機會"
+    },
+    "reportKinds": {
+      "executive": "高階",
+      "department": "部門",
+      "operational": "營運",
+      "management": "管理"
+    }
   },
   "legal": {
     "shell": {
@@ -4679,13 +5624,223 @@
       "professional": "專業",
       "friendly": "友善",
       "luxury": "奢華",
-      "casual": "隨興"
+      "casual": "隨興",
+      "minimal": "極簡",
+      "corporate": "企業",
+      "creative": "創意",
+      "custom": "自訂品牌聲線"
     },
     "integrationStatus": {
       "planned": "已規劃",
       "ready": "就緒",
       "connected": "已連線",
       "disabled": "已停用"
+    },
+    "categories": {
+      "social": "社群",
+      "ads": "廣告",
+      "analytics": "分析"
+    },
+    "platforms": {
+      "instagram": {
+        "notes": "已預留官方 Graph API 發佈與洞察。"
+      },
+      "tiktok": {
+        "notes": "已預留 TikTok Content Posting API 轉接器。"
+      },
+      "youtube": {
+        "notes": "已預留 YouTube Data API 上傳與分析。"
+      },
+      "facebook": {
+        "notes": "已預留 Pages 發佈轉接器。"
+      },
+      "linkedin": {
+        "notes": "已預留 UGC／組織貼文轉接器。"
+      },
+      "pinterest": {
+        "notes": "已預留 Pins + Boards 轉接器。"
+      },
+      "threads": {
+        "notes": "已預留 Threads API 轉接器。"
+      },
+      "x": {
+        "notes": "已預留 X API v2 發文轉接器。"
+      },
+      "meta-business": {
+        "notes": "已預留 Meta Business Suite／Ads Manager 勾點。"
+      },
+      "google-ads": {
+        "notes": "已預留 Google Ads API 廣告活動同步。"
+      },
+      "google-analytics": {
+        "notes": "已預留 GA4 衡量與報表轉接器。"
+      }
+    },
+    "features": {
+      "ideas": {
+        "label": "內容構想",
+        "description": "面向產業的活動與貼文構想引擎。"
+      },
+      "captions": {
+        "label": "文案產生器",
+        "description": "依平台格式產生品牌聲線文案。"
+      },
+      "hashtags": {
+        "label": "主題標籤建議",
+        "description": "主題標籤組的相關性與觸及評分。"
+      },
+      "calendar": {
+        "label": "內容日曆",
+        "description": "跨平台編輯日曆基礎。"
+      },
+      "campaigns": {
+        "label": "活動規劃",
+        "description": "目標、受眾、平台與時程。"
+      },
+      "audience": {
+        "label": "受眾建議",
+        "description": "來自 CRM＋創作者訊號的區隔建議。"
+      },
+      "schedule": {
+        "label": "發佈排程",
+        "description": "考量時區的最佳發佈時段。"
+      },
+      "brand": {
+        "label": "品牌一致性",
+        "description": "對照品牌聲線檢查語氣與素材。"
+      },
+      "rewrite": {
+        "label": "AI 改寫",
+        "description": "依清晰度、長度或通路改寫草稿。"
+      },
+      "translate": {
+        "label": "翻譯內容",
+        "description": "已預留多語翻譯管線。"
+      },
+      "i18n": {
+        "label": "多語支援",
+        "description": "發佈與分析介面的語言套件。"
+      }
+    },
+    "kpi": {
+      "content": {
+        "label": "已創作內容",
+        "caption": "本季"
+      },
+      "campaigns": {
+        "label": "活動",
+        "caption": "進行中＋已規劃"
+      },
+      "scheduled": {
+        "label": "已排程貼文",
+        "caption": "未來 14 天"
+      },
+      "engagement": {
+        "label": "互動",
+        "caption": "各通路平均比率"
+      },
+      "followers": {
+        "label": "追蹤成長",
+        "caption": "過去 30 天"
+      },
+      "reach": {
+        "label": "觸及",
+        "caption": "獨立曝光"
+      },
+      "conversions": {
+        "label": "轉換",
+        "caption": "歸因動作"
+      },
+      "ai-score": {
+        "label": "AI 表現分",
+        "caption": "內容品質訊號"
+      }
+    },
+    "analyticsMetrics": {
+      "a1": "互動",
+      "a2": "觸及",
+      "a3": "CTR",
+      "a4": "轉換",
+      "a5": "受眾成長",
+      "a6": "內容表現"
+    },
+    "voiceDesc": {
+      "professional": "清晰、可信、業務優先的語氣。",
+      "luxury": "精煉、克制、高端表述。",
+      "friendly": "溫暖、親切、口語化。",
+      "casual": "輕鬆日常用語。",
+      "minimal": "短句、高清晰度。",
+      "corporate": "正式企業溝通。",
+      "creative": "面向活動的表現力敘事。",
+      "custom": "稍後上傳指南與範例文案。"
+    },
+    "formatDesc": {
+      "instagram_caption": "帶 CTA 鉤子的動態／Reels 文案。",
+      "tiktok_script": "短腳本：鉤子 → 價值 → CTA。",
+      "linkedin_post": "思想領導力與 B2B 敘事。",
+      "facebook_post": "面向社群與粉絲專頁的貼文。",
+      "x_post": "簡潔串文與單篇貼文。",
+      "blog_article": "長文編輯草稿。",
+      "newsletter": "電子報章節與主旨列。",
+      "email_campaign": "活動序列與培育文案。",
+      "product_description": "面向電商的產品敘述。",
+      "ad_copy": "付費社群與搜尋廣告變體。",
+      "seo_article": "帶大綱結構的搜尋意圖文章。",
+      "landing_page_copy": "主視覺、賣點、證據與 CTA 區塊。"
+    },
+    "campaignStatus": {
+      "Active": "進行中",
+      "In review": "審核中",
+      "Planned": "已規劃"
+    },
+    "campaigns": {
+      "camp-1": {
+        "name": "Q3 產品發表",
+        "objective": "認知＋候補名單註冊",
+        "audience": "歐盟中小企業營運者",
+        "budget": "€8,500（佔位）",
+        "timeline": "8 月 4 日 – 9 月 12 日"
+      },
+      "camp-2": {
+        "name": "創作者合作衝刺",
+        "objective": "觸及＋社群成長",
+        "audience": "創作者 18–34 DE/AT",
+        "budget": "€4,200（佔位）",
+        "timeline": "7 月 20 日 – 8 月 20 日"
+      },
+      "camp-3": {
+        "name": "代理作品集推廣",
+        "objective": "潛在客戶獲取",
+        "audience": "行銷總監",
+        "budget": "€2,900（佔位）",
+        "timeline": "9 月 1 日 – 9 月 30 日"
+      }
+    },
+    "calendarItems": {
+      "cal-1": "發表預熱短片",
+      "cal-2": "創辦人 LinkedIn 敘事",
+      "cal-3": "候補名單郵件 #1",
+      "cal-4": "TikTok 示範腳本"
+    },
+    "queueItems": {
+      "q-1": "發表預熱短片文案",
+      "q-2": "創辦人敘事貼文",
+      "q-3": "候補名單培育郵件",
+      "q-4": "產品落地頁主文案",
+      "q-5": "TikTok 示範腳本 v2",
+      "q-6": "六月回顧輪播",
+      "q-7": "舊促銷串文"
+    },
+    "topPosts": {
+      "tp-1": "倉儲自動化拆解",
+      "tp-2": "30 秒產品示範短片",
+      "tp-3": "創作者合作鉤子"
+    },
+    "recommendations": {
+      "r1": "本週把 LinkedIn 拆解改成三頁輪播。",
+      "r2": "將 TikTok 示範排在週二至週四 18:00–20:00 CET 以提高完播。",
+      "r3": "收緊 Instagram CTA 的奢華品牌聲線 — 縮短約 20%。",
+      "r4": "將熱門短片文案譯為 DE/FR 以拓展歐盟受眾。"
     }
   },
   "backend": {
@@ -4726,7 +5881,7 @@
     "skipToMain": "跳至主要內容",
     "offline": {
       "title": "您離線",
-      "message": "請檢查您的連線，並在重新上線後重試。快取螢幕仍可能正常運作。",
+      "message": "請檢查連線，恢復後再重試。快取畫面可能仍可使用。",
       "home": "家",
       "contact": "接觸",
       "signIn": "登入"

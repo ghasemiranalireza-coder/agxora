@@ -61,7 +61,7 @@
     "preferredProvider": "Penyedia AI Pilihan",
     "defaultModel": "Model AI Bawaan",
     "temperature": "Suhu",
-    "topP": "P atas",
+    "topP": "Top P",
     "maxTokens": "Token Maks",
     "writingStyle": "Gaya Penulisan",
     "languagePreferences": "Preferensi Bahasa",
@@ -78,10 +78,10 @@
     "streaming": "Mengalir",
     "streamingDescription": "Streaming respons model ketika penyedia mendukungnya.",
     "providers": {
-      "mock": "Tiruan (lokal)",
+      "mock": "Mock (lokal)",
       "openai": "OpenAI",
       "azure": "Azure OpenAI",
-      "anthropic": "Antropis",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "BukaRouter",
       "ollama": "Ollama",
@@ -108,10 +108,10 @@
     "themeLabel": "Tema",
     "themeModeAria": "Modus tema",
     "resolvedAppearance": "Penampilan terselesaikan:",
-    "accentColor": "Warna Aksen",
-    "accentNotice": "Preferensi aksen disimpan untuk pengkabelan var CSS di masa mendatang — belum mengubah sistem warna yang terkunci.",
+    "accentColor": "Warna aksen",
+    "accentNotice": "Preferensi aksen disimpan untuk sesi ini dan belum mengubah sistem warna yang dikunci.",
     "density": "Kepadatan",
-    "compactMode": "Mode Kompak",
+    "compactMode": "Mode ringkas",
     "compactModeDescription": "Kurangi padding di seluruh tabel dan panel perusahaan.",
     "animations": "Animasi",
     "animationsDescription": "Bagian gerakan dan hover lift. Menghargai pengaturan OS dengan gerakan yang dikurangi.",
@@ -135,6 +135,13 @@
       "comfortable": "Nyaman",
       "compact": "Kompak",
       "spacious": "Luas"
+    },
+    "accents": {
+      "cyan": "Cyan",
+      "blue": "Biru",
+      "emerald": "Zamrud",
+      "violet": "Ungu",
+      "amber": "Amber"
     }
   },
   "notifications": {

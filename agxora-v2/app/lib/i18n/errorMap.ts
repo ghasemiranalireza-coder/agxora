@@ -30,6 +30,13 @@ const MESSAGE_TO_KEY: Record<string, string> = {
   "Sign in required.": "errors.signInRequired",
   "You do not have access to this route.": "errors.noRouteAccess",
   "Insufficient permissions.": "errors.insufficientPermissions",
+  "You must accept the terms to continue.": "errors.acceptTerms",
+  "Message content is required": "errors.required",
+  "Valid email required": "errors.invalidEmail",
+  "Invitation expired": "team.invite.failed",
+  "Unknown connector": "integrations.errors.unknownConnector",
+  "Webhook not found": "integrations.errors.webhookNotFound",
+  "API key inactive or expired": "integrations.errors.apiKeyInactive",
 };
 
 const CODE_TO_KEY: Record<string, string> = {
@@ -75,12 +82,27 @@ export function resolveUserFacingErrorKey(
     if (typeof rec.message === "string") {
       if (isTranslationKey(rec.message)) return rec.message;
       if (MESSAGE_TO_KEY[rec.message]) return MESSAGE_TO_KEY[rec.message];
+      if (rec.message.startsWith("Unknown connector:")) {
+        return "integrations.errors.unknownConnector";
+      }
     }
   }
   if (typeof err === "string") {
     if (isTranslationKey(err)) return err;
     if (MESSAGE_TO_KEY[err]) return MESSAGE_TO_KEY[err];
+    if (err.startsWith("Unknown connector:")) {
+      return "integrations.errors.unknownConnector";
+    }
     if (CODE_TO_KEY[err]) return CODE_TO_KEY[err];
   }
   return fallback;
+}
+
+/** Translate a thrown/API error for UI display. Never leak raw English. */
+export function localizeThrownError(
+  t: (key: string, values?: Readonly<Record<string, string | number>>) => string,
+  err: unknown,
+  fallback = "errors.codes.COMMON_SOMETHING_WENT_WRONG",
+): string {
+  return t(resolveUserFacingErrorKey(err, fallback));
 }

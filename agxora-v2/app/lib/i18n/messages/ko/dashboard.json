@@ -2,8 +2,8 @@
   "skipToContent": "대시보드 콘텐츠로 건너뛰기",
   "loading": "대시보드 로드 중…",
   "hero": {
-    "ariaLabel": "AGXORA CORE 영웅",
-    "eyebrow": "AI 비즈니스 운영 시스템",
+    "ariaLabel": "AGXORA CORE",
+    "eyebrow": "AI 비즈니스 운영 체제",
     "title": "악소라 코어",
     "subtitle": "실시간 인텔리전스 및 운영 제어 - 작업 공간 명령 표면.",
     "ctaGetStarted": "시작하기",
@@ -13,11 +13,11 @@
   },
   "quickActions": {
     "title": "빠른 작업",
-    "subtitle": "다음에는 무엇을 해야 합니까?",
+    "subtitle": "다음에 무엇을 할까요?",
     "ariaLabel": "빠른 작업",
     "addCustomer": {
       "label": "고객 추가",
-      "description": "CRM 레코드 만들기"
+      "description": "CRM 기록 만들기"
     },
     "newProject": {
       "label": "새 프로젝트",
@@ -28,7 +28,7 @@
       "description": "AI 작업 영역 열기"
     },
     "finance": {
-      "label": "재원",
+      "label": "재무",
       "description": "송장 및 현금 흐름"
     },
     "automations": {
@@ -43,9 +43,9 @@
   "attention": {
     "title": "주의가 필요함",
     "ariaLabel": "주의가 필요한 것",
-    "empty": "분명합니다. 지금은 긴급한 항목이 없습니다.",
+    "empty": "모두 정상입니다. 지금 긴급 항목이 없습니다.",
     "tone": {
-      "critical": "비판적인",
+      "critical": "심각",
       "warning": "경고",
       "info": "정보",
       "success": "준비가 된",
@@ -69,15 +69,15 @@
     }
   },
   "overview": {
-    "title": "무슨 일이야?",
-    "subtitle": "{name}의 작업공간 수",
+    "title": "지금 상황",
+    "subtitle": "{name}의 워크스페이스 수치",
     "fallbackName": "당신의 작업 공간",
     "ariaLabel": "사업개요",
     "online": "온라인",
     "emDash": "—",
     "capacitySignal": "{percent}% 용량 신호",
     "activeClients": {
-      "title": "활성 클라이언트",
+      "title": "활성 고객",
       "captionEmpty": "아직 활성 고객이 없습니다.",
       "captionTotal": "작업공간의 총 {count}개",
       "add": "고객 추가",
@@ -97,15 +97,15 @@
       "viewFeed": "피드 보기"
     },
     "revenue": {
-      "title": "수익",
+      "title": "매출",
       "caption": "MRR을 표시하려면 결제 연결",
-      "openBilling": "공개 청구"
+      "openBilling": "결제 열기"
     },
     "clientShell": {
-      "title": "클라이언트 셸",
+      "title": "앱 셸",
       "caption": "브라우저 세션 준비됨 - 실시간 운영 모니터가 아님",
       "shellLoaded": "애플리케이션 셸 로드됨",
-      "storesReady": "지역 작업 공간 매장 준비됨"
+      "storesReady": "로컬 워크스페이스 스토어 준비됨"
     },
     "growth": {
       "title": "성장",
@@ -117,8 +117,8 @@
     "title": "최근 활동",
     "subtitle": "오늘은 무엇이 바뀌었나",
     "ariaLabel": "최근 활동",
-    "todayCount": "오늘 {count}",
-    "localBadge": "현지의",
+    "todayCount": "오늘 {count}건",
+    "localBadge": "로컬",
     "emptyTitle": "아직 활동이 없습니다",
     "emptyBody": "고객, 프로젝트 등을 추가하면 Workspace 이벤트가 여기에 표시됩니다.",
     "addCustomer": "고객 추가",

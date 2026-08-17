@@ -27,7 +27,7 @@
     "regions": {
       "EU": "Union européenne",
       "US": "États-Unis",
-      "MENA": "MENA ",
+      "MENA": "MENA",
       "APAC": "Asie-Pacifique"
     }
   },
@@ -61,7 +61,7 @@
     "preferredProvider": "Fournisseur d'IA préféré",
     "defaultModel": "Modèle d'IA par défaut",
     "temperature": "Température",
-    "topP": "Haut P",
+    "topP": "Top P",
     "maxTokens": "Nombre maximum de jetons",
     "writingStyle": "Style d'écriture",
     "languagePreferences": "Выбор языка",
@@ -78,10 +78,10 @@
     "streaming": "Streaming",
     "streamingDescription": "Diffusez les réponses du modèle lorsque le fournisseur le prend en charge.",
     "providers": {
-      "mock": "Maquette (locale)",
+      "mock": "Mock (local)",
       "openai": "OpenAI",
       "azure": "Azure OpenAI",
-      "anthropic": "Anthropique",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "OuvrirRouter",
       "ollama": "Ollama",
@@ -106,10 +106,10 @@
     "panelDescription": "Thème, densité, accent, animations et effets de verre.",
     "noticeTheme": "Le mode Thème est la seule source de vérité via ThemeProvider. L’en-tête offre uniquement une bascule rapide.",
     "themeLabel": "Thème",
-    "themeModeAria": "Mode theme ",
+    "themeModeAria": "Mode theme",
     "resolvedAppearance": "Apparence résolue :",
-    "accentColor": "Couleur du contraste",
-    "accentNotice": "La préférence d'accent est stockée pour le futur câblage des variables CSS - ne modifie pas encore le système de couleurs verrouillé.",
+    "accentColor": "Couleur d’accent",
+    "accentNotice": "La préférence d’accent est enregistrée pour cette session et ne modifie pas encore le système de couleurs verrouillé.",
     "density": "Densité",
     "compactMode": "Mode compact",
     "compactModeDescription": "Réduisez le rembourrage sur les tables et les panneaux d'entreprise.",
@@ -135,6 +135,13 @@
       "comfortable": "Confortable",
       "compact": "Compact",
       "spacious": "spacieux, spacieuse"
+    },
+    "accents": {
+      "cyan": "Cyan",
+      "blue": "Bleu",
+      "emerald": "Émeraude",
+      "violet": "Violet",
+      "amber": "Ambre"
     }
   },
   "notifications": {

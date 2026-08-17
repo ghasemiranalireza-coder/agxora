@@ -117,5 +117,60 @@
       "warning": "警告",
       "ok": "好的"
     }
+  },
+  "licenseStatus": {
+    "trial": "試用",
+    "active": "有效",
+    "expired": "已過期",
+    "cancelled": "已取消",
+    "suspended": "已停權",
+    "lifetime": "終身"
+  },
+  "quotas": {
+    "ai_requests": "AI 請求",
+    "projects": "專案",
+    "customers": "客戶",
+    "documents": "文件",
+    "storage_mb": "儲存 (MB)",
+    "users": "使用者",
+    "api_requests": "API 請求"
+  },
+  "invoiceStatus": {
+    "draft": "草稿",
+    "open": "未結",
+    "paid": "已付",
+    "void": "作廢",
+    "uncollectible": "無法收回",
+    "refunded": "已退款"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "試用即將結束",
+      "body": "試用約 {days} 天後結束。請升級以保留完整存取權限。"
+    },
+    "expired": {
+      "title": "訂閱已過期",
+      "body": "續訂或升級方案以恢復商業功能。"
+    },
+    "cancelled": {
+      "title": "訂閱已取消",
+      "body": "您的 AGXORA 訂閱已取消。存取權限會保留至本期結束。"
+    },
+    "quotaWarning": {
+      "title": "即將達到 {metric} 上限",
+      "body": "已用 {used} / {limit}。建議升級。"
+    },
+    "upgradeAvailable": {
+      "title": "可升級",
+      "body": "Business 與 Enterprise 可解鎖自動化、更高的 AI 配額與 API 存取。"
+    },
+    "invoiceReady": {
+      "title": "發票已就緒",
+      "body": "發票 {number} 已成功付款。"
+    },
+    "renewed": {
+      "title": "訂閱已續訂",
+      "body": "您的方案將於 {date} 續訂。"
+    }
   }
 }

@@ -21,6 +21,30 @@ function severityTone(
   }
 }
 
+function suggestionValues(
+  workflow: WorkflowDefinition,
+  kind: string,
+): { label: string; count: string } {
+  if (kind === "duplicate_nodes") {
+    const counts = new Map<string, number>();
+    for (const node of workflow.nodes) {
+      counts.set(node.label, (counts.get(node.label) ?? 0) + 1);
+    }
+    for (const [label, count] of counts) {
+      if (count > 1) return { label, count: String(count) };
+    }
+  }
+  if (kind === "unused_action") {
+    const orphan = workflow.nodes.find(
+      (n) =>
+        (n.type === "action" || n.type === "ai_action") &&
+        !workflow.edges.some((e) => e.from === n.id || e.to === n.id),
+    );
+    if (orphan) return { label: orphan.label, count: "" };
+  }
+  return { label: "", count: "" };
+}
+
 export function AiWorkflowAssistant({
   workflow,
   onClose,
@@ -77,7 +101,15 @@ export function AiWorkflowAssistant({
             {t("automation.assistant.scoreOutOf")}
           </span>
         </p>
-        <Badge tone="accent">{report.label}</Badge>
+        <Badge tone="accent">
+          {t(
+            report.score >= 85
+              ? "automation.assistant.score.healthy"
+              : report.score >= 70
+                ? "automation.assistant.score.needsAttention"
+                : "automation.assistant.score.atRisk",
+          )}
+        </Badge>
       </div>
 
       <div className="space-y-2">
@@ -96,12 +128,14 @@ export function AiWorkflowAssistant({
             >
               <div className="flex items-start justify-between gap-2">
                 <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {sug.title}
+                  {t(`automation.assistant.suggestions.${sug.kind}.title`)}
                 </p>
-                <Badge tone={severityTone(sug.severity)}>{sug.kind.replaceAll("_", " ")}</Badge>
+                <Badge tone={severityTone(sug.severity)}>
+                  {t(`automation.assistant.kinds.${sug.kind}`)}
+                </Badge>
               </div>
               <p className="mt-1.5 text-xs leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                {sug.description}
+                {t(`automation.assistant.suggestions.${sug.kind}.description`, suggestionValues(workflow, sug.kind))}
               </p>
             </li>
           ))}

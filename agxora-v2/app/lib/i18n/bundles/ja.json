@@ -14,15 +14,15 @@
     "signOut": "サインアウト",
     "contact": "接触",
     "privacy": "プライバシー",
-    "terms": "条項",
+    "terms": "利用規約",
     "cookies": "Cookie",
-    "imprint": "インプリント",
+    "imprint": "運営者情報",
     "organization": "組織",
     "user": "ユーザー",
     "guest": "ゲスト",
     "member": "メンバー",
     "role": "役割",
-    "signedIn": "サインインしました",
+    "signedIn": "サインイン済み",
     "guestSession": "ゲストセッション",
     "noResults": "結果はありません",
     "noData": "データなし",
@@ -49,7 +49,7 @@
     "aiCrm": "AI CRM",
     "analytics": "分析",
     "billing": "請求する",
-    "aiWorkspace": "AI ワークスペース",
+    "aiWorkspace": "AIワークスペース",
     "customers": "お客様",
     "automation": "オートメーション",
     "financeTax": "財務と税金",
@@ -65,9 +65,9 @@
     "profile": "プロフィール",
     "currentOrganization": "現在の組織",
     "noNotifications": "通知はありません",
-    "notificationsEmpty": "皆さんも追い込まれていますね。アラートとメンションがここに表示されます。",
+    "notificationsEmpty": "すべて確認済みです。アラートとメンションはここに表示されます。",
     "accountSettings": "アカウント設定",
-    "security": "安全",
+    "security": "セキュリティ",
     "themeToggle": "テーマのクイック切り替え。設定: {mode}"
   },
   "pricing": {
@@ -259,6 +259,61 @@
         "warning": "警告",
         "ok": "わかりました"
       }
+    },
+    "licenseStatus": {
+      "trial": "トライアル",
+      "active": "有効",
+      "expired": "期限切れ",
+      "cancelled": "キャンセル",
+      "suspended": "停止",
+      "lifetime": "生涯"
+    },
+    "quotas": {
+      "ai_requests": "AIリクエスト",
+      "projects": "プロジェクト",
+      "customers": "顧客",
+      "documents": "文書",
+      "storage_mb": "ストレージ (MB)",
+      "users": "ユーザー",
+      "api_requests": "APIリクエスト"
+    },
+    "invoiceStatus": {
+      "draft": "下書き",
+      "open": "未払い",
+      "paid": "支払済み",
+      "void": "無効",
+      "uncollectible": "回収不能",
+      "refunded": "返金済み"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "トライアルまもなく終了",
+        "body": "トライアルは約{days}日後に終了します。フルアクセスを維持するにはアップグレードしてください。"
+      },
+      "expired": {
+        "title": "サブスクリプション期限切れ",
+        "body": "商用機能を復元するにはプランを更新またはアップグレードしてください。"
+      },
+      "cancelled": {
+        "title": "サブスクリプションをキャンセル",
+        "body": "AGXORAサブスクリプションはキャンセルされました。期間終了までアクセスは残ります。"
+      },
+      "quotaWarning": {
+        "title": "{metric}の上限に近づいています",
+        "body": "{used} / {limit} を使用中。アップグレードをご検討ください。"
+      },
+      "upgradeAvailable": {
+        "title": "アップグレード可能",
+        "body": "BusinessとEnterpriseは自動化、より高いAI枠、APIアクセスを解放します。"
+      },
+      "invoiceReady": {
+        "title": "請求書の準備完了",
+        "body": "請求書 {number} の支払いが完了しました。"
+      },
+      "renewed": {
+        "title": "サブスクリプションを更新",
+        "body": "プランは{date}に更新されます。"
+      }
     }
   },
   "settings": {
@@ -290,7 +345,7 @@
       "regions": {
         "EU": "欧州連合",
         "US": "米国",
-        "MENA": "メナ",
+        "MENA": "中東・北アフリカ",
         "APAC": "アジア太平洋"
       }
     },
@@ -324,7 +379,7 @@
       "preferredProvider": "優先される AI プロバイダー",
       "defaultModel": "デフォルトの AI モデル",
       "temperature": "温度",
-      "topP": "トップP",
+      "topP": "Top P",
       "maxTokens": "最大トークン数",
       "writingStyle": "文体",
       "languagePreferences": "言語設定",
@@ -341,10 +396,10 @@
       "streaming": "ストリーミング",
       "streamingDescription": "プロバイダーがサポートしている場合は、モデル応答をストリーミングします。",
       "providers": {
-        "mock": "モック (ローカル)",
+        "mock": "モック（ローカル）",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "人間的",
+        "anthropic": "Anthropic",
         "google": "グーグル",
         "openrouter": "オープンルーター",
         "ollama": "オラマ",
@@ -372,7 +427,14 @@
       "themeModeAria": "テーマモード",
       "resolvedAppearance": "解決された外観:",
       "accentColor": "アクセントカラー",
-      "accentNotice": "アクセントの設定は、将来の CSS var ワイヤリングのために保存されます。ロックされたカラー システムはまだ変更されません。",
+      "accentNotice": "アクセント設定はこのセッションに保存され、ロックされた配色はまだ変わりません。",
+      "accents": {
+        "cyan": "シアン",
+        "blue": "青",
+        "emerald": "エメラルド",
+        "violet": "バイオレット",
+        "amber": "アンバー"
+      },
       "density": "密度",
       "compactMode": "コンパクトモード",
       "compactModeDescription": "エンタープライズテーブルおよびパネル全体のパディングを削減します。",
@@ -741,8 +803,8 @@
     "skipToContent": "ダッシュボードのコンテンツにスキップ",
     "loading": "ダッシュボードを読み込み中…",
     "hero": {
-      "ariaLabel": "AGXORA CORE ヒーロー",
-      "eyebrow": "AI事業オペレーティングシステム",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "AIビジネスオペレーティングシステム",
       "title": "アグソラコア",
       "subtitle": "リアルタイムのインテリジェンスと運用制御 - ワークスペースのコマンド サーフェス。",
       "ctaGetStarted": "始めましょう",
@@ -752,11 +814,11 @@
     },
     "quickActions": {
       "title": "クイックアクション",
-      "subtitle": "次に何をすべきでしょうか?",
+      "subtitle": "次に何をしますか？",
       "ariaLabel": "クイックアクション",
       "addCustomer": {
         "label": "顧客を追加",
-        "description": "CRMレコードを作成する"
+        "description": "CRMレコードを作成"
       },
       "newProject": {
         "label": "新しいプロジェクト",
@@ -767,7 +829,7 @@
         "description": "AI ワークスペースを開く"
       },
       "finance": {
-        "label": "ファイナンス",
+        "label": "財務",
         "description": "請求書とキャッシュフロー"
       },
       "automations": {
@@ -782,9 +844,9 @@
     "attention": {
       "title": "注意が必要です",
       "ariaLabel": "注意が必要なこと",
-      "empty": "ご承知のとおり、今のところ緊急の事項はありません。",
+      "empty": "問題ありません。緊急の項目はありません。",
       "tone": {
-        "critical": "致命的",
+        "critical": "重大",
         "warning": "警告",
         "info": "情報",
         "success": "準備ができて",
@@ -808,15 +870,15 @@
       }
     },
     "overview": {
-      "title": "何が起こっている",
-      "subtitle": "{name} のワークスペース数",
+      "title": "いま起きていること",
+      "subtitle": "{name}のワークスペース集計",
       "fallbackName": "あなたのワークスペース",
       "ariaLabel": "事業概要",
       "online": "オンライン",
       "emDash": "—",
       "capacitySignal": "{percent}% 容量信号",
       "activeClients": {
-        "title": "アクティブなクライアント",
+        "title": "アクティブな顧客",
         "captionEmpty": "アクティブな顧客はまだいません",
         "captionTotal": "ワークスペース内の合計 {count}",
         "add": "顧客を追加",
@@ -836,15 +898,15 @@
         "viewFeed": "フィードを見る"
       },
       "revenue": {
-        "title": "収益",
+        "title": "売上",
         "caption": "請求を接続して MRR を表示する",
-        "openBilling": "オープン請求"
+        "openBilling": "請求を開く"
       },
       "clientShell": {
-        "title": "クライアントシェル",
+        "title": "アプリケーションシェル",
         "caption": "ブラウザセッションの準備完了 — ライブ運用モニターではない",
         "shellLoaded": "アプリケーションシェルがロードされました",
-        "storesReady": "ローカルワークスペースストアの準備ができました"
+        "storesReady": "ローカルワークスペースストアの準備完了"
       },
       "growth": {
         "title": "成長",
@@ -856,8 +918,8 @@
       "title": "最近の活動",
       "subtitle": "今日何が変わったか",
       "ariaLabel": "最近の活動",
-      "todayCount": "今日は {count} 個",
-      "localBadge": "地元",
+      "todayCount": "今日 {count} 件",
+      "localBadge": "ローカル",
       "emptyTitle": "まだ活動はありません",
       "emptyBody": "顧客やプロジェクトなどを追加すると、ワークスペース イベントがここに表示されます。",
       "addCustomer": "顧客を追加",
@@ -1128,12 +1190,12 @@
   "auth": {
     "login": {
       "title": "サインイン",
-      "subtitle": "AGXORA へようこそ。",
+      "subtitle": "AGXORAへようこそ。",
       "email": "電子メール",
       "password": "パスワード",
       "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "パスワード",
-      "rememberMe": "私を覚えてますか",
+      "rememberMe": "ログイン状態を保持",
       "submit": "サインイン",
       "submitting": "サインイン中…",
       "noAccount": "アカウントがありませんか?",
@@ -1153,7 +1215,7 @@
       "company": "会社",
       "password": "パスワード",
       "confirmPassword": "パスワードを認証する",
-      "acceptTerms": "受け入れます",
+      "acceptTerms": "同意します",
       "termsOfService": "利用規約",
       "and": "そして",
       "privacyPolicy": "プライバシーポリシー",
@@ -1163,10 +1225,10 @@
       "signIn": "サインイン",
       "strength": "パスワードの強度",
       "strengthWeak": "弱い",
-      "strengthFair": "公平",
+      "strengthFair": "普通",
       "strengthStrong": "強い",
       "firstNamePlaceholder": "アレックス",
-      "lastNamePlaceholder": "モーガン",
+      "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "AGXORA GmbH",
       "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "8 文字以上、文字 + 数字",
@@ -1199,7 +1261,7 @@
       "loading": "パスワードをリセットする"
     },
     "contactSales": {
-      "title": "営業担当者へのお問い合わせ",
+      "title": "営業に問い合わせ",
       "subtitle": "あなたのチームについて教えてください。エンタープライズオプションについてもフォローアップしていきます。",
       "name": "フルネーム",
       "email": "仕事用メール",
@@ -1218,7 +1280,7 @@
       "successTitle": "ありがとう",
       "successBody": "お問い合わせを受け付けました。私たちのチームがすぐに対応させていただきます。",
       "viewPricing": "価格を見る",
-      "bookDemo": "デモを予約する",
+      "bookDemo": "デモを予約",
       "failed": "問い合わせを送信できませんでした",
       "country": "国",
       "savedFor": "{company} 向けに保存しました。このビルドでは営業配信は接続されていません。",
@@ -1698,7 +1760,137 @@
       "intro": "Creator Studio 基盤 — 公式プラットフォーム統合は、後でこれらのアダプターにプラグインできます。 Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、スレッド、X."
     },
     "industry": {
-      "intro": "ユニバーサル ビジネス プラットフォーム — オンボーディングは後で業界を選択します。各業界は、コア CRM OS をフォークすることなく、専用の AI モジュールを受け取ります。"
+      "intro": "ユニバーサル ビジネス プラットフォーム — オンボーディングは後で業界を選択します。各業界は、コア CRM OS をフォークすることなく、専用の AI モジュールを受け取ります。",
+      "catalog": {
+        "business": {
+          "label": "ビジネス",
+          "description": "汎用B2Bオペレーティングシステム"
+        },
+        "freelancer": {
+          "label": "フリーランス",
+          "description": "個人事業向けCRM・請求・顧客パイプライン"
+        },
+        "creator": {
+          "label": "クリエイター",
+          "description": "Creator StudioとブランドCRM"
+        },
+        "influencer": {
+          "label": "インフルエンサー",
+          "description": "スポンサーCRMとキャンペーンOS"
+        },
+        "agency": {
+          "label": "代理店",
+          "description": "複数顧客の納品とリテイナー"
+        },
+        "retail": {
+          "label": "小売",
+          "description": "店舗在庫・POS・ロイヤルティ"
+        },
+        "restaurant": {
+          "label": "レストラン",
+          "description": "予約・キッチン・デリバリー"
+        },
+        "hotel": {
+          "label": "ホテル",
+          "description": "客室・ゲスト・ハウスキーピング"
+        },
+        "laundry": {
+          "label": "ランドリー",
+          "description": "集荷・チケット・ルート物流"
+        },
+        "healthcare": {
+          "label": "ヘルスケア",
+          "description": "患者・予約・コンプライアンス"
+        },
+        "law_firm": {
+          "label": "法律事務所",
+          "description": "案件・請求・文書保管"
+        },
+        "accounting": {
+          "label": "会計",
+          "description": "顧客帳簿とDATEV出力"
+        },
+        "construction": {
+          "label": "建設",
+          "description": "現場・班・出来高請求"
+        },
+        "real_estate": {
+          "label": "不動産",
+          "description": "物件・内見・成約"
+        },
+        "education": {
+          "label": "教育",
+          "description": "学生・コース・入学"
+        },
+        "manufacturing": {
+          "label": "製造",
+          "description": "BOM・生産・品質"
+        },
+        "logistics": {
+          "label": "物流",
+          "description": "車両・追跡・納品書"
+        },
+        "ecommerce": {
+          "label": "Eコマース",
+          "description": "カタログ・カート・オムニチャネル受注"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "営業",
+        "finance": "財務",
+        "projects": "プロジェクト",
+        "clients": "顧客",
+        "proposals": "提案",
+        "time_tracking": "工数管理",
+        "invoices": "請求書",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "ブランド案件",
+        "content_calendar": "コンテンツカレンダー",
+        "sponsorships": "スポンサーシップ",
+        "audience_insights": "オーディエンス分析",
+        "campaigns": "キャンペーン",
+        "client_portals": "顧客ポータル",
+        "retainers": "リテイナー",
+        "campaign_ops": "キャンペーン運用",
+        "inventory": "在庫",
+        "pos": "POS",
+        "loyalty": "ロイヤルティ",
+        "reservations": "予約",
+        "menu": "メニュー",
+        "kitchen_display": "キッチンディスプレイ",
+        "housekeeping": "ハウスキーピング",
+        "guest_crm": "ゲストCRM",
+        "tickets": "チケット",
+        "routes": "ルート",
+        "delivery_notes": "納品書",
+        "patients": "患者",
+        "appointments": "予約",
+        "compliance": "コンプライアンス",
+        "matters": "案件",
+        "billing": "請求",
+        "documents": "文書",
+        "client_books": "顧客帳簿",
+        "datev": "DATEV",
+        "tax_deadlines": "税務期限",
+        "sites": "現場",
+        "crews": "班",
+        "progress_billing": "出来高請求",
+        "listings": "物件",
+        "viewings": "内見",
+        "closings": "成約",
+        "students": "学生",
+        "courses": "コース",
+        "enrollment": "入学",
+        "bom": "BOM",
+        "production": "生産",
+        "qc": "QC",
+        "fleet": "車両",
+        "tracking": "追跡",
+        "catalog": "カタログ",
+        "orders": "受注",
+        "fulfillment": "フルフィルメント"
+      }
     },
     "kpi": {
       "customers": {
@@ -2977,8 +3169,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "最適化の提案",
       "oneClickOptimize": "ワンクリックで最適化",
-      "noticeDefault": "One Click Optimize にはまだグラフの変更はありません。",
-      "noticeQueued": "キューを最適化します。将来のエンジンは遅延と承認を書き換えます。"
+      "noticeDefault": "ワンクリック最適化はまだグラフを変更しません。",
+      "noticeQueued": "最適化をキューしました。将来のエンジンが遅延と承認を書き換えます。",
+      "score": {
+        "healthy": "健全",
+        "needsAttention": "要確認",
+        "atRisk": "リスクあり"
+      },
+      "kinds": {
+        "missing_approval": "承認",
+        "possible_delay": "遅延",
+        "unused_trigger": "トリガー",
+        "duplicate_nodes": "重複",
+        "unused_action": "アクション",
+        "security": "セキュリティ",
+        "performance": "パフォーマンス"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "承認がありません",
+          "description": "長いフローは副作用の前に承認ゲートがあると安全です。"
+        },
+        "possible_delay": {
+          "title": "遅延の検討",
+          "description": "リマインドメールの前に遅延を入れ、バーストを避けてください。"
+        },
+        "unused_trigger": {
+          "title": "未使用のトリガー",
+          "description": "開始トリガーがありません。有効化前に追加してください。"
+        },
+        "duplicate_nodes": {
+          "title": "重複ノード",
+          "description": "「{label}」が{count}回あります。不要なら統合してください。"
+        },
+        "unused_action": {
+          "title": "未使用のアクション",
+          "description": "{label}は未接続です。配線するか削除してください。"
+        },
+        "security": {
+          "title": "セキュリティの推奨",
+          "description": "Webhookとメール操作には最小権限のアダプターを使ってください。"
+        },
+        "performance": {
+          "title": "パフォーマンスの推奨",
+          "description": "可能ならAIステップをまとめて平均実行時間を下げてください。"
+        }
+      }
     },
     "integrations": {
       "intro": "統合センター — オプション。ステータス: 接続済み、ベータ版、計画中、近日公開予定、無効。ライブ API はありません。",
@@ -3487,6 +3723,192 @@
         "label": "ステータスを更新",
         "description": "モジュール内エンティティのステータスを更新します。"
       }
+    },
+    "kinds": {
+      "trigger": "トリガー",
+      "action": "アクション",
+      "condition": "条件",
+      "delay": "遅延",
+      "approval": "承認",
+      "loop": "ループ",
+      "merge": "マージ",
+      "split": "スプリット",
+      "ai_decision": "AI判定",
+      "ai_action": "AIアクション",
+      "notification": "通知",
+      "webhook": "Webhook",
+      "custom_action": "カスタムアクション",
+      "branch": "分岐",
+      "variable": "変数"
+    },
+    "kpi": {
+      "active": {
+        "label": "有効なワークフロー",
+        "caption": "ワークスペースで有効"
+      },
+      "runs-today": {
+        "label": "本日のワークフロー実行",
+        "caption": "全トリガー対象"
+      },
+      "success": {
+        "label": "成功した自動化",
+        "caption": "本日"
+      },
+      "failed": {
+        "label": "失敗した実行",
+        "caption": "要確認"
+      },
+      "pending": {
+        "label": "保留中タスク",
+        "caption": "承認＋再試行"
+      },
+      "avg-time": {
+        "label": "平均実行時間",
+        "caption": "中央値1.2秒"
+      },
+      "ai-suggestions": {
+        "label": "AI提案",
+        "caption": "自動化の機会"
+      }
+    },
+    "integrationCategories": {
+      "Productivity": "生産性",
+      "Communication": "コミュニケーション",
+      "Commerce": "コマース",
+      "Finance": "財務",
+      "ERP": "ERP",
+      "CRM": "CRM"
+    },
+    "integrationNotes": {
+      "google-workspace": "OAuth配線用にGmail／Drive／カレンダーフックを予約。",
+      "m365": "Outlook／Teams／Graphフックを予約。",
+      "slack": "Events API＋チャット投稿を予約。",
+      "teams": "Bot Frameworkアダプターを予約。",
+      "discord": "Webhook＋ボットアダプターを予約。",
+      "whatsapp": "Meta Cloud APIアダプターを予約。",
+      "stripe": "支払いWebhookを予約 — ライブキーなし。",
+      "shopify": "注文／商品イベントを予約。",
+      "datev": "DATEVエクスポート／仕訳バッチフックを予約。",
+      "sap": "ERPイベントブリッジを予約 — エンタープライズプランまで無効。",
+      "hubspot": "CRM同期アダプターを予約。",
+      "salesforce": "Platform Eventsアダプターを予約。"
+    },
+    "defaultWorkflow": {
+      "name": "顧客オンボーディング",
+      "description": "顧客作成時のウェルカムシーケンス。"
+    },
+    "templateCategories": {
+      "CRM": "CRM",
+      "Finance": "財務",
+      "Sales": "営業",
+      "Marketing": "マーケティング",
+      "HR": "人事",
+      "Creator": "クリエイター",
+      "Ops": "オペレーション",
+      "Projects": "プロジェクト",
+      "AI": "AI"
+    },
+    "studioTemplates": {
+      "tpl-onboarding": {
+        "name": "顧客オンボーディング",
+        "description": "顧客作成後にウェルカムメール、AI要約、オーナータスク。",
+        "category": "CRM",
+        "recommendedFor": "新規B2B顧客をオンボーディングするチーム"
+      },
+      "tpl-invoice": {
+        "name": "請求リマインダー",
+        "description": "未払い請求のスケジュールリマインドとエスカレーション。",
+        "category": "財務",
+        "recommendedFor": "延滞債権を減らす財務オペレーション"
+      },
+      "tpl-lead": {
+        "name": "リードフォローアップ",
+        "description": "新規リード向けAIメール返信とパイプライン更新。",
+        "category": "営業",
+        "recommendedFor": "インバウンドリードが多い営業チーム"
+      },
+      "tpl-welcome": {
+        "name": "ウェルカムメール",
+        "description": "サインアップ時のシンプルなウェルカムシーケンス。",
+        "category": "マーケティング",
+        "recommendedFor": "メール自動化を始めるすべてのワークスペース"
+      },
+      "tpl-pipeline": {
+        "name": "セールスパイプライン",
+        "description": "ステージ変更時の通知とタスク。",
+        "category": "営業",
+        "recommendedFor": "多段階の案件進行を管理するチーム"
+      },
+      "tpl-recruit": {
+        "name": "採用",
+        "description": "候補者ルーティングと面接タスク。",
+        "category": "人事",
+        "recommendedFor": "採用マネージャーとピープルオプス"
+      },
+      "tpl-content": {
+        "name": "コンテンツ公開",
+        "description": "Creator Studio：公開→通知→分析。",
+        "category": "クリエイター",
+        "recommendedFor": "マーケティングとクリエイターチーム"
+      },
+      "tpl-approval": {
+        "name": "承認プロセス",
+        "description": "AI推奨付きの多段階承認。",
+        "category": "オペレーション",
+        "recommendedFor": "副作用の前の財務／オペ承認",
+        "estimatedRuntime": "人手ゲート"
+      }
+    },
+    "engineTemplates": {
+      "tpl_customer_welcome": {
+        "name": "新規顧客ウェルカム",
+        "description": "顧客作成時にウェルカムメールと通知。",
+        "category": "CRM"
+      },
+      "tpl_invoice_reminder": {
+        "name": "請求リマインダー",
+        "description": "請求発行後に顧客へリマインド。",
+        "category": "財務"
+      },
+      "tpl_project_kickoff": {
+        "name": "プロジェクトキックオフ",
+        "description": "プロジェクト作成時にキックオフタスクを割り当てて通知。",
+        "category": "プロジェクト"
+      },
+      "tpl_task_assignment": {
+        "name": "タスク割り当て",
+        "description": "タスク完了時に担当へメール — 次の作業をつなぐ。",
+        "category": "プロジェクト"
+      },
+      "tpl_ai_customer_summary": {
+        "name": "AI顧客サマリー",
+        "description": "顧客作成時にAI要約を実行し出力を保存。",
+        "category": "AI"
+      },
+      "tpl_followup_reminder": {
+        "name": "フォローアップリマインダー",
+        "description": "スケジュールベースのフォローアップ（ステータスで分岐）。",
+        "category": "CRM"
+      }
+    },
+    "nodeLabels": {
+      "send_welcome_email": "ウェルカムメールを送信",
+      "notify_team": "チームに通知",
+      "wait_3_days": "3日待つ",
+      "still_unpaid": "まだ未払い？",
+      "send_reminder": "リマインダーを送信",
+      "assign_kickoff_task": "キックオフタスクを割り当て",
+      "notify_owner": "オーナーに通知",
+      "notify_stakeholders": "ステークホルダーに通知",
+      "run_ai_summary": "AI要約を実行",
+      "generate_document": "ドキュメントを生成",
+      "daily_schedule": "日次スケジュール",
+      "by_priority": "優先度別",
+      "urgent_notification": "緊急通知",
+      "standard_email": "標準メール"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "AIコンテンツを生成"
     }
   },
   "team": {
@@ -3970,6 +4392,177 @@
     "os": {
       "prioritizeCustomerImpact": "顧客インパクトを優先",
       "delegatedFollowUp": "委任フォローアップ"
+    },
+    "categories": {
+      "Leadership": "リーダーシップ",
+      "Revenue": "収益",
+      "CRM": "CRM",
+      "Delivery": "デリバリー",
+      "Automation": "自動化",
+      "Finance": "財務",
+      "Knowledge": "ナレッジ",
+      "Support": "サポート",
+      "Productivity": "生産性",
+      "Custom": "カスタム"
+    },
+    "catalog": {
+      "executive_advisor": {
+        "name": "エグゼクティブアドバイザー",
+        "description": "戦略ブリーフィング、KPI要約、意思決定支援。"
+      },
+      "sales_agent": {
+        "name": "セールスエージェント",
+        "description": "パイプライン指導、アウトリーチ草案、案件の次アクション。"
+      },
+      "crm_assistant": {
+        "name": "CRMアシスタント",
+        "description": "顧客エンリッチメント、データ衛生、関係インサイト。"
+      },
+      "project_manager": {
+        "name": "プロジェクトマネージャー",
+        "description": "計画、タスク分解、納期リスク信号。"
+      },
+      "workflow_coordinator": {
+        "name": "ワークフローコーディネーター",
+        "description": "AGXORA自動化ワークフローを起動・編成します。"
+      },
+      "finance_assistant": {
+        "name": "財務アシスタント",
+        "description": "請求書の把握、キャッシュフローメモ、財務サマリー。"
+      },
+      "document_analyst": {
+        "name": "ドキュメントアナリスト",
+        "description": "文書から構造・リスク・要約を抽出します。"
+      },
+      "knowledge_assistant": {
+        "name": "ナレッジアシスタント",
+        "description": "企業ナレッジから回答。RAG向け検索に対応。"
+      },
+      "support_assistant": {
+        "name": "サポートアシスタント",
+        "description": "カスタマーサポートのトリアージ、返信、エスカレーション。"
+      },
+      "meeting_assistant": {
+        "name": "ミーティングアシスタント",
+        "description": "アジェンダ準備、メモのプレースホルダ、フォローアップ。"
+      },
+      "custom": {
+        "name": "カスタムエージェント",
+        "description": "組織固有エージェントの拡張ポイント。"
+      }
+    },
+    "toolsCatalog": {
+      "crm": {
+        "name": "CRMツール",
+        "description": "顧客の作成/更新とアカウント文脈の参照。"
+      },
+      "projects": {
+        "name": "プロジェクトツール",
+        "description": "プロジェクト・タスク・納品状況を管理。"
+      },
+      "finance": {
+        "name": "財務ツール",
+        "description": "請求書、残高、財務サマリー。"
+      },
+      "documents": {
+        "name": "ドキュメントツール",
+        "description": "ワークスペース文書の参照と要約。"
+      },
+      "workflow": {
+        "name": "ワークフローツール",
+        "description": "自動化ワークフローの起動と検査。"
+      },
+      "integration": {
+        "name": "インテグレーションツール",
+        "description": "接続済みサードパーティコネクタを呼び出す。"
+      },
+      "email": {
+        "name": "メールツール",
+        "description": "送信メールの下書きとキューイング。"
+      },
+      "calendar": {
+        "name": "カレンダーツール",
+        "description": "カレンダー予定の作成と確認。"
+      },
+      "search": {
+        "name": "検索ツール",
+        "description": "ワークスペース横断検索。"
+      },
+      "notification": {
+        "name": "通知ツール",
+        "description": "アプリ内通知を送信。"
+      },
+      "api": {
+        "name": "APIツール",
+        "description": "内部APIゲートウェイ経路を呼び出す。"
+      },
+      "mcp": {
+        "name": "MCPツール",
+        "description": "将来のModel Context Protocolサーバーツール。"
+      }
+    },
+    "knowledgeDocs": {
+      "company": {
+        "title": "AGXORA運営原則",
+        "summary": "モジュール型で安全なAIエージェント向けエンタープライズOS原則。"
+      },
+      "policies": {
+        "title": "データ取扱ポリシー",
+        "summary": "機密ツールの分離と最小権限アクセス。"
+      },
+      "procedures": {
+        "title": "顧客エスカレーション手順",
+        "summary": "信頼度が低い場合のサポートアシスタントのエスカレーション経路。"
+      },
+      "rag": {
+        "title": "RAGインデックスのプレースホルダ",
+        "summary": "文書とCRMメモに対する将来のベクトル検索。"
+      }
+    },
+    "llm": {
+      "local": "ローカルLLM",
+      "mcp": "MCPサーバー",
+      "custom": "カスタムモデル"
+    },
+    "lifecycle": {
+      "draft": "下書き",
+      "registered": "登録済み",
+      "active": "有効",
+      "paused": "一時停止",
+      "error": "エラー",
+      "retired": "廃止"
+    },
+    "healthStatus": {
+      "healthy": "健全",
+      "degraded": "劣化",
+      "down": "停止",
+      "unknown": "不明"
+    },
+    "taskStatus": {
+      "pending": "保留中",
+      "running": "実行中",
+      "completed": "完了",
+      "cancelled": "キャンセル",
+      "failed": "失敗",
+      "retrying": "再試行中"
+    },
+    "memoryScope": {
+      "working": "ワーキング",
+      "conversation": "会話",
+      "business": "ビジネス",
+      "long_term": "長期",
+      "workspace": "ワークスペース",
+      "agent": "エージェント"
+    },
+    "knowledgeKind": {
+      "company": "会社",
+      "documents": "文書",
+      "projects": "プロジェクト",
+      "crm": "CRM",
+      "policies": "ポリシー",
+      "procedures": "手順",
+      "vector": "ベクトル",
+      "rag": "RAG"
     }
   },
   "integrations": {
@@ -4037,7 +4630,17 @@
     "logs": {
       "title": "統合ログ",
       "emptyTitle": "まだログがありません",
-      "emptyDescription": "プロバイダーに接続するか、診断を実行します。"
+      "emptyDescription": "プロバイダーに接続するか、診断を実行します。",
+      "installed": "{name}をインストール",
+      "demoConnected": "デモ接続 {name}",
+      "disconnected": "{name}を切断",
+      "webhookCreated": "Webhook作成 {name}",
+      "keyCreated": "APIキー作成 {name}",
+      "keyRotated": "キーローテーション {name}",
+      "keyRevoked": "キー取り消し {name}",
+      "stubHealthy": "{name}スタブは正常",
+      "diagnosticsComplete": "診断完了",
+      "outgoing": "送信 {status}: {eventType}"
     },
     "apiKeys": {
       "title": "APIキー",
@@ -4112,7 +4715,92 @@
     },
     "errors": {
       "failedToFetch": "取得に失敗しました",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "不明なコネクタ。",
+      "webhookNotFound": "Webhookが見つかりません。",
+      "apiKeyInactive": "APIキーが無効または期限切れです。"
+    },
+    "categories": {
+      "productivity": "生産性",
+      "communication": "コミュニケーション",
+      "storage": "ストレージ",
+      "crm": "CRM",
+      "automation": "自動化",
+      "devtools": "開発者ツール",
+      "custom": "カスタム"
+    },
+    "auth": {
+      "oauth2": "OAuth 2.0",
+      "api_key": "APIキー",
+      "webhook": "Webhook"
+    },
+    "oauth": {
+      "custom": "カスタムOAuth"
+    },
+    "connectorNames": {
+      "custom": "カスタムコネクタ"
+    },
+    "connectors": {
+      "microsoft365": {
+        "description": "Microsoft Graph経由のメール、カレンダー、Teams。"
+      },
+      "google_workspace": {
+        "description": "Workspaceテナント向けGmail、カレンダー、Drive。"
+      },
+      "slack": {
+        "description": "チャンネル、メッセージ、インタラクティブ通知。"
+      },
+      "discord": {
+        "description": "サーバー通知とボットメッセージ配信。"
+      },
+      "dropbox": {
+        "description": "ファイル同期と共有フォルダイベント。"
+      },
+      "onedrive": {
+        "description": "Microsoft OneDriveのファイル保存と差分同期。"
+      },
+      "google_drive": {
+        "description": "Driveのファイル、フォルダ、変更通知。"
+      },
+      "hubspot": {
+        "description": "CRM連絡先、案件、マーケティングイベント。"
+      },
+      "salesforce": {
+        "description": "エンタープライズCRMオブジェクトとPlatform Events。"
+      },
+      "zapier": {
+        "description": "ZapierのZapへの送信フック。"
+      },
+      "make": {
+        "description": "Make（Integromat）のシナリオWebhook。"
+      },
+      "github": {
+        "description": "リポジトリ、Issue、プルリクエスト、Actions。"
+      },
+      "gitlab": {
+        "description": "プロジェクト、マージリクエスト、パイプライン、Webhook。"
+      },
+      "custom": {
+        "description": "独自の企業システム向け拡張ポイント。"
+      }
+    },
+    "healthStatus": {
+      "healthy": "健全",
+      "degraded": "劣化",
+      "down": "停止",
+      "unknown": "不明"
+    },
+    "health": {
+      "installedAuthorize": "インストール済み — 接続して承認",
+      "oauthStubPlaceholder": "ローカルOAuthデモ（スタブ）",
+      "oauthStubLive": "ローカルOAuthデモ（ライブ）",
+      "demoCredential": "ローカルデモ資格情報を保存 — ライブAPI未接続",
+      "demoConnection": "ローカルデモ接続 — ライブプロバイダー連携ではありません",
+      "disconnected": "切断"
+    },
+    "generated": {
+      "keyName": "キー {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {
@@ -4184,14 +4872,78 @@
       "title": "KPIセンター",
       "subtitle": "収益、顧客、プロジェクト、ワークフロー、エージェント、自動化にわたる構成可能な KPI カタログ。",
       "emptyTitle": "分析はシグナルを待っています",
-      "emptyDescription": "ワークスペースでアクティビティが生成されると、エグゼクティブ KPI とアラートがここに表示されます。"
+      "emptyDescription": "ワークスペースでアクティビティが生成されると、エグゼクティブ KPI とアラートがここに表示されます。",
+      "revenue": {
+        "name": "売上",
+        "description": "期間内の認識売上合計。"
+      },
+      "mrr": {
+        "name": "MRR",
+        "description": "月次経常収益。"
+      },
+      "arr": {
+        "name": "ARR",
+        "description": "年次経常収益。"
+      },
+      "growth": {
+        "name": "成長",
+        "description": "前期比成長率。"
+      },
+      "customer_acquisition": {
+        "name": "顧客獲得",
+        "description": "新規獲得顧客。"
+      },
+      "retention": {
+        "name": "リテンション",
+        "description": "顧客リテンション率。"
+      },
+      "churn": {
+        "name": "チャーン",
+        "description": "顧客チャーン率。"
+      },
+      "project_success": {
+        "name": "プロジェクト成功",
+        "description": "納期内・スコープ内で納品したプロジェクト。"
+      },
+      "workflow_success": {
+        "name": "ワークフロー成功",
+        "description": "成功したワークフロー実行。"
+      },
+      "agent_performance": {
+        "name": "エージェント性能",
+        "description": "AIエージェントタスクの成功スコア。"
+      },
+      "automation_success": {
+        "name": "自動化成功",
+        "description": "自動化 / インテグレーションの信頼性。"
+      },
+      "custom": {
+        "name": "カスタムKPI",
+        "description": "組織定義KPIの拡張ポイント。"
+      }
     },
     "reports": {
       "title": "レポートエンジン",
       "subtitle": "レポート定義はレビュー用にシードされます。ファイルのエクスポートは、レポート バックエンドが接続されるまで使用できません。",
       "emptyTitle": "報告はありません",
       "emptyDescription": "ワークスペースブートストラップのシードをレポートします。",
-      "scheduleOnDemand": "オンデマンド"
+      "scheduleOnDemand": "オンデマンド",
+      "executive": {
+        "title": "エグゼクティブ週次",
+        "description": "健全性・売上・リスク・成長のCEO向けブリーフ。"
+      },
+      "department": {
+        "title": "営業部門レポート",
+        "description": "営業リーダー向けパイプライン・獲得・リテンション。"
+      },
+      "operational": {
+        "title": "オペレーション日次",
+        "description": "ワークフロー、インテグレーション、IDポスチャ。"
+      },
+      "management": {
+        "title": "デリバリーマネジメント",
+        "description": "プロジェクト成功、キャパシティ、文書スループット。"
+      }
     },
     "insights": {
       "emptyTitle": "まだ洞察はありません",
@@ -4211,12 +4963,88 @@
       "emptyDescription": "リスクヒューリスティックからシードをアラートします。",
       "acked": "肯定された",
       "open": "開ける",
-      "acknowledge": "認める"
+      "acknowledge": "認める",
+      "revenue_drop": {
+        "title": "セグメント売上の軟化",
+        "body": "SMBの売上が前週比4%低下 — パイプラインカバレッジを確認。"
+      },
+      "project_delay": {
+        "title": "プロジェクト遅延リスク",
+        "body": "納品プロジェクト2件がマイルストーンを超過。"
+      },
+      "churn_risk": {
+        "title": "顧客チャーンリスク上昇",
+        "body": "3アカウントでエンゲージメントスコアが低下。"
+      },
+      "workflow_failure": {
+        "title": "ワークフロー失敗を検出",
+        "body": "請求リマインダーワークフローが24時間で2回失敗。"
+      },
+      "ai_failure": {
+        "title": "AIタスク再試行が増加",
+        "body": "エージェントタスク再試行率がソフト閾値を超過。"
+      },
+      "integration_error": {
+        "title": "インテグレーションエラー",
+        "body": "Slackコネクタが断続的に5xxを返しました。"
+      },
+      "security": {
+        "title": "セキュリティアラート",
+        "body": "異常なAPIキー使用パターンを検出。"
+      }
     },
     "scorecards": {
       "title": "スコアカード エンジン",
       "emptyTitle": "スコアカードなし",
-      "emptyDescription": "ブートストラップのスコアカード シード。"
+      "emptyDescription": "ブートストラップのスコアカード シード。",
+      "sales": {
+        "name": "セールススコア",
+        "drivers": {
+          "pipeline_coverage": "パイプラインカバレッジ",
+          "win_rate": "勝率",
+          "cycle_time": "サイクルタイム"
+        }
+      },
+      "customer_health": {
+        "name": "顧客ヘルススコア",
+        "drivers": {
+          "retention": "リテンション",
+          "nps_proxy": "NPSプロキシ",
+          "support_load": "サポート負荷"
+        }
+      },
+      "project_success": {
+        "name": "プロジェクト成功スコア",
+        "drivers": {
+          "on_time_delivery": "納期遵守",
+          "scope_control": "スコープ管理",
+          "utilization": "稼働率"
+        }
+      },
+      "automation_efficiency": {
+        "name": "自動化効率",
+        "drivers": {
+          "workflow_success": "ワークフロー成功",
+          "manual_effort_saved": "削減した手作業",
+          "retry_rate": "再試行率"
+        }
+      },
+      "ai_quality": {
+        "name": "AI品質",
+        "drivers": {
+          "task_success": "タスク成功",
+          "confidence_avg": "平均信頼度",
+          "escalation_rate": "エスカレーション率"
+        }
+      },
+      "operational_health": {
+        "name": "オペレーション健全性",
+        "drivers": {
+          "system_health": "システム健全性",
+          "integration_reliability": "インテグレーション信頼性",
+          "identity_posture": "IDポスチャ"
+        }
+      }
     },
     "explorer": {
       "title": "データエクスプローラー",
@@ -4224,7 +5052,8 @@
       "searchAria": "デモ エクスプローラーの行を検索",
       "emptyTitle": "一致する行はありません",
       "emptyDescription": "フィルターを調整するか、検索するか、デモ データセットを再読み込みします。",
-      "hint": "シードされたタプルに対するクライアント側の検索 - バックエンドの集約とドリルダウンは接続されていません。"
+      "hint": "シードされたタプルに対するクライアント側の検索 - バックエンドの集約とドリルダウンは接続されていません。",
+      "metricLabel": "{domain}メトリクス {index}"
     },
     "columns": {
       "kpi": "KPI",
@@ -4249,7 +5078,123 @@
       "measure": "測定",
       "date": "日付"
     },
-    "emDash": "—"
+    "emDash": "—",
+    "domains": {
+      "crm": "CRM分析",
+      "projects": "プロジェクト分析",
+      "finance": "財務分析",
+      "documents": "ドキュメント分析",
+      "workflow": "ワークフロー分析",
+      "identity": "ID分析",
+      "ai": "AI分析",
+      "integration": "インテグレーション分析",
+      "executive": "エグゼクティブ"
+    },
+    "series": {
+      "crm_leads": "リード",
+      "crm_pipeline": "パイプライン（千ドル）",
+      "proj_active": "進行中プロジェクト",
+      "proj_on_time": "納期遵守率",
+      "fin_revenue": "売上（千ドル）",
+      "fin_margin": "粗利益率",
+      "doc_created": "作成ドキュメント",
+      "doc_views": "ドキュメント閲覧",
+      "wf_runs": "ワークフロー実行",
+      "wf_success": "成功率",
+      "id_users": "アクティブユーザー",
+      "id_sessions": "セッション",
+      "ai_tasks": "エージェントタスク",
+      "ai_success": "エージェント成功率",
+      "int_calls": "API / Webhook呼び出し",
+      "int_errors": "インテグレーションエラー"
+    },
+    "bands": {
+      "Critical": "重大",
+      "Watch": "注視",
+      "Healthy": "健全",
+      "Excellent": "優秀"
+    },
+    "charts": {
+      "chart_revenue": "売上トレンド",
+      "chart_pipeline": "CRMパイプライン",
+      "chart_workflows": "ワークフロー活動",
+      "chart_ai": "AI活動ミックス",
+      "chart_ops_table": "運用スナップショット",
+      "chart_heatmap_placeholder": "エンゲージメントヒートマップ"
+    },
+    "chartKinds": {
+      "line": "折れ線",
+      "bar": "棒",
+      "area": "面",
+      "pie": "円",
+      "heatmap": "ヒートマップ",
+      "table": "表",
+      "card": "カード"
+    },
+    "insightItems": {
+      "trend": {
+        "title": "MRR加速",
+        "summary": "MRR成長が3期連続で改善。"
+      },
+      "pattern": {
+        "title": "請求日のワークフロー急増",
+        "summary": "自動化負荷は月末請求と相関。"
+      },
+      "recommendation": {
+        "title": "リテンションプレイブックを拡充",
+        "summary": "健全性が低下した3アカウントにCSMアウトリーチを集中。"
+      },
+      "executive_summary": {
+        "title": "エグゼクティブブリーフ",
+        "summary": "会社健全性は良好。チャーンリスクと納期遅延に注意。"
+      },
+      "risk": {
+        "title": "デリバリーリスククラスタ",
+        "summary": "2プロジェクトがリソース競合 — キャパシティ予測が上昇。"
+      },
+      "opportunity": {
+        "title": "アップセル機会",
+        "summary": "Businessプラン未加入の高利用アカウントに拡大余地。"
+      }
+    },
+    "forecastNotes": {
+      "revenue": "線形トレンドのプレースホルダ — モデルサービスに置換。",
+      "customer": "獲得＋リテンションの合成。",
+      "project": "キャパシティを考慮した納品予測。",
+      "capacity": "チーム稼働率予測。",
+      "growth": "成長率予測。"
+    },
+    "forecastKinds": {
+      "revenue": "売上",
+      "customer": "顧客",
+      "project": "プロジェクト",
+      "capacity": "キャパシティ",
+      "growth": "成長"
+    },
+    "severity": {
+      "info": "情報",
+      "warning": "警告",
+      "critical": "重大"
+    },
+    "trend": {
+      "up": "上昇",
+      "down": "下降",
+      "flat": "横ばい"
+    },
+    "insightKinds": {
+      "trend": "トレンド",
+      "pattern": "パターン",
+      "recommendation": "推奨",
+      "executive_summary": "エグゼクティブ要約",
+      "risk": "リスク",
+      "opportunity": "機会"
+    },
+    "reportKinds": {
+      "executive": "エグゼクティブ",
+      "department": "部門",
+      "operational": "オペレーション",
+      "management": "マネジメント"
+    }
   },
   "legal": {
     "shell": {
@@ -4679,13 +5624,223 @@
       "professional": "プロフェッショナル",
       "friendly": "フレンドリー",
       "luxury": "ラグジュアリー",
-      "casual": "カジュアル"
+      "casual": "カジュアル",
+      "minimal": "ミニマル",
+      "corporate": "コーポレート",
+      "creative": "クリエイティブ",
+      "custom": "カスタムブランドボイス"
     },
     "integrationStatus": {
       "planned": "計画中",
       "ready": "準備完了",
       "connected": "接続済み",
       "disabled": "無効"
+    },
+    "categories": {
+      "social": "ソーシャル",
+      "ads": "広告",
+      "analytics": "分析"
+    },
+    "platforms": {
+      "instagram": {
+        "notes": "公式Graph API投稿＋インサイトを予約。"
+      },
+      "tiktok": {
+        "notes": "TikTok Content Posting APIアダプターを予約。"
+      },
+      "youtube": {
+        "notes": "YouTube Data APIアップロード＋分析を予約。"
+      },
+      "facebook": {
+        "notes": "Pages公開アダプターを予約。"
+      },
+      "linkedin": {
+        "notes": "UGC／組織投稿アダプターを予約。"
+      },
+      "pinterest": {
+        "notes": "Pins＋Boardsアダプターを予約。"
+      },
+      "threads": {
+        "notes": "Threads APIアダプターを予約。"
+      },
+      "x": {
+        "notes": "X API v2投稿アダプターを予約。"
+      },
+      "meta-business": {
+        "notes": "Meta Business Suite／Ads Managerフックを予約。"
+      },
+      "google-ads": {
+        "notes": "Google Ads APIキャンペーン同期を予約。"
+      },
+      "google-analytics": {
+        "notes": "GA4計測＋レポートアダプターを予約。"
+      }
+    },
+    "features": {
+      "ideas": {
+        "label": "コンテンツアイデア",
+        "description": "業界を踏まえたキャンペーン・投稿アイデアエンジン。"
+      },
+      "captions": {
+        "label": "キャプション生成",
+        "description": "プラットフォーム形式ごとのブランドボイキャプション。"
+      },
+      "hashtags": {
+        "label": "ハッシュタグ提案",
+        "description": "ハッシュタグセットの関連性とリーチ採点。"
+      },
+      "calendar": {
+        "label": "コンテンツカレンダー",
+        "description": "クロスプラットフォームの編集カレンダー基盤。"
+      },
+      "campaigns": {
+        "label": "キャンペーンプランナー",
+        "description": "目的・オーディエンス・プラットフォーム・タイムライン。"
+      },
+      "audience": {
+        "label": "オーディエンス提案",
+        "description": "CRM＋クリエイター信号からのセグメント提案。"
+      },
+      "schedule": {
+        "label": "投稿スケジュール",
+        "description": "タイムゾーンを踏まえた最適投稿ウィンドウ。"
+      },
+      "brand": {
+        "label": "ブランド一貫性",
+        "description": "ブランドボイスに対するトーンとアセット検査。"
+      },
+      "rewrite": {
+        "label": "AIリライト",
+        "description": "明瞭さ・長さ・チャネル向けに下書きをリライト。"
+      },
+      "translate": {
+        "label": "コンテンツ翻訳",
+        "description": "多言語翻訳パイプラインを予約。"
+      },
+      "i18n": {
+        "label": "多言語サポート",
+        "description": "公開・分析画面向けロケールパック。"
+      }
+    },
+    "kpi": {
+      "content": {
+        "label": "作成コンテンツ",
+        "caption": "今四半期"
+      },
+      "campaigns": {
+        "label": "キャンペーン",
+        "caption": "進行中＋予定"
+      },
+      "scheduled": {
+        "label": "予約投稿",
+        "caption": "今後14日"
+      },
+      "engagement": {
+        "label": "エンゲージメント",
+        "caption": "チャネル平均率"
+      },
+      "followers": {
+        "label": "フォロワー成長",
+        "caption": "過去30日"
+      },
+      "reach": {
+        "label": "リーチ",
+        "caption": "ユニークインプレッション"
+      },
+      "conversions": {
+        "label": "コンバージョン",
+        "caption": "帰属アクション"
+      },
+      "ai-score": {
+        "label": "AIパフォーマンススコア",
+        "caption": "コンテンツ品質シグナル"
+      }
+    },
+    "analyticsMetrics": {
+      "a1": "エンゲージメント",
+      "a2": "リーチ",
+      "a3": "CTR",
+      "a4": "コンバージョン",
+      "a5": "オーディエンス成長",
+      "a6": "コンテンツパフォーマンス"
+    },
+    "voiceDesc": {
+      "professional": "明確で信頼できるビジネス優先のトーン。",
+      "luxury": "洗練され、余白が多く、プレミアムな枠組み。",
+      "friendly": "温かく親しみやすく会話的。",
+      "casual": "気軽な日常語。",
+      "minimal": "短い文、高い明瞭さ。",
+      "corporate": "正式な企業コミュニケーション。",
+      "creative": "キャンペーン向けの表現豊かなストーリーテリング。",
+      "custom": "ガイドラインとサンプル文は後でアップロード。"
+    },
+    "formatDesc": {
+      "instagram_caption": "CTAフック付きフィード／リールキャプション。",
+      "tiktok_script": "短尺脚本：フック→価値→CTA。",
+      "linkedin_post": "ソートリーダーシップとB2Bナラティブ。",
+      "facebook_post": "コミュニティ／ページ向け投稿。",
+      "x_post": "簡潔なスレッドと単発投稿。",
+      "blog_article": "長文の編集下書き。",
+      "newsletter": "ニュースレターのセクションと件名。",
+      "email_campaign": "キャンペーンシーケンスとナーチャコピー。",
+      "product_description": "コマース向け製品ナラティブ。",
+      "ad_copy": "有料ソーシャル／検索広告のバリエーション。",
+      "seo_article": "検索意図の記事（アウトライン付き）。",
+      "landing_page_copy": "ヒーロー、利点、証拠、CTAブロック。"
+    },
+    "campaignStatus": {
+      "Active": "進行中",
+      "In review": "レビュー中",
+      "Planned": "予定"
+    },
+    "campaigns": {
+      "camp-1": {
+        "name": "Q3製品ローンチ",
+        "objective": "認知＋ウェイトリスト登録",
+        "audience": "EUの中小事業者",
+        "budget": "€8,500（プレースホルダ）",
+        "timeline": "8月4日〜9月12日"
+      },
+      "camp-2": {
+        "name": "クリエイターコラボスプリント",
+        "objective": "リーチ＋コミュニティ成長",
+        "audience": "クリエイター18–34 DE/AT",
+        "budget": "€4,200（プレースホルダ）",
+        "timeline": "7月20日〜8月20日"
+      },
+      "camp-3": {
+        "name": "代理店ポートフォリオプッシュ",
+        "objective": "リード獲得",
+        "audience": "マーケティングディレクター",
+        "budget": "€2,900（プレースホルダ）",
+        "timeline": "9月1日〜9月30日"
+      }
+    },
+    "calendarItems": {
+      "cal-1": "ローンチティーザーリール",
+      "cal-2": "創業者LinkedInナラティブ",
+      "cal-3": "ウェイトリストメール#1",
+      "cal-4": "TikTokデモ脚本"
+    },
+    "queueItems": {
+      "q-1": "ローンチティーザーリールのキャプション",
+      "q-2": "創業者ナラティブ投稿",
+      "q-3": "ウェイトリスト育成メール",
+      "q-4": "製品ランディングヒーローコピー",
+      "q-5": "TikTokデモ脚本v2",
+      "q-6": "6月振り返りカルーセル",
+      "q-7": "古いプロモスレッド"
+    },
+    "topPosts": {
+      "tp-1": "倉庫自動化ティアダウン",
+      "tp-2": "30秒製品デモリール",
+      "tp-3": "クリエイターコラボフック"
+    },
+    "recommendations": {
+      "r1": "今週LinkedInティアダウンを3部カルーセルに再利用。",
+      "r2": "完了率向上のためTikTokデモを火–木18:00–20:00 CETに予約。",
+      "r3": "Instagram CTAのラグジュアリーブランドボイスを引き締め、約20%短縮。",
+      "r4": "トップリールキャプションをDE/FRに翻訳しEU視聴を拡大。"
     }
   },
   "backend": {
@@ -4726,7 +5881,7 @@
     "skipToMain": "メインコンテンツにスキップ",
     "offline": {
       "title": "あなたはオフラインです",
-      "message": "接続を確認し、オンラインに戻ったら再試行してください。キャッシュされた画面は引き続き機能する可能性があります。",
+      "message": "接続を確認し、オンラインに戻ったら再試行してください。キャッシュされた画面は引き続き使える場合があります。",
       "home": "家",
       "contact": "接触",
       "signIn": "サインイン"

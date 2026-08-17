@@ -2,8 +2,8 @@
   "skipToContent": "Zum Dashboard-Inhalt springen",
   "loading": "Dashboard wird geladen…",
   "hero": {
-    "ariaLabel": "AGXORA CORE Hero",
-    "eyebrow": "KI-Betriebsystem für Unternehmen",
+    "ariaLabel": "AGXORA CORE",
+    "eyebrow": "KI-Geschäftsbetriebssystem",
     "title": "AGXORA CORE",
     "subtitle": "Echtzeit-Intelligenz und operative Steuerung — die Kommandozentrale Ihres Workspace.",
     "ctaGetStarted": "Loslegen",
@@ -43,7 +43,7 @@
   "attention": {
     "title": "Aufmerksamkeit erforderlich",
     "ariaLabel": "Was Aufmerksamkeit braucht",
-    "empty": "Alles klar — derzeit keine dringenden Punkte.",
+    "empty": "Alles in Ordnung — derzeit keine dringenden Punkte.",
     "tone": {
       "critical": "Kritisch",
       "warning": "Warnung",
@@ -69,8 +69,8 @@
     }
   },
   "overview": {
-    "title": "Was passiert",
-    "subtitle": "Workspace-Kennzahlen für {name}",
+    "title": "Was gerade passiert",
+    "subtitle": "Kennzahlen für {name}",
     "fallbackName": "Ihren Workspace",
     "ariaLabel": "Geschäftsübersicht",
     "online": "Online",
@@ -102,7 +102,7 @@
       "openBilling": "Abrechnung öffnen"
     },
     "clientShell": {
-      "title": "Client-Shell",
+      "title": "Anwendungsshell",
       "caption": "Browsersitzung bereit — kein Live-Ops-Monitor",
       "shellLoaded": "Anwendungs-Shell geladen",
       "storesReady": "Lokale Workspace-Stores bereit"
@@ -117,8 +117,8 @@
     "title": "Letzte Aktivität",
     "subtitle": "Was sich heute geändert hat",
     "ariaLabel": "Letzte Aktivität",
-    "todayCount": "{count} HEUTE",
-    "localBadge": "LOKAL",
+    "todayCount": "{count} heute",
+    "localBadge": "Lokal",
     "emptyTitle": "Noch keine Aktivität",
     "emptyBody": "Workspace-Ereignisse erscheinen hier, wenn Sie Kunden, Projekte und mehr hinzufügen.",
     "addCustomer": "Kunde hinzufügen",

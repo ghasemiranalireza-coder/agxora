@@ -63,7 +63,17 @@
   "logs": {
     "title": "Log integrasi",
     "emptyTitle": "Belum ada log",
-    "emptyDescription": "Hubungkan penyedia atau jalankan diagnostik."
+    "emptyDescription": "Hubungkan penyedia atau jalankan diagnostik.",
+    "installed": "{name} terpasang",
+    "demoConnected": "Demo terhubung {name}",
+    "disconnected": "{name} terputus",
+    "webhookCreated": "Webhook dibuat {name}",
+    "keyCreated": "Kunci API dibuat {name}",
+    "keyRotated": "Kunci diputar {name}",
+    "keyRevoked": "Kunci dicabut {name}",
+    "stubHealthy": "{name} stub sehat",
+    "diagnosticsComplete": "Diagnostik selesai",
+    "outgoing": "Keluar {status}: {eventType}"
   },
   "apiKeys": {
     "title": "Kunci API",
@@ -138,6 +148,91 @@
   },
   "errors": {
     "failedToFetch": "Gagal mengambil",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "Konektor tidak dikenal.",
+    "webhookNotFound": "Webhook tidak ditemukan.",
+    "apiKeyInactive": "Kunci API tidak aktif atau kedaluwarsa."
+  },
+  "categories": {
+    "productivity": "Produktivitas",
+    "communication": "Komunikasi",
+    "storage": "Penyimpanan",
+    "crm": "CRM",
+    "automation": "Otomasi",
+    "devtools": "Alat pengembang",
+    "custom": "Kustom"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "Kunci API",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "OAuth kustom"
+  },
+  "connectorNames": {
+    "custom": "Konektor kustom"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Mail, kalender, dan Teams via Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail, Calendar, dan Drive untuk tenant Workspace."
+    },
+    "slack": {
+      "description": "Saluran, pesan, dan notifikasi interaktif."
+    },
+    "discord": {
+      "description": "Notifikasi server dan pengiriman pesan bot."
+    },
+    "dropbox": {
+      "description": "Sinkronisasi file dan peristiwa folder bersama."
+    },
+    "onedrive": {
+      "description": "Penyimpanan file Microsoft OneDrive dan sinkron delta."
+    },
+    "google_drive": {
+      "description": "File Drive, folder, dan notifikasi perubahan."
+    },
+    "hubspot": {
+      "description": "Kontak CRM, deal, dan peristiwa pemasaran."
+    },
+    "salesforce": {
+      "description": "Objek CRM enterprise dan Platform Events."
+    },
+    "zapier": {
+      "description": "Hook keluar ke zap Zapier."
+    },
+    "make": {
+      "description": "Webhook skenario untuk Make (Integromat)."
+    },
+    "github": {
+      "description": "Repo, issue, pull request, dan Actions."
+    },
+    "gitlab": {
+      "description": "Proyek, merge request, pipeline, dan webhook."
+    },
+    "custom": {
+      "description": "Titik perluasan untuk sistem enterprise proprietary."
+    }
+  },
+  "healthStatus": {
+    "healthy": "Sehat",
+    "degraded": "Menurun",
+    "down": "Offline",
+    "unknown": "Tidak diketahui"
+  },
+  "health": {
+    "installedAuthorize": "Terpasang — hubungkan untuk otorisasi",
+    "oauthStubPlaceholder": "Demo OAuth lokal (stub)",
+    "oauthStubLive": "Demo OAuth lokal (live)",
+    "demoCredential": "Kredensial demo lokal disimpan — API live tidak terhubung",
+    "demoConnection": "Koneksi demo lokal — bukan tautan penyedia live",
+    "disconnected": "Terputus"
+  },
+  "generated": {
+    "keyName": "Kunci {n}",
+    "webhookName": "Webhook {n}"
   }
 }

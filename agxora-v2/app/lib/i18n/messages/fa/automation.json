@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "پیشنهادات بهینه‌سازی",
     "oneClickOptimize": "بهینه‌سازی با یک کلیک",
-    "noticeDefault": "بهینه‌سازی با یک کلیک هنوز جهشی در نمودار ایجاد نکرده است.",
-    "noticeQueued": "بهینه‌سازی صف‌بندی شده. موتور آینده تأخیرها و تأییدها را بازنویسی خواهد کرد."
+    "noticeDefault": "بهینه‌سازی یک‌کلیکی هنوز گراف را تغییر نمی‌دهد.",
+    "noticeQueued": "بهینه‌سازی در صف است. موتور بعدی تأخیرها و تأییدها را بازنویسی می‌کند.",
+    "score": {
+      "healthy": "سالم",
+      "needsAttention": "نیاز به توجه",
+      "atRisk": "در معرض خطر"
+    },
+    "kinds": {
+      "missing_approval": "تأیید",
+      "possible_delay": "تأخیر",
+      "unused_trigger": "محرک",
+      "duplicate_nodes": "تکراری",
+      "unused_action": "اقدام",
+      "security": "امنیت",
+      "performance": "عملکرد"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "تأیید وجود ندارد",
+        "description": "جریان‌های طولانی معمولاً قبل از اثر جانبی به دروازه تأیید نیاز دارند."
+      },
+      "possible_delay": {
+        "title": "تأخیر محتمل",
+        "description": "برای جلوگیری از انفجار اعلان، قبل از ایمیل یادآوری تأخیر بگذارید."
+      },
+      "unused_trigger": {
+        "title": "محرک استفاده‌نشده",
+        "description": "این گراف محرک شروع ندارد — قبل از فعال‌سازی یکی اضافه کنید."
+      },
+      "duplicate_nodes": {
+        "title": "گره تکراری",
+        "description": "«{label}» {count} بار آمده — در صورت تکراری بودن ادغام کنید."
+      },
+      "unused_action": {
+        "title": "اقدام استفاده‌نشده",
+        "description": "{label} متصل نیست — وصل یا حذف کنید."
+      },
+      "security": {
+        "title": "توصیه امنیتی",
+        "description": "برای وب‌هوک و ایمیل از آداپتور با کمترین دسترسی استفاده کنید."
+      },
+      "performance": {
+        "title": "توصیه عملکرد",
+        "description": "گام‌های هوش مصنوعی را در صورت امکان دسته‌بندی کنید تا زمان اجرا کم شود."
+      }
+    }
   },
   "integrations": {
     "intro": "مرکز ادغام — اختیاری. وضعیت‌ها: متصل، بتا، برنامه‌ریزی‌شده، به‌زودی، غیرفعال. بدون APIهای فعال.",
@@ -136,9 +180,9 @@
       "runResult": "اجرای {status} ({duration}ms)",
       "runFailed": "گردش کار اجرا نشد (غیرفعال یا مفقود).",
       "publishedEvent": "رویداد دامنه منتشر شده: {type}",
-      "workflowStatus": "Workflow {status}",
+      "workflowStatus": "گردش‌کار {status}",
       "saved": "گردش کار ذخیره شد",
-      "retryResult": "Retry {status}",
+      "retryResult": "تلاش مجدد {status}",
       "retryFailed": "تلاش ناموفق بود.  %s",
       "settingsSaved": "تنظیمات اتوماسیون ذخیره شد"
     },
@@ -536,5 +580,191 @@
       "label": "واگذاری وظیفه",
       "description": "واگذاری وظیفه به کاربر."
     }
+  },
+  "kinds": {
+    "trigger": "محرک",
+    "action": "اقدام",
+    "condition": "شرط",
+    "delay": "تأخیر",
+    "approval": "تأیید",
+    "loop": "حلقه",
+    "merge": "ادغام",
+    "split": "تقسیم",
+    "ai_decision": "تصمیم هوش مصنوعی",
+    "ai_action": "اقدام هوش مصنوعی",
+    "notification": "اعلان",
+    "webhook": "وب‌هوک",
+    "custom_action": "اقدام سفارشی",
+    "branch": "شاخه",
+    "variable": "متغیر"
+  },
+  "kpi": {
+    "active": {
+      "label": "گردش‌کارهای فعال",
+      "caption": "در فضای کاری فعال"
+    },
+    "runs-today": {
+      "label": "اجرای گردش‌کار امروز",
+      "caption": "در همه محرک‌ها"
+    },
+    "success": {
+      "label": "اتوماسیون‌های موفق",
+      "caption": "امروز"
+    },
+    "failed": {
+      "label": "اجراهای ناموفق",
+      "caption": "نیاز به توجه"
+    },
+    "pending": {
+      "label": "وظایف در انتظار",
+      "caption": "تأییدها + تلاش مجدد"
+    },
+    "avg-time": {
+      "label": "میانگین زمان اجرا",
+      "caption": "میانه ۱٫۲ ثانیه"
+    },
+    "ai-suggestions": {
+      "label": "پیشنهادهای هوش مصنوعی",
+      "caption": "فرصت‌های اتوماسیون"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "بهره‌وری",
+    "Communication": "ارتباطات",
+    "Commerce": "تجارت",
+    "Finance": "مالی",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "هوک‌های Gmail / Drive / تقویم برای اتصال OAuth رزرو شده.",
+    "m365": "هوک‌های Outlook / Teams / Graph رزرو شده.",
+    "slack": "Events API + پست‌های چت رزرو شده.",
+    "teams": "آداپتور Bot Framework رزرو شده.",
+    "discord": "آداپتور وب‌هوک + ربات رزرو شده.",
+    "whatsapp": "آداپتور Meta Cloud API رزرو شده.",
+    "stripe": "وب‌هوک پرداخت رزرو شده — بدون کلید زنده.",
+    "shopify": "رویدادهای سفارش / محصول رزرو شده.",
+    "datev": "هوک‌های خروجی / دسته سند DATEV رزرو شده.",
+    "sap": "پل رویداد ERP رزرو شده — تا پلن Enterprise غیرفعال.",
+    "hubspot": "آداپتور همگام‌سازی CRM رزرو شده.",
+    "salesforce": "آداپتور Platform Events رزرو شده."
+  },
+  "defaultWorkflow": {
+    "name": "آنبوردینگ مشتری",
+    "description": "توالی خوشامد وقتی مشتری ایجاد می‌شود."
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "مالی",
+    "Sales": "فروش",
+    "Marketing": "بازاریابی",
+    "HR": "منابع انسانی",
+    "Creator": "کریتور",
+    "Ops": "عملیات",
+    "Projects": "پروژه‌ها",
+    "AI": "هوش مصنوعی"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "آنبوردینگ مشتری",
+      "description": "ایمیل خوش‌آمد، خلاصه هوش مصنوعی و وظیفه مالک پس از ایجاد مشتری.",
+      "category": "CRM",
+      "recommendedFor": "تیم‌هایی که مشتریان B2B جدید را آنبورد می‌کنند"
+    },
+    "tpl-invoice": {
+      "name": "یادآوری فاکتور",
+      "description": "یادآوری زمان‌بندی‌شده برای فاکتورهای باز با مسیر تشدید.",
+      "category": "مالی",
+      "recommendedFor": "عملیات مالی برای کاهش مطالبات معوق"
+    },
+    "tpl-lead": {
+      "name": "پیگیری سرنخ",
+      "description": "پاسخ ایمیل هوش مصنوعی به‌علاوه به‌روزرسانی وضعیت قیف برای سرنخ‌های جدید.",
+      "category": "فروش",
+      "recommendedFor": "تیم‌های فروش با حجم بالای سرنخ ورودی"
+    },
+    "tpl-welcome": {
+      "name": "ایمیل خوش‌آمد",
+      "description": "توالی خوش‌آمد ساده هنگام ثبت‌نام.",
+      "category": "بازاریابی",
+      "recommendedFor": "هر فضای کاری که با اتوماسیون ایمیل شروع می‌کند"
+    },
+    "tpl-pipeline": {
+      "name": "قیف فروش",
+      "description": "تغییر مرحله با اعلان و وظیفه.",
+      "category": "فروش",
+      "recommendedFor": "تیم‌هایی با پیشرفت چندمرحله‌ای معامله"
+    },
+    "tpl-recruit": {
+      "name": "استخدام",
+      "description": "مسیریابی نامزد و وظایف مصاحبه.",
+      "category": "منابع انسانی",
+      "recommendedFor": "مدیران استخدام و عملیات منابع انسانی"
+    },
+    "tpl-content": {
+      "name": "انتشار محتوا",
+      "description": "استودیو کریتور: انتشار → اطلاع → تحلیل.",
+      "category": "کریتور",
+      "recommendedFor": "تیم‌های بازاریابی و کریتور"
+    },
+    "tpl-approval": {
+      "name": "فرایند تأیید",
+      "description": "تأیید چندمرحله‌ای با توصیه‌های هوش مصنوعی.",
+      "category": "عملیات",
+      "recommendedFor": "تأیید مالی/عملیات قبل از اثر جانبی",
+      "estimatedRuntime": "دروازه انسانی"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "خوش‌آمد مشتری جدید",
+      "description": "ایمیل خوش‌آمد + اعلان هنگام ایجاد مشتری.",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "یادآوری فاکتور",
+      "description": "پس از صدور فاکتور به مشتریان یادآوری کنید.",
+      "category": "مالی"
+    },
+    "tpl_project_kickoff": {
+      "name": "شروع پروژه",
+      "description": "وظیفه شروع را تخصیص دهید و هنگام ایجاد پروژه اطلاع دهید.",
+      "category": "پروژه‌ها"
+    },
+    "tpl_task_assignment": {
+      "name": "تخصیص وظیفه",
+      "description": "وقتی وظیفه‌ای تمام شد به مسئول ایمیل بزنید — کار بعدی را زنجیره کنید.",
+      "category": "پروژه‌ها"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "خلاصه مشتری با هوش مصنوعی",
+      "description": "هنگام ایجاد مشتری خلاصه هوش مصنوعی را اجرا کنید؛ خروجی را ذخیره کنید.",
+      "category": "هوش مصنوعی"
+    },
+    "tpl_followup_reminder": {
+      "name": "یادآوری پیگیری",
+      "description": "پیگیری مبتنی بر زمان‌بندی با انشعاب بر اساس وضعیت.",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "ارسال ایمیل خوش‌آمد",
+    "notify_team": "اطلاع به تیم",
+    "wait_3_days": "۳ روز صبر",
+    "still_unpaid": "هنوز پرداخت نشده؟",
+    "send_reminder": "ارسال یادآوری",
+    "assign_kickoff_task": "تخصیص وظیفه شروع",
+    "notify_owner": "اطلاع به مالک",
+    "notify_stakeholders": "اطلاع به ذی‌نفعان",
+    "run_ai_summary": "اجرای خلاصه هوش مصنوعی",
+    "generate_document": "تولید سند",
+    "daily_schedule": "زمان‌بندی روزانه",
+    "by_priority": "بر اساس اولویت",
+    "urgent_notification": "اعلان فوری",
+    "standard_email": "ایمیل استاندارد"
+  },
+  "studioAiFeatures": {
+    "generate_ai_content": "تولید محتوای هوش مصنوعی"
   }
 }

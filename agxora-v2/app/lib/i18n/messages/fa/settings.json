@@ -54,14 +54,14 @@
     "description": "ارائه‌دهنده، مدل، خلاقیت و حافظه",
     "title": "هوش مصنوعی",
     "panelDescription": "ارائه‌دهنده، مدل، خلاقیت، دما و ترجیحات حافظه.",
-    "openAgentOs": "سیستم عامل عامل باز",
+    "openAgentOs": "Agent OS را باز کنید",
     "openAiWorkspace": "فضای کاری هوش مصنوعی باز",
     "noticeSync": "تنظیمات هوش مصنوعی از طریق AISettingsProvider همگام‌سازی می‌شوند - کلیدهایی که هرگز در اینجا ذخیره نمی‌شوند.",
     "noticeProvider": "پیاده‌سازی‌های ارائه‌دهنده در پشت لایه سرویس هوش مصنوعی باقی می‌مانند. رابط کاربری هرگز کلیدهای API یا جزئیات SDK را دریافت نمی‌کند. عامل‌های خودمختار در Agent OS قرار دارند.",
     "preferredProvider": "ارائه دهنده هوش مصنوعی ترجیحی",
     "defaultModel": "مدل پیش‌فرض هوش مصنوعی",
     "temperature": "دما",
-    "topP": "بالا پ",
+    "topP": "Top P",
     "maxTokens": "حداکثر توکن‌ها",
     "writingStyle": "سبک نگارش",
     "languagePreferences": "ترجیحات زبان",
@@ -72,16 +72,16 @@
     "apiKeyHint": "کلیدها فقط از طریق متغیرهای محیطی سرور ارائه می‌شوند.",
     "apiKeyPlaceholder": "از طریق متغیرهای محیطی AGXORA_* پیکربندی شده است (هرگز در مرورگر نمایش داده نمی‌شود)",
     "memory": "حافظه",
-    "memoryDescription": "Allow organization memory to inform AI replies across modules.",
+    "memoryDescription": "اجازه دهید حافظه سازمان پاسخ‌های هوش مصنوعی را در ماژول‌ها هدایت کند.",
     "automationSuggestions": "پیشنهادات اتوماسیون",
     "automationSuggestionsDescription": "پیشنهادهای گردش کار هوش مصنوعی سطحی در موتور اتوماسیون.",
     "streaming": "Streaming",
     "streamingDescription": "پاسخ‌های مدل را زمانی که ارائه‌دهنده از آن پشتیبانی می‌کند، پخش کنید.",
     "providers": {
-      "mock": "مسخره (محلی)",
+      "mock": "آزمایشی (محلی)",
       "openai": "OpenAI",
       "azure": "Azure OpenAI",
-      "anthropic": "انسان‌نگر",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "اوپن‌روتر",
       "ollama": "اولاما",
@@ -94,7 +94,7 @@
       "technical": "Technical"
     },
     "languages": {
-      "auto": "Match profile language",
+      "auto": "مطابق زبان پروفایل",
       "en": "انگلیسی",
       "de": "آلمانی"
     }
@@ -108,15 +108,15 @@
     "themeLabel": "تم",
     "themeModeAria": "Theme mode",
     "resolvedAppearance": "ظاهر حل شده:",
-    "accentColor": "رنگ حساب",
-    "accentNotice": "Accent preference is stored for future CSS var wiring — does not mutate the locked color system yet.",
+    "accentColor": "رنگ تاکید",
+    "accentNotice": "ترجیح رنگ تاکید برای این نشست ذخیره می‌شود و هنوز سامانه رنگ قفل‌شده را تغییر نمی‌دهد.",
     "density": "Density",
-    "compactMode": "Compact Mode",
-    "compactModeDescription": "Reduce padding across enterprise tables and panels.",
+    "compactMode": "حالت فشرده",
+    "compactModeDescription": "فاصله‌گذاری جدول‌ها و پنل‌های سازمانی را کاهش دهید.",
     "animations": "انیمیشن",
-    "animationsDescription": "Section motion and hover lifts. Respects reduced-motion OS setting.",
+    "animationsDescription": "حرکت بخش‌ها و افکت هاور. تنظیم کاهش حرکت سیستم رعایت می‌شود.",
     "glassEffects": "جلوه‌های شیشه‌ای",
-    "glassEffectsDescription": "Frosted glass cards and sidebar blur intensity preference.",
+    "glassEffectsDescription": "ترجیح شدت شیشه مات کارت‌ها و نوار کناری.",
     "modes": {
       "day": {
         "label": "روشن",
@@ -124,7 +124,7 @@
       },
       "night": {
         "label": "Dark",
-        "hint": "Approved cinematic night look"
+        "hint": "ظاهر شب سینمایی تأییدشده"
       },
       "auto": {
         "label": "سیستم",
@@ -135,6 +135,13 @@
       "comfortable": "Comfortable",
       "compact": "نمایش طرح جمع و جور",
       "spacious": "Spacious"
+    },
+    "accents": {
+      "cyan": "فیروزه‌ای",
+      "blue": "آبی",
+      "emerald": "زمردی",
+      "violet": "بنفش",
+      "amber": "کهربایی"
     }
   },
   "notifications": {
@@ -148,11 +155,11 @@
     "desktop": "Desktop",
     "mobile": "موبایل",
     "workflowAlerts": "هشدارهای گردش کار",
-    "workflowAlertsDescription": "Automation Engine execution and approval events.",
-    "financeAlerts": "Finance Alerts",
+    "workflowAlertsDescription": "رویدادهای اجرا و تأیید موتور اتوماسیون.",
+    "financeAlerts": "هشدارهای مالی",
     "crmAlerts": "هشدارهای CRM",
-    "documentsAlerts": "Documents Alerts",
-    "deliveryNotice": "Delivery adapters ship at launch. Questions:",
+    "documentsAlerts": "هشدارهای اسناد",
+    "deliveryNotice": "آداپتورهای ارسال در زمان راه‌اندازی ارائه می‌شوند. پرسش‌ها:",
     "contactSupport": "با پشتیبانی تماس بگیرید"
   },
   "documents": {
@@ -160,18 +167,18 @@
     "description": "ذخیره‌سازی، نگهداری و دانش",
     "title": "اسناد",
     "panelDescription": "ذخیره‌سازی، نگهداری، پوشه پیش‌فرض، نسخه‌بندی و دانش.",
-    "notice": "Documents settings integrate with the Knowledge Hub architecture.",
+    "notice": "تنظیمات اسناد با معماری کانون دانش یکپارچه است.",
     "storagePreferences": "تنظیمات ذخیره سازی",
     "retentionPolicy": "سیاست نگهداری",
-    "defaultFolder": "Default Folder",
+    "defaultFolder": "پوشه پیش‌فرض",
     "versioning": "Versioning",
     "versioningDescription": "تاریخچه نسخه سند را برای بازیابی/مقایسه نگه دارید.",
-    "knowledgeSettings": "Knowledge Settings",
+    "knowledgeSettings": "تنظیمات دانش",
     "knowledgeDescription": "نمایه‌سازی هوش مصنوعی برای جستجوی مرکز دانش.",
     "storageOptions": {
-      "workspace-default": "Workspace default",
+      "workspace-default": "پیش‌فرض فضای کاری",
       "eu-region": "EU region",
-      "encrypted-vault": "Encrypted vault"
+      "encrypted-vault": "خزانه رمزنگاری‌شده"
     },
     "retentionOptions": {
       "30-days": "۳۰ روز (ابتدایی)",
@@ -186,14 +193,14 @@
     "title": "اتوماسیون",
     "panelDescription": "پیش‌فرض‌های گردش‌کار، پیشنهادهای AI، گزارش اجرا، تاریخچه و سیاست تلاش مجدد.",
     "notice": "پیش‌فرض‌های اتوماسیون برای معماری موتور گردش کار اعمال می‌شوند.",
-    "workflowDefaults": "Workflow Defaults",
+    "workflowDefaults": "پیش‌فرض‌های گردش‌کار",
     "historyLimits": "محدودیت‌های تاریخچه",
     "retryPolicy": "Retry Policy",
     "aiSuggestions": "AI Suggestions",
     "executionLogs": "گزارش‌های اجرایی",
-    "executionLogsDescription": "Retain detailed run payloads in Workflow History.",
+    "executionLogsDescription": "جزئیات اجرا را در تاریخچه گردش‌کار نگه دارید.",
     "workflowOptions": {
-      "require-approval": "Require approval gates",
+      "require-approval": "دروازه‌های تأیید الزامی",
       "auto-run": "جریان‌های قابل اعتماد را به صورت خودکار اجرا کنید",
       "draft-only": "فقط پیش‌نویس"
     },
@@ -213,7 +220,7 @@
     "description": "نصب‌شده، متصل و موجود",
     "title": "یکپارچه‌سازی‌ها",
     "panelDescription": "آداپترهای نصب‌شده، متصل و موجود.",
-    "openCenter": "Open Integration Center",
+    "openCenter": "مرکز یکپارچه‌سازی را باز کنید",
     "notice": "پلتفرم یکپارچه‌سازی سازمانی در مرکز یکپارچه‌سازی قرار دارد - کانکتورها، OAuth، وب‌هوک‌ها، کلیدهای API و پل رویداد گردش کار.",
     "columns": {
       "integration": "ادغام",
@@ -279,7 +286,7 @@
     "description": "کلیدها، وب‌هوک‌ها، توکن‌ها، سندباکس",
     "title": "API و توسعه‌دهندگان",
     "panelDescription": "کلیدها، وب‌هوک‌ها، توکن‌ها و دسترسی سندباکس.",
-    "openPortal": "Open developer portal",
+    "openPortal": "پورتال توسعه‌دهنده را باز کنید",
     "notice": "کلیدها را در مرکز ادغام ایجاد، چرخش و لغو کنید. دروازه، تستر وب‌هوک و کاوشگر API در آنجا موجود است.",
     "webhooks": "صفحات وب",
     "sandbox": "محیط آزمایشی (SandBox)",
@@ -306,7 +313,7 @@
     },
     "categories": {
       "activity": "فعالیت اخیر",
-      "security": "Security Events",
+      "security": "رویدادهای امنیتی",
       "system": "تغییرات سیستم"
     }
   },
@@ -316,14 +323,14 @@
     "title": "پیشرفته",
     "panelDescription": "قابلیت‌های آزمایشی، بازنشانی، درون‌ریزی و برون‌ریزی.",
     "notice": "اقدامات پیشرفته قبل از اعمال نیاز به تأیید دارند.",
-    "experimentalFeatures": "Experimental Features",
+    "experimentalFeatures": "ویژگی‌های آزمایشی",
     "experimentalDescription": "از قابلیت‌های ناتمام مرکز کنترل استفاده کنید.",
     "export": "خروجی",
     "import": "Import",
     "reset": "بازنشانی کنید",
-    "exportUnavailable": "Export is not available yet.",
+    "exportUnavailable": "خروجی هنوز در دسترس نیست.",
     "importUnavailable": "واردات هنوز در دسترس نیست.",
-    "resetUnavailable": "Reset is not available yet."
+    "resetUnavailable": "بازنشانی هنوز در دسترس نیست."
   },
   "page": {
     "eyebrow": "مرکز کنترل AGXORA",

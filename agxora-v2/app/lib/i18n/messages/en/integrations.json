@@ -63,7 +63,17 @@
   "logs": {
     "title": "Integration logs",
     "emptyTitle": "No logs yet",
-    "emptyDescription": "Connect a provider or run diagnostics."
+    "emptyDescription": "Connect a provider or run diagnostics.",
+    "installed": "Installed {name}",
+    "demoConnected": "Demo connected {name}",
+    "disconnected": "Disconnected {name}",
+    "webhookCreated": "Created webhook {name}",
+    "keyCreated": "Created API key {name}",
+    "keyRotated": "Rotated key {name}",
+    "keyRevoked": "Revoked key {name}",
+    "stubHealthy": "{name} stub healthy",
+    "diagnosticsComplete": "Diagnostics complete",
+    "outgoing": "Outgoing {status}: {eventType}"
   },
   "apiKeys": {
     "title": "API keys",
@@ -138,6 +148,91 @@
   },
   "errors": {
     "failedToFetch": "Failed to fetch",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "Unknown connector.",
+    "webhookNotFound": "Webhook not found.",
+    "apiKeyInactive": "API key inactive or expired."
+  },
+  "categories": {
+    "productivity": "Productivity",
+    "communication": "Communication",
+    "storage": "Storage",
+    "crm": "CRM",
+    "automation": "Automation",
+    "devtools": "Developer tools",
+    "custom": "Custom"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "API key",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "Custom OAuth"
+  },
+  "connectorNames": {
+    "custom": "Custom Connector"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Mail, calendar, and Teams via Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail, Calendar, and Drive for Workspace tenants."
+    },
+    "slack": {
+      "description": "Channels, messages, and interactive notifications."
+    },
+    "discord": {
+      "description": "Server notifications and bot message delivery."
+    },
+    "dropbox": {
+      "description": "File sync and shared folder events."
+    },
+    "onedrive": {
+      "description": "Microsoft OneDrive file storage and delta sync."
+    },
+    "google_drive": {
+      "description": "Drive files, folders, and change notifications."
+    },
+    "hubspot": {
+      "description": "CRM contacts, deals, and marketing events."
+    },
+    "salesforce": {
+      "description": "Enterprise CRM objects and Platform Events."
+    },
+    "zapier": {
+      "description": "Outbound hooks into Zapier zaps."
+    },
+    "make": {
+      "description": "Scenario webhooks for Make (Integromat)."
+    },
+    "github": {
+      "description": "Repos, issues, pull requests, and Actions."
+    },
+    "gitlab": {
+      "description": "Projects, merge requests, pipelines, and webhooks."
+    },
+    "custom": {
+      "description": "Extension point for proprietary enterprise systems."
+    }
+  },
+  "healthStatus": {
+    "healthy": "Healthy",
+    "degraded": "Degraded",
+    "down": "Down",
+    "unknown": "Unknown"
+  },
+  "health": {
+    "installedAuthorize": "Installed — connect to authorize",
+    "oauthStubPlaceholder": "Local demo OAuth stub (stub)",
+    "oauthStubLive": "Local demo OAuth stub (live)",
+    "demoCredential": "Local demo credential stored — live API not connected",
+    "demoConnection": "Local demo connection — not a live provider link",
+    "disconnected": "Disconnected"
+  },
+  "generated": {
+    "keyName": "Key {n}",
+    "webhookName": "Webhook {n}"
   }
 }

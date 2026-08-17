@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "优先考虑客户影响",
     "delegatedFollowUp": "已委派跟进"
+  },
+  "categories": {
+    "Leadership": "领导力",
+    "Revenue": "营收",
+    "CRM": "CRM",
+    "Delivery": "交付",
+    "Automation": "自动化",
+    "Finance": "财务",
+    "Knowledge": "知识",
+    "Support": "支持",
+    "Productivity": "效率",
+    "Custom": "自定义"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "高管顾问",
+      "description": "战略简报、KPI 汇总与决策支持。"
+    },
+    "sales_agent": {
+      "name": "销售代理",
+      "description": "管道辅导、外联草稿与交易下一步。"
+    },
+    "crm_assistant": {
+      "name": "CRM 助手",
+      "description": "客户数据充实、数据卫生与关系洞察。"
+    },
+    "project_manager": {
+      "name": "项目经理",
+      "description": "计划、任务拆解与交付风险信号。"
+    },
+    "workflow_coordinator": {
+      "name": "工作流协调员",
+      "description": "触发并编排 AGXORA 自动化工作流。"
+    },
+    "finance_assistant": {
+      "name": "财务助手",
+      "description": "发票洞察、现金流备注与财务摘要。"
+    },
+    "document_analyst": {
+      "name": "文档分析师",
+      "description": "从文档中提取结构、风险与摘要。"
+    },
+    "knowledge_assistant": {
+      "name": "知识助手",
+      "description": "基于企业知识作答，检索已为 RAG 预留。"
+    },
+    "support_assistant": {
+      "name": "支持助手",
+      "description": "客户支持分诊、回复与升级路径。"
+    },
+    "meeting_assistant": {
+      "name": "会议助手",
+      "description": "议程准备、笔记占位与跟进。"
+    },
+    "custom": {
+      "name": "自定义代理",
+      "description": "面向组织专属代理的扩展点。"
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "CRM 工具",
+      "description": "创建/更新客户并读取账户上下文。"
+    },
+    "projects": {
+      "name": "项目工具",
+      "description": "管理项目、任务与交付状态。"
+    },
+    "finance": {
+      "name": "财务工具",
+      "description": "发票、余额与财务摘要。"
+    },
+    "documents": {
+      "name": "文档工具",
+      "description": "读取并摘要工作区文档。"
+    },
+    "workflow": {
+      "name": "工作流工具",
+      "description": "触发并检查自动化工作流。"
+    },
+    "integration": {
+      "name": "集成工具",
+      "description": "调用已连接的第三方连接器。"
+    },
+    "email": {
+      "name": "邮件工具",
+      "description": "起草并排队外发邮件。"
+    },
+    "calendar": {
+      "name": "日历工具",
+      "description": "安排并查看日历事件。"
+    },
+    "search": {
+      "name": "搜索工具",
+      "description": "通用工作区搜索。"
+    },
+    "notification": {
+      "name": "通知工具",
+      "description": "发送应用内通知。"
+    },
+    "api": {
+      "name": "API 工具",
+      "description": "调用内部 API 网关路由。"
+    },
+    "mcp": {
+      "name": "MCP 工具",
+      "description": "未来的 Model Context Protocol 服务器工具。"
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "AGXORA 运营原则",
+      "summary": "面向模块化安全 AI 代理的企业操作系统原则。"
+    },
+    "policies": {
+      "title": "数据处理政策",
+      "summary": "敏感工具隔离与最小权限访问。"
+    },
+    "procedures": {
+      "title": "客户升级流程",
+      "summary": "支持助手在低置信度时的升级路径。"
+    },
+    "rag": {
+      "title": "RAG 索引占位",
+      "summary": "未来对文档与 CRM 笔记的向量检索。"
+    }
+  },
+  "llm": {
+    "local": "本地 LLM",
+    "mcp": "MCP 服务器",
+    "custom": "自定义模型"
+  },
+  "lifecycle": {
+    "draft": "草稿",
+    "registered": "已注册",
+    "active": "启用",
+    "paused": "已暂停",
+    "error": "错误",
+    "retired": "已停用"
+  },
+  "healthStatus": {
+    "healthy": "健康",
+    "degraded": "降级",
+    "down": "停机",
+    "unknown": "未知"
+  },
+  "taskStatus": {
+    "pending": "待处理",
+    "running": "运行中",
+    "completed": "已完成",
+    "cancelled": "已取消",
+    "failed": "失败",
+    "retrying": "重试中"
+  },
+  "memoryScope": {
+    "working": "工作",
+    "conversation": "对话",
+    "business": "业务",
+    "long_term": "长期",
+    "workspace": "工作区",
+    "agent": "代理"
+  },
+  "knowledgeKind": {
+    "company": "公司",
+    "documents": "文档",
+    "projects": "项目",
+    "crm": "CRM",
+    "policies": "政策",
+    "procedures": "流程",
+    "vector": "向量",
+    "rag": "RAG"
   }
 }

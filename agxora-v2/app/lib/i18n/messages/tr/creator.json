@@ -138,12 +138,222 @@
     "professional": "Profesyonel",
     "friendly": "Samimi",
     "luxury": "Lüks",
-    "casual": "Günlük"
+    "casual": "Günlük",
+    "minimal": "Minimal",
+    "corporate": "Kurumsal",
+    "creative": "Yaratıcı",
+    "custom": "Özel marka sesi"
   },
   "integrationStatus": {
     "planned": "Planlandı",
     "ready": "Hazır",
     "connected": "Bağlı",
     "disabled": "Devre dışı"
+  },
+  "categories": {
+    "social": "Sosyal",
+    "ads": "Reklamlar",
+    "analytics": "Analitik"
+  },
+  "platforms": {
+    "instagram": {
+      "notes": "Resmi Graph API yayın + içgörüler ayrıldı."
+    },
+    "tiktok": {
+      "notes": "TikTok Content Posting API bağdaştırıcısı ayrıldı."
+    },
+    "youtube": {
+      "notes": "YouTube Data API yükleme + analitik ayrıldı."
+    },
+    "facebook": {
+      "notes": "Pages yayın bağdaştırıcısı ayrıldı."
+    },
+    "linkedin": {
+      "notes": "UGC / kuruluş gönderi bağdaştırıcısı ayrıldı."
+    },
+    "pinterest": {
+      "notes": "Pin + pano bağdaştırıcısı ayrıldı."
+    },
+    "threads": {
+      "notes": "Threads API bağdaştırıcısı ayrıldı."
+    },
+    "x": {
+      "notes": "X API v2 gönderi bağdaştırıcısı ayrıldı."
+    },
+    "meta-business": {
+      "notes": "Meta Business Suite / Ads Manager kancaları ayrıldı."
+    },
+    "google-ads": {
+      "notes": "Google Ads API kampanya senkronu ayrıldı."
+    },
+    "google-analytics": {
+      "notes": "GA4 ölçüm + raporlama bağdaştırıcısı ayrıldı."
+    }
+  },
+  "features": {
+    "ideas": {
+      "label": "İçerik fikirleri",
+      "description": "Sektöre duyarlı fikir motoru: kampanyalar ve gönderiler."
+    },
+    "captions": {
+      "label": "Altyazı üretici",
+      "description": "Platform formatına göre marka sesi altyazılar."
+    },
+    "hashtags": {
+      "label": "Hashtag önerileri",
+      "description": "Hashtag setleri için alaka ve erişim puanı."
+    },
+    "calendar": {
+      "label": "İçerik takvimi",
+      "description": "Çok platformlu editoryal takvim temeli."
+    },
+    "campaigns": {
+      "label": "Kampanya planlayıcı",
+      "description": "Hedefler, kitle, platformlar ve zaman çizelgeleri."
+    },
+    "audience": {
+      "label": "Kitle önerileri",
+      "description": "CRM + creator sinyallerinden segment önerileri."
+    },
+    "schedule": {
+      "label": "Yayın takvimi",
+      "description": "Saat dilimine duyarlı en iyi yayın pencereleri."
+    },
+    "brand": {
+      "label": "Marka tutarlılığı",
+      "description": "Marka sesine göre ton ve varlık kontrolleri."
+    },
+    "rewrite": {
+      "label": "YZ yeniden yazma",
+      "description": "Taslakları netlik, uzunluk veya kanal için yeniden yaz."
+    },
+    "translate": {
+      "label": "İçeriği çevir",
+      "description": "Çok dilli çeviri hattı ayrıldı."
+    },
+    "i18n": {
+      "label": "Çok dilli destek",
+      "description": "Yayın ve analitik yüzeyleri için yerel paketler."
+    }
+  },
+  "kpi": {
+    "content": {
+      "label": "Oluşturulan içerik",
+      "caption": "Bu çeyrek"
+    },
+    "campaigns": {
+      "label": "Kampanyalar",
+      "caption": "Aktif + planlı"
+    },
+    "scheduled": {
+      "label": "Zamanlanmış gönderiler",
+      "caption": "Sonraki 14 gün"
+    },
+    "engagement": {
+      "label": "Etkileşim",
+      "caption": "Kanallar arası ort. oran"
+    },
+    "followers": {
+      "label": "Takipçi büyümesi",
+      "caption": "Son 30 gün"
+    },
+    "reach": {
+      "label": "Erişim",
+      "caption": "Benzersiz gösterimler"
+    },
+    "conversions": {
+      "label": "Dönüşümler",
+      "caption": "Atfedilen eylemler"
+    },
+    "ai-score": {
+      "label": "YZ performans skoru",
+      "caption": "İçerik kalite sinyali"
+    }
+  },
+  "analyticsMetrics": {
+    "a1": "Etkileşim",
+    "a2": "Erişim",
+    "a3": "CTR",
+    "a4": "Dönüşümler",
+    "a5": "Kitle büyümesi",
+    "a6": "İçerik performansı"
+  },
+  "voiceDesc": {
+    "professional": "Net, güvenilir, iş odaklı ton.",
+    "luxury": "İnce, sade, premium çerçeve.",
+    "friendly": "Sıcak, samimi, sohbet gibi.",
+    "casual": "Rahat günlük dil.",
+    "minimal": "Kısa cümleler, yüksek netlik.",
+    "corporate": "Resmi kurumsal iletişim.",
+    "creative": "Kampanyalar için ifade dolu hikâye anlatımı.",
+    "custom": "Yönergeleri ve örnek metinleri sonra yükleyin."
+  },
+  "formatDesc": {
+    "instagram_caption": "CTA kancalı Feed / Reels altyazıları.",
+    "tiktok_script": "Kısa senaryo: kanca → değer → CTA.",
+    "linkedin_post": "Düşünce liderliği ve B2B anlatıları.",
+    "facebook_post": "Topluluk ve sayfa hazır gönderiler.",
+    "x_post": "Özlü diziler ve tek gönderiler.",
+    "blog_article": "Uzun form editoryal taslaklar.",
+    "newsletter": "Bülten bölümleri ve konu satırları.",
+    "email_campaign": "Kampanya dizileri ve nurture metinleri.",
+    "product_description": "Ticarete hazır ürün anlatıları.",
+    "ad_copy": "Ücretli sosyal ve arama reklamı varyantları.",
+    "seo_article": "Arama niyeti makaleleri (ana hatlı).",
+    "landing_page_copy": "Hero, faydalar, kanıt ve CTA blokları."
+  },
+  "campaignStatus": {
+    "Active": "Aktif",
+    "In review": "İncelemede",
+    "Planned": "Planlı"
+  },
+  "campaigns": {
+    "camp-1": {
+      "name": "Q3 ürün lansmanı",
+      "objective": "Farkındalık + bekleme listesi kayıtları",
+      "audience": "AB KOBİ işletmecileri",
+      "budget": "€8.500 (yer tutucu)",
+      "timeline": "4 Ağu – 12 Eyl"
+    },
+    "camp-2": {
+      "name": "Creator iş birliği sprinti",
+      "objective": "Erişim + topluluk büyümesi",
+      "audience": "Creator 18–34 DE/AT",
+      "budget": "€4.200 (yer tutucu)",
+      "timeline": "20 Tem – 20 Ağu"
+    },
+    "camp-3": {
+      "name": "Ajans portföy hamlesi",
+      "objective": "Potansiyel müşteri üretimi",
+      "audience": "Pazarlama direktörleri",
+      "budget": "€2.900 (yer tutucu)",
+      "timeline": "1 Eyl – 30 Eyl"
+    }
+  },
+  "calendarItems": {
+    "cal-1": "Lansman teaser reel",
+    "cal-2": "Kurucu LinkedIn anlatısı",
+    "cal-3": "Bekleme listesi e-postası #1",
+    "cal-4": "TikTok demo senaryosu"
+  },
+  "queueItems": {
+    "q-1": "Lansman teaser reel altyazısı",
+    "q-2": "Kurucu anlatı gönderisi",
+    "q-3": "Bekleme listesi nurture e-postası",
+    "q-4": "Ürün landing hero metni",
+    "q-5": "TikTok demo senaryosu v2",
+    "q-6": "Haziran özet karuseli",
+    "q-7": "Eski promo dizisi"
+  },
+  "topPosts": {
+    "tp-1": "Depo otomasyonu teardown",
+    "tp-2": "30 sn ürün demo reel",
+    "tp-3": "Creator iş birliği kancası"
+  },
+  "recommendations": {
+    "r1": "Bu hafta LinkedIn teardown’unu 3 bölümlük karusele dönüştürün.",
+    "r2": "Daha yüksek completion için TikTok demolarını Sal–Per 18:00–20:00 CET’e alın.",
+    "r3": "Instagram CTA’larında lüks marka sesini sıkılaştırın — ~%20 kısaltın.",
+    "r4": "AB kitlesi için en iyi reel altyazısını DE/FR’ye çevirin."
   }
 }

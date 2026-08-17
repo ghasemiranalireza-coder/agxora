@@ -18,6 +18,12 @@ import {
 } from "./locale";
 import { getCatalog, getFallbackCatalog } from "./catalog";
 import { resolveMessage } from "./translate";
+import { catalogCopy } from "./catalogCopy";
+import {
+  localizeBillingNotification,
+  localizeIntegrationMessage,
+  localizeWorkflowTemplateBadge,
+} from "./localizeAppCopy";
 import { formatCurrency, formatDate, formatNumber, setActiveFormatLocale } from "./format";
 import { resolveUserFacingErrorKey } from "./errorMap";
 
@@ -248,9 +254,118 @@ describe("error mapping", () => {
     expect(resolveUserFacingErrorKey({ code: "AUTH_SESSION_EXPIRED" })).toBe(
       "errors.codes.AUTH_SESSION_EXPIRED",
     );
+    expect(resolveUserFacingErrorKey(new Error("You must accept the terms to continue."))).toBe(
+      "errors.acceptTerms",
+    );
+    expect(resolveUserFacingErrorKey(new Error("Unknown connector: slack"))).toBe(
+      "integrations.errors.unknownConnector",
+    );
     expect(resolveMessage("de", "errors.codes.AUTH_INVALID_CREDENTIALS")).not.toBe(
       "Invalid email or password.",
     );
+  });
+
+  it("uses curated chrome translations instead of broken machine copy", () => {
+    expect(resolveMessage("ar", "navigation.menu")).toBe("القائمة");
+    expect(resolveMessage("zh-CN", "auth.login.title")).toBe("登录");
+    expect(resolveMessage("fr", "auth.contactSales.bookDemo")).toMatch(/démo/i);
+    expect(resolveMessage("fr", "auth.contactSales.bookDemo")).not.toMatch(/Livre/i);
+    expect(resolveMessage("de", "settings.profile.regions.MENA")).toBe("MENA");
+    expect(resolveMessage("en", "crm.documentKind.lieferschein")).toBe("Delivery note");
+    expect(resolveMessage("fa", "settings.appearance.accentNotice")).not.toMatch(/^Accent /);
+    expect(resolveMessage("de-BE", "auth.login.title")).toBe("Anmelden");
+  });
+
+  it("localizes remaining catalog surfaces instead of English data maps", () => {
+    expect(resolveMessage("de", "automation.catalog.ac-delivery.label")).toContain("Lieferschein");
+    expect(resolveMessage("de", "automation.integrationNotes.datev")).toContain("Buchungsstapel");
+    expect(resolveMessage("de", "agents.catalog.executive_advisor.name")).toBe("Executive-Berater");
+    expect(resolveMessage("fa", "agents.catalog.sales_agent.name")).not.toBe(
+      resolveMessage("en", "agents.catalog.sales_agent.name"),
+    );
+    expect(resolveMessage("fa", "agents.catalog.sales_agent.name")).not.toMatch(/[A-Za-z]{4,}/);
+    expect(resolveMessage("fa", "integrations.connectors.slack.description")).not.toBe(
+      resolveMessage("en", "integrations.connectors.slack.description"),
+    );
+    expect(resolveMessage("zh-CN", "intelligence.kpis.revenue.name")).not.toBe("Revenue");
+    expect(resolveMessage("ja", "creator.features.ideas.label")).not.toBe("Content Ideas");
+    expect(resolveMessage("de", "automation.studioTemplates.tpl-onboarding.name")).not.toBe(
+      "Customer Onboarding",
+    );
+    for (const locale of SUPPORTED_LOCALES) {
+      const metric = resolveMessage(locale, "intelligence.explorer.metricLabel", {
+        domain: "X",
+        index: "1",
+      });
+      expect(metric).toContain("X");
+      expect(metric).toContain("1");
+      expect(metric).not.toContain("{domain}");
+      expect(metric).not.toContain("{index}");
+    }
+  });
+
+  it("keeps stored catalog copy when a key is missing", () => {
+    const t = (key: string) => resolveMessage("de", key);
+    expect(catalogCopy(t, "agents.catalog.sales_agent.name", "Sales Agent")).not.toBe("Sales Agent");
+    expect(catalogCopy(t, "agents.catalog.missing_agent.name", "Fallback")).toBe("Fallback");
+  });
+
+  it("localizes remaining user-facing application copy from the final QA pass", () => {
+    const de = (key: string, values?: Readonly<Record<string, string | number>>) =>
+      resolveMessage("de", key, values);
+    expect(localizeWorkflowTemplateBadge(de, "AI CRM")).toBe(de("navigation.aiCrm"));
+    expect(localizeWorkflowTemplateBadge(de, "AI CRM")).not.toBe("AI CRM");
+    expect(localizeWorkflowTemplateBadge(de, "Generate AI Content")).toBe(
+      de("automation.studioAiFeatures.generate_ai_content"),
+    );
+    expect(localizeWorkflowTemplateBadge(de, "Custom user label")).toBe("Custom user label");
+
+    expect(localizeIntegrationMessage(de, "integrations.health.disconnected")).toBe("Getrennt");
+    expect(localizeIntegrationMessage(de, "Installed Slack", { name: "Slack" })).toBe(
+      de("integrations.logs.installed", { name: "Slack" }),
+    );
+    expect(localizeIntegrationMessage(de, "Slack stub healthy")).toContain("Slack");
+    expect(localizeIntegrationMessage(de, "Upstream returned HTTP 502")).toBe(
+      "Upstream returned HTTP 502",
+    );
+
+    const trial = localizeBillingNotification(de, {
+      kind: "trial_ending",
+      title: "billing.notifications.trialEnding.title",
+      body: "billing.notifications.trialEnding.body",
+      vars: { days: 2 },
+    });
+    expect(trial.title).toBe(de("billing.notifications.trialEnding.title"));
+    expect(trial.body).toContain("2");
+    expect(trial.title).not.toBe("Trial ending soon");
+
+    const persisted = localizeBillingNotification(de, {
+      kind: "invoice_ready",
+      title: "Invoice ready",
+      body: "Invoice INV-100 was paid successfully.",
+    });
+    expect(persisted.title).toBe(de("billing.notifications.invoiceReady.title"));
+    expect(persisted.body).toContain("INV-100");
+
+    expect(de("integrations.generated.keyName", { n: 1 })).toContain("1");
+    expect(de("integrations.generated.keyName", { n: 1 })).not.toContain("{n}");
+    expect(resolveMessage("fa", "automation.studioAiFeatures.generate_ai_content")).not.toBe(
+      "Generate AI Content",
+    );
+    expect(resolveMessage("nl", "agents.knowledgeKind.procedures")).toBe("Procedures");
+  });
+
+  it("strips leaked translation markup from locale catalogs", () => {
+    for (const locale of SUPPORTED_LOCALES) {
+      const sample = [
+        resolveMessage(locale, "dashboard.quickActions.subtitle"),
+        resolveMessage(locale, "backend.skipToMain"),
+        resolveMessage(locale, "legal.privacy.yourRightsBodyAfter"),
+      ].join(" ");
+      expect(sample).not.toMatch(/<g id=/);
+      expect(sample).not.toMatch(/<x id=/);
+      expect(sample).not.toMatch(/&#xA0;/i);
+    }
   });
 });
 

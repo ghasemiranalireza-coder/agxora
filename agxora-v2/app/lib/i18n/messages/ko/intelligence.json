@@ -67,14 +67,78 @@
     "title": "KPI 센터",
     "subtitle": "수익, 고객, 프로젝트, 워크플로, 에이전트 및 자동화 전반에 걸쳐 구성 가능한 KPI 카탈로그입니다.",
     "emptyTitle": "분석이 신호를 기다립니다",
-    "emptyDescription": "작업 공간에서 활동이 생성되면 여기에 임원 KPI 및 알림이 표시됩니다."
+    "emptyDescription": "작업 공간에서 활동이 생성되면 여기에 임원 KPI 및 알림이 표시됩니다.",
+    "revenue": {
+      "name": "매출",
+      "description": "기간 내 인식된 총매출."
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "월간 반복 매출."
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "연간 반복 매출."
+    },
+    "growth": {
+      "name": "성장",
+      "description": "전기 대비 성장률."
+    },
+    "customer_acquisition": {
+      "name": "고객 확보",
+      "description": "신규 확보 고객."
+    },
+    "retention": {
+      "name": "리텐션",
+      "description": "고객 리텐션율."
+    },
+    "churn": {
+      "name": "이탈",
+      "description": "고객 이탈률."
+    },
+    "project_success": {
+      "name": "프로젝트 성공",
+      "description": "기한·범위 내 납품된 프로젝트."
+    },
+    "workflow_success": {
+      "name": "워크플로 성공",
+      "description": "성공한 워크플로 실행."
+    },
+    "agent_performance": {
+      "name": "에이전트 성능",
+      "description": "AI 에이전트 작업 성공 점수."
+    },
+    "automation_success": {
+      "name": "자동화 성공",
+      "description": "자동화 / 통합 신뢰성."
+    },
+    "custom": {
+      "name": "사용자 지정 KPI",
+      "description": "조직 정의 KPI를 위한 확장 지점."
+    }
   },
   "reports": {
     "title": "보고 엔진",
     "subtitle": "보고서 정의는 검토를 위해 초기 설정됩니다. 보고 백엔드가 연결될 때까지 파일 내보내기를 사용할 수 없습니다.",
     "emptyTitle": "보고서 없음",
     "emptyDescription": "작업공간 부트스트랩에서 시드를 보고합니다.",
-    "scheduleOnDemand": "주문형"
+    "scheduleOnDemand": "주문형",
+    "executive": {
+      "title": "경영 주간",
+      "description": "건강, 매출, 위험, 성장에 대한 CEO 브리프."
+    },
+    "department": {
+      "title": "영업 부서 보고서",
+      "description": "영업 리더십을 위한 파이프라인, 확보, 리텐션."
+    },
+    "operational": {
+      "title": "운영 일간",
+      "description": "워크플로, 통합, ID 태세."
+    },
+    "management": {
+      "title": "납품 관리",
+      "description": "프로젝트 성공, 용량, 문서 처리량."
+    }
   },
   "insights": {
     "emptyTitle": "아직 통계가 없습니다.",
@@ -94,12 +158,88 @@
     "emptyDescription": "위험 휴리스틱으로부터 시드를 경고합니다.",
     "acked": "확인됨",
     "open": "열려 있는",
-    "acknowledge": "인정하다"
+    "acknowledge": "인정하다",
+    "revenue_drop": {
+      "title": "세그먼트 매출 약화",
+      "body": "SMB 주간 매출 4% 하락 — 파이프라인 커버리지를 점검하세요."
+    },
+    "project_delay": {
+      "title": "프로젝트 지연 위험",
+      "body": "납품 프로젝트 2건이 마일스톤 게이트를 넘겼습니다."
+    },
+    "churn_risk": {
+      "title": "고객 이탈 위험 상승",
+      "body": "계정 3곳의 참여 점수가 하락합니다."
+    },
+    "workflow_failure": {
+      "title": "워크플로 실패 감지",
+      "body": "청구서 리마인더 워크플로가 24시간 내 두 번 실패했습니다."
+    },
+    "ai_failure": {
+      "title": "AI 작업 재시도 증가",
+      "body": "에이전트 작업 재시도율이 소프트 임계값을 넘었습니다."
+    },
+    "integration_error": {
+      "title": "통합 오류",
+      "body": "Slack 커넥터가 간헐적 5xx를 반환했습니다."
+    },
+    "security": {
+      "title": "보안 경보",
+      "body": "비정상 API 키 사용 패턴이 감지되었습니다."
+    }
   },
   "scorecards": {
     "title": "스코어카드 엔진",
     "emptyTitle": "스코어카드 없음",
-    "emptyDescription": "부트스트랩의 스코어카드 시드."
+    "emptyDescription": "부트스트랩의 스코어카드 시드.",
+    "sales": {
+      "name": "세일즈 스코어",
+      "drivers": {
+        "pipeline_coverage": "파이프라인 커버리지",
+        "win_rate": "승률",
+        "cycle_time": "사이클 타임"
+      }
+    },
+    "customer_health": {
+      "name": "고객 건강 점수",
+      "drivers": {
+        "retention": "리텐션",
+        "nps_proxy": "NPS 프록시",
+        "support_load": "지원 부하"
+      }
+    },
+    "project_success": {
+      "name": "프로젝트 성공 점수",
+      "drivers": {
+        "on_time_delivery": "정시 납품",
+        "scope_control": "범위 통제",
+        "utilization": "가동률"
+      }
+    },
+    "automation_efficiency": {
+      "name": "자동화 효율",
+      "drivers": {
+        "workflow_success": "워크플로 성공",
+        "manual_effort_saved": "절감한 수작업",
+        "retry_rate": "재시도율"
+      }
+    },
+    "ai_quality": {
+      "name": "AI 품질",
+      "drivers": {
+        "task_success": "작업 성공",
+        "confidence_avg": "평균 신뢰도",
+        "escalation_rate": "에스컬레이션율"
+      }
+    },
+    "operational_health": {
+      "name": "운영 건전성",
+      "drivers": {
+        "system_health": "시스템 건강",
+        "integration_reliability": "통합 신뢰성",
+        "identity_posture": "ID 태세"
+      }
+    }
   },
   "explorer": {
     "title": "데이터 탐색기",
@@ -107,7 +247,8 @@
     "searchAria": "데모 탐색기 행 검색",
     "emptyTitle": "일치하는 행이 없습니다.",
     "emptyDescription": "필터를 조정하거나 검색하거나 데모 데이터세트를 다시 로드하세요.",
-    "hint": "시드된 튜플에 대한 클라이언트 측 검색 - 백엔드 집계와 드릴다운이 연결되지 않습니다."
+    "hint": "시드된 튜플에 대한 클라이언트 측 검색 - 백엔드 집계와 드릴다운이 연결되지 않습니다.",
+    "metricLabel": "{domain} 지표 {index}"
   },
   "columns": {
     "kpi": "KPI",
@@ -132,5 +273,121 @@
     "measure": "측정하다",
     "date": "날짜"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "CRM 분석",
+    "projects": "프로젝트 분석",
+    "finance": "재무 분석",
+    "documents": "문서 분석",
+    "workflow": "워크플로 분석",
+    "identity": "ID 분석",
+    "ai": "AI 분석",
+    "integration": "통합 분석",
+    "executive": "경영"
+  },
+  "series": {
+    "crm_leads": "리드",
+    "crm_pipeline": "파이프라인(천 $)",
+    "proj_active": "활성 프로젝트",
+    "proj_on_time": "정시 %",
+    "fin_revenue": "매출(천 $)",
+    "fin_margin": "매출총이익 %",
+    "doc_created": "생성된 문서",
+    "doc_views": "문서 조회",
+    "wf_runs": "워크플로 실행",
+    "wf_success": "성공 %",
+    "id_users": "활성 사용자",
+    "id_sessions": "세션",
+    "ai_tasks": "에이전트 작업",
+    "ai_success": "에이전트 성공 %",
+    "int_calls": "API / 웹훅 호출",
+    "int_errors": "통합 오류"
+  },
+  "bands": {
+    "Critical": "심각",
+    "Watch": "주시",
+    "Healthy": "양호",
+    "Excellent": "우수"
+  },
+  "charts": {
+    "chart_revenue": "매출 추세",
+    "chart_pipeline": "CRM 파이프라인",
+    "chart_workflows": "워크플로 활동",
+    "chart_ai": "AI 활동 구성",
+    "chart_ops_table": "운영 스냅샷",
+    "chart_heatmap_placeholder": "참여 히트맵"
+  },
+  "chartKinds": {
+    "line": "선형",
+    "bar": "막대",
+    "area": "영역",
+    "pie": "원형",
+    "heatmap": "히트맵",
+    "table": "표",
+    "card": "카드"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "MRR 가속",
+      "summary": "MRR 성장이 3기 연속 개선되었습니다."
+    },
+    "pattern": {
+      "title": "청구일 워크플로 급증",
+      "summary": "자동화 부하는 월말 청구와 상관됩니다."
+    },
+    "recommendation": {
+      "title": "리텐션 플레이북 확대",
+      "summary": "건강이 하락하는 계정 3곳에 CSM 아웃리치를 집중하세요."
+    },
+    "executive_summary": {
+      "title": "경영 브리프",
+      "summary": "회사 건강은 양호합니다. 이탈 위험과 납품 지연을 주시하세요."
+    },
+    "risk": {
+      "title": "납품 위험 군집",
+      "summary": "프로젝트 2곳이 리소스 경합을 공유합니다. 용량 예측이 높습니다."
+    },
+    "opportunity": {
+      "title": "업셀 기회",
+      "summary": "Business 플랜이 없는 고사용 계정에 확장 여지가 있습니다."
+    }
+  },
+  "forecastNotes": {
+    "revenue": "선형 추세 자리 표시 — 모델 서비스로 교체.",
+    "customer": "확보 + 리텐션 합성.",
+    "project": "용량을 고려한 납품 예측.",
+    "capacity": "팀 가동률 예측.",
+    "growth": "성장률 예측."
+  },
+  "forecastKinds": {
+    "revenue": "매출",
+    "customer": "고객",
+    "project": "프로젝트",
+    "capacity": "용량",
+    "growth": "성장"
+  },
+  "severity": {
+    "info": "정보",
+    "warning": "경고",
+    "critical": "심각"
+  },
+  "trend": {
+    "up": "상승",
+    "down": "하락",
+    "flat": "보합"
+  },
+  "insightKinds": {
+    "trend": "추세",
+    "pattern": "패턴",
+    "recommendation": "권장",
+    "executive_summary": "경영 요약",
+    "risk": "위험",
+    "opportunity": "기회"
+  },
+  "reportKinds": {
+    "executive": "경영",
+    "department": "부서",
+    "operational": "운영",
+    "management": "관리"
+  }
 }

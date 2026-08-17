@@ -63,7 +63,17 @@
   "logs": {
     "title": "سجلات التكامل",
     "emptyTitle": "لا توجد سجلات حتى الآن",
-    "emptyDescription": "قم بتوصيل الموفر أو قم بتشغيل التشخيص."
+    "emptyDescription": "قم بتوصيل الموفر أو قم بتشغيل التشخيص.",
+    "installed": "تم تثبيت {name}",
+    "demoConnected": "تم ربط العرض {name}",
+    "disconnected": "تم قطع {name}",
+    "webhookCreated": "تم إنشاء ويب هوك {name}",
+    "keyCreated": "تم إنشاء مفتاح API {name}",
+    "keyRotated": "تم تدوير المفتاح {name}",
+    "keyRevoked": "تم إلغاء المفتاح {name}",
+    "stubHealthy": "{name} stub سليم",
+    "diagnosticsComplete": "اكتمل التشخيص",
+    "outgoing": "صادر {status}: {eventType}"
   },
   "apiKeys": {
     "title": "مفاتيح واجهة برمجة التطبيقات",
@@ -138,6 +148,91 @@
   },
   "errors": {
     "failedToFetch": "فشل الجلب",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "موصل غير معروف.",
+    "webhookNotFound": "لم يتم العثور على ويب هوك.",
+    "apiKeyInactive": "مفتاح API غير نشط أو منتهٍ."
+  },
+  "categories": {
+    "productivity": "الإنتاجية",
+    "communication": "التواصل",
+    "storage": "التخزين",
+    "crm": "CRM",
+    "automation": "الأتمتة",
+    "devtools": "أدوات المطوّرين",
+    "custom": "مخصص"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "مفتاح API",
+    "webhook": "ويب هوك"
+  },
+  "oauth": {
+    "custom": "OAuth مخصص"
+  },
+  "connectorNames": {
+    "custom": "موصل مخصص"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "البريد والتقويم وTeams عبر Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail والتقويم وDrive لمستأجري Workspace."
+    },
+    "slack": {
+      "description": "القنوات والرسائل والإشعارات التفاعلية."
+    },
+    "discord": {
+      "description": "إشعارات الخادم وتسليم رسائل البوت."
+    },
+    "dropbox": {
+      "description": "مزامنة الملفات وأحداث المجلدات المشتركة."
+    },
+    "onedrive": {
+      "description": "تخزين ملفات Microsoft OneDrive والمزامنة التفاضلية."
+    },
+    "google_drive": {
+      "description": "ملفات Drive والمجلدات وإشعارات التغيير."
+    },
+    "hubspot": {
+      "description": "جهات اتصال CRM والصفقات وأحداث التسويق."
+    },
+    "salesforce": {
+      "description": "كائنات CRM للمؤسسات وPlatform Events."
+    },
+    "zapier": {
+      "description": "خطافات صادرة إلى zaps في Zapier."
+    },
+    "make": {
+      "description": "ويب هوك السيناريو لـ Make (Integromat)."
+    },
+    "github": {
+      "description": "المستودعات والمسائل وطلبات السحب وActions."
+    },
+    "gitlab": {
+      "description": "المشاريع وطلبات الدمج والمسارات وويب هوك."
+    },
+    "custom": {
+      "description": "نقطة توسعة للأنظمة المؤسسية الخاصة."
+    }
+  },
+  "healthStatus": {
+    "healthy": "سليم",
+    "degraded": "متدهور",
+    "down": "متوقف",
+    "unknown": "غير معروف"
+  },
+  "health": {
+    "installedAuthorize": "مثبّت — صِل للتفويض",
+    "oauthStubPlaceholder": "عرض OAuth محلي (stub)",
+    "oauthStubLive": "عرض OAuth محلي (مباشر)",
+    "demoCredential": "تم حفظ بيانات اعتماد العرض المحلي — API الحي غير متصل",
+    "demoConnection": "اتصال عرض محلي — ليس رابط مزوّد حي",
+    "disconnected": "غير متصل"
+  },
+  "generated": {
+    "keyName": "مفتاح {n}",
+    "webhookName": "ويب هوك {n}"
   }
 }

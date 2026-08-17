@@ -63,7 +63,17 @@
   "logs": {
     "title": "لاگ‌های یکپارچه‌سازی",
     "emptyTitle": "هنوز هیچ لاگی ثبت نشده است",
-    "emptyDescription": "به یک ارائه دهنده متصل شوید یا عیب‌یابی را اجرا کنید."
+    "emptyDescription": "به یک ارائه دهنده متصل شوید یا عیب‌یابی را اجرا کنید.",
+    "installed": "نصب شد {name}",
+    "demoConnected": "دمو متصل شد {name}",
+    "disconnected": "قطع شد {name}",
+    "webhookCreated": "وب‌هوک ایجاد شد {name}",
+    "keyCreated": "کلید API ایجاد شد {name}",
+    "keyRotated": "کلید چرخانده شد {name}",
+    "keyRevoked": "کلید لغو شد {name}",
+    "stubHealthy": "{name} جایگزین سالم است",
+    "diagnosticsComplete": "عیب‌یابی کامل شد",
+    "outgoing": "خروجی {status}: {eventType}"
   },
   "apiKeys": {
     "title": "کلیدهای API",
@@ -138,6 +148,91 @@
   },
   "errors": {
     "failedToFetch": "دریافت نشد",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "کانکتور ناشناخته.",
+    "webhookNotFound": "وب‌هوک پیدا نشد.",
+    "apiKeyInactive": "کلید API غیرفعال یا منقضی است."
+  },
+  "categories": {
+    "productivity": "بهره‌وری",
+    "communication": "ارتباطات",
+    "storage": "ذخیره‌سازی",
+    "crm": "CRM",
+    "automation": "اتوماسیون",
+    "devtools": "ابزارهای توسعه",
+    "custom": "سفارشی"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "کلید API",
+    "webhook": "وب‌هوک"
+  },
+  "oauth": {
+    "custom": "OAuth سفارشی"
+  },
+  "connectorNames": {
+    "custom": "کانکتور سفارشی"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "ایمیل، تقویم و Teams از طریق Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail، تقویم و Drive برای مستأجران Workspace."
+    },
+    "slack": {
+      "description": "کانال‌ها، پیام‌ها و اعلان‌های تعاملی."
+    },
+    "discord": {
+      "description": "اعلان سرور و تحویل پیام ربات."
+    },
+    "dropbox": {
+      "description": "همگام‌سازی فایل و رویدادهای پوشه اشتراکی."
+    },
+    "onedrive": {
+      "description": "ذخیره فایل Microsoft OneDrive و همگام‌سازی دلتا."
+    },
+    "google_drive": {
+      "description": "فایل‌ها، پوشه‌ها و اعلان تغییرات Drive."
+    },
+    "hubspot": {
+      "description": "مخاطبان CRM، معاملات و رویدادهای بازاریابی."
+    },
+    "salesforce": {
+      "description": "اشیای CRM سازمانی و Platform Events."
+    },
+    "zapier": {
+      "description": "هوک‌های خروجی به زپ‌های Zapier."
+    },
+    "make": {
+      "description": "وب‌هوک سناریو برای Make (Integromat)."
+    },
+    "github": {
+      "description": "مخزن‌ها، ایشو، پول‌ریکوئست و Actions."
+    },
+    "gitlab": {
+      "description": "پروژه‌ها، مرج‌ریکوئست، پایپلاین و وب‌هوک."
+    },
+    "custom": {
+      "description": "نقطه گسترش برای سیستم‌های اختصاصی سازمانی."
+    }
+  },
+  "healthStatus": {
+    "healthy": "سالم",
+    "degraded": "کاهش‌یافته",
+    "down": "ازکارافتاده",
+    "unknown": "نامشخص"
+  },
+  "health": {
+    "installedAuthorize": "نصب شد — برای مجوز متصل شوید",
+    "oauthStubPlaceholder": "دموی محلی OAuth (جایگزین)",
+    "oauthStubLive": "دموی محلی OAuth (زنده)",
+    "demoCredential": "اعتبارنامه دموی محلی ذخیره شد — API زنده متصل نیست",
+    "demoConnection": "اتصال دموی محلی — پیوند زنده ارائه‌دهنده نیست",
+    "disconnected": "قطع‌شده"
+  },
+  "generated": {
+    "keyName": "کلید {n}",
+    "webhookName": "وب‌هوک {n}"
   }
 }

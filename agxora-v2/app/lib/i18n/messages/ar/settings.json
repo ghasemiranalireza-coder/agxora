@@ -27,7 +27,7 @@
     "regions": {
       "EU": "الاتحاد الأوروبي",
       "US": "الولايات المتحدة",
-      "MENA": "منطقة الشرق الأوسط وشمال أفريقيا",
+      "MENA": "الشرق الأوسط وشمال أفريقيا",
       "APAC": "منطقة آسيا والمحيط الهادئ"
     }
   },
@@ -61,7 +61,7 @@
     "preferredProvider": "موفر الذكاء الاصطناعي المفضل",
     "defaultModel": "نموذج الذكاء الاصطناعي الافتراضي",
     "temperature": "درجة حرارة",
-    "topP": "أعلى ص",
+    "topP": "Top P",
     "maxTokens": "رموز ماكس",
     "writingStyle": "أسلوب الكتابة",
     "languagePreferences": "تفضيلات اللغة",
@@ -78,10 +78,10 @@
     "streaming": "جاري",
     "streamingDescription": "دفق استجابات النموذج عندما يدعمها الموفر.",
     "providers": {
-      "mock": "وهمية (محلي)",
+      "mock": "تجريبي (محلي)",
       "openai": "OpenAI",
       "azure": "أزور أوبن إيه آي",
-      "anthropic": "أنثروبي",
+      "anthropic": "Anthropic",
       "google": "جوجل",
       "openrouter": "OpenRouter",
       "ollama": "أولاما",
@@ -108,10 +108,10 @@
     "themeLabel": "سمة",
     "themeModeAria": "وضع الموضوع",
     "resolvedAppearance": "المظهر الذي تم حله:",
-    "accentColor": "لون مميز",
-    "accentNotice": "يتم تخزين تفضيلات التمييز لأسلاك CSS var المستقبلية - ولا تؤدي إلى تغيير نظام الألوان المقفل بعد.",
+    "accentColor": "لون التمييز",
+    "accentNotice": "يُحفظ تفضيل لون التمييز لهذه الجلسة ولا يغيّر نظام الألوان المقفل بعد.",
     "density": "كثافة",
-    "compactMode": "الوضع المضغوط",
+    "compactMode": "وضع مدمج",
     "compactModeDescription": "تقليل المساحة المتروكة عبر جداول ولوحات المؤسسة.",
     "animations": "الرسوم المتحركة",
     "animationsDescription": "حركة القسم والمصاعد تحوم. يحترم إعداد نظام التشغيل منخفض الحركة.",
@@ -135,6 +135,13 @@
       "comfortable": "مريح",
       "compact": "مدمج",
       "spacious": "فسيحة"
+    },
+    "accents": {
+      "cyan": "سماوي",
+      "blue": "أزرق",
+      "emerald": "زمردي",
+      "violet": "بنفسجي",
+      "amber": "كهرماني"
     }
   },
   "notifications": {

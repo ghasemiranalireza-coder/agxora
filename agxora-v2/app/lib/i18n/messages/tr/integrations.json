@@ -63,7 +63,17 @@
   "logs": {
     "title": "Entegrasyon günlükleri",
     "emptyTitle": "Henüz günlük yok",
-    "emptyDescription": "Bir sağlayıcıya bağlanın veya tanılamayı çalıştırın."
+    "emptyDescription": "Bir sağlayıcıya bağlanın veya tanılamayı çalıştırın.",
+    "installed": "{name} yüklendi",
+    "demoConnected": "Demo bağlandı {name}",
+    "disconnected": "{name} bağlantısı kesildi",
+    "webhookCreated": "Webhook oluşturuldu {name}",
+    "keyCreated": "API anahtarı oluşturuldu {name}",
+    "keyRotated": "Anahtar yenilendi {name}",
+    "keyRevoked": "Anahtar iptal edildi {name}",
+    "stubHealthy": "{name} stub sağlıklı",
+    "diagnosticsComplete": "Tanılama tamamlandı",
+    "outgoing": "Giden {status}: {eventType}"
   },
   "apiKeys": {
     "title": "API anahtarları",
@@ -138,6 +148,91 @@
   },
   "errors": {
     "failedToFetch": "Getirilemedi",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "Bilinmeyen bağlayıcı.",
+    "webhookNotFound": "Webhook bulunamadı.",
+    "apiKeyInactive": "API anahtarı etkin değil veya süresi dolmuş."
+  },
+  "categories": {
+    "productivity": "Verimlilik",
+    "communication": "İletişim",
+    "storage": "Depolama",
+    "crm": "CRM",
+    "automation": "Otomasyon",
+    "devtools": "Geliştirici araçları",
+    "custom": "Özel"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "API anahtarı",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "Özel OAuth"
+  },
+  "connectorNames": {
+    "custom": "Özel bağlayıcı"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Microsoft Graph ile e-posta, takvim ve Teams."
+    },
+    "google_workspace": {
+      "description": "Workspace kiracıları için Gmail, Takvim ve Drive."
+    },
+    "slack": {
+      "description": "Kanallar, mesajlar ve etkileşimli bildirimler."
+    },
+    "discord": {
+      "description": "Sunucu bildirimleri ve bot mesaj teslimi."
+    },
+    "dropbox": {
+      "description": "Dosya senkronu ve paylaşılan klasör olayları."
+    },
+    "onedrive": {
+      "description": "Microsoft OneDrive dosya depolama ve delta senkron."
+    },
+    "google_drive": {
+      "description": "Drive dosyaları, klasörler ve değişiklik bildirimleri."
+    },
+    "hubspot": {
+      "description": "CRM kişileri, fırsatlar ve pazarlama olayları."
+    },
+    "salesforce": {
+      "description": "Kurumsal CRM nesneleri ve Platform Events."
+    },
+    "zapier": {
+      "description": "Zapier zap’lerine giden kancalar."
+    },
+    "make": {
+      "description": "Make (Integromat) senaryo webhook’ları."
+    },
+    "github": {
+      "description": "Depolar, issue’lar, pull request’ler ve Actions."
+    },
+    "gitlab": {
+      "description": "Projeler, merge request’ler, pipeline’lar ve webhook’lar."
+    },
+    "custom": {
+      "description": "Kuruluşa özel kurumsal sistemler için genişletme noktası."
+    }
+  },
+  "healthStatus": {
+    "healthy": "Sağlıklı",
+    "degraded": "Bozulmuş",
+    "down": "Kapalı",
+    "unknown": "Bilinmiyor"
+  },
+  "health": {
+    "installedAuthorize": "Yüklendi — yetkilendirmek için bağlanın",
+    "oauthStubPlaceholder": "Yerel OAuth demosu (stub)",
+    "oauthStubLive": "Yerel OAuth demosu (live)",
+    "demoCredential": "Yerel demo kimliği kaydedildi — canlı API bağlı değil",
+    "demoConnection": "Yerel demo bağlantısı — canlı sağlayıcı bağlantısı değil",
+    "disconnected": "Bağlantı kesildi"
+  },
+  "generated": {
+    "keyName": "Anahtar {n}",
+    "webhookName": "Webhook {n}"
   }
 }

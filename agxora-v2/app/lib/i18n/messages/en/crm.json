@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "Customer 360°",
-      "subtitle": "Profile, company, contacts, orders, invoices, Lieferscheine, payments, documents, timeline, activities, notes, AI summary, and communication history."
+      "subtitle": "Profile, company, contacts, orders, invoices, delivery notes, payments, documents, timeline, activities, notes, AI summary, and communication history."
     },
     "salesPipeline": {
       "title": "Sales Pipeline",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "Delivery Module",
-      "subtitle": "Professional Lieferschein system with tracking, signature, QR, and barcode readiness."
+      "subtitle": "Professional delivery-note system with tracking, signature, QR, and barcode readiness."
     },
     "documentsModule": {
       "title": "Documents",
-      "subtitle": "Quotes, contracts, invoices, Lieferschein, purchase orders, receipts — with AI search."
+      "subtitle": "Quotes, contracts, invoices, delivery notes, purchase orders, receipts — with AI search."
     },
     "tasksModule": {
       "title": "Tasks"
@@ -317,7 +317,7 @@
       "contacts": "Contacts",
       "orders": "Orders",
       "invoices": "Invoices",
-      "lieferscheine": "Lieferscheine",
+      "lieferscheine": "Delivery notes",
       "payments": "Payments",
       "documents": "Documents",
       "timeline": "Timeline",
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "Professional Lieferschein System",
+    "title": "Professional delivery-note system",
     "description": "Delivery notes, pickup / delivery, driver, vehicle, and tracking — sample records only. Export adapters are not connected.",
     "badges": {
       "qrUnavailable": "QR unavailable",
@@ -351,7 +351,7 @@
       "historyNotConnected": "Delivery history store is not connected in this build."
     },
     "columns": {
-      "lieferschein": "Lieferschein",
+      "lieferschein": "Delivery note",
       "order": "Order",
       "customer": "Customer",
       "kind": "Kind",
@@ -408,7 +408,7 @@
     "emptyTitle": "No documents",
     "emptyDescription": "No documents match this search.",
     "searchLabel": "AI Search",
-    "searchPlaceholder": "Quotes, contracts, invoices, Lieferschein…",
+    "searchPlaceholder": "Quotes, contracts, invoices, delivery notes…",
     "typeLabel": "Document type",
     "allTypes": "All types",
     "columns": {
@@ -422,7 +422,7 @@
       "quote": "Quotes",
       "contract": "Contracts",
       "invoice": "Invoices",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "Delivery notes",
       "purchase_order": "Purchase Orders",
       "receipt": "Receipts"
     }
@@ -438,7 +438,83 @@
     "intro": "Creator Studio foundation — official platform integrations can plug into these adapters later. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
   },
   "industry": {
-    "intro": "Universal Business Platform — onboarding will later choose an industry. Each industry receives dedicated AI modules without forking the core CRM OS."
+    "intro": "Universal Business Platform — onboarding will later choose an industry. Each industry receives dedicated AI modules without forking the core CRM OS.",
+    "catalog": {
+      "business": { "label": "Business", "description": "General B2B operating system" },
+      "freelancer": { "label": "Freelancer", "description": "Solo operator CRM, invoices, and customer pipeline" },
+      "creator": { "label": "Creator", "description": "Creator Studio + brand CRM" },
+      "influencer": { "label": "Influencer", "description": "Sponsorship CRM and campaign OS" },
+      "agency": { "label": "Agency", "description": "Multi-customer delivery and retainers" },
+      "retail": { "label": "Retail", "description": "Store inventory, POS, and loyalty" },
+      "restaurant": { "label": "Restaurant", "description": "Reservations, kitchen, and delivery" },
+      "hotel": { "label": "Hotel", "description": "Rooms, guests, and housekeeping" },
+      "laundry": { "label": "Laundry", "description": "Pickup, tickets, and route logistics" },
+      "healthcare": { "label": "Healthcare", "description": "Patients, appointments, compliance" },
+      "law_firm": { "label": "Law firm", "description": "Matters, billing, and document vault" },
+      "accounting": { "label": "Accounting", "description": "Customer books and DATEV-ready exports" },
+      "construction": { "label": "Construction", "description": "Sites, crews, and progress billing" },
+      "real_estate": { "label": "Real estate", "description": "Listings, viewings, and closings" },
+      "education": { "label": "Education", "description": "Students, courses, and enrollment" },
+      "manufacturing": { "label": "Manufacturing", "description": "BOM, production, and QC" },
+      "logistics": { "label": "Logistics", "description": "Fleet, tracking, and delivery notes" },
+      "ecommerce": { "label": "E-commerce", "description": "Catalog, carts, and omnichannel orders" }
+    },
+    "modules": {
+      "crm": "CRM",
+      "sales": "Sales",
+      "finance": "Finance",
+      "projects": "Projects",
+      "clients": "Customers",
+      "proposals": "Proposals",
+      "time_tracking": "Time tracking",
+      "invoices": "Invoices",
+      "creator_studio": "Creator Studio",
+      "brand_deals": "Brand deals",
+      "content_calendar": "Content calendar",
+      "sponsorships": "Sponsorships",
+      "audience_insights": "Audience insights",
+      "campaigns": "Campaigns",
+      "client_portals": "Customer portals",
+      "retainers": "Retainers",
+      "campaign_ops": "Campaign ops",
+      "inventory": "Inventory",
+      "pos": "POS",
+      "loyalty": "Loyalty",
+      "reservations": "Reservations",
+      "menu": "Menu",
+      "kitchen_display": "Kitchen display",
+      "housekeeping": "Housekeeping",
+      "guest_crm": "Guest CRM",
+      "tickets": "Tickets",
+      "routes": "Routes",
+      "delivery_notes": "Delivery notes",
+      "patients": "Patients",
+      "appointments": "Appointments",
+      "compliance": "Compliance",
+      "matters": "Matters",
+      "billing": "Billing",
+      "documents": "Documents",
+      "client_books": "Customer books",
+      "datev": "DATEV",
+      "tax_deadlines": "Tax deadlines",
+      "sites": "Sites",
+      "crews": "Crews",
+      "progress_billing": "Progress billing",
+      "listings": "Listings",
+      "viewings": "Viewings",
+      "closings": "Closings",
+      "students": "Students",
+      "courses": "Courses",
+      "enrollment": "Enrollment",
+      "bom": "BOM",
+      "production": "Production",
+      "qc": "QC",
+      "fleet": "Fleet",
+      "tracking": "Tracking",
+      "catalog": "Catalog",
+      "orders": "Orders",
+      "fulfillment": "Fulfillment"
+    }
   },
   "kpi": {
     "customers": {
@@ -502,7 +578,7 @@
     "quote": "Quote",
     "contract": "Contract",
     "invoice": "Invoice",
-    "lieferschein": "Lieferschein",
+    "lieferschein": "Delivery note",
     "purchase_order": "Purchase Order",
     "receipt": "Receipt"
   },

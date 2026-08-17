@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "Cliente 360°",
-      "subtitle": "Perfil, empresa, contatos, pedidos, faturas, Lieferscheine, pagamentos, documentos, cronograma, atividades, notas, resumo de IA e histórico de comunicação."
+      "subtitle": "Perfil, empresa, contatos, pedidos, faturas, guias de remessa, pagamentos, documentos, cronograma, atividades, notas, resumo de IA e histórico de comunicação."
     },
     "salesPipeline": {
       "title": "Pipeline de vendas",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "Módulo de Entrega",
-      "subtitle": "Sistema Lieferschein profissional com rastreamento, assinatura, QR e prontidão para código de barras."
+      "subtitle": "Sistema guia de remessa profissional com rastreamento, assinatura, QR e prontidão para código de barras."
     },
     "documentsModule": {
       "title": "Documentos",
-      "subtitle": "Cotações, contratos, faturas, Lieferschein, pedidos de compra, recibos — com pesquisa de IA."
+      "subtitle": "Cotações, contratos, faturas, guia de remessa, pedidos de compra, recibos — com pesquisa de IA."
     },
     "tasksModule": {
       "title": "Tarefas"
@@ -317,7 +317,7 @@
       "contacts": "Contatos",
       "orders": "Pedidos",
       "invoices": "Faturas",
-      "lieferscheine": "Lieferscheine",
+      "lieferscheine": "guias de remessa",
       "payments": "Pagamentos",
       "documents": "Documentos",
       "timeline": "Linha do tempo",
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "Sistema Lieferschein Profissional",
+    "title": "Sistema guia de remessa Profissional",
     "description": "Notas de entrega, coleta/entrega, motorista, veículo e rastreamento — apenas registros de amostra. Os adaptadores de exportação não estão conectados.",
     "badges": {
       "qrUnavailable": "QR indisponível",
@@ -351,7 +351,7 @@
       "historyNotConnected": "O armazenamento de histórico de entrega não está conectado nesta compilação."
     },
     "columns": {
-      "lieferschein": "Lieferschein",
+      "lieferschein": "guia de remessa",
       "order": "Ordem",
       "customer": "Cliente",
       "kind": "Tipo",
@@ -408,7 +408,7 @@
     "emptyTitle": "Nenhum documento",
     "emptyDescription": "Nenhum documento corresponde a esta pesquisa.",
     "searchLabel": "Pesquisa de IA",
-    "searchPlaceholder": "Cotações, contratos, faturas, Lieferschein…",
+    "searchPlaceholder": "Cotações, contratos, faturas, guia de remessa…",
     "typeLabel": "Tipo de documento",
     "allTypes": "Todos os tipos",
     "columns": {
@@ -422,7 +422,7 @@
       "quote": "Citações",
       "contract": "Contratos",
       "invoice": "Faturas",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "guia de remessa",
       "purchase_order": "Pedidos de compra",
       "receipt": "Recibos"
     }
@@ -438,7 +438,137 @@
     "intro": "Fundação do Creator Studio – as integrações oficiais da plataforma podem ser conectadas a esses adaptadores posteriormente. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
   },
   "industry": {
-    "intro": "Plataforma Universal de Negócios – a integração escolherá posteriormente um setor. Cada setor recebe módulos de IA dedicados sem bifurcar o sistema operacional CRM principal."
+    "intro": "Plataforma Universal de Negócios – a integração escolherá posteriormente um setor. Cada setor recebe módulos de IA dedicados sem bifurcar o sistema operacional CRM principal.",
+    "catalog": {
+      "business": {
+        "label": "Empresa",
+        "description": "Sistema operacional B2B geral"
+      },
+      "freelancer": {
+        "label": "Freelancer",
+        "description": "CRM, faturas e pipeline de clientes para independentes"
+      },
+      "creator": {
+        "label": "Criador",
+        "description": "Creator Studio + CRM de marca"
+      },
+      "influencer": {
+        "label": "Influencer",
+        "description": "CRM de patrocínios e SO de campanhas"
+      },
+      "agency": {
+        "label": "Agência",
+        "description": "Entrega multi-cliente e retainers"
+      },
+      "retail": {
+        "label": "Retalho",
+        "description": "Inventário, POS e fidelização"
+      },
+      "restaurant": {
+        "label": "Restaurante",
+        "description": "Reservas, cozinha e entrega"
+      },
+      "hotel": {
+        "label": "Hotel",
+        "description": "Quartos, hóspedes e housekeeping"
+      },
+      "laundry": {
+        "label": "Lavandaria",
+        "description": "Recolha, tickets e logística de rotas"
+      },
+      "healthcare": {
+        "label": "Saúde",
+        "description": "Utentes, consultas, conformidade"
+      },
+      "law_firm": {
+        "label": "Sociedade de advogados",
+        "description": "Processos, faturação e cofre documental"
+      },
+      "accounting": {
+        "label": "Contabilidade",
+        "description": "Livros de clientes e exportações DATEV"
+      },
+      "construction": {
+        "label": "Construção",
+        "description": "Estaleiros, equipas e faturação de progresso"
+      },
+      "real_estate": {
+        "label": "Imobiliário",
+        "description": "Listagens, visitas e fechos"
+      },
+      "education": {
+        "label": "Educação",
+        "description": "Estudantes, cursos e inscrição"
+      },
+      "manufacturing": {
+        "label": "Produção",
+        "description": "BOM, produção e QC"
+      },
+      "logistics": {
+        "label": "Logística",
+        "description": "Frota, tracking e guias de remessa"
+      },
+      "ecommerce": {
+        "label": "E-commerce",
+        "description": "Catálogo, carrinhos e encomendas omnicanal"
+      }
+    },
+    "modules": {
+      "sales": "Vendas",
+      "finance": "Finanças",
+      "projects": "Projetos",
+      "clients": "Clientes",
+      "proposals": "Propostas",
+      "time_tracking": "Registo de tempo",
+      "invoices": "Faturas",
+      "creator_studio": "Creator Studio",
+      "brand_deals": "Acordos de marca",
+      "content_calendar": "Calendário de conteúdos",
+      "sponsorships": "Patrocínios",
+      "audience_insights": "Insights de audiência",
+      "campaigns": "Campanhas",
+      "client_portals": "Portais de clientes",
+      "retainers": "Retainers",
+      "campaign_ops": "Ops de campanhas",
+      "inventory": "Inventário",
+      "loyalty": "Fidelização",
+      "reservations": "Reservas",
+      "menu": "Ementa",
+      "kitchen_display": "Ecrã de cozinha",
+      "housekeeping": "Housekeeping",
+      "guest_crm": "CRM de hóspedes",
+      "tickets": "Tickets",
+      "routes": "Rotas",
+      "delivery_notes": "Guias de remessa",
+      "patients": "Utentes",
+      "appointments": "Consultas",
+      "compliance": "Conformidade",
+      "matters": "Processos",
+      "billing": "Faturação",
+      "documents": "Documentos",
+      "client_books": "Livros de clientes",
+      "tax_deadlines": "Prazos fiscais",
+      "sites": "Estaleiros",
+      "crews": "Equipas",
+      "progress_billing": "Faturação de progresso",
+      "listings": "Listagens",
+      "viewings": "Visitas",
+      "closings": "Fechos",
+      "students": "Estudantes",
+      "courses": "Cursos",
+      "enrollment": "Inscrição",
+      "production": "Produção",
+      "fleet": "Frota",
+      "tracking": "Tracking",
+      "catalog": "Catálogo",
+      "orders": "Encomendas",
+      "fulfillment": "Fulfillment",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {
@@ -502,7 +632,7 @@
     "quote": "Citar",
     "contract": "Contrato",
     "invoice": "Fatura",
-    "lieferschein": "Lieferschein",
+    "lieferschein": "guia de remessa",
     "purchase_order": "Ordem de compra",
     "receipt": "Recibo"
   },

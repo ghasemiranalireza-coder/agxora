@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Optimizasyon Önerileri",
     "oneClickOptimize": "Tek Tıklamayla Optimize Etme",
-    "noticeDefault": "Tek Tıklamayla Optimize henüz bir grafik mutasyonu değildir.",
-    "noticeQueued": "Optimize edildi sıraya alındı. Gelecekteki motor gecikmeleri ve onayları yeniden yazacak."
+    "noticeDefault": "Tek tıkla optimize henüz grafiği değiştirmez.",
+    "noticeQueued": "Optimizasyon kuyrukta. Gelecek motor gecikmeleri ve onayları yeniden yazar.",
+    "score": {
+      "healthy": "Sağlıklı",
+      "needsAttention": "İlgi gerekli",
+      "atRisk": "Risk altında"
+    },
+    "kinds": {
+      "missing_approval": "Onay",
+      "possible_delay": "Gecikme",
+      "unused_trigger": "Tetikleyici",
+      "duplicate_nodes": "Yinelenenler",
+      "unused_action": "Eylem",
+      "security": "Güvenlik",
+      "performance": "Performans"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Eksik onay",
+        "description": "Uzun akışlar yan etkilerden önce onay kapısından yararlanır."
+      },
+      "possible_delay": {
+        "title": "Olası gecikme",
+        "description": "Gürültülü patlamaları önlemek için hatırlatma e-postalarından önce gecikme ekleyin."
+      },
+      "unused_trigger": {
+        "title": "Kullanılmayan tetikleyici",
+        "description": "Bu grafikte başlangıç tetikleyicisi yok — etkinleştirmeden önce ekleyin."
+      },
+      "duplicate_nodes": {
+        "title": "Yinelenen düğümler",
+        "description": "“{label}” {count} kez geçiyor — gereksizse birleştirin."
+      },
+      "unused_action": {
+        "title": "Kullanılmayan eylem",
+        "description": "{label} bağlı değil — bağlayın veya kaldırın."
+      },
+      "security": {
+        "title": "Güvenlik önerisi",
+        "description": "Webhook ve e-posta eylemleri için en az yetkili bağdaştırıcıları tercih edin."
+      },
+      "performance": {
+        "title": "Performans önerisi",
+        "description": "Ortalama süreyi düşürmek için mümkünse AI adımlarını gruplayın."
+      }
+    }
   },
   "integrations": {
     "intro": "Entegrasyon Merkezi — isteğe bağlı. Durumlar: Bağlandı, Beta, Planlandı, Çok yakında, Devre Dışı. Canlı API yok.",
@@ -536,5 +580,191 @@
       "label": "Görev ata",
       "description": "Bir kullanıcıya görev ata."
     }
+  },
+  "kinds": {
+    "trigger": "Tetikleyici",
+    "action": "Eylem",
+    "condition": "Koşul",
+    "delay": "Gecikme",
+    "approval": "Onay",
+    "loop": "Döngü",
+    "merge": "Birleştir",
+    "split": "Böl",
+    "ai_decision": "YZ kararı",
+    "ai_action": "YZ eylemi",
+    "notification": "Bildirim",
+    "webhook": "Webhook",
+    "custom_action": "Özel eylem",
+    "branch": "Dal",
+    "variable": "Değişken"
+  },
+  "kpi": {
+    "active": {
+      "label": "Aktif iş akışları",
+      "caption": "Çalışma alanında etkin"
+    },
+    "runs-today": {
+      "label": "Bugünkü iş akışı çalıştırmaları",
+      "caption": "Tüm tetikleyiciler"
+    },
+    "success": {
+      "label": "Başarılı otomasyonlar",
+      "caption": "Bugün"
+    },
+    "failed": {
+      "label": "Başarısız çalıştırmalar",
+      "caption": "İlgi gerekli"
+    },
+    "pending": {
+      "label": "Bekleyen görevler",
+      "caption": "Onaylar + yeniden denemeler"
+    },
+    "avg-time": {
+      "label": "Ortalama yürütme süresi",
+      "caption": "Medyan 1,2 sn"
+    },
+    "ai-suggestions": {
+      "label": "YZ önerileri",
+      "caption": "Otomasyon fırsatları"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "Verimlilik",
+    "Communication": "İletişim",
+    "Commerce": "Ticaret",
+    "Finance": "Finans",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "OAuth kablolaması için Gmail / Drive / Takvim kancaları ayrıldı.",
+    "m365": "Outlook / Teams / Graph kancaları ayrıldı.",
+    "slack": "Events API + sohbet gönderileri ayrıldı.",
+    "teams": "Bot Framework bağdaştırıcısı ayrıldı.",
+    "discord": "Webhook + bot bağdaştırıcısı ayrıldı.",
+    "whatsapp": "Meta Cloud API bağdaştırıcısı ayrıldı.",
+    "stripe": "Ödeme webhook’ları ayrıldı — canlı anahtar yok.",
+    "shopify": "Sipariş / ürün olayları ayrıldı.",
+    "datev": "DATEV dışa aktarma / fiş yığını kancaları ayrıldı.",
+    "sap": "ERP olay köprüsü ayrıldı — enterprise plana kadar kapalı.",
+    "hubspot": "CRM senkron bağdaştırıcısı ayrıldı.",
+    "salesforce": "Platform Events bağdaştırıcısı ayrıldı."
+  },
+  "defaultWorkflow": {
+    "name": "Müşteri onboarding",
+    "description": "Müşteri oluşturulunca karşılama dizisi."
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "Finans",
+    "Sales": "Satış",
+    "Marketing": "Pazarlama",
+    "HR": "İK",
+    "Creator": "İçerik üreticisi",
+    "Ops": "Operasyon",
+    "Projects": "Projeler",
+    "AI": "YZ"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "Müşteri onboarding",
+      "description": "Müşteri oluşturulunca hoş geldin e-postası, YZ özeti ve sahip görevi.",
+      "category": "CRM",
+      "recommendedFor": "Yeni B2B müşterileri karşılayan ekipler"
+    },
+    "tpl-invoice": {
+      "name": "Fatura hatırlatması",
+      "description": "Açık faturalar için zamanlanmış hatırlatma ve yükseltme yolu.",
+      "category": "Finans",
+      "recommendedFor": "Gecikmiş alacakları azaltan finans operasyonları"
+    },
+    "tpl-lead": {
+      "name": "Potansiyel müşteri takibi",
+      "description": "Yeni potansiyel müşteriler için YZ e-posta yanıtı ve pipeline güncellemesi.",
+      "category": "Satış",
+      "recommendedFor": "Yüksek inbound potansiyel hacimli satış ekipleri"
+    },
+    "tpl-welcome": {
+      "name": "Hoş geldin e-postası",
+      "description": "Kayıtta basit hoş geldin dizisi.",
+      "category": "Pazarlama",
+      "recommendedFor": "E-posta otomasyonuna başlayan her çalışma alanı"
+    },
+    "tpl-pipeline": {
+      "name": "Satış pipeline’ı",
+      "description": "Bildirim ve görevlerle aşama değişiklikleri.",
+      "category": "Satış",
+      "recommendedFor": "Çok aşamalı anlaşma ilerlemesi yöneten ekipler"
+    },
+    "tpl-recruit": {
+      "name": "İşe alım",
+      "description": "Aday yönlendirme ve mülakat görevleri.",
+      "category": "İK",
+      "recommendedFor": "İşe alım yöneticileri ve people ops"
+    },
+    "tpl-content": {
+      "name": "İçerik yayını",
+      "description": "Creator Studio: yayınla → bildir → analitik.",
+      "category": "İçerik üreticisi",
+      "recommendedFor": "Pazarlama ve creator ekipleri"
+    },
+    "tpl-approval": {
+      "name": "Onay süreci",
+      "description": "YZ önerileriyle çok adımlı onay.",
+      "category": "Operasyon",
+      "recommendedFor": "Yan etkilerden önce finans/ops onayları",
+      "estimatedRuntime": "İnsan kapısı"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "Yeni müşteri hoş geldin",
+      "description": "Müşteri oluşturulunca hoş geldin e-postası + bildirim.",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "Fatura hatırlatması",
+      "description": "Fatura kesildikten sonra müşterileri hatırlatın.",
+      "category": "Finans"
+    },
+    "tpl_project_kickoff": {
+      "name": "Proje kickoff",
+      "description": "Kickoff görevi atayın ve proje oluşturulunca bildirin.",
+      "category": "Projeler"
+    },
+    "tpl_task_assignment": {
+      "name": "Görev atama",
+      "description": "Görev tamamlanınca atanan kişiye e-posta — sonraki işi zincirleyin.",
+      "category": "Projeler"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "YZ müşteri özeti",
+      "description": "Müşteri oluşturulunca YZ özeti çalıştırın; çıktıyı saklayın.",
+      "category": "YZ"
+    },
+    "tpl_followup_reminder": {
+      "name": "Takip hatırlatması",
+      "description": "Duruma göre dallanan zamanlamalı takip.",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "Hoş geldin e-postası gönder",
+    "notify_team": "Ekibi bilgilendir",
+    "wait_3_days": "3 gün bekle",
+    "still_unpaid": "Hâlâ ödenmedi mi?",
+    "send_reminder": "Hatırlatma gönder",
+    "assign_kickoff_task": "Kickoff görevi ata",
+    "notify_owner": "Sahibi bilgilendir",
+    "notify_stakeholders": "Paydaşları bilgilendir",
+    "run_ai_summary": "YZ özeti çalıştır",
+    "generate_document": "Belge oluştur",
+    "daily_schedule": "Günlük zamanlama",
+    "by_priority": "Önceliğe göre",
+    "urgent_notification": "Acil bildirim",
+    "standard_email": "Standart e-posta"
+  },
+  "studioAiFeatures": {
+    "generate_ai_content": "YZ içeriği oluştur"
   }
 }

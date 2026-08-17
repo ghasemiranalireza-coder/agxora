@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "Prioritaskan dampak pelanggan",
     "delegatedFollowUp": "Tindak lanjut yang didelegasikan"
+  },
+  "categories": {
+    "Leadership": "Kepemimpinan",
+    "Revenue": "Pendapatan",
+    "CRM": "CRM",
+    "Delivery": "Pengiriman",
+    "Automation": "Otomasi",
+    "Finance": "Keuangan",
+    "Knowledge": "Pengetahuan",
+    "Support": "Dukungan",
+    "Productivity": "Produktivitas",
+    "Custom": "Kustom"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "Penasihat eksekutif",
+      "description": "Briefing strategis, ringkasan KPI, dan dukungan keputusan."
+    },
+    "sales_agent": {
+      "name": "Agen penjualan",
+      "description": "Pelatihan pipeline, draf outreach, dan langkah deal berikutnya."
+    },
+    "crm_assistant": {
+      "name": "Asisten CRM",
+      "description": "Pengayaan pelanggan, kebersihan data, dan wawasan relasi."
+    },
+    "project_manager": {
+      "name": "Manajer proyek",
+      "description": "Rencana, pecahan tugas, dan sinyal risiko pengiriman."
+    },
+    "workflow_coordinator": {
+      "name": "Koordinator alur kerja",
+      "description": "Memicu dan mengorkestrasi alur otomasi AGXORA."
+    },
+    "finance_assistant": {
+      "name": "Asisten keuangan",
+      "description": "Pemantauan faktur, catatan arus kas, dan ringkasan keuangan."
+    },
+    "document_analyst": {
+      "name": "Analis dokumen",
+      "description": "Mengekstrak struktur, risiko, dan ringkasan dari dokumen."
+    },
+    "knowledge_assistant": {
+      "name": "Asisten pengetahuan",
+      "description": "Menjawab dari pengetahuan perusahaan dengan retrieval siap RAG."
+    },
+    "support_assistant": {
+      "name": "Asisten dukungan",
+      "description": "Triage dukungan, balasan, dan jalur eskalasi."
+    },
+    "meeting_assistant": {
+      "name": "Asisten rapat",
+      "description": "Persiapan agenda, placeholder catatan, dan follow-up."
+    },
+    "custom": {
+      "name": "Agen kustom",
+      "description": "Titik perluasan untuk agen khusus organisasi."
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "Alat CRM",
+      "description": "Buat/perbarui pelanggan dan baca konteks akun."
+    },
+    "projects": {
+      "name": "Alat proyek",
+      "description": "Kelola proyek, tugas, dan status pengiriman."
+    },
+    "finance": {
+      "name": "Alat keuangan",
+      "description": "Faktur, saldo, dan ringkasan keuangan."
+    },
+    "documents": {
+      "name": "Alat dokumen",
+      "description": "Baca dan ringkas dokumen ruang kerja."
+    },
+    "workflow": {
+      "name": "Alat alur kerja",
+      "description": "Picu dan periksa alur otomasi."
+    },
+    "integration": {
+      "name": "Alat integrasi",
+      "description": "Panggil konektor pihak ketiga yang terhubung."
+    },
+    "email": {
+      "name": "Alat email",
+      "description": "Draf dan antre email keluar."
+    },
+    "calendar": {
+      "name": "Alat kalender",
+      "description": "Jadwalkan dan periksa acara kalender."
+    },
+    "search": {
+      "name": "Alat pencarian",
+      "description": "Pencarian ruang kerja universal."
+    },
+    "notification": {
+      "name": "Alat notifikasi",
+      "description": "Kirim notifikasi dalam aplikasi."
+    },
+    "api": {
+      "name": "Alat API",
+      "description": "Panggil rute gateway API internal."
+    },
+    "mcp": {
+      "name": "Alat MCP",
+      "description": "Alat server Model Context Protocol mendatang."
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "Prinsip operasi AGXORA",
+      "summary": "Prinsip OS enterprise untuk agen AI modular dan aman."
+    },
+    "policies": {
+      "title": "Kebijakan penanganan data",
+      "summary": "Isolasi alat sensitif dan akses hak paling kecil."
+    },
+    "procedures": {
+      "title": "Prosedur eskalasi pelanggan",
+      "summary": "Jalur eskalasi asisten dukungan saat keyakinan rendah."
+    },
+    "rag": {
+      "title": "Placeholder indeks RAG",
+      "summary": "Retrieval vektor mendatang atas dokumen dan catatan CRM."
+    }
+  },
+  "llm": {
+    "local": "LLM lokal",
+    "mcp": "Server MCP",
+    "custom": "Model kustom"
+  },
+  "lifecycle": {
+    "draft": "Draf",
+    "registered": "Terdaftar",
+    "active": "Aktif",
+    "paused": "Dijeda",
+    "error": "Kesalahan",
+    "retired": "Dinonaktifkan"
+  },
+  "healthStatus": {
+    "healthy": "Sehat",
+    "degraded": "Menurun",
+    "down": "Offline",
+    "unknown": "Tidak diketahui"
+  },
+  "taskStatus": {
+    "pending": "Tertunda",
+    "running": "Berjalan",
+    "completed": "Selesai",
+    "cancelled": "Dibatalkan",
+    "failed": "Gagal",
+    "retrying": "Mencoba lagi"
+  },
+  "memoryScope": {
+    "working": "Kerja",
+    "conversation": "Percakapan",
+    "business": "Bisnis",
+    "long_term": "Jangka panjang",
+    "workspace": "Ruang kerja",
+    "agent": "Agen"
+  },
+  "knowledgeKind": {
+    "company": "Perusahaan",
+    "documents": "Dokumen",
+    "projects": "Proyek",
+    "crm": "CRM",
+    "policies": "Kebijakan",
+    "procedures": "Prosedur",
+    "vector": "Vektor",
+    "rag": "RAG"
   }
 }

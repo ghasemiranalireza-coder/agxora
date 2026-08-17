@@ -63,7 +63,17 @@
   "logs": {
     "title": "Nhật ký tích hợp",
     "emptyTitle": "Chưa có nhật ký nào",
-    "emptyDescription": "Kết nối nhà cung cấp hoặc chạy chẩn đoán."
+    "emptyDescription": "Kết nối nhà cung cấp hoặc chạy chẩn đoán.",
+    "installed": "Đã cài {name}",
+    "demoConnected": "Demo đã kết nối {name}",
+    "disconnected": "Đã ngắt {name}",
+    "webhookCreated": "Đã tạo webhook {name}",
+    "keyCreated": "Đã tạo khóa API {name}",
+    "keyRotated": "Đã xoay khóa {name}",
+    "keyRevoked": "Đã thu hồi khóa {name}",
+    "stubHealthy": "{name} stub ổn định",
+    "diagnosticsComplete": "Chẩn đoán xong",
+    "outgoing": "Đi ra {status}: {eventType}"
   },
   "apiKeys": {
     "title": "Khóa API",
@@ -138,6 +148,91 @@
   },
   "errors": {
     "failedToFetch": "Không tìm nạp được",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "Connector không rõ.",
+    "webhookNotFound": "Không tìm thấy webhook.",
+    "apiKeyInactive": "Khóa API không hoạt động hoặc hết hạn."
+  },
+  "categories": {
+    "productivity": "Năng suất",
+    "communication": "Giao tiếp",
+    "storage": "Lưu trữ",
+    "crm": "CRM",
+    "automation": "Tự động hóa",
+    "devtools": "Công cụ lập trình",
+    "custom": "Tùy chỉnh"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "Khóa API",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "OAuth tùy chỉnh"
+  },
+  "connectorNames": {
+    "custom": "Connector tùy chỉnh"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Thư, lịch và Teams qua Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail, Lịch và Drive cho tenant Workspace."
+    },
+    "slack": {
+      "description": "Kênh, tin nhắn và thông báo tương tác."
+    },
+    "discord": {
+      "description": "Thông báo máy chủ và gửi tin nhắn bot."
+    },
+    "dropbox": {
+      "description": "Đồng bộ tệp và sự kiện thư mục chia sẻ."
+    },
+    "onedrive": {
+      "description": "Lưu trữ tệp Microsoft OneDrive và đồng bộ delta."
+    },
+    "google_drive": {
+      "description": "Tệp Drive, thư mục và thông báo thay đổi."
+    },
+    "hubspot": {
+      "description": "Liên hệ CRM, deal và sự kiện marketing."
+    },
+    "salesforce": {
+      "description": "Đối tượng CRM doanh nghiệp và Platform Events."
+    },
+    "zapier": {
+      "description": "Hook gửi đi tới zap Zapier."
+    },
+    "make": {
+      "description": "Webhook kịch bản cho Make (Integromat)."
+    },
+    "github": {
+      "description": "Kho, issue, pull request và Actions."
+    },
+    "gitlab": {
+      "description": "Dự án, merge request, pipeline và webhook."
+    },
+    "custom": {
+      "description": "Điểm mở rộng cho hệ thống doanh nghiệp riêng."
+    }
+  },
+  "healthStatus": {
+    "healthy": "Ổn định",
+    "degraded": "Suy giảm",
+    "down": "Ngừng",
+    "unknown": "Không rõ"
+  },
+  "health": {
+    "installedAuthorize": "Đã cài — kết nối để ủy quyền",
+    "oauthStubPlaceholder": "Demo OAuth cục bộ (stub)",
+    "oauthStubLive": "Demo OAuth cục bộ (live)",
+    "demoCredential": "Đã lưu thông tin demo cục bộ — chưa kết nối API thật",
+    "demoConnection": "Kết nối demo cục bộ — không phải liên kết nhà cung cấp thật",
+    "disconnected": "Đã ngắt"
+  },
+  "generated": {
+    "keyName": "Khóa {n}",
+    "webhookName": "Webhook {n}"
   }
 }

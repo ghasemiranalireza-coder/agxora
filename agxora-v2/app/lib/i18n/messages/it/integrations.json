@@ -63,7 +63,17 @@
   "logs": {
     "title": "Registri di integrazione",
     "emptyTitle": "Nessun registro ancora",
-    "emptyDescription": "Connetti un provider o esegui la diagnostica."
+    "emptyDescription": "Connetti un provider o esegui la diagnostica.",
+    "installed": "{name} installato",
+    "demoConnected": "Demo connesso {name}",
+    "disconnected": "{name} disconnesso",
+    "webhookCreated": "Webhook creato {name}",
+    "keyCreated": "Chiave API creata {name}",
+    "keyRotated": "Chiave ruotata {name}",
+    "keyRevoked": "Chiave revocata {name}",
+    "stubHealthy": "{name} stub integro",
+    "diagnosticsComplete": "Diagnostica completata",
+    "outgoing": "In uscita {status}: {eventType}"
   },
   "apiKeys": {
     "title": "Chiavi API",
@@ -138,6 +148,91 @@
   },
   "errors": {
     "failedToFetch": "Impossibile recuperare",
-    "httpStatus": "{status} HTTP"
+    "httpStatus": "{status} HTTP",
+    "unknownConnector": "Connettore sconosciuto.",
+    "webhookNotFound": "Webhook non trovato.",
+    "apiKeyInactive": "Chiave API inattiva o scaduta."
+  },
+  "categories": {
+    "productivity": "Produttività",
+    "communication": "Comunicazione",
+    "storage": "Archiviazione",
+    "crm": "CRM",
+    "automation": "Automazione",
+    "devtools": "Strumenti per sviluppatori",
+    "custom": "Personalizzato"
+  },
+  "auth": {
+    "oauth2": "OAuth 2.0",
+    "api_key": "Chiave API",
+    "webhook": "Webhook"
+  },
+  "oauth": {
+    "custom": "OAuth personalizzato"
+  },
+  "connectorNames": {
+    "custom": "Connettore personalizzato"
+  },
+  "connectors": {
+    "microsoft365": {
+      "description": "Posta, calendario e Teams tramite Microsoft Graph."
+    },
+    "google_workspace": {
+      "description": "Gmail, Calendar e Drive per tenant Workspace."
+    },
+    "slack": {
+      "description": "Canali, messaggi e notifiche interattive."
+    },
+    "discord": {
+      "description": "Notifiche server e consegna messaggi bot."
+    },
+    "dropbox": {
+      "description": "Sincronizzazione file ed eventi di cartelle condivise."
+    },
+    "onedrive": {
+      "description": "Archiviazione file Microsoft OneDrive e sync delta."
+    },
+    "google_drive": {
+      "description": "File Drive, cartelle e notifiche di modifica."
+    },
+    "hubspot": {
+      "description": "Contatti CRM, deal ed eventi marketing."
+    },
+    "salesforce": {
+      "description": "Oggetti CRM enterprise e Platform Events."
+    },
+    "zapier": {
+      "description": "Hook in uscita verso gli zap di Zapier."
+    },
+    "make": {
+      "description": "Webhook di scenario per Make (Integromat)."
+    },
+    "github": {
+      "description": "Repo, issue, pull request e Actions."
+    },
+    "gitlab": {
+      "description": "Progetti, merge request, pipeline e webhook."
+    },
+    "custom": {
+      "description": "Punto di estensione per sistemi enterprise proprietari."
+    }
+  },
+  "healthStatus": {
+    "healthy": "Integro",
+    "degraded": "Degradato",
+    "down": "Non disponibile",
+    "unknown": "Sconosciuto"
+  },
+  "health": {
+    "installedAuthorize": "Installato — connetti per autorizzare",
+    "oauthStubPlaceholder": "Demo OAuth locale (stub)",
+    "oauthStubLive": "Demo OAuth locale (live)",
+    "demoCredential": "Credenziale demo locale salvata — API live non connessa",
+    "demoConnection": "Connessione demo locale — non è un collegamento provider live",
+    "disconnected": "Disconnesso"
+  },
+  "generated": {
+    "keyName": "Chiave {n}",
+    "webhookName": "Webhook {n}"
   }
 }

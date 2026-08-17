@@ -16,13 +16,13 @@
     "privacy": "Pribadi",
     "terms": "Ketentuan",
     "cookies": "Cookie",
-    "imprint": "Jejak",
+    "imprint": "Imprint",
     "organization": "Organisasi",
     "user": "Pengguna",
     "guest": "Tamu",
     "member": "Anggota",
     "role": "Peran",
-    "signedIn": "Masuk",
+    "signedIn": "Sudah masuk",
     "guestSession": "Sesi tamu",
     "noResults": "Tidak ada hasil",
     "noData": "Tidak ada data",
@@ -49,7 +49,7 @@
     "aiCrm": "AI CRM",
     "analytics": "Analisis",
     "billing": "Penagihan",
-    "aiWorkspace": "Ruang Kerja AI",
+    "aiWorkspace": "Ruang kerja AI",
     "customers": "Pelanggan",
     "automation": "Otomatisasi",
     "financeTax": "Keuangan & Pajak",
@@ -60,12 +60,12 @@
     "toggleNavigation": "Alihkan navigasi",
     "primary": "Utama",
     "menu": "Menu",
-    "search": "Mencari",
+    "search": "Cari",
     "notifications": "Pemberitahuan",
     "profile": "Profil",
     "currentOrganization": "Organisasi saat ini",
-    "noNotifications": "Tidak ada pemberitahuan",
-    "notificationsEmpty": "Anda semua terjebak. Peringatan dan sebutan akan muncul di sini.",
+    "noNotifications": "Tidak ada notifikasi",
+    "notificationsEmpty": "Semua sudah dibaca. Peringatan dan sebutan akan muncul di sini.",
     "accountSettings": "Pengaturan akun",
     "security": "Keamanan",
     "themeToggle": "Pengalihan tema cepat. Preferensi: {mode}"
@@ -259,6 +259,61 @@
         "warning": "Peringatan",
         "ok": "OKE"
       }
+    },
+    "licenseStatus": {
+      "trial": "Uji coba",
+      "active": "Aktif",
+      "expired": "Kedaluwarsa",
+      "cancelled": "Dibatalkan",
+      "suspended": "Ditangguhkan",
+      "lifetime": "Seumur hidup"
+    },
+    "quotas": {
+      "ai_requests": "Permintaan AI",
+      "projects": "Proyek",
+      "customers": "Pelanggan",
+      "documents": "Dokumen",
+      "storage_mb": "Penyimpanan (MB)",
+      "users": "Pengguna",
+      "api_requests": "Permintaan API"
+    },
+    "invoiceStatus": {
+      "draft": "Draf",
+      "open": "Terbuka",
+      "paid": "Lunas",
+      "void": "Batal",
+      "uncollectible": "Tidak tertagih",
+      "refunded": "Dikembalikan"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "Uji coba segera berakhir",
+        "body": "Uji coba berakhir dalam sekitar {days} hari. Upgrade untuk tetap mendapat akses penuh."
+      },
+      "expired": {
+        "title": "Langganan kedaluwarsa",
+        "body": "Perbarui atau upgrade paket untuk memulihkan fitur komersial."
+      },
+      "cancelled": {
+        "title": "Langganan dibatalkan",
+        "body": "Langganan AGXORA dibatalkan. Akses tetap sampai akhir periode."
+      },
+      "quotaWarning": {
+        "title": "Mendekati batas {metric}",
+        "body": "Terpakai {used} dari {limit}. Pertimbangkan upgrade."
+      },
+      "upgradeAvailable": {
+        "title": "Upgrade tersedia",
+        "body": "Business dan Enterprise membuka otomasi, kuota AI lebih tinggi, dan API."
+      },
+      "invoiceReady": {
+        "title": "Faktur siap",
+        "body": "Faktur {number} berhasil dibayar."
+      },
+      "renewed": {
+        "title": "Langganan diperbarui",
+        "body": "Paket Anda diperbarui pada {date}."
+      }
     }
   },
   "settings": {
@@ -324,7 +379,7 @@
       "preferredProvider": "Penyedia AI Pilihan",
       "defaultModel": "Model AI Bawaan",
       "temperature": "Suhu",
-      "topP": "P atas",
+      "topP": "Top P",
       "maxTokens": "Token Maks",
       "writingStyle": "Gaya Penulisan",
       "languagePreferences": "Preferensi Bahasa",
@@ -341,10 +396,10 @@
       "streaming": "Mengalir",
       "streamingDescription": "Streaming respons model ketika penyedia mendukungnya.",
       "providers": {
-        "mock": "Tiruan (lokal)",
+        "mock": "Mock (lokal)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "Antropis",
+        "anthropic": "Anthropic",
         "google": "Google",
         "openrouter": "BukaRouter",
         "ollama": "Ollama",
@@ -371,10 +426,17 @@
       "themeLabel": "Tema",
       "themeModeAria": "Modus tema",
       "resolvedAppearance": "Penampilan terselesaikan:",
-      "accentColor": "Warna Aksen",
-      "accentNotice": "Preferensi aksen disimpan untuk pengkabelan var CSS di masa mendatang — belum mengubah sistem warna yang terkunci.",
+      "accentColor": "Warna aksen",
+      "accentNotice": "Preferensi aksen disimpan untuk sesi ini dan belum mengubah sistem warna yang dikunci.",
+      "accents": {
+        "cyan": "Cyan",
+        "blue": "Biru",
+        "emerald": "Zamrud",
+        "violet": "Ungu",
+        "amber": "Amber"
+      },
       "density": "Kepadatan",
-      "compactMode": "Mode Kompak",
+      "compactMode": "Mode ringkas",
       "compactModeDescription": "Kurangi padding di seluruh tabel dan panel perusahaan.",
       "animations": "Animasi",
       "animationsDescription": "Bagian gerakan dan hover lift. Menghargai pengaturan OS dengan gerakan yang dikurangi.",
@@ -741,8 +803,8 @@
     "skipToContent": "Lewati ke konten dasbor",
     "loading": "Memuat dasbor…",
     "hero": {
-      "ariaLabel": "Pahlawan INTI AGXORA",
-      "eyebrow": "Sistem Operasi Bisnis AI",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "Sistem operasi bisnis AI",
       "title": "INTI AGXORA",
       "subtitle": "Kecerdasan real-time dan kontrol operasional — permukaan perintah ruang kerja Anda.",
       "ctaGetStarted": "Mulailah",
@@ -752,7 +814,7 @@
     },
     "quickActions": {
       "title": "Tindakan cepat",
-      "subtitle": "Apa yang harus Anda lakukan selanjutnya?",
+      "subtitle": "Apa yang harus dilakukan berikutnya?",
       "ariaLabel": "Tindakan cepat",
       "addCustomer": {
         "label": "Tambahkan pelanggan",
@@ -782,11 +844,11 @@
     "attention": {
       "title": "Perlu perhatian",
       "ariaLabel": "Apa yang perlu diperhatikan",
-      "empty": "Anda sudah jelas - tidak ada barang mendesak saat ini.",
+      "empty": "Semua baik — tidak ada item mendesak saat ini.",
       "tone": {
         "critical": "Kritis",
         "warning": "Peringatan",
-        "info": "Informasi",
+        "info": "Info",
         "success": "Siap",
         "action": "Lakukan selanjutnya"
       },
@@ -808,15 +870,15 @@
       }
     },
     "overview": {
-      "title": "Apa yang sedang terjadi",
-      "subtitle": "Ruang kerja penting untuk {name}",
+      "title": "Apa yang terjadi",
+      "subtitle": "Hitungan ruang kerja untuk {name}",
       "fallbackName": "ruang kerja Anda",
       "ariaLabel": "Ikhtisar bisnis",
-      "online": "On line",
+      "online": "Online",
       "emDash": "—",
       "capacitySignal": "{percent}% sinyal kapasitas",
       "activeClients": {
-        "title": "Klien aktif",
+        "title": "Pelanggan aktif",
         "captionEmpty": "Belum ada pelanggan aktif",
         "captionTotal": "{count} total di ruang kerja",
         "add": "Tambahkan pelanggan",
@@ -841,10 +903,10 @@
         "openBilling": "Buka penagihan"
       },
       "clientShell": {
-        "title": "Cangkang klien",
+        "title": "Shell aplikasi",
         "caption": "Sesi browser siap — bukan monitor operasi langsung",
         "shellLoaded": "Shell aplikasi dimuat",
-        "storesReady": "Toko ruang kerja lokal sudah siap"
+        "storesReady": "Store workspace lokal siap"
       },
       "growth": {
         "title": "Pertumbuhan",
@@ -856,8 +918,8 @@
       "title": "Aktivitas terkini",
       "subtitle": "Apa yang berubah hari ini",
       "ariaLabel": "Aktivitas terkini",
-      "todayCount": "{count} HARI INI",
-      "localBadge": "LOKAL",
+      "todayCount": "{count} hari ini",
+      "localBadge": "Lokal",
       "emptyTitle": "Belum ada aktivitas",
       "emptyBody": "Acara ruang kerja akan muncul di sini saat Anda menambahkan pelanggan, proyek, dan lainnya.",
       "addCustomer": "Tambahkan pelanggan",
@@ -1131,9 +1193,9 @@
       "subtitle": "Selamat datang kembali di AGXORA.",
       "email": "E-mail",
       "password": "Kata sandi",
-      "emailPlaceholder": "Anda@perusahaan.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Kata sandi",
-      "rememberMe": "Ingatlah Aku",
+      "rememberMe": "Ingat saya",
       "submit": "Masuk",
       "submitting": "Masuk…",
       "noAccount": "Tidak ada akun?",
@@ -1153,7 +1215,7 @@
       "company": "Perusahaan",
       "password": "Kata sandi",
       "confirmPassword": "Konfirmasikan kata sandi",
-      "acceptTerms": "Saya menerima itu",
+      "acceptTerms": "Saya menyetujui",
       "termsOfService": "Ketentuan Layanan",
       "and": "Dan",
       "privacyPolicy": "Kebijakan Privasi",
@@ -1163,12 +1225,12 @@
       "signIn": "Masuk",
       "strength": "Kekuatan kata sandi",
       "strengthWeak": "Lemah",
-      "strengthFair": "Adil",
+      "strengthFair": "Sedang",
       "strengthStrong": "Kuat",
       "firstNamePlaceholder": "Alex",
       "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "AGXORA GmbH",
-      "emailPlaceholder": "Anda@perusahaan.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Minimal 8 karakter, huruf + angka",
       "confirmPasswordPlaceholder": "Ulangi kata sandi",
       "failed": "Pendaftaran gagal",
@@ -1199,7 +1261,7 @@
       "loading": "Setel ulang kata sandi"
     },
     "contactSales": {
-      "title": "Hubungi Penjualan",
+      "title": "Hubungi penjualan",
       "subtitle": "Beritahu kami tentang tim Anda. Kami akan menindaklanjuti dengan opsi perusahaan.",
       "name": "Nama lengkap",
       "email": "Email kantor",
@@ -1218,7 +1280,7 @@
       "successTitle": "Terima kasih",
       "successBody": "Permintaan Anda telah diterima. Tim kami akan segera merespons.",
       "viewPricing": "Lihat harga",
-      "bookDemo": "Demo Buku",
+      "bookDemo": "Jadwalkan demo",
       "failed": "Tidak dapat mengirimkan pertanyaan",
       "country": "Negara",
       "savedFor": "Disimpan untuk {company}. Pengiriman penjualan tidak terhubung dalam build ini.",
@@ -1270,7 +1332,7 @@
       },
       "customer360": {
         "title": "Pelanggan 360°",
-        "subtitle": "Profil, perusahaan, kontak, pesanan, faktur, Lieferscheine, pembayaran, dokumen, garis waktu, aktivitas, catatan, ringkasan AI, dan riwayat komunikasi."
+        "subtitle": "Profil, perusahaan, kontak, pesanan, faktur, surat jalan, pembayaran, dokumen, garis waktu, aktivitas, catatan, ringkasan AI, dan riwayat komunikasi."
       },
       "salesPipeline": {
         "title": "Saluran Penjualan",
@@ -1281,11 +1343,11 @@
       },
       "deliveryModule": {
         "title": "Modul Pengiriman",
-        "subtitle": "Sistem Lieferschein profesional dengan kesiapan pelacakan, tanda tangan, QR, dan barcode."
+        "subtitle": "Sistem surat jalan profesional dengan kesiapan pelacakan, tanda tangan, QR, dan barcode."
       },
       "documentsModule": {
         "title": "Dokumen",
-        "subtitle": "Kutipan, kontrak, faktur, Lieferschein, pesanan pembelian, kwitansi — dengan pencarian AI."
+        "subtitle": "Kutipan, kontrak, faktur, surat jalan, pesanan pembelian, kwitansi — dengan pencarian AI."
       },
       "tasksModule": {
         "title": "Tugas"
@@ -1577,7 +1639,7 @@
         "contacts": "Kontak",
         "orders": "Pesanan",
         "invoices": "Faktur",
-        "lieferscheine": "Lieferscheine",
+        "lieferscheine": "surat jalan",
         "payments": "Pembayaran",
         "documents": "Dokumen",
         "timeline": "Garis Waktu",
@@ -1596,7 +1658,7 @@
       }
     },
     "delivery": {
-      "title": "Sistem Lieferschein Profesional",
+      "title": "Sistem surat jalan Profesional",
       "description": "Catatan pengiriman, penjemputan / pengantaran, pengemudi, kendaraan, dan pelacakan — catatan sampel saja. Adaptor ekspor tidak terhubung.",
       "badges": {
         "qrUnavailable": "QR tidak tersedia",
@@ -1611,7 +1673,7 @@
         "historyNotConnected": "Penyimpanan riwayat pengiriman tidak terhubung dalam build ini."
       },
       "columns": {
-        "lieferschein": "Lieferschein",
+        "lieferschein": "surat jalan",
         "order": "Memesan",
         "customer": "Pelanggan",
         "kind": "Baik",
@@ -1668,7 +1730,7 @@
       "emptyTitle": "Tidak ada dokumen",
       "emptyDescription": "Tidak ada dokumen yang cocok dengan pencarian ini.",
       "searchLabel": "Pencarian AI",
-      "searchPlaceholder": "Kutipan, kontrak, faktur, Lieferschein…",
+      "searchPlaceholder": "Kutipan, kontrak, faktur, surat jalan…",
       "typeLabel": "Jenis dokumen",
       "allTypes": "Semua tipe",
       "columns": {
@@ -1682,7 +1744,7 @@
         "quote": "Kutipan",
         "contract": "Kontrak",
         "invoice": "Faktur",
-        "lieferschein": "Lieferschein",
+        "lieferschein": "surat jalan",
         "purchase_order": "Pesanan Pembelian",
         "receipt": "Tanda terima"
       }
@@ -1698,7 +1760,137 @@
       "intro": "Fondasi Creator Studio — integrasi platform resmi dapat dihubungkan ke adaptor ini nanti. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Utas, X."
     },
     "industry": {
-      "intro": "Platform Bisnis Universal — orientasi nantinya akan memilih industri. Setiap industri menerima modul AI khusus tanpa mengorbankan OS CRM inti."
+      "intro": "Platform Bisnis Universal — orientasi nantinya akan memilih industri. Setiap industri menerima modul AI khusus tanpa mengorbankan OS CRM inti.",
+      "catalog": {
+        "business": {
+          "label": "Bisnis",
+          "description": "Sistem operasi B2B umum"
+        },
+        "freelancer": {
+          "label": "Freelancer",
+          "description": "CRM, faktur, dan pipeline pelanggan untuk solo"
+        },
+        "creator": {
+          "label": "Kreator",
+          "description": "Creator Studio + CRM merek"
+        },
+        "influencer": {
+          "label": "Influencer",
+          "description": "CRM sponsorship dan OS kampanye"
+        },
+        "agency": {
+          "label": "Agensi",
+          "description": "Pengiriman multi-klien dan retainer"
+        },
+        "retail": {
+          "label": "Ritel",
+          "description": "Inventaris toko, POS, dan loyalitas"
+        },
+        "restaurant": {
+          "label": "Restoran",
+          "description": "Reservasi, dapur, dan pengiriman"
+        },
+        "hotel": {
+          "label": "Hotel",
+          "description": "Kamar, tamu, dan housekeeping"
+        },
+        "laundry": {
+          "label": "Laundry",
+          "description": "Penjemputan, tiket, dan logistik rute"
+        },
+        "healthcare": {
+          "label": "Kesehatan",
+          "description": "Pasien, janji, kepatuhan"
+        },
+        "law_firm": {
+          "label": "Firma hukum",
+          "description": "Perkara, penagihan, dan brankas dokumen"
+        },
+        "accounting": {
+          "label": "Akuntansi",
+          "description": "Buku klien dan ekspor DATEV"
+        },
+        "construction": {
+          "label": "Konstruksi",
+          "description": "Lokasi, kru, dan penagihan progres"
+        },
+        "real_estate": {
+          "label": "Properti",
+          "description": "Listing, viewing, dan closing"
+        },
+        "education": {
+          "label": "Pendidikan",
+          "description": "Mahasiswa, kursus, dan pendaftaran"
+        },
+        "manufacturing": {
+          "label": "Manufaktur",
+          "description": "BOM, produksi, dan QC"
+        },
+        "logistics": {
+          "label": "Logistik",
+          "description": "Armada, pelacakan, dan surat jalan"
+        },
+        "ecommerce": {
+          "label": "E-commerce",
+          "description": "Katalog, keranjang, dan pesanan omnichannel"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Penjualan",
+        "finance": "Keuangan",
+        "projects": "Proyek",
+        "clients": "Pelanggan",
+        "proposals": "Proposal",
+        "time_tracking": "Pelacakan waktu",
+        "invoices": "Faktur",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Kesepakatan merek",
+        "content_calendar": "Kalender konten",
+        "sponsorships": "Sponsorship",
+        "audience_insights": "Wawasan audiens",
+        "campaigns": "Kampanye",
+        "client_portals": "Portal pelanggan",
+        "retainers": "Retainer",
+        "campaign_ops": "Operasi kampanye",
+        "inventory": "Inventaris",
+        "pos": "POS",
+        "loyalty": "Loyalitas",
+        "reservations": "Reservasi",
+        "menu": "Menu",
+        "kitchen_display": "Tampilan dapur",
+        "housekeeping": "Housekeeping",
+        "guest_crm": "CRM tamu",
+        "tickets": "Tiket",
+        "routes": "Rute",
+        "delivery_notes": "Surat jalan",
+        "patients": "Pasien",
+        "appointments": "Janji",
+        "compliance": "Kepatuhan",
+        "matters": "Perkara",
+        "billing": "Penagihan",
+        "documents": "Dokumen",
+        "client_books": "Buku klien",
+        "datev": "DATEV",
+        "tax_deadlines": "Tenggat pajak",
+        "sites": "Lokasi",
+        "crews": "Kru",
+        "progress_billing": "Penagihan progres",
+        "listings": "Listing",
+        "viewings": "Viewing",
+        "closings": "Closing",
+        "students": "Mahasiswa",
+        "courses": "Kursus",
+        "enrollment": "Pendaftaran",
+        "bom": "BOM",
+        "production": "Produksi",
+        "qc": "QC",
+        "fleet": "Armada",
+        "tracking": "Pelacakan",
+        "catalog": "Katalog",
+        "orders": "Pesanan",
+        "fulfillment": "Pemenuhan"
+      }
     },
     "kpi": {
       "customers": {
@@ -1762,7 +1954,7 @@
       "quote": "Mengutip",
       "contract": "Kontrak",
       "invoice": "Faktur",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "surat jalan",
       "purchase_order": "Pesanan Pembelian",
       "receipt": "Kuitansi"
     },
@@ -2769,7 +2961,7 @@
         "activeProjects": "Proyek Aktif",
         "activeHint": "{planning} perencanaan",
         "completed": "Selesai",
-        "completedHint": "{percent}% portofolio",
+        "completedHint": "{percent}% dari portofolio",
         "onHold": "Ditahan",
         "onHoldHint": "{archived} diarsipkan",
         "teamMembers": "Anggota Tim",
@@ -2831,7 +3023,7 @@
       "missingTitle": "Proyek hilang",
       "missingDescription": "Pilih proyek untuk melihat ikhtisarnya.",
       "title": "Ringkasan",
-      "noDescription": "Tidak ada deskripsi yang diberikan.",
+      "noDescription": "Tidak ada deskripsi.",
       "budget": "Anggaran",
       "spent": "Dihabiskan",
       "start": "Awal",
@@ -2977,8 +3169,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Saran Pengoptimalan",
       "oneClickOptimize": "Optimalkan Satu Klik",
-      "noticeDefault": "One Click Optimize belum ada mutasi grafik.",
-      "noticeQueued": "Optimalkan antri. Mesin masa depan akan menulis ulang penundaan & persetujuan."
+      "noticeDefault": "Optimasi satu klik belum mengubah graf.",
+      "noticeQueued": "Optimasi mengantri. Mesin nanti akan menulis ulang jeda dan persetujuan.",
+      "score": {
+        "healthy": "Sehat",
+        "needsAttention": "Perlu perhatian",
+        "atRisk": "Berisiko"
+      },
+      "kinds": {
+        "missing_approval": "Persetujuan",
+        "possible_delay": "Penundaan",
+        "unused_trigger": "Pemicu",
+        "duplicate_nodes": "Duplikat",
+        "unused_action": "Tindakan",
+        "security": "Keamanan",
+        "performance": "Performa"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Persetujuan hilang",
+          "description": "Alur yang lebih panjang sering butuh gerbang persetujuan sebelum efek samping."
+        },
+        "possible_delay": {
+          "title": "Kemungkinan penundaan",
+          "description": "Pertimbangkan jeda sebelum email pengingat agar tidak beruntun."
+        },
+        "unused_trigger": {
+          "title": "Pemicu tidak terpakai",
+          "description": "Graf ini tidak punya pemicu awal — tambahkan sebelum aktivasi."
+        },
+        "duplicate_nodes": {
+          "title": "Node duplikat",
+          "description": "“{label}” muncul {count} kali — gabungkan jika berlebih."
+        },
+        "unused_action": {
+          "title": "Tindakan tidak terpakai",
+          "description": "{label} tidak terhubung — sambungkan atau hapus."
+        },
+        "security": {
+          "title": "Rekomendasi keamanan",
+          "description": "Untuk webhook dan email, pilih adapter dengan hak paling kecil."
+        },
+        "performance": {
+          "title": "Rekomendasi performa",
+          "description": "Jika mungkin, gabungkan langkah AI agar waktu rata-rata turun."
+        }
+      }
     },
     "integrations": {
       "intro": "Pusat Integrasi — opsional. Status: Terhubung, Beta, Direncanakan, Segera Hadir, Dinonaktifkan. Tidak ada API langsung.",
@@ -3487,6 +3723,192 @@
         "label": "Perbarui status",
         "description": "Perbarui status entitas di modul."
       }
+    },
+    "kinds": {
+      "trigger": "Pemicu",
+      "action": "Tindakan",
+      "condition": "Kondisi",
+      "delay": "Penundaan",
+      "approval": "Persetujuan",
+      "loop": "Loop",
+      "merge": "Gabung",
+      "split": "Pisah",
+      "ai_decision": "Keputusan AI",
+      "ai_action": "Tindakan AI",
+      "notification": "Notifikasi",
+      "webhook": "Webhook",
+      "custom_action": "Tindakan kustom",
+      "branch": "Cabang",
+      "variable": "Variabel"
+    },
+    "kpi": {
+      "active": {
+        "label": "Alur kerja aktif",
+        "caption": "Diaktifkan di ruang kerja"
+      },
+      "runs-today": {
+        "label": "Jalankan alur hari ini",
+        "caption": "Semua pemicu"
+      },
+      "success": {
+        "label": "Otomasi berhasil",
+        "caption": "Hari ini"
+      },
+      "failed": {
+        "label": "Jalankan gagal",
+        "caption": "Perlu perhatian"
+      },
+      "pending": {
+        "label": "Tugas tertunda",
+        "caption": "Persetujuan + coba ulang"
+      },
+      "avg-time": {
+        "label": "Waktu eksekusi rata-rata",
+        "caption": "Median 1,2 dtk"
+      },
+      "ai-suggestions": {
+        "label": "Saran AI",
+        "caption": "Peluang otomasi"
+      }
+    },
+    "integrationCategories": {
+      "Productivity": "Produktivitas",
+      "Communication": "Komunikasi",
+      "Commerce": "Perdagangan",
+      "Finance": "Keuangan",
+      "ERP": "ERP",
+      "CRM": "CRM"
+    },
+    "integrationNotes": {
+      "google-workspace": "Hook Gmail / Drive / Calendar dicadangkan untuk kabel OAuth.",
+      "m365": "Hook Outlook / Teams / Graph dicadangkan.",
+      "slack": "Events API + pos obrolan dicadangkan.",
+      "teams": "Adapter Bot Framework dicadangkan.",
+      "discord": "Adapter webhook + bot dicadangkan.",
+      "whatsapp": "Adapter Meta Cloud API dicadangkan.",
+      "stripe": "Webhook pembayaran dicadangkan — tanpa kunci live.",
+      "shopify": "Peristiwa pesanan / produk dicadangkan.",
+      "datev": "Hook ekspor DATEV / batch pembukuan dicadangkan.",
+      "sap": "Jembatan peristiwa ERP dicadangkan — dinonaktifkan hingga paket enterprise.",
+      "hubspot": "Adapter sinkron CRM dicadangkan.",
+      "salesforce": "Adapter Platform Events dicadangkan."
+    },
+    "defaultWorkflow": {
+      "name": "Onboarding pelanggan",
+      "description": "Urutan sambutan saat pelanggan dibuat."
+    },
+    "templateCategories": {
+      "CRM": "CRM",
+      "Finance": "Keuangan",
+      "Sales": "Penjualan",
+      "Marketing": "Pemasaran",
+      "HR": "HR",
+      "Creator": "Kreator",
+      "Ops": "Ops",
+      "Projects": "Proyek",
+      "AI": "AI"
+    },
+    "studioTemplates": {
+      "tpl-onboarding": {
+        "name": "Onboarding pelanggan",
+        "description": "Email selamat datang, ringkasan AI, dan tugas pemilik setelah pelanggan dibuat.",
+        "category": "CRM",
+        "recommendedFor": "Tim yang onboarding pelanggan B2B baru"
+      },
+      "tpl-invoice": {
+        "name": "Pengingat faktur",
+        "description": "Pengingat terjadwal untuk faktur terbuka dengan jalur eskalasi.",
+        "category": "Keuangan",
+        "recommendedFor": "Ops keuangan yang mengurangi piutang tertunggak"
+      },
+      "tpl-lead": {
+        "name": "Tindak lanjut prospek",
+        "description": "Balasan email AI plus pembaruan status pipeline untuk prospek baru.",
+        "category": "Penjualan",
+        "recommendedFor": "Tim penjualan dengan volume prospek inbound tinggi"
+      },
+      "tpl-welcome": {
+        "name": "Email selamat datang",
+        "description": "Urutan selamat datang sederhana saat daftar.",
+        "category": "Pemasaran",
+        "recommendedFor": "Setiap workspace yang mulai dengan otomasi email"
+      },
+      "tpl-pipeline": {
+        "name": "Pipeline penjualan",
+        "description": "Perubahan tahap dengan notifikasi dan tugas.",
+        "category": "Penjualan",
+        "recommendedFor": "Tim yang mengelola progres deal multi-tahap"
+      },
+      "tpl-recruit": {
+        "name": "Rekrutmen",
+        "description": "Perutean kandidat dan tugas wawancara.",
+        "category": "HR",
+        "recommendedFor": "Manajer rekrutmen dan people ops"
+      },
+      "tpl-content": {
+        "name": "Penerbitan konten",
+        "description": "Creator Studio: terbitkan → beri tahu → analitik.",
+        "category": "Kreator",
+        "recommendedFor": "Tim pemasaran dan kreator"
+      },
+      "tpl-approval": {
+        "name": "Proses persetujuan",
+        "description": "Persetujuan multi-langkah dengan rekomendasi AI.",
+        "category": "Ops",
+        "recommendedFor": "Persetujuan finance/ops sebelum efek samping",
+        "estimatedRuntime": "Gerbang manusia"
+      }
+    },
+    "engineTemplates": {
+      "tpl_customer_welcome": {
+        "name": "Selamat datang pelanggan baru",
+        "description": "Email selamat datang + notifikasi saat pelanggan dibuat.",
+        "category": "CRM"
+      },
+      "tpl_invoice_reminder": {
+        "name": "Pengingat faktur",
+        "description": "Ingatkan pelanggan setelah faktur diterbitkan.",
+        "category": "Keuangan"
+      },
+      "tpl_project_kickoff": {
+        "name": "Kickoff proyek",
+        "description": "Tugaskan tugas kickoff dan beri tahu saat proyek dibuat.",
+        "category": "Proyek"
+      },
+      "tpl_task_assignment": {
+        "name": "Penugasan tugas",
+        "description": "Email ke penerima saat tugas selesai — rangkai pekerjaan berikutnya.",
+        "category": "Proyek"
+      },
+      "tpl_ai_customer_summary": {
+        "name": "Ringkasan pelanggan AI",
+        "description": "Jalankan ringkasan AI saat pelanggan dibuat; simpan keluaran.",
+        "category": "AI"
+      },
+      "tpl_followup_reminder": {
+        "name": "Pengingat tindak lanjut",
+        "description": "Tindak lanjut berbasis jadwal dengan cabang menurut status.",
+        "category": "CRM"
+      }
+    },
+    "nodeLabels": {
+      "send_welcome_email": "Kirim email selamat datang",
+      "notify_team": "Beritahu tim",
+      "wait_3_days": "Tunggu 3 hari",
+      "still_unpaid": "Masih belum dibayar?",
+      "send_reminder": "Kirim pengingat",
+      "assign_kickoff_task": "Tugaskan tugas kickoff",
+      "notify_owner": "Beritahu pemilik",
+      "notify_stakeholders": "Beritahu pemangku kepentingan",
+      "run_ai_summary": "Jalankan ringkasan AI",
+      "generate_document": "Buat dokumen",
+      "daily_schedule": "Jadwal harian",
+      "by_priority": "Menurut prioritas",
+      "urgent_notification": "Notifikasi mendesak",
+      "standard_email": "Email standar"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "Buat konten AI"
     }
   },
   "team": {
@@ -3970,6 +4392,177 @@
     "os": {
       "prioritizeCustomerImpact": "Prioritaskan dampak pelanggan",
       "delegatedFollowUp": "Tindak lanjut yang didelegasikan"
+    },
+    "categories": {
+      "Leadership": "Kepemimpinan",
+      "Revenue": "Pendapatan",
+      "CRM": "CRM",
+      "Delivery": "Pengiriman",
+      "Automation": "Otomasi",
+      "Finance": "Keuangan",
+      "Knowledge": "Pengetahuan",
+      "Support": "Dukungan",
+      "Productivity": "Produktivitas",
+      "Custom": "Kustom"
+    },
+    "catalog": {
+      "executive_advisor": {
+        "name": "Penasihat eksekutif",
+        "description": "Briefing strategis, ringkasan KPI, dan dukungan keputusan."
+      },
+      "sales_agent": {
+        "name": "Agen penjualan",
+        "description": "Pelatihan pipeline, draf outreach, dan langkah deal berikutnya."
+      },
+      "crm_assistant": {
+        "name": "Asisten CRM",
+        "description": "Pengayaan pelanggan, kebersihan data, dan wawasan relasi."
+      },
+      "project_manager": {
+        "name": "Manajer proyek",
+        "description": "Rencana, pecahan tugas, dan sinyal risiko pengiriman."
+      },
+      "workflow_coordinator": {
+        "name": "Koordinator alur kerja",
+        "description": "Memicu dan mengorkestrasi alur otomasi AGXORA."
+      },
+      "finance_assistant": {
+        "name": "Asisten keuangan",
+        "description": "Pemantauan faktur, catatan arus kas, dan ringkasan keuangan."
+      },
+      "document_analyst": {
+        "name": "Analis dokumen",
+        "description": "Mengekstrak struktur, risiko, dan ringkasan dari dokumen."
+      },
+      "knowledge_assistant": {
+        "name": "Asisten pengetahuan",
+        "description": "Menjawab dari pengetahuan perusahaan dengan retrieval siap RAG."
+      },
+      "support_assistant": {
+        "name": "Asisten dukungan",
+        "description": "Triage dukungan, balasan, dan jalur eskalasi."
+      },
+      "meeting_assistant": {
+        "name": "Asisten rapat",
+        "description": "Persiapan agenda, placeholder catatan, dan follow-up."
+      },
+      "custom": {
+        "name": "Agen kustom",
+        "description": "Titik perluasan untuk agen khusus organisasi."
+      }
+    },
+    "toolsCatalog": {
+      "crm": {
+        "name": "Alat CRM",
+        "description": "Buat/perbarui pelanggan dan baca konteks akun."
+      },
+      "projects": {
+        "name": "Alat proyek",
+        "description": "Kelola proyek, tugas, dan status pengiriman."
+      },
+      "finance": {
+        "name": "Alat keuangan",
+        "description": "Faktur, saldo, dan ringkasan keuangan."
+      },
+      "documents": {
+        "name": "Alat dokumen",
+        "description": "Baca dan ringkas dokumen ruang kerja."
+      },
+      "workflow": {
+        "name": "Alat alur kerja",
+        "description": "Picu dan periksa alur otomasi."
+      },
+      "integration": {
+        "name": "Alat integrasi",
+        "description": "Panggil konektor pihak ketiga yang terhubung."
+      },
+      "email": {
+        "name": "Alat email",
+        "description": "Draf dan antre email keluar."
+      },
+      "calendar": {
+        "name": "Alat kalender",
+        "description": "Jadwalkan dan periksa acara kalender."
+      },
+      "search": {
+        "name": "Alat pencarian",
+        "description": "Pencarian ruang kerja universal."
+      },
+      "notification": {
+        "name": "Alat notifikasi",
+        "description": "Kirim notifikasi dalam aplikasi."
+      },
+      "api": {
+        "name": "Alat API",
+        "description": "Panggil rute gateway API internal."
+      },
+      "mcp": {
+        "name": "Alat MCP",
+        "description": "Alat server Model Context Protocol mendatang."
+      }
+    },
+    "knowledgeDocs": {
+      "company": {
+        "title": "Prinsip operasi AGXORA",
+        "summary": "Prinsip OS enterprise untuk agen AI modular dan aman."
+      },
+      "policies": {
+        "title": "Kebijakan penanganan data",
+        "summary": "Isolasi alat sensitif dan akses hak paling kecil."
+      },
+      "procedures": {
+        "title": "Prosedur eskalasi pelanggan",
+        "summary": "Jalur eskalasi asisten dukungan saat keyakinan rendah."
+      },
+      "rag": {
+        "title": "Placeholder indeks RAG",
+        "summary": "Retrieval vektor mendatang atas dokumen dan catatan CRM."
+      }
+    },
+    "llm": {
+      "local": "LLM lokal",
+      "mcp": "Server MCP",
+      "custom": "Model kustom"
+    },
+    "lifecycle": {
+      "draft": "Draf",
+      "registered": "Terdaftar",
+      "active": "Aktif",
+      "paused": "Dijeda",
+      "error": "Kesalahan",
+      "retired": "Dinonaktifkan"
+    },
+    "healthStatus": {
+      "healthy": "Sehat",
+      "degraded": "Menurun",
+      "down": "Offline",
+      "unknown": "Tidak diketahui"
+    },
+    "taskStatus": {
+      "pending": "Tertunda",
+      "running": "Berjalan",
+      "completed": "Selesai",
+      "cancelled": "Dibatalkan",
+      "failed": "Gagal",
+      "retrying": "Mencoba lagi"
+    },
+    "memoryScope": {
+      "working": "Kerja",
+      "conversation": "Percakapan",
+      "business": "Bisnis",
+      "long_term": "Jangka panjang",
+      "workspace": "Ruang kerja",
+      "agent": "Agen"
+    },
+    "knowledgeKind": {
+      "company": "Perusahaan",
+      "documents": "Dokumen",
+      "projects": "Proyek",
+      "crm": "CRM",
+      "policies": "Kebijakan",
+      "procedures": "Prosedur",
+      "vector": "Vektor",
+      "rag": "RAG"
     }
   },
   "integrations": {
@@ -4037,7 +4630,17 @@
     "logs": {
       "title": "Log integrasi",
       "emptyTitle": "Belum ada log",
-      "emptyDescription": "Hubungkan penyedia atau jalankan diagnostik."
+      "emptyDescription": "Hubungkan penyedia atau jalankan diagnostik.",
+      "installed": "{name} terpasang",
+      "demoConnected": "Demo terhubung {name}",
+      "disconnected": "{name} terputus",
+      "webhookCreated": "Webhook dibuat {name}",
+      "keyCreated": "Kunci API dibuat {name}",
+      "keyRotated": "Kunci diputar {name}",
+      "keyRevoked": "Kunci dicabut {name}",
+      "stubHealthy": "{name} stub sehat",
+      "diagnosticsComplete": "Diagnostik selesai",
+      "outgoing": "Keluar {status}: {eventType}"
     },
     "apiKeys": {
       "title": "Kunci API",
@@ -4112,7 +4715,92 @@
     },
     "errors": {
       "failedToFetch": "Gagal mengambil",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "Konektor tidak dikenal.",
+      "webhookNotFound": "Webhook tidak ditemukan.",
+      "apiKeyInactive": "Kunci API tidak aktif atau kedaluwarsa."
+    },
+    "categories": {
+      "productivity": "Produktivitas",
+      "communication": "Komunikasi",
+      "storage": "Penyimpanan",
+      "crm": "CRM",
+      "automation": "Otomasi",
+      "devtools": "Alat pengembang",
+      "custom": "Kustom"
+    },
+    "auth": {
+      "oauth2": "OAuth 2.0",
+      "api_key": "Kunci API",
+      "webhook": "Webhook"
+    },
+    "oauth": {
+      "custom": "OAuth kustom"
+    },
+    "connectorNames": {
+      "custom": "Konektor kustom"
+    },
+    "connectors": {
+      "microsoft365": {
+        "description": "Mail, kalender, dan Teams via Microsoft Graph."
+      },
+      "google_workspace": {
+        "description": "Gmail, Calendar, dan Drive untuk tenant Workspace."
+      },
+      "slack": {
+        "description": "Saluran, pesan, dan notifikasi interaktif."
+      },
+      "discord": {
+        "description": "Notifikasi server dan pengiriman pesan bot."
+      },
+      "dropbox": {
+        "description": "Sinkronisasi file dan peristiwa folder bersama."
+      },
+      "onedrive": {
+        "description": "Penyimpanan file Microsoft OneDrive dan sinkron delta."
+      },
+      "google_drive": {
+        "description": "File Drive, folder, dan notifikasi perubahan."
+      },
+      "hubspot": {
+        "description": "Kontak CRM, deal, dan peristiwa pemasaran."
+      },
+      "salesforce": {
+        "description": "Objek CRM enterprise dan Platform Events."
+      },
+      "zapier": {
+        "description": "Hook keluar ke zap Zapier."
+      },
+      "make": {
+        "description": "Webhook skenario untuk Make (Integromat)."
+      },
+      "github": {
+        "description": "Repo, issue, pull request, dan Actions."
+      },
+      "gitlab": {
+        "description": "Proyek, merge request, pipeline, dan webhook."
+      },
+      "custom": {
+        "description": "Titik perluasan untuk sistem enterprise proprietary."
+      }
+    },
+    "healthStatus": {
+      "healthy": "Sehat",
+      "degraded": "Menurun",
+      "down": "Offline",
+      "unknown": "Tidak diketahui"
+    },
+    "health": {
+      "installedAuthorize": "Terpasang — hubungkan untuk otorisasi",
+      "oauthStubPlaceholder": "Demo OAuth lokal (stub)",
+      "oauthStubLive": "Demo OAuth lokal (live)",
+      "demoCredential": "Kredensial demo lokal disimpan — API live tidak terhubung",
+      "demoConnection": "Koneksi demo lokal — bukan tautan penyedia live",
+      "disconnected": "Terputus"
+    },
+    "generated": {
+      "keyName": "Kunci {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {
@@ -4184,14 +4872,78 @@
       "title": "Pusat KPI",
       "subtitle": "Katalog KPI yang dapat dikonfigurasi di seluruh pendapatan, pelanggan, proyek, alur kerja, agen, dan otomatisasi.",
       "emptyTitle": "Analytics menunggu sinyal",
-      "emptyDescription": "Setelah ruang kerja Anda menghasilkan aktivitas, KPI eksekutif dan peringatan akan muncul di sini."
+      "emptyDescription": "Setelah ruang kerja Anda menghasilkan aktivitas, KPI eksekutif dan peringatan akan muncul di sini.",
+      "revenue": {
+        "name": "Pendapatan",
+        "description": "Total pendapatan diakui dalam periode."
+      },
+      "mrr": {
+        "name": "MRR",
+        "description": "Pendapatan berulang bulanan."
+      },
+      "arr": {
+        "name": "ARR",
+        "description": "Pendapatan berulang tahunan."
+      },
+      "growth": {
+        "name": "Pertumbuhan",
+        "description": "Laju pertumbuhan dibanding periode sebelumnya."
+      },
+      "customer_acquisition": {
+        "name": "Akuisisi pelanggan",
+        "description": "Pelanggan baru yang didapat."
+      },
+      "retention": {
+        "name": "Retensi",
+        "description": "Tingkat retensi pelanggan."
+      },
+      "churn": {
+        "name": "Churn pelanggan",
+        "description": "Tingkat churn pelanggan."
+      },
+      "project_success": {
+        "name": "Sukses proyek",
+        "description": "Proyek terkirim tepat waktu / sesuai cakupan."
+      },
+      "workflow_success": {
+        "name": "Sukses alur kerja",
+        "description": "Eksekusi alur kerja berhasil."
+      },
+      "agent_performance": {
+        "name": "Performa agen",
+        "description": "Skor keberhasilan tugas agen AI."
+      },
+      "automation_success": {
+        "name": "Sukses otomasi",
+        "description": "Keandalan otomasi / integrasi."
+      },
+      "custom": {
+        "name": "KPI kustom",
+        "description": "Titik perluasan untuk KPI yang didefinisikan organisasi."
+      }
     },
     "reports": {
       "title": "Mesin pelaporan",
       "subtitle": "Definisi laporan diunggulkan untuk ditinjau. Ekspor file tidak tersedia hingga backend pelaporan terhubung.",
       "emptyTitle": "Tidak ada laporan",
       "emptyDescription": "Melaporkan benih pada bootstrap ruang kerja.",
-      "scheduleOnDemand": "sesuai permintaan"
+      "scheduleOnDemand": "sesuai permintaan",
+      "executive": {
+        "title": "Mingguan eksekutif",
+        "description": "Brief CEO tentang kesehatan, pendapatan, risiko, dan pertumbuhan."
+      },
+      "department": {
+        "title": "Laporan departemen penjualan",
+        "description": "Pipeline, akuisisi, dan retensi untuk pimpinan penjualan."
+      },
+      "operational": {
+        "title": "Harian operasi",
+        "description": "Alur kerja, integrasi, dan postur identitas."
+      },
+      "management": {
+        "title": "Manajemen pengiriman",
+        "description": "Sukses proyek, kapasitas, dan throughput dokumen."
+      }
     },
     "insights": {
       "emptyTitle": "Belum ada wawasan",
@@ -4211,12 +4963,88 @@
       "emptyDescription": "Memperingatkan benih dari heuristik risiko.",
       "acked": "tersinggung",
       "open": "membuka",
-      "acknowledge": "Mengakui"
+      "acknowledge": "Mengakui",
+      "revenue_drop": {
+        "title": "Pendapatan segmen melambat",
+        "body": "Pendapatan WoW SMB turun 4% — tinjau cakupan pipeline."
+      },
+      "project_delay": {
+        "title": "Proyek berisiko terlambat",
+        "body": "Dua proyek pengiriman melewati gerbang milestone."
+      },
+      "churn_risk": {
+        "title": "Risiko churn pelanggan naik",
+        "body": "Tiga akun menunjukkan skor engagement menurun."
+      },
+      "workflow_failure": {
+        "title": "Kegagalan alur terdeteksi",
+        "body": "Alur pengingat faktur gagal dua kali dalam 24 jam."
+      },
+      "ai_failure": {
+        "title": "Retry tugas AI naik",
+        "body": "Tingkat retry tugas agen melewati ambang lunak."
+      },
+      "integration_error": {
+        "title": "Kesalahan integrasi",
+        "body": "Konektor Slack mengembalikan 5xx sesekali."
+      },
+      "security": {
+        "title": "Peringatan keamanan",
+        "body": "Pola penggunaan kunci API yang tidak biasa terdeteksi."
+      }
     },
     "scorecards": {
       "title": "Mesin kartu skor",
       "emptyTitle": "Tidak ada kartu skor",
-      "emptyDescription": "Benih kartu skor di bootstrap."
+      "emptyDescription": "Benih kartu skor di bootstrap.",
+      "sales": {
+        "name": "Skor penjualan",
+        "drivers": {
+          "pipeline_coverage": "Cakupan pipeline",
+          "win_rate": "Tingkat menang",
+          "cycle_time": "Waktu siklus"
+        }
+      },
+      "customer_health": {
+        "name": "Skor kesehatan pelanggan",
+        "drivers": {
+          "retention": "Retensi",
+          "nps_proxy": "Proksi NPS",
+          "support_load": "Beban dukungan"
+        }
+      },
+      "project_success": {
+        "name": "Skor sukses proyek",
+        "drivers": {
+          "on_time_delivery": "Pengiriman tepat waktu",
+          "scope_control": "Kontrol cakupan",
+          "utilization": "Utilisasi"
+        }
+      },
+      "automation_efficiency": {
+        "name": "Efisiensi otomasi",
+        "drivers": {
+          "workflow_success": "Sukses alur kerja",
+          "manual_effort_saved": "Upaya manual tersimpan",
+          "retry_rate": "Tingkat coba ulang"
+        }
+      },
+      "ai_quality": {
+        "name": "Kualitas AI",
+        "drivers": {
+          "task_success": "Sukses tugas",
+          "confidence_avg": "Rata kepercayaan",
+          "escalation_rate": "Tingkat eskalasi"
+        }
+      },
+      "operational_health": {
+        "name": "Kesehatan operasional",
+        "drivers": {
+          "system_health": "Kesehatan sistem",
+          "integration_reliability": "Keandalan integrasi",
+          "identity_posture": "Postur identitas"
+        }
+      }
     },
     "explorer": {
       "title": "Penjelajah data",
@@ -4224,7 +5052,8 @@
       "searchAria": "Telusuri baris penjelajah demo",
       "emptyTitle": "Tidak ada baris yang cocok",
       "emptyDescription": "Sesuaikan filter atau cari, atau muat ulang kumpulan data demo.",
-      "hint": "Pencarian sisi klien pada tupel yang diunggulkan — agregasi backend dan penelusuran tidak terhubung."
+      "hint": "Pencarian sisi klien pada tupel yang diunggulkan — agregasi backend dan penelusuran tidak terhubung.",
+      "metricLabel": "Metrik {domain} {index}"
     },
     "columns": {
       "kpi": "KPI",
@@ -4249,7 +5078,123 @@
       "measure": "Ukuran",
       "date": "Tanggal"
     },
-    "emDash": "—"
+    "emDash": "—",
+    "domains": {
+      "crm": "Analitik CRM",
+      "projects": "Analitik proyek",
+      "finance": "Analitik keuangan",
+      "documents": "Analitik dokumen",
+      "workflow": "Analitik alur kerja",
+      "identity": "Analitik identitas",
+      "ai": "Analitik AI",
+      "integration": "Analitik integrasi",
+      "executive": "Eksekutif"
+    },
+    "series": {
+      "crm_leads": "Prospek",
+      "crm_pipeline": "Pipeline (rb $)",
+      "proj_active": "Proyek aktif",
+      "proj_on_time": "Tepat waktu %",
+      "fin_revenue": "Pendapatan (rb $)",
+      "fin_margin": "Margin kotor %",
+      "doc_created": "Dokumen dibuat",
+      "doc_views": "Tampilan dokumen",
+      "wf_runs": "Jalankan alur",
+      "wf_success": "Sukses %",
+      "id_users": "Pengguna aktif",
+      "id_sessions": "Sesi",
+      "ai_tasks": "Tugas agen",
+      "ai_success": "Sukses agen %",
+      "int_calls": "Panggilan API / webhook",
+      "int_errors": "Kesalahan integrasi"
+    },
+    "bands": {
+      "Critical": "Kritis",
+      "Watch": "Pantau",
+      "Healthy": "Sehat",
+      "Excellent": "Sangat baik"
+    },
+    "charts": {
+      "chart_revenue": "Tren pendapatan",
+      "chart_pipeline": "Pipeline CRM",
+      "chart_workflows": "Aktivitas alur kerja",
+      "chart_ai": "Campuran aktivitas AI",
+      "chart_ops_table": "Cuplikan operasional",
+      "chart_heatmap_placeholder": "Peta panas engagement"
+    },
+    "chartKinds": {
+      "line": "Garis",
+      "bar": "Batang",
+      "area": "Area luas",
+      "pie": "Lingkaran",
+      "heatmap": "Peta panas",
+      "table": "Tabel",
+      "card": "Kartu"
+    },
+    "insightItems": {
+      "trend": {
+        "title": "MRR semakin cepat",
+        "summary": "Pertumbuhan MRR membaik tiga periode beruntun."
+      },
+      "pattern": {
+        "title": "Lonjakan alur pada hari faktur",
+        "summary": "Beban otomasi berkorelasi dengan faktur akhir bulan."
+      },
+      "recommendation": {
+        "title": "Perluas playbook retensi",
+        "summary": "Fokuskan outreach CSM pada tiga akun dengan kesehatan menurun."
+      },
+      "executive_summary": {
+        "title": "Brief eksekutif",
+        "summary": "Kesehatan perusahaan kuat; pantau risiko churn dan keterlambatan pengiriman."
+      },
+      "risk": {
+        "title": "Klaster risiko pengiriman",
+        "summary": "Dua proyek berbagi persaingan sumber daya — prakiraan kapasitas tinggi."
+      },
+      "opportunity": {
+        "title": "Peluang upsell",
+        "summary": "Akun pemakaian tinggi tanpa paket Business punya potensi ekspansi."
+      }
+    },
+    "forecastNotes": {
+      "revenue": "Placeholder tren linier — ganti dengan layanan model.",
+      "customer": "Gabungan akuisisi + retensi.",
+      "project": "Prakiraan pengiriman sadar kapasitas.",
+      "capacity": "Prakiraan utilisasi tim.",
+      "growth": "Prakiraan laju pertumbuhan."
+    },
+    "forecastKinds": {
+      "revenue": "Pendapatan",
+      "customer": "Pelanggan",
+      "project": "Proyek",
+      "capacity": "Kapasitas",
+      "growth": "Pertumbuhan"
+    },
+    "severity": {
+      "info": "Info",
+      "warning": "Peringatan",
+      "critical": "Kritis"
+    },
+    "trend": {
+      "up": "Naik",
+      "down": "Turun",
+      "flat": "Datar"
+    },
+    "insightKinds": {
+      "trend": "Tren",
+      "pattern": "Pola",
+      "recommendation": "Rekomendasi",
+      "executive_summary": "Ringkasan eksekutif",
+      "risk": "Risiko",
+      "opportunity": "Peluang"
+    },
+    "reportKinds": {
+      "executive": "Eksekutif",
+      "department": "Departemen",
+      "operational": "Operasional",
+      "management": "Manajemen"
+    }
   },
   "legal": {
     "shell": {
@@ -4679,13 +5624,223 @@
       "professional": "Profesional",
       "friendly": "Ramah",
       "luxury": "Mewah",
-      "casual": "Santai"
+      "casual": "Santai",
+      "minimal": "Minimal",
+      "corporate": "Korporat",
+      "creative": "Kreatif",
+      "custom": "Suara merek kustom"
     },
     "integrationStatus": {
       "planned": "Direncanakan",
       "ready": "Siap",
       "connected": "Terhubung",
       "disabled": "Nonaktif"
+    },
+    "categories": {
+      "social": "Sosial",
+      "ads": "Iklan",
+      "analytics": "Analitik"
+    },
+    "platforms": {
+      "instagram": {
+        "notes": "Publish Graph API resmi + wawasan dicadangkan."
+      },
+      "tiktok": {
+        "notes": "Adapter TikTok Content Posting API dicadangkan."
+      },
+      "youtube": {
+        "notes": "Unggah YouTube Data API + analitik dicadangkan."
+      },
+      "facebook": {
+        "notes": "Adapter publikasi Pages dicadangkan."
+      },
+      "linkedin": {
+        "notes": "Adapter pos UGC / organisasi dicadangkan."
+      },
+      "pinterest": {
+        "notes": "Adapter pin + papan dicadangkan."
+      },
+      "threads": {
+        "notes": "Adapter Threads API dicadangkan."
+      },
+      "x": {
+        "notes": "Adapter pos X API v2 dicadangkan."
+      },
+      "meta-business": {
+        "notes": "Hook Meta Business Suite / Ads Manager dicadangkan."
+      },
+      "google-ads": {
+        "notes": "Sinkron kampanye Google Ads API dicadangkan."
+      },
+      "google-analytics": {
+        "notes": "Adapter pengukuran + pelaporan GA4 dicadangkan."
+      }
+    },
+    "features": {
+      "ideas": {
+        "label": "Ide konten",
+        "description": "Mesin ide sadar industri untuk kampanye dan pos."
+      },
+      "captions": {
+        "label": "Generator caption",
+        "description": "Caption suara merek per format platform."
+      },
+      "hashtags": {
+        "label": "Saran hashtag",
+        "description": "Skor relevansi dan jangkauan untuk set hashtag."
+      },
+      "calendar": {
+        "label": "Kalender konten",
+        "description": "Fondasi kalender editorial lintas platform."
+      },
+      "campaigns": {
+        "label": "Perencana kampanye",
+        "description": "Tujuan, audiens, platform, dan linimasa."
+      },
+      "audience": {
+        "label": "Saran audiens",
+        "description": "Saran segmen dari sinyal CRM + kreator."
+      },
+      "schedule": {
+        "label": "Jadwal posting",
+        "description": "Jendela posting optimal sadar zona waktu."
+      },
+      "brand": {
+        "label": "Konsistensi merek",
+        "description": "Pemeriksaan nada dan aset terhadap suara merek."
+      },
+      "rewrite": {
+        "label": "Tulis ulang AI",
+        "description": "Tulis ulang draf untuk kejelasan, panjang, atau saluran."
+      },
+      "translate": {
+        "label": "Terjemahkan konten",
+        "description": "Pipeline terjemahan multibahasa dicadangkan."
+      },
+      "i18n": {
+        "label": "Dukungan multibahasa",
+        "description": "Paket lokal untuk permukaan terbit dan analitik."
+      }
+    },
+    "kpi": {
+      "content": {
+        "label": "Konten dibuat",
+        "caption": "Kuartal ini"
+      },
+      "campaigns": {
+        "label": "Kampanye",
+        "caption": "Aktif + direncanakan"
+      },
+      "scheduled": {
+        "label": "Pos terjadwal",
+        "caption": "14 hari ke depan"
+      },
+      "engagement": {
+        "label": "Engagement",
+        "caption": "Rata rata lintas saluran"
+      },
+      "followers": {
+        "label": "Pertumbuhan pengikut",
+        "caption": "30 hari terakhir"
+      },
+      "reach": {
+        "label": "Jangkauan",
+        "caption": "Tayangan unik"
+      },
+      "conversions": {
+        "label": "Konversi",
+        "caption": "Tindakan teratribusi"
+      },
+      "ai-score": {
+        "label": "Skor performa AI",
+        "caption": "Sinyal kualitas konten"
+      }
+    },
+    "analyticsMetrics": {
+      "a1": "Engagement",
+      "a2": "Jangkauan",
+      "a3": "CTR",
+      "a4": "Konversi",
+      "a5": "Pertumbuhan audiens",
+      "a6": "Performa konten"
+    },
+    "voiceDesc": {
+      "professional": "Nada jelas, kredibel, mengutamakan bisnis.",
+      "luxury": "Halus, hemat, bingkai premium.",
+      "friendly": "Hangat, mudah didekati, percakapan.",
+      "casual": "Bahasa sehari-hari santai.",
+      "minimal": "Kalimat pendek, kejelasan tinggi.",
+      "corporate": "Komunikasi enterprise formal.",
+      "creative": "Storytelling ekspresif untuk kampanye.",
+      "custom": "Unggah pedoman dan contoh copy nanti."
+    },
+    "formatDesc": {
+      "instagram_caption": "Caption Feed / Reels dengan kait CTA.",
+      "tiktok_script": "Naskah pendek: kait → nilai → CTA.",
+      "linkedin_post": "Thought leadership dan narasi B2B.",
+      "facebook_post": "Pos siap komunitas dan halaman.",
+      "x_post": "Utas ringkas dan pos tunggal.",
+      "blog_article": "Draf editorial format panjang.",
+      "newsletter": "Bagian buletin dan baris subjek.",
+      "email_campaign": "Urutan kampanye dan copy nurture.",
+      "product_description": "Narasi produk siap perdagangan.",
+      "ad_copy": "Varian iklan sosial berbayar dan search.",
+      "seo_article": "Artikel niat telusur dengan struktur outline.",
+      "landing_page_copy": "Hero, manfaat, bukti, dan blok CTA."
+    },
+    "campaignStatus": {
+      "Active": "Aktif",
+      "In review": "Sedang ditinjau",
+      "Planned": "Direncanakan"
+    },
+    "campaigns": {
+      "camp-1": {
+        "name": "Peluncuran produk Q3",
+        "objective": "Kesadaran + pendaftaran daftar tunggu",
+        "audience": "Operator SMB UE",
+        "budget": "€8.500 (placeholder)",
+        "timeline": "4 Agu – 12 Sep"
+      },
+      "camp-2": {
+        "name": "Sprint kolaborasi kreator",
+        "objective": "Jangkauan + pertumbuhan komunitas",
+        "audience": "Kreator 18–34 DE/AT",
+        "budget": "€4.200 (placeholder)",
+        "timeline": "20 Jul – 20 Agu"
+      },
+      "camp-3": {
+        "name": "Dorongan portofolio agensi",
+        "objective": "Pembuatan prospek",
+        "audience": "Direktur pemasaran",
+        "budget": "€2.900 (placeholder)",
+        "timeline": "1 Sep – 30 Sep"
+      }
+    },
+    "calendarItems": {
+      "cal-1": "Reel teaser peluncuran",
+      "cal-2": "Narasi LinkedIn pendiri",
+      "cal-3": "Email daftar tunggu #1",
+      "cal-4": "Naskah demo TikTok"
+    },
+    "queueItems": {
+      "q-1": "Caption reel teaser peluncuran",
+      "q-2": "Pos narasi pendiri",
+      "q-3": "Email nurture daftar tunggu",
+      "q-4": "Copy hero landing produk",
+      "q-5": "Naskah demo TikTok v2",
+      "q-6": "Karusel rekap Juni",
+      "q-7": "Utas promo lama"
+    },
+    "topPosts": {
+      "tp-1": "Teardown otomasi gudang",
+      "tp-2": "Reel demo produk 30 dtk",
+      "tp-3": "Hook kolaborasi kreator"
+    },
+    "recommendations": {
+      "r1": "Minggu ini ubah teardown LinkedIn menjadi karusel 3 bagian.",
+      "r2": "Jadwalkan demo TikTok Sel–Kam 18:00–20:00 CET untuk completion lebih tinggi.",
+      "r3": "Kencangkan suara merek mewah di CTA Instagram — persingkat ~20%.",
+      "r4": "Terjemahkan caption reel teratas ke DE/FR untuk audiens UE."
     }
   },
   "backend": {
@@ -4726,7 +5881,7 @@
     "skipToMain": "Lompat ke konten utama",
     "offline": {
       "title": "Anda sedang luring",
-      "message": "Periksa koneksi Anda dan coba lagi ketika Anda kembali online. Layar cache mungkin masih berfungsi.",
+      "message": "Periksa koneksi dan coba lagi saat kembali online. Layar cache mungkin masih berfungsi.",
       "home": "Rumah",
       "contact": "Kontak",
       "signIn": "Masuk"

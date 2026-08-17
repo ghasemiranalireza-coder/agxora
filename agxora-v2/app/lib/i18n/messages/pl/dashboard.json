@@ -2,8 +2,8 @@
   "skipToContent": "Przejdź do zawartości panelu",
   "loading": "Ładowanie panelu…",
   "hero": {
-    "ariaLabel": "Bohater AGXORA CORE",
-    "eyebrow": "Biznesowy system operacyjny AI",
+    "ariaLabel": "AGXORA CORE",
+    "eyebrow": "System operacyjny AI dla biznesu",
     "title": "rdzeniowy AGXORA",
     "subtitle": "Inteligencja w czasie rzeczywistym i kontrola operacyjna — powierzchnia dowodzenia w Twoim miejscu pracy.",
     "ctaGetStarted": "Zacznij",
@@ -13,7 +13,7 @@
   },
   "quickActions": {
     "title": "Szybkie działania",
-    "subtitle": "Co powinieneś zrobić dalej?",
+    "subtitle": "Co zrobić dalej?",
     "ariaLabel": "Szybkie działania",
     "addCustomer": {
       "label": "Dodaj klienta",
@@ -43,11 +43,11 @@
   "attention": {
     "title": "Potrzebuje uwagi",
     "ariaLabel": "Co wymaga uwagi",
-    "empty": "Wszystko jasne – w tej chwili nie ma żadnych pilnych spraw.",
+    "empty": "Wszystko w porządku — brak pilnych pozycji.",
     "tone": {
-      "critical": "Krytyczny",
+      "critical": "Krytyczne",
       "warning": "Ostrzeżenie",
-      "info": "Informacje",
+      "info": "Info",
       "success": "Gotowy",
       "action": "Zrób następny"
     },
@@ -70,10 +70,10 @@
   },
   "overview": {
     "title": "Co się dzieje",
-    "subtitle": "Obszar roboczy liczy się dla: {name}",
+    "subtitle": "Liczniki przestrzeni dla {name}",
     "fallbackName": "Twoje miejsce pracy",
     "ariaLabel": "Przegląd biznesu",
-    "online": "W Internecie",
+    "online": "Online",
     "emDash": "—",
     "capacitySignal": "{percent}% sygnału pojemności",
     "activeClients": {
@@ -102,10 +102,10 @@
       "openBilling": "Otwórz rozliczenia"
     },
     "clientShell": {
-      "title": "Powłoka klienta",
+      "title": "Powłoka aplikacji",
       "caption": "Gotowy do sesji przeglądarki — nie do monitora operacji na żywo",
       "shellLoaded": "Załadowano powłokę aplikacji",
-      "storesReady": "Lokalne sklepy z przestrzenią do pracy gotowe"
+      "storesReady": "Lokalne magazyny przestrzeni gotowe"
     },
     "growth": {
       "title": "Wzrost",
@@ -117,8 +117,8 @@
     "title": "Ostatnia aktywność",
     "subtitle": "Co się dzisiaj zmieniło",
     "ariaLabel": "Ostatnia aktywność",
-    "todayCount": "{count} DZIŚ",
-    "localBadge": "LOKALNY",
+    "todayCount": "{count} dziś",
+    "localBadge": "Lokalne",
     "emptyTitle": "Brak aktywności",
     "emptyBody": "Gdy dodasz klientów, projekty i nie tylko, tutaj będą pojawiać się zdarzenia Workspace.",
     "addCustomer": "Dodaj klienta",

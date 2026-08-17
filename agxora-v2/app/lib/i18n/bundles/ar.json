@@ -14,9 +14,9 @@
     "signOut": "تسجيل الخروج",
     "contact": "اتصال",
     "privacy": "خصوصية",
-    "terms": "شروط",
+    "terms": "الشروط",
     "cookies": "ملفات تعريف الارتباط",
-    "imprint": "بصمة",
+    "imprint": "بيانات الناشر",
     "organization": "منظمة",
     "user": "مستخدم",
     "guest": "ضيف",
@@ -44,7 +44,7 @@
     "dashboard": "لوحة التحكم"
   },
   "navigation": {
-    "dashboard": "لوحة القيادة",
+    "dashboard": "لوحة التحكم",
     "projects": "المشاريع",
     "aiCrm": "الذكاء الاصطناعي لإدارة علاقات العملاء",
     "analytics": "التحليلات",
@@ -59,15 +59,15 @@
     "settings": "إعدادات",
     "toggleNavigation": "تبديل التنقل",
     "primary": "أساسي",
-    "menu": "قائمة طعام",
-    "search": "يبحث",
+    "menu": "القائمة",
+    "search": "بحث",
     "notifications": "إشعارات",
-    "profile": "حساب تعريفي",
-    "currentOrganization": "التنظيم الحالي",
-    "noNotifications": "لا الإخطارات",
-    "notificationsEmpty": "لقد تم القبض عليك جميعًا. ستظهر التنبيهات والإشارات هنا.",
+    "profile": "الملف الشخصي",
+    "currentOrganization": "المؤسسة الحالية",
+    "noNotifications": "لا توجد إشعارات",
+    "notificationsEmpty": "أنت على اطلاع. ستظهر التنبيهات والإشارات هنا.",
     "accountSettings": "إعدادات الحساب",
-    "security": "حماية",
+    "security": "الأمان",
     "themeToggle": "تبديل سريع للموضوع. التفضيل: {mode}"
   },
   "pricing": {
@@ -259,6 +259,61 @@
         "warning": "تحذير",
         "ok": "نعم"
       }
+    },
+    "licenseStatus": {
+      "trial": "تجريبي",
+      "active": "نشط",
+      "expired": "منتهٍ",
+      "cancelled": "ملغى",
+      "suspended": "موقوف",
+      "lifetime": "مدى الحياة"
+    },
+    "quotas": {
+      "ai_requests": "طلبات الذكاء الاصطناعي",
+      "projects": "المشاريع",
+      "customers": "العملاء",
+      "documents": "المستندات",
+      "storage_mb": "التخزين (MB)",
+      "users": "المستخدمون",
+      "api_requests": "طلبات API"
+    },
+    "invoiceStatus": {
+      "draft": "مسودة",
+      "open": "مفتوحة",
+      "paid": "مدفوعة",
+      "void": "ملغاة",
+      "uncollectible": "غير قابل للتحصيل",
+      "refunded": "مستردة"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "تنتهي الفترة التجريبية قريبًا",
+        "body": "تنتهي فترتك التجريبية خلال حوالي {days} يومًا. قم بالترقية للاحتفاظ بالوصول الكامل."
+      },
+      "expired": {
+        "title": "انتهت الاشتراك",
+        "body": "أعد التجديد أو الترقية لاستعادة الميزات التجارية."
+      },
+      "cancelled": {
+        "title": "تم إلغاء الاشتراك",
+        "body": "تم إلغاء اشتراك AGXORA. يبقى الوصول حتى نهاية الفترة."
+      },
+      "quotaWarning": {
+        "title": "اقتربت من حد {metric}",
+        "body": "تم استخدام {used} من {limit}. فكّر في الترقية."
+      },
+      "upgradeAvailable": {
+        "title": "الترقية متاحة",
+        "body": "Business وEnterprise يفتحان الأتمتة وحصص ذكاء اصطناعي أعلى والوصول إلى API."
+      },
+      "invoiceReady": {
+        "title": "الفاتورة جاهزة",
+        "body": "تم دفع الفاتورة {number} بنجاح."
+      },
+      "renewed": {
+        "title": "تم تجديد الاشتراك",
+        "body": "يتجدد خطتك في {date}."
+      }
     }
   },
   "settings": {
@@ -290,7 +345,7 @@
       "regions": {
         "EU": "الاتحاد الأوروبي",
         "US": "الولايات المتحدة",
-        "MENA": "منطقة الشرق الأوسط وشمال أفريقيا",
+        "MENA": "الشرق الأوسط وشمال أفريقيا",
         "APAC": "منطقة آسيا والمحيط الهادئ"
       }
     },
@@ -324,7 +379,7 @@
       "preferredProvider": "موفر الذكاء الاصطناعي المفضل",
       "defaultModel": "نموذج الذكاء الاصطناعي الافتراضي",
       "temperature": "درجة حرارة",
-      "topP": "أعلى ص",
+      "topP": "Top P",
       "maxTokens": "رموز ماكس",
       "writingStyle": "أسلوب الكتابة",
       "languagePreferences": "تفضيلات اللغة",
@@ -341,10 +396,10 @@
       "streaming": "جاري",
       "streamingDescription": "دفق استجابات النموذج عندما يدعمها الموفر.",
       "providers": {
-        "mock": "وهمية (محلي)",
+        "mock": "تجريبي (محلي)",
         "openai": "OpenAI",
         "azure": "أزور أوبن إيه آي",
-        "anthropic": "أنثروبي",
+        "anthropic": "Anthropic",
         "google": "جوجل",
         "openrouter": "OpenRouter",
         "ollama": "أولاما",
@@ -371,10 +426,17 @@
       "themeLabel": "سمة",
       "themeModeAria": "وضع الموضوع",
       "resolvedAppearance": "المظهر الذي تم حله:",
-      "accentColor": "لون مميز",
-      "accentNotice": "يتم تخزين تفضيلات التمييز لأسلاك CSS var المستقبلية - ولا تؤدي إلى تغيير نظام الألوان المقفل بعد.",
+      "accentColor": "لون التمييز",
+      "accentNotice": "يُحفظ تفضيل لون التمييز لهذه الجلسة ولا يغيّر نظام الألوان المقفل بعد.",
+      "accents": {
+        "cyan": "سماوي",
+        "blue": "أزرق",
+        "emerald": "زمردي",
+        "violet": "بنفسجي",
+        "amber": "كهرماني"
+      },
       "density": "كثافة",
-      "compactMode": "الوضع المضغوط",
+      "compactMode": "وضع مدمج",
       "compactModeDescription": "تقليل المساحة المتروكة عبر جداول ولوحات المؤسسة.",
       "animations": "الرسوم المتحركة",
       "animationsDescription": "حركة القسم والمصاعد تحوم. يحترم إعداد نظام التشغيل منخفض الحركة.",
@@ -741,7 +803,7 @@
     "skipToContent": "انتقل إلى محتوى لوحة القيادة",
     "loading": "جارٍ تحميل لوحة البيانات…",
     "hero": {
-      "ariaLabel": "بطل أجكسورا كور",
+      "ariaLabel": "AGXORA CORE",
       "eyebrow": "نظام تشغيل الأعمال بالذكاء الاصطناعي",
       "title": "أغكسورا كور",
       "subtitle": "الاستخبارات والتحكم التشغيلي في الوقت الفعلي — سطح قيادة مساحة العمل لديك.",
@@ -752,7 +814,7 @@
     },
     "quickActions": {
       "title": "إجراءات سريعة",
-      "subtitle": "ماذا يجب أن تفعل بعد ذلك؟",
+      "subtitle": "ما الذي ينبغي فعله بعد ذلك؟",
       "ariaLabel": "إجراءات سريعة",
       "addCustomer": {
         "label": "إضافة العميل",
@@ -767,7 +829,7 @@
         "description": "افتح مساحة عمل الذكاء الاصطناعي"
       },
       "finance": {
-        "label": "تمويل",
+        "label": "المالية",
         "description": "الفواتير والتدفقات النقدية"
       },
       "automations": {
@@ -782,11 +844,11 @@
     "attention": {
       "title": "يحتاج إلى اهتمام",
       "ariaLabel": "ما يحتاج إلى اهتمام",
-      "empty": "أنت واضح – لا توجد عناصر عاجلة في الوقت الحالي.",
+      "empty": "كل شيء على ما يرام — لا توجد عناصر عاجلة الآن.",
       "tone": {
-        "critical": "شديد الأهمية",
+        "critical": "حرج",
         "warning": "تحذير",
-        "info": "معلومات",
+        "info": "معلومة",
         "success": "مستعد",
         "action": "افعل التالي"
       },
@@ -808,15 +870,15 @@
       }
     },
     "overview": {
-      "title": "ماذا يحدث",
-      "subtitle": "أعداد مساحة العمل لـ {name}",
+      "title": "ما الذي يحدث",
+      "subtitle": "عدادات مساحة العمل لـ {name}",
       "fallbackName": "مساحة العمل الخاصة بك",
       "ariaLabel": "نظرة عامة على الأعمال",
       "online": "متصل",
       "emDash": "—",
       "capacitySignal": "{percent}% إشارة السعة",
       "activeClients": {
-        "title": "العملاء النشطين",
+        "title": "العملاء النشطون",
         "captionEmpty": "لا يوجد عملاء نشطين حتى الآن",
         "captionTotal": "{count} الإجمالي في مساحة العمل",
         "add": "إضافة العميل",
@@ -836,12 +898,12 @@
         "viewFeed": "عرض الخلاصة"
       },
       "revenue": {
-        "title": "ربح",
+        "title": "الإيرادات",
         "caption": "ربط الفواتير لإظهار MRR",
-        "openBilling": "فتح الفواتير"
+        "openBilling": "فتح الفوترة"
       },
       "clientShell": {
-        "title": "قذيفة العميل",
+        "title": "واجهة التطبيق",
         "caption": "جلسة المتصفح جاهزة — وليست مراقبة العمليات المباشرة",
         "shellLoaded": "تم تحميل غلاف التطبيق",
         "storesReady": "مخازن مساحة العمل المحلية جاهزة"
@@ -1128,12 +1190,12 @@
   "auth": {
     "login": {
       "title": "تسجيل الدخول",
-      "subtitle": "مرحبًا بكم مرة أخرى في AGXORA.",
+      "subtitle": "مرحبًا بعودتك إلى AGXORA.",
       "email": "بريد إلكتروني",
       "password": "كلمة المرور",
       "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "كلمة المرور",
-      "rememberMe": "تذكرنى",
+      "rememberMe": "تذكرني",
       "submit": "تسجيل الدخول",
       "submitting": "تسجيل الدخول...",
       "noAccount": "لا يوجد حساب؟",
@@ -1153,7 +1215,7 @@
       "company": "شركة",
       "password": "كلمة المرور",
       "confirmPassword": "تأكيد كلمة المرور",
-      "acceptTerms": "أنا أقبل",
+      "acceptTerms": "أوافق على",
       "termsOfService": "شروط الخدمة",
       "and": "و",
       "privacyPolicy": "سياسة الخصوصية",
@@ -1162,9 +1224,9 @@
       "haveAccount": "هل لديك حساب بالفعل؟",
       "signIn": "تسجيل الدخول",
       "strength": "قوة كلمة المرور",
-      "strengthWeak": "ضعيف",
-      "strengthFair": "عدل",
-      "strengthStrong": "قوي",
+      "strengthWeak": "ضعيفة",
+      "strengthFair": "متوسطة",
+      "strengthStrong": "قوية",
       "firstNamePlaceholder": "أليكس",
       "lastNamePlaceholder": "مورغان",
       "companyPlaceholder": "AGXORA GmbH",
@@ -1199,7 +1261,7 @@
       "loading": "إعادة تعيين كلمة المرور"
     },
     "contactSales": {
-      "title": "اتصل بالمبيعات",
+      "title": "التواصل مع المبيعات",
       "subtitle": "أخبرنا عن فريقك. سنتابع خيارات المؤسسة.",
       "name": "الاسم الكامل",
       "email": "البريد الإلكتروني للعمل",
@@ -1218,7 +1280,7 @@
       "successTitle": "شكرًا لك",
       "successBody": "تم استلام استفسارك. سوف يقوم فريقنا بالرد قريبا.",
       "viewPricing": "عرض التسعير",
-      "bookDemo": "كتاب تجريبي",
+      "bookDemo": "حجز عرض توضيحي",
       "failed": "لا يمكن تقديم الاستفسار",
       "country": "البلد",
       "savedFor": "تم الحفظ لـ {company}. تسليم المبيعات غير متصل في هذا الإصدار.",
@@ -1270,7 +1332,7 @@
       },
       "customer360": {
         "title": "العميل 360 درجة",
-        "subtitle": "الملف الشخصي والشركة وجهات الاتصال والأوامر والفواتير وLieferscheine والمدفوعات والمستندات والجدول الزمني والأنشطة والملاحظات وملخص الذكاء الاصطناعي وتاريخ الاتصالات."
+        "subtitle": "الملف الشخصي والشركة وجهات الاتصال والأوامر والفواتير وأذون التسليم والمدفوعات والمستندات والجدول الزمني والأنشطة والملاحظات وملخص الذكاء الاصطناعي وتاريخ الاتصالات."
       },
       "salesPipeline": {
         "title": "خط أنابيب المبيعات",
@@ -1281,11 +1343,11 @@
       },
       "deliveryModule": {
         "title": "وحدة التسليم",
-        "subtitle": "نظام Lieferschein الاحترافي مع إمكانية التتبع والتوقيع وQR والباركود."
+        "subtitle": "نظام إذن تسليم الاحترافي مع إمكانية التتبع والتوقيع وQR والباركود."
       },
       "documentsModule": {
         "title": "وثائق",
-        "subtitle": "عروض الأسعار، والعقود، والفواتير، وLieferschein، وأوامر الشراء، والإيصالات - مع بحث الذكاء الاصطناعي."
+        "subtitle": "عروض الأسعار، والعقود، والفواتير، وإذن تسليم، وأوامر الشراء، والإيصالات - مع بحث الذكاء الاصطناعي."
       },
       "tasksModule": {
         "title": "المهام"
@@ -1668,7 +1730,7 @@
       "emptyTitle": "لا توجد وثائق",
       "emptyDescription": "لا توجد وثائق تطابق هذا البحث.",
       "searchLabel": "بحث الذكاء الاصطناعي",
-      "searchPlaceholder": "عروض الأسعار، العقود، الفواتير، Lieferschein…",
+      "searchPlaceholder": "عروض الأسعار، العقود، الفواتير، إذن تسليم…",
       "typeLabel": "نوع الوثيقة",
       "allTypes": "جميع الأنواع",
       "columns": {
@@ -1698,7 +1760,137 @@
       "intro": "أساس Creator Studio - يمكن أن يتم توصيل عمليات تكامل النظام الأساسي الرسمية بهذه المحولات لاحقًا. إنستغرام، تيك توك، يوتيوب، فيسبوك، لينكدإن، بينتريست، ثريدس، إكس."
     },
     "industry": {
-      "intro": "منصة الأعمال العالمية - سيختار الإعداد لاحقًا الصناعة. تتلقى كل صناعة وحدات مخصصة للذكاء الاصطناعي دون التفرع عن نظام التشغيل CRM الأساسي."
+      "intro": "منصة الأعمال العالمية - سيختار الإعداد لاحقًا الصناعة. تتلقى كل صناعة وحدات مخصصة للذكاء الاصطناعي دون التفرع عن نظام التشغيل CRM الأساسي.",
+      "catalog": {
+        "business": {
+          "label": "أعمال",
+          "description": "نظام تشغيل B2B عام"
+        },
+        "freelancer": {
+          "label": "مستقل",
+          "description": "CRM والفواتير ومسار العملاء للمستقلين"
+        },
+        "creator": {
+          "label": "صانع محتوى",
+          "description": "استوديو المنشئين + CRM للعلامة"
+        },
+        "influencer": {
+          "label": "مؤثر",
+          "description": "CRM رعايات ونظام حملات"
+        },
+        "agency": {
+          "label": "وكالة",
+          "description": "تسليم متعدد العملاء وعقود الاحتفاظ"
+        },
+        "retail": {
+          "label": "تجزئة",
+          "description": "مخزون المتجر ونقاط البيع والولاء"
+        },
+        "restaurant": {
+          "label": "مطعم",
+          "description": "الحجوزات والمطبخ والتوصيل"
+        },
+        "hotel": {
+          "label": "فندق",
+          "description": "الغرف والضيوف والتدبير المنزلي"
+        },
+        "laundry": {
+          "label": "مغسلة",
+          "description": "الاستلام والتذاكر ولوجستيات المسارات"
+        },
+        "healthcare": {
+          "label": "رعاية صحية",
+          "description": "المرضى والمواعيد والامتثال"
+        },
+        "law_firm": {
+          "label": "مكتب محاماة",
+          "description": "القضايا والفوترة وخزنة المستندات"
+        },
+        "accounting": {
+          "label": "محاسبة",
+          "description": "دفاتر العملاء وتصدير DATEV"
+        },
+        "construction": {
+          "label": "إنشاءات",
+          "description": "المواقع والفرق والفوترة حسب التقدم"
+        },
+        "real_estate": {
+          "label": "عقارات",
+          "description": "القوائم والمعاينات والإغلاق"
+        },
+        "education": {
+          "label": "تعليم",
+          "description": "الطلاب والدورات والتسجيل"
+        },
+        "manufacturing": {
+          "label": "تصنيع",
+          "description": "قائمة المواد والإنتاج والجودة"
+        },
+        "logistics": {
+          "label": "خدمات لوجستية",
+          "description": "الأسطول والتتبع وأذون التسليم"
+        },
+        "ecommerce": {
+          "label": "تجارة إلكترونية",
+          "description": "الكتالوج والسلال وطلبات القنوات المتعددة"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "المبيعات",
+        "finance": "المالية",
+        "projects": "المشاريع",
+        "clients": "العملاء",
+        "proposals": "العروض",
+        "time_tracking": "تتبع الوقت",
+        "invoices": "الفواتير",
+        "creator_studio": "استوديو المنشئين",
+        "brand_deals": "صفقات العلامة",
+        "content_calendar": "تقويم المحتوى",
+        "sponsorships": "الرعايات",
+        "audience_insights": "رؤى الجمهور",
+        "campaigns": "الحملات",
+        "client_portals": "بوابات العملاء",
+        "retainers": "عقود الاحتفاظ",
+        "campaign_ops": "تشغيل الحملات",
+        "inventory": "المخزون",
+        "pos": "POS",
+        "loyalty": "الولاء",
+        "reservations": "الحجوزات",
+        "menu": "قائمة الطعام",
+        "kitchen_display": "شاشة المطبخ",
+        "housekeeping": "التدبير المنزلي",
+        "guest_crm": "CRM الضيوف",
+        "tickets": "التذاكر",
+        "routes": "المسارات",
+        "delivery_notes": "أذون التسليم",
+        "patients": "المرضى",
+        "appointments": "المواعيد",
+        "compliance": "الامتثال",
+        "matters": "القضايا",
+        "billing": "الفوترة",
+        "documents": "المستندات",
+        "client_books": "دفاتر العملاء",
+        "datev": "DATEV",
+        "tax_deadlines": "مواعيد ضريبية",
+        "sites": "المواقع",
+        "crews": "الفرق",
+        "progress_billing": "الفوترة حسب التقدم",
+        "listings": "القوائم",
+        "viewings": "المعاينات",
+        "closings": "الإغلاق",
+        "students": "الطلاب",
+        "courses": "الدورات",
+        "enrollment": "التسجيل",
+        "bom": "BOM",
+        "production": "الإنتاج",
+        "qc": "QC",
+        "fleet": "الأسطول",
+        "tracking": "التتبع",
+        "catalog": "الكتالوج",
+        "orders": "الطلبات",
+        "fulfillment": "التنفيذ"
+      }
     },
     "kpi": {
       "customers": {
@@ -2769,7 +2961,7 @@
         "activeProjects": "المشاريع النشطة",
         "activeHint": "{planning} تخطيط",
         "completed": "مكتمل",
-        "completedHint": "{percent}% من المحفظة",
+        "completedHint": "{percent}٪ من المحفظة",
         "onHold": "في الانتظار",
         "onHoldHint": "{archived} مؤرشفة",
         "teamMembers": "أعضاء الفريق",
@@ -2831,7 +3023,7 @@
       "missingTitle": "مشروع مفقود",
       "missingDescription": "حدد مشروعًا لعرض النظرة العامة عليه.",
       "title": "ملخص",
-      "noDescription": "لم يتم تقديم أي وصف.",
+      "noDescription": "لا يوجد وصف.",
       "budget": "ميزانية",
       "spent": "قضى",
       "start": "يبدأ",
@@ -2977,8 +3169,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "اقتراحات التحسين",
       "oneClickOptimize": "نقرة واحدة للتحسين",
-      "noticeDefault": "لا تعد ميزة One Click Optimize بمثابة طفرة في الرسم البياني حتى الآن.",
-      "noticeQueued": "تحسين في قائمة الانتظار. سيعيد المحرك المستقبلي كتابة التأخيرات والموافقات."
+      "noticeDefault": "التحسين بنقرة واحدة لا يغيّر المخطط بعد.",
+      "noticeQueued": "التحسين في قائمة الانتظار. سيعيد محرك لاحق كتابة التأخيرات والاعتمادات.",
+      "score": {
+        "healthy": "سليم",
+        "needsAttention": "يحتاج انتباهاً",
+        "atRisk": "معرّض للخطر"
+      },
+      "kinds": {
+        "missing_approval": "اعتماد",
+        "possible_delay": "تأخير",
+        "unused_trigger": "مشغّل",
+        "duplicate_nodes": "مكررات",
+        "unused_action": "إجراء",
+        "security": "الأمان",
+        "performance": "الأداء"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "اعتماد مفقود",
+          "description": "غالباً ما تستفيد التدفقات الأطول من بوابة اعتماد قبل الآثار الجانبية."
+        },
+        "possible_delay": {
+          "title": "تأخير محتمل",
+          "description": "فكّر في تأخير قبل رسائل التذكير لتجنب الاندفاعات."
+        },
+        "unused_trigger": {
+          "title": "مشغّل غير مستخدم",
+          "description": "لا يوجد مشغّل بدء في هذا المخطط — أضفه قبل التفعيل."
+        },
+        "duplicate_nodes": {
+          "title": "عقد مكررة",
+          "description": "يظهر «{label}» {count} مرات — ادمجه إن كان زائدًا."
+        },
+        "unused_action": {
+          "title": "إجراء غير مستخدم",
+          "description": "{label} غير متصل — وصّله أو احذفه."
+        },
+        "security": {
+          "title": "توصية أمنية",
+          "description": "فضّل محولات بأقل صلاحيات لإجراءات الويب هوك والبريد."
+        },
+        "performance": {
+          "title": "توصية أداء",
+          "description": "جمّع خطوات الذكاء الاصطناعي حيث أمكن لتقليل متوسط زمن التنفيذ."
+        }
+      }
     },
     "integrations": {
       "intro": "مركز التكامل – اختياري. الحالات: متصل، بيتا، مخطط، قريبًا، معطل. لا توجد واجهات برمجة التطبيقات المباشرة.",
@@ -3487,6 +3723,192 @@
         "label": "تحديث الحالة",
         "description": "تحديث حالة كيان في وحدة."
       }
+    },
+    "kinds": {
+      "trigger": "مشغّل",
+      "action": "إجراء",
+      "condition": "شرط",
+      "delay": "تأخير",
+      "approval": "اعتماد",
+      "loop": "حلقة",
+      "merge": "دمج",
+      "split": "تقسيم",
+      "ai_decision": "قرار الذكاء الاصطناعي",
+      "ai_action": "إجراء الذكاء الاصطناعي",
+      "notification": "إشعار",
+      "webhook": "ويب هوك",
+      "custom_action": "إجراء مخصص",
+      "branch": "فرع",
+      "variable": "متغير"
+    },
+    "kpi": {
+      "active": {
+        "label": "تدفقات العمل النشطة",
+        "caption": "مفعّلة في مساحة العمل"
+      },
+      "runs-today": {
+        "label": "تشغيلات اليوم",
+        "caption": "عبر كل المشغّلات"
+      },
+      "success": {
+        "label": "الأتمتة الناجحة",
+        "caption": "اليوم"
+      },
+      "failed": {
+        "label": "تشغيلات فاشلة",
+        "caption": "يحتاج انتباهاً"
+      },
+      "pending": {
+        "label": "المهام المعلقة",
+        "caption": "الاعتمادات + إعادة المحاولة"
+      },
+      "avg-time": {
+        "label": "متوسط زمن التنفيذ",
+        "caption": "الوسيط 1.2 ث"
+      },
+      "ai-suggestions": {
+        "label": "اقتراحات الذكاء الاصطناعي",
+        "caption": "فرص الأتمتة"
+      }
+    },
+    "integrationCategories": {
+      "Productivity": "الإنتاجية",
+      "Communication": "التواصل",
+      "Commerce": "تجارة",
+      "Finance": "المالية",
+      "ERP": "ERP",
+      "CRM": "CRM"
+    },
+    "integrationNotes": {
+      "google-workspace": "خطافات Gmail / Drive / التقويم محجوزة لتوصيل OAuth.",
+      "m365": "خطافات Outlook / Teams / Graph محجوزة.",
+      "slack": "Events API + منشورات الدردشة محجوزة.",
+      "teams": "محول Bot Framework محجوز.",
+      "discord": "محول ويب هوك + بوت محجوز.",
+      "whatsapp": "محول Meta Cloud API محجوز.",
+      "stripe": "ويب هوك الدفع محجوزة — بلا مفاتيح حية.",
+      "shopify": "أحداث الطلب / المنتج محجوزة.",
+      "datev": "خطافات تصدير DATEV / دفعات القيود محجوزة.",
+      "sap": "جسر أحداث ERP محجوز — معطّل حتى خطة enterprise.",
+      "hubspot": "محول مزامنة CRM محجوز.",
+      "salesforce": "محول Platform Events محجوز."
+    },
+    "defaultWorkflow": {
+      "name": "تهيئة العملاء",
+      "description": "تسلسل ترحيب عند إنشاء عميل."
+    },
+    "templateCategories": {
+      "CRM": "CRM",
+      "Finance": "المالية",
+      "Sales": "المبيعات",
+      "Marketing": "التسويق",
+      "HR": "الموارد البشرية",
+      "Creator": "منشئ",
+      "Ops": "التشغيل",
+      "Projects": "المشاريع",
+      "AI": "الذكاء الاصطناعي"
+    },
+    "studioTemplates": {
+      "tpl-onboarding": {
+        "name": "تهيئة العملاء",
+        "description": "بريد ترحيب وملخص ذكاء اصطناعي ومهمة المالك بعد إنشاء العميل.",
+        "category": "CRM",
+        "recommendedFor": "الفرق التي تهيّئ عملاء B2B جدد"
+      },
+      "tpl-invoice": {
+        "name": "تذكير الفاتورة",
+        "description": "تذكيرات مجدولة للفواتير المفتوحة مع مسار تصعيد.",
+        "category": "المالية",
+        "recommendedFor": "تشغيل المالية لتقليل المستحقات المتأخرة"
+      },
+      "tpl-lead": {
+        "name": "متابعة العميل المحتمل",
+        "description": "رد بريد بالذكاء الاصطناعي وتحديث حالة المسار للعملاء المحتملين الجدد.",
+        "category": "المبيعات",
+        "recommendedFor": "فرق المبيعات ذات حجم كبير من العملاء المحتملين الواردين"
+      },
+      "tpl-welcome": {
+        "name": "بريد ترحيب",
+        "description": "تسلسل ترحيب بسيط عند التسجيل.",
+        "category": "التسويق",
+        "recommendedFor": "أي مساحة عمل تبدأ بأتمتة البريد"
+      },
+      "tpl-pipeline": {
+        "name": "مسار المبيعات",
+        "description": "تغييرات المرحلة مع إشعارات ومهام.",
+        "category": "المبيعات",
+        "recommendedFor": "الفرق التي تدير تقدّم الصفقات متعددة المراحل"
+      },
+      "tpl-recruit": {
+        "name": "التوظيف",
+        "description": "توجيه المرشحين ومهام المقابلات.",
+        "category": "الموارد البشرية",
+        "recommendedFor": "مديرو التوظيف وعمليات الأفراد"
+      },
+      "tpl-content": {
+        "name": "نشر المحتوى",
+        "description": "استوديو المنشئين: نشر → إشعار → تحليلات.",
+        "category": "منشئ",
+        "recommendedFor": "فرق التسويق والمنشئين"
+      },
+      "tpl-approval": {
+        "name": "عملية الاعتماد",
+        "description": "اعتماد متعدد الخطوات مع توصيات الذكاء الاصطناعي.",
+        "category": "التشغيل",
+        "recommendedFor": "اعتمادات المالية/التشغيل قبل الآثار الجانبية",
+        "estimatedRuntime": "بوابة بشرية"
+      }
+    },
+    "engineTemplates": {
+      "tpl_customer_welcome": {
+        "name": "ترحيب بالعميل الجديد",
+        "description": "بريد ترحيب + إشعار عند إنشاء عميل.",
+        "category": "CRM"
+      },
+      "tpl_invoice_reminder": {
+        "name": "تذكير الفاتورة",
+        "description": "ذكّر العملاء بعد إصدار الفاتورة.",
+        "category": "المالية"
+      },
+      "tpl_project_kickoff": {
+        "name": "انطلاق المشروع",
+        "description": "عيّن مهمة الانطلاق وأبلغ عند إنشاء المشروع.",
+        "category": "المشاريع"
+      },
+      "tpl_task_assignment": {
+        "name": "تعيين المهمة",
+        "description": "أرسل بريداً إلى المعيَّن عند اكتمال مهمة — اربط العمل التالي.",
+        "category": "المشاريع"
+      },
+      "tpl_ai_customer_summary": {
+        "name": "ملخص عميل بالذكاء الاصطناعي",
+        "description": "شغّل ملخص الذكاء الاصطناعي عند إنشاء عميل؛ خزّن الناتج.",
+        "category": "الذكاء الاصطناعي"
+      },
+      "tpl_followup_reminder": {
+        "name": "تذكير المتابعة",
+        "description": "متابعة حسب الجدول مع تفرع حسب الحالة.",
+        "category": "CRM"
+      }
+    },
+    "nodeLabels": {
+      "send_welcome_email": "إرسال بريد الترحيب",
+      "notify_team": "إشعار الفريق",
+      "wait_3_days": "انتظر 3 أيام",
+      "still_unpaid": "ما زالت غير مدفوعة؟",
+      "send_reminder": "إرسال تذكير",
+      "assign_kickoff_task": "تعيين مهمة الانطلاق",
+      "notify_owner": "إشعار المالك",
+      "notify_stakeholders": "إشعار أصحاب المصلحة",
+      "run_ai_summary": "تشغيل ملخص الذكاء الاصطناعي",
+      "generate_document": "إنشاء مستند",
+      "daily_schedule": "جدول يومي",
+      "by_priority": "حسب الأولوية",
+      "urgent_notification": "إشعار عاجل",
+      "standard_email": "بريد قياسي"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "إنشاء محتوى بالذكاء الاصطناعي"
     }
   },
   "team": {
@@ -3970,6 +4392,177 @@
     "os": {
       "prioritizeCustomerImpact": "أعطِ أولوية لأثر العميل",
       "delegatedFollowUp": "متابعة مُفوَّضة"
+    },
+    "categories": {
+      "Leadership": "قيادة",
+      "Revenue": "الإيرادات",
+      "CRM": "CRM",
+      "Delivery": "التسليم",
+      "Automation": "الأتمتة",
+      "Finance": "المالية",
+      "Knowledge": "المعرفة",
+      "Support": "الدعم",
+      "Productivity": "الإنتاجية",
+      "Custom": "مخصص"
+    },
+    "catalog": {
+      "executive_advisor": {
+        "name": "مستشار تنفيذي",
+        "description": "إحاطات استراتيجية وتوليف مؤشرات الأداء ودعم القرار."
+      },
+      "sales_agent": {
+        "name": "وكيل مبيعات",
+        "description": "تدريب المسار ومسودات التواصل وخطوات الصفقة التالية."
+      },
+      "crm_assistant": {
+        "name": "مساعد CRM",
+        "description": "إثراء العملاء ونظافة البيانات ورؤى العلاقات."
+      },
+      "project_manager": {
+        "name": "مدير مشاريع",
+        "description": "الخطط وتفكيك المهام وإشارات مخاطر التسليم."
+      },
+      "workflow_coordinator": {
+        "name": "منسق سير العمل",
+        "description": "يشغّل وينسّق تدفقات أتمتة AGXORA."
+      },
+      "finance_assistant": {
+        "name": "مساعد مالي",
+        "description": "متابعة الفواتير وملاحظات التدفق النقدي وملخصات مالية."
+      },
+      "document_analyst": {
+        "name": "محلل مستندات",
+        "description": "يستخرج الهيكل والمخاطر والملخصات من المستندات."
+      },
+      "knowledge_assistant": {
+        "name": "مساعد معرفة",
+        "description": "يجيب من معرفة الشركة باسترجاع جاهز لـ RAG."
+      },
+      "support_assistant": {
+        "name": "مساعد الدعم",
+        "description": "فرز الدعم والردود ومسارات التصعيد."
+      },
+      "meeting_assistant": {
+        "name": "مساعد الاجتماعات",
+        "description": "إعداد جدول الأعمال وعناصر الملاحظات والمتابعات."
+      },
+      "custom": {
+        "name": "وكيل مخصص",
+        "description": "نقطة توسعة للوكلاء الخاصة بالمؤسسة."
+      }
+    },
+    "toolsCatalog": {
+      "crm": {
+        "name": "أداة CRM",
+        "description": "إنشاء/تحديث العملاء وقراءة سياق الحساب."
+      },
+      "projects": {
+        "name": "أداة المشاريع",
+        "description": "إدارة المشاريع والمهام وحالة التسليم."
+      },
+      "finance": {
+        "name": "أداة المالية",
+        "description": "الفواتير والأرصدة والملخصات المالية."
+      },
+      "documents": {
+        "name": "أداة المستندات",
+        "description": "قراءة مستندات مساحة العمل وتلخيصها."
+      },
+      "workflow": {
+        "name": "أداة سير العمل",
+        "description": "تشغيل تدفقات الأتمتة وفحصها."
+      },
+      "integration": {
+        "name": "أداة التكامل",
+        "description": "استدعاء موصلات الجهات الخارجية المتصلة."
+      },
+      "email": {
+        "name": "أداة البريد",
+        "description": "صياغة البريد الصادر ووضعه في قائمة الانتظار."
+      },
+      "calendar": {
+        "name": "أداة التقويم",
+        "description": "جدولة أحداث التقويم وفحصها."
+      },
+      "search": {
+        "name": "أداة البحث",
+        "description": "بحث شامل في مساحة العمل."
+      },
+      "notification": {
+        "name": "أداة الإشعارات",
+        "description": "إرسال إشعارات داخل التطبيق."
+      },
+      "api": {
+        "name": "أداة API",
+        "description": "استدعاء مسارات بوابة API الداخلية."
+      },
+      "mcp": {
+        "name": "أداة MCP",
+        "description": "أدوات خادم Model Context Protocol المستقبلية."
+      }
+    },
+    "knowledgeDocs": {
+      "company": {
+        "title": "مبادئ تشغيل AGXORA",
+        "summary": "مبادئ نظام تشغيل مؤسسي للوكلاء المعياريين والآمنين."
+      },
+      "policies": {
+        "title": "سياسة التعامل مع البيانات",
+        "summary": "عزل الأدوات الحساسة والوصول بأقل صلاحيات."
+      },
+      "procedures": {
+        "title": "إجراء تصعيد العملاء",
+        "summary": "مسار تصعيد مساعد الدعم عند انخفاض الثقة."
+      },
+      "rag": {
+        "title": "عنصر نائب لفهرس RAG",
+        "summary": "استرجاع متجهي مستقبلي للمستندات وملاحظات CRM."
+      }
+    },
+    "llm": {
+      "local": "نموذج لغوي محلي",
+      "mcp": "خوادم MCP",
+      "custom": "نموذج مخصص"
+    },
+    "lifecycle": {
+      "draft": "مسودة",
+      "registered": "مسجّل",
+      "active": "نشط",
+      "paused": "متوقف مؤقتاً",
+      "error": "خطأ",
+      "retired": "متقاعد"
+    },
+    "healthStatus": {
+      "healthy": "سليم",
+      "degraded": "متدهور",
+      "down": "متوقف",
+      "unknown": "غير معروف"
+    },
+    "taskStatus": {
+      "pending": "قيد الانتظار",
+      "running": "قيد التشغيل",
+      "completed": "مكتمل",
+      "cancelled": "ملغى",
+      "failed": "فشل",
+      "retrying": "إعادة المحاولة"
+    },
+    "memoryScope": {
+      "working": "عمل",
+      "conversation": "محادثة",
+      "business": "أعمال",
+      "long_term": "طويل الأمد",
+      "workspace": "مساحة العمل",
+      "agent": "وكيل"
+    },
+    "knowledgeKind": {
+      "company": "الشركة",
+      "documents": "المستندات",
+      "projects": "المشاريع",
+      "crm": "CRM",
+      "policies": "السياسات",
+      "procedures": "الإجراءات",
+      "vector": "متجه",
+      "rag": "RAG"
     }
   },
   "integrations": {
@@ -4037,7 +4630,17 @@
     "logs": {
       "title": "سجلات التكامل",
       "emptyTitle": "لا توجد سجلات حتى الآن",
-      "emptyDescription": "قم بتوصيل الموفر أو قم بتشغيل التشخيص."
+      "emptyDescription": "قم بتوصيل الموفر أو قم بتشغيل التشخيص.",
+      "installed": "تم تثبيت {name}",
+      "demoConnected": "تم ربط العرض {name}",
+      "disconnected": "تم قطع {name}",
+      "webhookCreated": "تم إنشاء ويب هوك {name}",
+      "keyCreated": "تم إنشاء مفتاح API {name}",
+      "keyRotated": "تم تدوير المفتاح {name}",
+      "keyRevoked": "تم إلغاء المفتاح {name}",
+      "stubHealthy": "{name} stub سليم",
+      "diagnosticsComplete": "اكتمل التشخيص",
+      "outgoing": "صادر {status}: {eventType}"
     },
     "apiKeys": {
       "title": "مفاتيح واجهة برمجة التطبيقات",
@@ -4112,7 +4715,92 @@
     },
     "errors": {
       "failedToFetch": "فشل الجلب",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "موصل غير معروف.",
+      "webhookNotFound": "لم يتم العثور على ويب هوك.",
+      "apiKeyInactive": "مفتاح API غير نشط أو منتهٍ."
+    },
+    "categories": {
+      "productivity": "الإنتاجية",
+      "communication": "التواصل",
+      "storage": "التخزين",
+      "crm": "CRM",
+      "automation": "الأتمتة",
+      "devtools": "أدوات المطوّرين",
+      "custom": "مخصص"
+    },
+    "auth": {
+      "oauth2": "OAuth 2.0",
+      "api_key": "مفتاح API",
+      "webhook": "ويب هوك"
+    },
+    "oauth": {
+      "custom": "OAuth مخصص"
+    },
+    "connectorNames": {
+      "custom": "موصل مخصص"
+    },
+    "connectors": {
+      "microsoft365": {
+        "description": "البريد والتقويم وTeams عبر Microsoft Graph."
+      },
+      "google_workspace": {
+        "description": "Gmail والتقويم وDrive لمستأجري Workspace."
+      },
+      "slack": {
+        "description": "القنوات والرسائل والإشعارات التفاعلية."
+      },
+      "discord": {
+        "description": "إشعارات الخادم وتسليم رسائل البوت."
+      },
+      "dropbox": {
+        "description": "مزامنة الملفات وأحداث المجلدات المشتركة."
+      },
+      "onedrive": {
+        "description": "تخزين ملفات Microsoft OneDrive والمزامنة التفاضلية."
+      },
+      "google_drive": {
+        "description": "ملفات Drive والمجلدات وإشعارات التغيير."
+      },
+      "hubspot": {
+        "description": "جهات اتصال CRM والصفقات وأحداث التسويق."
+      },
+      "salesforce": {
+        "description": "كائنات CRM للمؤسسات وPlatform Events."
+      },
+      "zapier": {
+        "description": "خطافات صادرة إلى zaps في Zapier."
+      },
+      "make": {
+        "description": "ويب هوك السيناريو لـ Make (Integromat)."
+      },
+      "github": {
+        "description": "المستودعات والمسائل وطلبات السحب وActions."
+      },
+      "gitlab": {
+        "description": "المشاريع وطلبات الدمج والمسارات وويب هوك."
+      },
+      "custom": {
+        "description": "نقطة توسعة للأنظمة المؤسسية الخاصة."
+      }
+    },
+    "healthStatus": {
+      "healthy": "سليم",
+      "degraded": "متدهور",
+      "down": "متوقف",
+      "unknown": "غير معروف"
+    },
+    "health": {
+      "installedAuthorize": "مثبّت — صِل للتفويض",
+      "oauthStubPlaceholder": "عرض OAuth محلي (stub)",
+      "oauthStubLive": "عرض OAuth محلي (مباشر)",
+      "demoCredential": "تم حفظ بيانات اعتماد العرض المحلي — API الحي غير متصل",
+      "demoConnection": "اتصال عرض محلي — ليس رابط مزوّد حي",
+      "disconnected": "غير متصل"
+    },
+    "generated": {
+      "keyName": "مفتاح {n}",
+      "webhookName": "ويب هوك {n}"
     }
   },
   "intelligence": {
@@ -4184,14 +4872,78 @@
       "title": "مركز مؤشرات الأداء الرئيسية",
       "subtitle": "كتالوج مؤشرات الأداء الرئيسية القابل للتكوين عبر الإيرادات والعملاء والمشاريع وسير العمل والوكلاء والأتمتة.",
       "emptyTitle": "التحليلات تنتظر الإشارة",
-      "emptyDescription": "بمجرد إنشاء مساحة العمل الخاصة بك للنشاط، تظهر هنا مؤشرات الأداء الرئيسية والتنبيهات التنفيذية."
+      "emptyDescription": "بمجرد إنشاء مساحة العمل الخاصة بك للنشاط، تظهر هنا مؤشرات الأداء الرئيسية والتنبيهات التنفيذية.",
+      "revenue": {
+        "name": "الإيرادات",
+        "description": "إجمالي الإيرادات المعترف بها في الفترة."
+      },
+      "mrr": {
+        "name": "MRR",
+        "description": "الإيرادات الشهرية المتكررة."
+      },
+      "arr": {
+        "name": "ARR",
+        "description": "الإيرادات السنوية المتكررة."
+      },
+      "growth": {
+        "name": "النمو",
+        "description": "معدل النمو مقارنة بالفترة السابقة."
+      },
+      "customer_acquisition": {
+        "name": "اكتساب العملاء",
+        "description": "العملاء الجدد المكتسبون."
+      },
+      "retention": {
+        "name": "الاحتفاظ",
+        "description": "معدل الاحتفاظ بالعملاء."
+      },
+      "churn": {
+        "name": "التسرب",
+        "description": "معدل تسرب العملاء."
+      },
+      "project_success": {
+        "name": "نجاح المشاريع",
+        "description": "المشاريع المسلّمة في الموعد / ضمن النطاق."
+      },
+      "workflow_success": {
+        "name": "نجاح سير العمل",
+        "description": "تشغيلات سير العمل الناجحة."
+      },
+      "agent_performance": {
+        "name": "أداء الوكيل",
+        "description": "درجة نجاح مهام وكيل الذكاء الاصطناعي."
+      },
+      "automation_success": {
+        "name": "نجاح الأتمتة",
+        "description": "موثوقية الأتمتة / التكامل."
+      },
+      "custom": {
+        "name": "مؤشر مخصص",
+        "description": "نقطة توسعة لمؤشرات تحددها المؤسسة."
+      }
     },
     "reports": {
       "title": "محرك التقارير",
       "subtitle": "يتم تصنيف تعريفات التقرير للمراجعة. لا يكون تصدير الملف متاحًا حتى يتم توصيل الواجهة الخلفية لإعداد التقارير.",
       "emptyTitle": "لا توجد تقارير",
       "emptyDescription": "تقارير البذور عن مساحة العمل bootstrap.",
-      "scheduleOnDemand": "عند الطلب"
+      "scheduleOnDemand": "عند الطلب",
+      "executive": {
+        "title": "الأسبوعي التنفيذي",
+        "description": "إحاطة للرئيس التنفيذي عن الصحة والإيرادات والمخاطر والنمو."
+      },
+      "department": {
+        "title": "تقرير قسم المبيعات",
+        "description": "المسار والاكتساب والاحتفاظ لقيادة المبيعات."
+      },
+      "operational": {
+        "title": "اليومي التشغيلي",
+        "description": "تدفقات العمل والتكاملات ووضع الهوية."
+      },
+      "management": {
+        "title": "إدارة التسليم",
+        "description": "نجاح المشاريع والسعة وإنتاج المستندات."
+      }
     },
     "insights": {
       "emptyTitle": "لا توجد رؤى حتى الآن",
@@ -4211,12 +4963,88 @@
       "emptyDescription": "تنبيهات البذور من الاستدلال المخاطر.",
       "acked": "اكيد",
       "open": "يفتح",
-      "acknowledge": "يُقرّ"
+      "acknowledge": "يُقرّ",
+      "revenue_drop": {
+        "title": "تراجع الإيرادات في الشريحة",
+        "body": "انخفضت إيرادات الشركات الصغيرة 4% أسبوعياً — راجع تغطية المسار."
+      },
+      "project_delay": {
+        "title": "مشروع معرض للتأخير",
+        "body": "تجاوز مشروعان للتسليم بوابات المعالم."
+      },
+      "churn_risk": {
+        "title": "ارتفاع مخاطر تسرب العملاء",
+        "body": "ثلاثة حسابات تظهر درجات تفاعل متناقصة."
+      },
+      "workflow_failure": {
+        "title": "اكتُشفت أعطال سير العمل",
+        "body": "فشل تدفق تذكير الفاتورة مرتين خلال 24 ساعة."
+      },
+      "ai_failure": {
+        "title": "ارتفاع إعادة محاولات مهام الذكاء الاصطناعي",
+        "body": "تجاوز معدل إعادة محاولة مهام الوكيل العتبة اللينة."
+      },
+      "integration_error": {
+        "title": "أخطاء التكامل",
+        "body": "أرجع موصل Slack استجابات 5xx متقطعة."
+      },
+      "security": {
+        "title": "تنبيه أمني",
+        "body": "اكتُشف نمط استخدام غير معتاد لمفتاح API."
+      }
     },
     "scorecards": {
       "title": "محرك بطاقة الأداء",
       "emptyTitle": "لا توجد بطاقات الأداء",
-      "emptyDescription": "بذور بطاقات الأداء على bootstrap."
+      "emptyDescription": "بذور بطاقات الأداء على bootstrap.",
+      "sales": {
+        "name": "درجة المبيعات",
+        "drivers": {
+          "pipeline_coverage": "تغطية المسار",
+          "win_rate": "معدل الربح",
+          "cycle_time": "مدة الدورة"
+        }
+      },
+      "customer_health": {
+        "name": "درجة صحة العملاء",
+        "drivers": {
+          "retention": "الاحتفاظ",
+          "nps_proxy": "وكيل NPS",
+          "support_load": "حمل الدعم"
+        }
+      },
+      "project_success": {
+        "name": "درجة نجاح المشاريع",
+        "drivers": {
+          "on_time_delivery": "التسليم في الموعد",
+          "scope_control": "ضبط النطاق",
+          "utilization": "الاستخدام"
+        }
+      },
+      "automation_efficiency": {
+        "name": "كفاءة الأتمتة",
+        "drivers": {
+          "workflow_success": "نجاح سير العمل",
+          "manual_effort_saved": "الجهد اليدوي الموفّر",
+          "retry_rate": "معدل إعادة المحاولة"
+        }
+      },
+      "ai_quality": {
+        "name": "جودة الذكاء الاصطناعي",
+        "drivers": {
+          "task_success": "نجاح المهام",
+          "confidence_avg": "متوسط الثقة",
+          "escalation_rate": "معدل التصعيد"
+        }
+      },
+      "operational_health": {
+        "name": "الصحة التشغيلية",
+        "drivers": {
+          "system_health": "صحة النظام",
+          "integration_reliability": "موثوقية التكامل",
+          "identity_posture": "وضع الهوية"
+        }
+      }
     },
     "explorer": {
       "title": "مستكشف البيانات",
@@ -4224,7 +5052,8 @@
       "searchAria": "بحث في صفوف المستكشف التجريبي",
       "emptyTitle": "لا توجد صفوف متطابقة",
       "emptyDescription": "اضبط عوامل التصفية أو ابحث أو أعد تحميل مجموعة البيانات التجريبية.",
-      "hint": "البحث من جانب العميل على المجموعات المصنفة - لا يتم توصيل تجميع الواجهة الخلفية والتنقل لأسفل."
+      "hint": "البحث من جانب العميل على المجموعات المصنفة - لا يتم توصيل تجميع الواجهة الخلفية والتنقل لأسفل.",
+      "metricLabel": "مقياس {domain} {index}"
     },
     "columns": {
       "kpi": "مؤشرات الأداء الرئيسية",
@@ -4249,7 +5078,123 @@
       "measure": "يقيس",
       "date": "تاريخ"
     },
-    "emDash": "—"
+    "emDash": "—",
+    "domains": {
+      "crm": "تحليلات CRM",
+      "projects": "تحليلات المشاريع",
+      "finance": "تحليلات مالية",
+      "documents": "تحليلات المستندات",
+      "workflow": "تحليلات سير العمل",
+      "identity": "تحليلات الهوية",
+      "ai": "تحليلات الذكاء الاصطناعي",
+      "integration": "تحليلات التكامل",
+      "executive": "تنفيذي"
+    },
+    "series": {
+      "crm_leads": "العملاء المحتملون",
+      "crm_pipeline": "المسار (ألف $)",
+      "proj_active": "المشاريع النشطة",
+      "proj_on_time": "في الموعد %",
+      "fin_revenue": "الإيرادات (ألف $)",
+      "fin_margin": "هامش إجمالي %",
+      "doc_created": "المستندات المنشأة",
+      "doc_views": "مشاهدات المستندات",
+      "wf_runs": "تشغيلات سير العمل",
+      "wf_success": "نجاح %",
+      "id_users": "المستخدمون النشطون",
+      "id_sessions": "الجلسات",
+      "ai_tasks": "مهام الوكيل",
+      "ai_success": "نجاح الوكيل %",
+      "int_calls": "استدعاءات API / ويب هوك",
+      "int_errors": "أخطاء التكامل"
+    },
+    "bands": {
+      "Critical": "حرج",
+      "Watch": "مراقبة",
+      "Healthy": "سليم",
+      "Excellent": "ممتاز"
+    },
+    "charts": {
+      "chart_revenue": "اتجاه الإيرادات",
+      "chart_pipeline": "مسار CRM",
+      "chart_workflows": "نشاط سير العمل",
+      "chart_ai": "مزيج نشاط الذكاء الاصطناعي",
+      "chart_ops_table": "لقطة تشغيلية",
+      "chart_heatmap_placeholder": "خريطة حرارة التفاعل"
+    },
+    "chartKinds": {
+      "line": "خط",
+      "bar": "أعمدة",
+      "area": "مساحة",
+      "pie": "دائري",
+      "heatmap": "خريطة حرارة",
+      "table": "جدول",
+      "card": "بطاقة"
+    },
+    "insightItems": {
+      "trend": {
+        "title": "تسارع MRR",
+        "summary": "تحسّن نمو MRR لثلاث فترات متتالية."
+      },
+      "pattern": {
+        "title": "ذروات سير العمل في أيام الفواتير",
+        "summary": "يتلازم حمل الأتمتة مع إصدار الفواتير نهاية الشهر."
+      },
+      "recommendation": {
+        "title": "توسيع دليل الاحتفاظ",
+        "summary": "ركّز تواصل CSM على ثلاثة حسابات بصحة متراجعة."
+      },
+      "executive_summary": {
+        "title": "إحاطة تنفيذية",
+        "summary": "صحة الشركة قوية؛ راقب مخاطر التسرب وتأخير التسليم."
+      },
+      "risk": {
+        "title": "تجمّع مخاطر التسليم",
+        "summary": "يشترك مشروعان في تنازع الموارد — توقّع السعة مرتفع."
+      },
+      "opportunity": {
+        "title": "فرصة ترقية البيع",
+        "summary": "الحسابات عالية الاستخدام دون خطة Business تُظهر إمكان توسّع."
+      }
+    },
+    "forecastNotes": {
+      "revenue": "عنصر نائب لاتجاه خطي — استبدله بخدمة نموذج.",
+      "customer": "مركب الاكتساب + الاحتفاظ.",
+      "project": "توقّع تسليم يراعي السعة.",
+      "capacity": "توقّع استخدام الفريق.",
+      "growth": "توقّع معدل النمو."
+    },
+    "forecastKinds": {
+      "revenue": "الإيرادات",
+      "customer": "عميل",
+      "project": "مشروع",
+      "capacity": "السعة",
+      "growth": "النمو"
+    },
+    "severity": {
+      "info": "معلومة",
+      "warning": "تحذير",
+      "critical": "حرج"
+    },
+    "trend": {
+      "up": "صعود",
+      "down": "هبوط",
+      "flat": "ثابت"
+    },
+    "insightKinds": {
+      "trend": "اتجاه",
+      "pattern": "نمط",
+      "recommendation": "توصية",
+      "executive_summary": "ملخص تنفيذي",
+      "risk": "مخاطرة",
+      "opportunity": "فرصة"
+    },
+    "reportKinds": {
+      "executive": "تنفيذي",
+      "department": "قسم",
+      "operational": "تشغيلي",
+      "management": "إدارة"
+    }
   },
   "legal": {
     "shell": {
@@ -4679,13 +5624,223 @@
       "professional": "احترافي",
       "friendly": "ودّي",
       "luxury": "فاخر",
-      "casual": "عفوي"
+      "casual": "عفوي",
+      "minimal": "بسيط",
+      "corporate": "مؤسسي",
+      "creative": "إبداعي",
+      "custom": "صوت علامة مخصص"
     },
     "integrationStatus": {
       "planned": "مخطط",
       "ready": "جاهز",
       "connected": "متصل",
       "disabled": "معطّل"
+    },
+    "categories": {
+      "social": "اجتماعي",
+      "ads": "إعلانات",
+      "analytics": "تحليلات"
+    },
+    "platforms": {
+      "instagram": {
+        "notes": "نشر Graph API الرسمي + الرؤى محجوزة."
+      },
+      "tiktok": {
+        "notes": "محول TikTok Content Posting API محجوز."
+      },
+      "youtube": {
+        "notes": "رفع YouTube Data API + التحليلات محجوزة."
+      },
+      "facebook": {
+        "notes": "محول نشر Pages محجوز."
+      },
+      "linkedin": {
+        "notes": "محول منشورات UGC / المؤسسة محجوز."
+      },
+      "pinterest": {
+        "notes": "محول الدبابيس واللوحات محجوز."
+      },
+      "threads": {
+        "notes": "محول Threads API محجوز."
+      },
+      "x": {
+        "notes": "محول منشورات X API v2 محجوز."
+      },
+      "meta-business": {
+        "notes": "خطافات Meta Business Suite / Ads Manager محجوزة."
+      },
+      "google-ads": {
+        "notes": "مزامنة حملات Google Ads API محجوزة."
+      },
+      "google-analytics": {
+        "notes": "محول القياس والتقارير GA4 محجوز."
+      }
+    },
+    "features": {
+      "ideas": {
+        "label": "أفكار محتوى",
+        "description": "محرك أفكار واعٍ بالقطاع للحملات والمنشورات."
+      },
+      "captions": {
+        "label": "مولّد التسميات",
+        "description": "تسميات بصوت العلامة حسب تنسيق المنصة."
+      },
+      "hashtags": {
+        "label": "اقتراحات الهاشتاج",
+        "description": "تقييم الصلة والوصول لمجموعات الهاشتاج."
+      },
+      "calendar": {
+        "label": "تقويم المحتوى",
+        "description": "أساس تقويم تحريري متعدد المنصات."
+      },
+      "campaigns": {
+        "label": "مخطط الحملات",
+        "description": "الأهداف والجمهور والمنصات والجداول."
+      },
+      "audience": {
+        "label": "اقتراحات الجمهور",
+        "description": "اقتراحات شرائح من إشارات CRM + المنشئ."
+      },
+      "schedule": {
+        "label": "جدول النشر",
+        "description": "نوافذ نشر مثلى تراعي المنطقة الزمنية."
+      },
+      "brand": {
+        "label": "اتساق العلامة",
+        "description": "فحوصات النبرة والأصول مقابل صوت العلامة."
+      },
+      "rewrite": {
+        "label": "إعادة صياغة بالذكاء الاصطناعي",
+        "description": "أعد صياغة المسودات للوضوح أو الطول أو القناة."
+      },
+      "translate": {
+        "label": "ترجمة المحتوى",
+        "description": "مسار ترجمة متعدد اللغات محجوز."
+      },
+      "i18n": {
+        "label": "دعم متعدد اللغات",
+        "description": "حزم لغات لواجهات النشر والتحليلات."
+      }
+    },
+    "kpi": {
+      "content": {
+        "label": "المحتوى المنشأ",
+        "caption": "هذا الربع"
+      },
+      "campaigns": {
+        "label": "الحملات",
+        "caption": "نشطة + مخططة"
+      },
+      "scheduled": {
+        "label": "المنشورات المجدولة",
+        "caption": "الـ14 يوماً القادمة"
+      },
+      "engagement": {
+        "label": "التفاعل",
+        "caption": "المعدل المتوسط عبر القنوات"
+      },
+      "followers": {
+        "label": "نمو المتابعين",
+        "caption": "آخر 30 يوماً"
+      },
+      "reach": {
+        "label": "الوصول",
+        "caption": "مرات ظهور فريدة"
+      },
+      "conversions": {
+        "label": "التحويلات",
+        "caption": "إجراءات منسوبة"
+      },
+      "ai-score": {
+        "label": "درجة أداء الذكاء الاصطناعي",
+        "caption": "إشارة جودة المحتوى"
+      }
+    },
+    "analyticsMetrics": {
+      "a1": "التفاعل",
+      "a2": "الوصول",
+      "a3": "CTR",
+      "a4": "التحويلات",
+      "a5": "نمو الجمهور",
+      "a6": "أداء المحتوى"
+    },
+    "voiceDesc": {
+      "professional": "نبرة واضحة وموثوقة وتركّز على العمل.",
+      "luxury": "مهذّب ومقتصد بإطار فاخر.",
+      "friendly": "دافئ وقريب ومحادث.",
+      "casual": "لغة يومية مريحة.",
+      "minimal": "جمل قصيرة ووضوح عالٍ.",
+      "corporate": "اتصالات مؤسسية رسمية.",
+      "creative": "سرد قصصي معبّر للحملات.",
+      "custom": "ارفع الإرشادات ونماذج النصوص لاحقاً."
+    },
+    "formatDesc": {
+      "instagram_caption": "تسميات Feed / Reels مع خطافات CTA.",
+      "tiktok_script": "نصوص قصيرة: خطاف → قيمة → CTA.",
+      "linkedin_post": "قيادة فكرية وسرد B2B.",
+      "facebook_post": "منشورات جاهزة للمجتمع والصفحة.",
+      "x_post": "سلاسل موجزة ومنشورات مفردة.",
+      "blog_article": "مسودات تحريرية طويلة.",
+      "newsletter": "أقسام النشرة وعناوين الرسائل.",
+      "email_campaign": "تسلسلات الحملات ونصوص الرعاية.",
+      "product_description": "سرد منتج جاهز للتجارة.",
+      "ad_copy": "تنويعات إعلانات اجتماعي مدفوع وبحث.",
+      "seo_article": "مقالات نية بحث بهيكل مخطط.",
+      "landing_page_copy": "البطل والمزايا والإثبات وكتل CTA."
+    },
+    "campaignStatus": {
+      "Active": "نشطة",
+      "In review": "قيد المراجعة",
+      "Planned": "مخططة"
+    },
+    "campaigns": {
+      "camp-1": {
+        "name": "إطلاق منتج الربع الثالث",
+        "objective": "الوعي + تسجيلات قائمة الانتظار",
+        "audience": "مشغّلو الشركات الصغيرة في الاتحاد الأوروبي",
+        "budget": "٨٥٠٠ يورو (عنصر نائب)",
+        "timeline": "٤ أغسطس – ١٢ سبتمبر"
+      },
+      "camp-2": {
+        "name": "سباق تعاون المنشئين",
+        "objective": "الوصول + نمو المجتمع",
+        "audience": "منشئون 18–34 DE/AT",
+        "budget": "٤٢٠٠ يورو (عنصر نائب)",
+        "timeline": "٢٠ يوليو – ٢٠ أغسطس"
+      },
+      "camp-3": {
+        "name": "دفعة محفظة الوكالة",
+        "objective": "توليد العملاء المحتملين",
+        "audience": "مديرو التسويق",
+        "budget": "٢٩٠٠ يورو (عنصر نائب)",
+        "timeline": "١ سبتمبر – ٣٠ سبتمبر"
+      }
+    },
+    "calendarItems": {
+      "cal-1": "ريل تشويقي للإطلاق",
+      "cal-2": "سرد المؤسس على LinkedIn",
+      "cal-3": "بريد قائمة الانتظار رقم 1",
+      "cal-4": "نص عرض TikTok"
+    },
+    "queueItems": {
+      "q-1": "تسمية الريل التشويقي للإطلاق",
+      "q-2": "منشور سرد المؤسس",
+      "q-3": "بريد رعاية قائمة الانتظار",
+      "q-4": "نص بطل صفحة هبوط المنتج",
+      "q-5": "نص عرض TikTok الإصدار 2",
+      "q-6": "دوار ملخص يونيو",
+      "q-7": "سلسلة ترويج قديمة"
+    },
+    "topPosts": {
+      "tp-1": "تفكيك أتمتة المستودع",
+      "tp-2": "ريل عرض المنتج 30 ثانية",
+      "tp-3": "خطاف تعاون المنشئين"
+    },
+    "recommendations": {
+      "r1": "أعد توظيف تفكيك LinkedIn إلى دوار من 3 أجزاء هذا الأسبوع.",
+      "r2": "جدول عروض TikTok ثلاثاء–خميس 18:00–20:00 CET لإكمال أعلى.",
+      "r3": "شدّد صوت العلامة الفاخر في دعوات إنستغرام — اختصر نحو 20٪.",
+      "r4": "ترجم تسمية الريل الأفضل إلى DE/FR لتوسيع جمهور الاتحاد الأوروبي."
     }
   },
   "backend": {
@@ -4726,7 +5881,7 @@
     "skipToMain": "انتقل إلى المحتوى الرئيسي",
     "offline": {
       "title": "أنت غير متصل",
-      "message": "تحقق من اتصالك وأعد المحاولة عندما تعود متصلاً بالإنترنت. ربما لا تزال الشاشات المخزنة مؤقتًا تعمل.",
+      "message": "تحقق من الاتصال وأعد المحاولة عند العودة للاتصال. قد تظل الشاشات المخزّنة تعمل.",
       "home": "بيت",
       "contact": "اتصال",
       "signIn": "تسجيل الدخول"

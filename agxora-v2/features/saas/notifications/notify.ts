@@ -11,7 +11,7 @@ import { checkAllQuotas } from "../usage";
 export function notifySaasEvent(
   organizationId: string,
   kind: SaasNotificationKind,
-  content: { title: string; body: string; href?: string },
+  content: { title: string; body: string; href?: string; vars?: Readonly<Record<string, string | number>> },
 ): SaasNotification {
   return saasCommercialStore.pushNotification({
     organizationId,
@@ -19,6 +19,7 @@ export function notifySaasEvent(
     title: content.title,
     body: content.body,
     href: content.href,
+    vars: content.vars,
   });
 }
 
@@ -52,8 +53,9 @@ export function refreshSubscriptionNotifications(
     ) {
       created.push(
         notifySaasEvent(organizationId, "trial_ending", {
-          title: "Trial ending soon",
-          body: `Your trial ends in about ${Math.ceil(days)} day(s). Upgrade to keep full access.`,
+          title: "billing.notifications.trialEnding.title",
+          body: "billing.notifications.trialEnding.body",
+          vars: { days: Math.ceil(days) },
           href: "/dashboard/billing",
         }),
       );
@@ -73,8 +75,8 @@ export function refreshSubscriptionNotifications(
   ) {
     created.push(
       notifySaasEvent(organizationId, "subscription_expiry", {
-        title: "Subscription expired",
-        body: "Renew or upgrade your plan to restore commercial features.",
+        title: "billing.notifications.expired.title",
+        body: "billing.notifications.expired.body",
         href: "/dashboard/billing",
       }),
     );
@@ -87,8 +89,9 @@ export function refreshSubscriptionNotifications(
     ) {
       created.push(
         notifySaasEvent(organizationId, "quota_warning", {
-          title: `Approaching ${quota.metric} limit`,
-          body: `Used ${quota.used} of ${quota.limit}. Consider upgrading.`,
+          title: "billing.notifications.quotaWarning.title",
+          body: "billing.notifications.quotaWarning.body",
+          vars: { metric: quota.metric, used: quota.used, limit: quota.limit },
           href: "/dashboard/billing",
         }),
       );
@@ -102,8 +105,8 @@ export function refreshSubscriptionNotifications(
   ) {
     created.push(
       notifySaasEvent(organizationId, "upgrade_available", {
-        title: "Upgrade available",
-        body: "Business and Enterprise unlock automation, higher AI quotas, and API access.",
+        title: "billing.notifications.upgradeAvailable.title",
+        body: "billing.notifications.upgradeAvailable.body",
         href: "/dashboard/billing",
       }),
     );

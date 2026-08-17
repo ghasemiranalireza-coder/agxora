@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
-import { useT } from "@/app/lib/i18n";
+import { catalogCopy, slugLabel, useT } from "@/app/lib/i18n";
 import { automationStore } from "../store";
 import { workflowService } from "../services";
 import { useAutomationEngine } from "../hooks";
@@ -25,6 +25,25 @@ type TabId =
   | "templates"
   | "analytics"
   | "settings";
+
+function engineNodeLabel(
+  t: ReturnType<typeof useT>,
+  node: WorkflowNode,
+): string {
+  if (node.kind === "trigger" && typeof node.config.triggerType === "string") {
+    return catalogCopy(
+      t,
+      `automation.triggers.${node.config.triggerType.replaceAll(".", "_")}.label`,
+      node.label,
+    );
+  }
+  if (node.kind === "action" && typeof node.config.actionType === "string") {
+    const actionKey = `automation.actions.${node.config.actionType.replaceAll(".", "_")}.label`;
+    const fromAction = t(actionKey);
+    if (fromAction !== actionKey) return fromAction;
+  }
+  return catalogCopy(t, `automation.nodeLabels.${slugLabel(node.label)}`, node.label);
+}
 
 /**
  * Workflow Automation workspace — modular OS surface.
@@ -651,7 +670,7 @@ function WorkflowEditorPanel({
                     background: "color-mix(in srgb, var(--agx-accent, #22d3ee) 10%, transparent)",
                   }}
                 >
-                  {n.kind}: {n.label}
+                  {catalogCopy(t, `automation.kinds.${n.kind}`, n.kind)}: {engineNodeLabel(t, n)}
                 </span>
               </li>
             ))}
@@ -790,13 +809,14 @@ function TemplatesPanel({
       {templates.map((tpl) => (
         <Card key={tpl.id} className="flex flex-col gap-2" padding="20px" hover={false}>
           <p className="text-[11px] uppercase tracking-wide" style={{ color: "var(--agx-accent, #22d3ee)" }}>
-            {tpl.category} · {tpl.difficulty}
+            {catalogCopy(t, `automation.templateCategories.${tpl.category}`, tpl.category)} ·{" "}
+            {t(`automation.difficulty.${tpl.difficulty}`)}
           </p>
           <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            {tpl.name}
+            {catalogCopy(t, `automation.engineTemplates.${tpl.id}.name`, tpl.name)}
           </h3>
           <p className="flex-1 text-xs leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            {tpl.description}
+            {catalogCopy(t, `automation.engineTemplates.${tpl.id}.description`, tpl.description)}
           </p>
           <Button size="sm" disabled={!canWrite} onClick={() => onUse(tpl.id)}>
             {t("automation.workspace.templates.useTemplate")}

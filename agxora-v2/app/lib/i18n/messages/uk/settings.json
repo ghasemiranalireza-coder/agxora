@@ -27,7 +27,7 @@
     "regions": {
       "EU": "Європейський Союз",
       "US": "США",
-      "MENA": "MENA",
+      "MENA": "Близький Схід і Північна Африка",
       "APAC": "APAC"
     }
   },
@@ -61,7 +61,7 @@
     "preferredProvider": "Бажаний постачальник AI",
     "defaultModel": "Типова модель AI",
     "temperature": "температура",
-    "topP": "Верхній П",
+    "topP": "Top P",
     "maxTokens": "Макс жетонів",
     "writingStyle": "Стиль письма",
     "languagePreferences": "Налаштування мови",
@@ -78,10 +78,10 @@
     "streaming": "Потокове передавання",
     "streamingDescription": "Потокова передача відповідей моделі, якщо провайдер це підтримує.",
     "providers": {
-      "mock": "Макет (місцевий)",
+      "mock": "Макет (локально)",
       "openai": "OpenAI",
       "azure": "Azure OpenAI",
-      "anthropic": "Антропний",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "OpenRouter",
       "ollama": "Оллама",
@@ -109,7 +109,7 @@
     "themeModeAria": "Тематичний режим",
     "resolvedAppearance": "Вирішений вигляд:",
     "accentColor": "Колір акценту",
-    "accentNotice": "Налаштування акценту зберігається для майбутнього підключення змінних CSS — поки що не змінює заблоковану систему кольорів.",
+    "accentNotice": "Уподобання акценту зберігається в цій сесії й поки не змінює зафіксовану палітру.",
     "density": "Щільність",
     "compactMode": "Компактний режим",
     "compactModeDescription": "Зменште відступи між корпоративними столами та панелями.",
@@ -135,6 +135,13 @@
       "comfortable": "Комфортно",
       "compact": "Компактний",
       "spacious": "Простора"
+    },
+    "accents": {
+      "cyan": "Блакитний",
+      "blue": "Синій",
+      "emerald": "Смарагдовий",
+      "violet": "Фіолетовий",
+      "amber": "Бурштиновий"
     }
   },
   "notifications": {

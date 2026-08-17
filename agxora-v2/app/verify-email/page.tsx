@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useState, type FormEvent, type JSX } from "react";
 import { useAuth } from "../lib/auth";
-import { useT } from "../lib/i18n";
+import { localizeThrownError, useT } from "../lib/i18n";
 import {
   AuthCard,
   AuthLink,
@@ -31,9 +31,7 @@ function VerifyEmailForm(): JSX.Element {
       if (peeked) setToken(peeked);
       setMessage(t("iam.verifyEmail.tokenIssued"));
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : t("iam.verifyEmail.issueFailed"),
-      );
+      setError(localizeThrownError(t, err, "iam.verifyEmail.issueFailed"));
     } finally {
       setBusy(false);
     }
@@ -47,9 +45,7 @@ function VerifyEmailForm(): JSX.Element {
       await verifyEmail({ token });
       router.replace("/dashboard");
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : t("iam.verifyEmail.verificationFailed"),
-      );
+      setError(localizeThrownError(t, err, "iam.verifyEmail.verificationFailed"));
     } finally {
       setBusy(false);
     }

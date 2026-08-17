@@ -6,7 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import { AuthCard, authButtonStyle } from "../../components/auth/AuthCard";
 import { useAuth } from "../../lib/auth";
 import { controlPlaneClient } from "../../lib/control-plane/client";
-import { useT } from "../../lib/i18n";
+import { localizeThrownError, useT } from "../../lib/i18n";
 
 export default function OwnershipTransferConfirmPage(): JSX.Element {
   const t = useT();
@@ -38,11 +38,7 @@ export default function OwnershipTransferConfirmPage(): JSX.Element {
         setStatus(data.transfer.status);
       } catch (err) {
         if (cancelled) return;
-        setError(
-          err instanceof Error
-            ? err.message
-            : t("settings.controlPlane.transferInvalid"),
-        );
+        setError(localizeThrownError(t, err, "settings.controlPlane.transferInvalid"));
       }
     })();
     return () => {
@@ -57,9 +53,7 @@ export default function OwnershipTransferConfirmPage(): JSX.Element {
       await controlPlaneClient.confirmOwnershipTransfer(token);
       router.replace("/dashboard/settings#team");
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"),
-      );
+      setError(localizeThrownError(t, err, "settings.controlPlane.saveFailed"));
     } finally {
       setBusy(false);
     }

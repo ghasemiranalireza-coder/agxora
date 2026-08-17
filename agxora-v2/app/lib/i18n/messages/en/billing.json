@@ -117,5 +117,60 @@
       "warning": "Warning",
       "ok": "OK"
     }
+  },
+  "licenseStatus": {
+    "trial": "Trial",
+    "active": "Active",
+    "expired": "Expired",
+    "cancelled": "Cancelled",
+    "suspended": "Suspended",
+    "lifetime": "Lifetime"
+  },
+  "quotas": {
+    "ai_requests": "AI requests",
+    "projects": "Projects",
+    "customers": "Customers",
+    "documents": "Documents",
+    "storage_mb": "Storage (MB)",
+    "users": "Users",
+    "api_requests": "API requests"
+  },
+  "invoiceStatus": {
+    "draft": "Draft",
+    "open": "Open",
+    "paid": "Paid",
+    "void": "Void",
+    "uncollectible": "Uncollectible",
+    "refunded": "Refunded"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "Trial ending soon",
+      "body": "Your trial ends in about {days} day(s). Upgrade to keep full access."
+    },
+    "expired": {
+      "title": "Subscription expired",
+      "body": "Renew or upgrade your plan to restore commercial features."
+    },
+    "cancelled": {
+      "title": "Subscription cancelled",
+      "body": "Your AGXORA subscription was cancelled. Access remains until the period ends."
+    },
+    "quotaWarning": {
+      "title": "Approaching {metric} limit",
+      "body": "Used {used} of {limit}. Consider upgrading."
+    },
+    "upgradeAvailable": {
+      "title": "Upgrade available",
+      "body": "Business and Enterprise unlock automation, higher AI quotas, and API access."
+    },
+    "invoiceReady": {
+      "title": "Invoice ready",
+      "body": "Invoice {number} was paid successfully."
+    },
+    "renewed": {
+      "title": "Subscription renewed",
+      "body": "Your plan renews on {date}."
+    }
   }
 }

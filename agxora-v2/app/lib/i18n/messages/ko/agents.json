@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "고객 영향을 우선시",
     "delegatedFollowUp": "위임된 후속"
+  },
+  "categories": {
+    "Leadership": "리더십",
+    "Revenue": "매출",
+    "CRM": "CRM",
+    "Delivery": "납품",
+    "Automation": "자동화",
+    "Finance": "재무",
+    "Knowledge": "지식",
+    "Support": "지원",
+    "Productivity": "생산성",
+    "Custom": "사용자 지정"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "경영 자문",
+      "description": "전략 브리핑, KPI 종합, 의사결정 지원."
+    },
+    "sales_agent": {
+      "name": "세일즈 에이전트",
+      "description": "파이프라인 코칭, 아웃리치 초안, 딜 다음 단계."
+    },
+    "crm_assistant": {
+      "name": "CRM 어시스턴트",
+      "description": "고객 보강, 데이터 위생, 관계 인사이트."
+    },
+    "project_manager": {
+      "name": "프로젝트 매니저",
+      "description": "계획, 작업 분해, 납품 위험 신호."
+    },
+    "workflow_coordinator": {
+      "name": "워크플로 코디네이터",
+      "description": "AGXORA 자동화 워크플로를 트리거하고 조율합니다."
+    },
+    "finance_assistant": {
+      "name": "재무 어시스턴트",
+      "description": "청구서 현황, 현금흐름 메모, 재무 요약."
+    },
+    "document_analyst": {
+      "name": "문서 분석가",
+      "description": "문서에서 구조, 위험, 요약을 추출합니다."
+    },
+    "knowledge_assistant": {
+      "name": "지식 어시스턴트",
+      "description": "회사 지식에서 답하며 RAG 검색을 지원합니다."
+    },
+    "support_assistant": {
+      "name": "지원 어시스턴트",
+      "description": "고객 지원 트리아지, 회신, 에스컬레이션 경로."
+    },
+    "meeting_assistant": {
+      "name": "미팅 어시스턴트",
+      "description": "아젠다 준비, 메모 자리 표시, 후속 조치."
+    },
+    "custom": {
+      "name": "사용자 지정 에이전트",
+      "description": "조직 전용 에이전트를 위한 확장 지점."
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "CRM 도구",
+      "description": "고객 생성/수정 및 계정 맥락 조회."
+    },
+    "projects": {
+      "name": "프로젝트 도구",
+      "description": "프로젝트, 작업, 납품 상태 관리."
+    },
+    "finance": {
+      "name": "재무 도구",
+      "description": "청구서, 잔액, 재무 요약."
+    },
+    "documents": {
+      "name": "문서 도구",
+      "description": "워크스페이스 문서를 읽고 요약."
+    },
+    "workflow": {
+      "name": "워크플로 도구",
+      "description": "자동화 워크플로를 실행하고 검사."
+    },
+    "integration": {
+      "name": "통합 도구",
+      "description": "연결된 서드파티 커넥터를 호출."
+    },
+    "email": {
+      "name": "이메일 도구",
+      "description": "발신 메일을 작성하고 대기열에 넣기."
+    },
+    "calendar": {
+      "name": "캘린더 도구",
+      "description": "캘린더 일정을 잡고 확인."
+    },
+    "search": {
+      "name": "검색 도구",
+      "description": "워크스페이스 통합 검색."
+    },
+    "notification": {
+      "name": "알림 도구",
+      "description": "인앱 알림 보내기."
+    },
+    "api": {
+      "name": "API 도구",
+      "description": "내부 API 게이트웨이 경로 호출."
+    },
+    "mcp": {
+      "name": "MCP 도구",
+      "description": "향후 Model Context Protocol 서버 도구."
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "AGXORA 운영 원칙",
+      "summary": "모듈형·안전한 AI 에이전트를 위한 엔터프라이즈 OS 원칙."
+    },
+    "policies": {
+      "title": "데이터 처리 정책",
+      "summary": "민감 도구 격리와 최소 권한 접근."
+    },
+    "procedures": {
+      "title": "고객 에스컬레이션 절차",
+      "summary": "신뢰도가 낮을 때 지원 어시스턴트의 에스컬레이션 경로."
+    },
+    "rag": {
+      "title": "RAG 인덱스 자리 표시",
+      "summary": "문서와 CRM 노트에 대한 향후 벡터 검색."
+    }
+  },
+  "llm": {
+    "local": "로컬 LLM",
+    "mcp": "MCP 서버",
+    "custom": "사용자 지정 모델"
+  },
+  "lifecycle": {
+    "draft": "초안",
+    "registered": "등록됨",
+    "active": "활성",
+    "paused": "일시 중지",
+    "error": "오류",
+    "retired": "폐기"
+  },
+  "healthStatus": {
+    "healthy": "양호",
+    "degraded": "저하",
+    "down": "중단",
+    "unknown": "알 수 없음"
+  },
+  "taskStatus": {
+    "pending": "대기",
+    "running": "실행 중",
+    "completed": "완료",
+    "cancelled": "취소됨",
+    "failed": "실패",
+    "retrying": "재시도 중"
+  },
+  "memoryScope": {
+    "working": "작업",
+    "conversation": "대화",
+    "business": "비즈니스",
+    "long_term": "장기",
+    "workspace": "워크스페이스",
+    "agent": "에이전트"
+  },
+  "knowledgeKind": {
+    "company": "회사",
+    "documents": "문서",
+    "projects": "프로젝트",
+    "crm": "CRM",
+    "policies": "정책",
+    "procedures": "절차",
+    "vector": "벡터",
+    "rag": "RAG"
   }
 }

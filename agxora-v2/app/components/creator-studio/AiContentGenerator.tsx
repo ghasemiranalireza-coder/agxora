@@ -2,7 +2,7 @@
 
 import { useState, type JSX } from "react";
 import type { BrandVoice, BrandVoiceOption, ContentFormat, ContentFormatOption } from "../../lib/creator-studio";
-import { useT } from "../../lib/i18n";
+import { catalogCopy, useT } from "../../lib/i18n";
 import { Badge, Button, Card } from "../ui";
 
 export function AiContentGenerator({
@@ -46,7 +46,9 @@ export function AiContentGenerator({
                   color: "var(--agx-text, #f8fafc)",
                 }}
               >
-                <span className="font-medium">{item.label}</span>
+                <span className="font-medium">
+                  {catalogCopy(t, `creator.formats.${item.id}`, item.label)}
+                </span>
               </button>
             );
           })}
@@ -73,8 +75,12 @@ export function AiContentGenerator({
             onClick={() =>
               setOutput(
                 t("creator.generator.draftStaged", {
-                  format: formats.find((f) => f.id === format)?.label ?? format,
-                  voice,
+                  format: catalogCopy(
+                    t,
+                    `creator.formats.${format}`,
+                    formats.find((f) => f.id === format)?.label ?? format,
+                  ),
+                  voice: catalogCopy(t, `creator.voice.${voice}`, voice),
                 }),
               )
             }
@@ -133,10 +139,10 @@ export function AiContentGenerator({
                 >
                   <div>
                     <p className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                      {item.label}
+                      {catalogCopy(t, `creator.voice.${item.id}`, item.label)}
                     </p>
                     <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                      {item.description}
+                      {catalogCopy(t, `creator.voiceDesc.${item.id}`, item.description)}
                     </p>
                   </div>
                   {active ? <Badge tone="accent">{t("creator.generator.active")}</Badge> : null}

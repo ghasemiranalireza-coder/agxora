@@ -117,5 +117,60 @@
       "warning": "चेतावनी",
       "ok": "ठीक है"
     }
+  },
+  "licenseStatus": {
+    "trial": "ट्रायल",
+    "active": "सक्रिय",
+    "expired": "समाप्त",
+    "cancelled": "रद्द",
+    "suspended": "निलंबित",
+    "lifetime": "आजीवन"
+  },
+  "quotas": {
+    "ai_requests": "AI अनुरोध",
+    "projects": "प्रोजेक्ट",
+    "customers": "ग्राहक",
+    "documents": "दस्तावेज़",
+    "storage_mb": "स्टोरेज (MB)",
+    "users": "उपयोगकर्ता",
+    "api_requests": "API अनुरोध"
+  },
+  "invoiceStatus": {
+    "draft": "ड्राफ्ट",
+    "open": "खुला",
+    "paid": "भुगतान",
+    "void": "रद्द",
+    "uncollectible": "वसूली अयोग्य",
+    "refunded": "वापस"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "ट्रायल जल्द समाप्त",
+      "body": "आपका ट्रायल लगभग {days} दिन में समाप्त होगा। पूरा एक्सेस रखने के लिए अपग्रेड करें।"
+    },
+    "expired": {
+      "title": "सदस्यता समाप्त",
+      "body": "व्यावसायिक सुविधाएँ वापस पाने के लिए प्लान नवीनीकृत या अपग्रेड करें।"
+    },
+    "cancelled": {
+      "title": "सदस्यता रद्द",
+      "body": "आपकी AGXORA सदस्यता रद्द हुई। अवधि खत्म होने तक एक्सेस रहेगा।"
+    },
+    "quotaWarning": {
+      "title": "{metric} सीमा करीब",
+      "body": "{used} में से {limit} उपयोग। अपग्रेड सोचें।"
+    },
+    "upgradeAvailable": {
+      "title": "अपग्रेड उपलब्ध",
+      "body": "Business और Enterprise ऑटोमेशन, अधिक AI कोटा और API एक्सेस खोलते हैं।"
+    },
+    "invoiceReady": {
+      "title": "इनवॉइस तैयार",
+      "body": "इनवॉइस {number} का भुगतान सफल रहा।"
+    },
+    "renewed": {
+      "title": "सदस्यता नवीनीकृत",
+      "body": "आपका प्लान {date} को नवीनीकृत होगा।"
+    }
   }
 }

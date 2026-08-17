@@ -6,7 +6,6 @@ import type {
   ConnectorId,
   IntegrationConnection,
 } from "../types";
-import { getConnectorDefinition } from "./catalog";
 
 export interface ConnectorProvider {
   readonly id: ConnectorId;
@@ -34,7 +33,7 @@ function stubProvider(id: ConnectorId): ConnectorProvider {
       return {
         ok: true,
         latencyMs: 40 + Math.floor(Math.random() * 80),
-        message: `${getConnectorDefinition(id)?.name ?? id} stub healthy`,
+        message: "integrations.logs.stubHealthy",
       };
     },
     async publishEvent() {

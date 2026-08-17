@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Optimization Suggestions",
     "oneClickOptimize": "One Click Optimize",
-    "noticeDefault": "One Click Optimize is a no graph mutation yet.",
-    "noticeQueued": "Optimize queued. Future engine will rewrite delays & approvals."
+    "noticeDefault": "One-click optimize does not change the graph yet.",
+    "noticeQueued": "Optimize queued. A future engine will rewrite delays and approvals.",
+    "score": {
+      "healthy": "Healthy",
+      "needsAttention": "Needs attention",
+      "atRisk": "At risk"
+    },
+    "kinds": {
+      "missing_approval": "Approval",
+      "possible_delay": "Delay",
+      "unused_trigger": "Trigger",
+      "duplicate_nodes": "Duplicates",
+      "unused_action": "Action",
+      "security": "Security",
+      "performance": "Performance"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Missing approval",
+        "description": "Longer flows often benefit from an approval gate before side effects."
+      },
+      "possible_delay": {
+        "title": "Possible delay",
+        "description": "Consider a delay before reminder emails to avoid noisy bursts."
+      },
+      "unused_trigger": {
+        "title": "Unused trigger",
+        "description": "This graph has no start trigger — add one before activation."
+      },
+      "duplicate_nodes": {
+        "title": "Duplicate nodes",
+        "description": "“{label}” appears {count} times — consolidate if redundant."
+      },
+      "unused_action": {
+        "title": "Unused action",
+        "description": "{label} is not connected — wire or remove it."
+      },
+      "security": {
+        "title": "Security recommendation",
+        "description": "Prefer least-privilege adapters for webhook and email actions."
+      },
+      "performance": {
+        "title": "Performance recommendation",
+        "description": "Batch AI steps where possible to reduce average execution time."
+      }
+    }
   },
   "integrations": {
     "intro": "Integration Center — optional. Statuses: Connected, Beta, Planned, Coming soon, Disabled. No live APIs.",
@@ -536,5 +580,191 @@
       "label": "Update Status",
       "description": "Update entity status in a module."
     }
+  },
+  "kinds": {
+    "trigger": "Trigger",
+    "action": "Action",
+    "condition": "Condition",
+    "delay": "Delay",
+    "approval": "Approval",
+    "loop": "Loop",
+    "merge": "Merge",
+    "split": "Split",
+    "ai_decision": "AI decision",
+    "ai_action": "AI action",
+    "notification": "Notification",
+    "webhook": "Webhook",
+    "custom_action": "Custom action",
+    "branch": "Branch",
+    "variable": "Variable"
+  },
+  "kpi": {
+    "active": {
+      "label": "Active Workflows",
+      "caption": "Enabled in workspace"
+    },
+    "runs-today": {
+      "label": "Workflow Runs Today",
+      "caption": "Across all triggers"
+    },
+    "success": {
+      "label": "Successful Automations",
+      "caption": "Today"
+    },
+    "failed": {
+      "label": "Failed Runs",
+      "caption": "Needs attention"
+    },
+    "pending": {
+      "label": "Pending Tasks",
+      "caption": "Approvals + retries"
+    },
+    "avg-time": {
+      "label": "Average Execution Time",
+      "caption": "Median 1.2s"
+    },
+    "ai-suggestions": {
+      "label": "AI Suggestions",
+      "caption": "Automation opportunities"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "Productivity",
+    "Communication": "Communication",
+    "Commerce": "Commerce",
+    "Finance": "Finance",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "Gmail / Drive / Calendar hooks reserved for OAuth wiring.",
+    "m365": "Outlook / Teams / Graph hooks reserved.",
+    "slack": "Events API + chat posts reserved.",
+    "teams": "Bot Framework adapter reserved.",
+    "discord": "Webhook + bot adapter reserved.",
+    "whatsapp": "Meta Cloud API adapter reserved.",
+    "stripe": "Payment webhooks reserved — no live keys.",
+    "shopify": "Order / product events reserved.",
+    "datev": "Export / booking-batch hooks reserved.",
+    "sap": "ERP event bridge reserved — disabled until enterprise plan.",
+    "hubspot": "CRM sync adapter reserved.",
+    "salesforce": "Platform Events adapter reserved."
+  },
+  "defaultWorkflow": {
+    "name": "Customer Onboarding",
+    "description": "Welcome sequence when a customer is created."
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "Finance",
+    "Sales": "Sales",
+    "Marketing": "Marketing",
+    "HR": "HR",
+    "Creator": "Creator",
+    "Ops": "Ops",
+    "Projects": "Projects",
+    "AI": "AI"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "Customer Onboarding",
+      "description": "Welcome email, AI summary, and owner task after customer creation.",
+      "category": "CRM",
+      "recommendedFor": "Teams onboarding new B2B customers"
+    },
+    "tpl-invoice": {
+      "name": "Invoice Reminder",
+      "description": "Scheduled reminders for open invoices with escalation path.",
+      "category": "Finance",
+      "recommendedFor": "Finance ops reducing overdue receivables"
+    },
+    "tpl-lead": {
+      "name": "Lead Follow-up",
+      "description": "AI email reply plus pipeline status update for new leads.",
+      "category": "Sales",
+      "recommendedFor": "Sales teams with high inbound lead volume"
+    },
+    "tpl-welcome": {
+      "name": "Welcome Email",
+      "description": "Simple welcome sequence on signup.",
+      "category": "Marketing",
+      "recommendedFor": "Any workspace starting with email automation"
+    },
+    "tpl-pipeline": {
+      "name": "Sales Pipeline",
+      "description": "Stage changes with notifications and tasks.",
+      "category": "Sales",
+      "recommendedFor": "Teams managing multi-stage deal progression"
+    },
+    "tpl-recruit": {
+      "name": "Recruitment",
+      "description": "Candidate routing and interview tasks.",
+      "category": "HR",
+      "recommendedFor": "Hiring managers and people ops"
+    },
+    "tpl-content": {
+      "name": "Content Publishing",
+      "description": "Creator Studio publish → notify → analytics.",
+      "category": "Creator",
+      "recommendedFor": "Marketing and creator teams"
+    },
+    "tpl-approval": {
+      "name": "Approval Process",
+      "description": "Multi-step approval with AI recommendations.",
+      "category": "Ops",
+      "recommendedFor": "Finance/ops approvals before side effects",
+      "estimatedRuntime": "Human gate"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "New Customer Welcome",
+      "description": "Welcome email + notification when a customer is created.",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "Invoice Reminder",
+      "description": "Remind customers after an invoice is issued.",
+      "category": "Finance"
+    },
+    "tpl_project_kickoff": {
+      "name": "Project Kickoff",
+      "description": "Assign kickoff task and notify when a project is created.",
+      "category": "Projects"
+    },
+    "tpl_task_assignment": {
+      "name": "Task Assignment",
+      "description": "Email assignee when a task is completed — chain next work.",
+      "category": "Projects"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "AI Customer Summary",
+      "description": "Run AI summary when a customer is created; store output.",
+      "category": "AI"
+    },
+    "tpl_followup_reminder": {
+      "name": "Follow-up Reminder",
+      "description": "Schedule-based follow-up with branch by status.",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "Send welcome email",
+    "notify_team": "Notify team",
+    "wait_3_days": "Wait 3 days",
+    "still_unpaid": "Still unpaid?",
+    "send_reminder": "Send reminder",
+    "assign_kickoff_task": "Assign kickoff task",
+    "notify_owner": "Notify owner",
+    "notify_stakeholders": "Notify stakeholders",
+    "run_ai_summary": "Run AI summary",
+    "generate_document": "Generate document",
+    "daily_schedule": "Daily schedule",
+    "by_priority": "By priority",
+    "urgent_notification": "Urgent notification",
+    "standard_email": "Standard email"
+  },
+  "studioAiFeatures": {
+    "generate_ai_content": "Generate AI Content"
   }
 }

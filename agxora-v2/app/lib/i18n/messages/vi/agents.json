@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "Ưu tiên tác động khách hàng",
     "delegatedFollowUp": "Theo dõi được ủy thác"
+  },
+  "categories": {
+    "Leadership": "Lãnh đạo",
+    "Revenue": "Doanh thu",
+    "CRM": "CRM",
+    "Delivery": "Giao hàng",
+    "Automation": "Tự động hóa",
+    "Finance": "Tài chính",
+    "Knowledge": "Tri thức",
+    "Support": "Hỗ trợ",
+    "Productivity": "Năng suất",
+    "Custom": "Tùy chỉnh"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "Cố vấn điều hành",
+      "description": "Tóm tắt chiến lược, tổng hợp KPI và hỗ trợ quyết định."
+    },
+    "sales_agent": {
+      "name": "Đại lý bán hàng",
+      "description": "Huấn luyện pipeline, bản nháp outreach và bước deal tiếp theo."
+    },
+    "crm_assistant": {
+      "name": "Trợ lý CRM",
+      "description": "Làm giàu khách hàng, vệ sinh dữ liệu và insight quan hệ."
+    },
+    "project_manager": {
+      "name": "Quản lý dự án",
+      "description": "Kế hoạch, tách việc và tín hiệu rủi ro giao hàng."
+    },
+    "workflow_coordinator": {
+      "name": "Điều phối workflow",
+      "description": "Kích hoạt và điều phối workflow tự động AGXORA."
+    },
+    "finance_assistant": {
+      "name": "Trợ lý tài chính",
+      "description": "Theo dõi hóa đơn, ghi chú dòng tiền và tóm tắt tài chính."
+    },
+    "document_analyst": {
+      "name": "Chuyên gia phân tích tài liệu",
+      "description": "Trích cấu trúc, rủi ro và tóm tắt từ tài liệu."
+    },
+    "knowledge_assistant": {
+      "name": "Trợ lý tri thức",
+      "description": "Trả lời từ tri thức công ty với truy xuất sẵn sàng RAG."
+    },
+    "support_assistant": {
+      "name": "Trợ lý hỗ trợ",
+      "description": "Phân loại hỗ trợ, trả lời và đường leo thang."
+    },
+    "meeting_assistant": {
+      "name": "Trợ lý họp",
+      "description": "Chuẩn bị agenda, chỗ ghi chú và follow-up."
+    },
+    "custom": {
+      "name": "Tác nhân tùy chỉnh",
+      "description": "Điểm mở rộng cho tác nhân riêng của tổ chức."
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "Công cụ CRM",
+      "description": "Tạo/cập nhật khách và đọc ngữ cảnh tài khoản."
+    },
+    "projects": {
+      "name": "Công cụ dự án",
+      "description": "Quản lý dự án, việc và trạng thái giao hàng."
+    },
+    "finance": {
+      "name": "Công cụ tài chính",
+      "description": "Hóa đơn, số dư và tóm tắt tài chính."
+    },
+    "documents": {
+      "name": "Công cụ tài liệu",
+      "description": "Đọc và tóm tắt tài liệu không gian làm việc."
+    },
+    "workflow": {
+      "name": "Công cụ workflow",
+      "description": "Kích hoạt và kiểm tra workflow tự động."
+    },
+    "integration": {
+      "name": "Công cụ tích hợp",
+      "description": "Gọi connector bên thứ ba đã kết nối."
+    },
+    "email": {
+      "name": "Công cụ email",
+      "description": "Soạn và xếp hàng email gửi đi."
+    },
+    "calendar": {
+      "name": "Công cụ lịch",
+      "description": "Lên lịch và kiểm tra sự kiện lịch."
+    },
+    "search": {
+      "name": "Công cụ tìm kiếm",
+      "description": "Tìm kiếm không gian làm việc toàn cục."
+    },
+    "notification": {
+      "name": "Công cụ thông báo",
+      "description": "Gửi thông báo trong ứng dụng."
+    },
+    "api": {
+      "name": "Công cụ API",
+      "description": "Gọi tuyến cổng API nội bộ."
+    },
+    "mcp": {
+      "name": "Công cụ MCP",
+      "description": "Công cụ máy chủ Model Context Protocol trong tương lai."
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "Nguyên tắc vận hành AGXORA",
+      "summary": "Nguyên tắc OS doanh nghiệp cho tác nhân AI mô-đun, an toàn."
+    },
+    "policies": {
+      "title": "Chính sách xử lý dữ liệu",
+      "summary": "Cô lập công cụ nhạy cảm và truy cập quyền tối thiểu."
+    },
+    "procedures": {
+      "title": "Quy trình leo thang khách hàng",
+      "summary": "Đường leo thang của trợ lý hỗ trợ khi độ tin thấp."
+    },
+    "rag": {
+      "title": "Chỗ dành chỉ mục RAG",
+      "summary": "Truy xuất vector tương lai trên tài liệu và ghi chú CRM."
+    }
+  },
+  "llm": {
+    "local": "LLM cục bộ",
+    "mcp": "Máy chủ MCP",
+    "custom": "Mô hình tùy chỉnh"
+  },
+  "lifecycle": {
+    "draft": "Nháp",
+    "registered": "Đã đăng ký",
+    "active": "Đang hoạt động",
+    "paused": "Tạm dừng",
+    "error": "Lỗi",
+    "retired": "Ngừng dùng"
+  },
+  "healthStatus": {
+    "healthy": "Ổn định",
+    "degraded": "Suy giảm",
+    "down": "Ngừng",
+    "unknown": "Không rõ"
+  },
+  "taskStatus": {
+    "pending": "Đang chờ",
+    "running": "Đang chạy",
+    "completed": "Hoàn tất",
+    "cancelled": "Đã hủy",
+    "failed": "Thất bại",
+    "retrying": "Đang thử lại"
+  },
+  "memoryScope": {
+    "working": "Làm việc",
+    "conversation": "Hội thoại",
+    "business": "Kinh doanh",
+    "long_term": "Dài hạn",
+    "workspace": "Không gian",
+    "agent": "Tác nhân"
+  },
+  "knowledgeKind": {
+    "company": "Công ty",
+    "documents": "Tài liệu",
+    "projects": "Dự án",
+    "crm": "CRM",
+    "policies": "Chính sách",
+    "procedures": "Quy trình",
+    "vector": "Vector",
+    "rag": "RAG"
   }
 }

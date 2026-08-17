@@ -11,7 +11,7 @@ import {
   inviteMember,
 } from "../../lib/identity";
 import { useOrganization } from "../../lib/organization";
-import { useT } from "../../lib/i18n";
+import { localizeThrownError, useT } from "../../lib/i18n";
 import type { MembershipRole, WorkspaceMembership } from "../../lib/organization/types";
 import { teamService, type TeamInvitation } from "../../lib/saas";
 
@@ -114,12 +114,15 @@ export function TeamWorkspace(): JSX.Element {
               })
                 .then(() => refresh())
                 .then(() =>
-                  setMessage(t("team.members.updated", { name: r.name, role: next })),
+                  setMessage(
+                    t("team.members.updated", {
+                      name: r.name,
+                      role: t(`team.roles.${next}.name` as "team.roles.admin.name"),
+                    }),
+                  ),
                 )
                 .catch((err: unknown) =>
-                  setMessage(
-                    err instanceof Error ? err.message : t("team.members.roleChangeFailed"),
-                  ),
+                  setMessage(localizeThrownError(t, err, "team.members.roleChangeFailed")),
                 )
                 .finally(() => setBusy(false));
             }}
@@ -174,7 +177,7 @@ export function TeamWorkspace(): JSX.Element {
       setMessage(t("team.invite.created"));
       await refresh();
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : t("team.invite.failed"));
+      setMessage(localizeThrownError(t, error, "team.invite.failed"));
     } finally {
       setBusy(false);
     }

@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "고객 360°",
-      "subtitle": "프로필, 회사, 연락처, 주문, 송장, Lieferscheine, 결제, 문서, 타임라인, 활동, 메모, AI 요약 및 커뮤니케이션 기록."
+      "subtitle": "프로필, 회사, 연락처, 주문, 송장, 납품서, 결제, 문서, 타임라인, 활동, 메모, AI 요약 및 커뮤니케이션 기록."
     },
     "salesPipeline": {
       "title": "판매 파이프라인",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "전달 모듈",
-      "subtitle": "추적, 서명, QR 및 바코드 준비 기능을 갖춘 전문 Lieferschein 시스템."
+      "subtitle": "추적, 서명, QR 및 바코드 준비 기능을 갖춘 전문 납품서 시스템."
     },
     "documentsModule": {
       "title": "서류",
-      "subtitle": "견적, 계약서, 송장, Lieferschein, 구매 주문서, 영수증 — AI 검색을 사용하세요."
+      "subtitle": "견적, 계약서, 송장, 납품서, 구매 주문서, 영수증 — AI 검색을 사용하세요."
     },
     "tasksModule": {
       "title": "작업"
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "전문적인 Lieferschein 시스템",
+    "title": "전문적인 납품서 시스템",
     "description": "배송 메모, 픽업/배송, 운전자, 차량 및 추적 - 샘플 기록만 가능합니다. 내보내기 어댑터가 연결되지 않았습니다.",
     "badges": {
       "qrUnavailable": "QR을 사용할 수 없음",
@@ -408,7 +408,7 @@
     "emptyTitle": "문서 없음",
     "emptyDescription": "이 검색과 일치하는 문서가 없습니다.",
     "searchLabel": "AI 검색",
-    "searchPlaceholder": "견적, 계약서, 송장, Lieferschein…",
+    "searchPlaceholder": "견적, 계약서, 송장, 납품서…",
     "typeLabel": "문서 유형",
     "allTypes": "모든 유형",
     "columns": {
@@ -438,7 +438,137 @@
     "intro": "Creator Studio 기반 — 공식 플랫폼 통합은 나중에 이러한 어댑터에 연결할 수 있습니다. 인스타그램, 틱톡, 유튜브, 페이스북, 링크드인, 핀터레스트, 스레드, X."
   },
   "industry": {
-    "intro": "범용 비즈니스 플랫폼 — 온보딩은 나중에 산업을 선택합니다. 각 산업은 핵심 CRM OS를 포크하지 않고도 전용 AI 모듈을 받습니다."
+    "intro": "범용 비즈니스 플랫폼 — 온보딩은 나중에 산업을 선택합니다. 각 산업은 핵심 CRM OS를 포크하지 않고도 전용 AI 모듈을 받습니다.",
+    "catalog": {
+      "business": {
+        "label": "비즈니스",
+        "description": "일반 B2B 운영 체제"
+      },
+      "freelancer": {
+        "label": "프리랜서",
+        "description": "1인 사업자용 CRM, 청구서, 고객 파이프라인"
+      },
+      "creator": {
+        "label": "크리에이터",
+        "description": "크리에이터 스튜디오 + 브랜드 CRM"
+      },
+      "influencer": {
+        "label": "인플루언서",
+        "description": "스폰서십 CRM 및 캠페인 OS"
+      },
+      "agency": {
+        "label": "에이전시",
+        "description": "다중 고객 납품 및 리테이너"
+      },
+      "retail": {
+        "label": "리테일",
+        "description": "매장 재고, POS, 로열티"
+      },
+      "restaurant": {
+        "label": "레스토랑",
+        "description": "예약, 주방, 배달"
+      },
+      "hotel": {
+        "label": "호텔",
+        "description": "객실, 투숙객, 하우스키핑"
+      },
+      "laundry": {
+        "label": "세탁",
+        "description": "픽업, 티켓, 경로 물류"
+      },
+      "healthcare": {
+        "label": "헬스케어",
+        "description": "환자, 예약, 컴플라이언스"
+      },
+      "law_firm": {
+        "label": "로펌",
+        "description": "사건, 청구, 문서 금고"
+      },
+      "accounting": {
+        "label": "회계",
+        "description": "고객 장부 및 DATEV 내보내기"
+      },
+      "construction": {
+        "label": "건설",
+        "description": "현장, 팀, 기성 청구"
+      },
+      "real_estate": {
+        "label": "부동산",
+        "description": "매물, 방문, 거래 마감"
+      },
+      "education": {
+        "label": "교육",
+        "description": "학생, 과정, 등록"
+      },
+      "manufacturing": {
+        "label": "제조",
+        "description": "BOM, 생산, 품질"
+      },
+      "logistics": {
+        "label": "물류",
+        "description": "차량, 추적, 납품서"
+      },
+      "ecommerce": {
+        "label": "이커머스",
+        "description": "카탈로그, 장바구니, 옴니채널 주문"
+      }
+    },
+    "modules": {
+      "sales": "영업",
+      "finance": "재무",
+      "projects": "프로젝트",
+      "clients": "고객",
+      "proposals": "제안서",
+      "time_tracking": "시간 추적",
+      "invoices": "청구서",
+      "creator_studio": "크리에이터 스튜디오",
+      "brand_deals": "브랜드 딜",
+      "content_calendar": "콘텐츠 캘린더",
+      "sponsorships": "스폰서십",
+      "audience_insights": "오디언스 인사이트",
+      "campaigns": "캠페인",
+      "client_portals": "고객 포털",
+      "retainers": "리테이너",
+      "campaign_ops": "캠페인 운영",
+      "inventory": "재고",
+      "loyalty": "로열티",
+      "reservations": "예약",
+      "menu": "메뉴",
+      "kitchen_display": "주방 디스플레이",
+      "housekeeping": "하우스키핑",
+      "guest_crm": "게스트 CRM",
+      "tickets": "티켓",
+      "routes": "경로",
+      "delivery_notes": "납품서",
+      "patients": "환자",
+      "appointments": "예약",
+      "compliance": "컴플라이언스",
+      "matters": "사건",
+      "billing": "청구",
+      "documents": "문서",
+      "client_books": "고객 장부",
+      "tax_deadlines": "세무 기한",
+      "sites": "현장",
+      "crews": "팀",
+      "progress_billing": "기성 청구",
+      "listings": "매물",
+      "viewings": "방문",
+      "closings": "마감",
+      "students": "학생",
+      "courses": "과정",
+      "enrollment": "등록",
+      "production": "생산",
+      "fleet": "차량",
+      "tracking": "추적",
+      "catalog": "카탈로그",
+      "orders": "주문",
+      "fulfillment": "풀필먼트",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {

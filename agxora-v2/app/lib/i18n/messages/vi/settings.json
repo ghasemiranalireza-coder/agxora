@@ -78,10 +78,10 @@
     "streaming": "Truyền phát",
     "streamingDescription": "Truyền phát các phản hồi của mô hình khi nhà cung cấp hỗ trợ nó.",
     "providers": {
-      "mock": "Mô phỏng (địa phương)",
+      "mock": "Mock (cục bộ)",
       "openai": "OpenAI",
       "azure": "Azure OpenAI",
-      "anthropic": "nhân loại",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "Bộ định tuyến mở",
       "ollama": "Ollama",
@@ -109,9 +109,9 @@
     "themeModeAria": "Chế độ chủ đề",
     "resolvedAppearance": "Đã giải quyết sự xuất hiện:",
     "accentColor": "Màu nhấn",
-    "accentNotice": "Tùy chọn giọng được lưu trữ cho hệ thống dây CSS var trong tương lai - chưa làm thay đổi hệ thống màu bị khóa.",
+    "accentNotice": "Tuỳ chọn màu nhấn được lưu cho phiên này và chưa đổi hệ màu đã khoá.",
     "density": "Tỉ trọng",
-    "compactMode": "Chế độ nhỏ gọn",
+    "compactMode": "Chế độ gọn",
     "compactModeDescription": "Giảm phần đệm trên các bảng và bảng doanh nghiệp.",
     "animations": "Hoạt hình",
     "animationsDescription": "Phần chuyển động và thang máy di chuột. Tôn trọng cài đặt hệ điều hành giảm chuyển động.",
@@ -135,6 +135,13 @@
       "comfortable": "Thoải mái",
       "compact": "Nhỏ gọn",
       "spacious": "Rộng rãi"
+    },
+    "accents": {
+      "cyan": "Xanh cyan",
+      "blue": "Xanh dương",
+      "emerald": "Lục bảo",
+      "violet": "Tím",
+      "amber": "Hổ phách"
     }
   },
   "notifications": {

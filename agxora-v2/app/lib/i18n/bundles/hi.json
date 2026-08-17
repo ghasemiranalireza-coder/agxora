@@ -16,13 +16,13 @@
     "privacy": "गोपनीयता",
     "terms": "शर्तें",
     "cookies": "कुकीज़",
-    "imprint": "छाप",
+    "imprint": "इम्प्रिंट",
     "organization": "संगठन",
     "user": "उपयोगकर्ता",
     "guest": "अतिथि",
     "member": "सदस्य",
     "role": "भूमिका",
-    "signedIn": "साइन इन किया गया",
+    "signedIn": "साइन इन हैं",
     "guestSession": "अतिथि सत्र",
     "noResults": "कोई परिणाम नहीं",
     "noData": "कोई डेटा नहीं",
@@ -49,7 +49,7 @@
     "aiCrm": "एआई सीआरएम",
     "analytics": "एनालिटिक्स",
     "billing": "बिलिंग",
-    "aiWorkspace": "एआई कार्यक्षेत्र",
+    "aiWorkspace": "AI कार्यक्षेत्र",
     "customers": "ग्राहकों",
     "automation": "स्वचालन",
     "financeTax": "वित्त एवं कर",
@@ -60,12 +60,12 @@
     "toggleNavigation": "टॉगल से संचालित करना",
     "primary": "प्राथमिक",
     "menu": "मेनू",
-    "search": "खोज",
+    "search": "खोजें",
     "notifications": "सूचनाएं",
     "profile": "प्रोफ़ाइल",
     "currentOrganization": "वर्तमान संगठन",
     "noNotifications": "कोई सूचना नहीं",
-    "notificationsEmpty": "आप सब फंस गये हैं। अलर्ट और उल्लेख यहां दिखाई देंगे.",
+    "notificationsEmpty": "सब देख लिया। अलर्ट और उल्लेख यहाँ दिखेंगे।",
     "accountSettings": "अकाउंट सेटिंग",
     "security": "सुरक्षा",
     "themeToggle": "त्वरित थीम टॉगल. प्राथमिकता: {mode}"
@@ -259,6 +259,61 @@
         "warning": "चेतावनी",
         "ok": "ठीक है"
       }
+    },
+    "licenseStatus": {
+      "trial": "ट्रायल",
+      "active": "सक्रिय",
+      "expired": "समाप्त",
+      "cancelled": "रद्द",
+      "suspended": "निलंबित",
+      "lifetime": "आजीवन"
+    },
+    "quotas": {
+      "ai_requests": "AI अनुरोध",
+      "projects": "प्रोजेक्ट",
+      "customers": "ग्राहक",
+      "documents": "दस्तावेज़",
+      "storage_mb": "स्टोरेज (MB)",
+      "users": "उपयोगकर्ता",
+      "api_requests": "API अनुरोध"
+    },
+    "invoiceStatus": {
+      "draft": "ड्राफ्ट",
+      "open": "खुला",
+      "paid": "भुगतान",
+      "void": "रद्द",
+      "uncollectible": "वसूली अयोग्य",
+      "refunded": "वापस"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "ट्रायल जल्द समाप्त",
+        "body": "आपका ट्रायल लगभग {days} दिन में समाप्त होगा। पूरा एक्सेस रखने के लिए अपग्रेड करें।"
+      },
+      "expired": {
+        "title": "सदस्यता समाप्त",
+        "body": "व्यावसायिक सुविधाएँ वापस पाने के लिए प्लान नवीनीकृत या अपग्रेड करें।"
+      },
+      "cancelled": {
+        "title": "सदस्यता रद्द",
+        "body": "आपकी AGXORA सदस्यता रद्द हुई। अवधि खत्म होने तक एक्सेस रहेगा।"
+      },
+      "quotaWarning": {
+        "title": "{metric} सीमा करीब",
+        "body": "{used} में से {limit} उपयोग। अपग्रेड सोचें।"
+      },
+      "upgradeAvailable": {
+        "title": "अपग्रेड उपलब्ध",
+        "body": "Business और Enterprise ऑटोमेशन, अधिक AI कोटा और API एक्सेस खोलते हैं।"
+      },
+      "invoiceReady": {
+        "title": "इनवॉइस तैयार",
+        "body": "इनवॉइस {number} का भुगतान सफल रहा।"
+      },
+      "renewed": {
+        "title": "सदस्यता नवीनीकृत",
+        "body": "आपका प्लान {date} को नवीनीकृत होगा।"
+      }
     }
   },
   "settings": {
@@ -290,7 +345,7 @@
       "regions": {
         "EU": "यूरोपीय संघ",
         "US": "संयुक्त राज्य अमेरिका",
-        "MENA": "मेना",
+        "MENA": "MENA",
         "APAC": "एपीएसी"
       }
     },
@@ -324,7 +379,7 @@
       "preferredProvider": "पसंदीदा एआई प्रदाता",
       "defaultModel": "डिफ़ॉल्ट एआई मॉडल",
       "temperature": "तापमान",
-      "topP": "शीर्ष पी",
+      "topP": "Top P",
       "maxTokens": "अधिकतम टोकन",
       "writingStyle": "लेखन शैली",
       "languagePreferences": "भाषा प्राथमिकताएँ",
@@ -341,10 +396,10 @@
       "streaming": "स्ट्रीमिंग",
       "streamingDescription": "जब प्रदाता इसका समर्थन करता है तो स्ट्रीम मॉडल प्रतिक्रियाएँ।",
       "providers": {
-        "mock": "नकली (स्थानीय)",
+        "mock": "मॉक (स्थानीय)",
         "openai": "ओपनएआई",
         "azure": "एज़्योर ओपनएआई",
-        "anthropic": "anthropic",
+        "anthropic": "Anthropic",
         "google": "गूगल",
         "openrouter": "ओपनराउटर",
         "ollama": "ओलामा",
@@ -372,7 +427,14 @@
       "themeModeAria": "थीम मोड",
       "resolvedAppearance": "सुलझी हुई उपस्थिति:",
       "accentColor": "एक्सेंट रंग",
-      "accentNotice": "एक्सेंट प्राथमिकता को भविष्य के सीएसएस संस्करण वायरिंग के लिए संग्रहीत किया जाता है - अभी तक लॉक किए गए रंग सिस्टम को परिवर्तित नहीं करता है।",
+      "accentNotice": "एक्सेंट वरीयता इस सत्र में सहेजी जाती है और लॉक रंग प्रणाली अभी नहीं बदलती।",
+      "accents": {
+        "cyan": "सियान",
+        "blue": "नीला",
+        "emerald": "एमराल्ड",
+        "violet": "वायलेट",
+        "amber": "अंबर"
+      },
       "density": "घनत्व",
       "compactMode": "कॉम्पैक्ट मोड",
       "compactModeDescription": "एंटरप्राइज़ तालिकाओं और पैनलों में पैडिंग कम करें।",
@@ -741,8 +803,8 @@
     "skipToContent": "डैशबोर्ड सामग्री पर जाएं",
     "loading": "डैशबोर्ड लोड हो रहा है...",
     "hero": {
-      "ariaLabel": "एग्क्सोरा कोर हीरो",
-      "eyebrow": "एआई बिजनेस ऑपरेटिंग सिस्टम",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "AI बिज़नेस ऑपरेटिंग सिस्टम",
       "title": "एग्क्सोरा कोर",
       "subtitle": "वास्तविक समय की खुफिया जानकारी और परिचालन नियंत्रण - आपका कार्यक्षेत्र कमांड सतह।",
       "ctaGetStarted": "शुरू हो जाओ",
@@ -752,11 +814,11 @@
     },
     "quickActions": {
       "title": "त्वरित कार्रवाई",
-      "subtitle": "आपको आगे क्या करना चाहिए?",
+      "subtitle": "अब क्या करना चाहिए?",
       "ariaLabel": "त्वरित कार्रवाई",
       "addCustomer": {
         "label": "ग्राहक जोड़ें",
-        "description": "एक CRM रिकॉर्ड बनाएं"
+        "description": "CRM रिकॉर्ड बनाएं"
       },
       "newProject": {
         "label": "नया प्रोजेक्ट",
@@ -782,7 +844,7 @@
     "attention": {
       "title": "ध्यान देने की जरूरत है",
       "ariaLabel": "किस बात पर ध्यान देने की जरूरत है",
-      "empty": "आप स्पष्ट हैं - अभी कोई अत्यावश्यक वस्तु नहीं है।",
+      "empty": "सब ठीक है — अभी कोई जरूरी आइटम नहीं।",
       "tone": {
         "critical": "गंभीर",
         "warning": "चेतावनी",
@@ -809,7 +871,7 @@
     },
     "overview": {
       "title": "क्या हो रहा है",
-      "subtitle": "{name} के लिए कार्यस्थान मायने रखता है",
+      "subtitle": "{name} के लिए कार्यक्षेत्र गणना",
       "fallbackName": "आपका कार्यक्षेत्र",
       "ariaLabel": "व्यापार सिंहावलोकन",
       "online": "ऑनलाइन",
@@ -836,15 +898,15 @@
         "viewFeed": "फ़ीड देखें"
       },
       "revenue": {
-        "title": "आय",
+        "title": "राजस्व",
         "caption": "एमआरआर दिखाने के लिए बिलिंग कनेक्ट करें",
         "openBilling": "बिलिंग खोलें"
       },
       "clientShell": {
-        "title": "ग्राहक खोल",
+        "title": "ऐप शेल",
         "caption": "ब्राउज़र सत्र तैयार - लाइव ऑप्स मॉनिटर नहीं",
         "shellLoaded": "एप्लिकेशन शेल लोड किया गया",
-        "storesReady": "स्थानीय कार्यक्षेत्र स्टोर तैयार हैं"
+        "storesReady": "स्थानीय वर्कस्पेस स्टोर तैयार"
       },
       "growth": {
         "title": "विकास",
@@ -856,7 +918,7 @@
       "title": "हाल की गतिविधि",
       "subtitle": "आज क्या बदल गया",
       "ariaLabel": "हाल की गतिविधि",
-      "todayCount": "{count} आज",
+      "todayCount": "आज {count}",
       "localBadge": "स्थानीय",
       "emptyTitle": "अभी तक कोई गतिविधि नहीं",
       "emptyBody": "जैसे ही आप ग्राहक, प्रोजेक्ट और बहुत कुछ जोड़ेंगे, कार्यक्षेत्र ईवेंट यहां दिखाई देंगे।",
@@ -1127,14 +1189,14 @@
   },
   "auth": {
     "login": {
-      "title": "दाखिल करना",
-      "subtitle": "AGXORA में आपका पुनः स्वागत है।",
+      "title": "साइन इन",
+      "subtitle": "AGXORA में वापस स्वागत है।",
       "email": "ईमेल",
       "password": "पासवर्ड",
       "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "पासवर्ड",
-      "rememberMe": "मुझे याद करो",
-      "submit": "दाखिल करना",
+      "rememberMe": "मुझे याद रखें",
+      "submit": "साइन इन",
       "submitting": "इन कर रहे हैं…",
       "noAccount": "खाता नहीं?",
       "startFree": "निःशुल्क प्रारंभ करें",
@@ -1142,7 +1204,7 @@
       "showPassword": "पासवर्ड दिखाए",
       "hidePassword": "पासवर्ड छिपाएं",
       "failed": "भाग लेना विफल हुआ",
-      "loading": "दाखिल करना"
+      "loading": "साइन इन"
     },
     "register": {
       "title": "खाता बनाएं",
@@ -1153,18 +1215,18 @@
       "company": "कंपनी",
       "password": "पासवर्ड",
       "confirmPassword": "पासवर्ड की पुष्टि कीजिये",
-      "acceptTerms": "मुझे स्वीकार है",
+      "acceptTerms": "मैं स्वीकार करता/करती हूँ",
       "termsOfService": "सेवा की शर्तें",
       "and": "और",
       "privacyPolicy": "गोपनीयता नीति",
       "submit": "खाता बनाएं",
       "submitting": "खाता बनाया जा रहा है...",
       "haveAccount": "क्या आपके पास पहले से एक खाता मौजूद है?",
-      "signIn": "दाखिल करना",
+      "signIn": "साइन इन",
       "strength": "पासवर्ड की मजबूती",
       "strengthWeak": "कमज़ोर",
-      "strengthFair": "गोरा",
-      "strengthStrong": "मज़बूत",
+      "strengthFair": "ठीक",
+      "strengthStrong": "मजबूत",
       "firstNamePlaceholder": "एलेक्स",
       "lastNamePlaceholder": "मॉर्गन",
       "companyPlaceholder": "एजीएक्सओआरए जीएमबीएच",
@@ -1199,7 +1261,7 @@
       "loading": "पासवर्ड रीसेट"
     },
     "contactSales": {
-      "title": "बिक्री से संपर्क करें",
+      "title": "सेल्स से संपर्क करें",
       "subtitle": "हमें अपनी टीम के बारे में बताएं. हम उद्यम विकल्पों का अनुसरण करेंगे।",
       "name": "पूरा नाम",
       "email": "कार्य ईमेल",
@@ -1218,7 +1280,7 @@
       "successTitle": "धन्यवाद",
       "successBody": "आपकी पूछताछ प्राप्त हुई. हमारी टीम शीघ्र ही जवाब देगी.",
       "viewPricing": "मूल्य निर्धारण देखें",
-      "bookDemo": "बुक डेमो",
+      "bookDemo": "डेमो बुक करें",
       "failed": "जांच प्रस्तुत नहीं की जा सकी",
       "country": "देश",
       "savedFor": "{company} के लिए सहेजा गया। इस बिल्ड में सेल्स डिलीवरी कनेक्ट नहीं है।",
@@ -1577,7 +1639,7 @@
         "contacts": "संपर्क",
         "orders": "आदेश",
         "invoices": "चालान",
-        "lieferscheine": "Lieferscheine",
+        "lieferscheine": "डिलीवरी नोट",
         "payments": "भुगतान",
         "documents": "दस्तावेज़",
         "timeline": "समय",
@@ -1611,7 +1673,7 @@
         "historyNotConnected": "इस बिल्ड में डिलीवरी हिस्ट्री स्टोर कनेक्ट नहीं है।"
       },
       "columns": {
-        "lieferschein": "Lieferschein",
+        "lieferschein": "डिलीवरी नोट",
         "order": "आदेश",
         "customer": "ग्राहक",
         "kind": "दयालु",
@@ -1682,7 +1744,7 @@
         "quote": "उद्धरण",
         "contract": "अनुबंध",
         "invoice": "चालान",
-        "lieferschein": "Lieferschein",
+        "lieferschein": "डिलीवरी नोट",
         "purchase_order": "खरीद आदेश",
         "receipt": "प्राप्तियां"
       }
@@ -1698,7 +1760,137 @@
       "intro": "क्रिएटर स्टूडियो फ़ाउंडेशन - आधिकारिक प्लेटफ़ॉर्म एकीकरण बाद में इन एडेप्टर में प्लग इन किया जा सकता है। इंस्टाग्राम, टिकटॉक, यूट्यूब, फेसबुक, लिंक्डइन, पिनटेरेस्ट, थ्रेड्स, एक्स।"
     },
     "industry": {
-      "intro": "यूनिवर्सल बिजनेस प्लेटफ़ॉर्म - ऑनबोर्डिंग बाद में एक उद्योग का चयन करेगी। प्रत्येक उद्योग को कोर सीआरएम ओएस को फोर्क किए बिना समर्पित एआई मॉड्यूल प्राप्त होते हैं।"
+      "intro": "यूनिवर्सल बिजनेस प्लेटफ़ॉर्म - ऑनबोर्डिंग बाद में एक उद्योग का चयन करेगी। प्रत्येक उद्योग को कोर सीआरएम ओएस को फोर्क किए बिना समर्पित एआई मॉड्यूल प्राप्त होते हैं।",
+      "catalog": {
+        "business": {
+          "label": "व्यवसाय",
+          "description": "सामान्य B2B ऑपरेटिंग सिस्टम"
+        },
+        "freelancer": {
+          "label": "फ्रीलांसर",
+          "description": "सोलो ऑपरेटर के लिए CRM, चालान और ग्राहक पाइपलाइन"
+        },
+        "creator": {
+          "label": "क्रिएटर",
+          "description": "क्रिएटर स्टूडियो + ब्रांड CRM"
+        },
+        "influencer": {
+          "label": "इन्फ्लुएंसर",
+          "description": "स्पॉन्सरशिप CRM और कैंपेन OS"
+        },
+        "agency": {
+          "label": "एजेंसी",
+          "description": "मल्टी-कस्टमर डिलीवरी और रिटेनर"
+        },
+        "retail": {
+          "label": "खुदरा",
+          "description": "स्टोर इन्वेंटरी, POS और लॉयल्टी"
+        },
+        "restaurant": {
+          "label": "रेस्तरां",
+          "description": "आरक्षण, रसोई और डिलीवरी"
+        },
+        "hotel": {
+          "label": "होटल",
+          "description": "कमरे, मेहमान और हाउसकीपिंग"
+        },
+        "laundry": {
+          "label": "लॉन्ड्री",
+          "description": "पिकअप, टिकट और रूट लॉजिस्टिक्स"
+        },
+        "healthcare": {
+          "label": "स्वास्थ्य सेवा",
+          "description": "मरीज, अपॉइंटमेंट, अनुपालन"
+        },
+        "law_firm": {
+          "label": "लॉ फर्म",
+          "description": "मामले, बिलिंग और दस्तावेज़ वॉल्ट"
+        },
+        "accounting": {
+          "label": "लेखांकन",
+          "description": "ग्राहक बही और DATEV निर्यात"
+        },
+        "construction": {
+          "label": "निर्माण",
+          "description": "साइट, क्रू और प्रोग्रेस बिलिंग"
+        },
+        "real_estate": {
+          "label": "रियल एस्टेट",
+          "description": "लिस्टिंग, विजिट और क्लोजिंग"
+        },
+        "education": {
+          "label": "शिक्षा",
+          "description": "छात्र, पाठ्यक्रम और नामांकन"
+        },
+        "manufacturing": {
+          "label": "विनिर्माण",
+          "description": "BOM, उत्पादन और QC"
+        },
+        "logistics": {
+          "label": "लॉजिस्टिक्स",
+          "description": "फ्लीट, ट्रैकिंग और डिलीवरी नोट"
+        },
+        "ecommerce": {
+          "label": "ई-कॉमर्स",
+          "description": "कैटलॉग, कार्ट और ऑमनीचैनल ऑर्डर"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "बिक्री",
+        "finance": "वित्त",
+        "projects": "प्रोजेक्ट",
+        "clients": "ग्राहक",
+        "proposals": "प्रस्ताव",
+        "time_tracking": "समय ट्रैकिंग",
+        "invoices": "चालान",
+        "creator_studio": "क्रिएटर स्टूडियो",
+        "brand_deals": "ब्रांड डील",
+        "content_calendar": "कंटेंट कैलेंडर",
+        "sponsorships": "स्पॉन्सरशिप",
+        "audience_insights": "ऑडियंस इनसाइट",
+        "campaigns": "अभियान",
+        "client_portals": "ग्राहक पोर्टल",
+        "retainers": "रिटेनर",
+        "campaign_ops": "कैंपेन ऑप्स",
+        "inventory": "इन्वेंटरी",
+        "pos": "POS",
+        "loyalty": "लॉयल्टी",
+        "reservations": "आरक्षण",
+        "menu": "मेनू",
+        "kitchen_display": "किचन डिस्प्ले",
+        "housekeeping": "हाउसकीपिंग",
+        "guest_crm": "गेस्ट CRM",
+        "tickets": "टिकट",
+        "routes": "रूट",
+        "delivery_notes": "डिलीवरी नोट",
+        "patients": "मरीज",
+        "appointments": "अपॉइंटमेंट",
+        "compliance": "अनुपालन",
+        "matters": "मामले",
+        "billing": "बिलिंग",
+        "documents": "दस्तावेज़",
+        "client_books": "ग्राहक बही",
+        "datev": "DATEV",
+        "tax_deadlines": "कर समयसीमा",
+        "sites": "साइट",
+        "crews": "क्रू",
+        "progress_billing": "प्रोग्रेस बिलिंग",
+        "listings": "लिस्टिंग",
+        "viewings": "विजिटिंग",
+        "closings": "क्लोजिंग",
+        "students": "छात्र",
+        "courses": "पाठ्यक्रम",
+        "enrollment": "नामांकन",
+        "bom": "BOM",
+        "production": "उत्पादन",
+        "qc": "QC",
+        "fleet": "फ्लीट",
+        "tracking": "ट्रैकिंग",
+        "catalog": "कैटलॉग",
+        "orders": "ऑर्डर",
+        "fulfillment": "फुलफिलमेंट"
+      }
     },
     "kpi": {
       "customers": {
@@ -1762,7 +1954,7 @@
       "quote": "उद्धरण",
       "contract": "अनुबंध",
       "invoice": "चालान",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "डिलीवरी नोट",
       "purchase_order": "क्रय आदेश",
       "receipt": "रसीद"
     },
@@ -2831,7 +3023,7 @@
       "missingTitle": "गुम परियोजना",
       "missingDescription": "किसी प्रोजेक्ट का अवलोकन देखने के लिए उसका चयन करें।",
       "title": "सिंहावलोकन",
-      "noDescription": "कोई विवरण नहीं दिया गया.",
+      "noDescription": "कोई विवरण नहीं।",
       "budget": "बजट",
       "spent": "खर्च किया",
       "start": "शुरू",
@@ -2977,8 +3169,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "अनुकूलन सुझाव",
       "oneClickOptimize": "एक क्लिक अनुकूलन",
-      "noticeDefault": "वन क्लिक ऑप्टिमाइज़ अभी तक कोई ग्राफ़ म्यूटेशन नहीं है।",
-      "noticeQueued": "कतारबद्ध अनुकूलित करें. भविष्य का इंजन देरी और अनुमोदन को फिर से लिखेगा।"
+      "noticeDefault": "एक-क्लिक ऑप्टिमाइज़ अभी ग्राफ़ नहीं बदलता।",
+      "noticeQueued": "ऑप्टिमाइज़ कतार में है। भविष्य का इंजन देरी और अनुमोदन फिर लिखेगा।",
+      "score": {
+        "healthy": "स्वस्थ",
+        "needsAttention": "ध्यान चाहिए",
+        "atRisk": "जोखिम में"
+      },
+      "kinds": {
+        "missing_approval": "अनुमोदन",
+        "possible_delay": "विलंब",
+        "unused_trigger": "ट्रिगर",
+        "duplicate_nodes": "डुप्लिकेट",
+        "unused_action": "कार्रवाई",
+        "security": "सुरक्षा",
+        "performance": "प्रदर्शन"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "अनुमोदन गायब",
+          "description": "लंबे फ्लो में साइड इफेक्ट से पहले अनुमोदन गेट मददगार होता है।"
+        },
+        "possible_delay": {
+          "title": "संभावित विलंब",
+          "description": "रिमाइंडर ईमेल से पहले देरी डालें ताकि शोर न बढ़े।"
+        },
+        "unused_trigger": {
+          "title": "अप्रयुक्त ट्रिगर",
+          "description": "इस ग्राफ़ में स्टार्ट ट्रिगर नहीं है — सक्रिय करने से पहले जोड़ें।"
+        },
+        "duplicate_nodes": {
+          "title": "डुप्लिकेट नोड",
+          "description": "“{label}” {count} बार आता है — यदि दोहरा हो तो मिलाएं।"
+        },
+        "unused_action": {
+          "title": "अप्रयुक्त कार्रवाई",
+          "description": "{label} जुड़ा नहीं है — जोड़ें या हटाएं।"
+        },
+        "security": {
+          "title": "सुरक्षा सुझाव",
+          "description": "वेबहुक और ईमेल क्रियाओं के लिए न्यूनतम अधिकार वाले एडाप्टर चुनें।"
+        },
+        "performance": {
+          "title": "प्रदर्शन सुझाव",
+          "description": "संभव हो तो AI चरणों को बैच करें ताकि औसत समय घटे।"
+        }
+      }
     },
     "integrations": {
       "intro": "एकीकरण केंद्र - वैकल्पिक. स्थितियाँ: कनेक्टेड, बीटा, नियोजित, जल्द आ रहा है, अक्षम। कोई लाइव एपीआई नहीं.",
@@ -3487,6 +3723,192 @@
         "label": "स्थिति अपडेट करें",
         "description": "मॉड्यूल में एंटिटी की स्थिति अपडेट करें."
       }
+    },
+    "kinds": {
+      "trigger": "ट्रिगर",
+      "action": "कार्रवाई",
+      "condition": "शर्त",
+      "delay": "विलंब",
+      "approval": "अनुमोदन",
+      "loop": "लूप",
+      "merge": "मर्ज",
+      "split": "स्प्लिट",
+      "ai_decision": "AI निर्णय",
+      "ai_action": "AI कार्रवाई",
+      "notification": "सूचना",
+      "webhook": "वेबहुक",
+      "custom_action": "कस्टम कार्रवाई",
+      "branch": "शाखा",
+      "variable": "चर"
+    },
+    "kpi": {
+      "active": {
+        "label": "सक्रिय वर्कफ़्लो",
+        "caption": "वर्कस्पेस में सक्षम"
+      },
+      "runs-today": {
+        "label": "आज वर्कफ़्लो रन",
+        "caption": "सभी ट्रिगर पर"
+      },
+      "success": {
+        "label": "सफल ऑटोमेशन",
+        "caption": "आज"
+      },
+      "failed": {
+        "label": "विफल रन",
+        "caption": "ध्यान चाहिए"
+      },
+      "pending": {
+        "label": "लंबित कार्य",
+        "caption": "अनुमोदन + पुनः प्रयास"
+      },
+      "avg-time": {
+        "label": "औसत निष्पादन समय",
+        "caption": "माध्यिका 1.2 सेकंड"
+      },
+      "ai-suggestions": {
+        "label": "AI सुझाव",
+        "caption": "ऑटोमेशन अवसर"
+      }
+    },
+    "integrationCategories": {
+      "Productivity": "उत्पादकता",
+      "Communication": "संचार",
+      "Commerce": "कॉमर्स",
+      "Finance": "वित्त",
+      "ERP": "ERP",
+      "CRM": "CRM"
+    },
+    "integrationNotes": {
+      "google-workspace": "OAuth वायरिंग के लिए Gmail / Drive / कैलेंडर हुक आरक्षित।",
+      "m365": "Outlook / Teams / Graph हुक आरक्षित।",
+      "slack": "Events API + चैट पोस्ट आरक्षित।",
+      "teams": "Bot Framework एडाप्टर आरक्षित।",
+      "discord": "वेबहुक + बॉट एडाप्टर आरक्षित।",
+      "whatsapp": "Meta Cloud API एडाप्टर आरक्षित।",
+      "stripe": "भुगतान वेबहुक आरक्षित — कोई लाइव कुंजी नहीं।",
+      "shopify": "ऑर्डर / उत्पाद इवेंट आरक्षित।",
+      "datev": "DATEV निर्यात / बुकिंग-बैच हुक आरक्षित।",
+      "sap": "ERP इवेंट ब्रिज आरक्षित — एंटरप्राइज़ प्लान तक अक्षम।",
+      "hubspot": "CRM सिंक एडाप्टर आरक्षित।",
+      "salesforce": "Platform Events एडाप्टर आरक्षित।"
+    },
+    "defaultWorkflow": {
+      "name": "ग्राहक ऑनबोर्डिंग",
+      "description": "ग्राहक बनने पर स्वागत अनुक्रम।"
+    },
+    "templateCategories": {
+      "CRM": "CRM",
+      "Finance": "वित्त",
+      "Sales": "बिक्री",
+      "Marketing": "मार्केटिंग",
+      "HR": "एचआर",
+      "Creator": "क्रिएटर",
+      "Ops": "ऑप्स",
+      "Projects": "प्रोजेक्ट",
+      "AI": "AI"
+    },
+    "studioTemplates": {
+      "tpl-onboarding": {
+        "name": "ग्राहक ऑनबोर्डिंग",
+        "description": "ग्राहक बनने पर स्वागत ईमेल, AI सारांश और मालिक कार्य।",
+        "category": "CRM",
+        "recommendedFor": "नए B2B ग्राहकों को ऑनबोर्ड करने वाली टीमें"
+      },
+      "tpl-invoice": {
+        "name": "चालान रिमाइंडर",
+        "description": "खुले चालानों के लिए अनुसूचित रिमाइंडर और एस्केलेशन पथ।",
+        "category": "वित्त",
+        "recommendedFor": "अतिदेय प्राप्तियों को घटाने वाला फाइनेंस ऑप्स"
+      },
+      "tpl-lead": {
+        "name": "लीड फॉलो-अप",
+        "description": "नए लीड के लिए AI ईमेल जवाब और पाइपलाइन स्थिति अपडेट।",
+        "category": "बिक्री",
+        "recommendedFor": "उच्च इनबाउंड लीड वॉल्यूम वाली सेल्स टीमें"
+      },
+      "tpl-welcome": {
+        "name": "स्वागत ईमेल",
+        "description": "साइनअप पर सरल स्वागत अनुक्रम।",
+        "category": "मार्केटिंग",
+        "recommendedFor": "ईमेल ऑटोमेशन से शुरू करने वाला कोई भी वर्कस्पेस"
+      },
+      "tpl-pipeline": {
+        "name": "सेल्स पाइपलाइन",
+        "description": "सूचनाओं और कार्यों के साथ चरण परिवर्तन।",
+        "category": "बिक्री",
+        "recommendedFor": "बहु-चरण डील प्रगति प्रबंधित करने वाली टीमें"
+      },
+      "tpl-recruit": {
+        "name": "भर्ती",
+        "description": "उम्मीदवार रूटिंग और इंटरव्यू कार्य।",
+        "category": "एचआर",
+        "recommendedFor": "हायरिंग मैनेजर और पीपल ऑप्स"
+      },
+      "tpl-content": {
+        "name": "कंटेंट प्रकाशन",
+        "description": "क्रिएटर स्टूडियो: प्रकाशित → सूचित → एनालिटिक्स।",
+        "category": "क्रिएटर",
+        "recommendedFor": "मार्केटिंग और क्रिएटर टीमें"
+      },
+      "tpl-approval": {
+        "name": "अनुमोदन प्रक्रिया",
+        "description": "AI सुझावों के साथ बहु-चरण अनुमोदन।",
+        "category": "ऑप्स",
+        "recommendedFor": "साइड इफेक्ट से पहले फाइनेंस/ऑप्स अनुमोदन",
+        "estimatedRuntime": "मानव गेट"
+      }
+    },
+    "engineTemplates": {
+      "tpl_customer_welcome": {
+        "name": "नए ग्राहक का स्वागत",
+        "description": "ग्राहक बनने पर स्वागत ईमेल + सूचना।",
+        "category": "CRM"
+      },
+      "tpl_invoice_reminder": {
+        "name": "चालान रिमाइंडर",
+        "description": "चालान जारी होने के बाद ग्राहकों को याद दिलाएँ।",
+        "category": "वित्त"
+      },
+      "tpl_project_kickoff": {
+        "name": "प्रोजेक्ट किकऑफ",
+        "description": "किकऑफ कार्य असाइन करें और प्रोजेक्ट बनने पर सूचित करें।",
+        "category": "प्रोजेक्ट"
+      },
+      "tpl_task_assignment": {
+        "name": "कार्य असाइनमेंट",
+        "description": "कार्य पूरा होने पर असाइनी को ईमेल — अगला काम जोड़ें।",
+        "category": "प्रोजेक्ट"
+      },
+      "tpl_ai_customer_summary": {
+        "name": "AI ग्राहक सारांश",
+        "description": "ग्राहक बनने पर AI सारांश चलाएँ; आउटपुट सहेजें।",
+        "category": "AI"
+      },
+      "tpl_followup_reminder": {
+        "name": "फॉलो-अप रिमाइंडर",
+        "description": "स्थिति के अनुसार शाखा वाला शेड्यूल-आधारित फॉलो-अप।",
+        "category": "CRM"
+      }
+    },
+    "nodeLabels": {
+      "send_welcome_email": "स्वागत ईमेल भेजें",
+      "notify_team": "टीम को सूचित करें",
+      "wait_3_days": "3 दिन प्रतीक्षा",
+      "still_unpaid": "अभी भी unpaid?",
+      "send_reminder": "रिमाइंडर भेजें",
+      "assign_kickoff_task": "किकऑफ कार्य असाइन करें",
+      "notify_owner": "मालिक को सूचित करें",
+      "notify_stakeholders": "स्टेकहोल्डर को सूचित करें",
+      "run_ai_summary": "AI सारांश चलाएँ",
+      "generate_document": "दस्तावेज़ बनाएँ",
+      "daily_schedule": "दैनिक शेड्यूल",
+      "by_priority": "प्राथमिकता के अनुसार",
+      "urgent_notification": "जरूरी सूचना",
+      "standard_email": "मानक ईमेल"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "AI सामग्री बनाएँ"
     }
   },
   "team": {
@@ -3970,6 +4392,177 @@
     "os": {
       "prioritizeCustomerImpact": "ग्राहक प्रभाव को प्राथमिकता दें",
       "delegatedFollowUp": "प्रत्यायोजित फ़ॉलो-अप"
+    },
+    "categories": {
+      "Leadership": "नेतृत्व",
+      "Revenue": "राजस्व",
+      "CRM": "CRM",
+      "Delivery": "डिलीवरी",
+      "Automation": "ऑटोमेशन",
+      "Finance": "वित्त",
+      "Knowledge": "ज्ञान",
+      "Support": "सपोर्ट",
+      "Productivity": "उत्पादकता",
+      "Custom": "कस्टम"
+    },
+    "catalog": {
+      "executive_advisor": {
+        "name": "कार्यकारी सलाहकार",
+        "description": "रणनीतिक ब्रीफिंग, KPI सार और निर्णय सहायता।"
+      },
+      "sales_agent": {
+        "name": "सेल्स एजेंट",
+        "description": "पाइपलाइन कोचिंग, आउटरीच ड्राफ्ट और डील के अगले कदम।"
+      },
+      "crm_assistant": {
+        "name": "CRM सहायक",
+        "description": "ग्राहक समृद्धि, डेटा स्वच्छता और संबंध इनसाइट।"
+      },
+      "project_manager": {
+        "name": "प्रोजेक्ट मैनेजर",
+        "description": "योजना, कार्य विभाजन और डिलीवरी जोखिम संकेत।"
+      },
+      "workflow_coordinator": {
+        "name": "वर्कफ़्लो समन्वयक",
+        "description": "AGXORA ऑटोमेशन वर्कफ़्लो को ट्रिगर और समन्वयित करता है।"
+      },
+      "finance_assistant": {
+        "name": "वित्त सहायक",
+        "description": "चालान जागरूकता, कैशफ़्लो नोट और वित्त सार।"
+      },
+      "document_analyst": {
+        "name": "दस्तावेज़ विश्लेषक",
+        "description": "दस्तावेज़ों से संरचना, जोखिम और सार निकालता है।"
+      },
+      "knowledge_assistant": {
+        "name": "ज्ञान सहायक",
+        "description": "कंपनी ज्ञान से उत्तर देता है, RAG-तैयार retrieval के साथ।"
+      },
+      "support_assistant": {
+        "name": "सपोर्ट सहायक",
+        "description": "सपोर्ट ट्रायज, जवाब और एस्केलेशन पथ।"
+      },
+      "meeting_assistant": {
+        "name": "मीटिंग सहायक",
+        "description": "एजेंडा तैयारी, नोट प्लेसहोल्डर और फॉलो-अप।"
+      },
+      "custom": {
+        "name": "कस्टम एजेंट",
+        "description": "संगठन-विशिष्ट एजेंटों के लिए विस्तार बिंदु।"
+      }
+    },
+    "toolsCatalog": {
+      "crm": {
+        "name": "CRM टूल",
+        "description": "ग्राहक बनाएँ/अपडेट करें और खाता संदर्भ पढ़ें।"
+      },
+      "projects": {
+        "name": "प्रोजेक्ट टूल",
+        "description": "प्रोजेक्ट, कार्य और डिलीवरी स्थिति प्रबंधित करें।"
+      },
+      "finance": {
+        "name": "वित्त टूल",
+        "description": "चालान, शेष और वित्त सार।"
+      },
+      "documents": {
+        "name": "दस्तावेज़ टूल",
+        "description": "वर्कस्पेस दस्तावेज़ पढ़ें और सार करें।"
+      },
+      "workflow": {
+        "name": "वर्कफ़्लो टूल",
+        "description": "ऑटोमेशन वर्कफ़्लो ट्रिगर और जांचें।"
+      },
+      "integration": {
+        "name": "इंटीग्रेशन टूल",
+        "description": "कनेक्टेड थर्ड-पार्टी कनेक्टर कॉल करें।"
+      },
+      "email": {
+        "name": "ईमेल टूल",
+        "description": "आउटबाउंड ईमेल ड्राफ्ट करें और कतार में डालें।"
+      },
+      "calendar": {
+        "name": "कैलेंडर टूल",
+        "description": "कैलेंडर इवेंट शेड्यूल और जांचें।"
+      },
+      "search": {
+        "name": "खोज टूल",
+        "description": "यूनिवर्सल वर्कस्पेस खोज।"
+      },
+      "notification": {
+        "name": "सूचना टूल",
+        "description": "इन-ऐप सूचनाएँ भेजें।"
+      },
+      "api": {
+        "name": "API टूल",
+        "description": "आंतरिक API गेटवे रूट कॉल करें।"
+      },
+      "mcp": {
+        "name": "MCP टूल",
+        "description": "भविष्य के Model Context Protocol सर्वर टूल।"
+      }
+    },
+    "knowledgeDocs": {
+      "company": {
+        "title": "AGXORA संचालन सिद्धांत",
+        "summary": "मॉड्यूलर, सुरक्षित AI एजेंटों के लिए एंटरप्राइज़ OS सिद्धांत।"
+      },
+      "policies": {
+        "title": "डेटा हैंडलिंग नीति",
+        "summary": "संवेदनशील टूल अलगाव और न्यूनतम अधिकार पहुंच।"
+      },
+      "procedures": {
+        "title": "ग्राहक एस्केलेशन प्रक्रिया",
+        "summary": "कम कॉन्फिडेंस पर सपोर्ट सहायक का एस्केलेशन पथ।"
+      },
+      "rag": {
+        "title": "RAG इंडेक्स प्लेसहोल्डर",
+        "summary": "दस्तावेज़ और CRM नोट्स पर भविष्य का वेक्टर retrieval।"
+      }
+    },
+    "llm": {
+      "local": "स्थानीय LLM",
+      "mcp": "MCP सर्वर",
+      "custom": "कस्टम मॉडल"
+    },
+    "lifecycle": {
+      "draft": "ड्राफ्ट",
+      "registered": "पंजीकृत",
+      "active": "सक्रिय",
+      "paused": "रोका गया",
+      "error": "त्रुटि",
+      "retired": "सेवानिवृत्त"
+    },
+    "healthStatus": {
+      "healthy": "स्वस्थ",
+      "degraded": "गिरा हुआ",
+      "down": "डाउन",
+      "unknown": "अज्ञात"
+    },
+    "taskStatus": {
+      "pending": "लंबित",
+      "running": "चल रहा",
+      "completed": "पूर्ण",
+      "cancelled": "रद्द",
+      "failed": "विफल",
+      "retrying": "पुनः प्रयास"
+    },
+    "memoryScope": {
+      "working": "कार्य",
+      "conversation": "बातचीत",
+      "business": "व्यवसाय",
+      "long_term": "दीर्घकालिक",
+      "workspace": "वर्कस्पेस",
+      "agent": "एजेंट"
+    },
+    "knowledgeKind": {
+      "company": "कंपनी",
+      "documents": "दस्तावेज़",
+      "projects": "प्रोजेक्ट",
+      "crm": "CRM",
+      "policies": "नीतियाँ",
+      "procedures": "प्रक्रियाएँ",
+      "vector": "वेक्टर",
+      "rag": "RAG"
     }
   },
   "integrations": {
@@ -4037,7 +4630,17 @@
     "logs": {
       "title": "एकीकरण लॉग",
       "emptyTitle": "अभी तक कोई लॉग नहीं",
-      "emptyDescription": "किसी प्रदाता से कनेक्ट करें या डायग्नोस्टिक्स चलाएँ।"
+      "emptyDescription": "किसी प्रदाता से कनेक्ट करें या डायग्नोस्टिक्स चलाएँ।",
+      "installed": "{name} इंस्टॉल हुआ",
+      "demoConnected": "डेमो कनेक्ट {name}",
+      "disconnected": "{name} डिस्कनेक्ट",
+      "webhookCreated": "वेबहुक बनाया {name}",
+      "keyCreated": "API कुंजी बनाई {name}",
+      "keyRotated": "कुंजी घुमाई {name}",
+      "keyRevoked": "कुंजी रद्द {name}",
+      "stubHealthy": "{name} stub स्वस्थ",
+      "diagnosticsComplete": "निदान पूरा",
+      "outgoing": "आउटगोइंग {status}: {eventType}"
     },
     "apiKeys": {
       "title": "एपीआई कुंजियाँ",
@@ -4112,7 +4715,92 @@
     },
     "errors": {
       "failedToFetch": "लाने में विफल",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "अज्ञात कनेक्टर।",
+      "webhookNotFound": "वेबहुक नहीं मिला।",
+      "apiKeyInactive": "API कुंजी निष्क्रिय या समाप्त।"
+    },
+    "categories": {
+      "productivity": "उत्पादकता",
+      "communication": "संचार",
+      "storage": "स्टोरेज",
+      "crm": "CRM",
+      "automation": "ऑटोमेशन",
+      "devtools": "डेवलपर टूल",
+      "custom": "कस्टम"
+    },
+    "auth": {
+      "oauth2": "OAuth 2.0",
+      "api_key": "API कुंजी",
+      "webhook": "वेबहुक"
+    },
+    "oauth": {
+      "custom": "कस्टम OAuth"
+    },
+    "connectorNames": {
+      "custom": "कस्टम कनेक्टर"
+    },
+    "connectors": {
+      "microsoft365": {
+        "description": "Microsoft Graph के माध्यम से मेल, कैलेंडर और Teams।"
+      },
+      "google_workspace": {
+        "description": "Workspace टेनेंट के लिए Gmail, कैलेंडर और Drive।"
+      },
+      "slack": {
+        "description": "चैनल, संदेश और इंटरैक्टिव सूचनाएँ।"
+      },
+      "discord": {
+        "description": "सर्वर सूचनाएँ और बॉट संदेश डिलीवरी।"
+      },
+      "dropbox": {
+        "description": "फ़ाइल सिंक और साझा फ़ोल्डर इवेंट।"
+      },
+      "onedrive": {
+        "description": "Microsoft OneDrive फ़ाइल स्टोरेज और डेल्टा सिंक।"
+      },
+      "google_drive": {
+        "description": "Drive फ़ाइलें, फ़ोल्डर और परिवर्तन सूचनाएँ।"
+      },
+      "hubspot": {
+        "description": "CRM संपर्क, डील और मार्केटिंग इवेंट।"
+      },
+      "salesforce": {
+        "description": "एंटरप्राइज़ CRM ऑब्जेक्ट और Platform Events।"
+      },
+      "zapier": {
+        "description": "Zapier zap में आउटबाउंड हुक।"
+      },
+      "make": {
+        "description": "Make (Integromat) के लिए सिनेरियो वेबहुक।"
+      },
+      "github": {
+        "description": "रेपो, इश्यू, पुल रिक्वेस्ट और Actions।"
+      },
+      "gitlab": {
+        "description": "प्रोजेक्ट, मर्ज रिक्वेस्ट, पाइपलाइन और वेबहुक।"
+      },
+      "custom": {
+        "description": "स्वामित्व वाले एंटरप्राइज़ सिस्टम के लिए विस्तार बिंदु।"
+      }
+    },
+    "healthStatus": {
+      "healthy": "स्वस्थ",
+      "degraded": "गिरा हुआ",
+      "down": "डाउन",
+      "unknown": "अज्ञात"
+    },
+    "health": {
+      "installedAuthorize": "इंस्टॉल हुआ — अनुमति के लिए कनेक्ट करें",
+      "oauthStubPlaceholder": "स्थानीय OAuth डेमो (stub)",
+      "oauthStubLive": "स्थानीय OAuth डेमो (live)",
+      "demoCredential": "स्थानीय डेमो क्रेडेंशियल सहेजा गया — लाइव API नहीं जुड़ा",
+      "demoConnection": "स्थानीय डेमो कनेक्शन — लाइव प्रदाता लिंक नहीं",
+      "disconnected": "डिस्कनेक्ट"
+    },
+    "generated": {
+      "keyName": "कुंजी {n}",
+      "webhookName": "वेबहुक {n}"
     }
   },
   "intelligence": {
@@ -4184,14 +4872,78 @@
       "title": "केपीआई केंद्र",
       "subtitle": "राजस्व, ग्राहकों, परियोजनाओं, वर्कफ़्लो, एजेंटों और स्वचालन में कॉन्फ़िगर करने योग्य KPI कैटलॉग।",
       "emptyTitle": "एनालिटिक्स सिग्नल का इंतजार कर रहा है",
-      "emptyDescription": "एक बार जब आपका कार्यक्षेत्र गतिविधि उत्पन्न करता है, तो कार्यकारी KPI और अलर्ट यहां दिखाई देते हैं।"
+      "emptyDescription": "एक बार जब आपका कार्यक्षेत्र गतिविधि उत्पन्न करता है, तो कार्यकारी KPI और अलर्ट यहां दिखाई देते हैं।",
+      "revenue": {
+        "name": "राजस्व",
+        "description": "अवधि में मान्य कुल राजस्व।"
+      },
+      "mrr": {
+        "name": "MRR",
+        "description": "मासिक आवर्ती राजस्व।"
+      },
+      "arr": {
+        "name": "ARR",
+        "description": "वार्षिक आवर्ती राजस्व।"
+      },
+      "growth": {
+        "name": "वृद्धि",
+        "description": "पिछली अवधि की तुलना में वृद्धि दर।"
+      },
+      "customer_acquisition": {
+        "name": "ग्राहक अधिग्रहण",
+        "description": "नए प्राप्त ग्राहक।"
+      },
+      "retention": {
+        "name": "रिटेंशन",
+        "description": "ग्राहक रिटेंशन दर।"
+      },
+      "churn": {
+        "name": "चर्न",
+        "description": "ग्राहक चर्न दर।"
+      },
+      "project_success": {
+        "name": "प्रोजेक्ट सफलता",
+        "description": "समय पर / स्कोप में डिलीवर प्रोजेक्ट।"
+      },
+      "workflow_success": {
+        "name": "वर्कफ़्लो सफलता",
+        "description": "सफल वर्कफ़्लो निष्पादन।"
+      },
+      "agent_performance": {
+        "name": "एजेंट प्रदर्शन",
+        "description": "AI एजेंट कार्य सफलता स्कोर।"
+      },
+      "automation_success": {
+        "name": "ऑटोमेशन सफलता",
+        "description": "ऑटोमेशन / इंटीग्रेशन विश्वसनीयता।"
+      },
+      "custom": {
+        "name": "कस्टम KPI",
+        "description": "संगठन-परिभाषित KPI के लिए विस्तार बिंदु।"
+      }
     },
     "reports": {
       "title": "रिपोर्टिंग इंजन",
       "subtitle": "रिपोर्ट परिभाषाएँ समीक्षा के लिए रखी गई हैं। रिपोर्टिंग बैकएंड कनेक्ट होने तक फ़ाइल निर्यात अनुपलब्ध है।",
       "emptyTitle": "कोई रिपोर्ट नहीं",
       "emptyDescription": "कार्यक्षेत्र बूटस्ट्रैप पर रिपोर्ट बीज।",
-      "scheduleOnDemand": "मांग पर"
+      "scheduleOnDemand": "मांग पर",
+      "executive": {
+        "title": "कार्यकारी साप्ताहिक",
+        "description": "स्वास्थ्य, राजस्व, जोखिम और वृद्धि का CEO ब्रीफ।"
+      },
+      "department": {
+        "title": "सेल्स विभाग रिपोर्ट",
+        "description": "सेल्स लीडरशिप के लिए पाइपलाइन, अधिग्रहण और रिटेंशन।"
+      },
+      "operational": {
+        "title": "परिचालन दैनिक",
+        "description": "वर्कफ़्लो, इंटीग्रेशन और पहचान मुद्रा।"
+      },
+      "management": {
+        "title": "डिलीवरी प्रबंधन",
+        "description": "प्रोजेक्ट सफलता, क्षमता और दस्तावेज़ थ्रूपुट।"
+      }
     },
     "insights": {
       "emptyTitle": "अभी तक कोई अंतर्दृष्टि नहीं",
@@ -4211,12 +4963,88 @@
       "emptyDescription": "जोखिम अनुमान से अलर्ट बीज।",
       "acked": "acked",
       "open": "खुला",
-      "acknowledge": "स्वीकार करना"
+      "acknowledge": "स्वीकार करना",
+      "revenue_drop": {
+        "title": "सेगमेंट में राजस्व नरमी",
+        "body": "SMB में सप्ताह-दर-सप्ताह राजस्व 4% गिरा — पाइपलाइन कवरेज देखें।"
+      },
+      "project_delay": {
+        "title": "प्रोजेक्ट विलंब जोखिम में",
+        "body": "दो डिलीवरी प्रोजेक्ट माइलस्टोन गेट पार कर गए।"
+      },
+      "churn_risk": {
+        "title": "ग्राहक चर्न जोखिम बढ़ा",
+        "body": "तीन खातों में एंगेजमेंट स्कोर घट रहे हैं।"
+      },
+      "workflow_failure": {
+        "title": "वर्कफ़्लो विफलताएँ मिलीं",
+        "body": "चालान रिमाइंडर वर्कफ़्लो 24 घंटे में दो बार विफल हुआ।"
+      },
+      "ai_failure": {
+        "title": "AI कार्य पुनः प्रयास बढ़े",
+        "body": "एजेंट कार्य पुनः प्रयास दर सॉफ्ट थ्रेशोल्ड पार कर गई।"
+      },
+      "integration_error": {
+        "title": "इंटीग्रेशन त्रुटियाँ",
+        "body": "Slack कनेक्टर ने रुक-रुक कर 5xx लौटाए।"
+      },
+      "security": {
+        "title": "सुरक्षा अलर्ट",
+        "body": "असामान्य API कुंजी उपयोग पैटर्न मिला।"
+      }
     },
     "scorecards": {
       "title": "स्कोरकार्ड इंजन",
       "emptyTitle": "कोई स्कोरकार्ड नहीं",
-      "emptyDescription": "बूटस्ट्रैप पर स्कोरकार्ड बीज।"
+      "emptyDescription": "बूटस्ट्रैप पर स्कोरकार्ड बीज।",
+      "sales": {
+        "name": "सेल्स स्कोर",
+        "drivers": {
+          "pipeline_coverage": "पाइपलाइन कवरेज",
+          "win_rate": "विन रेट",
+          "cycle_time": "चक्र समय"
+        }
+      },
+      "customer_health": {
+        "name": "ग्राहक स्वास्थ्य स्कोर",
+        "drivers": {
+          "retention": "रिटेंशन",
+          "nps_proxy": "NPS प्रॉक्सी",
+          "support_load": "सपोर्ट लोड"
+        }
+      },
+      "project_success": {
+        "name": "प्रोजेक्ट सफलता स्कोर",
+        "drivers": {
+          "on_time_delivery": "समय पर डिलीवरी",
+          "scope_control": "स्कोप नियंत्रण",
+          "utilization": "उपयोग"
+        }
+      },
+      "automation_efficiency": {
+        "name": "ऑटोमेशन दक्षता",
+        "drivers": {
+          "workflow_success": "वर्कफ़्लो सफलता",
+          "manual_effort_saved": "बची मैनुअल मेहनत",
+          "retry_rate": "पुनः प्रयास दर"
+        }
+      },
+      "ai_quality": {
+        "name": "AI गुणवत्ता",
+        "drivers": {
+          "task_success": "कार्य सफलता",
+          "confidence_avg": "औसत कॉन्फिडेंस",
+          "escalation_rate": "एस्केलेशन दर"
+        }
+      },
+      "operational_health": {
+        "name": "परिचालन स्वास्थ्य",
+        "drivers": {
+          "system_health": "सिस्टम स्वास्थ्य",
+          "integration_reliability": "इंटीग्रेशन विश्वसनीयता",
+          "identity_posture": "पहचान मुद्रा"
+        }
+      }
     },
     "explorer": {
       "title": "डेटा एक्सप्लोरर",
@@ -4224,7 +5052,8 @@
       "searchAria": "डेमो एक्सप्लोरर पंक्तियाँ खोजें",
       "emptyTitle": "कोई पंक्तियाँ मेल नहीं खातीं",
       "emptyDescription": "फ़िल्टर समायोजित करें या खोजें, या डेमो डेटासेट पुनः लोड करें।",
-      "hint": "सीडेड टुपल्स पर क्लाइंट-साइड खोज - बैकएंड एकत्रीकरण और ड्रिल-डाउन जुड़े नहीं हैं।"
+      "hint": "सीडेड टुपल्स पर क्लाइंट-साइड खोज - बैकएंड एकत्रीकरण और ड्रिल-डाउन जुड़े नहीं हैं।",
+      "metricLabel": "{domain} मेट्रिक {index}"
     },
     "columns": {
       "kpi": "के.पी.आई",
@@ -4249,7 +5078,123 @@
       "measure": "उपाय",
       "date": "तारीख"
     },
-    "emDash": "—"
+    "emDash": "—",
+    "domains": {
+      "crm": "CRM विश्लेषण",
+      "projects": "प्रोजेक्ट विश्लेषण",
+      "finance": "वित्त विश्लेषण",
+      "documents": "दस्तावेज़ विश्लेषण",
+      "workflow": "वर्कफ़्लो विश्लेषण",
+      "identity": "पहचान विश्लेषण",
+      "ai": "AI विश्लेषण",
+      "integration": "इंटीग्रेशन विश्लेषण",
+      "executive": "कार्यकारी"
+    },
+    "series": {
+      "crm_leads": "लीड",
+      "crm_pipeline": "पाइपलाइन ($k)",
+      "proj_active": "सक्रिय प्रोजेक्ट",
+      "proj_on_time": "समय पर %",
+      "fin_revenue": "राजस्व ($k)",
+      "fin_margin": "सकल मार्जिन %",
+      "doc_created": "बनाए गए दस्तावेज़",
+      "doc_views": "दस्तावेज़ व्यू",
+      "wf_runs": "वर्कफ़्लो रन",
+      "wf_success": "सफलता %",
+      "id_users": "सक्रिय उपयोगकर्ता",
+      "id_sessions": "सत्र",
+      "ai_tasks": "एजेंट कार्य",
+      "ai_success": "एजेंट सफलता %",
+      "int_calls": "API / वेबहुक कॉल",
+      "int_errors": "इंटीग्रेशन त्रुटियाँ"
+    },
+    "bands": {
+      "Critical": "गंभीर",
+      "Watch": "निगरानी",
+      "Healthy": "स्वस्थ",
+      "Excellent": "उत्कृष्ट"
+    },
+    "charts": {
+      "chart_revenue": "राजस्व प्रवृत्ति",
+      "chart_pipeline": "CRM पाइपलाइन",
+      "chart_workflows": "वर्कफ़्लो गतिविधि",
+      "chart_ai": "AI गतिविधि मिश्रण",
+      "chart_ops_table": "परिचालन स्नैपशॉट",
+      "chart_heatmap_placeholder": "एंगेजमेंट हीटमैप"
+    },
+    "chartKinds": {
+      "line": "रेखा",
+      "bar": "बार",
+      "area": "क्षेत्र",
+      "pie": "पाई",
+      "heatmap": "हीटमैप",
+      "table": "तालिका",
+      "card": "कार्ड"
+    },
+    "insightItems": {
+      "trend": {
+        "title": "MRR तेज़ हो रहा",
+        "summary": "MRR वृद्धि तीन अवधियों तक बेहतर हुई।"
+      },
+      "pattern": {
+        "title": "चालान दिनों पर वर्कफ़्लो शिखर",
+        "summary": "ऑटोमेशन लोड महीने के अंत की बिलिंग से जुड़ा है।"
+      },
+      "recommendation": {
+        "title": "रिटेंशन प्लेबुक बढ़ाएँ",
+        "summary": "घटते स्वास्थ्य वाले तीन खातों पर CSM आउटरीच केंद्रित करें।"
+      },
+      "executive_summary": {
+        "title": "कार्यकारी ब्रीफ",
+        "summary": "कंपनी स्वास्थ्य मजबूत है; चर्न जोखिम और डिलीवरी देरी देखें।"
+      },
+      "risk": {
+        "title": "डिलीवरी जोखिम समूह",
+        "summary": "दो प्रोजेक्ट संसाधन विवाद साझा करते हैं — क्षमता पूर्वानुमान ऊंचा।"
+      },
+      "opportunity": {
+        "title": "अपसेल अवसर",
+        "summary": "बिना Business प्लान वाले हाई-यूसेज खातों में विस्तार संभावना है।"
+      }
+    },
+    "forecastNotes": {
+      "revenue": "रैखिक प्रवृत्ति प्लेसहोल्डर — मॉडल सेवा से बदलें।",
+      "customer": "अधिग्रहण + रिटेंशन मिश्रण।",
+      "project": "क्षमता-जागरूक डिलीवरी पूर्वानुमान।",
+      "capacity": "टीम उपयोग पूर्वानुमान।",
+      "growth": "वृद्धि दर पूर्वानुमान।"
+    },
+    "forecastKinds": {
+      "revenue": "राजस्व",
+      "customer": "ग्राहक",
+      "project": "प्रोजेक्ट",
+      "capacity": "क्षमता",
+      "growth": "वृद्धि"
+    },
+    "severity": {
+      "info": "जानकारी",
+      "warning": "चेतावनी",
+      "critical": "गंभीर"
+    },
+    "trend": {
+      "up": "ऊपर",
+      "down": "नीचे",
+      "flat": "सपाट"
+    },
+    "insightKinds": {
+      "trend": "प्रवृत्ति",
+      "pattern": "पैटर्न",
+      "recommendation": "सुझाव",
+      "executive_summary": "कार्यकारी सारांश",
+      "risk": "जोखिम",
+      "opportunity": "अवसर"
+    },
+    "reportKinds": {
+      "executive": "कार्यकारी",
+      "department": "विभाग",
+      "operational": "परिचालन",
+      "management": "प्रबंधन"
+    }
   },
   "legal": {
     "shell": {
@@ -4679,13 +5624,223 @@
       "professional": "पेशेवर",
       "friendly": "मित्रवत",
       "luxury": "लक्ज़री",
-      "casual": "आरामदायक"
+      "casual": "आरामदायक",
+      "minimal": "न्यूनतम",
+      "corporate": "कॉर्पोरेट",
+      "creative": "क्रिएटिव",
+      "custom": "कस्टम ब्रांड वॉइस"
     },
     "integrationStatus": {
       "planned": "योजनाबद्ध",
       "ready": "तैयार",
       "connected": "कनेक्टेड",
       "disabled": "अक्षम"
+    },
+    "categories": {
+      "social": "सोशल",
+      "ads": "विज्ञापन",
+      "analytics": "विश्लेषण"
+    },
+    "platforms": {
+      "instagram": {
+        "notes": "आधिकारिक Graph API प्रकाशन + इनसाइट आरक्षित।"
+      },
+      "tiktok": {
+        "notes": "TikTok Content Posting API एडाप्टर आरक्षित।"
+      },
+      "youtube": {
+        "notes": "YouTube Data API अपलोड + एनालिटिक्स आरक्षित।"
+      },
+      "facebook": {
+        "notes": "Pages प्रकाशन एडाप्टर आरक्षित।"
+      },
+      "linkedin": {
+        "notes": "UGC / संगठन पोस्ट एडाप्टर आरक्षित।"
+      },
+      "pinterest": {
+        "notes": "पिन + बोर्ड एडाप्टर आरक्षित।"
+      },
+      "threads": {
+        "notes": "Threads API एडाप्टर आरक्षित।"
+      },
+      "x": {
+        "notes": "X API v2 पोस्ट एडाप्टर आरक्षित।"
+      },
+      "meta-business": {
+        "notes": "Meta Business Suite / Ads Manager हुक आरक्षित।"
+      },
+      "google-ads": {
+        "notes": "Google Ads API कैंपेन सिंक आरक्षित।"
+      },
+      "google-analytics": {
+        "notes": "GA4 मापन + रिपोर्टिंग एडाप्टर आरक्षित।"
+      }
+    },
+    "features": {
+      "ideas": {
+        "label": "कंटेंट आइडिया",
+        "description": "उद्योग-जागरूक आईडिया इंजन अभियानों और पोस्ट के लिए।"
+      },
+      "captions": {
+        "label": "कैप्शन जनरेटर",
+        "description": "प्लेटफ़ॉर्म फ़ॉर्मैट के अनुसार ब्रांड वॉइस कैप्शन।"
+      },
+      "hashtags": {
+        "label": "हैशटैग सुझाव",
+        "description": "हैशटैग सेट की प्रासंगिकता और पहुंच स्कोर।"
+      },
+      "calendar": {
+        "label": "कंटेंट कैलेंडर",
+        "description": "क्रॉस-प्लेटफ़ॉर्म संपादकीय कैलेंडर आधार।"
+      },
+      "campaigns": {
+        "label": "कैंपेन प्लानर",
+        "description": "उद्देश्य, ऑडियंस, प्लेटफ़ॉर्म और समयरेखा।"
+      },
+      "audience": {
+        "label": "ऑडियंस सुझाव",
+        "description": "CRM + क्रिएटर संकेतों से सेगमेंट सुझाव।"
+      },
+      "schedule": {
+        "label": "पोस्टिंग शेड्यूल",
+        "description": "समय क्षेत्र-जागरूक इष्टतम पोस्टिंग विंडो।"
+      },
+      "brand": {
+        "label": "ब्रांड संगति",
+        "description": "ब्रांड वॉइस के विरुद्ध टोन और एसेट जांच।"
+      },
+      "rewrite": {
+        "label": "AI पुनर्लेखन",
+        "description": "स्पष्टता, लंबाई या चैनल के लिए ड्राफ्ट फिर लिखें।"
+      },
+      "translate": {
+        "label": "कंटेंट अनुवाद",
+        "description": "बहुभाषी अनुवाद पाइपलाइन आरक्षित।"
+      },
+      "i18n": {
+        "label": "बहुभाषी समर्थन",
+        "description": "प्रकाशन और एनालिटिक्स सतहों के लिए लोकल पैक।"
+      }
+    },
+    "kpi": {
+      "content": {
+        "label": "बनाया गया कंटेंट",
+        "caption": "इस तिमाही"
+      },
+      "campaigns": {
+        "label": "अभियान",
+        "caption": "सक्रिय + नियोजित"
+      },
+      "scheduled": {
+        "label": "अनुसूचित पोस्ट",
+        "caption": "अगले 14 दिन"
+      },
+      "engagement": {
+        "label": "एंगेजमेंट",
+        "caption": "चैनलों में औसत दर"
+      },
+      "followers": {
+        "label": "फॉलोअर वृद्धि",
+        "caption": "पिछले 30 दिन"
+      },
+      "reach": {
+        "label": "पहुंच",
+        "caption": "अद्वितीय इंप्रेशन"
+      },
+      "conversions": {
+        "label": "कन्वर्ज़न",
+        "caption": "आरोपित क्रियाएँ"
+      },
+      "ai-score": {
+        "label": "AI प्रदर्शन स्कोर",
+        "caption": "कंटेंट गुणवत्ता संकेत"
+      }
+    },
+    "analyticsMetrics": {
+      "a1": "एंगेजमेंट",
+      "a2": "पहुंच",
+      "a3": "CTR",
+      "a4": "कन्वर्ज़न",
+      "a5": "ऑडियंस वृद्धि",
+      "a6": "कंटेंट प्रदर्शन"
+    },
+    "voiceDesc": {
+      "professional": "स्पष्ट, विश्वसनीय, व्यवसाय-प्रथम स्वर।",
+      "luxury": "परिष्कृत, संयमित, प्रीमियम फ्रेमिंग।",
+      "friendly": "गर्म, सुलभ, बातचीत जैसा।",
+      "casual": "आरामदायक रोज़मर्रा की भाषा।",
+      "minimal": "छोटे वाक्य, उच्च स्पष्टता।",
+      "corporate": "औपचारिक एंटरप्राइज़ संचार।",
+      "creative": "अभियानों के लिए अभिव्यक्तिपूर्ण कहानी।",
+      "custom": "बाद में दिशानिर्देश और नमूना कॉपी अपलोड करें।"
+    },
+    "formatDesc": {
+      "instagram_caption": "CTA हुक वाले Feed / Reels कैप्शन।",
+      "tiktok_script": "छोटे स्क्रिप्ट: हुक → मूल्य → CTA।",
+      "linkedin_post": "थॉट लीडरशिप और B2B कथाएँ।",
+      "facebook_post": "कम्युनिटी और पेज-रेडी पोस्ट।",
+      "x_post": "संक्षिप्त थ्रेड और एकल पोस्ट।",
+      "blog_article": "लंबे संपादकीय ड्राफ्ट।",
+      "newsletter": "न्यूज़लेटर खंड और विषय पंक्तियाँ।",
+      "email_campaign": "कैंपेन सीक्वेंस और नर्चर कॉपी।",
+      "product_description": "कॉमर्स-रेडी उत्पाद कथाएँ।",
+      "ad_copy": "पेड सोशल और सर्च विज्ञापन वेरिएंट।",
+      "seo_article": "सर्च-इंटेंट लेख आउटलाइन संरचना के साथ।",
+      "landing_page_copy": "हीरो, लाभ, प्रमाण और CTA ब्लॉक।"
+    },
+    "campaignStatus": {
+      "Active": "सक्रिय",
+      "In review": "समीक्षा में",
+      "Planned": "नियोजित"
+    },
+    "campaigns": {
+      "camp-1": {
+        "name": "Q3 उत्पाद लॉन्च",
+        "objective": "जागरूकता + वेटलिस्ट साइनअप",
+        "audience": "EU SMB संचालक",
+        "budget": "€8,500 (प्लेसहोल्डर)",
+        "timeline": "4 अगस्त – 12 सितंबर"
+      },
+      "camp-2": {
+        "name": "क्रिएटर कोलैब स्प्रिंट",
+        "objective": "पहुंच + समुदाय वृद्धि",
+        "audience": "क्रिएटर 18–34 DE/AT",
+        "budget": "€4,200 (प्लेसहोल्डर)",
+        "timeline": "20 जुलाई – 20 अगस्त"
+      },
+      "camp-3": {
+        "name": "एजेंसी पोर्टफोलियो पुश",
+        "objective": "लीड जनरेशन",
+        "audience": "मार्केटिंग निदेशक",
+        "budget": "€2,900 (प्लेसहोल्डर)",
+        "timeline": "1 सितंबर – 30 सितंबर"
+      }
+    },
+    "calendarItems": {
+      "cal-1": "लॉन्च टीज़र रील",
+      "cal-2": "फाउंडर LinkedIn कथा",
+      "cal-3": "वेटलिस्ट ईमेल #1",
+      "cal-4": "TikTok डेमो स्क्रिप्ट"
+    },
+    "queueItems": {
+      "q-1": "लॉन्च टीज़र रील कैप्शन",
+      "q-2": "फाउंडर कथा पोस्ट",
+      "q-3": "वेटलिस्ट नर्चर ईमेल",
+      "q-4": "उत्पाद लैंडिंग हीरो कॉपी",
+      "q-5": "TikTok डेमो स्क्रिप्ट v2",
+      "q-6": "जून रिकैप कैरोसेल",
+      "q-7": "पुराना प्रोमो थ्रेड"
+    },
+    "topPosts": {
+      "tp-1": "वेयरहाउस ऑटोमेशन टियरडाउन",
+      "tp-2": "30 सेकंड उत्पाद डेमो रील",
+      "tp-3": "क्रिएटर कोलैब हुक"
+    },
+    "recommendations": {
+      "r1": "इस सप्ताह LinkedIn टियरडाउन को 3-भाग कैरोसेल में बदलें।",
+      "r2": "अधिक completion के लिए TikTok डेमो मंगल–गुरु 18:00–20:00 CET पर शेड्यूल करें।",
+      "r3": "Instagram CTA पर लग्जरी ब्रांड वॉइस कसें — लगभग 20% छोटा करें।",
+      "r4": "EU ऑडियंस बढ़ाने के लिए टॉप रील कैप्शन को DE/FR में अनुवाद करें।"
     }
   },
   "backend": {
@@ -4726,7 +5881,7 @@
     "skipToMain": "मुख्य सामग्री पर जाएँ",
     "offline": {
       "title": "आप संपर्क में नहीं हैं",
-      "message": "अपना कनेक्शन जांचें और जब आप वापस ऑनलाइन हों तो पुनः प्रयास करें। कैश्ड स्क्रीन अभी भी काम कर सकती हैं.",
+      "message": "कनेक्शन जाँचें और ऑनलाइन होने पर फिर कोशिश करें। कैश स्क्रीन अभी भी काम कर सकती हैं।",
       "home": "घर",
       "contact": "संपर्क",
       "signIn": "दाखिल करना"

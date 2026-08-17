@@ -67,14 +67,78 @@
     "title": "KPI-Center",
     "subtitle": "Konfigurierbarer KPI-Katalog für Umsatz, Kunden, Projekte, Workflows, Agenten und Automatisierung.",
     "emptyTitle": "Analytik wartet auf Signal",
-    "emptyDescription": "Sobald Ihr Arbeitsbereich Aktivitäten generiert, werden hier Executive KPIs und Warnungen angezeigt."
+    "emptyDescription": "Sobald Ihr Arbeitsbereich Aktivitäten generiert, werden hier Executive KPIs und Warnungen angezeigt.",
+    "revenue": {
+      "name": "Umsatz",
+      "description": "Anerkannter Gesamtumsatz im Zeitraum."
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "Monatlich wiederkehrender Umsatz."
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "Jährlich wiederkehrender Umsatz."
+    },
+    "growth": {
+      "name": "Wachstum",
+      "description": "Wachstumsrate gegenüber Vorperiode."
+    },
+    "customer_acquisition": {
+      "name": "Kundengewinnung",
+      "description": "Neu gewonnene Kunden."
+    },
+    "retention": {
+      "name": "Bindung",
+      "description": "Kundenbindungsrate."
+    },
+    "churn": {
+      "name": "Abwanderung",
+      "description": "Kundenabwanderungsrate."
+    },
+    "project_success": {
+      "name": "Projekterfolg",
+      "description": "Pünktlich / im Scope gelieferte Projekte."
+    },
+    "workflow_success": {
+      "name": "Workflow-Erfolg",
+      "description": "Erfolgreiche Workflow-Ausführungen."
+    },
+    "agent_performance": {
+      "name": "Agentenleistung",
+      "description": "Erfolgsbewertung der KI-Agentenaufgaben."
+    },
+    "automation_success": {
+      "name": "Automatisierungserfolg",
+      "description": "Zuverlässigkeit von Automatisierung / Integration."
+    },
+    "custom": {
+      "name": "Benutzerdefinierte KPI",
+      "description": "Erweiterungspunkt für organisationsdefinierte KPIs."
+    }
   },
   "reports": {
     "title": "Neue Reporting Engine",
     "subtitle": "Berichtsdefinitionen werden zur Überprüfung ausgesät. Der Dateiexport ist nicht verfügbar, bis ein Berichts-Backend verbunden ist.",
     "emptyTitle": "Keine Berichte",
     "emptyDescription": "Meldet Seed auf dem Workspace-Bootstrap.",
-    "scheduleOnDemand": "auf-Anfrage"
+    "scheduleOnDemand": "auf-Anfrage",
+    "executive": {
+      "title": "Executive-Wochenbericht",
+      "description": "CEO-Briefing zu Gesundheit, Umsatz, Risiko und Wachstum."
+    },
+    "department": {
+      "title": "Vertriebsabteilungsbericht",
+      "description": "Pipeline, Gewinnung und Bindung für Vertriebsleitung."
+    },
+    "operational": {
+      "title": "Täglicher Betrieb",
+      "description": "Workflows, Integrationen und Identitätspostur."
+    },
+    "management": {
+      "title": "Liefermanagement",
+      "description": "Projekterfolg, Kapazität und Dokumentendurchsatz."
+    }
   },
   "insights": {
     "emptyTitle": "Noch keine Erkenntnisse",
@@ -94,12 +158,88 @@
     "emptyDescription": "Warnt Seed vor Risikoheuristiken.",
     "acked": "ackgedruckt",
     "open": "offen",
-    "acknowledge": "Quittieren"
+    "acknowledge": "Quittieren",
+    "revenue_drop": {
+      "title": "Umsatzabschwächung im Segment",
+      "body": "Umsatz Woche-zu-Woche um 4 % im SMB gesunken — Pipeline-Abdeckung prüfen."
+    },
+    "project_delay": {
+      "title": "Projekt verzögerungsgefährdet",
+      "body": "Zwei Lieferprojekte haben Meilensteine überschritten."
+    },
+    "churn_risk": {
+      "title": "Kundenabwanderungsrisiko erhöht",
+      "body": "Drei Konten zeigen sinkende Engagement-Werte."
+    },
+    "workflow_failure": {
+      "title": "Workflow-Fehler erkannt",
+      "body": "Workflow für Rechnungserinnerung ist in 24 h zweimal fehlgeschlagen."
+    },
+    "ai_failure": {
+      "title": "KI-Aufgabenwiederholungen erhöht",
+      "body": "Wiederholungsrate der Agentenaufgaben hat den Soft-Schwellenwert überschritten."
+    },
+    "integration_error": {
+      "title": "Integrationsfehler",
+      "body": "Slack-Konnektor lieferte intermittierende 5xx-Antworten."
+    },
+    "security": {
+      "title": "Sicherheitswarnung",
+      "body": "Ungewöhnliches Nutzungsmuster eines API-Schlüssels erkannt."
+    }
   },
   "scorecards": {
     "title": "Scorecard-Engine",
     "emptyTitle": "Keine Scorecards",
-    "emptyDescription": "Scorecards Seed am Bootstrap."
+    "emptyDescription": "Scorecards Seed am Bootstrap.",
+    "sales": {
+      "name": "Vertriebsscore",
+      "drivers": {
+        "pipeline_coverage": "Pipeline-Abdeckung",
+        "win_rate": "Abschlussquote",
+        "cycle_time": "Zykluszeit"
+      }
+    },
+    "customer_health": {
+      "name": "Kundengesundheitsscore",
+      "drivers": {
+        "retention": "Bindung",
+        "nps_proxy": "NPS-Proxy",
+        "support_load": "Supportlast"
+      }
+    },
+    "project_success": {
+      "name": "Projekterfolgsscore",
+      "drivers": {
+        "on_time_delivery": "Pünktliche Lieferung",
+        "scope_control": "Scope-Kontrolle",
+        "utilization": "Auslastung"
+      }
+    },
+    "automation_efficiency": {
+      "name": "Automatisierungseffizienz",
+      "drivers": {
+        "workflow_success": "Workflow-Erfolg",
+        "manual_effort_saved": "Eingespannter manueller Aufwand",
+        "retry_rate": "Wiederholungsrate"
+      }
+    },
+    "ai_quality": {
+      "name": "KI-Qualität",
+      "drivers": {
+        "task_success": "Aufgabenerfolg",
+        "confidence_avg": "Konfidenz Ø",
+        "escalation_rate": "Eskalationsrate"
+      }
+    },
+    "operational_health": {
+      "name": "Betriebliche Gesundheit",
+      "drivers": {
+        "system_health": "Systemgesundheit",
+        "integration_reliability": "Integrationszuverlässigkeit",
+        "identity_posture": "Identitätspostur"
+      }
+    }
   },
   "explorer": {
     "title": "Data Explorer",
@@ -107,7 +247,8 @@
     "searchAria": "Demo-Explorer-Zeilen durchsuchen",
     "emptyTitle": "Keine Zeilen stimmen überein",
     "emptyDescription": "Passen Sie Filter an oder suchen Sie oder laden Sie das Demo-Dataset neu.",
-    "hint": "Clientseitige Suche nach gesetzten Tupeln — Backend-Aggregation und Drilldown sind nicht verbunden."
+    "hint": "Clientseitige Suche nach gesetzten Tupeln — Backend-Aggregation und Drilldown sind nicht verbunden.",
+    "metricLabel": "{domain}-Metrik {index}"
   },
   "columns": {
     "kpi": "KPI",
@@ -132,5 +273,121 @@
     "measure": "Massnahme",
     "date": "Datum"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "CRM-Analytik",
+    "projects": "Projektanalytik",
+    "finance": "Finanzanalytik",
+    "documents": "Dokumentenanalytik",
+    "workflow": "Workflow-Analytik",
+    "identity": "Identitätsanalytik",
+    "ai": "KI-Analytik",
+    "integration": "Integrationsanalytik",
+    "executive": "Executive"
+  },
+  "series": {
+    "crm_leads": "Leads",
+    "crm_pipeline": "Pipeline (Tsd. $)",
+    "proj_active": "Aktive Projekte",
+    "proj_on_time": "Pünktlich %",
+    "fin_revenue": "Umsatz (Tsd. $)",
+    "fin_margin": "Bruttomarge %",
+    "doc_created": "Erstellte Dokumente",
+    "doc_views": "Dokumentaufrufe",
+    "wf_runs": "Workflow-Läufe",
+    "wf_success": "Erfolg %",
+    "id_users": "Aktive Nutzer",
+    "id_sessions": "Sitzungen",
+    "ai_tasks": "Agentenaufgaben",
+    "ai_success": "Agentenerfolg %",
+    "int_calls": "API- / Webhook-Aufrufe",
+    "int_errors": "Integrationsfehler"
+  },
+  "bands": {
+    "Critical": "Kritisch",
+    "Watch": "Beobachten",
+    "Healthy": "Gesund",
+    "Excellent": "Ausgezeichnet"
+  },
+  "charts": {
+    "chart_revenue": "Umsatztrend",
+    "chart_pipeline": "CRM-Pipeline",
+    "chart_workflows": "Workflow-Aktivität",
+    "chart_ai": "KI-Aktivitätsmix",
+    "chart_ops_table": "Betriebs-Snapshot",
+    "chart_heatmap_placeholder": "Engagement-Heatmap"
+  },
+  "chartKinds": {
+    "line": "Linie",
+    "bar": "Balken",
+    "area": "Fläche",
+    "pie": "Kreis",
+    "heatmap": "Heatmap",
+    "table": "Tabelle",
+    "card": "Karte"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "MRR beschleunigt",
+      "summary": "MRR-Wachstum verbesserte sich drei Perioden in Folge."
+    },
+    "pattern": {
+      "title": "Workflow-Spitzen an Rechnungstagen",
+      "summary": "Automatisierungslast korreliert mit Monatsende-Rechnungsstellung."
+    },
+    "recommendation": {
+      "title": "Retention-Playbook erweitern",
+      "summary": "CSM-Outreach auf drei Konten mit sinkender Gesundheit fokussieren."
+    },
+    "executive_summary": {
+      "title": "Executive-Brief",
+      "summary": "Unternehmensgesundheit ist stark; Abwanderung und Lieferverzögerungen beobachten."
+    },
+    "risk": {
+      "title": "Lieferrisiko-Cluster",
+      "summary": "Zwei Projekte teilen Ressourcenengpässe — Kapazitätsprognose erhöht."
+    },
+    "opportunity": {
+      "title": "Upsell-Chance",
+      "summary": "Konten mit hoher Nutzung ohne Business-Plan zeigen Expansionspotenzial."
+    }
+  },
+  "forecastNotes": {
+    "revenue": "Linearer Trend-Platzhalter — durch Modelldienst ersetzen.",
+    "customer": "Verbund aus Gewinnung + Bindung.",
+    "project": "Kapazitätsbewusste Lieferprognose.",
+    "capacity": "Prognose der Teamauslastung.",
+    "growth": "Wachstumsratenprognose."
+  },
+  "forecastKinds": {
+    "revenue": "Umsatz",
+    "customer": "Kunde",
+    "project": "Projekt",
+    "capacity": "Kapazität",
+    "growth": "Wachstum"
+  },
+  "severity": {
+    "info": "Info",
+    "warning": "Warnung",
+    "critical": "Kritisch"
+  },
+  "trend": {
+    "up": "Aufwärts",
+    "down": "Abwärts",
+    "flat": "Unverändert"
+  },
+  "insightKinds": {
+    "trend": "Trend",
+    "pattern": "Muster",
+    "recommendation": "Empfehlung",
+    "executive_summary": "Executive-Zusammenfassung",
+    "risk": "Risiko",
+    "opportunity": "Chance"
+  },
+  "reportKinds": {
+    "executive": "Executive",
+    "department": "Abteilung",
+    "operational": "Operativ",
+    "management": "Management"
+  }
 }

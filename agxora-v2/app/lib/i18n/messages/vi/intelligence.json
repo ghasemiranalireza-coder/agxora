@@ -67,14 +67,78 @@
     "title": "Trung tâm KPI",
     "subtitle": "Danh mục KPI có thể định cấu hình theo doanh thu, khách hàng, dự án, quy trình làm việc, đại lý và tự động hóa.",
     "emptyTitle": "Analytics đang chờ tín hiệu",
-    "emptyDescription": "Khi không gian làm việc của bạn tạo ra hoạt động, các KPI điều hành và cảnh báo sẽ xuất hiện ở đây."
+    "emptyDescription": "Khi không gian làm việc của bạn tạo ra hoạt động, các KPI điều hành và cảnh báo sẽ xuất hiện ở đây.",
+    "revenue": {
+      "name": "Doanh thu",
+      "description": "Tổng doanh thu ghi nhận trong kỳ."
+    },
+    "mrr": {
+      "name": "MRR",
+      "description": "Doanh thu định kỳ hàng tháng."
+    },
+    "arr": {
+      "name": "ARR",
+      "description": "Doanh thu định kỳ hàng năm."
+    },
+    "growth": {
+      "name": "Tăng trưởng",
+      "description": "Tốc độ tăng so với kỳ trước."
+    },
+    "customer_acquisition": {
+      "name": "Thu hút khách",
+      "description": "Khách mới thu hút."
+    },
+    "retention": {
+      "name": "Giữ chân",
+      "description": "Tỷ lệ giữ chân khách."
+    },
+    "churn": {
+      "name": "Rời bỏ",
+      "description": "Tỷ lệ rời bỏ khách."
+    },
+    "project_success": {
+      "name": "Thành công dự án",
+      "description": "Dự án giao đúng hạn / đúng phạm vi."
+    },
+    "workflow_success": {
+      "name": "Thành công workflow",
+      "description": "Lần chạy workflow thành công."
+    },
+    "agent_performance": {
+      "name": "Hiệu năng tác nhân",
+      "description": "Điểm thành công tác vụ tác nhân AI."
+    },
+    "automation_success": {
+      "name": "Thành công tự động hóa",
+      "description": "Độ tin cậy tự động hóa / tích hợp."
+    },
+    "custom": {
+      "name": "KPI tùy chỉnh",
+      "description": "Điểm mở rộng cho KPI do tổ chức định nghĩa."
+    }
   },
   "reports": {
     "title": "Công cụ báo cáo",
     "subtitle": "Định nghĩa báo cáo được chọn để xem xét. Xuất tệp không khả dụng cho đến khi phần phụ trợ báo cáo được kết nối.",
     "emptyTitle": "Không có báo cáo",
     "emptyDescription": "Báo cáo hạt giống trên bootstrap của không gian làm việc.",
-    "scheduleOnDemand": "theo yêu cầu"
+    "scheduleOnDemand": "theo yêu cầu",
+    "executive": {
+      "title": "Tuần điều hành",
+      "description": "Brief CEO về sức khỏe, doanh thu, rủi ro và tăng trưởng."
+    },
+    "department": {
+      "title": "Báo cáo phòng bán hàng",
+      "description": "Pipeline, thu hút và giữ chân cho lãnh đạo bán hàng."
+    },
+    "operational": {
+      "title": "Ngày vận hành",
+      "description": "Workflow, tích hợp và tư thế danh tính."
+    },
+    "management": {
+      "title": "Quản lý giao hàng",
+      "description": "Thành công dự án, năng lực và thông lượng tài liệu."
+    }
   },
   "insights": {
     "emptyTitle": "Chưa có thông tin chi tiết nào",
@@ -94,12 +158,88 @@
     "emptyDescription": "Cảnh báo hạt giống từ chẩn đoán rủi ro.",
     "acked": "bị tấn công",
     "open": "mở",
-    "acknowledge": "Thừa nhận"
+    "acknowledge": "Thừa nhận",
+    "revenue_drop": {
+      "title": "Doanh thu phân khúc chậm lại",
+      "body": "Doanh thu WoW SMB giảm 4% — rà phủ pipeline."
+    },
+    "project_delay": {
+      "title": "Dự án có nguy cơ trễ",
+      "body": "Hai dự án giao hàng đã vượt cổng mốc."
+    },
+    "churn_risk": {
+      "title": "Rủi ro rời bỏ khách tăng",
+      "body": "Ba tài khoản có điểm tương tác giảm."
+    },
+    "workflow_failure": {
+      "title": "Phát hiện lỗi workflow",
+      "body": "Workflow nhắc hóa đơn thất bại hai lần trong 24 giờ."
+    },
+    "ai_failure": {
+      "title": "Thử lại tác vụ AI tăng",
+      "body": "Tỷ lệ thử lại tác vụ tác nhân vượt ngưỡng mềm."
+    },
+    "integration_error": {
+      "title": "Lỗi tích hợp",
+      "body": "Connector Slack trả 5xx không đều."
+    },
+    "security": {
+      "title": "Cảnh báo bảo mật",
+      "body": "Phát hiện mẫu dùng khóa API bất thường."
+    }
   },
   "scorecards": {
     "title": "Công cụ thẻ điểm",
     "emptyTitle": "Không có phiếu ghi điểm",
-    "emptyDescription": "Hạt giống thẻ điểm trên bootstrap."
+    "emptyDescription": "Hạt giống thẻ điểm trên bootstrap.",
+    "sales": {
+      "name": "Điểm bán hàng",
+      "drivers": {
+        "pipeline_coverage": "Phủ pipeline",
+        "win_rate": "Tỷ lệ thắng",
+        "cycle_time": "Thời gian chu kỳ"
+      }
+    },
+    "customer_health": {
+      "name": "Điểm sức khỏe khách",
+      "drivers": {
+        "retention": "Giữ chân",
+        "nps_proxy": "Proxy NPS",
+        "support_load": "Tải hỗ trợ"
+      }
+    },
+    "project_success": {
+      "name": "Điểm thành công dự án",
+      "drivers": {
+        "on_time_delivery": "Giao đúng hạn",
+        "scope_control": "Kiểm soát phạm vi",
+        "utilization": "Mức sử dụng"
+      }
+    },
+    "automation_efficiency": {
+      "name": "Hiệu quả tự động hóa",
+      "drivers": {
+        "workflow_success": "Thành công workflow",
+        "manual_effort_saved": "Công sức thủ công tiết kiệm",
+        "retry_rate": "Tỷ lệ thử lại"
+      }
+    },
+    "ai_quality": {
+      "name": "Chất lượng AI",
+      "drivers": {
+        "task_success": "Thành công tác vụ",
+        "confidence_avg": "Độ tin trung bình",
+        "escalation_rate": "Tỷ lệ leo thang"
+      }
+    },
+    "operational_health": {
+      "name": "Sức khỏe vận hành",
+      "drivers": {
+        "system_health": "Sức khỏe hệ thống",
+        "integration_reliability": "Độ tin cậy tích hợp",
+        "identity_posture": "Tư thế danh tính"
+      }
+    }
   },
   "explorer": {
     "title": "Trình khám phá dữ liệu",
@@ -107,7 +247,8 @@
     "searchAria": "Tìm kiếm hàng trình khám phá demo",
     "emptyTitle": "Không có hàng nào khớp",
     "emptyDescription": "Điều chỉnh bộ lọc hoặc tìm kiếm hoặc tải lại tập dữ liệu demo.",
-    "hint": "Tìm kiếm phía máy khách trên các bộ dữ liệu được chọn lọc - tổng hợp phụ trợ và truy sâu xuống không được kết nối."
+    "hint": "Tìm kiếm phía máy khách trên các bộ dữ liệu được chọn lọc - tổng hợp phụ trợ và truy sâu xuống không được kết nối.",
+    "metricLabel": "Chỉ số {domain} {index}"
   },
   "columns": {
     "kpi": "KPI",
@@ -132,5 +273,121 @@
     "measure": "Đo lường",
     "date": "Ngày"
   },
-  "emDash": "—"
+  "emDash": "—",
+  "domains": {
+    "crm": "Phân tích CRM",
+    "projects": "Phân tích dự án",
+    "finance": "Phân tích tài chính",
+    "documents": "Phân tích tài liệu",
+    "workflow": "Phân tích workflow",
+    "identity": "Phân tích danh tính",
+    "ai": "Phân tích AI",
+    "integration": "Phân tích tích hợp",
+    "executive": "Điều hành"
+  },
+  "series": {
+    "crm_leads": "Lead",
+    "crm_pipeline": "Pipeline (nghìn $)",
+    "proj_active": "Dự án đang chạy",
+    "proj_on_time": "Đúng hạn %",
+    "fin_revenue": "Doanh thu (nghìn $)",
+    "fin_margin": "Biên gộp %",
+    "doc_created": "Tài liệu đã tạo",
+    "doc_views": "Lượt xem tài liệu",
+    "wf_runs": "Lần chạy workflow",
+    "wf_success": "Thành công %",
+    "id_users": "Người dùng đang hoạt động",
+    "id_sessions": "Phiên",
+    "ai_tasks": "Tác vụ tác nhân",
+    "ai_success": "Tỷ lệ thành công tác nhân %",
+    "int_calls": "Lần gọi API / webhook",
+    "int_errors": "Lỗi tích hợp"
+  },
+  "bands": {
+    "Critical": "Nghiêm trọng",
+    "Watch": "Theo dõi",
+    "Healthy": "Ổn định",
+    "Excellent": "Xuất sắc"
+  },
+  "charts": {
+    "chart_revenue": "Xu hướng doanh thu",
+    "chart_pipeline": "Pipeline CRM",
+    "chart_workflows": "Hoạt động workflow",
+    "chart_ai": "Cơ cấu hoạt động AI",
+    "chart_ops_table": "Ảnh chụp vận hành",
+    "chart_heatmap_placeholder": "Bản đồ nhiệt tương tác"
+  },
+  "chartKinds": {
+    "line": "Đường",
+    "bar": "Cột",
+    "area": "Vùng",
+    "pie": "Tròn",
+    "heatmap": "Bản đồ nhiệt",
+    "table": "Bảng",
+    "card": "Thẻ"
+  },
+  "insightItems": {
+    "trend": {
+      "title": "MRR tăng tốc",
+      "summary": "Tăng trưởng MRR cải thiện ba kỳ liên tiếp."
+    },
+    "pattern": {
+      "title": "Đỉnh workflow vào ngày hóa đơn",
+      "summary": "Tải tự động hóa tương quan với xuất hóa đơn cuối tháng."
+    },
+    "recommendation": {
+      "title": "Mở rộng playbook giữ chân",
+      "summary": "Tập trung outreach CSM vào ba tài khoản sức khỏe giảm."
+    },
+    "executive_summary": {
+      "title": "Brief điều hành",
+      "summary": "Sức khỏe công ty vững; theo dõi rủi ro rời bỏ và trễ giao."
+    },
+    "risk": {
+      "title": "Cụm rủi ro giao hàng",
+      "summary": "Hai dự án tranh chấp tài nguyên — dự báo năng lực tăng."
+    },
+    "opportunity": {
+      "title": "Cơ hội upsell",
+      "summary": "Tài khoản dùng nhiều chưa có gói Business có tiềm năng mở rộng."
+    }
+  },
+  "forecastNotes": {
+    "revenue": "Chỗ xu hướng tuyến tính — thay bằng dịch vụ mô hình.",
+    "customer": "Tổ hợp thu hút + giữ chân.",
+    "project": "Dự báo giao hàng có xét năng lực.",
+    "capacity": "Dự báo mức sử dụng nhóm.",
+    "growth": "Dự báo tốc độ tăng."
+  },
+  "forecastKinds": {
+    "revenue": "Doanh thu",
+    "customer": "Khách",
+    "project": "Dự án",
+    "capacity": "Năng lực",
+    "growth": "Tăng trưởng"
+  },
+  "severity": {
+    "info": "Thông tin",
+    "warning": "Cảnh báo",
+    "critical": "Nghiêm trọng"
+  },
+  "trend": {
+    "up": "Tăng",
+    "down": "Giảm",
+    "flat": "Ổn định"
+  },
+  "insightKinds": {
+    "trend": "Xu hướng",
+    "pattern": "Mẫu",
+    "recommendation": "Khuyến nghị",
+    "executive_summary": "Tóm tắt điều hành",
+    "risk": "Rủi ro",
+    "opportunity": "Cơ hội"
+  },
+  "reportKinds": {
+    "executive": "Điều hành",
+    "department": "Phòng ban",
+    "operational": "Vận hành",
+    "management": "Quản lý"
+  }
 }

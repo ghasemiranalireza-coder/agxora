@@ -117,5 +117,60 @@
       "warning": "Cảnh báo",
       "ok": "ĐƯỢC RỒI"
     }
+  },
+  "licenseStatus": {
+    "trial": "Dùng thử",
+    "active": "Đang hoạt động",
+    "expired": "Hết hạn",
+    "cancelled": "Đã hủy",
+    "suspended": "Tạm khóa",
+    "lifetime": "Trọn đời"
+  },
+  "quotas": {
+    "ai_requests": "Yêu cầu AI",
+    "projects": "Dự án",
+    "customers": "Khách hàng",
+    "documents": "Tài liệu",
+    "storage_mb": "Lưu trữ (MB)",
+    "users": "Người dùng",
+    "api_requests": "Yêu cầu API"
+  },
+  "invoiceStatus": {
+    "draft": "Nháp",
+    "open": "Chưa thanh toán",
+    "paid": "Đã trả",
+    "void": "Hủy bỏ",
+    "uncollectible": "Không thu được",
+    "refunded": "Đã hoàn"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "Dùng thử sắp kết thúc",
+      "body": "Dùng thử kết thúc sau khoảng {days} ngày. Nâng cấp để giữ toàn quyền truy cập."
+    },
+    "expired": {
+      "title": "Gói đã hết hạn",
+      "body": "Gia hạn hoặc nâng cấp gói để khôi phục tính năng thương mại."
+    },
+    "cancelled": {
+      "title": "Gói đã hủy",
+      "body": "Gói AGXORA đã bị hủy. Quyền truy cập còn đến hết kỳ."
+    },
+    "quotaWarning": {
+      "title": "Sắp đạt hạn mức {metric}",
+      "body": "Đã dùng {used}/{limit}. Cân nhắc nâng cấp."
+    },
+    "upgradeAvailable": {
+      "title": "Có bản nâng cấp",
+      "body": "Business và Enterprise mở tự động hóa, hạn mức AI cao hơn và API."
+    },
+    "invoiceReady": {
+      "title": "Hóa đơn sẵn sàng",
+      "body": "Hóa đơn {number} đã thanh toán thành công."
+    },
+    "renewed": {
+      "title": "Gói đã gia hạn",
+      "body": "Gói của bạn gia hạn vào {date}."
+    }
   }
 }

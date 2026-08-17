@@ -2,7 +2,7 @@
 
 import type { JSX } from "react";
 import type { AnalyticsMetric, TopPost } from "../../lib/creator-studio";
-import { useT } from "../../lib/i18n";
+import { catalogCopy, useT } from "../../lib/i18n";
 import { Badge, Card } from "../ui";
 
 export function CreatorAnalytics({
@@ -36,7 +36,7 @@ export function CreatorAnalytics({
                 className="text-[11px] font-semibold uppercase tracking-[0.14em]"
                 style={{ color: "var(--agx-text-muted, #94a3b8)" }}
               >
-                {metric.label}
+                {catalogCopy(t, `creator.analyticsMetrics.${metric.id}`, metric.label)}
               </p>
               <p
                 className="mt-2 text-xl font-semibold tabular-nums"
@@ -70,7 +70,7 @@ export function CreatorAnalytics({
               >
                 <div>
                   <p className="font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                    {post.title}
+                    {catalogCopy(t, `creator.topPosts.${post.id}`, post.title)}
                   </p>
                   <p className="mt-0.5 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                     {post.platform}
@@ -93,9 +93,9 @@ export function CreatorAnalytics({
           {t("creator.analytics.recommendations")}
         </h3>
         <ul className="space-y-3">
-          {recommendations.map((rec) => (
+          {recommendations.map((rec, index) => (
             <li
-              key={rec}
+              key={`r${index + 1}`}
               className="rounded-2xl border px-3 py-3 text-sm leading-relaxed"
               style={{
                 borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
@@ -103,7 +103,7 @@ export function CreatorAnalytics({
                 color: "var(--agx-text-muted, #94a3b8)",
               }}
             >
-              {rec}
+              {catalogCopy(t, `creator.recommendations.r${index + 1}`, rec)}
             </li>
           ))}
         </ul>

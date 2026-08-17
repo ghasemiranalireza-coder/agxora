@@ -26,7 +26,7 @@ import {
   WORKFLOW_ELEMENTS,
 } from "../../lib/automation";
 import { Badge, Button, Card, EmptyState } from "../ui";
-import { useT } from "@/app/lib/i18n";
+import { catalogCopy, useT } from "@/app/lib/i18n";
 
 const NODE_W = 168;
 const NODE_H = 72;
@@ -69,7 +69,9 @@ const PaletteList = memo(function PaletteList({
               <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
                 {t(`automation.catalog.${item.id}.label`)}
               </p>
-              <Badge tone={kindTone(item.kind)}>{item.kind.replaceAll("_", " ")}</Badge>
+              <Badge tone={kindTone(item.kind)}>
+                {catalogCopy(t, `automation.kinds.${item.kind}`, item.kind.replaceAll("_", " "))}
+              </Badge>
             </div>
             <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {t(`automation.catalog.${item.id}.description`)}
@@ -480,12 +482,16 @@ export function WorkflowBuilder({
                     cursor: "grab",
                   }}
                 >
-                  <Badge tone={kindTone(node.type)}>{node.type.replaceAll("_", " ")}</Badge>
+                  <Badge tone={kindTone(node.type)}>
+                    {catalogCopy(t, `automation.kinds.${node.type}`, node.type.replaceAll("_", " "))}
+                  </Badge>
                   <p
                     className="mt-2 text-sm font-medium leading-snug"
                     style={{ color: "var(--agx-text, #f8fafc)" }}
                   >
-                    {node.label}
+                    {node.catalogId
+                      ? catalogCopy(t, `automation.catalog.${node.catalogId}.label`, node.label)
+                      : node.label}
                   </p>
                   {linkFrom === node.id ? (
                     <p className="mt-1 text-[10px]" style={{ color: "var(--agx-accent, #22d3ee)" }}>

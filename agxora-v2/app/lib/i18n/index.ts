@@ -51,7 +51,14 @@ export {
 export { LanguageSwitcher } from "./LanguageSwitcher";
 export type { TranslateValues } from "./translate";
 export { resolveMessage, resolveMessageList } from "./translate";
+export { catalogCopy, slugLabel } from "./catalogCopy";
+export {
+  localizeWorkflowTemplateBadge,
+  localizeIntegrationMessage,
+  localizeBillingNotification,
+} from "./localizeAppCopy";
 export {
   isTranslationKey,
   resolveUserFacingErrorKey,
+  localizeThrownError,
 } from "./errorMap";

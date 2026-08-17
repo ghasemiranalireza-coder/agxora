@@ -81,7 +81,7 @@
       "mock": "Mock (lokaal)",
       "openai": "OpenAI",
       "azure": "Azure OpenAI",
-      "anthropic": "Antropisch",
+      "anthropic": "Anthropic",
       "google": "Googlen",
       "openrouter": "OpenRouter",
       "ollama": "Ollama",
@@ -109,7 +109,7 @@
     "themeModeAria": "Thema-modus",
     "resolvedAppearance": "Opgelost uiterlijk:",
     "accentColor": "Accentkleur",
-    "accentNotice": "Accentvoorkeur wordt opgeslagen voor toekomstige CSS var-bedrading - muteert het vergrendelde kleursysteem nog niet.",
+    "accentNotice": "Accentvoorkeur wordt voor deze sessie bewaard en wijzigt het vergrendelde kleursysteem nog niet.",
     "density": "Dichtheid",
     "compactMode": "Compacte modus",
     "compactModeDescription": "Verminder de opvulling tussen bedrijfstabellen en -panelen.",
@@ -135,6 +135,13 @@
       "comfortable": "Comfortabel",
       "compact": "Compact",
       "spacious": "Ruim"
+    },
+    "accents": {
+      "cyan": "Cyaan",
+      "blue": "Blauw",
+      "emerald": "Smaragd",
+      "violet": "Violet",
+      "amber": "Amber"
     }
   },
   "notifications": {

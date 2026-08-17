@@ -117,5 +117,60 @@
       "warning": "警告",
       "ok": "わかりました"
     }
+  },
+  "licenseStatus": {
+    "trial": "トライアル",
+    "active": "有効",
+    "expired": "期限切れ",
+    "cancelled": "キャンセル",
+    "suspended": "停止",
+    "lifetime": "生涯"
+  },
+  "quotas": {
+    "ai_requests": "AIリクエスト",
+    "projects": "プロジェクト",
+    "customers": "顧客",
+    "documents": "文書",
+    "storage_mb": "ストレージ (MB)",
+    "users": "ユーザー",
+    "api_requests": "APIリクエスト"
+  },
+  "invoiceStatus": {
+    "draft": "下書き",
+    "open": "未払い",
+    "paid": "支払済み",
+    "void": "無効",
+    "uncollectible": "回収不能",
+    "refunded": "返金済み"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "トライアルまもなく終了",
+      "body": "トライアルは約{days}日後に終了します。フルアクセスを維持するにはアップグレードしてください。"
+    },
+    "expired": {
+      "title": "サブスクリプション期限切れ",
+      "body": "商用機能を復元するにはプランを更新またはアップグレードしてください。"
+    },
+    "cancelled": {
+      "title": "サブスクリプションをキャンセル",
+      "body": "AGXORAサブスクリプションはキャンセルされました。期間終了までアクセスは残ります。"
+    },
+    "quotaWarning": {
+      "title": "{metric}の上限に近づいています",
+      "body": "{used} / {limit} を使用中。アップグレードをご検討ください。"
+    },
+    "upgradeAvailable": {
+      "title": "アップグレード可能",
+      "body": "BusinessとEnterpriseは自動化、より高いAI枠、APIアクセスを解放します。"
+    },
+    "invoiceReady": {
+      "title": "請求書の準備完了",
+      "body": "請求書 {number} の支払いが完了しました。"
+    },
+    "renewed": {
+      "title": "サブスクリプションを更新",
+      "body": "プランは{date}に更新されます。"
+    }
   }
 }

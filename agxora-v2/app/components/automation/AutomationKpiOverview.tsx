@@ -3,6 +3,7 @@
 import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { AutomationKpi } from "../../lib/automation";
+import { catalogCopy, useT } from "@/app/lib/i18n";
 import { Card } from "../ui";
 
 export function AutomationKpiOverview({
@@ -10,6 +11,7 @@ export function AutomationKpiOverview({
 }: {
   readonly metrics: readonly AutomationKpi[];
 }): JSX.Element {
+  const t = useT();
   const reduceMotion = useReducedMotion();
 
   return (
@@ -27,7 +29,7 @@ export function AutomationKpiOverview({
                 className="text-[11px] font-semibold uppercase tracking-[0.16em]"
                 style={{ color: "var(--agx-text-muted, #94a3b8)" }}
               >
-                {metric.label}
+                {catalogCopy(t, `automation.kpi.${metric.id}.label`, metric.label)}
               </h3>
               {metric.delta ? (
                 <span
@@ -57,7 +59,7 @@ export function AutomationKpiOverview({
               {metric.value}
             </p>
             <p className="mt-1.5 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {metric.caption}
+              {catalogCopy(t, `automation.kpi.${metric.id}.caption`, metric.caption)}
             </p>
           </Card>
         </motion.div>

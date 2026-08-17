@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "优化建议",
     "oneClickOptimize": "一键优化",
-    "noticeDefault": "一键优化还没有图形突变。",
-    "noticeQueued": "优化排队。未来的引擎将重写延迟和批准。"
+    "noticeDefault": "一键优化尚不会改动流程图。",
+    "noticeQueued": "已排队优化。后续引擎将改写延迟与审批。",
+    "score": {
+      "healthy": "健康",
+      "needsAttention": "需要关注",
+      "atRisk": "存在风险"
+    },
+    "kinds": {
+      "missing_approval": "审批",
+      "possible_delay": "延迟",
+      "unused_trigger": "触发器",
+      "duplicate_nodes": "重复",
+      "unused_action": "操作",
+      "security": "安全",
+      "performance": "性能"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "缺少审批",
+        "description": "较长流程通常应在产生副作用前加入审批关卡。"
+      },
+      "possible_delay": {
+        "title": "可能需要延迟",
+        "description": "可在提醒邮件前加入延迟，避免突发打扰。"
+      },
+      "unused_trigger": {
+        "title": "未使用的触发器",
+        "description": "此图没有起始触发器 — 激活前请添加一个。"
+      },
+      "duplicate_nodes": {
+        "title": "重复节点",
+        "description": "“{label}” 出现 {count} 次 — 如多余请合并。"
+      },
+      "unused_action": {
+        "title": "未使用的操作",
+        "description": "{label} 未连接 — 请连线或删除。"
+      },
+      "security": {
+        "title": "安全建议",
+        "description": "Webhook 和邮件操作请使用最小权限适配器。"
+      },
+      "performance": {
+        "title": "性能建议",
+        "description": "尽可能批量处理 AI 步骤以缩短平均执行时间。"
+      }
+    }
   },
   "integrations": {
     "intro": "集成中心——可选。状态：已连接、测试版、计划中、即将推出、已禁用。没有实时 API。",
@@ -536,5 +580,191 @@
       "label": "分配任务",
       "description": "将任务分配给用户。"
     }
+  },
+  "kinds": {
+    "trigger": "触发器",
+    "action": "操作",
+    "condition": "条件",
+    "delay": "延迟",
+    "approval": "审批",
+    "loop": "循环",
+    "merge": "合并",
+    "split": "拆分",
+    "ai_decision": "AI 决策",
+    "ai_action": "AI 操作",
+    "notification": "通知",
+    "webhook": "Webhook",
+    "custom_action": "自定义操作",
+    "branch": "分支",
+    "variable": "变量"
+  },
+  "kpi": {
+    "active": {
+      "label": "进行中的工作流",
+      "caption": "已在工作区启用"
+    },
+    "runs-today": {
+      "label": "今日工作流运行",
+      "caption": "覆盖全部触发器"
+    },
+    "success": {
+      "label": "成功的自动化",
+      "caption": "今日"
+    },
+    "failed": {
+      "label": "失败运行",
+      "caption": "需要关注"
+    },
+    "pending": {
+      "label": "待处理任务",
+      "caption": "审批 + 重试"
+    },
+    "avg-time": {
+      "label": "平均执行时间",
+      "caption": "中位数 1.2 秒"
+    },
+    "ai-suggestions": {
+      "label": "AI 建议",
+      "caption": "自动化机会"
+    }
+  },
+  "integrationCategories": {
+    "Productivity": "效率",
+    "Communication": "沟通",
+    "Commerce": "商务",
+    "Finance": "财务",
+    "ERP": "ERP",
+    "CRM": "CRM"
+  },
+  "integrationNotes": {
+    "google-workspace": "已预留 Gmail / Drive / 日历钩子供 OAuth 接线。",
+    "m365": "已预留 Outlook / Teams / Graph 钩子。",
+    "slack": "已预留 Events API + 聊天发帖。",
+    "teams": "已预留 Bot Framework 适配器。",
+    "discord": "已预留 Webhook + 机器人适配器。",
+    "whatsapp": "已预留 Meta Cloud API 适配器。",
+    "stripe": "已预留支付 Webhook — 无实时密钥。",
+    "shopify": "已预留订单 / 产品事件。",
+    "datev": "已预留 DATEV 导出 / 过账批次钩子。",
+    "sap": "已预留 ERP 事件桥 — 企业方案前禁用。",
+    "hubspot": "已预留 CRM 同步适配器。",
+    "salesforce": "已预留 Platform Events 适配器。"
+  },
+  "defaultWorkflow": {
+    "name": "客户入职",
+    "description": "创建客户时的欢迎序列。"
+  },
+  "templateCategories": {
+    "CRM": "CRM",
+    "Finance": "财务",
+    "Sales": "销售",
+    "Marketing": "营销",
+    "HR": "人力资源",
+    "Creator": "创作者",
+    "Ops": "运营",
+    "Projects": "项目",
+    "AI": "AI"
+  },
+  "studioTemplates": {
+    "tpl-onboarding": {
+      "name": "客户入职",
+      "description": "客户创建后发送欢迎邮件、AI 摘要和负责人任务。",
+      "category": "CRM",
+      "recommendedFor": "正在接入新 B2B 客户的团队"
+    },
+    "tpl-invoice": {
+      "name": "发票提醒",
+      "description": "针对未结发票的定时提醒与升级路径。",
+      "category": "财务",
+      "recommendedFor": "希望降低逾期应收的财务运营"
+    },
+    "tpl-lead": {
+      "name": "线索跟进",
+      "description": "新线索的 AI 邮件回复与管道状态更新。",
+      "category": "销售",
+      "recommendedFor": "入站线索量大的销售团队"
+    },
+    "tpl-welcome": {
+      "name": "欢迎邮件",
+      "description": "注册时的简单欢迎序列。",
+      "category": "营销",
+      "recommendedFor": "任何刚开始做邮件自动化的工作区"
+    },
+    "tpl-pipeline": {
+      "name": "销售管道",
+      "description": "阶段变更并附带通知与任务。",
+      "category": "销售",
+      "recommendedFor": "管理多阶段成交推进的团队"
+    },
+    "tpl-recruit": {
+      "name": "招聘",
+      "description": "候选人分流与面试任务。",
+      "category": "人力资源",
+      "recommendedFor": "招聘经理与人事运营"
+    },
+    "tpl-content": {
+      "name": "内容发布",
+      "description": "创作者工作室：发布 → 通知 → 分析。",
+      "category": "创作者",
+      "recommendedFor": "营销与创作者团队"
+    },
+    "tpl-approval": {
+      "name": "审批流程",
+      "description": "带 AI 建议的多步审批。",
+      "category": "运营",
+      "recommendedFor": "副作用发生前的财务/运营审批",
+      "estimatedRuntime": "人工关卡"
+    }
+  },
+  "engineTemplates": {
+    "tpl_customer_welcome": {
+      "name": "新客户欢迎",
+      "description": "客户创建时发送欢迎邮件并通知。",
+      "category": "CRM"
+    },
+    "tpl_invoice_reminder": {
+      "name": "发票提醒",
+      "description": "开票后提醒客户。",
+      "category": "财务"
+    },
+    "tpl_project_kickoff": {
+      "name": "项目启动",
+      "description": "项目创建时分配启动任务并通知。",
+      "category": "项目"
+    },
+    "tpl_task_assignment": {
+      "name": "任务分配",
+      "description": "任务完成时给负责人发邮件 — 衔接下一项工作。",
+      "category": "项目"
+    },
+    "tpl_ai_customer_summary": {
+      "name": "AI 客户摘要",
+      "description": "客户创建时运行 AI 摘要并存储输出。",
+      "category": "AI"
+    },
+    "tpl_followup_reminder": {
+      "name": "跟进提醒",
+      "description": "按计划跟进，并按状态分支。",
+      "category": "CRM"
+    }
+  },
+  "nodeLabels": {
+    "send_welcome_email": "发送欢迎邮件",
+    "notify_team": "通知团队",
+    "wait_3_days": "等待 3 天",
+    "still_unpaid": "仍未付款？",
+    "send_reminder": "发送提醒",
+    "assign_kickoff_task": "分配启动任务",
+    "notify_owner": "通知负责人",
+    "notify_stakeholders": "通知相关方",
+    "run_ai_summary": "运行 AI 摘要",
+    "generate_document": "生成文档",
+    "daily_schedule": "每日计划",
+    "by_priority": "按优先级",
+    "urgent_notification": "紧急通知",
+    "standard_email": "标准邮件"
+  },
+  "studioAiFeatures": {
+    "generate_ai_content": "生成 AI 内容"
   }
 }

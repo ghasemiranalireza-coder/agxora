@@ -121,5 +121,176 @@
   "os": {
     "prioritizeCustomerImpact": "Priorizar el impacto en el cliente",
     "delegatedFollowUp": "Seguimiento delegado"
+  },
+  "categories": {
+    "Leadership": "Liderazgo",
+    "Revenue": "Ingresos",
+    "CRM": "CRM",
+    "Delivery": "Entrega",
+    "Automation": "Automatización",
+    "Finance": "Finanzas",
+    "Knowledge": "Conocimiento",
+    "Support": "Soporte",
+    "Productivity": "Productividad",
+    "Custom": "Personalizado"
+  },
+  "catalog": {
+    "executive_advisor": {
+      "name": "Asesor ejecutivo",
+      "description": "Briefings estratégicos, síntesis de KPI y apoyo a decisiones."
+    },
+    "sales_agent": {
+      "name": "Agente de ventas",
+      "description": "Coaching de pipeline, borradores de outreach y siguientes pasos."
+    },
+    "crm_assistant": {
+      "name": "Asistente CRM",
+      "description": "Enriquecimiento de clientes, higiene de datos e insights de relación."
+    },
+    "project_manager": {
+      "name": "Gestor de proyectos",
+      "description": "Planes, desglose de tareas y señales de riesgo de entrega."
+    },
+    "workflow_coordinator": {
+      "name": "Coordinador de flujos",
+      "description": "Dispara y orquesta flujos de automatización de AGXORA."
+    },
+    "finance_assistant": {
+      "name": "Asistente financiero",
+      "description": "Visión de facturas, notas de cashflow y resúmenes financieros."
+    },
+    "document_analyst": {
+      "name": "Analista de documentos",
+      "description": "Extrae estructura, riesgos y resúmenes de documentos."
+    },
+    "knowledge_assistant": {
+      "name": "Asistente de conocimiento",
+      "description": "Responde desde el conocimiento de la empresa con recuperación lista para RAG."
+    },
+    "support_assistant": {
+      "name": "Asistente de soporte",
+      "description": "Triage de soporte, respuestas y rutas de escalado."
+    },
+    "meeting_assistant": {
+      "name": "Asistente de reuniones",
+      "description": "Preparación de agenda, notas y seguimientos."
+    },
+    "custom": {
+      "name": "Agente personalizado",
+      "description": "Punto de extensión para agentes específicos de la organización."
+    }
+  },
+  "toolsCatalog": {
+    "crm": {
+      "name": "Herramienta CRM",
+      "description": "Crear/actualizar clientes y leer el contexto de la cuenta."
+    },
+    "projects": {
+      "name": "Herramienta de proyectos",
+      "description": "Gestionar proyectos, tareas y estado de entrega."
+    },
+    "finance": {
+      "name": "Herramienta financiera",
+      "description": "Facturas, saldos y resúmenes financieros."
+    },
+    "documents": {
+      "name": "Herramienta de documentos",
+      "description": "Leer y resumir documentos del espacio."
+    },
+    "workflow": {
+      "name": "Herramienta de flujo",
+      "description": "Disparar e inspeccionar flujos de automatización."
+    },
+    "integration": {
+      "name": "Herramienta de integración",
+      "description": "Llamar a conectores de terceros conectados."
+    },
+    "email": {
+      "name": "Herramienta de correo",
+      "description": "Redactar y poner en cola el correo saliente."
+    },
+    "calendar": {
+      "name": "Herramienta de calendario",
+      "description": "Programar e inspeccionar eventos del calendario."
+    },
+    "search": {
+      "name": "Herramienta de búsqueda",
+      "description": "Búsqueda universal del espacio."
+    },
+    "notification": {
+      "name": "Herramienta de notificaciones",
+      "description": "Enviar notificaciones in-app."
+    },
+    "api": {
+      "name": "Herramienta API",
+      "description": "Invocar rutas de la puerta de enlace API interna."
+    },
+    "mcp": {
+      "name": "Herramienta MCP",
+      "description": "Herramientas de servidor Model Context Protocol futuras."
+    }
+  },
+  "knowledgeDocs": {
+    "company": {
+      "title": "Principios operativos AGXORA",
+      "summary": "Principios de SO empresarial para agentes de IA modulares y seguros."
+    },
+    "policies": {
+      "title": "Política de tratamiento de datos",
+      "summary": "Aislamiento de herramientas sensibles y acceso de mínimo privilegio."
+    },
+    "procedures": {
+      "title": "Procedimiento de escalado de clientes",
+      "summary": "Ruta de escalado del asistente de soporte con baja confianza."
+    },
+    "rag": {
+      "title": "Marcador de índice RAG",
+      "summary": "Recuperación vectorial futura sobre documentos y notas CRM."
+    }
+  },
+  "llm": {
+    "local": "LLM local",
+    "mcp": "Servidores MCP",
+    "custom": "Modelo personalizado"
+  },
+  "lifecycle": {
+    "draft": "Borrador",
+    "registered": "Registrado",
+    "active": "Activo",
+    "paused": "En pausa",
+    "error": "Error",
+    "retired": "Retirado"
+  },
+  "healthStatus": {
+    "healthy": "Correcto",
+    "degraded": "Degradado",
+    "down": "Caído",
+    "unknown": "Desconocido"
+  },
+  "taskStatus": {
+    "pending": "Pendiente",
+    "running": "En ejecución",
+    "completed": "Completado",
+    "cancelled": "Cancelado",
+    "failed": "Fallido",
+    "retrying": "Reintentando"
+  },
+  "memoryScope": {
+    "working": "Trabajo",
+    "conversation": "Conversación",
+    "business": "Negocio",
+    "long_term": "Largo plazo",
+    "workspace": "Espacio",
+    "agent": "Agente"
+  },
+  "knowledgeKind": {
+    "company": "Empresa",
+    "documents": "Documentos",
+    "projects": "Proyectos",
+    "crm": "CRM",
+    "policies": "Políticas",
+    "procedures": "Procedimientos",
+    "vector": "Vector",
+    "rag": "RAG"
   }
 }

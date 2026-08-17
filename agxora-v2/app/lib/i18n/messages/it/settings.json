@@ -61,7 +61,7 @@
     "preferredProvider": "Fornitore di IA preferito",
     "defaultModel": "Modello AI predefinito",
     "temperature": "Temperatura",
-    "topP": "Superiore P",
+    "topP": "Top P",
     "maxTokens": "Gettoni massimi",
     "writingStyle": "Stile di scrittura",
     "languagePreferences": "Preferenze della lingua",
@@ -78,10 +78,10 @@
     "streaming": "Streaming",
     "streamingDescription": "Trasmettere le risposte del modello quando il provider lo supporta.",
     "providers": {
-      "mock": "Finto (locale)",
+      "mock": "Mock (locale)",
       "openai": "OpenAI",
       "azure": "Azure OpenAI",
-      "anthropic": "Antropico",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "OpenRouter",
       "ollama": "Ollama",
@@ -108,8 +108,8 @@
     "themeLabel": "Tema",
     "themeModeAria": "Modalità tema",
     "resolvedAppearance": "Aspetto risolto:",
-    "accentColor": "Colore accento",
-    "accentNotice": "La preferenza dell'accento viene memorizzata per il futuro cablaggio della var CSS: non modifica ancora il sistema di colore bloccato.",
+    "accentColor": "Colore di accento",
+    "accentNotice": "La preferenza di accento è salvata per questa sessione e non modifica ancora il sistema colori bloccato.",
     "density": "Densità",
     "compactMode": "Modalità compatta",
     "compactModeDescription": "Riduci il riempimento tra tabelle e pannelli aziendali.",
@@ -135,6 +135,13 @@
       "comfortable": "Comodo",
       "compact": "Compatto",
       "spacious": "Spazioso"
+    },
+    "accents": {
+      "cyan": "Ciano",
+      "blue": "Blu",
+      "emerald": "Smeraldo",
+      "violet": "Violetto",
+      "amber": "Ambra"
     }
   },
   "notifications": {

@@ -16,13 +16,13 @@
     "privacy": "Privacy",
     "terms": "Voorwaarden",
     "cookies": "Cookies",
-    "imprint": "Afdruk",
+    "imprint": "Colofon",
     "organization": "Organisatie",
     "user": "Gebruiker",
     "guest": "Gast",
     "member": "Lid",
     "role": "Rol",
-    "signedIn": "Ingelogd",
+    "signedIn": "Aangemeld",
     "guestSession": "Gastsessie",
     "noResults": "Geen resultaten",
     "noData": "Geen gegevens",
@@ -44,7 +44,7 @@
     "dashboard": "Dashboard"
   },
   "navigation": {
-    "dashboard": "Gösterge Paneli",
+    "dashboard": "Dashboard",
     "projects": "Projecten",
     "aiCrm": "AI-CRM",
     "analytics": "Analyse",
@@ -60,12 +60,12 @@
     "toggleNavigation": "Schakel navigatie in",
     "primary": "Primair",
     "menu": "Menu",
-    "search": "Zoekopdracht",
+    "search": "Zoeken",
     "notifications": "Meldingen",
     "profile": "Profiel",
     "currentOrganization": "Huidige organisatie",
     "noNotifications": "Geen meldingen",
-    "notificationsEmpty": "Jullie zijn allemaal ingehaald. Waarschuwingen en vermeldingen verschijnen hier.",
+    "notificationsEmpty": "Je bent bij. Meldingen en vermeldingen verschijnen hier.",
     "accountSettings": "Accountinstellingen",
     "security": "Beveiliging",
     "themeToggle": "Snel schakelen tussen thema's. Voorkeur: {mode}"
@@ -259,6 +259,61 @@
         "warning": "Waarschuwing",
         "ok": "OK"
       }
+    },
+    "licenseStatus": {
+      "trial": "Proef",
+      "active": "Actief",
+      "expired": "Verlopen",
+      "cancelled": "Geannuleerd",
+      "suspended": "Opgeschort",
+      "lifetime": "Levenslang"
+    },
+    "quotas": {
+      "ai_requests": "AI-verzoeken",
+      "projects": "Projecten",
+      "customers": "Klanten",
+      "documents": "Documenten",
+      "storage_mb": "Opslag (MB)",
+      "users": "Gebruikers",
+      "api_requests": "API-verzoeken"
+    },
+    "invoiceStatus": {
+      "draft": "Concept",
+      "open": "Open",
+      "paid": "Betaald",
+      "void": "Nietig",
+      "uncollectible": "Oninbaar",
+      "refunded": "Terugbetaald"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "Proefperiode eindigt binnenkort",
+        "body": "Je proefperiode eindigt over ongeveer {days} dag(en). Upgrade om volledige toegang te houden."
+      },
+      "expired": {
+        "title": "Abonnement verlopen",
+        "body": "Verleng of upgrade je plan om commerciële functies te herstellen."
+      },
+      "cancelled": {
+        "title": "Abonnement geannuleerd",
+        "body": "Je AGXORA-abonnement is geannuleerd. Toegang blijft tot het einde van de periode."
+      },
+      "quotaWarning": {
+        "title": "{metric}-limiet bijna bereikt",
+        "body": "{used} van {limit} gebruikt. Overweeg een upgrade."
+      },
+      "upgradeAvailable": {
+        "title": "Upgrade beschikbaar",
+        "body": "Business en Enterprise ontgrendelen automatisering, hogere AI-quota en API-toegang."
+      },
+      "invoiceReady": {
+        "title": "Factuur klaar",
+        "body": "Factuur {number} is succesvol betaald."
+      },
+      "renewed": {
+        "title": "Abonnement verlengd",
+        "body": "Je plan wordt verlengd op {date}."
+      }
     }
   },
   "settings": {
@@ -344,7 +399,7 @@
         "mock": "Mock (lokaal)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "Antropisch",
+        "anthropic": "Anthropic",
         "google": "Googlen",
         "openrouter": "OpenRouter",
         "ollama": "Ollama",
@@ -372,7 +427,14 @@
       "themeModeAria": "Thema-modus",
       "resolvedAppearance": "Opgelost uiterlijk:",
       "accentColor": "Accentkleur",
-      "accentNotice": "Accentvoorkeur wordt opgeslagen voor toekomstige CSS var-bedrading - muteert het vergrendelde kleursysteem nog niet.",
+      "accentNotice": "Accentvoorkeur wordt voor deze sessie bewaard en wijzigt het vergrendelde kleursysteem nog niet.",
+      "accents": {
+        "cyan": "Cyaan",
+        "blue": "Blauw",
+        "emerald": "Smaragd",
+        "violet": "Violet",
+        "amber": "Amber"
+      },
       "density": "Dichtheid",
       "compactMode": "Compacte modus",
       "compactModeDescription": "Verminder de opvulling tussen bedrijfstabellen en -panelen.",
@@ -741,8 +803,8 @@
     "skipToContent": "Ga naar de dashboardinhoud",
     "loading": "Dashboard laden…",
     "hero": {
-      "ariaLabel": "AGXORA CORE-held",
-      "eyebrow": "AI zakelijk besturingssysteem",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "AI-bedrijfsbesturingssysteem",
       "title": "AGXORA-KERN",
       "subtitle": "Real-time intelligentie en operationele controle: het commandooppervlak van uw werkruimte.",
       "ctaGetStarted": "Ga aan de slag",
@@ -752,11 +814,11 @@
     },
     "quickActions": {
       "title": "Snelle acties",
-      "subtitle": "Wat moet je nu doen?",
+      "subtitle": "Wat moet u nu doen?",
       "ariaLabel": "Snelle acties",
       "addCustomer": {
         "label": "Klant toevoegen",
-        "description": "Maak een CRM-record"
+        "description": "Een CRM-record maken"
       },
       "newProject": {
         "label": "Nieuw project",
@@ -782,9 +844,9 @@
     "attention": {
       "title": "Heeft aandacht nodig",
       "ariaLabel": "Wat aandacht nodig heeft",
-      "empty": "U bent duidelijk: er zijn momenteel geen dringende zaken.",
+      "empty": "Alles in orde — geen urgente items nu.",
       "tone": {
-        "critical": "Kritisch",
+        "critical": "Kritiek",
         "warning": "Waarschuwing",
         "info": "Info",
         "success": "Klaar",
@@ -808,8 +870,8 @@
       }
     },
     "overview": {
-      "title": "Wat gebeurt er",
-      "subtitle": "Werkruimte telt voor {name}",
+      "title": "Wat er speelt",
+      "subtitle": "Werkruimtetellingen voor {name}",
       "fallbackName": "jouw werkruimte",
       "ariaLabel": "Zakelijk overzicht",
       "online": "Online",
@@ -836,15 +898,15 @@
         "viewFeed": "Bekijk feed"
       },
       "revenue": {
-        "title": "Winst",
+        "title": "Omzet",
         "caption": "Koppel facturering om MRR weer te geven",
-        "openBilling": "Facturering openen"
+        "openBilling": "Facturatie openen"
       },
       "clientShell": {
-        "title": "Klantschil",
+        "title": "Applicatieshell",
         "caption": "Browsersessie klaar - geen live operationele monitor",
         "shellLoaded": "Applicatieshell geladen",
-        "storesReady": "Lokale werkruimtewinkels klaar"
+        "storesReady": "Lokale werkruimte-stores gereed"
       },
       "growth": {
         "title": "Groei",
@@ -856,8 +918,8 @@
       "title": "Recente activiteit",
       "subtitle": "Wat is er vandaag veranderd",
       "ariaLabel": "Recente activiteit",
-      "todayCount": "{count} VANDAAG",
-      "localBadge": "LOKAAL",
+      "todayCount": "{count} vandaag",
+      "localBadge": "Lokaal",
       "emptyTitle": "Nog geen activiteit",
       "emptyBody": "Werkruimtegebeurtenissen verschijnen hier wanneer u klanten, projecten en meer toevoegt.",
       "addCustomer": "Klant toevoegen",
@@ -1127,14 +1189,14 @@
   },
   "auth": {
     "login": {
-      "title": "Log in",
+      "title": "Aanmelden",
       "subtitle": "Welkom terug bij AGXORA.",
       "email": "E-mail",
       "password": "Wachtwoord",
-      "emailPlaceholder": "jij@bedrijf.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Wachtwoord",
       "rememberMe": "Onthoud mij",
-      "submit": "Log in",
+      "submit": "Aanmelden",
       "submitting": "Inloggen…",
       "noAccount": "Geen rekening?",
       "startFree": "Begin gratis",
@@ -1142,7 +1204,7 @@
       "showPassword": "Wachtwoord tonen",
       "hidePassword": "Wachtwoord verbergen",
       "failed": "Aanmelden mislukt",
-      "loading": "Log in"
+      "loading": "Aanmelden"
     },
     "register": {
       "title": "Account aanmaken",
@@ -1160,15 +1222,15 @@
       "submit": "Account aanmaken",
       "submitting": "Account aanmaken…",
       "haveAccount": "Heeft u al een account?",
-      "signIn": "Log in",
+      "signIn": "Aanmelden",
       "strength": "Wachtwoordsterkte",
       "strengthWeak": "Zwak",
-      "strengthFair": "Eerlijk",
+      "strengthFair": "Redelijk",
       "strengthStrong": "Sterk",
       "firstNamePlaceholder": "Alex",
       "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "AGXORA GmbH",
-      "emailPlaceholder": "jij@bedrijf.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Min. 8 tekens, letters + cijfers",
       "confirmPasswordPlaceholder": "Herhaal wachtwoord",
       "failed": "Aanmelden mislukt",
@@ -1199,7 +1261,7 @@
       "loading": "Wachtwoord opnieuw instellen"
     },
     "contactSales": {
-      "title": "Neem contact op met Verkoop",
+      "title": "Contact sales",
       "subtitle": "Vertel ons over uw team. We zullen de ondernemingsopties opvolgen.",
       "name": "Volledige naam",
       "email": "Werk e-mail",
@@ -1218,7 +1280,7 @@
       "successTitle": "Bedankt",
       "successBody": "Uw aanvraag is ontvangen. Ons team zal binnenkort reageren.",
       "viewPricing": "Bekijk Tarieven",
-      "bookDemo": "Boekdemo",
+      "bookDemo": "Demo plannen",
       "failed": "Kan onderzoek niet indienen",
       "country": "Land",
       "savedFor": "Opgeslagen voor {company}. Verkooplevering is in deze build niet verbonden.",
@@ -1270,7 +1332,7 @@
       },
       "customer360": {
         "title": "Klant 360°",
-        "subtitle": "Profiel, bedrijf, contacten, bestellingen, facturen, Lieferscheine, betalingen, documenten, tijdlijn, activiteiten, notities, AI-samenvatting en communicatiegeschiedenis."
+        "subtitle": "Profiel, bedrijf, contacten, bestellingen, facturen, leveringsbonnen, betalingen, documenten, tijdlijn, activiteiten, notities, AI-samenvatting en communicatiegeschiedenis."
       },
       "salesPipeline": {
         "title": "Verkooppijplijn",
@@ -1281,11 +1343,11 @@
       },
       "deliveryModule": {
         "title": "Leveringsmodule",
-        "subtitle": "Professioneel Lieferschein-systeem met tracking, handtekening, QR en barcodegereedheid."
+        "subtitle": "Professioneel leveringsbon-systeem met tracking, handtekening, QR en barcodegereedheid."
       },
       "documentsModule": {
         "title": "Documenten",
-        "subtitle": "Offertes, contracten, facturen, Lieferschein, inkooporders, ontvangstbewijzen – met AI-zoekopdracht."
+        "subtitle": "Offertes, contracten, facturen, leveringsbon, inkooporders, ontvangstbewijzen – met AI-zoekopdracht."
       },
       "tasksModule": {
         "title": "Taken"
@@ -1577,7 +1639,7 @@
         "contacts": "Contacten",
         "orders": "Bestellingen",
         "invoices": "Facturen",
-        "lieferscheine": "Lieferscheine",
+        "lieferscheine": "leveringsbonnen",
         "payments": "Betalingen",
         "documents": "Documenten",
         "timeline": "Tijdlijn",
@@ -1596,7 +1658,7 @@
       }
     },
     "delivery": {
-      "title": "Professioneel Lieferschein-systeem",
+      "title": "Professioneel leveringsbon-systeem",
       "description": "Afleverbonnen, ophalen/afleveren, chauffeur, voertuig en tracking: alleen voorbeeldrecords. Exportadapters zijn niet aangesloten.",
       "badges": {
         "qrUnavailable": "QR niet beschikbaar",
@@ -1611,7 +1673,7 @@
         "historyNotConnected": "De winkel met leveringsgeschiedenis is niet verbonden in deze build."
       },
       "columns": {
-        "lieferschein": "Lieferschein",
+        "lieferschein": "leveringsbon",
         "order": "Volgorde",
         "customer": "Klant",
         "kind": "Vriendelijk",
@@ -1668,7 +1730,7 @@
       "emptyTitle": "Geen documenten",
       "emptyDescription": "Er zijn geen documenten die overeenkomen met deze zoekopdracht.",
       "searchLabel": "AI-zoekopdracht",
-      "searchPlaceholder": "Offertes, contracten, facturen, Lieferschein…",
+      "searchPlaceholder": "Offertes, contracten, facturen, leveringsbon…",
       "typeLabel": "Documenttype",
       "allTypes": "Alle soorten",
       "columns": {
@@ -1682,7 +1744,7 @@
         "quote": "Citaten",
         "contract": "Contracten",
         "invoice": "Facturen",
-        "lieferschein": "Lieferschein",
+        "lieferschein": "leveringsbon",
         "purchase_order": "Inkooporders",
         "receipt": "Ontvangsten"
       }
@@ -1698,7 +1760,137 @@
       "intro": "Creator Studio Foundation – officiële platformintegraties kunnen later op deze adapters worden aangesloten. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
     },
     "industry": {
-      "intro": "Universal Business Platform – onboarding zal later een branche kiezen. Elke branche ontvangt speciale AI-modules zonder het kern-CRM-besturingssysteem te splitsen."
+      "intro": "Universal Business Platform – onboarding zal later een branche kiezen. Elke branche ontvangt speciale AI-modules zonder het kern-CRM-besturingssysteem te splitsen.",
+      "catalog": {
+        "business": {
+          "label": "Bedrijf",
+          "description": "Algemeen B2B-besturingssysteem"
+        },
+        "freelancer": {
+          "label": "Freelancer",
+          "description": "CRM, facturen en klantdoorstroom voor zzp’ers"
+        },
+        "creator": {
+          "label": "Creator",
+          "description": "Creator Studio + merk-CRM"
+        },
+        "influencer": {
+          "label": "Influencer",
+          "description": "Sponsor-CRM en campagne-OS"
+        },
+        "agency": {
+          "label": "Bureau",
+          "description": "Levering en retainers voor meerdere klanten"
+        },
+        "retail": {
+          "label": "Retail",
+          "description": "Winkelvoorraad, kassa en loyaliteit"
+        },
+        "restaurant": {
+          "label": "Restaurant",
+          "description": "Reserveringen, keuken en bezorging"
+        },
+        "hotel": {
+          "label": "Hotel",
+          "description": "Kamers, gasten en housekeeping"
+        },
+        "laundry": {
+          "label": "Wasserij",
+          "description": "Ophaal, tickets en routelogistiek"
+        },
+        "healthcare": {
+          "label": "Zorg",
+          "description": "Patiënten, afspraken, compliance"
+        },
+        "law_firm": {
+          "label": "Advocatenkantoor",
+          "description": "Zaken, facturatie en documentkluis"
+        },
+        "accounting": {
+          "label": "Boekhouding",
+          "description": "Klantdossiers en DATEV-export"
+        },
+        "construction": {
+          "label": "Bouw",
+          "description": "Locaties, ploegen en voortgangsfacturatie"
+        },
+        "real_estate": {
+          "label": "Vastgoed",
+          "description": "Listings, bezichtigingen en afrondingen"
+        },
+        "education": {
+          "label": "Onderwijs",
+          "description": "Studenten, cursussen en inschrijving"
+        },
+        "manufacturing": {
+          "label": "Productie",
+          "description": "BOM, productie en QC"
+        },
+        "logistics": {
+          "label": "Logistiek",
+          "description": "Vloot, tracking en leveringsbonnen"
+        },
+        "ecommerce": {
+          "label": "E-commerce",
+          "description": "Catalogus, winkelwagens en omnichannel-orders"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Verkoop",
+        "finance": "Financiën",
+        "projects": "Projecten",
+        "clients": "Klanten",
+        "proposals": "Offertes",
+        "time_tracking": "Tijdregistratie",
+        "invoices": "Facturen",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Merkdeals",
+        "content_calendar": "Contentkalender",
+        "sponsorships": "Sponsoring",
+        "audience_insights": "Doelgroepinzichten",
+        "campaigns": "Campagnes",
+        "client_portals": "Klantportalen",
+        "retainers": "Retainers",
+        "campaign_ops": "Campagne-operaties",
+        "inventory": "Voorraad",
+        "pos": "POS",
+        "loyalty": "Loyaliteit",
+        "reservations": "Reserveringen",
+        "menu": "Menu",
+        "kitchen_display": "Keukendisplay",
+        "housekeeping": "Housekeeping",
+        "guest_crm": "Gasten-CRM",
+        "tickets": "Tickets",
+        "routes": "Routes",
+        "delivery_notes": "Leveringsbonnen",
+        "patients": "Patiënten",
+        "appointments": "Afspraken",
+        "compliance": "Compliance",
+        "matters": "Zaken",
+        "billing": "Facturatie",
+        "documents": "Documenten",
+        "client_books": "Klantdossiers",
+        "datev": "DATEV",
+        "tax_deadlines": "Belastingdeadlines",
+        "sites": "Locaties",
+        "crews": "Ploegen",
+        "progress_billing": "Voortgangsfacturatie",
+        "listings": "Listings",
+        "viewings": "Bezichtigingen",
+        "closings": "Afrondingen",
+        "students": "Studenten",
+        "courses": "Cursussen",
+        "enrollment": "Inschrijving",
+        "bom": "BOM",
+        "production": "Productie",
+        "qc": "QC",
+        "fleet": "Vloot",
+        "tracking": "Tracking",
+        "catalog": "Catalogus",
+        "orders": "Orders",
+        "fulfillment": "Fulfillment"
+      }
     },
     "kpi": {
       "customers": {
@@ -1762,7 +1954,7 @@
       "quote": "Citaat",
       "contract": "Contract",
       "invoice": "Factuur",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "leveringsbon",
       "purchase_order": "Aankooporder",
       "receipt": "Ontvangst"
     },
@@ -2769,7 +2961,7 @@
         "activeProjects": "Actieve projecten",
         "activeHint": "{planning} planning",
         "completed": "Voltooid",
-        "completedHint": "{percent}% van portefeuille",
+        "completedHint": "{percent}% van de portfolio",
         "onHold": "In de wacht",
         "onHoldHint": "{archived} gearchiveerd",
         "teamMembers": "Teamleden",
@@ -2831,7 +3023,7 @@
       "missingTitle": "Ontbrekend project",
       "missingDescription": "Selecteer een project om het overzicht ervan te bekijken.",
       "title": "Overzicht",
-      "noDescription": "Geen beschrijving opgegeven.",
+      "noDescription": "Geen beschrijving.",
       "budget": "Begroting",
       "spent": "Besteed",
       "start": "Begin",
@@ -2977,8 +3169,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Optimalisatiesuggesties",
       "oneClickOptimize": "Optimaliseren met één klik",
-      "noticeDefault": "One Click Optimize is nog geen grafiekmutatie.",
-      "noticeQueued": "Optimaliseren in wachtrij. Toekomstige engine zal vertragingen en goedkeuringen herschrijven."
+      "noticeDefault": "Een-klik-optimalisatie wijzigt de grafiek nog niet.",
+      "noticeQueued": "Optimalisatie in de wachtrij. Een toekomstige engine herschrijft vertragingen en goedkeuringen.",
+      "score": {
+        "healthy": "Gezond",
+        "needsAttention": "Aandacht nodig",
+        "atRisk": "Risico"
+      },
+      "kinds": {
+        "missing_approval": "Goedkeuring",
+        "possible_delay": "Vertraging",
+        "unused_trigger": "Trigger",
+        "duplicate_nodes": "Duplicaten",
+        "unused_action": "Actie",
+        "security": "Beveiliging",
+        "performance": "Prestaties"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Ontbrekende goedkeuring",
+          "description": "Langere flows hebben vaak een goedkeuringspoort vóór neveneffecten."
+        },
+        "possible_delay": {
+          "title": "Mogelijke vertraging",
+          "description": "Overweeg een vertraging vóór herinneringsmails om pieken te voorkomen."
+        },
+        "unused_trigger": {
+          "title": "Ongebruikte trigger",
+          "description": "Deze grafiek heeft geen starttrigger — voeg er een toe vóór activering."
+        },
+        "duplicate_nodes": {
+          "title": "Dubbele knopen",
+          "description": "“{label}” komt {count} keer voor — consolideer indien overbodig."
+        },
+        "unused_action": {
+          "title": "Ongebruikte actie",
+          "description": "{label} is niet verbonden — koppel of verwijder."
+        },
+        "security": {
+          "title": "Beveiligingsadvies",
+          "description": "Gebruik adapters met minste rechten voor webhook- en e-mailacties."
+        },
+        "performance": {
+          "title": "Prestatieadvies",
+          "description": "Bundel AI-stappen waar mogelijk om de gemiddelde looptijd te verlagen."
+        }
+      }
     },
     "integrations": {
       "intro": "Integratiecentrum — optioneel. Statussen: Verbonden, Bèta, Gepland, Binnenkort beschikbaar, Uitgeschakeld. Geen live API's.",
@@ -3487,6 +3723,192 @@
         "label": "Status bijwerken",
         "description": "De status van een entiteit in een module bijwerken."
       }
+    },
+    "kinds": {
+      "trigger": "Trigger",
+      "action": "Actie",
+      "condition": "Voorwaarde",
+      "delay": "Vertraging",
+      "approval": "Goedkeuring",
+      "loop": "Lus",
+      "merge": "Samenvoegen",
+      "split": "Splitsen",
+      "ai_decision": "AI-beslissing",
+      "ai_action": "AI-actie",
+      "notification": "Melding",
+      "webhook": "Webhook",
+      "custom_action": "Aangepaste actie",
+      "branch": "Vertakking",
+      "variable": "Variabele"
+    },
+    "kpi": {
+      "active": {
+        "label": "Actieve workflows",
+        "caption": "Ingeschakeld in de workspace"
+      },
+      "runs-today": {
+        "label": "Workflowruns vandaag",
+        "caption": "Over alle triggers"
+      },
+      "success": {
+        "label": "Geslaagde automatiseringen",
+        "caption": "Vandaag"
+      },
+      "failed": {
+        "label": "Mislukte runs",
+        "caption": "Aandacht nodig"
+      },
+      "pending": {
+        "label": "Openstaande taken",
+        "caption": "Goedkeuringen + retries"
+      },
+      "avg-time": {
+        "label": "Gemiddelde looptijd",
+        "caption": "Mediaan 1,2s"
+      },
+      "ai-suggestions": {
+        "label": "AI-suggesties",
+        "caption": "Automatiseringskansen"
+      }
+    },
+    "integrationCategories": {
+      "Productivity": "Productiviteit",
+      "Communication": "Communicatie",
+      "Commerce": "Commerce",
+      "Finance": "Financiën",
+      "ERP": "ERP",
+      "CRM": "CRM"
+    },
+    "integrationNotes": {
+      "google-workspace": "Gmail-/Drive-/Agenda-hooks gereserveerd voor OAuth-bekabeling.",
+      "m365": "Outlook-/Teams-/Graph-hooks gereserveerd.",
+      "slack": "Events API + chatposts gereserveerd.",
+      "teams": "Bot Framework-adapter gereserveerd.",
+      "discord": "Webhook- + botadapter gereserveerd.",
+      "whatsapp": "Meta Cloud API-adapter gereserveerd.",
+      "stripe": "Betalingswebhooks gereserveerd — geen livesleutels.",
+      "shopify": "Order-/productevents gereserveerd.",
+      "datev": "DATEV-export- / boekingsbatch-hooks gereserveerd.",
+      "sap": "ERP-eventbrug gereserveerd — uitgeschakeld tot enterprise-plan.",
+      "hubspot": "CRM-sync-adapter gereserveerd.",
+      "salesforce": "Platform Events-adapter gereserveerd."
+    },
+    "defaultWorkflow": {
+      "name": "Klantonboarding",
+      "description": "Welkomstreeks wanneer een klant wordt aangemaakt."
+    },
+    "templateCategories": {
+      "CRM": "CRM",
+      "Finance": "Financiën",
+      "Sales": "Verkoop",
+      "Marketing": "Marketing",
+      "HR": "HR",
+      "Creator": "Creator",
+      "Ops": "Ops",
+      "Projects": "Projecten",
+      "AI": "AI"
+    },
+    "studioTemplates": {
+      "tpl-onboarding": {
+        "name": "Klant-onboarding",
+        "description": "Welkomstmail, AI-samenvatting en ownertaak na klantaanmaak.",
+        "category": "CRM",
+        "recommendedFor": "Teams die nieuwe B2B-klanten onboarden"
+      },
+      "tpl-invoice": {
+        "name": "Factuurherinnering",
+        "description": "Geplande herinneringen voor open facturen met escalatiepad.",
+        "category": "Financiën",
+        "recommendedFor": "Finance-ops die achterstallige vorderingen verlagen"
+      },
+      "tpl-lead": {
+        "name": "Leadopvolging",
+        "description": "AI-e-mailantwoord plus pipelinestatusupdate voor nieuwe leads.",
+        "category": "Verkoop",
+        "recommendedFor": "Verkoopteams met hoog inbound-leadvolume"
+      },
+      "tpl-welcome": {
+        "name": "Welkomst-e-mail",
+        "description": "Eenvoudige welkomstreeks bij aanmelding.",
+        "category": "Marketing",
+        "recommendedFor": "Elke workspace die met e-mailautomatisering start"
+      },
+      "tpl-pipeline": {
+        "name": "Verkooppijplijn",
+        "description": "Fasewijzigingen met meldingen en taken.",
+        "category": "Verkoop",
+        "recommendedFor": "Teams die meerfasige dealvoortgang beheren"
+      },
+      "tpl-recruit": {
+        "name": "Werving",
+        "description": "Kandidaatrouting en interviewtaken.",
+        "category": "HR",
+        "recommendedFor": "Hiring managers en people ops"
+      },
+      "tpl-content": {
+        "name": "Contentpublicatie",
+        "description": "Creator Studio: publiceren → melden → analytics.",
+        "category": "Creator",
+        "recommendedFor": "Marketing- en creatorteams"
+      },
+      "tpl-approval": {
+        "name": "Goedkeuringsproces",
+        "description": "Meerfasige goedkeuring met AI-aanbevelingen.",
+        "category": "Ops",
+        "recommendedFor": "Finance-/ops-goedkeuringen vóór neveneffecten",
+        "estimatedRuntime": "Menselijke poort"
+      }
+    },
+    "engineTemplates": {
+      "tpl_customer_welcome": {
+        "name": "Welkom nieuwe klant",
+        "description": "Welkomstmail + melding wanneer een klant wordt aangemaakt.",
+        "category": "CRM"
+      },
+      "tpl_invoice_reminder": {
+        "name": "Factuurherinnering",
+        "description": "Herinner klanten nadat een factuur is uitgegeven.",
+        "category": "Financiën"
+      },
+      "tpl_project_kickoff": {
+        "name": "Projectkickoff",
+        "description": "Wijs een kickoff-taak toe en meld bij projectaanmaak.",
+        "category": "Projecten"
+      },
+      "tpl_task_assignment": {
+        "name": "Taaktoewijzing",
+        "description": "E-mail de assignee wanneer een taak klaar is — ketting volgend werk.",
+        "category": "Projecten"
+      },
+      "tpl_ai_customer_summary": {
+        "name": "AI-klantsamenvatting",
+        "description": "Voer een AI-samenvatting uit bij klantaanmaak; sla de output op.",
+        "category": "AI"
+      },
+      "tpl_followup_reminder": {
+        "name": "Opvolgherinnering",
+        "description": "Schema-gebaseerde opvolging met vertakking op status.",
+        "category": "CRM"
+      }
+    },
+    "nodeLabels": {
+      "send_welcome_email": "Welkomst-e-mail verzenden",
+      "notify_team": "Team waarschuwen",
+      "wait_3_days": "3 dagen wachten",
+      "still_unpaid": "Nog onbetaald?",
+      "send_reminder": "Herinnering verzenden",
+      "assign_kickoff_task": "Kickoff-taak toewijzen",
+      "notify_owner": "Owner waarschuwen",
+      "notify_stakeholders": "Stakeholders waarschuwen",
+      "run_ai_summary": "AI-samenvatting uitvoeren",
+      "generate_document": "Document genereren",
+      "daily_schedule": "Dagelijks schema",
+      "by_priority": "Op prioriteit",
+      "urgent_notification": "Urgente melding",
+      "standard_email": "Standaard-e-mail"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "AI-content genereren"
     }
   },
   "team": {
@@ -3970,6 +4392,177 @@
     "os": {
       "prioritizeCustomerImpact": "Klantimpact prioriteren",
       "delegatedFollowUp": "Gedelegeerde opvolging"
+    },
+    "categories": {
+      "Leadership": "Leiderschap",
+      "Revenue": "Omzet",
+      "CRM": "CRM",
+      "Delivery": "Levering",
+      "Automation": "Automatisering",
+      "Finance": "Financiën",
+      "Knowledge": "Kennis",
+      "Support": "Support",
+      "Productivity": "Productiviteit",
+      "Custom": "Aangepast"
+    },
+    "catalog": {
+      "executive_advisor": {
+        "name": "Executive-adviseur",
+        "description": "Strategische briefings, KPI-synthese en beslissingsondersteuning."
+      },
+      "sales_agent": {
+        "name": "Sales-agent",
+        "description": "Pipelinecoaching, outreach-concepten en volgende dealstappen."
+      },
+      "crm_assistant": {
+        "name": "CRM-assistent",
+        "description": "Klantverrijking, datahygiëne en relatie-inzichten."
+      },
+      "project_manager": {
+        "name": "Projectmanager",
+        "description": "Plannen, taakopsplitsing en leveringsrisico’s."
+      },
+      "workflow_coordinator": {
+        "name": "Workflowcoördinator",
+        "description": "Start en orkestreert AGXORA-automatiseringsworkflows."
+      },
+      "finance_assistant": {
+        "name": "Financieel assistent",
+        "description": "Factuuroverzicht, cashflownotities en financiële samenvattingen."
+      },
+      "document_analyst": {
+        "name": "Documentanalist",
+        "description": "Haalt structuur, risico’s en samenvattingen uit documenten."
+      },
+      "knowledge_assistant": {
+        "name": "Kennisassistent",
+        "description": "Antwoordt vanuit bedrijfskennis met RAG-klare retrieval."
+      },
+      "support_assistant": {
+        "name": "Supportassistent",
+        "description": "Triage van klantensupport, antwoorden en escalatiepaden."
+      },
+      "meeting_assistant": {
+        "name": "Vergaderassistent",
+        "description": "Agendavoorbereiding, notitieplaceholders en follow-ups."
+      },
+      "custom": {
+        "name": "Aangepaste agent",
+        "description": "Uitbreidingspunt voor organisatiespecifieke agents."
+      }
+    },
+    "toolsCatalog": {
+      "crm": {
+        "name": "CRM-tool",
+        "description": "Klanten aanmaken/bijwerken en accountcontext lezen."
+      },
+      "projects": {
+        "name": "Projectentool",
+        "description": "Projecten, taken en leverstatus beheren."
+      },
+      "finance": {
+        "name": "Financieel tool",
+        "description": "Facturen, saldi en financiële samenvattingen."
+      },
+      "documents": {
+        "name": "Documententool",
+        "description": "Workspacedocumenten lezen en samenvatten."
+      },
+      "workflow": {
+        "name": "Workflowtool",
+        "description": "Automatiseringsworkflows starten en inspecteren."
+      },
+      "integration": {
+        "name": "Integratietool",
+        "description": "Aangesloten third-partyconnectors aanroepen."
+      },
+      "email": {
+        "name": "E-mailtool",
+        "description": "Uitgaande e-mail opstellen en in de wachtrij zetten."
+      },
+      "calendar": {
+        "name": "Kalendertool",
+        "description": "Agenda-items plannen en inspecteren."
+      },
+      "search": {
+        "name": "Zoektool",
+        "description": "Universele workspacezoekopdracht."
+      },
+      "notification": {
+        "name": "Meldingentool",
+        "description": "In-appmeldingen versturen."
+      },
+      "api": {
+        "name": "API-tool",
+        "description": "Interne API-gatewayroutes aanroepen."
+      },
+      "mcp": {
+        "name": "MCP-tool",
+        "description": "Toekomstige Model Context Protocol-servertools."
+      }
+    },
+    "knowledgeDocs": {
+      "company": {
+        "title": "AGXORA-bedrijfsprincipes",
+        "summary": "Enterprise-OS-principes voor modulaire, veilige AI-agents."
+      },
+      "policies": {
+        "title": "Gegevensverwerkingsbeleid",
+        "summary": "Isolatie van gevoelige tools en least-privilege-toegang."
+      },
+      "procedures": {
+        "title": "Klantescalatieprocedure",
+        "summary": "Escalatiepad van de supportassistent bij lage confidence."
+      },
+      "rag": {
+        "title": "RAG-indexplaceholder",
+        "summary": "Toekomstige vectorretrieval over documenten en CRM-notities."
+      }
+    },
+    "llm": {
+      "local": "Lokaal LLM",
+      "mcp": "MCP-servers",
+      "custom": "Aangepast model"
+    },
+    "lifecycle": {
+      "draft": "Concept",
+      "registered": "Geregistreerd",
+      "active": "Actief",
+      "paused": "Gepauzeerd",
+      "error": "Fout",
+      "retired": "Buiten gebruik"
+    },
+    "healthStatus": {
+      "healthy": "Gezond",
+      "degraded": "Verminderd",
+      "down": "Offline",
+      "unknown": "Onbekend"
+    },
+    "taskStatus": {
+      "pending": "In behandeling",
+      "running": "Actief",
+      "completed": "Voltooid",
+      "cancelled": "Geannuleerd",
+      "failed": "Mislukt",
+      "retrying": "Opnieuw"
+    },
+    "memoryScope": {
+      "working": "Werkgeheugen",
+      "conversation": "Gesprek",
+      "business": "Business",
+      "long_term": "Langetermijn",
+      "workspace": "Werkruimte",
+      "agent": "Agent"
+    },
+    "knowledgeKind": {
+      "company": "Bedrijf",
+      "documents": "Documenten",
+      "projects": "Projecten",
+      "crm": "CRM",
+      "policies": "Beleid",
+      "procedures": "Procedures",
+      "vector": "Vector",
+      "rag": "RAG"
     }
   },
   "integrations": {
@@ -4037,7 +4630,17 @@
     "logs": {
       "title": "Integratielogboeken",
       "emptyTitle": "Nog geen logboeken",
-      "emptyDescription": "Sluit een provider aan of voer een diagnose uit."
+      "emptyDescription": "Sluit een provider aan of voer een diagnose uit.",
+      "installed": "{name} geïnstalleerd",
+      "demoConnected": "Demo verbonden {name}",
+      "disconnected": "{name} verbroken",
+      "webhookCreated": "Webhook aangemaakt {name}",
+      "keyCreated": "API-sleutel aangemaakt {name}",
+      "keyRotated": "Sleutel geroteerd {name}",
+      "keyRevoked": "Sleutel ingetrokken {name}",
+      "stubHealthy": "{name} stub gezond",
+      "diagnosticsComplete": "Diagnose voltooid",
+      "outgoing": "Uitgaand {status}: {eventType}"
     },
     "apiKeys": {
       "title": "API-sleutels",
@@ -4112,7 +4715,92 @@
     },
     "errors": {
       "failedToFetch": "Ophalen is mislukt",
-      "httpStatus": "HTTP-{status}"
+      "httpStatus": "HTTP-{status}",
+      "unknownConnector": "Onbekende connector.",
+      "webhookNotFound": "Webhook niet gevonden.",
+      "apiKeyInactive": "API-sleutel inactief of verlopen."
+    },
+    "categories": {
+      "productivity": "Productiviteit",
+      "communication": "Communicatie",
+      "storage": "Opslag",
+      "crm": "CRM",
+      "automation": "Automatisering",
+      "devtools": "Developertools",
+      "custom": "Aangepast"
+    },
+    "auth": {
+      "oauth2": "OAuth 2.0",
+      "api_key": "API-sleutel",
+      "webhook": "Webhook"
+    },
+    "oauth": {
+      "custom": "Aangepaste OAuth"
+    },
+    "connectorNames": {
+      "custom": "Aangepaste connector"
+    },
+    "connectors": {
+      "microsoft365": {
+        "description": "Mail, agenda en Teams via Microsoft Graph."
+      },
+      "google_workspace": {
+        "description": "Gmail, Agenda en Drive voor Workspace-tenants."
+      },
+      "slack": {
+        "description": "Kanalen, berichten en interactieve meldingen."
+      },
+      "discord": {
+        "description": "Servermeldingen en botberichtbezorging."
+      },
+      "dropbox": {
+        "description": "Bestandssync en gebeurtenissen van gedeelde mappen."
+      },
+      "onedrive": {
+        "description": "Microsoft OneDrive-bestandsopslag en deltasynchronisatie."
+      },
+      "google_drive": {
+        "description": "Drive-bestanden, mappen en wijzigingsmeldingen."
+      },
+      "hubspot": {
+        "description": "CRM-contacten, deals en marketingevents."
+      },
+      "salesforce": {
+        "description": "Enterprise-CRM-objecten en Platform Events."
+      },
+      "zapier": {
+        "description": "Uitgaande hooks naar Zapier-zaps."
+      },
+      "make": {
+        "description": "Scenario-webhooks voor Make (Integromat)."
+      },
+      "github": {
+        "description": "Repo’s, issues, pull requests en Actions."
+      },
+      "gitlab": {
+        "description": "Projecten, merge requests, pipelines en webhooks."
+      },
+      "custom": {
+        "description": "Uitbreidingspunt voor propriëtaire enterprise-systemen."
+      }
+    },
+    "healthStatus": {
+      "healthy": "Gezond",
+      "degraded": "Verminderd",
+      "down": "Offline",
+      "unknown": "Onbekend"
+    },
+    "health": {
+      "installedAuthorize": "Geïnstalleerd — verbind om te autoriseren",
+      "oauthStubPlaceholder": "Lokale OAuth-demo (stub)",
+      "oauthStubLive": "Lokale OAuth-demo (live)",
+      "demoCredential": "Lokale demo-credential opgeslagen — geen live API",
+      "demoConnection": "Lokale demoverbinding — geen live providerkoppeling",
+      "disconnected": "Verbroken"
+    },
+    "generated": {
+      "keyName": "Sleutel {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {
@@ -4184,14 +4872,78 @@
       "title": "KPI-centrum",
       "subtitle": "Configureerbare KPI-catalogus voor omzet, klanten, projecten, workflows, agenten en automatisering.",
       "emptyTitle": "Analytics wacht op signaal",
-      "emptyDescription": "Zodra uw werkruimte activiteit genereert, verschijnen hier uitvoerende KPI's en waarschuwingen."
+      "emptyDescription": "Zodra uw werkruimte activiteit genereert, verschijnen hier uitvoerende KPI's en waarschuwingen.",
+      "revenue": {
+        "name": "Omzet",
+        "description": "Totaal erkende omzet in de periode."
+      },
+      "mrr": {
+        "name": "MRR",
+        "description": "Maandelijks terugkerende omzet."
+      },
+      "arr": {
+        "name": "ARR",
+        "description": "Jaarlijks terugkerende omzet."
+      },
+      "growth": {
+        "name": "Groei",
+        "description": "Groeipercentage t.o.v. vorige periode."
+      },
+      "customer_acquisition": {
+        "name": "Klantacquisitie",
+        "description": "Nieuw verworven klanten."
+      },
+      "retention": {
+        "name": "Retentie",
+        "description": "Klantretentiepercentage."
+      },
+      "churn": {
+        "name": "Klantverlies",
+        "description": "Klantchurnpercentage."
+      },
+      "project_success": {
+        "name": "Projectsucces",
+        "description": "Projecten op tijd / binnen scope geleverd."
+      },
+      "workflow_success": {
+        "name": "Workflowsucces",
+        "description": "Geslaagde workflowuitvoeringen."
+      },
+      "agent_performance": {
+        "name": "Agentprestaties",
+        "description": "Succes-score van AI-agenttaken."
+      },
+      "automation_success": {
+        "name": "Automatiseringssucces",
+        "description": "Betrouwbaarheid van automatisering / integratie."
+      },
+      "custom": {
+        "name": "Aangepaste KPI",
+        "description": "Uitbreidingspunt voor organisatie-KPI’s."
+      }
     },
     "reports": {
       "title": "Rapportage-engine",
       "subtitle": "Rapportdefinities worden ter beoordeling geplaatst. Bestandsexport is pas beschikbaar als er een rapportage-backend is aangesloten.",
       "emptyTitle": "Geen rapporten",
       "emptyDescription": "Rapporteert zaad over de bootstrap van de werkruimte.",
-      "scheduleOnDemand": "op aanvraag"
+      "scheduleOnDemand": "op aanvraag",
+      "executive": {
+        "title": "Executive-weekoverzicht",
+        "description": "CEO-briefing over gezondheid, omzet, risico en groei."
+      },
+      "department": {
+        "title": "Verkoopafdelingsrapport",
+        "description": "Pipeline, acquisitie en retentie voor salesleiderschap."
+      },
+      "operational": {
+        "title": "Dagelijkse operaties",
+        "description": "Workflows, integraties en identiteitshouding."
+      },
+      "management": {
+        "title": "Leveringsmanagement",
+        "description": "Projectsucces, capaciteit en documentdoorvoer."
+      }
     },
     "insights": {
       "emptyTitle": "Nog geen inzichten",
@@ -4211,12 +4963,88 @@
       "emptyDescription": "Waarschuwingen komen voort uit risicoheuristieken.",
       "acked": "aangevallen",
       "open": "open",
-      "acknowledge": "Erkennen"
+      "acknowledge": "Erkennen",
+      "revenue_drop": {
+        "title": "Omzetverzwakking in segment",
+        "body": "WoW-omzet daalde 4% in SMB — controleer pipelinedekking."
+      },
+      "project_delay": {
+        "title": "Project risico op vertraging",
+        "body": "Twee leveringsprojecten misten mijlpaalpoorten."
+      },
+      "churn_risk": {
+        "title": "Klantchurnrisico verhoogd",
+        "body": "Drie accounts tonen dalende engagementscores."
+      },
+      "workflow_failure": {
+        "title": "Workflowfouten gedetecteerd",
+        "body": "Factuurherinnering-workflow faalde twee keer in 24u."
+      },
+      "ai_failure": {
+        "title": "AI-taakretries verhoogd",
+        "body": "Retry-rate van agenttaken overschreed de zachte drempel."
+      },
+      "integration_error": {
+        "title": "Integratiefouten",
+        "body": "Slack-connector gaf intermitterende 5xx-antwoorden."
+      },
+      "security": {
+        "title": "Beveiligingsalert",
+        "body": "Ongebruikelijk API-sleutelgebruik gedetecteerd."
+      }
     },
     "scorecards": {
       "title": "Scorekaart-engine",
       "emptyTitle": "Geen scorekaarten",
-      "emptyDescription": "Scorekaarten zaad op bootstrap."
+      "emptyDescription": "Scorekaarten zaad op bootstrap.",
+      "sales": {
+        "name": "Verkoopscore",
+        "drivers": {
+          "pipeline_coverage": "Pipelinedekking",
+          "win_rate": "Winrate",
+          "cycle_time": "Cyclustijd"
+        }
+      },
+      "customer_health": {
+        "name": "Klantgezondheidsscore",
+        "drivers": {
+          "retention": "Retentie",
+          "nps_proxy": "NPS-proxy",
+          "support_load": "Supportlast"
+        }
+      },
+      "project_success": {
+        "name": "Projectsuccesscore",
+        "drivers": {
+          "on_time_delivery": "Levering op tijd",
+          "scope_control": "Scopediscipline",
+          "utilization": "Benutting"
+        }
+      },
+      "automation_efficiency": {
+        "name": "Automatiseringsefficiëntie",
+        "drivers": {
+          "workflow_success": "Workflowsucces",
+          "manual_effort_saved": "Bespaarde handmatige inzet",
+          "retry_rate": "Herhaalpercentage"
+        }
+      },
+      "ai_quality": {
+        "name": "AI-kwaliteit",
+        "drivers": {
+          "task_success": "Taaksucces",
+          "confidence_avg": "Gem. confidence",
+          "escalation_rate": "Escalatiepercentage"
+        }
+      },
+      "operational_health": {
+        "name": "Operationele gezondheid",
+        "drivers": {
+          "system_health": "Systeemgezondheid",
+          "integration_reliability": "Integratiebetrouwbaarheid",
+          "identity_posture": "Identiteitshouding"
+        }
+      }
     },
     "explorer": {
       "title": "Gegevensverkenner",
@@ -4224,7 +5052,8 @@
       "searchAria": "Zoek in demo-verkennerrijen",
       "emptyTitle": "Er komen geen rijen overeen",
       "emptyDescription": "Pas filters aan, zoek of laad de demo-dataset opnieuw.",
-      "hint": "Zoeken aan de clientzijde op gezaaide tupels: backend-aggregatie en drill-down zijn niet met elkaar verbonden."
+      "hint": "Zoeken aan de clientzijde op gezaaide tupels: backend-aggregatie en drill-down zijn niet met elkaar verbonden.",
+      "metricLabel": "{domain}-metric {index}"
     },
     "columns": {
       "kpi": "KPI",
@@ -4249,7 +5078,123 @@
       "measure": "Meeteenheid",
       "date": "Datum"
     },
-    "emDash": "—"
+    "emDash": "—",
+    "domains": {
+      "crm": "CRM-analyse",
+      "projects": "Projectanalyse",
+      "finance": "Financiële analyse",
+      "documents": "Documentanalyse",
+      "workflow": "Workflowanalyse",
+      "identity": "Identiteitsanalyse",
+      "ai": "AI-analyse",
+      "integration": "Integratieanalyse",
+      "executive": "Executive"
+    },
+    "series": {
+      "crm_leads": "Leads",
+      "crm_pipeline": "Pipeline (k$)",
+      "proj_active": "Actieve projecten",
+      "proj_on_time": "Op tijd %",
+      "fin_revenue": "Omzet (k$)",
+      "fin_margin": "Brutomarge %",
+      "doc_created": "Aangemaakte documenten",
+      "doc_views": "Documentweergaven",
+      "wf_runs": "Workflowruns",
+      "wf_success": "Succes %",
+      "id_users": "Actieve gebruikers",
+      "id_sessions": "Sessies",
+      "ai_tasks": "Agenttaken",
+      "ai_success": "Agentsucces %",
+      "int_calls": "API-/webhook-aanroepen",
+      "int_errors": "Integratiefouten"
+    },
+    "bands": {
+      "Critical": "Kritiek",
+      "Watch": "Let op",
+      "Healthy": "Gezond",
+      "Excellent": "Uitstekend"
+    },
+    "charts": {
+      "chart_revenue": "Omzettrend",
+      "chart_pipeline": "CRM-pipeline",
+      "chart_workflows": "Workflowactiviteit",
+      "chart_ai": "AI-activiteitenmix",
+      "chart_ops_table": "Operationele snapshot",
+      "chart_heatmap_placeholder": "Engagement-heatmap"
+    },
+    "chartKinds": {
+      "line": "Lijn",
+      "bar": "Staaf",
+      "area": "Vlak",
+      "pie": "Cirkel",
+      "heatmap": "Heatmap",
+      "table": "Tabel",
+      "card": "Kaart"
+    },
+    "insightItems": {
+      "trend": {
+        "title": "MRR versnelt",
+        "summary": "MRR-groei verbeterde drie periodes op rij."
+      },
+      "pattern": {
+        "title": "Workflowpieken op factuurdagen",
+        "summary": "Automatiseringsbelasting correleert met facturatie einde maand."
+      },
+      "recommendation": {
+        "title": "Retentie-playbook uitbreiden",
+        "summary": "Richt CSM-outreach op drie accounts met dalende gezondheid."
+      },
+      "executive_summary": {
+        "title": "Executive-brief",
+        "summary": "Bedrijfsgezondheid is sterk; let op churnrisico en leveringsvertragingen."
+      },
+      "risk": {
+        "title": "Leveringsrisicocluster",
+        "summary": "Twee projecten delen resourceconflicten — capaciteitsforecast verhoogd."
+      },
+      "opportunity": {
+        "title": "Upsellkans",
+        "summary": "Accounts met hoog gebruik zonder Business-plan tonen expansiepotentieel."
+      }
+    },
+    "forecastNotes": {
+      "revenue": "Lineaire-trendplaceholder — vervang door modelservice.",
+      "customer": "Samenstelling acquisitie + retentie.",
+      "project": "Capaciteitsbewuste leveringsforecast.",
+      "capacity": "Forecast van teambenetting.",
+      "growth": "Groeipercentageforecast."
+    },
+    "forecastKinds": {
+      "revenue": "Omzet",
+      "customer": "Klant",
+      "project": "Project",
+      "capacity": "Capaciteit",
+      "growth": "Groei"
+    },
+    "severity": {
+      "info": "Info",
+      "warning": "Waarschuwing",
+      "critical": "Kritiek"
+    },
+    "trend": {
+      "up": "Omhoog",
+      "down": "Omlaag",
+      "flat": "Vlak"
+    },
+    "insightKinds": {
+      "trend": "Trend",
+      "pattern": "Patroon",
+      "recommendation": "Aanbeveling",
+      "executive_summary": "Executive-samenvatting",
+      "risk": "Risico",
+      "opportunity": "Kans"
+    },
+    "reportKinds": {
+      "executive": "Executive",
+      "department": "Afdeling",
+      "operational": "Operationeel",
+      "management": "Management"
+    }
   },
   "legal": {
     "shell": {
@@ -4679,13 +5624,223 @@
       "professional": "Professioneel",
       "friendly": "Vriendelijk",
       "luxury": "Luxe",
-      "casual": "Informeel"
+      "casual": "Informeel",
+      "minimal": "Minimaal",
+      "corporate": "Zakelijk",
+      "creative": "Creatief",
+      "custom": "Aangepaste merkstem"
     },
     "integrationStatus": {
       "planned": "Gepland",
       "ready": "Klaar",
       "connected": "Verbonden",
       "disabled": "Uitgeschakeld"
+    },
+    "categories": {
+      "social": "Social",
+      "ads": "Advertenties",
+      "analytics": "Analyse"
+    },
+    "platforms": {
+      "instagram": {
+        "notes": "Officiële Graph API-publicatie + inzichten gereserveerd."
+      },
+      "tiktok": {
+        "notes": "TikTok Content Posting API-adapter gereserveerd."
+      },
+      "youtube": {
+        "notes": "YouTube Data API-upload + analytics gereserveerd."
+      },
+      "facebook": {
+        "notes": "Pages-publicatieadapter gereserveerd."
+      },
+      "linkedin": {
+        "notes": "UGC-/organisatiepost-adapter gereserveerd."
+      },
+      "pinterest": {
+        "notes": "Pins- + boards-adapter gereserveerd."
+      },
+      "threads": {
+        "notes": "Threads API-adapter gereserveerd."
+      },
+      "x": {
+        "notes": "X API v2-postadapter gereserveerd."
+      },
+      "meta-business": {
+        "notes": "Meta Business Suite- / Ads Manager-hooks gereserveerd."
+      },
+      "google-ads": {
+        "notes": "Google Ads API-campagnesync gereserveerd."
+      },
+      "google-analytics": {
+        "notes": "GA4-measurement- + reporting-adapter gereserveerd."
+      }
+    },
+    "features": {
+      "ideas": {
+        "label": "Contentideeën",
+        "description": "Branchebewuste idee-engine voor campagnes en posts."
+      },
+      "captions": {
+        "label": "Caption-generator",
+        "description": "Merkstem-captions per platformformaat."
+      },
+      "hashtags": {
+        "label": "Hashtag-suggesties",
+        "description": "Relevantie- en bereikscore voor hashtagsets."
+      },
+      "calendar": {
+        "label": "Contentkalender",
+        "description": "Cross-platform redactionele kalenderfundering."
+      },
+      "campaigns": {
+        "label": "Campagneplanner",
+        "description": "Doelen, doelgroep, platformen en tijdlijnen."
+      },
+      "audience": {
+        "label": "Doelgroepsuggesties",
+        "description": "Segmentsuggesties uit CRM- + creatorsignalen."
+      },
+      "schedule": {
+        "label": "Plaatsingsschema",
+        "description": "Tijdzonebewuste optimale plaatsingsvensters."
+      },
+      "brand": {
+        "label": "Merkconsistentie",
+        "description": "Toon- en assetchecks t.o.v. de merkstem."
+      },
+      "rewrite": {
+        "label": "AI-herschrijven",
+        "description": "Concepten herschrijven voor helderheid, lengte of kanaal."
+      },
+      "translate": {
+        "label": "Content vertalen",
+        "description": "Meertalige vertaalpipeline gereserveerd."
+      },
+      "i18n": {
+        "label": "Meertalige ondersteuning",
+        "description": "Localepakketten voor publish- en analytics-oppervlakken."
+      }
+    },
+    "kpi": {
+      "content": {
+        "label": "Gemaakte content",
+        "caption": "Dit kwartaal"
+      },
+      "campaigns": {
+        "label": "Campagnes",
+        "caption": "Actief + gepland"
+      },
+      "scheduled": {
+        "label": "Geplande posts",
+        "caption": "Komende 14 dagen"
+      },
+      "engagement": {
+        "label": "Engagement",
+        "caption": "Gem. tarief over kanalen"
+      },
+      "followers": {
+        "label": "Volgersgroei",
+        "caption": "Laatste 30 dagen"
+      },
+      "reach": {
+        "label": "Bereik",
+        "caption": "Unieke impressies"
+      },
+      "conversions": {
+        "label": "Conversies",
+        "caption": "Toegeschreven acties"
+      },
+      "ai-score": {
+        "label": "AI-prestatiesscore",
+        "caption": "Contentkwaliteitssignaal"
+      }
+    },
+    "analyticsMetrics": {
+      "a1": "Engagement",
+      "a2": "Bereik",
+      "a3": "CTR",
+      "a4": "Conversies",
+      "a5": "Doelgroepgroei",
+      "a6": "Contentprestaties"
+    },
+    "voiceDesc": {
+      "professional": "Heldere, geloofwaardige, business-first toon.",
+      "luxury": "Verfijnd, spaarzaam, premium framing.",
+      "friendly": "Warm, toegankelijk, conversatief.",
+      "casual": "Ontspannen alledaagse taal.",
+      "minimal": "Korte zinnen, hoge helderheid.",
+      "corporate": "Formele enterprise-communicatie.",
+      "creative": "Expressieve storytelling voor campagnes.",
+      "custom": "Richtlijnen en voorbeeldcopy later uploaden."
+    },
+    "formatDesc": {
+      "instagram_caption": "Feed-/Reels-captions met CTA-hooks.",
+      "tiktok_script": "Korte scripts: hook → waarde → CTA.",
+      "linkedin_post": "Thought leadership en B2B-verhalen.",
+      "facebook_post": "Community- en page-klare posts.",
+      "x_post": "Korte threads en losse posts.",
+      "blog_article": "Longform redactionele concepten.",
+      "newsletter": "Nieuwsbriefsecties en onderwerpregels.",
+      "email_campaign": "Campagnesequenties en nurture-copy.",
+      "product_description": "Commerce-klare productverhalen.",
+      "ad_copy": "Varianten voor paid social en zoekads.",
+      "seo_article": "Zoekintent-artikelen met outlinestructuur.",
+      "landing_page_copy": "Hero, voordelen, bewijs en CTA-blokken."
+    },
+    "campaignStatus": {
+      "Active": "Actief",
+      "In review": "In beoordeling",
+      "Planned": "Gepland"
+    },
+    "campaigns": {
+      "camp-1": {
+        "name": "Q3-productlancering",
+        "objective": "Awareness + wachtlijstaanmeldingen",
+        "audience": "EU-mkb-operators",
+        "budget": "€8.500 (placeholder)",
+        "timeline": "4 aug – 12 sep"
+      },
+      "camp-2": {
+        "name": "Creator-collab-sprint",
+        "objective": "Bereik + communitygroei",
+        "audience": "Contentmakers 18–34 DE/AT",
+        "budget": "€4.200 (placeholder)",
+        "timeline": "20 jul – 20 aug"
+      },
+      "camp-3": {
+        "name": "Agency-portfolioduw",
+        "objective": "Leadgeneratie",
+        "audience": "Marketingdirecteurs",
+        "budget": "€2.900 (placeholder)",
+        "timeline": "1 sep – 30 sep"
+      }
+    },
+    "calendarItems": {
+      "cal-1": "Launch-teaser-reel",
+      "cal-2": "Founder-LinkedIn-narratief",
+      "cal-3": "Wachtlijst-e-mail #1",
+      "cal-4": "TikTok-demoscript"
+    },
+    "queueItems": {
+      "q-1": "Launch-teaser-reel-caption",
+      "q-2": "Founder-narratiefpost",
+      "q-3": "Wachtlijst-nurture-e-mail",
+      "q-4": "Product-landing-hero-copy",
+      "q-5": "TikTok-demoscript v2",
+      "q-6": "Junirecap-carrousel",
+      "q-7": "Oude promo-thread"
+    },
+    "topPosts": {
+      "tp-1": "Warehouse-automatisering teardown",
+      "tp-2": "30s productdemo-reel",
+      "tp-3": "Creator-collab-hook"
+    },
+    "recommendations": {
+      "r1": "Werk de LinkedIn-teardown deze week om tot een carrousel in 3 delen.",
+      "r2": "Plan TikTok-demo’s di–do 18:00–20:00 CET voor hogere completion.",
+      "r3": "Strak de luxury-merkstem op Instagram-CTA’s — verkort ~20%.",
+      "r4": "Vertaal de top-reelcaption naar DE/FR voor EU-uitbreiding."
     }
   },
   "backend": {
@@ -4726,7 +5881,7 @@
     "skipToMain": "Ga naar de hoofdinhoud",
     "offline": {
       "title": "Je bent offline",
-      "message": "Controleer uw verbinding en probeer het opnieuw wanneer u weer online bent. In het cachegeheugen opgeslagen schermen werken mogelijk nog steeds.",
+      "message": "Controleer uw verbinding en probeer opnieuw wanneer u weer online bent. Gecachte schermen kunnen nog werken.",
       "home": "Thuis",
       "contact": "Contact",
       "signIn": "Log in"

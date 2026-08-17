@@ -117,5 +117,60 @@
       "warning": "تحذير",
       "ok": "نعم"
     }
+  },
+  "licenseStatus": {
+    "trial": "تجريبي",
+    "active": "نشط",
+    "expired": "منتهٍ",
+    "cancelled": "ملغى",
+    "suspended": "موقوف",
+    "lifetime": "مدى الحياة"
+  },
+  "quotas": {
+    "ai_requests": "طلبات الذكاء الاصطناعي",
+    "projects": "المشاريع",
+    "customers": "العملاء",
+    "documents": "المستندات",
+    "storage_mb": "التخزين (MB)",
+    "users": "المستخدمون",
+    "api_requests": "طلبات API"
+  },
+  "invoiceStatus": {
+    "draft": "مسودة",
+    "open": "مفتوحة",
+    "paid": "مدفوعة",
+    "void": "ملغاة",
+    "uncollectible": "غير قابل للتحصيل",
+    "refunded": "مستردة"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "تنتهي الفترة التجريبية قريبًا",
+      "body": "تنتهي فترتك التجريبية خلال حوالي {days} يومًا. قم بالترقية للاحتفاظ بالوصول الكامل."
+    },
+    "expired": {
+      "title": "انتهت الاشتراك",
+      "body": "أعد التجديد أو الترقية لاستعادة الميزات التجارية."
+    },
+    "cancelled": {
+      "title": "تم إلغاء الاشتراك",
+      "body": "تم إلغاء اشتراك AGXORA. يبقى الوصول حتى نهاية الفترة."
+    },
+    "quotaWarning": {
+      "title": "اقتربت من حد {metric}",
+      "body": "تم استخدام {used} من {limit}. فكّر في الترقية."
+    },
+    "upgradeAvailable": {
+      "title": "الترقية متاحة",
+      "body": "Business وEnterprise يفتحان الأتمتة وحصص ذكاء اصطناعي أعلى والوصول إلى API."
+    },
+    "invoiceReady": {
+      "title": "الفاتورة جاهزة",
+      "body": "تم دفع الفاتورة {number} بنجاح."
+    },
+    "renewed": {
+      "title": "تم تجديد الاشتراك",
+      "body": "يتجدد خطتك في {date}."
+    }
   }
 }

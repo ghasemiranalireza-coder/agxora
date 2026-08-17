@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "Klant 360°",
-      "subtitle": "Profiel, bedrijf, contacten, bestellingen, facturen, Lieferscheine, betalingen, documenten, tijdlijn, activiteiten, notities, AI-samenvatting en communicatiegeschiedenis."
+      "subtitle": "Profiel, bedrijf, contacten, bestellingen, facturen, leveringsbonnen, betalingen, documenten, tijdlijn, activiteiten, notities, AI-samenvatting en communicatiegeschiedenis."
     },
     "salesPipeline": {
       "title": "Verkooppijplijn",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "Leveringsmodule",
-      "subtitle": "Professioneel Lieferschein-systeem met tracking, handtekening, QR en barcodegereedheid."
+      "subtitle": "Professioneel leveringsbon-systeem met tracking, handtekening, QR en barcodegereedheid."
     },
     "documentsModule": {
       "title": "Documenten",
-      "subtitle": "Offertes, contracten, facturen, Lieferschein, inkooporders, ontvangstbewijzen – met AI-zoekopdracht."
+      "subtitle": "Offertes, contracten, facturen, leveringsbon, inkooporders, ontvangstbewijzen – met AI-zoekopdracht."
     },
     "tasksModule": {
       "title": "Taken"
@@ -317,7 +317,7 @@
       "contacts": "Contacten",
       "orders": "Bestellingen",
       "invoices": "Facturen",
-      "lieferscheine": "Lieferscheine",
+      "lieferscheine": "leveringsbonnen",
       "payments": "Betalingen",
       "documents": "Documenten",
       "timeline": "Tijdlijn",
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "Professioneel Lieferschein-systeem",
+    "title": "Professioneel leveringsbon-systeem",
     "description": "Afleverbonnen, ophalen/afleveren, chauffeur, voertuig en tracking: alleen voorbeeldrecords. Exportadapters zijn niet aangesloten.",
     "badges": {
       "qrUnavailable": "QR niet beschikbaar",
@@ -351,7 +351,7 @@
       "historyNotConnected": "De winkel met leveringsgeschiedenis is niet verbonden in deze build."
     },
     "columns": {
-      "lieferschein": "Lieferschein",
+      "lieferschein": "leveringsbon",
       "order": "Volgorde",
       "customer": "Klant",
       "kind": "Vriendelijk",
@@ -408,7 +408,7 @@
     "emptyTitle": "Geen documenten",
     "emptyDescription": "Er zijn geen documenten die overeenkomen met deze zoekopdracht.",
     "searchLabel": "AI-zoekopdracht",
-    "searchPlaceholder": "Offertes, contracten, facturen, Lieferschein…",
+    "searchPlaceholder": "Offertes, contracten, facturen, leveringsbon…",
     "typeLabel": "Documenttype",
     "allTypes": "Alle soorten",
     "columns": {
@@ -422,7 +422,7 @@
       "quote": "Citaten",
       "contract": "Contracten",
       "invoice": "Facturen",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "leveringsbon",
       "purchase_order": "Inkooporders",
       "receipt": "Ontvangsten"
     }
@@ -438,7 +438,137 @@
     "intro": "Creator Studio Foundation – officiële platformintegraties kunnen later op deze adapters worden aangesloten. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
   },
   "industry": {
-    "intro": "Universal Business Platform – onboarding zal later een branche kiezen. Elke branche ontvangt speciale AI-modules zonder het kern-CRM-besturingssysteem te splitsen."
+    "intro": "Universal Business Platform – onboarding zal later een branche kiezen. Elke branche ontvangt speciale AI-modules zonder het kern-CRM-besturingssysteem te splitsen.",
+    "catalog": {
+      "business": {
+        "label": "Bedrijf",
+        "description": "Algemeen B2B-besturingssysteem"
+      },
+      "freelancer": {
+        "label": "Freelancer",
+        "description": "CRM, facturen en klantdoorstroom voor zzp’ers"
+      },
+      "creator": {
+        "label": "Creator",
+        "description": "Creator Studio + merk-CRM"
+      },
+      "influencer": {
+        "label": "Influencer",
+        "description": "Sponsor-CRM en campagne-OS"
+      },
+      "agency": {
+        "label": "Bureau",
+        "description": "Levering en retainers voor meerdere klanten"
+      },
+      "retail": {
+        "label": "Retail",
+        "description": "Winkelvoorraad, kassa en loyaliteit"
+      },
+      "restaurant": {
+        "label": "Restaurant",
+        "description": "Reserveringen, keuken en bezorging"
+      },
+      "hotel": {
+        "label": "Hotel",
+        "description": "Kamers, gasten en housekeeping"
+      },
+      "laundry": {
+        "label": "Wasserij",
+        "description": "Ophaal, tickets en routelogistiek"
+      },
+      "healthcare": {
+        "label": "Zorg",
+        "description": "Patiënten, afspraken, compliance"
+      },
+      "law_firm": {
+        "label": "Advocatenkantoor",
+        "description": "Zaken, facturatie en documentkluis"
+      },
+      "accounting": {
+        "label": "Boekhouding",
+        "description": "Klantdossiers en DATEV-export"
+      },
+      "construction": {
+        "label": "Bouw",
+        "description": "Locaties, ploegen en voortgangsfacturatie"
+      },
+      "real_estate": {
+        "label": "Vastgoed",
+        "description": "Listings, bezichtigingen en afrondingen"
+      },
+      "education": {
+        "label": "Onderwijs",
+        "description": "Studenten, cursussen en inschrijving"
+      },
+      "manufacturing": {
+        "label": "Productie",
+        "description": "BOM, productie en QC"
+      },
+      "logistics": {
+        "label": "Logistiek",
+        "description": "Vloot, tracking en leveringsbonnen"
+      },
+      "ecommerce": {
+        "label": "E-commerce",
+        "description": "Catalogus, winkelwagens en omnichannel-orders"
+      }
+    },
+    "modules": {
+      "sales": "Verkoop",
+      "finance": "Financiën",
+      "projects": "Projecten",
+      "clients": "Klanten",
+      "proposals": "Offertes",
+      "time_tracking": "Tijdregistratie",
+      "invoices": "Facturen",
+      "creator_studio": "Creator Studio",
+      "brand_deals": "Merkdeals",
+      "content_calendar": "Contentkalender",
+      "sponsorships": "Sponsoring",
+      "audience_insights": "Doelgroepinzichten",
+      "campaigns": "Campagnes",
+      "client_portals": "Klantportalen",
+      "retainers": "Retainers",
+      "campaign_ops": "Campagne-operaties",
+      "inventory": "Voorraad",
+      "loyalty": "Loyaliteit",
+      "reservations": "Reserveringen",
+      "menu": "Menu",
+      "kitchen_display": "Keukendisplay",
+      "housekeeping": "Housekeeping",
+      "guest_crm": "Gasten-CRM",
+      "tickets": "Tickets",
+      "routes": "Routes",
+      "delivery_notes": "Leveringsbonnen",
+      "patients": "Patiënten",
+      "appointments": "Afspraken",
+      "compliance": "Compliance",
+      "matters": "Zaken",
+      "billing": "Facturatie",
+      "documents": "Documenten",
+      "client_books": "Klantdossiers",
+      "tax_deadlines": "Belastingdeadlines",
+      "sites": "Locaties",
+      "crews": "Ploegen",
+      "progress_billing": "Voortgangsfacturatie",
+      "listings": "Listings",
+      "viewings": "Bezichtigingen",
+      "closings": "Afrondingen",
+      "students": "Studenten",
+      "courses": "Cursussen",
+      "enrollment": "Inschrijving",
+      "production": "Productie",
+      "fleet": "Vloot",
+      "tracking": "Tracking",
+      "catalog": "Catalogus",
+      "orders": "Orders",
+      "fulfillment": "Fulfillment",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {
@@ -502,7 +632,7 @@
     "quote": "Citaat",
     "contract": "Contract",
     "invoice": "Factuur",
-    "lieferschein": "Lieferschein",
+    "lieferschein": "leveringsbon",
     "purchase_order": "Aankooporder",
     "receipt": "Ontvangst"
   },
