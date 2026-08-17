@@ -18,6 +18,12 @@ import {
   listNotesForCustomerInWorkspace,
   updateNoteRecord,
 } from "./noteRepository";
+import { appendActivityRecord } from "./activityRepository";
+import {
+  noteAddedActivity,
+  noteDeletedActivity,
+  noteUpdatedActivity,
+} from "./activityEmitter";
 
 /**
  * Resolve parent customer in the actor workspace or fail closed.
@@ -82,12 +88,19 @@ export async function createNoteForActor(
     });
   }
 
-  return createNoteRecord({
+  const note = await createNoteRecord({
     organizationId: parent.organizationId,
     workspaceId: parent.workspaceId,
     customerId,
     ...result.value,
   });
+  await appendActivityRecord({
+    organizationId: parent.organizationId,
+    workspaceId: parent.workspaceId,
+    customerId,
+    ...noteAddedActivity(note),
+  });
+  return note;
 }
 
 export async function updateNoteForActor(
@@ -117,7 +130,14 @@ export async function updateNoteForActor(
     });
   }
 
-  return updateNoteRecord(actor.workspaceId, noteId, result.value);
+  const note = await updateNoteRecord(actor.workspaceId, noteId, result.value);
+  await appendActivityRecord({
+    organizationId: existing.organizationId,
+    workspaceId: actor.workspaceId,
+    customerId: existing.customerId,
+    ...noteUpdatedActivity(note),
+  });
+  return note;
 }
 
 export async function deleteNoteForActor(
@@ -139,5 +159,11 @@ export async function deleteNoteForActor(
     workspaceId: actor.workspaceId,
   });
 
+  await appendActivityRecord({
+    organizationId: existing.organizationId,
+    workspaceId: actor.workspaceId,
+    customerId: existing.customerId,
+    ...noteDeletedActivity(existing),
+  });
   await deleteNoteRecord(actor.workspaceId, noteId);
 }

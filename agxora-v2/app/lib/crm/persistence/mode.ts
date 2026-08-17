@@ -2,12 +2,10 @@
  * CRM persistence mode — client-safe public flag.
  * Production must set NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE=database when API is live.
  *
- * database mode (Phase 42.1 + Phase 47 + Phase 48 + Phase 49):
- *   Customers + Contacts + Notes + Document metadata → PostgreSQL via /api/v1/crm/*
+ * database mode (Phase 42.1 + Phase 47 + Phase 48 + Phase 49 + Phase 50):
+ *   Customers + Contacts + Notes + Document metadata + Activities → PostgreSQL via /api/v1/crm/*
  * local mode:
- *   Full CRM directory (customers, contacts, notes, documents, …) → LocalStorage
- *
- * Still LocalStorage even in database mode: activities.
+ *   Full CRM directory (customers, contacts, notes, documents, activities, …) → LocalStorage
  */
 
 export type CrmPersistenceMode = "local" | "database";

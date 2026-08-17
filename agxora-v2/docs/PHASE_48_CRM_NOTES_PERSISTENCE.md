@@ -84,7 +84,7 @@ Server checks:
 | Mode | Customers | Contacts | Notes | Documents | Activities |
 |------|-----------|----------|-------|-----------|------------|
 | `local` (default) | LocalStorage | LocalStorage | LocalStorage | LocalStorage | LocalStorage |
-| `database` | PostgreSQL API | PostgreSQL API | PostgreSQL API (Phase 48) | PostgreSQL API (Phase 49) | **Still LocalStorage** |
+| `database` | PostgreSQL API | PostgreSQL API | PostgreSQL API (Phase 48) | PostgreSQL API (Phase 49) | PostgreSQL API (Phase 50) |
 
 ## Module layout
 
@@ -111,14 +111,14 @@ app/lib/crm/directory/service.ts        # database-mode branch for notes
 ## Known limitations
 
 - Document metadata is persisted in **Phase 49** (`docs/PHASE_49_CRM_DOCUMENT_METADATA_PERSISTENCE.md`); binary/blob storage remains deferred
-- Activities remain LocalStorage
+- Activities are persisted in **Phase 50** (`docs/PHASE_50_CRM_ACTIVITIES_PERSISTENCE.md`)
 - Dual-mode default remains `local` until operators flip the flag
 - Contact.`notes` string is unrelated to this entity
 
 ## Explicitly deferred
 
 - Binary/blob storage (S3, filesystem, presigned URLs) — see Phase 49 for metadata-only persistence
-- Activities server persistence
+- ~~Activities server persistence~~ → **Phase 50**
 - Optional consented LocalStorage → Postgres import
 - Stripe / billing
 - Redis / distributed rate limiting / Phase 46-B

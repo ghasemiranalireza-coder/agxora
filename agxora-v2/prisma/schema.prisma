@@ -1,4 +1,4 @@
-// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49
+// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50
 // PostgreSQL source of truth for User / Organization / Workspace / Membership /
 // Session / Customer / Contact / Note / Invitation / OwnershipTransfer /
 // ControlPlaneAuditEvent
@@ -74,6 +74,7 @@ model Organization {
   contacts    Contact[]
   notes       Note[]
   customerDocuments CustomerDocument[]
+  customerActivities CustomerActivity[]
   invitations         Invitation[]
   ownershipTransfers  OwnershipTransfer[]
   auditEvents         ControlPlaneAuditEvent[]
@@ -98,6 +99,7 @@ model Workspace {
   contacts     Contact[]
   notes        Note[]
   customerDocuments CustomerDocument[]
+  customerActivities CustomerActivity[]
   invitations         Invitation[]
   ownershipTransfers  OwnershipTransfer[]
   auditEvents         ControlPlaneAuditEvent[]
@@ -285,6 +287,7 @@ model Customer {
   contacts     Contact[]
   notes        Note[]
   customerDocuments CustomerDocument[]
+  customerActivities CustomerActivity[]
 
   @@index([workspaceId])
   @@index([organizationId])
@@ -371,4 +374,29 @@ model CustomerDocument {
   @@index([customerId, createdAt])
   @@index([workspaceId, customerId])
   @@map("customer_documents")
+}
+
+/// Phase 50 — CRM customer profile activity (immutable timeline — not IAM audit).
+model CustomerActivity {
+  id             String   @id @default(uuid()) @db.Uuid
+  organizationId String   @db.Uuid
+  workspaceId    String   @db.Uuid
+  customerId     String   @db.Uuid
+  kind           String
+  title          String
+  detail         String   @default("")
+  /// Display actor string (matches CrmActivityRecord / LocalStorage pattern).
+  actor          String   @default("")
+  createdAt      DateTime @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  customer     Customer     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@index([customerId])
+  @@index([workspaceId])
+  @@index([organizationId])
+  @@index([customerId, createdAt])
+  @@index([workspaceId, customerId])
+  @@map("customer_activities")
 }

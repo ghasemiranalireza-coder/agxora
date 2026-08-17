@@ -16,6 +16,11 @@ import {
   listCustomersForWorkspace,
   updateCustomerRecord,
 } from "./customerRepository";
+import { appendActivityRecord } from "./activityRepository";
+import {
+  customerCreatedActivity,
+  customerUpdatedActivity,
+} from "./activityEmitter";
 
 export async function listCustomersForActor(
   actor: Actor,
@@ -59,11 +64,18 @@ export async function createCustomerForActor(
     });
   }
 
-  return createCustomerRecord({
+  const customer = await createCustomerRecord({
     organizationId: actor.organizationId,
     workspaceId: actor.workspaceId,
     ...result.value,
   });
+  await appendActivityRecord({
+    organizationId: actor.organizationId,
+    workspaceId: actor.workspaceId,
+    customerId: customer.id,
+    ...customerCreatedActivity(customer),
+  });
+  return customer;
 }
 
 export async function updateCustomerForActor(
@@ -92,7 +104,14 @@ export async function updateCustomerForActor(
     });
   }
 
-  return updateCustomerRecord(actor.workspaceId, customerId, result.value);
+  const customer = await updateCustomerRecord(actor.workspaceId, customerId, result.value);
+  await appendActivityRecord({
+    organizationId: customer.organizationId,
+    workspaceId: actor.workspaceId,
+    customerId: customer.id,
+    ...customerUpdatedActivity(customer),
+  });
+  return customer;
 }
 
 export async function deleteCustomerForActor(
