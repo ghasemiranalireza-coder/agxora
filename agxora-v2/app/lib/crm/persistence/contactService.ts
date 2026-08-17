@@ -18,6 +18,12 @@ import {
   listContactsForCustomerInWorkspace,
   updateContactRecord,
 } from "./contactRepository";
+import { appendActivityRecord } from "./activityRepository";
+import {
+  contactAddedActivity,
+  contactDeletedActivity,
+  contactUpdatedActivity,
+} from "./activityEmitter";
 
 /**
  * Resolve parent customer in the actor workspace or fail closed.
@@ -82,12 +88,19 @@ export async function createContactForActor(
     });
   }
 
-  return createContactRecord({
+  const contact = await createContactRecord({
     organizationId: parent.organizationId,
     workspaceId: parent.workspaceId,
     customerId,
     ...result.value,
   });
+  await appendActivityRecord({
+    organizationId: parent.organizationId,
+    workspaceId: parent.workspaceId,
+    customerId,
+    ...contactAddedActivity(contact),
+  });
+  return contact;
 }
 
 export async function updateContactForActor(
@@ -118,7 +131,14 @@ export async function updateContactForActor(
     });
   }
 
-  return updateContactRecord(actor.workspaceId, contactId, result.value);
+  const contact = await updateContactRecord(actor.workspaceId, contactId, result.value);
+  await appendActivityRecord({
+    organizationId: existing.organizationId,
+    workspaceId: actor.workspaceId,
+    customerId: existing.customerId,
+    ...contactUpdatedActivity(contact),
+  });
+  return contact;
 }
 
 export async function deleteContactForActor(
@@ -140,5 +160,11 @@ export async function deleteContactForActor(
     workspaceId: actor.workspaceId,
   });
 
+  await appendActivityRecord({
+    organizationId: existing.organizationId,
+    workspaceId: actor.workspaceId,
+    customerId: existing.customerId,
+    ...contactDeletedActivity(existing),
+  });
   await deleteContactRecord(actor.workspaceId, contactId);
 }

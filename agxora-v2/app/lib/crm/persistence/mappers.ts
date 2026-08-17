@@ -2,8 +2,9 @@
  * Map between Prisma models and CRM directory UI contracts.
  */
 
-import type { Contact, Customer, CustomerDocument, CustomerStatus as DbStatus, Note } from "@prisma/client";
+import type { Contact, Customer, CustomerActivity, CustomerDocument, CustomerStatus as DbStatus, Note } from "@prisma/client";
 import type {
+  CrmActivityRecord,
   CrmContactRecord,
   CrmCustomerRecord,
   CrmCustomerStatus,
@@ -88,6 +89,19 @@ export function toCrmDocumentRecord(row: CustomerDocument): CrmDocumentRecord {
     uploadedBy: row.uploadedBy,
     createdAt: row.createdAt.toISOString(),
     updatedAt: row.updatedAt.toISOString(),
+  };
+}
+
+export function toCrmActivityRecord(row: CustomerActivity): CrmActivityRecord {
+  return {
+    id: row.id,
+    customerId: row.customerId,
+    organizationId: row.organizationId,
+    kind: row.kind as CrmActivityRecord["kind"],
+    title: row.title,
+    detail: row.detail,
+    actor: row.actor,
+    createdAt: row.createdAt.toISOString(),
   };
 }
 

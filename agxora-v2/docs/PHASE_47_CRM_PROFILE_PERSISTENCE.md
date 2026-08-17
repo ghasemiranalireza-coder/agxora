@@ -83,10 +83,10 @@ Server checks:
 
 ## Database / local mode behavior
 
-| Mode | Customers | Contacts | Notes / documents / activities |
-|------|-----------|----------|--------------------------------|
-| `local` (default) | LocalStorage | LocalStorage | LocalStorage |
-| `database` | PostgreSQL API | PostgreSQL API (Phase 47) | Notes: Phase 48 | Document metadata: Phase 49; activities still LocalStorage |
+| Mode | Customers | Contacts | Notes | Documents | Activities |
+|------|-----------|----------|-------|-----------|------------|
+| `local` (default) | LocalStorage | LocalStorage | LocalStorage | LocalStorage | LocalStorage |
+| `database` | PostgreSQL API | PostgreSQL API (Phase 47) | PostgreSQL API (Phase 48) | PostgreSQL API (Phase 49) | PostgreSQL API (Phase 50) |
 
 Production expectation: set `NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE=database` when
 server auth + `DATABASE_URL` are live.
@@ -128,9 +128,8 @@ app/lib/crm/directory/service.ts        # database-mode branch for contacts
 
 - ~~**Notes** (`CrmNoteRecord` → Postgres)~~ → **Phase 48**
 - ~~**Document metadata** (`CrmDocumentRecord` → Postgres)~~ → **Phase 49** (metadata only; blob storage deferred)
-- **Activities** (`CrmActivityRecord` → Postgres)
+- ~~**Activities** (`CrmActivityRecord` → Postgres)~~ → **Phase 50**
 - Optional consented LocalStorage → Postgres import
-- Activities server persistence
 
 ## Explicit out of scope
 

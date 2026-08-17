@@ -14,6 +14,7 @@ import {
   remoteGetCustomer,
   remoteListContacts,
   remoteListCustomers,
+  remoteListActivities,
   remoteListDocuments,
   remoteListNotes,
   remoteUpdateContact,
@@ -366,6 +367,9 @@ export class CrmDirectoryService {
   }
 
   listActivities(customerId: CrmCustomerId) {
+    if (isCrmDatabaseMode()) {
+      return remoteListActivities(customerId);
+    }
     return this.repo.listActivities(customerId);
   }
 }

@@ -10,6 +10,7 @@ import type {
   CrmCustomerDraft,
   CrmCustomerId,
   CrmCustomerRecord,
+  CrmActivityRecord,
   CrmDocumentDraft,
   CrmDocumentRecord,
   CrmNoteDraft,
@@ -248,4 +249,15 @@ export async function remoteDeleteDocument(id: string): Promise<void> {
   await crmFetch(`/api/v1/crm/documents/${encodeURIComponent(id)}`, {
     method: "DELETE",
   });
+}
+
+/** Phase 50 — Activities (database mode, read-only API). */
+
+export async function remoteListActivities(
+  customerId: CrmCustomerId,
+): Promise<CrmActivityRecord[]> {
+  const data = await crmFetch<{ items: CrmActivityRecord[] }>(
+    `/api/v1/crm/customers/${encodeURIComponent(customerId)}/activities`,
+  );
+  return [...(data.items ?? [])];
 }

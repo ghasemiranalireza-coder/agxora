@@ -7,7 +7,7 @@ persistent on PostgreSQL, using the existing Phase 42.1–48 tenancy / auth
 architecture.
 
 This is the **metadata-only** slice. **No binary/blob storage** is implemented.
-Activities remain deferred.
+Activities are persisted in **Phase 50** (`docs/PHASE_50_CRM_ACTIVITIES_PERSISTENCE.md`).
 
 ## Why document metadata is being persisted
 
@@ -90,7 +90,7 @@ Server checks:
 | Mode | Customers | Contacts | Notes | Documents | Activities |
 |------|-----------|----------|-------|-----------|------------|
 | `local` (default) | LocalStorage | LocalStorage | LocalStorage | LocalStorage | LocalStorage |
-| `database` | PostgreSQL API | PostgreSQL API | PostgreSQL API | PostgreSQL API (Phase 49) | **Still LocalStorage** |
+| `database` | PostgreSQL API | PostgreSQL API | PostgreSQL API | PostgreSQL API (Phase 49) | PostgreSQL API (Phase 50) |
 
 ## Module layout
 
@@ -121,14 +121,14 @@ app/lib/crm/directory/service.ts      # database-mode branch for documents
 - **No binary/blob storage** — file content is not persisted server-side or
   locally beyond existing browser `File` picker semantics
 - No downloads, presigned URLs, S3, or object storage
-- Activities remain LocalStorage
+- Activities are persisted in **Phase 50** (`docs/PHASE_50_CRM_ACTIVITIES_PERSISTENCE.md`)
 - Dual-mode default remains `local` until operators flip the flag
 - Document metadata cannot be edited after create (matches current UI)
 
 ## Explicitly deferred
 
 - Binary/blob storage (S3, filesystem, presigned URLs, upload infrastructure)
-- Activities server persistence
+- ~~Activities server persistence~~ → **Phase 50**
 - Optional consented LocalStorage → Postgres import
 - Stripe / billing
 - Redis / distributed rate limiting / Phase 46-B

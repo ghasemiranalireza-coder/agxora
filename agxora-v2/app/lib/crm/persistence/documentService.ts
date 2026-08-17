@@ -17,6 +17,11 @@ import {
   getDocumentInWorkspace,
   listDocumentsForCustomerInWorkspace,
 } from "./documentRepository";
+import { appendActivityRecord } from "./activityRepository";
+import {
+  documentAddedActivity,
+  documentDeletedActivity,
+} from "./activityEmitter";
 
 /**
  * Resolve parent customer in the actor workspace or fail closed.
@@ -81,12 +86,19 @@ export async function createDocumentForActor(
     });
   }
 
-  return createDocumentRecord({
+  const document = await createDocumentRecord({
     organizationId: parent.organizationId,
     workspaceId: parent.workspaceId,
     customerId,
     ...result.value,
   });
+  await appendActivityRecord({
+    organizationId: parent.organizationId,
+    workspaceId: parent.workspaceId,
+    customerId,
+    ...documentAddedActivity(document),
+  });
+  return document;
 }
 
 export async function deleteDocumentForActor(
@@ -108,5 +120,11 @@ export async function deleteDocumentForActor(
     workspaceId: actor.workspaceId,
   });
 
+  await appendActivityRecord({
+    organizationId: existing.organizationId,
+    workspaceId: actor.workspaceId,
+    customerId: existing.customerId,
+    ...documentDeletedActivity(existing),
+  });
   await deleteDocumentRecord(actor.workspaceId, documentId);
 }

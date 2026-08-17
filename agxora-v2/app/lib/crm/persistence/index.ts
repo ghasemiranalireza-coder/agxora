@@ -53,8 +53,18 @@ export {
   deleteDocumentRecord,
 } from "./documentRepository";
 export {
+  listActivitiesForActor,
+  getActivityForActor,
+} from "./activityService";
+export {
+  listActivitiesForCustomerInWorkspace,
+  getActivityInWorkspace,
+  appendActivityRecord,
+} from "./activityRepository";
+export {
   toCrmCustomerRecord,
   toCrmContactRecord,
   toCrmNoteRecord,
   toCrmDocumentRecord,
+  toCrmActivityRecord,
 } from "./mappers";
