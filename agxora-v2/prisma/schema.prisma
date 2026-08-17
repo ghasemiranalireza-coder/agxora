@@ -207,11 +207,11 @@ model ControlPlaneAuditEvent {
   @@map("control_plane_audit_events")
 }
 
-/// Server-authoritative session. Token is high-entropy; cookie is httpOnly.
+/// Server-authoritative session. Raw token lives only in httpOnly cookie; DB stores SHA-256 hash.
 model Session {
   id                String    @id @default(uuid()) @db.Uuid
   userId            String    @db.Uuid
-  token             String    @unique
+  tokenHash         String    @unique
   expiresAt         DateTime
   revokedAt         DateTime?
   /// Active workspace for multi-membership users — must be a membership of this user

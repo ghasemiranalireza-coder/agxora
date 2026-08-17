@@ -10,7 +10,7 @@ import "server-only";
 import { prisma } from "@/app/lib/db/prisma";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import { assertPasswordPolicy, hashPassword, verifyPassword } from "./password";
-import { createOpaqueToken, hashOpaqueToken } from "./tokens";
+import { createOpaqueToken, hashOpaqueToken, hashSessionToken } from "./tokens";
 import { SESSION_MAX_AGE_SECONDS } from "./cookies";
 import {
   buildEmailVerificationEmail,
@@ -105,20 +105,21 @@ async function createServerSession(
 ): Promise<{
   id: string;
   userId: string;
-  token: string;
   expiresAt: Date;
   createdAt: Date;
+  rawSessionToken: string;
 }> {
-  const token = createOpaqueToken(32);
+  const rawSessionToken = createOpaqueToken(32);
   const expiresAt = new Date(Date.now() + SESSION_MAX_AGE_SECONDS * 1000);
-  return prisma.session.create({
+  const row = await prisma.session.create({
     data: {
       userId,
-      token,
+      tokenHash: hashSessionToken(rawSessionToken),
       expiresAt,
       activeWorkspaceId: activeWorkspaceId ?? null,
     },
   });
+  return { ...row, rawSessionToken };
 }
 
 /**
@@ -192,7 +193,7 @@ export async function registerWithPassword(input: {
   return {
     user: toPublicUser(result.user),
     session: toPublicSession(session),
-    rawSessionToken: session.token,
+    rawSessionToken: session.rawSessionToken,
   };
 }
 
@@ -229,14 +230,14 @@ export async function loginWithPassword(input: {
   return {
     user: toPublicUser(user),
     session: toPublicSession(session),
-    rawSessionToken: session.token,
+    rawSessionToken: session.rawSessionToken,
   };
 }
 
 export async function logoutSession(token: string | null): Promise<void> {
   if (!token) return;
   await prisma.session.updateMany({
-    where: { token, revokedAt: null },
+    where: { tokenHash: hashSessionToken(token), revokedAt: null },
     data: { revokedAt: new Date() },
   });
 }
@@ -254,7 +255,7 @@ export async function getSessionPublic(token: string | null): Promise<{
 } | null> {
   if (!token) return null;
   const session = await prisma.session.findUnique({
-    where: { token },
+    where: { tokenHash: hashSessionToken(token) },
     include: { user: true },
   });
   if (!session) return null;
@@ -416,7 +417,9 @@ export async function switchActiveWorkspace(
   sessionToken: string,
   workspaceId: string,
 ): Promise<{ organizationId: string; workspaceId: string; role: string }> {
-  const session = await prisma.session.findUnique({ where: { token: sessionToken } });
+  const session = await prisma.session.findUnique({
+    where: { tokenHash: hashSessionToken(sessionToken) },
+  });
   if (!session || session.revokedAt || session.expiresAt.getTime() <= Date.now()) {
     throw new PersistenceError("unauthorized", "Authentication required");
   }

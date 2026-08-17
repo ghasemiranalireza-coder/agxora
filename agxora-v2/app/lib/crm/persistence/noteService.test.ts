@@ -6,6 +6,7 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import { PrismaClient } from "@prisma/client";
 import { getActorBySessionToken } from "@/app/lib/tenancy/actor";
+import { sessionRowForTests } from "@/app/lib/auth/server/sessionTestFixtures";
 import { can } from "@/app/lib/tenancy/authorize";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import {
@@ -162,10 +163,10 @@ async function resetFixtures(): Promise<void> {
   const expiresAt = new Date(Date.now() + 86_400_000);
   await prisma.session.createMany({
     data: [
-      { userId: ownerA.id, token: TOKEN_OWNER, expiresAt },
-      { userId: adminA.id, token: TOKEN_ADMIN, expiresAt },
-      { userId: memberA.id, token: TOKEN_MEMBER, expiresAt },
-      { userId: ownerB.id, token: TOKEN_OWNER_B, expiresAt },
+      sessionRowForTests({ userId: ownerA.id, rawToken: TOKEN_OWNER, expiresAt }),
+      sessionRowForTests({ userId: adminA.id, rawToken: TOKEN_ADMIN, expiresAt }),
+      sessionRowForTests({ userId: memberA.id, rawToken: TOKEN_MEMBER, expiresAt }),
+      sessionRowForTests({ userId: ownerB.id, rawToken: TOKEN_OWNER_B, expiresAt }),
     ],
   });
 }

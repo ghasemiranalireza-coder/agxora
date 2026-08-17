@@ -8,6 +8,7 @@ import "server-only";
 import { cookies, headers } from "next/headers";
 import type { MembershipRole as PrismaRole } from "@prisma/client";
 import { prisma } from "../db/prisma";
+import { hashSessionToken } from "../auth/server/tokens";
 import { PersistenceError } from "./errors";
 import type { Actor, MembershipRole } from "./types";
 import { SERVER_SESSION_COOKIE, SERVER_SESSION_HEADER } from "./sessionCookie";
@@ -46,7 +47,7 @@ async function loadActiveMembership(
 
 async function resolveActorFromToken(token: string): Promise<Actor | null> {
   const session = await prisma.session.findUnique({
-    where: { token },
+    where: { tokenHash: hashSessionToken(token) },
     include: {
       user: true,
     },
@@ -84,7 +85,7 @@ async function resolveActorFromToken(token: string): Promise<Actor | null> {
     workspaceId: membership.workspaceId,
     membershipId: membership.id,
     role: mapRole(membership.role),
-    sessionToken: session.token,
+    sessionToken: token,
   };
 }
 
@@ -97,7 +98,7 @@ export async function getActorForWorkspace(
   workspaceId: string,
 ): Promise<Actor | null> {
   const session = await prisma.session.findUnique({
-    where: { token },
+    where: { tokenHash: hashSessionToken(token) },
     include: { user: true },
   });
   if (
@@ -126,7 +127,7 @@ export async function getActorForWorkspace(
     workspaceId: membership.workspaceId,
     membershipId: membership.id,
     role: mapRole(membership.role),
-    sessionToken: session.token,
+    sessionToken: token,
   };
 }
 

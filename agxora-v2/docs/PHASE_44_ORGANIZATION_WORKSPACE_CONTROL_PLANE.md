@@ -135,8 +135,10 @@ ignored. Authority always comes from the session actor.
 - `/dashboard/team` remains a legacy demo module; **Settings → Team** is the
   production membership UI.
 - No MFA, OAuth, rate limiting, or Stripe (later phases).
-- Session tokens remain stored as opaque values (Phase 43 limitation).
 - Organization deletion is not offered.
+
+Session tokens are stored as SHA-256 hashes at rest (Phase 44.3). See
+`docs/PHASE_44_3_SESSION_TOKEN_HASHING.md`.
 
 ## Future ownership transfer
 

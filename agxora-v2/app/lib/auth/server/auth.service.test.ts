@@ -18,7 +18,7 @@ import {
   hashPassword,
   verifyPassword,
 } from "@/app/lib/auth/server/password";
-import { hashOpaqueToken } from "@/app/lib/auth/server/tokens";
+import { hashOpaqueToken, hashSessionToken } from "@/app/lib/auth/server/tokens";
 import {
   getSessionPublic,
   loginWithPassword,
@@ -30,6 +30,11 @@ import {
   createEmailVerificationToken,
   verifyEmailWithToken,
 } from "@/app/lib/auth/server/service";
+import {
+  listManagedSessionsForToken,
+  revokeManagedSessionForToken,
+  revokeOtherManagedSessionsForToken,
+} from "@/app/lib/auth/server/managedSessions";
 import {
   forceMemoryEmailFailure,
   listMemoryEmailOutbox,
@@ -196,7 +201,7 @@ describe("Phase 43 register / login / logout", () => {
       displayName: "Expire User",
     });
     await prisma.session.updateMany({
-      where: { token: registered.rawSessionToken },
+      where: { tokenHash: hashSessionToken(registered.rawSessionToken) },
       data: { expiresAt: new Date(Date.now() - 1000) },
     });
     expect(await getActorBySessionToken(registered.rawSessionToken)).toBeNull();
@@ -209,7 +214,7 @@ describe("Phase 43 register / login / logout", () => {
       displayName: "Revoke User",
     });
     await prisma.session.updateMany({
-      where: { token: registered.rawSessionToken },
+      where: { tokenHash: hashSessionToken(registered.rawSessionToken) },
       data: { revokedAt: new Date() },
     });
     expect(await getActorBySessionToken(registered.rawSessionToken)).toBeNull();
@@ -538,6 +543,93 @@ describe("Phase 45 auth email delivery", () => {
     expect(listMemoryEmailOutbox()[0]?.kind).toBe("email_verification");
     const verified = await verifyEmailWithToken(issued.rawToken);
     expect(verified.emailVerified).toBe(true);
+  });
+});
+
+describe("Phase 44.3 session token hashing at rest", () => {
+  it("stores tokenHash only — raw cookie token never persisted in PostgreSQL", async () => {
+    const registered = await registerWithPassword({
+      email: "hash-store@agxora.test",
+      password: "SecurePass1!",
+      displayName: "Hash Store",
+    });
+
+    const row = await prisma.session.findUnique({
+      where: { id: registered.session.sessionId },
+    });
+    expect(row).toBeTruthy();
+    expect(row!.tokenHash).toBe(hashSessionToken(registered.rawSessionToken));
+    expect(row!.tokenHash).not.toBe(registered.rawSessionToken);
+    expect(JSON.stringify(row)).not.toContain(registered.rawSessionToken);
+    expect(Object.keys(row!)).not.toContain("token");
+  });
+
+  it("resolves actor, logout, revoke-one, revoke-others, and workspace switch via hash lookup", async () => {
+    const registered = await registerWithPassword({
+      email: "hash-flow@agxora.test",
+      password: "SecurePass1!",
+      displayName: "Hash Flow",
+    });
+    const second = await loginWithPassword({
+      email: "hash-flow@agxora.test",
+      password: "SecurePass1!",
+    });
+
+    expect(await getActorBySessionToken(second.rawSessionToken)).toBeTruthy();
+
+    const listed = await listManagedSessionsForToken(second.rawSessionToken);
+    expect(listed.sessions.find((row) => row.current)?.id).toBe(
+      second.session.sessionId,
+    );
+
+    await revokeManagedSessionForToken(
+      second.rawSessionToken,
+      registered.session.sessionId,
+    );
+    expect(await getActorBySessionToken(registered.rawSessionToken)).toBeNull();
+    expect(await getActorBySessionToken(second.rawSessionToken)).toBeTruthy();
+
+    const third = await loginWithPassword({
+      email: "hash-flow@agxora.test",
+      password: "SecurePass1!",
+    });
+    const revokedOthers = await revokeOtherManagedSessionsForToken(
+      third.rawSessionToken,
+    );
+    expect(revokedOthers.revokedCount).toBeGreaterThanOrEqual(1);
+    expect(await getActorBySessionToken(second.rawSessionToken)).toBeNull();
+    expect(await getActorBySessionToken(third.rawSessionToken)).toBeTruthy();
+
+    const actor = (await getActorBySessionToken(third.rawSessionToken))!;
+    const switched = await switchActiveWorkspace(
+      third.rawSessionToken,
+      actor.workspaceId,
+    );
+    expect(switched.workspaceId).toBe(actor.workspaceId);
+  });
+
+  it("rejects invalid session tokens fail-closed", async () => {
+    expect(await getActorBySessionToken("totally-invalid-token")).toBeNull();
+    expect(await getSessionPublic("totally-invalid-token")).toBeNull();
+  });
+
+  it("never exposes raw session token in auth API JSON", async () => {
+    const registered = await registerWithPassword({
+      email: "hash-json@agxora.test",
+      password: "SecurePass1!",
+      displayName: "Hash JSON",
+    });
+    expect(JSON.stringify(registered.user)).not.toContain(
+      registered.rawSessionToken,
+    );
+    expect(JSON.stringify(registered.session)).not.toContain(
+      registered.rawSessionToken,
+    );
+    const publicSession = await getSessionPublic(registered.rawSessionToken);
+    expect(publicSession).toBeTruthy();
+    expect(JSON.stringify(publicSession)).not.toContain(
+      registered.rawSessionToken,
+    );
   });
 });
 
