@@ -2,7 +2,7 @@
   "skipToContent": "Zum Dashboard-Inhalt springen",
   "loading": "Dashboard wird geladen…",
   "hero": {
-    "ariaLabel": "AGXORA CORE HERO",
+    "ariaLabel": "AGXORA CORE",
     "eyebrow": "KI-Geschäftsbetriebssystem",
     "title": "AGXORA-KERN",
     "subtitle": "Echtzeitinformationen und Betriebskontrolle – Ihre Arbeitsplatz-Befehlsoberfläche.",
@@ -13,11 +13,11 @@
   },
   "quickActions": {
     "title": "Schnelle Aktionen",
-    "subtitle": "Was sollten Sie als Nächstes tun? ",
+    "subtitle": "Was sollten Sie als Nächstes tun?",
     "ariaLabel": "Schnelle Aktionen",
     "addCustomer": {
       "label": "Kunde hinzufügen",
-      "description": "Erstellen Sie einen CRM-Datensatz"
+      "description": "CRM-Datensatz anlegen"
     },
     "newProject": {
       "label": "Neues Projekt",
@@ -43,7 +43,7 @@
   "attention": {
     "title": "Braucht Aufmerksamkeit",
     "ariaLabel": "Was Aufmerksamkeit braucht",
-    "empty": "Ihnen ist klar: Im Moment gibt es keine dringenden Dinge.",
+    "empty": "Alles in Ordnung — derzeit keine dringenden Punkte.",
     "tone": {
       "critical": "Kritisch",
       "warning": "Warnung",
@@ -69,8 +69,8 @@
     }
   },
   "overview": {
-    "title": "Was passiert",
-    "subtitle": "Arbeitsbereichsanzahl für {name}",
+    "title": "Was gerade passiert",
+    "subtitle": "Kennzahlen für {name}",
     "fallbackName": "Ihren Arbeitsplatz",
     "ariaLabel": "Unternehmensüberblick",
     "online": "Online",
@@ -97,12 +97,12 @@
       "viewFeed": "Feed ansehen"
     },
     "revenue": {
-      "title": "Einnahmen",
+      "title": "Umsatz",
       "caption": "Verbinden Sie die Abrechnung, um MRR anzuzeigen",
       "openBilling": "Abrechnung öffnen"
     },
     "clientShell": {
-      "title": "Client-Shell",
+      "title": "Anwendungsshell",
       "caption": "Bereit für die Browsersitzung – kein Live-Betriebsmonitor",
       "shellLoaded": "Anwendungsshell geladen",
       "storesReady": "Lokale Workspace-Stores bereit"
@@ -117,8 +117,8 @@
     "title": "Aktuelle Aktivität",
     "subtitle": "Was sich heute geändert hat",
     "ariaLabel": "Aktuelle Aktivität",
-    "todayCount": "{count} HEUTE",
-    "localBadge": "LOKAL",
+    "todayCount": "{count} heute",
+    "localBadge": "Lokal",
     "emptyTitle": "Noch keine Aktivität",
     "emptyBody": "Workspace-Ereignisse werden hier angezeigt, wenn Sie Kunden, Projekte usw. hinzufügen.",
     "addCustomer": "Kunde hinzufügen",
@@ -297,7 +297,7 @@
         "subtitle": "Projektportfolio"
       },
       "openAi": {
-        "title": "OPENAI  •  <x id=\"1\"/>",
+        "title": "OPENAI  •",
         "subtitle": "KI-Plattform-Arbeitsbereich"
       },
       "openAnalytics": {

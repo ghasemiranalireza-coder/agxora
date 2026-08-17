@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState, type JSX, type ReactNode } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
-import { useT } from "@/app/lib/i18n";
+import { localizeThrownError, useT } from "@/app/lib/i18n";
 import { saasCommercialStore } from "../store";
 import { billingService } from "../billing";
 import { listPaymentProviders } from "../payments";
@@ -144,7 +144,7 @@ export function CustomerBillingPortal(): JSX.Element {
       );
     } catch (error) {
       setNotice(
-        error instanceof Error ? error.message : t("billing.portal.noticeCheckoutFailed"),
+        localizeThrownError(t, error, "billing.portal.noticeCheckoutFailed"),
       );
     } finally {
       setBusy(false);

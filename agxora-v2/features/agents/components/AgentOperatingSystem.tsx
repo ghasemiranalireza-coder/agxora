@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
-import { useT } from "@/app/lib/i18n";
+import { localizeThrownError, useT } from "@/app/lib/i18n";
 import type { DataTableColumn } from "@/app/components/ui";
 import { agentsStore } from "../store";
 import { agentOsService } from "../services";
@@ -96,7 +96,7 @@ export function AgentOperatingSystem(): JSX.Element {
       setNotice(t("agents.notice.simulatedRun", { status: task.status, duration: task.durationMs ?? 0 }));
       setTab("history");
     } catch (err) {
-      setNotice(err instanceof Error ? err.message : t("agents.notice.taskFailed"));
+      setNotice(localizeThrownError(t, err, "agents.notice.taskFailed"));
     } finally {
       setBusy(false);
     }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useEffect, type CSSProperties, type JSX } from "react";
+import { useMemo, useState, type CSSProperties, type JSX } from "react";
 import { useRouter } from "next/navigation";
 import {
   BUSINESS_TYPE_META,
@@ -54,9 +54,7 @@ export function OnboardingWizard(): JSX.Element {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    setCountry((current) => current || t("onboarding.defaultCountry"));
-  }, [t]);
+  const resolvedCountry = country.trim() || t("onboarding.defaultCountry");
 
   const template = useMemo(
     () => (businessType ? primaryTemplate(businessType) : null),
@@ -66,7 +64,7 @@ export function OnboardingWizard(): JSX.Element {
   const canContinue = (): boolean => {
     if (step === 0) return businessType !== null;
     if (step === 1) return companyName.trim().length >= 2;
-    if (step === 2) return country.trim().length > 0;
+    if (step === 2) return resolvedCountry.length > 0;
     return true;
   };
 
@@ -93,7 +91,7 @@ export function OnboardingWizard(): JSX.Element {
         companyName: companyName.trim(),
         businessType,
         templateId: template.id,
-        country: country.trim(),
+        country: resolvedCountry,
         language: language.trim() || "en",
         timezone: timezone.trim() || "UTC",
         goals,
@@ -317,10 +315,10 @@ export function OnboardingWizard(): JSX.Element {
                   {t("onboarding.template")}
                 </div>
                 <div style={{ fontWeight: 700, marginBottom: "6px" }}>
-                  {template.name}
+                  {t(`onboarding.businessTypes.${template.businessType}.label`)}
                 </div>
                 <div style={{ color: tokens.textMuted, fontSize: "13.5px" }}>
-                  {template.summary}
+                  {t(`onboarding.businessTypes.${template.businessType}.description`)}
                 </div>
               </div>
             ) : null}
@@ -341,7 +339,7 @@ export function OnboardingWizard(): JSX.Element {
               </span>
               <input
                 className="agx-input"
-                value={country}
+                value={country || t("onboarding.defaultCountry")}
                 onChange={(event) => setCountry(event.target.value)}
                 style={inputStyle(tokens)}
               />

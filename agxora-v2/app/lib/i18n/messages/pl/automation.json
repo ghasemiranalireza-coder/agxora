@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Sugestie optymalizacji",
     "oneClickOptimize": "Optymalizacja jednym kliknięciem",
-    "noticeDefault": "Optymalizacja jednym kliknięciem nie jest jeszcze mutacją wykresu.",
-    "noticeQueued": "Optymalizuj w kolejce. Przyszły silnik przepisze opóźnienia i zatwierdzenia."
+    "noticeDefault": "Optymalizacja jednym kliknięciem nie zmienia jeszcze grafu.",
+    "noticeQueued": "Optymalizacja w kolejce. Przyszły silnik przepisze opóźnienia i zatwierdzenia.",
+    "score": {
+      "healthy": "Zdrowy",
+      "needsAttention": "Wymaga uwagi",
+      "atRisk": "Zagrożony"
+    },
+    "kinds": {
+      "missing_approval": "Zatwierdzenie",
+      "possible_delay": "Opóźnienie",
+      "unused_trigger": "Wyzwalacz",
+      "duplicate_nodes": "Duplikaty",
+      "unused_action": "Akcja",
+      "security": "Bezpieczeństwo",
+      "performance": "Wydajność"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Brak zatwierdzenia",
+        "description": "Dłuższe przepływy często wymagają bramki zatwierdzenia przed skutkami ubocznymi."
+      },
+      "possible_delay": {
+        "title": "Możliwe opóźnienie",
+        "description": "Rozważ opóźnienie przed mailami przypominającymi, by uniknąć serii."
+      },
+      "unused_trigger": {
+        "title": "Nieuwżyty wyzwalacz",
+        "description": "Ten graf nie ma wyzwalacza startu — dodaj go przed aktywacją."
+      },
+      "duplicate_nodes": {
+        "title": "Zduplikowane węzły",
+        "description": "„{label}” występuje {count} razy — scal, jeśli zbędne."
+      },
+      "unused_action": {
+        "title": "Nieuwżyta akcja",
+        "description": "{label} nie jest połączony — podepnij lub usuń."
+      },
+      "security": {
+        "title": "Zalecenie bezpieczeństwa",
+        "description": "Do webhooków i e-maili używaj adapterów o najmniejszych uprawnieniach."
+      },
+      "performance": {
+        "title": "Zalecenie wydajności",
+        "description": "Grupuj kroki AI tam, gdzie to możliwe, by skrócić średni czas."
+      }
+    }
   },
   "integrations": {
     "intro": "Centrum Integracyjne – opcjonalne. Statusy: Połączono, Beta, Planowane, Wkrótce, Wyłączone. Brak aktywnych interfejsów API.",

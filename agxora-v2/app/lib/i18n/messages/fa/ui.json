@@ -5,8 +5,8 @@
     "previous": "قبلی",
     "next": "بعدی",
     "paginationRange": "{start}–{end} از {total}",
-    "sortAscending": "Sort ascending",
-    "sortDescending": "Sort descending"
+    "sortAscending": "مرتب‌سازی صعودی",
+    "sortDescending": "مرتب‌سازی نزولی"
   },
   "dialog": {
     "close": "بستن گفتگو"
@@ -18,7 +18,7 @@
   "states": {
     "errorLabel": "خطا",
     "errorTitle": "در API افزونه اشتباه رخ داد.",
-    "errorDescription": "We couldn't complete that request. Try again in a moment.",
+    "errorDescription": "درخواست کامل نشد. کمی بعد دوباره تلاش کنید.",
     "retry": "تلاش مجدد"
   },
   "empty": {
@@ -34,11 +34,11 @@
     "documentsTitle": "کتابخانه اسناد خالی است",
     "documentsDescription": "دارایی‌های دانش را برای تأیید، نسخه‌ها و زمینه هوش مصنوعی بارگذاری یا ایجاد کنید.",
     "documentsAction": "باز کردن اسناد",
-    "billingTitle": "No billing history yet",
-    "billingDescription": "Upgrade a plan to generate invoices, renewals, and payment history.",
+    "billingTitle": "هنوز سابقه صورت‌حساب نیست",
+    "billingDescription": "برای صدور فاکتور، تمدید و تاریخچه پرداخت یک طرح را ارتقا دهید.",
     "billingAction": "باز کردن صورتحساب",
     "agentsTitle": "هیچ نماینده‌ای فعال نیست",
-    "agentsDescription": "Install or activate an agent from the marketplace to start autonomous runs.",
+    "agentsDescription": "برای شروع اجرای خودمختار، عاملی را از بازار نصب یا فعال کنید.",
     "agentsAction": "سیستم عامل عامل باز"
   },
   "yes": "بله",

@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "Cliente 360°",
-      "subtitle": "Perfil, empresa, contactos, pedidos, facturas, Lieferscheine, pagos, documentos, cronograma, actividades, notas, resumen de IA e historial de comunicaciones."
+      "subtitle": "Perfil, empresa, contactos, pedidos, facturas, albaranes, pagos, documentos, cronograma, actividades, notas, resumen de IA e historial de comunicaciones."
     },
     "salesPipeline": {
       "title": "Canal de ventas",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "Módulo de entrega",
-      "subtitle": "Sistema Lieferschein profesional con seguimiento, firma, QR y preparación de códigos de barras."
+      "subtitle": "Sistema albarán profesional con seguimiento, firma, QR y preparación de códigos de barras."
     },
     "documentsModule": {
       "title": "Documentos",
-      "subtitle": "Cotizaciones, contratos, facturas, Lieferschein, órdenes de compra, recibos, con búsqueda por IA."
+      "subtitle": "Cotizaciones, contratos, facturas, albarán, órdenes de compra, recibos, con búsqueda por IA."
     },
     "tasksModule": {
       "title": "Tareas"
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "Sistema Lieferschein profesional",
+    "title": "Sistema albarán profesional",
     "description": "Albaranes de entrega, recogida/entrega, conductor, vehículo y seguimiento: solo registros de muestra. Los adaptadores de exportación no están conectados.",
     "badges": {
       "qrUnavailable": "QR no disponible",
@@ -408,7 +408,7 @@
     "emptyTitle": "Sin documentos",
     "emptyDescription": "Ningún documento coincide con esta búsqueda.",
     "searchLabel": "Búsqueda por IA",
-    "searchPlaceholder": "Presupuestos, contratos, facturas, Lieferschein…",
+    "searchPlaceholder": "Presupuestos, contratos, facturas, albarán…",
     "typeLabel": "Tipo de documento",
     "allTypes": "Todos los tipos",
     "columns": {
@@ -438,7 +438,137 @@
     "intro": "Fundación Creator Studio: las integraciones de plataformas oficiales se pueden conectar a estos adaptadores más adelante. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
   },
   "industry": {
-    "intro": "Plataforma empresarial universal: la incorporación luego elegirá una industria. Cada industria recibe módulos de IA dedicados sin bifurcar el sistema operativo CRM principal."
+    "intro": "Plataforma empresarial universal: la incorporación luego elegirá una industria. Cada industria recibe módulos de IA dedicados sin bifurcar el sistema operativo CRM principal.",
+    "catalog": {
+      "business": {
+        "label": "Empresa",
+        "description": "Sistema operativo B2B general"
+      },
+      "freelancer": {
+        "label": "Autónomo",
+        "description": "CRM, facturas y pipeline de clientes para autónomos"
+      },
+      "creator": {
+        "label": "Creador",
+        "description": "Creator Studio + CRM de marca"
+      },
+      "influencer": {
+        "label": "Influencer",
+        "description": "CRM de patrocinios y OS de campañas"
+      },
+      "agency": {
+        "label": "Agencia",
+        "description": "Entrega multi-cliente y retainers"
+      },
+      "retail": {
+        "label": "Retail",
+        "description": "Inventario, TPV y fidelización"
+      },
+      "restaurant": {
+        "label": "Restaurante",
+        "description": "Reservas, cocina y entrega"
+      },
+      "hotel": {
+        "label": "Hotel",
+        "description": "Habitaciones, huéspedes y housekeeping"
+      },
+      "laundry": {
+        "label": "Lavandería",
+        "description": "Recogida, tickets y logística de rutas"
+      },
+      "healthcare": {
+        "label": "Salud",
+        "description": "Pacientes, citas, cumplimiento"
+      },
+      "law_firm": {
+        "label": "Bufete",
+        "description": "Asuntos, facturación y bóveda documental"
+      },
+      "accounting": {
+        "label": "Contabilidad",
+        "description": "Libros de clientes y exportaciones DATEV"
+      },
+      "construction": {
+        "label": "Construcción",
+        "description": "Obras, cuadrillas y facturación de avance"
+      },
+      "real_estate": {
+        "label": "Inmobiliaria",
+        "description": "Listados, visitas y cierres"
+      },
+      "education": {
+        "label": "Educación",
+        "description": "Estudiantes, cursos e inscripción"
+      },
+      "manufacturing": {
+        "label": "Manufactura",
+        "description": "BOM, producción y QC"
+      },
+      "logistics": {
+        "label": "Logística",
+        "description": "Flota, seguimiento y albaranes"
+      },
+      "ecommerce": {
+        "label": "Comercio electrónico",
+        "description": "Catálogo, carritos y pedidos omnicanal"
+      }
+    },
+    "modules": {
+      "sales": "Ventas",
+      "finance": "Finanzas",
+      "projects": "Proyectos",
+      "clients": "Clientes",
+      "proposals": "Propuestas",
+      "time_tracking": "Control horario",
+      "invoices": "Facturas",
+      "creator_studio": "Creator Studio",
+      "brand_deals": "Acuerdos de marca",
+      "content_calendar": "Calendario de contenidos",
+      "sponsorships": "Patrocinios",
+      "audience_insights": "Insights de audiencia",
+      "campaigns": "Campañas",
+      "client_portals": "Portales de clientes",
+      "retainers": "Retainers",
+      "campaign_ops": "Ops de campañas",
+      "inventory": "Inventario",
+      "loyalty": "Fidelización",
+      "reservations": "Reservas",
+      "menu": "Carta",
+      "kitchen_display": "Pantalla de cocina",
+      "housekeeping": "Housekeeping",
+      "guest_crm": "CRM de huéspedes",
+      "tickets": "Tickets",
+      "routes": "Rutas",
+      "delivery_notes": "Albaranes",
+      "patients": "Pacientes",
+      "appointments": "Citas",
+      "compliance": "Cumplimiento",
+      "matters": "Asuntos",
+      "billing": "Facturación",
+      "documents": "Documentos",
+      "client_books": "Libros de clientes",
+      "tax_deadlines": "Plazos fiscales",
+      "sites": "Obras",
+      "crews": "Cuadrillas",
+      "progress_billing": "Facturación de avance",
+      "listings": "Listados",
+      "viewings": "Visitas",
+      "closings": "Cierres",
+      "students": "Estudiantes",
+      "courses": "Cursos",
+      "enrollment": "Inscripción",
+      "production": "Producción",
+      "fleet": "Flota",
+      "tracking": "Seguimiento",
+      "catalog": "Catálogo",
+      "orders": "Pedidos",
+      "fulfillment": "Cumplimiento",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {

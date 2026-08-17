@@ -27,7 +27,7 @@
     "regions": {
       "EU": "歐洲聯盟",
       "US": "美國",
-      "MENA": "中東和北非地區",
+      "MENA": "中東與北非",
       "APAC": "亞太地區"
     }
   },
@@ -61,7 +61,7 @@
     "preferredProvider": "首選人工智慧提供者",
     "defaultModel": "預設AI模型",
     "temperature": "溫度",
-    "topP": "頂P",
+    "topP": "Top P",
     "maxTokens": "最大代幣數",
     "writingStyle": "寫作風格",
     "languagePreferences": "語言偏好",
@@ -78,10 +78,10 @@
     "streaming": "串流媒體",
     "streamingDescription": "當提供者支援時流模型響應。",
     "providers": {
-      "mock": "模擬（本地）",
+      "mock": "模擬（本機）",
       "openai": "開放人工智慧",
       "azure": "Azure 開放人工智慧",
-      "anthropic": "人擇",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "開放路由器",
       "ollama": "奧拉瑪",
@@ -109,7 +109,7 @@
     "themeModeAria": "主題模式",
     "resolvedAppearance": "解決外觀：",
     "accentColor": "強調色",
-    "accentNotice": "重音首選項被儲存以供將來的 CSS var 接線使用——還不會改變鎖定的顏色系統。",
+    "accentNotice": "強調色偏好會保存在此次工作階段，尚不會改動鎖定的色彩系統。",
     "density": "密度",
     "compactMode": "緊湊模式",
     "compactModeDescription": "減少企業表格和麵板之間的填充。",
@@ -135,6 +135,13 @@
       "comfortable": "舒服的",
       "compact": "袖珍的",
       "spacious": "寬敞"
+    },
+    "accents": {
+      "cyan": "青色",
+      "blue": "藍色",
+      "emerald": "翠綠",
+      "violet": "紫色",
+      "amber": "琥珀色"
     }
   },
   "notifications": {

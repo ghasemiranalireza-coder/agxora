@@ -2,8 +2,8 @@
   "skipToContent": "Lewati ke konten dasbor",
   "loading": "Memuat dasbor…",
   "hero": {
-    "ariaLabel": "Pahlawan INTI AGXORA",
-    "eyebrow": "Sistem Operasi Bisnis AI",
+    "ariaLabel": "AGXORA CORE",
+    "eyebrow": "Sistem operasi bisnis AI",
     "title": "INTI AGXORA",
     "subtitle": "Kecerdasan real-time dan kontrol operasional — permukaan perintah ruang kerja Anda.",
     "ctaGetStarted": "Mulailah",
@@ -13,7 +13,7 @@
   },
   "quickActions": {
     "title": "Tindakan cepat",
-    "subtitle": "Apa yang harus Anda lakukan selanjutnya?",
+    "subtitle": "Apa yang harus dilakukan berikutnya?",
     "ariaLabel": "Tindakan cepat",
     "addCustomer": {
       "label": "Tambahkan pelanggan",
@@ -43,11 +43,11 @@
   "attention": {
     "title": "Perlu perhatian",
     "ariaLabel": "Apa yang perlu diperhatikan",
-    "empty": "Anda sudah jelas - tidak ada barang mendesak saat ini.",
+    "empty": "Semua baik — tidak ada item mendesak saat ini.",
     "tone": {
       "critical": "Kritis",
       "warning": "Peringatan",
-      "info": "Informasi",
+      "info": "Info",
       "success": "Siap",
       "action": "Lakukan selanjutnya"
     },
@@ -69,15 +69,15 @@
     }
   },
   "overview": {
-    "title": "Apa yang sedang terjadi",
-    "subtitle": "Ruang kerja penting untuk {name}",
+    "title": "Apa yang terjadi",
+    "subtitle": "Hitungan ruang kerja untuk {name}",
     "fallbackName": "ruang kerja Anda",
     "ariaLabel": "Ikhtisar bisnis",
-    "online": "On line",
+    "online": "Online",
     "emDash": "—",
     "capacitySignal": "{percent}% sinyal kapasitas",
     "activeClients": {
-      "title": "Klien aktif",
+      "title": "Pelanggan aktif",
       "captionEmpty": "Belum ada pelanggan aktif",
       "captionTotal": "{count} total di ruang kerja",
       "add": "Tambahkan pelanggan",
@@ -102,10 +102,10 @@
       "openBilling": "Buka penagihan"
     },
     "clientShell": {
-      "title": "Cangkang klien",
+      "title": "Shell aplikasi",
       "caption": "Sesi browser siap — bukan monitor operasi langsung",
       "shellLoaded": "Shell aplikasi dimuat",
-      "storesReady": "Toko ruang kerja lokal sudah siap"
+      "storesReady": "Store workspace lokal siap"
     },
     "growth": {
       "title": "Pertumbuhan",
@@ -117,8 +117,8 @@
     "title": "Aktivitas terkini",
     "subtitle": "Apa yang berubah hari ini",
     "ariaLabel": "Aktivitas terkini",
-    "todayCount": "{count} HARI INI",
-    "localBadge": "LOKAL",
+    "todayCount": "{count} hari ini",
+    "localBadge": "Lokal",
     "emptyTitle": "Belum ada aktivitas",
     "emptyBody": "Acara ruang kerja akan muncul di sini saat Anda menambahkan pelanggan, proyek, dan lainnya.",
     "addCustomer": "Tambahkan pelanggan",

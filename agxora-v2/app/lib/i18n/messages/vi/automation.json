@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Đề xuất tối ưu hóa",
     "oneClickOptimize": "Tối ưu hóa một cú nhấp chuột",
-    "noticeDefault": "One Click Optimize là một đột biến chưa có biểu đồ.",
-    "noticeQueued": "Tối ưu hóa hàng đợi. Công cụ tương lai sẽ viết lại sự chậm trễ và phê duyệt."
+    "noticeDefault": "Tối ưu một cú nhấp chưa đổi đồ thị.",
+    "noticeQueued": "Tối ưu đã xếp hàng. Engine sau sẽ viết lại độ trễ và phê duyệt.",
+    "score": {
+      "healthy": "Ổn định",
+      "needsAttention": "Cần chú ý",
+      "atRisk": "Có rủi ro"
+    },
+    "kinds": {
+      "missing_approval": "Phê duyệt",
+      "possible_delay": "Trễ",
+      "unused_trigger": "Trigger",
+      "duplicate_nodes": "Trùng",
+      "unused_action": "Hành động",
+      "security": "Bảo mật",
+      "performance": "Hiệu năng"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Thiếu phê duyệt",
+        "description": "Luồng dài thường nên có cổng phê duyệt trước tác dụng phụ."
+      },
+      "possible_delay": {
+        "title": "Có thể cần trễ",
+        "description": "Cân nhắc độ trễ trước email nhắc để tránh bùng phát."
+      },
+      "unused_trigger": {
+        "title": "Trigger chưa dùng",
+        "description": "Đồ thị này không có trigger bắt đầu — thêm trước khi kích hoạt."
+      },
+      "duplicate_nodes": {
+        "title": "Nút trùng",
+        "description": "“{label}” xuất hiện {count} lần — gộp nếu thừa."
+      },
+      "unused_action": {
+        "title": "Hành động chưa dùng",
+        "description": "{label} chưa kết nối — nối hoặc xóa."
+      },
+      "security": {
+        "title": "Khuyến nghị bảo mật",
+        "description": "Ưu tiên adapter quyền tối thiểu cho webhook và email."
+      },
+      "performance": {
+        "title": "Khuyến nghị hiệu năng",
+        "description": "Gom bước AI khi có thể để giảm thời gian trung bình."
+      }
+    }
   },
   "integrations": {
     "intro": "Trung tâm tích hợp - tùy chọn. Các trạng thái: Đã kết nối, Beta, Đã lên kế hoạch, Sắp ra mắt, Đã tắt. Không có API trực tiếp.",

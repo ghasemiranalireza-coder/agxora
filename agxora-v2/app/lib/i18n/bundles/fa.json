@@ -22,7 +22,7 @@
     "guest": "مهمان",
     "member": "عضو",
     "role": "نقش",
-    "signedIn": "ورود",
+    "signedIn": "وارد شده",
     "guestSession": "نشست مهمان",
     "noResults": "نتیجه‌ای نیست",
     "noData": "داده‌ای نیست",
@@ -49,7 +49,7 @@
     "aiCrm": "CRM هوشمند",
     "analytics": "تحلیل‌ها",
     "billing": "صورتحساب",
-    "aiWorkspace": "فضای کاری AI",
+    "aiWorkspace": "فضای کاری هوش مصنوعی",
     "customers": "مشتریان",
     "automation": "اتوماسیون",
     "financeTax": "مالی و مالیات",
@@ -65,7 +65,7 @@
     "profile": "پروفایل",
     "currentOrganization": "سازمان فعلی",
     "noNotifications": "اعلانی نیست",
-    "notificationsEmpty": "همه‌چیز به‌روز است. هشدارها و اشاره‌ها اینجا ظاهر می‌شوند.",
+    "notificationsEmpty": "همه چیز به‌روز است. هشدارها و اشاره‌ها اینجا نشان داده می‌شوند.",
     "accountSettings": "تنظیمات حساب",
     "security": "امنیت",
     "themeToggle": "تغییر سریع تم. ترجیح: {mode}"
@@ -228,7 +228,7 @@
       "noInvoices": "هنوز فاکتوری صادر نشده.",
       "paymentMethods": "روش‌های پرداخت",
       "noPaymentMethods": "هیچ روش پرداختی در پرونده وجود ندارد.",
-      "default": "پیش فرض ",
+      "default": "پیش فرض",
       "companyProfile": "مشخصات صورتحساب شرکت",
       "company": "شرکت",
       "billingEmail": "ایمیل صورتحساب",
@@ -317,14 +317,14 @@
       "description": "ارائه‌دهنده، مدل، خلاقیت و حافظه",
       "title": "هوش مصنوعی",
       "panelDescription": "ارائه‌دهنده، مدل، خلاقیت، دما و ترجیحات حافظه.",
-      "openAgentOs": "سیستم عامل عامل باز",
+      "openAgentOs": "Agent OS را باز کنید",
       "openAiWorkspace": "فضای کاری هوش مصنوعی باز",
       "noticeSync": "تنظیمات هوش مصنوعی از طریق AISettingsProvider همگام‌سازی می‌شوند - کلیدهایی که هرگز در اینجا ذخیره نمی‌شوند.",
       "noticeProvider": "پیاده‌سازی‌های ارائه‌دهنده در پشت لایه سرویس هوش مصنوعی باقی می‌مانند. رابط کاربری هرگز کلیدهای API یا جزئیات SDK را دریافت نمی‌کند. عامل‌های خودمختار در Agent OS قرار دارند.",
       "preferredProvider": "ارائه دهنده هوش مصنوعی ترجیحی",
       "defaultModel": "مدل پیش‌فرض هوش مصنوعی",
       "temperature": "دما",
-      "topP": "بالا پ",
+      "topP": "Top P",
       "maxTokens": "حداکثر توکن‌ها",
       "writingStyle": "سبک نگارش",
       "languagePreferences": "ترجیحات زبان",
@@ -335,16 +335,16 @@
       "apiKeyHint": "کلیدها فقط از طریق متغیرهای محیطی سرور ارائه می‌شوند.",
       "apiKeyPlaceholder": "از طریق متغیرهای محیطی AGXORA_* پیکربندی شده است (هرگز در مرورگر نمایش داده نمی‌شود)",
       "memory": "حافظه",
-      "memoryDescription": "Allow organization memory to inform AI replies across modules.",
+      "memoryDescription": "اجازه دهید حافظه سازمان پاسخ‌های هوش مصنوعی را در ماژول‌ها هدایت کند.",
       "automationSuggestions": "پیشنهادات اتوماسیون",
       "automationSuggestionsDescription": "پیشنهادهای گردش کار هوش مصنوعی سطحی در موتور اتوماسیون.",
       "streaming": "Streaming",
       "streamingDescription": "پاسخ‌های مدل را زمانی که ارائه‌دهنده از آن پشتیبانی می‌کند، پخش کنید.",
       "providers": {
-        "mock": "مسخره (محلی)",
+        "mock": "آزمایشی (محلی)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "انسان‌نگر",
+        "anthropic": "Anthropic",
         "google": "Google",
         "openrouter": "اوپن‌روتر",
         "ollama": "اولاما",
@@ -357,7 +357,7 @@
         "technical": "Technical"
       },
       "languages": {
-        "auto": "Match profile language",
+        "auto": "مطابق زبان پروفایل",
         "en": "انگلیسی",
         "de": "آلمانی"
       }
@@ -371,15 +371,22 @@
       "themeLabel": "تم",
       "themeModeAria": "Theme mode",
       "resolvedAppearance": "ظاهر حل شده:",
-      "accentColor": "رنگ حساب",
-      "accentNotice": "Accent preference is stored for future CSS var wiring — does not mutate the locked color system yet.",
+      "accentColor": "رنگ تاکید",
+      "accentNotice": "ترجیح رنگ تاکید برای این نشست ذخیره می‌شود و هنوز سامانه رنگ قفل‌شده را تغییر نمی‌دهد.",
+      "accents": {
+        "cyan": "فیروزه‌ای",
+        "blue": "آبی",
+        "emerald": "زمردی",
+        "violet": "بنفش",
+        "amber": "کهربایی"
+      },
       "density": "Density",
-      "compactMode": "Compact Mode",
-      "compactModeDescription": "Reduce padding across enterprise tables and panels.",
+      "compactMode": "حالت فشرده",
+      "compactModeDescription": "فاصله‌گذاری جدول‌ها و پنل‌های سازمانی را کاهش دهید.",
       "animations": "انیمیشن",
-      "animationsDescription": "Section motion and hover lifts. Respects reduced-motion OS setting.",
+      "animationsDescription": "حرکت بخش‌ها و افکت هاور. تنظیم کاهش حرکت سیستم رعایت می‌شود.",
       "glassEffects": "جلوه‌های شیشه‌ای",
-      "glassEffectsDescription": "Frosted glass cards and sidebar blur intensity preference.",
+      "glassEffectsDescription": "ترجیح شدت شیشه مات کارت‌ها و نوار کناری.",
       "modes": {
         "day": {
           "label": "روشن",
@@ -387,7 +394,7 @@
         },
         "night": {
           "label": "Dark",
-          "hint": "Approved cinematic night look"
+          "hint": "ظاهر شب سینمایی تأییدشده"
         },
         "auto": {
           "label": "سیستم",
@@ -411,11 +418,11 @@
       "desktop": "Desktop",
       "mobile": "موبایل",
       "workflowAlerts": "هشدارهای گردش کار",
-      "workflowAlertsDescription": "Automation Engine execution and approval events.",
-      "financeAlerts": "Finance Alerts",
+      "workflowAlertsDescription": "رویدادهای اجرا و تأیید موتور اتوماسیون.",
+      "financeAlerts": "هشدارهای مالی",
       "crmAlerts": "هشدارهای CRM",
-      "documentsAlerts": "Documents Alerts",
-      "deliveryNotice": "Delivery adapters ship at launch. Questions:",
+      "documentsAlerts": "هشدارهای اسناد",
+      "deliveryNotice": "آداپتورهای ارسال در زمان راه‌اندازی ارائه می‌شوند. پرسش‌ها:",
       "contactSupport": "با پشتیبانی تماس بگیرید"
     },
     "documents": {
@@ -423,18 +430,18 @@
       "description": "ذخیره‌سازی، نگهداری و دانش",
       "title": "اسناد",
       "panelDescription": "ذخیره‌سازی، نگهداری، پوشه پیش‌فرض، نسخه‌بندی و دانش.",
-      "notice": "Documents settings integrate with the Knowledge Hub architecture.",
+      "notice": "تنظیمات اسناد با معماری کانون دانش یکپارچه است.",
       "storagePreferences": "تنظیمات ذخیره سازی",
       "retentionPolicy": "سیاست نگهداری",
-      "defaultFolder": "Default Folder",
+      "defaultFolder": "پوشه پیش‌فرض",
       "versioning": "Versioning",
       "versioningDescription": "تاریخچه نسخه سند را برای بازیابی/مقایسه نگه دارید.",
-      "knowledgeSettings": "Knowledge Settings",
+      "knowledgeSettings": "تنظیمات دانش",
       "knowledgeDescription": "نمایه‌سازی هوش مصنوعی برای جستجوی مرکز دانش.",
       "storageOptions": {
-        "workspace-default": "Workspace default",
+        "workspace-default": "پیش‌فرض فضای کاری",
         "eu-region": "EU region",
-        "encrypted-vault": "Encrypted vault"
+        "encrypted-vault": "خزانه رمزنگاری‌شده"
       },
       "retentionOptions": {
         "30-days": "۳۰ روز (ابتدایی)",
@@ -449,14 +456,14 @@
       "title": "اتوماسیون",
       "panelDescription": "پیش‌فرض‌های گردش‌کار، پیشنهادهای AI، گزارش اجرا، تاریخچه و سیاست تلاش مجدد.",
       "notice": "پیش‌فرض‌های اتوماسیون برای معماری موتور گردش کار اعمال می‌شوند.",
-      "workflowDefaults": "Workflow Defaults",
+      "workflowDefaults": "پیش‌فرض‌های گردش‌کار",
       "historyLimits": "محدودیت‌های تاریخچه",
       "retryPolicy": "Retry Policy",
       "aiSuggestions": "AI Suggestions",
       "executionLogs": "گزارش‌های اجرایی",
-      "executionLogsDescription": "Retain detailed run payloads in Workflow History.",
+      "executionLogsDescription": "جزئیات اجرا را در تاریخچه گردش‌کار نگه دارید.",
       "workflowOptions": {
-        "require-approval": "Require approval gates",
+        "require-approval": "دروازه‌های تأیید الزامی",
         "auto-run": "جریان‌های قابل اعتماد را به صورت خودکار اجرا کنید",
         "draft-only": "فقط پیش‌نویس"
       },
@@ -476,7 +483,7 @@
       "description": "نصب‌شده، متصل و موجود",
       "title": "یکپارچه‌سازی‌ها",
       "panelDescription": "آداپترهای نصب‌شده، متصل و موجود.",
-      "openCenter": "Open Integration Center",
+      "openCenter": "مرکز یکپارچه‌سازی را باز کنید",
       "notice": "پلتفرم یکپارچه‌سازی سازمانی در مرکز یکپارچه‌سازی قرار دارد - کانکتورها، OAuth، وب‌هوک‌ها، کلیدهای API و پل رویداد گردش کار.",
       "columns": {
         "integration": "ادغام",
@@ -542,7 +549,7 @@
       "description": "کلیدها، وب‌هوک‌ها، توکن‌ها، سندباکس",
       "title": "API و توسعه‌دهندگان",
       "panelDescription": "کلیدها، وب‌هوک‌ها، توکن‌ها و دسترسی سندباکس.",
-      "openPortal": "Open developer portal",
+      "openPortal": "پورتال توسعه‌دهنده را باز کنید",
       "notice": "کلیدها را در مرکز ادغام ایجاد، چرخش و لغو کنید. دروازه، تستر وب‌هوک و کاوشگر API در آنجا موجود است.",
       "webhooks": "صفحات وب",
       "sandbox": "محیط آزمایشی (SandBox)",
@@ -569,7 +576,7 @@
       },
       "categories": {
         "activity": "فعالیت اخیر",
-        "security": "Security Events",
+        "security": "رویدادهای امنیتی",
         "system": "تغییرات سیستم"
       }
     },
@@ -579,14 +586,14 @@
       "title": "پیشرفته",
       "panelDescription": "قابلیت‌های آزمایشی، بازنشانی، درون‌ریزی و برون‌ریزی.",
       "notice": "اقدامات پیشرفته قبل از اعمال نیاز به تأیید دارند.",
-      "experimentalFeatures": "Experimental Features",
+      "experimentalFeatures": "ویژگی‌های آزمایشی",
       "experimentalDescription": "از قابلیت‌های ناتمام مرکز کنترل استفاده کنید.",
       "export": "خروجی",
       "import": "Import",
       "reset": "بازنشانی کنید",
-      "exportUnavailable": "Export is not available yet.",
+      "exportUnavailable": "خروجی هنوز در دسترس نیست.",
       "importUnavailable": "واردات هنوز در دسترس نیست.",
-      "resetUnavailable": "Reset is not available yet."
+      "resetUnavailable": "بازنشانی هنوز در دسترس نیست."
     },
     "page": {
       "eyebrow": "مرکز کنترل AGXORA",
@@ -741,8 +748,8 @@
     "skipToContent": "رفتن به محتوای داشبورد",
     "loading": "در حال بارگذاری داشبورد…",
     "hero": {
-      "ariaLabel": "هیروی AGXORA CORE",
-      "eyebrow": "سیستم عامل کسب‌وکار مبتنی بر هوش مصنوعی",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "سیستم عامل کسب‌وکار هوش مصنوعی",
       "title": "هسته آگکسورا",
       "subtitle": "هوش لحظه‌ای و کنترل عملیاتی — سطح فرمان فضای کاری شما.",
       "ctaGetStarted": "شروع کنید",
@@ -752,11 +759,11 @@
     },
     "quickActions": {
       "title": "اقدامات سریع",
-      "subtitle": "قدم بعدی چیست؟",
+      "subtitle": "اکنون چه کاری باید انجام دهید؟",
       "ariaLabel": "اقدامات سریع",
       "addCustomer": {
         "label": "افزودن مشتری",
-        "description": "ایجاد رکورد CRM"
+        "description": "یک رکورد CRM بسازید"
       },
       "newProject": {
         "label": "پروژه جدید",
@@ -782,7 +789,7 @@
     "attention": {
       "title": "نیاز به توجه",
       "ariaLabel": "موارد نیازمند توجه",
-      "empty": "همه‌چیز مرتب است — مورد فوری نیست.",
+      "empty": "همه چیز مرتب است — مورد فوری وجود ندارد.",
       "tone": {
         "critical": "بحرانی",
         "warning": "هشدار",
@@ -808,8 +815,8 @@
       }
     },
     "overview": {
-      "title": "چه می‌گذرد",
-      "subtitle": "شمارنده‌های فضای کاری برای {name}",
+      "title": "چه خبر است",
+      "subtitle": "شمارش فضای کاری برای {name}",
       "fallbackName": "فضای کاری شما",
       "ariaLabel": "نمای کلی کسب‌وکار",
       "online": "آنلاین",
@@ -838,10 +845,10 @@
       "revenue": {
         "title": "درآمد",
         "caption": "صورتحساب را وصل کنید تا MRR نمایش داده شود",
-        "openBilling": "باز کردن صورتحساب"
+        "openBilling": "باز کردن صورت‌حساب"
       },
       "clientShell": {
-        "title": "پوسته کلاینت",
+        "title": "پوسته برنامه",
         "caption": "نشست مرورگر آماده است — مانیتور عملیات زنده نیست",
         "shellLoaded": "پوسته برنامه بارگذاری شد",
         "storesReady": "ذخیره‌های محلی فضای کاری آماده است"
@@ -1128,10 +1135,10 @@
   "auth": {
     "login": {
       "title": "ورود",
-      "subtitle": "به AGXORA خوش آمدید.",
+      "subtitle": "دوباره به AGXORA خوش آمدید.",
       "email": "ایمیل",
       "password": "رمز عبور",
-      "emailPlaceholder": "شما@company.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "رمز عبور",
       "rememberMe": "مرا به خاطر بسپار",
       "submit": "ورود",
@@ -1166,9 +1173,9 @@
       "strengthFair": "متوسط",
       "strengthStrong": "قوی",
       "firstNamePlaceholder": "الکس",
-      "lastNamePlaceholder": "پی.",
+      "lastNamePlaceholder": "مورگان",
       "companyPlaceholder": "شرکت آگکسورا",
-      "emailPlaceholder": "شما@company.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "حداقل ۸ کاراکتر، حروف + اعداد",
       "confirmPasswordPlaceholder": "تکرار رمز عبور",
       "failed": "ثبت‌نام ناموفق بود",
@@ -1218,7 +1225,7 @@
       "successTitle": "متشکریم",
       "successBody": "درخواست شما دریافت شد. تیم ما به‌زودی پاسخ می‌دهد.",
       "viewPricing": "مشاهده قیمت‌ها",
-      "bookDemo": "رزرو دمو",
+      "bookDemo": "رزرو نسخه نمایشی",
       "failed": "ارسال درخواست ممکن نشد",
       "country": "کشور",
       "savedFor": "برای {company} ذخیره شد. ارسال فروش در این ساخت متصل نیست.",
@@ -1270,7 +1277,7 @@
       },
       "customer360": {
         "title": "مشتری 360°",
-        "subtitle": "پروفایل، شرکت، مخاطبین، سفارش‌ها، فاکتورها، Lieferscheine، پرداخت‌ها، اسناد، تایم‌لاین، فعالیت‌ها، یادداشت‌ها، خلاصه AI و تاریخچه ارتباطات."
+        "subtitle": "پروفایل، شرکت، مخاطبین، سفارش‌ها، فاکتورها، برگه‌های تحویل، پرداخت‌ها، اسناد، تایم‌لاین، فعالیت‌ها، یادداشت‌ها، خلاصه AI و تاریخچه ارتباطات."
       },
       "salesPipeline": {
         "title": "پایپ‌لاین فروش",
@@ -1281,11 +1288,11 @@
       },
       "deliveryModule": {
         "title": "ماژول تحویل",
-        "subtitle": "سیستم حرفه‌ای Lieferschein با پیگیری، امضا، QR و آماده‌بودن بارکد."
+        "subtitle": "سیستم حرفه‌ای برگه تحویل با پیگیری، امضا، QR و آماده‌بودن بارکد."
       },
       "documentsModule": {
         "title": "اسناد",
-        "subtitle": "پیشنهادات، قراردادها، فاکتورها، Lieferschein، سفارش خرید، رسیدها — با جستجوی AI."
+        "subtitle": "پیشنهادات، قراردادها، فاکتورها، برگه تحویل، سفارش خرید، رسیدها — با جستجوی AI."
       },
       "tasksModule": {
         "title": "وظایف"
@@ -1596,7 +1603,7 @@
       }
     },
     "delivery": {
-      "title": "سیستم حرفه‌ای Lieferschein",
+      "title": "سیستم حرفه‌ای برگه تحویل",
       "description": "برگه‌های تحویل، دریافت/تحویل، راننده، وسیله و پیگیری — فقط رکوردهای نمونه. آداپتورهای export متصل نیستند.",
       "badges": {
         "qrUnavailable": "QR در دسترس نیست",
@@ -1668,7 +1675,7 @@
       "emptyTitle": "سندی نیست",
       "emptyDescription": "سندی با این جستجو مطابقت ندارد.",
       "searchLabel": "جستجوی هوش مصنوعی",
-      "searchPlaceholder": "پیشنهادات، قراردادها، فاکتورها، Lieferschein…",
+      "searchPlaceholder": "پیشنهادات، قراردادها، فاکتورها، برگه تحویل…",
       "typeLabel": "نوع سند",
       "allTypes": "همه انواع",
       "columns": {
@@ -1698,7 +1705,137 @@
       "intro": "بنیاد Creator Studio — اتصال رسمی پلتفرم‌ها می‌تواند بعداً به این آداپتورها وصل شود. Instagram، TikTok، YouTube، Facebook، LinkedIn، Pinterest، Threads، X."
     },
     "industry": {
-      "intro": "پلتفرم کسب‌وکار جهانی — در onboarding بعداً صنعت انتخاب می‌شود. هر صنعت ماژول‌های AI اختصاصی بدون انشعاب از CRM اصلی دریافت می‌کند."
+      "intro": "پلتفرم کسب‌وکار جهانی — در onboarding بعداً صنعت انتخاب می‌شود. هر صنعت ماژول‌های AI اختصاصی بدون انشعاب از CRM اصلی دریافت می‌کند.",
+      "catalog": {
+        "business": {
+          "label": "کسب‌وکار",
+          "description": "سیستم عامل عمومی B2B"
+        },
+        "freelancer": {
+          "label": "فریلنسر",
+          "description": "CRM، فاکتور و قیف مشتری برای کار مستقل"
+        },
+        "creator": {
+          "label": "کریتور",
+          "description": "استودیو کریتور و CRM برند"
+        },
+        "influencer": {
+          "label": "اینفلوئنسر",
+          "description": "CRM اسپانسرشیپ و سیستم کمپین"
+        },
+        "agency": {
+          "label": "آژانس",
+          "description": "تحویل چندمشتری و قراردادهای نگهداشت"
+        },
+        "retail": {
+          "label": "خرده‌فروشی",
+          "description": "موجودی فروشگاه، صندوق و وفاداری"
+        },
+        "restaurant": {
+          "label": "رستوران",
+          "description": "رزرو، آشپزخانه و ارسال"
+        },
+        "hotel": {
+          "label": "هتل",
+          "description": "اتاق، مهمان و خانه‌داری"
+        },
+        "laundry": {
+          "label": "خشکشویی",
+          "description": "جمع‌آوری، بلیت و لجستیک مسیر"
+        },
+        "healthcare": {
+          "label": "سلامت",
+          "description": "بیماران، نوبت‌ها، انطباق"
+        },
+        "law_firm": {
+          "label": "موسسه حقوقی",
+          "description": "پرونده‌ها، صورتحساب و خزانه اسناد"
+        },
+        "accounting": {
+          "label": "حسابداری",
+          "description": "دفتر مشتریان و خروجی آماده DATEV"
+        },
+        "construction": {
+          "label": "ساخت‌وساز",
+          "description": "سایت‌ها، گروه‌ها و صورت‌وضعیت پیشرفت"
+        },
+        "real_estate": {
+          "label": "املاک",
+          "description": "آگهی‌ها، بازدیدها و قراردادها"
+        },
+        "education": {
+          "label": "آموزش",
+          "description": "دانشجویان، دوره‌ها و ثبت‌نام"
+        },
+        "manufacturing": {
+          "label": "تولید",
+          "description": "BOM، تولید و کنترل کیفیت"
+        },
+        "logistics": {
+          "label": "لجستیک",
+          "description": "ناوگان، ردیابی و برگه‌های تحویل"
+        },
+        "ecommerce": {
+          "label": "تجارت الکترونیک",
+          "description": "کاتالوگ، سبد و سفارش‌های چندکاناله"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "فروش",
+        "finance": "مالی",
+        "projects": "پروژه‌ها",
+        "clients": "مشتریان",
+        "proposals": "پیشنهادها",
+        "time_tracking": "ثبت زمان",
+        "invoices": "فاکتورها",
+        "creator_studio": "استودیو کریتور",
+        "brand_deals": "توافق‌های برند",
+        "content_calendar": "تقویم محتوا",
+        "sponsorships": "اسپانسرشیپ‌ها",
+        "audience_insights": "بینش مخاطب",
+        "campaigns": "کمپین‌ها",
+        "client_portals": "پورتال مشتریان",
+        "retainers": "قرارداد نگهداشت",
+        "campaign_ops": "عملیات کمپین",
+        "inventory": "موجودی",
+        "pos": "POS",
+        "loyalty": "وفاداری",
+        "reservations": "رزروها",
+        "menu": "منو",
+        "kitchen_display": "نمایشگر آشپزخانه",
+        "housekeeping": "خانه‌داری",
+        "guest_crm": "CRM مهمان",
+        "tickets": "بلیت‌ها",
+        "routes": "مسیرها",
+        "delivery_notes": "برگه‌های تحویل",
+        "patients": "بیماران",
+        "appointments": "نوبت‌ها",
+        "compliance": "انطباق",
+        "matters": "پرونده‌ها",
+        "billing": "صورتحساب",
+        "documents": "اسناد",
+        "client_books": "دفتر مشتریان",
+        "datev": "DATEV",
+        "tax_deadlines": "مهلت مالیاتی",
+        "sites": "سایت‌ها",
+        "crews": "گروه‌ها",
+        "progress_billing": "صورت‌وضعیت پیشرفت",
+        "listings": "آگهی‌ها",
+        "viewings": "بازدیدها",
+        "closings": "قراردادها",
+        "students": "دانشجویان",
+        "courses": "دوره‌ها",
+        "enrollment": "ثبت‌نام",
+        "bom": "BOM",
+        "production": "تولید",
+        "qc": "QC",
+        "fleet": "ناوگان",
+        "tracking": "ردیابی",
+        "catalog": "کاتالوگ",
+        "orders": "سفارش‌ها",
+        "fulfillment": "تکمیل سفارش"
+      }
     },
     "kpi": {
       "customers": {
@@ -2586,8 +2723,8 @@
       "previous": "قبلی",
       "next": "بعدی",
       "paginationRange": "{start}–{end} از {total}",
-      "sortAscending": "Sort ascending",
-      "sortDescending": "Sort descending"
+      "sortAscending": "مرتب‌سازی صعودی",
+      "sortDescending": "مرتب‌سازی نزولی"
     },
     "dialog": {
       "close": "بستن گفتگو"
@@ -2599,7 +2736,7 @@
     "states": {
       "errorLabel": "خطا",
       "errorTitle": "در API افزونه اشتباه رخ داد.",
-      "errorDescription": "We couldn't complete that request. Try again in a moment.",
+      "errorDescription": "درخواست کامل نشد. کمی بعد دوباره تلاش کنید.",
       "retry": "تلاش مجدد"
     },
     "empty": {
@@ -2615,11 +2752,11 @@
       "documentsTitle": "کتابخانه اسناد خالی است",
       "documentsDescription": "دارایی‌های دانش را برای تأیید، نسخه‌ها و زمینه هوش مصنوعی بارگذاری یا ایجاد کنید.",
       "documentsAction": "باز کردن اسناد",
-      "billingTitle": "No billing history yet",
-      "billingDescription": "Upgrade a plan to generate invoices, renewals, and payment history.",
+      "billingTitle": "هنوز سابقه صورت‌حساب نیست",
+      "billingDescription": "برای صدور فاکتور، تمدید و تاریخچه پرداخت یک طرح را ارتقا دهید.",
       "billingAction": "باز کردن صورتحساب",
       "agentsTitle": "هیچ نماینده‌ای فعال نیست",
-      "agentsDescription": "Install or activate an agent from the marketplace to start autonomous runs.",
+      "agentsDescription": "برای شروع اجرای خودمختار، عاملی را از بازار نصب یا فعال کنید.",
       "agentsAction": "سیستم عامل عامل باز"
     },
     "yes": "بله",
@@ -2686,7 +2823,7 @@
       "currency": "واحد پول",
       "startDate": "تاریخ شروع",
       "dueDate": "تاریخ سررسید",
-      "color": "رنگ ",
+      "color": "رنگ",
       "icon": "آیکون",
       "tags": "برچسب‌ها",
       "tagsHint": "با کامای انگلیسی از هم جدا کنید.",
@@ -2769,7 +2906,7 @@
         "activeProjects": "پروژه‌های فعال",
         "activeHint": "{planning} برنامه‌ریزی",
         "completed": "تکمیل‌شده",
-        "completedHint": "{percent}٪ از پرتفوی",
+        "completedHint": "{percent}٪ از سبد",
         "onHold": "در انتظار",
         "onHoldHint": "{archived} بایگانی شده",
         "teamMembers": "اعضای تیم",
@@ -2831,7 +2968,7 @@
       "missingTitle": "پروژه گمشده",
       "missingDescription": "برای مشاهده نمای کلی پروژه، آن را انتخاب کنید.",
       "title": "نمای کلی",
-      "noDescription": "توضیحی ارائه نشده است",
+      "noDescription": "توضیحی ثبت نشده است.",
       "budget": "بودجه",
       "spent": "هزینه شده",
       "start": "شروع",
@@ -2840,7 +2977,7 @@
       "completedTasks": "تکالیف های انجام شده"
     },
     "tasks": {
-      "title": "مدیریت تسکها<x id=\"1\"/> ",
+      "title": "مدیریت کارها",
       "newTask": "وظیفه جدید",
       "tableTitle": "عنوان",
       "tableAssignee": "کارشناس",
@@ -2977,8 +3114,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "پیشنهادات بهینه‌سازی",
       "oneClickOptimize": "بهینه‌سازی با یک کلیک",
-      "noticeDefault": "بهینه‌سازی با یک کلیک هنوز جهشی در نمودار ایجاد نکرده است.",
-      "noticeQueued": "بهینه‌سازی صف‌بندی شده. موتور آینده تأخیرها و تأییدها را بازنویسی خواهد کرد."
+      "noticeDefault": "بهینه‌سازی یک‌کلیکی هنوز گراف را تغییر نمی‌دهد.",
+      "noticeQueued": "بهینه‌سازی در صف است. موتور بعدی تأخیرها و تأییدها را بازنویسی می‌کند.",
+      "score": {
+        "healthy": "سالم",
+        "needsAttention": "نیاز به توجه",
+        "atRisk": "در معرض خطر"
+      },
+      "kinds": {
+        "missing_approval": "تأیید",
+        "possible_delay": "تأخیر",
+        "unused_trigger": "محرک",
+        "duplicate_nodes": "تکراری",
+        "unused_action": "اقدام",
+        "security": "امنیت",
+        "performance": "عملکرد"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "تأیید وجود ندارد",
+          "description": "جریان‌های طولانی معمولاً قبل از اثر جانبی به دروازه تأیید نیاز دارند."
+        },
+        "possible_delay": {
+          "title": "تأخیر محتمل",
+          "description": "برای جلوگیری از انفجار اعلان، قبل از ایمیل یادآوری تأخیر بگذارید."
+        },
+        "unused_trigger": {
+          "title": "محرک استفاده‌نشده",
+          "description": "این گراف محرک شروع ندارد — قبل از فعال‌سازی یکی اضافه کنید."
+        },
+        "duplicate_nodes": {
+          "title": "گره تکراری",
+          "description": "«{label}» {count} بار آمده — در صورت تکراری بودن ادغام کنید."
+        },
+        "unused_action": {
+          "title": "اقدام استفاده‌نشده",
+          "description": "{label} متصل نیست — وصل یا حذف کنید."
+        },
+        "security": {
+          "title": "توصیه امنیتی",
+          "description": "برای وب‌هوک و ایمیل از آداپتور با کمترین دسترسی استفاده کنید."
+        },
+        "performance": {
+          "title": "توصیه عملکرد",
+          "description": "گام‌های هوش مصنوعی را در صورت امکان دسته‌بندی کنید تا زمان اجرا کم شود."
+        }
+      }
     },
     "integrations": {
       "intro": "مرکز ادغام — اختیاری. وضعیت‌ها: متصل، بتا، برنامه‌ریزی‌شده، به‌زودی، غیرفعال. بدون APIهای فعال.",
@@ -3090,9 +3271,9 @@
         "runResult": "اجرای {status} ({duration}ms)",
         "runFailed": "گردش کار اجرا نشد (غیرفعال یا مفقود).",
         "publishedEvent": "رویداد دامنه منتشر شده: {type}",
-        "workflowStatus": "Workflow {status}",
+        "workflowStatus": "گردش‌کار {status}",
         "saved": "گردش کار ذخیره شد",
-        "retryResult": "Retry {status}",
+        "retryResult": "تلاش مجدد {status}",
         "retryFailed": "تلاش ناموفق بود.  %s",
         "settingsSaved": "تنظیمات اتوماسیون ذخیره شد"
       },
@@ -3497,15 +3678,15 @@
       "yourOrganization": "سازمان شما"
     },
     "invite": {
-      "title": "Invite by Email",
+      "title": "دعوت با ایمیل",
       "email": "ایمیل",
       "emailPlaceholder": "همکار@company.com",
       "role": "نقش",
       "submit": "Invite",
       "created": "دعوتنامه ایجاد شد (در انتظار).",
-      "failed": "Invite failed",
-      "signInFirst": "Sign in and activate an organization first.",
-      "noPermission": "Missing permission — Admin or Manager required to invite."
+      "failed": "دعوت ناموفق بود",
+      "signInFirst": "ابتدا وارد شوید و یک سازمان را فعال کنید.",
+      "noPermission": "مجوز کافی نیست — برای دعوت، مدیر یا راهبر لازم است."
     },
     "roles": {
       "title": "نقش های کاربری",
@@ -3515,7 +3696,7 @@
       },
       "admin": {
         "name": "مدیر",
-        "description": "Manage Finance, Automation, Team, and workspace modules."
+        "description": "مالی، اتوماسیون، تیم و ماژول‌های فضای کاری را مدیریت کنید."
       },
       "manager": {
         "name": "مدیر",
@@ -3540,23 +3721,23 @@
       "columnEmail": "ایمیل",
       "columnRole": "نقش",
       "columnStatus": "وضعیت",
-      "roleFor": "Role for {name}",
+      "roleFor": "نقش برای {name}",
       "emptyTitle": "هنوز عضوی نیست",
       "emptyDescription": "از همکاران دعوت کنید تا به این فضای کاری سازمانی بپیوندند.",
-      "updated": "Updated {name} to {role}",
+      "updated": "{name} به {role} به‌روز شد",
       "roleChangeFailed": "خرابی در تغییر"
     },
     "pending": {
-      "title": "Pending Invitations",
+      "title": "دعوت‌های در انتظار",
       "emptyTitle": "در انتظار دعوت",
-      "emptyDescription": "New invites appear here until accepted or expired.",
+      "emptyDescription": "دعوت‌های جدید تا پذیرش یا انقضا اینجا نمایش داده می‌شوند.",
       "expires": "{role} · expires {date}",
       "revoke": "لغو",
       "pending": "در حال بررسی"
     },
     "history": {
       "title": "تاریخچه دعوت",
-      "empty": "Accepted, expired, and revoked invitations will appear here."
+      "empty": "دعوت‌های پذیرفته، منقضی و لغوشده اینجا ظاهر می‌شوند."
     },
     "status": {
       "accepted": "accepted",
@@ -3586,9 +3767,9 @@
       "view": "نمایش",
       "edit": "ویرایش",
       "delete": "حذف",
-      "viewAria": "View {company}",
-      "editAria": "Edit {company}",
-      "deleteAria": "Delete {company}",
+      "viewAria": "مشاهده {company}",
+      "editAria": "ویرایش {company}",
+      "deleteAria": "حذف {company}",
       "loading": "در حال بارگذاری مشتریان…",
       "errorLoad": "نتوانستم مشتریان را بارگذاری کنم",
       "errorGeneric": "در API افزونه اشتباه رخ داد.",
@@ -3624,7 +3805,7 @@
       "statusAria": "وضعیت مشتری",
       "phone": "تلفن",
       "mobile": "موبایل",
-      "street": "خیابان ",
+      "street": "خیابان",
       "postalCode": "مدرک زبان",
       "city": "شهر",
       "country": "کشور",
@@ -4123,7 +4304,7 @@
     "demoBanner": "مجموعه داده آزمایشی - فیلترها و تأیید کار در جلسه؛ خروجی گرفتن و فراخوانی‌های مدل زنده هنوز در دسترس نیستند.",
     "noticeDefault": "نمایش تجزیه و تحلیل نسخه آزمایشی اولیه - نه سنجش از دور تولید زنده.",
     "noPermission": "شما مجوز intelligence.read برای این فضای کاری را ندارید.",
-    "filtersUpdated": "Filters updated",
+    "filtersUpdated": "فیلترها به‌روز شد",
     "demoReloaded": "مجموعه داده‌های نمایشی برای این فضای کاری مجدداً بارگذاری شد.",
     "acknowledged": "تصدیق‌شده: {title}",
     "exportUnavailableTitle": "صادرات در دسترس نیست — تولید گزارش هنوز متصل نشده است.",
@@ -4210,7 +4391,7 @@
       "emptyTitle": "بدون هشدار",
       "emptyDescription": "هشدارها از اکتشافات ریسک سرچشمه می‌گیرند.",
       "acked": "ACKed",
-      "open": "باز ",
+      "open": "باز",
       "acknowledge": "تصدیق کنید"
     },
     "scorecards": {
@@ -4255,8 +4436,8 @@
     "shell": {
       "brand": "آگکسورا",
       "navLabel": "ناوبری حقوقی",
-      "lastUpdated": "Last updated: {date}",
-      "footerCopyright": "© 2026 {company}",
+      "lastUpdated": "آخرین به‌روزرسانی: {date}",
+      "footerCopyright": "© ۲۰۲۶ {company}",
       "footerNavLabel": "پاورقی قانونی",
       "nav": {
         "privacy": "حریم خصوصی",
@@ -4276,7 +4457,7 @@
       "eyebrow": "شرکت",
       "introLead": "برای سوالات مربوط به محصول، پشتیبانی یا مکالمات سازمانی با تیم AGXORA تماس بگیرید. آیا مسیریابی فروش را ترجیح می‌دهید؟ از",
       "contactSales": "تماس با فروش",
-      "companyEmail": " ایمیل شرکت: ",
+      "companyEmail": " ایمیل شرکت:",
       "supportEmail": "ایمیل پشتیبانی",
       "sales": "فروش",
       "enterpriseForm": "فرم سازمانی",
@@ -4368,7 +4549,7 @@
       "address": "آدرس",
       "email": "ایمیل",
       "support": "پشتیبانی",
-      "representedBy": "به نمایندگی .............................. ",
+      "representedBy": "به نمایندگی ..............................",
       "register": "نام‌نویسی",
       "vatId": "شناسه مالیات بر ارزش افزوده",
       "pendingConfiguration": "پیکربندی در حال بررسی",
@@ -4398,7 +4579,7 @@
     "language": "زبان",
     "languagePlaceholder": "انگلیسی",
     "timezone": "منطقه زمانی",
-    "timezonePlaceholder": "یو تی سی ",
+    "timezonePlaceholder": "یو تی سی",
     "goals": {
       "increaseRevenue": "افزایش درآمد.",
       "improveOperations": "بهبود عملیات",
@@ -4726,7 +4907,7 @@
     "skipToMain": "جهش به محتوای اصلی",
     "offline": {
       "title": "شما آفلاین هستید",
-      "message": "اتصال خود را بررسی کنید و وقتی دوباره آنلاین شدید دوباره امتحان کنید. صفحات ذخیره شده در حافظه پنهان ممکن است هنوز کار کنند.",
+      "message": "اتصال را بررسی کنید و پس از آنلاین شدن دوباره تلاش کنید. صفحات ذخیره‌شده ممکن است همچنان کار کنند.",
       "home": "خانه",
       "contact": "تماس",
       "signIn": "ورود"
@@ -4753,14 +4934,14 @@
   "workspace": {
     "page": {
       "title": "فضای کاری",
-      "description": "Isolated tenant workspace surface for modules and AI.",
+      "description": "سطح فضای کاری ایزوله برای ماژول‌ها و هوش مصنوعی.",
       "descriptionNamed": "سطح فضای کاری مستاجر ایزوله برای {name}."
     },
-    "idLabel": "Workspace ID:",
-    "active": "Active: {name}",
-    "notInSession": "Not in current session",
-    "organization": "Organization: {name} ({slug})",
-    "searchResults": "Search results"
+    "idLabel": "شناسه فضای کاری:",
+    "active": "فعال: {name}",
+    "notInSession": "در نشست فعلی نیست",
+    "organization": "سازمان: {name} ({slug})",
+    "searchResults": "نتایج جستجو"
   },
   "iam": {
     "identity": {
@@ -4883,7 +5064,7 @@
       "languageDe": "آلمانی",
       "timezoneBerlin": "اروپا/برلین",
       "timezoneLondon": "اروپا/لندن",
-      "timezoneUtc": "یو تی سی ",
+      "timezoneUtc": "یو تی سی",
       "timezoneNewYork": "آمریکا/نیویورک",
       "notifications": "اعلان‌ها",
       "emailNotifications": "اعلان‌های ایمیلی",

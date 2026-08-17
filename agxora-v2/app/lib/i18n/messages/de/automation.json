@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Optimierungsvorschläge:",
     "oneClickOptimize": "Ein-Klick-Optimierung",
-    "noticeDefault": "One Click Optimize ist noch keine Graph-Mutation.",
-    "noticeQueued": "Optimierung in der Warteschlange. Zukünftige Engine schreibt Verzögerungen und Genehmigungen neu."
+    "noticeDefault": "Ein-Klick-Optimierung ändert den Graphen noch nicht.",
+    "noticeQueued": "Optimierung vorgemerkt. Eine künftige Engine schreibt Verzögerungen und Freigaben um.",
+    "score": {
+      "healthy": "Gesund",
+      "needsAttention": "Handlungsbedarf",
+      "atRisk": "Gefährdet"
+    },
+    "kinds": {
+      "missing_approval": "Freigabe",
+      "possible_delay": "Verzögerung",
+      "unused_trigger": "Auslöser",
+      "duplicate_nodes": "Duplikate",
+      "unused_action": "Aktion",
+      "security": "Sicherheit",
+      "performance": "Leistung"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Fehlende Freigabe",
+        "description": "Längere Abläufe profitieren oft von einer Freigabe vor Seiteneffekten."
+      },
+      "possible_delay": {
+        "title": "Mögliche Verzögerung",
+        "description": "Erwägen Sie eine Verzögerung vor Erinnerungs-E-Mails, um Lastspitzen zu vermeiden."
+      },
+      "unused_trigger": {
+        "title": "Unbenutzter Auslöser",
+        "description": "Dieser Graph hat keinen Startauslöser — fügen Sie einen vor der Aktivierung hinzu."
+      },
+      "duplicate_nodes": {
+        "title": "Doppelte Knoten",
+        "description": "„{label}“ kommt {count}-mal vor — konsolidieren Sie, falls überflüssig."
+      },
+      "unused_action": {
+        "title": "Unbenutzte Aktion",
+        "description": "{label} ist nicht verbunden — verdrahten oder entfernen."
+      },
+      "security": {
+        "title": "Sicherheitsempfehlung",
+        "description": "Nutzen Sie Adapter mit geringsten Rechten für Webhook- und E-Mail-Aktionen."
+      },
+      "performance": {
+        "title": "Leistungsempfehlung",
+        "description": "Bündeln Sie KI-Schritte, wo möglich, um die mittlere Laufzeit zu senken."
+      }
+    }
   },
   "integrations": {
     "intro": "Integrationscenter — optional. Status: Verbunden, Beta, Geplant, Demnächst verfügbar, Deaktiviert. Keine Live-APIs.",
@@ -78,7 +122,7 @@
     "zoomOut": "−",
     "zoomIn": "+",
     "resetView": "Ansicht zurücksetzen",
-    "emptyTitle": "Leere Leinwand ",
+    "emptyTitle": "Leere Leinwand",
     "emptyDescription": "Ziehen Sie einen Auslöser aus der Palette, um mit dem Bauen zu beginnen. Snap-to-Grid hält Knoten ausgerichtet.",
     "connectHint": "Doppelklicken Sie auf das Ziel, um eine Verbindung herzustellen",
     "miniMapAria": "Minikarte"
@@ -455,7 +499,7 @@
       "description": "Wird ausgelöst, wenn ein Projekt erstellt wird."
     },
     "task_completed": {
-      "label": "Aufgabe abgeschlossen ",
+      "label": "Aufgabe abgeschlossen",
       "description": "Wird ausgelöst, wenn eine Aufgabe als erledigt markiert wird."
     },
     "document_uploaded": {

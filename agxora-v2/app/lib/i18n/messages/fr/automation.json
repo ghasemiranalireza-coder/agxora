@@ -26,12 +26,56 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Suggestions d'optimisation",
     "oneClickOptimize": "Optimiser en un clic",
-    "noticeDefault": "One Click Optimize n'est pas encore une mutation graphique.",
-    "noticeQueued": "Optimiser la file d'attente. Le futur moteur réécrira les délais et les approbations."
+    "noticeDefault": "L’optimisation en un clic ne modifie pas encore le graphe.",
+    "noticeQueued": "Optimisation en file. Un futur moteur réécrira délais et validations.",
+    "score": {
+      "healthy": "Sain",
+      "needsAttention": "À surveiller",
+      "atRisk": "À risque"
+    },
+    "kinds": {
+      "missing_approval": "Approbation",
+      "possible_delay": "Délai",
+      "unused_trigger": "Déclencheur",
+      "duplicate_nodes": "Doublons",
+      "unused_action": "Action",
+      "security": "Sécurité",
+      "performance": "Performance"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Approbation manquante",
+        "description": "Les flux longs bénéficient souvent d’une validation avant les effets de bord."
+      },
+      "possible_delay": {
+        "title": "Délai possible",
+        "description": "Envisagez un délai avant les e-mails de relance pour éviter les rafales."
+      },
+      "unused_trigger": {
+        "title": "Déclencheur inutilisé",
+        "description": "Ce graphe n’a pas de déclencheur de départ — ajoutez-en un avant activation."
+      },
+      "duplicate_nodes": {
+        "title": "Nœuds en double",
+        "description": "« {label} » apparaît {count} fois — fusionnez si redondant."
+      },
+      "unused_action": {
+        "title": "Action inutilisée",
+        "description": "{label} n’est pas connecté — reliez-le ou retirez-le."
+      },
+      "security": {
+        "title": "Recommandation de sécurité",
+        "description": "Préférez des adaptateurs au moindre privilège pour les webhooks et e-mails."
+      },
+      "performance": {
+        "title": "Recommandation de performance",
+        "description": "Regroupez les étapes IA si possible pour réduire le temps d’exécution moyen."
+      }
+    }
   },
   "integrations": {
     "intro": "Centre d'intégration : facultatif. Statuts : Connecté, Bêta, Planifié, Bientôt disponible, Désactivé. Aucune API en direct.",
-    "category": "Catégorie : ",
+    "category": "Catégorie :",
     "reservedAdapter": "Adaptateur réservé :",
     "description": "Description:"
   },

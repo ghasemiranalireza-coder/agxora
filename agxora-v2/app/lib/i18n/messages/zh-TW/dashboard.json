@@ -2,8 +2,8 @@
   "skipToContent": "跳至儀表板內容",
   "loading": "正在加載儀表板...",
   "hero": {
-    "ariaLabel": "AGXORA CORE HERO",
-    "eyebrow": "人工智慧商業作業系統",
+    "ariaLabel": "AGXORA CORE",
+    "eyebrow": "AI 商業作業系統",
     "title": "AGXORA核心",
     "subtitle": "即時智慧與操作控制－您的工作空間指令介面。",
     "ctaGetStarted": "開始使用",
@@ -13,7 +13,7 @@
   },
   "quickActions": {
     "title": "快速行動",
-    "subtitle": "接下來該怎麼做？",
+    "subtitle": "接下來該做什麼？",
     "ariaLabel": "快速行動",
     "addCustomer": {
       "label": "新增客戶",
@@ -28,7 +28,7 @@
       "description": "開啟 AI 工作區"
     },
     "finance": {
-      "label": "金融",
+      "label": "財務",
       "description": "收據和現金流量"
     },
     "automations": {
@@ -43,9 +43,9 @@
   "attention": {
     "title": "需要注意",
     "ariaLabel": "需要注意什麼",
-    "empty": "你很清楚——現在沒有緊急物品。",
+    "empty": "一切正常 — 目前沒有緊急事項。",
     "tone": {
-      "critical": "批判的",
+      "critical": "嚴重",
       "warning": "警告",
       "info": "資訊",
       "success": "準備就緒",
@@ -69,11 +69,11 @@
     }
   },
   "overview": {
-    "title": "工程情況",
-    "subtitle": "{name} 的工作空間計數",
+    "title": "目前動態",
+    "subtitle": "{name} 的工作區計數",
     "fallbackName": "你的工作空間",
     "ariaLabel": "業務概況",
-    "online": "在線的",
+    "online": "在線",
     "emDash": "—",
     "capacitySignal": "{percent}% 容量訊號",
     "activeClients": {
@@ -97,15 +97,15 @@
       "viewFeed": "查看提要"
     },
     "revenue": {
-      "title": "收入",
+      "title": "營收",
       "caption": "連結帳單以顯示MRR",
-      "openBilling": "開放式計費"
+      "openBilling": "開啟帳單"
     },
     "clientShell": {
-      "title": "客戶端外殼",
+      "title": "應用程式外殼",
       "caption": "瀏覽器工作階段就緒—不是即時作業系統監視器",
       "shellLoaded": "已載入應用程式外殼",
-      "storesReady": "本地工作區商店準備就緒"
+      "storesReady": "本機工作區儲存已就緒"
     },
     "growth": {
       "title": "成長",
@@ -117,8 +117,8 @@
     "title": "最近的活動",
     "subtitle": "今天發生了什麼變化",
     "ariaLabel": "最近的活動",
-    "todayCount": "今天 {count}",
-    "localBadge": "當地的",
+    "todayCount": "今日 {count} 則",
+    "localBadge": "本機",
     "emptyTitle": "還沒有活動",
     "emptyBody": "當您新增客戶、專案等時，工作區事件將顯示在此。",
     "addCustomer": "新增客戶",

@@ -16,13 +16,13 @@
     "privacy": "Privacidade",
     "terms": "Termos",
     "cookies": "Cookies",
-    "imprint": "Imprimir",
+    "imprint": "Aviso legal",
     "organization": "Organização",
     "user": "Usuário",
     "guest": "Convidado",
     "member": "Membro",
     "role": "Papel",
-    "signedIn": "Conectado",
+    "signedIn": "Sessão iniciada",
     "guestSession": "Sessão de convidado",
     "noResults": "Nenhum resultado",
     "noData": "Sem dados",
@@ -60,12 +60,12 @@
     "toggleNavigation": "Alternar navegação",
     "primary": "Primário",
     "menu": "Menu",
-    "search": "Procurar",
+    "search": "Pesquisar",
     "notifications": "Notificações",
     "profile": "Perfil",
     "currentOrganization": "Organização atual",
     "noNotifications": "Sem notificações",
-    "notificationsEmpty": "Vocês estão todos atualizados. Alertas e menções aparecerão aqui.",
+    "notificationsEmpty": "Está em dia. Alertas e menções aparecerão aqui.",
     "accountSettings": "Configurações de Conta",
     "security": "Segurança",
     "themeToggle": "Alternância rápida de tema. Preferência: {mode}"
@@ -324,7 +324,7 @@
       "preferredProvider": "Provedor de IA preferencial",
       "defaultModel": "Modelo de IA padrão",
       "temperature": "Temperatura",
-      "topP": "Parte superior P",
+      "topP": "Top P",
       "maxTokens": "Máximo de tokens",
       "writingStyle": "Estilo de escrita",
       "languagePreferences": "Preferências de idioma",
@@ -341,10 +341,10 @@
       "streaming": "Transmissão",
       "streamingDescription": "Transmita respostas do modelo quando o provedor oferecer suporte.",
       "providers": {
-        "mock": "Simulação (local)",
+        "mock": "Mock (local)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "Antrópico",
+        "anthropic": "Anthropic",
         "google": "Google",
         "openrouter": "OpenRouter",
         "ollama": "Ollama",
@@ -372,9 +372,16 @@
       "themeModeAria": "Modo tema",
       "resolvedAppearance": "Aparência resolvida:",
       "accentColor": "Cor de destaque",
-      "accentNotice": "A preferência de acento é armazenada para futura fiação CSS var - ainda não altera o sistema de cores bloqueado.",
+      "accentNotice": "A preferência de destaque é guardada nesta sessão e ainda não altera o sistema de cores bloqueado.",
+      "accents": {
+        "cyan": "Ciano",
+        "blue": "Azul",
+        "emerald": "Esmeralda",
+        "violet": "Violeta",
+        "amber": "Âmbar"
+      },
       "density": "Densidade",
-      "compactMode": "Modo Compacto",
+      "compactMode": "Modo compacto",
       "compactModeDescription": "Reduza o preenchimento em tabelas e painéis corporativos.",
       "animations": "Animações",
       "animationsDescription": "Movimento de seção e elevação flutuante. Respeita a configuração do sistema operacional de movimento reduzido.",
@@ -741,7 +748,7 @@
     "skipToContent": "Pular para o conteúdo do painel",
     "loading": "Carregando painel…",
     "hero": {
-      "ariaLabel": "Herói AGXORA CORE",
+      "ariaLabel": "AGXORA CORE",
       "eyebrow": "Sistema operacional empresarial de IA",
       "title": "NÚCLEO AGXORA",
       "subtitle": "Inteligência em tempo real e controle operacional — a superfície de comando do seu espaço de trabalho.",
@@ -752,11 +759,11 @@
     },
     "quickActions": {
       "title": "Ações rápidas",
-      "subtitle": "O que você deve fazer a seguir?",
+      "subtitle": "O que deve fazer a seguir?",
       "ariaLabel": "Ações rápidas",
       "addCustomer": {
         "label": "Adicionar cliente",
-        "description": "Crie um registro CRM"
+        "description": "Criar um registo CRM"
       },
       "newProject": {
         "label": "Novo projeto",
@@ -767,7 +774,7 @@
         "description": "Abra o espaço de trabalho de IA"
       },
       "finance": {
-        "label": "Financiar",
+        "label": "Finanças",
         "description": "Faturas e fluxo de caixa"
       },
       "automations": {
@@ -782,11 +789,11 @@
     "attention": {
       "title": "Precisa de atenção",
       "ariaLabel": "O que precisa de atenção",
-      "empty": "Você está claro: não há itens urgentes no momento.",
+      "empty": "Tudo certo — nenhum item urgente agora.",
       "tone": {
         "critical": "Crítico",
         "warning": "Aviso",
-        "info": "Informações",
+        "info": "Info",
         "success": "Preparar",
         "action": "Faça o próximo"
       },
@@ -809,10 +816,10 @@
     },
     "overview": {
       "title": "O que está acontecendo",
-      "subtitle": "Contagens de espaço de trabalho para {name}",
+      "subtitle": "Contagens do espaço para {name}",
       "fallbackName": "seu espaço de trabalho",
       "ariaLabel": "Visão geral do negócio",
-      "online": "On-line",
+      "online": "Online",
       "emDash": "—",
       "capacitySignal": "{percent}% sinal de capacidade",
       "activeClients": {
@@ -838,13 +845,13 @@
       "revenue": {
         "title": "Receita",
         "caption": "Conecte o faturamento para mostrar o MRR",
-        "openBilling": "Faturamento aberto"
+        "openBilling": "Abrir faturação"
       },
       "clientShell": {
-        "title": "Shell do cliente",
+        "title": "Shell da aplicação",
         "caption": "Sessão do navegador pronta – não um monitor de operações ao vivo",
         "shellLoaded": "Shell do aplicativo carregado",
-        "storesReady": "Lojas de espaço de trabalho local prontas"
+        "storesReady": "Stores locais do espaço prontos"
       },
       "growth": {
         "title": "Crescimento",
@@ -856,8 +863,8 @@
       "title": "Atividade recente",
       "subtitle": "O que mudou hoje",
       "ariaLabel": "Atividade recente",
-      "todayCount": "{count} HOJE",
-      "localBadge": "LOCAL",
+      "todayCount": "{count} hoje",
+      "localBadge": "Local",
       "emptyTitle": "Nenhuma atividade ainda",
       "emptyBody": "Os eventos do espaço de trabalho aparecerão aqui conforme você adiciona clientes, projetos e muito mais.",
       "addCustomer": "Adicionar cliente",
@@ -1127,14 +1134,14 @@
   },
   "auth": {
     "login": {
-      "title": "Entrar",
+      "title": "Iniciar sessão",
       "subtitle": "Bem-vindo de volta à AGXORA.",
       "email": "E-mail",
       "password": "Senha",
-      "emailPlaceholder": "você@empresa.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Senha",
-      "rememberMe": "Lembre de mim",
-      "submit": "Entrar",
+      "rememberMe": "Lembrar-me",
+      "submit": "Iniciar sessão",
       "submitting": "Fazendo login…",
       "noAccount": "Sem conta?",
       "startFree": "Comece gratuitamente",
@@ -1142,7 +1149,7 @@
       "showPassword": "Mostrar senha",
       "hidePassword": "Ocultar senha",
       "failed": "Falha no login",
-      "loading": "Entrar"
+      "loading": "Iniciar sessão"
     },
     "register": {
       "title": "Criar uma conta",
@@ -1153,22 +1160,22 @@
       "company": "Empresa",
       "password": "Senha",
       "confirmPassword": "Confirme sua senha",
-      "acceptTerms": "eu aceito o",
+      "acceptTerms": "Aceito os",
       "termsOfService": "Termos de Serviço",
       "and": "e",
       "privacyPolicy": "política de Privacidade",
       "submit": "Criar uma conta",
       "submitting": "Criando conta…",
       "haveAccount": "Já tem uma conta?",
-      "signIn": "Entrar",
+      "signIn": "Iniciar sessão",
       "strength": "Força da senha",
-      "strengthWeak": "Fraco",
-      "strengthFair": "Justo",
+      "strengthWeak": "Fraca",
+      "strengthFair": "Razoável",
       "strengthStrong": "Forte",
       "firstNamePlaceholder": "Alex",
       "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "AGXORA GmbH",
-      "emailPlaceholder": "você@empresa.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Mínimo 8 caracteres, letras + números",
       "confirmPasswordPlaceholder": "Repetir senha",
       "failed": "Falha na inscrição",
@@ -1199,7 +1206,7 @@
       "loading": "Redefinir senha"
     },
     "contactSales": {
-      "title": "Entre em contato com vendas",
+      "title": "Contactar vendas",
       "subtitle": "Conte-nos sobre sua equipe. Acompanharemos as opções empresariais.",
       "name": "Nome completo",
       "email": "E-mail de trabalho",
@@ -1218,7 +1225,7 @@
       "successTitle": "Obrigado",
       "successBody": "Sua consulta foi recebida. Nossa equipe responderá em breve.",
       "viewPricing": "Ver preços",
-      "bookDemo": "Demonstração do livro",
+      "bookDemo": "Agendar uma demo",
       "failed": "Não foi possível enviar a consulta",
       "country": "País",
       "savedFor": "Guardado para {company}. A entrega comercial não está ligada nesta versão.",
@@ -1270,7 +1277,7 @@
       },
       "customer360": {
         "title": "Cliente 360°",
-        "subtitle": "Perfil, empresa, contatos, pedidos, faturas, Lieferscheine, pagamentos, documentos, cronograma, atividades, notas, resumo de IA e histórico de comunicação."
+        "subtitle": "Perfil, empresa, contatos, pedidos, faturas, guias de remessa, pagamentos, documentos, cronograma, atividades, notas, resumo de IA e histórico de comunicação."
       },
       "salesPipeline": {
         "title": "Pipeline de vendas",
@@ -1281,11 +1288,11 @@
       },
       "deliveryModule": {
         "title": "Módulo de Entrega",
-        "subtitle": "Sistema Lieferschein profissional com rastreamento, assinatura, QR e prontidão para código de barras."
+        "subtitle": "Sistema guia de remessa profissional com rastreamento, assinatura, QR e prontidão para código de barras."
       },
       "documentsModule": {
         "title": "Documentos",
-        "subtitle": "Cotações, contratos, faturas, Lieferschein, pedidos de compra, recibos — com pesquisa de IA."
+        "subtitle": "Cotações, contratos, faturas, guia de remessa, pedidos de compra, recibos — com pesquisa de IA."
       },
       "tasksModule": {
         "title": "Tarefas"
@@ -1577,7 +1584,7 @@
         "contacts": "Contatos",
         "orders": "Pedidos",
         "invoices": "Faturas",
-        "lieferscheine": "Lieferscheine",
+        "lieferscheine": "guias de remessa",
         "payments": "Pagamentos",
         "documents": "Documentos",
         "timeline": "Linha do tempo",
@@ -1596,7 +1603,7 @@
       }
     },
     "delivery": {
-      "title": "Sistema Lieferschein Profissional",
+      "title": "Sistema guia de remessa Profissional",
       "description": "Notas de entrega, coleta/entrega, motorista, veículo e rastreamento — apenas registros de amostra. Os adaptadores de exportação não estão conectados.",
       "badges": {
         "qrUnavailable": "QR indisponível",
@@ -1611,7 +1618,7 @@
         "historyNotConnected": "O armazenamento de histórico de entrega não está conectado nesta compilação."
       },
       "columns": {
-        "lieferschein": "Lieferschein",
+        "lieferschein": "guia de remessa",
         "order": "Ordem",
         "customer": "Cliente",
         "kind": "Tipo",
@@ -1668,7 +1675,7 @@
       "emptyTitle": "Nenhum documento",
       "emptyDescription": "Nenhum documento corresponde a esta pesquisa.",
       "searchLabel": "Pesquisa de IA",
-      "searchPlaceholder": "Cotações, contratos, faturas, Lieferschein…",
+      "searchPlaceholder": "Cotações, contratos, faturas, guia de remessa…",
       "typeLabel": "Tipo de documento",
       "allTypes": "Todos os tipos",
       "columns": {
@@ -1682,7 +1689,7 @@
         "quote": "Citações",
         "contract": "Contratos",
         "invoice": "Faturas",
-        "lieferschein": "Lieferschein",
+        "lieferschein": "guia de remessa",
         "purchase_order": "Pedidos de compra",
         "receipt": "Recibos"
       }
@@ -1698,7 +1705,137 @@
       "intro": "Fundação do Creator Studio – as integrações oficiais da plataforma podem ser conectadas a esses adaptadores posteriormente. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
     },
     "industry": {
-      "intro": "Plataforma Universal de Negócios – a integração escolherá posteriormente um setor. Cada setor recebe módulos de IA dedicados sem bifurcar o sistema operacional CRM principal."
+      "intro": "Plataforma Universal de Negócios – a integração escolherá posteriormente um setor. Cada setor recebe módulos de IA dedicados sem bifurcar o sistema operacional CRM principal.",
+      "catalog": {
+        "business": {
+          "label": "Empresa",
+          "description": "Sistema operacional B2B geral"
+        },
+        "freelancer": {
+          "label": "Freelancer",
+          "description": "CRM, faturas e pipeline de clientes para independentes"
+        },
+        "creator": {
+          "label": "Criador",
+          "description": "Creator Studio + CRM de marca"
+        },
+        "influencer": {
+          "label": "Influencer",
+          "description": "CRM de patrocínios e SO de campanhas"
+        },
+        "agency": {
+          "label": "Agência",
+          "description": "Entrega multi-cliente e retainers"
+        },
+        "retail": {
+          "label": "Retalho",
+          "description": "Inventário, POS e fidelização"
+        },
+        "restaurant": {
+          "label": "Restaurante",
+          "description": "Reservas, cozinha e entrega"
+        },
+        "hotel": {
+          "label": "Hotel",
+          "description": "Quartos, hóspedes e housekeeping"
+        },
+        "laundry": {
+          "label": "Lavandaria",
+          "description": "Recolha, tickets e logística de rotas"
+        },
+        "healthcare": {
+          "label": "Saúde",
+          "description": "Utentes, consultas, conformidade"
+        },
+        "law_firm": {
+          "label": "Sociedade de advogados",
+          "description": "Processos, faturação e cofre documental"
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "description": "Livros de clientes e exportações DATEV"
+        },
+        "construction": {
+          "label": "Construção",
+          "description": "Estaleiros, equipas e faturação de progresso"
+        },
+        "real_estate": {
+          "label": "Imobiliário",
+          "description": "Listagens, visitas e fechos"
+        },
+        "education": {
+          "label": "Educação",
+          "description": "Estudantes, cursos e inscrição"
+        },
+        "manufacturing": {
+          "label": "Produção",
+          "description": "BOM, produção e QC"
+        },
+        "logistics": {
+          "label": "Logística",
+          "description": "Frota, tracking e guias de remessa"
+        },
+        "ecommerce": {
+          "label": "E-commerce",
+          "description": "Catálogo, carrinhos e encomendas omnicanal"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Vendas",
+        "finance": "Finanças",
+        "projects": "Projetos",
+        "clients": "Clientes",
+        "proposals": "Propostas",
+        "time_tracking": "Registo de tempo",
+        "invoices": "Faturas",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Acordos de marca",
+        "content_calendar": "Calendário de conteúdos",
+        "sponsorships": "Patrocínios",
+        "audience_insights": "Insights de audiência",
+        "campaigns": "Campanhas",
+        "client_portals": "Portais de clientes",
+        "retainers": "Retainers",
+        "campaign_ops": "Ops de campanhas",
+        "inventory": "Inventário",
+        "pos": "POS",
+        "loyalty": "Fidelização",
+        "reservations": "Reservas",
+        "menu": "Ementa",
+        "kitchen_display": "Ecrã de cozinha",
+        "housekeeping": "Housekeeping",
+        "guest_crm": "CRM de hóspedes",
+        "tickets": "Tickets",
+        "routes": "Rotas",
+        "delivery_notes": "Guias de remessa",
+        "patients": "Utentes",
+        "appointments": "Consultas",
+        "compliance": "Conformidade",
+        "matters": "Processos",
+        "billing": "Faturação",
+        "documents": "Documentos",
+        "client_books": "Livros de clientes",
+        "datev": "DATEV",
+        "tax_deadlines": "Prazos fiscais",
+        "sites": "Estaleiros",
+        "crews": "Equipas",
+        "progress_billing": "Faturação de progresso",
+        "listings": "Listagens",
+        "viewings": "Visitas",
+        "closings": "Fechos",
+        "students": "Estudantes",
+        "courses": "Cursos",
+        "enrollment": "Inscrição",
+        "bom": "BOM",
+        "production": "Produção",
+        "qc": "QC",
+        "fleet": "Frota",
+        "tracking": "Tracking",
+        "catalog": "Catálogo",
+        "orders": "Encomendas",
+        "fulfillment": "Fulfillment"
+      }
     },
     "kpi": {
       "customers": {
@@ -1762,7 +1899,7 @@
       "quote": "Citar",
       "contract": "Contrato",
       "invoice": "Fatura",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "guia de remessa",
       "purchase_order": "Ordem de compra",
       "receipt": "Recibo"
     },
@@ -2769,7 +2906,7 @@
         "activeProjects": "Projetos Ativos",
         "activeHint": "{planning} planejamento",
         "completed": "Concluído",
-        "completedHint": "{percent}% do portfólio",
+        "completedHint": "{percent}% da carteira",
         "onHold": "Em espera",
         "onHoldHint": "{archived} arquivado",
         "teamMembers": "Membros da equipe",
@@ -2831,7 +2968,7 @@
       "missingTitle": "Projeto ausente",
       "missingDescription": "Selecione um projeto para visualizar sua visão geral.",
       "title": "Visão geral",
-      "noDescription": "Nenhuma descrição fornecida.",
+      "noDescription": "Sem descrição.",
       "budget": "Orçamento",
       "spent": "Gasto",
       "start": "Começar",
@@ -2977,8 +3114,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Sugestões de otimização",
       "oneClickOptimize": "Otimização com um clique",
-      "noticeDefault": "One Click Optimize ainda não é uma mutação gráfica.",
-      "noticeQueued": "Otimizar na fila. O mecanismo futuro irá reescrever atrasos e aprovações."
+      "noticeDefault": "A otimização num clique ainda não altera o grafo.",
+      "noticeQueued": "Otimização em fila. Um motor futuro reescreverá atrasos e aprovações.",
+      "score": {
+        "healthy": "Saudável",
+        "needsAttention": "Precisa de atenção",
+        "atRisk": "Em risco"
+      },
+      "kinds": {
+        "missing_approval": "Aprovação",
+        "possible_delay": "Atraso",
+        "unused_trigger": "Gatilho",
+        "duplicate_nodes": "Duplicados",
+        "unused_action": "Ação",
+        "security": "Segurança",
+        "performance": "Desempenho"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Aprovação em falta",
+          "description": "Fluxos longos costumam beneficiar de uma aprovação antes de efeitos colaterais."
+        },
+        "possible_delay": {
+          "title": "Possível atraso",
+          "description": "Considere um atraso antes dos e-mails de lembrete para evitar picos."
+        },
+        "unused_trigger": {
+          "title": "Gatilho não usado",
+          "description": "Este grafo não tem gatilho inicial — adicione um antes de ativar."
+        },
+        "duplicate_nodes": {
+          "title": "Nós duplicados",
+          "description": "“{label}” aparece {count} vezes — consolide se for redundante."
+        },
+        "unused_action": {
+          "title": "Ação não usada",
+          "description": "{label} não está ligado — ligue ou remova."
+        },
+        "security": {
+          "title": "Recomendação de segurança",
+          "description": "Prefira adaptadores de menor privilégio para webhooks e e-mail."
+        },
+        "performance": {
+          "title": "Recomendação de desempenho",
+          "description": "Agrupe passos de IA sempre que possível para reduzir o tempo médio."
+        }
+      }
     },
     "integrations": {
       "intro": "Centro de Integração — opcional. Status: Conectado, Beta, Planejado, Em breve, Desativado. Nenhuma API ativa.",
@@ -4726,7 +4907,7 @@
     "skipToMain": "Pular para o conteúdo principal",
     "offline": {
       "title": "Você está off-line",
-      "message": "Verifique sua conexão e tente novamente quando estiver online novamente. As telas em cache ainda podem funcionar.",
+      "message": "Verifique a ligação e tente novamente quando estiver online. Ecrãs em cache ainda podem funcionar.",
       "home": "Lar",
       "contact": "Contato",
       "signIn": "Entrar"

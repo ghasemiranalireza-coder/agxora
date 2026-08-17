@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Sugestões de otimização",
     "oneClickOptimize": "Otimização com um clique",
-    "noticeDefault": "One Click Optimize ainda não é uma mutação gráfica.",
-    "noticeQueued": "Otimizar na fila. O mecanismo futuro irá reescrever atrasos e aprovações."
+    "noticeDefault": "A otimização num clique ainda não altera o grafo.",
+    "noticeQueued": "Otimização em fila. Um motor futuro reescreverá atrasos e aprovações.",
+    "score": {
+      "healthy": "Saudável",
+      "needsAttention": "Precisa de atenção",
+      "atRisk": "Em risco"
+    },
+    "kinds": {
+      "missing_approval": "Aprovação",
+      "possible_delay": "Atraso",
+      "unused_trigger": "Gatilho",
+      "duplicate_nodes": "Duplicados",
+      "unused_action": "Ação",
+      "security": "Segurança",
+      "performance": "Desempenho"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Aprovação em falta",
+        "description": "Fluxos longos costumam beneficiar de uma aprovação antes de efeitos colaterais."
+      },
+      "possible_delay": {
+        "title": "Possível atraso",
+        "description": "Considere um atraso antes dos e-mails de lembrete para evitar picos."
+      },
+      "unused_trigger": {
+        "title": "Gatilho não usado",
+        "description": "Este grafo não tem gatilho inicial — adicione um antes de ativar."
+      },
+      "duplicate_nodes": {
+        "title": "Nós duplicados",
+        "description": "“{label}” aparece {count} vezes — consolide se for redundante."
+      },
+      "unused_action": {
+        "title": "Ação não usada",
+        "description": "{label} não está ligado — ligue ou remova."
+      },
+      "security": {
+        "title": "Recomendação de segurança",
+        "description": "Prefira adaptadores de menor privilégio para webhooks e e-mail."
+      },
+      "performance": {
+        "title": "Recomendação de desempenho",
+        "description": "Agrupe passos de IA sempre que possível para reduzir o tempo médio."
+      }
+    }
   },
   "integrations": {
     "intro": "Centro de Integração — opcional. Status: Conectado, Beta, Planejado, Em breve, Desativado. Nenhuma API ativa.",

@@ -2,7 +2,7 @@
   "skipToContent": "Chuyển đến nội dung bảng điều khiển",
   "loading": "Đang tải trang tổng quan…",
   "hero": {
-    "ariaLabel": "Anh hùng AGXORA CORE",
+    "ariaLabel": "AGXORA CORE",
     "eyebrow": "Hệ điều hành kinh doanh AI",
     "title": "LÕI AGXORA",
     "subtitle": "Kiểm soát hoạt động và thông tin theo thời gian thực — bề mặt chỉ huy không gian làm việc của bạn.",
@@ -43,9 +43,9 @@
   "attention": {
     "title": "Cần chú ý",
     "ariaLabel": "Điều gì cần chú ý",
-    "empty": "Bạn đã rõ - hiện tại không có việc gì khẩn cấp.",
+    "empty": "Mọi thứ ổn — không có mục khẩn cấp lúc này.",
     "tone": {
-      "critical": "Phê bình",
+      "critical": "Nghiêm trọng",
       "warning": "Cảnh báo",
       "info": "Thông tin",
       "success": "Sẵn sàng",
@@ -69,8 +69,8 @@
     }
   },
   "overview": {
-    "title": "Chuyện gì đang xảy ra",
-    "subtitle": "Số lượng không gian làm việc cho {name}",
+    "title": "Điều gì đang diễn ra",
+    "subtitle": "Số liệu không gian cho {name}",
     "fallbackName": "không gian làm việc của bạn",
     "ariaLabel": "Tổng quan về doanh nghiệp",
     "online": "Trực tuyến",
@@ -99,13 +99,13 @@
     "revenue": {
       "title": "Doanh thu",
       "caption": "Kết nối thanh toán để hiển thị MRR",
-      "openBilling": "Thanh toán mở"
+      "openBilling": "Mở thanh toán"
     },
     "clientShell": {
-      "title": "Vỏ khách hàng",
+      "title": "Lớp vỏ ứng dụng",
       "caption": "Phiên trình duyệt đã sẵn sàng - không phải màn hình hoạt động trực tiếp",
       "shellLoaded": "Đã tải shell ứng dụng",
-      "storesReady": "Cửa hàng không gian làm việc cục bộ đã sẵn sàng"
+      "storesReady": "Kho lưu trữ workspace cục bộ sẵn sàng"
     },
     "growth": {
       "title": "Sự phát triển",
@@ -117,8 +117,8 @@
     "title": "Hoạt động gần đây",
     "subtitle": "Điều gì đã thay đổi ngày hôm nay",
     "ariaLabel": "Hoạt động gần đây",
-    "todayCount": "{count} HÔM NAY",
-    "localBadge": "ĐỊA PHƯƠNG",
+    "todayCount": "{count} hôm nay",
+    "localBadge": "Nội bộ",
     "emptyTitle": "Chưa có hoạt động nào",
     "emptyBody": "Các sự kiện trong không gian làm việc sẽ xuất hiện ở đây khi bạn thêm khách hàng, dự án, v.v.",
     "addCustomer": "Thêm khách hàng",

@@ -2,7 +2,7 @@
   "skipToContent": "Pular para o conteúdo do painel",
   "loading": "Carregando painel…",
   "hero": {
-    "ariaLabel": "Herói AGXORA CORE",
+    "ariaLabel": "AGXORA CORE",
     "eyebrow": "Sistema operacional empresarial de IA",
     "title": "NÚCLEO AGXORA",
     "subtitle": "Inteligência em tempo real e controle operacional — a superfície de comando do seu espaço de trabalho.",
@@ -13,11 +13,11 @@
   },
   "quickActions": {
     "title": "Ações rápidas",
-    "subtitle": "O que você deve fazer a seguir?",
+    "subtitle": "O que deve fazer a seguir?",
     "ariaLabel": "Ações rápidas",
     "addCustomer": {
       "label": "Adicionar cliente",
-      "description": "Crie um registro CRM"
+      "description": "Criar um registo CRM"
     },
     "newProject": {
       "label": "Novo projeto",
@@ -28,7 +28,7 @@
       "description": "Abra o espaço de trabalho de IA"
     },
     "finance": {
-      "label": "Financiar",
+      "label": "Finanças",
       "description": "Faturas e fluxo de caixa"
     },
     "automations": {
@@ -43,11 +43,11 @@
   "attention": {
     "title": "Precisa de atenção",
     "ariaLabel": "O que precisa de atenção",
-    "empty": "Você está claro: não há itens urgentes no momento.",
+    "empty": "Tudo certo — nenhum item urgente agora.",
     "tone": {
       "critical": "Crítico",
       "warning": "Aviso",
-      "info": "Informações",
+      "info": "Info",
       "success": "Preparar",
       "action": "Faça o próximo"
     },
@@ -70,10 +70,10 @@
   },
   "overview": {
     "title": "O que está acontecendo",
-    "subtitle": "Contagens de espaço de trabalho para {name}",
+    "subtitle": "Contagens do espaço para {name}",
     "fallbackName": "seu espaço de trabalho",
     "ariaLabel": "Visão geral do negócio",
-    "online": "On-line",
+    "online": "Online",
     "emDash": "—",
     "capacitySignal": "{percent}% sinal de capacidade",
     "activeClients": {
@@ -99,13 +99,13 @@
     "revenue": {
       "title": "Receita",
       "caption": "Conecte o faturamento para mostrar o MRR",
-      "openBilling": "Faturamento aberto"
+      "openBilling": "Abrir faturação"
     },
     "clientShell": {
-      "title": "Shell do cliente",
+      "title": "Shell da aplicação",
       "caption": "Sessão do navegador pronta – não um monitor de operações ao vivo",
       "shellLoaded": "Shell do aplicativo carregado",
-      "storesReady": "Lojas de espaço de trabalho local prontas"
+      "storesReady": "Stores locais do espaço prontos"
     },
     "growth": {
       "title": "Crescimento",
@@ -117,8 +117,8 @@
     "title": "Atividade recente",
     "subtitle": "O que mudou hoje",
     "ariaLabel": "Atividade recente",
-    "todayCount": "{count} HOJE",
-    "localBadge": "LOCAL",
+    "todayCount": "{count} hoje",
+    "localBadge": "Local",
     "emptyTitle": "Nenhuma atividade ainda",
     "emptyBody": "Os eventos do espaço de trabalho aparecerão aqui conforme você adiciona clientes, projetos e muito mais.",
     "addCustomer": "Adicionar cliente",

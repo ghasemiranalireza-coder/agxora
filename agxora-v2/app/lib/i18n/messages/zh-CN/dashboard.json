@@ -2,8 +2,8 @@
   "skipToContent": "跳至仪表板内容",
   "loading": "正在加载仪表板...",
   "hero": {
-    "ariaLabel": "AGXORA核心英雄",
-    "eyebrow": "人工智能商业操作系统",
+    "ariaLabel": "AGXORA CORE",
+    "eyebrow": "AI 商业操作系统",
     "title": "AGXORA核心",
     "subtitle": "实时智能和操作控制——您的工作空间命令界面。",
     "ctaGetStarted": "开始使用",
@@ -13,7 +13,7 @@
   },
   "quickActions": {
     "title": "快捷操作",
-    "subtitle": "接下来你应该做什么？",
+    "subtitle": "接下来该做什么？",
     "ariaLabel": "快捷操作",
     "addCustomer": {
       "label": "添加客户",
@@ -28,7 +28,7 @@
       "description": "打开 AI 工作区"
     },
     "finance": {
-      "label": "金融",
+      "label": "财务",
       "description": "发票和现金流"
     },
     "automations": {
@@ -43,11 +43,11 @@
   "attention": {
     "title": "需要注意",
     "ariaLabel": "需要注意",
-    "empty": "你很清楚——现在没有紧急物品。",
+    "empty": "一切正常 — 目前没有紧急事项。",
     "tone": {
-      "critical": "批判的",
+      "critical": "严重",
       "warning": "警告",
-      "info": "飞艇信息",
+      "info": "信息",
       "success": "准备好",
       "action": "下一步做"
     },
@@ -69,11 +69,11 @@
     }
   },
   "overview": {
-    "title": "工程情况",
-    "subtitle": "{name} 的工作空间计数",
+    "title": "当前动态",
+    "subtitle": "{name} 的工作区计数",
     "fallbackName": "你的工作空间",
     "ariaLabel": "业务概况",
-    "online": "电在",
+    "online": "在线",
     "emDash": "—",
     "capacitySignal": "{percent}% 容量信号",
     "activeClients": {
@@ -99,13 +99,13 @@
     "revenue": {
       "title": "收入",
       "caption": "关联账单以显示MRR",
-      "openBilling": "开放式计费"
+      "openBilling": "打开账单"
     },
     "clientShell": {
-      "title": "客户端外壳",
+      "title": "应用外壳",
       "caption": "浏览器会话就绪 - 不是实时操作监视器",
       "shellLoaded": "已加载应用程序外壳",
-      "storesReady": "本地工作区商店准备就绪"
+      "storesReady": "本地工作区存储已就绪"
     },
     "growth": {
       "title": "增长率",
@@ -117,8 +117,8 @@
     "title": "最近的活动",
     "subtitle": "今天发生了什么变化",
     "ariaLabel": "最近的活动",
-    "todayCount": "今天 {count}",
-    "localBadge": "当地的",
+    "todayCount": "今日 {count} 条",
+    "localBadge": "本地",
     "emptyTitle": "还没有活动",
     "emptyBody": "当您添加客户、项目等时，工作区事件将显示在此处。",
     "addCustomer": "添加客户",

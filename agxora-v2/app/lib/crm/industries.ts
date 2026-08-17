@@ -16,7 +16,7 @@ export const INDUSTRY_MODULES: readonly IndustryModulePlan[] = [
   {
     key: "freelancer",
     label: "Freelancer",
-    description: "Solo operator CRM, invoices, and client pipeline",
+    description: "Solo operator CRM, invoices, and customer pipeline",
     plannedModules: ["Clients", "Proposals", "Time Tracking", "Invoices"],
     status: "planned",
   },
@@ -37,7 +37,7 @@ export const INDUSTRY_MODULES: readonly IndustryModulePlan[] = [
   {
     key: "agency",
     label: "Agency",
-    description: "Multi-client delivery and retainers",
+    description: "Multi-customer delivery and retainers",
     plannedModules: ["Client Portals", "Retainers", "Campaign Ops"],
     status: "planned",
   },
@@ -66,7 +66,7 @@ export const INDUSTRY_MODULES: readonly IndustryModulePlan[] = [
     key: "laundry",
     label: "Laundry",
     description: "Pickup, tickets, and route logistics",
-    plannedModules: ["Tickets", "Routes", "Lieferschein"],
+    plannedModules: ["Tickets", "Routes", "Delivery notes"],
     status: "planned",
   },
   {
@@ -86,7 +86,7 @@ export const INDUSTRY_MODULES: readonly IndustryModulePlan[] = [
   {
     key: "accounting",
     label: "Accounting",
-    description: "Client books and DATEV-ready exports",
+    description: "Customer books and DATEV-ready exports",
     plannedModules: ["Client Books", "DATEV", "Tax Deadlines"],
     status: "planned",
   },
@@ -122,7 +122,7 @@ export const INDUSTRY_MODULES: readonly IndustryModulePlan[] = [
     key: "logistics",
     label: "Logistics",
     description: "Fleet, tracking, and delivery notes",
-    plannedModules: ["Fleet", "Tracking", "Lieferschein"],
+    plannedModules: ["Fleet", "Tracking", "Delivery notes"],
     status: "planned",
   },
   {

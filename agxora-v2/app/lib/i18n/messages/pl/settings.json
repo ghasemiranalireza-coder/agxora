@@ -61,7 +61,7 @@
     "preferredProvider": "Preferowany dostawca AI",
     "defaultModel": "Domyślny model AI",
     "temperature": "Temperatura",
-    "topP": "Góra P",
+    "topP": "Top P",
     "maxTokens": "Maksymalna liczba tokenów",
     "writingStyle": "Styl pisania",
     "languagePreferences": "Preferencje językowe",
@@ -78,10 +78,10 @@
     "streaming": "Transmisja strumieniowa",
     "streamingDescription": "Przesyłaj strumieniowo odpowiedzi modelu, jeśli dostawca je obsługuje.",
     "providers": {
-      "mock": "Próba (lokalna)",
+      "mock": "Mock (lokalnie)",
       "openai": "OpenAI",
       "azure": "OpenAI platformy Azure",
-      "anthropic": "Antropiczny",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "OtwórzRouter",
       "ollama": "Ollama",
@@ -108,10 +108,10 @@
     "themeLabel": "Temat",
     "themeModeAria": "Tryb tematyczny",
     "resolvedAppearance": "Rozwiązany wygląd:",
-    "accentColor": "Kolor akcentujący",
-    "accentNotice": "Preferencje dotyczące akcentu są przechowywane dla przyszłego okablowania CSS var — nie powodują jeszcze mutacji zablokowanego systemu kolorów.",
+    "accentColor": "Kolor akcentu",
+    "accentNotice": "Preferencja akcentu jest zapisywana w tej sesji i jeszcze nie zmienia zablokowanego systemu kolorów.",
     "density": "Gęstość",
-    "compactMode": "Tryb kompaktowy",
+    "compactMode": "Tryb zwarty",
     "compactModeDescription": "Zmniejsz ilość wypełniania tabel i paneli korporacyjnych.",
     "animations": "Animacje",
     "animationsDescription": "Ruch sekcji i podnoszenie w powietrzu. Przestrzega ustawień systemu operacyjnego o zmniejszonym ruchu.",
@@ -135,6 +135,13 @@
       "comfortable": "Wygodny",
       "compact": "Kompaktowy",
       "spacious": "Przestronny"
+    },
+    "accents": {
+      "cyan": "Cyjan",
+      "blue": "Niebieski",
+      "emerald": "Szmaragdowy",
+      "violet": "Fioletowy",
+      "amber": "Bursztynowy"
     }
   },
   "notifications": {

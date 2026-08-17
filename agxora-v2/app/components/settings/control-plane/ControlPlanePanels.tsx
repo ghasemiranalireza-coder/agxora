@@ -11,7 +11,7 @@ import {
 import { useRouter } from "next/navigation";
 import { Badge, Button, DataTable, Dialog, EmptyState } from "../../ui";
 import type { DataTableColumn } from "../../ui";
-import { useFormatters, useT } from "../../../lib/i18n";
+import { localizeThrownError, useFormatters, useT } from "../../../lib/i18n";
 import {
   controlPlaneClient,
   type InvitationDto,
@@ -54,7 +54,7 @@ export function OrganizationControlPanel(): JSX.Element {
       setSlug(data.organization.slug);
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.controlPlane.loadFailed"));
+      setError(localizeThrownError(t, err, "settings.controlPlane.loadFailed"));
     }
   }, [t]);
 
@@ -83,7 +83,7 @@ export function OrganizationControlPanel(): JSX.Element {
       setSlug(data.organization.slug);
       setNotice(t("settings.controlPlane.orgUpdated"));
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"));
+      setError(localizeThrownError(t, err, "settings.controlPlane.saveFailed"));
     } finally {
       setBusy(false);
     }
@@ -185,7 +185,7 @@ export function WorkspaceControlPanel(): JSX.Element {
       setName(current?.name ?? "");
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.controlPlane.loadFailed"));
+      setError(localizeThrownError(t, err, "settings.controlPlane.loadFailed"));
     }
   }, [t]);
 
@@ -205,7 +205,7 @@ export function WorkspaceControlPanel(): JSX.Element {
       setNotice(t("settings.controlPlane.workspaceUpdated"));
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"));
+      setError(localizeThrownError(t, err, "settings.controlPlane.saveFailed"));
     } finally {
       setBusy(false);
     }
@@ -219,7 +219,7 @@ export function WorkspaceControlPanel(): JSX.Element {
       await load();
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"));
+      setError(localizeThrownError(t, err, "settings.controlPlane.saveFailed"));
     } finally {
       setBusy(false);
     }
@@ -234,7 +234,7 @@ export function WorkspaceControlPanel(): JSX.Element {
       setNotice(t("settings.controlPlane.workspaceCreated"));
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"));
+      setError(localizeThrownError(t, err, "settings.controlPlane.saveFailed"));
     } finally {
       setBusy(false);
     }
@@ -248,7 +248,7 @@ export function WorkspaceControlPanel(): JSX.Element {
       setNotice(t("settings.controlPlane.workspaceArchived"));
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"));
+      setError(localizeThrownError(t, err, "settings.controlPlane.saveFailed"));
     } finally {
       setBusy(false);
     }
@@ -390,7 +390,7 @@ export function TeamControlPanel(): JSX.Element {
       setPendingTransfer(transferData.transfer);
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.controlPlane.loadFailed"));
+      setError(localizeThrownError(t, err, "settings.controlPlane.loadFailed"));
     }
   }, [t]);
 
@@ -422,7 +422,7 @@ export function TeamControlPanel(): JSX.Element {
                 .changeRole(workspaceId, r.userId, e.target.value)
                 .then(() => load())
                 .catch((err: unknown) =>
-                  setError(err instanceof Error ? err.message : t("settings.controlPlane.saveFailed")),
+                  setError(localizeThrownError(t, err, "settings.controlPlane.saveFailed")),
                 )
                 .finally(() => setBusy(false));
             }}
@@ -460,7 +460,7 @@ export function TeamControlPanel(): JSX.Element {
                 .removeMember(workspaceId, r.userId)
                 .then(() => load())
                 .catch((err: unknown) =>
-                  setError(err instanceof Error ? err.message : t("settings.controlPlane.saveFailed")),
+                  setError(localizeThrownError(t, err, "settings.controlPlane.saveFailed")),
                 )
                 .finally(() => setBusy(false));
             }}
@@ -488,7 +488,7 @@ export function TeamControlPanel(): JSX.Element {
       setInviteEmail("");
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"));
+      setError(localizeThrownError(t, err, "settings.controlPlane.saveFailed"));
     } finally {
       setBusy(false);
     }
@@ -523,7 +523,7 @@ export function TeamControlPanel(): JSX.Element {
       setTransferConfirmName("");
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"));
+      setError(localizeThrownError(t, err, "settings.controlPlane.saveFailed"));
     } finally {
       setBusy(false);
     }
@@ -597,7 +597,7 @@ export function TeamControlPanel(): JSX.Element {
                 })
                 .catch((err: unknown) =>
                   setError(
-                    err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"),
+                    localizeThrownError(t, err, "settings.controlPlane.saveFailed"),
                   ),
                 )
                 .finally(() => setBusy(false));
@@ -649,7 +649,7 @@ export function TeamControlPanel(): JSX.Element {
                         .then(() => load())
                         .catch((err: unknown) =>
                           setError(
-                            err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"),
+                            localizeThrownError(t, err, "settings.controlPlane.saveFailed"),
                           ),
                         )
                         .finally(() => setBusy(false));

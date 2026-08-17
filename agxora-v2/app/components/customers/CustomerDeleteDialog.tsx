@@ -3,7 +3,7 @@
 import type { JSX } from "react";
 import { customerStore, useCustomerStore } from "../../lib/customers";
 import { useToast } from "../../lib/backend/hooks";
-import { useT } from "../../lib/i18n";
+import { localizeThrownError, useT } from "../../lib/i18n";
 import { Button, Dialog } from "../ui";
 
 export function CustomerDeleteDialog(): JSX.Element {
@@ -53,9 +53,7 @@ export function CustomerDeleteDialog(): JSX.Element {
                 .catch((error: unknown) => {
                   toast.error(
                     t("customers.delete.failed"),
-                    error instanceof Error
-                      ? error.message
-                      : t("customers.delete.errorGeneric"),
+                    localizeThrownError(t, error, "customers.delete.errorGeneric"),
                   );
                 });
             }}

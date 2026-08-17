@@ -16,13 +16,13 @@
     "privacy": "Privacy",
     "terms": "Voorwaarden",
     "cookies": "Cookies",
-    "imprint": "Afdruk",
+    "imprint": "Colofon",
     "organization": "Organisatie",
     "user": "Gebruiker",
     "guest": "Gast",
     "member": "Lid",
     "role": "Rol",
-    "signedIn": "Ingelogd",
+    "signedIn": "Aangemeld",
     "guestSession": "Gastsessie",
     "noResults": "Geen resultaten",
     "noData": "Geen gegevens",
@@ -44,7 +44,7 @@
     "dashboard": "Dashboard"
   },
   "navigation": {
-    "dashboard": "Gösterge Paneli",
+    "dashboard": "Dashboard",
     "projects": "Projecten",
     "aiCrm": "AI-CRM",
     "analytics": "Analyse",
@@ -60,12 +60,12 @@
     "toggleNavigation": "Schakel navigatie in",
     "primary": "Primair",
     "menu": "Menu",
-    "search": "Zoekopdracht",
+    "search": "Zoeken",
     "notifications": "Meldingen",
     "profile": "Profiel",
     "currentOrganization": "Huidige organisatie",
     "noNotifications": "Geen meldingen",
-    "notificationsEmpty": "Jullie zijn allemaal ingehaald. Waarschuwingen en vermeldingen verschijnen hier.",
+    "notificationsEmpty": "Je bent bij. Meldingen en vermeldingen verschijnen hier.",
     "accountSettings": "Accountinstellingen",
     "security": "Beveiliging",
     "themeToggle": "Snel schakelen tussen thema's. Voorkeur: {mode}"
@@ -344,7 +344,7 @@
         "mock": "Mock (lokaal)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "Antropisch",
+        "anthropic": "Anthropic",
         "google": "Googlen",
         "openrouter": "OpenRouter",
         "ollama": "Ollama",
@@ -372,7 +372,14 @@
       "themeModeAria": "Thema-modus",
       "resolvedAppearance": "Opgelost uiterlijk:",
       "accentColor": "Accentkleur",
-      "accentNotice": "Accentvoorkeur wordt opgeslagen voor toekomstige CSS var-bedrading - muteert het vergrendelde kleursysteem nog niet.",
+      "accentNotice": "Accentvoorkeur wordt voor deze sessie bewaard en wijzigt het vergrendelde kleursysteem nog niet.",
+      "accents": {
+        "cyan": "Cyaan",
+        "blue": "Blauw",
+        "emerald": "Smaragd",
+        "violet": "Violet",
+        "amber": "Amber"
+      },
       "density": "Dichtheid",
       "compactMode": "Compacte modus",
       "compactModeDescription": "Verminder de opvulling tussen bedrijfstabellen en -panelen.",
@@ -741,8 +748,8 @@
     "skipToContent": "Ga naar de dashboardinhoud",
     "loading": "Dashboard laden…",
     "hero": {
-      "ariaLabel": "AGXORA CORE-held",
-      "eyebrow": "AI zakelijk besturingssysteem",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "AI-bedrijfsbesturingssysteem",
       "title": "AGXORA-KERN",
       "subtitle": "Real-time intelligentie en operationele controle: het commandooppervlak van uw werkruimte.",
       "ctaGetStarted": "Ga aan de slag",
@@ -752,11 +759,11 @@
     },
     "quickActions": {
       "title": "Snelle acties",
-      "subtitle": "Wat moet je nu doen?",
+      "subtitle": "Wat moet u nu doen?",
       "ariaLabel": "Snelle acties",
       "addCustomer": {
         "label": "Klant toevoegen",
-        "description": "Maak een CRM-record"
+        "description": "Een CRM-record maken"
       },
       "newProject": {
         "label": "Nieuw project",
@@ -782,9 +789,9 @@
     "attention": {
       "title": "Heeft aandacht nodig",
       "ariaLabel": "Wat aandacht nodig heeft",
-      "empty": "U bent duidelijk: er zijn momenteel geen dringende zaken.",
+      "empty": "Alles in orde — geen urgente items nu.",
       "tone": {
-        "critical": "Kritisch",
+        "critical": "Kritiek",
         "warning": "Waarschuwing",
         "info": "Info",
         "success": "Klaar",
@@ -808,8 +815,8 @@
       }
     },
     "overview": {
-      "title": "Wat gebeurt er",
-      "subtitle": "Werkruimte telt voor {name}",
+      "title": "Wat er speelt",
+      "subtitle": "Werkruimtetellingen voor {name}",
       "fallbackName": "jouw werkruimte",
       "ariaLabel": "Zakelijk overzicht",
       "online": "Online",
@@ -836,15 +843,15 @@
         "viewFeed": "Bekijk feed"
       },
       "revenue": {
-        "title": "Winst",
+        "title": "Omzet",
         "caption": "Koppel facturering om MRR weer te geven",
-        "openBilling": "Facturering openen"
+        "openBilling": "Facturatie openen"
       },
       "clientShell": {
-        "title": "Klantschil",
+        "title": "Applicatieshell",
         "caption": "Browsersessie klaar - geen live operationele monitor",
         "shellLoaded": "Applicatieshell geladen",
-        "storesReady": "Lokale werkruimtewinkels klaar"
+        "storesReady": "Lokale werkruimte-stores gereed"
       },
       "growth": {
         "title": "Groei",
@@ -856,8 +863,8 @@
       "title": "Recente activiteit",
       "subtitle": "Wat is er vandaag veranderd",
       "ariaLabel": "Recente activiteit",
-      "todayCount": "{count} VANDAAG",
-      "localBadge": "LOKAAL",
+      "todayCount": "{count} vandaag",
+      "localBadge": "Lokaal",
       "emptyTitle": "Nog geen activiteit",
       "emptyBody": "Werkruimtegebeurtenissen verschijnen hier wanneer u klanten, projecten en meer toevoegt.",
       "addCustomer": "Klant toevoegen",
@@ -1127,14 +1134,14 @@
   },
   "auth": {
     "login": {
-      "title": "Log in",
+      "title": "Aanmelden",
       "subtitle": "Welkom terug bij AGXORA.",
       "email": "E-mail",
       "password": "Wachtwoord",
-      "emailPlaceholder": "jij@bedrijf.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Wachtwoord",
       "rememberMe": "Onthoud mij",
-      "submit": "Log in",
+      "submit": "Aanmelden",
       "submitting": "Inloggen…",
       "noAccount": "Geen rekening?",
       "startFree": "Begin gratis",
@@ -1142,7 +1149,7 @@
       "showPassword": "Wachtwoord tonen",
       "hidePassword": "Wachtwoord verbergen",
       "failed": "Aanmelden mislukt",
-      "loading": "Log in"
+      "loading": "Aanmelden"
     },
     "register": {
       "title": "Account aanmaken",
@@ -1160,15 +1167,15 @@
       "submit": "Account aanmaken",
       "submitting": "Account aanmaken…",
       "haveAccount": "Heeft u al een account?",
-      "signIn": "Log in",
+      "signIn": "Aanmelden",
       "strength": "Wachtwoordsterkte",
       "strengthWeak": "Zwak",
-      "strengthFair": "Eerlijk",
+      "strengthFair": "Redelijk",
       "strengthStrong": "Sterk",
       "firstNamePlaceholder": "Alex",
       "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "AGXORA GmbH",
-      "emailPlaceholder": "jij@bedrijf.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Min. 8 tekens, letters + cijfers",
       "confirmPasswordPlaceholder": "Herhaal wachtwoord",
       "failed": "Aanmelden mislukt",
@@ -1199,7 +1206,7 @@
       "loading": "Wachtwoord opnieuw instellen"
     },
     "contactSales": {
-      "title": "Neem contact op met Verkoop",
+      "title": "Contact sales",
       "subtitle": "Vertel ons over uw team. We zullen de ondernemingsopties opvolgen.",
       "name": "Volledige naam",
       "email": "Werk e-mail",
@@ -1218,7 +1225,7 @@
       "successTitle": "Bedankt",
       "successBody": "Uw aanvraag is ontvangen. Ons team zal binnenkort reageren.",
       "viewPricing": "Bekijk Tarieven",
-      "bookDemo": "Boekdemo",
+      "bookDemo": "Demo plannen",
       "failed": "Kan onderzoek niet indienen",
       "country": "Land",
       "savedFor": "Opgeslagen voor {company}. Verkooplevering is in deze build niet verbonden.",
@@ -1270,7 +1277,7 @@
       },
       "customer360": {
         "title": "Klant 360°",
-        "subtitle": "Profiel, bedrijf, contacten, bestellingen, facturen, Lieferscheine, betalingen, documenten, tijdlijn, activiteiten, notities, AI-samenvatting en communicatiegeschiedenis."
+        "subtitle": "Profiel, bedrijf, contacten, bestellingen, facturen, leveringsbonnen, betalingen, documenten, tijdlijn, activiteiten, notities, AI-samenvatting en communicatiegeschiedenis."
       },
       "salesPipeline": {
         "title": "Verkooppijplijn",
@@ -1281,11 +1288,11 @@
       },
       "deliveryModule": {
         "title": "Leveringsmodule",
-        "subtitle": "Professioneel Lieferschein-systeem met tracking, handtekening, QR en barcodegereedheid."
+        "subtitle": "Professioneel leveringsbon-systeem met tracking, handtekening, QR en barcodegereedheid."
       },
       "documentsModule": {
         "title": "Documenten",
-        "subtitle": "Offertes, contracten, facturen, Lieferschein, inkooporders, ontvangstbewijzen – met AI-zoekopdracht."
+        "subtitle": "Offertes, contracten, facturen, leveringsbon, inkooporders, ontvangstbewijzen – met AI-zoekopdracht."
       },
       "tasksModule": {
         "title": "Taken"
@@ -1577,7 +1584,7 @@
         "contacts": "Contacten",
         "orders": "Bestellingen",
         "invoices": "Facturen",
-        "lieferscheine": "Lieferscheine",
+        "lieferscheine": "leveringsbonnen",
         "payments": "Betalingen",
         "documents": "Documenten",
         "timeline": "Tijdlijn",
@@ -1596,7 +1603,7 @@
       }
     },
     "delivery": {
-      "title": "Professioneel Lieferschein-systeem",
+      "title": "Professioneel leveringsbon-systeem",
       "description": "Afleverbonnen, ophalen/afleveren, chauffeur, voertuig en tracking: alleen voorbeeldrecords. Exportadapters zijn niet aangesloten.",
       "badges": {
         "qrUnavailable": "QR niet beschikbaar",
@@ -1611,7 +1618,7 @@
         "historyNotConnected": "De winkel met leveringsgeschiedenis is niet verbonden in deze build."
       },
       "columns": {
-        "lieferschein": "Lieferschein",
+        "lieferschein": "leveringsbon",
         "order": "Volgorde",
         "customer": "Klant",
         "kind": "Vriendelijk",
@@ -1668,7 +1675,7 @@
       "emptyTitle": "Geen documenten",
       "emptyDescription": "Er zijn geen documenten die overeenkomen met deze zoekopdracht.",
       "searchLabel": "AI-zoekopdracht",
-      "searchPlaceholder": "Offertes, contracten, facturen, Lieferschein…",
+      "searchPlaceholder": "Offertes, contracten, facturen, leveringsbon…",
       "typeLabel": "Documenttype",
       "allTypes": "Alle soorten",
       "columns": {
@@ -1682,7 +1689,7 @@
         "quote": "Citaten",
         "contract": "Contracten",
         "invoice": "Facturen",
-        "lieferschein": "Lieferschein",
+        "lieferschein": "leveringsbon",
         "purchase_order": "Inkooporders",
         "receipt": "Ontvangsten"
       }
@@ -1698,7 +1705,137 @@
       "intro": "Creator Studio Foundation – officiële platformintegraties kunnen later op deze adapters worden aangesloten. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
     },
     "industry": {
-      "intro": "Universal Business Platform – onboarding zal later een branche kiezen. Elke branche ontvangt speciale AI-modules zonder het kern-CRM-besturingssysteem te splitsen."
+      "intro": "Universal Business Platform – onboarding zal later een branche kiezen. Elke branche ontvangt speciale AI-modules zonder het kern-CRM-besturingssysteem te splitsen.",
+      "catalog": {
+        "business": {
+          "label": "Bedrijf",
+          "description": "Algemeen B2B-besturingssysteem"
+        },
+        "freelancer": {
+          "label": "Freelancer",
+          "description": "CRM, facturen en klantdoorstroom voor zzp’ers"
+        },
+        "creator": {
+          "label": "Creator",
+          "description": "Creator Studio + merk-CRM"
+        },
+        "influencer": {
+          "label": "Influencer",
+          "description": "Sponsor-CRM en campagne-OS"
+        },
+        "agency": {
+          "label": "Bureau",
+          "description": "Levering en retainers voor meerdere klanten"
+        },
+        "retail": {
+          "label": "Retail",
+          "description": "Winkelvoorraad, kassa en loyaliteit"
+        },
+        "restaurant": {
+          "label": "Restaurant",
+          "description": "Reserveringen, keuken en bezorging"
+        },
+        "hotel": {
+          "label": "Hotel",
+          "description": "Kamers, gasten en housekeeping"
+        },
+        "laundry": {
+          "label": "Wasserij",
+          "description": "Ophaal, tickets en routelogistiek"
+        },
+        "healthcare": {
+          "label": "Zorg",
+          "description": "Patiënten, afspraken, compliance"
+        },
+        "law_firm": {
+          "label": "Advocatenkantoor",
+          "description": "Zaken, facturatie en documentkluis"
+        },
+        "accounting": {
+          "label": "Boekhouding",
+          "description": "Klantdossiers en DATEV-export"
+        },
+        "construction": {
+          "label": "Bouw",
+          "description": "Locaties, ploegen en voortgangsfacturatie"
+        },
+        "real_estate": {
+          "label": "Vastgoed",
+          "description": "Listings, bezichtigingen en afrondingen"
+        },
+        "education": {
+          "label": "Onderwijs",
+          "description": "Studenten, cursussen en inschrijving"
+        },
+        "manufacturing": {
+          "label": "Productie",
+          "description": "BOM, productie en QC"
+        },
+        "logistics": {
+          "label": "Logistiek",
+          "description": "Vloot, tracking en leveringsbonnen"
+        },
+        "ecommerce": {
+          "label": "E-commerce",
+          "description": "Catalogus, winkelwagens en omnichannel-orders"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Verkoop",
+        "finance": "Financiën",
+        "projects": "Projecten",
+        "clients": "Klanten",
+        "proposals": "Offertes",
+        "time_tracking": "Tijdregistratie",
+        "invoices": "Facturen",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Merkdeals",
+        "content_calendar": "Contentkalender",
+        "sponsorships": "Sponsoring",
+        "audience_insights": "Doelgroepinzichten",
+        "campaigns": "Campagnes",
+        "client_portals": "Klantportalen",
+        "retainers": "Retainers",
+        "campaign_ops": "Campagne-operaties",
+        "inventory": "Voorraad",
+        "pos": "POS",
+        "loyalty": "Loyaliteit",
+        "reservations": "Reserveringen",
+        "menu": "Menu",
+        "kitchen_display": "Keukendisplay",
+        "housekeeping": "Housekeeping",
+        "guest_crm": "Gasten-CRM",
+        "tickets": "Tickets",
+        "routes": "Routes",
+        "delivery_notes": "Leveringsbonnen",
+        "patients": "Patiënten",
+        "appointments": "Afspraken",
+        "compliance": "Compliance",
+        "matters": "Zaken",
+        "billing": "Facturatie",
+        "documents": "Documenten",
+        "client_books": "Klantdossiers",
+        "datev": "DATEV",
+        "tax_deadlines": "Belastingdeadlines",
+        "sites": "Locaties",
+        "crews": "Ploegen",
+        "progress_billing": "Voortgangsfacturatie",
+        "listings": "Listings",
+        "viewings": "Bezichtigingen",
+        "closings": "Afrondingen",
+        "students": "Studenten",
+        "courses": "Cursussen",
+        "enrollment": "Inschrijving",
+        "bom": "BOM",
+        "production": "Productie",
+        "qc": "QC",
+        "fleet": "Vloot",
+        "tracking": "Tracking",
+        "catalog": "Catalogus",
+        "orders": "Orders",
+        "fulfillment": "Fulfillment"
+      }
     },
     "kpi": {
       "customers": {
@@ -1762,7 +1899,7 @@
       "quote": "Citaat",
       "contract": "Contract",
       "invoice": "Factuur",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "leveringsbon",
       "purchase_order": "Aankooporder",
       "receipt": "Ontvangst"
     },
@@ -2769,7 +2906,7 @@
         "activeProjects": "Actieve projecten",
         "activeHint": "{planning} planning",
         "completed": "Voltooid",
-        "completedHint": "{percent}% van portefeuille",
+        "completedHint": "{percent}% van de portfolio",
         "onHold": "In de wacht",
         "onHoldHint": "{archived} gearchiveerd",
         "teamMembers": "Teamleden",
@@ -2831,7 +2968,7 @@
       "missingTitle": "Ontbrekend project",
       "missingDescription": "Selecteer een project om het overzicht ervan te bekijken.",
       "title": "Overzicht",
-      "noDescription": "Geen beschrijving opgegeven.",
+      "noDescription": "Geen beschrijving.",
       "budget": "Begroting",
       "spent": "Besteed",
       "start": "Begin",
@@ -2977,8 +3114,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Optimalisatiesuggesties",
       "oneClickOptimize": "Optimaliseren met één klik",
-      "noticeDefault": "One Click Optimize is nog geen grafiekmutatie.",
-      "noticeQueued": "Optimaliseren in wachtrij. Toekomstige engine zal vertragingen en goedkeuringen herschrijven."
+      "noticeDefault": "Een-klik-optimalisatie wijzigt de grafiek nog niet.",
+      "noticeQueued": "Optimalisatie in de wachtrij. Een toekomstige engine herschrijft vertragingen en goedkeuringen.",
+      "score": {
+        "healthy": "Gezond",
+        "needsAttention": "Aandacht nodig",
+        "atRisk": "Risico"
+      },
+      "kinds": {
+        "missing_approval": "Goedkeuring",
+        "possible_delay": "Vertraging",
+        "unused_trigger": "Trigger",
+        "duplicate_nodes": "Duplicaten",
+        "unused_action": "Actie",
+        "security": "Beveiliging",
+        "performance": "Prestaties"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Ontbrekende goedkeuring",
+          "description": "Langere flows hebben vaak een goedkeuringspoort vóór neveneffecten."
+        },
+        "possible_delay": {
+          "title": "Mogelijke vertraging",
+          "description": "Overweeg een vertraging vóór herinneringsmails om pieken te voorkomen."
+        },
+        "unused_trigger": {
+          "title": "Ongebruikte trigger",
+          "description": "Deze grafiek heeft geen starttrigger — voeg er een toe vóór activering."
+        },
+        "duplicate_nodes": {
+          "title": "Dubbele knopen",
+          "description": "“{label}” komt {count} keer voor — consolideer indien overbodig."
+        },
+        "unused_action": {
+          "title": "Ongebruikte actie",
+          "description": "{label} is niet verbonden — koppel of verwijder."
+        },
+        "security": {
+          "title": "Beveiligingsadvies",
+          "description": "Gebruik adapters met minste rechten voor webhook- en e-mailacties."
+        },
+        "performance": {
+          "title": "Prestatieadvies",
+          "description": "Bundel AI-stappen waar mogelijk om de gemiddelde looptijd te verlagen."
+        }
+      }
     },
     "integrations": {
       "intro": "Integratiecentrum — optioneel. Statussen: Verbonden, Bèta, Gepland, Binnenkort beschikbaar, Uitgeschakeld. Geen live API's.",
@@ -4726,7 +4907,7 @@
     "skipToMain": "Ga naar de hoofdinhoud",
     "offline": {
       "title": "Je bent offline",
-      "message": "Controleer uw verbinding en probeer het opnieuw wanneer u weer online bent. In het cachegeheugen opgeslagen schermen werken mogelijk nog steeds.",
+      "message": "Controleer uw verbinding en probeer opnieuw wanneer u weer online bent. Gecachte schermen kunnen nog werken.",
       "home": "Thuis",
       "contact": "Contact",
       "signIn": "Log in"

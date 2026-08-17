@@ -2,7 +2,7 @@
 
 import { memo, useCallback, type JSX, type KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
-import { formatDisplayDate, useLocale } from "../../../lib/i18n";
+import { formatDisplayDate, localizeThrownError, useLocale } from "../../../lib/i18n";
 import {
   CRM_STATUSES,
   crmStore,
@@ -113,8 +113,7 @@ export function CrmDirectory(): JSX.Element {
   }
 
   if (state.error && state.itemsLength === 0) {
-    const translatedError =
-      state.error.startsWith("crm.") ? t(state.error) : state.error;
+    const translatedError = localizeThrownError(t, state.error, "crm.directory.errorTitle");
     return (
       <ErrorState
         title={t("crm.directory.errorTitle")}

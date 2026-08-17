@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "اقتراحات التحسين",
     "oneClickOptimize": "نقرة واحدة للتحسين",
-    "noticeDefault": "لا تعد ميزة One Click Optimize بمثابة طفرة في الرسم البياني حتى الآن.",
-    "noticeQueued": "تحسين في قائمة الانتظار. سيعيد المحرك المستقبلي كتابة التأخيرات والموافقات."
+    "noticeDefault": "التحسين بنقرة واحدة لا يغيّر المخطط بعد.",
+    "noticeQueued": "التحسين في قائمة الانتظار. سيعيد محرك لاحق كتابة التأخيرات والاعتمادات.",
+    "score": {
+      "healthy": "سليم",
+      "needsAttention": "يحتاج انتباهاً",
+      "atRisk": "معرّض للخطر"
+    },
+    "kinds": {
+      "missing_approval": "اعتماد",
+      "possible_delay": "تأخير",
+      "unused_trigger": "مشغّل",
+      "duplicate_nodes": "مكررات",
+      "unused_action": "إجراء",
+      "security": "الأمان",
+      "performance": "الأداء"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "اعتماد مفقود",
+        "description": "غالباً ما تستفيد التدفقات الأطول من بوابة اعتماد قبل الآثار الجانبية."
+      },
+      "possible_delay": {
+        "title": "تأخير محتمل",
+        "description": "فكّر في تأخير قبل رسائل التذكير لتجنب الاندفاعات."
+      },
+      "unused_trigger": {
+        "title": "مشغّل غير مستخدم",
+        "description": "لا يوجد مشغّل بدء في هذا المخطط — أضفه قبل التفعيل."
+      },
+      "duplicate_nodes": {
+        "title": "عقد مكررة",
+        "description": "يظهر «{label}» {count} مرات — ادمجه إن كان زائدًا."
+      },
+      "unused_action": {
+        "title": "إجراء غير مستخدم",
+        "description": "{label} غير متصل — وصّله أو احذفه."
+      },
+      "security": {
+        "title": "توصية أمنية",
+        "description": "فضّل محولات بأقل صلاحيات لإجراءات الويب هوك والبريد."
+      },
+      "performance": {
+        "title": "توصية أداء",
+        "description": "جمّع خطوات الذكاء الاصطناعي حيث أمكن لتقليل متوسط زمن التنفيذ."
+      }
+    }
   },
   "integrations": {
     "intro": "مركز التكامل – اختياري. الحالات: متصل، بيتا، مخطط، قريبًا، معطل. لا توجد واجهات برمجة التطبيقات المباشرة.",

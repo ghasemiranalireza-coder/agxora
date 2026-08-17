@@ -27,7 +27,7 @@
     "regions": {
       "EU": "欧洲联盟",
       "US": "美国",
-      "MENA": "中东和北非地区",
+      "MENA": "中东和北非",
       "APAC": "亚太地区"
     }
   },
@@ -61,7 +61,7 @@
     "preferredProvider": "首选人工智能提供商",
     "defaultModel": "默认AI模型",
     "temperature": "温度",
-    "topP": "顶P",
+    "topP": "Top P",
     "maxTokens": "最大代币数",
     "writingStyle": "写作风格",
     "languagePreferences": "语言偏好",
@@ -81,7 +81,7 @@
       "mock": "模拟（本地）",
       "openai": "开放人工智能",
       "azure": "Azure 开放人工智能",
-      "anthropic": "人择",
+      "anthropic": "Anthropic",
       "google": "谷歌",
       "openrouter": "开放路由器",
       "ollama": "奥拉玛",
@@ -109,9 +109,9 @@
     "themeModeAria": "主题模式",
     "resolvedAppearance": "解决外观：",
     "accentColor": "强调色",
-    "accentNotice": "重音首选项被存储以供将来的 CSS var 接线使用——还不会改变锁定的颜色系统。",
+    "accentNotice": "强调色偏好会保存在本次会话中，尚不会改动锁定的色彩系统。",
     "density": "密度",
-    "compactMode": "紧凑型模式",
+    "compactMode": "紧凑模式",
     "compactModeDescription": "减少企业表格和面板之间的填充。",
     "animations": "动画",
     "animationsDescription": "剖面运动和悬停升降机。尊重简化运动操作系统设置。",
@@ -135,6 +135,13 @@
       "comfortable": "舒服的",
       "compact": "袖珍的",
       "spacious": "宽敞"
+    },
+    "accents": {
+      "cyan": "青色",
+      "blue": "蓝色",
+      "emerald": "翠绿",
+      "violet": "紫色",
+      "amber": "琥珀色"
     }
   },
   "notifications": {
@@ -216,7 +223,7 @@
     "openCenter": "打开集成中心",
     "notice": "企业集成平台位于集成中心 - 连接器、OAuth、Webhooks、API 密钥和工作流事件桥。",
     "columns": {
-      "integration": "一体<g id=\"1077\">化</g>",
+      "integration": "一体化",
       "category": "类别",
       "status": "地位",
       "adapter": "适配器"

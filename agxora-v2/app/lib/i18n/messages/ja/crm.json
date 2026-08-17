@@ -438,7 +438,137 @@
     "intro": "Creator Studio 基盤 — 公式プラットフォーム統合は、後でこれらのアダプターにプラグインできます。 Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、スレッド、X."
   },
   "industry": {
-    "intro": "ユニバーサル ビジネス プラットフォーム — オンボーディングは後で業界を選択します。各業界は、コア CRM OS をフォークすることなく、専用の AI モジュールを受け取ります。"
+    "intro": "ユニバーサル ビジネス プラットフォーム — オンボーディングは後で業界を選択します。各業界は、コア CRM OS をフォークすることなく、専用の AI モジュールを受け取ります。",
+    "catalog": {
+      "business": {
+        "label": "ビジネス",
+        "description": "汎用B2Bオペレーティングシステム"
+      },
+      "freelancer": {
+        "label": "フリーランス",
+        "description": "個人事業向けCRM・請求・顧客パイプライン"
+      },
+      "creator": {
+        "label": "クリエイター",
+        "description": "Creator StudioとブランドCRM"
+      },
+      "influencer": {
+        "label": "インフルエンサー",
+        "description": "スポンサーCRMとキャンペーンOS"
+      },
+      "agency": {
+        "label": "代理店",
+        "description": "複数顧客の納品とリテイナー"
+      },
+      "retail": {
+        "label": "小売",
+        "description": "店舗在庫・POS・ロイヤルティ"
+      },
+      "restaurant": {
+        "label": "レストラン",
+        "description": "予約・キッチン・デリバリー"
+      },
+      "hotel": {
+        "label": "ホテル",
+        "description": "客室・ゲスト・ハウスキーピング"
+      },
+      "laundry": {
+        "label": "ランドリー",
+        "description": "集荷・チケット・ルート物流"
+      },
+      "healthcare": {
+        "label": "ヘルスケア",
+        "description": "患者・予約・コンプライアンス"
+      },
+      "law_firm": {
+        "label": "法律事務所",
+        "description": "案件・請求・文書保管"
+      },
+      "accounting": {
+        "label": "会計",
+        "description": "顧客帳簿とDATEV出力"
+      },
+      "construction": {
+        "label": "建設",
+        "description": "現場・班・出来高請求"
+      },
+      "real_estate": {
+        "label": "不動産",
+        "description": "物件・内見・成約"
+      },
+      "education": {
+        "label": "教育",
+        "description": "学生・コース・入学"
+      },
+      "manufacturing": {
+        "label": "製造",
+        "description": "BOM・生産・品質"
+      },
+      "logistics": {
+        "label": "物流",
+        "description": "車両・追跡・納品書"
+      },
+      "ecommerce": {
+        "label": "Eコマース",
+        "description": "カタログ・カート・オムニチャネル受注"
+      }
+    },
+    "modules": {
+      "sales": "営業",
+      "finance": "財務",
+      "projects": "プロジェクト",
+      "clients": "顧客",
+      "proposals": "提案",
+      "time_tracking": "工数管理",
+      "invoices": "請求書",
+      "creator_studio": "Creator Studio",
+      "brand_deals": "ブランド案件",
+      "content_calendar": "コンテンツカレンダー",
+      "sponsorships": "スポンサーシップ",
+      "audience_insights": "オーディエンス分析",
+      "campaigns": "キャンペーン",
+      "client_portals": "顧客ポータル",
+      "retainers": "リテイナー",
+      "campaign_ops": "キャンペーン運用",
+      "inventory": "在庫",
+      "loyalty": "ロイヤルティ",
+      "reservations": "予約",
+      "menu": "メニュー",
+      "kitchen_display": "キッチンディスプレイ",
+      "housekeeping": "ハウスキーピング",
+      "guest_crm": "ゲストCRM",
+      "tickets": "チケット",
+      "routes": "ルート",
+      "delivery_notes": "納品書",
+      "patients": "患者",
+      "appointments": "予約",
+      "compliance": "コンプライアンス",
+      "matters": "案件",
+      "billing": "請求",
+      "documents": "文書",
+      "client_books": "顧客帳簿",
+      "tax_deadlines": "税務期限",
+      "sites": "現場",
+      "crews": "班",
+      "progress_billing": "出来高請求",
+      "listings": "物件",
+      "viewings": "内見",
+      "closings": "成約",
+      "students": "学生",
+      "courses": "コース",
+      "enrollment": "入学",
+      "production": "生産",
+      "fleet": "車両",
+      "tracking": "追跡",
+      "catalog": "カタログ",
+      "orders": "受注",
+      "fulfillment": "フルフィルメント",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {

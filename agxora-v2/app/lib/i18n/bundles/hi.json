@@ -16,13 +16,13 @@
     "privacy": "गोपनीयता",
     "terms": "शर्तें",
     "cookies": "कुकीज़",
-    "imprint": "छाप",
+    "imprint": "इम्प्रिंट",
     "organization": "संगठन",
     "user": "उपयोगकर्ता",
     "guest": "अतिथि",
     "member": "सदस्य",
     "role": "भूमिका",
-    "signedIn": "साइन इन किया गया",
+    "signedIn": "साइन इन हैं",
     "guestSession": "अतिथि सत्र",
     "noResults": "कोई परिणाम नहीं",
     "noData": "कोई डेटा नहीं",
@@ -49,7 +49,7 @@
     "aiCrm": "एआई सीआरएम",
     "analytics": "एनालिटिक्स",
     "billing": "बिलिंग",
-    "aiWorkspace": "एआई कार्यक्षेत्र",
+    "aiWorkspace": "AI कार्यक्षेत्र",
     "customers": "ग्राहकों",
     "automation": "स्वचालन",
     "financeTax": "वित्त एवं कर",
@@ -60,12 +60,12 @@
     "toggleNavigation": "टॉगल से संचालित करना",
     "primary": "प्राथमिक",
     "menu": "मेनू",
-    "search": "खोज",
+    "search": "खोजें",
     "notifications": "सूचनाएं",
     "profile": "प्रोफ़ाइल",
     "currentOrganization": "वर्तमान संगठन",
     "noNotifications": "कोई सूचना नहीं",
-    "notificationsEmpty": "आप सब फंस गये हैं। अलर्ट और उल्लेख यहां दिखाई देंगे.",
+    "notificationsEmpty": "सब देख लिया। अलर्ट और उल्लेख यहाँ दिखेंगे।",
     "accountSettings": "अकाउंट सेटिंग",
     "security": "सुरक्षा",
     "themeToggle": "त्वरित थीम टॉगल. प्राथमिकता: {mode}"
@@ -290,7 +290,7 @@
       "regions": {
         "EU": "यूरोपीय संघ",
         "US": "संयुक्त राज्य अमेरिका",
-        "MENA": "मेना",
+        "MENA": "MENA",
         "APAC": "एपीएसी"
       }
     },
@@ -324,7 +324,7 @@
       "preferredProvider": "पसंदीदा एआई प्रदाता",
       "defaultModel": "डिफ़ॉल्ट एआई मॉडल",
       "temperature": "तापमान",
-      "topP": "शीर्ष पी",
+      "topP": "Top P",
       "maxTokens": "अधिकतम टोकन",
       "writingStyle": "लेखन शैली",
       "languagePreferences": "भाषा प्राथमिकताएँ",
@@ -341,10 +341,10 @@
       "streaming": "स्ट्रीमिंग",
       "streamingDescription": "जब प्रदाता इसका समर्थन करता है तो स्ट्रीम मॉडल प्रतिक्रियाएँ।",
       "providers": {
-        "mock": "नकली (स्थानीय)",
+        "mock": "मॉक (स्थानीय)",
         "openai": "ओपनएआई",
         "azure": "एज़्योर ओपनएआई",
-        "anthropic": "anthropic",
+        "anthropic": "Anthropic",
         "google": "गूगल",
         "openrouter": "ओपनराउटर",
         "ollama": "ओलामा",
@@ -372,7 +372,14 @@
       "themeModeAria": "थीम मोड",
       "resolvedAppearance": "सुलझी हुई उपस्थिति:",
       "accentColor": "एक्सेंट रंग",
-      "accentNotice": "एक्सेंट प्राथमिकता को भविष्य के सीएसएस संस्करण वायरिंग के लिए संग्रहीत किया जाता है - अभी तक लॉक किए गए रंग सिस्टम को परिवर्तित नहीं करता है।",
+      "accentNotice": "एक्सेंट वरीयता इस सत्र में सहेजी जाती है और लॉक रंग प्रणाली अभी नहीं बदलती।",
+      "accents": {
+        "cyan": "सियान",
+        "blue": "नीला",
+        "emerald": "एमराल्ड",
+        "violet": "वायलेट",
+        "amber": "अंबर"
+      },
       "density": "घनत्व",
       "compactMode": "कॉम्पैक्ट मोड",
       "compactModeDescription": "एंटरप्राइज़ तालिकाओं और पैनलों में पैडिंग कम करें।",
@@ -741,8 +748,8 @@
     "skipToContent": "डैशबोर्ड सामग्री पर जाएं",
     "loading": "डैशबोर्ड लोड हो रहा है...",
     "hero": {
-      "ariaLabel": "एग्क्सोरा कोर हीरो",
-      "eyebrow": "एआई बिजनेस ऑपरेटिंग सिस्टम",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "AI बिज़नेस ऑपरेटिंग सिस्टम",
       "title": "एग्क्सोरा कोर",
       "subtitle": "वास्तविक समय की खुफिया जानकारी और परिचालन नियंत्रण - आपका कार्यक्षेत्र कमांड सतह।",
       "ctaGetStarted": "शुरू हो जाओ",
@@ -752,11 +759,11 @@
     },
     "quickActions": {
       "title": "त्वरित कार्रवाई",
-      "subtitle": "आपको आगे क्या करना चाहिए?",
+      "subtitle": "अब क्या करना चाहिए?",
       "ariaLabel": "त्वरित कार्रवाई",
       "addCustomer": {
         "label": "ग्राहक जोड़ें",
-        "description": "एक CRM रिकॉर्ड बनाएं"
+        "description": "CRM रिकॉर्ड बनाएं"
       },
       "newProject": {
         "label": "नया प्रोजेक्ट",
@@ -782,7 +789,7 @@
     "attention": {
       "title": "ध्यान देने की जरूरत है",
       "ariaLabel": "किस बात पर ध्यान देने की जरूरत है",
-      "empty": "आप स्पष्ट हैं - अभी कोई अत्यावश्यक वस्तु नहीं है।",
+      "empty": "सब ठीक है — अभी कोई जरूरी आइटम नहीं।",
       "tone": {
         "critical": "गंभीर",
         "warning": "चेतावनी",
@@ -809,7 +816,7 @@
     },
     "overview": {
       "title": "क्या हो रहा है",
-      "subtitle": "{name} के लिए कार्यस्थान मायने रखता है",
+      "subtitle": "{name} के लिए कार्यक्षेत्र गणना",
       "fallbackName": "आपका कार्यक्षेत्र",
       "ariaLabel": "व्यापार सिंहावलोकन",
       "online": "ऑनलाइन",
@@ -836,15 +843,15 @@
         "viewFeed": "फ़ीड देखें"
       },
       "revenue": {
-        "title": "आय",
+        "title": "राजस्व",
         "caption": "एमआरआर दिखाने के लिए बिलिंग कनेक्ट करें",
         "openBilling": "बिलिंग खोलें"
       },
       "clientShell": {
-        "title": "ग्राहक खोल",
+        "title": "ऐप शेल",
         "caption": "ब्राउज़र सत्र तैयार - लाइव ऑप्स मॉनिटर नहीं",
         "shellLoaded": "एप्लिकेशन शेल लोड किया गया",
-        "storesReady": "स्थानीय कार्यक्षेत्र स्टोर तैयार हैं"
+        "storesReady": "स्थानीय वर्कस्पेस स्टोर तैयार"
       },
       "growth": {
         "title": "विकास",
@@ -856,7 +863,7 @@
       "title": "हाल की गतिविधि",
       "subtitle": "आज क्या बदल गया",
       "ariaLabel": "हाल की गतिविधि",
-      "todayCount": "{count} आज",
+      "todayCount": "आज {count}",
       "localBadge": "स्थानीय",
       "emptyTitle": "अभी तक कोई गतिविधि नहीं",
       "emptyBody": "जैसे ही आप ग्राहक, प्रोजेक्ट और बहुत कुछ जोड़ेंगे, कार्यक्षेत्र ईवेंट यहां दिखाई देंगे।",
@@ -1127,14 +1134,14 @@
   },
   "auth": {
     "login": {
-      "title": "दाखिल करना",
-      "subtitle": "AGXORA में आपका पुनः स्वागत है।",
+      "title": "साइन इन",
+      "subtitle": "AGXORA में वापस स्वागत है।",
       "email": "ईमेल",
       "password": "पासवर्ड",
       "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "पासवर्ड",
-      "rememberMe": "मुझे याद करो",
-      "submit": "दाखिल करना",
+      "rememberMe": "मुझे याद रखें",
+      "submit": "साइन इन",
       "submitting": "इन कर रहे हैं…",
       "noAccount": "खाता नहीं?",
       "startFree": "निःशुल्क प्रारंभ करें",
@@ -1142,7 +1149,7 @@
       "showPassword": "पासवर्ड दिखाए",
       "hidePassword": "पासवर्ड छिपाएं",
       "failed": "भाग लेना विफल हुआ",
-      "loading": "दाखिल करना"
+      "loading": "साइन इन"
     },
     "register": {
       "title": "खाता बनाएं",
@@ -1153,18 +1160,18 @@
       "company": "कंपनी",
       "password": "पासवर्ड",
       "confirmPassword": "पासवर्ड की पुष्टि कीजिये",
-      "acceptTerms": "मुझे स्वीकार है",
+      "acceptTerms": "मैं स्वीकार करता/करती हूँ",
       "termsOfService": "सेवा की शर्तें",
       "and": "और",
       "privacyPolicy": "गोपनीयता नीति",
       "submit": "खाता बनाएं",
       "submitting": "खाता बनाया जा रहा है...",
       "haveAccount": "क्या आपके पास पहले से एक खाता मौजूद है?",
-      "signIn": "दाखिल करना",
+      "signIn": "साइन इन",
       "strength": "पासवर्ड की मजबूती",
       "strengthWeak": "कमज़ोर",
-      "strengthFair": "गोरा",
-      "strengthStrong": "मज़बूत",
+      "strengthFair": "ठीक",
+      "strengthStrong": "मजबूत",
       "firstNamePlaceholder": "एलेक्स",
       "lastNamePlaceholder": "मॉर्गन",
       "companyPlaceholder": "एजीएक्सओआरए जीएमबीएच",
@@ -1199,7 +1206,7 @@
       "loading": "पासवर्ड रीसेट"
     },
     "contactSales": {
-      "title": "बिक्री से संपर्क करें",
+      "title": "सेल्स से संपर्क करें",
       "subtitle": "हमें अपनी टीम के बारे में बताएं. हम उद्यम विकल्पों का अनुसरण करेंगे।",
       "name": "पूरा नाम",
       "email": "कार्य ईमेल",
@@ -1218,7 +1225,7 @@
       "successTitle": "धन्यवाद",
       "successBody": "आपकी पूछताछ प्राप्त हुई. हमारी टीम शीघ्र ही जवाब देगी.",
       "viewPricing": "मूल्य निर्धारण देखें",
-      "bookDemo": "बुक डेमो",
+      "bookDemo": "डेमो बुक करें",
       "failed": "जांच प्रस्तुत नहीं की जा सकी",
       "country": "देश",
       "savedFor": "{company} के लिए सहेजा गया। इस बिल्ड में सेल्स डिलीवरी कनेक्ट नहीं है।",
@@ -1577,7 +1584,7 @@
         "contacts": "संपर्क",
         "orders": "आदेश",
         "invoices": "चालान",
-        "lieferscheine": "Lieferscheine",
+        "lieferscheine": "डिलीवरी नोट",
         "payments": "भुगतान",
         "documents": "दस्तावेज़",
         "timeline": "समय",
@@ -1611,7 +1618,7 @@
         "historyNotConnected": "इस बिल्ड में डिलीवरी हिस्ट्री स्टोर कनेक्ट नहीं है।"
       },
       "columns": {
-        "lieferschein": "Lieferschein",
+        "lieferschein": "डिलीवरी नोट",
         "order": "आदेश",
         "customer": "ग्राहक",
         "kind": "दयालु",
@@ -1682,7 +1689,7 @@
         "quote": "उद्धरण",
         "contract": "अनुबंध",
         "invoice": "चालान",
-        "lieferschein": "Lieferschein",
+        "lieferschein": "डिलीवरी नोट",
         "purchase_order": "खरीद आदेश",
         "receipt": "प्राप्तियां"
       }
@@ -1698,7 +1705,137 @@
       "intro": "क्रिएटर स्टूडियो फ़ाउंडेशन - आधिकारिक प्लेटफ़ॉर्म एकीकरण बाद में इन एडेप्टर में प्लग इन किया जा सकता है। इंस्टाग्राम, टिकटॉक, यूट्यूब, फेसबुक, लिंक्डइन, पिनटेरेस्ट, थ्रेड्स, एक्स।"
     },
     "industry": {
-      "intro": "यूनिवर्सल बिजनेस प्लेटफ़ॉर्म - ऑनबोर्डिंग बाद में एक उद्योग का चयन करेगी। प्रत्येक उद्योग को कोर सीआरएम ओएस को फोर्क किए बिना समर्पित एआई मॉड्यूल प्राप्त होते हैं।"
+      "intro": "यूनिवर्सल बिजनेस प्लेटफ़ॉर्म - ऑनबोर्डिंग बाद में एक उद्योग का चयन करेगी। प्रत्येक उद्योग को कोर सीआरएम ओएस को फोर्क किए बिना समर्पित एआई मॉड्यूल प्राप्त होते हैं।",
+      "catalog": {
+        "business": {
+          "label": "व्यवसाय",
+          "description": "सामान्य B2B ऑपरेटिंग सिस्टम"
+        },
+        "freelancer": {
+          "label": "फ्रीलांसर",
+          "description": "सोलो ऑपरेटर के लिए CRM, चालान और ग्राहक पाइपलाइन"
+        },
+        "creator": {
+          "label": "क्रिएटर",
+          "description": "क्रिएटर स्टूडियो + ब्रांड CRM"
+        },
+        "influencer": {
+          "label": "इन्फ्लुएंसर",
+          "description": "स्पॉन्सरशिप CRM और कैंपेन OS"
+        },
+        "agency": {
+          "label": "एजेंसी",
+          "description": "मल्टी-कस्टमर डिलीवरी और रिटेनर"
+        },
+        "retail": {
+          "label": "खुदरा",
+          "description": "स्टोर इन्वेंटरी, POS और लॉयल्टी"
+        },
+        "restaurant": {
+          "label": "रेस्तरां",
+          "description": "आरक्षण, रसोई और डिलीवरी"
+        },
+        "hotel": {
+          "label": "होटल",
+          "description": "कमरे, मेहमान और हाउसकीपिंग"
+        },
+        "laundry": {
+          "label": "लॉन्ड्री",
+          "description": "पिकअप, टिकट और रूट लॉजिस्टिक्स"
+        },
+        "healthcare": {
+          "label": "स्वास्थ्य सेवा",
+          "description": "मरीज, अपॉइंटमेंट, अनुपालन"
+        },
+        "law_firm": {
+          "label": "लॉ फर्म",
+          "description": "मामले, बिलिंग और दस्तावेज़ वॉल्ट"
+        },
+        "accounting": {
+          "label": "लेखांकन",
+          "description": "ग्राहक बही और DATEV निर्यात"
+        },
+        "construction": {
+          "label": "निर्माण",
+          "description": "साइट, क्रू और प्रोग्रेस बिलिंग"
+        },
+        "real_estate": {
+          "label": "रियल एस्टेट",
+          "description": "लिस्टिंग, विजिट और क्लोजिंग"
+        },
+        "education": {
+          "label": "शिक्षा",
+          "description": "छात्र, पाठ्यक्रम और नामांकन"
+        },
+        "manufacturing": {
+          "label": "विनिर्माण",
+          "description": "BOM, उत्पादन और QC"
+        },
+        "logistics": {
+          "label": "लॉजिस्टिक्स",
+          "description": "फ्लीट, ट्रैकिंग और डिलीवरी नोट"
+        },
+        "ecommerce": {
+          "label": "ई-कॉमर्स",
+          "description": "कैटलॉग, कार्ट और ऑमनीचैनल ऑर्डर"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "बिक्री",
+        "finance": "वित्त",
+        "projects": "प्रोजेक्ट",
+        "clients": "ग्राहक",
+        "proposals": "प्रस्ताव",
+        "time_tracking": "समय ट्रैकिंग",
+        "invoices": "चालान",
+        "creator_studio": "क्रिएटर स्टूडियो",
+        "brand_deals": "ब्रांड डील",
+        "content_calendar": "कंटेंट कैलेंडर",
+        "sponsorships": "स्पॉन्सरशिप",
+        "audience_insights": "ऑडियंस इनसाइट",
+        "campaigns": "अभियान",
+        "client_portals": "ग्राहक पोर्टल",
+        "retainers": "रिटेनर",
+        "campaign_ops": "कैंपेन ऑप्स",
+        "inventory": "इन्वेंटरी",
+        "pos": "POS",
+        "loyalty": "लॉयल्टी",
+        "reservations": "आरक्षण",
+        "menu": "मेनू",
+        "kitchen_display": "किचन डिस्प्ले",
+        "housekeeping": "हाउसकीपिंग",
+        "guest_crm": "गेस्ट CRM",
+        "tickets": "टिकट",
+        "routes": "रूट",
+        "delivery_notes": "डिलीवरी नोट",
+        "patients": "मरीज",
+        "appointments": "अपॉइंटमेंट",
+        "compliance": "अनुपालन",
+        "matters": "मामले",
+        "billing": "बिलिंग",
+        "documents": "दस्तावेज़",
+        "client_books": "ग्राहक बही",
+        "datev": "DATEV",
+        "tax_deadlines": "कर समयसीमा",
+        "sites": "साइट",
+        "crews": "क्रू",
+        "progress_billing": "प्रोग्रेस बिलिंग",
+        "listings": "लिस्टिंग",
+        "viewings": "विजिटिंग",
+        "closings": "क्लोजिंग",
+        "students": "छात्र",
+        "courses": "पाठ्यक्रम",
+        "enrollment": "नामांकन",
+        "bom": "BOM",
+        "production": "उत्पादन",
+        "qc": "QC",
+        "fleet": "फ्लीट",
+        "tracking": "ट्रैकिंग",
+        "catalog": "कैटलॉग",
+        "orders": "ऑर्डर",
+        "fulfillment": "फुलफिलमेंट"
+      }
     },
     "kpi": {
       "customers": {
@@ -1762,7 +1899,7 @@
       "quote": "उद्धरण",
       "contract": "अनुबंध",
       "invoice": "चालान",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "डिलीवरी नोट",
       "purchase_order": "क्रय आदेश",
       "receipt": "रसीद"
     },
@@ -2831,7 +2968,7 @@
       "missingTitle": "गुम परियोजना",
       "missingDescription": "किसी प्रोजेक्ट का अवलोकन देखने के लिए उसका चयन करें।",
       "title": "सिंहावलोकन",
-      "noDescription": "कोई विवरण नहीं दिया गया.",
+      "noDescription": "कोई विवरण नहीं।",
       "budget": "बजट",
       "spent": "खर्च किया",
       "start": "शुरू",
@@ -2977,8 +3114,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "अनुकूलन सुझाव",
       "oneClickOptimize": "एक क्लिक अनुकूलन",
-      "noticeDefault": "वन क्लिक ऑप्टिमाइज़ अभी तक कोई ग्राफ़ म्यूटेशन नहीं है।",
-      "noticeQueued": "कतारबद्ध अनुकूलित करें. भविष्य का इंजन देरी और अनुमोदन को फिर से लिखेगा।"
+      "noticeDefault": "एक-क्लिक ऑप्टिमाइज़ अभी ग्राफ़ नहीं बदलता।",
+      "noticeQueued": "ऑप्टिमाइज़ कतार में है। भविष्य का इंजन देरी और अनुमोदन फिर लिखेगा।",
+      "score": {
+        "healthy": "स्वस्थ",
+        "needsAttention": "ध्यान चाहिए",
+        "atRisk": "जोखिम में"
+      },
+      "kinds": {
+        "missing_approval": "अनुमोदन",
+        "possible_delay": "विलंब",
+        "unused_trigger": "ट्रिगर",
+        "duplicate_nodes": "डुप्लिकेट",
+        "unused_action": "कार्रवाई",
+        "security": "सुरक्षा",
+        "performance": "प्रदर्शन"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "अनुमोदन गायब",
+          "description": "लंबे फ्लो में साइड इफेक्ट से पहले अनुमोदन गेट मददगार होता है।"
+        },
+        "possible_delay": {
+          "title": "संभावित विलंब",
+          "description": "रिमाइंडर ईमेल से पहले देरी डालें ताकि शोर न बढ़े।"
+        },
+        "unused_trigger": {
+          "title": "अप्रयुक्त ट्रिगर",
+          "description": "इस ग्राफ़ में स्टार्ट ट्रिगर नहीं है — सक्रिय करने से पहले जोड़ें।"
+        },
+        "duplicate_nodes": {
+          "title": "डुप्लिकेट नोड",
+          "description": "“{label}” {count} बार आता है — यदि दोहरा हो तो मिलाएं।"
+        },
+        "unused_action": {
+          "title": "अप्रयुक्त कार्रवाई",
+          "description": "{label} जुड़ा नहीं है — जोड़ें या हटाएं।"
+        },
+        "security": {
+          "title": "सुरक्षा सुझाव",
+          "description": "वेबहुक और ईमेल क्रियाओं के लिए न्यूनतम अधिकार वाले एडाप्टर चुनें।"
+        },
+        "performance": {
+          "title": "प्रदर्शन सुझाव",
+          "description": "संभव हो तो AI चरणों को बैच करें ताकि औसत समय घटे।"
+        }
+      }
     },
     "integrations": {
       "intro": "एकीकरण केंद्र - वैकल्पिक. स्थितियाँ: कनेक्टेड, बीटा, नियोजित, जल्द आ रहा है, अक्षम। कोई लाइव एपीआई नहीं.",
@@ -4726,7 +4907,7 @@
     "skipToMain": "मुख्य सामग्री पर जाएँ",
     "offline": {
       "title": "आप संपर्क में नहीं हैं",
-      "message": "अपना कनेक्शन जांचें और जब आप वापस ऑनलाइन हों तो पुनः प्रयास करें। कैश्ड स्क्रीन अभी भी काम कर सकती हैं.",
+      "message": "कनेक्शन जाँचें और ऑनलाइन होने पर फिर कोशिश करें। कैश स्क्रीन अभी भी काम कर सकती हैं।",
       "home": "घर",
       "contact": "संपर्क",
       "signIn": "दाखिल करना"

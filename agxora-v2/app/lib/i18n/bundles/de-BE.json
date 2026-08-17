@@ -14,7 +14,7 @@
     "signOut": "Abmelden",
     "contact": "Kontakt",
     "privacy": "Privatsphäre",
-    "terms": "Begriﬀe",
+    "terms": "Bedingungen",
     "cookies": "Cookies",
     "imprint": "Impressum",
     "organization": "Organisation",
@@ -23,7 +23,7 @@
     "member": "Mitglied",
     "role": "Rolle",
     "signedIn": "Angemeldet",
-    "guestSession": "Gästesitzung",
+    "guestSession": "Gastsitzung",
     "noResults": "Keine Ergebnisse",
     "noData": "Keine Daten",
     "comingSoon": "Kommt bald",
@@ -44,7 +44,7 @@
     "dashboard": "Dashboard"
   },
   "navigation": {
-    "dashboard": "Armaturenbrett",
+    "dashboard": "Dashboard",
     "projects": "Projekte",
     "aiCrm": "KI-CRM",
     "analytics": "Analytik",
@@ -63,9 +63,9 @@
     "search": "Suche",
     "notifications": "Benachrichtigungen",
     "profile": "Profil",
-    "currentOrganization": "Aktuelles Unternehmen",
+    "currentOrganization": "Aktuelle Organisation",
     "noNotifications": "Keine Benachrichtigungen",
-    "notificationsEmpty": "Ihr seid alle beschäftigt. Hier werden Warnungen und Erwähnungen angezeigt.",
+    "notificationsEmpty": "Alles erledigt. Hinweise und Erwähnungen erscheinen hier.",
     "accountSettings": "Kontoeinstellungen",
     "security": "Sicherheit",
     "themeToggle": "Schneller Themenwechsel. Präferenz: {mode}"
@@ -241,7 +241,7 @@
       "noNotifications": "Keine Rechnungsbenachrichtigungen.",
       "noticeInitial": "Die Abrechnung läuft über die kommerzielle Serviceschicht — kein Zahlungs-SDK in der Benutzeroberfläche.",
       "noticeActivated": "{planId} über {providerId} aktiviert (Scheinkasse).",
-      "noticeCheckoutFailed": "Check-out fehlgeschlagen. ",
+      "noticeCheckoutFailed": "Check-out fehlgeschlagen.",
       "noticeCancelled": "Abo gekündigt",
       "noticeRenewed": "Abonnement für den nächsten Zeitraum verlängert.",
       "noticeProfileSaved": "Rechnungsprofil gespeichert.",
@@ -290,7 +290,7 @@
       "regions": {
         "EU": "Europäische Union",
         "US": "Vereinigte Staaten von Amerika",
-        "MENA": "MenaCity in Arkansas USA",
+        "MENA": "MENA",
         "APAC": "APAC"
       }
     },
@@ -344,7 +344,7 @@
         "mock": "Mock (lokal)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "Anthropisch",
+        "anthropic": "Anthropic",
         "google": "Google",
         "openrouter": "OpenRouter",
         "ollama": "Ollama",
@@ -372,9 +372,16 @@
       "themeModeAria": "Theme-Modus",
       "resolvedAppearance": "Aufgelöstes Erscheinungsbild:",
       "accentColor": "Akzentfarbe",
-      "accentNotice": "Akzentpräferenz wird für zukünftige CSS-VAR-Verkabelung gespeichert — verändert das gesperrte Farbsystem noch nicht.",
+      "accentNotice": "Die Akzentfarbe wird für diese Sitzung gespeichert und ändert das gesperrte Farbsystem noch nicht.",
+      "accents": {
+        "cyan": "Cyan",
+        "blue": "Blau",
+        "emerald": "Smaragd",
+        "violet": "Violett",
+        "amber": "Bernstein"
+      },
       "density": "Dichte",
-      "compactMode": "Kompakt-Modus",
+      "compactMode": "Kompaktmodus",
       "compactModeDescription": "Reduzieren Sie die Polsterung über Enterprise-Tische und -Panels hinweg.",
       "animations": "Animationen",
       "animationsDescription": "Abschnittsbewegung und Schwebehebebühnen. Respektiert die Einstellung des Betriebssystems mit reduzierter Bewegung.",
@@ -407,7 +414,7 @@
       "panelDescription": "E-Mail-, Push-, Desktop-, Mobil- und modulspezifische Benachrichtigungen.",
       "notice": "Benachrichtigungskanäle sind nur Präferenzen — Lieferadapter sind reserviert.",
       "email": "E-Mail",
-      "push": "Schieben ",
+      "push": "Schieben",
       "desktop": "Desktop",
       "mobile": "Mobile",
       "workflowAlerts": "Workflow-Warnungen",
@@ -707,7 +714,7 @@
     "required": "Dieses Feld ist erforderlich.",
     "invalidEmail": "Geben Sie eine gültige E-Mail-Adresse ein.",
     "passwordMin": "Das Passwort muss mindestens 8 Zeichen lang sein.",
-    "passwordLettersNumbers": "<g id=\"1\">Kennwort muss aus Ziffern und Zahlen bestehen</g>. ",
+    "passwordLettersNumbers": "Kennwort muss aus Ziffern und Zahlen bestehen.",
     "passwordMismatch": "Passwörter stimmen nicht überein.",
     "acceptTerms": "Bitte akzeptieren Sie die Bedingungen, um fortzufahren.",
     "generic": "Etwas ist schiefgelaufen.",
@@ -741,7 +748,7 @@
     "skipToContent": "Zum Dashboard-Inhalt springen",
     "loading": "Dashboard wird geladen…",
     "hero": {
-      "ariaLabel": "AGXORA CORE HERO",
+      "ariaLabel": "AGXORA CORE",
       "eyebrow": "KI-Geschäftsbetriebssystem",
       "title": "AGXORA-KERN",
       "subtitle": "Echtzeitinformationen und Betriebskontrolle – Ihre Arbeitsplatz-Befehlsoberfläche.",
@@ -752,11 +759,11 @@
     },
     "quickActions": {
       "title": "Schnelle Aktionen",
-      "subtitle": "Was sollten Sie als Nächstes tun? ",
+      "subtitle": "Was sollten Sie als Nächstes tun?",
       "ariaLabel": "Schnelle Aktionen",
       "addCustomer": {
         "label": "Kunde hinzufügen",
-        "description": "Erstellen Sie einen CRM-Datensatz"
+        "description": "CRM-Datensatz anlegen"
       },
       "newProject": {
         "label": "Neues Projekt",
@@ -782,7 +789,7 @@
     "attention": {
       "title": "Braucht Aufmerksamkeit",
       "ariaLabel": "Was Aufmerksamkeit braucht",
-      "empty": "Ihnen ist klar: Im Moment gibt es keine dringenden Dinge.",
+      "empty": "Alles in Ordnung — derzeit keine dringenden Punkte.",
       "tone": {
         "critical": "Kritisch",
         "warning": "Warnung",
@@ -808,8 +815,8 @@
       }
     },
     "overview": {
-      "title": "Was passiert",
-      "subtitle": "Arbeitsbereichsanzahl für {name}",
+      "title": "Was gerade passiert",
+      "subtitle": "Kennzahlen für {name}",
       "fallbackName": "Ihren Arbeitsplatz",
       "ariaLabel": "Unternehmensüberblick",
       "online": "Online",
@@ -836,12 +843,12 @@
         "viewFeed": "Feed ansehen"
       },
       "revenue": {
-        "title": "Einnahmen",
+        "title": "Umsatz",
         "caption": "Verbinden Sie die Abrechnung, um MRR anzuzeigen",
         "openBilling": "Abrechnung öffnen"
       },
       "clientShell": {
-        "title": "Client-Shell",
+        "title": "Anwendungsshell",
         "caption": "Bereit für die Browsersitzung – kein Live-Betriebsmonitor",
         "shellLoaded": "Anwendungsshell geladen",
         "storesReady": "Lokale Workspace-Stores bereit"
@@ -856,8 +863,8 @@
       "title": "Aktuelle Aktivität",
       "subtitle": "Was sich heute geändert hat",
       "ariaLabel": "Aktuelle Aktivität",
-      "todayCount": "{count} HEUTE",
-      "localBadge": "LOKAL",
+      "todayCount": "{count} heute",
+      "localBadge": "Lokal",
       "emptyTitle": "Noch keine Aktivität",
       "emptyBody": "Workspace-Ereignisse werden hier angezeigt, wenn Sie Kunden, Projekte usw. hinzufügen.",
       "addCustomer": "Kunde hinzufügen",
@@ -1037,7 +1044,7 @@
           "subtitle": "Projektportfolio"
         },
         "openAi": {
-          "title": "OPENAI  •  <x id=\"1\"/>",
+          "title": "OPENAI  •",
           "subtitle": "KI-Plattform-Arbeitsbereich"
         },
         "openAnalytics": {
@@ -1127,14 +1134,14 @@
   },
   "auth": {
     "login": {
-      "title": "anmelden",
+      "title": "Anmelden",
       "subtitle": "Willkommen zurück bei AGXORA.",
       "email": "E-Mail",
       "password": "Passwort",
       "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Passwort",
-      "rememberMe": "Erinnere dich an mich",
-      "submit": "anmelden",
+      "rememberMe": "Angemeldet bleiben",
+      "submit": "Anmelden",
       "submitting": "Anmeldevorgang läuft ...",
       "noAccount": "Kein Konto?",
       "startFree": "Kostenlos starten",
@@ -1142,7 +1149,7 @@
       "showPassword": "Passwort anzeigen",
       "hidePassword": "Passwort verbergen",
       "failed": "Die Anmeldung ist fehlgeschlagen",
-      "loading": "anmelden"
+      "loading": "Anmelden"
     },
     "register": {
       "title": "Benutzerkonto erstellen",
@@ -1153,17 +1160,17 @@
       "company": "Unternehmen",
       "password": "Passwort",
       "confirmPassword": "Passwort bestätigen",
-      "acceptTerms": "Ich akzeptiere das",
+      "acceptTerms": "Ich akzeptiere die",
       "termsOfService": "Nutzungsbedingungen",
       "and": "und",
       "privacyPolicy": "Datenschutzrichtlinie",
       "submit": "Benutzerkonto erstellen",
       "submitting": "Konto erstellen…",
       "haveAccount": "Haben Sie ein Konto?",
-      "signIn": "anmelden",
+      "signIn": "Anmelden",
       "strength": "Passwortstärke",
       "strengthWeak": "Schwach",
-      "strengthFair": "Gerecht",
+      "strengthFair": "Mittel",
       "strengthStrong": "Stark",
       "firstNamePlaceholder": "Alex",
       "lastNamePlaceholder": "Morgan",
@@ -1218,7 +1225,7 @@
       "successTitle": "Danke",
       "successBody": "Ihre Anfrage ist eingegangen. Unser Team wird in Kürze antworten.",
       "viewPricing": "Preise ansehen",
-      "bookDemo": "Buchdemo",
+      "bookDemo": "Demo buchen",
       "failed": "Die Anfrage konnte nicht gesendet werden",
       "country": "Land",
       "savedFor": "Für {company} gespeichert. Die Vertriebszustellung ist in diesem Build nicht verbunden.",
@@ -1698,7 +1705,137 @@
       "intro": "Creator Studio Foundation – offizielle Plattformintegrationen können später an diese Adapter angeschlossen werden. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
     },
     "industry": {
-      "intro": "Universelle Business-Plattform – beim Onboarding wird später eine Branche ausgewählt. Jede Branche erhält dedizierte KI-Module, ohne das Kern-CRM-Betriebssystem abzuspalten."
+      "intro": "Universelle Business-Plattform – beim Onboarding wird später eine Branche ausgewählt. Jede Branche erhält dedizierte KI-Module, ohne das Kern-CRM-Betriebssystem abzuspalten.",
+      "catalog": {
+        "business": {
+          "label": "Unternehmen",
+          "description": "Allgemeines B2B-Betriebssystem"
+        },
+        "freelancer": {
+          "label": "Freelancer",
+          "description": "CRM, Rechnungen und Kundenpipeline für Einzelunternehmer"
+        },
+        "creator": {
+          "label": "Creator",
+          "description": "Creator Studio und Marken-CRM"
+        },
+        "influencer": {
+          "label": "Influencer",
+          "description": "Sponsoring-CRM und Kampagnen-OS"
+        },
+        "agency": {
+          "label": "Agentur",
+          "description": "Lieferung und Retainer für mehrere Kunden"
+        },
+        "retail": {
+          "label": "Einzelhandel",
+          "description": "Filialbestand, POS und Treue"
+        },
+        "restaurant": {
+          "label": "Restaurant",
+          "description": "Reservierungen, Küche und Lieferung"
+        },
+        "hotel": {
+          "label": "Hotel",
+          "description": "Zimmer, Gäste und Housekeeping"
+        },
+        "laundry": {
+          "label": "Wäscherei",
+          "description": "Abholung, Tickets und Routenlogistik"
+        },
+        "healthcare": {
+          "label": "Gesundheitswesen",
+          "description": "Patienten, Termine, Compliance"
+        },
+        "law_firm": {
+          "label": "Kanzlei",
+          "description": "Mandate, Abrechnung und Dokumentensafe"
+        },
+        "accounting": {
+          "label": "Buchhaltung",
+          "description": "Mandantenbücher und DATEV-exporte"
+        },
+        "construction": {
+          "label": "Bau",
+          "description": "Baustellen, Teams und Fortschrittsabrechnung"
+        },
+        "real_estate": {
+          "label": "Immobilien",
+          "description": "Inserate, Besichtigungen und Abschlüsse"
+        },
+        "education": {
+          "label": "Bildung",
+          "description": "Studierende, Kurse und Einschreibung"
+        },
+        "manufacturing": {
+          "label": "Fertigung",
+          "description": "Stückliste, Fertigung und QS"
+        },
+        "logistics": {
+          "label": "Logistik",
+          "description": "Flotte, Sendungsverfolgung und Lieferscheine"
+        },
+        "ecommerce": {
+          "label": "E-Commerce",
+          "description": "Katalog, Warenkörbe und Omnichannel-Aufträge"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Vertrieb",
+        "finance": "Finanzen",
+        "projects": "Projekte",
+        "clients": "Kunden",
+        "proposals": "Angebote",
+        "time_tracking": "Zeiterfassung",
+        "invoices": "Rechnungen",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Markenkooperationen",
+        "content_calendar": "Content-Kalender",
+        "sponsorships": "Sponsorings",
+        "audience_insights": "Zielgruppen-Insights",
+        "campaigns": "Kampagnen",
+        "client_portals": "Kundenportale",
+        "retainers": "Retainer",
+        "campaign_ops": "Kampagnenbetrieb",
+        "inventory": "Bestand",
+        "pos": "POS",
+        "loyalty": "Treue",
+        "reservations": "Reservierungen",
+        "menu": "Speisekarte",
+        "kitchen_display": "Küchenanzeige",
+        "housekeeping": "Housekeeping",
+        "guest_crm": "Gäste-CRM",
+        "tickets": "Tickets",
+        "routes": "Routen",
+        "delivery_notes": "Lieferscheine",
+        "patients": "Patienten",
+        "appointments": "Termine",
+        "compliance": "Compliance",
+        "matters": "Mandate",
+        "billing": "Abrechnung",
+        "documents": "Dokumente",
+        "client_books": "Mandantenbücher",
+        "datev": "DATEV",
+        "tax_deadlines": "Steuerfristen",
+        "sites": "Baustellen",
+        "crews": "Teams",
+        "progress_billing": "Fortschrittsabrechnung",
+        "listings": "Inserate",
+        "viewings": "Besichtigungen",
+        "closings": "Abschlüsse",
+        "students": "Studierende",
+        "courses": "Kurse",
+        "enrollment": "Einschreibung",
+        "bom": "BOM",
+        "production": "Fertigung",
+        "qc": "QC",
+        "fleet": "Flotte",
+        "tracking": "Sendungsverfolgung",
+        "catalog": "Katalog",
+        "orders": "Aufträge",
+        "fulfillment": "Fulfillment"
+      }
     },
     "kpi": {
       "customers": {
@@ -2769,7 +2906,7 @@
         "activeProjects": "Aktive Projekte",
         "activeHint": "{planning} Planung",
         "completed": "Vollendet",
-        "completedHint": "{percent}% des Portfolios",
+        "completedHint": "{percent} % des Portfolios",
         "onHold": "Wartend",
         "onHoldHint": "{archived} archiviert",
         "teamMembers": "Teammitglieder",
@@ -2831,7 +2968,7 @@
       "missingTitle": "Fehlende Projekt-ID",
       "missingDescription": "Wählen Sie ein Projekt aus, um die Übersicht anzuzeigen.",
       "title": "Überblick",
-      "noDescription": "Keine Beschreibung angegeben.",
+      "noDescription": "Keine Beschreibung vorhanden.",
       "budget": "Budget",
       "spent": "Verausgabt",
       "start": "Beginnen",
@@ -2911,9 +3048,9 @@
       "projectDeleted": "Projekt gelöscht",
       "checkForm": "Überprüfen Sie das Formular",
       "validationFailed": "Überprüfung fehlgeschlagen.",
-      "taskCreated": "Aufgabe erstellt ",
-      "taskUpdated": "Aufgabe aktualisiert ",
-      "taskCompleted": "Aufgabe abgeschlossen ",
+      "taskCreated": "Aufgabe erstellt",
+      "taskUpdated": "Aufgabe aktualisiert",
+      "taskCompleted": "Aufgabe abgeschlossen",
       "taskDeleted": "Aufgabe gelöscht.",
       "filesUploaded": "Dateien hochgeladen",
       "filesUploadedDetail": "{count} Datei(en)",
@@ -2977,8 +3114,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Optimierungsvorschläge:",
       "oneClickOptimize": "Ein-Klick-Optimierung",
-      "noticeDefault": "One Click Optimize ist noch keine Graph-Mutation.",
-      "noticeQueued": "Optimierung in der Warteschlange. Zukünftige Engine schreibt Verzögerungen und Genehmigungen neu."
+      "noticeDefault": "Ein-Klick-Optimierung ändert den Graphen noch nicht.",
+      "noticeQueued": "Optimierung vorgemerkt. Eine künftige Engine schreibt Verzögerungen und Freigaben um.",
+      "score": {
+        "healthy": "Gesund",
+        "needsAttention": "Handlungsbedarf",
+        "atRisk": "Gefährdet"
+      },
+      "kinds": {
+        "missing_approval": "Freigabe",
+        "possible_delay": "Verzögerung",
+        "unused_trigger": "Auslöser",
+        "duplicate_nodes": "Duplikate",
+        "unused_action": "Aktion",
+        "security": "Sicherheit",
+        "performance": "Leistung"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Fehlende Freigabe",
+          "description": "Längere Abläufe profitieren oft von einer Freigabe vor Seiteneffekten."
+        },
+        "possible_delay": {
+          "title": "Mögliche Verzögerung",
+          "description": "Erwägen Sie eine Verzögerung vor Erinnerungs-E-Mails, um Lastspitzen zu vermeiden."
+        },
+        "unused_trigger": {
+          "title": "Unbenutzter Auslöser",
+          "description": "Dieser Graph hat keinen Startauslöser — fügen Sie einen vor der Aktivierung hinzu."
+        },
+        "duplicate_nodes": {
+          "title": "Doppelte Knoten",
+          "description": "„{label}“ kommt {count}-mal vor — konsolidieren Sie, falls überflüssig."
+        },
+        "unused_action": {
+          "title": "Unbenutzte Aktion",
+          "description": "{label} ist nicht verbunden — verdrahten oder entfernen."
+        },
+        "security": {
+          "title": "Sicherheitsempfehlung",
+          "description": "Nutzen Sie Adapter mit geringsten Rechten für Webhook- und E-Mail-Aktionen."
+        },
+        "performance": {
+          "title": "Leistungsempfehlung",
+          "description": "Bündeln Sie KI-Schritte, wo möglich, um die mittlere Laufzeit zu senken."
+        }
+      }
     },
     "integrations": {
       "intro": "Integrationscenter — optional. Status: Verbunden, Beta, Geplant, Demnächst verfügbar, Deaktiviert. Keine Live-APIs.",
@@ -3029,7 +3210,7 @@
       "zoomOut": "−",
       "zoomIn": "+",
       "resetView": "Ansicht zurücksetzen",
-      "emptyTitle": "Leere Leinwand ",
+      "emptyTitle": "Leere Leinwand",
       "emptyDescription": "Ziehen Sie einen Auslöser aus der Palette, um mit dem Bauen zu beginnen. Snap-to-Grid hält Knoten ausgerichtet.",
       "connectHint": "Doppelklicken Sie auf das Ziel, um eine Verbindung herzustellen",
       "miniMapAria": "Minikarte"
@@ -3410,7 +3591,7 @@
         "description": "Wird ausgelöst, wenn eine Rechnung ausgestellt wird."
       },
       "task_completed": {
-        "label": "Aufgabe abgeschlossen ",
+        "label": "Aufgabe abgeschlossen",
         "description": "Wird ausgelöst, wenn eine Aufgabe als erledigt markiert wird."
       },
       "document_uploaded": {
@@ -3690,7 +3871,7 @@
     },
     "mobileTabs": {
       "chat": "Chatten",
-      "conversations": "Unterhaltungen ",
+      "conversations": "Unterhaltungen",
       "prompts": "Anzeigen"
     },
     "usageBar": {
@@ -3708,7 +3889,7 @@
       "emptyHint": "Starten Sie eine Konversation, wählen Sie eine Eingabeaufforderung aus der Bibliothek oder öffnen Sie die Befehlspalette (+⇧K / Strg +⇧K)."
     },
     "conversationSidebar": {
-      "title": "Unterhaltungen ",
+      "title": "Unterhaltungen",
       "new": "Neu",
       "searchPlaceholder": "Chats suchen",
       "searchAria": "Unterhaltungen suchen",
@@ -4305,7 +4486,7 @@
       "sharingBody": "Wir setzen geprüfte Auftragsverarbeiter (Hosting, E-Mail, Zahlungen) im Rahmen entsprechender Verträge ein. Wir verkaufen keine personenbezogenen Daten.",
       "yourRights": "6. Ihre Rechte",
       "yourRightsBodyBefore": "Abhängig von Ihrem Standort können Sie Zugriff, Korrektur, Löschung, Einschränkung, Übertragbarkeit oder Widerspruch verlangen. Kontakt",
-      "yourRightsBodyAfter": "Außerdem hast Du das Recht auf <g id=\"1\">Beschwerde bei einer Aufsichtsbehörde</g>. ",
+      "yourRightsBodyAfter": "Außerdem hast Du das Recht auf Beschwerde bei einer Aufsichtsbehörde.",
       "cookies": "7. Cookies",
       "cookiesBodyBefore": "S. den",
       "cookiesBodyAfter": "für Details zu essentiellen und optionalen Cookies.",
@@ -4358,7 +4539,7 @@
       "managingBody": "Sie können nicht wesentliche Cookies über die Browsereinstellungen und, sobald verfügbar, über unser Vor-Ort-Einstellungscenter steuern. Das Blockieren wesentlicher Cookies kann die Anmeldung oder die Verwendung des Kernprodukts verhindern.",
       "moreInfo": "4. Weitere Informationen",
       "moreInfoBodyBefore": "Siehe die",
-      "moreInfoBodyMiddle": "oder kontaktieren Sie "
+      "moreInfoBodyMiddle": "oder kontaktieren Sie"
     },
     "imprint": {
       "title": "Impressum",
@@ -4726,7 +4907,7 @@
     "skipToMain": "     Skip to main content",
     "offline": {
       "title": "Du bist Offline",
-      "message": "Überprüfen Sie Ihre Verbindung und versuchen Sie es erneut, wenn Sie wieder online sind. Zwischengespeicherte Bildschirme funktionieren möglicherweise noch.",
+      "message": "Prüfen Sie die Verbindung und versuchen Sie es erneut, sobald Sie wieder online sind. Zwischengespeicherte Ansichten können weiter funktionieren.",
       "home": "Heim",
       "contact": "Kontakt",
       "signIn": "anmelden"

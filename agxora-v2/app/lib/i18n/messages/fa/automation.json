@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "پیشنهادات بهینه‌سازی",
     "oneClickOptimize": "بهینه‌سازی با یک کلیک",
-    "noticeDefault": "بهینه‌سازی با یک کلیک هنوز جهشی در نمودار ایجاد نکرده است.",
-    "noticeQueued": "بهینه‌سازی صف‌بندی شده. موتور آینده تأخیرها و تأییدها را بازنویسی خواهد کرد."
+    "noticeDefault": "بهینه‌سازی یک‌کلیکی هنوز گراف را تغییر نمی‌دهد.",
+    "noticeQueued": "بهینه‌سازی در صف است. موتور بعدی تأخیرها و تأییدها را بازنویسی می‌کند.",
+    "score": {
+      "healthy": "سالم",
+      "needsAttention": "نیاز به توجه",
+      "atRisk": "در معرض خطر"
+    },
+    "kinds": {
+      "missing_approval": "تأیید",
+      "possible_delay": "تأخیر",
+      "unused_trigger": "محرک",
+      "duplicate_nodes": "تکراری",
+      "unused_action": "اقدام",
+      "security": "امنیت",
+      "performance": "عملکرد"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "تأیید وجود ندارد",
+        "description": "جریان‌های طولانی معمولاً قبل از اثر جانبی به دروازه تأیید نیاز دارند."
+      },
+      "possible_delay": {
+        "title": "تأخیر محتمل",
+        "description": "برای جلوگیری از انفجار اعلان، قبل از ایمیل یادآوری تأخیر بگذارید."
+      },
+      "unused_trigger": {
+        "title": "محرک استفاده‌نشده",
+        "description": "این گراف محرک شروع ندارد — قبل از فعال‌سازی یکی اضافه کنید."
+      },
+      "duplicate_nodes": {
+        "title": "گره تکراری",
+        "description": "«{label}» {count} بار آمده — در صورت تکراری بودن ادغام کنید."
+      },
+      "unused_action": {
+        "title": "اقدام استفاده‌نشده",
+        "description": "{label} متصل نیست — وصل یا حذف کنید."
+      },
+      "security": {
+        "title": "توصیه امنیتی",
+        "description": "برای وب‌هوک و ایمیل از آداپتور با کمترین دسترسی استفاده کنید."
+      },
+      "performance": {
+        "title": "توصیه عملکرد",
+        "description": "گام‌های هوش مصنوعی را در صورت امکان دسته‌بندی کنید تا زمان اجرا کم شود."
+      }
+    }
   },
   "integrations": {
     "intro": "مرکز ادغام — اختیاری. وضعیت‌ها: متصل، بتا، برنامه‌ریزی‌شده، به‌زودی، غیرفعال. بدون APIهای فعال.",
@@ -136,9 +180,9 @@
       "runResult": "اجرای {status} ({duration}ms)",
       "runFailed": "گردش کار اجرا نشد (غیرفعال یا مفقود).",
       "publishedEvent": "رویداد دامنه منتشر شده: {type}",
-      "workflowStatus": "Workflow {status}",
+      "workflowStatus": "گردش‌کار {status}",
       "saved": "گردش کار ذخیره شد",
-      "retryResult": "Retry {status}",
+      "retryResult": "تلاش مجدد {status}",
       "retryFailed": "تلاش ناموفق بود.  %s",
       "settingsSaved": "تنظیمات اتوماسیون ذخیره شد"
     },

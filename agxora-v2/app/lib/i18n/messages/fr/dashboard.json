@@ -2,8 +2,8 @@
   "skipToContent": "Passer au contenu du tableau de bord",
   "loading": "Chargement du tableau de bord",
   "hero": {
-    "ariaLabel": "Héros AGXORA CORE",
-    "eyebrow": "Système d'exploitation d'entreprise IA",
+    "ariaLabel": "AGXORA CORE",
+    "eyebrow": "Système d’exploitation métier IA",
     "title": "NOYAU AGXORA",
     "subtitle": "Intelligence en temps réel et contrôle opérationnel : la surface de commande de votre espace de travail.",
     "ctaGetStarted": "Commencer",
@@ -13,11 +13,11 @@
   },
   "quickActions": {
     "title": "Actions rapides",
-    "subtitle": "Que devez-vous faire ensuite&#xA0;? ",
+    "subtitle": "Que devez-vous faire ensuite ?",
     "ariaLabel": "Actions rapides",
     "addCustomer": {
       "label": "Ajouter un client",
-      "description": "Créer un fiche"
+      "description": "Créer une fiche CRM"
     },
     "newProject": {
       "label": "Nouveau projet",
@@ -43,11 +43,11 @@
   "attention": {
     "title": "A besoin d'attention",
     "ariaLabel": "Nécessite de l’attention",
-    "empty": "Vous êtes clair : aucun élément urgent pour le moment.",
+    "empty": "Tout est en ordre — aucun élément urgent pour le moment.",
     "tone": {
       "critical": "Critique",
       "warning": "Avertissement",
-      "info": "Informations",
+      "info": "Info",
       "success": "Prêt",
       "action": "Faire ensuite"
     },
@@ -70,14 +70,14 @@
   },
   "overview": {
     "title": "Ce qui se passe",
-    "subtitle": "L'espace de travail compte pour {name}",
+    "subtitle": "Compteurs de l’espace pour {name}",
     "fallbackName": "Votre espace de travail",
     "ariaLabel": "Aperçu de l'entreprise",
     "online": "En ligne",
     "emDash": "—",
     "capacitySignal": "{percent} % du signal de capacité",
     "activeClients": {
-      "title": "Clients Actifs",
+      "title": "Clients actifs",
       "captionEmpty": "Pas encore de clients actifs",
       "captionTotal": "{count} au total dans l'espace de travail",
       "add": "Ajouter un client",
@@ -97,15 +97,15 @@
       "viewFeed": "Voir le flux"
     },
     "revenue": {
-      "title": "Revenu",
+      "title": "Chiffre d’affaires",
       "caption": "Connectez la facturation pour afficher le MRR",
-      "openBilling": "Facturation ouverte"
+      "openBilling": "Ouvrir la facturation"
     },
     "clientShell": {
-      "title": "Coquille client",
+      "title": "Coque applicative",
       "caption": "Session du navigateur prête — pas un moniteur d'opérations en direct",
       "shellLoaded": "Shell d'application chargé",
-      "storesReady": "Les magasins d'espace de travail local sont prêts"
+      "storesReady": "Stores locaux de l’espace prêts"
     },
     "growth": {
       "title": "Croissance",
@@ -117,8 +117,8 @@
     "title": "Activité récente",
     "subtitle": "Qu'est-ce qui a changé aujourd'hui?",
     "ariaLabel": "Activité récente",
-    "todayCount": "{count} AUJOURD'HUI",
-    "localBadge": "LOCALE",
+    "todayCount": "{count} aujourd’hui",
+    "localBadge": "Local",
     "emptyTitle": "Aucune activité pour le moment",
     "emptyBody": "Les événements de l'espace de travail apparaîtront ici lorsque vous ajouterez des clients, des projets et plus encore.",
     "addCustomer": "Ajouter un client",

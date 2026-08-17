@@ -248,9 +248,36 @@ describe("error mapping", () => {
     expect(resolveUserFacingErrorKey({ code: "AUTH_SESSION_EXPIRED" })).toBe(
       "errors.codes.AUTH_SESSION_EXPIRED",
     );
+    expect(resolveUserFacingErrorKey(new Error("You must accept the terms to continue."))).toBe(
+      "errors.acceptTerms",
+    );
     expect(resolveMessage("de", "errors.codes.AUTH_INVALID_CREDENTIALS")).not.toBe(
       "Invalid email or password.",
     );
+  });
+
+  it("uses curated chrome translations instead of broken machine copy", () => {
+    expect(resolveMessage("ar", "navigation.menu")).toBe("القائمة");
+    expect(resolveMessage("zh-CN", "auth.login.title")).toBe("登录");
+    expect(resolveMessage("fr", "auth.contactSales.bookDemo")).toMatch(/démo/i);
+    expect(resolveMessage("fr", "auth.contactSales.bookDemo")).not.toMatch(/Livre/i);
+    expect(resolveMessage("de", "settings.profile.regions.MENA")).toBe("MENA");
+    expect(resolveMessage("en", "crm.documentKind.lieferschein")).toBe("Delivery note");
+    expect(resolveMessage("fa", "settings.appearance.accentNotice")).not.toMatch(/^Accent /);
+    expect(resolveMessage("de-BE", "auth.login.title")).toBe("Anmelden");
+  });
+
+  it("strips leaked translation markup from locale catalogs", () => {
+    for (const locale of SUPPORTED_LOCALES) {
+      const sample = [
+        resolveMessage(locale, "dashboard.quickActions.subtitle"),
+        resolveMessage(locale, "backend.skipToMain"),
+        resolveMessage(locale, "legal.privacy.yourRightsBodyAfter"),
+      ].join(" ");
+      expect(sample).not.toMatch(/<g id=/);
+      expect(sample).not.toMatch(/<x id=/);
+      expect(sample).not.toMatch(/&#xA0;/i);
+    }
   });
 });
 

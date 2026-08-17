@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Saran Pengoptimalan",
     "oneClickOptimize": "Optimalkan Satu Klik",
-    "noticeDefault": "One Click Optimize belum ada mutasi grafik.",
-    "noticeQueued": "Optimalkan antri. Mesin masa depan akan menulis ulang penundaan & persetujuan."
+    "noticeDefault": "Optimasi satu klik belum mengubah graf.",
+    "noticeQueued": "Optimasi mengantri. Mesin nanti akan menulis ulang jeda dan persetujuan.",
+    "score": {
+      "healthy": "Sehat",
+      "needsAttention": "Perlu perhatian",
+      "atRisk": "Berisiko"
+    },
+    "kinds": {
+      "missing_approval": "Persetujuan",
+      "possible_delay": "Penundaan",
+      "unused_trigger": "Pemicu",
+      "duplicate_nodes": "Duplikat",
+      "unused_action": "Tindakan",
+      "security": "Keamanan",
+      "performance": "Performa"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Persetujuan hilang",
+        "description": "Alur yang lebih panjang sering butuh gerbang persetujuan sebelum efek samping."
+      },
+      "possible_delay": {
+        "title": "Kemungkinan penundaan",
+        "description": "Pertimbangkan jeda sebelum email pengingat agar tidak beruntun."
+      },
+      "unused_trigger": {
+        "title": "Pemicu tidak terpakai",
+        "description": "Graf ini tidak punya pemicu awal — tambahkan sebelum aktivasi."
+      },
+      "duplicate_nodes": {
+        "title": "Node duplikat",
+        "description": "“{label}” muncul {count} kali — gabungkan jika berlebih."
+      },
+      "unused_action": {
+        "title": "Tindakan tidak terpakai",
+        "description": "{label} tidak terhubung — sambungkan atau hapus."
+      },
+      "security": {
+        "title": "Rekomendasi keamanan",
+        "description": "Untuk webhook dan email, pilih adapter dengan hak paling kecil."
+      },
+      "performance": {
+        "title": "Rekomendasi performa",
+        "description": "Jika mungkin, gabungkan langkah AI agar waktu rata-rata turun."
+      }
+    }
   },
   "integrations": {
     "intro": "Pusat Integrasi — opsional. Status: Terhubung, Beta, Direncanakan, Segera Hadir, Dinonaktifkan. Tidak ada API langsung.",

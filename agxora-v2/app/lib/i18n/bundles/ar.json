@@ -14,9 +14,9 @@
     "signOut": "تسجيل الخروج",
     "contact": "اتصال",
     "privacy": "خصوصية",
-    "terms": "شروط",
+    "terms": "الشروط",
     "cookies": "ملفات تعريف الارتباط",
-    "imprint": "بصمة",
+    "imprint": "بيانات الناشر",
     "organization": "منظمة",
     "user": "مستخدم",
     "guest": "ضيف",
@@ -44,7 +44,7 @@
     "dashboard": "لوحة التحكم"
   },
   "navigation": {
-    "dashboard": "لوحة القيادة",
+    "dashboard": "لوحة التحكم",
     "projects": "المشاريع",
     "aiCrm": "الذكاء الاصطناعي لإدارة علاقات العملاء",
     "analytics": "التحليلات",
@@ -59,15 +59,15 @@
     "settings": "إعدادات",
     "toggleNavigation": "تبديل التنقل",
     "primary": "أساسي",
-    "menu": "قائمة طعام",
-    "search": "يبحث",
+    "menu": "القائمة",
+    "search": "بحث",
     "notifications": "إشعارات",
-    "profile": "حساب تعريفي",
-    "currentOrganization": "التنظيم الحالي",
-    "noNotifications": "لا الإخطارات",
-    "notificationsEmpty": "لقد تم القبض عليك جميعًا. ستظهر التنبيهات والإشارات هنا.",
+    "profile": "الملف الشخصي",
+    "currentOrganization": "المؤسسة الحالية",
+    "noNotifications": "لا توجد إشعارات",
+    "notificationsEmpty": "أنت على اطلاع. ستظهر التنبيهات والإشارات هنا.",
     "accountSettings": "إعدادات الحساب",
-    "security": "حماية",
+    "security": "الأمان",
     "themeToggle": "تبديل سريع للموضوع. التفضيل: {mode}"
   },
   "pricing": {
@@ -290,7 +290,7 @@
       "regions": {
         "EU": "الاتحاد الأوروبي",
         "US": "الولايات المتحدة",
-        "MENA": "منطقة الشرق الأوسط وشمال أفريقيا",
+        "MENA": "الشرق الأوسط وشمال أفريقيا",
         "APAC": "منطقة آسيا والمحيط الهادئ"
       }
     },
@@ -324,7 +324,7 @@
       "preferredProvider": "موفر الذكاء الاصطناعي المفضل",
       "defaultModel": "نموذج الذكاء الاصطناعي الافتراضي",
       "temperature": "درجة حرارة",
-      "topP": "أعلى ص",
+      "topP": "Top P",
       "maxTokens": "رموز ماكس",
       "writingStyle": "أسلوب الكتابة",
       "languagePreferences": "تفضيلات اللغة",
@@ -341,10 +341,10 @@
       "streaming": "جاري",
       "streamingDescription": "دفق استجابات النموذج عندما يدعمها الموفر.",
       "providers": {
-        "mock": "وهمية (محلي)",
+        "mock": "تجريبي (محلي)",
         "openai": "OpenAI",
         "azure": "أزور أوبن إيه آي",
-        "anthropic": "أنثروبي",
+        "anthropic": "Anthropic",
         "google": "جوجل",
         "openrouter": "OpenRouter",
         "ollama": "أولاما",
@@ -371,10 +371,17 @@
       "themeLabel": "سمة",
       "themeModeAria": "وضع الموضوع",
       "resolvedAppearance": "المظهر الذي تم حله:",
-      "accentColor": "لون مميز",
-      "accentNotice": "يتم تخزين تفضيلات التمييز لأسلاك CSS var المستقبلية - ولا تؤدي إلى تغيير نظام الألوان المقفل بعد.",
+      "accentColor": "لون التمييز",
+      "accentNotice": "يُحفظ تفضيل لون التمييز لهذه الجلسة ولا يغيّر نظام الألوان المقفل بعد.",
+      "accents": {
+        "cyan": "سماوي",
+        "blue": "أزرق",
+        "emerald": "زمردي",
+        "violet": "بنفسجي",
+        "amber": "كهرماني"
+      },
       "density": "كثافة",
-      "compactMode": "الوضع المضغوط",
+      "compactMode": "وضع مدمج",
       "compactModeDescription": "تقليل المساحة المتروكة عبر جداول ولوحات المؤسسة.",
       "animations": "الرسوم المتحركة",
       "animationsDescription": "حركة القسم والمصاعد تحوم. يحترم إعداد نظام التشغيل منخفض الحركة.",
@@ -741,7 +748,7 @@
     "skipToContent": "انتقل إلى محتوى لوحة القيادة",
     "loading": "جارٍ تحميل لوحة البيانات…",
     "hero": {
-      "ariaLabel": "بطل أجكسورا كور",
+      "ariaLabel": "AGXORA CORE",
       "eyebrow": "نظام تشغيل الأعمال بالذكاء الاصطناعي",
       "title": "أغكسورا كور",
       "subtitle": "الاستخبارات والتحكم التشغيلي في الوقت الفعلي — سطح قيادة مساحة العمل لديك.",
@@ -752,7 +759,7 @@
     },
     "quickActions": {
       "title": "إجراءات سريعة",
-      "subtitle": "ماذا يجب أن تفعل بعد ذلك؟",
+      "subtitle": "ما الذي ينبغي فعله بعد ذلك؟",
       "ariaLabel": "إجراءات سريعة",
       "addCustomer": {
         "label": "إضافة العميل",
@@ -767,7 +774,7 @@
         "description": "افتح مساحة عمل الذكاء الاصطناعي"
       },
       "finance": {
-        "label": "تمويل",
+        "label": "المالية",
         "description": "الفواتير والتدفقات النقدية"
       },
       "automations": {
@@ -782,11 +789,11 @@
     "attention": {
       "title": "يحتاج إلى اهتمام",
       "ariaLabel": "ما يحتاج إلى اهتمام",
-      "empty": "أنت واضح – لا توجد عناصر عاجلة في الوقت الحالي.",
+      "empty": "كل شيء على ما يرام — لا توجد عناصر عاجلة الآن.",
       "tone": {
-        "critical": "شديد الأهمية",
+        "critical": "حرج",
         "warning": "تحذير",
-        "info": "معلومات",
+        "info": "معلومة",
         "success": "مستعد",
         "action": "افعل التالي"
       },
@@ -808,15 +815,15 @@
       }
     },
     "overview": {
-      "title": "ماذا يحدث",
-      "subtitle": "أعداد مساحة العمل لـ {name}",
+      "title": "ما الذي يحدث",
+      "subtitle": "عدادات مساحة العمل لـ {name}",
       "fallbackName": "مساحة العمل الخاصة بك",
       "ariaLabel": "نظرة عامة على الأعمال",
       "online": "متصل",
       "emDash": "—",
       "capacitySignal": "{percent}% إشارة السعة",
       "activeClients": {
-        "title": "العملاء النشطين",
+        "title": "العملاء النشطون",
         "captionEmpty": "لا يوجد عملاء نشطين حتى الآن",
         "captionTotal": "{count} الإجمالي في مساحة العمل",
         "add": "إضافة العميل",
@@ -836,12 +843,12 @@
         "viewFeed": "عرض الخلاصة"
       },
       "revenue": {
-        "title": "ربح",
+        "title": "الإيرادات",
         "caption": "ربط الفواتير لإظهار MRR",
-        "openBilling": "فتح الفواتير"
+        "openBilling": "فتح الفوترة"
       },
       "clientShell": {
-        "title": "قذيفة العميل",
+        "title": "واجهة التطبيق",
         "caption": "جلسة المتصفح جاهزة — وليست مراقبة العمليات المباشرة",
         "shellLoaded": "تم تحميل غلاف التطبيق",
         "storesReady": "مخازن مساحة العمل المحلية جاهزة"
@@ -1128,12 +1135,12 @@
   "auth": {
     "login": {
       "title": "تسجيل الدخول",
-      "subtitle": "مرحبًا بكم مرة أخرى في AGXORA.",
+      "subtitle": "مرحبًا بعودتك إلى AGXORA.",
       "email": "بريد إلكتروني",
       "password": "كلمة المرور",
       "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "كلمة المرور",
-      "rememberMe": "تذكرنى",
+      "rememberMe": "تذكرني",
       "submit": "تسجيل الدخول",
       "submitting": "تسجيل الدخول...",
       "noAccount": "لا يوجد حساب؟",
@@ -1153,7 +1160,7 @@
       "company": "شركة",
       "password": "كلمة المرور",
       "confirmPassword": "تأكيد كلمة المرور",
-      "acceptTerms": "أنا أقبل",
+      "acceptTerms": "أوافق على",
       "termsOfService": "شروط الخدمة",
       "and": "و",
       "privacyPolicy": "سياسة الخصوصية",
@@ -1162,9 +1169,9 @@
       "haveAccount": "هل لديك حساب بالفعل؟",
       "signIn": "تسجيل الدخول",
       "strength": "قوة كلمة المرور",
-      "strengthWeak": "ضعيف",
-      "strengthFair": "عدل",
-      "strengthStrong": "قوي",
+      "strengthWeak": "ضعيفة",
+      "strengthFair": "متوسطة",
+      "strengthStrong": "قوية",
       "firstNamePlaceholder": "أليكس",
       "lastNamePlaceholder": "مورغان",
       "companyPlaceholder": "AGXORA GmbH",
@@ -1199,7 +1206,7 @@
       "loading": "إعادة تعيين كلمة المرور"
     },
     "contactSales": {
-      "title": "اتصل بالمبيعات",
+      "title": "التواصل مع المبيعات",
       "subtitle": "أخبرنا عن فريقك. سنتابع خيارات المؤسسة.",
       "name": "الاسم الكامل",
       "email": "البريد الإلكتروني للعمل",
@@ -1218,7 +1225,7 @@
       "successTitle": "شكرًا لك",
       "successBody": "تم استلام استفسارك. سوف يقوم فريقنا بالرد قريبا.",
       "viewPricing": "عرض التسعير",
-      "bookDemo": "كتاب تجريبي",
+      "bookDemo": "حجز عرض توضيحي",
       "failed": "لا يمكن تقديم الاستفسار",
       "country": "البلد",
       "savedFor": "تم الحفظ لـ {company}. تسليم المبيعات غير متصل في هذا الإصدار.",
@@ -1270,7 +1277,7 @@
       },
       "customer360": {
         "title": "العميل 360 درجة",
-        "subtitle": "الملف الشخصي والشركة وجهات الاتصال والأوامر والفواتير وLieferscheine والمدفوعات والمستندات والجدول الزمني والأنشطة والملاحظات وملخص الذكاء الاصطناعي وتاريخ الاتصالات."
+        "subtitle": "الملف الشخصي والشركة وجهات الاتصال والأوامر والفواتير وأذون التسليم والمدفوعات والمستندات والجدول الزمني والأنشطة والملاحظات وملخص الذكاء الاصطناعي وتاريخ الاتصالات."
       },
       "salesPipeline": {
         "title": "خط أنابيب المبيعات",
@@ -1281,11 +1288,11 @@
       },
       "deliveryModule": {
         "title": "وحدة التسليم",
-        "subtitle": "نظام Lieferschein الاحترافي مع إمكانية التتبع والتوقيع وQR والباركود."
+        "subtitle": "نظام إذن تسليم الاحترافي مع إمكانية التتبع والتوقيع وQR والباركود."
       },
       "documentsModule": {
         "title": "وثائق",
-        "subtitle": "عروض الأسعار، والعقود، والفواتير، وLieferschein، وأوامر الشراء، والإيصالات - مع بحث الذكاء الاصطناعي."
+        "subtitle": "عروض الأسعار، والعقود، والفواتير، وإذن تسليم، وأوامر الشراء، والإيصالات - مع بحث الذكاء الاصطناعي."
       },
       "tasksModule": {
         "title": "المهام"
@@ -1668,7 +1675,7 @@
       "emptyTitle": "لا توجد وثائق",
       "emptyDescription": "لا توجد وثائق تطابق هذا البحث.",
       "searchLabel": "بحث الذكاء الاصطناعي",
-      "searchPlaceholder": "عروض الأسعار، العقود، الفواتير، Lieferschein…",
+      "searchPlaceholder": "عروض الأسعار، العقود، الفواتير، إذن تسليم…",
       "typeLabel": "نوع الوثيقة",
       "allTypes": "جميع الأنواع",
       "columns": {
@@ -1698,7 +1705,137 @@
       "intro": "أساس Creator Studio - يمكن أن يتم توصيل عمليات تكامل النظام الأساسي الرسمية بهذه المحولات لاحقًا. إنستغرام، تيك توك، يوتيوب، فيسبوك، لينكدإن، بينتريست، ثريدس، إكس."
     },
     "industry": {
-      "intro": "منصة الأعمال العالمية - سيختار الإعداد لاحقًا الصناعة. تتلقى كل صناعة وحدات مخصصة للذكاء الاصطناعي دون التفرع عن نظام التشغيل CRM الأساسي."
+      "intro": "منصة الأعمال العالمية - سيختار الإعداد لاحقًا الصناعة. تتلقى كل صناعة وحدات مخصصة للذكاء الاصطناعي دون التفرع عن نظام التشغيل CRM الأساسي.",
+      "catalog": {
+        "business": {
+          "label": "أعمال",
+          "description": "نظام تشغيل B2B عام"
+        },
+        "freelancer": {
+          "label": "مستقل",
+          "description": "CRM والفواتير ومسار العملاء للمستقلين"
+        },
+        "creator": {
+          "label": "صانع محتوى",
+          "description": "استوديو المنشئين + CRM للعلامة"
+        },
+        "influencer": {
+          "label": "مؤثر",
+          "description": "CRM رعايات ونظام حملات"
+        },
+        "agency": {
+          "label": "وكالة",
+          "description": "تسليم متعدد العملاء وعقود الاحتفاظ"
+        },
+        "retail": {
+          "label": "تجزئة",
+          "description": "مخزون المتجر ونقاط البيع والولاء"
+        },
+        "restaurant": {
+          "label": "مطعم",
+          "description": "الحجوزات والمطبخ والتوصيل"
+        },
+        "hotel": {
+          "label": "فندق",
+          "description": "الغرف والضيوف والتدبير المنزلي"
+        },
+        "laundry": {
+          "label": "مغسلة",
+          "description": "الاستلام والتذاكر ولوجستيات المسارات"
+        },
+        "healthcare": {
+          "label": "رعاية صحية",
+          "description": "المرضى والمواعيد والامتثال"
+        },
+        "law_firm": {
+          "label": "مكتب محاماة",
+          "description": "القضايا والفوترة وخزنة المستندات"
+        },
+        "accounting": {
+          "label": "محاسبة",
+          "description": "دفاتر العملاء وتصدير DATEV"
+        },
+        "construction": {
+          "label": "إنشاءات",
+          "description": "المواقع والفرق والفوترة حسب التقدم"
+        },
+        "real_estate": {
+          "label": "عقارات",
+          "description": "القوائم والمعاينات والإغلاق"
+        },
+        "education": {
+          "label": "تعليم",
+          "description": "الطلاب والدورات والتسجيل"
+        },
+        "manufacturing": {
+          "label": "تصنيع",
+          "description": "قائمة المواد والإنتاج والجودة"
+        },
+        "logistics": {
+          "label": "خدمات لوجستية",
+          "description": "الأسطول والتتبع وأذون التسليم"
+        },
+        "ecommerce": {
+          "label": "تجارة إلكترونية",
+          "description": "الكتالوج والسلال وطلبات القنوات المتعددة"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "المبيعات",
+        "finance": "المالية",
+        "projects": "المشاريع",
+        "clients": "العملاء",
+        "proposals": "العروض",
+        "time_tracking": "تتبع الوقت",
+        "invoices": "الفواتير",
+        "creator_studio": "استوديو المنشئين",
+        "brand_deals": "صفقات العلامة",
+        "content_calendar": "تقويم المحتوى",
+        "sponsorships": "الرعايات",
+        "audience_insights": "رؤى الجمهور",
+        "campaigns": "الحملات",
+        "client_portals": "بوابات العملاء",
+        "retainers": "عقود الاحتفاظ",
+        "campaign_ops": "تشغيل الحملات",
+        "inventory": "المخزون",
+        "pos": "POS",
+        "loyalty": "الولاء",
+        "reservations": "الحجوزات",
+        "menu": "قائمة الطعام",
+        "kitchen_display": "شاشة المطبخ",
+        "housekeeping": "التدبير المنزلي",
+        "guest_crm": "CRM الضيوف",
+        "tickets": "التذاكر",
+        "routes": "المسارات",
+        "delivery_notes": "أذون التسليم",
+        "patients": "المرضى",
+        "appointments": "المواعيد",
+        "compliance": "الامتثال",
+        "matters": "القضايا",
+        "billing": "الفوترة",
+        "documents": "المستندات",
+        "client_books": "دفاتر العملاء",
+        "datev": "DATEV",
+        "tax_deadlines": "مواعيد ضريبية",
+        "sites": "المواقع",
+        "crews": "الفرق",
+        "progress_billing": "الفوترة حسب التقدم",
+        "listings": "القوائم",
+        "viewings": "المعاينات",
+        "closings": "الإغلاق",
+        "students": "الطلاب",
+        "courses": "الدورات",
+        "enrollment": "التسجيل",
+        "bom": "BOM",
+        "production": "الإنتاج",
+        "qc": "QC",
+        "fleet": "الأسطول",
+        "tracking": "التتبع",
+        "catalog": "الكتالوج",
+        "orders": "الطلبات",
+        "fulfillment": "التنفيذ"
+      }
     },
     "kpi": {
       "customers": {
@@ -2769,7 +2906,7 @@
         "activeProjects": "المشاريع النشطة",
         "activeHint": "{planning} تخطيط",
         "completed": "مكتمل",
-        "completedHint": "{percent}% من المحفظة",
+        "completedHint": "{percent}٪ من المحفظة",
         "onHold": "في الانتظار",
         "onHoldHint": "{archived} مؤرشفة",
         "teamMembers": "أعضاء الفريق",
@@ -2831,7 +2968,7 @@
       "missingTitle": "مشروع مفقود",
       "missingDescription": "حدد مشروعًا لعرض النظرة العامة عليه.",
       "title": "ملخص",
-      "noDescription": "لم يتم تقديم أي وصف.",
+      "noDescription": "لا يوجد وصف.",
       "budget": "ميزانية",
       "spent": "قضى",
       "start": "يبدأ",
@@ -2977,8 +3114,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "اقتراحات التحسين",
       "oneClickOptimize": "نقرة واحدة للتحسين",
-      "noticeDefault": "لا تعد ميزة One Click Optimize بمثابة طفرة في الرسم البياني حتى الآن.",
-      "noticeQueued": "تحسين في قائمة الانتظار. سيعيد المحرك المستقبلي كتابة التأخيرات والموافقات."
+      "noticeDefault": "التحسين بنقرة واحدة لا يغيّر المخطط بعد.",
+      "noticeQueued": "التحسين في قائمة الانتظار. سيعيد محرك لاحق كتابة التأخيرات والاعتمادات.",
+      "score": {
+        "healthy": "سليم",
+        "needsAttention": "يحتاج انتباهاً",
+        "atRisk": "معرّض للخطر"
+      },
+      "kinds": {
+        "missing_approval": "اعتماد",
+        "possible_delay": "تأخير",
+        "unused_trigger": "مشغّل",
+        "duplicate_nodes": "مكررات",
+        "unused_action": "إجراء",
+        "security": "الأمان",
+        "performance": "الأداء"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "اعتماد مفقود",
+          "description": "غالباً ما تستفيد التدفقات الأطول من بوابة اعتماد قبل الآثار الجانبية."
+        },
+        "possible_delay": {
+          "title": "تأخير محتمل",
+          "description": "فكّر في تأخير قبل رسائل التذكير لتجنب الاندفاعات."
+        },
+        "unused_trigger": {
+          "title": "مشغّل غير مستخدم",
+          "description": "لا يوجد مشغّل بدء في هذا المخطط — أضفه قبل التفعيل."
+        },
+        "duplicate_nodes": {
+          "title": "عقد مكررة",
+          "description": "يظهر «{label}» {count} مرات — ادمجه إن كان زائدًا."
+        },
+        "unused_action": {
+          "title": "إجراء غير مستخدم",
+          "description": "{label} غير متصل — وصّله أو احذفه."
+        },
+        "security": {
+          "title": "توصية أمنية",
+          "description": "فضّل محولات بأقل صلاحيات لإجراءات الويب هوك والبريد."
+        },
+        "performance": {
+          "title": "توصية أداء",
+          "description": "جمّع خطوات الذكاء الاصطناعي حيث أمكن لتقليل متوسط زمن التنفيذ."
+        }
+      }
     },
     "integrations": {
       "intro": "مركز التكامل – اختياري. الحالات: متصل، بيتا، مخطط، قريبًا، معطل. لا توجد واجهات برمجة التطبيقات المباشرة.",
@@ -4726,7 +4907,7 @@
     "skipToMain": "انتقل إلى المحتوى الرئيسي",
     "offline": {
       "title": "أنت غير متصل",
-      "message": "تحقق من اتصالك وأعد المحاولة عندما تعود متصلاً بالإنترنت. ربما لا تزال الشاشات المخزنة مؤقتًا تعمل.",
+      "message": "تحقق من الاتصال وأعد المحاولة عند العودة للاتصال. قد تظل الشاشات المخزّنة تعمل.",
       "home": "بيت",
       "contact": "اتصال",
       "signIn": "تسجيل الدخول"

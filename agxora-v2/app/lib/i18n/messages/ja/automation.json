@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "最適化の提案",
     "oneClickOptimize": "ワンクリックで最適化",
-    "noticeDefault": "One Click Optimize にはまだグラフの変更はありません。",
-    "noticeQueued": "キューを最適化します。将来のエンジンは遅延と承認を書き換えます。"
+    "noticeDefault": "ワンクリック最適化はまだグラフを変更しません。",
+    "noticeQueued": "最適化をキューしました。将来のエンジンが遅延と承認を書き換えます。",
+    "score": {
+      "healthy": "健全",
+      "needsAttention": "要確認",
+      "atRisk": "リスクあり"
+    },
+    "kinds": {
+      "missing_approval": "承認",
+      "possible_delay": "遅延",
+      "unused_trigger": "トリガー",
+      "duplicate_nodes": "重複",
+      "unused_action": "アクション",
+      "security": "セキュリティ",
+      "performance": "パフォーマンス"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "承認がありません",
+        "description": "長いフローは副作用の前に承認ゲートがあると安全です。"
+      },
+      "possible_delay": {
+        "title": "遅延の検討",
+        "description": "リマインドメールの前に遅延を入れ、バーストを避けてください。"
+      },
+      "unused_trigger": {
+        "title": "未使用のトリガー",
+        "description": "開始トリガーがありません。有効化前に追加してください。"
+      },
+      "duplicate_nodes": {
+        "title": "重複ノード",
+        "description": "「{label}」が{count}回あります。不要なら統合してください。"
+      },
+      "unused_action": {
+        "title": "未使用のアクション",
+        "description": "{label}は未接続です。配線するか削除してください。"
+      },
+      "security": {
+        "title": "セキュリティの推奨",
+        "description": "Webhookとメール操作には最小権限のアダプターを使ってください。"
+      },
+      "performance": {
+        "title": "パフォーマンスの推奨",
+        "description": "可能ならAIステップをまとめて平均実行時間を下げてください。"
+      }
+    }
   },
   "integrations": {
     "intro": "統合センター — オプション。ステータス: 接続済み、ベータ版、計画中、近日公開予定、無効。ライブ API はありません。",

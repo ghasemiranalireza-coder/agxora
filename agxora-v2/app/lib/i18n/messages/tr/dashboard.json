@@ -2,8 +2,8 @@
   "skipToContent": "Kontrol paneli içeriğine atla",
   "loading": "Kontrol paneli yükleniyor…",
   "hero": {
-    "ariaLabel": "AGXORA CORE kahramanı",
-    "eyebrow": "Yapay Zeka İş İşletim Sistemi",
+    "ariaLabel": "AGXORA CORE",
+    "eyebrow": "AI iş işletim sistemi",
     "title": "AGXORA ÇEKİRDEK",
     "subtitle": "Gerçek zamanlı zeka ve operasyonel kontrol — çalışma alanınız komut yüzeyi.",
     "ctaGetStarted": "Başlayın",
@@ -13,11 +13,11 @@
   },
   "quickActions": {
     "title": "Hızlı eylemler",
-    "subtitle": "Bundan sonra ne yapmalısınız?",
+    "subtitle": "Sırada ne yapmalısınız?",
     "ariaLabel": "Hızlı eylemler",
     "addCustomer": {
       "label": "Müşteri ekle",
-      "description": "CRM kaydı oluşturma"
+      "description": "CRM kaydı oluştur"
     },
     "newProject": {
       "label": "Yeni proje",
@@ -43,7 +43,7 @@
   "attention": {
     "title": "Dikkat edilmesi gerekiyor",
     "ariaLabel": "Dikkat edilmesi gerekenler",
-    "empty": "Açıksınız; şu anda acil bir öğe yok.",
+    "empty": "Her şey yolunda — şu an acil öğe yok.",
     "tone": {
       "critical": "Kritik",
       "warning": "Uyarı",
@@ -69,7 +69,7 @@
     }
   },
   "overview": {
-    "title": "Ne oluyor",
+    "title": "Neler oluyor",
     "subtitle": "{name} için çalışma alanı sayıları",
     "fallbackName": "çalışma alanınız",
     "ariaLabel": "İşletmeye genel bakış",
@@ -77,7 +77,7 @@
     "emDash": "—",
     "capacitySignal": "%{percent} kapasite sinyali",
     "activeClients": {
-      "title": "Aktif istemciler",
+      "title": "Aktif müşteriler",
       "captionEmpty": "Henüz aktif müşteri yok",
       "captionTotal": "Çalışma alanında toplam {count}",
       "add": "Müşteri ekle",
@@ -97,15 +97,15 @@
       "viewFeed": "Özet akışını görüntüle"
     },
     "revenue": {
-      "title": "Hasılat",
+      "title": "Gelir",
       "caption": "MRR'yi göstermek için faturalandırmayı bağlayın",
-      "openBilling": "Faturalandırmayı aç"
+      "openBilling": "Faturalamayı aç"
     },
     "clientShell": {
-      "title": "İstemci kabuğu",
+      "title": "Uygulama kabuğu",
       "caption": "Tarayıcı oturumu hazır; canlı operasyon monitörü değil",
       "shellLoaded": "Uygulama kabuğu yüklendi",
-      "storesReady": "Yerel çalışma alanı mağazaları hazır"
+      "storesReady": "Yerel çalışma alanı depoları hazır"
     },
     "growth": {
       "title": "Büyüme",
@@ -117,8 +117,8 @@
     "title": "Son etkinlik",
     "subtitle": "Bugün ne değişti",
     "ariaLabel": "Son etkinlik",
-    "todayCount": "{count} BUGÜN",
-    "localBadge": "YEREL",
+    "todayCount": "bugün {count}",
+    "localBadge": "Yerel",
     "emptyTitle": "Henüz etkinlik yok",
     "emptyBody": "Siz müşteri, proje ve daha fazlasını ekledikçe çalışma alanı etkinlikleri burada görünecektir.",
     "addCustomer": "Müşteri ekle",

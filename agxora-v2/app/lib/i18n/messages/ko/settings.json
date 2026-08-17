@@ -27,7 +27,7 @@
     "regions": {
       "EU": "유럽연합",
       "US": "미국",
-      "MENA": "메나",
+      "MENA": "중동·북아프리카",
       "APAC": "APAC"
     }
   },
@@ -61,7 +61,7 @@
     "preferredProvider": "선호하는 AI 제공업체",
     "defaultModel": "기본 AI 모델",
     "temperature": "온도",
-    "topP": "탑 P",
+    "topP": "Top P",
     "maxTokens": "최대 토큰",
     "writingStyle": "글쓰기 스타일",
     "languagePreferences": "언어 기본 설정",
@@ -78,10 +78,10 @@
     "streaming": "스트리밍",
     "streamingDescription": "공급자가 지원하는 경우 모델 응답을 스트리밍합니다.",
     "providers": {
-      "mock": "모의(로컬)",
+      "mock": "목(로컬)",
       "openai": "오픈AI",
       "azure": "Azure OpenAI",
-      "anthropic": "인류학",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "오픈라우터",
       "ollama": "올라마",
@@ -108,8 +108,8 @@
     "themeLabel": "주제",
     "themeModeAria": "테마 모드",
     "resolvedAppearance": "해결된 모양:",
-    "accentColor": "악센트 색상",
-    "accentNotice": "향후 CSS 변수 연결을 위해 악센트 기본 설정이 저장됩니다. 아직 잠긴 색상 시스템을 변경하지 않습니다.",
+    "accentColor": "액센트 색",
+    "accentNotice": "액센트 설정은 이 세션에 저장되며 잠긴 색 체계는 아직 바꾸지 않습니다.",
     "density": "밀도",
     "compactMode": "컴팩트 모드",
     "compactModeDescription": "엔터프라이즈 테이블과 패널 전체에서 패딩을 줄입니다.",
@@ -135,6 +135,13 @@
       "comfortable": "편안한",
       "compact": "콤팩트",
       "spacious": "넓다"
+    },
+    "accents": {
+      "cyan": "시안",
+      "blue": "파랑",
+      "emerald": "에메랄드",
+      "violet": "바이올렛",
+      "amber": "앰버"
     }
   },
   "notifications": {

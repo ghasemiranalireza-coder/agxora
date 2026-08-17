@@ -438,7 +438,137 @@
     "intro": "Creator-Studio-Fundament — offizielle Plattform-Integrationen können später an diese Adapter angebunden werden. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
   },
   "industry": {
-    "intro": "Universale Business-Plattform — beim Onboarding wird später eine Branche gewählt. Jede Branche erhält dedizierte KI-Module ohne Abspaltung des CRM-Kerns."
+    "intro": "Universale Business-Plattform — beim Onboarding wird später eine Branche gewählt. Jede Branche erhält dedizierte KI-Module ohne Abspaltung des CRM-Kerns.",
+    "catalog": {
+      "business": {
+        "label": "Unternehmen",
+        "description": "Allgemeines B2B-Betriebssystem"
+      },
+      "freelancer": {
+        "label": "Freelancer",
+        "description": "CRM, Rechnungen und Kundenpipeline für Einzelunternehmer"
+      },
+      "creator": {
+        "label": "Creator",
+        "description": "Creator Studio und Marken-CRM"
+      },
+      "influencer": {
+        "label": "Influencer",
+        "description": "Sponsoring-CRM und Kampagnen-OS"
+      },
+      "agency": {
+        "label": "Agentur",
+        "description": "Lieferung und Retainer für mehrere Kunden"
+      },
+      "retail": {
+        "label": "Einzelhandel",
+        "description": "Filialbestand, POS und Treue"
+      },
+      "restaurant": {
+        "label": "Restaurant",
+        "description": "Reservierungen, Küche und Lieferung"
+      },
+      "hotel": {
+        "label": "Hotel",
+        "description": "Zimmer, Gäste und Housekeeping"
+      },
+      "laundry": {
+        "label": "Wäscherei",
+        "description": "Abholung, Tickets und Routenlogistik"
+      },
+      "healthcare": {
+        "label": "Gesundheitswesen",
+        "description": "Patienten, Termine, Compliance"
+      },
+      "law_firm": {
+        "label": "Kanzlei",
+        "description": "Mandate, Abrechnung und Dokumentensafe"
+      },
+      "accounting": {
+        "label": "Buchhaltung",
+        "description": "Mandantenbücher und DATEV-exporte"
+      },
+      "construction": {
+        "label": "Bau",
+        "description": "Baustellen, Teams und Fortschrittsabrechnung"
+      },
+      "real_estate": {
+        "label": "Immobilien",
+        "description": "Inserate, Besichtigungen und Abschlüsse"
+      },
+      "education": {
+        "label": "Bildung",
+        "description": "Studierende, Kurse und Einschreibung"
+      },
+      "manufacturing": {
+        "label": "Fertigung",
+        "description": "Stückliste, Fertigung und QS"
+      },
+      "logistics": {
+        "label": "Logistik",
+        "description": "Flotte, Sendungsverfolgung und Lieferscheine"
+      },
+      "ecommerce": {
+        "label": "E-Commerce",
+        "description": "Katalog, Warenkörbe und Omnichannel-Aufträge"
+      }
+    },
+    "modules": {
+      "sales": "Vertrieb",
+      "finance": "Finanzen",
+      "projects": "Projekte",
+      "clients": "Kunden",
+      "proposals": "Angebote",
+      "time_tracking": "Zeiterfassung",
+      "invoices": "Rechnungen",
+      "creator_studio": "Creator Studio",
+      "brand_deals": "Markenkooperationen",
+      "content_calendar": "Content-Kalender",
+      "sponsorships": "Sponsorings",
+      "audience_insights": "Zielgruppen-Insights",
+      "campaigns": "Kampagnen",
+      "client_portals": "Kundenportale",
+      "retainers": "Retainer",
+      "campaign_ops": "Kampagnenbetrieb",
+      "inventory": "Bestand",
+      "loyalty": "Treue",
+      "reservations": "Reservierungen",
+      "menu": "Speisekarte",
+      "kitchen_display": "Küchenanzeige",
+      "housekeeping": "Housekeeping",
+      "guest_crm": "Gäste-CRM",
+      "tickets": "Tickets",
+      "routes": "Routen",
+      "delivery_notes": "Lieferscheine",
+      "patients": "Patienten",
+      "appointments": "Termine",
+      "compliance": "Compliance",
+      "matters": "Mandate",
+      "billing": "Abrechnung",
+      "documents": "Dokumente",
+      "client_books": "Mandantenbücher",
+      "tax_deadlines": "Steuerfristen",
+      "sites": "Baustellen",
+      "crews": "Teams",
+      "progress_billing": "Fortschrittsabrechnung",
+      "listings": "Inserate",
+      "viewings": "Besichtigungen",
+      "closings": "Abschlüsse",
+      "students": "Studierende",
+      "courses": "Kurse",
+      "enrollment": "Einschreibung",
+      "production": "Fertigung",
+      "fleet": "Flotte",
+      "tracking": "Sendungsverfolgung",
+      "catalog": "Katalog",
+      "orders": "Aufträge",
+      "fulfillment": "Fulfillment",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {

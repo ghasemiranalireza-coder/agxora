@@ -492,7 +492,7 @@ function AppearancePanel(): JSX.Element {
               <button
                 key={swatch.id}
                 type="button"
-                aria-label={swatch.label}
+                aria-label={t(`settings.appearance.accents.${swatch.id}`)}
                 aria-pressed={active}
                 onClick={() => setPrefs((p) => ({ ...p, accentColor: swatch.value }))}
                 className="h-9 w-9 rounded-full border-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"

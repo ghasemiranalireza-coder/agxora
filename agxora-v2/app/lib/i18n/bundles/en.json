@@ -65,7 +65,7 @@
     "profile": "Profile",
     "currentOrganization": "Current organization",
     "noNotifications": "No notifications",
-    "notificationsEmpty": "You’re all caught up. Alerts and mentions will appear here.",
+    "notificationsEmpty": "You're all caught up. Alerts and mentions will appear here.",
     "accountSettings": "Account settings",
     "security": "Security",
     "themeToggle": "Quick theme toggle. Preference: {mode}"
@@ -371,10 +371,17 @@
       "themeLabel": "Theme",
       "themeModeAria": "Theme mode",
       "resolvedAppearance": "Resolved appearance:",
-      "accentColor": "Accent Color",
-      "accentNotice": "Accent preference is stored for future CSS var wiring — does not mutate the locked color system yet.",
+      "accentColor": "Accent color",
+      "accentNotice": "Accent preference is stored for this session. It does not change the locked color system yet.",
+      "accents": {
+        "cyan": "Cyan",
+        "blue": "Blue",
+        "emerald": "Emerald",
+        "violet": "Violet",
+        "amber": "Amber"
+      },
       "density": "Density",
-      "compactMode": "Compact Mode",
+      "compactMode": "Compact mode",
       "compactModeDescription": "Reduce padding across enterprise tables and panels.",
       "animations": "Animations",
       "animationsDescription": "Section motion and hover lifts. Respects reduced-motion OS setting.",
@@ -741,7 +748,7 @@
     "skipToContent": "Skip to dashboard content",
     "loading": "Loading dashboard…",
     "hero": {
-      "ariaLabel": "AGXORA CORE hero",
+      "ariaLabel": "AGXORA CORE",
       "eyebrow": "AI Business Operating System",
       "title": "AGXORA CORE",
       "subtitle": "Real-time intelligence and operational control — your workspace command surface.",
@@ -782,7 +789,7 @@
     "attention": {
       "title": "Needs attention",
       "ariaLabel": "What needs attention",
-      "empty": "You are clear — no urgent items right now.",
+      "empty": "You're all set — no urgent items right now.",
       "tone": {
         "critical": "Critical",
         "warning": "Warning",
@@ -808,7 +815,7 @@
       }
     },
     "overview": {
-      "title": "What is happening",
+      "title": "What's happening",
       "subtitle": "Workspace counts for {name}",
       "fallbackName": "your workspace",
       "ariaLabel": "Business overview",
@@ -816,7 +823,7 @@
       "emDash": "—",
       "capacitySignal": "{percent}% capacity signal",
       "activeClients": {
-        "title": "Active clients",
+        "title": "Active customers",
         "captionEmpty": "No active customers yet",
         "captionTotal": "{count} total in workspace",
         "add": "Add customer",
@@ -856,8 +863,8 @@
       "title": "Recent activity",
       "subtitle": "What changed today",
       "ariaLabel": "Recent activity",
-      "todayCount": "{count} TODAY",
-      "localBadge": "LOCAL",
+      "todayCount": "{count} today",
+      "localBadge": "Local",
       "emptyTitle": "No activity yet",
       "emptyBody": "Workspace events will appear here as you add customers, projects, and more.",
       "addCustomer": "Add customer",
@@ -1133,7 +1140,7 @@
       "password": "Password",
       "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Password",
-      "rememberMe": "Remember Me",
+      "rememberMe": "Remember me",
       "submit": "Sign in",
       "submitting": "Signing in…",
       "noAccount": "No account?",
@@ -1199,7 +1206,7 @@
       "loading": "Reset password"
     },
     "contactSales": {
-      "title": "Contact Sales",
+      "title": "Contact sales",
       "subtitle": "Tell us about your team. We will follow up with enterprise options.",
       "name": "Full name",
       "email": "Work email",
@@ -1218,7 +1225,7 @@
       "successTitle": "Thank you",
       "successBody": "Your inquiry was received. Our team will respond shortly.",
       "viewPricing": "View pricing",
-      "bookDemo": "Book Demo",
+      "bookDemo": "Book a demo",
       "failed": "Could not submit inquiry",
       "country": "Country",
       "savedFor": "Saved for {company}. Sales delivery is not connected in this build.",
@@ -1270,7 +1277,7 @@
       },
       "customer360": {
         "title": "Customer 360°",
-        "subtitle": "Profile, company, contacts, orders, invoices, Lieferscheine, payments, documents, timeline, activities, notes, AI summary, and communication history."
+        "subtitle": "Profile, company, contacts, orders, invoices, delivery notes, payments, documents, timeline, activities, notes, AI summary, and communication history."
       },
       "salesPipeline": {
         "title": "Sales Pipeline",
@@ -1281,11 +1288,11 @@
       },
       "deliveryModule": {
         "title": "Delivery Module",
-        "subtitle": "Professional Lieferschein system with tracking, signature, QR, and barcode readiness."
+        "subtitle": "Professional delivery-note system with tracking, signature, QR, and barcode readiness."
       },
       "documentsModule": {
         "title": "Documents",
-        "subtitle": "Quotes, contracts, invoices, Lieferschein, purchase orders, receipts — with AI search."
+        "subtitle": "Quotes, contracts, invoices, delivery notes, purchase orders, receipts — with AI search."
       },
       "tasksModule": {
         "title": "Tasks"
@@ -1577,7 +1584,7 @@
         "contacts": "Contacts",
         "orders": "Orders",
         "invoices": "Invoices",
-        "lieferscheine": "Lieferscheine",
+        "lieferscheine": "Delivery notes",
         "payments": "Payments",
         "documents": "Documents",
         "timeline": "Timeline",
@@ -1596,7 +1603,7 @@
       }
     },
     "delivery": {
-      "title": "Professional Lieferschein System",
+      "title": "Professional delivery-note system",
       "description": "Delivery notes, pickup / delivery, driver, vehicle, and tracking — sample records only. Export adapters are not connected.",
       "badges": {
         "qrUnavailable": "QR unavailable",
@@ -1611,7 +1618,7 @@
         "historyNotConnected": "Delivery history store is not connected in this build."
       },
       "columns": {
-        "lieferschein": "Lieferschein",
+        "lieferschein": "Delivery note",
         "order": "Order",
         "customer": "Customer",
         "kind": "Kind",
@@ -1668,7 +1675,7 @@
       "emptyTitle": "No documents",
       "emptyDescription": "No documents match this search.",
       "searchLabel": "AI Search",
-      "searchPlaceholder": "Quotes, contracts, invoices, Lieferschein…",
+      "searchPlaceholder": "Quotes, contracts, invoices, delivery notes…",
       "typeLabel": "Document type",
       "allTypes": "All types",
       "columns": {
@@ -1682,7 +1689,7 @@
         "quote": "Quotes",
         "contract": "Contracts",
         "invoice": "Invoices",
-        "lieferschein": "Lieferschein",
+        "lieferschein": "Delivery notes",
         "purchase_order": "Purchase Orders",
         "receipt": "Receipts"
       }
@@ -1698,7 +1705,137 @@
       "intro": "Creator Studio foundation — official platform integrations can plug into these adapters later. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
     },
     "industry": {
-      "intro": "Universal Business Platform — onboarding will later choose an industry. Each industry receives dedicated AI modules without forking the core CRM OS."
+      "intro": "Universal Business Platform — onboarding will later choose an industry. Each industry receives dedicated AI modules without forking the core CRM OS.",
+      "catalog": {
+        "business": {
+          "label": "Business",
+          "description": "General B2B operating system"
+        },
+        "freelancer": {
+          "label": "Freelancer",
+          "description": "Solo operator CRM, invoices, and customer pipeline"
+        },
+        "creator": {
+          "label": "Creator",
+          "description": "Creator Studio + brand CRM"
+        },
+        "influencer": {
+          "label": "Influencer",
+          "description": "Sponsorship CRM and campaign OS"
+        },
+        "agency": {
+          "label": "Agency",
+          "description": "Multi-customer delivery and retainers"
+        },
+        "retail": {
+          "label": "Retail",
+          "description": "Store inventory, POS, and loyalty"
+        },
+        "restaurant": {
+          "label": "Restaurant",
+          "description": "Reservations, kitchen, and delivery"
+        },
+        "hotel": {
+          "label": "Hotel",
+          "description": "Rooms, guests, and housekeeping"
+        },
+        "laundry": {
+          "label": "Laundry",
+          "description": "Pickup, tickets, and route logistics"
+        },
+        "healthcare": {
+          "label": "Healthcare",
+          "description": "Patients, appointments, compliance"
+        },
+        "law_firm": {
+          "label": "Law firm",
+          "description": "Matters, billing, and document vault"
+        },
+        "accounting": {
+          "label": "Accounting",
+          "description": "Customer books and DATEV-ready exports"
+        },
+        "construction": {
+          "label": "Construction",
+          "description": "Sites, crews, and progress billing"
+        },
+        "real_estate": {
+          "label": "Real estate",
+          "description": "Listings, viewings, and closings"
+        },
+        "education": {
+          "label": "Education",
+          "description": "Students, courses, and enrollment"
+        },
+        "manufacturing": {
+          "label": "Manufacturing",
+          "description": "BOM, production, and QC"
+        },
+        "logistics": {
+          "label": "Logistics",
+          "description": "Fleet, tracking, and delivery notes"
+        },
+        "ecommerce": {
+          "label": "E-commerce",
+          "description": "Catalog, carts, and omnichannel orders"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Sales",
+        "finance": "Finance",
+        "projects": "Projects",
+        "clients": "Customers",
+        "proposals": "Proposals",
+        "time_tracking": "Time tracking",
+        "invoices": "Invoices",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Brand deals",
+        "content_calendar": "Content calendar",
+        "sponsorships": "Sponsorships",
+        "audience_insights": "Audience insights",
+        "campaigns": "Campaigns",
+        "client_portals": "Customer portals",
+        "retainers": "Retainers",
+        "campaign_ops": "Campaign ops",
+        "inventory": "Inventory",
+        "pos": "POS",
+        "loyalty": "Loyalty",
+        "reservations": "Reservations",
+        "menu": "Menu",
+        "kitchen_display": "Kitchen display",
+        "housekeeping": "Housekeeping",
+        "guest_crm": "Guest CRM",
+        "tickets": "Tickets",
+        "routes": "Routes",
+        "delivery_notes": "Delivery notes",
+        "patients": "Patients",
+        "appointments": "Appointments",
+        "compliance": "Compliance",
+        "matters": "Matters",
+        "billing": "Billing",
+        "documents": "Documents",
+        "client_books": "Customer books",
+        "datev": "DATEV",
+        "tax_deadlines": "Tax deadlines",
+        "sites": "Sites",
+        "crews": "Crews",
+        "progress_billing": "Progress billing",
+        "listings": "Listings",
+        "viewings": "Viewings",
+        "closings": "Closings",
+        "students": "Students",
+        "courses": "Courses",
+        "enrollment": "Enrollment",
+        "bom": "BOM",
+        "production": "Production",
+        "qc": "QC",
+        "fleet": "Fleet",
+        "tracking": "Tracking",
+        "catalog": "Catalog",
+        "orders": "Orders",
+        "fulfillment": "Fulfillment"
+      }
     },
     "kpi": {
       "customers": {
@@ -1762,7 +1899,7 @@
       "quote": "Quote",
       "contract": "Contract",
       "invoice": "Invoice",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "Delivery note",
       "purchase_order": "Purchase Order",
       "receipt": "Receipt"
     },
@@ -2977,8 +3114,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Optimization Suggestions",
       "oneClickOptimize": "One Click Optimize",
-      "noticeDefault": "One Click Optimize is a no graph mutation yet.",
-      "noticeQueued": "Optimize queued. Future engine will rewrite delays & approvals."
+      "noticeDefault": "One-click optimize does not change the graph yet.",
+      "noticeQueued": "Optimize queued. A future engine will rewrite delays and approvals.",
+      "score": {
+        "healthy": "Healthy",
+        "needsAttention": "Needs attention",
+        "atRisk": "At risk"
+      },
+      "kinds": {
+        "missing_approval": "Approval",
+        "possible_delay": "Delay",
+        "unused_trigger": "Trigger",
+        "duplicate_nodes": "Duplicates",
+        "unused_action": "Action",
+        "security": "Security",
+        "performance": "Performance"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Missing approval",
+          "description": "Longer flows often benefit from an approval gate before side effects."
+        },
+        "possible_delay": {
+          "title": "Possible delay",
+          "description": "Consider a delay before reminder emails to avoid noisy bursts."
+        },
+        "unused_trigger": {
+          "title": "Unused trigger",
+          "description": "This graph has no start trigger — add one before activation."
+        },
+        "duplicate_nodes": {
+          "title": "Duplicate nodes",
+          "description": "“{label}” appears {count} times — consolidate if redundant."
+        },
+        "unused_action": {
+          "title": "Unused action",
+          "description": "{label} is not connected — wire or remove it."
+        },
+        "security": {
+          "title": "Security recommendation",
+          "description": "Prefer least-privilege adapters for webhook and email actions."
+        },
+        "performance": {
+          "title": "Performance recommendation",
+          "description": "Batch AI steps where possible to reduce average execution time."
+        }
+      }
     },
     "integrations": {
       "intro": "Integration Center — optional. Statuses: Connected, Beta, Planned, Coming soon, Disabled. No live APIs.",

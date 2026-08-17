@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Suggerimenti per l'ottimizzazione",
     "oneClickOptimize": "Ottimizza con un clic",
-    "noticeDefault": "One Click Optimize non è ancora una mutazione del grafico.",
-    "noticeQueued": "Ottimizza in coda. Il motore futuro riscriverà ritardi e approvazioni."
+    "noticeDefault": "L’ottimizzazione in un clic non modifica ancora il grafo.",
+    "noticeQueued": "Ottimizzazione in coda. Un motore futuro riscriverà ritardi e approvazioni.",
+    "score": {
+      "healthy": "Integro",
+      "needsAttention": "Da controllare",
+      "atRisk": "A rischio"
+    },
+    "kinds": {
+      "missing_approval": "Approvazione",
+      "possible_delay": "Ritardo",
+      "unused_trigger": "Trigger",
+      "duplicate_nodes": "Duplicati",
+      "unused_action": "Azione",
+      "security": "Sicurezza",
+      "performance": "Prestazioni"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Approvazione mancante",
+        "description": "I flussi più lunghi spesso richiedono un gate di approvazione prima degli effetti collaterali."
+      },
+      "possible_delay": {
+        "title": "Possibile ritardo",
+        "description": "Valuta un ritardo prima delle e-mail di reminder per evitare burst."
+      },
+      "unused_trigger": {
+        "title": "Trigger inutilizzato",
+        "description": "Questo grafo non ha un trigger di avvio: aggiungine uno prima dell’attivazione."
+      },
+      "duplicate_nodes": {
+        "title": "Nodi duplicati",
+        "description": "“{label}” compare {count} volte: consolida se è ridondante."
+      },
+      "unused_action": {
+        "title": "Azione inutilizzata",
+        "description": "{label} non è collegato: collegalo o rimuovilo."
+      },
+      "security": {
+        "title": "Raccomandazione di sicurezza",
+        "description": "Preferisci adapter a privilegio minimo per webhook ed e-mail."
+      },
+      "performance": {
+        "title": "Raccomandazione di prestazione",
+        "description": "Raggruppa i passaggi IA dove possibile per ridurre il tempo medio."
+      }
+    }
   },
   "integrations": {
     "intro": "Centro di integrazione: facoltativo. Stati: Connesso, Beta, Pianificato, Prossimamente, Disabilitato. Nessuna API live.",

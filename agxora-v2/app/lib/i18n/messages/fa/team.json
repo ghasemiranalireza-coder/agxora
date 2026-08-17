@@ -6,15 +6,15 @@
     "yourOrganization": "سازمان شما"
   },
   "invite": {
-    "title": "Invite by Email",
+    "title": "دعوت با ایمیل",
     "email": "ایمیل",
     "emailPlaceholder": "همکار@company.com",
     "role": "نقش",
     "submit": "Invite",
     "created": "دعوتنامه ایجاد شد (در انتظار).",
-    "failed": "Invite failed",
-    "signInFirst": "Sign in and activate an organization first.",
-    "noPermission": "Missing permission — Admin or Manager required to invite."
+    "failed": "دعوت ناموفق بود",
+    "signInFirst": "ابتدا وارد شوید و یک سازمان را فعال کنید.",
+    "noPermission": "مجوز کافی نیست — برای دعوت، مدیر یا راهبر لازم است."
   },
   "roles": {
     "title": "نقش های کاربری",
@@ -24,7 +24,7 @@
     },
     "admin": {
       "name": "مدیر",
-      "description": "Manage Finance, Automation, Team, and workspace modules."
+      "description": "مالی، اتوماسیون، تیم و ماژول‌های فضای کاری را مدیریت کنید."
     },
     "manager": {
       "name": "مدیر",
@@ -49,23 +49,23 @@
     "columnEmail": "ایمیل",
     "columnRole": "نقش",
     "columnStatus": "وضعیت",
-    "roleFor": "Role for {name}",
+    "roleFor": "نقش برای {name}",
     "emptyTitle": "هنوز عضوی نیست",
     "emptyDescription": "از همکاران دعوت کنید تا به این فضای کاری سازمانی بپیوندند.",
-    "updated": "Updated {name} to {role}",
+    "updated": "{name} به {role} به‌روز شد",
     "roleChangeFailed": "خرابی در تغییر"
   },
   "pending": {
-    "title": "Pending Invitations",
+    "title": "دعوت‌های در انتظار",
     "emptyTitle": "در انتظار دعوت",
-    "emptyDescription": "New invites appear here until accepted or expired.",
+    "emptyDescription": "دعوت‌های جدید تا پذیرش یا انقضا اینجا نمایش داده می‌شوند.",
     "expires": "{role} · expires {date}",
     "revoke": "لغو",
     "pending": "در حال بررسی"
   },
   "history": {
     "title": "تاریخچه دعوت",
-    "empty": "Accepted, expired, and revoked invitations will appear here."
+    "empty": "دعوت‌های پذیرفته، منقضی و لغوشده اینجا ظاهر می‌شوند."
   },
   "status": {
     "accepted": "accepted",

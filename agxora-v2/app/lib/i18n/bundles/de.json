@@ -14,7 +14,7 @@
     "signOut": "Abmelden",
     "contact": "Kontakt",
     "privacy": "Datenschutz",
-    "terms": "AGB",
+    "terms": "Bedingungen",
     "cookies": "Cookies",
     "imprint": "Impressum",
     "organization": "Organisation",
@@ -49,7 +49,7 @@
     "aiCrm": "KI CRM",
     "analytics": "Analysen",
     "billing": "Abrechnung",
-    "aiWorkspace": "AI-Arbeitsbereich",
+    "aiWorkspace": "KI-Arbeitsbereich",
     "customers": "Kunden",
     "automation": "Automatisierung",
     "financeTax": "Finanzen & Steuern",
@@ -60,12 +60,12 @@
     "toggleNavigation": "Navigation umschalten",
     "primary": "Primär",
     "menu": "Menü",
-    "search": "Suchen",
+    "search": "Suche",
     "notifications": "Benachrichtigungen",
     "profile": "Profil",
     "currentOrganization": "Aktuelle Organisation",
     "noNotifications": "Keine Benachrichtigungen",
-    "notificationsEmpty": "Sie sind auf dem neuesten Stand. Alerts und Erwähnungen erscheinen hier.",
+    "notificationsEmpty": "Alles erledigt. Hinweise und Erwähnungen erscheinen hier.",
     "accountSettings": "Kontoeinstellungen",
     "security": "Sicherheit",
     "themeToggle": "Schneller Themenwechsel. Einstellung: {mode}"
@@ -241,7 +241,7 @@
       "noNotifications": "Keine Rechnungsbenachrichtigungen.",
       "noticeInitial": "Die Abrechnung läuft über die kommerzielle Serviceschicht — kein Zahlungs-SDK in der Benutzeroberfläche.",
       "noticeActivated": "{planId} über {providerId} aktiviert (Scheinkasse).",
-      "noticeCheckoutFailed": "Check-out fehlgeschlagen. ",
+      "noticeCheckoutFailed": "Check-out fehlgeschlagen.",
       "noticeCancelled": "Abo gekündigt",
       "noticeRenewed": "Abonnement für den nächsten Zeitraum verlängert.",
       "noticeProfileSaved": "Rechnungsprofil gespeichert.",
@@ -290,7 +290,7 @@
       "regions": {
         "EU": "Europäische Union",
         "US": "Vereinigte Staaten von Amerika",
-        "MENA": "MenaCity in Arkansas USA",
+        "MENA": "MENA",
         "APAC": "APAC"
       }
     },
@@ -344,7 +344,7 @@
         "mock": "Mock (lokal)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "Anthropisch",
+        "anthropic": "Anthropic",
         "google": "Google",
         "openrouter": "OpenRouter",
         "ollama": "Ollama",
@@ -372,9 +372,16 @@
       "themeModeAria": "Theme-Modus",
       "resolvedAppearance": "Aufgelöstes Erscheinungsbild:",
       "accentColor": "Akzentfarbe",
-      "accentNotice": "Akzentpräferenz wird für zukünftige CSS-VAR-Verkabelung gespeichert — verändert das gesperrte Farbsystem noch nicht.",
+      "accentNotice": "Die Akzentfarbe wird für diese Sitzung gespeichert und ändert das gesperrte Farbsystem noch nicht.",
+      "accents": {
+        "cyan": "Cyan",
+        "blue": "Blau",
+        "emerald": "Smaragd",
+        "violet": "Violett",
+        "amber": "Bernstein"
+      },
       "density": "Dichte",
-      "compactMode": "Kompakt-Modus",
+      "compactMode": "Kompaktmodus",
       "compactModeDescription": "Reduzieren Sie die Polsterung über Enterprise-Tische und -Panels hinweg.",
       "animations": "Animationen",
       "animationsDescription": "Abschnittsbewegung und Schwebehebebühnen. Respektiert die Einstellung des Betriebssystems mit reduzierter Bewegung.",
@@ -407,7 +414,7 @@
       "panelDescription": "E-Mail, Push, Desktop, Mobil und modulspezifische Alerts.",
       "notice": "Benachrichtigungskanäle sind nur Präferenzen — Lieferadapter sind reserviert.",
       "email": "E-Mail",
-      "push": "Schieben ",
+      "push": "Schieben",
       "desktop": "Desktop",
       "mobile": "Mobil",
       "workflowAlerts": "Workflow-Warnungen",
@@ -741,8 +748,8 @@
     "skipToContent": "Zum Dashboard-Inhalt springen",
     "loading": "Dashboard wird geladen…",
     "hero": {
-      "ariaLabel": "AGXORA CORE Hero",
-      "eyebrow": "KI-Betriebsystem für Unternehmen",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "KI-Geschäftsbetriebssystem",
       "title": "AGXORA CORE",
       "subtitle": "Echtzeit-Intelligenz und operative Steuerung — die Kommandozentrale Ihres Workspace.",
       "ctaGetStarted": "Loslegen",
@@ -782,7 +789,7 @@
     "attention": {
       "title": "Aufmerksamkeit erforderlich",
       "ariaLabel": "Was Aufmerksamkeit braucht",
-      "empty": "Alles klar — derzeit keine dringenden Punkte.",
+      "empty": "Alles in Ordnung — derzeit keine dringenden Punkte.",
       "tone": {
         "critical": "Kritisch",
         "warning": "Warnung",
@@ -808,8 +815,8 @@
       }
     },
     "overview": {
-      "title": "Was passiert",
-      "subtitle": "Workspace-Kennzahlen für {name}",
+      "title": "Was gerade passiert",
+      "subtitle": "Kennzahlen für {name}",
       "fallbackName": "Ihren Workspace",
       "ariaLabel": "Geschäftsübersicht",
       "online": "Online",
@@ -841,7 +848,7 @@
         "openBilling": "Abrechnung öffnen"
       },
       "clientShell": {
-        "title": "Client-Shell",
+        "title": "Anwendungsshell",
         "caption": "Browsersitzung bereit — kein Live-Ops-Monitor",
         "shellLoaded": "Anwendungs-Shell geladen",
         "storesReady": "Lokale Workspace-Stores bereit"
@@ -856,8 +863,8 @@
       "title": "Letzte Aktivität",
       "subtitle": "Was sich heute geändert hat",
       "ariaLabel": "Letzte Aktivität",
-      "todayCount": "{count} HEUTE",
-      "localBadge": "LOKAL",
+      "todayCount": "{count} heute",
+      "localBadge": "Lokal",
       "emptyTitle": "Noch keine Aktivität",
       "emptyBody": "Workspace-Ereignisse erscheinen hier, wenn Sie Kunden, Projekte und mehr hinzufügen.",
       "addCustomer": "Kunde hinzufügen",
@@ -1131,7 +1138,7 @@
       "subtitle": "Willkommen zurück bei AGXORA.",
       "email": "E-Mail",
       "password": "Passwort",
-      "emailPlaceholder": "sie@firma.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Passwort",
       "rememberMe": "Angemeldet bleiben",
       "submit": "Anmelden",
@@ -1168,7 +1175,7 @@
       "firstNamePlaceholder": "Alex",
       "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "AGXORA GmbH",
-      "emailPlaceholder": "sie@firma.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Min. 8 Zeichen, Buchstaben + Zahlen",
       "confirmPasswordPlaceholder": "Passwort wiederholen",
       "failed": "Registrierung fehlgeschlagen",
@@ -1698,7 +1705,137 @@
       "intro": "Creator-Studio-Fundament — offizielle Plattform-Integrationen können später an diese Adapter angebunden werden. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
     },
     "industry": {
-      "intro": "Universale Business-Plattform — beim Onboarding wird später eine Branche gewählt. Jede Branche erhält dedizierte KI-Module ohne Abspaltung des CRM-Kerns."
+      "intro": "Universale Business-Plattform — beim Onboarding wird später eine Branche gewählt. Jede Branche erhält dedizierte KI-Module ohne Abspaltung des CRM-Kerns.",
+      "catalog": {
+        "business": {
+          "label": "Unternehmen",
+          "description": "Allgemeines B2B-Betriebssystem"
+        },
+        "freelancer": {
+          "label": "Freelancer",
+          "description": "CRM, Rechnungen und Kundenpipeline für Einzelunternehmer"
+        },
+        "creator": {
+          "label": "Creator",
+          "description": "Creator Studio und Marken-CRM"
+        },
+        "influencer": {
+          "label": "Influencer",
+          "description": "Sponsoring-CRM und Kampagnen-OS"
+        },
+        "agency": {
+          "label": "Agentur",
+          "description": "Lieferung und Retainer für mehrere Kunden"
+        },
+        "retail": {
+          "label": "Einzelhandel",
+          "description": "Filialbestand, POS und Treue"
+        },
+        "restaurant": {
+          "label": "Restaurant",
+          "description": "Reservierungen, Küche und Lieferung"
+        },
+        "hotel": {
+          "label": "Hotel",
+          "description": "Zimmer, Gäste und Housekeeping"
+        },
+        "laundry": {
+          "label": "Wäscherei",
+          "description": "Abholung, Tickets und Routenlogistik"
+        },
+        "healthcare": {
+          "label": "Gesundheitswesen",
+          "description": "Patienten, Termine, Compliance"
+        },
+        "law_firm": {
+          "label": "Kanzlei",
+          "description": "Mandate, Abrechnung und Dokumentensafe"
+        },
+        "accounting": {
+          "label": "Buchhaltung",
+          "description": "Mandantenbücher und DATEV-exporte"
+        },
+        "construction": {
+          "label": "Bau",
+          "description": "Baustellen, Teams und Fortschrittsabrechnung"
+        },
+        "real_estate": {
+          "label": "Immobilien",
+          "description": "Inserate, Besichtigungen und Abschlüsse"
+        },
+        "education": {
+          "label": "Bildung",
+          "description": "Studierende, Kurse und Einschreibung"
+        },
+        "manufacturing": {
+          "label": "Fertigung",
+          "description": "Stückliste, Fertigung und QS"
+        },
+        "logistics": {
+          "label": "Logistik",
+          "description": "Flotte, Sendungsverfolgung und Lieferscheine"
+        },
+        "ecommerce": {
+          "label": "E-Commerce",
+          "description": "Katalog, Warenkörbe und Omnichannel-Aufträge"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Vertrieb",
+        "finance": "Finanzen",
+        "projects": "Projekte",
+        "clients": "Kunden",
+        "proposals": "Angebote",
+        "time_tracking": "Zeiterfassung",
+        "invoices": "Rechnungen",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Markenkooperationen",
+        "content_calendar": "Content-Kalender",
+        "sponsorships": "Sponsorings",
+        "audience_insights": "Zielgruppen-Insights",
+        "campaigns": "Kampagnen",
+        "client_portals": "Kundenportale",
+        "retainers": "Retainer",
+        "campaign_ops": "Kampagnenbetrieb",
+        "inventory": "Bestand",
+        "pos": "POS",
+        "loyalty": "Treue",
+        "reservations": "Reservierungen",
+        "menu": "Speisekarte",
+        "kitchen_display": "Küchenanzeige",
+        "housekeeping": "Housekeeping",
+        "guest_crm": "Gäste-CRM",
+        "tickets": "Tickets",
+        "routes": "Routen",
+        "delivery_notes": "Lieferscheine",
+        "patients": "Patienten",
+        "appointments": "Termine",
+        "compliance": "Compliance",
+        "matters": "Mandate",
+        "billing": "Abrechnung",
+        "documents": "Dokumente",
+        "client_books": "Mandantenbücher",
+        "datev": "DATEV",
+        "tax_deadlines": "Steuerfristen",
+        "sites": "Baustellen",
+        "crews": "Teams",
+        "progress_billing": "Fortschrittsabrechnung",
+        "listings": "Inserate",
+        "viewings": "Besichtigungen",
+        "closings": "Abschlüsse",
+        "students": "Studierende",
+        "courses": "Kurse",
+        "enrollment": "Einschreibung",
+        "bom": "BOM",
+        "production": "Fertigung",
+        "qc": "QC",
+        "fleet": "Flotte",
+        "tracking": "Sendungsverfolgung",
+        "catalog": "Katalog",
+        "orders": "Aufträge",
+        "fulfillment": "Fulfillment"
+      }
     },
     "kpi": {
       "customers": {
@@ -2769,7 +2906,7 @@
         "activeProjects": "Aktive Projekte",
         "activeHint": "{planning} Planung",
         "completed": "Abgeschlossen",
-        "completedHint": "{percent}% des Portfolios",
+        "completedHint": "{percent} % des Portfolios",
         "onHold": "Wartend",
         "onHoldHint": "{archived} archiviert",
         "teamMembers": "Teammitglieder",
@@ -2831,7 +2968,7 @@
       "missingTitle": "Fehlende Projekt-ID",
       "missingDescription": "Wählen Sie ein Projekt aus, um die Übersicht anzuzeigen.",
       "title": "Übersicht",
-      "noDescription": "No description provided.",
+      "noDescription": "Keine Beschreibung vorhanden.",
       "budget": "Budget",
       "spent": "Verausgabt",
       "start": "Beginnen",
@@ -2911,9 +3048,9 @@
       "projectDeleted": "Projekt gelöscht",
       "checkForm": "Formular prüfen",
       "validationFailed": "Validierung fehlgeschlagen.",
-      "taskCreated": "Aufgabe erstellt ",
-      "taskUpdated": "Aufgabe aktualisiert ",
-      "taskCompleted": "Aufgabe abgeschlossen ",
+      "taskCreated": "Aufgabe erstellt",
+      "taskUpdated": "Aufgabe aktualisiert",
+      "taskCompleted": "Aufgabe abgeschlossen",
       "taskDeleted": "Aufgabe gelöscht.",
       "filesUploaded": "Dateien hochgeladen",
       "filesUploadedDetail": "{count} Datei(en)",
@@ -2977,8 +3114,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Optimierungsvorschläge:",
       "oneClickOptimize": "Ein-Klick-Optimierung",
-      "noticeDefault": "One Click Optimize ist noch keine Graph-Mutation.",
-      "noticeQueued": "Optimierung in der Warteschlange. Zukünftige Engine schreibt Verzögerungen und Genehmigungen neu."
+      "noticeDefault": "Ein-Klick-Optimierung ändert den Graphen noch nicht.",
+      "noticeQueued": "Optimierung vorgemerkt. Eine künftige Engine schreibt Verzögerungen und Freigaben um.",
+      "score": {
+        "healthy": "Gesund",
+        "needsAttention": "Handlungsbedarf",
+        "atRisk": "Gefährdet"
+      },
+      "kinds": {
+        "missing_approval": "Freigabe",
+        "possible_delay": "Verzögerung",
+        "unused_trigger": "Auslöser",
+        "duplicate_nodes": "Duplikate",
+        "unused_action": "Aktion",
+        "security": "Sicherheit",
+        "performance": "Leistung"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Fehlende Freigabe",
+          "description": "Längere Abläufe profitieren oft von einer Freigabe vor Seiteneffekten."
+        },
+        "possible_delay": {
+          "title": "Mögliche Verzögerung",
+          "description": "Erwägen Sie eine Verzögerung vor Erinnerungs-E-Mails, um Lastspitzen zu vermeiden."
+        },
+        "unused_trigger": {
+          "title": "Unbenutzter Auslöser",
+          "description": "Dieser Graph hat keinen Startauslöser — fügen Sie einen vor der Aktivierung hinzu."
+        },
+        "duplicate_nodes": {
+          "title": "Doppelte Knoten",
+          "description": "„{label}“ kommt {count}-mal vor — konsolidieren Sie, falls überflüssig."
+        },
+        "unused_action": {
+          "title": "Unbenutzte Aktion",
+          "description": "{label} ist nicht verbunden — verdrahten oder entfernen."
+        },
+        "security": {
+          "title": "Sicherheitsempfehlung",
+          "description": "Nutzen Sie Adapter mit geringsten Rechten für Webhook- und E-Mail-Aktionen."
+        },
+        "performance": {
+          "title": "Leistungsempfehlung",
+          "description": "Bündeln Sie KI-Schritte, wo möglich, um die mittlere Laufzeit zu senken."
+        }
+      }
     },
     "integrations": {
       "intro": "Integrationscenter — optional. Status: Verbunden, Beta, Geplant, Demnächst verfügbar, Deaktiviert. Keine Live-APIs.",
@@ -3029,7 +3210,7 @@
       "zoomOut": "−",
       "zoomIn": "+",
       "resetView": "Ansicht zurücksetzen",
-      "emptyTitle": "Leere Leinwand ",
+      "emptyTitle": "Leere Leinwand",
       "emptyDescription": "Ziehen Sie einen Auslöser aus der Palette, um mit dem Bauen zu beginnen. Snap-to-Grid hält Knoten ausgerichtet.",
       "connectHint": "Doppelklicken Sie auf das Ziel, um eine Verbindung herzustellen",
       "miniMapAria": "Minikarte"
@@ -3410,7 +3591,7 @@
         "description": "Wird ausgelöst, wenn eine Rechnung ausgestellt wird."
       },
       "task_completed": {
-        "label": "Aufgabe abgeschlossen ",
+        "label": "Aufgabe abgeschlossen",
         "description": "Wird ausgelöst, wenn eine Aufgabe als erledigt markiert wird."
       },
       "document_uploaded": {
@@ -3690,7 +3871,7 @@
     },
     "mobileTabs": {
       "chat": "Chat",
-      "conversations": "Unterhaltungen ",
+      "conversations": "Unterhaltungen",
       "prompts": "Anzeigen"
     },
     "usageBar": {
@@ -3708,7 +3889,7 @@
       "emptyHint": "Starten Sie eine Konversation, wählen Sie eine Eingabeaufforderung aus der Bibliothek oder öffnen Sie die Befehlspalette (+⇧K / Strg +⇧K)."
     },
     "conversationSidebar": {
-      "title": "Unterhaltungen ",
+      "title": "Unterhaltungen",
       "new": "Neu",
       "searchPlaceholder": "Chats suchen",
       "searchAria": "Unterhaltungen suchen",
@@ -4305,7 +4486,7 @@
       "sharingBody": "Wir setzen geprüfte Auftragsverarbeiter (Hosting, E-Mail, Zahlungen) im Rahmen entsprechender Verträge ein. Wir verkaufen keine personenbezogenen Daten.",
       "yourRights": "6. Ihre Rechte",
       "yourRightsBodyBefore": "Abhängig von Ihrem Standort können Sie Zugriff, Korrektur, Löschung, Einschränkung, Übertragbarkeit oder Widerspruch verlangen. Kontakt",
-      "yourRightsBodyAfter": "Außerdem hast Du das Recht auf <g id=\"1\">Beschwerde bei einer Aufsichtsbehörde</g>. ",
+      "yourRightsBodyAfter": "Außerdem hast Du das Recht auf Beschwerde bei einer Aufsichtsbehörde.",
       "cookies": "7. Cookies",
       "cookiesBodyBefore": "S. den",
       "cookiesBodyAfter": "für Details zu essentiellen und optionalen Cookies.",
@@ -4358,7 +4539,7 @@
       "managingBody": "Sie können nicht wesentliche Cookies über die Browsereinstellungen und, sobald verfügbar, über unser Vor-Ort-Einstellungscenter steuern. Das Blockieren wesentlicher Cookies kann die Anmeldung oder die Verwendung des Kernprodukts verhindern.",
       "moreInfo": "4. Weitere Informationen",
       "moreInfoBodyBefore": "Siehe die",
-      "moreInfoBodyMiddle": "oder kontaktieren Sie "
+      "moreInfoBodyMiddle": "oder kontaktieren Sie"
     },
     "imprint": {
       "title": "Impressum",
@@ -4726,7 +4907,7 @@
     "skipToMain": "     Skip to main content",
     "offline": {
       "title": "You are offline",
-      "message": "Check your connection and retry when you are back online. Cached screens may still work.",
+      "message": "Prüfen Sie die Verbindung und versuchen Sie es erneut, sobald Sie wieder online sind. Zwischengespeicherte Ansichten können weiter funktionieren.",
       "home": "Start",
       "contact": "Kontakt",
       "signIn": "Anmelden"

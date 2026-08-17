@@ -2,8 +2,8 @@
   "skipToContent": "ダッシュボードのコンテンツにスキップ",
   "loading": "ダッシュボードを読み込み中…",
   "hero": {
-    "ariaLabel": "AGXORA CORE ヒーロー",
-    "eyebrow": "AI事業オペレーティングシステム",
+    "ariaLabel": "AGXORA CORE",
+    "eyebrow": "AIビジネスオペレーティングシステム",
     "title": "アグソラコア",
     "subtitle": "リアルタイムのインテリジェンスと運用制御 - ワークスペースのコマンド サーフェス。",
     "ctaGetStarted": "始めましょう",
@@ -13,11 +13,11 @@
   },
   "quickActions": {
     "title": "クイックアクション",
-    "subtitle": "次に何をすべきでしょうか?",
+    "subtitle": "次に何をしますか？",
     "ariaLabel": "クイックアクション",
     "addCustomer": {
       "label": "顧客を追加",
-      "description": "CRMレコードを作成する"
+      "description": "CRMレコードを作成"
     },
     "newProject": {
       "label": "新しいプロジェクト",
@@ -28,7 +28,7 @@
       "description": "AI ワークスペースを開く"
     },
     "finance": {
-      "label": "ファイナンス",
+      "label": "財務",
       "description": "請求書とキャッシュフロー"
     },
     "automations": {
@@ -43,9 +43,9 @@
   "attention": {
     "title": "注意が必要です",
     "ariaLabel": "注意が必要なこと",
-    "empty": "ご承知のとおり、今のところ緊急の事項はありません。",
+    "empty": "問題ありません。緊急の項目はありません。",
     "tone": {
-      "critical": "致命的",
+      "critical": "重大",
       "warning": "警告",
       "info": "情報",
       "success": "準備ができて",
@@ -69,15 +69,15 @@
     }
   },
   "overview": {
-    "title": "何が起こっている",
-    "subtitle": "{name} のワークスペース数",
+    "title": "いま起きていること",
+    "subtitle": "{name}のワークスペース集計",
     "fallbackName": "あなたのワークスペース",
     "ariaLabel": "事業概要",
     "online": "オンライン",
     "emDash": "—",
     "capacitySignal": "{percent}% 容量信号",
     "activeClients": {
-      "title": "アクティブなクライアント",
+      "title": "アクティブな顧客",
       "captionEmpty": "アクティブな顧客はまだいません",
       "captionTotal": "ワークスペース内の合計 {count}",
       "add": "顧客を追加",
@@ -97,15 +97,15 @@
       "viewFeed": "フィードを見る"
     },
     "revenue": {
-      "title": "収益",
+      "title": "売上",
       "caption": "請求を接続して MRR を表示する",
-      "openBilling": "オープン請求"
+      "openBilling": "請求を開く"
     },
     "clientShell": {
-      "title": "クライアントシェル",
+      "title": "アプリケーションシェル",
       "caption": "ブラウザセッションの準備完了 — ライブ運用モニターではない",
       "shellLoaded": "アプリケーションシェルがロードされました",
-      "storesReady": "ローカルワークスペースストアの準備ができました"
+      "storesReady": "ローカルワークスペースストアの準備完了"
     },
     "growth": {
       "title": "成長",
@@ -117,8 +117,8 @@
     "title": "最近の活動",
     "subtitle": "今日何が変わったか",
     "ariaLabel": "最近の活動",
-    "todayCount": "今日は {count} 個",
-    "localBadge": "地元",
+    "todayCount": "今日 {count} 件",
+    "localBadge": "ローカル",
     "emptyTitle": "まだ活動はありません",
     "emptyBody": "顧客やプロジェクトなどを追加すると、ワークスペース イベントがここに表示されます。",
     "addCustomer": "顧客を追加",

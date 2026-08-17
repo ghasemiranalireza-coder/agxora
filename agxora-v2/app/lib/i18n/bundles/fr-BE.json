@@ -14,16 +14,16 @@
     "signOut": "Se déconnecter",
     "contact": "Contact",
     "privacy": "Confidentialité",
-    "terms": "Termes",
+    "terms": "Conditions",
     "cookies": "Cookies",
-    "imprint": "Imprimer",
+    "imprint": "Mentions légales",
     "organization": "Organisation",
     "user": "Utilisateur",
     "guest": "Invité",
     "member": "Membre",
     "role": "Rôle",
     "signedIn": "Connecté",
-    "guestSession": "Séance invité",
+    "guestSession": "Session invité",
     "noResults": "Aucun résultat",
     "noData": "Aucune donnée",
     "comingSoon": "À venir",
@@ -65,7 +65,7 @@
     "profile": "Profil",
     "currentOrganization": "Organisation actuelle",
     "noNotifications": "Aucune notification",
-    "notificationsEmpty": "Vous êtes tous rattrapés. Les alertes et mentions apparaîtront ici.",
+    "notificationsEmpty": "Vous êtes à jour. Les alertes et mentions apparaîtront ici.",
     "accountSettings": "Paramètres du compte",
     "security": "Sécurité",
     "themeToggle": "Bascule rapide du thème. Préférence : {mode}"
@@ -290,7 +290,7 @@
       "regions": {
         "EU": "Union européenne",
         "US": "États-Unis",
-        "MENA": "MENA ",
+        "MENA": "MENA",
         "APAC": "Asie-Pacifique"
       }
     },
@@ -324,7 +324,7 @@
       "preferredProvider": "Fournisseur d'IA préféré",
       "defaultModel": "Modèle d'IA par défaut",
       "temperature": "Température",
-      "topP": "Haut P",
+      "topP": "Top P",
       "maxTokens": "Nombre maximum de jetons",
       "writingStyle": "Style d'écriture",
       "languagePreferences": "Выбор языка",
@@ -341,10 +341,10 @@
       "streaming": "Streaming",
       "streamingDescription": "Diffusez les réponses du modèle lorsque le fournisseur le prend en charge.",
       "providers": {
-        "mock": "Maquette (locale)",
+        "mock": "Mock (local)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "Anthropique",
+        "anthropic": "Anthropic",
         "google": "Google",
         "openrouter": "OuvrirRouter",
         "ollama": "Ollama",
@@ -369,10 +369,17 @@
       "panelDescription": "Thème, densité, accent, animations et effets de verre.",
       "noticeTheme": "Le mode Thème est la seule source de vérité via ThemeProvider. L’en-tête offre uniquement une bascule rapide.",
       "themeLabel": "Thème",
-      "themeModeAria": "Mode theme ",
+      "themeModeAria": "Mode theme",
       "resolvedAppearance": "Apparence résolue :",
-      "accentColor": "Couleur du contraste",
-      "accentNotice": "La préférence d'accent est stockée pour le futur câblage des variables CSS - ne modifie pas encore le système de couleurs verrouillé.",
+      "accentColor": "Couleur d’accent",
+      "accentNotice": "La préférence d’accent est enregistrée pour cette session et ne modifie pas encore le système de couleurs verrouillé.",
+      "accents": {
+        "cyan": "Cyan",
+        "blue": "Bleu",
+        "emerald": "Émeraude",
+        "violet": "Violet",
+        "amber": "Ambre"
+      },
       "density": "Densité",
       "compactMode": "Mode compact",
       "compactModeDescription": "Réduisez le rembourrage sur les tables et les panneaux d'entreprise.",
@@ -741,8 +748,8 @@
     "skipToContent": "Passer au contenu du tableau de bord",
     "loading": "Chargement du tableau de bord",
     "hero": {
-      "ariaLabel": "Héros AGXORA CORE",
-      "eyebrow": "Système d'exploitation d'entreprise IA",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "Système d’exploitation métier IA",
       "title": "NOYAU AGXORA",
       "subtitle": "Intelligence en temps réel et contrôle opérationnel : la surface de commande de votre espace de travail.",
       "ctaGetStarted": "Commencer",
@@ -752,11 +759,11 @@
     },
     "quickActions": {
       "title": "Actions rapides",
-      "subtitle": "Que devez-vous faire ensuite&#xA0;? ",
+      "subtitle": "Que devez-vous faire ensuite ?",
       "ariaLabel": "Actions rapides",
       "addCustomer": {
         "label": "Ajouter un client",
-        "description": "Créer un fiche"
+        "description": "Créer une fiche CRM"
       },
       "newProject": {
         "label": "Nouveau projet",
@@ -782,11 +789,11 @@
     "attention": {
       "title": "A besoin d'attention",
       "ariaLabel": "Nécessite de l’attention",
-      "empty": "Vous êtes clair : aucun élément urgent pour le moment.",
+      "empty": "Tout est en ordre — aucun élément urgent pour le moment.",
       "tone": {
         "critical": "Critique",
         "warning": "Avertissement",
-        "info": "Informations",
+        "info": "Info",
         "success": "Prêt",
         "action": "Faire ensuite"
       },
@@ -809,14 +816,14 @@
     },
     "overview": {
       "title": "Ce qui se passe",
-      "subtitle": "L'espace de travail compte pour {name}",
+      "subtitle": "Compteurs de l’espace pour {name}",
       "fallbackName": "Votre espace de travail",
       "ariaLabel": "Aperçu de l'entreprise",
       "online": "En ligne",
       "emDash": "—",
       "capacitySignal": "{percent} % du signal de capacité",
       "activeClients": {
-        "title": "Clients Actifs",
+        "title": "Clients actifs",
         "captionEmpty": "Pas encore de clients actifs",
         "captionTotal": "{count} au total dans l'espace de travail",
         "add": "Ajouter un client",
@@ -836,15 +843,15 @@
         "viewFeed": "Voir le flux"
       },
       "revenue": {
-        "title": "Revenu",
+        "title": "Chiffre d’affaires",
         "caption": "Connectez la facturation pour afficher le MRR",
-        "openBilling": "Facturation ouverte"
+        "openBilling": "Ouvrir la facturation"
       },
       "clientShell": {
-        "title": "Coquille client",
+        "title": "Coque applicative",
         "caption": "Session du navigateur prête — pas un moniteur d'opérations en direct",
         "shellLoaded": "Shell d'application chargé",
-        "storesReady": "Les magasins d'espace de travail local sont prêts"
+        "storesReady": "Stores locaux de l’espace prêts"
       },
       "growth": {
         "title": "Croissance",
@@ -856,8 +863,8 @@
       "title": "Activité récente",
       "subtitle": "Qu'est-ce qui a changé aujourd'hui?",
       "ariaLabel": "Activité récente",
-      "todayCount": "{count} AUJOURD'HUI",
-      "localBadge": "LOCALE",
+      "todayCount": "{count} aujourd’hui",
+      "localBadge": "Local",
       "emptyTitle": "Aucune activité pour le moment",
       "emptyBody": "Les événements de l'espace de travail apparaîtront ici lorsque vous ajouterez des clients, des projets et plus encore.",
       "addCustomer": "Ajouter un client",
@@ -1128,12 +1135,12 @@
   "auth": {
     "login": {
       "title": "Se connecter",
-      "subtitle": "Bienvenue chez AGXORA.",
+      "subtitle": "Bon retour sur AGXORA.",
       "email": "E-mail",
       "password": "Mot de passe",
-      "emailPlaceholder": "vous@entreprise.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Mot de passe",
-      "rememberMe": "Mémoriser",
+      "rememberMe": "Se souvenir de moi",
       "submit": "Se connecter",
       "submitting": "Connexion…",
       "noAccount": "Pas encore de compte ?",
@@ -1153,7 +1160,7 @@
       "company": "Entreprise",
       "password": "Mot de passe",
       "confirmPassword": "Confirmez le mot de passe",
-      "acceptTerms": "J'accepte le",
+      "acceptTerms": "J’accepte les",
       "termsOfService": "Conditions d'utilisation",
       "and": "et",
       "privacyPolicy": "Politique de Confidentialité",
@@ -1163,12 +1170,12 @@
       "signIn": "Se connecter",
       "strength": "Force du mot de passe",
       "strengthWeak": "Faible",
-      "strengthFair": "Équitable",
+      "strengthFair": "Moyen",
       "strengthStrong": "Fort",
       "firstNamePlaceholder": "Alex",
       "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "AGXORA GmbH",
-      "emailPlaceholder": "vous@entreprise.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Min 8 caractères, lettres + chiffres",
       "confirmPasswordPlaceholder": "Répéter le mot de passe",
       "failed": "Échec de l'inscription",
@@ -1199,7 +1206,7 @@
       "loading": "Réinitialiser le mot de passe"
     },
     "contactSales": {
-      "title": "Contact commercial",
+      "title": "Contacter les ventes",
       "subtitle": "Parlez-nous de votre équipe. Nous ferons un suivi avec les options d'entreprise.",
       "name": "Nom et prénom",
       "email": "Adresse e-mail professionnelle",
@@ -1218,7 +1225,7 @@
       "successTitle": "Merci",
       "successBody": "Votre demande a été reçue. Notre équipe vous répondra sous peu.",
       "viewPricing": "Voir la tarification",
-      "bookDemo": "Livre démo",
+      "bookDemo": "Réserver une démo",
       "failed": "Impossible de soumettre la demande",
       "country": "Pays",
       "savedFor": "Enregistré pour {company}. La livraison commerciale n’est pas connectée dans cette version.",
@@ -1270,7 +1277,7 @@
       },
       "customer360": {
         "title": "Client 360",
-        "subtitle": "Profil, entreprise, contacts, commandes, factures, Lieferscheine, paiements, documents, calendrier, activités, notes, résumé de l'IA et historique des communications."
+        "subtitle": "Profil, entreprise, contacts, commandes, factures, bons de livraison, paiements, documents, calendrier, activités, notes, résumé de l'IA et historique des communications."
       },
       "salesPipeline": {
         "title": "Le pipeline des ventes",
@@ -1281,11 +1288,11 @@
       },
       "deliveryModule": {
         "title": "Module de livraison",
-        "subtitle": "Système professionnel Lieferschein avec suivi, signature, QR et préparation aux codes à barres."
+        "subtitle": "Système professionnel bon de livraison avec suivi, signature, QR et préparation aux codes à barres."
       },
       "documentsModule": {
         "title": "Documents",
-        "subtitle": "Devis, contrats, factures, Lieferschein, bons de commande, reçus — avec recherche AI."
+        "subtitle": "Devis, contrats, factures, bon de livraison, bons de commande, reçus — avec recherche AI."
       },
       "tasksModule": {
         "title": "Tâches"
@@ -1577,7 +1584,7 @@
         "contacts": "Contacts",
         "orders": "Ordres",
         "invoices": "Factures",
-        "lieferscheine": "Lieferscheine",
+        "lieferscheine": "bons de livraison",
         "payments": "Paiements",
         "documents": "Documents",
         "timeline": "Chronologie",
@@ -1596,7 +1603,7 @@
       }
     },
     "delivery": {
-      "title": "Système Lieferschein professionnel",
+      "title": "Système bon de livraison professionnel",
       "description": "Bons de livraison, ramassage / livraison, chauffeur, véhicule et suivi — enregistrements d'échantillons uniquement. Les adaptateurs d'exportation ne sont pas connectés.",
       "badges": {
         "qrUnavailable": "QR indisponible",
@@ -1611,7 +1618,7 @@
         "historyNotConnected": "Le magasin d’historique de livraison n’est pas connecté dans cette version."
       },
       "columns": {
-        "lieferschein": "Lieferschein",
+        "lieferschein": "bon de livraison",
         "order": "Ordre",
         "customer": "Client",
         "kind": "Gentil",
@@ -1668,7 +1675,7 @@
       "emptyTitle": "Aucun document",
       "emptyDescription": "Aucun document ne correspond à cette recherche.",
       "searchLabel": "Recherche IA",
-      "searchPlaceholder": "Devis, contrats, factures, Lieferschein…",
+      "searchPlaceholder": "Devis, contrats, factures, bon de livraison…",
       "typeLabel": "Type de document",
       "allTypes": "Tous types",
       "columns": {
@@ -1682,7 +1689,7 @@
         "quote": "Cours",
         "contract": "Contrats",
         "invoice": "Factures",
-        "lieferschein": "Lieferschein",
+        "lieferschein": "bon de livraison",
         "purchase_order": "Bons de Commandes",
         "receipt": "Recettes"
       }
@@ -1698,7 +1705,137 @@
       "intro": "Fondation Creator Studio : les intégrations de plate-forme officielles peuvent se connecter à ces adaptateurs ultérieurement. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
     },
     "industry": {
-      "intro": "Universal Business Platform – l’intégration choisira plus tard un secteur. Chaque secteur reçoit des modules d'IA dédiés sans bifurquer du système d'exploitation CRM principal."
+      "intro": "Universal Business Platform – l’intégration choisira plus tard un secteur. Chaque secteur reçoit des modules d'IA dédiés sans bifurquer du système d'exploitation CRM principal.",
+      "catalog": {
+        "business": {
+          "label": "Entreprise",
+          "description": "Système d’exploitation B2B général"
+        },
+        "freelancer": {
+          "label": "Freelance",
+          "description": "CRM, factures et pipeline client pour indépendants"
+        },
+        "creator": {
+          "label": "Créateur",
+          "description": "Creator Studio + CRM de marque"
+        },
+        "influencer": {
+          "label": "Influenceur",
+          "description": "CRM sponsoring et OS campagnes"
+        },
+        "agency": {
+          "label": "Agence",
+          "description": "Livraison multi-clients et retainers"
+        },
+        "retail": {
+          "label": "Commerce",
+          "description": "Stock magasin, POS et fidélité"
+        },
+        "restaurant": {
+          "label": "Restaurant",
+          "description": "Réservations, cuisine et livraison"
+        },
+        "hotel": {
+          "label": "Hôtel",
+          "description": "Chambres, clients et housekeeping"
+        },
+        "laundry": {
+          "label": "Blanchisserie",
+          "description": "Enlèvement, tickets et logistique d’itinéraires"
+        },
+        "healthcare": {
+          "label": "Santé",
+          "description": "Patients, rendez-vous, conformité"
+        },
+        "law_firm": {
+          "label": "Cabinet d’avocats",
+          "description": "Dossiers, facturation et coffre documentaire"
+        },
+        "accounting": {
+          "label": "Comptabilité",
+          "description": "Livres clients et exports DATEV"
+        },
+        "construction": {
+          "label": "Construction",
+          "description": "Chantiers, équipes et facturation d’avancement"
+        },
+        "real_estate": {
+          "label": "Immobilier",
+          "description": "Annonces, visites et clôtures"
+        },
+        "education": {
+          "label": "Éducation",
+          "description": "Étudiants, cours et inscriptions"
+        },
+        "manufacturing": {
+          "label": "Fabrication",
+          "description": "Nomenclature, production et CQ"
+        },
+        "logistics": {
+          "label": "Logistique",
+          "description": "Flotte, suivi et bons de livraison"
+        },
+        "ecommerce": {
+          "label": "E-commerce",
+          "description": "Catalogue, paniers et commandes omnicanales"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Ventes",
+        "finance": "Finance",
+        "projects": "Projets",
+        "clients": "Clients",
+        "proposals": "Propositions",
+        "time_tracking": "Suivi du temps",
+        "invoices": "Factures",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Accords de marque",
+        "content_calendar": "Calendrier éditorial",
+        "sponsorships": "Sponsoring",
+        "audience_insights": "Insights audience",
+        "campaigns": "Campagnes",
+        "client_portals": "Portails clients",
+        "retainers": "Retainers",
+        "campaign_ops": "Ops campagnes",
+        "inventory": "Stocks",
+        "pos": "POS",
+        "loyalty": "Fidélité",
+        "reservations": "Réservations",
+        "menu": "Carte",
+        "kitchen_display": "Affichage cuisine",
+        "housekeeping": "Housekeeping",
+        "guest_crm": "CRM invités",
+        "tickets": "Tickets",
+        "routes": "Itinéraires",
+        "delivery_notes": "Bons de livraison",
+        "patients": "Patients",
+        "appointments": "Rendez-vous",
+        "compliance": "Conformité",
+        "matters": "Dossiers",
+        "billing": "Facturation",
+        "documents": "Documents",
+        "client_books": "Livres clients",
+        "datev": "DATEV",
+        "tax_deadlines": "Échéances fiscales",
+        "sites": "Chantiers",
+        "crews": "Équipes",
+        "progress_billing": "Facturation d’avancement",
+        "listings": "Annonces",
+        "viewings": "Visites",
+        "closings": "Clôtures",
+        "students": "Étudiants",
+        "courses": "Cours",
+        "enrollment": "Inscription",
+        "bom": "BOM",
+        "production": "Production",
+        "qc": "QC",
+        "fleet": "Flotte",
+        "tracking": "Suivi",
+        "catalog": "Catalogue",
+        "orders": "Commandes",
+        "fulfillment": "Exécution"
+      }
     },
     "kpi": {
       "customers": {
@@ -1762,7 +1899,7 @@
       "quote": "Citation",
       "contract": "Contracter",
       "invoice": "Facture",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "bon de livraison",
       "purchase_order": "Bon de commande",
       "receipt": "Reçu"
     },
@@ -1829,7 +1966,7 @@
           "delta": "+8.4%"
         },
         "expenses": {
-          "label": "Dépenses&#10;",
+          "label": "Dépenses",
           "caption": "Échantillon · fonctionnement + COGS",
           "delta": "+2.1%"
         },
@@ -2042,7 +2179,7 @@
         "missing_invoice": "Factures manquantes",
         "late_payment": "Retards de paiement",
         "cashflow_prediction": "Prévision de trésorerie",
-        "tax_optimization": "Optimisation fiscale "
+        "tax_optimization": "Optimisation fiscale"
       }
     },
     "search": {
@@ -2158,7 +2295,7 @@
         "delta": "{percent}"
       },
       "approvals": {
-        "label": "Approbations en attente ",
+        "label": "Approbations en attente",
         "caption": "Exemple · automatisation non connectée",
         "delta": "{count}"
       },
@@ -2769,7 +2906,7 @@
         "activeProjects": "Projets actifs",
         "activeHint": "{planning} planification",
         "completed": "Terminé",
-        "completedHint": "{percent}% of portfolio",
+        "completedHint": "{percent} % du portefeuille",
         "onHold": "En attente",
         "onHoldHint": "{archived} archivé",
         "teamMembers": "Membres d’équipe",
@@ -2831,7 +2968,7 @@
       "missingTitle": "le projet manquant",
       "missingDescription": "Sélectionnez un projet pour afficher son aperçu.",
       "title": "Aperçu",
-      "noDescription": "Aucune description fournie.",
+      "noDescription": "Aucune description.",
       "budget": "Budget",
       "spent": "Dépensé",
       "start": "Commencer",
@@ -2977,12 +3114,56 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Suggestions d'optimisation",
       "oneClickOptimize": "Optimiser en un clic",
-      "noticeDefault": "One Click Optimize n'est pas encore une mutation graphique.",
-      "noticeQueued": "Optimiser la file d'attente. Le futur moteur réécrira les délais et les approbations."
+      "noticeDefault": "L’optimisation en un clic ne modifie pas encore le graphe.",
+      "noticeQueued": "Optimisation en file. Un futur moteur réécrira délais et validations.",
+      "score": {
+        "healthy": "Sain",
+        "needsAttention": "À surveiller",
+        "atRisk": "À risque"
+      },
+      "kinds": {
+        "missing_approval": "Approbation",
+        "possible_delay": "Délai",
+        "unused_trigger": "Déclencheur",
+        "duplicate_nodes": "Doublons",
+        "unused_action": "Action",
+        "security": "Sécurité",
+        "performance": "Performance"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Approbation manquante",
+          "description": "Les flux longs bénéficient souvent d’une validation avant les effets de bord."
+        },
+        "possible_delay": {
+          "title": "Délai possible",
+          "description": "Envisagez un délai avant les e-mails de relance pour éviter les rafales."
+        },
+        "unused_trigger": {
+          "title": "Déclencheur inutilisé",
+          "description": "Ce graphe n’a pas de déclencheur de départ — ajoutez-en un avant activation."
+        },
+        "duplicate_nodes": {
+          "title": "Nœuds en double",
+          "description": "« {label} » apparaît {count} fois — fusionnez si redondant."
+        },
+        "unused_action": {
+          "title": "Action inutilisée",
+          "description": "{label} n’est pas connecté — reliez-le ou retirez-le."
+        },
+        "security": {
+          "title": "Recommandation de sécurité",
+          "description": "Préférez des adaptateurs au moindre privilège pour les webhooks et e-mails."
+        },
+        "performance": {
+          "title": "Recommandation de performance",
+          "description": "Regroupez les étapes IA si possible pour réduire le temps d’exécution moyen."
+        }
+      }
     },
     "integrations": {
       "intro": "Centre d'intégration : facultatif. Statuts : Connecté, Bêta, Planifié, Bientôt disponible, Désactivé. Aucune API en direct.",
-      "category": "Catégorie : ",
+      "category": "Catégorie :",
       "reservedAdapter": "Adaptateur réservé :",
       "description": "Description:"
     },
@@ -4723,10 +4904,10 @@
       "message": "Une erreur inattendue s'est produite, veuillez réessayer plus tard. Merci.",
       "retry": "Réessayer"
     },
-    "skipToMain": "Aller au contenu principal&#10;",
+    "skipToMain": "Aller au contenu principal",
     "offline": {
       "title": "Vous êtes hors ligne",
-      "message": "Vérifiez votre connexion et réessayez lorsque vous serez de nouveau en ligne. Les écrans mis en cache peuvent toujours fonctionner.",
+      "message": "Vérifiez votre connexion et réessayez une fois de retour en ligne. Les écrans en cache peuvent encore fonctionner.",
       "home": "Maison",
       "contact": "Contact",
       "signIn": "Se connecter"

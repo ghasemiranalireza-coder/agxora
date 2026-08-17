@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "Müşteri 360°",
-      "subtitle": "Profil, şirket, kişiler, siparişler, faturalar, Lieferscheine, ödemeler, belgeler, zaman çizelgesi, etkinlikler, notlar, AI özeti ve iletişim geçmişi."
+      "subtitle": "Profil, şirket, kişiler, siparişler, faturalar, irsaliyeler, ödemeler, belgeler, zaman çizelgesi, etkinlikler, notlar, AI özeti ve iletişim geçmişi."
     },
     "salesPipeline": {
       "title": "Satış Hattı",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "Teslimat Modülü",
-      "subtitle": "Takip, imza, QR ve barkod hazırlığına sahip profesyonel Lieferschein sistemi."
+      "subtitle": "Takip, imza, QR ve barkod hazırlığına sahip profesyonel irsaliye sistemi."
     },
     "documentsModule": {
       "title": "Belgeler",
-      "subtitle": "Teklifler, sözleşmeler, faturalar, Lieferschein, satın alma siparişleri, makbuzlar — AI aramayla."
+      "subtitle": "Teklifler, sözleşmeler, faturalar, irsaliye, satın alma siparişleri, makbuzlar — AI aramayla."
     },
     "tasksModule": {
       "title": "Görevler"
@@ -317,7 +317,7 @@
       "contacts": "Kişiler",
       "orders": "Siparişler",
       "invoices": "Faturalar",
-      "lieferscheine": "Lieferscheine",
+      "lieferscheine": "irsaliyeler",
       "payments": "Ödemeler",
       "documents": "Belgeler",
       "timeline": "Zaman çizelgesi",
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "Profesyonel Lieferschein Sistemi",
+    "title": "Profesyonel irsaliye Sistemi",
     "description": "Teslimat notları, teslim alma / teslimat, sürücü, araç ve takip - yalnızca örnek kayıtlar. Dışa aktarma bağdaştırıcıları bağlı değil.",
     "badges": {
       "qrUnavailable": "QR kullanılamıyor",
@@ -351,7 +351,7 @@
       "historyNotConnected": "Teslimat geçmişi deposu bu yapıya bağlı değil."
     },
     "columns": {
-      "lieferschein": "Lieferschein",
+      "lieferschein": "irsaliye",
       "order": "Emir",
       "customer": "Müşteri",
       "kind": "Tür",
@@ -408,7 +408,7 @@
     "emptyTitle": "Belge yok",
     "emptyDescription": "Bu aramayla eşleşen belge yok.",
     "searchLabel": "Yapay Zeka Arama",
-    "searchPlaceholder": "Fiyat teklifleri, sözleşmeler, faturalar, Lieferschein…",
+    "searchPlaceholder": "Fiyat teklifleri, sözleşmeler, faturalar, irsaliye…",
     "typeLabel": "Belge türü",
     "allTypes": "Tüm türler",
     "columns": {
@@ -422,7 +422,7 @@
       "quote": "Alıntılar",
       "contract": "Sözleşmeler",
       "invoice": "Faturalar",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "irsaliye",
       "purchase_order": "Satınalma Siparişleri",
       "receipt": "Makbuzlar"
     }
@@ -438,7 +438,137 @@
     "intro": "İçerik Stüdyosu temeli — Resmi platform entegrasyonları daha sonra bu bağdaştırıcılara takılabilir. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Konular, X."
   },
   "industry": {
-    "intro": "Evrensel İş Platformu — katılım daha sonra bir sektör seçecektir. Her sektör, çekirdek CRM işletim sistemini zorlamadan özel yapay zeka modülleri alır."
+    "intro": "Evrensel İş Platformu — katılım daha sonra bir sektör seçecektir. Her sektör, çekirdek CRM işletim sistemini zorlamadan özel yapay zeka modülleri alır.",
+    "catalog": {
+      "business": {
+        "label": "İş",
+        "description": "Genel B2B işletim sistemi"
+      },
+      "freelancer": {
+        "label": "Serbest çalışan",
+        "description": "Serbest çalışanlar için CRM, fatura ve müşteri hattı"
+      },
+      "creator": {
+        "label": "İçerik üreticisi",
+        "description": "Creator Studio + marka CRM"
+      },
+      "influencer": {
+        "label": "Influencer",
+        "description": "Sponsorluk CRM ve kampanya OS"
+      },
+      "agency": {
+        "label": "Ajans",
+        "description": "Çok müşterili teslim ve retainer"
+      },
+      "retail": {
+        "label": "Perakende",
+        "description": "Mağaza stoğu, POS ve sadakat"
+      },
+      "restaurant": {
+        "label": "Restoran",
+        "description": "Rezervasyon, mutfak ve teslimat"
+      },
+      "hotel": {
+        "label": "Otel",
+        "description": "Odalar, misafirler ve kat hizmetleri"
+      },
+      "laundry": {
+        "label": "Çamaşırhane",
+        "description": "Alım, bilet ve güzergâh lojistiği"
+      },
+      "healthcare": {
+        "label": "Sağlık",
+        "description": "Hastalar, randevular, uyum"
+      },
+      "law_firm": {
+        "label": "Hukuk bürosu",
+        "description": "Dosyalar, faturalama ve belge kasası"
+      },
+      "accounting": {
+        "label": "Muhasebe",
+        "description": "Müşteri defterleri ve DATEV aktarımı"
+      },
+      "construction": {
+        "label": "İnşaat",
+        "description": "Şantiyeler, ekipler ve hakediş"
+      },
+      "real_estate": {
+        "label": "Gayrimenkul",
+        "description": "İlanlar, geziler ve kapanışlar"
+      },
+      "education": {
+        "label": "Eğitim",
+        "description": "Öğrenciler, kurslar ve kayıt"
+      },
+      "manufacturing": {
+        "label": "Üretim",
+        "description": "BOM, üretim ve kalite"
+      },
+      "logistics": {
+        "label": "Lojistik",
+        "description": "Filo, izleme ve irsaliyeler"
+      },
+      "ecommerce": {
+        "label": "E-ticaret",
+        "description": "Katalog, sepetler ve omnichannel siparişler"
+      }
+    },
+    "modules": {
+      "sales": "Satış",
+      "finance": "Finans",
+      "projects": "Projeler",
+      "clients": "Müşteriler",
+      "proposals": "Teklifler",
+      "time_tracking": "Zaman takibi",
+      "invoices": "Faturalar",
+      "creator_studio": "Creator Studio",
+      "brand_deals": "Marka anlaşmaları",
+      "content_calendar": "İçerik takvimi",
+      "sponsorships": "Sponsorluklar",
+      "audience_insights": "Kitle içgörüleri",
+      "campaigns": "Kampanyalar",
+      "client_portals": "Müşteri portalları",
+      "retainers": "Retainer",
+      "campaign_ops": "Kampanya operasyonları",
+      "inventory": "Stok",
+      "loyalty": "Sadakat",
+      "reservations": "Rezervasyonlar",
+      "menu": "Menü",
+      "kitchen_display": "Mutfak ekranı",
+      "housekeeping": "Kat hizmetleri",
+      "guest_crm": "Misafir CRM",
+      "tickets": "Biletler",
+      "routes": "Güzergâhlar",
+      "delivery_notes": "İrsaliyeler",
+      "patients": "Hastalar",
+      "appointments": "Randevular",
+      "compliance": "Uyum",
+      "matters": "Dosyalar",
+      "billing": "Faturalama",
+      "documents": "Belgeler",
+      "client_books": "Müşteri defterleri",
+      "tax_deadlines": "Vergi vadeleri",
+      "sites": "Şantiyeler",
+      "crews": "Ekipler",
+      "progress_billing": "Hakediş",
+      "listings": "İlanlar",
+      "viewings": "Geziler",
+      "closings": "Kapanışlar",
+      "students": "Öğrenciler",
+      "courses": "Kurslar",
+      "enrollment": "Kayıt",
+      "production": "Üretim",
+      "fleet": "Filo",
+      "tracking": "İzleme",
+      "catalog": "Katalog",
+      "orders": "Siparişler",
+      "fulfillment": "Karşılama",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {
@@ -502,7 +632,7 @@
     "quote": "Alıntı",
     "contract": "Sözleşme",
     "invoice": "Fatura",
-    "lieferschein": "Lieferschein",
+    "lieferschein": "irsaliye",
     "purchase_order": "Satın alma emri",
     "receipt": "Fiş"
   },

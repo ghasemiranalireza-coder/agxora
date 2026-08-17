@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
-import { useT } from "@/app/lib/i18n";
+import { localizeThrownError, useT } from "@/app/lib/i18n";
 import { integrationsStore } from "../store";
 import { integrationService } from "../services";
 import { useIntegrationPlatform } from "../hooks";
@@ -114,7 +114,7 @@ export function IntegrationCenter(): JSX.Element {
       setNotice(t("integrations.notice.demoConnection", { name: conn.displayName }));
       setTab("installed");
     } catch (err) {
-      setNotice(err instanceof Error ? err.message : t("integrations.notice.connectFailed"));
+      setNotice(localizeThrownError(t, err, "integrations.notice.connectFailed"));
     } finally {
       setBusy(false);
     }
@@ -182,7 +182,7 @@ export function IntegrationCenter(): JSX.Element {
         setNotice(t("integrations.notice.explorerSuccess", { status: result.statusCode }));
       }
     } catch (err) {
-      setNotice(err instanceof Error ? err.message : t("integrations.notice.explorerFailed"));
+      setNotice(localizeThrownError(t, err, "integrations.notice.explorerFailed"));
     } finally {
       setBusy(false);
     }

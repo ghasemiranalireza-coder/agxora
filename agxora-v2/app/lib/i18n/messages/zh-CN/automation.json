@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "优化建议",
     "oneClickOptimize": "一键优化",
-    "noticeDefault": "一键优化还没有图形突变。",
-    "noticeQueued": "优化排队。未来的引擎将重写延迟和批准。"
+    "noticeDefault": "一键优化尚不会改动流程图。",
+    "noticeQueued": "已排队优化。后续引擎将改写延迟与审批。",
+    "score": {
+      "healthy": "健康",
+      "needsAttention": "需要关注",
+      "atRisk": "存在风险"
+    },
+    "kinds": {
+      "missing_approval": "审批",
+      "possible_delay": "延迟",
+      "unused_trigger": "触发器",
+      "duplicate_nodes": "重复",
+      "unused_action": "操作",
+      "security": "安全",
+      "performance": "性能"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "缺少审批",
+        "description": "较长流程通常应在产生副作用前加入审批关卡。"
+      },
+      "possible_delay": {
+        "title": "可能需要延迟",
+        "description": "可在提醒邮件前加入延迟，避免突发打扰。"
+      },
+      "unused_trigger": {
+        "title": "未使用的触发器",
+        "description": "此图没有起始触发器 — 激活前请添加一个。"
+      },
+      "duplicate_nodes": {
+        "title": "重复节点",
+        "description": "“{label}” 出现 {count} 次 — 如多余请合并。"
+      },
+      "unused_action": {
+        "title": "未使用的操作",
+        "description": "{label} 未连接 — 请连线或删除。"
+      },
+      "security": {
+        "title": "安全建议",
+        "description": "Webhook 和邮件操作请使用最小权限适配器。"
+      },
+      "performance": {
+        "title": "性能建议",
+        "description": "尽可能批量处理 AI 步骤以缩短平均执行时间。"
+      }
+    }
   },
   "integrations": {
     "intro": "集成中心——可选。状态：已连接、测试版、计划中、即将推出、已禁用。没有实时 API。",

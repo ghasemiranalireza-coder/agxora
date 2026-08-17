@@ -61,7 +61,7 @@
     "preferredProvider": "Proveedor de IA preferido",
     "defaultModel": "Modelo de IA predeterminado",
     "temperature": "Temperatura",
-    "topP": "P superior",
+    "topP": "Top P",
     "maxTokens": "Fichas máximas",
     "writingStyle": "Estilo de escritura",
     "languagePreferences": "Preferencias de idioma",
@@ -78,10 +78,10 @@
     "streaming": "Transmisión",
     "streamingDescription": "Transmita respuestas del modelo cuando el proveedor lo admita.",
     "providers": {
-      "mock": "simulacro (local)",
+      "mock": "Simulado (local)",
       "openai": "AbiertoAI",
       "azure": "Azure abierto AI",
-      "anthropic": "antrópico",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "enrutador abierto",
       "ollama": "Ollama",
@@ -109,7 +109,7 @@
     "themeModeAria": "Modo tema",
     "resolvedAppearance": "Aspecto resuelto:",
     "accentColor": "Color de acento",
-    "accentNotice": "La preferencia de acento se almacena para futuros cableados de var CSS; aún no muta el sistema de color bloqueado.",
+    "accentNotice": "La preferencia de acento se guarda en esta sesión y aún no cambia el sistema de color bloqueado.",
     "density": "Densidad",
     "compactMode": "Modo compacto",
     "compactModeDescription": "Reduzca el relleno en tablas y paneles empresariales.",
@@ -135,6 +135,13 @@
       "comfortable": "Cómodo",
       "compact": "Compacto",
       "spacious": "Espacioso"
+    },
+    "accents": {
+      "cyan": "Cian",
+      "blue": "Azul",
+      "emerald": "Esmeralda",
+      "violet": "Violeta",
+      "amber": "Ámbar"
     }
   },
   "notifications": {

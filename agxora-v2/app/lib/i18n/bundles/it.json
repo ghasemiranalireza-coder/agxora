@@ -16,13 +16,13 @@
     "privacy": "Privacy",
     "terms": "Termini",
     "cookies": "Cookie",
-    "imprint": "Impronta",
+    "imprint": "Note legali",
     "organization": "Organizzazione",
     "user": "Utente",
     "guest": "Ospite",
     "member": "Membro",
     "role": "Ruolo",
-    "signedIn": "Effettuato l'accesso",
+    "signedIn": "Accesso effettuato",
     "guestSession": "Sessione ospite",
     "noResults": "Nessun risultato",
     "noData": "Nessun dato",
@@ -44,12 +44,12 @@
     "dashboard": "Dashboard"
   },
   "navigation": {
-    "dashboard": "Pannello di controllo",
+    "dashboard": "Dashboard",
     "projects": "Progetti",
     "aiCrm": "CRM dell'intelligenza artificiale",
     "analytics": "Analitica",
     "billing": "Fatturazione",
-    "aiWorkspace": "Spazio di lavoro dell'intelligenza artificiale",
+    "aiWorkspace": "Spazio di lavoro IA",
     "customers": "Clienti",
     "automation": "Automazione",
     "financeTax": "Finanza e tasse",
@@ -60,12 +60,12 @@
     "toggleNavigation": "Attiva/disattiva la navigazione",
     "primary": "Primario",
     "menu": "Menu",
-    "search": "Ricerca",
+    "search": "Cerca",
     "notifications": "Notifiche",
     "profile": "Profilo",
     "currentOrganization": "Organizzazione attuale",
     "noNotifications": "Nessuna notifica",
-    "notificationsEmpty": "Sei tutto preso. Avvisi e menzioni appariranno qui.",
+    "notificationsEmpty": "Sei in pari. Avvisi e menzioni appariranno qui.",
     "accountSettings": "Impostazioni dell'account",
     "security": "Sicurezza",
     "themeToggle": "Attivazione/disattivazione rapida del tema. Preferenza: {mode}"
@@ -324,7 +324,7 @@
       "preferredProvider": "Fornitore di IA preferito",
       "defaultModel": "Modello AI predefinito",
       "temperature": "Temperatura",
-      "topP": "Superiore P",
+      "topP": "Top P",
       "maxTokens": "Gettoni massimi",
       "writingStyle": "Stile di scrittura",
       "languagePreferences": "Preferenze della lingua",
@@ -341,10 +341,10 @@
       "streaming": "Streaming",
       "streamingDescription": "Trasmettere le risposte del modello quando il provider lo supporta.",
       "providers": {
-        "mock": "Finto (locale)",
+        "mock": "Mock (locale)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "Antropico",
+        "anthropic": "Anthropic",
         "google": "Google",
         "openrouter": "OpenRouter",
         "ollama": "Ollama",
@@ -371,8 +371,15 @@
       "themeLabel": "Tema",
       "themeModeAria": "Modalità tema",
       "resolvedAppearance": "Aspetto risolto:",
-      "accentColor": "Colore accento",
-      "accentNotice": "La preferenza dell'accento viene memorizzata per il futuro cablaggio della var CSS: non modifica ancora il sistema di colore bloccato.",
+      "accentColor": "Colore di accento",
+      "accentNotice": "La preferenza di accento è salvata per questa sessione e non modifica ancora il sistema colori bloccato.",
+      "accents": {
+        "cyan": "Ciano",
+        "blue": "Blu",
+        "emerald": "Smeraldo",
+        "violet": "Violetto",
+        "amber": "Ambra"
+      },
       "density": "Densità",
       "compactMode": "Modalità compatta",
       "compactModeDescription": "Riduci il riempimento tra tabelle e pannelli aziendali.",
@@ -741,8 +748,8 @@
     "skipToContent": "Passa al contenuto della dashboard",
     "loading": "Caricamento dashboard…",
     "hero": {
-      "ariaLabel": "Eroe AGXORA CORE",
-      "eyebrow": "Sistema operativo aziendale AI",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "Sistema operativo aziendale IA",
       "title": "NUCLEO DI AGXORA",
       "subtitle": "Intelligenza in tempo reale e controllo operativo: la superficie di comando del tuo spazio di lavoro.",
       "ctaGetStarted": "Inizia",
@@ -752,7 +759,7 @@
     },
     "quickActions": {
       "title": "Azioni rapide",
-      "subtitle": "Cosa dovresti fare dopo?",
+      "subtitle": "Cosa dovresti fare adesso?",
       "ariaLabel": "Azioni rapide",
       "addCustomer": {
         "label": "Aggiungi cliente",
@@ -782,11 +789,11 @@
     "attention": {
       "title": "Ha bisogno di attenzione",
       "ariaLabel": "Ciò che richiede attenzione",
-      "empty": "Sei chiaro: non ci sono questioni urgenti in questo momento.",
+      "empty": "Tutto a posto: nessun elemento urgente al momento.",
       "tone": {
         "critical": "Critico",
         "warning": "Avvertimento",
-        "info": "Informazioni",
+        "info": "Info",
         "success": "Pronto",
         "action": "Fai il prossimo"
       },
@@ -808,11 +815,11 @@
       }
     },
     "overview": {
-      "title": "Che cosa sta accadendo",
-      "subtitle": "Lo spazio di lavoro conta per {name}",
+      "title": "Cosa sta succedendo",
+      "subtitle": "Conteggi dello spazio per {name}",
       "fallbackName": "il tuo spazio di lavoro",
       "ariaLabel": "Panoramica aziendale",
-      "online": "In linea",
+      "online": "Online",
       "emDash": "—",
       "capacitySignal": "{percent}% segnale di capacità",
       "activeClients": {
@@ -836,15 +843,15 @@
         "viewFeed": "Visualizza feed"
       },
       "revenue": {
-        "title": "Reddito",
+        "title": "Ricavi",
         "caption": "Collega la fatturazione per mostrare l'MRR",
-        "openBilling": "Fatturazione aperta"
+        "openBilling": "Apri fatturazione"
       },
       "clientShell": {
-        "title": "Guscio del cliente",
+        "title": "Shell applicazione",
         "caption": "Sessione del browser pronta, non un monitor operativo dal vivo",
         "shellLoaded": "Shell dell'applicazione caricata",
-        "storesReady": "Negozi di spazi di lavoro locali pronti"
+        "storesReady": "Store locali dello spazio pronti"
       },
       "growth": {
         "title": "Crescita",
@@ -856,8 +863,8 @@
       "title": "Attività recente",
       "subtitle": "Cosa è cambiato oggi",
       "ariaLabel": "Attività recente",
-      "todayCount": "{count} OGGI",
-      "localBadge": "LOCALE",
+      "todayCount": "{count} oggi",
+      "localBadge": "Locale",
       "emptyTitle": "Nessuna attività ancora",
       "emptyBody": "Gli eventi dell'area di lavoro verranno visualizzati qui man mano che aggiungi clienti, progetti e altro ancora.",
       "addCustomer": "Aggiungi cliente",
@@ -1127,14 +1134,14 @@
   },
   "auth": {
     "login": {
-      "title": "Registrazione",
-      "subtitle": "Bentornati ad AGXORA.",
+      "title": "Accedi",
+      "subtitle": "Bentornato su AGXORA.",
       "email": "E-mail",
       "password": "Password",
-      "emailPlaceholder": "tu@azienda.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Password",
-      "rememberMe": "Ricordati di me",
-      "submit": "Registrazione",
+      "rememberMe": "Ricordami",
+      "submit": "Accedi",
       "submitting": "Accesso…",
       "noAccount": "Nessun conto?",
       "startFree": "Inizia gratis",
@@ -1142,7 +1149,7 @@
       "showPassword": "Mostra password",
       "hidePassword": "Nascondi password",
       "failed": "Accesso non riuscito",
-      "loading": "Registrazione"
+      "loading": "Accedi"
     },
     "register": {
       "title": "Creare un account",
@@ -1153,22 +1160,22 @@
       "company": "Azienda",
       "password": "Password",
       "confirmPassword": "Conferma password",
-      "acceptTerms": "Accetto il",
+      "acceptTerms": "Accetto i",
       "termsOfService": "Termini di servizio",
       "and": "E",
       "privacyPolicy": "politica sulla riservatezza",
       "submit": "Creare un account",
       "submitting": "Creazione dell'account...",
       "haveAccount": "Hai già un account?",
-      "signIn": "Registrazione",
+      "signIn": "Accedi",
       "strength": "Forza della password",
       "strengthWeak": "Debole",
-      "strengthFair": "Giusto",
+      "strengthFair": "Discreta",
       "strengthStrong": "Forte",
       "firstNamePlaceholder": "Alex",
       "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "AGXORA GmbH",
-      "emailPlaceholder": "tu@azienda.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Minimo 8 caratteri, lettere + numeri",
       "confirmPasswordPlaceholder": "Ripeti la password",
       "failed": "La registrazione non è riuscita",
@@ -1218,7 +1225,7 @@
       "successTitle": "Grazie",
       "successBody": "La tua richiesta è stata ricevuta. Il nostro team risponderà a breve.",
       "viewPricing": "Visualizza i prezzi.",
-      "bookDemo": "Dimostrazione del libro",
+      "bookDemo": "Prenota una demo",
       "failed": "Impossibile inviare la richiesta",
       "country": "Paese",
       "savedFor": "Salvato per {company}. La consegna commerciale non è collegata in questa build.",
@@ -1270,7 +1277,7 @@
       },
       "customer360": {
         "title": "Cliente a 360°",
-        "subtitle": "Profilo, azienda, contatti, ordini, fatture, Lieferscheine, pagamenti, documenti, sequenza temporale, attività, note, riepilogo AI e cronologia delle comunicazioni."
+        "subtitle": "Profilo, azienda, contatti, ordini, fatture, bolle di consegna, pagamenti, documenti, sequenza temporale, attività, note, riepilogo AI e cronologia delle comunicazioni."
       },
       "salesPipeline": {
         "title": "Pipeline di vendita",
@@ -1281,11 +1288,11 @@
       },
       "deliveryModule": {
         "title": "Modulo di consegna",
-        "subtitle": "Sistema Lieferschein professionale con tracciabilità, firma, QR e disponibilità di codici a barre."
+        "subtitle": "Sistema bolla di consegna professionale con tracciabilità, firma, QR e disponibilità di codici a barre."
       },
       "documentsModule": {
         "title": "Documenti",
-        "subtitle": "Preventivi, contratti, fatture, Lieferschein, ordini d'acquisto, ricevute - con ricerca AI."
+        "subtitle": "Preventivi, contratti, fatture, bolla di consegna, ordini d'acquisto, ricevute - con ricerca AI."
       },
       "tasksModule": {
         "title": "Compiti"
@@ -1577,7 +1584,7 @@
         "contacts": "Contatti",
         "orders": "Ordini",
         "invoices": "Fatture",
-        "lieferscheine": "Lieferscheine",
+        "lieferscheine": "bolle di consegna",
         "payments": "Pagamenti",
         "documents": "Documenti",
         "timeline": "Cronologia",
@@ -1596,7 +1603,7 @@
       }
     },
     "delivery": {
-      "title": "Sistema Lieferschein professionale",
+      "title": "Sistema bolla di consegna professionale",
       "description": "Bolle di consegna, ritiro/consegna, autista, veicolo e tracciabilità: solo record di campioni. Gli adattatori di esportazione non sono collegati.",
       "badges": {
         "qrUnavailable": "QR non disponibile",
@@ -1611,7 +1618,7 @@
         "historyNotConnected": "L'archivio della cronologia delle consegne non è connesso in questa build."
       },
       "columns": {
-        "lieferschein": "Lieferschein",
+        "lieferschein": "bolla di consegna",
         "order": "Ordine",
         "customer": "Cliente",
         "kind": "Tipo",
@@ -1668,7 +1675,7 @@
       "emptyTitle": "Nessun documento",
       "emptyDescription": "Nessun documento corrisponde a questa ricerca.",
       "searchLabel": "Ricerca AI",
-      "searchPlaceholder": "Preventivi, contratti, fatture, Lieferschein...",
+      "searchPlaceholder": "Preventivi, contratti, fatture, bolla di consegna...",
       "typeLabel": "Tipo di documento",
       "allTypes": "Tutti i tipi",
       "columns": {
@@ -1682,7 +1689,7 @@
         "quote": "Citazioni",
         "contract": "Contratti",
         "invoice": "Fatture",
-        "lieferschein": "Lieferschein",
+        "lieferschein": "bolla di consegna",
         "purchase_order": "Ordini di acquisto",
         "receipt": "Ricevute"
       }
@@ -1698,7 +1705,137 @@
       "intro": "Creator Studio Foundation: le integrazioni ufficiali della piattaforma possono essere collegate a questi adattatori in un secondo momento. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Discussioni, X."
     },
     "industry": {
-      "intro": "Universal Business Platform: l'onboarding sceglierà successivamente un settore. Ogni settore riceve moduli AI dedicati senza biforcare il sistema operativo CRM principale."
+      "intro": "Universal Business Platform: l'onboarding sceglierà successivamente un settore. Ogni settore riceve moduli AI dedicati senza biforcare il sistema operativo CRM principale.",
+      "catalog": {
+        "business": {
+          "label": "Azienda",
+          "description": "Sistema operativo B2B generale"
+        },
+        "freelancer": {
+          "label": "Freelance",
+          "description": "CRM, fatture e pipeline clienti per freelance"
+        },
+        "creator": {
+          "label": "Creator",
+          "description": "Creator Studio + CRM di brand"
+        },
+        "influencer": {
+          "label": "Influencer",
+          "description": "CRM sponsorship e OS campagne"
+        },
+        "agency": {
+          "label": "Agenzia",
+          "description": "Consegna multi-cliente e retainer"
+        },
+        "retail": {
+          "label": "Retail",
+          "description": "Inventario, POS e loyalty"
+        },
+        "restaurant": {
+          "label": "Ristorante",
+          "description": "Prenotazioni, cucina e consegna"
+        },
+        "hotel": {
+          "label": "Hotel",
+          "description": "Camere, ospiti e housekeeping"
+        },
+        "laundry": {
+          "label": "Lavanderia",
+          "description": "Ritiro, ticket e logistica dei percorsi"
+        },
+        "healthcare": {
+          "label": "Sanità",
+          "description": "Pazienti, appuntamenti, conformità"
+        },
+        "law_firm": {
+          "label": "Studio legale",
+          "description": "Pratiche, fatturazione e archivio documenti"
+        },
+        "accounting": {
+          "label": "Contabilità",
+          "description": "Libri clienti ed export DATEV"
+        },
+        "construction": {
+          "label": "Edilizia",
+          "description": "Cantieri, squadre e fatturazione avanzamento"
+        },
+        "real_estate": {
+          "label": "Immobiliare",
+          "description": "Annunci, visite e chiusure"
+        },
+        "education": {
+          "label": "Istruzione",
+          "description": "Studenti, corsi e iscrizioni"
+        },
+        "manufacturing": {
+          "label": "Manifattura",
+          "description": "Distinta base, produzione e QC"
+        },
+        "logistics": {
+          "label": "Logistica",
+          "description": "Flotta, tracking e bolle di consegna"
+        },
+        "ecommerce": {
+          "label": "E-commerce",
+          "description": "Catalogo, carrelli e ordini omnicanale"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Vendite",
+        "finance": "Finanza",
+        "projects": "Progetti",
+        "clients": "Clienti",
+        "proposals": "Proposte",
+        "time_tracking": "Timesheet",
+        "invoices": "Fatture",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Deal di brand",
+        "content_calendar": "Calendario contenuti",
+        "sponsorships": "Sponsorship",
+        "audience_insights": "Insight audience",
+        "campaigns": "Campagne",
+        "client_portals": "Portali clienti",
+        "retainers": "Retainer",
+        "campaign_ops": "Ops campagne",
+        "inventory": "Inventario",
+        "pos": "POS",
+        "loyalty": "Loyalty",
+        "reservations": "Prenotazioni",
+        "menu": "Menu",
+        "kitchen_display": "Display cucina",
+        "housekeeping": "Housekeeping",
+        "guest_crm": "CRM ospiti",
+        "tickets": "Ticket",
+        "routes": "Percorsi",
+        "delivery_notes": "Bolle di consegna",
+        "patients": "Pazienti",
+        "appointments": "Appuntamenti",
+        "compliance": "Conformità",
+        "matters": "Pratiche",
+        "billing": "Fatturazione",
+        "documents": "Documenti",
+        "client_books": "Libri clienti",
+        "datev": "DATEV",
+        "tax_deadlines": "Scadenze fiscali",
+        "sites": "Cantieri",
+        "crews": "Squadre",
+        "progress_billing": "Fatturazione avanzamento",
+        "listings": "Annunci",
+        "viewings": "Visite",
+        "closings": "Chiusure",
+        "students": "Studenti",
+        "courses": "Corsi",
+        "enrollment": "Iscrizione",
+        "bom": "BOM",
+        "production": "Produzione",
+        "qc": "QC",
+        "fleet": "Flotta",
+        "tracking": "Tracking",
+        "catalog": "Catalogo",
+        "orders": "Ordini",
+        "fulfillment": "Fulfillment"
+      }
     },
     "kpi": {
       "customers": {
@@ -1762,7 +1899,7 @@
       "quote": "Citazione",
       "contract": "Contrarre",
       "invoice": "Fattura",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "bolla di consegna",
       "purchase_order": "Ordinazione d'acquisto",
       "receipt": "Ricevuta"
     },
@@ -2831,7 +2968,7 @@
       "missingTitle": "Progetto mancante",
       "missingDescription": "Seleziona un progetto per visualizzarne la panoramica.",
       "title": "Panoramica",
-      "noDescription": "Nessuna descrizione fornita.",
+      "noDescription": "Nessuna descrizione.",
       "budget": "Bilancio",
       "spent": "Speso",
       "start": "Inizio",
@@ -2977,8 +3114,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Suggerimenti per l'ottimizzazione",
       "oneClickOptimize": "Ottimizza con un clic",
-      "noticeDefault": "One Click Optimize non è ancora una mutazione del grafico.",
-      "noticeQueued": "Ottimizza in coda. Il motore futuro riscriverà ritardi e approvazioni."
+      "noticeDefault": "L’ottimizzazione in un clic non modifica ancora il grafo.",
+      "noticeQueued": "Ottimizzazione in coda. Un motore futuro riscriverà ritardi e approvazioni.",
+      "score": {
+        "healthy": "Integro",
+        "needsAttention": "Da controllare",
+        "atRisk": "A rischio"
+      },
+      "kinds": {
+        "missing_approval": "Approvazione",
+        "possible_delay": "Ritardo",
+        "unused_trigger": "Trigger",
+        "duplicate_nodes": "Duplicati",
+        "unused_action": "Azione",
+        "security": "Sicurezza",
+        "performance": "Prestazioni"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Approvazione mancante",
+          "description": "I flussi più lunghi spesso richiedono un gate di approvazione prima degli effetti collaterali."
+        },
+        "possible_delay": {
+          "title": "Possibile ritardo",
+          "description": "Valuta un ritardo prima delle e-mail di reminder per evitare burst."
+        },
+        "unused_trigger": {
+          "title": "Trigger inutilizzato",
+          "description": "Questo grafo non ha un trigger di avvio: aggiungine uno prima dell’attivazione."
+        },
+        "duplicate_nodes": {
+          "title": "Nodi duplicati",
+          "description": "“{label}” compare {count} volte: consolida se è ridondante."
+        },
+        "unused_action": {
+          "title": "Azione inutilizzata",
+          "description": "{label} non è collegato: collegalo o rimuovilo."
+        },
+        "security": {
+          "title": "Raccomandazione di sicurezza",
+          "description": "Preferisci adapter a privilegio minimo per webhook ed e-mail."
+        },
+        "performance": {
+          "title": "Raccomandazione di prestazione",
+          "description": "Raggruppa i passaggi IA dove possibile per ridurre il tempo medio."
+        }
+      }
     },
     "integrations": {
       "intro": "Centro di integrazione: facoltativo. Stati: Connesso, Beta, Pianificato, Prossimamente, Disabilitato. Nessuna API live.",
@@ -4726,7 +4907,7 @@
     "skipToMain": "Passa al contenuto principale",
     "offline": {
       "title": "Sei offline",
-      "message": "Controlla la connessione e riprova quando sei di nuovo online. Le schermate memorizzate nella cache potrebbero continuare a funzionare.",
+      "message": "Controlla la connessione e riprova quando torni online. Le schermate in cache potrebbero ancora funzionare.",
       "home": "Casa",
       "contact": "Contatto",
       "signIn": "Registrazione"

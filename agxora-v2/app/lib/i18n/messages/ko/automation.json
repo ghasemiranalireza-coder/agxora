@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "최적화 제안",
     "oneClickOptimize": "원클릭 최적화",
-    "noticeDefault": "One Click Optimize는 아직 그래프 변형이 없습니다.",
-    "noticeQueued": "최적화가 대기 중입니다. 미래 엔진은 지연 및 승인을 다시 작성합니다."
+    "noticeDefault": "원클릭 최적화는 아직 그래프를 바꾸지 않습니다.",
+    "noticeQueued": "최적화가 대기열에 있습니다. 이후 엔진이 지연과 승인을 다시 씁니다.",
+    "score": {
+      "healthy": "양호",
+      "needsAttention": "주의 필요",
+      "atRisk": "위험"
+    },
+    "kinds": {
+      "missing_approval": "승인",
+      "possible_delay": "지연",
+      "unused_trigger": "트리거",
+      "duplicate_nodes": "중복",
+      "unused_action": "작업",
+      "security": "보안",
+      "performance": "성능"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "승인 없음",
+        "description": "긴 흐름은 부작용 전에 승인 게이트가 있는 편이 안전합니다."
+      },
+      "possible_delay": {
+        "title": "지연 가능",
+        "description": "알림 메일 전에 지연을 두어 폭주를 피하세요."
+      },
+      "unused_trigger": {
+        "title": "미사용 트리거",
+        "description": "시작 트리거가 없습니다. 활성화 전에 추가하세요."
+      },
+      "duplicate_nodes": {
+        "title": "중복 노드",
+        "description": "“{label}”이(가) {count}번 나타납니다. 중복이면 합치세요."
+      },
+      "unused_action": {
+        "title": "미사용 작업",
+        "description": "{label}이(가) 연결되지 않았습니다. 연결하거나 제거하세요."
+      },
+      "security": {
+        "title": "보안 권장",
+        "description": "웹훅과 이메일 작업에는 최소 권한 어댑터를 쓰세요."
+      },
+      "performance": {
+        "title": "성능 권장",
+        "description": "가능하면 AI 단계를 묶어 평균 실행 시간을 줄이세요."
+      }
+    }
   },
   "integrations": {
     "intro": "통합 센터 - 선택 사항입니다. 상태: 연결됨, 베타, 계획됨, 출시 예정, 비활성화됨. 라이브 API가 없습니다.",

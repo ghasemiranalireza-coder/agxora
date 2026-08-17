@@ -54,4 +54,5 @@ export { resolveMessage, resolveMessageList } from "./translate";
 export {
   isTranslationKey,
   resolveUserFacingErrorKey,
+  localizeThrownError,
 } from "./errorMap";

@@ -2,8 +2,8 @@
   "skipToContent": "Ga naar de dashboardinhoud",
   "loading": "Dashboard laden…",
   "hero": {
-    "ariaLabel": "AGXORA CORE-held",
-    "eyebrow": "AI zakelijk besturingssysteem",
+    "ariaLabel": "AGXORA CORE",
+    "eyebrow": "AI-bedrijfsbesturingssysteem",
     "title": "AGXORA-KERN",
     "subtitle": "Real-time intelligentie en operationele controle: het commandooppervlak van uw werkruimte.",
     "ctaGetStarted": "Ga aan de slag",
@@ -13,11 +13,11 @@
   },
   "quickActions": {
     "title": "Snelle acties",
-    "subtitle": "Wat moet je nu doen?",
+    "subtitle": "Wat moet u nu doen?",
     "ariaLabel": "Snelle acties",
     "addCustomer": {
       "label": "Klant toevoegen",
-      "description": "Maak een CRM-record"
+      "description": "Een CRM-record maken"
     },
     "newProject": {
       "label": "Nieuw project",
@@ -43,9 +43,9 @@
   "attention": {
     "title": "Heeft aandacht nodig",
     "ariaLabel": "Wat aandacht nodig heeft",
-    "empty": "U bent duidelijk: er zijn momenteel geen dringende zaken.",
+    "empty": "Alles in orde — geen urgente items nu.",
     "tone": {
-      "critical": "Kritisch",
+      "critical": "Kritiek",
       "warning": "Waarschuwing",
       "info": "Info",
       "success": "Klaar",
@@ -69,8 +69,8 @@
     }
   },
   "overview": {
-    "title": "Wat gebeurt er",
-    "subtitle": "Werkruimte telt voor {name}",
+    "title": "Wat er speelt",
+    "subtitle": "Werkruimtetellingen voor {name}",
     "fallbackName": "jouw werkruimte",
     "ariaLabel": "Zakelijk overzicht",
     "online": "Online",
@@ -97,15 +97,15 @@
       "viewFeed": "Bekijk feed"
     },
     "revenue": {
-      "title": "Winst",
+      "title": "Omzet",
       "caption": "Koppel facturering om MRR weer te geven",
-      "openBilling": "Facturering openen"
+      "openBilling": "Facturatie openen"
     },
     "clientShell": {
-      "title": "Klantschil",
+      "title": "Applicatieshell",
       "caption": "Browsersessie klaar - geen live operationele monitor",
       "shellLoaded": "Applicatieshell geladen",
-      "storesReady": "Lokale werkruimtewinkels klaar"
+      "storesReady": "Lokale werkruimte-stores gereed"
     },
     "growth": {
       "title": "Groei",
@@ -117,8 +117,8 @@
     "title": "Recente activiteit",
     "subtitle": "Wat is er vandaag veranderd",
     "ariaLabel": "Recente activiteit",
-    "todayCount": "{count} VANDAAG",
-    "localBadge": "LOKAAL",
+    "todayCount": "{count} vandaag",
+    "localBadge": "Lokaal",
     "emptyTitle": "Nog geen activiteit",
     "emptyBody": "Werkruimtegebeurtenissen verschijnen hier wanneer u klanten, projecten en meer toevoegt.",
     "addCustomer": "Klant toevoegen",

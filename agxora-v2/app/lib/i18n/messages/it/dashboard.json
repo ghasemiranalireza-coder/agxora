@@ -2,8 +2,8 @@
   "skipToContent": "Passa al contenuto della dashboard",
   "loading": "Caricamento dashboard…",
   "hero": {
-    "ariaLabel": "Eroe AGXORA CORE",
-    "eyebrow": "Sistema operativo aziendale AI",
+    "ariaLabel": "AGXORA CORE",
+    "eyebrow": "Sistema operativo aziendale IA",
     "title": "NUCLEO DI AGXORA",
     "subtitle": "Intelligenza in tempo reale e controllo operativo: la superficie di comando del tuo spazio di lavoro.",
     "ctaGetStarted": "Inizia",
@@ -13,7 +13,7 @@
   },
   "quickActions": {
     "title": "Azioni rapide",
-    "subtitle": "Cosa dovresti fare dopo?",
+    "subtitle": "Cosa dovresti fare adesso?",
     "ariaLabel": "Azioni rapide",
     "addCustomer": {
       "label": "Aggiungi cliente",
@@ -43,11 +43,11 @@
   "attention": {
     "title": "Ha bisogno di attenzione",
     "ariaLabel": "Ciò che richiede attenzione",
-    "empty": "Sei chiaro: non ci sono questioni urgenti in questo momento.",
+    "empty": "Tutto a posto: nessun elemento urgente al momento.",
     "tone": {
       "critical": "Critico",
       "warning": "Avvertimento",
-      "info": "Informazioni",
+      "info": "Info",
       "success": "Pronto",
       "action": "Fai il prossimo"
     },
@@ -69,11 +69,11 @@
     }
   },
   "overview": {
-    "title": "Che cosa sta accadendo",
-    "subtitle": "Lo spazio di lavoro conta per {name}",
+    "title": "Cosa sta succedendo",
+    "subtitle": "Conteggi dello spazio per {name}",
     "fallbackName": "il tuo spazio di lavoro",
     "ariaLabel": "Panoramica aziendale",
-    "online": "In linea",
+    "online": "Online",
     "emDash": "—",
     "capacitySignal": "{percent}% segnale di capacità",
     "activeClients": {
@@ -97,15 +97,15 @@
       "viewFeed": "Visualizza feed"
     },
     "revenue": {
-      "title": "Reddito",
+      "title": "Ricavi",
       "caption": "Collega la fatturazione per mostrare l'MRR",
-      "openBilling": "Fatturazione aperta"
+      "openBilling": "Apri fatturazione"
     },
     "clientShell": {
-      "title": "Guscio del cliente",
+      "title": "Shell applicazione",
       "caption": "Sessione del browser pronta, non un monitor operativo dal vivo",
       "shellLoaded": "Shell dell'applicazione caricata",
-      "storesReady": "Negozi di spazi di lavoro locali pronti"
+      "storesReady": "Store locali dello spazio pronti"
     },
     "growth": {
       "title": "Crescita",
@@ -117,8 +117,8 @@
     "title": "Attività recente",
     "subtitle": "Cosa è cambiato oggi",
     "ariaLabel": "Attività recente",
-    "todayCount": "{count} OGGI",
-    "localBadge": "LOCALE",
+    "todayCount": "{count} oggi",
+    "localBadge": "Locale",
     "emptyTitle": "Nessuna attività ancora",
     "emptyBody": "Gli eventi dell'area di lavoro verranno visualizzati qui man mano che aggiungi clienti, progetti e altro ancora.",
     "addCustomer": "Aggiungi cliente",

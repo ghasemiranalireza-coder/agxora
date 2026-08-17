@@ -61,7 +61,7 @@
     "preferredProvider": "Tercih Edilen Yapay Zeka Sağlayıcısı",
     "defaultModel": "Varsayılan Yapay Zeka Modeli",
     "temperature": "Sıcaklık",
-    "topP": "Üst P",
+    "topP": "Top P",
     "maxTokens": "Maksimum Jeton",
     "writingStyle": "Yazma Stili",
     "languagePreferences": "Dil Tercihleri",
@@ -78,10 +78,10 @@
     "streaming": "Akış",
     "streamingDescription": "Sağlayıcı desteklediğinde model yanıtlarını yayınlayın.",
     "providers": {
-      "mock": "Sahte (yerel)",
+      "mock": "Mock (yerel)",
       "openai": "OpenAI",
       "azure": "Azure OpenAI",
-      "anthropic": "Antropik",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "Açık Yönlendirici",
       "ollama": "Ollama",
@@ -108,10 +108,10 @@
     "themeLabel": "Tema",
     "themeModeAria": "Tema modu",
     "resolvedAppearance": "Çözülmüş görünüm:",
-    "accentColor": "Vurgu Rengi",
-    "accentNotice": "Vurgu tercihi gelecekteki CSS var kablolaması için saklanır; kilitli renk sistemini henüz değiştirmez.",
+    "accentColor": "Vurgu rengi",
+    "accentNotice": "Vurgu rengi bu oturum için saklanır ve kilitli renk sistemini henüz değiştirmez.",
     "density": "Yoğunluk",
-    "compactMode": "Kompakt Mod",
+    "compactMode": "Kompakt mod",
     "compactModeDescription": "Kurumsal masa ve panellerdeki dolguyu azaltın.",
     "animations": "Animasyonlar",
     "animationsDescription": "Bölüm hareketi ve vurgulu kaldırmalar. Azaltılmış hareketli işletim sistemi ayarına saygı duyar.",
@@ -135,6 +135,13 @@
       "comfortable": "Rahat",
       "compact": "Kompakt",
       "spacious": "Ferah"
+    },
+    "accents": {
+      "cyan": "Camgöbeği",
+      "blue": "Mavi",
+      "emerald": "Zümrüt",
+      "violet": "Menekşe",
+      "amber": "Kehribar"
     }
   },
   "notifications": {

@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "Klient 360°",
-      "subtitle": "Profil, firma, kontakty, zamówienia, faktury, Lieferscheine, płatności, dokumenty, harmonogram, działania, notatki, podsumowanie AI i historia komunikacji."
+      "subtitle": "Profil, firma, kontakty, zamówienia, faktury, listy przewozowe, płatności, dokumenty, harmonogram, działania, notatki, podsumowanie AI i historia komunikacji."
     },
     "salesPipeline": {
       "title": "Rurociąg sprzedaży",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "Moduł dostawy",
-      "subtitle": "Profesjonalny system Lieferschein z możliwością śledzenia, podpisu, kodów QR i kodów kreskowych."
+      "subtitle": "Profesjonalny system list przewozowy z możliwością śledzenia, podpisu, kodów QR i kodów kreskowych."
     },
     "documentsModule": {
       "title": "Dokumenty",
-      "subtitle": "Oferty, umowy, faktury, Lieferschein, zamówienia, rachunki — z wyszukiwaniem AI."
+      "subtitle": "Oferty, umowy, faktury, list przewozowy, zamówienia, rachunki — z wyszukiwaniem AI."
     },
     "tasksModule": {
       "title": "Zadania"
@@ -317,7 +317,7 @@
       "contacts": "Łączność",
       "orders": "Święcenia",
       "invoices": "Faktury",
-      "lieferscheine": "Lieferscheine",
+      "lieferscheine": "listy przewozowe",
       "payments": "Płatności",
       "documents": "Dokumenty",
       "timeline": "Oś czasu",
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "Profesjonalny system Lieferscheina",
+    "title": "Profesjonalny system list przewozowya",
     "description": "Dowody dostawy, odbiór/dostawa, kierowca, pojazd i śledzenie — tylko przykładowe zapisy. Adaptery eksportowe nie są podłączone.",
     "badges": {
       "qrUnavailable": "Kod QR niedostępny",
@@ -351,7 +351,7 @@
       "historyNotConnected": "W tej kompilacji magazyn historii dostaw nie jest podłączony."
     },
     "columns": {
-      "lieferschein": "Lieferscheina",
+      "lieferschein": "list przewozowya",
       "order": "Zamówienie",
       "customer": "Klient",
       "kind": "Rodzaj",
@@ -408,7 +408,7 @@
     "emptyTitle": "Żadnych dokumentów",
     "emptyDescription": "Żadne dokumenty nie pasują do tego wyszukiwania.",
     "searchLabel": "Wyszukiwanie AI",
-    "searchPlaceholder": "Oferty, umowy, faktury, Lieferschein…",
+    "searchPlaceholder": "Oferty, umowy, faktury, list przewozowy…",
     "typeLabel": "Typ dokumentu",
     "allTypes": "Wszystkie typy",
     "columns": {
@@ -422,7 +422,7 @@
       "quote": "Cytaty",
       "contract": "Umowy",
       "invoice": "Faktury",
-      "lieferschein": "Lieferscheina",
+      "lieferschein": "list przewozowya",
       "purchase_order": "Zamówienia zakupu",
       "receipt": "Wpływy kasowe"
     }
@@ -438,7 +438,137 @@
     "intro": "Podstawa Creator Studio — oficjalne integracje platform można później podłączyć do tych adapterów. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Wątki, X."
   },
   "industry": {
-    "intro": "Universal Business Platform — onboarding później wybierze branżę. Każda branża otrzymuje dedykowane moduły AI bez konieczności rozwidlania podstawowego systemu operacyjnego CRM."
+    "intro": "Universal Business Platform — onboarding później wybierze branżę. Każda branża otrzymuje dedykowane moduły AI bez konieczności rozwidlania podstawowego systemu operacyjnego CRM.",
+    "catalog": {
+      "business": {
+        "label": "Biznes",
+        "description": "Uniwersalny system B2B"
+      },
+      "freelancer": {
+        "label": "Freelancer",
+        "description": "CRM, faktury i lejek klientów dla freelancerów"
+      },
+      "creator": {
+        "label": "Twórca",
+        "description": "Creator Studio + CRM marki"
+      },
+      "influencer": {
+        "label": "Influencer",
+        "description": "CRM sponsoringu i OS kampanii"
+      },
+      "agency": {
+        "label": "Agencja",
+        "description": "Wielokliencka realizacja i retainery"
+      },
+      "retail": {
+        "label": "Handel",
+        "description": "Stan magazynu, POS i lojalność"
+      },
+      "restaurant": {
+        "label": "Restauracja",
+        "description": "Rezerwacje, kuchnia i dostawa"
+      },
+      "hotel": {
+        "label": "Hotel",
+        "description": "Pokoje, goście i housekeeping"
+      },
+      "laundry": {
+        "label": "Pralnia",
+        "description": "Odbiór, zgłoszenia i logistyka tras"
+      },
+      "healthcare": {
+        "label": "Ochrona zdrowia",
+        "description": "Pacjenci, wizyty, zgodność"
+      },
+      "law_firm": {
+        "label": "Kancelaria",
+        "description": "Sprawy, rozliczenia i sejf dokumentów"
+      },
+      "accounting": {
+        "label": "Księgowość",
+        "description": "Księgi klientów i eksport DATEV"
+      },
+      "construction": {
+        "label": "Budownictwo",
+        "description": "Place budowy, ekipy i rozliczanie postępu"
+      },
+      "real_estate": {
+        "label": "Nieruchomości",
+        "description": "Oferty, oględziny i zamknięcia"
+      },
+      "education": {
+        "label": "Edukacja",
+        "description": "Studenci, kursy i rekrutacja"
+      },
+      "manufacturing": {
+        "label": "Produkcja",
+        "description": "BOM, produkcja i QC"
+      },
+      "logistics": {
+        "label": "Logistyka",
+        "description": "Flota, śledzenie i listy przewozowe"
+      },
+      "ecommerce": {
+        "label": "E-commerce",
+        "description": "Katalog, koszyki i zamówienia omnichannel"
+      }
+    },
+    "modules": {
+      "sales": "Sprzedaż",
+      "finance": "Finanse",
+      "projects": "Projekty",
+      "clients": "Klienci",
+      "proposals": "Oferty",
+      "time_tracking": "Ewidencja czasu",
+      "invoices": "Faktury",
+      "creator_studio": "Creator Studio",
+      "brand_deals": "Umowy marki",
+      "content_calendar": "Kalendarz treści",
+      "sponsorships": "Sponsoringi",
+      "audience_insights": "Wnioski o odbiorcach",
+      "campaigns": "Kampanie",
+      "client_portals": "Portale klientów",
+      "retainers": "Retainery",
+      "campaign_ops": "Operacje kampanii",
+      "inventory": "Magazyn",
+      "loyalty": "Lojalność",
+      "reservations": "Rezerwacje",
+      "menu": "Menu",
+      "kitchen_display": "Wyświetlacz kuchni",
+      "housekeeping": "Housekeeping",
+      "guest_crm": "CRM gości",
+      "tickets": "Zgłoszenia",
+      "routes": "Trasy",
+      "delivery_notes": "Listy przewozowe",
+      "patients": "Pacjenci",
+      "appointments": "Wizyty",
+      "compliance": "Zgodność",
+      "matters": "Sprawy",
+      "billing": "Rozliczenia",
+      "documents": "Dokumenty",
+      "client_books": "Księgi klientów",
+      "tax_deadlines": "Terminy podatkowe",
+      "sites": "Place budowy",
+      "crews": "Ekipy",
+      "progress_billing": "Rozliczanie postępu",
+      "listings": "Oferty",
+      "viewings": "Oględziny",
+      "closings": "Zamknięcia",
+      "students": "Studenci",
+      "courses": "Kursy",
+      "enrollment": "Rekrutacja",
+      "production": "Produkcja",
+      "fleet": "Flota",
+      "tracking": "Śledzenie",
+      "catalog": "Katalog",
+      "orders": "Zamówienia",
+      "fulfillment": "Realizacja",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {
@@ -502,7 +632,7 @@
     "quote": "Cytat",
     "contract": "Umowa",
     "invoice": "Faktura",
-    "lieferschein": "Lieferscheina",
+    "lieferschein": "list przewozowya",
     "purchase_order": "Zamówienie zakupu",
     "receipt": "Paragon"
   },

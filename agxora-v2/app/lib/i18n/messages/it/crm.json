@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "Cliente a 360°",
-      "subtitle": "Profilo, azienda, contatti, ordini, fatture, Lieferscheine, pagamenti, documenti, sequenza temporale, attività, note, riepilogo AI e cronologia delle comunicazioni."
+      "subtitle": "Profilo, azienda, contatti, ordini, fatture, bolle di consegna, pagamenti, documenti, sequenza temporale, attività, note, riepilogo AI e cronologia delle comunicazioni."
     },
     "salesPipeline": {
       "title": "Pipeline di vendita",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "Modulo di consegna",
-      "subtitle": "Sistema Lieferschein professionale con tracciabilità, firma, QR e disponibilità di codici a barre."
+      "subtitle": "Sistema bolla di consegna professionale con tracciabilità, firma, QR e disponibilità di codici a barre."
     },
     "documentsModule": {
       "title": "Documenti",
-      "subtitle": "Preventivi, contratti, fatture, Lieferschein, ordini d'acquisto, ricevute - con ricerca AI."
+      "subtitle": "Preventivi, contratti, fatture, bolla di consegna, ordini d'acquisto, ricevute - con ricerca AI."
     },
     "tasksModule": {
       "title": "Compiti"
@@ -317,7 +317,7 @@
       "contacts": "Contatti",
       "orders": "Ordini",
       "invoices": "Fatture",
-      "lieferscheine": "Lieferscheine",
+      "lieferscheine": "bolle di consegna",
       "payments": "Pagamenti",
       "documents": "Documenti",
       "timeline": "Cronologia",
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "Sistema Lieferschein professionale",
+    "title": "Sistema bolla di consegna professionale",
     "description": "Bolle di consegna, ritiro/consegna, autista, veicolo e tracciabilità: solo record di campioni. Gli adattatori di esportazione non sono collegati.",
     "badges": {
       "qrUnavailable": "QR non disponibile",
@@ -351,7 +351,7 @@
       "historyNotConnected": "L'archivio della cronologia delle consegne non è connesso in questa build."
     },
     "columns": {
-      "lieferschein": "Lieferschein",
+      "lieferschein": "bolla di consegna",
       "order": "Ordine",
       "customer": "Cliente",
       "kind": "Tipo",
@@ -408,7 +408,7 @@
     "emptyTitle": "Nessun documento",
     "emptyDescription": "Nessun documento corrisponde a questa ricerca.",
     "searchLabel": "Ricerca AI",
-    "searchPlaceholder": "Preventivi, contratti, fatture, Lieferschein...",
+    "searchPlaceholder": "Preventivi, contratti, fatture, bolla di consegna...",
     "typeLabel": "Tipo di documento",
     "allTypes": "Tutti i tipi",
     "columns": {
@@ -422,7 +422,7 @@
       "quote": "Citazioni",
       "contract": "Contratti",
       "invoice": "Fatture",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "bolla di consegna",
       "purchase_order": "Ordini di acquisto",
       "receipt": "Ricevute"
     }
@@ -438,7 +438,137 @@
     "intro": "Creator Studio Foundation: le integrazioni ufficiali della piattaforma possono essere collegate a questi adattatori in un secondo momento. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Discussioni, X."
   },
   "industry": {
-    "intro": "Universal Business Platform: l'onboarding sceglierà successivamente un settore. Ogni settore riceve moduli AI dedicati senza biforcare il sistema operativo CRM principale."
+    "intro": "Universal Business Platform: l'onboarding sceglierà successivamente un settore. Ogni settore riceve moduli AI dedicati senza biforcare il sistema operativo CRM principale.",
+    "catalog": {
+      "business": {
+        "label": "Azienda",
+        "description": "Sistema operativo B2B generale"
+      },
+      "freelancer": {
+        "label": "Freelance",
+        "description": "CRM, fatture e pipeline clienti per freelance"
+      },
+      "creator": {
+        "label": "Creator",
+        "description": "Creator Studio + CRM di brand"
+      },
+      "influencer": {
+        "label": "Influencer",
+        "description": "CRM sponsorship e OS campagne"
+      },
+      "agency": {
+        "label": "Agenzia",
+        "description": "Consegna multi-cliente e retainer"
+      },
+      "retail": {
+        "label": "Retail",
+        "description": "Inventario, POS e loyalty"
+      },
+      "restaurant": {
+        "label": "Ristorante",
+        "description": "Prenotazioni, cucina e consegna"
+      },
+      "hotel": {
+        "label": "Hotel",
+        "description": "Camere, ospiti e housekeeping"
+      },
+      "laundry": {
+        "label": "Lavanderia",
+        "description": "Ritiro, ticket e logistica dei percorsi"
+      },
+      "healthcare": {
+        "label": "Sanità",
+        "description": "Pazienti, appuntamenti, conformità"
+      },
+      "law_firm": {
+        "label": "Studio legale",
+        "description": "Pratiche, fatturazione e archivio documenti"
+      },
+      "accounting": {
+        "label": "Contabilità",
+        "description": "Libri clienti ed export DATEV"
+      },
+      "construction": {
+        "label": "Edilizia",
+        "description": "Cantieri, squadre e fatturazione avanzamento"
+      },
+      "real_estate": {
+        "label": "Immobiliare",
+        "description": "Annunci, visite e chiusure"
+      },
+      "education": {
+        "label": "Istruzione",
+        "description": "Studenti, corsi e iscrizioni"
+      },
+      "manufacturing": {
+        "label": "Manifattura",
+        "description": "Distinta base, produzione e QC"
+      },
+      "logistics": {
+        "label": "Logistica",
+        "description": "Flotta, tracking e bolle di consegna"
+      },
+      "ecommerce": {
+        "label": "E-commerce",
+        "description": "Catalogo, carrelli e ordini omnicanale"
+      }
+    },
+    "modules": {
+      "sales": "Vendite",
+      "finance": "Finanza",
+      "projects": "Progetti",
+      "clients": "Clienti",
+      "proposals": "Proposte",
+      "time_tracking": "Timesheet",
+      "invoices": "Fatture",
+      "creator_studio": "Creator Studio",
+      "brand_deals": "Deal di brand",
+      "content_calendar": "Calendario contenuti",
+      "sponsorships": "Sponsorship",
+      "audience_insights": "Insight audience",
+      "campaigns": "Campagne",
+      "client_portals": "Portali clienti",
+      "retainers": "Retainer",
+      "campaign_ops": "Ops campagne",
+      "inventory": "Inventario",
+      "loyalty": "Loyalty",
+      "reservations": "Prenotazioni",
+      "menu": "Menu",
+      "kitchen_display": "Display cucina",
+      "housekeeping": "Housekeeping",
+      "guest_crm": "CRM ospiti",
+      "tickets": "Ticket",
+      "routes": "Percorsi",
+      "delivery_notes": "Bolle di consegna",
+      "patients": "Pazienti",
+      "appointments": "Appuntamenti",
+      "compliance": "Conformità",
+      "matters": "Pratiche",
+      "billing": "Fatturazione",
+      "documents": "Documenti",
+      "client_books": "Libri clienti",
+      "tax_deadlines": "Scadenze fiscali",
+      "sites": "Cantieri",
+      "crews": "Squadre",
+      "progress_billing": "Fatturazione avanzamento",
+      "listings": "Annunci",
+      "viewings": "Visite",
+      "closings": "Chiusure",
+      "students": "Studenti",
+      "courses": "Corsi",
+      "enrollment": "Iscrizione",
+      "production": "Produzione",
+      "fleet": "Flotta",
+      "tracking": "Tracking",
+      "catalog": "Catalogo",
+      "orders": "Ordini",
+      "fulfillment": "Fulfillment",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {
@@ -502,7 +632,7 @@
     "quote": "Citazione",
     "contract": "Contrarre",
     "invoice": "Fattura",
-    "lieferschein": "Lieferschein",
+    "lieferschein": "bolla di consegna",
     "purchase_order": "Ordinazione d'acquisto",
     "receipt": "Ricevuta"
   },

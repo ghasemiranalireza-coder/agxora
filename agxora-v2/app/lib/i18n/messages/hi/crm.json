@@ -317,7 +317,7 @@
       "contacts": "संपर्क",
       "orders": "आदेश",
       "invoices": "चालान",
-      "lieferscheine": "Lieferscheine",
+      "lieferscheine": "डिलीवरी नोट",
       "payments": "भुगतान",
       "documents": "दस्तावेज़",
       "timeline": "समय",
@@ -351,7 +351,7 @@
       "historyNotConnected": "इस बिल्ड में डिलीवरी हिस्ट्री स्टोर कनेक्ट नहीं है।"
     },
     "columns": {
-      "lieferschein": "Lieferschein",
+      "lieferschein": "डिलीवरी नोट",
       "order": "आदेश",
       "customer": "ग्राहक",
       "kind": "दयालु",
@@ -422,7 +422,7 @@
       "quote": "उद्धरण",
       "contract": "अनुबंध",
       "invoice": "चालान",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "डिलीवरी नोट",
       "purchase_order": "खरीद आदेश",
       "receipt": "प्राप्तियां"
     }
@@ -438,7 +438,137 @@
     "intro": "क्रिएटर स्टूडियो फ़ाउंडेशन - आधिकारिक प्लेटफ़ॉर्म एकीकरण बाद में इन एडेप्टर में प्लग इन किया जा सकता है। इंस्टाग्राम, टिकटॉक, यूट्यूब, फेसबुक, लिंक्डइन, पिनटेरेस्ट, थ्रेड्स, एक्स।"
   },
   "industry": {
-    "intro": "यूनिवर्सल बिजनेस प्लेटफ़ॉर्म - ऑनबोर्डिंग बाद में एक उद्योग का चयन करेगी। प्रत्येक उद्योग को कोर सीआरएम ओएस को फोर्क किए बिना समर्पित एआई मॉड्यूल प्राप्त होते हैं।"
+    "intro": "यूनिवर्सल बिजनेस प्लेटफ़ॉर्म - ऑनबोर्डिंग बाद में एक उद्योग का चयन करेगी। प्रत्येक उद्योग को कोर सीआरएम ओएस को फोर्क किए बिना समर्पित एआई मॉड्यूल प्राप्त होते हैं।",
+    "catalog": {
+      "business": {
+        "label": "व्यवसाय",
+        "description": "सामान्य B2B ऑपरेटिंग सिस्टम"
+      },
+      "freelancer": {
+        "label": "फ्रीलांसर",
+        "description": "सोलो ऑपरेटर के लिए CRM, चालान और ग्राहक पाइपलाइन"
+      },
+      "creator": {
+        "label": "क्रिएटर",
+        "description": "क्रिएटर स्टूडियो + ब्रांड CRM"
+      },
+      "influencer": {
+        "label": "इन्फ्लुएंसर",
+        "description": "स्पॉन्सरशिप CRM और कैंपेन OS"
+      },
+      "agency": {
+        "label": "एजेंसी",
+        "description": "मल्टी-कस्टमर डिलीवरी और रिटेनर"
+      },
+      "retail": {
+        "label": "खुदरा",
+        "description": "स्टोर इन्वेंटरी, POS और लॉयल्टी"
+      },
+      "restaurant": {
+        "label": "रेस्तरां",
+        "description": "आरक्षण, रसोई और डिलीवरी"
+      },
+      "hotel": {
+        "label": "होटल",
+        "description": "कमरे, मेहमान और हाउसकीपिंग"
+      },
+      "laundry": {
+        "label": "लॉन्ड्री",
+        "description": "पिकअप, टिकट और रूट लॉजिस्टिक्स"
+      },
+      "healthcare": {
+        "label": "स्वास्थ्य सेवा",
+        "description": "मरीज, अपॉइंटमेंट, अनुपालन"
+      },
+      "law_firm": {
+        "label": "लॉ फर्म",
+        "description": "मामले, बिलिंग और दस्तावेज़ वॉल्ट"
+      },
+      "accounting": {
+        "label": "लेखांकन",
+        "description": "ग्राहक बही और DATEV निर्यात"
+      },
+      "construction": {
+        "label": "निर्माण",
+        "description": "साइट, क्रू और प्रोग्रेस बिलिंग"
+      },
+      "real_estate": {
+        "label": "रियल एस्टेट",
+        "description": "लिस्टिंग, विजिट और क्लोजिंग"
+      },
+      "education": {
+        "label": "शिक्षा",
+        "description": "छात्र, पाठ्यक्रम और नामांकन"
+      },
+      "manufacturing": {
+        "label": "विनिर्माण",
+        "description": "BOM, उत्पादन और QC"
+      },
+      "logistics": {
+        "label": "लॉजिस्टिक्स",
+        "description": "फ्लीट, ट्रैकिंग और डिलीवरी नोट"
+      },
+      "ecommerce": {
+        "label": "ई-कॉमर्स",
+        "description": "कैटलॉग, कार्ट और ऑमनीचैनल ऑर्डर"
+      }
+    },
+    "modules": {
+      "sales": "बिक्री",
+      "finance": "वित्त",
+      "projects": "प्रोजेक्ट",
+      "clients": "ग्राहक",
+      "proposals": "प्रस्ताव",
+      "time_tracking": "समय ट्रैकिंग",
+      "invoices": "चालान",
+      "creator_studio": "क्रिएटर स्टूडियो",
+      "brand_deals": "ब्रांड डील",
+      "content_calendar": "कंटेंट कैलेंडर",
+      "sponsorships": "स्पॉन्सरशिप",
+      "audience_insights": "ऑडियंस इनसाइट",
+      "campaigns": "अभियान",
+      "client_portals": "ग्राहक पोर्टल",
+      "retainers": "रिटेनर",
+      "campaign_ops": "कैंपेन ऑप्स",
+      "inventory": "इन्वेंटरी",
+      "loyalty": "लॉयल्टी",
+      "reservations": "आरक्षण",
+      "menu": "मेनू",
+      "kitchen_display": "किचन डिस्प्ले",
+      "housekeeping": "हाउसकीपिंग",
+      "guest_crm": "गेस्ट CRM",
+      "tickets": "टिकट",
+      "routes": "रूट",
+      "delivery_notes": "डिलीवरी नोट",
+      "patients": "मरीज",
+      "appointments": "अपॉइंटमेंट",
+      "compliance": "अनुपालन",
+      "matters": "मामले",
+      "billing": "बिलिंग",
+      "documents": "दस्तावेज़",
+      "client_books": "ग्राहक बही",
+      "tax_deadlines": "कर समयसीमा",
+      "sites": "साइट",
+      "crews": "क्रू",
+      "progress_billing": "प्रोग्रेस बिलिंग",
+      "listings": "लिस्टिंग",
+      "viewings": "विजिटिंग",
+      "closings": "क्लोजिंग",
+      "students": "छात्र",
+      "courses": "पाठ्यक्रम",
+      "enrollment": "नामांकन",
+      "production": "उत्पादन",
+      "fleet": "फ्लीट",
+      "tracking": "ट्रैकिंग",
+      "catalog": "कैटलॉग",
+      "orders": "ऑर्डर",
+      "fulfillment": "फुलफिलमेंट",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {
@@ -502,7 +632,7 @@
     "quote": "उद्धरण",
     "contract": "अनुबंध",
     "invoice": "चालान",
-    "lieferschein": "Lieferschein",
+    "lieferschein": "डिलीवरी नोट",
     "purchase_order": "क्रय आदेश",
     "receipt": "रसीद"
   },

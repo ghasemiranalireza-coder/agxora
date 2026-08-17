@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "客户360°",
-      "subtitle": "个人资料、公司、联系人、订单、发票、Lieferscheine、付款、文档、时间表、活动、笔记、AI 摘要和通信历史记录。"
+      "subtitle": "个人资料、公司、联系人、订单、发票、送货单、付款、文档、时间表、活动、笔记、AI 摘要和通信历史记录。"
     },
     "salesPipeline": {
       "title": "销售渠道",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "交付模块",
-      "subtitle": "专业的 Lieferschein 系统，具备跟踪、签名、QR 和条形码功能。"
+      "subtitle": "专业的 送货单 系统，具备跟踪、签名、QR 和条形码功能。"
     },
     "documentsModule": {
       "title": "文件",
-      "subtitle": "报价、合同、发票、Lieferschein、采购订单、收据 - 通过人工智能搜索。"
+      "subtitle": "报价、合同、发票、送货单、采购订单、收据 - 通过人工智能搜索。"
     },
     "tasksModule": {
       "title": "任务"
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "专业 Lieferschein 系统",
+    "title": "专业 送货单 系统",
     "description": "送货单、提货/送货、司机、车辆和跟踪 - 仅样本记录。未连接导出适配器。",
     "badges": {
       "qrUnavailable": "二维码不可用",
@@ -408,7 +408,7 @@
     "emptyTitle": "没有文件",
     "emptyDescription": "没有与此搜索匹配的文档。",
     "searchLabel": "人工智能搜索",
-    "searchPlaceholder": "报价单、合同、发票、Lieferschein...",
+    "searchPlaceholder": "报价单、合同、发票、送货单...",
     "typeLabel": "文件类型",
     "allTypes": "所有类型",
     "columns": {
@@ -438,7 +438,137 @@
     "intro": "Creator Studio 基础 - 官方平台集成可以稍后插入这些适配器。 Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X。"
   },
   "industry": {
-    "intro": "通用业务平台——入职后将选择一个行业。每个行业都会获得专用的人工智能模块，而无需分叉核心 CRM 操作系统。"
+    "intro": "通用业务平台——入职后将选择一个行业。每个行业都会获得专用的人工智能模块，而无需分叉核心 CRM 操作系统。",
+    "catalog": {
+      "business": {
+        "label": "企业",
+        "description": "通用 B2B 操作系统"
+      },
+      "freelancer": {
+        "label": "自由职业者",
+        "description": "个人经营者的 CRM、发票和客户管道"
+      },
+      "creator": {
+        "label": "创作者",
+        "description": "创作者工作室 + 品牌 CRM"
+      },
+      "influencer": {
+        "label": "达人",
+        "description": "赞助 CRM 与活动操作系统"
+      },
+      "agency": {
+        "label": "代理机构",
+        "description": "多客户交付与顾问合同"
+      },
+      "retail": {
+        "label": "零售",
+        "description": "门店库存、POS 与忠诚度"
+      },
+      "restaurant": {
+        "label": "餐饮",
+        "description": "预订、后厨与外送"
+      },
+      "hotel": {
+        "label": "酒店",
+        "description": "客房、宾客与客房服务"
+      },
+      "laundry": {
+        "label": "洗衣",
+        "description": "取件、工单与路线物流"
+      },
+      "healthcare": {
+        "label": "医疗",
+        "description": "患者、预约、合规"
+      },
+      "law_firm": {
+        "label": "律师事务所",
+        "description": "案件、账单与文档库"
+      },
+      "accounting": {
+        "label": "会计",
+        "description": "客户账簿与 DATEV 导出"
+      },
+      "construction": {
+        "label": "建筑",
+        "description": "工地、班组与进度结算"
+      },
+      "real_estate": {
+        "label": "房地产",
+        "description": "房源、看房与成交"
+      },
+      "education": {
+        "label": "教育",
+        "description": "学生、课程与招生"
+      },
+      "manufacturing": {
+        "label": "制造",
+        "description": "BOM、生产与质检"
+      },
+      "logistics": {
+        "label": "物流",
+        "description": "车队、追踪与送货单"
+      },
+      "ecommerce": {
+        "label": "电子商务",
+        "description": "目录、购物车与全渠道订单"
+      }
+    },
+    "modules": {
+      "sales": "销售",
+      "finance": "财务",
+      "projects": "项目",
+      "clients": "客户",
+      "proposals": "方案",
+      "time_tracking": "工时跟踪",
+      "invoices": "发票",
+      "creator_studio": "创作者工作室",
+      "brand_deals": "品牌合作",
+      "content_calendar": "内容日历",
+      "sponsorships": "赞助",
+      "audience_insights": "受众洞察",
+      "campaigns": "活动",
+      "client_portals": "客户门户",
+      "retainers": "顾问合同",
+      "campaign_ops": "活动运营",
+      "inventory": "库存",
+      "loyalty": "忠诚度",
+      "reservations": "预订",
+      "menu": "菜单",
+      "kitchen_display": "厨房显示",
+      "housekeeping": "客房服务",
+      "guest_crm": "宾客 CRM",
+      "tickets": "工单",
+      "routes": "路线",
+      "delivery_notes": "送货单",
+      "patients": "患者",
+      "appointments": "预约",
+      "compliance": "合规",
+      "matters": "案件",
+      "billing": "账单",
+      "documents": "文档",
+      "client_books": "客户账簿",
+      "tax_deadlines": "报税截止",
+      "sites": "工地",
+      "crews": "班组",
+      "progress_billing": "进度结算",
+      "listings": "房源",
+      "viewings": "看房",
+      "closings": "成交",
+      "students": "学生",
+      "courses": "课程",
+      "enrollment": "招生",
+      "production": "生产",
+      "fleet": "车队",
+      "tracking": "追踪",
+      "catalog": "目录",
+      "orders": "订单",
+      "fulfillment": "履约",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {

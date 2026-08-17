@@ -22,8 +22,8 @@
     "guest": "Гість",
     "member": "Член",
     "role": "роль",
-    "signedIn": "Ви ввійшли",
-    "guestSession": "Гостьова сесія",
+    "signedIn": "Увійшли",
+    "guestSession": "Гостьовий сеанс",
     "noResults": "Результатів немає",
     "noData": "Немає даних",
     "comingSoon": "Скоро буде",
@@ -44,12 +44,12 @@
     "dashboard": "Панель"
   },
   "navigation": {
-    "dashboard": "Приладова панель",
+    "dashboard": "Панель",
     "projects": "Проекти",
     "aiCrm": "AI CRM",
     "analytics": "Аналітика",
     "billing": "Виставлення рахунків",
-    "aiWorkspace": "Робоча область AI",
+    "aiWorkspace": "Робочий простір ШІ",
     "customers": "Клієнти",
     "automation": "автоматизація",
     "financeTax": "Фінанси та податки",
@@ -64,8 +64,8 @@
     "notifications": "Сповіщення",
     "profile": "Профіль",
     "currentOrganization": "Поточна організація",
-    "noNotifications": "Немає повідомлень",
-    "notificationsEmpty": "Ви все наздогнали. Тут з’являться сповіщення та згадки.",
+    "noNotifications": "Немає сповіщень",
+    "notificationsEmpty": "Усе переглянуто. Сповіщення та згадки з’являться тут.",
     "accountSettings": "Налаштування облікового запису",
     "security": "Безпека",
     "themeToggle": "Швидке перемикання теми. Налаштування: {mode}"
@@ -290,7 +290,7 @@
       "regions": {
         "EU": "Європейський Союз",
         "US": "США",
-        "MENA": "MENA",
+        "MENA": "Близький Схід і Північна Африка",
         "APAC": "APAC"
       }
     },
@@ -324,7 +324,7 @@
       "preferredProvider": "Бажаний постачальник AI",
       "defaultModel": "Типова модель AI",
       "temperature": "температура",
-      "topP": "Верхній П",
+      "topP": "Top P",
       "maxTokens": "Макс жетонів",
       "writingStyle": "Стиль письма",
       "languagePreferences": "Налаштування мови",
@@ -341,10 +341,10 @@
       "streaming": "Потокове передавання",
       "streamingDescription": "Потокова передача відповідей моделі, якщо провайдер це підтримує.",
       "providers": {
-        "mock": "Макет (місцевий)",
+        "mock": "Макет (локально)",
         "openai": "OpenAI",
         "azure": "Azure OpenAI",
-        "anthropic": "Антропний",
+        "anthropic": "Anthropic",
         "google": "Google",
         "openrouter": "OpenRouter",
         "ollama": "Оллама",
@@ -372,7 +372,14 @@
       "themeModeAria": "Тематичний режим",
       "resolvedAppearance": "Вирішений вигляд:",
       "accentColor": "Колір акценту",
-      "accentNotice": "Налаштування акценту зберігається для майбутнього підключення змінних CSS — поки що не змінює заблоковану систему кольорів.",
+      "accentNotice": "Уподобання акценту зберігається в цій сесії й поки не змінює зафіксовану палітру.",
+      "accents": {
+        "cyan": "Блакитний",
+        "blue": "Синій",
+        "emerald": "Смарагдовий",
+        "violet": "Фіолетовий",
+        "amber": "Бурштиновий"
+      },
       "density": "Щільність",
       "compactMode": "Компактний режим",
       "compactModeDescription": "Зменште відступи між корпоративними столами та панелями.",
@@ -741,8 +748,8 @@
     "skipToContent": "Перейти до вмісту інформаційної панелі",
     "loading": "Завантаження інформаційної панелі…",
     "hero": {
-      "ariaLabel": "Герой AGXORA CORE",
-      "eyebrow": "Ділова операційна система AI",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "ОС для бізнесу на базі ШІ",
       "title": "AGXORA CORE",
       "subtitle": "Розвідка в реальному часі та оперативний контроль — ваша робоча область команд.",
       "ctaGetStarted": "Почніть роботу",
@@ -752,11 +759,11 @@
     },
     "quickActions": {
       "title": "Швидкі дії",
-      "subtitle": "Що робити далі?",
+      "subtitle": "Що зробити далі?",
       "ariaLabel": "Швидкі дії",
       "addCustomer": {
         "label": "Додати клієнта",
-        "description": "Створіть запис CRM"
+        "description": "Створити запис CRM"
       },
       "newProject": {
         "label": "Новий проект",
@@ -782,11 +789,11 @@
     "attention": {
       "title": "Потребує уваги",
       "ariaLabel": "Що потребує уваги",
-      "empty": "Ви зрозуміли — зараз немає термінових речей.",
+      "empty": "Усе гаразд — термінових пунктів зараз немає.",
       "tone": {
-        "critical": "Критичний",
+        "critical": "Критично",
         "warning": "УВАГА",
-        "info": "Інформація",
+        "info": "Інфо",
         "success": "Готовий",
         "action": "Робіть далі"
       },
@@ -809,7 +816,7 @@
     },
     "overview": {
       "title": "Що відбувається",
-      "subtitle": "Робочий простір зараховується для {name}",
+      "subtitle": "Показники простору для {name}",
       "fallbackName": "ваш робочий простір",
       "ariaLabel": "Огляд діяльності",
       "online": "Онлайн",
@@ -838,13 +845,13 @@
       "revenue": {
         "title": "Дохід",
         "caption": "Підключіть білінг, щоб показати MRR",
-        "openBilling": "Відкритий білінг"
+        "openBilling": "Відкрити білінг"
       },
       "clientShell": {
-        "title": "Клієнтська оболонка",
+        "title": "Оболонка застосунку",
         "caption": "Готовий сеанс веб-переглядача — не живий монітор операцій",
         "shellLoaded": "Оболонку програми завантажено",
-        "storesReady": "Готові локальні робочі місця"
+        "storesReady": "Локальні сховища простору готові"
       },
       "growth": {
         "title": "зростання",
@@ -856,8 +863,8 @@
       "title": "Остання діяльність",
       "subtitle": "Що змінилося сьогодні",
       "ariaLabel": "Остання діяльність",
-      "todayCount": "{count} СЬОГОДНІ",
-      "localBadge": "МІСЦЕВИЙ",
+      "todayCount": "{count} сьогодні",
+      "localBadge": "Локально",
       "emptyTitle": "Активності ще немає",
       "emptyBody": "Події Workspace з’являтимуться тут, коли ви додаватимете клієнтів, проекти тощо.",
       "addCustomer": "Додати клієнта",
@@ -1127,14 +1134,14 @@
   },
   "auth": {
     "login": {
-      "title": "Увійдіть",
-      "subtitle": "Ласкаво просимо до AGXORA.",
+      "title": "Увійти",
+      "subtitle": "З поверненням до AGXORA.",
       "email": "Електронна пошта",
       "password": "Пароль",
       "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Пароль",
-      "rememberMe": "Пам'ятай мене",
-      "submit": "Увійдіть",
+      "rememberMe": "Запам’ятати мене",
+      "submit": "Увійти",
       "submitting": "Вхід…",
       "noAccount": "Немає облікового запису?",
       "startFree": "Почніть безкоштовно",
@@ -1142,7 +1149,7 @@
       "showPassword": "Показати пароль",
       "hidePassword": "Приховати пароль",
       "failed": "Помилка входу",
-      "loading": "Увійдіть"
+      "loading": "Увійти"
     },
     "register": {
       "title": "Створити акаунт",
@@ -1160,13 +1167,13 @@
       "submit": "Створити акаунт",
       "submitting": "Створення облікового запису…",
       "haveAccount": "Вже маєте акаунт?",
-      "signIn": "Увійдіть",
+      "signIn": "Увійти",
       "strength": "Надійність пароля",
       "strengthWeak": "Слабкий",
-      "strengthFair": "ярмарок",
-      "strengthStrong": "Сильний",
+      "strengthFair": "Середній",
+      "strengthStrong": "Надійний",
       "firstNamePlaceholder": "Алекс",
-      "lastNamePlaceholder": "Морган",
+      "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "AGXORA GmbH",
       "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "Мінімум 8 символів, букви + цифри",
@@ -1199,7 +1206,7 @@
       "loading": "Скинути пароль"
     },
     "contactSales": {
-      "title": "Зверніться до відділу продажів",
+      "title": "Зв’язатися з відділом продажів",
       "subtitle": "Розкажіть про свою команду. Ми розглянемо корпоративні варіанти.",
       "name": "ПІБ",
       "email": "Робоча електронна пошта",
@@ -1211,14 +1218,14 @@
       "employees51_200": "51–200",
       "employees201_1000": "201–1,000",
       "employees1000plus": "1,000+",
-      "message": "повідомлення",
+      "message": "Повідомлення",
       "messagePlaceholder": "Що ви хочете вирішити?",
       "submit": "Надіслати запит",
       "submitting": "Надсилання…",
       "successTitle": "дякую",
       "successBody": "Ваш запит отримано. Наша команда незабаром відповість.",
       "viewPricing": "Переглянути ціни",
-      "bookDemo": "Демонстрація книги",
+      "bookDemo": "Забронювати демо",
       "failed": "Не вдалося надіслати запит",
       "country": "Країна",
       "savedFor": "Збережено для {company}. Доставка продажів не підключена в цій збірці.",
@@ -1270,7 +1277,7 @@
       },
       "customer360": {
         "title": "Клієнт 360°",
-        "subtitle": "Профіль, компанія, контакти, замовлення, рахунки-фактури, Lieferscheine, платежі, документи, хронологія, дії, примітки, резюме AI та історія спілкування."
+        "subtitle": "Профіль, компанія, контакти, замовлення, рахунки-фактури, накладні, платежі, документи, хронологія, дії, примітки, резюме AI та історія спілкування."
       },
       "salesPipeline": {
         "title": "Трубопровід продажів",
@@ -1281,11 +1288,11 @@
       },
       "deliveryModule": {
         "title": "Модуль доставки",
-        "subtitle": "Професійна система Lieferschein із підтримкою відстеження, підпису, QR та штрих-кодів."
+        "subtitle": "Професійна система накладна із підтримкою відстеження, підпису, QR та штрих-кодів."
       },
       "documentsModule": {
         "title": "Документи",
-        "subtitle": "Котирування, контракти, рахунки-фактури, Lieferschein, замовлення на купівлю, квитанції — з пошуком AI."
+        "subtitle": "Котирування, контракти, рахунки-фактури, накладна, замовлення на купівлю, квитанції — з пошуком AI."
       },
       "tasksModule": {
         "title": "завдання"
@@ -1596,7 +1603,7 @@
       }
     },
     "delivery": {
-      "title": "Професійна система Lieferschein",
+      "title": "Професійна система накладна",
       "description": "Накладні, отримання/доставка, водій, транспортний засіб і відстеження — лише зразки записів. Експортні адаптери не підключено.",
       "badges": {
         "qrUnavailable": "QR недоступний",
@@ -1668,7 +1675,7 @@
       "emptyTitle": "Без документів",
       "emptyDescription": "Немає документів, що відповідають цьому запиту.",
       "searchLabel": "AI Пошук",
-      "searchPlaceholder": "Котирування, контракти, рахунки-фактури, Lieferschein…",
+      "searchPlaceholder": "Котирування, контракти, рахунки-фактури, накладна…",
       "typeLabel": "Тип документа",
       "allTypes": "Всі види",
       "columns": {
@@ -1698,7 +1705,137 @@
       "intro": "Основа Creator Studio — офіційні інтеграції платформ можна підключити до цих адаптерів пізніше. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
     },
     "industry": {
-      "intro": "Універсальна бізнес-платформа — адаптація пізніше вибере галузь. Кожна галузь отримує спеціальні модулі штучного інтелекту без розгалуження основної ОС CRM."
+      "intro": "Універсальна бізнес-платформа — адаптація пізніше вибере галузь. Кожна галузь отримує спеціальні модулі штучного інтелекту без розгалуження основної ОС CRM.",
+      "catalog": {
+        "business": {
+          "label": "Бізнес",
+          "description": "Універсальна B2B-ОС"
+        },
+        "freelancer": {
+          "label": "Фрилансер",
+          "description": "CRM, рахунки й воронка клієнтів для фрилансерів"
+        },
+        "creator": {
+          "label": "Кріейтор",
+          "description": "Creator Studio + CRM бренду"
+        },
+        "influencer": {
+          "label": "Інфлюенсер",
+          "description": "CRM спонсорства й ОС кампаній"
+        },
+        "agency": {
+          "label": "Агенція",
+          "description": "Багатоклієнтська поставка й ретейнери"
+        },
+        "retail": {
+          "label": "Рітейл",
+          "description": "Запас магазину, POS і лояльність"
+        },
+        "restaurant": {
+          "label": "Ресторан",
+          "description": "Бронювання, кухня й доставка"
+        },
+        "hotel": {
+          "label": "Готель",
+          "description": "Номери, гості й хаускіпінг"
+        },
+        "laundry": {
+          "label": "Пральня",
+          "description": "Забір, заявки й логістика маршрутів"
+        },
+        "healthcare": {
+          "label": "Охорона здоров’я",
+          "description": "Пацієнти, прийоми, відповідність"
+        },
+        "law_firm": {
+          "label": "Юридична фірма",
+          "description": "Справи, білінг і сховище документів"
+        },
+        "accounting": {
+          "label": "Бухгалтерія",
+          "description": "Клієнтські книги й експорт DATEV"
+        },
+        "construction": {
+          "label": "Будівництво",
+          "description": "Майданчики, бригади й білінг прогресу"
+        },
+        "real_estate": {
+          "label": "Нерухомість",
+          "description": "Оголошення, покази й закриття"
+        },
+        "education": {
+          "label": "Освіта",
+          "description": "Студенти, курси й зарахування"
+        },
+        "manufacturing": {
+          "label": "Виробництво",
+          "description": "BOM, виробництво й ВТК"
+        },
+        "logistics": {
+          "label": "Логістика",
+          "description": "Автопарк, трекінг і накладні"
+        },
+        "ecommerce": {
+          "label": "Електронна комерція",
+          "description": "Каталог, кошики й омніканальні замовлення"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "Продажі",
+        "finance": "Фінанси",
+        "projects": "Проєкти",
+        "clients": "Клієнти",
+        "proposals": "Пропозиції",
+        "time_tracking": "Облік часу",
+        "invoices": "Рахунки",
+        "creator_studio": "Creator Studio",
+        "brand_deals": "Угоди бренду",
+        "content_calendar": "Календар контенту",
+        "sponsorships": "Спонсорства",
+        "audience_insights": "Інсайти аудиторії",
+        "campaigns": "Кампанії",
+        "client_portals": "Клієнтські портали",
+        "retainers": "Ретейнери",
+        "campaign_ops": "Операції кампаній",
+        "inventory": "Запаси",
+        "pos": "POS",
+        "loyalty": "Лояльність",
+        "reservations": "Бронювання",
+        "menu": "Меню",
+        "kitchen_display": "Кухонний дисплей",
+        "housekeeping": "Хаускіпінг",
+        "guest_crm": "CRM гостей",
+        "tickets": "Заявки",
+        "routes": "Маршрути",
+        "delivery_notes": "Накладні",
+        "patients": "Пацієнти",
+        "appointments": "Прийоми",
+        "compliance": "Відповідність",
+        "matters": "Справи",
+        "billing": "Білінг",
+        "documents": "Документи",
+        "client_books": "Клієнтські книги",
+        "datev": "DATEV",
+        "tax_deadlines": "Податкові дедлайни",
+        "sites": "Майданчики",
+        "crews": "Бригади",
+        "progress_billing": "Білінг прогресу",
+        "listings": "Оголошення",
+        "viewings": "Покази",
+        "closings": "Закриття",
+        "students": "Студенти",
+        "courses": "Курси",
+        "enrollment": "Зарахування",
+        "bom": "BOM",
+        "production": "Виробництво",
+        "qc": "QC",
+        "fleet": "Автопарк",
+        "tracking": "Відстеження",
+        "catalog": "Каталог",
+        "orders": "Замовлення",
+        "fulfillment": "Фулфілмент"
+      }
     },
     "kpi": {
       "customers": {
@@ -2769,7 +2906,7 @@
         "activeProjects": "Активні проекти",
         "activeHint": "{planning} планування",
         "completed": "Виконано",
-        "completedHint": "{percent}% портфоліо",
+        "completedHint": "{percent}% портфеля",
         "onHold": "На утриманні",
         "onHoldHint": "{archived} заархівовано",
         "teamMembers": "Члени команди",
@@ -2831,7 +2968,7 @@
       "missingTitle": "Відсутній проект",
       "missingDescription": "Виберіть проект, щоб переглянути його огляд.",
       "title": "Огляд",
-      "noDescription": "Опис не надано.",
+      "noDescription": "Опису немає.",
       "budget": "Бюджет",
       "spent": "Витрачено",
       "start": "старт",
@@ -2977,8 +3114,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "Пропозиції щодо оптимізації",
       "oneClickOptimize": "Оптимізація в один клік",
-      "noticeDefault": "Оптимізація одним клацанням миші поки що не змінила графік.",
-      "noticeQueued": "Оптимізація в черзі. Майбутній механізм перепише затримки та схвалення."
+      "noticeDefault": "Оптимізація в один клік ще не змінює граф.",
+      "noticeQueued": "Оптимізація в черзі. Майбутній рушій перепише затримки й затвердження.",
+      "score": {
+        "healthy": "Здоровий",
+        "needsAttention": "Потребує уваги",
+        "atRisk": "Під ризиком"
+      },
+      "kinds": {
+        "missing_approval": "Затвердження",
+        "possible_delay": "Затримка",
+        "unused_trigger": "Тригер",
+        "duplicate_nodes": "Дублікати",
+        "unused_action": "Дія",
+        "security": "Безпека",
+        "performance": "Продуктивність"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "Немає затвердження",
+          "description": "Довгі потоки часто потребують шлюзу затвердження перед побічними ефектами."
+        },
+        "possible_delay": {
+          "title": "Можлива затримка",
+          "description": "Додайте паузу перед нагадуваннями, щоб уникнути сплесків."
+        },
+        "unused_trigger": {
+          "title": "Невикористаний тригер",
+          "description": "У цьому графі немає стартового тригера — додайте його перед активацією."
+        },
+        "duplicate_nodes": {
+          "title": "Дубльовані вузли",
+          "description": "«{label}» трапляється {count} разів — об’єднайте, якщо зайве."
+        },
+        "unused_action": {
+          "title": "Невикористана дія",
+          "description": "{label} не підключено — з’єднайте або видаліть."
+        },
+        "security": {
+          "title": "Рекомендація з безпеки",
+          "description": "Для вебхуків і пошти обирайте адаптери з найменшими правами."
+        },
+        "performance": {
+          "title": "Рекомендація щодо продуктивності",
+          "description": "Об’єднуйте кроки ШІ, де можна, щоб зменшити середній час."
+        }
+      }
     },
     "integrations": {
       "intro": "Центр інтеграції — за бажанням. Статуси: підключено, бета-версія, планується, незабаром, вимкнено. Немає активних API.",
@@ -3699,7 +3880,7 @@
       "estimatedTokens": "Приблизно жетони",
       "tokensInOut": "(вхід {in} / вихід {out})",
       "cost": "Вартість",
-      "context": "Місцевість ",
+      "context": "Місцевість",
       "contextNone": "немає",
       "emDash": "—"
     },
@@ -4726,7 +4907,7 @@
     "skipToMain": "Перейти до основного вмісту",
     "offline": {
       "title": "Ви офлайн",
-      "message": "Перевірте з’єднання та повторіть спробу, коли знову будете в мережі. Кешовані екрани все ще можуть працювати.",
+      "message": "Перевірте з’єднання й повторіть спробу, коли знову будете онлайн. Кешовані екрани можуть ще працювати.",
       "home": "додому",
       "contact": "контакт",
       "signIn": "Увійдіть"

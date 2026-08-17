@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Optimizasyon Önerileri",
     "oneClickOptimize": "Tek Tıklamayla Optimize Etme",
-    "noticeDefault": "Tek Tıklamayla Optimize henüz bir grafik mutasyonu değildir.",
-    "noticeQueued": "Optimize edildi sıraya alındı. Gelecekteki motor gecikmeleri ve onayları yeniden yazacak."
+    "noticeDefault": "Tek tıkla optimize henüz grafiği değiştirmez.",
+    "noticeQueued": "Optimizasyon kuyrukta. Gelecek motor gecikmeleri ve onayları yeniden yazar.",
+    "score": {
+      "healthy": "Sağlıklı",
+      "needsAttention": "İlgi gerekli",
+      "atRisk": "Risk altında"
+    },
+    "kinds": {
+      "missing_approval": "Onay",
+      "possible_delay": "Gecikme",
+      "unused_trigger": "Tetikleyici",
+      "duplicate_nodes": "Yinelenenler",
+      "unused_action": "Eylem",
+      "security": "Güvenlik",
+      "performance": "Performans"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Eksik onay",
+        "description": "Uzun akışlar yan etkilerden önce onay kapısından yararlanır."
+      },
+      "possible_delay": {
+        "title": "Olası gecikme",
+        "description": "Gürültülü patlamaları önlemek için hatırlatma e-postalarından önce gecikme ekleyin."
+      },
+      "unused_trigger": {
+        "title": "Kullanılmayan tetikleyici",
+        "description": "Bu grafikte başlangıç tetikleyicisi yok — etkinleştirmeden önce ekleyin."
+      },
+      "duplicate_nodes": {
+        "title": "Yinelenen düğümler",
+        "description": "“{label}” {count} kez geçiyor — gereksizse birleştirin."
+      },
+      "unused_action": {
+        "title": "Kullanılmayan eylem",
+        "description": "{label} bağlı değil — bağlayın veya kaldırın."
+      },
+      "security": {
+        "title": "Güvenlik önerisi",
+        "description": "Webhook ve e-posta eylemleri için en az yetkili bağdaştırıcıları tercih edin."
+      },
+      "performance": {
+        "title": "Performans önerisi",
+        "description": "Ortalama süreyi düşürmek için mümkünse AI adımlarını gruplayın."
+      }
+    }
   },
   "integrations": {
     "intro": "Entegrasyon Merkezi — isteğe bağlı. Durumlar: Bağlandı, Beta, Planlandı, Çok yakında, Devre Dışı. Canlı API yok.",

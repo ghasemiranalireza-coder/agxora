@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "Khách hàng 360°",
-      "subtitle": "Hồ sơ, công ty, địa chỉ liên hệ, đơn đặt hàng, hóa đơn, Lieferscheine, thanh toán, tài liệu, dòng thời gian, hoạt động, ghi chú, tóm tắt AI và lịch sử liên lạc."
+      "subtitle": "Hồ sơ, công ty, địa chỉ liên hệ, đơn đặt hàng, hóa đơn, phiếu giao hàng, thanh toán, tài liệu, dòng thời gian, hoạt động, ghi chú, tóm tắt AI và lịch sử liên lạc."
     },
     "salesPipeline": {
       "title": "Quy trình bán hàng",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "Mô-đun phân phối",
-      "subtitle": "Hệ thống Lieferschein chuyên nghiệp có khả năng theo dõi, chữ ký, QR và mã vạch."
+      "subtitle": "Hệ thống phiếu giao hàng chuyên nghiệp có khả năng theo dõi, chữ ký, QR và mã vạch."
     },
     "documentsModule": {
       "title": "Tài liệu",
-      "subtitle": "Báo giá, hợp đồng, hóa đơn, Lieferschein, đơn đặt hàng, biên lai – với tìm kiếm AI."
+      "subtitle": "Báo giá, hợp đồng, hóa đơn, phiếu giao hàng, đơn đặt hàng, biên lai – với tìm kiếm AI."
     },
     "tasksModule": {
       "title": "Nhiệm vụ"
@@ -317,7 +317,7 @@
       "contacts": "Danh bạ",
       "orders": "Đơn đặt hàng",
       "invoices": "Hóa đơn",
-      "lieferscheine": "Lieferscheine",
+      "lieferscheine": "phiếu giao hàng",
       "payments": "Thanh toán",
       "documents": "Tài liệu",
       "timeline": "Dòng thời gian",
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "Hệ thống Lieferschein chuyên nghiệp",
+    "title": "Hệ thống phiếu giao hàng chuyên nghiệp",
     "description": "Phiếu giao hàng, nhận/giao hàng, tài xế, phương tiện và theo dõi — chỉ có hồ sơ mẫu. Bộ điều hợp xuất không được kết nối.",
     "badges": {
       "qrUnavailable": "QR không có sẵn",
@@ -351,7 +351,7 @@
       "historyNotConnected": "Cửa hàng lịch sử giao hàng không được kết nối trong bản dựng này."
     },
     "columns": {
-      "lieferschein": "Lieferschein",
+      "lieferschein": "phiếu giao hàng",
       "order": "Đặt hàng",
       "customer": "Khách hàng",
       "kind": "Loại",
@@ -408,7 +408,7 @@
     "emptyTitle": "Không có tài liệu",
     "emptyDescription": "Không có tài liệu phù hợp với tìm kiếm này.",
     "searchLabel": "Tìm kiếm AI",
-    "searchPlaceholder": "Báo giá, hợp đồng, hóa đơn, Lieferschein…",
+    "searchPlaceholder": "Báo giá, hợp đồng, hóa đơn, phiếu giao hàng…",
     "typeLabel": "Loại tài liệu",
     "allTypes": "Tất cả các loại",
     "columns": {
@@ -422,7 +422,7 @@
       "quote": "Báo giá",
       "contract": "Hợp đồng",
       "invoice": "Hóa đơn",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "phiếu giao hàng",
       "purchase_order": "Đơn đặt hàng",
       "receipt": "Biên lai"
     }
@@ -438,7 +438,137 @@
     "intro": "Nền tảng Creator Studio — các tiện ích tích hợp nền tảng chính thức có thể được cắm vào các bộ điều hợp này sau. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Chủ đề, X."
   },
   "industry": {
-    "intro": "Nền tảng kinh doanh toàn cầu - việc giới thiệu sau này sẽ chọn một ngành. Mỗi ngành đều nhận được các mô-đun AI chuyên dụng mà không cần chuyển đổi hệ điều hành CRM cốt lõi."
+    "intro": "Nền tảng kinh doanh toàn cầu - việc giới thiệu sau này sẽ chọn một ngành. Mỗi ngành đều nhận được các mô-đun AI chuyên dụng mà không cần chuyển đổi hệ điều hành CRM cốt lõi.",
+    "catalog": {
+      "business": {
+        "label": "Doanh nghiệp",
+        "description": "Hệ điều hành B2B chung"
+      },
+      "freelancer": {
+        "label": "Freelancer",
+        "description": "CRM, hóa đơn và pipeline khách cho freelancer"
+      },
+      "creator": {
+        "label": "Nhà sáng tạo",
+        "description": "Creator Studio + CRM thương hiệu"
+      },
+      "influencer": {
+        "label": "Influencer",
+        "description": "CRM tài trợ và OS chiến dịch"
+      },
+      "agency": {
+        "label": "Agency",
+        "description": "Giao hàng nhiều khách và retainer"
+      },
+      "retail": {
+        "label": "Bán lẻ",
+        "description": "Tồn kho cửa hàng, POS và khách thân thiết"
+      },
+      "restaurant": {
+        "label": "Nhà hàng",
+        "description": "Đặt chỗ, bếp và giao hàng"
+      },
+      "hotel": {
+        "label": "Khách sạn",
+        "description": "Phòng, khách và buồng phòng"
+      },
+      "laundry": {
+        "label": "Giặt ủi",
+        "description": "Nhận hàng, phiếu và logistics tuyến"
+      },
+      "healthcare": {
+        "label": "Y tế",
+        "description": "Bệnh nhân, lịch hẹn, tuân thủ"
+      },
+      "law_firm": {
+        "label": "Công ty luật",
+        "description": "Vụ việc, thanh toán và kho tài liệu"
+      },
+      "accounting": {
+        "label": "Kế toán",
+        "description": "Sổ khách và xuất DATEV"
+      },
+      "construction": {
+        "label": "Xây dựng",
+        "description": "Công trường, tổ đội và thanh toán tiến độ"
+      },
+      "real_estate": {
+        "label": "Bất động sản",
+        "description": "Tin đăng, xem nhà và chốt giao dịch"
+      },
+      "education": {
+        "label": "Giáo dục",
+        "description": "Học viên, khóa học và ghi danh"
+      },
+      "manufacturing": {
+        "label": "Sản xuất",
+        "description": "BOM, sản xuất và QC"
+      },
+      "logistics": {
+        "label": "Logistics",
+        "description": "Đội xe, theo dõi và phiếu giao hàng"
+      },
+      "ecommerce": {
+        "label": "Thương mại điện tử",
+        "description": "Danh mục, giỏ hàng và đơn omnichannel"
+      }
+    },
+    "modules": {
+      "sales": "Bán hàng",
+      "finance": "Tài chính",
+      "projects": "Dự án",
+      "clients": "Khách hàng",
+      "proposals": "Đề xuất",
+      "time_tracking": "Chấm công",
+      "invoices": "Hóa đơn",
+      "creator_studio": "Creator Studio",
+      "brand_deals": "Thỏa thuận thương hiệu",
+      "content_calendar": "Lịch nội dung",
+      "sponsorships": "Tài trợ",
+      "audience_insights": "Thấu hiểu khán giả",
+      "campaigns": "Chiến dịch",
+      "client_portals": "Cổng khách hàng",
+      "retainers": "Retainer",
+      "campaign_ops": "Vận hành chiến dịch",
+      "inventory": "Tồn kho",
+      "loyalty": "Khách thân thiết",
+      "reservations": "Đặt chỗ",
+      "menu": "Thực đơn",
+      "kitchen_display": "Màn hình bếp",
+      "housekeeping": "Buồng phòng",
+      "guest_crm": "CRM khách",
+      "tickets": "Phiếu",
+      "routes": "Tuyến",
+      "delivery_notes": "Phiếu giao hàng",
+      "patients": "Bệnh nhân",
+      "appointments": "Lịch hẹn",
+      "compliance": "Tuân thủ",
+      "matters": "Vụ việc",
+      "billing": "Thanh toán",
+      "documents": "Tài liệu",
+      "client_books": "Sổ khách",
+      "tax_deadlines": "Hạn thuế",
+      "sites": "Công trường",
+      "crews": "Tổ đội",
+      "progress_billing": "Thanh toán tiến độ",
+      "listings": "Tin đăng",
+      "viewings": "Xem nhà",
+      "closings": "Chốt giao dịch",
+      "students": "Học viên",
+      "courses": "Khóa học",
+      "enrollment": "Ghi danh",
+      "production": "Sản xuất",
+      "fleet": "Đội xe",
+      "tracking": "Theo dõi",
+      "catalog": "Danh mục",
+      "orders": "Đơn hàng",
+      "fulfillment": "Hoàn tất đơn",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {
@@ -502,7 +632,7 @@
     "quote": "Trích dẫn",
     "contract": "Hợp đồng",
     "invoice": "Hóa đơn",
-    "lieferschein": "Lieferschein",
+    "lieferschein": "phiếu giao hàng",
     "purchase_order": "Đơn đặt hàng",
     "receipt": "Biên lai"
   },

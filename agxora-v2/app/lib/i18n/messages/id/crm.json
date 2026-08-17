@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "Pelanggan 360°",
-      "subtitle": "Profil, perusahaan, kontak, pesanan, faktur, Lieferscheine, pembayaran, dokumen, garis waktu, aktivitas, catatan, ringkasan AI, dan riwayat komunikasi."
+      "subtitle": "Profil, perusahaan, kontak, pesanan, faktur, surat jalan, pembayaran, dokumen, garis waktu, aktivitas, catatan, ringkasan AI, dan riwayat komunikasi."
     },
     "salesPipeline": {
       "title": "Saluran Penjualan",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "Modul Pengiriman",
-      "subtitle": "Sistem Lieferschein profesional dengan kesiapan pelacakan, tanda tangan, QR, dan barcode."
+      "subtitle": "Sistem surat jalan profesional dengan kesiapan pelacakan, tanda tangan, QR, dan barcode."
     },
     "documentsModule": {
       "title": "Dokumen",
-      "subtitle": "Kutipan, kontrak, faktur, Lieferschein, pesanan pembelian, kwitansi — dengan pencarian AI."
+      "subtitle": "Kutipan, kontrak, faktur, surat jalan, pesanan pembelian, kwitansi — dengan pencarian AI."
     },
     "tasksModule": {
       "title": "Tugas"
@@ -317,7 +317,7 @@
       "contacts": "Kontak",
       "orders": "Pesanan",
       "invoices": "Faktur",
-      "lieferscheine": "Lieferscheine",
+      "lieferscheine": "surat jalan",
       "payments": "Pembayaran",
       "documents": "Dokumen",
       "timeline": "Garis Waktu",
@@ -336,7 +336,7 @@
     }
   },
   "delivery": {
-    "title": "Sistem Lieferschein Profesional",
+    "title": "Sistem surat jalan Profesional",
     "description": "Catatan pengiriman, penjemputan / pengantaran, pengemudi, kendaraan, dan pelacakan — catatan sampel saja. Adaptor ekspor tidak terhubung.",
     "badges": {
       "qrUnavailable": "QR tidak tersedia",
@@ -351,7 +351,7 @@
       "historyNotConnected": "Penyimpanan riwayat pengiriman tidak terhubung dalam build ini."
     },
     "columns": {
-      "lieferschein": "Lieferschein",
+      "lieferschein": "surat jalan",
       "order": "Memesan",
       "customer": "Pelanggan",
       "kind": "Baik",
@@ -408,7 +408,7 @@
     "emptyTitle": "Tidak ada dokumen",
     "emptyDescription": "Tidak ada dokumen yang cocok dengan pencarian ini.",
     "searchLabel": "Pencarian AI",
-    "searchPlaceholder": "Kutipan, kontrak, faktur, Lieferschein…",
+    "searchPlaceholder": "Kutipan, kontrak, faktur, surat jalan…",
     "typeLabel": "Jenis dokumen",
     "allTypes": "Semua tipe",
     "columns": {
@@ -422,7 +422,7 @@
       "quote": "Kutipan",
       "contract": "Kontrak",
       "invoice": "Faktur",
-      "lieferschein": "Lieferschein",
+      "lieferschein": "surat jalan",
       "purchase_order": "Pesanan Pembelian",
       "receipt": "Tanda terima"
     }
@@ -438,7 +438,137 @@
     "intro": "Fondasi Creator Studio — integrasi platform resmi dapat dihubungkan ke adaptor ini nanti. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Utas, X."
   },
   "industry": {
-    "intro": "Platform Bisnis Universal — orientasi nantinya akan memilih industri. Setiap industri menerima modul AI khusus tanpa mengorbankan OS CRM inti."
+    "intro": "Platform Bisnis Universal — orientasi nantinya akan memilih industri. Setiap industri menerima modul AI khusus tanpa mengorbankan OS CRM inti.",
+    "catalog": {
+      "business": {
+        "label": "Bisnis",
+        "description": "Sistem operasi B2B umum"
+      },
+      "freelancer": {
+        "label": "Freelancer",
+        "description": "CRM, faktur, dan pipeline pelanggan untuk solo"
+      },
+      "creator": {
+        "label": "Kreator",
+        "description": "Creator Studio + CRM merek"
+      },
+      "influencer": {
+        "label": "Influencer",
+        "description": "CRM sponsorship dan OS kampanye"
+      },
+      "agency": {
+        "label": "Agensi",
+        "description": "Pengiriman multi-klien dan retainer"
+      },
+      "retail": {
+        "label": "Ritel",
+        "description": "Inventaris toko, POS, dan loyalitas"
+      },
+      "restaurant": {
+        "label": "Restoran",
+        "description": "Reservasi, dapur, dan pengiriman"
+      },
+      "hotel": {
+        "label": "Hotel",
+        "description": "Kamar, tamu, dan housekeeping"
+      },
+      "laundry": {
+        "label": "Laundry",
+        "description": "Penjemputan, tiket, dan logistik rute"
+      },
+      "healthcare": {
+        "label": "Kesehatan",
+        "description": "Pasien, janji, kepatuhan"
+      },
+      "law_firm": {
+        "label": "Firma hukum",
+        "description": "Perkara, penagihan, dan brankas dokumen"
+      },
+      "accounting": {
+        "label": "Akuntansi",
+        "description": "Buku klien dan ekspor DATEV"
+      },
+      "construction": {
+        "label": "Konstruksi",
+        "description": "Lokasi, kru, dan penagihan progres"
+      },
+      "real_estate": {
+        "label": "Properti",
+        "description": "Listing, viewing, dan closing"
+      },
+      "education": {
+        "label": "Pendidikan",
+        "description": "Mahasiswa, kursus, dan pendaftaran"
+      },
+      "manufacturing": {
+        "label": "Manufaktur",
+        "description": "BOM, produksi, dan QC"
+      },
+      "logistics": {
+        "label": "Logistik",
+        "description": "Armada, pelacakan, dan surat jalan"
+      },
+      "ecommerce": {
+        "label": "E-commerce",
+        "description": "Katalog, keranjang, dan pesanan omnichannel"
+      }
+    },
+    "modules": {
+      "sales": "Penjualan",
+      "finance": "Keuangan",
+      "projects": "Proyek",
+      "clients": "Pelanggan",
+      "proposals": "Proposal",
+      "time_tracking": "Pelacakan waktu",
+      "invoices": "Faktur",
+      "creator_studio": "Creator Studio",
+      "brand_deals": "Kesepakatan merek",
+      "content_calendar": "Kalender konten",
+      "sponsorships": "Sponsorship",
+      "audience_insights": "Wawasan audiens",
+      "campaigns": "Kampanye",
+      "client_portals": "Portal pelanggan",
+      "retainers": "Retainer",
+      "campaign_ops": "Operasi kampanye",
+      "inventory": "Inventaris",
+      "loyalty": "Loyalitas",
+      "reservations": "Reservasi",
+      "menu": "Menu",
+      "kitchen_display": "Tampilan dapur",
+      "housekeeping": "Housekeeping",
+      "guest_crm": "CRM tamu",
+      "tickets": "Tiket",
+      "routes": "Rute",
+      "delivery_notes": "Surat jalan",
+      "patients": "Pasien",
+      "appointments": "Janji",
+      "compliance": "Kepatuhan",
+      "matters": "Perkara",
+      "billing": "Penagihan",
+      "documents": "Dokumen",
+      "client_books": "Buku klien",
+      "tax_deadlines": "Tenggat pajak",
+      "sites": "Lokasi",
+      "crews": "Kru",
+      "progress_billing": "Penagihan progres",
+      "listings": "Listing",
+      "viewings": "Viewing",
+      "closings": "Closing",
+      "students": "Mahasiswa",
+      "courses": "Kursus",
+      "enrollment": "Pendaftaran",
+      "production": "Produksi",
+      "fleet": "Armada",
+      "tracking": "Pelacakan",
+      "catalog": "Katalog",
+      "orders": "Pesanan",
+      "fulfillment": "Pemenuhan",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {
@@ -502,7 +632,7 @@
     "quote": "Mengutip",
     "contract": "Kontrak",
     "invoice": "Faktur",
-    "lieferschein": "Lieferschein",
+    "lieferschein": "surat jalan",
     "purchase_order": "Pesanan Pembelian",
     "receipt": "Kuitansi"
   },

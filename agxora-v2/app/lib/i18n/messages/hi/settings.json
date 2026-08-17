@@ -27,7 +27,7 @@
     "regions": {
       "EU": "यूरोपीय संघ",
       "US": "संयुक्त राज्य अमेरिका",
-      "MENA": "मेना",
+      "MENA": "MENA",
       "APAC": "एपीएसी"
     }
   },
@@ -61,7 +61,7 @@
     "preferredProvider": "पसंदीदा एआई प्रदाता",
     "defaultModel": "डिफ़ॉल्ट एआई मॉडल",
     "temperature": "तापमान",
-    "topP": "शीर्ष पी",
+    "topP": "Top P",
     "maxTokens": "अधिकतम टोकन",
     "writingStyle": "लेखन शैली",
     "languagePreferences": "भाषा प्राथमिकताएँ",
@@ -78,10 +78,10 @@
     "streaming": "स्ट्रीमिंग",
     "streamingDescription": "जब प्रदाता इसका समर्थन करता है तो स्ट्रीम मॉडल प्रतिक्रियाएँ।",
     "providers": {
-      "mock": "नकली (स्थानीय)",
+      "mock": "मॉक (स्थानीय)",
       "openai": "ओपनएआई",
       "azure": "एज़्योर ओपनएआई",
-      "anthropic": "anthropic",
+      "anthropic": "Anthropic",
       "google": "गूगल",
       "openrouter": "ओपनराउटर",
       "ollama": "ओलामा",
@@ -109,7 +109,7 @@
     "themeModeAria": "थीम मोड",
     "resolvedAppearance": "सुलझी हुई उपस्थिति:",
     "accentColor": "एक्सेंट रंग",
-    "accentNotice": "एक्सेंट प्राथमिकता को भविष्य के सीएसएस संस्करण वायरिंग के लिए संग्रहीत किया जाता है - अभी तक लॉक किए गए रंग सिस्टम को परिवर्तित नहीं करता है।",
+    "accentNotice": "एक्सेंट वरीयता इस सत्र में सहेजी जाती है और लॉक रंग प्रणाली अभी नहीं बदलती।",
     "density": "घनत्व",
     "compactMode": "कॉम्पैक्ट मोड",
     "compactModeDescription": "एंटरप्राइज़ तालिकाओं और पैनलों में पैडिंग कम करें।",
@@ -135,6 +135,13 @@
       "comfortable": "आरामदायक",
       "compact": "सघन",
       "spacious": "विशाल"
+    },
+    "accents": {
+      "cyan": "सियान",
+      "blue": "नीला",
+      "emerald": "एमराल्ड",
+      "violet": "वायलेट",
+      "amber": "अंबर"
     }
   },
   "notifications": {

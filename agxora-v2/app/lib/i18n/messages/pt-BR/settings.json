@@ -61,7 +61,7 @@
     "preferredProvider": "Provedor de IA preferencial",
     "defaultModel": "Modelo de IA padrão",
     "temperature": "Temperatura",
-    "topP": "Parte superior P",
+    "topP": "Top P",
     "maxTokens": "Máximo de tokens",
     "writingStyle": "Estilo de escrita",
     "languagePreferences": "Preferências de idioma",
@@ -78,10 +78,10 @@
     "streaming": "Transmissão",
     "streamingDescription": "Transmita respostas do modelo quando o provedor oferecer suporte.",
     "providers": {
-      "mock": "Simulação (local)",
+      "mock": "Mock (local)",
       "openai": "OpenAI",
       "azure": "Azure OpenAI",
-      "anthropic": "Antrópico",
+      "anthropic": "Anthropic",
       "google": "Google",
       "openrouter": "OpenRouter",
       "ollama": "Ollama",
@@ -109,9 +109,9 @@
     "themeModeAria": "Modo tema",
     "resolvedAppearance": "Aparência resolvida:",
     "accentColor": "Cor de destaque",
-    "accentNotice": "A preferência de acento é armazenada para futura fiação CSS var - ainda não altera o sistema de cores bloqueado.",
+    "accentNotice": "A preferência de destaque é guardada nesta sessão e ainda não altera o sistema de cores bloqueado.",
     "density": "Densidade",
-    "compactMode": "Modo Compacto",
+    "compactMode": "Modo compacto",
     "compactModeDescription": "Reduza o preenchimento em tabelas e painéis corporativos.",
     "animations": "Animações",
     "animationsDescription": "Movimento de seção e elevação flutuante. Respeita a configuração do sistema operacional de movimento reduzido.",
@@ -135,6 +135,13 @@
       "comfortable": "Confortável",
       "compact": "Compactar",
       "spacious": "Espaçoso"
+    },
+    "accents": {
+      "cyan": "Ciano",
+      "blue": "Azul",
+      "emerald": "Esmeralda",
+      "violet": "Violeta",
+      "amber": "Âmbar"
     }
   },
   "notifications": {

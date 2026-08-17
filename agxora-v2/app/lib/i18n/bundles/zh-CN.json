@@ -16,14 +16,14 @@
     "privacy": "隐私",
     "terms": "条款",
     "cookies": "Cookie",
-    "imprint": "版本说明",
+    "imprint": "法律信息",
     "organization": "组织",
     "user": "用户",
     "guest": "客人",
     "member": "成员",
     "role": "角色",
     "signedIn": "已登录",
-    "guestSession": "嘉宾专场",
+    "guestSession": "访客会话",
     "noResults": "没有结果",
     "noData": "无数据",
     "comingSoon": "即将推出",
@@ -44,12 +44,12 @@
     "dashboard": "仪表盘"
   },
   "navigation": {
-    "dashboard": "仪表板",
+    "dashboard": "仪表盘",
     "projects": "项目",
     "aiCrm": "人工智能客户关系管理",
     "analytics": "分析",
     "billing": "计费",
-    "aiWorkspace": "AI工作区",
+    "aiWorkspace": "AI 工作区",
     "customers": "顾客",
     "automation": "自动化",
     "financeTax": "财务与税务",
@@ -62,10 +62,10 @@
     "menu": "菜单",
     "search": "搜索",
     "notifications": "通知",
-    "profile": "轮廓",
+    "profile": "个人资料",
     "currentOrganization": "当前组织",
-    "noNotifications": "无通知",
-    "notificationsEmpty": "你们都被困住了。警报和提及将出现在此处。",
+    "noNotifications": "暂无通知",
+    "notificationsEmpty": "全部已处理。提醒和提及会显示在这里。",
     "accountSettings": "账号设置",
     "security": "安全",
     "themeToggle": "快速主题切换。偏好：{mode}"
@@ -290,7 +290,7 @@
       "regions": {
         "EU": "欧洲联盟",
         "US": "美国",
-        "MENA": "中东和北非地区",
+        "MENA": "中东和北非",
         "APAC": "亚太地区"
       }
     },
@@ -324,7 +324,7 @@
       "preferredProvider": "首选人工智能提供商",
       "defaultModel": "默认AI模型",
       "temperature": "温度",
-      "topP": "顶P",
+      "topP": "Top P",
       "maxTokens": "最大代币数",
       "writingStyle": "写作风格",
       "languagePreferences": "语言偏好",
@@ -344,7 +344,7 @@
         "mock": "模拟（本地）",
         "openai": "开放人工智能",
         "azure": "Azure 开放人工智能",
-        "anthropic": "人择",
+        "anthropic": "Anthropic",
         "google": "谷歌",
         "openrouter": "开放路由器",
         "ollama": "奥拉玛",
@@ -372,9 +372,16 @@
       "themeModeAria": "主题模式",
       "resolvedAppearance": "解决外观：",
       "accentColor": "强调色",
-      "accentNotice": "重音首选项被存储以供将来的 CSS var 接线使用——还不会改变锁定的颜色系统。",
+      "accentNotice": "强调色偏好会保存在本次会话中，尚不会改动锁定的色彩系统。",
+      "accents": {
+        "cyan": "青色",
+        "blue": "蓝色",
+        "emerald": "翠绿",
+        "violet": "紫色",
+        "amber": "琥珀色"
+      },
       "density": "密度",
-      "compactMode": "紧凑型模式",
+      "compactMode": "紧凑模式",
       "compactModeDescription": "减少企业表格和面板之间的填充。",
       "animations": "动画",
       "animationsDescription": "剖面运动和悬停升降机。尊重简化运动操作系统设置。",
@@ -479,7 +486,7 @@
       "openCenter": "打开集成中心",
       "notice": "企业集成平台位于集成中心 - 连接器、OAuth、Webhooks、API 密钥和工作流事件桥。",
       "columns": {
-        "integration": "一体<g id=\"1077\">化</g>",
+        "integration": "一体化",
         "category": "类别",
         "status": "地位",
         "adapter": "适配器"
@@ -741,8 +748,8 @@
     "skipToContent": "跳至仪表板内容",
     "loading": "正在加载仪表板...",
     "hero": {
-      "ariaLabel": "AGXORA核心英雄",
-      "eyebrow": "人工智能商业操作系统",
+      "ariaLabel": "AGXORA CORE",
+      "eyebrow": "AI 商业操作系统",
       "title": "AGXORA核心",
       "subtitle": "实时智能和操作控制——您的工作空间命令界面。",
       "ctaGetStarted": "开始使用",
@@ -752,7 +759,7 @@
     },
     "quickActions": {
       "title": "快捷操作",
-      "subtitle": "接下来你应该做什么？",
+      "subtitle": "接下来该做什么？",
       "ariaLabel": "快捷操作",
       "addCustomer": {
         "label": "添加客户",
@@ -767,7 +774,7 @@
         "description": "打开 AI 工作区"
       },
       "finance": {
-        "label": "金融",
+        "label": "财务",
         "description": "发票和现金流"
       },
       "automations": {
@@ -782,11 +789,11 @@
     "attention": {
       "title": "需要注意",
       "ariaLabel": "需要注意",
-      "empty": "你很清楚——现在没有紧急物品。",
+      "empty": "一切正常 — 目前没有紧急事项。",
       "tone": {
-        "critical": "批判的",
+        "critical": "严重",
         "warning": "警告",
-        "info": "飞艇信息",
+        "info": "信息",
         "success": "准备好",
         "action": "下一步做"
       },
@@ -808,11 +815,11 @@
       }
     },
     "overview": {
-      "title": "工程情况",
-      "subtitle": "{name} 的工作空间计数",
+      "title": "当前动态",
+      "subtitle": "{name} 的工作区计数",
       "fallbackName": "你的工作空间",
       "ariaLabel": "业务概况",
-      "online": "电在",
+      "online": "在线",
       "emDash": "—",
       "capacitySignal": "{percent}% 容量信号",
       "activeClients": {
@@ -838,13 +845,13 @@
       "revenue": {
         "title": "收入",
         "caption": "关联账单以显示MRR",
-        "openBilling": "开放式计费"
+        "openBilling": "打开账单"
       },
       "clientShell": {
-        "title": "客户端外壳",
+        "title": "应用外壳",
         "caption": "浏览器会话就绪 - 不是实时操作监视器",
         "shellLoaded": "已加载应用程序外壳",
-        "storesReady": "本地工作区商店准备就绪"
+        "storesReady": "本地工作区存储已就绪"
       },
       "growth": {
         "title": "增长率",
@@ -856,8 +863,8 @@
       "title": "最近的活动",
       "subtitle": "今天发生了什么变化",
       "ariaLabel": "最近的活动",
-      "todayCount": "今天 {count}",
-      "localBadge": "当地的",
+      "todayCount": "今日 {count} 条",
+      "localBadge": "本地",
       "emptyTitle": "还没有活动",
       "emptyBody": "当您添加客户、项目等时，工作区事件将显示在此处。",
       "addCustomer": "添加客户",
@@ -1127,14 +1134,14 @@
   },
   "auth": {
     "login": {
-      "title": "登陆",
+      "title": "登录",
       "subtitle": "欢迎回到 AGXORA。",
       "email": "电子邮件",
       "password": "密码",
-      "emailPlaceholder": "你@company.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "密码",
-      "rememberMe": "记住账号",
-      "submit": "登陆",
+      "rememberMe": "记住我",
+      "submit": "登录",
       "submitting": "正在登录...",
       "noAccount": "没有帐户？",
       "startFree": "免费开始",
@@ -1142,7 +1149,7 @@
       "showPassword": "显示密码",
       "hidePassword": "隐藏密码",
       "failed": "登录失败",
-      "loading": "登陆"
+      "loading": "登录"
     },
     "register": {
       "title": "创建帐号",
@@ -1160,15 +1167,15 @@
       "submit": "创建帐号",
       "submitting": "正在创建帐户...",
       "haveAccount": "已经有帐户？",
-      "signIn": "登陆",
+      "signIn": "登录",
       "strength": "密码强度",
-      "strengthWeak": "虚弱的",
-      "strengthFair": "公平的",
-      "strengthStrong": "最悍",
+      "strengthWeak": "弱",
+      "strengthFair": "一般",
+      "strengthStrong": "强",
       "firstNamePlaceholder": "亚历克斯",
-      "lastNamePlaceholder": "摩根",
+      "lastNamePlaceholder": "Morgan",
       "companyPlaceholder": "艾格索拉有限公司",
-      "emailPlaceholder": "你@company.com",
+      "emailPlaceholder": "you@company.com",
       "passwordPlaceholder": "最少8个字符，字母+数字",
       "confirmPasswordPlaceholder": "重复密码",
       "failed": "注册失败",
@@ -1199,7 +1206,7 @@
       "loading": "重置密码"
     },
     "contactSales": {
-      "title": "联系销售部门",
+      "title": "联系销售",
       "subtitle": "告诉我们您的团队。我们将跟进企业选项。",
       "name": "姓名",
       "email": "工作邮箱",
@@ -1211,14 +1218,14 @@
       "employees51_200": "51–200",
       "employees201_1000": "201–1,000",
       "employees1000plus": "1,000+",
-      "message": "信息",
+      "message": "留言",
       "messagePlaceholder": "你想解决什么问题？",
       "submit": "提交查询",
       "submitting": "正在发送...",
       "successTitle": "谢谢",
       "successBody": "您的询问已收到。我们的团队将很快回复。",
       "viewPricing": "查看定价",
-      "bookDemo": "书籍演示",
+      "bookDemo": "预约演示",
       "failed": "无法提交查询",
       "country": "国家",
       "savedFor": "已为 {company} 保存。此构建未连接销售投递。",
@@ -1270,7 +1277,7 @@
       },
       "customer360": {
         "title": "客户360°",
-        "subtitle": "个人资料、公司、联系人、订单、发票、Lieferscheine、付款、文档、时间表、活动、笔记、AI 摘要和通信历史记录。"
+        "subtitle": "个人资料、公司、联系人、订单、发票、送货单、付款、文档、时间表、活动、笔记、AI 摘要和通信历史记录。"
       },
       "salesPipeline": {
         "title": "销售渠道",
@@ -1281,11 +1288,11 @@
       },
       "deliveryModule": {
         "title": "交付模块",
-        "subtitle": "专业的 Lieferschein 系统，具备跟踪、签名、QR 和条形码功能。"
+        "subtitle": "专业的 送货单 系统，具备跟踪、签名、QR 和条形码功能。"
       },
       "documentsModule": {
         "title": "文件",
-        "subtitle": "报价、合同、发票、Lieferschein、采购订单、收据 - 通过人工智能搜索。"
+        "subtitle": "报价、合同、发票、送货单、采购订单、收据 - 通过人工智能搜索。"
       },
       "tasksModule": {
         "title": "任务"
@@ -1596,7 +1603,7 @@
       }
     },
     "delivery": {
-      "title": "专业 Lieferschein 系统",
+      "title": "专业 送货单 系统",
       "description": "送货单、提货/送货、司机、车辆和跟踪 - 仅样本记录。未连接导出适配器。",
       "badges": {
         "qrUnavailable": "二维码不可用",
@@ -1668,7 +1675,7 @@
       "emptyTitle": "没有文件",
       "emptyDescription": "没有与此搜索匹配的文档。",
       "searchLabel": "人工智能搜索",
-      "searchPlaceholder": "报价单、合同、发票、Lieferschein...",
+      "searchPlaceholder": "报价单、合同、发票、送货单...",
       "typeLabel": "文件类型",
       "allTypes": "所有类型",
       "columns": {
@@ -1698,7 +1705,137 @@
       "intro": "Creator Studio 基础 - 官方平台集成可以稍后插入这些适配器。 Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X。"
     },
     "industry": {
-      "intro": "通用业务平台——入职后将选择一个行业。每个行业都会获得专用的人工智能模块，而无需分叉核心 CRM 操作系统。"
+      "intro": "通用业务平台——入职后将选择一个行业。每个行业都会获得专用的人工智能模块，而无需分叉核心 CRM 操作系统。",
+      "catalog": {
+        "business": {
+          "label": "企业",
+          "description": "通用 B2B 操作系统"
+        },
+        "freelancer": {
+          "label": "自由职业者",
+          "description": "个人经营者的 CRM、发票和客户管道"
+        },
+        "creator": {
+          "label": "创作者",
+          "description": "创作者工作室 + 品牌 CRM"
+        },
+        "influencer": {
+          "label": "达人",
+          "description": "赞助 CRM 与活动操作系统"
+        },
+        "agency": {
+          "label": "代理机构",
+          "description": "多客户交付与顾问合同"
+        },
+        "retail": {
+          "label": "零售",
+          "description": "门店库存、POS 与忠诚度"
+        },
+        "restaurant": {
+          "label": "餐饮",
+          "description": "预订、后厨与外送"
+        },
+        "hotel": {
+          "label": "酒店",
+          "description": "客房、宾客与客房服务"
+        },
+        "laundry": {
+          "label": "洗衣",
+          "description": "取件、工单与路线物流"
+        },
+        "healthcare": {
+          "label": "医疗",
+          "description": "患者、预约、合规"
+        },
+        "law_firm": {
+          "label": "律师事务所",
+          "description": "案件、账单与文档库"
+        },
+        "accounting": {
+          "label": "会计",
+          "description": "客户账簿与 DATEV 导出"
+        },
+        "construction": {
+          "label": "建筑",
+          "description": "工地、班组与进度结算"
+        },
+        "real_estate": {
+          "label": "房地产",
+          "description": "房源、看房与成交"
+        },
+        "education": {
+          "label": "教育",
+          "description": "学生、课程与招生"
+        },
+        "manufacturing": {
+          "label": "制造",
+          "description": "BOM、生产与质检"
+        },
+        "logistics": {
+          "label": "物流",
+          "description": "车队、追踪与送货单"
+        },
+        "ecommerce": {
+          "label": "电子商务",
+          "description": "目录、购物车与全渠道订单"
+        }
+      },
+      "modules": {
+        "crm": "CRM",
+        "sales": "销售",
+        "finance": "财务",
+        "projects": "项目",
+        "clients": "客户",
+        "proposals": "方案",
+        "time_tracking": "工时跟踪",
+        "invoices": "发票",
+        "creator_studio": "创作者工作室",
+        "brand_deals": "品牌合作",
+        "content_calendar": "内容日历",
+        "sponsorships": "赞助",
+        "audience_insights": "受众洞察",
+        "campaigns": "活动",
+        "client_portals": "客户门户",
+        "retainers": "顾问合同",
+        "campaign_ops": "活动运营",
+        "inventory": "库存",
+        "pos": "POS",
+        "loyalty": "忠诚度",
+        "reservations": "预订",
+        "menu": "菜单",
+        "kitchen_display": "厨房显示",
+        "housekeeping": "客房服务",
+        "guest_crm": "宾客 CRM",
+        "tickets": "工单",
+        "routes": "路线",
+        "delivery_notes": "送货单",
+        "patients": "患者",
+        "appointments": "预约",
+        "compliance": "合规",
+        "matters": "案件",
+        "billing": "账单",
+        "documents": "文档",
+        "client_books": "客户账簿",
+        "datev": "DATEV",
+        "tax_deadlines": "报税截止",
+        "sites": "工地",
+        "crews": "班组",
+        "progress_billing": "进度结算",
+        "listings": "房源",
+        "viewings": "看房",
+        "closings": "成交",
+        "students": "学生",
+        "courses": "课程",
+        "enrollment": "招生",
+        "bom": "BOM",
+        "production": "生产",
+        "qc": "QC",
+        "fleet": "车队",
+        "tracking": "追踪",
+        "catalog": "目录",
+        "orders": "订单",
+        "fulfillment": "履约"
+      }
     },
     "kpi": {
       "customers": {
@@ -2769,7 +2906,7 @@
         "activeProjects": "活跃项目",
         "activeHint": "{planning}计划",
         "completed": "完全的",
-        "completedHint": "投资组合的{percent} %",
+        "completedHint": "占组合的 {percent}%",
         "onHold": "等候接听",
         "onHoldHint": "{archived}已存档",
         "teamMembers": "团队成员",
@@ -2831,7 +2968,7 @@
       "missingTitle": "缺少项目",
       "missingDescription": "选择一个项目以查看其概述。",
       "title": "概述",
-      "noDescription": "没有提供描述。",
+      "noDescription": "暂无描述。",
       "budget": "预算",
       "spent": "花费",
       "start": "开始",
@@ -2977,8 +3114,52 @@
       "scoreOutOf": "/ 100",
       "optimizationSuggestions": "优化建议",
       "oneClickOptimize": "一键优化",
-      "noticeDefault": "一键优化还没有图形突变。",
-      "noticeQueued": "优化排队。未来的引擎将重写延迟和批准。"
+      "noticeDefault": "一键优化尚不会改动流程图。",
+      "noticeQueued": "已排队优化。后续引擎将改写延迟与审批。",
+      "score": {
+        "healthy": "健康",
+        "needsAttention": "需要关注",
+        "atRisk": "存在风险"
+      },
+      "kinds": {
+        "missing_approval": "审批",
+        "possible_delay": "延迟",
+        "unused_trigger": "触发器",
+        "duplicate_nodes": "重复",
+        "unused_action": "操作",
+        "security": "安全",
+        "performance": "性能"
+      },
+      "suggestions": {
+        "missing_approval": {
+          "title": "缺少审批",
+          "description": "较长流程通常应在产生副作用前加入审批关卡。"
+        },
+        "possible_delay": {
+          "title": "可能需要延迟",
+          "description": "可在提醒邮件前加入延迟，避免突发打扰。"
+        },
+        "unused_trigger": {
+          "title": "未使用的触发器",
+          "description": "此图没有起始触发器 — 激活前请添加一个。"
+        },
+        "duplicate_nodes": {
+          "title": "重复节点",
+          "description": "“{label}” 出现 {count} 次 — 如多余请合并。"
+        },
+        "unused_action": {
+          "title": "未使用的操作",
+          "description": "{label} 未连接 — 请连线或删除。"
+        },
+        "security": {
+          "title": "安全建议",
+          "description": "Webhook 和邮件操作请使用最小权限适配器。"
+        },
+        "performance": {
+          "title": "性能建议",
+          "description": "尽可能批量处理 AI 步骤以缩短平均执行时间。"
+        }
+      }
     },
     "integrations": {
       "intro": "集成中心——可选。状态：已连接、测试版、计划中、即将推出、已禁用。没有实时 API。",
@@ -4079,7 +4260,7 @@
       "localDemo": "本地演示"
     },
     "columns": {
-      "integration": "一体<g id=\"1077\">化</g>",
+      "integration": "一体化",
       "status": "地位",
       "health": "健康",
       "latency": "延迟",
@@ -4726,7 +4907,7 @@
     "skipToMain": "跳至主要内容",
     "offline": {
       "title": "您离线",
-      "message": "检查您的连接，并在重新上线后重试。缓存的屏幕可能仍然有效。",
+      "message": "请检查连接，恢复后再重试。已缓存的界面可能仍可使用。",
       "home": "家",
       "contact": "联系方式",
       "signIn": "登陆"

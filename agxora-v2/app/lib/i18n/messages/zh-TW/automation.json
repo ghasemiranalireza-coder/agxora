@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "優化建議",
     "oneClickOptimize": "一鍵優化",
-    "noticeDefault": "一鍵優化還沒有圖形突變。",
-    "noticeQueued": "優化排隊。未來的引擎將重寫延遲和批准。"
+    "noticeDefault": "一鍵最佳化尚不會改動流程圖。",
+    "noticeQueued": "已排入最佳化。後續引擎將改寫延遲與核准。",
+    "score": {
+      "healthy": "健康",
+      "needsAttention": "需要關注",
+      "atRisk": "存在風險"
+    },
+    "kinds": {
+      "missing_approval": "核准",
+      "possible_delay": "延遲",
+      "unused_trigger": "觸發",
+      "duplicate_nodes": "重複",
+      "unused_action": "動作",
+      "security": "安全性",
+      "performance": "效能"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "缺少核准",
+        "description": "較長流程通常應在產生副作用前加入核准關卡。"
+      },
+      "possible_delay": {
+        "title": "可能需要延遲",
+        "description": "可在提醒郵件前加入延遲，避免突發打擾。"
+      },
+      "unused_trigger": {
+        "title": "未使用的觸發",
+        "description": "此圖沒有起始觸發 — 啟用前請新增一個。"
+      },
+      "duplicate_nodes": {
+        "title": "重複節點",
+        "description": "「{label}」出現 {count} 次 — 若多餘請合併。"
+      },
+      "unused_action": {
+        "title": "未使用的動作",
+        "description": "{label} 未連接 — 請連線或刪除。"
+      },
+      "security": {
+        "title": "安全性建議",
+        "description": "Webhook 與郵件操作請使用最小權限轉接器。"
+      },
+      "performance": {
+        "title": "效能建議",
+        "description": "盡可能批次處理 AI 步驟以縮短平均執行時間。"
+      }
+    }
   },
   "integrations": {
     "intro": "整合中心—選用。狀態：已連線、測試版、已計劃、即將推出、已停用。沒有即時API。",

@@ -10,7 +10,7 @@
     },
     "customer360": {
       "title": "Клиент 360°",
-      "subtitle": "Профиль, компания, контакты, заказы, счета, Lieferscheine, платежи, документы, график, действия, заметки, сводка AI и история общения."
+      "subtitle": "Профиль, компания, контакты, заказы, счета, накладные, платежи, документы, график, действия, заметки, сводка AI и история общения."
     },
     "salesPipeline": {
       "title": "Воронка продаж",
@@ -21,11 +21,11 @@
     },
     "deliveryModule": {
       "title": "Модуль доставки",
-      "subtitle": "Профессиональная система Lieferschein с возможностью отслеживания, подписи, QR-кода и готовности штрих-кода."
+      "subtitle": "Профессиональная система накладная с возможностью отслеживания, подписи, QR-кода и готовности штрих-кода."
     },
     "documentsModule": {
       "title": "Документы",
-      "subtitle": "Котировки, контракты, счета-фактуры, Lieferschein, заказы на поставку, квитанции — с поиском AI."
+      "subtitle": "Котировки, контракты, счета-фактуры, накладная, заказы на поставку, квитанции — с поиском AI."
     },
     "tasksModule": {
       "title": "Задачи"
@@ -408,7 +408,7 @@
     "emptyTitle": "Нет документов",
     "emptyDescription": "Нет документов, соответствующих этому запросу.",
     "searchLabel": "AI-поиск",
-    "searchPlaceholder": "Котировки, контракты, счета-фактуры, Lieferschein…",
+    "searchPlaceholder": "Котировки, контракты, счета-фактуры, накладная…",
     "typeLabel": "Тип документа",
     "allTypes": "Все типы",
     "columns": {
@@ -438,7 +438,137 @@
     "intro": "Creator Studio Foundation — официальные интеграции платформы можно подключить к этим адаптерам позже. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
   },
   "industry": {
-    "intro": "Универсальная бизнес-платформа — онбординг позже выберет отрасль. Каждая отрасль получает специальные модули искусственного интеллекта без разделения базовой ОС CRM."
+    "intro": "Универсальная бизнес-платформа — онбординг позже выберет отрасль. Каждая отрасль получает специальные модули искусственного интеллекта без разделения базовой ОС CRM.",
+    "catalog": {
+      "business": {
+        "label": "Бизнес",
+        "description": "Универсальная B2B-ОС"
+      },
+      "freelancer": {
+        "label": "Фрилансер",
+        "description": "CRM, счета и воронка клиентов для самозанятых"
+      },
+      "creator": {
+        "label": "Криейтор",
+        "description": "Creator Studio и бренд-CRM"
+      },
+      "influencer": {
+        "label": "Инфлюенсер",
+        "description": "CRM спонсорств и ОС кампаний"
+      },
+      "agency": {
+        "label": "Агентство",
+        "description": "Мультиклиентская поставка и ретейнеры"
+      },
+      "retail": {
+        "label": "Ритейл",
+        "description": "Склад магазина, POS и лояльность"
+      },
+      "restaurant": {
+        "label": "Ресторан",
+        "description": "Брони, кухня и доставка"
+      },
+      "hotel": {
+        "label": "Отель",
+        "description": "Номера, гости и хаускипинг"
+      },
+      "laundry": {
+        "label": "Прачечная",
+        "description": "Забор, заявки и маршрутная логистика"
+      },
+      "healthcare": {
+        "label": "Здравоохранение",
+        "description": "Пациенты, приёмы, соответствие"
+      },
+      "law_firm": {
+        "label": "Юридическая фирма",
+        "description": "Дела, биллинг и хранилище документов"
+      },
+      "accounting": {
+        "label": "Бухгалтерия",
+        "description": "Клиентские книги и выгрузки DATEV"
+      },
+      "construction": {
+        "label": "Строительство",
+        "description": "Площадки, бригады и прогресс-биллинг"
+      },
+      "real_estate": {
+        "label": "Недвижимость",
+        "description": "Объявления, показы и сделки"
+      },
+      "education": {
+        "label": "Образование",
+        "description": "Студенты, курсы и зачисление"
+      },
+      "manufacturing": {
+        "label": "Производство",
+        "description": "BOM, производство и ОТК"
+      },
+      "logistics": {
+        "label": "Логистика",
+        "description": "Автопарк, трекинг и накладные"
+      },
+      "ecommerce": {
+        "label": "Электронная коммерция",
+        "description": "Каталог, корзины и омниканальные заказы"
+      }
+    },
+    "modules": {
+      "sales": "Продажи",
+      "finance": "Финансы",
+      "projects": "Проекты",
+      "clients": "Клиенты",
+      "proposals": "Предложения",
+      "time_tracking": "Учёт времени",
+      "invoices": "Счета",
+      "creator_studio": "Creator Studio",
+      "brand_deals": "Бренд-сделки",
+      "content_calendar": "Контент-календарь",
+      "sponsorships": "Спонсорства",
+      "audience_insights": "Инсайты аудитории",
+      "campaigns": "Кампании",
+      "client_portals": "Клиентские порталы",
+      "retainers": "Ретейнеры",
+      "campaign_ops": "Операции кампаний",
+      "inventory": "Склад",
+      "loyalty": "Лояльность",
+      "reservations": "Бронирования",
+      "menu": "Меню",
+      "kitchen_display": "Кухонный дисплей",
+      "housekeeping": "Хаускипинг",
+      "guest_crm": "CRM гостей",
+      "tickets": "Заявки",
+      "routes": "Маршруты",
+      "delivery_notes": "Накладные",
+      "patients": "Пациенты",
+      "appointments": "Приёмы",
+      "compliance": "Соответствие",
+      "matters": "Дела",
+      "billing": "Биллинг",
+      "documents": "Документы",
+      "client_books": "Клиентские книги",
+      "tax_deadlines": "Налоговые сроки",
+      "sites": "Площадки",
+      "crews": "Бригады",
+      "progress_billing": "Прогресс-биллинг",
+      "listings": "Объявления",
+      "viewings": "Показы",
+      "closings": "Сделки",
+      "students": "Студенты",
+      "courses": "Курсы",
+      "enrollment": "Зачисление",
+      "production": "Производство",
+      "fleet": "Автопарк",
+      "tracking": "Отслеживание",
+      "catalog": "Каталог",
+      "orders": "Заказы",
+      "fulfillment": "Фулфилмент",
+      "crm": "CRM",
+      "pos": "POS",
+      "datev": "DATEV",
+      "bom": "BOM",
+      "qc": "QC"
+    }
   },
   "kpi": {
     "customers": {

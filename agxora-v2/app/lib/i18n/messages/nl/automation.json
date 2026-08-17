@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Optimalisatiesuggesties",
     "oneClickOptimize": "Optimaliseren met één klik",
-    "noticeDefault": "One Click Optimize is nog geen grafiekmutatie.",
-    "noticeQueued": "Optimaliseren in wachtrij. Toekomstige engine zal vertragingen en goedkeuringen herschrijven."
+    "noticeDefault": "Een-klik-optimalisatie wijzigt de grafiek nog niet.",
+    "noticeQueued": "Optimalisatie in de wachtrij. Een toekomstige engine herschrijft vertragingen en goedkeuringen.",
+    "score": {
+      "healthy": "Gezond",
+      "needsAttention": "Aandacht nodig",
+      "atRisk": "Risico"
+    },
+    "kinds": {
+      "missing_approval": "Goedkeuring",
+      "possible_delay": "Vertraging",
+      "unused_trigger": "Trigger",
+      "duplicate_nodes": "Duplicaten",
+      "unused_action": "Actie",
+      "security": "Beveiliging",
+      "performance": "Prestaties"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Ontbrekende goedkeuring",
+        "description": "Langere flows hebben vaak een goedkeuringspoort vóór neveneffecten."
+      },
+      "possible_delay": {
+        "title": "Mogelijke vertraging",
+        "description": "Overweeg een vertraging vóór herinneringsmails om pieken te voorkomen."
+      },
+      "unused_trigger": {
+        "title": "Ongebruikte trigger",
+        "description": "Deze grafiek heeft geen starttrigger — voeg er een toe vóór activering."
+      },
+      "duplicate_nodes": {
+        "title": "Dubbele knopen",
+        "description": "“{label}” komt {count} keer voor — consolideer indien overbodig."
+      },
+      "unused_action": {
+        "title": "Ongebruikte actie",
+        "description": "{label} is niet verbonden — koppel of verwijder."
+      },
+      "security": {
+        "title": "Beveiligingsadvies",
+        "description": "Gebruik adapters met minste rechten voor webhook- en e-mailacties."
+      },
+      "performance": {
+        "title": "Prestatieadvies",
+        "description": "Bundel AI-stappen waar mogelijk om de gemiddelde looptijd te verlagen."
+      }
+    }
   },
   "integrations": {
     "intro": "Integratiecentrum — optioneel. Statussen: Verbonden, Bèta, Gepland, Binnenkort beschikbaar, Uitgeschakeld. Geen live API's.",

@@ -26,8 +26,52 @@
     "scoreOutOf": "/ 100",
     "optimizationSuggestions": "Optimization Suggestions",
     "oneClickOptimize": "One Click Optimize",
-    "noticeDefault": "One Click Optimize is a no graph mutation yet.",
-    "noticeQueued": "Optimize queued. Future engine will rewrite delays & approvals."
+    "noticeDefault": "One-click optimize does not change the graph yet.",
+    "noticeQueued": "Optimize queued. A future engine will rewrite delays and approvals.",
+    "score": {
+      "healthy": "Healthy",
+      "needsAttention": "Needs attention",
+      "atRisk": "At risk"
+    },
+    "kinds": {
+      "missing_approval": "Approval",
+      "possible_delay": "Delay",
+      "unused_trigger": "Trigger",
+      "duplicate_nodes": "Duplicates",
+      "unused_action": "Action",
+      "security": "Security",
+      "performance": "Performance"
+    },
+    "suggestions": {
+      "missing_approval": {
+        "title": "Missing approval",
+        "description": "Longer flows often benefit from an approval gate before side effects."
+      },
+      "possible_delay": {
+        "title": "Possible delay",
+        "description": "Consider a delay before reminder emails to avoid noisy bursts."
+      },
+      "unused_trigger": {
+        "title": "Unused trigger",
+        "description": "This graph has no start trigger — add one before activation."
+      },
+      "duplicate_nodes": {
+        "title": "Duplicate nodes",
+        "description": "“{label}” appears {count} times — consolidate if redundant."
+      },
+      "unused_action": {
+        "title": "Unused action",
+        "description": "{label} is not connected — wire or remove it."
+      },
+      "security": {
+        "title": "Security recommendation",
+        "description": "Prefer least-privilege adapters for webhook and email actions."
+      },
+      "performance": {
+        "title": "Performance recommendation",
+        "description": "Batch AI steps where possible to reduce average execution time."
+      }
+    }
   },
   "integrations": {
     "intro": "Integration Center — optional. Statuses: Connected, Beta, Planned, Coming soon, Disabled. No live APIs.",

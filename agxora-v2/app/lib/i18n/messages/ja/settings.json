@@ -27,7 +27,7 @@
     "regions": {
       "EU": "欧州連合",
       "US": "米国",
-      "MENA": "メナ",
+      "MENA": "中東・北アフリカ",
       "APAC": "アジア太平洋"
     }
   },
@@ -61,7 +61,7 @@
     "preferredProvider": "優先される AI プロバイダー",
     "defaultModel": "デフォルトの AI モデル",
     "temperature": "温度",
-    "topP": "トップP",
+    "topP": "Top P",
     "maxTokens": "最大トークン数",
     "writingStyle": "文体",
     "languagePreferences": "言語設定",
@@ -78,10 +78,10 @@
     "streaming": "ストリーミング",
     "streamingDescription": "プロバイダーがサポートしている場合は、モデル応答をストリーミングします。",
     "providers": {
-      "mock": "モック (ローカル)",
+      "mock": "モック（ローカル）",
       "openai": "OpenAI",
       "azure": "Azure OpenAI",
-      "anthropic": "人間的",
+      "anthropic": "Anthropic",
       "google": "グーグル",
       "openrouter": "オープンルーター",
       "ollama": "オラマ",
@@ -109,7 +109,7 @@
     "themeModeAria": "テーマモード",
     "resolvedAppearance": "解決された外観:",
     "accentColor": "アクセントカラー",
-    "accentNotice": "アクセントの設定は、将来の CSS var ワイヤリングのために保存されます。ロックされたカラー システムはまだ変更されません。",
+    "accentNotice": "アクセント設定はこのセッションに保存され、ロックされた配色はまだ変わりません。",
     "density": "密度",
     "compactMode": "コンパクトモード",
     "compactModeDescription": "エンタープライズテーブルおよびパネル全体のパディングを削減します。",
@@ -135,6 +135,13 @@
       "comfortable": "快適",
       "compact": "コンパクト",
       "spacious": "広々とした"
+    },
+    "accents": {
+      "cyan": "シアン",
+      "blue": "青",
+      "emerald": "エメラルド",
+      "violet": "バイオレット",
+      "amber": "アンバー"
     }
   },
   "notifications": {
