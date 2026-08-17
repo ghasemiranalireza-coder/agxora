@@ -142,5 +142,35 @@
     "void": "Unieważniona",
     "uncollectible": "Nieściągalna",
     "refunded": "Zwrócona"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "Okres próbny wkrótce się kończy",
+      "body": "Okres próbny kończy się za około {days} dni. Ulepsz plan, aby zachować pełny dostęp."
+    },
+    "expired": {
+      "title": "Subskrypcja wygasła",
+      "body": "Odnów lub ulepsz plan, aby przywrócić funkcje komercyjne."
+    },
+    "cancelled": {
+      "title": "Subskrypcja anulowana",
+      "body": "Subskrypcja AGXORA została anulowana. Dostęp pozostaje do końca okresu."
+    },
+    "quotaWarning": {
+      "title": "Zbliża się limit {metric}",
+      "body": "Użyto {used} z {limit}. Rozważ ulepszenie."
+    },
+    "upgradeAvailable": {
+      "title": "Dostępne ulepszenie",
+      "body": "Business i Enterprise odblokowują automatyzację, wyższe limity AI i API."
+    },
+    "invoiceReady": {
+      "title": "Faktura gotowa",
+      "body": "Faktura {number} została opłacona."
+    },
+    "renewed": {
+      "title": "Subskrypcja odnowiona",
+      "body": "Twój plan odnawia się {date}."
+    }
   }
 }

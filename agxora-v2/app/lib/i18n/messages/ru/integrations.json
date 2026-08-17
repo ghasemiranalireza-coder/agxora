@@ -63,7 +63,17 @@
   "logs": {
     "title": "Журналы интеграции",
     "emptyTitle": "Журналов пока нет",
-    "emptyDescription": "Подключите провайдера или запустите диагностику."
+    "emptyDescription": "Подключите провайдера или запустите диагностику.",
+    "installed": "Установлено: {name}",
+    "demoConnected": "Демо подключено {name}",
+    "disconnected": "Отключено {name}",
+    "webhookCreated": "Создан вебхук {name}",
+    "keyCreated": "Создан ключ API {name}",
+    "keyRotated": "Ключ ротирован {name}",
+    "keyRevoked": "Ключ отозван {name}",
+    "stubHealthy": "{name} заглушка в норме",
+    "diagnosticsComplete": "Диагностика завершена",
+    "outgoing": "Исходящее {status}: {eventType}"
   },
   "apiKeys": {
     "title": "Ключи API",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "Не удалось получить",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "Неизвестный коннектор.",
+    "webhookNotFound": "Вебхук не найден.",
+    "apiKeyInactive": "Ключ API неактивен или истёк."
   },
   "categories": {
     "productivity": "Продуктивность",
@@ -209,5 +222,17 @@
     "degraded": "Деградация",
     "down": "Недоступен",
     "unknown": "Неизвестно"
+  },
+  "health": {
+    "installedAuthorize": "Установлено — подключите для авторизации",
+    "oauthStubPlaceholder": "Локальная OAuth-демо (заглушка)",
+    "oauthStubLive": "Локальная OAuth-демо (live)",
+    "demoCredential": "Локальные демо-учётные данные сохранены — live API не подключен",
+    "demoConnection": "Локальное демо-подключение — не live-связь с провайдером",
+    "disconnected": "Отключено"
+  },
+  "generated": {
+    "keyName": "Ключ {n}",
+    "webhookName": "Вебхук {n}"
   }
 }

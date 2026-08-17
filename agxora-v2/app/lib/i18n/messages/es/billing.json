@@ -142,5 +142,35 @@
     "void": "Anulada",
     "uncollectible": "Incobrable",
     "refunded": "Reembolsada"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "La prueba termina pronto",
+      "body": "Tu prueba termina en unos {days} día(s). Actualiza para conservar el acceso completo."
+    },
+    "expired": {
+      "title": "Suscripción caducada",
+      "body": "Renueva o actualiza tu plan para restaurar las funciones comerciales."
+    },
+    "cancelled": {
+      "title": "Suscripción cancelada",
+      "body": "Tu suscripción AGXORA se canceló. El acceso permanece hasta el fin del período."
+    },
+    "quotaWarning": {
+      "title": "Casi alcanzas el límite de {metric}",
+      "body": "Usado {used} de {limit}. Considera actualizar."
+    },
+    "upgradeAvailable": {
+      "title": "Actualización disponible",
+      "body": "Business y Enterprise desbloquean automatización, cuotas de IA más altas y API."
+    },
+    "invoiceReady": {
+      "title": "Factura lista",
+      "body": "La factura {number} se pagó correctamente."
+    },
+    "renewed": {
+      "title": "Suscripción renovada",
+      "body": "Tu plan se renueva el {date}."
+    }
   }
 }

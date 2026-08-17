@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState, type JSX, type ReactNode } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
-import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
+import { catalogCopy, localizeBillingNotification, localizeThrownError, useT } from "@/app/lib/i18n";
 import { saasCommercialStore } from "../store";
 import { billingService } from "../billing";
 import { listPaymentProviders } from "../payments";
@@ -452,23 +452,26 @@ export function CustomerBillingPortal(): JSX.Element {
         <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
           {t("billing.portal.notifications")}
         </h2>
-        {saas.notifications.slice(0, 6).map((n) => (
-          <div
-            key={n.id}
-            className="rounded-xl px-3 py-2 text-sm"
-            style={{
-              border:
-                "1px solid color-mix(in srgb, var(--agx-border, #334155) 50%, transparent)",
-              color: "var(--agx-text, #f8fafc)",
-              opacity: n.read ? 0.65 : 1,
-            }}
-          >
-            <p className="font-medium">{n.title}</p>
-            <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {n.body}
-            </p>
-          </div>
-        ))}
+        {saas.notifications.slice(0, 6).map((n) => {
+          const copy = localizeBillingNotification(t, n);
+          return (
+            <div
+              key={n.id}
+              className="rounded-xl px-3 py-2 text-sm"
+              style={{
+                border:
+                  "1px solid color-mix(in srgb, var(--agx-border, #334155) 50%, transparent)",
+                color: "var(--agx-text, #f8fafc)",
+                opacity: n.read ? 0.65 : 1,
+              }}
+            >
+              <p className="font-medium">{copy.title}</p>
+              <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                {copy.body}
+              </p>
+            </div>
+          );
+        })}
         {saas.notifications.length === 0 ? (
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
             {t("billing.portal.noNotifications")}

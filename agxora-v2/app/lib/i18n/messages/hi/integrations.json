@@ -63,7 +63,17 @@
   "logs": {
     "title": "एकीकरण लॉग",
     "emptyTitle": "अभी तक कोई लॉग नहीं",
-    "emptyDescription": "किसी प्रदाता से कनेक्ट करें या डायग्नोस्टिक्स चलाएँ।"
+    "emptyDescription": "किसी प्रदाता से कनेक्ट करें या डायग्नोस्टिक्स चलाएँ।",
+    "installed": "{name} इंस्टॉल हुआ",
+    "demoConnected": "डेमो कनेक्ट {name}",
+    "disconnected": "{name} डिस्कनेक्ट",
+    "webhookCreated": "वेबहुक बनाया {name}",
+    "keyCreated": "API कुंजी बनाई {name}",
+    "keyRotated": "कुंजी घुमाई {name}",
+    "keyRevoked": "कुंजी रद्द {name}",
+    "stubHealthy": "{name} stub स्वस्थ",
+    "diagnosticsComplete": "निदान पूरा",
+    "outgoing": "आउटगोइंग {status}: {eventType}"
   },
   "apiKeys": {
     "title": "एपीआई कुंजियाँ",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "लाने में विफल",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "अज्ञात कनेक्टर।",
+    "webhookNotFound": "वेबहुक नहीं मिला।",
+    "apiKeyInactive": "API कुंजी निष्क्रिय या समाप्त।"
   },
   "categories": {
     "productivity": "उत्पादकता",
@@ -209,5 +222,17 @@
     "degraded": "गिरा हुआ",
     "down": "डाउन",
     "unknown": "अज्ञात"
+  },
+  "health": {
+    "installedAuthorize": "इंस्टॉल हुआ — अनुमति के लिए कनेक्ट करें",
+    "oauthStubPlaceholder": "स्थानीय OAuth डेमो (stub)",
+    "oauthStubLive": "स्थानीय OAuth डेमो (live)",
+    "demoCredential": "स्थानीय डेमो क्रेडेंशियल सहेजा गया — लाइव API नहीं जुड़ा",
+    "demoConnection": "स्थानीय डेमो कनेक्शन — लाइव प्रदाता लिंक नहीं",
+    "disconnected": "डिस्कनेक्ट"
+  },
+  "generated": {
+    "keyName": "कुंजी {n}",
+    "webhookName": "वेबहुक {n}"
   }
 }

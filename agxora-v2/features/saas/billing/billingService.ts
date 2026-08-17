@@ -132,8 +132,9 @@ export const billingService = {
       });
     }
     notifySaasEvent(input.organizationId, "invoice_ready", {
-      title: "Invoice ready",
-      body: `Invoice ${invoice.number} was paid successfully.`,
+      title: "billing.notifications.invoiceReady.title",
+      body: "billing.notifications.invoiceReady.body",
+      vars: { number: invoice.number },
       href: "/dashboard/billing",
     });
     return invoice;
@@ -158,8 +159,8 @@ export const billingService = {
   cancel(organizationId: string, actorUserId?: string, email?: string) {
     const license = cancelLicense(organizationId, actorUserId);
     notifySaasEvent(organizationId, "subscription_expiry", {
-      title: "Subscription cancelled",
-      body: "Your AGXORA subscription was cancelled. Access remains until the period ends.",
+      title: "billing.notifications.cancelled.title",
+      body: "billing.notifications.cancelled.body",
       href: "/dashboard/billing",
     });
     if (email) {
@@ -176,8 +177,9 @@ export const billingService = {
   renew(organizationId: string, actorUserId?: string, email?: string) {
     const license = renewLicense(organizationId, actorUserId);
     notifySaasEvent(organizationId, "invoice_ready", {
-      title: "Subscription renewed",
-      body: `Your plan renews on ${(license.renewsAt ?? "").slice(0, 10)}.`,
+      title: "billing.notifications.renewed.title",
+      body: "billing.notifications.renewed.body",
+      vars: { date: (license.renewsAt ?? "").slice(0, 10) },
       href: "/dashboard/billing",
     });
     if (email) {

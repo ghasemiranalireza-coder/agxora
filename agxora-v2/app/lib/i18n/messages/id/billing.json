@@ -142,5 +142,35 @@
     "void": "Batal",
     "uncollectible": "Tidak tertagih",
     "refunded": "Dikembalikan"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "Uji coba segera berakhir",
+      "body": "Uji coba berakhir dalam sekitar {days} hari. Upgrade untuk tetap mendapat akses penuh."
+    },
+    "expired": {
+      "title": "Langganan kedaluwarsa",
+      "body": "Perbarui atau upgrade paket untuk memulihkan fitur komersial."
+    },
+    "cancelled": {
+      "title": "Langganan dibatalkan",
+      "body": "Langganan AGXORA dibatalkan. Akses tetap sampai akhir periode."
+    },
+    "quotaWarning": {
+      "title": "Mendekati batas {metric}",
+      "body": "Terpakai {used} dari {limit}. Pertimbangkan upgrade."
+    },
+    "upgradeAvailable": {
+      "title": "Upgrade tersedia",
+      "body": "Business dan Enterprise membuka otomasi, kuota AI lebih tinggi, dan API."
+    },
+    "invoiceReady": {
+      "title": "Faktur siap",
+      "body": "Faktur {number} berhasil dibayar."
+    },
+    "renewed": {
+      "title": "Langganan diperbarui",
+      "body": "Paket Anda diperbarui pada {date}."
+    }
   }
 }

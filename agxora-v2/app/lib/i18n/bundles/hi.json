@@ -284,6 +284,36 @@
       "void": "रद्द",
       "uncollectible": "वसूली अयोग्य",
       "refunded": "वापस"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "ट्रायल जल्द समाप्त",
+        "body": "आपका ट्रायल लगभग {days} दिन में समाप्त होगा। पूरा एक्सेस रखने के लिए अपग्रेड करें।"
+      },
+      "expired": {
+        "title": "सदस्यता समाप्त",
+        "body": "व्यावसायिक सुविधाएँ वापस पाने के लिए प्लान नवीनीकृत या अपग्रेड करें।"
+      },
+      "cancelled": {
+        "title": "सदस्यता रद्द",
+        "body": "आपकी AGXORA सदस्यता रद्द हुई। अवधि खत्म होने तक एक्सेस रहेगा।"
+      },
+      "quotaWarning": {
+        "title": "{metric} सीमा करीब",
+        "body": "{used} में से {limit} उपयोग। अपग्रेड सोचें।"
+      },
+      "upgradeAvailable": {
+        "title": "अपग्रेड उपलब्ध",
+        "body": "Business और Enterprise ऑटोमेशन, अधिक AI कोटा और API एक्सेस खोलते हैं।"
+      },
+      "invoiceReady": {
+        "title": "इनवॉइस तैयार",
+        "body": "इनवॉइस {number} का भुगतान सफल रहा।"
+      },
+      "renewed": {
+        "title": "सदस्यता नवीनीकृत",
+        "body": "आपका प्लान {date} को नवीनीकृत होगा।"
+      }
     }
   },
   "settings": {
@@ -3876,6 +3906,9 @@
       "by_priority": "प्राथमिकता के अनुसार",
       "urgent_notification": "जरूरी सूचना",
       "standard_email": "मानक ईमेल"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "AI सामग्री बनाएँ"
     }
   },
   "team": {
@@ -4597,7 +4630,17 @@
     "logs": {
       "title": "एकीकरण लॉग",
       "emptyTitle": "अभी तक कोई लॉग नहीं",
-      "emptyDescription": "किसी प्रदाता से कनेक्ट करें या डायग्नोस्टिक्स चलाएँ।"
+      "emptyDescription": "किसी प्रदाता से कनेक्ट करें या डायग्नोस्टिक्स चलाएँ।",
+      "installed": "{name} इंस्टॉल हुआ",
+      "demoConnected": "डेमो कनेक्ट {name}",
+      "disconnected": "{name} डिस्कनेक्ट",
+      "webhookCreated": "वेबहुक बनाया {name}",
+      "keyCreated": "API कुंजी बनाई {name}",
+      "keyRotated": "कुंजी घुमाई {name}",
+      "keyRevoked": "कुंजी रद्द {name}",
+      "stubHealthy": "{name} stub स्वस्थ",
+      "diagnosticsComplete": "निदान पूरा",
+      "outgoing": "आउटगोइंग {status}: {eventType}"
     },
     "apiKeys": {
       "title": "एपीआई कुंजियाँ",
@@ -4672,7 +4715,10 @@
     },
     "errors": {
       "failedToFetch": "लाने में विफल",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "अज्ञात कनेक्टर।",
+      "webhookNotFound": "वेबहुक नहीं मिला।",
+      "apiKeyInactive": "API कुंजी निष्क्रिय या समाप्त।"
     },
     "categories": {
       "productivity": "उत्पादकता",
@@ -4743,6 +4789,18 @@
       "degraded": "गिरा हुआ",
       "down": "डाउन",
       "unknown": "अज्ञात"
+    },
+    "health": {
+      "installedAuthorize": "इंस्टॉल हुआ — अनुमति के लिए कनेक्ट करें",
+      "oauthStubPlaceholder": "स्थानीय OAuth डेमो (stub)",
+      "oauthStubLive": "स्थानीय OAuth डेमो (live)",
+      "demoCredential": "स्थानीय डेमो क्रेडेंशियल सहेजा गया — लाइव API नहीं जुड़ा",
+      "demoConnection": "स्थानीय डेमो कनेक्शन — लाइव प्रदाता लिंक नहीं",
+      "disconnected": "डिस्कनेक्ट"
+    },
+    "generated": {
+      "keyName": "कुंजी {n}",
+      "webhookName": "वेबहुक {n}"
     }
   },
   "intelligence": {

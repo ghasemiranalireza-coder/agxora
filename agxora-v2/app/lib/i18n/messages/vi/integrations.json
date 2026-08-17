@@ -63,7 +63,17 @@
   "logs": {
     "title": "Nhật ký tích hợp",
     "emptyTitle": "Chưa có nhật ký nào",
-    "emptyDescription": "Kết nối nhà cung cấp hoặc chạy chẩn đoán."
+    "emptyDescription": "Kết nối nhà cung cấp hoặc chạy chẩn đoán.",
+    "installed": "Đã cài {name}",
+    "demoConnected": "Demo đã kết nối {name}",
+    "disconnected": "Đã ngắt {name}",
+    "webhookCreated": "Đã tạo webhook {name}",
+    "keyCreated": "Đã tạo khóa API {name}",
+    "keyRotated": "Đã xoay khóa {name}",
+    "keyRevoked": "Đã thu hồi khóa {name}",
+    "stubHealthy": "{name} stub ổn định",
+    "diagnosticsComplete": "Chẩn đoán xong",
+    "outgoing": "Đi ra {status}: {eventType}"
   },
   "apiKeys": {
     "title": "Khóa API",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "Không tìm nạp được",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "Connector không rõ.",
+    "webhookNotFound": "Không tìm thấy webhook.",
+    "apiKeyInactive": "Khóa API không hoạt động hoặc hết hạn."
   },
   "categories": {
     "productivity": "Năng suất",
@@ -209,5 +222,17 @@
     "degraded": "Suy giảm",
     "down": "Ngừng",
     "unknown": "Không rõ"
+  },
+  "health": {
+    "installedAuthorize": "Đã cài — kết nối để ủy quyền",
+    "oauthStubPlaceholder": "Demo OAuth cục bộ (stub)",
+    "oauthStubLive": "Demo OAuth cục bộ (live)",
+    "demoCredential": "Đã lưu thông tin demo cục bộ — chưa kết nối API thật",
+    "demoConnection": "Kết nối demo cục bộ — không phải liên kết nhà cung cấp thật",
+    "disconnected": "Đã ngắt"
+  },
+  "generated": {
+    "keyName": "Khóa {n}",
+    "webhookName": "Webhook {n}"
   }
 }

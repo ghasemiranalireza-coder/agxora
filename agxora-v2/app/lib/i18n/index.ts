@@ -53,6 +53,11 @@ export type { TranslateValues } from "./translate";
 export { resolveMessage, resolveMessageList } from "./translate";
 export { catalogCopy, slugLabel } from "./catalogCopy";
 export {
+  localizeWorkflowTemplateBadge,
+  localizeIntegrationMessage,
+  localizeBillingNotification,
+} from "./localizeAppCopy";
+export {
   isTranslationKey,
   resolveUserFacingErrorKey,
   localizeThrownError,

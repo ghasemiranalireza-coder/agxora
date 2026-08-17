@@ -63,7 +63,17 @@
   "logs": {
     "title": "Log integrasi",
     "emptyTitle": "Belum ada log",
-    "emptyDescription": "Hubungkan penyedia atau jalankan diagnostik."
+    "emptyDescription": "Hubungkan penyedia atau jalankan diagnostik.",
+    "installed": "{name} terpasang",
+    "demoConnected": "Demo terhubung {name}",
+    "disconnected": "{name} terputus",
+    "webhookCreated": "Webhook dibuat {name}",
+    "keyCreated": "Kunci API dibuat {name}",
+    "keyRotated": "Kunci diputar {name}",
+    "keyRevoked": "Kunci dicabut {name}",
+    "stubHealthy": "{name} stub sehat",
+    "diagnosticsComplete": "Diagnostik selesai",
+    "outgoing": "Keluar {status}: {eventType}"
   },
   "apiKeys": {
     "title": "Kunci API",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "Gagal mengambil",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "Konektor tidak dikenal.",
+    "webhookNotFound": "Webhook tidak ditemukan.",
+    "apiKeyInactive": "Kunci API tidak aktif atau kedaluwarsa."
   },
   "categories": {
     "productivity": "Produktivitas",
@@ -209,5 +222,17 @@
     "degraded": "Menurun",
     "down": "Offline",
     "unknown": "Tidak diketahui"
+  },
+  "health": {
+    "installedAuthorize": "Terpasang — hubungkan untuk otorisasi",
+    "oauthStubPlaceholder": "Demo OAuth lokal (stub)",
+    "oauthStubLive": "Demo OAuth lokal (live)",
+    "demoCredential": "Kredensial demo lokal disimpan — API live tidak terhubung",
+    "demoConnection": "Koneksi demo lokal — bukan tautan penyedia live",
+    "disconnected": "Terputus"
+  },
+  "generated": {
+    "keyName": "Kunci {n}",
+    "webhookName": "Webhook {n}"
   }
 }

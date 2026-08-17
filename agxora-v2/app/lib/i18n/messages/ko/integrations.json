@@ -63,7 +63,17 @@
   "logs": {
     "title": "통합 로그",
     "emptyTitle": "아직 로그가 없습니다.",
-    "emptyDescription": "공급자를 연결하거나 진단을 실행하세요."
+    "emptyDescription": "공급자를 연결하거나 진단을 실행하세요.",
+    "installed": "{name} 설치됨",
+    "demoConnected": "데모 연결됨 {name}",
+    "disconnected": "{name} 연결 해제",
+    "webhookCreated": "웹훅 생성됨 {name}",
+    "keyCreated": "API 키 생성됨 {name}",
+    "keyRotated": "키 교체됨 {name}",
+    "keyRevoked": "키 취소됨 {name}",
+    "stubHealthy": "{name} 스텁 양호",
+    "diagnosticsComplete": "진단 완료",
+    "outgoing": "발신 {status}: {eventType}"
   },
   "apiKeys": {
     "title": "API 키",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "가져오지 못했습니다.",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "알 수 없는 커넥터.",
+    "webhookNotFound": "웹훅을 찾을 수 없습니다.",
+    "apiKeyInactive": "API 키가 비활성이거나 만료되었습니다."
   },
   "categories": {
     "productivity": "생산성",
@@ -209,5 +222,17 @@
     "degraded": "저하",
     "down": "중단",
     "unknown": "알 수 없음"
+  },
+  "health": {
+    "installedAuthorize": "설치됨 — 연결하여 승인",
+    "oauthStubPlaceholder": "로컬 OAuth 데모(스텁)",
+    "oauthStubLive": "로컬 OAuth 데모(라이브)",
+    "demoCredential": "로컬 데모 자격 증명이 저장됨 — 라이브 API 미연결",
+    "demoConnection": "로컬 데모 연결 — 라이브 제공업체 연결 아님",
+    "disconnected": "연결 해제"
+  },
+  "generated": {
+    "keyName": "키 {n}",
+    "webhookName": "웹훅 {n}"
   }
 }

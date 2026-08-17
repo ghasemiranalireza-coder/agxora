@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type JSX } from "react";
-import { catalogCopy, useT } from "@/app/lib/i18n";
+import { catalogCopy, localizeWorkflowTemplateBadge, useT } from "@/app/lib/i18n";
 import type { WorkflowDefinition, WorkflowTemplate } from "../../lib/automation";
 import { difficultyLabel } from "../../lib/automation";
 import { Badge, Button, Card } from "../ui";
@@ -160,7 +160,7 @@ export function WorkflowTemplates({
               <div className="flex flex-wrap gap-1.5">
                 {preview.requiredModules.map((m) => (
                   <Badge key={m} tone="accent">
-                    {m}
+                    {localizeWorkflowTemplateBadge(t, m)}
                   </Badge>
                 ))}
               </div>
@@ -171,7 +171,9 @@ export function WorkflowTemplates({
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {preview.aiFeatures.length > 0 ? (
-                  preview.aiFeatures.map((f) => <Badge key={f}>{f}</Badge>)
+                  preview.aiFeatures.map((f) => (
+                    <Badge key={f}>{localizeWorkflowTemplateBadge(t, f)}</Badge>
+                  ))
                 ) : (
                   <span className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                     {t("automation.workflowTemplates.none")}

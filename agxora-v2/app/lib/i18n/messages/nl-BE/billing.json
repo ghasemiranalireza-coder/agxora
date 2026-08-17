@@ -142,5 +142,35 @@
     "void": "Nietig",
     "uncollectible": "Oninbaar",
     "refunded": "Terugbetaald"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "Proefperiode eindigt binnenkort",
+      "body": "Je proefperiode eindigt over ongeveer {days} dag(en). Upgrade om volledige toegang te houden."
+    },
+    "expired": {
+      "title": "Abonnement verlopen",
+      "body": "Verleng of upgrade je plan om commerciële functies te herstellen."
+    },
+    "cancelled": {
+      "title": "Abonnement geannuleerd",
+      "body": "Je AGXORA-abonnement is geannuleerd. Toegang blijft tot het einde van de periode."
+    },
+    "quotaWarning": {
+      "title": "{metric}-limiet bijna bereikt",
+      "body": "{used} van {limit} gebruikt. Overweeg een upgrade."
+    },
+    "upgradeAvailable": {
+      "title": "Upgrade beschikbaar",
+      "body": "Business en Enterprise ontgrendelen automatisering, hogere AI-quota en API-toegang."
+    },
+    "invoiceReady": {
+      "title": "Factuur klaar",
+      "body": "Factuur {number} is succesvol betaald."
+    },
+    "renewed": {
+      "title": "Abonnement verlengd",
+      "body": "Je plan wordt verlengd op {date}."
+    }
   }
 }

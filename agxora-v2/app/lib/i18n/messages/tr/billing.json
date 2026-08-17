@@ -142,5 +142,35 @@
     "void": "Geçersiz",
     "uncollectible": "Tahsil edilemez",
     "refunded": "İade edildi"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "Deneme yakında bitiyor",
+      "body": "Denemeniz yaklaşık {days} gün içinde bitiyor. Tam erişimi korumak için yükseltin."
+    },
+    "expired": {
+      "title": "Abonelik süresi doldu",
+      "body": "Ticari özellikleri geri yüklemek için planı yenileyin veya yükseltin."
+    },
+    "cancelled": {
+      "title": "Abonelik iptal edildi",
+      "body": "AGXORA aboneliğiniz iptal edildi. Erişim dönem sonuna kadar sürer."
+    },
+    "quotaWarning": {
+      "title": "{metric} limitine yaklaşıldı",
+      "body": "{used} / {limit} kullanıldı. Yükseltmeyi düşünün."
+    },
+    "upgradeAvailable": {
+      "title": "Yükseltme mevcut",
+      "body": "Business ve Enterprise otomasyonu, daha yüksek YZ kotalarını ve API erişimini açar."
+    },
+    "invoiceReady": {
+      "title": "Fatura hazır",
+      "body": "{number} faturası başarıyla ödendi."
+    },
+    "renewed": {
+      "title": "Abonelik yenilendi",
+      "body": "Planınız {date} tarihinde yenilenir."
+    }
   }
 }

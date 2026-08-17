@@ -284,6 +284,36 @@
       "void": "Анульований",
       "uncollectible": "Безнадійний",
       "refunded": "Повернений"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "Пробний період скоро закінчиться",
+        "body": "Пробний період закінчиться приблизно за {days} дн. Оновіть план, щоб зберегти повний доступ."
+      },
+      "expired": {
+        "title": "Підписка закінчилась",
+        "body": "Поновіть або оновіть план, щоб відновити комерційні функції."
+      },
+      "cancelled": {
+        "title": "Підписку скасовано",
+        "body": "Підписку AGXORA скасовано. Доступ збережеться до кінця періоду."
+      },
+      "quotaWarning": {
+        "title": "Наближається ліміт {metric}",
+        "body": "Використано {used} з {limit}. Розгляньте оновлення."
+      },
+      "upgradeAvailable": {
+        "title": "Доступне оновлення",
+        "body": "Business і Enterprise відкривають автоматизацію, вищі квоти ШІ та API."
+      },
+      "invoiceReady": {
+        "title": "Рахунок готовий",
+        "body": "Рахунок {number} успішно оплачено."
+      },
+      "renewed": {
+        "title": "Підписку поновлено",
+        "body": "План поновлюється {date}."
+      }
     }
   },
   "settings": {
@@ -3876,6 +3906,9 @@
       "by_priority": "За пріоритетом",
       "urgent_notification": "Термінове сповіщення",
       "standard_email": "Стандартний лист"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "Створити контент ШІ"
     }
   },
   "team": {
@@ -4597,7 +4630,17 @@
     "logs": {
       "title": "Журнали інтеграції",
       "emptyTitle": "Журналів ще немає",
-      "emptyDescription": "Підключіть провайдера або запустіть діагностику."
+      "emptyDescription": "Підключіть провайдера або запустіть діагностику.",
+      "installed": "Встановлено {name}",
+      "demoConnected": "Демо підключено {name}",
+      "disconnected": "Відключено {name}",
+      "webhookCreated": "Створено вебхук {name}",
+      "keyCreated": "Створено ключ API {name}",
+      "keyRotated": "Ключ ротовано {name}",
+      "keyRevoked": "Ключ відкликано {name}",
+      "stubHealthy": "{name} заглушка в нормі",
+      "diagnosticsComplete": "Діагностику завершено",
+      "outgoing": "Вихідне {status}: {eventType}"
     },
     "apiKeys": {
       "title": "Ключі API",
@@ -4672,7 +4715,10 @@
     },
     "errors": {
       "failedToFetch": "Не вдалося отримати",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "Невідомий конектор.",
+      "webhookNotFound": "Вебхук не знайдено.",
+      "apiKeyInactive": "Ключ API неактивний або прострочений."
     },
     "categories": {
       "productivity": "Продуктивність",
@@ -4743,6 +4789,18 @@
       "degraded": "Погіршений",
       "down": "Недоступний",
       "unknown": "Невідомо"
+    },
+    "health": {
+      "installedAuthorize": "Встановлено — підключіть для авторизації",
+      "oauthStubPlaceholder": "Локальне демо OAuth (заглушка)",
+      "oauthStubLive": "Локальне демо OAuth (live)",
+      "demoCredential": "Збережено локальні демо-облікові дані — live API не підключено",
+      "demoConnection": "Локальне демо-підключення — не live-зв’язок із провайдером",
+      "disconnected": "Відключено"
+    },
+    "generated": {
+      "keyName": "Ключ {n}",
+      "webhookName": "Вебхук {n}"
     }
   },
   "intelligence": {

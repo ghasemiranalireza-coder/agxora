@@ -34,6 +34,9 @@ const MESSAGE_TO_KEY: Record<string, string> = {
   "Message content is required": "errors.required",
   "Valid email required": "errors.invalidEmail",
   "Invitation expired": "team.invite.failed",
+  "Unknown connector": "integrations.errors.unknownConnector",
+  "Webhook not found": "integrations.errors.webhookNotFound",
+  "API key inactive or expired": "integrations.errors.apiKeyInactive",
 };
 
 const CODE_TO_KEY: Record<string, string> = {
@@ -79,11 +82,17 @@ export function resolveUserFacingErrorKey(
     if (typeof rec.message === "string") {
       if (isTranslationKey(rec.message)) return rec.message;
       if (MESSAGE_TO_KEY[rec.message]) return MESSAGE_TO_KEY[rec.message];
+      if (rec.message.startsWith("Unknown connector:")) {
+        return "integrations.errors.unknownConnector";
+      }
     }
   }
   if (typeof err === "string") {
     if (isTranslationKey(err)) return err;
     if (MESSAGE_TO_KEY[err]) return MESSAGE_TO_KEY[err];
+    if (err.startsWith("Unknown connector:")) {
+      return "integrations.errors.unknownConnector";
+    }
     if (CODE_TO_KEY[err]) return CODE_TO_KEY[err];
   }
   return fallback;

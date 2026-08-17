@@ -142,5 +142,35 @@
     "void": "Annulée",
     "uncollectible": "Irrécouvrable",
     "refunded": "Remboursée"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "L’essai se termine bientôt",
+      "body": "Votre essai se termine dans environ {days} jour(s). Passez à un forfait pour conserver l’accès complet."
+    },
+    "expired": {
+      "title": "Abonnement expiré",
+      "body": "Renouvelez ou changez de forfait pour rétablir les fonctions commerciales."
+    },
+    "cancelled": {
+      "title": "Abonnement annulé",
+      "body": "Votre abonnement AGXORA a été annulé. L’accès reste jusqu’à la fin de la période."
+    },
+    "quotaWarning": {
+      "title": "Limite {metric} bientôt atteinte",
+      "body": "{used} sur {limit} utilisés. Envisagez une mise à niveau."
+    },
+    "upgradeAvailable": {
+      "title": "Mise à niveau disponible",
+      "body": "Business et Enterprise débloquent l’automatisation, des quotas IA plus élevés et l’API."
+    },
+    "invoiceReady": {
+      "title": "Facture prête",
+      "body": "La facture {number} a été payée."
+    },
+    "renewed": {
+      "title": "Abonnement renouvelé",
+      "body": "Votre forfait se renouvelle le {date}."
+    }
   }
 }

@@ -63,7 +63,17 @@
   "logs": {
     "title": "Integration logs",
     "emptyTitle": "No logs yet",
-    "emptyDescription": "Connect a provider or run diagnostics."
+    "emptyDescription": "Connect a provider or run diagnostics.",
+    "installed": "Installed {name}",
+    "demoConnected": "Demo connected {name}",
+    "disconnected": "Disconnected {name}",
+    "webhookCreated": "Created webhook {name}",
+    "keyCreated": "Created API key {name}",
+    "keyRotated": "Rotated key {name}",
+    "keyRevoked": "Revoked key {name}",
+    "stubHealthy": "{name} stub healthy",
+    "diagnosticsComplete": "Diagnostics complete",
+    "outgoing": "Outgoing {status}: {eventType}"
   },
   "apiKeys": {
     "title": "API keys",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "Failed to fetch",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "Unknown connector.",
+    "webhookNotFound": "Webhook not found.",
+    "apiKeyInactive": "API key inactive or expired."
   },
   "categories": {
     "productivity": "Productivity",
@@ -209,5 +222,17 @@
     "degraded": "Degraded",
     "down": "Down",
     "unknown": "Unknown"
+  },
+  "health": {
+    "installedAuthorize": "Installed — connect to authorize",
+    "oauthStubPlaceholder": "Local demo OAuth stub (stub)",
+    "oauthStubLive": "Local demo OAuth stub (live)",
+    "demoCredential": "Local demo credential stored — live API not connected",
+    "demoConnection": "Local demo connection — not a live provider link",
+    "disconnected": "Disconnected"
+  },
+  "generated": {
+    "keyName": "Key {n}",
+    "webhookName": "Webhook {n}"
   }
 }

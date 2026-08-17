@@ -284,6 +284,36 @@
       "void": "無効",
       "uncollectible": "回収不能",
       "refunded": "返金済み"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "トライアルまもなく終了",
+        "body": "トライアルは約{days}日後に終了します。フルアクセスを維持するにはアップグレードしてください。"
+      },
+      "expired": {
+        "title": "サブスクリプション期限切れ",
+        "body": "商用機能を復元するにはプランを更新またはアップグレードしてください。"
+      },
+      "cancelled": {
+        "title": "サブスクリプションをキャンセル",
+        "body": "AGXORAサブスクリプションはキャンセルされました。期間終了までアクセスは残ります。"
+      },
+      "quotaWarning": {
+        "title": "{metric}の上限に近づいています",
+        "body": "{used} / {limit} を使用中。アップグレードをご検討ください。"
+      },
+      "upgradeAvailable": {
+        "title": "アップグレード可能",
+        "body": "BusinessとEnterpriseは自動化、より高いAI枠、APIアクセスを解放します。"
+      },
+      "invoiceReady": {
+        "title": "請求書の準備完了",
+        "body": "請求書 {number} の支払いが完了しました。"
+      },
+      "renewed": {
+        "title": "サブスクリプションを更新",
+        "body": "プランは{date}に更新されます。"
+      }
     }
   },
   "settings": {
@@ -3876,6 +3906,9 @@
       "by_priority": "優先度別",
       "urgent_notification": "緊急通知",
       "standard_email": "標準メール"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "AIコンテンツを生成"
     }
   },
   "team": {
@@ -4597,7 +4630,17 @@
     "logs": {
       "title": "統合ログ",
       "emptyTitle": "まだログがありません",
-      "emptyDescription": "プロバイダーに接続するか、診断を実行します。"
+      "emptyDescription": "プロバイダーに接続するか、診断を実行します。",
+      "installed": "{name}をインストール",
+      "demoConnected": "デモ接続 {name}",
+      "disconnected": "{name}を切断",
+      "webhookCreated": "Webhook作成 {name}",
+      "keyCreated": "APIキー作成 {name}",
+      "keyRotated": "キーローテーション {name}",
+      "keyRevoked": "キー取り消し {name}",
+      "stubHealthy": "{name}スタブは正常",
+      "diagnosticsComplete": "診断完了",
+      "outgoing": "送信 {status}: {eventType}"
     },
     "apiKeys": {
       "title": "APIキー",
@@ -4672,7 +4715,10 @@
     },
     "errors": {
       "failedToFetch": "取得に失敗しました",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "不明なコネクタ。",
+      "webhookNotFound": "Webhookが見つかりません。",
+      "apiKeyInactive": "APIキーが無効または期限切れです。"
     },
     "categories": {
       "productivity": "生産性",
@@ -4743,6 +4789,18 @@
       "degraded": "劣化",
       "down": "停止",
       "unknown": "不明"
+    },
+    "health": {
+      "installedAuthorize": "インストール済み — 接続して承認",
+      "oauthStubPlaceholder": "ローカルOAuthデモ（スタブ）",
+      "oauthStubLive": "ローカルOAuthデモ（ライブ）",
+      "demoCredential": "ローカルデモ資格情報を保存 — ライブAPI未接続",
+      "demoConnection": "ローカルデモ接続 — ライブプロバイダー連携ではありません",
+      "disconnected": "切断"
+    },
+    "generated": {
+      "keyName": "キー {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {

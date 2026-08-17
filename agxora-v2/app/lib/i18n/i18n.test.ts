@@ -19,6 +19,11 @@ import {
 import { getCatalog, getFallbackCatalog } from "./catalog";
 import { resolveMessage } from "./translate";
 import { catalogCopy } from "./catalogCopy";
+import {
+  localizeBillingNotification,
+  localizeIntegrationMessage,
+  localizeWorkflowTemplateBadge,
+} from "./localizeAppCopy";
 import { formatCurrency, formatDate, formatNumber, setActiveFormatLocale } from "./format";
 import { resolveUserFacingErrorKey } from "./errorMap";
 
@@ -252,6 +257,9 @@ describe("error mapping", () => {
     expect(resolveUserFacingErrorKey(new Error("You must accept the terms to continue."))).toBe(
       "errors.acceptTerms",
     );
+    expect(resolveUserFacingErrorKey(new Error("Unknown connector: slack"))).toBe(
+      "integrations.errors.unknownConnector",
+    );
     expect(resolveMessage("de", "errors.codes.AUTH_INVALID_CREDENTIALS")).not.toBe(
       "Invalid email or password.",
     );
@@ -300,6 +308,51 @@ describe("error mapping", () => {
     const t = (key: string) => resolveMessage("de", key);
     expect(catalogCopy(t, "agents.catalog.sales_agent.name", "Sales Agent")).not.toBe("Sales Agent");
     expect(catalogCopy(t, "agents.catalog.missing_agent.name", "Fallback")).toBe("Fallback");
+  });
+
+  it("localizes remaining user-facing application copy from the final QA pass", () => {
+    const de = (key: string, values?: Readonly<Record<string, string | number>>) =>
+      resolveMessage("de", key, values);
+    expect(localizeWorkflowTemplateBadge(de, "AI CRM")).toBe(de("navigation.aiCrm"));
+    expect(localizeWorkflowTemplateBadge(de, "AI CRM")).not.toBe("AI CRM");
+    expect(localizeWorkflowTemplateBadge(de, "Generate AI Content")).toBe(
+      de("automation.studioAiFeatures.generate_ai_content"),
+    );
+    expect(localizeWorkflowTemplateBadge(de, "Custom user label")).toBe("Custom user label");
+
+    expect(localizeIntegrationMessage(de, "integrations.health.disconnected")).toBe("Getrennt");
+    expect(localizeIntegrationMessage(de, "Installed Slack", { name: "Slack" })).toBe(
+      de("integrations.logs.installed", { name: "Slack" }),
+    );
+    expect(localizeIntegrationMessage(de, "Slack stub healthy")).toContain("Slack");
+    expect(localizeIntegrationMessage(de, "Upstream returned HTTP 502")).toBe(
+      "Upstream returned HTTP 502",
+    );
+
+    const trial = localizeBillingNotification(de, {
+      kind: "trial_ending",
+      title: "billing.notifications.trialEnding.title",
+      body: "billing.notifications.trialEnding.body",
+      vars: { days: 2 },
+    });
+    expect(trial.title).toBe(de("billing.notifications.trialEnding.title"));
+    expect(trial.body).toContain("2");
+    expect(trial.title).not.toBe("Trial ending soon");
+
+    const persisted = localizeBillingNotification(de, {
+      kind: "invoice_ready",
+      title: "Invoice ready",
+      body: "Invoice INV-100 was paid successfully.",
+    });
+    expect(persisted.title).toBe(de("billing.notifications.invoiceReady.title"));
+    expect(persisted.body).toContain("INV-100");
+
+    expect(de("integrations.generated.keyName", { n: 1 })).toContain("1");
+    expect(de("integrations.generated.keyName", { n: 1 })).not.toContain("{n}");
+    expect(resolveMessage("fa", "automation.studioAiFeatures.generate_ai_content")).not.toBe(
+      "Generate AI Content",
+    );
+    expect(resolveMessage("nl", "agents.knowledgeKind.procedures")).toBe("Procedures");
   });
 
   it("strips leaked translation markup from locale catalogs", () => {

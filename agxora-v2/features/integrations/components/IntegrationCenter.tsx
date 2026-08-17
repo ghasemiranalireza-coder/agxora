@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
-import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
+import { catalogCopy, localizeThrownError, localizeIntegrationMessage, useT } from "@/app/lib/i18n";
 import { integrationsStore } from "../store";
 import { integrationService } from "../services";
 import { useIntegrationPlatform } from "../hooks";
@@ -123,7 +123,7 @@ export function IntegrationCenter(): JSX.Element {
   const onCreateKey = () => {
     const key = integrationService.createKey({
       organizationId: platform.organizationId,
-      name: `Key ${platform.apiKeys.length + 1}`,
+      name: t("integrations.generated.keyName", { n: platform.apiKeys.length + 1 }),
       scopes: ["integrations.read", "webhooks.manage", "api:write"],
       expiresAt: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString(),
     });
@@ -134,7 +134,7 @@ export function IntegrationCenter(): JSX.Element {
   const onCreateWebhook = () => {
     const endpoint = integrationService.createWebhook({
       organizationId: platform.organizationId,
-      name: `Webhook ${platform.webhooks.length + 1}`,
+      name: t("integrations.generated.webhookName", { n: platform.webhooks.length + 1 }),
       direction: "outgoing",
       url: webhookUrl,
       events: ["customer.created", "invoice.issued", "integration.*"],
@@ -242,7 +242,13 @@ export function IntegrationCenter(): JSX.Element {
             variant="secondary"
             disabled={busy}
             onClick={() => void integrationService.diagnose(r.id).then((c) => {
-              setNotice(c?.health.message ?? t("integrations.notice.diagnosed"));
+              setNotice(
+                c
+                  ? localizeIntegrationMessage(t, c.health.message, {
+                      name: c.displayName,
+                    })
+                  : t("integrations.notice.diagnosed"),
+              );
             })}
           >
             {t("integrations.actions.diagnose")}
@@ -279,7 +285,9 @@ export function IntegrationCenter(): JSX.Element {
     },
     { key: "level", header: t("integrations.columns.level"), render: (r) => r.level },
     { key: "source", header: t("integrations.columns.source"), render: (r) => r.source },
-    { key: "message", header: t("integrations.columns.message"), render: (r) => r.message },
+    { key: "message", header: t("integrations.columns.message"), render: (r) =>
+      localizeIntegrationMessage(t, r.message, r.data)
+    },
   ];
 
   const keyColumns: DataTableColumn<ApiKeyRecord>[] = [

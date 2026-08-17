@@ -284,6 +284,36 @@
       "void": "Storniert",
       "uncollectible": "Uneinbringlich",
       "refunded": "Erstattet"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "Testphase endet bald",
+        "body": "Ihre Testphase endet in etwa {days} Tag(en). Wechseln Sie den Tarif, um vollen Zugriff zu behalten."
+      },
+      "expired": {
+        "title": "Abonnement abgelaufen",
+        "body": "Verlängern oder upgraden Sie Ihren Tarif, um kommerzielle Funktionen wiederherzustellen."
+      },
+      "cancelled": {
+        "title": "Abonnement gekündigt",
+        "body": "Ihr AGXORA-Abonnement wurde gekündigt. Der Zugriff bleibt bis Periodenende bestehen."
+      },
+      "quotaWarning": {
+        "title": "{metric}-Limit fast erreicht",
+        "body": "Verbraucht {used} von {limit}. Erwägen Sie ein Upgrade."
+      },
+      "upgradeAvailable": {
+        "title": "Upgrade verfügbar",
+        "body": "Business und Enterprise schalten Automatisierung, höhere KI-Kontingente und API-Zugang frei."
+      },
+      "invoiceReady": {
+        "title": "Rechnung bereit",
+        "body": "Rechnung {number} wurde erfolgreich bezahlt."
+      },
+      "renewed": {
+        "title": "Abonnement verlängert",
+        "body": "Ihr Tarif verlängert sich am {date}."
+      }
     }
   },
   "settings": {
@@ -3876,6 +3906,9 @@
       "by_priority": "Nach Priorität",
       "urgent_notification": "Dringende Benachrichtigung",
       "standard_email": "Standard-E-Mail"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "KI-Inhalte erzeugen"
     }
   },
   "team": {
@@ -4597,7 +4630,17 @@
     "logs": {
       "title": "Integrationsprotokolle",
       "emptyTitle": "Noch keine Log",
-      "emptyDescription": "Schließen Sie einen Anbieter an oder führen Sie eine Diagnose durch."
+      "emptyDescription": "Schließen Sie einen Anbieter an oder führen Sie eine Diagnose durch.",
+      "installed": "Installiert {name}",
+      "demoConnected": "Demo verbunden {name}",
+      "disconnected": "Getrennt {name}",
+      "webhookCreated": "Webhook erstellt {name}",
+      "keyCreated": "API-Schlüssel erstellt {name}",
+      "keyRotated": "Schlüssel rotiert {name}",
+      "keyRevoked": "Schlüssel widerrufen {name}",
+      "stubHealthy": "{name} Stub ist gesund",
+      "diagnosticsComplete": "Diagnose abgeschlossen",
+      "outgoing": "Ausgehend {status}: {eventType}"
     },
     "apiKeys": {
       "title": "API-Schlüssel",
@@ -4672,7 +4715,10 @@
     },
     "errors": {
       "failedToFetch": "Fehler bei der Detanabruf",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "Unbekannter Konnektor.",
+      "webhookNotFound": "Webhook nicht gefunden.",
+      "apiKeyInactive": "API-Schlüssel inaktiv oder abgelaufen."
     },
     "categories": {
       "productivity": "Produktivität",
@@ -4743,6 +4789,18 @@
       "degraded": "Beeinträchtigt",
       "down": "Ausgefallen",
       "unknown": "Unbekannt"
+    },
+    "health": {
+      "installedAuthorize": "Installiert — verbinden zum Autorisieren",
+      "oauthStubPlaceholder": "Lokale OAuth-Demo (Platzhalter)",
+      "oauthStubLive": "Lokale OAuth-Demo (Live)",
+      "demoCredential": "Lokales Demo-Geheimnis gespeichert — keine Live-API",
+      "demoConnection": "Lokale Demo-Verbindung — kein Live-Anbieterlink",
+      "disconnected": "Getrennt"
+    },
+    "generated": {
+      "keyName": "Schlüssel {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {

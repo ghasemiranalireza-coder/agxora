@@ -63,7 +63,17 @@
   "logs": {
     "title": "Integratielogboeken",
     "emptyTitle": "Nog geen logboeken",
-    "emptyDescription": "Sluit een provider aan of voer een diagnose uit."
+    "emptyDescription": "Sluit een provider aan of voer een diagnose uit.",
+    "installed": "{name} geïnstalleerd",
+    "demoConnected": "Demo verbonden {name}",
+    "disconnected": "{name} verbroken",
+    "webhookCreated": "Webhook aangemaakt {name}",
+    "keyCreated": "API-sleutel aangemaakt {name}",
+    "keyRotated": "Sleutel geroteerd {name}",
+    "keyRevoked": "Sleutel ingetrokken {name}",
+    "stubHealthy": "{name} stub gezond",
+    "diagnosticsComplete": "Diagnose voltooid",
+    "outgoing": "Uitgaand {status}: {eventType}"
   },
   "apiKeys": {
     "title": "API-sleutels",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "Ophalen is mislukt",
-    "httpStatus": "HTTP-{status}"
+    "httpStatus": "HTTP-{status}",
+    "unknownConnector": "Onbekende connector.",
+    "webhookNotFound": "Webhook niet gevonden.",
+    "apiKeyInactive": "API-sleutel inactief of verlopen."
   },
   "categories": {
     "productivity": "Productiviteit",
@@ -209,5 +222,17 @@
     "degraded": "Verminderd",
     "down": "Offline",
     "unknown": "Onbekend"
+  },
+  "health": {
+    "installedAuthorize": "Geïnstalleerd — verbind om te autoriseren",
+    "oauthStubPlaceholder": "Lokale OAuth-demo (stub)",
+    "oauthStubLive": "Lokale OAuth-demo (live)",
+    "demoCredential": "Lokale demo-credential opgeslagen — geen live API",
+    "demoConnection": "Lokale demoverbinding — geen live providerkoppeling",
+    "disconnected": "Verbroken"
+  },
+  "generated": {
+    "keyName": "Sleutel {n}",
+    "webhookName": "Webhook {n}"
   }
 }

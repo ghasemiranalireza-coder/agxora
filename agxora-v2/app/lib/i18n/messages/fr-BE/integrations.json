@@ -63,7 +63,17 @@
   "logs": {
     "title": "Journaux d'intégration",
     "emptyTitle": "Aucun journal pour l'instant",
-    "emptyDescription": "Connectez un fournisseur ou exécutez des diagnostics."
+    "emptyDescription": "Connectez un fournisseur ou exécutez des diagnostics.",
+    "installed": "{name} installé",
+    "demoConnected": "Démo connectée {name}",
+    "disconnected": "{name} déconnecté",
+    "webhookCreated": "Webhook créé {name}",
+    "keyCreated": "Clé API créée {name}",
+    "keyRotated": "Clé renouvelée {name}",
+    "keyRevoked": "Clé révoquée {name}",
+    "stubHealthy": "{name} stub sain",
+    "diagnosticsComplete": "Diagnostic terminé",
+    "outgoing": "Sortant {status}: {eventType}"
   },
   "apiKeys": {
     "title": "Clés d'API",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "Échec de la récupération",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "Connecteur inconnu.",
+    "webhookNotFound": "Webhook introuvable.",
+    "apiKeyInactive": "Clé API inactive ou expirée."
   },
   "categories": {
     "productivity": "Productivité",
@@ -209,5 +222,17 @@
     "degraded": "Dégradé",
     "down": "Hors service",
     "unknown": "Inconnu"
+  },
+  "health": {
+    "installedAuthorize": "Installé — connectez pour autoriser",
+    "oauthStubPlaceholder": "Démo OAuth locale (stub)",
+    "oauthStubLive": "Démo OAuth locale (live)",
+    "demoCredential": "Identifiant démo local stocké — API live non connectée",
+    "demoConnection": "Connexion démo locale — pas un lien fournisseur réel",
+    "disconnected": "Déconnecté"
+  },
+  "generated": {
+    "keyName": "Clé {n}",
+    "webhookName": "Webhook {n}"
   }
 }

@@ -63,7 +63,17 @@
   "logs": {
     "title": "لاگ‌های یکپارچه‌سازی",
     "emptyTitle": "هنوز هیچ لاگی ثبت نشده است",
-    "emptyDescription": "به یک ارائه دهنده متصل شوید یا عیب‌یابی را اجرا کنید."
+    "emptyDescription": "به یک ارائه دهنده متصل شوید یا عیب‌یابی را اجرا کنید.",
+    "installed": "نصب شد {name}",
+    "demoConnected": "دمو متصل شد {name}",
+    "disconnected": "قطع شد {name}",
+    "webhookCreated": "وب‌هوک ایجاد شد {name}",
+    "keyCreated": "کلید API ایجاد شد {name}",
+    "keyRotated": "کلید چرخانده شد {name}",
+    "keyRevoked": "کلید لغو شد {name}",
+    "stubHealthy": "{name} جایگزین سالم است",
+    "diagnosticsComplete": "عیب‌یابی کامل شد",
+    "outgoing": "خروجی {status}: {eventType}"
   },
   "apiKeys": {
     "title": "کلیدهای API",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "دریافت نشد",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "کانکتور ناشناخته.",
+    "webhookNotFound": "وب‌هوک پیدا نشد.",
+    "apiKeyInactive": "کلید API غیرفعال یا منقضی است."
   },
   "categories": {
     "productivity": "بهره‌وری",
@@ -209,5 +222,17 @@
     "degraded": "کاهش‌یافته",
     "down": "ازکارافتاده",
     "unknown": "نامشخص"
+  },
+  "health": {
+    "installedAuthorize": "نصب شد — برای مجوز متصل شوید",
+    "oauthStubPlaceholder": "دموی محلی OAuth (جایگزین)",
+    "oauthStubLive": "دموی محلی OAuth (زنده)",
+    "demoCredential": "اعتبارنامه دموی محلی ذخیره شد — API زنده متصل نیست",
+    "demoConnection": "اتصال دموی محلی — پیوند زنده ارائه‌دهنده نیست",
+    "disconnected": "قطع‌شده"
+  },
+  "generated": {
+    "keyName": "کلید {n}",
+    "webhookName": "وب‌هوک {n}"
   }
 }

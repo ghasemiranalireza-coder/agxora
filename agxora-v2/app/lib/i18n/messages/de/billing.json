@@ -142,5 +142,35 @@
     "void": "Storniert",
     "uncollectible": "Uneinbringlich",
     "refunded": "Erstattet"
+  },
+  "notifications": {
+    "trialEnding": {
+      "title": "Testphase endet bald",
+      "body": "Ihre Testphase endet in etwa {days} Tag(en). Wechseln Sie den Tarif, um vollen Zugriff zu behalten."
+    },
+    "expired": {
+      "title": "Abonnement abgelaufen",
+      "body": "Verlängern oder upgraden Sie Ihren Tarif, um kommerzielle Funktionen wiederherzustellen."
+    },
+    "cancelled": {
+      "title": "Abonnement gekündigt",
+      "body": "Ihr AGXORA-Abonnement wurde gekündigt. Der Zugriff bleibt bis Periodenende bestehen."
+    },
+    "quotaWarning": {
+      "title": "{metric}-Limit fast erreicht",
+      "body": "Verbraucht {used} von {limit}. Erwägen Sie ein Upgrade."
+    },
+    "upgradeAvailable": {
+      "title": "Upgrade verfügbar",
+      "body": "Business und Enterprise schalten Automatisierung, höhere KI-Kontingente und API-Zugang frei."
+    },
+    "invoiceReady": {
+      "title": "Rechnung bereit",
+      "body": "Rechnung {number} wurde erfolgreich bezahlt."
+    },
+    "renewed": {
+      "title": "Abonnement verlängert",
+      "body": "Ihr Tarif verlängert sich am {date}."
+    }
   }
 }

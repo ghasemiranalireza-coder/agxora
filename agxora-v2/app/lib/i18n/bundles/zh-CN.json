@@ -284,6 +284,36 @@
       "void": "作废",
       "uncollectible": "无法收回",
       "refunded": "已退款"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "试用即将结束",
+        "body": "试用将在约 {days} 天后结束。请升级以保留完整访问权限。"
+      },
+      "expired": {
+        "title": "订阅已过期",
+        "body": "续订或升级套餐以恢复商业功能。"
+      },
+      "cancelled": {
+        "title": "订阅已取消",
+        "body": "您的 AGXORA 订阅已取消。访问权限将保留至本期结束。"
+      },
+      "quotaWarning": {
+        "title": "即将达到 {metric} 上限",
+        "body": "已用 {used} / {limit}。建议升级。"
+      },
+      "upgradeAvailable": {
+        "title": "可升级",
+        "body": "Business 与 Enterprise 可解锁自动化、更高的 AI 配额和 API 访问。"
+      },
+      "invoiceReady": {
+        "title": "发票已就绪",
+        "body": "发票 {number} 已成功支付。"
+      },
+      "renewed": {
+        "title": "订阅已续订",
+        "body": "您的套餐将于 {date} 续订。"
+      }
     }
   },
   "settings": {
@@ -3876,6 +3906,9 @@
       "by_priority": "按优先级",
       "urgent_notification": "紧急通知",
       "standard_email": "标准邮件"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "生成 AI 内容"
     }
   },
   "team": {
@@ -4597,7 +4630,17 @@
     "logs": {
       "title": "集成日志",
       "emptyTitle": "尚无日志",
-      "emptyDescription": "连接提供商或运行诊断。"
+      "emptyDescription": "连接提供商或运行诊断。",
+      "installed": "已安装 {name}",
+      "demoConnected": "演示已连接 {name}",
+      "disconnected": "已断开 {name}",
+      "webhookCreated": "已创建 Webhook {name}",
+      "keyCreated": "已创建 API 密钥 {name}",
+      "keyRotated": "已轮换密钥 {name}",
+      "keyRevoked": "已吊销密钥 {name}",
+      "stubHealthy": "{name} 占位健康",
+      "diagnosticsComplete": "诊断完成",
+      "outgoing": "出站 {status}: {eventType}"
     },
     "apiKeys": {
       "title": "API 密钥",
@@ -4672,7 +4715,10 @@
     },
     "errors": {
       "failedToFetch": "获取失败",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "未知连接器。",
+      "webhookNotFound": "未找到 Webhook。",
+      "apiKeyInactive": "API 密钥未激活或已过期。"
     },
     "categories": {
       "productivity": "效率",
@@ -4743,6 +4789,18 @@
       "degraded": "降级",
       "down": "停机",
       "unknown": "未知"
+    },
+    "health": {
+      "installedAuthorize": "已安装 — 连接以授权",
+      "oauthStubPlaceholder": "本地 OAuth 演示（占位）",
+      "oauthStubLive": "本地 OAuth 演示（实时）",
+      "demoCredential": "已存储本地演示凭据 — 未连接实时 API",
+      "demoConnection": "本地演示连接 — 非实时提供商链接",
+      "disconnected": "已断开"
+    },
+    "generated": {
+      "keyName": "密钥 {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {

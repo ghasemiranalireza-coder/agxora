@@ -284,6 +284,36 @@
       "void": "ملغاة",
       "uncollectible": "غير قابل للتحصيل",
       "refunded": "مستردة"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "تنتهي الفترة التجريبية قريبًا",
+        "body": "تنتهي فترتك التجريبية خلال حوالي {days} يومًا. قم بالترقية للاحتفاظ بالوصول الكامل."
+      },
+      "expired": {
+        "title": "انتهت الاشتراك",
+        "body": "أعد التجديد أو الترقية لاستعادة الميزات التجارية."
+      },
+      "cancelled": {
+        "title": "تم إلغاء الاشتراك",
+        "body": "تم إلغاء اشتراك AGXORA. يبقى الوصول حتى نهاية الفترة."
+      },
+      "quotaWarning": {
+        "title": "اقتربت من حد {metric}",
+        "body": "تم استخدام {used} من {limit}. فكّر في الترقية."
+      },
+      "upgradeAvailable": {
+        "title": "الترقية متاحة",
+        "body": "Business وEnterprise يفتحان الأتمتة وحصص ذكاء اصطناعي أعلى والوصول إلى API."
+      },
+      "invoiceReady": {
+        "title": "الفاتورة جاهزة",
+        "body": "تم دفع الفاتورة {number} بنجاح."
+      },
+      "renewed": {
+        "title": "تم تجديد الاشتراك",
+        "body": "يتجدد خطتك في {date}."
+      }
     }
   },
   "settings": {
@@ -3876,6 +3906,9 @@
       "by_priority": "حسب الأولوية",
       "urgent_notification": "إشعار عاجل",
       "standard_email": "بريد قياسي"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "إنشاء محتوى بالذكاء الاصطناعي"
     }
   },
   "team": {
@@ -4597,7 +4630,17 @@
     "logs": {
       "title": "سجلات التكامل",
       "emptyTitle": "لا توجد سجلات حتى الآن",
-      "emptyDescription": "قم بتوصيل الموفر أو قم بتشغيل التشخيص."
+      "emptyDescription": "قم بتوصيل الموفر أو قم بتشغيل التشخيص.",
+      "installed": "تم تثبيت {name}",
+      "demoConnected": "تم ربط العرض {name}",
+      "disconnected": "تم قطع {name}",
+      "webhookCreated": "تم إنشاء ويب هوك {name}",
+      "keyCreated": "تم إنشاء مفتاح API {name}",
+      "keyRotated": "تم تدوير المفتاح {name}",
+      "keyRevoked": "تم إلغاء المفتاح {name}",
+      "stubHealthy": "{name} stub سليم",
+      "diagnosticsComplete": "اكتمل التشخيص",
+      "outgoing": "صادر {status}: {eventType}"
     },
     "apiKeys": {
       "title": "مفاتيح واجهة برمجة التطبيقات",
@@ -4672,7 +4715,10 @@
     },
     "errors": {
       "failedToFetch": "فشل الجلب",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "موصل غير معروف.",
+      "webhookNotFound": "لم يتم العثور على ويب هوك.",
+      "apiKeyInactive": "مفتاح API غير نشط أو منتهٍ."
     },
     "categories": {
       "productivity": "الإنتاجية",
@@ -4743,6 +4789,18 @@
       "degraded": "متدهور",
       "down": "متوقف",
       "unknown": "غير معروف"
+    },
+    "health": {
+      "installedAuthorize": "مثبّت — صِل للتفويض",
+      "oauthStubPlaceholder": "عرض OAuth محلي (stub)",
+      "oauthStubLive": "عرض OAuth محلي (مباشر)",
+      "demoCredential": "تم حفظ بيانات اعتماد العرض المحلي — API الحي غير متصل",
+      "demoConnection": "اتصال عرض محلي — ليس رابط مزوّد حي",
+      "disconnected": "غير متصل"
+    },
+    "generated": {
+      "keyName": "مفتاح {n}",
+      "webhookName": "ويب هوك {n}"
     }
   },
   "intelligence": {

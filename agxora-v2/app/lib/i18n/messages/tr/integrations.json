@@ -63,7 +63,17 @@
   "logs": {
     "title": "Entegrasyon günlükleri",
     "emptyTitle": "Henüz günlük yok",
-    "emptyDescription": "Bir sağlayıcıya bağlanın veya tanılamayı çalıştırın."
+    "emptyDescription": "Bir sağlayıcıya bağlanın veya tanılamayı çalıştırın.",
+    "installed": "{name} yüklendi",
+    "demoConnected": "Demo bağlandı {name}",
+    "disconnected": "{name} bağlantısı kesildi",
+    "webhookCreated": "Webhook oluşturuldu {name}",
+    "keyCreated": "API anahtarı oluşturuldu {name}",
+    "keyRotated": "Anahtar yenilendi {name}",
+    "keyRevoked": "Anahtar iptal edildi {name}",
+    "stubHealthy": "{name} stub sağlıklı",
+    "diagnosticsComplete": "Tanılama tamamlandı",
+    "outgoing": "Giden {status}: {eventType}"
   },
   "apiKeys": {
     "title": "API anahtarları",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "Getirilemedi",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "Bilinmeyen bağlayıcı.",
+    "webhookNotFound": "Webhook bulunamadı.",
+    "apiKeyInactive": "API anahtarı etkin değil veya süresi dolmuş."
   },
   "categories": {
     "productivity": "Verimlilik",
@@ -209,5 +222,17 @@
     "degraded": "Bozulmuş",
     "down": "Kapalı",
     "unknown": "Bilinmiyor"
+  },
+  "health": {
+    "installedAuthorize": "Yüklendi — yetkilendirmek için bağlanın",
+    "oauthStubPlaceholder": "Yerel OAuth demosu (stub)",
+    "oauthStubLive": "Yerel OAuth demosu (live)",
+    "demoCredential": "Yerel demo kimliği kaydedildi — canlı API bağlı değil",
+    "demoConnection": "Yerel demo bağlantısı — canlı sağlayıcı bağlantısı değil",
+    "disconnected": "Bağlantı kesildi"
+  },
+  "generated": {
+    "keyName": "Anahtar {n}",
+    "webhookName": "Webhook {n}"
   }
 }

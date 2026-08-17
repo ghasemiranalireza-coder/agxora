@@ -284,6 +284,36 @@
       "void": "Batal",
       "uncollectible": "Tidak tertagih",
       "refunded": "Dikembalikan"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "Uji coba segera berakhir",
+        "body": "Uji coba berakhir dalam sekitar {days} hari. Upgrade untuk tetap mendapat akses penuh."
+      },
+      "expired": {
+        "title": "Langganan kedaluwarsa",
+        "body": "Perbarui atau upgrade paket untuk memulihkan fitur komersial."
+      },
+      "cancelled": {
+        "title": "Langganan dibatalkan",
+        "body": "Langganan AGXORA dibatalkan. Akses tetap sampai akhir periode."
+      },
+      "quotaWarning": {
+        "title": "Mendekati batas {metric}",
+        "body": "Terpakai {used} dari {limit}. Pertimbangkan upgrade."
+      },
+      "upgradeAvailable": {
+        "title": "Upgrade tersedia",
+        "body": "Business dan Enterprise membuka otomasi, kuota AI lebih tinggi, dan API."
+      },
+      "invoiceReady": {
+        "title": "Faktur siap",
+        "body": "Faktur {number} berhasil dibayar."
+      },
+      "renewed": {
+        "title": "Langganan diperbarui",
+        "body": "Paket Anda diperbarui pada {date}."
+      }
     }
   },
   "settings": {
@@ -3876,6 +3906,9 @@
       "by_priority": "Menurut prioritas",
       "urgent_notification": "Notifikasi mendesak",
       "standard_email": "Email standar"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "Buat konten AI"
     }
   },
   "team": {
@@ -4597,7 +4630,17 @@
     "logs": {
       "title": "Log integrasi",
       "emptyTitle": "Belum ada log",
-      "emptyDescription": "Hubungkan penyedia atau jalankan diagnostik."
+      "emptyDescription": "Hubungkan penyedia atau jalankan diagnostik.",
+      "installed": "{name} terpasang",
+      "demoConnected": "Demo terhubung {name}",
+      "disconnected": "{name} terputus",
+      "webhookCreated": "Webhook dibuat {name}",
+      "keyCreated": "Kunci API dibuat {name}",
+      "keyRotated": "Kunci diputar {name}",
+      "keyRevoked": "Kunci dicabut {name}",
+      "stubHealthy": "{name} stub sehat",
+      "diagnosticsComplete": "Diagnostik selesai",
+      "outgoing": "Keluar {status}: {eventType}"
     },
     "apiKeys": {
       "title": "Kunci API",
@@ -4672,7 +4715,10 @@
     },
     "errors": {
       "failedToFetch": "Gagal mengambil",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "Konektor tidak dikenal.",
+      "webhookNotFound": "Webhook tidak ditemukan.",
+      "apiKeyInactive": "Kunci API tidak aktif atau kedaluwarsa."
     },
     "categories": {
       "productivity": "Produktivitas",
@@ -4743,6 +4789,18 @@
       "degraded": "Menurun",
       "down": "Offline",
       "unknown": "Tidak diketahui"
+    },
+    "health": {
+      "installedAuthorize": "Terpasang — hubungkan untuk otorisasi",
+      "oauthStubPlaceholder": "Demo OAuth lokal (stub)",
+      "oauthStubLive": "Demo OAuth lokal (live)",
+      "demoCredential": "Kredensial demo lokal disimpan — API live tidak terhubung",
+      "demoConnection": "Koneksi demo lokal — bukan tautan penyedia live",
+      "disconnected": "Terputus"
+    },
+    "generated": {
+      "keyName": "Kunci {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {

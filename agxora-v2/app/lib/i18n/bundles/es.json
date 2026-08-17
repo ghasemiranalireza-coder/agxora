@@ -284,6 +284,36 @@
       "void": "Anulada",
       "uncollectible": "Incobrable",
       "refunded": "Reembolsada"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "La prueba termina pronto",
+        "body": "Tu prueba termina en unos {days} día(s). Actualiza para conservar el acceso completo."
+      },
+      "expired": {
+        "title": "Suscripción caducada",
+        "body": "Renueva o actualiza tu plan para restaurar las funciones comerciales."
+      },
+      "cancelled": {
+        "title": "Suscripción cancelada",
+        "body": "Tu suscripción AGXORA se canceló. El acceso permanece hasta el fin del período."
+      },
+      "quotaWarning": {
+        "title": "Casi alcanzas el límite de {metric}",
+        "body": "Usado {used} de {limit}. Considera actualizar."
+      },
+      "upgradeAvailable": {
+        "title": "Actualización disponible",
+        "body": "Business y Enterprise desbloquean automatización, cuotas de IA más altas y API."
+      },
+      "invoiceReady": {
+        "title": "Factura lista",
+        "body": "La factura {number} se pagó correctamente."
+      },
+      "renewed": {
+        "title": "Suscripción renovada",
+        "body": "Tu plan se renueva el {date}."
+      }
     }
   },
   "settings": {
@@ -3876,6 +3906,9 @@
       "by_priority": "Por prioridad",
       "urgent_notification": "Notificación urgente",
       "standard_email": "Correo estándar"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "Generar contenido de IA"
     }
   },
   "team": {
@@ -4597,7 +4630,17 @@
     "logs": {
       "title": "Registros de integración",
       "emptyTitle": "Aún no hay registros",
-      "emptyDescription": "Conecte un proveedor o ejecute diagnósticos."
+      "emptyDescription": "Conecte un proveedor o ejecute diagnósticos.",
+      "installed": "{name} instalado",
+      "demoConnected": "Demo conectado {name}",
+      "disconnected": "{name} desconectado",
+      "webhookCreated": "Webhook creado {name}",
+      "keyCreated": "Clave API creada {name}",
+      "keyRotated": "Clave rotada {name}",
+      "keyRevoked": "Clave revocada {name}",
+      "stubHealthy": "{name} stub correcto",
+      "diagnosticsComplete": "Diagnóstico completado",
+      "outgoing": "Saliente {status}: {eventType}"
     },
     "apiKeys": {
       "title": "Claves API",
@@ -4672,7 +4715,10 @@
     },
     "errors": {
       "failedToFetch": "No se pudo recuperar",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "Conector desconocido.",
+      "webhookNotFound": "Webhook no encontrado.",
+      "apiKeyInactive": "Clave API inactiva o caducada."
     },
     "categories": {
       "productivity": "Productividad",
@@ -4743,6 +4789,18 @@
       "degraded": "Degradado",
       "down": "Caído",
       "unknown": "Desconocido"
+    },
+    "health": {
+      "installedAuthorize": "Instalado — conecte para autorizar",
+      "oauthStubPlaceholder": "Demo OAuth local (stub)",
+      "oauthStubLive": "Demo OAuth local (live)",
+      "demoCredential": "Credencial demo local guardada — API en vivo no conectada",
+      "demoConnection": "Conexión demo local — no es un enlace de proveedor en vivo",
+      "disconnected": "Desconectado"
+    },
+    "generated": {
+      "keyName": "Clave {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {

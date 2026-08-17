@@ -63,7 +63,17 @@
   "logs": {
     "title": "Registri di integrazione",
     "emptyTitle": "Nessun registro ancora",
-    "emptyDescription": "Connetti un provider o esegui la diagnostica."
+    "emptyDescription": "Connetti un provider o esegui la diagnostica.",
+    "installed": "{name} installato",
+    "demoConnected": "Demo connesso {name}",
+    "disconnected": "{name} disconnesso",
+    "webhookCreated": "Webhook creato {name}",
+    "keyCreated": "Chiave API creata {name}",
+    "keyRotated": "Chiave ruotata {name}",
+    "keyRevoked": "Chiave revocata {name}",
+    "stubHealthy": "{name} stub integro",
+    "diagnosticsComplete": "Diagnostica completata",
+    "outgoing": "In uscita {status}: {eventType}"
   },
   "apiKeys": {
     "title": "Chiavi API",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "Impossibile recuperare",
-    "httpStatus": "{status} HTTP"
+    "httpStatus": "{status} HTTP",
+    "unknownConnector": "Connettore sconosciuto.",
+    "webhookNotFound": "Webhook non trovato.",
+    "apiKeyInactive": "Chiave API inattiva o scaduta."
   },
   "categories": {
     "productivity": "Produttività",
@@ -209,5 +222,17 @@
     "degraded": "Degradato",
     "down": "Non disponibile",
     "unknown": "Sconosciuto"
+  },
+  "health": {
+    "installedAuthorize": "Installato — connetti per autorizzare",
+    "oauthStubPlaceholder": "Demo OAuth locale (stub)",
+    "oauthStubLive": "Demo OAuth locale (live)",
+    "demoCredential": "Credenziale demo locale salvata — API live non connessa",
+    "demoConnection": "Connessione demo locale — non è un collegamento provider live",
+    "disconnected": "Disconnesso"
+  },
+  "generated": {
+    "keyName": "Chiave {n}",
+    "webhookName": "Webhook {n}"
   }
 }

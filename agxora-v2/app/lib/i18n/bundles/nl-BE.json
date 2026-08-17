@@ -284,6 +284,36 @@
       "void": "Nietig",
       "uncollectible": "Oninbaar",
       "refunded": "Terugbetaald"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "Proefperiode eindigt binnenkort",
+        "body": "Je proefperiode eindigt over ongeveer {days} dag(en). Upgrade om volledige toegang te houden."
+      },
+      "expired": {
+        "title": "Abonnement verlopen",
+        "body": "Verleng of upgrade je plan om commerciële functies te herstellen."
+      },
+      "cancelled": {
+        "title": "Abonnement geannuleerd",
+        "body": "Je AGXORA-abonnement is geannuleerd. Toegang blijft tot het einde van de periode."
+      },
+      "quotaWarning": {
+        "title": "{metric}-limiet bijna bereikt",
+        "body": "{used} van {limit} gebruikt. Overweeg een upgrade."
+      },
+      "upgradeAvailable": {
+        "title": "Upgrade beschikbaar",
+        "body": "Business en Enterprise ontgrendelen automatisering, hogere AI-quota en API-toegang."
+      },
+      "invoiceReady": {
+        "title": "Factuur klaar",
+        "body": "Factuur {number} is succesvol betaald."
+      },
+      "renewed": {
+        "title": "Abonnement verlengd",
+        "body": "Je plan wordt verlengd op {date}."
+      }
     }
   },
   "settings": {
@@ -3876,6 +3906,9 @@
       "by_priority": "Op prioriteit",
       "urgent_notification": "Urgente melding",
       "standard_email": "Standaard-e-mail"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "AI-content genereren"
     }
   },
   "team": {
@@ -4597,7 +4630,17 @@
     "logs": {
       "title": "Integratielogboeken",
       "emptyTitle": "Nog geen logboeken",
-      "emptyDescription": "Sluit een provider aan of voer een diagnose uit."
+      "emptyDescription": "Sluit een provider aan of voer een diagnose uit.",
+      "installed": "{name} geïnstalleerd",
+      "demoConnected": "Demo verbonden {name}",
+      "disconnected": "{name} verbroken",
+      "webhookCreated": "Webhook aangemaakt {name}",
+      "keyCreated": "API-sleutel aangemaakt {name}",
+      "keyRotated": "Sleutel geroteerd {name}",
+      "keyRevoked": "Sleutel ingetrokken {name}",
+      "stubHealthy": "{name} stub gezond",
+      "diagnosticsComplete": "Diagnose voltooid",
+      "outgoing": "Uitgaand {status}: {eventType}"
     },
     "apiKeys": {
       "title": "API-sleutels",
@@ -4672,7 +4715,10 @@
     },
     "errors": {
       "failedToFetch": "Ophalen is mislukt",
-      "httpStatus": "HTTP-{status}"
+      "httpStatus": "HTTP-{status}",
+      "unknownConnector": "Onbekende connector.",
+      "webhookNotFound": "Webhook niet gevonden.",
+      "apiKeyInactive": "API-sleutel inactief of verlopen."
     },
     "categories": {
       "productivity": "Productiviteit",
@@ -4743,6 +4789,18 @@
       "degraded": "Verminderd",
       "down": "Offline",
       "unknown": "Onbekend"
+    },
+    "health": {
+      "installedAuthorize": "Geïnstalleerd — verbind om te autoriseren",
+      "oauthStubPlaceholder": "Lokale OAuth-demo (stub)",
+      "oauthStubLive": "Lokale OAuth-demo (live)",
+      "demoCredential": "Lokale demo-credential opgeslagen — geen live API",
+      "demoConnection": "Lokale demoverbinding — geen live providerkoppeling",
+      "disconnected": "Verbroken"
+    },
+    "generated": {
+      "keyName": "Sleutel {n}",
+      "webhookName": "Webhook {n}"
     }
   },
   "intelligence": {

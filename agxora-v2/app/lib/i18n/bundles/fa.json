@@ -284,6 +284,36 @@
       "void": "باطل",
       "uncollectible": "غیرقابل وصول",
       "refunded": "بازپرداخت‌شده"
+    },
+    "notifications": {
+      "trialEnding": {
+        "title": "دوره آزمایشی به‌زودی تمام می‌شود",
+        "body": "دوره آزمایشی شما حدود {days} روز دیگر تمام می‌شود. برای حفظ دسترسی کامل ارتقا دهید."
+      },
+      "expired": {
+        "title": "اشتراک منقضی شد",
+        "body": "برای بازگرداندن امکانات تجاری، تمدید یا ارتقا دهید."
+      },
+      "cancelled": {
+        "title": "اشتراک لغو شد",
+        "body": "اشتراک AGXORA شما لغو شد. دسترسی تا پایان دوره باقی می‌ماند."
+      },
+      "quotaWarning": {
+        "title": "نزدیک به سقف {metric}",
+        "body": "مصرف‌شده {used} از {limit}. ارتقا را در نظر بگیرید."
+      },
+      "upgradeAvailable": {
+        "title": "ارتقا در دسترس است",
+        "body": "Business و Enterprise اتوماسیون، سهمیه هوش مصنوعی بالاتر و دسترسی API را باز می‌کنند."
+      },
+      "invoiceReady": {
+        "title": "فاکتور آماده است",
+        "body": "فاکتور {number} با موفقیت پرداخت شد."
+      },
+      "renewed": {
+        "title": "اشتراک تمدید شد",
+        "body": "تعرفه شما در {date} تمدید می‌شود."
+      }
     }
   },
   "settings": {
@@ -3876,6 +3906,9 @@
       "by_priority": "بر اساس اولویت",
       "urgent_notification": "اعلان فوری",
       "standard_email": "ایمیل استاندارد"
+    },
+    "studioAiFeatures": {
+      "generate_ai_content": "تولید محتوای هوش مصنوعی"
     }
   },
   "team": {
@@ -4597,7 +4630,17 @@
     "logs": {
       "title": "لاگ‌های یکپارچه‌سازی",
       "emptyTitle": "هنوز هیچ لاگی ثبت نشده است",
-      "emptyDescription": "به یک ارائه دهنده متصل شوید یا عیب‌یابی را اجرا کنید."
+      "emptyDescription": "به یک ارائه دهنده متصل شوید یا عیب‌یابی را اجرا کنید.",
+      "installed": "نصب شد {name}",
+      "demoConnected": "دمو متصل شد {name}",
+      "disconnected": "قطع شد {name}",
+      "webhookCreated": "وب‌هوک ایجاد شد {name}",
+      "keyCreated": "کلید API ایجاد شد {name}",
+      "keyRotated": "کلید چرخانده شد {name}",
+      "keyRevoked": "کلید لغو شد {name}",
+      "stubHealthy": "{name} جایگزین سالم است",
+      "diagnosticsComplete": "عیب‌یابی کامل شد",
+      "outgoing": "خروجی {status}: {eventType}"
     },
     "apiKeys": {
       "title": "کلیدهای API",
@@ -4672,7 +4715,10 @@
     },
     "errors": {
       "failedToFetch": "دریافت نشد",
-      "httpStatus": "HTTP {status}"
+      "httpStatus": "HTTP {status}",
+      "unknownConnector": "کانکتور ناشناخته.",
+      "webhookNotFound": "وب‌هوک پیدا نشد.",
+      "apiKeyInactive": "کلید API غیرفعال یا منقضی است."
     },
     "categories": {
       "productivity": "بهره‌وری",
@@ -4743,6 +4789,18 @@
       "degraded": "کاهش‌یافته",
       "down": "ازکارافتاده",
       "unknown": "نامشخص"
+    },
+    "health": {
+      "installedAuthorize": "نصب شد — برای مجوز متصل شوید",
+      "oauthStubPlaceholder": "دموی محلی OAuth (جایگزین)",
+      "oauthStubLive": "دموی محلی OAuth (زنده)",
+      "demoCredential": "اعتبارنامه دموی محلی ذخیره شد — API زنده متصل نیست",
+      "demoConnection": "اتصال دموی محلی — پیوند زنده ارائه‌دهنده نیست",
+      "disconnected": "قطع‌شده"
+    },
+    "generated": {
+      "keyName": "کلید {n}",
+      "webhookName": "وب‌هوک {n}"
     }
   },
   "intelligence": {

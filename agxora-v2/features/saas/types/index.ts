@@ -182,6 +182,7 @@ export interface SaasNotification {
   readonly read: boolean;
   readonly createdAt: string;
   readonly href?: string;
+  readonly vars?: Readonly<Record<string, string | number>>;
 }
 
 export type SaasAuditAction =

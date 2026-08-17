@@ -161,6 +161,35 @@ export const CATALOG_EN = {
     connectorNames: {
       custom: "Custom Connector",
     },
+    health: {
+      installedAuthorize: "Installed — connect to authorize",
+      oauthStubPlaceholder: "Local demo OAuth stub (stub)",
+      oauthStubLive: "Local demo OAuth stub (live)",
+      demoCredential: "Local demo credential stored — live API not connected",
+      demoConnection: "Local demo connection — not a live provider link",
+      disconnected: "Disconnected",
+    },
+    logs: {
+      installed: "Installed {name}",
+      demoConnected: "Demo connected {name}",
+      disconnected: "Disconnected {name}",
+      webhookCreated: "Created webhook {name}",
+      keyCreated: "Created API key {name}",
+      keyRotated: "Rotated key {name}",
+      keyRevoked: "Revoked key {name}",
+      stubHealthy: "{name} stub healthy",
+      diagnosticsComplete: "Diagnostics complete",
+      outgoing: "Outgoing {status}: {eventType}",
+    },
+    generated: {
+      keyName: "Key {n}",
+      webhookName: "Webhook {n}",
+    },
+    errors: {
+      unknownConnector: "Unknown connector.",
+      webhookNotFound: "Webhook not found.",
+      apiKeyInactive: "API key inactive or expired.",
+    },
     healthStatus: {
       healthy: "Healthy",
       degraded: "Degraded",
@@ -590,6 +619,9 @@ export const CATALOG_EN = {
     },
   },
   automation: {
+    studioAiFeatures: {
+      generate_ai_content: "Generate AI Content",
+    },
     kinds: {
       trigger: "Trigger",
       action: "Action",
@@ -778,6 +810,36 @@ export const CATALOG_EN = {
       void: "Void",
       uncollectible: "Uncollectible",
       refunded: "Refunded",
+    },
+    notifications: {
+      trialEnding: {
+        title: "Trial ending soon",
+        body: "Your trial ends in about {days} day(s). Upgrade to keep full access.",
+      },
+      expired: {
+        title: "Subscription expired",
+        body: "Renew or upgrade your plan to restore commercial features.",
+      },
+      cancelled: {
+        title: "Subscription cancelled",
+        body: "Your AGXORA subscription was cancelled. Access remains until the period ends.",
+      },
+      quotaWarning: {
+        title: "Approaching {metric} limit",
+        body: "Used {used} of {limit}. Consider upgrading.",
+      },
+      upgradeAvailable: {
+        title: "Upgrade available",
+        body: "Business and Enterprise unlock automation, higher AI quotas, and API access.",
+      },
+      invoiceReady: {
+        title: "Invoice ready",
+        body: "Invoice {number} was paid successfully.",
+      },
+      renewed: {
+        title: "Subscription renewed",
+        body: "Your plan renews on {date}.",
+      },
     },
   },
 };

@@ -88,7 +88,7 @@ export const integrationService = {
     connectorId: ConnectorId,
   ): IntegrationConnection {
     const def = getConnectorDefinition(connectorId);
-    if (!def) throw new Error(`Unknown connector: ${connectorId}`);
+    if (!def) throw new Error("integrations.errors.unknownConnector");
     const existing = this.listConnections(organizationId).find(
       (c) => c.connectorId === connectorId,
     );
@@ -104,14 +104,15 @@ export const integrationService = {
       health: {
         status: "unknown",
         lastCheckedAt: nowIso(),
-        message: "Installed — connect to authorize",
+        message: "integrations.health.installedAuthorize",
       },
       installedAt: nowIso(),
       config: {},
     };
     integrationsStore.upsertConnection(connection);
-    log(organizationId, "info", "connector", `Installed ${def.name}`, {
+    log(organizationId, "info", "connector", "integrations.logs.installed", {
       connectionId: connection.id,
+      data: { name: def.name },
     });
     return connection;
   },
@@ -151,7 +152,9 @@ export const integrationService = {
           status: "healthy",
           lastCheckedAt: nowIso(),
           latencyMs: 55,
-          message: `Local demo OAuth stub (${auth.placeholder ? "stub" : "live"})`,
+          message: auth.placeholder
+            ? "integrations.health.oauthStubPlaceholder"
+            : "integrations.health.oauthStubLive",
         },
         config: {
           ...connection.config,
@@ -173,7 +176,7 @@ export const integrationService = {
           status: "healthy",
           lastCheckedAt: nowIso(),
           latencyMs: 42,
-          message: "Local demo credential stored — live API not connected",
+          message: "integrations.health.demoCredential",
         },
       };
     } else {
@@ -184,7 +187,7 @@ export const integrationService = {
         health: {
           status: "healthy",
           lastCheckedAt: nowIso(),
-          message: "Local demo connection — not a live provider link",
+          message: "integrations.health.demoConnection",
         },
       };
     }
@@ -196,8 +199,9 @@ export const integrationService = {
       eventType: "connected",
       payload: { connectionId: connection.id },
     });
-    log(organizationId, "info", "connector", `Demo connected ${def.name}`, {
+    log(organizationId, "info", "connector", "integrations.logs.demoConnected", {
       connectionId: connection.id,
+      data: { name: def.name },
     });
     return connection;
   },
@@ -216,15 +220,15 @@ export const integrationService = {
       health: {
         status: "unknown",
         lastCheckedAt: nowIso(),
-        message: "Disconnected",
+        message: "integrations.health.disconnected",
       },
     });
     log(
       connection.organizationId,
       "warn",
       "connector",
-      `Disconnected ${connection.displayName}`,
-      { connectionId },
+      "integrations.logs.disconnected",
+      { connectionId, data: { name: connection.displayName } },
     );
   },
 
@@ -250,8 +254,8 @@ export const integrationService = {
       connection.organizationId,
       result.ok ? "info" : "error",
       "diagnostics",
-      result.message ?? "Diagnostics complete",
-      { connectionId },
+      result.message ?? "integrations.logs.diagnosticsComplete",
+      { connectionId, data: { name: connection.displayName } },
     );
     return next;
   },
@@ -282,8 +286,8 @@ export const integrationService = {
       organizationId,
       "info",
       "event-bridge",
-      `Published ${event.type}`,
-      { connectionId: connection?.id, data: { eventId: event.id } },
+      "integrations.notice.publishedEvent",
+      { connectionId: connection?.id, data: { type: event.type, eventId: event.id } },
     );
     return event;
   },
@@ -309,7 +313,9 @@ export const integrationService = {
       createdAt: nowIso(),
     };
     integrationsStore.upsertWebhook(endpoint);
-    log(input.organizationId, "info", "webhook", `Created webhook ${endpoint.name}`);
+    log(input.organizationId, "info", "webhook", "integrations.logs.webhookCreated", {
+      data: { name: endpoint.name },
+    });
     return endpoint;
   },
 
@@ -321,7 +327,7 @@ export const integrationService = {
     const endpoint = integrationsStore
       .getSnapshot()
       .webhooks.find((w) => w.id === endpointId);
-    if (!endpoint) throw new Error("Webhook not found");
+    if (!endpoint) throw new Error("integrations.errors.webhookNotFound");
     const delivery = await deliverOutgoingWebhook({
       endpoint,
       organizationId: endpoint.organizationId,
@@ -333,8 +339,8 @@ export const integrationService = {
       endpoint.organizationId,
       delivery.status === "delivered" ? "info" : "error",
       "webhook",
-      `Outgoing ${delivery.status}: ${eventType}`,
-      { webhookId: endpoint.id },
+      "integrations.logs.outgoing",
+      { webhookId: endpoint.id, data: { status: delivery.status, eventType } },
     );
     return delivery;
   },
@@ -348,7 +354,7 @@ export const integrationService = {
     const endpoint = integrationsStore
       .getSnapshot()
       .webhooks.find((w) => w.id === endpointId);
-    if (!endpoint) throw new Error("Webhook not found");
+    if (!endpoint) throw new Error("integrations.errors.webhookNotFound");
     const delivery = receiveIncomingWebhook({
       endpoint,
       organizationId: endpoint.organizationId,
@@ -376,7 +382,9 @@ export const integrationService = {
   }): ApiKeyRecord {
     const key = createApiKey(input);
     integrationsStore.createApiKeyRecord(key);
-    log(input.organizationId, "info", "api-keys", `Created API key ${key.name}`);
+    log(input.organizationId, "info", "api-keys", "integrations.logs.keyCreated", {
+      data: { name: key.name },
+    });
     return key;
   },
 
@@ -388,7 +396,9 @@ export const integrationService = {
     integrationsStore.upsertApiKey({ ...existing, status: "rotated" });
     const next = rotateApiKey(existing);
     integrationsStore.createApiKeyRecord(next);
-    log(existing.organizationId, "warn", "api-keys", `Rotated key ${existing.name}`);
+    log(existing.organizationId, "warn", "api-keys", "integrations.logs.keyRotated", {
+      data: { name: existing.name },
+    });
     return next;
   },
 
@@ -398,7 +408,9 @@ export const integrationService = {
       .apiKeys.find((k) => k.id === keyId);
     if (!existing) return;
     integrationsStore.upsertApiKey(revokeApiKey(existing));
-    log(existing.organizationId, "warn", "api-keys", `Revoked key ${existing.name}`);
+    log(existing.organizationId, "warn", "api-keys", "integrations.logs.keyRevoked", {
+      data: { name: existing.name },
+    });
   },
 
   async exploreApi(input: {
@@ -415,7 +427,7 @@ export const integrationService = {
         .apiKeys.find((k) => k.id === apiKeyId);
       if (key) {
         if (isApiKeyExpired(key) || key.status !== "active") {
-          throw new Error("API key inactive or expired");
+          throw new Error("integrations.errors.apiKeyInactive");
         }
         integrationsStore.upsertApiKey(markApiKeyUsed(key));
       }

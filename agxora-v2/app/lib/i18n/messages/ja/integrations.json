@@ -63,7 +63,17 @@
   "logs": {
     "title": "統合ログ",
     "emptyTitle": "まだログがありません",
-    "emptyDescription": "プロバイダーに接続するか、診断を実行します。"
+    "emptyDescription": "プロバイダーに接続するか、診断を実行します。",
+    "installed": "{name}をインストール",
+    "demoConnected": "デモ接続 {name}",
+    "disconnected": "{name}を切断",
+    "webhookCreated": "Webhook作成 {name}",
+    "keyCreated": "APIキー作成 {name}",
+    "keyRotated": "キーローテーション {name}",
+    "keyRevoked": "キー取り消し {name}",
+    "stubHealthy": "{name}スタブは正常",
+    "diagnosticsComplete": "診断完了",
+    "outgoing": "送信 {status}: {eventType}"
   },
   "apiKeys": {
     "title": "APIキー",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "取得に失敗しました",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "不明なコネクタ。",
+    "webhookNotFound": "Webhookが見つかりません。",
+    "apiKeyInactive": "APIキーが無効または期限切れです。"
   },
   "categories": {
     "productivity": "生産性",
@@ -209,5 +222,17 @@
     "degraded": "劣化",
     "down": "停止",
     "unknown": "不明"
+  },
+  "health": {
+    "installedAuthorize": "インストール済み — 接続して承認",
+    "oauthStubPlaceholder": "ローカルOAuthデモ（スタブ）",
+    "oauthStubLive": "ローカルOAuthデモ（ライブ）",
+    "demoCredential": "ローカルデモ資格情報を保存 — ライブAPI未接続",
+    "demoConnection": "ローカルデモ接続 — ライブプロバイダー連携ではありません",
+    "disconnected": "切断"
+  },
+  "generated": {
+    "keyName": "キー {n}",
+    "webhookName": "Webhook {n}"
   }
 }

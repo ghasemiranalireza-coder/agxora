@@ -63,7 +63,17 @@
   "logs": {
     "title": "整合日誌",
     "emptyTitle": "還沒有日誌",
-    "emptyDescription": "連接提供者或運行診斷。"
+    "emptyDescription": "連接提供者或運行診斷。",
+    "installed": "已安裝 {name}",
+    "demoConnected": "示範已連線 {name}",
+    "disconnected": "已中斷 {name}",
+    "webhookCreated": "已建立 Webhook {name}",
+    "keyCreated": "已建立 API 金鑰 {name}",
+    "keyRotated": "已輪替金鑰 {name}",
+    "keyRevoked": "已撤銷金鑰 {name}",
+    "stubHealthy": "{name} 佔位健康",
+    "diagnosticsComplete": "診斷完成",
+    "outgoing": "外送 {status}: {eventType}"
   },
   "apiKeys": {
     "title": "API 金鑰",
@@ -138,7 +148,10 @@
   },
   "errors": {
     "failedToFetch": "獲取失敗",
-    "httpStatus": "HTTP {status}"
+    "httpStatus": "HTTP {status}",
+    "unknownConnector": "未知連接器。",
+    "webhookNotFound": "找不到 Webhook。",
+    "apiKeyInactive": "API 金鑰未啟用或已過期。"
   },
   "categories": {
     "productivity": "生產力",
@@ -209,5 +222,17 @@
     "degraded": "降級",
     "down": "停機",
     "unknown": "未知"
+  },
+  "health": {
+    "installedAuthorize": "已安裝 — 連線以授權",
+    "oauthStubPlaceholder": "本機 OAuth 示範（佔位）",
+    "oauthStubLive": "本機 OAuth 示範（即時）",
+    "demoCredential": "已儲存本機示範憑證 — 未連線即時 API",
+    "demoConnection": "本機示範連線 — 非即時供應商連結",
+    "disconnected": "已中斷"
+  },
+  "generated": {
+    "keyName": "金鑰 {n}",
+    "webhookName": "Webhook {n}"
   }
 }
