@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { JSX, KeyboardEvent } from "react";
 import type { CommercialPlan, CommercialPlanId } from "../types";
+import { useT, useFormatters } from "@/app/lib/i18n";
 import "./billing-plans.css";
 
 export function BillingPlanCard({
@@ -18,6 +19,10 @@ export function BillingPlanCard({
   readonly selecting: boolean;
   readonly onSelect: (planId: CommercialPlanId) => void;
 }): JSX.Element {
+  const t = useT();
+  const { number } = useFormatters();
+  const planName = t(`pricing.plans.${plan.id}.name`);
+  const planDescription = t(`pricing.plans.${plan.id}.description`);
   const isEnterprise = plan.priceMonthlyUsd == null;
   const recommended = Boolean(plan.highlighted);
   const stateClass = [
@@ -30,10 +35,10 @@ export function BillingPlanCard({
     .join(" ");
 
   const badge = current ? (
-    <span className="saas-plan-card__badge">Current plan</span>
+    <span className="saas-plan-card__badge">{t("billing.planCard.currentPlan")}</span>
   ) : recommended ? (
     <span className="saas-plan-card__badge saas-plan-card__badge--recommended">
-      Recommended
+      {t("billing.planCard.recommended")}
     </span>
   ) : (
     <span className="saas-plan-card__badge saas-plan-card__badge--spacer" aria-hidden="true">
@@ -44,32 +49,46 @@ export function BillingPlanCard({
   const body = (
     <>
       {badge}
-      <p className="saas-plan-card__name">{plan.name}</p>
-      <p className="saas-plan-card__desc">{plan.description}</p>
+      <p className="saas-plan-card__name">{planName}</p>
+      <p className="saas-plan-card__desc">{planDescription}</p>
       <p className="saas-plan-card__price">
-        {isEnterprise ? "Contact sales" : `€${plan.priceMonthlyUsd}/mo`}
+        {isEnterprise
+          ? t("billing.planCard.contactSales")
+          : t("billing.planCard.pricePerMonth", { price: plan.priceMonthlyUsd ?? 0 })}
       </p>
       <ul className="saas-plan-card__limits">
-        <li>{plan.limits.users} users</li>
-        <li>{plan.limits.aiRequestsPerMonth.toLocaleString()} AI req/mo</li>
-        <li>{plan.limits.storageMb.toLocaleString()} MB storage</li>
-        <li>{plan.features.length} module features</li>
+        <li>{t("billing.planCard.users", { count: plan.limits.users })}</li>
+        <li>
+          {t("billing.planCard.aiRequests", {
+            count: number(plan.limits.aiRequestsPerMonth),
+          })}
+        </li>
+        <li>
+          {t("billing.planCard.storage", {
+            count: number(plan.limits.storageMb),
+          })}
+        </li>
+        <li>{t("billing.planCard.moduleFeatures", { count: plan.features.length })}</li>
       </ul>
       <span className="saas-plan-card__action" aria-hidden="true">
         {current
-          ? "Current plan"
+          ? t("billing.planCard.currentPlan")
           : isEnterprise
-            ? "Contact sales"
+            ? t("billing.planCard.contactSales")
             : selecting
-              ? "Processing…"
-              : "Choose plan"}
+              ? t("billing.planCard.processing")
+              : t("billing.planCard.choosePlan")}
       </span>
     </>
   );
 
   if (current) {
     return (
-      <article className={stateClass} aria-current="true" aria-label={`${plan.name} — current plan`}>
+      <article
+        className={stateClass}
+        aria-current="true"
+        aria-label={t("billing.planCard.currentPlanAria", { name: planName })}
+      >
         {body}
       </article>
     );
@@ -80,7 +99,7 @@ export function BillingPlanCard({
       <Link
         href="/contact-sales"
         className={stateClass}
-        aria-label={`${plan.name} — contact sales`}
+        aria-label={t("billing.planCard.contactSalesAria", { name: planName })}
       >
         {body}
       </Link>
@@ -101,7 +120,7 @@ export function BillingPlanCard({
       className={stateClass}
       disabled={disabled}
       aria-busy={selecting || undefined}
-      aria-label={`${plan.name} — choose plan`}
+      aria-label={t("billing.planCard.choosePlanAria", { name: planName })}
       onClick={() => onSelect(plan.id)}
       onKeyDown={onKeyDown}
     >

@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "Identity & Access",
+    "title": "Team",
+    "lead": "Members, roles, and invitations for {organization}. Architecture-ready for a future identity API.",
+    "yourOrganization": "your organization"
+  },
+  "invite": {
+    "title": "Invite by Email",
+    "email": "Email",
+    "emailPlaceholder": "colleague@company.com",
+    "role": "Role",
+    "submit": "Invite",
+    "created": "Invitation created (pending).",
+    "failed": "Invite failed",
+    "signInFirst": "Sign in and activate an organization first.",
+    "noPermission": "Missing permission — Admin or Manager required to invite."
+  },
+  "roles": {
+    "title": "Roles",
+    "owner": {
+      "name": "Owner",
+      "description": "Full organization control including Settings and billing."
+    },
+    "admin": {
+      "name": "Admin",
+      "description": "Manage Finance, Automation, Team, and workspace modules."
+    },
+    "manager": {
+      "name": "Manager",
+      "description": "Lead CRM, Projects, Documents, and Creator operations."
+    },
+    "employee": {
+      "name": "Employee",
+      "description": "Day-to-day CRM, Documents, Creator, and Projects access."
+    },
+    "guest": {
+      "name": "Guest",
+      "description": "Limited read access to Documents and Projects."
+    },
+    "viewer": {
+      "name": "Viewer",
+      "description": "Read-only access to shared modules."
+    }
+  },
+  "members": {
+    "title": "Members",
+    "columnMember": "Member",
+    "columnEmail": "Email",
+    "columnRole": "Role",
+    "columnStatus": "Status",
+    "roleFor": "Role for {name}",
+    "emptyTitle": "No members yet",
+    "emptyDescription": "Invite colleagues to join this organization workspace.",
+    "updated": "Updated {name} to {role}",
+    "roleChangeFailed": "Role change failed"
+  },
+  "pending": {
+    "title": "Pending Invitations",
+    "emptyTitle": "No pending invitations",
+    "emptyDescription": "New invites appear here until accepted or expired.",
+    "expires": "{role} · expires {date}",
+    "revoke": "Revoke",
+    "pending": "pending"
+  },
+  "history": {
+    "title": "Invitation History",
+    "empty": "Accepted, expired, and revoked invitations will appear here."
+  },
+  "status": {
+    "accepted": "accepted",
+    "expired": "expired",
+    "revoked": "revoked",
+    "active": "active",
+    "inactive": "inactive",
+    "pending": "pending"
+  }
+}

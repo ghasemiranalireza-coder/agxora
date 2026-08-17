@@ -1,16 +1,14 @@
 "use client";
 
 import type { JSX } from "react";
+import { useT } from "../../lib/i18n";
 import type { BadgeTone } from "../ui";
 import { Badge } from "../ui";
-import {
-  priorityLabel,
-  statusLabel,
-  type ProjectPriority,
-  type ProjectStatus,
-  type TaskPriority,
-  type TaskStatus,
-  taskStatusLabel,
+import type {
+  ProjectPriority,
+  ProjectStatus,
+  TaskPriority,
+  TaskStatus,
 } from "../../lib/projects";
 
 function statusTone(status: ProjectStatus): BadgeTone {
@@ -63,7 +61,10 @@ export function ProjectStatusBadge({
 }: {
   readonly status: ProjectStatus;
 }): JSX.Element {
-  return <Badge tone={statusTone(status)}>{statusLabel(status)}</Badge>;
+  const t = useT();
+  return (
+    <Badge tone={statusTone(status)}>{t(`projects.status.${status}`)}</Badge>
+  );
 }
 
 export function ProjectPriorityBadge({
@@ -71,7 +72,12 @@ export function ProjectPriorityBadge({
 }: {
   readonly priority: ProjectPriority | TaskPriority;
 }): JSX.Element {
-  return <Badge tone={priorityTone(priority)}>{priorityLabel(priority)}</Badge>;
+  const t = useT();
+  return (
+    <Badge tone={priorityTone(priority)}>
+      {t(`projects.priority.${priority}`)}
+    </Badge>
+  );
 }
 
 export function TaskStatusBadge({
@@ -79,23 +85,36 @@ export function TaskStatusBadge({
 }: {
   readonly status: TaskStatus;
 }): JSX.Element {
-  return <Badge tone={taskTone(status)}>{taskStatusLabel(status)}</Badge>;
+  const t = useT();
+  return (
+    <Badge tone={taskTone(status)}>{t(`projects.taskStatus.${status}`)}</Badge>
+  );
 }
 
 export function ProgressBar({
   value,
   color,
-  label = "Progress",
+  label,
 }: {
   readonly value: number;
   readonly color?: string;
   readonly label?: string;
 }): JSX.Element {
+  const t = useT();
+  const progressLabel = label ?? t("projects.badges.progress");
   const clamped = Math.max(0, Math.min(100, Math.round(value)));
   return (
-    <div className="space-y-1" aria-label={`${label}: ${clamped}%`}>
+    <div
+      className="space-y-1"
+      aria-label={t("projects.badges.progressAria", {
+        label: progressLabel,
+        value: clamped,
+      })}
+    >
       <div className="flex items-center justify-between gap-2 text-[11px]">
-        <span style={{ color: "var(--agx-text-muted, #94a3b8)" }}>{label}</span>
+        <span style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          {progressLabel}
+        </span>
         <span style={{ color: "var(--agx-text, #f8fafc)" }}>{clamped}%</span>
       </div>
       <div

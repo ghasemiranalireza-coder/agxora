@@ -2,6 +2,7 @@
 
 import type { JSX } from "react";
 import Link from "next/link";
+import { useT } from "../../lib/i18n";
 import { Button } from "./Button";
 import { EmptyState } from "./States";
 
@@ -12,59 +13,6 @@ export type ModuleEmptyKind =
   | "documents"
   | "billing"
   | "agents";
-
-const PRESETS: Record<
-  ModuleEmptyKind,
-  {
-    readonly title: string;
-    readonly description: string;
-    readonly actionLabel?: string;
-    readonly href?: string;
-  }
-> = {
-  crm: {
-    title: "Your CRM is ready",
-    description:
-      "Create the first customer record to unlock directory, profiles, and activity.",
-    actionLabel: "Open CRM",
-    href: "/dashboard/crm",
-  },
-  projects: {
-    title: "No projects yet",
-    description:
-      "Spin up a delivery workspace to track milestones, budget, and team ownership.",
-    actionLabel: "Open Projects",
-    href: "/dashboard/projects",
-  },
-  analytics: {
-    title: "Analytics awaits signal",
-    description:
-      "Once your workspace generates activity, executive KPIs and alerts appear here.",
-    actionLabel: "Open Analytics",
-    href: "/dashboard/analytics",
-  },
-  documents: {
-    title: "Document library is empty",
-    description:
-      "Upload or create knowledge assets to power approvals, versions, and AI context.",
-    actionLabel: "Open Documents",
-    href: "/dashboard/documents",
-  },
-  billing: {
-    title: "No billing history yet",
-    description:
-      "Upgrade a plan to generate invoices, renewals, and payment history.",
-    actionLabel: "Open billing",
-    href: "/dashboard/billing",
-  },
-  agents: {
-    title: "No agents active",
-    description:
-      "Install or activate an agent from the marketplace to start autonomous runs.",
-    actionLabel: "Open Agent OS",
-    href: "/dashboard/agents",
-  },
-};
 
 /**
  * Premium empty-state presets for core modules.
@@ -77,40 +25,45 @@ export function ModuleEmptyState({
   readonly kind: ModuleEmptyKind;
   readonly onAction?: () => void;
 }): JSX.Element {
-  const preset = PRESETS[kind];
+  const t = useT();
+  const title = t(`ui.empty.${kind}Title`);
+  const description = t(`ui.empty.${kind}Description`);
+  const actionLabel = t(`ui.empty.${kind}Action`);
+  const href =
+    kind === "crm"
+      ? "/dashboard/crm"
+      : kind === "projects"
+        ? "/dashboard/projects"
+        : kind === "analytics"
+          ? "/dashboard/analytics"
+          : kind === "documents"
+            ? "/dashboard/documents"
+            : kind === "billing"
+              ? "/dashboard/billing"
+              : "/dashboard/agents";
 
-  if (onAction && preset.actionLabel) {
+  if (onAction) {
     return (
       <EmptyState
-        title={preset.title}
-        description={preset.description}
-        actionLabel={preset.actionLabel}
+        title={title}
+        description={description}
+        actionLabel={actionLabel}
         onAction={onAction}
         icon={<EmptyGlyph kind={kind} />}
       />
     );
   }
 
-  if (preset.href && preset.actionLabel) {
-    return (
-      <EmptyState
-        title={preset.title}
-        description={preset.description}
-        icon={<EmptyGlyph kind={kind} />}
-        footer={
-          <Link href={preset.href} style={{ textDecoration: "none" }}>
-            <Button variant="primary">{preset.actionLabel}</Button>
-          </Link>
-        }
-      />
-    );
-  }
-
   return (
     <EmptyState
-      title={preset.title}
-      description={preset.description}
+      title={title}
+      description={description}
       icon={<EmptyGlyph kind={kind} />}
+      footer={
+        <Link href={href} style={{ textDecoration: "none" }}>
+          <Button variant="primary">{actionLabel}</Button>
+        </Link>
+      }
     />
   );
 }

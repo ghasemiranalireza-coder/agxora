@@ -1,0 +1,388 @@
+{
+  "skipToContent": "Przejdź do zawartości panelu",
+  "loading": "Ładowanie panelu…",
+  "hero": {
+    "ariaLabel": "Bohater AGXORA CORE",
+    "eyebrow": "Biznesowy system operacyjny AI",
+    "title": "rdzeniowy AGXORA",
+    "subtitle": "Inteligencja w czasie rzeczywistym i kontrola operacyjna — powierzchnia dowodzenia w Twoim miejscu pracy.",
+    "ctaGetStarted": "Zacznij",
+    "ctaViewActivity": "Zobacz aktywność",
+    "openQuickActionsAria": "Otwórz szybkie akcje",
+    "viewActivityAria": "Zobacz ostatnią aktywność"
+  },
+  "quickActions": {
+    "title": "Szybkie działania",
+    "subtitle": "Co powinieneś zrobić dalej?",
+    "ariaLabel": "Szybkie działania",
+    "addCustomer": {
+      "label": "Dodaj klienta",
+      "description": "Utwórz rekord CRM"
+    },
+    "newProject": {
+      "label": "Nowy projekt",
+      "description": "Rozpocznij ścieżkę dostawy"
+    },
+    "askAi": {
+      "label": "Zapytaj AI",
+      "description": "Otwórz obszar roboczy AI"
+    },
+    "finance": {
+      "label": "Finanse",
+      "description": "Faktury i przepływy pieniężne"
+    },
+    "automations": {
+      "label": "Automatyka",
+      "description": "Silnik przepływu pracy"
+    },
+    "settings": {
+      "label": "Ustawienia",
+      "description": "Preferencje obszaru roboczego"
+    }
+  },
+  "attention": {
+    "title": "Potrzebuje uwagi",
+    "ariaLabel": "Co wymaga uwagi",
+    "empty": "Wszystko jasne – w tej chwili nie ma żadnych pilnych spraw.",
+    "tone": {
+      "critical": "Krytyczny",
+      "warning": "Ostrzeżenie",
+      "info": "Informacje",
+      "success": "Gotowy",
+      "action": "Zrób następny"
+    },
+    "addCustomer": {
+      "title": "Dodaj swojego pierwszego klienta",
+      "detail": "Uruchom CRM z rzeczywistym rekordem konta."
+    },
+    "createProject": {
+      "title": "Utwórz projekt",
+      "detail": "Otwórz ścieżkę dostawy dla następnego zaangażowania."
+    },
+    "exploreAi": {
+      "title": "Poznaj przestrzeń roboczą AI",
+      "detail": "Zapytaj AGXORĘ o klientów, projekty lub kolejne kroki."
+    },
+    "reviewBilling": {
+      "title": "Przejrzyj rozliczenia",
+      "detail": "Potwierdź plan i wykorzystanie, gdy będziesz gotowy do skalowania."
+    }
+  },
+  "overview": {
+    "title": "Co się dzieje",
+    "subtitle": "Obszar roboczy liczy się dla: {name}",
+    "fallbackName": "Twoje miejsce pracy",
+    "ariaLabel": "Przegląd biznesu",
+    "online": "W Internecie",
+    "emDash": "—",
+    "capacitySignal": "{percent}% sygnału pojemności",
+    "activeClients": {
+      "title": "Aktywni klienci",
+      "captionEmpty": "Brak aktywnych klientów",
+      "captionTotal": "Łącznie {count} w obszarze roboczym",
+      "add": "Dodaj klienta",
+      "view": "Zobacz klientów"
+    },
+    "projects": {
+      "title": "Projektowanie",
+      "captionEmpty": "Brak projektów w portfelu",
+      "captionOpen": "Otwórz ścieżki dostaw",
+      "create": "Utwórz projekt",
+      "open": "Otwarte projekty"
+    },
+    "activityToday": {
+      "title": "Aktywność dzisiaj",
+      "captionEmpty": "Dzisiaj nic jeszcze nie zostało zarejestrowane",
+      "captionEvents": "Wydarzenia Workspace od północy",
+      "viewFeed": "Wyświetl kanał"
+    },
+    "revenue": {
+      "title": "Przychód",
+      "caption": "Połącz rozliczenia, aby wyświetlić MRR",
+      "openBilling": "Otwórz rozliczenia"
+    },
+    "clientShell": {
+      "title": "Powłoka klienta",
+      "caption": "Gotowy do sesji przeglądarki — nie do monitora operacji na żywo",
+      "shellLoaded": "Załadowano powłokę aplikacji",
+      "storesReady": "Lokalne sklepy z przestrzenią do pracy gotowe"
+    },
+    "growth": {
+      "title": "Wzrost",
+      "caption": "Metryki trendów wymagają skumulowanego użycia",
+      "openAnalytics": "Otwarta analityka"
+    }
+  },
+  "activity": {
+    "title": "Ostatnia aktywność",
+    "subtitle": "Co się dzisiaj zmieniło",
+    "ariaLabel": "Ostatnia aktywność",
+    "todayCount": "{count} DZIŚ",
+    "localBadge": "LOKALNY",
+    "emptyTitle": "Brak aktywności",
+    "emptyBody": "Gdy dodasz klientów, projekty i nie tylko, tutaj będą pojawiać się zdarzenia Workspace.",
+    "addCustomer": "Dodaj klienta",
+    "newProject": "Nowy projekt",
+    "kind": {
+      "customer": "Klient",
+      "project": "Projekt",
+      "finance": "Finanse",
+      "automation": "Automatyzacja",
+      "documents": "Dokumenty",
+      "team": "Zespół",
+      "workspace": "Obszar roboczy"
+    },
+    "events": {
+      "customer_created": "Klient utworzony",
+      "customer_updated": "Klient zaktualizowany",
+      "customer_deleted": "Klient usunięty",
+      "project_updated": "Projekt zaktualizowany",
+      "invoice_paid": "Faktura zapłacona",
+      "document_uploaded": "Dokument przesłany",
+      "workflow_executed": "Wykonano przepływ pracy",
+      "member_invited": "Członek zespołu zaproszony",
+      "generic": "Aktualizacja obszaru roboczego"
+    }
+  },
+  "chat": {
+    "title": "AGXORA AI",
+    "emptyState": "Zapytaj AGXORĘ o klientów, projekty lub kolejne działania. Twoja rozmowa pozostanie w tej sesji obszaru roboczego.",
+    "thinking": "AGXORA myśli…",
+    "errorDismiss": "{error} — kliknij, aby odrzucić",
+    "placeholder": "Zapytaj AGXORĘ AI…",
+    "messageAria": "Wiadomość AGXORA AI",
+    "sendAria": "Wyślij wiadomość",
+    "send": "Wysłać"
+  },
+  "routeLoading": {
+    "team": "Ładowanie zespołu…",
+    "projects": "Ładowanie projektów…",
+    "project": "Ładowanie projektu…",
+    "profile": "Ładowanie profilu…",
+    "integrations": "Ładowanie integracji…",
+    "identity": "Ładowanie tożsamości…",
+    "finance": "Ładowanie finansów…",
+    "documents": "Ładuję dokumenty…",
+    "customers": "Ładowanie klientów…",
+    "crm": "Ładowanie CRM…",
+    "customer": "Ładowanie klienta…",
+    "creator": "Ładowanie studia twórców…",
+    "billing": "Ładowanie rozliczeń…",
+    "billingAdmin": "Ładowanie rozliczeń administratora…",
+    "automation": "Ładowanie automatyzacji…",
+    "analytics": "Ładowanie Centrum analizy…",
+    "ai": "Ładowanie platformy AI…",
+    "agents": "Ładowanie systemu operacyjnego agenta…"
+  },
+  "shell": {
+    "memory": {
+      "title": "Pamięć",
+      "description": "W tej kompilacji pamięć organizacyjna nie jest podłączona.",
+      "emptyTitle": "Obszar roboczy pamięci nie jest jeszcze dostępny",
+      "emptyBody": "Pamięć trwała organizacji nie jest podłączona. Czat może przechowywać krótkotrwały kontekst tylko w trakcie sesji — nic tutaj nie jest przechowywane w pamięci korporacyjnej."
+    },
+    "invoices": {
+      "title": "Faktury",
+      "description": "Architektura rozliczeń i faktur dla najemców korporacyjnych.",
+      "emptyTitle": "Księga faktur nie jest jeszcze dostępna",
+      "emptyBody": "Ta trasa to powłoka — tworzenie faktury i trwałość nie są ze sobą powiązane. Użyj opcji Finanse, aby uzyskać podgląd przykładowej księgi, lub Płatności, aby zarządzać planami.",
+      "openFinance": "Otwarte finanse",
+      "openBilling": "Otwórz rozliczenia"
+    }
+  },
+  "search": {
+    "ariaLabel": "Uniwersalne wyszukiwanie",
+    "queryAria": "Uniwersalne zapytanie wyszukiwania",
+    "placeholder": "Przeszukuj klientów, faktury, dokumenty, przepływy pracy, ustawienia…",
+    "quickActions": "Szybkie działania",
+    "favorites": "Ulubione",
+    "recentSearches": "Ostatnie wyszukiwania",
+    "clear": "Jasne",
+    "noRecentSearches": "Brak jeszcze ostatnich wyszukiwań. Wypróbuj „Nordlicht”, „fakturę” lub „przepływ pracy”.",
+    "recentActivity": "Ostatnia aktywność",
+    "aiReady": "Gotowy na sztuczną inteligencję (architektura)",
+    "pinnedResults": "Przypięte wyniki",
+    "noMatches": "Brak dopasowań",
+    "noMatchesBody": "Wypróbuj inne słowo kluczowe lub otwórz moduł za pomocą Szybkich akcji.",
+    "close": "Zamknąć",
+    "open": "Otwarte",
+    "keyboardHints": "↑↓ nawigacja · Enter otwórz · Ctrl/⌘ K przełącz · Esc zamknij",
+    "pinResult": "Przypnij wynik",
+    "unpinResult": "Odepnij wynik",
+    "previewEmpty": "Najedź kursorem lub zaznacz wynik, aby wyświetlić podgląd, metadane i inteligentne linki.",
+    "previewAria": "Uniwersalny podgląd",
+    "relatedItems": "Powiązane elementy",
+    "noSmartLinks": "Brak inteligentnych linków dla tego wyniku.",
+    "groups": {
+      "crm": "CRM",
+      "finance": "Finanse",
+      "documents": "Dokumenty",
+      "automation": "Automatyzacja",
+      "projects": "Projektowanie",
+      "creator": "Studio Twórców",
+      "settings": "Ustawienia",
+      "commands": "Polecenia",
+      "actions": "Szybkie działania"
+    },
+    "status": {
+      "architecture": "architektura",
+      "planned": "planowany"
+    },
+    "meta": {
+      "type": "Typ",
+      "module": "Moduł",
+      "quickAction": "Szybka akcja"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "Utwórz Klienta",
+        "subtitle": "Otwórz Klienci, aby dodać rekord"
+      },
+      "createInvoice": {
+        "title": "Utwórz fakturę",
+        "subtitle": "Obszar roboczy faktury Open Finance"
+      },
+      "uploadDocument": {
+        "title": "Prześlij dokument",
+        "subtitle": "Centrum wiedzy o otwartych dokumentach"
+      },
+      "newWorkflow": {
+        "title": "Nowy przepływ pracy",
+        "subtitle": "Otwórz kreator Automation Engine"
+      },
+      "newProject": {
+        "title": "Nowy projekt",
+        "subtitle": "Otwórz obszar roboczy Projekty"
+      },
+      "inviteMember": {
+        "title": "Zaproś członka zespołu",
+        "subtitle": "Zaproszenia do otwartego zespołu"
+      },
+      "openBilling": {
+        "title": "Otwórz rozliczenia",
+        "subtitle": "Plany, faktury i subskrypcja"
+      },
+      "openSettings": {
+        "title": "Otwórz Ustawienia",
+        "subtitle": "Preferencje obszaru roboczego"
+      }
+    },
+    "commands": {
+      "openCrm": {
+        "title": "Otwórz CRM-a",
+        "subtitle": "Moduł AI CRM"
+      },
+      "openCustomers": {
+        "title": "Otwórz Klienci",
+        "subtitle": "Zarządzanie klientami"
+      },
+      "openFinance": {
+        "title": "Otwarte finanse",
+        "subtitle": "Moduł Finanse i Podatki"
+      },
+      "openDocuments": {
+        "title": "Otwórz dokumenty",
+        "subtitle": "Centrum wiedzy"
+      },
+      "openAutomation": {
+        "title": "Otwórz automatyzację",
+        "subtitle": "Silnik przepływu pracy"
+      },
+      "openSettings": {
+        "title": "Otwórz Ustawienia",
+        "subtitle": "Ustawienia obszaru roboczego"
+      },
+      "openProjects": {
+        "title": "Otwórz projekty",
+        "subtitle": "Portfolio projektów"
+      },
+      "openAi": {
+        "title": "Otwórz sztuczną inteligencję",
+        "subtitle": "Obszar roboczy platformy AI"
+      },
+      "openAnalytics": {
+        "title": "Otwórz Analitykę",
+        "subtitle": "Centrum wywiadu"
+      },
+      "openIdentity": {
+        "title": "Otwarta tożsamość i dostęp",
+        "subtitle": "Ustawienia IAM, RBAC, audyt"
+      },
+      "openBilling": {
+        "title": "Otwórz rozliczenia",
+        "subtitle": "Portal i plany subskrypcji"
+      },
+      "openIntegrations": {
+        "title": "Otwarte Integracje",
+        "subtitle": "Centrum integracji i ekosystem API"
+      }
+    },
+    "modules": {
+      "dashboard": {
+        "subtitle": "Centrum dowodzenia i przegląd globu"
+      },
+      "customers": {
+        "subtitle": "Rejestry klientów i CRM"
+      },
+      "projects": {
+        "subtitle": "Dostawa i śledzenie projektu"
+      },
+      "invoices": {
+        "title": "Faktury",
+        "subtitle": "Rozliczenia i faktury"
+      },
+      "finance": {
+        "subtitle": "Księgowość AI, bankowość, inteligencja podatkowa i finansowa"
+      },
+      "crm": {
+        "subtitle": "Natywny system CRM i system operacyjny Creator oparty na sztucznej inteligencji"
+      },
+      "creator": {
+        "subtitle": "System operacyjny do produkcji i marketingu treści AI"
+      },
+      "documents": {
+        "subtitle": "Dokumenty AI i centrum wiedzy"
+      },
+      "ai": {
+        "title": "sztuczna inteligencja",
+        "subtitle": "Platforma AGXORA AI — przestrzeń robocza dla przedsiębiorstw"
+      },
+      "analytics": {
+        "subtitle": "Inteligencja biznesowa"
+      },
+      "automation": {
+        "subtitle": "Silnik przepływu pracy i automatyzacji AI"
+      },
+      "memory": {
+        "title": "Pamięć",
+        "subtitle": "Pamięć organizacji"
+      },
+      "team": {
+        "subtitle": "Członkowie i zaproszenia"
+      },
+      "settings": {
+        "subtitle": "Ustawienia obszaru roboczego i AI"
+      }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "Wyszukiwanie AI",
+        "description": "Oceniaj wyniki za pomocą przyszłego modelu wyszukiwania w różnych modułach."
+      },
+      "semantic": {
+        "title": "Wyszukiwanie semantyczne",
+        "description": "Podobieństwo wektorów w dokumentach, fakturach i wiedzy."
+      },
+      "nl": {
+        "title": "Wyszukiwanie w języku naturalnym",
+        "description": "Analizuj intencje takie jak „zaległe faktury dla Nordlicht”."
+      },
+      "rag": {
+        "title": "Odzyskiwanie wiedzy",
+        "description": "Podstawowe odpowiedzi w korpusie Centrum wiedzy o dokumentach."
+      }
+    },
+    "esc": "Esc"
+  },
+  "summary": "{name}: {customers} klienci · {projects} projekty · {updates} aktualizacje dzisiaj."
+}

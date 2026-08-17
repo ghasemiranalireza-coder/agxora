@@ -1,0 +1,143 @@
+{
+  "loading": "正在加載集成平台...",
+  "eyebrow": "企業整合平台",
+  "title": "整合中心",
+  "subtitle": "適用於 Microsoft 365、Google、Slack、CRM、儲存和自動化生態系統的連接器。此版本中的連接和同步是本地演示 - 未連接實時 OAuth。",
+  "noticeDefault": "本機示範連接器 - OAuth 和即時同步未連線。",
+  "settings": "設定",
+  "tabs": {
+    "dashboard": "儀表板",
+    "installed": "已安裝",
+    "available": "可用的",
+    "logs": "紀錄",
+    "apiKeys": "API 金鑰",
+    "webhooks": "網路鉤子",
+    "developer": "開發商"
+  },
+  "notice": {
+    "demoConnection": "示範連接：{name}（僅限本機存根）",
+    "connectFailed": "連線失敗",
+    "keyCreated": "建立的 API 金鑰：{prefix}",
+    "webhookCreated": "已建立網路鉤子：{name}",
+    "webhookTest": "Webhook 測試{status}",
+    "networkError": "API檔案總管網路錯誤： {message}",
+    "explorerError": "API 瀏覽器 → {status}：{message}",
+    "explorerSuccess": "API 瀏覽器 → {status}",
+    "explorerFailed": "資源管理器失敗",
+    "syncResult": "演示同步 · {status} ({records} 本地記錄) — 沒有傳輸外部資料。",
+    "diagnosed": "確診",
+    "removedConnection": "已刪除演示連接：{name}",
+    "keyRotated": "鑰匙旋轉",
+    "keyRevoked": "密鑰已撤銷",
+    "publishedEvent": "已發布{type}",
+    "developerSaved": "開發者設定已儲存"
+  },
+  "dashboard": {
+    "demoLinks": "示範連結",
+    "catalog": "目錄",
+    "api24h": "API（24小時）",
+    "webhooks24h": "Webhook（24 小時）",
+    "webhookFailures": "Webhook 失敗",
+    "syncJobs": "同步工作",
+    "conflicts": "衝突",
+    "errors": "錯誤",
+    "connectionStatus": "連線狀態",
+    "emptyTitle": "未安裝集成",
+    "emptyDescription": "瀏覽 可用於連線提供者。",
+    "eventBridgeDemo": "事件橋演示",
+    "eventBridgeHint": "將連接器事件發佈到工作流程自動化匯流排。",
+    "emit": "發出 {id}"
+  },
+  "installed": {
+    "title": "已安裝的集成",
+    "emptyTitle": "沒有安裝任何東西",
+    "emptyDescription": "從可用目錄安裝。",
+    "latestSync": "最新同步： {status} · {records}記錄·模式{mode}"
+  },
+  "available": {
+    "protocols": "協定：{protocols}",
+    "demoConnection": "示範連接",
+    "connectDemo": "連接（演示）",
+    "installDemo": "安裝演示"
+  },
+  "logs": {
+    "title": "整合日誌",
+    "emptyTitle": "還沒有日誌",
+    "emptyDescription": "連接提供者或運行診斷。"
+  },
+  "apiKeys": {
+    "title": "API 金鑰",
+    "generateKey": "產生金鑰",
+    "copyOnce": "立即複製（顯示一次）：{secret}",
+    "emptyTitle": "沒有 API 金鑰",
+    "emptyDescription": "產生用於 REST 網關存取的金鑰。"
+  },
+  "webhooks": {
+    "endpointsTitle": "Webhook 端點",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "添加傳出 webhook",
+    "emptyTitle": "沒有網路鉤子",
+    "emptyDescription": "建立傳出端點以測試傳遞。",
+    "deliveryLogs": "交貨日誌",
+    "deliveriesEmptyTitle": "沒有送貨",
+    "deliveriesEmptyDescription": "發送測試 Webhook 以填入日誌。"
+  },
+  "developer": {
+    "title": "開發者設定",
+    "sandboxMode": "測試模式",
+    "webhookSigning": "已啟用 Webhook 簽名",
+    "saveSettings": "儲存設定",
+    "apiDocs": "API 文件佔位符：{url}",
+    "sdk": "SDK 佔位符：{url}",
+    "explorerTitle": "API瀏覽器",
+    "gatewayRoutes": "網關路由：{routes}",
+    "sendGet": "發送獲取",
+    "oauthProviders": "OAuth 提供者",
+    "placeholdersHint": "GraphQL、WebSocket 和 gRPC 閘道路由註冊為佔位符。字段映射和同步衝突解決在架構上已準備好用於後端實現。"
+  },
+  "connectionStatus": {
+    "connected": "示範連接",
+    "pendingAuth": "待定（演示）",
+    "error": "錯誤",
+    "disabled": "殘障人士",
+    "installed": "已安裝",
+    "available": "可用的",
+    "localDemo": "本地演示"
+  },
+  "columns": {
+    "integration": "一體化",
+    "status": "地位",
+    "health": "健康",
+    "latency": "延遲",
+    "actions": "行動",
+    "when": "什麼時候",
+    "level": "等級",
+    "source": "來源",
+    "message": "訊息",
+    "name": "姓名",
+    "key": "鑰匙",
+    "scopes": "範圍",
+    "usage": "用法",
+    "direction": "方向",
+    "url": "網址",
+    "enabled": "啟用",
+    "event": "事件",
+    "attempt": "試圖"
+  },
+  "actions": {
+    "diagnose": "診斷",
+    "demoSync": "演示同步",
+    "demoSyncTitle": "僅示範同步 — 無外部傳輸",
+    "disconnect": "斷開",
+    "rotate": "旋轉",
+    "revoke": "撤銷",
+    "test": "測試",
+    "emDash": "—",
+    "yes": "是的",
+    "no": "不"
+  },
+  "errors": {
+    "failedToFetch": "獲取失敗",
+    "httpStatus": "HTTP {status}"
+  }
+}

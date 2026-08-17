@@ -1,0 +1,70 @@
+{
+  "navLabel": "Navegación de precios",
+  "navPricing": "Precios",
+  "navContactSales": "Contacto Ventas",
+  "navBookDemo": "Reservar demostración",
+  "navSignIn": "Iniciar sesión",
+  "eyebrow": "Precios",
+  "title": "Planes creados para operadores que realizan envíos.",
+  "lead": "Borra los niveles comerciales. Comienza gratis, escala cuando estés listo o habla con el departamento de ventas para conocer los términos de la empresa.",
+  "billingInterval": "Intervalo de facturación",
+  "monthly": "Mensual",
+  "yearly": "Anual",
+  "savePercent": "Ahorre ~20%",
+  "mostPopular": "MÁS POPULAR",
+  "startFree": "Comience gratis",
+  "bookDemo": "Reservar demostración",
+  "contactSales": "Contacto Ventas",
+  "perMonth": "/mes",
+  "perMonthYearly": "/mes facturado anualmente",
+  "yearlyHint": "{amount}/año · ahorrar {percent}%",
+  "commercialActions": "Acciones comerciales",
+  "legal": "Legal",
+  "planAria": "plan {name} — {cta}",
+  "plans": {
+    "starter": {
+      "name": "Motor de arranque",
+      "description": "Para autónomos y pequeñas empresas.",
+      "features": [
+        "CRM y cartera de clientes",
+        "Proyectos y documentos",
+        "Asistente de IA gobernado",
+        "Hasta 5 plazas",
+        "Soporte por correo electrónico"
+      ]
+    },
+    "business": {
+      "name": "Negocio",
+      "description": "Para equipos en crecimiento.",
+      "features": [
+        "Todo en arranque",
+        "Módulos de finanzas y análisis",
+        "Exportación de automatización y auditoría",
+        "Colaboración en equipo",
+        "Apoyo prioritario"
+      ]
+    },
+    "professional": {
+      "name": "Profesional",
+      "description": "Para empresas avanzadas.",
+      "features": [
+        "Todo en arranque",
+        "Módulos de finanzas y análisis",
+        "Acceso API",
+        "Flujos de trabajo avanzados de la empresa",
+        "Bandeja de entrada de soporte prioritario"
+      ]
+    },
+    "enterprise": {
+      "name": "Empresa",
+      "description": "Precios personalizados para escala ilimitada.",
+      "features": [
+        "Precio personalizado",
+        "Escala ilimitada",
+        "Incorporación dedicada",
+        "Integraciones personalizadas",
+        "Apoyo prioritario"
+      ]
+    }
+  }
+}

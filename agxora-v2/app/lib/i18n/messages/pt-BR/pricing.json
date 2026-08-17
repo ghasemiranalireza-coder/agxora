@@ -1,0 +1,70 @@
+{
+  "navLabel": "Navegação de preços",
+  "navPricing": "Preços",
+  "navContactSales": "Entre em contato com vendas",
+  "navBookDemo": "Demonstração do livro",
+  "navSignIn": "Entrar",
+  "eyebrow": "Preços",
+  "title": "Planos elaborados para operadoras que enviam.",
+  "lead": "Limpar níveis comerciais. Comece gratuitamente, expanda quando estiver pronto ou fale com o setor de vendas para termos empresariais.",
+  "billingInterval": "Intervalo de cobrança",
+  "monthly": "Mensal",
+  "yearly": "Anual",
+  "savePercent": "Economize ~20%",
+  "mostPopular": "MAIS POPULAR",
+  "startFree": "Comece grátis",
+  "bookDemo": "Demonstração do livro",
+  "contactSales": "Entre em contato com vendas",
+  "perMonth": "/ mês",
+  "perMonthYearly": "/mês cobrado anualmente",
+  "yearlyHint": "{amount}/ano · economize {percent}%",
+  "commercialActions": "Ações comerciais",
+  "legal": "Jurídico",
+  "planAria": "plano de {name} — {cta}",
+  "plans": {
+    "starter": {
+      "name": "Iniciante",
+      "description": "Para freelancers e pequenas empresas.",
+      "features": [
+        "CRM e pipeline de clientes",
+        "Projetos e documentos",
+        "Assistente de IA governada",
+        "Até 5 lugares",
+        "Suporte por e-mail"
+      ]
+    },
+    "business": {
+      "name": "Negócios",
+      "description": "Para equipes em crescimento.",
+      "features": [
+        "Tudo no Starter",
+        "Módulos de finanças e análise",
+        "Automação e exportação de auditoria",
+        "Colaboração em equipe",
+        "Suporte prioritário"
+      ]
+    },
+    "professional": {
+      "name": "Profissional",
+      "description": "Para empresas avançadas.",
+      "features": [
+        "Tudo no Starter",
+        "Módulos de finanças e análise",
+        "Acesso à API",
+        "Fluxos de trabalho avançados da empresa",
+        "Caixa de entrada de suporte prioritário"
+      ]
+    },
+    "enterprise": {
+      "name": "Empresa",
+      "description": "Preços personalizados para escala ilimitada.",
+      "features": [
+        "Preços personalizados",
+        "Escala ilimitada",
+        "Integração dedicada",
+        "Integrações personalizadas",
+        "Suporte prioritário"
+      ]
+    }
+  }
+}

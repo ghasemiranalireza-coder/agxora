@@ -1,0 +1,388 @@
+{
+  "skipToContent": "Kontrol paneli içeriğine atla",
+  "loading": "Kontrol paneli yükleniyor…",
+  "hero": {
+    "ariaLabel": "AGXORA CORE kahramanı",
+    "eyebrow": "Yapay Zeka İş İşletim Sistemi",
+    "title": "AGXORA ÇEKİRDEK",
+    "subtitle": "Gerçek zamanlı zeka ve operasyonel kontrol — çalışma alanınız komut yüzeyi.",
+    "ctaGetStarted": "Başlayın",
+    "ctaViewActivity": "Etkinliği görüntüle",
+    "openQuickActionsAria": "Hızlı işlemleri aç",
+    "viewActivityAria": "Son etkinliği görüntüle"
+  },
+  "quickActions": {
+    "title": "Hızlı eylemler",
+    "subtitle": "Bundan sonra ne yapmalısınız?",
+    "ariaLabel": "Hızlı eylemler",
+    "addCustomer": {
+      "label": "Müşteri ekle",
+      "description": "CRM kaydı oluşturma"
+    },
+    "newProject": {
+      "label": "Yeni proje",
+      "description": "Teslimat yolunu başlatın"
+    },
+    "askAi": {
+      "label": "Yapay zekaya sor",
+      "description": "AI çalışma alanını açın"
+    },
+    "finance": {
+      "label": "Finans",
+      "description": "Faturalar ve nakit akışı"
+    },
+    "automations": {
+      "label": "Otomasyonlar",
+      "description": "İş akışı motoru"
+    },
+    "settings": {
+      "label": "Ayarlar",
+      "description": "Çalışma alanı tercihleri"
+    }
+  },
+  "attention": {
+    "title": "Dikkat edilmesi gerekiyor",
+    "ariaLabel": "Dikkat edilmesi gerekenler",
+    "empty": "Açıksınız; şu anda acil bir öğe yok.",
+    "tone": {
+      "critical": "Kritik",
+      "warning": "Uyarı",
+      "info": "Bilgi",
+      "success": "Hazır",
+      "action": "Sonrakini yap"
+    },
+    "addCustomer": {
+      "title": "İlk müşterinizi ekleyin",
+      "detail": "CRM'yi gerçek bir hesap kaydıyla başlatın."
+    },
+    "createProject": {
+      "title": "Proje oluştur",
+      "detail": "Bir sonraki etkileşiminiz için bir teslimat yolu açın."
+    },
+    "exploreAi": {
+      "title": "Yapay zeka çalışma alanını keşfedin",
+      "detail": "AGXORA'ya müşteriler, projeler veya sonraki adımlar hakkında sorun."
+    },
+    "reviewBilling": {
+      "title": "Faturalandırmayı inceleyin",
+      "detail": "Ölçeklendirmeye hazır olduğunuzda planı ve kullanımı onaylayın."
+    }
+  },
+  "overview": {
+    "title": "Ne oluyor",
+    "subtitle": "{name} için çalışma alanı sayıları",
+    "fallbackName": "çalışma alanınız",
+    "ariaLabel": "İşletmeye genel bakış",
+    "online": "Çevrimiçi",
+    "emDash": "—",
+    "capacitySignal": "%{percent} kapasite sinyali",
+    "activeClients": {
+      "title": "Aktif istemciler",
+      "captionEmpty": "Henüz aktif müşteri yok",
+      "captionTotal": "Çalışma alanında toplam {count}",
+      "add": "Müşteri ekle",
+      "view": "Müşterileri görüntüle"
+    },
+    "projects": {
+      "title": "Projeler",
+      "captionEmpty": "Portföyde proje yok",
+      "captionOpen": "Teslimat yollarını aç",
+      "create": "Proje oluştur",
+      "open": "Projeleri aç"
+    },
+    "activityToday": {
+      "title": "Bugünkü etkinlik",
+      "captionEmpty": "Bugün henüz hiçbir şey kaydedilmedi",
+      "captionEvents": "Gece yarısından bu yana çalışma alanı etkinlikleri",
+      "viewFeed": "Özet akışını görüntüle"
+    },
+    "revenue": {
+      "title": "Hasılat",
+      "caption": "MRR'yi göstermek için faturalandırmayı bağlayın",
+      "openBilling": "Faturalandırmayı aç"
+    },
+    "clientShell": {
+      "title": "İstemci kabuğu",
+      "caption": "Tarayıcı oturumu hazır; canlı operasyon monitörü değil",
+      "shellLoaded": "Uygulama kabuğu yüklendi",
+      "storesReady": "Yerel çalışma alanı mağazaları hazır"
+    },
+    "growth": {
+      "title": "Büyüme",
+      "caption": "Trend metriklerinin birikmiş kullanıma ihtiyacı var",
+      "openAnalytics": "Analitikleri aç"
+    }
+  },
+  "activity": {
+    "title": "Son etkinlik",
+    "subtitle": "Bugün ne değişti",
+    "ariaLabel": "Son etkinlik",
+    "todayCount": "{count} BUGÜN",
+    "localBadge": "YEREL",
+    "emptyTitle": "Henüz etkinlik yok",
+    "emptyBody": "Siz müşteri, proje ve daha fazlasını ekledikçe çalışma alanı etkinlikleri burada görünecektir.",
+    "addCustomer": "Müşteri ekle",
+    "newProject": "Yeni proje",
+    "kind": {
+      "customer": "Müşteri",
+      "project": "Proje",
+      "finance": "Finans",
+      "automation": "Otomasyon",
+      "documents": "Belgeler",
+      "team": "Takım",
+      "workspace": "Çalışma alanı"
+    },
+    "events": {
+      "customer_created": "Müşteri oluşturuldu",
+      "customer_updated": "Müşteri güncellendi",
+      "customer_deleted": "Müşteri silindi",
+      "project_updated": "Proje güncellendi",
+      "invoice_paid": "Fatura ödendi",
+      "document_uploaded": "Doküman yüklendi",
+      "workflow_executed": "İş akışı yürütüldü",
+      "member_invited": "Ekip üyesi davet edildi",
+      "generic": "Çalışma alanı güncellemesi"
+    }
+  },
+  "chat": {
+    "title": "AGXORA AI",
+    "emptyState": "AGXORA'ya müşteriler, projeler veya sonraki eylemler hakkında sorun. Konuşmanız bu çalışma alanı oturumunda kalır.",
+    "thinking": "AGXORA düşünüyor…",
+    "errorDismiss": "{error} — kapatmak için dokunun",
+    "placeholder": "AGXORA AI'ya sorun…",
+    "messageAria": "AGXORA AI'ya mesaj gönderin",
+    "sendAria": "Mesaj gönder",
+    "send": "Göndermek"
+  },
+  "routeLoading": {
+    "team": "Ekip yükleniyor…",
+    "projects": "Projeler yükleniyor…",
+    "project": "Proje yükleniyor…",
+    "profile": "Profil yükleniyor…",
+    "integrations": "Entegrasyonlar yükleniyor…",
+    "identity": "Kimlik yükleniyor…",
+    "finance": "Finans yükleniyor…",
+    "documents": "Belgeler yükleniyor…",
+    "customers": "Müşteriler yükleniyor…",
+    "crm": "CRM yükleniyor…",
+    "customer": "Müşteri yükleniyor…",
+    "creator": "Yaratıcı stüdyo yükleniyor…",
+    "billing": "Faturalandırma yükleniyor…",
+    "billingAdmin": "Yönetici faturalandırması yükleniyor…",
+    "automation": "Otomasyon yükleniyor…",
+    "analytics": "İstihbarat Merkezi Yükleniyor…",
+    "ai": "AI Platformu yükleniyor…",
+    "agents": "Agent OS yükleniyor…"
+  },
+  "shell": {
+    "memory": {
+      "title": "Hafıza",
+      "description": "Bu yapıda kuruluş belleği bağlı değil.",
+      "emptyTitle": "Bellek çalışma alanı henüz kullanılamıyor",
+      "emptyBody": "Kalıcı organizasyon belleği depolaması bağlı değil. Sohbet, kısa süreli içeriği yalnızca oturumda tutabilir; burada hiçbir şey kurumsal bellek olarak depolanmaz."
+    },
+    "invoices": {
+      "title": "Faturalar",
+      "description": "Kurumsal kiracılar için faturalandırma ve fatura mimarisi.",
+      "emptyTitle": "Fatura defteri henüz mevcut değil",
+      "emptyBody": "Bu rota bir kabuktur; fatura oluşturma ve kalıcılık bağlantılı değildir. Örnek defter önizlemesi için Finans'ı veya plan yönetimi için Faturalandırma'yı kullanın.",
+      "openFinance": "Açık Finans",
+      "openBilling": "Faturalandırmayı Aç"
+    }
+  },
+  "search": {
+    "ariaLabel": "Evrensel arama",
+    "queryAria": "Evrensel arama sorgusu",
+    "placeholder": "Müşterileri, faturaları, belgeleri, iş akışlarını, ayarları arayın…",
+    "quickActions": "Hızlı Eylemler",
+    "favorites": "Favoriler",
+    "recentSearches": "Son Aramalar",
+    "clear": "Temizlemek",
+    "noRecentSearches": "Henüz yeni arama yok. “Nordlicht”, “fatura” veya “iş akışı”nı deneyin.",
+    "recentActivity": "Son Etkinlik",
+    "aiReady": "Yapay Zeka Hazır (Mimarlık)",
+    "pinnedResults": "Sabitlenmiş Sonuçlar",
+    "noMatches": "Eşleşme yok",
+    "noMatchesBody": "Başka bir anahtar kelime deneyin veya Hızlı İşlemler aracılığıyla bir modül açın.",
+    "close": "Kapalı",
+    "open": "Açık",
+    "keyboardHints": "↑↓ gezin · Enter aç · Ctrl/⌘ K geçiş · Esc kapat",
+    "pinResult": "Sabitleme sonucu",
+    "unpinResult": "Sonucun sabitlemesini kaldır",
+    "previewEmpty": "Önizleme, meta veriler ve akıllı bağlantılar için bir sonucun üzerine gelin veya sonucu vurgulayın.",
+    "previewAria": "Evrensel önizleme",
+    "relatedItems": "İlgili Öğeler",
+    "noSmartLinks": "Bu sonuç için akıllı bağlantı yok.",
+    "groups": {
+      "crm": "CRM",
+      "finance": "Finans",
+      "documents": "Belgeler",
+      "automation": "Otomasyon",
+      "projects": "Projeler",
+      "creator": "İçerik Stüdyosu",
+      "settings": "Ayarlar",
+      "commands": "Komutlar",
+      "actions": "Hızlı Eylemler"
+    },
+    "status": {
+      "architecture": "mimari",
+      "planned": "planlanmış"
+    },
+    "meta": {
+      "type": "Tip",
+      "module": "Modül",
+      "quickAction": "Hızlı Eylem"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "Müşteri Oluştur",
+        "subtitle": "Kayıt eklemek için Müşteriler'i açın"
+      },
+      "createInvoice": {
+        "title": "Fatura Oluştur",
+        "subtitle": "Finans faturası çalışma alanını açın"
+      },
+      "uploadDocument": {
+        "title": "Belgeyi Yükle",
+        "subtitle": "Belgeler Bilgi Merkezi'ni açın"
+      },
+      "newWorkflow": {
+        "title": "Yeni İş Akışı",
+        "subtitle": "Açık Otomasyon Motoru oluşturucusu"
+      },
+      "newProject": {
+        "title": "Yeni Proje",
+        "subtitle": "Projeler çalışma alanını aç"
+      },
+      "inviteMember": {
+        "title": "Ekip Üyesini Davet Et",
+        "subtitle": "Ekip davetlerini aç"
+      },
+      "openBilling": {
+        "title": "Faturalandırmayı Aç",
+        "subtitle": "Planlar, faturalar ve abonelik"
+      },
+      "openSettings": {
+        "title": "Ayarları Aç",
+        "subtitle": "Çalışma alanı tercihleri"
+      }
+    },
+    "commands": {
+      "openCrm": {
+        "title": "CRM'yi aç",
+        "subtitle": "AI CRM modülü"
+      },
+      "openCustomers": {
+        "title": "Açık Müşteriler",
+        "subtitle": "Müşteri yönetimi"
+      },
+      "openFinance": {
+        "title": "Açık Finans",
+        "subtitle": "Finans ve Vergi modülü"
+      },
+      "openDocuments": {
+        "title": "Belgeleri Aç",
+        "subtitle": "Bilgi Merkezi"
+      },
+      "openAutomation": {
+        "title": "Açık Otomasyon",
+        "subtitle": "İş akışı motoru"
+      },
+      "openSettings": {
+        "title": "Ayarları Aç",
+        "subtitle": "Çalışma alanı ayarları"
+      },
+      "openProjects": {
+        "title": "Açık Projeler",
+        "subtitle": "Proje portföyü"
+      },
+      "openAi": {
+        "title": "AI'yı aç",
+        "subtitle": "Yapay zeka platformu çalışma alanı"
+      },
+      "openAnalytics": {
+        "title": "Analytics'i açın",
+        "subtitle": "İstihbarat merkezi"
+      },
+      "openIdentity": {
+        "title": "Açık Kimlik ve Erişim",
+        "subtitle": "IAM ayarları, RBAC, denetim"
+      },
+      "openBilling": {
+        "title": "Faturalandırmayı Aç",
+        "subtitle": "Abonelik portalı ve planları"
+      },
+      "openIntegrations": {
+        "title": "Açık Entegrasyonlar",
+        "subtitle": "Entegrasyon Merkezi ve API ekosistemi"
+      }
+    },
+    "modules": {
+      "dashboard": {
+        "subtitle": "Komuta merkezi ve dünyaya genel bakış"
+      },
+      "customers": {
+        "subtitle": "Müşteri kayıtları ve CRM"
+      },
+      "projects": {
+        "subtitle": "Proje teslimi ve takibi"
+      },
+      "invoices": {
+        "title": "Faturalar",
+        "subtitle": "Faturalandırma ve faturalar"
+      },
+      "finance": {
+        "subtitle": "Yapay zeka muhasebesi, bankacılık, vergi ve finansal istihbarat"
+      },
+      "crm": {
+        "subtitle": "Yapay zekaya dayalı CRM ve Creator İşletim Sistemi"
+      },
+      "creator": {
+        "subtitle": "Yapay zeka içerik üretimi ve pazarlama işletim sistemi"
+      },
+      "documents": {
+        "subtitle": "Yapay Zeka Belgeleri ve Bilgi Merkezi"
+      },
+      "ai": {
+        "title": "yapay zeka",
+        "subtitle": "AGXORA Yapay Zeka Platformu — kurumsal çalışma alanı"
+      },
+      "analytics": {
+        "subtitle": "İş zekası"
+      },
+      "automation": {
+        "subtitle": "Yapay zeka iş akışı ve otomasyon motoru"
+      },
+      "memory": {
+        "title": "Hafıza",
+        "subtitle": "Organizasyon hafızası"
+      },
+      "team": {
+        "subtitle": "Üyeler ve davetler"
+      },
+      "settings": {
+        "subtitle": "Çalışma alanı ve yapay zeka ayarları"
+      }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "Yapay Zeka Arama",
+        "description": "Sonuçları, modüller arasında geleceğe yönelik bir erişim modeliyle sıralayın."
+      },
+      "semantic": {
+        "title": "Semantik Arama",
+        "description": "Belgeler, faturalar ve bilgiler üzerinde vektör benzerliği."
+      },
+      "nl": {
+        "title": "Doğal Dil Arama",
+        "description": "\"Nordlicht için vadesi geçmiş faturalar\" gibi niyetleri ayrıştırın."
+      },
+      "rag": {
+        "title": "Bilgi Erişimi",
+        "description": "Belgeler Bilgi Merkezi derlemesindeki temel yanıtlar."
+      }
+    },
+    "esc": "Esc"
+  },
+  "summary": "{name}: {customers} müşteriler · {projects} projeler · bugün {updates} güncelleniyor."
+}

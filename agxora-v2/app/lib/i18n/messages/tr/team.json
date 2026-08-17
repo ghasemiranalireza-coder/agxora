@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "Kimlik ve Erişim",
+    "title": "Takım",
+    "lead": "{organization} için üyeler, roller ve davetiyeler. Gelecekteki bir kimlik API'si için mimariye hazır.",
+    "yourOrganization": "kuruluşunuz"
+  },
+  "invite": {
+    "title": "E-postayla Davet Et",
+    "email": "E-posta",
+    "emailPlaceholder": "meslektaş@şirket.com",
+    "role": "Rol",
+    "submit": "Davet etmek",
+    "created": "Davetiye oluşturuldu (beklemede).",
+    "failed": "Davet başarısız oldu",
+    "signInFirst": "Önce oturum açın ve bir kuruluşu etkinleştirin.",
+    "noPermission": "Eksik izin — Davet etmek için Yönetici veya Yönetici gerekli."
+  },
+  "roles": {
+    "title": "Roller",
+    "owner": {
+      "name": "Mal sahibi",
+      "description": "Ayarlar ve faturalandırma dahil tam organizasyon kontrolü."
+    },
+    "admin": {
+      "name": "Yönetici",
+      "description": "Finans, Otomasyon, Ekip ve çalışma alanı modüllerini yönetin."
+    },
+    "manager": {
+      "name": "Müdür",
+      "description": "CRM, Projeler, Belgeler ve Oluşturucu operasyonlarına liderlik edin."
+    },
+    "employee": {
+      "name": "Çalışan",
+      "description": "Günlük CRM, Belgeler, Oluşturucu ve Projelere erişim."
+    },
+    "guest": {
+      "name": "Misafir",
+      "description": "Belgelere ve Projelere sınırlı okuma erişimi."
+    },
+    "viewer": {
+      "name": "Görüntüleyici",
+      "description": "Paylaşılan modüllere salt okunur erişim."
+    }
+  },
+  "members": {
+    "title": "Üyeler",
+    "columnMember": "Üye",
+    "columnEmail": "E-posta",
+    "columnRole": "Rol",
+    "columnStatus": "Durum",
+    "roleFor": "{name} için rol",
+    "emptyTitle": "Henüz üye yok",
+    "emptyDescription": "Meslektaşlarınızı bu kuruluşun çalışma alanına katılmaya davet edin.",
+    "updated": "{name}, {role} olarak güncellendi",
+    "roleChangeFailed": "Rol değişikliği başarısız oldu"
+  },
+  "pending": {
+    "title": "Bekleyen Davetiyeler",
+    "emptyTitle": "Bekleyen davetiye yok",
+    "emptyDescription": "Yeni davetler kabul edilene veya süresi dolana kadar burada görünür.",
+    "expires": "{role} · {date} tarihinde sona eriyor",
+    "revoke": "Geri çekmek",
+    "pending": "askıda olması"
+  },
+  "history": {
+    "title": "Davet Geçmişi",
+    "empty": "Kabul edilmiş, süresi dolmuş ve iptal edilmiş davetiyeler burada görünecektir."
+  },
+  "status": {
+    "accepted": "kabul edildi",
+    "expired": "günü geçmiş",
+    "revoked": "iptal edildi",
+    "active": "aktif",
+    "inactive": "aktif değil",
+    "pending": "askıda olması"
+  }
+}

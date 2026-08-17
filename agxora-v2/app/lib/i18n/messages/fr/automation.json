@@ -1,0 +1,540 @@
+{
+  "enginePage": {
+    "sectionTitle": "Système d'exploitation d'automatisation AGXORA",
+    "title": "Automation",
+    "subtitle": "Enterprise AI Workflow & Automation Engine — le tissu conjonctif pour CRM, Finance, Creator Studio et chaque futur module AGXORA.",
+    "loadingHistory": "Chargement de l'historique du flux de travail…",
+    "loadingTemplates": "Chargement de la bibliothèque de modèles…",
+    "loadingIntegrations": "Chargement du centre d'intégration…",
+    "dashboard": "Tableau de bord",
+    "workflowBuilder": "Workflow Builder (Générateur de flux de travail)",
+    "workflowBuilderSubtitle": "Canevas basé sur des nœuds avec accrochage à la grille, zoom et panoramique fluides, survol de connexion et guidage en état vide.",
+    "openAssistant": "Ouvrir l'assistant de flux de travail IA",
+    "workflowHistory": "Historique du flux de travail",
+    "workflowHistorySubtitle": "Journal d'exécution avec statut coloré, lignes cliquables et inspecteur d'exécution complet.",
+    "templates": "Modèles",
+    "templatesSubtitle": "Aperçu avant le chargement : nombre de nœuds, difficulté, durée d'exécution et cas d'utilisation recommandés.",
+    "integrationCenter": "Centre d'intégration",
+    "integrationCenterSubtitle": "Registre de l'adaptateur uniquement : connecté, bêta, planifié, bientôt disponible, désactivé. Aucune API en direct."
+  },
+  "assistant": {
+    "title": "Assistant de flux de travail IA",
+    "subtitle": "Heuristique locale uniquement — aucun modèle vivant requis.",
+    "closeAria": "Fermer l'Assistant de flux de travail AI",
+    "close": "Fermer",
+    "workflowScore": "Score du flux de travail",
+    "scoreOutOf": "/ 100",
+    "optimizationSuggestions": "Suggestions d'optimisation",
+    "oneClickOptimize": "Optimiser en un clic",
+    "noticeDefault": "One Click Optimize n'est pas encore une mutation graphique.",
+    "noticeQueued": "Optimiser la file d'attente. Le futur moteur réécrira les délais et les approbations."
+  },
+  "integrations": {
+    "intro": "Centre d'intégration : facultatif. Statuts : Connecté, Bêta, Planifié, Bientôt disponible, Désactivé. Aucune API en direct.",
+    "category": "Catégorie : ",
+    "reservedAdapter": "Adaptateur réservé :",
+    "description": "Description:"
+  },
+  "executionInspector": {
+    "title": "Détails d'exécution",
+    "emptyTitle": "Sélectionnez une exécution",
+    "emptyDescription": "Choisissez une exécution dans l'historique du workflow pour inspecter les entrées, les sorties et le résumé de l'IA.",
+    "workflowName": "Nom du flux de travail",
+    "trigger": "Déclencheur",
+    "executionId": "ID d'exécution",
+    "started": "Commencé",
+    "finished": "Clôturée",
+    "duration": "Durée",
+    "status": "Statut",
+    "success": "Succès",
+    "failed": "Échec",
+    "retryAvailable": "Réessayer disponible",
+    "executedBy": "Exécuté par",
+    "yes": "Oui",
+    "no": "Non",
+    "emDash": "—",
+    "input": "Saisir",
+    "output": "Sortir",
+    "aiSummary": "Résumé de l'IA",
+    "errorMessage": "Message d'erreur",
+    "retry": "Réessayer",
+    "retryUnavailable": "Réessayer indisponible",
+    "noticeDefault": "Réessayez l'adaptateur réservé – pas de réexécution en direct pour l'instant.",
+    "noticeQueued": "Réessayez en file d'attente pour {id}."
+  },
+  "workflowBuilder": {
+    "elementsTitle": "Éléments de flux de travail",
+    "paletteAria": "Palette",
+    "tabElements": "Éléments",
+    "tabTriggers": "Éléments déclencheurs",
+    "tabActions": "Actes",
+    "tabAiActions": "Actions de l'IA",
+    "builderTitle": "Générateur de flux de travail · {name}",
+    "builderHint": "Accrocher à la grille {grid}px · ⌘/Ctrl+faire défiler le zoom · faire glisser le canevas vers le panoramique · double-cliquer sur Connecter",
+    "autoSaved": "Enregistré automatiquement",
+    "saving": "Enregistrement…",
+    "undo": "Défaire",
+    "redo": "Refaire",
+    "zoomOut": "−",
+    "zoomIn": "+",
+    "resetView": "Réinitialisation de Vue",
+    "emptyTitle": "Toile vide",
+    "emptyDescription": "Faites glisser un déclencheur depuis la palette pour commencer la construction. Snap-to-grid maintient les nœuds alignés.",
+    "connectHint": "Double-cliquez sur la cible pour vous connecter",
+    "miniMapAria": "Mini-carte"
+  },
+  "workflowHistory": {
+    "title": "Historique du flux de travail · Journal d'exécution",
+    "statusFilter": "Statut",
+    "statusAll": "Tous",
+    "statusSuccess": "Succès",
+    "statusFailed": "Échec",
+    "statusPending": "En attente",
+    "statusRetried": "Réessayer",
+    "statusRunning": "En cours d'exécution",
+    "runsAria": "Exécutions de flux de travail",
+    "noMatches": "Aucune exécution de workflow ne correspond à ce filtre."
+  },
+  "workflowTemplates": {
+    "title": "Bibliothèque de Modèles",
+    "noticeDefault": "Prévisualisez un modèle avant de le charger dans le générateur.",
+    "noticeLoaded": "Chargé \"{name}\" dans le générateur de workflow.",
+    "nodesBadge": "{count} nœuds",
+    "recommendedFor": "Recommandé pour : {for}",
+    "preview": "Aperçu",
+    "useTemplate": "Utiliser le modèle",
+    "previewTitle": "Aperçu du modèle",
+    "close": "Fermer",
+    "nodes": "Nœuds",
+    "connections": "Relations",
+    "estimatedRuntime": "Durée de fonctionnement estimée=",
+    "difficulty": "Difficulté",
+    "requiredModules": "Modules requis",
+    "usedAiFeatures": "Fonctionnalités d'IA utilisées",
+    "none": "Aucune"
+  },
+  "workspace": {
+    "loading": "Chargement du moteur d'automatisation…",
+    "eyebrow": "Moteur d'automatisation du flux de travail",
+    "title": "Automation",
+    "subtitle": "Flux de travail métier configurables dans CRM, Projets, Finance, Documents et AI — bus d'événements locaux et moteur dans le navigateur. Les travailleurs de file d'attente et de backend distribués ne sont pas connectés.",
+    "noticeDefault": "Le moteur d'exécution est indépendant de l'interface utilisateur. Les modules publient des événements ; les flux de travail s'abonnent.",
+    "tabs": {
+      "dashboard": "Tableau de bord",
+      "workflows": "Flux de travail",
+      "editor": "Éditeur",
+      "history": "Histoire",
+      "templates": "Modèles",
+      "analytics": "Analytique",
+      "settings": "Paramètres"
+    },
+    "notice": {
+      "missingWrite": "Autorisation d'écriture de workflow manquante.",
+      "missingExecute": "Autorisation workflow.execute manquante.",
+      "created": "Créé {name}",
+      "templateApplied": "Modèle appliqué : {name}",
+      "runResult": "Exécuter {status} ({duration} ms)",
+      "runFailed": "Le flux de travail n'a pas pu s'exécuter (désactivé ou manquant).",
+      "publishedEvent": "Événement de domaine publié : {type}",
+      "workflowStatus": "Flux de travail {status}",
+      "saved": "Workflow enregistré.",
+      "retryResult": "Réessayez {status}",
+      "retryFailed": "Échec de la nouvelle tentative",
+      "settingsSaved": "Paramètres d'automatisation enregistrés"
+    },
+    "defaults": {
+      "untitledName": "Flux de travail sans titre",
+      "untitledDescription": "Brouillon de flux de travail : configurez le déclencheur et les actions."
+    },
+    "dashboard": {
+      "workflows": "Flux de travail",
+      "active": "Actif",
+      "runsToday": "Fonctionne aujourd'hui",
+      "successRate": "Taux de réussite",
+      "recentWorkflows": "Flux de travail récents",
+      "newWorkflow": "Nouveau workflow",
+      "eventBusDemo": "Démo du bus événementiel",
+      "eventBusHint": "Publier un événement de module. Les flux de travail actifs avec des déclencheurs correspondants sont automatiquement mis en file d'attente.",
+      "notifications": "Notifications"
+    },
+    "workflowList": {
+      "title": "Liste des flux de travail",
+      "newWorkflow": "Nouveau workflow",
+      "emptyTitle": "Aucun flux de travail pour l'instant.",
+      "emptyDescription": "Créez un workflow ou démarrez à partir d'un modèle.",
+      "columns": {
+        "name": "Nom",
+        "status": "Statut",
+        "nodes": "Nœuds",
+        "updated": "Mis à jour",
+        "actions": "Actes"
+      },
+      "run": "Courir",
+      "disable": "Désactiver",
+      "activate": "Activer"
+    },
+    "editor": {
+      "selectPrompt": "Sélectionnez ou créez un flux de travail à modifier.",
+      "workflows": "Flux de travail",
+      "title": "Éditeur de flux de travail",
+      "hint": "L'architecture prend en charge le déclencheur → condition → action → délai → branche → boucle. Le glisser-déposer sur le canevas peut se connecter aux positions des nœuds sans modification du moteur.",
+      "name": "Nom",
+      "description": "Description",
+      "trigger": "Déclencheur",
+      "primaryAction": "Action primaire",
+      "executionPath": "Aperçu du chemin d'exécution",
+      "save": "Sauvegarder",
+      "runNow": "Courez maintenant",
+      "triggerFallback": "Déclencheur",
+      "actionFallback": "Action"
+    },
+    "history": {
+      "title": "Historique d'exécution",
+      "emptyTitle": "Pas encore d'exécutions.",
+      "emptyDescription": "Exécutez un flux de travail ou publiez un événement de domaine.",
+      "latestRun": "Dernier détail de l'exécution",
+      "path": "Chemin : {path}",
+      "error": "· Erreur : {error}",
+      "columns": {
+        "workflow": "Flux de travail",
+        "status": "Statut",
+        "triggeredBy": "Déclenché par",
+        "duration": "Durée",
+        "started": "Commencé",
+        "retry": "Réessayer"
+      },
+      "retry": "Réessayer",
+      "emDash": "—"
+    },
+    "templates": {
+      "useTemplate": "Utiliser un modèle"
+    },
+    "analytics": {
+      "totalWorkflows": "Flux de travail totaux",
+      "activeWorkflows": "Workflows actifs",
+      "executionsToday": "Exécutions aujourd'hui",
+      "successRate24h": "Taux de réussite (24h)",
+      "failed24h": "Échec (24h)",
+      "avgDuration": "Durée moyenne"
+    },
+    "settings": {
+      "title": "Accueil Paramètres d’Automatisation",
+      "subtitle": "Réessayez la politique, les limites d'exécution, la concurrence, le délai d'expiration et les journaux pour l'exécution distribuée.",
+      "maxRetryAttempts": "Nombre maximal de tentatives",
+      "backoffMs": "Retard (ms)",
+      "executionsPerHour": "Exécutions / heure",
+      "concurrencyLimit": "Limite de concurrence",
+      "timeoutMs": "Délai (ms)",
+      "logLevel": "Niveau de journalisation",
+      "saveSettings": "Enregistrer les paramètres",
+      "logLevels": {
+        "error": "erreur",
+        "warn": "avertissement",
+        "info": "info",
+        "debug": "débogage"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Workflow vide"
+  },
+  "status": {
+    "connected": "Connecté",
+    "beta": "Bêta",
+    "comingSoon": "Bientôt disponible",
+    "disabled": "Désactivé",
+    "planned": "Planifié",
+    "success": "Réussi",
+    "failed": "Échoué",
+    "running": "En cours",
+    "pending": "En attente",
+    "retried": "Nouvelle tentative"
+  },
+  "difficulty": {
+    "starter": "Débutant",
+    "intermediate": "Intermédiaire",
+    "advanced": "Avancé"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Déclencheur",
+      "description": "Démarrer lorsqu’un événement se déclenche"
+    },
+    "el-condition": {
+      "label": "Condition",
+      "description": "Brancher selon des règles"
+    },
+    "el-delay": {
+      "label": "Délai",
+      "description": "Attendre avant de continuer"
+    },
+    "el-approval": {
+      "label": "Approbation",
+      "description": "Barrière d’approbation humaine"
+    },
+    "el-loop": {
+      "label": "Boucle",
+      "description": "Itérer sur une collection"
+    },
+    "el-merge": {
+      "label": "Fusionner",
+      "description": "Joindre des chemins parallèles"
+    },
+    "el-split": {
+      "label": "Diviser",
+      "description": "Dispersion de chemins parallèles"
+    },
+    "el-ai-decision": {
+      "label": "Décision IA",
+      "description": "Acheminer via l’IA"
+    },
+    "el-notification": {
+      "label": "Notification",
+      "description": "Alerte in-app"
+    },
+    "el-webhook": {
+      "label": "Espace réservé Webhook",
+      "description": "Rappel HTTP réservé"
+    },
+    "el-custom": {
+      "label": "Action personnalisée",
+      "description": "Emplacement d’action extensible"
+    },
+    "tr-customer": {
+      "label": "Client créé",
+      "description": "Enregistrement client CRM créé"
+    },
+    "tr-lead": {
+      "label": "Piste créée",
+      "description": "Une nouvelle piste entre dans le pipeline"
+    },
+    "tr-invoice": {
+      "label": "Facture créée",
+      "description": "Facture finance émise"
+    },
+    "tr-invoice-paid": {
+      "label": "Facture payée",
+      "description": "Paiement réglé"
+    },
+    "tr-order": {
+      "label": "Commande créée",
+      "description": "Commande saisie"
+    },
+    "tr-order-done": {
+      "label": "Commande terminée",
+      "description": "Commande honorée"
+    },
+    "tr-doc": {
+      "label": "Document importé",
+      "description": "Téléversement vers le coffre documents"
+    },
+    "tr-campaign": {
+      "label": "Campagne publiée",
+      "description": "Publication Creator Studio"
+    },
+    "tr-employee": {
+      "label": "Employé ajouté",
+      "description": "Changement dans l’annuaire d’équipe"
+    },
+    "tr-task": {
+      "label": "Tâche terminée",
+      "description": "Tâche marquée comme terminée"
+    },
+    "tr-manual": {
+      "label": "Déclencheur manuel",
+      "description": "Exécuter à la demande"
+    },
+    "tr-schedule": {
+      "label": "Déclencheur planifié",
+      "description": "Planning cron / calendrier"
+    },
+    "tr-webhook": {
+      "label": "Déclencheur Webhook",
+      "description": "Événement HTTP entrant"
+    },
+    "tr-api": {
+      "label": "Déclencheur API",
+      "description": "Démarrage programmatique"
+    },
+    "ac-crm": {
+      "label": "Créer un enregistrement CRM",
+      "description": "Écrire une entité CRM"
+    },
+    "ac-invoice": {
+      "label": "Générer une facture",
+      "description": "Facture finance"
+    },
+    "ac-quote": {
+      "label": "Générer un devis",
+      "description": "Créer un document de devis"
+    },
+    "ac-delivery": {
+      "label": "Générer un bon de livraison",
+      "description": "Bon de livraison"
+    },
+    "ac-task": {
+      "label": "Créer une tâche",
+      "description": "Ouvrir une tâche"
+    },
+    "ac-assign": {
+      "label": "Assigner un employé",
+      "description": "Acheminer vers un coéquipier"
+    },
+    "ac-email": {
+      "label": "Envoyer un e-mail",
+      "description": "E-mail sortant"
+    },
+    "ac-notify": {
+      "label": "Envoyer une notification",
+      "description": "Notification in-app"
+    },
+    "ac-ai-summary": {
+      "label": "Générer un résumé IA",
+      "description": "Résumer le contexte"
+    },
+    "ac-ai-content": {
+      "label": "Générer du contenu IA",
+      "description": "Brouillon Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "Mettre à jour le client",
+      "description": "Corriger le client CRM"
+    },
+    "ac-update-status": {
+      "label": "Mettre à jour le statut",
+      "description": "Changer le statut de l’entité"
+    },
+    "ac-pdf": {
+      "label": "Exporter en PDF",
+      "description": "Export de document"
+    },
+    "ac-future": {
+      "label": "Espace réservé API future",
+      "description": "Emplacement d’action réservé"
+    },
+    "ai-decision": {
+      "label": "Décision IA",
+      "description": "Décider du chemin suivant"
+    },
+    "ai-class": {
+      "label": "Classification IA",
+      "description": "Classer des enregistrements"
+    },
+    "ai-text": {
+      "label": "Génération de texte IA",
+      "description": "Générer du texte"
+    },
+    "ai-translate": {
+      "label": "Traduction IA",
+      "description": "Traduire le contenu"
+    },
+    "ai-email": {
+      "label": "Réponse e-mail IA",
+      "description": "Rédiger une réponse"
+    },
+    "ai-sum": {
+      "label": "Synthèse IA",
+      "description": "Condenser le contexte"
+    },
+    "ai-rec": {
+      "label": "Recommandations IA",
+      "description": "Suggérer les prochaines étapes"
+    },
+    "ai-route": {
+      "label": "Routage IA",
+      "description": "Acheminer vers le propriétaire / la file"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Client créé",
+      "description": "Se déclenche lorsqu’un client CRM est créé."
+    },
+    "project_created": {
+      "label": "Projet crée",
+      "description": "Se déclenche lorsqu’un projet est créé."
+    },
+    "task_completed": {
+      "label": "Tâche terminée",
+      "description": "Se déclenche lorsqu’une tâche est marquée comme terminée."
+    },
+    "document_uploaded": {
+      "label": "Document téléchargé",
+      "description": "Se déclenche lorsqu’un document est téléversé."
+    },
+    "schedule": {
+      "label": "Calendrier",
+      "description": "Déclencheur de planification cron / intervalle."
+    },
+    "invoice_issued": {
+      "label": "Facture émise",
+      "description": "Se déclenche lorsqu’une facture est émise."
+    },
+    "user_invited": {
+      "label": "Utilisateur invité",
+      "description": "Se déclenche lorsqu’un membre d’équipe est invité."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Webhook HTTP entrant."
+    },
+    "api_event": {
+      "label": "Événement API",
+      "description": "Événement de domaine API générique."
+    },
+    "ai_event": {
+      "label": "Événement IA",
+      "description": "Signal IA (achèvement, insight, étape d’agent)."
+    },
+    "manual": {
+      "label": "Déclencheur manuel",
+      "description": "Exécution à la demande depuis l’UI ou l’API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Créer un client",
+      "description": "Créer une fiche client CRM."
+    },
+    "customer_update": {
+      "label": "Mettre à jour le client",
+      "description": "Mettre à jour les champs d’un client."
+    },
+    "project_create": {
+      "label": "Envoyer ce projet",
+      "description": "Créer un projet à partir du contexte du workflow."
+    },
+    "notification_send": {
+      "label": "Envoyer une notification",
+      "description": "Envoyer une notification in-app."
+    },
+    "email_send": {
+      "label": "Envoyer un e-mail",
+      "description": "Mettre un e-mail en file d’attente via le fournisseur."
+    },
+    "invoice_create": {
+      "label": "Créer une facture",
+      "description": "Créer une facture financière."
+    },
+    "status_update": {
+      "label": "Mettre à jour le statut",
+      "description": "Mettre à jour le statut d’une entité dans un module."
+    },
+    "document_generate": {
+      "label": "Générer un document",
+      "description": "Générer un document à partir d’un modèle."
+    },
+    "api_call": {
+      "label": "Appeler l’API",
+      "description": "Appel HTTP vers une API interne ou externe."
+    },
+    "ai_run": {
+      "label": "Exécuter l’IA",
+      "description": "Exécuter une invite IA / étape d’agent avec contexte."
+    },
+    "task_assign": {
+      "label": "Assigner une tâche",
+      "description": "Assigner une tâche à un utilisateur."
+    }
+  }
+}

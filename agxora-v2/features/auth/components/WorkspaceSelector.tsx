@@ -6,6 +6,7 @@ import {
   useWorkspaceDirectory,
 } from "@/app/lib/organization";
 import type { WorkspaceId } from "@/app/lib/organization/types";
+import { useT } from "@/app/lib/i18n";
 import { logWorkspaceSwitch } from "../services/iamOrgService";
 import { useIamAuth } from "../hooks/useIamAuth";
 
@@ -14,6 +15,7 @@ import { useIamAuth } from "../hooks/useIamAuth";
  * Intentionally not mounted in Header/Sidebar (locked surfaces).
  */
 export function WorkspaceSelector(): JSX.Element {
+  const t = useT();
   const { organization } = useOrganization();
   const { workspaces, activeWorkspaceId, switchWorkspace } =
     useWorkspaceDirectory();
@@ -37,7 +39,7 @@ export function WorkspaceSelector(): JSX.Element {
         className="text-xs"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        No workspaces yet — create an organization to provision one.
+        {t("iam.workspaceSelector.empty")}
       </p>
     );
   }
@@ -47,7 +49,7 @@ export function WorkspaceSelector(): JSX.Element {
       className="block space-y-1.5 text-xs"
       style={{ color: "var(--agx-text-muted, #94a3b8)" }}
     >
-      Active workspace
+      {t("iam.workspaceSelector.label")}
       <select
         className="w-full rounded-xl border px-3 py-2 text-sm outline-none"
         style={{
@@ -57,7 +59,7 @@ export function WorkspaceSelector(): JSX.Element {
         }}
         value={activeWorkspaceId ?? ""}
         onChange={(e) => onChange(e.target.value)}
-        aria-label="Switch workspace"
+        aria-label={t("iam.workspaceSelector.ariaLabel")}
       >
         {workspaces.map((item) => (
           <option key={item.id} value={item.id}>

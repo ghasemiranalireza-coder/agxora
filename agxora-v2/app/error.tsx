@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ErrorPanel } from "./components/backend";
 import { reportError } from "@/app/lib/production/observability";
 import { sanitizeClientErrorMessage } from "@/app/lib/production/safeErrorMessage";
+import { resolveUserFacingErrorKey, useT } from "@/app/lib/i18n";
 
 /** Segment error UI — sanitized message, retry, recovery links. */
 export default function RouteError({
@@ -15,6 +16,8 @@ export default function RouteError({
   readonly error: Error & { digest?: string };
   readonly reset: () => void;
 }): JSX.Element {
+  const t = useT();
+
   useEffect(() => {
     reportError(error, {
       source: "route-error",
@@ -23,8 +26,8 @@ export default function RouteError({
   }, [error]);
 
   const message = sanitizeClientErrorMessage(
-    error.message,
-    "An unexpected error occurred. Please try again.",
+    t(resolveUserFacingErrorKey(error, "backend.globalError.message")),
+    t("backend.globalError.message"),
   );
 
   return (
@@ -38,7 +41,7 @@ export default function RouteError({
       <div className="w-full max-w-lg space-y-4">
         <ErrorPanel
           code="500"
-          title="Something went wrong"
+          title={t("backend.errorBoundary.title")}
           message={message}
           retryable
           onRetry={reset}
@@ -48,15 +51,15 @@ export default function RouteError({
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
           <Link href="/" className="underline-offset-2 hover:underline">
-            Home
+            {t("backend.notFound.home")}
           </Link>
           {" · "}
           <Link href="/contact" className="underline-offset-2 hover:underline">
-            Contact
+            {t("backend.notFound.contact")}
           </Link>
           {" · "}
           <Link href="/offline" className="underline-offset-2 hover:underline">
-            Offline help
+            {t("backend.network.offlineHelp")}
           </Link>
         </p>
       </div>

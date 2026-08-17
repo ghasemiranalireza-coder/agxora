@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "Identität und Zugriff",
+    "title": "Team",
+    "lead": "Mitglieder, Rollen und Einladungen für {organization}. Architektur-bereit für eine zukünftige Identitäts-API.",
+    "yourOrganization": "Ihre Organisation"
+  },
+  "invite": {
+    "title": "Per E-mail einladen",
+    "email": "E-Mail",
+    "emailPlaceholder": "kollege@company.com",
+    "role": "Rolle",
+    "submit": "Einladen",
+    "created": "Einladung erstellt (ausstehend).",
+    "failed": "Einladung fehlgeschlagen",
+    "signInFirst": "Melden Sie sich an und aktivieren Sie zuerst eine Organisation.",
+    "noPermission": "Fehlende Berechtigung — Für die Einladung ist ein Administrator oder Manager erforderlich."
+  },
+  "roles": {
+    "title": "Rollen",
+    "owner": {
+      "name": "Eigentümer",
+      "description": "Volle Organisationskontrolle einschließlich Einstellungen und Abrechnung."
+    },
+    "admin": {
+      "name": "Admin",
+      "description": "Verwalten Sie Finanz-, Automatisierungs-, Team- und Arbeitsbereichsmodule."
+    },
+    "manager": {
+      "name": "Verwalter",
+      "description": "Leitung von CRM-, Projekt-, Dokumenten- und Erstellervorgängen."
+    },
+    "employee": {
+      "name": "Mitarbeiter",
+      "description": "Täglicher Zugriff auf CRM, Dokumente, Ersteller und Projekte."
+    },
+    "guest": {
+      "name": "Gast",
+      "description": "Beschränkter Lesezugriff auf Dokumente und Projekte."
+    },
+    "viewer": {
+      "name": "Betrachter",
+      "description": "Schreibgeschützter Zugriff auf freigegebene Module."
+    }
+  },
+  "members": {
+    "title": "Mitglieder",
+    "columnMember": "Mitglied",
+    "columnEmail": "E-Mail",
+    "columnRole": "Rolle",
+    "columnStatus": "Status",
+    "roleFor": "Rolle für {name}",
+    "emptyTitle": "Noch keine Mitglieder",
+    "emptyDescription": "Laden Sie Kollegen ein, diesem Unternehmensarbeitsbereich beizutreten.",
+    "updated": "{name} wurde auf {role} aktualisiert",
+    "roleChangeFailed": "Änderung fehlgeschlagen"
+  },
+  "pending": {
+    "title": "Ausstehende Einladungen",
+    "emptyTitle": "keine ausstehenden Einladungen vorhanden",
+    "emptyDescription": "Neue Einladungen werden hier angezeigt, bis sie angenommen werden oder abgelaufen sind.",
+    "expires": "{role} · läuft am {date} ab",
+    "revoke": "Widerrufen",
+    "pending": "ausstehend"
+  },
+  "history": {
+    "title": "Einladungsverlauf",
+    "empty": "Angenommene, abgelaufene und widerrufene Einladungen werden hier angezeigt."
+  },
+  "status": {
+    "accepted": "freigeschaltet",
+    "expired": "abgelaufen",
+    "revoked": "widerrufen",
+    "active": "aktiv",
+    "inactive": "inaktiv",
+    "pending": "ausstehend"
+  }
+}

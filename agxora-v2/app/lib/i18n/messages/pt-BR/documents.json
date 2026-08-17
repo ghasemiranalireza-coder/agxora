@@ -1,0 +1,388 @@
+{
+  "page": {
+    "brand": "Sistema operacional de conhecimento AGXORA",
+    "title": "Documentos",
+    "subtitle": "Documentos corporativos e centro de conhecimento — visualizados com conteúdo de amostra até que os back-ends de armazenamento e aprovação se conectem.",
+    "sampleNotice": "Biblioteca de exemplos – a navegação e os filtros funcionam na sessão. As ações de upload, aprovação e índice de IA não estão conectadas."
+  },
+  "sections": {
+    "kpis": {
+      "title": "Painel de conhecimento"
+    },
+    "library": {
+      "title": "Biblioteca de Documentos",
+      "subtitle": "Todos os documentos, recentes, favoritos, compartilhados, arquivados, lixeira, base de conhecimento — com pastas, pesquisa, visualizador e versões."
+    },
+    "knowledge": {
+      "title": "Base de conhecimento",
+      "subtitle": "Artigos, políticas, processos, manuais, perguntas frequentes e wiki interno."
+    },
+    "approvals": {
+      "title": "Aprovações",
+      "subtitle": "Rascunho, Em Revisão, Aprovado, Rejeitado, Arquivado — vinculado à arquitetura de Automação."
+    },
+    "ai": {
+      "title": "Camada de conhecimento de IA",
+      "subtitle": "Resumo, palavras-chave, classificação, tags, pastas, documentos relacionados, duplicatas, tradução, OCR e pesquisa — apenas arquitetura."
+    },
+    "activity": {
+      "title": "Atividade",
+      "subtitle": "Mudanças recentes, uploads, visualizações, compartilhamentos e histórico de auditoria."
+    },
+    "integrations": {
+      "title": "Integrações",
+      "subtitle": "Adaptadores de unidade reservados — sem conectores ativos."
+    },
+    "security": {
+      "title": "Segurança e compartilhamento",
+      "subtitle": "RBAC, trilha de auditoria, criptografia, retenção e escopos de compartilhamento."
+    }
+  },
+  "loading": {
+    "knowledgeBase": "Carregando base de conhecimento…",
+    "approvals": "Carregando fila de aprovação…",
+    "aiInsights": "Carregando insights de IA…",
+    "activity": "Carregando atividade…",
+    "integrations": "Carregando integrações…",
+    "security": "Carregando segurança…"
+  },
+  "kpi": {
+    "documents": {
+      "label": "Documentos",
+      "caption": "Amostra · entre pastas",
+      "delta": "+{count}"
+    },
+    "folders": {
+      "label": "Pastas",
+      "caption": "Amostra · incluindo coleções inteligentes",
+      "delta": "+{count}"
+    },
+    "storage": {
+      "label": "Armazenamento usado",
+      "caption": "Amostra · de plano ilustrativo",
+      "delta": "+{size}"
+    },
+    "shared": {
+      "label": "Documentos Compartilhados",
+      "caption": "Amostra · organização + departamento + usuários",
+      "delta": "+{count}"
+    },
+    "activity": {
+      "label": "Atividade recente",
+      "caption": "Amostra · últimas 24 horas",
+      "delta": "+{count}"
+    },
+    "indexed": {
+      "label": "AI indexada",
+      "caption": "Amostra · Pesquisa de IA não conectada",
+      "delta": "{percent}"
+    },
+    "approvals": {
+      "label": "Aprovações pendentes",
+      "caption": "Amostra · automação não conectada",
+      "delta": "{count}"
+    },
+    "score": {
+      "label": "Pontuação de conhecimento",
+      "caption": "Amostra · ilustração de cobertura",
+      "delta": "+{count}"
+    }
+  },
+  "library": {
+    "viewsAria": "Visualizações da biblioteca",
+    "views": {
+      "all": "Todos os documentos",
+      "recent": "Recente",
+      "favorites": "Favoritos",
+      "shared": "Compartilhado",
+      "archived": "Arquivado",
+      "trash": "Lixo",
+      "knowledge": "Base de conhecimento"
+    },
+    "dropzone": "Arraste e solte arquivos aqui para preparar um upload.",
+    "uploadReserved": "O upload arrastar e soltar é uma API de armazenamento reservada.",
+    "filesStaged": "{count} arquivos preparados para upload (sem gravação de armazenamento).",
+    "dropReceived": "Drop recebido (sem gravação de armazenamento).",
+    "foldersTitle": "Pastas e coleções",
+    "foldersHint": "Pastas aninhadas, coleções, coleções inteligentes, tags, fixadas e favoritas.",
+    "allFolders": "Todas as pastas",
+    "smart": "Inteligente",
+    "collection": "Coleção",
+    "pinned": "Fixado",
+    "favorite": "Favorito",
+    "sharedBadge": "Compartilhado",
+    "title": "Biblioteca de Documentos",
+    "results": "{count} resultados",
+    "resultOne": "{count} resultado",
+    "selected": "· {count} selecionados",
+    "bulkAction": "Ação em massa",
+    "bulkUnavailable": "Ação em massa indisponível para {count} item(s) — as mutações de armazenamento não estão conectadas.",
+    "searchLabel": "Pesquisa global",
+    "searchPlaceholder": "Nome, tags, proprietário, resumo de IA…",
+    "typeLabel": "Tipo",
+    "statusLabel": "Status",
+    "departmentLabel": "Departamento",
+    "ownerLabel": "Proprietário",
+    "allTypes": "Todos os tipos",
+    "allStatuses": "Todos os status",
+    "allDepartments": "Todos os departamentos",
+    "allOwners": "Todos os proprietários",
+    "favoritesOnly": "Somente favoritos",
+    "emptyTitle": "Não há documentos para mostrar",
+    "emptyDescription": "Ajuste filtros, limpe a pesquisa ou adicione ativos de conhecimento para aumentar a biblioteca.",
+    "selectAria": "Selecione {name}",
+    "versionHistoryTitle": "Histórico de versões",
+    "close": "Fechar",
+    "context": {
+      "open": "Abrir",
+      "share": "Compartilhar",
+      "favorite": "Favorito",
+      "move": "Mover",
+      "delete": "Excluir",
+      "dismiss": "Liberar",
+      "unavailable": "{action} indisponível — as mutações do documento não estão conectadas para {id}."
+    }
+  },
+  "viewer": {
+    "title": "Visualizador de documentos",
+    "emptyTitle": "Selecione um documento",
+    "emptyDescription": "Escolha um arquivo da biblioteca para visualizar conteúdo, metadados, tags, versões e módulos vinculados.",
+    "zoomOut": "Zoom -",
+    "zoomIn": "Ampliar +",
+    "prev": "Anterior",
+    "next": "Próximo",
+    "page": "Página {page} / {total}",
+    "searchInside": "Pesquise dentro",
+    "findPlaceholder": "Encontre na visualização…",
+    "noMatches": "Nenhuma correspondência no texto de visualização.",
+    "meta": {
+      "owner": "Proprietário",
+      "created": "Criado",
+      "updated": "Atualizado",
+      "fileType": "Tipo de arquivo",
+      "size": "Tamanho",
+      "category": "Categoria",
+      "department": "Departamento",
+      "status": "Status",
+      "retention": "Retenção",
+      "version": "Versão",
+      "sharing": "Compartilhamento"
+    },
+    "tags": "Etiquetas",
+    "linkedModules": "Módulos Vinculados",
+    "noModuleLinks": "Nenhum link de módulo ainda",
+    "versionHistory": "Histórico de versões"
+  },
+  "versions": {
+    "title": "Histórico de versões",
+    "emptyTitle": "Nenhum documento selecionado",
+    "emptyDescription": "Abra um documento para inspecionar versões, notas, restaurar e comparar.",
+    "current": "{name} · {version} atual",
+    "restore": "Restaurar versão",
+    "compare": "Comparar versões",
+    "restoreTitle": "A restauração requer a API de armazenamento",
+    "compareTitle": "Comparar requer a API de armazenamento",
+    "noticeDefault": "Restaurar e comparar exigem a API de armazenamento.",
+    "restoreUnavailable": "Restauração indisponível para {id} — a API de armazenamento não está conectada.",
+    "compareUnavailable": "Comparação indisponível ({selected} ↔ {current}) — a API de armazenamento não está conectada."
+  },
+  "approvals": {
+    "title": "Fluxo de trabalho de aprovação",
+    "subtitle": "Rascunho → Em revisão → Aprovado/Rejeitado → Arquivado. Os itens da fila são documentos de amostra; as ações não persistem.",
+    "emptyTitle": "Fila limpa",
+    "emptyDescription": "Nenhum rascunho ou documento em revisão no conjunto de amostra.",
+    "approve": "Aprovar",
+    "reject": "Rejeitar",
+    "sendToReview": "Enviar para revisão",
+    "noticeDefault": "As transições de aprovação exigem o mecanismo de fluxo de trabalho de automação — não conectado nesta compilação.",
+    "unavailable": "{action} indisponível para {id} — o mecanismo de fluxo de trabalho não está conectado. O status do documento de amostra não foi alterado.",
+    "approveTitle": "Aprovação indisponível – mecanismo de fluxo de trabalho não conectado",
+    "rejectTitle": "Rejeição indisponível — mecanismo de fluxo de trabalho não conectado",
+    "sendTitle": "Enviar para revisão indisponível – mecanismo de fluxo de trabalho não conectado"
+  },
+  "knowledge": {
+    "intro": "Artigos, políticas, processos, manuais, perguntas frequentes e wiki interno — a camada narrativa do Knowledge Hub."
+  },
+  "activity": {
+    "intro": "Mudanças recentes, uploads, visualizações, compartilhamentos e histórico de auditoria — base para trilhas de conformidade."
+  },
+  "integrations": {
+    "intro": "Os adaptadores de unidade em nuvem são apenas de arquitetura – Google Drive, OneDrive, Dropbox, Box, SharePoint, Nextcloud. Nenhuma API ativa.",
+    "reservedAdapter": "Adaptador reservado:",
+    "architecture": "Arquitetura",
+    "items": {
+      "google-drive": {
+        "description": "Arquitetura de importação/sincronização reservada — ainda não há OAuth ativo."
+      },
+      "onedrive": {
+        "description": "Ganchos de arquivo do Microsoft Graph reservados."
+      },
+      "dropbox": {
+        "description": "Adaptador API do Dropbox reservado."
+      },
+      "box": {
+        "description": "Conector Enterprise Box reservado."
+      },
+      "sharepoint": {
+        "description": "Bibliotecas de sites + mapeamento de metadados reservados."
+      },
+      "nextcloud": {
+        "description": "Adaptador WebDAV reservado — desabilitado até o plano de auto-host."
+      }
+    }
+  },
+  "security": {
+    "architectureTitle": "Arquitetura de Segurança",
+    "sharingTitle": "Modelo de compartilhamento",
+    "sharingIntro": "Espaço reservado para privado, organização, departamento, usuários específicos e link público.",
+    "enabled": "Habilitado",
+    "placeholder": "Espaço reservado",
+    "notEnforced": "Não aplicado",
+    "modelOnly": "Apenas modelo",
+    "controls": {
+      "rbac": {
+        "title": "Acesso baseado em função",
+        "description": "As funções de proprietário, editor, visualizador e aprovador são mapeadas para documentar ACLs – não aplicadas nesta compilação."
+      },
+      "permissions": {
+        "title": "Arquitetura de permissão",
+        "description": "Herança de pasta com substituições em nível de documento — não aplicada nesta compilação."
+      },
+      "audit": {
+        "title": "Trilha de auditoria",
+        "description": "Eventos de atividade para visualizações, compartilhamentos, restaurações e aprovações — ainda não persistidos."
+      },
+      "encryption": {
+        "title": "Criptografia",
+        "description": "Ganchos de criptografia em repouso e em trânsito reservados para fiação KMS."
+      },
+      "retention": {
+        "title": "Política de retenção",
+        "description": "Janelas de retenção por categoria com suporte de retenção legal — ainda não aplicadas."
+      }
+    }
+  },
+  "ai": {
+    "architectureTitle": "Arquitetura de recursos de IA",
+    "architectureIntro": "Cada capacidade é reservada para o futuro índice de IA. A IU mostra insights simulados determinísticos.",
+    "insightsTitle": "Insights para o documento selecionado",
+    "emptyTitle": "Selecione um documento",
+    "emptyDescription": "Abra um arquivo na biblioteca para inspecionar o resumo, palavras-chave e sugestões da IA.",
+    "summary": "Resumo de IA",
+    "keywords": "Palavras-chave de IA",
+    "classification": "Classificação de IA",
+    "suggestedFolder": "Pasta sugerida pela IA",
+    "translation": "Tradução de IA",
+    "ocr": "OCR de IA",
+    "suggestedTags": "Tags sugeridas por IA",
+    "related": "Documentos relacionados à IA",
+    "noRelated": "Nenhum documento relacionado indexado.",
+    "duplicateOf": "AI Duplicate Detection: possível duplicata de",
+    "noDuplicates": "Detecção de duplicatas de IA: nenhuma quase duplicata sinalizada.",
+    "sampleReady": "Amostra pronta",
+    "notApplicable": "Não aplicável",
+    "runSearch": "Execute a pesquisa de IA",
+    "searchTitle": "AI Search não está conectado",
+    "noticeDefault": "Os recursos de IA são apenas de arquitetura – sem chamadas de modelo ao vivo.",
+    "searchUnavailable": "AI Search indisponível — o índice semântico não está conectado. Os exemplos de insights acima são estáticos.",
+    "features": {
+      "summary": {
+        "title": "Resumo de IA",
+        "description": "Compreensão condensada de documentos para cada módulo."
+      },
+      "keywords": {
+        "title": "Palavras-chave de IA",
+        "description": "Sinais de tópico extraídos para pesquisa e roteamento."
+      },
+      "classification": {
+        "title": "Classificação de IA",
+        "description": "Sugestão de taxonomia de categoria/departamento."
+      },
+      "tags": {
+        "title": "Tags sugeridas por IA",
+        "description": "Marque recomendações sem alterar o gráfico."
+      },
+      "folder": {
+        "title": "Pasta sugerida pela IA",
+        "description": "Posicionamento inteligente em pastas aninhadas."
+      },
+      "related": {
+        "title": "Documentos relacionados à IA",
+        "description": "Faça gráficos de vizinhos no centro de conhecimento."
+      },
+      "duplicate": {
+        "title": "Detecção duplicada de IA",
+        "description": "Detecção quase duplicada para bibliotecas de documentos."
+      },
+      "translation": {
+        "title": "Tradução de IA",
+        "description": "Sinalizador de prontidão de tradução - sem modelo ativo."
+      },
+      "ocr": {
+        "title": "OCR de IA",
+        "description": "Pipeline de OCR reservado para digitalizações e PDFs."
+      },
+      "search": {
+        "title": "Pesquisa de IA",
+        "description": "Pesquisa semântica reservada para índice futuro."
+      }
+    }
+  },
+  "status": {
+    "draft": "Rascunho",
+    "in_review": "Em revisão",
+    "approved": "Aprovado",
+    "rejected": "Rejeitado",
+    "archived": "Arquivado"
+  },
+  "fileType": {
+    "pdf": "PDF",
+    "word": "Palavra",
+    "excel": "Excel",
+    "powerpoint": "Power Point",
+    "image": "Imagem",
+    "video": "Vídeo",
+    "audio": "Áudio",
+    "markdown": "Remarcação",
+    "text": "Texto",
+    "json": "JSON",
+    "csv": "CSV",
+    "other": "Outro"
+  },
+  "share": {
+    "private": "Privado",
+    "organization": "Organização",
+    "department": "Departamento",
+    "specific_users": "Usuários específicos",
+    "public_link": "Link público"
+  },
+  "module": {
+    "crm": "CRM",
+    "finance": "Financiar",
+    "automation": "Automação",
+    "creator": "Estúdio de Criação",
+    "hr": "Futuro RH",
+    "projects": "Projetos Futuros"
+  },
+  "knowledgeKind": {
+    "article": "Artigo",
+    "policy": "Política",
+    "process": "Processo",
+    "manual": "Manual",
+    "faq": "Perguntas frequentes",
+    "wiki": "Wiki interno"
+  },
+  "integrationStatus": {
+    "connected": "Conectado",
+    "beta": "Beta",
+    "coming_soon": "Em breve",
+    "disabled": "Desabilitado",
+    "planned": "Planejado"
+  },
+  "bytes": {
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
+  }
+}

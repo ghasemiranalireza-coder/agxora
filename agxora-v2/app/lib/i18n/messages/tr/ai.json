@@ -1,0 +1,168 @@
+{
+  "platform": {
+    "loading": "AI Platformu yükleniyor…",
+    "eyebrow": "AGXORA Yapay Zeka Platformu",
+    "title": "Kurumsal Yapay Zeka Çalışma Alanı",
+    "subtitle": "CRM, Projeler, Finans, Belgeler ve Otomasyon için sağlayıcıdan bağımsız zeka. Sağlayıcıları Ayarlar → AI bölümünde yapılandırın.",
+    "newConversation": "Yeni görüşme",
+    "aiCommands": "Yapay Zeka Komutları"
+  },
+  "mobileTabs": {
+    "chat": "Sohbet",
+    "conversations": "Konuşmalar",
+    "prompts": "İstemler"
+  },
+  "usageBar": {
+    "provider": "sağlayıcı",
+    "model": "Modeli",
+    "estimatedTokens": "Avustralya, Brezilya ve Kuzey Amerika ülkelerinin kullandığı saat uygulaması. jetonlar",
+    "tokensInOut": "({in} / çıkış {out})",
+    "cost": "Maliyet",
+    "context": "Bağlam",
+    "contextNone": "hiçbiri",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "AGXORA Yapay Zeka Çalışma Alanı",
+    "emptyHint": "Bir konuşma başlatın, kitaplıktan bir bilgi istemi seçin veya komut paletini açın (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Konuşmalar",
+    "new": "Yeni",
+    "searchPlaceholder": "Sohbetlerde ara…",
+    "searchAria": "Konuşmaları arayın",
+    "showArchived": "Arşivlenenleri göster",
+    "pinned": "Sabitlendi",
+    "emptyPreview": "Boş görüşme",
+    "noConversations": "Henüz görüşme yok",
+    "pin": "Sabitle",
+    "unpin": "Sabitlemeyi kaldır",
+    "rename": "Yeniden isimlendirmek",
+    "archive": "Arşiv",
+    "unarchive": "Arşivden kaldır",
+    "delete": "Silmek"
+  },
+  "composer": {
+    "placeholder": "AGXORA AI mesajı… (Göndermek için Enter, yeni satır için Shift+Enter)",
+    "ariaLabel": "Mesaj oluşturucu",
+    "commandsShortcut": "Komutlar ⌘⇧K",
+    "stop": "Durmak",
+    "send": "Göndermek"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Kopyala",
+    "retry": "Yeniden dene"
+  },
+  "typingIndicator": {
+    "ariaLabel": "Asistan yazıyor"
+  },
+  "promptLibrary": {
+    "title": "Bilgi istemi kitaplığı",
+    "subtitle": "CRM, Projeler, Finans ve daha fazlasında yeniden kullanılabilir şablonlar.",
+    "searchPlaceholder": "Arama istemleri…",
+    "searchAria": "Arama istemleri",
+    "all": "Tüm",
+    "favorites": "Favoriler",
+    "recent": "Son",
+    "library": "Kütüphane",
+    "noMatches": "Hiçbir bilgi istemi eşleşmiyor",
+    "removeFavoriteAria": "Favoriyi kaldır",
+    "addFavoriteAria": "Favori ekle",
+    "favorited": "Favorilere eklendi",
+    "favorite": "Favori",
+    "usePrompt": "İstemi kullan"
+  },
+  "commandPalette": {
+    "ariaLabel": "Yapay zeka komut paleti",
+    "filterAria": "AI komutlarını filtrele",
+    "placeholder": "Yapay zeka komutu… özetleyin, önerin, analiz edin…",
+    "noMatches": "Eşleşen komut yok",
+    "footer": "Gelecekteki komutları RegisterAiCommand aracılığıyla kaydedin — Kullanıcı arayüzü değişmeden kalır."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Projeler",
+    "finance": "Finans",
+    "marketing": "Pazarlama",
+    "documents": "Belgeler",
+    "automation": "Otomasyon",
+    "general": "Genel"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Müşteriyi özetle",
+      "description": "Müşteri ilişkisinin yönetici özeti"
+    },
+    "crm-follow-up-email": {
+      "title": "Takip e-postası",
+      "description": "Profesyonel bir CRM takibi taslağı"
+    },
+    "projects-analyze": {
+      "title": "Projeyi analiz et",
+      "description": "Proje sağlık kontrolü"
+    },
+    "projects-task-list": {
+      "title": "Görev listesi oluştur",
+      "description": "İşi uygulanabilir görevlere böl"
+    },
+    "finance-explain-invoice": {
+      "title": "Faturayı açıkla",
+      "description": "Sade dille fatura açıklaması"
+    },
+    "finance-cashflow-brief": {
+      "title": "Nakit akışı özeti",
+      "description": "Kısa nakit akışı anlatımı"
+    },
+    "marketing-campaign-outline": {
+      "title": "Kampanya taslağı",
+      "description": "Bir pazarlama kampanyasını yapılandır"
+    },
+    "marketing-proposal": {
+      "title": "Teklif oluştur",
+      "description": "Müşteriye yönelik teklif taslağı"
+    },
+    "documents-summarize": {
+      "title": "Belgeyi özetle",
+      "description": "Yapılandırılmış belge özeti"
+    },
+    "automation-workflow": {
+      "title": "İş akışı tasarla",
+      "description": "Otomasyon iş akışı taslağı"
+    },
+    "general-brainstorm": {
+      "title": "Seçenekleri beyin fırtınası",
+      "description": "Yapılandırılmış fikir üretimi"
+    },
+    "general-explain": {
+      "title": "Basitçe açıkla",
+      "description": "Paydaşlar için net açıklama"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Müşteriyi özetle",
+      "description": "Aktif müşterinin yönetici özeti"
+    },
+    "cmd-generate-proposal": {
+      "label": "Teklif oluştur",
+      "description": "Müşteri teklifi taslağı"
+    },
+    "cmd-analyze-project": {
+      "label": "Projeyi analiz et",
+      "description": "Proje sağlığı ve risk analizi"
+    },
+    "cmd-create-task-list": {
+      "label": "Görev listesi oluştur",
+      "description": "İşi uygulanabilir görevlere böl"
+    },
+    "cmd-generate-email": {
+      "label": "E-posta oluştur",
+      "description": "Profesyonel bir e-posta taslağı"
+    },
+    "cmd-explain-invoice": {
+      "label": "Faturayı açıkla",
+      "description": "Sade dille fatura açıklaması"
+    }
+  }
+}

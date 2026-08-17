@@ -1,0 +1,149 @@
+{
+  "page": {
+    "eyebrow": "AGXORA Marketing OS",
+    "title": "AI Creator Studio",
+    "lead": "Enterprise content production — generate, brand, plan, publish, and measure AI-powered campaigns across every channel.",
+    "dashboard": "Dashboard",
+    "workspace": "Workspace",
+    "workspaceSubtitle": "Create Content · Campaigns · Media Library · Templates · Brand Assets · Publishing Queue · Analytics",
+    "workspaceAria": "Creator workspace",
+    "integrations": "Future Integrations",
+    "integrationsSubtitle": "Official platform adapters reserved — no fake live connections.",
+    "aiFeatures": "AI Features",
+    "aiFeaturesSubtitle": "Capability map for production, brand, schedule, and localization."
+  },
+  "tabs": {
+    "create": "Create Content",
+    "campaigns": "Campaigns",
+    "media": "Media Library",
+    "templates": "Templates",
+    "brand": "Brand Assets",
+    "queue": "Publishing Queue",
+    "analytics": "Analytics"
+  },
+  "templates": {
+    "emptyTitle": "No templates",
+    "emptyDescription": "Reusable content and design templates will live here."
+  },
+  "campaign": {
+    "title": "Campaign Planner",
+    "calendar": "Content Calendar",
+    "columns": {
+      "name": "Campaign Name",
+      "objective": "Objective",
+      "audience": "Audience",
+      "platforms": "Platforms",
+      "budget": "Budget",
+      "timeline": "Timeline",
+      "status": "Status"
+    },
+    "emptyTitle": "No campaigns",
+    "emptyDescription": "Create a campaign to plan objectives, audience, and timelines."
+  },
+  "media": {
+    "title": "Media Library",
+    "columns": {
+      "asset": "Asset",
+      "type": "Type",
+      "folder": "Folder",
+      "tags": "Tags",
+      "updated": "Updated"
+    },
+    "emptyTitle": "No media",
+    "emptyDescription": "Images, videos, documents, logos, and templates will appear here.",
+    "searchPlaceholder": "Search assets, folders, tags…",
+    "typeFilter": "Type",
+    "allTypes": "All types",
+    "images": "Images",
+    "videos": "Videos",
+    "documents": "Documents",
+    "logos": "Brand Logos",
+    "templates": "Templates"
+  },
+  "generator": {
+    "title": "AI Content Generator",
+    "lead": "Create Instagram captions, TikTok scripts, LinkedIn posts, ads, SEO articles, and more.",
+    "brief": "Brief",
+    "briefPlaceholder": "Describe the offer, audience, and CTA…",
+    "generateDraft": "Generate draft",
+    "aiRewrite": "AI Rewrite",
+    "translate": "Translate",
+    "initialOutput": "Select a format and brand voice, then generate a draft. Provider adapters are reserved — no live model calls yet.",
+    "draftStaged": "Draft staged for {format} · voice: {voice}. Generation adapter reserved.",
+    "rewriteQueued": "AI Rewrite queued — rewrite adapter reserved.",
+    "translateQueued": "Translate Content queued — multi-language adapter reserved.",
+    "brandVoice": "Brand Voice",
+    "brandVoiceLead": "Business tone presets plus custom brand voice for consistency.",
+    "active": "Active"
+  },
+  "queue": {
+    "title": "Publishing Queue",
+    "columns": {
+      "title": "Title",
+      "platform": "Platform",
+      "format": "Format",
+      "status": "Status",
+      "scheduled": "Scheduled",
+      "author": "Author"
+    },
+    "emptyTitle": "No posts in queue",
+    "emptyDescription": "Drafts, reviews, and scheduled posts will appear here.",
+    "filterStatus": "Filter status",
+    "allStatuses": "All statuses"
+  },
+  "analytics": {
+    "title": "Analytics",
+    "topPosts": "Top Posts",
+    "engagement": "Eng {value}",
+    "reach": "Reach {value}",
+    "recommendations": "AI Recommendations"
+  },
+  "integrations": {
+    "lead": "Future integrations — optional. No live APIs until connected. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.",
+    "adapter": "Adapter:"
+  },
+  "aiFeaturesPanel": {
+    "lead": "AI feature map — ideas, captions, hashtags, calendar, campaigns, audience, schedule, brand consistency, rewrite, translate, multi-language."
+  },
+  "formats": {
+    "instagram_caption": "Instagram Caption",
+    "tiktok_script": "TikTok Script",
+    "linkedin_post": "LinkedIn Post",
+    "facebook_post": "Facebook Post",
+    "x_post": "X Post",
+    "blog_article": "Blog Article",
+    "newsletter": "Newsletter",
+    "email_campaign": "Email Campaign",
+    "product_description": "Product Description",
+    "ad_copy": "Ad Copy",
+    "seo_article": "SEO Article",
+    "landing_page_copy": "Landing Page Copy"
+  },
+  "publishStatus": {
+    "draft": "Draft",
+    "review": "Review",
+    "approved": "Approved",
+    "scheduled": "Scheduled",
+    "published": "Published",
+    "archive": "Archive"
+  },
+  "mediaKind": {
+    "image": "Image",
+    "video": "Video",
+    "document": "Document",
+    "logo": "Brand Logo",
+    "template": "Template"
+  },
+  "voice": {
+    "professional": "Professional",
+    "friendly": "Friendly",
+    "luxury": "Luxury",
+    "casual": "Casual"
+  },
+  "integrationStatus": {
+    "planned": "Planned",
+    "ready": "Ready",
+    "connected": "Connected",
+    "disabled": "Disabled"
+  }
+}

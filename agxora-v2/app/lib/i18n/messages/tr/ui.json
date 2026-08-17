@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "Sonuç yok",
+    "noResultsDescription": "Hiçbir şey mevcut filtrelerle eşleşmiyor.",
+    "previous": "Öncesi",
+    "next": "Sonraki",
+    "paginationRange": "{start}–{end} / {total}",
+    "sortAscending": "Artan şekilde sırala",
+    "sortDescending": "Azalan sıralama"
+  },
+  "dialog": {
+    "close": "İletişim kutusunu kapat"
+  },
+  "module": {
+    "notAvailableTitle": "{title} henüz mevcut değil",
+    "notAvailableDescription": "Bu modül kabuğu gelecekteki bir sürüm için hazırlanmıştır. Burada henüz hiçbir kayıt saklanmıyor."
+  },
+  "states": {
+    "errorLabel": "Hata",
+    "errorTitle": "Bir şeyler ters gitti",
+    "errorDescription": "Bu isteği yerine getiremedik. Birazdan tekrar deneyin.",
+    "retry": "Yeniden dene"
+  },
+  "empty": {
+    "crmTitle": "CRM'niz hazır",
+    "crmDescription": "Dizinin, profillerin ve etkinliğin kilidini açmak için ilk müşteri kaydını oluşturun.",
+    "crmAction": "CRM'yi aç",
+    "projectsTitle": "Henüz proje yok",
+    "projectsDescription": "Kilometre taşlarını, bütçeyi ve ekip sahipliğini takip etmek için bir teslimat çalışma alanı oluşturun.",
+    "projectsAction": "Açık Projeler",
+    "analyticsTitle": "Analitik sinyal bekliyor",
+    "analyticsDescription": "Çalışma alanınız etkinlik oluşturduğunda yönetici KPI'ları ve uyarılar burada görünür.",
+    "analyticsAction": "Analytics'i açın",
+    "documentsTitle": "Belge kitaplığı boş",
+    "documentsDescription": "Onayları, sürümleri ve yapay zeka bağlamını güçlendirmek için bilgi varlıklarını yükleyin veya oluşturun.",
+    "documentsAction": "Belgeleri Aç",
+    "billingTitle": "Henüz fatura geçmişi yok",
+    "billingDescription": "Faturalar, yenilemeler ve ödeme geçmişi oluşturmak için bir planı yükseltin.",
+    "billingAction": "Faturalandırmayı aç",
+    "agentsTitle": "Aktif temsilci yok",
+    "agentsDescription": "Otonom çalıştırmaları başlatmak için piyasadan bir aracı yükleyin veya etkinleştirin.",
+    "agentsAction": "Ajan İşletim Sistemini Aç"
+  },
+  "yes": "Evet",
+  "no": "HAYIR",
+  "dash": "—"
+}

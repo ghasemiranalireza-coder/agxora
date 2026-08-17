@@ -9,7 +9,7 @@ import {
   type CustomerSortKey,
   type CustomerStatus,
 } from "../../lib/customers";
-import { formatDisplayDate } from "../../lib/i18n";
+import { formatDisplayDate, useT } from "../../lib/i18n";
 import {
   Button,
   Card,
@@ -23,6 +23,7 @@ import {
 import { CustomerStatusBadge } from "./CustomerStatusBadge";
 
 export function CustomerTable(): JSX.Element {
+  const t = useT();
   const state = useCustomerStore();
   const { pageRows, total, page } = useFilteredCustomers();
   const hasFilters =
@@ -42,7 +43,7 @@ export function CustomerTable(): JSX.Element {
     () => [
       {
         key: "companyName",
-        header: "Company",
+        header: t("customers.table.columns.company"),
         sortable: true,
         render: (row) => (
           <div>
@@ -60,7 +61,7 @@ export function CustomerTable(): JSX.Element {
       },
       {
         key: "email",
-        header: "Email",
+        header: t("customers.table.columns.email"),
         sortable: true,
         render: (row) => (
           <span style={{ color: "var(--agx-ds-text)" }}>{row.email}</span>
@@ -68,26 +69,26 @@ export function CustomerTable(): JSX.Element {
       },
       {
         key: "city",
-        header: "Location",
+        header: t("customers.table.columns.location"),
         sortable: true,
         render: (row) =>
           [row.city, row.country].filter(Boolean).join(", ") || "—",
       },
       {
         key: "status",
-        header: "Status",
+        header: t("customers.table.columns.status"),
         sortable: true,
         render: (row) => <CustomerStatusBadge status={row.status} />,
       },
       {
         key: "updatedAt",
-        header: "Updated",
+        header: t("customers.table.columns.updated"),
         sortable: true,
         render: (row) => formatDisplayDate(row.updatedAt),
       },
       {
         key: "actions",
-        header: "Actions",
+        header: t("customers.table.columns.actions"),
         align: "right",
         render: (row) => (
           <div
@@ -98,40 +99,46 @@ export function CustomerTable(): JSX.Element {
             <Button
               size="sm"
               variant="ghost"
-              aria-label={`View ${row.companyName}`}
+              aria-label={t("customers.table.viewAria", {
+                company: row.companyName,
+              })}
               onClick={() => customerStore.openDetails(row.id)}
             >
-              View
+              {t("customers.table.view")}
             </Button>
             <Button
               size="sm"
               variant="secondary"
-              aria-label={`Edit ${row.companyName}`}
+              aria-label={t("customers.table.editAria", {
+                company: row.companyName,
+              })}
               onClick={() => customerStore.openEdit(row)}
             >
-              Edit
+              {t("customers.table.edit")}
             </Button>
             <Button
               size="sm"
               variant="danger"
-              aria-label={`Delete ${row.companyName}`}
+              aria-label={t("customers.table.deleteAria", {
+                company: row.companyName,
+              })}
               onClick={() => customerStore.requestDelete(row.id)}
             >
-              Delete
+              {t("customers.table.delete")}
             </Button>
           </div>
         ),
       },
     ],
-    [],
+    [t],
   );
 
   if (state.error && state.items.length === 0) {
     return (
       <Card className="space-y-4" padding="24px" hover={false}>
         <ErrorState
-          title="Couldn’t load customers"
-          description={state.error}
+          title={t("customers.table.errorLoad")}
+          description={t(state.error)}
           onRetry={() =>
             void customerStore.hydrate(state.organizationId ?? "org_local_default")
           }
@@ -144,8 +151,8 @@ export function CustomerTable(): JSX.Element {
     <Card className="space-y-4" padding="24px" hover={false}>
       {state.error ? (
         <ErrorState
-          title="Something went wrong"
-          description={state.error}
+          title={t("customers.table.errorGeneric")}
+          description={t(state.error)}
           onRetry={() =>
             void customerStore.hydrate(state.organizationId ?? "org_local_default")
           }
@@ -157,7 +164,7 @@ export function CustomerTable(): JSX.Element {
           <Skeleton height={48} />
           <Skeleton height={48} />
           <Skeleton height={48} />
-          <p className="sr-only">Loading customers…</p>
+          <p className="sr-only">{t("customers.table.loading")}</p>
         </div>
       ) : (
         <DataTable
@@ -174,25 +181,27 @@ export function CustomerTable(): JSX.Element {
           onSort={(key) => customerStore.setSort(key as CustomerSortKey)}
           onRowClick={(row) => customerStore.openDetails(row.id)}
           emptyTitle={
-            hasFilters ? "No matching customers" : "No customers yet"
+            hasFilters
+              ? t("customers.table.emptyFilteredTitle")
+              : t("customers.table.emptyTitle")
           }
           emptyDescription={
             hasFilters
-              ? "Try adjusting search or filters."
-              : "Create your first customer to start managing your accounts."
+              ? t("customers.table.emptyFilteredDescription")
+              : t("customers.table.emptyDescription")
           }
           minWidth={880}
           toolbar={
             <div className="flex w-full flex-col gap-3 lg:flex-row lg:items-end">
               <SearchField
-                label="Search customers"
+                label={t("customers.table.searchLabel")}
                 controlSize="sm"
                 value={state.search}
                 onChange={(value) => customerStore.setSearch(value)}
-                placeholder="Company, contact, email, city, tags…"
+                placeholder={t("customers.table.searchPlaceholder")}
               />
               <FilterSelect
-                label="Status"
+                label={t("customers.table.statusFilter")}
                 controlSize="sm"
                 value={state.statusFilter}
                 onChange={(event) =>
@@ -201,21 +210,21 @@ export function CustomerTable(): JSX.Element {
                   )
                 }
               >
-                <option value="all">All statuses</option>
-                <option value="active">Active</option>
-                <option value="prospect">Prospect</option>
-                <option value="inactive">Inactive</option>
-                <option value="blocked">Blocked</option>
+                <option value="all">{t("customers.table.allStatuses")}</option>
+                <option value="active">{t("customers.status.active")}</option>
+                <option value="prospect">{t("customers.status.prospect")}</option>
+                <option value="inactive">{t("customers.status.inactive")}</option>
+                <option value="blocked">{t("customers.status.blocked")}</option>
               </FilterSelect>
               <FilterSelect
-                label="Tag"
+                label={t("customers.table.tagFilter")}
                 controlSize="sm"
                 value={state.tagFilter}
                 onChange={(event) =>
                   customerStore.setTagFilter(event.target.value)
                 }
               >
-                <option value="">All tags</option>
+                <option value="">{t("customers.table.allTags")}</option>
                 {tagOptions.map((tag) => (
                   <option key={tag} value={tag}>
                     {tag}
@@ -232,7 +241,7 @@ export function CustomerTable(): JSX.Element {
                     customerStore.setTagFilter("");
                   }}
                 >
-                  Clear filters
+                  {t("customers.table.clearFilters")}
                 </Button>
               ) : null}
               <Button
@@ -240,7 +249,7 @@ export function CustomerTable(): JSX.Element {
                 size="sm"
                 onClick={() => customerStore.openCreate()}
               >
-                Add Customer
+                {t("customers.table.addCustomer")}
               </Button>
             </div>
           }

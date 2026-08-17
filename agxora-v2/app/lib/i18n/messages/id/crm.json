@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "OS Bisnis AGXORA",
+    "title": "AI CRM",
+    "subtitle": "CRM asli AI dan Sistem Operasi Kreator — pelanggan, saluran pipa, pesanan, pengiriman, dokumen, komunikasi, dan arsitektur kreator untuk setiap industri."
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "Dasbor CRM"
+    },
+    "customer360": {
+      "title": "Pelanggan 360°",
+      "subtitle": "Profil, perusahaan, kontak, pesanan, faktur, Lieferscheine, pembayaran, dokumen, garis waktu, aktivitas, catatan, ringkasan AI, dan riwayat komunikasi."
+    },
+    "salesPipeline": {
+      "title": "Saluran Penjualan",
+      "subtitle": "Tahapan Kanban dengan drag & drop — Memimpin, Memenuhi Syarat, Proposal, Negosiasi, Menang, Kalah."
+    },
+    "ordersModule": {
+      "title": "Modul Pesanan"
+    },
+    "deliveryModule": {
+      "title": "Modul Pengiriman",
+      "subtitle": "Sistem Lieferschein profesional dengan kesiapan pelacakan, tanda tangan, QR, dan barcode."
+    },
+    "documentsModule": {
+      "title": "Dokumen",
+      "subtitle": "Kutipan, kontrak, faktur, Lieferschein, pesanan pembelian, kwitansi — dengan pencarian AI."
+    },
+    "tasksModule": {
+      "title": "Tugas"
+    },
+    "communicationHub": {
+      "title": "Pusat Komunikasi",
+      "subtitle": "Registri adaptor hanya untuk perpesanan, sosial, email, suara, dan video."
+    },
+    "creatorStudio": {
+      "title": "Yayasan Studio Pembuat Konten",
+      "subtitle": "Adaptor platform siap untuk integrasi resmi nanti."
+    },
+    "aiCreator": {
+      "title": "Pencipta AI",
+      "subtitle": "Peta kemampuan perusahaan untuk konten, kalender, pembuatan, dan penerbitan."
+    },
+    "industryPlatform": {
+      "title": "Platform Bisnis Universal",
+      "subtitle": "Registri industri modular — setiap vertikal dapat menerima modul AI khusus."
+    }
+  },
+  "directory": {
+    "errorTitle": "Tidak dapat memuat CRM",
+    "sort": {
+      "companyName": "Perusahaan",
+      "contactName": "Kontak",
+      "email": "E-mail",
+      "phone": "Telepon",
+      "industry": "Industri",
+      "status": "Status",
+      "owner": "Pemilik",
+      "createdAt": "Dibuat"
+    },
+    "search": {
+      "label": "Cari pelanggan",
+      "placeholder": "Perusahaan, kontak, email, tag…"
+    },
+    "view": {
+      "table": "Meja",
+      "cards": "Kartu-kartu"
+    },
+    "actions": {
+      "newCustomer": "Pelanggan baru"
+    },
+    "filters": {
+      "status": "Status",
+      "industry": "Industri",
+      "owner": "Pemilik",
+      "country": "Negara",
+      "tags": "Tag",
+      "allStatuses": "Semua status",
+      "allIndustries": "Semua industri",
+      "allOwners": "Semua pemilik",
+      "allCountries": "Semua negara",
+      "allTags": "Semua tag"
+    },
+    "empty": {
+      "ready": {
+        "title": "CRM Anda sudah siap",
+        "description": "Buat catatan pelanggan pertama untuk membuka kunci direktori, profil, dan aktivitas.",
+        "action": "Buat pelanggan"
+      },
+      "noMatches": {
+        "title": "Tidak ada pelanggan yang cocok",
+        "description": "Coba sesuaikan pencarian atau filter untuk menemukan catatan yang tepat.",
+        "action": "Hapus filter"
+      }
+    },
+    "pagination": {
+      "previous": "Sebelumnya",
+      "next": "Berikutnya"
+    },
+    "showing": "Menampilkan {from}–{to} dari {total}",
+    "aria": {
+      "openCustomer": "Pelanggan terbuka {company}"
+    },
+    "cardMeta": "Pemilik {owner} · Dibuat pada tanggal {date}",
+    "sortBy": "Urutkan berdasarkan {column}"
+  },
+  "status": {
+    "lead": "Memimpin",
+    "prospect": "Prospek",
+    "active": "Aktif",
+    "inactive": "Tidak aktif",
+    "vip": "VIP",
+    "archived": "Diarsipkan"
+  },
+  "form": {
+    "createTitle": "Buat Pelanggan",
+    "editTitle": "Sunting Pelanggan",
+    "cancel": "Membatalkan",
+    "saveChanges": "Simpan perubahan",
+    "createCustomer": "Buat pelanggan",
+    "companyName": "Nama perusahaan",
+    "contactName": "Nama Kontak",
+    "email": "E-mail",
+    "phone": "Telepon",
+    "website": "Situs web",
+    "industry": "Industri",
+    "country": "Negara",
+    "city": "Kota",
+    "address": "Alamat",
+    "taxNumber": "Nomor Pajak",
+    "owner": "Pemilik",
+    "status": "Status",
+    "tags": "Tag",
+    "statusAria": "Status pelanggan",
+    "tagsHint": "Dipisahkan koma, diberi kode warna secara otomatis",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "perusahaan, ritel"
+  },
+  "toasts": {
+    "customerCreated": "Pelanggan dibuat",
+    "customerUpdated": "Pelanggan diperbarui",
+    "checkForm": "Periksa formulirnya",
+    "validationFailed": "Validasi gagal.",
+    "customerDeleted": "Pelanggan dihapus",
+    "deleteFailed": "Penghapusan gagal",
+    "customerCouldNotBeRemoved": "Pelanggan tidak dapat dihapus.",
+    "contactSaved": "Kontak disimpan",
+    "documentsAttached": "Dokumen terlampir",
+    "documentsAttachedDetail": "{count} file",
+    "noteSaved": "Catatan disimpan"
+  },
+  "deleteDialog": {
+    "title": "Hapus pelanggan",
+    "cancel": "Membatalkan",
+    "deletePermanently": "Hapus secara permanen",
+    "thisCustomer": "pelanggan ini",
+    "bodyPrefix": "Ini menghilangkan",
+    "bodySuffix": "dan kontak terkait, catatan, dokumen, dan aktivitas dari penyimpanan lokal. Proyek tertaut tidak dihapus."
+  },
+  "validation": {
+    "companyNameRequired": "Nama perusahaan wajib diisi.",
+    "contactNameRequired": "Nama kontak wajib diisi.",
+    "emailRequired": "Email diperlukan.",
+    "emailInvalid": "Masukkan alamat email yang valid.",
+    "phoneRequired": "Telepon diperlukan.",
+    "phoneInvalid": "Masukkan nomor telepon yang valid.",
+    "websiteInvalid": "Masukkan situs web yang valid.",
+    "industryRequired": "Industri diperlukan.",
+    "ownerRequired": "Pemilik diperlukan.",
+    "statusInvalid": "Pilih status yang valid.",
+    "emailDuplicate": "Pelanggan dengan email ini sudah ada.",
+    "nameRequired": "Nama wajib diisi.",
+    "mobileInvalid": "Masukkan nomor ponsel yang valid.",
+    "mobileRequired": "Ponsel diperlukan.",
+    "roleRequired": "Peran diperlukan.",
+    "noteTitleRequired": "Judul diperlukan.",
+    "noteBodyRequired": "Badan catatan wajib diisi.",
+    "noteAuthorRequired": "Penulis diperlukan."
+  },
+  "errors": {
+    "failedToLoadCustomers": "Gagal memuat pelanggan.",
+    "failedToLoadCustomerProfile": "Gagal memuat profil pelanggan.",
+    "organizationRequired": "Organisasi diperlukan.",
+    "failedToSaveCustomer": "Gagal menyelamatkan pelanggan.",
+    "failedToDeleteCustomer": "Gagal menghapus pelanggan.",
+    "failedToSaveContact": "Gagal menyimpan kontak.",
+    "failedToSaveNote": "Gagal menyimpan catatan.",
+    "failedToUploadDocument": "Gagal mengunggah dokumen."
+  },
+  "workspace": {
+    "badge": "CRM Perusahaan 2.0",
+    "title": "Manajemen Hubungan Pelanggan",
+    "subtitleBeforeOrg": "Kelola direktori pelanggan, profil, kontak, catatan, dan dokumen",
+    "subtitleAfterOrg": "Proyek ditautkan berdasarkan nama perusahaan dari modul Proyek tanpa menduplikasi data.",
+    "yourOrganization": "organisasi Anda"
+  },
+  "analytics": {
+    "totalCustomers": "Jumlah Pelanggan",
+    "activeCustomers": "Pelanggan Aktif",
+    "newCustomers": "Pelanggan Baru",
+    "vipCustomers": "Pelanggan VIP",
+    "createdThisMonth": "Dibuat bulan ini",
+    "leadConversion": "Konversi prospek",
+    "leadConversionHint": "Bagian aktif dan VIP dari saluran prospek/prospek/yang dikonversi.",
+    "customerGrowth": "Pertumbuhan pelanggan"
+  },
+  "profile": {
+    "backToCrm": "← Kembali ke CRM",
+    "ownerLabel": "Pemilik",
+    "notFoundTitle": "Pelanggan tidak ditemukan",
+    "notFoundDescription": "Pelanggan ini mungkin telah dihapus.",
+    "missingCustomerTitle": "Pelanggan hilang",
+    "missingOverviewDescription": "Pilih pelanggan untuk melihat ikhtisar.",
+    "missingSettingsDescription": "Pilih pelanggan untuk mengelola pengaturan.",
+    "ariaProfileNav": "Profil pelanggan",
+    "tabs": {
+      "overview": "Ringkasan",
+      "contacts": "Kontak",
+      "projects": "Proyek",
+      "documents": "Dokumen",
+      "invoices": "Faktur",
+      "activity": "Aktivitas",
+      "notes": "Catatan",
+      "settings": "Pengaturan"
+    },
+    "overview": {
+      "title": "Ringkasan",
+      "email": "E-mail",
+      "phone": "Telepon",
+      "website": "Situs web",
+      "taxNumber": "Nomor pajak",
+      "location": "Lokasi",
+      "address": "Alamat",
+      "created": "Dibuat",
+      "updated": "Diperbarui",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "Tambahkan kontak",
+      "editTitle": "Sunting kontak",
+      "listTitle": "Kontak",
+      "name": "Nama",
+      "role": "Peran",
+      "email": "E-mail",
+      "phone": "Telepon",
+      "mobile": "Seluler",
+      "notes": "Catatan",
+      "saveContact": "Simpan kontak",
+      "emptyTitle": "Belum ada kontak",
+      "emptyDescription": "Tambahkan pemangku kepentingan dengan detail peran, email, dan telepon.",
+      "defaultRole": "Kontak",
+      "mobilePrefix": "Seluler"
+    },
+    "projects": {
+      "title": "Proyek",
+      "emptyTitle": "Tidak ada proyek terkait",
+      "emptyDescription": "Proyek yang nama pelanggannya cocok dengan perusahaan ini muncul di sini. Data dibaca dari modul Projects — tidak ada yang diduplikasi.",
+      "openProjects": "Buka Proyek"
+    },
+    "documents": {
+      "title": "Dokumen",
+      "subtitle": "Gambar, PDF, dan dokumen kantor — hanya metadata di Penyimpanan Lokal.",
+      "attachFiles": "Lampirkan file",
+      "emptyTitle": "Tidak ada dokumen",
+      "emptyDescription": "Lampirkan file pelanggan untuk tim akun.",
+      "systemUploader": "Sistem"
+    },
+    "invoices": {
+      "emptyTitle": "Belum ada faktur",
+      "emptyDescription": "Faktur untuk pelanggan ini muncul di sini ketika ditautkan dari Keuangan."
+    },
+    "activity": {
+      "title": "Aktivitas",
+      "emptyTitle": "Belum ada aktivitas",
+      "emptyDescription": "Pembuatan, pembaruan, catatan, dan dokumen muncul di sini terbaru terlebih dahulu.",
+      "kinds": {
+        "customer_created": "Pelanggan dibuat",
+        "customer_updated": "Pelanggan diperbarui",
+        "contact_added": "Kontak ditambahkan",
+        "contact_updated": "Kontak diperbarui",
+        "contact_deleted": "Kontak dihapus",
+        "note_added": "Catatan ditambahkan",
+        "note_updated": "Catatan diperbarui",
+        "note_deleted": "Catatan dihapus",
+        "document_added": "Dokumen ditambahkan",
+        "document_deleted": "Dokumen dihapus",
+        "project_linked": "Proyek tertaut"
+      }
+    },
+    "notes": {
+      "newTitle": "Catatan baru",
+      "editTitle": "Sunting catatan",
+      "title": "Judul",
+      "author": "Pengarang",
+      "body": "Tubuh",
+      "saveNote": "Simpan catatan",
+      "emptyTitle": "Belum ada catatan",
+      "emptyDescription": "Tangkap konteks akun dengan penulis dan stempel waktu."
+    },
+    "settings": {
+      "title": "Pengaturan",
+      "description": "Edit semua bidang profil atau arsipkan akun ini. Penghapusan menggunakan dialog konfirmasi.",
+      "editAllFields": "Edit semua bidang",
+      "prepareArchive": "Siapkan arsip",
+      "deleteCustomer": "Hapus pelanggan"
+    }
+  },
+  "customer360": {
+    "ariaSections": "Bagian Pelanggan 360",
+    "email": "E-mail",
+    "phone": "Telepon",
+    "aiHealth": "Kesehatan AI",
+    "tabs": {
+      "profile": "Profil",
+      "company": "Perusahaan",
+      "contacts": "Kontak",
+      "orders": "Pesanan",
+      "invoices": "Faktur",
+      "lieferscheine": "Lieferscheine",
+      "payments": "Pembayaran",
+      "documents": "Dokumen",
+      "timeline": "Garis Waktu",
+      "activities": "Kegiatan",
+      "notes": "Catatan",
+      "aiSummary": "Ringkasan AI",
+      "communicationHistory": "Sejarah Komunikasi"
+    },
+    "profileLines": {
+      "customerId": "ID Pelanggan",
+      "status": "Status",
+      "primaryContact": "Kontak utama"
+    },
+    "status": {
+      "churn_risk": "Risiko churn"
+    }
+  },
+  "delivery": {
+    "title": "Sistem Lieferschein Profesional",
+    "description": "Catatan pengiriman, penjemputan / pengantaran, pengemudi, kendaraan, dan pelacakan — catatan sampel saja. Adaptor ekspor tidak terhubung.",
+    "badges": {
+      "qrUnavailable": "QR tidak tersedia",
+      "barcodeUnavailable": "Kode batang tidak tersedia",
+      "signatureDemo": "Demo tanda tangan"
+    },
+    "exportPdf": "Ekspor PDF",
+    "deliveryHistory": "Riwayat Pengiriman",
+    "notices": {
+      "exportNotConnected": "Ekspor PDF, QR, dan kode batang tidak terhubung dalam build ini.",
+      "exportPdfUnavailable": "Ekspor PDF tidak tersedia — ekspor pengiriman tidak terhubung.",
+      "historyNotConnected": "Penyimpanan riwayat pengiriman tidak terhubung dalam build ini."
+    },
+    "columns": {
+      "lieferschein": "Lieferschein",
+      "order": "Memesan",
+      "customer": "Pelanggan",
+      "kind": "Baik",
+      "driver": "Pengemudi",
+      "vehicle": "Kendaraan",
+      "tracking": "Pelacakan",
+      "scheduled": "Dijadwalkan"
+    }
+  },
+  "orders": {
+    "description": "Produk, layanan, harga, diskon, pajak, dan pelanggan — buku besar pesanan perusahaan.",
+    "createOrder": "Buat Pesanan",
+    "notices": {
+      "apiReserved": "API pembuatan pesanan dicadangkan untuk jalur penulisan di masa mendatang.",
+      "draftStaged": "Buat draf Pesanan secara bertahap (belum ada API)."
+    },
+    "columns": {
+      "order": "Memesan",
+      "customer": "Pelanggan",
+      "status": "Status",
+      "lines": "Garis",
+      "net": "Bersih",
+      "tax": "Pajak",
+      "gross": "Bruto",
+      "created": "Dibuat"
+    },
+    "lineTax": "{taxPct}% pajak"
+  },
+  "tasks": {
+    "calendarTitle": "Kalender · Rapat · Pengingat · Tindak lanjut",
+    "foundationTitle": "Landasan OS Tugas",
+    "foundationDescription": "Sinkronisasi kalender, penyedia rapat, tugas pengingat, dan kait otomatisasi tindak lanjut sudah dipesan. Papan ini adalah permukaan tugas CRM bersama untuk setiap modul industri.",
+    "badges": {
+      "calendarAdapter": "Adaptor kalender",
+      "meetingAdapter": "Adaptor pertemuan",
+      "reminderQueue": "Antrian pengingat",
+      "followUpEngine": "Mesin tindak lanjut"
+    },
+    "duePrefix": "Jatuh tempo",
+    "kinds": {
+      "follow_up": "Menindaklanjuti",
+      "meeting": "Pertemuan",
+      "reminder": "Pengingat",
+      "task": "Tugas"
+    },
+    "statuses": {
+      "open": "Membuka",
+      "in_progress": "Sedang berlangsung",
+      "done": "Selesai",
+      "cancelled": "Dibatalkan"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "Tidak ada dokumen",
+    "emptyDescription": "Tidak ada dokumen yang cocok dengan pencarian ini.",
+    "searchLabel": "Pencarian AI",
+    "searchPlaceholder": "Kutipan, kontrak, faktur, Lieferschein…",
+    "typeLabel": "Jenis dokumen",
+    "allTypes": "Semua tipe",
+    "columns": {
+      "type": "Jenis",
+      "title": "Judul",
+      "customer": "Pelanggan",
+      "status": "Status",
+      "updated": "Diperbarui"
+    },
+    "kinds": {
+      "quote": "Kutipan",
+      "contract": "Kontrak",
+      "invoice": "Faktur",
+      "lieferschein": "Lieferschein",
+      "purchase_order": "Pesanan Pembelian",
+      "receipt": "Tanda terima"
+    }
+  },
+  "communication": {
+    "intro": "Hanya arsitektur saluran yang dapat diskalakan — Email, WhatsApp, Instagram, Facebook, TikTok, LinkedIn, Telegram, Suara, dan Video. Tidak ada integrasi langsung palsu.",
+    "adapterPrefix": "Adaptor:"
+  },
+  "aiCreator": {
+    "intro": "Permukaan AI Creator yang siap menghadapi masa depan — ide, keterangan, hashtag, kalender, kampanye, suara merek, pembuatan gambar/video, analitik, penjadwalan, antrean penerbitan, dan wawasan. Belum ada API penyedia nyata yang terhubung."
+  },
+  "creatorStudio": {
+    "intro": "Fondasi Creator Studio — integrasi platform resmi dapat dihubungkan ke adaptor ini nanti. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Utas, X."
+  },
+  "industry": {
+    "intro": "Platform Bisnis Universal — orientasi nantinya akan memilih industri. Setiap industri menerima modul AI khusus tanpa mengorbankan OS CRM inti."
+  },
+  "kpi": {
+    "customers": {
+      "label": "Pelanggan",
+      "caption": "Hubungan aktif"
+    },
+    "companies": {
+      "label": "Perusahaan",
+      "caption": "Organisasi akun"
+    },
+    "leads": {
+      "label": "Memimpin",
+      "caption": "Baru bulan ini"
+    },
+    "deals": {
+      "label": "Penawaran",
+      "caption": "Buka saluran pipa"
+    },
+    "revenue": {
+      "label": "Pendapatan",
+      "caption": "Menang YTD"
+    },
+    "projects": {
+      "label": "Proyek Aktif",
+      "caption": "Pengiriman dalam penerbangan"
+    },
+    "tasks": {
+      "label": "Buka Tugas",
+      "caption": "Di seluruh pengiriman CRM +"
+    },
+    "ai-health": {
+      "label": "Skor Kesehatan AI",
+      "caption": "Sinyal kualitas hubungan"
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "pipeline": {
+    "lead": "Memimpin",
+    "qualified": "Berkualitas",
+    "proposal": "Usul",
+    "negotiation": "Perundingan",
+    "won": "Won",
+    "lost": "Hilang"
+  },
+  "orderStatus": {
+    "draft": "Draf",
+    "confirmed": "Dikonfirmasi",
+    "in_fulfillment": "Dalam pemenuhan",
+    "shipped": "Dikirim",
+    "delivered": "Terkirim",
+    "cancelled": "Dibatalkan"
+  },
+  "tracking": {
+    "scheduled": "Dijadwalkan",
+    "en_route": "Dalam perjalanan",
+    "arrived": "Tiba",
+    "completed": "Selesai",
+    "failed": "Gagal"
+  },
+  "documentKind": {
+    "quote": "Mengutip",
+    "contract": "Kontrak",
+    "invoice": "Faktur",
+    "lieferschein": "Lieferschein",
+    "purchase_order": "Pesanan Pembelian",
+    "receipt": "Kuitansi"
+  },
+  "documentStatus": {
+    "sent": "Terkirim",
+    "signed": "Ditandatangani",
+    "paid": "Dibayar",
+    "in_transit": "Dalam perjalanan",
+    "open": "Membuka",
+    "filed": "Diarsipkan"
+  },
+  "integration": {
+    "planned": "Berencana",
+    "ready": "Siap",
+    "connected": "Terhubung",
+    "disabled": "Dengan disabilitas"
+  }
+}

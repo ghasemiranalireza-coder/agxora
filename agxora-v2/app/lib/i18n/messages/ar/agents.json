@@ -1,0 +1,125 @@
+{
+  "loading": "جارٍ تحميل نظام تشغيل الوكيل...",
+  "eyebrow": "نظام تشغيل وكيل الذكاء الاصطناعي",
+  "title": "وكيل نظام التشغيل",
+  "subtitle": "مساحة عمل الوكيل المحلي - يمكن تنشيط الوكلاء وتشغيلهم كمحاكاة عبر إدارة علاقات العملاء والمشاريع والمالية ومسارات العمل وعمليات التكامل. التنفيذ المستقل للإنتاج غير متصل.",
+  "noticeDefault": "تتم محاكاة عمليات التشغيل المحلية لنظام التشغيل الوكيل في مساحة العمل هذه.",
+  "aiChat": "دردشة الذكاء الاصطناعي",
+  "tabs": {
+    "dashboard": "لوحة القيادة",
+    "registry": "التسجيل",
+    "marketplace": "السوق",
+    "monitor": "شاشة",
+    "history": "تاريخ",
+    "memory": "ذاكرة",
+    "knowledge": "معرفة",
+    "tools": "أدوات",
+    "settings": "إعدادات"
+  },
+  "notice": {
+    "simulatedRun": "محاكاة التشغيل · {status} ({duration} مللي ثانية)",
+    "taskFailed": "فشلت المهمة",
+    "activated": "تم التنشيط محليًا: {agentId}",
+    "agentPaused": "توقف الوكيل مؤقتًا",
+    "agentActivated": "تم تفعيل الوكيل",
+    "taskCancelled": "تم إلغاء المهمة",
+    "supervisorDelegated": "قام المشرف بتفويض المتابعة",
+    "settingsUpdated": "تم تحديث إعدادات نظام تشغيل الوكيل لمساحة العمل المحلية هذه."
+  },
+  "dashboard": {
+    "agents": "الوكلاء",
+    "active": "نشيط",
+    "localReady": "محلية جاهزة",
+    "simulatedToday": "محاكاة اليوم",
+    "failedToday": "فشل اليوم",
+    "avgExec": "متوسط ​​التنفيذ",
+    "toolCalls": "مكالمات الأداة",
+    "knowledge": "معرفة",
+    "activeFleet": "أسطول نشط",
+    "emptyTitle": "لا يوجد وكلاء نشطين",
+    "emptyDescription": "قم بتثبيت أو تنشيط وكيل من السوق لبدء عمليات التشغيل المحاكية."
+  },
+  "registry": {
+    "title": "التسجيل",
+    "selectPrompt": "حدد وكيلاً من التسجيل.",
+    "status": "الحالة: {status}",
+    "health": "الصحة: ​​{health}",
+    "queue": "قائمة الانتظار: {queue}",
+    "usage": "الاستخدام: {usage}",
+    "executeTask": "تنفيذ المهمة",
+    "supervisorDelegate": "مندوب المشرف"
+  },
+  "marketplace": {
+    "tools": "الأدوات: {tools}",
+    "installed": "تم التثبيت",
+    "installActivate": "التثبيت والتنشيط"
+  },
+  "monitor": {
+    "title": "مراقب الوكيل",
+    "emptyTitle": "لا يوجد وكلاء للمراقبة",
+    "emptyDescription": "تفعيل الوكلاء من السوق.",
+    "latestConfidence": "أحدث ثقة في الاستدلال: {confidence} — {steps}"
+  },
+  "history": {
+    "title": "تاريخ التنفيذ",
+    "emptyTitle": "لا توجد عمليات إعدام حتى الآن",
+    "emptyDescription": "قم بتشغيل مهمة وكيل من السجل أو جهاز العرض."
+  },
+  "memory": {
+    "title": "مركز الذاكرة",
+    "subtitle": "العمل · المحادثة · الأعمال · المدى الطويل · مساحة العمل · نطاقات الوكلاء (جاهزة للهندسة المعمارية).",
+    "emptyTitle": "لا توجد سجلات الذاكرة",
+    "emptyDescription": "قم بتنفيذ مهمة لملء ذاكرة العمل/الوكيل."
+  },
+  "knowledge": {
+    "title": "مركز المعرفة",
+    "subtitle": "الشركة والمستندات والمشاريع وإدارة علاقات العملاء والسياسات والإجراءات - بالإضافة إلى العناصر النائبة للناقل/RAG.",
+    "emptyTitle": "لا توجد مستندات المعرفة",
+    "emptyDescription": "تظهر المعرفة الأولية بعد تمهيد مساحة العمل."
+  },
+  "tools": {
+    "sensitive": "· حساس",
+    "mcpReady": "· MCP جاهز"
+  },
+  "settings": {
+    "title": "إعدادات نظام تشغيل الوكيل",
+    "defaultLlmProvider": "مزود LLM الافتراضي",
+    "enableSupervisor": "تمكين بنية وكيل المشرف",
+    "isolateSensitive": "عزل الأدوات الحساسة",
+    "saveSettings": "حفظ الإعدادات",
+    "providersHint": "مقدمو الخدمة جاهزون: OpenAI، وAzure OpenAI، وAnthropic، وGemini، وLocal، وOllama، وMCP، وCustom. قم بتبديل المحولات عبر RegisterLlmProvider بدون تغييرات في واجهة المستخدم."
+  },
+  "columns": {
+    "agent": "عامل",
+    "status": "حالة",
+    "health": "صحة",
+    "queue": "طابور",
+    "usage": "الاستخدام",
+    "actions": "الإجراءات",
+    "task": "مهمة",
+    "duration": "مدة",
+    "created": "مخلوق",
+    "scope": "نِطَاق",
+    "key": "مفتاح",
+    "value": "قيمة",
+    "at": "في",
+    "title": "عنوان",
+    "kind": "عطوف",
+    "summary": "ملخص"
+  },
+  "actions": {
+    "run": "يجري",
+    "pause": "يوقف",
+    "activate": "فعل",
+    "cancel": "يلغي",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "تنفيذ هدف العمل {agentId}.",
+    "planAndExecute": "تخطيط وتنفيذ هدف عمل مساحة العمل"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "أعطِ أولوية لأثر العميل",
+    "delegatedFollowUp": "متابعة مُفوَّضة"
+  }
+}

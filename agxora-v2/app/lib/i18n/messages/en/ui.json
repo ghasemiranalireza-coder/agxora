@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "No results",
+    "noResultsDescription": "Nothing matches the current filters.",
+    "previous": "Previous",
+    "next": "Next",
+    "paginationRange": "{start}–{end} of {total}",
+    "sortAscending": "Sort ascending",
+    "sortDescending": "Sort descending"
+  },
+  "dialog": {
+    "close": "Close dialog"
+  },
+  "module": {
+    "notAvailableTitle": "{title} is not available yet",
+    "notAvailableDescription": "This module shell is prepared for a future release. No records are stored here yet."
+  },
+  "states": {
+    "errorLabel": "Error",
+    "errorTitle": "Something went wrong",
+    "errorDescription": "We couldn't complete that request. Try again in a moment.",
+    "retry": "Retry"
+  },
+  "empty": {
+    "crmTitle": "Your CRM is ready",
+    "crmDescription": "Create the first customer record to unlock directory, profiles, and activity.",
+    "crmAction": "Open CRM",
+    "projectsTitle": "No projects yet",
+    "projectsDescription": "Spin up a delivery workspace to track milestones, budget, and team ownership.",
+    "projectsAction": "Open Projects",
+    "analyticsTitle": "Analytics awaits signal",
+    "analyticsDescription": "Once your workspace generates activity, executive KPIs and alerts appear here.",
+    "analyticsAction": "Open Analytics",
+    "documentsTitle": "Document library is empty",
+    "documentsDescription": "Upload or create knowledge assets to power approvals, versions, and AI context.",
+    "documentsAction": "Open Documents",
+    "billingTitle": "No billing history yet",
+    "billingDescription": "Upgrade a plan to generate invoices, renewals, and payment history.",
+    "billingAction": "Open billing",
+    "agentsTitle": "No agents active",
+    "agentsDescription": "Install or activate an agent from the marketplace to start autonomous runs.",
+    "agentsAction": "Open Agent OS"
+  },
+  "yes": "Yes",
+  "no": "No",
+  "dash": "—"
+}

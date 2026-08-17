@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "アイデンティティとアクセス",
+    "title": "チーム",
+    "lead": "{organization} のメンバー、役割、招待状。将来の ID API に備えたアーキテクチャ。",
+    "yourOrganization": "あなたの組織"
+  },
+  "invite": {
+    "title": "電子メールで招待する",
+    "email": "電子メール",
+    "emailPlaceholder": "同僚@company.com",
+    "role": "役割",
+    "submit": "招待する",
+    "created": "招待状が作成されました (保留中)。",
+    "failed": "招待に失敗しました",
+    "signInFirst": "まずサインインして組織をアクティブ化します。",
+    "noPermission": "権限がありません — 招待するには管理者またはマネージャーが必要です。"
+  },
+  "roles": {
+    "title": "役割",
+    "owner": {
+      "name": "所有者",
+      "description": "設定や請求を含む完全な組織制御。"
+    },
+    "admin": {
+      "name": "管理者",
+      "description": "財務、自動化、チーム、およびワークスペースのモジュールを管理します。"
+    },
+    "manager": {
+      "name": "マネージャー",
+      "description": "CRM、プロジェクト、ドキュメント、クリエイターの業務を主導します。"
+    },
+    "employee": {
+      "name": "従業員",
+      "description": "CRM、ドキュメント、クリエイター、プロジェクトへの日常的なアクセス。"
+    },
+    "guest": {
+      "name": "ゲスト",
+      "description": "ドキュメントとプロジェクトへの読み取りアクセスが制限されています。"
+    },
+    "viewer": {
+      "name": "ビューア",
+      "description": "共有モジュールへの読み取り専用アクセス。"
+    }
+  },
+  "members": {
+    "title": "メンバー",
+    "columnMember": "メンバー",
+    "columnEmail": "電子メール",
+    "columnRole": "役割",
+    "columnStatus": "状態",
+    "roleFor": "{name}の役割",
+    "emptyTitle": "まだメンバーがいません",
+    "emptyDescription": "この組織のワークスペースに同僚を招待します。",
+    "updated": "{name} を {role} に更新しました",
+    "roleChangeFailed": "役割の変更に失敗しました"
+  },
+  "pending": {
+    "title": "保留中の招待状",
+    "emptyTitle": "保留中の招待はありません",
+    "emptyDescription": "新しい招待は、承認されるか期限が切れるまでここに表示されます。",
+    "expires": "{role} · 有効期限は {date} になります",
+    "revoke": "取り消す",
+    "pending": "保留中"
+  },
+  "history": {
+    "title": "招待履歴",
+    "empty": "承認された招待状、期限切れの招待状、取り消された招待状がここに表示されます。"
+  },
+  "status": {
+    "accepted": "受け入れられました",
+    "expired": "期限切れ",
+    "revoked": "取り消された",
+    "active": "アクティブ",
+    "inactive": "非アクティブな",
+    "pending": "保留中"
+  }
+}

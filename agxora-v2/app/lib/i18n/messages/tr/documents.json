@@ -1,0 +1,388 @@
+{
+  "page": {
+    "brand": "AGXORA Bilgi İşletim Sistemi",
+    "title": "Belgeler",
+    "subtitle": "Kurumsal belgeler ve bilgi merkezi — depolama ve onay arka uçları bağlanana kadar örnek içerikle birlikte önizlenir.",
+    "sampleNotice": "Örnek kitaplık — tarama ve filtreler oturum içinde çalışır. Yükleme, onaylama ve AI dizini eylemleri birbirine bağlı değildir."
+  },
+  "sections": {
+    "kpis": {
+      "title": "Bilgi Kontrol Paneli"
+    },
+    "library": {
+      "title": "Belge Kitaplığı",
+      "subtitle": "Tüm Belgeler, En Son Kullanılanlar, Sık Kullanılanlar, Paylaşılanlar, Arşivlenenler, Çöp Kutusu, Bilgi Bankası — klasörler, arama, görüntüleyici ve sürümlerle birlikte."
+    },
+    "knowledge": {
+      "title": "Bilgi Bankası",
+      "subtitle": "Makaleler, politikalar, süreçler, kılavuzlar, SSS'ler ve dahili wiki."
+    },
+    "approvals": {
+      "title": "Onaylar",
+      "subtitle": "Taslak, İncelemede, Onaylandı, Reddedildi, Arşivlendi — Otomasyon mimarisiyle bağlantılı."
+    },
+    "ai": {
+      "title": "Yapay Zeka Bilgi Katmanı",
+      "subtitle": "Özet, anahtar kelimeler, sınıflandırma, etiketler, klasörler, ilgili belgeler, kopyalar, çeviri, OCR ve arama — yalnızca mimari."
+    },
+    "activity": {
+      "title": "Etkinlik",
+      "subtitle": "Son değişiklikler, yüklemeler, görüntülemeler, paylaşımlar ve denetim geçmişi."
+    },
+    "integrations": {
+      "title": "Entegrasyonlar",
+      "subtitle": "Sürücü adaptörleri ayrılmıştır — canlı konnektör yoktur."
+    },
+    "security": {
+      "title": "Güvenlik ve Paylaşım",
+      "subtitle": "RBAC, denetim takibi, şifreleme, saklama ve paylaşım kapsamları."
+    }
+  },
+  "loading": {
+    "knowledgeBase": "Bilgi tabanı yükleniyor…",
+    "approvals": "Onay kuyruğu yükleniyor…",
+    "aiInsights": "Yapay zeka analizleri yükleniyor…",
+    "activity": "Etkinlik yükleniyor…",
+    "integrations": "Entegrasyonlar yükleniyor…",
+    "security": "Güvenlik yükleniyor…"
+  },
+  "kpi": {
+    "documents": {
+      "label": "Belgeler",
+      "caption": "Örnek · klasörler arası",
+      "delta": "+{count}"
+    },
+    "folders": {
+      "label": "Klasörler",
+      "caption": "Örnek · akıllı koleksiyonlar dahil",
+      "delta": "+{count}"
+    },
+    "storage": {
+      "label": "Kullanılan Depolama",
+      "caption": "Açıklayıcı plan örneği",
+      "delta": "+{size}"
+    },
+    "shared": {
+      "label": "Paylaşılan Belgeler",
+      "caption": "Örnek · kuruluş + departman + kullanıcılar",
+      "delta": "+{count}"
+    },
+    "activity": {
+      "label": "Son Etkinlik",
+      "caption": "Örnek · son 24 saat",
+      "delta": "+{count}"
+    },
+    "indexed": {
+      "label": "AI İndeksli",
+      "caption": "Örnek · AI araması bağlı değil",
+      "delta": "{percent}"
+    },
+    "approvals": {
+      "label": "Bekleyen Onaylar",
+      "caption": "Örnek · otomasyon bağlı değil",
+      "delta": "{count}"
+    },
+    "score": {
+      "label": "Bilgi Puanı",
+      "caption": "Örnek · kapsam illüstrasyonu",
+      "delta": "+{count}"
+    }
+  },
+  "library": {
+    "viewsAria": "Kütüphane görünümleri",
+    "views": {
+      "all": "Tüm Belgeler",
+      "recent": "Son",
+      "favorites": "Favoriler",
+      "shared": "Paylaşıldı",
+      "archived": "Arşivlendi",
+      "trash": "Çöp",
+      "knowledge": "Bilgi Bankası"
+    },
+    "dropzone": "Yükleme işlemini gerçekleştirmek için dosyaları buraya sürükleyip bırakın.",
+    "uploadReserved": "Sürükle ve bırak yüklemesi, ayrılmış bir depolama API'sidir.",
+    "filesStaged": "{count} dosya yükleme için hazırlandı (depolamaya yazma yok).",
+    "dropReceived": "Bırakma alındı ​​(depolama yazma yok).",
+    "foldersTitle": "Klasörler ve Koleksiyonlar",
+    "foldersHint": "İç içe geçmiş klasörler, koleksiyonlar, akıllı koleksiyonlar, etiketler, sabitlenmiş ve favoriler.",
+    "allFolders": "Tüm klasörler",
+    "smart": "Akıllı",
+    "collection": "Koleksiyon",
+    "pinned": "Sabitlendi",
+    "favorite": "Favori",
+    "sharedBadge": "Paylaşıldı",
+    "title": "Belge Kitaplığı",
+    "results": "{count} sonuç",
+    "resultOne": "{count} sonuç",
+    "selected": "· {count} seçildi",
+    "bulkAction": "Toplu işlem",
+    "bulkUnavailable": "{count} öğe için toplu işlem kullanılamıyor; depolama mutasyonları bağlı değil.",
+    "searchLabel": "Küresel Arama",
+    "searchPlaceholder": "Ad, etiketler, sahip, AI özeti…",
+    "typeLabel": "Tip",
+    "statusLabel": "Durum",
+    "departmentLabel": "Departman",
+    "ownerLabel": "Mal sahibi",
+    "allTypes": "Tüm türler",
+    "allStatuses": "Tüm durumlar",
+    "allDepartments": "Tüm bölümler",
+    "allOwners": "Tüm sahipler",
+    "favoritesOnly": "Yalnızca favoriler",
+    "emptyTitle": "Gösterilecek belge yok",
+    "emptyDescription": "Kitaplığı büyütmek için filtreleri ayarlayın, aramayı temizleyin veya bilgi varlıkları ekleyin.",
+    "selectAria": "{name}'i seçin",
+    "versionHistoryTitle": "Sürüm Geçmişi",
+    "close": "Kapalı",
+    "context": {
+      "open": "Açık",
+      "share": "Paylaşmak",
+      "favorite": "Favori",
+      "move": "Taşınmak",
+      "delete": "Silmek",
+      "dismiss": "Azletmek",
+      "unavailable": "{action} kullanılamıyor — {id} için belge değişimleri bağlı değil."
+    }
+  },
+  "viewer": {
+    "title": "Belge Görüntüleyici",
+    "emptyTitle": "Bir belge seçin",
+    "emptyDescription": "İçeriği, meta verileri, etiketleri, sürümleri ve bağlantılı modülleri önizlemek için kitaplıktan bir dosya seçin.",
+    "zoomOut": "Yakınlaştır –",
+    "zoomIn": "Yakınlaştır +",
+    "prev": "Önceki",
+    "next": "Sonraki",
+    "page": "Sayfa {page} / {total}",
+    "searchInside": "İçeride ara",
+    "findPlaceholder": "Önizlemede bul…",
+    "noMatches": "Önizleme metninde eşleşme yok.",
+    "meta": {
+      "owner": "Mal sahibi",
+      "created": "Oluşturuldu",
+      "updated": "Güncellendi",
+      "fileType": "Dosya Türü",
+      "size": "Boyut",
+      "category": "Kategori",
+      "department": "Departman",
+      "status": "Durum",
+      "retention": "Tutulma",
+      "version": "Sürüm",
+      "sharing": "Paylaşma"
+    },
+    "tags": "Etiketler",
+    "linkedModules": "Bağlantılı Modüller",
+    "noModuleLinks": "Henüz modül bağlantısı yok",
+    "versionHistory": "Sürüm Geçmişi"
+  },
+  "versions": {
+    "title": "Sürüm Geçmişi",
+    "emptyTitle": "Hiçbir belge seçilmedi",
+    "emptyDescription": "Sürümleri, notları incelemek, geri yüklemek ve karşılaştırmak için bir belge açın.",
+    "current": "{name} · mevcut {version}",
+    "restore": "Sürümü Geri Yükle",
+    "compare": "Sürümleri Karşılaştır",
+    "restoreTitle": "Geri yükleme, depolama API'sini gerektirir",
+    "compareTitle": "Karşılaştırma, depolama API'sini gerektirir",
+    "noticeDefault": "Geri yükleme ve karşılaştırma, depolama API'sini gerektirir.",
+    "restoreUnavailable": "{id} için geri yükleme kullanılamıyor — depolama API'si bağlı değil.",
+    "compareUnavailable": "Karşılaştırma kullanılamıyor ({selected} ↔ {current}) — depolama API'si bağlı değil."
+  },
+  "approvals": {
+    "title": "Onay İş Akışı",
+    "subtitle": "Taslak → İnceleniyor → Onaylandı / Reddedildi → Arşivlendi. Kuyruk öğeleri örnek belgelerdir; eylemler devam etmiyor.",
+    "emptyTitle": "Sıra temiz",
+    "emptyDescription": "Örnek sette taslak veya incelemede olan belge yok.",
+    "approve": "Onaylamak",
+    "reject": "Reddetmek",
+    "sendToReview": "İncelemeye Gönder",
+    "noticeDefault": "Onay geçişleri Otomasyon iş akışı motorunu gerektirir; bu yapıda bağlı değildir.",
+    "unavailable": "{action} için {id} kullanılamıyor — iş akışı motoru bağlı değil. Örnek belge durumu değiştirilmedi.",
+    "approveTitle": "Onay kullanılamıyor — iş akışı motoru bağlı değil",
+    "rejectTitle": "Reddetme kullanılamıyor — iş akışı motoru bağlı değil",
+    "sendTitle": "İncelemeye gönder kullanılamıyor — iş akışı motoru bağlı değil"
+  },
+  "knowledge": {
+    "intro": "Makaleler, politikalar, süreçler, kılavuzlar, SSS'ler ve dahili wiki — Bilgi Merkezinin anlatım katmanı."
+  },
+  "activity": {
+    "intro": "Son değişiklikler, yüklemeler, görüntülemeler, paylaşımlar ve denetim geçmişi — uyumluluk izlemelerinin temeli."
+  },
+  "integrations": {
+    "intro": "Bulut sürücü bağdaştırıcıları yalnızca mimaridir - Google Drive, OneDrive, Dropbox, Box, SharePoint, Nextcloud. Canlı API yok.",
+    "reservedAdapter": "Ayrılmış adaptör:",
+    "architecture": "Mimarlık",
+    "items": {
+      "google-drive": {
+        "description": "İçe aktarma/senkronizasyon mimarisi ayrıldı; henüz canlı OAuth yok."
+      },
+      "onedrive": {
+        "description": "Microsoft Graph dosya kancaları ayrılmıştır."
+      },
+      "dropbox": {
+        "description": "Dropbox API bağdaştırıcısı ayrılmıştır."
+      },
+      "box": {
+        "description": "Enterprise Box konektörü ayrılmıştır."
+      },
+      "sharepoint": {
+        "description": "Site kitaplıkları + meta veri eşlemesi saklıdır."
+      },
+      "nextcloud": {
+        "description": "WebDAV adaptörü ayrılmış — kendi kendine barındırma planına kadar devre dışı."
+      }
+    }
+  },
+  "security": {
+    "architectureTitle": "Güvenlik Mimarisi",
+    "sharingTitle": "Paylaşım Modeli",
+    "sharingIntro": "Özel, Kuruluş, Departman, Belirli Kullanıcılar ve Genel Bağlantı yer tutucusu.",
+    "enabled": "Etkinleştirilmiş",
+    "placeholder": "Yer tutucu",
+    "notEnforced": "Zorunlu değil",
+    "modelOnly": "Yalnızca model",
+    "controls": {
+      "rbac": {
+        "title": "Rol Tabanlı Erişim",
+        "description": "Sahip, düzenleyici, görüntüleyici ve onaylayan rolleri belge ACL'leriyle eşlenir; bu yapıda zorunlu kılınmaz."
+      },
+      "permissions": {
+        "title": "İzin Mimarisi",
+        "description": "Belge düzeyinde geçersiz kılmalarla klasör devralma — bu yapıda zorunlu kılınmaz."
+      },
+      "audit": {
+        "title": "Denetim İzi",
+        "description": "Görüntülemeler, paylaşımlar, geri yüklemeler ve onaylara ilişkin etkinlik etkinlikleri henüz devam etmedi."
+      },
+      "encryption": {
+        "title": "Şifreleme",
+        "description": "KMS kablolaması için ayrılmış, beklemede ve aktarım sırasında şifreleme kancaları."
+      },
+      "retention": {
+        "title": "Saklama Politikası",
+        "description": "Yasal bekletme desteğine sahip kategori başına saklama aralıkları - henüz uygulanmadı."
+      }
+    }
+  },
+  "ai": {
+    "architectureTitle": "Yapay Zeka Özellik Mimarisi",
+    "architectureIntro": "Her yetenek gelecekteki AI indeksi için ayrılmıştır. Kullanıcı arayüzü deterministik sahte içgörüler gösterir.",
+    "insightsTitle": "Seçilen Belgeye İlişkin Analizler",
+    "emptyTitle": "Bir belge seçin",
+    "emptyDescription": "AI özetini, anahtar kelimeleri ve önerileri incelemek için kitaplıkta bir dosya açın.",
+    "summary": "Yapay Zeka Özeti",
+    "keywords": "Yapay Zeka Anahtar Kelimeleri",
+    "classification": "Yapay Zeka Sınıflandırması",
+    "suggestedFolder": "AI Önerilen Klasör",
+    "translation": "Yapay Zeka Çevirisi",
+    "ocr": "AI OCR",
+    "suggestedTags": "AI Önerilen Etiketler",
+    "related": "Yapay Zeka ile İlgili Belgeler",
+    "noRelated": "İlgili belge dizine eklenmedi.",
+    "duplicateOf": "AI Yinelenen Algılama: olası kopya",
+    "noDuplicates": "Yapay Zeka Yinelenen Algılama: neredeyse kopya sayısı işaretlenmedi.",
+    "sampleReady": "Örnek hazır",
+    "notApplicable": "Uygulanamaz",
+    "runSearch": "Yapay Zeka Aramasını Çalıştır",
+    "searchTitle": "AI Arama bağlı değil",
+    "noticeDefault": "Yapay zeka özellikleri yalnızca mimariye yöneliktir; canlı model çağrısı yoktur.",
+    "searchUnavailable": "AI Arama kullanılamıyor — anlamsal dizin bağlı değil. Yukarıdaki örnek bilgiler statiktir.",
+    "features": {
+      "summary": {
+        "title": "Yapay Zeka Özeti",
+        "description": "Her modül için yoğunlaştırılmış belge anlayışı."
+      },
+      "keywords": {
+        "title": "Yapay Zeka Anahtar Kelimeleri",
+        "description": "Arama ve yönlendirme için konu sinyalleri çıkarıldı."
+      },
+      "classification": {
+        "title": "Yapay Zeka Sınıflandırması",
+        "description": "Kategori/bölüm taksonomisi önerisi."
+      },
+      "tags": {
+        "title": "AI Önerilen Etiketler",
+        "description": "Grafiği değiştirmeden önerileri etiketleyin."
+      },
+      "folder": {
+        "title": "AI Önerilen Klasör",
+        "description": "İç içe geçmiş klasörlere akıllı yerleştirme."
+      },
+      "related": {
+        "title": "Yapay Zeka ile İlgili Belgeler",
+        "description": "Bilgi merkezindeki komşuların grafiğini çizin."
+      },
+      "duplicate": {
+        "title": "Yapay Zeka Kopya Tespiti",
+        "description": "Belge kitaplıkları için neredeyse kopya tespiti."
+      },
+      "translation": {
+        "title": "Yapay Zeka Çevirisi",
+        "description": "Çeviriye hazırlık bayrağı — canlı model yok."
+      },
+      "ocr": {
+        "title": "AI OCR",
+        "description": "Taramalar ve PDF'ler için ayrılmış OCR hattı."
+      },
+      "search": {
+        "title": "Yapay Zeka Arama",
+        "description": "Semantik arama gelecekteki indeks için ayrılmıştır."
+      }
+    }
+  },
+  "status": {
+    "draft": "Taslak",
+    "in_review": "İnceleniyor",
+    "approved": "Onaylı",
+    "rejected": "Reddedilmiş",
+    "archived": "Arşivlendi"
+  },
+  "fileType": {
+    "pdf": "PDF'ler",
+    "word": "Kelime",
+    "excel": "excel",
+    "powerpoint": "PowerPoint'in",
+    "image": "Resim",
+    "video": "Video",
+    "audio": "Ses",
+    "markdown": "İndirim",
+    "text": "Metin",
+    "json": "JSON",
+    "csv": "CSV",
+    "other": "Diğer"
+  },
+  "share": {
+    "private": "Özel",
+    "organization": "Organizasyon",
+    "department": "Departman",
+    "specific_users": "Belirli Kullanıcılar",
+    "public_link": "Genel Bağlantı"
+  },
+  "module": {
+    "crm": "CRM",
+    "finance": "Finans",
+    "automation": "Otomasyon",
+    "creator": "İçerik Stüdyosu",
+    "hr": "Gelecek İK",
+    "projects": "Gelecek Projeler"
+  },
+  "knowledgeKind": {
+    "article": "Madde",
+    "policy": "Politika",
+    "process": "İşlem",
+    "manual": "Manuel",
+    "faq": "SSS",
+    "wiki": "Dahili Wiki"
+  },
+  "integrationStatus": {
+    "connected": "Bağlı",
+    "beta": "Beta",
+    "coming_soon": "Yakında gelecek",
+    "disabled": "Engelli",
+    "planned": "Planlanan"
+  },
+  "bytes": {
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
+  }
+}

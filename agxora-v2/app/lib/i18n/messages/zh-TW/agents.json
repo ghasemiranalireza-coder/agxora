@@ -1,0 +1,125 @@
+{
+  "loading": "正在載入代理作業系統...",
+  "eyebrow": "人工智慧代理作業系統",
+  "title": "客服人員作業系",
+  "subtitle": "本地代理工作區 - 代理可以作為跨 CRM、專案、財務、工作流程和整合的模擬來啟動和運行。生產自主執行未連接。",
+  "noticeDefault": "本機代理程式作業系統—在此工作區中模擬執行。",
+  "aiChat": "人工智慧聊天",
+  "tabs": {
+    "dashboard": "儀表板",
+    "registry": "登記處",
+    "marketplace": "市場",
+    "monitor": "監視器",
+    "history": "歷史",
+    "memory": "記憶",
+    "knowledge": "知識",
+    "tools": "工具",
+    "settings": "設定"
+  },
+  "notice": {
+    "simulatedRun": "模擬運行 · {status} ({duration}ms)",
+    "taskFailed": "任務失敗",
+    "activated": "本地激活：{agentId}",
+    "agentPaused": "代理已暫停",
+    "agentActivated": "代理激活",
+    "taskCancelled": "任務已取消",
+    "supervisorDelegated": "主管委派跟進",
+    "settingsUpdated": "為此本地工作區更新了代理作業系統設定。"
+  },
+  "dashboard": {
+    "agents": "代理商",
+    "active": "積極的",
+    "localReady": "本地準備就緒",
+    "simulatedToday": "今天模擬",
+    "failedToday": "今天失敗了",
+    "avgExec": "平均執行次數",
+    "toolCalls": "工具調用",
+    "knowledge": "知識",
+    "activeFleet": "活躍機隊",
+    "emptyTitle": "沒有活躍的代理",
+    "emptyDescription": "從市場安裝或啟動代理以開始模擬運行。"
+  },
+  "registry": {
+    "title": "登記處",
+    "selectPrompt": "從登錄中選取客服人員。",
+    "status": "狀態：{status}",
+    "health": "健康：{health}",
+    "queue": "佇列： {queue}",
+    "usage": "用法：{usage}",
+    "executeTask": "執行任務",
+    "supervisorDelegate": "監事代表"
+  },
+  "marketplace": {
+    "tools": "工具：{tools}",
+    "installed": "已安裝",
+    "installActivate": "安裝並啟用"
+  },
+  "monitor": {
+    "title": "代理監控",
+    "emptyTitle": "沒有代理可以監控",
+    "emptyDescription": "從市場激活代理。",
+    "latestConfidence": "最新推理置信度：{confidence} — {steps}"
+  },
+  "history": {
+    "title": "執行歷史",
+    "emptyTitle": "尚未執行死刑",
+    "emptyDescription": "從登錄或監視器執行代理程式作業。"
+  },
+  "memory": {
+    "title": "記憶中心",
+    "subtitle": "工作·對話·業務·長期·工作空間·代理範圍（架構就緒）。",
+    "emptyTitle": "無記憶記錄",
+    "emptyDescription": "執行任務以填入工作/代理記憶體。"
+  },
+  "knowledge": {
+    "title": "知識中心",
+    "subtitle": "公司、文件、專案、CRM、政策、程序 — 以及向量/RAG 佔位符。",
+    "emptyTitle": "無知識文件",
+    "emptyDescription": "種子知識在工作區引導後出現。"
+  },
+  "tools": {
+    "sensitive": "· 敏感的",
+    "mcpReady": "· MCP 就緒"
+  },
+  "settings": {
+    "title": "客服人員作業系統設",
+    "defaultLlmProvider": "預設法學碩士提供者",
+    "enableSupervisor": "啟用主管代理架構",
+    "isolateSensitive": "隔離敏感工具",
+    "saveSettings": "儲存設定",
+    "providersHint": "準備就緒的供應商：OpenAI、Azure OpenAI、Anthropic、Gemini、Local、Ollama、MCP、Custom。透過 registerLlmProvider 交換適配器，無需更改 UI。"
+  },
+  "columns": {
+    "agent": "代理人",
+    "status": "地位",
+    "health": "健康",
+    "queue": "序列",
+    "usage": "用法",
+    "actions": "行動",
+    "task": "任務",
+    "duration": "長度",
+    "created": "已創建",
+    "scope": "範圍",
+    "key": "鑰匙",
+    "value": "價值",
+    "at": "於",
+    "title": "標題",
+    "kind": "種類",
+    "summary": "概括"
+  },
+  "actions": {
+    "run": "跑步",
+    "pause": "暫停",
+    "activate": "啟用設定",
+    "cancel": "取消",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "執行 {agentId} 業務目標",
+    "planAndExecute": "規劃並執行工作區業務目標"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "優先考量客戶影響",
+    "delegatedFollowUp": "已委派後續"
+  }
+}

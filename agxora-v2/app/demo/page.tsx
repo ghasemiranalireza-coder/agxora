@@ -1,17 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import type { JSX } from "react";
 import {
   AuthCard,
   authButtonStyle,
   authMutedStyle,
 } from "../components/auth/AuthCard";
+import { useT } from "../lib/i18n";
 
-export default function BookDemoPage() {
+export default function BookDemoPage(): JSX.Element {
+  const t = useT();
+
   return (
     <AuthCard
-      title="Book a demo"
-      subtitle="Schedule a live walkthrough with the AGXORA team. Until calendar booking is enabled, email us to request a demo."
+      title={t("backend.demo.title")}
+      subtitle={t("backend.demo.subtitle")}
     >
       <div style={{ display: "grid", gap: 16 }}>
         <div
@@ -32,7 +36,7 @@ export default function BookDemoPage() {
               color: "rgba(125,211,252,0.85)",
             }}
           >
-            Request a demo
+            {t("backend.demo.requestTitle")}
           </p>
           <p
             style={{
@@ -42,8 +46,7 @@ export default function BookDemoPage() {
               color: "rgba(226,232,240,0.92)",
             }}
           >
-            We’re finishing scheduling so you can pick a time that works for your team.
-            Until then, start free and explore the product at your own pace — or reach us at{" "}
+            {t("backend.demo.requestBody", { email: "" }).replace("  ", " ")}
             <a
               href="mailto:hello@agxora.app?subject=AGXORA%20demo%20request"
               style={{ color: "#7dd3fc", fontWeight: 600 }}
@@ -55,16 +58,16 @@ export default function BookDemoPage() {
         </div>
 
         <Link href="/register" style={{ ...authButtonStyle, textAlign: "center", textDecoration: "none" }}>
-          Start free instead
+          {t("backend.demo.startFree")}
         </Link>
 
         <p style={{ ...authMutedStyle, textAlign: "center", margin: 0 }}>
           <Link href="/" style={{ color: "#7dd3fc", fontWeight: 600 }}>
-            Back to home
+            {t("backend.demo.backHome")}
           </Link>
           {" · "}
           <Link href="/login" style={{ color: "#7dd3fc", fontWeight: 600 }}>
-            Sign in
+            {t("backend.demo.signIn")}
           </Link>
         </p>
       </div>

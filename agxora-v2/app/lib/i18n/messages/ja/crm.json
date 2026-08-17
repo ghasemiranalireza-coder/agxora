@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "AGXORA ビジネス OS",
+    "title": "AI CRM",
+    "subtitle": "AI ネイティブ CRM およびクリエイター オペレーティング システム - あらゆる業界の顧客、パイプライン、注文、配送、ドキュメント、コミュニケーション、クリエイター アーキテクチャ。"
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "CRMダッシュボード"
+    },
+    "customer360": {
+      "title": "顧客の360°",
+      "subtitle": "プロフィール、会社、連絡先、注文、請求書、リーファーシャイン、支払い、ドキュメント、タイムライン、アクティビティ、メモ、AI サマリー、および通信履歴。"
+    },
+    "salesPipeline": {
+      "title": "販売パイプライン",
+      "subtitle": "ドラッグ アンド ドロップによるカンバン ステージ - リード、認定、提案、交渉、勝訴、敗訴。"
+    },
+    "ordersModule": {
+      "title": "注文モジュール"
+    },
+    "deliveryModule": {
+      "title": "配信モジュール",
+      "subtitle": "追跡、署名、QR、バーコード対応のプロフェッショナル リーファーシャイン システム。"
+    },
+    "documentsModule": {
+      "title": "書類",
+      "subtitle": "見積書、契約書、請求書、リーファーシャイン、発注書、領収書 - AI 検索。"
+    },
+    "tasksModule": {
+      "title": "タスク"
+    },
+    "communicationHub": {
+      "title": "コミュニケーションハブ",
+      "subtitle": "メッセージング、ソーシャル、電子メール、音声、ビデオのみのアダプター レジストリ。"
+    },
+    "creatorStudio": {
+      "title": "クリエイター スタジオ財団",
+      "subtitle": "プラットフォーム アダプターは、後で正式に統合する準備ができています。"
+    },
+    "aiCreator": {
+      "title": "AIクリエイター",
+      "subtitle": "コンテンツ、カレンダー、生成、公開に関するエンタープライズ機能マップ。"
+    },
+    "industryPlatform": {
+      "title": "ユニバーサルビジネスプラットフォーム",
+      "subtitle": "モジュール式の業界レジストリ — すべての業種が専用の AI モジュールを受け取ることができます。"
+    }
+  },
+  "directory": {
+    "errorTitle": "CRMをロードできませんでした",
+    "sort": {
+      "companyName": "会社",
+      "contactName": "接触",
+      "email": "電子メール",
+      "phone": "電話",
+      "industry": "業界",
+      "status": "状態",
+      "owner": "所有者",
+      "createdAt": "作成されました"
+    },
+    "search": {
+      "label": "顧客を検索する",
+      "placeholder": "会社、連絡先、電子メール、タグ…"
+    },
+    "view": {
+      "table": "テーブル",
+      "cards": "カード"
+    },
+    "actions": {
+      "newCustomer": "新規のお客様"
+    },
+    "filters": {
+      "status": "状態",
+      "industry": "業界",
+      "owner": "所有者",
+      "country": "国",
+      "tags": "タグ",
+      "allStatuses": "すべてのステータス",
+      "allIndustries": "すべての産業",
+      "allOwners": "すべての所有者",
+      "allCountries": "すべての国",
+      "allTags": "すべてのタグ"
+    },
+    "empty": {
+      "ready": {
+        "title": "CRM の準備が完了しました",
+        "description": "最初の顧客レコードを作成して、ディレクトリ、プロファイル、アクティビティのロックを解除します。",
+        "action": "顧客の作成"
+      },
+      "noMatches": {
+        "title": "一致する顧客がいません",
+        "description": "適切なレコードを見つけるには、検索またはフィルターを調整してみてください。",
+        "action": "フィルターをクリアする"
+      }
+    },
+    "pagination": {
+      "previous": "前の",
+      "next": "次"
+    },
+    "showing": "{from} 件中 {to} ～ {total} を表示中",
+    "aria": {
+      "openCustomer": "顧客 {company} を開く"
+    },
+    "cardMeta": "所有者 {owner} · 作成日 {date}",
+    "sortBy": "{column}で並べ替え"
+  },
+  "status": {
+    "lead": "鉛",
+    "prospect": "見通し",
+    "active": "アクティブ",
+    "inactive": "非アクティブ",
+    "vip": "VIP",
+    "archived": "アーカイブ済み"
+  },
+  "form": {
+    "createTitle": "顧客の作成",
+    "editTitle": "顧客の編集",
+    "cancel": "キャンセル",
+    "saveChanges": "変更を保存する",
+    "createCustomer": "顧客の作成",
+    "companyName": "会社名",
+    "contactName": "連絡先名",
+    "email": "電子メール",
+    "phone": "電話",
+    "website": "Webサイト",
+    "industry": "業界",
+    "country": "国",
+    "city": "市",
+    "address": "住所",
+    "taxNumber": "納税者番号",
+    "owner": "所有者",
+    "status": "状態",
+    "tags": "タグ",
+    "statusAria": "顧客ステータス",
+    "tagsHint": "カンマ区切りで自動的に色分けされる",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "企業、小売"
+  },
+  "toasts": {
+    "customerCreated": "お客様が作成した",
+    "customerUpdated": "顧客が更新しました",
+    "checkForm": "フォームを確認する",
+    "validationFailed": "検証が失敗しました。",
+    "customerDeleted": "顧客が削除されました",
+    "deleteFailed": "削除に失敗しました",
+    "customerCouldNotBeRemoved": "顧客を削除できませんでした。",
+    "contactSaved": "連絡先が保存されました",
+    "documentsAttached": "添付書類",
+    "documentsAttachedDetail": "{count} ファイル",
+    "noteSaved": "メモが保存されました"
+  },
+  "deleteDialog": {
+    "title": "顧客の削除",
+    "cancel": "キャンセル",
+    "deletePermanently": "完全に削除",
+    "thisCustomer": "この顧客",
+    "bodyPrefix": "これにより削除されます",
+    "bodySuffix": "ローカル ストレージからの関連する連絡先、メモ、ドキュメント、およびアクティビティ。リンクされたプロジェクトは削除されません。"
+  },
+  "validation": {
+    "companyNameRequired": "会社名は必須です。",
+    "contactNameRequired": "連絡先名は必須です。",
+    "emailRequired": "電子メールは必須です。",
+    "emailInvalid": "有効な電子メール アドレスを入力してください。",
+    "phoneRequired": "電話は必須です。",
+    "phoneInvalid": "有効な電話番号を入力してください。",
+    "websiteInvalid": "有効な Web サイトを入力してください。",
+    "industryRequired": "産業は必要です。",
+    "ownerRequired": "所有者は必須です。",
+    "statusInvalid": "有効なステータスを選択します。",
+    "emailDuplicate": "このメールを受け取った顧客はすでに存在します。",
+    "nameRequired": "名前は必須です。",
+    "mobileInvalid": "有効な携帯電話番号を入力してください。",
+    "mobileRequired": "モバイルは必須です。",
+    "roleRequired": "役割は必須です。",
+    "noteTitleRequired": "タイトルは必須です。",
+    "noteBodyRequired": "メモ本文は必須です。",
+    "noteAuthorRequired": "著者は必須です。"
+  },
+  "errors": {
+    "failedToLoadCustomers": "顧客の読み込みに失敗しました。",
+    "failedToLoadCustomerProfile": "顧客プロファイルの読み込みに失敗しました。",
+    "organizationRequired": "組織化が必要です。",
+    "failedToSaveCustomer": "顧客を保存できませんでした。",
+    "failedToDeleteCustomer": "顧客の削除に失敗しました。",
+    "failedToSaveContact": "連絡先の保存に失敗しました。",
+    "failedToSaveNote": "メモの保存に失敗しました。",
+    "failedToUploadDocument": "ドキュメントのアップロードに失敗しました。"
+  },
+  "workspace": {
+    "badge": "エンタープライズ CRM 2.0",
+    "title": "顧客関係管理",
+    "subtitleBeforeOrg": "顧客ディレクトリ、プロフィール、連絡先、メモ、ドキュメントを管理します。",
+    "subtitleAfterOrg": "プロジェクトは、データを複製することなく、プロジェクト モジュールから会社名によってリンクされます。",
+    "yourOrganization": "あなたの組織"
+  },
+  "analytics": {
+    "totalCustomers": "総顧客数",
+    "activeCustomers": "アクティブな顧客",
+    "newCustomers": "新規のお客様",
+    "vipCustomers": "VIPのお客様",
+    "createdThisMonth": "今月作成されました",
+    "leadConversion": "リードの変換",
+    "leadConversionHint": "リード/見込み顧客/変換されたファネルのアクティブおよび VIP シェア。",
+    "customerGrowth": "顧客の成長"
+  },
+  "profile": {
+    "backToCrm": "← CRMに戻る",
+    "ownerLabel": "所有者",
+    "notFoundTitle": "顧客が見つかりません",
+    "notFoundDescription": "この顧客は削除された可能性があります。",
+    "missingCustomerTitle": "行方不明の顧客",
+    "missingOverviewDescription": "顧客を選択して概要を表示します。",
+    "missingSettingsDescription": "設定を管理する顧客を選択します。",
+    "ariaProfileNav": "顧客プロフィール",
+    "tabs": {
+      "overview": "概要",
+      "contacts": "連絡先",
+      "projects": "プロジェクト",
+      "documents": "書類",
+      "invoices": "請求書",
+      "activity": "活動",
+      "notes": "注意事項",
+      "settings": "設定"
+    },
+    "overview": {
+      "title": "概要",
+      "email": "電子メール",
+      "phone": "電話",
+      "website": "Webサイト",
+      "taxNumber": "納税者番号",
+      "location": "位置",
+      "address": "住所",
+      "created": "作成されました",
+      "updated": "更新されました",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "連絡先を追加",
+      "editTitle": "連絡先の編集",
+      "listTitle": "連絡先",
+      "name": "名前",
+      "role": "役割",
+      "email": "電子メール",
+      "phone": "電話",
+      "mobile": "携帯",
+      "notes": "注意事項",
+      "saveContact": "連絡先の保存",
+      "emptyTitle": "まだ連絡先がありません",
+      "emptyDescription": "役割、電子メール、電話の詳細を含む関係者を追加します。",
+      "defaultRole": "接触",
+      "mobilePrefix": "携帯"
+    },
+    "projects": {
+      "title": "プロジェクト",
+      "emptyTitle": "リンクされたプロジェクトはありません",
+      "emptyDescription": "顧客名がこの会社と一致するプロジェクトがここに表示されます。データはプロジェクト モジュールから読み取られます。重複するものはありません。",
+      "openProjects": "オープンプロジェクト"
+    },
+    "documents": {
+      "title": "書類",
+      "subtitle": "画像、PDF、オフィス ドキュメント - メタデータはローカル ストレージのみにあります。",
+      "attachFiles": "ファイルを添付する",
+      "emptyTitle": "書類がありません",
+      "emptyDescription": "アカウント チーム用の顧客ファイルを添付します。",
+      "systemUploader": "システム"
+    },
+    "invoices": {
+      "emptyTitle": "まだ請求書はありません",
+      "emptyDescription": "この顧客の請求書は、財務からリンクされるとここに表示されます。"
+    },
+    "activity": {
+      "title": "活動",
+      "emptyTitle": "まだ活動はありません",
+      "emptyDescription": "作成、更新、メモ、ドキュメントがここに新しいものから順に表示されます。",
+      "kinds": {
+        "customer_created": "お客様が作成した",
+        "customer_updated": "顧客が更新しました",
+        "contact_added": "連絡先が追加されました",
+        "contact_updated": "連絡先が更新されました",
+        "contact_deleted": "連絡先が削除されました",
+        "note_added": "注記を追加しました",
+        "note_updated": "メモが更新されました",
+        "note_deleted": "メモが削除されました",
+        "document_added": "ドキュメントを追加しました",
+        "document_deleted": "文書が削除されました",
+        "project_linked": "プロジェクトがリンクされました"
+      }
+    },
+    "notes": {
+      "newTitle": "新しいメモ",
+      "editTitle": "メモを編集する",
+      "title": "タイトル",
+      "author": "著者",
+      "body": "体",
+      "saveNote": "メモを保存する",
+      "emptyTitle": "まだメモはありません",
+      "emptyDescription": "作成者とタイムスタンプを含むアカウントのコンテキストをキャプチャします。"
+    },
+    "settings": {
+      "title": "設定",
+      "description": "すべてのプロフィールフィールドを編集するか、このアカウントをアーカイブしてください。削除には確認ダイアログが使用されます。",
+      "editAllFields": "すべてのフィールドを編集する",
+      "prepareArchive": "アーカイブを準備する",
+      "deleteCustomer": "顧客の削除"
+    }
+  },
+  "customer360": {
+    "ariaSections": "顧客 360 セクション",
+    "email": "電子メール",
+    "phone": "電話",
+    "aiHealth": "AI ヘルス",
+    "tabs": {
+      "profile": "プロフィール",
+      "company": "会社",
+      "contacts": "連絡先",
+      "orders": "注文",
+      "invoices": "請求書",
+      "lieferscheine": "リーファーシャイネ",
+      "payments": "支払い",
+      "documents": "書類",
+      "timeline": "タイムライン",
+      "activities": "活動内容",
+      "notes": "注意事項",
+      "aiSummary": "AIの概要",
+      "communicationHistory": "通信履歴"
+    },
+    "profileLines": {
+      "customerId": "顧客ID",
+      "status": "状態",
+      "primaryContact": "主な連絡先"
+    },
+    "status": {
+      "churn_risk": "チャーンリスク"
+    }
+  },
+  "delivery": {
+    "title": "プロフェッショナルリーファーシャインシステム",
+    "description": "納品書、集荷/配達、ドライバー、車両、追跡 - サンプル記録のみ。エクスポートアダプターが接続されていません。",
+    "badges": {
+      "qrUnavailable": "QR利用不可",
+      "barcodeUnavailable": "バーコードは使用できません",
+      "signatureDemo": "署名デモ"
+    },
+    "exportPdf": "PDFをエクスポート",
+    "deliveryHistory": "納品履歴",
+    "notices": {
+      "exportNotConnected": "このビルドでは、PDF、QR、およびバーコードのエクスポートは接続されていません。",
+      "exportPdfUnavailable": "PDF をエクスポートできません — 配信エクスポートが接続されていません。",
+      "historyNotConnected": "このビルドでは配信履歴ストアが接続されていません。"
+    },
+    "columns": {
+      "lieferschein": "リーファーシャイン",
+      "order": "注文",
+      "customer": "お客様",
+      "kind": "親切",
+      "driver": "ドライバ",
+      "vehicle": "車両",
+      "tracking": "トラッキング",
+      "scheduled": "予定されている"
+    }
+  },
+  "orders": {
+    "description": "製品、サービス、価格、割引、税金、顧客 — 企業の注文台帳。",
+    "createOrder": "注文の作成",
+    "notices": {
+      "apiReserved": "将来の書き込みパスのために予約されている注文作成 API。",
+      "draftStaged": "オーダーのドラフトを段階的に作成します (API はまだありません)。"
+    },
+    "columns": {
+      "order": "注文",
+      "customer": "お客様",
+      "status": "状態",
+      "lines": "ライン",
+      "net": "ネット",
+      "tax": "税",
+      "gross": "きもい",
+      "created": "作成されました"
+    },
+    "lineTax": "{taxPct}% の税金"
+  },
+  "tasks": {
+    "calendarTitle": "カレンダー · 会議 · リマインダー · フォローアップ",
+    "foundationTitle": "タスク OS基盤",
+    "foundationDescription": "カレンダー同期、会議プロバイダー、リマインダー ジョブ、およびフォローアップ自動フックは予約されています。このボードは、あらゆる業界モジュールの共有 CRM タスク サーフェスです。",
+    "badges": {
+      "calendarAdapter": "カレンダーアダプター",
+      "meetingAdapter": "ミーティングアダプター",
+      "reminderQueue": "リマインダーキュー",
+      "followUpEngine": "フォローアップエンジン"
+    },
+    "duePrefix": "期限",
+    "kinds": {
+      "follow_up": "フォローアップ",
+      "meeting": "ミーティング",
+      "reminder": "リマインダー",
+      "task": "タスク"
+    },
+    "statuses": {
+      "open": "開ける",
+      "in_progress": "進行中",
+      "done": "終わり",
+      "cancelled": "キャンセル"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "書類がありません",
+    "emptyDescription": "この検索に一致するドキュメントはありません。",
+    "searchLabel": "AI検索",
+    "searchPlaceholder": "見積書、契約書、請求書、リーファーシャイン…",
+    "typeLabel": "文書の種類",
+    "allTypes": "全種類",
+    "columns": {
+      "type": "タイプ",
+      "title": "タイトル",
+      "customer": "お客様",
+      "status": "状態",
+      "updated": "更新されました"
+    },
+    "kinds": {
+      "quote": "引用",
+      "contract": "契約",
+      "invoice": "請求書",
+      "lieferschein": "リーファーシャイン",
+      "purchase_order": "注文書",
+      "receipt": "領収書"
+    }
+  },
+  "communication": {
+    "intro": "スケーラブルなチャネル アーキテクチャのみ — 電子メール、WhatsApp、Instagram、Facebook、TikTok、LinkedIn、電報、音声、およびビデオ。偽のライブ統合はありません。",
+    "adapterPrefix": "アダプタ："
+  },
+  "aiCreator": {
+    "intro": "将来に対応した AI Creator サーフェス — アイデア、キャプション、ハッシュタグ、カレンダー、キャンペーン、ブランド ボイス、画像/ビデオ生成、分析、スケジュール、公開キュー、洞察。実際のプロバイダー API はまだ接続されていません。"
+  },
+  "creatorStudio": {
+    "intro": "Creator Studio 基盤 — 公式プラットフォーム統合は、後でこれらのアダプターにプラグインできます。 Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、スレッド、X."
+  },
+  "industry": {
+    "intro": "ユニバーサル ビジネス プラットフォーム — オンボーディングは後で業界を選択します。各業界は、コア CRM OS をフォークすることなく、専用の AI モジュールを受け取ります。"
+  },
+  "kpi": {
+    "customers": {
+      "label": "お客様",
+      "caption": "活発な人間関係"
+    },
+    "companies": {
+      "label": "企業",
+      "caption": "アカウント組織"
+    },
+    "leads": {
+      "label": "リード",
+      "caption": "今月の新作"
+    },
+    "deals": {
+      "label": "お得情報",
+      "caption": "オープンパイプライン"
+    },
+    "revenue": {
+      "label": "収益",
+      "caption": "年初勝利"
+    },
+    "projects": {
+      "label": "アクティブなプロジェクト",
+      "caption": "機内配送"
+    },
+    "tasks": {
+      "label": "開いているタスク",
+      "caption": "CRM + デリバリー全体にわたって"
+    },
+    "ai-health": {
+      "label": "AI 健康スコア",
+      "caption": "関係性の質に関するシグナル"
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "pipeline": {
+    "lead": "鉛",
+    "qualified": "資格のある",
+    "proposal": "提案",
+    "negotiation": "交渉",
+    "won": "勝利した",
+    "lost": "失った"
+  },
+  "orderStatus": {
+    "draft": "下書き",
+    "confirmed": "確認済み",
+    "in_fulfillment": "充実中",
+    "shipped": "出荷済み",
+    "delivered": "納品済み",
+    "cancelled": "キャンセル"
+  },
+  "tracking": {
+    "scheduled": "予定されている",
+    "en_route": "途中",
+    "arrived": "到着した",
+    "completed": "完了",
+    "failed": "失敗した"
+  },
+  "documentKind": {
+    "quote": "引用",
+    "contract": "契約",
+    "invoice": "請求書",
+    "lieferschein": "リーファーシャイン",
+    "purchase_order": "注文書",
+    "receipt": "レシート"
+  },
+  "documentStatus": {
+    "sent": "送信済み",
+    "signed": "署名済み",
+    "paid": "有料",
+    "in_transit": "輸送中",
+    "open": "開ける",
+    "filed": "提出済み"
+  },
+  "integration": {
+    "planned": "計画済み",
+    "ready": "準備ができて",
+    "connected": "接続済み",
+    "disabled": "無効"
+  }
+}

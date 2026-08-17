@@ -1,0 +1,136 @@
+{
+  "loading": "Memuat Pusat Intelijen Perusahaan…",
+  "eyebrow": "Pusat Intelijen Perusahaan",
+  "title": "Intelijen",
+  "subtitle": "KPI, kartu skor, peringatan, dan laporan untuk setiap modul AGXORA. Nilai di bawah adalah kumpulan data demo unggulan hingga backend analisis langsung terhubung.",
+  "demoBanner": "Kumpulan data demo — memfilter dan mengakui pekerjaan dalam sesi; ekspor dan panggilan model langsung belum tersedia.",
+  "noticeDefault": "Menampilkan analitik demo unggulan — bukan telemetri produksi langsung.",
+  "noPermission": "Anda tidak memiliki izin intelijen.baca untuk ruang kerja ini.",
+  "filtersUpdated": "Filter diperbarui",
+  "demoReloaded": "Himpunan data demo dimuat ulang untuk ruang kerja ini.",
+  "acknowledged": "Diakui: {title}",
+  "exportUnavailableTitle": "Ekspor tidak tersedia — pembuatan laporan belum terhubung.",
+  "exportUnavailableAria": "Ekspor {title} sebagai {format} — tidak tersedia",
+  "tabs": {
+    "executive": "Eksekutif",
+    "health": "Kesehatan Bisnis",
+    "workspace": "Analisis",
+    "kpis": "Pusat KPI",
+    "reports": "Laporan",
+    "insights": "Wawasan",
+    "forecasts": "Prakiraan",
+    "alerts": "Peringatan",
+    "scorecards": "Kartu Skor",
+    "explorer": "Penjelajah Data"
+  },
+  "filters": {
+    "from": "Dari",
+    "to": "Ke",
+    "domain": "Domain",
+    "allDomains": "Semua domain",
+    "apply": "Terapkan filter",
+    "reloadDemo": "Muat ulang data demo",
+    "viewsAria": "Pandangan intelijen"
+  },
+  "executive": {
+    "companyHealth": "Kesehatan Perusahaan",
+    "revenueScore": "Skor pendapatan",
+    "customerHealth": "Kesehatan pelanggan",
+    "projectHealth": "Kesehatan proyek",
+    "workflowSuccess": "Keberhasilan alur kerja",
+    "aiActivity": "aktivitas AI",
+    "finance": "Keuangan",
+    "riskGrowth": "Risiko / Pertumbuhan",
+    "kpiStrip": "Strip KPI Eksekutif",
+    "visualizationPreviews": "Pratinjau visualisasi",
+    "visualizationHint": "Bagan ilustratif dari seri demo — bukan penelusuran interaktif.",
+    "noSeries": "Tidak ada seri yang terikat"
+  },
+  "health": {
+    "title": "Dekomposisi kesehatan bisnis",
+    "overall": "Keseluruhan",
+    "revenue": "Pendapatan",
+    "customers": "Pelanggan",
+    "projects": "Proyek",
+    "workflows": "Alur kerja",
+    "ai": "AI",
+    "finance": "Keuangan",
+    "operations": "Operasi",
+    "riskPosture": "Postur risiko",
+    "growth": "Pertumbuhan",
+    "observability": "Observabilitas: {metrics} metrics · {avgMs}ms avg · kesehatan sistem {health}"
+  },
+  "workspace": {
+    "noSeries": "Tidak ada seri"
+  },
+  "kpis": {
+    "title": "Pusat KPI",
+    "subtitle": "Katalog KPI yang dapat dikonfigurasi di seluruh pendapatan, pelanggan, proyek, alur kerja, agen, dan otomatisasi.",
+    "emptyTitle": "Analytics menunggu sinyal",
+    "emptyDescription": "Setelah ruang kerja Anda menghasilkan aktivitas, KPI eksekutif dan peringatan akan muncul di sini."
+  },
+  "reports": {
+    "title": "Mesin pelaporan",
+    "subtitle": "Definisi laporan diunggulkan untuk ditinjau. Ekspor file tidak tersedia hingga backend pelaporan terhubung.",
+    "emptyTitle": "Tidak ada laporan",
+    "emptyDescription": "Melaporkan benih pada bootstrap ruang kerja.",
+    "scheduleOnDemand": "sesuai permintaan"
+  },
+  "insights": {
+    "emptyTitle": "Belum ada wawasan",
+    "emptyDescription": "Wawasan demo muncul setelah benih ruang kerja. Pembuatan wawasan AI langsung tidak terhubung.",
+    "badge": "Demo · {kind} · {domain} · conf {confidence}"
+  },
+  "forecasts": {
+    "emptyTitle": "Belum ada perkiraan",
+    "emptyDescription": "Perkiraan demo muncul setelah benih. Model prediktif tidak terhubung.",
+    "title": "perkiraan {kind}",
+    "baseline": "Garis dasar {baseline} → diproyeksikan {projected} ({days}h)",
+    "confidence": "Demo · Keyakinan {confidence} — {note}"
+  },
+  "alerts": {
+    "title": "Mesin peringatan",
+    "emptyTitle": "Tidak ada peringatan",
+    "emptyDescription": "Memperingatkan benih dari heuristik risiko.",
+    "acked": "tersinggung",
+    "open": "membuka",
+    "acknowledge": "Mengakui"
+  },
+  "scorecards": {
+    "title": "Mesin kartu skor",
+    "emptyTitle": "Tidak ada kartu skor",
+    "emptyDescription": "Benih kartu skor di bootstrap."
+  },
+  "explorer": {
+    "title": "Penjelajah data",
+    "searchPlaceholder": "Telusuri baris demo…",
+    "searchAria": "Telusuri baris penjelajah demo",
+    "emptyTitle": "Tidak ada baris yang cocok",
+    "emptyDescription": "Sesuaikan filter atau cari, atau muat ulang kumpulan data demo.",
+    "hint": "Pencarian sisi klien pada tupel yang diunggulkan — agregasi backend dan penelusuran tidak terhubung."
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "Nilai",
+    "delta": "Δ%",
+    "trend": "Kecenderungan",
+    "target": "Target",
+    "severity": "Kerasnya",
+    "alert": "Peringatan",
+    "domain": "Domain",
+    "status": "Status",
+    "actions": "Tindakan",
+    "report": "Laporan",
+    "kind": "Baik",
+    "schedule": "Jadwal",
+    "export": "Ekspor",
+    "scorecard": "Kartu catatan angka",
+    "score": "Skor",
+    "topDriver": "Pengemudi papan atas",
+    "label": "Label",
+    "entity": "Kesatuan",
+    "measure": "Ukuran",
+    "date": "Tanggal"
+  },
+  "emDash": "—"
+}

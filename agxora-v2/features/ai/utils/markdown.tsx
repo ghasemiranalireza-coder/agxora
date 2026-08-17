@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * Lightweight markdown renderer — no external deps.
  * Supports headings, lists, bold/italic, links, fenced code + basic highlighting.
@@ -9,6 +11,7 @@ import {
   type JSX,
   type ReactNode,
 } from "react";
+import { useT } from "@/app/lib/i18n";
 
 type Block =
   | { kind: "code"; language: string; code: string }
@@ -253,6 +256,7 @@ function CodeBlock({
   language: string;
   code: string;
 }): JSX.Element {
+  const t = useT();
   return (
     <div
       className="my-2 overflow-hidden rounded-lg"
@@ -277,7 +281,7 @@ function CodeBlock({
             void navigator.clipboard?.writeText(code);
           }}
         >
-          Copy
+          {t("ai.messageBubble.copy")}
         </button>
       </div>
       <pre

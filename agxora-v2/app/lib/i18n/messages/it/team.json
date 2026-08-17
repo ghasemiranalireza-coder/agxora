@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "Identità e accesso",
+    "title": "Squadra",
+    "lead": "Membri, ruoli e inviti per {organization}. Architettura pronta per una futura API di identità.",
+    "yourOrganization": "la tua organizzazione"
+  },
+  "invite": {
+    "title": "Invita tramite e-mail",
+    "email": "E-mail",
+    "emailPlaceholder": "collega@azienda.com",
+    "role": "Ruolo",
+    "submit": "Invitare",
+    "created": "Invito creato (in sospeso).",
+    "failed": "Invito non riuscito",
+    "signInFirst": "Accedi e attiva prima un'organizzazione.",
+    "noPermission": "Autorizzazione mancante: per invitare è necessario l'amministratore o il manager."
+  },
+  "roles": {
+    "title": "Ruoli",
+    "owner": {
+      "name": "Proprietario",
+      "description": "Controllo completo dell'organizzazione, comprese impostazioni e fatturazione."
+    },
+    "admin": {
+      "name": "Ammin",
+      "description": "Gestisci i moduli Finanza, Automazione, Team e Area di lavoro."
+    },
+    "manager": {
+      "name": "Manager",
+      "description": "Guidare le operazioni CRM, progetti, documenti e creatore."
+    },
+    "employee": {
+      "name": "Dipendente",
+      "description": "Accesso quotidiano a CRM, documenti, Creator e progetti."
+    },
+    "guest": {
+      "name": "Ospite",
+      "description": "Accesso in lettura limitato a documenti e progetti."
+    },
+    "viewer": {
+      "name": "Spettatore",
+      "description": "Accesso in sola lettura ai moduli condivisi."
+    }
+  },
+  "members": {
+    "title": "Membri",
+    "columnMember": "Membro",
+    "columnEmail": "E-mail",
+    "columnRole": "Ruolo",
+    "columnStatus": "Stato",
+    "roleFor": "Ruolo per {name}",
+    "emptyTitle": "Nessun membro ancora",
+    "emptyDescription": "Invita i colleghi a partecipare a quest'area di lavoro dell'organizzazione.",
+    "updated": "{name} aggiornato in {role}",
+    "roleChangeFailed": "Il cambio di ruolo non è riuscito"
+  },
+  "pending": {
+    "title": "Inviti in sospeso",
+    "emptyTitle": "Nessun invito in sospeso",
+    "emptyDescription": "I nuovi inviti vengono visualizzati qui fino all'accettazione o alla scadenza.",
+    "expires": "{role} · scade il {date}",
+    "revoke": "Revocare",
+    "pending": "in attesa di"
+  },
+  "history": {
+    "title": "Cronologia degli inviti",
+    "empty": "Gli inviti accettati, scaduti e revocati verranno visualizzati qui."
+  },
+  "status": {
+    "accepted": "accettato",
+    "expired": "scaduto",
+    "revoked": "revocato",
+    "active": "attivo",
+    "inactive": "inattivo",
+    "pending": "in attesa di"
+  }
+}

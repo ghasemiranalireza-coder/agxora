@@ -112,55 +112,55 @@ export function validateProjectDraft(
   const budget = budgetRaw === "" ? 0 : Number(budgetRaw);
 
   if (!name) {
-    errors.push({ field: "name", message: "Project name is required." });
+    errors.push({ field: "name", message: "projects.validation.nameRequired" });
   } else if (name.length < 2) {
     errors.push({
       field: "name",
-      message: "Project name must be at least 2 characters.",
+      message: "projects.validation.nameMin",
     });
   }
   if (!customer) {
-    errors.push({ field: "customer", message: "Customer is required." });
+    errors.push({ field: "customer", message: "projects.validation.customerRequired" });
   }
   if (!owner) {
-    errors.push({ field: "owner", message: "Project owner is required." });
+    errors.push({ field: "owner", message: "projects.validation.ownerRequired" });
   }
   if (!PROJECT_PRIORITIES.includes(priority)) {
-    errors.push({ field: "priority", message: "Select a valid priority." });
+    errors.push({ field: "priority", message: "projects.validation.priorityInvalid" });
   }
   if (!PROJECT_STATUSES.includes(status)) {
-    errors.push({ field: "status", message: "Select a valid status." });
+    errors.push({ field: "status", message: "projects.validation.statusInvalid" });
   }
   if (!PROJECT_CURRENCIES.includes(currency)) {
-    errors.push({ field: "currency", message: "Select a valid currency." });
+    errors.push({ field: "currency", message: "projects.validation.currencyInvalid" });
   }
   if (!Number.isFinite(budget) || budget < 0) {
     errors.push({
       field: "budget",
-      message: "Budget must be a non-negative number.",
+      message: "projects.validation.budgetInvalid",
     });
   }
   if (!startDate) {
-    errors.push({ field: "startDate", message: "Start date is required." });
+    errors.push({ field: "startDate", message: "projects.validation.startDateRequired" });
   } else if (!isValidDate(startDate)) {
-    errors.push({ field: "startDate", message: "Enter a valid start date." });
+    errors.push({ field: "startDate", message: "projects.validation.startDateInvalid" });
   }
   if (dueDate && !isValidDate(dueDate)) {
-    errors.push({ field: "dueDate", message: "Enter a valid due date." });
+    errors.push({ field: "dueDate", message: "projects.validation.dueDateInvalid" });
   }
   if (startDate && dueDate && isValidDate(startDate) && isValidDate(dueDate)) {
     if (dueDate < startDate) {
       errors.push({
         field: "dueDate",
-        message: "Due date must be on or after the start date.",
+        message: "projects.validation.dueDateOrder",
       });
     }
   }
   if (!HEX_COLOR_RE.test(color)) {
-    errors.push({ field: "color", message: "Choose a valid color." });
+    errors.push({ field: "color", message: "projects.validation.colorInvalid" });
   }
   if (!PROJECT_ICONS.includes(icon)) {
-    errors.push({ field: "icon", message: "Choose a valid icon." });
+    errors.push({ field: "icon", message: "projects.validation.iconInvalid" });
   }
 
   if (errors.length > 0) return { ok: false, errors };
@@ -199,21 +199,21 @@ export function validateTaskDraft(draft: TaskDraft): TaskValidationResult {
   const progress = progressRaw === "" ? 0 : Number(progressRaw);
 
   if (!title) {
-    errors.push({ field: "title", message: "Task title is required." });
+    errors.push({ field: "title", message: "projects.validation.taskTitleRequired" });
   }
   if (!TASK_PRIORITIES.includes(priority)) {
-    errors.push({ field: "priority", message: "Select a valid priority." });
+    errors.push({ field: "priority", message: "projects.validation.priorityInvalid" });
   }
   if (!TASK_STATUSES.includes(status)) {
-    errors.push({ field: "status", message: "Select a valid status." });
+    errors.push({ field: "status", message: "projects.validation.statusInvalid" });
   }
   if (dueDate && !isValidDate(dueDate)) {
-    errors.push({ field: "dueDate", message: "Enter a valid due date." });
+    errors.push({ field: "dueDate", message: "projects.validation.dueDateInvalid" });
   }
   if (!Number.isFinite(progress) || progress < 0 || progress > 100) {
     errors.push({
       field: "progress",
-      message: "Progress must be between 0 and 100.",
+      message: "projects.validation.progressRange",
     });
   }
 
@@ -243,15 +243,15 @@ export function validateMemberDraft(draft: MemberDraft):
   const role = draft.role;
 
   if (!name) {
-    errors.push({ field: "name", message: "Member name is required." });
+    errors.push({ field: "name", message: "projects.validation.memberNameRequired" });
   }
   if (!email) {
-    errors.push({ field: "email", message: "Email is required." });
+    errors.push({ field: "email", message: "projects.validation.emailRequired" });
   } else if (!EMAIL_RE.test(email)) {
-    errors.push({ field: "email", message: "Enter a valid email address." });
+    errors.push({ field: "email", message: "projects.validation.emailInvalid" });
   }
   if (!MEMBER_ROLES.includes(role)) {
-    errors.push({ field: "role", message: "Select a valid role." });
+    errors.push({ field: "role", message: "projects.validation.roleInvalid" });
   }
 
   if (errors.length > 0) return { ok: false, errors };
@@ -280,13 +280,13 @@ export function validateNoteDraft(draft: NoteDraft):
   const author = draft.author.trim();
 
   if (!title) {
-    errors.push({ field: "title", message: "Note title is required." });
+    errors.push({ field: "title", message: "projects.validation.noteTitleRequired" });
   }
   if (!body) {
-    errors.push({ field: "body", message: "Note body is required." });
+    errors.push({ field: "body", message: "projects.validation.noteBodyRequired" });
   }
   if (!author) {
-    errors.push({ field: "author", message: "Author is required." });
+    errors.push({ field: "author", message: "projects.validation.authorRequired" });
   }
 
   if (errors.length > 0) return { ok: false, errors };

@@ -2,6 +2,7 @@
 
 import { useMemo, useState, type JSX, type ReactNode } from "react";
 import { SearchField } from "@/app/components/ui";
+import { useT } from "@/app/lib/i18n";
 import {
   AI_PROMPT_CATEGORIES,
   getPromptById,
@@ -19,6 +20,7 @@ export interface PromptLibraryProps {
 }
 
 export function PromptLibrary({ onUsePrompt }: PromptLibraryProps): JSX.Element {
+  const t = useT();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<AiPromptCategory | "all">("all");
   const favorites = useAiFavoritePromptIds();
@@ -60,39 +62,39 @@ export function PromptLibrary({ onUsePrompt }: PromptLibraryProps): JSX.Element 
           className="text-[11px] font-semibold uppercase tracking-[0.14em]"
           style={{ color: "var(--agx-accent, #22d3ee)" }}
         >
-          Prompt library
+          {t("ai.promptLibrary.title")}
         </p>
         <p
           className="mt-1 text-xs"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Reusable templates across CRM, Projects, Finance, and more.
+          {t("ai.promptLibrary.subtitle")}
         </p>
       </div>
       <SearchField
         value={query}
         onChange={setQuery}
-        placeholder="Search prompts…"
-        aria-label="Search prompts"
+        placeholder={t("ai.promptLibrary.searchPlaceholder")}
+        aria-label={t("ai.promptLibrary.searchAria")}
       />
       <div className="flex flex-wrap gap-1">
         <Chip
           active={category === "all"}
-          label="All"
+          label={t("ai.promptLibrary.all")}
           onClick={() => setCategory("all")}
         />
         {AI_PROMPT_CATEGORIES.map((c) => (
           <Chip
             key={c.id}
             active={category === c.id}
-            label={c.label}
+            label={t(`ai.categories.${c.id}`)}
             onClick={() => setCategory(c.id)}
           />
         ))}
       </div>
 
       {favoritePrompts.length > 0 ? (
-        <Section title="Favorites">
+        <Section title={t("ai.promptLibrary.favorites")}>
           {favoritePrompts.map((p) => (
             <PromptRow
               key={`fav-${p.id}`}
@@ -108,7 +110,7 @@ export function PromptLibrary({ onUsePrompt }: PromptLibraryProps): JSX.Element 
       ) : null}
 
       {recentPrompts.length > 0 ? (
-        <Section title="Recent">
+        <Section title={t("ai.promptLibrary.recent")}>
           {recentPrompts.map((p) => (
             <PromptRow
               key={`recent-${p.id}`}
@@ -123,7 +125,7 @@ export function PromptLibrary({ onUsePrompt }: PromptLibraryProps): JSX.Element 
         </Section>
       ) : null}
 
-      <Section title="Library">
+      <Section title={t("ai.promptLibrary.library")}>
         <div className="min-h-0 max-h-[320px] space-y-1 overflow-y-auto pr-1">
           {results.map((p) => (
             <PromptRow
@@ -141,7 +143,7 @@ export function PromptLibrary({ onUsePrompt }: PromptLibraryProps): JSX.Element 
               className="py-4 text-center text-xs"
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
             >
-              No prompts match
+              {t("ai.promptLibrary.noMatches")}
             </p>
           ) : null}
         </div>
@@ -212,6 +214,7 @@ function PromptRow({
   onToggleFavorite: () => void;
   onUse: () => void;
 }): JSX.Element {
+  const t = useT();
   return (
     <div
       className="rounded-xl px-2.5 py-2"
@@ -228,19 +231,19 @@ function PromptRow({
             className="text-sm font-medium"
             style={{ color: "var(--agx-text, #f8fafc)" }}
           >
-            {prompt.title}
+            {t(`ai.library.${prompt.id}.title`)}
           </p>
           <p
             className="mt-0.5 text-[11px] leading-snug"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            {prompt.description}
+            {t(`ai.library.${prompt.id}.description`)}
           </p>
         </div>
         <button
           type="button"
           className="shrink-0 text-[11px] font-medium"
-          aria-label={favorite ? "Remove favorite" : "Add favorite"}
+          aria-label={favorite ? t("ai.promptLibrary.removeFavoriteAria") : t("ai.promptLibrary.addFavoriteAria")}
           onClick={onToggleFavorite}
           style={{
             color: favorite
@@ -248,7 +251,7 @@ function PromptRow({
               : "var(--agx-text-muted, #94a3b8)",
           }}
         >
-          {favorite ? "Favorited" : "Favorite"}
+          {favorite ? t("ai.promptLibrary.favorited") : t("ai.promptLibrary.favorite")}
         </button>
       </div>
       <button
@@ -257,7 +260,7 @@ function PromptRow({
         style={{ color: "var(--agx-accent, #22d3ee)" }}
         onClick={onUse}
       >
-        Use prompt
+        {t("ai.promptLibrary.usePrompt")}
       </button>
     </div>
   );

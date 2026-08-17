@@ -1,0 +1,158 @@
+{
+  "eyebrow": "System operacyjny AGXORA",
+  "title": "Uruchom swój biznesowy system operacyjny",
+  "lead": "Wybierz szablon branżowy. AGXORA konfiguruje moduły, agentów, przepływy pracy i wiedzę firmy — bez zamykania Cię na zawsze w jednej branży.",
+  "steps": {
+    "type": "Typ",
+    "company": "Firma",
+    "locale": "Widownia",
+    "goals": "Cele"
+  },
+  "companyName": "Nazwa firmy",
+  "companyPlaceholder": "Grupa hotelarska Acme",
+  "template": "Szablon",
+  "country": "Kraj",
+  "language": "Język",
+  "languagePlaceholder": "pl",
+  "timezone": "Strefa czasowa",
+  "timezonePlaceholder": "UTC",
+  "goals": {
+    "increaseRevenue": "Zwiększ przychody",
+    "improveOperations": "Usprawnij operacje",
+    "delightCustomers": "Zachwyć klientów",
+    "reduceCosts": "Zmniejsz koszty",
+    "scaleWithAi": "Skaluj za pomocą sztucznej inteligencji"
+  },
+  "failed": "Wdrożenie nie powiodło się",
+  "back": "Z powrotem",
+  "continue": "Kontynuować",
+  "launching": "Wodowanie…",
+  "enterDashboard": "Wejdź do panelu",
+  "defaultCountry": "Stany Zjednoczone",
+  "businessTypes": {
+    "hotel": {
+      "label": "Hotel",
+      "description": "Hotelarstwo, pokoje, goście i eksploatacja obiektu"
+    },
+    "restaurant": {
+      "label": "Restauracja",
+      "description": "Gastronomia, kuchnia, rezerwacje i doświadczenie gościa"
+    },
+    "cleaning": {
+      "label": "Sprzątanie",
+      "description": "Sprzątanie komercyjne i mieszkaniowe"
+    },
+    "laundry": {
+      "label": "Pralnia",
+      "description": "Pralnie, trasy odbioru i pielęgnacja tkanin"
+    },
+    "construction": {
+      "label": "Budownictwo",
+      "description": "Place budowy, ekipy, materiały i dostawa projektów"
+    },
+    "healthcare": {
+      "label": "Opieka zdrowotna",
+      "description": "Sieci opieki, pacjenci i operacje kliniczne"
+    },
+    "medical": {
+      "label": "Medycyna",
+      "description": "Kliniki, wizyty i zespoły opieki"
+    },
+    "manufacturing": {
+      "label": "Produkcja",
+      "description": "Linie produkcyjne, jakość i operacje zaopatrzenia"
+    },
+    "retail": {
+      "label": "Handel detaliczny",
+      "description": "Sklepy, zapasy, merchandising i klienci"
+    },
+    "legal": {
+      "label": "Kancelaria prawna",
+      "description": "Sprawy, klienci, terminy i rozliczenia"
+    },
+    "accounting": {
+      "label": "Księgowość",
+      "description": "Księgi, klienci, zgłoszenia i doradztwo"
+    },
+    "consulting": {
+      "label": "Doradztwo",
+      "description": "Zlecenia, dostawy i wyniki klientów"
+    },
+    "real_estate": {
+      "label": "Nieruchomości",
+      "description": "Oferty, klienci, pokazy i transakcje"
+    },
+    "education": {
+      "label": "Edukacja",
+      "description": "Programy, studenci, kadra i rekrutacja"
+    },
+    "automotive": {
+      "label": "Motoryzacja",
+      "description": "Salony, stanowiska serwisowe i zapas pojazdów"
+    },
+    "beauty": {
+      "label": "Salon urody",
+      "description": "Wizyty, styliści, sprzedaż i członkostwa"
+    },
+    "fitness": {
+      "label": "Siłownia / fitness",
+      "description": "Członkostwa, zajęcia, trenerzy i retencja"
+    },
+    "agriculture": {
+      "label": "Rolnictwo",
+      "description": "Uprawy, zwierzęta, plony i łańcuchy dostaw"
+    },
+    "transport": {
+      "label": "Transport",
+      "description": "Ruch floty, trasy oraz ops pasażerskie/ładunkowe"
+    },
+    "logistics": {
+      "label": "Logistyka",
+      "description": "Flota, magazyny, trasy i realizacja"
+    },
+    "warehouse": {
+      "label": "Magazyn",
+      "description": "Magazynowanie, kompletacja, pakowanie i rotacja zapasów"
+    },
+    "insurance": {
+      "label": "Ubezpieczenia",
+      "description": "Polisy, szkody, underwriting i retencja"
+    },
+    "finance": {
+      "label": "Finanse",
+      "description": "Kapitał, portfele i operacje finansowe"
+    },
+    "financial_services": {
+      "label": "Usługi finansowe",
+      "description": "Doradztwo, produkty, zgodność i klienci"
+    },
+    "technology": {
+      "label": "Technologia",
+      "description": "Produkt, inżynieria i zespoły go-to-market"
+    },
+    "saas": {
+      "label": "Oprogramowanie / SaaS",
+      "description": "Subskrypcje, użycie i customer success"
+    },
+    "ecommerce": {
+      "label": "E-commerce",
+      "description": "Katalog online, koszyki, realizacja i LTV"
+    },
+    "agency": {
+      "label": "Agencja marketingowa",
+      "description": "Klienci, kampanie, retainery i dostawa"
+    },
+    "freelancer": {
+      "label": "Freelancer",
+      "description": "Praktyka solo, klienci, lejek i cashflow"
+    },
+    "government": {
+      "label": "Administracja",
+      "description": "Usługi publiczne, programy i mieszkańcy"
+    },
+    "nonprofit": {
+      "label": "Organizacja non-profit",
+      "description": "Misje, darczyńcy, programy i wpływ"
+    }
+  }
+}

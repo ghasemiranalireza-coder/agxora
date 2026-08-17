@@ -1,40 +1,11 @@
 "use client";
 
-import type { JSX } from "react";
+import { useMemo, type JSX } from "react";
 import type { CalendarItem, CampaignPlan } from "../../lib/creator-studio";
 import { formatDate, publishStatusLabel } from "../../lib/creator-studio";
+import { useT } from "../../lib/i18n";
 import { Badge, Card, DataTable } from "../ui";
 import type { DataTableColumn } from "../ui";
-
-const CAMPAIGN_COLUMNS: readonly DataTableColumn<CampaignPlan>[] = [
-  {
-    key: "name",
-    header: "Campaign Name",
-    render: (row) => <span className="font-medium">{row.name}</span>,
-  },
-  { key: "objective", header: "Objective", render: (row) => row.objective },
-  { key: "audience", header: "Audience", render: (row) => row.audience },
-  {
-    key: "platforms",
-    header: "Platforms",
-    render: (row) => (
-      <div className="flex flex-wrap gap-1.5">
-        {row.platforms.map((p) => (
-          <Badge key={p} tone="accent">
-            {p}
-          </Badge>
-        ))}
-      </div>
-    ),
-  },
-  { key: "budget", header: "Budget", render: (row) => row.budgetPlaceholder },
-  { key: "timeline", header: "Timeline", render: (row) => row.timeline },
-  {
-    key: "status",
-    header: "Status",
-    render: (row) => <Badge>{row.status}</Badge>,
-  },
-];
 
 export function CampaignPlanner({
   campaigns,
@@ -43,25 +14,76 @@ export function CampaignPlanner({
   readonly campaigns: readonly CampaignPlan[];
   readonly calendar: readonly CalendarItem[];
 }): JSX.Element {
+  const t = useT();
+
+  const columns = useMemo<readonly DataTableColumn<CampaignPlan>[]>(
+    () => [
+      {
+        key: "name",
+        header: t("creator.campaign.columns.name"),
+        render: (row) => <span className="font-medium">{row.name}</span>,
+      },
+      {
+        key: "objective",
+        header: t("creator.campaign.columns.objective"),
+        render: (row) => row.objective,
+      },
+      {
+        key: "audience",
+        header: t("creator.campaign.columns.audience"),
+        render: (row) => row.audience,
+      },
+      {
+        key: "platforms",
+        header: t("creator.campaign.columns.platforms"),
+        render: (row) => (
+          <div className="flex flex-wrap gap-1.5">
+            {row.platforms.map((p) => (
+              <Badge key={p} tone="accent">
+                {p}
+              </Badge>
+            ))}
+          </div>
+        ),
+      },
+      {
+        key: "budget",
+        header: t("creator.campaign.columns.budget"),
+        render: (row) => row.budgetPlaceholder,
+      },
+      {
+        key: "timeline",
+        header: t("creator.campaign.columns.timeline"),
+        render: (row) => row.timeline,
+      },
+      {
+        key: "status",
+        header: t("creator.campaign.columns.status"),
+        render: (row) => <Badge>{row.status}</Badge>,
+      },
+    ],
+    [t],
+  );
+
   return (
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-5">
       <Card className="xl:col-span-3" padding="24px">
         <h3 className="mb-4 text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Campaign Planner
+          {t("creator.campaign.title")}
         </h3>
         <DataTable
-          columns={CAMPAIGN_COLUMNS}
+          columns={columns}
           rows={campaigns}
           rowKey={(row) => row.id}
           minWidth={860}
-          emptyTitle="No campaigns"
-          emptyDescription="Create a campaign to plan objectives, audience, and timelines."
+          emptyTitle={t("creator.campaign.emptyTitle")}
+          emptyDescription={t("creator.campaign.emptyDescription")}
         />
       </Card>
 
       <Card className="space-y-3 xl:col-span-2" padding="24px">
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Content Calendar
+          {t("creator.campaign.calendar")}
         </h3>
         <ul className="space-y-2">
           {calendar.map((item) => (
@@ -82,7 +104,7 @@ export function CampaignPlanner({
                     {formatDate(item.date)} · {item.platform}
                   </p>
                 </div>
-                <Badge tone="accent">{publishStatusLabel(item.status)}</Badge>
+                <Badge tone="accent">{t(publishStatusLabel(item.status))}</Badge>
               </div>
             </li>
           ))}

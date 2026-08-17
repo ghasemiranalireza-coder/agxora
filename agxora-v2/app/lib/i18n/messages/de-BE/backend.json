@@ -1,0 +1,62 @@
+{
+  "toast": {
+    "success": "Erfolg",
+    "warning": "Warnung",
+    "error": "Fehler",
+    "info": "Info",
+    "dismiss": "Benachrichtigung ausblenden",
+    "close": "Schließen"
+  },
+  "network": {
+    "offline": "Sie scheinen offline zu sein.",
+    "offlineHelp": "Offline-Hilfe",
+    "reconnected": "Verbindung wiederhergestellt",
+    "offlineSyncHint": "Änderungen werden möglicherweise erst synchronisiert, wenn die Verbindung zurückkehrt."
+  },
+  "errorBoundary": {
+    "backToDashboard": "Zurück zum Dashboard",
+    "title": "Etwas ist schiefgelaufen",
+    "retry": "Wiederholen"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "message": "Die von Ihnen angeforderte Seite existiert nicht, wurde verschoben oder ist nicht mehr verfügbar.",
+    "recoveryNav": "Wiederherstellung",
+    "home": "Heim",
+    "pricing": "Preise",
+    "contact": "Kontakt",
+    "signIn": "anmelden",
+    "dashboard": "Armaturenbrett"
+  },
+  "globalError": {
+    "title": "Etwas ist schiefgelaufen",
+    "message": "Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "retry": "Wiederholen"
+  },
+  "skipToMain": "     Skip to main content",
+  "offline": {
+    "title": "Du bist Offline",
+    "message": "Überprüfen Sie Ihre Verbindung und versuchen Sie es erneut, wenn Sie wieder online sind. Zwischengespeicherte Bildschirme funktionieren möglicherweise noch.",
+    "home": "Heim",
+    "contact": "Kontakt",
+    "signIn": "anmelden"
+  },
+  "logout": {
+    "title": "Abmelden",
+    "signingOut": "Ich melde mich ab…",
+    "endingSession": "Sitzung wird beendet…",
+    "failed": "Die Abmeldung ist fehlgeschlagen"
+  },
+  "demo": {
+    "title": "Demo buchen",
+    "subtitle": "Vereinbaren Sie einen Live-Rundgang mit dem AGXORA-Team. Bis die Kalenderbuchung aktiviert ist, senden Sie uns eine E-Mail, um eine Demo anzufordern.",
+    "requestTitle": "Fordern Sie eine Demo an",
+    "requestBody": "Wir schließen die Terminplanung ab, damit Sie einen Zeitpunkt auswählen können, der für Ihr Team am besten geeignet ist. Beginnen Sie bis dahin kostenlos und erkunden Sie das Produkt in Ihrem eigenen Tempo – oder senden Sie uns eine E-Mail an {email}.",
+    "startFree": "Beginnen Sie stattdessen kostenlos",
+    "backHome": "Zurück nach Hause",
+    "signIn": "anmelden"
+  },
+  "loading": "Wird geladen",
+  "loadingEllipsis": "Wird geladen…",
+  "loadingIdentity": "Identität wird geladen…"
+}

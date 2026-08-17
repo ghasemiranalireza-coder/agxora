@@ -1,0 +1,149 @@
+{
+  "page": {
+    "eyebrow": "System operacyjny AGXORA Marketing",
+    "title": "Studio twórców AI",
+    "lead": "Produkcja treści dla przedsiębiorstw — generuj, oznaczaj, planuj, publikuj i mierz kampanie oparte na sztucznej inteligencji we wszystkich kanałach.",
+    "dashboard": "Panel",
+    "workspace": "Obszar roboczy",
+    "workspaceSubtitle": "Twórz treści · Kampanie · Biblioteka multimediów · Szablony · Zestawy marek · Kolejka publikacji · Analityka",
+    "workspaceAria": "Obszar roboczy twórcy",
+    "integrations": "Przyszłe integracje",
+    "integrationsSubtitle": "Oficjalne adaptery platform zastrzeżone — żadnych fałszywych połączeń na żywo.",
+    "aiFeatures": "Funkcje sztucznej inteligencji",
+    "aiFeaturesSubtitle": "Mapa możliwości dla produkcji, marki, harmonogramu i lokalizacji."
+  },
+  "tabs": {
+    "create": "Twórz treści",
+    "campaigns": "Kampanie",
+    "media": "Biblioteka multimediów",
+    "templates": "Szablony",
+    "brand": "Aktywa marki",
+    "queue": "Kolejka do publikacji",
+    "analytics": "Analityka"
+  },
+  "templates": {
+    "emptyTitle": "Brak szablonów",
+    "emptyDescription": "Będą tu dostępne treści i szablony projektów wielokrotnego użytku."
+  },
+  "campaign": {
+    "title": "Planista kampanii",
+    "calendar": "Kalendarz treści",
+    "columns": {
+      "name": "Nazwa kampanii",
+      "objective": "Cel",
+      "audience": "Publiczność",
+      "platforms": "Platformy",
+      "budget": "Budżet",
+      "timeline": "Oś czasu",
+      "status": "Status"
+    },
+    "emptyTitle": "Brak kampanii",
+    "emptyDescription": "Utwórz kampanię, aby zaplanować cele, odbiorców i ramy czasowe."
+  },
+  "media": {
+    "title": "Biblioteka multimediów",
+    "columns": {
+      "asset": "Zaleta",
+      "type": "Typ",
+      "folder": "Falcówka",
+      "tags": "Tagi",
+      "updated": "Zaktualizowano"
+    },
+    "emptyTitle": "Brak mediów",
+    "emptyDescription": "Tutaj pojawią się obrazy, filmy, dokumenty, logo i szablony.",
+    "searchPlaceholder": "Szukaj zasobów, folderów, tagów…",
+    "typeFilter": "Typ",
+    "allTypes": "Wszystkie typy",
+    "images": "Obrazy",
+    "videos": "Filmy",
+    "documents": "Dokumenty",
+    "logos": "Logo marki",
+    "templates": "Szablony"
+  },
+  "generator": {
+    "title": "Generator treści AI",
+    "lead": "Twórz podpisy na Instagramie, skrypty TikTok, posty na LinkedIn, reklamy, artykuły SEO i nie tylko.",
+    "brief": "Krótki",
+    "briefPlaceholder": "Opisz ofertę, odbiorców i wezwanie do działania…",
+    "generateDraft": "Wygeneruj wersję roboczą",
+    "aiRewrite": "Przepisz AI",
+    "translate": "Tłumaczyć",
+    "initialOutput": "Wybierz format i głos marki, a następnie wygeneruj wersję roboczą. Adaptery dostawców są zarezerwowane — nie ma jeszcze żadnych wywołań modeli na żywo.",
+    "draftStaged": "Wersja robocza przygotowana dla {format} · głos: {voice}. Adapter generacji zarezerwowany.",
+    "rewriteQueued": "AI Rewrite w kolejce — adapter ponownego zapisu zarezerwowany.",
+    "translateQueued": "Tłumacz Treść w kolejce — zarezerwowany adapter wielojęzyczny.",
+    "brandVoice": "Głos marki",
+    "brandVoiceLead": "Wstępne ustawienia tonów biznesowych oraz niestandardowy głos marki dla zapewnienia spójności.",
+    "active": "Aktywny"
+  },
+  "queue": {
+    "title": "Kolejka do publikacji",
+    "columns": {
+      "title": "Tytuł",
+      "platform": "Platforma",
+      "format": "Format",
+      "status": "Status",
+      "scheduled": "Zaplanowany",
+      "author": "Autor"
+    },
+    "emptyTitle": "Brak postów w kolejce",
+    "emptyDescription": "W tym miejscu będą pojawiać się wersje robocze, recenzje i zaplanowane posty.",
+    "filterStatus": "Stan filtra",
+    "allStatuses": "Wszystkie statusy"
+  },
+  "analytics": {
+    "title": "Analityka",
+    "topPosts": "Najlepsze posty",
+    "engagement": "inż. {value}",
+    "reach": "Osiągnij {value}",
+    "recommendations": "Zalecenia AI"
+  },
+  "integrations": {
+    "lead": "Przyszłe integracje — opcjonalne. Brak aktywnych interfejsów API do czasu połączenia. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.",
+    "adapter": "Adapter:"
+  },
+  "aiFeaturesPanel": {
+    "lead": "Mapa funkcji AI — pomysły, podpisy, hashtagi, kalendarz, kampanie, odbiorcy, harmonogram, spójność marki, przepisywanie, tłumaczenie, wielojęzyczność."
+  },
+  "formats": {
+    "instagram_caption": "Podpis Instagram",
+    "tiktok_script": "Scenariusz TikTok",
+    "linkedin_post": "Post LinkedIn",
+    "facebook_post": "Post Facebook",
+    "x_post": "Post X",
+    "blog_article": "Artykuł na blogu",
+    "newsletter": "Newsletter",
+    "email_campaign": "Kampania e-mail",
+    "product_description": "Opis produktu",
+    "ad_copy": "Tekst reklamy",
+    "seo_article": "Artykuł SEO",
+    "landing_page_copy": "Tekst strony docelowej"
+  },
+  "publishStatus": {
+    "draft": "Szkic",
+    "review": "Recenzja",
+    "approved": "Zatwierdzono",
+    "scheduled": "Zaplanowano",
+    "published": "Opublikowano",
+    "archive": "Archiwum"
+  },
+  "mediaKind": {
+    "image": "Obraz",
+    "video": "Wideo",
+    "document": "Dokument",
+    "logo": "Logo marki",
+    "template": "Szablon"
+  },
+  "voice": {
+    "professional": "Profesjonalny",
+    "friendly": "Przyjazny",
+    "luxury": "Luksusowy",
+    "casual": "Swobodny"
+  },
+  "integrationStatus": {
+    "planned": "Zaplanowano",
+    "ready": "Gotowe",
+    "connected": "Połączono",
+    "disabled": "Wyłączono"
+  }
+}

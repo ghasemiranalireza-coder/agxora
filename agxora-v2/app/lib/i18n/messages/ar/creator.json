@@ -1,0 +1,149 @@
+{
+  "page": {
+    "eyebrow": "نظام التشغيل AGXORA للتسويق",
+    "title": "استوديو الذكاء الاصطناعي للمبدعين",
+    "lead": "إنتاج محتوى المؤسسة - إنشاء حملات مدعومة بالذكاء الاصطناعي ووضع علامة تجارية عليها وتخطيطها ونشرها وقياسها عبر كل قناة.",
+    "dashboard": "لوحة القيادة",
+    "workspace": "مساحة العمل",
+    "workspaceSubtitle": "إنشاء محتوى · حملات · مكتبة الوسائط · قوالب · أصول العلامة التجارية · قائمة انتظار النشر · التحليلات",
+    "workspaceAria": "مساحة عمل المنشئ",
+    "integrations": "التكاملات المستقبلية",
+    "integrationsSubtitle": "تم حجز محولات النظام الأساسي الرسمية - لا توجد اتصالات مباشرة مزيفة.",
+    "aiFeatures": "ميزات الذكاء الاصطناعي",
+    "aiFeaturesSubtitle": "خريطة القدرة للإنتاج والعلامة التجارية والجدول الزمني والتعريب."
+  },
+  "tabs": {
+    "create": "إنشاء المحتوى",
+    "campaigns": "الحملات",
+    "media": "مكتبة الوسائط",
+    "templates": "قوالب",
+    "brand": "أصول العلامة التجارية",
+    "queue": "قائمة انتظار النشر",
+    "analytics": "التحليلات"
+  },
+  "templates": {
+    "emptyTitle": "لا توجد قوالب",
+    "emptyDescription": "سيتم عرض المحتوى القابل لإعادة الاستخدام وقوالب التصميم هنا."
+  },
+  "campaign": {
+    "title": "مخطط الحملة",
+    "calendar": "تقويم المحتوى",
+    "columns": {
+      "name": "اسم الحملة",
+      "objective": "موضوعي",
+      "audience": "جمهور",
+      "platforms": "المنصات",
+      "budget": "ميزانية",
+      "timeline": "الجدول الزمني",
+      "status": "حالة"
+    },
+    "emptyTitle": "لا توجد حملات",
+    "emptyDescription": "أنشئ حملة لتخطيط الأهداف والجمهور والجداول الزمنية."
+  },
+  "media": {
+    "title": "مكتبة الوسائط",
+    "columns": {
+      "asset": "أصل",
+      "type": "يكتب",
+      "folder": "مجلد",
+      "tags": "العلامات",
+      "updated": "تم التحديث"
+    },
+    "emptyTitle": "لا وسائل الإعلام",
+    "emptyDescription": "ستظهر هنا الصور ومقاطع الفيديو والمستندات والشعارات والقوالب.",
+    "searchPlaceholder": "البحث في الأصول والمجلدات والعلامات ...",
+    "typeFilter": "يكتب",
+    "allTypes": "جميع الأنواع",
+    "images": "الصور",
+    "videos": "فيديوهات",
+    "documents": "وثائق",
+    "logos": "شعارات العلامة التجارية",
+    "templates": "قوالب"
+  },
+  "generator": {
+    "title": "مولد محتوى الذكاء الاصطناعي",
+    "lead": "قم بإنشاء التسميات التوضيحية على Instagram ونصوص TikTok ومنشورات LinkedIn والإعلانات ومقالات تحسين محركات البحث والمزيد.",
+    "brief": "مختصر",
+    "briefPlaceholder": "قم بوصف العرض والجمهور والحث على اتخاذ إجراء...",
+    "generateDraft": "إنشاء مسودة",
+    "aiRewrite": "إعادة كتابة الذكاء الاصطناعي",
+    "translate": "يترجم",
+    "initialOutput": "حدد التنسيق وصوت العلامة التجارية، ثم قم بإنشاء مسودة. محولات الموفر محجوزة - لا توجد مكالمات نموذجية مباشرة حتى الآن.",
+    "draftStaged": "مسودة نظمت لـ {format} · صوت: {voice}. محول الجيل محجوز.",
+    "rewriteQueued": "إعادة الكتابة في قائمة الانتظار - محول إعادة الكتابة محجوز.",
+    "translateQueued": "ترجمة المحتوى في قائمة الانتظار - تم حجز المحول متعدد اللغات.",
+    "brandVoice": "صوت العلامة التجارية",
+    "brandVoiceLead": "إعدادات مسبقة لنغمات الأعمال بالإضافة إلى صوت العلامة التجارية المخصص لتحقيق الاتساق.",
+    "active": "نشيط"
+  },
+  "queue": {
+    "title": "قائمة انتظار النشر",
+    "columns": {
+      "title": "عنوان",
+      "platform": "منصة",
+      "format": "شكل",
+      "status": "حالة",
+      "scheduled": "المقرر",
+      "author": "مؤلف"
+    },
+    "emptyTitle": "لا توجد مشاركات في قائمة الانتظار",
+    "emptyDescription": "ستظهر هنا المسودات والمراجعات والمشاركات المجدولة.",
+    "filterStatus": "حالة التصفية",
+    "allStatuses": "جميع الحالات"
+  },
+  "analytics": {
+    "title": "التحليلات",
+    "topPosts": "أعلى المشاركات",
+    "engagement": "المهندس {value}",
+    "reach": "الوصول إلى {value}",
+    "recommendations": "توصيات الذكاء الاصطناعي"
+  },
+  "integrations": {
+    "lead": "عمليات التكامل المستقبلية – اختيارية. لا توجد واجهات برمجة التطبيقات المباشرة حتى يتم الاتصال. Instagram، TikTok، YouTube، Facebook، LinkedIn، Pinterest، Threads، X، Meta Business، إعلانات Google، Google Analytics.",
+    "adapter": "محول:"
+  },
+  "aiFeaturesPanel": {
+    "lead": "خريطة ميزات الذكاء الاصطناعي - الأفكار، والتسميات التوضيحية، وعلامات التصنيف، والتقويم، والحملات، والجمهور، والجدول الزمني، واتساق العلامة التجارية، وإعادة الكتابة، والترجمة، ومتعددة اللغات."
+  },
+  "formats": {
+    "instagram_caption": "تعليق Instagram",
+    "tiktok_script": "سيناريو TikTok",
+    "linkedin_post": "منشور LinkedIn",
+    "facebook_post": "منشور Facebook",
+    "x_post": "منشور X",
+    "blog_article": "مقالة مدونة",
+    "newsletter": "نشرة",
+    "email_campaign": "حملة بريد إلكتروني",
+    "product_description": "وصف المنتج",
+    "ad_copy": "نص إعلان",
+    "seo_article": "مقالة SEO",
+    "landing_page_copy": "نص صفحة الهبوط"
+  },
+  "publishStatus": {
+    "draft": "مسودة",
+    "review": "مراجعة",
+    "approved": "معتمد",
+    "scheduled": "مجدول",
+    "published": "منشور",
+    "archive": "أرشيف"
+  },
+  "mediaKind": {
+    "image": "صورة",
+    "video": "فيديو",
+    "document": "مستند",
+    "logo": "شعار العلامة",
+    "template": "قالب"
+  },
+  "voice": {
+    "professional": "احترافي",
+    "friendly": "ودّي",
+    "luxury": "فاخر",
+    "casual": "عفوي"
+  },
+  "integrationStatus": {
+    "planned": "مخطط",
+    "ready": "جاهز",
+    "connected": "متصل",
+    "disabled": "معطّل"
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "eyebrow": "AGXORA OS",
+  "title": "Lance o sistema operacional da sua empresa",
+  "lead": "Escolha o modelo do seu setor. AGXORA configura módulos, agentes, fluxos de trabalho e conhecimento da empresa — sem prendê-lo para sempre em uma vertical.",
+  "steps": {
+    "type": "Tipo",
+    "company": "Empresa",
+    "locale": "Localidade",
+    "goals": "Metas"
+  },
+  "companyName": "Nome da empresa",
+  "companyPlaceholder": "Grupo de Hospitalidade Acme",
+  "template": "Modelo",
+  "country": "País",
+  "language": "Linguagem",
+  "languagePlaceholder": "pt",
+  "timezone": "Fuso horário",
+  "timezonePlaceholder": "UTC",
+  "goals": {
+    "increaseRevenue": "Aumentar a receita",
+    "improveOperations": "Melhorar as operações",
+    "delightCustomers": "Encante os clientes",
+    "reduceCosts": "Reduza custos",
+    "scaleWithAi": "Dimensione com IA"
+  },
+  "failed": "Falha na integração",
+  "back": "Voltar",
+  "continue": "Continuar",
+  "launching": "Lançamento…",
+  "enterDashboard": "Entrar no painel",
+  "defaultCountry": "Estados Unidos",
+  "businessTypes": {
+    "hotel": {
+      "label": "Hotel",
+      "description": "Hotelaria, quartos, hóspedes e operação do imóvel"
+    },
+    "restaurant": {
+      "label": "Restaurante",
+      "description": "Restauração, cozinha, reservas e experiência do cliente"
+    },
+    "cleaning": {
+      "label": "Limpeza",
+      "description": "Operações de limpeza comercial e residencial"
+    },
+    "laundry": {
+      "label": "Lavandaria",
+      "description": "Instalações de lavagem, rotas de recolha e cuidado têxtil"
+    },
+    "construction": {
+      "label": "Construção",
+      "description": "Estaleiros, equipas, materiais e entrega de projetos"
+    },
+    "healthcare": {
+      "label": "Saúde",
+      "description": "Redes de cuidados, utentes e operações clínicas"
+    },
+    "medical": {
+      "label": "Médico",
+      "description": "Clínicas, consultas e equipas de cuidados"
+    },
+    "manufacturing": {
+      "label": "Fabrico",
+      "description": "Linhas de produção, qualidade e operações de abastecimento"
+    },
+    "retail": {
+      "label": "Retalho",
+      "description": "Lojas, inventário, merchandising e clientes"
+    },
+    "legal": {
+      "label": "Sociedade de advogados",
+      "description": "Processos, clientes, prazos e faturação"
+    },
+    "accounting": {
+      "label": "Contabilidade",
+      "description": "Livros, clientes, declarações e aconselhamento"
+    },
+    "consulting": {
+      "label": "Consultoria",
+      "description": "Engajamentos, entregáveis e resultados de cliente"
+    },
+    "real_estate": {
+      "label": "Imobiliário",
+      "description": "Listagens, clientes, visitas e transações"
+    },
+    "education": {
+      "label": "Educação",
+      "description": "Programas, estudantes, docentes e inscrições"
+    },
+    "automotive": {
+      "label": "Automóvel",
+      "description": "Concessionários, boxes de serviço e inventário de veículos"
+    },
+    "beauty": {
+      "label": "Salão de beleza",
+      "description": "Consultas, estilistas, retalho e adesões"
+    },
+    "fitness": {
+      "label": "Ginásio / fitness",
+      "description": "Adesões, aulas, treinadores e retenção"
+    },
+    "agriculture": {
+      "label": "Agricultura",
+      "description": "Culturas, gado, rendimentos e cadeias de abastecimento"
+    },
+    "transport": {
+      "label": "Transportes",
+      "description": "Movimento de frota, rotas e ops de passageiros/carga"
+    },
+    "logistics": {
+      "label": "Logística",
+      "description": "Frota, armazéns, rotas e fulfillment"
+    },
+    "warehouse": {
+      "label": "Armazém",
+      "description": "Armazenamento, picking, packing e rotação de inventário"
+    },
+    "insurance": {
+      "label": "Seguros",
+      "description": "Apólices, sinistros, subscrição e retenção"
+    },
+    "finance": {
+      "label": "Finanças",
+      "description": "Capital, carteiras e operações financeiras"
+    },
+    "financial_services": {
+      "label": "Serviços financeiros",
+      "description": "Aconselhamento, produtos, conformidade e clientes"
+    },
+    "technology": {
+      "label": "Tecnologia",
+      "description": "Produto, engenharia e equipas go-to-market"
+    },
+    "saas": {
+      "label": "Software / SaaS",
+      "description": "Subscrições, utilização e customer success"
+    },
+    "ecommerce": {
+      "label": "Comércio eletrónico",
+      "description": "Catálogo online, carrinhos, fulfillment e LTV"
+    },
+    "agency": {
+      "label": "Agência de marketing",
+      "description": "Clientes, campanhas, retainers e entrega"
+    },
+    "freelancer": {
+      "label": "Freelancer",
+      "description": "Prática individual, clientes, pipeline e cashflow"
+    },
+    "government": {
+      "label": "Administração pública",
+      "description": "Serviços públicos, programas e cidadãos"
+    },
+    "nonprofit": {
+      "label": "Sem fins lucrativos",
+      "description": "Missões, doadores, programas e impacto"
+    }
+  }
+}

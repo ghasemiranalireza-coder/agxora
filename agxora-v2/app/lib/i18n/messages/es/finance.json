@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "Sistema operativo AGXORA Finance",
+    "title": "Finanzas e Impuestos",
+    "subtitle": "Inteligencia contable, bancaria, fiscal y financiera: vista previa con datos de muestra hasta que se conecten los libros de contabilidad en vivo.",
+    "sampleNotice": "Conjunto de datos de muestra: las cifras y el historial de exportaciones son ilustrativos. DATEV/exportación de archivos y transmisiones bancarias en vivo no están conectadas."
+  },
+  "sections": {
+    "overview": {
+      "title": "Descripción general de finanzas"
+    },
+    "invoiceCenter": {
+      "title": "Centro de facturas",
+      "subtitle": "Busque, filtre y ordene el libro de facturas empresariales con puntuación de confianza de IA."
+    },
+    "aiInvoiceProcessing": {
+      "title": "Procesamiento de facturas con IA",
+      "subtitle": "Canal de demostración: OCR y extracción de IA no están conectados."
+    },
+    "banking": {
+      "title": "Bancario",
+      "subtitle": "Solo cuentas de muestra: las fuentes de Open Banking no están conectadas."
+    },
+    "datev": {
+      "title": "Integración DATEV",
+      "subtitle": "Historial de exportación de muestra: la generación de archivos DATEV no está conectada."
+    },
+    "taxCenter": {
+      "title": "Centro de Impuestos",
+      "subtitle": "Resúmenes de IVA, plazos y próximos pagos."
+    },
+    "aiInsights": {
+      "title": "Perspectivas de IA",
+      "subtitle": "Solo hallazgos de muestra: las acciones de conocimiento no están conectadas."
+    },
+    "smartSearch": {
+      "title": "Búsqueda inteligente",
+      "subtitle": "Consultas en lenguaje natural sobre facturas, gastos, IVA y exportaciones."
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "Ganancia",
+        "caption": "Muestra · últimos 30 días",
+        "delta": "+8.4%"
+      },
+      "expenses": {
+        "label": "Gastos",
+        "caption": "Muestra · operativo + COGS",
+        "delta": "+2.1%"
+      },
+      "profit": {
+        "label": "Ganancia",
+        "caption": "Muestra · funcionamiento neto",
+        "delta": "+12.6%"
+      },
+      "vat-due": {
+        "label": "IVA adeudado",
+        "caption": "Muestra · Ventana Q2",
+        "delta": "Vencimiento en {days}d"
+      },
+      "open-invoices": {
+        "label": "Facturas abiertas",
+        "caption": "Muestra · {money} pendiente"
+      },
+      "paid-invoices": {
+        "label": "Facturas pagadas",
+        "caption": "Muestra · este trimestre",
+        "delta": "+{count}"
+      },
+      "cashflow": {
+        "label": "Flujo de fondos",
+        "caption": "Muestra · Proyección a 30 días",
+        "delta": "+4.2%"
+      },
+      "ai-score": {
+        "label": "Puntuación financiera de IA",
+        "caption": "Puntuación de muestra · no puntuación de riesgo real",
+        "delta": "+{count}"
+      }
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "invoices": {
+    "emptyTitle": "Sin facturas",
+    "emptyDescription": "No hay facturas que coincidan con tu búsqueda o filtros.",
+    "searchPlaceholder": "Número, empresa, categoría…",
+    "statusFilter": "Filtro de estado",
+    "paymentFilter": "Filtro de pago",
+    "sortBy": "Ordenar por",
+    "toggleSort": "Alternar dirección de clasificación",
+    "count": "{count} facturas",
+    "countOne": "{count} factura",
+    "allStatuses": "Todos los estados",
+    "allPayments": "Todos los pagos",
+    "columns": {
+      "number": "Número de factura",
+      "company": "Compañía",
+      "amount": "Cantidad",
+      "vat": "TINA",
+      "status": "Estado",
+      "dueDate": "Fecha de vencimiento",
+      "payment": "Estado de pago",
+      "category": "Categoría",
+      "ai": "Confianza en la IA"
+    },
+    "sort": {
+      "dueDate": "Fecha de vencimiento",
+      "amount": "Cantidad",
+      "company": "Compañía",
+      "status": "Estado",
+      "aiConfidence": "Confianza en la IA",
+      "number": "Factura #"
+    }
+  },
+  "status": {
+    "draft": "Borrador",
+    "open": "Abierto",
+    "paid": "Pagado",
+    "overdue": "Atrasado",
+    "cancelled": "Cancelado"
+  },
+  "payment": {
+    "unpaid": "No pagado",
+    "partial": "Parcial",
+    "paid": "Pagado",
+    "refunded": "Reintegrado"
+  },
+  "category": {
+    "saas": "SaaS",
+    "office": "Oficina",
+    "travel": "Viajar",
+    "marketing": "Marketing",
+    "utilities": "Utilidades",
+    "professional": "Profesional",
+    "other": "Otro"
+  },
+  "processing": {
+    "dropTitle": "Arrastrar y soltar archivos de facturas",
+    "dropFormats": "PDF · Imagen · Importación por correo electrónico",
+    "uploadFiles": "Subir archivos",
+    "emailImport": "Importación de correo electrónico",
+    "dropHint": "Coloque facturas en formato PDF o con imágenes para prepararlas localmente: el OCR no está conectado.",
+    "filesStaged": "{count} archivos listados solo localmente: la extracción OCR/AI no está conectada.",
+    "emailReserved": "Conector de importación de correo electrónico reservado para IMAP/Microsoft Graph.",
+    "pipelineTitle": "Tubería de procesamiento (demostración)",
+    "stages": {
+      "ocr": "Estado de OCR",
+      "extraction": "Extracción de IA",
+      "categorization": "Categorización",
+      "duplicateDetection": "Detección de duplicados"
+    }
+  },
+  "stage": {
+    "pending": "Indisponible",
+    "running": "No conectado",
+    "complete": "Manifestación",
+    "failed": "Fallido",
+    "skipped": "Saltado"
+  },
+  "banking": {
+    "connectionTitle": "Conexión bancaria",
+    "connectBank": "Conectar banco",
+    "description": "Los adaptadores PSD2/Open Banking no están cableados. La comparación y conciliación que aparecen a continuación son sólo ilustrativas.",
+    "feedUnavailable": "Alimentación bancaria no disponible: la conexión del proveedor no está conectada.",
+    "noticeDefault": "Open Banking no está conectado: las cuentas a continuación son datos de muestra.",
+    "connectUnavailable": "Conectar banco no disponible: Open Banking no está conectado en esta compilación.",
+    "sampleAccounts": "Cuentas de muestra",
+    "sample": "Muestra",
+    "offline": "Desconectado",
+    "demoPrefix": "Manifestación",
+    "latestTransactions": "Últimas transacciones",
+    "sampleMatching": "Coincidencia de muestras",
+    "demoOnly": "Sólo demostración",
+    "sampleMatch": "Coincidencia de muestra",
+    "unmatched": "Sin par",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "Integración DATEV",
+    "notConnected": "No conectado",
+    "intro": "El siguiente ejemplo del historial de exportación es ilustrativo. Las credenciales y la generación de archivos no están conectadas en esta compilación.",
+    "noticeDefault": "Los adaptadores de exportación no están conectados; no se generarán archivos.",
+    "exportUnavailable": "{title} no disponible: DATEV/exportación de archivos no está conectado.",
+    "exportUnavailableAria": "{title} — no disponible",
+    "historyTitle": "Historial de exportación (muestra)",
+    "refresh": "Refrescar",
+    "refreshUnavailable": "Actualización no disponible: el historial de exportación son datos de muestra estáticos.",
+    "steuerberaterSample": "Muestra",
+    "steuerberaterPending": "Pendiente",
+    "columns": {
+      "export": "Exportar",
+      "format": "Formato",
+      "period": "Período",
+      "created": "Creado",
+      "status": "Estado",
+      "steuerberater": "Steuerberater"
+    },
+    "actions": {
+      "datev": {
+        "title": "Exportación DATEV",
+        "description": "Paquete Buchungsstapel para flujos de trabajo Steuerberater."
+      },
+      "csv": {
+        "title": "Exportación CSV",
+        "description": "CSV listo para libro mayor para hojas de cálculo e importaciones."
+      },
+      "pdf": {
+        "title": "Exportación de PDF",
+        "description": "Paquete de documentos para revisión y archivo."
+      },
+      "xml": {
+        "title": "Exportación XML",
+        "description": "XML de impuestos estructurado para la presentación de canalizaciones."
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "Muestra · En cola",
+    "ready": "Muestra · Listo",
+    "delivered": "Ilustrativo",
+    "failed": "Fallido"
+  },
+  "tax": {
+    "vatSummaryTitle": "Resumen del IVA",
+    "monthlyVat": "IVA mensual",
+    "quarterlyVat": "IVA trimestral",
+    "collected": "Coleccionado",
+    "deductible": "Deducible",
+    "netDue": "Pago neto",
+    "deadlinesTitle": "Plazos de Impuestos · Próximos Pagos",
+    "duePrefix": "Pendiente",
+    "deadlineStatus": {
+      "due_soon": "Vencimiento pronto",
+      "upcoming": "Próximo",
+      "overdue": "Atrasado",
+      "paid": "Pagado"
+    },
+    "deadlines": {
+      "td-1": "Declaración mensual de IVA",
+      "td-2": "Liquidación trimestral de IVA",
+      "td-3": "impuesto de sociedades anticipado"
+    },
+    "period": {
+      "monthly": "Mensual",
+      "quarterly": "Trimestral",
+      "annual": "Anual"
+    }
+  },
+  "insights": {
+    "demoPrefix": "Manifestación",
+    "noticeDefault": "Las acciones de insight no están conectadas: las tarjetas muestran solo resultados de muestra.",
+    "actionUnavailable": "{action} no disponible: las acciones de información financiera no están conectadas.",
+    "actionUnavailableTitle": "{action} no disponible: no conectado",
+    "kinds": {
+      "unusual_expense": "Gastos inusuales",
+      "duplicate_invoice": "Facturas duplicadas",
+      "missing_invoice": "Facturas faltantes",
+      "late_payment": "Pagos atrasados",
+      "cashflow_prediction": "Predicción del flujo de caja",
+      "tax_optimization": "Optimización fiscal"
+    }
+  },
+  "search": {
+    "label": "Búsqueda de lenguaje natural",
+    "placeholder": "Pruebe \"Mostrar facturas impagas\"",
+    "submit": "Buscar",
+    "examplesTitle": "Ejemplos",
+    "hints": {
+      "idle": "Pregunta por facturas, gastos, IVA o exportaciones.",
+      "unpaid_invoices": "Filtrado del Centro de facturas para partidas pendientes/abiertas.",
+      "july_expenses": "Mostrando la actividad del lado de los gastos de julio.",
+      "amazon": "Localización de facturas y recibos de Amazon.",
+      "vat_export": "Apertura de acciones de exportación DATEV/IVA.",
+      "general": "Buscando en el libro mayor \"{query}\"."
+    },
+    "examples": {
+      "q1": {
+        "query": "Mostrar facturas impagas",
+        "description": "Cuentas por cobrar abiertas con estado impago o parcial"
+      },
+      "q2": {
+        "query": "Mostrar gastos de julio",
+        "description": "Facturas de gastos y salidas bancarias en julio"
+      },
+      "q3": {
+        "query": "Encuentra facturas de Amazon",
+        "description": "Coincidencia de proveedores entre el centro de facturas y las cargas"
+      },
+      "q4": {
+        "query": "IVA de exportación",
+        "description": "Saltar a DATEV/acciones de exportación de impuestos"
+      }
+    }
+  }
+}

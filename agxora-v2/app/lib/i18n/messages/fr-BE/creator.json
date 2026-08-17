@@ -1,0 +1,149 @@
+{
+  "page": {
+    "eyebrow": "Système d'exploitation marketing AGXORA",
+    "title": "Studio de création d'IA",
+    "lead": "Production de contenu d'entreprise : générez, marquez, planifiez, publiez et mesurez des campagnes basées sur l'IA sur tous les canaux.",
+    "dashboard": "Tableau de bord",
+    "workspace": "Espace de travail",
+    "workspaceSubtitle": "Créer du contenu · Campagnes · Médiathèque · Modèles · Actifs de marque · File d'attente de publication · Analyses",
+    "workspaceAria": "Espace de travail du créateur",
+    "integrations": "Intégrations futures",
+    "integrationsSubtitle": "Adaptateurs de plate-forme officiels réservés — pas de fausses connexions sous tension.",
+    "aiFeatures": "Fonctionnalités IA",
+    "aiFeaturesSubtitle": "Carte des capacités pour la production, la marque, le calendrier et la localisation."
+  },
+  "tabs": {
+    "create": "Créer du contenu",
+    "campaigns": "Campagnes",
+    "media": "Médiathèque",
+    "templates": "Modèles",
+    "brand": "Ressources de la marque",
+    "queue": "File d'attente de publication",
+    "analytics": "Analytique"
+  },
+  "templates": {
+    "emptyTitle": "(aucun modèle)",
+    "emptyDescription": "Les modèles de contenu et de conception réutilisables vivront ici."
+  },
+  "campaign": {
+    "title": "Planificateur de campagne",
+    "calendar": "Calendrier de contenu",
+    "columns": {
+      "name": "Nom de la Campagne",
+      "objective": "Objectif",
+      "audience": "Public",
+      "platforms": "Plateformes",
+      "budget": "Budget",
+      "timeline": "Chronologie",
+      "status": "Statut"
+    },
+    "emptyTitle": "Aucune campagne",
+    "emptyDescription": "Créez une campagne pour planifier les objectifs, le public et les délais."
+  },
+  "media": {
+    "title": "Médiathèque",
+    "columns": {
+      "asset": "Actif",
+      "type": "Taper",
+      "folder": "Dossier",
+      "tags": "Balises",
+      "updated": "Mis à jour"
+    },
+    "emptyTitle": "Aucun média",
+    "emptyDescription": "Des images, des vidéos, des documents, des logos et des modèles apparaîtront ici.",
+    "searchPlaceholder": "Rechercher des ressources, des dossiers, des balises…",
+    "typeFilter": "Taper",
+    "allTypes": "Tous types",
+    "images": "Images",
+    "videos": "Vidéos",
+    "documents": "Documents",
+    "logos": "Logos de marques",
+    "templates": "Modèles"
+  },
+  "generator": {
+    "title": "Générateur de contenu IA",
+    "lead": "Créez des légendes Instagram, des scripts TikTok, des publications LinkedIn, des publicités, des articles SEO et bien plus encore.",
+    "brief": "Bref",
+    "briefPlaceholder": "Décrivez l’offre, l’audience et le CTA…",
+    "generateDraft": "Générer un brouillon",
+    "aiRewrite": "Réécriture de l'IA",
+    "translate": "Traduire",
+    "initialOutput": "Sélectionnez un format et une voix de marque, puis générez un brouillon. Les adaptateurs de fournisseur sont réservés — aucun appel de modèle en direct pour le moment.",
+    "draftStaged": "Brouillon préparé pour {format} · voix : {voice}. Adaptateur de génération réservé.",
+    "rewriteQueued": "AI Rewrite en file d’attente : adaptateur de réécriture réservé.",
+    "translateQueued": "Traduire le contenu en file d'attente — adaptateur multilingue réservé.",
+    "brandVoice": "Voix de la marque",
+    "brandVoiceLead": "Préréglages de tonalité professionnelle et voix de marque personnalisée pour plus de cohérence.",
+    "active": "Actif"
+  },
+  "queue": {
+    "title": "File d'attente de publication",
+    "columns": {
+      "title": "Titre",
+      "platform": "Plate-forme",
+      "format": "Format",
+      "status": "Statut",
+      "scheduled": "Planifié",
+      "author": "Auteur"
+    },
+    "emptyTitle": "Aucune publication dans la file d'attente",
+    "emptyDescription": "Les brouillons, les critiques et les publications programmées apparaîtront ici.",
+    "filterStatus": "Statut du filtre",
+    "allStatuses": "Tous les statuts"
+  },
+  "analytics": {
+    "title": "Analytique",
+    "topPosts": "Meilleurs articles",
+    "engagement": "Fr {value}",
+    "reach": "Atteindre {value}",
+    "recommendations": "Recommandations sur l'IA"
+  },
+  "integrations": {
+    "lead": "Intégrations futures – facultatives. Aucune API en direct jusqu'à la connexion. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.",
+    "adapter": "Adaptateur :"
+  },
+  "aiFeaturesPanel": {
+    "lead": "Carte des fonctionnalités de l'IA — idées, légendes, hashtags, calendrier, campagnes, audience, calendrier, cohérence de la marque, réécriture, traduction, multilingue."
+  },
+  "formats": {
+    "instagram_caption": "Légende Instagram",
+    "tiktok_script": "Script TikTok",
+    "linkedin_post": "Publication LinkedIn",
+    "facebook_post": "Publication Facebook",
+    "x_post": "Publication X",
+    "blog_article": "Article de blog",
+    "newsletter": "Newsletter",
+    "email_campaign": "Campagne e-mail",
+    "product_description": "Description de produit",
+    "ad_copy": "Texte publicitaire",
+    "seo_article": "Article SEO",
+    "landing_page_copy": "Texte de page d’atterrissage"
+  },
+  "publishStatus": {
+    "draft": "Brouillon",
+    "review": "Revue",
+    "approved": "Approuvé",
+    "scheduled": "Planifié",
+    "published": "Publié",
+    "archive": "Archive"
+  },
+  "mediaKind": {
+    "image": "Image",
+    "video": "Vidéo",
+    "document": "Document",
+    "logo": "Logo de marque",
+    "template": "Modèle"
+  },
+  "voice": {
+    "professional": "Professionnel",
+    "friendly": "Amical",
+    "luxury": "Luxe",
+    "casual": "Décontracté"
+  },
+  "integrationStatus": {
+    "planned": "Planifié",
+    "ready": "Prêt",
+    "connected": "Connecté",
+    "disabled": "Désactivé"
+  }
+}

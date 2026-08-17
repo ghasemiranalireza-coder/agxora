@@ -1,0 +1,174 @@
+{
+  "identity": {
+    "eyebrow": "企業身分管理",
+    "title": "身份和訪問",
+    "lead": "組織、工作區域、RBAC、安全佔位符和稽核架構。後端適配器插入時無需更改此表面。",
+    "openProfile": "打開個人資料",
+    "teamManagement": "團隊管理",
+    "tabs": {
+      "organization": "組織",
+      "workspace": "工作空間",
+      "roles": "角色和權限",
+      "security": "安全性",
+      "audit": "審核日誌"
+    },
+    "organizationSettings": "組織設定",
+    "workspaceSettings": "工作區設定",
+    "noOrganization": "沒有活躍的組織。完成入職培訓或從組織服務建立入職培訓。",
+    "logoPlaceholder": "徽標上傳和計劃計費適配器是未來身分後端的佔位符。",
+    "rbacTitle": "RBAC——預設角色",
+    "permissionMatrix": "權限矩陣",
+    "canManageSettings": "可以管理設定：{value} · 已驗證：{authenticated}",
+    "yes": "是的",
+    "no": "不",
+    "securitySettings": "安全設定",
+    "passwordChange": {
+      "title": "更改密碼",
+      "detail": "配置後，密碼變更將透過身份驗證提供者進行連線。"
+    },
+    "twoFactor": {
+      "title": "雙重認證 (2FA)",
+      "detail": "啓用時， TOTP和WebAuthn適配器在此注冊。"
+    },
+    "activeSessions": {
+      "title": "活躍會話",
+      "detail": "設備目錄存在於身分會話中；撤銷對於伺服器會話變得具有權威性。"
+    },
+    "apiKeys": {
+      "title": "API 金鑰",
+      "detail": "為開發人員提供的服務帳戶和範圍令牌。"
+    },
+    "absoluteTimeout": "絕對超時",
+    "idleTimeout": "空閒超時",
+    "refreshSkew": "刷新傾斜",
+    "persistentLogin": "持久登入",
+    "disabled": "殘障人士",
+    "enabled": "啟用",
+    "days": "{count} 天",
+    "minutes": "{count} 分鐘",
+    "toggleIdlePolicy": "切換空閒策略佔位符",
+    "previewSessionExpired": "預覽工作階段已過期",
+    "previewAccountLocked": "預覽帳戶已鎖定",
+    "auditActivity": "審計活動",
+    "auditLead": "登入、登出、角色變更、邀請和組織事件均記錄在本地。稍後替換為不可變的後端審核儲存。",
+    "auditEmpty": "還沒有 IAM 事件。登入或更改角色以填充日誌。",
+    "meta": {
+      "name": "姓名",
+      "slug": "蛞蝓",
+      "plan": "計劃",
+      "owner": "擁有者",
+      "created": "已創建",
+      "yourRole": "你的角色",
+      "workspace": "工作空間",
+      "status": "地位",
+      "isolationKey": "隔離鑰匙"
+    },
+    "matrix": {
+      "permission": "允許",
+      "owner": "擁有者",
+      "admin": "行政",
+      "manager": "主管",
+      "member": "成員",
+      "viewer": "一般檢視",
+      "yes": "是的"
+    },
+    "audit": {
+      "when": "什麼時候",
+      "action": "操作",
+      "actor": "演員",
+      "resource": "資源"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "擁有者",
+      "description": "完全控制，包括計費和所有權轉讓"
+    },
+    "admin": {
+      "name": "行政",
+      "description": "管理人員、安全、工作區和模組"
+    },
+    "manager": {
+      "name": "主管",
+      "description": "領導團隊和營運模組；邀請會員"
+    },
+    "member": {
+      "name": "成員",
+      "description": "日常操作訪問"
+    },
+    "viewer": {
+      "name": "一般檢視",
+      "description": "只讀訪問"
+    }
+  },
+  "profile": {
+    "eyebrow": "身分",
+    "title": "使用者資料",
+    "lead": "管理您的帳戶身分、偏好和安全性。組織和工作區控制項位於「身分設定」中。",
+    "guest": "客人",
+    "notSignedIn": "未登入",
+    "identitySettings": "身份設定",
+    "security": "安全性",
+    "profileSection": "輪廓",
+    "fullName": "姓名",
+    "email": "電子郵件",
+    "language": "語言",
+    "timezone": "時區",
+    "languageEnGb": "英語 (UK)",
+    "languageEnUs": "英語（美國）",
+    "languageDe": "德文",
+    "timezoneBerlin": "歐洲/柏林",
+    "timezoneLondon": "歐洲／倫敦",
+    "timezoneUtc": "世界標準時間",
+    "timezoneNewYork": "美洲/紐約",
+    "notifications": "通知",
+    "emailNotifications": "電子郵件通知",
+    "pushNotifications": "推播通知",
+    "workspace": "工作空間",
+    "noticeInitial": "在連接設定檔 API 之前，首選項會儲存在本機。",
+    "noticeSaved": "個人資料偏好設定已更新。",
+    "savePreferences": "儲存首選項"
+  },
+  "workspaceSelector": {
+    "empty": "還沒有工作區 - 建立一個組織來配置工作區。",
+    "label": "活躍的工作空間",
+    "ariaLabel": "切換工作空間"
+  },
+  "verifyEmail": {
+    "title": "電子郵件驗證",
+    "loading": "載入中…",
+    "skipForNow": "暫時跳過",
+    "tokenPlaceholder": "驗證令牌",
+    "tokenIssued": "為目前會話頒發的驗證令牌。",
+    "issueFailed": "無法發行權杖",
+    "verificationFailed": "驗證失敗",
+    "verify": "驗證信箱",
+    "verifying": "正在驗證...",
+    "requestToken": "請求驗證令牌"
+  },
+  "access": {
+    "eyebrow": "身分與存取",
+    "signIn": "登入",
+    "backToDashboard": "返回儀表板",
+    "unauthorized": {
+      "title": "未授權",
+      "description": "請登入以繼續使用 AGXORA 的此區域。"
+    },
+    "forbidden": {
+      "title": "禁止存取",
+      "description": "您的角色不包含此資源的權限。"
+    },
+    "expired_session": {
+      "title": "工作階段已過期",
+      "description": "您的工作階段已過期。請重新登入以繼續工作。"
+    },
+    "missing_permission": {
+      "title": "缺少權限",
+      "description": "請請擁有者或管理員授予所需的模組存取權。"
+    },
+    "account_locked": {
+      "title": "帳戶已鎖定",
+      "description": "此帳戶已鎖定。請聯絡組織擁有者或稍後再試。"
+    }
+  }
+}

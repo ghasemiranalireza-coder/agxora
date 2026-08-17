@@ -1,0 +1,125 @@
+{
+  "loading": "در حال بارگذاری سیستم عامل عامل…",
+  "eyebrow": "سیستم عامل عامل هوش مصنوعی",
+  "title": "سیستم عامل عامل",
+  "subtitle": "فضای کاری عامل محلی - عامل‌ها می‌توانند فعال شوند و به عنوان شبیه‌سازی در سراسر CRM، پروژه‌ها، امور مالی، گردش‌های کاری و یکپارچه‌سازی‌ها اجرا شوند. اجرای مستقل در تولید متصل نیست.",
+  "noticeDefault": "سیستم‌عامل عامل محلی - اجراها در این فضای کاری شبیه‌سازی می‌شوند.",
+  "aiChat": "چت هوش مصنوعی",
+  "tabs": {
+    "dashboard": "داشبورد",
+    "registry": "دفتر ثبت اسناد.",
+    "marketplace": "بازارگاه",
+    "monitor": "مانیتور",
+    "history": "تاریخچه",
+    "memory": "حافظه",
+    "knowledge": "آگاهی",
+    "tools": "ابزارها",
+    "settings": "تنظیمات"
+  },
+  "notice": {
+    "simulatedRun": "اجرای شبیه‌سازی‌شده · {status} ({duration}ms)",
+    "taskFailed": "وظیفه انجام نشد",
+    "activated": "فعال‌سازی محلی: {agentId}",
+    "agentPaused": "مامور مکث کرد",
+    "agentActivated": "عامل فعال شد",
+    "taskCancelled": "وظیفه لغو شد",
+    "supervisorDelegated": "سرپرست پیگیری را واگذار کرد",
+    "settingsUpdated": "تنظیمات سیستم عامل عامل برای این فضای کاری محلی به‌روزرسانی شد."
+  },
+  "dashboard": {
+    "agents": "عوامل",
+    "active": "فعال",
+    "localReady": "آماده محلی",
+    "simulatedToday": "امروز شبیه‌سازی شده",
+    "failedToday": "امروز شکست خورد",
+    "avgExec": "میانگین اجرایی",
+    "toolCalls": "فراخوانی‌های ابزار",
+    "knowledge": "آگاهی",
+    "activeFleet": "ناوگان فعال",
+    "emptyTitle": "هیچ نماینده‌ای فعال نیست",
+    "emptyDescription": "برای شروع اجرای شبیه‌سازی‌شده، یک عامل را از بازار نصب یا فعال کنید."
+  },
+  "registry": {
+    "title": "دفتر ثبت اسناد.",
+    "selectPrompt": "یک نماینده از رجیستری انتخاب کنید.",
+    "status": "وضعیت: {status}",
+    "health": "سلامت: {health}",
+    "queue": "صف: {queue}",
+    "usage": "کاربرد: {usage}",
+    "executeTask": "اجرای کار",
+    "supervisorDelegate": "نماینده سرپرست"
+  },
+  "marketplace": {
+    "tools": "ابزارها: {tools}",
+    "installed": "نصب شده",
+    "installActivate": "نصب و فعال"
+  },
+  "monitor": {
+    "title": "مانیتور عامل",
+    "emptyTitle": "هیچ نماینده‌ای برای نظارت وجود ندارد",
+    "emptyDescription": "فعال کردن نمایندگان از بازار.",
+    "latestConfidence": "آخرین میزان اطمینان در استدلال: {confidence} — {steps}"
+  },
+  "history": {
+    "title": "سابقه اعدام",
+    "emptyTitle": "هنوز خبری از اعدام نیست",
+    "emptyDescription": "اجرای یک وظیفه عامل از رجیستری یا مانیتور."
+  },
+  "memory": {
+    "title": "مرکز حافظه",
+    "subtitle": "کاری · مکالمه · تجاری · بلندمدت · فضای کاری · حوزه‌های عامل (آماده برای معماری).",
+    "emptyTitle": "بدون سابقه حافظه",
+    "emptyDescription": "اجرای یک وظیفه برای پر کردن حافظه کاری/عامل."
+  },
+  "knowledge": {
+    "title": "مرکز دانش",
+    "subtitle": "شرکت، اسناد، پروژه‌ها، CRM، سیاست‌ها، رویه‌ها - به علاوه متغیرهای بردار/RAG.",
+    "emptyTitle": "بدون اسناد دانش",
+    "emptyDescription": "دانش اولیه (Seed knowledge) پس از بوت‌استرپ فضای کاری (workspace bootstrap) ظاهر می‌شود."
+  },
+  "tools": {
+    "sensitive": "و حساس",
+    "mcpReady": "· آماده برای MCP"
+  },
+  "settings": {
+    "title": "تنظیمات سیستم عامل عامل",
+    "defaultLlmProvider": "ارائه دهنده پیش فرض LLM",
+    "enableSupervisor": "معماری عامل ناظر را فعال کنید",
+    "isolateSensitive": "ابزارهای حساس را ایزوله کنید",
+    "saveSettings": "تنظیمات را ذخیره کن",
+    "providersHint": "ارائه‌دهندگان آماده: OpenAI، Azure OpenAI، Anthropic، Gemini، Local، Ollama، MCP، Custom. آداپتورها را از طریق registerLlmProvider بدون تغییر رابط کاربری تعویض کنید."
+  },
+  "columns": {
+    "agent": "مشاور",
+    "status": "وضعیت",
+    "health": "سلامتی",
+    "queue": "صف",
+    "usage": "کاربرد",
+    "actions": "اقدامات",
+    "task": "وظیفه",
+    "duration": "مدت زمان",
+    "created": "ایجادشده",
+    "scope": "محدوده",
+    "key": "کلید",
+    "value": "مقدار",
+    "at": "At",
+    "title": "عنوان",
+    "kind": "نوع",
+    "summary": "خلاصه:"
+  },
+  "actions": {
+    "run": "دویدن",
+    "pause": "توقف",
+    "activate": "فعال سازی",
+    "cancel": "لغو",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "اجرای هدف تجاری {agentId}",
+    "planAndExecute": "یک هدف تجاری برای فضای کاری برنامه‌ریزی و اجرا کنید"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "تأثیر مشتری را اولویت بده",
+    "delegatedFollowUp": "پیگیری تفویض‌شده"
+  }
+}

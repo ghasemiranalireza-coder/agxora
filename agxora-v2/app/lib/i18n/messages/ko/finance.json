@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "AGXORA 금융 OS",
+    "title": "금융 및 세금",
+    "subtitle": "회계, 은행, 세무 및 재무 정보 - 실시간 원장이 연결될 때까지 샘플 데이터로 미리 볼 수 있습니다.",
+    "sampleNotice": "샘플 데이터 세트 - 수치 및 내보내기 기록이 예시입니다. DATEV/파일 내보내기 및 라이브 뱅크 피드가 연결되지 않습니다."
+  },
+  "sections": {
+    "overview": {
+      "title": "재무 개요"
+    },
+    "invoiceCenter": {
+      "title": "송장 센터",
+      "subtitle": "AI 신뢰 점수로 기업 송장 원장을 검색, 필터링 및 정렬합니다."
+    },
+    "aiInvoiceProcessing": {
+      "title": "AI 송장 처리",
+      "subtitle": "데모 파이프라인 — OCR과 AI 추출이 연결되지 않습니다."
+    },
+    "banking": {
+      "title": "은행업",
+      "subtitle": "샘플 계좌만 — 오픈뱅킹 피드는 연결되지 않습니다."
+    },
+    "datev": {
+      "title": "DATEV 통합",
+      "subtitle": "샘플 내보내기 기록 — DATEV 파일 생성이 연결되지 않았습니다."
+    },
+    "taxCenter": {
+      "title": "세금 센터",
+      "subtitle": "VAT 요약, 마감일 및 예정된 지불금입니다."
+    },
+    "aiInsights": {
+      "title": "AI 인사이트",
+      "subtitle": "샘플 결과만 — 통찰력 작업은 연결되지 않습니다."
+    },
+    "smartSearch": {
+      "title": "스마트 검색",
+      "subtitle": "송장, 비용, VAT 및 수출에 대한 자연어 쿼리입니다."
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "수익",
+        "caption": "샘플 · 지난 30일",
+        "delta": "+8.4%"
+      },
+      "expenses": {
+        "label": "경비",
+        "caption": "샘플·운영 + COGS",
+        "delta": "+2.1%"
+      },
+      "profit": {
+        "label": "이익",
+        "caption": "샘플·순운영",
+        "delta": "+12.6%"
+      },
+      "vat-due": {
+        "label": "부가가치세 납부",
+        "caption": "샘플 · 2분기 창",
+        "delta": "{days}일 안에 마감"
+      },
+      "open-invoices": {
+        "label": "미결제 송장",
+        "caption": "샘플 · 미결제 금액 {money}"
+      },
+      "paid-invoices": {
+        "label": "지불된 송장",
+        "caption": "샘플 · 이번 분기",
+        "delta": "+{count}"
+      },
+      "cashflow": {
+        "label": "현금흐름",
+        "caption": "샘플 · 30일 예측",
+        "delta": "+4.2%"
+      },
+      "ai-score": {
+        "label": "AI 재무 점수",
+        "caption": "샘플 점수 · 라이브가 아닌 위험 점수",
+        "delta": "+{count}"
+      }
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "invoices": {
+    "emptyTitle": "송장 없음",
+    "emptyDescription": "검색 또는 필터와 일치하는 청구서가 없습니다.",
+    "searchPlaceholder": "번호, 회사, 카테고리…",
+    "statusFilter": "상태 필터",
+    "paymentFilter": "결제 필터",
+    "sortBy": "정렬 기준",
+    "toggleSort": "정렬 방향 전환",
+    "count": "{count}개의 인보이스",
+    "countOne": "{count} 송장",
+    "allStatuses": "모든 상태",
+    "allPayments": "모든 결제",
+    "columns": {
+      "number": "송장 번호",
+      "company": "회사",
+      "amount": "양",
+      "vat": "큰 통",
+      "status": "상태",
+      "dueDate": "마감일",
+      "payment": "결제 상태",
+      "category": "범주",
+      "ai": "AI 자신감"
+    },
+    "sort": {
+      "dueDate": "마감일",
+      "amount": "양",
+      "company": "회사",
+      "status": "상태",
+      "aiConfidence": "AI 자신감",
+      "number": "송장 #"
+    }
+  },
+  "status": {
+    "draft": "초안",
+    "open": "열려 있는",
+    "paid": "유급의",
+    "overdue": "연체",
+    "cancelled": "취소"
+  },
+  "payment": {
+    "unpaid": "미지급",
+    "partial": "부분",
+    "paid": "유급의",
+    "refunded": "환불됨"
+  },
+  "category": {
+    "saas": "SaaS",
+    "office": "사무실",
+    "travel": "여행하다",
+    "marketing": "마케팅",
+    "utilities": "유용",
+    "professional": "전문적인",
+    "other": "다른"
+  },
+  "processing": {
+    "dropTitle": "송장 파일 드래그 앤 드롭",
+    "dropFormats": "PDF · 이미지 · 이메일 가져오기",
+    "uploadFiles": "파일 업로드",
+    "emailImport": "이메일 가져오기",
+    "dropHint": "PDF 또는 이미지 송장을 로컬로 스테이징하세요. OCR은 연결되지 않습니다.",
+    "filesStaged": "{count}개의 파일이 로컬로만 나열됨 — OCR/AI 추출이 연결되지 않았습니다.",
+    "emailReserved": "IMAP/Microsoft Graph용으로 예약된 이메일 가져오기 커넥터입니다.",
+    "pipelineTitle": "처리 파이프라인(데모)",
+    "stages": {
+      "ocr": "OCR 상태",
+      "extraction": "AI 추출",
+      "categorization": "분류",
+      "duplicateDetection": "중복 감지"
+    }
+  },
+  "stage": {
+    "pending": "없는",
+    "running": "연결되지 않음",
+    "complete": "데모",
+    "failed": "실패한",
+    "skipped": "건너뛰었습니다."
+  },
+  "banking": {
+    "connectionTitle": "은행 연결",
+    "connectBank": "은행 연결",
+    "description": "PSD2/오픈뱅킹 어댑터는 유선으로 연결되지 않습니다. 아래의 일치 및 조정은 예시일 뿐입니다.",
+    "feedUnavailable": "은행 피드를 사용할 수 없습니다. 공급자 연결이 연결되지 않았습니다.",
+    "noticeDefault": "오픈뱅킹이 연결되지 않았습니다. 아래 계좌는 샘플 데이터입니다.",
+    "connectUnavailable": "연결 은행을 사용할 수 없음 — 이 빌드에서는 오픈 뱅킹이 연결되지 않습니다.",
+    "sampleAccounts": "샘플 계정",
+    "sample": "견본",
+    "offline": "오프라인",
+    "demoPrefix": "데모",
+    "latestTransactions": "최신 거래",
+    "sampleMatching": "샘플 매칭",
+    "demoOnly": "데모 전용",
+    "sampleMatch": "샘플 일치",
+    "unmatched": "타의 추종을 불허하는",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "DATEV 통합",
+    "notConnected": "연결되지 않음",
+    "intro": "아래의 샘플 내보내기 기록은 예시입니다. 이 빌드에서는 자격 증명 및 파일 생성이 연결되지 않습니다.",
+    "noticeDefault": "내보내기 어댑터가 연결되지 않았습니다. 파일이 생성되지 않습니다.",
+    "exportUnavailable": "{title}을(를) 사용할 수 없음 — DATEV/파일 내보내기가 연결되지 않았습니다.",
+    "exportUnavailableAria": "{title} — 사용할 수 없음",
+    "historyTitle": "내보내기 내역(샘플)",
+    "refresh": "새로 고치다",
+    "refreshUnavailable": "새로고침 불가 - 내보내기 기록은 정적 샘플 데이터입니다.",
+    "steuerberaterSample": "견본",
+    "steuerberaterPending": "보류 중",
+    "columns": {
+      "export": "내보내다",
+      "format": "체재",
+      "period": "기간",
+      "created": "생성됨",
+      "status": "상태",
+      "steuerberater": "스튜어베라터"
+    },
+    "actions": {
+      "datev": {
+        "title": "DATEV 내보내기",
+        "description": "Steuerberater 워크플로용 Buchungsstapel 패키지입니다."
+      },
+      "csv": {
+        "title": "CSV 내보내기",
+        "description": "스프레드시트 및 가져오기를 위한 원장용 CSV입니다."
+      },
+      "pdf": {
+        "title": "PDF 내보내기",
+        "description": "검토 및 보관을 위한 문서 팩입니다."
+      },
+      "xml": {
+        "title": "XML 내보내기",
+        "description": "파이프라인 제출을 위한 구조화된 세금 XML입니다."
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "샘플 · 대기 중",
+    "ready": "샘플 · 준비",
+    "delivered": "예시",
+    "failed": "실패한"
+  },
+  "tax": {
+    "vatSummaryTitle": "부가가치세 요약",
+    "monthlyVat": "월별 부가가치세",
+    "quarterlyVat": "분기별 VAT",
+    "collected": "모은",
+    "deductible": "공제액",
+    "netDue": "순액",
+    "deadlinesTitle": "세금 마감일 · 다가오는 납부금",
+    "duePrefix": "로 인한",
+    "deadlineStatus": {
+      "due_soon": "곧 마감",
+      "upcoming": "예정",
+      "overdue": "연체",
+      "paid": "유급의"
+    },
+    "deadlines": {
+      "td-1": "월별 VAT 환급",
+      "td-2": "분기별 부가가치세 정산",
+      "td-3": "법인세 사전납부"
+    },
+    "period": {
+      "monthly": "월간 간행물",
+      "quarterly": "계간지",
+      "annual": "연간"
+    }
+  },
+  "insights": {
+    "demoPrefix": "데모",
+    "noticeDefault": "통찰력 작업은 연결되지 않습니다. 카드에는 샘플 결과만 표시됩니다.",
+    "actionUnavailable": "{action}을(를) 사용할 수 없습니다. 재무 통찰력 작업이 연결되지 않았습니다.",
+    "actionUnavailableTitle": "{action}을(를) 사용할 수 없음 — 연결되지 않음",
+    "kinds": {
+      "unusual_expense": "비정상적인 비용",
+      "duplicate_invoice": "중복 송장",
+      "missing_invoice": "청구서 누락",
+      "late_payment": "연체금",
+      "cashflow_prediction": "현금 흐름 예측",
+      "tax_optimization": "세금 최적화"
+    }
+  },
+  "search": {
+    "label": "자연어 검색",
+    "placeholder": "'미지급 송장 표시'를 시도해 보세요.",
+    "submit": "찾다",
+    "examplesTitle": "예",
+    "hints": {
+      "idle": "송장, 비용, VAT 또는 수출에 대해 문의하세요.",
+      "unpaid_invoices": "송장 센터를 미지급/미결 항목으로 필터링합니다.",
+      "july_expenses": "7월 비용 관련 활동을 표시합니다.",
+      "amazon": "Amazon 송장 및 영수증 찾기.",
+      "vat_export": "DATEV / VAT 수출 작업 열기.",
+      "general": "“{query}”에 대한 원장을 검색하는 중입니다."
+    },
+    "examples": {
+      "q1": {
+        "query": "미지급 송장 표시",
+        "description": "미지급 또는 부분 상태의 미결 채권"
+      },
+      "q2": {
+        "query": "7월 비용 표시",
+        "description": "7월의 비용 관련 송장 및 은행 유출"
+      },
+      "q3": {
+        "query": "아마존 송장 찾기",
+        "description": "송장 센터 및 업로드 전반에 걸쳐 공급업체 일치"
+      },
+      "q4": {
+        "query": "부가가치세 수출",
+        "description": "DATEV/세금 수출 조치로 이동"
+      }
+    }
+  }
+}

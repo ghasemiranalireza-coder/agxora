@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "AGXORA İşletme İşletim Sistemi",
+    "title": "Yapay Zeka CRM",
+    "subtitle": "Yapay zekaya dayalı CRM ve Creator İşletim Sistemi — her sektör için müşteriler, işlem hattı, siparişler, teslimat, belgeler, iletişimler ve yaratıcı mimari."
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "CRM Kontrol Paneli"
+    },
+    "customer360": {
+      "title": "Müşteri 360°",
+      "subtitle": "Profil, şirket, kişiler, siparişler, faturalar, Lieferscheine, ödemeler, belgeler, zaman çizelgesi, etkinlikler, notlar, AI özeti ve iletişim geçmişi."
+    },
+    "salesPipeline": {
+      "title": "Satış Hattı",
+      "subtitle": "Sürükle ve bırak özellikli Kanban aşamaları — Liderlik, Nitelikli, Teklif, Müzakere, Kazanılan, Kaybedilen."
+    },
+    "ordersModule": {
+      "title": "Siparişler Modülü"
+    },
+    "deliveryModule": {
+      "title": "Teslimat Modülü",
+      "subtitle": "Takip, imza, QR ve barkod hazırlığına sahip profesyonel Lieferschein sistemi."
+    },
+    "documentsModule": {
+      "title": "Belgeler",
+      "subtitle": "Teklifler, sözleşmeler, faturalar, Lieferschein, satın alma siparişleri, makbuzlar — AI aramayla."
+    },
+    "tasksModule": {
+      "title": "Görevler"
+    },
+    "communicationHub": {
+      "title": "İletişim Merkezi",
+      "subtitle": "Yalnızca mesajlaşma, sosyal medya, e-posta, ses ve videolar için bağdaştırıcı kaydı."
+    },
+    "creatorStudio": {
+      "title": "İçerik Stüdyosu Vakfı",
+      "subtitle": "Platform bağdaştırıcıları daha sonra resmi entegrasyonlara hazır."
+    },
+    "aiCreator": {
+      "title": "Yapay Zeka Oluşturucu",
+      "subtitle": "İçerik, takvim, oluşturma ve yayınlama için kurumsal yetenek haritası."
+    },
+    "industryPlatform": {
+      "title": "Evrensel İş Platformu",
+      "subtitle": "Modüler endüstri kaydı — her sektör özel yapay zeka modülleri alabilir."
+    }
+  },
+  "directory": {
+    "errorTitle": "CRM yüklenemedi",
+    "sort": {
+      "companyName": "Şirket",
+      "contactName": "Temas etmek",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "industry": "Endüstri",
+      "status": "Durum",
+      "owner": "Mal sahibi",
+      "createdAt": "Oluşturuldu"
+    },
+    "search": {
+      "label": "Müşterileri arayın",
+      "placeholder": "Şirket, iletişim, e-posta, etiketler…"
+    },
+    "view": {
+      "table": "Masa",
+      "cards": "Kartlar"
+    },
+    "actions": {
+      "newCustomer": "Yeni müşteri"
+    },
+    "filters": {
+      "status": "Durum",
+      "industry": "Endüstri",
+      "owner": "Mal sahibi",
+      "country": "Ülke",
+      "tags": "Etiketler",
+      "allStatuses": "Tüm durumlar",
+      "allIndustries": "Tüm endüstriler",
+      "allOwners": "Tüm sahipler",
+      "allCountries": "Tüm ülkeler",
+      "allTags": "Tüm etiketler"
+    },
+    "empty": {
+      "ready": {
+        "title": "CRM'niz hazır",
+        "description": "Dizinin, profillerin ve etkinliğin kilidini açmak için ilk müşteri kaydını oluşturun.",
+        "action": "Müşteri oluştur"
+      },
+      "noMatches": {
+        "title": "Eşleşen müşteri yok",
+        "description": "Doğru kayıtları bulmak için aramayı veya filtreleri ayarlamayı deneyin.",
+        "action": "Filtreleri temizle"
+      }
+    },
+    "pagination": {
+      "previous": "Öncesi",
+      "next": "Sonraki"
+    },
+    "showing": "{from} / {to}–{total} arası gösteriliyor",
+    "aria": {
+      "openCustomer": "{company} müşterisini açın"
+    },
+    "cardMeta": "Sahip {owner} · Oluşturuldu: {date}",
+    "sortBy": "{column}'a göre sırala"
+  },
+  "status": {
+    "lead": "Yol göstermek",
+    "prospect": "Olasılık",
+    "active": "Aktif",
+    "inactive": "Etkin değil",
+    "vip": "vip",
+    "archived": "Arşivlendi"
+  },
+  "form": {
+    "createTitle": "Müşteri Oluştur",
+    "editTitle": "Müşteriyi Düzenle",
+    "cancel": "İptal etmek",
+    "saveChanges": "Değişiklikleri kaydet",
+    "createCustomer": "Müşteri oluştur",
+    "companyName": "Firma Adı",
+    "contactName": "Kişi Adı",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "website": "Web sitesi",
+    "industry": "Endüstri",
+    "country": "Ülke",
+    "city": "Şehir",
+    "address": "Adres",
+    "taxNumber": "Vergi Numarası",
+    "owner": "Mal sahibi",
+    "status": "Durum",
+    "tags": "Etiketler",
+    "statusAria": "Müşteri durumu",
+    "tagsHint": "Virgülle ayrılmış, otomatik olarak renk kodlu",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "kurumsal, perakende"
+  },
+  "toasts": {
+    "customerCreated": "Müşteri oluşturuldu",
+    "customerUpdated": "Müşteri güncellendi",
+    "checkForm": "Formu kontrol edin",
+    "validationFailed": "Doğrulama başarısız oldu.",
+    "customerDeleted": "Müşteri silindi",
+    "deleteFailed": "Silinemedi",
+    "customerCouldNotBeRemoved": "Müşteri kaldırılamadı.",
+    "contactSaved": "Kişi kaydedildi",
+    "documentsAttached": "Ekli belgeler",
+    "documentsAttachedDetail": "{count} dosya(lar)",
+    "noteSaved": "Not kaydedildi"
+  },
+  "deleteDialog": {
+    "title": "Müşteriyi sil",
+    "cancel": "İptal etmek",
+    "deletePermanently": "Kalıcı olarak sil",
+    "thisCustomer": "bu müşteri",
+    "bodyPrefix": "Bu kaldırır",
+    "bodySuffix": "ve yerel depolamadaki ilgili kişiler, notlar, belgeler ve etkinlikler. Bağlantılı projeler silinmez."
+  },
+  "validation": {
+    "companyNameRequired": "Şirket adı gereklidir.",
+    "contactNameRequired": "Kişi adı gerekli.",
+    "emailRequired": "E-posta gerekli.",
+    "emailInvalid": "Geçerli bir e-posta adresi girin.",
+    "phoneRequired": "Telefon gereklidir.",
+    "phoneInvalid": "Geçerli bir telefon numarası girin.",
+    "websiteInvalid": "Geçerli bir web sitesi girin.",
+    "industryRequired": "Sanayi şart.",
+    "ownerRequired": "Sahibi gerekli.",
+    "statusInvalid": "Geçerli bir durum seçin.",
+    "emailDuplicate": "Bu e-postaya sahip bir müşteri zaten mevcut.",
+    "nameRequired": "Ad gerekli.",
+    "mobileInvalid": "Geçerli bir cep telefonu numarası girin.",
+    "mobileRequired": "Mobil gereklidir.",
+    "roleRequired": "Rol gerekli.",
+    "noteTitleRequired": "Başlık gerekli.",
+    "noteBodyRequired": "Not gövdesi gereklidir.",
+    "noteAuthorRequired": "Yazar gereklidir."
+  },
+  "errors": {
+    "failedToLoadCustomers": "Müşteriler yüklenemedi.",
+    "failedToLoadCustomerProfile": "Müşteri profili yüklenemedi.",
+    "organizationRequired": "Organizasyon gereklidir.",
+    "failedToSaveCustomer": "Müşteri kaydedilemedi.",
+    "failedToDeleteCustomer": "Müşteri silinemedi.",
+    "failedToSaveContact": "Kişi kaydedilemedi.",
+    "failedToSaveNote": "Not kaydedilemedi.",
+    "failedToUploadDocument": "Doküman yüklenemedi."
+  },
+  "workspace": {
+    "badge": "Kurumsal CRM 2.0",
+    "title": "Müşteri İlişkileri Yönetimi",
+    "subtitleBeforeOrg": "Müşteri dizinini, profillerini, kişilerini, notlarını ve belgelerini yönetin",
+    "subtitleAfterOrg": "Projeler, veriler kopyalanmadan Projeler modülünden şirket adına göre bağlanır.",
+    "yourOrganization": "kuruluşunuz"
+  },
+  "analytics": {
+    "totalCustomers": "Toplam Müşteriler",
+    "activeCustomers": "Aktif Müşteriler",
+    "newCustomers": "Yeni Müşteriler",
+    "vipCustomers": "VIP Müşteriler",
+    "createdThisMonth": "Bu ay oluşturuldu",
+    "leadConversion": "Potansiyel müşteri dönüşümü",
+    "leadConversionHint": "Potansiyel müşteri / potansiyel müşteri / dönüşüm hunisinin aktif ve VIP payı.",
+    "customerGrowth": "Müşteri büyümesi"
+  },
+  "profile": {
+    "backToCrm": "← CRM'e geri dön",
+    "ownerLabel": "Mal sahibi",
+    "notFoundTitle": "Müşteri bulunamadı",
+    "notFoundDescription": "Bu müşteri silinmiş olabilir.",
+    "missingCustomerTitle": "Eksik müşteri",
+    "missingOverviewDescription": "Genel bakışı görüntülemek için bir müşteri seçin.",
+    "missingSettingsDescription": "Ayarları yönetmek için bir müşteri seçin.",
+    "ariaProfileNav": "Müşteri profili",
+    "tabs": {
+      "overview": "Genel Bakış",
+      "contacts": "Kişiler",
+      "projects": "Projeler",
+      "documents": "Belgeler",
+      "invoices": "Faturalar",
+      "activity": "Etkinlik",
+      "notes": "Notlar",
+      "settings": "Ayarlar"
+    },
+    "overview": {
+      "title": "Genel Bakış",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "website": "Web sitesi",
+      "taxNumber": "Vergi numarası",
+      "location": "Konum",
+      "address": "Adres",
+      "created": "Oluşturuldu",
+      "updated": "Güncellendi",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "Kişi ekle",
+      "editTitle": "Kişiyi düzenle",
+      "listTitle": "Kişiler",
+      "name": "İsim",
+      "role": "Rol",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "mobile": "Mobil",
+      "notes": "Notlar",
+      "saveContact": "Kişiyi kaydet",
+      "emptyTitle": "Henüz kişi yok",
+      "emptyDescription": "Rol, e-posta ve telefon ayrıntılarıyla paydaşları ekleyin.",
+      "defaultRole": "Temas etmek",
+      "mobilePrefix": "Mobil"
+    },
+    "projects": {
+      "title": "Projeler",
+      "emptyTitle": "Bağlantılı proje yok",
+      "emptyDescription": "Müşteri adı bu şirketle eşleşen projeler burada görünür. Veriler Projeler modülünden okunur; hiçbir şey kopyalanmaz.",
+      "openProjects": "Açık Projeler"
+    },
+    "documents": {
+      "title": "Belgeler",
+      "subtitle": "Resimler, PDF'ler ve ofis belgeleri — meta veriler yalnızca Yerel Depolama'dadır.",
+      "attachFiles": "Dosya ekle",
+      "emptyTitle": "Belge yok",
+      "emptyDescription": "Hesap ekibi için müşteri dosyalarını ekleyin.",
+      "systemUploader": "Sistem"
+    },
+    "invoices": {
+      "emptyTitle": "Henüz fatura yok",
+      "emptyDescription": "Bu müşterinin faturaları, Finans'tan bağlantı kurulduğunda burada görünür."
+    },
+    "activity": {
+      "title": "Etkinlik",
+      "emptyTitle": "Henüz etkinlik yok",
+      "emptyDescription": "Oluşturmalar, güncellemeler, notlar ve belgeler burada en yenisi önce görünür.",
+      "kinds": {
+        "customer_created": "Müşteri oluşturuldu",
+        "customer_updated": "Müşteri güncellendi",
+        "contact_added": "Kişi eklendi",
+        "contact_updated": "İletişim güncellendi",
+        "contact_deleted": "Kişi silindi",
+        "note_added": "Not eklendi",
+        "note_updated": "Not güncellendi",
+        "note_deleted": "Not silindi",
+        "document_added": "Doküman eklendi",
+        "document_deleted": "Doküman silindi",
+        "project_linked": "Proje bağlantılı"
+      }
+    },
+    "notes": {
+      "newTitle": "Yeni not",
+      "editTitle": "Notu düzenle",
+      "title": "Başlık",
+      "author": "Yazar",
+      "body": "Vücut",
+      "saveNote": "Notu kaydet",
+      "emptyTitle": "Henüz not yok",
+      "emptyDescription": "Yazar ve zaman damgalarıyla hesap içeriğini yakalayın."
+    },
+    "settings": {
+      "title": "Ayarlar",
+      "description": "Tüm profil alanlarını düzenleyin veya bu hesabı arşivleyin. Silme işleminde onay iletişim kutusu kullanılır.",
+      "editAllFields": "Tüm alanları düzenle",
+      "prepareArchive": "Arşivi hazırla",
+      "deleteCustomer": "Müşteriyi sil"
+    }
+  },
+  "customer360": {
+    "ariaSections": "Müşteri 360 bölümleri",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "aiHealth": "Yapay Zeka Sağlığı",
+    "tabs": {
+      "profile": "Profil",
+      "company": "Şirket",
+      "contacts": "Kişiler",
+      "orders": "Siparişler",
+      "invoices": "Faturalar",
+      "lieferscheine": "Lieferscheine",
+      "payments": "Ödemeler",
+      "documents": "Belgeler",
+      "timeline": "Zaman çizelgesi",
+      "activities": "Faaliyetler",
+      "notes": "Notlar",
+      "aiSummary": "Yapay Zeka Özeti",
+      "communicationHistory": "İletişim Geçmişi"
+    },
+    "profileLines": {
+      "customerId": "Müşteri Kimliği",
+      "status": "Durum",
+      "primaryContact": "Birincil iletişim"
+    },
+    "status": {
+      "churn_risk": "Kayıp riski"
+    }
+  },
+  "delivery": {
+    "title": "Profesyonel Lieferschein Sistemi",
+    "description": "Teslimat notları, teslim alma / teslimat, sürücü, araç ve takip - yalnızca örnek kayıtlar. Dışa aktarma bağdaştırıcıları bağlı değil.",
+    "badges": {
+      "qrUnavailable": "QR kullanılamıyor",
+      "barcodeUnavailable": "Barkod mevcut değil",
+      "signatureDemo": "İmza demosu"
+    },
+    "exportPdf": "PDF'yi dışa aktar",
+    "deliveryHistory": "Teslimat Geçmişi",
+    "notices": {
+      "exportNotConnected": "PDF, QR ve barkod dışa aktarma bu yapıda bağlantılı değildir.",
+      "exportPdfUnavailable": "PDF'yi dışa aktarma kullanılamıyor — teslimatı dışa aktarma bağlı değil.",
+      "historyNotConnected": "Teslimat geçmişi deposu bu yapıya bağlı değil."
+    },
+    "columns": {
+      "lieferschein": "Lieferschein",
+      "order": "Emir",
+      "customer": "Müşteri",
+      "kind": "Tür",
+      "driver": "Sürücü",
+      "vehicle": "Araç",
+      "tracking": "Takip",
+      "scheduled": "planlanmış"
+    }
+  },
+  "orders": {
+    "description": "Ürünler, hizmetler, fiyat, indirim, vergi ve müşteri - kurumsal sipariş defteri.",
+    "createOrder": "Sipariş Oluştur",
+    "notices": {
+      "apiReserved": "Gelecekteki yazma yolu için ayrılmış sipariş oluşturma API'si.",
+      "draftStaged": "Sipariş taslağı oluşturuldu (henüz API yok)."
+    },
+    "columns": {
+      "order": "Emir",
+      "customer": "Müşteri",
+      "status": "Durum",
+      "lines": "çizgiler",
+      "net": "Açık",
+      "tax": "Vergi",
+      "gross": "Brüt",
+      "created": "Oluşturuldu"
+    },
+    "lineTax": "%{taxPct} vergi"
+  },
+  "tasks": {
+    "calendarTitle": "Takvim · Toplantılar · Hatırlatıcılar · Takipler",
+    "foundationTitle": "Görev İşletim Sistemi temeli",
+    "foundationDescription": "Takvim senkronizasyonu, toplantı sağlayıcıları, hatırlatma işleri ve takip otomasyonu kancaları ayrılmıştır. Bu pano, her endüstri modülü için paylaşılan CRM görev yüzeyidir.",
+    "badges": {
+      "calendarAdapter": "Takvim adaptörü",
+      "meetingAdapter": "Toplantı bağdaştırıcısı",
+      "reminderQueue": "Hatırlatma kuyruğu",
+      "followUpEngine": "Takip motoru"
+    },
+    "duePrefix": "Vadesi dolmuş",
+    "kinds": {
+      "follow_up": "Takip etmek",
+      "meeting": "Toplantı",
+      "reminder": "Hatırlatma",
+      "task": "Görev"
+    },
+    "statuses": {
+      "open": "Açık",
+      "in_progress": "Devam etmekte",
+      "done": "Tamamlamak",
+      "cancelled": "İptal edildi"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "Belge yok",
+    "emptyDescription": "Bu aramayla eşleşen belge yok.",
+    "searchLabel": "Yapay Zeka Arama",
+    "searchPlaceholder": "Fiyat teklifleri, sözleşmeler, faturalar, Lieferschein…",
+    "typeLabel": "Belge türü",
+    "allTypes": "Tüm türler",
+    "columns": {
+      "type": "Tip",
+      "title": "Başlık",
+      "customer": "Müşteri",
+      "status": "Durum",
+      "updated": "Güncellendi"
+    },
+    "kinds": {
+      "quote": "Alıntılar",
+      "contract": "Sözleşmeler",
+      "invoice": "Faturalar",
+      "lieferschein": "Lieferschein",
+      "purchase_order": "Satınalma Siparişleri",
+      "receipt": "Makbuzlar"
+    }
+  },
+  "communication": {
+    "intro": "Yalnızca ölçeklenebilir kanal mimarisi — E-posta, WhatsApp, Instagram, Facebook, TikTok, LinkedIn, Telegram, Ses ve Video. Sahte canlı entegrasyon yok.",
+    "adapterPrefix": "Adaptör:"
+  },
+  "aiCreator": {
+    "intro": "Geleceğe hazır Yapay Zeka Oluşturucu yüzeyi: fikirler, başlıklar, hashtag'ler, takvim, kampanyalar, marka sesi, görsel/video oluşturma, analizler, planlama, yayınlama kuyruğu ve öngörüler. Henüz kablolu gerçek sağlayıcı API'si yok."
+  },
+  "creatorStudio": {
+    "intro": "İçerik Stüdyosu temeli — Resmi platform entegrasyonları daha sonra bu bağdaştırıcılara takılabilir. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Konular, X."
+  },
+  "industry": {
+    "intro": "Evrensel İş Platformu — katılım daha sonra bir sektör seçecektir. Her sektör, çekirdek CRM işletim sistemini zorlamadan özel yapay zeka modülleri alır."
+  },
+  "kpi": {
+    "customers": {
+      "label": "Müşteriler",
+      "caption": "Aktif ilişkiler"
+    },
+    "companies": {
+      "label": "Şirketler",
+      "caption": "Hesap kuruluşları"
+    },
+    "leads": {
+      "label": "Potansiyel müşteriler",
+      "caption": "Bu ay yeni"
+    },
+    "deals": {
+      "label": "Fırsatlar",
+      "caption": "Boru hattını aç"
+    },
+    "revenue": {
+      "label": "Hasılat",
+      "caption": "YTD'yi kazandı"
+    },
+    "projects": {
+      "label": "Aktif Projeler",
+      "caption": "Uçuşta teslimat"
+    },
+    "tasks": {
+      "label": "Görevleri Aç",
+      "caption": "CRM + teslimat genelinde"
+    },
+    "ai-health": {
+      "label": "Yapay Zeka Sağlık Puanı",
+      "caption": "İlişki kalitesi sinyali"
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "pipeline": {
+    "lead": "Yol göstermek",
+    "qualified": "Nitelikli",
+    "proposal": "Teklif",
+    "negotiation": "Müzakere",
+    "won": "Kazanmak",
+    "lost": "Kayıp"
+  },
+  "orderStatus": {
+    "draft": "Taslak",
+    "confirmed": "Onaylandı",
+    "in_fulfillment": "yerine getirilmesinde",
+    "shipped": "Gönderildi",
+    "delivered": "Teslim edilmiş",
+    "cancelled": "İptal edildi"
+  },
+  "tracking": {
+    "scheduled": "planlanmış",
+    "en_route": "Yolda",
+    "arrived": "Ulaşmış",
+    "completed": "Tamamlanmış",
+    "failed": "Arızalı"
+  },
+  "documentKind": {
+    "quote": "Alıntı",
+    "contract": "Sözleşme",
+    "invoice": "Fatura",
+    "lieferschein": "Lieferschein",
+    "purchase_order": "Satın alma emri",
+    "receipt": "Fiş"
+  },
+  "documentStatus": {
+    "sent": "Gönderilmiş",
+    "signed": "İmzalandı",
+    "paid": "Paralı",
+    "in_transit": "Transit olarak",
+    "open": "Açık",
+    "filed": "Dosyalandı"
+  },
+  "integration": {
+    "planned": "Planlanan",
+    "ready": "Hazır",
+    "connected": "Bağlı",
+    "disabled": "Engelli"
+  }
+}

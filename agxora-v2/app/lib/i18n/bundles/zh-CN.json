@@ -1,0 +1,4939 @@
+{
+  "common": {
+    "save": "保存",
+    "saveChanges": "保存更改",
+    "cancel": "取消",
+    "close": "关闭",
+    "delete": "删除",
+    "edit": "编辑",
+    "search": "搜索",
+    "loading": "加载中…",
+    "retry": "重试",
+    "language": "语言",
+    "signIn": "登录",
+    "signOut": "退出登录",
+    "contact": "联系方式",
+    "privacy": "隐私",
+    "terms": "条款",
+    "cookies": "Cookie",
+    "imprint": "版本说明",
+    "organization": "组织",
+    "user": "用户",
+    "guest": "客人",
+    "member": "成员",
+    "role": "角色",
+    "signedIn": "已登录",
+    "guestSession": "嘉宾专场",
+    "noResults": "没有结果",
+    "noData": "无数据",
+    "comingSoon": "即将推出",
+    "notConnected": "未连接",
+    "demo": "演示",
+    "sample": "样本",
+    "showPassword": "显示密码",
+    "hidePassword": "隐藏密码",
+    "continue": "继续",
+    "back": "返回",
+    "home": "首页",
+    "loadingShort": "加载中",
+    "create": "创建",
+    "next": "下一步",
+    "previous": "上一步",
+    "settings": "设置",
+    "profile": "个人资料",
+    "dashboard": "仪表盘"
+  },
+  "navigation": {
+    "dashboard": "仪表板",
+    "projects": "项目",
+    "aiCrm": "人工智能客户关系管理",
+    "analytics": "分析",
+    "billing": "计费",
+    "aiWorkspace": "AI工作区",
+    "customers": "顾客",
+    "automation": "自动化",
+    "financeTax": "财务与税务",
+    "aiCreatorStudio": "人工智能创作工作室",
+    "documents": "文件",
+    "team": "团队",
+    "settings": "设置",
+    "toggleNavigation": "切换导航",
+    "primary": "基本的",
+    "menu": "菜单",
+    "search": "搜索",
+    "notifications": "通知",
+    "profile": "轮廓",
+    "currentOrganization": "当前组织",
+    "noNotifications": "无通知",
+    "notificationsEmpty": "你们都被困住了。警报和提及将出现在此处。",
+    "accountSettings": "账号设置",
+    "security": "安全",
+    "themeToggle": "快速主题切换。偏好：{mode}"
+  },
+  "pricing": {
+    "navLabel": "定价导航",
+    "navPricing": "定价",
+    "navContactSales": "联系销售部门",
+    "navBookDemo": "书籍演示",
+    "navSignIn": "登陆",
+    "eyebrow": "定价",
+    "title": "为运输运营商制定的计划。",
+    "lead": "清除商业会员等级。免费开始，准备就绪后进行扩展，或与销售人员讨论企业条款。",
+    "billingInterval": "计费间隔",
+    "monthly": "每月",
+    "yearly": "每年",
+    "savePercent": "节省约 20%",
+    "mostPopular": "最受欢迎",
+    "startFree": "免费开始",
+    "bookDemo": "书籍演示",
+    "contactSales": "联系销售部门",
+    "perMonth": "/月",
+    "perMonthYearly": "/mo 按年计费",
+    "yearlyHint": "{amount}/年 · 节省 {percent}%",
+    "commercialActions": "商业行为",
+    "legal": "合法的",
+    "planAria": "{name} 计划 — {cta}",
+    "plans": {
+      "starter": {
+        "name": "起动机",
+        "description": "适合自由职业者和小型企业。",
+        "features": [
+          "CRM 和客户渠道",
+          "项目和文件",
+          "受监管的人工智能助手",
+          "最多 5 个座位",
+          "电子邮件支持"
+        ]
+      },
+      "business": {
+        "name": "商业",
+        "description": "对于成长中的团队。",
+        "features": [
+          "一切都在启动器中",
+          "财务和分析模块",
+          "自动化和审计导出",
+          "团队协作",
+          "优先支持"
+        ]
+      },
+      "professional": {
+        "name": "专业的",
+        "description": "对于先进企业。",
+        "features": [
+          "一切都在启动器中",
+          "财务和分析模块",
+          "API访问",
+          "先进的公司工作流程",
+          "优先支持收件箱"
+        ]
+      },
+      "enterprise": {
+        "name": "行业应用",
+        "description": "无限规模的定制定价。",
+        "features": [
+          "自定义定价",
+          "无限规模",
+          "专门的入职培训",
+          "定制集成",
+          "优先支持"
+        ]
+      }
+    }
+  },
+  "billing": {
+    "currentPlan": "目前计划",
+    "upgrade": "升级",
+    "viewPricing": "查看定价",
+    "contactSales": "联系销售部门",
+    "openBillingPortal": "打开计费门户",
+    "billingQuestions": "计费问题：",
+    "publicPricing": "公开定价",
+    "recommended": "推荐AI",
+    "account": {
+      "currentPlan": "当前计划",
+      "status": "地位",
+      "renewalDate": "续订日期",
+      "seats": "座位数",
+      "usage": "使用本手册",
+      "noUsage": "尚无使用指标。",
+      "invoices": "发票",
+      "noInvoices": "还没有账单历史记录。升级计划以生成发票和续订。"
+    },
+    "planCard": {
+      "currentPlan": "目前计划",
+      "recommended": "推荐AI",
+      "contactSales": "联系销售人员",
+      "pricePerMonth": "€{price}/月",
+      "users": "{count}个用户",
+      "aiRequests": "{count} 个 AI 需求/月",
+      "storage": "{count} MB存储空间",
+      "moduleFeatures": "{count} 模块功能",
+      "choosePlan": "选择计划",
+      "processing": "加工…",
+      "currentPlanAria": "{name} — 当前计划",
+      "contactSalesAria": "{name} — 联系销售人员",
+      "choosePlanAria": "{name} — 选择计划"
+    },
+    "admin": {
+      "eyebrow": "行政",
+      "title": "计费管理",
+      "lead": "订阅、许可证、发票、电子邮件队列和商业审计事件的内部管理。",
+      "customerPortal": "客户门户",
+      "loading": "正在加载管理账单...",
+      "licenses": "许可和订阅",
+      "allInvoices": "所有发票",
+      "planCatalog": "计划目录",
+      "custom": "风俗",
+      "features": "{count} 个功能",
+      "emailQueue": "电子邮件队列（模拟）",
+      "noEmails": "没有电子邮件排队。",
+      "commercialAudit": "商业审计",
+      "columns": {
+        "organization": "组织",
+        "plan": "计划",
+        "status": "地位",
+        "seats": "座位数",
+        "actions": "行动",
+        "invoice": "发票",
+        "org": "组织",
+        "amount": "数量",
+        "when": "什么时候",
+        "action": "行动"
+      },
+      "suspend": "暂停",
+      "lifetime": "寿命",
+      "refund": "退款"
+    },
+    "portal": {
+      "eyebrow": "商业软件即服务",
+      "title": "订阅和计费",
+      "lead": "管理您的计划、使用配额、发票和付款方式。支付提供商负责计费服务。",
+      "settingsBilling": "设置计费",
+      "adminBilling": "管理员计费",
+      "loading": "正在加载帐单...",
+      "currentLicense": "当前许可证",
+      "plan": "计划",
+      "status": "地位",
+      "seats": "座位数",
+      "renewsTrial": "续订/试用",
+      "enabledModules": "启用的模块：{modules}",
+      "none": "无",
+      "renew": "续订",
+      "cancelSubscription": "取消订阅",
+      "plans": "计划",
+      "provider": "提供者",
+      "couponPlaceholder": "优惠券（LAUNCH20）",
+      "usageQuotas": "使用和配额",
+      "invoices": "发票",
+      "noInvoices": "还没有发票。",
+      "paymentMethods": "付款方式",
+      "noPaymentMethods": "没有存档的付款方式。",
+      "default": "默认",
+      "companyProfile": "公司账单账户",
+      "company": "公司",
+      "billingEmail": "帐单电子邮件",
+      "vatId": "增值税号",
+      "taxId": "税号",
+      "vatPlaceholder": "例如DE123456789",
+      "taxPlaceholder": "例如DE123456789",
+      "saveProfile": "保存个人资料",
+      "notifications": "通知",
+      "noNotifications": "没有账单通知。",
+      "noticeInitial": "计费通过商业服务层运行——UI 中没有支付 SDK。",
+      "noticeActivated": "通过 {planId} 激活 {providerId}（模拟结账）。",
+      "noticeCheckoutFailed": "结账失败",
+      "noticeCancelled": "订阅取消。",
+      "noticeRenewed": "续订下一期的订阅。",
+      "noticeProfileSaved": "已保存帐单配置文件。",
+      "columns": {
+        "invoice": "发票",
+        "status": "地位",
+        "amount": "数量",
+        "issued": "发布",
+        "metric": "指标",
+        "used": "用过的",
+        "limit": "限制"
+      },
+      "quotaStatus": {
+        "exceeded": "超过",
+        "warning": "警告",
+        "ok": "好的"
+      }
+    }
+  },
+  "settings": {
+    "controlCenter": "控制中心",
+    "settingsSections": "设置部分",
+    "profile": {
+      "label": "轮廓",
+      "description": "头像、身份和个人喜好",
+      "title": "轮廓",
+      "panelDescription": "头像、全名、电子邮件、角色、时区、语言和主题偏好。",
+      "language": "语言",
+      "timezone": "默认时区是 UTC",
+      "fullName": "姓名",
+      "email": "电子邮件",
+      "role": "角色",
+      "theme": "主题",
+      "avatar": "阿凡达",
+      "changeAvatar": "更改头像",
+      "region": "地区",
+      "personalPrefs": "个人喜好",
+      "supportLinks": "支持与法律",
+      "signedOut": "登录以查看您的帐户身份。",
+      "serverIdentityNotice": "姓名、电子邮件和角色来自您的服务器会话。它们不会存储在此浏览器中。",
+      "localPrefsNotice": "时区、地区和个人偏好尚未保留。保存它们只会更新此页面，直到您离开为止。",
+      "avatarUnavailable": "头像上传尚不可用。",
+      "appearanceNote": "外观配置仍在“外观”下。页眉仅提供主题快速切换。",
+      "prefsHint": "由 AI 助手跨模块使用。",
+      "themeResolved": "{mode}（已解决{appearance}）",
+      "regions": {
+        "EU": "欧洲联盟",
+        "US": "美国",
+        "MENA": "中东和北非地区",
+        "APAC": "亚太地区"
+      }
+    },
+    "organization": {
+      "label": "组织",
+      "description": "公司简介和纳税身份",
+      "title": "组织",
+      "panelDescription": "公司名称、徽标、地址、税务信息、部门和业务单位。"
+    },
+    "workspace": {
+      "label": "工作空间",
+      "description": "品牌、主页和默认模块",
+      "title": "工作空间",
+      "panelDescription": "工作区设置、默认仪表板、品牌、模块和主页。"
+    },
+    "team": {
+      "label": "团队",
+      "description": "成员、角色、邀请和组",
+      "title": "团队",
+      "panelDescription": "成员、角色、邀请和组。"
+    },
+    "ai": {
+      "label": "人工智能",
+      "description": "提供者、模型、创意和记忆",
+      "title": "人工智能",
+      "panelDescription": "提供者、模型、创造力、温度和内存偏好。",
+      "openAgentOs": "开放代理操作系统",
+      "openAiWorkspace": "开放人工智能工作空间",
+      "noticeSync": "AI设置通过AISettingsProvider同步-密钥从未存储在此处。",
+      "noticeProvider": "提供商实施位于人工智能服务层后面。 UI 永远不会收到 API 密钥或 SDK 详细信息。自治代理驻留在代理操作系统中。",
+      "preferredProvider": "首选人工智能提供商",
+      "defaultModel": "默认AI模型",
+      "temperature": "温度",
+      "topP": "顶P",
+      "maxTokens": "最大代币数",
+      "writingStyle": "写作风格",
+      "languagePreferences": "语言偏好",
+      "systemPrompt": "系统提示",
+      "systemPromptHint": "用作AI Platform的默认系统指令。",
+      "systemPromptPlaceholder": "您是AGXORA AI--企业运营助手……",
+      "apiKeyManagement": "API密钥管理",
+      "apiKeyHint": "密钥仅通过服务器环境变量提供。",
+      "apiKeyPlaceholder": "通过AGXORA_*环境变量配置（从不在浏览器中配置）",
+      "memory": "记忆",
+      "memoryDescription": "允许组织记忆跨模块通知人工智能回复。",
+      "automationSuggestions": "自动化建议",
+      "automationSuggestionsDescription": "在 Automation Engine 中呈现 AI 工作流程建议。",
+      "streaming": "流媒体",
+      "streamingDescription": "当提供者支持时流模型响应。",
+      "providers": {
+        "mock": "模拟（本地）",
+        "openai": "开放人工智能",
+        "azure": "Azure 开放人工智能",
+        "anthropic": "人择",
+        "google": "谷歌",
+        "openrouter": "开放路由器",
+        "ollama": "奥拉玛",
+        "local": "本地提供商"
+      },
+      "writingStyles": {
+        "professional": "专业的",
+        "concise": "简洁的",
+        "friendly": "友好的",
+        "technical": "技术的"
+      },
+      "languages": {
+        "auto": "匹配个人资料语言",
+        "en": "中文",
+        "de": "德语"
+      }
+    },
+    "appearance": {
+      "label": "外貌",
+      "description": "主题、密度和玻璃效果",
+      "title": "外貌",
+      "panelDescription": "主题、密度、重音、动画和玻璃效果。",
+      "noticeTheme": "主题模式是通过ThemeProvider的单一真相来源。页眉仅提供快速切换。",
+      "themeLabel": "主题",
+      "themeModeAria": "主题模式",
+      "resolvedAppearance": "解决外观：",
+      "accentColor": "强调色",
+      "accentNotice": "重音首选项被存储以供将来的 CSS var 接线使用——还不会改变锁定的颜色系统。",
+      "density": "密度",
+      "compactMode": "紧凑型模式",
+      "compactModeDescription": "减少企业表格和面板之间的填充。",
+      "animations": "动画",
+      "animationsDescription": "剖面运动和悬停升降机。尊重简化运动操作系统设置。",
+      "glassEffects": "玻璃效果",
+      "glassEffectsDescription": "磨砂玻璃卡片和侧边栏模糊强度偏好。",
+      "modes": {
+        "day": {
+          "label": "光",
+          "hint": "珍珠/冰企业日调色板"
+        },
+        "night": {
+          "label": "黑暗的",
+          "hint": "批准的电影夜景"
+        },
+        "auto": {
+          "label": "系统",
+          "hint": "遵循当地时间表（自动）"
+        }
+      },
+      "densities": {
+        "comfortable": "舒服的",
+        "compact": "袖珍的",
+        "spacious": "宽敞"
+      }
+    },
+    "notifications": {
+      "label": "通知",
+      "description": "电子邮件、推送和模块警报",
+      "title": "通知",
+      "panelDescription": "电子邮件、推送、桌面、移动和特定于模块的警报。",
+      "notice": "通知通道仅是首选项——保留传送适配器。",
+      "email": "电子邮件",
+      "push": "推",
+      "desktop": "桌面",
+      "mobile": "移动的",
+      "workflowAlerts": "工作流程警报",
+      "workflowAlertsDescription": "Automation Engine 执行和批准事件。",
+      "financeAlerts": "财经快讯",
+      "crmAlerts": "CRM警报",
+      "documentsAlerts": "文件提醒",
+      "deliveryNotice": "交付适配器在发布时发货。问题：",
+      "contactSupport": "联系支持人员"
+    },
+    "documents": {
+      "label": "文件",
+      "description": "存储、保留和知识",
+      "title": "文件",
+      "panelDescription": "存储首选项、保留、默认文件夹、版本控制和知识设置。",
+      "notice": "文档设置与Knowledge Hub架构集成。",
+      "storagePreferences": "存储首选项",
+      "retentionPolicy": "保留政策",
+      "defaultFolder": "默认文件夹",
+      "versioning": "版本控制",
+      "versioningDescription": "保留文档版本历史记录以供恢复/比较。",
+      "knowledgeSettings": "知识设置",
+      "knowledgeDescription": "用于知识中心搜索的人工智能索引。",
+      "storageOptions": {
+        "workspace-default": "工作区默认值",
+        "eu-region": "欧盟地区",
+        "encrypted-vault": "加密金库"
+      },
+      "retentionOptions": {
+        "30-days": "30天（划痕）",
+        "2-years": "2年",
+        "7-years": "7年",
+        "10-years": "10年"
+      }
+    },
+    "automation": {
+      "label": "自动化",
+      "description": "工作流程默认值和重试策略",
+      "title": "自动化",
+      "panelDescription": "工作流程默认值、AI 建议、执行日志、历史限制和重试策略。",
+      "notice": "自动化默认值适用于工作流引擎架构。",
+      "workflowDefaults": "工作流程默认值",
+      "historyLimits": "历史限制",
+      "retryPolicy": "重试策略",
+      "aiSuggestions": "人工智能建议",
+      "executionLogs": "执行日志",
+      "executionLogsDescription": "在工作流历史记录中保留详细的运行负载。",
+      "workflowOptions": {
+        "require-approval": "需要审批门",
+        "auto-run": "自动运行可信流",
+        "draft-only": "仅草稿"
+      },
+      "historyOptions": {
+        "30-days": "30天",
+        "90-days": "90天",
+        "365-days": "365天"
+      },
+      "retryOptions": {
+        "none": "无需重试",
+        "3-exponential": "3×指数",
+        "5-linear": "5×线性"
+      }
+    },
+    "integrations": {
+      "label": "集成",
+      "description": "已安装、连接且可用",
+      "title": "集成",
+      "panelDescription": "已安装、连接且可用的适配器。",
+      "openCenter": "打开集成中心",
+      "notice": "企业集成平台位于集成中心 - 连接器、OAuth、Webhooks、API 密钥和工作流事件桥。",
+      "columns": {
+        "integration": "一体<g id=\"1077\">化</g>",
+        "category": "类别",
+        "status": "地位",
+        "adapter": "适配器"
+      }
+    },
+    "security": {
+      "label": "安全",
+      "description": "会话、密码和帐户保护",
+      "title": "安全",
+      "panelDescription": "此帐户的服务器会话。设备、IP和MFA不会被存储。",
+      "activeSessions": "活跃会话",
+      "currentSession": "当前会话",
+      "otherSession": "其他场次",
+      "currentBadge": "本次会议",
+      "otherBadge": "其他场次",
+      "createdAt": "已登录",
+      "expiresAt": "过期",
+      "revoke": "撤销会话",
+      "revokeAria": "撤销登录于 {when} 的会话",
+      "revokeOthers": "退出其他会话",
+      "revokeOthersAria": "注销除当前会话之外的所有会话",
+      "revoked": "会话被撤销。",
+      "othersRevoked": "其他会话已退出。此会话仍然有效。",
+      "loading": "正在加载会话…",
+      "empty": "没有活动会话",
+      "emptyBody": "该帐户没有活动的服务器会话。",
+      "demoEmpty": "登录以在此浏览器中注册本地演示会话。",
+      "signedOutTitle": "未登录",
+      "signedOut": "登录以查看您的活动服务器会话。",
+      "loadFailed": "无法加载会话。",
+      "revokeFailed": "无法撤销该会话。",
+      "logout": "退出此会话",
+      "logoutAria": "注销当前服务器会话",
+      "password": "密码",
+      "changePassword": "重置密码",
+      "passwordHint": "密码更改使用现有的重置流程。专用的更改密码表格尚不可用。",
+      "mfaTitle": "双因素身份验证",
+      "mfaUnavailable": "双因素身份验证尚不可用。",
+      "ssoTitle": "单点登录和 OAuth",
+      "ssoUnavailable": "单点登录和 OAuth 提供商尚不可用。",
+      "encryptionTitle": "加密",
+      "encryptionUnavailable": "密钥管理和静态加密控制尚不可用。",
+      "trustedDevices": "可信设备",
+      "trustedUnavailable": "不存储受信任设备和 IP 历史记录。会话元数据仅限于创建和到期时间。",
+      "apiKeys": "API 密钥",
+      "apiKeysHint": "开发人员密钥在API和开发人员下进行管理。此面板不颁发密钥。",
+      "openApi": "打开API设置",
+      "serverNotice": "会话存储在服务器上。该浏览器从不将本地身份数据视为权威数据。",
+      "demoNotice": "演示模式仅使用本地浏览器会话。这不是生产身份验证。",
+      "noDeviceMeta": "不记录设备、IP 和用户代理。"
+    },
+    "billing": {
+      "label": "计费",
+      "description": "计划、使用情况、发票和付款",
+      "title": "计费",
+      "panelDescription": "当前计划、续订、使用情况、发票和升级路径。"
+    },
+    "api": {
+      "label": "API 和开发人员",
+      "description": "密钥、webhooks、令牌、沙箱",
+      "title": "API 和开发人员",
+      "panelDescription": "密钥、网络钩子、令牌和沙箱访问。",
+      "openPortal": "打开开发者门户",
+      "notice": "在集成中心生成、轮换和撤销密钥。那里提供了网关、webhook 测试器和 API 浏览器。",
+      "webhooks": "网络钩子",
+      "sandbox": "沙盒",
+      "sandboxEnabled": "启用",
+      "sandboxDisabled": "残疾人",
+      "tokensNotice": "开发者令牌从不显示​​完整的秘密——仅显示前缀。",
+      "columns": {
+        "name": "姓名",
+        "key": "钥匙",
+        "scope": "范围",
+        "lastUsed": "上次使用"
+      }
+    },
+    "audit": {
+      "label": "审核日志",
+      "description": "活动、安全和系统更改",
+      "title": "审核日志",
+      "panelDescription": "最近的活动、安全事件和系统更改。",
+      "columns": {
+        "when": "什么时候",
+        "actor": "演员",
+        "category": "类别",
+        "summary": "概括"
+      },
+      "categories": {
+        "activity": "最近的活动",
+        "security": "安全事件",
+        "system": "系统变更"
+      }
+    },
+    "advanced": {
+      "label": "先进的",
+      "description": "实验、重置、导入、导出",
+      "title": "先进的",
+      "panelDescription": "实验性功能、重置、导入和导出。",
+      "notice": "高级操作需要在申请前进行确认。",
+      "experimentalFeatures": "实验特点",
+      "experimentalDescription": "选择未完成的控制中心功能。",
+      "export": "出口",
+      "import": "进口",
+      "reset": "重置",
+      "exportUnavailable": "尚不支持导出。",
+      "importUnavailable": "导入尚不可用。",
+      "resetUnavailable": "重置尚不可用。"
+    },
+    "page": {
+      "eyebrow": "AGXORA 控制中心",
+      "title": "设置",
+      "lead": "每个 AGXORA 模块的企业配置 — 配置文件、组织、AI、外观、安全、计费和开发人员控制都集中在一个地方。",
+      "loading": "正在加载设置...",
+      "breadcrumb": "{label} · {description}"
+    },
+    "saveChanges": "保存更改",
+    "sessionNotice": "此会话已更新 — {area} 未连接。",
+    "kpi": {
+      "members": {
+        "label": "团队成员",
+        "caption": "活动座椅"
+      },
+      "integrations": {
+        "label": "集成",
+        "caption": "已连接的适配器"
+      },
+      "api": {
+        "label": "API 密钥",
+        "caption": "开发者代币"
+      },
+      "audit": {
+        "label": "审计事件",
+        "caption": "过去 7 天"
+      }
+    },
+    "unknown": {
+      "title": "设置",
+      "description": "未知部分。",
+      "emptyTitle": "未找到",
+      "emptyDescription": "从控制中心导航中选择一个部分。"
+    },
+    "controlPlane": {
+      "loading": "加载中…",
+      "loadFailed": "无法加载组织数据。登录并重试。",
+      "saveFailed": "无法保存更改。",
+      "saving": "保存…",
+      "orgName": "组织名称",
+      "orgSlug": "蛞蝓",
+      "owner": "所有者",
+      "counts": "成员·工作区",
+      "orgUpdated": "组织已更新。",
+      "countsValue": "{members} · {workspaces}",
+      "joined": "已加入",
+      "workspaceName": "工作区名称",
+      "switchWorkspace": "只显示使用中的工作区里的应用",
+      "active": "积极的",
+      "rename": "重命名",
+      "archive": "档案",
+      "create": "创建工作区",
+      "createWorkspace": "新工作区",
+      "workspaceCreated": "工作区已创建。",
+      "workspaceUpdated": "工作区已重命名。",
+      "workspaceArchived": "工作区已存档。",
+      "workspaceSwitched": "活动工作区已更新。",
+      "member": "成员",
+      "email": "电子邮件",
+      "role": "角色",
+      "status": "地位",
+      "actions": "行动",
+      "roleOwner": "所有者",
+      "roleAdmin": "行政",
+      "roleMember": "成员",
+      "changeRole": "改变角色",
+      "remove": "消除",
+      "invite": "邀请会员",
+      "inviteTitle": "邀请到工作区",
+      "sendInvite": "创建邀请",
+      "close": "关闭",
+      "pending": "待处理的邀请",
+      "noPending": "没有待处理的邀请。",
+      "revoke": "撤销",
+      "noMembers": "还没有会员",
+      "noMembersBody": "邀请队友加入此工作区。",
+      "inviteHonesty": "未配置电子邮件传送。直接分享邀请链接。",
+      "inviteLink": "邀请链接",
+      "inviteInvalid": "此邀请无效。",
+      "accept": "接受邀请",
+      "invitedAs": "{email} 被邀请作为 {role}。",
+      "inviteStatus": {
+        "pending": "待办的",
+        "expired": "这个邀请已过期。",
+        "revoked": "该邀请已被撤销。",
+        "accepted": "这个邀请已经被接受了。"
+      },
+      "transferOwnership": "转让所有权",
+      "transferTitle": "转移组织所有权",
+      "transferWarning": "这是一个危险的行为。在收件人确认之前，您仍然是所有者。确认后，您成为管理员，他们成为所有者。",
+      "transferTarget": "新主人",
+      "transferSelectMember": "选择现有成员...",
+      "transferTypeName": "键入“{name}”以确认",
+      "transferConfirmMismatch": "输入的姓名与所选成员不匹配。",
+      "transferInitiate": "发起转移",
+      "transferHonesty": "配置交付后，将发送一封确认电子邮件。否则直接与收件人共享确认链接。",
+      "transferLink": "确认链接",
+      "transferPendingTitle": "待定所有权转让",
+      "transferPendingBody": "等待{name} ({email}) 确认。过期{expires}。在此之前您仍然是所有者。",
+      "transferPendingNote": "在转移等待期间，成员角色不会改变。",
+      "cancelTransfer": "取消转账",
+      "transferCancelled": "所有权转让已取消。",
+      "transferInvalid": "该所有权转让无效。",
+      "transferConfirmTitle": "确认所有权转移",
+      "transferConfirmBody": "{from} 想要将组织所有权转让给 {to} ({email})。",
+      "transferConfirmDanger": "确认后，您将成为 OWNER，而之前的所有者将成为 ADMIN。",
+      "transferConfirmAction": "确认我成为新主人",
+      "transferWrongAccount": "以 {email} 身份登录以确认此转移。",
+      "transferStatus": {
+        "pending": "标题 (待确认信息)",
+        "expired": "该所有权转让已过期。",
+        "cancelled": "此次所有权转让已被取消。",
+        "confirmed": "本次股权转让已经完成。"
+      }
+    }
+  },
+  "errors": {
+    "required": "此字段为必填。",
+    "invalidEmail": "请输入有效的电子邮件地址。",
+    "passwordMin": "密码必须至少为 8 个字符。",
+    "passwordLettersNumbers": "密码必须包含字母和数字。",
+    "passwordMismatch": "密码不匹配。",
+    "acceptTerms": "请接受条款以继续。",
+    "generic": "出了点问题。",
+    "tryAgain": "请再试一次。",
+    "saved": "保存成功。",
+    "invalidCredentials": "电子邮件或密码无效。",
+    "signInRequired": "需要登录。",
+    "insufficientPermissions": "权限不足。",
+    "noRouteAccess": "您无权访问此路由。",
+    "accountLocked": "此账户已锁定。请联系管理员。",
+    "sessionExpired": "您的会话已过期。请重新登录。",
+    "missingPermission": "缺少权限：{permission}",
+    "roleCannotAccess": "您的角色无法访问此资源。",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "电子邮件或密码无效。",
+      "AUTH_SESSION_EXPIRED": "您的会话已过期。请重新登录。",
+      "AUTH_ACCOUNT_LOCKED": "此账户已锁定。请联系管理员。",
+      "AUTH_SIGN_IN_REQUIRED": "请登录以继续。",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "权限不足。",
+      "AUTH_NO_ROUTE_ACCESS": "您无权访问此路由。",
+      "COMMON_SOMETHING_WENT_WRONG": "出了点问题。",
+      "COMMON_PAGE_NOT_FOUND": "找不到页面。",
+      "COMMON_OFFLINE": "您处于离线状态。",
+      "COMMON_TIMEOUT": "请求超时。",
+      "COMMON_VALIDATION": "请检查您的输入后重试。",
+      "COMMON_UNKNOWN": "发生未知错误。",
+      "COMMON_INTERNAL": "发生意外错误。请重试。"
+    }
+  },
+  "dashboard": {
+    "skipToContent": "跳至仪表板内容",
+    "loading": "正在加载仪表板...",
+    "hero": {
+      "ariaLabel": "AGXORA核心英雄",
+      "eyebrow": "人工智能商业操作系统",
+      "title": "AGXORA核心",
+      "subtitle": "实时智能和操作控制——您的工作空间命令界面。",
+      "ctaGetStarted": "开始使用",
+      "ctaViewActivity": "查看活动",
+      "openQuickActionsAria": "快捷操作",
+      "viewActivityAria": "查看最近的活动"
+    },
+    "quickActions": {
+      "title": "快捷操作",
+      "subtitle": "接下来你应该做什么？",
+      "ariaLabel": "快捷操作",
+      "addCustomer": {
+        "label": "添加客户",
+        "description": "创建 CRM 记录"
+      },
+      "newProject": {
+        "label": "新项目",
+        "description": "启动交付轨迹"
+      },
+      "askAi": {
+        "label": "询问人工智能",
+        "description": "打开 AI 工作区"
+      },
+      "finance": {
+        "label": "金融",
+        "description": "发票和现金流"
+      },
+      "automations": {
+        "label": "自动化",
+        "description": "工作流引擎"
+      },
+      "settings": {
+        "label": "设置",
+        "description": "工作区首选项"
+      }
+    },
+    "attention": {
+      "title": "需要注意",
+      "ariaLabel": "需要注意",
+      "empty": "你很清楚——现在没有紧急物品。",
+      "tone": {
+        "critical": "批判的",
+        "warning": "警告",
+        "info": "飞艇信息",
+        "success": "准备好",
+        "action": "下一步做"
+      },
+      "addCustomer": {
+        "title": "添加您的第一个客户",
+        "detail": "使用真实账户记录启动 CRM。"
+      },
+      "createProject": {
+        "title": "创建一个项目",
+        "detail": "为您的下一次约会打开交付轨道。"
+      },
+      "exploreAi": {
+        "title": "探索 AI 工作区",
+        "detail": "向 AGXORA 询问有关客户、项目或后续步骤的信息。"
+      },
+      "reviewBilling": {
+        "title": "查看帐单",
+        "detail": "当您准备好扩展时，请确认计划和使用情况。"
+      }
+    },
+    "overview": {
+      "title": "工程情况",
+      "subtitle": "{name} 的工作空间计数",
+      "fallbackName": "你的工作空间",
+      "ariaLabel": "业务概况",
+      "online": "电在",
+      "emDash": "—",
+      "capacitySignal": "{percent}% 容量信号",
+      "activeClients": {
+        "title": "活跃客户",
+        "captionEmpty": "还没有活跃客户",
+        "captionTotal": "工作区中共有{count}个",
+        "add": "添加客户",
+        "view": "查看客户"
+      },
+      "projects": {
+        "title": "项目",
+        "captionEmpty": "投资组合中没有项目",
+        "captionOpen": "开放交付轨道",
+        "create": "创建项目",
+        "open": "开放项目"
+      },
+      "activityToday": {
+        "title": "今日活动",
+        "captionEmpty": "今天还没有记录任何内容",
+        "captionEvents": "午夜以来的工作区活动",
+        "viewFeed": "查看提要"
+      },
+      "revenue": {
+        "title": "收入",
+        "caption": "关联账单以显示MRR",
+        "openBilling": "开放式计费"
+      },
+      "clientShell": {
+        "title": "客户端外壳",
+        "caption": "浏览器会话就绪 - 不是实时操作监视器",
+        "shellLoaded": "已加载应用程序外壳",
+        "storesReady": "本地工作区商店准备就绪"
+      },
+      "growth": {
+        "title": "增长率",
+        "caption": "趋势指标需要累积使用量",
+        "openAnalytics": "开放分析"
+      }
+    },
+    "activity": {
+      "title": "最近的活动",
+      "subtitle": "今天发生了什么变化",
+      "ariaLabel": "最近的活动",
+      "todayCount": "今天 {count}",
+      "localBadge": "当地的",
+      "emptyTitle": "还没有活动",
+      "emptyBody": "当您添加客户、项目等时，工作区事件将显示在此处。",
+      "addCustomer": "添加客户",
+      "newProject": "新项目",
+      "kind": {
+        "customer": "顾客",
+        "project": "项目",
+        "finance": "金融",
+        "automation": "自动化",
+        "documents": "文件",
+        "team": "团队",
+        "workspace": "工作空间"
+      },
+      "events": {
+        "customer_created": "客户创建",
+        "customer_updated": "客户更新",
+        "customer_deleted": "客户已删除",
+        "project_updated": "项目已更新",
+        "invoice_paid": "发票已付",
+        "document_uploaded": "文件已上传",
+        "workflow_executed": "工作流程已执行",
+        "member_invited": "团队成员受邀",
+        "generic": "工作区更新"
+      }
+    },
+    "chat": {
+      "title": "艾克索拉人工智能",
+      "emptyState": "向 AGXORA 询问有关客户、项目或下一步行动的信息。您的对话将保留在此工作区会话中。",
+      "thinking": "AGXORA 正在思考……",
+      "errorDismiss": "{error} — 点击即可关闭",
+      "placeholder": "询问 AGXORA AI...",
+      "messageAria": "消息 AGXORA AI",
+      "sendAria": "发送消息",
+      "send": "发送"
+    },
+    "routeLoading": {
+      "team": "正在加载团队...",
+      "projects": "正在加载项目...",
+      "project": "正在加载项目...",
+      "profile": "正在加载个人资料...",
+      "integrations": "正在加载集成...",
+      "identity": "正在加载身份信息……",
+      "finance": "正在加载财务...",
+      "documents": "正在加载文档...",
+      "customers": "正在加载客户...",
+      "crm": "正在加载客户关系管理...",
+      "customer": "正在加载客户...",
+      "creator": "正在加载创作者工作室...",
+      "billing": "正在加载帐单...",
+      "billingAdmin": "正在加载管理账单...",
+      "automation": "加载自动化...",
+      "analytics": "正在加载情报中心...",
+      "ai": "正在加载人工智能平台...",
+      "agents": "正在加载代理操作系统..."
+    },
+    "shell": {
+      "memory": {
+        "title": "记忆",
+        "description": "此版本中未连接组织内存。",
+        "emptyTitle": "内存工作区尚不可用",
+        "emptyBody": "持久组织内存存储未连接。聊天可能仅在会话中保留短暂的上下文 - 这里没有任何内容被存储为企业内存。"
+      },
+      "invoices": {
+        "title": "发票",
+        "description": "企业租户的计费和发票架构。",
+        "emptyTitle": "发票分类账尚不可用",
+        "emptyBody": "该路由是一个外壳 - 发票创建和持久性没有连接。使用 Finance 进行样本分类帐预览，或使用 Billing 进行计划管理。",
+        "openFinance": "开放金融",
+        "openBilling": "开放式账单"
+      }
+    },
+    "search": {
+      "ariaLabel": "通用搜索",
+      "queryAria": "通用搜索查询",
+      "placeholder": "搜索客户、发票、文档、工作流程、设置……",
+      "quickActions": "快速行动",
+      "favorites": "收藏夹",
+      "recentSearches": "最近的搜索",
+      "clear": "清除",
+      "noRecentSearches": "还没有最近的搜索。尝试使用“Nordlicht”、“发票”或“工作流程”。",
+      "recentActivity": "最近的活动",
+      "aiReady": "人工智能就绪（架构）",
+      "pinnedResults": "固定结果",
+      "noMatches": "没有匹配项",
+      "noMatchesBody": "尝试其他关键字，或通过快速操作打开模块。",
+      "close": "关闭",
+      "esc": "Esc",
+      "open": "打开",
+      "keyboardHints": "↑↓ 导航·输入打开· Ctrl/⌘ K切换· Esc关闭",
+      "pinResult": "固定结果",
+      "unpinResult": "取消固定结果",
+      "previewEmpty": "将鼠标悬停或突出显示预览、元数据和智能链接的结果。",
+      "previewAria": "通用预览",
+      "relatedItems": "相关项目",
+      "noSmartLinks": "此结果没有智能链接。",
+      "groups": {
+        "crm": "客户关系管理",
+        "finance": "金融",
+        "documents": "文件",
+        "automation": "自动化",
+        "projects": "项目",
+        "creator": "创作工作室",
+        "settings": "设置",
+        "commands": "命令",
+        "actions": "快速行动"
+      },
+      "status": {
+        "architecture": "建筑学",
+        "planned": "计划"
+      },
+      "meta": {
+        "type": "类型",
+        "module": "模块",
+        "quickAction": "快速行动"
+      },
+      "actions": {
+        "createCustomer": {
+          "title": "创建客户",
+          "subtitle": "打开客户添加记录"
+        },
+        "createInvoice": {
+          "title": "创建发票",
+          "subtitle": "打开财务发票工作区"
+        },
+        "uploadDocument": {
+          "title": "上传文件",
+          "subtitle": "打开文档知识中心"
+        },
+        "newWorkflow": {
+          "title": "新的工作流程",
+          "subtitle": "开放自动化引擎构建器"
+        },
+        "newProject": {
+          "title": "新项目",
+          "subtitle": "打开项目工作区"
+        },
+        "inviteMember": {
+          "title": "邀请团队成员",
+          "subtitle": "开放团队邀请"
+        },
+        "openBilling": {
+          "title": "开放式账单",
+          "subtitle": "计划、发票和订阅"
+        },
+        "openSettings": {
+          "title": "打开设置",
+          "subtitle": "工作区首选项"
+        }
+      },
+      "commands": {
+        "openCrm": {
+          "title": "开放式客户关系管理",
+          "subtitle": "人工智能CRM模块"
+        },
+        "openCustomers": {
+          "title": "开放客户",
+          "subtitle": "客户管理"
+        },
+        "openFinance": {
+          "title": "开放金融",
+          "subtitle": "财税模块"
+        },
+        "openDocuments": {
+          "title": "打开文件",
+          "subtitle": "知识中心"
+        },
+        "openAutomation": {
+          "title": "开放式自动化",
+          "subtitle": "工作流引擎"
+        },
+        "openSettings": {
+          "title": "打开设置",
+          "subtitle": "工作区设置"
+        },
+        "openProjects": {
+          "title": "开放项目",
+          "subtitle": "项目组合"
+        },
+        "openAi": {
+          "title": "开放人工智能",
+          "subtitle": "AI平台工作区"
+        },
+        "openAnalytics": {
+          "title": "开放分析",
+          "subtitle": "情报中心"
+        },
+        "openIdentity": {
+          "title": "开放身份和访问",
+          "subtitle": "IAM 设置、RBAC、审核"
+        },
+        "openBilling": {
+          "title": "开放式账单",
+          "subtitle": "订阅门户和计划"
+        },
+        "openIntegrations": {
+          "title": "开放式集成",
+          "subtitle": "集成中心和API生态系统"
+        }
+      },
+      "modules": {
+        "dashboard": {
+          "subtitle": "指挥中心和全球概览"
+        },
+        "customers": {
+          "subtitle": "客户记录和 CRM"
+        },
+        "projects": {
+          "subtitle": "项目交付和跟踪"
+        },
+        "invoices": {
+          "title": "发票",
+          "subtitle": "账单和发票"
+        },
+        "finance": {
+          "subtitle": "人工智能会计、银行、税务和金融智能"
+        },
+        "crm": {
+          "subtitle": "AI原生CRM和Creator操作系统"
+        },
+        "creator": {
+          "subtitle": "AI内容制作及营销操作系统"
+        },
+        "documents": {
+          "subtitle": "人工智能文档和知识中心"
+        },
+        "ai": {
+          "title": "人工智能",
+          "subtitle": "AGXORA AI平台—企业工作区"
+        },
+        "analytics": {
+          "subtitle": "商业智能"
+        },
+        "automation": {
+          "subtitle": "AI工作流程和自动化引擎"
+        },
+        "memory": {
+          "title": "记忆",
+          "subtitle": "组织记忆"
+        },
+        "team": {
+          "subtitle": "成员及邀请"
+        },
+        "settings": {
+          "subtitle": "工作区和 AI 设置"
+        }
+      },
+      "capabilities": {
+        "aiSearch": {
+          "title": "人工智能搜索",
+          "description": "使用未来跨模块的检索模型对结果进行排名。"
+        },
+        "semantic": {
+          "title": "语义搜索",
+          "description": "文档、发票和知识的向量相似性。"
+        },
+        "nl": {
+          "title": "自然语言搜索",
+          "description": "解析“Nordlicht 逾期发票”等意图。"
+        },
+        "rag": {
+          "title": "知识检索",
+          "description": "Documents Knowledge Hub语料库中的基本答案。"
+        }
+      }
+    },
+    "summary": "{name}：{customers} 客户 · {projects} 项目 · {updates} 今天更新。"
+  },
+  "auth": {
+    "login": {
+      "title": "登陆",
+      "subtitle": "欢迎回到 AGXORA。",
+      "email": "电子邮件",
+      "password": "密码",
+      "emailPlaceholder": "你@company.com",
+      "passwordPlaceholder": "密码",
+      "rememberMe": "记住账号",
+      "submit": "登陆",
+      "submitting": "正在登录...",
+      "noAccount": "没有帐户？",
+      "startFree": "免费开始",
+      "forgotPassword": "忘记密码",
+      "showPassword": "显示密码",
+      "hidePassword": "隐藏密码",
+      "failed": "登录失败",
+      "loading": "登陆"
+    },
+    "register": {
+      "title": "创建帐号",
+      "subtitle": "免费开始使用AGXORA。",
+      "firstName": "名",
+      "lastName": "姓",
+      "email": "工作邮箱",
+      "company": "公司",
+      "password": "密码",
+      "confirmPassword": "确认密码",
+      "acceptTerms": "我接受",
+      "termsOfService": "服务条款",
+      "and": "和",
+      "privacyPolicy": "隐私政策",
+      "submit": "创建帐号",
+      "submitting": "正在创建帐户...",
+      "haveAccount": "已经有帐户？",
+      "signIn": "登陆",
+      "strength": "密码强度",
+      "strengthWeak": "虚弱的",
+      "strengthFair": "公平的",
+      "strengthStrong": "最悍",
+      "firstNamePlaceholder": "亚历克斯",
+      "lastNamePlaceholder": "摩根",
+      "companyPlaceholder": "艾格索拉有限公司",
+      "emailPlaceholder": "你@company.com",
+      "passwordPlaceholder": "最少8个字符，字母+数字",
+      "confirmPasswordPlaceholder": "重复密码",
+      "failed": "注册失败",
+      "loading": "创建帐号"
+    },
+    "forgot": {
+      "title": "忘记密码",
+      "subtitle": "输入您的电子邮件以请求重置密码。",
+      "email": "电子邮件",
+      "submit": "请求重置",
+      "submitting": "提交中...",
+      "success": "如果该电子邮件的帐户存在，则会记录重置请求。尚未配置电子邮件传送。",
+      "backToSignIn": "返回登录",
+      "failed": "无法处理请求。",
+      "loading": "忘记密码"
+    },
+    "reset": {
+      "title": "重置密码",
+      "subtitle": "为您的帐户选择一个新密码。",
+      "token": "重置令牌",
+      "newPassword": "新密码",
+      "confirmPassword": "确认密码",
+      "submit": "更新密码",
+      "submitting": "正在更新…",
+      "success": "密码已更新。您现在可以登录。",
+      "backToSignIn": "返回登录",
+      "failed": "无法重置密码",
+      "loading": "重置密码"
+    },
+    "contactSales": {
+      "title": "联系销售部门",
+      "subtitle": "告诉我们您的团队。我们将跟进企业选项。",
+      "name": "姓名",
+      "email": "工作邮箱",
+      "company": "公司",
+      "employees": "员工人数",
+      "employeesSelect": "选择范围",
+      "employees1_10": "1–10",
+      "employees11_50": "11–50",
+      "employees51_200": "51–200",
+      "employees201_1000": "201–1,000",
+      "employees1000plus": "1,000+",
+      "message": "信息",
+      "messagePlaceholder": "你想解决什么问题？",
+      "submit": "提交查询",
+      "submitting": "正在发送...",
+      "successTitle": "谢谢",
+      "successBody": "您的询问已收到。我们的团队将很快回复。",
+      "viewPricing": "查看定价",
+      "bookDemo": "书籍演示",
+      "failed": "无法提交查询",
+      "country": "国家",
+      "savedFor": "已为 {company} 保存。此构建未连接销售投递。",
+      "preferWalkthrough": "接下来更想看产品演示？",
+      "preferSelfServe": "更想自助使用？"
+    },
+    "welcome": {
+      "title": "欢迎来到艾格索拉",
+      "subtitle": "您的工作区已准备就绪。继续到仪表板。",
+      "continue": "转到仪表板",
+      "checklistProfile": "确认您的组织资料",
+      "checklistModules": "选择符合您工作方式的模块",
+      "checklistDashboard": "带着明确的起点进入仪表盘",
+      "exploreFirst": "更想先自行探索？",
+      "skipToDashboard": "跳到仪表盘"
+    },
+    "locked": {
+      "title": "帐户被锁定",
+      "subtitle": "登录尝试失败次数过多。请稍后重试或重置密码。",
+      "backToSignIn": "返回登录",
+      "forgotPassword": "忘记密码"
+    },
+    "sessionExpired": {
+      "title": "会话已过期",
+      "subtitle": "请重新登录以继续。",
+      "signIn": "登陆"
+    },
+    "brand": "爱格索拉",
+    "validation": {
+      "emailRequired": "电子邮件为必填。",
+      "emailInvalid": "请输入有效的电子邮件地址。",
+      "passwordRequired": "密码为必填。",
+      "passwordMin": "密码至少 8 个字符。",
+      "nameRequired": "姓名为必填。",
+      "nameMin": "姓名至少 2 个字符。",
+      "passwordMismatch": "两次输入的密码不一致。",
+      "slugFormat": "仅使用小写字母、数字和连字符。"
+    }
+  },
+  "crm": {
+    "page": {
+      "brandOs": "AGXORA商业操作系统",
+      "title": "人工智能客户关系管理",
+      "subtitle": "AI原生CRM和创作者操作系统—每个行业的客户、渠道、订单、交付、文档、通信和创作者架构。"
+    },
+    "sections": {
+      "crmDashboard": {
+        "title": "客户关系管理仪表板"
+      },
+      "customer360": {
+        "title": "客户360°",
+        "subtitle": "个人资料、公司、联系人、订单、发票、Lieferscheine、付款、文档、时间表、活动、笔记、AI 摘要和通信历史记录。"
+      },
+      "salesPipeline": {
+        "title": "销售渠道",
+        "subtitle": "具有拖放功能的看板阶段 — 领导、合格、提案、谈判、获胜、失败。"
+      },
+      "ordersModule": {
+        "title": "订单模块"
+      },
+      "deliveryModule": {
+        "title": "交付模块",
+        "subtitle": "专业的 Lieferschein 系统，具备跟踪、签名、QR 和条形码功能。"
+      },
+      "documentsModule": {
+        "title": "文件",
+        "subtitle": "报价、合同、发票、Lieferschein、采购订单、收据 - 通过人工智能搜索。"
+      },
+      "tasksModule": {
+        "title": "任务"
+      },
+      "communicationHub": {
+        "title": "通讯中心",
+        "subtitle": "仅适用于消息、社交、电子邮件、语音和视频的适配器注册表。"
+      },
+      "creatorStudio": {
+        "title": "创作者工作室基金会",
+        "subtitle": "平台适配器已准备好稍后进行正式集成。"
+      },
+      "aiCreator": {
+        "title": "人工智能创造者",
+        "subtitle": "内容、日历、生成和发布的企业功能映射。"
+      },
+      "industryPlatform": {
+        "title": "通用商业平台",
+        "subtitle": "模块化行业注册——每个垂直行业都可以接收专用的人工智能模块。"
+      }
+    },
+    "directory": {
+      "errorTitle": "无法加载 CRM",
+      "sort": {
+        "companyName": "公司",
+        "contactName": "联系方式",
+        "email": "电子邮件",
+        "phone": "电话",
+        "industry": "行业",
+        "status": "地位",
+        "owner": "所有者",
+        "createdAt": "已创建"
+      },
+      "search": {
+        "label": "搜寻客户",
+        "placeholder": "公司、联系人、电子邮件、标签……"
+      },
+      "view": {
+        "table": "桌子",
+        "cards": "牌"
+      },
+      "actions": {
+        "newCustomer": "新客户"
+      },
+      "filters": {
+        "status": "地位",
+        "industry": "行业",
+        "owner": "所有者",
+        "country": "国家",
+        "tags": "標籤",
+        "allStatuses": "所有状态",
+        "allIndustries": "所有行业",
+        "allOwners": "所有业主",
+        "allCountries": "所有国家",
+        "allTags": "删除除以下内容之外的所有标记"
+      },
+      "empty": {
+        "ready": {
+          "title": "您的 CRM 已准备就绪",
+          "description": "创建第一个客户记录以解锁目录、个人资料和活动。",
+          "action": "创建客户"
+        },
+        "noMatches": {
+          "title": "没有匹配的客户",
+          "description": "请尝试调整搜索或筛选条件，以查找正确的记录。",
+          "action": "清除过滤器"
+        }
+      },
+      "pagination": {
+        "previous": "以前的",
+        "next": "下一个"
+      },
+      "showing": "显示 {from}–{to}，共 {total}",
+      "aria": {
+        "openCustomer": "打开客户{company}"
+      },
+      "cardMeta": "所有者 {owner} · 创建日期 {date}",
+      "sortBy": "按{column}排序"
+    },
+    "status": {
+      "lead": "带领",
+      "prospect": "前景",
+      "active": "积极的",
+      "inactive": "不活跃",
+      "vip": "#alliance_list_check_info#VIP",
+      "archived": "已存档"
+    },
+    "form": {
+      "createTitle": "创建客户",
+      "editTitle": "编辑客户",
+      "cancel": "取消",
+      "saveChanges": "保存更改",
+      "createCustomer": "创建客户",
+      "companyName": "公司名称",
+      "contactName": "联系人姓名",
+      "email": "电子邮件",
+      "phone": "电话",
+      "website": "网站",
+      "industry": "行业",
+      "country": "国家",
+      "city": "城市",
+      "address": "地址",
+      "taxNumber": "税号",
+      "owner": "所有者",
+      "status": "地位",
+      "tags": "標籤",
+      "statusAria": "客户状态",
+      "tagsHint": "逗号分隔，自动进行颜色编码",
+      "websitePlaceholder": "https://",
+      "tagsPlaceholder": "企业、零售"
+    },
+    "toasts": {
+      "customerCreated": "客户创建",
+      "customerUpdated": "客户更新",
+      "checkForm": "检查表格",
+      "validationFailed": "验证失败。",
+      "customerDeleted": "客户已删除",
+      "deleteFailed": "删除失败",
+      "customerCouldNotBeRemoved": "无法删除客户。",
+      "contactSaved": "联系方式已保存",
+      "documentsAttached": "所附文件",
+      "documentsAttachedDetail": "{count} 个文件",
+      "noteSaved": "注释已保存"
+    },
+    "deleteDialog": {
+      "title": "删除客户",
+      "cancel": "取消",
+      "deletePermanently": "永久删除",
+      "thisCustomer": "这位顾客",
+      "bodyPrefix": "这删除了",
+      "bodySuffix": "以及本地存储中的相关联系人、笔记、文档和活动。链接的项目不会被删除。"
+    },
+    "validation": {
+      "companyNameRequired": "公司名称为必填项。",
+      "contactNameRequired": "联系人姓名为必填项。",
+      "emailRequired": "需要电子邮件。",
+      "emailInvalid": "输入有效的电子邮件地址。",
+      "phoneRequired": "需要电话。",
+      "phoneInvalid": "输入有效的电话号码。",
+      "websiteInvalid": "输入有效的网站。",
+      "industryRequired": "需要工业。",
+      "ownerRequired": "需要业主。",
+      "statusInvalid": "选择有效状态。",
+      "emailDuplicate": "使用此电子邮件的客户已存在。",
+      "nameRequired": "姓名为必填项。",
+      "mobileInvalid": "输入有效的手机号码。",
+      "mobileRequired": "需要手机。",
+      "roleRequired": "角色是必需的。",
+      "noteTitleRequired": "标题为必填项。",
+      "noteBodyRequired": "注意正文是必需的。",
+      "noteAuthorRequired": "作者为必填项。"
+    },
+    "errors": {
+      "failedToLoadCustomers": "加载客户失败。",
+      "failedToLoadCustomerProfile": "无法加载客户资料。",
+      "organizationRequired": "需要组织。",
+      "failedToSaveCustomer": "未能挽救客户。",
+      "failedToDeleteCustomer": "删除客户失败。",
+      "failedToSaveContact": "无法保存联系人。",
+      "failedToSaveNote": "保存笔记失败。",
+      "failedToUploadDocument": "上传文档失败。"
+    },
+    "workspace": {
+      "badge": "企业客户关系管理2.0",
+      "title": "客户关系管理",
+      "subtitleBeforeOrg": "管理客户目录、个人资料、联系人、注释和文档",
+      "subtitleAfterOrg": "项目通过项目模块中的公司名称进行链接，无需重复数据。",
+      "yourOrganization": "你的主办"
+    },
+    "analytics": {
+      "totalCustomers": "客户总数",
+      "activeCustomers": "活跃的客户",
+      "newCustomers": "新客户",
+      "vipCustomers": "贵宾客户",
+      "createdThisMonth": "本月创建",
+      "leadConversion": "潜在客户转化",
+      "leadConversionHint": "潜在客户/潜在客户/转化渠道的活跃和 VIP 份额。",
+      "customerGrowth": "客户成长"
+    },
+    "profile": {
+      "backToCrm": "← 返回客户关系管理",
+      "ownerLabel": "所有者",
+      "notFoundTitle": "未找到客户",
+      "notFoundDescription": "该客户可能已被删除。",
+      "missingCustomerTitle": "缺少顾客",
+      "missingOverviewDescription": "选择客户以查看概览。",
+      "missingSettingsDescription": "选择要管理设置的客户。",
+      "ariaProfileNav": "客户简介",
+      "tabs": {
+        "overview": "概述",
+        "contacts": "联系方式",
+        "projects": "项目",
+        "documents": "文件",
+        "invoices": "发票",
+        "activity": "活动",
+        "notes": "笔记",
+        "settings": "设置"
+      },
+      "overview": {
+        "title": "概述",
+        "email": "电子邮件",
+        "phone": "电话",
+        "website": "网站",
+        "taxNumber": "税号",
+        "location": "地点",
+        "address": "地址",
+        "created": "已创建",
+        "updated": "已更新",
+        "emptyValue": "—"
+      },
+      "contacts": {
+        "addTitle": "添加联系人",
+        "editTitle": "编辑联系人",
+        "listTitle": "联系方式",
+        "name": "姓名",
+        "role": "角色",
+        "email": "电子邮件",
+        "phone": "电话",
+        "mobile": "移动的",
+        "notes": "笔记",
+        "saveContact": "保存联系方式",
+        "emptyTitle": "还没有联系方式",
+        "emptyDescription": "添加利益相关者的角色、电子邮件和电话详细信息。",
+        "defaultRole": "联系方式",
+        "mobilePrefix": "移动的"
+      },
+      "projects": {
+        "title": "项目",
+        "emptyTitle": "没有链接的项目",
+        "emptyDescription": "此处显示客户名称与此公司匹配的项目。数据从项目模块读取—没有重复。",
+        "openProjects": "开放项目"
+      },
+      "documents": {
+        "title": "文件",
+        "subtitle": "图像、PDF 和办公文档 - 仅本地存储中的元数据。",
+        "attachFiles": "附加文件",
+        "emptyTitle": "没有文件",
+        "emptyDescription": "附上客户团队的客户文件。",
+        "systemUploader": "系统"
+      },
+      "invoices": {
+        "emptyTitle": "还没有发票",
+        "emptyDescription": "从财务链接时，此客户的发票将显示在此处。"
+      },
+      "activity": {
+        "title": "活动",
+        "emptyTitle": "还没有活动",
+        "emptyDescription": "创建、更新、注释和文档首先显示在此处。",
+        "kinds": {
+          "customer_created": "客户创建",
+          "customer_updated": "客户更新",
+          "contact_added": "已添加联系人",
+          "contact_updated": "联系方式已更新",
+          "contact_deleted": "联系方式已删除",
+          "note_added": "添加注释",
+          "note_updated": "注释已更新",
+          "note_deleted": "备注已删除。",
+          "document_added": "文档已添加",
+          "document_deleted": "文档已删除",
+          "project_linked": "项目链接"
+        }
+      },
+      "notes": {
+        "newTitle": "新笔记",
+        "editTitle": "编辑备注",
+        "title": "标题",
+        "author": "作者",
+        "body": "正文",
+        "saveNote": "保存备注",
+        "emptyTitle": "还没有笔记",
+        "emptyDescription": "捕获带有作者和时间戳的帐户上下文。"
+      },
+      "settings": {
+        "title": "设置",
+        "description": "编辑所有个人资料字段或存档该帐户。删除使用确认对话框。",
+        "editAllFields": "编辑所有字段",
+        "prepareArchive": "准备存档",
+        "deleteCustomer": "删除客户"
+      }
+    },
+    "customer360": {
+      "ariaSections": "客户360版块",
+      "email": "电子邮件",
+      "phone": "电话",
+      "aiHealth": "人工智能健康",
+      "tabs": {
+        "profile": "轮廓",
+        "company": "公司",
+        "contacts": "联系方式",
+        "orders": "订单",
+        "invoices": "发票",
+        "lieferscheine": "利弗沙因",
+        "payments": "付款方式",
+        "documents": "文件",
+        "timeline": "时间轴",
+        "activities": "活动",
+        "notes": "笔记",
+        "aiSummary": "人工智能总结",
+        "communicationHistory": "传播史"
+      },
+      "profileLines": {
+        "customerId": "客户 ID",
+        "status": "地位",
+        "primaryContact": "主要联系人"
+      },
+      "status": {
+        "churn_risk": "流失风险"
+      }
+    },
+    "delivery": {
+      "title": "专业 Lieferschein 系统",
+      "description": "送货单、提货/送货、司机、车辆和跟踪 - 仅样本记录。未连接导出适配器。",
+      "badges": {
+        "qrUnavailable": "二维码不可用",
+        "barcodeUnavailable": "条形码不可用",
+        "signatureDemo": "签名演示"
+      },
+      "exportPdf": "导出PDF",
+      "deliveryHistory": "交货历史",
+      "notices": {
+        "exportNotConnected": "此版本中未连接 PDF、QR 和条形码导出。",
+        "exportPdfUnavailable": "导出 PDF 不可用 — 未连接传送导出。",
+        "historyNotConnected": "此版本中未连接交货历史记录存储区。"
+      },
+      "columns": {
+        "lieferschein": "利弗沙因",
+        "order": "命令",
+        "customer": "顾客",
+        "kind": "种类",
+        "driver": "司机",
+        "vehicle": "车辆",
+        "tracking": "追踪",
+        "scheduled": "预定"
+      }
+    },
+    "orders": {
+      "description": "产品、服务、价格、折扣、税收和客户——企业订单分类账。",
+      "createOrder": "创建订单",
+      "notices": {
+        "apiReserved": "为将来的写入路径保留的订单创建 API。",
+        "draftStaged": "创建已上演的订单草稿（尚无 API）。"
+      },
+      "columns": {
+        "order": "命令",
+        "customer": "顾客",
+        "status": "地位",
+        "lines": "线路",
+        "net": "网",
+        "tax": "税",
+        "gross": "名義金額",
+        "created": "已创建"
+      },
+      "lineTax": "{taxPct}% 税"
+    },
+    "tasks": {
+      "calendarTitle": "日历·会议·提醒·跟进",
+      "foundationTitle": "任务操作系统基础",
+      "foundationDescription": "保留日历同步、会议提供商、提醒作业和后续自动化挂钩。该板是每个行业模块的共享 CRM 任务界面。",
+      "badges": {
+        "calendarAdapter": "日历适配器",
+        "meetingAdapter": "会议适配器",
+        "reminderQueue": "提醒队列",
+        "followUpEngine": "后续发动机"
+      },
+      "duePrefix": "到期的",
+      "kinds": {
+        "follow_up": "跟进",
+        "meeting": "会议",
+        "reminder": "提醒",
+        "task": "任务"
+      },
+      "statuses": {
+        "open": "打开",
+        "in_progress": "进行中",
+        "done": "完成",
+        "cancelled": "取消"
+      }
+    },
+    "documentsModule": {
+      "emptyTitle": "没有文件",
+      "emptyDescription": "没有与此搜索匹配的文档。",
+      "searchLabel": "人工智能搜索",
+      "searchPlaceholder": "报价单、合同、发票、Lieferschein...",
+      "typeLabel": "文件类型",
+      "allTypes": "所有类型",
+      "columns": {
+        "type": "类型",
+        "title": "标题",
+        "customer": "顾客",
+        "status": "地位",
+        "updated": "已更新"
+      },
+      "kinds": {
+        "quote": "引号",
+        "contract": "合同",
+        "invoice": "发票",
+        "lieferschein": "利弗沙因",
+        "purchase_order": "采购订单",
+        "receipt": "收据"
+      }
+    },
+    "communication": {
+      "intro": "仅可扩展的渠道架构 - 电子邮件、WhatsApp、Instagram、Facebook、TikTok、LinkedIn、Telegram、语音和视频。没有虚假的实时集成。",
+      "adapterPrefix": "适配器："
+    },
+    "aiCreator": {
+      "intro": "面向未来的人工智能创作者界面—创意、字幕、主题标签、日历、活动、品牌声音、图像/视频生成、分析、调度、发布队列和见解。尚未连接真正的提供商API。"
+    },
+    "creatorStudio": {
+      "intro": "Creator Studio 基础 - 官方平台集成可以稍后插入这些适配器。 Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X。"
+    },
+    "industry": {
+      "intro": "通用业务平台——入职后将选择一个行业。每个行业都会获得专用的人工智能模块，而无需分叉核心 CRM 操作系统。"
+    },
+    "kpi": {
+      "customers": {
+        "label": "顾客",
+        "caption": "活跃的关系"
+      },
+      "companies": {
+        "label": "公司",
+        "caption": "机构帐户"
+      },
+      "leads": {
+        "label": "潜在客户",
+        "caption": "本月新品"
+      },
+      "deals": {
+        "label": "优惠",
+        "caption": "开放管道"
+      },
+      "revenue": {
+        "label": "收入",
+        "caption": "今年迄今赢了"
+      },
+      "projects": {
+        "label": "活跃项目",
+        "caption": "飞行中交付"
+      },
+      "tasks": {
+        "label": "开放任务",
+        "caption": "跨 CRM + 交付"
+      },
+      "ai-health": {
+        "label": "人工智能健康评分",
+        "caption": "关系质量信号"
+      },
+      "scoreOutOf": "{score} / {max}"
+    },
+    "pipeline": {
+      "lead": "带领",
+      "qualified": "合格的",
+      "proposal": "提议",
+      "negotiation": "谈判",
+      "won": "韩元",
+      "lost": "丢失的"
+    },
+    "orderStatus": {
+      "draft": "草稿",
+      "confirmed": "确认的",
+      "in_fulfillment": "在履行中",
+      "shipped": "已发货",
+      "delivered": "发表",
+      "cancelled": "取消"
+    },
+    "tracking": {
+      "scheduled": "预定",
+      "en_route": "途中",
+      "arrived": "到达的",
+      "completed": "完全的",
+      "failed": "失败的"
+    },
+    "documentKind": {
+      "quote": "引用",
+      "contract": "合同",
+      "invoice": "发票",
+      "lieferschein": "利弗沙因",
+      "purchase_order": "采购订单",
+      "receipt": "收据"
+    },
+    "documentStatus": {
+      "sent": "发送",
+      "signed": "签名",
+      "paid": "有薪酬的",
+      "in_transit": "在途中",
+      "open": "打开",
+      "filed": "提起"
+    },
+    "integration": {
+      "planned": "计划",
+      "ready": "准备好",
+      "connected": "已连接",
+      "disabled": "残疾人"
+    }
+  },
+  "finance": {
+    "page": {
+      "brand": "AGXORA 金融操作系统",
+      "title": "财务与税务",
+      "subtitle": "会计、银行、税务和金融情报——在实时账本连接之前使用样本数据进行预览。",
+      "sampleNotice": "样本数据集—图表和出口历史是说明性的。DATEV/文件导出和实时银行源未连接。"
+    },
+    "sections": {
+      "overview": {
+        "title": "财务概览"
+      },
+      "invoiceCenter": {
+        "title": "发票中心",
+        "subtitle": "通过 AI 置信度评分对企业发票分类账进行搜索、过滤和排序。"
+      },
+      "aiInvoiceProcessing": {
+        "title": "发票处理",
+        "subtitle": "演示管道 — OCR 和 AI 提取未连接。"
+      },
+      "banking": {
+        "title": "银行业",
+        "subtitle": "仅示例帐户 - 未连接开放式银行提要。"
+      },
+      "datev": {
+        "title": "数据集成",
+        "subtitle": "导出历史记录示例 — DATEV 文件生成未连接。"
+      },
+      "taxCenter": {
+        "title": "税务中心",
+        "subtitle": "增值税摘要、截止日期和即将付款。"
+      },
+      "aiInsights": {
+        "title": "人工智能洞察",
+        "subtitle": "仅示例调查结果 - 洞察行动不相关。"
+      },
+      "smartSearch": {
+        "title": "智能搜索",
+        "subtitle": "跨发票、费用、增值税和出口的自然语言查询。"
+      }
+    },
+    "overview": {
+      "metrics": {
+        "revenue": {
+          "label": "收入",
+          "caption": "样本·最近 30 天",
+          "delta": "+8.4%"
+        },
+        "expenses": {
+          "label": "开支",
+          "caption": "样品·运营+销货成本",
+          "delta": "+2.1%"
+        },
+        "profit": {
+          "label": "利润",
+          "caption": "样品·网络运营",
+          "delta": "+12.6%"
+        },
+        "vat-due": {
+          "label": "应缴增值税",
+          "caption": "示例·Q2 窗口",
+          "delta": "{days}d 后到期"
+        },
+        "open-invoices": {
+          "label": "开具发票",
+          "caption": "样品· {money}未结"
+        },
+        "paid-invoices": {
+          "label": "已付发票",
+          "caption": "样本·本季度",
+          "delta": "+{count}"
+        },
+        "cashflow": {
+          "label": "现金周转",
+          "caption": "示例·30 天预测",
+          "delta": "+4.2%"
+        },
+        "ai-score": {
+          "label": "人工智能财务评分",
+          "caption": "样本评分·非实时风险评分",
+          "delta": "+{count}"
+        }
+      },
+      "scoreOutOf": "{score} / {max}"
+    },
+    "invoices": {
+      "emptyTitle": "无发票",
+      "emptyDescription": "没有发票符合您的搜索或过滤器。",
+      "searchPlaceholder": "数量、公司、类别……",
+      "statusFilter": "状态过滤器",
+      "paymentFilter": "支付过滤器",
+      "sortBy": "排序方式",
+      "toggleSort": "切换排序方向",
+      "count": "{count} 张发票",
+      "countOne": "{count}张发票",
+      "allStatuses": "所有状态",
+      "allPayments": "所有付款",
+      "columns": {
+        "number": "发票号码",
+        "company": "公司",
+        "amount": "数量",
+        "vat": "增值税",
+        "status": "地位",
+        "dueDate": "到期日",
+        "payment": "付款状态",
+        "category": "类别",
+        "ai": "人工智能信心"
+      },
+      "sort": {
+        "dueDate": "到期日",
+        "amount": "数量",
+        "company": "公司",
+        "status": "地位",
+        "aiConfidence": "人工智能信心",
+        "number": "发票 ＃"
+      }
+    },
+    "status": {
+      "draft": "草稿",
+      "open": "打开",
+      "paid": "有薪酬的",
+      "overdue": "逾期",
+      "cancelled": "取消"
+    },
+    "payment": {
+      "unpaid": "未付",
+      "partial": "部分的",
+      "paid": "有薪酬的",
+      "refunded": "已退款"
+    },
+    "category": {
+      "saas": "软件即服务",
+      "office": "办公室",
+      "travel": "旅行",
+      "marketing": "营销",
+      "utilities": "工具",
+      "professional": "专业的",
+      "other": "其他"
+    },
+    "processing": {
+      "dropTitle": "拖放发票文件",
+      "dropFormats": "PDF ·图片·电子邮件导入",
+      "uploadFiles": "上传文件",
+      "emailImport": "电子邮件导入",
+      "dropHint": "将 PDF 或图像发票拖放到本地 — OCR 未连接。",
+      "filesStaged": "仅在本地列出 {count} 个文件 — 未连接 OCR/AI 提取。",
+      "emailReserved": "为 IMAP / Microsoft Graph 保留的电子邮件导入连接器。",
+      "pipelineTitle": "处理管道（演示）",
+      "stages": {
+        "ocr": "OCR 状态",
+        "extraction": "人工智能提取",
+        "categorization": "分类",
+        "duplicateDetection": "重复检测"
+      }
+    },
+    "stage": {
+      "pending": "不可用",
+      "running": "未连接",
+      "complete": "演示",
+      "failed": "失败的",
+      "skipped": "已跳过"
+    },
+    "banking": {
+      "connectionTitle": "银行连接",
+      "connectBank": "连接银行",
+      "description": "PSD2 / Open Banking 适配器未接线。下面的匹配和协调仅是说明性的。",
+      "feedUnavailable": "银行订阅源不可用—提供商连接未连接。",
+      "noticeDefault": "开放式银行未连接 - 以下账户是示例数据。",
+      "connectUnavailable": "Connect bank不可用—此版本中未连接Open Banking。",
+      "sampleAccounts": "样本账户",
+      "sample": "样本",
+      "offline": "离线",
+      "demoPrefix": "演示",
+      "latestTransactions": "最新交易",
+      "sampleMatching": "样品匹配",
+      "demoOnly": "仅演示",
+      "sampleMatch": "样本匹配",
+      "unmatched": "无与伦比",
+      "emptyBalance": "—"
+    },
+    "datev": {
+      "title": "数据集成",
+      "notConnected": "未连接",
+      "intro": "下面的示例导出历史记录是说明性的。此版本中未连接凭据和文件生成。",
+      "noticeDefault": "导出适配器未连接 - 不会生成任何文件。",
+      "exportUnavailable": "{title} 不可用 — DATEV/文件导出未连接。",
+      "exportUnavailableAria": "{title} — 不可用",
+      "historyTitle": "出口历史记录（样本）",
+      "refresh": "刷新",
+      "refreshUnavailable": "刷新不可用 — 导出历史记录是静态样本数据。",
+      "steuerberaterSample": "样本",
+      "steuerberaterPending": "待办的",
+      "columns": {
+        "export": "出口",
+        "format": "格式",
+        "period": "时期",
+        "created": "已创建",
+        "status": "地位",
+        "steuerberater": "斯图尔伯拉特"
+      },
+      "actions": {
+        "datev": {
+          "title": "数据导出",
+          "description": "用于Steuerberater工作流程的Buchungsstapel包。"
+        },
+        "csv": {
+          "title": "CSV 导出",
+          "description": "用于电子表格和导入的 Ledger-ready CSV。"
+        },
+        "pdf": {
+          "title": "PDF导出",
+          "description": "用于审查和存档的文件包。"
+        },
+        "xml": {
+          "title": "XML导出",
+          "description": "用于归档管道的结构化税 XML。"
+        }
+      }
+    },
+    "exportStatus": {
+      "queued": "样本·排队",
+      "ready": "样品·准备好",
+      "delivered": "说明性的",
+      "failed": "失败的"
+    },
+    "tax": {
+      "vatSummaryTitle": "增值税摘要",
+      "monthlyVat": "每月增值税",
+      "quarterlyVat": "季度增值税",
+      "collected": "集",
+      "deductible": "免赔额",
+      "netDue": "净到期日",
+      "deadlinesTitle": "税务截止日期·后续付款",
+      "duePrefix": "到期的",
+      "deadlineStatus": {
+        "due_soon": "即将到期",
+        "upcoming": "即将推出",
+        "overdue": "逾期",
+        "paid": "有薪酬的"
+      },
+      "deadlines": {
+        "td-1": "每月增值税申报表",
+        "td-2": "季度增值税结算",
+        "td-3": "预缴企业税"
+      },
+      "period": {
+        "monthly": "每月",
+        "quarterly": "季刊",
+        "annual": "年度的"
+      }
+    },
+    "insights": {
+      "demoPrefix": "演示",
+      "noticeDefault": "洞察操作没有关联——卡片仅显示示例结果。",
+      "actionUnavailable": "{action} 不可用 — 财务洞察操作未连接。",
+      "actionUnavailableTitle": "{action} 不可用 — 未连接",
+      "kinds": {
+        "unusual_expense": "异常开支",
+        "duplicate_invoice": "发票副本",
+        "missing_invoice": "发票缺失",
+        "late_payment": "逾期付款",
+        "cashflow_prediction": "现金流量预测",
+        "tax_optimization": "税务优化"
+      }
+    },
+    "search": {
+      "label": "自然语言搜索",
+      "placeholder": "尝试“显示未付发票”",
+      "submit": "搜索",
+      "examplesTitle": "示例",
+      "hints": {
+        "idle": "询问发票、费用、增值税或出口信息。",
+        "unpaid_invoices": "过滤发票中心以查找未付款/未清项目。",
+        "july_expenses": "显示 7 月份的支出活动。",
+        "amazon": "查找亚马逊发票和收据。",
+        "vat_export": "开放 DATEV / VAT 出口操作。",
+        "general": "正在分类帐中搜索“{query}”。"
+      },
+      "examples": {
+        "q1": {
+          "query": "显示未付发票",
+          "description": "未付或部分状态的未清应收账款"
+        },
+        "q2": {
+          "query": "显示七月费用",
+          "description": "7月份费用方发票和银行资金流出"
+        },
+        "q3": {
+          "query": "查找亚马逊发票",
+          "description": "跨发票中心和上传的供应商匹配"
+        },
+        "q4": {
+          "query": "出口增值税",
+          "description": "跳转至 DATEV / 税务出口行动"
+        }
+      }
+    }
+  },
+  "documents": {
+    "page": {
+      "brand": "AGXORA知识操作系统",
+      "title": "文件",
+      "subtitle": "企业文档和知识中心——在存储和审批后端连接之前预览示例内容。",
+      "sampleNotice": "示例库—浏览和过滤器在会话中工作。上传、批准和AI索引操作未连接。"
+    },
+    "sections": {
+      "kpis": {
+        "title": "知识仪表板"
+      },
+      "library": {
+        "title": "文档库",
+        "subtitle": "所有文档、最近的文档、收藏夹、共享的文档、已存档的文档、垃圾箱、知识库 — 包括文件夹、搜索、查看器和版本。"
+      },
+      "knowledge": {
+        "title": "知识库",
+        "subtitle": "文章、政策、流程、手册、常见问题解答和内部 wiki。"
+      },
+      "approvals": {
+        "title": "批准",
+        "subtitle": "草稿、审查中、批准、拒绝、存档——与自动化架构相关联。"
+      },
+      "ai": {
+        "title": "AI知识层",
+        "subtitle": "摘要、关键字、分类、标签、文件夹、相关文档、重复项、翻译、OCR 和搜索 - 仅架构。"
+      },
+      "activity": {
+        "title": "活动",
+        "subtitle": "最近的更改、上传、查看、共享和审核历史记录。"
+      },
+      "integrations": {
+        "title": "集成",
+        "subtitle": "保留驱动器适配器 — 无带电连接器。"
+      },
+      "security": {
+        "title": "安全与共享",
+        "subtitle": "RBAC、审计跟踪、加密、保留和共享范围。"
+      }
+    },
+    "loading": {
+      "knowledgeBase": "正在加载知识库...",
+      "approvals": "正在加载批准队列...",
+      "aiInsights": "正在加载AI洞察……",
+      "activity": "正在加载活动...",
+      "integrations": "正在加载集成...",
+      "security": "正在加载安全..."
+    },
+    "kpi": {
+      "documents": {
+        "label": "文件",
+        "caption": "示例·跨文件夹",
+        "delta": "+{count}"
+      },
+      "folders": {
+        "label": "文件夹",
+        "caption": "示例·包括智能收藏",
+        "delta": "+{count}"
+      },
+      "storage": {
+        "label": "已用存储空间",
+        "caption": "说明性计划样本·",
+        "delta": "+{size}"
+      },
+      "shared": {
+        "label": "共享文件",
+        "caption": "示例·组织 + 部门 + 用户",
+        "delta": "+{count}"
+      },
+      "activity": {
+        "label": "最近的活动",
+        "caption": "样本·最近 24 小时",
+        "delta": "+{count}"
+      },
+      "indexed": {
+        "label": "人工智能索引",
+        "caption": "样本· AI搜索未连接",
+        "delta": "{percent}"
+      },
+      "approvals": {
+        "label": "待批准",
+        "caption": "样品·自动化未连接",
+        "delta": "{count}"
+      },
+      "score": {
+        "label": "知识分数",
+        "caption": "示例·覆盖图",
+        "delta": "+{count}"
+      }
+    },
+    "library": {
+      "viewsAria": "图书馆景观",
+      "views": {
+        "all": "所有文件",
+        "recent": "最近",
+        "favorites": "收藏夹",
+        "shared": "共享",
+        "archived": "已存档",
+        "trash": "垃圾",
+        "knowledge": "知识库"
+      },
+      "dropzone": "将文件拖放到此处以暂存上传。",
+      "uploadReserved": "拖放上传是保留的存储 API。",
+      "filesStaged": "已准备上传 {count} 个文件（无存储写入）。",
+      "dropReceived": "收到丢弃（无存储写入）。",
+      "foldersTitle": "文件夹和收藏",
+      "foldersHint": "嵌套文件夹、收藏夹、智能收藏夹、标签、固定和收藏夹。",
+      "allFolders": "所有文件夹",
+      "smart": "聪明",
+      "collection": "收藏",
+      "pinned": "已固定",
+      "favorite": "最喜欢的",
+      "sharedBadge": "共享",
+      "title": "文档库",
+      "results": "{count} 个结果",
+      "resultOne": "{count} 个结果",
+      "selected": "· 已选择 {count} 个",
+      "bulkAction": "批量操作",
+      "bulkUnavailable": "{count}个项目的批量操作不可用—未连接存储突变。",
+      "searchLabel": "全球搜索",
+      "searchPlaceholder": "名称、标签、所有者、AI摘要……",
+      "typeLabel": "类型",
+      "statusLabel": "地位",
+      "departmentLabel": "署",
+      "ownerLabel": "所有者",
+      "allTypes": "所有类型",
+      "allStatuses": "所有状态",
+      "allDepartments": "所有部门",
+      "allOwners": "所有业主",
+      "favoritesOnly": "仅限收藏夹",
+      "emptyTitle": "没有可出示的文件",
+      "emptyDescription": "调整过滤器、清除搜索或添加知识资产以扩大图书馆。",
+      "selectAria": "选择{name}",
+      "versionHistoryTitle": "版本历史",
+      "close": "关闭",
+      "context": {
+        "open": "打开",
+        "share": "分享",
+        "favorite": "最喜欢的",
+        "move": "移动",
+        "delete": "删除",
+        "dismiss": "解雇",
+        "unavailable": "{action} 不可用 — 文档突变未与 {id} 连接。"
+      }
+    },
+    "viewer": {
+      "title": "文档查看器",
+      "emptyTitle": "选择一个文件",
+      "emptyDescription": "从库中选择一个文件来预览内容、元数据、标签、版本和链接的模块。",
+      "zoomOut": "缩放 -",
+      "zoomIn": "变焦+",
+      "prev": "上一篇",
+      "next": "下一个",
+      "page": "页数 {page} / {total}",
+      "searchInside": "里面搜索",
+      "findPlaceholder": "在预览中查找...",
+      "noMatches": "预览文本中没有匹配项。",
+      "meta": {
+        "owner": "所有者",
+        "created": "已创建",
+        "updated": "已更新",
+        "fileType": "文件类型",
+        "size": "规模​​",
+        "category": "类别",
+        "department": "署",
+        "status": "地位",
+        "retention": "保留",
+        "version": "版本",
+        "sharing": "分享"
+      },
+      "tags": "標籤",
+      "linkedModules": "链接模块",
+      "noModuleLinks": "还没有模块链接",
+      "versionHistory": "版本历史"
+    },
+    "versions": {
+      "title": "版本历史",
+      "emptyTitle": "未选择文档",
+      "emptyDescription": "打开文档以检查版本、注释、恢复和比较。",
+      "current": "{name}·当前{version}",
+      "restore": "恢复版本",
+      "compare": "比较版本",
+      "restoreTitle": "恢复需要存储 API",
+      "compareTitle": "比较需要存储API",
+      "noticeDefault": "恢复和比较需要存储 API。",
+      "restoreUnavailable": "{id} 无法恢复 — 存储 API 未连接。",
+      "compareUnavailable": "比较不可用（ {selected} ↔ {current} ） —存储API未连接。"
+    },
+    "approvals": {
+      "title": "审批流程",
+      "subtitle": "草稿→审核中→批准/拒绝→存档。队列项是样本文档；行动不会持续。",
+      "emptyTitle": "队列清空",
+      "emptyDescription": "样本集中没有草稿或审核中的文档。",
+      "approve": "批准",
+      "reject": "拒绝",
+      "sendToReview": "发送至审核",
+      "noticeDefault": "批准转换需要自动化工作流引擎 - 在此版本中未连接。",
+      "unavailable": "{action} 对于 {id} 不可用 — 工作流引擎未连接。示例文档状态未更改。",
+      "approveTitle": "无法批准 - 工作流引擎未连接",
+      "rejectTitle": "拒绝不可用 - 工作流引擎未连接",
+      "sendTitle": "发送审核不可用—工作流程引擎未连接"
+    },
+    "knowledge": {
+      "intro": "文章、政策、流程、手册、常见问题解答和内部 wiki — 知识中心的叙述层。"
+    },
+    "activity": {
+      "intro": "最近的更改、上传、查看、共享和审核历史记录 - 合规性跟踪的基础。"
+    },
+    "integrations": {
+      "intro": "云驱动器适配器仅是架构 - Google Drive、OneDrive、Dropbox、Box、SharePoint、Nextcloud。没有实时 API。",
+      "reservedAdapter": "预留适配器：",
+      "architecture": "建筑学",
+      "items": {
+        "google-drive": {
+          "description": "保留导入/同步架构 — 尚无实时 OAuth。"
+        },
+        "onedrive": {
+          "description": "保留 Microsoft Graph 文件挂钩。"
+        },
+        "dropbox": {
+          "description": "保留 Dropbox API 适配器。"
+        },
+        "box": {
+          "description": "企业Box连接器已保留。"
+        },
+        "sharepoint": {
+          "description": "保留站点库+元数据映射。"
+        },
+        "nextcloud": {
+          "description": "WebDAV 适配器保留 — 在自托管计划之前禁用。"
+        }
+      }
+    },
+    "security": {
+      "architectureTitle": "安全架构",
+      "sharingTitle": "共享模式",
+      "sharingIntro": "专用、组织、部门、特定用户和公共链接占位符。",
+      "enabled": "启用",
+      "placeholder": "占位符",
+      "notEnforced": "不强制执行",
+      "modelOnly": "仅型号",
+      "controls": {
+        "rbac": {
+          "title": "基于角色的访问",
+          "description": "所有者、编辑者、查看者和审批者角色映射到文档 ACL - 在此版本中未强制执行。"
+        },
+        "permissions": {
+          "title": "权限架构",
+          "description": "具有文档级覆盖的文件夹继承 - 在此版本中未强制执行。"
+        },
+        "audit": {
+          "title": "审计追踪",
+          "description": "视图、共享、还原和审批的活动事件—尚未持久化。"
+        },
+        "encryption": {
+          "title": "加密",
+          "description": "为 KMS 接线保留的静态和传输中加密挂钩。"
+        },
+        "retention": {
+          "title": "保留政策",
+          "description": "具有法律保留支持的按类别保留窗口 - 尚未强制执行。"
+        }
+      }
+    },
+    "ai": {
+      "architectureTitle": "AI特征架构",
+      "architectureIntro": "每一项能力都是为未来的AI指数预留的。 UI 显示确定性模拟见解。",
+      "insightsTitle": "选定文档的见解",
+      "emptyTitle": "选择一个文件",
+      "emptyDescription": "打开库中的文件以检查 AI 摘要、关键字和建议。",
+      "summary": "人工智能总结",
+      "keywords": "人工智能关键词",
+      "classification": "人工智能分类",
+      "suggestedFolder": "AI建议文件夹",
+      "translation": "人工智能翻译",
+      "ocr": "人工智能OCR",
+      "suggestedTags": "建议的标记",
+      "related": "人工智能相关文档",
+      "noRelated": "没有索引相关文档。",
+      "duplicateOf": "AI重复检测：可能的重复",
+      "noDuplicates": "AI 重复检测：没有标记近似重复。",
+      "sampleReady": "样品准备好",
+      "notApplicable": "不适用",
+      "runSearch": "运行人工智能搜索",
+      "searchTitle": "AI搜索未连接",
+      "noticeDefault": "人工智能功能仅适用于架构—无实时模型调用。",
+      "searchUnavailable": "AI 搜索不可用 — 语义索引未连接。上述示例见解是静态的。",
+      "features": {
+        "summary": {
+          "title": "人工智能总结",
+          "description": "每个模块的浓缩文档理解。"
+        },
+        "keywords": {
+          "title": "人工智能关键词",
+          "description": "提取主题信号用于搜索和路由。"
+        },
+        "classification": {
+          "title": "人工智能分类",
+          "description": "类别/部门分类建议。"
+        },
+        "tags": {
+          "title": "建议的标记",
+          "description": "在不改变图表的情况下标记推荐。"
+        },
+        "folder": {
+          "title": "AI建议文件夹",
+          "description": "智能放置到嵌套文件夹中。"
+        },
+        "related": {
+          "title": "人工智能相关文档",
+          "description": "绘制整个知识中心的邻居图。"
+        },
+        "duplicate": {
+          "title": "AI重复检测",
+          "description": "文档库的近似重复检测。"
+        },
+        "translation": {
+          "title": "人工智能翻译",
+          "description": "翻译准备标志 - 没有实时模型。"
+        },
+        "ocr": {
+          "title": "人工智能OCR",
+          "description": "OCR 管道保留用于扫描和 PDF。"
+        },
+        "search": {
+          "title": "人工智能搜索",
+          "description": "语义搜索为将来的索引保留。"
+        }
+      }
+    },
+    "status": {
+      "draft": "草稿",
+      "in_review": "审查中",
+      "approved": "已批准",
+      "rejected": "被拒绝",
+      "archived": "已存档"
+    },
+    "fileType": {
+      "pdf": "PDF",
+      "word": "单词",
+      "excel": "Excel",
+      "powerpoint": "微软幻灯片软件",
+      "image": "图像",
+      "video": "视频",
+      "audio": "声音的",
+      "markdown": "降价",
+      "text": "文本",
+      "json": "JSON",
+      "csv": "CSV",
+      "other": "其他"
+    },
+    "share": {
+      "private": "列兵",
+      "organization": "组织",
+      "department": "署",
+      "specific_users": "特定用户",
+      "public_link": "公共链接"
+    },
+    "module": {
+      "crm": "客户关系管理",
+      "finance": "金融",
+      "automation": "自动化",
+      "creator": "创作工作室",
+      "hr": "未来人力资源",
+      "projects": "今后的项目"
+    },
+    "knowledgeKind": {
+      "article": "文章",
+      "policy": "政策",
+      "process": "过程",
+      "manual": "手动的",
+      "faq": "常问问题",
+      "wiki": "内部维基"
+    },
+    "integrationStatus": {
+      "connected": "已连接",
+      "beta": "贝塔",
+      "coming_soon": "即将推出",
+      "disabled": "残疾人",
+      "planned": "计划"
+    },
+    "bytes": {
+      "b": "{value} B",
+      "kb": "{value} KB",
+      "mb": "{value} MB",
+      "gb": "{value} GB"
+    }
+  },
+  "landing": {
+    "skipToProduct": "跳转到产品",
+    "nav": {
+      "ariaPrimary": "基本的",
+      "product": "产品",
+      "platform": "平台",
+      "pricing": "定价",
+      "sales": "销售量",
+      "getStarted": "开始使用",
+      "signIn": "登陆",
+      "startFree": "免费开始",
+      "openMenu": "打开菜单",
+      "closeMenu": "关闭菜单"
+    },
+    "hero": {
+      "brand": "爱格索拉",
+      "headline": "智能业务操作系统。",
+      "subtitle": "在一个平静的指挥中心连接客户、财务、文档和人工智能——专为需要清晰度而不是另一个工具堆栈的创始人和运营商而构建。",
+      "ctaStart": "免费开始",
+      "ctaExplore": "看看它是如何工作的。",
+      "globeAria": "全球情报可视化"
+    },
+    "trust": {
+      "ariaLabel": "为什么选择 AGXORA",
+      "eyebrow": "作为一个系统构建",
+      "signals": {
+        "unified": {
+          "title": "统一工作空间",
+          "detail": "CRM、财务和文档结合在一起"
+        },
+        "intelligence": {
+          "title": "受治理的人工智能",
+          "detail": "在您的实际工作流程中提供帮助"
+        },
+        "clarity": {
+          "title": "操作清晰度",
+          "detail": "更少的切换。更快的决策。"
+        },
+        "path": {
+          "title": "清除扩展路径",
+          "detail": "开始免费。准备好了就成长。"
+        }
+      }
+    },
+    "product": {
+      "title": "AGXORA 工作区内部",
+      "lead": "指挥中心的示意性产品预览—连接您已在AGXORA中使用的模块。",
+      "chromePath": "agxora.app / 仪表板",
+      "railAria": "预览导航",
+      "railBrand": "爱格索拉",
+      "navCommand": "命令",
+      "navAi": "人工智能",
+      "navAutomation": "自动化",
+      "navAnalytics": "分析",
+      "navIntegrations": "集成",
+      "stageTitle": "指挥中心",
+      "stageBadge": "说明性的",
+      "moduleCustomers": "顾客",
+      "moduleFinance": "金融",
+      "moduleDocuments": "文件",
+      "moduleAi": "人工智能助手"
+    },
+    "platform": {
+      "ariaLabel": "产品故事",
+      "story": {
+        "fragmented": {
+          "title": "工作碎片化",
+          "statement": "工具可以分散整个企业的注意力。",
+          "detail": "客户在一处，发票在另一处，文件在别处——决策速度变慢。"
+        },
+        "connect": {
+          "title": "1个操作面",
+          "statement": "AGXORA 将业务连接到一个工作空间。",
+          "detail": "CRM、财务、文档和人工智能共享同一个指挥中心，而不是一堆单独的应用程序。"
+        },
+        "understand": {
+          "title": "商业智能",
+          "statement": "背景与工作保持一致。",
+          "detail": "使用以您的工作空间为基础的受管理的人工智能询问、搜索和行动，而不是通用演示。"
+        },
+        "execute": {
+          "title": "迈向自治",
+          "statement": "通往自主商业操作系统的道路。",
+          "detail": "今天：一个互联的操作系统。未来：更深入的客服代表和自动化--在出货时诚实交付。"
+        }
+      }
+    },
+    "close": {
+      "title": "开始免费。准备好后进行缩放。",
+      "lead": "创建工作区并探索命令中心。",
+      "ctaStart": "免费开始",
+      "ctaPricing": "查看定价",
+      "ctaSales": "联系销售部门"
+    },
+    "footer": {
+      "ariaNav": "页脚",
+      "ariaLegal": "合法的",
+      "product": "产品",
+      "platform": "平台",
+      "pricing": "定价",
+      "signIn": "登陆",
+      "startFree": "免费开始",
+      "bookDemo": "书籍演示",
+      "contact": "联系方式",
+      "contactSales": "联系销售部门",
+      "privacy": "隐私",
+      "terms": "条款",
+      "cookies": "曲奇饼",
+      "imprint": "版本说明",
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — 3D 地球"
+  },
+  "ui": {
+    "table": {
+      "noResults": "没有结果",
+      "noResultsDescription": "没有任何内容与当前过滤器匹配。",
+      "previous": "以前的",
+      "next": "下一个",
+      "paginationRange": "{start}–{end}，共 {total}",
+      "sortAscending": "升序排序",
+      "sortDescending": "降序排序"
+    },
+    "dialog": {
+      "close": "关闭对话框"
+    },
+    "module": {
+      "notAvailableTitle": "{title}尚不可用",
+      "notAvailableDescription": "该模块外壳是为将来的版本准备的。这里尚未存储任何记录。"
+    },
+    "states": {
+      "errorLabel": "错误",
+      "errorTitle": "出了点问题",
+      "errorDescription": "我们无法完成该申请。请稍后重试。",
+      "retry": "重试"
+    },
+    "empty": {
+      "crmTitle": "您的 CRM 已准备就绪",
+      "crmDescription": "创建第一个客户记录以解锁目录、个人资料和活动。",
+      "crmAction": "开放式客户关系管理",
+      "projectsTitle": "还没有项目",
+      "projectsDescription": "启动交付工作区来跟踪里程碑、预算和团队所有权。",
+      "projectsAction": "开放项目",
+      "analyticsTitle": "分析等待信号",
+      "analyticsDescription": "一旦您的工作区产生活动，执行 KPI 和警报就会出现在此处。",
+      "analyticsAction": "开放分析",
+      "documentsTitle": "文档库为空",
+      "documentsDescription": "上传或创建知识资产以支持审批、版本和 AI 上下文。",
+      "documentsAction": "打开文件",
+      "billingTitle": "还没有账单历史记录",
+      "billingDescription": "升级计划以生成发票、续订和付款历史记录。",
+      "billingAction": "开放式计费",
+      "agentsTitle": "没有活跃的代理",
+      "agentsDescription": "从市场安装或激活代理以启动自主运行。",
+      "agentsAction": "开放代理操作系统"
+    },
+    "yes": "是的",
+    "no": "不",
+    "dash": "—"
+  },
+  "projects": {
+    "page": {
+      "eyebrow": "项目管理操作系统",
+      "title": "项目",
+      "lead": "规划交付、跟踪预算和运行状况、分配团队以及管理{organization}的任务。数据保留在本地并准备好用于后端连接。",
+      "yourOrganization": "你的主办"
+    },
+    "list": {
+      "errorTitle": "无法加载项目",
+      "searchLabel": "搜索项目",
+      "searchPlaceholder": "搜索项目、客户、所有者、标签……",
+      "viewCards": "牌",
+      "viewTable": "桌子",
+      "newProject": "新项目",
+      "statusFilter": "地位",
+      "priorityFilter": "优先事项",
+      "customerFilter": "顾客",
+      "ownerFilter": "所有者",
+      "allStatuses": "所有状态",
+      "allPriorities": "所有优先事项",
+      "allCustomers": "所有客户",
+      "allOwners": "所有业主",
+      "dateFrom": "从",
+      "dateTo": "到",
+      "emptyTitle": "还没有项目",
+      "emptyDescription": "启动交付工作区来跟踪里程碑、预算和团队所有权。",
+      "createProject": "创建项目",
+      "pagination": "显示 {from}–{to}，共 {total}",
+      "previous": "以前的",
+      "next": "下一个",
+      "noDescription": "还没有订购！",
+      "duePrefix": "Due {date}",
+      "openProject": "打开项目{name}",
+      "sortBy": "按{column}排序",
+      "sort": {
+        "name": "姓名",
+        "customer": "顾客",
+        "owner": "所有者",
+        "status": "地位",
+        "priority": "优先事项",
+        "progress": "进步",
+        "dueDate": "到期的",
+        "budget": "预算"
+      }
+    },
+    "form": {
+      "createTitle": "创建项目",
+      "editTitle": "编辑项目",
+      "cancel": "取消",
+      "saveChanges": "保存更改",
+      "createProject": "创建项目",
+      "projectName": "项目名称",
+      "customer": "顾客",
+      "projectOwner": "项目业主",
+      "priority": "优先事项",
+      "status": "地位",
+      "budget": "预算",
+      "currency": "货币",
+      "startDate": "开始日期",
+      "dueDate": "到期日",
+      "color": "颜色",
+      "icon": "图标",
+      "tags": "標籤",
+      "tagsHint": "逗号分隔",
+      "tagsPlaceholder": "企业、推出",
+      "budgetPlaceholder": "0",
+      "description": "描述",
+      "selectColor": "选择颜色{color}"
+    },
+    "taskForm": {
+      "createTitle": "创建任务",
+      "editTitle": "编辑任务",
+      "cancel": "取消",
+      "saveChanges": "保存更改",
+      "createTask": "创建任务",
+      "title": "标题",
+      "assignee": "受让人",
+      "priority": "优先事项",
+      "status": "地位",
+      "deadline": "截止日期",
+      "progress": "进步",
+      "labels": "标签",
+      "labelsHint": "逗号分隔",
+      "description": "描述"
+    },
+    "deleteDialog": {
+      "title": "删除项目",
+      "cancel": "取消",
+      "deletePermanently": "永久删除",
+      "bodyPrefix": "这删除了",
+      "thisProject": "这个项目",
+      "bodySuffix": "以及本地存储中的所有相关任务、文件、注释和活动。此操作无法撤消。"
+    },
+    "badges": {
+      "progress": "进步",
+      "progressAria": "{label}: {value}%"
+    },
+    "status": {
+      "planning": "规划",
+      "active": "积极的",
+      "on_hold": "等候接听",
+      "completed": "完全的",
+      "archived": "已存档"
+    },
+    "taskStatus": {
+      "todo": "待办事项",
+      "in_progress": "进行中",
+      "review": "复诊记录",
+      "done": "完成"
+    },
+    "priority": {
+      "low": "低的",
+      "medium": "中等的",
+      "high": "高的",
+      "critical": "批判的"
+    },
+    "role": {
+      "owner": "所有者",
+      "manager": "经理",
+      "member": "成员",
+      "viewer": "查看器"
+    },
+    "kind": {
+      "project": "项目",
+      "task": "任务",
+      "milestone": "里程碑"
+    },
+    "timeline": {
+      "noTimelineTitle": "没有时限",
+      "noTimelineDescription": "打开项目以查看计划、持续时间和里程碑。",
+      "emptyTitle": "时间轴为空",
+      "emptyDescription": "添加开始/截止日期和任务以填充时间表。",
+      "title": "时间轴",
+      "subtitle": "开始、结束、持续时间、里程碑。依赖项是为将来的版本保留的。",
+      "dateRange": "{start} → {end} · {days}d",
+      "itemAria": "{title} 从 {start} 到 {end}",
+      "dependenciesNone": "依赖关系：无"
+    },
+    "dashboard": {
+      "kpi": {
+        "activeProjects": "活跃项目",
+        "activeHint": "{planning}计划",
+        "completed": "完全的",
+        "completedHint": "投资组合的{percent} %",
+        "onHold": "等候接听",
+        "onHoldHint": "{archived}已存档",
+        "teamMembers": "团队成员",
+        "teamHint": "跨所有项目",
+        "budgetOverview": "预算概览",
+        "budgetHint": "已使用 {percent}% · 已花费 {spent}",
+        "openTasks": "开放任务",
+        "openTasksHint": "{overdue}逾期",
+        "projectHealth": "健康项目",
+        "healthHint": "综合交付分数",
+        "upcomingDeadlines": "即将到来的截止日期",
+        "upcomingHint": "未来 30 天"
+      },
+      "analytics": {
+        "title": "分析",
+        "subtitle": "投资组合运行状况、完成情况和预算使用情况。",
+        "statusMix": "状态组合",
+        "deliverySignals": "传递信号",
+        "completedPercent": "完全的 ％",
+        "budgetUsage": "预算使用情况",
+        "health": "健康",
+        "upcomingDeadlines": "即将到来的最后期限",
+        "noUpcomingDeadlines": "下一个窗口中没有即将到来的截止日期。"
+      },
+      "recentActivity": {
+        "title": "最近的活动",
+        "subtitle": "首先是最新的项目活动。",
+        "empty": "活动将在项目和任务创建时显示。"
+      }
+    },
+    "kanban": {
+      "emptyTitle": "板上没有任务",
+      "emptyDescription": "创建任务以跨“待办事项”、“进行中”、“审核”和“已完成”组织交付。",
+      "addTask": "添加任务",
+      "columnAria": "{status}列",
+      "taskProgress": "任务进度",
+      "edit": "编辑",
+      "complete": "完全的"
+    },
+    "detail": {
+      "notFoundTitle": "未找到项目",
+      "notFoundDescription": "此项目可能已被删除或不可用于当前组织。",
+      "backToProjects": "← 返回项目",
+      "ownerMeta": "{customer}·所有者{owner}",
+      "edit": "编辑",
+      "delete": "删除",
+      "sectionsAria": "项目详细信息部分",
+      "tabs": {
+        "overview": "概述",
+        "tasks": "任务",
+        "files": "文件",
+        "notes": "笔记",
+        "activity": "活动",
+        "team": "团队",
+        "settings": "设置"
+      }
+    },
+    "overview": {
+      "missingTitle": "缺少项目",
+      "missingDescription": "选择一个项目以查看其概述。",
+      "title": "概述",
+      "noDescription": "没有提供描述。",
+      "budget": "预算",
+      "spent": "花费",
+      "start": "开始",
+      "due": "到期的",
+      "openTasks": "开放任务",
+      "completedTasks": "已完成的任务"
+    },
+    "tasks": {
+      "title": "任务管理",
+      "newTask": "新任务",
+      "tableTitle": "标题",
+      "tableAssignee": "受让人",
+      "tablePriority": "优先事项",
+      "tableStatus": "地位",
+      "tableDue": "到期的",
+      "tableProgress": "进步",
+      "tableActions": "行动",
+      "edit": "编辑",
+      "complete": "完全的",
+      "delete": "删除",
+      "emptyTitle": "还没有任务",
+      "emptyDescription": "在看板上创建任务、分配所有者并跟踪进度。",
+      "createTask": "创建任务"
+    },
+    "files": {
+      "title": "文件管理器",
+      "description": "上传图像、PDF 和 Office 文档。元数据保留在本地。",
+      "upload": "上传",
+      "emptyTitle": "没有上传文件",
+      "emptyDescription": "添加项目工件供团队查看和预览。",
+      "preview": "预览",
+      "metadataOnly": "仅元数据",
+      "delete": "删除"
+    },
+    "notes": {
+      "editTitle": "编辑备注",
+      "newTitle": "新笔记",
+      "title": "标题",
+      "author": "作者",
+      "body": "正文",
+      "cancel": "取消",
+      "saveNote": "保存备注",
+      "emptyTitle": "还没有笔记",
+      "emptyDescription": "捕捉决策、会议成果和交付背景。",
+      "edit": "编辑",
+      "delete": "删除"
+    },
+    "activity": {
+      "title": "活动提要",
+      "emptyTitle": "还没有活动",
+      "emptyDescription": "当团队工作时，项目事件将出现在此处。"
+    },
+    "team": {
+      "missingTitle": "缺少项目",
+      "missingDescription": "选择一个项目来管理团队成员。",
+      "assignTitle": "指定成员",
+      "name": "姓名",
+      "email": "电子邮件",
+      "role": "角色",
+      "addMember": "添加会员",
+      "teamTitle": "团队",
+      "remove": "消除"
+    },
+    "settings": {
+      "missingTitle": "缺少项目",
+      "missingDescription": "选择一个项目来管理设置。",
+      "title": "项目设置",
+      "description": "更新预算消耗和存档状态。完整字段编辑使用“编辑”对话框。",
+      "spentAmount": "消费金额",
+      "saveSpent": "节省花费",
+      "archiveProject": "存档项目",
+      "editAllFields": "编辑所有字段"
+    },
+    "toasts": {
+      "projectCreated": "项目已创建",
+      "projectUpdated": "项目已更新",
+      "projectDeleted": "项目已删除",
+      "checkForm": "检查表格",
+      "validationFailed": "验证失败。",
+      "taskCreated": "任务已创建",
+      "taskUpdated": "任务已更新",
+      "taskCompleted": "任务完成",
+      "taskDeleted": "任务已删除",
+      "filesUploaded": "文件已上传",
+      "filesUploadedDetail": "{count} 个文件",
+      "fileDeleted": "文件已删除",
+      "noteSaved": "注释已保存",
+      "memberAdded": "成员添加：",
+      "settingsSaved": "设置已保存",
+      "projectArchived": "项目已存档"
+    },
+    "validation": {
+      "nameRequired": "项目名称为必填。",
+      "nameMin": "项目名称至少 2 个字符。",
+      "customerRequired": "客户为必填。",
+      "ownerRequired": "项目负责人为必填。",
+      "priorityInvalid": "请选择有效优先级。",
+      "statusInvalid": "请选择有效状态。",
+      "currencyInvalid": "请选择有效货币。",
+      "budgetInvalid": "预算必须为非负数。",
+      "startDateRequired": "开始日期为必填。",
+      "startDateInvalid": "请输入有效的开始日期。",
+      "dueDateInvalid": "请输入有效的截止日期。",
+      "dueDateOrder": "截止日期必须不早于开始日期。",
+      "colorInvalid": "请选择有效颜色。",
+      "iconInvalid": "请选择有效图标。",
+      "taskTitleRequired": "任务标题为必填。",
+      "progressRange": "进度必须介于 0 到 100 之间。",
+      "memberNameRequired": "成员名称为必填。",
+      "emailRequired": "电子邮件为必填。",
+      "emailInvalid": "请输入有效的电子邮件地址。",
+      "roleInvalid": "请选择有效角色。",
+      "noteTitleRequired": "备注标题为必填。",
+      "noteBodyRequired": "备注正文为必填。",
+      "authorRequired": "作者为必填。"
+    }
+  },
+  "automation": {
+    "enginePage": {
+      "sectionTitle": "AGXORA自动化操作系统",
+      "title": "自动化",
+      "subtitle": "企业人工智能工作流程和自动化引擎——CRM、财务、Creator Studio 和每个未来 AGXORA 模块的结缔组织。",
+      "loadingHistory": "正在加载工作流程历史记录...",
+      "loadingTemplates": "正在加载模板库...",
+      "loadingIntegrations": "正在加载集成中心...",
+      "dashboard": "仪表板",
+      "workflowBuilder": "工作流程生成器",
+      "workflowBuilderSubtitle": "基于节点的画布，具有对齐网格、平滑缩放和平移、连接悬停和空状态指导。",
+      "openAssistant": "打开AI工作流程助手",
+      "workflowHistory": "工作流程历史记录",
+      "workflowHistorySubtitle": "带有彩色状态、可点击行和完整执行检查器的执行日志。",
+      "templates": "模板",
+      "templatesSubtitle": "加载前预览—节点计数、难度、运行时和推荐的用例。",
+      "integrationCenter": "整合中心",
+      "integrationCenterSubtitle": "仅适用于适配器注册表—已连接、测试版、已计划、即将推出、已禁用。没有实时API。"
+    },
+    "assistant": {
+      "title": "人工智能工作流程助手",
+      "subtitle": "仅本地启发式 - 不需要实时模型。",
+      "closeAria": "关闭AI工作流程助手",
+      "close": "关闭",
+      "workflowScore": "工作流程分数",
+      "scoreOutOf": "/ 100",
+      "optimizationSuggestions": "优化建议",
+      "oneClickOptimize": "一键优化",
+      "noticeDefault": "一键优化还没有图形突变。",
+      "noticeQueued": "优化排队。未来的引擎将重写延迟和批准。"
+    },
+    "integrations": {
+      "intro": "集成中心——可选。状态：已连接、测试版、计划中、即将推出、已禁用。没有实时 API。",
+      "category": "类别：",
+      "reservedAdapter": "预留适配器：",
+      "description": "描述："
+    },
+    "executionInspector": {
+      "title": "执行详细信息",
+      "emptyTitle": "选择执行",
+      "emptyDescription": "从工作流程历史记录中选择一个运行，以检查输入、输出和人工智能摘要。",
+      "workflowName": "工作流程名称",
+      "trigger": "扳机",
+      "executionId": "执行ID",
+      "started": "开始",
+      "finished": "完成的",
+      "duration": "课时",
+      "status": "地位",
+      "success": "成功",
+      "failed": "失败的",
+      "retryAvailable": "可以重试",
+      "executedBy": "执行者",
+      "yes": "是的",
+      "no": "不",
+      "emDash": "—",
+      "input": "输入",
+      "output": "输出",
+      "aiSummary": "人工智能总结",
+      "errorMessage": "错误信息",
+      "retry": "重试",
+      "retryUnavailable": "重试不可用",
+      "noticeDefault": "重试适配器已保留 — 尚未实时重新执行。",
+      "noticeQueued": "重试排队等待 {id}。"
+    },
+    "workflowBuilder": {
+      "elementsTitle": "工作流程元素",
+      "paletteAria": "调色板",
+      "tabElements": "元素",
+      "tabTriggers": "触发器",
+      "tabActions": "行动",
+      "tabAiActions": "人工智能行动",
+      "builderTitle": "工作流程生成器·{name}",
+      "builderHint": "对齐 {grid}px 网格 · ⌘/Ctrl+滚动缩放 · 拖动画布进行平移 · 双击连接",
+      "autoSaved": "自动保存",
+      "saving": "保存…",
+      "undo": "撤消",
+      "redo": "重做",
+      "zoomOut": "-",
+      "zoomIn": "+",
+      "resetView": "重置视图",
+      "emptyTitle": "空画布",
+      "emptyDescription": "从调色板中拖动触发器以开始构建。捕捉到网格保持节点对齐。",
+      "connectHint": "双击目标进行连接",
+      "miniMapAria": "小地图"
+    },
+    "workflowHistory": {
+      "title": "工作流程历史·执行日志",
+      "statusFilter": "地位",
+      "statusAll": "全部",
+      "statusSuccess": "成功",
+      "statusFailed": "失败的",
+      "statusPending": "待办的",
+      "statusRetried": "重试",
+      "statusRunning": "跑步",
+      "runsAria": "工作流程运行",
+      "noMatches": "没有工作流运行与此过滤器匹配。"
+    },
+    "miniPreview": {
+      "emptyWorkflow": "空工作流"
+    },
+    "workflowTemplates": {
+      "title": "模板库",
+      "noticeDefault": "在将模板加载到构建器之前预览模板。",
+      "noticeLoaded": "已将“{name}”加载到工作流生成器中。",
+      "nodesBadge": "{count} 个节点",
+      "recommendedFor": "推荐用于：{for}",
+      "preview": "预览",
+      "useTemplate": "使用模板",
+      "previewTitle": "模板预览",
+      "close": "关闭",
+      "nodes": "节点",
+      "connections": "连接",
+      "estimatedRuntime": "预计运行时间",
+      "difficulty": "困难",
+      "requiredModules": "所需模块",
+      "usedAiFeatures": "使用的人工智能功能",
+      "none": "没有任何"
+    },
+    "workspace": {
+      "loading": "正在加载自动化引擎...",
+      "eyebrow": "工作流程自动化引擎",
+      "title": "自动化",
+      "subtitle": "跨 CRM、项目、财务、文档和 AI 的可配置业务工作流程 — 本地事件总线和浏览器内引擎。分布式队列和后端工作人员未连接。",
+      "noticeDefault": "执行引擎是独立于UI的。模块发布事件；工作流程订阅。",
+      "tabs": {
+        "dashboard": "仪表板",
+        "workflows": "工作流",
+        "editor": "编辑",
+        "history": "历史",
+        "templates": "模板",
+        "analytics": "分析",
+        "settings": "设置"
+      },
+      "notice": {
+        "missingWrite": "缺少工作流程.写入权限。",
+        "missingExecute": "缺少工作流.执行权限。",
+        "created": "创建了{name}",
+        "templateApplied": "应用的模板：{name}",
+        "runResult": "运行{status}（{duration}毫秒）",
+        "runFailed": "工作流程无法运行（禁用或丢失）。",
+        "publishedEvent": "已发布的域事件： {type}",
+        "workflowStatus": "工作流程{status}",
+        "saved": "工作流程已保存",
+        "retryResult": "重试{status}",
+        "retryFailed": "重试失败",
+        "settingsSaved": "已保存自动化设置"
+      },
+      "defaults": {
+        "untitledName": "无标题工作流程",
+        "untitledDescription": "草稿工作流程 — 配置触发器和操作。"
+      },
+      "dashboard": {
+        "workflows": "工作流",
+        "active": "积极的",
+        "runsToday": "今天运行",
+        "successRate": "成功率",
+        "recentWorkflows": "最近的工作流程",
+        "newWorkflow": "新的工作流程",
+        "eventBusDemo": "活动总线演示",
+        "eventBusHint": "发布模块事件。具有匹配触发器的活动工作流程会自动排队。",
+        "notifications": "通知"
+      },
+      "workflowList": {
+        "title": "工作流程清单",
+        "newWorkflow": "新的工作流程",
+        "emptyTitle": "还没有工作流程。",
+        "emptyDescription": "创建工作流程或从模板开始。",
+        "columns": {
+          "name": "姓名",
+          "status": "地位",
+          "nodes": "节点",
+          "updated": "已更新",
+          "actions": "行动"
+        },
+        "run": "潛襲",
+        "disable": "禁用",
+        "activate": "激活"
+      },
+      "editor": {
+        "selectPrompt": "选择或创建要编辑的工作流程。",
+        "workflows": "工作流",
+        "title": "工作流编辑器",
+        "hint": "架构支持触发→条件→动作→延迟→分支→循环。画布拖放可以插入节点位置，无需更改引擎。",
+        "name": "姓名",
+        "description": "描述",
+        "trigger": "扳机",
+        "primaryAction": "主要行动",
+        "executionPath": "执行路径预览",
+        "save": "节省",
+        "runNow": "现在运行",
+        "triggerFallback": "扳机",
+        "actionFallback": "行动"
+      },
+      "history": {
+        "title": "执行历史",
+        "emptyTitle": "尚未执行死刑。",
+        "emptyDescription": "运行工作流或发布领域事件。",
+        "latestRun": "最新运行详情",
+        "path": "路径：{path}",
+        "error": "· 错误：{error}",
+        "columns": {
+          "workflow": "工作流程",
+          "status": "地位",
+          "triggeredBy": "触发于",
+          "duration": "课时",
+          "started": "开始",
+          "retry": "重试"
+        },
+        "retry": "重试",
+        "emDash": "—"
+      },
+      "templates": {
+        "useTemplate": "使用模板"
+      },
+      "analytics": {
+        "totalWorkflows": "总工作流程",
+        "activeWorkflows": "活跃的工作流程",
+        "executionsToday": "今天执行死刑",
+        "successRate24h": "成功率（24小时）",
+        "failed24h": "失败（ 24小时）",
+        "avgDuration": "平均持续时间"
+      },
+      "settings": {
+        "title": "自动化设置",
+        "subtitle": "分布式执行的重试策略、执行限制、并发、超时和日志记录。",
+        "maxRetryAttempts": "最大重试次数",
+        "backoffMs": "退避（毫秒）",
+        "executionsPerHour": "执行次数/小时",
+        "concurrencyLimit": "并发限制",
+        "timeoutMs": "超时（毫秒）",
+        "logLevel": "日志级别",
+        "logLevels": {
+          "error": "错误",
+          "warn": "警告",
+          "info": "信息",
+          "debug": "调试"
+        },
+        "saveSettings": "保存设置"
+      }
+    },
+    "status": {
+      "connected": "已连接",
+      "beta": "测试版",
+      "comingSoon": "即将推出",
+      "disabled": "已停用",
+      "planned": "已规划",
+      "success": "成功",
+      "failed": "失败",
+      "running": "运行中",
+      "pending": "待处理",
+      "retried": "重试"
+    },
+    "difficulty": {
+      "starter": "入门",
+      "intermediate": "中级",
+      "advanced": "高级"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "触发器",
+        "description": "在事件触发时启动"
+      },
+      "el-condition": {
+        "label": "条件",
+        "description": "按规则分支"
+      },
+      "el-delay": {
+        "label": "延迟",
+        "description": "继续前等待"
+      },
+      "el-approval": {
+        "label": "审批",
+        "description": "人工审批关卡"
+      },
+      "el-loop": {
+        "label": "循环",
+        "description": "遍历集合"
+      },
+      "el-merge": {
+        "label": "合并",
+        "description": "合并并行路径"
+      },
+      "el-split": {
+        "label": "拆分",
+        "description": "扇出并行路径"
+      },
+      "el-ai-decision": {
+        "label": "AI 决策",
+        "description": "通过 AI 路由"
+      },
+      "el-notification": {
+        "label": "通知",
+        "description": "应用内提醒"
+      },
+      "el-webhook": {
+        "label": "Webhook 占位",
+        "description": "已预留 HTTP 回调"
+      },
+      "el-custom": {
+        "label": "自定义操作",
+        "description": "可扩展操作槽"
+      },
+      "tr-customer": {
+        "label": "客户已创建",
+        "description": "已创建 CRM 客户记录"
+      },
+      "tr-lead": {
+        "label": "线索已创建",
+        "description": "新线索进入管道"
+      },
+      "tr-invoice": {
+        "label": "发票已创建",
+        "description": "已开具财务发票"
+      },
+      "tr-invoice-paid": {
+        "label": "发票已付款",
+        "description": "付款已结清"
+      },
+      "tr-order": {
+        "label": "订单已创建",
+        "description": "订单已录入"
+      },
+      "tr-order-done": {
+        "label": "订单已完成",
+        "description": "订单已履约"
+      },
+      "tr-doc": {
+        "label": "文档已上传",
+        "description": "文档库上传"
+      },
+      "tr-campaign": {
+        "label": "活动已发布",
+        "description": "Creator Studio 发布"
+      },
+      "tr-employee": {
+        "label": "员工已添加",
+        "description": "团队目录变更"
+      },
+      "tr-task": {
+        "label": "任务已完成",
+        "description": "任务已标为完成"
+      },
+      "tr-manual": {
+        "label": "手动触发器",
+        "description": "按需运行"
+      },
+      "tr-schedule": {
+        "label": "计划触发器",
+        "description": "Cron / 日历计划"
+      },
+      "tr-webhook": {
+        "label": "Webhook 触发器",
+        "description": "入站 HTTP 事件"
+      },
+      "tr-api": {
+        "label": "API 触发器",
+        "description": "程序化启动"
+      },
+      "ac-crm": {
+        "label": "创建 CRM 记录",
+        "description": "写入 CRM 实体"
+      },
+      "ac-invoice": {
+        "label": "生成发票",
+        "description": "财务发票"
+      },
+      "ac-quote": {
+        "label": "生成报价",
+        "description": "创建报价文档"
+      },
+      "ac-delivery": {
+        "label": "生成送货单",
+        "description": "送货单"
+      },
+      "ac-task": {
+        "label": "创建任务",
+        "description": "打开任务"
+      },
+      "ac-assign": {
+        "label": "分配员工",
+        "description": "转给队友"
+      },
+      "ac-email": {
+        "label": "发送电子邮件",
+        "description": "外发邮件"
+      },
+      "ac-notify": {
+        "label": "发送通知",
+        "description": "应用内通知"
+      },
+      "ac-ai-summary": {
+        "label": "生成 AI 摘要",
+        "description": "汇总上下文"
+      },
+      "ac-ai-content": {
+        "label": "生成 AI 内容",
+        "description": "Creator Studio 草稿"
+      },
+      "ac-update-customer": {
+        "label": "更新客户",
+        "description": "补丁更新 CRM 客户"
+      },
+      "ac-update-status": {
+        "label": "更新状态",
+        "description": "更改实体状态"
+      },
+      "ac-pdf": {
+        "label": "导出 PDF",
+        "description": "文档导出"
+      },
+      "ac-future": {
+        "label": "未来 API 占位",
+        "description": "预留操作槽"
+      },
+      "ai-decision": {
+        "label": "AI 决策",
+        "description": "决定下一条路径"
+      },
+      "ai-class": {
+        "label": "AI 分类",
+        "description": "对记录分类"
+      },
+      "ai-text": {
+        "label": "AI 文本生成",
+        "description": "生成文本"
+      },
+      "ai-translate": {
+        "label": "AI 翻译",
+        "description": "翻译内容"
+      },
+      "ai-email": {
+        "label": "AI 邮件回复",
+        "description": "起草回复"
+      },
+      "ai-sum": {
+        "label": "AI 摘要",
+        "description": "压缩上下文"
+      },
+      "ai-rec": {
+        "label": "AI 建议",
+        "description": "建议后续步骤"
+      },
+      "ai-route": {
+        "label": "AI 路由",
+        "description": "路由到负责人 / 队列"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "客户创建",
+        "description": "在创建 CRM 客户记录时触发。"
+      },
+      "project_created": {
+        "label": "项目已创建",
+        "description": "在创建项目时触发。"
+      },
+      "invoice_issued": {
+        "label": "已开具发票",
+        "description": "在开具发票时触发。"
+      },
+      "task_completed": {
+        "label": "任务完成",
+        "description": "在任务标记为完成时触发。"
+      },
+      "document_uploaded": {
+        "label": "文件已上传",
+        "description": "在上传文档时触发。"
+      },
+      "user_invited": {
+        "label": "已邀请用户",
+        "description": "在邀请团队成员时触发。"
+      },
+      "schedule": {
+        "label": "日程",
+        "description": "Cron / 间隔计划触发器。"
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "入站 HTTP Webhook。"
+      },
+      "api_event": {
+        "label": "API 事件",
+        "description": "通用 API 域事件。"
+      },
+      "ai_event": {
+        "label": "AI 事件",
+        "description": "AI 信号（完成、洞察、代理步骤）。"
+      },
+      "manual": {
+        "label": "手动触发",
+        "description": "按需从自动化界面或 API 运行。"
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "创建客户",
+        "description": "创建 CRM 客户记录。"
+      },
+      "customer_update": {
+        "label": "更新客户",
+        "description": "更新客户字段。"
+      },
+      "project_create": {
+        "label": "创建项目",
+        "description": "从工作流上下文创建项目。"
+      },
+      "document_generate": {
+        "label": "生成文档",
+        "description": "从模板生成文档。"
+      },
+      "notification_send": {
+        "label": "发送通知",
+        "description": "发送应用内通知。"
+      },
+      "email_send": {
+        "label": "发送电子邮件",
+        "description": "通过邮件服务排队发送电子邮件。"
+      },
+      "api_call": {
+        "label": "调用 API",
+        "description": "对内部或外部 API 发起 HTTP 调用。"
+      },
+      "ai_run": {
+        "label": "运行 AI",
+        "description": "使用上下文执行 AI 提示 / 代理步骤。"
+      },
+      "task_assign": {
+        "label": "分配任务",
+        "description": "将任务分配给用户。"
+      },
+      "invoice_create": {
+        "label": "创建发票",
+        "description": "创建财务发票。"
+      },
+      "status_update": {
+        "label": "更新状态",
+        "description": "更新模块中实体的状态。"
+      }
+    }
+  },
+  "team": {
+    "page": {
+      "eyebrow": "身份和访问",
+      "title": "团队",
+      "lead": "{organization} 的成员、角色和邀请。为未来的身份 API 做好架构准备。",
+      "yourOrganization": "你的主办"
+    },
+    "invite": {
+      "title": "通过电子邮件邀请",
+      "email": "电子邮件",
+      "emailPlaceholder": "同事@company.com",
+      "role": "角色",
+      "submit": "邀请",
+      "created": "邀请已创建（待处理）。",
+      "failed": "邀请失败",
+      "signInFirst": "首先登录并激活组织。",
+      "noPermission": "缺少权限 - 需要管理员或经理邀请。"
+    },
+    "roles": {
+      "title": "角色",
+      "owner": {
+        "name": "所有者",
+        "description": "全面的组织控制，包括设置和计费。"
+      },
+      "admin": {
+        "name": "行政",
+        "description": "管理财务、自动化、团队和工作区模块。"
+      },
+      "manager": {
+        "name": "经理",
+        "description": "领导 CRM、项目、文档和创建者运营。"
+      },
+      "employee": {
+        "name": "员工",
+        "description": "日常 CRM、文档、创建者和项目访问。"
+      },
+      "guest": {
+        "name": "客人",
+        "description": "对文档和项目的读取权限有限。"
+      },
+      "viewer": {
+        "name": "查看器",
+        "description": "对共享模块的只读访问。"
+      }
+    },
+    "members": {
+      "title": "会员",
+      "columnMember": "成员",
+      "columnEmail": "电子邮件",
+      "columnRole": "角色",
+      "columnStatus": "地位",
+      "roleFor": "{name} 的角色",
+      "emptyTitle": "还没有会员",
+      "emptyDescription": "邀请同事加入此组织工作区。",
+      "updated": "将 {name} 更新为 {role}",
+      "roleChangeFailed": "角色更改失败"
+    },
+    "pending": {
+      "title": "待处理的邀请",
+      "emptyTitle": "没有待处理的邀请",
+      "emptyDescription": "新邀请将显示在此处，直至被接受或过期。",
+      "expires": "{role} · {date}到期",
+      "revoke": "撤销",
+      "pending": "待办的"
+    },
+    "history": {
+      "title": "邀请历史",
+      "empty": "已接受、已过期和已撤销的邀请将显示在此处。"
+    },
+    "status": {
+      "accepted": "公认",
+      "expired": "已到期",
+      "revoked": "撤销",
+      "active": "积极的",
+      "inactive": "不活跃的",
+      "pending": "待办的"
+    }
+  },
+  "customers": {
+    "page": {
+      "sectionTitle": "客户管理",
+      "title": "顾客",
+      "lead": "创建、编辑、搜索和管理 {organization} 的客户记录。",
+      "yourOrganization": "你的主办"
+    },
+    "table": {
+      "columns": {
+        "company": "公司",
+        "email": "电子邮件",
+        "location": "地点",
+        "status": "地位",
+        "updated": "已更新",
+        "actions": "行动"
+      },
+      "view": "查看",
+      "edit": "编辑",
+      "delete": "删除",
+      "viewAria": "查看{company}",
+      "editAria": "编辑{company}",
+      "deleteAria": "删除{company}",
+      "loading": "正在加载客户...",
+      "errorLoad": "无法加载客户",
+      "errorGeneric": "出了点问题",
+      "emptyFilteredTitle": "没有匹配的客户",
+      "emptyFilteredDescription": "尝试调整搜索或过滤器。",
+      "emptyTitle": "还没有客户",
+      "emptyDescription": "创建您的第一个客户以开始管理您的帐户。",
+      "searchLabel": "搜寻客户",
+      "searchPlaceholder": "公司、联系人、电子邮件、城市、标签……",
+      "statusFilter": "地位",
+      "tagFilter": "标签",
+      "allStatuses": "所有状态",
+      "allTags": "删除除以下内容之外的所有标记",
+      "clearFilters": "清除过滤器",
+      "addCustomer": "添加客户"
+    },
+    "status": {
+      "active": "积极的",
+      "prospect": "前景",
+      "inactive": "不活跃",
+      "blocked": "被阻止"
+    },
+    "form": {
+      "editTitle": "编辑客户",
+      "createTitle": "添加客户",
+      "cancel": "取消",
+      "saveChanges": "保存更改",
+      "createCustomer": "创建客户",
+      "companyName": "公司名称",
+      "contactPerson": "联络人",
+      "email": "电子邮件",
+      "status": "地位",
+      "statusAria": "客户状态",
+      "phone": "电话",
+      "mobile": "移动的",
+      "street": "街道",
+      "postalCode": "邮政编码",
+      "city": "城市",
+      "country": "国家",
+      "taxNumber": "税号",
+      "vatId": "增值税号",
+      "tags": "標籤",
+      "tagsHint": "逗号分隔",
+      "tagsPlaceholder": "VIP、零售、合作伙伴",
+      "notes": "客户备注",
+      "updated": "客户更新",
+      "created": "客户创建",
+      "checkForm": "检查表格",
+      "validationFailed": "验证失败。"
+    },
+    "delete": {
+      "title": "删除客户",
+      "cancel": "取消",
+      "confirm": "删除",
+      "confirmWithName": "永久删除{company}？此操作无法撤消。",
+      "confirmGeneric": "该客户将被永久删除。",
+      "success": "客户已删除",
+      "failed": "删除失败",
+      "notFound": "未找到客户或无法删除客户。",
+      "errorGeneric": "删除时出了点问题。"
+    },
+    "details": {
+      "titleFallback": "顾客",
+      "edit": "编辑",
+      "delete": "删除",
+      "noTags": "暂无标签",
+      "contact": "联系方式",
+      "email": "电子邮件",
+      "phone": "电话",
+      "mobile": "移动的",
+      "address": "地址",
+      "taxNumber": "税号",
+      "vatId": "增值税号",
+      "updated": "已更新",
+      "notes": "笔记",
+      "noNotes": "还没有笔记。"
+    },
+    "validation": {
+      "companyRequired": "公司名称为必填。",
+      "contactRequired": "联系人为必填。",
+      "emailRequired": "电子邮件为必填。",
+      "emailInvalid": "请输入有效的电子邮件地址。",
+      "phoneRequired": "电话为必填。",
+      "phoneInvalid": "请输入有效的电话号码。",
+      "mobileInvalid": "请输入有效的手机号码。",
+      "statusInvalid": "请选择有效状态。",
+      "emailDuplicate": "已存在使用此电子邮件的客户。",
+      "companyDuplicate": "已存在使用此公司名称的客户。"
+    }
+  },
+  "ai": {
+    "platform": {
+      "loading": "正在加载人工智能平台...",
+      "eyebrow": "AGXORA人工智能平台",
+      "title": "企业人工智能工作空间",
+      "subtitle": "独立于提供商的 CRM、项目、财务、文档和自动化智能。在“设置”→“AI”中配置提供商。",
+      "newConversation": "新的对话",
+      "aiCommands": "人工智能命令"
+    },
+    "mobileTabs": {
+      "chat": "聊天",
+      "conversations": "对话",
+      "prompts": "提示"
+    },
+    "usageBar": {
+      "provider": "提供者",
+      "model": "模型",
+      "estimatedTokens": "预计。代币",
+      "tokensInOut": "（输入{in}/输出{out}）",
+      "cost": "成本",
+      "context": "语境",
+      "contextNone": "无",
+      "emDash": "—"
+    },
+    "chatThread": {
+      "title": "AGXORA 人工智能工作空间",
+      "emptyHint": "开始对话，从库中选择提示，或打开命令选项板 (⌘⇧K / Ctrl⇧K)。"
+    },
+    "conversationSidebar": {
+      "title": "对话",
+      "new": "新",
+      "searchPlaceholder": "搜索聊天记录...",
+      "searchAria": "搜索对话",
+      "showArchived": "显示已存档",
+      "pinned": "已固定",
+      "emptyPreview": "空谈",
+      "noConversations": "还没有对话",
+      "pin": "别针",
+      "unpin": "取消固定",
+      "rename": "重命名",
+      "archive": "档案",
+      "unarchive": "取消存档",
+      "delete": "删除"
+    },
+    "composer": {
+      "placeholder": "消息 AGXORA AI…（Enter 发送，Shift+Enter 换行）",
+      "ariaLabel": "信件撰写器",
+      "commandsShortcut": "命令 ⌘⇧K",
+      "stop": "停止",
+      "send": "发送"
+    },
+    "messageBubble": {
+      "ellipsis": "……",
+      "copy": "复制",
+      "retry": "重试"
+    },
+    "typingIndicator": {
+      "ariaLabel": "助理正在打字"
+    },
+    "promptLibrary": {
+      "title": "提示库",
+      "subtitle": "可在 CRM、项目、财务等领域重复使用的模板。",
+      "searchPlaceholder": "搜索提示...",
+      "searchAria": "搜索提示",
+      "all": "全部",
+      "favorites": "收藏夹",
+      "recent": "最近",
+      "library": "图书馆",
+      "noMatches": "没有匹配的提示",
+      "removeFavoriteAria": "删除收藏夹",
+      "addFavoriteAria": "添加收藏夹",
+      "favorited": "已收藏",
+      "favorite": "最喜欢的",
+      "usePrompt": "使用提示"
+    },
+    "commandPalette": {
+      "ariaLabel": "AI命令面板",
+      "filterAria": "过滤AI命令",
+      "placeholder": "AI指挥……总结、建议、分析……",
+      "noMatches": "没有匹配的命令",
+      "footer": "通过 registerAiCommand 注册未来的命令 — UI 保持不变。"
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "项目",
+      "finance": "财务",
+      "marketing": "营销",
+      "documents": "文档",
+      "automation": "自动化",
+      "general": "通用"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "汇总客户",
+        "description": "客户关系的高管摘要"
+      },
+      "crm-follow-up-email": {
+        "title": "跟进邮件",
+        "description": "起草专业的 CRM 跟进"
+      },
+      "projects-analyze": {
+        "title": "分析项目",
+        "description": "项目健康检查"
+      },
+      "projects-task-list": {
+        "title": "创建任务列表",
+        "description": "将工作拆成可执行任务"
+      },
+      "finance-explain-invoice": {
+        "title": "解释发票",
+        "description": "通俗发票说明"
+      },
+      "finance-cashflow-brief": {
+        "title": "现金流简报",
+        "description": "简短现金流叙述"
+      },
+      "marketing-campaign-outline": {
+        "title": "活动大纲",
+        "description": "构建营销活动结构"
+      },
+      "marketing-proposal": {
+        "title": "生成提案",
+        "description": "面向客户的提案草稿"
+      },
+      "documents-summarize": {
+        "title": "汇总文档",
+        "description": "结构化文档摘要"
+      },
+      "automation-workflow": {
+        "title": "设计工作流",
+        "description": "自动化工作流草图"
+      },
+      "general-brainstorm": {
+        "title": "头脑风暴选项",
+        "description": "结构化构思"
+      },
+      "general-explain": {
+        "title": "简明解释",
+        "description": "面向利益相关方的清晰说明"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "汇总客户",
+        "description": "当前客户的高管摘要"
+      },
+      "cmd-generate-proposal": {
+        "label": "生成提案",
+        "description": "起草客户提案大纲"
+      },
+      "cmd-analyze-project": {
+        "label": "分析项目",
+        "description": "项目健康与风险分析"
+      },
+      "cmd-create-task-list": {
+        "label": "创建任务列表",
+        "description": "将工作拆成可执行任务"
+      },
+      "cmd-generate-email": {
+        "label": "生成邮件",
+        "description": "起草专业邮件"
+      },
+      "cmd-explain-invoice": {
+        "label": "解释发票",
+        "description": "通俗发票说明"
+      }
+    }
+  },
+  "agents": {
+    "loading": "正在加载代理操作系统...",
+    "eyebrow": "人工智能代理操作系统",
+    "title": "客服代表OS",
+    "subtitle": "本地代理工作区 - 代理可以作为跨 CRM、项目、财务、工作流程和集成的模拟来激活和运行。生产自主执行未连接。",
+    "noticeDefault": "本地代理操作系统—在此工作区中模拟运行。",
+    "aiChat": "人工智能聊天",
+    "tabs": {
+      "dashboard": "仪表板",
+      "registry": "教务长",
+      "marketplace": "市场",
+      "monitor": "监视器",
+      "history": "历史",
+      "memory": "记忆",
+      "knowledge": "知识",
+      "tools": "工具",
+      "settings": "设置"
+    },
+    "notice": {
+      "simulatedRun": "模拟运行· {status} （ {duration}毫秒）",
+      "taskFailed": "任务失败",
+      "activated": "已在本地激活： {agentId}",
+      "agentPaused": "客服代表已暂停",
+      "agentActivated": "代理激活",
+      "taskCancelled": "任务已取消",
+      "supervisorDelegated": "主管委派跟进",
+      "settingsUpdated": "为此本地工作区更新了代理操作系统设置。"
+    },
+    "dashboard": {
+      "agents": "代理",
+      "active": "积极的",
+      "localReady": "本地准备就绪",
+      "simulatedToday": "今天模拟",
+      "failedToday": "今天失败",
+      "avgExec": "平均执行次数",
+      "toolCalls": "工具调用",
+      "knowledge": "知识",
+      "activeFleet": "活跃机队",
+      "emptyTitle": "没有活跃的代理",
+      "emptyDescription": "从市场安装或激活代理以开始模拟运行。"
+    },
+    "registry": {
+      "title": "教务长",
+      "selectPrompt": "从注册表中选择一个代理。",
+      "status": "状态：{status}",
+      "health": "Health: {health}",
+      "queue": "队列：{queue}",
+      "usage": "用法：{usage}",
+      "executeTask": "执行任务",
+      "supervisorDelegate": "监事代表"
+    },
+    "marketplace": {
+      "tools": "工具： {tools}",
+      "installed": "已安装",
+      "installActivate": "安装并激活"
+    },
+    "monitor": {
+      "title": "代理监控",
+      "emptyTitle": "没有代理可以监控",
+      "emptyDescription": "从市场激活代理。",
+      "latestConfidence": "最新推理置信度： {confidence} — {steps}"
+    },
+    "history": {
+      "title": "执行历史",
+      "emptyTitle": "尚未执行死刑",
+      "emptyDescription": "从注册表或监视器运行代理任务。"
+    },
+    "memory": {
+      "title": "记忆中心",
+      "subtitle": "工作·对话·业务·长期·工作空间·代理范围（架构就绪）。",
+      "emptyTitle": "无记忆记录",
+      "emptyDescription": "执行任务以填充工作/代理内存。"
+    },
+    "knowledge": {
+      "title": "知识中心",
+      "subtitle": "公司、文档、项目、CRM、政策、程序 — 以及矢量/RAG 占位符。",
+      "emptyTitle": "无知识文档",
+      "emptyDescription": "种子知识在工作区引导后出现。"
+    },
+    "tools": {
+      "sensitive": "· 敏感的",
+      "mcpReady": "· MCP 就绪"
+    },
+    "settings": {
+      "title": "代理操作系统设置",
+      "defaultLlmProvider": "默认法学硕士提供商",
+      "enableSupervisor": "启用主管代理架构",
+      "isolateSensitive": "隔离敏感工具",
+      "saveSettings": "保存设置",
+      "providersHint": "准备就绪的提供商：OpenAI、Azure OpenAI、Anthropic、Gemini、Local、Ollama、MCP、Custom。通过 registerLlmProvider 交换适配器，无需更改 UI。"
+    },
+    "columns": {
+      "agent": "代理人",
+      "status": "地位",
+      "health": "健康",
+      "queue": "队列",
+      "usage": "使用本手册",
+      "actions": "行动",
+      "task": "任务",
+      "duration": "课时",
+      "created": "已创建",
+      "scope": "范围",
+      "key": "钥匙",
+      "value": "价值",
+      "at": "在",
+      "title": "标题",
+      "kind": "种类",
+      "summary": "概括"
+    },
+    "actions": {
+      "run": "潛襲",
+      "pause": "暂停",
+      "activate": "激活",
+      "cancel": "取消",
+      "emDash": "—"
+    },
+    "goals": {
+      "executeBusiness": "执行 {agentId} 业务目标",
+      "planAndExecute": "规划和执行工作区业务目标"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "优先考虑客户影响",
+      "delegatedFollowUp": "已委派跟进"
+    }
+  },
+  "integrations": {
+    "loading": "正在加载集成平台...",
+    "eyebrow": "企业集成平台",
+    "title": "整合中心",
+    "subtitle": "适用于 Microsoft 365、Google、Slack、CRM、存储和自动化生态系统的连接器。此版本中的连接和同步是本地演示 - 未连接实时 OAuth。",
+    "noticeDefault": "本地演示连接器 - OAuth 和实时同步未连接。",
+    "settings": "设置",
+    "tabs": {
+      "dashboard": "仪表板",
+      "installed": "已安装",
+      "available": "可领奖",
+      "logs": "日志",
+      "apiKeys": "API 密钥",
+      "webhooks": "网络钩子",
+      "developer": "开发商"
+    },
+    "notice": {
+      "demoConnection": "演示连接： {name} （仅限本地存根）",
+      "connectFailed": "连接失败",
+      "keyCreated": "创建的 API 密钥：{prefix}",
+      "webhookCreated": "已创建网络钩子：{name}",
+      "webhookTest": "Webhook 测试{status}",
+      "networkError": "API 浏览器网络错误：{message}",
+      "explorerError": "API 浏览器 → {status}：{message}",
+      "explorerSuccess": "API 浏览器 → {status}",
+      "explorerFailed": "资源管理器失败",
+      "syncResult": "演示同步 · {status} ({records} 本地记录) — 没有传输外部数据。",
+      "diagnosed": "确诊",
+      "removedConnection": "已删除演示连接：{name}",
+      "keyRotated": "钥匙旋转",
+      "keyRevoked": "密钥已撤销",
+      "publishedEvent": "已发布{type}",
+      "developerSaved": "开发者设置已保存"
+    },
+    "dashboard": {
+      "demoLinks": "演示链接",
+      "catalog": "目录",
+      "api24h": "API（24小时）",
+      "webhooks24h": "Webhook（24 小时）",
+      "webhookFailures": "Webhook 失败",
+      "syncJobs": "同步作业",
+      "conflicts": "冲突",
+      "errors": "错误",
+      "connectionStatus": "连接状态",
+      "emptyTitle": "未安装集成",
+      "emptyDescription": "浏览 可用于连接提供商。",
+      "eventBridgeDemo": "事件桥演示",
+      "eventBridgeHint": "将连接器事件发布到工作流自动化总线。",
+      "emit": "发出 {id}"
+    },
+    "installed": {
+      "title": "已安装的集成",
+      "emptyTitle": "没有安装任何东西",
+      "emptyDescription": "从可用目录安装。",
+      "latestSync": "最新同步：{status}·{records}记录·模式{mode}"
+    },
+    "available": {
+      "protocols": "协议：{protocols}",
+      "demoConnection": "演示连接",
+      "connectDemo": "连接（演示）",
+      "installDemo": "安装演示"
+    },
+    "logs": {
+      "title": "集成日志",
+      "emptyTitle": "尚无日志",
+      "emptyDescription": "连接提供商或运行诊断。"
+    },
+    "apiKeys": {
+      "title": "API 密钥",
+      "generateKey": "生成密钥",
+      "copyOnce": "立即复制（显示一次） ： {secret}",
+      "emptyTitle": "没有 API 密钥",
+      "emptyDescription": "生成用于 REST 网关访问的密钥。"
+    },
+    "webhooks": {
+      "endpointsTitle": "Webhook 端点",
+      "urlPlaceholder": "https://…",
+      "addOutgoing": "添加传出 webhook",
+      "emptyTitle": "没有网络钩子",
+      "emptyDescription": "创建传出端点来测试传送。",
+      "deliveryLogs": "交付日志",
+      "deliveriesEmptyTitle": "没有送货",
+      "deliveriesEmptyDescription": "发送测试 Webhook 以填充日志。"
+    },
+    "developer": {
+      "title": "开发选项",
+      "sandboxMode": "沙盒模式",
+      "webhookSigning": "已启用 Webhook 签名",
+      "saveSettings": "保存设置",
+      "apiDocs": "API 文档占位符：{url}",
+      "sdk": "SDK占位符： {url}",
+      "explorerTitle": "API浏览器",
+      "gatewayRoutes": "网关路由：{routes}",
+      "sendGet": "发送获取",
+      "oauthProviders": "OAuth 提供商",
+      "placeholdersHint": "GraphQL、WebSocket 和 gRPC 网关路由注册为占位符。字段映射和同步冲突解决在架构上已准备好用于后端实现。"
+    },
+    "connectionStatus": {
+      "connected": "演示连接",
+      "pendingAuth": "待定（演示）",
+      "error": "错误",
+      "disabled": "残疾人",
+      "installed": "已安装",
+      "available": "可领奖",
+      "localDemo": "本地演示"
+    },
+    "columns": {
+      "integration": "一体<g id=\"1077\">化</g>",
+      "status": "地位",
+      "health": "健康",
+      "latency": "延迟",
+      "actions": "行动",
+      "when": "什么时候",
+      "level": "等级",
+      "source": "来源",
+      "message": "信息",
+      "name": "姓名",
+      "key": "钥匙",
+      "scopes": "范围",
+      "usage": "使用本手册",
+      "direction": "方向",
+      "url": "网址",
+      "enabled": "启用",
+      "event": "事件",
+      "attempt": "试图"
+    },
+    "actions": {
+      "diagnose": "诊断",
+      "demoSync": "演示同步",
+      "demoSyncTitle": "仅演示同步 — 无外部传输",
+      "disconnect": "断开",
+      "rotate": "旋转",
+      "revoke": "撤销",
+      "test": "测试",
+      "emDash": "—",
+      "yes": "是的",
+      "no": "不"
+    },
+    "errors": {
+      "failedToFetch": "获取失败",
+      "httpStatus": "HTTP {status}"
+    }
+  },
+  "intelligence": {
+    "loading": "正在加载企业智能中心...",
+    "eyebrow": "企业智能中心",
+    "title": "智力",
+    "subtitle": "每个 AGXORA 模块的 KPI、记分卡、警报和报告。以下值是实时分析后端连接之前的种子演示数据集。",
+    "demoBanner": "演示数据集 — 过滤并确认会话中的工作；导出和实时模型调用尚不可用。",
+    "noticeDefault": "显示种子演示分析—而不是实时生产遥测。",
+    "noPermission": "您没有此工作区的 Intelligence.read 权限。",
+    "filtersUpdated": "筛选器集已更新。",
+    "demoReloaded": "已为此工作区重新加载演示数据集。",
+    "acknowledged": "已确认：{title}",
+    "exportUnavailableTitle": "导出不可用 — 报告生成尚未连接。",
+    "exportUnavailableAria": "将 {title} 导出为 {format} — 不可用",
+    "tabs": {
+      "executive": "管理人员",
+      "health": "商业健康",
+      "workspace": "分析",
+      "kpis": "关键绩效指标中心",
+      "reports": "报告",
+      "insights": "见解",
+      "forecasts": "预测",
+      "alerts": "警报",
+      "scorecards": "记分卡",
+      "explorer": "数据浏览器"
+    },
+    "filters": {
+      "from": "从",
+      "to": "到",
+      "domain": "领域",
+      "allDomains": "所有域名",
+      "apply": "应用过滤器",
+      "reloadDemo": "重新加载演示数据",
+      "viewsAria": "情报观点"
+    },
+    "executive": {
+      "companyHealth": "公司健康",
+      "revenueScore": "收入分数",
+      "customerHealth": "客户健康",
+      "projectHealth": "项目健康",
+      "workflowSuccess": "工作流程成功",
+      "aiActivity": "人工智能活动",
+      "finance": "金融",
+      "riskGrowth": "风险/增长",
+      "kpiStrip": "执行 KPI 条",
+      "visualizationPreviews": "可视化预览",
+      "visualizationHint": "演示系列中的说明性图表 - 非交互式深入分析。",
+      "noSeries": "无系列绑定"
+    },
+    "health": {
+      "title": "业务健康分解",
+      "overall": "全部",
+      "revenue": "收入",
+      "customers": "顾客",
+      "projects": "项目",
+      "workflows": "工作流",
+      "ai": "人工智能",
+      "finance": "金融",
+      "operations": "运营",
+      "riskPosture": "风险态势",
+      "growth": "增长率",
+      "observability": "可观察性：{metrics} 指标 · {avgMs}ms 平均值 · 系统运行状况 {health}"
+    },
+    "workspace": {
+      "noSeries": "没有专题"
+    },
+    "kpis": {
+      "title": "关键绩效指标中心",
+      "subtitle": "跨收入、客户、项目、工作流程、代理和自动化的可配置 KPI 目录。",
+      "emptyTitle": "分析等待信号",
+      "emptyDescription": "一旦您的工作区产生活动，执行 KPI 和警报就会出现在此处。"
+    },
+    "reports": {
+      "title": "报告引擎",
+      "subtitle": "报告定义已播种以供审核。在连接报告后端之前，文件导出不可用。",
+      "emptyTitle": "没有报告",
+      "emptyDescription": "报告工作区引导的种子。",
+      "scheduleOnDemand": "一经请求"
+    },
+    "insights": {
+      "emptyTitle": "还没有任何见解",
+      "emptyDescription": "演示见解出现在工作区种子之后。实时 AI 洞察生成未连接。",
+      "badge": "演示 · {kind} · {domain} · conf {confidence}"
+    },
+    "forecasts": {
+      "emptyTitle": "还没有预测",
+      "emptyDescription": "演示预测出现在种子之后。预测模型未连接。",
+      "title": "{kind} 预测",
+      "baseline": "基线 {baseline} → 预计 {projected} ({days}d)",
+      "confidence": "演示 · 信心 {confidence} — {note}"
+    },
+    "alerts": {
+      "title": "警报引擎",
+      "emptyTitle": "无警报",
+      "emptyDescription": "来自风险启发的警报种子。",
+      "acked": "确认",
+      "open": "打开",
+      "acknowledge": "承认"
+    },
+    "scorecards": {
+      "title": "记分卡引擎",
+      "emptyTitle": "没有记分卡",
+      "emptyDescription": "记分卡在引导程序上种子。"
+    },
+    "explorer": {
+      "title": "数据浏览器",
+      "searchPlaceholder": "搜索演示行...",
+      "searchAria": "搜索演示浏览器行",
+      "emptyTitle": "没有匹配的行",
+      "emptyDescription": "调整过滤器或搜索，或重新加载演示数据集。",
+      "hint": "客户端对种子元组的搜索 - 后端聚合和向下钻取未连接。"
+    },
+    "columns": {
+      "kpi": "关键绩效指标",
+      "value": "价值",
+      "delta": "Δ%",
+      "trend": "趋势",
+      "target": "目标",
+      "severity": "严重性",
+      "alert": "机警",
+      "domain": "领域",
+      "status": "地位",
+      "actions": "行动",
+      "report": "报告",
+      "kind": "种类",
+      "schedule": "日程",
+      "export": "出口",
+      "scorecard": "记分卡",
+      "score": "分数",
+      "topDriver": "顶级车手",
+      "label": "标号",
+      "entity": "实体",
+      "measure": "措施",
+      "date": "日期"
+    },
+    "emDash": "—"
+  },
+  "legal": {
+    "shell": {
+      "brand": "爱格索拉",
+      "navLabel": "法律导航",
+      "lastUpdated": "最后更新：{date}",
+      "footerCopyright": "© 2026 {company}",
+      "footerNavLabel": "法律页脚",
+      "nav": {
+        "privacy": "隐私",
+        "terms": "条款",
+        "cookies": "曲奇饼",
+        "imprint": "版本说明",
+        "contact": "联系方式"
+      },
+      "footer": {
+        "home": "家",
+        "pricing": "定价",
+        "contact": "联系方式"
+      }
+    },
+    "contact": {
+      "title": "联系方式",
+      "eyebrow": "公司",
+      "introLead": "联系 AGXORA 团队咨询产品问题、支持或企业对话。更喜欢销售路线？使用",
+      "contactSales": "联系销售部门",
+      "companyEmail": "公司邮箱",
+      "supportEmail": "支持电子邮件",
+      "sales": "销售量",
+      "enterpriseForm": "企业形态",
+      "businessAddress": "营业地址",
+      "addressPending": "可应要求提供—设置NEXT_PUBLIC_AGXORA_ADDRESS_*用于生产。",
+      "quickLinks": "快速链接",
+      "pricing": "定价",
+      "imprint": "版本说明",
+      "privacyPolicy": "隐私政策"
+    },
+    "privacy": {
+      "title": "隐私政策",
+      "eyebrow": "合法的",
+      "intro": "本隐私政策解释了当您访问 {legalName}、创建帐户或使用 AGXORA 平台时，{siteUrl}（“AGXORA”、“我们”）如何处理个人数据。",
+      "controller": "1. 控制器",
+      "dataWeProcess": "2.我们处理的数据",
+      "dataAccount": "帐户数据：姓名、电子邮件、组织和角色。",
+      "dataUsage": "使用数据：产品交互、设备和诊断日志。",
+      "dataBilling": "计费数据：来自提供商的计划、发票和付款参考。",
+      "dataSupport": "支持您发送给我们的通信。",
+      "purposes": "3.宗旨和法律依据",
+      "purposesBody": "我们处理数据是为了提供服务（合同）、保护平台（合法利益）、履行法律义务，并在需要时征得您的同意（例如可选的分析或营销）。",
+      "retention": "4. 保留",
+      "retentionBody": "我们仅在上述目的所需的时间内保留个人数据，包括法定保留账单和安全记录，然后将其删除或匿名化。",
+      "sharing": "5. 分享",
+      "sharingBody": "我们根据适当的合同使用经过审查的处理者（托管、电子邮件、付款）。我们不出售个人数据。",
+      "yourRights": "6. 您的权利",
+      "yourRightsBodyBefore": "根据您所在的位置，您可以请求访问、更正、删除、限制、便携性或异议。联系",
+      "yourRightsBodyAfter": "您还可以向监管机构提出投诉。",
+      "cookies": "7. 饼干",
+      "cookiesBodyBefore": "看看我们的",
+      "cookiesBodyAfter": "有关必要和可选Cookie的详细信息。",
+      "cookiePolicy": "Cookie 政策",
+      "contactSection": "8. 联系方式",
+      "contactBodyBefore": "问题：",
+      "contactBodyMiddle": "或者"
+    },
+    "terms": {
+      "title": "服务条款",
+      "eyebrow": "合法的",
+      "intro": "这些服务条款（“条款”）管辖对 AGXORA 产品和由 {legalName} 运营的网站的访问和使用。创建帐户或使用服务即表示您同意这些条款。",
+      "accounts": "1. 账户",
+      "accountsBody": "您必须提供准确的注册信息，保证凭证的安全，并对您帐户下的活动负责。组织管理员管理其工作空间的席位和访问权限。",
+      "billing": "2. 订阅和计费",
+      "billingBodyBefore": "付费计划根据所选计划进行计费",
+      "billingBodyAfter": "企业协议可以取代自助服务条款。除非法律要求或明确书面同意，否则费用不可退还。",
+      "pricing": "定价",
+      "acceptableUse": "3. 可接受的用途",
+      "useNoMisuse": "请勿滥用平台、尝试未经授权的访问或中断服务。",
+      "useNoUnlawful": "请勿上传非法内容或侵犯第三方权利。",
+      "useCompliance": "遵守适用于您的出口、制裁和行业法规。",
+      "customerData": "4.客户数据",
+      "customerDataBodyBefore": "您保留对您的业务内容的权利。您授予 AGXORA 托管和处理该内容的有限许可，仅用于提供服务。我们的",
+      "customerDataBodyAfter": "描述了个人数据的处理。",
+      "privacyPolicy": "隐私政策",
+      "aiFeatures": "5.人工智能特点",
+      "aiFeaturesBody": "AI 输出可能不准确或不完整。在依赖输出做出业务决策之前，您仍然负责审查输出。",
+      "availability": "6. 可用性和变更",
+      "availabilityBody": "我们的目标是高可用性，但不保证服务不间断。我们可能会更新功能和这些条款；重大变更将在适当的情况下通过产品或电子邮件进行传达。",
+      "liability": "7. 责任限制",
+      "liabilityBody": "在法律允许的最大范围内，AGXORA 不对间接、偶然或后果性损害承担责任。我们对付费订阅的总责任仅限于索赔前十二个月内支付的费用。",
+      "contact": "8. 联系方式",
+      "contactBodyBefore": "法律问题："
+    },
+    "cookies": {
+      "title": "Cookie 政策",
+      "eyebrow": "合法的",
+      "intro": "本 Cookie 政策描述了 {companyName} 如何使用 Cookie 和类似技术。身份验证和安全性需要基本 cookie。仅在征得同意的情况下才会启用可选的分析 cookie。",
+      "whatAre": "1.什么是cookies？",
+      "whatAreBody": "Cookie 是存储在您设备上的小文件。它们帮助网站正常运行，记住偏好，并在允许的情况下衡量性能。",
+      "categories": "2.我们使用的类别",
+      "essential": "基本的",
+      "essentialBody": "身份验证、安全性、负载平衡和基本首选项。服务所需。",
+      "functional": "功能性",
+      "functionalBody": "可选功能，例如记忆的UI设置（启用时）。",
+      "analytics": "分析",
+      "analyticsBody": "聚合使用量测量（仅在需要时征得同意）。",
+      "managing": "3. 管理cookies",
+      "managingBody": "您可以通过浏览器设置以及我们的现场偏好中心（一旦可用）来控制非必要的 cookie。阻止必要的 cookie 可能会阻止登录或核心产品的使用。",
+      "moreInfo": "4. 更多信息",
+      "moreInfoBodyBefore": "请参阅",
+      "moreInfoBodyMiddle": "或联系"
+    },
+    "imprint": {
+      "title": "版本说明",
+      "eyebrow": "合法的",
+      "intro": "根据适用的披露要求提供的信息。在公开发布之前使用 NEXT_PUBLIC_AGXORA_* 环境变量配置生产值。",
+      "company": "公司",
+      "address": "地址",
+      "email": "电子邮件",
+      "support": "支持",
+      "representedBy": "代表人",
+      "register": "登记",
+      "vatId": "增值税号",
+      "pendingConfiguration": "待定配置",
+      "responsibleForContent": "对内容负责",
+      "responsibleBody": "本网站的编辑联系人：{legalName}{addressSuffix}。",
+      "contact": "联系方式",
+      "contactBodyBefore": "更喜欢表格？访问",
+      "contactBodyMiddle": "或者",
+      "contactBodyAfter": "供企业查询。",
+      "contactSales": "联系销售部门"
+    }
+  },
+  "onboarding": {
+    "eyebrow": "AGXORA操作系统",
+    "title": "启动您的企业操作系统",
+    "lead": "选择您的行业模板。AGXORA可配置模块、代理、工作流程和公司知识，而无需将您永远锁定在一个垂直领域。",
+    "steps": {
+      "type": "类型",
+      "company": "公司",
+      "locale": "语言环境",
+      "goals": "目标"
+    },
+    "companyName": "公司名称",
+    "companyPlaceholder": "艾克美酒店集团",
+    "template": "模板",
+    "country": "国家",
+    "language": "语言",
+    "languagePlaceholder": "zh",
+    "timezone": "默认时区是 UTC",
+    "timezonePlaceholder": "世界标准时间",
+    "goals": {
+      "increaseRevenue": "增加收入",
+      "improveOperations": "改善运营",
+      "delightCustomers": "让顾客满意",
+      "reduceCosts": "降低成本",
+      "scaleWithAi": "利用人工智能进行扩展"
+    },
+    "failed": "引入失败",
+    "back": "后退",
+    "continue": "继续",
+    "launching": "发射…",
+    "enterDashboard": "进入仪表板",
+    "defaultCountry": "美国",
+    "businessTypes": {
+      "hotel": {
+        "label": "酒店",
+        "description": "酒店、客房、宾客与物业运营"
+      },
+      "restaurant": {
+        "label": "餐厅",
+        "description": "餐饮、厨房、预订与宾客体验"
+      },
+      "cleaning": {
+        "label": "清洁",
+        "description": "商业与住宅清洁运营"
+      },
+      "laundry": {
+        "label": "洗衣",
+        "description": "洗涤工厂、取件路线与纺织护理"
+      },
+      "construction": {
+        "label": "建筑",
+        "description": "工地、班组、材料与项目交付"
+      },
+      "healthcare": {
+        "label": "医疗健康",
+        "description": "护理网络、患者与临床运营"
+      },
+      "medical": {
+        "label": "医疗",
+        "description": "诊所、预约与护理团队"
+      },
+      "manufacturing": {
+        "label": "制造",
+        "description": "生产线、质量与供应运营"
+      },
+      "retail": {
+        "label": "零售",
+        "description": "门店、库存、陈列与客户"
+      },
+      "legal": {
+        "label": "律师事务所",
+        "description": "案件、客户、截止日期与计费"
+      },
+      "accounting": {
+        "label": "会计",
+        "description": "账簿、客户、申报与顾问工作"
+      },
+      "consulting": {
+        "label": "咨询",
+        "description": "项目、交付物与客户成果"
+      },
+      "real_estate": {
+        "label": "房地产",
+        "description": "房源、客户、看房与交易"
+      },
+      "education": {
+        "label": "教育",
+        "description": "项目、学生、教职与招生"
+      },
+      "automotive": {
+        "label": "汽车",
+        "description": "经销商、维修工位与车辆库存"
+      },
+      "beauty": {
+        "label": "美容院",
+        "description": "预约、造型师、零售与会员"
+      },
+      "fitness": {
+        "label": "健身房 / 健身",
+        "description": "会员、课程、教练与留存"
+      },
+      "agriculture": {
+        "label": "农业",
+        "description": "作物、牲畜、产量与供应链"
+      },
+      "transport": {
+        "label": "运输",
+        "description": "车队调度、路线与客货运营"
+      },
+      "logistics": {
+        "label": "物流",
+        "description": "车队、仓库、路线与履约"
+      },
+      "warehouse": {
+        "label": "仓储",
+        "description": "仓储、拣货、包装与库存周转"
+      },
+      "insurance": {
+        "label": "保险",
+        "description": "保单、理赔、核保与留存"
+      },
+      "finance": {
+        "label": "金融",
+        "description": "资本、投资组合与金融运营"
+      },
+      "financial_services": {
+        "label": "金融服务",
+        "description": "顾问、产品、合规与客户"
+      },
+      "technology": {
+        "label": "科技",
+        "description": "产品、工程与上市团队"
+      },
+      "saas": {
+        "label": "软件 / SaaS",
+        "description": "订阅、用量与客户成功"
+      },
+      "ecommerce": {
+        "label": "电子商务",
+        "description": "在线目录、购物车、履约与 LTV"
+      },
+      "agency": {
+        "label": "营销机构",
+        "description": "客户、活动、固定合约与交付"
+      },
+      "freelancer": {
+        "label": "自由职业者",
+        "description": "独立执业、客户、管道与现金流"
+      },
+      "government": {
+        "label": "政府",
+        "description": "公共服务、项目与民众"
+      },
+      "nonprofit": {
+        "label": "非营利",
+        "description": "使命、捐赠人、项目与影响"
+      }
+    }
+  },
+  "creator": {
+    "page": {
+      "eyebrow": "AGXORA营销操作系统",
+      "title": "人工智能创作工作室",
+      "lead": "企业内容制作——跨每个渠道生成、品牌化、规划、发布和衡量人工智能驱动的活动。",
+      "dashboard": "仪表板",
+      "workspace": "工作空间",
+      "workspaceSubtitle": "创建内容·营销活动·媒体库·模板·品牌资产·发布队列·分析",
+      "workspaceAria": "创作者工作区",
+      "integrations": "未来的整合",
+      "integrationsSubtitle": "保留官方平台适配器——无虚假实时连接。",
+      "aiFeatures": "人工智能特点",
+      "aiFeaturesSubtitle": "生产、品牌、进度和本地化的能力图。"
+    },
+    "tabs": {
+      "create": "创建内容",
+      "campaigns": "活动",
+      "media": "媒体库",
+      "templates": "模板",
+      "brand": "品牌资产",
+      "queue": "发布队列",
+      "analytics": "分析"
+    },
+    "templates": {
+      "emptyTitle": "没有模板",
+      "emptyDescription": "可重复使用的内容和设计模板将位于此处。"
+    },
+    "campaign": {
+      "title": "活动策划师",
+      "calendar": "内容日历",
+      "columns": {
+        "name": "活动名称",
+        "objective": "客观的",
+        "audience": "观众",
+        "platforms": "平台",
+        "budget": "预算",
+        "timeline": "时间轴",
+        "status": "地位"
+      },
+      "emptyTitle": "没有广告活动",
+      "emptyDescription": "创建活动来规划目标、受众和时间表。"
+    },
+    "media": {
+      "title": "媒体库",
+      "columns": {
+        "asset": "资产",
+        "type": "类型",
+        "folder": "文件夹",
+        "tags": "標籤",
+        "updated": "已更新"
+      },
+      "emptyTitle": "没有媒体",
+      "emptyDescription": "图像、视频、文档、徽标和模板将出现在此处。",
+      "searchPlaceholder": "搜索资产、文件夹、标签...",
+      "typeFilter": "类型",
+      "allTypes": "所有类型",
+      "images": "图片",
+      "videos": "视频",
+      "documents": "文件",
+      "logos": "品牌标志",
+      "templates": "模板"
+    },
+    "generator": {
+      "title": "AI内容生成器",
+      "lead": "创建 Instagram 标题、TikTok 脚本、LinkedIn 帖子、广告、SEO 文章等。",
+      "brief": "概述",
+      "briefPlaceholder": "描述优惠、受众和 CTA……",
+      "generateDraft": "生成草稿",
+      "aiRewrite": "人工智能重写",
+      "translate": "翻译",
+      "initialOutput": "选择格式和品牌声音，然后生成草稿。提供者适配器被保留——还没有实时模型调用。",
+      "draftStaged": "为{format} · 语音起草的草稿：{voice}。保留一代适配器。",
+      "rewriteQueued": "AI 重写已排队 — 保留重写适配器。",
+      "translateQueued": "翻译内容排队 — 保留多语言适配器。",
+      "brandVoice": "品牌声音",
+      "brandVoiceLead": "商务语气预设加上自定义品牌声音以保持一致性。",
+      "active": "积极的"
+    },
+    "queue": {
+      "title": "发布队列",
+      "columns": {
+        "title": "标题",
+        "platform": "平台",
+        "format": "格式",
+        "status": "地位",
+        "scheduled": "预定",
+        "author": "作者"
+      },
+      "emptyTitle": "队列中没有帖子",
+      "emptyDescription": "草稿、评论和预定帖子将显示在此处。",
+      "filterStatus": "过滤器状态",
+      "allStatuses": "所有状态"
+    },
+    "analytics": {
+      "title": "分析",
+      "topPosts": "热门帖子",
+      "engagement": "工程{value}",
+      "reach": "达到{value}",
+      "recommendations": "人工智能建议"
+    },
+    "integrations": {
+      "lead": "未来的集成——可选。连接之前没有实时 API。 Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X、元业务、谷歌广告、谷歌分析。",
+      "adapter": "适配器："
+    },
+    "aiFeaturesPanel": {
+      "lead": "AI 功能图 — 想法、标题、主题标签、日历、活动、受众、日程、品牌一致性、重写、翻译、多语言。"
+    },
+    "formats": {
+      "instagram_caption": "Instagram 说明",
+      "tiktok_script": "TikTok 脚本",
+      "linkedin_post": "LinkedIn 帖子",
+      "facebook_post": "Facebook 帖子",
+      "x_post": "X 帖子",
+      "blog_article": "博客文章",
+      "newsletter": "新闻通讯",
+      "email_campaign": "电子邮件活动",
+      "product_description": "产品描述",
+      "ad_copy": "广告文案",
+      "seo_article": "SEO 文章",
+      "landing_page_copy": "落地页文案"
+    },
+    "publishStatus": {
+      "draft": "草稿",
+      "review": "审核",
+      "approved": "已批准",
+      "scheduled": "已排期",
+      "published": "已发布",
+      "archive": "归档"
+    },
+    "mediaKind": {
+      "image": "图片",
+      "video": "视频",
+      "document": "文档",
+      "logo": "品牌标志",
+      "template": "模板"
+    },
+    "voice": {
+      "professional": "专业",
+      "friendly": "友好",
+      "luxury": "奢华",
+      "casual": "轻松"
+    },
+    "integrationStatus": {
+      "planned": "已规划",
+      "ready": "就绪",
+      "connected": "已连接",
+      "disabled": "已停用"
+    }
+  },
+  "backend": {
+    "toast": {
+      "success": "成功",
+      "warning": "警告",
+      "error": "错误",
+      "info": "飞艇信息",
+      "dismiss": "关闭通知",
+      "close": "关闭"
+    },
+    "network": {
+      "offline": "您似乎处于离线状态",
+      "offlineSyncHint": "连接恢复前，更改可能不会同步。",
+      "offlineHelp": "离线帮助",
+      "reconnected": "连接已恢复"
+    },
+    "errorBoundary": {
+      "backToDashboard": "返回仪表板",
+      "title": "出了点问题",
+      "retry": "重试"
+    },
+    "notFound": {
+      "title": "找不到页面",
+      "message": "您请求的页面不存在、已移动或不再可用。",
+      "recoveryNav": "恢复期",
+      "home": "家",
+      "pricing": "定价",
+      "contact": "联系方式",
+      "signIn": "登陆",
+      "dashboard": "仪表板"
+    },
+    "globalError": {
+      "title": "出了点问题",
+      "message": "发生意外错误。请再试一次。",
+      "retry": "重试"
+    },
+    "skipToMain": "跳至主要内容",
+    "offline": {
+      "title": "您离线",
+      "message": "检查您的连接，并在重新上线后重试。缓存的屏幕可能仍然有效。",
+      "home": "家",
+      "contact": "联系方式",
+      "signIn": "登陆"
+    },
+    "logout": {
+      "title": "登出",
+      "signingOut": "正在将您注销...",
+      "endingSession": "会议结束...",
+      "failed": "无法登出"
+    },
+    "demo": {
+      "title": "预订演示",
+      "subtitle": "与 AGXORA 团队安排现场演练。在启用日历预订之前，请向我们发送电子邮件以请求演示。",
+      "requestTitle": "请求演示",
+      "requestBody": "我们正在完成日程安排，以便您可以选择适合您的团队的时间。在此之前，您可以免费开始并按照自己的节奏探索该产品，或者发送电子邮件至 {email}。",
+      "startFree": "改为免费试用",
+      "backHome": "回到家",
+      "signIn": "登陆"
+    },
+    "loading": "加载中",
+    "loadingEllipsis": "加载中…",
+    "loadingIdentity": "正在加载身份…"
+  },
+  "workspace": {
+    "page": {
+      "title": "工作空间",
+      "description": "用于模块和 AI 的独立租户工作区表面。",
+      "descriptionNamed": "{name} 的独立租户工作区表面。"
+    },
+    "idLabel": "工作区 ID：",
+    "active": "活跃：{name}",
+    "notInSession": "不在当前会话中",
+    "organization": "组织：{name} ({slug})",
+    "searchResults": "搜索结果"
+  },
+  "iam": {
+    "identity": {
+      "eyebrow": "企业身份管理",
+      "title": "身份和访问",
+      "lead": "组织、工作区、RBAC、安全占位符和审计架构。后端适配器插入时无需更改此表面。",
+      "openProfile": "打开个人资料",
+      "teamManagement": "团队管理",
+      "tabs": {
+        "organization": "组织",
+        "workspace": "工作空间",
+        "roles": "角色和权限",
+        "security": "安全",
+        "audit": "审核日志"
+      },
+      "organizationSettings": "组织设置",
+      "workspaceSettings": "工作区设置",
+      "noOrganization": "没有活跃的组织。完成入职培训或从组织服务创建入职培训。",
+      "logoPlaceholder": "徽标上传和计划计费适配器是未来身份后端的占位符。",
+      "rbacTitle": "RBAC——默认角色",
+      "permissionMatrix": "权限矩阵",
+      "canManageSettings": "可以管理设置：{value} · 已验证：{authenticated}",
+      "yes": "是的",
+      "no": "不",
+      "securitySettings": "安全设置",
+      "passwordChange": {
+        "title": "更改密码",
+        "detail": "密码更改在配置时通过身份验证提供程序进行连接。"
+      },
+      "twoFactor": {
+        "title": "双因素身份验证 (2FA)",
+        "detail": "TOTP 和 WebAuthn 适配器在启用时在此处注册。"
+      },
+      "activeSessions": {
+        "title": "活跃会话",
+        "detail": "设备目录存在于身份会话中；撤销对于服务器会话变得具有权威性。"
+      },
+      "apiKeys": {
+        "title": "API 密钥",
+        "detail": "为开发人员提供的服务帐户和范围令牌。"
+      },
+      "absoluteTimeout": "绝对超时",
+      "idleTimeout": "空闲超时",
+      "refreshSkew": "刷新倾斜",
+      "persistentLogin": "永久登录",
+      "disabled": "残疾人",
+      "enabled": "启用",
+      "days": "{count} 天",
+      "minutes": "{count} 分钟",
+      "toggleIdlePolicy": "切换空闲策略占位符",
+      "previewSessionExpired": "预览会话已过期",
+      "previewAccountLocked": "预览帐户已锁定",
+      "auditActivity": "审计活动",
+      "auditLead": "登录、注销、角色更改、邀请和组织事件均记录在本地。稍后替换为不可变的后端审核存储。",
+      "auditEmpty": "还没有 IAM 事件。登录或更改角色以填充日志。",
+      "meta": {
+        "name": "姓名",
+        "slug": "蛞蝓",
+        "plan": "计划",
+        "owner": "所有者",
+        "created": "已创建",
+        "yourRole": "你的角色",
+        "workspace": "工作空间",
+        "status": "地位",
+        "isolationKey": "隔离钥匙"
+      },
+      "matrix": {
+        "permission": "允许",
+        "owner": "所有者",
+        "admin": "行政",
+        "manager": "经理",
+        "member": "成员",
+        "viewer": "查看器",
+        "yes": "是的"
+      },
+      "audit": {
+        "when": "什么时候",
+        "action": "行动",
+        "actor": "演员",
+        "resource": "资源"
+      }
+    },
+    "roles": {
+      "owner": {
+        "name": "所有者",
+        "description": "完全控制，包括计费和所有权转让"
+      },
+      "admin": {
+        "name": "行政",
+        "description": "管理人员、安全、工作区和模块"
+      },
+      "manager": {
+        "name": "经理",
+        "description": "领导团队和运营模块；邀请会员"
+      },
+      "member": {
+        "name": "成员",
+        "description": "日常操作访问"
+      },
+      "viewer": {
+        "name": "查看器",
+        "description": "只读访问"
+      }
+    },
+    "profile": {
+      "eyebrow": "身份",
+      "title": "用户个人资料",
+      "lead": "管理您的帐户身份、偏好和安全性。组织和工作区控件位于“身份设置”中。",
+      "guest": "客人",
+      "notSignedIn": "未登录",
+      "identitySettings": "身份设置",
+      "security": "安全",
+      "profileSection": "轮廓",
+      "fullName": "姓名",
+      "email": "电子邮件",
+      "language": "语言",
+      "timezone": "默认时区是 UTC",
+      "languageEnGb": "英语（英国）",
+      "languageEnUs": "英语（美国）",
+      "languageDe": "德语",
+      "timezoneBerlin": "欧洲/柏林",
+      "timezoneLondon": "欧洲/伦敦",
+      "timezoneUtc": "世界标准时间",
+      "timezoneNewYork": "美国/New_York",
+      "notifications": "通知",
+      "emailNotifications": "电子邮件通知",
+      "pushNotifications": "推送通知",
+      "workspace": "工作空间",
+      "noticeInitial": "在连接配置文件 API 之前，首选项会保存在本地。",
+      "noticeSaved": "个人资料偏好设置已更新。",
+      "savePreferences": "保存首选项"
+    },
+    "workspaceSelector": {
+      "empty": "还没有工作区 - 创建一个组织来配置工作区。",
+      "label": "只显示使用中的工作区里的应用",
+      "ariaLabel": "切换工作空间"
+    },
+    "access": {
+      "eyebrow": "身份与访问",
+      "signIn": "登录",
+      "backToDashboard": "返回仪表盘",
+      "unauthorized": {
+        "title": "未授权",
+        "description": "请登录以继续使用 AGXORA 的此区域。"
+      },
+      "forbidden": {
+        "title": "禁止访问",
+        "description": "您的角色不包含此资源的权限。"
+      },
+      "expired_session": {
+        "title": "会话已过期",
+        "description": "您的会话已过期。请重新登录以继续工作。"
+      },
+      "missing_permission": {
+        "title": "缺少权限",
+        "description": "请让所有者或管理员授予所需的模块访问权限。"
+      },
+      "account_locked": {
+        "title": "账户已锁定",
+        "description": "此账户已锁定。请联系组织所有者或稍后再试。"
+      }
+    },
+    "verifyEmail": {
+      "title": "电子邮件验证",
+      "loading": "加载中…",
+      "skipForNow": "暂时跳过",
+      "tokenPlaceholder": "验证令牌",
+      "tokenIssued": "为当前会话颁发的验证令牌。",
+      "issueFailed": "无法发放令牌",
+      "verificationFailed": "验证失败",
+      "verify": "验证邮箱",
+      "verifying": "正在验证...",
+      "requestToken": "请求验证令牌"
+    }
+  }
+}

@@ -1,0 +1,4939 @@
+{
+  "common": {
+    "save": "Simpan",
+    "saveChanges": "Simpan perubahan",
+    "cancel": "Batal",
+    "close": "Tutup",
+    "delete": "Hapus",
+    "edit": "Sunting",
+    "search": "Cari",
+    "loading": "Memuat…",
+    "retry": "Coba lagi",
+    "language": "Bahasa",
+    "signIn": "Masuk",
+    "signOut": "Keluar",
+    "contact": "Kontak",
+    "privacy": "Pribadi",
+    "terms": "Ketentuan",
+    "cookies": "Cookie",
+    "imprint": "Jejak",
+    "organization": "Organisasi",
+    "user": "Pengguna",
+    "guest": "Tamu",
+    "member": "Anggota",
+    "role": "Peran",
+    "signedIn": "Masuk",
+    "guestSession": "Sesi tamu",
+    "noResults": "Tidak ada hasil",
+    "noData": "Tidak ada data",
+    "comingSoon": "Segera hadir",
+    "notConnected": "Tidak terhubung",
+    "demo": "Demo",
+    "sample": "Mencicipi",
+    "showPassword": "Tampilkan kata sandi",
+    "hidePassword": "Sembunyikan kata sandi",
+    "continue": "Lanjutkan",
+    "back": "Kembali",
+    "home": "Beranda",
+    "loadingShort": "Memuat",
+    "create": "Buat",
+    "next": "Berikutnya",
+    "previous": "Sebelumnya",
+    "settings": "Pengaturan",
+    "profile": "Profil",
+    "dashboard": "Dasbor"
+  },
+  "navigation": {
+    "dashboard": "Dasbor",
+    "projects": "Proyek",
+    "aiCrm": "AI CRM",
+    "analytics": "Analisis",
+    "billing": "Penagihan",
+    "aiWorkspace": "Ruang Kerja AI",
+    "customers": "Pelanggan",
+    "automation": "Otomatisasi",
+    "financeTax": "Keuangan & Pajak",
+    "aiCreatorStudio": "Studio Pembuat AI",
+    "documents": "Dokumen",
+    "team": "Tim",
+    "settings": "Pengaturan",
+    "toggleNavigation": "Alihkan navigasi",
+    "primary": "Utama",
+    "menu": "Menu",
+    "search": "Mencari",
+    "notifications": "Pemberitahuan",
+    "profile": "Profil",
+    "currentOrganization": "Organisasi saat ini",
+    "noNotifications": "Tidak ada pemberitahuan",
+    "notificationsEmpty": "Anda semua terjebak. Peringatan dan sebutan akan muncul di sini.",
+    "accountSettings": "Pengaturan akun",
+    "security": "Keamanan",
+    "themeToggle": "Pengalihan tema cepat. Preferensi: {mode}"
+  },
+  "pricing": {
+    "navLabel": "Navigasi harga",
+    "navPricing": "Harga",
+    "navContactSales": "Hubungi Penjualan",
+    "navBookDemo": "Demo Buku",
+    "navSignIn": "Masuk",
+    "eyebrow": "Harga",
+    "title": "Rencana dibuat untuk operator yang melakukan pengiriman.",
+    "lead": "Hapus tingkatan komersial. Mulai secara gratis, skalakan jika sudah siap, atau bicarakan dengan bagian penjualan untuk persyaratan perusahaan.",
+    "billingInterval": "Interval penagihan",
+    "monthly": "Bulanan",
+    "yearly": "Tahunan",
+    "savePercent": "Hemat ~20%",
+    "mostPopular": "PALING POPULER",
+    "startFree": "Mulai Gratis",
+    "bookDemo": "Demo Buku",
+    "contactSales": "Hubungi Penjualan",
+    "perMonth": "/bln",
+    "perMonthYearly": "/bln ditagih setiap tahun",
+    "yearlyHint": "{amount}/tahun · hemat {percent}%",
+    "commercialActions": "Tindakan komersial",
+    "legal": "Legal",
+    "planAria": "rencana {name} — {cta}",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Untuk pekerja lepas dan usaha kecil.",
+        "features": [
+          "CRM & saluran pelanggan",
+          "Proyek dan dokumen",
+          "Asisten AI yang diatur",
+          "Hingga 5 kursi",
+          "Dukungan email"
+        ]
+      },
+      "business": {
+        "name": "Bisnis",
+        "description": "Untuk tim yang sedang berkembang.",
+        "features": [
+          "Semuanya ada di Pemula",
+          "Modul keuangan & analitik",
+          "Ekspor otomatisasi & audit",
+          "Kolaborasi tim",
+          "Dukungan prioritas"
+        ]
+      },
+      "professional": {
+        "name": "Profesional",
+        "description": "Untuk perusahaan maju.",
+        "features": [
+          "Semuanya ada di Pemula",
+          "Modul keuangan & analitik",
+          "akses API",
+          "Alur kerja perusahaan tingkat lanjut",
+          "Kotak masuk dukungan prioritas"
+        ]
+      },
+      "enterprise": {
+        "name": "Perusahaan",
+        "description": "Harga khusus untuk skala tak terbatas.",
+        "features": [
+          "Harga khusus",
+          "Skala tidak terbatas",
+          "Orientasi khusus",
+          "Integrasi khusus",
+          "Dukungan prioritas"
+        ]
+      }
+    }
+  },
+  "billing": {
+    "currentPlan": "Rencana saat ini",
+    "upgrade": "Meningkatkan",
+    "viewPricing": "Lihat harga",
+    "contactSales": "Hubungi Penjualan",
+    "openBillingPortal": "Buka portal penagihan",
+    "billingQuestions": "Pertanyaan penagihan:",
+    "publicPricing": "Penetapan harga publik",
+    "recommended": "Direkomendasikan",
+    "account": {
+      "currentPlan": "Rencana Saat Ini",
+      "status": "Status",
+      "renewalDate": "Tanggal Pembaruan",
+      "seats": "Kursi",
+      "usage": "Penggunaan",
+      "noUsage": "Belum ada metrik penggunaan.",
+      "invoices": "Faktur",
+      "noInvoices": "Belum ada riwayat penagihan. Tingkatkan rencana untuk menghasilkan faktur dan perpanjangan."
+    },
+    "planCard": {
+      "currentPlan": "Rencana saat ini",
+      "recommended": "Direkomendasikan",
+      "contactSales": "Hubungi penjualan",
+      "pricePerMonth": "€{price}/bln",
+      "users": "{count} pengguna",
+      "aiRequests": "{count} Permintaan AI/bln",
+      "storage": "{count} penyimpanan MB",
+      "moduleFeatures": "fitur modul {count}",
+      "choosePlan": "Pilih paket",
+      "processing": "Pengolahan…",
+      "currentPlanAria": "{name} — paket saat ini",
+      "contactSalesAria": "{name} — hubungi bagian penjualan",
+      "choosePlanAria": "{name} — pilih paket"
+    },
+    "admin": {
+      "eyebrow": "Admin",
+      "title": "Administrasi penagihan",
+      "lead": "Manajemen internal untuk langganan, lisensi, faktur, antrean email, dan acara audit komersial.",
+      "customerPortal": "Portal pelanggan",
+      "loading": "Memuat penagihan admin…",
+      "licenses": "Lisensi & langganan",
+      "allInvoices": "Semua faktur",
+      "planCatalog": "Katalog rencana",
+      "custom": "Kebiasaan",
+      "features": "{count} fitur",
+      "emailQueue": "Antrian email (tiruan)",
+      "noEmails": "Tidak ada email dalam antrean.",
+      "commercialAudit": "Audit komersial",
+      "columns": {
+        "organization": "Organisasi",
+        "plan": "Rencana",
+        "status": "Status",
+        "seats": "Kursi",
+        "actions": "Tindakan",
+        "invoice": "Faktur",
+        "org": "Organisasi",
+        "amount": "Jumlah",
+        "when": "Kapan",
+        "action": "Tindakan"
+      },
+      "suspend": "Menskors",
+      "lifetime": "Seumur hidup",
+      "refund": "Pengembalian dana"
+    },
+    "portal": {
+      "eyebrow": "SaaS Komersial",
+      "title": "Langganan & Penagihan",
+      "lead": "Kelola paket Anda, kuota penggunaan, faktur, dan metode pembayaran. Penyedia pembayaran tetap berada di belakang layanan penagihan.",
+      "settingsBilling": "Pengaturan penagihan",
+      "adminBilling": "Penagihan admin",
+      "loading": "Memuat penagihan…",
+      "currentLicense": "Lisensi saat ini",
+      "plan": "Rencana",
+      "status": "Status",
+      "seats": "Kursi",
+      "renewsTrial": "Memperbarui / uji coba",
+      "enabledModules": "Modul yang diaktifkan: {modules}",
+      "none": "tidak ada",
+      "renew": "Memperbarui",
+      "cancelSubscription": "Batalkan langganan",
+      "plans": "Rencana",
+      "provider": "Penyedia",
+      "couponPlaceholder": "Kupon (PELUNCURAN20)",
+      "usageQuotas": "Penggunaan & kuota",
+      "invoices": "Faktur",
+      "noInvoices": "Belum ada faktur.",
+      "paymentMethods": "Metode pembayaran",
+      "noPaymentMethods": "Tidak ada metode pembayaran yang tercatat.",
+      "default": "bawaan",
+      "companyProfile": "Profil penagihan perusahaan",
+      "company": "Perusahaan",
+      "billingEmail": "Email penagihan",
+      "vatId": "ID PPN",
+      "taxId": "Nomor Pajak",
+      "vatPlaceholder": "misalnya DE123456789",
+      "taxPlaceholder": "misalnya DE123456789",
+      "saveProfile": "Simpan profil",
+      "notifications": "Pemberitahuan",
+      "noNotifications": "Tidak ada pemberitahuan penagihan.",
+      "noticeInitial": "Penagihan berjalan melalui lapisan layanan komersial — tidak ada SDK pembayaran di UI.",
+      "noticeActivated": "Mengaktifkan {planId} melalui {providerId} (pembayaran tiruan).",
+      "noticeCheckoutFailed": "Pembayaran gagal",
+      "noticeCancelled": "Langganan dibatalkan.",
+      "noticeRenewed": "Langganan diperpanjang untuk periode berikutnya.",
+      "noticeProfileSaved": "Profil penagihan disimpan.",
+      "columns": {
+        "invoice": "Faktur",
+        "status": "Status",
+        "amount": "Jumlah",
+        "issued": "Diterbitkan",
+        "metric": "Metrik",
+        "used": "Digunakan",
+        "limit": "Membatasi"
+      },
+      "quotaStatus": {
+        "exceeded": "Melebihi",
+        "warning": "Peringatan",
+        "ok": "OKE"
+      }
+    }
+  },
+  "settings": {
+    "controlCenter": "Pusat Kendali",
+    "settingsSections": "Bagian pengaturan",
+    "profile": {
+      "label": "Profil",
+      "description": "Avatar, identitas, dan preferensi pribadi",
+      "title": "Profil",
+      "panelDescription": "Avatar, nama lengkap, email, peran, zona waktu, bahasa, dan preferensi tema.",
+      "language": "Bahasa",
+      "timezone": "Zona waktu",
+      "fullName": "Nama lengkap",
+      "email": "E-mail",
+      "role": "Peran",
+      "theme": "Tema",
+      "avatar": "Avatar",
+      "changeAvatar": "Ubah avatar",
+      "region": "Wilayah",
+      "personalPrefs": "Preferensi pribadi",
+      "supportLinks": "Dukungan & hukum",
+      "signedOut": "Masuk untuk melihat identitas akun Anda.",
+      "serverIdentityNotice": "Nama, email, dan peran berasal dari sesi server Anda. Mereka tidak disimpan di browser ini.",
+      "localPrefsNotice": "Zona waktu, wilayah, dan preferensi pribadi belum dipertahankan. Menyimpannya hanya akan memperbarui halaman ini sampai Anda keluar.",
+      "avatarUnavailable": "Unggahan avatar belum tersedia.",
+      "appearanceNote": "Konfigurasi penampilan tetap berada di bawah Penampilan. Header hanya menyediakan tema quick toggle.",
+      "prefsHint": "Digunakan oleh asisten AI di seluruh modul.",
+      "themeResolved": "{mode} (terselesaikan {appearance})",
+      "regions": {
+        "EU": "Uni Eropa",
+        "US": "Amerika Serikat",
+        "MENA": "MENA",
+        "APAC": "Asia Pasifik"
+      }
+    },
+    "organization": {
+      "label": "Organisasi",
+      "description": "Profil perusahaan dan identitas pajak",
+      "title": "Organisasi",
+      "panelDescription": "Nama perusahaan, logo, alamat, informasi perpajakan, departemen, dan unit bisnis."
+    },
+    "workspace": {
+      "label": "Ruang kerja",
+      "description": "Pencitraan merek, beranda, dan modul default",
+      "title": "Ruang kerja",
+      "panelDescription": "Pengaturan ruang kerja, dasbor default, branding, modul, dan beranda."
+    },
+    "team": {
+      "label": "Tim",
+      "description": "Anggota, peran, undangan, dan grup",
+      "title": "Tim",
+      "panelDescription": "Anggota, peran, undangan, dan grup."
+    },
+    "ai": {
+      "label": "AI",
+      "description": "Penyedia, model, kreativitas, dan memori",
+      "title": "AI",
+      "panelDescription": "Penyedia, model, kreativitas, suhu, dan preferensi memori.",
+      "openAgentOs": "Buka Agen OS",
+      "openAiWorkspace": "Buka Ruang Kerja AI",
+      "noticeSync": "Pengaturan AI disinkronkan melalui AISettingsProvider — kunci tidak pernah disimpan di sini.",
+      "noticeProvider": "Implementasi penyedia tetap berada di belakang lapisan layanan AI. UI tidak pernah menerima kunci API atau detail SDK. Agen otonom tinggal di Agen OS.",
+      "preferredProvider": "Penyedia AI Pilihan",
+      "defaultModel": "Model AI Bawaan",
+      "temperature": "Suhu",
+      "topP": "P atas",
+      "maxTokens": "Token Maks",
+      "writingStyle": "Gaya Penulisan",
+      "languagePreferences": "Preferensi Bahasa",
+      "systemPrompt": "Perintah Sistem",
+      "systemPromptHint": "Diterapkan sebagai instruksi sistem default untuk Platform AI.",
+      "systemPromptPlaceholder": "Anda adalah AGXORA AI — asisten pengoperasian perusahaan…",
+      "apiKeyManagement": "Manajemen Kunci API",
+      "apiKeyHint": "Kunci diberikan melalui variabel lingkungan server saja.",
+      "apiKeyPlaceholder": "Dikonfigurasi melalui variabel lingkungan AGXORA_* (tidak pernah di browser)",
+      "memory": "Ingatan",
+      "memoryDescription": "Izinkan memori organisasi untuk menginformasikan balasan AI di seluruh modul.",
+      "automationSuggestions": "Saran Otomatisasi",
+      "automationSuggestionsDescription": "Saran alur kerja AI permukaan di Automation Engine.",
+      "streaming": "Mengalir",
+      "streamingDescription": "Streaming respons model ketika penyedia mendukungnya.",
+      "providers": {
+        "mock": "Tiruan (lokal)",
+        "openai": "OpenAI",
+        "azure": "Azure OpenAI",
+        "anthropic": "Antropis",
+        "google": "Google",
+        "openrouter": "BukaRouter",
+        "ollama": "Ollama",
+        "local": "Penyedia Lokal"
+      },
+      "writingStyles": {
+        "professional": "Profesional",
+        "concise": "Ringkas",
+        "friendly": "Ramah",
+        "technical": "Teknis"
+      },
+      "languages": {
+        "auto": "Cocokkan bahasa profil",
+        "en": "Bahasa inggris",
+        "de": "Jerman"
+      }
+    },
+    "appearance": {
+      "label": "Penampilan",
+      "description": "Tema, kepadatan, dan efek kaca",
+      "title": "Penampilan",
+      "panelDescription": "Tema, kepadatan, aksen, animasi, dan efek kaca.",
+      "noticeTheme": "Mode tema adalah satu-satunya sumber kebenaran melalui ThemeProvider. Header hanya menawarkan peralihan cepat.",
+      "themeLabel": "Tema",
+      "themeModeAria": "Modus tema",
+      "resolvedAppearance": "Penampilan terselesaikan:",
+      "accentColor": "Warna Aksen",
+      "accentNotice": "Preferensi aksen disimpan untuk pengkabelan var CSS di masa mendatang — belum mengubah sistem warna yang terkunci.",
+      "density": "Kepadatan",
+      "compactMode": "Mode Kompak",
+      "compactModeDescription": "Kurangi padding di seluruh tabel dan panel perusahaan.",
+      "animations": "Animasi",
+      "animationsDescription": "Bagian gerakan dan hover lift. Menghargai pengaturan OS dengan gerakan yang dikurangi.",
+      "glassEffects": "Efek Kaca",
+      "glassEffectsDescription": "Kartu kaca buram dan preferensi intensitas keburaman sidebar.",
+      "modes": {
+        "day": {
+          "label": "Lampu",
+          "hint": "Palet hari perusahaan mutiara / es"
+        },
+        "night": {
+          "label": "Gelap",
+          "hint": "Tampilan malam sinematik yang disetujui"
+        },
+        "auto": {
+          "label": "Sistem",
+          "hint": "Ikuti jadwal setempat (Otomatis)"
+        }
+      },
+      "densities": {
+        "comfortable": "Nyaman",
+        "compact": "Kompak",
+        "spacious": "Luas"
+      }
+    },
+    "notifications": {
+      "label": "Pemberitahuan",
+      "description": "Peringatan email, push, dan modul",
+      "title": "Pemberitahuan",
+      "panelDescription": "Peringatan khusus email, push, desktop, seluler, dan modul.",
+      "notice": "Saluran notifikasi hanya bersifat preferensi — adaptor pengiriman dicadangkan.",
+      "email": "E-mail",
+      "push": "Dorongan",
+      "desktop": "Desktop",
+      "mobile": "Seluler",
+      "workflowAlerts": "Peringatan Alur Kerja",
+      "workflowAlertsDescription": "Peristiwa eksekusi dan persetujuan Mesin Otomasi.",
+      "financeAlerts": "Peringatan Keuangan",
+      "crmAlerts": "Peringatan CRM",
+      "documentsAlerts": "Peringatan Dokumen",
+      "deliveryNotice": "Adaptor pengiriman dikirimkan saat peluncuran. Pertanyaan:",
+      "contactSupport": "Hubungi dukungan"
+    },
+    "documents": {
+      "label": "Dokumen",
+      "description": "Penyimpanan, retensi, dan pengetahuan",
+      "title": "Dokumen",
+      "panelDescription": "Preferensi penyimpanan, retensi, folder default, pembuatan versi, dan pengaturan pengetahuan.",
+      "notice": "Pengaturan dokumen terintegrasi dengan arsitektur Knowledge Hub.",
+      "storagePreferences": "Preferensi Penyimpanan",
+      "retentionPolicy": "Kebijakan Retensi",
+      "defaultFolder": "Folder Bawaan",
+      "versioning": "Pembuatan versi",
+      "versioningDescription": "Simpan riwayat versi dokumen untuk dipulihkan/dibandingkan.",
+      "knowledgeSettings": "Pengaturan Pengetahuan",
+      "knowledgeDescription": "Pengindeksan AI untuk pencarian Knowledge Hub.",
+      "storageOptions": {
+        "workspace-default": "Default ruang kerja",
+        "eu-region": "wilayah UE",
+        "encrypted-vault": "Gudang terenkripsi"
+      },
+      "retentionOptions": {
+        "30-days": "30 hari (awal)",
+        "2-years": "2 tahun",
+        "7-years": "7 tahun",
+        "10-years": "10 tahun"
+      }
+    },
+    "automation": {
+      "label": "Otomatisasi",
+      "description": "Default alur kerja dan kebijakan percobaan ulang",
+      "title": "Otomatisasi",
+      "panelDescription": "Default alur kerja, saran AI, log eksekusi, batas riwayat, dan kebijakan percobaan ulang.",
+      "notice": "Default otomatisasi berlaku untuk arsitektur Workflow Engine.",
+      "workflowDefaults": "Default Alur Kerja",
+      "historyLimits": "Batasan Sejarah",
+      "retryPolicy": "Kebijakan Coba Ulang",
+      "aiSuggestions": "Saran AI",
+      "executionLogs": "Log Eksekusi",
+      "executionLogsDescription": "Pertahankan payload yang dijalankan secara mendetail di Riwayat Alur Kerja.",
+      "workflowOptions": {
+        "require-approval": "Memerlukan gerbang persetujuan",
+        "auto-run": "Alur tepercaya yang dijalankan secara otomatis",
+        "draft-only": "Hanya draf"
+      },
+      "historyOptions": {
+        "30-days": "30 hari",
+        "90-days": "90 hari",
+        "365-days": "365 hari"
+      },
+      "retryOptions": {
+        "none": "Tidak ada percobaan ulang",
+        "3-exponential": "3× eksponensial",
+        "5-linear": "5× linier"
+      }
+    },
+    "integrations": {
+      "label": "Integrasi",
+      "description": "Terpasang, terhubung, dan tersedia",
+      "title": "Integrasi",
+      "panelDescription": "Adaptor terpasang, terhubung, dan tersedia.",
+      "openCenter": "Buka Pusat Integrasi",
+      "notice": "Platform Integrasi Perusahaan ada di Pusat Integrasi — konektor, OAuth, webhook, kunci API, dan jembatan peristiwa alur kerja.",
+      "columns": {
+        "integration": "Integrasi",
+        "category": "Kategori",
+        "status": "Status",
+        "adapter": "Adaptor"
+      }
+    },
+    "security": {
+      "label": "Keamanan",
+      "description": "Sesi, kata sandi, dan perlindungan akun",
+      "title": "Keamanan",
+      "panelDescription": "Sesi server untuk akun ini. Perangkat, IP, dan MFA tidak disimpan.",
+      "activeSessions": "Sesi aktif",
+      "currentSession": "Sesi saat ini",
+      "otherSession": "Sesi lainnya",
+      "currentBadge": "Sesi ini",
+      "otherBadge": "Sesi lainnya",
+      "createdAt": "Masuk",
+      "expiresAt": "Kedaluwarsa",
+      "revoke": "Cabut sesi",
+      "revokeAria": "Cabut sesi yang masuk {when}",
+      "revokeOthers": "Keluar dari sesi lain",
+      "revokeOthersAria": "Keluar dari semua sesi kecuali sesi saat ini",
+      "revoked": "Sesi dicabut.",
+      "othersRevoked": "Sesi lain keluar. Sesi ini masih aktif.",
+      "loading": "Memuat sesi…",
+      "empty": "Tidak ada sesi aktif",
+      "emptyBody": "Tidak ada sesi server aktif untuk akun ini.",
+      "demoEmpty": "Masuk untuk mendaftarkan sesi demo lokal di browser ini.",
+      "signedOutTitle": "Tidak masuk",
+      "signedOut": "Masuk untuk melihat sesi server aktif Anda.",
+      "loadFailed": "Tidak dapat memuat sesi.",
+      "revokeFailed": "Tidak dapat membatalkan sesi itu.",
+      "logout": "Keluar dari sesi ini",
+      "logoutAria": "Keluar dari sesi server saat ini",
+      "password": "Kata sandi",
+      "changePassword": "Setel ulang kata sandi",
+      "passwordHint": "Perubahan kata sandi menggunakan alur reset yang ada. Formulir perubahan kata sandi khusus belum tersedia.",
+      "mfaTitle": "Otentikasi dua faktor",
+      "mfaUnavailable": "Otentikasi dua faktor belum tersedia.",
+      "ssoTitle": "SSO dan OAuth",
+      "ssoUnavailable": "Penyedia sistem masuk tunggal dan OAuth belum tersedia.",
+      "encryptionTitle": "Enkripsi",
+      "encryptionUnavailable": "Manajemen kunci dan kontrol enkripsi saat tidak aktif belum tersedia.",
+      "trustedDevices": "Perangkat tepercaya",
+      "trustedUnavailable": "Perangkat tepercaya dan riwayat IP tidak disimpan. Metadata sesi terbatas pada waktu pembuatan dan berakhirnya.",
+      "apiKeys": "Kunci API",
+      "apiKeysHint": "Kunci pengembang dikelola di bawah API & Pengembang. Panel ini tidak mengeluarkan kunci.",
+      "openApi": "Buka pengaturan API",
+      "serverNotice": "Sesi disimpan di server. Browser ini tidak pernah memperlakukan data identitas lokal sebagai data resmi.",
+      "demoNotice": "Mode demo hanya menggunakan sesi browser lokal. Ini bukan otentikasi produksi.",
+      "noDeviceMeta": "Perangkat, IP, dan agen pengguna tidak dicatat."
+    },
+    "billing": {
+      "label": "Penagihan",
+      "description": "Paket, penggunaan, faktur, dan pembayaran",
+      "title": "Penagihan",
+      "panelDescription": "Paket saat ini, perpanjangan, penggunaan, faktur, dan jalur peningkatan."
+    },
+    "api": {
+      "label": "API & Pengembang",
+      "description": "Kunci, webhook, token, kotak pasir",
+      "title": "API & Pengembang",
+      "panelDescription": "Kunci, webhook, token, dan akses kotak pasir.",
+      "openPortal": "Buka portal pengembang",
+      "notice": "Hasilkan, putar, dan cabut kunci di Pusat Integrasi. Gateway, penguji webhook, dan penjelajah API tersedia di sana.",
+      "webhooks": "Webhook",
+      "sandbox": "Bak pasir",
+      "sandboxEnabled": "Diaktifkan",
+      "sandboxDisabled": "Dengan disabilitas",
+      "tokensNotice": "Token pengembang tidak pernah menampilkan rahasia lengkap — hanya awalan.",
+      "columns": {
+        "name": "Nama",
+        "key": "Kunci",
+        "scope": "Cakupan",
+        "lastUsed": "Terakhir digunakan"
+      }
+    },
+    "audit": {
+      "label": "Log Audit",
+      "description": "Perubahan aktivitas, keamanan, dan sistem",
+      "title": "Log Audit",
+      "panelDescription": "Aktivitas terkini, peristiwa keamanan, dan perubahan sistem.",
+      "columns": {
+        "when": "Kapan",
+        "actor": "Aktor",
+        "category": "Kategori",
+        "summary": "Ringkasan"
+      },
+      "categories": {
+        "activity": "Aktivitas Terkini",
+        "security": "Peristiwa Keamanan",
+        "system": "Perubahan Sistem"
+      }
+    },
+    "advanced": {
+      "label": "Canggih",
+      "description": "Eksperimental, reset, impor, ekspor",
+      "title": "Canggih",
+      "panelDescription": "Fitur eksperimental, reset, impor, dan ekspor.",
+      "notice": "Tindakan lanjutan memerlukan konfirmasi sebelum mengajukan permohonan.",
+      "experimentalFeatures": "Fitur Eksperimental",
+      "experimentalDescription": "Ikut serta dalam kemampuan Pusat Kontrol yang belum selesai.",
+      "export": "Ekspor",
+      "import": "Impor",
+      "reset": "Mengatur ulang",
+      "exportUnavailable": "Ekspor belum tersedia.",
+      "importUnavailable": "Impor belum tersedia.",
+      "resetUnavailable": "Penyetelan ulang belum tersedia."
+    },
+    "page": {
+      "eyebrow": "Pusat Kontrol AGXORA",
+      "title": "Pengaturan",
+      "lead": "Konfigurasi perusahaan untuk setiap modul AGXORA — profil, organisasi, AI, tampilan, keamanan, penagihan, dan kontrol pengembang di satu tempat.",
+      "loading": "Memuat pengaturan…",
+      "breadcrumb": "{label} · {description}"
+    },
+    "saveChanges": "Simpan perubahan",
+    "sessionNotice": "Diperbarui untuk sesi ini — {area} tidak terhubung.",
+    "kpi": {
+      "members": {
+        "label": "Anggota Tim",
+        "caption": "Kursi aktif"
+      },
+      "integrations": {
+        "label": "Integrasi",
+        "caption": "Adaptor yang terhubung"
+      },
+      "api": {
+        "label": "Kunci API",
+        "caption": "Token pengembang"
+      },
+      "audit": {
+        "label": "Acara Audit",
+        "caption": "7 hari terakhir"
+      }
+    },
+    "unknown": {
+      "title": "Pengaturan",
+      "description": "Bagian tidak diketahui.",
+      "emptyTitle": "Tidak ditemukan",
+      "emptyDescription": "Pilih bagian dari navigasi Pusat Kontrol."
+    },
+    "controlPlane": {
+      "loading": "Memuat…",
+      "loadFailed": "Tidak dapat memuat data organisasi. Masuk dan coba lagi.",
+      "saveFailed": "Tidak dapat menyimpan perubahan.",
+      "saving": "Penghematan…",
+      "orgName": "Nama organisasi",
+      "orgSlug": "Siput",
+      "owner": "Pemilik",
+      "counts": "Anggota · ruang kerja",
+      "orgUpdated": "Organisasi diperbarui.",
+      "countsValue": "{members} · {workspaces}",
+      "joined": "Bergabung",
+      "workspaceName": "Nama ruang kerja",
+      "switchWorkspace": "Ruang kerja aktif",
+      "active": "aktif",
+      "rename": "Ganti nama",
+      "archive": "Arsip",
+      "create": "Buat ruang kerja",
+      "createWorkspace": "Ruang kerja baru",
+      "workspaceCreated": "Ruang kerja dibuat.",
+      "workspaceUpdated": "Ruang kerja diganti namanya.",
+      "workspaceArchived": "Ruang kerja diarsipkan.",
+      "workspaceSwitched": "Ruang kerja aktif diperbarui.",
+      "member": "Anggota",
+      "email": "E-mail",
+      "role": "Peran",
+      "status": "Status",
+      "actions": "Tindakan",
+      "roleOwner": "Pemilik",
+      "roleAdmin": "Admin",
+      "roleMember": "Anggota",
+      "changeRole": "Ubah peran",
+      "remove": "Menghapus",
+      "invite": "Undang anggota",
+      "inviteTitle": "Undang ke ruang kerja",
+      "sendInvite": "Buat undangan",
+      "close": "Menutup",
+      "pending": "Undangan yang tertunda",
+      "noPending": "Tidak ada undangan yang menunggu keputusan.",
+      "revoke": "Menarik kembali",
+      "noMembers": "Belum ada anggota",
+      "noMembersBody": "Undang rekan satu tim ke ruang kerja ini.",
+      "inviteHonesty": "Pengiriman email tidak dikonfigurasi. Bagikan tautan undangan secara langsung.",
+      "inviteLink": "Tautan undangan",
+      "inviteInvalid": "Undangan ini tidak sah.",
+      "accept": "Terima undangan",
+      "invitedAs": "{email} diundang sebagai {role}.",
+      "inviteStatus": {
+        "pending": "Tertunda",
+        "expired": "Undangan ini telah kedaluwarsa.",
+        "revoked": "Undangan ini dicabut.",
+        "accepted": "Undangan ini sudah diterima."
+      },
+      "transferOwnership": "Mentransfer kepemilikan",
+      "transferTitle": "Mentransfer kepemilikan organisasi",
+      "transferWarning": "Ini adalah tindakan yang berbahaya. Anda tetap PEMILIK sampai penerima mengonfirmasi. Setelah konfirmasi, Anda menjadi ADMIN dan mereka menjadi PEMILIK.",
+      "transferTarget": "Pemilik baru",
+      "transferSelectMember": "Pilih anggota yang ada…",
+      "transferTypeName": "Ketik “{name}” untuk mengonfirmasi",
+      "transferConfirmMismatch": "Nama yang diketik tidak sesuai dengan anggota yang dipilih.",
+      "transferInitiate": "Mulai transfer",
+      "transferHonesty": "Email konfirmasi dikirim ketika pengiriman dikonfigurasi. Jika tidak, bagikan tautan konfirmasi secara langsung dengan penerima.",
+      "transferLink": "Tautan konfirmasi",
+      "transferPendingTitle": "Transfer kepemilikan tertunda",
+      "transferPendingBody": "Menunggu {name} ({email}) untuk mengonfirmasi. Kedaluwarsa {expires}. Anda tetap PEMILIK sampai saat itu.",
+      "transferPendingNote": "Peran keanggotaan tidak berubah selama transfer tertunda.",
+      "cancelTransfer": "Batalkan transfer",
+      "transferCancelled": "Pengalihan kepemilikan dibatalkan.",
+      "transferInvalid": "Pengalihan kepemilikan ini tidak sah.",
+      "transferConfirmTitle": "Konfirmasikan transfer kepemilikan",
+      "transferConfirmBody": "{from} ingin mentransfer kepemilikan organisasi ke {to} ({email}).",
+      "transferConfirmDanger": "Setelah Anda konfirmasi, Anda menjadi PEMILIK dan pemilik sebelumnya menjadi ADMIN.",
+      "transferConfirmAction": "Konfirmasikan saya menjadi pemilik baru",
+      "transferWrongAccount": "Masuk sebagai {email} untuk mengonfirmasi transfer ini.",
+      "transferStatus": {
+        "pending": "Menunggu konfirmasi",
+        "expired": "Pengalihan kepemilikan ini telah berakhir.",
+        "cancelled": "Pengalihan kepemilikan ini dibatalkan.",
+        "confirmed": "Pengalihan kepemilikan ini telah selesai."
+      }
+    }
+  },
+  "errors": {
+    "required": "Kolom ini wajib diisi.",
+    "invalidEmail": "Masukkan alamat email yang valid.",
+    "passwordMin": "Kata sandi minimal harus 8 karakter.",
+    "passwordLettersNumbers": "Kata sandi harus menyertakan huruf dan angka.",
+    "passwordMismatch": "Kata sandi tidak cocok.",
+    "acceptTerms": "Harap terima persyaratan untuk melanjutkan.",
+    "generic": "Terjadi kesalahan.",
+    "tryAgain": "Silakan coba lagi.",
+    "saved": "Berhasil disimpan.",
+    "invalidCredentials": "Email atau kata sandi tidak valid.",
+    "signInRequired": "Harus masuk.",
+    "insufficientPermissions": "Izin tidak mencukupi.",
+    "noRouteAccess": "Anda tidak memiliki akses ke rute ini.",
+    "accountLocked": "Akun ini terkunci. Hubungi administrator.",
+    "sessionExpired": "Sesi Anda berakhir. Masuk lagi.",
+    "missingPermission": "Izin tidak ada: {permission}",
+    "roleCannotAccess": "Peran Anda tidak dapat mengakses sumber daya ini.",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "Email atau kata sandi tidak valid.",
+      "AUTH_SESSION_EXPIRED": "Sesi Anda berakhir. Masuk lagi.",
+      "AUTH_ACCOUNT_LOCKED": "Akun ini terkunci. Hubungi administrator.",
+      "AUTH_SIGN_IN_REQUIRED": "Masuk untuk melanjutkan.",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "Izin tidak mencukupi.",
+      "AUTH_NO_ROUTE_ACCESS": "Anda tidak memiliki akses ke rute ini.",
+      "COMMON_SOMETHING_WENT_WRONG": "Terjadi kesalahan.",
+      "COMMON_PAGE_NOT_FOUND": "Halaman tidak ditemukan.",
+      "COMMON_OFFLINE": "Anda sedang offline.",
+      "COMMON_TIMEOUT": "Permintaan kehabisan waktu.",
+      "COMMON_VALIDATION": "Periksa input Anda dan coba lagi.",
+      "COMMON_UNKNOWN": "Terjadi kesalahan yang tidak diketahui.",
+      "COMMON_INTERNAL": "Terjadi kesalahan tak terduga. Silakan coba lagi."
+    }
+  },
+  "dashboard": {
+    "skipToContent": "Lewati ke konten dasbor",
+    "loading": "Memuat dasbor…",
+    "hero": {
+      "ariaLabel": "Pahlawan INTI AGXORA",
+      "eyebrow": "Sistem Operasi Bisnis AI",
+      "title": "INTI AGXORA",
+      "subtitle": "Kecerdasan real-time dan kontrol operasional — permukaan perintah ruang kerja Anda.",
+      "ctaGetStarted": "Mulailah",
+      "ctaViewActivity": "Lihat aktivitas",
+      "openQuickActionsAria": "Buka tindakan cepat",
+      "viewActivityAria": "Lihat aktivitas terkini"
+    },
+    "quickActions": {
+      "title": "Tindakan cepat",
+      "subtitle": "Apa yang harus Anda lakukan selanjutnya?",
+      "ariaLabel": "Tindakan cepat",
+      "addCustomer": {
+        "label": "Tambahkan pelanggan",
+        "description": "Buat catatan CRM"
+      },
+      "newProject": {
+        "label": "Proyek baru",
+        "description": "Mulai jalur pengiriman"
+      },
+      "askAi": {
+        "label": "Tanya AI",
+        "description": "Buka ruang kerja AI"
+      },
+      "finance": {
+        "label": "Keuangan",
+        "description": "Faktur dan arus kas"
+      },
+      "automations": {
+        "label": "Otomatisasi",
+        "description": "Mesin alur kerja"
+      },
+      "settings": {
+        "label": "Pengaturan",
+        "description": "Preferensi ruang kerja"
+      }
+    },
+    "attention": {
+      "title": "Perlu perhatian",
+      "ariaLabel": "Apa yang perlu diperhatikan",
+      "empty": "Anda sudah jelas - tidak ada barang mendesak saat ini.",
+      "tone": {
+        "critical": "Kritis",
+        "warning": "Peringatan",
+        "info": "Informasi",
+        "success": "Siap",
+        "action": "Lakukan selanjutnya"
+      },
+      "addCustomer": {
+        "title": "Tambahkan pelanggan pertama Anda",
+        "detail": "Mulai CRM dengan catatan akun nyata."
+      },
+      "createProject": {
+        "title": "Buat proyek",
+        "detail": "Buka jalur pengiriman untuk pertunangan Anda berikutnya."
+      },
+      "exploreAi": {
+        "title": "Jelajahi ruang kerja AI",
+        "detail": "Tanyakan AGXORA tentang pelanggan, proyek, atau langkah selanjutnya."
+      },
+      "reviewBilling": {
+        "title": "Tinjau penagihan",
+        "detail": "Konfirmasikan paket dan penggunaan saat Anda siap melakukan penskalaan."
+      }
+    },
+    "overview": {
+      "title": "Apa yang sedang terjadi",
+      "subtitle": "Ruang kerja penting untuk {name}",
+      "fallbackName": "ruang kerja Anda",
+      "ariaLabel": "Ikhtisar bisnis",
+      "online": "On line",
+      "emDash": "—",
+      "capacitySignal": "{percent}% sinyal kapasitas",
+      "activeClients": {
+        "title": "Klien aktif",
+        "captionEmpty": "Belum ada pelanggan aktif",
+        "captionTotal": "{count} total di ruang kerja",
+        "add": "Tambahkan pelanggan",
+        "view": "Lihat pelanggan"
+      },
+      "projects": {
+        "title": "Proyek",
+        "captionEmpty": "Tidak ada proyek dalam portofolio",
+        "captionOpen": "Buka jalur pengiriman",
+        "create": "Buat proyek",
+        "open": "Buka proyek"
+      },
+      "activityToday": {
+        "title": "Aktivitas hari ini",
+        "captionEmpty": "Belum ada yang dicatat hari ini",
+        "captionEvents": "Acara ruang kerja sejak tengah malam",
+        "viewFeed": "Lihat umpan"
+      },
+      "revenue": {
+        "title": "Pendapatan",
+        "caption": "Hubungkan penagihan untuk menampilkan MRR",
+        "openBilling": "Buka penagihan"
+      },
+      "clientShell": {
+        "title": "Cangkang klien",
+        "caption": "Sesi browser siap — bukan monitor operasi langsung",
+        "shellLoaded": "Shell aplikasi dimuat",
+        "storesReady": "Toko ruang kerja lokal sudah siap"
+      },
+      "growth": {
+        "title": "Pertumbuhan",
+        "caption": "Metrik tren memerlukan akumulasi penggunaan",
+        "openAnalytics": "Buka analitik"
+      }
+    },
+    "activity": {
+      "title": "Aktivitas terkini",
+      "subtitle": "Apa yang berubah hari ini",
+      "ariaLabel": "Aktivitas terkini",
+      "todayCount": "{count} HARI INI",
+      "localBadge": "LOKAL",
+      "emptyTitle": "Belum ada aktivitas",
+      "emptyBody": "Acara ruang kerja akan muncul di sini saat Anda menambahkan pelanggan, proyek, dan lainnya.",
+      "addCustomer": "Tambahkan pelanggan",
+      "newProject": "Proyek baru",
+      "kind": {
+        "customer": "Pelanggan",
+        "project": "Proyek",
+        "finance": "Keuangan",
+        "automation": "Otomatisasi",
+        "documents": "Dokumen",
+        "team": "Tim",
+        "workspace": "Ruang kerja"
+      },
+      "events": {
+        "customer_created": "Pelanggan dibuat",
+        "customer_updated": "Pelanggan diperbarui",
+        "customer_deleted": "Pelanggan dihapus",
+        "project_updated": "Proyek diperbarui",
+        "invoice_paid": "Faktur dibayar",
+        "document_uploaded": "Dokumen diunggah",
+        "workflow_executed": "Alur kerja dijalankan",
+        "member_invited": "Anggota tim diundang",
+        "generic": "Pembaruan ruang kerja"
+      }
+    },
+    "chat": {
+      "title": "AGXORA AI",
+      "emptyState": "Tanyakan AGXORA tentang pelanggan, proyek, atau tindakan selanjutnya. Percakapan Anda tetap berada di sesi ruang kerja ini.",
+      "thinking": "AGXORA sedang berpikir…",
+      "errorDismiss": "{error} — ketuk untuk menutup",
+      "placeholder": "Tanya AGXORA AI…",
+      "messageAria": "Pesan AGXORA AI",
+      "sendAria": "Kirim pesan",
+      "send": "Mengirim"
+    },
+    "routeLoading": {
+      "team": "Memuat tim…",
+      "projects": "Memuat proyek…",
+      "project": "Memuat proyek…",
+      "profile": "Memuat profil…",
+      "integrations": "Memuat integrasi…",
+      "identity": "Memuat identitas…",
+      "finance": "Memuat keuangan…",
+      "documents": "Memuat dokumen…",
+      "customers": "Memuat pelanggan…",
+      "crm": "Memuat CRM…",
+      "customer": "Memuat pelanggan…",
+      "creator": "Memuat studio pembuat…",
+      "billing": "Memuat penagihan…",
+      "billingAdmin": "Memuat penagihan admin…",
+      "automation": "Memuat otomatisasi…",
+      "analytics": "Memuat Pusat Intelijen…",
+      "ai": "Memuat Platform AI…",
+      "agents": "Memuat OS Agen…"
+    },
+    "shell": {
+      "memory": {
+        "title": "Ingatan",
+        "description": "Memori organisasi tidak terhubung dalam build ini.",
+        "emptyTitle": "Ruang kerja memori belum tersedia",
+        "emptyBody": "Penyimpanan memori organisasi persisten tidak tersambung. Obrolan mungkin hanya menyimpan konteks jangka pendek dalam sesi — tidak ada apa pun di sini yang disimpan sebagai memori perusahaan."
+      },
+      "invoices": {
+        "title": "Faktur",
+        "description": "Arsitektur penagihan dan faktur untuk penyewa perusahaan.",
+        "emptyTitle": "Buku besar faktur belum tersedia",
+        "emptyBody": "Rute ini adalah shell — pembuatan dan persistensi faktur tidak terhubung. Gunakan Keuangan untuk contoh pratinjau buku besar, atau Penagihan untuk manajemen paket.",
+        "openFinance": "Keuangan Terbuka",
+        "openBilling": "Buka Penagihan"
+      }
+    },
+    "search": {
+      "ariaLabel": "Pencarian universal",
+      "queryAria": "Permintaan pencarian universal",
+      "placeholder": "Cari pelanggan, faktur, dokumen, alur kerja, pengaturan…",
+      "quickActions": "Tindakan Cepat",
+      "favorites": "Favorit",
+      "recentSearches": "Pencarian Terbaru",
+      "clear": "Jernih",
+      "noRecentSearches": "Belum ada pencarian terkini. Coba “Nordlicht”, “faktur”, atau “alur kerja”.",
+      "recentActivity": "Aktivitas Terkini",
+      "aiReady": "Siap AI (Arsitektur)",
+      "pinnedResults": "Hasil yang Disematkan",
+      "noMatches": "Tidak ada kecocokan",
+      "noMatchesBody": "Coba kata kunci lain, atau buka modul melalui Tindakan Cepat.",
+      "close": "Menutup",
+      "esc": "Esc",
+      "open": "Membuka",
+      "keyboardHints": "↑↓ navigasi · Masuk buka · Ctrl/⌘ K sakelar · Esc tutup",
+      "pinResult": "Hasil pin",
+      "unpinResult": "Lepas sematan hasil",
+      "previewEmpty": "Arahkan atau sorot hasil untuk pratinjau, metadata, dan tautan cerdas.",
+      "previewAria": "Pratinjau universal",
+      "relatedItems": "Item Terkait",
+      "noSmartLinks": "Tidak ada tautan cerdas untuk hasil ini.",
+      "groups": {
+        "crm": "CRM",
+        "finance": "Keuangan",
+        "documents": "Dokumen",
+        "automation": "Otomatisasi",
+        "projects": "Proyek",
+        "creator": "Studio Pembuat",
+        "settings": "Pengaturan",
+        "commands": "Perintah",
+        "actions": "Tindakan Cepat"
+      },
+      "status": {
+        "architecture": "arsitektur",
+        "planned": "berencana"
+      },
+      "meta": {
+        "type": "Jenis",
+        "module": "Modul",
+        "quickAction": "Tindakan Cepat"
+      },
+      "actions": {
+        "createCustomer": {
+          "title": "Buat Pelanggan",
+          "subtitle": "Buka Pelanggan untuk menambahkan catatan"
+        },
+        "createInvoice": {
+          "title": "Buat Faktur",
+          "subtitle": "Buka ruang kerja faktur Keuangan"
+        },
+        "uploadDocument": {
+          "title": "Unggah Dokumen",
+          "subtitle": "Buka Pusat Pengetahuan Dokumen"
+        },
+        "newWorkflow": {
+          "title": "Alur Kerja Baru",
+          "subtitle": "Buka pembuat Mesin Otomasi"
+        },
+        "newProject": {
+          "title": "Proyek Baru",
+          "subtitle": "Buka ruang kerja Proyek"
+        },
+        "inviteMember": {
+          "title": "Undang Anggota Tim",
+          "subtitle": "Buka undangan Tim"
+        },
+        "openBilling": {
+          "title": "Buka Penagihan",
+          "subtitle": "Paket, faktur, dan langganan"
+        },
+        "openSettings": {
+          "title": "Buka Pengaturan",
+          "subtitle": "Preferensi ruang kerja"
+        }
+      },
+      "commands": {
+        "openCrm": {
+          "title": "Buka CRM",
+          "subtitle": "Modul AI CRM"
+        },
+        "openCustomers": {
+          "title": "Pelanggan Terbuka",
+          "subtitle": "Manajemen pelanggan"
+        },
+        "openFinance": {
+          "title": "Keuangan Terbuka",
+          "subtitle": "Modul Keuangan & Pajak"
+        },
+        "openDocuments": {
+          "title": "Buka Dokumen",
+          "subtitle": "Pusat Pengetahuan"
+        },
+        "openAutomation": {
+          "title": "Buka Otomatisasi",
+          "subtitle": "Mesin alur kerja"
+        },
+        "openSettings": {
+          "title": "Buka Pengaturan",
+          "subtitle": "Pengaturan ruang kerja"
+        },
+        "openProjects": {
+          "title": "Buka Proyek",
+          "subtitle": "Portofolio proyek"
+        },
+        "openAi": {
+          "title": "Buka AI",
+          "subtitle": "Ruang kerja platform AI"
+        },
+        "openAnalytics": {
+          "title": "Buka Analisis",
+          "subtitle": "Pusat intelijen"
+        },
+        "openIdentity": {
+          "title": "Buka Identitas & Akses",
+          "subtitle": "Pengaturan IAM, RBAC, audit"
+        },
+        "openBilling": {
+          "title": "Buka Penagihan",
+          "subtitle": "Portal & paket berlangganan"
+        },
+        "openIntegrations": {
+          "title": "Integrasi Terbuka",
+          "subtitle": "Pusat Integrasi & ekosistem API"
+        }
+      },
+      "modules": {
+        "dashboard": {
+          "subtitle": "Ikhtisar pusat komando dan globe"
+        },
+        "customers": {
+          "subtitle": "Catatan pelanggan dan CRM"
+        },
+        "projects": {
+          "subtitle": "Pengiriman dan pelacakan proyek"
+        },
+        "invoices": {
+          "title": "Faktur",
+          "subtitle": "Penagihan dan faktur"
+        },
+        "finance": {
+          "subtitle": "Akuntansi AI, perbankan, pajak & intelijen keuangan"
+        },
+        "crm": {
+          "subtitle": "CRM asli AI dan Sistem Operasi Pembuat Konten"
+        },
+        "creator": {
+          "subtitle": "OS produksi dan pemasaran konten AI"
+        },
+        "documents": {
+          "subtitle": "Dokumen AI & Pusat Pengetahuan"
+        },
+        "ai": {
+          "title": "AI",
+          "subtitle": "Platform AI AGXORA — ruang kerja perusahaan"
+        },
+        "analytics": {
+          "subtitle": "Intelijen bisnis"
+        },
+        "automation": {
+          "subtitle": "Alur kerja AI dan mesin otomasi"
+        },
+        "memory": {
+          "title": "Ingatan",
+          "subtitle": "Memori organisasi"
+        },
+        "team": {
+          "subtitle": "Anggota dan undangan"
+        },
+        "settings": {
+          "subtitle": "Pengaturan ruang kerja dan AI"
+        }
+      },
+      "capabilities": {
+        "aiSearch": {
+          "title": "Pencarian AI",
+          "description": "Beri peringkat hasil dengan model pengambilan di masa mendatang di seluruh modul."
+        },
+        "semantic": {
+          "title": "Pencarian Semantik",
+          "description": "Kesamaan vektor atas dokumen, faktur, dan pengetahuan."
+        },
+        "nl": {
+          "title": "Pencarian Bahasa Alami",
+          "description": "Parsing maksud seperti “faktur yang telah jatuh tempo untuk Nordlicht”."
+        },
+        "rag": {
+          "title": "Pengambilan Pengetahuan",
+          "description": "Jawaban dasar di korpus Documents Knowledge Hub."
+        }
+      }
+    },
+    "summary": "{name}: {customers} pelanggan · {projects} proyek · {updates} pembaruan hari ini."
+  },
+  "auth": {
+    "login": {
+      "title": "Masuk",
+      "subtitle": "Selamat datang kembali di AGXORA.",
+      "email": "E-mail",
+      "password": "Kata sandi",
+      "emailPlaceholder": "Anda@perusahaan.com",
+      "passwordPlaceholder": "Kata sandi",
+      "rememberMe": "Ingatlah Aku",
+      "submit": "Masuk",
+      "submitting": "Masuk…",
+      "noAccount": "Tidak ada akun?",
+      "startFree": "Mulai gratis",
+      "forgotPassword": "Lupa kata sandi",
+      "showPassword": "Tampilkan kata sandi",
+      "hidePassword": "Sembunyikan kata sandi",
+      "failed": "Gagal masuk",
+      "loading": "Masuk"
+    },
+    "register": {
+      "title": "Buat akun",
+      "subtitle": "Mulai gratis dengan AGXORA.",
+      "firstName": "Nama depan",
+      "lastName": "Nama belakang",
+      "email": "Email kantor",
+      "company": "Perusahaan",
+      "password": "Kata sandi",
+      "confirmPassword": "Konfirmasikan kata sandi",
+      "acceptTerms": "Saya menerima itu",
+      "termsOfService": "Ketentuan Layanan",
+      "and": "Dan",
+      "privacyPolicy": "Kebijakan Privasi",
+      "submit": "Buat akun",
+      "submitting": "Membuat akun…",
+      "haveAccount": "Sudah punya akun?",
+      "signIn": "Masuk",
+      "strength": "Kekuatan kata sandi",
+      "strengthWeak": "Lemah",
+      "strengthFair": "Adil",
+      "strengthStrong": "Kuat",
+      "firstNamePlaceholder": "Alex",
+      "lastNamePlaceholder": "Morgan",
+      "companyPlaceholder": "AGXORA GmbH",
+      "emailPlaceholder": "Anda@perusahaan.com",
+      "passwordPlaceholder": "Minimal 8 karakter, huruf + angka",
+      "confirmPasswordPlaceholder": "Ulangi kata sandi",
+      "failed": "Pendaftaran gagal",
+      "loading": "Buat akun"
+    },
+    "forgot": {
+      "title": "Lupa kata sandi",
+      "subtitle": "Masukkan email Anda untuk meminta pengaturan ulang kata sandi.",
+      "email": "E-mail",
+      "submit": "Minta pengaturan ulang",
+      "submitting": "Mengirimkan…",
+      "success": "Jika ada akun untuk email itu, permintaan reset telah dicatat. Pengiriman email belum dikonfigurasi.",
+      "backToSignIn": "Kembali untuk masuk",
+      "failed": "Tidak dapat memproses permintaan setel ulang",
+      "loading": "Lupa kata sandi"
+    },
+    "reset": {
+      "title": "Setel ulang kata sandi",
+      "subtitle": "Pilih kata sandi baru untuk akun Anda.",
+      "token": "Setel ulang token",
+      "newPassword": "Kata sandi baru",
+      "confirmPassword": "Konfirmasikan kata sandi",
+      "submit": "Perbarui kata sandi",
+      "submitting": "Memperbarui…",
+      "success": "Kata sandi diperbarui. Anda dapat masuk sekarang.",
+      "backToSignIn": "Kembali untuk masuk",
+      "failed": "Tidak dapat menyetel ulang sandi",
+      "loading": "Setel ulang kata sandi"
+    },
+    "contactSales": {
+      "title": "Hubungi Penjualan",
+      "subtitle": "Beritahu kami tentang tim Anda. Kami akan menindaklanjuti dengan opsi perusahaan.",
+      "name": "Nama lengkap",
+      "email": "Email kantor",
+      "company": "Perusahaan",
+      "employees": "Jumlah karyawan",
+      "employeesSelect": "Pilih rentang",
+      "employees1_10": "1–10",
+      "employees11_50": "11–50",
+      "employees51_200": "51–200",
+      "employees201_1000": "201–1,000",
+      "employees1000plus": "1,000+",
+      "message": "Pesan",
+      "messagePlaceholder": "Apa yang ingin Anda selesaikan?",
+      "submit": "Kirim pertanyaan",
+      "submitting": "Mengirim…",
+      "successTitle": "Terima kasih",
+      "successBody": "Permintaan Anda telah diterima. Tim kami akan segera merespons.",
+      "viewPricing": "Lihat harga",
+      "bookDemo": "Demo Buku",
+      "failed": "Tidak dapat mengirimkan pertanyaan",
+      "country": "Negara",
+      "savedFor": "Disimpan untuk {company}. Pengiriman penjualan tidak terhubung dalam build ini.",
+      "preferWalkthrough": "Lebih suka tur produk selanjutnya?",
+      "preferSelfServe": "Lebih suka layanan mandiri?"
+    },
+    "welcome": {
+      "title": "Selamat datang di AGXORA",
+      "subtitle": "Ruang kerja Anda sudah siap. Lanjutkan ke dasbor.",
+      "continue": "Buka dasbor",
+      "checklistProfile": "Konfirmasikan profil organisasi Anda",
+      "checklistModules": "Pilih modul yang sesuai dengan cara Anda bekerja",
+      "checklistDashboard": "Masuk ke dasbor dengan titik awal yang jelas",
+      "exploreFirst": "Lebih suka menjelajah dulu?",
+      "skipToDashboard": "Lewati ke dasbor"
+    },
+    "locked": {
+      "title": "Akun terkunci",
+      "subtitle": "Terlalu banyak upaya masuk yang gagal. Coba lagi nanti atau setel ulang kata sandi Anda.",
+      "backToSignIn": "Kembali untuk masuk",
+      "forgotPassword": "Lupa kata sandi"
+    },
+    "sessionExpired": {
+      "title": "Sesi berakhir",
+      "subtitle": "Silakan masuk lagi untuk melanjutkan.",
+      "signIn": "Masuk"
+    },
+    "brand": "AGXORA",
+    "validation": {
+      "emailRequired": "Email wajib diisi.",
+      "emailInvalid": "Masukkan alamat email yang valid.",
+      "passwordRequired": "Kata sandi wajib diisi.",
+      "passwordMin": "Kata sandi minimal 8 karakter.",
+      "nameRequired": "Nama wajib diisi.",
+      "nameMin": "Nama minimal 2 karakter.",
+      "passwordMismatch": "Kata sandi tidak cocok.",
+      "slugFormat": "Gunakan hanya huruf kecil, angka, dan tanda hubung."
+    }
+  },
+  "crm": {
+    "page": {
+      "brandOs": "OS Bisnis AGXORA",
+      "title": "AI CRM",
+      "subtitle": "CRM asli AI dan Sistem Operasi Kreator — pelanggan, saluran pipa, pesanan, pengiriman, dokumen, komunikasi, dan arsitektur kreator untuk setiap industri."
+    },
+    "sections": {
+      "crmDashboard": {
+        "title": "Dasbor CRM"
+      },
+      "customer360": {
+        "title": "Pelanggan 360°",
+        "subtitle": "Profil, perusahaan, kontak, pesanan, faktur, Lieferscheine, pembayaran, dokumen, garis waktu, aktivitas, catatan, ringkasan AI, dan riwayat komunikasi."
+      },
+      "salesPipeline": {
+        "title": "Saluran Penjualan",
+        "subtitle": "Tahapan Kanban dengan drag & drop — Memimpin, Memenuhi Syarat, Proposal, Negosiasi, Menang, Kalah."
+      },
+      "ordersModule": {
+        "title": "Modul Pesanan"
+      },
+      "deliveryModule": {
+        "title": "Modul Pengiriman",
+        "subtitle": "Sistem Lieferschein profesional dengan kesiapan pelacakan, tanda tangan, QR, dan barcode."
+      },
+      "documentsModule": {
+        "title": "Dokumen",
+        "subtitle": "Kutipan, kontrak, faktur, Lieferschein, pesanan pembelian, kwitansi — dengan pencarian AI."
+      },
+      "tasksModule": {
+        "title": "Tugas"
+      },
+      "communicationHub": {
+        "title": "Pusat Komunikasi",
+        "subtitle": "Registri adaptor hanya untuk perpesanan, sosial, email, suara, dan video."
+      },
+      "creatorStudio": {
+        "title": "Yayasan Studio Pembuat Konten",
+        "subtitle": "Adaptor platform siap untuk integrasi resmi nanti."
+      },
+      "aiCreator": {
+        "title": "Pencipta AI",
+        "subtitle": "Peta kemampuan perusahaan untuk konten, kalender, pembuatan, dan penerbitan."
+      },
+      "industryPlatform": {
+        "title": "Platform Bisnis Universal",
+        "subtitle": "Registri industri modular — setiap vertikal dapat menerima modul AI khusus."
+      }
+    },
+    "directory": {
+      "errorTitle": "Tidak dapat memuat CRM",
+      "sort": {
+        "companyName": "Perusahaan",
+        "contactName": "Kontak",
+        "email": "E-mail",
+        "phone": "Telepon",
+        "industry": "Industri",
+        "status": "Status",
+        "owner": "Pemilik",
+        "createdAt": "Dibuat"
+      },
+      "search": {
+        "label": "Cari pelanggan",
+        "placeholder": "Perusahaan, kontak, email, tag…"
+      },
+      "view": {
+        "table": "Meja",
+        "cards": "Kartu-kartu"
+      },
+      "actions": {
+        "newCustomer": "Pelanggan baru"
+      },
+      "filters": {
+        "status": "Status",
+        "industry": "Industri",
+        "owner": "Pemilik",
+        "country": "Negara",
+        "tags": "Tag",
+        "allStatuses": "Semua status",
+        "allIndustries": "Semua industri",
+        "allOwners": "Semua pemilik",
+        "allCountries": "Semua negara",
+        "allTags": "Semua tag"
+      },
+      "empty": {
+        "ready": {
+          "title": "CRM Anda sudah siap",
+          "description": "Buat catatan pelanggan pertama untuk membuka kunci direktori, profil, dan aktivitas.",
+          "action": "Buat pelanggan"
+        },
+        "noMatches": {
+          "title": "Tidak ada pelanggan yang cocok",
+          "description": "Coba sesuaikan pencarian atau filter untuk menemukan catatan yang tepat.",
+          "action": "Hapus filter"
+        }
+      },
+      "pagination": {
+        "previous": "Sebelumnya",
+        "next": "Berikutnya"
+      },
+      "showing": "Menampilkan {from}–{to} dari {total}",
+      "aria": {
+        "openCustomer": "Pelanggan terbuka {company}"
+      },
+      "cardMeta": "Pemilik {owner} · Dibuat pada tanggal {date}",
+      "sortBy": "Urutkan berdasarkan {column}"
+    },
+    "status": {
+      "lead": "Memimpin",
+      "prospect": "Prospek",
+      "active": "Aktif",
+      "inactive": "Tidak aktif",
+      "vip": "VIP",
+      "archived": "Diarsipkan"
+    },
+    "form": {
+      "createTitle": "Buat Pelanggan",
+      "editTitle": "Sunting Pelanggan",
+      "cancel": "Membatalkan",
+      "saveChanges": "Simpan perubahan",
+      "createCustomer": "Buat pelanggan",
+      "companyName": "Nama perusahaan",
+      "contactName": "Nama Kontak",
+      "email": "E-mail",
+      "phone": "Telepon",
+      "website": "Situs web",
+      "industry": "Industri",
+      "country": "Negara",
+      "city": "Kota",
+      "address": "Alamat",
+      "taxNumber": "Nomor Pajak",
+      "owner": "Pemilik",
+      "status": "Status",
+      "tags": "Tag",
+      "statusAria": "Status pelanggan",
+      "tagsHint": "Dipisahkan koma, diberi kode warna secara otomatis",
+      "websitePlaceholder": "https://",
+      "tagsPlaceholder": "perusahaan, ritel"
+    },
+    "toasts": {
+      "customerCreated": "Pelanggan dibuat",
+      "customerUpdated": "Pelanggan diperbarui",
+      "checkForm": "Periksa formulirnya",
+      "validationFailed": "Validasi gagal.",
+      "customerDeleted": "Pelanggan dihapus",
+      "deleteFailed": "Penghapusan gagal",
+      "customerCouldNotBeRemoved": "Pelanggan tidak dapat dihapus.",
+      "contactSaved": "Kontak disimpan",
+      "documentsAttached": "Dokumen terlampir",
+      "documentsAttachedDetail": "{count} file",
+      "noteSaved": "Catatan disimpan"
+    },
+    "deleteDialog": {
+      "title": "Hapus pelanggan",
+      "cancel": "Membatalkan",
+      "deletePermanently": "Hapus secara permanen",
+      "thisCustomer": "pelanggan ini",
+      "bodyPrefix": "Ini menghilangkan",
+      "bodySuffix": "dan kontak terkait, catatan, dokumen, dan aktivitas dari penyimpanan lokal. Proyek tertaut tidak dihapus."
+    },
+    "validation": {
+      "companyNameRequired": "Nama perusahaan wajib diisi.",
+      "contactNameRequired": "Nama kontak wajib diisi.",
+      "emailRequired": "Email diperlukan.",
+      "emailInvalid": "Masukkan alamat email yang valid.",
+      "phoneRequired": "Telepon diperlukan.",
+      "phoneInvalid": "Masukkan nomor telepon yang valid.",
+      "websiteInvalid": "Masukkan situs web yang valid.",
+      "industryRequired": "Industri diperlukan.",
+      "ownerRequired": "Pemilik diperlukan.",
+      "statusInvalid": "Pilih status yang valid.",
+      "emailDuplicate": "Pelanggan dengan email ini sudah ada.",
+      "nameRequired": "Nama wajib diisi.",
+      "mobileInvalid": "Masukkan nomor ponsel yang valid.",
+      "mobileRequired": "Ponsel diperlukan.",
+      "roleRequired": "Peran diperlukan.",
+      "noteTitleRequired": "Judul diperlukan.",
+      "noteBodyRequired": "Badan catatan wajib diisi.",
+      "noteAuthorRequired": "Penulis diperlukan."
+    },
+    "errors": {
+      "failedToLoadCustomers": "Gagal memuat pelanggan.",
+      "failedToLoadCustomerProfile": "Gagal memuat profil pelanggan.",
+      "organizationRequired": "Organisasi diperlukan.",
+      "failedToSaveCustomer": "Gagal menyelamatkan pelanggan.",
+      "failedToDeleteCustomer": "Gagal menghapus pelanggan.",
+      "failedToSaveContact": "Gagal menyimpan kontak.",
+      "failedToSaveNote": "Gagal menyimpan catatan.",
+      "failedToUploadDocument": "Gagal mengunggah dokumen."
+    },
+    "workspace": {
+      "badge": "CRM Perusahaan 2.0",
+      "title": "Manajemen Hubungan Pelanggan",
+      "subtitleBeforeOrg": "Kelola direktori pelanggan, profil, kontak, catatan, dan dokumen",
+      "subtitleAfterOrg": "Proyek ditautkan berdasarkan nama perusahaan dari modul Proyek tanpa menduplikasi data.",
+      "yourOrganization": "organisasi Anda"
+    },
+    "analytics": {
+      "totalCustomers": "Jumlah Pelanggan",
+      "activeCustomers": "Pelanggan Aktif",
+      "newCustomers": "Pelanggan Baru",
+      "vipCustomers": "Pelanggan VIP",
+      "createdThisMonth": "Dibuat bulan ini",
+      "leadConversion": "Konversi prospek",
+      "leadConversionHint": "Bagian aktif dan VIP dari saluran prospek/prospek/yang dikonversi.",
+      "customerGrowth": "Pertumbuhan pelanggan"
+    },
+    "profile": {
+      "backToCrm": "← Kembali ke CRM",
+      "ownerLabel": "Pemilik",
+      "notFoundTitle": "Pelanggan tidak ditemukan",
+      "notFoundDescription": "Pelanggan ini mungkin telah dihapus.",
+      "missingCustomerTitle": "Pelanggan hilang",
+      "missingOverviewDescription": "Pilih pelanggan untuk melihat ikhtisar.",
+      "missingSettingsDescription": "Pilih pelanggan untuk mengelola pengaturan.",
+      "ariaProfileNav": "Profil pelanggan",
+      "tabs": {
+        "overview": "Ringkasan",
+        "contacts": "Kontak",
+        "projects": "Proyek",
+        "documents": "Dokumen",
+        "invoices": "Faktur",
+        "activity": "Aktivitas",
+        "notes": "Catatan",
+        "settings": "Pengaturan"
+      },
+      "overview": {
+        "title": "Ringkasan",
+        "email": "E-mail",
+        "phone": "Telepon",
+        "website": "Situs web",
+        "taxNumber": "Nomor pajak",
+        "location": "Lokasi",
+        "address": "Alamat",
+        "created": "Dibuat",
+        "updated": "Diperbarui",
+        "emptyValue": "—"
+      },
+      "contacts": {
+        "addTitle": "Tambahkan kontak",
+        "editTitle": "Sunting kontak",
+        "listTitle": "Kontak",
+        "name": "Nama",
+        "role": "Peran",
+        "email": "E-mail",
+        "phone": "Telepon",
+        "mobile": "Seluler",
+        "notes": "Catatan",
+        "saveContact": "Simpan kontak",
+        "emptyTitle": "Belum ada kontak",
+        "emptyDescription": "Tambahkan pemangku kepentingan dengan detail peran, email, dan telepon.",
+        "defaultRole": "Kontak",
+        "mobilePrefix": "Seluler"
+      },
+      "projects": {
+        "title": "Proyek",
+        "emptyTitle": "Tidak ada proyek terkait",
+        "emptyDescription": "Proyek yang nama pelanggannya cocok dengan perusahaan ini muncul di sini. Data dibaca dari modul Projects — tidak ada yang diduplikasi.",
+        "openProjects": "Buka Proyek"
+      },
+      "documents": {
+        "title": "Dokumen",
+        "subtitle": "Gambar, PDF, dan dokumen kantor — hanya metadata di Penyimpanan Lokal.",
+        "attachFiles": "Lampirkan file",
+        "emptyTitle": "Tidak ada dokumen",
+        "emptyDescription": "Lampirkan file pelanggan untuk tim akun.",
+        "systemUploader": "Sistem"
+      },
+      "invoices": {
+        "emptyTitle": "Belum ada faktur",
+        "emptyDescription": "Faktur untuk pelanggan ini muncul di sini ketika ditautkan dari Keuangan."
+      },
+      "activity": {
+        "title": "Aktivitas",
+        "emptyTitle": "Belum ada aktivitas",
+        "emptyDescription": "Pembuatan, pembaruan, catatan, dan dokumen muncul di sini terbaru terlebih dahulu.",
+        "kinds": {
+          "customer_created": "Pelanggan dibuat",
+          "customer_updated": "Pelanggan diperbarui",
+          "contact_added": "Kontak ditambahkan",
+          "contact_updated": "Kontak diperbarui",
+          "contact_deleted": "Kontak dihapus",
+          "note_added": "Catatan ditambahkan",
+          "note_updated": "Catatan diperbarui",
+          "note_deleted": "Catatan dihapus",
+          "document_added": "Dokumen ditambahkan",
+          "document_deleted": "Dokumen dihapus",
+          "project_linked": "Proyek tertaut"
+        }
+      },
+      "notes": {
+        "newTitle": "Catatan baru",
+        "editTitle": "Sunting catatan",
+        "title": "Judul",
+        "author": "Pengarang",
+        "body": "Tubuh",
+        "saveNote": "Simpan catatan",
+        "emptyTitle": "Belum ada catatan",
+        "emptyDescription": "Tangkap konteks akun dengan penulis dan stempel waktu."
+      },
+      "settings": {
+        "title": "Pengaturan",
+        "description": "Edit semua bidang profil atau arsipkan akun ini. Penghapusan menggunakan dialog konfirmasi.",
+        "editAllFields": "Edit semua bidang",
+        "prepareArchive": "Siapkan arsip",
+        "deleteCustomer": "Hapus pelanggan"
+      }
+    },
+    "customer360": {
+      "ariaSections": "Bagian Pelanggan 360",
+      "email": "E-mail",
+      "phone": "Telepon",
+      "aiHealth": "Kesehatan AI",
+      "tabs": {
+        "profile": "Profil",
+        "company": "Perusahaan",
+        "contacts": "Kontak",
+        "orders": "Pesanan",
+        "invoices": "Faktur",
+        "lieferscheine": "Lieferscheine",
+        "payments": "Pembayaran",
+        "documents": "Dokumen",
+        "timeline": "Garis Waktu",
+        "activities": "Kegiatan",
+        "notes": "Catatan",
+        "aiSummary": "Ringkasan AI",
+        "communicationHistory": "Sejarah Komunikasi"
+      },
+      "profileLines": {
+        "customerId": "ID Pelanggan",
+        "status": "Status",
+        "primaryContact": "Kontak utama"
+      },
+      "status": {
+        "churn_risk": "Risiko churn"
+      }
+    },
+    "delivery": {
+      "title": "Sistem Lieferschein Profesional",
+      "description": "Catatan pengiriman, penjemputan / pengantaran, pengemudi, kendaraan, dan pelacakan — catatan sampel saja. Adaptor ekspor tidak terhubung.",
+      "badges": {
+        "qrUnavailable": "QR tidak tersedia",
+        "barcodeUnavailable": "Kode batang tidak tersedia",
+        "signatureDemo": "Demo tanda tangan"
+      },
+      "exportPdf": "Ekspor PDF",
+      "deliveryHistory": "Riwayat Pengiriman",
+      "notices": {
+        "exportNotConnected": "Ekspor PDF, QR, dan kode batang tidak terhubung dalam build ini.",
+        "exportPdfUnavailable": "Ekspor PDF tidak tersedia — ekspor pengiriman tidak terhubung.",
+        "historyNotConnected": "Penyimpanan riwayat pengiriman tidak terhubung dalam build ini."
+      },
+      "columns": {
+        "lieferschein": "Lieferschein",
+        "order": "Memesan",
+        "customer": "Pelanggan",
+        "kind": "Baik",
+        "driver": "Pengemudi",
+        "vehicle": "Kendaraan",
+        "tracking": "Pelacakan",
+        "scheduled": "Dijadwalkan"
+      }
+    },
+    "orders": {
+      "description": "Produk, layanan, harga, diskon, pajak, dan pelanggan — buku besar pesanan perusahaan.",
+      "createOrder": "Buat Pesanan",
+      "notices": {
+        "apiReserved": "API pembuatan pesanan dicadangkan untuk jalur penulisan di masa mendatang.",
+        "draftStaged": "Buat draf Pesanan secara bertahap (belum ada API)."
+      },
+      "columns": {
+        "order": "Memesan",
+        "customer": "Pelanggan",
+        "status": "Status",
+        "lines": "Garis",
+        "net": "Bersih",
+        "tax": "Pajak",
+        "gross": "Bruto",
+        "created": "Dibuat"
+      },
+      "lineTax": "{taxPct}% pajak"
+    },
+    "tasks": {
+      "calendarTitle": "Kalender · Rapat · Pengingat · Tindak lanjut",
+      "foundationTitle": "Landasan OS Tugas",
+      "foundationDescription": "Sinkronisasi kalender, penyedia rapat, tugas pengingat, dan kait otomatisasi tindak lanjut sudah dipesan. Papan ini adalah permukaan tugas CRM bersama untuk setiap modul industri.",
+      "badges": {
+        "calendarAdapter": "Adaptor kalender",
+        "meetingAdapter": "Adaptor pertemuan",
+        "reminderQueue": "Antrian pengingat",
+        "followUpEngine": "Mesin tindak lanjut"
+      },
+      "duePrefix": "Jatuh tempo",
+      "kinds": {
+        "follow_up": "Menindaklanjuti",
+        "meeting": "Pertemuan",
+        "reminder": "Pengingat",
+        "task": "Tugas"
+      },
+      "statuses": {
+        "open": "Membuka",
+        "in_progress": "Sedang berlangsung",
+        "done": "Selesai",
+        "cancelled": "Dibatalkan"
+      }
+    },
+    "documentsModule": {
+      "emptyTitle": "Tidak ada dokumen",
+      "emptyDescription": "Tidak ada dokumen yang cocok dengan pencarian ini.",
+      "searchLabel": "Pencarian AI",
+      "searchPlaceholder": "Kutipan, kontrak, faktur, Lieferschein…",
+      "typeLabel": "Jenis dokumen",
+      "allTypes": "Semua tipe",
+      "columns": {
+        "type": "Jenis",
+        "title": "Judul",
+        "customer": "Pelanggan",
+        "status": "Status",
+        "updated": "Diperbarui"
+      },
+      "kinds": {
+        "quote": "Kutipan",
+        "contract": "Kontrak",
+        "invoice": "Faktur",
+        "lieferschein": "Lieferschein",
+        "purchase_order": "Pesanan Pembelian",
+        "receipt": "Tanda terima"
+      }
+    },
+    "communication": {
+      "intro": "Hanya arsitektur saluran yang dapat diskalakan — Email, WhatsApp, Instagram, Facebook, TikTok, LinkedIn, Telegram, Suara, dan Video. Tidak ada integrasi langsung palsu.",
+      "adapterPrefix": "Adaptor:"
+    },
+    "aiCreator": {
+      "intro": "Permukaan AI Creator yang siap menghadapi masa depan — ide, keterangan, hashtag, kalender, kampanye, suara merek, pembuatan gambar/video, analitik, penjadwalan, antrean penerbitan, dan wawasan. Belum ada API penyedia nyata yang terhubung."
+    },
+    "creatorStudio": {
+      "intro": "Fondasi Creator Studio — integrasi platform resmi dapat dihubungkan ke adaptor ini nanti. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Utas, X."
+    },
+    "industry": {
+      "intro": "Platform Bisnis Universal — orientasi nantinya akan memilih industri. Setiap industri menerima modul AI khusus tanpa mengorbankan OS CRM inti."
+    },
+    "kpi": {
+      "customers": {
+        "label": "Pelanggan",
+        "caption": "Hubungan aktif"
+      },
+      "companies": {
+        "label": "Perusahaan",
+        "caption": "Organisasi akun"
+      },
+      "leads": {
+        "label": "Memimpin",
+        "caption": "Baru bulan ini"
+      },
+      "deals": {
+        "label": "Penawaran",
+        "caption": "Buka saluran pipa"
+      },
+      "revenue": {
+        "label": "Pendapatan",
+        "caption": "Menang YTD"
+      },
+      "projects": {
+        "label": "Proyek Aktif",
+        "caption": "Pengiriman dalam penerbangan"
+      },
+      "tasks": {
+        "label": "Buka Tugas",
+        "caption": "Di seluruh pengiriman CRM +"
+      },
+      "ai-health": {
+        "label": "Skor Kesehatan AI",
+        "caption": "Sinyal kualitas hubungan"
+      },
+      "scoreOutOf": "{score} / {max}"
+    },
+    "pipeline": {
+      "lead": "Memimpin",
+      "qualified": "Berkualitas",
+      "proposal": "Usul",
+      "negotiation": "Perundingan",
+      "won": "Won",
+      "lost": "Hilang"
+    },
+    "orderStatus": {
+      "draft": "Draf",
+      "confirmed": "Dikonfirmasi",
+      "in_fulfillment": "Dalam pemenuhan",
+      "shipped": "Dikirim",
+      "delivered": "Terkirim",
+      "cancelled": "Dibatalkan"
+    },
+    "tracking": {
+      "scheduled": "Dijadwalkan",
+      "en_route": "Dalam perjalanan",
+      "arrived": "Tiba",
+      "completed": "Selesai",
+      "failed": "Gagal"
+    },
+    "documentKind": {
+      "quote": "Mengutip",
+      "contract": "Kontrak",
+      "invoice": "Faktur",
+      "lieferschein": "Lieferschein",
+      "purchase_order": "Pesanan Pembelian",
+      "receipt": "Kuitansi"
+    },
+    "documentStatus": {
+      "sent": "Terkirim",
+      "signed": "Ditandatangani",
+      "paid": "Dibayar",
+      "in_transit": "Dalam perjalanan",
+      "open": "Membuka",
+      "filed": "Diarsipkan"
+    },
+    "integration": {
+      "planned": "Berencana",
+      "ready": "Siap",
+      "connected": "Terhubung",
+      "disabled": "Dengan disabilitas"
+    }
+  },
+  "finance": {
+    "page": {
+      "brand": "OS Keuangan AGXORA",
+      "title": "Keuangan & Pajak",
+      "subtitle": "Akuntansi, perbankan, pajak, dan intelijen keuangan — dipratinjau dengan data sampel hingga buku besar langsung terhubung.",
+      "sampleNotice": "Contoh kumpulan data — angka dan riwayat ekspor merupakan ilustrasi. DATEV / ekspor file dan feed bank langsung tidak terhubung."
+    },
+    "sections": {
+      "overview": {
+        "title": "Ikhtisar Keuangan"
+      },
+      "invoiceCenter": {
+        "title": "Pusat Faktur",
+        "subtitle": "Cari, filter, dan urutkan buku besar faktur perusahaan dengan penilaian kepercayaan AI."
+      },
+      "aiInvoiceProcessing": {
+        "title": "Pemrosesan Faktur AI",
+        "subtitle": "Saluran demo — Ekstraksi OCR dan AI tidak terhubung."
+      },
+      "banking": {
+        "title": "Perbankan",
+        "subtitle": "Hanya akun sampel — Open Banking feed tidak terhubung."
+      },
+      "datev": {
+        "title": "Integrasi DATEV",
+        "subtitle": "Contoh riwayat ekspor — Pembuatan file DATEV tidak terhubung."
+      },
+      "taxCenter": {
+        "title": "Pusat Pajak",
+        "subtitle": "Ringkasan PPN, tenggat waktu, dan pembayaran yang akan datang."
+      },
+      "aiInsights": {
+        "title": "Wawasan AI",
+        "subtitle": "Hanya temuan sampel — tindakan wawasan tidak ada hubungannya."
+      },
+      "smartSearch": {
+        "title": "Pencarian Cerdas",
+        "subtitle": "Kueri bahasa alami di seluruh faktur, pengeluaran, PPN, dan ekspor."
+      }
+    },
+    "overview": {
+      "metrics": {
+        "revenue": {
+          "label": "Pendapatan",
+          "caption": "Contoh · 30 hari terakhir",
+          "delta": "+8.4%"
+        },
+        "expenses": {
+          "label": "Pengeluaran",
+          "caption": "Contoh · pengoperasian + COGS",
+          "delta": "+2.1%"
+        },
+        "profit": {
+          "label": "Laba",
+          "caption": "Contoh · operasi bersih",
+          "delta": "+12.6%"
+        },
+        "vat-due": {
+          "label": "PPN Terutang",
+          "caption": "Contoh · Jendela Q2",
+          "delta": "Jatuh tempo dalam {days}d"
+        },
+        "open-invoices": {
+          "label": "Buka Faktur",
+          "caption": "Contoh · {money} beredar"
+        },
+        "paid-invoices": {
+          "label": "Faktur Berbayar",
+          "caption": "Contoh · kuartal ini",
+          "delta": "+{count}"
+        },
+        "cashflow": {
+          "label": "Arus kas",
+          "caption": "Contoh · Proyeksi 30 hari",
+          "delta": "+4.2%"
+        },
+        "ai-score": {
+          "label": "Skor Keuangan AI",
+          "caption": "Skor sampel · bukan penilaian risiko langsung",
+          "delta": "+{count}"
+        }
+      },
+      "scoreOutOf": "{score} / {max}"
+    },
+    "invoices": {
+      "emptyTitle": "Tidak ada faktur",
+      "emptyDescription": "Tidak ada faktur yang cocok dengan penelusuran atau filter Anda.",
+      "searchPlaceholder": "Nomor, perusahaan, kategori…",
+      "statusFilter": "Penyaring status",
+      "paymentFilter": "Filter pembayaran",
+      "sortBy": "Urutkan berdasarkan",
+      "toggleSort": "Alihkan arah pengurutan",
+      "count": "{count} faktur",
+      "countOne": "{count} faktur",
+      "allStatuses": "Semua status",
+      "allPayments": "Semua pembayaran",
+      "columns": {
+        "number": "Nomor Faktur",
+        "company": "Perusahaan",
+        "amount": "Jumlah",
+        "vat": "TONG",
+        "status": "Status",
+        "dueDate": "Tenggat waktu",
+        "payment": "Status Pembayaran",
+        "category": "Kategori",
+        "ai": "Keyakinan AI"
+      },
+      "sort": {
+        "dueDate": "Tenggat waktu",
+        "amount": "Jumlah",
+        "company": "Perusahaan",
+        "status": "Status",
+        "aiConfidence": "kepercayaan diri AI",
+        "number": "Faktur #"
+      }
+    },
+    "status": {
+      "draft": "Draf",
+      "open": "Membuka",
+      "paid": "Dibayar",
+      "overdue": "Terlambat",
+      "cancelled": "Dibatalkan"
+    },
+    "payment": {
+      "unpaid": "Tidak dibayar",
+      "partial": "Sebagian",
+      "paid": "Dibayar",
+      "refunded": "Dikembalikan"
+    },
+    "category": {
+      "saas": "SaaS",
+      "office": "Kantor",
+      "travel": "Bepergian",
+      "marketing": "Pemasaran",
+      "utilities": "Utilitas",
+      "professional": "Profesional",
+      "other": "Lainnya"
+    },
+    "processing": {
+      "dropTitle": "Seret & lepas file faktur",
+      "dropFormats": "PDF · Gambar · Impor Email",
+      "uploadFiles": "Unggah file",
+      "emailImport": "Impor Email",
+      "dropHint": "Jatuhkan faktur PDF atau gambar ke tahap secara lokal — OCR tidak terhubung.",
+      "filesStaged": "{count} file hanya terdaftar secara lokal — Ekstraksi OCR / AI tidak terhubung.",
+      "emailReserved": "Konektor impor email dicadangkan untuk IMAP / Microsoft Graph.",
+      "pipelineTitle": "Pipa pemrosesan (demo)",
+      "stages": {
+        "ocr": "Status OCR",
+        "extraction": "Ekstraksi AI",
+        "categorization": "Kategorisasi",
+        "duplicateDetection": "Deteksi Duplikat"
+      }
+    },
+    "stage": {
+      "pending": "Tidak tersedia",
+      "running": "Tidak terhubung",
+      "complete": "Demo",
+      "failed": "Gagal",
+      "skipped": "Dilewati"
+    },
+    "banking": {
+      "connectionTitle": "Koneksi Bank",
+      "connectBank": "Hubungkan bank",
+      "description": "Adaptor PSD2 / Open Banking tidak menggunakan kabel. Pencocokan dan rekonsiliasi di bawah ini hanya ilustrasi saja.",
+      "feedUnavailable": "Umpan bank tidak tersedia — koneksi penyedia tidak terhubung.",
+      "noticeDefault": "Open Banking tidak terhubung — akun di bawah ini adalah contoh data.",
+      "connectUnavailable": "Hubungkan bank tidak tersedia — Open Banking tidak terhubung dalam build ini.",
+      "sampleAccounts": "Contoh Akun",
+      "sample": "Mencicipi",
+      "offline": "Luring",
+      "demoPrefix": "Demo",
+      "latestTransactions": "Transaksi Terkini",
+      "sampleMatching": "Pencocokan sampel",
+      "demoOnly": "Hanya demo",
+      "sampleMatch": "Contoh pertandingan",
+      "unmatched": "Tiada bandingan",
+      "emptyBalance": "—"
+    },
+    "datev": {
+      "title": "Integrasi DATEV",
+      "notConnected": "Tidak terhubung",
+      "intro": "Contoh riwayat ekspor di bawah ini adalah ilustrasi. Kredensial dan pembuatan file tidak terhubung dalam build ini.",
+      "noticeDefault": "Adaptor ekspor tidak terhubung — tidak ada file yang akan dibuat.",
+      "exportUnavailable": "{title} tidak tersedia — DATEV / ekspor file tidak terhubung.",
+      "exportUnavailableAria": "{title} — tidak tersedia",
+      "historyTitle": "Riwayat Ekspor (contoh)",
+      "refresh": "Menyegarkan",
+      "refreshUnavailable": "Penyegaran tidak tersedia — riwayat ekspor adalah data sampel statis.",
+      "steuerberaterSample": "Mencicipi",
+      "steuerberaterPending": "Tertunda",
+      "columns": {
+        "export": "Ekspor",
+        "format": "Format",
+        "period": "Periode",
+        "created": "Dibuat",
+        "status": "Status",
+        "steuerberater": "Steuerberater"
+      },
+      "actions": {
+        "datev": {
+          "title": "Ekspor DATEV",
+          "description": "Paket Buchungsstapel untuk alur kerja Steuerberater."
+        },
+        "csv": {
+          "title": "Ekspor CSV",
+          "description": "CSV yang siap untuk buku besar untuk spreadsheet dan impor."
+        },
+        "pdf": {
+          "title": "Ekspor PDF",
+          "description": "Paket dokumen untuk ditinjau dan diarsipkan."
+        },
+        "xml": {
+          "title": "Ekspor XML",
+          "description": "XML pajak terstruktur untuk pengarsipan saluran pipa."
+        }
+      }
+    },
+    "exportStatus": {
+      "queued": "Contoh · Antri",
+      "ready": "Contoh · Siap",
+      "delivered": "Ilustratif",
+      "failed": "Gagal"
+    },
+    "tax": {
+      "vatSummaryTitle": "Ringkasan PPN",
+      "monthlyVat": "PPN bulanan",
+      "quarterlyVat": "PPN triwulanan",
+      "collected": "Dikumpulkan",
+      "deductible": "Dapat dikurangkan",
+      "netDue": "Jatuh tempo bersih",
+      "deadlinesTitle": "Batas Waktu Pajak · Pembayaran Mendatang",
+      "duePrefix": "Jatuh tempo",
+      "deadlineStatus": {
+        "due_soon": "Segera jatuh tempo",
+        "upcoming": "Mendatang",
+        "overdue": "Terlambat",
+        "paid": "Dibayar"
+      },
+      "deadlines": {
+        "td-1": "Pengembalian PPN bulanan",
+        "td-2": "Pelunasan PPN triwulanan",
+        "td-3": "Pajak perusahaan di muka"
+      },
+      "period": {
+        "monthly": "Bulanan",
+        "quarterly": "Triwulanan",
+        "annual": "Tahunan"
+      }
+    },
+    "insights": {
+      "demoPrefix": "Demo",
+      "noticeDefault": "Tindakan wawasan tidak terhubung — kartu hanya menampilkan sampel temuan.",
+      "actionUnavailable": "{action} tidak tersedia — tindakan wawasan keuangan tidak terhubung.",
+      "actionUnavailableTitle": "{action} tidak tersedia — tidak terhubung",
+      "kinds": {
+        "unusual_expense": "Pengeluaran yang tidak biasa",
+        "duplicate_invoice": "Faktur duplikat",
+        "missing_invoice": "Faktur tidak ada",
+        "late_payment": "Pembayaran terlambat",
+        "cashflow_prediction": "Prediksi arus kas",
+        "tax_optimization": "Optimalisasi pajak"
+      }
+    },
+    "search": {
+      "label": "Pencarian Bahasa Alami",
+      "placeholder": "Coba “Tampilkan faktur yang belum dibayar”",
+      "submit": "Mencari",
+      "examplesTitle": "Contoh",
+      "hints": {
+        "idle": "Tanyakan tentang faktur, pengeluaran, PPN, atau ekspor.",
+        "unpaid_invoices": "Memfilter Pusat Faktur ke item yang belum dibayar/terbuka.",
+        "july_expenses": "Menampilkan aktivitas sisi pengeluaran bulan Juli.",
+        "amazon": "Menemukan faktur dan tanda terima Amazon.",
+        "vat_export": "Membuka tindakan ekspor DATEV / PPN.",
+        "general": "Mencari buku besar untuk “{query}”."
+      },
+      "examples": {
+        "q1": {
+          "query": "Tampilkan faktur yang belum dibayar",
+          "description": "Piutang terbuka dengan status belum dibayar atau sebagian"
+        },
+        "q2": {
+          "query": "Tunjukkan pengeluaran bulan Juli",
+          "description": "Faktur sisi pengeluaran dan arus keluar bank pada bulan Juli"
+        },
+        "q3": {
+          "query": "Temukan faktur Amazon",
+          "description": "Pencocokan vendor di seluruh pusat faktur dan unggahan"
+        },
+        "q4": {
+          "query": "Ekspor PPN",
+          "description": "Lompat ke tindakan DATEV/pajak ekspor"
+        }
+      }
+    }
+  },
+  "documents": {
+    "page": {
+      "brand": "OS Pengetahuan AGXORA",
+      "title": "Dokumen",
+      "subtitle": "Dokumen perusahaan & pusat pengetahuan — dipratinjau dengan konten sampel hingga backend penyimpanan dan persetujuan terhubung.",
+      "sampleNotice": "Pustaka sampel — penjelajahan dan filter berfungsi dalam sesi. Tindakan unggah, setujui, dan indeks AI tidak terhubung."
+    },
+    "sections": {
+      "kpis": {
+        "title": "Dasbor Pengetahuan"
+      },
+      "library": {
+        "title": "Perpustakaan Dokumen",
+        "subtitle": "Semua Dokumen, Terbaru, Favorit, Dibagikan, Diarsipkan, Sampah, Basis Pengetahuan — dengan folder, pencarian, penampil, dan versi."
+      },
+      "knowledge": {
+        "title": "Basis Pengetahuan",
+        "subtitle": "Artikel, kebijakan, proses, manual, FAQ, dan wiki internal."
+      },
+      "approvals": {
+        "title": "Persetujuan",
+        "subtitle": "Draf, Sedang Ditinjau, Disetujui, Ditolak, Diarsipkan — ditautkan dengan arsitektur Otomasi."
+      },
+      "ai": {
+        "title": "Lapisan Pengetahuan AI",
+        "subtitle": "Ringkasan, kata kunci, klasifikasi, tag, folder, dokumen terkait, duplikat, terjemahan, OCR, dan pencarian — hanya arsitektur."
+      },
+      "activity": {
+        "title": "Aktivitas",
+        "subtitle": "Perubahan terkini, unggahan, penayangan, pembagian, dan riwayat audit."
+      },
+      "integrations": {
+        "title": "Integrasi",
+        "subtitle": "Adaptor drive dicadangkan — tidak ada konektor aktif."
+      },
+      "security": {
+        "title": "Keamanan & Berbagi",
+        "subtitle": "RBAC, jejak audit, enkripsi, retensi, dan cakupan berbagi."
+      }
+    },
+    "loading": {
+      "knowledgeBase": "Memuat basis pengetahuan…",
+      "approvals": "Memuat antrean persetujuan…",
+      "aiInsights": "Memuat wawasan AI…",
+      "activity": "Memuat aktivitas…",
+      "integrations": "Memuat integrasi…",
+      "security": "Memuat keamanan…"
+    },
+    "kpi": {
+      "documents": {
+        "label": "Dokumen",
+        "caption": "Contoh · lintas folder",
+        "delta": "+{count}"
+      },
+      "folders": {
+        "label": "Folder",
+        "caption": "Sampel · termasuk koleksi cerdas",
+        "delta": "+{count}"
+      },
+      "storage": {
+        "label": "Penyimpanan Digunakan",
+        "caption": "Contoh · rencana ilustratif",
+        "delta": "+{size}"
+      },
+      "shared": {
+        "label": "Dokumen Bersama",
+        "caption": "Contoh · organisasi + departemen + pengguna",
+        "delta": "+{count}"
+      },
+      "activity": {
+        "label": "Aktivitas Terkini",
+        "caption": "Contoh · 24 jam terakhir",
+        "delta": "+{count}"
+      },
+      "indexed": {
+        "label": "Terindeks AI",
+        "caption": "Contoh · Pencarian AI tidak terhubung",
+        "delta": "{percent}"
+      },
+      "approvals": {
+        "label": "Persetujuan yang Menunggu Keputusan",
+        "caption": "Contoh · otomatisasi tidak terhubung",
+        "delta": "{count}"
+      },
+      "score": {
+        "label": "Skor Pengetahuan",
+        "caption": "Contoh · ilustrasi liputan",
+        "delta": "+{count}"
+      }
+    },
+    "library": {
+      "viewsAria": "Tampilan perpustakaan",
+      "views": {
+        "all": "Semua Dokumen",
+        "recent": "Terkini",
+        "favorites": "Favorit",
+        "shared": "Dibagikan",
+        "archived": "Diarsipkan",
+        "trash": "Sampah",
+        "knowledge": "Basis Pengetahuan"
+      },
+      "dropzone": "Seret & letakkan file di sini untuk melakukan pengunggahan.",
+      "uploadReserved": "Unggahan seret & lepas adalah API penyimpanan yang dicadangkan.",
+      "filesStaged": "{count} file dipentaskan untuk diunggah (tidak ada penyimpanan tulis).",
+      "dropReceived": "Drop diterima (tidak ada penyimpanan tulis).",
+      "foldersTitle": "Folder & Koleksi",
+      "foldersHint": "Folder bersarang, koleksi, koleksi cerdas, tag, disematkan & favorit.",
+      "allFolders": "Semua folder",
+      "smart": "Cerdas",
+      "collection": "Koleksi",
+      "pinned": "Disematkan",
+      "favorite": "Favorit",
+      "sharedBadge": "Dibagikan",
+      "title": "Perpustakaan Dokumen",
+      "results": "{count} hasil",
+      "resultOne": "{count} hasil",
+      "selected": "· {count} dipilih",
+      "bulkAction": "Tindakan massal",
+      "bulkUnavailable": "Tindakan massal tidak tersedia untuk {count} item — mutasi penyimpanan tidak terhubung.",
+      "searchLabel": "Pencarian Global",
+      "searchPlaceholder": "Nama, tag, pemilik, ringkasan AI…",
+      "typeLabel": "Jenis",
+      "statusLabel": "Status",
+      "departmentLabel": "Departemen",
+      "ownerLabel": "Pemilik",
+      "allTypes": "Semua tipe",
+      "allStatuses": "Semua status",
+      "allDepartments": "Semua departemen",
+      "allOwners": "Semua pemilik",
+      "favoritesOnly": "Hanya favorit",
+      "emptyTitle": "Tidak ada dokumen untuk ditunjukkan",
+      "emptyDescription": "Sesuaikan filter, hapus pencarian, atau tambahkan aset pengetahuan untuk mengembangkan perpustakaan.",
+      "selectAria": "Pilih {name}",
+      "versionHistoryTitle": "Riwayat Versi",
+      "close": "Menutup",
+      "context": {
+        "open": "Membuka",
+        "share": "Membagikan",
+        "favorite": "Favorit",
+        "move": "Bergerak",
+        "delete": "Menghapus",
+        "dismiss": "Membubarkan",
+        "unavailable": "{action} tidak tersedia — mutasi dokumen tidak terhubung untuk {id}."
+      }
+    },
+    "viewer": {
+      "title": "Penampil Dokumen",
+      "emptyTitle": "Pilih dokumen",
+      "emptyDescription": "Pilih file dari perpustakaan untuk melihat pratinjau konten, metadata, tag, versi, dan modul tertaut.",
+      "zoomOut": "Perbesar -",
+      "zoomIn": "Perbesar +",
+      "prev": "Sebelumnya",
+      "next": "Berikutnya",
+      "page": "Halaman {page} / {total}",
+      "searchInside": "Cari di dalam",
+      "findPlaceholder": "Temukan di pratinjau…",
+      "noMatches": "Tidak ada kecocokan dalam teks pratinjau.",
+      "meta": {
+        "owner": "Pemilik",
+        "created": "Dibuat",
+        "updated": "Diperbarui",
+        "fileType": "Jenis File",
+        "size": "Ukuran",
+        "category": "Kategori",
+        "department": "Departemen",
+        "status": "Status",
+        "retention": "Penyimpanan",
+        "version": "Versi",
+        "sharing": "Membagikan"
+      },
+      "tags": "Tag",
+      "linkedModules": "Modul Tertaut",
+      "noModuleLinks": "Belum ada tautan modul",
+      "versionHistory": "Riwayat Versi"
+    },
+    "versions": {
+      "title": "Riwayat Versi",
+      "emptyTitle": "Tidak ada dokumen yang dipilih",
+      "emptyDescription": "Buka dokumen untuk memeriksa versi, catatan, memulihkan, dan membandingkan.",
+      "current": "{name} · saat ini {version}",
+      "restore": "Pulihkan Versi",
+      "compare": "Bandingkan Versi",
+      "restoreTitle": "Pemulihan memerlukan API penyimpanan",
+      "compareTitle": "Bandingkan memerlukan API penyimpanan",
+      "noticeDefault": "Pulihkan dan bandingkan memerlukan API penyimpanan.",
+      "restoreUnavailable": "Pemulihan tidak tersedia untuk {id} — API penyimpanan tidak terhubung.",
+      "compareUnavailable": "Bandingkan tidak tersedia ({selected} ↔ {current}) — API penyimpanan tidak terhubung."
+    },
+    "approvals": {
+      "title": "Alur Kerja Persetujuan",
+      "subtitle": "Draf → Sedang Ditinjau → Disetujui / Ditolak → Diarsipkan. Item antrian adalah contoh dokumen; tindakan tidak bertahan.",
+      "emptyTitle": "Antrian jelas",
+      "emptyDescription": "Tidak ada dokumen draf atau dokumen yang sedang ditinjau dalam kumpulan sampel.",
+      "approve": "Menyetujui",
+      "reject": "Menolak",
+      "sendToReview": "Kirim ke Tinjauan",
+      "noticeDefault": "Transisi persetujuan memerlukan mesin alur kerja Otomatisasi — tidak terhubung dalam build ini.",
+      "unavailable": "{action} tidak tersedia untuk {id} — mesin alur kerja tidak terhubung. Status dokumen sampel tidak diubah.",
+      "approveTitle": "Persetujuan tidak tersedia — mesin alur kerja tidak terhubung",
+      "rejectTitle": "Penolakan tidak tersedia — mesin alur kerja tidak terhubung",
+      "sendTitle": "Kirim untuk meninjau tidak tersedia — mesin alur kerja tidak terhubung"
+    },
+    "knowledge": {
+      "intro": "Artikel, kebijakan, proses, manual, FAQ, dan wiki internal — lapisan narasi Pusat Pengetahuan."
+    },
+    "activity": {
+      "intro": "Perubahan terkini, unggahan, penayangan, pembagian, dan riwayat audit — landasan untuk jalur kepatuhan."
+    },
+    "integrations": {
+      "intro": "Adaptor drive cloud hanya merupakan arsitektur — Google Drive, OneDrive, Dropbox, Box, SharePoint, Nextcloud. Tidak ada API langsung.",
+      "reservedAdapter": "Adaptor yang dipesan:",
+      "architecture": "Arsitektur",
+      "items": {
+        "google-drive": {
+          "description": "Arsitektur impor/sinkronisasi dicadangkan — belum ada OAuth langsung."
+        },
+        "onedrive": {
+          "description": "Kait file Microsoft Graph dicadangkan."
+        },
+        "dropbox": {
+          "description": "Adaptor Dropbox API sudah dipesan."
+        },
+        "box": {
+          "description": "Konektor Enterprise Box dicadangkan."
+        },
+        "sharepoint": {
+          "description": "Pustaka situs + pemetaan metadata dicadangkan."
+        },
+        "nextcloud": {
+          "description": "Adaptor WebDAV dicadangkan — dinonaktifkan hingga paket self-host."
+        }
+      }
+    },
+    "security": {
+      "architectureTitle": "Arsitektur Keamanan",
+      "sharingTitle": "Model Berbagi",
+      "sharingIntro": "Placeholder Pribadi, Organisasi, Departemen, Pengguna Tertentu, dan Tautan Publik.",
+      "enabled": "Diaktifkan",
+      "placeholder": "Penampung",
+      "notEnforced": "Tidak ditegakkan",
+      "modelOnly": "Hanya model",
+      "controls": {
+        "rbac": {
+          "title": "Akses Berbasis Peran",
+          "description": "Peran pemilik, editor, penampil, dan pemberi persetujuan dipetakan ke dokumen ACL — tidak diterapkan dalam build ini."
+        },
+        "permissions": {
+          "title": "Arsitektur Izin",
+          "description": "Warisan folder dengan penggantian tingkat dokumen — tidak diterapkan dalam build ini."
+        },
+        "audit": {
+          "title": "Jejak Audit",
+          "description": "Peristiwa aktivitas untuk penayangan, pembagian, pemulihan, dan persetujuan — belum berlangsung."
+        },
+        "encryption": {
+          "title": "Enkripsi",
+          "description": "Kait enkripsi saat istirahat dan dalam transit dicadangkan untuk pengkabelan KMS."
+        },
+        "retention": {
+          "title": "Kebijakan Retensi",
+          "description": "Periode retensi per kategori dengan dukungan pembekuan legal — belum diterapkan."
+        }
+      }
+    },
+    "ai": {
+      "architectureTitle": "Arsitektur Fitur AI",
+      "architectureIntro": "Setiap kemampuan dicadangkan untuk indeks AI masa depan. UI menunjukkan wawasan tiruan deterministik.",
+      "insightsTitle": "Wawasan untuk Dokumen yang Dipilih",
+      "emptyTitle": "Pilih dokumen",
+      "emptyDescription": "Buka file di perpustakaan untuk memeriksa ringkasan AI, kata kunci, dan saran.",
+      "summary": "Ringkasan AI",
+      "keywords": "Kata Kunci AI",
+      "classification": "Klasifikasi AI",
+      "suggestedFolder": "Folder yang Disarankan AI",
+      "translation": "Terjemahan AI",
+      "ocr": "AI OCR",
+      "suggestedTags": "Tag yang Disarankan AI",
+      "related": "Dokumen Terkait AI",
+      "noRelated": "Tidak ada dokumen terkait yang diindeks.",
+      "duplicateOf": "Deteksi Duplikat AI: kemungkinan duplikat",
+      "noDuplicates": "Deteksi Duplikat AI: tidak ada duplikat yang ditandai.",
+      "sampleReady": "Sampel sudah siap",
+      "notApplicable": "Tidak berlaku",
+      "runSearch": "Jalankan Pencarian AI",
+      "searchTitle": "Pencarian AI tidak terhubung",
+      "noticeDefault": "Fitur AI hanya bersifat arsitektur — tidak ada panggilan model langsung.",
+      "searchUnavailable": "Pencarian AI tidak tersedia — indeks semantik tidak terhubung. Contoh wawasan di atas bersifat statis.",
+      "features": {
+        "summary": {
+          "title": "Ringkasan AI",
+          "description": "Pemahaman dokumen ringkas untuk setiap modul."
+        },
+        "keywords": {
+          "title": "Kata Kunci AI",
+          "description": "Sinyal topik yang diekstraksi untuk penelusuran dan perutean."
+        },
+        "classification": {
+          "title": "Klasifikasi AI",
+          "description": "Saran taksonomi kategori/departemen."
+        },
+        "tags": {
+          "title": "Tag yang Disarankan AI",
+          "description": "Beri tag rekomendasi tanpa mengubah grafik."
+        },
+        "folder": {
+          "title": "Folder yang Disarankan AI",
+          "description": "Penempatan cerdas ke dalam folder bersarang."
+        },
+        "related": {
+          "title": "Dokumen Terkait AI",
+          "description": "Buat grafik tetangga di seluruh pusat pengetahuan."
+        },
+        "duplicate": {
+          "title": "Deteksi Duplikat AI",
+          "description": "Deteksi hampir duplikat untuk pustaka dokumen."
+        },
+        "translation": {
+          "title": "Terjemahan AI",
+          "description": "Tanda kesiapan penerjemahan — tidak ada model langsung."
+        },
+        "ocr": {
+          "title": "AI OCR",
+          "description": "Saluran pipa OCR dicadangkan untuk pemindaian dan PDF."
+        },
+        "search": {
+          "title": "Pencarian AI",
+          "description": "Pencarian semantik disediakan untuk indeks masa depan."
+        }
+      }
+    },
+    "status": {
+      "draft": "Draf",
+      "in_review": "Dalam Ulasan",
+      "approved": "Disetujui",
+      "rejected": "Ditolak",
+      "archived": "Diarsipkan"
+    },
+    "fileType": {
+      "pdf": "PDF",
+      "word": "Kata",
+      "excel": "Unggul",
+      "powerpoint": "Power Point",
+      "image": "Gambar",
+      "video": "Video",
+      "audio": "Audio",
+      "markdown": "Penurunan harga",
+      "text": "Teks",
+      "json": "JSON",
+      "csv": "CSV",
+      "other": "Lainnya"
+    },
+    "share": {
+      "private": "Pribadi",
+      "organization": "Organisasi",
+      "department": "Departemen",
+      "specific_users": "Pengguna Tertentu",
+      "public_link": "Tautan Publik"
+    },
+    "module": {
+      "crm": "CRM",
+      "finance": "Keuangan",
+      "automation": "Otomatisasi",
+      "creator": "Studio Pembuat",
+      "hr": "SDM masa depan",
+      "projects": "Proyek Masa Depan"
+    },
+    "knowledgeKind": {
+      "article": "Artikel",
+      "policy": "Kebijakan",
+      "process": "Proses",
+      "manual": "petunjuk",
+      "faq": "Pertanyaan Umum",
+      "wiki": "Wiki Internal"
+    },
+    "integrationStatus": {
+      "connected": "Terhubung",
+      "beta": "Beta",
+      "coming_soon": "Segera hadir",
+      "disabled": "Dengan disabilitas",
+      "planned": "Berencana"
+    },
+    "bytes": {
+      "b": "{value} B",
+      "kb": "{value} KB",
+      "mb": "{value} MB",
+      "gb": "{value} GB"
+    }
+  },
+  "landing": {
+    "skipToProduct": "Lewati ke produk",
+    "nav": {
+      "ariaPrimary": "Utama",
+      "product": "Produk",
+      "platform": "Platform",
+      "pricing": "Harga",
+      "sales": "Penjualan",
+      "getStarted": "Mulailah",
+      "signIn": "Masuk",
+      "startFree": "Mulai Gratis",
+      "openMenu": "Buka menunya",
+      "closeMenu": "Tutup menunya"
+    },
+    "hero": {
+      "brand": "AGXORA",
+      "headline": "Sistem operasi bisnis yang cerdas.",
+      "subtitle": "Hubungkan pelanggan, keuangan, dokumen, dan AI dalam satu pusat komando yang tenang — dibangun untuk para pendiri dan operator yang membutuhkan kejelasan, bukan rangkaian alat lainnya.",
+      "ctaStart": "Mulai Gratis",
+      "ctaExplore": "Lihat cara kerjanya",
+      "globeAria": "Visualisasi intelijen global"
+    },
+    "trust": {
+      "ariaLabel": "Mengapa AGXORA",
+      "eyebrow": "Dibangun sebagai satu sistem",
+      "signals": {
+        "unified": {
+          "title": "Ruang kerja terpadu",
+          "detail": "CRM, keuangan, dan dokumen bersama-sama"
+        },
+        "intelligence": {
+          "title": "AI yang Diatur",
+          "detail": "Bantuan dalam alur kerja Anda yang sebenarnya"
+        },
+        "clarity": {
+          "title": "Kejelasan operator",
+          "detail": "Lebih sedikit peralihan. Keputusan lebih cepat."
+        },
+        "path": {
+          "title": "Jalur yang jelas menuju skala",
+          "detail": "Mulai gratis. Tumbuh saat siap."
+        }
+      }
+    },
+    "product": {
+      "title": "Di dalam ruang kerja AGXORA",
+      "lead": "Pratinjau produk ilustratif dari Pusat Komando — menghubungkan modul yang sudah Anda gunakan di AGXORA.",
+      "chromePath": "agxora.app / dashboard",
+      "railAria": "Pratinjau navigasi",
+      "railBrand": "AGXORA",
+      "navCommand": "Memerintah",
+      "navAi": "AI",
+      "navAutomation": "Otomatisasi",
+      "navAnalytics": "Analisis",
+      "navIntegrations": "Integrasi",
+      "stageTitle": "Pusat Komando",
+      "stageBadge": "Ilustratif",
+      "moduleCustomers": "Pelanggan",
+      "moduleFinance": "Keuangan",
+      "moduleDocuments": "Dokumen",
+      "moduleAi": "asisten AI"
+    },
+    "platform": {
+      "ariaLabel": "Cerita produk",
+      "story": {
+        "fragmented": {
+          "title": "Pekerjaan yang terfragmentasi",
+          "statement": "Alat menyebarkan perhatian ke seluruh bisnis.",
+          "detail": "Pelanggan di satu tempat, faktur di tempat lain, file di tempat lain — pengambilan keputusan menjadi lambat."
+        },
+        "connect": {
+          "title": "Satu permukaan operasi",
+          "statement": "AGXORA menghubungkan bisnis dalam satu ruang kerja.",
+          "detail": "CRM, keuangan, dokumen, dan AI berbagi pusat komando yang sama — bukan sekumpulan aplikasi terpisah."
+        },
+        "understand": {
+          "title": "Intelijen bisnis",
+          "statement": "Konteks tetap melekat pada karya tersebut.",
+          "detail": "Bertanya, menelusuri, dan bertindak dengan AI yang diatur di ruang kerja Anda — bukan demo umum."
+        },
+        "execute": {
+          "title": "Menuju otonomi",
+          "statement": "Jalan menuju OS bisnis otonom.",
+          "detail": "Hari ini: sistem operasi yang terhubung. Depan: agen dan otomatisasi yang lebih dalam — disampaikan dengan jujur ​​saat dikirimkan."
+        }
+      }
+    },
+    "close": {
+      "title": "Mulai gratis. Skalakan saat siap.",
+      "lead": "Buat ruang kerja dan jelajahi pusat komando.",
+      "ctaStart": "Mulai Gratis",
+      "ctaPricing": "Lihat Harga",
+      "ctaSales": "Hubungi Penjualan"
+    },
+    "footer": {
+      "ariaNav": "catatan kaki",
+      "ariaLegal": "Legal",
+      "product": "Produk",
+      "platform": "Platform",
+      "pricing": "Harga",
+      "signIn": "Masuk",
+      "startFree": "Mulai Gratis",
+      "bookDemo": "Demo Buku",
+      "contact": "Kontak",
+      "contactSales": "Hubungi Penjualan",
+      "privacy": "Pribadi",
+      "terms": "Ketentuan",
+      "cookies": "kue",
+      "imprint": "Jejak",
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — bola dunia 3D"
+  },
+  "ui": {
+    "table": {
+      "noResults": "Tidak ada hasil",
+      "noResultsDescription": "Tidak ada yang cocok dengan filter saat ini.",
+      "previous": "Sebelumnya",
+      "next": "Berikutnya",
+      "paginationRange": "{start}–{end} dari {total}",
+      "sortAscending": "Urutkan secara menaik",
+      "sortDescending": "Urutkan secara menurun"
+    },
+    "dialog": {
+      "close": "Tutup dialog"
+    },
+    "module": {
+      "notAvailableTitle": "{title} belum tersedia",
+      "notAvailableDescription": "Shell modul ini disiapkan untuk rilis mendatang. Belum ada catatan yang disimpan di sini."
+    },
+    "states": {
+      "errorLabel": "Kesalahan",
+      "errorTitle": "Ada yang tidak beres",
+      "errorDescription": "Kami tidak dapat menyelesaikan permintaan itu. Coba lagi sebentar lagi.",
+      "retry": "Mencoba kembali"
+    },
+    "empty": {
+      "crmTitle": "CRM Anda sudah siap",
+      "crmDescription": "Buat catatan pelanggan pertama untuk membuka kunci direktori, profil, dan aktivitas.",
+      "crmAction": "Buka CRM",
+      "projectsTitle": "Belum ada proyek",
+      "projectsDescription": "Siapkan ruang kerja pengiriman untuk melacak pencapaian, anggaran, dan kepemilikan tim.",
+      "projectsAction": "Buka Proyek",
+      "analyticsTitle": "Analytics menunggu sinyal",
+      "analyticsDescription": "Setelah ruang kerja Anda menghasilkan aktivitas, KPI eksekutif dan peringatan akan muncul di sini.",
+      "analyticsAction": "Buka Analisis",
+      "documentsTitle": "Pustaka dokumen kosong",
+      "documentsDescription": "Unggah atau buat aset pengetahuan untuk mendukung persetujuan, versi, dan konteks AI.",
+      "documentsAction": "Buka Dokumen",
+      "billingTitle": "Belum ada riwayat penagihan",
+      "billingDescription": "Tingkatkan rencana untuk menghasilkan faktur, perpanjangan, dan riwayat pembayaran.",
+      "billingAction": "Buka penagihan",
+      "agentsTitle": "Tidak ada agen yang aktif",
+      "agentsDescription": "Instal atau aktifkan agen dari pasar untuk memulai proses otonom.",
+      "agentsAction": "Buka Agen OS"
+    },
+    "yes": "Ya",
+    "no": "TIDAK",
+    "dash": "—"
+  },
+  "projects": {
+    "page": {
+      "eyebrow": "OS Manajemen Proyek",
+      "title": "Proyek",
+      "lead": "Rencanakan penyampaian, lacak anggaran dan kesehatan, tetapkan tim, dan kelola tugas untuk {organization}. Data disimpan secara lokal dan siap untuk konektivitas backend.",
+      "yourOrganization": "organisasi Anda"
+    },
+    "list": {
+      "errorTitle": "Tidak dapat memuat proyek",
+      "searchLabel": "Cari proyek",
+      "searchPlaceholder": "Cari proyek, pelanggan, pemilik, tag…",
+      "viewCards": "Kartu-kartu",
+      "viewTable": "Meja",
+      "newProject": "Proyek baru",
+      "statusFilter": "Status",
+      "priorityFilter": "Prioritas",
+      "customerFilter": "Pelanggan",
+      "ownerFilter": "Pemilik",
+      "allStatuses": "Semua status",
+      "allPriorities": "Semua prioritas",
+      "allCustomers": "Semua pelanggan",
+      "allOwners": "Semua pemilik",
+      "dateFrom": "Dari",
+      "dateTo": "Ke",
+      "emptyTitle": "Belum ada proyek",
+      "emptyDescription": "Siapkan ruang kerja pengiriman untuk melacak pencapaian, anggaran, dan kepemilikan tim.",
+      "createProject": "Buat proyek",
+      "pagination": "Menampilkan {from}–{to} dari {total}",
+      "previous": "Sebelumnya",
+      "next": "Berikutnya",
+      "noDescription": "Belum ada deskripsi.",
+      "duePrefix": "Due {date}",
+      "openProject": "Buka proyek {name}",
+      "sortBy": "Urutkan berdasarkan {column}",
+      "sort": {
+        "name": "Nama",
+        "customer": "Pelanggan",
+        "owner": "Pemilik",
+        "status": "Status",
+        "priority": "Prioritas",
+        "progress": "Kemajuan",
+        "dueDate": "Jatuh tempo",
+        "budget": "Anggaran"
+      }
+    },
+    "form": {
+      "createTitle": "Buat Proyek",
+      "editTitle": "Sunting Proyek",
+      "cancel": "Membatalkan",
+      "saveChanges": "Simpan perubahan",
+      "createProject": "Buat proyek",
+      "projectName": "Nama Proyek",
+      "customer": "Pelanggan",
+      "projectOwner": "Pemilik Proyek",
+      "priority": "Prioritas",
+      "status": "Status",
+      "budget": "Anggaran",
+      "currency": "Mata uang",
+      "startDate": "Tanggal Mulai",
+      "dueDate": "Tenggat waktu",
+      "color": "Warna",
+      "icon": "Ikon",
+      "tags": "Tag",
+      "tagsHint": "Dipisahkan koma",
+      "tagsPlaceholder": "perusahaan, peluncuran",
+      "budgetPlaceholder": "0",
+      "description": "Keterangan",
+      "selectColor": "Pilih warna {color}"
+    },
+    "taskForm": {
+      "createTitle": "Buat Tugas",
+      "editTitle": "Sunting Tugas",
+      "cancel": "Membatalkan",
+      "saveChanges": "Simpan perubahan",
+      "createTask": "Buat tugas",
+      "title": "Judul",
+      "assignee": "Penerima tugas",
+      "priority": "Prioritas",
+      "status": "Status",
+      "deadline": "Tenggat waktu",
+      "progress": "Kemajuan",
+      "labels": "Label",
+      "labelsHint": "Dipisahkan koma",
+      "description": "Keterangan"
+    },
+    "deleteDialog": {
+      "title": "Hapus proyek",
+      "cancel": "Membatalkan",
+      "deletePermanently": "Hapus secara permanen",
+      "bodyPrefix": "Ini menghilangkan",
+      "thisProject": "proyek ini",
+      "bodySuffix": "dan semua tugas, file, catatan, dan aktivitas terkait dari penyimpanan lokal. Tindakan ini tidak dapat dibatalkan."
+    },
+    "badges": {
+      "progress": "Kemajuan",
+      "progressAria": "{label}: {value}%"
+    },
+    "status": {
+      "planning": "Perencanaan",
+      "active": "Aktif",
+      "on_hold": "Ditahan",
+      "completed": "Selesai",
+      "archived": "Diarsipkan"
+    },
+    "taskStatus": {
+      "todo": "Yang Harus Dilakukan",
+      "in_progress": "Sedang Berlangsung",
+      "review": "Tinjauan",
+      "done": "Selesai"
+    },
+    "priority": {
+      "low": "Rendah",
+      "medium": "Sedang",
+      "high": "Tinggi",
+      "critical": "Kritis"
+    },
+    "role": {
+      "owner": "Pemilik",
+      "manager": "Manajer",
+      "member": "Anggota",
+      "viewer": "Penonton"
+    },
+    "kind": {
+      "project": "proyek",
+      "task": "tugas",
+      "milestone": "tonggak pencapaian"
+    },
+    "timeline": {
+      "noTimelineTitle": "Tidak ada garis waktu",
+      "noTimelineDescription": "Buka proyek untuk melihat jadwal, durasi, dan pencapaian.",
+      "emptyTitle": "Garis waktu kosong",
+      "emptyDescription": "Tambahkan tanggal mulai/jatuh tempo dan tugas untuk mengisi jadwal.",
+      "title": "Garis Waktu",
+      "subtitle": "Mulai, akhir, durasi, pencapaian. Dependensi dicadangkan untuk rilis mendatang.",
+      "dateRange": "{start} → {end} · {days}d",
+      "itemAria": "{title} dari {start} hingga {end}",
+      "dependenciesNone": "Ketergantungan: tidak ada"
+    },
+    "dashboard": {
+      "kpi": {
+        "activeProjects": "Proyek Aktif",
+        "activeHint": "{planning} perencanaan",
+        "completed": "Selesai",
+        "completedHint": "{percent}% portofolio",
+        "onHold": "Ditahan",
+        "onHoldHint": "{archived} diarsipkan",
+        "teamMembers": "Anggota Tim",
+        "teamHint": "Di semua proyek",
+        "budgetOverview": "Ikhtisar Anggaran",
+        "budgetHint": "{percent}% digunakan · {spent} dibelanjakan",
+        "openTasks": "Buka Tugas",
+        "openTasksHint": "{overdue} terlambat",
+        "projectHealth": "Kesehatan Proyek",
+        "healthHint": "Skor pengiriman gabungan",
+        "upcomingDeadlines": "Batas Waktu Mendatang",
+        "upcomingHint": "30 hari berikutnya"
+      },
+      "analytics": {
+        "title": "Analisis",
+        "subtitle": "Kesehatan portofolio, penyelesaian, dan penggunaan anggaran.",
+        "statusMix": "Campuran status",
+        "deliverySignals": "Sinyal pengiriman",
+        "completedPercent": "Selesai %",
+        "budgetUsage": "Penggunaan anggaran",
+        "health": "Kesehatan",
+        "upcomingDeadlines": "Batas waktu yang akan datang",
+        "noUpcomingDeadlines": "Tidak ada tenggat waktu mendatang di jendela berikutnya."
+      },
+      "recentActivity": {
+        "title": "Aktivitas Terkini",
+        "subtitle": "Acara proyek terbaru terlebih dahulu.",
+        "empty": "Aktivitas akan muncul saat proyek dan tugas dibuat."
+      }
+    },
+    "kanban": {
+      "emptyTitle": "Tidak ada tugas di papan",
+      "emptyDescription": "Buat tugas untuk mengatur penyampaian To Do, In Progress, Review, dan Done.",
+      "addTask": "Tambahkan tugas",
+      "columnAria": "kolom {status}",
+      "taskProgress": "Kemajuan tugas",
+      "edit": "Sunting",
+      "complete": "Menyelesaikan"
+    },
+    "detail": {
+      "notFoundTitle": "Proyek tidak ditemukan",
+      "notFoundDescription": "Proyek ini mungkin telah dihapus atau tidak tersedia untuk organisasi saat ini.",
+      "backToProjects": "← Kembali ke proyek",
+      "ownerMeta": "{customer} · Pemilik {owner}",
+      "edit": "Sunting",
+      "delete": "Menghapus",
+      "sectionsAria": "Bagian detail proyek",
+      "tabs": {
+        "overview": "Ringkasan",
+        "tasks": "Tugas",
+        "files": "File",
+        "notes": "Catatan",
+        "activity": "Aktivitas",
+        "team": "Tim",
+        "settings": "Pengaturan"
+      }
+    },
+    "overview": {
+      "missingTitle": "Proyek hilang",
+      "missingDescription": "Pilih proyek untuk melihat ikhtisarnya.",
+      "title": "Ringkasan",
+      "noDescription": "Tidak ada deskripsi yang diberikan.",
+      "budget": "Anggaran",
+      "spent": "Dihabiskan",
+      "start": "Awal",
+      "due": "Jatuh tempo",
+      "openTasks": "Buka tugas",
+      "completedTasks": "Tugas selesai"
+    },
+    "tasks": {
+      "title": "Manajemen tugas",
+      "newTask": "Tugas baru",
+      "tableTitle": "Judul",
+      "tableAssignee": "Penerima tugas",
+      "tablePriority": "Prioritas",
+      "tableStatus": "Status",
+      "tableDue": "Jatuh tempo",
+      "tableProgress": "Kemajuan",
+      "tableActions": "Tindakan",
+      "edit": "Sunting",
+      "complete": "Menyelesaikan",
+      "delete": "Menghapus",
+      "emptyTitle": "Belum ada tugas",
+      "emptyDescription": "Buat tugas, tetapkan pemilik, dan lacak kemajuan di papan.",
+      "createTask": "Buat tugas"
+    },
+    "files": {
+      "title": "Manajer file",
+      "description": "Unggah gambar, PDF, dan dokumen kantor. Metadata tetap ada secara lokal.",
+      "upload": "Mengunggah",
+      "emptyTitle": "Tidak ada file yang diunggah",
+      "emptyDescription": "Tambahkan artefak proyek untuk ditinjau dan dipratinjau oleh tim.",
+      "preview": "Pratinjau",
+      "metadataOnly": "Hanya metadata",
+      "delete": "Menghapus"
+    },
+    "notes": {
+      "editTitle": "Sunting catatan",
+      "newTitle": "Catatan baru",
+      "title": "Judul",
+      "author": "Pengarang",
+      "body": "Tubuh",
+      "cancel": "Membatalkan",
+      "saveNote": "Simpan catatan",
+      "emptyTitle": "Belum ada catatan",
+      "emptyDescription": "Menangkap keputusan, hasil pertemuan, dan konteks penyampaian.",
+      "edit": "Sunting",
+      "delete": "Menghapus"
+    },
+    "activity": {
+      "title": "Umpan aktivitas",
+      "emptyTitle": "Belum ada aktivitas",
+      "emptyDescription": "Acara proyek akan muncul di sini saat tim bekerja."
+    },
+    "team": {
+      "missingTitle": "Proyek hilang",
+      "missingDescription": "Pilih proyek untuk mengelola anggota tim.",
+      "assignTitle": "Tetapkan anggota",
+      "name": "Nama",
+      "email": "E-mail",
+      "role": "Peran",
+      "addMember": "Tambahkan anggota",
+      "teamTitle": "Tim",
+      "remove": "Menghapus"
+    },
+    "settings": {
+      "missingTitle": "Proyek hilang",
+      "missingDescription": "Pilih proyek untuk mengelola pengaturan.",
+      "title": "Pengaturan proyek",
+      "description": "Perbarui status pembakaran anggaran dan arsipkan. Pengeditan bidang penuh menggunakan dialog Edit.",
+      "spentAmount": "Jumlah yang dibelanjakan",
+      "saveSpent": "Menghemat pengeluaran",
+      "archiveProject": "Proyek arsip",
+      "editAllFields": "Edit semua bidang"
+    },
+    "toasts": {
+      "projectCreated": "Proyek dibuat",
+      "projectUpdated": "Proyek diperbarui",
+      "projectDeleted": "Proyek dihapus",
+      "checkForm": "Periksa formulirnya",
+      "validationFailed": "Validasi gagal.",
+      "taskCreated": "Tugas dibuat",
+      "taskUpdated": "Tugas diperbarui",
+      "taskCompleted": "Tugas selesai",
+      "taskDeleted": "Tugas dihapus",
+      "filesUploaded": "File diunggah",
+      "filesUploadedDetail": "{count} file",
+      "fileDeleted": "Berkas dihapus",
+      "noteSaved": "Catatan disimpan",
+      "memberAdded": "Anggota ditambahkan",
+      "settingsSaved": "Pengaturan disimpan",
+      "projectArchived": "Proyek diarsipkan"
+    },
+    "validation": {
+      "nameRequired": "Nama proyek wajib diisi.",
+      "nameMin": "Nama proyek minimal 2 karakter.",
+      "customerRequired": "Pelanggan wajib diisi.",
+      "ownerRequired": "Pemilik proyek wajib diisi.",
+      "priorityInvalid": "Pilih prioritas yang valid.",
+      "statusInvalid": "Pilih status yang valid.",
+      "currencyInvalid": "Pilih mata uang yang valid.",
+      "budgetInvalid": "Anggaran harus berupa angka non-negatif.",
+      "startDateRequired": "Tanggal mulai wajib diisi.",
+      "startDateInvalid": "Masukkan tanggal mulai yang valid.",
+      "dueDateInvalid": "Masukkan tanggal jatuh tempo yang valid.",
+      "dueDateOrder": "Tanggal jatuh tempo harus pada atau setelah tanggal mulai.",
+      "colorInvalid": "Pilih warna yang valid.",
+      "iconInvalid": "Pilih ikon yang valid.",
+      "taskTitleRequired": "Judul tugas wajib diisi.",
+      "progressRange": "Progres harus antara 0 dan 100.",
+      "memberNameRequired": "Nama anggota wajib diisi.",
+      "emailRequired": "Email wajib diisi.",
+      "emailInvalid": "Masukkan alamat email yang valid.",
+      "roleInvalid": "Pilih peran yang valid.",
+      "noteTitleRequired": "Judul catatan wajib diisi.",
+      "noteBodyRequired": "Isi catatan wajib diisi.",
+      "authorRequired": "Penulis wajib diisi."
+    }
+  },
+  "automation": {
+    "enginePage": {
+      "sectionTitle": "OS Otomatisasi AGXORA",
+      "title": "Otomatisasi",
+      "subtitle": "Alur Kerja & Mesin Otomasi AI Perusahaan — jaringan penghubung untuk CRM, Keuangan, Creator Studio, dan setiap modul AGXORA masa depan.",
+      "loadingHistory": "Memuat riwayat alur kerja…",
+      "loadingTemplates": "Memuat pustaka templat…",
+      "loadingIntegrations": "Memuat pusat integrasi…",
+      "dashboard": "Dasbor",
+      "workflowBuilder": "Pembuat Alur Kerja",
+      "workflowBuilderSubtitle": "Kanvas berbasis node dengan snap-to-grid, zoom & pan halus, koneksi hover, dan panduan keadaan kosong.",
+      "openAssistant": "Buka Asisten Alur Kerja AI",
+      "workflowHistory": "Riwayat Alur Kerja",
+      "workflowHistorySubtitle": "Log eksekusi dengan status berwarna, baris yang dapat diklik, dan pemeriksa eksekusi penuh.",
+      "templates": "Templat",
+      "templatesSubtitle": "Pratinjau sebelum memuat — jumlah node, tingkat kesulitan, waktu proses, dan kasus penggunaan yang direkomendasikan.",
+      "integrationCenter": "Pusat Integrasi",
+      "integrationCenterSubtitle": "Hanya registri adaptor — Terhubung, Beta, Direncanakan, Segera hadir, Dinonaktifkan. Tidak ada API langsung."
+    },
+    "assistant": {
+      "title": "Asisten Alur Kerja AI",
+      "subtitle": "Hanya heuristik lokal — tidak diperlukan model langsung.",
+      "closeAria": "Tutup Asisten Alur Kerja AI",
+      "close": "Menutup",
+      "workflowScore": "Skor Alur Kerja",
+      "scoreOutOf": "/ 100",
+      "optimizationSuggestions": "Saran Pengoptimalan",
+      "oneClickOptimize": "Optimalkan Satu Klik",
+      "noticeDefault": "One Click Optimize belum ada mutasi grafik.",
+      "noticeQueued": "Optimalkan antri. Mesin masa depan akan menulis ulang penundaan & persetujuan."
+    },
+    "integrations": {
+      "intro": "Pusat Integrasi — opsional. Status: Terhubung, Beta, Direncanakan, Segera Hadir, Dinonaktifkan. Tidak ada API langsung.",
+      "category": "Kategori:",
+      "reservedAdapter": "Adaptor yang dipesan:",
+      "description": "Keterangan:"
+    },
+    "executionInspector": {
+      "title": "Detail Eksekusi",
+      "emptyTitle": "Pilih eksekusi",
+      "emptyDescription": "Pilih proses dari Riwayat Alur Kerja untuk memeriksa input, output, dan ringkasan AI.",
+      "workflowName": "Nama Alur Kerja",
+      "trigger": "Pemicu",
+      "executionId": "ID Eksekusi",
+      "started": "Dimulai",
+      "finished": "Selesai",
+      "duration": "Lamanya",
+      "status": "Status",
+      "success": "Kesuksesan",
+      "failed": "Gagal",
+      "retryAvailable": "Coba lagi Tersedia",
+      "executedBy": "Dieksekusi Oleh",
+      "yes": "Ya",
+      "no": "TIDAK",
+      "emDash": "—",
+      "input": "Masukan",
+      "output": "Keluaran",
+      "aiSummary": "Ringkasan AI",
+      "errorMessage": "Pesan Kesalahan",
+      "retry": "Mencoba kembali",
+      "retryUnavailable": "Coba lagi tidak tersedia",
+      "noticeDefault": "Coba lagi adaptor yang sudah dipesan — belum ada eksekusi ulang langsung.",
+      "noticeQueued": "Coba lagi antri untuk {id}."
+    },
+    "workflowBuilder": {
+      "elementsTitle": "Elemen Alur Kerja",
+      "paletteAria": "Palet",
+      "tabElements": "Elemen",
+      "tabTriggers": "Pemicu",
+      "tabActions": "Tindakan",
+      "tabAiActions": "Tindakan AI",
+      "builderTitle": "Pembuat Alur Kerja · {name}",
+      "builderHint": "Jepret ke {grid}px grid · ⌘/Ctrl+scroll zoom · seret kanvas untuk menggeser · klik dua kali sambungkan",
+      "autoSaved": "Disimpan secara otomatis",
+      "saving": "Penghematan…",
+      "undo": "Membuka",
+      "redo": "Mengulangi",
+      "zoomOut": "-",
+      "zoomIn": "+",
+      "resetView": "Setel ulang tampilan",
+      "emptyTitle": "Kanvas kosong",
+      "emptyDescription": "Seret Pemicu dari palet untuk mulai membangun. Snap-to-grid menjaga node tetap selaras.",
+      "connectHint": "Klik dua kali target untuk terhubung",
+      "miniMapAria": "Peta kecil"
+    },
+    "workflowHistory": {
+      "title": "Riwayat Alur Kerja · Log Eksekusi",
+      "statusFilter": "Status",
+      "statusAll": "Semua",
+      "statusSuccess": "Kesuksesan",
+      "statusFailed": "Gagal",
+      "statusPending": "Tertunda",
+      "statusRetried": "Mencoba kembali",
+      "statusRunning": "Berlari",
+      "runsAria": "Alur kerja berjalan",
+      "noMatches": "Tidak ada alur kerja yang berjalan cocok dengan filter ini."
+    },
+    "miniPreview": {
+      "emptyWorkflow": "Alur kerja kosong"
+    },
+    "workflowTemplates": {
+      "title": "Perpustakaan Templat",
+      "noticeDefault": "Pratinjau templat sebelum memuatnya ke pembuat.",
+      "noticeLoaded": "Memuat \"{name}\" ke pembuat alur kerja.",
+      "nodesBadge": "{count} node",
+      "recommendedFor": "Direkomendasikan untuk: {for}",
+      "preview": "Pratinjau",
+      "useTemplate": "Gunakan Templat",
+      "previewTitle": "Pratinjau Templat",
+      "close": "Menutup",
+      "nodes": "Node",
+      "connections": "Koneksi",
+      "estimatedRuntime": "Perkiraan Waktu Proses",
+      "difficulty": "Kesulitan",
+      "requiredModules": "Modul yang Diperlukan",
+      "usedAiFeatures": "Fitur AI yang Digunakan",
+      "none": "Tidak ada"
+    },
+    "workspace": {
+      "loading": "Memuat mesin otomasi…",
+      "eyebrow": "Mesin Otomatisasi Alur Kerja",
+      "title": "Otomatisasi",
+      "subtitle": "Alur kerja bisnis yang dapat dikonfigurasi di seluruh CRM, Proyek, Keuangan, Dokumen, dan AI — bus peristiwa lokal dan mesin dalam browser. Antrian terdistribusi dan pekerja backend tidak terhubung.",
+      "noticeDefault": "Mesin eksekusi tidak bergantung pada UI. Modul mempublikasikan acara; alur kerja berlangganan.",
+      "tabs": {
+        "dashboard": "Dasbor",
+        "workflows": "Alur kerja",
+        "editor": "Editor",
+        "history": "Sejarah",
+        "templates": "Templat",
+        "analytics": "Analisis",
+        "settings": "Pengaturan"
+      },
+      "notice": {
+        "missingWrite": "Izin alur kerja.tulis tidak ada.",
+        "missingExecute": "Izin alur kerja.eksekusi tidak ada.",
+        "created": "Dibuat {name}",
+        "templateApplied": "Templat diterapkan: {name}",
+        "runResult": "Jalankan {status} ({duration}ms)",
+        "runFailed": "Alur kerja tidak dapat berjalan (dinonaktifkan atau hilang).",
+        "publishedEvent": "Peristiwa domain yang dipublikasikan: {type}",
+        "workflowStatus": "Alur kerja {status}",
+        "saved": "Alur kerja disimpan",
+        "retryResult": "Coba lagi {status}",
+        "retryFailed": "Coba lagi gagal",
+        "settingsSaved": "Pengaturan otomatisasi disimpan"
+      },
+      "defaults": {
+        "untitledName": "Alur kerja tanpa judul",
+        "untitledDescription": "Draf alur kerja — konfigurasikan pemicu dan tindakan."
+      },
+      "dashboard": {
+        "workflows": "Alur kerja",
+        "active": "Aktif",
+        "runsToday": "Berjalan hari ini",
+        "successRate": "Tingkat keberhasilan",
+        "recentWorkflows": "Alur kerja terkini",
+        "newWorkflow": "Alur kerja baru",
+        "eventBusDemo": "Demo bus acara",
+        "eventBusHint": "Publikasikan acara modul. Alur kerja aktif dengan pemicu yang cocok dimasukkan ke dalam antrean secara otomatis.",
+        "notifications": "Pemberitahuan"
+      },
+      "workflowList": {
+        "title": "Daftar alur kerja",
+        "newWorkflow": "Alur kerja baru",
+        "emptyTitle": "Belum ada alur kerja.",
+        "emptyDescription": "Buat alur kerja atau mulai dari templat.",
+        "columns": {
+          "name": "Nama",
+          "status": "Status",
+          "nodes": "Node",
+          "updated": "Diperbarui",
+          "actions": "Tindakan"
+        },
+        "run": "Berlari",
+        "disable": "Cacat",
+        "activate": "Mengaktifkan"
+      },
+      "editor": {
+        "selectPrompt": "Pilih atau buat alur kerja untuk diedit.",
+        "workflows": "Alur kerja",
+        "title": "Editor alur kerja",
+        "hint": "Arsitektur mendukung pemicu → kondisi → tindakan → penundaan → cabang → loop. Drag-and-drop kanvas dapat dihubungkan ke posisi node tanpa perubahan mesin.",
+        "name": "Nama",
+        "description": "Keterangan",
+        "trigger": "Pemicu",
+        "primaryAction": "Tindakan utama",
+        "executionPath": "Pratinjau jalur eksekusi",
+        "save": "Menyimpan",
+        "runNow": "Jalankan sekarang",
+        "triggerFallback": "Pemicu",
+        "actionFallback": "Tindakan"
+      },
+      "history": {
+        "title": "Sejarah eksekusi",
+        "emptyTitle": "Belum ada eksekusi.",
+        "emptyDescription": "Jalankan alur kerja atau publikasikan peristiwa domain.",
+        "latestRun": "Detail proses terbaru",
+        "path": "Jalur: {path}",
+        "error": "· Kesalahan: {error}",
+        "columns": {
+          "workflow": "Alur kerja",
+          "status": "Status",
+          "triggeredBy": "Dipicu oleh",
+          "duration": "Lamanya",
+          "started": "Dimulai",
+          "retry": "Mencoba kembali"
+        },
+        "retry": "Mencoba kembali",
+        "emDash": "—"
+      },
+      "templates": {
+        "useTemplate": "Gunakan templat"
+      },
+      "analytics": {
+        "totalWorkflows": "Alur kerja total",
+        "activeWorkflows": "Alur kerja aktif",
+        "executionsToday": "Eksekusi hari ini",
+        "successRate24h": "Tingkat keberhasilan (24 jam)",
+        "failed24h": "Gagal (24 jam)",
+        "avgDuration": "Durasi rata-rata"
+      },
+      "settings": {
+        "title": "Pengaturan otomatisasi",
+        "subtitle": "Kebijakan percobaan ulang, batas eksekusi, konkurensi, batas waktu, dan pencatatan untuk eksekusi terdistribusi.",
+        "maxRetryAttempts": "Upaya percobaan ulang maksimal",
+        "backoffMs": "Mundur (md)",
+        "executionsPerHour": "Eksekusi / jam",
+        "concurrencyLimit": "Batas konkurensi",
+        "timeoutMs": "Batas waktu (md)",
+        "logLevel": "tingkat log",
+        "logLevels": {
+          "error": "error",
+          "warn": "peringatan",
+          "info": "info",
+          "debug": "debug"
+        },
+        "saveSettings": "Simpan pengaturan"
+      }
+    },
+    "status": {
+      "connected": "Terhubung",
+      "beta": "Beta",
+      "comingSoon": "Segera hadir",
+      "disabled": "Nonaktif",
+      "planned": "Direncanakan",
+      "success": "Berhasil",
+      "failed": "Gagal",
+      "running": "Berjalan",
+      "pending": "Tertunda",
+      "retried": "Coba lagi"
+    },
+    "difficulty": {
+      "starter": "Pemula",
+      "intermediate": "Menengah",
+      "advanced": "Lanjutan"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "Pemicu",
+        "description": "Mulai saat suatu peristiwa terjadi"
+      },
+      "el-condition": {
+        "label": "Kondisi",
+        "description": "Cabangkan berdasarkan aturan"
+      },
+      "el-delay": {
+        "label": "Tunda",
+        "description": "Tunggu sebelum melanjutkan"
+      },
+      "el-approval": {
+        "label": "Persetujuan",
+        "description": "Gerbang persetujuan manusia"
+      },
+      "el-loop": {
+        "label": "Loop",
+        "description": "Ulangi koleksi"
+      },
+      "el-merge": {
+        "label": "Gabung",
+        "description": "Gabungkan jalur paralel"
+      },
+      "el-split": {
+        "label": "Pisah",
+        "description": "Sebarkan jalur paralel"
+      },
+      "el-ai-decision": {
+        "label": "Keputusan AI",
+        "description": "Rute via AI"
+      },
+      "el-notification": {
+        "label": "Notifikasi",
+        "description": "Peringatan dalam aplikasi"
+      },
+      "el-webhook": {
+        "label": "Placeholder Webhook",
+        "description": "Callback HTTP dicadangkan"
+      },
+      "el-custom": {
+        "label": "Tindakan kustom",
+        "description": "Slot tindakan yang dapat diperluas"
+      },
+      "tr-customer": {
+        "label": "Pelanggan dibuat",
+        "description": "Catatan pelanggan CRM dibuat"
+      },
+      "tr-lead": {
+        "label": "Prospek dibuat",
+        "description": "Prospek baru masuk pipeline"
+      },
+      "tr-invoice": {
+        "label": "Faktur dibuat",
+        "description": "Faktur keuangan diterbitkan"
+      },
+      "tr-invoice-paid": {
+        "label": "Faktur dibayar",
+        "description": "Pembayaran diselesaikan"
+      },
+      "tr-order": {
+        "label": "Pesanan dibuat",
+        "description": "Pesanan dimasukkan"
+      },
+      "tr-order-done": {
+        "label": "Pesanan selesai",
+        "description": "Pesanan dipenuhi"
+      },
+      "tr-doc": {
+        "label": "Dokumen diunggah",
+        "description": "Unggah brankas dokumen"
+      },
+      "tr-campaign": {
+        "label": "Kampanye dipublikasikan",
+        "description": "Publikasi Creator Studio"
+      },
+      "tr-employee": {
+        "label": "Karyawan ditambahkan",
+        "description": "Perubahan direktori tim"
+      },
+      "tr-task": {
+        "label": "Tugas selesai",
+        "description": "Tugas ditandai selesai"
+      },
+      "tr-manual": {
+        "label": "Pemicu manual",
+        "description": "Jalankan sesuai permintaan"
+      },
+      "tr-schedule": {
+        "label": "Pemicu jadwal",
+        "description": "Jadwal cron / kalender"
+      },
+      "tr-webhook": {
+        "label": "Pemicu Webhook",
+        "description": "Peristiwa HTTP masuk"
+      },
+      "tr-api": {
+        "label": "Pemicu API",
+        "description": "Mulai terprogram"
+      },
+      "ac-crm": {
+        "label": "Buat catatan CRM",
+        "description": "Tulis entitas CRM"
+      },
+      "ac-invoice": {
+        "label": "Buat faktur",
+        "description": "Faktur keuangan"
+      },
+      "ac-quote": {
+        "label": "Buat penawaran",
+        "description": "Buat dokumen penawaran"
+      },
+      "ac-delivery": {
+        "label": "Buat surat jalan",
+        "description": "Surat jalan"
+      },
+      "ac-task": {
+        "label": "Buat tugas",
+        "description": "Buka tugas"
+      },
+      "ac-assign": {
+        "label": "Tugaskan karyawan",
+        "description": "Rute ke rekan tim"
+      },
+      "ac-email": {
+        "label": "Kirim email",
+        "description": "Email keluar"
+      },
+      "ac-notify": {
+        "label": "Kirim notifikasi",
+        "description": "Notifikasi dalam aplikasi"
+      },
+      "ac-ai-summary": {
+        "label": "Buat ringkasan AI",
+        "description": "Ringkas konteks"
+      },
+      "ac-ai-content": {
+        "label": "Buat konten AI",
+        "description": "Draf Creator Studio"
+      },
+      "ac-update-customer": {
+        "label": "Perbarui pelanggan",
+        "description": "Patch pelanggan CRM"
+      },
+      "ac-update-status": {
+        "label": "Perbarui status",
+        "description": "Ubah status entitas"
+      },
+      "ac-pdf": {
+        "label": "Ekspor PDF",
+        "description": "Ekspor dokumen"
+      },
+      "ac-future": {
+        "label": "Placeholder API masa depan",
+        "description": "Slot tindakan cadangan"
+      },
+      "ai-decision": {
+        "label": "Keputusan AI",
+        "description": "Tentukan jalur berikutnya"
+      },
+      "ai-class": {
+        "label": "Klasifikasi AI",
+        "description": "Klasifikasikan catatan"
+      },
+      "ai-text": {
+        "label": "Pembuatan teks AI",
+        "description": "Buat teks"
+      },
+      "ai-translate": {
+        "label": "Terjemahan AI",
+        "description": "Terjemahkan konten"
+      },
+      "ai-email": {
+        "label": "Balasan email AI",
+        "description": "Buat draf balasan"
+      },
+      "ai-sum": {
+        "label": "Peringkasan AI",
+        "description": "Padatkan konteks"
+      },
+      "ai-rec": {
+        "label": "Rekomendasi AI",
+        "description": "Sarankan langkah berikutnya"
+      },
+      "ai-route": {
+        "label": "Perutean AI",
+        "description": "Rute ke pemilik / antrean"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "Pelanggan dibuat",
+        "description": "Dipicu saat catatan pelanggan CRM dibuat."
+      },
+      "project_created": {
+        "label": "Proyek dibuat",
+        "description": "Dipicu saat proyek dibuat."
+      },
+      "invoice_issued": {
+        "label": "Faktur diterbitkan",
+        "description": "Dipicu saat faktur diterbitkan."
+      },
+      "task_completed": {
+        "label": "Tugas selesai",
+        "description": "Dipicu saat tugas ditandai selesai."
+      },
+      "document_uploaded": {
+        "label": "Dokumen diunggah",
+        "description": "Dipicu saat dokumen diunggah."
+      },
+      "user_invited": {
+        "label": "Pengguna diundang",
+        "description": "Dipicu saat anggota tim diundang."
+      },
+      "schedule": {
+        "label": "Jadwal",
+        "description": "Pemicu jadwal cron / interval."
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "Webhook HTTP masuk."
+      },
+      "api_event": {
+        "label": "Peristiwa API",
+        "description": "Peristiwa domain API umum."
+      },
+      "ai_event": {
+        "label": "Peristiwa AI",
+        "description": "Sinyal AI (selesai, wawasan, langkah agen)."
+      },
+      "manual": {
+        "label": "Pemicu manual",
+        "description": "Jalankan on-demand dari UI atau API."
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "Buat Pelanggan",
+        "description": "Buat catatan pelanggan CRM."
+      },
+      "customer_update": {
+        "label": "Perbarui pelanggan",
+        "description": "Perbarui kolom pelanggan."
+      },
+      "project_create": {
+        "label": "Buat Proyek",
+        "description": "Buat proyek dari konteks alur kerja."
+      },
+      "document_generate": {
+        "label": "Buat dokumen",
+        "description": "Buat dokumen dari templat."
+      },
+      "notification_send": {
+        "label": "Kirim notifikasi",
+        "description": "Kirim notifikasi dalam aplikasi."
+      },
+      "email_send": {
+        "label": "Kirim email",
+        "description": "Antre email melalui penyedia mail."
+      },
+      "api_call": {
+        "label": "Panggil API",
+        "description": "Panggilan HTTP ke API internal atau eksternal."
+      },
+      "ai_run": {
+        "label": "Jalankan AI",
+        "description": "Jalankan prompt AI / langkah agen dengan konteks."
+      },
+      "task_assign": {
+        "label": "Tetapkan tugas",
+        "description": "Tetapkan tugas ke pengguna."
+      },
+      "invoice_create": {
+        "label": "Buat Faktur",
+        "description": "Buat faktur keuangan."
+      },
+      "status_update": {
+        "label": "Perbarui status",
+        "description": "Perbarui status entitas di modul."
+      }
+    }
+  },
+  "team": {
+    "page": {
+      "eyebrow": "Identitas & Akses",
+      "title": "Tim",
+      "lead": "Anggota, peran, dan undangan untuk {organization}. Arsitektur siap untuk API identitas masa depan.",
+      "yourOrganization": "organisasi Anda"
+    },
+    "invite": {
+      "title": "Undang melalui Email",
+      "email": "E-mail",
+      "emailPlaceholder": "kolega@perusahaan.com",
+      "role": "Peran",
+      "submit": "Mengundang",
+      "created": "Undangan dibuat (menunggu keputusan).",
+      "failed": "Undangan gagal",
+      "signInFirst": "Masuk dan aktifkan organisasi terlebih dahulu.",
+      "noPermission": "Izin tidak ada — Admin atau Manajer perlu mengundang."
+    },
+    "roles": {
+      "title": "Peran",
+      "owner": {
+        "name": "Pemilik",
+        "description": "Kontrol organisasi penuh termasuk Pengaturan dan penagihan."
+      },
+      "admin": {
+        "name": "Admin",
+        "description": "Kelola modul Keuangan, Otomatisasi, Tim, dan ruang kerja."
+      },
+      "manager": {
+        "name": "Manajer",
+        "description": "Pimpin operasi CRM, Proyek, Dokumen, dan Pencipta."
+      },
+      "employee": {
+        "name": "Karyawan",
+        "description": "Akses CRM, Dokumen, Pembuat, dan Proyek sehari-hari."
+      },
+      "guest": {
+        "name": "Tamu",
+        "description": "Akses baca terbatas ke Dokumen dan Proyek."
+      },
+      "viewer": {
+        "name": "Penonton",
+        "description": "Akses hanya baca ke modul bersama."
+      }
+    },
+    "members": {
+      "title": "Anggota",
+      "columnMember": "Anggota",
+      "columnEmail": "E-mail",
+      "columnRole": "Peran",
+      "columnStatus": "Status",
+      "roleFor": "Peran untuk {name}",
+      "emptyTitle": "Belum ada anggota",
+      "emptyDescription": "Undang rekan kerja untuk bergabung dalam ruang kerja organisasi ini.",
+      "updated": "Memperbarui {name} menjadi {role}",
+      "roleChangeFailed": "Perubahan peran gagal"
+    },
+    "pending": {
+      "title": "Undangan yang Menunggu Keputusan",
+      "emptyTitle": "Tidak ada undangan yang menunggu keputusan",
+      "emptyDescription": "Undangan baru muncul di sini hingga diterima atau habis masa berlakunya.",
+      "expires": "{role} · habis masa berlakunya pada tanggal {date}",
+      "revoke": "Menarik kembali",
+      "pending": "tertunda"
+    },
+    "history": {
+      "title": "Sejarah Undangan",
+      "empty": "Undangan yang diterima, kedaluwarsa, dan dicabut akan muncul di sini."
+    },
+    "status": {
+      "accepted": "diterima",
+      "expired": "kedaluwarsa",
+      "revoked": "dicabut",
+      "active": "aktif",
+      "inactive": "tidak aktif",
+      "pending": "tertunda"
+    }
+  },
+  "customers": {
+    "page": {
+      "sectionTitle": "Manajemen Pelanggan",
+      "title": "Pelanggan",
+      "lead": "Membuat, mengedit, menelusuri, dan mengelola data pelanggan untuk {organization}.",
+      "yourOrganization": "organisasi Anda"
+    },
+    "table": {
+      "columns": {
+        "company": "Perusahaan",
+        "email": "E-mail",
+        "location": "Lokasi",
+        "status": "Status",
+        "updated": "Diperbarui",
+        "actions": "Tindakan"
+      },
+      "view": "Melihat",
+      "edit": "Sunting",
+      "delete": "Menghapus",
+      "viewAria": "Lihat {company}",
+      "editAria": "Sunting {company}",
+      "deleteAria": "Hapus {company}",
+      "loading": "Memuat pelanggan…",
+      "errorLoad": "Tidak dapat memuat pelanggan",
+      "errorGeneric": "Ada yang tidak beres",
+      "emptyFilteredTitle": "Tidak ada pelanggan yang cocok",
+      "emptyFilteredDescription": "Coba sesuaikan pencarian atau filter.",
+      "emptyTitle": "Belum ada pelanggan",
+      "emptyDescription": "Buat pelanggan pertama Anda untuk mulai mengelola akun Anda.",
+      "searchLabel": "Cari pelanggan",
+      "searchPlaceholder": "Perusahaan, kontak, email, kota, tag…",
+      "statusFilter": "Status",
+      "tagFilter": "Menandai",
+      "allStatuses": "Semua status",
+      "allTags": "Semua tag",
+      "clearFilters": "Hapus filter",
+      "addCustomer": "Tambahkan Pelanggan"
+    },
+    "status": {
+      "active": "Aktif",
+      "prospect": "Prospek",
+      "inactive": "Tidak aktif",
+      "blocked": "Diblokir"
+    },
+    "form": {
+      "editTitle": "Sunting Pelanggan",
+      "createTitle": "Tambahkan Pelanggan",
+      "cancel": "Membatalkan",
+      "saveChanges": "Simpan perubahan",
+      "createCustomer": "Buat pelanggan",
+      "companyName": "Nama perusahaan",
+      "contactPerson": "Kontak person",
+      "email": "E-mail",
+      "status": "Status",
+      "statusAria": "Status pelanggan",
+      "phone": "Telepon",
+      "mobile": "Seluler",
+      "street": "Jalan",
+      "postalCode": "Kode Pos",
+      "city": "Kota",
+      "country": "Negara",
+      "taxNumber": "Nomor Pajak",
+      "vatId": "ID PPN",
+      "tags": "Tag",
+      "tagsHint": "Dipisahkan koma",
+      "tagsPlaceholder": "vip, ritel, mitra",
+      "notes": "Catatan Pelanggan",
+      "updated": "Pelanggan diperbarui",
+      "created": "Pelanggan dibuat",
+      "checkForm": "Periksa formulirnya",
+      "validationFailed": "Validasi gagal."
+    },
+    "delete": {
+      "title": "Hapus pelanggan",
+      "cancel": "Membatalkan",
+      "confirm": "Menghapus",
+      "confirmWithName": "Hapus {company} secara permanen? Hal ini tidak dapat dibatalkan.",
+      "confirmGeneric": "Pelanggan ini akan dihapus secara permanen.",
+      "success": "Pelanggan dihapus",
+      "failed": "Penghapusan gagal",
+      "notFound": "Pelanggan tidak ditemukan atau tidak dapat dihapus.",
+      "errorGeneric": "Terjadi masalah saat menghapus."
+    },
+    "details": {
+      "titleFallback": "Pelanggan",
+      "edit": "Sunting",
+      "delete": "Menghapus",
+      "noTags": "Tidak ada tag",
+      "contact": "Kontak",
+      "email": "E-mail",
+      "phone": "Telepon",
+      "mobile": "Seluler",
+      "address": "Alamat",
+      "taxNumber": "Nomor Pajak",
+      "vatId": "ID PPN",
+      "updated": "Diperbarui",
+      "notes": "Catatan",
+      "noNotes": "Belum ada catatan."
+    },
+    "validation": {
+      "companyRequired": "Nama perusahaan wajib diisi.",
+      "contactRequired": "Narahubung wajib diisi.",
+      "emailRequired": "Email wajib diisi.",
+      "emailInvalid": "Masukkan alamat email yang valid.",
+      "phoneRequired": "Telepon wajib diisi.",
+      "phoneInvalid": "Masukkan nomor telepon yang valid.",
+      "mobileInvalid": "Masukkan nomor seluler yang valid.",
+      "statusInvalid": "Pilih status yang valid.",
+      "emailDuplicate": "Pelanggan dengan email ini sudah ada.",
+      "companyDuplicate": "Pelanggan dengan nama perusahaan ini sudah ada."
+    }
+  },
+  "ai": {
+    "platform": {
+      "loading": "Memuat Platform AI…",
+      "eyebrow": "Platform AI AGXORA",
+      "title": "Ruang Kerja AI Perusahaan",
+      "subtitle": "Kecerdasan independen penyedia untuk CRM, Proyek, Keuangan, Dokumen, dan Otomatisasi. Konfigurasikan penyedia di Pengaturan → AI.",
+      "newConversation": "Percakapan baru",
+      "aiCommands": "Perintah AI"
+    },
+    "mobileTabs": {
+      "chat": "Mengobrol",
+      "conversations": "Percakapan",
+      "prompts": "Anjuran"
+    },
+    "usageBar": {
+      "provider": "Penyedia",
+      "model": "Model",
+      "estimatedTokens": "Perkiraan. token",
+      "tokensInOut": "(masuk {in} / keluar {out})",
+      "cost": "Biaya",
+      "context": "Konteks",
+      "contextNone": "tidak ada",
+      "emDash": "—"
+    },
+    "chatThread": {
+      "title": "Ruang Kerja AI AGXORA",
+      "emptyHint": "Mulai percakapan, pilih perintah dari perpustakaan, atau buka palet perintah (⌘⇧K / Ctrl⇧K)."
+    },
+    "conversationSidebar": {
+      "title": "Percakapan",
+      "new": "Baru",
+      "searchPlaceholder": "Cari obrolan…",
+      "searchAria": "Cari percakapan",
+      "showArchived": "Tampilkan diarsipkan",
+      "pinned": "Disematkan",
+      "emptyPreview": "Percakapan kosong",
+      "noConversations": "Belum ada percakapan",
+      "pin": "Pin",
+      "unpin": "Membuka peniti",
+      "rename": "Ganti nama",
+      "archive": "Arsip",
+      "unarchive": "Batalkan pengarsipan",
+      "delete": "Menghapus"
+    },
+    "composer": {
+      "placeholder": "Pesan AGXORA AI… (Enter untuk mengirim, Shift+Enter untuk baris baru)",
+      "ariaLabel": "Komposer pesan",
+      "commandsShortcut": "Perintah ⌘⇧K",
+      "stop": "Berhenti",
+      "send": "Mengirim"
+    },
+    "messageBubble": {
+      "ellipsis": "…",
+      "copy": "Menyalin",
+      "retry": "Mencoba kembali"
+    },
+    "typingIndicator": {
+      "ariaLabel": "Asisten sedang mengetik"
+    },
+    "promptLibrary": {
+      "title": "Perpustakaan yang cepat",
+      "subtitle": "Templat yang dapat digunakan kembali di CRM, Proyek, Keuangan, dan lainnya.",
+      "searchPlaceholder": "Perintah pencarian…",
+      "searchAria": "Petunjuk pencarian",
+      "all": "Semua",
+      "favorites": "Favorit",
+      "recent": "Terkini",
+      "library": "Perpustakaan",
+      "noMatches": "Tidak ada perintah yang cocok",
+      "removeFavoriteAria": "Hapus favorit",
+      "addFavoriteAria": "Tambahkan favorit",
+      "favorited": "Favorit",
+      "favorite": "Favorit",
+      "usePrompt": "Gunakan perintah"
+    },
+    "commandPalette": {
+      "ariaLabel": "Palet perintah AI",
+      "filterAria": "Filter perintah AI",
+      "placeholder": "Perintah AI… merangkum, mengusulkan, menganalisis…",
+      "noMatches": "Tidak ada perintah yang cocok",
+      "footer": "Daftarkan perintah selanjutnya melalui registerAiCommand — UI tetap tidak berubah."
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "Proyek",
+      "finance": "Keuangan",
+      "marketing": "Pemasaran",
+      "documents": "Dokumen",
+      "automation": "Otomatisasi",
+      "general": "Umum"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "Ringkas pelanggan",
+        "description": "Ringkasan eksekutif hubungan pelanggan"
+      },
+      "crm-follow-up-email": {
+        "title": "Email tindak lanjut",
+        "description": "Buat draf tindak lanjut CRM profesional"
+      },
+      "projects-analyze": {
+        "title": "Analisis proyek",
+        "description": "Pemeriksaan kesehatan proyek"
+      },
+      "projects-task-list": {
+        "title": "Buat daftar tugas",
+        "description": "Pecah pekerjaan menjadi tugas yang dapat ditindaklanjuti"
+      },
+      "finance-explain-invoice": {
+        "title": "Jelaskan faktur",
+        "description": "Penjelasan faktur dalam bahasa sederhana"
+      },
+      "finance-cashflow-brief": {
+        "title": "Ringkasan arus kas",
+        "description": "Narasi singkat arus kas"
+      },
+      "marketing-campaign-outline": {
+        "title": "Kerangka kampanye",
+        "description": "Susun kampanye pemasaran"
+      },
+      "marketing-proposal": {
+        "title": "Buat proposal",
+        "description": "Draf proposal untuk klien"
+      },
+      "documents-summarize": {
+        "title": "Ringkas dokumen",
+        "description": "Ringkasan dokumen terstruktur"
+      },
+      "automation-workflow": {
+        "title": "Rancang alur kerja",
+        "description": "Sketsa alur kerja otomatisasi"
+      },
+      "general-brainstorm": {
+        "title": "Curah pendapat opsi",
+        "description": "Ideasi terstruktur"
+      },
+      "general-explain": {
+        "title": "Jelaskan secara sederhana",
+        "description": "Penjelasan jelas untuk pemangku kepentingan"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "Ringkas pelanggan",
+        "description": "Ringkasan eksekutif pelanggan aktif"
+      },
+      "cmd-generate-proposal": {
+        "label": "Buat proposal",
+        "description": "Buat kerangka proposal klien"
+      },
+      "cmd-analyze-project": {
+        "label": "Analisis proyek",
+        "description": "Kesehatan proyek dan analisis risiko"
+      },
+      "cmd-create-task-list": {
+        "label": "Buat daftar tugas",
+        "description": "Pecah pekerjaan menjadi tugas yang dapat ditindaklanjuti"
+      },
+      "cmd-generate-email": {
+        "label": "Buat email",
+        "description": "Buat draf email profesional"
+      },
+      "cmd-explain-invoice": {
+        "label": "Jelaskan faktur",
+        "description": "Penjelasan faktur dalam bahasa sederhana"
+      }
+    }
+  },
+  "agents": {
+    "loading": "Memuat Sistem Operasi Agen…",
+    "eyebrow": "Sistem Operasi Agen AI",
+    "title": "Agen OS",
+    "subtitle": "Ruang kerja agen lokal — agen dapat diaktifkan dan dijalankan sebagai simulasi di seluruh CRM, Proyek, Keuangan, Alur Kerja, dan Integrasi. Eksekusi otonom produksi tidak terhubung.",
+    "noticeDefault": "OS Agen Lokal — eksekusi disimulasikan di ruang kerja ini.",
+    "aiChat": "Obrolan AI",
+    "tabs": {
+      "dashboard": "Dasbor",
+      "registry": "Registri",
+      "marketplace": "Pasar",
+      "monitor": "Memantau",
+      "history": "Sejarah",
+      "memory": "Ingatan",
+      "knowledge": "Pengetahuan",
+      "tools": "Peralatan",
+      "settings": "Pengaturan"
+    },
+    "notice": {
+      "simulatedRun": "Simulasi dijalankan · {status} ({duration}ms)",
+      "taskFailed": "Tugas gagal",
+      "activated": "Diaktifkan secara lokal: {agentId}",
+      "agentPaused": "Agen berhenti",
+      "agentActivated": "Agen diaktifkan",
+      "taskCancelled": "Tugas dibatalkan",
+      "supervisorDelegated": "Supervisor mendelegasikan tindak lanjut",
+      "settingsUpdated": "Pengaturan OS Agen diperbarui untuk ruang kerja lokal ini."
+    },
+    "dashboard": {
+      "agents": "Agen",
+      "active": "Aktif",
+      "localReady": "Lokal siap",
+      "simulatedToday": "Simulasi hari ini",
+      "failedToday": "Gagal hari ini",
+      "avgExec": "Rata-rata eksekutif",
+      "toolCalls": "Panggilan alat",
+      "knowledge": "Pengetahuan",
+      "activeFleet": "Armada aktif",
+      "emptyTitle": "Tidak ada agen yang aktif",
+      "emptyDescription": "Instal atau aktifkan agen dari pasar untuk memulai simulasi berjalan."
+    },
+    "registry": {
+      "title": "Registri",
+      "selectPrompt": "Pilih agen dari registri.",
+      "status": "Status: {status}",
+      "health": "Kesehatan: {health}",
+      "queue": "Antrian: {queue}",
+      "usage": "Penggunaan: {usage}",
+      "executeTask": "Jalankan tugas",
+      "supervisorDelegate": "Delegasi pengawas"
+    },
+    "marketplace": {
+      "tools": "Alat: {tools}",
+      "installed": "Dipasang",
+      "installActivate": "Instal & aktifkan"
+    },
+    "monitor": {
+      "title": "Pemantau agen",
+      "emptyTitle": "Tidak ada agen yang harus dipantau",
+      "emptyDescription": "Aktifkan agen dari pasar.",
+      "latestConfidence": "Keyakinan penalaran terbaru: {confidence} — {steps}"
+    },
+    "history": {
+      "title": "Sejarah eksekusi",
+      "emptyTitle": "Belum ada eksekusi",
+      "emptyDescription": "Jalankan tugas agen dari registri atau monitor."
+    },
+    "memory": {
+      "title": "Pusat memori",
+      "subtitle": "Bekerja · Percakapan · Bisnis · Jangka panjang · Ruang kerja · Lingkup agen (siap arsitektur).",
+      "emptyTitle": "Tidak ada catatan memori",
+      "emptyDescription": "Jalankan tugas untuk mengisi memori kerja/agen."
+    },
+    "knowledge": {
+      "title": "Pusat pengetahuan",
+      "subtitle": "Perusahaan, dokumen, proyek, CRM, kebijakan, prosedur — ditambah placeholder vektor/RAG.",
+      "emptyTitle": "Tidak ada dokumen pengetahuan",
+      "emptyDescription": "Pengetahuan awal muncul setelah bootstrap ruang kerja."
+    },
+    "tools": {
+      "sensitive": "· sensitif",
+      "mcpReady": "· Siap MCP"
+    },
+    "settings": {
+      "title": "Pengaturan OS Agen",
+      "defaultLlmProvider": "Penyedia LLM bawaan",
+      "enableSupervisor": "Aktifkan arsitektur agen pengawas",
+      "isolateSensitive": "Pisahkan alat sensitif",
+      "saveSettings": "Simpan pengaturan",
+      "providersHint": "Penyedia siap: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Tukar adaptor melalui registerLlmProvider tanpa perubahan UI."
+    },
+    "columns": {
+      "agent": "Agen",
+      "status": "Status",
+      "health": "Kesehatan",
+      "queue": "Antre",
+      "usage": "Penggunaan",
+      "actions": "Tindakan",
+      "task": "Tugas",
+      "duration": "Lamanya",
+      "created": "Dibuat",
+      "scope": "Cakupan",
+      "key": "Kunci",
+      "value": "Nilai",
+      "at": "Pada",
+      "title": "Judul",
+      "kind": "Baik",
+      "summary": "Ringkasan"
+    },
+    "actions": {
+      "run": "Berlari",
+      "pause": "Berhenti sebentar",
+      "activate": "Mengaktifkan",
+      "cancel": "Membatalkan",
+      "emDash": "—"
+    },
+    "goals": {
+      "executeBusiness": "Jalankan sasaran bisnis {agentId}",
+      "planAndExecute": "Merencanakan dan melaksanakan tujuan bisnis ruang kerja"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "Prioritaskan dampak pelanggan",
+      "delegatedFollowUp": "Tindak lanjut yang didelegasikan"
+    }
+  },
+  "integrations": {
+    "loading": "Memuat platform integrasi…",
+    "eyebrow": "Platform Integrasi Perusahaan",
+    "title": "Pusat Integrasi",
+    "subtitle": "Konektor untuk ekosistem Microsoft 365, Google, Slack, CRM, penyimpanan, dan otomatisasi. Koneksi dan sinkronisasi dalam build ini adalah demo lokal — OAuth langsung tidak terhubung.",
+    "noticeDefault": "Konektor demo lokal — OAuth dan sinkronisasi langsung tidak terhubung.",
+    "settings": "Pengaturan",
+    "tabs": {
+      "dashboard": "Dasbor",
+      "installed": "Dipasang",
+      "available": "Tersedia",
+      "logs": "Log",
+      "apiKeys": "Kunci API",
+      "webhooks": "Webhook",
+      "developer": "Pengembang"
+    },
+    "notice": {
+      "demoConnection": "Koneksi demo: {name} (khusus rintisan lokal)",
+      "connectFailed": "Sambungan gagal",
+      "keyCreated": "Kunci API dibuat: {prefix}",
+      "webhookCreated": "Webhook dibuat: {name}",
+      "webhookTest": "Tes webhook {status}",
+      "networkError": "Kesalahan jaringan penjelajah API: {message}",
+      "explorerError": "Penjelajah API → {status}: {message}",
+      "explorerSuccess": "Penjelajah API → {status}",
+      "explorerFailed": "Penjelajah gagal",
+      "syncResult": "Sinkronisasi demo · {status} ({records} catatan lokal) — tidak ada data eksternal yang ditransfer.",
+      "diagnosed": "Didiagnosis",
+      "removedConnection": "Koneksi demo dihapus: {name}",
+      "keyRotated": "Kunci diputar",
+      "keyRevoked": "Kunci dicabut",
+      "publishedEvent": "Diterbitkan {type}",
+      "developerSaved": "Pengaturan pengembang disimpan"
+    },
+    "dashboard": {
+      "demoLinks": "Tautan demo",
+      "catalog": "Katalog",
+      "api24h": "API (24 jam)",
+      "webhooks24h": "Webhook (24 jam)",
+      "webhookFailures": "Kegagalan webhook",
+      "syncJobs": "Sinkronkan pekerjaan",
+      "conflicts": "Konflik",
+      "errors": "Kesalahan",
+      "connectionStatus": "Status koneksi",
+      "emptyTitle": "Tidak ada integrasi yang diinstal",
+      "emptyDescription": "Telusuri Tersedia untuk menghubungkan penyedia.",
+      "eventBridgeDemo": "Demo jembatan acara",
+      "eventBridgeHint": "Publikasikan peristiwa konektor ke bus Otomatisasi Alur Kerja.",
+      "emit": "Keluarkan {id}"
+    },
+    "installed": {
+      "title": "Integrasi yang terinstal",
+      "emptyTitle": "Tidak ada yang terpasang",
+      "emptyDescription": "Instal dari katalog yang Tersedia.",
+      "latestSync": "Sinkronisasi terbaru: {status} · catatan {records} · mode {mode}"
+    },
+    "available": {
+      "protocols": "Protokol: {protocols}",
+      "demoConnection": "Koneksi demo",
+      "connectDemo": "Hubungkan (demo)",
+      "installDemo": "Instal demo"
+    },
+    "logs": {
+      "title": "Log integrasi",
+      "emptyTitle": "Belum ada log",
+      "emptyDescription": "Hubungkan penyedia atau jalankan diagnostik."
+    },
+    "apiKeys": {
+      "title": "Kunci API",
+      "generateKey": "Hasilkan kunci",
+      "copyOnce": "Salin sekarang (ditampilkan satu kali): {secret}",
+      "emptyTitle": "Tidak ada kunci API",
+      "emptyDescription": "Hasilkan kunci untuk akses gateway REST."
+    },
+    "webhooks": {
+      "endpointsTitle": "Titik akhir webhook",
+      "urlPlaceholder": "https://…",
+      "addOutgoing": "Tambahkan webhook keluar",
+      "emptyTitle": "Tidak ada webhook",
+      "emptyDescription": "Buat titik akhir keluar untuk menguji pengiriman.",
+      "deliveryLogs": "Log pengiriman",
+      "deliveriesEmptyTitle": "Tidak ada pengiriman",
+      "deliveriesEmptyDescription": "Kirim webhook pengujian untuk mengisi log."
+    },
+    "developer": {
+      "title": "Pengaturan pengembang",
+      "sandboxMode": "Modus kotak pasir",
+      "webhookSigning": "Penandatanganan webhook diaktifkan",
+      "saveSettings": "Simpan pengaturan",
+      "apiDocs": "Placeholder dokumen API: {url}",
+      "sdk": "Pengganti SDK: {url}",
+      "explorerTitle": "penjelajah API",
+      "gatewayRoutes": "Rute gerbang: {routes}",
+      "sendGet": "Kirim DAPATKAN",
+      "oauthProviders": "Penyedia OAuth",
+      "placeholdersHint": "Rute gateway GraphQL, WebSocket, dan gRPC didaftarkan sebagai placeholder. Pemetaan lapangan dan resolusi konflik sinkronisasi merupakan arsitektur yang siap untuk implementasi backend."
+    },
+    "connectionStatus": {
+      "connected": "Koneksi demo",
+      "pendingAuth": "Menunggu keputusan (demo)",
+      "error": "Kesalahan",
+      "disabled": "Dengan disabilitas",
+      "installed": "Dipasang",
+      "available": "Tersedia",
+      "localDemo": "Demo lokal"
+    },
+    "columns": {
+      "integration": "Integrasi",
+      "status": "Status",
+      "health": "Kesehatan",
+      "latency": "Latensi",
+      "actions": "Tindakan",
+      "when": "Kapan",
+      "level": "Tingkat",
+      "source": "Sumber",
+      "message": "Pesan",
+      "name": "Nama",
+      "key": "Kunci",
+      "scopes": "Lingkup",
+      "usage": "Penggunaan",
+      "direction": "Arah",
+      "url": "URL",
+      "enabled": "Diaktifkan",
+      "event": "Peristiwa",
+      "attempt": "Percobaan"
+    },
+    "actions": {
+      "diagnose": "Diagnosis",
+      "demoSync": "Sinkronisasi demo",
+      "demoSyncTitle": "Hanya sinkronisasi demo — tidak ada transfer eksternal",
+      "disconnect": "Memutuskan",
+      "rotate": "Memutar",
+      "revoke": "Menarik kembali",
+      "test": "Tes",
+      "emDash": "—",
+      "yes": "Ya",
+      "no": "TIDAK"
+    },
+    "errors": {
+      "failedToFetch": "Gagal mengambil",
+      "httpStatus": "HTTP {status}"
+    }
+  },
+  "intelligence": {
+    "loading": "Memuat Pusat Intelijen Perusahaan…",
+    "eyebrow": "Pusat Intelijen Perusahaan",
+    "title": "Intelijen",
+    "subtitle": "KPI, kartu skor, peringatan, dan laporan untuk setiap modul AGXORA. Nilai di bawah adalah kumpulan data demo unggulan hingga backend analisis langsung terhubung.",
+    "demoBanner": "Kumpulan data demo — memfilter dan mengakui pekerjaan dalam sesi; ekspor dan panggilan model langsung belum tersedia.",
+    "noticeDefault": "Menampilkan analitik demo unggulan — bukan telemetri produksi langsung.",
+    "noPermission": "Anda tidak memiliki izin intelijen.baca untuk ruang kerja ini.",
+    "filtersUpdated": "Filter diperbarui",
+    "demoReloaded": "Himpunan data demo dimuat ulang untuk ruang kerja ini.",
+    "acknowledged": "Diakui: {title}",
+    "exportUnavailableTitle": "Ekspor tidak tersedia — pembuatan laporan belum terhubung.",
+    "exportUnavailableAria": "Ekspor {title} sebagai {format} — tidak tersedia",
+    "tabs": {
+      "executive": "Eksekutif",
+      "health": "Kesehatan Bisnis",
+      "workspace": "Analisis",
+      "kpis": "Pusat KPI",
+      "reports": "Laporan",
+      "insights": "Wawasan",
+      "forecasts": "Prakiraan",
+      "alerts": "Peringatan",
+      "scorecards": "Kartu Skor",
+      "explorer": "Penjelajah Data"
+    },
+    "filters": {
+      "from": "Dari",
+      "to": "Ke",
+      "domain": "Domain",
+      "allDomains": "Semua domain",
+      "apply": "Terapkan filter",
+      "reloadDemo": "Muat ulang data demo",
+      "viewsAria": "Pandangan intelijen"
+    },
+    "executive": {
+      "companyHealth": "Kesehatan Perusahaan",
+      "revenueScore": "Skor pendapatan",
+      "customerHealth": "Kesehatan pelanggan",
+      "projectHealth": "Kesehatan proyek",
+      "workflowSuccess": "Keberhasilan alur kerja",
+      "aiActivity": "aktivitas AI",
+      "finance": "Keuangan",
+      "riskGrowth": "Risiko / Pertumbuhan",
+      "kpiStrip": "Strip KPI Eksekutif",
+      "visualizationPreviews": "Pratinjau visualisasi",
+      "visualizationHint": "Bagan ilustratif dari seri demo — bukan penelusuran interaktif.",
+      "noSeries": "Tidak ada seri yang terikat"
+    },
+    "health": {
+      "title": "Dekomposisi kesehatan bisnis",
+      "overall": "Keseluruhan",
+      "revenue": "Pendapatan",
+      "customers": "Pelanggan",
+      "projects": "Proyek",
+      "workflows": "Alur kerja",
+      "ai": "AI",
+      "finance": "Keuangan",
+      "operations": "Operasi",
+      "riskPosture": "Postur risiko",
+      "growth": "Pertumbuhan",
+      "observability": "Observabilitas: {metrics} metrics · {avgMs}ms avg · kesehatan sistem {health}"
+    },
+    "workspace": {
+      "noSeries": "Tidak ada seri"
+    },
+    "kpis": {
+      "title": "Pusat KPI",
+      "subtitle": "Katalog KPI yang dapat dikonfigurasi di seluruh pendapatan, pelanggan, proyek, alur kerja, agen, dan otomatisasi.",
+      "emptyTitle": "Analytics menunggu sinyal",
+      "emptyDescription": "Setelah ruang kerja Anda menghasilkan aktivitas, KPI eksekutif dan peringatan akan muncul di sini."
+    },
+    "reports": {
+      "title": "Mesin pelaporan",
+      "subtitle": "Definisi laporan diunggulkan untuk ditinjau. Ekspor file tidak tersedia hingga backend pelaporan terhubung.",
+      "emptyTitle": "Tidak ada laporan",
+      "emptyDescription": "Melaporkan benih pada bootstrap ruang kerja.",
+      "scheduleOnDemand": "sesuai permintaan"
+    },
+    "insights": {
+      "emptyTitle": "Belum ada wawasan",
+      "emptyDescription": "Wawasan demo muncul setelah benih ruang kerja. Pembuatan wawasan AI langsung tidak terhubung.",
+      "badge": "Demo · {kind} · {domain} · conf {confidence}"
+    },
+    "forecasts": {
+      "emptyTitle": "Belum ada perkiraan",
+      "emptyDescription": "Perkiraan demo muncul setelah benih. Model prediktif tidak terhubung.",
+      "title": "perkiraan {kind}",
+      "baseline": "Garis dasar {baseline} → diproyeksikan {projected} ({days}h)",
+      "confidence": "Demo · Keyakinan {confidence} — {note}"
+    },
+    "alerts": {
+      "title": "Mesin peringatan",
+      "emptyTitle": "Tidak ada peringatan",
+      "emptyDescription": "Memperingatkan benih dari heuristik risiko.",
+      "acked": "tersinggung",
+      "open": "membuka",
+      "acknowledge": "Mengakui"
+    },
+    "scorecards": {
+      "title": "Mesin kartu skor",
+      "emptyTitle": "Tidak ada kartu skor",
+      "emptyDescription": "Benih kartu skor di bootstrap."
+    },
+    "explorer": {
+      "title": "Penjelajah data",
+      "searchPlaceholder": "Telusuri baris demo…",
+      "searchAria": "Telusuri baris penjelajah demo",
+      "emptyTitle": "Tidak ada baris yang cocok",
+      "emptyDescription": "Sesuaikan filter atau cari, atau muat ulang kumpulan data demo.",
+      "hint": "Pencarian sisi klien pada tupel yang diunggulkan — agregasi backend dan penelusuran tidak terhubung."
+    },
+    "columns": {
+      "kpi": "KPI",
+      "value": "Nilai",
+      "delta": "Δ%",
+      "trend": "Kecenderungan",
+      "target": "Target",
+      "severity": "Kerasnya",
+      "alert": "Peringatan",
+      "domain": "Domain",
+      "status": "Status",
+      "actions": "Tindakan",
+      "report": "Laporan",
+      "kind": "Baik",
+      "schedule": "Jadwal",
+      "export": "Ekspor",
+      "scorecard": "Kartu catatan angka",
+      "score": "Skor",
+      "topDriver": "Pengemudi papan atas",
+      "label": "Label",
+      "entity": "Kesatuan",
+      "measure": "Ukuran",
+      "date": "Tanggal"
+    },
+    "emDash": "—"
+  },
+  "legal": {
+    "shell": {
+      "brand": "AGXORA",
+      "navLabel": "Navigasi hukum",
+      "lastUpdated": "Terakhir diperbarui: {date}",
+      "footerCopyright": "© 2026 {company}",
+      "footerNavLabel": "Catatan kaki hukum",
+      "nav": {
+        "privacy": "Pribadi",
+        "terms": "Ketentuan",
+        "cookies": "kue",
+        "imprint": "Jejak",
+        "contact": "Kontak"
+      },
+      "footer": {
+        "home": "Rumah",
+        "pricing": "Harga",
+        "contact": "Kontak"
+      }
+    },
+    "contact": {
+      "title": "Kontak",
+      "eyebrow": "Perusahaan",
+      "introLead": "Hubungi tim AGXORA untuk pertanyaan produk, dukungan, atau percakapan perusahaan. Lebih suka rute penjualan? Menggunakan",
+      "contactSales": "Hubungi Penjualan",
+      "companyEmail": "email perusahaan",
+      "supportEmail": "Email dukungan",
+      "sales": "Penjualan",
+      "enterpriseForm": "Bentuk perusahaan",
+      "businessAddress": "Alamat bisnis",
+      "addressPending": "Tersedia berdasarkan permintaan — setel NEXT_PUBLIC_AGXORA_ADDRESS_* untuk produksi.",
+      "quickLinks": "Tautan cepat",
+      "pricing": "Harga",
+      "imprint": "Jejak",
+      "privacyPolicy": "Kebijakan Privasi"
+    },
+    "privacy": {
+      "title": "Kebijakan Privasi",
+      "eyebrow": "Legal",
+      "intro": "Kebijakan Privasi ini menjelaskan bagaimana {legalName} (“AGXORA”, “kami”, “kita”) memproses data pribadi ketika Anda mengunjungi {siteUrl}, membuat akun, atau menggunakan platform AGXORA.",
+      "controller": "1. Pengendali",
+      "dataWeProcess": "2. Data yang kami proses",
+      "dataAccount": "Data akun: nama, email, organisasi, dan peran.",
+      "dataUsage": "Data penggunaan: interaksi produk, perangkat, dan log diagnostik.",
+      "dataBilling": "Data penagihan: paket, faktur, dan referensi pembayaran dari penyedia.",
+      "dataSupport": "Dukung komunikasi yang Anda kirimkan kepada kami.",
+      "purposes": "3. Tujuan dan dasar hukum",
+      "purposesBody": "Kami memproses data untuk menyediakan layanan (kontrak), mengamankan platform (kepentingan yang sah), memenuhi kewajiban hukum, dan—jika diperlukan—dengan persetujuan Anda (misalnya analisis atau pemasaran opsional).",
+      "retention": "4. Retensi",
+      "retentionBody": "Kami menyimpan data pribadi hanya selama diperlukan untuk tujuan di atas, termasuk penyimpanan menurut undang-undang untuk catatan penagihan dan keamanan, kemudian menghapus atau menganonimkannya.",
+      "sharing": "5. Berbagi",
+      "sharingBody": "Kami menggunakan pemroses yang terverifikasi (hosting, email, pembayaran) berdasarkan kontrak yang sesuai. Kami tidak menjual data pribadi.",
+      "yourRights": "6. Hak Anda",
+      "yourRightsBodyBefore": "Tergantung pada lokasi Anda, Anda dapat meminta akses, koreksi, penghapusan, pembatasan, portabilitas, atau keberatan. Kontak",
+      "yourRightsBodyAfter": "Anda juga dapat mengajukan keluhan kepada otoritas pengawas.",
+      "cookies": "7. Kue",
+      "cookiesBodyBefore": "Lihat kami",
+      "cookiesBodyAfter": "untuk detail tentang cookie penting dan opsional.",
+      "cookiePolicy": "Kebijakan Cookie",
+      "contactSection": "8. Kontak",
+      "contactBodyBefore": "Pertanyaan:",
+      "contactBodyMiddle": "atau"
+    },
+    "terms": {
+      "title": "Ketentuan Layanan",
+      "eyebrow": "Legal",
+      "intro": "Ketentuan Layanan (“Ketentuan”) ini mengatur akses dan penggunaan produk dan situs web AGXORA yang dioperasikan oleh {legalName}. Dengan membuat akun atau menggunakan layanan ini, Anda menyetujui Ketentuan ini.",
+      "accounts": "1. Akun",
+      "accountsBody": "Anda harus memberikan informasi pendaftaran yang akurat, menjaga keamanan kredensial, dan bertanggung jawab atas aktivitas di akun Anda. Administrator organisasi mengelola kursi dan akses untuk ruang kerja mereka.",
+      "billing": "2. Langganan dan penagihan",
+      "billingBodyBefore": "Paket berbayar ditagih sesuai dengan paket yang dipilih",
+      "billingBodyAfter": "Perjanjian perusahaan dapat menggantikan ketentuan layanan mandiri. Biaya tidak dapat dikembalikan kecuali diwajibkan oleh hukum atau disetujui secara tertulis.",
+      "pricing": "Harga",
+      "acceptableUse": "3. Penggunaan yang dapat diterima",
+      "useNoMisuse": "Jangan menyalahgunakan platform, mencoba akses tanpa izin, atau mengganggu layanan.",
+      "useNoUnlawful": "Jangan mengunggah konten yang melanggar hukum atau melanggar hak pihak ketiga.",
+      "useCompliance": "Patuhi peraturan ekspor, sanksi, dan industri yang berlaku untuk Anda.",
+      "customerData": "4. Data pelanggan",
+      "customerDataBodyBefore": "Anda memegang hak atas konten bisnis Anda. Anda memberi AGXORA lisensi terbatas untuk menghosting dan memproses konten tersebut semata-mata untuk menyediakan layanan. Kita",
+      "customerDataBodyAfter": "menjelaskan penanganan data pribadi.",
+      "privacyPolicy": "Kebijakan Privasi",
+      "aiFeatures": "5. Fitur AI",
+      "aiFeaturesBody": "Keluaran AI mungkin tidak akurat atau tidak lengkap. Anda tetap bertanggung jawab untuk meninjau keluaran sebelum mengandalkannya untuk pengambilan keputusan bisnis.",
+      "availability": "6. Ketersediaan dan perubahan",
+      "availabilityBody": "Kami mengincar ketersediaan tinggi namun tidak menjamin layanan tanpa gangguan. Kami dapat memperbarui fitur dan Ketentuan ini; perubahan material akan dikomunikasikan melalui produk atau email jika diperlukan.",
+      "liability": "7. Batasan tanggung jawab",
+      "liabilityBody": "Sejauh diizinkan oleh hukum, AGXORA tidak bertanggung jawab atas kerugian tidak langsung, insidental, atau konsekuensial. Tanggung jawab agregat kami untuk langganan berbayar terbatas pada biaya yang dibayarkan dalam dua belas bulan sebelum klaim.",
+      "contact": "8. Kontak",
+      "contactBodyBefore": "Pertanyaan hukum:"
+    },
+    "cookies": {
+      "title": "Kebijakan Cookie",
+      "eyebrow": "Legal",
+      "intro": "Kebijakan Cookie ini menjelaskan cara {companyName} menggunakan cookie dan teknologi serupa. Cookie penting diperlukan untuk otentikasi dan keamanan. Cookie analitik opsional hanya diaktifkan jika persetujuan dikumpulkan.",
+      "whatAre": "1. Apa itu cookie?",
+      "whatAreBody": "Cookie adalah file kecil yang disimpan di perangkat Anda. Mereka membantu situs berfungsi, mengingat preferensi, dan—jika diizinkan—mengukur kinerja.",
+      "categories": "2. Kategori yang kami gunakan",
+      "essential": "Penting",
+      "essentialBody": "otentikasi, keamanan, penyeimbangan beban, dan preferensi dasar. Diperlukan untuk layanan ini.",
+      "functional": "Fungsional",
+      "functionalBody": "fitur opsional seperti pengaturan UI yang diingat (bila diaktifkan).",
+      "analytics": "Analisis",
+      "analyticsBody": "pengukuran penggunaan agregat (hanya dengan persetujuan jika diperlukan).",
+      "managing": "3. Mengelola cookie",
+      "managingBody": "Anda dapat mengontrol cookie yang tidak penting melalui pengaturan browser dan, jika tersedia, pusat preferensi di situs kami. Memblokir cookie penting dapat mencegah proses masuk atau penggunaan produk inti.",
+      "moreInfo": "4. Informasi lebih lanjut",
+      "moreInfoBodyBefore": "Lihat",
+      "moreInfoBodyMiddle": "atau hubungi"
+    },
+    "imprint": {
+      "title": "Jejak",
+      "eyebrow": "Legal",
+      "intro": "Informasi sesuai persyaratan keterbukaan yang berlaku. Konfigurasikan nilai produksi dengan variabel lingkungan NEXT_PUBLIC_AGXORA_* sebelum peluncuran publik.",
+      "company": "Perusahaan",
+      "address": "Alamat",
+      "email": "E-mail",
+      "support": "Mendukung",
+      "representedBy": "Diwakili oleh",
+      "register": "Daftar",
+      "vatId": "ID PPN",
+      "pendingConfiguration": "Konfigurasi tertunda",
+      "responsibleForContent": "Bertanggung jawab atas konten",
+      "responsibleBody": "Kontak editorial untuk situs web ini: {legalName}{addressSuffix}.",
+      "contact": "Kontak",
+      "contactBodyBefore": "Lebih suka formulir? Mengunjungi",
+      "contactBodyMiddle": "atau",
+      "contactBodyAfter": "untuk pertanyaan perusahaan.",
+      "contactSales": "Hubungi Penjualan"
+    }
+  },
+  "onboarding": {
+    "eyebrow": "OS AGXORA",
+    "title": "Luncurkan OS bisnis Anda",
+    "lead": "Pilih template industri Anda. AGXORA mengonfigurasi modul, agen, alur kerja, dan pengetahuan perusahaan — tanpa mengunci Anda dalam satu vertikal selamanya.",
+    "steps": {
+      "type": "Jenis",
+      "company": "Perusahaan",
+      "locale": "Lokal",
+      "goals": "Sasaran"
+    },
+    "companyName": "Nama perusahaan",
+    "companyPlaceholder": "Grup Perhotelan Acme",
+    "template": "Templat",
+    "country": "Negara",
+    "language": "Bahasa",
+    "languagePlaceholder": "en",
+    "timezone": "Zona waktu",
+    "timezonePlaceholder": "UTC",
+    "goals": {
+      "increaseRevenue": "Meningkatkan pendapatan",
+      "improveOperations": "Meningkatkan operasi",
+      "delightCustomers": "Menyenangkan pelanggan",
+      "reduceCosts": "Mengurangi biaya",
+      "scaleWithAi": "Skalakan dengan AI"
+    },
+    "failed": "Orientasi gagal",
+    "back": "Kembali",
+    "continue": "Melanjutkan",
+    "launching": "Meluncurkan…",
+    "enterDashboard": "Masuk ke dasbor",
+    "defaultCountry": "Amerika Serikat",
+    "businessTypes": {
+      "hotel": {
+        "label": "Hotel",
+        "description": "Perhotelan, kamar, tamu, dan operasi properti"
+      },
+      "restaurant": {
+        "label": "Restoran",
+        "description": "Makan, dapur, reservasi, dan pengalaman tamu"
+      },
+      "cleaning": {
+        "label": "Pembersihan",
+        "description": "Operasi kebersihan komersial dan residensial"
+      },
+      "laundry": {
+        "label": "Binatu",
+        "description": "Pabrik cuci, rute penjemputan, dan perawatan tekstil"
+      },
+      "construction": {
+        "label": "Konstruksi",
+        "description": "Lokasi kerja, kru, material, dan pengiriman proyek"
+      },
+      "healthcare": {
+        "label": "Kesehatan",
+        "description": "Jaringan perawatan, pasien, dan operasi klinis"
+      },
+      "medical": {
+        "label": "Medis",
+        "description": "Klinik, janji temu, dan tim perawatan"
+      },
+      "manufacturing": {
+        "label": "Manufaktur",
+        "description": "Lini produksi, kualitas, dan operasi pasokan"
+      },
+      "retail": {
+        "label": "Ritel",
+        "description": "Toko, inventaris, merchandising, dan pelanggan"
+      },
+      "legal": {
+        "label": "Firma hukum",
+        "description": "Perkara, klien, tenggat, dan penagihan"
+      },
+      "accounting": {
+        "label": "Akuntansi",
+        "description": "Buku, klien, pelaporan, dan kerja advisory"
+      },
+      "consulting": {
+        "label": "Konsultasi",
+        "description": "Keterlibatan, deliverable, dan hasil klien"
+      },
+      "real_estate": {
+        "label": "Properti",
+        "description": "Listing, klien, showing, dan transaksi"
+      },
+      "education": {
+        "label": "Pendidikan",
+        "description": "Program, mahasiswa, dosen, dan pendaftaran"
+      },
+      "automotive": {
+        "label": "Otomotif",
+        "description": "Dealer, bengkel servis, dan inventaris kendaraan"
+      },
+      "beauty": {
+        "label": "Salon kecantikan",
+        "description": "Janji, penata, ritel, dan keanggotaan"
+      },
+      "fitness": {
+        "label": "Gym / kebugaran",
+        "description": "Keanggotaan, kelas, pelatih, dan retensi"
+      },
+      "agriculture": {
+        "label": "Pertanian",
+        "description": "Tanaman, ternak, hasil, dan rantai pasok"
+      },
+      "transport": {
+        "label": "Transportasi",
+        "description": "Pergerakan armada, rute, dan ops penumpang/kargo"
+      },
+      "logistics": {
+        "label": "Logistik",
+        "description": "Armada, gudang, rute, dan pemenuhan"
+      },
+      "warehouse": {
+        "label": "Gudang",
+        "description": "Penyimpanan, picking, packing, dan perputaran inventaris"
+      },
+      "insurance": {
+        "label": "Asuransi",
+        "description": "Polis, klaim, underwriting, dan retensi"
+      },
+      "finance": {
+        "label": "Keuangan",
+        "description": "Modal, portofolio, dan operasi keuangan"
+      },
+      "financial_services": {
+        "label": "Jasa keuangan",
+        "description": "Advisory, produk, kepatuhan, dan klien"
+      },
+      "technology": {
+        "label": "Teknologi",
+        "description": "Produk, engineering, dan tim go-to-market"
+      },
+      "saas": {
+        "label": "Perangkat lunak / SaaS",
+        "description": "Langganan, penggunaan, dan customer success"
+      },
+      "ecommerce": {
+        "label": "E-commerce",
+        "description": "Katalog online, keranjang, pemenuhan, dan LTV"
+      },
+      "agency": {
+        "label": "Agensi pemasaran",
+        "description": "Klien, kampanye, retainer, dan pengiriman"
+      },
+      "freelancer": {
+        "label": "Freelancer",
+        "description": "Praktik solo, klien, pipeline, dan arus kas"
+      },
+      "government": {
+        "label": "Pemerintah",
+        "description": "Layanan publik, program, dan warga"
+      },
+      "nonprofit": {
+        "label": "Nirlaba",
+        "description": "Misi, donatur, program, dan dampak"
+      }
+    }
+  },
+  "creator": {
+    "page": {
+      "eyebrow": "OS Pemasaran AGXORA",
+      "title": "Studio Pembuat AI",
+      "lead": "Produksi konten perusahaan — menghasilkan, memberi merek, merencanakan, mempublikasikan, dan mengukur kampanye yang didukung AI di setiap saluran.",
+      "dashboard": "Dasbor",
+      "workspace": "Ruang kerja",
+      "workspaceSubtitle": "Buat Konten · Kampanye · Perpustakaan Media · Templat · Aset Merek · Antrean Penerbitan · Analisis",
+      "workspaceAria": "Ruang kerja pencipta",
+      "integrations": "Integrasi Masa Depan",
+      "integrationsSubtitle": "Adaptor platform resmi sudah dipesan — tidak ada koneksi langsung palsu.",
+      "aiFeatures": "Fitur AI",
+      "aiFeaturesSubtitle": "Peta kemampuan untuk produksi, merek, jadwal, dan lokalisasi."
+    },
+    "tabs": {
+      "create": "Buat Konten",
+      "campaigns": "Kampanye",
+      "media": "Perpustakaan Media",
+      "templates": "Templat",
+      "brand": "Aset Merek",
+      "queue": "Antrian Penerbitan",
+      "analytics": "Analisis"
+    },
+    "templates": {
+      "emptyTitle": "Tidak ada templat",
+      "emptyDescription": "Konten dan templat desain yang dapat digunakan kembali akan tersedia di sini."
+    },
+    "campaign": {
+      "title": "Perencana Kampanye",
+      "calendar": "Kalender Konten",
+      "columns": {
+        "name": "Nama Kampanye",
+        "objective": "Tujuan",
+        "audience": "Hadirin",
+        "platforms": "Platform",
+        "budget": "Anggaran",
+        "timeline": "Garis Waktu",
+        "status": "Status"
+      },
+      "emptyTitle": "Tidak ada kampanye",
+      "emptyDescription": "Buat kampanye untuk merencanakan tujuan, audiens, dan jadwal."
+    },
+    "media": {
+      "title": "Perpustakaan Media",
+      "columns": {
+        "asset": "Aset",
+        "type": "Jenis",
+        "folder": "Map",
+        "tags": "Tag",
+        "updated": "Diperbarui"
+      },
+      "emptyTitle": "Tidak ada media",
+      "emptyDescription": "Gambar, video, dokumen, logo, dan templat akan muncul di sini.",
+      "searchPlaceholder": "Cari aset, folder, tag…",
+      "typeFilter": "Jenis",
+      "allTypes": "Semua tipe",
+      "images": "Gambar",
+      "videos": "Video",
+      "documents": "Dokumen",
+      "logos": "Logo Merek",
+      "templates": "Templat"
+    },
+    "generator": {
+      "title": "Pembuat Konten AI",
+      "lead": "Buat teks Instagram, skrip TikTok, postingan LinkedIn, iklan, artikel SEO, dan banyak lagi.",
+      "brief": "Singkat",
+      "briefPlaceholder": "Jelaskan penawaran, audiens, dan CTA…",
+      "generateDraft": "Hasilkan draf",
+      "aiRewrite": "Penulisan Ulang AI",
+      "translate": "Menerjemahkan",
+      "initialOutput": "Pilih format dan suara merek, lalu buat draf. Adaptor penyedia sudah dipesan — belum ada panggilan model langsung.",
+      "draftStaged": "Draf dipentaskan untuk {format} · suara: {voice}. Adaptor generasi dicadangkan.",
+      "rewriteQueued": "AI Rewrite antri — adaptor penulisan ulang dicadangkan.",
+      "translateQueued": "Terjemahkan Konten dalam antrean — adaptor multi-bahasa dicadangkan.",
+      "brandVoice": "Suara Merek",
+      "brandVoiceLead": "Preset nada bisnis ditambah suara merek khusus untuk konsistensi.",
+      "active": "Aktif"
+    },
+    "queue": {
+      "title": "Antrian Penerbitan",
+      "columns": {
+        "title": "Judul",
+        "platform": "Platform",
+        "format": "Format",
+        "status": "Status",
+        "scheduled": "Dijadwalkan",
+        "author": "Pengarang"
+      },
+      "emptyTitle": "Tidak ada postingan dalam antrian",
+      "emptyDescription": "Draf, ulasan, dan postingan terjadwal akan muncul di sini.",
+      "filterStatus": "Menyaring status",
+      "allStatuses": "Semua status"
+    },
+    "analytics": {
+      "title": "Analisis",
+      "topPosts": "Postingan Teratas",
+      "engagement": "Bahasa Inggris {value}",
+      "reach": "Jangkau {value}",
+      "recommendations": "Rekomendasi AI"
+    },
+    "integrations": {
+      "lead": "Integrasi di masa depan — opsional. Tidak ada API aktif sampai terhubung. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.",
+      "adapter": "Adaptor:"
+    },
+    "aiFeaturesPanel": {
+      "lead": "Peta fitur AI — ide, keterangan, hashtag, kalender, kampanye, audiens, jadwal, konsistensi merek, penulisan ulang, terjemahan, multi-bahasa."
+    },
+    "formats": {
+      "instagram_caption": "Keterangan Instagram",
+      "tiktok_script": "Naskah TikTok",
+      "linkedin_post": "Postingan LinkedIn",
+      "facebook_post": "Postingan Facebook",
+      "x_post": "Postingan X",
+      "blog_article": "Artikel blog",
+      "newsletter": "Buletin",
+      "email_campaign": "Kampanye email",
+      "product_description": "Deskripsi produk",
+      "ad_copy": "Teks iklan",
+      "seo_article": "Artikel SEO",
+      "landing_page_copy": "Teks halaman arahan"
+    },
+    "publishStatus": {
+      "draft": "Draf",
+      "review": "Tinjauan",
+      "approved": "Disetujui",
+      "scheduled": "Terjadwal",
+      "published": "Dipublikasikan",
+      "archive": "Arsip"
+    },
+    "mediaKind": {
+      "image": "Gambar",
+      "video": "Video",
+      "document": "Dokumen",
+      "logo": "Logo merek",
+      "template": "Templat"
+    },
+    "voice": {
+      "professional": "Profesional",
+      "friendly": "Ramah",
+      "luxury": "Mewah",
+      "casual": "Santai"
+    },
+    "integrationStatus": {
+      "planned": "Direncanakan",
+      "ready": "Siap",
+      "connected": "Terhubung",
+      "disabled": "Nonaktif"
+    }
+  },
+  "backend": {
+    "toast": {
+      "success": "Kesuksesan",
+      "warning": "Peringatan",
+      "error": "Kesalahan",
+      "info": "Informasi",
+      "dismiss": "Tutup pemberitahuan",
+      "close": "Menutup"
+    },
+    "network": {
+      "offline": "Anda tampaknya sedang offline",
+      "offlineSyncHint": "Perubahan mungkin tidak tersinkron sampai koneksi kembali.",
+      "offlineHelp": "Bantuan luring",
+      "reconnected": "Koneksi dipulihkan"
+    },
+    "errorBoundary": {
+      "backToDashboard": "Kembali ke dasbor",
+      "title": "Ada yang tidak beres",
+      "retry": "Mencoba kembali"
+    },
+    "notFound": {
+      "title": "Halaman tidak ditemukan",
+      "message": "Halaman yang Anda minta tidak ada, dipindahkan, atau tidak tersedia lagi.",
+      "recoveryNav": "Pemulihan",
+      "home": "Rumah",
+      "pricing": "Harga",
+      "contact": "Kontak",
+      "signIn": "Masuk",
+      "dashboard": "Dasbor"
+    },
+    "globalError": {
+      "title": "Ada yang tidak beres",
+      "message": "Terjadi kesalahan yang tidak terduga. Silakan coba lagi.",
+      "retry": "Mencoba kembali"
+    },
+    "skipToMain": "Lompat ke konten utama",
+    "offline": {
+      "title": "Anda sedang luring",
+      "message": "Periksa koneksi Anda dan coba lagi ketika Anda kembali online. Layar cache mungkin masih berfungsi.",
+      "home": "Rumah",
+      "contact": "Kontak",
+      "signIn": "Masuk"
+    },
+    "logout": {
+      "title": "Keluar",
+      "signingOut": "Mengeluarkan Anda…",
+      "endingSession": "Mengakhiri sesi…",
+      "failed": "Gagal keluar"
+    },
+    "demo": {
+      "title": "Pesan demo",
+      "subtitle": "Jadwalkan panduan langsung dengan tim AGXORA. Sampai pemesanan kalender diaktifkan, kirimkan email kepada kami untuk meminta demo.",
+      "requestTitle": "Minta demo",
+      "requestBody": "Kami sedang menyelesaikan penjadwalan sehingga Anda dapat memilih waktu yang sesuai untuk tim Anda. Sampai saat itu tiba, mulailah dengan gratis dan jelajahi produk sesuai keinginan Anda — atau kirim email kepada kami di {email}.",
+      "startFree": "Mulailah dengan gratis",
+      "backHome": "Kembali ke rumah",
+      "signIn": "Masuk"
+    },
+    "loading": "Memuat",
+    "loadingEllipsis": "Memuat…",
+    "loadingIdentity": "Memuat identitas…"
+  },
+  "workspace": {
+    "page": {
+      "title": "Ruang kerja",
+      "description": "Permukaan ruang kerja penyewa yang terisolasi untuk modul dan AI.",
+      "descriptionNamed": "Permukaan ruang kerja penyewa yang terisolasi untuk {name}."
+    },
+    "idLabel": "ID Ruang Kerja:",
+    "active": "Aktif: {name}",
+    "notInSession": "Tidak dalam sesi saat ini",
+    "organization": "Organisasi: {name} ({slug})",
+    "searchResults": "Hasil pencarian"
+  },
+  "iam": {
+    "identity": {
+      "eyebrow": "Perusahaan IAM",
+      "title": "Identitas & Akses",
+      "lead": "Organisasi, ruang kerja, RBAC, placeholder keamanan, dan arsitektur audit. Adaptor backend dipasang tanpa mengubah permukaan ini.",
+      "openProfile": "Buka profil",
+      "teamManagement": "Manajemen tim",
+      "tabs": {
+        "organization": "Organisasi",
+        "workspace": "Ruang kerja",
+        "roles": "Peran & izin",
+        "security": "Keamanan",
+        "audit": "Catatan audit"
+      },
+      "organizationSettings": "Pengaturan organisasi",
+      "workspaceSettings": "Pengaturan ruang kerja",
+      "noOrganization": "Tidak ada organisasi yang aktif. Selesaikan orientasi atau buat orientasi dari layanan organisasi.",
+      "logoPlaceholder": "Pengunggahan logo dan adaptor penagihan paket adalah pengganti untuk backend identitas masa depan.",
+      "rbacTitle": "RBAC — peran default",
+      "permissionMatrix": "Matriks izin",
+      "canManageSettings": "Dapat mengelola pengaturan: {value} · Diautentikasi: {authenticated}",
+      "yes": "Ya",
+      "no": "TIDAK",
+      "securitySettings": "Pengaturan keamanan",
+      "passwordChange": {
+        "title": "Perubahan kata sandi",
+        "detail": "Perubahan kata sandi terhubung melalui penyedia autentikasi saat dikonfigurasi."
+      },
+      "twoFactor": {
+        "title": "Otentikasi dua faktor (2FA)",
+        "detail": "Adaptor TOTP dan WebAuthn mendaftar di sini saat diaktifkan."
+      },
+      "activeSessions": {
+        "title": "Sesi aktif",
+        "detail": "Direktori perangkat berada dalam sesi identitas; pencabutan menjadi otoritatif dengan sesi server."
+      },
+      "apiKeys": {
+        "title": "Kunci API",
+        "detail": "Akun layanan dan token terbatas untuk pengembang."
+      },
+      "absoluteTimeout": "Batas waktu mutlak",
+      "idleTimeout": "Batas waktu menganggur",
+      "refreshSkew": "Segarkan kemiringan",
+      "persistentLogin": "Masuk terus-menerus",
+      "disabled": "Dengan disabilitas",
+      "enabled": "Diaktifkan",
+      "days": "{count} hari",
+      "minutes": "{count} mnt",
+      "toggleIdlePolicy": "Alihkan placeholder kebijakan yang tidak aktif",
+      "previewSessionExpired": "Sesi pratinjau berakhir",
+      "previewAccountLocked": "Pratinjau akun terkunci",
+      "auditActivity": "Aktivitas audit",
+      "auditLead": "Login, logout, perubahan peran, undangan, dan acara organisasi dicatat secara lokal. Ganti dengan penyimpanan audit backend yang tidak dapat diubah nanti.",
+      "auditEmpty": "Belum ada acara IAM. Masuk atau ubah peran untuk mengisi log.",
+      "meta": {
+        "name": "Nama",
+        "slug": "Siput",
+        "plan": "Rencana",
+        "owner": "Pemilik",
+        "created": "Dibuat",
+        "yourRole": "Peran Anda",
+        "workspace": "Ruang kerja",
+        "status": "Status",
+        "isolationKey": "Kunci isolasi"
+      },
+      "matrix": {
+        "permission": "Izin",
+        "owner": "Pemilik",
+        "admin": "Admin",
+        "manager": "Manajer",
+        "member": "Anggota",
+        "viewer": "Penonton",
+        "yes": "Ya"
+      },
+      "audit": {
+        "when": "Kapan",
+        "action": "Tindakan",
+        "actor": "Aktor",
+        "resource": "Sumber"
+      }
+    },
+    "roles": {
+      "owner": {
+        "name": "Pemilik",
+        "description": "Kontrol penuh termasuk penagihan dan transfer kepemilikan"
+      },
+      "admin": {
+        "name": "Admin",
+        "description": "Kelola orang, keamanan, ruang kerja, dan modul"
+      },
+      "manager": {
+        "name": "Manajer",
+        "description": "Memimpin tim dan modul operasional; mengundang anggota"
+      },
+      "member": {
+        "name": "Anggota",
+        "description": "Akses operasional sehari-hari"
+      },
+      "viewer": {
+        "name": "Penonton",
+        "description": "Akses hanya baca"
+      }
+    },
+    "profile": {
+      "eyebrow": "Identitas",
+      "title": "Profil Pengguna",
+      "lead": "Kelola identitas, preferensi, dan keamanan akun Anda. Kontrol organisasi dan ruang kerja ada di Pengaturan Identitas.",
+      "guest": "Tamu",
+      "notSignedIn": "Tidak masuk",
+      "identitySettings": "Pengaturan identitas",
+      "security": "Keamanan",
+      "profileSection": "Profil",
+      "fullName": "Nama lengkap",
+      "email": "E-mail",
+      "language": "Bahasa",
+      "timezone": "Zona waktu",
+      "languageEnGb": "Bahasa Inggris (Inggris Raya)",
+      "languageEnUs": "Inggris (AS)",
+      "languageDe": "Jerman",
+      "timezoneBerlin": "Eropa/Berlin",
+      "timezoneLondon": "Eropa/London",
+      "timezoneUtc": "UTC",
+      "timezoneNewYork": "Amerika/New_York",
+      "notifications": "Pemberitahuan",
+      "emailNotifications": "Pemberitahuan email",
+      "pushNotifications": "Pemberitahuan push",
+      "workspace": "Ruang kerja",
+      "noticeInitial": "Preferensi disimpan secara lokal hingga API profil terhubung.",
+      "noticeSaved": "Preferensi profil diperbarui.",
+      "savePreferences": "Simpan preferensi"
+    },
+    "workspaceSelector": {
+      "empty": "Belum ada ruang kerja — buat organisasi untuk menyediakan ruang kerja.",
+      "label": "Ruang kerja aktif",
+      "ariaLabel": "Ganti ruang kerja"
+    },
+    "access": {
+      "eyebrow": "Identitas & akses",
+      "signIn": "Masuk",
+      "backToDashboard": "Kembali ke dasbor",
+      "unauthorized": {
+        "title": "Tidak diizinkan",
+        "description": "Masuk untuk melanjutkan ke area AGXORA ini."
+      },
+      "forbidden": {
+        "title": "Terlarang",
+        "description": "Peran Anda tidak mencakup izin untuk sumber daya ini."
+      },
+      "expired_session": {
+        "title": "Sesi berakhir",
+        "description": "Sesi Anda berakhir. Masuk lagi untuk melanjutkan pekerjaan."
+      },
+      "missing_permission": {
+        "title": "Izin tidak ada",
+        "description": "Minta Pemilik atau Admin untuk memberikan akses modul yang diperlukan."
+      },
+      "account_locked": {
+        "title": "Akun terkunci",
+        "description": "Akun ini terkunci. Hubungi pemilik organisasi atau coba lagi nanti."
+      }
+    },
+    "verifyEmail": {
+      "title": "Verifikasi Email",
+      "loading": "Memuat…",
+      "skipForNow": "Lewati untuk saat ini",
+      "tokenPlaceholder": "Token verifikasi",
+      "tokenIssued": "Token verifikasi dikeluarkan untuk sesi saat ini.",
+      "issueFailed": "Tidak dapat mengeluarkan token",
+      "verificationFailed": "Verifikasi gagal",
+      "verify": "Verifikasi Email",
+      "verifying": "Memverifikasi…",
+      "requestToken": "Minta token verifikasi"
+    }
+  }
+}

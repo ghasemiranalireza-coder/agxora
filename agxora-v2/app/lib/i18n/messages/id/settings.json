@@ -1,0 +1,442 @@
+{
+  "controlCenter": "Pusat Kendali",
+  "settingsSections": "Bagian pengaturan",
+  "profile": {
+    "label": "Profil",
+    "description": "Avatar, identitas, dan preferensi pribadi",
+    "title": "Profil",
+    "panelDescription": "Avatar, nama lengkap, email, peran, zona waktu, bahasa, dan preferensi tema.",
+    "language": "Bahasa",
+    "timezone": "Zona waktu",
+    "fullName": "Nama lengkap",
+    "email": "E-mail",
+    "role": "Peran",
+    "theme": "Tema",
+    "avatar": "Avatar",
+    "changeAvatar": "Ubah avatar",
+    "region": "Wilayah",
+    "personalPrefs": "Preferensi pribadi",
+    "supportLinks": "Dukungan & hukum",
+    "signedOut": "Masuk untuk melihat identitas akun Anda.",
+    "serverIdentityNotice": "Nama, email, dan peran berasal dari sesi server Anda. Mereka tidak disimpan di browser ini.",
+    "localPrefsNotice": "Zona waktu, wilayah, dan preferensi pribadi belum dipertahankan. Menyimpannya hanya akan memperbarui halaman ini sampai Anda keluar.",
+    "avatarUnavailable": "Unggahan avatar belum tersedia.",
+    "appearanceNote": "Konfigurasi penampilan tetap berada di bawah Penampilan. Header hanya menyediakan tema quick toggle.",
+    "prefsHint": "Digunakan oleh asisten AI di seluruh modul.",
+    "themeResolved": "{mode} (terselesaikan {appearance})",
+    "regions": {
+      "EU": "Uni Eropa",
+      "US": "Amerika Serikat",
+      "MENA": "MENA",
+      "APAC": "Asia Pasifik"
+    }
+  },
+  "organization": {
+    "label": "Organisasi",
+    "description": "Profil perusahaan dan identitas pajak",
+    "title": "Organisasi",
+    "panelDescription": "Nama perusahaan, logo, alamat, informasi perpajakan, departemen, dan unit bisnis."
+  },
+  "workspace": {
+    "label": "Ruang kerja",
+    "description": "Pencitraan merek, beranda, dan modul default",
+    "title": "Ruang kerja",
+    "panelDescription": "Pengaturan ruang kerja, dasbor default, branding, modul, dan beranda."
+  },
+  "team": {
+    "label": "Tim",
+    "description": "Anggota, peran, undangan, dan grup",
+    "title": "Tim",
+    "panelDescription": "Anggota, peran, undangan, dan grup."
+  },
+  "ai": {
+    "label": "AI",
+    "description": "Penyedia, model, kreativitas, dan memori",
+    "title": "AI",
+    "panelDescription": "Penyedia, model, kreativitas, suhu, dan preferensi memori.",
+    "openAgentOs": "Buka Agen OS",
+    "openAiWorkspace": "Buka Ruang Kerja AI",
+    "noticeSync": "Pengaturan AI disinkronkan melalui AISettingsProvider — kunci tidak pernah disimpan di sini.",
+    "noticeProvider": "Implementasi penyedia tetap berada di belakang lapisan layanan AI. UI tidak pernah menerima kunci API atau detail SDK. Agen otonom tinggal di Agen OS.",
+    "preferredProvider": "Penyedia AI Pilihan",
+    "defaultModel": "Model AI Bawaan",
+    "temperature": "Suhu",
+    "topP": "P atas",
+    "maxTokens": "Token Maks",
+    "writingStyle": "Gaya Penulisan",
+    "languagePreferences": "Preferensi Bahasa",
+    "systemPrompt": "Perintah Sistem",
+    "systemPromptHint": "Diterapkan sebagai instruksi sistem default untuk Platform AI.",
+    "systemPromptPlaceholder": "Anda adalah AGXORA AI — asisten pengoperasian perusahaan…",
+    "apiKeyManagement": "Manajemen Kunci API",
+    "apiKeyHint": "Kunci diberikan melalui variabel lingkungan server saja.",
+    "apiKeyPlaceholder": "Dikonfigurasi melalui variabel lingkungan AGXORA_* (tidak pernah di browser)",
+    "memory": "Ingatan",
+    "memoryDescription": "Izinkan memori organisasi untuk menginformasikan balasan AI di seluruh modul.",
+    "automationSuggestions": "Saran Otomatisasi",
+    "automationSuggestionsDescription": "Saran alur kerja AI permukaan di Automation Engine.",
+    "streaming": "Mengalir",
+    "streamingDescription": "Streaming respons model ketika penyedia mendukungnya.",
+    "providers": {
+      "mock": "Tiruan (lokal)",
+      "openai": "OpenAI",
+      "azure": "Azure OpenAI",
+      "anthropic": "Antropis",
+      "google": "Google",
+      "openrouter": "BukaRouter",
+      "ollama": "Ollama",
+      "local": "Penyedia Lokal"
+    },
+    "writingStyles": {
+      "professional": "Profesional",
+      "concise": "Ringkas",
+      "friendly": "Ramah",
+      "technical": "Teknis"
+    },
+    "languages": {
+      "auto": "Cocokkan bahasa profil",
+      "en": "Bahasa inggris",
+      "de": "Jerman"
+    }
+  },
+  "appearance": {
+    "label": "Penampilan",
+    "description": "Tema, kepadatan, dan efek kaca",
+    "title": "Penampilan",
+    "panelDescription": "Tema, kepadatan, aksen, animasi, dan efek kaca.",
+    "noticeTheme": "Mode tema adalah satu-satunya sumber kebenaran melalui ThemeProvider. Header hanya menawarkan peralihan cepat.",
+    "themeLabel": "Tema",
+    "themeModeAria": "Modus tema",
+    "resolvedAppearance": "Penampilan terselesaikan:",
+    "accentColor": "Warna Aksen",
+    "accentNotice": "Preferensi aksen disimpan untuk pengkabelan var CSS di masa mendatang — belum mengubah sistem warna yang terkunci.",
+    "density": "Kepadatan",
+    "compactMode": "Mode Kompak",
+    "compactModeDescription": "Kurangi padding di seluruh tabel dan panel perusahaan.",
+    "animations": "Animasi",
+    "animationsDescription": "Bagian gerakan dan hover lift. Menghargai pengaturan OS dengan gerakan yang dikurangi.",
+    "glassEffects": "Efek Kaca",
+    "glassEffectsDescription": "Kartu kaca buram dan preferensi intensitas keburaman sidebar.",
+    "modes": {
+      "day": {
+        "label": "Lampu",
+        "hint": "Palet hari perusahaan mutiara / es"
+      },
+      "night": {
+        "label": "Gelap",
+        "hint": "Tampilan malam sinematik yang disetujui"
+      },
+      "auto": {
+        "label": "Sistem",
+        "hint": "Ikuti jadwal setempat (Otomatis)"
+      }
+    },
+    "densities": {
+      "comfortable": "Nyaman",
+      "compact": "Kompak",
+      "spacious": "Luas"
+    }
+  },
+  "notifications": {
+    "label": "Pemberitahuan",
+    "description": "Peringatan email, push, dan modul",
+    "title": "Pemberitahuan",
+    "panelDescription": "Peringatan khusus email, push, desktop, seluler, dan modul.",
+    "notice": "Saluran notifikasi hanya bersifat preferensi — adaptor pengiriman dicadangkan.",
+    "email": "E-mail",
+    "push": "Dorongan",
+    "desktop": "Desktop",
+    "mobile": "Seluler",
+    "workflowAlerts": "Peringatan Alur Kerja",
+    "workflowAlertsDescription": "Peristiwa eksekusi dan persetujuan Mesin Otomasi.",
+    "financeAlerts": "Peringatan Keuangan",
+    "crmAlerts": "Peringatan CRM",
+    "documentsAlerts": "Peringatan Dokumen",
+    "deliveryNotice": "Adaptor pengiriman dikirimkan saat peluncuran. Pertanyaan:",
+    "contactSupport": "Hubungi dukungan"
+  },
+  "documents": {
+    "label": "Dokumen",
+    "description": "Penyimpanan, retensi, dan pengetahuan",
+    "title": "Dokumen",
+    "panelDescription": "Preferensi penyimpanan, retensi, folder default, pembuatan versi, dan pengaturan pengetahuan.",
+    "notice": "Pengaturan dokumen terintegrasi dengan arsitektur Knowledge Hub.",
+    "storagePreferences": "Preferensi Penyimpanan",
+    "retentionPolicy": "Kebijakan Retensi",
+    "defaultFolder": "Folder Bawaan",
+    "versioning": "Pembuatan versi",
+    "versioningDescription": "Simpan riwayat versi dokumen untuk dipulihkan/dibandingkan.",
+    "knowledgeSettings": "Pengaturan Pengetahuan",
+    "knowledgeDescription": "Pengindeksan AI untuk pencarian Knowledge Hub.",
+    "storageOptions": {
+      "workspace-default": "Default ruang kerja",
+      "eu-region": "wilayah UE",
+      "encrypted-vault": "Gudang terenkripsi"
+    },
+    "retentionOptions": {
+      "30-days": "30 hari (awal)",
+      "2-years": "2 tahun",
+      "7-years": "7 tahun",
+      "10-years": "10 tahun"
+    }
+  },
+  "automation": {
+    "label": "Otomatisasi",
+    "description": "Default alur kerja dan kebijakan percobaan ulang",
+    "title": "Otomatisasi",
+    "panelDescription": "Default alur kerja, saran AI, log eksekusi, batas riwayat, dan kebijakan percobaan ulang.",
+    "notice": "Default otomatisasi berlaku untuk arsitektur Workflow Engine.",
+    "workflowDefaults": "Default Alur Kerja",
+    "historyLimits": "Batasan Sejarah",
+    "retryPolicy": "Kebijakan Coba Ulang",
+    "aiSuggestions": "Saran AI",
+    "executionLogs": "Log Eksekusi",
+    "executionLogsDescription": "Pertahankan payload yang dijalankan secara mendetail di Riwayat Alur Kerja.",
+    "workflowOptions": {
+      "require-approval": "Memerlukan gerbang persetujuan",
+      "auto-run": "Alur tepercaya yang dijalankan secara otomatis",
+      "draft-only": "Hanya draf"
+    },
+    "historyOptions": {
+      "30-days": "30 hari",
+      "90-days": "90 hari",
+      "365-days": "365 hari"
+    },
+    "retryOptions": {
+      "none": "Tidak ada percobaan ulang",
+      "3-exponential": "3× eksponensial",
+      "5-linear": "5× linier"
+    }
+  },
+  "integrations": {
+    "label": "Integrasi",
+    "description": "Terpasang, terhubung, dan tersedia",
+    "title": "Integrasi",
+    "panelDescription": "Adaptor terpasang, terhubung, dan tersedia.",
+    "openCenter": "Buka Pusat Integrasi",
+    "notice": "Platform Integrasi Perusahaan ada di Pusat Integrasi — konektor, OAuth, webhook, kunci API, dan jembatan peristiwa alur kerja.",
+    "columns": {
+      "integration": "Integrasi",
+      "category": "Kategori",
+      "status": "Status",
+      "adapter": "Adaptor"
+    }
+  },
+  "security": {
+    "label": "Keamanan",
+    "description": "Sesi, kata sandi, dan perlindungan akun",
+    "title": "Keamanan",
+    "panelDescription": "Sesi server untuk akun ini. Perangkat, IP, dan MFA tidak disimpan.",
+    "activeSessions": "Sesi aktif",
+    "currentSession": "Sesi saat ini",
+    "otherSession": "Sesi lainnya",
+    "currentBadge": "Sesi ini",
+    "otherBadge": "Sesi lainnya",
+    "createdAt": "Masuk",
+    "expiresAt": "Kedaluwarsa",
+    "revoke": "Cabut sesi",
+    "revokeAria": "Cabut sesi yang masuk {when}",
+    "revokeOthers": "Keluar dari sesi lain",
+    "revokeOthersAria": "Keluar dari semua sesi kecuali sesi saat ini",
+    "revoked": "Sesi dicabut.",
+    "othersRevoked": "Sesi lain keluar. Sesi ini masih aktif.",
+    "loading": "Memuat sesi…",
+    "empty": "Tidak ada sesi aktif",
+    "emptyBody": "Tidak ada sesi server aktif untuk akun ini.",
+    "demoEmpty": "Masuk untuk mendaftarkan sesi demo lokal di browser ini.",
+    "signedOutTitle": "Tidak masuk",
+    "signedOut": "Masuk untuk melihat sesi server aktif Anda.",
+    "loadFailed": "Tidak dapat memuat sesi.",
+    "revokeFailed": "Tidak dapat membatalkan sesi itu.",
+    "logout": "Keluar dari sesi ini",
+    "logoutAria": "Keluar dari sesi server saat ini",
+    "password": "Kata sandi",
+    "changePassword": "Setel ulang kata sandi",
+    "passwordHint": "Perubahan kata sandi menggunakan alur reset yang ada. Formulir perubahan kata sandi khusus belum tersedia.",
+    "mfaTitle": "Otentikasi dua faktor",
+    "mfaUnavailable": "Otentikasi dua faktor belum tersedia.",
+    "ssoTitle": "SSO dan OAuth",
+    "ssoUnavailable": "Penyedia sistem masuk tunggal dan OAuth belum tersedia.",
+    "encryptionTitle": "Enkripsi",
+    "encryptionUnavailable": "Manajemen kunci dan kontrol enkripsi saat tidak aktif belum tersedia.",
+    "trustedDevices": "Perangkat tepercaya",
+    "trustedUnavailable": "Perangkat tepercaya dan riwayat IP tidak disimpan. Metadata sesi terbatas pada waktu pembuatan dan berakhirnya.",
+    "apiKeys": "Kunci API",
+    "apiKeysHint": "Kunci pengembang dikelola di bawah API & Pengembang. Panel ini tidak mengeluarkan kunci.",
+    "openApi": "Buka pengaturan API",
+    "serverNotice": "Sesi disimpan di server. Browser ini tidak pernah memperlakukan data identitas lokal sebagai data resmi.",
+    "demoNotice": "Mode demo hanya menggunakan sesi browser lokal. Ini bukan otentikasi produksi.",
+    "noDeviceMeta": "Perangkat, IP, dan agen pengguna tidak dicatat."
+  },
+  "billing": {
+    "label": "Penagihan",
+    "description": "Paket, penggunaan, faktur, dan pembayaran",
+    "title": "Penagihan",
+    "panelDescription": "Paket saat ini, perpanjangan, penggunaan, faktur, dan jalur peningkatan."
+  },
+  "api": {
+    "label": "API & Pengembang",
+    "description": "Kunci, webhook, token, kotak pasir",
+    "title": "API & Pengembang",
+    "panelDescription": "Kunci, webhook, token, dan akses kotak pasir.",
+    "openPortal": "Buka portal pengembang",
+    "notice": "Hasilkan, putar, dan cabut kunci di Pusat Integrasi. Gateway, penguji webhook, dan penjelajah API tersedia di sana.",
+    "webhooks": "Webhook",
+    "sandbox": "Bak pasir",
+    "sandboxEnabled": "Diaktifkan",
+    "sandboxDisabled": "Dengan disabilitas",
+    "tokensNotice": "Token pengembang tidak pernah menampilkan rahasia lengkap — hanya awalan.",
+    "columns": {
+      "name": "Nama",
+      "key": "Kunci",
+      "scope": "Cakupan",
+      "lastUsed": "Terakhir digunakan"
+    }
+  },
+  "audit": {
+    "label": "Log Audit",
+    "description": "Perubahan aktivitas, keamanan, dan sistem",
+    "title": "Log Audit",
+    "panelDescription": "Aktivitas terkini, peristiwa keamanan, dan perubahan sistem.",
+    "columns": {
+      "when": "Kapan",
+      "actor": "Aktor",
+      "category": "Kategori",
+      "summary": "Ringkasan"
+    },
+    "categories": {
+      "activity": "Aktivitas Terkini",
+      "security": "Peristiwa Keamanan",
+      "system": "Perubahan Sistem"
+    }
+  },
+  "advanced": {
+    "label": "Canggih",
+    "description": "Eksperimental, reset, impor, ekspor",
+    "title": "Canggih",
+    "panelDescription": "Fitur eksperimental, reset, impor, dan ekspor.",
+    "notice": "Tindakan lanjutan memerlukan konfirmasi sebelum mengajukan permohonan.",
+    "experimentalFeatures": "Fitur Eksperimental",
+    "experimentalDescription": "Ikut serta dalam kemampuan Pusat Kontrol yang belum selesai.",
+    "export": "Ekspor",
+    "import": "Impor",
+    "reset": "Mengatur ulang",
+    "exportUnavailable": "Ekspor belum tersedia.",
+    "importUnavailable": "Impor belum tersedia.",
+    "resetUnavailable": "Penyetelan ulang belum tersedia."
+  },
+  "page": {
+    "eyebrow": "Pusat Kontrol AGXORA",
+    "title": "Pengaturan",
+    "lead": "Konfigurasi perusahaan untuk setiap modul AGXORA — profil, organisasi, AI, tampilan, keamanan, penagihan, dan kontrol pengembang di satu tempat.",
+    "loading": "Memuat pengaturan…",
+    "breadcrumb": "{label} · {description}"
+  },
+  "saveChanges": "Simpan perubahan",
+  "sessionNotice": "Diperbarui untuk sesi ini — {area} tidak terhubung.",
+  "kpi": {
+    "members": {
+      "label": "Anggota Tim",
+      "caption": "Kursi aktif"
+    },
+    "integrations": {
+      "label": "Integrasi",
+      "caption": "Adaptor yang terhubung"
+    },
+    "api": {
+      "label": "Kunci API",
+      "caption": "Token pengembang"
+    },
+    "audit": {
+      "label": "Acara Audit",
+      "caption": "7 hari terakhir"
+    }
+  },
+  "unknown": {
+    "title": "Pengaturan",
+    "description": "Bagian tidak diketahui.",
+    "emptyTitle": "Tidak ditemukan",
+    "emptyDescription": "Pilih bagian dari navigasi Pusat Kontrol."
+  },
+  "controlPlane": {
+    "loading": "Memuat…",
+    "loadFailed": "Tidak dapat memuat data organisasi. Masuk dan coba lagi.",
+    "saveFailed": "Tidak dapat menyimpan perubahan.",
+    "saving": "Penghematan…",
+    "orgName": "Nama organisasi",
+    "orgSlug": "Siput",
+    "owner": "Pemilik",
+    "counts": "Anggota · ruang kerja",
+    "orgUpdated": "Organisasi diperbarui.",
+    "countsValue": "{members} · {workspaces}",
+    "joined": "Bergabung",
+    "workspaceName": "Nama ruang kerja",
+    "switchWorkspace": "Ruang kerja aktif",
+    "active": "aktif",
+    "rename": "Ganti nama",
+    "archive": "Arsip",
+    "create": "Buat ruang kerja",
+    "createWorkspace": "Ruang kerja baru",
+    "workspaceCreated": "Ruang kerja dibuat.",
+    "workspaceUpdated": "Ruang kerja diganti namanya.",
+    "workspaceArchived": "Ruang kerja diarsipkan.",
+    "workspaceSwitched": "Ruang kerja aktif diperbarui.",
+    "member": "Anggota",
+    "email": "E-mail",
+    "role": "Peran",
+    "status": "Status",
+    "actions": "Tindakan",
+    "roleOwner": "Pemilik",
+    "roleAdmin": "Admin",
+    "roleMember": "Anggota",
+    "changeRole": "Ubah peran",
+    "remove": "Menghapus",
+    "invite": "Undang anggota",
+    "inviteTitle": "Undang ke ruang kerja",
+    "sendInvite": "Buat undangan",
+    "close": "Menutup",
+    "pending": "Undangan yang tertunda",
+    "noPending": "Tidak ada undangan yang menunggu keputusan.",
+    "revoke": "Menarik kembali",
+    "noMembers": "Belum ada anggota",
+    "noMembersBody": "Undang rekan satu tim ke ruang kerja ini.",
+    "inviteHonesty": "Pengiriman email tidak dikonfigurasi. Bagikan tautan undangan secara langsung.",
+    "inviteLink": "Tautan undangan",
+    "inviteInvalid": "Undangan ini tidak sah.",
+    "accept": "Terima undangan",
+    "invitedAs": "{email} diundang sebagai {role}.",
+    "inviteStatus": {
+      "pending": "Tertunda",
+      "expired": "Undangan ini telah kedaluwarsa.",
+      "revoked": "Undangan ini dicabut.",
+      "accepted": "Undangan ini sudah diterima."
+    },
+    "transferOwnership": "Mentransfer kepemilikan",
+    "transferTitle": "Mentransfer kepemilikan organisasi",
+    "transferWarning": "Ini adalah tindakan yang berbahaya. Anda tetap PEMILIK sampai penerima mengonfirmasi. Setelah konfirmasi, Anda menjadi ADMIN dan mereka menjadi PEMILIK.",
+    "transferTarget": "Pemilik baru",
+    "transferSelectMember": "Pilih anggota yang ada…",
+    "transferTypeName": "Ketik “{name}” untuk mengonfirmasi",
+    "transferConfirmMismatch": "Nama yang diketik tidak sesuai dengan anggota yang dipilih.",
+    "transferInitiate": "Mulai transfer",
+    "transferHonesty": "Email konfirmasi dikirim ketika pengiriman dikonfigurasi. Jika tidak, bagikan tautan konfirmasi secara langsung dengan penerima.",
+    "transferLink": "Tautan konfirmasi",
+    "transferPendingTitle": "Transfer kepemilikan tertunda",
+    "transferPendingBody": "Menunggu {name} ({email}) untuk mengonfirmasi. Kedaluwarsa {expires}. Anda tetap PEMILIK sampai saat itu.",
+    "transferPendingNote": "Peran keanggotaan tidak berubah selama transfer tertunda.",
+    "cancelTransfer": "Batalkan transfer",
+    "transferCancelled": "Pengalihan kepemilikan dibatalkan.",
+    "transferInvalid": "Pengalihan kepemilikan ini tidak sah.",
+    "transferConfirmTitle": "Konfirmasikan transfer kepemilikan",
+    "transferConfirmBody": "{from} ingin mentransfer kepemilikan organisasi ke {to} ({email}).",
+    "transferConfirmDanger": "Setelah Anda konfirmasi, Anda menjadi PEMILIK dan pemilik sebelumnya menjadi ADMIN.",
+    "transferConfirmAction": "Konfirmasikan saya menjadi pemilik baru",
+    "transferWrongAccount": "Masuk sebagai {email} untuk mengonfirmasi transfer ini.",
+    "transferStatus": {
+      "pending": "Menunggu konfirmasi",
+      "expired": "Pengalihan kepemilikan ini telah berakhir.",
+      "cancelled": "Pengalihan kepemilikan ini dibatalkan.",
+      "confirmed": "Pengalihan kepemilikan ini telah selesai."
+    }
+  }
+}

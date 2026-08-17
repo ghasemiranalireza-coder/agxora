@@ -1,0 +1,540 @@
+{
+  "enginePage": {
+    "sectionTitle": "Hệ điều hành tự động hóa AGXORA",
+    "title": "Tự động hóa",
+    "subtitle": "Công cụ tự động hóa và quy trình làm việc AI dành cho doanh nghiệp — mô liên kết cho CRM, Finance, Creator Studio và mọi mô-đun AGXORA trong tương lai.",
+    "loadingHistory": "Đang tải lịch sử quy trình làm việc…",
+    "loadingTemplates": "Đang tải thư viện mẫu…",
+    "loadingIntegrations": "Đang tải trung tâm tích hợp…",
+    "dashboard": "Trang tổng quan",
+    "workflowBuilder": "Trình tạo quy trình làm việc",
+    "workflowBuilderSubtitle": "Canvas dựa trên nút có khả năng thu phóng và xoay mượt mà, di chuột kết nối và hướng dẫn trạng thái trống.",
+    "openAssistant": "Trợ lý quy trình làm việc AI mở",
+    "workflowHistory": "Lịch sử quy trình làm việc",
+    "workflowHistorySubtitle": "Nhật ký thực thi có trạng thái màu, các hàng có thể nhấp và trình kiểm tra thực thi đầy đủ.",
+    "templates": "Mẫu",
+    "templatesSubtitle": "Xem trước trước khi tải - số lượng nút, độ khó, thời gian chạy và các trường hợp sử dụng được đề xuất.",
+    "integrationCenter": "Trung tâm tích hợp",
+    "integrationCenterSubtitle": "Chỉ đăng ký bộ điều hợp - Đã kết nối, Beta, Đã lên kế hoạch, Sắp ra mắt, Đã tắt. Không có API trực tiếp."
+  },
+  "assistant": {
+    "title": "Trợ lý quy trình làm việc AI",
+    "subtitle": "Chỉ chẩn đoán cục bộ - không cần mô hình trực tiếp.",
+    "closeAria": "Đóng Trợ lý quy trình làm việc AI",
+    "close": "Đóng",
+    "workflowScore": "Điểm quy trình làm việc",
+    "scoreOutOf": "/ 100",
+    "optimizationSuggestions": "Đề xuất tối ưu hóa",
+    "oneClickOptimize": "Tối ưu hóa một cú nhấp chuột",
+    "noticeDefault": "One Click Optimize là một đột biến chưa có biểu đồ.",
+    "noticeQueued": "Tối ưu hóa hàng đợi. Công cụ tương lai sẽ viết lại sự chậm trễ và phê duyệt."
+  },
+  "integrations": {
+    "intro": "Trung tâm tích hợp - tùy chọn. Các trạng thái: Đã kết nối, Beta, Đã lên kế hoạch, Sắp ra mắt, Đã tắt. Không có API trực tiếp.",
+    "category": "Loại:",
+    "reservedAdapter": "Bộ chuyển đổi dành riêng:",
+    "description": "Sự miêu tả:"
+  },
+  "executionInspector": {
+    "title": "Chi tiết thực hiện",
+    "emptyTitle": "Chọn thực thi",
+    "emptyDescription": "Chọn một lần chạy từ Lịch sử quy trình làm việc để kiểm tra đầu vào, đầu ra và tóm tắt AI.",
+    "workflowName": "Tên quy trình làm việc",
+    "trigger": "Cò súng",
+    "executionId": "ID thực thi",
+    "started": "Đã bắt đầu",
+    "finished": "Hoàn thành",
+    "duration": "Khoảng thời gian",
+    "status": "Trạng thái",
+    "success": "Thành công",
+    "failed": "Thất bại",
+    "retryAvailable": "Thử lại có sẵn",
+    "executedBy": "Thực hiện bởi",
+    "yes": "Đúng",
+    "no": "KHÔNG",
+    "emDash": "—",
+    "input": "đầu vào",
+    "output": "đầu ra",
+    "aiSummary": "Tóm tắt AI",
+    "errorMessage": "Thông báo lỗi",
+    "retry": "Thử lại",
+    "retryUnavailable": "Thử lại không có sẵn",
+    "noticeDefault": "Thử lại bộ chuyển đổi dành riêng — chưa thực hiện lại trực tiếp.",
+    "noticeQueued": "Thử lại hàng đợi cho {id}."
+  },
+  "workflowBuilder": {
+    "elementsTitle": "Các yếu tố quy trình làm việc",
+    "paletteAria": "Bảng màu",
+    "tabElements": "Yếu tố",
+    "tabTriggers": "Trình kích hoạt",
+    "tabActions": "hành động",
+    "tabAiActions": "Hành động AI",
+    "builderTitle": "Trình tạo quy trình làm việc · {name}",
+    "builderHint": "Bám vào lưới {grid}px · ⌘/Ctrl+thu phóng cuộn · kéo khung vẽ để xoay · nhấp đúp vào kết nối",
+    "autoSaved": "Tự động lưu",
+    "saving": "Đang lưu…",
+    "undo": "Hoàn tác",
+    "redo": "Làm lại",
+    "zoomOut": "−",
+    "zoomIn": "+",
+    "resetView": "Đặt lại chế độ xem",
+    "emptyTitle": "Khung vẽ trống",
+    "emptyDescription": "Kéo Trình kích hoạt từ bảng màu để bắt đầu xây dựng. Snap-to-grid giúp các nút được căn chỉnh.",
+    "connectHint": "Nhấp đúp vào mục tiêu để kết nối",
+    "miniMapAria": "Bản đồ thu nhỏ"
+  },
+  "workflowHistory": {
+    "title": "Lịch sử quy trình làm việc · Nhật ký thực thi",
+    "statusFilter": "Trạng thái",
+    "statusAll": "Tất cả",
+    "statusSuccess": "Thành công",
+    "statusFailed": "Thất bại",
+    "statusPending": "Chưa giải quyết",
+    "statusRetried": "Thử lại",
+    "statusRunning": "Đang chạy",
+    "runsAria": "Chạy quy trình công việc",
+    "noMatches": "Không có luồng công việc nào phù hợp với bộ lọc này."
+  },
+  "workflowTemplates": {
+    "title": "Thư viện mẫu",
+    "noticeDefault": "Xem trước mẫu trước khi tải nó vào trình tạo.",
+    "noticeLoaded": "Đã tải \"{name}\" vào trình tạo quy trình công việc.",
+    "nodesBadge": "nút {count}",
+    "recommendedFor": "Được đề xuất cho: {for}",
+    "preview": "Xem trước",
+    "useTemplate": "Sử dụng mẫu",
+    "previewTitle": "Xem trước mẫu",
+    "close": "Đóng",
+    "nodes": "Nút",
+    "connections": "Kết nối",
+    "estimatedRuntime": "Thời gian chạy ước tính",
+    "difficulty": "Khó khăn",
+    "requiredModules": "Mô-đun bắt buộc",
+    "usedAiFeatures": "Các tính năng AI đã sử dụng",
+    "none": "Không có"
+  },
+  "workspace": {
+    "loading": "Đang tải công cụ tự động hóa…",
+    "eyebrow": "Công cụ tự động hóa quy trình làm việc",
+    "title": "Tự động hóa",
+    "subtitle": "Quy trình công việc kinh doanh có thể định cấu hình trên CRM, Dự án, Tài chính, Tài liệu và AI - xe buýt sự kiện cục bộ và công cụ trong trình duyệt. Hàng đợi phân phối và nhân viên phụ trợ không được kết nối.",
+    "noticeDefault": "Công cụ thực thi độc lập với UI. Các mô-đun xuất bản các sự kiện; đăng ký quy trình công việc.",
+    "tabs": {
+      "dashboard": "Trang tổng quan",
+      "workflows": "Quy trình làm việc",
+      "editor": "Biên tập viên",
+      "history": "Lịch sử",
+      "templates": "Mẫu",
+      "analytics": "Phân tích",
+      "settings": "Cài đặt"
+    },
+    "notice": {
+      "missingWrite": "Thiếu quyền quy trình làm việc.write.",
+      "missingExecute": "Thiếu quyền quy trình làm việc.execute.",
+      "created": "Đã tạo {name}",
+      "templateApplied": "Mẫu đã áp dụng: {name}",
+      "runResult": "Chạy {status} ({duration}ms)",
+      "runFailed": "Quy trình làm việc không thể chạy (bị vô hiệu hóa hoặc bị thiếu).",
+      "publishedEvent": "Sự kiện miền đã xuất bản: {type}",
+      "workflowStatus": "Quy trình làm việc {status}",
+      "saved": "Đã lưu quy trình làm việc",
+      "retryResult": "Thử lại {status}",
+      "retryFailed": "Thử lại không thành công",
+      "settingsSaved": "Đã lưu cài đặt tự động hóa"
+    },
+    "defaults": {
+      "untitledName": "Quy trình làm việc không có tiêu đề",
+      "untitledDescription": "Quy trình làm việc dự thảo - định cấu hình trình kích hoạt và hành động."
+    },
+    "dashboard": {
+      "workflows": "Quy trình làm việc",
+      "active": "Tích cực",
+      "runsToday": "Chạy hôm nay",
+      "successRate": "Tỷ lệ thành công",
+      "recentWorkflows": "Quy trình công việc gần đây",
+      "newWorkflow": "Quy trình công việc mới",
+      "eventBusDemo": "Bản trình diễn xe buýt sự kiện",
+      "eventBusHint": "Xuất bản một sự kiện mô-đun. Quy trình công việc đang hoạt động với các trình kích hoạt phù hợp được xếp hàng tự động.",
+      "notifications": "Thông báo"
+    },
+    "workflowList": {
+      "title": "Danh sách quy trình làm việc",
+      "newWorkflow": "Quy trình công việc mới",
+      "emptyTitle": "Chưa có quy trình làm việc nào.",
+      "emptyDescription": "Tạo quy trình công việc hoặc bắt đầu từ một mẫu.",
+      "columns": {
+        "name": "Tên",
+        "status": "Trạng thái",
+        "nodes": "Nút",
+        "updated": "Đã cập nhật",
+        "actions": "hành động"
+      },
+      "run": "Chạy",
+      "disable": "Vô hiệu hóa",
+      "activate": "Kích hoạt"
+    },
+    "editor": {
+      "selectPrompt": "Chọn hoặc tạo quy trình làm việc để chỉnh sửa.",
+      "workflows": "Quy trình làm việc",
+      "title": "Trình chỉnh sửa quy trình làm việc",
+      "hint": "Kiến trúc hỗ trợ kích hoạt → điều kiện → hành động → độ trễ → nhánh → vòng lặp. Tính năng kéo và thả canvas có thể cắm vào các vị trí nút mà không cần thay đổi công cụ.",
+      "name": "Tên",
+      "description": "Sự miêu tả",
+      "trigger": "Cò súng",
+      "primaryAction": "Hành động chính",
+      "executionPath": "Xem trước đường dẫn thực thi",
+      "save": "Cứu",
+      "runNow": "Chạy ngay bây giờ",
+      "triggerFallback": "Cò súng",
+      "actionFallback": "Hoạt động"
+    },
+    "history": {
+      "title": "Lịch sử thực hiện",
+      "emptyTitle": "Chưa có vụ hành quyết nào.",
+      "emptyDescription": "Chạy một quy trình công việc hoặc xuất bản một sự kiện trên miền.",
+      "latestRun": "Chi tiết chạy mới nhất",
+      "path": "Đường dẫn: {path}",
+      "error": "· Lỗi: {error}",
+      "columns": {
+        "workflow": "Quy trình làm việc",
+        "status": "Trạng thái",
+        "triggeredBy": "Kích hoạt bởi",
+        "duration": "Khoảng thời gian",
+        "started": "Đã bắt đầu",
+        "retry": "Thử lại"
+      },
+      "retry": "Thử lại",
+      "emDash": "—"
+    },
+    "templates": {
+      "useTemplate": "Sử dụng mẫu"
+    },
+    "analytics": {
+      "totalWorkflows": "Tổng số quy trình công việc",
+      "activeWorkflows": "Quy trình công việc đang hoạt động",
+      "executionsToday": "Thực thi hôm nay",
+      "successRate24h": "Tỷ lệ thành công (24h)",
+      "failed24h": "Không thành công (24h)",
+      "avgDuration": "Thời lượng trung bình"
+    },
+    "settings": {
+      "title": "Cài đặt tự động hóa",
+      "subtitle": "Thử lại chính sách, giới hạn thực thi, đồng thời, hết thời gian và ghi nhật ký để thực thi phân tán.",
+      "maxRetryAttempts": "Số lần thử lại tối đa",
+      "backoffMs": "Thời gian chờ (ms)",
+      "executionsPerHour": "Thực hiện/giờ",
+      "concurrencyLimit": "Giới hạn đồng thời",
+      "timeoutMs": "Thời gian chờ (ms)",
+      "logLevel": "Cấp độ nhật ký",
+      "saveSettings": "Lưu cài đặt",
+      "logLevels": {
+        "error": "lỗi",
+        "warn": "cảnh báo",
+        "info": "thông tin",
+        "debug": "gỡ lỗi"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Quy trình trống"
+  },
+  "status": {
+    "connected": "Đã kết nối",
+    "beta": "Beta",
+    "comingSoon": "Sắp ra mắt",
+    "disabled": "Đã tắt",
+    "planned": "Đã lên kế hoạch",
+    "success": "Thành công",
+    "failed": "Thất bại",
+    "running": "Đang chạy",
+    "pending": "Đang chờ",
+    "retried": "Thử lại"
+  },
+  "difficulty": {
+    "starter": "Cơ bản",
+    "intermediate": "Trung cấp",
+    "advanced": "Nâng cao"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Bộ kích hoạt",
+      "description": "Bắt đầu khi một sự kiện xảy ra"
+    },
+    "el-condition": {
+      "label": "Điều kiện",
+      "description": "Rẽ nhánh theo quy tắc"
+    },
+    "el-delay": {
+      "label": "Độ trễ",
+      "description": "Chờ trước khi tiếp tục"
+    },
+    "el-approval": {
+      "label": "Phê duyệt",
+      "description": "Cổng phê duyệt của người"
+    },
+    "el-loop": {
+      "label": "Vòng lặp",
+      "description": "Lặp qua một tập hợp"
+    },
+    "el-merge": {
+      "label": "Gộp",
+      "description": "Gộp các nhánh song song"
+    },
+    "el-split": {
+      "label": "Tách",
+      "description": "Tỏa ra các nhánh song song"
+    },
+    "el-ai-decision": {
+      "label": "Quyết định AI",
+      "description": "Định tuyến qua AI"
+    },
+    "el-notification": {
+      "label": "Thông báo",
+      "description": "Cảnh báo trong ứng dụng"
+    },
+    "el-webhook": {
+      "label": "Giữ chỗ Webhook",
+      "description": "Đã dành callback HTTP"
+    },
+    "el-custom": {
+      "label": "Hành động tùy chỉnh",
+      "description": "Khe hành động mở rộng được"
+    },
+    "tr-customer": {
+      "label": "Đã tạo khách hàng",
+      "description": "Đã tạo bản ghi khách hàng CRM"
+    },
+    "tr-lead": {
+      "label": "Đã tạo lead",
+      "description": "Lead mới vào pipeline"
+    },
+    "tr-invoice": {
+      "label": "Đã tạo hóa đơn",
+      "description": "Đã phát hành hóa đơn tài chính"
+    },
+    "tr-invoice-paid": {
+      "label": "Hóa đơn đã thanh toán",
+      "description": "Thanh toán đã tất toán"
+    },
+    "tr-order": {
+      "label": "Đã tạo đơn hàng",
+      "description": "Đơn hàng đã nhập"
+    },
+    "tr-order-done": {
+      "label": "Đơn hàng hoàn tất",
+      "description": "Đơn hàng đã giao"
+    },
+    "tr-doc": {
+      "label": "Đã tải tài liệu lên",
+      "description": "Tải lên kho tài liệu"
+    },
+    "tr-campaign": {
+      "label": "Chiến dịch đã xuất bản",
+      "description": "Xuất bản Creator Studio"
+    },
+    "tr-employee": {
+      "label": "Đã thêm nhân viên",
+      "description": "Thay đổi thư mục nhóm"
+    },
+    "tr-task": {
+      "label": "Công việc hoàn tất",
+      "description": "Công việc được đánh dấu xong"
+    },
+    "tr-manual": {
+      "label": "Bộ kích hoạt thủ công",
+      "description": "Chạy khi cần"
+    },
+    "tr-schedule": {
+      "label": "Bộ kích hoạt lịch",
+      "description": "Lịch cron / lịch"
+    },
+    "tr-webhook": {
+      "label": "Bộ kích hoạt Webhook",
+      "description": "Sự kiện HTTP đến"
+    },
+    "tr-api": {
+      "label": "Bộ kích hoạt API",
+      "description": "Khởi động theo chương trình"
+    },
+    "ac-crm": {
+      "label": "Tạo bản ghi CRM",
+      "description": "Ghi thực thể CRM"
+    },
+    "ac-invoice": {
+      "label": "Tạo hóa đơn",
+      "description": "Hóa đơn tài chính"
+    },
+    "ac-quote": {
+      "label": "Tạo báo giá",
+      "description": "Tạo tài liệu báo giá"
+    },
+    "ac-delivery": {
+      "label": "Tạo phiếu giao hàng",
+      "description": "Phiếu giao hàng"
+    },
+    "ac-task": {
+      "label": "Tạo công việc",
+      "description": "Mở một công việc"
+    },
+    "ac-assign": {
+      "label": "Gán nhân viên",
+      "description": "Chuyển cho đồng đội"
+    },
+    "ac-email": {
+      "label": "Gửi email",
+      "description": "Email gửi đi"
+    },
+    "ac-notify": {
+      "label": "Gửi thông báo",
+      "description": "Thông báo trong ứng dụng"
+    },
+    "ac-ai-summary": {
+      "label": "Tạo tóm tắt AI",
+      "description": "Tóm tắt ngữ cảnh"
+    },
+    "ac-ai-content": {
+      "label": "Tạo nội dung AI",
+      "description": "Bản nháp Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "Cập nhật khách hàng",
+      "description": "Vá khách hàng CRM"
+    },
+    "ac-update-status": {
+      "label": "Cập nhật trạng thái",
+      "description": "Đổi trạng thái thực thể"
+    },
+    "ac-pdf": {
+      "label": "Xuất PDF",
+      "description": "Xuất tài liệu"
+    },
+    "ac-future": {
+      "label": "Giữ chỗ API tương lai",
+      "description": "Khe hành động dành sẵn"
+    },
+    "ai-decision": {
+      "label": "Quyết định AI",
+      "description": "Quyết định nhánh tiếp theo"
+    },
+    "ai-class": {
+      "label": "Phân loại AI",
+      "description": "Phân loại bản ghi"
+    },
+    "ai-text": {
+      "label": "Tạo văn bản AI",
+      "description": "Tạo văn bản"
+    },
+    "ai-translate": {
+      "label": "Dịch AI",
+      "description": "Dịch nội dung"
+    },
+    "ai-email": {
+      "label": "Thư trả lời AI",
+      "description": "Soạn thư trả lời"
+    },
+    "ai-sum": {
+      "label": "Tóm tắt AI",
+      "description": "Cô đọng ngữ cảnh"
+    },
+    "ai-rec": {
+      "label": "Gợi ý AI",
+      "description": "Đề xuất bước tiếp theo"
+    },
+    "ai-route": {
+      "label": "Định tuyến AI",
+      "description": "Định tuyến tới chủ sở hữu / hàng đợi"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Khách hàng đã tạo",
+      "description": "Kích hoạt khi tạo bản ghi khách hàng CRM."
+    },
+    "project_created": {
+      "label": "Dự án đã được tạo",
+      "description": "Kích hoạt khi tạo dự án."
+    },
+    "task_completed": {
+      "label": "Nhiệm vụ đã hoàn thành",
+      "description": "Kích hoạt khi nhiệm vụ được đánh dấu hoàn tất."
+    },
+    "document_uploaded": {
+      "label": "Tài liệu đã được tải lên",
+      "description": "Kích hoạt khi tài liệu được tải lên."
+    },
+    "schedule": {
+      "label": "Lịch trình",
+      "description": "Trình kích hoạt lịch cron / khoảng thời gian."
+    },
+    "invoice_issued": {
+      "label": "Hóa đơn đã phát hành",
+      "description": "Kích hoạt khi phát hành hóa đơn."
+    },
+    "user_invited": {
+      "label": "Đã mời người dùng",
+      "description": "Kích hoạt khi một thành viên nhóm được mời."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Webhook HTTP đến."
+    },
+    "api_event": {
+      "label": "Sự kiện API",
+      "description": "Sự kiện miền API chung."
+    },
+    "ai_event": {
+      "label": "Sự kiện AI",
+      "description": "Tín hiệu AI (hoàn tất, insight, bước tác nhân)."
+    },
+    "manual": {
+      "label": "Kích hoạt thủ công",
+      "description": "Chạy theo yêu cầu từ giao diện hoặc API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Tạo khách hàng",
+      "description": "Tạo bản ghi khách hàng CRM."
+    },
+    "customer_update": {
+      "label": "Cập nhật khách hàng",
+      "description": "Cập nhật trường khách hàng."
+    },
+    "project_create": {
+      "label": "Tạo dự án",
+      "description": "Tạo dự án từ ngữ cảnh quy trình."
+    },
+    "notification_send": {
+      "label": "Gửi thông báo",
+      "description": "Gửi thông báo trong ứng dụng."
+    },
+    "email_send": {
+      "label": "Gửi email",
+      "description": "Xếp hàng email qua nhà cung cấp thư."
+    },
+    "invoice_create": {
+      "label": "Tạo hóa đơn",
+      "description": "Tạo hóa đơn tài chính."
+    },
+    "status_update": {
+      "label": "Cập nhật trạng thái",
+      "description": "Cập nhật trạng thái thực thể trong mô-đun."
+    },
+    "document_generate": {
+      "label": "Tạo tài liệu",
+      "description": "Tạo tài liệu từ mẫu."
+    },
+    "api_call": {
+      "label": "Gọi API",
+      "description": "Gọi HTTP tới API nội bộ hoặc bên ngoài."
+    },
+    "ai_run": {
+      "label": "Chạy AI",
+      "description": "Chạy prompt AI / bước tác nhân kèm ngữ cảnh."
+    },
+    "task_assign": {
+      "label": "Gán nhiệm vụ",
+      "description": "Gán nhiệm vụ cho người dùng."
+    }
+  }
+}

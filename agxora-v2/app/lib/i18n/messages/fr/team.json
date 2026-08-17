@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "Identité et accès",
+    "title": "Équipe",
+    "lead": "Membres, rôles et invitations pour {organization}. Prêt pour l'architecture d'une future API d'identité.",
+    "yourOrganization": "Votre organisation"
+  },
+  "invite": {
+    "title": "Inviter par e-mail",
+    "email": "E-mail",
+    "emailPlaceholder": "collègue@entreprise.com",
+    "role": "Rôle",
+    "submit": "Inviter",
+    "created": "Invitation créée (en attente).",
+    "failed": "Échec de l'invitation",
+    "signInFirst": "Connectez-vous et activez d’abord une organisation.",
+    "noPermission": "Autorisation manquante : l'administrateur ou le gestionnaire doit inviter."
+  },
+  "roles": {
+    "title": "Rôles",
+    "owner": {
+      "name": "Propriétaire",
+      "description": "Contrôle total de l'organisation, y compris les paramètres et la facturation."
+    },
+    "admin": {
+      "name": "Administrateur",
+      "description": "Gérez les modules Finance, Automatisation, Équipe et Espace de travail."
+    },
+    "manager": {
+      "name": "Directeur",
+      "description": "Diriger les opérations CRM, Projets, Documents et Créateur."
+    },
+    "employee": {
+      "name": "Employé(e)",
+      "description": "Accès quotidien au CRM, aux documents, au créateur et aux projets."
+    },
+    "guest": {
+      "name": "Invité",
+      "description": "Accès en lecture limité aux documents et projets."
+    },
+    "viewer": {
+      "name": "Téléspectateur",
+      "description": "Accès en lecture seule aux modules partagés."
+    }
+  },
+  "members": {
+    "title": "Bénéficiares",
+    "columnMember": "Membre",
+    "columnEmail": "E-mail",
+    "columnRole": "Rôle",
+    "columnStatus": "Statut",
+    "roleFor": "Rôle pour {name}",
+    "emptyTitle": "Pas encore de membres",
+    "emptyDescription": "Invitez des collègues à rejoindre cet espace de travail de l'organisation.",
+    "updated": "{name} mis à jour vers {role}",
+    "roleChangeFailed": "Échec du changement de rôle"
+  },
+  "pending": {
+    "title": "Invitations en attente",
+    "emptyTitle": "Aucune invitation en attente",
+    "emptyDescription": "Les nouvelles invitations apparaissent ici jusqu'à ce qu'elles soient acceptées ou expirées.",
+    "expires": "{role} · expire le {date}",
+    "revoke": "Révoquer",
+    "pending": "en attente"
+  },
+  "history": {
+    "title": "Historique des invitations",
+    "empty": "Les invitations acceptées, expirées et révoquées apparaîtront ici."
+  },
+  "status": {
+    "accepted": "accepté",
+    "expired": "expiré",
+    "revoked": "révoqué",
+    "active": "actif",
+    "inactive": "inactif",
+    "pending": "en attente"
+  }
+}

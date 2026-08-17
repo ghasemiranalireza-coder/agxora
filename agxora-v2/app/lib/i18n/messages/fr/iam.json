@@ -1,0 +1,174 @@
+{
+  "identity": {
+    "eyebrow": "IAM d'entreprise",
+    "title": "Identité et accès",
+    "lead": "Organisation, espace de travail, RBAC, espaces réservés de sécurité et architecture d'audit. Les adaptateurs dorsaux se branchent sans changer cette surface.",
+    "openProfile": "Ouvrir le profil",
+    "teamManagement": "Management de l’équipe ;",
+    "tabs": {
+      "organization": "Organisation",
+      "workspace": "Espace de travail",
+      "roles": "Rôles et autorisations",
+      "security": "Sécurité",
+      "audit": "Journal d'audit"
+    },
+    "organizationSettings": "Paramètres de l'organisation",
+    "workspaceSettings": "Paramètres de l'espace de travail",
+    "noOrganization": "Aucune organisation active. Terminez l'intégration ou créez-en une à partir du service d'organisation.",
+    "logoPlaceholder": "Les adaptateurs de téléchargement de logo et de facturation de plan sont des espaces réservés pour le futur backend d'identité.",
+    "rbacTitle": "RBAC – rôles par défaut",
+    "permissionMatrix": "Matrice d'autorisation",
+    "canManageSettings": "Peut gérer les paramètres : {value} · Authentifié : {authenticated}",
+    "yes": "Oui",
+    "no": "Non",
+    "securitySettings": "Paramètres de sécurité",
+    "passwordChange": {
+      "title": "Changement de mot de passe",
+      "detail": "Le changement de mot de passe se connecte via le fournisseur d'authentification lorsqu'il est configuré."
+    },
+    "twoFactor": {
+      "title": "Authentification à deux facteurs (2FA)",
+      "detail": "Les adaptateurs TOTP et WebAuthn s'enregistrent ici lorsqu'ils sont activés."
+    },
+    "activeSessions": {
+      "title": "Séances actives",
+      "detail": "Le répertoire des appareils réside dans les sessions d'identité ; la révocation fait autorité avec les sessions serveur."
+    },
+    "apiKeys": {
+      "title": "Clés d'API",
+      "detail": "Comptes de service et jetons étendus pour les développeurs."
+    },
+    "absoluteTimeout": "Délai absolu",
+    "idleTimeout": "Timeout Idle",
+    "refreshSkew": "Actualiser l'inclinaison",
+    "persistentLogin": "Connexion persistante",
+    "disabled": "Handicapé",
+    "enabled": "Activée",
+    "days": "{count} jours",
+    "minutes": "{count} minutes",
+    "toggleIdlePolicy": "Activer/désactiver l'espace réservé aux règles inactives",
+    "previewSessionExpired": "Aperçu de la session expiré",
+    "previewAccountLocked": "Aperçu du compte verrouillé",
+    "auditActivity": "Activité d'audit",
+    "auditLead": "La connexion, la déconnexion, les changements de rôle, les invitations et les événements de l'organisation sont enregistrés localement. Remplacez-le ultérieurement par un magasin d'audit back-end immuable.",
+    "auditEmpty": "Aucun événement IAM pour l'instant. Connectez-vous ou modifiez un rôle pour remplir le journal.",
+    "meta": {
+      "name": "Nom",
+      "slug": "Limace",
+      "plan": "Plan",
+      "owner": "Propriétaire",
+      "created": "Créé",
+      "yourRole": "Votre poste",
+      "workspace": "Espace de travail",
+      "status": "Statut",
+      "isolationKey": "Clé d'isolement"
+    },
+    "matrix": {
+      "permission": "Autorisation",
+      "owner": "Propriétaire",
+      "admin": "Administrateur",
+      "manager": "Directeur",
+      "member": "Membre",
+      "viewer": "Téléspectateur",
+      "yes": "Oui"
+    },
+    "audit": {
+      "when": "Quand",
+      "action": "Action",
+      "actor": "Acteur",
+      "resource": "Ressource"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "Propriétaire",
+      "description": "Contrôle total, y compris la facturation et le transfert de propriété"
+    },
+    "admin": {
+      "name": "Administrateur",
+      "description": "Gérer les personnes, la sécurité, les espaces de travail et les modules"
+    },
+    "manager": {
+      "name": "Directeur",
+      "description": "Diriger les équipes et les modules opérationnels ; inviter des membres"
+    },
+    "member": {
+      "name": "Membre",
+      "description": "Accès opérationnel au quotidien"
+    },
+    "viewer": {
+      "name": "Téléspectateur",
+      "description": "Accès en lecture seule"
+    }
+  },
+  "profile": {
+    "eyebrow": "Identité",
+    "title": "Profil utilisateur",
+    "lead": "Gérez l'identité, les préférences et la sécurité de votre compte. Les contrôles de l'organisation et de l'espace de travail sont en direct dans les paramètres d'identité.",
+    "guest": "Invité",
+    "notSignedIn": "Non connecté",
+    "identitySettings": "Paramètres d'identité",
+    "security": "Sécurité",
+    "profileSection": "Profil",
+    "fullName": "Nom et prénom",
+    "email": "E-mail",
+    "language": "Langue",
+    "timezone": "Fuseau horaire",
+    "languageEnGb": "Anglais (Royaume-Uni)",
+    "languageEnUs": "Anglais (États-Unis)",
+    "languageDe": "Allemand",
+    "timezoneBerlin": "Europe/Berlin",
+    "timezoneLondon": "Europe/Londres",
+    "timezoneUtc": "UTC",
+    "timezoneNewYork": "Amérique/New_York",
+    "notifications": "Notifications",
+    "emailNotifications": "Notifications par courrier électronique",
+    "pushNotifications": "Notifications poussées",
+    "workspace": "Espace de travail",
+    "noticeInitial": "Les préférences sont enregistrées localement jusqu'à ce que l'API de profil soit connectée.",
+    "noticeSaved": "Préférences de profil mises à jour.",
+    "savePreferences": "Enregistrer les préférences"
+  },
+  "workspaceSelector": {
+    "empty": "Aucun espace de travail pour l'instant : créez une organisation pour en provisionner un.",
+    "label": "Espace de travail actif",
+    "ariaLabel": "Changer d'espace de travail"
+  },
+  "verifyEmail": {
+    "title": "Vérification par e-mail",
+    "loading": "Chargement…",
+    "skipForNow": "Ignorer pour le moment",
+    "tokenPlaceholder": "Jeton de vérification",
+    "tokenIssued": "Jeton de vérification émis pour la session en cours.",
+    "issueFailed": "Impossible d'émettre le jeton",
+    "verificationFailed": "La vérification a échoué",
+    "verify": "Vérifier l'e-mail",
+    "verifying": "Vérification…",
+    "requestToken": "Demander un jeton de vérification"
+  },
+  "access": {
+    "eyebrow": "Identité et accès",
+    "signIn": "Se connecter",
+    "backToDashboard": "Retour au tableau de bord",
+    "unauthorized": {
+      "title": "Non autorisé",
+      "description": "Connectez-vous pour continuer vers cette zone d’AGXORA."
+    },
+    "forbidden": {
+      "title": "Interdit",
+      "description": "Votre rôle n’inclut pas l’autorisation pour cette ressource."
+    },
+    "expired_session": {
+      "title": "Session expirée",
+      "description": "Votre session a expiré. Connectez-vous à nouveau pour reprendre le travail."
+    },
+    "missing_permission": {
+      "title": "Autorisation manquante",
+      "description": "Demandez à un propriétaire ou un administrateur d’accorder l’accès au module requis."
+    },
+    "account_locked": {
+      "title": "Compte verrouillé",
+      "description": "Ce compte est verrouillé. Contactez un propriétaire de l’organisation ou réessayez plus tard."
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "navLabel": "Nawigacja cenowa",
+  "navPricing": "Wycena",
+  "navContactSales": "Skontaktuj się z działem sprzedaży",
+  "navBookDemo": "Zarezerwuj demo",
+  "navSignIn": "Zalogować się",
+  "eyebrow": "Wycena",
+  "title": "Plany stworzone dla operatorów, którzy wysyłają.",
+  "lead": "Wyczyść poziomy komercyjne. Zacznij bezpłatnie, skaluj, gdy będziesz gotowy, lub porozmawiaj z działem sprzedaży o warunkach korporacyjnych.",
+  "billingInterval": "Interwał rozliczeniowy",
+  "monthly": "Miesięczny",
+  "yearly": "Rocznie",
+  "savePercent": "Zaoszczędź ~20%",
+  "mostPopular": "NAJPOPULARNIEJSZE",
+  "startFree": "Zacznij za darmo",
+  "bookDemo": "Zarezerwuj demo",
+  "contactSales": "Skontaktuj się z działem sprzedaży",
+  "perMonth": "/mies",
+  "perMonthYearly": "/mies. rozliczane rocznie",
+  "yearlyHint": "{amount}/rok · oszczędność {percent}%",
+  "commercialActions": "Działania komercyjne",
+  "legal": "Prawny",
+  "planAria": "plan {name} — {cta}",
+  "plans": {
+    "starter": {
+      "name": "Rozrusznik",
+      "description": "Dla freelancerów i małych firm.",
+      "features": [
+        "CRM i potok klientów",
+        "Projekty i dokumenty",
+        "Zarządzany asystent AI",
+        "Do 5 miejsc",
+        "Wsparcie e-mailowe"
+      ]
+    },
+    "business": {
+      "name": "Biznes",
+      "description": "Dla rozwijających się zespołów.",
+      "features": [
+        "Wszystko w Starterze",
+        "Moduły finansowe i analityczne",
+        "Eksport automatyzacji i audytu",
+        "Współpraca zespołowa",
+        "Wsparcie priorytetowe"
+      ]
+    },
+    "professional": {
+      "name": "Profesjonalny",
+      "description": "Dla zaawansowanych firm.",
+      "features": [
+        "Wszystko w Starterze",
+        "Moduły finansowe i analityczne",
+        "Dostęp do API",
+        "Zaawansowane przepływy pracy w firmie",
+        "Priorytetowa skrzynka odbiorcza wsparcia"
+      ]
+    },
+    "enterprise": {
+      "name": "Przedsiębiorstwo",
+      "description": "Niestandardowe ceny dla nieograniczonej skali.",
+      "features": [
+        "Ceny niestandardowe",
+        "Nieograniczona skala",
+        "Dedykowane wdrożenie",
+        "Niestandardowe integracje",
+        "Wsparcie priorytetowe"
+      ]
+    }
+  }
+}

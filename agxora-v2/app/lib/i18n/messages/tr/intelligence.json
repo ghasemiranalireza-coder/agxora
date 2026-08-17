@@ -1,0 +1,136 @@
+{
+  "loading": "Kurumsal Zeka Merkezi yükleniyor…",
+  "eyebrow": "Kurumsal Zeka Merkezi",
+  "title": "İstihbarat",
+  "subtitle": "Her AGXORA modülü için KPI'lar, puan kartları, uyarılar ve raporlar. Aşağıdaki değerler, canlı analiz arka uçları bağlanana kadar yerleşik bir demo veri kümesidir.",
+  "demoBanner": "Demo veri kümesi — oturumda çalışmayı filtreler ve onaylar; dışa aktarma ve canlı model çağrıları henüz mevcut değildir.",
+  "noticeDefault": "Canlı üretim telemetrisi değil, başlangıçlı demo analizleri gösteriliyor.",
+  "noPermission": "Bu çalışma alanı için Intelligence.read izniniz yok.",
+  "filtersUpdated": "Filtreler güncellendi",
+  "demoReloaded": "Bu çalışma alanı için demo veri kümesi yeniden yüklendi.",
+  "acknowledged": "Onaylandı: {title}",
+  "exportUnavailableTitle": "Dışa aktarma kullanılamıyor — rapor oluşturma henüz bağlanmadı.",
+  "exportUnavailableAria": "{title} dosyasını {format} olarak dışa aktar - kullanılamıyor",
+  "tabs": {
+    "executive": "Yönetici",
+    "health": "İş Sağlığı",
+    "workspace": "Analitik",
+    "kpis": "KPI Merkezi",
+    "reports": "Raporlar",
+    "insights": "Analizler",
+    "forecasts": "Tahminler",
+    "alerts": "Uyarılar",
+    "scorecards": "Puan Kartları",
+    "explorer": "Veri Gezgini"
+  },
+  "filters": {
+    "from": "İtibaren",
+    "to": "İle",
+    "domain": "İhtisas",
+    "allDomains": "Tüm alanlar",
+    "apply": "Filtreleri uygula",
+    "reloadDemo": "Demo verilerini yeniden yükle",
+    "viewsAria": "İstihbarat görünümleri"
+  },
+  "executive": {
+    "companyHealth": "Şirket Sağlığı",
+    "revenueScore": "Gelir puanı",
+    "customerHealth": "Müşteri sağlığı",
+    "projectHealth": "Proje durumu",
+    "workflowSuccess": "İş akışı başarısı",
+    "aiActivity": "Yapay zeka etkinliği",
+    "finance": "Finans",
+    "riskGrowth": "Risk / Büyüme",
+    "kpiStrip": "Yönetici KPI şeridi",
+    "visualizationPreviews": "Görselleştirme önizlemeleri",
+    "visualizationHint": "Demo serisinden açıklayıcı grafikler; etkileşimli ayrıntılı incelemeler değil.",
+    "noSeries": "Seri bağlı değil"
+  },
+  "health": {
+    "title": "İş sağlığı ayrışımı",
+    "overall": "Etraflı",
+    "revenue": "Hasılat",
+    "customers": "Müşteriler",
+    "projects": "Projeler",
+    "workflows": "İş akışları",
+    "ai": "yapay zeka",
+    "finance": "Finans",
+    "operations": "Operasyonlar",
+    "riskPosture": "Risk duruşu",
+    "growth": "Büyüme",
+    "observability": "Gözlemlenebilirlik: {metrics} metrik · {avgMs}ms avg · sistem sağlığı {health}"
+  },
+  "workspace": {
+    "noSeries": "Seri yok"
+  },
+  "kpis": {
+    "title": "KPI Merkezi",
+    "subtitle": "Gelir, müşteriler, projeler, iş akışları, aracılar ve otomasyon genelinde yapılandırılabilir KPI kataloğu.",
+    "emptyTitle": "Analitik sinyal bekliyor",
+    "emptyDescription": "Çalışma alanınız etkinlik oluşturduğunda yönetici KPI'ları ve uyarılar burada görünür."
+  },
+  "reports": {
+    "title": "Raporlama motoru",
+    "subtitle": "Rapor tanımları incelenmek üzere ekilir. Bir raporlama arka ucu bağlanana kadar dosya dışa aktarma kullanılamaz.",
+    "emptyTitle": "Rapor yok",
+    "emptyDescription": "Çalışma alanı önyüklemesindeki tohumu raporlar.",
+    "scheduleOnDemand": "Talep üzerine"
+  },
+  "insights": {
+    "emptyTitle": "Henüz analiz yok",
+    "emptyDescription": "Demo öngörüleri, çalışma alanı tohumlamalarından sonra görünür. Canlı yapay zeka içgörüsü oluşturma bağlantılı değil.",
+    "badge": "Demo · {kind} · {domain} · conf {confidence}"
+  },
+  "forecasts": {
+    "emptyTitle": "Henüz tahmin yok",
+    "emptyDescription": "Demo tahminleri tohumlamadan sonra görünür. Tahmine dayalı modeller bağlı değildir.",
+    "title": "{kind} tahmin",
+    "baseline": "Temel {baseline} → öngörülen {projected} ({days}d)",
+    "confidence": "Demo · Güven {confidence} — {note}"
+  },
+  "alerts": {
+    "title": "Uyarı motoru",
+    "emptyTitle": "Uyarı yok",
+    "emptyDescription": "Tohumu risk buluşsal yöntemlerinden uyarır.",
+    "acked": "Onaylandı",
+    "open": "açık",
+    "acknowledge": "Kabullenmek"
+  },
+  "scorecards": {
+    "title": "Puan kartı motoru",
+    "emptyTitle": "Puan kartı yok",
+    "emptyDescription": "Önyükleme işleminde puan kartlarının tohumu."
+  },
+  "explorer": {
+    "title": "Veri gezgini",
+    "searchPlaceholder": "Demo satırlarında ara…",
+    "searchAria": "Demo gezgini satırlarında ara",
+    "emptyTitle": "Eşleşen satır yok",
+    "emptyDescription": "Filtreleri ayarlayın veya arayın veya demo veri kümesini yeniden yükleyin.",
+    "hint": "Tohumlanmış kayıtlarda istemci tarafı arama — arka uç toplama ve detaya inme bağlantılı değildir."
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "Değer",
+    "delta": "%Δ",
+    "trend": "Eğilim",
+    "target": "Hedef",
+    "severity": "Şiddet",
+    "alert": "Uyarı",
+    "domain": "İhtisas",
+    "status": "Durum",
+    "actions": "Eylemler",
+    "report": "Rapor",
+    "kind": "Tür",
+    "schedule": "Takvim",
+    "export": "İhracat",
+    "scorecard": "Puan Kartı",
+    "score": "Gol",
+    "topDriver": "En iyi sürücü",
+    "label": "Etiket",
+    "entity": "Varlık",
+    "measure": "Ölçüm",
+    "date": "Tarih"
+  },
+  "emDash": "—"
+}

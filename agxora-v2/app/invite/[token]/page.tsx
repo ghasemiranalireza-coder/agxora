@@ -6,7 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import { AuthCard, authButtonStyle } from "../../components/auth/AuthCard";
 import { useAuth } from "../../lib/auth";
 import { controlPlaneClient } from "../../lib/control-plane/client";
-import { useT } from "../../lib/i18n";
+import { useT, resolveUserFacingErrorKey } from "../../lib/i18n";
 
 export default function InviteAcceptPage(): JSX.Element {
   const t = useT();
@@ -35,7 +35,7 @@ export default function InviteAcceptPage(): JSX.Element {
         setStatus(data.invitation.status);
       } catch (err) {
         if (cancelled) return;
-        setError(err instanceof Error ? err.message : t("settings.controlPlane.inviteInvalid"));
+        setError(t(resolveUserFacingErrorKey(err, "settings.controlPlane.inviteInvalid")));
       }
     })();
     return () => {
@@ -49,7 +49,7 @@ export default function InviteAcceptPage(): JSX.Element {
       await controlPlaneClient.acceptInvite(token);
       router.replace("/dashboard/settings#team");
     } catch (err) {
-      setError(err instanceof Error ? err.message : t("settings.controlPlane.saveFailed"));
+      setError(t(resolveUserFacingErrorKey(err, "settings.controlPlane.saveFailed")));
     } finally {
       setBusy(false);
     }

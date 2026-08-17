@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "SO empresarial AGXORA",
+    "title": "CRM de IA",
+    "subtitle": "CRM nativo de IA y sistema operativo Creator: clientes, canalizaciones, pedidos, entregas, documentos, comunicaciones y arquitectura de creadores para cada industria."
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "Panel de control de CRM"
+    },
+    "customer360": {
+      "title": "Cliente 360°",
+      "subtitle": "Perfil, empresa, contactos, pedidos, facturas, Lieferscheine, pagos, documentos, cronograma, actividades, notas, resumen de IA e historial de comunicaciones."
+    },
+    "salesPipeline": {
+      "title": "Canal de ventas",
+      "subtitle": "Etapas Kanban con arrastrar y soltar: Cliente potencial, Calificado, Propuesta, Negociación, Ganado, Perdido."
+    },
+    "ordersModule": {
+      "title": "Módulo de Órdenes"
+    },
+    "deliveryModule": {
+      "title": "Módulo de entrega",
+      "subtitle": "Sistema Lieferschein profesional con seguimiento, firma, QR y preparación de códigos de barras."
+    },
+    "documentsModule": {
+      "title": "Documentos",
+      "subtitle": "Cotizaciones, contratos, facturas, Lieferschein, órdenes de compra, recibos, con búsqueda por IA."
+    },
+    "tasksModule": {
+      "title": "Tareas"
+    },
+    "communicationHub": {
+      "title": "Centro de comunicación",
+      "subtitle": "Registro de adaptadores solo para mensajería, redes sociales, correo electrónico, voz y videos."
+    },
+    "creatorStudio": {
+      "title": "Fundación Creator Studio",
+      "subtitle": "Adaptadores de plataforma listos para integraciones oficiales más adelante."
+    },
+    "aiCreator": {
+      "title": "Creador de IA",
+      "subtitle": "Mapa de capacidades empresariales para contenido, calendario, generación y publicación."
+    },
+    "industryPlatform": {
+      "title": "Plataforma empresarial universal",
+      "subtitle": "Registro industrial modular: cada vertical puede recibir módulos de IA dedicados."
+    }
+  },
+  "directory": {
+    "errorTitle": "No se pudo cargar CRM",
+    "sort": {
+      "companyName": "Compañía",
+      "contactName": "Contacto",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "industry": "Industria",
+      "status": "Estado",
+      "owner": "Dueño",
+      "createdAt": "Creado"
+    },
+    "search": {
+      "label": "Buscar clientes",
+      "placeholder": "Empresa, contacto, correo electrónico, etiquetas…"
+    },
+    "view": {
+      "table": "Mesa",
+      "cards": "Tarjetas"
+    },
+    "actions": {
+      "newCustomer": "Nuevo cliente"
+    },
+    "filters": {
+      "status": "Estado",
+      "industry": "Industria",
+      "owner": "Dueño",
+      "country": "País",
+      "tags": "Etiquetas",
+      "allStatuses": "Todos los estados",
+      "allIndustries": "Todas las industrias",
+      "allOwners": "Todos los propietarios",
+      "allCountries": "Todos los paises",
+      "allTags": "Todas las etiquetas"
+    },
+    "empty": {
+      "ready": {
+        "title": "Tu CRM está listo",
+        "description": "Cree el primer registro de cliente para desbloquear directorio, perfiles y actividad.",
+        "action": "Crear cliente"
+      },
+      "noMatches": {
+        "title": "No hay clientes coincidentes",
+        "description": "Intente ajustar la búsqueda o los filtros para encontrar los registros correctos.",
+        "action": "Limpiar filtros"
+      }
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Próximo"
+    },
+    "showing": "Mostrando {from}–{to} de {total}",
+    "aria": {
+      "openCustomer": "Abrir cliente {company}"
+    },
+    "cardMeta": "Propietario {owner} · Creado {date}",
+    "sortBy": "Ordenar por {column}"
+  },
+  "status": {
+    "lead": "Dirigir",
+    "prospect": "Prospecto",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "vip": "personaje",
+    "archived": "Archivado"
+  },
+  "form": {
+    "createTitle": "Crear cliente",
+    "editTitle": "Editar cliente",
+    "cancel": "Cancelar",
+    "saveChanges": "Guardar cambios",
+    "createCustomer": "Crear cliente",
+    "companyName": "nombre de empresa",
+    "contactName": "Nombre de contacto",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "website": "Sitio web",
+    "industry": "Industria",
+    "country": "País",
+    "city": "Ciudad",
+    "address": "DIRECCIÓN",
+    "taxNumber": "Número de impuesto",
+    "owner": "Dueño",
+    "status": "Estado",
+    "tags": "Etiquetas",
+    "statusAria": "Estado del cliente",
+    "tagsHint": "Separados por comas, codificados por colores automáticamente",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "empresa, comercio minorista"
+  },
+  "toasts": {
+    "customerCreated": "Cliente creado",
+    "customerUpdated": "Cliente actualizado",
+    "checkForm": "Consulta el formulario",
+    "validationFailed": "La validación falló.",
+    "customerDeleted": "Cliente eliminado",
+    "deleteFailed": "Error al eliminar",
+    "customerCouldNotBeRemoved": "No se pudo eliminar al cliente.",
+    "contactSaved": "Contacto guardado",
+    "documentsAttached": "Documentos adjuntos",
+    "documentsAttachedDetail": "{count} archivo(s)",
+    "noteSaved": "Nota guardada"
+  },
+  "deleteDialog": {
+    "title": "Eliminar cliente",
+    "cancel": "Cancelar",
+    "deletePermanently": "Eliminar permanentemente",
+    "thisCustomer": "este cliente",
+    "bodyPrefix": "Esto elimina",
+    "bodySuffix": "y contactos, notas, documentos y actividades relacionados desde el almacenamiento local. Los proyectos vinculados no se eliminan."
+  },
+  "validation": {
+    "companyNameRequired": "Se requiere el nombre de la empresa.",
+    "contactNameRequired": "El nombre de contacto es obligatorio.",
+    "emailRequired": "Se requiere correo electrónico.",
+    "emailInvalid": "Ingrese una dirección de correo electrónico válida.",
+    "phoneRequired": "Se requiere teléfono.",
+    "phoneInvalid": "Ingrese un número de teléfono válido.",
+    "websiteInvalid": "Ingrese un sitio web válido.",
+    "industryRequired": "Se requiere industria.",
+    "ownerRequired": "Se requiere propietario.",
+    "statusInvalid": "Seleccione un estado válido.",
+    "emailDuplicate": "Ya existe un cliente con este correo electrónico.",
+    "nameRequired": "El nombre es obligatorio.",
+    "mobileInvalid": "Introduzca un número de móvil válido.",
+    "mobileRequired": "Se requiere móvil.",
+    "roleRequired": "Se requiere rol.",
+    "noteTitleRequired": "Se requiere título.",
+    "noteBodyRequired": "Se requiere el cuerpo de la nota.",
+    "noteAuthorRequired": "Se requiere autor."
+  },
+  "errors": {
+    "failedToLoadCustomers": "No se pudieron cargar los clientes.",
+    "failedToLoadCustomerProfile": "No se pudo cargar el perfil del cliente.",
+    "organizationRequired": "Se requiere organización.",
+    "failedToSaveCustomer": "No se pudo guardar al cliente.",
+    "failedToDeleteCustomer": "No se pudo eliminar el cliente.",
+    "failedToSaveContact": "No se pudo guardar el contacto.",
+    "failedToSaveNote": "No se pudo guardar la nota.",
+    "failedToUploadDocument": "No se pudo cargar el documento."
+  },
+  "workspace": {
+    "badge": "CRM empresarial 2.0",
+    "title": "Gestión de relaciones con el cliente",
+    "subtitleBeforeOrg": "Gestionar el directorio de clientes, perfiles, contactos, notas y documentos para",
+    "subtitleAfterOrg": "Los proyectos se vinculan por nombre de la empresa desde el módulo Proyectos sin duplicar datos.",
+    "yourOrganization": "tu organización"
+  },
+  "analytics": {
+    "totalCustomers": "Clientes totales",
+    "activeCustomers": "Clientes activos",
+    "newCustomers": "Nuevos clientes",
+    "vipCustomers": "Clientes VIP",
+    "createdThisMonth": "Creado este mes",
+    "leadConversion": "Conversión de clientes potenciales",
+    "leadConversionHint": "Participación activa y VIP del embudo de clientes potenciales/prospectos/convertidos.",
+    "customerGrowth": "Crecimiento de clientes"
+  },
+  "profile": {
+    "backToCrm": "← Volver a CRM",
+    "ownerLabel": "Dueño",
+    "notFoundTitle": "Cliente no encontrado",
+    "notFoundDescription": "Es posible que este cliente haya sido eliminado.",
+    "missingCustomerTitle": "Cliente perdido",
+    "missingOverviewDescription": "Seleccione un cliente para ver la descripción general.",
+    "missingSettingsDescription": "Seleccione un cliente para administrar la configuración.",
+    "ariaProfileNav": "Perfil del cliente",
+    "tabs": {
+      "overview": "Descripción general",
+      "contacts": "Contactos",
+      "projects": "Proyectos",
+      "documents": "Documentos",
+      "invoices": "Facturas",
+      "activity": "Actividad",
+      "notes": "Notas",
+      "settings": "Ajustes"
+    },
+    "overview": {
+      "title": "Descripción general",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "website": "Sitio web",
+      "taxNumber": "Número de impuesto",
+      "location": "Ubicación",
+      "address": "DIRECCIÓN",
+      "created": "Creado",
+      "updated": "Actualizado",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "Añadir contacto",
+      "editTitle": "Editar contacto",
+      "listTitle": "Contactos",
+      "name": "Nombre",
+      "role": "Role",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "mobile": "Móvil",
+      "notes": "Notas",
+      "saveContact": "Guardar contacto",
+      "emptyTitle": "Aún no hay contactos",
+      "emptyDescription": "Agregue partes interesadas con detalles de función, correo electrónico y teléfono.",
+      "defaultRole": "Contacto",
+      "mobilePrefix": "Móvil"
+    },
+    "projects": {
+      "title": "Proyectos",
+      "emptyTitle": "No hay proyectos vinculados",
+      "emptyDescription": "Los proyectos cuyo nombre de cliente coincide con esta empresa aparecen aquí. Los datos se leen desde el módulo Proyectos: no se duplica nada.",
+      "openProjects": "Proyectos abiertos"
+    },
+    "documents": {
+      "title": "Documentos",
+      "subtitle": "Imágenes, archivos PDF y documentos de Office: metadatos solo en almacenamiento local.",
+      "attachFiles": "Adjuntar archivos",
+      "emptyTitle": "Sin documentos",
+      "emptyDescription": "Adjunte archivos de clientes para el equipo de cuentas.",
+      "systemUploader": "Sistema"
+    },
+    "invoices": {
+      "emptyTitle": "Aún no hay facturas",
+      "emptyDescription": "Las facturas de este cliente aparecen aquí cuando se vinculan desde Finanzas."
+    },
+    "activity": {
+      "title": "Actividad",
+      "emptyTitle": "Aún no hay actividad",
+      "emptyDescription": "Las creaciones, actualizaciones, notas y documentos aparecen aquí primero.",
+      "kinds": {
+        "customer_created": "Cliente creado",
+        "customer_updated": "Cliente actualizado",
+        "contact_added": "Contacto añadido",
+        "contact_updated": "Contacto actualizado",
+        "contact_deleted": "Contacto eliminado",
+        "note_added": "Nota agregada",
+        "note_updated": "Nota actualizada",
+        "note_deleted": "Nota eliminada",
+        "document_added": "Documento agregado",
+        "document_deleted": "Documento eliminado",
+        "project_linked": "Proyecto vinculado"
+      }
+    },
+    "notes": {
+      "newTitle": "Nueva nota",
+      "editTitle": "Editar nota",
+      "title": "Título",
+      "author": "Autor",
+      "body": "Cuerpo",
+      "saveNote": "guardar nota",
+      "emptyTitle": "Aún no hay notas",
+      "emptyDescription": "Capture el contexto de la cuenta con autor y marcas de tiempo."
+    },
+    "settings": {
+      "title": "Ajustes",
+      "description": "Edite todos los campos del perfil o archive esta cuenta. La eliminación utiliza el cuadro de diálogo de confirmación.",
+      "editAllFields": "Editar todos los campos",
+      "prepareArchive": "Preparar archivo",
+      "deleteCustomer": "Eliminar cliente"
+    }
+  },
+  "customer360": {
+    "ariaSections": "Secciones cliente 360",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "aiHealth": "Salud de la IA",
+    "tabs": {
+      "profile": "Perfil",
+      "company": "Compañía",
+      "contacts": "Contactos",
+      "orders": "Órdenes",
+      "invoices": "Facturas",
+      "lieferscheine": "lieferscheine",
+      "payments": "Pagos",
+      "documents": "Documentos",
+      "timeline": "Línea de tiempo",
+      "activities": "Actividades",
+      "notes": "Notas",
+      "aiSummary": "Resumen de IA",
+      "communicationHistory": "Historia de la comunicación"
+    },
+    "profileLines": {
+      "customerId": "ID de cliente",
+      "status": "Estado",
+      "primaryContact": "Contacto principal"
+    },
+    "status": {
+      "churn_risk": "Riesgo de abandono"
+    }
+  },
+  "delivery": {
+    "title": "Sistema Lieferschein profesional",
+    "description": "Albaranes de entrega, recogida/entrega, conductor, vehículo y seguimiento: solo registros de muestra. Los adaptadores de exportación no están conectados.",
+    "badges": {
+      "qrUnavailable": "QR no disponible",
+      "barcodeUnavailable": "Código de barras no disponible",
+      "signatureDemo": "Demostración de firma"
+    },
+    "exportPdf": "Exportar PDF",
+    "deliveryHistory": "Historial de entrega",
+    "notices": {
+      "exportNotConnected": "La exportación de PDF, QR y códigos de barras no están conectadas en esta compilación.",
+      "exportPdfUnavailable": "Exportar PDF no disponible: la exportación de entrega no está conectada.",
+      "historyNotConnected": "El almacén del historial de entregas no está conectado en esta compilación."
+    },
+    "columns": {
+      "lieferschein": "lieferschein",
+      "order": "Orden",
+      "customer": "Cliente",
+      "kind": "Amable",
+      "driver": "Conductor",
+      "vehicle": "Vehículo",
+      "tracking": "Seguimiento",
+      "scheduled": "Programado"
+    }
+  },
+  "orders": {
+    "description": "Productos, servicios, precios, descuentos, impuestos y clientes: libro mayor de pedidos empresariales.",
+    "createOrder": "Crear pedido",
+    "notices": {
+      "apiReserved": "API de creación de pedidos reservada para futuras rutas de escritura.",
+      "draftStaged": "Crear borrador de pedido preparado (aún no hay API)."
+    },
+    "columns": {
+      "order": "Orden",
+      "customer": "Cliente",
+      "status": "Estado",
+      "lines": "Pauta",
+      "net": "Neto",
+      "tax": "Impuesto",
+      "gross": "Bruto",
+      "created": "Creado"
+    },
+    "lineTax": "{taxPct}% de impuestos"
+  },
+  "tasks": {
+    "calendarTitle": "Calendario · Reuniones · Recordatorios · Seguimientos",
+    "foundationTitle": "Fundación del sistema operativo de tareas",
+    "foundationDescription": "La sincronización del calendario, los proveedores de reuniones, los trabajos de recordatorio y los enlaces de automatización de seguimiento están reservados. Este tablero es la superficie de tareas de CRM compartida para cada módulo de la industria.",
+    "badges": {
+      "calendarAdapter": "Adaptador de calendario",
+      "meetingAdapter": "Adaptador para reuniones",
+      "reminderQueue": "Cola de recordatorios",
+      "followUpEngine": "motor de seguimiento"
+    },
+    "duePrefix": "Pendiente",
+    "kinds": {
+      "follow_up": "Hacer un seguimiento",
+      "meeting": "Reunión",
+      "reminder": "Recordatorio",
+      "task": "Tarea"
+    },
+    "statuses": {
+      "open": "Abierto",
+      "in_progress": "En curso",
+      "done": "Hecho",
+      "cancelled": "Cancelado"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "Sin documentos",
+    "emptyDescription": "Ningún documento coincide con esta búsqueda.",
+    "searchLabel": "Búsqueda por IA",
+    "searchPlaceholder": "Presupuestos, contratos, facturas, Lieferschein…",
+    "typeLabel": "Tipo de documento",
+    "allTypes": "Todos los tipos",
+    "columns": {
+      "type": "Tipo",
+      "title": "Título",
+      "customer": "Cliente",
+      "status": "Estado",
+      "updated": "Actualizado"
+    },
+    "kinds": {
+      "quote": "Citas",
+      "contract": "Contratos",
+      "invoice": "Facturas",
+      "lieferschein": "lieferschein",
+      "purchase_order": "Órdenes de compra",
+      "receipt": "Ingresos"
+    }
+  },
+  "communication": {
+    "intro": "Solo arquitectura de canal escalable: correo electrónico, WhatsApp, Instagram, Facebook, TikTok, LinkedIn, Telegram, voz y video. Sin integraciones en vivo falsas.",
+    "adapterPrefix": "Adaptador:"
+  },
+  "aiCreator": {
+    "intro": "Superficie AI Creator preparada para el futuro: ideas, subtítulos, hashtags, calendario, campañas, voz de marca, generación de imágenes/videos, análisis, programación, cola de publicación e información valiosa. Aún no hay API de proveedores reales conectadas."
+  },
+  "creatorStudio": {
+    "intro": "Fundación Creator Studio: las integraciones de plataformas oficiales se pueden conectar a estos adaptadores más adelante. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
+  },
+  "industry": {
+    "intro": "Plataforma empresarial universal: la incorporación luego elegirá una industria. Cada industria recibe módulos de IA dedicados sin bifurcar el sistema operativo CRM principal."
+  },
+  "kpi": {
+    "customers": {
+      "label": "Clientes",
+      "caption": "Relaciones activas"
+    },
+    "companies": {
+      "label": "Empresas",
+      "caption": "Organizaciones de cuentas"
+    },
+    "leads": {
+      "label": "Dirige",
+      "caption": "Nuevo este mes"
+    },
+    "deals": {
+      "label": "Ofertas",
+      "caption": "Tubería abierta"
+    },
+    "revenue": {
+      "label": "Ganancia",
+      "caption": "Ganado hasta la fecha"
+    },
+    "projects": {
+      "label": "Proyectos Activos",
+      "caption": "Entrega en vuelo"
+    },
+    "tasks": {
+      "label": "Tareas abiertas",
+      "caption": "A través de CRM + entrega"
+    },
+    "ai-health": {
+      "label": "Puntuación de salud de la IA",
+      "caption": "Señal de calidad de relación"
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "pipeline": {
+    "lead": "Dirigir",
+    "qualified": "Calificado",
+    "proposal": "Propuesta",
+    "negotiation": "Negociación",
+    "won": "Ganado",
+    "lost": "Perdido"
+  },
+  "orderStatus": {
+    "draft": "Borrador",
+    "confirmed": "Confirmado",
+    "in_fulfillment": "En cumplimiento",
+    "shipped": "Enviado",
+    "delivered": "Entregado",
+    "cancelled": "Cancelado"
+  },
+  "tracking": {
+    "scheduled": "Programado",
+    "en_route": "En ruta",
+    "arrived": "Llegó",
+    "completed": "Terminado",
+    "failed": "Fallido"
+  },
+  "documentKind": {
+    "quote": "Cita",
+    "contract": "Contrato",
+    "invoice": "Factura",
+    "lieferschein": "lieferschein",
+    "purchase_order": "Orden de compra",
+    "receipt": "Recibo"
+  },
+  "documentStatus": {
+    "sent": "Enviado",
+    "signed": "Firmado",
+    "paid": "Pagado",
+    "in_transit": "En tránsito",
+    "open": "Abierto",
+    "filed": "Archivado"
+  },
+  "integration": {
+    "planned": "Planificado",
+    "ready": "Listo",
+    "connected": "Conectado",
+    "disabled": "Desactivado"
+  }
+}

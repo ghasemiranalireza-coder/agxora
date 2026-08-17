@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "AGXORA商業作業系統",
+    "title": "人工智慧客戶關係管理",
+    "subtitle": "AI 原生 CRM 和 Creator 作業系統 — 適用於每個行業的客戶、管道、訂單、交付、文件、通訊和 Creator 架構。"
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "客戶關係管理儀表板"
+    },
+    "customer360": {
+      "title": "客戶360°",
+      "subtitle": "個人資料、公司、聯絡人、訂單、發票、Lieferscheine、付款、文件、時間表、活動、筆記、AI 摘要和通訊歷史記錄。"
+    },
+    "salesPipeline": {
+      "title": "銷售通路",
+      "subtitle": "具有拖放功能的看板階段 — 領導、合格、提案、談判、獲勝、失敗。"
+    },
+    "ordersModule": {
+      "title": "訂單模組"
+    },
+    "deliveryModule": {
+      "title": "交付模組",
+      "subtitle": "專業的 Lieferschein 系統，具備追蹤、簽章、QR 和條碼功能。"
+    },
+    "documentsModule": {
+      "title": "文件",
+      "subtitle": "報價、合約、發票、Lieferschein、採購訂單、收據 - 透過人工智慧搜尋。"
+    },
+    "tasksModule": {
+      "title": "任務"
+    },
+    "communicationHub": {
+      "title": "通訊中心",
+      "subtitle": "僅用於訊息、社交、電子郵件、語音和視訊的適配器註冊表。"
+    },
+    "creatorStudio": {
+      "title": "創作者工作室基金會",
+      "subtitle": "平台適配器已準備好稍後進行正式整合。"
+    },
+    "aiCreator": {
+      "title": "人工智慧創造者",
+      "subtitle": "內容、日曆、產生和發布的企業能力圖。"
+    },
+    "industryPlatform": {
+      "title": "通用商業平台",
+      "subtitle": "模組化產業註冊－每個垂直產業都可以接收專用的人工智慧模組。"
+    }
+  },
+  "directory": {
+    "errorTitle": "無法載入 CRM",
+    "sort": {
+      "companyName": "公司",
+      "contactName": "接觸",
+      "email": "電子郵件",
+      "phone": "電話",
+      "industry": "產業",
+      "status": "地位",
+      "owner": "擁有者",
+      "createdAt": "已創建"
+    },
+    "search": {
+      "label": "搜尋客戶",
+      "placeholder": "公司、聯絡人、電子郵件、標籤…"
+    },
+    "view": {
+      "table": "桌子",
+      "cards": "牌"
+    },
+    "actions": {
+      "newCustomer": "新客戶"
+    },
+    "filters": {
+      "status": "地位",
+      "industry": "產業",
+      "owner": "擁有者",
+      "country": "國家",
+      "tags": "標籤",
+      "allStatuses": "所有狀態",
+      "allIndustries": "所有行業",
+      "allOwners": "所有所有者",
+      "allCountries": "所有國家",
+      "allTags": "所有標籤"
+    },
+    "empty": {
+      "ready": {
+        "title": "您的CRM已準備就緒",
+        "description": "建立第一個客戶記錄以解鎖目錄、個人資料和活動。",
+        "action": "創建客戶"
+      },
+      "noMatches": {
+        "title": "沒有匹配的客戶",
+        "description": "嘗試調整搜尋或篩選器以找到正確的記錄。",
+        "action": "清除過濾器"
+      }
+    },
+    "pagination": {
+      "previous": "以前的",
+      "next": "下一個"
+    },
+    "showing": "顯示 {from}–{to}，共 {total}",
+    "aria": {
+      "openCustomer": "打開客戶{company}"
+    },
+    "cardMeta": "所有者{owner} ·建立於{date}",
+    "sortBy": "按{column}排序"
+  },
+  "status": {
+    "lead": "帶領",
+    "prospect": "前景",
+    "active": "積極的",
+    "inactive": "不活躍",
+    "vip": "貴賓",
+    "archived": "已存檔"
+  },
+  "form": {
+    "createTitle": "創建客戶",
+    "editTitle": "編輯客戶",
+    "cancel": "取消",
+    "saveChanges": "儲存變更",
+    "createCustomer": "創建客戶",
+    "companyName": "公司名稱",
+    "contactName": "聯絡人姓名",
+    "email": "電子郵件",
+    "phone": "電話",
+    "website": "網站",
+    "industry": "產業",
+    "country": "國家",
+    "city": "城市",
+    "address": "地址",
+    "taxNumber": "稅號",
+    "owner": "擁有者",
+    "status": "地位",
+    "tags": "標籤",
+    "statusAria": "客戶狀態",
+    "tagsHint": "以逗號分隔，自動進行色彩編碼",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "企業、零售"
+  },
+  "toasts": {
+    "customerCreated": "客戶創建",
+    "customerUpdated": "客戶已更新",
+    "checkForm": "檢查表格",
+    "validationFailed": "驗證失敗。",
+    "customerDeleted": "顧客已刪除",
+    "deleteFailed": "刪除失敗",
+    "customerCouldNotBeRemoved": "無法刪除客戶。",
+    "contactSaved": "聯絡方式已儲存",
+    "documentsAttached": "所附文件",
+    "documentsAttachedDetail": "{count} 個文件",
+    "noteSaved": "註釋已儲存"
+  },
+  "deleteDialog": {
+    "title": "刪除客戶",
+    "cancel": "取消",
+    "deletePermanently": "永久刪除",
+    "thisCustomer": "這位顧客",
+    "bodyPrefix": "這刪除了",
+    "bodySuffix": "以及來自本地存儲的相關聯繫人、備註、文件和活動。連結的專案不會被刪除。"
+  },
+  "validation": {
+    "companyNameRequired": "公司名稱為必填。",
+    "contactNameRequired": "聯絡人姓名為必填項。",
+    "emailRequired": "需要電子郵件。",
+    "emailInvalid": "輸入有效的電子郵件地址。",
+    "phoneRequired": "需要電話。",
+    "phoneInvalid": "輸入有效的電話號碼。",
+    "websiteInvalid": "輸入有效的網站。",
+    "industryRequired": "需要工業。",
+    "ownerRequired": "需要業主。",
+    "statusInvalid": "選擇有效狀態。",
+    "emailDuplicate": "使用此電子郵件的客戶已存在。",
+    "nameRequired": "姓名為必填項。",
+    "mobileInvalid": "請輸入有效的手機號碼",
+    "mobileRequired": "需要手機。",
+    "roleRequired": "角色是必要的。",
+    "noteTitleRequired": "標題為必填項。",
+    "noteBodyRequired": "注意正文是必需的。",
+    "noteAuthorRequired": "作者為必填項。"
+  },
+  "errors": {
+    "failedToLoadCustomers": "無法加載客戶。",
+    "failedToLoadCustomerProfile": "無法載入客戶資料。",
+    "organizationRequired": "需要組織。",
+    "failedToSaveCustomer": "未能挽救客戶。",
+    "failedToDeleteCustomer": "刪除客戶失敗。",
+    "failedToSaveContact": "無法保存聯絡人。",
+    "failedToSaveNote": "保存筆記失敗。",
+    "failedToUploadDocument": "上傳文檔失敗。"
+  },
+  "workspace": {
+    "badge": "企業客戶關係管理2.0",
+    "title": "客戶關係管理",
+    "subtitleBeforeOrg": "管理客戶目錄、個人資料、聯絡人、註釋和文檔",
+    "subtitleAfterOrg": "專案會從「專案」模組中按公司名稱連結，而不會複製資料。",
+    "yourOrganization": "你的組織"
+  },
+  "analytics": {
+    "totalCustomers": "客戶總數",
+    "activeCustomers": "活躍客戶",
+    "newCustomers": "新客戶",
+    "vipCustomers": "貴賓客戶",
+    "createdThisMonth": "本月創建",
+    "leadConversion": "潛在客戶轉化",
+    "leadConversionHint": "潛在客戶/潛在客戶/轉換管道的活躍和 VIP 份額。",
+    "customerGrowth": "客戶成長"
+  },
+  "profile": {
+    "backToCrm": "← 返回客戶關係管理",
+    "ownerLabel": "擁有者",
+    "notFoundTitle": "未找到客户",
+    "notFoundDescription": "該客戶可能已被刪除。",
+    "missingCustomerTitle": "失蹤的顧客",
+    "missingOverviewDescription": "選擇客戶以查看概覽。",
+    "missingSettingsDescription": "選擇顧客以管理設定。",
+    "ariaProfileNav": "客戶簡介",
+    "tabs": {
+      "overview": "概述",
+      "contacts": "聯絡方式",
+      "projects": "專案",
+      "documents": "文件",
+      "invoices": "發票",
+      "activity": "活動",
+      "notes": "筆記",
+      "settings": "設定"
+    },
+    "overview": {
+      "title": "概述",
+      "email": "電子郵件",
+      "phone": "電話",
+      "website": "網站",
+      "taxNumber": "稅號",
+      "location": "地點",
+      "address": "地址",
+      "created": "已創建",
+      "updated": "已更新",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "新增聯絡人",
+      "editTitle": "編輯聯絡人",
+      "listTitle": "聯絡方式",
+      "name": "姓名",
+      "role": "角色",
+      "email": "電子郵件",
+      "phone": "電話",
+      "mobile": "移動的",
+      "notes": "筆記",
+      "saveContact": "儲存聯絡方式",
+      "emptyTitle": "還沒有聯絡方式",
+      "emptyDescription": "新增利害關係人的角色、電子郵件和電話詳細資訊。",
+      "defaultRole": "接觸",
+      "mobilePrefix": "移動的"
+    },
+    "projects": {
+      "title": "專案",
+      "emptyTitle": "沒有連結的項目",
+      "emptyDescription": "客戶名稱與該公司相符的項目將顯示在此。數據是從“項目”模組讀取的——沒有任何重複。",
+      "openProjects": "打開項目"
+    },
+    "documents": {
+      "title": "文件",
+      "subtitle": "影像、PDF 和辦公室文件 - 僅本地儲存中的元資料。",
+      "attachFiles": "附加文件",
+      "emptyTitle": "沒有文件",
+      "emptyDescription": "附上客戶團隊的客戶文件。",
+      "systemUploader": "系統"
+    },
+    "invoices": {
+      "emptyTitle": "還沒有發票",
+      "emptyDescription": "從財務連結後，該客戶的發票將顯示在此。"
+    },
+    "activity": {
+      "title": "活動",
+      "emptyTitle": "還沒有活動",
+      "emptyDescription": "建立、更新、註釋和文件首先顯示在此。",
+      "kinds": {
+        "customer_created": "客戶創建",
+        "customer_updated": "客戶已更新",
+        "contact_added": "已新增聯絡人",
+        "contact_updated": "聯絡方式已更新",
+        "contact_deleted": "聯絡方式已刪除",
+        "note_added": "備註已添加",
+        "note_updated": "註釋已更新",
+        "note_deleted": "註釋已刪除",
+        "document_added": "文件已新增",
+        "document_deleted": "文件已刪除",
+        "project_linked": "項目連結"
+      }
+    },
+    "notes": {
+      "newTitle": "新筆記",
+      "editTitle": "編輯備註",
+      "title": "標題",
+      "author": "作者",
+      "body": "內文",
+      "saveNote": "保存備註",
+      "emptyTitle": "還沒筆記",
+      "emptyDescription": "捕獲帶有作者和時間戳記的帳戶上下文。"
+    },
+    "settings": {
+      "title": "設定",
+      "description": "編輯所有個人資料欄位或存檔該帳戶。刪除使用確認對話框。",
+      "editAllFields": "編輯所有字段",
+      "prepareArchive": "準備存檔",
+      "deleteCustomer": "刪除客戶"
+    }
+  },
+  "customer360": {
+    "ariaSections": "客戶360版塊",
+    "email": "電子郵件",
+    "phone": "電話",
+    "aiHealth": "人工智慧健康",
+    "tabs": {
+      "profile": "輪廓",
+      "company": "公司",
+      "contacts": "聯絡方式",
+      "orders": "訂單",
+      "invoices": "發票",
+      "lieferscheine": "利弗沙因",
+      "payments": "付款方式",
+      "documents": "文件",
+      "timeline": "時間軸",
+      "activities": "活動",
+      "notes": "筆記",
+      "aiSummary": "人工智慧總結",
+      "communicationHistory": "傳播史"
+    },
+    "profileLines": {
+      "customerId": "客戶 ID",
+      "status": "地位",
+      "primaryContact": "主要聯絡人"
+    },
+    "status": {
+      "churn_risk": "流失風險"
+    }
+  },
+  "delivery": {
+    "title": "專業 Lieferschein 系統",
+    "description": "送貨單、取貨/送貨、司機、車輛和追蹤 - 僅樣本記錄。未連接匯出適配器。",
+    "badges": {
+      "qrUnavailable": "二維碼不可用",
+      "barcodeUnavailable": "條碼不可用",
+      "signatureDemo": "簽名演示"
+    },
+    "exportPdf": "匯出PDF",
+    "deliveryHistory": "送餐紀錄",
+    "notices": {
+      "exportNotConnected": "此版本中未連接 PDF、QR 和條碼匯出。",
+      "exportPdfUnavailable": "匯出 PDF 不可用 — 未連接傳送導出。",
+      "historyNotConnected": "此版本中未連接交付歷史記錄儲存。"
+    },
+    "columns": {
+      "lieferschein": "利弗沙因",
+      "order": "排序",
+      "customer": "顧客",
+      "kind": "種類",
+      "driver": "司機",
+      "vehicle": "車輛",
+      "tracking": "追蹤",
+      "scheduled": "預定"
+    }
+  },
+  "orders": {
+    "description": "產品、服務、價格、折扣、稅金和客戶——企業訂單分類帳。",
+    "createOrder": "建立訂單",
+    "notices": {
+      "apiReserved": "為將來的寫入路徑保留的訂單建立 API。",
+      "draftStaged": "建立已上演的訂單草稿（尚無 API）。"
+    },
+    "columns": {
+      "order": "排序",
+      "customer": "顧客",
+      "status": "地位",
+      "lines": "線路",
+      "net": "網",
+      "tax": "稅",
+      "gross": "總的",
+      "created": "已創建"
+    },
+    "lineTax": "{taxPct} %稅金"
+  },
+  "tasks": {
+    "calendarTitle": "行事曆·會議·提醒·跟進",
+    "foundationTitle": "任務作業系統基礎",
+    "foundationDescription": "保留日曆同步、會議提供者、提醒作業和後續自動化掛鉤。該板是每個行業模組的共享 CRM 任務介面。",
+    "badges": {
+      "calendarAdapter": "日曆適配器",
+      "meetingAdapter": "會議適配器",
+      "reminderQueue": "提醒隊列",
+      "followUpEngine": "後續發動機"
+    },
+    "duePrefix": "到期的",
+    "kinds": {
+      "follow_up": "跟進",
+      "meeting": "會議",
+      "reminder": "提醒",
+      "task": "任務"
+    },
+    "statuses": {
+      "open": "打開",
+      "in_progress": "進行中",
+      "done": "完畢",
+      "cancelled": "取消"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "沒有文件",
+    "emptyDescription": "沒有與此搜尋相符的文件。",
+    "searchLabel": "人工智慧搜尋",
+    "searchPlaceholder": "報價單、合約、發票、Lieferschein...",
+    "typeLabel": "文件類型",
+    "allTypes": "所有類型",
+    "columns": {
+      "type": "類型",
+      "title": "標題",
+      "customer": "顧客",
+      "status": "地位",
+      "updated": "已更新"
+    },
+    "kinds": {
+      "quote": "引號",
+      "contract": "合約",
+      "invoice": "發票",
+      "lieferschein": "利弗沙因",
+      "purchase_order": "採購單",
+      "receipt": "收據"
+    }
+  },
+  "communication": {
+    "intro": "僅可擴展的頻道架構 - 電子郵件、WhatsApp、Instagram、Facebook、TikTok、LinkedIn、Telegram、語音和視訊。沒有虛假的即時整合。",
+    "adapterPrefix": "適配器"
+  },
+  "aiCreator": {
+    "intro": "面向未來的 AI Creator 介面 — 想法、標題、主題標籤、日曆、活動、品牌聲音、圖像/影片生成、分析、調度、發布隊列和見解。尚未連接真正的提供者 API。"
+  },
+  "creatorStudio": {
+    "intro": "Creator Studio基礎—官方平臺整合可以稍後插入這些適配器。Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X。"
+  },
+  "industry": {
+    "intro": "通用業務平台－入職後將選擇一個產業。每個行業都會獲得專用的人工智慧模組，而無需分叉核心 CRM 作業系統。"
+  },
+  "kpi": {
+    "customers": {
+      "label": "顧客",
+      "caption": "活躍的關係"
+    },
+    "companies": {
+      "label": "公司",
+      "caption": "帳戶組織"
+    },
+    "leads": {
+      "label": "潛在客戶",
+      "caption": "本月新品"
+    },
+    "deals": {
+      "label": "優惠",
+      "caption": "開放管道"
+    },
+    "revenue": {
+      "label": "收入",
+      "caption": "今年迄今贏了"
+    },
+    "projects": {
+      "label": "活躍專案",
+      "caption": "飛行中交付"
+    },
+    "tasks": {
+      "label": "開放任務",
+      "caption": "跨 CRM + 交付"
+    },
+    "ai-health": {
+      "label": "人工智慧健康評分",
+      "caption": "關係品質信號"
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "pipeline": {
+    "lead": "帶領",
+    "qualified": "合格的",
+    "proposal": "提議",
+    "negotiation": "談判",
+    "won": "韓元",
+    "lost": "已遺失"
+  },
+  "orderStatus": {
+    "draft": "草稿",
+    "confirmed": "確認的",
+    "in_fulfillment": "在履行中",
+    "shipped": "已出貨",
+    "delivered": "已交付",
+    "cancelled": "取消"
+  },
+  "tracking": {
+    "scheduled": "預定",
+    "en_route": "途中",
+    "arrived": "到達的",
+    "completed": "完全的",
+    "failed": "失敗的"
+  },
+  "documentKind": {
+    "quote": "引用",
+    "contract": "契約",
+    "invoice": "發票",
+    "lieferschein": "利弗沙因",
+    "purchase_order": "採購訂單",
+    "receipt": "收據"
+  },
+  "documentStatus": {
+    "sent": "傳送",
+    "signed": "簽名",
+    "paid": "滿意",
+    "in_transit": "在途中",
+    "open": "打開",
+    "filed": "提起"
+  },
+  "integration": {
+    "planned": "計劃",
+    "ready": "準備就緒",
+    "connected": "已連接",
+    "disabled": "殘障人士"
+  }
+}

@@ -1,0 +1,442 @@
+{
+  "controlCenter": "Controlecentrum",
+  "settingsSections": "Instellingen secties",
+  "profile": {
+    "label": "Profiel",
+    "description": "Avatar, identiteit en persoonlijke voorkeuren",
+    "title": "Profiel",
+    "panelDescription": "Avatar, volledige naam, e-mailadres, rol, tijdzone, taal en themavoorkeur.",
+    "language": "Taal",
+    "timezone": "Tijdzone",
+    "fullName": "Volledige naam",
+    "email": "E-mail",
+    "role": "Rol",
+    "theme": "Thema",
+    "avatar": "Avatar",
+    "changeAvatar": "Wijzig avatar",
+    "region": "Regio",
+    "personalPrefs": "Persoonlijke voorkeuren",
+    "supportLinks": "Ondersteuning en juridisch",
+    "signedOut": "Meld u aan om uw accountidentiteit te bekijken.",
+    "serverIdentityNotice": "Naam, e-mailadres en rol zijn afkomstig van uw serversessie. Ze worden niet in deze browser opgeslagen.",
+    "localPrefsNotice": "Tijdzone, regio en persoonlijke voorkeuren zijn nog niet bewaard gebleven. Als u ze opslaat, wordt deze pagina alleen bijgewerkt totdat u weggaat.",
+    "avatarUnavailable": "Avatar-upload is nog niet beschikbaar.",
+    "appearanceNote": "Uiterlijkconfiguratie blijft onder Uiterlijk. Header biedt alleen een snelle themawisseling.",
+    "prefsHint": "Gebruikt door AI-assistenten in verschillende modules.",
+    "themeResolved": "{mode} (opgelost {appearance})",
+    "regions": {
+      "EU": "Europese Unie",
+      "US": "Verenigde Staten",
+      "MENA": "MENA",
+      "APAC": "APAC"
+    }
+  },
+  "organization": {
+    "label": "Organisatie",
+    "description": "Bedrijfsprofiel en belastingidentiteit",
+    "title": "Organisatie",
+    "panelDescription": "Bedrijfsnaam, logo, adres, belastinggegevens, afdelingen en bedrijfseenheden."
+  },
+  "workspace": {
+    "label": "Werkruimte",
+    "description": "Branding, startpagina en standaardmodules",
+    "title": "Werkruimte",
+    "panelDescription": "Werkruimte-instellingen, standaarddashboard, branding, modules en startpagina."
+  },
+  "team": {
+    "label": "Team",
+    "description": "Leden, rollen, uitnodigingen en groepen",
+    "title": "Team",
+    "panelDescription": "Leden, rollen, uitnodigingen en groepen."
+  },
+  "ai": {
+    "label": "AI",
+    "description": "Aanbieder, model, creativiteit en geheugen",
+    "title": "AI",
+    "panelDescription": "Provider, model, creativiteit, temperatuur en geheugenvoorkeuren.",
+    "openAgentOs": "Open Agent-besturingssysteem",
+    "openAiWorkspace": "Open AI-werkruimte",
+    "noticeSync": "AI-instellingen worden gesynchroniseerd via AISettingsProvider: sleutels worden hier nooit opgeslagen.",
+    "noticeProvider": "Implementaties van providers blijven achter de AI-servicelaag. De gebruikersinterface ontvangt nooit API-sleutels of SDK-gegevens. Autonome agenten leven in Agent OS.",
+    "preferredProvider": "Voorkeur AI-provider",
+    "defaultModel": "Standaard AI-model",
+    "temperature": "Temperatuur",
+    "topP": "Top P",
+    "maxTokens": "Max. tokens",
+    "writingStyle": "Schrijfstijl",
+    "languagePreferences": "Taalvoorkeuren",
+    "systemPrompt": "Systeemprompt",
+    "systemPromptHint": "Toegepast als de standaardsysteeminstructie voor het AI-platform.",
+    "systemPromptPlaceholder": "Jij bent AGXORA AI – de bedrijfsassistent…",
+    "apiKeyManagement": "API-sleutelbeheer",
+    "apiKeyHint": "Sleutels worden alleen geleverd via serveromgevingsvariabelen.",
+    "apiKeyPlaceholder": "Geconfigureerd via AGXORA_* omgevingsvariabelen (nooit in de browser)",
+    "memory": "Geheugen",
+    "memoryDescription": "Laat het organisatiegeheugen AI-antwoorden over modules heen informeren.",
+    "automationSuggestions": "Automatiseringssuggesties",
+    "automationSuggestionsDescription": "Surface AI-workflowsuggesties in Automation Engine.",
+    "streaming": "Streamen",
+    "streamingDescription": "Stream modelreacties wanneer de provider deze ondersteunt.",
+    "providers": {
+      "mock": "Mock (lokaal)",
+      "openai": "OpenAI",
+      "azure": "Azure OpenAI",
+      "anthropic": "Antropisch",
+      "google": "Googlen",
+      "openrouter": "OpenRouter",
+      "ollama": "Ollama",
+      "local": "Lokale aanbieder"
+    },
+    "writingStyles": {
+      "professional": "Professioneel",
+      "concise": "Beknopt",
+      "friendly": "Vriendelijk",
+      "technical": "Technisch"
+    },
+    "languages": {
+      "auto": "Match profieltaal",
+      "en": "Engels",
+      "de": "Duits"
+    }
+  },
+  "appearance": {
+    "label": "Verschijning",
+    "description": "Thema-, dichtheids- en glaseffecten",
+    "title": "Verschijning",
+    "panelDescription": "Thema, dichtheid, accent, animaties en glaseffecten.",
+    "noticeTheme": "De themamodus is de enige bron van waarheid via ThemeProvider. Header biedt alleen een snelle schakelaar.",
+    "themeLabel": "Thema",
+    "themeModeAria": "Thema-modus",
+    "resolvedAppearance": "Opgelost uiterlijk:",
+    "accentColor": "Accentkleur",
+    "accentNotice": "Accentvoorkeur wordt opgeslagen voor toekomstige CSS var-bedrading - muteert het vergrendelde kleursysteem nog niet.",
+    "density": "Dichtheid",
+    "compactMode": "Compacte modus",
+    "compactModeDescription": "Verminder de opvulling tussen bedrijfstabellen en -panelen.",
+    "animations": "Animaties",
+    "animationsDescription": "Sectiebeweging en zweefliften. Respecteert de OS-instelling voor verminderde beweging.",
+    "glassEffects": "Glaseffecten",
+    "glassEffectsDescription": "Kaarten van matglas en zijbalk vervagen de voorkeur voor intensiteit.",
+    "modes": {
+      "day": {
+        "label": "Licht",
+        "hint": "Pearl / Ice Enterprise Day-palet"
+      },
+      "night": {
+        "label": "Donker",
+        "hint": "Goedgekeurde filmische nachtlook"
+      },
+      "auto": {
+        "label": "Systeem",
+        "hint": "Volg het lokale schema (Auto)"
+      }
+    },
+    "densities": {
+      "comfortable": "Comfortabel",
+      "compact": "Compact",
+      "spacious": "Ruim"
+    }
+  },
+  "notifications": {
+    "label": "Meldingen",
+    "description": "E-mail-, push- en modulewaarschuwingen",
+    "title": "Meldingen",
+    "panelDescription": "E-mail-, push-, desktop-, mobiel- en modulespecifieke waarschuwingen.",
+    "notice": "Meldingskanalen zijn alleen voorkeuren; bezorgadapters gereserveerd.",
+    "email": "E-mail",
+    "push": "Duw",
+    "desktop": "Bureaublad",
+    "mobile": "Mobiel",
+    "workflowAlerts": "Workflow-waarschuwingen",
+    "workflowAlertsDescription": "Uitvoerings- en goedkeuringsgebeurtenissen van Automation Engine.",
+    "financeAlerts": "Financiële waarschuwingen",
+    "crmAlerts": "CRM-waarschuwingen",
+    "documentsAlerts": "Documentenwaarschuwingen",
+    "deliveryNotice": "Leveringsadapters worden bij de lancering verzonden. Vragen:",
+    "contactSupport": "Neem contact op met ondersteuning"
+  },
+  "documents": {
+    "label": "Documenten",
+    "description": "Opslag, retentie en kennis",
+    "title": "Documenten",
+    "panelDescription": "Opslagvoorkeuren, retentie, standaardmap, versiebeheer en kennisinstellingen.",
+    "notice": "Documentinstellingen integreren met de Knowledge Hub-architectuur.",
+    "storagePreferences": "Opslagvoorkeuren",
+    "retentionPolicy": "Bewaarbeleid",
+    "defaultFolder": "Standaardmap",
+    "versioning": "Versiebeheer",
+    "versioningDescription": "Houd de documentversiegeschiedenis bij voor herstel/vergelijking.",
+    "knowledgeSettings": "Kennisinstellingen",
+    "knowledgeDescription": "AI-indexering voor zoeken in Knowledge Hub.",
+    "storageOptions": {
+      "workspace-default": "Standaard werkruimte",
+      "eu-region": "EU-regio",
+      "encrypted-vault": "Gecodeerde kluis"
+    },
+    "retentionOptions": {
+      "30-days": "30 dagen (nul)",
+      "2-years": "2 jaar",
+      "7-years": "7 jaar",
+      "10-years": "10 jaar"
+    }
+  },
+  "automation": {
+    "label": "Automatisering",
+    "description": "Standaardinstellingen voor de werkstroom en beleid voor opnieuw proberen",
+    "title": "Automatisering",
+    "panelDescription": "Standaardwaarden van workflows, AI-suggesties, uitvoeringslogboeken, geschiedenislimieten en beleid voor opnieuw proberen.",
+    "notice": "Standaardinstellingen voor automatisering zijn van toepassing op de Workflow Engine-architectuur.",
+    "workflowDefaults": "Standaardinstellingen voor workflows",
+    "historyLimits": "Geschiedenis Grenzen",
+    "retryPolicy": "Beleid voor opnieuw proberen",
+    "aiSuggestions": "AI-suggesties",
+    "executionLogs": "Uitvoeringslogboeken",
+    "executionLogsDescription": "Bewaar gedetailleerde runpayloads in Workflowgeschiedenis.",
+    "workflowOptions": {
+      "require-approval": "Vereist goedkeuringspoorten",
+      "auto-run": "Voer vertrouwde stromen automatisch uit",
+      "draft-only": "Alleen concept"
+    },
+    "historyOptions": {
+      "30-days": "30 dagen",
+      "90-days": "90 dagen",
+      "365-days": "365 dagen"
+    },
+    "retryOptions": {
+      "none": "Geen nieuwe pogingen",
+      "3-exponential": "3× exponentieel",
+      "5-linear": "5× lineair"
+    }
+  },
+  "integrations": {
+    "label": "Integraties",
+    "description": "Geïnstalleerd, verbonden en beschikbaar",
+    "title": "Integraties",
+    "panelDescription": "Geïnstalleerde, aangesloten en beschikbare adapters.",
+    "openCenter": "Open Integratiecentrum",
+    "notice": "Enterprise Integration Platform bevindt zich in het Integration Center: connectoren, OAuth, webhooks, API-sleutels en de workflow-gebeurtenisbrug.",
+    "columns": {
+      "integration": "Integratie",
+      "category": "Categorie",
+      "status": "Status",
+      "adapter": "Adapter"
+    }
+  },
+  "security": {
+    "label": "Beveiliging",
+    "description": "Sessies, wachtwoord en accountbeveiliging",
+    "title": "Beveiliging",
+    "panelDescription": "Serversessies voor dit account. Apparaat, IP en MFA worden niet opgeslagen.",
+    "activeSessions": "Actieve sessies",
+    "currentSession": "Huidige sessie",
+    "otherSession": "Andere sessie",
+    "currentBadge": "Deze sessie",
+    "otherBadge": "Andere sessie",
+    "createdAt": "Ingelogd",
+    "expiresAt": "Verloopt",
+    "revoke": "Sessie intrekken",
+    "revokeAria": "Sessie ingelogd {when} intrekken",
+    "revokeOthers": "Andere sessies afmelden",
+    "revokeOthersAria": "Meld alle sessies af, behalve de huidige",
+    "revoked": "Sessie ingetrokken.",
+    "othersRevoked": "Andere sessies zijn afgemeld. Deze sessie is nog steeds actief.",
+    "loading": "Sessies laden…",
+    "empty": "Geen actieve sessies",
+    "emptyBody": "Er zijn geen actieve serversessies voor dit account.",
+    "demoEmpty": "Meld u aan om een ​​lokale demosessie in deze browser te registreren.",
+    "signedOutTitle": "Niet aangemeld",
+    "signedOut": "Meld u aan om uw actieve serversessies te bekijken.",
+    "loadFailed": "Kan sessies niet laden.",
+    "revokeFailed": "Kan die sessie niet intrekken.",
+    "logout": "Meld u af voor deze sessie",
+    "logoutAria": "Meld u af bij de huidige serversessie",
+    "password": "Wachtwoord",
+    "changePassword": "Wachtwoord opnieuw instellen",
+    "passwordHint": "Wachtwoordwijzigingen maken gebruik van de bestaande resetstroom. Er is nog geen speciaal formulier voor het wijzigen van het wachtwoord beschikbaar.",
+    "mfaTitle": "Tweefactorauthenticatie",
+    "mfaUnavailable": "Tweefactorauthenticatie is nog niet beschikbaar.",
+    "ssoTitle": "SSO en OAuth",
+    "ssoUnavailable": "Single sign-on en OAuth-providers zijn nog niet beschikbaar.",
+    "encryptionTitle": "Encryptie",
+    "encryptionUnavailable": "Sleutelbeheer en versleuteling in rust zijn nog niet beschikbaar.",
+    "trustedDevices": "Vertrouwde apparaten",
+    "trustedUnavailable": "Vertrouwd apparaat en IP-geschiedenis worden niet opgeslagen. Metagegevens van sessies zijn beperkt tot aanmaak- en vervaltijden.",
+    "apiKeys": "API-sleutels",
+    "apiKeysHint": "Ontwikkelaarssleutels worden beheerd onder API & Ontwikkelaars. Dit paneel geeft geen sleutels uit.",
+    "openApi": "Open API-instellingen",
+    "serverNotice": "Sessies worden op de server opgeslagen. Deze browser behandelt lokale identiteitsgegevens nooit als gezaghebbend.",
+    "demoNotice": "De demomodus maakt alleen gebruik van lokale browsersessies. Dit is geen productieauthenticatie.",
+    "noDeviceMeta": "Apparaat, IP en user-agent worden niet vastgelegd."
+  },
+  "billing": {
+    "label": "Facturering",
+    "description": "Plan, gebruik, facturen en betalingen",
+    "title": "Facturering",
+    "panelDescription": "Huidig ​​abonnement, verlenging, gebruik, facturen en upgradepad."
+  },
+  "api": {
+    "label": "API en ontwikkelaars",
+    "description": "Sleutels, webhooks, tokens, sandbox",
+    "title": "API en ontwikkelaars",
+    "panelDescription": "Sleutels, webhooks, tokens en sandbox-toegang.",
+    "openPortal": "Open ontwikkelaarsportaal",
+    "notice": "Genereer, roteer en trek sleutels in het Integratiecentrum in. Gateway, webhooktester en API-verkenner zijn daar beschikbaar.",
+    "webhooks": "Webhaken",
+    "sandbox": "Zandbak",
+    "sandboxEnabled": "Ingeschakeld",
+    "sandboxDisabled": "Gehandicapt",
+    "tokensNotice": "Ontwikkelaarstokens geven nooit volledige geheimen weer: alleen een voorvoegsel.",
+    "columns": {
+      "name": "Naam",
+      "key": "Sleutel",
+      "scope": "Domein",
+      "lastUsed": "Laatst gebruikt"
+    }
+  },
+  "audit": {
+    "label": "Auditlogboeken",
+    "description": "Activiteit, beveiliging en systeemwijzigingen",
+    "title": "Auditlogboeken",
+    "panelDescription": "Recente activiteiten, beveiligingsgebeurtenissen en systeemwijzigingen.",
+    "columns": {
+      "when": "Wanneer",
+      "actor": "Acteur",
+      "category": "Categorie",
+      "summary": "Samenvatting"
+    },
+    "categories": {
+      "activity": "Recente activiteit",
+      "security": "Beveiligingsgebeurtenissen",
+      "system": "Systeemwijzigingen"
+    }
+  },
+  "advanced": {
+    "label": "Geavanceerd",
+    "description": "Experimenteel, reset, import, export",
+    "title": "Geavanceerd",
+    "panelDescription": "Experimentele functies, resetten, importeren en exporteren.",
+    "notice": "Geavanceerde acties vereisen bevestiging voordat u zich aanmeldt.",
+    "experimentalFeatures": "Experimentele functies",
+    "experimentalDescription": "Meld u aan voor onvoltooide Control Center-mogelijkheden.",
+    "export": "Exporteren",
+    "import": "Importeren",
+    "reset": "Opnieuw instellen",
+    "exportUnavailable": "Exporteren is nog niet beschikbaar.",
+    "importUnavailable": "Importeren is nog niet beschikbaar.",
+    "resetUnavailable": "Resetten is nog niet mogelijk."
+  },
+  "page": {
+    "eyebrow": "AGXORA-controlecentrum",
+    "title": "Instellingen",
+    "lead": "Bedrijfsconfiguratie voor elke AGXORA-module: profiel, organisatie, AI, uiterlijk, beveiliging, facturering en ontwikkelaarscontroles op één plek.",
+    "loading": "Instellingen laden…",
+    "breadcrumb": "{label} · {description}"
+  },
+  "saveChanges": "Wijzigingen opslaan",
+  "sessionNotice": "Bijgewerkt voor deze sessie — {area} niet verbonden.",
+  "kpi": {
+    "members": {
+      "label": "Teamleden",
+      "caption": "Actieve stoelen"
+    },
+    "integrations": {
+      "label": "Integraties",
+      "caption": "Aangesloten adapters"
+    },
+    "api": {
+      "label": "API-sleutels",
+      "caption": "Ontwikkelaarstokens"
+    },
+    "audit": {
+      "label": "Auditgebeurtenissen",
+      "caption": "Laatste 7 dagen"
+    }
+  },
+  "unknown": {
+    "title": "Instellingen",
+    "description": "Onbekend gedeelte.",
+    "emptyTitle": "Niet gevonden",
+    "emptyDescription": "Selecteer een sectie in de navigatie in het Control Center."
+  },
+  "controlPlane": {
+    "loading": "Laden...",
+    "loadFailed": "Kan organisatiegegevens niet laden. Log in en probeer het opnieuw.",
+    "saveFailed": "Kan de wijzigingen niet opslaan.",
+    "saving": "Besparing…",
+    "orgName": "Naam van de organisatie",
+    "orgSlug": "Naaktslak",
+    "owner": "Eigenaar",
+    "counts": "Leden · werkruimten",
+    "orgUpdated": "Organisatie bijgewerkt.",
+    "countsValue": "{members} · {workspaces}",
+    "joined": "Aangesloten",
+    "workspaceName": "Naam van de werkruimte",
+    "switchWorkspace": "Actieve werkruimte",
+    "active": "actief",
+    "rename": "Hernoemen",
+    "archive": "Archief",
+    "create": "Creëer werkruimte",
+    "createWorkspace": "Nieuwe werkruimte",
+    "workspaceCreated": "Werkruimte gecreëerd.",
+    "workspaceUpdated": "Hernoemd naar werkruimte.",
+    "workspaceArchived": "Werkruimte gearchiveerd.",
+    "workspaceSwitched": "Actieve werkruimte bijgewerkt.",
+    "member": "Lid",
+    "email": "E-mail",
+    "role": "Rol",
+    "status": "Status",
+    "actions": "Acties",
+    "roleOwner": "Eigenaar",
+    "roleAdmin": "Beheerder",
+    "roleMember": "Lid",
+    "changeRole": "Verander de rol",
+    "remove": "Verwijderen",
+    "invite": "Nodig lid uit",
+    "inviteTitle": "Uitnodigen voor de werkruimte",
+    "sendInvite": "Uitnodiging maken",
+    "close": "Dichtbij",
+    "pending": "Openstaande uitnodigingen",
+    "noPending": "Geen openstaande uitnodigingen.",
+    "revoke": "Herroepen",
+    "noMembers": "Nog geen leden",
+    "noMembersBody": "Nodig een teamgenoot uit voor deze werkruimte.",
+    "inviteHonesty": "E-mailbezorging is niet geconfigureerd. Deel de uitnodigingslink rechtstreeks.",
+    "inviteLink": "Uitnodigingslink",
+    "inviteInvalid": "Deze uitnodiging is niet geldig.",
+    "accept": "Accepteer de uitnodiging",
+    "invitedAs": "{email} is uitgenodigd als {role}.",
+    "inviteStatus": {
+      "pending": "In behandeling",
+      "expired": "Deze uitnodiging is verlopen.",
+      "revoked": "Deze uitnodiging is ingetrokken.",
+      "accepted": "Deze uitnodiging is al geaccepteerd."
+    },
+    "transferOwnership": "Eigendom overdragen",
+    "transferTitle": "Eigendom van organisatie overdragen",
+    "transferWarning": "Dit is een gevaarlijke actie. U blijft EIGENAAR totdat de ontvanger bevestigt. Na bevestiging wordt u BEHEERDER en zij EIGENAAR.",
+    "transferTarget": "Nieuwe eigenaar",
+    "transferSelectMember": "Selecteer een bestaand lid…",
+    "transferTypeName": "Typ “{name}” om te bevestigen",
+    "transferConfirmMismatch": "De getypte naam komt niet overeen met het geselecteerde lid.",
+    "transferInitiate": "Overdracht initiëren",
+    "transferHonesty": "Er wordt een bevestigingsmail verzonden wanneer de bezorging is geconfigureerd. Deel anders de bevestigingslink rechtstreeks met de ontvanger.",
+    "transferLink": "Bevestigingslink",
+    "transferPendingTitle": "In afwachting van eigendomsoverdracht",
+    "transferPendingBody": "Wachten op bevestiging door {name} ({email}). Verloopt {expires}. Tot die tijd blijft u EIGENAAR.",
+    "transferPendingNote": "De lidmaatschapsrollen veranderen niet terwijl de overdracht in behandeling is.",
+    "cancelTransfer": "Overdracht annuleren",
+    "transferCancelled": "Eigendomsoverdracht geannuleerd.",
+    "transferInvalid": "Deze eigendomsoverdracht is niet geldig.",
+    "transferConfirmTitle": "Bevestig de eigendomsoverdracht",
+    "transferConfirmBody": "{from} wil het eigendom van de organisatie overdragen aan {to} ({email}).",
+    "transferConfirmDanger": "Nadat u dit heeft bevestigd, wordt u EIGENAAR en wordt de vorige eigenaar BEHEERDER.",
+    "transferConfirmAction": "Bevestig dat ik de nieuwe eigenaar word",
+    "transferWrongAccount": "Meld u aan als {email} om deze overdracht te bevestigen.",
+    "transferStatus": {
+      "pending": "In afwachting van bevestiging",
+      "expired": "Deze eigendomsoverdracht is verlopen.",
+      "cancelled": "Deze eigendomsoverdracht is geannuleerd.",
+      "confirmed": "Deze eigendomsoverdracht was al voltooid."
+    }
+  }
+}

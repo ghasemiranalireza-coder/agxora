@@ -1,0 +1,4939 @@
+{
+  "common": {
+    "save": "Kaydet",
+    "saveChanges": "Değişiklikleri kaydet",
+    "cancel": "İptal",
+    "close": "Kapat",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "search": "Ara",
+    "loading": "Yükleniyor…",
+    "retry": "Yeniden dene",
+    "language": "Dil",
+    "signIn": "Giriş yap",
+    "signOut": "Çıkış yap",
+    "contact": "Temas etmek",
+    "privacy": "Mahremiyet",
+    "terms": "Şartlar",
+    "cookies": "Çerezler",
+    "imprint": "Baskı",
+    "organization": "Organizasyon",
+    "user": "Kullanıcı",
+    "guest": "Misafir",
+    "member": "Üye",
+    "role": "Rol",
+    "signedIn": "Oturum açıldı",
+    "guestSession": "Misafir oturumu",
+    "noResults": "Sonuç yok",
+    "noData": "Veri yok",
+    "comingSoon": "Yakında gelecek",
+    "notConnected": "Bağlı değil",
+    "demo": "Demo",
+    "sample": "Örnek",
+    "showPassword": "Şifreyi göster",
+    "hidePassword": "Şifreyi gizle",
+    "continue": "Devam",
+    "back": "Geri",
+    "home": "Ana sayfa",
+    "loadingShort": "Yükleniyor",
+    "create": "Oluştur",
+    "next": "İleri",
+    "previous": "Önceki",
+    "settings": "Ayarlar",
+    "profile": "Profil",
+    "dashboard": "Kontrol paneli"
+  },
+  "navigation": {
+    "dashboard": "Kontrol Paneli",
+    "projects": "Projeler",
+    "aiCrm": "Yapay Zeka CRM",
+    "analytics": "Analitik",
+    "billing": "Faturalandırma",
+    "aiWorkspace": "Yapay Zeka Çalışma Alanı",
+    "customers": "Müşteriler",
+    "automation": "Otomasyon",
+    "financeTax": "Finans ve Vergi",
+    "aiCreatorStudio": "Yapay Zeka İçerik Stüdyosu",
+    "documents": "Belgeler",
+    "team": "Takım",
+    "settings": "Ayarlar",
+    "toggleNavigation": "Gezinmeyi değiştir",
+    "primary": "Öncelik",
+    "menu": "Menü",
+    "search": "Aramak",
+    "notifications": "Bildirimler",
+    "profile": "Profil",
+    "currentOrganization": "Mevcut organizasyon",
+    "noNotifications": "Bildirim yok",
+    "notificationsEmpty": "Hepiniz yakalandınız. Uyarılar ve bahsetmeler burada görünecektir.",
+    "accountSettings": "Hesap ayarları",
+    "security": "Güvenlik",
+    "themeToggle": "Hızlı tema geçişi. Tercih: {mode}"
+  },
+  "pricing": {
+    "navLabel": "Fiyatlandırmada gezinme",
+    "navPricing": "Fiyatlandırma",
+    "navContactSales": "Satış Ekibiyle İletişime Geçin",
+    "navBookDemo": "Kitap Demosu",
+    "navSignIn": "Oturum aç",
+    "eyebrow": "Fiyatlandırma",
+    "title": "Gönderim yapan operatörler için oluşturulan planlar.",
+    "lead": "Ticari katmanları temizleyin. Ücretsiz başlayın, hazır olduğunuzda ölçeklendirin veya kurumsal koşullar için satış ekibiyle görüşün.",
+    "billingInterval": "Faturalandırma aralığı",
+    "monthly": "Aylık",
+    "yearly": "Yıllık",
+    "savePercent": "~%20 tasarruf edin",
+    "mostPopular": "EN POPÜLER",
+    "startFree": "Ücretsiz Başla",
+    "bookDemo": "Kitap Demosu",
+    "contactSales": "Satış Ekibiyle İletişime Geçin",
+    "perMonth": "/ay",
+    "perMonthYearly": "/ay yıllık olarak faturalandırılır",
+    "yearlyHint": "{amount}/yıl · %{percent} tasarruf edin",
+    "commercialActions": "Ticari işlemler",
+    "legal": "Yasal",
+    "planAria": "{name} planı — {cta}",
+    "plans": {
+      "starter": {
+        "name": "Başlangıç",
+        "description": "Serbest çalışanlar ve küçük işletmeler için.",
+        "features": [
+          "CRM ve müşteri hattı",
+          "Projeler ve belgeler",
+          "Yönetilen yapay zeka asistanı",
+          "5 koltuğa kadar",
+          "E-posta desteği"
+        ]
+      },
+      "business": {
+        "name": "İşletme",
+        "description": "Büyüyen ekipler için.",
+        "features": [
+          "Starter'daki her şey",
+          "Finans ve analitik modülleri",
+          "Otomasyon ve denetim dışa aktarımı",
+          "Ekip işbirliği",
+          "Öncelikli destek"
+        ]
+      },
+      "professional": {
+        "name": "Profesyonel",
+        "description": "Gelişmiş şirketler için.",
+        "features": [
+          "Starter'daki her şey",
+          "Finans ve analitik modülleri",
+          "API erişimi",
+          "Gelişmiş şirket iş akışları",
+          "Öncelikli destek gelen kutusu"
+        ]
+      },
+      "enterprise": {
+        "name": "Girişim",
+        "description": "Sınırsız ölçek için özel fiyatlandırma.",
+        "features": [
+          "Özel fiyatlandırma",
+          "Sınırsız ölçek",
+          "Özel katılım",
+          "Özel entegrasyonlar",
+          "Öncelikli destek"
+        ]
+      }
+    }
+  },
+  "billing": {
+    "currentPlan": "Mevcut plan",
+    "upgrade": "Güncelleme",
+    "viewPricing": "Fiyatlandırmayı görüntüle",
+    "contactSales": "Satış Ekibiyle İletişime Geçin",
+    "openBillingPortal": "Faturalandırma portalını aç",
+    "billingQuestions": "Faturalandırma soruları:",
+    "publicPricing": "Kamu fiyatlandırması",
+    "recommended": "Tavsiye edilen",
+    "account": {
+      "currentPlan": "Mevcut Plan",
+      "status": "Durum",
+      "renewalDate": "Yenileme Tarihi",
+      "seats": "Koltuklar",
+      "usage": "Kullanım",
+      "noUsage": "Henüz kullanım ölçümü yok.",
+      "invoices": "Faturalar",
+      "noInvoices": "Henüz fatura geçmişi yok. Fatura ve yenileme oluşturmak için bir planı yükseltin."
+    },
+    "planCard": {
+      "currentPlan": "Mevcut plan",
+      "recommended": "Tavsiye edilen",
+      "contactSales": "Satış ekibiyle iletişime geçin",
+      "pricePerMonth": "€{price}/ay",
+      "users": "{count} kullanıcı",
+      "aiRequests": "{count} AI isteği/ay",
+      "storage": "{count} MB depolama alanı",
+      "moduleFeatures": "{count} modül özellikleri",
+      "choosePlan": "Planı seçin",
+      "processing": "İşleme…",
+      "currentPlanAria": "{name} — mevcut plan",
+      "contactSalesAria": "{name} — satış ekibiyle iletişime geçin",
+      "choosePlanAria": "{name} — planı seç"
+    },
+    "admin": {
+      "eyebrow": "Yönetici",
+      "title": "Faturalandırma yönetimi",
+      "lead": "Abonelikler, lisanslar, faturalar, e-posta kuyruğu ve ticari denetim etkinlikleri için dahili yönetim.",
+      "customerPortal": "Müşteri portalı",
+      "loading": "Yönetici faturalandırması yükleniyor…",
+      "licenses": "Lisanslar ve abonelikler",
+      "allInvoices": "Tüm faturalar",
+      "planCatalog": "Plan kataloğu",
+      "custom": "Gelenek",
+      "features": "{count} özellik",
+      "emailQueue": "E-posta kuyruğu (sahte)",
+      "noEmails": "Kuyruğa alınmış e-posta yok.",
+      "commercialAudit": "Ticari denetim",
+      "columns": {
+        "organization": "Organizasyon",
+        "plan": "Planı",
+        "status": "Durum",
+        "seats": "Koltuklar",
+        "actions": "Eylemler",
+        "invoice": "Fatura",
+        "org": "Kuruluş",
+        "amount": "Miktar",
+        "when": "Ne zaman",
+        "action": "Aksiyon"
+      },
+      "suspend": "Askıya almak",
+      "lifetime": "Ömür boyu",
+      "refund": "Geri ödemek"
+    },
+    "portal": {
+      "eyebrow": "Ticari SaaS",
+      "title": "Abonelik ve Faturalandırma",
+      "lead": "Planınızı, kullanım kotalarınızı, faturalarınızı ve ödeme yöntemlerinizi yönetin. Ödeme sağlayıcıları faturalandırma hizmetinin gerisinde kalıyor.",
+      "settingsBilling": "Ayarlar faturalandırma",
+      "adminBilling": "Yönetici faturalandırması",
+      "loading": "Faturalandırma yükleniyor…",
+      "currentLicense": "Mevcut lisans",
+      "plan": "Planı",
+      "status": "Durum",
+      "seats": "Koltuklar",
+      "renewsTrial": "Yeniler / deneme",
+      "enabledModules": "Etkinleştirilen modüller: {modules}",
+      "none": "hiçbiri",
+      "renew": "Yenile",
+      "cancelSubscription": "Aboneliği iptal et",
+      "plans": "Planlar",
+      "provider": "sağlayıcı",
+      "couponPlaceholder": "Kupon (LAUNCH20)",
+      "usageQuotas": "Kullanım ve kotalar",
+      "invoices": "Faturalar",
+      "noInvoices": "Henüz fatura yok.",
+      "paymentMethods": "Ödeme yöntemleri",
+      "noPaymentMethods": "Kayıtlı ödeme yöntemi yok.",
+      "default": "varsayılan",
+      "companyProfile": "Şirket faturalandırma profili",
+      "company": "Şirket",
+      "billingEmail": "Faturalandırma e-postası",
+      "vatId": "KDV No",
+      "taxId": "Vergi Numarası",
+      "vatPlaceholder": "örneğin DE123456789",
+      "taxPlaceholder": "örneğin DE123456789",
+      "saveProfile": "Profili kaydet",
+      "notifications": "Bildirimler",
+      "noNotifications": "Fatura bildirimi yok.",
+      "noticeInitial": "Faturalandırma ticari hizmet katmanı üzerinden gerçekleştirilir; kullanıcı arayüzünde ödeme SDK'sı yoktur.",
+      "noticeActivated": "{planId}, {providerId} (sahte ödeme) aracılığıyla etkinleştirildi.",
+      "noticeCheckoutFailed": "Ödeme başarısız oldu",
+      "noticeCancelled": "Abonelik iptal edildi.",
+      "noticeRenewed": "Abonelik bir sonraki dönem için yenilendi.",
+      "noticeProfileSaved": "Faturalandırma profili kaydedildi.",
+      "columns": {
+        "invoice": "Fatura",
+        "status": "Durum",
+        "amount": "Miktar",
+        "issued": "Veriliş",
+        "metric": "Metrik",
+        "used": "Kullanılmış",
+        "limit": "Sınır"
+      },
+      "quotaStatus": {
+        "exceeded": "Aşıldı",
+        "warning": "Uyarı",
+        "ok": "TAMAM"
+      }
+    }
+  },
+  "settings": {
+    "controlCenter": "Kontrol Merkezi",
+    "settingsSections": "Ayarlar bölümleri",
+    "profile": {
+      "label": "Profil",
+      "description": "Avatar, kimlik ve kişisel tercihler",
+      "title": "Profil",
+      "panelDescription": "Avatar, tam ad, e-posta, rol, saat dilimi, dil ve tema tercihi.",
+      "language": "Dil",
+      "timezone": "Saat dilimi",
+      "fullName": "Ad Soyad",
+      "email": "E-posta",
+      "role": "Rol",
+      "theme": "Tema",
+      "avatar": "avatar",
+      "changeAvatar": "Avatarı değiştir",
+      "region": "Bölge",
+      "personalPrefs": "Kişisel tercihler",
+      "supportLinks": "Destek ve yasal",
+      "signedOut": "Hesap kimliğinizi görmek için oturum açın.",
+      "serverIdentityNotice": "Ad, e-posta ve rol sunucu oturumunuzdan gelir. Bu tarayıcıda saklanmazlar.",
+      "localPrefsNotice": "Saat dilimi, bölge ve kişisel tercihler henüz kalıcı değil. Bunları kaydetmek yalnızca siz ayrılana kadar bu sayfayı günceller.",
+      "avatarUnavailable": "Avatar yükleme henüz kullanılamıyor.",
+      "appearanceNote": "Görünüm yapılandırması Görünüm altında kalır. Başlık yalnızca temaya hızlı geçiş sağlar.",
+      "prefsHint": "AI asistanları tarafından modüller arasında kullanılır.",
+      "themeResolved": "{mode} (çözüldü {appearance})",
+      "regions": {
+        "EU": "Avrupa Birliği",
+        "US": "Amerika Birleşik Devletleri",
+        "MENA": "MENA",
+        "APAC": "Asya Pasifik"
+      }
+    },
+    "organization": {
+      "label": "Organizasyon",
+      "description": "Şirket profili ve vergi kimliği",
+      "title": "Organizasyon",
+      "panelDescription": "Şirket adı, logosu, adresi, vergi bilgileri, departmanları ve iş birimleri."
+    },
+    "workspace": {
+      "label": "Çalışma alanı",
+      "description": "Marka bilinci oluşturma, ana sayfa ve varsayılan modüller",
+      "title": "Çalışma alanı",
+      "panelDescription": "Çalışma alanı ayarları, varsayılan kontrol paneli, markalama, modüller ve ana sayfa."
+    },
+    "team": {
+      "label": "Takım",
+      "description": "Üyeler, roller, davetler ve gruplar",
+      "title": "Takım",
+      "panelDescription": "Üyeler, roller, davetler ve gruplar."
+    },
+    "ai": {
+      "label": "yapay zeka",
+      "description": "Sağlayıcı, model, yaratıcılık ve hafıza",
+      "title": "yapay zeka",
+      "panelDescription": "Sağlayıcı, model, yaratıcılık, sıcaklık ve hafıza tercihleri.",
+      "openAgentOs": "Ajan İşletim Sistemini Aç",
+      "openAiWorkspace": "AI Çalışma Alanını Aç",
+      "noticeSync": "AI ayarları AISettingsProvider aracılığıyla senkronize edilir; anahtarlar hiçbir zaman burada saklanmaz.",
+      "noticeProvider": "Sağlayıcı uygulamaları yapay zeka hizmet katmanının gerisinde kalır. Kullanıcı arayüzü hiçbir zaman API anahtarlarını veya SDK ayrıntılarını almaz. Otonom ajanlar Agent OS'de yaşar.",
+      "preferredProvider": "Tercih Edilen Yapay Zeka Sağlayıcısı",
+      "defaultModel": "Varsayılan Yapay Zeka Modeli",
+      "temperature": "Sıcaklık",
+      "topP": "Üst P",
+      "maxTokens": "Maksimum Jeton",
+      "writingStyle": "Yazma Stili",
+      "languagePreferences": "Dil Tercihleri",
+      "systemPrompt": "Sistem İstemi",
+      "systemPromptHint": "AI Platform için varsayılan sistem talimatı olarak uygulanır.",
+      "systemPromptPlaceholder": "Siz AGXORA AI'sınız — kurumsal işletim asistanı…",
+      "apiKeyManagement": "API Anahtar Yönetimi",
+      "apiKeyHint": "Anahtarlar yalnızca sunucu ortamı değişkenleri aracılığıyla sağlanır.",
+      "apiKeyPlaceholder": "AGXORA_* ortam değişkenleri aracılığıyla yapılandırılır (hiçbir zaman tarayıcıda değildir)",
+      "memory": "Hafıza",
+      "memoryDescription": "Kuruluş belleğinin modüller genelinde AI yanıtlarını bilgilendirmesine izin verin.",
+      "automationSuggestions": "Otomasyon Önerileri",
+      "automationSuggestionsDescription": "Automation Engine'de Surface AI iş akışı önerileri.",
+      "streaming": "Akış",
+      "streamingDescription": "Sağlayıcı desteklediğinde model yanıtlarını yayınlayın.",
+      "providers": {
+        "mock": "Sahte (yerel)",
+        "openai": "OpenAI",
+        "azure": "Azure OpenAI",
+        "anthropic": "Antropik",
+        "google": "Google",
+        "openrouter": "Açık Yönlendirici",
+        "ollama": "Ollama",
+        "local": "Yerel Sağlayıcı"
+      },
+      "writingStyles": {
+        "professional": "Profesyonel",
+        "concise": "Kısa",
+        "friendly": "Arkadaşça",
+        "technical": "Teknik"
+      },
+      "languages": {
+        "auto": "Profil dilini eşleştir",
+        "en": "İngilizce",
+        "de": "Almanca"
+      }
+    },
+    "appearance": {
+      "label": "Dış görünüş",
+      "description": "Tema, yoğunluk ve cam efektleri",
+      "title": "Dış görünüş",
+      "panelDescription": "Tema, yoğunluk, vurgu, animasyonlar ve cam efektleri.",
+      "noticeTheme": "Tema modu, ThemeProvider aracılığıyla gerçeğin tek kaynağıdır. Başlık yalnızca hızlı bir geçiş sunar.",
+      "themeLabel": "Tema",
+      "themeModeAria": "Tema modu",
+      "resolvedAppearance": "Çözülmüş görünüm:",
+      "accentColor": "Vurgu Rengi",
+      "accentNotice": "Vurgu tercihi gelecekteki CSS var kablolaması için saklanır; kilitli renk sistemini henüz değiştirmez.",
+      "density": "Yoğunluk",
+      "compactMode": "Kompakt Mod",
+      "compactModeDescription": "Kurumsal masa ve panellerdeki dolguyu azaltın.",
+      "animations": "Animasyonlar",
+      "animationsDescription": "Bölüm hareketi ve vurgulu kaldırmalar. Azaltılmış hareketli işletim sistemi ayarına saygı duyar.",
+      "glassEffects": "Cam Efektleri",
+      "glassEffectsDescription": "Buzlu cam kartlar ve kenar çubuğu bulanıklık yoğunluğu tercihi.",
+      "modes": {
+        "day": {
+          "label": "Işık",
+          "hint": "İnci / buz kurumsal gün paleti"
+        },
+        "night": {
+          "label": "Karanlık",
+          "hint": "Onaylanmış sinematik gece görünümü"
+        },
+        "auto": {
+          "label": "Sistem",
+          "hint": "Yerel programı takip et (Otomatik)"
+        }
+      },
+      "densities": {
+        "comfortable": "Rahat",
+        "compact": "Kompakt",
+        "spacious": "Ferah"
+      }
+    },
+    "notifications": {
+      "label": "Bildirimler",
+      "description": "E-posta, push ve modül uyarıları",
+      "title": "Bildirimler",
+      "panelDescription": "E-posta, push, masaüstü, mobil ve modüle özel uyarılar.",
+      "notice": "Bildirim kanalları yalnızca tercihlere yöneliktir; dağıtım bağdaştırıcıları saklıdır.",
+      "email": "E-posta",
+      "push": "İtmek",
+      "desktop": "Masaüstü",
+      "mobile": "Mobil",
+      "workflowAlerts": "İş Akışı Uyarıları",
+      "workflowAlertsDescription": "Automation Engine yürütme ve onay olayları.",
+      "financeAlerts": "Finans Uyarıları",
+      "crmAlerts": "CRM Uyarıları",
+      "documentsAlerts": "Belge Uyarıları",
+      "deliveryNotice": "Teslimat adaptörleri lansman sırasında gönderilir. Sorular:",
+      "contactSupport": "Desteğe başvurun"
+    },
+    "documents": {
+      "label": "Belgeler",
+      "description": "Depolama, saklama ve bilgi",
+      "title": "Belgeler",
+      "panelDescription": "Depolama tercihleri, saklama, varsayılan klasör, sürüm oluşturma ve bilgi ayarları.",
+      "notice": "Belge ayarları Bilgi Merkezi mimarisiyle entegre olur.",
+      "storagePreferences": "Depolama Tercihleri",
+      "retentionPolicy": "Saklama Politikası",
+      "defaultFolder": "Varsayılan Klasör",
+      "versioning": "Sürüm oluşturma",
+      "versioningDescription": "Geri yükleme/karşılaştırma için belge sürüm geçmişini saklayın.",
+      "knowledgeSettings": "Bilgi Ayarları",
+      "knowledgeDescription": "Bilgi Merkezi araması için yapay zeka indeksleme.",
+      "storageOptions": {
+        "workspace-default": "Çalışma alanı varsayılanı",
+        "eu-region": "AB bölgesi",
+        "encrypted-vault": "Şifreli kasa"
+      },
+      "retentionOptions": {
+        "30-days": "30 gün (kayıp)",
+        "2-years": "2 yıl",
+        "7-years": "7 yıl",
+        "10-years": "10 yıl"
+      }
+    },
+    "automation": {
+      "label": "Otomasyon",
+      "description": "İş akışı varsayılanları ve yeniden deneme politikası",
+      "title": "Otomasyon",
+      "panelDescription": "İş akışı varsayılanları, AI önerileri, yürütme günlükleri, geçmiş sınırları ve yeniden deneme politikası.",
+      "notice": "Otomasyon varsayılanları İş Akışı Motoru mimarisine uygulanır.",
+      "workflowDefaults": "İş Akışı Varsayılanları",
+      "historyLimits": "Geçmiş Sınırları",
+      "retryPolicy": "Yeniden Deneme Politikası",
+      "aiSuggestions": "Yapay Zeka Önerileri",
+      "executionLogs": "Yürütme Günlükleri",
+      "executionLogsDescription": "Ayrıntılı çalıştırma verilerini İş Akışı Geçmişinde saklayın.",
+      "workflowOptions": {
+        "require-approval": "Onay kapıları gerektir",
+        "auto-run": "Güvenilir akışları otomatik çalıştır",
+        "draft-only": "Yalnızca taslak"
+      },
+      "historyOptions": {
+        "30-days": "30 gün",
+        "90-days": "90 gün",
+        "365-days": "365 gün"
+      },
+      "retryOptions": {
+        "none": "Yeniden deneme yok",
+        "3-exponential": "3× üstel",
+        "5-linear": "5× doğrusal"
+      }
+    },
+    "integrations": {
+      "label": "Entegrasyonlar",
+      "description": "Kurulu, bağlı ve kullanılabilir",
+      "title": "Entegrasyonlar",
+      "panelDescription": "Kurulu, bağlı ve mevcut adaptörler.",
+      "openCenter": "Entegrasyon Merkezini Aç",
+      "notice": "Kurumsal Entegrasyon Platformu, bağlayıcılar, OAuth, web kancaları, API anahtarları ve iş akışı olay köprüsünden oluşan Entegrasyon Merkezi'nde bulunur.",
+      "columns": {
+        "integration": "Entegrasyon",
+        "category": "Kategori",
+        "status": "Durum",
+        "adapter": "Adaptör"
+      }
+    },
+    "security": {
+      "label": "Güvenlik",
+      "description": "Oturumlar, şifre ve hesap koruması",
+      "title": "Güvenlik",
+      "panelDescription": "Bu hesap için sunucu oturumları. Cihaz, IP ve MFA saklanmaz.",
+      "activeSessions": "Aktif oturumlar",
+      "currentSession": "Geçerli oturum",
+      "otherSession": "Diğer oturum",
+      "currentBadge": "Bu oturum",
+      "otherBadge": "Diğer oturum",
+      "createdAt": "Oturum açıldı",
+      "expiresAt": "Süresi doluyor",
+      "revoke": "Oturumu iptal et",
+      "revokeAria": "{when} oturumunun açıldığı oturumu iptal et",
+      "revokeOthers": "Diğer oturumlardan çıkış yapın",
+      "revokeOthersAria": "Geçerli oturum dışındaki tüm oturumları kapat",
+      "revoked": "Oturum iptal edildi.",
+      "othersRevoked": "Diğer oturumlar kapatıldı. Bu oturum halen aktiftir.",
+      "loading": "Oturumlar yükleniyor…",
+      "empty": "Aktif oturum yok",
+      "emptyBody": "Bu hesap için aktif sunucu oturumu yok.",
+      "demoEmpty": "Bu tarayıcıda yerel bir demo oturumu kaydetmek için oturum açın.",
+      "signedOutTitle": "Oturum açılmadı",
+      "signedOut": "Aktif sunucu oturumlarınızı görmek için oturum açın.",
+      "loadFailed": "Oturumlar yüklenemedi.",
+      "revokeFailed": "Bu oturum iptal edilemedi.",
+      "logout": "Bu oturumu kapat",
+      "logoutAria": "Geçerli sunucu oturumundan çıkış yapın",
+      "password": "Şifre",
+      "changePassword": "Şifreyi sıfırla",
+      "passwordHint": "Parola değişiklikleri mevcut sıfırlama akışını kullanır. Özel bir şifre değiştirme formu henüz mevcut değil.",
+      "mfaTitle": "İki faktörlü kimlik doğrulama",
+      "mfaUnavailable": "İki faktörlü kimlik doğrulama henüz mevcut değil.",
+      "ssoTitle": "TOA ve OAuth",
+      "ssoUnavailable": "Tek oturum açma ve OAuth sağlayıcıları henüz mevcut değil.",
+      "encryptionTitle": "Şifreleme",
+      "encryptionUnavailable": "Anahtar yönetimi ve kullanımda olmayan şifreleme kontrolleri henüz mevcut değildir.",
+      "trustedDevices": "Güvenilir cihazlar",
+      "trustedUnavailable": "Güvenilir cihaz ve IP geçmişi saklanmaz. Oturum meta verileri oluşturma ve sona erme zamanlarıyla sınırlıdır.",
+      "apiKeys": "API anahtarları",
+      "apiKeysHint": "Geliştirici anahtarları API ve Geliştiriciler altında yönetilir. Bu panel anahtar vermez.",
+      "openApi": "API ayarlarını aç",
+      "serverNotice": "Oturumlar sunucuda saklanır. Bu tarayıcı hiçbir zaman yerel kimlik verilerini yetkili veri olarak değerlendirmez.",
+      "demoNotice": "Demo modu yalnızca yerel tarayıcı oturumlarını kullanır. Bu üretim kimlik doğrulaması değildir.",
+      "noDeviceMeta": "Cihaz, IP ve kullanıcı aracısı kaydedilmez."
+    },
+    "billing": {
+      "label": "Faturalandırma",
+      "description": "Plan, kullanım, faturalar ve ödemeler",
+      "title": "Faturalandırma",
+      "panelDescription": "Mevcut plan, yenileme, kullanım, faturalar ve yükseltme yolu."
+    },
+    "api": {
+      "label": "API ve Geliştiriciler",
+      "description": "Anahtarlar, web kancaları, belirteçler, korumalı alan",
+      "title": "API ve Geliştiriciler",
+      "panelDescription": "Anahtarlar, web kancaları, belirteçler ve korumalı alan erişimi.",
+      "openPortal": "Geliştirici portalını aç",
+      "notice": "Entegrasyon Merkezi'nde anahtarlar oluşturun, döndürün ve iptal edin. Ağ geçidi, web kancası test aracı ve API gezgini burada mevcuttur.",
+      "webhooks": "Web kancaları",
+      "sandbox": "Korumalı alan",
+      "sandboxEnabled": "Etkinleştirilmiş",
+      "sandboxDisabled": "Engelli",
+      "tokensNotice": "Geliştirici belirteçleri hiçbir zaman gizli dizilerin tamamını görüntülemez; yalnızca önek.",
+      "columns": {
+        "name": "İsim",
+        "key": "Anahtar",
+        "scope": "Kapsam",
+        "lastUsed": "Son kullanılan"
+      }
+    },
+    "audit": {
+      "label": "Denetim Günlükleri",
+      "description": "Etkinlik, güvenlik ve sistem değişiklikleri",
+      "title": "Denetim Günlükleri",
+      "panelDescription": "Son etkinlik, güvenlik olayları ve sistem değişiklikleri.",
+      "columns": {
+        "when": "Ne zaman",
+        "actor": "Aktör",
+        "category": "Kategori",
+        "summary": "Özet"
+      },
+      "categories": {
+        "activity": "Son Etkinlik",
+        "security": "Güvenlik Etkinlikleri",
+        "system": "Sistem Değişiklikleri"
+      }
+    },
+    "advanced": {
+      "label": "Gelişmiş",
+      "description": "Deneysel, sıfırlama, içe aktarma, dışa aktarma",
+      "title": "Gelişmiş",
+      "panelDescription": "Deneysel özellikler, sıfırlama, içe aktarma ve dışa aktarma.",
+      "notice": "Gelişmiş eylemler, başvurudan önce onay gerektirir.",
+      "experimentalFeatures": "Deneysel Özellikler",
+      "experimentalDescription": "Tamamlanmamış Kontrol Merkezi özelliklerini etkinleştirin.",
+      "export": "İhracat",
+      "import": "İçe aktarmak",
+      "reset": "Sıfırla",
+      "exportUnavailable": "İhracat henüz kullanılamıyor.",
+      "importUnavailable": "İthalat henüz kullanılamıyor.",
+      "resetUnavailable": "Sıfırlama henüz mevcut değil."
+    },
+    "page": {
+      "eyebrow": "AGXORA Kontrol Merkezi",
+      "title": "Ayarlar",
+      "lead": "Her AGXORA modülü için kurumsal yapılandırma - profil, organizasyon, yapay zeka, görünüm, güvenlik, faturalandırma ve geliştirici kontrolleri tek bir yerde.",
+      "loading": "Ayarlar yükleniyor…",
+      "breadcrumb": "{label} · {description}"
+    },
+    "saveChanges": "Değişiklikleri kaydet",
+    "sessionNotice": "Bu oturum için güncellendi — {area} bağlı değil.",
+    "kpi": {
+      "members": {
+        "label": "Ekip Üyeleri",
+        "caption": "Aktif koltuklar"
+      },
+      "integrations": {
+        "label": "Entegrasyonlar",
+        "caption": "Bağlı adaptörler"
+      },
+      "api": {
+        "label": "API Anahtarları",
+        "caption": "Geliştirici belirteçleri"
+      },
+      "audit": {
+        "label": "Denetim Etkinlikleri",
+        "caption": "Son 7 gün"
+      }
+    },
+    "unknown": {
+      "title": "Ayarlar",
+      "description": "Bilinmeyen bölüm.",
+      "emptyTitle": "Bulunamadı",
+      "emptyDescription": "Kontrol Merkezi navigasyonundan bir bölüm seçin."
+    },
+    "controlPlane": {
+      "loading": "Yükleniyor…",
+      "loadFailed": "Kuruluş verileri yüklenemedi. Oturum açın ve tekrar deneyin.",
+      "saveFailed": "Değişiklikler kaydedilemedi.",
+      "saving": "Kaydediliyor…",
+      "orgName": "Kuruluş adı",
+      "orgSlug": "Sümüklüböcek",
+      "owner": "Mal sahibi",
+      "counts": "Üyeler · çalışma alanları",
+      "orgUpdated": "Organizasyon güncellendi.",
+      "countsValue": "{members} · {workspaces}",
+      "joined": "Katıldı",
+      "workspaceName": "Çalışma alanı adı",
+      "switchWorkspace": "Aktif çalışma alanı",
+      "active": "aktif",
+      "rename": "Yeniden isimlendirmek",
+      "archive": "Arşiv",
+      "create": "Çalışma alanı oluştur",
+      "createWorkspace": "Yeni çalışma alanı",
+      "workspaceCreated": "Çalışma alanı oluşturuldu.",
+      "workspaceUpdated": "Çalışma alanı yeniden adlandırıldı.",
+      "workspaceArchived": "Çalışma alanı arşivlendi.",
+      "workspaceSwitched": "Aktif çalışma alanı güncellendi.",
+      "member": "Üye",
+      "email": "E-posta",
+      "role": "Rol",
+      "status": "Durum",
+      "actions": "Eylemler",
+      "roleOwner": "Mal sahibi",
+      "roleAdmin": "Yönetici",
+      "roleMember": "Üye",
+      "changeRole": "Rolü değiştir",
+      "remove": "Kaldırmak",
+      "invite": "Üyeyi davet et",
+      "inviteTitle": "Çalışma alanına davet et",
+      "sendInvite": "Davetiye oluştur",
+      "close": "Kapalı",
+      "pending": "Bekleyen davetiyeler",
+      "noPending": "Bekleyen davetiye yok.",
+      "revoke": "Geri çekmek",
+      "noMembers": "Henüz üye yok",
+      "noMembersBody": "Bu çalışma alanına bir ekip arkadaşınızı davet edin.",
+      "inviteHonesty": "E-posta teslimi yapılandırılmamış. Davet bağlantısını doğrudan paylaşın.",
+      "inviteLink": "Bağlantıyı davet et",
+      "inviteInvalid": "Bu davetiye geçerli değil.",
+      "accept": "Daveti kabul et",
+      "invitedAs": "{email}, {role} olarak davet edildi.",
+      "inviteStatus": {
+        "pending": "Askıda olması",
+        "expired": "Bu davetiyenin süresi doldu.",
+        "revoked": "Bu davet iptal edildi.",
+        "accepted": "Bu davet zaten kabul edildi."
+      },
+      "transferOwnership": "Sahipliği aktar",
+      "transferTitle": "Kuruluş sahipliğini aktarma",
+      "transferWarning": "Bu tehlikeli bir eylemdir. Alıcı onaylayana kadar SAHİP kalırsınız. Onaylandıktan sonra siz YÖNETİCİ olursunuz ve onlar da SAHİP olur.",
+      "transferTarget": "Yeni sahip",
+      "transferSelectMember": "Mevcut bir üyeyi seçin…",
+      "transferTypeName": "Onaylamak için “{name}” yazın",
+      "transferConfirmMismatch": "Yazılan ad seçilen üyeyle eşleşmiyor.",
+      "transferInitiate": "Aktarımı başlat",
+      "transferHonesty": "Teslimat yapılandırıldığında bir onay e-postası gönderilir. Aksi takdirde onay bağlantısını doğrudan alıcıyla paylaşın.",
+      "transferLink": "Onay bağlantısı",
+      "transferPendingTitle": "Sahiplik aktarımı bekleniyor",
+      "transferPendingBody": "{name}'in ({email}) onaylaması bekleniyor. Süresi doluyor {expires}. O zamana kadar SAHİP kalırsınız.",
+      "transferPendingNote": "Aktarım beklemedeyken üyelik rolleri değişmez.",
+      "cancelTransfer": "Aktarımı iptal et",
+      "transferCancelled": "Sahiplik aktarımı iptal edildi.",
+      "transferInvalid": "Bu sahiplik aktarımı geçerli değil.",
+      "transferConfirmTitle": "Sahiplik aktarımını onaylayın",
+      "transferConfirmBody": "{from}, kuruluşun sahipliğini {to}'a ({email}) aktarmak istiyor.",
+      "transferConfirmDanger": "Onayladıktan sonra SAHİP olursunuz ve önceki sahibi YÖNETİCİ olur.",
+      "transferConfirmAction": "Yeni sahip olduğumu onayla",
+      "transferWrongAccount": "Bu aktarımı onaylamak için {email} olarak oturum açın.",
+      "transferStatus": {
+        "pending": "Onay bekleniyor",
+        "expired": "Bu sahiplik aktarımının süresi doldu.",
+        "cancelled": "Bu sahiplik aktarımı iptal edildi.",
+        "confirmed": "Bu sahiplik aktarımı zaten tamamlandı."
+      }
+    }
+  },
+  "errors": {
+    "required": "Bu alan zorunludur.",
+    "invalidEmail": "Geçerli bir e-posta adresi girin.",
+    "passwordMin": "Şifre en az 8 karakter olmalıdır.",
+    "passwordLettersNumbers": "Şifre harf ve rakamlardan oluşmalıdır.",
+    "passwordMismatch": "Şifreler eşleşmiyor.",
+    "acceptTerms": "Devam etmek için lütfen şartları kabul edin.",
+    "generic": "Bir şeyler ters gitti.",
+    "tryAgain": "Lütfen tekrar deneyin.",
+    "saved": "Başarıyla kaydedildi.",
+    "invalidCredentials": "E-posta veya parola geçersiz.",
+    "signInRequired": "Giriş gerekli.",
+    "insufficientPermissions": "Yetersiz izinler.",
+    "noRouteAccess": "Bu rotaya erişiminiz yok.",
+    "accountLocked": "Bu hesap kilitli. Bir yöneticiyle iletişime geçin.",
+    "sessionExpired": "Oturumunuzun süresi doldu. Tekrar giriş yapın.",
+    "missingPermission": "Eksik izin: {permission}",
+    "roleCannotAccess": "Rolünüz bu kaynağa erişemez.",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "E-posta veya parola geçersiz.",
+      "AUTH_SESSION_EXPIRED": "Oturumunuzun süresi doldu. Tekrar giriş yapın.",
+      "AUTH_ACCOUNT_LOCKED": "Bu hesap kilitli. Bir yöneticiyle iletişime geçin.",
+      "AUTH_SIGN_IN_REQUIRED": "Devam etmek için giriş yapın.",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "Yetersiz izinler.",
+      "AUTH_NO_ROUTE_ACCESS": "Bu rotaya erişiminiz yok.",
+      "COMMON_SOMETHING_WENT_WRONG": "Bir şeyler ters gitti.",
+      "COMMON_PAGE_NOT_FOUND": "Sayfa bulunamadı.",
+      "COMMON_OFFLINE": "Çevrimdışısınız.",
+      "COMMON_TIMEOUT": "İstek zaman aşımına uğradı.",
+      "COMMON_VALIDATION": "Girdinizi kontrol edip tekrar deneyin.",
+      "COMMON_UNKNOWN": "Bilinmeyen bir hata oluştu.",
+      "COMMON_INTERNAL": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin."
+    }
+  },
+  "dashboard": {
+    "skipToContent": "Kontrol paneli içeriğine atla",
+    "loading": "Kontrol paneli yükleniyor…",
+    "hero": {
+      "ariaLabel": "AGXORA CORE kahramanı",
+      "eyebrow": "Yapay Zeka İş İşletim Sistemi",
+      "title": "AGXORA ÇEKİRDEK",
+      "subtitle": "Gerçek zamanlı zeka ve operasyonel kontrol — çalışma alanınız komut yüzeyi.",
+      "ctaGetStarted": "Başlayın",
+      "ctaViewActivity": "Etkinliği görüntüle",
+      "openQuickActionsAria": "Hızlı işlemleri aç",
+      "viewActivityAria": "Son etkinliği görüntüle"
+    },
+    "quickActions": {
+      "title": "Hızlı eylemler",
+      "subtitle": "Bundan sonra ne yapmalısınız?",
+      "ariaLabel": "Hızlı eylemler",
+      "addCustomer": {
+        "label": "Müşteri ekle",
+        "description": "CRM kaydı oluşturma"
+      },
+      "newProject": {
+        "label": "Yeni proje",
+        "description": "Teslimat yolunu başlatın"
+      },
+      "askAi": {
+        "label": "Yapay zekaya sor",
+        "description": "AI çalışma alanını açın"
+      },
+      "finance": {
+        "label": "Finans",
+        "description": "Faturalar ve nakit akışı"
+      },
+      "automations": {
+        "label": "Otomasyonlar",
+        "description": "İş akışı motoru"
+      },
+      "settings": {
+        "label": "Ayarlar",
+        "description": "Çalışma alanı tercihleri"
+      }
+    },
+    "attention": {
+      "title": "Dikkat edilmesi gerekiyor",
+      "ariaLabel": "Dikkat edilmesi gerekenler",
+      "empty": "Açıksınız; şu anda acil bir öğe yok.",
+      "tone": {
+        "critical": "Kritik",
+        "warning": "Uyarı",
+        "info": "Bilgi",
+        "success": "Hazır",
+        "action": "Sonrakini yap"
+      },
+      "addCustomer": {
+        "title": "İlk müşterinizi ekleyin",
+        "detail": "CRM'yi gerçek bir hesap kaydıyla başlatın."
+      },
+      "createProject": {
+        "title": "Proje oluştur",
+        "detail": "Bir sonraki etkileşiminiz için bir teslimat yolu açın."
+      },
+      "exploreAi": {
+        "title": "Yapay zeka çalışma alanını keşfedin",
+        "detail": "AGXORA'ya müşteriler, projeler veya sonraki adımlar hakkında sorun."
+      },
+      "reviewBilling": {
+        "title": "Faturalandırmayı inceleyin",
+        "detail": "Ölçeklendirmeye hazır olduğunuzda planı ve kullanımı onaylayın."
+      }
+    },
+    "overview": {
+      "title": "Ne oluyor",
+      "subtitle": "{name} için çalışma alanı sayıları",
+      "fallbackName": "çalışma alanınız",
+      "ariaLabel": "İşletmeye genel bakış",
+      "online": "Çevrimiçi",
+      "emDash": "—",
+      "capacitySignal": "%{percent} kapasite sinyali",
+      "activeClients": {
+        "title": "Aktif istemciler",
+        "captionEmpty": "Henüz aktif müşteri yok",
+        "captionTotal": "Çalışma alanında toplam {count}",
+        "add": "Müşteri ekle",
+        "view": "Müşterileri görüntüle"
+      },
+      "projects": {
+        "title": "Projeler",
+        "captionEmpty": "Portföyde proje yok",
+        "captionOpen": "Teslimat yollarını aç",
+        "create": "Proje oluştur",
+        "open": "Projeleri aç"
+      },
+      "activityToday": {
+        "title": "Bugünkü etkinlik",
+        "captionEmpty": "Bugün henüz hiçbir şey kaydedilmedi",
+        "captionEvents": "Gece yarısından bu yana çalışma alanı etkinlikleri",
+        "viewFeed": "Özet akışını görüntüle"
+      },
+      "revenue": {
+        "title": "Hasılat",
+        "caption": "MRR'yi göstermek için faturalandırmayı bağlayın",
+        "openBilling": "Faturalandırmayı aç"
+      },
+      "clientShell": {
+        "title": "İstemci kabuğu",
+        "caption": "Tarayıcı oturumu hazır; canlı operasyon monitörü değil",
+        "shellLoaded": "Uygulama kabuğu yüklendi",
+        "storesReady": "Yerel çalışma alanı mağazaları hazır"
+      },
+      "growth": {
+        "title": "Büyüme",
+        "caption": "Trend metriklerinin birikmiş kullanıma ihtiyacı var",
+        "openAnalytics": "Analitikleri aç"
+      }
+    },
+    "activity": {
+      "title": "Son etkinlik",
+      "subtitle": "Bugün ne değişti",
+      "ariaLabel": "Son etkinlik",
+      "todayCount": "{count} BUGÜN",
+      "localBadge": "YEREL",
+      "emptyTitle": "Henüz etkinlik yok",
+      "emptyBody": "Siz müşteri, proje ve daha fazlasını ekledikçe çalışma alanı etkinlikleri burada görünecektir.",
+      "addCustomer": "Müşteri ekle",
+      "newProject": "Yeni proje",
+      "kind": {
+        "customer": "Müşteri",
+        "project": "Proje",
+        "finance": "Finans",
+        "automation": "Otomasyon",
+        "documents": "Belgeler",
+        "team": "Takım",
+        "workspace": "Çalışma alanı"
+      },
+      "events": {
+        "customer_created": "Müşteri oluşturuldu",
+        "customer_updated": "Müşteri güncellendi",
+        "customer_deleted": "Müşteri silindi",
+        "project_updated": "Proje güncellendi",
+        "invoice_paid": "Fatura ödendi",
+        "document_uploaded": "Doküman yüklendi",
+        "workflow_executed": "İş akışı yürütüldü",
+        "member_invited": "Ekip üyesi davet edildi",
+        "generic": "Çalışma alanı güncellemesi"
+      }
+    },
+    "chat": {
+      "title": "AGXORA AI",
+      "emptyState": "AGXORA'ya müşteriler, projeler veya sonraki eylemler hakkında sorun. Konuşmanız bu çalışma alanı oturumunda kalır.",
+      "thinking": "AGXORA düşünüyor…",
+      "errorDismiss": "{error} — kapatmak için dokunun",
+      "placeholder": "AGXORA AI'ya sorun…",
+      "messageAria": "AGXORA AI'ya mesaj gönderin",
+      "sendAria": "Mesaj gönder",
+      "send": "Göndermek"
+    },
+    "routeLoading": {
+      "team": "Ekip yükleniyor…",
+      "projects": "Projeler yükleniyor…",
+      "project": "Proje yükleniyor…",
+      "profile": "Profil yükleniyor…",
+      "integrations": "Entegrasyonlar yükleniyor…",
+      "identity": "Kimlik yükleniyor…",
+      "finance": "Finans yükleniyor…",
+      "documents": "Belgeler yükleniyor…",
+      "customers": "Müşteriler yükleniyor…",
+      "crm": "CRM yükleniyor…",
+      "customer": "Müşteri yükleniyor…",
+      "creator": "Yaratıcı stüdyo yükleniyor…",
+      "billing": "Faturalandırma yükleniyor…",
+      "billingAdmin": "Yönetici faturalandırması yükleniyor…",
+      "automation": "Otomasyon yükleniyor…",
+      "analytics": "İstihbarat Merkezi Yükleniyor…",
+      "ai": "AI Platformu yükleniyor…",
+      "agents": "Agent OS yükleniyor…"
+    },
+    "shell": {
+      "memory": {
+        "title": "Hafıza",
+        "description": "Bu yapıda kuruluş belleği bağlı değil.",
+        "emptyTitle": "Bellek çalışma alanı henüz kullanılamıyor",
+        "emptyBody": "Kalıcı organizasyon belleği depolaması bağlı değil. Sohbet, kısa süreli içeriği yalnızca oturumda tutabilir; burada hiçbir şey kurumsal bellek olarak depolanmaz."
+      },
+      "invoices": {
+        "title": "Faturalar",
+        "description": "Kurumsal kiracılar için faturalandırma ve fatura mimarisi.",
+        "emptyTitle": "Fatura defteri henüz mevcut değil",
+        "emptyBody": "Bu rota bir kabuktur; fatura oluşturma ve kalıcılık bağlantılı değildir. Örnek defter önizlemesi için Finans'ı veya plan yönetimi için Faturalandırma'yı kullanın.",
+        "openFinance": "Açık Finans",
+        "openBilling": "Faturalandırmayı Aç"
+      }
+    },
+    "search": {
+      "ariaLabel": "Evrensel arama",
+      "queryAria": "Evrensel arama sorgusu",
+      "placeholder": "Müşterileri, faturaları, belgeleri, iş akışlarını, ayarları arayın…",
+      "quickActions": "Hızlı Eylemler",
+      "favorites": "Favoriler",
+      "recentSearches": "Son Aramalar",
+      "clear": "Temizlemek",
+      "noRecentSearches": "Henüz yeni arama yok. “Nordlicht”, “fatura” veya “iş akışı”nı deneyin.",
+      "recentActivity": "Son Etkinlik",
+      "aiReady": "Yapay Zeka Hazır (Mimarlık)",
+      "pinnedResults": "Sabitlenmiş Sonuçlar",
+      "noMatches": "Eşleşme yok",
+      "noMatchesBody": "Başka bir anahtar kelime deneyin veya Hızlı İşlemler aracılığıyla bir modül açın.",
+      "close": "Kapalı",
+      "esc": "Esc",
+      "open": "Açık",
+      "keyboardHints": "↑↓ gezin · Enter aç · Ctrl/⌘ K geçiş · Esc kapat",
+      "pinResult": "Sabitleme sonucu",
+      "unpinResult": "Sonucun sabitlemesini kaldır",
+      "previewEmpty": "Önizleme, meta veriler ve akıllı bağlantılar için bir sonucun üzerine gelin veya sonucu vurgulayın.",
+      "previewAria": "Evrensel önizleme",
+      "relatedItems": "İlgili Öğeler",
+      "noSmartLinks": "Bu sonuç için akıllı bağlantı yok.",
+      "groups": {
+        "crm": "CRM",
+        "finance": "Finans",
+        "documents": "Belgeler",
+        "automation": "Otomasyon",
+        "projects": "Projeler",
+        "creator": "İçerik Stüdyosu",
+        "settings": "Ayarlar",
+        "commands": "Komutlar",
+        "actions": "Hızlı Eylemler"
+      },
+      "status": {
+        "architecture": "mimari",
+        "planned": "planlanmış"
+      },
+      "meta": {
+        "type": "Tip",
+        "module": "Modül",
+        "quickAction": "Hızlı Eylem"
+      },
+      "actions": {
+        "createCustomer": {
+          "title": "Müşteri Oluştur",
+          "subtitle": "Kayıt eklemek için Müşteriler'i açın"
+        },
+        "createInvoice": {
+          "title": "Fatura Oluştur",
+          "subtitle": "Finans faturası çalışma alanını açın"
+        },
+        "uploadDocument": {
+          "title": "Belgeyi Yükle",
+          "subtitle": "Belgeler Bilgi Merkezi'ni açın"
+        },
+        "newWorkflow": {
+          "title": "Yeni İş Akışı",
+          "subtitle": "Açık Otomasyon Motoru oluşturucusu"
+        },
+        "newProject": {
+          "title": "Yeni Proje",
+          "subtitle": "Projeler çalışma alanını aç"
+        },
+        "inviteMember": {
+          "title": "Ekip Üyesini Davet Et",
+          "subtitle": "Ekip davetlerini aç"
+        },
+        "openBilling": {
+          "title": "Faturalandırmayı Aç",
+          "subtitle": "Planlar, faturalar ve abonelik"
+        },
+        "openSettings": {
+          "title": "Ayarları Aç",
+          "subtitle": "Çalışma alanı tercihleri"
+        }
+      },
+      "commands": {
+        "openCrm": {
+          "title": "CRM'yi aç",
+          "subtitle": "AI CRM modülü"
+        },
+        "openCustomers": {
+          "title": "Açık Müşteriler",
+          "subtitle": "Müşteri yönetimi"
+        },
+        "openFinance": {
+          "title": "Açık Finans",
+          "subtitle": "Finans ve Vergi modülü"
+        },
+        "openDocuments": {
+          "title": "Belgeleri Aç",
+          "subtitle": "Bilgi Merkezi"
+        },
+        "openAutomation": {
+          "title": "Açık Otomasyon",
+          "subtitle": "İş akışı motoru"
+        },
+        "openSettings": {
+          "title": "Ayarları Aç",
+          "subtitle": "Çalışma alanı ayarları"
+        },
+        "openProjects": {
+          "title": "Açık Projeler",
+          "subtitle": "Proje portföyü"
+        },
+        "openAi": {
+          "title": "AI'yı aç",
+          "subtitle": "Yapay zeka platformu çalışma alanı"
+        },
+        "openAnalytics": {
+          "title": "Analytics'i açın",
+          "subtitle": "İstihbarat merkezi"
+        },
+        "openIdentity": {
+          "title": "Açık Kimlik ve Erişim",
+          "subtitle": "IAM ayarları, RBAC, denetim"
+        },
+        "openBilling": {
+          "title": "Faturalandırmayı Aç",
+          "subtitle": "Abonelik portalı ve planları"
+        },
+        "openIntegrations": {
+          "title": "Açık Entegrasyonlar",
+          "subtitle": "Entegrasyon Merkezi ve API ekosistemi"
+        }
+      },
+      "modules": {
+        "dashboard": {
+          "subtitle": "Komuta merkezi ve dünyaya genel bakış"
+        },
+        "customers": {
+          "subtitle": "Müşteri kayıtları ve CRM"
+        },
+        "projects": {
+          "subtitle": "Proje teslimi ve takibi"
+        },
+        "invoices": {
+          "title": "Faturalar",
+          "subtitle": "Faturalandırma ve faturalar"
+        },
+        "finance": {
+          "subtitle": "Yapay zeka muhasebesi, bankacılık, vergi ve finansal istihbarat"
+        },
+        "crm": {
+          "subtitle": "Yapay zekaya dayalı CRM ve Creator İşletim Sistemi"
+        },
+        "creator": {
+          "subtitle": "Yapay zeka içerik üretimi ve pazarlama işletim sistemi"
+        },
+        "documents": {
+          "subtitle": "Yapay Zeka Belgeleri ve Bilgi Merkezi"
+        },
+        "ai": {
+          "title": "yapay zeka",
+          "subtitle": "AGXORA Yapay Zeka Platformu — kurumsal çalışma alanı"
+        },
+        "analytics": {
+          "subtitle": "İş zekası"
+        },
+        "automation": {
+          "subtitle": "Yapay zeka iş akışı ve otomasyon motoru"
+        },
+        "memory": {
+          "title": "Hafıza",
+          "subtitle": "Organizasyon hafızası"
+        },
+        "team": {
+          "subtitle": "Üyeler ve davetler"
+        },
+        "settings": {
+          "subtitle": "Çalışma alanı ve yapay zeka ayarları"
+        }
+      },
+      "capabilities": {
+        "aiSearch": {
+          "title": "Yapay Zeka Arama",
+          "description": "Sonuçları, modüller arasında geleceğe yönelik bir erişim modeliyle sıralayın."
+        },
+        "semantic": {
+          "title": "Semantik Arama",
+          "description": "Belgeler, faturalar ve bilgiler üzerinde vektör benzerliği."
+        },
+        "nl": {
+          "title": "Doğal Dil Arama",
+          "description": "\"Nordlicht için vadesi geçmiş faturalar\" gibi niyetleri ayrıştırın."
+        },
+        "rag": {
+          "title": "Bilgi Erişimi",
+          "description": "Belgeler Bilgi Merkezi derlemesindeki temel yanıtlar."
+        }
+      }
+    },
+    "summary": "{name}: {customers} müşteriler · {projects} projeler · bugün {updates} güncelleniyor."
+  },
+  "auth": {
+    "login": {
+      "title": "Oturum aç",
+      "subtitle": "AGXORA'ya tekrar hoş geldiniz.",
+      "email": "E-posta",
+      "password": "Şifre",
+      "emailPlaceholder": "sen@şirket.com",
+      "passwordPlaceholder": "Şifre",
+      "rememberMe": "Beni Hatırla",
+      "submit": "Oturum aç",
+      "submitting": "Oturum açılıyor…",
+      "noAccount": "Hesabın yok mu?",
+      "startFree": "Ücretsiz başlayın",
+      "forgotPassword": "Parolanızı mı unuttunuz",
+      "showPassword": "Şifreyi göster",
+      "hidePassword": "Şifreyi gizle",
+      "failed": "Oturum açma başarısız oldu",
+      "loading": "Oturum aç"
+    },
+    "register": {
+      "title": "Hesap oluşturmak",
+      "subtitle": "AGXORA ile ücretsiz başlayın.",
+      "firstName": "İlk adı",
+      "lastName": "Soy isim",
+      "email": "İş e-postası",
+      "company": "Şirket",
+      "password": "Şifre",
+      "confirmPassword": "Şifreyi onayla",
+      "acceptTerms": "kabul ediyorum",
+      "termsOfService": "Hizmet Şartları",
+      "and": "Ve",
+      "privacyPolicy": "Gizlilik Politikası",
+      "submit": "Hesap oluşturmak",
+      "submitting": "Hesap oluşturuluyor…",
+      "haveAccount": "Zaten bir hesabınız var mı?",
+      "signIn": "Oturum aç",
+      "strength": "Şifre gücü",
+      "strengthWeak": "Zayıf",
+      "strengthFair": "Adil",
+      "strengthStrong": "Güçlü",
+      "firstNamePlaceholder": "Alex",
+      "lastNamePlaceholder": "Morgan",
+      "companyPlaceholder": "AGXORA GmbH",
+      "emailPlaceholder": "sen@şirket.com",
+      "passwordPlaceholder": "En az 8 karakter, harf + rakam",
+      "confirmPasswordPlaceholder": "Şifreyi tekrar girin",
+      "failed": "Kayıt başarısız oldu",
+      "loading": "Hesap oluşturmak"
+    },
+    "forgot": {
+      "title": "Parolanızı mı unuttunuz",
+      "subtitle": "Şifre sıfırlama talebinde bulunmak için e-postanızı girin.",
+      "email": "E-posta",
+      "submit": "Sıfırlama isteği",
+      "submitting": "Gönderiliyor…",
+      "success": "Söz konusu e-posta için bir hesap mevcutsa sıfırlama isteği kaydedildi. E-posta teslimi henüz yapılandırılmadı.",
+      "backToSignIn": "Oturum açmak için geri dön",
+      "failed": "Sıfırlama isteği işlenemedi",
+      "loading": "Parolanızı mı unuttunuz"
+    },
+    "reset": {
+      "title": "Şifreyi sıfırla",
+      "subtitle": "Hesabınız için yeni bir şifre seçin.",
+      "token": "Jetonu sıfırla",
+      "newPassword": "Yeni Şifre",
+      "confirmPassword": "Şifreyi onayla",
+      "submit": "Şifreyi güncelle",
+      "submitting": "Güncelleniyor…",
+      "success": "Şifre güncellendi. Şimdi oturum açabilirsiniz.",
+      "backToSignIn": "Oturum açmak için geri dön",
+      "failed": "Şifre sıfırlanamadı",
+      "loading": "Şifreyi sıfırla"
+    },
+    "contactSales": {
+      "title": "Satış Ekibiyle İletişime Geçin",
+      "subtitle": "Bize ekibinizden bahsedin. Kurumsal seçenekleri takip edeceğiz.",
+      "name": "Ad Soyad",
+      "email": "İş e-postası",
+      "company": "Şirket",
+      "employees": "Çalışan sayısı",
+      "employeesSelect": "Aralık seç",
+      "employees1_10": "1–10",
+      "employees11_50": "11–50",
+      "employees51_200": "51–200",
+      "employees201_1000": "201–1,000",
+      "employees1000plus": "1,000+",
+      "message": "Mesaj",
+      "messagePlaceholder": "Neyi çözmeye çalışıyorsun?",
+      "submit": "Soruşturmayı gönder",
+      "submitting": "Gönderiliyor…",
+      "successTitle": "Teşekkür ederim",
+      "successBody": "Sorunuz alındı. Ekibimiz kısa sürede yanıt verecektir.",
+      "viewPricing": "Fiyatlandırmayı görüntüle",
+      "bookDemo": "Kitap Demosu",
+      "failed": "Soruşturma gönderilemedi",
+      "country": "Ülke",
+      "savedFor": "{company} için kaydedildi. Bu sürümde satış teslimatı bağlı değil.",
+      "preferWalkthrough": "Sırada bir ürün turu ister misiniz?",
+      "preferSelfServe": "Self-servis mi tercih edersiniz?"
+    },
+    "welcome": {
+      "title": "AGXORA'ya hoş geldiniz",
+      "subtitle": "Çalışma alanınız hazır. Kontrol paneline devam edin.",
+      "continue": "Kontrol paneline git",
+      "checklistProfile": "Kuruluş profilinizi onaylayın",
+      "checklistModules": "Çalışma şeklinize uyan modülleri seçin",
+      "checklistDashboard": "Net bir başlangıç noktasıyla kontrol paneline girin",
+      "exploreFirst": "Önce keşfetmeyi tercih eder misiniz?",
+      "skipToDashboard": "Kontrol paneline geç"
+    },
+    "locked": {
+      "title": "Hesap kilitlendi",
+      "subtitle": "Çok fazla başarısız oturum açma girişimi. Daha sonra tekrar deneyin veya şifrenizi sıfırlayın.",
+      "backToSignIn": "Oturum açmak için geri dön",
+      "forgotPassword": "Parolanızı mı unuttunuz"
+    },
+    "sessionExpired": {
+      "title": "Oturumun süresi doldu",
+      "subtitle": "Devam etmek için lütfen tekrar oturum açın.",
+      "signIn": "Oturum aç"
+    },
+    "brand": "AGXORA",
+    "validation": {
+      "emailRequired": "E-posta zorunludur.",
+      "emailInvalid": "Geçerli bir e-posta adresi girin.",
+      "passwordRequired": "Parola zorunludur.",
+      "passwordMin": "Parola en az 8 karakter olmalıdır.",
+      "nameRequired": "Ad zorunludur.",
+      "nameMin": "Ad en az 2 karakter olmalıdır.",
+      "passwordMismatch": "Parolalar eşleşmiyor.",
+      "slugFormat": "Yalnızca küçük harf, sayı ve kısa çizgi kullanın."
+    }
+  },
+  "crm": {
+    "page": {
+      "brandOs": "AGXORA İşletme İşletim Sistemi",
+      "title": "Yapay Zeka CRM",
+      "subtitle": "Yapay zekaya dayalı CRM ve Creator İşletim Sistemi — her sektör için müşteriler, işlem hattı, siparişler, teslimat, belgeler, iletişimler ve yaratıcı mimari."
+    },
+    "sections": {
+      "crmDashboard": {
+        "title": "CRM Kontrol Paneli"
+      },
+      "customer360": {
+        "title": "Müşteri 360°",
+        "subtitle": "Profil, şirket, kişiler, siparişler, faturalar, Lieferscheine, ödemeler, belgeler, zaman çizelgesi, etkinlikler, notlar, AI özeti ve iletişim geçmişi."
+      },
+      "salesPipeline": {
+        "title": "Satış Hattı",
+        "subtitle": "Sürükle ve bırak özellikli Kanban aşamaları — Liderlik, Nitelikli, Teklif, Müzakere, Kazanılan, Kaybedilen."
+      },
+      "ordersModule": {
+        "title": "Siparişler Modülü"
+      },
+      "deliveryModule": {
+        "title": "Teslimat Modülü",
+        "subtitle": "Takip, imza, QR ve barkod hazırlığına sahip profesyonel Lieferschein sistemi."
+      },
+      "documentsModule": {
+        "title": "Belgeler",
+        "subtitle": "Teklifler, sözleşmeler, faturalar, Lieferschein, satın alma siparişleri, makbuzlar — AI aramayla."
+      },
+      "tasksModule": {
+        "title": "Görevler"
+      },
+      "communicationHub": {
+        "title": "İletişim Merkezi",
+        "subtitle": "Yalnızca mesajlaşma, sosyal medya, e-posta, ses ve videolar için bağdaştırıcı kaydı."
+      },
+      "creatorStudio": {
+        "title": "İçerik Stüdyosu Vakfı",
+        "subtitle": "Platform bağdaştırıcıları daha sonra resmi entegrasyonlara hazır."
+      },
+      "aiCreator": {
+        "title": "Yapay Zeka Oluşturucu",
+        "subtitle": "İçerik, takvim, oluşturma ve yayınlama için kurumsal yetenek haritası."
+      },
+      "industryPlatform": {
+        "title": "Evrensel İş Platformu",
+        "subtitle": "Modüler endüstri kaydı — her sektör özel yapay zeka modülleri alabilir."
+      }
+    },
+    "directory": {
+      "errorTitle": "CRM yüklenemedi",
+      "sort": {
+        "companyName": "Şirket",
+        "contactName": "Temas etmek",
+        "email": "E-posta",
+        "phone": "Telefon",
+        "industry": "Endüstri",
+        "status": "Durum",
+        "owner": "Mal sahibi",
+        "createdAt": "Oluşturuldu"
+      },
+      "search": {
+        "label": "Müşterileri arayın",
+        "placeholder": "Şirket, iletişim, e-posta, etiketler…"
+      },
+      "view": {
+        "table": "Masa",
+        "cards": "Kartlar"
+      },
+      "actions": {
+        "newCustomer": "Yeni müşteri"
+      },
+      "filters": {
+        "status": "Durum",
+        "industry": "Endüstri",
+        "owner": "Mal sahibi",
+        "country": "Ülke",
+        "tags": "Etiketler",
+        "allStatuses": "Tüm durumlar",
+        "allIndustries": "Tüm endüstriler",
+        "allOwners": "Tüm sahipler",
+        "allCountries": "Tüm ülkeler",
+        "allTags": "Tüm etiketler"
+      },
+      "empty": {
+        "ready": {
+          "title": "CRM'niz hazır",
+          "description": "Dizinin, profillerin ve etkinliğin kilidini açmak için ilk müşteri kaydını oluşturun.",
+          "action": "Müşteri oluştur"
+        },
+        "noMatches": {
+          "title": "Eşleşen müşteri yok",
+          "description": "Doğru kayıtları bulmak için aramayı veya filtreleri ayarlamayı deneyin.",
+          "action": "Filtreleri temizle"
+        }
+      },
+      "pagination": {
+        "previous": "Öncesi",
+        "next": "Sonraki"
+      },
+      "showing": "{from} / {to}–{total} arası gösteriliyor",
+      "aria": {
+        "openCustomer": "{company} müşterisini açın"
+      },
+      "cardMeta": "Sahip {owner} · Oluşturuldu: {date}",
+      "sortBy": "{column}'a göre sırala"
+    },
+    "status": {
+      "lead": "Yol göstermek",
+      "prospect": "Olasılık",
+      "active": "Aktif",
+      "inactive": "Etkin değil",
+      "vip": "vip",
+      "archived": "Arşivlendi"
+    },
+    "form": {
+      "createTitle": "Müşteri Oluştur",
+      "editTitle": "Müşteriyi Düzenle",
+      "cancel": "İptal etmek",
+      "saveChanges": "Değişiklikleri kaydet",
+      "createCustomer": "Müşteri oluştur",
+      "companyName": "Firma Adı",
+      "contactName": "Kişi Adı",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "website": "Web sitesi",
+      "industry": "Endüstri",
+      "country": "Ülke",
+      "city": "Şehir",
+      "address": "Adres",
+      "taxNumber": "Vergi Numarası",
+      "owner": "Mal sahibi",
+      "status": "Durum",
+      "tags": "Etiketler",
+      "statusAria": "Müşteri durumu",
+      "tagsHint": "Virgülle ayrılmış, otomatik olarak renk kodlu",
+      "websitePlaceholder": "https://",
+      "tagsPlaceholder": "kurumsal, perakende"
+    },
+    "toasts": {
+      "customerCreated": "Müşteri oluşturuldu",
+      "customerUpdated": "Müşteri güncellendi",
+      "checkForm": "Formu kontrol edin",
+      "validationFailed": "Doğrulama başarısız oldu.",
+      "customerDeleted": "Müşteri silindi",
+      "deleteFailed": "Silinemedi",
+      "customerCouldNotBeRemoved": "Müşteri kaldırılamadı.",
+      "contactSaved": "Kişi kaydedildi",
+      "documentsAttached": "Ekli belgeler",
+      "documentsAttachedDetail": "{count} dosya(lar)",
+      "noteSaved": "Not kaydedildi"
+    },
+    "deleteDialog": {
+      "title": "Müşteriyi sil",
+      "cancel": "İptal etmek",
+      "deletePermanently": "Kalıcı olarak sil",
+      "thisCustomer": "bu müşteri",
+      "bodyPrefix": "Bu kaldırır",
+      "bodySuffix": "ve yerel depolamadaki ilgili kişiler, notlar, belgeler ve etkinlikler. Bağlantılı projeler silinmez."
+    },
+    "validation": {
+      "companyNameRequired": "Şirket adı gereklidir.",
+      "contactNameRequired": "Kişi adı gerekli.",
+      "emailRequired": "E-posta gerekli.",
+      "emailInvalid": "Geçerli bir e-posta adresi girin.",
+      "phoneRequired": "Telefon gereklidir.",
+      "phoneInvalid": "Geçerli bir telefon numarası girin.",
+      "websiteInvalid": "Geçerli bir web sitesi girin.",
+      "industryRequired": "Sanayi şart.",
+      "ownerRequired": "Sahibi gerekli.",
+      "statusInvalid": "Geçerli bir durum seçin.",
+      "emailDuplicate": "Bu e-postaya sahip bir müşteri zaten mevcut.",
+      "nameRequired": "Ad gerekli.",
+      "mobileInvalid": "Geçerli bir cep telefonu numarası girin.",
+      "mobileRequired": "Mobil gereklidir.",
+      "roleRequired": "Rol gerekli.",
+      "noteTitleRequired": "Başlık gerekli.",
+      "noteBodyRequired": "Not gövdesi gereklidir.",
+      "noteAuthorRequired": "Yazar gereklidir."
+    },
+    "errors": {
+      "failedToLoadCustomers": "Müşteriler yüklenemedi.",
+      "failedToLoadCustomerProfile": "Müşteri profili yüklenemedi.",
+      "organizationRequired": "Organizasyon gereklidir.",
+      "failedToSaveCustomer": "Müşteri kaydedilemedi.",
+      "failedToDeleteCustomer": "Müşteri silinemedi.",
+      "failedToSaveContact": "Kişi kaydedilemedi.",
+      "failedToSaveNote": "Not kaydedilemedi.",
+      "failedToUploadDocument": "Doküman yüklenemedi."
+    },
+    "workspace": {
+      "badge": "Kurumsal CRM 2.0",
+      "title": "Müşteri İlişkileri Yönetimi",
+      "subtitleBeforeOrg": "Müşteri dizinini, profillerini, kişilerini, notlarını ve belgelerini yönetin",
+      "subtitleAfterOrg": "Projeler, veriler kopyalanmadan Projeler modülünden şirket adına göre bağlanır.",
+      "yourOrganization": "kuruluşunuz"
+    },
+    "analytics": {
+      "totalCustomers": "Toplam Müşteriler",
+      "activeCustomers": "Aktif Müşteriler",
+      "newCustomers": "Yeni Müşteriler",
+      "vipCustomers": "VIP Müşteriler",
+      "createdThisMonth": "Bu ay oluşturuldu",
+      "leadConversion": "Potansiyel müşteri dönüşümü",
+      "leadConversionHint": "Potansiyel müşteri / potansiyel müşteri / dönüşüm hunisinin aktif ve VIP payı.",
+      "customerGrowth": "Müşteri büyümesi"
+    },
+    "profile": {
+      "backToCrm": "← CRM'e geri dön",
+      "ownerLabel": "Mal sahibi",
+      "notFoundTitle": "Müşteri bulunamadı",
+      "notFoundDescription": "Bu müşteri silinmiş olabilir.",
+      "missingCustomerTitle": "Eksik müşteri",
+      "missingOverviewDescription": "Genel bakışı görüntülemek için bir müşteri seçin.",
+      "missingSettingsDescription": "Ayarları yönetmek için bir müşteri seçin.",
+      "ariaProfileNav": "Müşteri profili",
+      "tabs": {
+        "overview": "Genel Bakış",
+        "contacts": "Kişiler",
+        "projects": "Projeler",
+        "documents": "Belgeler",
+        "invoices": "Faturalar",
+        "activity": "Etkinlik",
+        "notes": "Notlar",
+        "settings": "Ayarlar"
+      },
+      "overview": {
+        "title": "Genel Bakış",
+        "email": "E-posta",
+        "phone": "Telefon",
+        "website": "Web sitesi",
+        "taxNumber": "Vergi numarası",
+        "location": "Konum",
+        "address": "Adres",
+        "created": "Oluşturuldu",
+        "updated": "Güncellendi",
+        "emptyValue": "—"
+      },
+      "contacts": {
+        "addTitle": "Kişi ekle",
+        "editTitle": "Kişiyi düzenle",
+        "listTitle": "Kişiler",
+        "name": "İsim",
+        "role": "Rol",
+        "email": "E-posta",
+        "phone": "Telefon",
+        "mobile": "Mobil",
+        "notes": "Notlar",
+        "saveContact": "Kişiyi kaydet",
+        "emptyTitle": "Henüz kişi yok",
+        "emptyDescription": "Rol, e-posta ve telefon ayrıntılarıyla paydaşları ekleyin.",
+        "defaultRole": "Temas etmek",
+        "mobilePrefix": "Mobil"
+      },
+      "projects": {
+        "title": "Projeler",
+        "emptyTitle": "Bağlantılı proje yok",
+        "emptyDescription": "Müşteri adı bu şirketle eşleşen projeler burada görünür. Veriler Projeler modülünden okunur; hiçbir şey kopyalanmaz.",
+        "openProjects": "Açık Projeler"
+      },
+      "documents": {
+        "title": "Belgeler",
+        "subtitle": "Resimler, PDF'ler ve ofis belgeleri — meta veriler yalnızca Yerel Depolama'dadır.",
+        "attachFiles": "Dosya ekle",
+        "emptyTitle": "Belge yok",
+        "emptyDescription": "Hesap ekibi için müşteri dosyalarını ekleyin.",
+        "systemUploader": "Sistem"
+      },
+      "invoices": {
+        "emptyTitle": "Henüz fatura yok",
+        "emptyDescription": "Bu müşterinin faturaları, Finans'tan bağlantı kurulduğunda burada görünür."
+      },
+      "activity": {
+        "title": "Etkinlik",
+        "emptyTitle": "Henüz etkinlik yok",
+        "emptyDescription": "Oluşturmalar, güncellemeler, notlar ve belgeler burada en yenisi önce görünür.",
+        "kinds": {
+          "customer_created": "Müşteri oluşturuldu",
+          "customer_updated": "Müşteri güncellendi",
+          "contact_added": "Kişi eklendi",
+          "contact_updated": "İletişim güncellendi",
+          "contact_deleted": "Kişi silindi",
+          "note_added": "Not eklendi",
+          "note_updated": "Not güncellendi",
+          "note_deleted": "Not silindi",
+          "document_added": "Doküman eklendi",
+          "document_deleted": "Doküman silindi",
+          "project_linked": "Proje bağlantılı"
+        }
+      },
+      "notes": {
+        "newTitle": "Yeni not",
+        "editTitle": "Notu düzenle",
+        "title": "Başlık",
+        "author": "Yazar",
+        "body": "Vücut",
+        "saveNote": "Notu kaydet",
+        "emptyTitle": "Henüz not yok",
+        "emptyDescription": "Yazar ve zaman damgalarıyla hesap içeriğini yakalayın."
+      },
+      "settings": {
+        "title": "Ayarlar",
+        "description": "Tüm profil alanlarını düzenleyin veya bu hesabı arşivleyin. Silme işleminde onay iletişim kutusu kullanılır.",
+        "editAllFields": "Tüm alanları düzenle",
+        "prepareArchive": "Arşivi hazırla",
+        "deleteCustomer": "Müşteriyi sil"
+      }
+    },
+    "customer360": {
+      "ariaSections": "Müşteri 360 bölümleri",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "aiHealth": "Yapay Zeka Sağlığı",
+      "tabs": {
+        "profile": "Profil",
+        "company": "Şirket",
+        "contacts": "Kişiler",
+        "orders": "Siparişler",
+        "invoices": "Faturalar",
+        "lieferscheine": "Lieferscheine",
+        "payments": "Ödemeler",
+        "documents": "Belgeler",
+        "timeline": "Zaman çizelgesi",
+        "activities": "Faaliyetler",
+        "notes": "Notlar",
+        "aiSummary": "Yapay Zeka Özeti",
+        "communicationHistory": "İletişim Geçmişi"
+      },
+      "profileLines": {
+        "customerId": "Müşteri Kimliği",
+        "status": "Durum",
+        "primaryContact": "Birincil iletişim"
+      },
+      "status": {
+        "churn_risk": "Kayıp riski"
+      }
+    },
+    "delivery": {
+      "title": "Profesyonel Lieferschein Sistemi",
+      "description": "Teslimat notları, teslim alma / teslimat, sürücü, araç ve takip - yalnızca örnek kayıtlar. Dışa aktarma bağdaştırıcıları bağlı değil.",
+      "badges": {
+        "qrUnavailable": "QR kullanılamıyor",
+        "barcodeUnavailable": "Barkod mevcut değil",
+        "signatureDemo": "İmza demosu"
+      },
+      "exportPdf": "PDF'yi dışa aktar",
+      "deliveryHistory": "Teslimat Geçmişi",
+      "notices": {
+        "exportNotConnected": "PDF, QR ve barkod dışa aktarma bu yapıda bağlantılı değildir.",
+        "exportPdfUnavailable": "PDF'yi dışa aktarma kullanılamıyor — teslimatı dışa aktarma bağlı değil.",
+        "historyNotConnected": "Teslimat geçmişi deposu bu yapıya bağlı değil."
+      },
+      "columns": {
+        "lieferschein": "Lieferschein",
+        "order": "Emir",
+        "customer": "Müşteri",
+        "kind": "Tür",
+        "driver": "Sürücü",
+        "vehicle": "Araç",
+        "tracking": "Takip",
+        "scheduled": "planlanmış"
+      }
+    },
+    "orders": {
+      "description": "Ürünler, hizmetler, fiyat, indirim, vergi ve müşteri - kurumsal sipariş defteri.",
+      "createOrder": "Sipariş Oluştur",
+      "notices": {
+        "apiReserved": "Gelecekteki yazma yolu için ayrılmış sipariş oluşturma API'si.",
+        "draftStaged": "Sipariş taslağı oluşturuldu (henüz API yok)."
+      },
+      "columns": {
+        "order": "Emir",
+        "customer": "Müşteri",
+        "status": "Durum",
+        "lines": "çizgiler",
+        "net": "Açık",
+        "tax": "Vergi",
+        "gross": "Brüt",
+        "created": "Oluşturuldu"
+      },
+      "lineTax": "%{taxPct} vergi"
+    },
+    "tasks": {
+      "calendarTitle": "Takvim · Toplantılar · Hatırlatıcılar · Takipler",
+      "foundationTitle": "Görev İşletim Sistemi temeli",
+      "foundationDescription": "Takvim senkronizasyonu, toplantı sağlayıcıları, hatırlatma işleri ve takip otomasyonu kancaları ayrılmıştır. Bu pano, her endüstri modülü için paylaşılan CRM görev yüzeyidir.",
+      "badges": {
+        "calendarAdapter": "Takvim adaptörü",
+        "meetingAdapter": "Toplantı bağdaştırıcısı",
+        "reminderQueue": "Hatırlatma kuyruğu",
+        "followUpEngine": "Takip motoru"
+      },
+      "duePrefix": "Vadesi dolmuş",
+      "kinds": {
+        "follow_up": "Takip etmek",
+        "meeting": "Toplantı",
+        "reminder": "Hatırlatma",
+        "task": "Görev"
+      },
+      "statuses": {
+        "open": "Açık",
+        "in_progress": "Devam etmekte",
+        "done": "Tamamlamak",
+        "cancelled": "İptal edildi"
+      }
+    },
+    "documentsModule": {
+      "emptyTitle": "Belge yok",
+      "emptyDescription": "Bu aramayla eşleşen belge yok.",
+      "searchLabel": "Yapay Zeka Arama",
+      "searchPlaceholder": "Fiyat teklifleri, sözleşmeler, faturalar, Lieferschein…",
+      "typeLabel": "Belge türü",
+      "allTypes": "Tüm türler",
+      "columns": {
+        "type": "Tip",
+        "title": "Başlık",
+        "customer": "Müşteri",
+        "status": "Durum",
+        "updated": "Güncellendi"
+      },
+      "kinds": {
+        "quote": "Alıntılar",
+        "contract": "Sözleşmeler",
+        "invoice": "Faturalar",
+        "lieferschein": "Lieferschein",
+        "purchase_order": "Satınalma Siparişleri",
+        "receipt": "Makbuzlar"
+      }
+    },
+    "communication": {
+      "intro": "Yalnızca ölçeklenebilir kanal mimarisi — E-posta, WhatsApp, Instagram, Facebook, TikTok, LinkedIn, Telegram, Ses ve Video. Sahte canlı entegrasyon yok.",
+      "adapterPrefix": "Adaptör:"
+    },
+    "aiCreator": {
+      "intro": "Geleceğe hazır Yapay Zeka Oluşturucu yüzeyi: fikirler, başlıklar, hashtag'ler, takvim, kampanyalar, marka sesi, görsel/video oluşturma, analizler, planlama, yayınlama kuyruğu ve öngörüler. Henüz kablolu gerçek sağlayıcı API'si yok."
+    },
+    "creatorStudio": {
+      "intro": "İçerik Stüdyosu temeli — Resmi platform entegrasyonları daha sonra bu bağdaştırıcılara takılabilir. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Konular, X."
+    },
+    "industry": {
+      "intro": "Evrensel İş Platformu — katılım daha sonra bir sektör seçecektir. Her sektör, çekirdek CRM işletim sistemini zorlamadan özel yapay zeka modülleri alır."
+    },
+    "kpi": {
+      "customers": {
+        "label": "Müşteriler",
+        "caption": "Aktif ilişkiler"
+      },
+      "companies": {
+        "label": "Şirketler",
+        "caption": "Hesap kuruluşları"
+      },
+      "leads": {
+        "label": "Potansiyel müşteriler",
+        "caption": "Bu ay yeni"
+      },
+      "deals": {
+        "label": "Fırsatlar",
+        "caption": "Boru hattını aç"
+      },
+      "revenue": {
+        "label": "Hasılat",
+        "caption": "YTD'yi kazandı"
+      },
+      "projects": {
+        "label": "Aktif Projeler",
+        "caption": "Uçuşta teslimat"
+      },
+      "tasks": {
+        "label": "Görevleri Aç",
+        "caption": "CRM + teslimat genelinde"
+      },
+      "ai-health": {
+        "label": "Yapay Zeka Sağlık Puanı",
+        "caption": "İlişki kalitesi sinyali"
+      },
+      "scoreOutOf": "{score} / {max}"
+    },
+    "pipeline": {
+      "lead": "Yol göstermek",
+      "qualified": "Nitelikli",
+      "proposal": "Teklif",
+      "negotiation": "Müzakere",
+      "won": "Kazanmak",
+      "lost": "Kayıp"
+    },
+    "orderStatus": {
+      "draft": "Taslak",
+      "confirmed": "Onaylandı",
+      "in_fulfillment": "yerine getirilmesinde",
+      "shipped": "Gönderildi",
+      "delivered": "Teslim edilmiş",
+      "cancelled": "İptal edildi"
+    },
+    "tracking": {
+      "scheduled": "planlanmış",
+      "en_route": "Yolda",
+      "arrived": "Ulaşmış",
+      "completed": "Tamamlanmış",
+      "failed": "Arızalı"
+    },
+    "documentKind": {
+      "quote": "Alıntı",
+      "contract": "Sözleşme",
+      "invoice": "Fatura",
+      "lieferschein": "Lieferschein",
+      "purchase_order": "Satın alma emri",
+      "receipt": "Fiş"
+    },
+    "documentStatus": {
+      "sent": "Gönderilmiş",
+      "signed": "İmzalandı",
+      "paid": "Paralı",
+      "in_transit": "Transit olarak",
+      "open": "Açık",
+      "filed": "Dosyalandı"
+    },
+    "integration": {
+      "planned": "Planlanan",
+      "ready": "Hazır",
+      "connected": "Bağlı",
+      "disabled": "Engelli"
+    }
+  },
+  "finance": {
+    "page": {
+      "brand": "AGXORA Finans İşletim Sistemi",
+      "title": "Finans ve Vergi",
+      "subtitle": "Muhasebe, bankacılık, vergi ve finansal istihbarat; canlı defterler bağlanana kadar örnek verilerle önizlenir.",
+      "sampleNotice": "Örnek veri kümesi — rakamlar ve dışa aktarma geçmişi açıklayıcıdır. DATEV / dosya aktarımı ve canlı banka yayınları birbirine bağlı değil."
+    },
+    "sections": {
+      "overview": {
+        "title": "Finansa Genel Bakış"
+      },
+      "invoiceCenter": {
+        "title": "Fatura Merkezi",
+        "subtitle": "Yapay zeka güven puanlamasıyla kurumsal fatura defterini arayın, filtreleyin ve sıralayın."
+      },
+      "aiInvoiceProcessing": {
+        "title": "Yapay Zeka Fatura İşleme",
+        "subtitle": "Demo hattı — OCR ve AI çıkarma bağlı değil."
+      },
+      "banking": {
+        "title": "Bankacılık",
+        "subtitle": "Yalnızca örnek hesaplar — Açık Bankacılık akışları bağlı değildir."
+      },
+      "datev": {
+        "title": "DATEV Entegrasyonu",
+        "subtitle": "Örnek dışa aktarma geçmişi — DATEV dosyası oluşturma işlemi bağlı değil."
+      },
+      "taxCenter": {
+        "title": "Vergi Merkezi",
+        "subtitle": "KDV özetleri, son teslim tarihleri ​​ve yaklaşan ödemeler."
+      },
+      "aiInsights": {
+        "title": "Yapay Zeka Analizleri",
+        "subtitle": "Yalnızca örnek bulgular — içgörü eylemleri bağlantılı değildir."
+      },
+      "smartSearch": {
+        "title": "Akıllı Arama",
+        "subtitle": "Faturalar, giderler, KDV ve ihracatlarda doğal dil sorguları."
+      }
+    },
+    "overview": {
+      "metrics": {
+        "revenue": {
+          "label": "Hasılat",
+          "caption": "Örnek · son 30 gün",
+          "delta": "+8.4%"
+        },
+        "expenses": {
+          "label": "Giderler",
+          "caption": "Örnek · işletim + SMM",
+          "delta": "+2.1%"
+        },
+        "profit": {
+          "label": "Kâr",
+          "caption": "Örnek · net işletim",
+          "delta": "+12.6%"
+        },
+        "vat-due": {
+          "label": "KDV Ödenmesi",
+          "caption": "Örnek · Q2 penceresi",
+          "delta": "{days} gün içinde teslim edilecek"
+        },
+        "open-invoices": {
+          "label": "Faturaları Aç",
+          "caption": "Örnek · {money} ödenmemiş"
+        },
+        "paid-invoices": {
+          "label": "Ödenen Faturalar",
+          "caption": "Örnek · bu çeyrek",
+          "delta": "+{count}"
+        },
+        "cashflow": {
+          "label": "Nakit akımı",
+          "caption": "Örnek · 30 günlük projeksiyon",
+          "delta": "+4.2%"
+        },
+        "ai-score": {
+          "label": "Yapay Zeka Finansal Puanı",
+          "caption": "Örnek puan · canlı risk puanlaması değil",
+          "delta": "+{count}"
+        }
+      },
+      "scoreOutOf": "{score} / {max}"
+    },
+    "invoices": {
+      "emptyTitle": "Fatura yok",
+      "emptyDescription": "Aramanızla veya filtrelerinizle eşleşen fatura yok.",
+      "searchPlaceholder": "Numara, şirket, kategori…",
+      "statusFilter": "Durum filtresi",
+      "paymentFilter": "Ödeme filtresi",
+      "sortBy": "Göre sırala",
+      "toggleSort": "Sıralama yönünü değiştir",
+      "count": "{count} fatura",
+      "countOne": "{count} fatura",
+      "allStatuses": "Tüm durumlar",
+      "allPayments": "Tüm ödemeler",
+      "columns": {
+        "number": "Fatura Numarası",
+        "company": "Şirket",
+        "amount": "Miktar",
+        "vat": "KDV",
+        "status": "Durum",
+        "dueDate": "Bitiş tarihi",
+        "payment": "Ödeme Durumu",
+        "category": "Kategori",
+        "ai": "Yapay Zeka Güveni"
+      },
+      "sort": {
+        "dueDate": "Bitiş tarihi",
+        "amount": "Miktar",
+        "company": "Şirket",
+        "status": "Durum",
+        "aiConfidence": "Yapay zeka güveni",
+        "number": "Fatura #"
+      }
+    },
+    "status": {
+      "draft": "Taslak",
+      "open": "Açık",
+      "paid": "Paralı",
+      "overdue": "vadesi geçmiş",
+      "cancelled": "İptal edildi"
+    },
+    "payment": {
+      "unpaid": "ödenmemiş",
+      "partial": "Kısmi",
+      "paid": "Paralı",
+      "refunded": "Geri ödeme yapıldı"
+    },
+    "category": {
+      "saas": "SaaS",
+      "office": "Ofis",
+      "travel": "Seyahat",
+      "marketing": "Pazarlama",
+      "utilities": "Yardımcı programlar",
+      "professional": "Profesyonel",
+      "other": "Diğer"
+    },
+    "processing": {
+      "dropTitle": "Fatura dosyalarını sürükleyip bırakın",
+      "dropFormats": "PDF · Resim · E-posta İçe Aktarma",
+      "uploadFiles": "Dosyaları yükle",
+      "emailImport": "E-postayı İçe Aktarma",
+      "dropHint": "Yerel olarak hazırlamak için PDF veya resim faturalarını bırakın; OCR bağlı değil.",
+      "filesStaged": "{count} dosya yalnızca yerel olarak listeleniyor — OCR / AI çıkarma bağlı değil.",
+      "emailReserved": "IMAP / Microsoft Graph için ayrılmış e-posta içe aktarma bağlayıcısı.",
+      "pipelineTitle": "İşleme hattı (demo)",
+      "stages": {
+        "ocr": "OCR Durumu",
+        "extraction": "Yapay Zeka Çıkarma",
+        "categorization": "Kategorizasyon",
+        "duplicateDetection": "Yinelenen Algılama"
+      }
+    },
+    "stage": {
+      "pending": "Kullanılamıyor",
+      "running": "Bağlı değil",
+      "complete": "Demo",
+      "failed": "Arızalı",
+      "skipped": "Atlandı"
+    },
+    "banking": {
+      "connectionTitle": "Banka Bağlantısı",
+      "connectBank": "Bankayı bağla",
+      "description": "PSD2 / Açık Bankacılık adaptörleri kablolu değildir. Aşağıdaki eşleştirme ve mutabakat yalnızca açıklama amaçlıdır.",
+      "feedUnavailable": "Banka beslemesi kullanılamıyor — sağlayıcı bağlantısı bağlı değil.",
+      "noticeDefault": "Açık Bankacılık bağlı değil — aşağıdaki hesaplar örnek verilerdir.",
+      "connectUnavailable": "Banka bağlantısı kullanılamıyor — Açık Bankacılık bu yapıda bağlı değil.",
+      "sampleAccounts": "Örnek Hesaplar",
+      "sample": "Örnek",
+      "offline": "Çevrimdışı",
+      "demoPrefix": "Demo",
+      "latestTransactions": "Son İşlemler",
+      "sampleMatching": "Örnek eşleştirme",
+      "demoOnly": "Yalnızca demo",
+      "sampleMatch": "Örnek eşleşme",
+      "unmatched": "Eşsiz",
+      "emptyBalance": "—"
+    },
+    "datev": {
+      "title": "DATEV Entegrasyonu",
+      "notConnected": "Bağlı değil",
+      "intro": "Aşağıdaki örnek dışa aktarma geçmişi açıklayıcıdır. Kimlik bilgileri ve dosya oluşturma bu yapıda bağlantılı değildir.",
+      "noticeDefault": "Dışa aktarma bağdaştırıcıları bağlı değil; hiçbir dosya oluşturulmayacak.",
+      "exportUnavailable": "{title} kullanılamıyor — DATEV / dosya dışa aktarımı bağlı değil.",
+      "exportUnavailableAria": "{title} — kullanılamıyor",
+      "historyTitle": "Dışa Aktarma Geçmişi (örnek)",
+      "refresh": "Yenile",
+      "refreshUnavailable": "Yenileme kullanılamıyor — dışa aktarma geçmişi statik örnek verilerdir.",
+      "steuerberaterSample": "Örnek",
+      "steuerberaterPending": "Askıda olması",
+      "columns": {
+        "export": "İhracat",
+        "format": "Biçim",
+        "period": "Dönem",
+        "created": "Oluşturuldu",
+        "status": "Durum",
+        "steuerberater": "Steuerberater"
+      },
+      "actions": {
+        "datev": {
+          "title": "DATEV Dışa Aktarma",
+          "description": "Steuerberater iş akışları için Buchungsstapel paketi."
+        },
+        "csv": {
+          "title": "CSV Dışa Aktarma",
+          "description": "Elektronik tablolar ve içe aktarmalar için deftere hazır CSV."
+        },
+        "pdf": {
+          "title": "PDF Dışa Aktarma",
+          "description": "İnceleme ve arşivleme için belge paketi."
+        },
+        "xml": {
+          "title": "XML Dışa Aktarımı",
+          "description": "İşlem hatlarını dosyalamak için yapılandırılmış vergi XML'si."
+        }
+      }
+    },
+    "exportStatus": {
+      "queued": "Örnek · Sıraya Alındı",
+      "ready": "Örnek · Hazır",
+      "delivered": "açıklayıcı",
+      "failed": "Arızalı"
+    },
+    "tax": {
+      "vatSummaryTitle": "KDV Özeti",
+      "monthlyVat": "Aylık KDV",
+      "quarterlyVat": "Üç aylık KDV",
+      "collected": "Toplanan",
+      "deductible": "İndirilebilir",
+      "netDue": "Net vade",
+      "deadlinesTitle": "Vergi Son Tarihleri ​​· Yaklaşan Ödemeler",
+      "duePrefix": "Vadesi dolmuş",
+      "deadlineStatus": {
+        "due_soon": "Yakında",
+        "upcoming": "Yaklaşan",
+        "overdue": "vadesi geçmiş",
+        "paid": "Paralı"
+      },
+      "deadlines": {
+        "td-1": "Aylık KDV beyannamesi",
+        "td-2": "Üç aylık KDV ödemesi",
+        "td-3": "Peşin kurumlar vergisi"
+      },
+      "period": {
+        "monthly": "Aylık",
+        "quarterly": "Üç ayda bir",
+        "annual": "Yıllık"
+      }
+    },
+    "insights": {
+      "demoPrefix": "Demo",
+      "noticeDefault": "İçgörü eylemleri birbirine bağlı değildir; kartlar yalnızca örnek bulguları gösterir.",
+      "actionUnavailable": "{action} kullanılamıyor — finans analizi işlemleri bağlı değil.",
+      "actionUnavailableTitle": "{action} kullanılamıyor — bağlı değil",
+      "kinds": {
+        "unusual_expense": "Olağandışı harcamalar",
+        "duplicate_invoice": "Yinelenen faturalar",
+        "missing_invoice": "Eksik faturalar",
+        "late_payment": "Geç ödemeler",
+        "cashflow_prediction": "Nakit akışı tahmini",
+        "tax_optimization": "Vergi optimizasyonu"
+      }
+    },
+    "search": {
+      "label": "Doğal Dil Arama",
+      "placeholder": "\"Ödenmemiş faturaları göster\"i deneyin",
+      "submit": "Aramak",
+      "examplesTitle": "Örnekler",
+      "hints": {
+        "idle": "Faturalar, harcamalar, KDV veya ihracat hakkında bilgi alın.",
+        "unpaid_invoices": "Fatura Merkezini ödenmemiş / açık kalemlere göre filtreleme.",
+        "july_expenses": "Temmuz ayı gider tarafı faaliyeti gösteriliyor.",
+        "amazon": "Amazon faturalarını ve makbuzlarını bulma.",
+        "vat_export": "DATEV / KDV ihracat işlemlerinin açılması.",
+        "general": "“{query}” için defter aranıyor."
+      },
+      "examples": {
+        "q1": {
+          "query": "Ödenmemiş faturaları göster",
+          "description": "Ödenmemiş veya kısmi durumdaki açık alacaklar"
+        },
+        "q2": {
+          "query": "Temmuz giderlerini göster",
+          "description": "Temmuz ayında gider tarafı faturalar ve banka çıkışları"
+        },
+        "q3": {
+          "query": "Amazon faturalarını bulun",
+          "description": "Fatura merkezinde ve yüklemelerde satıcı eşleşmesi"
+        },
+        "q4": {
+          "query": "İhracat KDV'si",
+          "description": "DATEV / vergi ihracat işlemlerine git"
+        }
+      }
+    }
+  },
+  "documents": {
+    "page": {
+      "brand": "AGXORA Bilgi İşletim Sistemi",
+      "title": "Belgeler",
+      "subtitle": "Kurumsal belgeler ve bilgi merkezi — depolama ve onay arka uçları bağlanana kadar örnek içerikle birlikte önizlenir.",
+      "sampleNotice": "Örnek kitaplık — tarama ve filtreler oturum içinde çalışır. Yükleme, onaylama ve AI dizini eylemleri birbirine bağlı değildir."
+    },
+    "sections": {
+      "kpis": {
+        "title": "Bilgi Kontrol Paneli"
+      },
+      "library": {
+        "title": "Belge Kitaplığı",
+        "subtitle": "Tüm Belgeler, En Son Kullanılanlar, Sık Kullanılanlar, Paylaşılanlar, Arşivlenenler, Çöp Kutusu, Bilgi Bankası — klasörler, arama, görüntüleyici ve sürümlerle birlikte."
+      },
+      "knowledge": {
+        "title": "Bilgi Bankası",
+        "subtitle": "Makaleler, politikalar, süreçler, kılavuzlar, SSS'ler ve dahili wiki."
+      },
+      "approvals": {
+        "title": "Onaylar",
+        "subtitle": "Taslak, İncelemede, Onaylandı, Reddedildi, Arşivlendi — Otomasyon mimarisiyle bağlantılı."
+      },
+      "ai": {
+        "title": "Yapay Zeka Bilgi Katmanı",
+        "subtitle": "Özet, anahtar kelimeler, sınıflandırma, etiketler, klasörler, ilgili belgeler, kopyalar, çeviri, OCR ve arama — yalnızca mimari."
+      },
+      "activity": {
+        "title": "Etkinlik",
+        "subtitle": "Son değişiklikler, yüklemeler, görüntülemeler, paylaşımlar ve denetim geçmişi."
+      },
+      "integrations": {
+        "title": "Entegrasyonlar",
+        "subtitle": "Sürücü adaptörleri ayrılmıştır — canlı konnektör yoktur."
+      },
+      "security": {
+        "title": "Güvenlik ve Paylaşım",
+        "subtitle": "RBAC, denetim takibi, şifreleme, saklama ve paylaşım kapsamları."
+      }
+    },
+    "loading": {
+      "knowledgeBase": "Bilgi tabanı yükleniyor…",
+      "approvals": "Onay kuyruğu yükleniyor…",
+      "aiInsights": "Yapay zeka analizleri yükleniyor…",
+      "activity": "Etkinlik yükleniyor…",
+      "integrations": "Entegrasyonlar yükleniyor…",
+      "security": "Güvenlik yükleniyor…"
+    },
+    "kpi": {
+      "documents": {
+        "label": "Belgeler",
+        "caption": "Örnek · klasörler arası",
+        "delta": "+{count}"
+      },
+      "folders": {
+        "label": "Klasörler",
+        "caption": "Örnek · akıllı koleksiyonlar dahil",
+        "delta": "+{count}"
+      },
+      "storage": {
+        "label": "Kullanılan Depolama",
+        "caption": "Açıklayıcı plan örneği",
+        "delta": "+{size}"
+      },
+      "shared": {
+        "label": "Paylaşılan Belgeler",
+        "caption": "Örnek · kuruluş + departman + kullanıcılar",
+        "delta": "+{count}"
+      },
+      "activity": {
+        "label": "Son Etkinlik",
+        "caption": "Örnek · son 24 saat",
+        "delta": "+{count}"
+      },
+      "indexed": {
+        "label": "AI İndeksli",
+        "caption": "Örnek · AI araması bağlı değil",
+        "delta": "{percent}"
+      },
+      "approvals": {
+        "label": "Bekleyen Onaylar",
+        "caption": "Örnek · otomasyon bağlı değil",
+        "delta": "{count}"
+      },
+      "score": {
+        "label": "Bilgi Puanı",
+        "caption": "Örnek · kapsam illüstrasyonu",
+        "delta": "+{count}"
+      }
+    },
+    "library": {
+      "viewsAria": "Kütüphane görünümleri",
+      "views": {
+        "all": "Tüm Belgeler",
+        "recent": "Son",
+        "favorites": "Favoriler",
+        "shared": "Paylaşıldı",
+        "archived": "Arşivlendi",
+        "trash": "Çöp",
+        "knowledge": "Bilgi Bankası"
+      },
+      "dropzone": "Yükleme işlemini gerçekleştirmek için dosyaları buraya sürükleyip bırakın.",
+      "uploadReserved": "Sürükle ve bırak yüklemesi, ayrılmış bir depolama API'sidir.",
+      "filesStaged": "{count} dosya yükleme için hazırlandı (depolamaya yazma yok).",
+      "dropReceived": "Bırakma alındı ​​(depolama yazma yok).",
+      "foldersTitle": "Klasörler ve Koleksiyonlar",
+      "foldersHint": "İç içe geçmiş klasörler, koleksiyonlar, akıllı koleksiyonlar, etiketler, sabitlenmiş ve favoriler.",
+      "allFolders": "Tüm klasörler",
+      "smart": "Akıllı",
+      "collection": "Koleksiyon",
+      "pinned": "Sabitlendi",
+      "favorite": "Favori",
+      "sharedBadge": "Paylaşıldı",
+      "title": "Belge Kitaplığı",
+      "results": "{count} sonuç",
+      "resultOne": "{count} sonuç",
+      "selected": "· {count} seçildi",
+      "bulkAction": "Toplu işlem",
+      "bulkUnavailable": "{count} öğe için toplu işlem kullanılamıyor; depolama mutasyonları bağlı değil.",
+      "searchLabel": "Küresel Arama",
+      "searchPlaceholder": "Ad, etiketler, sahip, AI özeti…",
+      "typeLabel": "Tip",
+      "statusLabel": "Durum",
+      "departmentLabel": "Departman",
+      "ownerLabel": "Mal sahibi",
+      "allTypes": "Tüm türler",
+      "allStatuses": "Tüm durumlar",
+      "allDepartments": "Tüm bölümler",
+      "allOwners": "Tüm sahipler",
+      "favoritesOnly": "Yalnızca favoriler",
+      "emptyTitle": "Gösterilecek belge yok",
+      "emptyDescription": "Kitaplığı büyütmek için filtreleri ayarlayın, aramayı temizleyin veya bilgi varlıkları ekleyin.",
+      "selectAria": "{name}'i seçin",
+      "versionHistoryTitle": "Sürüm Geçmişi",
+      "close": "Kapalı",
+      "context": {
+        "open": "Açık",
+        "share": "Paylaşmak",
+        "favorite": "Favori",
+        "move": "Taşınmak",
+        "delete": "Silmek",
+        "dismiss": "Azletmek",
+        "unavailable": "{action} kullanılamıyor — {id} için belge değişimleri bağlı değil."
+      }
+    },
+    "viewer": {
+      "title": "Belge Görüntüleyici",
+      "emptyTitle": "Bir belge seçin",
+      "emptyDescription": "İçeriği, meta verileri, etiketleri, sürümleri ve bağlantılı modülleri önizlemek için kitaplıktan bir dosya seçin.",
+      "zoomOut": "Yakınlaştır –",
+      "zoomIn": "Yakınlaştır +",
+      "prev": "Önceki",
+      "next": "Sonraki",
+      "page": "Sayfa {page} / {total}",
+      "searchInside": "İçeride ara",
+      "findPlaceholder": "Önizlemede bul…",
+      "noMatches": "Önizleme metninde eşleşme yok.",
+      "meta": {
+        "owner": "Mal sahibi",
+        "created": "Oluşturuldu",
+        "updated": "Güncellendi",
+        "fileType": "Dosya Türü",
+        "size": "Boyut",
+        "category": "Kategori",
+        "department": "Departman",
+        "status": "Durum",
+        "retention": "Tutulma",
+        "version": "Sürüm",
+        "sharing": "Paylaşma"
+      },
+      "tags": "Etiketler",
+      "linkedModules": "Bağlantılı Modüller",
+      "noModuleLinks": "Henüz modül bağlantısı yok",
+      "versionHistory": "Sürüm Geçmişi"
+    },
+    "versions": {
+      "title": "Sürüm Geçmişi",
+      "emptyTitle": "Hiçbir belge seçilmedi",
+      "emptyDescription": "Sürümleri, notları incelemek, geri yüklemek ve karşılaştırmak için bir belge açın.",
+      "current": "{name} · mevcut {version}",
+      "restore": "Sürümü Geri Yükle",
+      "compare": "Sürümleri Karşılaştır",
+      "restoreTitle": "Geri yükleme, depolama API'sini gerektirir",
+      "compareTitle": "Karşılaştırma, depolama API'sini gerektirir",
+      "noticeDefault": "Geri yükleme ve karşılaştırma, depolama API'sini gerektirir.",
+      "restoreUnavailable": "{id} için geri yükleme kullanılamıyor — depolama API'si bağlı değil.",
+      "compareUnavailable": "Karşılaştırma kullanılamıyor ({selected} ↔ {current}) — depolama API'si bağlı değil."
+    },
+    "approvals": {
+      "title": "Onay İş Akışı",
+      "subtitle": "Taslak → İnceleniyor → Onaylandı / Reddedildi → Arşivlendi. Kuyruk öğeleri örnek belgelerdir; eylemler devam etmiyor.",
+      "emptyTitle": "Sıra temiz",
+      "emptyDescription": "Örnek sette taslak veya incelemede olan belge yok.",
+      "approve": "Onaylamak",
+      "reject": "Reddetmek",
+      "sendToReview": "İncelemeye Gönder",
+      "noticeDefault": "Onay geçişleri Otomasyon iş akışı motorunu gerektirir; bu yapıda bağlı değildir.",
+      "unavailable": "{action} için {id} kullanılamıyor — iş akışı motoru bağlı değil. Örnek belge durumu değiştirilmedi.",
+      "approveTitle": "Onay kullanılamıyor — iş akışı motoru bağlı değil",
+      "rejectTitle": "Reddetme kullanılamıyor — iş akışı motoru bağlı değil",
+      "sendTitle": "İncelemeye gönder kullanılamıyor — iş akışı motoru bağlı değil"
+    },
+    "knowledge": {
+      "intro": "Makaleler, politikalar, süreçler, kılavuzlar, SSS'ler ve dahili wiki — Bilgi Merkezinin anlatım katmanı."
+    },
+    "activity": {
+      "intro": "Son değişiklikler, yüklemeler, görüntülemeler, paylaşımlar ve denetim geçmişi — uyumluluk izlemelerinin temeli."
+    },
+    "integrations": {
+      "intro": "Bulut sürücü bağdaştırıcıları yalnızca mimaridir - Google Drive, OneDrive, Dropbox, Box, SharePoint, Nextcloud. Canlı API yok.",
+      "reservedAdapter": "Ayrılmış adaptör:",
+      "architecture": "Mimarlık",
+      "items": {
+        "google-drive": {
+          "description": "İçe aktarma/senkronizasyon mimarisi ayrıldı; henüz canlı OAuth yok."
+        },
+        "onedrive": {
+          "description": "Microsoft Graph dosya kancaları ayrılmıştır."
+        },
+        "dropbox": {
+          "description": "Dropbox API bağdaştırıcısı ayrılmıştır."
+        },
+        "box": {
+          "description": "Enterprise Box konektörü ayrılmıştır."
+        },
+        "sharepoint": {
+          "description": "Site kitaplıkları + meta veri eşlemesi saklıdır."
+        },
+        "nextcloud": {
+          "description": "WebDAV adaptörü ayrılmış — kendi kendine barındırma planına kadar devre dışı."
+        }
+      }
+    },
+    "security": {
+      "architectureTitle": "Güvenlik Mimarisi",
+      "sharingTitle": "Paylaşım Modeli",
+      "sharingIntro": "Özel, Kuruluş, Departman, Belirli Kullanıcılar ve Genel Bağlantı yer tutucusu.",
+      "enabled": "Etkinleştirilmiş",
+      "placeholder": "Yer tutucu",
+      "notEnforced": "Zorunlu değil",
+      "modelOnly": "Yalnızca model",
+      "controls": {
+        "rbac": {
+          "title": "Rol Tabanlı Erişim",
+          "description": "Sahip, düzenleyici, görüntüleyici ve onaylayan rolleri belge ACL'leriyle eşlenir; bu yapıda zorunlu kılınmaz."
+        },
+        "permissions": {
+          "title": "İzin Mimarisi",
+          "description": "Belge düzeyinde geçersiz kılmalarla klasör devralma — bu yapıda zorunlu kılınmaz."
+        },
+        "audit": {
+          "title": "Denetim İzi",
+          "description": "Görüntülemeler, paylaşımlar, geri yüklemeler ve onaylara ilişkin etkinlik etkinlikleri henüz devam etmedi."
+        },
+        "encryption": {
+          "title": "Şifreleme",
+          "description": "KMS kablolaması için ayrılmış, beklemede ve aktarım sırasında şifreleme kancaları."
+        },
+        "retention": {
+          "title": "Saklama Politikası",
+          "description": "Yasal bekletme desteğine sahip kategori başına saklama aralıkları - henüz uygulanmadı."
+        }
+      }
+    },
+    "ai": {
+      "architectureTitle": "Yapay Zeka Özellik Mimarisi",
+      "architectureIntro": "Her yetenek gelecekteki AI indeksi için ayrılmıştır. Kullanıcı arayüzü deterministik sahte içgörüler gösterir.",
+      "insightsTitle": "Seçilen Belgeye İlişkin Analizler",
+      "emptyTitle": "Bir belge seçin",
+      "emptyDescription": "AI özetini, anahtar kelimeleri ve önerileri incelemek için kitaplıkta bir dosya açın.",
+      "summary": "Yapay Zeka Özeti",
+      "keywords": "Yapay Zeka Anahtar Kelimeleri",
+      "classification": "Yapay Zeka Sınıflandırması",
+      "suggestedFolder": "AI Önerilen Klasör",
+      "translation": "Yapay Zeka Çevirisi",
+      "ocr": "AI OCR",
+      "suggestedTags": "AI Önerilen Etiketler",
+      "related": "Yapay Zeka ile İlgili Belgeler",
+      "noRelated": "İlgili belge dizine eklenmedi.",
+      "duplicateOf": "AI Yinelenen Algılama: olası kopya",
+      "noDuplicates": "Yapay Zeka Yinelenen Algılama: neredeyse kopya sayısı işaretlenmedi.",
+      "sampleReady": "Örnek hazır",
+      "notApplicable": "Uygulanamaz",
+      "runSearch": "Yapay Zeka Aramasını Çalıştır",
+      "searchTitle": "AI Arama bağlı değil",
+      "noticeDefault": "Yapay zeka özellikleri yalnızca mimariye yöneliktir; canlı model çağrısı yoktur.",
+      "searchUnavailable": "AI Arama kullanılamıyor — anlamsal dizin bağlı değil. Yukarıdaki örnek bilgiler statiktir.",
+      "features": {
+        "summary": {
+          "title": "Yapay Zeka Özeti",
+          "description": "Her modül için yoğunlaştırılmış belge anlayışı."
+        },
+        "keywords": {
+          "title": "Yapay Zeka Anahtar Kelimeleri",
+          "description": "Arama ve yönlendirme için konu sinyalleri çıkarıldı."
+        },
+        "classification": {
+          "title": "Yapay Zeka Sınıflandırması",
+          "description": "Kategori/bölüm taksonomisi önerisi."
+        },
+        "tags": {
+          "title": "AI Önerilen Etiketler",
+          "description": "Grafiği değiştirmeden önerileri etiketleyin."
+        },
+        "folder": {
+          "title": "AI Önerilen Klasör",
+          "description": "İç içe geçmiş klasörlere akıllı yerleştirme."
+        },
+        "related": {
+          "title": "Yapay Zeka ile İlgili Belgeler",
+          "description": "Bilgi merkezindeki komşuların grafiğini çizin."
+        },
+        "duplicate": {
+          "title": "Yapay Zeka Kopya Tespiti",
+          "description": "Belge kitaplıkları için neredeyse kopya tespiti."
+        },
+        "translation": {
+          "title": "Yapay Zeka Çevirisi",
+          "description": "Çeviriye hazırlık bayrağı — canlı model yok."
+        },
+        "ocr": {
+          "title": "AI OCR",
+          "description": "Taramalar ve PDF'ler için ayrılmış OCR hattı."
+        },
+        "search": {
+          "title": "Yapay Zeka Arama",
+          "description": "Semantik arama gelecekteki indeks için ayrılmıştır."
+        }
+      }
+    },
+    "status": {
+      "draft": "Taslak",
+      "in_review": "İnceleniyor",
+      "approved": "Onaylı",
+      "rejected": "Reddedilmiş",
+      "archived": "Arşivlendi"
+    },
+    "fileType": {
+      "pdf": "PDF'ler",
+      "word": "Kelime",
+      "excel": "excel",
+      "powerpoint": "PowerPoint'in",
+      "image": "Resim",
+      "video": "Video",
+      "audio": "Ses",
+      "markdown": "İndirim",
+      "text": "Metin",
+      "json": "JSON",
+      "csv": "CSV",
+      "other": "Diğer"
+    },
+    "share": {
+      "private": "Özel",
+      "organization": "Organizasyon",
+      "department": "Departman",
+      "specific_users": "Belirli Kullanıcılar",
+      "public_link": "Genel Bağlantı"
+    },
+    "module": {
+      "crm": "CRM",
+      "finance": "Finans",
+      "automation": "Otomasyon",
+      "creator": "İçerik Stüdyosu",
+      "hr": "Gelecek İK",
+      "projects": "Gelecek Projeler"
+    },
+    "knowledgeKind": {
+      "article": "Madde",
+      "policy": "Politika",
+      "process": "İşlem",
+      "manual": "Manuel",
+      "faq": "SSS",
+      "wiki": "Dahili Wiki"
+    },
+    "integrationStatus": {
+      "connected": "Bağlı",
+      "beta": "Beta",
+      "coming_soon": "Yakında gelecek",
+      "disabled": "Engelli",
+      "planned": "Planlanan"
+    },
+    "bytes": {
+      "b": "{value} B",
+      "kb": "{value} KB",
+      "mb": "{value} MB",
+      "gb": "{value} GB"
+    }
+  },
+  "landing": {
+    "skipToProduct": "Ürüne atla",
+    "nav": {
+      "ariaPrimary": "Öncelik",
+      "product": "Ürün",
+      "platform": "platformu",
+      "pricing": "Fiyatlandırma",
+      "sales": "Satış",
+      "getStarted": "Başlayın",
+      "signIn": "Oturum aç",
+      "startFree": "Ücretsiz Başla",
+      "openMenu": "Menüyü aç",
+      "closeMenu": "Menüyü kapat"
+    },
+    "hero": {
+      "brand": "AGXORA",
+      "headline": "Akıllı iş işletim sistemi.",
+      "subtitle": "Müşterileri, finansı, belgeleri ve yapay zekayı tek bir sakin komuta merkezinde bağlayın; başka bir araç yığınına değil, netliğe ihtiyaç duyan kurucular ve operatörler için tasarlandı.",
+      "ctaStart": "Ücretsiz Başla",
+      "ctaExplore": "Nasıl çalıştığını görün",
+      "globeAria": "Küresel istihbarat görselleştirmesi"
+    },
+    "trust": {
+      "ariaLabel": "Neden AGXORA",
+      "eyebrow": "Tek bir sistem olarak oluşturuldu",
+      "signals": {
+        "unified": {
+          "title": "Birleşik çalışma alanı",
+          "detail": "CRM, finans ve belgeler bir arada"
+        },
+        "intelligence": {
+          "title": "Yönetilen yapay zeka",
+          "detail": "Gerçek iş akışlarınızda yardım"
+        },
+        "clarity": {
+          "title": "Operatör anlaşılırlığı",
+          "detail": "Daha az geçiş. Daha hızlı kararlar."
+        },
+        "path": {
+          "title": "Ölçeklendirme yolunu temizle",
+          "detail": "Ücretsiz başlayın. Hazır olduğunda büyüyün."
+        }
+      }
+    },
+    "product": {
+      "title": "AGXORA çalışma alanının içinde",
+      "lead": "AGXORA'da halihazırda kullandığınız modülleri birbirine bağlayan Komuta Merkezinin açıklayıcı ürün önizlemesi.",
+      "chromePath": "agxora.app / kontrol paneli",
+      "railAria": "Gezinmeyi önizle",
+      "railBrand": "AGXORA",
+      "navCommand": "Emretmek",
+      "navAi": "yapay zeka",
+      "navAutomation": "Otomasyon",
+      "navAnalytics": "Analitik",
+      "navIntegrations": "Entegrasyonlar",
+      "stageTitle": "Komuta Merkezi",
+      "stageBadge": "açıklayıcı",
+      "moduleCustomers": "Müşteriler",
+      "moduleFinance": "Finans",
+      "moduleDocuments": "Belgeler",
+      "moduleAi": "Yapay zeka asistanı"
+    },
+    "platform": {
+      "ariaLabel": "Ürün hikayesi",
+      "story": {
+        "fragmented": {
+          "title": "Parçalanmış çalışma",
+          "statement": "Araçlar dikkati işletme geneline dağıtır.",
+          "detail": "Müşteriler bir yerde, faturalar başka yerde, dosyalar başka yerde; kararlar yavaşlıyor."
+        },
+        "connect": {
+          "title": "Tek çalışma yüzeyi",
+          "statement": "AGXORA, işletmeyi tek bir çalışma alanına bağlar.",
+          "detail": "CRM, finans, belgeler ve yapay zeka, ayrı uygulamalar yığınını değil, aynı komuta merkezini paylaşır."
+        },
+        "understand": {
+          "title": "İş zekası",
+          "statement": "Bağlam işin yanında kalır.",
+          "detail": "Genel demolar yerine, çalışma alanınıza dayalı yönetilen yapay zekayla sorun, arayın ve harekete geçin."
+        },
+        "execute": {
+          "title": "Özerkliğe doğru",
+          "statement": "Otonom bir iş işletim sistemine giden yol.",
+          "detail": "Bugün: bağlantılı bir işletim sistemi. İleride: daha derin temsilciler ve otomasyon; gönderildikleri sırada dürüstçe sunulur."
+        }
+      }
+    },
+    "close": {
+      "title": "Ücretsiz başlayın. Hazır olduğunuzda ölçeklendirin.",
+      "lead": "Bir çalışma alanı oluşturun ve komuta merkezini keşfedin.",
+      "ctaStart": "Ücretsiz Başla",
+      "ctaPricing": "Fiyatlandırmayı Görüntüle",
+      "ctaSales": "Satış Ekibiyle İletişime Geçin"
+    },
+    "footer": {
+      "ariaNav": "Altbilgi",
+      "ariaLegal": "Yasal",
+      "product": "Ürün",
+      "platform": "platformu",
+      "pricing": "Fiyatlandırma",
+      "signIn": "Oturum aç",
+      "startFree": "Ücretsiz Başla",
+      "bookDemo": "Kitap Demosu",
+      "contact": "Temas etmek",
+      "contactSales": "Satış Ekibiyle İletişime Geçin",
+      "privacy": "Mahremiyet",
+      "terms": "Şartlar",
+      "cookies": "Çerezler",
+      "imprint": "Baskı",
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — 3D küre"
+  },
+  "ui": {
+    "table": {
+      "noResults": "Sonuç yok",
+      "noResultsDescription": "Hiçbir şey mevcut filtrelerle eşleşmiyor.",
+      "previous": "Öncesi",
+      "next": "Sonraki",
+      "paginationRange": "{start}–{end} / {total}",
+      "sortAscending": "Artan şekilde sırala",
+      "sortDescending": "Azalan sıralama"
+    },
+    "dialog": {
+      "close": "İletişim kutusunu kapat"
+    },
+    "module": {
+      "notAvailableTitle": "{title} henüz mevcut değil",
+      "notAvailableDescription": "Bu modül kabuğu gelecekteki bir sürüm için hazırlanmıştır. Burada henüz hiçbir kayıt saklanmıyor."
+    },
+    "states": {
+      "errorLabel": "Hata",
+      "errorTitle": "Bir şeyler ters gitti",
+      "errorDescription": "Bu isteği yerine getiremedik. Birazdan tekrar deneyin.",
+      "retry": "Yeniden dene"
+    },
+    "empty": {
+      "crmTitle": "CRM'niz hazır",
+      "crmDescription": "Dizinin, profillerin ve etkinliğin kilidini açmak için ilk müşteri kaydını oluşturun.",
+      "crmAction": "CRM'yi aç",
+      "projectsTitle": "Henüz proje yok",
+      "projectsDescription": "Kilometre taşlarını, bütçeyi ve ekip sahipliğini takip etmek için bir teslimat çalışma alanı oluşturun.",
+      "projectsAction": "Açık Projeler",
+      "analyticsTitle": "Analitik sinyal bekliyor",
+      "analyticsDescription": "Çalışma alanınız etkinlik oluşturduğunda yönetici KPI'ları ve uyarılar burada görünür.",
+      "analyticsAction": "Analytics'i açın",
+      "documentsTitle": "Belge kitaplığı boş",
+      "documentsDescription": "Onayları, sürümleri ve yapay zeka bağlamını güçlendirmek için bilgi varlıklarını yükleyin veya oluşturun.",
+      "documentsAction": "Belgeleri Aç",
+      "billingTitle": "Henüz fatura geçmişi yok",
+      "billingDescription": "Faturalar, yenilemeler ve ödeme geçmişi oluşturmak için bir planı yükseltin.",
+      "billingAction": "Faturalandırmayı aç",
+      "agentsTitle": "Aktif temsilci yok",
+      "agentsDescription": "Otonom çalıştırmaları başlatmak için piyasadan bir aracı yükleyin veya etkinleştirin.",
+      "agentsAction": "Ajan İşletim Sistemini Aç"
+    },
+    "yes": "Evet",
+    "no": "HAYIR",
+    "dash": "—"
+  },
+  "projects": {
+    "page": {
+      "eyebrow": "Proje Yönetimi İşletim Sistemi",
+      "title": "Projeler",
+      "lead": "{organization} için teslimatı planlayın, bütçeyi ve sağlığı takip edin, ekipler atayın ve görevleri yönetin. Veriler yerel olarak korunur ve arka uç bağlantısı için hazırdır.",
+      "yourOrganization": "kuruluşunuz"
+    },
+    "list": {
+      "errorTitle": "Projeler yüklenemedi",
+      "searchLabel": "Proje ara",
+      "searchPlaceholder": "Projeleri, müşterileri, sahipleri, etiketleri arayın…",
+      "viewCards": "Kartlar",
+      "viewTable": "Masa",
+      "newProject": "Yeni proje",
+      "statusFilter": "Durum",
+      "priorityFilter": "Öncelik",
+      "customerFilter": "Müşteri",
+      "ownerFilter": "Mal sahibi",
+      "allStatuses": "Tüm durumlar",
+      "allPriorities": "Tüm öncelikler",
+      "allCustomers": "Tüm müşteriler",
+      "allOwners": "Tüm sahipler",
+      "dateFrom": "İtibaren",
+      "dateTo": "İle",
+      "emptyTitle": "Henüz proje yok",
+      "emptyDescription": "Kilometre taşlarını, bütçeyi ve ekip sahipliğini takip etmek için bir teslimat çalışma alanı oluşturun.",
+      "createProject": "Proje oluştur",
+      "pagination": "{from} / {to}–{total} arası gösteriliyor",
+      "previous": "Öncesi",
+      "next": "Sonraki",
+      "noDescription": "Henüz açıklama yok.",
+      "duePrefix": "Due {date}",
+      "openProject": "{name} projesini aç",
+      "sortBy": "{column}'a göre sırala",
+      "sort": {
+        "name": "İsim",
+        "customer": "Müşteri",
+        "owner": "Mal sahibi",
+        "status": "Durum",
+        "priority": "Öncelik",
+        "progress": "İlerlemek",
+        "dueDate": "Vadesi dolmuş",
+        "budget": "Bütçe"
+      }
+    },
+    "form": {
+      "createTitle": "Proje Oluştur",
+      "editTitle": "Projeyi Düzenle",
+      "cancel": "İptal etmek",
+      "saveChanges": "Değişiklikleri kaydet",
+      "createProject": "Proje oluştur",
+      "projectName": "Proje Adı",
+      "customer": "Müşteri",
+      "projectOwner": "Proje Sahibi",
+      "priority": "Öncelik",
+      "status": "Durum",
+      "budget": "Bütçe",
+      "currency": "Para birimi",
+      "startDate": "Başlangıç ​​Tarihi",
+      "dueDate": "Bitiş tarihi",
+      "color": "Renk",
+      "icon": "Simge",
+      "tags": "Etiketler",
+      "tagsHint": "Virgülle ayrılmış",
+      "tagsPlaceholder": "kurumsal, kullanıma sunma",
+      "budgetPlaceholder": "0",
+      "description": "Tanım",
+      "selectColor": "{color} rengini seçin"
+    },
+    "taskForm": {
+      "createTitle": "Görev Oluştur",
+      "editTitle": "Görevi Düzenle",
+      "cancel": "İptal etmek",
+      "saveChanges": "Değişiklikleri kaydet",
+      "createTask": "Görev oluştur",
+      "title": "Başlık",
+      "assignee": "Vekil",
+      "priority": "Öncelik",
+      "status": "Durum",
+      "deadline": "Son teslim tarihi",
+      "progress": "İlerlemek",
+      "labels": "Etiketler",
+      "labelsHint": "Virgülle ayrılmış",
+      "description": "Tanım"
+    },
+    "deleteDialog": {
+      "title": "Projeyi sil",
+      "cancel": "İptal etmek",
+      "deletePermanently": "Kalıcı olarak sil",
+      "bodyPrefix": "Bu kaldırır",
+      "thisProject": "bu proje",
+      "bodySuffix": "ve yerel depolama alanındaki tüm ilgili görevler, dosyalar, notlar ve etkinlikler. Bu eylem geri alınamaz."
+    },
+    "badges": {
+      "progress": "İlerlemek",
+      "progressAria": "{label}: %{value}"
+    },
+    "status": {
+      "planning": "Planlama",
+      "active": "Aktif",
+      "on_hold": "Beklemede",
+      "completed": "Tamamlanmış",
+      "archived": "Arşivlendi"
+    },
+    "taskStatus": {
+      "todo": "Yapılacaklar",
+      "in_progress": "Devam etmekte",
+      "review": "Gözden geçirmek",
+      "done": "Tamamlamak"
+    },
+    "priority": {
+      "low": "Düşük",
+      "medium": "Orta",
+      "high": "Yüksek",
+      "critical": "Kritik"
+    },
+    "role": {
+      "owner": "Mal sahibi",
+      "manager": "Müdür",
+      "member": "Üye",
+      "viewer": "Görüntüleyici"
+    },
+    "kind": {
+      "project": "proje",
+      "task": "görev",
+      "milestone": "dönüm noktası"
+    },
+    "timeline": {
+      "noTimelineTitle": "Zaman çizelgesi yok",
+      "noTimelineDescription": "Zamanlamayı, süreyi ve kilometre taşlarını görüntülemek için bir proje açın.",
+      "emptyTitle": "Zaman çizelgesi boş",
+      "emptyDescription": "Zamanlamayı doldurmak için başlangıç/bitiş tarihlerini ve görevleri ekleyin.",
+      "title": "Zaman çizelgesi",
+      "subtitle": "Başlangıç, bitiş, süre, kilometre taşları. Bağımlılıklar gelecekteki bir sürüm için ayrılmıştır.",
+      "dateRange": "{start} → {end} · {days}g",
+      "itemAria": "{title} ile {start} arasında {end}",
+      "dependenciesNone": "Bağımlılıklar: yok"
+    },
+    "dashboard": {
+      "kpi": {
+        "activeProjects": "Aktif Projeler",
+        "activeHint": "{planning} planlama",
+        "completed": "Tamamlanmış",
+        "completedHint": "Portföyün %{percent}'i",
+        "onHold": "Beklemede",
+        "onHoldHint": "{archived} arşivlendi",
+        "teamMembers": "Ekip Üyeleri",
+        "teamHint": "Tüm projelerde",
+        "budgetOverview": "Bütçeye Genel Bakış",
+        "budgetHint": "Kullanılan %{percent} · {spent} harcandı",
+        "openTasks": "Görevleri Aç",
+        "openTasksHint": "{overdue} gecikmiş",
+        "projectHealth": "Proje Sağlığı",
+        "healthHint": "Bileşik teslimat puanı",
+        "upcomingDeadlines": "Yaklaşan Son Tarihler",
+        "upcomingHint": "Sonraki 30 gün"
+      },
+      "analytics": {
+        "title": "Analitik",
+        "subtitle": "Portföy sağlığı, tamamlanması ve bütçe kullanımı.",
+        "statusMix": "Durum karışımı",
+        "deliverySignals": "Teslimat sinyalleri",
+        "completedPercent": "Tamamlanmış %",
+        "budgetUsage": "Bütçe kullanımı",
+        "health": "Sağlık",
+        "upcomingDeadlines": "Yaklaşan son teslim tarihleri",
+        "noUpcomingDeadlines": "Bir sonraki pencerede yaklaşan son tarih yok."
+      },
+      "recentActivity": {
+        "title": "Son Etkinlik",
+        "subtitle": "Önce en yeni proje etkinlikleri.",
+        "empty": "Etkinlik, projeler ve görevler oluşturuldukça görünecektir."
+      }
+    },
+    "kanban": {
+      "emptyTitle": "Tahtada görev yok",
+      "emptyDescription": "Yapılacaklar, Devam Ediyor, Gözden Geçirme ve Bitti genelinde teslimatı düzenlemek için görevler oluşturun.",
+      "addTask": "Görev ekle",
+      "columnAria": "{status} sütunu",
+      "taskProgress": "Görev ilerlemesi",
+      "edit": "Düzenlemek",
+      "complete": "Tamamlamak"
+    },
+    "detail": {
+      "notFoundTitle": "Proje bulunamadı",
+      "notFoundDescription": "Bu proje silinmiş olabilir veya mevcut kuruluş için kullanılamıyor olabilir.",
+      "backToProjects": "← Projelere geri dön",
+      "ownerMeta": "{customer} · Sahip {owner}",
+      "edit": "Düzenlemek",
+      "delete": "Silmek",
+      "sectionsAria": "Proje detay bölümleri",
+      "tabs": {
+        "overview": "Genel Bakış",
+        "tasks": "Görevler",
+        "files": "Dosyalar",
+        "notes": "Notlar",
+        "activity": "Etkinlik",
+        "team": "Takım",
+        "settings": "Ayarlar"
+      }
+    },
+    "overview": {
+      "missingTitle": "Eksik proje",
+      "missingDescription": "Genel bakışını görüntülemek için bir proje seçin.",
+      "title": "Genel Bakış",
+      "noDescription": "Açıklama sağlanmadı.",
+      "budget": "Bütçe",
+      "spent": "Harcanan",
+      "start": "Başlangıç",
+      "due": "Vadesi dolmuş",
+      "openTasks": "Görevleri aç",
+      "completedTasks": "Tamamlanan görevler"
+    },
+    "tasks": {
+      "title": "Görev yönetimi",
+      "newTask": "Yeni görev",
+      "tableTitle": "Başlık",
+      "tableAssignee": "Vekil",
+      "tablePriority": "Öncelik",
+      "tableStatus": "Durum",
+      "tableDue": "Vadesi dolmuş",
+      "tableProgress": "İlerlemek",
+      "tableActions": "Eylemler",
+      "edit": "Düzenlemek",
+      "complete": "Tamamlamak",
+      "delete": "Silmek",
+      "emptyTitle": "Henüz görev yok",
+      "emptyDescription": "Panoda görevler oluşturun, sahipleri atayın ve ilerlemeyi takip edin.",
+      "createTask": "Görev oluştur"
+    },
+    "files": {
+      "title": "Dosya yöneticisi",
+      "description": "Görüntüleri, PDF'leri ve ofis belgelerini yükleyin. Meta veriler yerel olarak varlığını sürdürür.",
+      "upload": "Yüklemek",
+      "emptyTitle": "Hiçbir dosya yüklenmedi",
+      "emptyDescription": "Ekibin incelemesi ve önizlemesi için proje yapıtları ekleyin.",
+      "preview": "Önizleme",
+      "metadataOnly": "Yalnızca meta veriler",
+      "delete": "Silmek"
+    },
+    "notes": {
+      "editTitle": "Notu düzenle",
+      "newTitle": "Yeni not",
+      "title": "Başlık",
+      "author": "Yazar",
+      "body": "Vücut",
+      "cancel": "İptal etmek",
+      "saveNote": "Notu kaydet",
+      "emptyTitle": "Henüz not yok",
+      "emptyDescription": "Kararları, toplantı sonuçlarını ve teslimat bağlamını yakalayın.",
+      "edit": "Düzenlemek",
+      "delete": "Silmek"
+    },
+    "activity": {
+      "title": "Etkinlik feed'i",
+      "emptyTitle": "Henüz etkinlik yok",
+      "emptyDescription": "Ekip çalışırken proje etkinlikleri burada görünecektir."
+    },
+    "team": {
+      "missingTitle": "Eksik proje",
+      "missingDescription": "Ekip üyelerini yönetmek için bir proje seçin.",
+      "assignTitle": "Üye ata",
+      "name": "İsim",
+      "email": "E-posta",
+      "role": "Rol",
+      "addMember": "Üye ekle",
+      "teamTitle": "Takım",
+      "remove": "Kaldırmak"
+    },
+    "settings": {
+      "missingTitle": "Eksik proje",
+      "missingDescription": "Ayarları yönetmek için bir proje seçin.",
+      "title": "Proje ayarları",
+      "description": "Bütçe yakma ve arşiv durumunu güncelleyin. Tam alan düzenlemeleri Düzenle iletişim kutusunu kullanır.",
+      "spentAmount": "Harcanan miktar",
+      "saveSpent": "Harcanan tasarruf",
+      "archiveProject": "Arşiv projesi",
+      "editAllFields": "Tüm alanları düzenle"
+    },
+    "toasts": {
+      "projectCreated": "Proje oluşturuldu",
+      "projectUpdated": "Proje güncellendi",
+      "projectDeleted": "Proje silindi",
+      "checkForm": "Formu kontrol edin",
+      "validationFailed": "Doğrulama başarısız oldu.",
+      "taskCreated": "Görev oluşturuldu",
+      "taskUpdated": "Görev güncellendi",
+      "taskCompleted": "Görev tamamlandı",
+      "taskDeleted": "Görev silindi",
+      "filesUploaded": "Yüklenen dosyalar",
+      "filesUploadedDetail": "{count} dosya(lar)",
+      "fileDeleted": "Dosya silindi",
+      "noteSaved": "Not kaydedildi",
+      "memberAdded": "Üye eklendi",
+      "settingsSaved": "Ayarlar kaydedildi",
+      "projectArchived": "Proje arşivlendi"
+    },
+    "validation": {
+      "nameRequired": "Proje adı zorunludur.",
+      "nameMin": "Proje adı en az 2 karakter olmalıdır.",
+      "customerRequired": "Müşteri zorunludur.",
+      "ownerRequired": "Proje sahibi zorunludur.",
+      "priorityInvalid": "Geçerli bir öncelik seçin.",
+      "statusInvalid": "Geçerli bir durum seçin.",
+      "currencyInvalid": "Geçerli bir para birimi seçin.",
+      "budgetInvalid": "Bütçe negatif olmayan bir sayı olmalıdır.",
+      "startDateRequired": "Başlangıç tarihi zorunludur.",
+      "startDateInvalid": "Geçerli bir başlangıç tarihi girin.",
+      "dueDateInvalid": "Geçerli bir bitiş tarihi girin.",
+      "dueDateOrder": "Bitiş tarihi başlangıç tarihinde veya sonrasında olmalıdır.",
+      "colorInvalid": "Geçerli bir renk seçin.",
+      "iconInvalid": "Geçerli bir simge seçin.",
+      "taskTitleRequired": "Görev başlığı zorunludur.",
+      "progressRange": "İlerleme 0 ile 100 arasında olmalıdır.",
+      "memberNameRequired": "Üye adı zorunludur.",
+      "emailRequired": "E-posta zorunludur.",
+      "emailInvalid": "Geçerli bir e-posta adresi girin.",
+      "roleInvalid": "Geçerli bir rol seçin.",
+      "noteTitleRequired": "Not başlığı zorunludur.",
+      "noteBodyRequired": "Not gövdesi zorunludur.",
+      "authorRequired": "Yazar zorunludur."
+    }
+  },
+  "automation": {
+    "enginePage": {
+      "sectionTitle": "AGXORA Otomasyon İşletim Sistemi",
+      "title": "Otomasyon",
+      "subtitle": "Kurumsal Yapay Zeka İş Akışı ve Otomasyon Motoru — CRM, Finans, İçerik Stüdyosu ve gelecekteki tüm AGXORA modülleri için bağlantı dokusu.",
+      "loadingHistory": "İş akışı geçmişi yükleniyor…",
+      "loadingTemplates": "Şablon kitaplığı yükleniyor…",
+      "loadingIntegrations": "Entegrasyon merkezi yükleniyor…",
+      "dashboard": "Kontrol Paneli",
+      "workflowBuilder": "İş Akışı Oluşturucu",
+      "workflowBuilderSubtitle": "Izgaraya yaslama, yumuşak yakınlaştırma ve kaydırma, bağlantı üzerine gelme ve boş durum rehberliği özelliklerine sahip düğüm tabanlı tuval.",
+      "openAssistant": "AI İş Akışı Yardımcısını açın",
+      "workflowHistory": "İş Akışı Geçmişi",
+      "workflowHistorySubtitle": "Renkli durum, tıklanabilir satırlar ve tam yürütme denetçisi içeren yürütme günlüğü.",
+      "templates": "Şablonlar",
+      "templatesSubtitle": "Yüklemeden önce önizleme — düğüm sayıları, zorluk, çalışma süresi ve önerilen kullanım durumları.",
+      "integrationCenter": "Entegrasyon Merkezi",
+      "integrationCenterSubtitle": "Yalnızca bağdaştırıcı kaydı — Bağlı, Beta, Planlanan, Çok yakında, Devre Dışı. Canlı API yok."
+    },
+    "assistant": {
+      "title": "Yapay Zeka İş Akışı Asistanı",
+      "subtitle": "Yalnızca yerel buluşsal yöntem; canlı model gerekmez.",
+      "closeAria": "AI İş Akışı Asistanını Kapat",
+      "close": "Kapalı",
+      "workflowScore": "İş Akışı Puanı",
+      "scoreOutOf": "/ 100",
+      "optimizationSuggestions": "Optimizasyon Önerileri",
+      "oneClickOptimize": "Tek Tıklamayla Optimize Etme",
+      "noticeDefault": "Tek Tıklamayla Optimize henüz bir grafik mutasyonu değildir.",
+      "noticeQueued": "Optimize edildi sıraya alındı. Gelecekteki motor gecikmeleri ve onayları yeniden yazacak."
+    },
+    "integrations": {
+      "intro": "Entegrasyon Merkezi — isteğe bağlı. Durumlar: Bağlandı, Beta, Planlandı, Çok yakında, Devre Dışı. Canlı API yok.",
+      "category": "Kategori:",
+      "reservedAdapter": "Ayrılmış adaptör:",
+      "description": "Tanım:"
+    },
+    "executionInspector": {
+      "title": "Yürütme Ayrıntıları",
+      "emptyTitle": "Bir yürütme seçin",
+      "emptyDescription": "Girişleri, çıkışları ve AI özetini incelemek için İş Akışı Geçmişi'nden bir çalıştırma seçin.",
+      "workflowName": "İş Akışı Adı",
+      "trigger": "Tetiklemek",
+      "executionId": "Yürütme Kimliği",
+      "started": "Başlatıldı",
+      "finished": "Bitti",
+      "duration": "Süre",
+      "status": "Durum",
+      "success": "Başarı",
+      "failed": "Arızalı",
+      "retryAvailable": "Yeniden Dene Mevcut",
+      "executedBy": "Yürüten",
+      "yes": "Evet",
+      "no": "HAYIR",
+      "emDash": "—",
+      "input": "Giriş",
+      "output": "Çıkış",
+      "aiSummary": "Yapay Zeka Özeti",
+      "errorMessage": "Hata Mesajı",
+      "retry": "Yeniden dene",
+      "retryUnavailable": "Yeniden deneme kullanılamıyor",
+      "noticeDefault": "Bağdaştırıcıyı yeniden deneyin; henüz canlı yeniden yürütme yok.",
+      "noticeQueued": "{id} için kuyruğa alınmayı yeniden deneyin."
+    },
+    "workflowBuilder": {
+      "elementsTitle": "İş Akışı Öğeleri",
+      "paletteAria": "Palet",
+      "tabElements": "Elemanlar",
+      "tabTriggers": "Tetikleyiciler",
+      "tabActions": "Eylemler",
+      "tabAiActions": "Yapay Zeka Eylemleri",
+      "builderTitle": "İş Akışı Oluşturucu · {name}",
+      "builderHint": "{grid}px ızgarasına yapıştır · ⌘/Ctrl+kaydırma yakınlaştırma · tuvali yatay kaydırmaya sürükleyin · bağlantıya çift tıklayın",
+      "autoSaved": "Otomatik kaydedildi",
+      "saving": "Kaydediliyor…",
+      "undo": "Geri al",
+      "redo": "Yinele",
+      "zoomOut": "−",
+      "zoomIn": "+",
+      "resetView": "Görünümü sıfırla",
+      "emptyTitle": "Boş tuval",
+      "emptyDescription": "Oluşturmaya başlamak için paletten bir Tetikleyici sürükleyin. Izgaraya tutturma, düğümleri hizalı tutar.",
+      "connectHint": "Bağlanmak için hedefi çift tıklayın",
+      "miniMapAria": "Mini harita"
+    },
+    "workflowHistory": {
+      "title": "İş Akışı Geçmişi · Yürütme Günlüğü",
+      "statusFilter": "Durum",
+      "statusAll": "Tüm",
+      "statusSuccess": "Başarı",
+      "statusFailed": "Arızalı",
+      "statusPending": "Askıda olması",
+      "statusRetried": "Yeniden dene",
+      "statusRunning": "Koşma",
+      "runsAria": "İş akışı çalıştırmaları",
+      "noMatches": "Bu filtreyle eşleşen iş akışı çalıştırması yok."
+    },
+    "miniPreview": {
+      "emptyWorkflow": "Boş iş akışı"
+    },
+    "workflowTemplates": {
+      "title": "Şablon Kitaplığı",
+      "noticeDefault": "Bir şablonu oluşturucuya yüklemeden önce önizleyin.",
+      "noticeLoaded": "\"{name}\" iş akışı oluşturucuya yüklendi.",
+      "nodesBadge": "{count} düğüm",
+      "recommendedFor": "Şunun için önerilir: {for}",
+      "preview": "Önizleme",
+      "useTemplate": "Şablonu Kullan",
+      "previewTitle": "Şablon Önizlemesi",
+      "close": "Kapalı",
+      "nodes": "Düğümler",
+      "connections": "Bağlantılar",
+      "estimatedRuntime": "Tahmini Çalışma Süresi",
+      "difficulty": "Zorluk",
+      "requiredModules": "Gerekli Modüller",
+      "usedAiFeatures": "Kullanılan Yapay Zeka Özellikleri",
+      "none": "Hiçbiri"
+    },
+    "workspace": {
+      "loading": "Otomasyon motoru yükleniyor…",
+      "eyebrow": "İş Akışı Otomasyon Motoru",
+      "title": "Otomasyon",
+      "subtitle": "CRM, Projeler, Finans, Belgeler ve yapay zeka (yerel olay veri yolu ve tarayıcı içi motor) genelinde yapılandırılabilir iş iş akışları. Dağıtılmış kuyruk ve arka uç çalışanları birbirine bağlı değildir.",
+      "noticeDefault": "Yürütme motoru kullanıcı arayüzünden bağımsızdır. Modüller etkinlikleri yayınlar; iş akışları abone olun.",
+      "tabs": {
+        "dashboard": "Kontrol Paneli",
+        "workflows": "İş akışları",
+        "editor": "Editör",
+        "history": "Tarih",
+        "templates": "Şablonlar",
+        "analytics": "Analitik",
+        "settings": "Ayarlar"
+      },
+      "notice": {
+        "missingWrite": "İş akışı. yazma izni eksik.",
+        "missingExecute": "Workflow.execute izni eksik.",
+        "created": "{name} oluşturuldu",
+        "templateApplied": "Uygulanan şablon: {name}",
+        "runResult": "{status} ({duration}ms) komutunu çalıştırın",
+        "runFailed": "İş akışı çalıştırılamadı (devre dışı veya eksik).",
+        "publishedEvent": "Yayınlanan alan adı etkinliği: {type}",
+        "workflowStatus": "İş akışı {status}",
+        "saved": "İş akışı kaydedildi",
+        "retryResult": "{status}'u yeniden deneyin",
+        "retryFailed": "Yeniden deneme başarısız oldu",
+        "settingsSaved": "Otomasyon ayarları kaydedildi"
+      },
+      "defaults": {
+        "untitledName": "Başlıksız iş akışı",
+        "untitledDescription": "Taslak iş akışı — tetikleyiciyi ve eylemleri yapılandırın."
+      },
+      "dashboard": {
+        "workflows": "İş akışları",
+        "active": "Aktif",
+        "runsToday": "Bugün çalışıyor",
+        "successRate": "Başarı oranı",
+        "recentWorkflows": "Son iş akışları",
+        "newWorkflow": "Yeni iş akışı",
+        "eventBusDemo": "Etkinlik otobüsü demosu",
+        "eventBusHint": "Bir modül etkinliği yayınlayın. Eşleşen tetikleyicilere sahip etkin iş akışları otomatik olarak kuyruğa alınır.",
+        "notifications": "Bildirimler"
+      },
+      "workflowList": {
+        "title": "İş akışı listesi",
+        "newWorkflow": "Yeni iş akışı",
+        "emptyTitle": "Henüz iş akışı yok.",
+        "emptyDescription": "Bir iş akışı oluşturun veya bir şablondan başlayın.",
+        "columns": {
+          "name": "İsim",
+          "status": "Durum",
+          "nodes": "Düğümler",
+          "updated": "Güncellendi",
+          "actions": "Eylemler"
+        },
+        "run": "Koşmak",
+        "disable": "Devre dışı bırakmak",
+        "activate": "Etkinleştir"
+      },
+      "editor": {
+        "selectPrompt": "Düzenlemek için bir iş akışı seçin veya oluşturun.",
+        "workflows": "İş akışları",
+        "title": "İş akışı düzenleyicisi",
+        "hint": "Mimari, tetikleme → koşul → eylem → gecikme → dallanma → döngüyü destekler. Kanvas sürükle ve bırak özelliği, motor değişikliği olmadan düğüm konumlarına takılabilir.",
+        "name": "İsim",
+        "description": "Tanım",
+        "trigger": "Tetiklemek",
+        "primaryAction": "Birincil eylem",
+        "executionPath": "Yürütme yolu önizlemesi",
+        "save": "Kaydetmek",
+        "runNow": "Şimdi koş",
+        "triggerFallback": "Tetiklemek",
+        "actionFallback": "Aksiyon"
+      },
+      "history": {
+        "title": "Yürütme geçmişi",
+        "emptyTitle": "Henüz idam yok.",
+        "emptyDescription": "Bir iş akışı çalıştırın veya bir etki alanı etkinliği yayınlayın.",
+        "latestRun": "Son çalıştırma ayrıntısı",
+        "path": "Yol: {path}",
+        "error": "· Hata: {error}",
+        "columns": {
+          "workflow": "İş akışı",
+          "status": "Durum",
+          "triggeredBy": "Tarafından tetiklendi",
+          "duration": "Süre",
+          "started": "Başlatıldı",
+          "retry": "Yeniden dene"
+        },
+        "retry": "Yeniden dene",
+        "emDash": "—"
+      },
+      "templates": {
+        "useTemplate": "Şablonu kullan"
+      },
+      "analytics": {
+        "totalWorkflows": "Toplam iş akışları",
+        "activeWorkflows": "Aktif iş akışları",
+        "executionsToday": "Bugün idamlar",
+        "successRate24h": "Başarı oranı (24 saat)",
+        "failed24h": "Başarısız (24 saat)",
+        "avgDuration": "Ortalama süre"
+      },
+      "settings": {
+        "title": "Otomasyon ayarları",
+        "subtitle": "Dağıtılmış yürütme için yeniden deneme ilkesi, yürütme sınırları, eşzamanlılık, zaman aşımı ve günlük kayıtları.",
+        "maxRetryAttempts": "Maksimum yeniden deneme sayısı",
+        "backoffMs": "Geri çekilme (ms)",
+        "executionsPerHour": "İnfaz / saat",
+        "concurrencyLimit": "Eşzamanlılık sınırı",
+        "timeoutMs": "Zaman aşımı (ms)",
+        "logLevel": "Günlük düzeyi",
+        "logLevels": {
+          "error": "hata",
+          "warn": "uyarı",
+          "info": "bilgi",
+          "debug": "hata ayıklama"
+        },
+        "saveSettings": "Ayarları kaydet"
+      }
+    },
+    "status": {
+      "connected": "Bağlı",
+      "beta": "Beta",
+      "comingSoon": "Yakında",
+      "disabled": "Devre dışı",
+      "planned": "Planlandı",
+      "success": "Başarılı",
+      "failed": "Başarısız",
+      "running": "Çalışıyor",
+      "pending": "Beklemede",
+      "retried": "Yeniden dene"
+    },
+    "difficulty": {
+      "starter": "Başlangıç",
+      "intermediate": "Orta",
+      "advanced": "İleri"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "Tetikleyici",
+        "description": "Bir olay tetiklendiğinde başlat"
+      },
+      "el-condition": {
+        "label": "Koşul",
+        "description": "Kurallara göre dallan"
+      },
+      "el-delay": {
+        "label": "Gecikme",
+        "description": "Devam etmeden önce bekle"
+      },
+      "el-approval": {
+        "label": "Onay",
+        "description": "İnsan onay kapısı"
+      },
+      "el-loop": {
+        "label": "Döngü",
+        "description": "Bir koleksiyon üzerinde yinele"
+      },
+      "el-merge": {
+        "label": "Birleştir",
+        "description": "Paralel yolları birleştir"
+      },
+      "el-split": {
+        "label": "Böl",
+        "description": "Paralel yollara dağıt"
+      },
+      "el-ai-decision": {
+        "label": "YZ kararı",
+        "description": "YZ ile yönlendir"
+      },
+      "el-notification": {
+        "label": "Bildirim",
+        "description": "Uygulama içi uyarı"
+      },
+      "el-webhook": {
+        "label": "Webhook yer tutucu",
+        "description": "HTTP geri çağırma ayrıldı"
+      },
+      "el-custom": {
+        "label": "Özel eylem",
+        "description": "Genişletilebilir eylem yuvası"
+      },
+      "tr-customer": {
+        "label": "Müşteri oluşturuldu",
+        "description": "CRM müşteri kaydı oluşturuldu"
+      },
+      "tr-lead": {
+        "label": "Potansiyel oluşturuldu",
+        "description": "Yeni potansiyel müşteri hunisine girer"
+      },
+      "tr-invoice": {
+        "label": "Fatura oluşturuldu",
+        "description": "Finans faturası kesildi"
+      },
+      "tr-invoice-paid": {
+        "label": "Fatura ödendi",
+        "description": "Ödeme tamamlandı"
+      },
+      "tr-order": {
+        "label": "Sipariş oluşturuldu",
+        "description": "Sipariş girildi"
+      },
+      "tr-order-done": {
+        "label": "Sipariş tamamlandı",
+        "description": "Sipariş karşılandı"
+      },
+      "tr-doc": {
+        "label": "Belge yüklendi",
+        "description": "Belge kasasına yükleme"
+      },
+      "tr-campaign": {
+        "label": "Kampanya yayımlandı",
+        "description": "Creator Studio yayını"
+      },
+      "tr-employee": {
+        "label": "Çalışan eklendi",
+        "description": "Ekip dizininde değişiklik"
+      },
+      "tr-task": {
+        "label": "Görev tamamlandı",
+        "description": "Görev bitti olarak işaretlendi"
+      },
+      "tr-manual": {
+        "label": "Manuel tetikleyici",
+        "description": "İsteğe bağlı çalıştır"
+      },
+      "tr-schedule": {
+        "label": "Zamanlama tetikleyicisi",
+        "description": "Cron / takvim zamanlaması"
+      },
+      "tr-webhook": {
+        "label": "Webhook tetikleyicisi",
+        "description": "Gelen HTTP olayı"
+      },
+      "tr-api": {
+        "label": "API tetikleyicisi",
+        "description": "Programatik başlatma"
+      },
+      "ac-crm": {
+        "label": "CRM kaydı oluştur",
+        "description": "CRM varlığı yaz"
+      },
+      "ac-invoice": {
+        "label": "Fatura oluştur",
+        "description": "Finans faturası"
+      },
+      "ac-quote": {
+        "label": "Teklif oluştur",
+        "description": "Teklif belgesi oluştur"
+      },
+      "ac-delivery": {
+        "label": "İrsaliye oluştur",
+        "description": "İrsaliye"
+      },
+      "ac-task": {
+        "label": "Görev oluştur",
+        "description": "Bir görev aç"
+      },
+      "ac-assign": {
+        "label": "Çalışan ata",
+        "description": "Takım arkadaşına yönlendir"
+      },
+      "ac-email": {
+        "label": "E-posta gönder",
+        "description": "Giden e-posta"
+      },
+      "ac-notify": {
+        "label": "Bildirim gönder",
+        "description": "Uygulama içi bildirim"
+      },
+      "ac-ai-summary": {
+        "label": "YZ özeti oluştur",
+        "description": "Bağlamı özetle"
+      },
+      "ac-ai-content": {
+        "label": "YZ içeriği oluştur",
+        "description": "Creator Studio taslağı"
+      },
+      "ac-update-customer": {
+        "label": "Müşteriyi güncelle",
+        "description": "CRM müşterisini yama"
+      },
+      "ac-update-status": {
+        "label": "Durumu güncelle",
+        "description": "Varlık durumunu değiştir"
+      },
+      "ac-pdf": {
+        "label": "PDF dışa aktar",
+        "description": "Belge dışa aktarma"
+      },
+      "ac-future": {
+        "label": "Gelecek API yer tutucu",
+        "description": "Ayrılmış eylem yuvası"
+      },
+      "ai-decision": {
+        "label": "YZ kararı",
+        "description": "Sonraki yolu belirle"
+      },
+      "ai-class": {
+        "label": "YZ sınıflandırma",
+        "description": "Kayıtları sınıflandır"
+      },
+      "ai-text": {
+        "label": "YZ metin üretimi",
+        "description": "Metin oluştur"
+      },
+      "ai-translate": {
+        "label": "YZ çeviri",
+        "description": "İçeriği çevir"
+      },
+      "ai-email": {
+        "label": "YZ e-posta yanıtı",
+        "description": "Yanıt taslağı"
+      },
+      "ai-sum": {
+        "label": "YZ özetleme",
+        "description": "Bağlamı yoğunlaştır"
+      },
+      "ai-rec": {
+        "label": "YZ önerileri",
+        "description": "Sonraki adımları öner"
+      },
+      "ai-route": {
+        "label": "YZ yönlendirme",
+        "description": "Sahibe / kuyruğa yönlendir"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "Müşteri oluşturuldu",
+        "description": "Bir CRM müşteri kaydı oluşturulduğunda tetiklenir."
+      },
+      "project_created": {
+        "label": "Proje oluşturuldu",
+        "description": "Bir proje oluşturulduğunda tetiklenir."
+      },
+      "invoice_issued": {
+        "label": "Fatura kesildi",
+        "description": "Bir fatura kesildiğinde tetiklenir."
+      },
+      "task_completed": {
+        "label": "Görev tamamlandı",
+        "description": "Bir görev tamamlandı olarak işaretlendiğinde tetiklenir."
+      },
+      "document_uploaded": {
+        "label": "Doküman yüklendi",
+        "description": "Bir belge yüklendiğinde tetiklenir."
+      },
+      "user_invited": {
+        "label": "Kullanıcı davet edildi",
+        "description": "Bir ekip üyesi davet edildiğinde tetiklenir."
+      },
+      "schedule": {
+        "label": "Takvim",
+        "description": "Cron / aralık zamanlama tetikleyicisi."
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "Gelen HTTP webhook."
+      },
+      "api_event": {
+        "label": "API olayı",
+        "description": "Genel API etki alanı olayı."
+      },
+      "ai_event": {
+        "label": "AI olayı",
+        "description": "AI sinyali (tamamlanma, içgörü, aracı adımı)."
+      },
+      "manual": {
+        "label": "Manuel tetikleyici",
+        "description": "UI veya API’den isteğe bağlı çalıştırma."
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "Müşteri Oluştur",
+        "description": "CRM müşteri kaydı oluştur."
+      },
+      "customer_update": {
+        "label": "Müşteriyi güncelle",
+        "description": "Müşteri alanlarını güncelle."
+      },
+      "project_create": {
+        "label": "Proje Oluştur",
+        "description": "İş akışı bağlamından proje oluştur."
+      },
+      "document_generate": {
+        "label": "Belge oluştur",
+        "description": "Şablondan belge oluştur."
+      },
+      "notification_send": {
+        "label": "Bildirim gönder",
+        "description": "Uygulama içi bildirim gönder."
+      },
+      "email_send": {
+        "label": "E-posta gönder",
+        "description": "Posta sağlayıcısı üzerinden e-posta kuyruğa al."
+      },
+      "api_call": {
+        "label": "API çağır",
+        "description": "Dahili veya harici API’ye HTTP çağrısı."
+      },
+      "ai_run": {
+        "label": "AI çalıştır",
+        "description": "Bağlamla AI istemi / aracı adımı çalıştır."
+      },
+      "task_assign": {
+        "label": "Görev ata",
+        "description": "Bir kullanıcıya görev ata."
+      },
+      "invoice_create": {
+        "label": "Fatura Oluştur",
+        "description": "Finans faturası oluştur."
+      },
+      "status_update": {
+        "label": "Durumu güncelle",
+        "description": "Bir modüldeki varlığın durumunu güncelle."
+      }
+    }
+  },
+  "team": {
+    "page": {
+      "eyebrow": "Kimlik ve Erişim",
+      "title": "Takım",
+      "lead": "{organization} için üyeler, roller ve davetiyeler. Gelecekteki bir kimlik API'si için mimariye hazır.",
+      "yourOrganization": "kuruluşunuz"
+    },
+    "invite": {
+      "title": "E-postayla Davet Et",
+      "email": "E-posta",
+      "emailPlaceholder": "meslektaş@şirket.com",
+      "role": "Rol",
+      "submit": "Davet etmek",
+      "created": "Davetiye oluşturuldu (beklemede).",
+      "failed": "Davet başarısız oldu",
+      "signInFirst": "Önce oturum açın ve bir kuruluşu etkinleştirin.",
+      "noPermission": "Eksik izin — Davet etmek için Yönetici veya Yönetici gerekli."
+    },
+    "roles": {
+      "title": "Roller",
+      "owner": {
+        "name": "Mal sahibi",
+        "description": "Ayarlar ve faturalandırma dahil tam organizasyon kontrolü."
+      },
+      "admin": {
+        "name": "Yönetici",
+        "description": "Finans, Otomasyon, Ekip ve çalışma alanı modüllerini yönetin."
+      },
+      "manager": {
+        "name": "Müdür",
+        "description": "CRM, Projeler, Belgeler ve Oluşturucu operasyonlarına liderlik edin."
+      },
+      "employee": {
+        "name": "Çalışan",
+        "description": "Günlük CRM, Belgeler, Oluşturucu ve Projelere erişim."
+      },
+      "guest": {
+        "name": "Misafir",
+        "description": "Belgelere ve Projelere sınırlı okuma erişimi."
+      },
+      "viewer": {
+        "name": "Görüntüleyici",
+        "description": "Paylaşılan modüllere salt okunur erişim."
+      }
+    },
+    "members": {
+      "title": "Üyeler",
+      "columnMember": "Üye",
+      "columnEmail": "E-posta",
+      "columnRole": "Rol",
+      "columnStatus": "Durum",
+      "roleFor": "{name} için rol",
+      "emptyTitle": "Henüz üye yok",
+      "emptyDescription": "Meslektaşlarınızı bu kuruluşun çalışma alanına katılmaya davet edin.",
+      "updated": "{name}, {role} olarak güncellendi",
+      "roleChangeFailed": "Rol değişikliği başarısız oldu"
+    },
+    "pending": {
+      "title": "Bekleyen Davetiyeler",
+      "emptyTitle": "Bekleyen davetiye yok",
+      "emptyDescription": "Yeni davetler kabul edilene veya süresi dolana kadar burada görünür.",
+      "expires": "{role} · {date} tarihinde sona eriyor",
+      "revoke": "Geri çekmek",
+      "pending": "askıda olması"
+    },
+    "history": {
+      "title": "Davet Geçmişi",
+      "empty": "Kabul edilmiş, süresi dolmuş ve iptal edilmiş davetiyeler burada görünecektir."
+    },
+    "status": {
+      "accepted": "kabul edildi",
+      "expired": "günü geçmiş",
+      "revoked": "iptal edildi",
+      "active": "aktif",
+      "inactive": "aktif değil",
+      "pending": "askıda olması"
+    }
+  },
+  "customers": {
+    "page": {
+      "sectionTitle": "Müşteri Yönetimi",
+      "title": "Müşteriler",
+      "lead": "{organization} için müşteri kayıtlarını oluşturun, düzenleyin, arayın ve yönetin.",
+      "yourOrganization": "kuruluşunuz"
+    },
+    "table": {
+      "columns": {
+        "company": "Şirket",
+        "email": "E-posta",
+        "location": "Konum",
+        "status": "Durum",
+        "updated": "Güncellendi",
+        "actions": "Eylemler"
+      },
+      "view": "Görüş",
+      "edit": "Düzenlemek",
+      "delete": "Silmek",
+      "viewAria": "{company} görüntüle",
+      "editAria": "{company} düzenle",
+      "deleteAria": "{company} sil",
+      "loading": "Müşteriler yükleniyor…",
+      "errorLoad": "Müşteriler yüklenemedi",
+      "errorGeneric": "Bir şeyler ters gitti",
+      "emptyFilteredTitle": "Eşleşen müşteri yok",
+      "emptyFilteredDescription": "Aramayı veya filtreleri ayarlamayı deneyin.",
+      "emptyTitle": "Henüz müşteri yok",
+      "emptyDescription": "Hesaplarınızı yönetmeye başlamak için ilk müşterinizi oluşturun.",
+      "searchLabel": "Müşterileri arayın",
+      "searchPlaceholder": "Şirket, iletişim, e-posta, şehir, etiketler…",
+      "statusFilter": "Durum",
+      "tagFilter": "Etiket",
+      "allStatuses": "Tüm durumlar",
+      "allTags": "Tüm etiketler",
+      "clearFilters": "Filtreleri temizle",
+      "addCustomer": "Müşteri Ekle"
+    },
+    "status": {
+      "active": "Aktif",
+      "prospect": "Olasılık",
+      "inactive": "Etkin değil",
+      "blocked": "Engellendi"
+    },
+    "form": {
+      "editTitle": "Müşteriyi Düzenle",
+      "createTitle": "Müşteri Ekle",
+      "cancel": "İptal etmek",
+      "saveChanges": "Değişiklikleri kaydet",
+      "createCustomer": "Müşteri oluştur",
+      "companyName": "Firma Adı",
+      "contactPerson": "İlgili kişi",
+      "email": "E-posta",
+      "status": "Durum",
+      "statusAria": "Müşteri durumu",
+      "phone": "Telefon",
+      "mobile": "Mobil",
+      "street": "Sokak",
+      "postalCode": "Posta Kodu",
+      "city": "Şehir",
+      "country": "Ülke",
+      "taxNumber": "Vergi Numarası",
+      "vatId": "KDV No",
+      "tags": "Etiketler",
+      "tagsHint": "Virgülle ayrılmış",
+      "tagsPlaceholder": "VIP, perakende, ortak",
+      "notes": "Müşteri Notları",
+      "updated": "Müşteri güncellendi",
+      "created": "Müşteri oluşturuldu",
+      "checkForm": "Formu kontrol edin",
+      "validationFailed": "Doğrulama başarısız oldu."
+    },
+    "delete": {
+      "title": "Müşteriyi sil",
+      "cancel": "İptal etmek",
+      "confirm": "Silmek",
+      "confirmWithName": "{company} kalıcı olarak kaldırılsın mı? Bu geri alınamaz.",
+      "confirmGeneric": "Bu müşteri kalıcı olarak kaldırılacak.",
+      "success": "Müşteri silindi",
+      "failed": "Silinemedi",
+      "notFound": "Müşteri bulunamadı veya kaldırılamadı.",
+      "errorGeneric": "Silinirken bir şeyler ters gitti."
+    },
+    "details": {
+      "titleFallback": "Müşteri",
+      "edit": "Düzenlemek",
+      "delete": "Silmek",
+      "noTags": "Etiket yok",
+      "contact": "Temas etmek",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "mobile": "Mobil",
+      "address": "Adres",
+      "taxNumber": "Vergi Numarası",
+      "vatId": "KDV No",
+      "updated": "Güncellendi",
+      "notes": "Notlar",
+      "noNotes": "Henüz not yok."
+    },
+    "validation": {
+      "companyRequired": "Şirket adı zorunludur.",
+      "contactRequired": "İlgili kişi zorunludur.",
+      "emailRequired": "E-posta zorunludur.",
+      "emailInvalid": "Geçerli bir e-posta adresi girin.",
+      "phoneRequired": "Telefon zorunludur.",
+      "phoneInvalid": "Geçerli bir telefon numarası girin.",
+      "mobileInvalid": "Geçerli bir cep numarası girin.",
+      "statusInvalid": "Geçerli bir durum seçin.",
+      "emailDuplicate": "Bu e-posta ile bir müşteri zaten var.",
+      "companyDuplicate": "Bu şirket adıyla bir müşteri zaten var."
+    }
+  },
+  "ai": {
+    "platform": {
+      "loading": "AI Platformu yükleniyor…",
+      "eyebrow": "AGXORA Yapay Zeka Platformu",
+      "title": "Kurumsal Yapay Zeka Çalışma Alanı",
+      "subtitle": "CRM, Projeler, Finans, Belgeler ve Otomasyon için sağlayıcıdan bağımsız zeka. Sağlayıcıları Ayarlar → AI bölümünde yapılandırın.",
+      "newConversation": "Yeni görüşme",
+      "aiCommands": "Yapay Zeka Komutları"
+    },
+    "mobileTabs": {
+      "chat": "Sohbet",
+      "conversations": "Konuşmalar",
+      "prompts": "İstemler"
+    },
+    "usageBar": {
+      "provider": "sağlayıcı",
+      "model": "Modeli",
+      "estimatedTokens": "Avustralya, Brezilya ve Kuzey Amerika ülkelerinin kullandığı saat uygulaması. jetonlar",
+      "tokensInOut": "({in} / çıkış {out})",
+      "cost": "Maliyet",
+      "context": "Bağlam",
+      "contextNone": "hiçbiri",
+      "emDash": "—"
+    },
+    "chatThread": {
+      "title": "AGXORA Yapay Zeka Çalışma Alanı",
+      "emptyHint": "Bir konuşma başlatın, kitaplıktan bir bilgi istemi seçin veya komut paletini açın (⌘⇧K / Ctrl⇧K)."
+    },
+    "conversationSidebar": {
+      "title": "Konuşmalar",
+      "new": "Yeni",
+      "searchPlaceholder": "Sohbetlerde ara…",
+      "searchAria": "Konuşmaları arayın",
+      "showArchived": "Arşivlenenleri göster",
+      "pinned": "Sabitlendi",
+      "emptyPreview": "Boş görüşme",
+      "noConversations": "Henüz görüşme yok",
+      "pin": "Sabitle",
+      "unpin": "Sabitlemeyi kaldır",
+      "rename": "Yeniden isimlendirmek",
+      "archive": "Arşiv",
+      "unarchive": "Arşivden kaldır",
+      "delete": "Silmek"
+    },
+    "composer": {
+      "placeholder": "AGXORA AI mesajı… (Göndermek için Enter, yeni satır için Shift+Enter)",
+      "ariaLabel": "Mesaj oluşturucu",
+      "commandsShortcut": "Komutlar ⌘⇧K",
+      "stop": "Durmak",
+      "send": "Göndermek"
+    },
+    "messageBubble": {
+      "ellipsis": "…",
+      "copy": "Kopyala",
+      "retry": "Yeniden dene"
+    },
+    "typingIndicator": {
+      "ariaLabel": "Asistan yazıyor"
+    },
+    "promptLibrary": {
+      "title": "Bilgi istemi kitaplığı",
+      "subtitle": "CRM, Projeler, Finans ve daha fazlasında yeniden kullanılabilir şablonlar.",
+      "searchPlaceholder": "Arama istemleri…",
+      "searchAria": "Arama istemleri",
+      "all": "Tüm",
+      "favorites": "Favoriler",
+      "recent": "Son",
+      "library": "Kütüphane",
+      "noMatches": "Hiçbir bilgi istemi eşleşmiyor",
+      "removeFavoriteAria": "Favoriyi kaldır",
+      "addFavoriteAria": "Favori ekle",
+      "favorited": "Favorilere eklendi",
+      "favorite": "Favori",
+      "usePrompt": "İstemi kullan"
+    },
+    "commandPalette": {
+      "ariaLabel": "Yapay zeka komut paleti",
+      "filterAria": "AI komutlarını filtrele",
+      "placeholder": "Yapay zeka komutu… özetleyin, önerin, analiz edin…",
+      "noMatches": "Eşleşen komut yok",
+      "footer": "Gelecekteki komutları RegisterAiCommand aracılığıyla kaydedin — Kullanıcı arayüzü değişmeden kalır."
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "Projeler",
+      "finance": "Finans",
+      "marketing": "Pazarlama",
+      "documents": "Belgeler",
+      "automation": "Otomasyon",
+      "general": "Genel"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "Müşteriyi özetle",
+        "description": "Müşteri ilişkisinin yönetici özeti"
+      },
+      "crm-follow-up-email": {
+        "title": "Takip e-postası",
+        "description": "Profesyonel bir CRM takibi taslağı"
+      },
+      "projects-analyze": {
+        "title": "Projeyi analiz et",
+        "description": "Proje sağlık kontrolü"
+      },
+      "projects-task-list": {
+        "title": "Görev listesi oluştur",
+        "description": "İşi uygulanabilir görevlere böl"
+      },
+      "finance-explain-invoice": {
+        "title": "Faturayı açıkla",
+        "description": "Sade dille fatura açıklaması"
+      },
+      "finance-cashflow-brief": {
+        "title": "Nakit akışı özeti",
+        "description": "Kısa nakit akışı anlatımı"
+      },
+      "marketing-campaign-outline": {
+        "title": "Kampanya taslağı",
+        "description": "Bir pazarlama kampanyasını yapılandır"
+      },
+      "marketing-proposal": {
+        "title": "Teklif oluştur",
+        "description": "Müşteriye yönelik teklif taslağı"
+      },
+      "documents-summarize": {
+        "title": "Belgeyi özetle",
+        "description": "Yapılandırılmış belge özeti"
+      },
+      "automation-workflow": {
+        "title": "İş akışı tasarla",
+        "description": "Otomasyon iş akışı taslağı"
+      },
+      "general-brainstorm": {
+        "title": "Seçenekleri beyin fırtınası",
+        "description": "Yapılandırılmış fikir üretimi"
+      },
+      "general-explain": {
+        "title": "Basitçe açıkla",
+        "description": "Paydaşlar için net açıklama"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "Müşteriyi özetle",
+        "description": "Aktif müşterinin yönetici özeti"
+      },
+      "cmd-generate-proposal": {
+        "label": "Teklif oluştur",
+        "description": "Müşteri teklifi taslağı"
+      },
+      "cmd-analyze-project": {
+        "label": "Projeyi analiz et",
+        "description": "Proje sağlığı ve risk analizi"
+      },
+      "cmd-create-task-list": {
+        "label": "Görev listesi oluştur",
+        "description": "İşi uygulanabilir görevlere böl"
+      },
+      "cmd-generate-email": {
+        "label": "E-posta oluştur",
+        "description": "Profesyonel bir e-posta taslağı"
+      },
+      "cmd-explain-invoice": {
+        "label": "Faturayı açıkla",
+        "description": "Sade dille fatura açıklaması"
+      }
+    }
+  },
+  "agents": {
+    "loading": "Aracı İşletim Sistemi Yükleniyor…",
+    "eyebrow": "Yapay Zeka Aracısı İşletim Sistemi",
+    "title": "Aracı İşletim Sistemi",
+    "subtitle": "Yerel aracı çalışma alanı — aracılar CRM, Projeler, Finans, İş Akışları ve Entegrasyonlar genelinde simülasyonlar olarak etkinleştirilebilir ve çalıştırılabilir. Üretim özerk yürütmesi bağlı değil.",
+    "noticeDefault": "Yerel Aracı İşletim Sistemi — çalıştırmalar bu çalışma alanında simüle edilir.",
+    "aiChat": "Yapay Zeka Sohbeti",
+    "tabs": {
+      "dashboard": "Kontrol Paneli",
+      "registry": "Kayıt defteri",
+      "marketplace": "Pazar yeri",
+      "monitor": "Monitör",
+      "history": "Tarih",
+      "memory": "Hafıza",
+      "knowledge": "Bilgi",
+      "tools": "Aletler",
+      "settings": "Ayarlar"
+    },
+    "notice": {
+      "simulatedRun": "Simüle edilmiş çalıştırma · {status} ({duration}ms)",
+      "taskFailed": "Görev başarısız oldu",
+      "activated": "Yerel olarak etkinleştirildi: {agentId}",
+      "agentPaused": "Temsilci duraklatıldı",
+      "agentActivated": "Temsilci etkinleştirildi",
+      "taskCancelled": "Görev iptal edildi",
+      "supervisorDelegated": "Süpervizör takip yetkisi verdi",
+      "settingsUpdated": "Bu yerel çalışma alanı için Ajan İşletim Sistemi ayarları güncellendi."
+    },
+    "dashboard": {
+      "agents": "Temsilciler",
+      "active": "Aktif",
+      "localReady": "Yerel hazır",
+      "simulatedToday": "Bugün simüle edildi",
+      "failedToday": "Bugün başarısız oldu",
+      "avgExec": "Ortalama yönetici",
+      "toolCalls": "Araç çağrıları",
+      "knowledge": "Bilgi",
+      "activeFleet": "Aktif filo",
+      "emptyTitle": "Aktif temsilci yok",
+      "emptyDescription": "Simüle edilmiş çalıştırmaları başlatmak için piyasadan bir aracı yükleyin veya etkinleştirin."
+    },
+    "registry": {
+      "title": "Kayıt defteri",
+      "selectPrompt": "Kayıt defterinden bir aracı seçin.",
+      "status": "Durum: {status}",
+      "health": "Sağlık: {health}",
+      "queue": "Sıra: {queue}",
+      "usage": "Kullanım: {usage}",
+      "executeTask": "Görevi yürüt",
+      "supervisorDelegate": "Süpervizör temsilcisi"
+    },
+    "marketplace": {
+      "tools": "Araçlar: {tools}",
+      "installed": "Yüklendi",
+      "installActivate": "Yükle ve etkinleştir"
+    },
+    "monitor": {
+      "title": "Temsilci monitörü",
+      "emptyTitle": "İzlenecek aracı yok",
+      "emptyDescription": "Temsilcileri pazardan etkinleştirin.",
+      "latestConfidence": "En son mantık yürütme güveni: {confidence} — {steps}"
+    },
+    "history": {
+      "title": "Yürütme geçmişi",
+      "emptyTitle": "Henüz idam yok",
+      "emptyDescription": "Kayıt defterinden veya monitörden bir aracı görevi çalıştırın."
+    },
+    "memory": {
+      "title": "Hafıza merkezi",
+      "subtitle": "Çalışma · Konuşma · İş · Uzun Süreli · Çalışma Alanı · Aracı kapsamları (mimariye hazır).",
+      "emptyTitle": "Bellek kaydı yok",
+      "emptyDescription": "Çalışma/aracı belleğini doldurmak için bir görevi yürütün."
+    },
+    "knowledge": {
+      "title": "Bilgi merkezi",
+      "subtitle": "Şirket, belgeler, projeler, CRM, politikalar, prosedürler ve ayrıca vektör/RAG yer tutucuları.",
+      "emptyTitle": "Bilgi belgesi yok",
+      "emptyDescription": "Çekirdek bilgisi, çalışma alanı önyüklemesinden sonra görünür."
+    },
+    "tools": {
+      "sensitive": "· hassas",
+      "mcpReady": "· MCP'ye hazır"
+    },
+    "settings": {
+      "title": "Aracı İşletim Sistemi ayarları",
+      "defaultLlmProvider": "Varsayılan LLM sağlayıcısı",
+      "enableSupervisor": "Denetleyici aracısı mimarisini etkinleştir",
+      "isolateSensitive": "Hassas araçları izole edin",
+      "saveSettings": "Ayarları kaydet",
+      "providersHint": "Sağlayıcılar hazır: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Bağdaştırıcıları, kullanıcı arayüzü değişikliği olmadan, RegisterLlmProvider aracılığıyla değiştirin."
+    },
+    "columns": {
+      "agent": "Ajan",
+      "status": "Durum",
+      "health": "Sağlık",
+      "queue": "Sıra",
+      "usage": "Kullanım",
+      "actions": "Eylemler",
+      "task": "Görev",
+      "duration": "Süre",
+      "created": "Oluşturuldu",
+      "scope": "Kapsam",
+      "key": "Anahtar",
+      "value": "Değer",
+      "at": "Şu tarihte:",
+      "title": "Başlık",
+      "kind": "Tür",
+      "summary": "Özet"
+    },
+    "actions": {
+      "run": "Koşmak",
+      "pause": "Duraklat",
+      "activate": "Etkinleştir",
+      "cancel": "İptal etmek",
+      "emDash": "—"
+    },
+    "goals": {
+      "executeBusiness": "{agentId} iş hedefini yürütün",
+      "planAndExecute": "Bir çalışma alanı iş hedefini planlayın ve yürütün"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "Müşteri etkisini önceliklendir",
+      "delegatedFollowUp": "Devredilmiş takip"
+    }
+  },
+  "integrations": {
+    "loading": "Entegrasyon platformu yükleniyor…",
+    "eyebrow": "Kurumsal Entegrasyon Platformu",
+    "title": "Entegrasyon Merkezi",
+    "subtitle": "Microsoft 365, Google, Slack, CRM, depolama ve otomasyon ekosistemlerine yönelik bağlayıcılar. Bu yapıdaki bağlantılar ve senkronizasyon yerel demolardır; canlı OAuth bağlı değildir.",
+    "noticeDefault": "Yerel demo bağlayıcıları — OAuth ve canlı senkronizasyon bağlı değil.",
+    "settings": "Ayarlar",
+    "tabs": {
+      "dashboard": "Kontrol Paneli",
+      "installed": "Yüklendi",
+      "available": "Mevcut",
+      "logs": "Günlükler",
+      "apiKeys": "API Anahtarları",
+      "webhooks": "Web kancaları",
+      "developer": "Geliştirici"
+    },
+    "notice": {
+      "demoConnection": "Demo bağlantısı: {name} (yalnızca yerel taslak)",
+      "connectFailed": "Bağlantı başarısız oldu",
+      "keyCreated": "API anahtarı oluşturuldu: {prefix}",
+      "webhookCreated": "Web kancası oluşturuldu: {name}",
+      "webhookTest": "Web kancası testi {status}",
+      "networkError": "API gezgini ağ hatası: {message}",
+      "explorerError": "API gezgini → {status}: {message}",
+      "explorerSuccess": "API gezgini → {status}",
+      "explorerFailed": "Gezgin başarısız oldu",
+      "syncResult": "Demo senkronizasyonu · {status} ({records} yerel kayıt) — harici veri aktarılmaz.",
+      "diagnosed": "Teşhis edildi",
+      "removedConnection": "Demo bağlantısı kaldırıldı: {name}",
+      "keyRotated": "Anahtar döndürüldü",
+      "keyRevoked": "Anahtar iptal edildi",
+      "publishedEvent": "Yayınlandı {type}",
+      "developerSaved": "Geliştirici ayarları kaydedildi"
+    },
+    "dashboard": {
+      "demoLinks": "Demo bağlantıları",
+      "catalog": "Katalog",
+      "api24h": "API (24 saat)",
+      "webhooks24h": "Web kancaları (24 saat)",
+      "webhookFailures": "Web kancası hataları",
+      "syncJobs": "İşleri senkronize et",
+      "conflicts": "Çatışmalar",
+      "errors": "Hatalar",
+      "connectionStatus": "Bağlantı durumu",
+      "emptyTitle": "Hiçbir entegrasyon yüklü değil",
+      "emptyDescription": "Gözat Bir sağlayıcıya bağlanmak için kullanılabilir.",
+      "eventBridgeDemo": "Etkinlik köprüsü demosu",
+      "eventBridgeHint": "İş Akışı Otomasyonu veriyolunda bir bağlayıcı olayı yayınlayın.",
+      "emit": "{id} gönder"
+    },
+    "installed": {
+      "title": "Kurulu entegrasyonlar",
+      "emptyTitle": "Hiçbir şey yüklü değil",
+      "emptyDescription": "Mevcut katalogdan yükleyin.",
+      "latestSync": "En son senkronizasyon: {status} · {records} kayıt · mod {mode}"
+    },
+    "available": {
+      "protocols": "Protokoller: {protocols}",
+      "demoConnection": "Demo bağlantısı",
+      "connectDemo": "Bağlan (demo)",
+      "installDemo": "Demoyu yükle"
+    },
+    "logs": {
+      "title": "Entegrasyon günlükleri",
+      "emptyTitle": "Henüz günlük yok",
+      "emptyDescription": "Bir sağlayıcıya bağlanın veya tanılamayı çalıştırın."
+    },
+    "apiKeys": {
+      "title": "API anahtarları",
+      "generateKey": "Anahtar oluştur",
+      "copyOnce": "Şimdi kopyala (bir kez gösterilir): {secret}",
+      "emptyTitle": "API anahtarı yok",
+      "emptyDescription": "REST ağ geçidi erişimi için bir anahtar oluşturun."
+    },
+    "webhooks": {
+      "endpointsTitle": "Web kancası uç noktaları",
+      "urlPlaceholder": "https://…",
+      "addOutgoing": "Giden web kancasını ekle",
+      "emptyTitle": "Web kancası yok",
+      "emptyDescription": "Teslimatı test etmek için giden bir uç nokta oluşturun.",
+      "deliveryLogs": "Teslimat günlükleri",
+      "deliveriesEmptyTitle": "Teslimat yok",
+      "deliveriesEmptyDescription": "Günlükleri doldurmak için bir test web kancası gönderin."
+    },
+    "developer": {
+      "title": "Geliştirici ayarları",
+      "sandboxMode": "Korumalı alan modu",
+      "webhookSigning": "Web kancası imzalama etkin",
+      "saveSettings": "Ayarları kaydet",
+      "apiDocs": "API belgeleri yer tutucusu: {url}",
+      "sdk": "SDK yer tutucusu: {url}",
+      "explorerTitle": "API gezgini",
+      "gatewayRoutes": "Ağ geçidi rotaları: {routes}",
+      "sendGet": "GET'i gönder",
+      "oauthProviders": "OAuth sağlayıcıları",
+      "placeholdersHint": "GraphQL, WebSocket ve gRPC ağ geçidi rotaları yer tutucu olarak kaydedilir. Alan eşleme ve senkronizasyon çakışması çözümü, arka uç uygulaması için mimariye hazırdır."
+    },
+    "connectionStatus": {
+      "connected": "Demo bağlantısı",
+      "pendingAuth": "Beklemede (demo)",
+      "error": "Hata",
+      "disabled": "Engelli",
+      "installed": "Yüklendi",
+      "available": "Mevcut",
+      "localDemo": "Yerel demo"
+    },
+    "columns": {
+      "integration": "Entegrasyon",
+      "status": "Durum",
+      "health": "Sağlık",
+      "latency": "Gecikme",
+      "actions": "Eylemler",
+      "when": "Ne zaman",
+      "level": "Seviye",
+      "source": "Kaynak",
+      "message": "Mesaj",
+      "name": "İsim",
+      "key": "Anahtar",
+      "scopes": "Kapsamlar",
+      "usage": "Kullanım",
+      "direction": "Yön",
+      "url": "URL'si",
+      "enabled": "Etkinleştirilmiş",
+      "event": "Etkinlik",
+      "attempt": "Girişim"
+    },
+    "actions": {
+      "diagnose": "Teşhis",
+      "demoSync": "Demo senkronizasyonu",
+      "demoSyncTitle": "Yalnızca demo senkronizasyonu — harici aktarım yok",
+      "disconnect": "Bağlantıyı kes",
+      "rotate": "Döndür",
+      "revoke": "Geri çekmek",
+      "test": "Test",
+      "emDash": "—",
+      "yes": "Evet",
+      "no": "HAYIR"
+    },
+    "errors": {
+      "failedToFetch": "Getirilemedi",
+      "httpStatus": "HTTP {status}"
+    }
+  },
+  "intelligence": {
+    "loading": "Kurumsal Zeka Merkezi yükleniyor…",
+    "eyebrow": "Kurumsal Zeka Merkezi",
+    "title": "İstihbarat",
+    "subtitle": "Her AGXORA modülü için KPI'lar, puan kartları, uyarılar ve raporlar. Aşağıdaki değerler, canlı analiz arka uçları bağlanana kadar yerleşik bir demo veri kümesidir.",
+    "demoBanner": "Demo veri kümesi — oturumda çalışmayı filtreler ve onaylar; dışa aktarma ve canlı model çağrıları henüz mevcut değildir.",
+    "noticeDefault": "Canlı üretim telemetrisi değil, başlangıçlı demo analizleri gösteriliyor.",
+    "noPermission": "Bu çalışma alanı için Intelligence.read izniniz yok.",
+    "filtersUpdated": "Filtreler güncellendi",
+    "demoReloaded": "Bu çalışma alanı için demo veri kümesi yeniden yüklendi.",
+    "acknowledged": "Onaylandı: {title}",
+    "exportUnavailableTitle": "Dışa aktarma kullanılamıyor — rapor oluşturma henüz bağlanmadı.",
+    "exportUnavailableAria": "{title} dosyasını {format} olarak dışa aktar - kullanılamıyor",
+    "tabs": {
+      "executive": "Yönetici",
+      "health": "İş Sağlığı",
+      "workspace": "Analitik",
+      "kpis": "KPI Merkezi",
+      "reports": "Raporlar",
+      "insights": "Analizler",
+      "forecasts": "Tahminler",
+      "alerts": "Uyarılar",
+      "scorecards": "Puan Kartları",
+      "explorer": "Veri Gezgini"
+    },
+    "filters": {
+      "from": "İtibaren",
+      "to": "İle",
+      "domain": "İhtisas",
+      "allDomains": "Tüm alanlar",
+      "apply": "Filtreleri uygula",
+      "reloadDemo": "Demo verilerini yeniden yükle",
+      "viewsAria": "İstihbarat görünümleri"
+    },
+    "executive": {
+      "companyHealth": "Şirket Sağlığı",
+      "revenueScore": "Gelir puanı",
+      "customerHealth": "Müşteri sağlığı",
+      "projectHealth": "Proje durumu",
+      "workflowSuccess": "İş akışı başarısı",
+      "aiActivity": "Yapay zeka etkinliği",
+      "finance": "Finans",
+      "riskGrowth": "Risk / Büyüme",
+      "kpiStrip": "Yönetici KPI şeridi",
+      "visualizationPreviews": "Görselleştirme önizlemeleri",
+      "visualizationHint": "Demo serisinden açıklayıcı grafikler; etkileşimli ayrıntılı incelemeler değil.",
+      "noSeries": "Seri bağlı değil"
+    },
+    "health": {
+      "title": "İş sağlığı ayrışımı",
+      "overall": "Etraflı",
+      "revenue": "Hasılat",
+      "customers": "Müşteriler",
+      "projects": "Projeler",
+      "workflows": "İş akışları",
+      "ai": "yapay zeka",
+      "finance": "Finans",
+      "operations": "Operasyonlar",
+      "riskPosture": "Risk duruşu",
+      "growth": "Büyüme",
+      "observability": "Gözlemlenebilirlik: {metrics} metrik · {avgMs}ms avg · sistem sağlığı {health}"
+    },
+    "workspace": {
+      "noSeries": "Seri yok"
+    },
+    "kpis": {
+      "title": "KPI Merkezi",
+      "subtitle": "Gelir, müşteriler, projeler, iş akışları, aracılar ve otomasyon genelinde yapılandırılabilir KPI kataloğu.",
+      "emptyTitle": "Analitik sinyal bekliyor",
+      "emptyDescription": "Çalışma alanınız etkinlik oluşturduğunda yönetici KPI'ları ve uyarılar burada görünür."
+    },
+    "reports": {
+      "title": "Raporlama motoru",
+      "subtitle": "Rapor tanımları incelenmek üzere ekilir. Bir raporlama arka ucu bağlanana kadar dosya dışa aktarma kullanılamaz.",
+      "emptyTitle": "Rapor yok",
+      "emptyDescription": "Çalışma alanı önyüklemesindeki tohumu raporlar.",
+      "scheduleOnDemand": "Talep üzerine"
+    },
+    "insights": {
+      "emptyTitle": "Henüz analiz yok",
+      "emptyDescription": "Demo öngörüleri, çalışma alanı tohumlamalarından sonra görünür. Canlı yapay zeka içgörüsü oluşturma bağlantılı değil.",
+      "badge": "Demo · {kind} · {domain} · conf {confidence}"
+    },
+    "forecasts": {
+      "emptyTitle": "Henüz tahmin yok",
+      "emptyDescription": "Demo tahminleri tohumlamadan sonra görünür. Tahmine dayalı modeller bağlı değildir.",
+      "title": "{kind} tahmin",
+      "baseline": "Temel {baseline} → öngörülen {projected} ({days}d)",
+      "confidence": "Demo · Güven {confidence} — {note}"
+    },
+    "alerts": {
+      "title": "Uyarı motoru",
+      "emptyTitle": "Uyarı yok",
+      "emptyDescription": "Tohumu risk buluşsal yöntemlerinden uyarır.",
+      "acked": "Onaylandı",
+      "open": "açık",
+      "acknowledge": "Kabullenmek"
+    },
+    "scorecards": {
+      "title": "Puan kartı motoru",
+      "emptyTitle": "Puan kartı yok",
+      "emptyDescription": "Önyükleme işleminde puan kartlarının tohumu."
+    },
+    "explorer": {
+      "title": "Veri gezgini",
+      "searchPlaceholder": "Demo satırlarında ara…",
+      "searchAria": "Demo gezgini satırlarında ara",
+      "emptyTitle": "Eşleşen satır yok",
+      "emptyDescription": "Filtreleri ayarlayın veya arayın veya demo veri kümesini yeniden yükleyin.",
+      "hint": "Tohumlanmış kayıtlarda istemci tarafı arama — arka uç toplama ve detaya inme bağlantılı değildir."
+    },
+    "columns": {
+      "kpi": "KPI",
+      "value": "Değer",
+      "delta": "%Δ",
+      "trend": "Eğilim",
+      "target": "Hedef",
+      "severity": "Şiddet",
+      "alert": "Uyarı",
+      "domain": "İhtisas",
+      "status": "Durum",
+      "actions": "Eylemler",
+      "report": "Rapor",
+      "kind": "Tür",
+      "schedule": "Takvim",
+      "export": "İhracat",
+      "scorecard": "Puan Kartı",
+      "score": "Gol",
+      "topDriver": "En iyi sürücü",
+      "label": "Etiket",
+      "entity": "Varlık",
+      "measure": "Ölçüm",
+      "date": "Tarih"
+    },
+    "emDash": "—"
+  },
+  "legal": {
+    "shell": {
+      "brand": "AGXORA",
+      "navLabel": "Yasal gezinme",
+      "lastUpdated": "Son güncelleme: {date}",
+      "footerCopyright": "© 2026 {company}",
+      "footerNavLabel": "Yasal altbilgi",
+      "nav": {
+        "privacy": "Mahremiyet",
+        "terms": "Şartlar",
+        "cookies": "Çerezler",
+        "imprint": "Baskı",
+        "contact": "Temas etmek"
+      },
+      "footer": {
+        "home": "Ev",
+        "pricing": "Fiyatlandırma",
+        "contact": "Temas etmek"
+      }
+    },
+    "contact": {
+      "title": "Temas etmek",
+      "eyebrow": "Şirket",
+      "introLead": "Ürünle ilgili sorular, destek veya kurumsal görüşmeler için AGXORA ekibine ulaşın. Satış yönlendirmeyi mi tercih ediyorsunuz? Kullanmak",
+      "contactSales": "Satış Ekibiyle İletişime Geçin",
+      "companyEmail": "Şirket e-postası",
+      "supportEmail": "Destek e-postası",
+      "sales": "Satış",
+      "enterpriseForm": "Kurumsal form",
+      "businessAddress": "İşletme adresi",
+      "addressPending": "Talep üzerine sunulur — üretim için NEXT_PUBLIC_AGXORA_ADDRESS_* ayarını yapın.",
+      "quickLinks": "Hızlı bağlantılar",
+      "pricing": "Fiyatlandırma",
+      "imprint": "Baskı",
+      "privacyPolicy": "Gizlilik Politikası"
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "eyebrow": "Yasal",
+      "intro": "Bu Gizlilik Politikası, {legalName}'in (\"AGXORA\", \"biz\", \"bizi\"), {siteUrl}'ı ziyaret ettiğinizde, bir hesap oluşturduğunuzda veya AGXORA platformunu kullandığınızda kişisel verileri nasıl işlediğini açıklamaktadır.",
+      "controller": "1. Denetleyici",
+      "dataWeProcess": "2. İşlediğimiz veriler",
+      "dataAccount": "Hesap verileri: ad, e-posta, kuruluş ve rol.",
+      "dataUsage": "Kullanım verileri: ürün etkileşimleri, cihaz ve teşhis günlükleri.",
+      "dataBilling": "Faturalandırma verileri: sağlayıcılardan gelen plan, faturalar ve ödeme referansları.",
+      "dataSupport": "Bize gönderdiğiniz iletişimleri destekleyin.",
+      "purposes": "3. Amaçlar ve yasal dayanaklar",
+      "purposesBody": "Hizmeti sağlamak (sözleşme), platformu güvence altına almak (meşru menfaat), yasal yükümlülükleri yerine getirmek ve -gerektiğinde- izninizle (örneğin isteğe bağlı analiz veya pazarlama) verileri işleriz.",
+      "retention": "4. Saklama",
+      "retentionBody": "Kişisel verileri, faturalandırma ve güvenlik kayıtları için yasal saklama da dahil olmak üzere, yalnızca yukarıdaki amaçlar için gerekli olduğu sürece saklıyoruz, ardından siliyor veya anonimleştiriyoruz.",
+      "sharing": "5. Paylaşma",
+      "sharingBody": "Uygun sözleşmeler kapsamında incelenmiş işlemciler (barındırma, e-posta, ödemeler) kullanıyoruz. Kişisel verileri satmıyoruz.",
+      "yourRights": "6. Haklarınız",
+      "yourRightsBodyBefore": "Bulunduğunuz yere bağlı olarak erişim, düzeltme, silme, kısıtlama, taşınabilirlik veya itiraz talebinde bulunabilirsiniz. Temas etmek",
+      "yourRightsBodyAfter": "Ayrıca bir denetleyici makama şikayette bulunabilirsiniz.",
+      "cookies": "7. Çerezler",
+      "cookiesBodyBefore": "Bizimkilere bakın",
+      "cookiesBodyAfter": "Temel ve isteğe bağlı çerezlere ilişkin ayrıntılar için.",
+      "cookiePolicy": "Çerez Politikası",
+      "contactSection": "8. İletişim",
+      "contactBodyBefore": "Sorular:",
+      "contactBodyMiddle": "veya"
+    },
+    "terms": {
+      "title": "Hizmet Şartları",
+      "eyebrow": "Yasal",
+      "intro": "Bu Hizmet Şartları (“Şartlar”) AGXORA ürünlerine ve {legalName} tarafından işletilen web sitelerine erişimi ve bunların kullanımını düzenler. Bir hesap oluşturarak veya hizmeti kullanarak bu Şartları kabul etmiş olursunuz.",
+      "accounts": "1. Hesaplar",
+      "accountsBody": "Doğru kayıt bilgilerini sağlamalı, kimlik bilgilerini güvende tutmalı ve hesabınızdaki etkinliklerden sorumlu olmalısınız. Kuruluş yöneticileri, çalışma alanlarına yönelik koltukları ve erişimi yönetir.",
+      "billing": "2. Abonelikler ve faturalandırma",
+      "billingBodyBefore": "Ücretli planlar, seçilen plana göre faturalandırılır",
+      "billingBodyAfter": "Kurumsal anlaşmalar self-servis şartlarının yerine geçebilir. Yasaların gerektirdiği veya yazılı olarak açıkça kararlaştırıldığı durumlar dışında ücretler iade edilmez.",
+      "pricing": "Fiyatlandırma",
+      "acceptableUse": "3. Kabul edilebilir kullanım",
+      "useNoMisuse": "Platformu kötüye kullanmayın, yetkisiz erişime kalkışmayın veya hizmeti aksatmayın.",
+      "useNoUnlawful": "Yasa dışı içerik yüklemeyin veya üçüncü tarafların haklarını ihlal etmeyin.",
+      "useCompliance": "Sizin için geçerli olan ihracat, yaptırımlar ve sektör düzenlemelerine uyun.",
+      "customerData": "4. Müşteri verileri",
+      "customerDataBodyBefore": "İş içeriğinizin hakları size aittir. AGXORA'ya bu içeriği yalnızca hizmeti sağlamak amacıyla barındırması ve işlemesi için sınırlı bir lisans veriyorsunuz. Bizim",
+      "customerDataBodyAfter": "kişisel verilerin işlenmesini açıklar.",
+      "privacyPolicy": "Gizlilik Politikası",
+      "aiFeatures": "5. Yapay Zeka özellikleri",
+      "aiFeaturesBody": "AI çıktıları hatalı veya eksik olabilir. İş kararları için çıktılara güvenmeden önce çıktıları gözden geçirmek sizin sorumluluğunuzdadır.",
+      "availability": "6. Kullanılabilirlik ve değişiklikler",
+      "availabilityBody": "Yüksek kullanılabilirliği hedefliyoruz ancak kesintisiz hizmeti garanti etmiyoruz. Özellikleri ve bu Koşulları güncelleyebiliriz; önemli değişiklikler uygun olduğu durumlarda ürün veya e-posta yoluyla bildirilecektir.",
+      "liability": "7. Sorumluluğun Sınırlandırılması",
+      "liabilityBody": "AGXORA, yasaların izin verdiği azami ölçüde dolaylı, arızi veya sonuç olarak ortaya çıkan zararlardan sorumlu değildir. Ücretli aboneliklere ilişkin toplam sorumluluğumuz, talepten önceki on iki ay içinde ödenen ücretlerle sınırlıdır.",
+      "contact": "8. İletişim",
+      "contactBodyBefore": "Yasal sorular:"
+    },
+    "cookies": {
+      "title": "Çerez Politikası",
+      "eyebrow": "Yasal",
+      "intro": "Bu Çerez Politikası, {companyName} şirketinin çerezleri ve benzer teknolojileri nasıl kullandığını açıklamaktadır. Kimlik doğrulama ve güvenlik için temel çerezler gereklidir. İsteğe bağlı analiz çerezleri yalnızca onayın alındığı durumlarda etkinleştirilir.",
+      "whatAre": "1. Çerezler nedir?",
+      "whatAreBody": "Çerezler cihazınızda saklanan küçük dosyalardır. Sitenin çalışmasına, tercihlerin hatırlanmasına ve izin verildiğinde performansın ölçülmesine yardımcı olurlar.",
+      "categories": "2. Kullandığımız kategoriler",
+      "essential": "Gerekli",
+      "essentialBody": "kimlik doğrulama, güvenlik, yük dengeleme ve temel tercihler. Hizmet için gereklidir.",
+      "functional": "Fonksiyonel",
+      "functionalBody": "hatırlanan kullanıcı arayüzü ayarları (etkinleştirildiğinde) gibi isteğe bağlı özellikler.",
+      "analytics": "Analitik",
+      "analyticsBody": "toplam kullanım ölçümü (sadece gerektiğinde izin alınarak).",
+      "managing": "3. Çerezleri yönetme",
+      "managingBody": "Gerekli olmayan çerezleri tarayıcı ayarlarından ve kullanılabilir hale geldiğinde yerindeki tercih merkezimizden kontrol edebilirsiniz. Temel çerezlerin engellenmesi, oturum açmayı veya temel ürün kullanımını engelleyebilir.",
+      "moreInfo": "4. Daha fazla bilgi",
+      "moreInfoBodyBefore": "Bkz.",
+      "moreInfoBodyMiddle": "veya iletişime geçin"
+    },
+    "imprint": {
+      "title": "Baskı",
+      "eyebrow": "Yasal",
+      "intro": "Geçerli açıklama gerekliliklerine uygun bilgiler. Genel lansmandan önce üretim değerlerini NEXT_PUBLIC_AGXORA_* ortam değişkenleriyle yapılandırın.",
+      "company": "Şirket",
+      "address": "Adres",
+      "email": "E-posta",
+      "support": "Destek",
+      "representedBy": "Tarafından temsil edilir",
+      "register": "Kayıt olmak",
+      "vatId": "KDV No",
+      "pendingConfiguration": "Bekleyen yapılandırma",
+      "responsibleForContent": "İçerikten sorumlu",
+      "responsibleBody": "Bu web sitesinin editoryal iletişim sorumlusu: {legalName}{addressSuffix}.",
+      "contact": "Temas etmek",
+      "contactBodyBefore": "Bir form mu tercih ediyorsunuz? Ziyaret etmek",
+      "contactBodyMiddle": "veya",
+      "contactBodyAfter": "kurumsal sorularınız için.",
+      "contactSales": "Satış Ekibiyle İletişime Geçin"
+    }
+  },
+  "onboarding": {
+    "eyebrow": "AGXORA işletim sistemi",
+    "title": "İş işletim sisteminizi başlatın",
+    "lead": "Sektör şablonunuzu seçin. AGXORA, sizi sonsuza kadar tek bir sektöre kilitlemeden modülleri, aracıları, iş akışlarını ve şirket bilgisini yapılandırır.",
+    "steps": {
+      "type": "Tip",
+      "company": "Şirket",
+      "locale": "Yerel ayar",
+      "goals": "Hedefler"
+    },
+    "companyName": "Firma Adı",
+    "companyPlaceholder": "Acme Otelcilik Grubu",
+    "template": "Şablon",
+    "country": "Ülke",
+    "language": "Dil",
+    "languagePlaceholder": "tr",
+    "timezone": "Saat dilimi",
+    "timezonePlaceholder": "UTC",
+    "goals": {
+      "increaseRevenue": "Geliri artırın",
+      "improveOperations": "Operasyonları iyileştirin",
+      "delightCustomers": "Müşterileri memnun edin",
+      "reduceCosts": "Maliyetleri azaltın",
+      "scaleWithAi": "Yapay zeka ile ölçeklendirin"
+    },
+    "failed": "İlk katılım başarısız oldu",
+    "back": "Geri",
+    "continue": "Devam etmek",
+    "launching": "Başlatılıyor…",
+    "enterDashboard": "Gösterge tablosuna girin",
+    "defaultCountry": "Amerika Birleşik Devletleri",
+    "businessTypes": {
+      "hotel": {
+        "label": "Otel",
+        "description": "Konaklama, odalar, misafirler ve tesis operasyonu"
+      },
+      "restaurant": {
+        "label": "Restoran",
+        "description": "Yemek, mutfak, rezervasyon ve misafir deneyimi"
+      },
+      "cleaning": {
+        "label": "Temizlik",
+        "description": "Ticari ve konut temizlik operasyonları"
+      },
+      "laundry": {
+        "label": "Çamaşırhane",
+        "description": "Yıkama tesisleri, toplama rotaları ve tekstil bakımı"
+      },
+      "construction": {
+        "label": "İnşaat",
+        "description": "Şantiyeler, ekipler, malzemeler ve proje teslimi"
+      },
+      "healthcare": {
+        "label": "Sağlık",
+        "description": "Bakım ağları, hastalar ve klinik operasyonlar"
+      },
+      "medical": {
+        "label": "Tıbbi",
+        "description": "Klinikler, randevular ve bakım ekipleri"
+      },
+      "manufacturing": {
+        "label": "İmalat",
+        "description": "Üretim hatları, kalite ve tedarik operasyonları"
+      },
+      "retail": {
+        "label": "Perakende",
+        "description": "Mağazalar, stok, merchandising ve müşteriler"
+      },
+      "legal": {
+        "label": "Hukuk bürosu",
+        "description": "Dosyalar, müvekkiller, vadeler ve faturalama"
+      },
+      "accounting": {
+        "label": "Muhasebe",
+        "description": "Defterler, müşteriler, beyanlar ve danışmanlık"
+      },
+      "consulting": {
+        "label": "Danışmanlık",
+        "description": "Görevler, teslimatlar ve müşteri sonuçları"
+      },
+      "real_estate": {
+        "label": "Emlak",
+        "description": "İlanlar, müşteriler, geziler ve işlemler"
+      },
+      "education": {
+        "label": "Eğitim",
+        "description": "Programlar, öğrenciler, öğretim üyeleri ve kayıt"
+      },
+      "automotive": {
+        "label": "Otomotiv",
+        "description": "Bayiler, servis alanları ve araç stoğu"
+      },
+      "beauty": {
+        "label": "Güzellik salonu",
+        "description": "Randevular, stilistler, perakende ve üyelikler"
+      },
+      "fitness": {
+        "label": "Spor salonu / fitness",
+        "description": "Üyelikler, dersler, antrenörler ve elde tutma"
+      },
+      "agriculture": {
+        "label": "Tarım",
+        "description": "Ürünler, hayvanlar, verim ve tedarik zincirleri"
+      },
+      "transport": {
+        "label": "Ulaşım",
+        "description": "Filo hareketi, rotalar ve yolcu/yük operasyonları"
+      },
+      "logistics": {
+        "label": "Lojistik",
+        "description": "Filo, depolar, rotalar ve fulfillment"
+      },
+      "warehouse": {
+        "label": "Depo",
+        "description": "Depolama, toplama, paketleme ve stok devri"
+      },
+      "insurance": {
+        "label": "Sigorta",
+        "description": "Poliçeler, hasarlar, underwriting ve elde tutma"
+      },
+      "finance": {
+        "label": "Finans",
+        "description": "Sermaye, portföyler ve finansal operasyonlar"
+      },
+      "financial_services": {
+        "label": "Finansal hizmetler",
+        "description": "Danışmanlık, ürünler, uyum ve müşteriler"
+      },
+      "technology": {
+        "label": "Teknoloji",
+        "description": "Ürün, mühendislik ve go-to-market ekipleri"
+      },
+      "saas": {
+        "label": "Yazılım / SaaS",
+        "description": "Abonelikler, kullanım ve müşteri başarısı"
+      },
+      "ecommerce": {
+        "label": "E-ticaret",
+        "description": "Çevrimiçi katalog, sepetler, fulfillment ve LTV"
+      },
+      "agency": {
+        "label": "Pazarlama ajansı",
+        "description": "Müşteriler, kampanyalar, retainer’lar ve teslimat"
+      },
+      "freelancer": {
+        "label": "Serbest çalışan",
+        "description": "Tek kişilik pratik, müşteriler, hunisi ve nakit akışı"
+      },
+      "government": {
+        "label": "Kamu",
+        "description": "Kamu hizmetleri, programlar ve vatandaşlar"
+      },
+      "nonprofit": {
+        "label": "Kâr amacı gütmeyen",
+        "description": "Misyonlar, bağışçılar, programlar ve etki"
+      }
+    }
+  },
+  "creator": {
+    "page": {
+      "eyebrow": "AGXORA Pazarlama İşletim Sistemi",
+      "title": "Yapay Zeka İçerik Stüdyosu",
+      "lead": "Kurumsal içerik üretimi: Her kanalda yapay zeka destekli kampanyalar oluşturun, markalayın, planlayın, yayınlayın ve ölçün.",
+      "dashboard": "Kontrol Paneli",
+      "workspace": "Çalışma alanı",
+      "workspaceSubtitle": "İçerik Oluşturma · Kampanyalar · Medya Kitaplığı · Şablonlar · Marka Varlıkları · Yayınlama Kuyruğu · Analizler",
+      "workspaceAria": "Yaratıcı çalışma alanı",
+      "integrations": "Gelecekteki Entegrasyonlar",
+      "integrationsSubtitle": "Resmi platform adaptörleri saklıdır — sahte canlı bağlantı yoktur.",
+      "aiFeatures": "Yapay Zeka Özellikleri",
+      "aiFeaturesSubtitle": "Üretim, marka, program ve yerelleştirmeye yönelik yetenek haritası."
+    },
+    "tabs": {
+      "create": "İçerik Oluştur",
+      "campaigns": "Kampanyalar",
+      "media": "Medya Kitaplığı",
+      "templates": "Şablonlar",
+      "brand": "Marka Varlıkları",
+      "queue": "Yayınlama Sırası",
+      "analytics": "Analitik"
+    },
+    "templates": {
+      "emptyTitle": "Şablon yok",
+      "emptyDescription": "Yeniden kullanılabilir içerik ve tasarım şablonları burada yer alacak."
+    },
+    "campaign": {
+      "title": "Kampanya Planlayıcı",
+      "calendar": "İçerik Takvimi",
+      "columns": {
+        "name": "Kampanya Adı",
+        "objective": "Amaç",
+        "audience": "Kitle",
+        "platforms": "Platformlar",
+        "budget": "Bütçe",
+        "timeline": "Zaman çizelgesi",
+        "status": "Durum"
+      },
+      "emptyTitle": "Kampanya yok",
+      "emptyDescription": "Hedefleri, kitleyi ve zaman çizelgelerini planlamak için bir kampanya oluşturun."
+    },
+    "media": {
+      "title": "Medya Kitaplığı",
+      "columns": {
+        "asset": "Varlık",
+        "type": "Tip",
+        "folder": "Dosya",
+        "tags": "Etiketler",
+        "updated": "Güncellendi"
+      },
+      "emptyTitle": "Medya yok",
+      "emptyDescription": "Resimler, videolar, belgeler, logolar ve şablonlar burada görünecektir.",
+      "searchPlaceholder": "Varlıkları, klasörleri, etiketleri arayın…",
+      "typeFilter": "Tip",
+      "allTypes": "Tüm türler",
+      "images": "Görseller",
+      "videos": "Videolar",
+      "documents": "Belgeler",
+      "logos": "Marka Logoları",
+      "templates": "Şablonlar"
+    },
+    "generator": {
+      "title": "Yapay Zeka İçerik Oluşturucu",
+      "lead": "Instagram altyazıları, TikTok komut dosyaları, LinkedIn gönderileri, reklamlar, SEO makaleleri ve daha fazlasını oluşturun.",
+      "brief": "Kısa bilgi",
+      "briefPlaceholder": "Teklifi, hedef kitleyi ve CTA'yı açıklayın…",
+      "generateDraft": "Taslak oluştur",
+      "aiRewrite": "Yapay Zeka Yeniden Yazma",
+      "translate": "Çevir",
+      "initialOutput": "Bir format ve marka sesi seçin, ardından bir taslak oluşturun. Sağlayıcı bağdaştırıcıları ayrılmıştır; henüz canlı model çağrısı yapılmamıştır.",
+      "draftStaged": "Taslak {format} için hazırlandı · ses: {voice}. Nesil adaptör saklıdır.",
+      "rewriteQueued": "AI Yeniden Yazma sıraya alındı ​​— yeniden yazma bağdaştırıcısı ayrıldı.",
+      "translateQueued": "Çeviri İçeriği sıraya alındı ​​— çoklu dil bağdaştırıcısı ayrıldı.",
+      "brandVoice": "Marka Sesi",
+      "brandVoiceLead": "İş tonu ön ayarları ve tutarlılık için özel marka sesi.",
+      "active": "Aktif"
+    },
+    "queue": {
+      "title": "Yayınlama Sırası",
+      "columns": {
+        "title": "Başlık",
+        "platform": "platformu",
+        "format": "Biçim",
+        "status": "Durum",
+        "scheduled": "planlanmış",
+        "author": "Yazar"
+      },
+      "emptyTitle": "Sırada gönderi yok",
+      "emptyDescription": "Taslaklar, incelemeler ve planlanmış gönderiler burada görünecektir.",
+      "filterStatus": "Filtre durumu",
+      "allStatuses": "Tüm durumlar"
+    },
+    "analytics": {
+      "title": "Analitik",
+      "topPosts": "En Popüler Gönderiler",
+      "engagement": "Müh {value}",
+      "reach": "{value} değerine ulaşın",
+      "recommendations": "Yapay Zeka Önerileri"
+    },
+    "integrations": {
+      "lead": "Gelecekteki entegrasyonlar — isteğe bağlı. Bağlanana kadar canlı API yok. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Konular, X, Meta Business, Google Ads, Google Analytics.",
+      "adapter": "Adaptör:"
+    },
+    "aiFeaturesPanel": {
+      "lead": "Yapay zeka özellik haritası — fikirler, altyazılar, hashtag'ler, takvim, kampanyalar, hedef kitle, program, marka tutarlılığı, yeniden yazma, tercüme etme, çoklu dil."
+    },
+    "formats": {
+      "instagram_caption": "Instagram açıklaması",
+      "tiktok_script": "TikTok senaryosu",
+      "linkedin_post": "LinkedIn gönderisi",
+      "facebook_post": "Facebook gönderisi",
+      "x_post": "X gönderisi",
+      "blog_article": "Blog yazısı",
+      "newsletter": "Bülten",
+      "email_campaign": "E-posta kampanyası",
+      "product_description": "Ürün açıklaması",
+      "ad_copy": "Reklam metni",
+      "seo_article": "SEO makalesi",
+      "landing_page_copy": "Açılış sayfası metni"
+    },
+    "publishStatus": {
+      "draft": "Taslak",
+      "review": "İnceleme",
+      "approved": "Onaylandı",
+      "scheduled": "Zamanlandı",
+      "published": "Yayımlandı",
+      "archive": "Arşiv"
+    },
+    "mediaKind": {
+      "image": "Görüntü",
+      "video": "Video",
+      "document": "Belge",
+      "logo": "Marka logosu",
+      "template": "Şablon"
+    },
+    "voice": {
+      "professional": "Profesyonel",
+      "friendly": "Samimi",
+      "luxury": "Lüks",
+      "casual": "Günlük"
+    },
+    "integrationStatus": {
+      "planned": "Planlandı",
+      "ready": "Hazır",
+      "connected": "Bağlı",
+      "disabled": "Devre dışı"
+    }
+  },
+  "backend": {
+    "toast": {
+      "success": "Başarı",
+      "warning": "Uyarı",
+      "error": "Hata",
+      "info": "Bilgi",
+      "dismiss": "Bildirimi reddet",
+      "close": "Kapalı"
+    },
+    "network": {
+      "offline": "Çevrimdışı görünüyorsunuz",
+      "offlineSyncHint": "Bağlantı dönene kadar değişiklikler senkronize edilmeyebilir.",
+      "offlineHelp": "Çevrimdışı yardım",
+      "reconnected": "Bağlantı yeniden kuruldu"
+    },
+    "errorBoundary": {
+      "backToDashboard": "Kontrol paneline geri dön",
+      "title": "Bir şeyler ters gitti",
+      "retry": "Yeniden dene"
+    },
+    "notFound": {
+      "title": "Sayfa bulunamadı",
+      "message": "İstediğiniz sayfa mevcut değil, taşınmış veya artık mevcut değil.",
+      "recoveryNav": "İyileşmek",
+      "home": "Ev",
+      "pricing": "Fiyatlandırma",
+      "contact": "Temas etmek",
+      "signIn": "Oturum aç",
+      "dashboard": "Kontrol Paneli"
+    },
+    "globalError": {
+      "title": "Bir şeyler ters gitti",
+      "message": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.",
+      "retry": "Yeniden dene"
+    },
+    "skipToMain": "Ana içeriğe atla",
+    "offline": {
+      "title": "Çevrimdışısınız",
+      "message": "Bağlantınızı kontrol edin ve tekrar çevrimiçi olduğunuzda tekrar deneyin. Önbelleğe alınmış ekranlar yine de çalışabilir.",
+      "home": "Ev",
+      "contact": "Temas etmek",
+      "signIn": "Oturum aç"
+    },
+    "logout": {
+      "title": "oturumu Kapat",
+      "signingOut": "Oturumunuz kapatılıyor…",
+      "endingSession": "Oturum sonlandırılıyor…",
+      "failed": "Oturum kapatılamadı"
+    },
+    "demo": {
+      "title": "Demo rezervasyonu yapın",
+      "subtitle": "AGXORA ekibiyle canlı bir inceleme planlayın. Takvim rezervasyonu etkinleştirilene kadar demo istemek için bize e-posta gönderin.",
+      "requestTitle": "Demo talep edin",
+      "requestBody": "Ekibiniz için uygun bir zaman seçebilmeniz için planlamayı bitiriyoruz. O zamana kadar ücretsiz başlayın ve ürünü kendi hızınızda keşfedin veya bize {email} adresinden e-posta gönderin.",
+      "startFree": "Bunun yerine ücretsiz başlayın",
+      "backHome": "Eve dön",
+      "signIn": "Oturum aç"
+    },
+    "loading": "Yükleniyor",
+    "loadingEllipsis": "Yükleniyor…",
+    "loadingIdentity": "Kimlik yükleniyor…"
+  },
+  "workspace": {
+    "page": {
+      "title": "Çalışma alanı",
+      "description": "Modüller ve yapay zeka için yalıtılmış kiracı çalışma alanı yüzeyi.",
+      "descriptionNamed": "{name} için yalıtılmış kiracı çalışma alanı yüzeyi."
+    },
+    "idLabel": "Çalışma Alanı Kimliği:",
+    "active": "Aktif: {name}",
+    "notInSession": "Mevcut oturumda değil",
+    "organization": "Kuruluş: {name} ({slug})",
+    "searchResults": "Arama sonuçları"
+  },
+  "iam": {
+    "identity": {
+      "eyebrow": "Kurumsal IAM",
+      "title": "Kimlik ve Erişim",
+      "lead": "Organizasyon, çalışma alanı, RBAC, güvenlik yer tutucuları ve denetim mimarisi. Arka uç adaptörleri bu yüzeyi değiştirmeden takılır.",
+      "openProfile": "Profili aç",
+      "teamManagement": "Ekip yönetimi",
+      "tabs": {
+        "organization": "Organizasyon",
+        "workspace": "Çalışma alanı",
+        "roles": "Roller ve izinler",
+        "security": "Güvenlik",
+        "audit": "Denetim günlüğü"
+      },
+      "organizationSettings": "Organizasyon ayarları",
+      "workspaceSettings": "Çalışma alanı ayarları",
+      "noOrganization": "Aktif bir kuruluş yok. Katılımı tamamlayın veya organizasyon hizmetinden bir tane oluşturun.",
+      "logoPlaceholder": "Logo yükleme ve plan faturalandırma bağdaştırıcıları, gelecekteki kimlik arka ucu için yer tutuculardır.",
+      "rbacTitle": "RBAC — varsayılan roller",
+      "permissionMatrix": "İzin matrisi",
+      "canManageSettings": "Ayarları yönetebilir: {value} · Kimliği doğrulandı: {authenticated}",
+      "yes": "Evet",
+      "no": "HAYIR",
+      "securitySettings": "Güvenlik ayarları",
+      "passwordChange": {
+        "title": "Şifre değişikliği",
+        "detail": "Parola değişikliği, yapılandırıldığında kimlik doğrulama sağlayıcısı aracılığıyla bağlanır."
+      },
+      "twoFactor": {
+        "title": "İki faktörlü kimlik doğrulama (2FA)",
+        "detail": "TOTP ve WebAuthn bağdaştırıcıları etkinleştirildiğinde buraya kaydedilir."
+      },
+      "activeSessions": {
+        "title": "Aktif oturumlar",
+        "detail": "Cihaz dizini kimlik oturumlarında bulunur; İptal, sunucu oturumlarında yetkili hale gelir."
+      },
+      "apiKeys": {
+        "title": "API anahtarları",
+        "detail": "Geliştiriciler için hizmet hesapları ve kapsamlı belirteçler."
+      },
+      "absoluteTimeout": "Mutlak zaman aşımı",
+      "idleTimeout": "Boşta kalma zaman aşımı",
+      "refreshSkew": "Eğikliği yenile",
+      "persistentLogin": "Kalıcı giriş",
+      "disabled": "Engelli",
+      "enabled": "Etkinleştirilmiş",
+      "days": "{count} gün",
+      "minutes": "{count} dakika",
+      "toggleIdlePolicy": "Boşta kalma ilkesi yer tutucusunu aç/kapat",
+      "previewSessionExpired": "Önizleme oturumunun süresi doldu",
+      "previewAccountLocked": "Önizleme hesabı kilitlendi",
+      "auditActivity": "Denetim faaliyeti",
+      "auditLead": "Oturum açma, oturum kapatma, rol değişiklikleri, davetler ve organizasyon etkinlikleri yerel olarak kaydedilir. Daha sonra değişmez bir arka uç denetim deposuyla değiştirin.",
+      "auditEmpty": "Henüz IAM etkinliği yok. Günlüğü doldurmak için oturum açın veya bir rolü değiştirin.",
+      "meta": {
+        "name": "İsim",
+        "slug": "Sümüklüböcek",
+        "plan": "Planı",
+        "owner": "Mal sahibi",
+        "created": "Oluşturuldu",
+        "yourRole": "Rolünüz",
+        "workspace": "Çalışma alanı",
+        "status": "Durum",
+        "isolationKey": "İzolasyon anahtarı"
+      },
+      "matrix": {
+        "permission": "İzin",
+        "owner": "Mal sahibi",
+        "admin": "Yönetici",
+        "manager": "Müdür",
+        "member": "Üye",
+        "viewer": "Görüntüleyici",
+        "yes": "Evet"
+      },
+      "audit": {
+        "when": "Ne zaman",
+        "action": "Aksiyon",
+        "actor": "Aktör",
+        "resource": "Kaynak"
+      }
+    },
+    "roles": {
+      "owner": {
+        "name": "Mal sahibi",
+        "description": "Faturalandırma ve sahiplik aktarımı dahil tam kontrol"
+      },
+      "admin": {
+        "name": "Yönetici",
+        "description": "İnsanları, güvenliği, çalışma alanlarını ve modülleri yönetin"
+      },
+      "manager": {
+        "name": "Müdür",
+        "description": "Lider ekipler ve operasyonel modüller; üyeleri davet et"
+      },
+      "member": {
+        "name": "Üye",
+        "description": "Günlük operasyonel erişim"
+      },
+      "viewer": {
+        "name": "Görüntüleyici",
+        "description": "Salt okunur erişim"
+      }
+    },
+    "profile": {
+      "eyebrow": "Kimlik",
+      "title": "Kullanıcı Profili",
+      "lead": "Hesap kimliğinizi, tercihlerinizi ve güvenliğinizi yönetin. Organizasyon ve çalışma alanı kontrolleri Kimlik Ayarlarında mevcuttur.",
+      "guest": "Misafir",
+      "notSignedIn": "Oturum açılmadı",
+      "identitySettings": "Kimlik ayarları",
+      "security": "Güvenlik",
+      "profileSection": "Profil",
+      "fullName": "Ad Soyad",
+      "email": "E-posta",
+      "language": "Dil",
+      "timezone": "Saat dilimi",
+      "languageEnGb": "İngilizce (İngiltere)",
+      "languageEnUs": "İngilizce (ABD)",
+      "languageDe": "Almanca",
+      "timezoneBerlin": "Avrupa/Berlin",
+      "timezoneLondon": "Avrupa/Londra",
+      "timezoneUtc": "UTC",
+      "timezoneNewYork": "Amerika/New_York",
+      "notifications": "Bildirimler",
+      "emailNotifications": "E-posta bildirimleri",
+      "pushNotifications": "Anında bildirimler",
+      "workspace": "Çalışma alanı",
+      "noticeInitial": "Profil API'si bağlanana kadar tercihler yerel olarak kaydedilir.",
+      "noticeSaved": "Profil tercihleri ​​güncellendi.",
+      "savePreferences": "Tercihleri ​​kaydet"
+    },
+    "workspaceSelector": {
+      "empty": "Henüz çalışma alanı yok; bir çalışma alanı sağlamak için bir kuruluş oluşturun.",
+      "label": "Aktif çalışma alanı",
+      "ariaLabel": "Çalışma alanını değiştir"
+    },
+    "access": {
+      "eyebrow": "Kimlik ve erişim",
+      "signIn": "Giriş yap",
+      "backToDashboard": "Kontrol paneline dön",
+      "unauthorized": {
+        "title": "Yetkisiz",
+        "description": "AGXORA’nın bu bölümüne devam etmek için giriş yapın."
+      },
+      "forbidden": {
+        "title": "Yasak",
+        "description": "Rolünüz bu kaynak için izin içermiyor."
+      },
+      "expired_session": {
+        "title": "Oturum süresi doldu",
+        "description": "Oturumunuzun süresi doldu. Çalışmaya devam etmek için tekrar giriş yapın."
+      },
+      "missing_permission": {
+        "title": "Eksik izin",
+        "description": "Gerekli modül erişimini vermesi için bir Sahip veya Yönetici’den isteyin."
+      },
+      "account_locked": {
+        "title": "Hesap kilitlendi",
+        "description": "Bu hesap kilitli. Bir kuruluş sahibiyle iletişime geçin veya daha sonra tekrar deneyin."
+      }
+    },
+    "verifyEmail": {
+      "title": "E-posta Doğrulaması",
+      "loading": "Yükleniyor…",
+      "skipForNow": "Şimdilik atla",
+      "tokenPlaceholder": "Doğrulama jetonu",
+      "tokenIssued": "Geçerli oturum için verilen doğrulama jetonu.",
+      "issueFailed": "Jeton verilemedi",
+      "verificationFailed": "Doğrulama başarısız oldu",
+      "verify": "E-postayı Doğrula",
+      "verifying": "Doğrulanıyor…",
+      "requestToken": "Doğrulama jetonu iste"
+    }
+  }
+}

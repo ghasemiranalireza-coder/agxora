@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, type JSX } from "react";
+import { useEffect, useMemo, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
+import { useT } from "@/app/lib/i18n";
 import { saasCommercialStore } from "../store";
 import { billingService } from "../billing";
 import {
@@ -22,96 +23,134 @@ import { SaasNavLink } from "./SaasNavLink";
  * Internal admin billing panel — subscriptions, plans, licenses, usage, audit.
  */
 export function AdminBillingPanel(): JSX.Element {
+  const t = useT();
   const saas = useSaasCommercial();
 
   useEffect(() => {
     saasCommercialStore.hydrate();
   }, []);
 
-  const licenseColumns: DataTableColumn<LicenseRecord>[] = [
-    { key: "organizationId", header: "Organization", render: (r) => r.organizationId },
-    { key: "planId", header: "Plan", render: (r) => r.planId },
-    { key: "status", header: "Status", render: (r) => r.status },
-    { key: "seats", header: "Seats", render: (r) => String(r.seats) },
-    {
-      key: "actions",
-      header: "Actions",
-      render: (r) => (
-        <div className="flex gap-1">
+  const licenseColumns: DataTableColumn<LicenseRecord>[] = useMemo(
+    () => [
+      {
+        key: "organizationId",
+        header: t("billing.admin.columns.organization"),
+        render: (r) => r.organizationId,
+      },
+      {
+        key: "planId",
+        header: t("billing.admin.columns.plan"),
+        render: (r) => r.planId,
+      },
+      {
+        key: "status",
+        header: t("billing.admin.columns.status"),
+        render: (r) => r.status,
+      },
+      {
+        key: "seats",
+        header: t("billing.admin.columns.seats"),
+        render: (r) => String(r.seats),
+      },
+      {
+        key: "actions",
+        header: t("billing.admin.columns.actions"),
+        render: (r) => (
+          <div className="flex gap-1">
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() =>
+                suspendLicense(r.organizationId, saas.userId ?? undefined)
+              }
+            >
+              {t("billing.admin.suspend")}
+            </Button>
+            <Button
+              size="sm"
+              variant="secondary"
+              onClick={() =>
+                grantLifetimeLicense(
+                  r.organizationId,
+                  "enterprise",
+                  saas.userId ?? undefined,
+                )
+              }
+            >
+              {t("billing.admin.lifetime")}
+            </Button>
+          </div>
+        ),
+      },
+    ],
+    [saas.userId, t],
+  );
+
+  const invoiceColumns: DataTableColumn<BillingInvoice>[] = useMemo(
+    () => [
+      {
+        key: "number",
+        header: t("billing.admin.columns.invoice"),
+        render: (r) => r.number,
+      },
+      {
+        key: "organizationId",
+        header: t("billing.admin.columns.org"),
+        render: (r) => r.organizationId,
+      },
+      {
+        key: "status",
+        header: t("billing.admin.columns.status"),
+        render: (r) => r.status,
+      },
+      {
+        key: "amountUsd",
+        header: t("billing.admin.columns.amount"),
+        render: (r) => `€${r.amountUsd.toFixed(2)}`,
+      },
+      {
+        key: "refund",
+        header: "",
+        render: (r) => (
           <Button
             size="sm"
             variant="ghost"
             onClick={() =>
-              suspendLicense(r.organizationId, saas.userId ?? undefined)
-            }
-          >
-            Suspend
-          </Button>
-          <Button
-            size="sm"
-            variant="secondary"
-            onClick={() =>
-              grantLifetimeLicense(
+              billingService.refundPlaceholder(
                 r.organizationId,
-                "enterprise",
+                r.id,
                 saas.userId ?? undefined,
               )
             }
           >
-            Lifetime
+            {t("billing.admin.refund")}
           </Button>
-        </div>
-      ),
-    },
-  ];
+        ),
+      },
+    ],
+    [saas.userId, t],
+  );
 
-  const invoiceColumns: DataTableColumn<BillingInvoice>[] = [
-    { key: "number", header: "Invoice", render: (r) => r.number },
-    {
-      key: "organizationId",
-      header: "Org",
-      render: (r) => r.organizationId,
-    },
-    { key: "status", header: "Status", render: (r) => r.status },
-    {
-      key: "amountUsd",
-      header: "Amount",
-      render: (r) => `€${r.amountUsd.toFixed(2)}`,
-    },
-    {
-      key: "refund",
-      header: "",
-      render: (r) => (
-        <Button
-          size="sm"
-          variant="ghost"
-          onClick={() =>
-            billingService.refundPlaceholder(
-              r.organizationId,
-              r.id,
-              saas.userId ?? undefined,
-            )
-          }
-        >
-          Refund
-        </Button>
-      ),
-    },
-  ];
-
-  const auditColumns: DataTableColumn<SaasAuditEvent>[] = [
-    {
-      key: "createdAt",
-      header: "When",
-      render: (r) => new Date(r.createdAt).toLocaleString(),
-    },
-    { key: "action", header: "Action", render: (r) => r.action },
-    {
-      key: "organizationId",
-      header: "Org",
-      render: (r) => r.organizationId,
-    },
-  ];
+  const auditColumns: DataTableColumn<SaasAuditEvent>[] = useMemo(
+    () => [
+      {
+        key: "createdAt",
+        header: t("billing.admin.columns.when"),
+        render: (r) => new Date(r.createdAt).toLocaleString(),
+      },
+      {
+        key: "action",
+        header: t("billing.admin.columns.action"),
+        render: (r) => r.action,
+      },
+      {
+        key: "organizationId",
+        header: t("billing.admin.columns.org"),
+        render: (r) => r.organizationId,
+      },
+    ],
+    [t],
+  );
 
   if (!saas.hydrated) {
     return (
@@ -119,7 +158,7 @@ export function AdminBillingPanel(): JSX.Element {
         className="py-16 text-center text-sm"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        Loading admin billing…
+        {t("billing.admin.loading")}
       </div>
     );
   }
@@ -133,23 +172,22 @@ export function AdminBillingPanel(): JSX.Element {
           className="text-[11px] font-semibold uppercase tracking-[0.16em]"
           style={{ color: "var(--agx-accent, #22d3ee)" }}
         >
-          Admin
+          {t("billing.admin.eyebrow")}
         </p>
         <h1
           className="text-2xl font-semibold tracking-tight"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Billing administration
+          {t("billing.admin.title")}
         </h1>
         <p
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Internal management for subscriptions, licenses, invoices, email queue,
-          and commercial audit events.
+          {t("billing.admin.lead")}
         </p>
         <SaasNavLink href="/dashboard/billing" variant="secondary">
-          Customer portal
+          {t("billing.admin.customerPortal")}
         </SaasNavLink>
       </Card>
 
@@ -158,7 +196,7 @@ export function AdminBillingPanel(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Licenses & subscriptions
+          {t("billing.admin.licenses")}
         </h2>
         <DataTable
           columns={licenseColumns}
@@ -173,7 +211,7 @@ export function AdminBillingPanel(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          All invoices
+          {t("billing.admin.allInvoices")}
         </h2>
         <DataTable
           columns={invoiceColumns}
@@ -188,7 +226,7 @@ export function AdminBillingPanel(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Plan catalog
+          {t("billing.admin.planCatalog")}
         </h2>
         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
           {saas.plans.map((plan) => (
@@ -201,15 +239,17 @@ export function AdminBillingPanel(): JSX.Element {
                 color: "var(--agx-text, #f8fafc)",
               }}
             >
-              <p className="font-medium">{plan.name}</p>
+              <p className="font-medium">{t(`pricing.plans.${plan.id}.name`)}</p>
               <p
                 className="mt-1 text-[11px]"
                 style={{ color: "var(--agx-text-muted, #94a3b8)" }}
               >
                 {plan.priceMonthlyUsd == null
-                  ? "Custom"
-                  : `€${plan.priceMonthlyUsd}/mo`}{" "}
-                · {plan.features.length} features
+                  ? t("billing.admin.custom")
+                  : t("billing.planCard.pricePerMonth", {
+                      price: plan.priceMonthlyUsd,
+                    })}{" "}
+                · {t("billing.admin.features", { count: plan.features.length })}
               </p>
             </div>
           ))}
@@ -221,14 +261,14 @@ export function AdminBillingPanel(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Email queue (mock)
+          {t("billing.admin.emailQueue")}
         </h2>
         {emails.length === 0 ? (
           <p
             className="text-xs"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            No emails queued.
+            {t("billing.admin.noEmails")}
           </p>
         ) : (
           <ul className="space-y-2 text-xs">
@@ -249,7 +289,7 @@ export function AdminBillingPanel(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Commercial audit
+          {t("billing.admin.commercialAudit")}
         </h2>
         <DataTable
           columns={auditColumns}

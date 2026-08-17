@@ -4,15 +4,18 @@ import type { JSX } from "react";
 import { createPortal } from "react-dom";
 import { Skeleton } from "../ui";
 import { OVERLAY_Z } from "../ui/overlayStack";
+import { useT } from "../../lib/i18n";
 
 /**
  * Identity loading overlay — portaled, DS scrim/elevated, above shell chrome.
  */
 export function IdentityLoadingOverlay({
-  label = "Loading identity…",
+  label,
 }: {
   readonly label?: string;
 }): JSX.Element | null {
+  const t = useT();
+  const resolved = label ?? t("backend.loadingIdentity");
   if (typeof document === "undefined") return null;
 
   return createPortal(
@@ -24,7 +27,7 @@ export function IdentityLoadingOverlay({
       }}
       role="status"
       aria-live="polite"
-      aria-label={label}
+      aria-label={resolved}
     >
       <div
         className="w-full max-w-sm space-y-3 border p-6"
@@ -36,7 +39,7 @@ export function IdentityLoadingOverlay({
         }}
       >
         <p className="text-sm" style={{ color: "var(--agx-ds-text-muted)" }}>
-          {label}
+          {resolved}
         </p>
         <Skeleton height={14} width="70%" />
         <Skeleton height={36} width="100%" />

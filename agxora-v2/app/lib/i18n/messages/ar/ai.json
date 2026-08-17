@@ -1,0 +1,168 @@
+{
+  "platform": {
+    "loading": "جارٍ تحميل النظام الأساسي للذكاء الاصطناعي…",
+    "eyebrow": "منصة AGXORA للذكاء الاصطناعي",
+    "title": "مساحة عمل الذكاء الاصطناعي للمؤسسات",
+    "subtitle": "معلومات مستقلة عن الموفر لإدارة علاقات العملاء والمشاريع والتمويل والمستندات والأتمتة. قم بتكوين الموفرين في الإعدادات → AI.",
+    "newConversation": "محادثة جديدة",
+    "aiCommands": "أوامر الذكاء الاصطناعي"
+  },
+  "mobileTabs": {
+    "chat": "محادثة",
+    "conversations": "المحادثات",
+    "prompts": "يطالب"
+  },
+  "usageBar": {
+    "provider": "مزود",
+    "model": "نموذج",
+    "estimatedTokens": "EST. الرموز",
+    "tokensInOut": "(داخل {in} / خارج {out})",
+    "cost": "يكلف",
+    "context": "سياق",
+    "contextNone": "لا أحد",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "مساحة عمل AGXORA AI",
+    "emptyHint": "ابدأ محادثة، أو اختر مطالبة من المكتبة، أو افتح لوحة الأوامر (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "المحادثات",
+    "new": "جديد",
+    "searchPlaceholder": "بحث في الدردشات...",
+    "searchAria": "بحث في المحادثات",
+    "showArchived": "عرض المؤرشفة",
+    "pinned": "مثبت",
+    "emptyPreview": "محادثة فارغة",
+    "noConversations": "لا توجد محادثات حتى الآن",
+    "pin": "دبوس",
+    "unpin": "إزالة التثبيت",
+    "rename": "إعادة تسمية",
+    "archive": "أرشيف",
+    "unarchive": "إلغاء الأرشفة",
+    "delete": "يمسح"
+  },
+  "composer": {
+    "placeholder": "رسالة AGXORA AI... (أدخل للإرسال، Shift+Enter للسطر الجديد)",
+    "ariaLabel": "مؤلف الرسالة",
+    "commandsShortcut": "الأوامر ⌘⇧K",
+    "stop": "قف",
+    "send": "يرسل"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "ينسخ",
+    "retry": "أعد المحاولة"
+  },
+  "typingIndicator": {
+    "ariaLabel": "المساعد يكتب"
+  },
+  "promptLibrary": {
+    "title": "مكتبة عاجلة",
+    "subtitle": "قوالب قابلة لإعادة الاستخدام عبر إدارة علاقات العملاء والمشاريع والتمويل والمزيد.",
+    "searchPlaceholder": "مطالبات البحث…",
+    "searchAria": "مطالبات البحث",
+    "all": "الجميع",
+    "favorites": "المفضلة",
+    "recent": "مؤخرًا",
+    "library": "مكتبة",
+    "noMatches": "لا توجد مطالبات متطابقة",
+    "removeFavoriteAria": "إزالة المفضلة",
+    "addFavoriteAria": "أضف المفضلة",
+    "favorited": "المفضلة",
+    "favorite": "مفضل",
+    "usePrompt": "استخدم موجه"
+  },
+  "commandPalette": {
+    "ariaLabel": "لوحة أوامر الذكاء الاصطناعي",
+    "filterAria": "تصفية أوامر الذكاء الاصطناعي",
+    "placeholder": "أمر الذكاء الاصطناعي...تلخيص، اقتراح، تحليل...",
+    "noMatches": "لا توجد أوامر مطابقة",
+    "footer": "قم بتسجيل الأوامر المستقبلية عبر RegisterAiCommand - تظل واجهة المستخدم دون تغيير."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "المشاريع",
+    "finance": "المالية",
+    "marketing": "التسويق",
+    "documents": "المستندات",
+    "automation": "الأتمتة",
+    "general": "عام"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "تلخيص العميل",
+      "description": "ملخص تنفيذي لعلاقة العميل"
+    },
+    "crm-follow-up-email": {
+      "title": "بريد المتابعة",
+      "description": "صغ متابعة CRM احترافية"
+    },
+    "projects-analyze": {
+      "title": "تحليل المشروع",
+      "description": "فحص صحة المشروع"
+    },
+    "projects-task-list": {
+      "title": "إنشاء قائمة مهام",
+      "description": "قسّم العمل إلى مهام قابلة للتنفيذ"
+    },
+    "finance-explain-invoice": {
+      "title": "شرح الفاتورة",
+      "description": "شرح الفاتورة بلغة بسيطة"
+    },
+    "finance-cashflow-brief": {
+      "title": "موجز التدفق النقدي",
+      "description": "سرد قصير للتدفق النقدي"
+    },
+    "marketing-campaign-outline": {
+      "title": "مخطط الحملة",
+      "description": "هيكل حملة تسويقية"
+    },
+    "marketing-proposal": {
+      "title": "إنشاء عرض",
+      "description": "مسودة عرض موجّهة للعميل"
+    },
+    "documents-summarize": {
+      "title": "تلخيص المستند",
+      "description": "ملخص مستند منظم"
+    },
+    "automation-workflow": {
+      "title": "تصميم سير عمل",
+      "description": "مسودة سير عمل الأتمتة"
+    },
+    "general-brainstorm": {
+      "title": "عصف ذهني للخيارات",
+      "description": "توليد أفكار منظم"
+    },
+    "general-explain": {
+      "title": "اشرح ببساطة",
+      "description": "شرح واضح لأصحاب المصلحة"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "تلخيص العميل",
+      "description": "ملخص تنفيذي للعميل النشط"
+    },
+    "cmd-generate-proposal": {
+      "label": "إنشاء عرض",
+      "description": "صغ مخطط عرض للعميل"
+    },
+    "cmd-analyze-project": {
+      "label": "تحليل المشروع",
+      "description": "صحة المشروع وتحليل المخاطر"
+    },
+    "cmd-create-task-list": {
+      "label": "إنشاء قائمة مهام",
+      "description": "قسّم العمل إلى مهام قابلة للتنفيذ"
+    },
+    "cmd-generate-email": {
+      "label": "إنشاء بريد إلكتروني",
+      "description": "صغ بريدًا احترافيًا"
+    },
+    "cmd-explain-invoice": {
+      "label": "شرح الفاتورة",
+      "description": "شرح الفاتورة بلغة بسيطة"
+    }
+  }
+}

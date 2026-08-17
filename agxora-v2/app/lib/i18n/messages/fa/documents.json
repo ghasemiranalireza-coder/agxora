@@ -1,6 +1,6 @@
 {
   "page": {
-    "brand": "AGXORA Knowledge OS",
+    "brand": "سیستم عامل دانش آگکسورا",
     "title": "اسناد",
     "subtitle": "مرکز اسناد و دانش سازمانی — پیش‌نمایش با محتوای نمونه تا اتصال بک‌اندهای ذخیره‌سازی و تأیید.",
     "sampleNotice": "کتابخانه نمونه — مرور و فیلترها در جلسه کار می‌کنند. بارگذاری، تأیید و ایندکس هوش مصنوعی متصل نیستند."
@@ -134,7 +134,7 @@
     "versionHistoryTitle": "تاریخچه نسخه",
     "close": "بستن",
     "context": {
-      "open": "باز کردن",
+      "open": "باز",
       "share": "اشتراک‌گذاری",
       "favorite": "علاقه‌مندی",
       "move": "جابه‌جایی",
@@ -161,7 +161,7 @@
       "updated": "به‌روزرسانی‌شده",
       "fileType": "نوع فایل",
       "size": "اندازه",
-      "category": "دسته‌بندی",
+      "category": "دسته",
       "department": "واحد",
       "status": "وضعیت",
       "retention": "نگهداری",
@@ -337,13 +337,13 @@
   },
   "fileType": {
     "pdf": "PDF",
-    "word": "Word",
-    "excel": "Excel",
-    "powerpoint": "PowerPoint",
+    "word": "کلمه",
+    "excel": "اکسل",
+    "powerpoint": "مایکروسافت پاورپوینت",
     "image": "تصویر",
     "video": "ویدیو",
     "audio": "صوت",
-    "markdown": "Markdown",
+    "markdown": "زمانی نیسانەکردن(Markdown)",
     "text": "متن",
     "json": "JSON",
     "csv": "CSV",
@@ -357,10 +357,10 @@
     "public_link": "پیوند عمومی"
   },
   "module": {
-    "crm": "CRM",
+    "crm": "مدیریت ارتباط مشتری CRM",
     "finance": "مالی",
-    "automation": "Automation",
-    "creator": "Creator Studio",
+    "automation": "اتوماسیون",
+    "creator": "استودیوی سازنده",
     "hr": "منابع انسانی آینده",
     "projects": "پروژه‌های آینده"
   },
@@ -380,9 +380,9 @@
     "planned": "برنامه‌ریزی‌شده"
   },
   "bytes": {
-    "b": "{value} B",
-    "kb": "{value} KB",
-    "mb": "{value} MB",
-    "gb": "{value} GB"
+    "b": "{value} ب",
+    "kb": "{value} کیلوبایت",
+    "mb": "{value} مگابایت",
+    "gb": "{value} گیگابایت"
   }
 }

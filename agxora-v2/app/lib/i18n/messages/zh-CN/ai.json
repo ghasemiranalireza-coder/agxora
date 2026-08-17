@@ -1,0 +1,168 @@
+{
+  "platform": {
+    "loading": "正在加载人工智能平台...",
+    "eyebrow": "AGXORA人工智能平台",
+    "title": "企业人工智能工作空间",
+    "subtitle": "独立于提供商的 CRM、项目、财务、文档和自动化智能。在“设置”→“AI”中配置提供商。",
+    "newConversation": "新的对话",
+    "aiCommands": "人工智能命令"
+  },
+  "mobileTabs": {
+    "chat": "聊天",
+    "conversations": "对话",
+    "prompts": "提示"
+  },
+  "usageBar": {
+    "provider": "提供者",
+    "model": "模型",
+    "estimatedTokens": "预计。代币",
+    "tokensInOut": "（输入{in}/输出{out}）",
+    "cost": "成本",
+    "context": "语境",
+    "contextNone": "无",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "AGXORA 人工智能工作空间",
+    "emptyHint": "开始对话，从库中选择提示，或打开命令选项板 (⌘⇧K / Ctrl⇧K)。"
+  },
+  "conversationSidebar": {
+    "title": "对话",
+    "new": "新",
+    "searchPlaceholder": "搜索聊天记录...",
+    "searchAria": "搜索对话",
+    "showArchived": "显示已存档",
+    "pinned": "已固定",
+    "emptyPreview": "空谈",
+    "noConversations": "还没有对话",
+    "pin": "别针",
+    "unpin": "取消固定",
+    "rename": "重命名",
+    "archive": "档案",
+    "unarchive": "取消存档",
+    "delete": "删除"
+  },
+  "composer": {
+    "placeholder": "消息 AGXORA AI…（Enter 发送，Shift+Enter 换行）",
+    "ariaLabel": "信件撰写器",
+    "commandsShortcut": "命令 ⌘⇧K",
+    "stop": "停止",
+    "send": "发送"
+  },
+  "messageBubble": {
+    "ellipsis": "……",
+    "copy": "复制",
+    "retry": "重试"
+  },
+  "typingIndicator": {
+    "ariaLabel": "助理正在打字"
+  },
+  "promptLibrary": {
+    "title": "提示库",
+    "subtitle": "可在 CRM、项目、财务等领域重复使用的模板。",
+    "searchPlaceholder": "搜索提示...",
+    "searchAria": "搜索提示",
+    "all": "全部",
+    "favorites": "收藏夹",
+    "recent": "最近",
+    "library": "图书馆",
+    "noMatches": "没有匹配的提示",
+    "removeFavoriteAria": "删除收藏夹",
+    "addFavoriteAria": "添加收藏夹",
+    "favorited": "已收藏",
+    "favorite": "最喜欢的",
+    "usePrompt": "使用提示"
+  },
+  "commandPalette": {
+    "ariaLabel": "AI命令面板",
+    "filterAria": "过滤AI命令",
+    "placeholder": "AI指挥……总结、建议、分析……",
+    "noMatches": "没有匹配的命令",
+    "footer": "通过 registerAiCommand 注册未来的命令 — UI 保持不变。"
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "项目",
+    "finance": "财务",
+    "marketing": "营销",
+    "documents": "文档",
+    "automation": "自动化",
+    "general": "通用"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "汇总客户",
+      "description": "客户关系的高管摘要"
+    },
+    "crm-follow-up-email": {
+      "title": "跟进邮件",
+      "description": "起草专业的 CRM 跟进"
+    },
+    "projects-analyze": {
+      "title": "分析项目",
+      "description": "项目健康检查"
+    },
+    "projects-task-list": {
+      "title": "创建任务列表",
+      "description": "将工作拆成可执行任务"
+    },
+    "finance-explain-invoice": {
+      "title": "解释发票",
+      "description": "通俗发票说明"
+    },
+    "finance-cashflow-brief": {
+      "title": "现金流简报",
+      "description": "简短现金流叙述"
+    },
+    "marketing-campaign-outline": {
+      "title": "活动大纲",
+      "description": "构建营销活动结构"
+    },
+    "marketing-proposal": {
+      "title": "生成提案",
+      "description": "面向客户的提案草稿"
+    },
+    "documents-summarize": {
+      "title": "汇总文档",
+      "description": "结构化文档摘要"
+    },
+    "automation-workflow": {
+      "title": "设计工作流",
+      "description": "自动化工作流草图"
+    },
+    "general-brainstorm": {
+      "title": "头脑风暴选项",
+      "description": "结构化构思"
+    },
+    "general-explain": {
+      "title": "简明解释",
+      "description": "面向利益相关方的清晰说明"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "汇总客户",
+      "description": "当前客户的高管摘要"
+    },
+    "cmd-generate-proposal": {
+      "label": "生成提案",
+      "description": "起草客户提案大纲"
+    },
+    "cmd-analyze-project": {
+      "label": "分析项目",
+      "description": "项目健康与风险分析"
+    },
+    "cmd-create-task-list": {
+      "label": "创建任务列表",
+      "description": "将工作拆成可执行任务"
+    },
+    "cmd-generate-email": {
+      "label": "生成邮件",
+      "description": "起草专业邮件"
+    },
+    "cmd-explain-invoice": {
+      "label": "解释发票",
+      "description": "通俗发票说明"
+    }
+  }
+}

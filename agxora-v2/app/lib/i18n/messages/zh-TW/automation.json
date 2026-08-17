@@ -1,0 +1,540 @@
+{
+  "enginePage": {
+    "sectionTitle": "AGXORA自動化操作系統",
+    "title": "自動化",
+    "subtitle": "企業人工智慧工作流程和自動化引擎——CRM、財務、Creator Studio 和每個未來 AGXORA 模組的結締組織。",
+    "loadingHistory": "正在載入工作流程歷史記錄...",
+    "loadingTemplates": "正在載入模板庫...",
+    "loadingIntegrations": "正在加載集成中心...",
+    "dashboard": "儀表板",
+    "workflowBuilder": "工作流程產生器",
+    "workflowBuilderSubtitle": "基於節點的畫布，具有對齊網格、平滑縮放和平移、連接懸停和空狀態指導。",
+    "openAssistant": "開啟AI工作流程助手",
+    "workflowHistory": "工作流程歷史記錄",
+    "workflowHistorySubtitle": "具有彩色狀態、可點擊行和完整執行檢查器的執行日誌。",
+    "templates": "範本",
+    "templatesSubtitle": "載入前預覽—節點計數、難度、執行階段和建議使用案例。",
+    "integrationCenter": "整合中心",
+    "integrationCenterSubtitle": "僅適配器註冊表 - 已連接、測試版、已規劃、即將推出、已停用。沒有即時 API。"
+  },
+  "assistant": {
+    "title": "AI工作流程助手",
+    "subtitle": "僅本地啟發式 - 不需要即時模型。",
+    "closeAria": "關閉AI工作流程助手",
+    "close": "關閉",
+    "workflowScore": "工作流程分數",
+    "scoreOutOf": "/ 100",
+    "optimizationSuggestions": "優化建議",
+    "oneClickOptimize": "一鍵優化",
+    "noticeDefault": "一鍵優化還沒有圖形突變。",
+    "noticeQueued": "優化排隊。未來的引擎將重寫延遲和批准。"
+  },
+  "integrations": {
+    "intro": "整合中心—選用。狀態：已連線、測試版、已計劃、即將推出、已停用。沒有即時API。",
+    "category": "類別：",
+    "reservedAdapter": "預留適配器：",
+    "description": "說明："
+  },
+  "executionInspector": {
+    "title": "執行詳情",
+    "emptyTitle": "選擇執行",
+    "emptyDescription": "從工作流程歷程記錄中選擇一個運行，以檢查輸入、輸出和AI摘要。",
+    "workflowName": "工作流程名稱",
+    "trigger": "扳機",
+    "executionId": "執行ID",
+    "started": "開始",
+    "finished": "完成的",
+    "duration": "長度",
+    "status": "地位",
+    "success": "成功",
+    "failed": "失敗的",
+    "retryAvailable": "可以重試",
+    "executedBy": "執行者",
+    "yes": "是的",
+    "no": "不",
+    "emDash": "—",
+    "input": "流入",
+    "output": "輸出",
+    "aiSummary": "人工智慧總結",
+    "errorMessage": "錯誤訊息",
+    "retry": "重試",
+    "retryUnavailable": "無法重試",
+    "noticeDefault": "保留重試適配器—尚未實時重新執行。",
+    "noticeQueued": "重試排隊等待 {id}。"
+  },
+  "workflowBuilder": {
+    "elementsTitle": "工作流程元素",
+    "paletteAria": "調色盤",
+    "tabElements": "元素",
+    "tabTriggers": "觸發器",
+    "tabActions": "行動",
+    "tabAiActions": "人工智慧行動",
+    "builderTitle": "工作流程產生器·{name}",
+    "builderHint": "對齊 {grid}px 網格 · ⌘/Ctrl+滾動縮放 · 拖動畫布進行平移 · 雙擊連接",
+    "autoSaved": "自動儲存",
+    "saving": "儲存中…",
+    "undo": "撤銷",
+    "redo": "重做",
+    "zoomOut": "-",
+    "zoomIn": "+",
+    "resetView": "重置視圖",
+    "emptyTitle": "空白畫布",
+    "emptyDescription": "從調色板中拖曳觸發器開始建置。對齊網格使節點保持對齊。",
+    "connectHint": "雙擊目標進行連接",
+    "miniMapAria": "小地圖"
+  },
+  "workflowHistory": {
+    "title": "工作流程歷史·執行日誌",
+    "statusFilter": "地位",
+    "statusAll": "全部",
+    "statusSuccess": "成功",
+    "statusFailed": "失敗的",
+    "statusPending": "待辦的",
+    "statusRetried": "重試",
+    "statusRunning": "跑步",
+    "runsAria": "工作流程運行",
+    "noMatches": "沒有符合此篩選條件的工作流程執行。"
+  },
+  "workflowTemplates": {
+    "title": "範本庫",
+    "noticeDefault": "在將模板載入到建構器之前預覽模板。",
+    "noticeLoaded": "已將“{name}”載入到工作流程建構器中。",
+    "nodesBadge": "{count} 個節點",
+    "recommendedFor": "推薦用於：{for}",
+    "preview": "預覽",
+    "useTemplate": "使用模板",
+    "previewTitle": "模板預覽",
+    "close": "關閉",
+    "nodes": "節點",
+    "connections": "連接",
+    "estimatedRuntime": "預計運行時間",
+    "difficulty": "困難",
+    "requiredModules": "所需模組",
+    "usedAiFeatures": "已使用的人工智能功能",
+    "none": "沒有任何"
+  },
+  "workspace": {
+    "loading": "正在加載自動化引擎...",
+    "eyebrow": "工作流程自動化引擎",
+    "title": "自動化",
+    "subtitle": "跨 CRM、專案、財務、文件和 AI 的可設定業務工作流程 — 本地事件匯流排和瀏覽器內引擎。分散式佇列和後端工作人員未連線。",
+    "noticeDefault": "執行引擎與使用者介面無關。模組發佈事件；工作流程訂閱。",
+    "tabs": {
+      "dashboard": "儀表板",
+      "workflows": "工作流程",
+      "editor": "編輯",
+      "history": "歷史",
+      "templates": "範本",
+      "analytics": "分析",
+      "settings": "設定"
+    },
+    "notice": {
+      "missingWrite": "缺少工作流程.寫入權限。",
+      "missingExecute": "缺少工作流程.執行權限。",
+      "created": "已建立{name}",
+      "templateApplied": "應用的模板：{name}",
+      "runResult": "運行{status}（{duration}毫秒）",
+      "runFailed": "工作流無法運行（已禁用或缺失）。",
+      "publishedEvent": "已發佈的網域事件：{type}",
+      "workflowStatus": "工作流程{status}",
+      "saved": "工作流程已保存",
+      "retryResult": "重試{status}",
+      "retryFailed": "重試失敗",
+      "settingsSaved": "已儲存自動化設定"
+    },
+    "defaults": {
+      "untitledName": "無標題工作流程",
+      "untitledDescription": "草稿工作流程 — 設定觸發器和操作。"
+    },
+    "dashboard": {
+      "workflows": "工作流程",
+      "active": "積極的",
+      "runsToday": "今天運行",
+      "successRate": "八、檢查成功率",
+      "recentWorkflows": "最近的工作流程",
+      "newWorkflow": "新的工作流程",
+      "eventBusDemo": "事件總線演示",
+      "eventBusHint": "發布模組事件。具有匹配觸發器的活動工作流程會自動排隊。",
+      "notifications": "通知"
+    },
+    "workflowList": {
+      "title": "工作流程清單",
+      "newWorkflow": "新的工作流程",
+      "emptyTitle": "還沒有工作流程。",
+      "emptyDescription": "建立工作流程或從範本開始。",
+      "columns": {
+        "name": "姓名",
+        "status": "地位",
+        "nodes": "節點",
+        "updated": "已更新",
+        "actions": "行動"
+      },
+      "run": "跑步",
+      "disable": "停用",
+      "activate": "啟用設定"
+    },
+    "editor": {
+      "selectPrompt": "選擇或建立要編輯的工作流程。",
+      "workflows": "工作流程",
+      "title": "工作流程編輯器",
+      "hint": "架構支援觸發→條件→動作→延遲→分支→循環。畫布拖放可以插入節點位置，無需更改引擎。",
+      "name": "姓名",
+      "description": "描述",
+      "trigger": "扳機",
+      "primaryAction": "主要行動",
+      "executionPath": "執行路徑預覽",
+      "save": "節省",
+      "runNow": "立即運行",
+      "triggerFallback": "扳機",
+      "actionFallback": "操作"
+    },
+    "history": {
+      "title": "執行歷史",
+      "emptyTitle": "尚未執行死刑。",
+      "emptyDescription": "執行工作流程或發佈網域事件。",
+      "latestRun": "最新運行詳情",
+      "path": "路徑：{path}",
+      "error": "· 錯誤：{error}",
+      "columns": {
+        "workflow": "工作流程",
+        "status": "地位",
+        "triggeredBy": "觸發由",
+        "duration": "長度",
+        "started": "開始",
+        "retry": "重試"
+      },
+      "retry": "重試",
+      "emDash": "—"
+    },
+    "templates": {
+      "useTemplate": "使用模板"
+    },
+    "analytics": {
+      "totalWorkflows": "總工作流程",
+      "activeWorkflows": "有效的工作流程",
+      "executionsToday": "今天執行死刑",
+      "successRate24h": "成功率（24小時）",
+      "failed24h": "失敗（ 24小時）",
+      "avgDuration": "平均持續時間"
+    },
+    "settings": {
+      "title": "自動化設定",
+      "subtitle": "分散式執行的重試策略、執行限制、並發、逾時和日誌記錄。",
+      "maxRetryAttempts": "最大重試次數",
+      "backoffMs": "退避（毫秒）",
+      "executionsPerHour": "執行次數/小時",
+      "concurrencyLimit": "並發限制",
+      "timeoutMs": "超時（毫秒）",
+      "logLevel": "日誌等級",
+      "saveSettings": "儲存設定",
+      "logLevels": {
+        "error": "錯誤",
+        "warn": "警告",
+        "info": "資訊",
+        "debug": "偵錯"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "空工作流程"
+  },
+  "status": {
+    "connected": "已連線",
+    "beta": "測試版",
+    "comingSoon": "即將推出",
+    "disabled": "已停用",
+    "planned": "已規劃",
+    "success": "成功",
+    "failed": "失敗",
+    "running": "執行中",
+    "pending": "待處理",
+    "retried": "重試"
+  },
+  "difficulty": {
+    "starter": "入門",
+    "intermediate": "中級",
+    "advanced": "進階"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "觸發器",
+      "description": "在事件觸發時啟動"
+    },
+    "el-condition": {
+      "label": "條件",
+      "description": "依規則分支"
+    },
+    "el-delay": {
+      "label": "延遲",
+      "description": "繼續前等待"
+    },
+    "el-approval": {
+      "label": "核准",
+      "description": "人工核准關卡"
+    },
+    "el-loop": {
+      "label": "迴圈",
+      "description": "走訪集合"
+    },
+    "el-merge": {
+      "label": "合併",
+      "description": "合併平行路徑"
+    },
+    "el-split": {
+      "label": "拆分",
+      "description": "扇出平行路徑"
+    },
+    "el-ai-decision": {
+      "label": "AI 決策",
+      "description": "透過 AI 路由"
+    },
+    "el-notification": {
+      "label": "通知",
+      "description": "應用程式內提醒"
+    },
+    "el-webhook": {
+      "label": "Webhook 預留",
+      "description": "已預留 HTTP 回呼"
+    },
+    "el-custom": {
+      "label": "自訂動作",
+      "description": "可擴充動作槽"
+    },
+    "tr-customer": {
+      "label": "客戶已建立",
+      "description": "已建立 CRM 客戶紀錄"
+    },
+    "tr-lead": {
+      "label": "潛在客戶已建立",
+      "description": "新潛在客戶進入管道"
+    },
+    "tr-invoice": {
+      "label": "發票已建立",
+      "description": "已開立財務發票"
+    },
+    "tr-invoice-paid": {
+      "label": "發票已付款",
+      "description": "付款已結清"
+    },
+    "tr-order": {
+      "label": "訂單已建立",
+      "description": "訂單已登錄"
+    },
+    "tr-order-done": {
+      "label": "訂單已完成",
+      "description": "訂單已履約"
+    },
+    "tr-doc": {
+      "label": "文件已上傳",
+      "description": "文件庫上傳"
+    },
+    "tr-campaign": {
+      "label": "活動已發佈",
+      "description": "Creator Studio 發佈"
+    },
+    "tr-employee": {
+      "label": "員工已新增",
+      "description": "團隊目錄變更"
+    },
+    "tr-task": {
+      "label": "任務已完成",
+      "description": "任務已標為完成"
+    },
+    "tr-manual": {
+      "label": "手動觸發器",
+      "description": "按需執行"
+    },
+    "tr-schedule": {
+      "label": "排程觸發器",
+      "description": "Cron / 日曆排程"
+    },
+    "tr-webhook": {
+      "label": "Webhook 觸發器",
+      "description": "傳入 HTTP 事件"
+    },
+    "tr-api": {
+      "label": "API 觸發器",
+      "description": "程式化啟動"
+    },
+    "ac-crm": {
+      "label": "建立 CRM 紀錄",
+      "description": "寫入 CRM 實體"
+    },
+    "ac-invoice": {
+      "label": "產生發票",
+      "description": "財務發票"
+    },
+    "ac-quote": {
+      "label": "產生報價",
+      "description": "建立報價文件"
+    },
+    "ac-delivery": {
+      "label": "產生送貨單",
+      "description": "送貨單"
+    },
+    "ac-task": {
+      "label": "建立任務",
+      "description": "開啟任務"
+    },
+    "ac-assign": {
+      "label": "指派員工",
+      "description": "轉給隊友"
+    },
+    "ac-email": {
+      "label": "傳送電子郵件",
+      "description": "外寄郵件"
+    },
+    "ac-notify": {
+      "label": "傳送通知",
+      "description": "應用程式內通知"
+    },
+    "ac-ai-summary": {
+      "label": "產生 AI 摘要",
+      "description": "彙整脈絡"
+    },
+    "ac-ai-content": {
+      "label": "產生 AI 內容",
+      "description": "Creator Studio 草稿"
+    },
+    "ac-update-customer": {
+      "label": "更新客戶",
+      "description": "修補更新 CRM 客戶"
+    },
+    "ac-update-status": {
+      "label": "更新狀態",
+      "description": "變更實體狀態"
+    },
+    "ac-pdf": {
+      "label": "匯出 PDF",
+      "description": "文件匯出"
+    },
+    "ac-future": {
+      "label": "未來 API 預留",
+      "description": "預留動作槽"
+    },
+    "ai-decision": {
+      "label": "AI 決策",
+      "description": "決定下一條路徑"
+    },
+    "ai-class": {
+      "label": "AI 分類",
+      "description": "對紀錄分類"
+    },
+    "ai-text": {
+      "label": "AI 文字產生",
+      "description": "產生文字"
+    },
+    "ai-translate": {
+      "label": "AI 翻譯",
+      "description": "翻譯內容"
+    },
+    "ai-email": {
+      "label": "AI 郵件回覆",
+      "description": "草擬回覆"
+    },
+    "ai-sum": {
+      "label": "AI 摘要",
+      "description": "濃縮脈絡"
+    },
+    "ai-rec": {
+      "label": "AI 建議",
+      "description": "建議後續步驟"
+    },
+    "ai-route": {
+      "label": "AI 路由",
+      "description": "路由至擁有者 / 佇列"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "客戶創建",
+      "description": "在建立 CRM 客戶記錄時觸發。"
+    },
+    "project_created": {
+      "label": "專案已建立",
+      "description": "在建立專案時觸發。"
+    },
+    "task_completed": {
+      "label": "任務完成",
+      "description": "在任務標記為完成時觸發。"
+    },
+    "document_uploaded": {
+      "label": "文件已上傳",
+      "description": "在上傳文件時觸發。"
+    },
+    "schedule": {
+      "label": "行程",
+      "description": "Cron／間隔排程觸發。"
+    },
+    "invoice_issued": {
+      "label": "已開立發票",
+      "description": "在開立發票時觸發。"
+    },
+    "user_invited": {
+      "label": "已邀請使用者",
+      "description": "在邀請團隊成員時觸發。"
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "傳入 HTTP Webhook。"
+    },
+    "api_event": {
+      "label": "API 事件",
+      "description": "一般 API 網域事件。"
+    },
+    "ai_event": {
+      "label": "AI 事件",
+      "description": "AI 訊號（完成、洞察、代理步驟）。"
+    },
+    "manual": {
+      "label": "手動觸發",
+      "description": "依需求從自動化介面或 API 執行。"
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "創建客戶",
+      "description": "建立 CRM 客戶記錄。"
+    },
+    "customer_update": {
+      "label": "更新客戶",
+      "description": "更新客戶欄位。"
+    },
+    "project_create": {
+      "label": "創建專案",
+      "description": "從工作流程內容建立專案。"
+    },
+    "notification_send": {
+      "label": "傳送通知",
+      "description": "傳送應用程式內通知。"
+    },
+    "email_send": {
+      "label": "傳送電子郵件",
+      "description": "透過郵件服務將電子郵件加入佇列。"
+    },
+    "invoice_create": {
+      "label": "建立發票",
+      "description": "建立財務發票。"
+    },
+    "status_update": {
+      "label": "更新狀態",
+      "description": "更新模組中實體的狀態。"
+    },
+    "document_generate": {
+      "label": "產生文件",
+      "description": "從範本產生文件。"
+    },
+    "api_call": {
+      "label": "呼叫 API",
+      "description": "對內部或外部 API 發出 HTTP 呼叫。"
+    },
+    "ai_run": {
+      "label": "執行 AI",
+      "description": "使用內容執行 AI 提示／代理步驟。"
+    },
+    "task_assign": {
+      "label": "指派任務",
+      "description": "將任務指派給使用者。"
+    }
+  }
+}

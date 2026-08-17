@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "AGXORA Business OS",
+    "title": "AI CRM",
+    "subtitle": "CRM із штучним інтелектом і операційна система Creator — клієнти, конвеєр, замовлення, доставка, документи, комунікації та архітектура творців для будь-якої галузі."
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "Інформаційна панель CRM"
+    },
+    "customer360": {
+      "title": "Клієнт 360°",
+      "subtitle": "Профіль, компанія, контакти, замовлення, рахунки-фактури, Lieferscheine, платежі, документи, хронологія, дії, примітки, резюме AI та історія спілкування."
+    },
+    "salesPipeline": {
+      "title": "Трубопровід продажів",
+      "subtitle": "Етапи канбану з перетягуванням — Lead, Qualified, Proposal, Negotiation, Won, Lost."
+    },
+    "ordersModule": {
+      "title": "Модуль замовлень"
+    },
+    "deliveryModule": {
+      "title": "Модуль доставки",
+      "subtitle": "Професійна система Lieferschein із підтримкою відстеження, підпису, QR та штрих-кодів."
+    },
+    "documentsModule": {
+      "title": "Документи",
+      "subtitle": "Котирування, контракти, рахунки-фактури, Lieferschein, замовлення на купівлю, квитанції — з пошуком AI."
+    },
+    "tasksModule": {
+      "title": "завдання"
+    },
+    "communicationHub": {
+      "title": "Комунікаційний центр",
+      "subtitle": "Реєстр адаптерів лише для обміну повідомленнями, соціальних мереж, електронної пошти, голосу та відео."
+    },
+    "creatorStudio": {
+      "title": "Creator Studio Foundation",
+      "subtitle": "Адаптери платформи готові до офіційної інтеграції пізніше."
+    },
+    "aiCreator": {
+      "title": "Творець ШІ",
+      "subtitle": "Карта можливостей підприємства для вмісту, календаря, створення та публікації."
+    },
+    "industryPlatform": {
+      "title": "Універсальна бізнес-платформа",
+      "subtitle": "Модульний галузевий реєстр — кожна галузь може отримати виділені модулі ШІ."
+    }
+  },
+  "directory": {
+    "errorTitle": "Не вдалося завантажити CRM",
+    "sort": {
+      "companyName": "Компанія",
+      "contactName": "контакт",
+      "email": "Електронна пошта",
+      "phone": "Телефон",
+      "industry": "Промисловість",
+      "status": "Статус",
+      "owner": "Власник",
+      "createdAt": "Створено"
+    },
+    "search": {
+      "label": "Пошук клієнтів",
+      "placeholder": "Компанія, контакт, електронна пошта, теги…"
+    },
+    "view": {
+      "table": "Таблиця",
+      "cards": "картки"
+    },
+    "actions": {
+      "newCustomer": "Новий клієнт"
+    },
+    "filters": {
+      "status": "Статус",
+      "industry": "Промисловість",
+      "owner": "Власник",
+      "country": "Країна",
+      "tags": "Теги",
+      "allStatuses": "Всі статуси",
+      "allIndustries": "Всі галузі",
+      "allOwners": "Всі власники",
+      "allCountries": "Всі країни",
+      "allTags": "Всі теги"
+    },
+    "empty": {
+      "ready": {
+        "title": "Ваша CRM готова",
+        "description": "Створіть перший запис клієнта, щоб розблокувати каталог, профілі та діяльність.",
+        "action": "Створити клієнта"
+      },
+      "noMatches": {
+        "title": "Немає відповідних клієнтів",
+        "description": "Спробуйте налаштувати пошук або фільтри, щоб знайти потрібні записи.",
+        "action": "Очистити фільтри"
+      }
+    },
+    "pagination": {
+      "previous": "Попередній",
+      "next": "Далі"
+    },
+    "showing": "Показано {from}–{to} із {total}",
+    "aria": {
+      "openCustomer": "Відкрити клієнта {company}"
+    },
+    "cardMeta": "Власник {owner} · Створено {date}",
+    "sortBy": "Сортувати за {column}"
+  },
+  "status": {
+    "lead": "Свинець",
+    "prospect": "Проспект",
+    "active": "Активний",
+    "inactive": "Неактивний",
+    "vip": "VIP",
+    "archived": "Архівовано"
+  },
+  "form": {
+    "createTitle": "Створити клієнта",
+    "editTitle": "Редагувати клієнта",
+    "cancel": "Скасувати",
+    "saveChanges": "Зберегти зміни",
+    "createCustomer": "Створити клієнта",
+    "companyName": "Назва компанії",
+    "contactName": "Контактне ім'я",
+    "email": "Електронна пошта",
+    "phone": "Телефон",
+    "website": "Веб-сайт",
+    "industry": "Промисловість",
+    "country": "Країна",
+    "city": "Місто",
+    "address": "Адреса",
+    "taxNumber": "Податковий номер",
+    "owner": "Власник",
+    "status": "Статус",
+    "tags": "Теги",
+    "statusAria": "Статус клієнта",
+    "tagsHint": "Розділені комами, автоматичне кодування кольором",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "підприємство, роздріб"
+  },
+  "toasts": {
+    "customerCreated": "Клієнт створено",
+    "customerUpdated": "Клієнт оновлений",
+    "checkForm": "Перевірте форму",
+    "validationFailed": "Помилка перевірки.",
+    "customerDeleted": "Клієнта видалено",
+    "deleteFailed": "Не вдалося видалити",
+    "customerCouldNotBeRemoved": "Не вдалося видалити клієнта.",
+    "contactSaved": "Контакт збережено",
+    "documentsAttached": "Документи додаються",
+    "documentsAttachedDetail": "{count} файлів",
+    "noteSaved": "Нотатку збережено"
+  },
+  "deleteDialog": {
+    "title": "Видалити клієнта",
+    "cancel": "Скасувати",
+    "deletePermanently": "Видалити остаточно",
+    "thisCustomer": "цей клієнт",
+    "bodyPrefix": "Це видаляє",
+    "bodySuffix": "і пов’язані контакти, нотатки, документи та дії з локального сховища. Пов’язані проекти не видаляються."
+  },
+  "validation": {
+    "companyNameRequired": "Необхідно вказати назву компанії.",
+    "contactNameRequired": "Необхідно вказати ім’я контактної особи.",
+    "emailRequired": "Необхідно вказати адресу електронної пошти.",
+    "emailInvalid": "Введіть дійсну адресу електронної пошти.",
+    "phoneRequired": "Телефон обов'язковий.",
+    "phoneInvalid": "Введіть дійсний номер телефону.",
+    "websiteInvalid": "Введіть дійсний веб-сайт.",
+    "industryRequired": "Потрібна промисловість.",
+    "ownerRequired": "Потрібен власник.",
+    "statusInvalid": "Виберіть дійсний статус.",
+    "emailDuplicate": "Клієнт із цією електронною адресою вже існує.",
+    "nameRequired": "Необхідно вказати ім'я.",
+    "mobileInvalid": "Введіть дійсний номер мобільного телефону.",
+    "mobileRequired": "Потрібен мобільний телефон.",
+    "roleRequired": "Потрібна роль.",
+    "noteTitleRequired": "Необхідно вказати назву.",
+    "noteBodyRequired": "Потрібне тіло нотатки.",
+    "noteAuthorRequired": "Автор обов'язковий."
+  },
+  "errors": {
+    "failedToLoadCustomers": "Не вдалося завантажити клієнтів.",
+    "failedToLoadCustomerProfile": "Не вдалося завантажити профіль клієнта.",
+    "organizationRequired": "Потрібна організація.",
+    "failedToSaveCustomer": "Не вдалося зберегти клієнта.",
+    "failedToDeleteCustomer": "Не вдалося видалити клієнта.",
+    "failedToSaveContact": "Не вдалося зберегти контакт.",
+    "failedToSaveNote": "Не вдалося зберегти нотатку.",
+    "failedToUploadDocument": "Не вдалося завантажити документ."
+  },
+  "workspace": {
+    "badge": "Enterprise CRM 2.0",
+    "title": "Управління взаємовідносинами з клієнтами",
+    "subtitleBeforeOrg": "Керуйте каталогом клієнтів, профілями, контактами, примітками та документами для",
+    "subtitleAfterOrg": "Проекти зв’язуються за назвою компанії з модуля «Проекти» без дублювання даних.",
+    "yourOrganization": "ваша організація"
+  },
+  "analytics": {
+    "totalCustomers": "Загальна кількість клієнтів",
+    "activeCustomers": "Активні клієнти",
+    "newCustomers": "Нові клієнти",
+    "vipCustomers": "VIP клієнти",
+    "createdThisMonth": "Створено цього місяця",
+    "leadConversion": "Перетворення свинцю",
+    "leadConversionHint": "Активна та VIP частка ліду / перспективи / конверсії воронки.",
+    "customerGrowth": "Зростання клієнтів"
+  },
+  "profile": {
+    "backToCrm": "← Назад до CRM",
+    "ownerLabel": "Власник",
+    "notFoundTitle": "Клієнт не знайдено",
+    "notFoundDescription": "Можливо, цього клієнта було видалено.",
+    "missingCustomerTitle": "Відсутній клієнт",
+    "missingOverviewDescription": "Виберіть клієнта, щоб переглянути огляд.",
+    "missingSettingsDescription": "Виберіть клієнта для керування налаштуваннями.",
+    "ariaProfileNav": "Профіль клієнта",
+    "tabs": {
+      "overview": "Огляд",
+      "contacts": "Контакти",
+      "projects": "Проекти",
+      "documents": "Документи",
+      "invoices": "Рахунки-фактури",
+      "activity": "діяльність",
+      "notes": "Примітки",
+      "settings": "Налаштування"
+    },
+    "overview": {
+      "title": "Огляд",
+      "email": "Електронна пошта",
+      "phone": "Телефон",
+      "website": "Веб-сайт",
+      "taxNumber": "Податковий номер",
+      "location": "Розташування",
+      "address": "Адреса",
+      "created": "Створено",
+      "updated": "Оновлено",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "Додати контакт",
+      "editTitle": "Редагувати контакт",
+      "listTitle": "Контакти",
+      "name": "Ім'я",
+      "role": "роль",
+      "email": "Електронна пошта",
+      "phone": "Телефон",
+      "mobile": "Мобільний",
+      "notes": "Примітки",
+      "saveContact": "Зберегти контакт",
+      "emptyTitle": "Контактів ще немає",
+      "emptyDescription": "Додайте зацікавлених осіб, вказавши роль, електронну адресу та телефон.",
+      "defaultRole": "контакт",
+      "mobilePrefix": "Мобільний"
+    },
+    "projects": {
+      "title": "Проекти",
+      "emptyTitle": "Немає пов’язаних проектів",
+      "emptyDescription": "Тут відображаються проекти, ім’я клієнта яких відповідає цій компанії. Дані зчитуються з модуля Проекти — нічого не дублюється.",
+      "openProjects": "Відкрити проекти"
+    },
+    "documents": {
+      "title": "Документи",
+      "subtitle": "Зображення, PDF-файли та офісні документи — метадані лише в локальному сховищі.",
+      "attachFiles": "Прикріпити файли",
+      "emptyTitle": "Без документів",
+      "emptyDescription": "Додайте файли клієнтів для команди облікового запису.",
+      "systemUploader": "система"
+    },
+    "invoices": {
+      "emptyTitle": "Ще немає рахунків-фактур",
+      "emptyDescription": "Рахунки-фактури для цього клієнта з’являються тут, якщо зв’язатися з Фінансами."
+    },
+    "activity": {
+      "title": "діяльність",
+      "emptyTitle": "Активності ще немає",
+      "emptyDescription": "Створення, оновлення, нотатки та документи з’являються тут спочатку найновішими.",
+      "kinds": {
+        "customer_created": "Клієнт створено",
+        "customer_updated": "Клієнт оновлений",
+        "contact_added": "Контакт додано",
+        "contact_updated": "Контакт оновлено",
+        "contact_deleted": "Контакт видалено",
+        "note_added": "Примітка додана",
+        "note_updated": "Примітку оновлено",
+        "note_deleted": "Примітку видалено",
+        "document_added": "Документ додано",
+        "document_deleted": "Документ видалено",
+        "project_linked": "Проект пов’язано"
+      }
+    },
+    "notes": {
+      "newTitle": "Нова нотатка",
+      "editTitle": "Редагувати примітку",
+      "title": "Назва",
+      "author": "Автор",
+      "body": "Тіло",
+      "saveNote": "Зберегти нотатку",
+      "emptyTitle": "Приміток ще немає",
+      "emptyDescription": "Збережіть контекст облікового запису з автором і мітками часу."
+    },
+    "settings": {
+      "title": "Налаштування",
+      "description": "Відредагуйте всі поля профілю або заархівуйте цей обліковий запис. Для видалення використовується діалогове вікно підтвердження.",
+      "editAllFields": "Відредагуйте всі поля",
+      "prepareArchive": "Підготувати архів",
+      "deleteCustomer": "Видалити клієнта"
+    }
+  },
+  "customer360": {
+    "ariaSections": "Розділи клієнта 360",
+    "email": "Електронна пошта",
+    "phone": "Телефон",
+    "aiHealth": "AI Health",
+    "tabs": {
+      "profile": "Профіль",
+      "company": "Компанія",
+      "contacts": "Контакти",
+      "orders": "Замовлення",
+      "invoices": "Рахунки-фактури",
+      "lieferscheine": "Ліфершайне",
+      "payments": "Платежі",
+      "documents": "Документи",
+      "timeline": "Хронологія",
+      "activities": "Діяльність",
+      "notes": "Примітки",
+      "aiSummary": "AI Резюме",
+      "communicationHistory": "Історія спілкування"
+    },
+    "profileLines": {
+      "customerId": "ID клієнта",
+      "status": "Статус",
+      "primaryContact": "Основний контакт"
+    },
+    "status": {
+      "churn_risk": "Ризик відтоку"
+    }
+  },
+  "delivery": {
+    "title": "Професійна система Lieferschein",
+    "description": "Накладні, отримання/доставка, водій, транспортний засіб і відстеження — лише зразки записів. Експортні адаптери не підключено.",
+    "badges": {
+      "qrUnavailable": "QR недоступний",
+      "barcodeUnavailable": "Штрих-код недоступний",
+      "signatureDemo": "Демонстрація підпису"
+    },
+    "exportPdf": "Експорт PDF",
+    "deliveryHistory": "Історія доставки",
+    "notices": {
+      "exportNotConnected": "PDF, QR і експорт штрих-кодів не підключені в цій збірці.",
+      "exportPdfUnavailable": "Експорт PDF недоступний — експорт доставки не підключено.",
+      "historyNotConnected": "Сховище історії доставки не підключено до цієї збірки."
+    },
+    "columns": {
+      "lieferschein": "Ліфершайн",
+      "order": "порядок",
+      "customer": "Замовник",
+      "kind": "Добрий",
+      "driver": "Водій",
+      "vehicle": "транспортний засіб",
+      "tracking": "Відстеження",
+      "scheduled": "За розкладом"
+    }
+  },
+  "orders": {
+    "description": "Товари, послуги, ціна, знижка, податок і клієнт — книга замовлень підприємства.",
+    "createOrder": "Створити замовлення",
+    "notices": {
+      "apiReserved": "API створення замовлення, зарезервований для майбутнього шляху запису.",
+      "draftStaged": "Поетапне створення проекту замовлення (ще немає API)."
+    },
+    "columns": {
+      "order": "порядок",
+      "customer": "Замовник",
+      "status": "Статус",
+      "lines": "Лінії",
+      "net": "Чистий",
+      "tax": "податок",
+      "gross": "Валовий",
+      "created": "Створено"
+    },
+    "lineTax": "{taxPct}% податку"
+  },
+  "tasks": {
+    "calendarTitle": "Календар · Зустрічі · Нагадування · Подальші дії",
+    "foundationTitle": "Основа ОС завдання",
+    "foundationDescription": "Синхронізація календаря, постачальники зустрічей, завдання нагадувань і подальші перехоплення автоматизації зарезервовані. Ця дошка є спільною поверхнею завдань CRM для кожного галузевого модуля.",
+    "badges": {
+      "calendarAdapter": "Адаптер календаря",
+      "meetingAdapter": "Адаптер зустрічі",
+      "reminderQueue": "Черга нагадувань",
+      "followUpEngine": "Подальший двигун"
+    },
+    "duePrefix": "належний",
+    "kinds": {
+      "follow_up": "Подальші дії",
+      "meeting": "Зустріч",
+      "reminder": "Нагадування",
+      "task": "завдання"
+    },
+    "statuses": {
+      "open": "ВІДЧИНЕНО",
+      "in_progress": "В роботі",
+      "done": "Готово",
+      "cancelled": "Скасовано"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "Без документів",
+    "emptyDescription": "Немає документів, що відповідають цьому запиту.",
+    "searchLabel": "AI Пошук",
+    "searchPlaceholder": "Котирування, контракти, рахунки-фактури, Lieferschein…",
+    "typeLabel": "Тип документа",
+    "allTypes": "Всі види",
+    "columns": {
+      "type": "Тип",
+      "title": "Назва",
+      "customer": "Замовник",
+      "status": "Статус",
+      "updated": "Оновлено"
+    },
+    "kinds": {
+      "quote": "Цитати",
+      "contract": "Контракти",
+      "invoice": "Рахунки-фактури",
+      "lieferschein": "Ліфершайн",
+      "purchase_order": "Замовлення на закупівлю",
+      "receipt": "Квитанції"
+    }
+  },
+  "communication": {
+    "intro": "Лише масштабована архітектура каналу — електронна пошта, WhatsApp, Instagram, Facebook, TikTok, LinkedIn, Telegram, Voice і Video. Жодної підробленої живої інтеграції.",
+    "adapterPrefix": "адаптер:"
+  },
+  "aiCreator": {
+    "intro": "Поверхня AI Creator, готова до майбутнього — ідеї, підписи, хештеги, календар, кампанії, голос бренду, генерація зображень/відео, аналітика, планування, черга публікації та аналітика. Ще не підключено реальних API провайдерів."
+  },
+  "creatorStudio": {
+    "intro": "Основа Creator Studio — офіційні інтеграції платформ можна підключити до цих адаптерів пізніше. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
+  },
+  "industry": {
+    "intro": "Універсальна бізнес-платформа — адаптація пізніше вибере галузь. Кожна галузь отримує спеціальні модулі штучного інтелекту без розгалуження основної ОС CRM."
+  },
+  "kpi": {
+    "customers": {
+      "label": "Клієнти",
+      "caption": "Активні відносини"
+    },
+    "companies": {
+      "label": "Компанії",
+      "caption": "Облікові організації"
+    },
+    "leads": {
+      "label": "Веде",
+      "caption": "Новинка цього місяця"
+    },
+    "deals": {
+      "label": "Угоди",
+      "caption": "Відкритий трубопровід"
+    },
+    "revenue": {
+      "label": "Дохід",
+      "caption": "Виграв з початку року"
+    },
+    "projects": {
+      "label": "Активні проекти",
+      "caption": "Доставка в рейсі"
+    },
+    "tasks": {
+      "label": "Відкрийте Завдання",
+      "caption": "По CRM + доставка"
+    },
+    "ai-health": {
+      "label": "ШІ оцінка здоров'я",
+      "caption": "Сигнал якості стосунків"
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "pipeline": {
+    "lead": "Свинець",
+    "qualified": "Кваліфікований",
+    "proposal": "Пропозиція",
+    "negotiation": "Переговори",
+    "won": "виграв",
+    "lost": "Загублений"
+  },
+  "orderStatus": {
+    "draft": "Чернетка",
+    "confirmed": "Підтверджено",
+    "in_fulfillment": "У виконанні",
+    "shipped": "Відправлено",
+    "delivered": "Доставлено",
+    "cancelled": "Скасовано"
+  },
+  "tracking": {
+    "scheduled": "За розкладом",
+    "en_route": "В дорозі",
+    "arrived": "Прибув",
+    "completed": "Виконано",
+    "failed": "Не вдалося"
+  },
+  "documentKind": {
+    "quote": "Цитата",
+    "contract": "Договір",
+    "invoice": "рахунок-фактура",
+    "lieferschein": "Ліфершайн",
+    "purchase_order": "Замовлення на купівлю",
+    "receipt": "розписка"
+  },
+  "documentStatus": {
+    "sent": "Надіслано",
+    "signed": "Підписано",
+    "paid": "Платний",
+    "in_transit": "У дорозі",
+    "open": "ВІДЧИНЕНО",
+    "filed": "Подано"
+  },
+  "integration": {
+    "planned": "Планується",
+    "ready": "Готовий",
+    "connected": "Підключено",
+    "disabled": "Вимкнено"
+  }
+}

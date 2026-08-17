@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "Nenhum resultado",
+    "noResultsDescription": "Nada corresponde aos filtros atuais.",
+    "previous": "Anterior",
+    "next": "Próximo",
+    "paginationRange": "{start}–{end} de {total}",
+    "sortAscending": "Classificar em ordem crescente",
+    "sortDescending": "Classificar em ordem decrescente"
+  },
+  "dialog": {
+    "close": "Fechar caixa de diálogo"
+  },
+  "module": {
+    "notAvailableTitle": "{title} ainda não está disponível",
+    "notAvailableDescription": "Este shell de módulo está preparado para uma versão futura. Nenhum registro está armazenado aqui ainda."
+  },
+  "states": {
+    "errorLabel": "Erro",
+    "errorTitle": "Algo deu errado",
+    "errorDescription": "Não foi possível concluir essa solicitação. Tente novamente em alguns instantes.",
+    "retry": "Tentar novamente"
+  },
+  "empty": {
+    "crmTitle": "Seu CRM está pronto",
+    "crmDescription": "Crie o primeiro registro de cliente para desbloquear diretório, perfis e atividades.",
+    "crmAction": "Abrir CRM",
+    "projectsTitle": "Ainda não há projetos",
+    "projectsDescription": "Crie um espaço de trabalho de entrega para monitorar marcos, orçamento e propriedade da equipe.",
+    "projectsAction": "Abrir projetos",
+    "analyticsTitle": "Analytics aguarda sinal",
+    "analyticsDescription": "Assim que seu espaço de trabalho gerar atividade, KPIs executivos e alertas aparecerão aqui.",
+    "analyticsAction": "Análise aberta",
+    "documentsTitle": "A biblioteca de documentos está vazia",
+    "documentsDescription": "Carregue ou crie ativos de conhecimento para potencializar aprovações, versões e contexto de IA.",
+    "documentsAction": "Abrir documentos",
+    "billingTitle": "Ainda não há histórico de faturamento",
+    "billingDescription": "Atualize um plano para gerar faturas, renovações e histórico de pagamentos.",
+    "billingAction": "Faturamento aberto",
+    "agentsTitle": "Nenhum agente ativo",
+    "agentsDescription": "Instale ou ative um agente do marketplace para iniciar execuções autônomas.",
+    "agentsAction": "Abra o SO do agente"
+  },
+  "yes": "Sim",
+  "no": "Não",
+  "dash": "—"
+}

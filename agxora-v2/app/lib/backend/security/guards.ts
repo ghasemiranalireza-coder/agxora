@@ -75,7 +75,7 @@ export function apiGuard(input: {
     return {
       ok: false,
       code: "UNAUTHORIZED",
-      message: "Authentication required.",
+      message: "errors.codes.AUTH_SIGN_IN_REQUIRED",
       status: 401,
     };
   }
@@ -83,7 +83,7 @@ export function apiGuard(input: {
     return {
       ok: false,
       code: "FORBIDDEN",
-      message: "Insufficient permissions.",
+      message: "errors.codes.AUTH_INSUFFICIENT_PERMISSIONS",
       status: 403,
     };
   }
@@ -104,21 +104,21 @@ export function assertAccess(input: {
     return {
       ok: false,
       reason: "unauthorized",
-      message: "Sign in required.",
+      message: "errors.signInRequired",
     };
   }
   if (input.pathname && !routeGuard(input.pathname, input.role ?? null)) {
     return {
       ok: false,
       reason: "forbidden",
-      message: "You do not have access to this route.",
+      message: "errors.noRouteAccess",
     };
   }
   if (input.module && !checkPermission(input.role, input.module)) {
     return {
       ok: false,
       reason: "forbidden",
-      message: "You do not have permission for this action.",
+      message: "errors.codes.AUTH_INSUFFICIENT_PERMISSIONS",
     };
   }
   return { ok: true };

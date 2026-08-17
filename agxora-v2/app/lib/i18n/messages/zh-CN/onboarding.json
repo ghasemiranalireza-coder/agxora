@@ -1,0 +1,158 @@
+{
+  "eyebrow": "AGXORA操作系统",
+  "title": "启动您的企业操作系统",
+  "lead": "选择您的行业模板。AGXORA可配置模块、代理、工作流程和公司知识，而无需将您永远锁定在一个垂直领域。",
+  "steps": {
+    "type": "类型",
+    "company": "公司",
+    "locale": "语言环境",
+    "goals": "目标"
+  },
+  "companyName": "公司名称",
+  "companyPlaceholder": "艾克美酒店集团",
+  "template": "模板",
+  "country": "国家",
+  "language": "语言",
+  "languagePlaceholder": "zh",
+  "timezone": "默认时区是 UTC",
+  "timezonePlaceholder": "世界标准时间",
+  "goals": {
+    "increaseRevenue": "增加收入",
+    "improveOperations": "改善运营",
+    "delightCustomers": "让顾客满意",
+    "reduceCosts": "降低成本",
+    "scaleWithAi": "利用人工智能进行扩展"
+  },
+  "failed": "引入失败",
+  "back": "后退",
+  "continue": "继续",
+  "launching": "发射…",
+  "enterDashboard": "进入仪表板",
+  "defaultCountry": "美国",
+  "businessTypes": {
+    "hotel": {
+      "label": "酒店",
+      "description": "酒店、客房、宾客与物业运营"
+    },
+    "restaurant": {
+      "label": "餐厅",
+      "description": "餐饮、厨房、预订与宾客体验"
+    },
+    "cleaning": {
+      "label": "清洁",
+      "description": "商业与住宅清洁运营"
+    },
+    "laundry": {
+      "label": "洗衣",
+      "description": "洗涤工厂、取件路线与纺织护理"
+    },
+    "construction": {
+      "label": "建筑",
+      "description": "工地、班组、材料与项目交付"
+    },
+    "healthcare": {
+      "label": "医疗健康",
+      "description": "护理网络、患者与临床运营"
+    },
+    "medical": {
+      "label": "医疗",
+      "description": "诊所、预约与护理团队"
+    },
+    "manufacturing": {
+      "label": "制造",
+      "description": "生产线、质量与供应运营"
+    },
+    "retail": {
+      "label": "零售",
+      "description": "门店、库存、陈列与客户"
+    },
+    "legal": {
+      "label": "律师事务所",
+      "description": "案件、客户、截止日期与计费"
+    },
+    "accounting": {
+      "label": "会计",
+      "description": "账簿、客户、申报与顾问工作"
+    },
+    "consulting": {
+      "label": "咨询",
+      "description": "项目、交付物与客户成果"
+    },
+    "real_estate": {
+      "label": "房地产",
+      "description": "房源、客户、看房与交易"
+    },
+    "education": {
+      "label": "教育",
+      "description": "项目、学生、教职与招生"
+    },
+    "automotive": {
+      "label": "汽车",
+      "description": "经销商、维修工位与车辆库存"
+    },
+    "beauty": {
+      "label": "美容院",
+      "description": "预约、造型师、零售与会员"
+    },
+    "fitness": {
+      "label": "健身房 / 健身",
+      "description": "会员、课程、教练与留存"
+    },
+    "agriculture": {
+      "label": "农业",
+      "description": "作物、牲畜、产量与供应链"
+    },
+    "transport": {
+      "label": "运输",
+      "description": "车队调度、路线与客货运营"
+    },
+    "logistics": {
+      "label": "物流",
+      "description": "车队、仓库、路线与履约"
+    },
+    "warehouse": {
+      "label": "仓储",
+      "description": "仓储、拣货、包装与库存周转"
+    },
+    "insurance": {
+      "label": "保险",
+      "description": "保单、理赔、核保与留存"
+    },
+    "finance": {
+      "label": "金融",
+      "description": "资本、投资组合与金融运营"
+    },
+    "financial_services": {
+      "label": "金融服务",
+      "description": "顾问、产品、合规与客户"
+    },
+    "technology": {
+      "label": "科技",
+      "description": "产品、工程与上市团队"
+    },
+    "saas": {
+      "label": "软件 / SaaS",
+      "description": "订阅、用量与客户成功"
+    },
+    "ecommerce": {
+      "label": "电子商务",
+      "description": "在线目录、购物车、履约与 LTV"
+    },
+    "agency": {
+      "label": "营销机构",
+      "description": "客户、活动、固定合约与交付"
+    },
+    "freelancer": {
+      "label": "自由职业者",
+      "description": "独立执业、客户、管道与现金流"
+    },
+    "government": {
+      "label": "政府",
+      "description": "公共服务、项目与民众"
+    },
+    "nonprofit": {
+      "label": "非营利",
+      "description": "使命、捐赠人、项目与影响"
+    }
+  }
+}

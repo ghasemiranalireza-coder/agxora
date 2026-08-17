@@ -1,0 +1,158 @@
+{
+  "eyebrow": "نظام تشغيل أجكسورا",
+  "title": "قم بتشغيل نظام تشغيل عملك",
+  "lead": "اختر قالب الصناعة الخاص بك. تقوم AGXORA بتكوين الوحدات والوكلاء وسير العمل ومعرفة الشركة - دون تقييدك في قطاع واحد إلى الأبد.",
+  "steps": {
+    "type": "يكتب",
+    "company": "شركة",
+    "locale": "لغة",
+    "goals": "الأهداف"
+  },
+  "companyName": "اسم الشركة",
+  "companyPlaceholder": "مجموعة Acme للضيافة",
+  "template": "نموذج",
+  "country": "دولة",
+  "language": "لغة",
+  "languagePlaceholder": "أون",
+  "timezone": "المنطقة الزمنية",
+  "timezonePlaceholder": "التوقيت العالمي",
+  "goals": {
+    "increaseRevenue": "زيادة الإيرادات",
+    "improveOperations": "تحسين العمليات",
+    "delightCustomers": "إسعاد العملاء",
+    "reduceCosts": "خفض التكاليف",
+    "scaleWithAi": "مقياس مع الذكاء الاصطناعي"
+  },
+  "failed": "فشل الإعداد",
+  "back": "خلف",
+  "continue": "يكمل",
+  "launching": "جارٍ الإطلاق…",
+  "enterDashboard": "أدخل لوحة القيادة",
+  "defaultCountry": "الولايات المتحدة",
+  "businessTypes": {
+    "hotel": {
+      "label": "فندق",
+      "description": "الضيافة والغرف والضيوف وتشغيل العقار"
+    },
+    "restaurant": {
+      "label": "مطعم",
+      "description": "المطاعم والمطبخ والحجوزات وتجربة الضيف"
+    },
+    "cleaning": {
+      "label": "تنظيف",
+      "description": "عمليات التنظيف التجارية والسكنية"
+    },
+    "laundry": {
+      "label": "مغسلة",
+      "description": "مغاسل ومسارات الاستلام والعناية بالنسيج"
+    },
+    "construction": {
+      "label": "إنشاءات",
+      "description": "مواقع العمل والفرق والمواد وتسليم المشاريع"
+    },
+    "healthcare": {
+      "label": "الرعاية الصحية",
+      "description": "شبكات الرعاية والمرضى والعمليات السريرية"
+    },
+    "medical": {
+      "label": "طبي",
+      "description": "العيادات والمواعيد وفرق الرعاية"
+    },
+    "manufacturing": {
+      "label": "تصنيع",
+      "description": "خطوط الإنتاج والجودة وعمليات التوريد"
+    },
+    "retail": {
+      "label": "تجزئة",
+      "description": "المتاجر والمخزون والترويج والعملاء"
+    },
+    "legal": {
+      "label": "مكتب محاماة",
+      "description": "القضايا والعملاء والمواعيد والفوترة"
+    },
+    "accounting": {
+      "label": "محاسبة",
+      "description": "الدفاتر والعملاء والإقرارات والاستشارات"
+    },
+    "consulting": {
+      "label": "استشارات",
+      "description": "التعاقدات والمخرجات ونتائج العملاء"
+    },
+    "real_estate": {
+      "label": "عقارات",
+      "description": "القوائم والعملاء والمعاينات والمعاملات"
+    },
+    "education": {
+      "label": "تعليم",
+      "description": "البرامج والطلاب وهيئة التدريس والتسجيل"
+    },
+    "automotive": {
+      "label": "سيارات",
+      "description": "الوكلاء ومناطق الخدمة ومخزون المركبات"
+    },
+    "beauty": {
+      "label": "صالون تجميل",
+      "description": "المواعيد والمصففون والتجزئة والعضويات"
+    },
+    "fitness": {
+      "label": "نادي رياضي / لياقة",
+      "description": "العضويات والحصص والمدربون والاحتفاظ"
+    },
+    "agriculture": {
+      "label": "زراعة",
+      "description": "المحاصيل والماشية والغلة وسلاسل التوريد"
+    },
+    "transport": {
+      "label": "نقل",
+      "description": "حركة الأسطول والمسارات وعمليات الركاب/البضائع"
+    },
+    "logistics": {
+      "label": "لوجستيات",
+      "description": "الأسطول والمستودعات والمسارات والتنفيذ"
+    },
+    "warehouse": {
+      "label": "مستودع",
+      "description": "التخزين والانتقاء والتعبئة ودوران المخزون"
+    },
+    "insurance": {
+      "label": "تأمين",
+      "description": "الوثائق والمطالبات والاكتتاب والاحتفاظ"
+    },
+    "finance": {
+      "label": "المالية",
+      "description": "رأس المال والمحافظ والعمليات المالية"
+    },
+    "financial_services": {
+      "label": "الخدمات المالية",
+      "description": "الاستشارات والمنتجات والامتثال والعملاء"
+    },
+    "technology": {
+      "label": "تقنية",
+      "description": "المنتج والهندسة وفرق طرح السوق"
+    },
+    "saas": {
+      "label": "برمجيات / SaaS",
+      "description": "الاشتراكات والاستخدام ونجاح العملاء"
+    },
+    "ecommerce": {
+      "label": "تجارة إلكترونية",
+      "description": "الكتالوج عبر الإنترنت والعربات والتنفيذ وLTV"
+    },
+    "agency": {
+      "label": "وكالة تسويق",
+      "description": "العملاء والحملات والعقود الشهرية والتسليم"
+    },
+    "freelancer": {
+      "label": "مستقل",
+      "description": "ممارسة فردية وعملاء ومسار وتدفق نقدي"
+    },
+    "government": {
+      "label": "حكومة",
+      "description": "الخدمات العامة والبرامج والمواطنون"
+    },
+    "nonprofit": {
+      "label": "غير ربحي",
+      "description": "المهام والمتبرعون والبرامج والأثر"
+    }
+  }
+}

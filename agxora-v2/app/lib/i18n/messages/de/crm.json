@@ -50,7 +50,7 @@
   "directory": {
     "errorTitle": "CRM konnte nicht geladen werden",
     "sort": {
-      "companyName": "Unternehmen",
+      "companyName": "Firma",
       "contactName": "Kontakt",
       "email": "E-Mail",
       "phone": "Telefon",
@@ -75,10 +75,10 @@
       "industry": "Branche",
       "owner": "Inhaber",
       "country": "Land",
-      "tags": "Tags",
+      "tags": "Schlagwörter",
       "allStatuses": "Alle Status",
       "allIndustries": "Alle Branchen",
-      "allOwners": "Alle Inhaber",
+      "allOwners": "Alle Eigentümer",
       "allCountries": "Alle Länder",
       "allTags": "Alle Tags"
     },
@@ -123,7 +123,7 @@
     "contactName": "Kontaktname",
     "email": "E-Mail",
     "phone": "Telefon",
-    "website": "Website",
+    "website": "Webseite",
     "industry": "Branche",
     "country": "Land",
     "city": "Stadt",
@@ -131,11 +131,11 @@
     "taxNumber": "Steuernummer",
     "owner": "Inhaber",
     "status": "Status",
-    "tags": "Tags",
+    "tags": "Schlagwörter",
     "statusAria": "Kundenstatus",
     "tagsHint": "Kommagetrennt, automatisch farbcodiert",
     "websitePlaceholder": "https://",
-    "tagsPlaceholder": "enterprise, retail"
+    "tagsPlaceholder": "unternehmen, Einzelhandel"
   },
   "toasts": {
     "customerCreated": "Kunde erstellt",
@@ -162,7 +162,7 @@
     "companyNameRequired": "Unternehmensname ist erforderlich.",
     "contactNameRequired": "Kontaktname ist erforderlich.",
     "emailRequired": "E-Mail ist erforderlich.",
-    "emailInvalid": "Bitte eine gültige E-Mail-Adresse eingeben.",
+    "emailInvalid": "Geben Sie eine gültige E-Mail-Adresse ein.",
     "phoneRequired": "Telefon ist erforderlich.",
     "phoneInvalid": "Bitte eine gültige Telefonnummer eingeben.",
     "websiteInvalid": "Bitte eine gültige Website eingeben.",
@@ -207,7 +207,7 @@
   },
   "profile": {
     "backToCrm": "← Zurück zum CRM",
-    "ownerLabel": "Owner",
+    "ownerLabel": "Inhaber",
     "notFoundTitle": "Kunde nicht gefunden",
     "notFoundDescription": "Dieser Kunde wurde möglicherweise gelöscht.",
     "missingCustomerTitle": "Kunde fehlt",
@@ -228,7 +228,7 @@
       "title": "Übersicht",
       "email": "E-Mail",
       "phone": "Telefon",
-      "website": "Website",
+      "website": "Webseite",
       "taxNumber": "Steuernummer",
       "location": "Standort",
       "address": "Adresse",
@@ -264,7 +264,7 @@
       "attachFiles": "Dateien anhängen",
       "emptyTitle": "Keine Dokumente",
       "emptyDescription": "Hängen Sie Kundendateien für das Account-Team an.",
-      "systemUploader": "System"
+      "systemUploader": "system"
     },
     "invoices": {
       "emptyTitle": "Noch keine Rechnungen",
@@ -308,12 +308,12 @@
   },
   "customer360": {
     "ariaSections": "Customer-360-Bereiche",
-    "email": "Email",
-    "phone": "Phone",
-    "aiHealth": "AI Health",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "aiHealth": "KI-Gesundheit",
     "tabs": {
       "profile": "Profil",
-      "company": "Unternehmen",
+      "company": "Firma",
       "contacts": "Kontakte",
       "orders": "Bestellungen",
       "invoices": "Rechnungen",
@@ -357,7 +357,7 @@
       "kind": "Art",
       "driver": "Fahrer",
       "vehicle": "Fahrzeug",
-      "tracking": "Tracking",
+      "tracking": "Nachverfolgung",
       "scheduled": "Geplant"
     }
   },
@@ -401,7 +401,7 @@
       "open": "Offen",
       "in_progress": "In Bearbeitung",
       "done": "Erledigt",
-      "cancelled": "Abgebrochen"
+      "cancelled": "Storniert"
     }
   },
   "documentsModule": {
@@ -454,7 +454,7 @@
       "caption": "Neu diesen Monat"
     },
     "deals": {
-      "label": "Deals",
+      "label": "Angebote, Deals, Geschäfte",
       "caption": "Offene Pipeline"
     },
     "revenue": {
@@ -477,11 +477,11 @@
   },
   "pipeline": {
     "lead": "Lead",
-    "qualified": "Qualified",
-    "proposal": "Proposal",
-    "negotiation": "Negotiation",
-    "won": "Won",
-    "lost": "Lost"
+    "qualified": "Qualifiziert",
+    "proposal": "Vorschlag",
+    "negotiation": "Verhandlung",
+    "won": "Südkoreanischer Won",
+    "lost": "Verloren"
   },
   "orderStatus": {
     "draft": "Entwurf",

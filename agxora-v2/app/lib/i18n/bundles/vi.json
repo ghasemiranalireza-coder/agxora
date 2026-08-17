@@ -1,0 +1,4939 @@
+{
+  "common": {
+    "save": "Lưu",
+    "saveChanges": "Lưu thay đổi",
+    "cancel": "Hủy",
+    "close": "Đóng",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "search": "Tìm kiếm",
+    "loading": "Đang tải…",
+    "retry": "Thử lại",
+    "language": "Ngôn ngữ",
+    "signIn": "Đăng nhập",
+    "signOut": "Đăng xuất",
+    "contact": "Liên hệ",
+    "privacy": "Sự riêng tư",
+    "terms": "Điều khoản",
+    "cookies": "Cookie",
+    "imprint": "dấu ấn",
+    "organization": "Tổ chức",
+    "user": "người dùng",
+    "guest": "Khách mời",
+    "member": "Thành viên",
+    "role": "Vai trò",
+    "signedIn": "Đã đăng nhập",
+    "guestSession": "Phiên khách",
+    "noResults": "Không có kết quả",
+    "noData": "Không có dữ liệu",
+    "comingSoon": "Sắp ra mắt",
+    "notConnected": "Không được kết nối",
+    "demo": "Thử nghiệm",
+    "sample": "Vật mẫu",
+    "showPassword": "Hiển thị mật khẩu",
+    "hidePassword": "Ẩn mật khẩu",
+    "continue": "Tiếp tục",
+    "back": "Quay lại",
+    "home": "Trang chủ",
+    "loadingShort": "Đang tải",
+    "create": "Tạo",
+    "next": "Tiếp",
+    "previous": "Trước",
+    "settings": "Cài đặt",
+    "profile": "Hồ sơ",
+    "dashboard": "Bảng điều khiển"
+  },
+  "navigation": {
+    "dashboard": "Trang tổng quan",
+    "projects": "Dự án",
+    "aiCrm": "AI CRM",
+    "analytics": "Phân tích",
+    "billing": "Thanh toán",
+    "aiWorkspace": "Không gian làm việc AI",
+    "customers": "Khách hàng",
+    "automation": "Tự động hóa",
+    "financeTax": "Tài chính & Thuế",
+    "aiCreatorStudio": "Studio sáng tạo AI",
+    "documents": "Tài liệu",
+    "team": "Đội",
+    "settings": "Cài đặt",
+    "toggleNavigation": "Chuyển đổi điều hướng",
+    "primary": "Sơ đẳng",
+    "menu": "Thực đơn",
+    "search": "Tìm kiếm",
+    "notifications": "Thông báo",
+    "profile": "Hồ sơ",
+    "currentOrganization": "Tổ chức hiện tại",
+    "noNotifications": "Không có thông báo",
+    "notificationsEmpty": "Tất cả các bạn đã bị bắt kịp. Cảnh báo và đề cập sẽ xuất hiện ở đây.",
+    "accountSettings": "Cài đặt tài khoản",
+    "security": "Bảo vệ",
+    "themeToggle": "Chuyển đổi chủ đề nhanh chóng. Ưu tiên: {mode}"
+  },
+  "pricing": {
+    "navLabel": "Điều hướng giá",
+    "navPricing": "Định giá",
+    "navContactSales": "Liên hệ bán hàng",
+    "navBookDemo": "Giới thiệu sách",
+    "navSignIn": "Đăng nhập",
+    "eyebrow": "Định giá",
+    "title": "Kế hoạch được xây dựng cho các nhà khai thác vận chuyển.",
+    "lead": "Rõ ràng các tầng thương mại. Bắt đầu miễn phí, mở rộng quy mô khi sẵn sàng hoặc trao đổi với bộ phận bán hàng về các điều khoản dành cho doanh nghiệp.",
+    "billingInterval": "Khoảng thời gian thanh toán",
+    "monthly": "hàng tháng",
+    "yearly": "Hàng năm",
+    "savePercent": "Tiết kiệm ~20%",
+    "mostPopular": "PHỔ BIẾN NHẤT",
+    "startFree": "Bắt đầu miễn phí",
+    "bookDemo": "Giới thiệu sách",
+    "contactSales": "Liên hệ bán hàng",
+    "perMonth": "/tháng",
+    "perMonthYearly": "/tháng thanh toán hàng năm",
+    "yearlyHint": "{amount}/năm · tiết kiệm {percent}%",
+    "commercialActions": "Hoạt động thương mại",
+    "legal": "Hợp pháp",
+    "planAria": "kế hoạch {name} — {cta}",
+    "plans": {
+      "starter": {
+        "name": "người mới bắt đầu",
+        "description": "Dành cho người làm việc tự do và doanh nghiệp nhỏ.",
+        "features": [
+          "Hệ thống CRM & khách hàng",
+          "Dự án và tài liệu",
+          "Trợ lý AI được quản lý",
+          "Lên đến 5 chỗ",
+          "Hỗ trợ qua email"
+        ]
+      },
+      "business": {
+        "name": "Việc kinh doanh",
+        "description": "Dành cho các nhóm đang phát triển.",
+        "features": [
+          "Mọi thứ trong Starter",
+          "Mô-đun tài chính và phân tích",
+          "Tự động hóa và xuất kiểm toán",
+          "Hợp tác nhóm",
+          "Hỗ trợ ưu tiên"
+        ]
+      },
+      "professional": {
+        "name": "Chuyên nghiệp",
+        "description": "Dành cho các công ty tiên tiến.",
+        "features": [
+          "Mọi thứ trong Starter",
+          "Mô-đun tài chính và phân tích",
+          "Truy cập API",
+          "Quy trình làm việc nâng cao của công ty",
+          "Hộp thư hỗ trợ ưu tiên"
+        ]
+      },
+      "enterprise": {
+        "name": "Doanh nghiệp",
+        "description": "Giá tùy chỉnh cho quy mô không giới hạn.",
+        "features": [
+          "Giá tùy chỉnh",
+          "Quy mô không giới hạn",
+          "Tích hợp chuyên dụng",
+          "Tích hợp tùy chỉnh",
+          "Hỗ trợ ưu tiên"
+        ]
+      }
+    }
+  },
+  "billing": {
+    "currentPlan": "Kế hoạch hiện tại",
+    "upgrade": "Nâng cấp",
+    "viewPricing": "Xem giá",
+    "contactSales": "Liên hệ bán hàng",
+    "openBillingPortal": "Mở cổng thanh toán",
+    "billingQuestions": "Câu hỏi về thanh toán:",
+    "publicPricing": "Định giá công khai",
+    "recommended": "Khuyến khích",
+    "account": {
+      "currentPlan": "Gói hiện tại",
+      "status": "Trạng thái",
+      "renewalDate": "Ngày gia hạn",
+      "seats": "Chỗ ngồi",
+      "usage": "Cách sử dụng",
+      "noUsage": "Chưa có số liệu sử dụng nào.",
+      "invoices": "Hóa đơn",
+      "noInvoices": "Chưa có lịch sử thanh toán. Nâng cấp kế hoạch tạo hóa đơn và gia hạn."
+    },
+    "planCard": {
+      "currentPlan": "Kế hoạch hiện tại",
+      "recommended": "Khuyến khích",
+      "contactSales": "Liên hệ bán hàng",
+      "pricePerMonth": "€{price}/tháng",
+      "users": "{count} người dùng",
+      "aiRequests": "{count} yêu cầu AI/tháng",
+      "storage": "{count} MB dung lượng lưu trữ",
+      "moduleFeatures": "tính năng mô-đun {count}",
+      "choosePlan": "Chọn gói",
+      "processing": "Xử lý…",
+      "currentPlanAria": "{name} — gói hiện tại",
+      "contactSalesAria": "{name} — liên hệ bộ phận bán hàng",
+      "choosePlanAria": "{name} — chọn gói"
+    },
+    "admin": {
+      "eyebrow": "Quản trị viên",
+      "title": "Quản lý thanh toán",
+      "lead": "Quản lý nội bộ đối với đăng ký, giấy phép, hóa đơn, hàng đợi email và các sự kiện kiểm toán thương mại.",
+      "customerPortal": "Cổng thông tin khách hàng",
+      "loading": "Đang tải thanh toán của quản trị viên…",
+      "licenses": "Giấy phép và đăng ký",
+      "allInvoices": "Tất cả hóa đơn",
+      "planCatalog": "Danh mục kế hoạch",
+      "custom": "Phong tục",
+      "features": "tính năng {count}",
+      "emailQueue": "Hàng đợi email (giả lập)",
+      "noEmails": "Không có email xếp hàng đợi.",
+      "commercialAudit": "Kiểm toán thương mại",
+      "columns": {
+        "organization": "Tổ chức",
+        "plan": "Kế hoạch",
+        "status": "Trạng thái",
+        "seats": "Chỗ ngồi",
+        "actions": "hành động",
+        "invoice": "Hóa đơn",
+        "org": "Tổ chức",
+        "amount": "Số lượng",
+        "when": "Khi",
+        "action": "Hoạt động"
+      },
+      "suspend": "Đình chỉ",
+      "lifetime": "Trọn đời",
+      "refund": "Đền bù"
+    },
+    "portal": {
+      "eyebrow": "SaaS thương mại",
+      "title": "Đăng ký & Thanh toán",
+      "lead": "Quản lý gói, hạn mức sử dụng, hóa đơn và phương thức thanh toán của bạn. Các nhà cung cấp thanh toán ở lại phía sau dịch vụ thanh toán.",
+      "settingsBilling": "Cài đặt thanh toán",
+      "adminBilling": "Thanh toán của quản trị viên",
+      "loading": "Đang tải thanh toán…",
+      "currentLicense": "Giấy phép hiện tại",
+      "plan": "Kế hoạch",
+      "status": "Trạng thái",
+      "seats": "Chỗ ngồi",
+      "renewsTrial": "Gia hạn/dùng thử",
+      "enabledModules": "Các mô-đun đã bật: {modules}",
+      "none": "không có",
+      "renew": "Gia hạn",
+      "cancelSubscription": "Hủy đăng ký",
+      "plans": "kế hoạch",
+      "provider": "nhà cung cấp",
+      "couponPlaceholder": "Phiếu giảm giá (RAUNCH20)",
+      "usageQuotas": "Cách sử dụng và hạn ngạch",
+      "invoices": "Hóa đơn",
+      "noInvoices": "Chưa có hoá đơn.",
+      "paymentMethods": "Phương thức thanh toán",
+      "noPaymentMethods": "Không có phương thức thanh toán nào trong hồ sơ.",
+      "default": "mặc định",
+      "companyProfile": "Hồ sơ thanh toán của công ty",
+      "company": "Công ty",
+      "billingEmail": "Email thanh toán",
+      "vatId": "Mã số thuế GTGT",
+      "taxId": "Mã số thuế",
+      "vatPlaceholder": "ví dụ. DE123456789",
+      "taxPlaceholder": "ví dụ. DE123456789",
+      "saveProfile": "Lưu hồ sơ",
+      "notifications": "Thông báo",
+      "noNotifications": "Không có thông báo thanh toán.",
+      "noticeInitial": "Việc thanh toán chạy qua lớp dịch vụ thương mại — không có SDK thanh toán trong giao diện người dùng.",
+      "noticeActivated": "Đã kích hoạt {planId} qua {providerId} (thanh toán mô phỏng).",
+      "noticeCheckoutFailed": "Thanh toán không thành công",
+      "noticeCancelled": "Đăng ký đã bị hủy.",
+      "noticeRenewed": "Đăng ký được gia hạn cho kỳ tiếp theo.",
+      "noticeProfileSaved": "Đã lưu hồ sơ thanh toán.",
+      "columns": {
+        "invoice": "Hóa đơn",
+        "status": "Trạng thái",
+        "amount": "Số lượng",
+        "issued": "Đã phát hành",
+        "metric": "Số liệu",
+        "used": "Đã sử dụng",
+        "limit": "Giới hạn"
+      },
+      "quotaStatus": {
+        "exceeded": "Đã vượt quá",
+        "warning": "Cảnh báo",
+        "ok": "ĐƯỢC RỒI"
+      }
+    }
+  },
+  "settings": {
+    "controlCenter": "Trung tâm điều khiển",
+    "settingsSections": "Phần cài đặt",
+    "profile": {
+      "label": "Hồ sơ",
+      "description": "Hình đại diện, danh tính và sở thích cá nhân",
+      "title": "Hồ sơ",
+      "panelDescription": "Hình đại diện, tên đầy đủ, email, vai trò, múi giờ, ngôn ngữ và tùy chọn chủ đề.",
+      "language": "Ngôn ngữ",
+      "timezone": "Múi giờ",
+      "fullName": "Tên đầy đủ",
+      "email": "E-mail",
+      "role": "Vai trò",
+      "theme": "chủ đề",
+      "avatar": "Hình đại diện",
+      "changeAvatar": "Thay đổi hình đại diện",
+      "region": "Vùng đất",
+      "personalPrefs": "Sở thích cá nhân",
+      "supportLinks": "Hỗ trợ & pháp lý",
+      "signedOut": "Đăng nhập để xem danh tính tài khoản của bạn.",
+      "serverIdentityNotice": "Tên, email và vai trò đến từ phiên máy chủ của bạn. Chúng không được lưu trữ trong trình duyệt này.",
+      "localPrefsNotice": "Múi giờ, khu vực và sở thích cá nhân vẫn chưa được duy trì. Việc lưu chúng chỉ cập nhật trang này cho đến khi bạn rời đi.",
+      "avatarUnavailable": "Tải lên hình đại diện chưa khả dụng.",
+      "appearanceNote": "Cấu hình ngoại hình vẫn ở dưới Giao diện. Tiêu đề chỉ cung cấp một chủ đề chuyển đổi nhanh.",
+      "prefsHint": "Được sử dụng bởi trợ lý AI trên các mô-đun.",
+      "themeResolved": "{mode} (đã giải quyết {appearance})",
+      "regions": {
+        "EU": "Liên minh Châu Âu",
+        "US": "Hoa Kỳ",
+        "MENA": "MENA",
+        "APAC": "Châu Á Thái Bình Dương"
+      }
+    },
+    "organization": {
+      "label": "Tổ chức",
+      "description": "Hồ sơ công ty và mã số thuế",
+      "title": "Tổ chức",
+      "panelDescription": "Tên công ty, logo, địa chỉ, thông tin thuế, các phòng ban, đơn vị kinh doanh."
+    },
+    "workspace": {
+      "label": "Không gian làm việc",
+      "description": "Xây dựng thương hiệu, trang chủ và mô-đun mặc định",
+      "title": "Không gian làm việc",
+      "panelDescription": "Cài đặt không gian làm việc, trang tổng quan mặc định, nhãn hiệu, mô-đun và trang chủ."
+    },
+    "team": {
+      "label": "Đội",
+      "description": "Thành viên, vai trò, lời mời và nhóm",
+      "title": "Đội",
+      "panelDescription": "Thành viên, vai trò, lời mời và nhóm."
+    },
+    "ai": {
+      "label": "trí tuệ nhân tạo",
+      "description": "Nhà cung cấp, mô hình, sự sáng tạo và trí nhớ",
+      "title": "trí tuệ nhân tạo",
+      "panelDescription": "Tùy chọn nhà cung cấp, mô hình, sự sáng tạo, nhiệt độ và bộ nhớ.",
+      "openAgentOs": "Hệ điều hành đại lý mở",
+      "openAiWorkspace": "Không gian làm việc AI mở",
+      "noticeSync": "Đồng bộ hóa cài đặt AI thông qua AISettingsProvider - các khóa không bao giờ được lưu trữ ở đây.",
+      "noticeProvider": "Việc triển khai của nhà cung cấp nằm phía sau lớp dịch vụ AI. Giao diện người dùng không bao giờ nhận được khóa API hoặc thông tin chi tiết về SDK. Các tác nhân tự trị sống trong Agent OS.",
+      "preferredProvider": "Nhà cung cấp AI ưa thích",
+      "defaultModel": "Mô hình AI mặc định",
+      "temperature": "Nhiệt độ",
+      "topP": "Top P",
+      "maxTokens": "Mã thông báo tối đa",
+      "writingStyle": "Phong cách viết",
+      "languagePreferences": "Tùy chọn ngôn ngữ",
+      "systemPrompt": "Lời nhắc hệ thống",
+      "systemPromptHint": "Được áp dụng làm hướng dẫn hệ thống mặc định cho Nền tảng AI.",
+      "systemPromptPlaceholder": "Bạn là AGXORA AI — trợ lý điều hành doanh nghiệp…",
+      "apiKeyManagement": "Quản lý khóa API",
+      "apiKeyHint": "Khóa chỉ được cung cấp thông qua các biến môi trường máy chủ.",
+      "apiKeyPlaceholder": "Được định cấu hình thông qua các biến môi trường AGXORA_* (không bao giờ có trong trình duyệt)",
+      "memory": "Ký ức",
+      "memoryDescription": "Cho phép bộ nhớ tổ chức thông báo phản hồi của AI trên các mô-đun.",
+      "automationSuggestions": "Đề xuất tự động hóa",
+      "automationSuggestionsDescription": "Đề xuất quy trình làm việc Surface AI trong Công cụ tự động hóa.",
+      "streaming": "Truyền phát",
+      "streamingDescription": "Truyền phát các phản hồi của mô hình khi nhà cung cấp hỗ trợ nó.",
+      "providers": {
+        "mock": "Mô phỏng (địa phương)",
+        "openai": "OpenAI",
+        "azure": "Azure OpenAI",
+        "anthropic": "nhân loại",
+        "google": "Google",
+        "openrouter": "Bộ định tuyến mở",
+        "ollama": "Ollama",
+        "local": "Nhà cung cấp địa phương"
+      },
+      "writingStyles": {
+        "professional": "Chuyên nghiệp",
+        "concise": "ngắn gọn",
+        "friendly": "Thân thiện",
+        "technical": "Kỹ thuật"
+      },
+      "languages": {
+        "auto": "Phù hợp với ngôn ngữ hồ sơ",
+        "en": "Tiếng Anh",
+        "de": "tiếng Đức"
+      }
+    },
+    "appearance": {
+      "label": "Vẻ bề ngoài",
+      "description": "Chủ đề, mật độ và hiệu ứng kính",
+      "title": "Vẻ bề ngoài",
+      "panelDescription": "Chủ đề, mật độ, điểm nhấn, hoạt ảnh và hiệu ứng kính.",
+      "noticeTheme": "Chế độ chủ đề là nguồn thông tin duy nhất thông qua ThemeProvider. Tiêu đề chỉ cung cấp một chuyển đổi nhanh chóng.",
+      "themeLabel": "chủ đề",
+      "themeModeAria": "Chế độ chủ đề",
+      "resolvedAppearance": "Đã giải quyết sự xuất hiện:",
+      "accentColor": "Màu nhấn",
+      "accentNotice": "Tùy chọn giọng được lưu trữ cho hệ thống dây CSS var trong tương lai - chưa làm thay đổi hệ thống màu bị khóa.",
+      "density": "Tỉ trọng",
+      "compactMode": "Chế độ nhỏ gọn",
+      "compactModeDescription": "Giảm phần đệm trên các bảng và bảng doanh nghiệp.",
+      "animations": "Hoạt hình",
+      "animationsDescription": "Phần chuyển động và thang máy di chuột. Tôn trọng cài đặt hệ điều hành giảm chuyển động.",
+      "glassEffects": "Hiệu ứng kính",
+      "glassEffectsDescription": "Thẻ kính mờ và tùy chọn cường độ mờ của thanh bên.",
+      "modes": {
+        "day": {
+          "label": "Ánh sáng",
+          "hint": "Bảng màu ngày doanh nghiệp ngọc trai / băng"
+        },
+        "night": {
+          "label": "Tối tăm",
+          "hint": "Giao diện ban đêm của rạp chiếu phim đã được phê duyệt"
+        },
+        "auto": {
+          "label": "Hệ thống",
+          "hint": "Thực hiện theo lịch trình địa phương (Tự động)"
+        }
+      },
+      "densities": {
+        "comfortable": "Thoải mái",
+        "compact": "Nhỏ gọn",
+        "spacious": "Rộng rãi"
+      }
+    },
+    "notifications": {
+      "label": "Thông báo",
+      "description": "Cảnh báo qua email, đẩy và mô-đun",
+      "title": "Thông báo",
+      "panelDescription": "Cảnh báo qua email, đẩy, máy tính để bàn, thiết bị di động và mô-đun cụ thể.",
+      "notice": "Các kênh thông báo chỉ mang tính ưu tiên — bộ điều hợp phân phối được dành riêng.",
+      "email": "E-mail",
+      "push": "Xô",
+      "desktop": "Máy tính để bàn",
+      "mobile": "Điện thoại di động",
+      "workflowAlerts": "Cảnh báo quy trình làm việc",
+      "workflowAlertsDescription": "Các sự kiện phê duyệt và thực thi Công cụ tự động hóa.",
+      "financeAlerts": "Cảnh báo tài chính",
+      "crmAlerts": "Cảnh báo CRM",
+      "documentsAlerts": "Cảnh báo tài liệu",
+      "deliveryNotice": "Bộ chuyển đổi giao hàng sẽ xuất xưởng khi ra mắt. Câu hỏi:",
+      "contactSupport": "Liên hệ hỗ trợ"
+    },
+    "documents": {
+      "label": "Tài liệu",
+      "description": "Lưu trữ, lưu giữ và kiến ​​thức",
+      "title": "Tài liệu",
+      "panelDescription": "Tùy chọn lưu trữ, lưu giữ, thư mục mặc định, phiên bản và cài đặt kiến ​​​​thức.",
+      "notice": "Cài đặt tài liệu tích hợp với kiến ​​trúc Trung tâm Kiến thức.",
+      "storagePreferences": "Tùy chọn lưu trữ",
+      "retentionPolicy": "Chính sách lưu giữ",
+      "defaultFolder": "Thư mục mặc định",
+      "versioning": "Phiên bản",
+      "versioningDescription": "Giữ lịch sử phiên bản tài liệu để khôi phục/so sánh.",
+      "knowledgeSettings": "Cài đặt kiến ​​thức",
+      "knowledgeDescription": "Lập chỉ mục AI cho tìm kiếm trong Trung tâm Kiến thức.",
+      "storageOptions": {
+        "workspace-default": "Mặc định không gian làm việc",
+        "eu-region": "khu vực EU",
+        "encrypted-vault": "Kho tiền được mã hóa"
+      },
+      "retentionOptions": {
+        "30-days": "30 ngày (trầy xước)",
+        "2-years": "2 năm",
+        "7-years": "7 năm",
+        "10-years": "10 năm"
+      }
+    },
+    "automation": {
+      "label": "Tự động hóa",
+      "description": "Mặc định của quy trình làm việc và chính sách thử lại",
+      "title": "Tự động hóa",
+      "panelDescription": "Giá trị mặc định của quy trình làm việc, đề xuất AI, nhật ký thực thi, giới hạn lịch sử và chính sách thử lại.",
+      "notice": "Các giá trị mặc định tự động hóa áp dụng cho kiến ​​trúc Workflow Engine.",
+      "workflowDefaults": "Mặc định quy trình làm việc",
+      "historyLimits": "Giới hạn lịch sử",
+      "retryPolicy": "Chính sách thử lại",
+      "aiSuggestions": "Đề xuất AI",
+      "executionLogs": "Nhật ký thực thi",
+      "executionLogsDescription": "Giữ lại tải trọng chạy chi tiết trong Lịch sử quy trình công việc.",
+      "workflowOptions": {
+        "require-approval": "Yêu cầu cổng phê duyệt",
+        "auto-run": "Tự động chạy các luồng đáng tin cậy",
+        "draft-only": "Chỉ bản nháp"
+      },
+      "historyOptions": {
+        "30-days": "30 ngày",
+        "90-days": "90 ngày",
+        "365-days": "365 ngày"
+      },
+      "retryOptions": {
+        "none": "Không thử lại",
+        "3-exponential": "3× số mũ",
+        "5-linear": "tuyến tính 5×"
+      }
+    },
+    "integrations": {
+      "label": "Tích hợp",
+      "description": "Đã cài đặt, kết nối và khả dụng",
+      "title": "Tích hợp",
+      "panelDescription": "Các bộ điều hợp đã được cài đặt, kết nối và có sẵn.",
+      "openCenter": "Trung tâm tích hợp mở",
+      "notice": "Nền tảng tích hợp doanh nghiệp nằm trong Trung tâm tích hợp — trình kết nối, OAuth, webhook, khóa API và cầu nối sự kiện quy trình công việc.",
+      "columns": {
+        "integration": "Tích hợp",
+        "category": "Loại",
+        "status": "Trạng thái",
+        "adapter": "Bộ chuyển đổi"
+      }
+    },
+    "security": {
+      "label": "Bảo vệ",
+      "description": "Phiên, mật khẩu và bảo vệ tài khoản",
+      "title": "Bảo vệ",
+      "panelDescription": "Phiên máy chủ cho tài khoản này. Thiết bị, IP và MFA không được lưu trữ.",
+      "activeSessions": "Phiên hoạt động",
+      "currentSession": "Phiên hiện tại",
+      "otherSession": "Phiên khác",
+      "currentBadge": "Phiên này",
+      "otherBadge": "Phiên khác",
+      "createdAt": "Đã đăng nhập",
+      "expiresAt": "Hết hạn",
+      "revoke": "Thu hồi phiên",
+      "revokeAria": "Thu hồi phiên đã đăng nhập {when}",
+      "revokeOthers": "Đăng xuất các phiên khác",
+      "revokeOthersAria": "Đăng xuất tất cả các phiên ngoại trừ phiên hiện tại",
+      "revoked": "Phiên bị thu hồi.",
+      "othersRevoked": "Các phiên khác đã đăng xuất. Phiên này vẫn còn hoạt động.",
+      "loading": "Đang tải phiên…",
+      "empty": "Không có phiên hoạt động nào",
+      "emptyBody": "Không có phiên máy chủ đang hoạt động cho tài khoản này.",
+      "demoEmpty": "Đăng nhập để đăng ký phiên demo cục bộ trong trình duyệt này.",
+      "signedOutTitle": "Chưa đăng nhập",
+      "signedOut": "Đăng nhập để xem các phiên máy chủ đang hoạt động của bạn.",
+      "loadFailed": "Không thể tải phiên.",
+      "revokeFailed": "Không thể thu hồi phiên đó.",
+      "logout": "Đăng xuất phiên này",
+      "logoutAria": "Đăng xuất phiên máy chủ hiện tại",
+      "password": "Mật khẩu",
+      "changePassword": "Đặt lại mật khẩu",
+      "passwordHint": "Thay đổi mật khẩu sử dụng quy trình đặt lại hiện có. Hiện chưa có biểu mẫu thay đổi mật khẩu chuyên dụng.",
+      "mfaTitle": "Xác thực hai yếu tố",
+      "mfaUnavailable": "Xác thực hai yếu tố chưa có sẵn.",
+      "ssoTitle": "SSO và OAuth",
+      "ssoUnavailable": "Hiện chưa có nhà cung cấp dịch vụ đăng nhập một lần và OAuth.",
+      "encryptionTitle": "Mã hóa",
+      "encryptionUnavailable": "Hiện chưa có tính năng quản lý khóa và kiểm soát mã hóa ở phần còn lại.",
+      "trustedDevices": "Thiết bị đáng tin cậy",
+      "trustedUnavailable": "Lịch sử IP và thiết bị đáng tin cậy không được lưu trữ. Siêu dữ liệu phiên được giới hạn ở thời gian tạo và hết hạn.",
+      "apiKeys": "Khóa API",
+      "apiKeysHint": "Khóa nhà phát triển được quản lý trong API & Nhà phát triển. Bảng này không phát hành chìa khóa.",
+      "openApi": "Mở cài đặt API",
+      "serverNotice": "Phiên được lưu trữ trên máy chủ. Trình duyệt này không bao giờ coi dữ liệu nhận dạng cục bộ là có thẩm quyền.",
+      "demoNotice": "Chế độ demo chỉ sử dụng các phiên trình duyệt cục bộ. Đây không phải là xác thực sản xuất.",
+      "noDeviceMeta": "Thiết bị, IP và tác nhân người dùng không được ghi lại."
+    },
+    "billing": {
+      "label": "Thanh toán",
+      "description": "Kế hoạch, cách sử dụng, hóa đơn và thanh toán",
+      "title": "Thanh toán",
+      "panelDescription": "Gói hiện tại, gia hạn, sử dụng, hóa đơn và lộ trình nâng cấp."
+    },
+    "api": {
+      "label": "API & Nhà phát triển",
+      "description": "Khóa, webhooks, mã thông báo, hộp cát",
+      "title": "API & Nhà phát triển",
+      "panelDescription": "Truy cập khóa, webhooks, mã thông báo và hộp cát.",
+      "openPortal": "Mở cổng thông tin dành cho nhà phát triển",
+      "notice": "Tạo, xoay và thu hồi khóa trong Trung tâm tích hợp. Cổng, trình kiểm tra webhook và trình khám phá API đều có sẵn ở đó.",
+      "webhooks": "Webhook",
+      "sandbox": "Hộp cát",
+      "sandboxEnabled": "Đã bật",
+      "sandboxDisabled": "Tàn tật",
+      "tokensNotice": "Mã thông báo của nhà phát triển không bao giờ hiển thị đầy đủ bí mật - chỉ có tiền tố.",
+      "columns": {
+        "name": "Tên",
+        "key": "Chìa khóa",
+        "scope": "Phạm vi",
+        "lastUsed": "Lần sử dụng cuối cùng"
+      }
+    },
+    "audit": {
+      "label": "Nhật ký kiểm tra",
+      "description": "Các thay đổi về hoạt động, bảo mật và hệ thống",
+      "title": "Nhật ký kiểm tra",
+      "panelDescription": "Hoạt động gần đây, sự kiện bảo mật và thay đổi hệ thống.",
+      "columns": {
+        "when": "Khi",
+        "actor": "Diễn viên",
+        "category": "Loại",
+        "summary": "Bản tóm tắt"
+      },
+      "categories": {
+        "activity": "Hoạt động gần đây",
+        "security": "Sự kiện bảo mật",
+        "system": "Thay đổi hệ thống"
+      }
+    },
+    "advanced": {
+      "label": "Trình độ cao",
+      "description": "Thử nghiệm, đặt lại, nhập, xuất",
+      "title": "Trình độ cao",
+      "panelDescription": "Các tính năng thử nghiệm, đặt lại, nhập và xuất.",
+      "notice": "Các hành động nâng cao yêu cầu xác nhận trước khi áp dụng.",
+      "experimentalFeatures": "Tính năng thử nghiệm",
+      "experimentalDescription": "Chọn tham gia các khả năng của Trung tâm điều khiển chưa hoàn thiện.",
+      "export": "Xuất khẩu",
+      "import": "Nhập khẩu",
+      "reset": "Cài lại",
+      "exportUnavailable": "Xuất khẩu vẫn chưa có sẵn.",
+      "importUnavailable": "Nhập khẩu chưa có sẵn.",
+      "resetUnavailable": "Việc đặt lại vẫn chưa có sẵn."
+    },
+    "page": {
+      "eyebrow": "Trung tâm điều khiển AGXORA",
+      "title": "Cài đặt",
+      "lead": "Cấu hình doanh nghiệp cho mọi mô-đun AGXORA — hồ sơ, tổ chức, AI, giao diện, bảo mật, thanh toán và kiểm soát dành cho nhà phát triển ở cùng một nơi.",
+      "loading": "Đang tải cài đặt…",
+      "breadcrumb": "{label} · {description}"
+    },
+    "saveChanges": "Lưu thay đổi",
+    "sessionNotice": "Đã cập nhật cho phiên này — {area} chưa được kết nối.",
+    "kpi": {
+      "members": {
+        "label": "Thành viên nhóm",
+        "caption": "Ghế hoạt động"
+      },
+      "integrations": {
+        "label": "Tích hợp",
+        "caption": "Bộ điều hợp được kết nối"
+      },
+      "api": {
+        "label": "Khóa API",
+        "caption": "Mã thông báo của nhà phát triển"
+      },
+      "audit": {
+        "label": "Sự kiện kiểm toán",
+        "caption": "7 ngày qua"
+      }
+    },
+    "unknown": {
+      "title": "Cài đặt",
+      "description": "Phần không xác định.",
+      "emptyTitle": "Không tìm thấy",
+      "emptyDescription": "Chọn một phần từ điều hướng Trung tâm điều khiển."
+    },
+    "controlPlane": {
+      "loading": "Đang tải…",
+      "loadFailed": "Không thể tải dữ liệu tổ chức. Đăng nhập và thử lại.",
+      "saveFailed": "Không thể lưu các thay đổi.",
+      "saving": "Đang lưu…",
+      "orgName": "Tên tổ chức",
+      "orgSlug": "sên",
+      "owner": "Người sở hữu",
+      "counts": "Thành viên · không gian làm việc",
+      "orgUpdated": "Đã cập nhật tổ chức.",
+      "countsValue": "{members} · {workspaces}",
+      "joined": "Đã tham gia",
+      "workspaceName": "Tên không gian làm việc",
+      "switchWorkspace": "Không gian làm việc năng động",
+      "active": "tích cực",
+      "rename": "Đổi tên",
+      "archive": "Lưu trữ",
+      "create": "Tạo không gian làm việc",
+      "createWorkspace": "Không gian làm việc mới",
+      "workspaceCreated": "Đã tạo không gian làm việc.",
+      "workspaceUpdated": "Không gian làm việc được đổi tên.",
+      "workspaceArchived": "Đã lưu trữ không gian làm việc.",
+      "workspaceSwitched": "Đã cập nhật không gian làm việc đang hoạt động.",
+      "member": "Thành viên",
+      "email": "E-mail",
+      "role": "Vai trò",
+      "status": "Trạng thái",
+      "actions": "hành động",
+      "roleOwner": "Người sở hữu",
+      "roleAdmin": "Quản trị viên",
+      "roleMember": "Thành viên",
+      "changeRole": "Thay đổi vai trò",
+      "remove": "Di dời",
+      "invite": "Mời thành viên",
+      "inviteTitle": "Mời vào không gian làm việc",
+      "sendInvite": "Tạo lời mời",
+      "close": "Đóng",
+      "pending": "Lời mời đang chờ xử lý",
+      "noPending": "Không có lời mời đang chờ xử lý.",
+      "revoke": "Thu hồi",
+      "noMembers": "Chưa có thành viên nào",
+      "noMembersBody": "Mời đồng đội đến không gian làm việc này.",
+      "inviteHonesty": "Việc gửi email chưa được định cấu hình. Chia sẻ liên kết mời trực tiếp.",
+      "inviteLink": "Mời liên kết",
+      "inviteInvalid": "Lời mời này không hợp lệ.",
+      "accept": "Chấp nhận lời mời",
+      "invitedAs": "{email} được mời với tư cách là {role}.",
+      "inviteStatus": {
+        "pending": "Chưa giải quyết",
+        "expired": "Lời mời này đã hết hạn.",
+        "revoked": "Lời mời này đã bị thu hồi.",
+        "accepted": "Lời mời này đã được chấp nhận."
+      },
+      "transferOwnership": "Chuyển quyền sở hữu",
+      "transferTitle": "Chuyển quyền sở hữu tổ chức",
+      "transferWarning": "Đây là một hành động nguy hiểm. Bạn vẫn là CHỦ SỞ HỮU cho đến khi người nhận xác nhận. Sau khi xác nhận, bạn trở thành QUẢN TRỊ VIÊN và họ trở thành CHỦ SỞ HỮU.",
+      "transferTarget": "Chủ sở hữu mới",
+      "transferSelectMember": "Chọn một thành viên hiện có…",
+      "transferTypeName": "Nhập “{name}” để xác nhận",
+      "transferConfirmMismatch": "Tên gõ không khớp với thành viên đã chọn.",
+      "transferInitiate": "Bắt đầu chuyển khoản",
+      "transferHonesty": "Một email xác nhận sẽ được gửi khi cấu hình phân phối. Nếu không hãy chia sẻ liên kết xác nhận trực tiếp với người nhận.",
+      "transferLink": "Liên kết xác nhận",
+      "transferPendingTitle": "Đang chờ chuyển quyền sở hữu",
+      "transferPendingBody": "Đang chờ {name} ({email}) xác nhận. Hết hạn {expires}. Bạn vẫn là CHỦ SỞ HỮU cho đến lúc đó.",
+      "transferPendingNote": "Vai trò thành viên không thay đổi trong khi quá trình chuyển đang chờ xử lý.",
+      "cancelTransfer": "Hủy chuyển khoản",
+      "transferCancelled": "Chuyển quyền sở hữu bị hủy bỏ.",
+      "transferInvalid": "Việc chuyển quyền sở hữu này không hợp lệ.",
+      "transferConfirmTitle": "Xác nhận chuyển quyền sở hữu",
+      "transferConfirmBody": "{from} muốn chuyển quyền sở hữu tổ chức cho {to} ({email}).",
+      "transferConfirmDanger": "Sau khi xác nhận, bạn trở thành CHỦ SỞ HỮU và chủ sở hữu trước đó trở thành QUẢN TRỊ.",
+      "transferConfirmAction": "Xác nhận tôi trở thành chủ sở hữu mới",
+      "transferWrongAccount": "Đăng nhập bằng {email} để xác nhận việc chuyển này.",
+      "transferStatus": {
+        "pending": "Đang chờ xác nhận",
+        "expired": "Việc chuyển quyền sở hữu này đã hết hạn.",
+        "cancelled": "Việc chuyển quyền sở hữu này đã bị hủy.",
+        "confirmed": "Việc chuyển quyền sở hữu này đã hoàn tất."
+      }
+    }
+  },
+  "errors": {
+    "required": "Trường này là bắt buộc.",
+    "invalidEmail": "Nhập địa chỉ email hợp lệ.",
+    "passwordMin": "Mật khẩu phải có ít nhất 8 ký tự.",
+    "passwordLettersNumbers": "Mật khẩu phải bao gồm chữ cái và số.",
+    "passwordMismatch": "Mật khẩu không khớp.",
+    "acceptTerms": "Vui lòng chấp nhận các điều khoản để tiếp tục.",
+    "generic": "Đã xảy ra sự cố.",
+    "tryAgain": "Vui lòng thử lại.",
+    "saved": "Đã lưu thành công.",
+    "invalidCredentials": "Email hoặc mật khẩu không hợp lệ.",
+    "signInRequired": "Cần đăng nhập.",
+    "insufficientPermissions": "Không đủ quyền.",
+    "noRouteAccess": "Bạn không có quyền truy cập tuyến này.",
+    "accountLocked": "Tài khoản này đã bị khóa. Liên hệ quản trị viên.",
+    "sessionExpired": "Phiên của bạn đã hết hạn. Đăng nhập lại.",
+    "missingPermission": "Thiếu quyền: {permission}",
+    "roleCannotAccess": "Vai trò của bạn không thể truy cập tài nguyên này.",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "Email hoặc mật khẩu không hợp lệ.",
+      "AUTH_SESSION_EXPIRED": "Phiên của bạn đã hết hạn. Đăng nhập lại.",
+      "AUTH_ACCOUNT_LOCKED": "Tài khoản này đã bị khóa. Liên hệ quản trị viên.",
+      "AUTH_SIGN_IN_REQUIRED": "Đăng nhập để tiếp tục.",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "Không đủ quyền.",
+      "AUTH_NO_ROUTE_ACCESS": "Bạn không có quyền truy cập tuyến này.",
+      "COMMON_SOMETHING_WENT_WRONG": "Đã xảy ra sự cố.",
+      "COMMON_PAGE_NOT_FOUND": "Không tìm thấy trang.",
+      "COMMON_OFFLINE": "Bạn đang ngoại tuyến.",
+      "COMMON_TIMEOUT": "Yêu cầu đã hết thời gian.",
+      "COMMON_VALIDATION": "Kiểm tra dữ liệu nhập và thử lại.",
+      "COMMON_UNKNOWN": "Đã xảy ra lỗi không xác định.",
+      "COMMON_INTERNAL": "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại."
+    }
+  },
+  "dashboard": {
+    "skipToContent": "Chuyển đến nội dung bảng điều khiển",
+    "loading": "Đang tải trang tổng quan…",
+    "hero": {
+      "ariaLabel": "Anh hùng AGXORA CORE",
+      "eyebrow": "Hệ điều hành kinh doanh AI",
+      "title": "LÕI AGXORA",
+      "subtitle": "Kiểm soát hoạt động và thông tin theo thời gian thực — bề mặt chỉ huy không gian làm việc của bạn.",
+      "ctaGetStarted": "Bắt đầu",
+      "ctaViewActivity": "Xem hoạt động",
+      "openQuickActionsAria": "Mở tác vụ nhanh",
+      "viewActivityAria": "Xem hoạt động gần đây"
+    },
+    "quickActions": {
+      "title": "Hành động nhanh",
+      "subtitle": "Bạn nên làm gì tiếp theo?",
+      "ariaLabel": "Hành động nhanh",
+      "addCustomer": {
+        "label": "Thêm khách hàng",
+        "description": "Tạo bản ghi CRM"
+      },
+      "newProject": {
+        "label": "Dự án mới",
+        "description": "Bắt đầu theo dõi giao hàng"
+      },
+      "askAi": {
+        "label": "Hỏi AI",
+        "description": "Mở không gian làm việc AI"
+      },
+      "finance": {
+        "label": "Tài chính",
+        "description": "Hóa đơn và dòng tiền"
+      },
+      "automations": {
+        "label": "Tự động hóa",
+        "description": "Công cụ xử lý công việc"
+      },
+      "settings": {
+        "label": "Cài đặt",
+        "description": "Tùy chọn không gian làm việc"
+      }
+    },
+    "attention": {
+      "title": "Cần chú ý",
+      "ariaLabel": "Điều gì cần chú ý",
+      "empty": "Bạn đã rõ - hiện tại không có việc gì khẩn cấp.",
+      "tone": {
+        "critical": "Phê bình",
+        "warning": "Cảnh báo",
+        "info": "Thông tin",
+        "success": "Sẵn sàng",
+        "action": "Làm tiếp theo"
+      },
+      "addCustomer": {
+        "title": "Thêm khách hàng đầu tiên của bạn",
+        "detail": "Khởi động CRM với bản ghi tài khoản thực."
+      },
+      "createProject": {
+        "title": "Tạo một dự án",
+        "detail": "Mở đường phân phối cho lần tương tác tiếp theo của bạn."
+      },
+      "exploreAi": {
+        "title": "Khám phá không gian làm việc AI",
+        "detail": "Hỏi AGXORA về khách hàng, dự án hoặc các bước tiếp theo."
+      },
+      "reviewBilling": {
+        "title": "Xem lại thanh toán",
+        "detail": "Xác nhận kế hoạch và mức sử dụng khi bạn sẵn sàng mở rộng quy mô."
+      }
+    },
+    "overview": {
+      "title": "Chuyện gì đang xảy ra",
+      "subtitle": "Số lượng không gian làm việc cho {name}",
+      "fallbackName": "không gian làm việc của bạn",
+      "ariaLabel": "Tổng quan về doanh nghiệp",
+      "online": "Trực tuyến",
+      "emDash": "—",
+      "capacitySignal": "tín hiệu công suất {percent}%",
+      "activeClients": {
+        "title": "Khách hàng đang hoạt động",
+        "captionEmpty": "Chưa có khách hàng nào đang hoạt động",
+        "captionTotal": "Tổng cộng {count} trong không gian làm việc",
+        "add": "Thêm khách hàng",
+        "view": "Xem khách hàng"
+      },
+      "projects": {
+        "title": "Dự án",
+        "captionEmpty": "Không có dự án nào trong danh mục đầu tư",
+        "captionOpen": "Mở đường giao hàng",
+        "create": "Tạo dự án",
+        "open": "Dự án mở"
+      },
+      "activityToday": {
+        "title": "Hoạt động hôm nay",
+        "captionEmpty": "Chưa có gì được ghi lại ngày hôm nay",
+        "captionEvents": "Sự kiện trong không gian làm việc kể từ nửa đêm",
+        "viewFeed": "Xem nguồn cấp dữ liệu"
+      },
+      "revenue": {
+        "title": "Doanh thu",
+        "caption": "Kết nối thanh toán để hiển thị MRR",
+        "openBilling": "Thanh toán mở"
+      },
+      "clientShell": {
+        "title": "Vỏ khách hàng",
+        "caption": "Phiên trình duyệt đã sẵn sàng - không phải màn hình hoạt động trực tiếp",
+        "shellLoaded": "Đã tải shell ứng dụng",
+        "storesReady": "Cửa hàng không gian làm việc cục bộ đã sẵn sàng"
+      },
+      "growth": {
+        "title": "Sự phát triển",
+        "caption": "Số liệu xu hướng cần mức sử dụng tích lũy",
+        "openAnalytics": "Phân tích mở"
+      }
+    },
+    "activity": {
+      "title": "Hoạt động gần đây",
+      "subtitle": "Điều gì đã thay đổi ngày hôm nay",
+      "ariaLabel": "Hoạt động gần đây",
+      "todayCount": "{count} HÔM NAY",
+      "localBadge": "ĐỊA PHƯƠNG",
+      "emptyTitle": "Chưa có hoạt động nào",
+      "emptyBody": "Các sự kiện trong không gian làm việc sẽ xuất hiện ở đây khi bạn thêm khách hàng, dự án, v.v.",
+      "addCustomer": "Thêm khách hàng",
+      "newProject": "Dự án mới",
+      "kind": {
+        "customer": "Khách hàng",
+        "project": "Dự án",
+        "finance": "Tài chính",
+        "automation": "Tự động hóa",
+        "documents": "Tài liệu",
+        "team": "Đội",
+        "workspace": "Không gian làm việc"
+      },
+      "events": {
+        "customer_created": "Khách hàng đã tạo",
+        "customer_updated": "Khách hàng đã cập nhật",
+        "customer_deleted": "Khách hàng đã xóa",
+        "project_updated": "Đã cập nhật dự án",
+        "invoice_paid": "Hóa đơn đã thanh toán",
+        "document_uploaded": "Tài liệu đã được tải lên",
+        "workflow_executed": "Quy trình công việc được thực hiện",
+        "member_invited": "Thành viên nhóm được mời",
+        "generic": "Cập nhật không gian làm việc"
+      }
+    },
+    "chat": {
+      "title": "AGXORA AI",
+      "emptyState": "Hỏi AGXORA về khách hàng, dự án hoặc hành động tiếp theo. Cuộc trò chuyện của bạn vẫn ở trong phiên không gian làm việc này.",
+      "thinking": "AGXORA đang nghĩ…",
+      "errorDismiss": "{error} — nhấn để loại bỏ",
+      "placeholder": "Hãy hỏi AGXORA AI…",
+      "messageAria": "Tin nhắn AGXORA AI",
+      "sendAria": "Gửi tin nhắn",
+      "send": "Gửi"
+    },
+    "routeLoading": {
+      "team": "Đang tải nhóm…",
+      "projects": "Đang tải dự án…",
+      "project": "Đang tải dự án…",
+      "profile": "Đang tải hồ sơ…",
+      "integrations": "Đang tải tích hợp…",
+      "identity": "Đang tải danh tính…",
+      "finance": "Đang tải tài chính…",
+      "documents": "Đang tải tài liệu…",
+      "customers": "Đang tải khách hàng…",
+      "crm": "Đang tải CRM…",
+      "customer": "Đang tải khách hàng…",
+      "creator": "Đang tải studio sáng tạo…",
+      "billing": "Đang tải thanh toán…",
+      "billingAdmin": "Đang tải thanh toán của quản trị viên…",
+      "automation": "Đang tải tự động hóa…",
+      "analytics": "Đang tải Trung tâm thông minh…",
+      "ai": "Đang tải nền tảng AI…",
+      "agents": "Đang tải hệ điều hành đại lý…"
+    },
+    "shell": {
+      "memory": {
+        "title": "Ký ức",
+        "description": "Bộ nhớ tổ chức không được kết nối trong bản dựng này.",
+        "emptyTitle": "Không gian làm việc bộ nhớ chưa khả dụng",
+        "emptyBody": "Bộ nhớ lưu trữ liên tục của tổ chức không được kết nối. Trò chuyện có thể chỉ giữ lại ngữ cảnh tồn tại trong thời gian ngắn trong phiên — không có nội dung nào ở đây được lưu trữ dưới dạng bộ nhớ doanh nghiệp."
+      },
+      "invoices": {
+        "title": "Hóa đơn",
+        "description": "Kiến trúc thanh toán và hóa đơn cho người thuê doanh nghiệp.",
+        "emptyTitle": "Sổ cái hóa đơn chưa có sẵn",
+        "emptyBody": "Tuyến đường này là một lớp vỏ - việc tạo hóa đơn và lưu giữ không được kết nối. Sử dụng Tài chính để xem trước sổ cái mẫu hoặc Thanh toán để quản lý gói.",
+        "openFinance": "Tài chính mở",
+        "openBilling": "Thanh toán mở"
+      }
+    },
+    "search": {
+      "ariaLabel": "Tìm kiếm phổ quát",
+      "queryAria": "Truy vấn tìm kiếm phổ quát",
+      "placeholder": "Tìm kiếm khách hàng, hóa đơn, tài liệu, quy trình làm việc, cài đặt…",
+      "quickActions": "Thao tác nhanh",
+      "favorites": "Yêu thích",
+      "recentSearches": "Tìm kiếm gần đây",
+      "clear": "Thông thoáng",
+      "noRecentSearches": "Chưa có tìm kiếm nào gần đây. Hãy thử “Nordlicht”, “hóa đơn” hoặc “quy trình làm việc”.",
+      "recentActivity": "Hoạt động gần đây",
+      "aiReady": "AI Ready (Kiến trúc)",
+      "pinnedResults": "Kết quả được ghim",
+      "noMatches": "Không có kết quả phù hợp",
+      "noMatchesBody": "Hãy thử một từ khóa khác hoặc mở một mô-đun thông qua Thao tác nhanh.",
+      "close": "Đóng",
+      "esc": "Esc",
+      "open": "Mở",
+      "keyboardHints": "↑↓ điều hướng · Nhập mở · Ctrl/⌘ K chuyển đổi · Esc đóng",
+      "pinResult": "Ghim kết quả",
+      "unpinResult": "Bỏ ghim kết quả",
+      "previewEmpty": "Di chuột hoặc đánh dấu kết quả để xem trước, siêu dữ liệu và liên kết thông minh.",
+      "previewAria": "Xem trước toàn cầu",
+      "relatedItems": "Các mục liên quan",
+      "noSmartLinks": "Không có liên kết thông minh cho kết quả này.",
+      "groups": {
+        "crm": "CRM",
+        "finance": "Tài chính",
+        "documents": "Tài liệu",
+        "automation": "Tự động hóa",
+        "projects": "Dự án",
+        "creator": "Studio sáng tạo",
+        "settings": "Cài đặt",
+        "commands": "Lệnh",
+        "actions": "Thao tác nhanh"
+      },
+      "status": {
+        "architecture": "ngành kiến ​​​​trúc",
+        "planned": "kế hoạch"
+      },
+      "meta": {
+        "type": "Kiểu",
+        "module": "mô-đun",
+        "quickAction": "Hành động nhanh"
+      },
+      "actions": {
+        "createCustomer": {
+          "title": "Tạo khách hàng",
+          "subtitle": "Mở Khách hàng để thêm bản ghi"
+        },
+        "createInvoice": {
+          "title": "Tạo hóa đơn",
+          "subtitle": "Không gian làm việc hóa đơn tài chính mở"
+        },
+        "uploadDocument": {
+          "title": "Tải tài liệu lên",
+          "subtitle": "Trung tâm Kiến thức Tài liệu Mở"
+        },
+        "newWorkflow": {
+          "title": "Quy trình làm việc mới",
+          "subtitle": "Trình tạo Công cụ tự động hóa mở"
+        },
+        "newProject": {
+          "title": "Dự án mới",
+          "subtitle": "Mở không gian làm việc của Dự án"
+        },
+        "inviteMember": {
+          "title": "Mời thành viên nhóm",
+          "subtitle": "Mở lời mời nhóm"
+        },
+        "openBilling": {
+          "title": "Thanh toán mở",
+          "subtitle": "Gói, hóa đơn và đăng ký"
+        },
+        "openSettings": {
+          "title": "Mở Cài đặt",
+          "subtitle": "Tùy chọn không gian làm việc"
+        }
+      },
+      "commands": {
+        "openCrm": {
+          "title": "Mở CRM",
+          "subtitle": "Mô-đun AI CRM"
+        },
+        "openCustomers": {
+          "title": "Khách hàng mở",
+          "subtitle": "Quản lý khách hàng"
+        },
+        "openFinance": {
+          "title": "Tài chính mở",
+          "subtitle": "Phân hệ Tài chính & Thuế"
+        },
+        "openDocuments": {
+          "title": "Mở tài liệu",
+          "subtitle": "Trung tâm kiến ​​thức"
+        },
+        "openAutomation": {
+          "title": "Tự động hóa mở",
+          "subtitle": "Công cụ xử lý công việc"
+        },
+        "openSettings": {
+          "title": "Mở Cài đặt",
+          "subtitle": "Cài đặt không gian làm việc"
+        },
+        "openProjects": {
+          "title": "Dự án mở",
+          "subtitle": "Danh mục dự án"
+        },
+        "openAi": {
+          "title": "AI mở",
+          "subtitle": "Không gian làm việc nền tảng AI"
+        },
+        "openAnalytics": {
+          "title": "Mở phân tích",
+          "subtitle": "Trung tâm tình báo"
+        },
+        "openIdentity": {
+          "title": "Mở danh tính và quyền truy cập",
+          "subtitle": "Cài đặt IAM, RBAC, kiểm tra"
+        },
+        "openBilling": {
+          "title": "Thanh toán mở",
+          "subtitle": "Cổng đăng ký và kế hoạch"
+        },
+        "openIntegrations": {
+          "title": "Tích hợp mở",
+          "subtitle": "Trung tâm tích hợp & hệ sinh thái API"
+        }
+      },
+      "modules": {
+        "dashboard": {
+          "subtitle": "Tổng quan về trung tâm chỉ huy và toàn cầu"
+        },
+        "customers": {
+          "subtitle": "Hồ sơ khách hàng và CRM"
+        },
+        "projects": {
+          "subtitle": "Phân phối và theo dõi dự án"
+        },
+        "invoices": {
+          "title": "Hóa đơn",
+          "subtitle": "Thanh toán và hóa đơn"
+        },
+        "finance": {
+          "subtitle": "AI kế toán, ngân hàng, thuế và trí tuệ tài chính"
+        },
+        "crm": {
+          "subtitle": "Hệ điều hành CRM và Creator gốc AI"
+        },
+        "creator": {
+          "subtitle": "Hệ điều hành sản xuất và tiếp thị nội dung AI"
+        },
+        "documents": {
+          "subtitle": "Trung tâm kiến ​​thức & tài liệu AI"
+        },
+        "ai": {
+          "title": "trí tuệ nhân tạo",
+          "subtitle": "Nền tảng AI AGXORA - không gian làm việc dành cho doanh nghiệp"
+        },
+        "analytics": {
+          "subtitle": "Kinh doanh thông minh"
+        },
+        "automation": {
+          "subtitle": "Công cụ tự động hóa và quy trình làm việc AI"
+        },
+        "memory": {
+          "title": "Ký ức",
+          "subtitle": "Bộ nhớ tổ chức"
+        },
+        "team": {
+          "subtitle": "Thành viên và lời mời"
+        },
+        "settings": {
+          "subtitle": "Cài đặt không gian làm việc và AI"
+        }
+      },
+      "capabilities": {
+        "aiSearch": {
+          "title": "Tìm kiếm AI",
+          "description": "Xếp hạng kết quả bằng mô hình truy xuất trong tương lai trên các mô-đun."
+        },
+        "semantic": {
+          "title": "Tìm kiếm ngữ nghĩa",
+          "description": "Vector tương tự trên các tài liệu, hóa đơn và kiến ​​thức."
+        },
+        "nl": {
+          "title": "Tìm kiếm ngôn ngữ tự nhiên",
+          "description": "Phân tích các ý định như “hóa đơn quá hạn cho Nordlicht”."
+        },
+        "rag": {
+          "title": "Truy xuất kiến ​​thức",
+          "description": "Câu trả lời cơ bản trong kho dữ liệu của Trung tâm Kiến thức Tài liệu."
+        }
+      }
+    },
+    "summary": "{name}: {customers} khách hàng · {projects} dự án · {updates} cập nhật hôm nay."
+  },
+  "auth": {
+    "login": {
+      "title": "Đăng nhập",
+      "subtitle": "Chào mừng trở lại AGXORA.",
+      "email": "E-mail",
+      "password": "Mật khẩu",
+      "emailPlaceholder": "bạn@company.com",
+      "passwordPlaceholder": "Mật khẩu",
+      "rememberMe": "Nhớ tôi",
+      "submit": "Đăng nhập",
+      "submitting": "Đang đăng nhập…",
+      "noAccount": "Không có tài khoản?",
+      "startFree": "Bắt đầu miễn phí",
+      "forgotPassword": "Quên mật khẩu",
+      "showPassword": "Hiển thị mật khẩu",
+      "hidePassword": "Ẩn mật khẩu",
+      "failed": "Đăng nhập không thành công",
+      "loading": "Đăng nhập"
+    },
+    "register": {
+      "title": "Tạo tài khoản",
+      "subtitle": "Bắt đầu miễn phí với AGXORA.",
+      "firstName": "Tên",
+      "lastName": "Họ",
+      "email": "Email công việc",
+      "company": "Công ty",
+      "password": "Mật khẩu",
+      "confirmPassword": "Xác nhận mật khẩu",
+      "acceptTerms": "Tôi chấp nhận",
+      "termsOfService": "Điều khoản dịch vụ",
+      "and": "Và",
+      "privacyPolicy": "Chính sách bảo mật",
+      "submit": "Tạo tài khoản",
+      "submitting": "Đang tạo tài khoản…",
+      "haveAccount": "Đã có tài khoản?",
+      "signIn": "Đăng nhập",
+      "strength": "Độ mạnh mật khẩu",
+      "strengthWeak": "Yếu đuối",
+      "strengthFair": "Hội chợ",
+      "strengthStrong": "Mạnh",
+      "firstNamePlaceholder": "Alex",
+      "lastNamePlaceholder": "Morgan",
+      "companyPlaceholder": "AGXORA GmbH",
+      "emailPlaceholder": "bạn@company.com",
+      "passwordPlaceholder": "Tối thiểu 8 ký tự, chữ + số",
+      "confirmPasswordPlaceholder": "Lặp lại mật khẩu",
+      "failed": "Đăng ký không thành công",
+      "loading": "Tạo tài khoản"
+    },
+    "forgot": {
+      "title": "Quên mật khẩu",
+      "subtitle": "Nhập email của bạn để yêu cầu đặt lại mật khẩu.",
+      "email": "E-mail",
+      "submit": "Yêu cầu đặt lại",
+      "submitting": "Đang gửi…",
+      "success": "Nếu có tài khoản cho email đó thì yêu cầu đặt lại sẽ được ghi lại. Việc gửi email chưa được định cấu hình.",
+      "backToSignIn": "Quay lại để đăng nhập",
+      "failed": "Không thể xử lý yêu cầu đặt lại",
+      "loading": "Quên mật khẩu"
+    },
+    "reset": {
+      "title": "Đặt lại mật khẩu",
+      "subtitle": "Chọn mật khẩu mới cho tài khoản của bạn.",
+      "token": "Đặt lại mã thông báo",
+      "newPassword": "Mật khẩu mới",
+      "confirmPassword": "Xác nhận mật khẩu",
+      "submit": "Cập nhật mật khẩu",
+      "submitting": "Đang cập nhật…",
+      "success": "Đã cập nhật mật khẩu. Bạn có thể đăng nhập ngay bây giờ.",
+      "backToSignIn": "Quay lại để đăng nhập",
+      "failed": "Không thể đặt lại mật khẩu",
+      "loading": "Đặt lại mật khẩu"
+    },
+    "contactSales": {
+      "title": "Liên hệ bán hàng",
+      "subtitle": "Hãy cho chúng tôi biết về đội của bạn. Chúng tôi sẽ theo dõi các lựa chọn của doanh nghiệp.",
+      "name": "Tên đầy đủ",
+      "email": "Email công việc",
+      "company": "Công ty",
+      "employees": "Số lượng nhân viên",
+      "employeesSelect": "Chọn phạm vi",
+      "employees1_10": "1–10",
+      "employees11_50": "11–50",
+      "employees51_200": "51–200",
+      "employees201_1000": "201–1,000",
+      "employees1000plus": "1,000+",
+      "message": "Tin nhắn",
+      "messagePlaceholder": "Bạn đang tìm cách giải quyết điều gì?",
+      "submit": "Gửi yêu cầu",
+      "submitting": "Đang gửi…",
+      "successTitle": "Cảm ơn",
+      "successBody": "Yêu cầu của bạn đã được nhận. Nhóm của chúng tôi sẽ phản hồi trong thời gian ngắn.",
+      "viewPricing": "Xem giá",
+      "bookDemo": "Giới thiệu sách",
+      "failed": "Không thể gửi yêu cầu",
+      "country": "Quốc gia",
+      "savedFor": "Đã lưu cho {company}. Gửi sales chưa được kết nối trong bản dựng này.",
+      "preferWalkthrough": "Muốn xem hướng dẫn sản phẩm tiếp theo?",
+      "preferSelfServe": "Muốn tự phục vụ?"
+    },
+    "welcome": {
+      "title": "Chào mừng đến với AGXORA",
+      "subtitle": "Không gian làm việc của bạn đã sẵn sàng. Tiếp tục đến bảng điều khiển.",
+      "continue": "Đi tới trang tổng quan",
+      "checklistProfile": "Xác nhận hồ sơ tổ chức của bạn",
+      "checklistModules": "Chọn mô-đun phù hợp với cách bạn làm việc",
+      "checklistDashboard": "Vào bảng điều khiển với điểm bắt đầu rõ ràng",
+      "exploreFirst": "Muốn khám phá trước?",
+      "skipToDashboard": "Bỏ qua tới bảng điều khiển"
+    },
+    "locked": {
+      "title": "Tài khoản bị khóa",
+      "subtitle": "Quá nhiều lần đăng nhập không thành công. Hãy thử lại sau hoặc đặt lại mật khẩu của bạn.",
+      "backToSignIn": "Quay lại để đăng nhập",
+      "forgotPassword": "Quên mật khẩu"
+    },
+    "sessionExpired": {
+      "title": "Phiên đã hết hạn",
+      "subtitle": "Vui lòng đăng nhập lại để tiếp tục.",
+      "signIn": "Đăng nhập"
+    },
+    "brand": "AGXORA",
+    "validation": {
+      "emailRequired": "Email là bắt buộc.",
+      "emailInvalid": "Nhập địa chỉ email hợp lệ.",
+      "passwordRequired": "Mật khẩu là bắt buộc.",
+      "passwordMin": "Mật khẩu phải có ít nhất 8 ký tự.",
+      "nameRequired": "Tên là bắt buộc.",
+      "nameMin": "Tên phải có ít nhất 2 ký tự.",
+      "passwordMismatch": "Mật khẩu không khớp.",
+      "slugFormat": "Chỉ dùng chữ thường, số và dấu gạch ngang."
+    }
+  },
+  "crm": {
+    "page": {
+      "brandOs": "Hệ điều hành kinh doanh AGXORA",
+      "title": "AI CRM",
+      "subtitle": "Hệ điều hành dành cho người sáng tạo và CRM gốc AI — khách hàng, quy trình, đơn đặt hàng, giao hàng, tài liệu, thông tin liên lạc và kiến ​​trúc của người sáng tạo cho mọi ngành."
+    },
+    "sections": {
+      "crmDashboard": {
+        "title": "Bảng điều khiển CRM"
+      },
+      "customer360": {
+        "title": "Khách hàng 360°",
+        "subtitle": "Hồ sơ, công ty, địa chỉ liên hệ, đơn đặt hàng, hóa đơn, Lieferscheine, thanh toán, tài liệu, dòng thời gian, hoạt động, ghi chú, tóm tắt AI và lịch sử liên lạc."
+      },
+      "salesPipeline": {
+        "title": "Quy trình bán hàng",
+        "subtitle": "Các giai đoạn Kanban có thể kéo và thả — Dẫn đầu, Đủ điều kiện, Đề xuất, Đàm phán, Thắng, Thua."
+      },
+      "ordersModule": {
+        "title": "Mô-đun đơn đặt hàng"
+      },
+      "deliveryModule": {
+        "title": "Mô-đun phân phối",
+        "subtitle": "Hệ thống Lieferschein chuyên nghiệp có khả năng theo dõi, chữ ký, QR và mã vạch."
+      },
+      "documentsModule": {
+        "title": "Tài liệu",
+        "subtitle": "Báo giá, hợp đồng, hóa đơn, Lieferschein, đơn đặt hàng, biên lai – với tìm kiếm AI."
+      },
+      "tasksModule": {
+        "title": "Nhiệm vụ"
+      },
+      "communicationHub": {
+        "title": "Trung tâm truyền thông",
+        "subtitle": "Sổ đăng ký bộ điều hợp chỉ dành cho nhắn tin, mạng xã hội, email, giọng nói và video."
+      },
+      "creatorStudio": {
+        "title": "Quỹ Creator Studio",
+        "subtitle": "Bộ điều hợp nền tảng đã sẵn sàng để tích hợp chính thức sau này."
+      },
+      "aiCreator": {
+        "title": "Người sáng tạo AI",
+        "subtitle": "Bản đồ năng lực doanh nghiệp về nội dung, lịch, tạo và xuất bản."
+      },
+      "industryPlatform": {
+        "title": "Nền tảng kinh doanh phổ quát",
+        "subtitle": "Đăng ký ngành mô-đun - mọi ngành dọc đều có thể nhận được các mô-đun AI chuyên dụng."
+      }
+    },
+    "directory": {
+      "errorTitle": "Không thể tải CRM",
+      "sort": {
+        "companyName": "Công ty",
+        "contactName": "Liên hệ",
+        "email": "E-mail",
+        "phone": "Điện thoại",
+        "industry": "Ngành công nghiệp",
+        "status": "Trạng thái",
+        "owner": "Người sở hữu",
+        "createdAt": "Tạo"
+      },
+      "search": {
+        "label": "Tìm kiếm khách hàng",
+        "placeholder": "Công ty, liên hệ, email, thẻ…"
+      },
+      "view": {
+        "table": "Bàn",
+        "cards": "Thẻ"
+      },
+      "actions": {
+        "newCustomer": "Khách hàng mới"
+      },
+      "filters": {
+        "status": "Trạng thái",
+        "industry": "Ngành công nghiệp",
+        "owner": "Người sở hữu",
+        "country": "Quốc gia",
+        "tags": "Thẻ",
+        "allStatuses": "Tất cả trạng thái",
+        "allIndustries": "Tất cả các ngành",
+        "allOwners": "Tất cả chủ sở hữu",
+        "allCountries": "Tất cả các nước",
+        "allTags": "Tất cả các thẻ"
+      },
+      "empty": {
+        "ready": {
+          "title": "CRM của bạn đã sẵn sàng",
+          "description": "Tạo bản ghi khách hàng đầu tiên để mở khóa thư mục, hồ sơ và hoạt động.",
+          "action": "Tạo khách hàng"
+        },
+        "noMatches": {
+          "title": "Không có khách hàng phù hợp",
+          "description": "Hãy thử điều chỉnh tìm kiếm hoặc bộ lọc để tìm bản ghi phù hợp.",
+          "action": "Xóa bộ lọc"
+        }
+      },
+      "pagination": {
+        "previous": "Trước",
+        "next": "Kế tiếp"
+      },
+      "showing": "Đang hiển thị {from}–{to} trong tổng số {total}",
+      "aria": {
+        "openCustomer": "Mở khách hàng {company}"
+      },
+      "cardMeta": "Chủ sở hữu {owner} · Đã tạo {date}",
+      "sortBy": "Sắp xếp theo {column}"
+    },
+    "status": {
+      "lead": "Chỉ huy",
+      "prospect": "triển vọng",
+      "active": "Tích cực",
+      "inactive": "Không hoạt động",
+      "vip": "VIP",
+      "archived": "Đã lưu trữ"
+    },
+    "form": {
+      "createTitle": "Tạo khách hàng",
+      "editTitle": "Chỉnh sửa khách hàng",
+      "cancel": "Hủy bỏ",
+      "saveChanges": "Lưu thay đổi",
+      "createCustomer": "Tạo khách hàng",
+      "companyName": "Tên công ty",
+      "contactName": "Tên liên hệ",
+      "email": "E-mail",
+      "phone": "Điện thoại",
+      "website": "Trang web",
+      "industry": "Ngành công nghiệp",
+      "country": "Quốc gia",
+      "city": "Thành phố",
+      "address": "Địa chỉ",
+      "taxNumber": "Mã số thuế",
+      "owner": "Người sở hữu",
+      "status": "Trạng thái",
+      "tags": "Thẻ",
+      "statusAria": "Trạng thái khách hàng",
+      "tagsHint": "Được phân tách bằng dấu phẩy, mã màu tự động",
+      "websitePlaceholder": "https://",
+      "tagsPlaceholder": "doanh nghiệp, bán lẻ"
+    },
+    "toasts": {
+      "customerCreated": "Khách hàng đã tạo",
+      "customerUpdated": "Khách hàng đã cập nhật",
+      "checkForm": "Kiểm tra biểu mẫu",
+      "validationFailed": "Xác thực không thành công.",
+      "customerDeleted": "Khách hàng đã xóa",
+      "deleteFailed": "Xóa không thành công",
+      "customerCouldNotBeRemoved": "Không thể xóa khách hàng.",
+      "contactSaved": "Đã lưu liên hệ",
+      "documentsAttached": "Tài liệu đính kèm",
+      "documentsAttachedDetail": "{count} tệp",
+      "noteSaved": "Đã lưu ghi chú"
+    },
+    "deleteDialog": {
+      "title": "Xóa khách hàng",
+      "cancel": "Hủy bỏ",
+      "deletePermanently": "Xóa vĩnh viễn",
+      "thisCustomer": "khách hàng này",
+      "bodyPrefix": "Điều này loại bỏ",
+      "bodySuffix": "và các liên hệ, ghi chú, tài liệu và hoạt động liên quan từ bộ nhớ cục bộ. Các dự án được liên kết không bị xóa."
+    },
+    "validation": {
+      "companyNameRequired": "Tên công ty là bắt buộc.",
+      "contactNameRequired": "Tên liên hệ là bắt buộc.",
+      "emailRequired": "Email là bắt buộc.",
+      "emailInvalid": "Nhập địa chỉ email hợp lệ.",
+      "phoneRequired": "Cần có điện thoại.",
+      "phoneInvalid": "Nhập số điện thoại hợp lệ.",
+      "websiteInvalid": "Nhập một trang web hợp lệ.",
+      "industryRequired": "Ngành công nghiệp là cần thiết.",
+      "ownerRequired": "Chủ sở hữu là cần thiết.",
+      "statusInvalid": "Chọn trạng thái hợp lệ.",
+      "emailDuplicate": "Một khách hàng có email này đã tồn tại.",
+      "nameRequired": "Tên là bắt buộc.",
+      "mobileInvalid": "Nhập số điện thoại di động hợp lệ.",
+      "mobileRequired": "Điện thoại di động là bắt buộc.",
+      "roleRequired": "Vai trò là bắt buộc.",
+      "noteTitleRequired": "Tiêu đề là bắt buộc.",
+      "noteBodyRequired": "Phần thân lưu ý là bắt buộc.",
+      "noteAuthorRequired": "Tác giả là bắt buộc."
+    },
+    "errors": {
+      "failedToLoadCustomers": "Không thể tải khách hàng.",
+      "failedToLoadCustomerProfile": "Không tải được hồ sơ khách hàng.",
+      "organizationRequired": "Tổ chức là cần thiết.",
+      "failedToSaveCustomer": "Không thể lưu khách hàng.",
+      "failedToDeleteCustomer": "Không thể xóa khách hàng.",
+      "failedToSaveContact": "Không lưu được liên hệ.",
+      "failedToSaveNote": "Không lưu được ghi chú.",
+      "failedToUploadDocument": "Không thể tải tài liệu lên."
+    },
+    "workspace": {
+      "badge": "CRM doanh nghiệp 2.0",
+      "title": "Quản lý quan hệ khách hàng",
+      "subtitleBeforeOrg": "Quản lý danh mục, hồ sơ, danh bạ, ghi chú và tài liệu của khách hàng",
+      "subtitleAfterOrg": "Các dự án được liên kết theo tên công ty từ mô-đun Dự án mà không trùng lặp dữ liệu.",
+      "yourOrganization": "tổ chức của bạn"
+    },
+    "analytics": {
+      "totalCustomers": "Tổng số khách hàng",
+      "activeCustomers": "Khách hàng đang hoạt động",
+      "newCustomers": "Khách hàng mới",
+      "vipCustomers": "Khách hàng VIP",
+      "createdThisMonth": "Được tạo trong tháng này",
+      "leadConversion": "Chuyển đổi khách hàng tiềm năng",
+      "leadConversionHint": "Tỷ lệ hoạt động và VIP của kênh khách hàng tiềm năng/khách hàng tiềm năng/chuyển đổi.",
+      "customerGrowth": "Tăng trưởng khách hàng"
+    },
+    "profile": {
+      "backToCrm": "← Quay lại CRM",
+      "ownerLabel": "Người sở hữu",
+      "notFoundTitle": "Không tìm thấy khách hàng",
+      "notFoundDescription": "Khách hàng này có thể đã bị xóa.",
+      "missingCustomerTitle": "Thiếu khách hàng",
+      "missingOverviewDescription": "Chọn một khách hàng để xem tổng quan.",
+      "missingSettingsDescription": "Chọn một khách hàng để quản lý cài đặt.",
+      "ariaProfileNav": "Hồ sơ khách hàng",
+      "tabs": {
+        "overview": "Tổng quan",
+        "contacts": "Danh bạ",
+        "projects": "Dự án",
+        "documents": "Tài liệu",
+        "invoices": "Hóa đơn",
+        "activity": "Hoạt động",
+        "notes": "Ghi chú",
+        "settings": "Cài đặt"
+      },
+      "overview": {
+        "title": "Tổng quan",
+        "email": "E-mail",
+        "phone": "Điện thoại",
+        "website": "Trang web",
+        "taxNumber": "Mã số thuế",
+        "location": "Vị trí",
+        "address": "Địa chỉ",
+        "created": "Tạo",
+        "updated": "Đã cập nhật",
+        "emptyValue": "—"
+      },
+      "contacts": {
+        "addTitle": "Thêm liên hệ",
+        "editTitle": "Chỉnh sửa liên hệ",
+        "listTitle": "Danh bạ",
+        "name": "Tên",
+        "role": "Vai trò",
+        "email": "E-mail",
+        "phone": "Điện thoại",
+        "mobile": "Điện thoại di động",
+        "notes": "Ghi chú",
+        "saveContact": "Lưu liên hệ",
+        "emptyTitle": "Chưa có liên hệ nào",
+        "emptyDescription": "Thêm các bên liên quan với thông tin chi tiết về vai trò, email và số điện thoại.",
+        "defaultRole": "Liên hệ",
+        "mobilePrefix": "Điện thoại di động"
+      },
+      "projects": {
+        "title": "Dự án",
+        "emptyTitle": "Không có dự án được liên kết",
+        "emptyDescription": "Các dự án có tên khách hàng trùng với công ty này sẽ xuất hiện ở đây. Dữ liệu được đọc từ mô-đun Dự án - không có dữ liệu nào bị trùng lặp.",
+        "openProjects": "Dự án mở"
+      },
+      "documents": {
+        "title": "Tài liệu",
+        "subtitle": "Hình ảnh, tệp PDF và tài liệu văn phòng - siêu dữ liệu chỉ có trong Bộ nhớ cục bộ.",
+        "attachFiles": "Đính kèm tập tin",
+        "emptyTitle": "Không có tài liệu",
+        "emptyDescription": "Đính kèm tệp khách hàng cho nhóm tài khoản.",
+        "systemUploader": "Hệ thống"
+      },
+      "invoices": {
+        "emptyTitle": "Chưa có hoá đơn",
+        "emptyDescription": "Hóa đơn cho khách hàng này xuất hiện ở đây khi được liên kết từ Finance."
+      },
+      "activity": {
+        "title": "Hoạt động",
+        "emptyTitle": "Chưa có hoạt động nào",
+        "emptyDescription": "Việc tạo, cập nhật, ghi chú và tài liệu sẽ xuất hiện ở đây mới nhất trước tiên.",
+        "kinds": {
+          "customer_created": "Khách hàng đã tạo",
+          "customer_updated": "Khách hàng đã cập nhật",
+          "contact_added": "Đã thêm liên hệ",
+          "contact_updated": "Đã cập nhật liên hệ",
+          "contact_deleted": "Đã xóa liên hệ",
+          "note_added": "Đã thêm ghi chú",
+          "note_updated": "Đã cập nhật ghi chú",
+          "note_deleted": "Đã xóa ghi chú",
+          "document_added": "Đã thêm tài liệu",
+          "document_deleted": "Đã xóa tài liệu",
+          "project_linked": "Đã liên kết dự án"
+        }
+      },
+      "notes": {
+        "newTitle": "Ghi chú mới",
+        "editTitle": "Chỉnh sửa ghi chú",
+        "title": "Tiêu đề",
+        "author": "Tác giả",
+        "body": "Thân hình",
+        "saveNote": "Lưu ghi chú",
+        "emptyTitle": "Chưa có ghi chú nào",
+        "emptyDescription": "Nắm bắt bối cảnh tài khoản với tác giả và dấu thời gian."
+      },
+      "settings": {
+        "title": "Cài đặt",
+        "description": "Chỉnh sửa tất cả các trường hồ sơ hoặc lưu trữ tài khoản này. Việc xóa sử dụng hộp thoại xác nhận.",
+        "editAllFields": "Chỉnh sửa tất cả các trường",
+        "prepareArchive": "Chuẩn bị kho lưu trữ",
+        "deleteCustomer": "Xóa khách hàng"
+      }
+    },
+    "customer360": {
+      "ariaSections": "Chuyên mục 360 khách hàng",
+      "email": "E-mail",
+      "phone": "Điện thoại",
+      "aiHealth": "Sức khỏe AI",
+      "tabs": {
+        "profile": "Hồ sơ",
+        "company": "Công ty",
+        "contacts": "Danh bạ",
+        "orders": "Đơn đặt hàng",
+        "invoices": "Hóa đơn",
+        "lieferscheine": "Lieferscheine",
+        "payments": "Thanh toán",
+        "documents": "Tài liệu",
+        "timeline": "Dòng thời gian",
+        "activities": "Các hoạt động",
+        "notes": "Ghi chú",
+        "aiSummary": "Tóm tắt AI",
+        "communicationHistory": "Lịch sử giao tiếp"
+      },
+      "profileLines": {
+        "customerId": "Mã khách hàng",
+        "status": "Trạng thái",
+        "primaryContact": "Liên hệ chính"
+      },
+      "status": {
+        "churn_risk": "Rủi ro rời bỏ"
+      }
+    },
+    "delivery": {
+      "title": "Hệ thống Lieferschein chuyên nghiệp",
+      "description": "Phiếu giao hàng, nhận/giao hàng, tài xế, phương tiện và theo dõi — chỉ có hồ sơ mẫu. Bộ điều hợp xuất không được kết nối.",
+      "badges": {
+        "qrUnavailable": "QR không có sẵn",
+        "barcodeUnavailable": "Mã vạch không có sẵn",
+        "signatureDemo": "Bản demo chữ ký"
+      },
+      "exportPdf": "Xuất PDF",
+      "deliveryHistory": "Lịch sử giao hàng",
+      "notices": {
+        "exportNotConnected": "Xuất PDF, QR và mã vạch không được kết nối trong bản dựng này.",
+        "exportPdfUnavailable": "Xuất PDF không khả dụng - xuất phân phối không được kết nối.",
+        "historyNotConnected": "Cửa hàng lịch sử giao hàng không được kết nối trong bản dựng này."
+      },
+      "columns": {
+        "lieferschein": "Lieferschein",
+        "order": "Đặt hàng",
+        "customer": "Khách hàng",
+        "kind": "Loại",
+        "driver": "Tài xế",
+        "vehicle": "Phương tiện giao thông",
+        "tracking": "Theo dõi",
+        "scheduled": "Đã lên lịch"
+      }
+    },
+    "orders": {
+      "description": "Sản phẩm, dịch vụ, giá cả, chiết khấu, thuế và sổ cái đặt hàng của khách hàng - doanh nghiệp.",
+      "createOrder": "Tạo đơn hàng",
+      "notices": {
+        "apiReserved": "API tạo đơn hàng dành riêng cho đường dẫn ghi trong tương lai.",
+        "draftStaged": "Tạo bản nháp đơn hàng theo giai đoạn (chưa có API)."
+      },
+      "columns": {
+        "order": "Đặt hàng",
+        "customer": "Khách hàng",
+        "status": "Trạng thái",
+        "lines": "dòng",
+        "net": "Mạng lưới",
+        "tax": "Thuế",
+        "gross": "Tổng",
+        "created": "Tạo"
+      },
+      "lineTax": "thuế {taxPct}%"
+    },
+    "tasks": {
+      "calendarTitle": "Lịch · Cuộc họp · Nhắc nhở · Theo dõi",
+      "foundationTitle": "Nền tảng hệ điều hành nhiệm vụ",
+      "foundationDescription": "Đồng bộ hóa lịch, nhà cung cấp cuộc họp, công việc nhắc nhở và móc nối tự động hóa theo dõi đều được bảo lưu. Bảng này là bề mặt nhiệm vụ CRM được chia sẻ cho mọi mô-đun ngành.",
+      "badges": {
+        "calendarAdapter": "Bộ chuyển đổi lịch",
+        "meetingAdapter": "Bộ điều hợp cuộc họp",
+        "reminderQueue": "Hàng đợi nhắc nhở",
+        "followUpEngine": "Động cơ theo dõi"
+      },
+      "duePrefix": "Quá hạn",
+      "kinds": {
+        "follow_up": "Theo dõi",
+        "meeting": "Cuộc họp",
+        "reminder": "Lời nhắc nhở",
+        "task": "Nhiệm vụ"
+      },
+      "statuses": {
+        "open": "Mở",
+        "in_progress": "Đang tiến hành",
+        "done": "Xong",
+        "cancelled": "Đã hủy"
+      }
+    },
+    "documentsModule": {
+      "emptyTitle": "Không có tài liệu",
+      "emptyDescription": "Không có tài liệu phù hợp với tìm kiếm này.",
+      "searchLabel": "Tìm kiếm AI",
+      "searchPlaceholder": "Báo giá, hợp đồng, hóa đơn, Lieferschein…",
+      "typeLabel": "Loại tài liệu",
+      "allTypes": "Tất cả các loại",
+      "columns": {
+        "type": "Kiểu",
+        "title": "Tiêu đề",
+        "customer": "Khách hàng",
+        "status": "Trạng thái",
+        "updated": "Đã cập nhật"
+      },
+      "kinds": {
+        "quote": "Báo giá",
+        "contract": "Hợp đồng",
+        "invoice": "Hóa đơn",
+        "lieferschein": "Lieferschein",
+        "purchase_order": "Đơn đặt hàng",
+        "receipt": "Biên lai"
+      }
+    },
+    "communication": {
+      "intro": "Chỉ kiến ​​trúc kênh có thể mở rộng — Email, WhatsApp, Instagram, Facebook, TikTok, LinkedIn, Telegram, Voice và Video. Không có tích hợp trực tiếp giả mạo.",
+      "adapterPrefix": "Bộ chuyển đổi:"
+    },
+    "aiCreator": {
+      "intro": "Bề mặt AI Creator sẵn sàng cho tương lai — ý tưởng, chú thích, hashtag, lịch, chiến dịch, tiếng nói thương hiệu, tạo hình ảnh/video, phân tích, lập lịch, hàng đợi xuất bản và thông tin chi tiết. Chưa có API nhà cung cấp thực sự nào được kết nối."
+    },
+    "creatorStudio": {
+      "intro": "Nền tảng Creator Studio — các tiện ích tích hợp nền tảng chính thức có thể được cắm vào các bộ điều hợp này sau. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Chủ đề, X."
+    },
+    "industry": {
+      "intro": "Nền tảng kinh doanh toàn cầu - việc giới thiệu sau này sẽ chọn một ngành. Mỗi ngành đều nhận được các mô-đun AI chuyên dụng mà không cần chuyển đổi hệ điều hành CRM cốt lõi."
+    },
+    "kpi": {
+      "customers": {
+        "label": "Khách hàng",
+        "caption": "Mối quan hệ tích cực"
+      },
+      "companies": {
+        "label": "Công ty",
+        "caption": "Tổ chức tài khoản"
+      },
+      "leads": {
+        "label": "Khách hàng tiềm năng",
+        "caption": "Mới trong tháng này"
+      },
+      "deals": {
+        "label": "Ưu đãi",
+        "caption": "Đường ống mở"
+      },
+      "revenue": {
+        "label": "Doanh thu",
+        "caption": "thắng từ đầu năm"
+      },
+      "projects": {
+        "label": "Dự án đang hoạt động",
+        "caption": "Giao hàng trên chuyến bay"
+      },
+      "tasks": {
+        "label": "Nhiệm vụ mở",
+        "caption": "Trên khắp CRM + giao hàng"
+      },
+      "ai-health": {
+        "label": "Điểm sức khỏe AI",
+        "caption": "Tín hiệu chất lượng mối quan hệ"
+      },
+      "scoreOutOf": "{score} / {max}"
+    },
+    "pipeline": {
+      "lead": "Chỉ huy",
+      "qualified": "Đạt tiêu chuẩn",
+      "proposal": "Đề xuất",
+      "negotiation": "đàm phán",
+      "won": "Thắng",
+      "lost": "Mất"
+    },
+    "orderStatus": {
+      "draft": "Bản nháp",
+      "confirmed": "Đã xác nhận",
+      "in_fulfillment": "Trong sự hoàn thành",
+      "shipped": "Đã vận chuyển",
+      "delivered": "Đã giao hàng",
+      "cancelled": "Đã hủy"
+    },
+    "tracking": {
+      "scheduled": "Đã lên lịch",
+      "en_route": "Đang trên đường",
+      "arrived": "Tới nơi",
+      "completed": "Hoàn thành",
+      "failed": "Thất bại"
+    },
+    "documentKind": {
+      "quote": "Trích dẫn",
+      "contract": "Hợp đồng",
+      "invoice": "Hóa đơn",
+      "lieferschein": "Lieferschein",
+      "purchase_order": "Đơn đặt hàng",
+      "receipt": "Biên lai"
+    },
+    "documentStatus": {
+      "sent": "Đã gửi",
+      "signed": "Đã ký",
+      "paid": "Trả",
+      "in_transit": "Đang chuyển tiếp",
+      "open": "Mở",
+      "filed": "Đã nộp"
+    },
+    "integration": {
+      "planned": "Đã lên kế hoạch",
+      "ready": "Sẵn sàng",
+      "connected": "Đã kết nối",
+      "disabled": "Tàn tật"
+    }
+  },
+  "finance": {
+    "page": {
+      "brand": "Hệ điều hành tài chính AGXORA",
+      "title": "Tài chính & Thuế",
+      "subtitle": "Thông tin kế toán, ngân hàng, thuế và tài chính — được xem trước bằng dữ liệu mẫu cho đến khi sổ cái trực tiếp kết nối.",
+      "sampleNotice": "Tập dữ liệu mẫu - số liệu và lịch sử xuất khẩu mang tính minh họa. DATEV / xuất tệp và nguồn cấp dữ liệu ngân hàng trực tiếp không được kết nối."
+    },
+    "sections": {
+      "overview": {
+        "title": "Tổng quan về tài chính"
+      },
+      "invoiceCenter": {
+        "title": "Trung tâm hóa đơn",
+        "subtitle": "Tìm kiếm, lọc và sắp xếp sổ cái hóa đơn doanh nghiệp bằng tính năng chấm điểm độ tin cậy của AI."
+      },
+      "aiInvoiceProcessing": {
+        "title": "Xử lý hóa đơn AI",
+        "subtitle": "Đường dẫn demo - Trích xuất OCR và AI không được kết nối."
+      },
+      "banking": {
+        "title": "Ngân hàng",
+        "subtitle": "Chỉ tài khoản mẫu - Nguồn cấp dữ liệu Ngân hàng mở không được kết nối."
+      },
+      "datev": {
+        "title": "Tích hợp DATEV",
+        "subtitle": "Lịch sử xuất mẫu - Việc tạo tệp DATEV không được kết nối."
+      },
+      "taxCenter": {
+        "title": "Trung tâm thuế",
+        "subtitle": "Tóm tắt VAT, thời hạn và các khoản thanh toán sắp tới."
+      },
+      "aiInsights": {
+        "title": "Thông tin chi tiết về AI",
+        "subtitle": "Chỉ phát hiện mẫu - các hành động sâu sắc không được kết nối."
+      },
+      "smartSearch": {
+        "title": "Tìm kiếm thông minh",
+        "subtitle": "Truy vấn ngôn ngữ tự nhiên trên hóa đơn, chi phí, VAT và xuất khẩu."
+      }
+    },
+    "overview": {
+      "metrics": {
+        "revenue": {
+          "label": "Doanh thu",
+          "caption": "Mẫu · 30 ngày qua",
+          "delta": "+8.4%"
+        },
+        "expenses": {
+          "label": "Chi phí",
+          "caption": "Mẫu · vận hành + giá vốn hàng bán",
+          "delta": "+2.1%"
+        },
+        "profit": {
+          "label": "Lợi nhuận",
+          "caption": "Mẫu · vận hành ròng",
+          "delta": "+12.6%"
+        },
+        "vat-due": {
+          "label": "VAT đến hạn",
+          "caption": "Mẫu · Cửa sổ Q2",
+          "delta": "Đến hạn sau {days} ngày nữa"
+        },
+        "open-invoices": {
+          "label": "Mở hóa đơn",
+          "caption": "Mẫu · {money} chưa thanh toán"
+        },
+        "paid-invoices": {
+          "label": "Hóa đơn đã thanh toán",
+          "caption": "Mẫu · quý này",
+          "delta": "+{count}"
+        },
+        "cashflow": {
+          "label": "Dòng tiền",
+          "caption": "Mẫu · Dự đoán 30 ngày",
+          "delta": "+4.2%"
+        },
+        "ai-score": {
+          "label": "Điểm tài chính AI",
+          "caption": "Điểm mẫu · không phải điểm rủi ro trực tiếp",
+          "delta": "+{count}"
+        }
+      },
+      "scoreOutOf": "{score} / {max}"
+    },
+    "invoices": {
+      "emptyTitle": "Không có hóa đơn",
+      "emptyDescription": "Không có hoá đơn nào phù hợp với tìm kiếm hoặc bộ lọc của bạn.",
+      "searchPlaceholder": "Mã số, công ty, chủng loại…",
+      "statusFilter": "Bộ lọc trạng thái",
+      "paymentFilter": "Bộ lọc thanh toán",
+      "sortBy": "Sắp xếp theo",
+      "toggleSort": "Chuyển đổi hướng sắp xếp",
+      "count": "{count} hóa đơn",
+      "countOne": "{count} hóa đơn",
+      "allStatuses": "Tất cả trạng thái",
+      "allPayments": "Tất cả các khoản thanh toán",
+      "columns": {
+        "number": "Số hóa đơn",
+        "company": "Công ty",
+        "amount": "Số lượng",
+        "vat": "VAT",
+        "status": "Trạng thái",
+        "dueDate": "Ngày đáo hạn",
+        "payment": "Trạng thái thanh toán",
+        "category": "Loại",
+        "ai": "Sự tự tin của AI"
+      },
+      "sort": {
+        "dueDate": "Ngày đến hạn",
+        "amount": "Số lượng",
+        "company": "Công ty",
+        "status": "Trạng thái",
+        "aiConfidence": "Sự tự tin của AI",
+        "number": "Hóa đơn #"
+      }
+    },
+    "status": {
+      "draft": "Bản nháp",
+      "open": "Mở",
+      "paid": "Trả",
+      "overdue": "Quá hạn",
+      "cancelled": "Đã hủy"
+    },
+    "payment": {
+      "unpaid": "Chưa thanh toán",
+      "partial": "một phần",
+      "paid": "Trả",
+      "refunded": "Đã hoàn tiền"
+    },
+    "category": {
+      "saas": "SaaS",
+      "office": "Văn phòng",
+      "travel": "Du lịch",
+      "marketing": "Tiếp thị",
+      "utilities": "Tiện ích",
+      "professional": "Chuyên nghiệp",
+      "other": "Khác"
+    },
+    "processing": {
+      "dropTitle": "Kéo và thả tệp hóa đơn",
+      "dropFormats": "PDF · Hình ảnh · Nhập email",
+      "uploadFiles": "Tải tập tin lên",
+      "emailImport": "Nhập email",
+      "dropHint": "Thả hóa đơn dạng PDF hoặc hình ảnh vào hệ thống cục bộ — OCR chưa được kết nối.",
+      "filesStaged": "(Các) tệp {count} chỉ được liệt kê cục bộ — tính năng trích xuất OCR / AI chưa được kết nối.",
+      "emailReserved": "Trình kết nối nhập email dành riêng cho IMAP / Microsoft Graph.",
+      "pipelineTitle": "Quy trình xử lý (bản demo)",
+      "stages": {
+        "ocr": "Trạng thái OCR",
+        "extraction": "Khai thác AI",
+        "categorization": "Phân loại",
+        "duplicateDetection": "Phát hiện trùng lặp"
+      }
+    },
+    "stage": {
+      "pending": "Không có sẵn",
+      "running": "Không được kết nối",
+      "complete": "Thử nghiệm",
+      "failed": "Thất bại",
+      "skipped": "Đã bỏ qua"
+    },
+    "banking": {
+      "connectionTitle": "Kết nối ngân hàng",
+      "connectBank": "Kết nối ngân hàng",
+      "description": "PSD2 / Bộ điều hợp ngân hàng mở không có dây. Sự phù hợp và đối chiếu dưới đây chỉ mang tính chất minh họa.",
+      "feedUnavailable": "Không có nguồn cấp dữ liệu ngân hàng - kết nối nhà cung cấp không được kết nối.",
+      "noticeDefault": "Ngân hàng mở chưa được kết nối - các tài khoản bên dưới là dữ liệu mẫu.",
+      "connectUnavailable": "Kết nối ngân hàng không khả dụng - Ngân hàng mở không được kết nối trong bản dựng này.",
+      "sampleAccounts": "Tài khoản mẫu",
+      "sample": "Vật mẫu",
+      "offline": "Ngoại tuyến",
+      "demoPrefix": "Thử nghiệm",
+      "latestTransactions": "Giao dịch mới nhất",
+      "sampleMatching": "So khớp mẫu",
+      "demoOnly": "Chỉ demo",
+      "sampleMatch": "Trận đấu mẫu",
+      "unmatched": "Chưa từng có",
+      "emptyBalance": "—"
+    },
+    "datev": {
+      "title": "Tích hợp DATEV",
+      "notConnected": "Không được kết nối",
+      "intro": "Lịch sử xuất khẩu mẫu dưới đây mang tính minh họa. Thông tin xác thực và tạo tệp không được kết nối trong bản dựng này.",
+      "noticeDefault": "Bộ điều hợp xuất không được kết nối - sẽ không có tệp nào được tạo.",
+      "exportUnavailable": "{title} không khả dụng — DATEV/xuất tệp không được kết nối.",
+      "exportUnavailableAria": "{title} — không có sẵn",
+      "historyTitle": "Lịch sử xuất khẩu (mẫu)",
+      "refresh": "Làm cho khỏe lại",
+      "refreshUnavailable": "Không thể làm mới - lịch sử xuất là dữ liệu mẫu tĩnh.",
+      "steuerberaterSample": "Vật mẫu",
+      "steuerberaterPending": "Chưa giải quyết",
+      "columns": {
+        "export": "Xuất khẩu",
+        "format": "Định dạng",
+        "period": "Giai đoạn",
+        "created": "Tạo",
+        "status": "Trạng thái",
+        "steuerberater": "đồ nướng"
+      },
+      "actions": {
+        "datev": {
+          "title": "Xuất DATEV",
+          "description": "Gói Buchungsstapel dành cho quy trình làm việc của Steuerberater."
+        },
+        "csv": {
+          "title": "Xuất CSV",
+          "description": "CSV sẵn sàng cho sổ cái cho bảng tính và nhập."
+        },
+        "pdf": {
+          "title": "Xuất PDF",
+          "description": "Gói tài liệu để xem xét và lưu trữ."
+        },
+        "xml": {
+          "title": "Xuất XML",
+          "description": "XML thuế có cấu trúc để gửi quy trình."
+        }
+      }
+    },
+    "exportStatus": {
+      "queued": "Mẫu · Xếp hàng đợi",
+      "ready": "Mẫu · Sẵn sàng",
+      "delivered": "Minh họa",
+      "failed": "Thất bại"
+    },
+    "tax": {
+      "vatSummaryTitle": "Tóm tắt thuế GTGT",
+      "monthlyVat": "VAT hàng tháng",
+      "quarterlyVat": "VAT hàng quý",
+      "collected": "Đã sưu tầm",
+      "deductible": "Được khấu trừ",
+      "netDue": "Nợ ròng",
+      "deadlinesTitle": "Thời hạn nộp thuế · Các khoản thanh toán sắp tới",
+      "duePrefix": "Quá hạn",
+      "deadlineStatus": {
+        "due_soon": "Đến hạn sớm",
+        "upcoming": "Sắp tới",
+        "overdue": "Quá hạn",
+        "paid": "Trả"
+      },
+      "deadlines": {
+        "td-1": "Khai thuế GTGT hàng tháng",
+        "td-2": "Quyết toán thuế GTGT hàng quý",
+        "td-3": "Thuế doanh nghiệp tạm ứng"
+      },
+      "period": {
+        "monthly": "hàng tháng",
+        "quarterly": "Hàng quý",
+        "annual": "Hàng năm"
+      }
+    },
+    "insights": {
+      "demoPrefix": "Thử nghiệm",
+      "noticeDefault": "Các hành động chuyên sâu không được kết nối — thẻ chỉ hiển thị các phát hiện mẫu.",
+      "actionUnavailable": "{action} không có sẵn — các hành động hiểu biết về tài chính không được kết nối.",
+      "actionUnavailableTitle": "{action} không có sẵn — không được kết nối",
+      "kinds": {
+        "unusual_expense": "Chi phí bất thường",
+        "duplicate_invoice": "Hóa đơn trùng lặp",
+        "missing_invoice": "Thiếu hóa đơn",
+        "late_payment": "Thanh toán trễ",
+        "cashflow_prediction": "Dự đoán dòng tiền",
+        "tax_optimization": "Tối ưu hóa thuế"
+      }
+    },
+    "search": {
+      "label": "Tìm kiếm ngôn ngữ tự nhiên",
+      "placeholder": "Hãy thử \"Hiển thị hóa đơn chưa thanh toán\"",
+      "submit": "Tìm kiếm",
+      "examplesTitle": "Ví dụ",
+      "hints": {
+        "idle": "Hỏi về hóa đơn, chi phí, VAT hoặc xuất khẩu.",
+        "unpaid_invoices": "Lọc Trung tâm hóa đơn cho các mục chưa thanh toán / mở.",
+        "july_expenses": "Hiển thị hoạt động bên chi phí tháng 7.",
+        "amazon": "Định vị hóa đơn và biên lai của Amazon.",
+        "vat_export": "Mở hành động xuất DATEV / VAT.",
+        "general": "Đang tìm kiếm sổ cái cho “{query}”."
+      },
+      "examples": {
+        "q1": {
+          "query": "Hiển thị hóa đơn chưa thanh toán",
+          "description": "Mở các khoản phải thu với trạng thái chưa thanh toán hoặc một phần"
+        },
+        "q2": {
+          "query": "Hiển thị chi phí tháng 7",
+          "description": "Hóa đơn bên chi phí và dòng tiền chảy ra ngân hàng trong tháng 7"
+        },
+        "q3": {
+          "query": "Tìm hóa đơn Amazon",
+          "description": "Nhà cung cấp phù hợp trên trung tâm hóa đơn và tải lên"
+        },
+        "q4": {
+          "query": "VAT xuất khẩu",
+          "description": "Chuyển tới DATEV/hành động xuất thuế"
+        }
+      }
+    }
+  },
+  "documents": {
+    "page": {
+      "brand": "Hệ điều hành kiến ​​thức AGXORA",
+      "title": "Tài liệu",
+      "subtitle": "Trung tâm kiến ​​thức và tài liệu doanh nghiệp — được xem trước với nội dung mẫu cho đến khi phần phụ trợ lưu trữ và phê duyệt kết nối.",
+      "sampleNotice": "Thư viện mẫu - trình duyệt và bộ lọc hoạt động trong phiên. Các hành động tải lên, phê duyệt và lập chỉ mục AI không được kết nối."
+    },
+    "sections": {
+      "kpis": {
+        "title": "Trang tổng quan kiến ​​thức"
+      },
+      "library": {
+        "title": "Thư viện tài liệu",
+        "subtitle": "Tất cả Tài liệu, Gần đây, Yêu thích, Chia sẻ, Đã lưu trữ, Thùng rác, Cơ sở Kiến thức — với các thư mục, tìm kiếm, trình xem và phiên bản."
+      },
+      "knowledge": {
+        "title": "Cơ sở kiến ​​thức",
+        "subtitle": "Các bài viết, chính sách, quy trình, hướng dẫn sử dụng, Câu hỏi thường gặp và wiki nội bộ."
+      },
+      "approvals": {
+        "title": "Phê duyệt",
+        "subtitle": "Bản nháp, Đang xem xét, Đã phê duyệt, Bị từ chối, Đã lưu trữ - được liên kết với kiến ​​trúc Tự động hóa."
+      },
+      "ai": {
+        "title": "Lớp kiến ​​thức AI",
+        "subtitle": "Tóm tắt, từ khóa, phân loại, thẻ, thư mục, tài liệu liên quan, bản sao, bản dịch, OCR và tìm kiếm — chỉ kiến ​​trúc."
+      },
+      "activity": {
+        "title": "Hoạt động",
+        "subtitle": "Những thay đổi gần đây, nội dung tải lên, lượt xem, lượt chia sẻ và lịch sử kiểm tra."
+      },
+      "integrations": {
+        "title": "Tích hợp",
+        "subtitle": "Bộ điều hợp ổ đĩa dành riêng - không có đầu nối trực tiếp."
+      },
+      "security": {
+        "title": "Bảo mật & Chia sẻ",
+        "subtitle": "RBAC, phạm vi kiểm tra, mã hóa, lưu giữ và chia sẻ."
+      }
+    },
+    "loading": {
+      "knowledgeBase": "Đang tải cơ sở kiến ​​thức…",
+      "approvals": "Đang tải hàng đợi phê duyệt…",
+      "aiInsights": "Đang tải thông tin chi tiết về AI…",
+      "activity": "Đang tải hoạt động…",
+      "integrations": "Đang tải tích hợp…",
+      "security": "Đang tải bảo mật…"
+    },
+    "kpi": {
+      "documents": {
+        "label": "Tài liệu",
+        "caption": "Mẫu · trên các thư mục",
+        "delta": "+{count}"
+      },
+      "folders": {
+        "label": "Thư mục",
+        "caption": "Mẫu · bao gồm các bộ sưu tập thông minh",
+        "delta": "+{count}"
+      },
+      "storage": {
+        "label": "Bộ nhớ đã sử dụng",
+        "caption": "Mẫu · sơ đồ minh họa",
+        "delta": "+{size}"
+      },
+      "shared": {
+        "label": "Tài liệu được chia sẻ",
+        "caption": "Mẫu · tổ chức + bộ phận + người dùng",
+        "delta": "+{count}"
+      },
+      "activity": {
+        "label": "Hoạt động gần đây",
+        "caption": "Mẫu · 24 giờ qua",
+        "delta": "+{count}"
+      },
+      "indexed": {
+        "label": "AI được lập chỉ mục",
+        "caption": "Mẫu · Tìm kiếm AI không được kết nối",
+        "delta": "{percent}"
+      },
+      "approvals": {
+        "label": "Đang chờ phê duyệt",
+        "caption": "Mẫu · tự động hóa không được kết nối",
+        "delta": "{count}"
+      },
+      "score": {
+        "label": "Điểm kiến ​​thức",
+        "caption": "Mẫu · minh họa phạm vi bảo hiểm",
+        "delta": "+{count}"
+      }
+    },
+    "library": {
+      "viewsAria": "Lượt xem thư viện",
+      "views": {
+        "all": "Tất cả tài liệu",
+        "recent": "Gần đây",
+        "favorites": "Yêu thích",
+        "shared": "Đã chia sẻ",
+        "archived": "Đã lưu trữ",
+        "trash": "Rác",
+        "knowledge": "Cơ sở kiến ​​thức"
+      },
+      "dropzone": "Kéo và thả tệp vào đây để tiến hành tải lên.",
+      "uploadReserved": "Tải lên bằng cách kéo và thả là API lưu trữ dành riêng.",
+      "filesStaged": "{count} tệp được sắp xếp để tải lên (không ghi vào bộ nhớ).",
+      "dropReceived": "Đã nhận được thả (không ghi vào bộ nhớ).",
+      "foldersTitle": "Thư mục & Bộ sưu tập",
+      "foldersHint": "Các thư mục lồng nhau, bộ sưu tập, bộ sưu tập thông minh, thẻ, được ghim và mục yêu thích.",
+      "allFolders": "Tất cả các thư mục",
+      "smart": "Thông minh",
+      "collection": "Bộ sưu tập",
+      "pinned": "Đã ghim",
+      "favorite": "Yêu thích",
+      "sharedBadge": "Đã chia sẻ",
+      "title": "Thư viện tài liệu",
+      "results": "{count} kết quả",
+      "resultOne": "{count} kết quả",
+      "selected": "· Đã chọn {count}",
+      "bulkAction": "Hành động hàng loạt",
+      "bulkUnavailable": "Hành động hàng loạt không khả dụng cho (các) mục {count} — đột biến lưu trữ không được kết nối.",
+      "searchLabel": "Tìm kiếm toàn cầu",
+      "searchPlaceholder": "Tên, thẻ, chủ sở hữu, tóm tắt AI…",
+      "typeLabel": "Kiểu",
+      "statusLabel": "Trạng thái",
+      "departmentLabel": "Phòng",
+      "ownerLabel": "Người sở hữu",
+      "allTypes": "Tất cả các loại",
+      "allStatuses": "Tất cả trạng thái",
+      "allDepartments": "Tất cả các phòng ban",
+      "allOwners": "Tất cả chủ sở hữu",
+      "favoritesOnly": "Chỉ mục yêu thích",
+      "emptyTitle": "Không có tài liệu để hiển thị",
+      "emptyDescription": "Điều chỉnh bộ lọc, xóa tìm kiếm hoặc thêm nội dung kiến ​​thức để phát triển thư viện.",
+      "selectAria": "Chọn {name}",
+      "versionHistoryTitle": "Lịch sử phiên bản",
+      "close": "Đóng",
+      "context": {
+        "open": "Mở",
+        "share": "Chia sẻ",
+        "favorite": "Yêu thích",
+        "move": "Di chuyển",
+        "delete": "Xóa bỏ",
+        "dismiss": "Miễn nhiệm",
+        "unavailable": "{action} không khả dụng — các đột biến tài liệu không được kết nối với {id}."
+      }
+    },
+    "viewer": {
+      "title": "Trình xem tài liệu",
+      "emptyTitle": "Chọn một tài liệu",
+      "emptyDescription": "Chọn tệp từ thư viện để xem trước nội dung, siêu dữ liệu, thẻ, phiên bản và mô-đun được liên kết.",
+      "zoomOut": "Thu phóng −",
+      "zoomIn": "Thu phóng +",
+      "prev": "Trước",
+      "next": "Kế tiếp",
+      "page": "Trang {page} / {total}",
+      "searchInside": "Tìm kiếm bên trong",
+      "findPlaceholder": "Tìm trong bản xem trước…",
+      "noMatches": "Không có kết quả phù hợp trong văn bản xem trước.",
+      "meta": {
+        "owner": "Người sở hữu",
+        "created": "Tạo",
+        "updated": "Đã cập nhật",
+        "fileType": "Loại tệp",
+        "size": "Kích cỡ",
+        "category": "Loại",
+        "department": "Phòng",
+        "status": "Trạng thái",
+        "retention": "giữ lại",
+        "version": "Phiên bản",
+        "sharing": "Chia sẻ"
+      },
+      "tags": "Thẻ",
+      "linkedModules": "Các mô-đun được liên kết",
+      "noModuleLinks": "Chưa có liên kết mô-đun nào",
+      "versionHistory": "Lịch sử phiên bản"
+    },
+    "versions": {
+      "title": "Lịch sử phiên bản",
+      "emptyTitle": "Không có tài liệu nào được chọn",
+      "emptyDescription": "Mở tài liệu để kiểm tra phiên bản, ghi chú, khôi phục và so sánh.",
+      "current": "{name} · hiện tại {version}",
+      "restore": "Khôi phục phiên bản",
+      "compare": "So sánh các phiên bản",
+      "restoreTitle": "Khôi phục yêu cầu API lưu trữ",
+      "compareTitle": "So sánh yêu cầu API lưu trữ",
+      "noticeDefault": "Khôi phục và so sánh yêu cầu API lưu trữ.",
+      "restoreUnavailable": "Khôi phục không có sẵn cho {id} — API lưu trữ chưa được kết nối.",
+      "compareUnavailable": "So sánh không có sẵn ({selected} ↔ {current}) — API lưu trữ chưa được kết nối."
+    },
+    "approvals": {
+      "title": "Quy trình phê duyệt",
+      "subtitle": "Bản nháp → Đang xem xét → Đã phê duyệt / Từ chối → Đã lưu trữ. Các mục trong hàng đợi là các tài liệu mẫu; hành động không kéo dài.",
+      "emptyTitle": "Xóa hàng đợi",
+      "emptyDescription": "Không có tài liệu dự thảo hoặc đang xem xét nào trong bộ mẫu.",
+      "approve": "Chấp thuận",
+      "reject": "Từ chối",
+      "sendToReview": "Gửi để xem xét",
+      "noticeDefault": "Quá trình chuyển đổi phê duyệt yêu cầu công cụ quy trình làm việc Tự động hóa — chưa được kết nối trong bản dựng này.",
+      "unavailable": "{action} không có sẵn cho {id} — công cụ xử lý công việc chưa được kết nối. Trạng thái tài liệu mẫu không thay đổi.",
+      "approveTitle": "Không có phê duyệt - công cụ xử lý công việc không được kết nối",
+      "rejectTitle": "Không thể từ chối — công cụ xử lý công việc chưa được kết nối",
+      "sendTitle": "Gửi để xem xét không có sẵn — công cụ xử lý công việc không được kết nối"
+    },
+    "knowledge": {
+      "intro": "Các bài viết, chính sách, quy trình, hướng dẫn sử dụng, Câu hỏi thường gặp và wiki nội bộ — lớp tường thuật của Trung tâm Kiến thức."
+    },
+    "activity": {
+      "intro": "Những thay đổi gần đây, nội dung tải lên, lượt xem, lượt chia sẻ và lịch sử kiểm tra — nền tảng cho các quy trình tuân thủ."
+    },
+    "integrations": {
+      "intro": "Bộ điều hợp ổ đĩa đám mây chỉ có cấu trúc - Google Drive, OneDrive, Dropbox, Box, SharePoint, Nextcloud. Không có API trực tiếp.",
+      "reservedAdapter": "Bộ chuyển đổi dành riêng:",
+      "architecture": "Ngành kiến ​​​​trúc",
+      "items": {
+        "google-drive": {
+          "description": "Kiến trúc nhập/đồng bộ hóa được bảo lưu - chưa có OAuth trực tiếp."
+        },
+        "onedrive": {
+          "description": "Đã bảo lưu các móc tệp Microsoft Graph."
+        },
+        "dropbox": {
+          "description": "Bộ điều hợp API Dropbox được bảo lưu."
+        },
+        "box": {
+          "description": "Đầu nối Enterprise Box dành riêng."
+        },
+        "sharepoint": {
+          "description": "Thư viện trang web + ánh xạ siêu dữ liệu dành riêng."
+        },
+        "nextcloud": {
+          "description": "Bộ điều hợp WebDAV dành riêng - bị vô hiệu hóa cho đến khi có gói tự lưu trữ."
+        }
+      }
+    },
+    "security": {
+      "architectureTitle": "Kiến trúc bảo mật",
+      "sharingTitle": "Mô hình chia sẻ",
+      "sharingIntro": "Giữ chỗ riêng tư, tổ chức, bộ phận, người dùng cụ thể và liên kết công cộng.",
+      "enabled": "Đã bật",
+      "placeholder": "Trình giữ chỗ",
+      "notEnforced": "Không thực thi",
+      "modelOnly": "Chỉ mô hình",
+      "controls": {
+        "rbac": {
+          "title": "Quyền truy cập dựa trên vai trò",
+          "description": "Vai trò của chủ sở hữu, người chỉnh sửa, người xem và người phê duyệt ánh xạ tới ACL tài liệu — không được thực thi trong bản dựng này."
+        },
+        "permissions": {
+          "title": "Kiến trúc quyền",
+          "description": "Kế thừa thư mục với tính năng ghi đè cấp tài liệu — không được thực thi trong bản dựng này."
+        },
+        "audit": {
+          "title": "Đường mòn kiểm toán",
+          "description": "Các sự kiện hoạt động về lượt xem, chia sẻ, khôi phục và phê duyệt — chưa được duy trì."
+        },
+        "encryption": {
+          "title": "Mã hóa",
+          "description": "Móc mã hóa ở trạng thái nghỉ và đang chuyển tiếp dành riêng cho hệ thống dây KMS."
+        },
+        "retention": {
+          "title": "Chính sách lưu giữ",
+          "description": "Khoảng thời gian lưu giữ theo danh mục có hỗ trợ lưu giữ pháp lý — chưa được thực thi."
+        }
+      }
+    },
+    "ai": {
+      "architectureTitle": "Kiến trúc tính năng AI",
+      "architectureIntro": "Mọi khả năng đều được dành riêng cho chỉ số AI trong tương lai. Giao diện người dùng hiển thị thông tin chi tiết mô phỏng xác định.",
+      "insightsTitle": "Thông tin chi tiết về tài liệu đã chọn",
+      "emptyTitle": "Chọn một tài liệu",
+      "emptyDescription": "Mở một tệp trong thư viện để kiểm tra tóm tắt, từ khóa và đề xuất AI.",
+      "summary": "Tóm tắt AI",
+      "keywords": "Từ khóa AI",
+      "classification": "Phân loại AI",
+      "suggestedFolder": "Thư mục được đề xuất AI",
+      "translation": "Dịch AI",
+      "ocr": "AI OCR",
+      "suggestedTags": "Thẻ được đề xuất bởi AI",
+      "related": "Tài liệu liên quan đến AI",
+      "noRelated": "Không có tài liệu liên quan được lập chỉ mục.",
+      "duplicateOf": "Phát hiện trùng lặp AI: có thể trùng lặp",
+      "noDuplicates": "Phát hiện trùng lặp AI: không có trường hợp gần trùng lặp nào được gắn cờ.",
+      "sampleReady": "Mẫu đã sẵn sàng",
+      "notApplicable": "Không áp dụng",
+      "runSearch": "Chạy tìm kiếm AI",
+      "searchTitle": "Tìm kiếm AI không được kết nối",
+      "noticeDefault": "Các tính năng AI chỉ mang tính kiến ​​trúc — không có lệnh gọi mô hình trực tiếp.",
+      "searchUnavailable": "Tìm kiếm AI không khả dụng - chỉ mục ngữ nghĩa không được kết nối. Thông tin chi tiết mẫu ở trên là tĩnh.",
+      "features": {
+        "summary": {
+          "title": "Tóm tắt AI",
+          "description": "Hiểu biết tài liệu cô đọng cho mọi mô-đun."
+        },
+        "keywords": {
+          "title": "Từ khóa AI",
+          "description": "Trích xuất tín hiệu chủ đề để tìm kiếm và định tuyến."
+        },
+        "classification": {
+          "title": "Phân loại AI",
+          "description": "Đề xuất phân loại danh mục/bộ phận."
+        },
+        "tags": {
+          "title": "Thẻ được đề xuất bởi AI",
+          "description": "Đề xuất gắn thẻ mà không làm thay đổi biểu đồ."
+        },
+        "folder": {
+          "title": "Thư mục được đề xuất AI",
+          "description": "Vị trí thông minh vào các thư mục lồng nhau."
+        },
+        "related": {
+          "title": "Tài liệu liên quan đến AI",
+          "description": "Vẽ biểu đồ hàng xóm trên trung tâm kiến ​​thức."
+        },
+        "duplicate": {
+          "title": "Phát hiện trùng lặp AI",
+          "description": "Phát hiện gần như trùng lặp cho các thư viện tài liệu."
+        },
+        "translation": {
+          "title": "Dịch AI",
+          "description": "Cờ sẵn sàng dịch - không có mô hình trực tiếp."
+        },
+        "ocr": {
+          "title": "AI OCR",
+          "description": "Đường dẫn OCR dành riêng cho quét và PDF."
+        },
+        "search": {
+          "title": "Tìm kiếm AI",
+          "description": "Tìm kiếm ngữ nghĩa dành riêng cho chỉ mục trong tương lai."
+        }
+      }
+    },
+    "status": {
+      "draft": "Bản nháp",
+      "in_review": "Đang xem xét",
+      "approved": "Tán thành",
+      "rejected": "Vật bị loại bỏ",
+      "archived": "Đã lưu trữ"
+    },
+    "fileType": {
+      "pdf": "PDF",
+      "word": "Từ",
+      "excel": "Excel",
+      "powerpoint": "PowerPoint",
+      "image": "Hình ảnh",
+      "video": "Băng hình",
+      "audio": "Âm thanh",
+      "markdown": "Giảm giá",
+      "text": "Chữ",
+      "json": "JSON",
+      "csv": "CSV",
+      "other": "Khác"
+    },
+    "share": {
+      "private": "Riêng tư",
+      "organization": "Tổ chức",
+      "department": "Phòng",
+      "specific_users": "Người dùng cụ thể",
+      "public_link": "Liên kết công khai"
+    },
+    "module": {
+      "crm": "CRM",
+      "finance": "Tài chính",
+      "automation": "Tự động hóa",
+      "creator": "Studio sáng tạo",
+      "hr": "Nhân sự tương lai",
+      "projects": "Dự án tương lai"
+    },
+    "knowledgeKind": {
+      "article": "Bài báo",
+      "policy": "Chính sách",
+      "process": "Quá trình",
+      "manual": "Thủ công",
+      "faq": "Câu hỏi thường gặp",
+      "wiki": "Wiki nội bộ"
+    },
+    "integrationStatus": {
+      "connected": "Đã kết nối",
+      "beta": "bản thử nghiệm",
+      "coming_soon": "Sắp ra mắt",
+      "disabled": "Tàn tật",
+      "planned": "Đã lên kế hoạch"
+    },
+    "bytes": {
+      "b": "{value} B",
+      "kb": "{value} KB",
+      "mb": "{value} MB",
+      "gb": "{value} GB"
+    }
+  },
+  "landing": {
+    "skipToProduct": "Chuyển đến sản phẩm",
+    "nav": {
+      "ariaPrimary": "Sơ đẳng",
+      "product": "Sản phẩm",
+      "platform": "Nền tảng",
+      "pricing": "Định giá",
+      "sales": "Việc bán hàng",
+      "getStarted": "Bắt đầu",
+      "signIn": "Đăng nhập",
+      "startFree": "Bắt đầu miễn phí",
+      "openMenu": "Mở trình đơn",
+      "closeMenu": "Đóng trình đơn"
+    },
+    "hero": {
+      "brand": "AGXORA",
+      "headline": "Hệ điều hành kinh doanh thông minh.",
+      "subtitle": "Kết nối khách hàng, tài chính, tài liệu và AI trong một trung tâm chỉ huy yên tĩnh — được xây dựng cho những người sáng lập và điều hành cần sự rõ ràng chứ không phải một nhóm công cụ khác.",
+      "ctaStart": "Bắt đầu miễn phí",
+      "ctaExplore": "Xem cách nó hoạt động",
+      "globeAria": "Trực quan hóa tình báo toàn cầu"
+    },
+    "trust": {
+      "ariaLabel": "Tại sao AGXORA",
+      "eyebrow": "Được xây dựng như một hệ thống",
+      "signals": {
+        "unified": {
+          "title": "Không gian làm việc thống nhất",
+          "detail": "CRM, tài chính và tài liệu cùng nhau"
+        },
+        "intelligence": {
+          "title": "AI được quản lý",
+          "detail": "Hỗ trợ trong quy trình làm việc thực tế của bạn"
+        },
+        "clarity": {
+          "title": "Sự rõ ràng của toán tử",
+          "detail": "Ít chuyển đổi hơn. Quyết định nhanh hơn."
+        },
+        "path": {
+          "title": "Đường dẫn rõ ràng để mở rộng quy mô",
+          "detail": "Bắt đầu miễn phí. Phát triển khi đã sẵn sàng."
+        }
+      }
+    },
+    "product": {
+      "title": "Bên trong không gian làm việc AGXORA",
+      "lead": "Bản xem trước sản phẩm minh họa của Trung tâm chỉ huy — kết nối các mô-đun bạn đã sử dụng trong AGXORA.",
+      "chromePath": "agxora.app / bảng điều khiển",
+      "railAria": "Xem trước điều hướng",
+      "railBrand": "AGXORA",
+      "navCommand": "Yêu cầu",
+      "navAi": "trí tuệ nhân tạo",
+      "navAutomation": "Tự động hóa",
+      "navAnalytics": "Phân tích",
+      "navIntegrations": "Tích hợp",
+      "stageTitle": "Trung tâm chỉ huy",
+      "stageBadge": "Minh họa",
+      "moduleCustomers": "Khách hàng",
+      "moduleFinance": "Tài chính",
+      "moduleDocuments": "Tài liệu",
+      "moduleAi": "Trợ lý AI"
+    },
+    "platform": {
+      "ariaLabel": "Câu chuyện sản phẩm",
+      "story": {
+        "fragmented": {
+          "title": "Công việc rời rạc",
+          "statement": "Công cụ phân tán sự chú ý trên toàn doanh nghiệp.",
+          "detail": "Khách hàng ở một nơi, hóa đơn ở nơi khác, nộp hồ sơ ở nơi khác - các quyết định bị chậm lại."
+        },
+        "connect": {
+          "title": "Một bề mặt hoạt động",
+          "statement": "AGXORA kết nối doanh nghiệp trong một không gian làm việc.",
+          "detail": "CRM, tài chính, tài liệu và AI chia sẻ cùng một trung tâm chỉ huy — không phải là một đống ứng dụng riêng biệt."
+        },
+        "understand": {
+          "title": "Kinh doanh thông minh",
+          "statement": "Bối cảnh vẫn ở lại với công việc.",
+          "detail": "Hỏi, tìm kiếm và hành động với AI được quản lý dựa trên không gian làm việc của bạn — chứ không phải các bản trình diễn chung chung."
+        },
+        "execute": {
+          "title": "Hướng tới quyền tự chủ",
+          "statement": "Con đường dẫn đến một hệ điều hành kinh doanh tự chủ.",
+          "detail": "Ngày nay: một hệ điều hành được kết nối. Phía trước: các đại lý sâu hơn và tự động hóa — được phân phối một cách trung thực khi vận chuyển."
+        }
+      }
+    },
+    "close": {
+      "title": "Bắt đầu miễn phí. Chia tỷ lệ khi sẵn sàng.",
+      "lead": "Tạo không gian làm việc và khám phá trung tâm chỉ huy.",
+      "ctaStart": "Bắt đầu miễn phí",
+      "ctaPricing": "Xem giá",
+      "ctaSales": "Liên hệ bán hàng"
+    },
+    "footer": {
+      "ariaNav": "Chân trang",
+      "ariaLegal": "Hợp pháp",
+      "product": "Sản phẩm",
+      "platform": "Nền tảng",
+      "pricing": "Định giá",
+      "signIn": "Đăng nhập",
+      "startFree": "Bắt đầu miễn phí",
+      "bookDemo": "Giới thiệu sách",
+      "contact": "Liên hệ",
+      "contactSales": "Liên hệ bán hàng",
+      "privacy": "Sự riêng tư",
+      "terms": "Điều khoản",
+      "cookies": "Cookie",
+      "imprint": "dấu ấn",
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — quả địa cầu 3D"
+  },
+  "ui": {
+    "table": {
+      "noResults": "Không có kết quả",
+      "noResultsDescription": "Không có gì phù hợp với các bộ lọc hiện tại.",
+      "previous": "Trước",
+      "next": "Kế tiếp",
+      "paginationRange": "{start}–{end} trong tổng số {total}",
+      "sortAscending": "Sắp xếp tăng dần",
+      "sortDescending": "Sắp xếp giảm dần"
+    },
+    "dialog": {
+      "close": "Đóng hộp thoại"
+    },
+    "module": {
+      "notAvailableTitle": "{title} chưa có sẵn",
+      "notAvailableDescription": "Vỏ mô-đun này được chuẩn bị cho bản phát hành trong tương lai. Chưa có hồ sơ nào được lưu trữ ở đây."
+    },
+    "states": {
+      "errorLabel": "Lỗi",
+      "errorTitle": "Đã xảy ra lỗi",
+      "errorDescription": "Chúng tôi không thể hoàn thành yêu cầu đó. Hãy thử lại sau giây lát.",
+      "retry": "Thử lại"
+    },
+    "empty": {
+      "crmTitle": "CRM của bạn đã sẵn sàng",
+      "crmDescription": "Tạo bản ghi khách hàng đầu tiên để mở khóa thư mục, hồ sơ và hoạt động.",
+      "crmAction": "Mở CRM",
+      "projectsTitle": "Chưa có dự án nào",
+      "projectsDescription": "Tăng cường không gian làm việc phân phối để theo dõi các mốc quan trọng, ngân sách và quyền sở hữu nhóm.",
+      "projectsAction": "Dự án mở",
+      "analyticsTitle": "Analytics đang chờ tín hiệu",
+      "analyticsDescription": "Khi không gian làm việc của bạn tạo ra hoạt động, các KPI điều hành và cảnh báo sẽ xuất hiện ở đây.",
+      "analyticsAction": "Mở phân tích",
+      "documentsTitle": "Thư viện tài liệu trống",
+      "documentsDescription": "Tải lên hoặc tạo nội dung kiến ​​thức để hỗ trợ phê duyệt, phiên bản và bối cảnh AI.",
+      "documentsAction": "Mở tài liệu",
+      "billingTitle": "Chưa có lịch sử thanh toán",
+      "billingDescription": "Nâng cấp gói tạo hóa đơn, gia hạn và lịch sử thanh toán.",
+      "billingAction": "Thanh toán mở",
+      "agentsTitle": "Không có đại lý nào hoạt động",
+      "agentsDescription": "Cài đặt hoặc kích hoạt một đại lý từ thị trường để bắt đầu các hoạt động tự động.",
+      "agentsAction": "Hệ điều hành đại lý mở"
+    },
+    "yes": "Đúng",
+    "no": "KHÔNG",
+    "dash": "—"
+  },
+  "projects": {
+    "page": {
+      "eyebrow": "Hệ điều hành quản lý dự án",
+      "title": "Dự án",
+      "lead": "Lập kế hoạch phân phối, theo dõi ngân sách và tình trạng, phân công nhóm và quản lý nhiệm vụ cho {organization}. Dữ liệu vẫn tồn tại cục bộ và sẵn sàng cho kết nối phụ trợ.",
+      "yourOrganization": "tổ chức của bạn"
+    },
+    "list": {
+      "errorTitle": "Không thể tải dự án",
+      "searchLabel": "Tìm kiếm dự án",
+      "searchPlaceholder": "Tìm kiếm dự án, khách hàng, chủ sở hữu, thẻ…",
+      "viewCards": "Thẻ",
+      "viewTable": "Bàn",
+      "newProject": "Dự án mới",
+      "statusFilter": "Trạng thái",
+      "priorityFilter": "Sự ưu tiên",
+      "customerFilter": "Khách hàng",
+      "ownerFilter": "Người sở hữu",
+      "allStatuses": "Tất cả trạng thái",
+      "allPriorities": "Tất cả các ưu tiên",
+      "allCustomers": "Tất cả khách hàng",
+      "allOwners": "Tất cả chủ sở hữu",
+      "dateFrom": "Từ",
+      "dateTo": "ĐẾN",
+      "emptyTitle": "Chưa có dự án nào",
+      "emptyDescription": "Tăng cường không gian làm việc phân phối để theo dõi các mốc quan trọng, ngân sách và quyền sở hữu nhóm.",
+      "createProject": "Tạo dự án",
+      "pagination": "Đang hiển thị {from}–{to} trong tổng số {total}",
+      "previous": "Trước",
+      "next": "Kế tiếp",
+      "noDescription": "Chưa có mô tả nào.",
+      "duePrefix": "Đến hạn {date}",
+      "openProject": "Mở dự án {name}",
+      "sortBy": "Sắp xếp theo {column}",
+      "sort": {
+        "name": "Tên",
+        "customer": "Khách hàng",
+        "owner": "Người sở hữu",
+        "status": "Trạng thái",
+        "priority": "Sự ưu tiên",
+        "progress": "Tiến triển",
+        "dueDate": "Quá hạn",
+        "budget": "Ngân sách"
+      }
+    },
+    "form": {
+      "createTitle": "Tạo dự án",
+      "editTitle": "Chỉnh sửa dự án",
+      "cancel": "Hủy bỏ",
+      "saveChanges": "Lưu thay đổi",
+      "createProject": "Tạo dự án",
+      "projectName": "Tên dự án",
+      "customer": "Khách hàng",
+      "projectOwner": "Chủ dự án",
+      "priority": "Sự ưu tiên",
+      "status": "Trạng thái",
+      "budget": "Ngân sách",
+      "currency": "Tiền tệ",
+      "startDate": "Ngày bắt đầu",
+      "dueDate": "Ngày đáo hạn",
+      "color": "Màu sắc",
+      "icon": "Biểu tượng",
+      "tags": "Thẻ",
+      "tagsHint": "Được phân tách bằng dấu phẩy",
+      "tagsPlaceholder": "doanh nghiệp, triển khai",
+      "budgetPlaceholder": "0",
+      "description": "Sự miêu tả",
+      "selectColor": "Chọn màu {color}"
+    },
+    "taskForm": {
+      "createTitle": "Tạo nhiệm vụ",
+      "editTitle": "Chỉnh sửa tác vụ",
+      "cancel": "Hủy bỏ",
+      "saveChanges": "Lưu thay đổi",
+      "createTask": "Tạo nhiệm vụ",
+      "title": "Tiêu đề",
+      "assignee": "Người được chuyển nhượng",
+      "priority": "Sự ưu tiên",
+      "status": "Trạng thái",
+      "deadline": "Thời hạn",
+      "progress": "Tiến triển",
+      "labels": "Nhãn",
+      "labelsHint": "Được phân tách bằng dấu phẩy",
+      "description": "Sự miêu tả"
+    },
+    "deleteDialog": {
+      "title": "Xóa dự án",
+      "cancel": "Hủy bỏ",
+      "deletePermanently": "Xóa vĩnh viễn",
+      "bodyPrefix": "Điều này loại bỏ",
+      "thisProject": "dự án này",
+      "bodySuffix": "và tất cả các tác vụ, tệp, ghi chú và hoạt động liên quan từ bộ nhớ cục bộ. Không thể hoàn tác hành động này."
+    },
+    "badges": {
+      "progress": "Tiến triển",
+      "progressAria": "{label}: {value}%"
+    },
+    "status": {
+      "planning": "quy hoạch",
+      "active": "Tích cực",
+      "on_hold": "Đang chờ",
+      "completed": "Hoàn thành",
+      "archived": "Đã lưu trữ"
+    },
+    "taskStatus": {
+      "todo": "phải làm",
+      "in_progress": "Đang tiến hành",
+      "review": "Ôn tập",
+      "done": "Xong"
+    },
+    "priority": {
+      "low": "Thấp",
+      "medium": "Trung bình",
+      "high": "Cao",
+      "critical": "Phê bình"
+    },
+    "role": {
+      "owner": "Người sở hữu",
+      "manager": "Giám đốc",
+      "member": "Thành viên",
+      "viewer": "Người xem"
+    },
+    "kind": {
+      "project": "dự án",
+      "task": "nhiệm vụ",
+      "milestone": "cột mốc quan trọng"
+    },
+    "timeline": {
+      "noTimelineTitle": "Không có dòng thời gian",
+      "noTimelineDescription": "Mở một dự án để xem lịch trình, thời lượng và các mốc quan trọng.",
+      "emptyTitle": "Dòng thời gian trống",
+      "emptyDescription": "Thêm ngày bắt đầu/ngày đến hạn và nhiệm vụ để điền vào lịch trình.",
+      "title": "Dòng thời gian",
+      "subtitle": "Bắt đầu, kết thúc, thời lượng, các mốc quan trọng. Các phần phụ thuộc được dành riêng cho bản phát hành trong tương lai.",
+      "dateRange": "{start} → {end} · {days}ngày",
+      "itemAria": "{title} từ {start} đến {end}",
+      "dependenciesNone": "Người phụ thuộc: không có"
+    },
+    "dashboard": {
+      "kpi": {
+        "activeProjects": "Dự án đang hoạt động",
+        "activeHint": "{planning} quy hoạch",
+        "completed": "Hoàn thành",
+        "completedHint": "{percent}% danh mục đầu tư",
+        "onHold": "Đang chờ",
+        "onHoldHint": "{archived} đã được lưu trữ",
+        "teamMembers": "Thành viên nhóm",
+        "teamHint": "Trên tất cả các dự án",
+        "budgetOverview": "Tổng quan về ngân sách",
+        "budgetHint": "Đã sử dụng {percent}% · đã sử dụng {spent}",
+        "openTasks": "Nhiệm vụ mở",
+        "openTasksHint": "{overdue} quá hạn",
+        "projectHealth": "Tình trạng dự án",
+        "healthHint": "Điểm phân phối tổng hợp",
+        "upcomingDeadlines": "Thời hạn sắp tới",
+        "upcomingHint": "30 ngày tiếp theo"
+      },
+      "analytics": {
+        "title": "Phân tích",
+        "subtitle": "Tình trạng danh mục đầu tư, hoàn thành và sử dụng ngân sách.",
+        "statusMix": "Trộn trạng thái",
+        "deliverySignals": "Tín hiệu phân phối",
+        "completedPercent": "Hoàn thành %",
+        "budgetUsage": "Sử dụng ngân sách",
+        "health": "Sức khỏe",
+        "upcomingDeadlines": "Thời hạn sắp tới",
+        "noUpcomingDeadlines": "Không có thời hạn sắp tới trong cửa sổ tiếp theo."
+      },
+      "recentActivity": {
+        "title": "Hoạt động gần đây",
+        "subtitle": "Sự kiện dự án mới nhất đầu tiên.",
+        "empty": "Hoạt động sẽ xuất hiện khi dự án và nhiệm vụ được tạo."
+      }
+    },
+    "kanban": {
+      "emptyTitle": "Không có nhiệm vụ trên bảng",
+      "emptyDescription": "Tạo các nhiệm vụ để sắp xếp phân phối trên Việc cần làm, Đang tiến hành, Đánh giá và Hoàn thành.",
+      "addTask": "Thêm nhiệm vụ",
+      "columnAria": "cột {status}",
+      "taskProgress": "Tiến độ nhiệm vụ",
+      "edit": "Biên tập",
+      "complete": "Hoàn thành"
+    },
+    "detail": {
+      "notFoundTitle": "Dự án không tìm thấy",
+      "notFoundDescription": "Dự án này có thể đã bị xóa hoặc không có sẵn cho tổ chức hiện tại.",
+      "backToProjects": "← Quay lại dự án",
+      "ownerMeta": "{customer} · Chủ sở hữu {owner}",
+      "edit": "Biên tập",
+      "delete": "Xóa bỏ",
+      "sectionsAria": "Phần chi tiết dự án",
+      "tabs": {
+        "overview": "Tổng quan",
+        "tasks": "Nhiệm vụ",
+        "files": "Tập tin",
+        "notes": "Ghi chú",
+        "activity": "Hoạt động",
+        "team": "Đội",
+        "settings": "Cài đặt"
+      }
+    },
+    "overview": {
+      "missingTitle": "Thiếu dự án",
+      "missingDescription": "Chọn một dự án để xem tổng quan của nó.",
+      "title": "Tổng quan",
+      "noDescription": "Không có mô tả được cung cấp.",
+      "budget": "Ngân sách",
+      "spent": "Đã tiêu",
+      "start": "Bắt đầu",
+      "due": "Quá hạn",
+      "openTasks": "Nhiệm vụ mở",
+      "completedTasks": "Nhiệm vụ đã hoàn thành"
+    },
+    "tasks": {
+      "title": "Quản lý tác vụ",
+      "newTask": "Nhiệm vụ mới",
+      "tableTitle": "Tiêu đề",
+      "tableAssignee": "Người được chuyển nhượng",
+      "tablePriority": "Sự ưu tiên",
+      "tableStatus": "Trạng thái",
+      "tableDue": "Quá hạn",
+      "tableProgress": "Tiến triển",
+      "tableActions": "hành động",
+      "edit": "Biên tập",
+      "complete": "Hoàn thành",
+      "delete": "Xóa bỏ",
+      "emptyTitle": "Chưa có nhiệm vụ nào",
+      "emptyDescription": "Tạo nhiệm vụ, phân công chủ sở hữu và theo dõi tiến trình trên bảng.",
+      "createTask": "Tạo nhiệm vụ"
+    },
+    "files": {
+      "title": "Trình quản lý tập tin",
+      "description": "Tải lên hình ảnh, tệp PDF và tài liệu văn phòng. Siêu dữ liệu vẫn tồn tại cục bộ.",
+      "upload": "Tải lên",
+      "emptyTitle": "Không có tập tin nào được tải lên",
+      "emptyDescription": "Thêm các tạo phẩm dự án để nhóm xem xét và xem trước.",
+      "preview": "Xem trước",
+      "metadataOnly": "Chỉ siêu dữ liệu",
+      "delete": "Xóa bỏ"
+    },
+    "notes": {
+      "editTitle": "Chỉnh sửa ghi chú",
+      "newTitle": "Ghi chú mới",
+      "title": "Tiêu đề",
+      "author": "Tác giả",
+      "body": "Thân hình",
+      "cancel": "Hủy bỏ",
+      "saveNote": "Lưu ghi chú",
+      "emptyTitle": "Chưa có ghi chú nào",
+      "emptyDescription": "Nắm bắt các quyết định, kết quả cuộc họp và bối cảnh phân phối.",
+      "edit": "Biên tập",
+      "delete": "Xóa bỏ"
+    },
+    "activity": {
+      "title": "Nguồn cấp dữ liệu hoạt động",
+      "emptyTitle": "Chưa có hoạt động nào",
+      "emptyDescription": "Các sự kiện của dự án sẽ xuất hiện ở đây khi nhóm làm việc."
+    },
+    "team": {
+      "missingTitle": "Thiếu dự án",
+      "missingDescription": "Chọn một dự án để quản lý các thành viên trong nhóm.",
+      "assignTitle": "Chỉ định thành viên",
+      "name": "Tên",
+      "email": "E-mail",
+      "role": "Vai trò",
+      "addMember": "Thêm thành viên",
+      "teamTitle": "Đội",
+      "remove": "Di dời"
+    },
+    "settings": {
+      "missingTitle": "Thiếu dự án",
+      "missingDescription": "Chọn một dự án để quản lý cài đặt.",
+      "title": "Cài đặt dự án",
+      "description": "Cập nhật trạng thái ghi và lưu trữ ngân sách. Chỉnh sửa toàn bộ trường sử dụng hộp thoại Chỉnh sửa.",
+      "spentAmount": "Số tiền chi tiêu",
+      "saveSpent": "Tiết kiệm chi tiêu",
+      "archiveProject": "Lưu trữ dự án",
+      "editAllFields": "Chỉnh sửa tất cả các trường"
+    },
+    "toasts": {
+      "projectCreated": "Dự án đã được tạo",
+      "projectUpdated": "Đã cập nhật dự án",
+      "projectDeleted": "Dự án đã bị xóa",
+      "checkForm": "Kiểm tra biểu mẫu",
+      "validationFailed": "Xác thực không thành công.",
+      "taskCreated": "Đã tạo nhiệm vụ",
+      "taskUpdated": "Đã cập nhật nhiệm vụ",
+      "taskCompleted": "Nhiệm vụ đã hoàn thành",
+      "taskDeleted": "Đã xóa tác vụ",
+      "filesUploaded": "Tệp đã tải lên",
+      "filesUploadedDetail": "{count} tệp",
+      "fileDeleted": "Đã xóa tệp",
+      "noteSaved": "Đã lưu ghi chú",
+      "memberAdded": "Đã thêm thành viên",
+      "settingsSaved": "Đã lưu cài đặt",
+      "projectArchived": "Dự án đã lưu trữ"
+    },
+    "validation": {
+      "nameRequired": "Tên dự án là bắt buộc.",
+      "nameMin": "Tên dự án phải có ít nhất 2 ký tự.",
+      "customerRequired": "Khách hàng là bắt buộc.",
+      "ownerRequired": "Chủ dự án là bắt buộc.",
+      "priorityInvalid": "Chọn độ ưu tiên hợp lệ.",
+      "statusInvalid": "Chọn trạng thái hợp lệ.",
+      "currencyInvalid": "Chọn loại tiền hợp lệ.",
+      "budgetInvalid": "Ngân sách phải là số không âm.",
+      "startDateRequired": "Ngày bắt đầu là bắt buộc.",
+      "startDateInvalid": "Nhập ngày bắt đầu hợp lệ.",
+      "dueDateInvalid": "Nhập ngày đến hạn hợp lệ.",
+      "dueDateOrder": "Ngày đến hạn phải vào hoặc sau ngày bắt đầu.",
+      "colorInvalid": "Chọn màu hợp lệ.",
+      "iconInvalid": "Chọn biểu tượng hợp lệ.",
+      "taskTitleRequired": "Tiêu đề công việc là bắt buộc.",
+      "progressRange": "Tiến độ phải từ 0 đến 100.",
+      "memberNameRequired": "Tên thành viên là bắt buộc.",
+      "emailRequired": "Email là bắt buộc.",
+      "emailInvalid": "Nhập địa chỉ email hợp lệ.",
+      "roleInvalid": "Chọn vai trò hợp lệ.",
+      "noteTitleRequired": "Tiêu đề ghi chú là bắt buộc.",
+      "noteBodyRequired": "Nội dung ghi chú là bắt buộc.",
+      "authorRequired": "Tác giả là bắt buộc."
+    }
+  },
+  "automation": {
+    "enginePage": {
+      "sectionTitle": "Hệ điều hành tự động hóa AGXORA",
+      "title": "Tự động hóa",
+      "subtitle": "Công cụ tự động hóa và quy trình làm việc AI dành cho doanh nghiệp — mô liên kết cho CRM, Finance, Creator Studio và mọi mô-đun AGXORA trong tương lai.",
+      "loadingHistory": "Đang tải lịch sử quy trình làm việc…",
+      "loadingTemplates": "Đang tải thư viện mẫu…",
+      "loadingIntegrations": "Đang tải trung tâm tích hợp…",
+      "dashboard": "Trang tổng quan",
+      "workflowBuilder": "Trình tạo quy trình làm việc",
+      "workflowBuilderSubtitle": "Canvas dựa trên nút có khả năng thu phóng và xoay mượt mà, di chuột kết nối và hướng dẫn trạng thái trống.",
+      "openAssistant": "Trợ lý quy trình làm việc AI mở",
+      "workflowHistory": "Lịch sử quy trình làm việc",
+      "workflowHistorySubtitle": "Nhật ký thực thi có trạng thái màu, các hàng có thể nhấp và trình kiểm tra thực thi đầy đủ.",
+      "templates": "Mẫu",
+      "templatesSubtitle": "Xem trước trước khi tải - số lượng nút, độ khó, thời gian chạy và các trường hợp sử dụng được đề xuất.",
+      "integrationCenter": "Trung tâm tích hợp",
+      "integrationCenterSubtitle": "Chỉ đăng ký bộ điều hợp - Đã kết nối, Beta, Đã lên kế hoạch, Sắp ra mắt, Đã tắt. Không có API trực tiếp."
+    },
+    "assistant": {
+      "title": "Trợ lý quy trình làm việc AI",
+      "subtitle": "Chỉ chẩn đoán cục bộ - không cần mô hình trực tiếp.",
+      "closeAria": "Đóng Trợ lý quy trình làm việc AI",
+      "close": "Đóng",
+      "workflowScore": "Điểm quy trình làm việc",
+      "scoreOutOf": "/ 100",
+      "optimizationSuggestions": "Đề xuất tối ưu hóa",
+      "oneClickOptimize": "Tối ưu hóa một cú nhấp chuột",
+      "noticeDefault": "One Click Optimize là một đột biến chưa có biểu đồ.",
+      "noticeQueued": "Tối ưu hóa hàng đợi. Công cụ tương lai sẽ viết lại sự chậm trễ và phê duyệt."
+    },
+    "integrations": {
+      "intro": "Trung tâm tích hợp - tùy chọn. Các trạng thái: Đã kết nối, Beta, Đã lên kế hoạch, Sắp ra mắt, Đã tắt. Không có API trực tiếp.",
+      "category": "Loại:",
+      "reservedAdapter": "Bộ chuyển đổi dành riêng:",
+      "description": "Sự miêu tả:"
+    },
+    "executionInspector": {
+      "title": "Chi tiết thực hiện",
+      "emptyTitle": "Chọn thực thi",
+      "emptyDescription": "Chọn một lần chạy từ Lịch sử quy trình làm việc để kiểm tra đầu vào, đầu ra và tóm tắt AI.",
+      "workflowName": "Tên quy trình làm việc",
+      "trigger": "Cò súng",
+      "executionId": "ID thực thi",
+      "started": "Đã bắt đầu",
+      "finished": "Hoàn thành",
+      "duration": "Khoảng thời gian",
+      "status": "Trạng thái",
+      "success": "Thành công",
+      "failed": "Thất bại",
+      "retryAvailable": "Thử lại có sẵn",
+      "executedBy": "Thực hiện bởi",
+      "yes": "Đúng",
+      "no": "KHÔNG",
+      "emDash": "—",
+      "input": "đầu vào",
+      "output": "đầu ra",
+      "aiSummary": "Tóm tắt AI",
+      "errorMessage": "Thông báo lỗi",
+      "retry": "Thử lại",
+      "retryUnavailable": "Thử lại không có sẵn",
+      "noticeDefault": "Thử lại bộ chuyển đổi dành riêng — chưa thực hiện lại trực tiếp.",
+      "noticeQueued": "Thử lại hàng đợi cho {id}."
+    },
+    "workflowBuilder": {
+      "elementsTitle": "Các yếu tố quy trình làm việc",
+      "paletteAria": "Bảng màu",
+      "tabElements": "Yếu tố",
+      "tabTriggers": "Trình kích hoạt",
+      "tabActions": "hành động",
+      "tabAiActions": "Hành động AI",
+      "builderTitle": "Trình tạo quy trình làm việc · {name}",
+      "builderHint": "Bám vào lưới {grid}px · ⌘/Ctrl+thu phóng cuộn · kéo khung vẽ để xoay · nhấp đúp vào kết nối",
+      "autoSaved": "Tự động lưu",
+      "saving": "Đang lưu…",
+      "undo": "Hoàn tác",
+      "redo": "Làm lại",
+      "zoomOut": "−",
+      "zoomIn": "+",
+      "resetView": "Đặt lại chế độ xem",
+      "emptyTitle": "Khung vẽ trống",
+      "emptyDescription": "Kéo Trình kích hoạt từ bảng màu để bắt đầu xây dựng. Snap-to-grid giúp các nút được căn chỉnh.",
+      "connectHint": "Nhấp đúp vào mục tiêu để kết nối",
+      "miniMapAria": "Bản đồ thu nhỏ"
+    },
+    "workflowHistory": {
+      "title": "Lịch sử quy trình làm việc · Nhật ký thực thi",
+      "statusFilter": "Trạng thái",
+      "statusAll": "Tất cả",
+      "statusSuccess": "Thành công",
+      "statusFailed": "Thất bại",
+      "statusPending": "Chưa giải quyết",
+      "statusRetried": "Thử lại",
+      "statusRunning": "Đang chạy",
+      "runsAria": "Chạy quy trình công việc",
+      "noMatches": "Không có luồng công việc nào phù hợp với bộ lọc này."
+    },
+    "miniPreview": {
+      "emptyWorkflow": "Quy trình trống"
+    },
+    "workflowTemplates": {
+      "title": "Thư viện mẫu",
+      "noticeDefault": "Xem trước mẫu trước khi tải nó vào trình tạo.",
+      "noticeLoaded": "Đã tải \"{name}\" vào trình tạo quy trình công việc.",
+      "nodesBadge": "nút {count}",
+      "recommendedFor": "Được đề xuất cho: {for}",
+      "preview": "Xem trước",
+      "useTemplate": "Sử dụng mẫu",
+      "previewTitle": "Xem trước mẫu",
+      "close": "Đóng",
+      "nodes": "Nút",
+      "connections": "Kết nối",
+      "estimatedRuntime": "Thời gian chạy ước tính",
+      "difficulty": "Khó khăn",
+      "requiredModules": "Mô-đun bắt buộc",
+      "usedAiFeatures": "Các tính năng AI đã sử dụng",
+      "none": "Không có"
+    },
+    "workspace": {
+      "loading": "Đang tải công cụ tự động hóa…",
+      "eyebrow": "Công cụ tự động hóa quy trình làm việc",
+      "title": "Tự động hóa",
+      "subtitle": "Quy trình công việc kinh doanh có thể định cấu hình trên CRM, Dự án, Tài chính, Tài liệu và AI - xe buýt sự kiện cục bộ và công cụ trong trình duyệt. Hàng đợi phân phối và nhân viên phụ trợ không được kết nối.",
+      "noticeDefault": "Công cụ thực thi độc lập với UI. Các mô-đun xuất bản các sự kiện; đăng ký quy trình công việc.",
+      "tabs": {
+        "dashboard": "Trang tổng quan",
+        "workflows": "Quy trình làm việc",
+        "editor": "Biên tập viên",
+        "history": "Lịch sử",
+        "templates": "Mẫu",
+        "analytics": "Phân tích",
+        "settings": "Cài đặt"
+      },
+      "notice": {
+        "missingWrite": "Thiếu quyền quy trình làm việc.write.",
+        "missingExecute": "Thiếu quyền quy trình làm việc.execute.",
+        "created": "Đã tạo {name}",
+        "templateApplied": "Mẫu đã áp dụng: {name}",
+        "runResult": "Chạy {status} ({duration}ms)",
+        "runFailed": "Quy trình làm việc không thể chạy (bị vô hiệu hóa hoặc bị thiếu).",
+        "publishedEvent": "Sự kiện miền đã xuất bản: {type}",
+        "workflowStatus": "Quy trình làm việc {status}",
+        "saved": "Đã lưu quy trình làm việc",
+        "retryResult": "Thử lại {status}",
+        "retryFailed": "Thử lại không thành công",
+        "settingsSaved": "Đã lưu cài đặt tự động hóa"
+      },
+      "defaults": {
+        "untitledName": "Quy trình làm việc không có tiêu đề",
+        "untitledDescription": "Quy trình làm việc dự thảo - định cấu hình trình kích hoạt và hành động."
+      },
+      "dashboard": {
+        "workflows": "Quy trình làm việc",
+        "active": "Tích cực",
+        "runsToday": "Chạy hôm nay",
+        "successRate": "Tỷ lệ thành công",
+        "recentWorkflows": "Quy trình công việc gần đây",
+        "newWorkflow": "Quy trình công việc mới",
+        "eventBusDemo": "Bản trình diễn xe buýt sự kiện",
+        "eventBusHint": "Xuất bản một sự kiện mô-đun. Quy trình công việc đang hoạt động với các trình kích hoạt phù hợp được xếp hàng tự động.",
+        "notifications": "Thông báo"
+      },
+      "workflowList": {
+        "title": "Danh sách quy trình làm việc",
+        "newWorkflow": "Quy trình công việc mới",
+        "emptyTitle": "Chưa có quy trình làm việc nào.",
+        "emptyDescription": "Tạo quy trình công việc hoặc bắt đầu từ một mẫu.",
+        "columns": {
+          "name": "Tên",
+          "status": "Trạng thái",
+          "nodes": "Nút",
+          "updated": "Đã cập nhật",
+          "actions": "hành động"
+        },
+        "run": "Chạy",
+        "disable": "Vô hiệu hóa",
+        "activate": "Kích hoạt"
+      },
+      "editor": {
+        "selectPrompt": "Chọn hoặc tạo quy trình làm việc để chỉnh sửa.",
+        "workflows": "Quy trình làm việc",
+        "title": "Trình chỉnh sửa quy trình làm việc",
+        "hint": "Kiến trúc hỗ trợ kích hoạt → điều kiện → hành động → độ trễ → nhánh → vòng lặp. Tính năng kéo và thả canvas có thể cắm vào các vị trí nút mà không cần thay đổi công cụ.",
+        "name": "Tên",
+        "description": "Sự miêu tả",
+        "trigger": "Cò súng",
+        "primaryAction": "Hành động chính",
+        "executionPath": "Xem trước đường dẫn thực thi",
+        "save": "Cứu",
+        "runNow": "Chạy ngay bây giờ",
+        "triggerFallback": "Cò súng",
+        "actionFallback": "Hoạt động"
+      },
+      "history": {
+        "title": "Lịch sử thực hiện",
+        "emptyTitle": "Chưa có vụ hành quyết nào.",
+        "emptyDescription": "Chạy một quy trình công việc hoặc xuất bản một sự kiện trên miền.",
+        "latestRun": "Chi tiết chạy mới nhất",
+        "path": "Đường dẫn: {path}",
+        "error": "· Lỗi: {error}",
+        "columns": {
+          "workflow": "Quy trình làm việc",
+          "status": "Trạng thái",
+          "triggeredBy": "Kích hoạt bởi",
+          "duration": "Khoảng thời gian",
+          "started": "Đã bắt đầu",
+          "retry": "Thử lại"
+        },
+        "retry": "Thử lại",
+        "emDash": "—"
+      },
+      "templates": {
+        "useTemplate": "Sử dụng mẫu"
+      },
+      "analytics": {
+        "totalWorkflows": "Tổng số quy trình công việc",
+        "activeWorkflows": "Quy trình công việc đang hoạt động",
+        "executionsToday": "Thực thi hôm nay",
+        "successRate24h": "Tỷ lệ thành công (24h)",
+        "failed24h": "Không thành công (24h)",
+        "avgDuration": "Thời lượng trung bình"
+      },
+      "settings": {
+        "title": "Cài đặt tự động hóa",
+        "subtitle": "Thử lại chính sách, giới hạn thực thi, đồng thời, hết thời gian và ghi nhật ký để thực thi phân tán.",
+        "maxRetryAttempts": "Số lần thử lại tối đa",
+        "backoffMs": "Thời gian chờ (ms)",
+        "executionsPerHour": "Thực hiện/giờ",
+        "concurrencyLimit": "Giới hạn đồng thời",
+        "timeoutMs": "Thời gian chờ (ms)",
+        "logLevel": "Cấp độ nhật ký",
+        "logLevels": {
+          "error": "lỗi",
+          "warn": "cảnh báo",
+          "info": "thông tin",
+          "debug": "gỡ lỗi"
+        },
+        "saveSettings": "Lưu cài đặt"
+      }
+    },
+    "status": {
+      "connected": "Đã kết nối",
+      "beta": "Beta",
+      "comingSoon": "Sắp ra mắt",
+      "disabled": "Đã tắt",
+      "planned": "Đã lên kế hoạch",
+      "success": "Thành công",
+      "failed": "Thất bại",
+      "running": "Đang chạy",
+      "pending": "Đang chờ",
+      "retried": "Thử lại"
+    },
+    "difficulty": {
+      "starter": "Cơ bản",
+      "intermediate": "Trung cấp",
+      "advanced": "Nâng cao"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "Bộ kích hoạt",
+        "description": "Bắt đầu khi một sự kiện xảy ra"
+      },
+      "el-condition": {
+        "label": "Điều kiện",
+        "description": "Rẽ nhánh theo quy tắc"
+      },
+      "el-delay": {
+        "label": "Độ trễ",
+        "description": "Chờ trước khi tiếp tục"
+      },
+      "el-approval": {
+        "label": "Phê duyệt",
+        "description": "Cổng phê duyệt của người"
+      },
+      "el-loop": {
+        "label": "Vòng lặp",
+        "description": "Lặp qua một tập hợp"
+      },
+      "el-merge": {
+        "label": "Gộp",
+        "description": "Gộp các nhánh song song"
+      },
+      "el-split": {
+        "label": "Tách",
+        "description": "Tỏa ra các nhánh song song"
+      },
+      "el-ai-decision": {
+        "label": "Quyết định AI",
+        "description": "Định tuyến qua AI"
+      },
+      "el-notification": {
+        "label": "Thông báo",
+        "description": "Cảnh báo trong ứng dụng"
+      },
+      "el-webhook": {
+        "label": "Giữ chỗ Webhook",
+        "description": "Đã dành callback HTTP"
+      },
+      "el-custom": {
+        "label": "Hành động tùy chỉnh",
+        "description": "Khe hành động mở rộng được"
+      },
+      "tr-customer": {
+        "label": "Đã tạo khách hàng",
+        "description": "Đã tạo bản ghi khách hàng CRM"
+      },
+      "tr-lead": {
+        "label": "Đã tạo lead",
+        "description": "Lead mới vào pipeline"
+      },
+      "tr-invoice": {
+        "label": "Đã tạo hóa đơn",
+        "description": "Đã phát hành hóa đơn tài chính"
+      },
+      "tr-invoice-paid": {
+        "label": "Hóa đơn đã thanh toán",
+        "description": "Thanh toán đã tất toán"
+      },
+      "tr-order": {
+        "label": "Đã tạo đơn hàng",
+        "description": "Đơn hàng đã nhập"
+      },
+      "tr-order-done": {
+        "label": "Đơn hàng hoàn tất",
+        "description": "Đơn hàng đã giao"
+      },
+      "tr-doc": {
+        "label": "Đã tải tài liệu lên",
+        "description": "Tải lên kho tài liệu"
+      },
+      "tr-campaign": {
+        "label": "Chiến dịch đã xuất bản",
+        "description": "Xuất bản Creator Studio"
+      },
+      "tr-employee": {
+        "label": "Đã thêm nhân viên",
+        "description": "Thay đổi thư mục nhóm"
+      },
+      "tr-task": {
+        "label": "Công việc hoàn tất",
+        "description": "Công việc được đánh dấu xong"
+      },
+      "tr-manual": {
+        "label": "Bộ kích hoạt thủ công",
+        "description": "Chạy khi cần"
+      },
+      "tr-schedule": {
+        "label": "Bộ kích hoạt lịch",
+        "description": "Lịch cron / lịch"
+      },
+      "tr-webhook": {
+        "label": "Bộ kích hoạt Webhook",
+        "description": "Sự kiện HTTP đến"
+      },
+      "tr-api": {
+        "label": "Bộ kích hoạt API",
+        "description": "Khởi động theo chương trình"
+      },
+      "ac-crm": {
+        "label": "Tạo bản ghi CRM",
+        "description": "Ghi thực thể CRM"
+      },
+      "ac-invoice": {
+        "label": "Tạo hóa đơn",
+        "description": "Hóa đơn tài chính"
+      },
+      "ac-quote": {
+        "label": "Tạo báo giá",
+        "description": "Tạo tài liệu báo giá"
+      },
+      "ac-delivery": {
+        "label": "Tạo phiếu giao hàng",
+        "description": "Phiếu giao hàng"
+      },
+      "ac-task": {
+        "label": "Tạo công việc",
+        "description": "Mở một công việc"
+      },
+      "ac-assign": {
+        "label": "Gán nhân viên",
+        "description": "Chuyển cho đồng đội"
+      },
+      "ac-email": {
+        "label": "Gửi email",
+        "description": "Email gửi đi"
+      },
+      "ac-notify": {
+        "label": "Gửi thông báo",
+        "description": "Thông báo trong ứng dụng"
+      },
+      "ac-ai-summary": {
+        "label": "Tạo tóm tắt AI",
+        "description": "Tóm tắt ngữ cảnh"
+      },
+      "ac-ai-content": {
+        "label": "Tạo nội dung AI",
+        "description": "Bản nháp Creator Studio"
+      },
+      "ac-update-customer": {
+        "label": "Cập nhật khách hàng",
+        "description": "Vá khách hàng CRM"
+      },
+      "ac-update-status": {
+        "label": "Cập nhật trạng thái",
+        "description": "Đổi trạng thái thực thể"
+      },
+      "ac-pdf": {
+        "label": "Xuất PDF",
+        "description": "Xuất tài liệu"
+      },
+      "ac-future": {
+        "label": "Giữ chỗ API tương lai",
+        "description": "Khe hành động dành sẵn"
+      },
+      "ai-decision": {
+        "label": "Quyết định AI",
+        "description": "Quyết định nhánh tiếp theo"
+      },
+      "ai-class": {
+        "label": "Phân loại AI",
+        "description": "Phân loại bản ghi"
+      },
+      "ai-text": {
+        "label": "Tạo văn bản AI",
+        "description": "Tạo văn bản"
+      },
+      "ai-translate": {
+        "label": "Dịch AI",
+        "description": "Dịch nội dung"
+      },
+      "ai-email": {
+        "label": "Thư trả lời AI",
+        "description": "Soạn thư trả lời"
+      },
+      "ai-sum": {
+        "label": "Tóm tắt AI",
+        "description": "Cô đọng ngữ cảnh"
+      },
+      "ai-rec": {
+        "label": "Gợi ý AI",
+        "description": "Đề xuất bước tiếp theo"
+      },
+      "ai-route": {
+        "label": "Định tuyến AI",
+        "description": "Định tuyến tới chủ sở hữu / hàng đợi"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "Khách hàng đã tạo",
+        "description": "Kích hoạt khi tạo bản ghi khách hàng CRM."
+      },
+      "project_created": {
+        "label": "Dự án đã được tạo",
+        "description": "Kích hoạt khi tạo dự án."
+      },
+      "invoice_issued": {
+        "label": "Hóa đơn đã phát hành",
+        "description": "Kích hoạt khi phát hành hóa đơn."
+      },
+      "task_completed": {
+        "label": "Nhiệm vụ đã hoàn thành",
+        "description": "Kích hoạt khi nhiệm vụ được đánh dấu hoàn tất."
+      },
+      "document_uploaded": {
+        "label": "Tài liệu đã được tải lên",
+        "description": "Kích hoạt khi tài liệu được tải lên."
+      },
+      "user_invited": {
+        "label": "Đã mời người dùng",
+        "description": "Kích hoạt khi một thành viên nhóm được mời."
+      },
+      "schedule": {
+        "label": "Lịch trình",
+        "description": "Trình kích hoạt lịch cron / khoảng thời gian."
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "Webhook HTTP đến."
+      },
+      "api_event": {
+        "label": "Sự kiện API",
+        "description": "Sự kiện miền API chung."
+      },
+      "ai_event": {
+        "label": "Sự kiện AI",
+        "description": "Tín hiệu AI (hoàn tất, insight, bước tác nhân)."
+      },
+      "manual": {
+        "label": "Kích hoạt thủ công",
+        "description": "Chạy theo yêu cầu từ giao diện hoặc API."
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "Tạo khách hàng",
+        "description": "Tạo bản ghi khách hàng CRM."
+      },
+      "customer_update": {
+        "label": "Cập nhật khách hàng",
+        "description": "Cập nhật trường khách hàng."
+      },
+      "project_create": {
+        "label": "Tạo dự án",
+        "description": "Tạo dự án từ ngữ cảnh quy trình."
+      },
+      "document_generate": {
+        "label": "Tạo tài liệu",
+        "description": "Tạo tài liệu từ mẫu."
+      },
+      "notification_send": {
+        "label": "Gửi thông báo",
+        "description": "Gửi thông báo trong ứng dụng."
+      },
+      "email_send": {
+        "label": "Gửi email",
+        "description": "Xếp hàng email qua nhà cung cấp thư."
+      },
+      "api_call": {
+        "label": "Gọi API",
+        "description": "Gọi HTTP tới API nội bộ hoặc bên ngoài."
+      },
+      "ai_run": {
+        "label": "Chạy AI",
+        "description": "Chạy prompt AI / bước tác nhân kèm ngữ cảnh."
+      },
+      "task_assign": {
+        "label": "Gán nhiệm vụ",
+        "description": "Gán nhiệm vụ cho người dùng."
+      },
+      "invoice_create": {
+        "label": "Tạo hóa đơn",
+        "description": "Tạo hóa đơn tài chính."
+      },
+      "status_update": {
+        "label": "Cập nhật trạng thái",
+        "description": "Cập nhật trạng thái thực thể trong mô-đun."
+      }
+    }
+  },
+  "team": {
+    "page": {
+      "eyebrow": "Nhận dạng & Quyền truy cập",
+      "title": "Đội",
+      "lead": "Thành viên, vai trò và lời mời cho {organization}. Kiến trúc sẵn sàng cho API nhận dạng trong tương lai.",
+      "yourOrganization": "tổ chức của bạn"
+    },
+    "invite": {
+      "title": "Mời qua email",
+      "email": "E-mail",
+      "emailPlaceholder": "đồng nghiệp@company.com",
+      "role": "Vai trò",
+      "submit": "Mời",
+      "created": "Đã tạo lời mời (đang chờ xử lý).",
+      "failed": "Mời không thành công",
+      "signInFirst": "Đăng nhập và kích hoạt một tổ chức trước tiên.",
+      "noPermission": "Thiếu quyền — Cần có quản trị viên hoặc người quản lý để mời."
+    },
+    "roles": {
+      "title": "Vai trò",
+      "owner": {
+        "name": "Người sở hữu",
+        "description": "Kiểm soát toàn bộ tổ chức bao gồm Cài đặt và thanh toán."
+      },
+      "admin": {
+        "name": "Quản trị viên",
+        "description": "Quản lý các mô-đun Tài chính, Tự động hóa, Nhóm và không gian làm việc."
+      },
+      "manager": {
+        "name": "Giám đốc",
+        "description": "Dẫn dắt các hoạt động CRM, Dự án, Tài liệu và Người sáng tạo."
+      },
+      "employee": {
+        "name": "Người lao động",
+        "description": "Quyền truy cập CRM, Tài liệu, Người tạo và Dự án hàng ngày."
+      },
+      "guest": {
+        "name": "Khách mời",
+        "description": "Quyền truy cập đọc hạn chế vào Tài liệu và Dự án."
+      },
+      "viewer": {
+        "name": "Người xem",
+        "description": "Quyền truy cập chỉ đọc vào các mô-đun được chia sẻ."
+      }
+    },
+    "members": {
+      "title": "Thành viên",
+      "columnMember": "Thành viên",
+      "columnEmail": "E-mail",
+      "columnRole": "Vai trò",
+      "columnStatus": "Trạng thái",
+      "roleFor": "Vai trò của {name}",
+      "emptyTitle": "Chưa có thành viên nào",
+      "emptyDescription": "Mời đồng nghiệp tham gia không gian làm việc của tổ chức này.",
+      "updated": "Đã cập nhật {name} thành {role}",
+      "roleChangeFailed": "Thay đổi vai trò không thành công"
+    },
+    "pending": {
+      "title": "Lời mời đang chờ xử lý",
+      "emptyTitle": "Không có lời mời đang chờ xử lý",
+      "emptyDescription": "Lời mời mới xuất hiện ở đây cho đến khi được chấp nhận hoặc hết hạn.",
+      "expires": "{role} · hết hạn vào {date}",
+      "revoke": "Thu hồi",
+      "pending": "chưa giải quyết"
+    },
+    "history": {
+      "title": "Lịch sử lời mời",
+      "empty": "Lời mời được chấp nhận, hết hạn và bị thu hồi sẽ xuất hiện ở đây."
+    },
+    "status": {
+      "accepted": "được chấp nhận",
+      "expired": "hết hạn",
+      "revoked": "bị thu hồi",
+      "active": "tích cực",
+      "inactive": "không hoạt động",
+      "pending": "chưa giải quyết"
+    }
+  },
+  "customers": {
+    "page": {
+      "sectionTitle": "Quản lý khách hàng",
+      "title": "Khách hàng",
+      "lead": "Tạo, chỉnh sửa, tìm kiếm và quản lý hồ sơ khách hàng cho {organization}.",
+      "yourOrganization": "tổ chức của bạn"
+    },
+    "table": {
+      "columns": {
+        "company": "Công ty",
+        "email": "E-mail",
+        "location": "Vị trí",
+        "status": "Trạng thái",
+        "updated": "Đã cập nhật",
+        "actions": "hành động"
+      },
+      "view": "Xem",
+      "edit": "Biên tập",
+      "delete": "Xóa bỏ",
+      "viewAria": "Xem {company}",
+      "editAria": "Chỉnh sửa {company}",
+      "deleteAria": "Xóa {company}",
+      "loading": "Đang tải khách hàng…",
+      "errorLoad": "Không thể tải khách hàng",
+      "errorGeneric": "Đã xảy ra lỗi",
+      "emptyFilteredTitle": "Không có khách hàng phù hợp",
+      "emptyFilteredDescription": "Hãy thử điều chỉnh tìm kiếm hoặc bộ lọc.",
+      "emptyTitle": "Chưa có khách hàng",
+      "emptyDescription": "Tạo khách hàng đầu tiên của bạn để bắt đầu quản lý tài khoản của bạn.",
+      "searchLabel": "Tìm kiếm khách hàng",
+      "searchPlaceholder": "Công ty, liên hệ, email, thành phố, thẻ…",
+      "statusFilter": "Trạng thái",
+      "tagFilter": "Nhãn",
+      "allStatuses": "Tất cả trạng thái",
+      "allTags": "Tất cả các thẻ",
+      "clearFilters": "Xóa bộ lọc",
+      "addCustomer": "Thêm khách hàng"
+    },
+    "status": {
+      "active": "Tích cực",
+      "prospect": "triển vọng",
+      "inactive": "Không hoạt động",
+      "blocked": "Bị chặn"
+    },
+    "form": {
+      "editTitle": "Chỉnh sửa khách hàng",
+      "createTitle": "Thêm khách hàng",
+      "cancel": "Hủy bỏ",
+      "saveChanges": "Lưu thay đổi",
+      "createCustomer": "Tạo khách hàng",
+      "companyName": "Tên công ty",
+      "contactPerson": "Người liên hệ",
+      "email": "E-mail",
+      "status": "Trạng thái",
+      "statusAria": "Trạng thái khách hàng",
+      "phone": "Điện thoại",
+      "mobile": "Điện thoại di động",
+      "street": "Đường phố",
+      "postalCode": "Mã bưu chính",
+      "city": "Thành phố",
+      "country": "Quốc gia",
+      "taxNumber": "Mã số thuế",
+      "vatId": "Mã số thuế GTGT",
+      "tags": "Thẻ",
+      "tagsHint": "Được phân tách bằng dấu phẩy",
+      "tagsPlaceholder": "vip, bán lẻ, đối tác",
+      "notes": "Ghi chú khách hàng",
+      "updated": "Khách hàng đã cập nhật",
+      "created": "Khách hàng đã tạo",
+      "checkForm": "Kiểm tra biểu mẫu",
+      "validationFailed": "Xác thực không thành công."
+    },
+    "delete": {
+      "title": "Xóa khách hàng",
+      "cancel": "Hủy bỏ",
+      "confirm": "Xóa bỏ",
+      "confirmWithName": "Xóa vĩnh viễn {company}? Điều này không thể hoàn tác được.",
+      "confirmGeneric": "Khách hàng này sẽ bị xóa vĩnh viễn.",
+      "success": "Khách hàng đã xóa",
+      "failed": "Xóa không thành công",
+      "notFound": "Không tìm thấy khách hàng hoặc không thể xóa được.",
+      "errorGeneric": "Đã xảy ra lỗi khi xóa."
+    },
+    "details": {
+      "titleFallback": "Khách hàng",
+      "edit": "Biên tập",
+      "delete": "Xóa bỏ",
+      "noTags": "Không có thẻ",
+      "contact": "Liên hệ",
+      "email": "E-mail",
+      "phone": "Điện thoại",
+      "mobile": "Điện thoại di động",
+      "address": "Địa chỉ",
+      "taxNumber": "Mã số thuế",
+      "vatId": "Mã số thuế GTGT",
+      "updated": "Đã cập nhật",
+      "notes": "Ghi chú",
+      "noNotes": "Chưa có ghi chú nào."
+    },
+    "validation": {
+      "companyRequired": "Tên công ty là bắt buộc.",
+      "contactRequired": "Người liên hệ là bắt buộc.",
+      "emailRequired": "Email là bắt buộc.",
+      "emailInvalid": "Nhập địa chỉ email hợp lệ.",
+      "phoneRequired": "Điện thoại là bắt buộc.",
+      "phoneInvalid": "Nhập số điện thoại hợp lệ.",
+      "mobileInvalid": "Nhập số di động hợp lệ.",
+      "statusInvalid": "Chọn trạng thái hợp lệ.",
+      "emailDuplicate": "Đã có khách hàng với email này.",
+      "companyDuplicate": "Đã có khách hàng với tên công ty này."
+    }
+  },
+  "ai": {
+    "platform": {
+      "loading": "Đang tải nền tảng AI…",
+      "eyebrow": "Nền tảng AI AGXORA",
+      "title": "Không gian làm việc AI dành cho doanh nghiệp",
+      "subtitle": "Thông tin độc lập dành cho nhà cung cấp dành cho CRM, Dự án, Tài chính, Tài liệu và Tự động hóa. Định cấu hình nhà cung cấp trong Cài đặt → AI.",
+      "newConversation": "Cuộc trò chuyện mới",
+      "aiCommands": "Lệnh AI"
+    },
+    "mobileTabs": {
+      "chat": "Trò chuyện",
+      "conversations": "Cuộc trò chuyện",
+      "prompts": "Lời nhắc"
+    },
+    "usageBar": {
+      "provider": "nhà cung cấp",
+      "model": "Người mẫu",
+      "estimatedTokens": "Ước tính. mã thông báo",
+      "tokensInOut": "(vào {in} / ra {out})",
+      "cost": "Trị giá",
+      "context": "Bối cảnh",
+      "contextNone": "không có",
+      "emDash": "—"
+    },
+    "chatThread": {
+      "title": "Không gian làm việc AGXORA AI",
+      "emptyHint": "Bắt đầu cuộc trò chuyện, chọn lời nhắc từ thư viện hoặc mở bảng lệnh (⌘⇧K / Ctrl⇧K)."
+    },
+    "conversationSidebar": {
+      "title": "Cuộc trò chuyện",
+      "new": "Mới",
+      "searchPlaceholder": "Tìm kiếm cuộc trò chuyện…",
+      "searchAria": "Tìm kiếm cuộc trò chuyện",
+      "showArchived": "Hiển thị đã lưu trữ",
+      "pinned": "Đã ghim",
+      "emptyPreview": "Cuộc trò chuyện trống",
+      "noConversations": "Chưa có cuộc trò chuyện nào",
+      "pin": "Ghim",
+      "unpin": "Bỏ ghim",
+      "rename": "Đổi tên",
+      "archive": "Lưu trữ",
+      "unarchive": "Hủy lưu trữ",
+      "delete": "Xóa bỏ"
+    },
+    "composer": {
+      "placeholder": "Tin nhắn AGXORA AI… (Enter để gửi, Shift+Enter để xuống dòng)",
+      "ariaLabel": "Người soạn tin nhắn",
+      "commandsShortcut": "Lệnh ⌘⇧K",
+      "stop": "Dừng lại",
+      "send": "Gửi"
+    },
+    "messageBubble": {
+      "ellipsis": "…",
+      "copy": "Sao chép",
+      "retry": "Thử lại"
+    },
+    "typingIndicator": {
+      "ariaLabel": "Trợ lý đang nhập văn bản"
+    },
+    "promptLibrary": {
+      "title": "Thư viện nhắc nhở",
+      "subtitle": "Các mẫu có thể tái sử dụng trên CRM, Dự án, Tài chính, v.v.",
+      "searchPlaceholder": "Lời nhắc tìm kiếm…",
+      "searchAria": "Lời nhắc tìm kiếm",
+      "all": "Tất cả",
+      "favorites": "Yêu thích",
+      "recent": "Gần đây",
+      "library": "Thư viện",
+      "noMatches": "Không có lời nhắc nào phù hợp",
+      "removeFavoriteAria": "Xóa yêu thích",
+      "addFavoriteAria": "Thêm yêu thích",
+      "favorited": "Yêu thích",
+      "favorite": "Yêu thích",
+      "usePrompt": "Sử dụng lời nhắc"
+    },
+    "commandPalette": {
+      "ariaLabel": "Bảng lệnh AI",
+      "filterAria": "Lọc lệnh AI",
+      "placeholder": "Lệnh AI… tóm tắt, đề xuất, phân tích…",
+      "noMatches": "Không có lệnh phù hợp",
+      "footer": "Đăng ký các lệnh trong tương lai thông qua registerAiCommand - Giao diện người dùng không thay đổi."
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "Dự án",
+      "finance": "Tài chính",
+      "marketing": "Marketing",
+      "documents": "Tài liệu",
+      "automation": "Tự động hóa",
+      "general": "Chung"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "Tóm tắt khách hàng",
+        "description": "Tóm tắt điều hành mối quan hệ khách hàng"
+      },
+      "crm-follow-up-email": {
+        "title": "Email theo dõi",
+        "description": "Soạn email theo dõi CRM chuyên nghiệp"
+      },
+      "projects-analyze": {
+        "title": "Phân tích dự án",
+        "description": "Kiểm tra sức khỏe dự án"
+      },
+      "projects-task-list": {
+        "title": "Tạo danh sách công việc",
+        "description": "Chia công việc thành các nhiệm vụ có thể thực hiện"
+      },
+      "finance-explain-invoice": {
+        "title": "Giải thích hóa đơn",
+        "description": "Giải thích hóa đơn bằng ngôn ngữ dễ hiểu"
+      },
+      "finance-cashflow-brief": {
+        "title": "Tóm tắt dòng tiền",
+        "description": "Mô tả ngắn về dòng tiền"
+      },
+      "marketing-campaign-outline": {
+        "title": "Dàn ý chiến dịch",
+        "description": "Cấu trúc chiến dịch marketing"
+      },
+      "marketing-proposal": {
+        "title": "Tạo đề xuất",
+        "description": "Bản nháp đề xuất dành cho khách"
+      },
+      "documents-summarize": {
+        "title": "Tóm tắt tài liệu",
+        "description": "Tóm tắt tài liệu có cấu trúc"
+      },
+      "automation-workflow": {
+        "title": "Thiết kế quy trình",
+        "description": "Phác thảo quy trình tự động hóa"
+      },
+      "general-brainstorm": {
+        "title": "Động não các lựa chọn",
+        "description": "Lên ý tưởng có cấu trúc"
+      },
+      "general-explain": {
+        "title": "Giải thích đơn giản",
+        "description": "Giải thích rõ cho các bên liên quan"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "Tóm tắt khách hàng",
+        "description": "Tóm tắt điều hành khách hàng đang chọn"
+      },
+      "cmd-generate-proposal": {
+        "label": "Tạo đề xuất",
+        "description": "Soạn dàn ý đề xuất cho khách"
+      },
+      "cmd-analyze-project": {
+        "label": "Phân tích dự án",
+        "description": "Sức khỏe dự án và phân tích rủi ro"
+      },
+      "cmd-create-task-list": {
+        "label": "Tạo danh sách công việc",
+        "description": "Chia công việc thành các nhiệm vụ có thể thực hiện"
+      },
+      "cmd-generate-email": {
+        "label": "Tạo email",
+        "description": "Soạn email chuyên nghiệp"
+      },
+      "cmd-explain-invoice": {
+        "label": "Giải thích hóa đơn",
+        "description": "Giải thích hóa đơn bằng ngôn ngữ dễ hiểu"
+      }
+    }
+  },
+  "agents": {
+    "loading": "Đang tải hệ điều hành tác nhân…",
+    "eyebrow": "Hệ điều hành đại lý AI",
+    "title": "Hệ điều hành đại lý",
+    "subtitle": "Không gian làm việc của đại lý cục bộ — các đại lý có thể được kích hoạt và chạy dưới dạng mô phỏng trên CRM, Dự án, Tài chính, Quy trình làm việc và Tích hợp. Việc thực hiện tự chủ sản xuất không được kết nối.",
+    "noticeDefault": "Hệ điều hành tác nhân cục bộ - các lần chạy được mô phỏng trong không gian làm việc này.",
+    "aiChat": "Trò chuyện AI",
+    "tabs": {
+      "dashboard": "Trang tổng quan",
+      "registry": "Đăng ký",
+      "marketplace": "Thị trường",
+      "monitor": "Màn hình",
+      "history": "Lịch sử",
+      "memory": "Ký ức",
+      "knowledge": "Kiến thức",
+      "tools": "Công cụ",
+      "settings": "Cài đặt"
+    },
+    "notice": {
+      "simulatedRun": "Chạy mô phỏng · {status} ({duration}ms)",
+      "taskFailed": "Nhiệm vụ thất bại",
+      "activated": "Đã kích hoạt cục bộ: {agentId}",
+      "agentPaused": "Đại lý đã tạm dừng",
+      "agentActivated": "Tác nhân đã kích hoạt",
+      "taskCancelled": "Nhiệm vụ đã bị hủy",
+      "supervisorDelegated": "Người giám sát ủy quyền theo dõi",
+      "settingsUpdated": "Đã cập nhật cài đặt hệ điều hành của tác nhân cho không gian làm việc cục bộ này."
+    },
+    "dashboard": {
+      "agents": "Đại lý",
+      "active": "Tích cực",
+      "localReady": "Sẵn sàng tại địa phương",
+      "simulatedToday": "Mô phỏng ngày hôm nay",
+      "failedToday": "Hôm nay thất bại",
+      "avgExec": "Người điều hành trung bình",
+      "toolCalls": "Cuộc gọi công cụ",
+      "knowledge": "Kiến thức",
+      "activeFleet": "Đội tàu đang hoạt động",
+      "emptyTitle": "Không có đại lý nào hoạt động",
+      "emptyDescription": "Cài đặt hoặc kích hoạt một đại lý từ thị trường để bắt đầu chạy mô phỏng."
+    },
+    "registry": {
+      "title": "Đăng ký",
+      "selectPrompt": "Chọn một đại lý từ sổ đăng ký.",
+      "status": "Trạng thái: {status}",
+      "health": "Sức khỏe: {health}",
+      "queue": "Hàng đợi: {queue}",
+      "usage": "Cách sử dụng: {usage}",
+      "executeTask": "Thực hiện nhiệm vụ",
+      "supervisorDelegate": "Đại biểu giám sát"
+    },
+    "marketplace": {
+      "tools": "Công cụ: {tools}",
+      "installed": "Đã cài đặt",
+      "installActivate": "Cài đặt và kích hoạt"
+    },
+    "monitor": {
+      "title": "giám sát đại lý",
+      "emptyTitle": "Không có đại lý để theo dõi",
+      "emptyDescription": "Kích hoạt các đại lý từ thị trường.",
+      "latestConfidence": "Độ tin cậy lý luận mới nhất: {confidence} — {steps}"
+    },
+    "history": {
+      "title": "Lịch sử thực hiện",
+      "emptyTitle": "Chưa có vụ hành quyết nào",
+      "emptyDescription": "Chạy tác vụ đại lý từ sổ đăng ký hoặc màn hình."
+    },
+    "memory": {
+      "title": "Trung tâm trí nhớ",
+      "subtitle": "Làm việc · Hội thoại · Kinh doanh · Dài hạn · Không gian làm việc · Phạm vi tác nhân (sẵn sàng cho kiến ​​trúc).",
+      "emptyTitle": "Không có bản ghi bộ nhớ",
+      "emptyDescription": "Thực thi một tác vụ để điền vào bộ nhớ làm việc/tác nhân."
+    },
+    "knowledge": {
+      "title": "Trung tâm kiến ​​thức",
+      "subtitle": "Công ty, tài liệu, dự án, CRM, chính sách, thủ tục — cùng với phần giữ chỗ vector/RAG.",
+      "emptyTitle": "Không có tài liệu kiến ​​thức",
+      "emptyDescription": "Kiến thức hạt giống xuất hiện sau khi khởi động không gian làm việc."
+    },
+    "tools": {
+      "sensitive": "· nhạy cảm",
+      "mcpReady": "· Sẵn sàng cho MCP"
+    },
+    "settings": {
+      "title": "Cài đặt hệ điều hành đại lý",
+      "defaultLlmProvider": "Nhà cung cấp LLM mặc định",
+      "enableSupervisor": "Kích hoạt kiến ​​trúc tác nhân giám sát",
+      "isolateSensitive": "Cô lập các công cụ nhạy cảm",
+      "saveSettings": "Lưu cài đặt",
+      "providersHint": "Các nhà cung cấp đã sẵn sàng: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Hoán đổi bộ điều hợp thông qua registerLlmProvider mà không thay đổi giao diện người dùng."
+    },
+    "columns": {
+      "agent": "Đại lý",
+      "status": "Trạng thái",
+      "health": "Sức khỏe",
+      "queue": "Hàng đợi",
+      "usage": "Cách sử dụng",
+      "actions": "hành động",
+      "task": "Nhiệm vụ",
+      "duration": "Khoảng thời gian",
+      "created": "Tạo",
+      "scope": "Phạm vi",
+      "key": "Chìa khóa",
+      "value": "Giá trị",
+      "at": "Tại",
+      "title": "Tiêu đề",
+      "kind": "Loại",
+      "summary": "Bản tóm tắt"
+    },
+    "actions": {
+      "run": "Chạy",
+      "pause": "Tạm dừng",
+      "activate": "Kích hoạt",
+      "cancel": "Hủy bỏ",
+      "emDash": "—"
+    },
+    "goals": {
+      "executeBusiness": "Thực thi mục tiêu kinh doanh {agentId}",
+      "planAndExecute": "Lập kế hoạch và thực hiện mục tiêu kinh doanh tại không gian làm việc"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "Ưu tiên tác động khách hàng",
+      "delegatedFollowUp": "Theo dõi được ủy thác"
+    }
+  },
+  "integrations": {
+    "loading": "Đang tải nền tảng tích hợp…",
+    "eyebrow": "Nền tảng tích hợp doanh nghiệp",
+    "title": "Trung tâm tích hợp",
+    "subtitle": "Trình kết nối dành cho hệ sinh thái Microsoft 365, Google, Slack, CRM, bộ lưu trữ và tự động hóa. Các kết nối và đồng bộ hóa trong bản dựng này là bản demo cục bộ — OAuth trực tiếp không được kết nối.",
+    "noticeDefault": "Trình kết nối demo cục bộ — OAuth và đồng bộ hóa trực tiếp chưa được kết nối.",
+    "settings": "Cài đặt",
+    "tabs": {
+      "dashboard": "Trang tổng quan",
+      "installed": "Đã cài đặt",
+      "available": "Có sẵn",
+      "logs": "Nhật ký",
+      "apiKeys": "Khóa API",
+      "webhooks": "Webhook",
+      "developer": "Nhà phát triển"
+    },
+    "notice": {
+      "demoConnection": "Kết nối demo: {name} (chỉ sơ khai cục bộ)",
+      "connectFailed": "Kết nối không thành công",
+      "keyCreated": "Khóa API đã được tạo: {prefix}",
+      "webhookCreated": "Webhook đã tạo: {name}",
+      "webhookTest": "Kiểm tra webhook {status}",
+      "networkError": "Lỗi mạng trình khám phá API: {message}",
+      "explorerError": "Trình khám phá API → {status}: {message}",
+      "explorerSuccess": "Trình khám phá API → {status}",
+      "explorerFailed": "Explorer không thành công",
+      "syncResult": "Đồng bộ hóa bản trình diễn · {status} ({records} bản ghi cục bộ) — không có dữ liệu bên ngoài nào được truyền.",
+      "diagnosed": "Đã chẩn đoán",
+      "removedConnection": "Đã xóa kết nối demo: {name}",
+      "keyRotated": "Đã xoay phím",
+      "keyRevoked": "Khóa đã bị thu hồi",
+      "publishedEvent": "Đã xuất bản {type}",
+      "developerSaved": "Đã lưu cài đặt của nhà phát triển"
+    },
+    "dashboard": {
+      "demoLinks": "Liên kết demo",
+      "catalog": "Danh mục",
+      "api24h": "API (24h)",
+      "webhooks24h": "Webhook (24h)",
+      "webhookFailures": "Lỗi webhook",
+      "syncJobs": "Đồng bộ hóa công việc",
+      "conflicts": "Xung đột",
+      "errors": "Lỗi",
+      "connectionStatus": "Trạng thái kết nối",
+      "emptyTitle": "Không có tích hợp nào được cài đặt",
+      "emptyDescription": "Duyệt Có sẵn để kết nối một nhà cung cấp.",
+      "eventBridgeDemo": "Bản demo cầu sự kiện",
+      "eventBridgeHint": "Xuất bản sự kiện trình kết nối lên bus Tự động hóa quy trình làm việc.",
+      "emit": "Phát ra {id}"
+    },
+    "installed": {
+      "title": "Tích hợp đã cài đặt",
+      "emptyTitle": "Không có gì được cài đặt",
+      "emptyDescription": "Cài đặt từ danh mục có sẵn.",
+      "latestSync": "Đồng bộ hóa mới nhất: {status} · {records} bản ghi · chế độ {mode}"
+    },
+    "available": {
+      "protocols": "Giao thức: {protocols}",
+      "demoConnection": "Kết nối thử nghiệm",
+      "connectDemo": "Kết nối (bản demo)",
+      "installDemo": "Cài đặt bản demo"
+    },
+    "logs": {
+      "title": "Nhật ký tích hợp",
+      "emptyTitle": "Chưa có nhật ký nào",
+      "emptyDescription": "Kết nối nhà cung cấp hoặc chạy chẩn đoán."
+    },
+    "apiKeys": {
+      "title": "Khóa API",
+      "generateKey": "Tạo khóa",
+      "copyOnce": "Sao chép ngay (hiển thị một lần): {secret}",
+      "emptyTitle": "Không có khóa API",
+      "emptyDescription": "Tạo khóa để truy cập cổng REST."
+    },
+    "webhooks": {
+      "endpointsTitle": "Điểm cuối webhook",
+      "urlPlaceholder": "https://…",
+      "addOutgoing": "Thêm webhook gửi đi",
+      "emptyTitle": "Không có webhook",
+      "emptyDescription": "Tạo điểm cuối gửi đi để phân phối thử nghiệm.",
+      "deliveryLogs": "Nhật ký giao hàng",
+      "deliveriesEmptyTitle": "Không giao hàng",
+      "deliveriesEmptyDescription": "Gửi webhook thử nghiệm để điền nhật ký."
+    },
+    "developer": {
+      "title": "Cài đặt dành cho nhà phát triển",
+      "sandboxMode": "Chế độ hộp cát",
+      "webhookSigning": "Đã bật tính năng ký webhook",
+      "saveSettings": "Lưu cài đặt",
+      "apiDocs": "Trình giữ chỗ tài liệu API: {url}",
+      "sdk": "Trình giữ chỗ SDK: {url}",
+      "explorerTitle": "Trình khám phá API",
+      "gatewayRoutes": "Các tuyến cửa ngõ: {routes}",
+      "sendGet": "Gửi NHẬN",
+      "oauthProviders": "Nhà cung cấp OAuth",
+      "placeholdersHint": "Các tuyến cổng GraphQL, WebSocket và gRPC được đăng ký làm phần giữ chỗ. Ánh xạ trường và giải quyết xung đột đồng bộ hóa đã sẵn sàng về mặt kiến ​​trúc để triển khai chương trình phụ trợ."
+    },
+    "connectionStatus": {
+      "connected": "Kết nối thử nghiệm",
+      "pendingAuth": "Đang chờ xử lý (bản demo)",
+      "error": "Lỗi",
+      "disabled": "Tàn tật",
+      "installed": "Đã cài đặt",
+      "available": "Có sẵn",
+      "localDemo": "Bản trình diễn cục bộ"
+    },
+    "columns": {
+      "integration": "Tích hợp",
+      "status": "Trạng thái",
+      "health": "Sức khỏe",
+      "latency": "Độ trễ",
+      "actions": "hành động",
+      "when": "Khi",
+      "level": "Mức độ",
+      "source": "Nguồn",
+      "message": "Tin nhắn",
+      "name": "Tên",
+      "key": "Chìa khóa",
+      "scopes": "Phạm vi",
+      "usage": "Cách sử dụng",
+      "direction": "Phương hướng",
+      "url": "URL",
+      "enabled": "Đã bật",
+      "event": "Sự kiện",
+      "attempt": "Nỗ lực"
+    },
+    "actions": {
+      "diagnose": "Chẩn đoán",
+      "demoSync": "Đồng bộ hóa bản trình diễn",
+      "demoSyncTitle": "Chỉ đồng bộ hóa bản demo - không chuyển ra bên ngoài",
+      "disconnect": "Ngắt kết nối",
+      "rotate": "Quay",
+      "revoke": "Thu hồi",
+      "test": "Bài kiểm tra",
+      "emDash": "—",
+      "yes": "Đúng",
+      "no": "KHÔNG"
+    },
+    "errors": {
+      "failedToFetch": "Không tìm nạp được",
+      "httpStatus": "HTTP {status}"
+    }
+  },
+  "intelligence": {
+    "loading": "Đang tải Trung tâm thông minh doanh nghiệp…",
+    "eyebrow": "Trung tâm thông tin doanh nghiệp",
+    "title": "Tình báo",
+    "subtitle": "KPI, thẻ điểm, cảnh báo và báo cáo cho mọi mô-đun AGXORA. Các giá trị bên dưới là tập dữ liệu demo được tạo hạt giống cho đến khi phần phụ trợ phân tích trực tiếp kết nối.",
+    "demoBanner": "Tập dữ liệu demo - lọc và xác nhận công việc trong phiên; cuộc gọi xuất và mô hình trực tiếp chưa khả dụng.",
+    "noticeDefault": "Hiển thị phân tích demo gốc - không phải dữ liệu đo từ xa sản xuất trực tiếp.",
+    "noPermission": "Bạn không có quyền thông minh.đọc đối với không gian làm việc này.",
+    "filtersUpdated": "Đã cập nhật bộ lọc",
+    "demoReloaded": "Đã tải lại tập dữ liệu demo cho không gian làm việc này.",
+    "acknowledged": "Đã xác nhận: {title}",
+    "exportUnavailableTitle": "Không thể xuất - việc tạo báo cáo chưa được kết nối.",
+    "exportUnavailableAria": "Xuất {title} dưới dạng {format} — không có sẵn",
+    "tabs": {
+      "executive": "Điều hành",
+      "health": "Sức khỏe doanh nghiệp",
+      "workspace": "Phân tích",
+      "kpis": "Trung tâm KPI",
+      "reports": "Báo cáo",
+      "insights": "Thông tin chi tiết",
+      "forecasts": "Dự báo",
+      "alerts": "Cảnh báo",
+      "scorecards": "Thẻ điểm",
+      "explorer": "Trình khám phá dữ liệu"
+    },
+    "filters": {
+      "from": "Từ",
+      "to": "ĐẾN",
+      "domain": "Lãnh địa",
+      "allDomains": "Tất cả các miền",
+      "apply": "Áp dụng bộ lọc",
+      "reloadDemo": "Tải lại dữ liệu demo",
+      "viewsAria": "Chế độ xem thông minh"
+    },
+    "executive": {
+      "companyHealth": "Sức khỏe công ty",
+      "revenueScore": "Điểm doanh thu",
+      "customerHealth": "Sức khỏe khách hàng",
+      "projectHealth": "Tình trạng dự án",
+      "workflowSuccess": "Quy trình làm việc thành công",
+      "aiActivity": "hoạt động trí tuệ nhân tạo",
+      "finance": "Tài chính",
+      "riskGrowth": "Rủi ro/Tăng trưởng",
+      "kpiStrip": "Dải KPI điều hành",
+      "visualizationPreviews": "Xem trước trực quan",
+      "visualizationHint": "Biểu đồ minh họa từ loạt bản demo — không phải phần chi tiết mang tính tương tác.",
+      "noSeries": "Không có chuỗi ràng buộc"
+    },
+    "health": {
+      "title": "Phân hủy sức khỏe doanh nghiệp",
+      "overall": "Tổng thể",
+      "revenue": "Doanh thu",
+      "customers": "Khách hàng",
+      "projects": "Dự án",
+      "workflows": "Quy trình làm việc",
+      "ai": "trí tuệ nhân tạo",
+      "finance": "Tài chính",
+      "operations": "Hoạt động",
+      "riskPosture": "Tư thế rủi ro",
+      "growth": "Sự phát triển",
+      "observability": "Khả năng quan sát: {metrics} số liệu · {avgMs}ms avg · tình trạng hệ thống {health}"
+    },
+    "workspace": {
+      "noSeries": "Không có loạt phim"
+    },
+    "kpis": {
+      "title": "Trung tâm KPI",
+      "subtitle": "Danh mục KPI có thể định cấu hình theo doanh thu, khách hàng, dự án, quy trình làm việc, đại lý và tự động hóa.",
+      "emptyTitle": "Analytics đang chờ tín hiệu",
+      "emptyDescription": "Khi không gian làm việc của bạn tạo ra hoạt động, các KPI điều hành và cảnh báo sẽ xuất hiện ở đây."
+    },
+    "reports": {
+      "title": "Công cụ báo cáo",
+      "subtitle": "Định nghĩa báo cáo được chọn để xem xét. Xuất tệp không khả dụng cho đến khi phần phụ trợ báo cáo được kết nối.",
+      "emptyTitle": "Không có báo cáo",
+      "emptyDescription": "Báo cáo hạt giống trên bootstrap của không gian làm việc.",
+      "scheduleOnDemand": "theo yêu cầu"
+    },
+    "insights": {
+      "emptyTitle": "Chưa có thông tin chi tiết nào",
+      "emptyDescription": "Thông tin chi tiết về bản trình diễn xuất hiện sau hạt giống của không gian làm việc. Việc tạo cái nhìn sâu sắc về AI trực tiếp không được kết nối.",
+      "badge": "Demo · {kind} · {domain} · xác nhận {confidence}"
+    },
+    "forecasts": {
+      "emptyTitle": "Chưa có dự báo nào",
+      "emptyDescription": "Dự báo demo xuất hiện sau hạt giống. Các mô hình dự đoán không được kết nối.",
+      "title": "dự báo {kind}",
+      "baseline": "Đường cơ sở {baseline} → dự kiến ​​{projected} ({days}d)",
+      "confidence": "Demo · Sự tự tin {confidence} — {note}"
+    },
+    "alerts": {
+      "title": "Công cụ cảnh báo",
+      "emptyTitle": "Không có cảnh báo",
+      "emptyDescription": "Cảnh báo hạt giống từ chẩn đoán rủi ro.",
+      "acked": "bị tấn công",
+      "open": "mở",
+      "acknowledge": "Thừa nhận"
+    },
+    "scorecards": {
+      "title": "Công cụ thẻ điểm",
+      "emptyTitle": "Không có phiếu ghi điểm",
+      "emptyDescription": "Hạt giống thẻ điểm trên bootstrap."
+    },
+    "explorer": {
+      "title": "Trình khám phá dữ liệu",
+      "searchPlaceholder": "Tìm kiếm các hàng demo…",
+      "searchAria": "Tìm kiếm hàng trình khám phá demo",
+      "emptyTitle": "Không có hàng nào khớp",
+      "emptyDescription": "Điều chỉnh bộ lọc hoặc tìm kiếm hoặc tải lại tập dữ liệu demo.",
+      "hint": "Tìm kiếm phía máy khách trên các bộ dữ liệu được chọn lọc - tổng hợp phụ trợ và truy sâu xuống không được kết nối."
+    },
+    "columns": {
+      "kpi": "KPI",
+      "value": "Giá trị",
+      "delta": "∆%",
+      "trend": "Xu hướng",
+      "target": "Mục tiêu",
+      "severity": "Mức độ nghiêm trọng",
+      "alert": "Báo động",
+      "domain": "Lãnh địa",
+      "status": "Trạng thái",
+      "actions": "hành động",
+      "report": "Báo cáo",
+      "kind": "Loại",
+      "schedule": "Lịch trình",
+      "export": "Xuất khẩu",
+      "scorecard": "Thẻ điểm",
+      "score": "Điểm",
+      "topDriver": "Trình điều khiển hàng đầu",
+      "label": "Nhãn",
+      "entity": "thực thể",
+      "measure": "Đo lường",
+      "date": "Ngày"
+    },
+    "emDash": "—"
+  },
+  "legal": {
+    "shell": {
+      "brand": "AGXORA",
+      "navLabel": "Điều hướng pháp lý",
+      "lastUpdated": "Cập nhật lần cuối: {date}",
+      "footerCopyright": "© 2026 {company}",
+      "footerNavLabel": "Chân trang hợp pháp",
+      "nav": {
+        "privacy": "Sự riêng tư",
+        "terms": "Điều khoản",
+        "cookies": "Cookie",
+        "imprint": "dấu ấn",
+        "contact": "Liên hệ"
+      },
+      "footer": {
+        "home": "Trang chủ",
+        "pricing": "Định giá",
+        "contact": "Liên hệ"
+      }
+    },
+    "contact": {
+      "title": "Liên hệ",
+      "eyebrow": "Công ty",
+      "introLead": "Hãy liên hệ với nhóm AGXORA để đặt câu hỏi về sản phẩm, hỗ trợ hoặc trò chuyện trong doanh nghiệp. Thích định tuyến bán hàng hơn? Sử dụng",
+      "contactSales": "Liên hệ bán hàng",
+      "companyEmail": "Email công ty",
+      "supportEmail": "Email hỗ trợ",
+      "sales": "Việc bán hàng",
+      "enterpriseForm": "Hình thức doanh nghiệp",
+      "businessAddress": "Địa chỉ doanh nghiệp",
+      "addressPending": "Có sẵn theo yêu cầu — đặt NEXT_PUBLIC_AGXORA_ADDRESS_* cho sản xuất.",
+      "quickLinks": "Liên kết nhanh",
+      "pricing": "Định giá",
+      "imprint": "dấu ấn",
+      "privacyPolicy": "Chính sách bảo mật"
+    },
+    "privacy": {
+      "title": "Chính sách bảo mật",
+      "eyebrow": "Hợp pháp",
+      "intro": "Chính sách quyền riêng tư này giải thích cách {legalName} (“AGXORA”, “chúng tôi”, “chúng tôi”) xử lý dữ liệu cá nhân khi bạn truy cập {siteUrl}, tạo tài khoản hoặc sử dụng nền tảng AGXORA.",
+      "controller": "1. Bộ điều khiển",
+      "dataWeProcess": "2. Dữ liệu chúng tôi xử lý",
+      "dataAccount": "Dữ liệu tài khoản: tên, email, tổ chức và vai trò.",
+      "dataUsage": "Dữ liệu sử dụng: tương tác sản phẩm, thiết bị và nhật ký chẩn đoán.",
+      "dataBilling": "Dữ liệu thanh toán: gói, hóa đơn và tài liệu tham khảo thanh toán từ nhà cung cấp.",
+      "dataSupport": "Hỗ trợ thông tin liên lạc bạn gửi cho chúng tôi.",
+      "purposes": "3. Mục đích và cơ sở pháp lý",
+      "purposesBody": "Chúng tôi xử lý dữ liệu để cung cấp dịch vụ (hợp đồng), bảo mật nền tảng (lợi ích hợp pháp), đáp ứng các nghĩa vụ pháp lý và—nếu cần—với sự đồng ý của bạn (ví dụ: phân tích hoặc tiếp thị tùy chọn).",
+      "retention": "4. Giữ lại",
+      "retentionBody": "Chúng tôi chỉ lưu giữ dữ liệu cá nhân trong khoảng thời gian cần thiết cho các mục đích nêu trên, bao gồm cả việc lưu giữ theo luật định cho hồ sơ thanh toán và bảo mật, sau đó xóa hoặc ẩn danh dữ liệu đó.",
+      "sharing": "5. Chia sẻ",
+      "sharingBody": "Chúng tôi sử dụng các bộ xử lý đã được hiệu đính (lưu trữ, email, thanh toán) theo các hợp đồng phù hợp. Chúng tôi không bán dữ liệu cá nhân.",
+      "yourRights": "6. Quyền của bạn",
+      "yourRightsBodyBefore": "Tùy thuộc vào vị trí của bạn, bạn có thể yêu cầu quyền truy cập, chỉnh sửa, xóa, hạn chế, di chuyển hoặc phản đối. Liên hệ",
+      "yourRightsBodyAfter": "Bạn cũng có thể nộp đơn khiếu nại với cơ quan giám sát.",
+      "cookies": "7. Bánh quy",
+      "cookiesBodyBefore": "Xem của chúng tôi",
+      "cookiesBodyAfter": "để biết chi tiết về các cookie cần thiết và tùy chọn.",
+      "cookiePolicy": "Chính sách cookie",
+      "contactSection": "8. Liên hệ",
+      "contactBodyBefore": "Câu hỏi:",
+      "contactBodyMiddle": "hoặc"
+    },
+    "terms": {
+      "title": "Điều khoản dịch vụ",
+      "eyebrow": "Hợp pháp",
+      "intro": "Các Điều khoản dịch vụ này (“Điều khoản”) chi phối việc truy cập và sử dụng các sản phẩm và trang web AGXORA do {legalName} điều hành. Bằng cách tạo tài khoản hoặc sử dụng dịch vụ, bạn đồng ý với các Điều khoản này.",
+      "accounts": "1. Tài khoản",
+      "accountsBody": "Bạn phải cung cấp thông tin đăng ký chính xác, bảo mật thông tin xác thực và chịu trách nhiệm về hoạt động trong tài khoản của mình. Quản trị viên tổ chức quản lý chỗ ngồi và quyền truy cập vào không gian làm việc của họ.",
+      "billing": "2. Đăng ký và thanh toán",
+      "billingBodyBefore": "Các gói trả phí được lập hóa đơn theo gói đã chọn trên",
+      "billingBodyAfter": "Thỏa thuận doanh nghiệp có thể thay thế các điều khoản tự phục vụ. Lệ phí không được hoàn lại trừ trường hợp pháp luật yêu cầu hoặc được thỏa thuận rõ ràng bằng văn bản.",
+      "pricing": "Định giá",
+      "acceptableUse": "3. Sử dụng chấp nhận được",
+      "useNoMisuse": "Không lạm dụng nền tảng, cố gắng truy cập trái phép hoặc làm gián đoạn dịch vụ.",
+      "useNoUnlawful": "Không tải lên nội dung bất hợp pháp hoặc vi phạm quyền của bên thứ ba.",
+      "useCompliance": "Tuân thủ các quy định về xuất khẩu, lệnh trừng phạt và quy định của ngành áp dụng cho bạn.",
+      "customerData": "4. Dữ liệu khách hàng",
+      "customerDataBodyBefore": "Bạn giữ quyền đối với nội dung kinh doanh của bạn. Bạn cấp cho AGXORA giấy phép có giới hạn để lưu trữ và xử lý nội dung đó chỉ nhằm mục đích cung cấp dịch vụ. Của chúng tôi",
+      "customerDataBodyAfter": "mô tả việc xử lý dữ liệu cá nhân.",
+      "privacyPolicy": "Chính sách bảo mật",
+      "aiFeatures": "5. Tính năng AI",
+      "aiFeaturesBody": "Kết quả đầu ra AI có thể không chính xác hoặc không đầy đủ. Bạn vẫn có trách nhiệm xem xét kết quả đầu ra trước khi dựa vào chúng để đưa ra quyết định kinh doanh.",
+      "availability": "6. Tính sẵn có và những thay đổi",
+      "availabilityBody": "Chúng tôi hướng tới tính sẵn sàng cao nhưng không đảm bảo dịch vụ không bị gián đoạn. Chúng tôi có thể cập nhật các tính năng và các Điều khoản này; những thay đổi quan trọng sẽ được thông báo qua sản phẩm hoặc email nếu thích hợp.",
+      "liability": "7. Giới hạn trách nhiệm",
+      "liabilityBody": "Trong phạm vi tối đa được pháp luật cho phép, AGXORA không chịu trách nhiệm về các thiệt hại gián tiếp, ngẫu nhiên hoặc do hậu quả. Trách nhiệm pháp lý tổng hợp của chúng tôi đối với các đăng ký trả phí được giới hạn ở các khoản phí được thanh toán trong 12 tháng trước yêu cầu bồi thường.",
+      "contact": "8. Liên hệ",
+      "contactBodyBefore": "Câu hỏi pháp lý:"
+    },
+    "cookies": {
+      "title": "Chính sách cookie",
+      "eyebrow": "Hợp pháp",
+      "intro": "Chính sách cookie này mô tả cách {companyName} sử dụng cookie và các công nghệ tương tự. Cần có các cookie thiết yếu để xác thực và bảo mật. Cookie phân tích tùy chọn chỉ được bật khi thu thập được sự đồng ý.",
+      "whatAre": "1. Cookie là gì?",
+      "whatAreBody": "Cookies là các tệp nhỏ được lưu trữ trên thiết bị của bạn. Chúng giúp trang web hoạt động, ghi nhớ các tùy chọn và—nếu được phép—đo lường hiệu suất.",
+      "categories": "2. Danh mục chúng tôi sử dụng",
+      "essential": "Thiết yếu",
+      "essentialBody": "xác thực, bảo mật, cân bằng tải và các tùy chọn cơ bản. Cần thiết cho dịch vụ.",
+      "functional": "chức năng",
+      "functionalBody": "các tính năng tùy chọn như cài đặt giao diện người dùng được ghi nhớ (khi được bật).",
+      "analytics": "Phân tích",
+      "analyticsBody": "đo lường mức sử dụng tổng hợp (chỉ khi có sự đồng ý nếu cần thiết).",
+      "managing": "3. Quản lý cookie",
+      "managingBody": "Bạn có thể kiểm soát các cookie không cần thiết thông qua cài đặt trình duyệt và khi có sẵn, trung tâm ưu tiên trên trang web của chúng tôi. Việc chặn các cookie thiết yếu có thể ngăn cản việc đăng nhập hoặc sử dụng sản phẩm cốt lõi.",
+      "moreInfo": "4. Thêm thông tin",
+      "moreInfoBodyBefore": "Xem",
+      "moreInfoBodyMiddle": "hoặc liên hệ"
+    },
+    "imprint": {
+      "title": "dấu ấn",
+      "eyebrow": "Hợp pháp",
+      "intro": "Thông tin theo yêu cầu công bố hiện hành. Định cấu hình giá trị sản xuất với các biến môi trường NEXT_PUBLIC_AGXORA_* trước khi ra mắt công khai.",
+      "company": "Công ty",
+      "address": "Địa chỉ",
+      "email": "E-mail",
+      "support": "Ủng hộ",
+      "representedBy": "Đại diện bởi",
+      "register": "Đăng ký",
+      "vatId": "Mã số thuế GTGT",
+      "pendingConfiguration": "Cấu hình đang chờ xử lý",
+      "responsibleForContent": "Chịu trách nhiệm về nội dung",
+      "responsibleBody": "Người liên hệ biên tập cho trang web này: {legalName}{addressSuffix}.",
+      "contact": "Liên hệ",
+      "contactBodyBefore": "Thích một hình thức? Thăm nom",
+      "contactBodyMiddle": "hoặc",
+      "contactBodyAfter": "để được giải đáp thắc mắc của doanh nghiệp.",
+      "contactSales": "Liên hệ bán hàng"
+    }
+  },
+  "onboarding": {
+    "eyebrow": "Hệ điều hành AGXORA",
+    "title": "Khởi động hệ điều hành doanh nghiệp của bạn",
+    "lead": "Chọn mẫu ngành của bạn. AGXORA định cấu hình các mô-đun, tác nhân, quy trình làm việc và kiến ​​thức về công ty — mà không khóa bạn mãi mãi vào một ngành dọc.",
+    "steps": {
+      "type": "Kiểu",
+      "company": "Công ty",
+      "locale": "Ngôn ngữ",
+      "goals": "Bàn thắng"
+    },
+    "companyName": "Tên công ty",
+    "companyPlaceholder": "Tập đoàn khách sạn Acme",
+    "template": "Bản mẫu",
+    "country": "Quốc gia",
+    "language": "Ngôn ngữ",
+    "languagePlaceholder": "vi",
+    "timezone": "Múi giờ",
+    "timezonePlaceholder": "UTC",
+    "goals": {
+      "increaseRevenue": "Tăng doanh thu",
+      "improveOperations": "Cải thiện hoạt động",
+      "delightCustomers": "Làm hài lòng khách hàng",
+      "reduceCosts": "Giảm chi phí",
+      "scaleWithAi": "Mở rộng quy mô bằng AI"
+    },
+    "failed": "Quá trình giới thiệu không thành công",
+    "back": "Mặt sau",
+    "continue": "Tiếp tục",
+    "launching": "Đang khởi chạy…",
+    "enterDashboard": "Nhập trang tổng quan",
+    "defaultCountry": "Hoa Kỳ",
+    "businessTypes": {
+      "hotel": {
+        "label": "Khách sạn",
+        "description": "Khách sạn, phòng, khách và vận hành cơ sở"
+      },
+      "restaurant": {
+        "label": "Nhà hàng",
+        "description": "Ẩm thực, bếp, đặt chỗ và trải nghiệm khách"
+      },
+      "cleaning": {
+        "label": "Vệ sinh",
+        "description": "Vận hành vệ sinh thương mại và dân cư"
+      },
+      "laundry": {
+        "label": "Giặt là",
+        "description": "Xưởng giặt, tuyến thu gom và chăm sóc vải"
+      },
+      "construction": {
+        "label": "Xây dựng",
+        "description": "Công trường, tổ đội, vật tư và bàn giao dự án"
+      },
+      "healthcare": {
+        "label": "Y tế",
+        "description": "Mạng lưới chăm sóc, bệnh nhân và vận hành lâm sàng"
+      },
+      "medical": {
+        "label": "Y khoa",
+        "description": "Phòng khám, lịch hẹn và đội ngũ chăm sóc"
+      },
+      "manufacturing": {
+        "label": "Sản xuất",
+        "description": "Dây chuyền, chất lượng và vận hành cung ứng"
+      },
+      "retail": {
+        "label": "Bán lẻ",
+        "description": "Cửa hàng, tồn kho, trưng bày và khách hàng"
+      },
+      "legal": {
+        "label": "Công ty luật",
+        "description": "Vụ việc, khách, hạn chót và thanh toán"
+      },
+      "accounting": {
+        "label": "Kế toán",
+        "description": "Sổ sách, khách, tờ khai và tư vấn"
+      },
+      "consulting": {
+        "label": "Tư vấn",
+        "description": "Hợp đồng, sản phẩm bàn giao và kết quả khách"
+      },
+      "real_estate": {
+        "label": "Bất động sản",
+        "description": "Tin đăng, khách, xem nhà và giao dịch"
+      },
+      "education": {
+        "label": "Giáo dục",
+        "description": "Chương trình, sinh viên, giảng viên và tuyển sinh"
+      },
+      "automotive": {
+        "label": "Ô tô",
+        "description": "Đại lý, khu dịch vụ và tồn kho xe"
+      },
+      "beauty": {
+        "label": "Salon làm đẹp",
+        "description": "Lịch hẹn, stylist, bán lẻ và hội viên"
+      },
+      "fitness": {
+        "label": "Phòng gym / thể hình",
+        "description": "Hội viên, lớp học, HLV và giữ chân"
+      },
+      "agriculture": {
+        "label": "Nông nghiệp",
+        "description": "Cây trồng, chăn nuôi, năng suất và chuỗi cung ứng"
+      },
+      "transport": {
+        "label": "Vận tải",
+        "description": "Điều phối đội xe, tuyến và vận hành hành khách/hàng"
+      },
+      "logistics": {
+        "label": "Logistics",
+        "description": "Đội xe, kho, tuyến và hoàn tất đơn"
+      },
+      "warehouse": {
+        "label": "Kho",
+        "description": "Lưu kho, lấy hàng, đóng gói và vòng quay tồn"
+      },
+      "insurance": {
+        "label": "Bảo hiểm",
+        "description": "Hợp đồng, bồi thường, thẩm định và giữ chân"
+      },
+      "finance": {
+        "label": "Tài chính",
+        "description": "Vốn, danh mục và vận hành tài chính"
+      },
+      "financial_services": {
+        "label": "Dịch vụ tài chính",
+        "description": "Tư vấn, sản phẩm, tuân thủ và khách hàng"
+      },
+      "technology": {
+        "label": "Công nghệ",
+        "description": "Sản phẩm, kỹ thuật và đội ngũ ra thị trường"
+      },
+      "saas": {
+        "label": "Phần mềm / SaaS",
+        "description": "Thuê bao, mức dùng và thành công khách hàng"
+      },
+      "ecommerce": {
+        "label": "Thương mại điện tử",
+        "description": "Danh mục online, giỏ hàng, hoàn tất đơn và LTV"
+      },
+      "agency": {
+        "label": "Đại lý marketing",
+        "description": "Khách, chiến dịch, retainer và bàn giao"
+      },
+      "freelancer": {
+        "label": "Freelancer",
+        "description": "Hành nghề độc lập, khách, pipeline và dòng tiền"
+      },
+      "government": {
+        "label": "Chính phủ",
+        "description": "Dịch vụ công, chương trình và người dân"
+      },
+      "nonprofit": {
+        "label": "Phi lợi nhuận",
+        "description": "Sứ mệnh, nhà tài trợ, chương trình và tác động"
+      }
+    }
+  },
+  "creator": {
+    "page": {
+      "eyebrow": "Hệ điều hành tiếp thị AGXORA",
+      "title": "Studio sáng tạo AI",
+      "lead": "Sản xuất nội dung doanh nghiệp - tạo, xây dựng thương hiệu, lập kế hoạch, xuất bản và đo lường các chiến dịch do AI cung cấp trên mọi kênh.",
+      "dashboard": "Trang tổng quan",
+      "workspace": "Không gian làm việc",
+      "workspaceSubtitle": "Tạo nội dung · Chiến dịch · Thư viện phương tiện · Mẫu · Tài sản thương hiệu · Hàng xuất bản · Phân tích",
+      "workspaceAria": "Không gian làm việc của người sáng tạo",
+      "integrations": "Tích hợp trong tương lai",
+      "integrationsSubtitle": "Bộ điều hợp nền tảng chính thức được bảo lưu - không có kết nối trực tiếp giả mạo.",
+      "aiFeatures": "Tính năng AI",
+      "aiFeaturesSubtitle": "Bản đồ năng lực sản xuất, thương hiệu, tiến độ và nội địa hóa."
+    },
+    "tabs": {
+      "create": "Tạo nội dung",
+      "campaigns": "Chiến dịch",
+      "media": "Thư viện phương tiện",
+      "templates": "Mẫu",
+      "brand": "Tài sản thương hiệu",
+      "queue": "Hàng đợi xuất bản",
+      "analytics": "Phân tích"
+    },
+    "templates": {
+      "emptyTitle": "Không có mẫu",
+      "emptyDescription": "Nội dung và mẫu thiết kế có thể tái sử dụng sẽ tồn tại ở đây."
+    },
+    "campaign": {
+      "title": "Người lập kế hoạch chiến dịch",
+      "calendar": "Lịch nội dung",
+      "columns": {
+        "name": "Tên chiến dịch",
+        "objective": "Khách quan",
+        "audience": "Khán giả",
+        "platforms": "Nền tảng",
+        "budget": "Ngân sách",
+        "timeline": "Dòng thời gian",
+        "status": "Trạng thái"
+      },
+      "emptyTitle": "Không có chiến dịch",
+      "emptyDescription": "Tạo một chiến dịch để lên kế hoạch cho mục tiêu, đối tượng và mốc thời gian."
+    },
+    "media": {
+      "title": "Thư viện phương tiện",
+      "columns": {
+        "asset": "Tài sản",
+        "type": "Kiểu",
+        "folder": "Thư mục",
+        "tags": "Thẻ",
+        "updated": "Đã cập nhật"
+      },
+      "emptyTitle": "Không có phương tiện truyền thông",
+      "emptyDescription": "Hình ảnh, video, tài liệu, logo và mẫu sẽ xuất hiện ở đây.",
+      "searchPlaceholder": "Tìm kiếm nội dung, thư mục, thẻ…",
+      "typeFilter": "Kiểu",
+      "allTypes": "Tất cả các loại",
+      "images": "Hình ảnh",
+      "videos": "Video",
+      "documents": "Tài liệu",
+      "logos": "Logo thương hiệu",
+      "templates": "Mẫu"
+    },
+    "generator": {
+      "title": "Trình tạo nội dung AI",
+      "lead": "Tạo chú thích trên Instagram, tập lệnh TikTok, bài đăng trên LinkedIn, quảng cáo, bài viết SEO, v.v.",
+      "brief": "Ngắn gọn",
+      "briefPlaceholder": "Mô tả ưu đãi, đối tượng và CTA…",
+      "generateDraft": "Tạo bản nháp",
+      "aiRewrite": "Viết lại AI",
+      "translate": "Dịch",
+      "initialOutput": "Chọn định dạng và tiếng nói thương hiệu, sau đó tạo bản nháp. Bộ điều hợp nhà cung cấp được bảo lưu - chưa có cuộc gọi mô hình trực tiếp nào.",
+      "draftStaged": "Bản nháp được dàn dựng cho {format} · giọng nói: {voice}. Bộ chuyển đổi thế hệ được bảo lưu.",
+      "rewriteQueued": "AI Rewrite đã được xếp hàng đợi - bộ chuyển đổi viết lại được dành riêng.",
+      "translateQueued": "Dịch Nội dung được xếp hàng đợi - dành riêng bộ điều hợp đa ngôn ngữ.",
+      "brandVoice": "Tiếng nói thương hiệu",
+      "brandVoiceLead": "Cài đặt trước tông màu kinh doanh cộng với tiếng nói thương hiệu tùy chỉnh để đảm bảo tính nhất quán.",
+      "active": "Tích cực"
+    },
+    "queue": {
+      "title": "Hàng đợi xuất bản",
+      "columns": {
+        "title": "Tiêu đề",
+        "platform": "Nền tảng",
+        "format": "Định dạng",
+        "status": "Trạng thái",
+        "scheduled": "Đã lên lịch",
+        "author": "Tác giả"
+      },
+      "emptyTitle": "Không có bài viết nào trong hàng đợi",
+      "emptyDescription": "Bản nháp, đánh giá và bài đăng theo lịch sẽ xuất hiện ở đây.",
+      "filterStatus": "Trạng thái lọc",
+      "allStatuses": "Tất cả trạng thái"
+    },
+    "analytics": {
+      "title": "Phân tích",
+      "topPosts": "Bài viết hàng đầu",
+      "engagement": "Tiếng Anh {value}",
+      "reach": "Đạt đến {value}",
+      "recommendations": "Khuyến nghị AI"
+    },
+    "integrations": {
+      "lead": "Tích hợp trong tương lai - tùy chọn. Không có API trực tiếp cho đến khi được kết nối. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.",
+      "adapter": "Bộ chuyển đổi:"
+    },
+    "aiFeaturesPanel": {
+      "lead": "Bản đồ tính năng AI - ý tưởng, chú thích, hashtag, lịch, chiến dịch, đối tượng, lịch trình, tính nhất quán của thương hiệu, viết lại, dịch, đa ngôn ngữ."
+    },
+    "formats": {
+      "instagram_caption": "Chú thích Instagram",
+      "tiktok_script": "Kịch bản TikTok",
+      "linkedin_post": "Bài LinkedIn",
+      "facebook_post": "Bài Facebook",
+      "x_post": "Bài X",
+      "blog_article": "Bài blog",
+      "newsletter": "Bản tin",
+      "email_campaign": "Chiến dịch email",
+      "product_description": "Mô tả sản phẩm",
+      "ad_copy": "Nội dung quảng cáo",
+      "seo_article": "Bài SEO",
+      "landing_page_copy": "Nội dung trang đích"
+    },
+    "publishStatus": {
+      "draft": "Nháp",
+      "review": "Xem xét",
+      "approved": "Đã duyệt",
+      "scheduled": "Đã lên lịch",
+      "published": "Đã xuất bản",
+      "archive": "Lưu trữ"
+    },
+    "mediaKind": {
+      "image": "Hình ảnh",
+      "video": "Video",
+      "document": "Tài liệu",
+      "logo": "Logo thương hiệu",
+      "template": "Mẫu"
+    },
+    "voice": {
+      "professional": "Chuyên nghiệp",
+      "friendly": "Thân thiện",
+      "luxury": "Sang trọng",
+      "casual": "Thoải mái"
+    },
+    "integrationStatus": {
+      "planned": "Đã lên kế hoạch",
+      "ready": "Sẵn sàng",
+      "connected": "Đã kết nối",
+      "disabled": "Đã tắt"
+    }
+  },
+  "backend": {
+    "toast": {
+      "success": "Thành công",
+      "warning": "Cảnh báo",
+      "error": "Lỗi",
+      "info": "Thông tin",
+      "dismiss": "Loại bỏ thông báo",
+      "close": "Đóng"
+    },
+    "network": {
+      "offline": "Có vẻ như bạn đang ngoại tuyến",
+      "offlineSyncHint": "Thay đổi có thể chưa đồng bộ cho đến khi kết nối trở lại.",
+      "offlineHelp": "Trợ giúp ngoại tuyến",
+      "reconnected": "Đã khôi phục kết nối"
+    },
+    "errorBoundary": {
+      "backToDashboard": "Quay lại trang tổng quan",
+      "title": "Đã xảy ra lỗi",
+      "retry": "Thử lại"
+    },
+    "notFound": {
+      "title": "Không tìm thấy trang",
+      "message": "Trang bạn yêu cầu không tồn tại, đã bị di chuyển hoặc không còn tồn tại.",
+      "recoveryNav": "Sự hồi phục",
+      "home": "Trang chủ",
+      "pricing": "Định giá",
+      "contact": "Liên hệ",
+      "signIn": "Đăng nhập",
+      "dashboard": "Trang tổng quan"
+    },
+    "globalError": {
+      "title": "Đã xảy ra lỗi",
+      "message": "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại.",
+      "retry": "Thử lại"
+    },
+    "skipToMain": "Chuyển đến nội dung chính",
+    "offline": {
+      "title": "Bạn đang ngoại tuyến",
+      "message": "Hãy kiểm tra kết nối của bạn và thử lại khi bạn trực tuyến trở lại. Màn hình được lưu trong bộ nhớ đệm vẫn có thể hoạt động.",
+      "home": "Trang chủ",
+      "contact": "Liên hệ",
+      "signIn": "Đăng nhập"
+    },
+    "logout": {
+      "title": "Đăng xuất",
+      "signingOut": "Đang đăng xuất bạn…",
+      "endingSession": "Kết thúc phiên…",
+      "failed": "Đăng xuất không thành công"
+    },
+    "demo": {
+      "title": "Đặt bản demo",
+      "subtitle": "Lên lịch hướng dẫn trực tiếp với nhóm AGXORA. Cho đến khi tính năng đặt lịch được bật, hãy gửi email cho chúng tôi để yêu cầu bản demo.",
+      "requestTitle": "Yêu cầu bản demo",
+      "requestBody": "Chúng tôi đang hoàn tất việc lên lịch để bạn có thể chọn thời gian phù hợp với nhóm của mình. Cho đến lúc đó, hãy bắt đầu miễn phí và khám phá sản phẩm theo tốc độ của riêng bạn — hoặc gửi email cho chúng tôi theo địa chỉ {email}.",
+      "startFree": "Thay vào đó hãy bắt đầu miễn phí",
+      "backHome": "Trở về nhà",
+      "signIn": "Đăng nhập"
+    },
+    "loading": "Đang tải",
+    "loadingEllipsis": "Đang tải…",
+    "loadingIdentity": "Đang tải danh tính…"
+  },
+  "workspace": {
+    "page": {
+      "title": "Không gian làm việc",
+      "description": "Bề mặt không gian làm việc của người thuê bị cô lập dành cho các mô-đun và AI.",
+      "descriptionNamed": "Bề mặt không gian làm việc của đối tượng thuê biệt lập dành cho {name}."
+    },
+    "idLabel": "ID không gian làm việc:",
+    "active": "Đang hoạt động: {name}",
+    "notInSession": "Không có trong phiên hiện tại",
+    "organization": "Tổ chức: {name} ({slug})",
+    "searchResults": "Kết quả tìm kiếm"
+  },
+  "iam": {
+    "identity": {
+      "eyebrow": "IAM doanh nghiệp",
+      "title": "Nhận dạng & Quyền truy cập",
+      "lead": "Tổ chức, không gian làm việc, RBAC, phần giữ chỗ bảo mật và kiến ​​trúc kiểm tra. Bộ điều hợp phụ trợ cắm vào mà không thay đổi bề mặt này.",
+      "openProfile": "Mở hồ sơ",
+      "teamManagement": "Quản lý đội",
+      "tabs": {
+        "organization": "Tổ chức",
+        "workspace": "Không gian làm việc",
+        "roles": "Vai trò và quyền",
+        "security": "Bảo vệ",
+        "audit": "Nhật ký kiểm tra"
+      },
+      "organizationSettings": "Cài đặt tổ chức",
+      "workspaceSettings": "Cài đặt không gian làm việc",
+      "noOrganization": "Không có tổ chức nào hoạt động Hoàn tất quá trình giới thiệu hoặc tạo một quy trình từ dịch vụ của tổ chức.",
+      "logoPlaceholder": "Bộ điều hợp thanh toán gói và tải lên logo là phần giữ chỗ cho phần phụ trợ danh tính trong tương lai.",
+      "rbacTitle": "RBAC - vai trò mặc định",
+      "permissionMatrix": "Ma trận quyền",
+      "canManageSettings": "Có thể quản lý cài đặt: {value} · Đã xác thực: {authenticated}",
+      "yes": "Đúng",
+      "no": "KHÔNG",
+      "securitySettings": "Cài đặt bảo mật",
+      "passwordChange": {
+        "title": "Thay đổi mật khẩu",
+        "detail": "Thay đổi mật khẩu kết nối thông qua nhà cung cấp xác thực khi được định cấu hình."
+      },
+      "twoFactor": {
+        "title": "Xác thực hai yếu tố (2FA)",
+        "detail": "Bộ điều hợp TOTP và WebAuthn đăng ký tại đây khi được bật."
+      },
+      "activeSessions": {
+        "title": "Phiên hoạt động",
+        "detail": "Thư mục thiết bị tồn tại trong các phiên nhận dạng; việc thu hồi trở nên có thẩm quyền với các phiên máy chủ."
+      },
+      "apiKeys": {
+        "title": "Khóa API",
+        "detail": "Tài khoản dịch vụ và mã thông báo có phạm vi dành cho nhà phát triển."
+      },
+      "absoluteTimeout": "Thời gian chờ tuyệt đối",
+      "idleTimeout": "Hết thời gian chờ",
+      "refreshSkew": "Làm mới nghiêng",
+      "persistentLogin": "Đăng nhập liên tục",
+      "disabled": "Tàn tật",
+      "enabled": "Đã bật",
+      "days": "{count} ngày",
+      "minutes": "{count} phút",
+      "toggleIdlePolicy": "Chuyển đổi trình giữ chỗ chính sách nhàn rỗi",
+      "previewSessionExpired": "Phiên xem trước đã hết hạn",
+      "previewAccountLocked": "Xem trước tài khoản đã bị khóa",
+      "auditActivity": "Hoạt động kiểm toán",
+      "auditLead": "Đăng nhập, đăng xuất, thay đổi vai trò, lời mời và các sự kiện của tổ chức được ghi lại cục bộ. Thay thế bằng một cửa hàng kiểm tra phụ trợ bất biến sau này.",
+      "auditEmpty": "Chưa có sự kiện IAM nào. Đăng nhập hoặc thay đổi vai trò để điền nhật ký.",
+      "meta": {
+        "name": "Tên",
+        "slug": "sên",
+        "plan": "Kế hoạch",
+        "owner": "Người sở hữu",
+        "created": "Tạo",
+        "yourRole": "Vai trò của bạn",
+        "workspace": "Không gian làm việc",
+        "status": "Trạng thái",
+        "isolationKey": "Phím cách ly"
+      },
+      "matrix": {
+        "permission": "Sự cho phép",
+        "owner": "Người sở hữu",
+        "admin": "Quản trị viên",
+        "manager": "Giám đốc",
+        "member": "Thành viên",
+        "viewer": "Người xem",
+        "yes": "Đúng"
+      },
+      "audit": {
+        "when": "Khi",
+        "action": "Hoạt động",
+        "actor": "Diễn viên",
+        "resource": "Tài nguyên"
+      }
+    },
+    "roles": {
+      "owner": {
+        "name": "Người sở hữu",
+        "description": "Kiểm soát hoàn toàn bao gồm thanh toán và chuyển quyền sở hữu"
+      },
+      "admin": {
+        "name": "Quản trị viên",
+        "description": "Quản lý con người, bảo mật, không gian làm việc và mô-đun"
+      },
+      "manager": {
+        "name": "Giám đốc",
+        "description": "Các nhóm lãnh đạo và các mô-đun vận hành; mời thành viên"
+      },
+      "member": {
+        "name": "Thành viên",
+        "description": "Truy cập hoạt động hàng ngày"
+      },
+      "viewer": {
+        "name": "Người xem",
+        "description": "Quyền truy cập chỉ đọc"
+      }
+    },
+    "profile": {
+      "eyebrow": "Danh tính",
+      "title": "Hồ sơ người dùng",
+      "lead": "Quản lý danh tính, tùy chọn và bảo mật tài khoản của bạn. Kiểm soát tổ chức và không gian làm việc trực tiếp trong Cài đặt danh tính.",
+      "guest": "Khách mời",
+      "notSignedIn": "Chưa đăng nhập",
+      "identitySettings": "Cài đặt nhận dạng",
+      "security": "Bảo vệ",
+      "profileSection": "Hồ sơ",
+      "fullName": "Tên đầy đủ",
+      "email": "E-mail",
+      "language": "Ngôn ngữ",
+      "timezone": "Múi giờ",
+      "languageEnGb": "Tiếng Anh (Anh)",
+      "languageEnUs": "Tiếng Anh (Mỹ)",
+      "languageDe": "tiếng Đức",
+      "timezoneBerlin": "Châu Âu/Berlin",
+      "timezoneLondon": "Châu Âu/Luân Đôn",
+      "timezoneUtc": "UTC",
+      "timezoneNewYork": "Mỹ/New_York",
+      "notifications": "Thông báo",
+      "emailNotifications": "Thông báo qua email",
+      "pushNotifications": "Thông báo đẩy",
+      "workspace": "Không gian làm việc",
+      "noticeInitial": "Tùy chọn lưu cục bộ cho đến khi API hồ sơ được kết nối.",
+      "noticeSaved": "Đã cập nhật tùy chọn hồ sơ.",
+      "savePreferences": "Lưu tùy chọn"
+    },
+    "workspaceSelector": {
+      "empty": "Chưa có không gian làm việc nào — hãy tạo một tổ chức để cung cấp không gian làm việc.",
+      "label": "Không gian làm việc năng động",
+      "ariaLabel": "Chuyển đổi không gian làm việc"
+    },
+    "access": {
+      "eyebrow": "Danh tính và truy cập",
+      "signIn": "Đăng nhập",
+      "backToDashboard": "Quay lại bảng điều khiển",
+      "unauthorized": {
+        "title": "Không được phép",
+        "description": "Đăng nhập để tiếp tục khu vực này của AGXORA."
+      },
+      "forbidden": {
+        "title": "Bị cấm",
+        "description": "Vai trò của bạn không bao gồm quyền cho tài nguyên này."
+      },
+      "expired_session": {
+        "title": "Phiên đã hết hạn",
+        "description": "Phiên của bạn đã hết hạn. Đăng nhập lại để tiếp tục công việc."
+      },
+      "missing_permission": {
+        "title": "Thiếu quyền",
+        "description": "Nhờ Chủ sở hữu hoặc Quản trị viên cấp quyền truy cập mô-đun cần thiết."
+      },
+      "account_locked": {
+        "title": "Tài khoản bị khóa",
+        "description": "Tài khoản này đã bị khóa. Liên hệ chủ sở hữu tổ chức hoặc thử lại sau."
+      }
+    },
+    "verifyEmail": {
+      "title": "Xác minh email",
+      "loading": "Đang tải…",
+      "skipForNow": "Bỏ qua bây giờ",
+      "tokenPlaceholder": "Mã thông báo xác minh",
+      "tokenIssued": "Mã thông báo xác minh được cấp cho phiên hiện tại.",
+      "issueFailed": "Không thể phát hành mã thông báo",
+      "verificationFailed": "Xác minh không thành công",
+      "verify": "Xác minh email",
+      "verifying": "Đang xác minh…",
+      "requestToken": "Yêu cầu mã thông báo xác minh"
+    }
+  }
+}

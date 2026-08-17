@@ -1,0 +1,62 @@
+{
+  "toast": {
+    "success": "Başarı",
+    "warning": "Uyarı",
+    "error": "Hata",
+    "info": "Bilgi",
+    "dismiss": "Bildirimi reddet",
+    "close": "Kapalı"
+  },
+  "network": {
+    "offline": "Çevrimdışı görünüyorsunuz",
+    "offlineHelp": "Çevrimdışı yardım",
+    "reconnected": "Bağlantı yeniden kuruldu",
+    "offlineSyncHint": "Bağlantı dönene kadar değişiklikler senkronize edilmeyebilir."
+  },
+  "errorBoundary": {
+    "backToDashboard": "Kontrol paneline geri dön",
+    "title": "Bir şeyler ters gitti",
+    "retry": "Yeniden dene"
+  },
+  "notFound": {
+    "title": "Sayfa bulunamadı",
+    "message": "İstediğiniz sayfa mevcut değil, taşınmış veya artık mevcut değil.",
+    "recoveryNav": "İyileşmek",
+    "home": "Ev",
+    "pricing": "Fiyatlandırma",
+    "contact": "Temas etmek",
+    "signIn": "Oturum aç",
+    "dashboard": "Kontrol Paneli"
+  },
+  "globalError": {
+    "title": "Bir şeyler ters gitti",
+    "message": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.",
+    "retry": "Yeniden dene"
+  },
+  "skipToMain": "Ana içeriğe atla",
+  "offline": {
+    "title": "Çevrimdışısınız",
+    "message": "Bağlantınızı kontrol edin ve tekrar çevrimiçi olduğunuzda tekrar deneyin. Önbelleğe alınmış ekranlar yine de çalışabilir.",
+    "home": "Ev",
+    "contact": "Temas etmek",
+    "signIn": "Oturum aç"
+  },
+  "logout": {
+    "title": "oturumu Kapat",
+    "signingOut": "Oturumunuz kapatılıyor…",
+    "endingSession": "Oturum sonlandırılıyor…",
+    "failed": "Oturum kapatılamadı"
+  },
+  "demo": {
+    "title": "Demo rezervasyonu yapın",
+    "subtitle": "AGXORA ekibiyle canlı bir inceleme planlayın. Takvim rezervasyonu etkinleştirilene kadar demo istemek için bize e-posta gönderin.",
+    "requestTitle": "Demo talep edin",
+    "requestBody": "Ekibiniz için uygun bir zaman seçebilmeniz için planlamayı bitiriyoruz. O zamana kadar ücretsiz başlayın ve ürünü kendi hızınızda keşfedin veya bize {email} adresinden e-posta gönderin.",
+    "startFree": "Bunun yerine ücretsiz başlayın",
+    "backHome": "Eve dön",
+    "signIn": "Oturum aç"
+  },
+  "loading": "Yükleniyor",
+  "loadingEllipsis": "Yükleniyor…",
+  "loadingIdentity": "Kimlik yükleniyor…"
+}

@@ -1,0 +1,174 @@
+{
+  "identity": {
+    "eyebrow": "企业身份管理",
+    "title": "身份和访问",
+    "lead": "组织、工作区、RBAC、安全占位符和审计架构。后端适配器插入时无需更改此表面。",
+    "openProfile": "打开个人资料",
+    "teamManagement": "团队管理",
+    "tabs": {
+      "organization": "组织",
+      "workspace": "工作空间",
+      "roles": "角色和权限",
+      "security": "安全",
+      "audit": "审核日志"
+    },
+    "organizationSettings": "组织设置",
+    "workspaceSettings": "工作区设置",
+    "noOrganization": "没有活跃的组织。完成入职培训或从组织服务创建入职培训。",
+    "logoPlaceholder": "徽标上传和计划计费适配器是未来身份后端的占位符。",
+    "rbacTitle": "RBAC——默认角色",
+    "permissionMatrix": "权限矩阵",
+    "canManageSettings": "可以管理设置：{value} · 已验证：{authenticated}",
+    "yes": "是的",
+    "no": "不",
+    "securitySettings": "安全设置",
+    "passwordChange": {
+      "title": "更改密码",
+      "detail": "密码更改在配置时通过身份验证提供程序进行连接。"
+    },
+    "twoFactor": {
+      "title": "双因素身份验证 (2FA)",
+      "detail": "TOTP 和 WebAuthn 适配器在启用时在此处注册。"
+    },
+    "activeSessions": {
+      "title": "活跃会话",
+      "detail": "设备目录存在于身份会话中；撤销对于服务器会话变得具有权威性。"
+    },
+    "apiKeys": {
+      "title": "API 密钥",
+      "detail": "为开发人员提供的服务帐户和范围令牌。"
+    },
+    "absoluteTimeout": "绝对超时",
+    "idleTimeout": "空闲超时",
+    "refreshSkew": "刷新倾斜",
+    "persistentLogin": "永久登录",
+    "disabled": "残疾人",
+    "enabled": "启用",
+    "days": "{count} 天",
+    "minutes": "{count} 分钟",
+    "toggleIdlePolicy": "切换空闲策略占位符",
+    "previewSessionExpired": "预览会话已过期",
+    "previewAccountLocked": "预览帐户已锁定",
+    "auditActivity": "审计活动",
+    "auditLead": "登录、注销、角色更改、邀请和组织事件均记录在本地。稍后替换为不可变的后端审核存储。",
+    "auditEmpty": "还没有 IAM 事件。登录或更改角色以填充日志。",
+    "meta": {
+      "name": "姓名",
+      "slug": "蛞蝓",
+      "plan": "计划",
+      "owner": "所有者",
+      "created": "已创建",
+      "yourRole": "你的角色",
+      "workspace": "工作空间",
+      "status": "地位",
+      "isolationKey": "隔离钥匙"
+    },
+    "matrix": {
+      "permission": "允许",
+      "owner": "所有者",
+      "admin": "行政",
+      "manager": "经理",
+      "member": "成员",
+      "viewer": "查看器",
+      "yes": "是的"
+    },
+    "audit": {
+      "when": "什么时候",
+      "action": "行动",
+      "actor": "演员",
+      "resource": "资源"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "所有者",
+      "description": "完全控制，包括计费和所有权转让"
+    },
+    "admin": {
+      "name": "行政",
+      "description": "管理人员、安全、工作区和模块"
+    },
+    "manager": {
+      "name": "经理",
+      "description": "领导团队和运营模块；邀请会员"
+    },
+    "member": {
+      "name": "成员",
+      "description": "日常操作访问"
+    },
+    "viewer": {
+      "name": "查看器",
+      "description": "只读访问"
+    }
+  },
+  "profile": {
+    "eyebrow": "身份",
+    "title": "用户个人资料",
+    "lead": "管理您的帐户身份、偏好和安全性。组织和工作区控件位于“身份设置”中。",
+    "guest": "客人",
+    "notSignedIn": "未登录",
+    "identitySettings": "身份设置",
+    "security": "安全",
+    "profileSection": "轮廓",
+    "fullName": "姓名",
+    "email": "电子邮件",
+    "language": "语言",
+    "timezone": "默认时区是 UTC",
+    "languageEnGb": "英语（英国）",
+    "languageEnUs": "英语（美国）",
+    "languageDe": "德语",
+    "timezoneBerlin": "欧洲/柏林",
+    "timezoneLondon": "欧洲/伦敦",
+    "timezoneUtc": "世界标准时间",
+    "timezoneNewYork": "美国/New_York",
+    "notifications": "通知",
+    "emailNotifications": "电子邮件通知",
+    "pushNotifications": "推送通知",
+    "workspace": "工作空间",
+    "noticeInitial": "在连接配置文件 API 之前，首选项会保存在本地。",
+    "noticeSaved": "个人资料偏好设置已更新。",
+    "savePreferences": "保存首选项"
+  },
+  "workspaceSelector": {
+    "empty": "还没有工作区 - 创建一个组织来配置工作区。",
+    "label": "只显示使用中的工作区里的应用",
+    "ariaLabel": "切换工作空间"
+  },
+  "verifyEmail": {
+    "title": "电子邮件验证",
+    "loading": "加载中…",
+    "skipForNow": "暂时跳过",
+    "tokenPlaceholder": "验证令牌",
+    "tokenIssued": "为当前会话颁发的验证令牌。",
+    "issueFailed": "无法发放令牌",
+    "verificationFailed": "验证失败",
+    "verify": "验证邮箱",
+    "verifying": "正在验证...",
+    "requestToken": "请求验证令牌"
+  },
+  "access": {
+    "eyebrow": "身份与访问",
+    "signIn": "登录",
+    "backToDashboard": "返回仪表盘",
+    "unauthorized": {
+      "title": "未授权",
+      "description": "请登录以继续使用 AGXORA 的此区域。"
+    },
+    "forbidden": {
+      "title": "禁止访问",
+      "description": "您的角色不包含此资源的权限。"
+    },
+    "expired_session": {
+      "title": "会话已过期",
+      "description": "您的会话已过期。请重新登录以继续工作。"
+    },
+    "missing_permission": {
+      "title": "缺少权限",
+      "description": "请让所有者或管理员授予所需的模块访问权限。"
+    },
+    "account_locked": {
+      "title": "账户已锁定",
+      "description": "此账户已锁定。请联系组织所有者或稍后再试。"
+    }
+  }
+}

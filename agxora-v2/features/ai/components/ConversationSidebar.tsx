@@ -7,6 +7,7 @@ import {
   type MouseEvent,
 } from "react";
 import { Button, SearchField } from "@/app/components/ui";
+import { useT } from "@/app/lib/i18n";
 import { aiConversationStore } from "../store/conversationStore";
 import { useAiConversationSummaries } from "../hooks/useAiConversations";
 import type { AiConversationSummary } from "../types";
@@ -22,6 +23,7 @@ export function ConversationSidebar({
   onSelect,
   onCreate,
 }: ConversationSidebarProps): JSX.Element {
+  const t = useT();
   const [query, setQuery] = useState("");
   const [showArchived, setShowArchived] = useState(false);
   const [renamingId, setRenamingId] = useState<string | null>(null);
@@ -111,7 +113,7 @@ export function ConversationSidebar({
                 className="mt-0.5 line-clamp-1 text-[11px]"
                 style={{ color: "var(--agx-text-muted, #94a3b8)" }}
               >
-                {row.preview || "Empty conversation"}
+                {row.preview || t("ai.conversationSidebar.emptyPreview")}
               </p>
             </div>
           </div>
@@ -121,22 +123,22 @@ export function ConversationSidebar({
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
           <Action
-            label={row.pinned ? "Unpin" : "Pin"}
+            label={row.pinned ? t("ai.conversationSidebar.unpin") : t("ai.conversationSidebar.pin")}
             onClick={(e) => {
               e.stopPropagation();
               aiConversationStore.pinConversation(row.id, !row.pinned);
             }}
           />
-          <Action label="Rename" onClick={(e) => startRename(row, e)} />
+          <Action label={t("ai.conversationSidebar.rename")} onClick={(e) => startRename(row, e)} />
           <Action
-            label={row.archived ? "Unarchive" : "Archive"}
+            label={row.archived ? t("ai.conversationSidebar.unarchive") : t("ai.conversationSidebar.archive")}
             onClick={(e) => {
               e.stopPropagation();
               aiConversationStore.archiveConversation(row.id, !row.archived);
             }}
           />
           <Action
-            label="Delete"
+            label={t("ai.conversationSidebar.delete")}
             onClick={(e) => {
               e.stopPropagation();
               aiConversationStore.deleteConversation(row.id);
@@ -154,17 +156,17 @@ export function ConversationSidebar({
           className="text-[11px] font-semibold uppercase tracking-[0.14em]"
           style={{ color: "var(--agx-accent, #22d3ee)" }}
         >
-          Conversations
+          {t("ai.conversationSidebar.title")}
         </p>
         <Button size="sm" variant="primary" onClick={onCreate}>
-          New
+          {t("ai.conversationSidebar.new")}
         </Button>
       </div>
       <SearchField
         value={query}
         onChange={setQuery}
-        placeholder="Search chats…"
-        aria-label="Search conversations"
+        placeholder={t("ai.conversationSidebar.searchPlaceholder")}
+        aria-label={t("ai.conversationSidebar.searchAria")}
       />
       <label
         className="flex items-center gap-2 text-[11px]"
@@ -175,7 +177,7 @@ export function ConversationSidebar({
           checked={showArchived}
           onChange={(e) => setShowArchived(e.target.checked)}
         />
-        Show archived
+        {t("ai.conversationSidebar.showArchived")}
       </label>
       <div className="min-h-0 flex-1 space-y-1 overflow-y-auto pr-1">
         {pinned.length > 0 ? (
@@ -184,7 +186,7 @@ export function ConversationSidebar({
               className="px-1 text-[10px] uppercase tracking-wider"
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
             >
-              Pinned
+              {t("ai.conversationSidebar.pinned")}
             </p>
             {pinned.map(renderRow)}
           </section>
@@ -195,7 +197,7 @@ export function ConversationSidebar({
             className="px-1 py-6 text-center text-xs"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            No conversations yet
+            {t("ai.conversationSidebar.noConversations")}
           </p>
         ) : null}
       </div>

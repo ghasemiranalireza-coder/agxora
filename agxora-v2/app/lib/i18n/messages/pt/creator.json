@@ -1,0 +1,149 @@
+{
+  "page": {
+    "eyebrow": "Sistema operacional de marketing AGXORA",
+    "title": "Estúdio de criação de IA",
+    "lead": "Produção de conteúdo empresarial: gere, marque, planeje, publique e avalie campanhas baseadas em IA em todos os canais.",
+    "dashboard": "Painel",
+    "workspace": "Espaço de trabalho",
+    "workspaceSubtitle": "Criar conteúdo · Campanhas · Biblioteca de mídia · Modelos · Ativos de marca · Fila de publicação · Analytics",
+    "workspaceAria": "Espaço de trabalho do criador",
+    "integrations": "Integrações Futuras",
+    "integrationsSubtitle": "Adaptadores de plataforma oficiais reservados – sem conexões ao vivo falsas.",
+    "aiFeatures": "Recursos de IA",
+    "aiFeaturesSubtitle": "Mapa de capacidade de produção, marca, cronograma e localização."
+  },
+  "tabs": {
+    "create": "Crie conteúdo",
+    "campaigns": "Campanhas",
+    "media": "Biblioteca de mídia",
+    "templates": "Modelos",
+    "brand": "Ativos da marca",
+    "queue": "Fila de publicação",
+    "analytics": "Análise"
+  },
+  "templates": {
+    "emptyTitle": "Nenhum modelo",
+    "emptyDescription": "Conteúdo reutilizável e modelos de design ficarão aqui."
+  },
+  "campaign": {
+    "title": "Planejador de campanha",
+    "calendar": "Calendário de conteúdo",
+    "columns": {
+      "name": "Nome da campanha",
+      "objective": "Objetivo",
+      "audience": "Público",
+      "platforms": "Plataformas",
+      "budget": "Orçamento",
+      "timeline": "Linha do tempo",
+      "status": "Status"
+    },
+    "emptyTitle": "Nenhuma campanha",
+    "emptyDescription": "Crie uma campanha para planejar objetivos, público e cronogramas."
+  },
+  "media": {
+    "title": "Biblioteca de mídia",
+    "columns": {
+      "asset": "Ativo",
+      "type": "Tipo",
+      "folder": "Pasta",
+      "tags": "Etiquetas",
+      "updated": "Atualizado"
+    },
+    "emptyTitle": "Sem mídia",
+    "emptyDescription": "Imagens, vídeos, documentos, logotipos e modelos aparecerão aqui.",
+    "searchPlaceholder": "Pesquise ativos, pastas, tags…",
+    "typeFilter": "Tipo",
+    "allTypes": "Todos os tipos",
+    "images": "Imagens",
+    "videos": "Vídeos",
+    "documents": "Documentos",
+    "logos": "Logotipos de marcas",
+    "templates": "Modelos"
+  },
+  "generator": {
+    "title": "Gerador de conteúdo de IA",
+    "lead": "Crie legendas para Instagram, scripts TikTok, postagens no LinkedIn, anúncios, artigos de SEO e muito mais.",
+    "brief": "Apresentação",
+    "briefPlaceholder": "Descreva a oferta, público e CTA…",
+    "generateDraft": "Gerar rascunho",
+    "aiRewrite": "Reescrita de IA",
+    "translate": "Traduzir",
+    "initialOutput": "Selecione um formato e a voz da marca e, em seguida, gere um rascunho. Os adaptadores do provedor estão reservados — ainda não há chamadas de modelo em tempo real.",
+    "draftStaged": "Rascunho encenado para {format} · voz: {voice}. Adaptador de geração reservado.",
+    "rewriteQueued": "AI Rewrite enfileirado — adaptador de reescrita reservado.",
+    "translateQueued": "Traduzir conteúdo na fila — adaptador multilíngue reservado.",
+    "brandVoice": "Voz da marca",
+    "brandVoiceLead": "Predefinições de tons comerciais e voz de marca personalizada para consistência.",
+    "active": "Ativo"
+  },
+  "queue": {
+    "title": "Fila de publicação",
+    "columns": {
+      "title": "Título",
+      "platform": "Plataforma",
+      "format": "Formatar",
+      "status": "Status",
+      "scheduled": "Agendado",
+      "author": "Autor"
+    },
+    "emptyTitle": "Nenhuma postagem na fila",
+    "emptyDescription": "Rascunhos, análises e postagens agendadas aparecerão aqui.",
+    "filterStatus": "Status do filtro",
+    "allStatuses": "Todos os status"
+  },
+  "analytics": {
+    "title": "Análise",
+    "topPosts": "Principais postagens",
+    "engagement": "Inglês {value}",
+    "reach": "Alcance {value}",
+    "recommendations": "Recomendações de IA"
+  },
+  "integrations": {
+    "lead": "Integrações futuras — opcional. Nenhuma API ativa até ser conectada. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.",
+    "adapter": "Adaptador:"
+  },
+  "aiFeaturesPanel": {
+    "lead": "Mapa de recursos de IA – ideias, legendas, hashtags, calendário, campanhas, público, programação, consistência da marca, reescrever, traduzir, multilíngue."
+  },
+  "formats": {
+    "instagram_caption": "Legenda Instagram",
+    "tiktok_script": "Guião TikTok",
+    "linkedin_post": "Publicação LinkedIn",
+    "facebook_post": "Publicação Facebook",
+    "x_post": "Publicação X",
+    "blog_article": "Artigo de blogue",
+    "newsletter": "Newsletter",
+    "email_campaign": "Campanha de e-mail",
+    "product_description": "Descrição do produto",
+    "ad_copy": "Texto publicitário",
+    "seo_article": "Artigo SEO",
+    "landing_page_copy": "Texto de página de destino"
+  },
+  "publishStatus": {
+    "draft": "Rascunho",
+    "review": "Revisão",
+    "approved": "Aprovado",
+    "scheduled": "Agendado",
+    "published": "Publicado",
+    "archive": "Arquivo"
+  },
+  "mediaKind": {
+    "image": "Imagem",
+    "video": "Vídeo",
+    "document": "Documento",
+    "logo": "Logótipo da marca",
+    "template": "Modelo"
+  },
+  "voice": {
+    "professional": "Profissional",
+    "friendly": "Amigável",
+    "luxury": "Luxo",
+    "casual": "Informal"
+  },
+  "integrationStatus": {
+    "planned": "Planeado",
+    "ready": "Pronto",
+    "connected": "Ligado",
+    "disabled": "Desativado"
+  }
+}

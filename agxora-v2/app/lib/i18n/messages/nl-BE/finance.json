@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "AGXORA Finance-besturingssysteem",
+    "title": "Financiën & Belastingen",
+    "subtitle": "Accounting, bankwezen, belastingen en financiële informatie: vooraf bekeken met voorbeeldgegevens totdat live grootboeken verbinding maken.",
+    "sampleNotice": "Voorbeelddataset: cijfers en exportgeschiedenis zijn illustratief. DATEV / bestandsexport en live bankfeeds zijn niet verbonden."
+  },
+  "sections": {
+    "overview": {
+      "title": "Financieel overzicht"
+    },
+    "invoiceCenter": {
+      "title": "Factuurcentrum",
+      "subtitle": "Zoek, filter en sorteer het grootboek van bedrijfsfacturen met AI-betrouwbaarheidsscores."
+    },
+    "aiInvoiceProcessing": {
+      "title": "AI-factuurverwerking",
+      "subtitle": "Demopijplijn: OCR en AI-extractie zijn niet met elkaar verbonden."
+    },
+    "banking": {
+      "title": "Bankieren",
+      "subtitle": "Alleen voorbeeldrekeningen: Open Banking-feeds zijn niet gekoppeld."
+    },
+    "datev": {
+      "title": "DATEV-integratie",
+      "subtitle": "Voorbeeld van exportgeschiedenis: het genereren van DATEV-bestanden is niet verbonden."
+    },
+    "taxCenter": {
+      "title": "Belastingcentrum",
+      "subtitle": "Btw-samenvattingen, deadlines en aankomende betalingen."
+    },
+    "aiInsights": {
+      "title": "AI-inzichten",
+      "subtitle": "Alleen voorbeeldbevindingen: inzichtacties zijn niet met elkaar verbonden."
+    },
+    "smartSearch": {
+      "title": "Slim zoeken",
+      "subtitle": "Vragen in natuurlijke taal over facturen, onkosten, btw en exporten."
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "Winst",
+        "caption": "Voorbeeld · laatste 30 dagen",
+        "delta": "+8.4%"
+      },
+      "expenses": {
+        "label": "Uitgaven",
+        "caption": "Voorbeeld · operationeel + COGS",
+        "delta": "+2.1%"
+      },
+      "profit": {
+        "label": "Winst",
+        "caption": "Voorbeeld · nettobedrijf",
+        "delta": "+12.6%"
+      },
+      "vat-due": {
+        "label": "BTW verschuldigd",
+        "caption": "Voorbeeld · Q2-venster",
+        "delta": "Verschijnt over {days}d"
+      },
+      "open-invoices": {
+        "label": "Facturen openen",
+        "caption": "Voorbeeld · {money} uitstaand"
+      },
+      "paid-invoices": {
+        "label": "Betaalde facturen",
+        "caption": "Voorbeeld · dit kwartaal",
+        "delta": "+{count}"
+      },
+      "cashflow": {
+        "label": "Cashflow",
+        "caption": "Voorbeeld · Projectie over 30 dagen",
+        "delta": "+4.2%"
+      },
+      "ai-score": {
+        "label": "AI financiële score",
+        "caption": "Voorbeeldscore · geen live risicoscore",
+        "delta": "+{count}"
+      }
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "invoices": {
+    "emptyTitle": "Geen facturen",
+    "emptyDescription": "Er zijn geen facturen die overeenkomen met uw zoekopdracht of filters.",
+    "searchPlaceholder": "Nummer, bedrijf, categorie…",
+    "statusFilter": "Statusfilter",
+    "paymentFilter": "Betalingsfilter",
+    "sortBy": "Sorteer op",
+    "toggleSort": "Sorteerrichting wijzigen",
+    "count": "{count} facturen",
+    "countOne": "{count} factuur",
+    "allStatuses": "Alle statussen",
+    "allPayments": "Alle betalingen",
+    "columns": {
+      "number": "Factuurnummer",
+      "company": "Bedrijf",
+      "amount": "Hoeveelheid",
+      "vat": "VAT",
+      "status": "Status",
+      "dueDate": "Deadline",
+      "payment": "Betalingsstatus",
+      "category": "Categorie",
+      "ai": "AI-vertrouwen"
+    },
+    "sort": {
+      "dueDate": "Deadline",
+      "amount": "Hoeveelheid",
+      "company": "Bedrijf",
+      "status": "Status",
+      "aiConfidence": "AI-vertrouwen",
+      "number": "Factuur #"
+    }
+  },
+  "status": {
+    "draft": "Voorlopige versie",
+    "open": "Open",
+    "paid": "Betaald",
+    "overdue": "Verlopen",
+    "cancelled": "Geannuleerd"
+  },
+  "payment": {
+    "unpaid": "Onbetaald",
+    "partial": "Gedeeltelijk",
+    "paid": "Betaald",
+    "refunded": "Terugbetaald"
+  },
+  "category": {
+    "saas": "SaaS",
+    "office": "Kantoor",
+    "travel": "Reis",
+    "marketing": "Marketing",
+    "utilities": "Nutsvoorzieningen",
+    "professional": "Professioneel",
+    "other": "Ander"
+  },
+  "processing": {
+    "dropTitle": "Factuurbestanden slepen en neerzetten",
+    "dropFormats": "PDF · Afbeelding · E-mail importeren",
+    "uploadFiles": "Bestanden uploaden",
+    "emailImport": "E-mail importeren",
+    "dropHint": "Zet PDF- of afbeeldingsfacturen neer om lokaal klaar te maken: OCR is niet verbonden.",
+    "filesStaged": "{count} bestand(en) alleen lokaal vermeld - OCR/AI-extractie is niet verbonden.",
+    "emailReserved": "Connector voor het importeren van e-mail gereserveerd voor IMAP / Microsoft Graph.",
+    "pipelineTitle": "Verwerkingspijplijn (demo)",
+    "stages": {
+      "ocr": "OCR-status",
+      "extraction": "AI-extractie",
+      "categorization": "Categorisering",
+      "duplicateDetection": "Duplicaatdetectie"
+    }
+  },
+  "stage": {
+    "pending": "Niet beschikbaar",
+    "running": "Niet verbonden",
+    "complete": "Demo",
+    "failed": "Mislukt",
+    "skipped": "Overgeslagen"
+  },
+  "banking": {
+    "connectionTitle": "Bankverbinding",
+    "connectBank": "Sluit bank aan",
+    "description": "PSD2 / Open Banking-adapters zijn niet bedraad. Matching en afstemming hieronder zijn slechts ter illustratie.",
+    "feedUnavailable": "Bankfeed niet beschikbaar: providerverbinding is niet verbonden.",
+    "noticeDefault": "Open Banking is niet verbonden. Onderstaande rekeningen zijn voorbeeldgegevens.",
+    "connectUnavailable": "Bank verbinden niet beschikbaar: Open Banking is niet verbonden in deze build.",
+    "sampleAccounts": "Voorbeeldrekeningen",
+    "sample": "Steekproef",
+    "offline": "Offline",
+    "demoPrefix": "Demo",
+    "latestTransactions": "Laatste transacties",
+    "sampleMatching": "Voorbeeldmatching",
+    "demoOnly": "Alleen demo",
+    "sampleMatch": "Voorbeeld wedstrijd",
+    "unmatched": "Ongeëvenaard",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "DATEV-integratie",
+    "notConnected": "Niet verbonden",
+    "intro": "Een voorbeeld van de exportgeschiedenis hieronder is illustratief. In deze build zijn inloggegevens en het genereren van bestanden niet met elkaar verbonden.",
+    "noticeDefault": "Exportadapters zijn niet aangesloten: er worden geen bestanden gegenereerd.",
+    "exportUnavailable": "{title} niet beschikbaar — DATEV/bestandsexport is niet verbonden.",
+    "exportUnavailableAria": "{title} — niet beschikbaar",
+    "historyTitle": "Exportgeschiedenis (voorbeeld)",
+    "refresh": "Vernieuwen",
+    "refreshUnavailable": "Vernieuwen niet beschikbaar: de exportgeschiedenis bestaat uit statische voorbeeldgegevens.",
+    "steuerberaterSample": "Steekproef",
+    "steuerberaterPending": "In behandeling",
+    "columns": {
+      "export": "Exporteren",
+      "format": "Formaat",
+      "period": "Periode",
+      "created": "Gemaakt",
+      "status": "Status",
+      "steuerberater": "Steuerberater"
+    },
+    "actions": {
+      "datev": {
+        "title": "DATEV-export",
+        "description": "Buchungsstapelpakket voor Steuerberater-workflows."
+      },
+      "csv": {
+        "title": "CSV-export",
+        "description": "Grootboek-ready CSV voor spreadsheets en import."
+      },
+      "pdf": {
+        "title": "PDF-export",
+        "description": "Documentenpakket voor beoordeling en archivering."
+      },
+      "xml": {
+        "title": "XML-export",
+        "description": "Gestructureerde belasting-XML voor het indienen van pijplijnen."
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "Voorbeeld · In de wachtrij",
+    "ready": "Voorbeeld · Klaar",
+    "delivered": "Illustratief",
+    "failed": "Mislukt"
+  },
+  "tax": {
+    "vatSummaryTitle": "BTW-samenvatting",
+    "monthlyVat": "Maandelijkse BTW",
+    "quarterlyVat": "Kwartaal BTW",
+    "collected": "Verzameld",
+    "deductible": "Aftrekbaar",
+    "netDue": "Netto verschuldigd",
+    "deadlinesTitle": "Belastingdeadlines · Aankomende betalingen",
+    "duePrefix": "Vanwege",
+    "deadlineStatus": {
+      "due_soon": "Binnenkort te verwachten",
+      "upcoming": "Aankomend",
+      "overdue": "Verlopen",
+      "paid": "Betaald"
+    },
+    "deadlines": {
+      "td-1": "Maandelijkse BTW-aangifte",
+      "td-2": "Kwartaalafrekening BTW",
+      "td-3": "Voorschot vennootschapsbelasting"
+    },
+    "period": {
+      "monthly": "Maandelijks",
+      "quarterly": "Driemaandelijks",
+      "annual": "Jaarlijks"
+    }
+  },
+  "insights": {
+    "demoPrefix": "Demo",
+    "noticeDefault": "Inzichtacties zijn niet met elkaar verbonden: kaarten tonen alleen voorbeeldbevindingen.",
+    "actionUnavailable": "{action} niet beschikbaar: acties voor financieel inzicht zijn niet verbonden.",
+    "actionUnavailableTitle": "{action} niet beschikbaar — niet verbonden",
+    "kinds": {
+      "unusual_expense": "Ongebruikelijke uitgaven",
+      "duplicate_invoice": "Dubbele facturen",
+      "missing_invoice": "Ontbrekende facturen",
+      "late_payment": "Late betalingen",
+      "cashflow_prediction": "Cashflowvoorspelling",
+      "tax_optimization": "Belastingoptimalisatie"
+    }
+  },
+  "search": {
+    "label": "Zoeken in natuurlijke taal",
+    "placeholder": "Probeer 'Onbetaalde facturen weergeven'",
+    "submit": "Zoekopdracht",
+    "examplesTitle": "Voorbeelden",
+    "hints": {
+      "idle": "Vraag naar facturen, onkosten, BTW of exporten.",
+      "unpaid_invoices": "Facturatiecentrum filteren op onbetaalde/openstaande posten.",
+      "july_expenses": "Activiteit aan de uitgavenzijde van juli weergegeven.",
+      "amazon": "Amazon-facturen en -bonnen lokaliseren.",
+      "vat_export": "DATEV / BTW-exportacties openen.",
+      "general": "Grootboek zoeken naar “{query}”."
+    },
+    "examples": {
+      "q1": {
+        "query": "Toon onbetaalde facturen",
+        "description": "Openstaande vorderingen met onbetaalde of gedeeltelijke status"
+      },
+      "q2": {
+        "query": "Toon uitgaven voor juli",
+        "description": "Facturen aan de kostenzijde en bankafvloeiingen in juli"
+      },
+      "q3": {
+        "query": "Vind Amazon-facturen",
+        "description": "Leveranciersmatch in het factuurcentrum en uploads"
+      },
+      "q4": {
+        "query": "BTW exporteren",
+        "description": "Ga naar DATEV/belastingexportacties"
+      }
+    }
+  }
+}

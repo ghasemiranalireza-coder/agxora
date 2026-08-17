@@ -1,0 +1,388 @@
+{
+  "skipToContent": "跳至仪表板内容",
+  "loading": "正在加载仪表板...",
+  "hero": {
+    "ariaLabel": "AGXORA核心英雄",
+    "eyebrow": "人工智能商业操作系统",
+    "title": "AGXORA核心",
+    "subtitle": "实时智能和操作控制——您的工作空间命令界面。",
+    "ctaGetStarted": "开始使用",
+    "ctaViewActivity": "查看活动",
+    "openQuickActionsAria": "快捷操作",
+    "viewActivityAria": "查看最近的活动"
+  },
+  "quickActions": {
+    "title": "快捷操作",
+    "subtitle": "接下来你应该做什么？",
+    "ariaLabel": "快捷操作",
+    "addCustomer": {
+      "label": "添加客户",
+      "description": "创建 CRM 记录"
+    },
+    "newProject": {
+      "label": "新项目",
+      "description": "启动交付轨迹"
+    },
+    "askAi": {
+      "label": "询问人工智能",
+      "description": "打开 AI 工作区"
+    },
+    "finance": {
+      "label": "金融",
+      "description": "发票和现金流"
+    },
+    "automations": {
+      "label": "自动化",
+      "description": "工作流引擎"
+    },
+    "settings": {
+      "label": "设置",
+      "description": "工作区首选项"
+    }
+  },
+  "attention": {
+    "title": "需要注意",
+    "ariaLabel": "需要注意",
+    "empty": "你很清楚——现在没有紧急物品。",
+    "tone": {
+      "critical": "批判的",
+      "warning": "警告",
+      "info": "飞艇信息",
+      "success": "准备好",
+      "action": "下一步做"
+    },
+    "addCustomer": {
+      "title": "添加您的第一个客户",
+      "detail": "使用真实账户记录启动 CRM。"
+    },
+    "createProject": {
+      "title": "创建一个项目",
+      "detail": "为您的下一次约会打开交付轨道。"
+    },
+    "exploreAi": {
+      "title": "探索 AI 工作区",
+      "detail": "向 AGXORA 询问有关客户、项目或后续步骤的信息。"
+    },
+    "reviewBilling": {
+      "title": "查看帐单",
+      "detail": "当您准备好扩展时，请确认计划和使用情况。"
+    }
+  },
+  "overview": {
+    "title": "工程情况",
+    "subtitle": "{name} 的工作空间计数",
+    "fallbackName": "你的工作空间",
+    "ariaLabel": "业务概况",
+    "online": "电在",
+    "emDash": "—",
+    "capacitySignal": "{percent}% 容量信号",
+    "activeClients": {
+      "title": "活跃客户",
+      "captionEmpty": "还没有活跃客户",
+      "captionTotal": "工作区中共有{count}个",
+      "add": "添加客户",
+      "view": "查看客户"
+    },
+    "projects": {
+      "title": "项目",
+      "captionEmpty": "投资组合中没有项目",
+      "captionOpen": "开放交付轨道",
+      "create": "创建项目",
+      "open": "开放项目"
+    },
+    "activityToday": {
+      "title": "今日活动",
+      "captionEmpty": "今天还没有记录任何内容",
+      "captionEvents": "午夜以来的工作区活动",
+      "viewFeed": "查看提要"
+    },
+    "revenue": {
+      "title": "收入",
+      "caption": "关联账单以显示MRR",
+      "openBilling": "开放式计费"
+    },
+    "clientShell": {
+      "title": "客户端外壳",
+      "caption": "浏览器会话就绪 - 不是实时操作监视器",
+      "shellLoaded": "已加载应用程序外壳",
+      "storesReady": "本地工作区商店准备就绪"
+    },
+    "growth": {
+      "title": "增长率",
+      "caption": "趋势指标需要累积使用量",
+      "openAnalytics": "开放分析"
+    }
+  },
+  "activity": {
+    "title": "最近的活动",
+    "subtitle": "今天发生了什么变化",
+    "ariaLabel": "最近的活动",
+    "todayCount": "今天 {count}",
+    "localBadge": "当地的",
+    "emptyTitle": "还没有活动",
+    "emptyBody": "当您添加客户、项目等时，工作区事件将显示在此处。",
+    "addCustomer": "添加客户",
+    "newProject": "新项目",
+    "kind": {
+      "customer": "顾客",
+      "project": "项目",
+      "finance": "金融",
+      "automation": "自动化",
+      "documents": "文件",
+      "team": "团队",
+      "workspace": "工作空间"
+    },
+    "events": {
+      "customer_created": "客户创建",
+      "customer_updated": "客户更新",
+      "customer_deleted": "客户已删除",
+      "project_updated": "项目已更新",
+      "invoice_paid": "发票已付",
+      "document_uploaded": "文件已上传",
+      "workflow_executed": "工作流程已执行",
+      "member_invited": "团队成员受邀",
+      "generic": "工作区更新"
+    }
+  },
+  "chat": {
+    "title": "艾克索拉人工智能",
+    "emptyState": "向 AGXORA 询问有关客户、项目或下一步行动的信息。您的对话将保留在此工作区会话中。",
+    "thinking": "AGXORA 正在思考……",
+    "errorDismiss": "{error} — 点击即可关闭",
+    "placeholder": "询问 AGXORA AI...",
+    "messageAria": "消息 AGXORA AI",
+    "sendAria": "发送消息",
+    "send": "发送"
+  },
+  "routeLoading": {
+    "team": "正在加载团队...",
+    "projects": "正在加载项目...",
+    "project": "正在加载项目...",
+    "profile": "正在加载个人资料...",
+    "integrations": "正在加载集成...",
+    "identity": "正在加载身份信息……",
+    "finance": "正在加载财务...",
+    "documents": "正在加载文档...",
+    "customers": "正在加载客户...",
+    "crm": "正在加载客户关系管理...",
+    "customer": "正在加载客户...",
+    "creator": "正在加载创作者工作室...",
+    "billing": "正在加载帐单...",
+    "billingAdmin": "正在加载管理账单...",
+    "automation": "加载自动化...",
+    "analytics": "正在加载情报中心...",
+    "ai": "正在加载人工智能平台...",
+    "agents": "正在加载代理操作系统..."
+  },
+  "shell": {
+    "memory": {
+      "title": "记忆",
+      "description": "此版本中未连接组织内存。",
+      "emptyTitle": "内存工作区尚不可用",
+      "emptyBody": "持久组织内存存储未连接。聊天可能仅在会话中保留短暂的上下文 - 这里没有任何内容被存储为企业内存。"
+    },
+    "invoices": {
+      "title": "发票",
+      "description": "企业租户的计费和发票架构。",
+      "emptyTitle": "发票分类账尚不可用",
+      "emptyBody": "该路由是一个外壳 - 发票创建和持久性没有连接。使用 Finance 进行样本分类帐预览，或使用 Billing 进行计划管理。",
+      "openFinance": "开放金融",
+      "openBilling": "开放式账单"
+    }
+  },
+  "search": {
+    "ariaLabel": "通用搜索",
+    "queryAria": "通用搜索查询",
+    "placeholder": "搜索客户、发票、文档、工作流程、设置……",
+    "quickActions": "快速行动",
+    "favorites": "收藏夹",
+    "recentSearches": "最近的搜索",
+    "clear": "清除",
+    "noRecentSearches": "还没有最近的搜索。尝试使用“Nordlicht”、“发票”或“工作流程”。",
+    "recentActivity": "最近的活动",
+    "aiReady": "人工智能就绪（架构）",
+    "pinnedResults": "固定结果",
+    "noMatches": "没有匹配项",
+    "noMatchesBody": "尝试其他关键字，或通过快速操作打开模块。",
+    "close": "关闭",
+    "open": "打开",
+    "keyboardHints": "↑↓ 导航·输入打开· Ctrl/⌘ K切换· Esc关闭",
+    "pinResult": "固定结果",
+    "unpinResult": "取消固定结果",
+    "previewEmpty": "将鼠标悬停或突出显示预览、元数据和智能链接的结果。",
+    "previewAria": "通用预览",
+    "relatedItems": "相关项目",
+    "noSmartLinks": "此结果没有智能链接。",
+    "groups": {
+      "crm": "客户关系管理",
+      "finance": "金融",
+      "documents": "文件",
+      "automation": "自动化",
+      "projects": "项目",
+      "creator": "创作工作室",
+      "settings": "设置",
+      "commands": "命令",
+      "actions": "快速行动"
+    },
+    "status": {
+      "architecture": "建筑学",
+      "planned": "计划"
+    },
+    "meta": {
+      "type": "类型",
+      "module": "模块",
+      "quickAction": "快速行动"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "创建客户",
+        "subtitle": "打开客户添加记录"
+      },
+      "createInvoice": {
+        "title": "创建发票",
+        "subtitle": "打开财务发票工作区"
+      },
+      "uploadDocument": {
+        "title": "上传文件",
+        "subtitle": "打开文档知识中心"
+      },
+      "newWorkflow": {
+        "title": "新的工作流程",
+        "subtitle": "开放自动化引擎构建器"
+      },
+      "newProject": {
+        "title": "新项目",
+        "subtitle": "打开项目工作区"
+      },
+      "inviteMember": {
+        "title": "邀请团队成员",
+        "subtitle": "开放团队邀请"
+      },
+      "openBilling": {
+        "title": "开放式账单",
+        "subtitle": "计划、发票和订阅"
+      },
+      "openSettings": {
+        "title": "打开设置",
+        "subtitle": "工作区首选项"
+      }
+    },
+    "commands": {
+      "openCrm": {
+        "title": "开放式客户关系管理",
+        "subtitle": "人工智能CRM模块"
+      },
+      "openCustomers": {
+        "title": "开放客户",
+        "subtitle": "客户管理"
+      },
+      "openFinance": {
+        "title": "开放金融",
+        "subtitle": "财税模块"
+      },
+      "openDocuments": {
+        "title": "打开文件",
+        "subtitle": "知识中心"
+      },
+      "openAutomation": {
+        "title": "开放式自动化",
+        "subtitle": "工作流引擎"
+      },
+      "openSettings": {
+        "title": "打开设置",
+        "subtitle": "工作区设置"
+      },
+      "openProjects": {
+        "title": "开放项目",
+        "subtitle": "项目组合"
+      },
+      "openAi": {
+        "title": "开放人工智能",
+        "subtitle": "AI平台工作区"
+      },
+      "openAnalytics": {
+        "title": "开放分析",
+        "subtitle": "情报中心"
+      },
+      "openIdentity": {
+        "title": "开放身份和访问",
+        "subtitle": "IAM 设置、RBAC、审核"
+      },
+      "openBilling": {
+        "title": "开放式账单",
+        "subtitle": "订阅门户和计划"
+      },
+      "openIntegrations": {
+        "title": "开放式集成",
+        "subtitle": "集成中心和API生态系统"
+      }
+    },
+    "modules": {
+      "dashboard": {
+        "subtitle": "指挥中心和全球概览"
+      },
+      "customers": {
+        "subtitle": "客户记录和 CRM"
+      },
+      "projects": {
+        "subtitle": "项目交付和跟踪"
+      },
+      "invoices": {
+        "title": "发票",
+        "subtitle": "账单和发票"
+      },
+      "finance": {
+        "subtitle": "人工智能会计、银行、税务和金融智能"
+      },
+      "crm": {
+        "subtitle": "AI原生CRM和Creator操作系统"
+      },
+      "creator": {
+        "subtitle": "AI内容制作及营销操作系统"
+      },
+      "documents": {
+        "subtitle": "人工智能文档和知识中心"
+      },
+      "ai": {
+        "title": "人工智能",
+        "subtitle": "AGXORA AI平台—企业工作区"
+      },
+      "analytics": {
+        "subtitle": "商业智能"
+      },
+      "automation": {
+        "subtitle": "AI工作流程和自动化引擎"
+      },
+      "memory": {
+        "title": "记忆",
+        "subtitle": "组织记忆"
+      },
+      "team": {
+        "subtitle": "成员及邀请"
+      },
+      "settings": {
+        "subtitle": "工作区和 AI 设置"
+      }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "人工智能搜索",
+        "description": "使用未来跨模块的检索模型对结果进行排名。"
+      },
+      "semantic": {
+        "title": "语义搜索",
+        "description": "文档、发票和知识的向量相似性。"
+      },
+      "nl": {
+        "title": "自然语言搜索",
+        "description": "解析“Nordlicht 逾期发票”等意图。"
+      },
+      "rag": {
+        "title": "知识检索",
+        "description": "Documents Knowledge Hub语料库中的基本答案。"
+      }
+    },
+    "esc": "Esc"
+  },
+  "summary": "{name}：{customers} 客户 · {projects} 项目 · {updates} 今天更新。"
+}

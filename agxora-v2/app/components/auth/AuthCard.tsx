@@ -85,7 +85,8 @@ export const authRowStyle: CSSProperties = {
 
 export const authToggleStyle: CSSProperties = {
   position: "absolute",
-  right: 12,
+  right: "auto",
+  insetInlineEnd: 12,
   top: "50%",
   transform: "translateY(-50%)",
   border: "none",

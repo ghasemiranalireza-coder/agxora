@@ -201,17 +201,17 @@ function ProfilePanel(): JSX.Element {
         </SettingsField>
         <SettingsField label={t("settings.profile.theme")}>
           <SettingsInput
-            value={`${mode} (resolved ${appearance})`}
+            value={t("settings.profile.themeResolved", { mode, appearance })}
             readOnly
             aria-readonly="true"
           />
         </SettingsField>
         <SettingsField label={t("settings.profile.region")}>
           <SettingsSelect value={region} onChange={(e) => setRegion(e.target.value)}>
-            <option value="EU">European Union</option>
-            <option value="US">United States</option>
-            <option value="MENA">MENA</option>
-            <option value="APAC">APAC</option>
+            <option value="EU">{t("settings.profile.regions.EU")}</option>
+            <option value="US">{t("settings.profile.regions.US")}</option>
+            <option value="MENA">{t("settings.profile.regions.MENA")}</option>
+            <option value="APAC">{t("settings.profile.regions.APAC")}</option>
           </SettingsSelect>
         </SettingsField>
       </SettingsGrid>
@@ -256,11 +256,8 @@ function AiPanel(): JSX.Element {
   const [memory, setMemory] = useState(true);
   const [automationSuggestions, setAutomationSuggestions] = useState(true);
   const [lang, setLang] = useState("auto");
-  const [notice, setNotice] = useState(
-    "AI settings sync through AISettingsProvider — keys never stored here.",
-  );
-
   const t = useT();
+  const [notice, setNotice] = useState(t("settings.ai.noticeSync"));
 
   return (
     <SettingsPanel
@@ -270,45 +267,42 @@ function AiPanel(): JSX.Element {
         <>
           <Link href="/dashboard/agents">
             <Button size="sm" variant="primary">
-              Open Agent OS
+              {t("settings.ai.openAgentOs")}
             </Button>
           </Link>
           <Link href="/dashboard/ai">
             <Button size="sm" variant="secondary">
-              Open AI Workspace
+              {t("settings.ai.openAiWorkspace")}
             </Button>
           </Link>
         </>
       }
     >
-      <SettingsNotice>
-        Provider implementations stay behind the AI service layer. The UI never
-        receives API keys or SDK details. Autonomous agents live in Agent OS.
-      </SettingsNotice>
+      <SettingsNotice>{t("settings.ai.noticeProvider")}</SettingsNotice>
       <SettingsGrid>
-        <SettingsField label="Preferred AI Provider">
+        <SettingsField label={t("settings.ai.preferredProvider")}>
           <SettingsSelect
             value={settings.defaultProviderId}
             onChange={(e) => setProvider(e.target.value as AIProviderId)}
           >
-            <option value="mock">Mock (local)</option>
-            <option value="openai">OpenAI</option>
-            <option value="azure">Azure OpenAI</option>
-            <option value="anthropic">Anthropic</option>
-            <option value="google">Google</option>
-            <option value="openrouter">OpenRouter</option>
-            <option value="ollama">Ollama</option>
-            <option value="local">Local Provider</option>
+            <option value="mock">{t("settings.ai.providers.mock")}</option>
+            <option value="openai">{t("settings.ai.providers.openai")}</option>
+            <option value="azure">{t("settings.ai.providers.azure")}</option>
+            <option value="anthropic">{t("settings.ai.providers.anthropic")}</option>
+            <option value="google">{t("settings.ai.providers.google")}</option>
+            <option value="openrouter">{t("settings.ai.providers.openrouter")}</option>
+            <option value="ollama">{t("settings.ai.providers.ollama")}</option>
+            <option value="local">{t("settings.ai.providers.local")}</option>
           </SettingsSelect>
         </SettingsField>
-        <SettingsField label="Default AI Model">
+        <SettingsField label={t("settings.ai.defaultModel")}>
           <SettingsInput
             value={settings.defaultModelId}
             onChange={(e) => updateSettings({ defaultModelId: e.target.value })}
           />
         </SettingsField>
         <SettingsField
-          label="Temperature"
+          label={t("settings.ai.temperature")}
           hint={`${settings.temperature.toFixed(2)}`}
         >
           <input
@@ -321,10 +315,10 @@ function AiPanel(): JSX.Element {
               updateSettings({ temperature: Number(e.target.value) })
             }
             className="w-full"
-            aria-label="Temperature"
+            aria-label={t("settings.ai.temperature")}
           />
         </SettingsField>
-        <SettingsField label="Top P" hint={`${settings.topP.toFixed(2)}`}>
+        <SettingsField label={t("settings.ai.topP")} hint={`${settings.topP.toFixed(2)}`}>
           <input
             type="range"
             min={0}
@@ -333,10 +327,10 @@ function AiPanel(): JSX.Element {
             value={settings.topP}
             onChange={(e) => updateSettings({ topP: Number(e.target.value) })}
             className="w-full"
-            aria-label="Top P"
+            aria-label={t("settings.ai.topP")}
           />
         </SettingsField>
-        <SettingsField label="Max Tokens">
+        <SettingsField label={t("settings.ai.maxTokens")}>
           <SettingsInput
             type="number"
             min={256}
@@ -350,36 +344,36 @@ function AiPanel(): JSX.Element {
             }
           />
         </SettingsField>
-        <SettingsField label="Writing Style">
+        <SettingsField label={t("settings.ai.writingStyle")}>
           <SettingsSelect
             value={style}
             onChange={(e) => setStyle(e.target.value)}
           >
-            <option value="professional">Professional</option>
-            <option value="concise">Concise</option>
-            <option value="friendly">Friendly</option>
-            <option value="technical">Technical</option>
+            <option value="professional">{t("settings.ai.writingStyles.professional")}</option>
+            <option value="concise">{t("settings.ai.writingStyles.concise")}</option>
+            <option value="friendly">{t("settings.ai.writingStyles.friendly")}</option>
+            <option value="technical">{t("settings.ai.writingStyles.technical")}</option>
           </SettingsSelect>
         </SettingsField>
-        <SettingsField label="Language Preferences">
+        <SettingsField label={t("settings.ai.languagePreferences")}>
           <SettingsSelect
             value={lang}
             onChange={(e) => setLang(e.target.value)}
           >
-            <option value="auto">Match profile language</option>
-            <option value="en">English</option>
-            <option value="de">Deutsch</option>
+            <option value="auto">{t("settings.ai.languages.auto")}</option>
+            <option value="en">{t("settings.ai.languages.en")}</option>
+            <option value="de">{t("settings.ai.languages.de")}</option>
           </SettingsSelect>
         </SettingsField>
       </SettingsGrid>
       <SettingsField
-        label="System Prompt"
-        hint="Applied as the default system instruction for the AI Platform."
+        label={t("settings.ai.systemPrompt")}
+        hint={t("settings.ai.systemPromptHint")}
       >
         <SettingsTextArea
           rows={4}
           value={settings.systemPromptOverride ?? ""}
-          placeholder="You are AGXORA AI — the enterprise operating assistant…"
+          placeholder={t("settings.ai.systemPromptPlaceholder")}
           onChange={(value) =>
             updateSettings({
               systemPromptOverride: value || undefined,
@@ -388,30 +382,30 @@ function AiPanel(): JSX.Element {
         />
       </SettingsField>
       <SettingsField
-        label="API Key Management"
-        hint="Keys are supplied via server environment variables only."
+        label={t("settings.ai.apiKeyManagement")}
+        hint={t("settings.ai.apiKeyHint")}
       >
         <SettingsInput
           value=""
           readOnly
-          placeholder="Configured via AGXORA_* environment variables (never in the browser)"
+          placeholder={t("settings.ai.apiKeyPlaceholder")}
         />
       </SettingsField>
       <SettingsToggle
-        label="Memory"
-        description="Allow organization memory to inform AI replies across modules."
+        label={t("settings.ai.memory")}
+        description={t("settings.ai.memoryDescription")}
         checked={memory}
         onChange={setMemory}
       />
       <SettingsToggle
-        label="Automation Suggestions"
-        description="Surface AI workflow suggestions in Automation Engine."
+        label={t("settings.ai.automationSuggestions")}
+        description={t("settings.ai.automationSuggestionsDescription")}
         checked={automationSuggestions}
         onChange={setAutomationSuggestions}
       />
       <SettingsToggle
-        label="Streaming"
-        description="Stream model responses when the provider supports it."
+        label={t("settings.ai.streaming")}
+        description={t("settings.ai.streamingDescription")}
         checked={settings.streamingEnabled}
         onChange={(v) => updateSettings({ streamingEnabled: v })}
       />
@@ -426,17 +420,14 @@ function AiPanel(): JSX.Element {
 function AppearancePanel(): JSX.Element {
   const { mode, appearance, setMode } = useTheme();
   const [prefs, setPrefs] = useState<AppearancePrefs>(DEFAULT_APPEARANCE_PREFS);
-  const [notice, setNotice] = useState(
-    "Theme mode is the single source of truth via ThemeProvider. Header offers a quick toggle only.",
-  );
-
-  const modes: readonly { id: ThemeMode; label: string; hint: string }[] = [
-    { id: "day", label: "Light", hint: "Pearl / ice enterprise day palette" },
-    { id: "night", label: "Dark", hint: "Approved cinematic night look" },
-    { id: "auto", label: "System", hint: "Follow local schedule (Auto)" },
-  ];
-
   const t = useT();
+  const [notice, setNotice] = useState(t("settings.appearance.noticeTheme"));
+
+  const modes: readonly { id: ThemeMode; labelKey: string; hintKey: string }[] = [
+    { id: "day", labelKey: "settings.appearance.modes.day.label", hintKey: "settings.appearance.modes.day.hint" },
+    { id: "night", labelKey: "settings.appearance.modes.night.label", hintKey: "settings.appearance.modes.night.hint" },
+    { id: "auto", labelKey: "settings.appearance.modes.auto.label", hintKey: "settings.appearance.modes.auto.hint" },
+  ];
 
   return (
     <SettingsPanel
@@ -448,9 +439,9 @@ function AppearancePanel(): JSX.Element {
           className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em]"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Theme
+          {t("settings.appearance.themeLabel")}
         </p>
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-3" role="radiogroup" aria-label="Theme mode">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-3" role="radiogroup" aria-label={t("settings.appearance.themeModeAria")}>
           {modes.map((item) => {
             const active = mode === item.id;
             return (
@@ -472,17 +463,18 @@ function AppearancePanel(): JSX.Element {
                 }}
               >
                 <p className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {item.label}
+                  {t(item.labelKey)}
                 </p>
                 <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  {item.hint}
+                  {t(item.hintKey)}
                 </p>
               </button>
             );
           })}
         </div>
         <p className="mt-2 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Resolved appearance: <strong style={{ color: "var(--agx-text, #f8fafc)" }}>{appearance}</strong>
+          {t("settings.appearance.resolvedAppearance")}{" "}
+          <strong style={{ color: "var(--agx-text, #f8fafc)" }}>{appearance}</strong>
         </p>
       </div>
 
@@ -491,7 +483,7 @@ function AppearancePanel(): JSX.Element {
           className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em]"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Accent Color
+          {t("settings.appearance.accentColor")}
         </p>
         <div className="flex flex-wrap gap-2">
           {ACCENT_SWATCHES.map((swatch) => {
@@ -513,12 +505,10 @@ function AppearancePanel(): JSX.Element {
             );
           })}
         </div>
-        <SettingsNotice>
-          Accent preference is stored for future CSS var wiring — does not mutate the locked color system yet.
-        </SettingsNotice>
+        <SettingsNotice>{t("settings.appearance.accentNotice")}</SettingsNotice>
       </div>
 
-      <SettingsField label="Density">
+      <SettingsField label={t("settings.appearance.density")}>
         <SettingsSelect
           value={prefs.density}
           onChange={(e) =>
@@ -528,27 +518,27 @@ function AppearancePanel(): JSX.Element {
             }))
           }
         >
-          <option value="comfortable">Comfortable</option>
-          <option value="compact">Compact</option>
-          <option value="spacious">Spacious</option>
+          <option value="comfortable">{t("settings.appearance.densities.comfortable")}</option>
+          <option value="compact">{t("settings.appearance.densities.compact")}</option>
+          <option value="spacious">{t("settings.appearance.densities.spacious")}</option>
         </SettingsSelect>
       </SettingsField>
 
       <SettingsToggle
-        label="Compact Mode"
-        description="Reduce padding across enterprise tables and panels."
+        label={t("settings.appearance.compactMode")}
+        description={t("settings.appearance.compactModeDescription")}
         checked={prefs.compactMode}
         onChange={(v) => setPrefs((p) => ({ ...p, compactMode: v }))}
       />
       <SettingsToggle
-        label="Animations"
-        description="Section motion and hover lifts. Respects reduced-motion OS setting."
+        label={t("settings.appearance.animations")}
+        description={t("settings.appearance.animationsDescription")}
         checked={prefs.animations}
         onChange={(v) => setPrefs((p) => ({ ...p, animations: v }))}
       />
       <SettingsToggle
-        label="Glass Effects"
-        description="Frosted glass cards and sidebar blur intensity preference."
+        label={t("settings.appearance.glassEffects")}
+        description={t("settings.appearance.glassEffectsDescription")}
         checked={prefs.glassEffects}
         onChange={(v) => setPrefs((p) => ({ ...p, glassEffects: v }))}
       />
@@ -563,7 +553,7 @@ function AppearancePanel(): JSX.Element {
 function NotificationsPanel(): JSX.Element {
   const t = useT();
   const [prefs, setPrefs] = useState<NotificationPrefs>(DEFAULT_NOTIFICATION_PREFS);
-  const [notice, setNotice] = useState("Notification channels are preferences only — delivery adapters reserved.");
+  const [notice, setNotice] = useState(t("settings.notifications.notice"));
 
   const set = (key: keyof NotificationPrefs, value: boolean): void => {
     setPrefs((p) => ({ ...p, [key]: value }));
@@ -571,31 +561,31 @@ function NotificationsPanel(): JSX.Element {
 
   return (
     <SettingsPanel title={t("settings.notifications.title")} description={t("settings.notifications.panelDescription")}>
-      <SettingsToggle label="Email" checked={prefs.email} onChange={(v) => set("email", v)} />
-      <SettingsToggle label="Push" checked={prefs.push} onChange={(v) => set("push", v)} />
-      <SettingsToggle label="Desktop" checked={prefs.desktop} onChange={(v) => set("desktop", v)} />
-      <SettingsToggle label="Mobile" checked={prefs.mobile} onChange={(v) => set("mobile", v)} />
+      <SettingsToggle label={t("settings.notifications.email")} checked={prefs.email} onChange={(v) => set("email", v)} />
+      <SettingsToggle label={t("settings.notifications.push")} checked={prefs.push} onChange={(v) => set("push", v)} />
+      <SettingsToggle label={t("settings.notifications.desktop")} checked={prefs.desktop} onChange={(v) => set("desktop", v)} />
+      <SettingsToggle label={t("settings.notifications.mobile")} checked={prefs.mobile} onChange={(v) => set("mobile", v)} />
       <SettingsToggle
-        label="Workflow Alerts"
-        description="Automation Engine execution and approval events."
+        label={t("settings.notifications.workflowAlerts")}
+        description={t("settings.notifications.workflowAlertsDescription")}
         checked={prefs.workflowAlerts}
         onChange={(v) => set("workflowAlerts", v)}
       />
       <SettingsToggle
-        label="Finance Alerts"
+        label={t("settings.notifications.financeAlerts")}
         checked={prefs.financeAlerts}
         onChange={(v) => set("financeAlerts", v)}
       />
-      <SettingsToggle label="CRM Alerts" checked={prefs.crmAlerts} onChange={(v) => set("crmAlerts", v)} />
+      <SettingsToggle label={t("settings.notifications.crmAlerts")} checked={prefs.crmAlerts} onChange={(v) => set("crmAlerts", v)} />
       <SettingsToggle
-        label="Documents Alerts"
+        label={t("settings.notifications.documentsAlerts")}
         checked={prefs.documentsAlerts}
         onChange={(v) => set("documentsAlerts", v)}
       />
       <SettingsNotice>
-        Delivery adapters ship at launch. Questions:{" "}
+        {t("settings.notifications.deliveryNotice")}{" "}
         <Link href="/contact" className="underline-offset-2 hover:underline">
-          Contact support
+          {t("settings.notifications.contactSupport")}
         </Link>
         .
       </SettingsNotice>
@@ -607,33 +597,33 @@ function NotificationsPanel(): JSX.Element {
 function DocumentsPanel(): JSX.Element {
   const t = useT();
   const [prefs, setPrefs] = useState<DocumentsPrefs>(DEFAULT_DOCUMENTS_PREFS);
-  const [notice, setNotice] = useState("Documents settings integrate with the Knowledge Hub architecture.");
+  const [notice, setNotice] = useState(t("settings.documents.notice"));
 
   return (
     <SettingsPanel title={t("settings.documents.title")} description={t("settings.documents.panelDescription")}>
       <SettingsGrid>
-        <SettingsField label="Storage Preferences">
+        <SettingsField label={t("settings.documents.storagePreferences")}>
           <SettingsSelect
             value={prefs.storagePreference}
             onChange={(e) => setPrefs((p) => ({ ...p, storagePreference: e.target.value }))}
           >
-            <option value="workspace-default">Workspace default</option>
-            <option value="eu-region">EU region</option>
-            <option value="encrypted-vault">Encrypted vault</option>
+            <option value="workspace-default">{t("settings.documents.storageOptions.workspace-default")}</option>
+            <option value="eu-region">{t("settings.documents.storageOptions.eu-region")}</option>
+            <option value="encrypted-vault">{t("settings.documents.storageOptions.encrypted-vault")}</option>
           </SettingsSelect>
         </SettingsField>
-        <SettingsField label="Retention Policy">
+        <SettingsField label={t("settings.documents.retentionPolicy")}>
           <SettingsSelect
             value={prefs.retentionPolicy}
             onChange={(e) => setPrefs((p) => ({ ...p, retentionPolicy: e.target.value }))}
           >
-            <option value="30-days">30 days (scratch)</option>
-            <option value="2-years">2 years</option>
-            <option value="7-years">7 years</option>
-            <option value="10-years">10 years</option>
+            <option value="30-days">{t("settings.documents.retentionOptions.30-days")}</option>
+            <option value="2-years">{t("settings.documents.retentionOptions.2-years")}</option>
+            <option value="7-years">{t("settings.documents.retentionOptions.7-years")}</option>
+            <option value="10-years">{t("settings.documents.retentionOptions.10-years")}</option>
           </SettingsSelect>
         </SettingsField>
-        <SettingsField label="Default Folder">
+        <SettingsField label={t("settings.documents.defaultFolder")}>
           <SettingsInput
             value={prefs.defaultFolder}
             onChange={(e) => setPrefs((p) => ({ ...p, defaultFolder: e.target.value }))}
@@ -641,14 +631,14 @@ function DocumentsPanel(): JSX.Element {
         </SettingsField>
       </SettingsGrid>
       <SettingsToggle
-        label="Versioning"
-        description="Keep document version history for restore/compare."
+        label={t("settings.documents.versioning")}
+        description={t("settings.documents.versioningDescription")}
         checked={prefs.versioning}
         onChange={(v) => setPrefs((p) => ({ ...p, versioning: v }))}
       />
       <SettingsToggle
-        label="Knowledge Settings"
-        description="AI indexing for Knowledge Hub search."
+        label={t("settings.documents.knowledgeSettings")}
+        description={t("settings.documents.knowledgeDescription")}
         checked={prefs.knowledgeIndexing}
         onChange={(v) => setPrefs((p) => ({ ...p, knowledgeIndexing: v }))}
       />
@@ -660,50 +650,50 @@ function DocumentsPanel(): JSX.Element {
 function AutomationPanel(): JSX.Element {
   const t = useT();
   const [prefs, setPrefs] = useState<AutomationPrefs>(DEFAULT_AUTOMATION_PREFS);
-  const [notice, setNotice] = useState("Automation defaults apply to the Workflow Engine architecture.");
+  const [notice, setNotice] = useState(t("settings.automation.notice"));
 
   return (
     <SettingsPanel title={t("settings.automation.title")} description={t("settings.automation.panelDescription")}>
       <SettingsGrid>
-        <SettingsField label="Workflow Defaults">
+        <SettingsField label={t("settings.automation.workflowDefaults")}>
           <SettingsSelect
             value={prefs.workflowDefaults}
             onChange={(e) => setPrefs((p) => ({ ...p, workflowDefaults: e.target.value }))}
           >
-            <option value="require-approval">Require approval gates</option>
-            <option value="auto-run">Auto-run trusted flows</option>
-            <option value="draft-only">Draft only</option>
+            <option value="require-approval">{t("settings.automation.workflowOptions.require-approval")}</option>
+            <option value="auto-run">{t("settings.automation.workflowOptions.auto-run")}</option>
+            <option value="draft-only">{t("settings.automation.workflowOptions.draft-only")}</option>
           </SettingsSelect>
         </SettingsField>
-        <SettingsField label="History Limits">
+        <SettingsField label={t("settings.automation.historyLimits")}>
           <SettingsSelect
             value={prefs.historyLimit}
             onChange={(e) => setPrefs((p) => ({ ...p, historyLimit: e.target.value }))}
           >
-            <option value="30-days">30 days</option>
-            <option value="90-days">90 days</option>
-            <option value="365-days">365 days</option>
+            <option value="30-days">{t("settings.automation.historyOptions.30-days")}</option>
+            <option value="90-days">{t("settings.automation.historyOptions.90-days")}</option>
+            <option value="365-days">{t("settings.automation.historyOptions.365-days")}</option>
           </SettingsSelect>
         </SettingsField>
-        <SettingsField label="Retry Policy">
+        <SettingsField label={t("settings.automation.retryPolicy")}>
           <SettingsSelect
             value={prefs.retryPolicy}
             onChange={(e) => setPrefs((p) => ({ ...p, retryPolicy: e.target.value }))}
           >
-            <option value="none">No retries</option>
-            <option value="3-exponential">3× exponential</option>
-            <option value="5-linear">5× linear</option>
+            <option value="none">{t("settings.automation.retryOptions.none")}</option>
+            <option value="3-exponential">{t("settings.automation.retryOptions.3-exponential")}</option>
+            <option value="5-linear">{t("settings.automation.retryOptions.5-linear")}</option>
           </SettingsSelect>
         </SettingsField>
       </SettingsGrid>
       <SettingsToggle
-        label="AI Suggestions"
+        label={t("settings.automation.aiSuggestions")}
         checked={prefs.aiSuggestions}
         onChange={(v) => setPrefs((p) => ({ ...p, aiSuggestions: v }))}
       />
       <SettingsToggle
-        label="Execution Logs"
-        description="Retain detailed run payloads in Workflow History."
+        label={t("settings.automation.executionLogs")}
+        description={t("settings.automation.executionLogsDescription")}
         checked={prefs.executionLogs}
         onChange={(v) => setPrefs((p) => ({ ...p, executionLogs: v }))}
       />
@@ -713,13 +703,14 @@ function AutomationPanel(): JSX.Element {
 }
 
 function IntegrationsPanel(): JSX.Element {
+  const t = useT();
   const columns = useMemo<DataTableColumn<(typeof SETTINGS_INTEGRATIONS)[number]>[]>(
     () => [
-      { key: "name", header: "Integration", render: (r) => r.name },
-      { key: "category", header: "Category", render: (r) => r.category },
+      { key: "name", header: t("settings.integrations.columns.integration"), render: (r) => r.name },
+      { key: "category", header: t("settings.integrations.columns.category"), render: (r) => r.category },
       {
         key: "state",
-        header: "Status",
+        header: t("settings.integrations.columns.status"),
         render: (r) => (
           <Badge
             tone={
@@ -738,14 +729,12 @@ function IntegrationsPanel(): JSX.Element {
       },
       {
         key: "adapter",
-        header: "Adapter",
+        header: t("settings.integrations.columns.adapter"),
         render: (r) => <span className="font-mono text-xs">{r.adapter}</span>,
       },
     ],
-    [],
+    [t],
   );
-
-  const t = useT();
 
   return (
     <SettingsPanel
@@ -754,15 +743,12 @@ function IntegrationsPanel(): JSX.Element {
       actions={
         <Link href="/dashboard/integrations">
           <Button size="sm" variant="primary">
-            Open Integration Center
+            {t("settings.integrations.openCenter")}
           </Button>
         </Link>
       }
     >
-      <SettingsNotice>
-        Enterprise Integration Platform lives in the Integration Center —
-        connectors, OAuth, webhooks, API keys, and the workflow event bridge.
-      </SettingsNotice>
+      <SettingsNotice>{t("settings.integrations.notice")}</SettingsNotice>
       <DataTable columns={columns} rows={SETTINGS_INTEGRATIONS} rowKey={(r) => r.id} minWidth={680} />
     </SettingsPanel>
   );
@@ -812,16 +798,16 @@ function ApiPanel(): JSX.Element {
   const t = useT();
   const columns = useMemo<DataTableColumn<(typeof API_KEYS)[number]>[]>(
     () => [
-      { key: "name", header: "Name", render: (r) => r.name },
+      { key: "name", header: t("settings.api.columns.name"), render: (r) => r.name },
       {
         key: "prefix",
-        header: "Key",
+        header: t("settings.api.columns.key"),
         render: (r) => <span className="font-mono text-xs">{r.prefix}</span>,
       },
-      { key: "scope", header: "Scope", render: (r) => r.scope },
-      { key: "lastUsed", header: "Last used", render: (r) => r.lastUsed.slice(0, 10) },
+      { key: "scope", header: t("settings.api.columns.scope"), render: (r) => r.scope },
+      { key: "lastUsed", header: t("settings.api.columns.lastUsed"), render: (r) => r.lastUsed.slice(0, 10) },
     ],
-    [],
+    [t],
   );
 
   return (
@@ -831,40 +817,38 @@ function ApiPanel(): JSX.Element {
       actions={
         <Link href="/dashboard/integrations">
           <Button size="sm" variant="primary">
-            Open developer portal
+            {t("settings.api.openPortal")}
           </Button>
         </Link>
       }
     >
-      <SettingsNotice>
-        Generate, rotate, and revoke keys in the Integration Center. Gateway,
-        webhook tester, and API explorer are available there.
-      </SettingsNotice>
+      <SettingsNotice>{t("settings.api.notice")}</SettingsNotice>
       <DataTable columns={columns} rows={API_KEYS} rowKey={(r) => r.id} minWidth={640} />
       <SettingsGrid>
-        <SettingsField label="Webhooks">
+        <SettingsField label={t("settings.api.webhooks")}>
           <SettingsInput defaultValue="https://hooks.agxora.io/v1/events" readOnly />
         </SettingsField>
-        <SettingsField label="Sandbox">
+        <SettingsField label={t("settings.api.sandbox")}>
           <SettingsSelect defaultValue="enabled">
-            <option value="enabled">Enabled</option>
-            <option value="disabled">Disabled</option>
+            <option value="enabled">{t("settings.api.sandboxEnabled")}</option>
+            <option value="disabled">{t("settings.api.sandboxDisabled")}</option>
           </SettingsSelect>
         </SettingsField>
       </SettingsGrid>
-      <SettingsNotice>Developer tokens never display full secrets — prefix only.</SettingsNotice>
+      <SettingsNotice>{t("settings.api.tokensNotice")}</SettingsNotice>
     </SettingsPanel>
   );
 }
 
 function AuditPanel(): JSX.Element {
+  const t = useT();
   const columns = useMemo<DataTableColumn<(typeof AUDIT_LOGS)[number]>[]>(
     () => [
-      { key: "at", header: "When", render: (r) => r.at.replace("T", " ").slice(0, 16) },
-      { key: "actor", header: "Actor", render: (r) => r.actor },
+      { key: "at", header: t("settings.audit.columns.when"), render: (r) => r.at.replace("T", " ").slice(0, 16) },
+      { key: "actor", header: t("settings.audit.columns.actor"), render: (r) => r.actor },
       {
         key: "category",
-        header: "Category",
+        header: t("settings.audit.columns.category"),
         render: (r) => (
           <Badge
             tone={
@@ -872,19 +856,17 @@ function AuditPanel(): JSX.Element {
             }
           >
             {r.category === "activity"
-              ? "Recent Activity"
+              ? t("settings.audit.categories.activity")
               : r.category === "security"
-                ? "Security Events"
-                : "System Changes"}
+                ? t("settings.audit.categories.security")
+                : t("settings.audit.categories.system")}
           </Badge>
         ),
       },
-      { key: "summary", header: "Summary", render: (r) => r.summary },
+      { key: "summary", header: t("settings.audit.columns.summary"), render: (r) => r.summary },
     ],
-    [],
+    [t],
   );
-
-  const t = useT();
 
   return (
     <SettingsPanel title={t("settings.audit.title")} description={t("settings.audit.panelDescription")}>
@@ -896,25 +878,25 @@ function AuditPanel(): JSX.Element {
 function AdvancedPanel(): JSX.Element {
   const t = useT();
   const [experimental, setExperimental] = useState(false);
-  const [notice, setNotice] = useState("Advanced actions require confirmation before applying.");
+  const [notice, setNotice] = useState(t("settings.advanced.notice"));
 
   return (
     <SettingsPanel title={t("settings.advanced.title")} description={t("settings.advanced.panelDescription")}>
       <SettingsToggle
-        label="Experimental Features"
-        description="Opt into unfinished Control Center capabilities."
+        label={t("settings.advanced.experimentalFeatures")}
+        description={t("settings.advanced.experimentalDescription")}
         checked={experimental}
         onChange={setExperimental}
       />
       <div className="flex flex-wrap gap-2">
-        <Button size="sm" variant="secondary" onClick={() => setNotice("Export is not available yet.")}>
-          Export
+        <Button size="sm" variant="secondary" onClick={() => setNotice(t("settings.advanced.exportUnavailable"))}>
+          {t("settings.advanced.export")}
         </Button>
-        <Button size="sm" variant="secondary" onClick={() => setNotice("Import is not available yet.")}>
-          Import
+        <Button size="sm" variant="secondary" onClick={() => setNotice(t("settings.advanced.importUnavailable"))}>
+          {t("settings.advanced.import")}
         </Button>
-        <Button size="sm" variant="danger" onClick={() => setNotice("Reset is not available yet.")}>
-          Reset
+        <Button size="sm" variant="danger" onClick={() => setNotice(t("settings.advanced.resetUnavailable"))}>
+          {t("settings.advanced.reset")}
         </Button>
       </div>
       <SettingsNotice>{notice}</SettingsNotice>

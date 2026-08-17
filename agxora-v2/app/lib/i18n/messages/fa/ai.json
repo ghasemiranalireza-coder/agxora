@@ -1,0 +1,168 @@
+{
+  "platform": {
+    "loading": "در حال بارگذاری پلتفرم AI…",
+    "eyebrow": "پلتفرم هوش مصنوعی آگکسورا",
+    "title": "فضای کاری هوش مصنوعی سازمانی",
+    "subtitle": "هوش مستقل از ارائه‌دهنده برای CRM، پروژه‌ها، امور مالی، اسناد و اتوماسیون. ارائه‌دهندگان را در تنظیمات → هوش مصنوعی پیکربندی کنید.",
+    "newConversation": "گفتگوی جدید",
+    "aiCommands": "دستورات هوش مصنوعی"
+  },
+  "mobileTabs": {
+    "chat": "چت",
+    "conversations": "مكالمات",
+    "prompts": "درخواست ها"
+  },
+  "usageBar": {
+    "provider": "ارائه دهنده",
+    "model": "Model",
+    "estimatedTokens": "توکن‌های تثبیت‌شده",
+    "tokensInOut": "(در {in} / بیرون {out})",
+    "cost": "هزینه",
+    "context": "متن نوشته",
+    "contextNone": "هیچ",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "فضای کاری هوش مصنوعی AGXORA",
+    "emptyHint": "یک مکالمه را شروع کنید، یک دستور از کتابخانه انتخاب کنید، یا پالت فرمان را باز کنید (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "مكالمات",
+    "new": "جدید",
+    "searchPlaceholder": "جستجو در گفتگوها",
+    "searchAria": "جستجو گفتگوها:",
+    "showArchived": "نمایش بایگانی",
+    "pinned": "پین‌شده",
+    "emptyPreview": "مکالمه خالی",
+    "noConversations": "بدون مکالمه",
+    "pin": "پین",
+    "unpin": "لغو پین",
+    "rename": "تغییر نام",
+    "archive": "بایگانی",
+    "unarchive": "خروج از بایگانی",
+    "delete": "حذف"
+  },
+  "composer": {
+    "placeholder": "پیام AGXORA AI… (برای ارسال Enter و برای خط جدید Shift+Enter را فشار دهید)",
+    "ariaLabel": "نویسنده پیام",
+    "commandsShortcut": "دستورات ⌘⇧K",
+    "stop": "قطع",
+    "send": "ارسال"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "کپی",
+    "retry": "تلاش مجدد"
+  },
+  "typingIndicator": {
+    "ariaLabel": "دستیار در حال تایپ کردن است"
+  },
+  "promptLibrary": {
+    "title": "کتابخانه سریع",
+    "subtitle": "قالب‌های قابل استفاده مجدد در CRM، پروژه‌ها، امور مالی و موارد دیگر.",
+    "searchPlaceholder": "دستورالعمل‌های جستجو…",
+    "searchAria": "درخواست‌های جستجو",
+    "all": "همه",
+    "favorites": "علاقه‌مندی‌ها",
+    "recent": "اخیر",
+    "library": "کتابخانه",
+    "noMatches": "هیچ درخواستی مطابقت ندارد",
+    "removeFavoriteAria": "حذف مورد علاقه",
+    "addFavoriteAria": "افزودن موارد دلخواه",
+    "favorited": "مورد علاقه",
+    "favorite": "علاقه‌مندی",
+    "usePrompt": "از اعلان استفاده کنید"
+  },
+  "commandPalette": {
+    "ariaLabel": "پالت فرمان هوش مصنوعی",
+    "filterAria": "فیلتر کردن دستورات هوش مصنوعی",
+    "placeholder": "دستور هوش مصنوعی… خلاصه کردن، پیشنهاد دادن، تحلیل کردن…",
+    "noMatches": "هیچ دستور منطبقی وجود ندارد",
+    "footer": "دستورات آینده را از طریق registerAiCommand ثبت کنید - رابط کاربری بدون تغییر باقی می‌ماند."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "پروژه‌ها",
+    "finance": "مالی",
+    "marketing": "بازاریابی",
+    "documents": "اسناد",
+    "automation": "اتوماسیون",
+    "general": "عمومی"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "خلاصه مشتری",
+      "description": "خلاصه اجرایی رابطه مشتری"
+    },
+    "crm-follow-up-email": {
+      "title": "ایمیل پیگیری",
+      "description": "یک پیگیری حرفه‌ای CRM پیش‌نویس کن"
+    },
+    "projects-analyze": {
+      "title": "تحلیل پروژه",
+      "description": "بررسی سلامت یک پروژه"
+    },
+    "projects-task-list": {
+      "title": "ایجاد فهرست وظایف",
+      "description": "کار را به وظایف قابل اجرا بشکن"
+    },
+    "finance-explain-invoice": {
+      "title": "توضیح فاکتور",
+      "description": "توضیح فاکتور به زبان ساده"
+    },
+    "finance-cashflow-brief": {
+      "title": "خلاصه جریان نقدی",
+      "description": "روایت کوتاه جریان نقدی"
+    },
+    "marketing-campaign-outline": {
+      "title": "طرح کلی کمپین",
+      "description": "یک کمپین بازاریابی را ساختاربندی کن"
+    },
+    "marketing-proposal": {
+      "title": "تولید پیشنهاد",
+      "description": "پیش‌نویس پیشنهاد رو به مشتری"
+    },
+    "documents-summarize": {
+      "title": "خلاصه سند",
+      "description": "خلاصه ساختاریافته سند"
+    },
+    "automation-workflow": {
+      "title": "طراحی گردش‌کار",
+      "description": "طرح گردش‌کار اتوماسیون"
+    },
+    "general-brainstorm": {
+      "title": "طوفان فکری گزینه‌ها",
+      "description": "ایده‌پردازی ساختاریافته"
+    },
+    "general-explain": {
+      "title": "ساده توضیح بده",
+      "description": "توضیح روشن برای ذی‌نفعان"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "خلاصه مشتری",
+      "description": "خلاصه اجرایی مشتری فعال"
+    },
+    "cmd-generate-proposal": {
+      "label": "تولید پیشنهاد",
+      "description": "طرح کلی پیشنهاد مشتری پیش‌نویس کن"
+    },
+    "cmd-analyze-project": {
+      "label": "تحلیل پروژه",
+      "description": "سلامت پروژه و تحلیل ریسک"
+    },
+    "cmd-create-task-list": {
+      "label": "ایجاد فهرست وظایف",
+      "description": "کار را به وظایف قابل اجرا بشکن"
+    },
+    "cmd-generate-email": {
+      "label": "تولید ایمیل",
+      "description": "یک ایمیل حرفه‌ای پیش‌نویس کن"
+    },
+    "cmd-explain-invoice": {
+      "label": "توضیح فاکتور",
+      "description": "توضیح فاکتور به زبان ساده"
+    }
+  }
+}

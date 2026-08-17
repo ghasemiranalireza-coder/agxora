@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "System operacyjny AGXORA Business",
+    "title": "Sztuczna inteligencja CRM",
+    "subtitle": "Natywny system CRM i system operacyjny Creator oparty na sztucznej inteligencji — klienci, rurociągi, zamówienia, dostawy, dokumenty, komunikacja i architektura twórców dla każdej branży."
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "Panel CRM"
+    },
+    "customer360": {
+      "title": "Klient 360°",
+      "subtitle": "Profil, firma, kontakty, zamówienia, faktury, Lieferscheine, płatności, dokumenty, harmonogram, działania, notatki, podsumowanie AI i historia komunikacji."
+    },
+    "salesPipeline": {
+      "title": "Rurociąg sprzedaży",
+      "subtitle": "Etapy Kanban metodą „przeciągnij i upuść” — Lead, Qualified, Proposal, Negotiation, Won, Lost."
+    },
+    "ordersModule": {
+      "title": "Moduł zamówień"
+    },
+    "deliveryModule": {
+      "title": "Moduł dostawy",
+      "subtitle": "Profesjonalny system Lieferschein z możliwością śledzenia, podpisu, kodów QR i kodów kreskowych."
+    },
+    "documentsModule": {
+      "title": "Dokumenty",
+      "subtitle": "Oferty, umowy, faktury, Lieferschein, zamówienia, rachunki — z wyszukiwaniem AI."
+    },
+    "tasksModule": {
+      "title": "Zadania"
+    },
+    "communicationHub": {
+      "title": "Węzeł komunikacyjny",
+      "subtitle": "Rejestr adapterów wyłącznie do obsługi wiadomości, mediów społecznościowych, poczty e-mail, głosu i filmów."
+    },
+    "creatorStudio": {
+      "title": "Fundacja Studia Twórców",
+      "subtitle": "Adaptery platformowe gotowe do oficjalnych integracji w późniejszym terminie."
+    },
+    "aiCreator": {
+      "title": "Twórca AI",
+      "subtitle": "Mapa możliwości przedsiębiorstwa w zakresie zawartości, kalendarza, generowania i publikowania."
+    },
+    "industryPlatform": {
+      "title": "Uniwersalna platforma biznesowa",
+      "subtitle": "Modułowy rejestr branży – każda branża może otrzymać dedykowane moduły AI."
+    }
+  },
+  "directory": {
+    "errorTitle": "Nie udało się załadować CRM",
+    "sort": {
+      "companyName": "Firma",
+      "contactName": "Kontakt",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "industry": "Przemysł",
+      "status": "Status",
+      "owner": "Właściciel",
+      "createdAt": "Stworzony"
+    },
+    "search": {
+      "label": "Szukaj klientów",
+      "placeholder": "Firma, kontakt, e-mail, tagi…"
+    },
+    "view": {
+      "table": "Tabela",
+      "cards": "Karty"
+    },
+    "actions": {
+      "newCustomer": "Nowy klient"
+    },
+    "filters": {
+      "status": "Status",
+      "industry": "Przemysł",
+      "owner": "Właściciel",
+      "country": "Kraj",
+      "tags": "Tagi",
+      "allStatuses": "Wszystkie statusy",
+      "allIndustries": "Wszystkie branże",
+      "allOwners": "Wszyscy właściciele",
+      "allCountries": "Wszystkie kraje",
+      "allTags": "Wszystkie tagi"
+    },
+    "empty": {
+      "ready": {
+        "title": "Twój CRM jest gotowy",
+        "description": "Utwórz pierwszy rekord klienta, aby odblokować katalog, profile i aktywność.",
+        "action": "Utwórz klienta"
+      },
+      "noMatches": {
+        "title": "Brak pasujących klientów",
+        "description": "Spróbuj dostosować wyszukiwanie lub filtry, aby znaleźć odpowiednie rekordy.",
+        "action": "Wyczyść filtry"
+      }
+    },
+    "pagination": {
+      "previous": "Poprzedni",
+      "next": "Następny"
+    },
+    "showing": "Wyświetlanie {from}–{to} z {total}",
+    "aria": {
+      "openCustomer": "Otwórz klienta {company}"
+    },
+    "cardMeta": "Właściciel {owner} · Utworzono {date}",
+    "sortBy": "Sortuj według {column}"
+  },
+  "status": {
+    "lead": "Ołów",
+    "prospect": "Perspektywa",
+    "active": "Aktywny",
+    "inactive": "Nieaktywny",
+    "vip": "VIP-a",
+    "archived": "Zarchiwizowane"
+  },
+  "form": {
+    "createTitle": "Utwórz Klienta",
+    "editTitle": "Edytuj klienta",
+    "cancel": "Anulować",
+    "saveChanges": "Zapisz zmiany",
+    "createCustomer": "Utwórz klienta",
+    "companyName": "Nazwa firmy",
+    "contactName": "Nazwa kontaktu",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "website": "Strona internetowa",
+    "industry": "Przemysł",
+    "country": "Kraj",
+    "city": "Miasto",
+    "address": "Adres",
+    "taxNumber": "Numer podatkowy",
+    "owner": "Właściciel",
+    "status": "Status",
+    "tags": "Tagi",
+    "statusAria": "Stan klienta",
+    "tagsHint": "Oddzielone przecinkami, automatycznie kodowane kolorami",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "przedsiębiorstwo, handel detaliczny"
+  },
+  "toasts": {
+    "customerCreated": "Klient utworzony",
+    "customerUpdated": "Klient zaktualizowany",
+    "checkForm": "Sprawdź formularz",
+    "validationFailed": "Walidacja nie powiodła się.",
+    "customerDeleted": "Klient usunięty",
+    "deleteFailed": "Usunięcie nie powiodło się",
+    "customerCouldNotBeRemoved": "Nie można usunąć klienta.",
+    "contactSaved": "Kontakt zapisany",
+    "documentsAttached": "Dokumenty w załączeniu",
+    "documentsAttachedDetail": "Pliki: {count}",
+    "noteSaved": "Uwaga zapisana"
+  },
+  "deleteDialog": {
+    "title": "Usuń klienta",
+    "cancel": "Anulować",
+    "deletePermanently": "Usuń trwale",
+    "thisCustomer": "tego klienta",
+    "bodyPrefix": "To usuwa",
+    "bodySuffix": "oraz powiązane kontakty, notatki, dokumenty i aktywność z lokalnego magazynu. Połączone projekty nie są usuwane."
+  },
+  "validation": {
+    "companyNameRequired": "Nazwa firmy jest wymagana.",
+    "contactNameRequired": "Nazwa kontaktu jest wymagana.",
+    "emailRequired": "Adres e-mail jest wymagany.",
+    "emailInvalid": "Wpisz prawidłowy adres e-mail.",
+    "phoneRequired": "Wymagany jest telefon.",
+    "phoneInvalid": "Wpisz prawidłowy numer telefonu.",
+    "websiteInvalid": "Wprowadź prawidłową witrynę.",
+    "industryRequired": "Przemysł jest wymagany.",
+    "ownerRequired": "Właściciel jest wymagany.",
+    "statusInvalid": "Wybierz prawidłowy status.",
+    "emailDuplicate": "Klient z tym adresem e-mail już istnieje.",
+    "nameRequired": "Imię i nazwisko jest wymagane.",
+    "mobileInvalid": "Wprowadź prawidłowy numer telefonu komórkowego.",
+    "mobileRequired": "Wymagany jest telefon komórkowy.",
+    "roleRequired": "Rola jest wymagana.",
+    "noteTitleRequired": "Tytuł jest wymagany.",
+    "noteBodyRequired": "Treść notatki jest wymagana.",
+    "noteAuthorRequired": "Autor jest wymagany."
+  },
+  "errors": {
+    "failedToLoadCustomers": "Nie udało się załadować klientów.",
+    "failedToLoadCustomerProfile": "Nie udało się załadować profilu klienta.",
+    "organizationRequired": "Wymagana jest organizacja.",
+    "failedToSaveCustomer": "Nie udało się zapisać klienta.",
+    "failedToDeleteCustomer": "Nie udało się usunąć klienta.",
+    "failedToSaveContact": "Nie udało się zapisać kontaktu.",
+    "failedToSaveNote": "Nie udało się zapisać notatki.",
+    "failedToUploadDocument": "Nie udało się przesłać dokumentu."
+  },
+  "workspace": {
+    "badge": "Korporacyjny CRM 2.0",
+    "title": "Zarządzanie relacjami z klientami",
+    "subtitleBeforeOrg": "Zarządzaj katalogiem klientów, profilami, kontaktami, notatkami i dokumentami",
+    "subtitleAfterOrg": "Projekty są łączone według nazwy firmy z modułu Projekty bez powielania danych.",
+    "yourOrganization": "Twoja organizacja"
+  },
+  "analytics": {
+    "totalCustomers": "Całkowita liczba klientów",
+    "activeCustomers": "Aktywni Klienci",
+    "newCustomers": "Nowi Klienci",
+    "vipCustomers": "Klienci VIP",
+    "createdThisMonth": "Utworzono w tym miesiącu",
+    "leadConversion": "Konwersja leadów",
+    "leadConversionHint": "Aktywny i VIP udział w ścieżce leada / potencjalnego klienta / konwersji.",
+    "customerGrowth": "Wzrost klienta"
+  },
+  "profile": {
+    "backToCrm": "← Powrót do CRM",
+    "ownerLabel": "Właściciel",
+    "notFoundTitle": "Nie znaleziono klienta",
+    "notFoundDescription": "Ten klient mógł zostać usunięty.",
+    "missingCustomerTitle": "Brakujący klient",
+    "missingOverviewDescription": "Wybierz klienta, aby wyświetlić przegląd.",
+    "missingSettingsDescription": "Wybierz klienta, aby zarządzać ustawieniami.",
+    "ariaProfileNav": "Profil klienta",
+    "tabs": {
+      "overview": "Przegląd",
+      "contacts": "Łączność",
+      "projects": "Projektowanie",
+      "documents": "Dokumenty",
+      "invoices": "Faktury",
+      "activity": "Działalność",
+      "notes": "Notatki",
+      "settings": "Ustawienia"
+    },
+    "overview": {
+      "title": "Przegląd",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "website": "Strona internetowa",
+      "taxNumber": "Numer podatkowy",
+      "location": "Lokalizacja",
+      "address": "Adres",
+      "created": "Stworzony",
+      "updated": "Zaktualizowano",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "Dodaj kontakt",
+      "editTitle": "Edytuj kontakt",
+      "listTitle": "Łączność",
+      "name": "Nazwa",
+      "role": "Rola",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "mobile": "Przenośny",
+      "notes": "Notatki",
+      "saveContact": "Zapisz kontakt",
+      "emptyTitle": "Nie ma jeszcze żadnych kontaktów",
+      "emptyDescription": "Dodaj interesariuszy, podając rolę, adres e-mail i szczegóły telefonu.",
+      "defaultRole": "Kontakt",
+      "mobilePrefix": "Przenośny"
+    },
+    "projects": {
+      "title": "Projektowanie",
+      "emptyTitle": "Brak powiązanych projektów",
+      "emptyDescription": "Tutaj pojawiają się projekty, których nazwa klienta pasuje do tej firmy. Dane odczytywane są z modułu Projekty – nic nie jest powielane.",
+      "openProjects": "Otwórz projekty"
+    },
+    "documents": {
+      "title": "Dokumenty",
+      "subtitle": "Obrazy, pliki PDF i dokumenty biurowe — metadane tylko w magazynie lokalnym.",
+      "attachFiles": "Dołącz pliki",
+      "emptyTitle": "Żadnych dokumentów",
+      "emptyDescription": "Dołącz pliki klientów dla zespołu ds. obsługi klienta.",
+      "systemUploader": "System"
+    },
+    "invoices": {
+      "emptyTitle": "Nie ma jeszcze faktur",
+      "emptyDescription": "Faktury dla tego klienta pojawiają się tutaj po połączeniu z finansami."
+    },
+    "activity": {
+      "title": "Działalność",
+      "emptyTitle": "Brak aktywności",
+      "emptyDescription": "Tworzywa, aktualizacje, notatki i dokumenty pojawiają się tutaj jako pierwsze.",
+      "kinds": {
+        "customer_created": "Klient utworzony",
+        "customer_updated": "Klient zaktualizowany",
+        "contact_added": "Kontakt dodany",
+        "contact_updated": "Kontakt zaktualizowany",
+        "contact_deleted": "Kontakt usunięty",
+        "note_added": "Uwaga dodana",
+        "note_updated": "Uwaga zaktualizowana",
+        "note_deleted": "Uwaga usunięta",
+        "document_added": "Dodano dokument",
+        "document_deleted": "Dokument usunięty",
+        "project_linked": "Projekt połączony"
+      }
+    },
+    "notes": {
+      "newTitle": "Nowa notatka",
+      "editTitle": "Edytuj notatkę",
+      "title": "Tytuł",
+      "author": "Autor",
+      "body": "Ciało",
+      "saveNote": "Zapisz notatkę",
+      "emptyTitle": "Nie ma jeszcze żadnych notatek",
+      "emptyDescription": "Przechwytuj kontekst konta wraz z autorem i znacznikami czasu."
+    },
+    "settings": {
+      "title": "Ustawienia",
+      "description": "Edytuj wszystkie pola profilu lub zarchiwizuj to konto. Do usunięcia służy okno dialogowe potwierdzenia.",
+      "editAllFields": "Edytuj wszystkie pola",
+      "prepareArchive": "Przygotuj archiwum",
+      "deleteCustomer": "Usuń klienta"
+    }
+  },
+  "customer360": {
+    "ariaSections": "Sekcje klienta 360",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "aiHealth": "Zdrowie AI",
+    "tabs": {
+      "profile": "Profil",
+      "company": "Firma",
+      "contacts": "Łączność",
+      "orders": "Święcenia",
+      "invoices": "Faktury",
+      "lieferscheine": "Lieferscheine",
+      "payments": "Płatności",
+      "documents": "Dokumenty",
+      "timeline": "Oś czasu",
+      "activities": "Działania",
+      "notes": "Notatki",
+      "aiSummary": "Podsumowanie sztucznej inteligencji",
+      "communicationHistory": "Historia komunikacji"
+    },
+    "profileLines": {
+      "customerId": "Identyfikator klienta",
+      "status": "Status",
+      "primaryContact": "Podstawowy kontakt"
+    },
+    "status": {
+      "churn_risk": "Ryzyko rezygnacji"
+    }
+  },
+  "delivery": {
+    "title": "Profesjonalny system Lieferscheina",
+    "description": "Dowody dostawy, odbiór/dostawa, kierowca, pojazd i śledzenie — tylko przykładowe zapisy. Adaptery eksportowe nie są podłączone.",
+    "badges": {
+      "qrUnavailable": "Kod QR niedostępny",
+      "barcodeUnavailable": "Kod kreskowy niedostępny",
+      "signatureDemo": "Demo podpisu"
+    },
+    "exportPdf": "Eksportuj PDF",
+    "deliveryHistory": "Historia dostaw",
+    "notices": {
+      "exportNotConnected": "W tej kompilacji nie jest połączone eksportowanie plików PDF, QR i kodów kreskowych.",
+      "exportPdfUnavailable": "Eksport PDF niedostępny — eksport dostawy nie jest podłączony.",
+      "historyNotConnected": "W tej kompilacji magazyn historii dostaw nie jest podłączony."
+    },
+    "columns": {
+      "lieferschein": "Lieferscheina",
+      "order": "Zamówienie",
+      "customer": "Klient",
+      "kind": "Rodzaj",
+      "driver": "Kierowca",
+      "vehicle": "Pojazd",
+      "tracking": "Śledzenie",
+      "scheduled": "Zaplanowany"
+    }
+  },
+  "orders": {
+    "description": "Produkty, usługi, cena, rabat, podatek i klient — księga zamówień przedsiębiorstwa.",
+    "createOrder": "Utwórz zamówienie",
+    "notices": {
+      "apiReserved": "Interfejs API tworzenia zamówień zarezerwowany dla przyszłej ścieżki zapisu.",
+      "draftStaged": "Utwórz wersję roboczą zamówienia (jeszcze bez interfejsu API)."
+    },
+    "columns": {
+      "order": "Zamówienie",
+      "customer": "Klient",
+      "status": "Status",
+      "lines": "Kwestia",
+      "net": "Internet",
+      "tax": "Podatek",
+      "gross": "Brutto",
+      "created": "Stworzony"
+    },
+    "lineTax": "{taxPct}% podatku"
+  },
+  "tasks": {
+    "calendarTitle": "Kalendarz · Spotkania · Przypomnienia · Kontynuacja",
+    "foundationTitle": "Podstawa systemu operacyjnego zadaniowego",
+    "foundationDescription": "Synchronizacja kalendarza, dostawcy spotkań, zadania przypomnień i dodatkowe elementy automatyzacji są zastrzeżone. Tablica ta jest wspólną powierzchnią zadań CRM dla każdego modułu branżowego.",
+    "badges": {
+      "calendarAdapter": "Adapter kalendarza",
+      "meetingAdapter": "Adapter spotkania",
+      "reminderQueue": "Kolejka przypomnień",
+      "followUpEngine": "Silnik podążający"
+    },
+    "duePrefix": "Należny",
+    "kinds": {
+      "follow_up": "Podejmować właściwe kroki",
+      "meeting": "Spotkanie",
+      "reminder": "Przypomnienie",
+      "task": "Zadanie"
+    },
+    "statuses": {
+      "open": "Otwarte",
+      "in_progress": "W toku",
+      "done": "Zrobione",
+      "cancelled": "Odwołany"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "Żadnych dokumentów",
+    "emptyDescription": "Żadne dokumenty nie pasują do tego wyszukiwania.",
+    "searchLabel": "Wyszukiwanie AI",
+    "searchPlaceholder": "Oferty, umowy, faktury, Lieferschein…",
+    "typeLabel": "Typ dokumentu",
+    "allTypes": "Wszystkie typy",
+    "columns": {
+      "type": "Typ",
+      "title": "Tytuł",
+      "customer": "Klient",
+      "status": "Status",
+      "updated": "Zaktualizowano"
+    },
+    "kinds": {
+      "quote": "Cytaty",
+      "contract": "Umowy",
+      "invoice": "Faktury",
+      "lieferschein": "Lieferscheina",
+      "purchase_order": "Zamówienia zakupu",
+      "receipt": "Wpływy kasowe"
+    }
+  },
+  "communication": {
+    "intro": "Tylko skalowalna architektura kanałów — e-mail, WhatsApp, Instagram, Facebook, TikTok, LinkedIn, Telegram, głos i wideo. Żadnych fałszywych integracji na żywo.",
+    "adapterPrefix": "Adapter:"
+  },
+  "aiCreator": {
+    "intro": "Gotowa na przyszłość powierzchnia AI Creator — pomysły, podpisy, hashtagi, kalendarz, kampanie, głos marki, generowanie obrazów/wideo, analityka, planowanie, kolejka publikacji i spostrzeżenia. Nie podłączono jeszcze żadnych interfejsów API prawdziwego dostawcy."
+  },
+  "creatorStudio": {
+    "intro": "Podstawa Creator Studio — oficjalne integracje platform można później podłączyć do tych adapterów. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Wątki, X."
+  },
+  "industry": {
+    "intro": "Universal Business Platform — onboarding później wybierze branżę. Każda branża otrzymuje dedykowane moduły AI bez konieczności rozwidlania podstawowego systemu operacyjnego CRM."
+  },
+  "kpi": {
+    "customers": {
+      "label": "Klienci",
+      "caption": "Aktywne relacje"
+    },
+    "companies": {
+      "label": "Firmy",
+      "caption": "Organizacje kont"
+    },
+    "leads": {
+      "label": "Wskazówki",
+      "caption": "Nowość w tym miesiącu"
+    },
+    "deals": {
+      "label": "Oferty",
+      "caption": "Otwarty rurociąg"
+    },
+    "revenue": {
+      "label": "Przychód",
+      "caption": "Wygrał od początku roku"
+    },
+    "projects": {
+      "label": "Aktywne projekty",
+      "caption": "Dostawa w locie"
+    },
+    "tasks": {
+      "label": "Otwórz Zadania",
+      "caption": "W całym CRM + dostawa"
+    },
+    "ai-health": {
+      "label": "Wynik zdrowia AI",
+      "caption": "Sygnał jakości relacji"
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "pipeline": {
+    "lead": "Ołów",
+    "qualified": "Wykwalifikowany",
+    "proposal": "Wniosek",
+    "negotiation": "Negocjacja",
+    "won": "Wygrał",
+    "lost": "Zaginiony"
+  },
+  "orderStatus": {
+    "draft": "Projekt",
+    "confirmed": "Potwierdzony",
+    "in_fulfillment": "W spełnieniu",
+    "shipped": "Wysłany",
+    "delivered": "Dostarczony",
+    "cancelled": "Odwołany"
+  },
+  "tracking": {
+    "scheduled": "Zaplanowany",
+    "en_route": "W drodze",
+    "arrived": "Przybył",
+    "completed": "Zakończony",
+    "failed": "Przegrany"
+  },
+  "documentKind": {
+    "quote": "Cytat",
+    "contract": "Umowa",
+    "invoice": "Faktura",
+    "lieferschein": "Lieferscheina",
+    "purchase_order": "Zamówienie zakupu",
+    "receipt": "Paragon"
+  },
+  "documentStatus": {
+    "sent": "Wysłano",
+    "signed": "Podpisano",
+    "paid": "Płatny",
+    "in_transit": "W transporcie",
+    "open": "Otwarte",
+    "filed": "Wniesiony"
+  },
+  "integration": {
+    "planned": "Planowany",
+    "ready": "Gotowy",
+    "connected": "Połączony",
+    "disabled": "Wyłączony"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "Identidad y acceso",
+    "title": "Equipo",
+    "lead": "Miembros, roles e invitaciones para {organization}. Listo para la arquitectura para una futura API de identidad.",
+    "yourOrganization": "tu organización"
+  },
+  "invite": {
+    "title": "Invitar por correo electrónico",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "colega@empresa.com",
+    "role": "Role",
+    "submit": "Invitar",
+    "created": "Invitación creada (pendiente).",
+    "failed": "Invitación fallida",
+    "signInFirst": "Inicie sesión y active una organización primero.",
+    "noPermission": "Falta permiso: se requiere administrador o gerente para invitar."
+  },
+  "roles": {
+    "title": "Roles",
+    "owner": {
+      "name": "Dueño",
+      "description": "Control total de la organización, incluida la configuración y la facturación."
+    },
+    "admin": {
+      "name": "Administración",
+      "description": "Administre los módulos de Finanzas, Automatización, Equipo y espacio de trabajo."
+    },
+    "manager": {
+      "name": "Gerente",
+      "description": "Liderar operaciones de CRM, proyectos, documentos y creadores."
+    },
+    "employee": {
+      "name": "Empleado",
+      "description": "Acceso diario a CRM, Documentos, Creador y Proyectos."
+    },
+    "guest": {
+      "name": "Invitado",
+      "description": "Acceso de lectura limitado a Documentos y Proyectos."
+    },
+    "viewer": {
+      "name": "Espectador",
+      "description": "Acceso de solo lectura a módulos compartidos."
+    }
+  },
+  "members": {
+    "title": "Miembros",
+    "columnMember": "Miembro",
+    "columnEmail": "Correo electrónico",
+    "columnRole": "Role",
+    "columnStatus": "Estado",
+    "roleFor": "Rol para {name}",
+    "emptyTitle": "Aún no hay miembros",
+    "emptyDescription": "Invite a colegas a unirse a este espacio de trabajo de la organización.",
+    "updated": "Se actualizó {name} a {role}",
+    "roleChangeFailed": "El cambio de rol falló"
+  },
+  "pending": {
+    "title": "Invitaciones pendientes",
+    "emptyTitle": "No hay invitaciones pendientes",
+    "emptyDescription": "Las nuevas invitaciones aparecen aquí hasta que se aceptan o caducan.",
+    "expires": "{role} · vence el {date}",
+    "revoke": "Revocar",
+    "pending": "pendiente"
+  },
+  "history": {
+    "title": "Historial de invitaciones",
+    "empty": "Aquí aparecerán las invitaciones aceptadas, vencidas y revocadas."
+  },
+  "status": {
+    "accepted": "aceptado",
+    "expired": "venció",
+    "revoked": "revocado",
+    "active": "activo",
+    "inactive": "inactivo",
+    "pending": "pendiente"
+  }
+}

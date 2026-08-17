@@ -16,6 +16,7 @@ import type {
 } from "./types";
 import { emptyCustomerDraft } from "./types";
 import type { CustomerFieldError } from "./validation";
+import { isTranslationKey } from "@/app/lib/i18n";
 
 type Listener = () => void;
 
@@ -107,10 +108,7 @@ async function reload(organizationId: string | null): Promise<void> {
     commit({
       loading: false,
       hydrated: true,
-      error:
-        error instanceof Error
-          ? error.message
-          : "Couldn’t load customers. Check your connection and try again.",
+      error: "customers.table.errorLoad",
     });
   }
 }
@@ -249,7 +247,9 @@ export const customerStore = {
           {
             field: "form",
             message:
-              error instanceof Error ? error.message : "Failed to save customer.",
+              error instanceof Error && isTranslationKey(error.message)
+                ? error.message
+                : "crm.toast.failedToSaveCustomer",
           },
         ],
       });

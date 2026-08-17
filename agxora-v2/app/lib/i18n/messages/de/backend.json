@@ -1,0 +1,62 @@
+{
+  "toast": {
+    "success": "Erfolg",
+    "warning": "Warnung",
+    "error": "Fehler",
+    "info": "Info",
+    "dismiss": "Benachrichtigung ausblenden",
+    "close": "Schließen"
+  },
+  "network": {
+    "offline": "Sie scheinen offline zu sein.",
+    "offlineHelp": "Offline-Hilfe",
+    "reconnected": "Verbindung wiederhergestellt",
+    "offlineSyncHint": "Änderungen werden möglicherweise erst synchronisiert, wenn die Verbindung zurückkehrt."
+  },
+  "errorBoundary": {
+    "backToDashboard": "Zurück zum Dashboard",
+    "title": "Etwas ist schiefgelaufen",
+    "retry": "Erneut versuchen"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "message": "Die von Ihnen angeforderte Seite existiert nicht, wurde verschoben oder ist nicht mehr verfügbar.",
+    "recoveryNav": "Wiederherstellung",
+    "home": "Start",
+    "pricing": "Preise",
+    "contact": "Kontakt",
+    "signIn": "Anmelden",
+    "dashboard": "Dashboard"
+  },
+  "globalError": {
+    "title": "Etwas ist schiefgelaufen",
+    "message": "Es ist ein unerwarteter Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+    "retry": "Erneut versuchen"
+  },
+  "skipToMain": "     Skip to main content",
+  "offline": {
+    "title": "You are offline",
+    "message": "Check your connection and retry when you are back online. Cached screens may still work.",
+    "home": "Start",
+    "contact": "Kontakt",
+    "signIn": "Anmelden"
+  },
+  "logout": {
+    "title": "Abmelden",
+    "signingOut": "Signing you out…",
+    "endingSession": "Ending session…",
+    "failed": "Logout failed"
+  },
+  "demo": {
+    "title": "Book a demo",
+    "subtitle": "Schedule a live walkthrough with the AGXORA team. Until calendar booking is enabled, email us to request a demo.",
+    "requestTitle": "Request a demo",
+    "requestBody": "We're finishing scheduling so you can pick a time that works for your team. Until then, start free and explore the product at your own pace — or email us at {email}.",
+    "startFree": "Start free instead",
+    "backHome": "Back to home",
+    "signIn": "Anmelden"
+  },
+  "loading": "Wird geladen",
+  "loadingEllipsis": "Wird geladen…",
+  "loadingIdentity": "Identität wird geladen…"
+}

@@ -1,0 +1,125 @@
+{
+  "loading": "Cargando el sistema operativo del agente...",
+  "eyebrow": "Sistema operativo del agente de IA",
+  "title": "SO del agente",
+  "subtitle": "Espacio de trabajo de agentes locales: los agentes se pueden activar y ejecutar como simulaciones en CRM, proyectos, finanzas, flujos de trabajo e integraciones. La ejecución autónoma de la producción no está conectada.",
+  "noticeDefault": "Sistema operativo del agente local: las ejecuciones se simulan en este espacio de trabajo.",
+  "aiChat": "Chat de IA",
+  "tabs": {
+    "dashboard": "Panel",
+    "registry": "Registro",
+    "marketplace": "Mercado",
+    "monitor": "Monitor",
+    "history": "Historia",
+    "memory": "Memoria",
+    "knowledge": "Conocimiento",
+    "tools": "Herramientas",
+    "settings": "Ajustes"
+  },
+  "notice": {
+    "simulatedRun": "Ejecución simulada · {status} ({duration}ms)",
+    "taskFailed": "Tarea fallida",
+    "activated": "Activado localmente: {agentId}",
+    "agentPaused": "Agente en pausa",
+    "agentActivated": "Agente activado",
+    "taskCancelled": "Tarea cancelada",
+    "supervisorDelegated": "El supervisor delegó un seguimiento",
+    "settingsUpdated": "Se actualizó la configuración del sistema operativo del agente para este espacio de trabajo local."
+  },
+  "dashboard": {
+    "agents": "Agentes",
+    "active": "Activo",
+    "localReady": "Local listo",
+    "simulatedToday": "Simulado hoy",
+    "failedToday": "Falló hoy",
+    "avgExec": "ejecutivo promedio",
+    "toolCalls": "Llamadas a herramientas",
+    "knowledge": "Conocimiento",
+    "activeFleet": "Flota activa",
+    "emptyTitle": "No hay agentes activos",
+    "emptyDescription": "Instale o active un agente del mercado para iniciar ejecuciones simuladas."
+  },
+  "registry": {
+    "title": "Registro",
+    "selectPrompt": "Seleccione un agente del registro.",
+    "status": "Estado: {status}",
+    "health": "Salud: {health}",
+    "queue": "Cola: {queue}",
+    "usage": "Uso: {usage}",
+    "executeTask": "Ejecutar tarea",
+    "supervisorDelegate": "delegado supervisor"
+  },
+  "marketplace": {
+    "tools": "Herramientas: {tools}",
+    "installed": "Instalado",
+    "installActivate": "Instalar y activar"
+  },
+  "monitor": {
+    "title": "Monitor de agente",
+    "emptyTitle": "No hay agentes para monitorear",
+    "emptyDescription": "Activar agentes del mercado.",
+    "latestConfidence": "Confianza de razonamiento más reciente: {confidence} - {steps}"
+  },
+  "history": {
+    "title": "Historial de ejecución",
+    "emptyTitle": "Aún no hay ejecuciones",
+    "emptyDescription": "Ejecute una tarea de agente desde el registro o monitor."
+  },
+  "memory": {
+    "title": "Centro de memoria",
+    "subtitle": "Trabajo · Conversación · Negocios · Largo plazo · Espacio de trabajo · Alcances de agentes (listos para arquitectura).",
+    "emptyTitle": "Sin registros de memoria",
+    "emptyDescription": "Ejecute una tarea para llenar la memoria de trabajo/agente."
+  },
+  "knowledge": {
+    "title": "centro de conocimiento",
+    "subtitle": "Empresa, documentos, proyectos, CRM, políticas, procedimientos, además de marcadores de posición vectoriales/RAG.",
+    "emptyTitle": "Sin documentos de conocimiento.",
+    "emptyDescription": "El conocimiento inicial aparece después del arranque del espacio de trabajo."
+  },
+  "tools": {
+    "sensitive": "· sensible",
+    "mcpReady": "· Listo para MCP"
+  },
+  "settings": {
+    "title": "Configuración del sistema operativo del agente",
+    "defaultLlmProvider": "Proveedor de LLM predeterminado",
+    "enableSupervisor": "Habilitar la arquitectura del agente supervisor",
+    "isolateSensitive": "Aislar herramientas sensibles",
+    "saveSettings": "Guardar configuración",
+    "providersHint": "Proveedores listos: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Intercambie adaptadores a través de RegisterLlmProvider sin cambios en la interfaz de usuario."
+  },
+  "columns": {
+    "agent": "Agente",
+    "status": "Estado",
+    "health": "Salud",
+    "queue": "Cola",
+    "usage": "Uso",
+    "actions": "Comportamiento",
+    "task": "Tarea",
+    "duration": "Duración",
+    "created": "Creado",
+    "scope": "Alcance",
+    "key": "Llave",
+    "value": "Valor",
+    "at": "En",
+    "title": "Título",
+    "kind": "Amable",
+    "summary": "Resumen"
+  },
+  "actions": {
+    "run": "Correr",
+    "pause": "Pausa",
+    "activate": "Activar",
+    "cancel": "Cancelar",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "Ejecutar el objetivo comercial {agentId}",
+    "planAndExecute": "Planificar y ejecutar un objetivo empresarial en el espacio de trabajo"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Priorizar el impacto en el cliente",
+    "delegatedFollowUp": "Seguimiento delegado"
+  }
+}

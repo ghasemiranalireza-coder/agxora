@@ -12,6 +12,7 @@ import {
   type SelectHTMLAttributes,
   type TextareaHTMLAttributes,
 } from "react";
+import { isTranslationKey, useT } from "../../lib/i18n";
 
 type ControlAriaProps = {
   id?: string;
@@ -39,6 +40,7 @@ export function FormField({
   readonly required?: boolean;
   readonly children: ReactNode;
 }): JSX.Element {
+  const t = useT();
   const autoId = useId();
   const fieldId = htmlFor ?? autoId;
   const errorId = `${fieldId}-error`;
@@ -46,6 +48,8 @@ export function FormField({
   const describedBy = [error ? errorId : null, !error && hint ? hintId : null]
     .filter(Boolean)
     .join(" ");
+  const displayError =
+    error && isTranslationKey(error) ? t(error) : error;
 
   return (
     <div className="block space-y-2">
@@ -70,9 +74,9 @@ export function FormField({
             describedBy || el.props["aria-describedby"],
         });
       })}
-      {error ? (
+      {displayError ? (
         <span className="agx-ui-error" role="alert" id={errorId}>
-          {error}
+          {displayError}
         </span>
       ) : hint ? (
         <span className="agx-ui-hint" id={hintId}>

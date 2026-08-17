@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "Sin resultados",
+    "noResultsDescription": "Nada coincide con los filtros actuales.",
+    "previous": "Anterior",
+    "next": "Próximo",
+    "paginationRange": "{start}–{end} de {total}",
+    "sortAscending": "Orden ascendente",
+    "sortDescending": "Orden descendente"
+  },
+  "dialog": {
+    "close": "Cerrar diálogo"
+  },
+  "module": {
+    "notAvailableTitle": "{title} aún no está disponible",
+    "notAvailableDescription": "Este módulo está preparado para una versión futura. Aún no se almacenan registros aquí."
+  },
+  "states": {
+    "errorLabel": "Error",
+    "errorTitle": "algo salió mal",
+    "errorDescription": "No pudimos completar esa solicitud. Inténtalo de nuevo en un momento.",
+    "retry": "Rever"
+  },
+  "empty": {
+    "crmTitle": "Tu CRM está listo",
+    "crmDescription": "Cree el primer registro de cliente para desbloquear directorio, perfiles y actividad.",
+    "crmAction": "Abrir CRM",
+    "projectsTitle": "Aún no hay proyectos",
+    "projectsDescription": "Cree un espacio de trabajo de entrega para realizar un seguimiento de los hitos, el presupuesto y la propiedad del equipo.",
+    "projectsAction": "Proyectos abiertos",
+    "analyticsTitle": "La analítica espera señal",
+    "analyticsDescription": "Una vez que su espacio de trabajo genera actividad, aquí aparecen alertas y KPI ejecutivos.",
+    "analyticsAction": "Abrir análisis",
+    "documentsTitle": "La biblioteca de documentos está vacía",
+    "documentsDescription": "Cargue o cree activos de conocimiento para potenciar las aprobaciones, las versiones y el contexto de IA.",
+    "documentsAction": "Documentos abiertos",
+    "billingTitle": "Aún no hay historial de facturación",
+    "billingDescription": "Actualice un plan para generar facturas, renovaciones e historial de pagos.",
+    "billingAction": "Facturación abierta",
+    "agentsTitle": "No hay agentes activos",
+    "agentsDescription": "Instale o active un agente del mercado para iniciar ejecuciones autónomas.",
+    "agentsAction": "Abrir sistema operativo del agente"
+  },
+  "yes": "Sí",
+  "no": "No",
+  "dash": "—"
+}

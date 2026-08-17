@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "OS Keuangan AGXORA",
+    "title": "Keuangan & Pajak",
+    "subtitle": "Akuntansi, perbankan, pajak, dan intelijen keuangan — dipratinjau dengan data sampel hingga buku besar langsung terhubung.",
+    "sampleNotice": "Contoh kumpulan data — angka dan riwayat ekspor merupakan ilustrasi. DATEV / ekspor file dan feed bank langsung tidak terhubung."
+  },
+  "sections": {
+    "overview": {
+      "title": "Ikhtisar Keuangan"
+    },
+    "invoiceCenter": {
+      "title": "Pusat Faktur",
+      "subtitle": "Cari, filter, dan urutkan buku besar faktur perusahaan dengan penilaian kepercayaan AI."
+    },
+    "aiInvoiceProcessing": {
+      "title": "Pemrosesan Faktur AI",
+      "subtitle": "Saluran demo — Ekstraksi OCR dan AI tidak terhubung."
+    },
+    "banking": {
+      "title": "Perbankan",
+      "subtitle": "Hanya akun sampel — Open Banking feed tidak terhubung."
+    },
+    "datev": {
+      "title": "Integrasi DATEV",
+      "subtitle": "Contoh riwayat ekspor — Pembuatan file DATEV tidak terhubung."
+    },
+    "taxCenter": {
+      "title": "Pusat Pajak",
+      "subtitle": "Ringkasan PPN, tenggat waktu, dan pembayaran yang akan datang."
+    },
+    "aiInsights": {
+      "title": "Wawasan AI",
+      "subtitle": "Hanya temuan sampel — tindakan wawasan tidak ada hubungannya."
+    },
+    "smartSearch": {
+      "title": "Pencarian Cerdas",
+      "subtitle": "Kueri bahasa alami di seluruh faktur, pengeluaran, PPN, dan ekspor."
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "Pendapatan",
+        "caption": "Contoh · 30 hari terakhir",
+        "delta": "+8.4%"
+      },
+      "expenses": {
+        "label": "Pengeluaran",
+        "caption": "Contoh · pengoperasian + COGS",
+        "delta": "+2.1%"
+      },
+      "profit": {
+        "label": "Laba",
+        "caption": "Contoh · operasi bersih",
+        "delta": "+12.6%"
+      },
+      "vat-due": {
+        "label": "PPN Terutang",
+        "caption": "Contoh · Jendela Q2",
+        "delta": "Jatuh tempo dalam {days}d"
+      },
+      "open-invoices": {
+        "label": "Buka Faktur",
+        "caption": "Contoh · {money} beredar"
+      },
+      "paid-invoices": {
+        "label": "Faktur Berbayar",
+        "caption": "Contoh · kuartal ini",
+        "delta": "+{count}"
+      },
+      "cashflow": {
+        "label": "Arus kas",
+        "caption": "Contoh · Proyeksi 30 hari",
+        "delta": "+4.2%"
+      },
+      "ai-score": {
+        "label": "Skor Keuangan AI",
+        "caption": "Skor sampel · bukan penilaian risiko langsung",
+        "delta": "+{count}"
+      }
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "invoices": {
+    "emptyTitle": "Tidak ada faktur",
+    "emptyDescription": "Tidak ada faktur yang cocok dengan penelusuran atau filter Anda.",
+    "searchPlaceholder": "Nomor, perusahaan, kategori…",
+    "statusFilter": "Penyaring status",
+    "paymentFilter": "Filter pembayaran",
+    "sortBy": "Urutkan berdasarkan",
+    "toggleSort": "Alihkan arah pengurutan",
+    "count": "{count} faktur",
+    "countOne": "{count} faktur",
+    "allStatuses": "Semua status",
+    "allPayments": "Semua pembayaran",
+    "columns": {
+      "number": "Nomor Faktur",
+      "company": "Perusahaan",
+      "amount": "Jumlah",
+      "vat": "TONG",
+      "status": "Status",
+      "dueDate": "Tenggat waktu",
+      "payment": "Status Pembayaran",
+      "category": "Kategori",
+      "ai": "Keyakinan AI"
+    },
+    "sort": {
+      "dueDate": "Tenggat waktu",
+      "amount": "Jumlah",
+      "company": "Perusahaan",
+      "status": "Status",
+      "aiConfidence": "kepercayaan diri AI",
+      "number": "Faktur #"
+    }
+  },
+  "status": {
+    "draft": "Draf",
+    "open": "Membuka",
+    "paid": "Dibayar",
+    "overdue": "Terlambat",
+    "cancelled": "Dibatalkan"
+  },
+  "payment": {
+    "unpaid": "Tidak dibayar",
+    "partial": "Sebagian",
+    "paid": "Dibayar",
+    "refunded": "Dikembalikan"
+  },
+  "category": {
+    "saas": "SaaS",
+    "office": "Kantor",
+    "travel": "Bepergian",
+    "marketing": "Pemasaran",
+    "utilities": "Utilitas",
+    "professional": "Profesional",
+    "other": "Lainnya"
+  },
+  "processing": {
+    "dropTitle": "Seret & lepas file faktur",
+    "dropFormats": "PDF · Gambar · Impor Email",
+    "uploadFiles": "Unggah file",
+    "emailImport": "Impor Email",
+    "dropHint": "Jatuhkan faktur PDF atau gambar ke tahap secara lokal — OCR tidak terhubung.",
+    "filesStaged": "{count} file hanya terdaftar secara lokal — Ekstraksi OCR / AI tidak terhubung.",
+    "emailReserved": "Konektor impor email dicadangkan untuk IMAP / Microsoft Graph.",
+    "pipelineTitle": "Pipa pemrosesan (demo)",
+    "stages": {
+      "ocr": "Status OCR",
+      "extraction": "Ekstraksi AI",
+      "categorization": "Kategorisasi",
+      "duplicateDetection": "Deteksi Duplikat"
+    }
+  },
+  "stage": {
+    "pending": "Tidak tersedia",
+    "running": "Tidak terhubung",
+    "complete": "Demo",
+    "failed": "Gagal",
+    "skipped": "Dilewati"
+  },
+  "banking": {
+    "connectionTitle": "Koneksi Bank",
+    "connectBank": "Hubungkan bank",
+    "description": "Adaptor PSD2 / Open Banking tidak menggunakan kabel. Pencocokan dan rekonsiliasi di bawah ini hanya ilustrasi saja.",
+    "feedUnavailable": "Umpan bank tidak tersedia — koneksi penyedia tidak terhubung.",
+    "noticeDefault": "Open Banking tidak terhubung — akun di bawah ini adalah contoh data.",
+    "connectUnavailable": "Hubungkan bank tidak tersedia — Open Banking tidak terhubung dalam build ini.",
+    "sampleAccounts": "Contoh Akun",
+    "sample": "Mencicipi",
+    "offline": "Luring",
+    "demoPrefix": "Demo",
+    "latestTransactions": "Transaksi Terkini",
+    "sampleMatching": "Pencocokan sampel",
+    "demoOnly": "Hanya demo",
+    "sampleMatch": "Contoh pertandingan",
+    "unmatched": "Tiada bandingan",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "Integrasi DATEV",
+    "notConnected": "Tidak terhubung",
+    "intro": "Contoh riwayat ekspor di bawah ini adalah ilustrasi. Kredensial dan pembuatan file tidak terhubung dalam build ini.",
+    "noticeDefault": "Adaptor ekspor tidak terhubung — tidak ada file yang akan dibuat.",
+    "exportUnavailable": "{title} tidak tersedia — DATEV / ekspor file tidak terhubung.",
+    "exportUnavailableAria": "{title} — tidak tersedia",
+    "historyTitle": "Riwayat Ekspor (contoh)",
+    "refresh": "Menyegarkan",
+    "refreshUnavailable": "Penyegaran tidak tersedia — riwayat ekspor adalah data sampel statis.",
+    "steuerberaterSample": "Mencicipi",
+    "steuerberaterPending": "Tertunda",
+    "columns": {
+      "export": "Ekspor",
+      "format": "Format",
+      "period": "Periode",
+      "created": "Dibuat",
+      "status": "Status",
+      "steuerberater": "Steuerberater"
+    },
+    "actions": {
+      "datev": {
+        "title": "Ekspor DATEV",
+        "description": "Paket Buchungsstapel untuk alur kerja Steuerberater."
+      },
+      "csv": {
+        "title": "Ekspor CSV",
+        "description": "CSV yang siap untuk buku besar untuk spreadsheet dan impor."
+      },
+      "pdf": {
+        "title": "Ekspor PDF",
+        "description": "Paket dokumen untuk ditinjau dan diarsipkan."
+      },
+      "xml": {
+        "title": "Ekspor XML",
+        "description": "XML pajak terstruktur untuk pengarsipan saluran pipa."
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "Contoh · Antri",
+    "ready": "Contoh · Siap",
+    "delivered": "Ilustratif",
+    "failed": "Gagal"
+  },
+  "tax": {
+    "vatSummaryTitle": "Ringkasan PPN",
+    "monthlyVat": "PPN bulanan",
+    "quarterlyVat": "PPN triwulanan",
+    "collected": "Dikumpulkan",
+    "deductible": "Dapat dikurangkan",
+    "netDue": "Jatuh tempo bersih",
+    "deadlinesTitle": "Batas Waktu Pajak · Pembayaran Mendatang",
+    "duePrefix": "Jatuh tempo",
+    "deadlineStatus": {
+      "due_soon": "Segera jatuh tempo",
+      "upcoming": "Mendatang",
+      "overdue": "Terlambat",
+      "paid": "Dibayar"
+    },
+    "deadlines": {
+      "td-1": "Pengembalian PPN bulanan",
+      "td-2": "Pelunasan PPN triwulanan",
+      "td-3": "Pajak perusahaan di muka"
+    },
+    "period": {
+      "monthly": "Bulanan",
+      "quarterly": "Triwulanan",
+      "annual": "Tahunan"
+    }
+  },
+  "insights": {
+    "demoPrefix": "Demo",
+    "noticeDefault": "Tindakan wawasan tidak terhubung — kartu hanya menampilkan sampel temuan.",
+    "actionUnavailable": "{action} tidak tersedia — tindakan wawasan keuangan tidak terhubung.",
+    "actionUnavailableTitle": "{action} tidak tersedia — tidak terhubung",
+    "kinds": {
+      "unusual_expense": "Pengeluaran yang tidak biasa",
+      "duplicate_invoice": "Faktur duplikat",
+      "missing_invoice": "Faktur tidak ada",
+      "late_payment": "Pembayaran terlambat",
+      "cashflow_prediction": "Prediksi arus kas",
+      "tax_optimization": "Optimalisasi pajak"
+    }
+  },
+  "search": {
+    "label": "Pencarian Bahasa Alami",
+    "placeholder": "Coba “Tampilkan faktur yang belum dibayar”",
+    "submit": "Mencari",
+    "examplesTitle": "Contoh",
+    "hints": {
+      "idle": "Tanyakan tentang faktur, pengeluaran, PPN, atau ekspor.",
+      "unpaid_invoices": "Memfilter Pusat Faktur ke item yang belum dibayar/terbuka.",
+      "july_expenses": "Menampilkan aktivitas sisi pengeluaran bulan Juli.",
+      "amazon": "Menemukan faktur dan tanda terima Amazon.",
+      "vat_export": "Membuka tindakan ekspor DATEV / PPN.",
+      "general": "Mencari buku besar untuk “{query}”."
+    },
+    "examples": {
+      "q1": {
+        "query": "Tampilkan faktur yang belum dibayar",
+        "description": "Piutang terbuka dengan status belum dibayar atau sebagian"
+      },
+      "q2": {
+        "query": "Tunjukkan pengeluaran bulan Juli",
+        "description": "Faktur sisi pengeluaran dan arus keluar bank pada bulan Juli"
+      },
+      "q3": {
+        "query": "Temukan faktur Amazon",
+        "description": "Pencocokan vendor di seluruh pusat faktur dan unggahan"
+      },
+      "q4": {
+        "query": "Ekspor PPN",
+        "description": "Lompat ke tindakan DATEV/pajak ekspor"
+      }
+    }
+  }
+}

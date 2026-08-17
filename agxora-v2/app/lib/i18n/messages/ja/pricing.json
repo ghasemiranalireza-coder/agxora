@@ -1,0 +1,70 @@
+{
+  "navLabel": "価格ナビゲーション",
+  "navPricing": "価格設定",
+  "navContactSales": "営業担当者へのお問い合わせ",
+  "navBookDemo": "デモを予約する",
+  "navSignIn": "サインイン",
+  "eyebrow": "価格設定",
+  "title": "出荷するオペレーター向けに構築されたプラン。",
+  "lead": "商用層をクリアします。無料で開始し、準備ができたら拡張することも、エンタープライズ条件については営業にご相談ください。",
+  "billingInterval": "請求間隔",
+  "monthly": "毎月",
+  "yearly": "毎年",
+  "savePercent": "~20% 節約",
+  "mostPopular": "最も人気のある",
+  "startFree": "無料で始める",
+  "bookDemo": "デモを予約する",
+  "contactSales": "営業担当者へのお問い合わせ",
+  "perMonth": "/月",
+  "perMonthYearly": "/月ごとに請求されます",
+  "yearlyHint": "{amount}/年 · {percent}% 節約",
+  "commercialActions": "商業行為",
+  "legal": "法律上の",
+  "planAria": "{name} プラン — {cta}",
+  "plans": {
+    "starter": {
+      "name": "スターター",
+      "description": "フリーランサーおよび中小企業向け。",
+      "features": [
+        "CRMと顧客パイプライン",
+        "プロジェクトとドキュメント",
+        "ガバナンスされた AI アシスタント",
+        "最大5席まで",
+        "電子メールサポート"
+      ]
+    },
+    "business": {
+      "name": "仕事",
+      "description": "成長するチームのために。",
+      "features": [
+        "スターターのすべて",
+        "財務および分析モジュール",
+        "自動化と監査のエクスポート",
+        "チームのコラボレーション",
+        "優先サポート"
+      ]
+    },
+    "professional": {
+      "name": "プロ",
+      "description": "先進的な企業向け。",
+      "features": [
+        "スターターのすべて",
+        "財務および分析モジュール",
+        "APIアクセス",
+        "先進的な企業ワークフロー",
+        "優先サポート受信箱"
+      ]
+    },
+    "enterprise": {
+      "name": "企業",
+      "description": "無制限のスケールのためのカスタム価格設定。",
+      "features": [
+        "カスタム価格設定",
+        "無制限のスケール",
+        "専用のオンボーディング",
+        "カスタム統合",
+        "優先サポート"
+      ]
+    }
+  }
+}

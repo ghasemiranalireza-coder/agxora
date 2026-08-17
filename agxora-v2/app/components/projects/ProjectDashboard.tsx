@@ -2,6 +2,7 @@
 
 import type { JSX, ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
+import { useT } from "../../lib/i18n";
 import { Card } from "../ui";
 import { formatMoney, type ProjectAnalytics } from "../../lib/projects";
 
@@ -53,46 +54,59 @@ export function ProjectKpiCards({
   readonly analytics: ProjectAnalytics;
   readonly currency?: string;
 }): JSX.Element {
+  const t = useT();
+
   return (
     <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
       <KpiCard
-        label="Active Projects"
+        label={t("projects.dashboard.kpi.activeProjects")}
         value={String(analytics.active)}
-        hint={`${analytics.planning} planning`}
+        hint={t("projects.dashboard.kpi.activeHint", {
+          planning: analytics.planning,
+        })}
         accent="var(--agx-accent, #22d3ee)"
       />
       <KpiCard
-        label="Completed"
+        label={t("projects.dashboard.kpi.completed")}
         value={String(analytics.completed)}
-        hint={`${analytics.completedPercent}% of portfolio`}
+        hint={t("projects.dashboard.kpi.completedHint", {
+          percent: analytics.completedPercent,
+        })}
         accent="#34d399"
       />
       <KpiCard
-        label="On Hold"
+        label={t("projects.dashboard.kpi.onHold")}
         value={String(analytics.onHold)}
-        hint={`${analytics.archived} archived`}
+        hint={t("projects.dashboard.kpi.onHoldHint", {
+          archived: analytics.archived,
+        })}
         accent="#fbbf24"
       />
       <KpiCard
-        label="Team Members"
+        label={t("projects.dashboard.kpi.teamMembers")}
         value={String(analytics.teamMembers)}
-        hint="Across all projects"
+        hint={t("projects.dashboard.kpi.teamHint")}
       />
       <KpiCard
-        label="Budget Overview"
+        label={t("projects.dashboard.kpi.budgetOverview")}
         value={formatMoney(analytics.totalBudget, currency)}
-        hint={`${analytics.budgetUsagePercent}% used · ${formatMoney(analytics.totalSpent, currency)} spent`}
+        hint={t("projects.dashboard.kpi.budgetHint", {
+          percent: analytics.budgetUsagePercent,
+          spent: formatMoney(analytics.totalSpent, currency),
+        })}
       />
       <KpiCard
-        label="Open Tasks"
+        label={t("projects.dashboard.kpi.openTasks")}
         value={String(analytics.openTasks)}
-        hint={`${analytics.overdueTasks} overdue`}
+        hint={t("projects.dashboard.kpi.openTasksHint", {
+          overdue: analytics.overdueTasks,
+        })}
         accent={analytics.overdueTasks > 0 ? "#fb7185" : undefined}
       />
       <KpiCard
-        label="Project Health"
+        label={t("projects.dashboard.kpi.projectHealth")}
         value={`${analytics.healthScore}`}
-        hint="Composite delivery score"
+        hint={t("projects.dashboard.kpi.healthHint")}
         accent={
           analytics.healthScore >= 70
             ? "#34d399"
@@ -102,9 +116,9 @@ export function ProjectKpiCards({
         }
       />
       <KpiCard
-        label="Upcoming Deadlines"
+        label={t("projects.dashboard.kpi.upcomingDeadlines")}
         value={String(analytics.upcomingDeadlines.length)}
-        hint="Next 30 days"
+        hint={t("projects.dashboard.kpi.upcomingHint")}
       />
     </div>
   );
@@ -115,6 +129,8 @@ export function ProjectAnalyticsPanel({
 }: {
   readonly analytics: ProjectAnalytics;
 }): JSX.Element {
+  const t = useT();
+
   return (
     <Card hover={false} className="space-y-4" padding="24px">
       <div>
@@ -122,10 +138,10 @@ export function ProjectAnalyticsPanel({
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Analytics
+          {t("projects.dashboard.analytics.title")}
         </h2>
         <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Portfolio health, completion, and budget usage.
+          {t("projects.dashboard.analytics.subtitle")}
         </p>
       </div>
 
@@ -135,12 +151,12 @@ export function ProjectAnalyticsPanel({
             className="text-[11px] font-semibold uppercase tracking-[0.14em]"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            Status mix
+            {t("projects.dashboard.analytics.statusMix")}
           </p>
           {analytics.statusBreakdown.map((row) => (
             <BarRow
               key={row.status}
-              label={row.status.replace("_", " ")}
+              label={t(`projects.status.${row.status}`)}
               percent={row.percent}
               value={`${row.count}`}
             />
@@ -151,22 +167,22 @@ export function ProjectAnalyticsPanel({
             className="text-[11px] font-semibold uppercase tracking-[0.14em]"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            Delivery signals
+            {t("projects.dashboard.analytics.deliverySignals")}
           </p>
           <BarRow
-            label="Completed %"
+            label={t("projects.dashboard.analytics.completedPercent")}
             percent={analytics.completedPercent}
             value={`${analytics.completedPercent}%`}
             color="#34d399"
           />
           <BarRow
-            label="Budget usage"
+            label={t("projects.dashboard.analytics.budgetUsage")}
             percent={Math.min(100, analytics.budgetUsagePercent)}
             value={`${analytics.budgetUsagePercent}%`}
             color="#60a5fa"
           />
           <BarRow
-            label="Health"
+            label={t("projects.dashboard.analytics.health")}
             percent={analytics.healthScore}
             value={`${analytics.healthScore}`}
             color="#22d3ee"
@@ -179,11 +195,11 @@ export function ProjectAnalyticsPanel({
           className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em]"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Upcoming deadlines
+          {t("projects.dashboard.analytics.upcomingDeadlines")}
         </p>
         {analytics.upcomingDeadlines.length === 0 ? (
           <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            No upcoming deadlines in the next window.
+            {t("projects.dashboard.analytics.noUpcomingDeadlines")}
           </p>
         ) : (
           <ul className="space-y-2">
@@ -202,7 +218,7 @@ export function ProjectAnalyticsPanel({
                     className="ml-2 text-[11px] uppercase tracking-wide"
                     style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                   >
-                    {item.kind}
+                    {t(`projects.kind.${item.kind}`)}
                   </span>
                 </span>
                 <span style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
@@ -257,6 +273,8 @@ export function RecentActivityList({
 }: {
   readonly children: ReactNode;
 }): JSX.Element {
+  const t = useT();
+
   return (
     <Card hover={false} className="space-y-3" padding="24px">
       <div>
@@ -264,10 +282,10 @@ export function RecentActivityList({
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Recent Activity
+          {t("projects.dashboard.recentActivity.title")}
         </h2>
         <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Newest project events first.
+          {t("projects.dashboard.recentActivity.subtitle")}
         </p>
       </div>
       {children}

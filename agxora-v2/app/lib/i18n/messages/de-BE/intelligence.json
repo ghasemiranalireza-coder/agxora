@@ -1,0 +1,136 @@
+{
+  "loading": "Enterprise Intelligence Center wird geladen...",
+  "eyebrow": "Enterprise Intelligence Center",
+  "title": "Intelligenz",
+  "subtitle": "KPIs, Scorecards, Alerts und Reports für jedes AGXORA-Modul. Die folgenden Werte sind ein gesetztes Demo-Dataset, bis sich Live-Analytics-Backends verbinden.",
+  "demoBanner": "Demo-Datensatz — filtert und bestätigt die Arbeit in der Sitzung; Export- und Live-Modellaufrufe sind noch nicht verfügbar.",
+  "noticeDefault": "Zeigt gesäte Demo-Analysen an — keine Live-Produktionstelemetrie.",
+  "noPermission": "Sie haben keine intelligence.read-Berechtigung für diesen Arbeitsbereich.",
+  "filtersUpdated": "Filter aktualisiert!",
+  "demoReloaded": "Demo-Dataset für diesen Arbeitsbereich neu geladen.",
+  "acknowledged": "Anerkannt: {title}",
+  "exportUnavailableTitle": "Export nicht verfügbar — Berichterstellung ist noch nicht verbunden.",
+  "exportUnavailableAria": "{title} als {format} exportieren — nicht verfügbar",
+  "tabs": {
+    "executive": "Leitung",
+    "health": "Geschäftliche Gesundheit",
+    "workspace": "Analytik",
+    "kpis": "KPI-Center",
+    "reports": "Berichte, Meldet",
+    "insights": "Einblicke",
+    "forecasts": "Prognosen",
+    "alerts": "Benachrichtigungen",
+    "scorecards": "Scorecards",
+    "explorer": "Daten-Explorer"
+  },
+  "filters": {
+    "from": "Von",
+    "to": "Herrn",
+    "domain": "Domain",
+    "allDomains": "Alle Domänen",
+    "apply": "Filter anwenden",
+    "reloadDemo": "Demodaten neu laden",
+    "viewsAria": "Intelligenzansichten"
+  },
+  "executive": {
+    "companyHealth": "Betriebliche Gesundheit",
+    "revenueScore": "Umsatz-Score",
+    "customerHealth": "Kundengesundheit",
+    "projectHealth": "Projektgesundheit",
+    "workflowSuccess": "Workflow-Erfolg",
+    "aiActivity": "KI-Aktivität",
+    "finance": "Finanzen",
+    "riskGrowth": "Risiko / Wachstum",
+    "kpiStrip": "KPI-Streifen für Führungskräfte",
+    "visualizationPreviews": "Visualisierungsvorschauen",
+    "visualizationHint": "Illustrative Diagramme aus der Demo-Serie — keine interaktiven Drill-Downs.",
+    "noSeries": "Keine Serienbindung"
+  },
+  "health": {
+    "title": "Betriebliche Gesundheitszersetzung",
+    "overall": "Gesamt",
+    "revenue": "Einnahmen",
+    "customers": "Kunden",
+    "projects": "Projekte",
+    "workflows": "Arbeitsabläufe",
+    "ai": "KI",
+    "finance": "Finanzen",
+    "operations": "Betriebsabläufe",
+    "riskPosture": "Risikoposition",
+    "growth": "Wachstum",
+    "observability": "Beobachtbarkeit: {metrics} Metriken · {avgMs}ms durchschn. · Systemzustand {health}"
+  },
+  "workspace": {
+    "noSeries": "Nummernserie"
+  },
+  "kpis": {
+    "title": "KPI-Center",
+    "subtitle": "Konfigurierbarer KPI-Katalog für Umsatz, Kunden, Projekte, Workflows, Agenten und Automatisierung.",
+    "emptyTitle": "Analytik wartet auf Signal",
+    "emptyDescription": "Sobald Ihr Arbeitsbereich Aktivitäten generiert, werden hier Executive KPIs und Warnungen angezeigt."
+  },
+  "reports": {
+    "title": "Neue Reporting Engine",
+    "subtitle": "Berichtsdefinitionen werden zur Überprüfung ausgesät. Der Dateiexport ist nicht verfügbar, bis ein Berichts-Backend verbunden ist.",
+    "emptyTitle": "Keine Berichte",
+    "emptyDescription": "Meldet Seed auf dem Workspace-Bootstrap.",
+    "scheduleOnDemand": "auf-Anfrage"
+  },
+  "insights": {
+    "emptyTitle": "Noch keine Erkenntnisse",
+    "emptyDescription": "Demo-Einblicke werden nach dem Start des Arbeitsbereichs angezeigt. Die Generierung von Live-KI-Insights ist nicht verbunden.",
+    "badge": "Demo · {kind} · {domain} · conf {confidence}"
+  },
+  "forecasts": {
+    "emptyTitle": "Noch keine Prognosen",
+    "emptyDescription": "Demo-Prognosen erscheinen nach dem Seed. Prognosemodelle sind nicht verbunden.",
+    "title": "{kind} Prognose",
+    "baseline": "Baseline {baseline} → prognostiziert {projected} ({days}Tag)",
+    "confidence": "Demo · Vertrauen {confidence} — {note}"
+  },
+  "alerts": {
+    "title": "ALERT-Engine",
+    "emptyTitle": "Keine Warnmeldungen",
+    "emptyDescription": "Warnt Seed vor Risikoheuristiken.",
+    "acked": "ackgedruckt",
+    "open": "offen",
+    "acknowledge": "Quittieren"
+  },
+  "scorecards": {
+    "title": "Scorecard-Engine",
+    "emptyTitle": "Keine Scorecards",
+    "emptyDescription": "Scorecards Seed am Bootstrap."
+  },
+  "explorer": {
+    "title": "Data Explorer",
+    "searchPlaceholder": "Demo-Zeilen durchsuchen…",
+    "searchAria": "Demo-Explorer-Zeilen durchsuchen",
+    "emptyTitle": "Keine Zeilen stimmen überein",
+    "emptyDescription": "Passen Sie Filter an oder suchen Sie oder laden Sie das Demo-Dataset neu.",
+    "hint": "Clientseitige Suche nach gesetzten Tupeln — Backend-Aggregation und Drilldown sind nicht verbunden."
+  },
+  "columns": {
+    "kpi": "KPI",
+    "value": "Wert",
+    "delta": "Δ",
+    "trend": "Trend",
+    "target": "Ziel",
+    "severity": "Schweregrad",
+    "alert": "Warnung",
+    "domain": "Domain",
+    "status": "Status",
+    "actions": "Aktionen",
+    "report": "Berichten",
+    "kind": "Art",
+    "schedule": "Ihre Behandlungstermine",
+    "export": "Export",
+    "scorecard": "Scorekarte",
+    "score": "Ergebnis",
+    "topDriver": "Top-Fahrer",
+    "label": "Etikett",
+    "entity": "Unternehmen",
+    "measure": "Massnahme",
+    "date": "Datum"
+  },
+  "emDash": "—"
+}

@@ -1,0 +1,174 @@
+{
+  "identity": {
+    "eyebrow": "Enterprise-IAM",
+    "title": "Identiteit & Toegang",
+    "lead": "Organisatie, werkruimte, RBAC, tijdelijke aanduidingen voor beveiliging en auditarchitectuur. Backend-adapters kunnen worden aangesloten zonder dit oppervlak te veranderen.",
+    "openProfile": "Profiel openen",
+    "teamManagement": "Teammanagement",
+    "tabs": {
+      "organization": "Organisatie",
+      "workspace": "Werkruimte",
+      "roles": "Rollen en machtigingen",
+      "security": "Beveiliging",
+      "audit": "Auditlogboek"
+    },
+    "organizationSettings": "Organisatie-instellingen",
+    "workspaceSettings": "Werkruimte-instellingen",
+    "noOrganization": "Geen organisatie actief. Voltooi de onboarding of maak er een vanuit de organisatieservice.",
+    "logoPlaceholder": "Logo-upload- en planfactureringsadapters zijn tijdelijke aanduidingen voor de toekomstige identiteitsbackend.",
+    "rbacTitle": "RBAC — standaardrollen",
+    "permissionMatrix": "Toestemmingsmatrix",
+    "canManageSettings": "Kan instellingen beheren: {value} · Geauthenticeerd: {authenticated}",
+    "yes": "Ja",
+    "no": "Nee",
+    "securitySettings": "Beveiligingsinstellingen",
+    "passwordChange": {
+      "title": "Wachtwoord wijzigen",
+      "detail": "Wachtwoordwijziging maakt, indien geconfigureerd, verbinding via de auth-provider."
+    },
+    "twoFactor": {
+      "title": "Tweefactorauthenticatie (2FA)",
+      "detail": "TOTP- en WebAuthn-adapters registreren zich hier wanneer ze zijn ingeschakeld."
+    },
+    "activeSessions": {
+      "title": "Actieve sessies",
+      "detail": "Apparaatdirectory leeft in identiteitssessies; intrekking wordt gezaghebbend met serversessies."
+    },
+    "apiKeys": {
+      "title": "API-sleutels",
+      "detail": "Serviceaccounts en tokens met bereik voor ontwikkelaars."
+    },
+    "absoluteTimeout": "Absolute time-out",
+    "idleTimeout": "Time-out bij inactiviteit",
+    "refreshSkew": "Scheefheid vernieuwen",
+    "persistentLogin": "Permanent inloggen",
+    "disabled": "Gehandicapt",
+    "enabled": "Ingeschakeld",
+    "days": "{count} dagen",
+    "minutes": "{count} min",
+    "toggleIdlePolicy": "Schakel tijdelijke aanduiding voor inactief beleid in of uit",
+    "previewSessionExpired": "Voorbeeldsessie verlopen",
+    "previewAccountLocked": "Voorbeeldaccount vergrendeld",
+    "auditActivity": "Auditactiviteit",
+    "auditLead": "Inloggen, uitloggen, rolwijzigingen, uitnodigingen en organisatiegebeurtenissen worden lokaal vastgelegd. Vervang dit later door een onveranderlijk backend-auditarchief.",
+    "auditEmpty": "Nog geen IAM evenementen. Meld u aan of wijzig een rol om het logboek te vullen.",
+    "meta": {
+      "name": "Naam",
+      "slug": "Naaktslak",
+      "plan": "Plan",
+      "owner": "Eigenaar",
+      "created": "Gemaakt",
+      "yourRole": "Jouw rol",
+      "workspace": "Werkruimte",
+      "status": "Status",
+      "isolationKey": "Isolatie sleutel"
+    },
+    "matrix": {
+      "permission": "Toestemming",
+      "owner": "Eigenaar",
+      "admin": "Beheerder",
+      "manager": "Manager",
+      "member": "Lid",
+      "viewer": "Kijker",
+      "yes": "Ja"
+    },
+    "audit": {
+      "when": "Wanneer",
+      "action": "Actie",
+      "actor": "Acteur",
+      "resource": "Bron"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "Eigenaar",
+      "description": "Volledige controle, inclusief facturering en eigendomsoverdracht"
+    },
+    "admin": {
+      "name": "Beheerder",
+      "description": "Beheer mensen, beveiliging, werkruimten en modules"
+    },
+    "manager": {
+      "name": "Manager",
+      "description": "Leadteams en operationele modules; nodig leden uit"
+    },
+    "member": {
+      "name": "Lid",
+      "description": "Dagelijkse operationele toegang"
+    },
+    "viewer": {
+      "name": "Kijker",
+      "description": "Alleen-lezen toegang"
+    }
+  },
+  "profile": {
+    "eyebrow": "Identiteit",
+    "title": "Gebruikersprofiel",
+    "lead": "Beheer uw accountidentiteit, voorkeuren en beveiliging. De besturingselementen voor de organisatie en werkruimte bevinden zich in Identiteitsinstellingen.",
+    "guest": "Gast",
+    "notSignedIn": "Niet aangemeld",
+    "identitySettings": "Identiteitsinstellingen",
+    "security": "Beveiliging",
+    "profileSection": "Profiel",
+    "fullName": "Volledige naam",
+    "email": "E-mail",
+    "language": "Taal",
+    "timezone": "Tijdzone",
+    "languageEnGb": "Engels (VK)",
+    "languageEnUs": "Engels (VS)",
+    "languageDe": "Duits",
+    "timezoneBerlin": "Europa/Berlijn",
+    "timezoneLondon": "Europa/Londen",
+    "timezoneUtc": "UTC",
+    "timezoneNewYork": "Amerika/New York",
+    "notifications": "Meldingen",
+    "emailNotifications": "E-mailmeldingen",
+    "pushNotifications": "Pushmeldingen",
+    "workspace": "Werkruimte",
+    "noticeInitial": "Voorkeuren worden lokaal opgeslagen totdat de profiel-API is verbonden.",
+    "noticeSaved": "Profielvoorkeuren bijgewerkt.",
+    "savePreferences": "Bewaar voorkeuren"
+  },
+  "workspaceSelector": {
+    "empty": "Nog geen werkruimten: creëer een organisatie om er een in te richten.",
+    "label": "Actieve werkruimte",
+    "ariaLabel": "Wissel van werkruimte"
+  },
+  "verifyEmail": {
+    "title": "E-mailverificatie",
+    "loading": "Laden...",
+    "skipForNow": "Overslaan voor nu",
+    "tokenPlaceholder": "Verificatietoken",
+    "tokenIssued": "Verificatietoken uitgegeven voor de huidige sessie.",
+    "issueFailed": "Kan token niet uitgeven",
+    "verificationFailed": "Verificatie mislukt",
+    "verify": "E-mail verifiëren",
+    "verifying": "Verifiëren…",
+    "requestToken": "Verificatietoken aanvragen"
+  },
+  "access": {
+    "eyebrow": "Identiteit en toegang",
+    "signIn": "Inloggen",
+    "backToDashboard": "Terug naar dashboard",
+    "unauthorized": {
+      "title": "Ongeautoriseerd",
+      "description": "Log in om verder te gaan naar dit deel van AGXORA."
+    },
+    "forbidden": {
+      "title": "Verboden",
+      "description": "Uw rol bevat geen toestemming voor deze resource."
+    },
+    "expired_session": {
+      "title": "Sessie verlopen",
+      "description": "Uw sessie is verlopen. Log opnieuw in om verder te werken."
+    },
+    "missing_permission": {
+      "title": "Ontbrekende toestemming",
+      "description": "Vraag een eigenaar of beheerder om de vereiste moduletoegang te verlenen."
+    },
+    "account_locked": {
+      "title": "Account vergrendeld",
+      "description": "Dit account is vergrendeld. Neem contact op met een organisatie-eigenaar of probeer het later opnieuw."
+    }
+  }
+}

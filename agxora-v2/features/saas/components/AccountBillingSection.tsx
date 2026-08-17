@@ -48,10 +48,10 @@ export function AccountBillingSection(): JSX.Element {
   return (
     <div className="space-y-5">
       <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-sm">
-        <Meta label="Current Plan" value={planName} />
-        <Meta label="Status" value={saas.licenseStatus ?? "—"} />
-        <Meta label="Renewal Date" value={renewal} />
-        <Meta label="Seats" value={String(saas.license?.seats ?? "—")} />
+        <Meta label={t("billing.account.currentPlan")} value={planName} />
+        <Meta label={t("billing.account.status")} value={saas.licenseStatus ?? "—"} />
+        <Meta label={t("billing.account.renewalDate")} value={renewal} />
+        <Meta label={t("billing.account.seats")} value={String(saas.license?.seats ?? "—")} />
       </dl>
 
       <div>
@@ -59,11 +59,11 @@ export function AccountBillingSection(): JSX.Element {
           className="mb-2 text-xs font-semibold uppercase tracking-[0.14em]"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Usage
+          {t("billing.account.usage")}
         </h3>
         {topUsage.length === 0 ? (
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            No usage metrics yet.
+            {t("billing.account.noUsage")}
           </p>
         ) : (
           <ul className="grid gap-2 sm:grid-cols-2">
@@ -92,11 +92,11 @@ export function AccountBillingSection(): JSX.Element {
           className="mb-2 text-xs font-semibold uppercase tracking-[0.14em]"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Invoices
+          {t("billing.account.invoices")}
         </h3>
         {recentInvoices.length === 0 ? (
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            No billing history yet. Upgrade a plan to generate invoices and renewals.
+            {t("billing.account.noInvoices")}
           </p>
         ) : (
           <ul className="space-y-2">

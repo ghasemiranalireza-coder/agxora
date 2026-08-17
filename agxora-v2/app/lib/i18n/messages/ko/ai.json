@@ -1,0 +1,168 @@
+{
+  "platform": {
+    "loading": "AI Platform 로드 중…",
+    "eyebrow": "AGXORA AI 플랫폼",
+    "title": "엔터프라이즈 AI 작업 공간",
+    "subtitle": "CRM, 프로젝트, 재무, 문서 및 자동화를 위한 공급자 독립적 인텔리전스입니다. 설정 → AI에서 공급자를 구성하세요.",
+    "newConversation": "새로운 대화",
+    "aiCommands": "AI 명령"
+  },
+  "mobileTabs": {
+    "chat": "채팅",
+    "conversations": "대화",
+    "prompts": "프롬프트"
+  },
+  "usageBar": {
+    "provider": "공급자",
+    "model": "모델",
+    "estimatedTokens": "예상 토큰",
+    "tokensInOut": "(인 {in} / 아웃 {out})",
+    "cost": "비용",
+    "context": "문맥",
+    "contextNone": "없음",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "AGXORA AI 작업공간",
+    "emptyHint": "대화를 시작하고, 라이브러리에서 프롬프트를 선택하거나, 명령 팔레트(⌘⇧K / Ctrl⇧K)를 엽니다."
+  },
+  "conversationSidebar": {
+    "title": "대화",
+    "new": "새로운",
+    "searchPlaceholder": "채팅 검색…",
+    "searchAria": "대화 검색",
+    "showArchived": "보관된 항목 표시",
+    "pinned": "고정됨",
+    "emptyPreview": "빈 대화",
+    "noConversations": "아직 대화가 없습니다.",
+    "pin": "핀",
+    "unpin": "고정 해제",
+    "rename": "이름 바꾸기",
+    "archive": "보관소",
+    "unarchive": "보관 취소",
+    "delete": "삭제"
+  },
+  "composer": {
+    "placeholder": "메시지 AGXORA AI… (보내려면 Enter, 줄바꿈하려면 Shift+Enter)",
+    "ariaLabel": "메시지 작성기",
+    "commandsShortcut": "명령 ⌘⇧K",
+    "stop": "멈추다",
+    "send": "보내다"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "복사",
+    "retry": "다시 해 보다"
+  },
+  "typingIndicator": {
+    "ariaLabel": "어시스턴트가 입력 중입니다."
+  },
+  "promptLibrary": {
+    "title": "프롬프트 라이브러리",
+    "subtitle": "CRM, 프로젝트, 재무 등에서 재사용 가능한 템플릿입니다.",
+    "searchPlaceholder": "검색 프롬프트…",
+    "searchAria": "검색 프롬프트",
+    "all": "모두",
+    "favorites": "즐겨찾기",
+    "recent": "최근의",
+    "library": "도서관",
+    "noMatches": "일치하는 프롬프트가 없습니다.",
+    "removeFavoriteAria": "즐겨찾기 삭제",
+    "addFavoriteAria": "즐겨찾기 추가",
+    "favorited": "즐겨찾기",
+    "favorite": "가장 좋아하는",
+    "usePrompt": "프롬프트 사용"
+  },
+  "commandPalette": {
+    "ariaLabel": "AI 명령 팔레트",
+    "filterAria": "AI 명령 필터링",
+    "placeholder": "AI 명령… 요약, 제안, 분석…",
+    "noMatches": "일치하는 명령이 없습니다.",
+    "footer": "RegisterAiCommand를 통해 향후 명령을 등록하세요. UI는 변경되지 않습니다."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "프로젝트",
+    "finance": "재무",
+    "marketing": "마케팅",
+    "documents": "문서",
+    "automation": "자동화",
+    "general": "일반"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "고객 요약",
+      "description": "고객 관계의 경영 요약"
+    },
+    "crm-follow-up-email": {
+      "title": "후속 이메일",
+      "description": "전문 CRM 후속 초안 작성"
+    },
+    "projects-analyze": {
+      "title": "프로젝트 분석",
+      "description": "프로젝트 상태 점검"
+    },
+    "projects-task-list": {
+      "title": "작업 목록 만들기",
+      "description": "작업을 실행 가능한 태스크로 분해"
+    },
+    "finance-explain-invoice": {
+      "title": "송장 설명",
+      "description": "쉬운 말로 된 송장 설명"
+    },
+    "finance-cashflow-brief": {
+      "title": "현금흐름 브리프",
+      "description": "짧은 현금흐름 서술"
+    },
+    "marketing-campaign-outline": {
+      "title": "캠페인 개요",
+      "description": "마케팅 캠페인 구조화"
+    },
+    "marketing-proposal": {
+      "title": "제안서 생성",
+      "description": "고객용 제안 초안"
+    },
+    "documents-summarize": {
+      "title": "문서 요약",
+      "description": "구조화된 문서 요약"
+    },
+    "automation-workflow": {
+      "title": "워크플로 설계",
+      "description": "자동화 워크플로 스케치"
+    },
+    "general-brainstorm": {
+      "title": "옵션 브레인스토밍",
+      "description": "구조화된 아이디어 도출"
+    },
+    "general-explain": {
+      "title": "쉽게 설명",
+      "description": "이해관계자를 위한 명확한 설명"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "고객 요약",
+      "description": "활성 고객의 경영 요약"
+    },
+    "cmd-generate-proposal": {
+      "label": "제안서 생성",
+      "description": "고객 제안 개요 초안"
+    },
+    "cmd-analyze-project": {
+      "label": "프로젝트 분석",
+      "description": "프로젝트 상태 및 위험 분석"
+    },
+    "cmd-create-task-list": {
+      "label": "작업 목록 만들기",
+      "description": "작업을 실행 가능한 태스크로 분해"
+    },
+    "cmd-generate-email": {
+      "label": "이메일 생성",
+      "description": "전문 이메일 초안 작성"
+    },
+    "cmd-explain-invoice": {
+      "label": "송장 설명",
+      "description": "쉬운 말로 된 송장 설명"
+    }
+  }
+}

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
+import { useT } from "@/app/lib/i18n";
 import type { DataTableColumn } from "@/app/components/ui";
 import { agentsStore } from "../store";
 import { agentOsService } from "../services";
@@ -27,28 +28,15 @@ type TabId =
   | "tools"
   | "settings";
 
-const TABS: readonly { id: TabId; label: string }[] = [
-  { id: "dashboard", label: "Dashboard" },
-  { id: "registry", label: "Registry" },
-  { id: "marketplace", label: "Marketplace" },
-  { id: "monitor", label: "Monitor" },
-  { id: "history", label: "History" },
-  { id: "memory", label: "Memory" },
-  { id: "knowledge", label: "Knowledge" },
-  { id: "tools", label: "Tools" },
-  { id: "settings", label: "Settings" },
-];
-
 /**
  * AI Agent Operating System workspace.
  * Does not alter dashboard shell (layout / sidebar / header).
  */
 export function AgentOperatingSystem(): JSX.Element {
+  const t = useT();
   const aos = useAgentOperatingSystem();
   const [tab, setTab] = useState<TabId>("dashboard");
-  const [notice, setNotice] = useState(
-    "Local Agent OS — runs are simulated in this workspace.",
-  );
+  const [notice, setNotice] = useState(t("agents.noticeDefault"));
   const [busy, setBusy] = useState(false);
   const [selectedInstance, setSelectedInstance] = useState<string | null>(null);
   const [llmDraft, setLlmDraft] = useState<LlmProviderId | null>(null);
@@ -73,13 +61,25 @@ export function AgentOperatingSystem(): JSX.Element {
   const isolateSensitive =
     sensitiveDraft ?? aos.settings.isolateSensitiveTools;
 
+  const tabs: readonly { id: TabId; label: string }[] = [
+    { id: "dashboard", label: t("agents.tabs.dashboard") },
+    { id: "registry", label: t("agents.tabs.registry") },
+    { id: "marketplace", label: t("agents.tabs.marketplace") },
+    { id: "monitor", label: t("agents.tabs.monitor") },
+    { id: "history", label: t("agents.tabs.history") },
+    { id: "memory", label: t("agents.tabs.memory") },
+    { id: "knowledge", label: t("agents.tabs.knowledge") },
+    { id: "tools", label: t("agents.tabs.tools") },
+    { id: "settings", label: t("agents.tabs.settings") },
+  ];
+
   if (!aos.hydrated) {
     return (
       <div
         className="py-16 text-center text-sm"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        Loading Agent Operating System…
+        {t("agents.loading")}
       </div>
     );
   }
@@ -93,10 +93,10 @@ export function AgentOperatingSystem(): JSX.Element {
         title,
         goal: title,
       });
-      setNotice(`Simulated run · ${task.status} (${task.durationMs ?? 0}ms)`);
+      setNotice(t("agents.notice.simulatedRun", { status: task.status, duration: task.durationMs ?? 0 }));
       setTab("history");
     } catch (err) {
-      setNotice(err instanceof Error ? err.message : "Task failed");
+      setNotice(err instanceof Error ? err.message : t("agents.notice.taskFailed"));
     } finally {
       setBusy(false);
     }
@@ -105,33 +105,33 @@ export function AgentOperatingSystem(): JSX.Element {
   const onInstall = (agentId: AgentId) => {
     const runtime = agentOsService.register(aos.organizationId, agentId, true);
     setSelectedInstance(runtime.instanceId);
-    setNotice(`Activated locally: ${agentId}`);
+    setNotice(t("agents.notice.activated", { agentId }));
     setTab("registry");
   };
 
   const runtimeColumns: DataTableColumn<AgentRuntime>[] = [
     {
       key: "agent",
-      header: "Agent",
+      header: t("agents.columns.agent"),
       render: (r) =>
         aos.agentsWithDefs.find((a) => a.runtime.instanceId === r.instanceId)
           ?.definition?.name ?? r.agentId,
     },
-    { key: "status", header: "Status", render: (r) => r.status },
-    { key: "health", header: "Health", render: (r) => r.health },
+    { key: "status", header: t("agents.columns.status"), render: (r) => r.status },
+    { key: "health", header: t("agents.columns.health"), render: (r) => r.health },
     {
       key: "queue",
-      header: "Queue",
+      header: t("agents.columns.queue"),
       render: (r) => String(r.queueDepth),
     },
     {
       key: "usage",
-      header: "Usage",
+      header: t("agents.columns.usage"),
       render: (r) => String(r.analytics.usageCount),
     },
     {
       key: "actions",
-      header: "Actions",
+      header: t("agents.columns.actions"),
       render: (r) => (
         <div className="flex flex-wrap gap-1">
           <Button
@@ -139,10 +139,10 @@ export function AgentOperatingSystem(): JSX.Element {
             variant="secondary"
             disabled={busy || !r.enabled}
             onClick={() =>
-              void onRun(r.instanceId, `Execute ${r.agentId} business goal`)
+              void onRun(r.instanceId, t("agents.goals.executeBusiness", { agentId: r.agentId }))
             }
           >
-            Run
+            {t("agents.actions.run")}
           </Button>
           <Button
             size="sm"
@@ -153,11 +153,11 @@ export function AgentOperatingSystem(): JSX.Element {
                 r.status === "active" ? "paused" : "active",
               );
               setNotice(
-                r.status === "active" ? "Agent paused" : "Agent activated",
+                r.status === "active" ? t("agents.notice.agentPaused") : t("agents.notice.agentActivated"),
               );
             }}
           >
-            {r.status === "active" ? "Pause" : "Activate"}
+            {r.status === "active" ? t("agents.actions.pause") : t("agents.actions.activate")}
           </Button>
         </div>
       ),
@@ -165,11 +165,11 @@ export function AgentOperatingSystem(): JSX.Element {
   ];
 
   const taskColumns: DataTableColumn<AgentTask>[] = [
-    { key: "title", header: "Task", render: (r) => r.title },
-    { key: "status", header: "Status", render: (r) => r.status },
+    { key: "title", header: t("agents.columns.task"), render: (r) => r.title },
+    { key: "status", header: t("agents.columns.status"), render: (r) => r.status },
     {
       key: "agent",
-      header: "Agent",
+      header: t("agents.columns.agent"),
       render: (r) =>
         aos.agentsWithDefs.find(
           (a) => a.runtime.instanceId === r.agentInstanceId,
@@ -177,17 +177,17 @@ export function AgentOperatingSystem(): JSX.Element {
     },
     {
       key: "duration",
-      header: "Duration",
-      render: (r) => (r.durationMs != null ? `${r.durationMs}ms` : "—"),
+      header: t("agents.columns.duration"),
+      render: (r) => (r.durationMs != null ? `${r.durationMs}ms` : t("agents.actions.emDash")),
     },
     {
       key: "created",
-      header: "Created",
+      header: t("agents.columns.created"),
       render: (r) => r.createdAt.slice(0, 19).replace("T", " "),
     },
     {
       key: "actions",
-      header: "Actions",
+      header: t("agents.columns.actions"),
       render: (r) =>
         r.status === "running" || r.status === "pending" || r.status === "retrying" ? (
           <Button
@@ -195,38 +195,38 @@ export function AgentOperatingSystem(): JSX.Element {
             variant="ghost"
             onClick={() => {
               agentOsService.cancelTask(r.id);
-              setNotice("Task cancelled");
+              setNotice(t("agents.notice.taskCancelled"));
             }}
           >
-            Cancel
+            {t("agents.actions.cancel")}
           </Button>
         ) : (
-          "—"
+          t("agents.actions.emDash")
         ),
     },
   ];
 
   const memoryColumns: DataTableColumn<MemoryRecord>[] = [
-    { key: "scope", header: "Scope", render: (r) => r.scope },
-    { key: "key", header: "Key", render: (r) => r.key },
+    { key: "scope", header: t("agents.columns.scope"), render: (r) => r.scope },
+    { key: "key", header: t("agents.columns.key"), render: (r) => r.key },
     {
       key: "value",
-      header: "Value",
+      header: t("agents.columns.value"),
       render: (r) => JSON.stringify(r.value).slice(0, 80),
     },
     {
       key: "at",
-      header: "At",
+      header: t("agents.columns.at"),
       render: (r) => r.createdAt.slice(0, 19).replace("T", " "),
     },
   ];
 
   const knowledgeColumns: DataTableColumn<KnowledgeDocument>[] = [
-    { key: "title", header: "Title", render: (r) => r.title },
-    { key: "kind", header: "Kind", render: (r) => r.kind },
+    { key: "title", header: t("agents.columns.title"), render: (r) => r.title },
+    { key: "kind", header: t("agents.columns.kind"), render: (r) => r.kind },
     {
       key: "summary",
-      header: "Summary",
+      header: t("agents.columns.summary"),
       render: (r) => r.summary.slice(0, 72),
     },
   ];
@@ -243,39 +243,37 @@ export function AgentOperatingSystem(): JSX.Element {
           className="text-[11px] font-semibold uppercase tracking-[0.16em]"
           style={{ color: "var(--agx-accent, #22d3ee)" }}
         >
-          AI Agent Operating System
+          {t("agents.eyebrow")}
         </p>
         <h1
           className="text-2xl font-semibold tracking-tight"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Agent OS
+          {t("agents.title")}
         </h1>
         <p
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Local agent workspace — agents can be activated and run as simulations
-          across CRM, Projects, Finance, Workflows, and Integrations. Production
-          autonomous execution is not connected.
+          {t("agents.subtitle")}
         </p>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           {notice}
         </p>
         <div className="flex flex-wrap gap-2 pt-1">
-          {TABS.map((t) => (
+          {tabs.map((tabItem) => (
             <Button
-              key={t.id}
+              key={tabItem.id}
               size="sm"
-              variant={tab === t.id ? "primary" : "secondary"}
-              onClick={() => setTab(t.id)}
+              variant={tab === tabItem.id ? "primary" : "secondary"}
+              onClick={() => setTab(tabItem.id)}
             >
-              {t.label}
+              {tabItem.label}
             </Button>
           ))}
           <Link href="/dashboard/ai">
             <Button size="sm" variant="ghost">
-              AI Chat
+              {t("agents.aiChat")}
             </Button>
           </Link>
         </div>
@@ -284,30 +282,30 @@ export function AgentOperatingSystem(): JSX.Element {
       {tab === "dashboard" ? (
         <>
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-            <Stat label="Agents" value={String(aos.metrics.totalAgents)} />
-            <Stat label="Active" value={String(aos.metrics.activeAgents)} />
-            <Stat label="Local ready" value={String(aos.metrics.healthyAgents)} />
-            <Stat label="Simulated today" value={String(aos.metrics.tasksToday)} />
+            <Stat label={t("agents.dashboard.agents")} value={String(aos.metrics.totalAgents)} />
+            <Stat label={t("agents.dashboard.active")} value={String(aos.metrics.activeAgents)} />
+            <Stat label={t("agents.dashboard.localReady")} value={String(aos.metrics.healthyAgents)} />
+            <Stat label={t("agents.dashboard.simulatedToday")} value={String(aos.metrics.tasksToday)} />
           </div>
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-            <Stat label="Failed today" value={String(aos.metrics.failedToday)} />
-            <Stat label="Avg exec" value={`${aos.metrics.avgExecutionMs}ms`} />
+            <Stat label={t("agents.dashboard.failedToday")} value={String(aos.metrics.failedToday)} />
+            <Stat label={t("agents.dashboard.avgExec")} value={`${aos.metrics.avgExecutionMs}ms`} />
             <Stat
-              label="Tool calls"
+              label={t("agents.dashboard.toolCalls")}
               value={String(aos.metrics.toolInvocations24h)}
             />
-            <Stat label="Knowledge" value={String(aos.knowledge.length)} />
+            <Stat label={t("agents.dashboard.knowledge")} value={String(aos.knowledge.length)} />
           </div>
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Active fleet
+              {t("agents.dashboard.activeFleet")}
             </h2>
             <DataTable
               columns={runtimeColumns}
               rows={[...aos.runtimes]}
               rowKey={(r) => r.instanceId}
-              emptyTitle="No agents active"
-              emptyDescription="Install or activate an agent from the marketplace to start simulated runs."
+              emptyTitle={t("agents.dashboard.emptyTitle")}
+              emptyDescription={t("agents.dashboard.emptyDescription")}
               minWidth={720}
             />
           </Card>
@@ -318,7 +316,7 @@ export function AgentOperatingSystem(): JSX.Element {
         <div className="grid gap-4 lg:grid-cols-[280px_minmax(0,1fr)]">
           <Card className="space-y-2" padding="16px" hover={false}>
             <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Registry
+              {t("agents.registry.title")}
             </p>
             <ul className="space-y-1 text-sm">
               {aos.agentsWithDefs.map(({ runtime, definition }) => (
@@ -360,10 +358,10 @@ export function AgentOperatingSystem(): JSX.Element {
                   }
                 </p>
                 <dl className="grid gap-2 text-xs sm:grid-cols-2" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  <div>Status: {selectedRuntime.status}</div>
-                  <div>Health: {selectedRuntime.health}</div>
-                  <div>Queue: {selectedRuntime.queueDepth}</div>
-                  <div>Usage: {selectedRuntime.analytics.usageCount}</div>
+                  <div>{t("agents.registry.status", { status: selectedRuntime.status })}</div>
+                  <div>{t("agents.registry.health", { health: selectedRuntime.health })}</div>
+                  <div>{t("agents.registry.queue", { queue: selectedRuntime.queueDepth })}</div>
+                  <div>{t("agents.registry.usage", { usage: selectedRuntime.analytics.usageCount })}</div>
                 </dl>
                 <div className="flex flex-wrap gap-2">
                   <Button
@@ -372,11 +370,11 @@ export function AgentOperatingSystem(): JSX.Element {
                     onClick={() =>
                       void onRun(
                         selectedRuntime.instanceId,
-                        "Plan and execute a workspace business goal",
+                        t("agents.goals.planAndExecute"),
                       )
                     }
                   >
-                    Execute task
+                    {t("agents.registry.executeTask")}
                   </Button>
                   {supervisor &&
                   supervisor.instanceId !== selectedRuntime.instanceId ? (
@@ -387,25 +385,25 @@ export function AgentOperatingSystem(): JSX.Element {
                         agentOsService.supervise(
                           supervisor.instanceId,
                           selectedRuntime.instanceId,
-                          "Prioritize customer impact",
+                          t("agents.os.prioritizeCustomerImpact"),
                         );
                         agentOsService.delegate({
                           fromInstanceId: supervisor.instanceId,
                           toInstanceId: selectedRuntime.instanceId,
-                          title: "Delegated follow-up",
+                          title: t("agents.os.delegatedFollowUp"),
                           organizationId: aos.organizationId,
                         });
-                        setNotice("Supervisor delegated a follow-up");
+                        setNotice(t("agents.notice.supervisorDelegated"));
                       }}
                     >
-                      Supervisor delegate
+                      {t("agents.registry.supervisorDelegate")}
                     </Button>
                   ) : null}
                 </div>
               </>
             ) : (
               <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                Select an agent from the registry.
+                {t("agents.registry.selectPrompt")}
               </p>
             )}
           </Card>
@@ -442,14 +440,14 @@ export function AgentOperatingSystem(): JSX.Element {
                   {agent.description}
                 </p>
                 <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  Tools: {agent.tools.join(", ")}
+                  {t("agents.marketplace.tools", { tools: agent.tools.join(", ") })}
                 </p>
                 <Button
                   size="sm"
                   disabled={installed}
                   onClick={() => onInstall(agent.id)}
                 >
-                  {installed ? "Installed" : "Install & activate"}
+                  {installed ? t("agents.marketplace.installed") : t("agents.marketplace.installActivate")}
                 </Button>
               </Card>
             );
@@ -460,20 +458,22 @@ export function AgentOperatingSystem(): JSX.Element {
       {tab === "monitor" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Agent monitor
+            {t("agents.monitor.title")}
           </h2>
           <DataTable
             columns={runtimeColumns}
             rows={[...aos.runtimes]}
             rowKey={(r) => r.instanceId}
-            emptyTitle="No agents to monitor"
-            emptyDescription="Activate agents from the marketplace."
+            emptyTitle={t("agents.monitor.emptyTitle")}
+            emptyDescription={t("agents.monitor.emptyDescription")}
             minWidth={720}
           />
           {aos.traces[0] ? (
             <div className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Latest reasoning confidence: {aos.traces[0].confidence} —{" "}
-              {aos.traces[0].steps.slice(0, 2).join(" · ")}
+              {t("agents.monitor.latestConfidence", {
+                confidence: aos.traces[0].confidence,
+                steps: aos.traces[0].steps.slice(0, 2).join(" · "),
+              })}
             </div>
           ) : null}
         </Card>
@@ -482,14 +482,14 @@ export function AgentOperatingSystem(): JSX.Element {
       {tab === "history" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Execution history
+            {t("agents.history.title")}
           </h2>
           <DataTable
             columns={taskColumns}
             rows={[...aos.tasks]}
             rowKey={(r) => r.id}
-            emptyTitle="No executions yet"
-            emptyDescription="Run an agent task from the registry or monitor."
+            emptyTitle={t("agents.history.emptyTitle")}
+            emptyDescription={t("agents.history.emptyDescription")}
             minWidth={800}
           />
         </Card>
@@ -498,18 +498,17 @@ export function AgentOperatingSystem(): JSX.Element {
       {tab === "memory" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Memory center
+            {t("agents.memory.title")}
           </h2>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Working · Conversation · Business · Long-term · Workspace · Agent
-            scopes (architecture-ready).
+            {t("agents.memory.subtitle")}
           </p>
           <DataTable
             columns={memoryColumns}
             rows={[...aos.memories]}
             rowKey={(r) => r.id}
-            emptyTitle="No memory records"
-            emptyDescription="Execute a task to populate working/agent memory."
+            emptyTitle={t("agents.memory.emptyTitle")}
+            emptyDescription={t("agents.memory.emptyDescription")}
             minWidth={720}
           />
         </Card>
@@ -518,18 +517,17 @@ export function AgentOperatingSystem(): JSX.Element {
       {tab === "knowledge" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Knowledge center
+            {t("agents.knowledge.title")}
           </h2>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Company, documents, projects, CRM, policies, procedures — plus vector/RAG
-            placeholders.
+            {t("agents.knowledge.subtitle")}
           </p>
           <DataTable
             columns={knowledgeColumns}
             rows={[...aos.knowledge]}
             rowKey={(r) => r.id}
-            emptyTitle="No knowledge docs"
-            emptyDescription="Seed knowledge appears after workspace bootstrap."
+            emptyTitle={t("agents.knowledge.emptyTitle")}
+            emptyDescription={t("agents.knowledge.emptyDescription")}
             minWidth={720}
           />
         </Card>
@@ -547,8 +545,8 @@ export function AgentOperatingSystem(): JSX.Element {
               </p>
               <p className="text-[11px]" style={{ color: "var(--agx-accent, #22d3ee)" }}>
                 {tool.module}
-                {tool.sensitive ? " · sensitive" : ""}
-                {tool.mcpReady ? " · MCP-ready" : ""}
+                {tool.sensitive ? t("agents.tools.sensitive") : ""}
+                {tool.mcpReady ? t("agents.tools.mcpReady") : ""}
               </p>
             </Card>
           ))}
@@ -558,10 +556,10 @@ export function AgentOperatingSystem(): JSX.Element {
       {tab === "settings" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Agent OS settings
+            {t("agents.settings.title")}
           </h2>
           <label className="block text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Default LLM provider
+            {t("agents.settings.defaultLlmProvider")}
             <select
               value={llmProvider}
               onChange={(e) => setLlmDraft(e.target.value as LlmProviderId)}
@@ -580,7 +578,7 @@ export function AgentOperatingSystem(): JSX.Element {
               checked={enableSupervisor}
               onChange={(e) => setSupervisorDraft(e.target.checked)}
             />
-            Enable supervisor agent architecture
+            {t("agents.settings.enableSupervisor")}
           </label>
           <label className="flex items-center gap-2 text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
             <input
@@ -588,7 +586,7 @@ export function AgentOperatingSystem(): JSX.Element {
               checked={isolateSensitive}
               onChange={(e) => setSensitiveDraft(e.target.checked)}
             />
-            Isolate sensitive tools
+            {t("agents.settings.isolateSensitive")}
           </label>
           <Button
             size="sm"
@@ -602,14 +600,13 @@ export function AgentOperatingSystem(): JSX.Element {
               setLlmDraft(null);
               setSupervisorDraft(null);
               setSensitiveDraft(null);
-              setNotice("Agent OS settings updated for this local workspace.");
+              setNotice(t("agents.notice.settingsUpdated"));
             }}
           >
-            Save settings
+            {t("agents.settings.saveSettings")}
           </Button>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Providers ready: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama,
-            MCP, Custom. Swap adapters via registerLlmProvider without UI changes.
+            {t("agents.settings.providersHint")}
           </p>
         </Card>
       ) : null}

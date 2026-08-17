@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useMemo, useRef, type JSX } from "react";
-import { formatDisplayDate, formatDisplayDateTime } from "../../lib/i18n";
+import { formatDisplayDate, formatDisplayDateTime, useT } from "../../lib/i18n";
 import { useToast } from "../../lib/backend/hooks";
 import {
   MEMBER_ROLES,
@@ -11,7 +11,6 @@ import {
   memberErrorMap,
   noteErrorMap,
   projectStore,
-  roleLabel,
   useProjectStore,
   useSelectedProject,
   type ProjectDetailTab,
@@ -52,14 +51,14 @@ const TimelineView = dynamic(
   },
 );
 
-const TABS: { id: ProjectDetailTab; label: string }[] = [
-  { id: "overview", label: "Overview" },
-  { id: "tasks", label: "Tasks" },
-  { id: "files", label: "Files" },
-  { id: "notes", label: "Notes" },
-  { id: "activity", label: "Activity" },
-  { id: "team", label: "Team" },
-  { id: "settings", label: "Settings" },
+const TAB_IDS: readonly ProjectDetailTab[] = [
+  "overview",
+  "tasks",
+  "files",
+  "notes",
+  "activity",
+  "team",
+  "settings",
 ];
 
 export function ProjectDetailView({
@@ -70,6 +69,16 @@ export function ProjectDetailView({
   const router = useRouter();
   const state = useProjectStore();
   const project = useSelectedProject();
+  const t = useT();
+
+  const tabs = useMemo(
+    () =>
+      TAB_IDS.map((id) => ({
+        id,
+        label: t(`projects.detail.tabs.${id}`),
+      })),
+    [t],
+  );
 
   const ready = state.hydrated && state.selectedId === projectId;
 
@@ -85,8 +94,8 @@ export function ProjectDetailView({
   if (ready && !project) {
     return (
       <ErrorState
-        title="Project not found"
-        description="This project may have been deleted or is unavailable for the current organization."
+        title={t("projects.detail.notFoundTitle")}
+        description={t("projects.detail.notFoundDescription")}
         onRetry={() => router.push("/dashboard/projects")}
       />
     );
@@ -114,7 +123,7 @@ export function ProjectDetailView({
                 router.push("/dashboard/projects");
               }}
             >
-              ← Back to projects
+              {t("projects.detail.backToProjects")}
             </Button>
             <div className="flex flex-wrap items-center gap-3">
               <span
@@ -139,7 +148,10 @@ export function ProjectDetailView({
                   className="text-sm"
                   style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                 >
-                  {project.customer} · Owner {project.owner}
+                  {t("projects.detail.ownerMeta", {
+                    customer: project.customer,
+                    owner: project.owner,
+                  })}
                 </p>
               </div>
             </div>
@@ -152,23 +164,23 @@ export function ProjectDetailView({
               variant="secondary"
               onClick={() => projectStore.openEdit(project)}
             >
-              Edit
+              {t("projects.detail.edit")}
             </Button>
             <Button
               size="sm"
               variant="danger"
               onClick={() => projectStore.requestDelete(project.id)}
             >
-              Delete
+              {t("projects.detail.delete")}
             </Button>
           </div>
         </div>
         <ProgressBar value={project.progress} color={project.color} />
         <nav
           className="flex flex-wrap gap-2"
-          aria-label="Project detail sections"
+          aria-label={t("projects.detail.sectionsAria")}
         >
-          {TABS.map((tab) => (
+          {tabs.map((tab) => (
             <Button
               key={tab.id}
               size="sm"
@@ -198,11 +210,13 @@ export function ProjectDetailView({
 function OverviewTab(): JSX.Element {
   const project = useSelectedProject();
   const state = useProjectStore();
+  const t = useT();
+
   if (!project) {
     return (
       <EmptyState
-        title="Missing project"
-        description="Select a project to view its overview."
+        title={t("projects.overview.missingTitle")}
+        description={t("projects.overview.missingDescription")}
       />
     );
   }
@@ -217,30 +231,36 @@ function OverviewTab(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Overview
+          {t("projects.overview.title")}
         </h2>
         <p
           className="text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          {project.description || "No description provided."}
+          {project.description || t("projects.overview.noDescription")}
         </p>
         <dl className="grid grid-cols-2 gap-3 text-sm">
-          <Meta label="Budget" value={formatMoney(project.budget, project.currency)} />
           <Meta
-            label="Spent"
+            label={t("projects.overview.budget")}
+            value={formatMoney(project.budget, project.currency)}
+          />
+          <Meta
+            label={t("projects.overview.spent")}
             value={formatMoney(project.spent, project.currency)}
           />
           <Meta
-            label="Start"
+            label={t("projects.overview.start")}
             value={project.startDate ? formatDisplayDate(project.startDate) : "—"}
           />
           <Meta
-            label="Due"
+            label={t("projects.overview.due")}
             value={project.dueDate ? formatDisplayDate(project.dueDate) : "—"}
           />
-          <Meta label="Open tasks" value={String(openTasks)} />
-          <Meta label="Completed tasks" value={String(doneTasks)} />
+          <Meta label={t("projects.overview.openTasks")} value={String(openTasks)} />
+          <Meta
+            label={t("projects.overview.completedTasks")}
+            value={String(doneTasks)}
+          />
         </dl>
         {project.tags.length > 0 ? (
           <div className="flex flex-wrap gap-2">
@@ -287,6 +307,7 @@ function Meta({
 function TasksTab(): JSX.Element {
   const state = useProjectStore();
   const toast = useToast();
+  const t = useT();
 
   return (
     <div className="space-y-4">
@@ -295,14 +316,14 @@ function TasksTab(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Task management
+          {t("projects.tasks.title")}
         </h2>
         <Button
           size="sm"
           variant="primary"
           onClick={() => projectStore.openTaskCreate()}
         >
-          New task
+          {t("projects.tasks.newTask")}
         </Button>
       </div>
 
@@ -312,13 +333,13 @@ function TasksTab(): JSX.Element {
         <table className="min-w-full text-left text-sm">
           <thead>
             <tr style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              <th className="px-4 py-3">Title</th>
-              <th className="px-4 py-3">Assignee</th>
-              <th className="px-4 py-3">Priority</th>
-              <th className="px-4 py-3">Status</th>
-              <th className="px-4 py-3">Due</th>
-              <th className="px-4 py-3">Progress</th>
-              <th className="px-4 py-3">Actions</th>
+              <th className="px-4 py-3">{t("projects.tasks.tableTitle")}</th>
+              <th className="px-4 py-3">{t("projects.tasks.tableAssignee")}</th>
+              <th className="px-4 py-3">{t("projects.tasks.tablePriority")}</th>
+              <th className="px-4 py-3">{t("projects.tasks.tableStatus")}</th>
+              <th className="px-4 py-3">{t("projects.tasks.tableDue")}</th>
+              <th className="px-4 py-3">{t("projects.tasks.tableProgress")}</th>
+              <th className="px-4 py-3">{t("projects.tasks.tableActions")}</th>
             </tr>
           </thead>
           <tbody>
@@ -352,7 +373,7 @@ function TasksTab(): JSX.Element {
                       variant="ghost"
                       onClick={() => projectStore.openTaskEdit(task)}
                     >
-                      Edit
+                      {t("projects.tasks.edit")}
                     </Button>
                     {task.status !== "done" ? (
                       <Button
@@ -360,11 +381,14 @@ function TasksTab(): JSX.Element {
                         variant="ghost"
                         onClick={() => {
                           void projectStore.completeTask(task.id).then(() =>
-                            toast.success("Task completed", task.title),
+                            toast.success(
+                              t("projects.toasts.taskCompleted"),
+                              task.title,
+                            ),
                           );
                         }}
                       >
-                        Complete
+                        {t("projects.tasks.complete")}
                       </Button>
                     ) : null}
                     <Button
@@ -372,11 +396,14 @@ function TasksTab(): JSX.Element {
                       variant="danger"
                       onClick={() => {
                         void projectStore.deleteTask(task.id).then(() =>
-                          toast.success("Task deleted", task.title),
+                          toast.success(
+                            t("projects.toasts.taskDeleted"),
+                            task.title,
+                          ),
                         );
                       }}
                     >
-                      Delete
+                      {t("projects.tasks.delete")}
                     </Button>
                   </div>
                 </td>
@@ -387,9 +414,9 @@ function TasksTab(): JSX.Element {
         {state.tasks.length === 0 ? (
           <div className="p-6">
             <EmptyState
-              title="No tasks yet"
-              description="Create tasks, assign owners, and track progress on the board."
-              actionLabel="Create task"
+              title={t("projects.tasks.emptyTitle")}
+              description={t("projects.tasks.emptyDescription")}
+              actionLabel={t("projects.tasks.createTask")}
               onAction={() => projectStore.openTaskCreate()}
             />
           </div>
@@ -403,6 +430,7 @@ function FilesTab(): JSX.Element {
   const state = useProjectStore();
   const project = useSelectedProject();
   const toast = useToast();
+  const t = useT();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   return (
@@ -413,10 +441,10 @@ function FilesTab(): JSX.Element {
             className="text-sm font-semibold"
             style={{ color: "var(--agx-text, #f8fafc)" }}
           >
-            File manager
+            {t("projects.files.title")}
           </h2>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Upload images, PDFs, and office documents. Metadata persists locally.
+            {t("projects.files.description")}
           </p>
         </div>
         <div>
@@ -432,7 +460,12 @@ function FilesTab(): JSX.Element {
               void projectStore
                 .uploadFiles(files, project?.owner ?? "System")
                 .then(() =>
-                  toast.success("Files uploaded", `${files.length} file(s)`),
+                  toast.success(
+                    t("projects.toasts.filesUploaded"),
+                    t("projects.toasts.filesUploadedDetail", {
+                      count: files.length,
+                    }),
+                  ),
                 );
               event.target.value = "";
             }}
@@ -443,15 +476,15 @@ function FilesTab(): JSX.Element {
             loading={state.uploading}
             onClick={() => fileInputRef.current?.click()}
           >
-            Upload
+            {t("projects.files.upload")}
           </Button>
         </div>
       </div>
 
       {state.files.length === 0 ? (
         <EmptyState
-          title="No files uploaded"
-          description="Add project artifacts for the team to review and preview."
+          title={t("projects.files.emptyTitle")}
+          description={t("projects.files.emptyDescription")}
         />
       ) : (
         <ul className="space-y-2">
@@ -485,14 +518,14 @@ function FilesTab(): JSX.Element {
                     variant="ghost"
                     onClick={() => window.open(file.dataUrl, "_blank", "noopener,noreferrer")}
                   >
-                    Preview
+                    {t("projects.files.preview")}
                   </Button>
                 ) : (
                   <span
                     className="text-[11px]"
                     style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                   >
-                    Metadata only
+                    {t("projects.files.metadataOnly")}
                   </span>
                 )}
                 <Button
@@ -500,11 +533,11 @@ function FilesTab(): JSX.Element {
                   variant="danger"
                   onClick={() => {
                     void projectStore.deleteFile(file.id).then(() =>
-                      toast.success("File deleted", file.name),
+                      toast.success(t("projects.toasts.fileDeleted"), file.name),
                     );
                   }}
                 >
-                  Delete
+                  {t("projects.files.delete")}
                 </Button>
               </div>
             </li>
@@ -518,6 +551,7 @@ function FilesTab(): JSX.Element {
 function NotesTab(): JSX.Element {
   const state = useProjectStore();
   const toast = useToast();
+  const t = useT();
   const errors = noteErrorMap(state.noteErrors);
 
   return (
@@ -527,15 +561,17 @@ function NotesTab(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          {state.editingNoteId ? "Edit note" : "New note"}
+          {state.editingNoteId
+            ? t("projects.notes.editTitle")
+            : t("projects.notes.newTitle")}
         </h2>
-        <FormField label="Title" error={errors.title}>
+        <FormField label={t("projects.notes.title")} error={errors.title}>
           <FormInput
             value={state.noteDraft.title}
             onChange={(e) => projectStore.patchNoteDraft({ title: e.target.value })}
           />
         </FormField>
-        <FormField label="Author" error={errors.author}>
+        <FormField label={t("projects.notes.author")} error={errors.author}>
           <FormInput
             value={state.noteDraft.author}
             onChange={(e) =>
@@ -543,7 +579,7 @@ function NotesTab(): JSX.Element {
             }
           />
         </FormField>
-        <FormField label="Body" error={errors.body}>
+        <FormField label={t("projects.notes.body")} error={errors.body}>
           <FormTextArea
             rows={8}
             value={state.noteDraft.body}
@@ -557,7 +593,7 @@ function NotesTab(): JSX.Element {
               variant="ghost"
               onClick={() => projectStore.cancelNoteEdit()}
             >
-              Cancel
+              {t("projects.notes.cancel")}
             </Button>
           ) : null}
           <Button
@@ -566,19 +602,19 @@ function NotesTab(): JSX.Element {
             loading={state.saving}
             onClick={() => {
               void projectStore.saveNote().then((ok) => {
-                if (ok) toast.success("Note saved");
+                if (ok) toast.success(t("projects.toasts.noteSaved"));
               });
             }}
           >
-            Save note
+            {t("projects.notes.saveNote")}
           </Button>
         </div>
       </Card>
       <div className="space-y-3">
         {state.notes.length === 0 ? (
           <EmptyState
-            title="No notes yet"
-            description="Capture decisions, meeting outcomes, and delivery context."
+            title={t("projects.notes.emptyTitle")}
+            description={t("projects.notes.emptyDescription")}
           />
         ) : (
           state.notes.map((note) => (
@@ -604,14 +640,14 @@ function NotesTab(): JSX.Element {
                     variant="ghost"
                     onClick={() => projectStore.editNote(note)}
                   >
-                    Edit
+                    {t("projects.notes.edit")}
                   </Button>
                   <Button
                     size="sm"
                     variant="danger"
                     onClick={() => void projectStore.deleteNote(note.id)}
                   >
-                    Delete
+                    {t("projects.notes.delete")}
                   </Button>
                 </div>
               </div>
@@ -631,18 +667,20 @@ function NotesTab(): JSX.Element {
 
 function ActivityTab(): JSX.Element {
   const state = useProjectStore();
+  const t = useT();
+
   return (
     <Card hover={false} className="space-y-3" padding="18px">
       <h2
         className="text-sm font-semibold"
         style={{ color: "var(--agx-text, #f8fafc)" }}
       >
-        Activity feed
+        {t("projects.activity.title")}
       </h2>
       {state.activities.length === 0 ? (
         <EmptyState
-          title="No activity yet"
-          description="Project events will appear here as the team works."
+          title={t("projects.activity.emptyTitle")}
+          description={t("projects.activity.emptyDescription")}
         />
       ) : (
         <ol className="space-y-2">
@@ -687,13 +725,14 @@ function TeamTab(): JSX.Element {
   const state = useProjectStore();
   const project = useSelectedProject();
   const toast = useToast();
+  const t = useT();
   const errors = memberErrorMap(state.memberErrors);
 
   if (!project) {
     return (
       <EmptyState
-        title="Missing project"
-        description="Select a project to manage team members."
+        title={t("projects.team.missingTitle")}
+        description={t("projects.team.missingDescription")}
       />
     );
   }
@@ -705,9 +744,9 @@ function TeamTab(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Assign member
+          {t("projects.team.assignTitle")}
         </h2>
-        <FormField label="Name" error={errors.name}>
+        <FormField label={t("projects.team.name")} error={errors.name}>
           <FormInput
             value={state.memberDraft.name}
             onChange={(e) =>
@@ -715,7 +754,7 @@ function TeamTab(): JSX.Element {
             }
           />
         </FormField>
-        <FormField label="Email" error={errors.email}>
+        <FormField label={t("projects.team.email")} error={errors.email}>
           <FormInput
             type="email"
             value={state.memberDraft.email}
@@ -724,7 +763,7 @@ function TeamTab(): JSX.Element {
             }
           />
         </FormField>
-        <FormField label="Role" error={errors.role}>
+        <FormField label={t("projects.team.role")} error={errors.role}>
           <FormSelect
             value={state.memberDraft.role}
             onChange={(e) =>
@@ -735,7 +774,7 @@ function TeamTab(): JSX.Element {
           >
             {MEMBER_ROLES.map((role) => (
               <option key={role} value={role}>
-                {roleLabel(role)}
+                {t(`projects.role.${role}`)}
               </option>
             ))}
           </FormSelect>
@@ -746,11 +785,11 @@ function TeamTab(): JSX.Element {
           loading={state.saving}
           onClick={() => {
             void projectStore.addMember().then((ok) => {
-              if (ok) toast.success("Member added");
+              if (ok) toast.success(t("projects.toasts.memberAdded"));
             });
           }}
         >
-          Add member
+          {t("projects.team.addMember")}
         </Button>
       </Card>
       <Card hover={false} className="space-y-3" padding="18px">
@@ -758,7 +797,7 @@ function TeamTab(): JSX.Element {
           className="text-sm font-semibold"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Team
+          {t("projects.team.teamTitle")}
         </h2>
         <ul className="space-y-2">
           {project.members.map((member) => (
@@ -790,7 +829,7 @@ function TeamTab(): JSX.Element {
                     className="text-[11px]"
                     style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                   >
-                    {roleLabel(member.role)}
+                    {t(`projects.role.${member.role}`)}
                     {member.email ? ` · ${member.email}` : ""}
                   </p>
                 </div>
@@ -801,7 +840,7 @@ function TeamTab(): JSX.Element {
                   variant="ghost"
                   onClick={() => void projectStore.removeMember(member.id)}
                 >
-                  Remove
+                  {t("projects.team.remove")}
                 </Button>
               ) : null}
             </li>
@@ -816,6 +855,7 @@ function SettingsTab(): JSX.Element {
   const project = useSelectedProject();
   const state = useProjectStore();
   const toast = useToast();
+  const t = useT();
   const spent = useMemo(
     () => (project ? String(project.spent) : "0"),
     [project],
@@ -824,8 +864,8 @@ function SettingsTab(): JSX.Element {
   if (!project) {
     return (
       <EmptyState
-        title="Missing project"
-        description="Select a project to manage settings."
+        title={t("projects.settings.missingTitle")}
+        description={t("projects.settings.missingDescription")}
       />
     );
   }
@@ -836,13 +876,12 @@ function SettingsTab(): JSX.Element {
         className="text-sm font-semibold"
         style={{ color: "var(--agx-text, #f8fafc)" }}
       >
-        Project settings
+        {t("projects.settings.title")}
       </h2>
       <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Update budget burn and archive status. Full field edits use the Edit
-        dialog.
+        {t("projects.settings.description")}
       </p>
-      <FormField label="Spent amount">
+      <FormField label={t("projects.settings.spentAmount")}>
         <FormInput
           defaultValue={spent}
           inputMode="decimal"
@@ -864,11 +903,12 @@ function SettingsTab(): JSX.Element {
                 spent: Number.isFinite(value) ? value : 0,
               })
               .then((updated) => {
-                if (updated) toast.success("Settings saved", updated.name);
+                if (updated)
+                  toast.success(t("projects.toasts.settingsSaved"), updated.name);
               });
           }}
         >
-          Save spent
+          {t("projects.settings.saveSpent")}
         </Button>
         <Button
           size="sm"
@@ -877,18 +917,19 @@ function SettingsTab(): JSX.Element {
             void projectStore
               .updateProjectSettings({ status: "archived" })
               .then((updated) => {
-                if (updated) toast.success("Project archived", updated.name);
+                if (updated)
+                  toast.success(t("projects.toasts.projectArchived"), updated.name);
               });
           }}
         >
-          Archive project
+          {t("projects.settings.archiveProject")}
         </Button>
         <Button
           size="sm"
           variant="secondary"
           onClick={() => projectStore.openEdit(project)}
         >
-          Edit all fields
+          {t("projects.settings.editAllFields")}
         </Button>
       </div>
     </Card>

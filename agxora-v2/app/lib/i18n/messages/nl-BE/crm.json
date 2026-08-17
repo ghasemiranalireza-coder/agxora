@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "AGXORA zakelijk besturingssysteem",
+    "title": "AI-CRM",
+    "subtitle": "AI-native CRM en Creator-besturingssysteem: klanten, pijplijn, bestellingen, levering, documenten, communicatie en creator-architectuur voor elke branche."
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "CRM-dashboard"
+    },
+    "customer360": {
+      "title": "Klant 360°",
+      "subtitle": "Profiel, bedrijf, contacten, bestellingen, facturen, Lieferscheine, betalingen, documenten, tijdlijn, activiteiten, notities, AI-samenvatting en communicatiegeschiedenis."
+    },
+    "salesPipeline": {
+      "title": "Verkooppijplijn",
+      "subtitle": "Kanban-fasen met slepen en neerzetten: leider, gekwalificeerd, voorstel, onderhandeling, gewonnen, verloren."
+    },
+    "ordersModule": {
+      "title": "Bestelmodule"
+    },
+    "deliveryModule": {
+      "title": "Leveringsmodule",
+      "subtitle": "Professioneel Lieferschein-systeem met tracking, handtekening, QR en barcodegereedheid."
+    },
+    "documentsModule": {
+      "title": "Documenten",
+      "subtitle": "Offertes, contracten, facturen, Lieferschein, inkooporders, ontvangstbewijzen – met AI-zoekopdracht."
+    },
+    "tasksModule": {
+      "title": "Taken"
+    },
+    "communicationHub": {
+      "title": "Communicatie hub",
+      "subtitle": "Adapterregister alleen voor berichten, sociale media, e-mail, spraak en video's."
+    },
+    "creatorStudio": {
+      "title": "Stichting Creator Studio",
+      "subtitle": "Platformadapters klaar voor officiële integraties later."
+    },
+    "aiCreator": {
+      "title": "AI-maker",
+      "subtitle": "Overzicht van ondernemingsmogelijkheden voor inhoud, agenda, genereren en publiceren."
+    },
+    "industryPlatform": {
+      "title": "Universeel bedrijfsplatform",
+      "subtitle": "Modulair brancheregister: elke branche kan speciale AI-modules ontvangen."
+    }
+  },
+  "directory": {
+    "errorTitle": "Kan CRM niet laden",
+    "sort": {
+      "companyName": "Bedrijf",
+      "contactName": "Contact",
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "industry": "Industrie",
+      "status": "Status",
+      "owner": "Eigenaar",
+      "createdAt": "Gemaakt"
+    },
+    "search": {
+      "label": "Zoek klanten",
+      "placeholder": "Bedrijf, contact, e-mail, tags…"
+    },
+    "view": {
+      "table": "Tafel",
+      "cards": "Kaarten"
+    },
+    "actions": {
+      "newCustomer": "Nieuwe klant"
+    },
+    "filters": {
+      "status": "Status",
+      "industry": "Industrie",
+      "owner": "Eigenaar",
+      "country": "Land",
+      "tags": "Labels",
+      "allStatuses": "Alle statussen",
+      "allIndustries": "Alle industrieën",
+      "allOwners": "Alle eigenaren",
+      "allCountries": "Alle landen",
+      "allTags": "Alle labels"
+    },
+    "empty": {
+      "ready": {
+        "title": "Uw CRM is klaar",
+        "description": "Maak het eerste klantrecord om de directory, profielen en activiteiten te ontgrendelen.",
+        "action": "Klant aanmaken"
+      },
+      "noMatches": {
+        "title": "Geen overeenkomende klanten",
+        "description": "Probeer de zoekopdracht of filters aan te passen om de juiste records te vinden.",
+        "action": "Wis filters"
+      }
+    },
+    "pagination": {
+      "previous": "Vorig",
+      "next": "Volgende"
+    },
+    "showing": "Toont {from}–{to} van {total}",
+    "aria": {
+      "openCustomer": "Open klant {company}"
+    },
+    "cardMeta": "Eigenaar {owner} · Aangemaakt op {date}",
+    "sortBy": "Sorteer op {column}"
+  },
+  "status": {
+    "lead": "Leiding",
+    "prospect": "Verwachting",
+    "active": "Actief",
+    "inactive": "Inactief",
+    "vip": "VIP",
+    "archived": "Gearchiveerd"
+  },
+  "form": {
+    "createTitle": "Klant aanmaken",
+    "editTitle": "Klant bewerken",
+    "cancel": "Annuleren",
+    "saveChanges": "Wijzigingen opslaan",
+    "createCustomer": "Klant aanmaken",
+    "companyName": "Bedrijfsnaam",
+    "contactName": "Contactnaam",
+    "email": "E-mail",
+    "phone": "Telefoon",
+    "website": "Website",
+    "industry": "Industrie",
+    "country": "Land",
+    "city": "Stad",
+    "address": "Adres",
+    "taxNumber": "Belastingnummer",
+    "owner": "Eigenaar",
+    "status": "Status",
+    "tags": "Labels",
+    "statusAria": "Klantstatus",
+    "tagsHint": "Door komma's gescheiden, automatisch kleurgecodeerd",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "onderneming, detailhandel"
+  },
+  "toasts": {
+    "customerCreated": "Klant aangemaakt",
+    "customerUpdated": "Klant bijgewerkt",
+    "checkForm": "Controleer het formulier",
+    "validationFailed": "Validatie mislukt.",
+    "customerDeleted": "Klant verwijderd",
+    "deleteFailed": "Verwijderen is mislukt",
+    "customerCouldNotBeRemoved": "Klant kon niet worden verwijderd.",
+    "contactSaved": "Contact opgeslagen",
+    "documentsAttached": "Documenten bijgevoegd",
+    "documentsAttachedDetail": "{count} bestand(en)",
+    "noteSaved": "Notitie opgeslagen"
+  },
+  "deleteDialog": {
+    "title": "Klant verwijderen",
+    "cancel": "Annuleren",
+    "deletePermanently": "Permanent verwijderen",
+    "thisCustomer": "deze klant",
+    "bodyPrefix": "Dit verwijdert",
+    "bodySuffix": "en gerelateerde contacten, notities, documenten en activiteiten uit lokale opslag. Gekoppelde projecten worden niet verwijderd."
+  },
+  "validation": {
+    "companyNameRequired": "Bedrijfsnaam is vereist.",
+    "contactNameRequired": "Naam van contactpersoon is vereist.",
+    "emailRequired": "E-mail is vereist.",
+    "emailInvalid": "Voer een geldig e-mailadres in.",
+    "phoneRequired": "Telefoon is vereist.",
+    "phoneInvalid": "Voer een geldig telefoonnummer in.",
+    "websiteInvalid": "Voer een geldige website in.",
+    "industryRequired": "Industrie is nodig.",
+    "ownerRequired": "Eigenaar is vereist.",
+    "statusInvalid": "Selecteer een geldige status.",
+    "emailDuplicate": "Er bestaat al een klant met dit e-mailadres.",
+    "nameRequired": "Naam is vereist.",
+    "mobileInvalid": "Voer een geldig mobiel nummer in.",
+    "mobileRequired": "Mobiel is vereist.",
+    "roleRequired": "Rol is vereist.",
+    "noteTitleRequired": "Titel is vereist.",
+    "noteBodyRequired": "Opmerking lichaam is vereist.",
+    "noteAuthorRequired": "Auteur is vereist."
+  },
+  "errors": {
+    "failedToLoadCustomers": "Kan klanten niet laden.",
+    "failedToLoadCustomerProfile": "Kan klantprofiel niet laden.",
+    "organizationRequired": "Organisatie is vereist.",
+    "failedToSaveCustomer": "Kan klant niet opslaan.",
+    "failedToDeleteCustomer": "Kan klant niet verwijderen.",
+    "failedToSaveContact": "Kan contact niet opslaan.",
+    "failedToSaveNote": "Kan notitie niet opslaan.",
+    "failedToUploadDocument": "Kan document niet uploaden."
+  },
+  "workspace": {
+    "badge": "Enterprise-CRM 2.0",
+    "title": "Klantrelatiebeheer",
+    "subtitleBeforeOrg": "Beheer de klantenlijst, profielen, contacten, notities en documenten voor",
+    "subtitleAfterOrg": "Projecten worden vanuit de Projecten module gekoppeld op bedrijfsnaam zonder gegevens te dupliceren.",
+    "yourOrganization": "uw organisatie"
+  },
+  "analytics": {
+    "totalCustomers": "Totaal aantal klanten",
+    "activeCustomers": "Actieve klanten",
+    "newCustomers": "Nieuwe klanten",
+    "vipCustomers": "VIP-klanten",
+    "createdThisMonth": "Deze maand gemaakt",
+    "leadConversion": "Leadconversie",
+    "leadConversionHint": "Actief en VIP-aandeel van de lead/prospect/geconverteerde trechter.",
+    "customerGrowth": "Groei van klanten"
+  },
+  "profile": {
+    "backToCrm": "← Terug naar CRM",
+    "ownerLabel": "Eigenaar",
+    "notFoundTitle": "Klant niet gevonden",
+    "notFoundDescription": "Deze klant is mogelijk verwijderd.",
+    "missingCustomerTitle": "Ontbrekende klant",
+    "missingOverviewDescription": "Selecteer een klant om het overzicht te bekijken.",
+    "missingSettingsDescription": "Selecteer een klant om de instellingen te beheren.",
+    "ariaProfileNav": "Klantprofiel",
+    "tabs": {
+      "overview": "Overzicht",
+      "contacts": "Contacten",
+      "projects": "Projecten",
+      "documents": "Documenten",
+      "invoices": "Facturen",
+      "activity": "Activiteit",
+      "notes": "Opmerkingen",
+      "settings": "Instellingen"
+    },
+    "overview": {
+      "title": "Overzicht",
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "website": "Website",
+      "taxNumber": "Belastingnummer",
+      "location": "Locatie",
+      "address": "Adres",
+      "created": "Gemaakt",
+      "updated": "Bijgewerkt",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "Contactpersoon toevoegen",
+      "editTitle": "Contact bewerken",
+      "listTitle": "Contacten",
+      "name": "Naam",
+      "role": "Rol",
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "mobile": "Mobiel",
+      "notes": "Opmerkingen",
+      "saveContact": "Contact opslaan",
+      "emptyTitle": "Nog geen contacten",
+      "emptyDescription": "Voeg belanghebbenden toe met rol-, e-mail- en telefoongegevens.",
+      "defaultRole": "Contact",
+      "mobilePrefix": "Mobiel"
+    },
+    "projects": {
+      "title": "Projecten",
+      "emptyTitle": "Geen gekoppelde projecten",
+      "emptyDescription": "Projecten waarvan de klantnaam overeenkomt met dit bedrijf verschijnen hier. Gegevens worden uit de Projecten-module gelezen; er wordt niets gedupliceerd.",
+      "openProjects": "Projecten openen"
+    },
+    "documents": {
+      "title": "Documenten",
+      "subtitle": "Afbeeldingen, pdf's en kantoordocumenten: alleen metagegevens in lokale opslag.",
+      "attachFiles": "Bestanden bijvoegen",
+      "emptyTitle": "Geen documenten",
+      "emptyDescription": "Voeg klantbestanden toe voor het accountteam.",
+      "systemUploader": "Systeem"
+    },
+    "invoices": {
+      "emptyTitle": "Nog geen facturen",
+      "emptyDescription": "Facturen voor deze klant verschijnen hier wanneer ze zijn gekoppeld vanuit Financiën."
+    },
+    "activity": {
+      "title": "Activiteit",
+      "emptyTitle": "Nog geen activiteit",
+      "emptyDescription": "Aanmaken, updates, notities en documenten verschijnen hier als nieuwste eerst.",
+      "kinds": {
+        "customer_created": "Klant aangemaakt",
+        "customer_updated": "Klant bijgewerkt",
+        "contact_added": "Contactpersoon toegevoegd",
+        "contact_updated": "Contactpersoon bijgewerkt",
+        "contact_deleted": "Contactpersoon verwijderd",
+        "note_added": "Opmerking toegevoegd",
+        "note_updated": "Opmerking bijgewerkt",
+        "note_deleted": "Opmerking verwijderd",
+        "document_added": "Document toegevoegd",
+        "document_deleted": "Document verwijderd",
+        "project_linked": "Project gekoppeld"
+      }
+    },
+    "notes": {
+      "newTitle": "Nieuwe notitie",
+      "editTitle": "Notitie bewerken",
+      "title": "Titel",
+      "author": "Auteur",
+      "body": "Lichaam",
+      "saveNote": "Bewaar notitie",
+      "emptyTitle": "Nog geen opmerkingen",
+      "emptyDescription": "Leg accountcontext vast met auteur en tijdstempels."
+    },
+    "settings": {
+      "title": "Instellingen",
+      "description": "Bewerk alle profielvelden of archiveer dit account. Bij het verwijderen wordt gebruik gemaakt van het bevestigingsvenster.",
+      "editAllFields": "Bewerk alle velden",
+      "prepareArchive": "Archief voorbereiden",
+      "deleteCustomer": "Klant verwijderen"
+    }
+  },
+  "customer360": {
+    "ariaSections": "Klant 360-secties",
+    "email": "E-mail",
+    "phone": "Telefoon",
+    "aiHealth": "AI-gezondheid",
+    "tabs": {
+      "profile": "Profiel",
+      "company": "Bedrijf",
+      "contacts": "Contacten",
+      "orders": "Bestellingen",
+      "invoices": "Facturen",
+      "lieferscheine": "Lieferscheine",
+      "payments": "Betalingen",
+      "documents": "Documenten",
+      "timeline": "Tijdlijn",
+      "activities": "Activiteiten",
+      "notes": "Opmerkingen",
+      "aiSummary": "AI-samenvatting",
+      "communicationHistory": "Communicatie Geschiedenis"
+    },
+    "profileLines": {
+      "customerId": "Klant-ID",
+      "status": "Status",
+      "primaryContact": "Primair contact"
+    },
+    "status": {
+      "churn_risk": "Churn-risico"
+    }
+  },
+  "delivery": {
+    "title": "Professioneel Lieferschein-systeem",
+    "description": "Afleverbonnen, ophalen/afleveren, chauffeur, voertuig en tracking: alleen voorbeeldrecords. Exportadapters zijn niet aangesloten.",
+    "badges": {
+      "qrUnavailable": "QR niet beschikbaar",
+      "barcodeUnavailable": "Streepjescode niet beschikbaar",
+      "signatureDemo": "Handtekeningdemo"
+    },
+    "exportPdf": "PDF exporteren",
+    "deliveryHistory": "Leveringsgeschiedenis",
+    "notices": {
+      "exportNotConnected": "PDF-, QR- en barcode-export zijn in deze build niet met elkaar verbonden.",
+      "exportPdfUnavailable": "Exporteren van PDF niet beschikbaar: leveringsexport is niet verbonden.",
+      "historyNotConnected": "De winkel met leveringsgeschiedenis is niet verbonden in deze build."
+    },
+    "columns": {
+      "lieferschein": "Lieferschein",
+      "order": "Volgorde",
+      "customer": "Klant",
+      "kind": "Vriendelijk",
+      "driver": "Bestuurder",
+      "vehicle": "Voertuig",
+      "tracking": "Volgen",
+      "scheduled": "Gepland"
+    }
+  },
+  "orders": {
+    "description": "Producten, diensten, prijs, korting, belasting en klant: grootboek van ondernemingsorders.",
+    "createOrder": "Orde creëren",
+    "notices": {
+      "apiReserved": "API voor het maken van bestellingen gereserveerd voor toekomstig schrijfpad.",
+      "draftStaged": "Creëer Orderconcept geënsceneerd (nog geen API)."
+    },
+    "columns": {
+      "order": "Volgorde",
+      "customer": "Klant",
+      "status": "Status",
+      "lines": "Lijnen",
+      "net": "Netto",
+      "tax": "Belasting",
+      "gross": "Goor",
+      "created": "Gemaakt"
+    },
+    "lineTax": "{taxPct}% belasting"
+  },
+  "tasks": {
+    "calendarTitle": "Kalender · Vergaderingen · Herinneringen · Follow-ups",
+    "foundationTitle": "Stichting Taakbesturingssysteem",
+    "foundationDescription": "Agendasynchronisatie, aanbieders van vergaderingen, herinneringstaken en vervolgautomatiseringshakes zijn gereserveerd. Dit bord is het gedeelde CRM-taakoppervlak voor elke branchemodule.",
+    "badges": {
+      "calendarAdapter": "Kalenderadapter",
+      "meetingAdapter": "Vergaderadapter",
+      "reminderQueue": "Herinneringswachtrij",
+      "followUpEngine": "Vervolgmotor"
+    },
+    "duePrefix": "Vanwege",
+    "kinds": {
+      "follow_up": "Vervolg",
+      "meeting": "Ontmoeting",
+      "reminder": "Herinnering",
+      "task": "Taak"
+    },
+    "statuses": {
+      "open": "Open",
+      "in_progress": "In uitvoering",
+      "done": "Klaar",
+      "cancelled": "Geannuleerd"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "Geen documenten",
+    "emptyDescription": "Er zijn geen documenten die overeenkomen met deze zoekopdracht.",
+    "searchLabel": "AI-zoekopdracht",
+    "searchPlaceholder": "Offertes, contracten, facturen, Lieferschein…",
+    "typeLabel": "Documenttype",
+    "allTypes": "Alle soorten",
+    "columns": {
+      "type": "Type",
+      "title": "Titel",
+      "customer": "Klant",
+      "status": "Status",
+      "updated": "Bijgewerkt"
+    },
+    "kinds": {
+      "quote": "Citaten",
+      "contract": "Contracten",
+      "invoice": "Facturen",
+      "lieferschein": "Lieferschein",
+      "purchase_order": "Inkooporders",
+      "receipt": "Ontvangsten"
+    }
+  },
+  "communication": {
+    "intro": "Alleen schaalbare kanaalarchitectuur: e-mail, WhatsApp, Instagram, Facebook, TikTok, LinkedIn, Telegram, spraak en video. Geen nep-live-integraties.",
+    "adapterPrefix": "Adapter:"
+  },
+  "aiCreator": {
+    "intro": "Toekomstbestendig AI Creator-oppervlak: ideeën, bijschriften, hashtags, kalender, campagnes, merkstem, genereren van afbeeldingen/video's, analyses, planning, publicatiewachtrij en inzichten. Er zijn nog geen echte provider-API's aangesloten."
+  },
+  "creatorStudio": {
+    "intro": "Creator Studio Foundation – officiële platformintegraties kunnen later op deze adapters worden aangesloten. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X."
+  },
+  "industry": {
+    "intro": "Universal Business Platform – onboarding zal later een branche kiezen. Elke branche ontvangt speciale AI-modules zonder het kern-CRM-besturingssysteem te splitsen."
+  },
+  "kpi": {
+    "customers": {
+      "label": "Klanten",
+      "caption": "Actieve relaties"
+    },
+    "companies": {
+      "label": "Bedrijven",
+      "caption": "Accountorganisaties"
+    },
+    "leads": {
+      "label": "Leidt",
+      "caption": "Nieuw deze maand"
+    },
+    "deals": {
+      "label": "Aanbiedingen",
+      "caption": "Open pijpleiding"
+    },
+    "revenue": {
+      "label": "Winst",
+      "caption": "Gewonnen YTD"
+    },
+    "projects": {
+      "label": "Actieve projecten",
+      "caption": "Levering tijdens de vlucht"
+    },
+    "tasks": {
+      "label": "Taken openen",
+      "caption": "Over CRM + levering"
+    },
+    "ai-health": {
+      "label": "AI-gezondheidsscore",
+      "caption": "Signaal van relatiekwaliteit"
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "pipeline": {
+    "lead": "Leiding",
+    "qualified": "Gekwalificeerd",
+    "proposal": "Voorstel",
+    "negotiation": "Onderhandeling",
+    "won": "Won",
+    "lost": "Kwijt"
+  },
+  "orderStatus": {
+    "draft": "Voorlopige versie",
+    "confirmed": "Bevestigd",
+    "in_fulfillment": "In vervulling",
+    "shipped": "Verzonden",
+    "delivered": "Afgeleverd",
+    "cancelled": "Geannuleerd"
+  },
+  "tracking": {
+    "scheduled": "Gepland",
+    "en_route": "Onderweg",
+    "arrived": "Aangekomen",
+    "completed": "Voltooid",
+    "failed": "Mislukt"
+  },
+  "documentKind": {
+    "quote": "Citaat",
+    "contract": "Contract",
+    "invoice": "Factuur",
+    "lieferschein": "Lieferschein",
+    "purchase_order": "Aankooporder",
+    "receipt": "Ontvangst"
+  },
+  "documentStatus": {
+    "sent": "Verstuurd",
+    "signed": "Ondertekend",
+    "paid": "Betaald",
+    "in_transit": "Onderweg",
+    "open": "Open",
+    "filed": "Gearchiveerd"
+  },
+  "integration": {
+    "planned": "Gepland",
+    "ready": "Klaar",
+    "connected": "Aangesloten",
+    "disabled": "Gehandicapt"
+  }
+}

@@ -17,6 +17,7 @@ import {
   pushOverlay,
 } from "@/app/components/ui/overlayStack";
 import { searchAiCommands } from "../prompts";
+import { useT } from "@/app/lib/i18n";
 import type { AiCommand } from "../types";
 
 export interface AiCommandPaletteProps {
@@ -45,6 +46,7 @@ function AiCommandPaletteOpen({
   readonly onClose: () => void;
   readonly onRun: (command: AiCommand) => void;
 }): JSX.Element | null {
+  const t = useT();
   const [query, setQuery] = useState("");
   const [index, setIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -114,7 +116,7 @@ function AiCommandPaletteOpen({
       }}
       role="dialog"
       aria-modal="true"
-      aria-label="AI command palette"
+      aria-label={t("ai.commandPalette.ariaLabel")}
       onClick={onClose}
     >
       <div
@@ -139,10 +141,10 @@ function AiCommandPaletteOpen({
               setIndex(0);
             }}
             onKeyDown={onKeyDown}
-            placeholder="AI command… summarize, propose, analyze…"
+            placeholder={t("ai.commandPalette.placeholder")}
             className="agx-ui-control"
             style={{ border: "none", background: "transparent", boxShadow: "none" }}
-            aria-label="Filter AI commands"
+            aria-label={t("ai.commandPalette.filterAria")}
           />
         </div>
         <ul className="max-h-72 overflow-auto p-2" role="listbox">
@@ -151,7 +153,7 @@ function AiCommandPaletteOpen({
               className="px-3 py-4 text-sm"
               style={{ color: "var(--agx-ds-text-muted)" }}
             >
-              No matching commands
+              {t("ai.commandPalette.noMatches")}
             </li>
           ) : (
             results.map((command, i) => {
@@ -170,13 +172,13 @@ function AiCommandPaletteOpen({
                     onMouseEnter={() => setIndex(i)}
                     onClick={() => run(command)}
                   >
-                    <span className="text-sm font-medium">{command.label}</span>
+                    <span className="text-sm font-medium">{t(`ai.commands.${command.id}.label`)}</span>
                     {command.description ? (
                       <span
                         className="text-xs"
                         style={{ color: "var(--agx-ds-text-muted)" }}
                       >
-                        {command.description}
+                        {t(`ai.commands.${command.id}.description`)}
                       </span>
                     ) : null}
                   </button>
@@ -192,8 +194,7 @@ function AiCommandPaletteOpen({
             borderColor: "var(--agx-ds-border)",
           }}
         >
-          Register future commands via <code>registerAiCommand</code> — UI stays
-          unchanged.
+          {t("ai.commandPalette.footer")}
         </div>
       </div>
     </div>,

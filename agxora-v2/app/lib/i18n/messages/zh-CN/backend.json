@@ -1,0 +1,62 @@
+{
+  "toast": {
+    "success": "成功",
+    "warning": "警告",
+    "error": "错误",
+    "info": "飞艇信息",
+    "dismiss": "关闭通知",
+    "close": "关闭"
+  },
+  "network": {
+    "offline": "您似乎处于离线状态",
+    "offlineHelp": "离线帮助",
+    "reconnected": "连接已恢复",
+    "offlineSyncHint": "连接恢复前，更改可能不会同步。"
+  },
+  "errorBoundary": {
+    "backToDashboard": "返回仪表板",
+    "title": "出了点问题",
+    "retry": "重试"
+  },
+  "notFound": {
+    "title": "找不到页面",
+    "message": "您请求的页面不存在、已移动或不再可用。",
+    "recoveryNav": "恢复期",
+    "home": "家",
+    "pricing": "定价",
+    "contact": "联系方式",
+    "signIn": "登陆",
+    "dashboard": "仪表板"
+  },
+  "globalError": {
+    "title": "出了点问题",
+    "message": "发生意外错误。请再试一次。",
+    "retry": "重试"
+  },
+  "skipToMain": "跳至主要内容",
+  "offline": {
+    "title": "您离线",
+    "message": "检查您的连接，并在重新上线后重试。缓存的屏幕可能仍然有效。",
+    "home": "家",
+    "contact": "联系方式",
+    "signIn": "登陆"
+  },
+  "logout": {
+    "title": "登出",
+    "signingOut": "正在将您注销...",
+    "endingSession": "会议结束...",
+    "failed": "无法登出"
+  },
+  "demo": {
+    "title": "预订演示",
+    "subtitle": "与 AGXORA 团队安排现场演练。在启用日历预订之前，请向我们发送电子邮件以请求演示。",
+    "requestTitle": "请求演示",
+    "requestBody": "我们正在完成日程安排，以便您可以选择适合您的团队的时间。在此之前，您可以免费开始并按照自己的节奏探索该产品，或者发送电子邮件至 {email}。",
+    "startFree": "改为免费试用",
+    "backHome": "回到家",
+    "signIn": "登陆"
+  },
+  "loading": "加载中",
+  "loadingEllipsis": "加载中…",
+  "loadingIdentity": "正在加载身份…"
+}

@@ -1,0 +1,174 @@
+{
+  "identity": {
+    "eyebrow": "Enterprise IAM",
+    "title": "Identity & Access",
+    "lead": "Organization, workspace, RBAC, security placeholders, and audit architecture. Backend adapters plug in without changing this surface.",
+    "openProfile": "Open profile",
+    "teamManagement": "Team management",
+    "tabs": {
+      "organization": "Organization",
+      "workspace": "Workspace",
+      "roles": "Roles & permissions",
+      "security": "Security",
+      "audit": "Audit log"
+    },
+    "organizationSettings": "Organization settings",
+    "workspaceSettings": "Workspace settings",
+    "noOrganization": "No organization active. Complete onboarding or create one from the organization service.",
+    "logoPlaceholder": "Logo upload and plan billing adapters are placeholders for the future identity backend.",
+    "rbacTitle": "RBAC — default roles",
+    "permissionMatrix": "Permission matrix",
+    "canManageSettings": "Can manage settings: {value} · Authenticated: {authenticated}",
+    "yes": "yes",
+    "no": "no",
+    "securitySettings": "Security settings",
+    "passwordChange": {
+      "title": "Password change",
+      "detail": "Password change connects through the auth provider when configured."
+    },
+    "twoFactor": {
+      "title": "Two-factor authentication (2FA)",
+      "detail": "TOTP and WebAuthn adapters register here when enabled."
+    },
+    "activeSessions": {
+      "title": "Active sessions",
+      "detail": "Device directory lives in identity sessions; revocation becomes authoritative with server sessions."
+    },
+    "apiKeys": {
+      "title": "API keys",
+      "detail": "Service accounts and scoped tokens for developers."
+    },
+    "absoluteTimeout": "Absolute timeout",
+    "idleTimeout": "Idle timeout",
+    "refreshSkew": "Refresh skew",
+    "persistentLogin": "Persistent login",
+    "disabled": "Disabled",
+    "enabled": "Enabled",
+    "days": "{count} days",
+    "minutes": "{count} min",
+    "toggleIdlePolicy": "Toggle idle policy placeholder",
+    "previewSessionExpired": "Preview session expired",
+    "previewAccountLocked": "Preview account locked",
+    "auditActivity": "Audit activity",
+    "auditLead": "Login, logout, role changes, invites, and organization events are recorded locally. Replace with an immutable backend audit store later.",
+    "auditEmpty": "No IAM events yet. Sign in or change a role to populate the log.",
+    "meta": {
+      "name": "Name",
+      "slug": "Slug",
+      "plan": "Plan",
+      "owner": "Owner",
+      "created": "Created",
+      "yourRole": "Your role",
+      "workspace": "Workspace",
+      "status": "Status",
+      "isolationKey": "Isolation key"
+    },
+    "matrix": {
+      "permission": "Permission",
+      "owner": "Owner",
+      "admin": "Admin",
+      "manager": "Manager",
+      "member": "Member",
+      "viewer": "Viewer",
+      "yes": "Yes"
+    },
+    "audit": {
+      "when": "When",
+      "action": "Action",
+      "actor": "Actor",
+      "resource": "Resource"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "Owner",
+      "description": "Full control including billing and ownership transfer"
+    },
+    "admin": {
+      "name": "Admin",
+      "description": "Manage people, security, workspaces, and modules"
+    },
+    "manager": {
+      "name": "Manager",
+      "description": "Lead teams and operational modules; invite members"
+    },
+    "member": {
+      "name": "Member",
+      "description": "Day-to-day operational access"
+    },
+    "viewer": {
+      "name": "Viewer",
+      "description": "Read-only access"
+    }
+  },
+  "profile": {
+    "eyebrow": "Identity",
+    "title": "User Profile",
+    "lead": "Manage your account identity, preferences, and security. Organization and workspace controls live in Identity Settings.",
+    "guest": "Guest",
+    "notSignedIn": "Not signed in",
+    "identitySettings": "Identity settings",
+    "security": "Security",
+    "profileSection": "Profile",
+    "fullName": "Full name",
+    "email": "Email",
+    "language": "Language",
+    "timezone": "Timezone",
+    "languageEnGb": "English (UK)",
+    "languageEnUs": "English (US)",
+    "languageDe": "Deutsch",
+    "timezoneBerlin": "Europe/Berlin",
+    "timezoneLondon": "Europe/London",
+    "timezoneUtc": "UTC",
+    "timezoneNewYork": "America/New_York",
+    "notifications": "Notifications",
+    "emailNotifications": "Email notifications",
+    "pushNotifications": "Push notifications",
+    "workspace": "Workspace",
+    "noticeInitial": "Preferences save locally until the profile API is connected.",
+    "noticeSaved": "Profile preferences updated.",
+    "savePreferences": "Save preferences"
+  },
+  "workspaceSelector": {
+    "empty": "No workspaces yet — create an organization to provision one.",
+    "label": "Active workspace",
+    "ariaLabel": "Switch workspace"
+  },
+  "access": {
+    "eyebrow": "Identity & Access",
+    "signIn": "Sign in",
+    "backToDashboard": "Back to dashboard",
+    "unauthorized": {
+      "title": "Unauthorized",
+      "description": "Sign in to continue to this area of AGXORA."
+    },
+    "forbidden": {
+      "title": "Forbidden",
+      "description": "Your role does not include permission for this resource."
+    },
+    "expired_session": {
+      "title": "Expired Session",
+      "description": "Your session expired. Sign in again to resume work."
+    },
+    "missing_permission": {
+      "title": "Missing Permission",
+      "description": "Ask an Owner or Admin to grant the required module access."
+    },
+    "account_locked": {
+      "title": "Account Locked",
+      "description": "This account is locked. Contact an organization owner or try again later."
+    }
+  },
+  "verifyEmail": {
+    "title": "Email Verification",
+    "loading": "Loading…",
+    "skipForNow": "Skip for now",
+    "tokenPlaceholder": "Verification token",
+    "tokenIssued": "Verification token issued for the current session.",
+    "issueFailed": "Could not issue token",
+    "verificationFailed": "Verification failed",
+    "verify": "Verify Email",
+    "verifying": "Verifying…",
+    "requestToken": "Request verification token"
+  }
+}

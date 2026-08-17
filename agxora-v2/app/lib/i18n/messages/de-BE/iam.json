@@ -1,0 +1,174 @@
+{
+  "identity": {
+    "eyebrow": "Unternehmens-IAM",
+    "title": "Identität und Zugriff",
+    "lead": "Organisation, Arbeitsbereich, RBAC, Sicherheitsplatzhalter und Auditarchitektur. Backend-Adapter stecken ein, ohne diese Oberfläche zu verändern.",
+    "openProfile": "Profil öffnen",
+    "teamManagement": "Teamführung",
+    "tabs": {
+      "organization": "Organisation",
+      "workspace": "Arbeitsbereich",
+      "roles": "Rollen & Berechtigungen",
+      "security": "Sicherheit",
+      "audit": "Audit-Protokoll"
+    },
+    "organizationSettings": "Organisationseinstellungen",
+    "workspaceSettings": "Arbeitsbereichseinstellungen",
+    "noOrganization": "Keine Organisation aktiv. Schließen Sie das Onboarding ab oder erstellen Sie eines aus dem Organisationsdienst.",
+    "logoPlaceholder": "Logo-Upload- und Abrechnungsadapter sind Platzhalter für das zukünftige Identitäts-Backend.",
+    "rbacTitle": "Standard-Rollen",
+    "permissionMatrix": "Erlaubnis-Matrix",
+    "canManageSettings": "Kann Einstellungen verwalten: {value} · Authentifiziert: {authenticated}",
+    "yes": "ja",
+    "no": "Nein",
+    "securitySettings": "Sicherheitseinstellungen",
+    "passwordChange": {
+      "title": "Kennwortänderung",
+      "detail": "Die Kennwortänderung erfolgt über den Authentifizierungsanbieter, wenn sie konfiguriert ist."
+    },
+    "twoFactor": {
+      "title": "Zwei-Faktor-Authentifizierung (2FA)",
+      "detail": "TOTP- und WebAuthn-Adapter werden hier registriert, wenn sie aktiviert sind."
+    },
+    "activeSessions": {
+      "title": "Aktive Sitzungen",
+      "detail": "Das Geräteverzeichnis lebt in Identitätssitzungen; der Widerruf wird mit Server-Sitzungen autoritativ."
+    },
+    "apiKeys": {
+      "title": "API-Schlüssel",
+      "detail": "Dienstkonten und bereichsbezogene Token für Entwickler."
+    },
+    "absoluteTimeout": "Maximale Zeitüberschreitung",
+    "idleTimeout": "Leerlaufzeit-Überschreitung",
+    "refreshSkew": "Schiefe aktualisieren",
+    "persistentLogin": "Permanente Anmeldung",
+    "disabled": "Deaktiviert",
+    "enabled": "Ermöglicht",
+    "days": "%{count} Tage",
+    "minutes": "{count} Min.",
+    "toggleIdlePolicy": "Leerlaufpolicen-Platzhalter umschalten",
+    "previewSessionExpired": "Vorschau der Sitzung abgelaufen",
+    "previewAccountLocked": "Vorschau des gesperrten Kontos",
+    "auditActivity": "Audittätigkeit",
+    "auditLead": "Anmelden, Abmelden, Rollenänderungen, Einladungen und Organisationsereignisse werden lokal aufgezeichnet. Später durch einen unveränderlichen Backend-Auditspeicher ersetzen.",
+    "auditEmpty": "Noch keine IAM-Ereignisse. Melden Sie sich an oder ändern Sie eine Rolle, um das Protokoll zu füllen.",
+    "meta": {
+      "name": "Name",
+      "slug": "Schnecke",
+      "plan": "Planen",
+      "owner": "Eigentümer",
+      "created": "Erstellt",
+      "yourRole": "Ihre Rolle",
+      "workspace": "Arbeitsbereich",
+      "status": "Status",
+      "isolationKey": "Isolationsschlüssel"
+    },
+    "matrix": {
+      "permission": "Erlaubnis",
+      "owner": "Eigentümer",
+      "admin": "Admin",
+      "manager": "Verwalter",
+      "member": "Mitglied",
+      "viewer": "Betrachter",
+      "yes": "Ja"
+    },
+    "audit": {
+      "when": "Wann",
+      "action": "Handlung",
+      "actor": "Schauspieler",
+      "resource": "Ressource"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "Eigentümer",
+      "description": "Volle Kontrolle einschließlich Abrechnung und Eigentumsübertragung"
+    },
+    "admin": {
+      "name": "Admin",
+      "description": "Verwalten von Personen, Sicherheit, Arbeitsbereichen und Modulen"
+    },
+    "manager": {
+      "name": "Verwalter",
+      "description": "Teams und operative Module leiten; Mitglieder einladen"
+    },
+    "member": {
+      "name": "Mitglied",
+      "description": "Täglicher Betriebszugang"
+    },
+    "viewer": {
+      "name": "Betrachter",
+      "description": "Nur Lesezugang"
+    }
+  },
+  "profile": {
+    "eyebrow": "Identität",
+    "title": "Benutzerprofil",
+    "lead": "Verwalte die Identität, Präferenzen und Sicherheit deines Kontos. Organisations- und Arbeitsbereichssteuerelemente befinden sich in den Identitätseinstellungen.",
+    "guest": "Gast",
+    "notSignedIn": "Nicht angemeldet",
+    "identitySettings": "Einstellungen zur Identität",
+    "security": "Sicherheit",
+    "profileSection": "Profil",
+    "fullName": "Vollständiger Name",
+    "email": "E-Mail",
+    "language": "Sprache",
+    "timezone": "Zeitzone",
+    "languageEnGb": "Englisch (UK)",
+    "languageEnUs": "Englisch (US)",
+    "languageDe": "Deutsch",
+    "timezoneBerlin": "Europa/Berlin",
+    "timezoneLondon": "Europa/London",
+    "timezoneUtc": "koordinierte Weltzeit",
+    "timezoneNewYork": "Amerika/New_York",
+    "notifications": "Benachrichtigungen",
+    "emailNotifications": "E-Mail-Benachrichtigungen",
+    "pushNotifications": "Push-Benachrichtigungen",
+    "workspace": "Arbeitsbereich",
+    "noticeInitial": "Einstellungen werden lokal gespeichert, bis die Profil-API verbunden ist.",
+    "noticeSaved": "Profileinstellungen aktualisiert.",
+    "savePreferences": "Einstellungen speichern"
+  },
+  "workspaceSelector": {
+    "empty": "Noch keine Arbeitsbereiche — erstellen Sie eine Organisation, um einen bereitzustellen.",
+    "label": "Aktiver Arbeitsbereich",
+    "ariaLabel": "Arbeitsbereich wechseln"
+  },
+  "verifyEmail": {
+    "title": "E-Mail Bestätigung",
+    "loading": "Wird geladen ...",
+    "skipForNow": "Zunächst überspringen",
+    "tokenPlaceholder": "Verifizierungstoken",
+    "tokenIssued": "Verifizierungstoken für die aktuelle Sitzung ausgestellt.",
+    "issueFailed": "Token konnte nicht ausgegeben werden",
+    "verificationFailed": "Verifizierung fehlgeschlagen",
+    "verify": "Bitte E-Mail-Adresse verifizieren",
+    "verifying": "Überprüfung…",
+    "requestToken": "Verifizierungstoken anfordern"
+  },
+  "access": {
+    "eyebrow": "Identität & Zugriff",
+    "signIn": "Anmelden",
+    "backToDashboard": "Zurück zum Dashboard",
+    "unauthorized": {
+      "title": "Nicht autorisiert",
+      "description": "Melden Sie sich an, um diesen Bereich von AGXORA fortzusetzen."
+    },
+    "forbidden": {
+      "title": "Zugriff verweigert",
+      "description": "Ihre Rolle umfasst keine Berechtigung für diese Ressource."
+    },
+    "expired_session": {
+      "title": "Sitzung abgelaufen",
+      "description": "Ihre Sitzung ist abgelaufen. Melden Sie sich erneut an, um die Arbeit fortzusetzen."
+    },
+    "missing_permission": {
+      "title": "Fehlende Berechtigung",
+      "description": "Bitten Sie einen Inhaber oder Admin, den erforderlichen Modulzugriff zu gewähren."
+    },
+    "account_locked": {
+      "title": "Konto gesperrt",
+      "description": "Dieses Konto ist gesperrt. Kontaktieren Sie einen Organisationsinhaber oder versuchen Sie es später erneut."
+    }
+  }
+}

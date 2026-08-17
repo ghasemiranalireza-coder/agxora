@@ -1,0 +1,136 @@
+{
+  "loading": "正在加载企业智能中心...",
+  "eyebrow": "企业智能中心",
+  "title": "智力",
+  "subtitle": "每个 AGXORA 模块的 KPI、记分卡、警报和报告。以下值是实时分析后端连接之前的种子演示数据集。",
+  "demoBanner": "演示数据集 — 过滤并确认会话中的工作；导出和实时模型调用尚不可用。",
+  "noticeDefault": "显示种子演示分析—而不是实时生产遥测。",
+  "noPermission": "您没有此工作区的 Intelligence.read 权限。",
+  "filtersUpdated": "筛选器集已更新。",
+  "demoReloaded": "已为此工作区重新加载演示数据集。",
+  "acknowledged": "已确认：{title}",
+  "exportUnavailableTitle": "导出不可用 — 报告生成尚未连接。",
+  "exportUnavailableAria": "将 {title} 导出为 {format} — 不可用",
+  "tabs": {
+    "executive": "管理人员",
+    "health": "商业健康",
+    "workspace": "分析",
+    "kpis": "关键绩效指标中心",
+    "reports": "报告",
+    "insights": "见解",
+    "forecasts": "预测",
+    "alerts": "警报",
+    "scorecards": "记分卡",
+    "explorer": "数据浏览器"
+  },
+  "filters": {
+    "from": "从",
+    "to": "到",
+    "domain": "领域",
+    "allDomains": "所有域名",
+    "apply": "应用过滤器",
+    "reloadDemo": "重新加载演示数据",
+    "viewsAria": "情报观点"
+  },
+  "executive": {
+    "companyHealth": "公司健康",
+    "revenueScore": "收入分数",
+    "customerHealth": "客户健康",
+    "projectHealth": "项目健康",
+    "workflowSuccess": "工作流程成功",
+    "aiActivity": "人工智能活动",
+    "finance": "金融",
+    "riskGrowth": "风险/增长",
+    "kpiStrip": "执行 KPI 条",
+    "visualizationPreviews": "可视化预览",
+    "visualizationHint": "演示系列中的说明性图表 - 非交互式深入分析。",
+    "noSeries": "无系列绑定"
+  },
+  "health": {
+    "title": "业务健康分解",
+    "overall": "全部",
+    "revenue": "收入",
+    "customers": "顾客",
+    "projects": "项目",
+    "workflows": "工作流",
+    "ai": "人工智能",
+    "finance": "金融",
+    "operations": "运营",
+    "riskPosture": "风险态势",
+    "growth": "增长率",
+    "observability": "可观察性：{metrics} 指标 · {avgMs}ms 平均值 · 系统运行状况 {health}"
+  },
+  "workspace": {
+    "noSeries": "没有专题"
+  },
+  "kpis": {
+    "title": "关键绩效指标中心",
+    "subtitle": "跨收入、客户、项目、工作流程、代理和自动化的可配置 KPI 目录。",
+    "emptyTitle": "分析等待信号",
+    "emptyDescription": "一旦您的工作区产生活动，执行 KPI 和警报就会出现在此处。"
+  },
+  "reports": {
+    "title": "报告引擎",
+    "subtitle": "报告定义已播种以供审核。在连接报告后端之前，文件导出不可用。",
+    "emptyTitle": "没有报告",
+    "emptyDescription": "报告工作区引导的种子。",
+    "scheduleOnDemand": "一经请求"
+  },
+  "insights": {
+    "emptyTitle": "还没有任何见解",
+    "emptyDescription": "演示见解出现在工作区种子之后。实时 AI 洞察生成未连接。",
+    "badge": "演示 · {kind} · {domain} · conf {confidence}"
+  },
+  "forecasts": {
+    "emptyTitle": "还没有预测",
+    "emptyDescription": "演示预测出现在种子之后。预测模型未连接。",
+    "title": "{kind} 预测",
+    "baseline": "基线 {baseline} → 预计 {projected} ({days}d)",
+    "confidence": "演示 · 信心 {confidence} — {note}"
+  },
+  "alerts": {
+    "title": "警报引擎",
+    "emptyTitle": "无警报",
+    "emptyDescription": "来自风险启发的警报种子。",
+    "acked": "确认",
+    "open": "打开",
+    "acknowledge": "承认"
+  },
+  "scorecards": {
+    "title": "记分卡引擎",
+    "emptyTitle": "没有记分卡",
+    "emptyDescription": "记分卡在引导程序上种子。"
+  },
+  "explorer": {
+    "title": "数据浏览器",
+    "searchPlaceholder": "搜索演示行...",
+    "searchAria": "搜索演示浏览器行",
+    "emptyTitle": "没有匹配的行",
+    "emptyDescription": "调整过滤器或搜索，或重新加载演示数据集。",
+    "hint": "客户端对种子元组的搜索 - 后端聚合和向下钻取未连接。"
+  },
+  "columns": {
+    "kpi": "关键绩效指标",
+    "value": "价值",
+    "delta": "Δ%",
+    "trend": "趋势",
+    "target": "目标",
+    "severity": "严重性",
+    "alert": "机警",
+    "domain": "领域",
+    "status": "地位",
+    "actions": "行动",
+    "report": "报告",
+    "kind": "种类",
+    "schedule": "日程",
+    "export": "出口",
+    "scorecard": "记分卡",
+    "score": "分数",
+    "topDriver": "顶级车手",
+    "label": "标号",
+    "entity": "实体",
+    "measure": "措施",
+    "date": "日期"
+  },
+  "emDash": "—"
+}

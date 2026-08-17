@@ -2,14 +2,13 @@
 
 import { memo, useCallback, type JSX, type KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
-import { formatDisplayDate } from "../../lib/i18n";
+import { formatDisplayDate, useT } from "../../lib/i18n";
 import {
   formatMoney,
   projectStore,
   selectProjectListChrome,
   selectProjectSortSlice,
   shallowEqualRecord,
-  statusLabel,
   useFilteredProjects,
   useProjectStoreSelector,
   type ProjectRecord,
@@ -40,6 +39,8 @@ function ProjectCardView({
   readonly project: ProjectRecord;
   readonly onOpen: (id: string) => void;
 }): JSX.Element {
+  const t = useT();
+
   return (
     <Card
       className="flex h-full cursor-pointer flex-col gap-3"
@@ -56,7 +57,7 @@ function ProjectCardView({
             onOpen(project.id);
           }
         }}
-        aria-label={`Open project ${project.name}`}
+        aria-label={t("projects.list.openProject", { name: project.name })}
       >
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
@@ -92,7 +93,7 @@ function ProjectCardView({
           className="line-clamp-2 text-xs leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          {project.description || "No description yet."}
+          {project.description || t("projects.list.noDescription")}
         </p>
         <ProgressBar value={project.progress} color={project.color} />
         <div className="mt-auto flex flex-wrap items-center gap-2">
@@ -108,7 +109,9 @@ function ProjectCardView({
               className="text-[11px]"
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
             >
-              Due {formatDisplayDate(project.dueDate)}
+              {t("projects.list.duePrefix", {
+                date: formatDisplayDate(project.dueDate),
+              })}
             </span>
           ) : null}
         </div>
@@ -121,6 +124,7 @@ const MemoProjectCard = memo(ProjectCardView);
 
 export function ProjectList(): JSX.Element {
   const router = useRouter();
+  const t = useT();
   const state = useProjectStoreSelector(
     selectProjectListChrome,
     shallowEqualRecord,
@@ -149,7 +153,7 @@ export function ProjectList(): JSX.Element {
   if (state.error && state.itemsLength === 0) {
     return (
       <ErrorState
-        title="Couldn’t load projects"
+        title={t("projects.list.errorTitle")}
         description={state.error}
         onRetry={() => void projectStore.hydrate(state.organizationId)}
       />
@@ -161,10 +165,10 @@ export function ProjectList(): JSX.Element {
       <Card hover={false} className="space-y-3" padding="16px">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
           <SearchField
-            label="Search projects"
+            label={t("projects.list.searchLabel")}
             value={state.search}
             onChange={(value) => projectStore.setSearch(value)}
-            placeholder="Search projects, customers, owners, tags…"
+            placeholder={t("projects.list.searchPlaceholder")}
           />
           <div className="flex flex-wrap gap-2">
             <Button
@@ -173,7 +177,7 @@ export function ProjectList(): JSX.Element {
               onClick={() => projectStore.setViewMode("cards")}
               aria-pressed={state.viewMode === "cards"}
             >
-              Cards
+              {t("projects.list.viewCards")}
             </Button>
             <Button
               variant={state.viewMode === "table" ? "primary" : "ghost"}
@@ -181,21 +185,21 @@ export function ProjectList(): JSX.Element {
               onClick={() => projectStore.setViewMode("table")}
               aria-pressed={state.viewMode === "table"}
             >
-              Table
+              {t("projects.list.viewTable")}
             </Button>
             <Button
               variant="primary"
               size="sm"
               onClick={() => projectStore.openCreate()}
             >
-              New project
+              {t("projects.list.newProject")}
             </Button>
           </div>
         </div>
 
         <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-5">
           <FilterSelect
-            label="Status"
+            label={t("projects.list.statusFilter")}
             value={state.statusFilter}
             onChange={(e) =>
               projectStore.setStatusFilter(
@@ -203,15 +207,15 @@ export function ProjectList(): JSX.Element {
               )
             }
           >
-            <option value="all">All statuses</option>
+            <option value="all">{t("projects.list.allStatuses")}</option>
             {PROJECT_STATUSES.map((status) => (
               <option key={status} value={status}>
-                {statusLabel(status)}
+                {t(`projects.status.${status}`)}
               </option>
             ))}
           </FilterSelect>
           <FilterSelect
-            label="Priority"
+            label={t("projects.list.priorityFilter")}
             value={state.priorityFilter}
             onChange={(e) =>
               projectStore.setPriorityFilter(
@@ -219,19 +223,19 @@ export function ProjectList(): JSX.Element {
               )
             }
           >
-            <option value="all">All priorities</option>
+            <option value="all">{t("projects.list.allPriorities")}</option>
             {PROJECT_PRIORITIES.map((priority) => (
               <option key={priority} value={priority}>
-                {priority}
+                {t(`projects.priority.${priority}`)}
               </option>
             ))}
           </FilterSelect>
           <FilterSelect
-            label="Customer"
+            label={t("projects.list.customerFilter")}
             value={state.customerFilter}
             onChange={(e) => projectStore.setCustomerFilter(e.target.value)}
           >
-            <option value="">All customers</option>
+            <option value="">{t("projects.list.allCustomers")}</option>
             {customers.map((customer) => (
               <option key={customer} value={customer}>
                 {customer}
@@ -239,11 +243,11 @@ export function ProjectList(): JSX.Element {
             ))}
           </FilterSelect>
           <FilterSelect
-            label="Owner"
+            label={t("projects.list.ownerFilter")}
             value={state.ownerFilter}
             onChange={(e) => projectStore.setOwnerFilter(e.target.value)}
           >
-            <option value="">All owners</option>
+            <option value="">{t("projects.list.allOwners")}</option>
             {owners.map((owner) => (
               <option key={owner} value={owner}>
                 {owner}
@@ -255,7 +259,7 @@ export function ProjectList(): JSX.Element {
               className="block space-y-1.5 text-xs"
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
             >
-              From
+              {t("projects.list.dateFrom")}
               <input
                 type="date"
                 value={state.dateFrom}
@@ -272,7 +276,7 @@ export function ProjectList(): JSX.Element {
               className="block space-y-1.5 text-xs"
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
             >
-              To
+              {t("projects.list.dateTo")}
               <input
                 type="date"
                 value={state.dateTo}
@@ -291,9 +295,9 @@ export function ProjectList(): JSX.Element {
 
       {total === 0 ? (
         <EmptyState
-          title="No projects yet"
-          description="Spin up a delivery workspace to track milestones, budget, and team ownership."
-          actionLabel="Create project"
+          title={t("projects.list.emptyTitle")}
+          description={t("projects.list.emptyDescription")}
+          actionLabel={t("projects.list.createProject")}
           onAction={() => projectStore.openCreate()}
         />
       ) : state.viewMode === "cards" ? (
@@ -313,8 +317,11 @@ export function ProjectList(): JSX.Element {
       {total > 0 ? (
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Showing {(page - 1) * state.pageSize + 1}–
-            {Math.min(page * state.pageSize, total)} of {total}
+            {t("projects.list.pagination", {
+              from: (page - 1) * state.pageSize + 1,
+              to: Math.min(page * state.pageSize, total),
+              total,
+            })}
           </p>
           <div className="flex gap-2">
             <Button
@@ -323,7 +330,7 @@ export function ProjectList(): JSX.Element {
               disabled={page <= 1}
               onClick={() => projectStore.setPage(page - 1)}
             >
-              Previous
+              {t("projects.list.previous")}
             </Button>
             <Button
               size="sm"
@@ -331,7 +338,7 @@ export function ProjectList(): JSX.Element {
               disabled={page >= maxPage}
               onClick={() => projectStore.setPage(page + 1)}
             >
-              Next
+              {t("projects.list.next")}
             </Button>
           </div>
         </div>
@@ -347,19 +354,20 @@ function ProjectTableView({
   readonly rows: readonly ProjectRecord[];
   readonly onOpen: (id: string) => void;
 }): JSX.Element {
+  const t = useT();
   const state = useProjectStoreSelector(
     selectProjectSortSlice,
     shallowEqualRecord,
   );
-  const sortKeys: { key: ProjectSortKey; label: string }[] = [
-    { key: "name", label: "Name" },
-    { key: "customer", label: "Customer" },
-    { key: "owner", label: "Owner" },
-    { key: "status", label: "Status" },
-    { key: "priority", label: "Priority" },
-    { key: "progress", label: "Progress" },
-    { key: "dueDate", label: "Due" },
-    { key: "budget", label: "Budget" },
+  const sortKeys: { key: ProjectSortKey; labelKey: string }[] = [
+    { key: "name", labelKey: "projects.list.sort.name" },
+    { key: "customer", labelKey: "projects.list.sort.customer" },
+    { key: "owner", labelKey: "projects.list.sort.owner" },
+    { key: "status", labelKey: "projects.list.sort.status" },
+    { key: "priority", labelKey: "projects.list.sort.priority" },
+    { key: "progress", labelKey: "projects.list.sort.progress" },
+    { key: "dueDate", labelKey: "projects.list.sort.dueDate" },
+    { key: "budget", labelKey: "projects.list.sort.budget" },
   ];
 
   return (
@@ -373,23 +381,26 @@ function ProjectTableView({
                 "1px solid var(--agx-card-border, rgba(255,255,255,0.08))",
             }}
           >
-            {sortKeys.map((col) => (
-              <th key={col.key} className="px-4 py-3 font-medium">
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-1"
-                  onClick={() => projectStore.setSort(col.key)}
-                  aria-label={`Sort by ${col.label}`}
-                >
-                  {col.label}
-                  {state.sortKey === col.key
-                    ? state.sortDirection === "asc"
-                      ? " ↑"
-                      : " ↓"
-                    : ""}
-                </button>
-              </th>
-            ))}
+            {sortKeys.map((col) => {
+              const label = t(col.labelKey);
+              return (
+                <th key={col.key} className="px-4 py-3 font-medium">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-1"
+                    onClick={() => projectStore.setSort(col.key)}
+                    aria-label={t("projects.list.sortBy", { column: label })}
+                  >
+                    {label}
+                    {state.sortKey === col.key
+                      ? state.sortDirection === "asc"
+                        ? " ↑"
+                        : " ↓"
+                      : ""}
+                  </button>
+                </th>
+              );
+            })}
           </tr>
         </thead>
         <tbody>
@@ -407,7 +418,7 @@ function ProjectTableView({
                 if (event.key === "Enter") onOpen(project.id);
               }}
               tabIndex={0}
-              aria-label={`Open project ${project.name}`}
+              aria-label={t("projects.list.openProject", { name: project.name })}
             >
               <td className="px-4 py-3 font-medium">{project.name}</td>
               <td className="px-4 py-3">{project.customer}</td>

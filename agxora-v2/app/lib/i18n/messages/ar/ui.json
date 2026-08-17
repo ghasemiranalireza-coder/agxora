@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "لا توجد نتائج",
+    "noResultsDescription": "لا شيء يطابق المرشحات الحالية.",
+    "previous": "سابق",
+    "next": "التالي",
+    "paginationRange": "{start}–{end} من {total}",
+    "sortAscending": "فرز تصاعدي",
+    "sortDescending": "الترتيب تنازليًا"
+  },
+  "dialog": {
+    "close": "إغلاق مربع الحوار"
+  },
+  "module": {
+    "notAvailableTitle": "{title} غير متوفر بعد",
+    "notAvailableDescription": "تم إعداد غلاف الوحدة هذا لإصدار مستقبلي. لا يتم تخزين أية سجلات هنا حتى الآن."
+  },
+  "states": {
+    "errorLabel": "خطأ",
+    "errorTitle": "حدث خطأ ما",
+    "errorDescription": "لم نتمكن من إكمال هذا الطلب. حاول مرة أخرى بعد قليل.",
+    "retry": "أعد المحاولة"
+  },
+  "empty": {
+    "crmTitle": "نظام إدارة علاقات العملاء (CRM) الخاص بك جاهز",
+    "crmDescription": "قم بإنشاء سجل العميل الأول لفتح الدليل والملفات الشخصية والنشاط.",
+    "crmAction": "افتح إدارة علاقات العملاء",
+    "projectsTitle": "لا توجد مشاريع حتى الآن",
+    "projectsDescription": "قم بتدوير مساحة عمل التسليم لتتبع المعالم والميزانية وملكية الفريق.",
+    "projectsAction": "المشاريع المفتوحة",
+    "analyticsTitle": "التحليلات تنتظر الإشارة",
+    "analyticsDescription": "بمجرد إنشاء مساحة العمل الخاصة بك للنشاط، تظهر هنا مؤشرات الأداء الرئيسية والتنبيهات التنفيذية.",
+    "analyticsAction": "افتح التحليلات",
+    "documentsTitle": "مكتبة المستندات فارغة",
+    "documentsDescription": "قم بتحميل الأصول المعرفية أو إنشاؤها لدعم الموافقات والإصدارات وسياق الذكاء الاصطناعي.",
+    "documentsAction": "افتح المستندات",
+    "billingTitle": "لا يوجد سجل الفواتير حتى الآن",
+    "billingDescription": "قم بترقية خطة لإنشاء الفواتير والتجديدات وسجل الدفع.",
+    "billingAction": "فتح الفواتير",
+    "agentsTitle": "لا يوجد وكلاء نشطين",
+    "agentsDescription": "قم بتثبيت أو تنشيط وكيل من السوق لبدء التشغيل المستقل.",
+    "agentsAction": "فتح وكيل OS"
+  },
+  "yes": "نعم",
+  "no": "لا",
+  "dash": "—"
+}

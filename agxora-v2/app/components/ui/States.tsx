@@ -1,6 +1,7 @@
 "use client";
 
 import type { JSX, ReactNode } from "react";
+import { useT } from "../../lib/i18n";
 import { Button } from "./Button";
 import { Card } from "./Card";
 import { UI } from "./tokens";
@@ -68,14 +69,18 @@ export function EmptyState({
 }
 
 export function ErrorState({
-  title = "Something went wrong",
-  description = "We couldn’t complete that request. Try again in a moment.",
+  title,
+  description,
   onRetry,
 }: {
   readonly title?: string;
   readonly description?: string;
   readonly onRetry?: () => void;
 }): JSX.Element {
+  const t = useT();
+  const resolvedTitle = title ?? t("ui.states.errorTitle");
+  const resolvedDescription = description ?? t("ui.states.errorDescription");
+
   return (
     <Card hover={false} padding={`${UI.space.lg}px`}>
       <div role="alert">
@@ -83,24 +88,24 @@ export function ErrorState({
           className="text-[11px] font-semibold uppercase tracking-[0.14em]"
           style={{ color: UI.color.danger }}
         >
-          Error
+          {t("ui.states.errorLabel")}
         </p>
         <h3
           className="mt-2 text-base font-semibold"
           style={{ color: UI.color.text }}
         >
-          {title}
+          {resolvedTitle}
         </h3>
         <p
           className="mt-2 text-sm leading-relaxed"
           style={{ color: UI.color.textMuted }}
         >
-          {description}
+          {resolvedDescription}
         </p>
         {onRetry ? (
           <div className="mt-4">
             <Button variant="primary" onClick={onRetry}>
-              Retry
+              {t("ui.states.retry")}
             </Button>
           </div>
         ) : null}

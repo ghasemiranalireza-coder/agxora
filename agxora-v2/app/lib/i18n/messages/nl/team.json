@@ -1,0 +1,78 @@
+{
+  "page": {
+    "eyebrow": "Identiteit & Toegang",
+    "title": "Team",
+    "lead": "Leden, rollen en uitnodigingen voor {organization}. Klaar voor architectuur voor een toekomstige identiteits-API.",
+    "yourOrganization": "uw organisatie"
+  },
+  "invite": {
+    "title": "Uitnodigen per e-mail",
+    "email": "E-mail",
+    "emailPlaceholder": "collega@bedrijf.com",
+    "role": "Rol",
+    "submit": "Uitnodiging",
+    "created": "Uitnodiging gemaakt (in behandeling).",
+    "failed": "Uitnodigen mislukt",
+    "signInFirst": "Meld u aan en activeer eerst een organisatie.",
+    "noPermission": "Ontbrekende toestemming: beheerder of manager vereist om uit te nodigen."
+  },
+  "roles": {
+    "title": "Rollen",
+    "owner": {
+      "name": "Eigenaar",
+      "description": "Volledige organisatiecontrole inclusief instellingen en facturering."
+    },
+    "admin": {
+      "name": "Beheerder",
+      "description": "Beheer de modules Financiën, Automatisering, Team en Werkruimte."
+    },
+    "manager": {
+      "name": "Manager",
+      "description": "Leid CRM-, projecten-, documenten- en makerbewerkingen."
+    },
+    "employee": {
+      "name": "Medewerker",
+      "description": "Dagelijkse toegang tot CRM, documenten, makers en projecten."
+    },
+    "guest": {
+      "name": "Gast",
+      "description": "Beperkte leestoegang tot documenten en projecten."
+    },
+    "viewer": {
+      "name": "Kijker",
+      "description": "Alleen-lezen toegang tot gedeelde modules."
+    }
+  },
+  "members": {
+    "title": "Leden",
+    "columnMember": "Lid",
+    "columnEmail": "E-mail",
+    "columnRole": "Rol",
+    "columnStatus": "Status",
+    "roleFor": "Rol voor {name}",
+    "emptyTitle": "Nog geen leden",
+    "emptyDescription": "Nodig collega's uit om lid te worden van deze organisatiewerkruimte.",
+    "updated": "{name} bijgewerkt naar {role}",
+    "roleChangeFailed": "Rolwijziging is mislukt"
+  },
+  "pending": {
+    "title": "Openstaande uitnodigingen",
+    "emptyTitle": "Geen openstaande uitnodigingen",
+    "emptyDescription": "Nieuwe uitnodigingen verschijnen hier totdat ze worden geaccepteerd of verlopen.",
+    "expires": "{role} · verloopt op {date}",
+    "revoke": "Herroepen",
+    "pending": "in behandeling"
+  },
+  "history": {
+    "title": "Uitnodigingsgeschiedenis",
+    "empty": "Geaccepteerde, verlopen en ingetrokken uitnodigingen worden hier weergegeven."
+  },
+  "status": {
+    "accepted": "geaccepteerd",
+    "expired": "verlopen",
+    "revoked": "ingetrokken",
+    "active": "actief",
+    "inactive": "inactief",
+    "pending": "in behandeling"
+  }
+}

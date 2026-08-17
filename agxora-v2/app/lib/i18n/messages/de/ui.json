@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "Keine Ergebnisse",
+    "noResultsDescription": "Nichts stimmt mit den aktuellen Filtern überein.",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "paginationRange": "{start}–{end} von {total}",
+    "sortAscending": "Aufsteigend sortieren",
+    "sortDescending": "Absteigend sortieren"
+  },
+  "dialog": {
+    "close": "Dialog schließen"
+  },
+  "module": {
+    "notAvailableTitle": "{title} ist noch nicht verfügbar",
+    "notAvailableDescription": "Diese Modul-Shell ist für ein zukünftiges Release vorbereitet. Hier sind noch keine Datensätze hinterlegt."
+  },
+  "states": {
+    "errorLabel": "Fehler",
+    "errorTitle": "Etwas ist schiefgelaufen",
+    "errorDescription": "Wir konnten diese Anfrage nicht abschließen. Versuchen Sie es gleich noch einmal.",
+    "retry": "Erneut versuchen"
+  },
+  "empty": {
+    "crmTitle": "Ihr CRM ist bereit",
+    "crmDescription": "Erstellen Sie den ersten Kundendatensatz, um Verzeichnis, Profile und Aktivität freizuschalten.",
+    "crmAction": "CRM öffnen",
+    "projectsTitle": "Keine Aufgaben",
+    "projectsDescription": "Entwickeln Sie einen Lieferarbeitsbereich, um Meilensteine, Budget und Teamverantwortung zu verfolgen.",
+    "projectsAction": "Projekte öffnen",
+    "analyticsTitle": "Analytik wartet auf Signal",
+    "analyticsDescription": "Sobald Ihr Arbeitsbereich Aktivitäten generiert, werden hier Executive KPIs und Warnungen angezeigt.",
+    "analyticsAction": "Analysen öffnen",
+    "documentsTitle": "Dokumentbibliothek ist leer",
+    "documentsDescription": "Laden Sie Wissensressourcen hoch oder erstellen Sie sie, um Genehmigungen, Versionen und den KI-Kontext zu unterstützen.",
+    "documentsAction": "Dokumente öffnen",
+    "billingTitle": "Noch kein Abrechnungsverlauf",
+    "billingDescription": "Aktualisieren Sie einen Plan, um Rechnungen, Verlängerungen und den Zahlungsverlauf zu generieren.",
+    "billingAction": "Abrechnung öffnen",
+    "agentsTitle": "Keine Agenten aktiv",
+    "agentsDescription": "Installieren oder aktivieren Sie einen Agenten vom Marktplatz aus, um autonome Läufe zu starten.",
+    "agentsAction": "Agent-Betriebssystem öffnen"
+  },
+  "yes": "Ja",
+  "no": "Nr.",
+  "dash": "—"
+}

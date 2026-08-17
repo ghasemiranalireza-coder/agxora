@@ -1,0 +1,388 @@
+{
+  "skipToContent": "ダッシュボードのコンテンツにスキップ",
+  "loading": "ダッシュボードを読み込み中…",
+  "hero": {
+    "ariaLabel": "AGXORA CORE ヒーロー",
+    "eyebrow": "AI事業オペレーティングシステム",
+    "title": "アグソラコア",
+    "subtitle": "リアルタイムのインテリジェンスと運用制御 - ワークスペースのコマンド サーフェス。",
+    "ctaGetStarted": "始めましょう",
+    "ctaViewActivity": "アクティビティの表示",
+    "openQuickActionsAria": "クイックアクションを開く",
+    "viewActivityAria": "最近のアクティビティを表示する"
+  },
+  "quickActions": {
+    "title": "クイックアクション",
+    "subtitle": "次に何をすべきでしょうか?",
+    "ariaLabel": "クイックアクション",
+    "addCustomer": {
+      "label": "顧客を追加",
+      "description": "CRMレコードを作成する"
+    },
+    "newProject": {
+      "label": "新しいプロジェクト",
+      "description": "配送トラックを開始する"
+    },
+    "askAi": {
+      "label": "AIに聞く",
+      "description": "AI ワークスペースを開く"
+    },
+    "finance": {
+      "label": "ファイナンス",
+      "description": "請求書とキャッシュフロー"
+    },
+    "automations": {
+      "label": "自動化",
+      "description": "ワークフローエンジン"
+    },
+    "settings": {
+      "label": "設定",
+      "description": "ワークスペースの設定"
+    }
+  },
+  "attention": {
+    "title": "注意が必要です",
+    "ariaLabel": "注意が必要なこと",
+    "empty": "ご承知のとおり、今のところ緊急の事項はありません。",
+    "tone": {
+      "critical": "致命的",
+      "warning": "警告",
+      "info": "情報",
+      "success": "準備ができて",
+      "action": "次のことをする"
+    },
+    "addCustomer": {
+      "title": "最初の顧客を追加する",
+      "detail": "実際の取引先レコードを使用して CRM を開始します。"
+    },
+    "createProject": {
+      "title": "プロジェクトを作成する",
+      "detail": "次回のエンゲージメントのために配信トラックを開きます。"
+    },
+    "exploreAi": {
+      "title": "AI ワークスペースを探索する",
+      "detail": "顧客、プロジェクト、次のステップについて AGXORA に問い合わせてください。"
+    },
+    "reviewBilling": {
+      "title": "請求の確認",
+      "detail": "拡張する準備ができたら、計画と使用量を確認します。"
+    }
+  },
+  "overview": {
+    "title": "何が起こっている",
+    "subtitle": "{name} のワークスペース数",
+    "fallbackName": "あなたのワークスペース",
+    "ariaLabel": "事業概要",
+    "online": "オンライン",
+    "emDash": "—",
+    "capacitySignal": "{percent}% 容量信号",
+    "activeClients": {
+      "title": "アクティブなクライアント",
+      "captionEmpty": "アクティブな顧客はまだいません",
+      "captionTotal": "ワークスペース内の合計 {count}",
+      "add": "顧客を追加",
+      "view": "顧客を見る"
+    },
+    "projects": {
+      "title": "プロジェクト",
+      "captionEmpty": "ポートフォリオにプロジェクトがありません",
+      "captionOpen": "オープンな配送トラック",
+      "create": "プロジェクトの作成",
+      "open": "オープンプロジェクト"
+    },
+    "activityToday": {
+      "title": "今日の活動",
+      "captionEmpty": "今日はまだ何も記録されていません",
+      "captionEvents": "真夜中以降のワークスペースイベント",
+      "viewFeed": "フィードを見る"
+    },
+    "revenue": {
+      "title": "収益",
+      "caption": "請求を接続して MRR を表示する",
+      "openBilling": "オープン請求"
+    },
+    "clientShell": {
+      "title": "クライアントシェル",
+      "caption": "ブラウザセッションの準備完了 — ライブ運用モニターではない",
+      "shellLoaded": "アプリケーションシェルがロードされました",
+      "storesReady": "ローカルワークスペースストアの準備ができました"
+    },
+    "growth": {
+      "title": "成長",
+      "caption": "トレンドメトリクスには累積使用量が必要です",
+      "openAnalytics": "オープンアナリティクス"
+    }
+  },
+  "activity": {
+    "title": "最近の活動",
+    "subtitle": "今日何が変わったか",
+    "ariaLabel": "最近の活動",
+    "todayCount": "今日は {count} 個",
+    "localBadge": "地元",
+    "emptyTitle": "まだ活動はありません",
+    "emptyBody": "顧客やプロジェクトなどを追加すると、ワークスペース イベントがここに表示されます。",
+    "addCustomer": "顧客を追加",
+    "newProject": "新しいプロジェクト",
+    "kind": {
+      "customer": "お客様",
+      "project": "プロジェクト",
+      "finance": "ファイナンス",
+      "automation": "オートメーション",
+      "documents": "書類",
+      "team": "チーム",
+      "workspace": "ワークスペース"
+    },
+    "events": {
+      "customer_created": "お客様が作成した",
+      "customer_updated": "顧客が更新しました",
+      "customer_deleted": "顧客が削除されました",
+      "project_updated": "プロジェクトが更新されました",
+      "invoice_paid": "支払われた請求書",
+      "document_uploaded": "ドキュメントがアップロードされました",
+      "workflow_executed": "ワークフローが実行されました",
+      "member_invited": "チームメンバーを招待しました",
+      "generic": "ワークスペースの更新"
+    }
+  },
+  "chat": {
+    "title": "アグソラAI",
+    "emptyState": "顧客、プロジェクト、次のアクションについて AGXORA に質問してください。会話はこのワークスペース セッションに残ります。",
+    "thinking": "AGXORAは考えています…",
+    "errorDismiss": "{error} — タップして閉じます",
+    "placeholder": "AGXORA AI に質問してください…",
+    "messageAria": "メッセージ AGXORA AI",
+    "sendAria": "メッセージを送信する",
+    "send": "送信"
+  },
+  "routeLoading": {
+    "team": "チームを読み込み中…",
+    "projects": "プロジェクトを読み込み中…",
+    "project": "プロジェクトを読み込み中…",
+    "profile": "プロファイルを読み込み中…",
+    "integrations": "統合を読み込み中…",
+    "identity": "ID を読み込んでいます…",
+    "finance": "ファイナンスを読み込んでいます…",
+    "documents": "書類を読み込み中…",
+    "customers": "顧客を読み込んでいます…",
+    "crm": "CRMを読み込み中…",
+    "customer": "顧客を読み込んでいます…",
+    "creator": "クリエイター スタジオを読み込み中…",
+    "billing": "請求書を読み込んでいます…",
+    "billingAdmin": "管理者請求を読み込み中…",
+    "automation": "オートメーションを読み込んでいます…",
+    "analytics": "インテリジェンス センターを読み込んでいます…",
+    "ai": "AI プラットフォームを読み込み中…",
+    "agents": "エージェント OS をロード中…"
+  },
+  "shell": {
+    "memory": {
+      "title": "メモリ",
+      "description": "このビルドでは組織のメモリが接続されていません。",
+      "emptyTitle": "メモリワークスペースはまだ利用できません",
+      "emptyBody": "永続的な組織メモリ ストレージが接続されていません。チャットは、有効期間の短いコンテキストをセッション内のみに保持する場合があります。ここにはエンタープライズ メモリとして何も保存されません。"
+    },
+    "invoices": {
+      "title": "請求書",
+      "description": "エンタープライズ テナント向けの請求および請求書のアーキテクチャ。",
+      "emptyTitle": "請求書台帳はまだ利用できません",
+      "emptyBody": "このルートはシェルです。請求書の作成と永続化は接続されていません。サンプル元帳のプレビューには Finance を使用し、計画管理には Billing を使用します。",
+      "openFinance": "オープンファイナンス",
+      "openBilling": "オープンビリング"
+    }
+  },
+  "search": {
+    "ariaLabel": "ユニバーサル検索",
+    "queryAria": "ユニバーサル検索クエリ",
+    "placeholder": "顧客、請求書、ドキュメント、ワークフロー、設定などを検索します。",
+    "quickActions": "クイックアクション",
+    "favorites": "お気に入り",
+    "recentSearches": "最近の検索",
+    "clear": "クリア",
+    "noRecentSearches": "最近の検索はまだありません。 「Nordlicht」、「請求書」、または「ワークフロー」を試してください。",
+    "recentActivity": "最近の活動",
+    "aiReady": "AI 対応 (アーキテクチャ)",
+    "pinnedResults": "ピン留めされた結果",
+    "noMatches": "一致しません",
+    "noMatchesBody": "別のキーワードを試すか、クイック アクションからモジュールを開いてください。",
+    "close": "近い",
+    "open": "開ける",
+    "keyboardHints": "↑↓ ナビゲート · Enter 開く · Ctrl/⌘ K 切り替え · Esc 閉じる",
+    "pinResult": "ピン結果",
+    "unpinResult": "結果の固定を解除する",
+    "previewEmpty": "プレビュー、メタデータ、スマート リンクの結果にカーソルを合わせるかハイライト表示します。",
+    "previewAria": "ユニバーサルプレビュー",
+    "relatedItems": "関連商品",
+    "noSmartLinks": "この結果にはスマート リンクがありません。",
+    "groups": {
+      "crm": "CRM",
+      "finance": "ファイナンス",
+      "documents": "書類",
+      "automation": "オートメーション",
+      "projects": "プロジェクト",
+      "creator": "クリエイター スタジオ",
+      "settings": "設定",
+      "commands": "コマンド",
+      "actions": "クイックアクション"
+    },
+    "status": {
+      "architecture": "建築",
+      "planned": "計画された"
+    },
+    "meta": {
+      "type": "タイプ",
+      "module": "モジュール",
+      "quickAction": "クイックアクション"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "顧客の作成",
+        "subtitle": "「顧客」を開いてレコードを追加します"
+      },
+      "createInvoice": {
+        "title": "請求書の作成",
+        "subtitle": "Finance 請求書ワークスペースを開く"
+      },
+      "uploadDocument": {
+        "title": "ドキュメントのアップロード",
+        "subtitle": "オープンドキュメントナレッジハブ"
+      },
+      "newWorkflow": {
+        "title": "新しいワークフロー",
+        "subtitle": "オートメーション エンジン ビルダーを開く"
+      },
+      "newProject": {
+        "title": "新しいプロジェクト",
+        "subtitle": "プロジェクトワークスペースを開く"
+      },
+      "inviteMember": {
+        "title": "チームメンバーを招待",
+        "subtitle": "チームへの招待状を開く"
+      },
+      "openBilling": {
+        "title": "オープンビリング",
+        "subtitle": "プラン、請求書、サブスクリプション"
+      },
+      "openSettings": {
+        "title": "設定を開く",
+        "subtitle": "ワークスペースの設定"
+      }
+    },
+    "commands": {
+      "openCrm": {
+        "title": "オープンCRM",
+        "subtitle": "AI CRMモジュール"
+      },
+      "openCustomers": {
+        "title": "オープンな顧客",
+        "subtitle": "顧客管理"
+      },
+      "openFinance": {
+        "title": "オープンファイナンス",
+        "subtitle": "財務および税務モジュール"
+      },
+      "openDocuments": {
+        "title": "開いているドキュメント",
+        "subtitle": "ナレッジハブ"
+      },
+      "openAutomation": {
+        "title": "オープンオートメーション",
+        "subtitle": "ワークフローエンジン"
+      },
+      "openSettings": {
+        "title": "設定を開く",
+        "subtitle": "ワークスペースの設定"
+      },
+      "openProjects": {
+        "title": "オープンプロジェクト",
+        "subtitle": "プロジェクトポートフォリオ"
+      },
+      "openAi": {
+        "title": "オープンAI",
+        "subtitle": "AI プラットフォームのワークスペース"
+      },
+      "openAnalytics": {
+        "title": "オープンアナリティクス",
+        "subtitle": "情報センター"
+      },
+      "openIdentity": {
+        "title": "オープンなアイデンティティとアクセス",
+        "subtitle": "IAM設定、RBAC、監査"
+      },
+      "openBilling": {
+        "title": "オープンビリング",
+        "subtitle": "サブスクリプションポータルとプラン"
+      },
+      "openIntegrations": {
+        "title": "オープンな統合",
+        "subtitle": "統合センターと API エコシステム"
+      }
+    },
+    "modules": {
+      "dashboard": {
+        "subtitle": "指令センターと地球儀の概要"
+      },
+      "customers": {
+        "subtitle": "顧客記録とCRM"
+      },
+      "projects": {
+        "subtitle": "プロジェクトの実施と追跡"
+      },
+      "invoices": {
+        "title": "請求書",
+        "subtitle": "請求書と請求書"
+      },
+      "finance": {
+        "subtitle": "AI 会計、銀行、税務、財務インテリジェンス"
+      },
+      "crm": {
+        "subtitle": "AI ネイティブの CRM およびクリエイター オペレーティング システム"
+      },
+      "creator": {
+        "subtitle": "AIコンテンツ制作・マーケティングOS"
+      },
+      "documents": {
+        "subtitle": "AI ドキュメントとナレッジ ハブ"
+      },
+      "ai": {
+        "title": "AI",
+        "subtitle": "AGXORA AI プラットフォーム — エンタープライズ ワークスペース"
+      },
+      "analytics": {
+        "subtitle": "ビジネスインテリジェンス"
+      },
+      "automation": {
+        "subtitle": "AI ワークフローと自動化エンジン"
+      },
+      "memory": {
+        "title": "メモリ",
+        "subtitle": "組織の記憶"
+      },
+      "team": {
+        "subtitle": "メンバーと招待状"
+      },
+      "settings": {
+        "subtitle": "ワークスペースと AI の設定"
+      }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "AI検索",
+        "description": "モジュール全体にわたる将来の取得モデルを使用して結果をランク付けします。"
+      },
+      "semantic": {
+        "title": "セマンティック検索",
+        "description": "文書、請求書、知識に関するベクトルの類似性。"
+      },
+      "nl": {
+        "title": "自然言語検索",
+        "description": "「Nordlicht への期限切れの請求書」などのインテントを解析します。"
+      },
+      "rag": {
+        "title": "知識の検索",
+        "description": "根拠のある答えは、Documents Knowledge Hub コーパスにあります。"
+      }
+    },
+    "esc": "Esc"
+  },
+  "summary": "{name}: {customers} 人の顧客 · {projects} プロジェクト · {updates} 件の本日の更新。"
+}

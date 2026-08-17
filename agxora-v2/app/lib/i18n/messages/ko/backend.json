@@ -1,0 +1,62 @@
+{
+  "toast": {
+    "success": "성공",
+    "warning": "경고",
+    "error": "오류",
+    "info": "정보",
+    "dismiss": "알림 닫기",
+    "close": "닫다"
+  },
+  "network": {
+    "offline": "오프라인 상태인 것 같습니다",
+    "offlineHelp": "오프라인 도움말",
+    "reconnected": "연결이 복원되었습니다.",
+    "offlineSyncHint": "연결이 복구될 때까지 변경 사항이 동기화되지 않을 수 있습니다."
+  },
+  "errorBoundary": {
+    "backToDashboard": "대시보드로 돌아가기",
+    "title": "문제가 발생했습니다.",
+    "retry": "다시 해 보다"
+  },
+  "notFound": {
+    "title": "페이지를 찾을 수 없습니다",
+    "message": "요청하신 페이지가 존재하지 않거나, 이동되었거나, 더 이상 사용할 수 없습니다.",
+    "recoveryNav": "회복",
+    "home": "집",
+    "pricing": "가격",
+    "contact": "연락하다",
+    "signIn": "로그인",
+    "dashboard": "계기반"
+  },
+  "globalError": {
+    "title": "문제가 발생했습니다.",
+    "message": "예상치 못한 오류가 발생했습니다. 다시 시도해 주세요.",
+    "retry": "다시 해 보다"
+  },
+  "skipToMain": "주요 콘텐츠로 건너뛰기",
+  "offline": {
+    "title": "오프라인 상태입니다",
+    "message": "연결을 확인하고 다시 온라인 상태가 되면 다시 시도하세요. 캐시된 화면은 계속 작동할 수 있습니다.",
+    "home": "집",
+    "contact": "연락하다",
+    "signIn": "로그인"
+  },
+  "logout": {
+    "title": "로그아웃",
+    "signingOut": "로그아웃하는 중…",
+    "endingSession": "세션 종료 중…",
+    "failed": "로그아웃 실패"
+  },
+  "demo": {
+    "title": "데모 예약",
+    "subtitle": "AGXORA 팀과 함께 실시간 연습을 예약하세요. 캘린더 예약이 활성화될 때까지 데모를 요청하려면 이메일을 보내주세요.",
+    "requestTitle": "데모 요청",
+    "requestBody": "팀에 적합한 시간을 선택하실 수 있도록 일정을 마무리하는 중입니다. 그때까지는 무료로 시작하여 원하는 속도로 제품을 탐색하거나 {email}로 이메일을 보내주십시오.",
+    "startFree": "대신 무료로 시작하세요",
+    "backHome": "집으로 돌아가기",
+    "signIn": "로그인"
+  },
+  "loading": "로드 중",
+  "loadingEllipsis": "로드 중…",
+  "loadingIdentity": "신원을 로드하는 중…"
+}

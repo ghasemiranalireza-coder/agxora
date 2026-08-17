@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "結果はありません",
+    "noResultsDescription": "現在のフィルターに一致するものはありません。",
+    "previous": "前の",
+    "next": "次",
+    "paginationRange": "{start} の {end} – {total}",
+    "sortAscending": "昇順に並べ替えます",
+    "sortDescending": "降順で並べ替え"
+  },
+  "dialog": {
+    "close": "ダイアログを閉じる"
+  },
+  "module": {
+    "notAvailableTitle": "{title} はまだ利用できません",
+    "notAvailableDescription": "このモジュール シェルは将来のリリースに備えて準備されています。ここにはまだ記録が保存されていません。"
+  },
+  "states": {
+    "errorLabel": "エラー",
+    "errorTitle": "何か問題が発生しました",
+    "errorDescription": "私たちはそのリクエストを完了できませんでした。しばらくしてからもう一度試してください。",
+    "retry": "リトライ"
+  },
+  "empty": {
+    "crmTitle": "CRM の準備が完了しました",
+    "crmDescription": "最初の顧客レコードを作成して、ディレクトリ、プロファイル、アクティビティのロックを解除します。",
+    "crmAction": "オープンCRM",
+    "projectsTitle": "まだプロジェクトはありません",
+    "projectsDescription": "デリバリー ワークスペースを立ち上げて、マイルストーン、予算、チームの所有権を追跡します。",
+    "projectsAction": "オープンプロジェクト",
+    "analyticsTitle": "分析はシグナルを待っています",
+    "analyticsDescription": "ワークスペースでアクティビティが生成されると、エグゼクティブ KPI とアラートがここに表示されます。",
+    "analyticsAction": "オープンアナリティクス",
+    "documentsTitle": "ドキュメント ライブラリが空です",
+    "documentsDescription": "ナレッジ資産をアップロードまたは作成して、承認、バージョン、AI コンテキストを強化します。",
+    "documentsAction": "開いているドキュメント",
+    "billingTitle": "請求履歴はまだありません",
+    "billingDescription": "プランをアップグレードして、請求書、更新、支払い履歴を生成します。",
+    "billingAction": "オープン請求",
+    "agentsTitle": "アクティブなエージェントはありません",
+    "agentsDescription": "自律実行を開始するには、マーケットプレイスからエージェントをインストールまたはアクティブ化します。",
+    "agentsAction": "オープンエージェントOS"
+  },
+  "yes": "はい",
+  "no": "いいえ",
+  "dash": "—"
+}

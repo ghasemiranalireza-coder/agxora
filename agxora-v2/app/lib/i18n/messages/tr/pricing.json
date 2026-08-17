@@ -1,0 +1,70 @@
+{
+  "navLabel": "Fiyatlandırmada gezinme",
+  "navPricing": "Fiyatlandırma",
+  "navContactSales": "Satış Ekibiyle İletişime Geçin",
+  "navBookDemo": "Kitap Demosu",
+  "navSignIn": "Oturum aç",
+  "eyebrow": "Fiyatlandırma",
+  "title": "Gönderim yapan operatörler için oluşturulan planlar.",
+  "lead": "Ticari katmanları temizleyin. Ücretsiz başlayın, hazır olduğunuzda ölçeklendirin veya kurumsal koşullar için satış ekibiyle görüşün.",
+  "billingInterval": "Faturalandırma aralığı",
+  "monthly": "Aylık",
+  "yearly": "Yıllık",
+  "savePercent": "~%20 tasarruf edin",
+  "mostPopular": "EN POPÜLER",
+  "startFree": "Ücretsiz Başla",
+  "bookDemo": "Kitap Demosu",
+  "contactSales": "Satış Ekibiyle İletişime Geçin",
+  "perMonth": "/ay",
+  "perMonthYearly": "/ay yıllık olarak faturalandırılır",
+  "yearlyHint": "{amount}/yıl · %{percent} tasarruf edin",
+  "commercialActions": "Ticari işlemler",
+  "legal": "Yasal",
+  "planAria": "{name} planı — {cta}",
+  "plans": {
+    "starter": {
+      "name": "Başlangıç",
+      "description": "Serbest çalışanlar ve küçük işletmeler için.",
+      "features": [
+        "CRM ve müşteri hattı",
+        "Projeler ve belgeler",
+        "Yönetilen yapay zeka asistanı",
+        "5 koltuğa kadar",
+        "E-posta desteği"
+      ]
+    },
+    "business": {
+      "name": "İşletme",
+      "description": "Büyüyen ekipler için.",
+      "features": [
+        "Starter'daki her şey",
+        "Finans ve analitik modülleri",
+        "Otomasyon ve denetim dışa aktarımı",
+        "Ekip işbirliği",
+        "Öncelikli destek"
+      ]
+    },
+    "professional": {
+      "name": "Profesyonel",
+      "description": "Gelişmiş şirketler için.",
+      "features": [
+        "Starter'daki her şey",
+        "Finans ve analitik modülleri",
+        "API erişimi",
+        "Gelişmiş şirket iş akışları",
+        "Öncelikli destek gelen kutusu"
+      ]
+    },
+    "enterprise": {
+      "name": "Girişim",
+      "description": "Sınırsız ölçek için özel fiyatlandırma.",
+      "features": [
+        "Özel fiyatlandırma",
+        "Sınırsız ölçek",
+        "Özel katılım",
+        "Özel entegrasyonlar",
+        "Öncelikli destek"
+      ]
+    }
+  }
+}

@@ -1,0 +1,4939 @@
+{
+  "common": {
+    "save": "儲存",
+    "saveChanges": "儲存變更",
+    "cancel": "取消",
+    "close": "關閉",
+    "delete": "刪除",
+    "edit": "編輯",
+    "search": "搜尋",
+    "loading": "載入中…",
+    "retry": "重試",
+    "language": "語言",
+    "signIn": "登入",
+    "signOut": "登出",
+    "contact": "接觸",
+    "privacy": "隱私",
+    "terms": "條款",
+    "cookies": "Cookie",
+    "imprint": "印記",
+    "organization": "組織",
+    "user": "使用者",
+    "guest": "客人",
+    "member": "成員",
+    "role": "角色",
+    "signedIn": "已登入",
+    "guestSession": "訪客作業階段",
+    "noResults": "沒有結果",
+    "noData": "無數據",
+    "comingSoon": "即將推出",
+    "notConnected": "未連接",
+    "demo": "示範",
+    "sample": "簡單",
+    "showPassword": "顯示密碼",
+    "hidePassword": "隱藏密碼",
+    "continue": "繼續",
+    "back": "返回",
+    "home": "首頁",
+    "loadingShort": "載入中",
+    "create": "建立",
+    "next": "下一步",
+    "previous": "上一步",
+    "settings": "設定",
+    "profile": "個人資料",
+    "dashboard": "儀表板"
+  },
+  "navigation": {
+    "dashboard": "儀表板",
+    "projects": "專案",
+    "aiCrm": "人工智慧客戶關係管理",
+    "analytics": "分析",
+    "billing": "計費",
+    "aiWorkspace": "人工智慧工作空間",
+    "customers": "顧客",
+    "automation": "自動化",
+    "financeTax": "財務與稅務",
+    "aiCreatorStudio": "人工智慧創作工作室",
+    "documents": "文件",
+    "team": "團隊",
+    "settings": "設定",
+    "toggleNavigation": "切換導航",
+    "primary": "基本的",
+    "menu": "選單",
+    "search": "搜尋",
+    "notifications": "通知",
+    "profile": "輪廓",
+    "currentOrganization": "目前組織",
+    "noNotifications": "無通知",
+    "notificationsEmpty": "你們都被困住了。警報和提及將出現在此。",
+    "accountSettings": "帳戶設定",
+    "security": "安全性",
+    "themeToggle": "快速主題切換。偏好：{mode}"
+  },
+  "pricing": {
+    "navLabel": "定價導航",
+    "navPricing": "定價",
+    "navContactSales": "聯繫銷售人員",
+    "navBookDemo": "預訂示範",
+    "navSignIn": "登入",
+    "eyebrow": "定價",
+    "title": "專為運輸業者打造的計劃。",
+    "lead": "清晰的商業層級。免費開始，準備好後進行擴展，或與銷售人員討論企業條款。",
+    "billingInterval": "計費間隔",
+    "monthly": "每月",
+    "yearly": "每年",
+    "savePercent": "節省約 20%",
+    "mostPopular": "最受歡迎",
+    "startFree": "免費開始",
+    "bookDemo": "預訂示範",
+    "contactSales": "聯繫銷售人員",
+    "perMonth": "/月",
+    "perMonthYearly": "/mo 按年計費",
+    "yearlyHint": "{amount}/年 · 省 {percent}%",
+    "commercialActions": "商業行為",
+    "legal": "合法的",
+    "planAria": "{name} 計劃 — {cta}",
+    "plans": {
+      "starter": {
+        "name": "起動機",
+        "description": "適合自由職業者和小型企業。",
+        "features": [
+          "CRM 和客戶管道",
+          "專案和文件",
+          "受監管的人工智慧助手",
+          "最多5個座位",
+          "電子郵件支援"
+        ]
+      },
+      "business": {
+        "name": "商業",
+        "description": "對於成長中的團隊。",
+        "features": [
+          "一切都在啟動器中",
+          "財務和分析模組",
+          "自動化和稽核導出",
+          "團隊協作",
+          "優先支持"
+        ]
+      },
+      "professional": {
+        "name": "專業的",
+        "description": "適用於進階公司。",
+        "features": [
+          "一切都在啟動器中",
+          "財務和分析模組",
+          "API存取",
+          "先進的公司工作流程",
+          "優先客戶服務收件匣"
+        ]
+      },
+      "enterprise": {
+        "name": "企業",
+        "description": "無限規模的客製化定價。",
+        "features": [
+          "客製化定價",
+          "無限規模",
+          "專門的入職培訓",
+          "客製化集成",
+          "優先支持"
+        ]
+      }
+    }
+  },
+  "billing": {
+    "currentPlan": "目前計劃",
+    "upgrade": "升級",
+    "viewPricing": "查看定價",
+    "contactSales": "聯繫銷售人員",
+    "openBillingPortal": "開啟計費門戶",
+    "billingQuestions": "計費問題：",
+    "publicPricing": "公開價格",
+    "recommended": "受到推崇的",
+    "account": {
+      "currentPlan": "目前計劃",
+      "status": "地位",
+      "renewalDate": "續約日期",
+      "seats": "座椅",
+      "usage": "用法",
+      "noUsage": "尚無使用指標。",
+      "invoices": "發票",
+      "noInvoices": "還沒有帳單歷史記錄。升級計劃以產生發票和續訂。"
+    },
+    "planCard": {
+      "currentPlan": "目前計劃",
+      "recommended": "受到推崇的",
+      "contactSales": "聯繫銷售人員",
+      "pricePerMonth": "€{price}/月",
+      "users": "{count} 位元用戶",
+      "aiRequests": "{count} 個 AI 需求/月",
+      "storage": "{count} MB 儲存空間",
+      "moduleFeatures": "{count} 模組功能",
+      "choosePlan": "選擇方案",
+      "processing": "處理中…",
+      "currentPlanAria": "{name} — 目前計劃",
+      "contactSalesAria": "{name} — 聯絡銷售人員",
+      "choosePlanAria": "{name} — 選擇計劃"
+    },
+    "admin": {
+      "eyebrow": "行政",
+      "title": "計費管理",
+      "lead": "訂閱、許可證、發票、電子郵件佇列和商業審計事件的內部管理。",
+      "customerPortal": "客戶入口網站",
+      "loading": "正在載入管理帳單...",
+      "licenses": "授權和訂閱",
+      "allInvoices": "所有發票",
+      "planCatalog": "計劃目錄",
+      "custom": "自訂",
+      "features": "{count} 個功能",
+      "emailQueue": "電子郵件隊列（模擬）",
+      "noEmails": "沒有電子郵件排隊。",
+      "commercialAudit": "商業稽核",
+      "columns": {
+        "organization": "組織",
+        "plan": "計劃",
+        "status": "地位",
+        "seats": "座椅",
+        "actions": "行動",
+        "invoice": "發票",
+        "org": "組織",
+        "amount": "數量",
+        "when": "什麼時候",
+        "action": "操作"
+      },
+      "suspend": "暫停",
+      "lifetime": "壽命",
+      "refund": "退款"
+    },
+    "portal": {
+      "eyebrow": "商業軟體即服務",
+      "title": "訂閱和計費",
+      "lead": "管理您的計劃、使用配額、發票和付款方式。支付提供者負責計費服務。",
+      "settingsBilling": "設定計費",
+      "adminBilling": "管理員計費",
+      "loading": "正在載入帳單...",
+      "currentLicense": "目前許可證",
+      "plan": "計劃",
+      "status": "地位",
+      "seats": "座椅",
+      "renewsTrial": "續訂/試用",
+      "enabledModules": "已啟用的模組： {modules}",
+      "none": "沒有任何",
+      "renew": "更新",
+      "cancelSubscription": "取消訂閱",
+      "plans": "計劃",
+      "provider": "提供者",
+      "couponPlaceholder": "優惠券（LAUNCH20）",
+      "usageQuotas": "使用量和配額",
+      "invoices": "發票",
+      "noInvoices": "還沒有發票。",
+      "paymentMethods": "付款方式",
+      "noPaymentMethods": "沒有存檔的付款方式。",
+      "default": "預設",
+      "companyProfile": "公司帳單資料",
+      "company": "公司",
+      "billingEmail": "帳單電子郵件",
+      "vatId": "加值稅識別碼",
+      "taxId": "稅號",
+      "vatPlaceholder": "例如DE123456789",
+      "taxPlaceholder": "例如DE123456789",
+      "saveProfile": "儲存個人資料",
+      "notifications": "通知",
+      "noNotifications": "沒有賬單通知。",
+      "noticeInitial": "計費透過商業服務層運作－UI 中沒有支付 SDK。",
+      "noticeActivated": "透過 {planId} 啟動 {providerId}（模擬結帳）。",
+      "noticeCheckoutFailed": "結帳失敗",
+      "noticeCancelled": "訂閱已取消。",
+      "noticeRenewed": "續訂下一期的訂閱。",
+      "noticeProfileSaved": "已儲存帳單設定檔。",
+      "columns": {
+        "invoice": "發票",
+        "status": "地位",
+        "amount": "數量",
+        "issued": "已發出",
+        "metric": "公制",
+        "used": "用過的",
+        "limit": "限制"
+      },
+      "quotaStatus": {
+        "exceeded": "已超出",
+        "warning": "警告",
+        "ok": "好的"
+      }
+    }
+  },
+  "settings": {
+    "controlCenter": "控制中心",
+    "settingsSections": "設定部分",
+    "profile": {
+      "label": "輪廓",
+      "description": "頭像、身分和個人喜好",
+      "title": "輪廓",
+      "panelDescription": "頭像、全名、電子郵件、角色、時區、語言和主題偏好。",
+      "language": "語言",
+      "timezone": "時區",
+      "fullName": "姓名",
+      "email": "電子郵件",
+      "role": "角色",
+      "theme": "主題",
+      "avatar": "阿凡達",
+      "changeAvatar": "更改頭像",
+      "region": "地區",
+      "personalPrefs": "個人喜好",
+      "supportLinks": "支持與法律",
+      "signedOut": "登入以查看您的帳戶身分。",
+      "serverIdentityNotice": "姓名、電子郵件和角色來自您的伺服器會話。它們不會儲存在此瀏覽器中。",
+      "localPrefsNotice": "時區、地區和個人偏好尚未保留。儲存這些資訊只會更新此頁面，直到你離開為止。",
+      "avatarUnavailable": "頭像上傳尚不可用。",
+      "appearanceNote": "外觀配置保留在“外觀”下。標題僅提供主題快速切換。",
+      "prefsHint": "由 AI 助理跨模組使用。",
+      "themeResolved": "{mode}（已解決{appearance}）",
+      "regions": {
+        "EU": "歐洲聯盟",
+        "US": "美國",
+        "MENA": "中東和北非地區",
+        "APAC": "亞太地區"
+      }
+    },
+    "organization": {
+      "label": "組織",
+      "description": "公司簡介和納稅身份",
+      "title": "組織",
+      "panelDescription": "公司名稱、標誌、地址、稅務資訊、部門和業務單位。"
+    },
+    "workspace": {
+      "label": "工作空間",
+      "description": "品牌、主頁和預設模組",
+      "title": "工作空間",
+      "panelDescription": "工作區設定、預設儀表板、品牌、模組和首頁。"
+    },
+    "team": {
+      "label": "團隊",
+      "description": "成員、角色、邀請和群組",
+      "title": "團隊",
+      "panelDescription": "成員、角色、邀請和群組。"
+    },
+    "ai": {
+      "label": "人工智慧",
+      "description": "提供者、模型、創造力和記憶",
+      "title": "人工智慧",
+      "panelDescription": "提供者、模型、創造力、溫度和記憶體偏好。",
+      "openAgentOs": "開放代理作業系統",
+      "openAiWorkspace": "開放人工智慧工作空間",
+      "noticeSync": "AI 設定透過 AISettingsProvider 同步 - 金鑰從未儲存在這裡。",
+      "noticeProvider": "提供者實施位於人工智慧服務層後面。 UI 永遠不會收到 API 金鑰或 SDK 詳細資訊。自治代理駐留在代理作業系統中。",
+      "preferredProvider": "首選人工智慧提供者",
+      "defaultModel": "預設AI模型",
+      "temperature": "溫度",
+      "topP": "頂P",
+      "maxTokens": "最大代幣數",
+      "writingStyle": "寫作風格",
+      "languagePreferences": "語言偏好",
+      "systemPrompt": "系統提示",
+      "systemPromptHint": "用作AI Platform的預設系統指令。",
+      "systemPromptPlaceholder": "您是AGXORA AI－企業營運助理…",
+      "apiKeyManagement": "API金鑰管理",
+      "apiKeyHint": "密鑰僅透過伺服器環境變數提供。",
+      "apiKeyPlaceholder": "透過 AGXORA_* 環境變數配置（不在瀏覽器中）",
+      "memory": "記憶",
+      "memoryDescription": "允許組織記憶跨模組通知人工智慧回應。",
+      "automationSuggestions": "自動化建議",
+      "automationSuggestionsDescription": "在 Automation Engine 中呈現 AI 工作流程建議。",
+      "streaming": "串流媒體",
+      "streamingDescription": "當提供者支援時流模型響應。",
+      "providers": {
+        "mock": "模擬（本地）",
+        "openai": "開放人工智慧",
+        "azure": "Azure 開放人工智慧",
+        "anthropic": "人擇",
+        "google": "Google",
+        "openrouter": "開放路由器",
+        "ollama": "奧拉瑪",
+        "local": "本地提供者"
+      },
+      "writingStyles": {
+        "professional": "專業的",
+        "concise": "簡潔的",
+        "friendly": "友善",
+        "technical": "技術的"
+      },
+      "languages": {
+        "auto": "匹配個人資料語言",
+        "en": "英語",
+        "de": "德文"
+      }
+    },
+    "appearance": {
+      "label": "外貌",
+      "description": "主題、密度和玻璃效果",
+      "title": "外貌",
+      "panelDescription": "主題、密度、重音、動畫和玻璃效果。",
+      "noticeTheme": "主題模式是透過 ThemeProvider 的單一事實來源。標頭僅提供快速切換。",
+      "themeLabel": "主題",
+      "themeModeAria": "主題模式",
+      "resolvedAppearance": "解決外觀：",
+      "accentColor": "強調色",
+      "accentNotice": "重音首選項被儲存以供將來的 CSS var 接線使用——還不會改變鎖定的顏色系統。",
+      "density": "密度",
+      "compactMode": "緊湊模式",
+      "compactModeDescription": "減少企業表格和麵板之間的填充。",
+      "animations": "動畫",
+      "animationsDescription": "剖面運動和懸停升降機。尊重簡化運動操作系統設定。",
+      "glassEffects": "玻璃效果",
+      "glassEffectsDescription": "磨砂玻璃卡和側邊欄模糊強度偏好。",
+      "modes": {
+        "day": {
+          "label": "光",
+          "hint": "珍珠/冰企業日調色盤"
+        },
+        "night": {
+          "label": "黑暗的",
+          "hint": "核准的電影夜景"
+        },
+        "auto": {
+          "label": "系統",
+          "hint": "遵循當地時間表（自動）"
+        }
+      },
+      "densities": {
+        "comfortable": "舒服的",
+        "compact": "袖珍的",
+        "spacious": "寬敞"
+      }
+    },
+    "notifications": {
+      "label": "通知",
+      "description": "電子郵件、推播和模組警報",
+      "title": "通知",
+      "panelDescription": "電子郵件、推播、電腦版、行動版和模組特定提醒。",
+      "notice": "通知通道僅是首選項－保留傳送適配器。",
+      "email": "電子郵件",
+      "push": "推",
+      "desktop": "桌面",
+      "mobile": "移動的",
+      "workflowAlerts": "工作流程警報",
+      "workflowAlertsDescription": "Automation Engine 執行和批准事件。",
+      "financeAlerts": "財經快訊",
+      "crmAlerts": "客戶關係管理警報",
+      "documentsAlerts": "文件提醒",
+      "deliveryNotice": "交付適配器在發佈時發貨。問題：",
+      "contactSupport": "聯繫支援人員"
+    },
+    "documents": {
+      "label": "文件",
+      "description": "儲存、保留和知識",
+      "title": "文件",
+      "panelDescription": "儲存首選項、保留、預設資料夾、版本控制和知識設定。",
+      "notice": "文件設定與知識中心架構整合。",
+      "storagePreferences": "儲存首選項",
+      "retentionPolicy": "保留政策",
+      "defaultFolder": "預設資料夾",
+      "versioning": "版本控制",
+      "versioningDescription": "保留文件版本歷史記錄以供恢復/比較。",
+      "knowledgeSettings": "知識設定",
+      "knowledgeDescription": "用於知識中心搜尋的人工智慧索引。",
+      "storageOptions": {
+        "workspace-default": "工作區預設值",
+        "eu-region": "歐盟地區",
+        "encrypted-vault": "加密金庫"
+      },
+      "retentionOptions": {
+        "30-days": "30 天（刮擦）",
+        "2-years": "2年",
+        "7-years": "7年",
+        "10-years": "10年"
+      }
+    },
+    "automation": {
+      "label": "自動化",
+      "description": "工作流程預設值和重試策略",
+      "title": "自動化",
+      "panelDescription": "工作流程預設值、AI 建議、執行日誌、歷史限制和重試策略。",
+      "notice": "自動化預設值適用於工作流程引擎架構。",
+      "workflowDefaults": "工作流程預設值",
+      "historyLimits": "歷史限制",
+      "retryPolicy": "重試政策",
+      "aiSuggestions": "人工智慧建議",
+      "executionLogs": "執行日誌",
+      "executionLogsDescription": "在工作流程歷史記錄中保留詳細的運行負載。",
+      "workflowOptions": {
+        "require-approval": "需要審核關卡",
+        "auto-run": "自動運行可信任流",
+        "draft-only": "僅草稿"
+      },
+      "historyOptions": {
+        "30-days": "30天",
+        "90-days": "90天",
+        "365-days": "365天"
+      },
+      "retryOptions": {
+        "none": "無需重試",
+        "3-exponential": "3×指數",
+        "5-linear": "5×線性"
+      }
+    },
+    "integrations": {
+      "label": "串接",
+      "description": "已安裝、連接且可用",
+      "title": "串接",
+      "panelDescription": "已安裝、連接且可用的適配器。",
+      "openCenter": "開放整合中心",
+      "notice": "企業整合平台位於整合中心 - 連接器、OAuth、Webhooks、API 密鑰和工作流程事件橋。",
+      "columns": {
+        "integration": "一體化",
+        "category": "類別",
+        "status": "地位",
+        "adapter": "適配器"
+      }
+    },
+    "security": {
+      "label": "安全性",
+      "description": "會話、密碼和帳戶保護",
+      "title": "安全性",
+      "panelDescription": "此帳戶的伺服器會話。不儲存設備、IP 和 MFA。",
+      "activeSessions": "活躍會話",
+      "currentSession": "目前會話",
+      "otherSession": "其他場次",
+      "currentBadge": "本次會議",
+      "otherBadge": "其他場次",
+      "createdAt": "已登入",
+      "expiresAt": "過期",
+      "revoke": "撤銷會話",
+      "revokeAria": "撤銷登入 {when} 的會話",
+      "revokeOthers": "退出其他會話",
+      "revokeOthersAria": "註銷除當前會話之外的所有會話",
+      "revoked": "會話被撤銷。",
+      "othersRevoked": "其他會話已登出。此會話仍然有效。",
+      "loading": "正在載入會話...",
+      "empty": "沒有活動會話",
+      "emptyBody": "該帳戶沒有活動的伺服器會話。",
+      "demoEmpty": "登入並在此瀏覽器中註冊本機演示會話。",
+      "signedOutTitle": "未登入",
+      "signedOut": "登入以查看您的活動伺服器會話。",
+      "loadFailed": "無法載入會話。",
+      "revokeFailed": "無法撤銷該會話。",
+      "logout": "退出此會話",
+      "logoutAria": "註銷目前伺服器會話",
+      "password": "密碼",
+      "changePassword": "重設密碼",
+      "passwordHint": "密碼更改使用現有的重設流程。專用的更改密碼表格尚不可用。",
+      "mfaTitle": "雙重身份驗證",
+      "mfaUnavailable": "雙重身份驗證尚不可用。",
+      "ssoTitle": "單一登入和 OAuth",
+      "ssoUnavailable": "單一登入和 OAuth 提供者尚不可用。",
+      "encryptionTitle": "加密",
+      "encryptionUnavailable": "金鑰管理和靜態加密控制尚不可用。",
+      "trustedDevices": "可信任設備",
+      "trustedUnavailable": "不儲存受信任設備和 IP 歷史記錄。會話元資料僅限於建立和到期時間。",
+      "apiKeys": "API 金鑰",
+      "apiKeysHint": "開發人員金鑰在 API 和開發人員下進行管理。此面板不發出密鑰。",
+      "openApi": "開啟API設定",
+      "serverNotice": "會話儲存在伺服器上。該瀏覽器從不將本地身份資料視為權威資料。",
+      "demoNotice": "演示模式僅使用本機瀏覽器會話。這不是生產認證。",
+      "noDeviceMeta": "不記錄設備、IP 和用戶代理程式。"
+    },
+    "billing": {
+      "label": "計費",
+      "description": "計劃、使用情況、發票和付款",
+      "title": "計費",
+      "panelDescription": "目前計劃、續約、使用情況、發票和升級路徑。"
+    },
+    "api": {
+      "label": "API 和開發人員",
+      "description": "金鑰、webhooks、令牌、沙箱",
+      "title": "API 和開發人員",
+      "panelDescription": "密鑰、網路鉤子、令牌和沙箱存取。",
+      "openPortal": "打開開發者入口網站",
+      "notice": "在整合中心產生、輪換和撤銷密鑰。那裡提供了網關、webhook 測試器和 API 瀏覽器。",
+      "webhooks": "網路鉤子",
+      "sandbox": "沙盒",
+      "sandboxEnabled": "啟用",
+      "sandboxDisabled": "殘障人士",
+      "tokensNotice": "開發者令牌從不顯示完整的秘密—僅顯示前綴。",
+      "columns": {
+        "name": "姓名",
+        "key": "鑰匙",
+        "scope": "範圍",
+        "lastUsed": "上次使用"
+      }
+    },
+    "audit": {
+      "label": "審核日誌",
+      "description": "活動、安全和系統更改",
+      "title": "審核日誌",
+      "panelDescription": "最近的活動、安全事件和系統變更。",
+      "columns": {
+        "when": "什麼時候",
+        "actor": "演員",
+        "category": "類別",
+        "summary": "概括"
+      },
+      "categories": {
+        "activity": "近期动态",
+        "security": "安全事件",
+        "system": "系統變更"
+      }
+    },
+    "advanced": {
+      "label": "先進的",
+      "description": "實驗、重置、導入、匯出",
+      "title": "先進的",
+      "panelDescription": "實驗性功能、重設、導入和匯出。",
+      "notice": "高級操作需要在申請前確認。",
+      "experimentalFeatures": "實驗特點",
+      "experimentalDescription": "選擇未完成的控制中心功能。",
+      "export": "出口",
+      "import": "進口",
+      "reset": "重置",
+      "exportUnavailable": "尚不支持導出。",
+      "importUnavailable": "導入尚不可用。",
+      "resetUnavailable": "重置尚不可用。"
+    },
+    "page": {
+      "eyebrow": "AGXORA 控制中心",
+      "title": "設定",
+      "lead": "每個 AGXORA 模組的企業配置 — 設定檔、組織、AI、外觀、安全性、計費和開發人員控制都集中在一個地方。",
+      "loading": "正在加載設定...",
+      "breadcrumb": "{label} · {description}"
+    },
+    "saveChanges": "儲存變更",
+    "sessionNotice": "此會話已更新 — {area} 未連線。",
+    "kpi": {
+      "members": {
+        "label": "團隊成員",
+        "caption": "活動座椅"
+      },
+      "integrations": {
+        "label": "串接",
+        "caption": "連接的適配器"
+      },
+      "api": {
+        "label": "API 金鑰",
+        "caption": "開發者代幣"
+      },
+      "audit": {
+        "label": "審計事件",
+        "caption": "過去 7 天"
+      }
+    },
+    "unknown": {
+      "title": "設定",
+      "description": "未知部分。",
+      "emptyTitle": "未找到",
+      "emptyDescription": "從控制中心導覽中選擇一個部分。"
+    },
+    "controlPlane": {
+      "loading": "載入中…",
+      "loadFailed": "無法載入組織資料。登入並重試。",
+      "saveFailed": "無法儲存變更。",
+      "saving": "儲存中…",
+      "orgName": "組織名稱",
+      "orgSlug": "蛞蝓",
+      "owner": "擁有者",
+      "counts": "成員·工作區",
+      "orgUpdated": "組織已更新。",
+      "countsValue": "{members} · {workspaces}",
+      "joined": "已加入",
+      "workspaceName": "工作區名稱",
+      "switchWorkspace": "活躍的工作空間",
+      "active": "積極的",
+      "rename": "重新命名",
+      "archive": "檔案",
+      "create": "建立工作區",
+      "createWorkspace": "新工作區",
+      "workspaceCreated": "工作區已建立。",
+      "workspaceUpdated": "工作區已重新命名。",
+      "workspaceArchived": "工作區已存檔。",
+      "workspaceSwitched": "活動工作區已更新。",
+      "member": "成員",
+      "email": "電子郵件",
+      "role": "角色",
+      "status": "地位",
+      "actions": "行動",
+      "roleOwner": "擁有者",
+      "roleAdmin": "行政",
+      "roleMember": "成員",
+      "changeRole": "改變角色",
+      "remove": "移除",
+      "invite": "邀請會員",
+      "inviteTitle": "邀請到工作區",
+      "sendInvite": "創建邀請",
+      "close": "關閉",
+      "pending": "待處理的邀請",
+      "noPending": "沒有待處理的邀請。",
+      "revoke": "撤銷",
+      "noMembers": "還沒有會員",
+      "noMembersBody": "邀請隊友加入此工作區。",
+      "inviteHonesty": "未配置電子郵件傳送。直接分享邀請連結。",
+      "inviteLink": "邀請連結",
+      "inviteInvalid": "此邀請無效。",
+      "accept": "接受邀請",
+      "invitedAs": "{email} 被邀請作為 {role}。",
+      "inviteStatus": {
+        "pending": "待辦的",
+        "expired": "此邀請已過期。",
+        "revoked": "該邀請已被撤銷。",
+        "accepted": "這個邀請已經被接受了。"
+      },
+      "transferOwnership": "轉讓所有權",
+      "transferTitle": "轉移組織所有權",
+      "transferWarning": "這是一個危險的行為。在收件者確認之前，您仍然是所有者。確認後，您成為管理員，他們成為所有者。",
+      "transferTarget": "新主人",
+      "transferSelectMember": "選擇現有成員...",
+      "transferTypeName": "輸入「{name}」確認",
+      "transferConfirmMismatch": "輸入的姓名與所選成員不符。",
+      "transferInitiate": "發起轉移",
+      "transferHonesty": "配置交付後，將發送一封確認電子郵件。否則直接與收件者分享確認連結。",
+      "transferLink": "確認連結",
+      "transferPendingTitle": "待定所有權轉讓",
+      "transferPendingBody": "等待{name} ({email}) 確認。過期{expires}。在此之前您仍然是所有者。",
+      "transferPendingNote": "在轉移等待期間，成員角色不會改變。",
+      "cancelTransfer": "取消轉帳",
+      "transferCancelled": "所有權轉讓已取消。",
+      "transferInvalid": "該所有權轉讓無效。",
+      "transferConfirmTitle": "確認所有權轉移",
+      "transferConfirmBody": "{from} 想要將組織所有權轉讓給 {to} ({email})。",
+      "transferConfirmDanger": "確認後，您將成為 OWNER，而先前的所有者將成為 ADMIN。",
+      "transferConfirmAction": "確認我成為新主人",
+      "transferWrongAccount": "以 {email} 身分登入以確認此轉移。",
+      "transferStatus": {
+        "pending": "待確認",
+        "expired": "此所有權轉讓已過期。",
+        "cancelled": "此次所有權轉讓已被取消。",
+        "confirmed": "本次股權轉讓已經完成。"
+      }
+    }
+  },
+  "errors": {
+    "required": "此欄位為必填。",
+    "invalidEmail": "請輸入有效的電子郵件地址。",
+    "passwordMin": "密碼必須至少為 8 個字元。",
+    "passwordLettersNumbers": "密碼必須包含字母和數字。",
+    "passwordMismatch": "密碼不符。",
+    "acceptTerms": "請接受條款以繼續。",
+    "generic": "出了點問題。",
+    "tryAgain": "請再試一次。",
+    "saved": "保存成功。",
+    "invalidCredentials": "電子郵件或密碼無效。",
+    "signInRequired": "需要登入。",
+    "insufficientPermissions": "權限不足。",
+    "noRouteAccess": "您無權存取此路由。",
+    "accountLocked": "此帳戶已鎖定。請聯絡管理員。",
+    "sessionExpired": "您的工作階段已過期。請重新登入。",
+    "missingPermission": "缺少權限：{permission}",
+    "roleCannotAccess": "您的角色無法存取此資源。",
+    "codes": {
+      "AUTH_INVALID_CREDENTIALS": "電子郵件或密碼無效。",
+      "AUTH_SESSION_EXPIRED": "您的工作階段已過期。請重新登入。",
+      "AUTH_ACCOUNT_LOCKED": "此帳戶已鎖定。請聯絡管理員。",
+      "AUTH_SIGN_IN_REQUIRED": "請登入以繼續。",
+      "AUTH_INSUFFICIENT_PERMISSIONS": "權限不足。",
+      "AUTH_NO_ROUTE_ACCESS": "您無權存取此路由。",
+      "COMMON_SOMETHING_WENT_WRONG": "出了點問題。",
+      "COMMON_PAGE_NOT_FOUND": "找不到頁面。",
+      "COMMON_OFFLINE": "您目前離線。",
+      "COMMON_TIMEOUT": "請求逾時。",
+      "COMMON_VALIDATION": "請檢查您的輸入後重試。",
+      "COMMON_UNKNOWN": "發生未知錯誤。",
+      "COMMON_INTERNAL": "發生未預期的錯誤。請重試。"
+    }
+  },
+  "dashboard": {
+    "skipToContent": "跳至儀表板內容",
+    "loading": "正在加載儀表板...",
+    "hero": {
+      "ariaLabel": "AGXORA CORE HERO",
+      "eyebrow": "人工智慧商業作業系統",
+      "title": "AGXORA核心",
+      "subtitle": "即時智慧與操作控制－您的工作空間指令介面。",
+      "ctaGetStarted": "開始使用",
+      "ctaViewActivity": "檢視活動",
+      "openQuickActionsAria": "開啟快速操作",
+      "viewActivityAria": "查看最近的活動"
+    },
+    "quickActions": {
+      "title": "快速行動",
+      "subtitle": "接下來該怎麼做？",
+      "ariaLabel": "快速行動",
+      "addCustomer": {
+        "label": "新增客戶",
+        "description": "建立 CRM 記錄"
+      },
+      "newProject": {
+        "label": "新專案",
+        "description": "啟動交付軌跡"
+      },
+      "askAi": {
+        "label": "詢問人工智慧",
+        "description": "開啟 AI 工作區"
+      },
+      "finance": {
+        "label": "金融",
+        "description": "收據和現金流量"
+      },
+      "automations": {
+        "label": "自動化",
+        "description": "工作流程引擎"
+      },
+      "settings": {
+        "label": "設定",
+        "description": "工作空間偏好"
+      }
+    },
+    "attention": {
+      "title": "需要注意",
+      "ariaLabel": "需要注意什麼",
+      "empty": "你很清楚——現在沒有緊急物品。",
+      "tone": {
+        "critical": "批判的",
+        "warning": "警告",
+        "info": "資訊",
+        "success": "準備就緒",
+        "action": "下一步做"
+      },
+      "addCustomer": {
+        "title": "新增首位顧客",
+        "detail": "使用真實帳戶記錄啟動 CRM。"
+      },
+      "createProject": {
+        "title": "創建一個專案",
+        "detail": "為您的下一次約會打開交付軌道。"
+      },
+      "exploreAi": {
+        "title": "探索 AI 工作區",
+        "detail": "向 AGXORA 詢問有關客戶、專案或後續步驟的資訊。"
+      },
+      "reviewBilling": {
+        "title": "查看帳單",
+        "detail": "當您準備好擴展時，請確認計劃和使用情況。"
+      }
+    },
+    "overview": {
+      "title": "工程情況",
+      "subtitle": "{name} 的工作空間計數",
+      "fallbackName": "你的工作空間",
+      "ariaLabel": "業務概況",
+      "online": "在線的",
+      "emDash": "—",
+      "capacitySignal": "{percent}% 容量訊號",
+      "activeClients": {
+        "title": "活躍客戶",
+        "captionEmpty": "尚無活躍顧客",
+        "captionTotal": "工作區總共 {count} 個",
+        "add": "新增客戶",
+        "view": "查看客戶"
+      },
+      "projects": {
+        "title": "專案",
+        "captionEmpty": "投資組合中沒有項目",
+        "captionOpen": "開放交付軌道",
+        "create": "創建專案",
+        "open": "開放項目"
+      },
+      "activityToday": {
+        "title": "今日活動",
+        "captionEmpty": "今天還沒有記錄任何內容",
+        "captionEvents": "午夜以來的工作區活動",
+        "viewFeed": "查看提要"
+      },
+      "revenue": {
+        "title": "收入",
+        "caption": "連結帳單以顯示MRR",
+        "openBilling": "開放式計費"
+      },
+      "clientShell": {
+        "title": "客戶端外殼",
+        "caption": "瀏覽器工作階段就緒—不是即時作業系統監視器",
+        "shellLoaded": "已載入應用程式外殼",
+        "storesReady": "本地工作區商店準備就緒"
+      },
+      "growth": {
+        "title": "成長",
+        "caption": "趨勢指標需要累積使用量",
+        "openAnalytics": "開放分析"
+      }
+    },
+    "activity": {
+      "title": "最近的活動",
+      "subtitle": "今天發生了什麼變化",
+      "ariaLabel": "最近的活動",
+      "todayCount": "今天 {count}",
+      "localBadge": "當地的",
+      "emptyTitle": "還沒有活動",
+      "emptyBody": "當您新增客戶、專案等時，工作區事件將顯示在此。",
+      "addCustomer": "新增客戶",
+      "newProject": "新專案",
+      "kind": {
+        "customer": "顧客",
+        "project": "專案",
+        "finance": "金融",
+        "automation": "自動化",
+        "documents": "文件",
+        "team": "團隊",
+        "workspace": "工作空間"
+      },
+      "events": {
+        "customer_created": "客戶創建",
+        "customer_updated": "客戶已更新",
+        "customer_deleted": "顧客已刪除",
+        "project_updated": "項目已更新",
+        "invoice_paid": "已付發票",
+        "document_uploaded": "文件已上傳",
+        "workflow_executed": "執行的工作流程",
+        "member_invited": "已邀請團隊成員",
+        "generic": "工作區更新"
+      }
+    },
+    "chat": {
+      "title": "艾克索拉人工智慧",
+      "emptyState": "向 AGXORA 詢問有關客戶、專案或下一步行動的資訊。您的對話將保留在此工作區會話中。",
+      "thinking": "AGXORA 正在思考…",
+      "errorDismiss": "{error} — 點擊即可關閉",
+      "placeholder": "詢問 AGXORA AI...",
+      "messageAria": "向AGXORA AI發送訊息",
+      "sendAria": "發送訊息",
+      "send": "傳送"
+    },
+    "routeLoading": {
+      "team": "正在加載團隊...",
+      "projects": "正在加載項目...",
+      "project": "正在加載項目...",
+      "profile": "正在載入個人資料...",
+      "integrations": "正在加載集成...",
+      "identity": "正在載入身份...",
+      "finance": "正在加載財務...",
+      "documents": "正在載入文檔...",
+      "customers": "正在加載客戶...",
+      "crm": "正在載入客戶關係管理...",
+      "customer": "正在加載客戶...",
+      "creator": "正在加載創作者工作室...",
+      "billing": "正在載入帳單...",
+      "billingAdmin": "正在載入管理帳單...",
+      "automation": "正在載入自動化…",
+      "analytics": "正在載入情報中心...",
+      "ai": "正在載入人工智慧平臺…",
+      "agents": "正在載入代理程式作業系統…"
+    },
+    "shell": {
+      "memory": {
+        "title": "記憶",
+        "description": "此版本中未連接組織記憶體。",
+        "emptyTitle": "記憶體工作區尚不可用",
+        "emptyBody": "持久組織記憶體儲存未連接。聊天可能僅在會話中保留短暫的上下文 - 這裡沒有任何內容被儲存為企業記憶體。"
+      },
+      "invoices": {
+        "title": "發票",
+        "description": "企業租戶的計費和發票架構。",
+        "emptyTitle": "發票分類帳尚不可用",
+        "emptyBody": "該路由是一個外殼 - 發票創建和持久性沒有連接。使用 Finance 進行範本分類帳預覽，或使用 Billing 進行規劃管理。",
+        "openFinance": "開放金融",
+        "openBilling": "開放式帳單"
+      }
+    },
+    "search": {
+      "ariaLabel": "通用搜尋",
+      "queryAria": "通用搜尋查詢",
+      "placeholder": "搜尋客戶、發票、文件、工作流程、設定…",
+      "quickActions": "快速行動",
+      "favorites": "收藏夾",
+      "recentSearches": "最近搜尋",
+      "clear": "清除",
+      "noRecentSearches": "還沒有最近的搜尋。嘗試使用“Nordlicht”、“發票”或“工作流程”。",
+      "recentActivity": "近期动态",
+      "aiReady": "人工智慧就緒（架構）",
+      "pinnedResults": "固定結果",
+      "noMatches": "沒有匹配項",
+      "noMatchesBody": "嘗試其他關鍵字，或透過快速操作開啟模組。",
+      "close": "關閉",
+      "esc": "Esc",
+      "open": "打開",
+      "keyboardHints": "↑↓ 導覽 · Enter 開啟 · Ctrl/⌘ K 切換 · Esc 關閉",
+      "pinResult": "固定結果",
+      "unpinResult": "取消固定結果",
+      "previewEmpty": "將滑鼠懸停或突出顯示預覽、元資料和智慧連結的結果。",
+      "previewAria": "通用預覽",
+      "relatedItems": "相關項目",
+      "noSmartLinks": "此結果沒有智慧連結。",
+      "groups": {
+        "crm": "客戶關係管理",
+        "finance": "金融",
+        "documents": "文件",
+        "automation": "自動化",
+        "projects": "專案",
+        "creator": "創作人工作室",
+        "settings": "設定",
+        "commands": "命令",
+        "actions": "快速行動"
+      },
+      "status": {
+        "architecture": "建築學",
+        "planned": "計劃"
+      },
+      "meta": {
+        "type": "類型",
+        "module": "模組",
+        "quickAction": "快速行動"
+      },
+      "actions": {
+        "createCustomer": {
+          "title": "創建客戶",
+          "subtitle": "開啟「客戶」以新增記錄"
+        },
+        "createInvoice": {
+          "title": "建立發票",
+          "subtitle": "開啟財務發票工作區"
+        },
+        "uploadDocument": {
+          "title": "上傳文件",
+          "subtitle": "開啟文件知識中心"
+        },
+        "newWorkflow": {
+          "title": "新工作流程",
+          "subtitle": "開放自動化引擎建構器"
+        },
+        "newProject": {
+          "title": "新專案",
+          "subtitle": "開啟專案工作區"
+        },
+        "inviteMember": {
+          "title": "邀請團隊成員",
+          "subtitle": "開啟團隊邀請"
+        },
+        "openBilling": {
+          "title": "開放式帳單",
+          "subtitle": "計劃、發票和訂閱"
+        },
+        "openSettings": {
+          "title": "開啟設定",
+          "subtitle": "工作空間偏好"
+        }
+      },
+      "commands": {
+        "openCrm": {
+          "title": "開放式客戶關係管理",
+          "subtitle": "人工智慧CRM模組"
+        },
+        "openCustomers": {
+          "title": "開放客戶",
+          "subtitle": "客戶管理"
+        },
+        "openFinance": {
+          "title": "開放金融",
+          "subtitle": "財稅模組"
+        },
+        "openDocuments": {
+          "title": "開啟文件",
+          "subtitle": "知識中心"
+        },
+        "openAutomation": {
+          "title": "開放式自動化",
+          "subtitle": "工作流程引擎"
+        },
+        "openSettings": {
+          "title": "開啟設定",
+          "subtitle": "工作區設定"
+        },
+        "openProjects": {
+          "title": "打開項目",
+          "subtitle": "專案集"
+        },
+        "openAi": {
+          "title": "開放人工智慧",
+          "subtitle": "AI平台工作區"
+        },
+        "openAnalytics": {
+          "title": "開放分析",
+          "subtitle": "情報中心"
+        },
+        "openIdentity": {
+          "title": "開放身份和訪問",
+          "subtitle": "IAM 設定、RBAC、審核"
+        },
+        "openBilling": {
+          "title": "開放式帳單",
+          "subtitle": "訂閱門戶和計劃"
+        },
+        "openIntegrations": {
+          "title": "開放式集成",
+          "subtitle": "整合中心和API生態系統"
+        }
+      },
+      "modules": {
+        "dashboard": {
+          "subtitle": "指揮中心和全球概覽"
+        },
+        "customers": {
+          "subtitle": "客戶記錄和客戶關係管理"
+        },
+        "projects": {
+          "subtitle": "專案交付和追蹤"
+        },
+        "invoices": {
+          "title": "發票",
+          "subtitle": "帳單和發票"
+        },
+        "finance": {
+          "subtitle": "人工智慧會計、銀行、稅務和金融智能"
+        },
+        "crm": {
+          "subtitle": "AI原生CRM和Creator作業系統"
+        },
+        "creator": {
+          "subtitle": "AI內容製作及行銷作業系統"
+        },
+        "documents": {
+          "subtitle": "AI 文件和知識中心"
+        },
+        "ai": {
+          "title": "人工智慧",
+          "subtitle": "AGXORA AI 平台 — 企業工作區"
+        },
+        "analytics": {
+          "subtitle": "商業智能"
+        },
+        "automation": {
+          "subtitle": "AI工作流程與自動化引擎"
+        },
+        "memory": {
+          "title": "記憶",
+          "subtitle": "組織記憶"
+        },
+        "team": {
+          "subtitle": "成員及邀請"
+        },
+        "settings": {
+          "subtitle": "工作區和 AI 設定"
+        }
+      },
+      "capabilities": {
+        "aiSearch": {
+          "title": "人工智慧搜尋",
+          "description": "使用未來跨模組的檢索模型對結果進行排名。"
+        },
+        "semantic": {
+          "title": "語意搜尋",
+          "description": "文件、發票和知識的向量相似性。"
+        },
+        "nl": {
+          "title": "自然語言搜尋",
+          "description": "解析「Nordlicht 逾期發票」等意圖。"
+        },
+        "rag": {
+          "title": "知識檢索",
+          "description": "文檔知識中心語料庫中的基本答案。"
+        }
+      }
+    },
+    "summary": "{name}：{customers} 客戶 · {projects} 項目 · {updates} 今天更新。"
+  },
+  "auth": {
+    "login": {
+      "title": "登入",
+      "subtitle": "歡迎回到 AGXORA。",
+      "email": "電子郵件",
+      "password": "密碼",
+      "emailPlaceholder": "你@company.com",
+      "passwordPlaceholder": "密碼",
+      "rememberMe": "記住帳號",
+      "submit": "登入",
+      "submitting": "正在登入...",
+      "noAccount": "還沒有帳戶?",
+      "startFree": "免費開始",
+      "forgotPassword": "忘記密碼",
+      "showPassword": "顯示密碼",
+      "hidePassword": "隱藏密碼",
+      "failed": "登入失敗",
+      "loading": "登入"
+    },
+    "register": {
+      "title": "建立帳戶",
+      "subtitle": "從 AGXORA 免費開始。",
+      "firstName": "名",
+      "lastName": "姓",
+      "email": "工作信箱",
+      "company": "公司",
+      "password": "密碼",
+      "confirmPassword": "確認密碼",
+      "acceptTerms": "我接受 ",
+      "termsOfService": "服務條款",
+      "and": "和",
+      "privacyPolicy": "隱私權政策",
+      "submit": "建立帳戶",
+      "submitting": "正在建立帳戶...",
+      "haveAccount": "已經有帳戶？",
+      "signIn": "登入",
+      "strength": "密碼強度",
+      "strengthWeak": "虛弱的",
+      "strengthFair": "公平的",
+      "strengthStrong": "強的",
+      "firstNamePlaceholder": "亞歷克斯",
+      "lastNamePlaceholder": "摩根",
+      "companyPlaceholder": "艾格索拉有限公司",
+      "emailPlaceholder": "你@company.com",
+      "passwordPlaceholder": "最少8個字符，字母+數字",
+      "confirmPasswordPlaceholder": "重複密碼",
+      "failed": "註冊失敗",
+      "loading": "建立帳戶"
+    },
+    "forgot": {
+      "title": "忘記密碼",
+      "subtitle": "輸入您的電子郵件以請求重設密碼。",
+      "email": "電子郵件",
+      "submit": "請求重置",
+      "submitting": "正在提交...",
+      "success": "如果該電子郵件的帳戶存在，則會記錄重設要求。尚未配置電子郵件傳送。",
+      "backToSignIn": "返回登入",
+      "failed": "無法處理重設請求",
+      "loading": "忘記密碼"
+    },
+    "reset": {
+      "title": "重設密碼",
+      "subtitle": "為您的帳戶選擇一個新密碼。",
+      "token": "重置令牌",
+      "newPassword": "新密碼",
+      "confirmPassword": "確認密碼",
+      "submit": "更新密碼",
+      "submitting": "正在更新…",
+      "success": "密碼已更新。您現在可以登入。",
+      "backToSignIn": "返回登入",
+      "failed": "無法重設密碼",
+      "loading": "重設密碼"
+    },
+    "contactSales": {
+      "title": "聯繫銷售人員",
+      "subtitle": "告訴我們您的團隊。我們將跟進企業選項。",
+      "name": "姓名",
+      "email": "工作信箱",
+      "company": "公司",
+      "employees": "員工人數",
+      "employeesSelect": "選擇範圍",
+      "employees1_10": "1–10",
+      "employees11_50": "11–50",
+      "employees51_200": "51–200",
+      "employees201_1000": "201–1,000",
+      "employees1000plus": "1,000+",
+      "message": "訊息",
+      "messagePlaceholder": "你想解決什麼問題？",
+      "submit": "發送諮詢",
+      "submitting": "正在發送...",
+      "successTitle": "感謝您",
+      "successBody": "您的詢問已收到。我們的團隊將很快回覆。",
+      "viewPricing": "查看定價",
+      "bookDemo": "預訂示範",
+      "failed": "無法提交查詢",
+      "country": "國家",
+      "savedFor": "已為 {company} 儲存。此建置未連接銷售傳送。",
+      "preferWalkthrough": "接下來更想看產品導覽？",
+      "preferSelfServe": "更想自助使用？"
+    },
+    "welcome": {
+      "title": "歡迎來到艾格索拉",
+      "subtitle": "您的工作區已準備就緒。繼續到儀表板。",
+      "continue": "轉到儀表板",
+      "checklistProfile": "確認您的組織資料",
+      "checklistModules": "選擇符合您工作方式的模組",
+      "checklistDashboard": "帶著明確起點進入儀表板",
+      "exploreFirst": "更想先自行探索？",
+      "skipToDashboard": "跳到儀表板"
+    },
+    "locked": {
+      "title": "帳戶被鎖定",
+      "subtitle": "登入嘗試失敗次數過多。請稍後重試或重設密碼。",
+      "backToSignIn": "返回登入",
+      "forgotPassword": "忘記密碼"
+    },
+    "sessionExpired": {
+      "title": "會話已過期",
+      "subtitle": "請登入訪問更多內容",
+      "signIn": "登入"
+    },
+    "brand": "愛格索拉",
+    "validation": {
+      "emailRequired": "電子郵件為必填。",
+      "emailInvalid": "請輸入有效的電子郵件地址。",
+      "passwordRequired": "密碼為必填。",
+      "passwordMin": "密碼至少 8 個字元。",
+      "nameRequired": "姓名為必填。",
+      "nameMin": "姓名至少 2 個字元。",
+      "passwordMismatch": "兩次輸入的密碼不一致。",
+      "slugFormat": "僅使用小寫字母、數字和連字號。"
+    }
+  },
+  "crm": {
+    "page": {
+      "brandOs": "AGXORA商業作業系統",
+      "title": "人工智慧客戶關係管理",
+      "subtitle": "AI 原生 CRM 和 Creator 作業系統 — 適用於每個行業的客戶、管道、訂單、交付、文件、通訊和 Creator 架構。"
+    },
+    "sections": {
+      "crmDashboard": {
+        "title": "客戶關係管理儀表板"
+      },
+      "customer360": {
+        "title": "客戶360°",
+        "subtitle": "個人資料、公司、聯絡人、訂單、發票、Lieferscheine、付款、文件、時間表、活動、筆記、AI 摘要和通訊歷史記錄。"
+      },
+      "salesPipeline": {
+        "title": "銷售通路",
+        "subtitle": "具有拖放功能的看板階段 — 領導、合格、提案、談判、獲勝、失敗。"
+      },
+      "ordersModule": {
+        "title": "訂單模組"
+      },
+      "deliveryModule": {
+        "title": "交付模組",
+        "subtitle": "專業的 Lieferschein 系統，具備追蹤、簽章、QR 和條碼功能。"
+      },
+      "documentsModule": {
+        "title": "文件",
+        "subtitle": "報價、合約、發票、Lieferschein、採購訂單、收據 - 透過人工智慧搜尋。"
+      },
+      "tasksModule": {
+        "title": "任務"
+      },
+      "communicationHub": {
+        "title": "通訊中心",
+        "subtitle": "僅用於訊息、社交、電子郵件、語音和視訊的適配器註冊表。"
+      },
+      "creatorStudio": {
+        "title": "創作者工作室基金會",
+        "subtitle": "平台適配器已準備好稍後進行正式整合。"
+      },
+      "aiCreator": {
+        "title": "人工智慧創造者",
+        "subtitle": "內容、日曆、產生和發布的企業能力圖。"
+      },
+      "industryPlatform": {
+        "title": "通用商業平台",
+        "subtitle": "模組化產業註冊－每個垂直產業都可以接收專用的人工智慧模組。"
+      }
+    },
+    "directory": {
+      "errorTitle": "無法載入 CRM",
+      "sort": {
+        "companyName": "公司",
+        "contactName": "接觸",
+        "email": "電子郵件",
+        "phone": "電話",
+        "industry": "產業",
+        "status": "地位",
+        "owner": "擁有者",
+        "createdAt": "已創建"
+      },
+      "search": {
+        "label": "搜尋客戶",
+        "placeholder": "公司、聯絡人、電子郵件、標籤…"
+      },
+      "view": {
+        "table": "桌子",
+        "cards": "牌"
+      },
+      "actions": {
+        "newCustomer": "新客戶"
+      },
+      "filters": {
+        "status": "地位",
+        "industry": "產業",
+        "owner": "擁有者",
+        "country": "國家",
+        "tags": "標籤",
+        "allStatuses": "所有狀態",
+        "allIndustries": "所有行業",
+        "allOwners": "所有所有者",
+        "allCountries": "所有國家",
+        "allTags": "所有標籤"
+      },
+      "empty": {
+        "ready": {
+          "title": "您的CRM已準備就緒",
+          "description": "建立第一個客戶記錄以解鎖目錄、個人資料和活動。",
+          "action": "創建客戶"
+        },
+        "noMatches": {
+          "title": "沒有匹配的客戶",
+          "description": "嘗試調整搜尋或篩選器以找到正確的記錄。",
+          "action": "清除過濾器"
+        }
+      },
+      "pagination": {
+        "previous": "以前的",
+        "next": "下一個"
+      },
+      "showing": "顯示 {from}–{to}，共 {total}",
+      "aria": {
+        "openCustomer": "打開客戶{company}"
+      },
+      "cardMeta": "所有者{owner} ·建立於{date}",
+      "sortBy": "按{column}排序"
+    },
+    "status": {
+      "lead": "帶領",
+      "prospect": "前景",
+      "active": "積極的",
+      "inactive": "不活躍",
+      "vip": "貴賓",
+      "archived": "已存檔"
+    },
+    "form": {
+      "createTitle": "創建客戶",
+      "editTitle": "編輯客戶",
+      "cancel": "取消",
+      "saveChanges": "儲存變更",
+      "createCustomer": "創建客戶",
+      "companyName": "公司名稱",
+      "contactName": "聯絡人姓名",
+      "email": "電子郵件",
+      "phone": "電話",
+      "website": "網站",
+      "industry": "產業",
+      "country": "國家",
+      "city": "城市",
+      "address": "地址",
+      "taxNumber": "稅號",
+      "owner": "擁有者",
+      "status": "地位",
+      "tags": "標籤",
+      "statusAria": "客戶狀態",
+      "tagsHint": "以逗號分隔，自動進行色彩編碼",
+      "websitePlaceholder": "https://",
+      "tagsPlaceholder": "企業、零售"
+    },
+    "toasts": {
+      "customerCreated": "客戶創建",
+      "customerUpdated": "客戶已更新",
+      "checkForm": "檢查表格",
+      "validationFailed": "驗證失敗。",
+      "customerDeleted": "顧客已刪除",
+      "deleteFailed": "刪除失敗",
+      "customerCouldNotBeRemoved": "無法刪除客戶。",
+      "contactSaved": "聯絡方式已儲存",
+      "documentsAttached": "所附文件",
+      "documentsAttachedDetail": "{count} 個文件",
+      "noteSaved": "註釋已儲存"
+    },
+    "deleteDialog": {
+      "title": "刪除客戶",
+      "cancel": "取消",
+      "deletePermanently": "永久刪除",
+      "thisCustomer": "這位顧客",
+      "bodyPrefix": "這刪除了",
+      "bodySuffix": "以及來自本地存儲的相關聯繫人、備註、文件和活動。連結的專案不會被刪除。"
+    },
+    "validation": {
+      "companyNameRequired": "公司名稱為必填。",
+      "contactNameRequired": "聯絡人姓名為必填項。",
+      "emailRequired": "需要電子郵件。",
+      "emailInvalid": "輸入有效的電子郵件地址。",
+      "phoneRequired": "需要電話。",
+      "phoneInvalid": "輸入有效的電話號碼。",
+      "websiteInvalid": "輸入有效的網站。",
+      "industryRequired": "需要工業。",
+      "ownerRequired": "需要業主。",
+      "statusInvalid": "選擇有效狀態。",
+      "emailDuplicate": "使用此電子郵件的客戶已存在。",
+      "nameRequired": "姓名為必填項。",
+      "mobileInvalid": "請輸入有效的手機號碼",
+      "mobileRequired": "需要手機。",
+      "roleRequired": "角色是必要的。",
+      "noteTitleRequired": "標題為必填項。",
+      "noteBodyRequired": "注意正文是必需的。",
+      "noteAuthorRequired": "作者為必填項。"
+    },
+    "errors": {
+      "failedToLoadCustomers": "無法加載客戶。",
+      "failedToLoadCustomerProfile": "無法載入客戶資料。",
+      "organizationRequired": "需要組織。",
+      "failedToSaveCustomer": "未能挽救客戶。",
+      "failedToDeleteCustomer": "刪除客戶失敗。",
+      "failedToSaveContact": "無法保存聯絡人。",
+      "failedToSaveNote": "保存筆記失敗。",
+      "failedToUploadDocument": "上傳文檔失敗。"
+    },
+    "workspace": {
+      "badge": "企業客戶關係管理2.0",
+      "title": "客戶關係管理",
+      "subtitleBeforeOrg": "管理客戶目錄、個人資料、聯絡人、註釋和文檔",
+      "subtitleAfterOrg": "專案會從「專案」模組中按公司名稱連結，而不會複製資料。",
+      "yourOrganization": "你的組織"
+    },
+    "analytics": {
+      "totalCustomers": "客戶總數",
+      "activeCustomers": "活躍客戶",
+      "newCustomers": "新客戶",
+      "vipCustomers": "貴賓客戶",
+      "createdThisMonth": "本月創建",
+      "leadConversion": "潛在客戶轉化",
+      "leadConversionHint": "潛在客戶/潛在客戶/轉換管道的活躍和 VIP 份額。",
+      "customerGrowth": "客戶成長"
+    },
+    "profile": {
+      "backToCrm": "← 返回客戶關係管理",
+      "ownerLabel": "擁有者",
+      "notFoundTitle": "未找到客户",
+      "notFoundDescription": "該客戶可能已被刪除。",
+      "missingCustomerTitle": "失蹤的顧客",
+      "missingOverviewDescription": "選擇客戶以查看概覽。",
+      "missingSettingsDescription": "選擇顧客以管理設定。",
+      "ariaProfileNav": "客戶簡介",
+      "tabs": {
+        "overview": "概述",
+        "contacts": "聯絡方式",
+        "projects": "專案",
+        "documents": "文件",
+        "invoices": "發票",
+        "activity": "活動",
+        "notes": "筆記",
+        "settings": "設定"
+      },
+      "overview": {
+        "title": "概述",
+        "email": "電子郵件",
+        "phone": "電話",
+        "website": "網站",
+        "taxNumber": "稅號",
+        "location": "地點",
+        "address": "地址",
+        "created": "已創建",
+        "updated": "已更新",
+        "emptyValue": "—"
+      },
+      "contacts": {
+        "addTitle": "新增聯絡人",
+        "editTitle": "編輯聯絡人",
+        "listTitle": "聯絡方式",
+        "name": "姓名",
+        "role": "角色",
+        "email": "電子郵件",
+        "phone": "電話",
+        "mobile": "移動的",
+        "notes": "筆記",
+        "saveContact": "儲存聯絡方式",
+        "emptyTitle": "還沒有聯絡方式",
+        "emptyDescription": "新增利害關係人的角色、電子郵件和電話詳細資訊。",
+        "defaultRole": "接觸",
+        "mobilePrefix": "移動的"
+      },
+      "projects": {
+        "title": "專案",
+        "emptyTitle": "沒有連結的項目",
+        "emptyDescription": "客戶名稱與該公司相符的項目將顯示在此。數據是從“項目”模組讀取的——沒有任何重複。",
+        "openProjects": "打開項目"
+      },
+      "documents": {
+        "title": "文件",
+        "subtitle": "影像、PDF 和辦公室文件 - 僅本地儲存中的元資料。",
+        "attachFiles": "附加文件",
+        "emptyTitle": "沒有文件",
+        "emptyDescription": "附上客戶團隊的客戶文件。",
+        "systemUploader": "系統"
+      },
+      "invoices": {
+        "emptyTitle": "還沒有發票",
+        "emptyDescription": "從財務連結後，該客戶的發票將顯示在此。"
+      },
+      "activity": {
+        "title": "活動",
+        "emptyTitle": "還沒有活動",
+        "emptyDescription": "建立、更新、註釋和文件首先顯示在此。",
+        "kinds": {
+          "customer_created": "客戶創建",
+          "customer_updated": "客戶已更新",
+          "contact_added": "已新增聯絡人",
+          "contact_updated": "聯絡方式已更新",
+          "contact_deleted": "聯絡方式已刪除",
+          "note_added": "備註已添加",
+          "note_updated": "註釋已更新",
+          "note_deleted": "註釋已刪除",
+          "document_added": "文件已新增",
+          "document_deleted": "文件已刪除",
+          "project_linked": "項目連結"
+        }
+      },
+      "notes": {
+        "newTitle": "新筆記",
+        "editTitle": "編輯備註",
+        "title": "標題",
+        "author": "作者",
+        "body": "內文",
+        "saveNote": "保存備註",
+        "emptyTitle": "還沒筆記",
+        "emptyDescription": "捕獲帶有作者和時間戳記的帳戶上下文。"
+      },
+      "settings": {
+        "title": "設定",
+        "description": "編輯所有個人資料欄位或存檔該帳戶。刪除使用確認對話框。",
+        "editAllFields": "編輯所有字段",
+        "prepareArchive": "準備存檔",
+        "deleteCustomer": "刪除客戶"
+      }
+    },
+    "customer360": {
+      "ariaSections": "客戶360版塊",
+      "email": "電子郵件",
+      "phone": "電話",
+      "aiHealth": "人工智慧健康",
+      "tabs": {
+        "profile": "輪廓",
+        "company": "公司",
+        "contacts": "聯絡方式",
+        "orders": "訂單",
+        "invoices": "發票",
+        "lieferscheine": "利弗沙因",
+        "payments": "付款方式",
+        "documents": "文件",
+        "timeline": "時間軸",
+        "activities": "活動",
+        "notes": "筆記",
+        "aiSummary": "人工智慧總結",
+        "communicationHistory": "傳播史"
+      },
+      "profileLines": {
+        "customerId": "客戶 ID",
+        "status": "地位",
+        "primaryContact": "主要聯絡人"
+      },
+      "status": {
+        "churn_risk": "流失風險"
+      }
+    },
+    "delivery": {
+      "title": "專業 Lieferschein 系統",
+      "description": "送貨單、取貨/送貨、司機、車輛和追蹤 - 僅樣本記錄。未連接匯出適配器。",
+      "badges": {
+        "qrUnavailable": "二維碼不可用",
+        "barcodeUnavailable": "條碼不可用",
+        "signatureDemo": "簽名演示"
+      },
+      "exportPdf": "匯出PDF",
+      "deliveryHistory": "送餐紀錄",
+      "notices": {
+        "exportNotConnected": "此版本中未連接 PDF、QR 和條碼匯出。",
+        "exportPdfUnavailable": "匯出 PDF 不可用 — 未連接傳送導出。",
+        "historyNotConnected": "此版本中未連接交付歷史記錄儲存。"
+      },
+      "columns": {
+        "lieferschein": "利弗沙因",
+        "order": "排序",
+        "customer": "顧客",
+        "kind": "種類",
+        "driver": "司機",
+        "vehicle": "車輛",
+        "tracking": "追蹤",
+        "scheduled": "預定"
+      }
+    },
+    "orders": {
+      "description": "產品、服務、價格、折扣、稅金和客戶——企業訂單分類帳。",
+      "createOrder": "建立訂單",
+      "notices": {
+        "apiReserved": "為將來的寫入路徑保留的訂單建立 API。",
+        "draftStaged": "建立已上演的訂單草稿（尚無 API）。"
+      },
+      "columns": {
+        "order": "排序",
+        "customer": "顧客",
+        "status": "地位",
+        "lines": "線路",
+        "net": "網",
+        "tax": "稅",
+        "gross": "總的",
+        "created": "已創建"
+      },
+      "lineTax": "{taxPct} %稅金"
+    },
+    "tasks": {
+      "calendarTitle": "行事曆·會議·提醒·跟進",
+      "foundationTitle": "任務作業系統基礎",
+      "foundationDescription": "保留日曆同步、會議提供者、提醒作業和後續自動化掛鉤。該板是每個行業模組的共享 CRM 任務介面。",
+      "badges": {
+        "calendarAdapter": "日曆適配器",
+        "meetingAdapter": "會議適配器",
+        "reminderQueue": "提醒隊列",
+        "followUpEngine": "後續發動機"
+      },
+      "duePrefix": "到期的",
+      "kinds": {
+        "follow_up": "跟進",
+        "meeting": "會議",
+        "reminder": "提醒",
+        "task": "任務"
+      },
+      "statuses": {
+        "open": "打開",
+        "in_progress": "進行中",
+        "done": "完畢",
+        "cancelled": "取消"
+      }
+    },
+    "documentsModule": {
+      "emptyTitle": "沒有文件",
+      "emptyDescription": "沒有與此搜尋相符的文件。",
+      "searchLabel": "人工智慧搜尋",
+      "searchPlaceholder": "報價單、合約、發票、Lieferschein...",
+      "typeLabel": "文件類型",
+      "allTypes": "所有類型",
+      "columns": {
+        "type": "類型",
+        "title": "標題",
+        "customer": "顧客",
+        "status": "地位",
+        "updated": "已更新"
+      },
+      "kinds": {
+        "quote": "引號",
+        "contract": "合約",
+        "invoice": "發票",
+        "lieferschein": "利弗沙因",
+        "purchase_order": "採購單",
+        "receipt": "收據"
+      }
+    },
+    "communication": {
+      "intro": "僅可擴展的頻道架構 - 電子郵件、WhatsApp、Instagram、Facebook、TikTok、LinkedIn、Telegram、語音和視訊。沒有虛假的即時整合。",
+      "adapterPrefix": "適配器"
+    },
+    "aiCreator": {
+      "intro": "面向未來的 AI Creator 介面 — 想法、標題、主題標籤、日曆、活動、品牌聲音、圖像/影片生成、分析、調度、發布隊列和見解。尚未連接真正的提供者 API。"
+    },
+    "creatorStudio": {
+      "intro": "Creator Studio基礎—官方平臺整合可以稍後插入這些適配器。Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X。"
+    },
+    "industry": {
+      "intro": "通用業務平台－入職後將選擇一個產業。每個行業都會獲得專用的人工智慧模組，而無需分叉核心 CRM 作業系統。"
+    },
+    "kpi": {
+      "customers": {
+        "label": "顧客",
+        "caption": "活躍的關係"
+      },
+      "companies": {
+        "label": "公司",
+        "caption": "帳戶組織"
+      },
+      "leads": {
+        "label": "潛在客戶",
+        "caption": "本月新品"
+      },
+      "deals": {
+        "label": "優惠",
+        "caption": "開放管道"
+      },
+      "revenue": {
+        "label": "收入",
+        "caption": "今年迄今贏了"
+      },
+      "projects": {
+        "label": "活躍專案",
+        "caption": "飛行中交付"
+      },
+      "tasks": {
+        "label": "開放任務",
+        "caption": "跨 CRM + 交付"
+      },
+      "ai-health": {
+        "label": "人工智慧健康評分",
+        "caption": "關係品質信號"
+      },
+      "scoreOutOf": "{score} / {max}"
+    },
+    "pipeline": {
+      "lead": "帶領",
+      "qualified": "合格的",
+      "proposal": "提議",
+      "negotiation": "談判",
+      "won": "韓元",
+      "lost": "已遺失"
+    },
+    "orderStatus": {
+      "draft": "草稿",
+      "confirmed": "確認的",
+      "in_fulfillment": "在履行中",
+      "shipped": "已出貨",
+      "delivered": "已交付",
+      "cancelled": "取消"
+    },
+    "tracking": {
+      "scheduled": "預定",
+      "en_route": "途中",
+      "arrived": "到達的",
+      "completed": "完全的",
+      "failed": "失敗的"
+    },
+    "documentKind": {
+      "quote": "引用",
+      "contract": "契約",
+      "invoice": "發票",
+      "lieferschein": "利弗沙因",
+      "purchase_order": "採購訂單",
+      "receipt": "收據"
+    },
+    "documentStatus": {
+      "sent": "傳送",
+      "signed": "簽名",
+      "paid": "滿意",
+      "in_transit": "在途中",
+      "open": "打開",
+      "filed": "提起"
+    },
+    "integration": {
+      "planned": "計劃",
+      "ready": "準備就緒",
+      "connected": "已連接",
+      "disabled": "殘障人士"
+    }
+  },
+  "finance": {
+    "page": {
+      "brand": "AGXORA 金融作業系統",
+      "title": "財務與稅務",
+      "subtitle": "會計、銀行、稅務和金融情報－在即時帳本連接之前使用樣本資料進行預覽。",
+      "sampleNotice": "樣本資料集—數據和出口歷史是說明性的。DATEV/檔案匯出與即時銀行摘要未連接。"
+    },
+    "sections": {
+      "overview": {
+        "title": "財務概覽"
+      },
+      "invoiceCenter": {
+        "title": "發票中心",
+        "subtitle": "透過 AI 置信度評分對企業發票分類帳進行搜尋、過濾和排序。"
+      },
+      "aiInvoiceProcessing": {
+        "title": "AI發票處理",
+        "subtitle": "演示管道 — OCR 和 AI 提取未連接。"
+      },
+      "banking": {
+        "title": "銀行業",
+        "subtitle": "僅範例帳戶 - 未連接開放式銀行提要。"
+      },
+      "datev": {
+        "title": "DATEV集成",
+        "subtitle": "匯出歷史記錄範例 — DATEV 檔案產生未連線。"
+      },
+      "taxCenter": {
+        "title": "稅務中心",
+        "subtitle": "增值稅摘要、截止日期和即將付款。"
+      },
+      "aiInsights": {
+        "title": "人工智慧洞察",
+        "subtitle": "僅限調查結果範例—洞察分析動作未連結。"
+      },
+      "smartSearch": {
+        "title": "智慧搜尋",
+        "subtitle": "跨發票、費用、增值稅和出口的自然語言查詢。"
+      }
+    },
+    "overview": {
+      "metrics": {
+        "revenue": {
+          "label": "收入",
+          "caption": "樣本·最近 30 天",
+          "delta": "+8.4%"
+        },
+        "expenses": {
+          "label": "開支",
+          "caption": "樣品·營運+銷貨成本",
+          "delta": "+2.1%"
+        },
+        "profit": {
+          "label": "利潤",
+          "caption": "樣品·網路運營",
+          "delta": "+12.6%"
+        },
+        "vat-due": {
+          "label": "應繳增值稅",
+          "caption": "範例·Q2 視窗",
+          "delta": "{days}天後到期"
+        },
+        "open-invoices": {
+          "label": "開立發票",
+          "caption": "例 · {money} 未結清"
+        },
+        "paid-invoices": {
+          "label": "已付發票",
+          "caption": "樣本·本季",
+          "delta": "+{count}"
+        },
+        "cashflow": {
+          "label": "現金週轉",
+          "caption": "範例·30 天預測",
+          "delta": "+4.2%"
+        },
+        "ai-score": {
+          "label": "人工智慧財務評分",
+          "caption": "樣本分數 · 非即時風險評分",
+          "delta": "+{count}"
+        }
+      },
+      "scoreOutOf": "{score} / {max}"
+    },
+    "invoices": {
+      "emptyTitle": "無發票",
+      "emptyDescription": "沒有符合搜尋條件或篩選條件的收據。",
+      "searchPlaceholder": "數量、公司、類別…",
+      "statusFilter": "狀態篩選規則",
+      "paymentFilter": "支付過濾器",
+      "sortBy": "排序方式",
+      "toggleSort": "切換排序方向",
+      "count": "{count}張發票",
+      "countOne": "{count}張發票",
+      "allStatuses": "所有狀態",
+      "allPayments": "所有付款",
+      "columns": {
+        "number": "發票號碼",
+        "company": "公司",
+        "amount": "數量",
+        "vat": "加值稅",
+        "status": "地位",
+        "dueDate": "到期日",
+        "payment": "付款狀態",
+        "category": "類別",
+        "ai": "人工智能信心"
+      },
+      "sort": {
+        "dueDate": "到期日",
+        "amount": "數量",
+        "company": "公司",
+        "status": "地位",
+        "aiConfidence": "人工智慧信心",
+        "number": "發票 ＃"
+      }
+    },
+    "status": {
+      "draft": "草稿",
+      "open": "打開",
+      "paid": "滿意",
+      "overdue": "逾期",
+      "cancelled": "取消"
+    },
+    "payment": {
+      "unpaid": "未付",
+      "partial": "部分的",
+      "paid": "滿意",
+      "refunded": "已退款"
+    },
+    "category": {
+      "saas": "軟體即服務",
+      "office": "辦公室",
+      "travel": "旅行",
+      "marketing": "行銷",
+      "utilities": "公用事業",
+      "professional": "專業的",
+      "other": "其他"
+    },
+    "processing": {
+      "dropTitle": "拖放發票文件",
+      "dropFormats": "PDF·圖片·電子郵件匯入",
+      "uploadFiles": "上傳文件",
+      "emailImport": "電子郵件導入",
+      "dropHint": "將 PDF 或影像發票拖曳到本地 — OCR 未連線。",
+      "filesStaged": "僅在本地列出{count}個文件—未連接OCR/AI提取。",
+      "emailReserved": "為 IMAP / Microsoft Graph 保留的電子郵件匯入連接器。",
+      "pipelineTitle": "處理管道（演示）",
+      "stages": {
+        "ocr": "OCR 狀態",
+        "extraction": "人工智慧提取",
+        "categorization": "分類",
+        "duplicateDetection": "重複檢測"
+      }
+    },
+    "stage": {
+      "pending": "不可用",
+      "running": "未連接",
+      "complete": "示範",
+      "failed": "失敗的",
+      "skipped": "跳過"
+    },
+    "banking": {
+      "connectionTitle": "銀行連接",
+      "connectBank": "連接銀行",
+      "description": "PSD2 / Open Banking 轉接器未接線。下面的匹配和協調僅是說明性的。",
+      "feedUnavailable": "銀行提要不可用 — 提供者連線未連線。",
+      "noticeDefault": "開放式銀行未連接 - 以下帳戶是範例資料。",
+      "connectUnavailable": "連接銀行不可用 - 開放式銀行在此版本中未連接。",
+      "sampleAccounts": "樣本帳戶",
+      "sample": "簡單",
+      "offline": "離線",
+      "demoPrefix": "示範",
+      "latestTransactions": "最新交易",
+      "sampleMatching": "樣品匹配",
+      "demoOnly": "僅演示",
+      "sampleMatch": "樣本匹配",
+      "unmatched": "無與倫比",
+      "emptyBalance": "—"
+    },
+    "datev": {
+      "title": "DATEV集成",
+      "notConnected": "未連接",
+      "intro": "下面的示例匯出歷史記錄是說明性的。憑證與檔案產生在此組建中未連線。",
+      "noticeDefault": "匯出適配器未連接 - 不會產生任何檔案。",
+      "exportUnavailable": "{title} 不可用 — DATEV/檔案匯出未連線。",
+      "exportUnavailableAria": "{title} — 不可用",
+      "historyTitle": "出口歷史記錄（樣本）",
+      "refresh": "重新整理",
+      "refreshUnavailable": "刷新不可用 — 匯出歷史記錄是靜態樣本資料。",
+      "steuerberaterSample": "簡單",
+      "steuerberaterPending": "待辦的",
+      "columns": {
+        "export": "出口",
+        "format": "格式",
+        "period": "時期",
+        "created": "已創建",
+        "status": "地位",
+        "steuerberater": "斯圖爾伯拉特"
+      },
+      "actions": {
+        "datev": {
+          "title": "數據導出",
+          "description": "用於 Steuerberater 工作流程的 Buchungsstapel 包。"
+        },
+        "csv": {
+          "title": "CSV 匯出",
+          "description": "用於電子表格和導入的 Ledger-ready CSV。"
+        },
+        "pdf": {
+          "title": "PDF匯出",
+          "description": "用於審查和存檔的文件包。"
+        },
+        "xml": {
+          "title": "XML匯出",
+          "description": "用於歸檔管道的結構化稅 XML。"
+        }
+      }
+    },
+    "exportStatus": {
+      "queued": "樣本·排隊",
+      "ready": "樣品·準備好",
+      "delivered": "說明性的",
+      "failed": "失敗的"
+    },
+    "tax": {
+      "vatSummaryTitle": "增值稅匯總",
+      "monthlyVat": "每月增值稅",
+      "quarterlyVat": "季度增值稅",
+      "collected": "集",
+      "deductible": "免賠額",
+      "netDue": "淨到期日",
+      "deadlinesTitle": "納稅期間·即將付款",
+      "duePrefix": "到期的",
+      "deadlineStatus": {
+        "due_soon": "即將到期",
+        "upcoming": "即將發行",
+        "overdue": "逾期",
+        "paid": "滿意"
+      },
+      "deadlines": {
+        "td-1": "每月增值稅申報表",
+        "td-2": "季度增值稅結算",
+        "td-3": "預繳企業稅"
+      },
+      "period": {
+        "monthly": "每月",
+        "quarterly": "季刊",
+        "annual": "年度的"
+      }
+    },
+    "insights": {
+      "demoPrefix": "示範",
+      "noticeDefault": "洞察操作沒有關聯－卡片僅顯示範例結果。",
+      "actionUnavailable": "{action} 不可用 — 財務洞察操作未連線。",
+      "actionUnavailableTitle": "{action} 不可用 — 未連接",
+      "kinds": {
+        "unusual_expense": "異常開支",
+        "duplicate_invoice": "重複發票",
+        "missing_invoice": "遺漏收據",
+        "late_payment": "逾期付款",
+        "cashflow_prediction": "現金流量預測",
+        "tax_optimization": "稅務優化"
+      }
+    },
+    "search": {
+      "label": "自然語言搜尋",
+      "placeholder": "請嘗試「顯示未付收據」",
+      "submit": "搜尋",
+      "examplesTitle": "範例",
+      "hints": {
+        "idle": "詢問收據、費用、增值稅或出口相關事宜。",
+        "unpaid_invoices": "過濾發票中心以查找未付款/未清項目。",
+        "july_expenses": "顯示 7 月份的支出活動。",
+        "amazon": "查找亞馬遜發票和收據。",
+        "vat_export": "開放 DATEV / VAT 出口作業。",
+        "general": "正在分類帳中搜尋“{query}”。"
+      },
+      "examples": {
+        "q1": {
+          "query": "顯示未付發票",
+          "description": "未付或部分狀態的未清應收帳款"
+        },
+        "q2": {
+          "query": "顯示七月費用",
+          "description": "7月費用方發票及銀行資金流出"
+        },
+        "q3": {
+          "query": "查找亞馬遜發票",
+          "description": "跨發票中心的供應商匹配和上傳"
+        },
+        "q4": {
+          "query": "出口增值稅",
+          "description": "跳至 DATEV / 稅務出口行動"
+        }
+      }
+    }
+  },
+  "documents": {
+    "page": {
+      "brand": "AGXORA知識作業系統",
+      "title": "文件",
+      "subtitle": "企業文件和知識中心－在儲存和審核後端連線之前預覽範例內容。",
+      "sampleNotice": "範例庫 - 瀏覽和過濾在會話中工作。上傳、核准和 AI 索引操作未連線。"
+    },
+    "sections": {
+      "kpis": {
+        "title": "知識儀表板"
+      },
+      "library": {
+        "title": "文件庫",
+        "subtitle": "所有文件、最近的文件、收藏夾、共享的文件、已存檔的文件、垃圾桶、知識庫 — 包括資料夾、搜尋、檢視器和版本。"
+      },
+      "knowledge": {
+        "title": "知識庫",
+        "subtitle": "文章、政策、流程、手冊、常見問題和內部維基。"
+      },
+      "approvals": {
+        "title": "核准",
+        "subtitle": "草稿、審查中、批准、拒絕、存檔－與自動化架構相關聯。"
+      },
+      "ai": {
+        "title": "AI知識層",
+        "subtitle": "摘要、關鍵字、分類、標籤、資料夾、相關文件、重複文件、翻譯、OCR和搜尋—僅限架構。"
+      },
+      "activity": {
+        "title": "活動",
+        "subtitle": "最近的更改、上傳、檢視、分享和審核歷史記錄。"
+      },
+      "integrations": {
+        "title": "串接",
+        "subtitle": "保留驅動器轉接器 — 無帶電連接器。"
+      },
+      "security": {
+        "title": "安全與共享",
+        "subtitle": "RBAC、稽核追蹤、加密、保留和共享範圍。"
+      }
+    },
+    "loading": {
+      "knowledgeBase": "正在加載知識庫...",
+      "approvals": "正在加載批准隊列...",
+      "aiInsights": "正在加載人工智慧見解...",
+      "activity": "正在加載活動...",
+      "integrations": "正在加載集成...",
+      "security": "正在載入安全性…"
+    },
+    "kpi": {
+      "documents": {
+        "label": "文件",
+        "caption": "範例·跨資料夾",
+        "delta": "+{count}"
+      },
+      "folders": {
+        "label": "資料夾",
+        "caption": "示例·包括智能集合",
+        "delta": "+{count}"
+      },
+      "storage": {
+        "label": "已用儲存空間",
+        "caption": "說明性計劃樣本·",
+        "delta": "+{size}"
+      },
+      "shared": {
+        "label": "共享文件",
+        "caption": "示例·組織+部門+用戶",
+        "delta": "+{count}"
+      },
+      "activity": {
+        "label": "近期动态",
+        "caption": "樣本·最近 24 小時",
+        "delta": "+{count}"
+      },
+      "indexed": {
+        "label": "人工智慧索引",
+        "caption": "範例·AI搜尋未連接",
+        "delta": "{percent}"
+      },
+      "approvals": {
+        "label": "待核準",
+        "caption": "範例·自動化未連接",
+        "delta": "{count}"
+      },
+      "score": {
+        "label": "知識分數",
+        "caption": "範例·覆蓋圖",
+        "delta": "+{count}"
+      }
+    },
+    "library": {
+      "viewsAria": "圖書館景觀",
+      "views": {
+        "all": "所有文件",
+        "recent": "最近項目",
+        "favorites": "收藏夾",
+        "shared": "共享",
+        "archived": "已存檔",
+        "trash": "垃圾",
+        "knowledge": "知識庫"
+      },
+      "dropzone": "將文件拖放到此處以進行上傳。",
+      "uploadReserved": "拖放上傳是保留的儲存 API。",
+      "filesStaged": "{count}個檔案已上傳（無儲存寫入）。",
+      "dropReceived": "收到丟棄（無儲存寫入）。",
+      "foldersTitle": "資料夾和收藏",
+      "foldersHint": "嵌套資料夾、收藏夾、智慧型收藏夾、標籤、固定和收藏夾。",
+      "allFolders": "所有資料夾",
+      "smart": "聰明的",
+      "collection": "集合",
+      "pinned": "已固定",
+      "favorite": "最喜歡的",
+      "sharedBadge": "共享",
+      "title": "文件庫",
+      "results": "{count} 個結果",
+      "resultOne": "{count} 個結果",
+      "selected": "· 已選擇 {count} 個",
+      "bulkAction": "批量操作",
+      "bulkUnavailable": "無法對 {count} 個項目執行批次操作 - 儲存突變未連線。",
+      "searchLabel": "全球搜尋",
+      "searchPlaceholder": "名稱、標籤、所有者、AI摘要…",
+      "typeLabel": "類型",
+      "statusLabel": "地位",
+      "departmentLabel": "科別",
+      "ownerLabel": "擁有者",
+      "allTypes": "所有類型",
+      "allStatuses": "所有狀態",
+      "allDepartments": "所有部門",
+      "allOwners": "所有所有者",
+      "favoritesOnly": "僅限收藏夾",
+      "emptyTitle": "沒有可顯示的文件",
+      "emptyDescription": "調整過濾器、清除搜尋或添加知識資產以擴大圖書館。",
+      "selectAria": "選擇{name}",
+      "versionHistoryTitle": "版本歷史",
+      "close": "關閉",
+      "context": {
+        "open": "打開",
+        "share": "分享",
+        "favorite": "最喜歡的",
+        "move": "移動",
+        "delete": "刪除",
+        "dismiss": "解僱",
+        "unavailable": "{action} 不可用 — 文件突變未與 {id} 連結。"
+      }
+    },
+    "viewer": {
+      "title": "文件檢視器",
+      "emptyTitle": "選擇一個文檔",
+      "emptyDescription": "從程式庫中選擇一個檔案以預覽內容、中繼資料、標籤、版本和連結的模組。",
+      "zoomOut": "縮放 -",
+      "zoomIn": "變焦+",
+      "prev": "上一篇",
+      "next": "下一個",
+      "page": "第{page}頁，共{total}頁",
+      "searchInside": "裡面搜尋",
+      "findPlaceholder": "在預覽中尋找...",
+      "noMatches": "預覽文字中沒有符合項。",
+      "meta": {
+        "owner": "擁有者",
+        "created": "已創建",
+        "updated": "已更新",
+        "fileType": "文件類型",
+        "size": "尺寸",
+        "category": "類別",
+        "department": "科別",
+        "status": "地位",
+        "retention": "保留",
+        "version": "版本",
+        "sharing": "分享"
+      },
+      "tags": "標籤",
+      "linkedModules": "連結的模組",
+      "noModuleLinks": "還沒有模組鏈接",
+      "versionHistory": "版本歷史"
+    },
+    "versions": {
+      "title": "版本歷史",
+      "emptyTitle": "未選擇文檔",
+      "emptyDescription": "開啟文件以檢查版本、註釋、復原和比較。",
+      "current": "{name} ·當前{version}",
+      "restore": "恢復版本",
+      "compare": "比較版本",
+      "restoreTitle": "恢復需要儲存 API",
+      "compareTitle": "比較需要儲存 API",
+      "noticeDefault": "恢復和比較需要儲存 API。",
+      "restoreUnavailable": "{id} 無法復原 — 儲存 API 未連線。",
+      "compareUnavailable": "比較不可用 ({selected} ↔ {current}) — 儲存 API 未連線。"
+    },
+    "approvals": {
+      "title": "審批流程",
+      "subtitle": "草稿→審核中→批准/拒絕→存檔。隊列項目是樣本文檔；行動不會持續。",
+      "emptyTitle": "隊列清空",
+      "emptyDescription": "樣本集中沒有草稿或審查中文件。",
+      "approve": "核准",
+      "reject": "拒絕",
+      "sendToReview": "寄至審核",
+      "noticeDefault": "批准轉換需要自動化工作流程引擎 - 在此版本中未連接。",
+      "unavailable": "{action} 對於 {id} 不可用 — 工作流程引擎未連線。範例文檔狀態未變更。",
+      "approveTitle": "無法批准 - 工作流程引擎未連接",
+      "rejectTitle": "拒絕不可用 - 工作流引擎未連接",
+      "sendTitle": "傳送至審閱不可用 — 工作流程引擎未連接"
+    },
+    "knowledge": {
+      "intro": "文章、政策、流程、手冊、常見問題與內部 wiki — 知識中心的敘述層。"
+    },
+    "activity": {
+      "intro": "最近的更改、上傳、查看、共享和審核歷史記錄 - 合規性追蹤的基礎。"
+    },
+    "integrations": {
+      "intro": "雲端硬碟僅是架構 - Google Drive、OneDrive、Dropbox、Box、SharePoint、Nextcloud。沒有即時 API。",
+      "reservedAdapter": "預留適配器：",
+      "architecture": "建築學",
+      "items": {
+        "google-drive": {
+          "description": "保留導入/同步架構 — 尚無即時 OAuth。"
+        },
+        "onedrive": {
+          "description": "保留 Microsoft Graph 檔案掛鉤。"
+        },
+        "dropbox": {
+          "description": "保留 Dropbox API 適配器。"
+        },
+        "box": {
+          "description": "保留 Enterprise Box 連接器。"
+        },
+        "sharepoint": {
+          "description": "已保留網站程式庫+中繼資料對應。"
+        },
+        "nextcloud": {
+          "description": "WebDAV 適配器保留 — 在自託管計劃之前停用。"
+        }
+      }
+    },
+    "security": {
+      "architectureTitle": "安全架構",
+      "sharingTitle": "共享模式",
+      "sharingIntro": "私人、組織、部門、特定使用者和公共連結佔位符。",
+      "enabled": "啟用",
+      "placeholder": "佔位符",
+      "notEnforced": "不強制執行",
+      "modelOnly": "僅型號",
+      "controls": {
+        "rbac": {
+          "title": "基於角色的訪問",
+          "description": "所有者、編輯器、檢視者和核準者角色對應到文件ACL ，而非在此組建中強制執行。"
+        },
+        "permissions": {
+          "title": "權限架構",
+          "description": "具有文件級覆蓋的資料夾繼承 - 在此版本中未強制執行。"
+        },
+        "audit": {
+          "title": "審計追蹤",
+          "description": "檢視、分享、還原和核準的活動事件尚未持久化。"
+        },
+        "encryption": {
+          "title": "加密",
+          "description": "為 KMS 接線保留的靜態和傳輸中加密掛鉤。"
+        },
+        "retention": {
+          "title": "保留政策",
+          "description": "具有法律保留支援的按類別保留視窗 - 尚未強制執行。"
+        }
+      }
+    },
+    "ai": {
+      "architectureTitle": "AI特徵架構",
+      "architectureIntro": "每項能力都是為未來的AI指數預留的。 UI 顯示確定性模擬見解。",
+      "insightsTitle": "選定文件的見解",
+      "emptyTitle": "選擇一個文檔",
+      "emptyDescription": "開啟庫中的文件以檢查 AI 摘要、關鍵字和建議。",
+      "summary": "人工智慧總結",
+      "keywords": "人工智慧關鍵字",
+      "classification": "AI分類",
+      "suggestedFolder": "AI建議資料夾",
+      "translation": "人工智慧翻譯",
+      "ocr": "人工智慧OCR",
+      "suggestedTags": "AI建議標籤",
+      "related": "人工智慧相關文檔",
+      "noRelated": "沒有索引相關文件。",
+      "duplicateOf": "AI重複檢測：可能的重複",
+      "noDuplicates": "AI 重複偵測：沒有標記近似重複。",
+      "sampleReady": "樣品準備好",
+      "notApplicable": "不適用",
+      "runSearch": "運行人工智慧搜尋",
+      "searchTitle": "AI搜尋未連接",
+      "noticeDefault": "AI功能僅限架構，無需即時模型呼叫。",
+      "searchUnavailable": "AI 搜尋不可用 — 語意索引未連接。以上範例見解是靜態的。",
+      "features": {
+        "summary": {
+          "title": "人工智慧總結",
+          "description": "每個模組的濃縮文件理解。"
+        },
+        "keywords": {
+          "title": "人工智慧關鍵字",
+          "description": "提取主題訊號用於搜尋和路由。"
+        },
+        "classification": {
+          "title": "AI分類",
+          "description": "類別/部門分類建議。"
+        },
+        "tags": {
+          "title": "AI建議標籤",
+          "description": "在不改變圖表的情況下標記推薦。"
+        },
+        "folder": {
+          "title": "AI建議資料夾",
+          "description": "智慧放置到嵌套資料夾中。"
+        },
+        "related": {
+          "title": "人工智慧相關文檔",
+          "description": "繪製整個知識中心的鄰居圖。"
+        },
+        "duplicate": {
+          "title": "AI重複偵測",
+          "description": "文檔庫的近似重複檢測。"
+        },
+        "translation": {
+          "title": "人工智慧翻譯",
+          "description": "翻譯準備標誌 - 沒有即時模型。"
+        },
+        "ocr": {
+          "title": "人工智慧OCR",
+          "description": "OCR 管道保留用於掃描和 PDF。"
+        },
+        "search": {
+          "title": "人工智慧搜尋",
+          "description": "語義搜尋為將來的索引保留。"
+        }
+      }
+    },
+    "status": {
+      "draft": "草稿",
+      "in_review": "審核中",
+      "approved": "得到正式認可的",
+      "rejected": "被拒絕",
+      "archived": "已存檔"
+    },
+    "fileType": {
+      "pdf": "PDF",
+      "word": "單字",
+      "excel": "Excel",
+      "powerpoint": "微軟幻燈片軟體",
+      "image": "影像",
+      "video": "影片",
+      "audio": "錄音檔",
+      "markdown": "降價",
+      "text": "文字",
+      "json": "JSON",
+      "csv": "CSV",
+      "other": "其他"
+    },
+    "share": {
+      "private": "私人的",
+      "organization": "組織",
+      "department": "科別",
+      "specific_users": "特定用戶",
+      "public_link": "公開連結"
+    },
+    "module": {
+      "crm": "客戶關係管理",
+      "finance": "金融",
+      "automation": "自動化",
+      "creator": "創作人工作室",
+      "hr": "未來人力資源",
+      "projects": "未來的項目"
+    },
+    "knowledgeKind": {
+      "article": "文章",
+      "policy": "政策",
+      "process": "過程",
+      "manual": "手動的",
+      "faq": "常問問題",
+      "wiki": "內部Wiki"
+    },
+    "integrationStatus": {
+      "connected": "已連接",
+      "beta": "貝塔",
+      "coming_soon": "即將推出",
+      "disabled": "殘障人士",
+      "planned": "計劃"
+    },
+    "bytes": {
+      "b": "{value} B",
+      "kb": "{value} KB",
+      "mb": "{value} MB",
+      "gb": "{value} GB"
+    }
+  },
+  "landing": {
+    "skipToProduct": "跳至產品",
+    "nav": {
+      "ariaPrimary": "基本的",
+      "product": "產品",
+      "platform": "平台",
+      "pricing": "定價",
+      "sales": "銷售量",
+      "getStarted": "開始使用",
+      "signIn": "登入",
+      "startFree": "免費開始",
+      "openMenu": "開啟選單",
+      "closeMenu": "關閉選單"
+    },
+    "hero": {
+      "brand": "愛格索拉",
+      "headline": "智慧業務作業系統。",
+      "subtitle": "在一個平靜的指揮中心連接客戶、財務、文件和人工智慧——專為需要清晰度而不是另一個工具堆疊的創始人和運營商而構建。",
+      "ctaStart": "免費開始",
+      "ctaExplore": "看看它是如何工作的",
+      "globeAria": "全球情報視覺化"
+    },
+    "trust": {
+      "ariaLabel": "為什麼選擇 AGXORA",
+      "eyebrow": "作為一個系統構建",
+      "signals": {
+        "unified": {
+          "title": "統一工作空間",
+          "detail": "CRM、財務和文件結合在一起"
+        },
+        "intelligence": {
+          "title": "受治理的人工智慧",
+          "detail": "真實工作流程中的協助"
+        },
+        "clarity": {
+          "title": "操作清晰度",
+          "detail": "更少的切換。更快的決策。"
+        },
+        "path": {
+          "title": "清除擴展路徑",
+          "detail": "開始免費。準備好了就成長。"
+        }
+      }
+    },
+    "product": {
+      "title": "AGXORA 工作區內部",
+      "lead": "命令中心的說明性產品預覽 - 連接您已在 AGXORA 中使用的模組。",
+      "chromePath": "agxora.app / 儀表板",
+      "railAria": "預覽導航",
+      "railBrand": "愛格索拉",
+      "navCommand": "命令",
+      "navAi": "人工智慧",
+      "navAutomation": "自動化",
+      "navAnalytics": "分析",
+      "navIntegrations": "串接",
+      "stageTitle": "指揮中心",
+      "stageBadge": "說明性的",
+      "moduleCustomers": "顧客",
+      "moduleFinance": "金融",
+      "moduleDocuments": "文件",
+      "moduleAi": "人工智慧助手"
+    },
+    "platform": {
+      "ariaLabel": "產品故事",
+      "story": {
+        "fragmented": {
+          "title": "工作碎片化",
+          "statement": "工具可以分散整個企業的注意力。",
+          "detail": "客戶在一處，發票在另一處，文件在別處——決策速度變慢。"
+        },
+        "connect": {
+          "title": "1個操作面",
+          "statement": "AGXORA 將業務連接到一個工作空間。",
+          "detail": "CRM、財務、文件和人工智慧共用同一個指揮中心，而不是一堆單獨的應用程式。"
+        },
+        "understand": {
+          "title": "商業智能",
+          "statement": "背景與工作保持一致。",
+          "detail": "使用基於您工作空間的受治理人工智慧進行詢問、搜尋和操作，而不是通用演示。"
+        },
+        "execute": {
+          "title": "邁向自治",
+          "statement": "通往自主商業操作系統的道路。",
+          "detail": "今天：一個互聯的作業系統。未來：更深入的客服人員和自動化—在出貨時誠實地交付。"
+        }
+      }
+    },
+    "close": {
+      "title": "開始免費。準備好後進行縮放。",
+      "lead": "建立工作區並探索命令中心。",
+      "ctaStart": "免費開始",
+      "ctaPricing": "查看定價",
+      "ctaSales": "聯繫銷售人員"
+    },
+    "footer": {
+      "ariaNav": "頁尾",
+      "ariaLegal": "合法的",
+      "product": "產品",
+      "platform": "平台",
+      "pricing": "定價",
+      "signIn": "登入",
+      "startFree": "免費開始",
+      "bookDemo": "預訂示範",
+      "contact": "接觸",
+      "contactSales": "聯繫銷售人員",
+      "privacy": "隱私",
+      "terms": "條款",
+      "cookies": "餅乾",
+      "imprint": "印記",
+      "copyright": "© {year} {company}"
+    },
+    "globeAria": "AGXORA AI CORE — 3D 地球儀"
+  },
+  "ui": {
+    "table": {
+      "noResults": "沒有結果",
+      "noResultsDescription": "沒有任何內容與目前過濾器相符。",
+      "previous": "以前的",
+      "next": "下一個",
+      "paginationRange": "{start}–{end}，共 {total}",
+      "sortAscending": "升序排序",
+      "sortDescending": "降序排序"
+    },
+    "dialog": {
+      "close": "關閉對話框"
+    },
+    "module": {
+      "notAvailableTitle": "{title} 尚不可用",
+      "notAvailableDescription": "這個模組外殼是為將來的版本準備的。這裡尚未儲存任何記錄。"
+    },
+    "states": {
+      "errorLabel": "錯誤",
+      "errorTitle": "出了點問題",
+      "errorDescription": "我們無法完成該請求。稍後再試一次。",
+      "retry": "重試"
+    },
+    "empty": {
+      "crmTitle": "您的CRM已準備就緒",
+      "crmDescription": "建立第一個客戶記錄以解鎖目錄、個人資料和活動。",
+      "crmAction": "開放式客戶關係管理",
+      "projectsTitle": "還沒有項目",
+      "projectsDescription": "啟動交付工作區來追蹤里程碑、預算和團隊所有權。",
+      "projectsAction": "打開項目",
+      "analyticsTitle": "分析等待訊號",
+      "analyticsDescription": "一旦您的工作區產生活動，執行 KPI 和警報就會出現在此。",
+      "analyticsAction": "開放分析",
+      "documentsTitle": "文件庫為空",
+      "documentsDescription": "上傳或建立知識資產以支援審批、版本和 AI 上下文。",
+      "documentsAction": "開啟文件",
+      "billingTitle": "還沒有帳單歷史記錄",
+      "billingDescription": "升級計劃以產生發票、續約和付款記錄。",
+      "billingAction": "開放式計費",
+      "agentsTitle": "沒有活躍的代理",
+      "agentsDescription": "從市場安裝或啟動代理程式以啟動自主運作。",
+      "agentsAction": "開放代理作業系統"
+    },
+    "yes": "是的",
+    "no": "不",
+    "dash": "—"
+  },
+  "projects": {
+    "page": {
+      "eyebrow": "專案管理作業系統",
+      "title": "專案",
+      "lead": "規劃交付、追蹤預算和運作狀況、分配團隊以及管理{organization}的任務。資料保留在本地並準備好用於後端連線。",
+      "yourOrganization": "你的組織"
+    },
+    "list": {
+      "errorTitle": "無法載入項目",
+      "searchLabel": "搜尋項目",
+      "searchPlaceholder": "搜尋項目、客戶、所有者、標籤…",
+      "viewCards": "牌",
+      "viewTable": "桌子",
+      "newProject": "新專案",
+      "statusFilter": "地位",
+      "priorityFilter": "優先順序高",
+      "customerFilter": "顧客",
+      "ownerFilter": "擁有者",
+      "allStatuses": "所有狀態",
+      "allPriorities": "所有優先事項",
+      "allCustomers": "所有客戶",
+      "allOwners": "所有所有者",
+      "dateFrom": "從",
+      "dateTo": "到",
+      "emptyTitle": "還沒有項目",
+      "emptyDescription": "啟動交付工作區來追蹤里程碑、預算和團隊所有權。",
+      "createProject": "創建專案",
+      "pagination": "顯示 {from}–{to}，共 {total}",
+      "previous": "以前的",
+      "next": "下一個",
+      "noDescription": "還沒有描述。",
+      "duePrefix": "Due {date}",
+      "openProject": "打開項目{name}",
+      "sortBy": "按{column}排序",
+      "sort": {
+        "name": "姓名",
+        "customer": "顧客",
+        "owner": "擁有者",
+        "status": "地位",
+        "priority": "優先順序高",
+        "progress": "進步",
+        "dueDate": "到期的",
+        "budget": "預算"
+      }
+    },
+    "form": {
+      "createTitle": "創建專案",
+      "editTitle": "編輯項目",
+      "cancel": "取消",
+      "saveChanges": "儲存變更",
+      "createProject": "創建專案",
+      "projectName": "項目名稱",
+      "customer": "顧客",
+      "projectOwner": "專案業主",
+      "priority": "優先順序高",
+      "status": "地位",
+      "budget": "預算",
+      "currency": "貨幣",
+      "startDate": "開始日期",
+      "dueDate": "到期日",
+      "color": "顏色",
+      "icon": "圖示",
+      "tags": "標籤",
+      "tagsHint": "逗號分隔",
+      "tagsPlaceholder": "企業、推出",
+      "budgetPlaceholder": "0",
+      "description": "描述",
+      "selectColor": "選擇顏色{color}"
+    },
+    "taskForm": {
+      "createTitle": "創建任務",
+      "editTitle": "編輯任務",
+      "cancel": "取消",
+      "saveChanges": "儲存變更",
+      "createTask": "創建任務",
+      "title": "標題",
+      "assignee": "受讓人",
+      "priority": "優先順序高",
+      "status": "地位",
+      "deadline": "最後期限",
+      "progress": "進步",
+      "labels": "標籤",
+      "labelsHint": "逗號分隔",
+      "description": "描述"
+    },
+    "deleteDialog": {
+      "title": "刪除項目",
+      "cancel": "取消",
+      "deletePermanently": "永久刪除",
+      "bodyPrefix": "這刪除了",
+      "thisProject": "這個項目",
+      "bodySuffix": "以及本地儲存中的所有相關任務、文件、註釋和活動。此操作無法撤銷。"
+    },
+    "badges": {
+      "progress": "進步",
+      "progressAria": "{label}：{value}%"
+    },
+    "status": {
+      "planning": "規劃",
+      "active": "積極的",
+      "on_hold": "等候接聽",
+      "completed": "完全的",
+      "archived": "已存檔"
+    },
+    "taskStatus": {
+      "todo": "待辦事項",
+      "in_progress": "進行中",
+      "review": "審查",
+      "done": "完畢"
+    },
+    "priority": {
+      "low": "低的",
+      "medium": "中等的",
+      "high": "高的",
+      "critical": "批判的"
+    },
+    "role": {
+      "owner": "擁有者",
+      "manager": "主管",
+      "member": "成員",
+      "viewer": "一般檢視"
+    },
+    "kind": {
+      "project": "專案",
+      "task": "任務",
+      "milestone": "里程碑"
+    },
+    "timeline": {
+      "noTimelineTitle": "沒有時間表",
+      "noTimelineDescription": "打開專案以查看計劃、持續時間和里程碑。",
+      "emptyTitle": "時間線為空",
+      "emptyDescription": "新增開始/截止日期和任務以填入時間表。",
+      "title": "時間軸",
+      "subtitle": "開始、結束、持續時間、裏程碑。相依性保留給未來的版本。",
+      "dateRange": "{start} → {end} · {days}d",
+      "itemAria": "{title} 從 {start} 到 {end}",
+      "dependenciesNone": "依賴關係：無"
+    },
+    "dashboard": {
+      "kpi": {
+        "activeProjects": "活躍專案",
+        "activeHint": "{planning}計劃",
+        "completed": "完全的",
+        "completedHint": "投資組合的 {percent}%",
+        "onHold": "等候接聽",
+        "onHoldHint": "{archived}已存檔",
+        "teamMembers": "團隊成員",
+        "teamHint": "跨所有項目",
+        "budgetOverview": "預算概覽",
+        "budgetHint": "已使用 {percent}% · 已花費 {spent}",
+        "openTasks": "開放任務",
+        "openTasksHint": "{overdue}逾期",
+        "projectHealth": "健康項目",
+        "healthHint": "綜合交付分數",
+        "upcomingDeadlines": "即將到來的截止日期",
+        "upcomingHint": "接下來 30 天"
+      },
+      "analytics": {
+        "title": "分析",
+        "subtitle": "投資組合的健康狀況、完成情況和預算使用情況。",
+        "statusMix": "狀態組合",
+        "deliverySignals": "傳遞訊號",
+        "completedPercent": "完全的 ％",
+        "budgetUsage": "預算使用情形",
+        "health": "健康",
+        "upcomingDeadlines": "即將到來的最後期限",
+        "noUpcomingDeadlines": "下一個視窗中沒有即將到來的截止日期。"
+      },
+      "recentActivity": {
+        "title": "近期动态",
+        "subtitle": "首先是最新的專案活動。",
+        "empty": "活動將在建立專案和任務時出現。"
+      }
+    },
+    "kanban": {
+      "emptyTitle": "板上沒有任務",
+      "emptyDescription": "建立任務以跨「待辦事項」、「進行中」、「審核」和「已完成」組織交付。",
+      "addTask": "新增任務",
+      "columnAria": "{status}列",
+      "taskProgress": "任務進度",
+      "edit": "編輯",
+      "complete": "已完成"
+    },
+    "detail": {
+      "notFoundTitle": "未找到項目",
+      "notFoundDescription": "該項目可能已被刪除或對於目前組織不可用。",
+      "backToProjects": "← 回傳項目",
+      "ownerMeta": "{customer}·所有者{owner}",
+      "edit": "編輯",
+      "delete": "刪除",
+      "sectionsAria": "項目細節部分",
+      "tabs": {
+        "overview": "概述",
+        "tasks": "任務",
+        "files": "文件",
+        "notes": "筆記",
+        "activity": "活動",
+        "team": "團隊",
+        "settings": "設定"
+      }
+    },
+    "overview": {
+      "missingTitle": "缺少項目",
+      "missingDescription": "選擇一個項目以查看其概述。",
+      "title": "概述",
+      "noDescription": "沒有提供描述。",
+      "budget": "預算",
+      "spent": "花費",
+      "start": "開始",
+      "due": "到期的",
+      "openTasks": "開放任務",
+      "completedTasks": "已完成的任務"
+    },
+    "tasks": {
+      "title": "工作管理",
+      "newTask": "新增工作",
+      "tableTitle": "標題",
+      "tableAssignee": "受讓人",
+      "tablePriority": "優先順序高",
+      "tableStatus": "地位",
+      "tableDue": "到期的",
+      "tableProgress": "進步",
+      "tableActions": "行動",
+      "edit": "編輯",
+      "complete": "已完成",
+      "delete": "刪除",
+      "emptyTitle": "還沒有任務",
+      "emptyDescription": "在看板上建立任務、分配所有者並追蹤進度。",
+      "createTask": "創建任務"
+    },
+    "files": {
+      "title": "文件管理器",
+      "description": "上傳影像、PDF 和 Office 文件。元資料保留在本地。",
+      "upload": "上傳",
+      "emptyTitle": "沒有上傳文件",
+      "emptyDescription": "新增專案工件供團隊查看和預覽。",
+      "preview": "預覽",
+      "metadataOnly": "僅元數據",
+      "delete": "刪除"
+    },
+    "notes": {
+      "editTitle": "編輯備註",
+      "newTitle": "新筆記",
+      "title": "標題",
+      "author": "作者",
+      "body": "內文",
+      "cancel": "取消",
+      "saveNote": "保存備註",
+      "emptyTitle": "還沒筆記",
+      "emptyDescription": "捕獲決策、會議結果和交付背景。",
+      "edit": "編輯",
+      "delete": "刪除"
+    },
+    "activity": {
+      "title": "活動動態",
+      "emptyTitle": "還沒有活動",
+      "emptyDescription": "當團隊工作時，專案事件將出現在此。"
+    },
+    "team": {
+      "missingTitle": "缺少項目",
+      "missingDescription": "選擇一個專案來管理團隊成員。",
+      "assignTitle": "指定成員",
+      "name": "姓名",
+      "email": "電子郵件",
+      "role": "角色",
+      "addMember": "新增會員",
+      "teamTitle": "團隊",
+      "remove": "移除"
+    },
+    "settings": {
+      "missingTitle": "缺少項目",
+      "missingDescription": "選擇一個項目來管理設定。",
+      "title": "項目設定",
+      "description": "更新預算消耗和存檔狀態。完整欄位編輯使用「編輯」對話方塊。",
+      "spentAmount": "消費金額",
+      "saveSpent": "節省花費",
+      "archiveProject": "存檔項目",
+      "editAllFields": "編輯所有字段"
+    },
+    "toasts": {
+      "projectCreated": "專案已建立",
+      "projectUpdated": "項目已更新",
+      "projectDeleted": "項目已刪除",
+      "checkForm": "檢查表格",
+      "validationFailed": "驗證失敗。",
+      "taskCreated": "任務已創建",
+      "taskUpdated": "任務已更新",
+      "taskCompleted": "任務完成",
+      "taskDeleted": "任務已刪除",
+      "filesUploaded": "文件已上傳",
+      "filesUploadedDetail": "{count} 個文件",
+      "fileDeleted": "文件已刪除",
+      "noteSaved": "註釋已儲存",
+      "memberAdded": "已新增成員",
+      "settingsSaved": "設定已儲存",
+      "projectArchived": "項目已存檔"
+    },
+    "validation": {
+      "nameRequired": "專案名稱為必填。",
+      "nameMin": "專案名稱至少 2 個字元。",
+      "customerRequired": "客戶為必填。",
+      "ownerRequired": "專案擁有者為必填。",
+      "priorityInvalid": "請選擇有效優先順序。",
+      "statusInvalid": "請選擇有效狀態。",
+      "currencyInvalid": "請選擇有效貨幣。",
+      "budgetInvalid": "預算必須為非負數。",
+      "startDateRequired": "開始日期為必填。",
+      "startDateInvalid": "請輸入有效的開始日期。",
+      "dueDateInvalid": "請輸入有效的截止日期。",
+      "dueDateOrder": "截止日期必須不早於開始日期。",
+      "colorInvalid": "請選擇有效顏色。",
+      "iconInvalid": "請選擇有效圖示。",
+      "taskTitleRequired": "任務標題為必填。",
+      "progressRange": "進度必須介於 0 到 100。",
+      "memberNameRequired": "成員名稱為必填。",
+      "emailRequired": "電子郵件為必填。",
+      "emailInvalid": "請輸入有效的電子郵件地址。",
+      "roleInvalid": "請選擇有效角色。",
+      "noteTitleRequired": "備註標題為必填。",
+      "noteBodyRequired": "備註內容為必填。",
+      "authorRequired": "作者為必填。"
+    }
+  },
+  "automation": {
+    "enginePage": {
+      "sectionTitle": "AGXORA自動化操作系統",
+      "title": "自動化",
+      "subtitle": "企業人工智慧工作流程和自動化引擎——CRM、財務、Creator Studio 和每個未來 AGXORA 模組的結締組織。",
+      "loadingHistory": "正在載入工作流程歷史記錄...",
+      "loadingTemplates": "正在載入模板庫...",
+      "loadingIntegrations": "正在加載集成中心...",
+      "dashboard": "儀表板",
+      "workflowBuilder": "工作流程產生器",
+      "workflowBuilderSubtitle": "基於節點的畫布，具有對齊網格、平滑縮放和平移、連接懸停和空狀態指導。",
+      "openAssistant": "開啟AI工作流程助手",
+      "workflowHistory": "工作流程歷史記錄",
+      "workflowHistorySubtitle": "具有彩色狀態、可點擊行和完整執行檢查器的執行日誌。",
+      "templates": "範本",
+      "templatesSubtitle": "載入前預覽—節點計數、難度、執行階段和建議使用案例。",
+      "integrationCenter": "整合中心",
+      "integrationCenterSubtitle": "僅適配器註冊表 - 已連接、測試版、已規劃、即將推出、已停用。沒有即時 API。"
+    },
+    "assistant": {
+      "title": "AI工作流程助手",
+      "subtitle": "僅本地啟發式 - 不需要即時模型。",
+      "closeAria": "關閉AI工作流程助手",
+      "close": "關閉",
+      "workflowScore": "工作流程分數",
+      "scoreOutOf": "/ 100",
+      "optimizationSuggestions": "優化建議",
+      "oneClickOptimize": "一鍵優化",
+      "noticeDefault": "一鍵優化還沒有圖形突變。",
+      "noticeQueued": "優化排隊。未來的引擎將重寫延遲和批准。"
+    },
+    "integrations": {
+      "intro": "整合中心—選用。狀態：已連線、測試版、已計劃、即將推出、已停用。沒有即時API。",
+      "category": "類別：",
+      "reservedAdapter": "預留適配器：",
+      "description": "說明："
+    },
+    "executionInspector": {
+      "title": "執行詳情",
+      "emptyTitle": "選擇執行",
+      "emptyDescription": "從工作流程歷程記錄中選擇一個運行，以檢查輸入、輸出和AI摘要。",
+      "workflowName": "工作流程名稱",
+      "trigger": "扳機",
+      "executionId": "執行ID",
+      "started": "開始",
+      "finished": "完成的",
+      "duration": "長度",
+      "status": "地位",
+      "success": "成功",
+      "failed": "失敗的",
+      "retryAvailable": "可以重試",
+      "executedBy": "執行者",
+      "yes": "是的",
+      "no": "不",
+      "emDash": "—",
+      "input": "流入",
+      "output": "輸出",
+      "aiSummary": "人工智慧總結",
+      "errorMessage": "錯誤訊息",
+      "retry": "重試",
+      "retryUnavailable": "無法重試",
+      "noticeDefault": "保留重試適配器—尚未實時重新執行。",
+      "noticeQueued": "重試排隊等待 {id}。"
+    },
+    "workflowBuilder": {
+      "elementsTitle": "工作流程元素",
+      "paletteAria": "調色盤",
+      "tabElements": "元素",
+      "tabTriggers": "觸發器",
+      "tabActions": "行動",
+      "tabAiActions": "人工智慧行動",
+      "builderTitle": "工作流程產生器·{name}",
+      "builderHint": "對齊 {grid}px 網格 · ⌘/Ctrl+滾動縮放 · 拖動畫布進行平移 · 雙擊連接",
+      "autoSaved": "自動儲存",
+      "saving": "儲存中…",
+      "undo": "撤銷",
+      "redo": "重做",
+      "zoomOut": "-",
+      "zoomIn": "+",
+      "resetView": "重置視圖",
+      "emptyTitle": "空白畫布",
+      "emptyDescription": "從調色板中拖曳觸發器開始建置。對齊網格使節點保持對齊。",
+      "connectHint": "雙擊目標進行連接",
+      "miniMapAria": "小地圖"
+    },
+    "workflowHistory": {
+      "title": "工作流程歷史·執行日誌",
+      "statusFilter": "地位",
+      "statusAll": "全部",
+      "statusSuccess": "成功",
+      "statusFailed": "失敗的",
+      "statusPending": "待辦的",
+      "statusRetried": "重試",
+      "statusRunning": "跑步",
+      "runsAria": "工作流程運行",
+      "noMatches": "沒有符合此篩選條件的工作流程執行。"
+    },
+    "miniPreview": {
+      "emptyWorkflow": "空工作流程"
+    },
+    "workflowTemplates": {
+      "title": "範本庫",
+      "noticeDefault": "在將模板載入到建構器之前預覽模板。",
+      "noticeLoaded": "已將“{name}”載入到工作流程建構器中。",
+      "nodesBadge": "{count} 個節點",
+      "recommendedFor": "推薦用於：{for}",
+      "preview": "預覽",
+      "useTemplate": "使用模板",
+      "previewTitle": "模板預覽",
+      "close": "關閉",
+      "nodes": "節點",
+      "connections": "連接",
+      "estimatedRuntime": "預計運行時間",
+      "difficulty": "困難",
+      "requiredModules": "所需模組",
+      "usedAiFeatures": "已使用的人工智能功能",
+      "none": "沒有任何"
+    },
+    "workspace": {
+      "loading": "正在加載自動化引擎...",
+      "eyebrow": "工作流程自動化引擎",
+      "title": "自動化",
+      "subtitle": "跨 CRM、專案、財務、文件和 AI 的可設定業務工作流程 — 本地事件匯流排和瀏覽器內引擎。分散式佇列和後端工作人員未連線。",
+      "noticeDefault": "執行引擎與使用者介面無關。模組發佈事件；工作流程訂閱。",
+      "tabs": {
+        "dashboard": "儀表板",
+        "workflows": "工作流程",
+        "editor": "編輯",
+        "history": "歷史",
+        "templates": "範本",
+        "analytics": "分析",
+        "settings": "設定"
+      },
+      "notice": {
+        "missingWrite": "缺少工作流程.寫入權限。",
+        "missingExecute": "缺少工作流程.執行權限。",
+        "created": "已建立{name}",
+        "templateApplied": "應用的模板：{name}",
+        "runResult": "運行{status}（{duration}毫秒）",
+        "runFailed": "工作流無法運行（已禁用或缺失）。",
+        "publishedEvent": "已發佈的網域事件：{type}",
+        "workflowStatus": "工作流程{status}",
+        "saved": "工作流程已保存",
+        "retryResult": "重試{status}",
+        "retryFailed": "重試失敗",
+        "settingsSaved": "已儲存自動化設定"
+      },
+      "defaults": {
+        "untitledName": "無標題工作流程",
+        "untitledDescription": "草稿工作流程 — 設定觸發器和操作。"
+      },
+      "dashboard": {
+        "workflows": "工作流程",
+        "active": "積極的",
+        "runsToday": "今天運行",
+        "successRate": "八、檢查成功率",
+        "recentWorkflows": "最近的工作流程",
+        "newWorkflow": "新的工作流程",
+        "eventBusDemo": "事件總線演示",
+        "eventBusHint": "發布模組事件。具有匹配觸發器的活動工作流程會自動排隊。",
+        "notifications": "通知"
+      },
+      "workflowList": {
+        "title": "工作流程清單",
+        "newWorkflow": "新的工作流程",
+        "emptyTitle": "還沒有工作流程。",
+        "emptyDescription": "建立工作流程或從範本開始。",
+        "columns": {
+          "name": "姓名",
+          "status": "地位",
+          "nodes": "節點",
+          "updated": "已更新",
+          "actions": "行動"
+        },
+        "run": "跑步",
+        "disable": "停用",
+        "activate": "啟用設定"
+      },
+      "editor": {
+        "selectPrompt": "選擇或建立要編輯的工作流程。",
+        "workflows": "工作流程",
+        "title": "工作流程編輯器",
+        "hint": "架構支援觸發→條件→動作→延遲→分支→循環。畫布拖放可以插入節點位置，無需更改引擎。",
+        "name": "姓名",
+        "description": "描述",
+        "trigger": "扳機",
+        "primaryAction": "主要行動",
+        "executionPath": "執行路徑預覽",
+        "save": "節省",
+        "runNow": "立即運行",
+        "triggerFallback": "扳機",
+        "actionFallback": "操作"
+      },
+      "history": {
+        "title": "執行歷史",
+        "emptyTitle": "尚未執行死刑。",
+        "emptyDescription": "執行工作流程或發佈網域事件。",
+        "latestRun": "最新運行詳情",
+        "path": "路徑：{path}",
+        "error": "· 錯誤：{error}",
+        "columns": {
+          "workflow": "工作流程",
+          "status": "地位",
+          "triggeredBy": "觸發由",
+          "duration": "長度",
+          "started": "開始",
+          "retry": "重試"
+        },
+        "retry": "重試",
+        "emDash": "—"
+      },
+      "templates": {
+        "useTemplate": "使用模板"
+      },
+      "analytics": {
+        "totalWorkflows": "總工作流程",
+        "activeWorkflows": "有效的工作流程",
+        "executionsToday": "今天執行死刑",
+        "successRate24h": "成功率（24小時）",
+        "failed24h": "失敗（ 24小時）",
+        "avgDuration": "平均持續時間"
+      },
+      "settings": {
+        "title": "自動化設定",
+        "subtitle": "分散式執行的重試策略、執行限制、並發、逾時和日誌記錄。",
+        "maxRetryAttempts": "最大重試次數",
+        "backoffMs": "退避（毫秒）",
+        "executionsPerHour": "執行次數/小時",
+        "concurrencyLimit": "並發限制",
+        "timeoutMs": "超時（毫秒）",
+        "logLevel": "日誌等級",
+        "logLevels": {
+          "error": "錯誤",
+          "warn": "警告",
+          "info": "資訊",
+          "debug": "偵錯"
+        },
+        "saveSettings": "儲存設定"
+      }
+    },
+    "status": {
+      "connected": "已連線",
+      "beta": "測試版",
+      "comingSoon": "即將推出",
+      "disabled": "已停用",
+      "planned": "已規劃",
+      "success": "成功",
+      "failed": "失敗",
+      "running": "執行中",
+      "pending": "待處理",
+      "retried": "重試"
+    },
+    "difficulty": {
+      "starter": "入門",
+      "intermediate": "中級",
+      "advanced": "進階"
+    },
+    "catalog": {
+      "el-trigger": {
+        "label": "觸發器",
+        "description": "在事件觸發時啟動"
+      },
+      "el-condition": {
+        "label": "條件",
+        "description": "依規則分支"
+      },
+      "el-delay": {
+        "label": "延遲",
+        "description": "繼續前等待"
+      },
+      "el-approval": {
+        "label": "核准",
+        "description": "人工核准關卡"
+      },
+      "el-loop": {
+        "label": "迴圈",
+        "description": "走訪集合"
+      },
+      "el-merge": {
+        "label": "合併",
+        "description": "合併平行路徑"
+      },
+      "el-split": {
+        "label": "拆分",
+        "description": "扇出平行路徑"
+      },
+      "el-ai-decision": {
+        "label": "AI 決策",
+        "description": "透過 AI 路由"
+      },
+      "el-notification": {
+        "label": "通知",
+        "description": "應用程式內提醒"
+      },
+      "el-webhook": {
+        "label": "Webhook 預留",
+        "description": "已預留 HTTP 回呼"
+      },
+      "el-custom": {
+        "label": "自訂動作",
+        "description": "可擴充動作槽"
+      },
+      "tr-customer": {
+        "label": "客戶已建立",
+        "description": "已建立 CRM 客戶紀錄"
+      },
+      "tr-lead": {
+        "label": "潛在客戶已建立",
+        "description": "新潛在客戶進入管道"
+      },
+      "tr-invoice": {
+        "label": "發票已建立",
+        "description": "已開立財務發票"
+      },
+      "tr-invoice-paid": {
+        "label": "發票已付款",
+        "description": "付款已結清"
+      },
+      "tr-order": {
+        "label": "訂單已建立",
+        "description": "訂單已登錄"
+      },
+      "tr-order-done": {
+        "label": "訂單已完成",
+        "description": "訂單已履約"
+      },
+      "tr-doc": {
+        "label": "文件已上傳",
+        "description": "文件庫上傳"
+      },
+      "tr-campaign": {
+        "label": "活動已發佈",
+        "description": "Creator Studio 發佈"
+      },
+      "tr-employee": {
+        "label": "員工已新增",
+        "description": "團隊目錄變更"
+      },
+      "tr-task": {
+        "label": "任務已完成",
+        "description": "任務已標為完成"
+      },
+      "tr-manual": {
+        "label": "手動觸發器",
+        "description": "按需執行"
+      },
+      "tr-schedule": {
+        "label": "排程觸發器",
+        "description": "Cron / 日曆排程"
+      },
+      "tr-webhook": {
+        "label": "Webhook 觸發器",
+        "description": "傳入 HTTP 事件"
+      },
+      "tr-api": {
+        "label": "API 觸發器",
+        "description": "程式化啟動"
+      },
+      "ac-crm": {
+        "label": "建立 CRM 紀錄",
+        "description": "寫入 CRM 實體"
+      },
+      "ac-invoice": {
+        "label": "產生發票",
+        "description": "財務發票"
+      },
+      "ac-quote": {
+        "label": "產生報價",
+        "description": "建立報價文件"
+      },
+      "ac-delivery": {
+        "label": "產生送貨單",
+        "description": "送貨單"
+      },
+      "ac-task": {
+        "label": "建立任務",
+        "description": "開啟任務"
+      },
+      "ac-assign": {
+        "label": "指派員工",
+        "description": "轉給隊友"
+      },
+      "ac-email": {
+        "label": "傳送電子郵件",
+        "description": "外寄郵件"
+      },
+      "ac-notify": {
+        "label": "傳送通知",
+        "description": "應用程式內通知"
+      },
+      "ac-ai-summary": {
+        "label": "產生 AI 摘要",
+        "description": "彙整脈絡"
+      },
+      "ac-ai-content": {
+        "label": "產生 AI 內容",
+        "description": "Creator Studio 草稿"
+      },
+      "ac-update-customer": {
+        "label": "更新客戶",
+        "description": "修補更新 CRM 客戶"
+      },
+      "ac-update-status": {
+        "label": "更新狀態",
+        "description": "變更實體狀態"
+      },
+      "ac-pdf": {
+        "label": "匯出 PDF",
+        "description": "文件匯出"
+      },
+      "ac-future": {
+        "label": "未來 API 預留",
+        "description": "預留動作槽"
+      },
+      "ai-decision": {
+        "label": "AI 決策",
+        "description": "決定下一條路徑"
+      },
+      "ai-class": {
+        "label": "AI 分類",
+        "description": "對紀錄分類"
+      },
+      "ai-text": {
+        "label": "AI 文字產生",
+        "description": "產生文字"
+      },
+      "ai-translate": {
+        "label": "AI 翻譯",
+        "description": "翻譯內容"
+      },
+      "ai-email": {
+        "label": "AI 郵件回覆",
+        "description": "草擬回覆"
+      },
+      "ai-sum": {
+        "label": "AI 摘要",
+        "description": "濃縮脈絡"
+      },
+      "ai-rec": {
+        "label": "AI 建議",
+        "description": "建議後續步驟"
+      },
+      "ai-route": {
+        "label": "AI 路由",
+        "description": "路由至擁有者 / 佇列"
+      }
+    },
+    "triggers": {
+      "customer_created": {
+        "label": "客戶創建",
+        "description": "在建立 CRM 客戶記錄時觸發。"
+      },
+      "project_created": {
+        "label": "專案已建立",
+        "description": "在建立專案時觸發。"
+      },
+      "invoice_issued": {
+        "label": "已開立發票",
+        "description": "在開立發票時觸發。"
+      },
+      "task_completed": {
+        "label": "任務完成",
+        "description": "在任務標記為完成時觸發。"
+      },
+      "document_uploaded": {
+        "label": "文件已上傳",
+        "description": "在上傳文件時觸發。"
+      },
+      "user_invited": {
+        "label": "已邀請使用者",
+        "description": "在邀請團隊成員時觸發。"
+      },
+      "schedule": {
+        "label": "行程",
+        "description": "Cron／間隔排程觸發。"
+      },
+      "webhook": {
+        "label": "Webhook",
+        "description": "傳入 HTTP Webhook。"
+      },
+      "api_event": {
+        "label": "API 事件",
+        "description": "一般 API 網域事件。"
+      },
+      "ai_event": {
+        "label": "AI 事件",
+        "description": "AI 訊號（完成、洞察、代理步驟）。"
+      },
+      "manual": {
+        "label": "手動觸發",
+        "description": "依需求從自動化介面或 API 執行。"
+      }
+    },
+    "actions": {
+      "customer_create": {
+        "label": "創建客戶",
+        "description": "建立 CRM 客戶記錄。"
+      },
+      "customer_update": {
+        "label": "更新客戶",
+        "description": "更新客戶欄位。"
+      },
+      "project_create": {
+        "label": "創建專案",
+        "description": "從工作流程內容建立專案。"
+      },
+      "document_generate": {
+        "label": "產生文件",
+        "description": "從範本產生文件。"
+      },
+      "notification_send": {
+        "label": "傳送通知",
+        "description": "傳送應用程式內通知。"
+      },
+      "email_send": {
+        "label": "傳送電子郵件",
+        "description": "透過郵件服務將電子郵件加入佇列。"
+      },
+      "api_call": {
+        "label": "呼叫 API",
+        "description": "對內部或外部 API 發出 HTTP 呼叫。"
+      },
+      "ai_run": {
+        "label": "執行 AI",
+        "description": "使用內容執行 AI 提示／代理步驟。"
+      },
+      "task_assign": {
+        "label": "指派任務",
+        "description": "將任務指派給使用者。"
+      },
+      "invoice_create": {
+        "label": "建立發票",
+        "description": "建立財務發票。"
+      },
+      "status_update": {
+        "label": "更新狀態",
+        "description": "更新模組中實體的狀態。"
+      }
+    }
+  },
+  "team": {
+    "page": {
+      "eyebrow": "身份和訪問",
+      "title": "團隊",
+      "lead": "{organization} 的成員、角色和邀請。為未來的身份 API 做好架構準備。",
+      "yourOrganization": "你的組織"
+    },
+    "invite": {
+      "title": "透過電子郵件邀請",
+      "email": "電子郵件",
+      "emailPlaceholder": "同事@company.com",
+      "role": "角色",
+      "submit": "邀請",
+      "created": "邀請已建立（待處理）。",
+      "failed": "邀請失敗",
+      "signInFirst": "首先登入並啟動組織。",
+      "noPermission": "缺少權限 - 需要管理員或經理邀請。"
+    },
+    "roles": {
+      "title": "角色",
+      "owner": {
+        "name": "擁有者",
+        "description": "全面的組織控制，包括設定和計費。"
+      },
+      "admin": {
+        "name": "行政",
+        "description": "管理財務、自動化、團隊和工作區模組。"
+      },
+      "manager": {
+        "name": "主管",
+        "description": "領導 CRM、專案、文件和創作者營運。"
+      },
+      "employee": {
+        "name": "員工",
+        "description": "日常 CRM、文件、創建者和專案存取。"
+      },
+      "guest": {
+        "name": "客人",
+        "description": "文件和項目的讀取權限有限。"
+      },
+      "viewer": {
+        "name": "一般檢視",
+        "description": "對共享模組的唯讀存取。"
+      }
+    },
+    "members": {
+      "title": "會員",
+      "columnMember": "成員",
+      "columnEmail": "電子郵件",
+      "columnRole": "角色",
+      "columnStatus": "地位",
+      "roleFor": "{name} 的角色",
+      "emptyTitle": "還沒有會員",
+      "emptyDescription": "邀請同事加入此組織工作區。",
+      "updated": "將 {name} 更新為 {role}",
+      "roleChangeFailed": "角色變更失敗"
+    },
+    "pending": {
+      "title": "待處理的邀請",
+      "emptyTitle": "沒有待處理的邀請",
+      "emptyDescription": "新邀請將顯示在此處，直至被接受或過期。",
+      "expires": "{role} · 到期於 {date}",
+      "revoke": "撤銷",
+      "pending": "待辦的"
+    },
+    "history": {
+      "title": "邀請歷史",
+      "empty": "已接受、已過期和已撤銷的邀請將顯示在此。"
+    },
+    "status": {
+      "accepted": "公認",
+      "expired": "已到期",
+      "revoked": "撤銷",
+      "active": "積極的",
+      "inactive": "不活躍的",
+      "pending": "待辦的"
+    }
+  },
+  "customers": {
+    "page": {
+      "sectionTitle": "客戶管理",
+      "title": "顧客",
+      "lead": "建立、編輯、搜尋和管理 {organization} 的客戶記錄。",
+      "yourOrganization": "你的組織"
+    },
+    "table": {
+      "columns": {
+        "company": "公司",
+        "email": "電子郵件",
+        "location": "地點",
+        "status": "地位",
+        "updated": "已更新",
+        "actions": "行動"
+      },
+      "view": "看法",
+      "edit": "編輯",
+      "delete": "刪除",
+      "viewAria": "查看{company}",
+      "editAria": "編輯{company}",
+      "deleteAria": "刪除{company}",
+      "loading": "正在加載客戶...",
+      "errorLoad": "無法載入顧客",
+      "errorGeneric": "出了點問題",
+      "emptyFilteredTitle": "沒有匹配的客戶",
+      "emptyFilteredDescription": "嘗試調整搜尋或過濾器。",
+      "emptyTitle": "還沒有客戶",
+      "emptyDescription": "建立您的第一個客戶以開始管理您的帳戶。",
+      "searchLabel": "搜尋客戶",
+      "searchPlaceholder": "公司、聯絡人、電子郵件、城市、標籤…",
+      "statusFilter": "地位",
+      "tagFilter": "標籤",
+      "allStatuses": "所有狀態",
+      "allTags": "所有標籤",
+      "clearFilters": "清除過濾器",
+      "addCustomer": "新增客戶"
+    },
+    "status": {
+      "active": "積極的",
+      "prospect": "前景",
+      "inactive": "不活躍",
+      "blocked": "被阻止"
+    },
+    "form": {
+      "editTitle": "編輯客戶",
+      "createTitle": "新增客戶",
+      "cancel": "取消",
+      "saveChanges": "儲存變更",
+      "createCustomer": "創建客戶",
+      "companyName": "公司名稱",
+      "contactPerson": "聯絡人",
+      "email": "電子郵件",
+      "status": "地位",
+      "statusAria": "客戶狀態",
+      "phone": "電話",
+      "mobile": "移動的",
+      "street": "地址１",
+      "postalCode": "郵遞區號",
+      "city": "城市",
+      "country": "國家",
+      "taxNumber": "稅號",
+      "vatId": "加值稅識別碼",
+      "tags": "標籤",
+      "tagsHint": "逗號分隔",
+      "tagsPlaceholder": "vip,零售,合作夥伴",
+      "notes": "客戶備註",
+      "updated": "客戶已更新",
+      "created": "客戶創建",
+      "checkForm": "檢查表格",
+      "validationFailed": "驗證失敗。"
+    },
+    "delete": {
+      "title": "刪除客戶",
+      "cancel": "取消",
+      "confirm": "刪除",
+      "confirmWithName": "永久刪除{company}？此操作無法撤銷。",
+      "confirmGeneric": "該客戶將永久刪除。",
+      "success": "顧客已刪除",
+      "failed": "刪除失敗",
+      "notFound": "未找到客戶或無法刪除客戶。",
+      "errorGeneric": "刪除時發生錯誤。"
+    },
+    "details": {
+      "titleFallback": "顧客",
+      "edit": "編輯",
+      "delete": "刪除",
+      "noTags": "沒有標籤",
+      "contact": "接觸",
+      "email": "電子郵件",
+      "phone": "電話",
+      "mobile": "移動的",
+      "address": "地址",
+      "taxNumber": "稅號",
+      "vatId": "加值稅識別碼",
+      "updated": "已更新",
+      "notes": "筆記",
+      "noNotes": "還沒有筆記。"
+    },
+    "validation": {
+      "companyRequired": "公司名稱為必填。",
+      "contactRequired": "聯絡人為必填。",
+      "emailRequired": "電子郵件為必填。",
+      "emailInvalid": "請輸入有效的電子郵件地址。",
+      "phoneRequired": "電話為必填。",
+      "phoneInvalid": "請輸入有效的電話號碼。",
+      "mobileInvalid": "請輸入有效的手機號碼。",
+      "statusInvalid": "請選擇有效狀態。",
+      "emailDuplicate": "已存在使用此電子郵件的客戶。",
+      "companyDuplicate": "已存在使用此公司名稱的客戶。"
+    }
+  },
+  "ai": {
+    "platform": {
+      "loading": "正在載入人工智慧平臺…",
+      "eyebrow": "AGXORA人工智慧平台",
+      "title": "企業人工智慧工作空間",
+      "subtitle": "針對客戶關係管理、專案、財務、文件和自動化的供應商獨立情報。在設定→AI中設定提供者。",
+      "newConversation": "新對話",
+      "aiCommands": "人工智慧命令"
+    },
+    "mobileTabs": {
+      "chat": "聊天",
+      "conversations": "對話",
+      "prompts": "提示"
+    },
+    "usageBar": {
+      "provider": "提供者",
+      "model": "模型",
+      "estimatedTokens": "預計。代幣",
+      "tokensInOut": "（輸入{in}/輸出{out}）",
+      "cost": "整軸線價格",
+      "context": "情境",
+      "contextNone": "沒有任何",
+      "emDash": "—"
+    },
+    "chatThread": {
+      "title": "AGXORA 人工智慧工作空間",
+      "emptyHint": "開始對話，從庫中選擇提示，或開啟指令選項板 (⌘⇧K / Ctrl⇧K)。"
+    },
+    "conversationSidebar": {
+      "title": "對話",
+      "new": "剛剛",
+      "searchPlaceholder": "搜尋聊天記錄...",
+      "searchAria": "搜尋對話",
+      "showArchived": "顯示已存檔",
+      "pinned": "已固定",
+      "emptyPreview": "空談",
+      "noConversations": "還沒有對話",
+      "pin": "別針",
+      "unpin": "取消固定",
+      "rename": "重新命名",
+      "archive": "檔案",
+      "unarchive": "取消歸檔",
+      "delete": "刪除"
+    },
+    "composer": {
+      "placeholder": "訊息 AGXORA AI…（Enter 發送，Shift+Enter 換行）",
+      "ariaLabel": "訊息編輯器",
+      "commandsShortcut": "指令 ⌘⇧K",
+      "stop": "停止",
+      "send": "傳送"
+    },
+    "messageBubble": {
+      "ellipsis": "……",
+      "copy": "複製",
+      "retry": "重試"
+    },
+    "typingIndicator": {
+      "ariaLabel": "助理正在打字"
+    },
+    "promptLibrary": {
+      "title": "提示庫",
+      "subtitle": "可在 CRM、專案、財務等領域重複使用的範本。",
+      "searchPlaceholder": "搜尋提示...",
+      "searchAria": "搜尋提示",
+      "all": "全部",
+      "favorites": "收藏夾",
+      "recent": "最近項目",
+      "library": "圖書館",
+      "noMatches": "沒有相符的提示",
+      "removeFavoriteAria": "刪除收藏夾",
+      "addFavoriteAria": "新增收藏夾",
+      "favorited": "已收藏",
+      "favorite": "最喜歡的",
+      "usePrompt": "使用提示"
+    },
+    "commandPalette": {
+      "ariaLabel": "AI指令面板",
+      "filterAria": "篩選AI指令",
+      "placeholder": "AI指揮…總結、建議、分析…",
+      "noMatches": "沒有符合的命令",
+      "footer": "透過 registerAiCommand 註冊未來的命令 — UI 保持不變。"
+    },
+    "categories": {
+      "crm": "CRM",
+      "projects": "專案",
+      "finance": "財務",
+      "marketing": "行銷",
+      "documents": "文件",
+      "automation": "自動化",
+      "general": "一般"
+    },
+    "library": {
+      "crm-summarize-customer": {
+        "title": "彙整客戶",
+        "description": "客戶關係的高階摘要"
+      },
+      "crm-follow-up-email": {
+        "title": "後續郵件",
+        "description": "草擬專業 CRM 後續"
+      },
+      "projects-analyze": {
+        "title": "分析專案",
+        "description": "專案健康檢查"
+      },
+      "projects-task-list": {
+        "title": "建立任務清單",
+        "description": "將工作拆成可執行任務"
+      },
+      "finance-explain-invoice": {
+        "title": "解釋發票",
+        "description": "淺白發票說明"
+      },
+      "finance-cashflow-brief": {
+        "title": "現金流簡報",
+        "description": "簡短現金流敘述"
+      },
+      "marketing-campaign-outline": {
+        "title": "活動大綱",
+        "description": "建構行銷活動結構"
+      },
+      "marketing-proposal": {
+        "title": "產生提案",
+        "description": "面向客戶的提案草稿"
+      },
+      "documents-summarize": {
+        "title": "彙整文件",
+        "description": "結構化文件摘要"
+      },
+      "automation-workflow": {
+        "title": "設計工作流程",
+        "description": "自動化工作流程草圖"
+      },
+      "general-brainstorm": {
+        "title": "腦力激盪選項",
+        "description": "結構化構思"
+      },
+      "general-explain": {
+        "title": "淺白解釋",
+        "description": "給利害關係人的清楚說明"
+      }
+    },
+    "commands": {
+      "cmd-summarize-customer": {
+        "label": "彙整客戶",
+        "description": "目前客戶的高階摘要"
+      },
+      "cmd-generate-proposal": {
+        "label": "產生提案",
+        "description": "草擬客戶提案大綱"
+      },
+      "cmd-analyze-project": {
+        "label": "分析專案",
+        "description": "專案健康與風險分析"
+      },
+      "cmd-create-task-list": {
+        "label": "建立任務清單",
+        "description": "將工作拆成可執行任務"
+      },
+      "cmd-generate-email": {
+        "label": "產生郵件",
+        "description": "草擬專業郵件"
+      },
+      "cmd-explain-invoice": {
+        "label": "解釋發票",
+        "description": "淺白發票說明"
+      }
+    }
+  },
+  "agents": {
+    "loading": "正在載入代理作業系統...",
+    "eyebrow": "人工智慧代理作業系統",
+    "title": "客服人員作業系",
+    "subtitle": "本地代理工作區 - 代理可以作為跨 CRM、專案、財務、工作流程和整合的模擬來啟動和運行。生產自主執行未連接。",
+    "noticeDefault": "本機代理程式作業系統—在此工作區中模擬執行。",
+    "aiChat": "人工智慧聊天",
+    "tabs": {
+      "dashboard": "儀表板",
+      "registry": "登記處",
+      "marketplace": "市場",
+      "monitor": "監視器",
+      "history": "歷史",
+      "memory": "記憶",
+      "knowledge": "知識",
+      "tools": "工具",
+      "settings": "設定"
+    },
+    "notice": {
+      "simulatedRun": "模擬運行 · {status} ({duration}ms)",
+      "taskFailed": "任務失敗",
+      "activated": "本地激活：{agentId}",
+      "agentPaused": "代理已暫停",
+      "agentActivated": "代理激活",
+      "taskCancelled": "任務已取消",
+      "supervisorDelegated": "主管委派跟進",
+      "settingsUpdated": "為此本地工作區更新了代理作業系統設定。"
+    },
+    "dashboard": {
+      "agents": "代理商",
+      "active": "積極的",
+      "localReady": "本地準備就緒",
+      "simulatedToday": "今天模擬",
+      "failedToday": "今天失敗了",
+      "avgExec": "平均執行次數",
+      "toolCalls": "工具調用",
+      "knowledge": "知識",
+      "activeFleet": "活躍機隊",
+      "emptyTitle": "沒有活躍的代理",
+      "emptyDescription": "從市場安裝或啟動代理以開始模擬運行。"
+    },
+    "registry": {
+      "title": "登記處",
+      "selectPrompt": "從登錄中選取客服人員。",
+      "status": "狀態：{status}",
+      "health": "健康：{health}",
+      "queue": "佇列： {queue}",
+      "usage": "用法：{usage}",
+      "executeTask": "執行任務",
+      "supervisorDelegate": "監事代表"
+    },
+    "marketplace": {
+      "tools": "工具：{tools}",
+      "installed": "已安裝",
+      "installActivate": "安裝並啟用"
+    },
+    "monitor": {
+      "title": "代理監控",
+      "emptyTitle": "沒有代理可以監控",
+      "emptyDescription": "從市場激活代理。",
+      "latestConfidence": "最新推理置信度：{confidence} — {steps}"
+    },
+    "history": {
+      "title": "執行歷史",
+      "emptyTitle": "尚未執行死刑",
+      "emptyDescription": "從登錄或監視器執行代理程式作業。"
+    },
+    "memory": {
+      "title": "記憶中心",
+      "subtitle": "工作·對話·業務·長期·工作空間·代理範圍（架構就緒）。",
+      "emptyTitle": "無記憶記錄",
+      "emptyDescription": "執行任務以填入工作/代理記憶體。"
+    },
+    "knowledge": {
+      "title": "知識中心",
+      "subtitle": "公司、文件、專案、CRM、政策、程序 — 以及向量/RAG 佔位符。",
+      "emptyTitle": "無知識文件",
+      "emptyDescription": "種子知識在工作區引導後出現。"
+    },
+    "tools": {
+      "sensitive": "· 敏感的",
+      "mcpReady": "· MCP 就緒"
+    },
+    "settings": {
+      "title": "客服人員作業系統設",
+      "defaultLlmProvider": "預設法學碩士提供者",
+      "enableSupervisor": "啟用主管代理架構",
+      "isolateSensitive": "隔離敏感工具",
+      "saveSettings": "儲存設定",
+      "providersHint": "準備就緒的供應商：OpenAI、Azure OpenAI、Anthropic、Gemini、Local、Ollama、MCP、Custom。透過 registerLlmProvider 交換適配器，無需更改 UI。"
+    },
+    "columns": {
+      "agent": "代理人",
+      "status": "地位",
+      "health": "健康",
+      "queue": "序列",
+      "usage": "用法",
+      "actions": "行動",
+      "task": "任務",
+      "duration": "長度",
+      "created": "已創建",
+      "scope": "範圍",
+      "key": "鑰匙",
+      "value": "價值",
+      "at": "於",
+      "title": "標題",
+      "kind": "種類",
+      "summary": "概括"
+    },
+    "actions": {
+      "run": "跑步",
+      "pause": "暫停",
+      "activate": "啟用設定",
+      "cancel": "取消",
+      "emDash": "—"
+    },
+    "goals": {
+      "executeBusiness": "執行 {agentId} 業務目標",
+      "planAndExecute": "規劃並執行工作區業務目標"
+    },
+    "os": {
+      "prioritizeCustomerImpact": "優先考量客戶影響",
+      "delegatedFollowUp": "已委派後續"
+    }
+  },
+  "integrations": {
+    "loading": "正在加載集成平台...",
+    "eyebrow": "企業整合平台",
+    "title": "整合中心",
+    "subtitle": "適用於 Microsoft 365、Google、Slack、CRM、儲存和自動化生態系統的連接器。此版本中的連接和同步是本地演示 - 未連接實時 OAuth。",
+    "noticeDefault": "本機示範連接器 - OAuth 和即時同步未連線。",
+    "settings": "設定",
+    "tabs": {
+      "dashboard": "儀表板",
+      "installed": "已安裝",
+      "available": "可用的",
+      "logs": "紀錄",
+      "apiKeys": "API 金鑰",
+      "webhooks": "網路鉤子",
+      "developer": "開發商"
+    },
+    "notice": {
+      "demoConnection": "示範連接：{name}（僅限本機存根）",
+      "connectFailed": "連線失敗",
+      "keyCreated": "建立的 API 金鑰：{prefix}",
+      "webhookCreated": "已建立網路鉤子：{name}",
+      "webhookTest": "Webhook 測試{status}",
+      "networkError": "API檔案總管網路錯誤： {message}",
+      "explorerError": "API 瀏覽器 → {status}：{message}",
+      "explorerSuccess": "API 瀏覽器 → {status}",
+      "explorerFailed": "資源管理器失敗",
+      "syncResult": "演示同步 · {status} ({records} 本地記錄) — 沒有傳輸外部資料。",
+      "diagnosed": "確診",
+      "removedConnection": "已刪除演示連接：{name}",
+      "keyRotated": "鑰匙旋轉",
+      "keyRevoked": "密鑰已撤銷",
+      "publishedEvent": "已發布{type}",
+      "developerSaved": "開發者設定已儲存"
+    },
+    "dashboard": {
+      "demoLinks": "示範連結",
+      "catalog": "目錄",
+      "api24h": "API（24小時）",
+      "webhooks24h": "Webhook（24 小時）",
+      "webhookFailures": "Webhook 失敗",
+      "syncJobs": "同步工作",
+      "conflicts": "衝突",
+      "errors": "錯誤",
+      "connectionStatus": "連線狀態",
+      "emptyTitle": "未安裝集成",
+      "emptyDescription": "瀏覽 可用於連線提供者。",
+      "eventBridgeDemo": "事件橋演示",
+      "eventBridgeHint": "將連接器事件發佈到工作流程自動化匯流排。",
+      "emit": "發出 {id}"
+    },
+    "installed": {
+      "title": "已安裝的集成",
+      "emptyTitle": "沒有安裝任何東西",
+      "emptyDescription": "從可用目錄安裝。",
+      "latestSync": "最新同步： {status} · {records}記錄·模式{mode}"
+    },
+    "available": {
+      "protocols": "協定：{protocols}",
+      "demoConnection": "示範連接",
+      "connectDemo": "連接（演示）",
+      "installDemo": "安裝演示"
+    },
+    "logs": {
+      "title": "整合日誌",
+      "emptyTitle": "還沒有日誌",
+      "emptyDescription": "連接提供者或運行診斷。"
+    },
+    "apiKeys": {
+      "title": "API 金鑰",
+      "generateKey": "產生金鑰",
+      "copyOnce": "立即複製（顯示一次）：{secret}",
+      "emptyTitle": "沒有 API 金鑰",
+      "emptyDescription": "產生用於 REST 網關存取的金鑰。"
+    },
+    "webhooks": {
+      "endpointsTitle": "Webhook 端點",
+      "urlPlaceholder": "https://…",
+      "addOutgoing": "添加傳出 webhook",
+      "emptyTitle": "沒有網路鉤子",
+      "emptyDescription": "建立傳出端點以測試傳遞。",
+      "deliveryLogs": "交貨日誌",
+      "deliveriesEmptyTitle": "沒有送貨",
+      "deliveriesEmptyDescription": "發送測試 Webhook 以填入日誌。"
+    },
+    "developer": {
+      "title": "開發者設定",
+      "sandboxMode": "測試模式",
+      "webhookSigning": "已啟用 Webhook 簽名",
+      "saveSettings": "儲存設定",
+      "apiDocs": "API 文件佔位符：{url}",
+      "sdk": "SDK 佔位符：{url}",
+      "explorerTitle": "API瀏覽器",
+      "gatewayRoutes": "網關路由：{routes}",
+      "sendGet": "發送獲取",
+      "oauthProviders": "OAuth 提供者",
+      "placeholdersHint": "GraphQL、WebSocket 和 gRPC 閘道路由註冊為佔位符。字段映射和同步衝突解決在架構上已準備好用於後端實現。"
+    },
+    "connectionStatus": {
+      "connected": "示範連接",
+      "pendingAuth": "待定（演示）",
+      "error": "錯誤",
+      "disabled": "殘障人士",
+      "installed": "已安裝",
+      "available": "可用的",
+      "localDemo": "本地演示"
+    },
+    "columns": {
+      "integration": "一體化",
+      "status": "地位",
+      "health": "健康",
+      "latency": "延遲",
+      "actions": "行動",
+      "when": "什麼時候",
+      "level": "等級",
+      "source": "來源",
+      "message": "訊息",
+      "name": "姓名",
+      "key": "鑰匙",
+      "scopes": "範圍",
+      "usage": "用法",
+      "direction": "方向",
+      "url": "網址",
+      "enabled": "啟用",
+      "event": "事件",
+      "attempt": "試圖"
+    },
+    "actions": {
+      "diagnose": "診斷",
+      "demoSync": "演示同步",
+      "demoSyncTitle": "僅示範同步 — 無外部傳輸",
+      "disconnect": "斷開",
+      "rotate": "旋轉",
+      "revoke": "撤銷",
+      "test": "測試",
+      "emDash": "—",
+      "yes": "是的",
+      "no": "不"
+    },
+    "errors": {
+      "failedToFetch": "獲取失敗",
+      "httpStatus": "HTTP {status}"
+    }
+  },
+  "intelligence": {
+    "loading": "正在載入企業智慧中心...",
+    "eyebrow": "企業智慧中心",
+    "title": "智力",
+    "subtitle": "每個 AGXORA 模組的 KPI、記分卡、警報和報告。以下值是即時分析後端連接之前的種子演示資料集。",
+    "demoBanner": "演示資料集 — 過濾並確認會話中的工作；導出和即時模型呼叫尚不可用。",
+    "noticeDefault": "顯示種子演示分析——而不是即時生產遙測。",
+    "noPermission": "您沒有此工作區的 Intelligence.read 權限。",
+    "filtersUpdated": "過濾器已更新",
+    "demoReloaded": "已為此工作區重新載入演示資料集。",
+    "acknowledged": "已確認：{title}",
+    "exportUnavailableTitle": "匯出不可用 — 報告產生尚未連線。",
+    "exportUnavailableAria": "將{title}匯出為{format} —無法使用",
+    "tabs": {
+      "executive": "管理人員",
+      "health": "商業健康",
+      "workspace": "分析",
+      "kpis": "關鍵績效指標中心",
+      "reports": "報告",
+      "insights": "深入解析",
+      "forecasts": "預測",
+      "alerts": "警報",
+      "scorecards": "記分卡",
+      "explorer": "資料瀏覽器"
+    },
+    "filters": {
+      "from": "從",
+      "to": "到",
+      "domain": "領域",
+      "allDomains": "所有域名",
+      "apply": "應用過濾器",
+      "reloadDemo": "重新載入演示數據",
+      "viewsAria": "情報觀點"
+    },
+    "executive": {
+      "companyHealth": "公司健康",
+      "revenueScore": "收入分數",
+      "customerHealth": "客戶健康",
+      "projectHealth": "專案健全度",
+      "workflowSuccess": "工作流程成功",
+      "aiActivity": "人工智慧活動",
+      "finance": "金融",
+      "riskGrowth": "風險/成長",
+      "kpiStrip": "執行 KPI 條",
+      "visualizationPreviews": "視覺化預覽",
+      "visualizationHint": "示範系列中的說明圖表 - 非互動式深入分析。",
+      "noSeries": "無系列綁定"
+    },
+    "health": {
+      "title": "業務健康分解",
+      "overall": "全面的",
+      "revenue": "收入",
+      "customers": "顧客",
+      "projects": "專案",
+      "workflows": "工作流程",
+      "ai": "人工智慧",
+      "finance": "金融",
+      "operations": "營運",
+      "riskPosture": "風險態勢",
+      "growth": "成長",
+      "observability": "可觀察性：{metrics} 指標 · {avgMs}ms 平均值 · 系統運作狀況 {health}"
+    },
+    "workspace": {
+      "noSeries": "無系列"
+    },
+    "kpis": {
+      "title": "關鍵績效指標中心",
+      "subtitle": "跨收入、客戶、專案、工作流程、代理商和自動化的可配置 KPI 目錄。",
+      "emptyTitle": "分析等待訊號",
+      "emptyDescription": "一旦您的工作區產生活動，執行 KPI 和警報就會出現在此。"
+    },
+    "reports": {
+      "title": "報告引擎",
+      "subtitle": "報告定義已播種以供審核。在連接報告後端之前，文件匯出不可用。",
+      "emptyTitle": "沒有報告",
+      "emptyDescription": "報告工作區引導程式上的種子。",
+      "scheduleOnDemand": "一經請求"
+    },
+    "insights": {
+      "emptyTitle": "還沒有任何見解",
+      "emptyDescription": "演示見解出現在工作區種子之後。即時 AI 洞察產生未連線。",
+      "badge": "演示 · {kind} · {domain} · conf {confidence}"
+    },
+    "forecasts": {
+      "emptyTitle": "還沒有預測",
+      "emptyDescription": "示範預測會顯示在種子之後。未連接預測模型。",
+      "title": "{kind} 預測",
+      "baseline": "基線 {baseline} → 預計 {projected} ({days}d)",
+      "confidence": "示範 · 信心 {confidence} — {note}"
+    },
+    "alerts": {
+      "title": "警報引擎",
+      "emptyTitle": "無警報",
+      "emptyDescription": "來自風險啟發的警報種子。",
+      "acked": "確認",
+      "open": "開立",
+      "acknowledge": "承認"
+    },
+    "scorecards": {
+      "title": "記分卡引擎",
+      "emptyTitle": "沒有計分卡",
+      "emptyDescription": "記分卡在引導程式上種子。"
+    },
+    "explorer": {
+      "title": "資料瀏覽器",
+      "searchPlaceholder": "搜尋演示行...",
+      "searchAria": "搜尋演示瀏覽器行",
+      "emptyTitle": "沒有行匹配",
+      "emptyDescription": "調整過濾器或搜索，或重新載入演示資料集。",
+      "hint": "用戶端對種子元組的搜尋 - 後端聚合和向下鑽取未連線。"
+    },
+    "columns": {
+      "kpi": "關鍵績效指標",
+      "value": "價值",
+      "delta": "Δ%",
+      "trend": "趨勢",
+      "target": "目標",
+      "severity": "嚴重性",
+      "alert": "警報",
+      "domain": "領域",
+      "status": "地位",
+      "actions": "行動",
+      "report": "報告",
+      "kind": "種類",
+      "schedule": "行程",
+      "export": "出口",
+      "scorecard": "記分卡",
+      "score": "分數",
+      "topDriver": "頂尖車手",
+      "label": "標籤",
+      "entity": "實體",
+      "measure": "测量",
+      "date": "日期"
+    },
+    "emDash": "—"
+  },
+  "legal": {
+    "shell": {
+      "brand": "愛格索拉",
+      "navLabel": "法律導航",
+      "lastUpdated": "最後更新：{date}",
+      "footerCopyright": "© 2026 {company}",
+      "footerNavLabel": "法律頁腳",
+      "nav": {
+        "privacy": "隱私",
+        "terms": "條款",
+        "cookies": "餅乾",
+        "imprint": "印記",
+        "contact": "接觸"
+      },
+      "footer": {
+        "home": "家",
+        "pricing": "定價",
+        "contact": "接觸"
+      }
+    },
+    "contact": {
+      "title": "接觸",
+      "eyebrow": "公司",
+      "introLead": "聯絡 AGXORA 團隊諮詢產品問題、支援或企業對話。更喜歡銷售路線？使用",
+      "contactSales": "聯繫銷售人員",
+      "companyEmail": "公司信箱",
+      "supportEmail": "支援電子郵件",
+      "sales": "銷售量",
+      "enterpriseForm": "企業形態",
+      "businessAddress": "營業地址",
+      "addressPending": "可依要求提供 — 設定 NEXT_PUBLIC_AGXORA_ADDRESS_* 以用於生產。",
+      "quickLinks": "快速連結",
+      "pricing": "定價",
+      "imprint": "印記",
+      "privacyPolicy": "隱私權政策"
+    },
+    "privacy": {
+      "title": "隱私權政策",
+      "eyebrow": "合法的",
+      "intro": "本隱私權政策解釋了當您造訪 {legalName}、建立帳戶或使用 AGXORA 平台時，{siteUrl}（「AGXORA」、「我們」）如何處理個人資料。",
+      "controller": "1.控制器",
+      "dataWeProcess": "2. 我們處理的數據",
+      "dataAccount": "帳戶資料：姓名、電子郵件、組織和角色。",
+      "dataUsage": "使用資料：產品互動、設備和診斷日誌。",
+      "dataBilling": "計費資料：來自提供者的計劃、發票和付款參考。",
+      "dataSupport": "支援您發送給我們的通信。",
+      "purposes": "3. 目的和法律依據",
+      "purposesBody": "我們處理資料是為了提供服務（合約）、保護平台（合法利益）、履行法律義務，並在需要時徵得您的同意（例如可選的分析或行銷）。",
+      "retention": "4. 保留",
+      "retentionBody": "我們僅在上述目的所需的時間內保留個人數據，包括法定保留帳單和安全記錄，然後將其刪除或匿名化。",
+      "sharing": "5. 分享",
+      "sharingBody": "我們根據適當的合約使用經過審查的處理商（託管、電子郵件、付款）。我們不會出售個人資料。",
+      "yourRights": "6. 您的權利",
+      "yourRightsBodyBefore": "根據您所在的位置，您可以要求存取、更正、刪除、限制、可移植或反對。接觸",
+      "yourRightsBodyAfter": "您也可以向監管機構提出投訴。",
+      "cookies": "7. 餅乾",
+      "cookiesBodyBefore": "看看我們的",
+      "cookiesBodyAfter": "有關基本和可選 cookie 的詳細資訊。",
+      "cookiePolicy": "Cookie 政策",
+      "contactSection": "8. 聯絡方式",
+      "contactBodyBefore": "問題：",
+      "contactBodyMiddle": "或"
+    },
+    "terms": {
+      "title": "服務條款",
+      "eyebrow": "合法的",
+      "intro": "本服務條款（「條款」）管轄對 AGXORA 產品和由 {legalName} 經營的網站的存取和使用。建立帳戶或使用服務即表示您同意這些條款。",
+      "accounts": "1. 帳戶",
+      "accountsBody": "您必須提供準確的註冊信息，保證憑證的安全，並對您帳戶下的活動負責。組織管理員管理其工作空間的席位和存取權限。",
+      "billing": "2. 訂閱和計費",
+      "billingBodyBefore": "付費方案根據所選方案進行計費",
+      "billingBodyAfter": "企業協議可以取代自助服務條款。除非法律要求或明確書面同意，否則費用將不予退還。",
+      "pricing": "定價",
+      "acceptableUse": "3. 可接受的用途",
+      "useNoMisuse": "請勿濫用平台、嘗試未經授權的存取或中斷服務。",
+      "useNoUnlawful": "請勿上傳非法內容或侵害第三人權利。",
+      "useCompliance": "遵守適用於您的出口、制裁和行業法規。",
+      "customerData": "4. 客戶數據",
+      "customerDataBodyBefore": "您保留對您的業務內容的權利。您授予 AGXORA 託管和處理該內容的有限許可，僅用於提供服務。我們的",
+      "customerDataBodyAfter": "描述個人資料處理。",
+      "privacyPolicy": "隱私權政策",
+      "aiFeatures": "5.人工智慧特點",
+      "aiFeaturesBody": "AI 輸出可能不準確或不完整。在依賴輸出做出業務決策之前，您仍然負責審查輸出。",
+      "availability": "6.可訂狀態與變更",
+      "availabilityBody": "我們的目標是高可用性，但不保證服務不間斷。我們可能會更新功能和這些條款；重大變更將在適當的情況下透過產品或電子郵件傳達。",
+      "liability": "7. 責任限制",
+      "liabilityBody": "在法律允許的最大範圍內，AGXORA 不對間接、偶然或後果性損害負責。我們對付費訂閱的總責任僅限於索賠前十二個月內支付的費用。",
+      "contact": "8. 聯絡方式",
+      "contactBodyBefore": "法律問題："
+    },
+    "cookies": {
+      "title": "Cookie 政策",
+      "eyebrow": "合法的",
+      "intro": "本 Cookie 政策描述了 {companyName} 如何使用 Cookie 和類似技術。身份驗證和安全性需要基本 cookie。僅在徵得同意的情況下才會啟用可選的分析 cookie。",
+      "whatAre": "1.什麼是cookies？",
+      "whatAreBody": "Cookie 是儲存在您裝置上的小檔案。它們可協助網站正常運行，記住偏好，並在允許的情況下衡量效能。",
+      "categories": "2. 我們使用的類別",
+      "essential": "基本的",
+      "essentialBody": "身份驗證、安全性、負載平衡和基本首選項。服務所需。",
+      "functional": "功能性",
+      "functionalBody": "可選功能，例如記憶的UI設定（啟用時）。",
+      "analytics": "分析",
+      "analyticsBody": "聚合使用量測量（僅在需要時徵得同意）。",
+      "managing": "3. 管理cookies",
+      "managingBody": "您可以透過瀏覽器設定以及我們的現場偏好中心（一旦可用）來控制非必要的 cookie。封鎖必要的 cookie 可能會阻止登入或核心產品的使用。",
+      "moreInfo": "4. 更多信息",
+      "moreInfoBodyBefore": "請參閱",
+      "moreInfoBodyMiddle": "或聯繫"
+    },
+    "imprint": {
+      "title": "印記",
+      "eyebrow": "合法的",
+      "intro": "根據適用的揭露要求提供的資訊。在公開發布之前使用 NEXT_PUBLIC_AGXORA_* 環境變數配置生產值。",
+      "company": "公司",
+      "address": "地址",
+      "email": "電子郵件",
+      "support": "支援",
+      "representedBy": "代表人",
+      "register": "登記",
+      "vatId": "加值稅識別碼",
+      "pendingConfiguration": "待定配置",
+      "responsibleForContent": "對內容負責",
+      "responsibleBody": "本網站的編輯聯絡人：{legalName}{addressSuffix}。",
+      "contact": "接觸",
+      "contactBodyBefore": "更喜歡表格？訪問",
+      "contactBodyMiddle": "或",
+      "contactBodyAfter": "用於企業查詢。",
+      "contactSales": "聯繫銷售人員"
+    }
+  },
+  "onboarding": {
+    "eyebrow": "AGXORA作業系統",
+    "title": "啟動您的企業作業系統",
+    "lead": "選擇您的行業模板。 AGXORA 可設定模組、代理商、工作流程和公司知識，而不會永遠將您鎖定在一個垂直領域。",
+    "steps": {
+      "type": "類型",
+      "company": "公司",
+      "locale": "語言環境",
+      "goals": "目标"
+    },
+    "companyName": "公司名稱",
+    "companyPlaceholder": "艾克美酒店集團",
+    "template": "您的模板已導入",
+    "country": "國家",
+    "language": "語言",
+    "languagePlaceholder": "zh",
+    "timezone": "時區",
+    "timezonePlaceholder": "世界標準時間",
+    "goals": {
+      "increaseRevenue": "增加收入",
+      "improveOperations": "改善營運",
+      "delightCustomers": "讓顧客滿意",
+      "reduceCosts": "降低成本",
+      "scaleWithAi": "利用人工智慧進行擴展"
+    },
+    "failed": "入職失敗",
+    "back": "後退",
+    "continue": "繼續",
+    "launching": "發射…",
+    "enterDashboard": "輸入儀表板",
+    "defaultCountry": "美國",
+    "businessTypes": {
+      "hotel": {
+        "label": "飯店",
+        "description": "飯店、客房、賓客與物業營運"
+      },
+      "restaurant": {
+        "label": "餐廳",
+        "description": "餐飲、廚房、訂位與賓客體驗"
+      },
+      "cleaning": {
+        "label": "清潔",
+        "description": "商業與住宅清潔營運"
+      },
+      "laundry": {
+        "label": "洗衣",
+        "description": "洗滌工廠、收件路線與紡織護理"
+      },
+      "construction": {
+        "label": "營建",
+        "description": "工地、班組、材料與專案交付"
+      },
+      "healthcare": {
+        "label": "醫療健康",
+        "description": "照護網絡、病人與臨床營運"
+      },
+      "medical": {
+        "label": "醫療",
+        "description": "診所、預約與照護團隊"
+      },
+      "manufacturing": {
+        "label": "製造",
+        "description": "生產線、品質與供應營運"
+      },
+      "retail": {
+        "label": "零售",
+        "description": "門市、庫存、陳列與客戶"
+      },
+      "legal": {
+        "label": "律師事務所",
+        "description": "案件、客戶、期限與計費"
+      },
+      "accounting": {
+        "label": "會計",
+        "description": "帳冊、客戶、申報與顧問工作"
+      },
+      "consulting": {
+        "label": "顧問",
+        "description": "專案、交付項目與客戶成果"
+      },
+      "real_estate": {
+        "label": "房地產",
+        "description": "物件、客戶、看屋與交易"
+      },
+      "education": {
+        "label": "教育",
+        "description": "學程、學生、教職員與招生"
+      },
+      "automotive": {
+        "label": "汽車",
+        "description": "經銷商、維修工位與車輛庫存"
+      },
+      "beauty": {
+        "label": "美容院",
+        "description": "預約、造型師、零售與會員"
+      },
+      "fitness": {
+        "label": "健身房 / 健身",
+        "description": "會員、課程、教練與留存"
+      },
+      "agriculture": {
+        "label": "農業",
+        "description": "作物、牲畜、產量與供應鏈"
+      },
+      "transport": {
+        "label": "運輸",
+        "description": "車隊調度、路線與客貨營運"
+      },
+      "logistics": {
+        "label": "物流",
+        "description": "車隊、倉儲、路線與履約"
+      },
+      "warehouse": {
+        "label": "倉儲",
+        "description": "倉儲、揀貨、包裝與庫存週轉"
+      },
+      "insurance": {
+        "label": "保險",
+        "description": "保單、理賠、核保與留存"
+      },
+      "finance": {
+        "label": "金融",
+        "description": "資本、投資組合與金融營運"
+      },
+      "financial_services": {
+        "label": "金融服務",
+        "description": "顧問、產品、合規與客戶"
+      },
+      "technology": {
+        "label": "科技",
+        "description": "產品、工程與上市團隊"
+      },
+      "saas": {
+        "label": "軟體 / SaaS",
+        "description": "訂閱、用量與客戶成功"
+      },
+      "ecommerce": {
+        "label": "電子商務",
+        "description": "線上型錄、購物車、履約與 LTV"
+      },
+      "agency": {
+        "label": "行銷公司",
+        "description": "客戶、活動、固定合約與交付"
+      },
+      "freelancer": {
+        "label": "自由工作者",
+        "description": "獨立執業、客戶、管道與現金流"
+      },
+      "government": {
+        "label": "政府",
+        "description": "公共服務、計畫與民眾"
+      },
+      "nonprofit": {
+        "label": "非營利",
+        "description": "使命、捐贈人、計畫與影響"
+      }
+    }
+  },
+  "creator": {
+    "page": {
+      "eyebrow": "AGXORA 行銷作業系統",
+      "title": "人工智慧創作工作室",
+      "lead": "企業內容製作－跨每個管道產生、品牌化、規劃、發布和衡量人工智慧驅動的活動。",
+      "dashboard": "儀表板",
+      "workspace": "工作空間",
+      "workspaceSubtitle": "創建內容·行銷活動·媒體庫·模板·品牌資產·發布隊列·分析",
+      "workspaceAria": "創作人工作空間",
+      "integrations": "未來的整合",
+      "integrationsSubtitle": "保留官方平台適配器－無虛假即時連線。",
+      "aiFeatures": "AI功能",
+      "aiFeaturesSubtitle": "生產、品牌、進度和在地化的能力圖。"
+    },
+    "tabs": {
+      "create": "創建內容",
+      "campaigns": "活動",
+      "media": "媒體庫",
+      "templates": "範本",
+      "brand": "品牌資產",
+      "queue": "發布隊列",
+      "analytics": "分析"
+    },
+    "templates": {
+      "emptyTitle": "沒有模板",
+      "emptyDescription": "可重複使用的內容和設計模板將位於此處。"
+    },
+    "campaign": {
+      "title": "活動策劃師",
+      "calendar": "內容日曆",
+      "columns": {
+        "name": "活動名稱",
+        "objective": "客觀的",
+        "audience": "受眾",
+        "platforms": "平台",
+        "budget": "預算",
+        "timeline": "時間軸",
+        "status": "地位"
+      },
+      "emptyTitle": "尚無廣告活動",
+      "emptyDescription": "建立活動來規劃目標、受眾和時間表。"
+    },
+    "media": {
+      "title": "媒體庫",
+      "columns": {
+        "asset": "資產",
+        "type": "類型",
+        "folder": "資料夾",
+        "tags": "標籤",
+        "updated": "已更新"
+      },
+      "emptyTitle": "沒有媒體",
+      "emptyDescription": "圖片、影片、文件、標誌和範本會顯示在此處。",
+      "searchPlaceholder": "搜尋資產、資料夾、標籤...",
+      "typeFilter": "類型",
+      "allTypes": "所有類型",
+      "images": "圖片",
+      "videos": "影片",
+      "documents": "文件",
+      "logos": "品牌標誌",
+      "templates": "範本"
+    },
+    "generator": {
+      "title": "人工智慧內容產生器",
+      "lead": "建立 Instagram 標題、TikTok 腳本、LinkedIn 貼文、廣告、SEO 文章等。",
+      "brief": "簡短的",
+      "briefPlaceholder": "描述優惠、受眾和 CTA…",
+      "generateDraft": "產生草稿",
+      "aiRewrite": "人工智慧重寫",
+      "translate": "翻譯",
+      "initialOutput": "選擇格式和品牌聲音，然後產生草稿。提供者適配器被保留——還沒有即時模型呼叫。",
+      "draftStaged": "為{format}暫存的草稿·語音： {voice}。已保留生成適配器。",
+      "rewriteQueued": "AI 重寫已排隊 — 保留重寫適配器。",
+      "translateQueued": "翻譯內容已佇列—保留多語言適配器。",
+      "brandVoice": "品牌聲音",
+      "brandVoiceLead": "商務語氣預設加上自訂品牌聲音以保持一致性。",
+      "active": "積極的"
+    },
+    "queue": {
+      "title": "發布隊列",
+      "columns": {
+        "title": "標題",
+        "platform": "平台",
+        "format": "格式",
+        "status": "地位",
+        "scheduled": "預定",
+        "author": "作者"
+      },
+      "emptyTitle": "隊列中沒有帖子",
+      "emptyDescription": "草稿、評論和預定帖子將顯示在此。",
+      "filterStatus": "過濾器狀態",
+      "allStatuses": "所有狀態"
+    },
+    "analytics": {
+      "title": "分析",
+      "topPosts": "熱門貼文",
+      "engagement": "ENG {value}",
+      "reach": "達到{value}",
+      "recommendations": "人工智慧建議"
+    },
+    "integrations": {
+      "lead": "未來的整合——可選。連線之前沒有即時 API。 Instagram、TikTok、YouTube、Facebook、LinkedIn、Pinterest、Threads、X、元業務、Google廣告、Google分析。",
+      "adapter": "適配器"
+    },
+    "aiFeaturesPanel": {
+      "lead": "AI 功能圖 — 想法、標題、主題標籤、日曆、活動、受眾、日程、品牌一致性、重寫、翻譯、多語言。"
+    },
+    "formats": {
+      "instagram_caption": "Instagram 說明",
+      "tiktok_script": "TikTok 腳本",
+      "linkedin_post": "LinkedIn 貼文",
+      "facebook_post": "Facebook 貼文",
+      "x_post": "X 貼文",
+      "blog_article": "部落格文章",
+      "newsletter": "電子報",
+      "email_campaign": "電子郵件活動",
+      "product_description": "產品說明",
+      "ad_copy": "廣告文案",
+      "seo_article": "SEO 文章",
+      "landing_page_copy": "登陸頁文案"
+    },
+    "publishStatus": {
+      "draft": "草稿",
+      "review": "審核",
+      "approved": "已核准",
+      "scheduled": "已排程",
+      "published": "已發佈",
+      "archive": "封存"
+    },
+    "mediaKind": {
+      "image": "圖片",
+      "video": "影片",
+      "document": "文件",
+      "logo": "品牌標誌",
+      "template": "範本"
+    },
+    "voice": {
+      "professional": "專業",
+      "friendly": "友善",
+      "luxury": "奢華",
+      "casual": "隨興"
+    },
+    "integrationStatus": {
+      "planned": "已規劃",
+      "ready": "就緒",
+      "connected": "已連線",
+      "disabled": "已停用"
+    }
+  },
+  "backend": {
+    "toast": {
+      "success": "成功",
+      "warning": "警告",
+      "error": "錯誤",
+      "info": "資訊",
+      "dismiss": "關閉通知",
+      "close": "關閉"
+    },
+    "network": {
+      "offline": "您似乎處於離線狀態",
+      "offlineSyncHint": "連線恢復前，變更可能不會同步。",
+      "offlineHelp": "離線說明",
+      "reconnected": "連線已恢復"
+    },
+    "errorBoundary": {
+      "backToDashboard": "返回儀表板",
+      "title": "出了點問題",
+      "retry": "重試"
+    },
+    "notFound": {
+      "title": "找不到頁面",
+      "message": "您請求的頁面不存在、已移動或不再可用。",
+      "recoveryNav": "恢復",
+      "home": "家",
+      "pricing": "定價",
+      "contact": "接觸",
+      "signIn": "登入",
+      "dashboard": "儀表板"
+    },
+    "globalError": {
+      "title": "出了點問題",
+      "message": "發生意外錯誤。請再試一次。",
+      "retry": "重試"
+    },
+    "skipToMain": "跳至主要內容",
+    "offline": {
+      "title": "您離線",
+      "message": "請檢查您的連線，並在重新上線後重試。快取螢幕仍可能正常運作。",
+      "home": "家",
+      "contact": "接觸",
+      "signIn": "登入"
+    },
+    "logout": {
+      "title": "登出",
+      "signingOut": "正在將您登出…",
+      "endingSession": "會議結束...",
+      "failed": "註銷失敗"
+    },
+    "demo": {
+      "title": "預約演示",
+      "subtitle": "與AGXORA團隊安排現場演練。在行事曆預訂啟用之前，請傳送電子郵件給我們以申請示範。",
+      "requestTitle": "請求演示",
+      "requestBody": "我們正在完成日程安排，以便您可以選擇適合您的團隊的時間。在此之前，您可以免費開始並按照自己的步調探索該產品，或發送電子郵件至 {email}。",
+      "startFree": "改為免費開始",
+      "backHome": "回到家",
+      "signIn": "登入"
+    },
+    "loading": "載入中",
+    "loadingEllipsis": "載入中…",
+    "loadingIdentity": "正在載入身分…"
+  },
+  "workspace": {
+    "page": {
+      "title": "工作空間",
+      "description": "用於模組和 AI 的獨立租戶工作區表面。",
+      "descriptionNamed": "{name} 的獨立租用戶工作區表面。"
+    },
+    "idLabel": "工作區 ID：",
+    "active": "活躍：{name}",
+    "notInSession": "不在目前會話中",
+    "organization": "組織：{name} ({slug})",
+    "searchResults": "搜尋結果"
+  },
+  "iam": {
+    "identity": {
+      "eyebrow": "企業身分管理",
+      "title": "身份和訪問",
+      "lead": "組織、工作區域、RBAC、安全佔位符和稽核架構。後端適配器插入時無需更改此表面。",
+      "openProfile": "打開個人資料",
+      "teamManagement": "團隊管理",
+      "tabs": {
+        "organization": "組織",
+        "workspace": "工作空間",
+        "roles": "角色和權限",
+        "security": "安全性",
+        "audit": "審核日誌"
+      },
+      "organizationSettings": "組織設定",
+      "workspaceSettings": "工作區設定",
+      "noOrganization": "沒有活躍的組織。完成入職培訓或從組織服務建立入職培訓。",
+      "logoPlaceholder": "徽標上傳和計劃計費適配器是未來身分後端的佔位符。",
+      "rbacTitle": "RBAC——預設角色",
+      "permissionMatrix": "權限矩陣",
+      "canManageSettings": "可以管理設定：{value} · 已驗證：{authenticated}",
+      "yes": "是的",
+      "no": "不",
+      "securitySettings": "安全設定",
+      "passwordChange": {
+        "title": "更改密碼",
+        "detail": "配置後，密碼變更將透過身份驗證提供者進行連線。"
+      },
+      "twoFactor": {
+        "title": "雙重認證 (2FA)",
+        "detail": "啓用時， TOTP和WebAuthn適配器在此注冊。"
+      },
+      "activeSessions": {
+        "title": "活躍會話",
+        "detail": "設備目錄存在於身分會話中；撤銷對於伺服器會話變得具有權威性。"
+      },
+      "apiKeys": {
+        "title": "API 金鑰",
+        "detail": "為開發人員提供的服務帳戶和範圍令牌。"
+      },
+      "absoluteTimeout": "絕對超時",
+      "idleTimeout": "空閒超時",
+      "refreshSkew": "刷新傾斜",
+      "persistentLogin": "持久登入",
+      "disabled": "殘障人士",
+      "enabled": "啟用",
+      "days": "{count} 天",
+      "minutes": "{count} 分鐘",
+      "toggleIdlePolicy": "切換空閒策略佔位符",
+      "previewSessionExpired": "預覽工作階段已過期",
+      "previewAccountLocked": "預覽帳戶已鎖定",
+      "auditActivity": "審計活動",
+      "auditLead": "登入、登出、角色變更、邀請和組織事件均記錄在本地。稍後替換為不可變的後端審核儲存。",
+      "auditEmpty": "還沒有 IAM 事件。登入或更改角色以填充日誌。",
+      "meta": {
+        "name": "姓名",
+        "slug": "蛞蝓",
+        "plan": "計劃",
+        "owner": "擁有者",
+        "created": "已創建",
+        "yourRole": "你的角色",
+        "workspace": "工作空間",
+        "status": "地位",
+        "isolationKey": "隔離鑰匙"
+      },
+      "matrix": {
+        "permission": "允許",
+        "owner": "擁有者",
+        "admin": "行政",
+        "manager": "主管",
+        "member": "成員",
+        "viewer": "一般檢視",
+        "yes": "是的"
+      },
+      "audit": {
+        "when": "什麼時候",
+        "action": "操作",
+        "actor": "演員",
+        "resource": "資源"
+      }
+    },
+    "roles": {
+      "owner": {
+        "name": "擁有者",
+        "description": "完全控制，包括計費和所有權轉讓"
+      },
+      "admin": {
+        "name": "行政",
+        "description": "管理人員、安全、工作區和模組"
+      },
+      "manager": {
+        "name": "主管",
+        "description": "領導團隊和營運模組；邀請會員"
+      },
+      "member": {
+        "name": "成員",
+        "description": "日常操作訪問"
+      },
+      "viewer": {
+        "name": "一般檢視",
+        "description": "只讀訪問"
+      }
+    },
+    "profile": {
+      "eyebrow": "身分",
+      "title": "使用者資料",
+      "lead": "管理您的帳戶身分、偏好和安全性。組織和工作區控制項位於「身分設定」中。",
+      "guest": "客人",
+      "notSignedIn": "未登入",
+      "identitySettings": "身份設定",
+      "security": "安全性",
+      "profileSection": "輪廓",
+      "fullName": "姓名",
+      "email": "電子郵件",
+      "language": "語言",
+      "timezone": "時區",
+      "languageEnGb": "英語 (UK)",
+      "languageEnUs": "英語（美國）",
+      "languageDe": "德文",
+      "timezoneBerlin": "歐洲/柏林",
+      "timezoneLondon": "歐洲／倫敦",
+      "timezoneUtc": "世界標準時間",
+      "timezoneNewYork": "美洲/紐約",
+      "notifications": "通知",
+      "emailNotifications": "電子郵件通知",
+      "pushNotifications": "推播通知",
+      "workspace": "工作空間",
+      "noticeInitial": "在連接設定檔 API 之前，首選項會儲存在本機。",
+      "noticeSaved": "個人資料偏好設定已更新。",
+      "savePreferences": "儲存首選項"
+    },
+    "workspaceSelector": {
+      "empty": "還沒有工作區 - 建立一個組織來配置工作區。",
+      "label": "活躍的工作空間",
+      "ariaLabel": "切換工作空間"
+    },
+    "access": {
+      "eyebrow": "身分與存取",
+      "signIn": "登入",
+      "backToDashboard": "返回儀表板",
+      "unauthorized": {
+        "title": "未授權",
+        "description": "請登入以繼續使用 AGXORA 的此區域。"
+      },
+      "forbidden": {
+        "title": "禁止存取",
+        "description": "您的角色不包含此資源的權限。"
+      },
+      "expired_session": {
+        "title": "工作階段已過期",
+        "description": "您的工作階段已過期。請重新登入以繼續工作。"
+      },
+      "missing_permission": {
+        "title": "缺少權限",
+        "description": "請請擁有者或管理員授予所需的模組存取權。"
+      },
+      "account_locked": {
+        "title": "帳戶已鎖定",
+        "description": "此帳戶已鎖定。請聯絡組織擁有者或稍後再試。"
+      }
+    },
+    "verifyEmail": {
+      "title": "電子郵件驗證",
+      "loading": "載入中…",
+      "skipForNow": "暫時跳過",
+      "tokenPlaceholder": "驗證令牌",
+      "tokenIssued": "為目前會話頒發的驗證令牌。",
+      "issueFailed": "無法發行權杖",
+      "verificationFailed": "驗證失敗",
+      "verify": "驗證信箱",
+      "verifying": "正在驗證...",
+      "requestToken": "請求驗證令牌"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "loading": "Memuat Sistem Operasi Agen…",
+  "eyebrow": "Sistem Operasi Agen AI",
+  "title": "Agen OS",
+  "subtitle": "Ruang kerja agen lokal — agen dapat diaktifkan dan dijalankan sebagai simulasi di seluruh CRM, Proyek, Keuangan, Alur Kerja, dan Integrasi. Eksekusi otonom produksi tidak terhubung.",
+  "noticeDefault": "OS Agen Lokal — eksekusi disimulasikan di ruang kerja ini.",
+  "aiChat": "Obrolan AI",
+  "tabs": {
+    "dashboard": "Dasbor",
+    "registry": "Registri",
+    "marketplace": "Pasar",
+    "monitor": "Memantau",
+    "history": "Sejarah",
+    "memory": "Ingatan",
+    "knowledge": "Pengetahuan",
+    "tools": "Peralatan",
+    "settings": "Pengaturan"
+  },
+  "notice": {
+    "simulatedRun": "Simulasi dijalankan · {status} ({duration}ms)",
+    "taskFailed": "Tugas gagal",
+    "activated": "Diaktifkan secara lokal: {agentId}",
+    "agentPaused": "Agen berhenti",
+    "agentActivated": "Agen diaktifkan",
+    "taskCancelled": "Tugas dibatalkan",
+    "supervisorDelegated": "Supervisor mendelegasikan tindak lanjut",
+    "settingsUpdated": "Pengaturan OS Agen diperbarui untuk ruang kerja lokal ini."
+  },
+  "dashboard": {
+    "agents": "Agen",
+    "active": "Aktif",
+    "localReady": "Lokal siap",
+    "simulatedToday": "Simulasi hari ini",
+    "failedToday": "Gagal hari ini",
+    "avgExec": "Rata-rata eksekutif",
+    "toolCalls": "Panggilan alat",
+    "knowledge": "Pengetahuan",
+    "activeFleet": "Armada aktif",
+    "emptyTitle": "Tidak ada agen yang aktif",
+    "emptyDescription": "Instal atau aktifkan agen dari pasar untuk memulai simulasi berjalan."
+  },
+  "registry": {
+    "title": "Registri",
+    "selectPrompt": "Pilih agen dari registri.",
+    "status": "Status: {status}",
+    "health": "Kesehatan: {health}",
+    "queue": "Antrian: {queue}",
+    "usage": "Penggunaan: {usage}",
+    "executeTask": "Jalankan tugas",
+    "supervisorDelegate": "Delegasi pengawas"
+  },
+  "marketplace": {
+    "tools": "Alat: {tools}",
+    "installed": "Dipasang",
+    "installActivate": "Instal & aktifkan"
+  },
+  "monitor": {
+    "title": "Pemantau agen",
+    "emptyTitle": "Tidak ada agen yang harus dipantau",
+    "emptyDescription": "Aktifkan agen dari pasar.",
+    "latestConfidence": "Keyakinan penalaran terbaru: {confidence} — {steps}"
+  },
+  "history": {
+    "title": "Sejarah eksekusi",
+    "emptyTitle": "Belum ada eksekusi",
+    "emptyDescription": "Jalankan tugas agen dari registri atau monitor."
+  },
+  "memory": {
+    "title": "Pusat memori",
+    "subtitle": "Bekerja · Percakapan · Bisnis · Jangka panjang · Ruang kerja · Lingkup agen (siap arsitektur).",
+    "emptyTitle": "Tidak ada catatan memori",
+    "emptyDescription": "Jalankan tugas untuk mengisi memori kerja/agen."
+  },
+  "knowledge": {
+    "title": "Pusat pengetahuan",
+    "subtitle": "Perusahaan, dokumen, proyek, CRM, kebijakan, prosedur — ditambah placeholder vektor/RAG.",
+    "emptyTitle": "Tidak ada dokumen pengetahuan",
+    "emptyDescription": "Pengetahuan awal muncul setelah bootstrap ruang kerja."
+  },
+  "tools": {
+    "sensitive": "· sensitif",
+    "mcpReady": "· Siap MCP"
+  },
+  "settings": {
+    "title": "Pengaturan OS Agen",
+    "defaultLlmProvider": "Penyedia LLM bawaan",
+    "enableSupervisor": "Aktifkan arsitektur agen pengawas",
+    "isolateSensitive": "Pisahkan alat sensitif",
+    "saveSettings": "Simpan pengaturan",
+    "providersHint": "Penyedia siap: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Tukar adaptor melalui registerLlmProvider tanpa perubahan UI."
+  },
+  "columns": {
+    "agent": "Agen",
+    "status": "Status",
+    "health": "Kesehatan",
+    "queue": "Antre",
+    "usage": "Penggunaan",
+    "actions": "Tindakan",
+    "task": "Tugas",
+    "duration": "Lamanya",
+    "created": "Dibuat",
+    "scope": "Cakupan",
+    "key": "Kunci",
+    "value": "Nilai",
+    "at": "Pada",
+    "title": "Judul",
+    "kind": "Baik",
+    "summary": "Ringkasan"
+  },
+  "actions": {
+    "run": "Berlari",
+    "pause": "Berhenti sebentar",
+    "activate": "Mengaktifkan",
+    "cancel": "Membatalkan",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "Jalankan sasaran bisnis {agentId}",
+    "planAndExecute": "Merencanakan dan melaksanakan tujuan bisnis ruang kerja"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Prioritaskan dampak pelanggan",
+    "delegatedFollowUp": "Tindak lanjut yang didelegasikan"
+  }
+}

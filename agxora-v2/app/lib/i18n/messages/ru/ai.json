@@ -1,0 +1,168 @@
+{
+  "platform": {
+    "loading": "Загрузка платформы искусственного интеллекта…",
+    "eyebrow": "Платформа искусственного интеллекта AGXORA",
+    "title": "Корпоративное рабочее пространство ИИ",
+    "subtitle": "Независимый от поставщика интеллект для CRM, проектов, финансов, документов и автоматизации. Настройте провайдеров в Настройки → AI.",
+    "newConversation": "Новый разговор",
+    "aiCommands": "AI-команды"
+  },
+  "mobileTabs": {
+    "chat": "Чат",
+    "conversations": "Разговоры",
+    "prompts": "Подсказки"
+  },
+  "usageBar": {
+    "provider": "Поставщик",
+    "model": "Модель",
+    "estimatedTokens": "Стандартное восточное время. жетоны",
+    "tokensInOut": "(вход {in} / выход {out})",
+    "cost": "Расходы",
+    "context": "Контекст",
+    "contextNone": "никто",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "Рабочее пространство AGXORA AI",
+    "emptyHint": "Начните разговор, выберите подсказку из библиотеки или откройте палитру команд (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Разговоры",
+    "new": "Новый",
+    "searchPlaceholder": "Искать чаты…",
+    "searchAria": "Поиск бесед",
+    "showArchived": "Показать в архиве",
+    "pinned": "Закреплено",
+    "emptyPreview": "Пустой разговор",
+    "noConversations": "Пока нет разговоров",
+    "pin": "Приколоть",
+    "unpin": "Открепить",
+    "rename": "Переименовать",
+    "archive": "Архив",
+    "unarchive": "Разархивировать",
+    "delete": "Удалить"
+  },
+  "composer": {
+    "placeholder": "Сообщение AGXORA AI… (Введите для отправки, Shift+Enter для перехода на новую строку)",
+    "ariaLabel": "Составитель сообщения",
+    "commandsShortcut": "Команды ⌘⇧K",
+    "stop": "Останавливаться",
+    "send": "Отправлять"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Копировать",
+    "retry": "Повторить попытку"
+  },
+  "typingIndicator": {
+    "ariaLabel": "Ассистент печатает"
+  },
+  "promptLibrary": {
+    "title": "Подскажите библиотеку",
+    "subtitle": "Шаблоны многократного использования в CRM, проектах, финансах и т. д.",
+    "searchPlaceholder": "Поисковые запросы…",
+    "searchAria": "Поисковые запросы",
+    "all": "Все",
+    "favorites": "Избранное",
+    "recent": "Недавний",
+    "library": "Библиотека",
+    "noMatches": "Нет совпадений с подсказками",
+    "removeFavoriteAria": "Удалить избранное",
+    "addFavoriteAria": "Добавить в избранное",
+    "favorited": "Избранное",
+    "favorite": "Любимый",
+    "usePrompt": "Используйте подсказку"
+  },
+  "commandPalette": {
+    "ariaLabel": "Палитра команд ИИ",
+    "filterAria": "Фильтровать команды AI",
+    "placeholder": "Команда ИИ… суммируйте, предлагайте, анализируйте…",
+    "noMatches": "Нет подходящих команд",
+    "footer": "Зарегистрируйте будущие команды через RegisterAiCommand — пользовательский интерфейс останется неизменным."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Проекты",
+    "finance": "Финансы",
+    "marketing": "Маркетинг",
+    "documents": "Документы",
+    "automation": "Автоматизация",
+    "general": "Общее"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Суммировать клиента",
+      "description": "Краткая сводка отношений с клиентом"
+    },
+    "crm-follow-up-email": {
+      "title": "Письмо для последующих шагов",
+      "description": "Черновик профессионального CRM-фоллоу-апа"
+    },
+    "projects-analyze": {
+      "title": "Проанализировать проект",
+      "description": "Проверка состояния проекта"
+    },
+    "projects-task-list": {
+      "title": "Создать список задач",
+      "description": "Разбить работу на конкретные задачи"
+    },
+    "finance-explain-invoice": {
+      "title": "Объяснить счёт",
+      "description": "Пояснение счёта простым языком"
+    },
+    "finance-cashflow-brief": {
+      "title": "Краткий обзор денежного потока",
+      "description": "Короткое описание денежного потока"
+    },
+    "marketing-campaign-outline": {
+      "title": "Контур кампании",
+      "description": "Структурировать маркетинговую кампанию"
+    },
+    "marketing-proposal": {
+      "title": "Сформировать предложение",
+      "description": "Черновик предложения для клиента"
+    },
+    "documents-summarize": {
+      "title": "Суммировать документ",
+      "description": "Структурированная сводка документа"
+    },
+    "automation-workflow": {
+      "title": "Спроектировать рабочий процесс",
+      "description": "Эскиз автоматизационного процесса"
+    },
+    "general-brainstorm": {
+      "title": "Мозговой штурм вариантов",
+      "description": "Структурированная генерация идей"
+    },
+    "general-explain": {
+      "title": "Объяснить просто",
+      "description": "Понятное объяснение для заинтересованных сторон"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Суммировать клиента",
+      "description": "Краткая сводка активного клиента"
+    },
+    "cmd-generate-proposal": {
+      "label": "Сформировать предложение",
+      "description": "Черновик структуры клиентского предложения"
+    },
+    "cmd-analyze-project": {
+      "label": "Проанализировать проект",
+      "description": "Состояние проекта и анализ рисков"
+    },
+    "cmd-create-task-list": {
+      "label": "Создать список задач",
+      "description": "Разбить работу на конкретные задачи"
+    },
+    "cmd-generate-email": {
+      "label": "Сформировать письмо",
+      "description": "Черновик профессионального письма"
+    },
+    "cmd-explain-invoice": {
+      "label": "Объяснить счёт",
+      "description": "Пояснение счёта простым языком"
+    }
+  }
+}

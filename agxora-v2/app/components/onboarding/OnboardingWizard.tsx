@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type CSSProperties, type JSX } from "react";
+import { useMemo, useState, useEffect, type CSSProperties, type JSX } from "react";
 import { useRouter } from "next/navigation";
 import {
   BUSINESS_TYPE_META,
@@ -8,6 +8,7 @@ import {
   useBusinessOs,
 } from "../../lib/business";
 import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
+import { resolveUserFacingErrorKey, useT } from "../../lib/i18n";
 
 const surfaceTransition = [
   `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
@@ -27,7 +28,18 @@ const GOAL_OPTIONS = [
   "Scale with AI",
 ] as const;
 
+const GOAL_I18N_KEYS: Record<(typeof GOAL_OPTIONS)[number], string> = {
+  "Increase revenue": "increaseRevenue",
+  "Improve operations": "improveOperations",
+  "Delight customers": "delightCustomers",
+  "Reduce costs": "reduceCosts",
+  "Scale with AI": "scaleWithAi",
+};
+
+const STEP_KEYS = ["type", "company", "locale", "goals"] as const;
+
 export function OnboardingWizard(): JSX.Element {
+  const t = useT();
   const { tokens } = useTheme();
   const router = useRouter();
   const { activateBusiness, primaryTemplate } = useBusinessOs();
@@ -35,12 +47,16 @@ export function OnboardingWizard(): JSX.Element {
   const [step, setStep] = useState<Step>(0);
   const [businessType, setBusinessType] = useState<BusinessType | null>(null);
   const [companyName, setCompanyName] = useState("");
-  const [country, setCountry] = useState("United States");
+  const [country, setCountry] = useState("");
   const [language, setLanguage] = useState("en");
   const [timezone, setTimezone] = useState("UTC");
   const [goals, setGoals] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setCountry((current) => current || t("onboarding.defaultCountry"));
+  }, [t]);
 
   const template = useMemo(
     () => (businessType ? primaryTemplate(businessType) : null),
@@ -85,7 +101,7 @@ export function OnboardingWizard(): JSX.Element {
 
       router.push("/dashboard");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Onboarding failed");
+      setError(t(resolveUserFacingErrorKey(err, "onboarding.failed")));
       setSubmitting(false);
     }
   };
@@ -137,7 +153,7 @@ export function OnboardingWizard(): JSX.Element {
             fontWeight: 700,
           }}
         >
-          AGXORA OS
+          {t("onboarding.eyebrow")}
         </p>
         <h1
           style={{
@@ -148,7 +164,7 @@ export function OnboardingWizard(): JSX.Element {
             textShadow: tokens.titleShadow,
           }}
         >
-          Launch your business OS
+          {t("onboarding.title")}
         </h1>
         <p
           style={{
@@ -159,9 +175,7 @@ export function OnboardingWizard(): JSX.Element {
             maxWidth: "54ch",
           }}
         >
-          Choose your industry template. AGXORA configures modules, agents,
-          workflows, and company knowledge — without locking you into one
-          vertical forever.
+          {t("onboarding.lead")}
         </p>
 
         <div
@@ -172,12 +186,12 @@ export function OnboardingWizard(): JSX.Element {
             flexWrap: "wrap",
           }}
         >
-          {["Type", "Company", "Locale", "Goals"].map((label, index) => {
+          {STEP_KEYS.map((key, index) => {
             const active = index === step;
             const done = index < step;
             return (
               <div
-                key={label}
+                key={key}
                 style={{
                   flex: "1 1 70px",
                   minWidth: "70px",
@@ -196,7 +210,7 @@ export function OnboardingWizard(): JSX.Element {
                   transition: surfaceTransition,
                 }}
               >
-                {label}
+                {t(`onboarding.steps.${key}`)}
               </div>
             );
           })}
@@ -219,7 +233,7 @@ export function OnboardingWizard(): JSX.Element {
                   onClick={() => setBusinessType(item.type)}
                   className="agx-metric-card"
                   style={{
-                    textAlign: "left",
+                    textAlign: "start",
                     padding: "16px",
                     borderRadius: "16px",
                     border: `1px solid ${
@@ -250,8 +264,8 @@ export function OnboardingWizard(): JSX.Element {
                   >
                     {item.icon}
                   </div>
-                  <div style={{ fontWeight: 700, marginBottom: "6px" }}>
-                    {item.label}
+                    <div style={{ fontWeight: 700, marginBottom: "6px" }}>
+                    {t(`onboarding.businessTypes.${item.type}.label`)}
                   </div>
                   <div
                     style={{
@@ -260,7 +274,7 @@ export function OnboardingWizard(): JSX.Element {
                       lineHeight: 1.45,
                     }}
                   >
-                    {item.description}
+                    {t(`onboarding.businessTypes.${item.type}.description`)}
                   </div>
                 </button>
               );
@@ -272,13 +286,13 @@ export function OnboardingWizard(): JSX.Element {
           <div style={{ display: "grid", gap: "16px" }}>
             <label style={{ display: "grid", gap: "8px" }}>
               <span style={{ fontSize: "13px", color: tokens.textMuted }}>
-                Company name
+                {t("onboarding.companyName")}
               </span>
               <input
                 className="agx-input"
                 value={companyName}
                 onChange={(event) => setCompanyName(event.target.value)}
-                placeholder="Acme Hospitality Group"
+                placeholder={t("onboarding.companyPlaceholder")}
                 style={inputStyle(tokens)}
               />
             </label>
@@ -300,7 +314,7 @@ export function OnboardingWizard(): JSX.Element {
                     marginBottom: "8px",
                   }}
                 >
-                  Template
+                  {t("onboarding.template")}
                 </div>
                 <div style={{ fontWeight: 700, marginBottom: "6px" }}>
                   {template.name}
@@ -323,7 +337,7 @@ export function OnboardingWizard(): JSX.Element {
           >
             <label style={{ display: "grid", gap: "8px" }}>
               <span style={{ fontSize: "13px", color: tokens.textMuted }}>
-                Country
+                {t("onboarding.country")}
               </span>
               <input
                 className="agx-input"
@@ -334,25 +348,25 @@ export function OnboardingWizard(): JSX.Element {
             </label>
             <label style={{ display: "grid", gap: "8px" }}>
               <span style={{ fontSize: "13px", color: tokens.textMuted }}>
-                Language
+                {t("onboarding.language")}
               </span>
               <input
                 className="agx-input"
                 value={language}
                 onChange={(event) => setLanguage(event.target.value)}
-                placeholder="en"
+                placeholder={t("onboarding.languagePlaceholder")}
                 style={inputStyle(tokens)}
               />
             </label>
             <label style={{ display: "grid", gap: "8px" }}>
               <span style={{ fontSize: "13px", color: tokens.textMuted }}>
-                Timezone
+                {t("onboarding.timezone")}
               </span>
               <input
                 className="agx-input"
                 value={timezone}
                 onChange={(event) => setTimezone(event.target.value)}
-                placeholder="UTC"
+                placeholder={t("onboarding.timezonePlaceholder")}
                 style={inputStyle(tokens)}
               />
             </label>
@@ -383,12 +397,12 @@ export function OnboardingWizard(): JSX.Element {
                     background: selected ? tokens.navActiveBg : tokens.cardBg,
                     color: selected ? tokens.accent : tokens.text,
                     cursor: "pointer",
-                    textAlign: "left",
+                    textAlign: "start",
                     fontWeight: 600,
                     transition: surfaceTransition,
                   }}
                 >
-                  {goal}
+                  {t(`onboarding.goals.${GOAL_I18N_KEYS[goal]}`)}
                 </button>
               );
             })}
@@ -425,7 +439,7 @@ export function OnboardingWizard(): JSX.Element {
               cursor: step === 0 ? "not-allowed" : "pointer",
             }}
           >
-            Back
+            {t("onboarding.back")}
           </button>
           <button
             type="button"
@@ -441,9 +455,9 @@ export function OnboardingWizard(): JSX.Element {
           >
             {step === 3
               ? submitting
-                ? "Launching…"
-                : "Enter dashboard"
-              : "Continue"}
+                ? t("onboarding.launching")
+                : t("onboarding.enterDashboard")
+              : t("onboarding.continue")}
           </button>
         </div>
       </div>

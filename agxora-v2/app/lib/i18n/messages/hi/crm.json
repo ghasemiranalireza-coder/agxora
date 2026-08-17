@@ -1,0 +1,523 @@
+{
+  "page": {
+    "brandOs": "एजीएक्सओआरए बिजनेस ओएस",
+    "title": "एआई सीआरएम",
+    "subtitle": "एआई-नेटिव सीआरएम और क्रिएटर ऑपरेटिंग सिस्टम - हर उद्योग के लिए ग्राहक, पाइपलाइन, ऑर्डर, डिलीवरी, दस्तावेज़, संचार और क्रिएटर आर्किटेक्चर।"
+  },
+  "sections": {
+    "crmDashboard": {
+      "title": "सीआरएम डैशबोर्ड"
+    },
+    "customer360": {
+      "title": "ग्राहक 360°",
+      "subtitle": "प्रोफ़ाइल, कंपनी, संपर्क, ऑर्डर, चालान, लिफ़रशेइन, भुगतान, दस्तावेज़, समयरेखा, गतिविधियाँ, नोट्स, एआई सारांश और संचार इतिहास।"
+    },
+    "salesPipeline": {
+      "title": "बिक्री पाइपलाइन",
+      "subtitle": "ड्रैग एंड ड्रॉप के साथ कानबन चरण - लीड, योग्य, प्रस्ताव, बातचीत, जीता, हारा।"
+    },
+    "ordersModule": {
+      "title": "आदेश मॉड्यूल"
+    },
+    "deliveryModule": {
+      "title": "डिलिवरी मॉड्यूल",
+      "subtitle": "ट्रैकिंग, हस्ताक्षर, क्यूआर और बारकोड तत्परता के साथ पेशेवर लिफ़रशेइन प्रणाली।"
+    },
+    "documentsModule": {
+      "title": "दस्तावेज़",
+      "subtitle": "उद्धरण, अनुबंध, चालान, लिफ़रशेइन, खरीद आदेश, रसीदें - एआई खोज के साथ।"
+    },
+    "tasksModule": {
+      "title": "कार्य"
+    },
+    "communicationHub": {
+      "title": "संचार केंद्र",
+      "subtitle": "केवल मैसेजिंग, सोशल, ईमेल, वॉयस और वीडियो के लिए एडॉप्टर रजिस्ट्री।"
+    },
+    "creatorStudio": {
+      "title": "क्रिएटर स्टूडियो फ़ाउंडेशन",
+      "subtitle": "प्लेटफ़ॉर्म एडाप्टर बाद में आधिकारिक एकीकरण के लिए तैयार होंगे।"
+    },
+    "aiCreator": {
+      "title": "एआई निर्माता",
+      "subtitle": "सामग्री, कैलेंडर, पीढ़ी और प्रकाशन के लिए एंटरप्राइज़ क्षमता मानचित्र।"
+    },
+    "industryPlatform": {
+      "title": "यूनिवर्सल बिजनेस प्लेटफार्म",
+      "subtitle": "मॉड्यूलर उद्योग रजिस्ट्री - प्रत्येक कार्यक्षेत्र समर्पित एआई मॉड्यूल प्राप्त कर सकता है।"
+    }
+  },
+  "directory": {
+    "errorTitle": "CRM लोड नहीं किया जा सका",
+    "sort": {
+      "companyName": "कंपनी",
+      "contactName": "संपर्क",
+      "email": "ईमेल",
+      "phone": "फ़ोन",
+      "industry": "उद्योग",
+      "status": "स्थिति",
+      "owner": "मालिक",
+      "createdAt": "बनाया था"
+    },
+    "search": {
+      "label": "ग्राहक खोजें",
+      "placeholder": "कंपनी, संपर्क, ईमेल, टैग..."
+    },
+    "view": {
+      "table": "मेज़",
+      "cards": "कार्ड"
+    },
+    "actions": {
+      "newCustomer": "नया ग्राहक"
+    },
+    "filters": {
+      "status": "स्थिति",
+      "industry": "उद्योग",
+      "owner": "मालिक",
+      "country": "देश",
+      "tags": "टैग",
+      "allStatuses": "सभी स्थितियाँ",
+      "allIndustries": "सभी उद्योग",
+      "allOwners": "सभी मालिक",
+      "allCountries": "सभी देश",
+      "allTags": "सभी टैग"
+    },
+    "empty": {
+      "ready": {
+        "title": "आपका सीआरएम तैयार है",
+        "description": "निर्देशिका, प्रोफ़ाइल और गतिविधि को अनलॉक करने के लिए पहला ग्राहक रिकॉर्ड बनाएं।",
+        "action": "ग्राहक बनाएं"
+      },
+      "noMatches": {
+        "title": "कोई मेल खाता ग्राहक नहीं",
+        "description": "सही रिकॉर्ड ढूंढने के लिए खोज या फ़िल्टर समायोजित करने का प्रयास करें।",
+        "action": "फ़िल्टर साफ़ करें"
+      }
+    },
+    "pagination": {
+      "previous": "पहले का",
+      "next": "अगला"
+    },
+    "showing": "{from} में से {to}–{total} दिखाया जा रहा है",
+    "aria": {
+      "openCustomer": "ग्राहक {company} खोलें"
+    },
+    "cardMeta": "मालिक {owner} · बनाया गया {date}",
+    "sortBy": "{column} के अनुसार क्रमबद्ध करें"
+  },
+  "status": {
+    "lead": "नेतृत्व करना",
+    "prospect": "संभावना",
+    "active": "सक्रिय",
+    "inactive": "निष्क्रिय",
+    "vip": "वीआईपी",
+    "archived": "संग्रहीत"
+  },
+  "form": {
+    "createTitle": "ग्राहक बनाएं",
+    "editTitle": "ग्राहक संपादित करें",
+    "cancel": "रद्द करना",
+    "saveChanges": "परिवर्तनों को सुरक्षित करें",
+    "createCustomer": "ग्राहक बनाएं",
+    "companyName": "कंपनी का नाम",
+    "contactName": "संपर्क नाम",
+    "email": "ईमेल",
+    "phone": "फ़ोन",
+    "website": "वेबसाइट",
+    "industry": "उद्योग",
+    "country": "देश",
+    "city": "शहर",
+    "address": "पता",
+    "taxNumber": "कर नंबर",
+    "owner": "मालिक",
+    "status": "स्थिति",
+    "tags": "टैग",
+    "statusAria": "ग्राहक की स्थिति",
+    "tagsHint": "अल्पविराम से अलग, स्वचालित रूप से रंग-कोडित",
+    "websitePlaceholder": "https://",
+    "tagsPlaceholder": "उद्यम, खुदरा"
+  },
+  "toasts": {
+    "customerCreated": "ग्राहक बनाया गया",
+    "customerUpdated": "ग्राहक अपडेट किया गया",
+    "checkForm": "फॉर्म की जांच करें",
+    "validationFailed": "प्रमाणीकरण विफल रहा।",
+    "customerDeleted": "ग्राहक हटा दिया गया",
+    "deleteFailed": "हटाना विफल",
+    "customerCouldNotBeRemoved": "ग्राहक को हटाया नहीं जा सका.",
+    "contactSaved": "संपर्क सहेजा गया",
+    "documentsAttached": "दस्तावेज़ संलग्न",
+    "documentsAttachedDetail": "{count} फ़ाइल(फ़ाइलें)",
+    "noteSaved": "नोट सहेजा गया"
+  },
+  "deleteDialog": {
+    "title": "ग्राहक हटाएँ",
+    "cancel": "रद्द करना",
+    "deletePermanently": "स्थायी रूप से हटाएँ",
+    "thisCustomer": "यह ग्राहक",
+    "bodyPrefix": "ये दूर करता है",
+    "bodySuffix": "और स्थानीय भंडारण से संबंधित संपर्क, नोट्स, दस्तावेज़ और गतिविधि। लिंक किए गए प्रोजेक्ट हटाए नहीं जाते."
+  },
+  "validation": {
+    "companyNameRequired": "कंपनी का नाम आवश्यक है.",
+    "contactNameRequired": "संपर्क नाम आवश्यक है.",
+    "emailRequired": "ईमेल की जरूरत है।",
+    "emailInvalid": "एक मान्य ईमेल पता दर्ज करें।",
+    "phoneRequired": "फ़ोन आवश्यक है.",
+    "phoneInvalid": "एक वैध फ़ोन नंबर दर्ज करें.",
+    "websiteInvalid": "एक वैध वेबसाइट दर्ज करें.",
+    "industryRequired": "उद्योग की आवश्यकता है.",
+    "ownerRequired": "मालिक की आवश्यकता है.",
+    "statusInvalid": "एक वैध स्थिति का चयन करें.",
+    "emailDuplicate": "इस ईमेल वाला एक ग्राहक पहले से मौजूद है.",
+    "nameRequired": "नाम आवश्यक है।",
+    "mobileInvalid": "एक वैध मोबाइल नंबर दर्ज करें.",
+    "mobileRequired": "मोबाइल आवश्यक है.",
+    "roleRequired": "भूमिका आवश्यक है.",
+    "noteTitleRequired": "शीर्षक आवश्यक है.",
+    "noteBodyRequired": "नोट बॉडी आवश्यक है.",
+    "noteAuthorRequired": "लेखक आवश्यक है."
+  },
+  "errors": {
+    "failedToLoadCustomers": "ग्राहकों को लोड करने में विफल.",
+    "failedToLoadCustomerProfile": "ग्राहक प्रोफ़ाइल लोड करने में विफल.",
+    "organizationRequired": "संगठन की आवश्यकता है.",
+    "failedToSaveCustomer": "ग्राहक को बचाने में विफल.",
+    "failedToDeleteCustomer": "ग्राहक को हटाने में विफल.",
+    "failedToSaveContact": "संपर्क सहेजने में विफल.",
+    "failedToSaveNote": "नोट सहेजने में विफल.",
+    "failedToUploadDocument": "दस्तावेज़ अपलोड करने में विफल."
+  },
+  "workspace": {
+    "badge": "एंटरप्राइज़ सीआरएम 2.0",
+    "title": "ग्राहक संबंध प्रबंधन",
+    "subtitleBeforeOrg": "ग्राहक निर्देशिका, प्रोफ़ाइल, संपर्क, नोट्स और दस्तावेज़ प्रबंधित करें",
+    "subtitleAfterOrg": "डेटा डुप्लिकेट किए बिना प्रोजेक्ट मॉड्यूल से प्रोजेक्ट कंपनी के नाम से जुड़े हुए हैं।",
+    "yourOrganization": "आपकी संगठन"
+  },
+  "analytics": {
+    "totalCustomers": "कुल ग्राहक",
+    "activeCustomers": "सक्रिय ग्राहक",
+    "newCustomers": "नए ग्राहक",
+    "vipCustomers": "वीआईपी ग्राहक",
+    "createdThisMonth": "इसी महीने बनाया गया",
+    "leadConversion": "लीड रूपांतरण",
+    "leadConversionHint": "लीड/संभावना/परिवर्तित फ़नल का सक्रिय और वीआईपी हिस्सा।",
+    "customerGrowth": "ग्राहक वृद्धि"
+  },
+  "profile": {
+    "backToCrm": "← सीआरएम पर वापस जाएं",
+    "ownerLabel": "मालिक",
+    "notFoundTitle": "ग्राहक नहीं मिला",
+    "notFoundDescription": "हो सकता है कि यह ग्राहक हटा दिया गया हो.",
+    "missingCustomerTitle": "ग्राहक गायब",
+    "missingOverviewDescription": "अवलोकन देखने के लिए एक ग्राहक का चयन करें।",
+    "missingSettingsDescription": "सेटिंग्स प्रबंधित करने के लिए एक ग्राहक का चयन करें।",
+    "ariaProfileNav": "ग्राहक प्रोफाइल",
+    "tabs": {
+      "overview": "सिंहावलोकन",
+      "contacts": "संपर्क",
+      "projects": "परियोजनाओं",
+      "documents": "दस्तावेज़",
+      "invoices": "चालान",
+      "activity": "गतिविधि",
+      "notes": "टिप्पणियाँ",
+      "settings": "सेटिंग्स"
+    },
+    "overview": {
+      "title": "सिंहावलोकन",
+      "email": "ईमेल",
+      "phone": "फ़ोन",
+      "website": "वेबसाइट",
+      "taxNumber": "कर नंबर",
+      "location": "जगह",
+      "address": "पता",
+      "created": "बनाया था",
+      "updated": "अद्यतन",
+      "emptyValue": "—"
+    },
+    "contacts": {
+      "addTitle": "संपर्क जोड़ें",
+      "editTitle": "संपादित संपर्क",
+      "listTitle": "संपर्क",
+      "name": "नाम",
+      "role": "भूमिका",
+      "email": "ईमेल",
+      "phone": "फ़ोन",
+      "mobile": "गतिमान",
+      "notes": "टिप्पणियाँ",
+      "saveContact": "संपर्क सहेजें",
+      "emptyTitle": "अभी तक कोई संपर्क नहीं",
+      "emptyDescription": "भूमिका, ईमेल और फ़ोन विवरण के साथ हितधारकों को जोड़ें।",
+      "defaultRole": "संपर्क",
+      "mobilePrefix": "गतिमान"
+    },
+    "projects": {
+      "title": "परियोजनाओं",
+      "emptyTitle": "कोई लिंक्ड प्रोजेक्ट नहीं",
+      "emptyDescription": "वे परियोजनाएँ जिनके ग्राहक का नाम इस कंपनी से मेल खाता है, यहाँ दिखाई देती हैं। डेटा प्रोजेक्ट मॉड्यूल से पढ़ा जाता है - कुछ भी डुप्लिकेट नहीं किया जाता है।",
+      "openProjects": "प्रोजेक्ट खोलें"
+    },
+    "documents": {
+      "title": "दस्तावेज़",
+      "subtitle": "छवियाँ, पीडीएफ और कार्यालय दस्तावेज़ - मेटाडेटा केवल स्थानीय संग्रहण में।",
+      "attachFiles": "फ़ाइलों को संलग्न करें",
+      "emptyTitle": "कोई दस्तावेज़ नहीं",
+      "emptyDescription": "खाता टीम के लिए ग्राहक फ़ाइलें संलग्न करें.",
+      "systemUploader": "प्रणाली"
+    },
+    "invoices": {
+      "emptyTitle": "अभी तक कोई चालान नहीं",
+      "emptyDescription": "फाइनेंस से लिंक होने पर इस ग्राहक के चालान यहां दिखाई देते हैं।"
+    },
+    "activity": {
+      "title": "गतिविधि",
+      "emptyTitle": "अभी तक कोई गतिविधि नहीं",
+      "emptyDescription": "क्रिएट, अपडेट, नोट्स और दस्तावेज़ सबसे पहले यहां नवीनतम दिखाई देते हैं।",
+      "kinds": {
+        "customer_created": "ग्राहक बनाया गया",
+        "customer_updated": "ग्राहक अपडेट किया गया",
+        "contact_added": "संपर्क जोड़ा गया",
+        "contact_updated": "संपर्क अपडेट किया गया",
+        "contact_deleted": "संपर्क हटा दिया गया",
+        "note_added": "नोट जोड़ा गया",
+        "note_updated": "नोट अपडेट किया गया",
+        "note_deleted": "नोट हटा दिया गया",
+        "document_added": "दस्तावेज़ जोड़ा गया",
+        "document_deleted": "दस्तावेज़ हटा दिया गया",
+        "project_linked": "प्रोजेक्ट जुड़ा हुआ है"
+      }
+    },
+    "notes": {
+      "newTitle": "नया नोट",
+      "editTitle": "नोट संपादित करें",
+      "title": "शीर्षक",
+      "author": "लेखक",
+      "body": "शरीर",
+      "saveNote": "नोट सहेजें",
+      "emptyTitle": "अभी तक कोई नोट नहीं",
+      "emptyDescription": "लेखक और टाइमस्टैम्प के साथ खाता संदर्भ कैप्चर करें।"
+    },
+    "settings": {
+      "title": "सेटिंग्स",
+      "description": "सभी प्रोफ़ाइल फ़ील्ड संपादित करें या इस खाते को संग्रहीत करें। विलोपन पुष्टिकरण संवाद का उपयोग करता है।",
+      "editAllFields": "सभी फ़ील्ड संपादित करें",
+      "prepareArchive": "पुरालेख तैयार करें",
+      "deleteCustomer": "ग्राहक हटाएँ"
+    }
+  },
+  "customer360": {
+    "ariaSections": "ग्राहक 360 अनुभाग",
+    "email": "ईमेल",
+    "phone": "फ़ोन",
+    "aiHealth": "एआई स्वास्थ्य",
+    "tabs": {
+      "profile": "प्रोफ़ाइल",
+      "company": "कंपनी",
+      "contacts": "संपर्क",
+      "orders": "आदेश",
+      "invoices": "चालान",
+      "lieferscheine": "Lieferscheine",
+      "payments": "भुगतान",
+      "documents": "दस्तावेज़",
+      "timeline": "समय",
+      "activities": "गतिविधियाँ",
+      "notes": "टिप्पणियाँ",
+      "aiSummary": "एआई सारांश",
+      "communicationHistory": "संचार इतिहास"
+    },
+    "profileLines": {
+      "customerId": "ग्राहक आईडी",
+      "status": "स्थिति",
+      "primaryContact": "प्राथमिक संपर्क"
+    },
+    "status": {
+      "churn_risk": "मंथन जोखिम"
+    }
+  },
+  "delivery": {
+    "title": "व्यावसायिक लिफ़र्सचिन प्रणाली",
+    "description": "डिलीवरी नोट, पिकअप/डिलीवरी, ड्राइवर, वाहन और ट्रैकिंग - केवल नमूना रिकॉर्ड। निर्यात एडाप्टर कनेक्ट नहीं हैं.",
+    "badges": {
+      "qrUnavailable": "क्यूआर अनुपलब्ध",
+      "barcodeUnavailable": "बारकोड अनुपलब्ध",
+      "signatureDemo": "हस्ताक्षर डेमो"
+    },
+    "exportPdf": "पीडीएफ निर्यात करें",
+    "deliveryHistory": "डिलिवरी इतिहास",
+    "notices": {
+      "exportNotConnected": "इस बिल्ड में पीडीएफ, क्यूआर और बारकोड एक्सपोर्ट कनेक्ट नहीं हैं।",
+      "exportPdfUnavailable": "निर्यात पीडीएफ अनुपलब्ध - डिलीवरी निर्यात कनेक्ट नहीं है।",
+      "historyNotConnected": "इस बिल्ड में डिलीवरी हिस्ट्री स्टोर कनेक्ट नहीं है।"
+    },
+    "columns": {
+      "lieferschein": "Lieferschein",
+      "order": "आदेश",
+      "customer": "ग्राहक",
+      "kind": "दयालु",
+      "driver": "चालक",
+      "vehicle": "वाहन",
+      "tracking": "ट्रैकिंग",
+      "scheduled": "अनुसूचित"
+    }
+  },
+  "orders": {
+    "description": "उत्पाद, सेवाएँ, मूल्य, छूट, कर और ग्राहक - एंटरप्राइज़ ऑर्डर बही।",
+    "createOrder": "ऑर्डर बनाएं",
+    "notices": {
+      "apiReserved": "ऑर्डर निर्माण एपीआई भविष्य के लेखन पथ के लिए आरक्षित है।",
+      "draftStaged": "ऑर्डर ड्राफ्ट चरणबद्ध बनाएं (अभी तक कोई एपीआई नहीं)।"
+    },
+    "columns": {
+      "order": "आदेश",
+      "customer": "ग्राहक",
+      "status": "स्थिति",
+      "lines": "पंक्तियां",
+      "net": "जाल",
+      "tax": "कर",
+      "gross": "कुल",
+      "created": "बनाया था"
+    },
+    "lineTax": "{taxPct}% टैक्स"
+  },
+  "tasks": {
+    "calendarTitle": "कैलेंडर · बैठकें · अनुस्मारक · अनुवर्ती कार्रवाई",
+    "foundationTitle": "टास्क ओएस फाउंडेशन",
+    "foundationDescription": "कैलेंडर सिंक, मीटिंग प्रदाता, अनुस्मारक कार्य और अनुवर्ती स्वचालन हुक आरक्षित हैं। यह बोर्ड प्रत्येक उद्योग मॉड्यूल के लिए साझा सीआरएम कार्य सतह है।",
+    "badges": {
+      "calendarAdapter": "कैलेंडर अनुकूलक",
+      "meetingAdapter": "मीटिंग एडाप्टर",
+      "reminderQueue": "अनुस्मारक कतार",
+      "followUpEngine": "अनुवर्ती इंजन"
+    },
+    "duePrefix": "देय",
+    "kinds": {
+      "follow_up": "पालन ​​करें",
+      "meeting": "बैठक",
+      "reminder": "अनुस्मारक",
+      "task": "काम"
+    },
+    "statuses": {
+      "open": "खुला",
+      "in_progress": "प्रगति पर है",
+      "done": "हो गया",
+      "cancelled": "रद्द कर दिया गया"
+    }
+  },
+  "documentsModule": {
+    "emptyTitle": "कोई दस्तावेज़ नहीं",
+    "emptyDescription": "इस खोज से कोई दस्तावेज़ मेल नहीं खाता.",
+    "searchLabel": "एआई खोज",
+    "searchPlaceholder": "उद्धरण, अनुबंध, चालान, लिफ़रशेन...",
+    "typeLabel": "दस्तावेज़ प्रकार",
+    "allTypes": "सभी प्रकार के",
+    "columns": {
+      "type": "प्रकार",
+      "title": "शीर्षक",
+      "customer": "ग्राहक",
+      "status": "स्थिति",
+      "updated": "अद्यतन"
+    },
+    "kinds": {
+      "quote": "उद्धरण",
+      "contract": "अनुबंध",
+      "invoice": "चालान",
+      "lieferschein": "Lieferschein",
+      "purchase_order": "खरीद आदेश",
+      "receipt": "प्राप्तियां"
+    }
+  },
+  "communication": {
+    "intro": "केवल स्केलेबल चैनल आर्किटेक्चर - ईमेल, व्हाट्सएप, इंस्टाग्राम, फेसबुक, टिकटॉक, लिंक्डइन, टेलीग्राम, वॉयस और वीडियो। कोई नकली लाइव एकीकरण नहीं.",
+    "adapterPrefix": "एडाप्टर:"
+  },
+  "aiCreator": {
+    "intro": "भविष्य के लिए तैयार एआई क्रिएटर सतह - विचार, कैप्शन, हैशटैग, कैलेंडर, अभियान, ब्रांड आवाज, छवि/वीडियो निर्माण, विश्लेषण, शेड्यूलिंग, प्रकाशन कतार और अंतर्दृष्टि। अभी तक कोई वास्तविक प्रदाता एपीआई वायर्ड नहीं है।"
+  },
+  "creatorStudio": {
+    "intro": "क्रिएटर स्टूडियो फ़ाउंडेशन - आधिकारिक प्लेटफ़ॉर्म एकीकरण बाद में इन एडेप्टर में प्लग इन किया जा सकता है। इंस्टाग्राम, टिकटॉक, यूट्यूब, फेसबुक, लिंक्डइन, पिनटेरेस्ट, थ्रेड्स, एक्स।"
+  },
+  "industry": {
+    "intro": "यूनिवर्सल बिजनेस प्लेटफ़ॉर्म - ऑनबोर्डिंग बाद में एक उद्योग का चयन करेगी। प्रत्येक उद्योग को कोर सीआरएम ओएस को फोर्क किए बिना समर्पित एआई मॉड्यूल प्राप्त होते हैं।"
+  },
+  "kpi": {
+    "customers": {
+      "label": "ग्राहकों",
+      "caption": "सक्रिय रिश्ते"
+    },
+    "companies": {
+      "label": "कंपनियों",
+      "caption": "खाता संगठन"
+    },
+    "leads": {
+      "label": "सुराग",
+      "caption": "इस महीने नया"
+    },
+    "deals": {
+      "label": "सौदा",
+      "caption": "खुली पाइपलाइन"
+    },
+    "revenue": {
+      "label": "आय",
+      "caption": "YTD जीता"
+    },
+    "projects": {
+      "label": "सक्रिय परियोजनाएँ",
+      "caption": "फ्लाइट में डिलीवरी"
+    },
+    "tasks": {
+      "label": "कार्य खोलें",
+      "caption": "सीआरएम + डिलीवरी के पार"
+    },
+    "ai-health": {
+      "label": "एआई स्वास्थ्य स्कोर",
+      "caption": "संबंध गुणवत्ता संकेत"
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "pipeline": {
+    "lead": "नेतृत्व करना",
+    "qualified": "योग्य",
+    "proposal": "प्रस्ताव",
+    "negotiation": "बातचीत",
+    "won": "जीत गया",
+    "lost": "खो गया"
+  },
+  "orderStatus": {
+    "draft": "मसौदा",
+    "confirmed": "की पुष्टि",
+    "in_fulfillment": "पूर्ति में",
+    "shipped": "लादा गया",
+    "delivered": "पहुंचा दिया",
+    "cancelled": "रद्द कर दिया गया"
+  },
+  "tracking": {
+    "scheduled": "अनुसूचित",
+    "en_route": "रास्ते में",
+    "arrived": "पहुँचा",
+    "completed": "पुरा होना।",
+    "failed": "असफल"
+  },
+  "documentKind": {
+    "quote": "उद्धरण",
+    "contract": "अनुबंध",
+    "invoice": "चालान",
+    "lieferschein": "Lieferschein",
+    "purchase_order": "क्रय आदेश",
+    "receipt": "रसीद"
+  },
+  "documentStatus": {
+    "sent": "भेजा",
+    "signed": "पर हस्ताक्षर किए",
+    "paid": "चुकाया गया",
+    "in_transit": "पारगमन में",
+    "open": "खुला",
+    "filed": "दायर"
+  },
+  "integration": {
+    "planned": "की योजना बनाई",
+    "ready": "तैयार",
+    "connected": "जुड़े हुए",
+    "disabled": "अक्षम"
+  }
+}

@@ -26,6 +26,7 @@ import {
   WORKFLOW_ELEMENTS,
 } from "../../lib/automation";
 import { Badge, Button, Card, EmptyState } from "../ui";
+import { useT } from "@/app/lib/i18n";
 
 const NODE_W = 168;
 const NODE_H = 72;
@@ -47,6 +48,7 @@ const PaletteList = memo(function PaletteList({
 }: {
   readonly items: readonly CatalogItem[];
 }): JSX.Element {
+  const t = useT();
   return (
     <ul className="max-h-[520px] space-y-2 overflow-y-auto pr-1">
       {items.map((item) => (
@@ -65,12 +67,12 @@ const PaletteList = memo(function PaletteList({
           >
             <div className="flex items-center justify-between gap-2">
               <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                {item.label}
+                {t(`automation.catalog.${item.id}.label`)}
               </p>
               <Badge tone={kindTone(item.kind)}>{item.kind.replaceAll("_", " ")}</Badge>
             </div>
             <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {item.description}
+              {t(`automation.catalog.${item.id}.description`)}
             </p>
           </div>
         </li>
@@ -89,6 +91,7 @@ export function WorkflowBuilder({
   readonly initial: WorkflowDefinition;
   readonly onWorkflowChange?: (workflow: WorkflowDefinition) => void;
 }): JSX.Element {
+  const t = useT();
   const [workflow, setWorkflow] = useState(() => cloneWorkflow(initial));
   const [past, setPast] = useState<WorkflowDefinition[]>([]);
   const [future, setFuture] = useState<WorkflowDefinition[]>([]);
@@ -255,15 +258,15 @@ export function WorkflowBuilder({
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-12">
       <Card className="xl:col-span-3 space-y-3" padding="16px" hover={false}>
         <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Workflow Elements
+          {t("automation.workflowBuilder.elementsTitle")}
         </h3>
-        <div className="flex flex-wrap gap-1.5" role="tablist" aria-label="Palette">
+        <div className="flex flex-wrap gap-1.5" role="tablist" aria-label={t("automation.workflowBuilder.paletteAria")}>
           {(
             [
-              ["elements", "Elements"],
-              ["triggers", "Triggers"],
-              ["actions", "Actions"],
-              ["ai", "AI Actions"],
+              ["elements", t("automation.workflowBuilder.tabElements")],
+              ["triggers", t("automation.workflowBuilder.tabTriggers")],
+              ["actions", t("automation.workflowBuilder.tabActions")],
+              ["ai", t("automation.workflowBuilder.tabAiActions")],
             ] as const
           ).map(([id, label]) => (
             <button
@@ -300,30 +303,30 @@ export function WorkflowBuilder({
         <div className="sticky top-0 z-10 -mx-1 flex flex-wrap items-center justify-between gap-2 bg-transparent px-1 pb-1">
           <div>
             <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Workflow Builder · {workflow.name}
+              {t("automation.workflowBuilder.builderTitle", { name: workflow.name })}
             </h3>
             <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Snap to {GRID_SIZE}px grid · ⌘/Ctrl+scroll zoom · drag canvas to pan · double-click connect
+              {t("automation.workflowBuilder.builderHint", { grid: GRID_SIZE })}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <Badge tone={saveState === "saved" ? "positive" : "accent"}>
-              {saveState === "saved" ? "Auto saved" : "Saving…"}
+              {saveState === "saved" ? t("automation.workflowBuilder.autoSaved") : t("automation.workflowBuilder.saving")}
             </Badge>
             <Button size="sm" variant="ghost" onClick={undo} disabled={past.length === 0}>
-              Undo
+              {t("automation.workflowBuilder.undo")}
             </Button>
             <Button size="sm" variant="ghost" onClick={redo} disabled={future.length === 0}>
-              Redo
+              {t("automation.workflowBuilder.redo")}
             </Button>
             <Button size="sm" variant="secondary" onClick={() => setScale((s) => Math.max(0.45, Number((s - 0.1).toFixed(2))))}>
-              −
+              {t("automation.workflowBuilder.zoomOut")}
             </Button>
             <span className="text-xs tabular-nums" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {Math.round(scale * 100)}%
             </span>
             <Button size="sm" variant="secondary" onClick={() => setScale((s) => Math.min(1.8, Number((s + 0.1).toFixed(2))))}>
-              +
+              {t("automation.workflowBuilder.zoomIn")}
             </Button>
             <Button
               size="sm"
@@ -333,7 +336,7 @@ export function WorkflowBuilder({
                 setPan({ x: 40, y: 40 });
               }}
             >
-              Reset view
+              {t("automation.workflowBuilder.resetView")}
             </Button>
           </div>
         </div>
@@ -371,8 +374,8 @@ export function WorkflowBuilder({
             <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center p-6">
               <div className="pointer-events-auto max-w-md">
                 <EmptyState
-                  title="Empty canvas"
-                  description="Drag a Trigger from the palette to start building. Snap-to-grid keeps nodes aligned."
+                  title={t("automation.workflowBuilder.emptyTitle")}
+                  description={t("automation.workflowBuilder.emptyDescription")}
                 />
               </div>
             </div>
@@ -486,7 +489,7 @@ export function WorkflowBuilder({
                   </p>
                   {linkFrom === node.id ? (
                     <p className="mt-1 text-[10px]" style={{ color: "var(--agx-accent, #22d3ee)" }}>
-                      Double-click target to connect
+                      {t("automation.workflowBuilder.connectHint")}
                     </p>
                   ) : null}
                 </div>
@@ -502,7 +505,7 @@ export function WorkflowBuilder({
               borderColor: "var(--agx-card-border, rgba(255,255,255,0.14))",
               background: "rgba(8,12,20,0.72)",
             }}
-            aria-label="Mini map"
+            aria-label={t("automation.workflowBuilder.miniMapAria")}
           >
             <svg
               width={140}

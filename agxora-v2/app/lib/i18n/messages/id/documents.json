@@ -1,0 +1,388 @@
+{
+  "page": {
+    "brand": "OS Pengetahuan AGXORA",
+    "title": "Dokumen",
+    "subtitle": "Dokumen perusahaan & pusat pengetahuan — dipratinjau dengan konten sampel hingga backend penyimpanan dan persetujuan terhubung.",
+    "sampleNotice": "Pustaka sampel — penjelajahan dan filter berfungsi dalam sesi. Tindakan unggah, setujui, dan indeks AI tidak terhubung."
+  },
+  "sections": {
+    "kpis": {
+      "title": "Dasbor Pengetahuan"
+    },
+    "library": {
+      "title": "Perpustakaan Dokumen",
+      "subtitle": "Semua Dokumen, Terbaru, Favorit, Dibagikan, Diarsipkan, Sampah, Basis Pengetahuan — dengan folder, pencarian, penampil, dan versi."
+    },
+    "knowledge": {
+      "title": "Basis Pengetahuan",
+      "subtitle": "Artikel, kebijakan, proses, manual, FAQ, dan wiki internal."
+    },
+    "approvals": {
+      "title": "Persetujuan",
+      "subtitle": "Draf, Sedang Ditinjau, Disetujui, Ditolak, Diarsipkan — ditautkan dengan arsitektur Otomasi."
+    },
+    "ai": {
+      "title": "Lapisan Pengetahuan AI",
+      "subtitle": "Ringkasan, kata kunci, klasifikasi, tag, folder, dokumen terkait, duplikat, terjemahan, OCR, dan pencarian — hanya arsitektur."
+    },
+    "activity": {
+      "title": "Aktivitas",
+      "subtitle": "Perubahan terkini, unggahan, penayangan, pembagian, dan riwayat audit."
+    },
+    "integrations": {
+      "title": "Integrasi",
+      "subtitle": "Adaptor drive dicadangkan — tidak ada konektor aktif."
+    },
+    "security": {
+      "title": "Keamanan & Berbagi",
+      "subtitle": "RBAC, jejak audit, enkripsi, retensi, dan cakupan berbagi."
+    }
+  },
+  "loading": {
+    "knowledgeBase": "Memuat basis pengetahuan…",
+    "approvals": "Memuat antrean persetujuan…",
+    "aiInsights": "Memuat wawasan AI…",
+    "activity": "Memuat aktivitas…",
+    "integrations": "Memuat integrasi…",
+    "security": "Memuat keamanan…"
+  },
+  "kpi": {
+    "documents": {
+      "label": "Dokumen",
+      "caption": "Contoh · lintas folder",
+      "delta": "+{count}"
+    },
+    "folders": {
+      "label": "Folder",
+      "caption": "Sampel · termasuk koleksi cerdas",
+      "delta": "+{count}"
+    },
+    "storage": {
+      "label": "Penyimpanan Digunakan",
+      "caption": "Contoh · rencana ilustratif",
+      "delta": "+{size}"
+    },
+    "shared": {
+      "label": "Dokumen Bersama",
+      "caption": "Contoh · organisasi + departemen + pengguna",
+      "delta": "+{count}"
+    },
+    "activity": {
+      "label": "Aktivitas Terkini",
+      "caption": "Contoh · 24 jam terakhir",
+      "delta": "+{count}"
+    },
+    "indexed": {
+      "label": "Terindeks AI",
+      "caption": "Contoh · Pencarian AI tidak terhubung",
+      "delta": "{percent}"
+    },
+    "approvals": {
+      "label": "Persetujuan yang Menunggu Keputusan",
+      "caption": "Contoh · otomatisasi tidak terhubung",
+      "delta": "{count}"
+    },
+    "score": {
+      "label": "Skor Pengetahuan",
+      "caption": "Contoh · ilustrasi liputan",
+      "delta": "+{count}"
+    }
+  },
+  "library": {
+    "viewsAria": "Tampilan perpustakaan",
+    "views": {
+      "all": "Semua Dokumen",
+      "recent": "Terkini",
+      "favorites": "Favorit",
+      "shared": "Dibagikan",
+      "archived": "Diarsipkan",
+      "trash": "Sampah",
+      "knowledge": "Basis Pengetahuan"
+    },
+    "dropzone": "Seret & letakkan file di sini untuk melakukan pengunggahan.",
+    "uploadReserved": "Unggahan seret & lepas adalah API penyimpanan yang dicadangkan.",
+    "filesStaged": "{count} file dipentaskan untuk diunggah (tidak ada penyimpanan tulis).",
+    "dropReceived": "Drop diterima (tidak ada penyimpanan tulis).",
+    "foldersTitle": "Folder & Koleksi",
+    "foldersHint": "Folder bersarang, koleksi, koleksi cerdas, tag, disematkan & favorit.",
+    "allFolders": "Semua folder",
+    "smart": "Cerdas",
+    "collection": "Koleksi",
+    "pinned": "Disematkan",
+    "favorite": "Favorit",
+    "sharedBadge": "Dibagikan",
+    "title": "Perpustakaan Dokumen",
+    "results": "{count} hasil",
+    "resultOne": "{count} hasil",
+    "selected": "· {count} dipilih",
+    "bulkAction": "Tindakan massal",
+    "bulkUnavailable": "Tindakan massal tidak tersedia untuk {count} item — mutasi penyimpanan tidak terhubung.",
+    "searchLabel": "Pencarian Global",
+    "searchPlaceholder": "Nama, tag, pemilik, ringkasan AI…",
+    "typeLabel": "Jenis",
+    "statusLabel": "Status",
+    "departmentLabel": "Departemen",
+    "ownerLabel": "Pemilik",
+    "allTypes": "Semua tipe",
+    "allStatuses": "Semua status",
+    "allDepartments": "Semua departemen",
+    "allOwners": "Semua pemilik",
+    "favoritesOnly": "Hanya favorit",
+    "emptyTitle": "Tidak ada dokumen untuk ditunjukkan",
+    "emptyDescription": "Sesuaikan filter, hapus pencarian, atau tambahkan aset pengetahuan untuk mengembangkan perpustakaan.",
+    "selectAria": "Pilih {name}",
+    "versionHistoryTitle": "Riwayat Versi",
+    "close": "Menutup",
+    "context": {
+      "open": "Membuka",
+      "share": "Membagikan",
+      "favorite": "Favorit",
+      "move": "Bergerak",
+      "delete": "Menghapus",
+      "dismiss": "Membubarkan",
+      "unavailable": "{action} tidak tersedia — mutasi dokumen tidak terhubung untuk {id}."
+    }
+  },
+  "viewer": {
+    "title": "Penampil Dokumen",
+    "emptyTitle": "Pilih dokumen",
+    "emptyDescription": "Pilih file dari perpustakaan untuk melihat pratinjau konten, metadata, tag, versi, dan modul tertaut.",
+    "zoomOut": "Perbesar -",
+    "zoomIn": "Perbesar +",
+    "prev": "Sebelumnya",
+    "next": "Berikutnya",
+    "page": "Halaman {page} / {total}",
+    "searchInside": "Cari di dalam",
+    "findPlaceholder": "Temukan di pratinjau…",
+    "noMatches": "Tidak ada kecocokan dalam teks pratinjau.",
+    "meta": {
+      "owner": "Pemilik",
+      "created": "Dibuat",
+      "updated": "Diperbarui",
+      "fileType": "Jenis File",
+      "size": "Ukuran",
+      "category": "Kategori",
+      "department": "Departemen",
+      "status": "Status",
+      "retention": "Penyimpanan",
+      "version": "Versi",
+      "sharing": "Membagikan"
+    },
+    "tags": "Tag",
+    "linkedModules": "Modul Tertaut",
+    "noModuleLinks": "Belum ada tautan modul",
+    "versionHistory": "Riwayat Versi"
+  },
+  "versions": {
+    "title": "Riwayat Versi",
+    "emptyTitle": "Tidak ada dokumen yang dipilih",
+    "emptyDescription": "Buka dokumen untuk memeriksa versi, catatan, memulihkan, dan membandingkan.",
+    "current": "{name} · saat ini {version}",
+    "restore": "Pulihkan Versi",
+    "compare": "Bandingkan Versi",
+    "restoreTitle": "Pemulihan memerlukan API penyimpanan",
+    "compareTitle": "Bandingkan memerlukan API penyimpanan",
+    "noticeDefault": "Pulihkan dan bandingkan memerlukan API penyimpanan.",
+    "restoreUnavailable": "Pemulihan tidak tersedia untuk {id} — API penyimpanan tidak terhubung.",
+    "compareUnavailable": "Bandingkan tidak tersedia ({selected} ↔ {current}) — API penyimpanan tidak terhubung."
+  },
+  "approvals": {
+    "title": "Alur Kerja Persetujuan",
+    "subtitle": "Draf → Sedang Ditinjau → Disetujui / Ditolak → Diarsipkan. Item antrian adalah contoh dokumen; tindakan tidak bertahan.",
+    "emptyTitle": "Antrian jelas",
+    "emptyDescription": "Tidak ada dokumen draf atau dokumen yang sedang ditinjau dalam kumpulan sampel.",
+    "approve": "Menyetujui",
+    "reject": "Menolak",
+    "sendToReview": "Kirim ke Tinjauan",
+    "noticeDefault": "Transisi persetujuan memerlukan mesin alur kerja Otomatisasi — tidak terhubung dalam build ini.",
+    "unavailable": "{action} tidak tersedia untuk {id} — mesin alur kerja tidak terhubung. Status dokumen sampel tidak diubah.",
+    "approveTitle": "Persetujuan tidak tersedia — mesin alur kerja tidak terhubung",
+    "rejectTitle": "Penolakan tidak tersedia — mesin alur kerja tidak terhubung",
+    "sendTitle": "Kirim untuk meninjau tidak tersedia — mesin alur kerja tidak terhubung"
+  },
+  "knowledge": {
+    "intro": "Artikel, kebijakan, proses, manual, FAQ, dan wiki internal — lapisan narasi Pusat Pengetahuan."
+  },
+  "activity": {
+    "intro": "Perubahan terkini, unggahan, penayangan, pembagian, dan riwayat audit — landasan untuk jalur kepatuhan."
+  },
+  "integrations": {
+    "intro": "Adaptor drive cloud hanya merupakan arsitektur — Google Drive, OneDrive, Dropbox, Box, SharePoint, Nextcloud. Tidak ada API langsung.",
+    "reservedAdapter": "Adaptor yang dipesan:",
+    "architecture": "Arsitektur",
+    "items": {
+      "google-drive": {
+        "description": "Arsitektur impor/sinkronisasi dicadangkan — belum ada OAuth langsung."
+      },
+      "onedrive": {
+        "description": "Kait file Microsoft Graph dicadangkan."
+      },
+      "dropbox": {
+        "description": "Adaptor Dropbox API sudah dipesan."
+      },
+      "box": {
+        "description": "Konektor Enterprise Box dicadangkan."
+      },
+      "sharepoint": {
+        "description": "Pustaka situs + pemetaan metadata dicadangkan."
+      },
+      "nextcloud": {
+        "description": "Adaptor WebDAV dicadangkan — dinonaktifkan hingga paket self-host."
+      }
+    }
+  },
+  "security": {
+    "architectureTitle": "Arsitektur Keamanan",
+    "sharingTitle": "Model Berbagi",
+    "sharingIntro": "Placeholder Pribadi, Organisasi, Departemen, Pengguna Tertentu, dan Tautan Publik.",
+    "enabled": "Diaktifkan",
+    "placeholder": "Penampung",
+    "notEnforced": "Tidak ditegakkan",
+    "modelOnly": "Hanya model",
+    "controls": {
+      "rbac": {
+        "title": "Akses Berbasis Peran",
+        "description": "Peran pemilik, editor, penampil, dan pemberi persetujuan dipetakan ke dokumen ACL — tidak diterapkan dalam build ini."
+      },
+      "permissions": {
+        "title": "Arsitektur Izin",
+        "description": "Warisan folder dengan penggantian tingkat dokumen — tidak diterapkan dalam build ini."
+      },
+      "audit": {
+        "title": "Jejak Audit",
+        "description": "Peristiwa aktivitas untuk penayangan, pembagian, pemulihan, dan persetujuan — belum berlangsung."
+      },
+      "encryption": {
+        "title": "Enkripsi",
+        "description": "Kait enkripsi saat istirahat dan dalam transit dicadangkan untuk pengkabelan KMS."
+      },
+      "retention": {
+        "title": "Kebijakan Retensi",
+        "description": "Periode retensi per kategori dengan dukungan pembekuan legal — belum diterapkan."
+      }
+    }
+  },
+  "ai": {
+    "architectureTitle": "Arsitektur Fitur AI",
+    "architectureIntro": "Setiap kemampuan dicadangkan untuk indeks AI masa depan. UI menunjukkan wawasan tiruan deterministik.",
+    "insightsTitle": "Wawasan untuk Dokumen yang Dipilih",
+    "emptyTitle": "Pilih dokumen",
+    "emptyDescription": "Buka file di perpustakaan untuk memeriksa ringkasan AI, kata kunci, dan saran.",
+    "summary": "Ringkasan AI",
+    "keywords": "Kata Kunci AI",
+    "classification": "Klasifikasi AI",
+    "suggestedFolder": "Folder yang Disarankan AI",
+    "translation": "Terjemahan AI",
+    "ocr": "AI OCR",
+    "suggestedTags": "Tag yang Disarankan AI",
+    "related": "Dokumen Terkait AI",
+    "noRelated": "Tidak ada dokumen terkait yang diindeks.",
+    "duplicateOf": "Deteksi Duplikat AI: kemungkinan duplikat",
+    "noDuplicates": "Deteksi Duplikat AI: tidak ada duplikat yang ditandai.",
+    "sampleReady": "Sampel sudah siap",
+    "notApplicable": "Tidak berlaku",
+    "runSearch": "Jalankan Pencarian AI",
+    "searchTitle": "Pencarian AI tidak terhubung",
+    "noticeDefault": "Fitur AI hanya bersifat arsitektur — tidak ada panggilan model langsung.",
+    "searchUnavailable": "Pencarian AI tidak tersedia — indeks semantik tidak terhubung. Contoh wawasan di atas bersifat statis.",
+    "features": {
+      "summary": {
+        "title": "Ringkasan AI",
+        "description": "Pemahaman dokumen ringkas untuk setiap modul."
+      },
+      "keywords": {
+        "title": "Kata Kunci AI",
+        "description": "Sinyal topik yang diekstraksi untuk penelusuran dan perutean."
+      },
+      "classification": {
+        "title": "Klasifikasi AI",
+        "description": "Saran taksonomi kategori/departemen."
+      },
+      "tags": {
+        "title": "Tag yang Disarankan AI",
+        "description": "Beri tag rekomendasi tanpa mengubah grafik."
+      },
+      "folder": {
+        "title": "Folder yang Disarankan AI",
+        "description": "Penempatan cerdas ke dalam folder bersarang."
+      },
+      "related": {
+        "title": "Dokumen Terkait AI",
+        "description": "Buat grafik tetangga di seluruh pusat pengetahuan."
+      },
+      "duplicate": {
+        "title": "Deteksi Duplikat AI",
+        "description": "Deteksi hampir duplikat untuk pustaka dokumen."
+      },
+      "translation": {
+        "title": "Terjemahan AI",
+        "description": "Tanda kesiapan penerjemahan — tidak ada model langsung."
+      },
+      "ocr": {
+        "title": "AI OCR",
+        "description": "Saluran pipa OCR dicadangkan untuk pemindaian dan PDF."
+      },
+      "search": {
+        "title": "Pencarian AI",
+        "description": "Pencarian semantik disediakan untuk indeks masa depan."
+      }
+    }
+  },
+  "status": {
+    "draft": "Draf",
+    "in_review": "Dalam Ulasan",
+    "approved": "Disetujui",
+    "rejected": "Ditolak",
+    "archived": "Diarsipkan"
+  },
+  "fileType": {
+    "pdf": "PDF",
+    "word": "Kata",
+    "excel": "Unggul",
+    "powerpoint": "Power Point",
+    "image": "Gambar",
+    "video": "Video",
+    "audio": "Audio",
+    "markdown": "Penurunan harga",
+    "text": "Teks",
+    "json": "JSON",
+    "csv": "CSV",
+    "other": "Lainnya"
+  },
+  "share": {
+    "private": "Pribadi",
+    "organization": "Organisasi",
+    "department": "Departemen",
+    "specific_users": "Pengguna Tertentu",
+    "public_link": "Tautan Publik"
+  },
+  "module": {
+    "crm": "CRM",
+    "finance": "Keuangan",
+    "automation": "Otomatisasi",
+    "creator": "Studio Pembuat",
+    "hr": "SDM masa depan",
+    "projects": "Proyek Masa Depan"
+  },
+  "knowledgeKind": {
+    "article": "Artikel",
+    "policy": "Kebijakan",
+    "process": "Proses",
+    "manual": "petunjuk",
+    "faq": "Pertanyaan Umum",
+    "wiki": "Wiki Internal"
+  },
+  "integrationStatus": {
+    "connected": "Terhubung",
+    "beta": "Beta",
+    "coming_soon": "Segera hadir",
+    "disabled": "Dengan disabilitas",
+    "planned": "Berencana"
+  },
+  "bytes": {
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
+  }
+}

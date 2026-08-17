@@ -13,7 +13,7 @@ import {
   authMutedStyle,
 } from "../components/auth/AuthCard";
 import { isValidEmail } from "../lib/auth/formValidation";
-import { useT } from "../lib/i18n";
+import { useT, resolveUserFacingErrorKey } from "../lib/i18n";
 import { submitSalesInquiry } from "../../features/saas";
 
 export default function ContactSalesPage(): JSX.Element {
@@ -57,7 +57,7 @@ export default function ContactSalesPage(): JSX.Element {
       });
       setSubmitted(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "auth.contactSales.failed");
+      setError(resolveUserFacingErrorKey(err, "auth.contactSales.failed"));
     } finally {
       setBusy(false);
     }
@@ -79,11 +79,10 @@ export default function ContactSalesPage(): JSX.Element {
         }
       >
         <p style={{ ...authMutedStyle, margin: "0 0 12px", textAlign: "center" }}>
-          Saved for <strong style={{ color: "#e2e8f0" }}>{company}</strong>. Sales
-          delivery is not connected in this build.
+          {t("auth.contactSales.savedFor", { company })}
         </p>
         <p style={{ ...authMutedStyle, margin: "0 0 18px", textAlign: "center" }}>
-          Prefer a product walkthrough next?
+          {t("auth.contactSales.preferWalkthrough")}
         </p>
         <Link href="/demo" style={{ ...authButtonStyle, display: "block", textAlign: "center", textDecoration: "none" }}>
           {t("auth.contactSales.bookDemo")}
@@ -98,7 +97,7 @@ export default function ContactSalesPage(): JSX.Element {
       subtitle={t("auth.contactSales.subtitle")}
       footer={
         <>
-          Prefer self-serve? <AuthLink href="/register">{t("auth.login.startFree")}</AuthLink>
+          {t("auth.contactSales.preferSelfServe")} <AuthLink href="/register">{t("auth.login.startFree")}</AuthLink>
           {" · "}
           <AuthLink href="/pricing">{t("auth.contactSales.viewPricing")}</AuthLink>
           {" · "}
@@ -144,7 +143,7 @@ export default function ContactSalesPage(): JSX.Element {
         </select>
 
         <label style={authLabelStyle} htmlFor="sales-country">
-          Country
+          {t("auth.contactSales.country")}
         </label>
         <input
           id="sales-country"

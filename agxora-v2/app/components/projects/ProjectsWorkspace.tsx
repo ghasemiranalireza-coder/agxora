@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, type JSX } from "react";
-import { formatDisplayDateTime } from "../../lib/i18n";
+import { formatDisplayDateTime, useT } from "../../lib/i18n";
 import { useOrganization } from "../../lib/organization";
 import {
   projectRepository,
@@ -34,6 +34,7 @@ export function ProjectsWorkspace(): JSX.Element {
   const itemsRevision = useProjectStoreSelector(selectItemsRevision);
   const analytics = useProjectAnalytics();
   const currency = useProjectStoreSelector(selectPortfolioCurrency);
+  const t = useT();
 
   useEffect(() => {
     void projectStore.hydrate(organizationId);
@@ -56,21 +57,21 @@ export function ProjectsWorkspace(): JSX.Element {
           className="text-[11px] font-semibold uppercase tracking-[0.16em]"
           style={{ color: "var(--agx-accent, #22d3ee)" }}
         >
-          Project Management OS
+          {t("projects.page.eyebrow")}
         </p>
         <h1
           className="text-2xl font-semibold tracking-tight"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Projects
+          {t("projects.page.title")}
         </h1>
         <p
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Plan delivery, track budget and health, assign teams, and manage tasks
-          for {organization?.name ?? "your organization"}. Data persists locally
-          and is ready for backend connectivity.
+          {t("projects.page.lead", {
+            organization: organization?.name ?? t("projects.page.yourOrganization"),
+          })}
         </p>
       </Card>
 
@@ -84,7 +85,7 @@ export function ProjectsWorkspace(): JSX.Element {
               className="text-sm"
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
             >
-              Activity will appear as projects and tasks are created.
+              {t("projects.dashboard.recentActivity.empty")}
             </p>
           ) : (
             <ul className="space-y-2">

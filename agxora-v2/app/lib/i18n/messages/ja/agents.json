@@ -1,0 +1,125 @@
+{
+  "loading": "エージェント オペレーティング システムをロード中…",
+  "eyebrow": "AI エージェント オペレーティング システム",
+  "title": "エージェントOS",
+  "subtitle": "ローカル エージェント ワークスペース — エージェントはアクティブ化され、CRM、プロジェクト、財務、ワークフロー、統合にわたるシミュレーションとして実行できます。本番環境の自律実行は接続されていません。",
+  "noticeDefault": "ローカル エージェント OS — 実行はこのワークスペースでシミュレートされます。",
+  "aiChat": "AIチャット",
+  "tabs": {
+    "dashboard": "ダッシュボード",
+    "registry": "レジストリ",
+    "marketplace": "市場",
+    "monitor": "モニター",
+    "history": "歴史",
+    "memory": "メモリ",
+    "knowledge": "知識",
+    "tools": "ツール",
+    "settings": "設定"
+  },
+  "notice": {
+    "simulatedRun": "シミュレートされた実行 · {status} ({duration}ms)",
+    "taskFailed": "タスクが失敗しました",
+    "activated": "ローカルでアクティブ化: {agentId}",
+    "agentPaused": "エージェントが一時停止しました",
+    "agentActivated": "エージェントがアクティブ化されました",
+    "taskCancelled": "タスクがキャンセルされました",
+    "supervisorDelegated": "監督者がフォローアップを委任した",
+    "settingsUpdated": "このローカル ワークスペースのエージェント OS 設定が更新されました。"
+  },
+  "dashboard": {
+    "agents": "エージェント",
+    "active": "アクティブ",
+    "localReady": "ローカル対応",
+    "simulatedToday": "今日のシミュレーション",
+    "failedToday": "今日は失敗しました",
+    "avgExec": "平均実行者",
+    "toolCalls": "ツール呼び出し",
+    "knowledge": "知識",
+    "activeFleet": "アクティブなフリート",
+    "emptyTitle": "アクティブなエージェントはありません",
+    "emptyDescription": "マーケットプレイスからエージェントをインストールまたはアクティブ化して、シミュレートされた実行を開始します。"
+  },
+  "registry": {
+    "title": "レジストリ",
+    "selectPrompt": "レジストリからエージェントを選択します。",
+    "status": "ステータス: {status}",
+    "health": "健康: {health}",
+    "queue": "キュー: {queue}",
+    "usage": "使用法: {usage}",
+    "executeTask": "タスクの実行",
+    "supervisorDelegate": "スーパーバイザーの代表者"
+  },
+  "marketplace": {
+    "tools": "ツール: {tools}",
+    "installed": "インストール済み",
+    "installActivate": "インストールとアクティベーション"
+  },
+  "monitor": {
+    "title": "エージェントモニター",
+    "emptyTitle": "監視するエージェントがありません",
+    "emptyDescription": "マーケットプレイスからエージェントをアクティブ化します。",
+    "latestConfidence": "最新の推論の信頼度: {confidence} — {steps}"
+  },
+  "history": {
+    "title": "実行履歴",
+    "emptyTitle": "まだ処刑はされていない",
+    "emptyDescription": "レジストリまたはモニターからエージェント タスクを実行します。"
+  },
+  "memory": {
+    "title": "記憶中枢",
+    "subtitle": "作業、会話、ビジネス、長期、ワークスペース、エージェントのスコープ (アーキテクチャ対応)。",
+    "emptyTitle": "記憶記録はありません",
+    "emptyDescription": "タスクを実行して、作業/エージェント メモリを設定します。"
+  },
+  "knowledge": {
+    "title": "ナレッジセンター",
+    "subtitle": "会社、ドキュメント、プロジェクト、CRM、ポリシー、手順、およびベクター/RAG プレースホルダー。",
+    "emptyTitle": "ナレッジドキュメントはありません",
+    "emptyDescription": "シード ナレッジは、ワークスペースのブートストラップ後に表示されます。"
+  },
+  "tools": {
+    "sensitive": "・ センシティブ",
+    "mcpReady": "· MCP対応"
+  },
+  "settings": {
+    "title": "エージェントOSの設定",
+    "defaultLlmProvider": "デフォルトの LLM プロバイダー",
+    "enableSupervisor": "スーパーバイザ エージェント アーキテクチャを有効にする",
+    "isolateSensitive": "機密性の高いツールを隔離する",
+    "saveSettings": "設定を保存する",
+    "providersHint": "対応プロバイダー: OpenAI、Azure OpenAI、Anthropic、Gemini、Local、Ollama、MCP、Custom。 UI を変更せずに registerLlmProvider 経由でアダプターを交換します。"
+  },
+  "columns": {
+    "agent": "エージェント",
+    "status": "状態",
+    "health": "健康",
+    "queue": "列",
+    "usage": "使用法",
+    "actions": "アクション",
+    "task": "タスク",
+    "duration": "間隔",
+    "created": "作成されました",
+    "scope": "範囲",
+    "key": "鍵",
+    "value": "価値",
+    "at": "で",
+    "title": "タイトル",
+    "kind": "親切",
+    "summary": "まとめ"
+  },
+  "actions": {
+    "run": "走る",
+    "pause": "一時停止",
+    "activate": "活性化",
+    "cancel": "キャンセル",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "{agentId} ビジネス目標を実行する",
+    "planAndExecute": "ワークスペースのビジネス目標を計画して実行する"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "顧客インパクトを優先",
+    "delegatedFollowUp": "委任フォローアップ"
+  }
+}

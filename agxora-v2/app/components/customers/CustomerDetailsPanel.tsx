@@ -6,18 +6,19 @@ import {
   useCustomerStore,
   useSelectedCustomer,
 } from "../../lib/customers";
-import { formatDisplayDateTime } from "../../lib/i18n";
+import { formatDisplayDateTime, useT } from "../../lib/i18n";
 import { Button, Card, Dialog } from "../ui";
 import { CustomerStatusBadge } from "./CustomerStatusBadge";
 
 export function CustomerDetailsPanel(): JSX.Element {
+  const t = useT();
   const state = useCustomerStore();
   const customer = useSelectedCustomer();
 
   return (
     <Dialog
       open={state.detailsOpen && Boolean(customer)}
-      title={customer?.companyName ?? "Customer"}
+      title={customer?.companyName ?? t("customers.details.titleFallback")}
       wide
       onClose={() => customerStore.closeDetails()}
       footer={
@@ -28,14 +29,14 @@ export function CustomerDetailsPanel(): JSX.Element {
               size="sm"
               onClick={() => customerStore.openEdit(customer)}
             >
-              Edit
+              {t("customers.details.edit")}
             </Button>
             <Button
               variant="danger"
               size="sm"
               onClick={() => customerStore.requestDelete(customer.id)}
             >
-              Delete
+              {t("customers.details.delete")}
             </Button>
           </>
         ) : null
@@ -63,18 +64,18 @@ export function CustomerDetailsPanel(): JSX.Element {
                 className="text-xs"
                 style={{ color: "var(--agx-text-muted, #94a3b8)" }}
               >
-                No tags
+                {t("customers.details.noTags")}
               </span>
             )}
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
-            <DetailCard label="Contact" value={customer.contactPerson} />
-            <DetailCard label="Email" value={customer.email} />
-            <DetailCard label="Phone" value={customer.phone || "—"} />
-            <DetailCard label="Mobile" value={customer.mobile || "—"} />
+            <DetailCard label={t("customers.details.contact")} value={customer.contactPerson} />
+            <DetailCard label={t("customers.details.email")} value={customer.email} />
+            <DetailCard label={t("customers.details.phone")} value={customer.phone || "—"} />
+            <DetailCard label={t("customers.details.mobile")} value={customer.mobile || "—"} />
             <DetailCard
-              label="Address"
+              label={t("customers.details.address")}
               value={[
                 customer.street,
                 [customer.postalCode, customer.city].filter(Boolean).join(" "),
@@ -83,10 +84,10 @@ export function CustomerDetailsPanel(): JSX.Element {
                 .filter(Boolean)
                 .join(", ") || "—"}
             />
-            <DetailCard label="Tax Number" value={customer.taxNumber || "—"} />
-            <DetailCard label="VAT ID" value={customer.vatId || "—"} />
+            <DetailCard label={t("customers.details.taxNumber")} value={customer.taxNumber || "—"} />
+            <DetailCard label={t("customers.details.vatId")} value={customer.vatId || "—"} />
             <DetailCard
-              label="Updated"
+              label={t("customers.details.updated")}
               value={formatDisplayDateTime(customer.updatedAt)}
             />
           </div>
@@ -96,13 +97,13 @@ export function CustomerDetailsPanel(): JSX.Element {
               className="text-[11px] font-semibold uppercase tracking-[0.14em]"
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
             >
-              Notes
+              {t("customers.details.notes")}
             </p>
             <p
               className="mt-2 whitespace-pre-wrap text-sm leading-relaxed"
               style={{ color: "var(--agx-text, #f8fafc)" }}
             >
-              {customer.notes || "No notes yet."}
+              {customer.notes || t("customers.details.noNotes")}
             </p>
           </Card>
         </div>

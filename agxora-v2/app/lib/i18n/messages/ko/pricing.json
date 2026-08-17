@@ -1,0 +1,70 @@
+{
+  "navLabel": "가격 탐색",
+  "navPricing": "가격",
+  "navContactSales": "영업팀에 문의",
+  "navBookDemo": "데모 예약",
+  "navSignIn": "로그인",
+  "eyebrow": "가격",
+  "title": "배송하는 운영자를 위해 만들어진 계획입니다.",
+  "lead": "상업용 계층을 지웁니다. 무료로 시작하고, 준비가 되면 확장하거나, 엔터프라이즈 조건에 대해 영업 담당자에게 문의하세요.",
+  "billingInterval": "청구 간격",
+  "monthly": "월간 간행물",
+  "yearly": "매년",
+  "savePercent": "~20% 할인",
+  "mostPopular": "가장 인기 있는",
+  "startFree": "무료로 시작하세요",
+  "bookDemo": "데모 예약",
+  "contactSales": "영업팀에 문의",
+  "perMonth": "/월",
+  "perMonthYearly": "/월 매년 청구됨",
+  "yearlyHint": "{amount}/년 · {percent}% 절약",
+  "commercialActions": "상업적 행위",
+  "legal": "합법적인",
+  "planAria": "{name} 계획 — {cta}",
+  "plans": {
+    "starter": {
+      "name": "기동기",
+      "description": "프리랜서 및 소규모 기업을 위한 제품입니다.",
+      "features": [
+        "CRM 및 고객 파이프라인",
+        "프로젝트 및 문서",
+        "관리형 AI 어시스턴트",
+        "최대 5석",
+        "이메일 지원"
+      ]
+    },
+    "business": {
+      "name": "사업",
+      "description": "성장하는 팀을 위해.",
+      "features": [
+        "스타터의 모든 것",
+        "재무 및 분석 모듈",
+        "자동화 및 감사 내보내기",
+        "팀 협업",
+        "우선 지원"
+      ]
+    },
+    "professional": {
+      "name": "전문적인",
+      "description": "선진 기업의 경우.",
+      "features": [
+        "스타터의 모든 것",
+        "재무 및 분석 모듈",
+        "API 액세스",
+        "고급 회사 워크플로우",
+        "우선 지원 받은 편지함"
+      ]
+    },
+    "enterprise": {
+      "name": "기업",
+      "description": "무제한 확장을 위한 맞춤형 가격.",
+      "features": [
+        "맞춤형 가격",
+        "무제한 규모",
+        "전용 온보딩",
+        "맞춤형 통합",
+        "우선 지원"
+      ]
+    }
+  }
+}

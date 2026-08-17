@@ -1,0 +1,70 @@
+{
+  "navLabel": "定价导航",
+  "navPricing": "定价",
+  "navContactSales": "联系销售部门",
+  "navBookDemo": "书籍演示",
+  "navSignIn": "登陆",
+  "eyebrow": "定价",
+  "title": "为运输运营商制定的计划。",
+  "lead": "清除商业会员等级。免费开始，准备就绪后进行扩展，或与销售人员讨论企业条款。",
+  "billingInterval": "计费间隔",
+  "monthly": "每月",
+  "yearly": "每年",
+  "savePercent": "节省约 20%",
+  "mostPopular": "最受欢迎",
+  "startFree": "免费开始",
+  "bookDemo": "书籍演示",
+  "contactSales": "联系销售部门",
+  "perMonth": "/月",
+  "perMonthYearly": "/mo 按年计费",
+  "yearlyHint": "{amount}/年 · 节省 {percent}%",
+  "commercialActions": "商业行为",
+  "legal": "合法的",
+  "planAria": "{name} 计划 — {cta}",
+  "plans": {
+    "starter": {
+      "name": "起动机",
+      "description": "适合自由职业者和小型企业。",
+      "features": [
+        "CRM 和客户渠道",
+        "项目和文件",
+        "受监管的人工智能助手",
+        "最多 5 个座位",
+        "电子邮件支持"
+      ]
+    },
+    "business": {
+      "name": "商业",
+      "description": "对于成长中的团队。",
+      "features": [
+        "一切都在启动器中",
+        "财务和分析模块",
+        "自动化和审计导出",
+        "团队协作",
+        "优先支持"
+      ]
+    },
+    "professional": {
+      "name": "专业的",
+      "description": "对于先进企业。",
+      "features": [
+        "一切都在启动器中",
+        "财务和分析模块",
+        "API访问",
+        "先进的公司工作流程",
+        "优先支持收件箱"
+      ]
+    },
+    "enterprise": {
+      "name": "行业应用",
+      "description": "无限规模的定制定价。",
+      "features": [
+        "自定义定价",
+        "无限规模",
+        "专门的入职培训",
+        "定制集成",
+        "优先支持"
+      ]
+    }
+  }
+}

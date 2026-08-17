@@ -1,0 +1,143 @@
+{
+  "loading": "در حال بارگذاری پلتفرم یکپارچه‌سازی…",
+  "eyebrow": "پلتفرم یکپارچه‌سازی سازمانی",
+  "title": "مرکز ادغام",
+  "subtitle": "رابط‌هایی برای مایکروسافت ۳۶۵، گوگل، اسلک، CRM، ذخیره‌سازی و اکوسیستم‌های اتوماسیون. اتصالات و همگام‌سازی در این نسخه آزمایشی محلی هستند - OAuth زنده متصل نیست.",
+  "noticeDefault": "رابط‌های نمایشی محلی — OAuth و همگام‌سازی زنده به هم متصل نیستند.",
+  "settings": "تنظیمات",
+  "tabs": {
+    "dashboard": "داشبورد",
+    "installed": "نصب شده",
+    "available": "در دسترس",
+    "logs": "ریزگزارشات",
+    "apiKeys": "کلیدهای API",
+    "webhooks": "صفحات وب",
+    "developer": "توسعه دهنده"
+  },
+  "notice": {
+    "demoConnection": "اتصال آزمایشی: {name} (فقط بخش محلی)",
+    "connectFailed": "اتصال ناموفق بود",
+    "keyCreated": "کلید API ایجاد شد: {prefix}",
+    "webhookCreated": "وب هوک ایجاد شده: {name}",
+    "webhookTest": "تست وب هوک {status}",
+    "networkError": "خطای شبکه کاوشگر API: {message}",
+    "explorerError": "کاوشگر API → {status}: {message}",
+    "explorerSuccess": "جستجوگر API → {status}",
+    "explorerFailed": "اکسپلورر شکست خورد",
+    "syncResult": "همگام‌سازی آزمایشی · {status} ({records} رکوردهای محلی) — هیچ داده خارجی منتقل نشده است.",
+    "diagnosed": "تشخیص داده شده",
+    "removedConnection": "اتصال آزمایشی حذف شد: {name}",
+    "keyRotated": "کلید چرخانده شد",
+    "keyRevoked": "کلید باطل شد",
+    "publishedEvent": "منتشر شده {type}",
+    "developerSaved": "تنظیمات برنامه نویس ذخیره شد."
+  },
+  "dashboard": {
+    "demoLinks": "لینک‌های نمایشی",
+    "catalog": "کاتالوگ",
+    "api24h": "رابط برنامه‌نویسی کاربردی (۲۴ ساعته)",
+    "webhooks24h": "وب هوک‌ها (۲۴ ساعته)",
+    "webhookFailures": "خرابی‌های وب‌هوک",
+    "syncJobs": "همگام‌سازی کارها",
+    "conflicts": "لوله‌ها",
+    "errors": "خطا ها",
+    "connectionStatus": "وضعیت اتصال",
+    "emptyTitle": "هیچ ادغامی نصب نشده است",
+    "emptyDescription": "برای اتصال ارائه دهنده، موارد موجود را مرور کنید.",
+    "eventBridgeDemo": "نسخه نمایشی پل رویداد",
+    "eventBridgeHint": "یک رویداد رابط را روی گذرگاه اتوماسیون گردش کار منتشر کنید.",
+    "emit": "ساطع کردن {id}"
+  },
+  "installed": {
+    "title": "ادغام‌های نصب‌شده",
+    "emptyTitle": "هیچ چیزی نصب نشده",
+    "emptyDescription": "از کاتالوگ موجود نصب کنید.",
+    "latestSync": "آخرین همگام‌سازی: {status} · {records} records · mode {mode}"
+  },
+  "available": {
+    "protocols": "پروتکل‌ها: {protocols}",
+    "demoConnection": "اتصال نمایشی",
+    "connectDemo": "اتصال (نسخه آزمایشی)",
+    "installDemo": "نصب دمو"
+  },
+  "logs": {
+    "title": "لاگ‌های یکپارچه‌سازی",
+    "emptyTitle": "هنوز هیچ لاگی ثبت نشده است",
+    "emptyDescription": "به یک ارائه دهنده متصل شوید یا عیب‌یابی را اجرا کنید."
+  },
+  "apiKeys": {
+    "title": "کلیدهای API",
+    "generateKey": "ساخت کلید",
+    "copyOnce": "اکنون کپی کنید (یک بار نشان داده شده است): {secret}",
+    "emptyTitle": "بدون کلید API",
+    "emptyDescription": "یک کلید برای دسترسی به دروازه REST ایجاد کنید."
+  },
+  "webhooks": {
+    "endpointsTitle": "تنظیمات وب هوک",
+    "urlPlaceholder": "https",
+    "addOutgoing": "وب هوک خروجی",
+    "emptyTitle": "بدون Webhooks",
+    "emptyDescription": "یک نقطه پایانی خروجی برای آزمایش تحویل ایجاد کنید.",
+    "deliveryLogs": "گزارش‌های تحویل",
+    "deliveriesEmptyTitle": "تحویل انجام نمی‌شود",
+    "deliveriesEmptyDescription": "یک وب‌هوک آزمایشی برای پر کردن لاگ‌ها ارسال کنید."
+  },
+  "developer": {
+    "title": "تنظیمات برنامه نویس",
+    "sandboxMode": "حالت ماسهبازی",
+    "webhookSigning": "امضای وب‌هوک فعال شد",
+    "saveSettings": "تنظیمات را ذخیره کن",
+    "apiDocs": "محل قرارگیری اسناد API: {url}",
+    "sdk": "محل قرارگیری SDK: {url}",
+    "explorerTitle": "کاوشگر API",
+    "gatewayRoutes": "مسیرهای دروازه: {routes}",
+    "sendGet": "ارسال GET",
+    "oauthProviders": "ارائه دهندگان OAuth",
+    "placeholdersHint": "مسیرهای GraphQL، WebSocket و gRPC gateway به عنوان placeholder ثبت شده‌اند. نگاشت فیلد و حل تداخل همگام‌سازی از نظر معماری برای پیاده‌سازی در سمت سرور آماده هستند."
+  },
+  "connectionStatus": {
+    "connected": "اتصال نمایشی",
+    "pendingAuth": "در انتظار (نسخه آزمایشی)",
+    "error": "خطا",
+    "disabled": "غیرفعال",
+    "installed": "نصب شده",
+    "available": "در دسترس",
+    "localDemo": "نسخه آزمایشی محلی"
+  },
+  "columns": {
+    "integration": "ادغام",
+    "status": "وضعیت",
+    "health": "سلامتی",
+    "latency": "تاخیر",
+    "actions": "اقدامات",
+    "when": "When",
+    "level": "مرحله",
+    "source": "منبع",
+    "message": "پیام",
+    "name": "نام",
+    "key": "کلید",
+    "scopes": "محدوده ها",
+    "usage": "کاربرد",
+    "direction": "Direction",
+    "url": "آدرس URL",
+    "enabled": "فعال",
+    "event": "رویداد",
+    "attempt": "تلاش"
+  },
+  "actions": {
+    "diagnose": "برشناخت کردن.",
+    "demoSync": "همگام‌سازی نسخه آزمایشی",
+    "demoSyncTitle": "فقط همگام‌سازی آزمایشی — بدون انتقال خارجی",
+    "disconnect": "غیر فعال کردن",
+    "rotate": "چرخش",
+    "revoke": "لغو",
+    "test": "آزمون",
+    "emDash": "—",
+    "yes": "Yes",
+    "no": "بله"
+  },
+  "errors": {
+    "failedToFetch": "دریافت نشد",
+    "httpStatus": "HTTP {status}"
+  }
+}

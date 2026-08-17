@@ -1,0 +1,168 @@
+{
+  "platform": {
+    "loading": "AI प्लेटफ़ॉर्म लोड हो रहा है...",
+    "eyebrow": "एजीएक्सओआरए एआई प्लेटफॉर्म",
+    "title": "एंटरप्राइज़ एआई कार्यक्षेत्र",
+    "subtitle": "सीआरएम, प्रोजेक्ट्स, वित्त, दस्तावेज़ और स्वचालन के लिए प्रदाता-स्वतंत्र बुद्धिमत्ता। सेटिंग्स → AI में प्रदाताओं को कॉन्फ़िगर करें।",
+    "newConversation": "नई बातचीत",
+    "aiCommands": "एआई कमांड"
+  },
+  "mobileTabs": {
+    "chat": "बात करना",
+    "conversations": "बात चिट",
+    "prompts": "संकेतों"
+  },
+  "usageBar": {
+    "provider": "प्रदाता",
+    "model": "नमूना",
+    "estimatedTokens": "ईएसटी। टोकन",
+    "tokensInOut": "(अंदर {in} / बाहर {out})",
+    "cost": "लागत",
+    "context": "प्रसंग",
+    "contextNone": "कोई नहीं",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "एजीएक्सओआरए एआई कार्यक्षेत्र",
+    "emptyHint": "बातचीत शुरू करें, लाइब्रेरी से प्रॉम्प्ट चुनें, या कमांड पैलेट (⌘⇧K / Ctrl⇧K) खोलें।"
+  },
+  "conversationSidebar": {
+    "title": "बात चिट",
+    "new": "नया",
+    "searchPlaceholder": "चैट खोजें...",
+    "searchAria": "वार्तालाप खोजें",
+    "showArchived": "संग्रहीत दिखाएँ",
+    "pinned": "पिन की गई",
+    "emptyPreview": "खाली बातचीत",
+    "noConversations": "अभी तक कोई बातचीत नहीं",
+    "pin": "नत्थी करना",
+    "unpin": "अनपिन",
+    "rename": "नाम बदलें",
+    "archive": "पुरालेख",
+    "unarchive": "संग्रह से निकालें",
+    "delete": "मिटाना"
+  },
+  "composer": {
+    "placeholder": "संदेश AGXORA AI... (भेजने के लिए एंटर करें, न्यूलाइन के लिए Shift+Enter)",
+    "ariaLabel": "संदेश संगीतकार",
+    "commandsShortcut": "आदेश ⌘⇧K",
+    "stop": "रुकना",
+    "send": "भेजना"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "प्रतिलिपि",
+    "retry": "पुन: प्रयास करें"
+  },
+  "typingIndicator": {
+    "ariaLabel": "सहायक टाइप कर रहा है"
+  },
+  "promptLibrary": {
+    "title": "शीघ्र पुस्तकालय",
+    "subtitle": "सीआरएम, प्रोजेक्ट्स, फाइनेंस और अन्य में पुन: प्रयोज्य टेम्पलेट।",
+    "searchPlaceholder": "खोज संकेत...",
+    "searchAria": "खोज संकेत",
+    "all": "सभी",
+    "favorites": "पसंदीदा",
+    "recent": "हाल ही का",
+    "library": "पुस्तकालय",
+    "noMatches": "कोई संकेत मेल नहीं खाता",
+    "removeFavoriteAria": "पसंदीदा हटाएँ",
+    "addFavoriteAria": "पसंदीदा जोड़ें",
+    "favorited": "पसंदीदा",
+    "favorite": "पसंदीदा",
+    "usePrompt": "संकेत का प्रयोग करें"
+  },
+  "commandPalette": {
+    "ariaLabel": "एआई कमांड पैलेट",
+    "filterAria": "एआई कमांड को फ़िल्टर करें",
+    "placeholder": "एआई कमांड... सारांशित करें, प्रस्तावित करें, विश्लेषण करें...",
+    "noMatches": "कोई मिलान आदेश नहीं",
+    "footer": "रजिस्टरएआईकमांड के माध्यम से भविष्य के आदेशों को पंजीकृत करें - यूआई अपरिवर्तित रहता है।"
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "प्रोजेक्ट",
+    "finance": "वित्त",
+    "marketing": "मार्केटिंग",
+    "documents": "दस्तावेज़",
+    "automation": "स्वचालन",
+    "general": "सामान्य"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "ग्राहक सारांश",
+      "description": "ग्राहक संबंध का कार्यकारी सारांश"
+    },
+    "crm-follow-up-email": {
+      "title": "फ़ॉलो-अप ईमेल",
+      "description": "पेशेवर CRM फ़ॉलो-अप का मसौदा"
+    },
+    "projects-analyze": {
+      "title": "प्रोजेक्ट विश्लेषण",
+      "description": "प्रोजेक्ट का स्वास्थ्य जाँच"
+    },
+    "projects-task-list": {
+      "title": "कार्य सूची बनाएँ",
+      "description": "काम को कार्रवाई योग्य कार्यों में तोड़ें"
+    },
+    "finance-explain-invoice": {
+      "title": "चालान समझाएँ",
+      "description": "सरल भाषा में चालान की व्याख्या"
+    },
+    "finance-cashflow-brief": {
+      "title": "कैशफ़्लो संक्षेप",
+      "description": "संक्षिप्त कैशफ़्लो विवरण"
+    },
+    "marketing-campaign-outline": {
+      "title": "अभियान रूपरेखा",
+      "description": "मार्केटिंग अभियान की संरचना करें"
+    },
+    "marketing-proposal": {
+      "title": "प्रस्ताव बनाएँ",
+      "description": "ग्राहक-मुखी प्रस्ताव का मसौदा"
+    },
+    "documents-summarize": {
+      "title": "दस्तावेज़ सारांश",
+      "description": "संरचित दस्तावेज़ सारांश"
+    },
+    "automation-workflow": {
+      "title": "वर्कफ़्लो डिज़ाइन करें",
+      "description": "स्वचालन वर्कफ़्लो का रेखाचित्र"
+    },
+    "general-brainstorm": {
+      "title": "विकल्पों पर विचार-मंथन",
+      "description": "संरचित विचार-सृजन"
+    },
+    "general-explain": {
+      "title": "सरलता से समझाएँ",
+      "description": "हितधारकों के लिए स्पष्ट व्याख्या"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "ग्राहक सारांश",
+      "description": "सक्रिय ग्राहक का कार्यकारी सारांश"
+    },
+    "cmd-generate-proposal": {
+      "label": "प्रस्ताव बनाएँ",
+      "description": "ग्राहक प्रस्ताव की रूपरेखा का मसौदा"
+    },
+    "cmd-analyze-project": {
+      "label": "प्रोजेक्ट विश्लेषण",
+      "description": "प्रोजेक्ट स्वास्थ्य और जोखिम विश्लेषण"
+    },
+    "cmd-create-task-list": {
+      "label": "कार्य सूची बनाएँ",
+      "description": "काम को कार्रवाई योग्य कार्यों में तोड़ें"
+    },
+    "cmd-generate-email": {
+      "label": "ईमेल बनाएँ",
+      "description": "पेशेवर ईमेल का मसौदा"
+    },
+    "cmd-explain-invoice": {
+      "label": "चालान समझाएँ",
+      "description": "सरल भाषा में चालान की व्याख्या"
+    }
+  }
+}

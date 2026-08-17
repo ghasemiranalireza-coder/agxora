@@ -1,0 +1,540 @@
+{
+  "enginePage": {
+    "sectionTitle": "AGXORA Automation OS",
+    "title": "Automatisierung",
+    "subtitle": "Enterprise AI Workflow & Automation Engine — das Bindegewebe für CRM, Finance, Creator Studio und jedes zukünftige AGXORA-Modul.",
+    "loadingHistory": "Workflowverlauf wird geladen...",
+    "loadingTemplates": "Vorlagenbibliothek wird geladen...",
+    "loadingIntegrations": "Integrationscenter wird geladen...",
+    "dashboard": "Dashboard",
+    "workflowBuilder": "Workflow Builder",
+    "workflowBuilderSubtitle": "Knotenbasierte Leinwand mit Snap-to-Grid, reibungslosem Zoomen und Schwenken, Verbindungs-Hover und Leerzustandsführung.",
+    "openAssistant": "Open AI Workflow-Assistent",
+    "workflowHistory": "Workflowhistorie",
+    "workflowHistorySubtitle": "Ausführungsprotokoll mit farbigem Status, anklickbaren Zeilen und einem vollständigen Ausführungsinspektor.",
+    "templates": "Templates",
+    "templatesSubtitle": "Vorschau vor dem Laden — Knotenanzahl, Schwierigkeit, Laufzeit und empfohlene Anwendungsfälle.",
+    "integrationCenter": "Integrationszentrum",
+    "integrationCenterSubtitle": "Nur Adapter-Registrierung - Verbunden, Beta, Geplant, Demnächst verfügbar, Deaktiviert. Keine Live-APIs."
+  },
+  "assistant": {
+    "title": "KI-Workflow-Assistent",
+    "subtitle": "Nur lokale Heuristiken — kein Live-Modell erforderlich.",
+    "closeAria": "KI-Workflow-Assistent schließen",
+    "close": "Schließen",
+    "workflowScore": "Workflow-Bewertung",
+    "scoreOutOf": "/ 100",
+    "optimizationSuggestions": "Optimierungsvorschläge:",
+    "oneClickOptimize": "Ein-Klick-Optimierung",
+    "noticeDefault": "One Click Optimize ist noch keine Graph-Mutation.",
+    "noticeQueued": "Optimierung in der Warteschlange. Zukünftige Engine schreibt Verzögerungen und Genehmigungen neu."
+  },
+  "integrations": {
+    "intro": "Integrationscenter — optional. Status: Verbunden, Beta, Geplant, Demnächst verfügbar, Deaktiviert. Keine Live-APIs.",
+    "category": "Kategorie:",
+    "reservedAdapter": "Reservierter Adapter:",
+    "description": "Beschreibung:"
+  },
+  "executionInspector": {
+    "title": "Execution Details",
+    "emptyTitle": "Wählen Sie eine Ausführung aus",
+    "emptyDescription": "Wählen Sie einen Durchlauf aus dem Workflow-Verlauf, um Eingaben, Ausgaben und die KI-Zusammenfassung zu überprüfen.",
+    "workflowName": "Workflow-Name",
+    "trigger": "Trigger",
+    "executionId": "Ausführungs-ID",
+    "started": "Gestartet",
+    "finished": "Abgeschlossen",
+    "duration": "Dauer",
+    "status": "Status",
+    "success": "Erfolg",
+    "failed": "Fehlgeschlagen",
+    "retryAvailable": "Erneut versuchen verfügbar",
+    "executedBy": "Ausgeführt durch",
+    "yes": "Ja",
+    "no": "Nr.",
+    "emDash": "—",
+    "input": "Eingabe",
+    "output": "Leistung",
+    "aiSummary": "KI-Zusammenfassung",
+    "errorMessage": "Fehlermeldung",
+    "retry": "Erneut versuchen",
+    "retryUnavailable": "Wiederholungsversuch nicht verfügbar",
+    "noticeDefault": "Wiederholungsadapter reserviert — noch keine Live-Reexecution.",
+    "noticeQueued": "Versuchen Sie es erneut in der Warteschlange für {id}."
+  },
+  "workflowBuilder": {
+    "elementsTitle": "Workflow-Elemente",
+    "paletteAria": "Palette",
+    "tabElements": "Elemente",
+    "tabTriggers": "Auslöser",
+    "tabActions": "Aktionen",
+    "tabAiActions": "KI-Aktionen",
+    "builderTitle": "Workflow Builder · {name}",
+    "builderHint": "Am {grid} px-Gittereinrasten ·/Strg+ Scroll-Zoom · Leinwand zum Schwenken ziehen · Doppelklicken Sie auf Verbinden",
+    "autoSaved": "Automatisch speichern",
+    "saving": "Wird gespeichert…",
+    "undo": "Widerrufen",
+    "redo": "Wiederholen",
+    "zoomOut": "−",
+    "zoomIn": "+",
+    "resetView": "Ansicht zurücksetzen",
+    "emptyTitle": "Leere Leinwand ",
+    "emptyDescription": "Ziehen Sie einen Auslöser aus der Palette, um mit dem Bauen zu beginnen. Snap-to-Grid hält Knoten ausgerichtet.",
+    "connectHint": "Doppelklicken Sie auf das Ziel, um eine Verbindung herzustellen",
+    "miniMapAria": "Minikarte"
+  },
+  "workflowHistory": {
+    "title": "Workflow-Verlauf · Ausführungsprotokoll",
+    "statusFilter": "Status",
+    "statusAll": "Alle",
+    "statusSuccess": "Erfolg",
+    "statusFailed": "Fehlgeschlagen",
+    "statusPending": "Ausstehend",
+    "statusRetried": "Erneut versuchen",
+    "statusRunning": "Laufend",
+    "runsAria": "Workflow-Läufe",
+    "noMatches": "Keine Workflow-Läufe entsprechen diesem Filter."
+  },
+  "workflowTemplates": {
+    "title": "Vorlagenbibliothek",
+    "noticeDefault": "Vorschau einer Vorlage anzeigen, bevor sie in den Builder geladen wird.",
+    "noticeLoaded": "\"{name}\" in den Workflow-Builder geladen.",
+    "nodesBadge": "{count} Knoten",
+    "recommendedFor": "Empfohlen für: {for}",
+    "preview": "Vorschau",
+    "useTemplate": "Vorlage verwenden",
+    "previewTitle": "Vorlagen Vorschau",
+    "close": "Schließen",
+    "nodes": "Knoten",
+    "connections": "Anschlüsse",
+    "estimatedRuntime": "Geschätzte Laufzeit",
+    "difficulty": "Schwierigkeit",
+    "requiredModules": "Erforderliche Module",
+    "usedAiFeatures": "Verwendete KI-Funktionen",
+    "none": "None"
+  },
+  "workspace": {
+    "loading": "Automatisierungs-Engine wird geladen...",
+    "eyebrow": "Workflow-Automatisierungs-Eng",
+    "title": "Automatisierung",
+    "subtitle": "Konfigurierbare Geschäftsabläufe in CRM, Projekten, Finanzen, Dokumenten und KI — lokaler Ereignisbus und In-Browser-Engine. Verteilte Warteschlangen- und Backend-Arbeiter sind nicht verbunden.",
+    "noticeDefault": "Die Ausführungs-Engine ist UI-unabhängig. Module veröffentlichen Ereignisse; Workflows abonnieren.",
+    "tabs": {
+      "dashboard": "Dashboard",
+      "workflows": "Arbeitsabläufe",
+      "editor": "Editor",
+      "history": "Geschichte",
+      "templates": "Templates",
+      "analytics": "Analysen",
+      "settings": "Einstellungen"
+    },
+    "notice": {
+      "missingWrite": "Fehlende workflow.write-Berechtigung.",
+      "missingExecute": "Fehlende workflow.execute-Berechtigung.",
+      "created": "Created {name}",
+      "templateApplied": "Angewandte Vorlage: {name}",
+      "runResult": "{status} ausführen ({duration}ms)",
+      "runFailed": "Workflow konnte nicht ausgeführt werden (deaktiviert oder fehlt).",
+      "publishedEvent": "Veröffentlichtes Domain-Ereignis: {type}",
+      "workflowStatus": "Workflow {status}",
+      "saved": "Workflow gespeichert",
+      "retryResult": "Retry {status}",
+      "retryFailed": "Erneuter Versuch fehlgeschlagen",
+      "settingsSaved": "Automatisierungseinstellungen gespeichert"
+    },
+    "defaults": {
+      "untitledName": "Unbenannter Workflow",
+      "untitledDescription": "Workflow entwerfen — Trigger und Aktionen konfigurieren."
+    },
+    "dashboard": {
+      "workflows": "Arbeitsabläufe",
+      "active": "Aktiv",
+      "runsToday": "Läuft heute",
+      "successRate": "Erfolgsquote",
+      "recentWorkflows": "Aktuelle Workflows",
+      "newWorkflow": "Neuer Workflow",
+      "eventBusDemo": "Event-Bus-Demo",
+      "eventBusHint": "Veröffentlichen Sie ein Modulereignis. Aktive Workflows mit passenden Triggern werden automatisch in die Warteschlange gestellt.",
+      "notifications": "Benachrichtigungen"
+    },
+    "workflowList": {
+      "title": "Workflowliste",
+      "newWorkflow": "Neuer Workflow",
+      "emptyTitle": "Noch keine Workflows.",
+      "emptyDescription": "Erstellen Sie einen Workflow oder starten Sie von einer Vorlage aus.",
+      "columns": {
+        "name": "Name",
+        "status": "Status",
+        "nodes": "Knoten",
+        "updated": "Aktualisiert",
+        "actions": "Aktionen"
+      },
+      "run": "Ausführen",
+      "disable": "Deaktivieren",
+      "activate": "Aktivieren"
+    },
+    "editor": {
+      "selectPrompt": "Wählen oder erstellen Sie einen zu bearbeitenden Workflow.",
+      "workflows": "Arbeitsabläufe",
+      "title": "Workflow-Editor",
+      "hint": "Die Architektur → unterstützt → → → → eine Triggerbedingungsaktionsverzögerungsverzweigungsschleife. Canvas Drag-and-Drop kann ohne Motoränderungen an Knotenpositionen angeschlossen werden.",
+      "name": "Name",
+      "description": "Beschreibung",
+      "trigger": "Trigger",
+      "primaryAction": "Primäre Aktion",
+      "executionPath": "Ausführungspfadvorschau",
+      "save": "Speichern",
+      "runNow": "Jetzt ausführen",
+      "triggerFallback": "Trigger",
+      "actionFallback": "Handlung"
+    },
+    "history": {
+      "title": "Ausführungshistorie",
+      "emptyTitle": "Noch keine Hinrichtungen.",
+      "emptyDescription": "Führen Sie einen Workflow aus oder veröffentlichen Sie ein Domänenereignis.",
+      "latestRun": "Spätestes Laufdetail",
+      "path": "Pfad: {path}",
+      "error": "Fehler: {error}",
+      "columns": {
+        "workflow": "Workflow",
+        "status": "Status",
+        "triggeredBy": "Versand ausgelöst durch",
+        "duration": "Dauer",
+        "started": "Gestartet",
+        "retry": "Erneut versuchen"
+      },
+      "retry": "Erneut versuchen",
+      "emDash": "—"
+    },
+    "templates": {
+      "useTemplate": "Vorlage anwenden"
+    },
+    "analytics": {
+      "totalWorkflows": "Gesamte Workflows",
+      "activeWorkflows": "Aktive Workflows",
+      "executionsToday": "Exekutionen heute",
+      "successRate24h": "Erfolgsrate (24h)",
+      "failed24h": "Fehlgeschlagen (24 Stunden)",
+      "avgDuration": "Durchschnittliche Dauer:"
+    },
+    "settings": {
+      "title": "Automatisierungseinstellungen",
+      "subtitle": "Wiederholen Sie Richtlinien, Ausführungslimits, Parallelität, Timeout und Protokolle für die verteilte Ausführung.",
+      "maxRetryAttempts": "Wiederholungsversuche",
+      "backoffMs": "Backoff (ms)",
+      "executionsPerHour": "Hinrichtungen / Stunde",
+      "concurrencyLimit": "Concurrency-Limit",
+      "timeoutMs": "Timeout(ms)",
+      "logLevel": "Log-Level",
+      "saveSettings": "Einstellungen speichern",
+      "logLevels": {
+        "error": "Fehler",
+        "warn": "Warnung",
+        "info": "Info",
+        "debug": "Debug"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Leerer Workflow"
+  },
+  "status": {
+    "connected": "Verbunden",
+    "beta": "Beta",
+    "comingSoon": "Demnächst",
+    "disabled": "Deaktiviert",
+    "planned": "Geplant",
+    "success": "Erfolg",
+    "failed": "Fehlgeschlagen",
+    "running": "Läuft",
+    "pending": "Ausstehend",
+    "retried": "Erneut versuchen"
+  },
+  "difficulty": {
+    "starter": "Einstieg",
+    "intermediate": "Mittel",
+    "advanced": "Fortgeschritten"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Trigger",
+      "description": "Starten, wenn ein Ereignis ausgelöst wird"
+    },
+    "el-condition": {
+      "label": "Bedingung",
+      "description": "Nach Regeln verzweigen"
+    },
+    "el-delay": {
+      "label": "Verzögerung",
+      "description": "Warten, bevor fortgefahren wird"
+    },
+    "el-approval": {
+      "label": "Freigabe",
+      "description": "Menschliche Freigabe-Schranke"
+    },
+    "el-loop": {
+      "label": "Schleife",
+      "description": "Über eine Sammlung iterieren"
+    },
+    "el-merge": {
+      "label": "Zusammenführen",
+      "description": "Parallele Pfade zusammenführen"
+    },
+    "el-split": {
+      "label": "Aufteilen",
+      "description": "Parallele Pfade aufteilen"
+    },
+    "el-ai-decision": {
+      "label": "KI-Entscheidung",
+      "description": "Über KI weiterleiten"
+    },
+    "el-notification": {
+      "label": "Benachrichtigung",
+      "description": "In-App-Hinweis"
+    },
+    "el-webhook": {
+      "label": "Webhook-Platzhalter",
+      "description": "HTTP-Rückruf reserviert"
+    },
+    "el-custom": {
+      "label": "Benutzerdefinierte Aktion",
+      "description": "Erweiterbarer Aktionsplatz"
+    },
+    "tr-customer": {
+      "label": "Kunde erstellt",
+      "description": "CRM-Kundendatensatz erstellt"
+    },
+    "tr-lead": {
+      "label": "Lead erstellt",
+      "description": "Neuer Lead tritt in die Pipeline ein"
+    },
+    "tr-invoice": {
+      "label": "Rechnung erstellt",
+      "description": "Finanzrechnung ausgestellt"
+    },
+    "tr-invoice-paid": {
+      "label": "Rechnung bezahlt",
+      "description": "Zahlung abgeschlossen"
+    },
+    "tr-order": {
+      "label": "Auftrag erstellt",
+      "description": "Auftrag erfasst"
+    },
+    "tr-order-done": {
+      "label": "Auftrag abgeschlossen",
+      "description": "Auftrag erfüllt"
+    },
+    "tr-doc": {
+      "label": "Dokument hochgeladen",
+      "description": "Upload ins Dokumentenarchiv"
+    },
+    "tr-campaign": {
+      "label": "Kampagne veröffentlicht",
+      "description": "Creator Studio-Veröffentlichung"
+    },
+    "tr-employee": {
+      "label": "Mitarbeiter hinzugefügt",
+      "description": "Änderung im Teamverzeichnis"
+    },
+    "tr-task": {
+      "label": "Aufgabe abgeschlossen",
+      "description": "Aufgabe als erledigt markiert"
+    },
+    "tr-manual": {
+      "label": "Manueller Trigger",
+      "description": "Auf Abruf ausführen"
+    },
+    "tr-schedule": {
+      "label": "Zeitplan-Trigger",
+      "description": "Cron- / Kalenderzeitplan"
+    },
+    "tr-webhook": {
+      "label": "Webhook-Trigger",
+      "description": "Eingehendes HTTP-Ereignis"
+    },
+    "tr-api": {
+      "label": "API-Trigger",
+      "description": "Programmatischer Start"
+    },
+    "ac-crm": {
+      "label": "CRM-Datensatz erstellen",
+      "description": "CRM-Entität schreiben"
+    },
+    "ac-invoice": {
+      "label": "Rechnung erzeugen",
+      "description": "Finanzrechnung"
+    },
+    "ac-quote": {
+      "label": "Angebot erzeugen",
+      "description": "Angebotsdokument erstellen"
+    },
+    "ac-delivery": {
+      "label": "Lieferschein erzeugen",
+      "description": "Lieferschein"
+    },
+    "ac-task": {
+      "label": "Aufgabe erstellen",
+      "description": "Eine Aufgabe öffnen"
+    },
+    "ac-assign": {
+      "label": "Mitarbeiter zuweisen",
+      "description": "An Teammitglied weiterleiten"
+    },
+    "ac-email": {
+      "label": "E-Mail senden",
+      "description": "Ausgehende E-Mail"
+    },
+    "ac-notify": {
+      "label": "Benachrichtigung senden",
+      "description": "In-App-Benachrichtigung"
+    },
+    "ac-ai-summary": {
+      "label": "KI-Zusammenfassung erzeugen",
+      "description": "Kontext zusammenfassen"
+    },
+    "ac-ai-content": {
+      "label": "KI-Inhalt erzeugen",
+      "description": "Creator Studio-Entwurf"
+    },
+    "ac-update-customer": {
+      "label": "Kunde aktualisieren",
+      "description": "CRM-Kunden patchen"
+    },
+    "ac-update-status": {
+      "label": "Status aktualisieren",
+      "description": "Entitätsstatus ändern"
+    },
+    "ac-pdf": {
+      "label": "PDF exportieren",
+      "description": "Dokumentenexport"
+    },
+    "ac-future": {
+      "label": "Zukünftiger API-Platzhalter",
+      "description": "Reservierter Aktionsplatz"
+    },
+    "ai-decision": {
+      "label": "KI-Entscheidung",
+      "description": "Nächsten Pfad entscheiden"
+    },
+    "ai-class": {
+      "label": "KI-Klassifizierung",
+      "description": "Datensätze klassifizieren"
+    },
+    "ai-text": {
+      "label": "KI-Textgenerierung",
+      "description": "Text erzeugen"
+    },
+    "ai-translate": {
+      "label": "KI-Übersetzung",
+      "description": "Inhalt übersetzen"
+    },
+    "ai-email": {
+      "label": "KI-E-Mail-Antwort",
+      "description": "Antwort entwerfen"
+    },
+    "ai-sum": {
+      "label": "KI-Zusammenfassung",
+      "description": "Kontext verdichten"
+    },
+    "ai-rec": {
+      "label": "KI-Empfehlungen",
+      "description": "Nächste Schritte vorschlagen"
+    },
+    "ai-route": {
+      "label": "KI-Routing",
+      "description": "An Inhaber / Warteschlange weiterleiten"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Kunde erstellt",
+      "description": "Wird ausgelöst, wenn ein CRM-KundenDatensatz erstellt wird."
+    },
+    "project_created": {
+      "label": "Projekt erstellt",
+      "description": "Wird ausgelöst, wenn ein Projekt erstellt wird."
+    },
+    "task_completed": {
+      "label": "Aufgabe abgeschlossen ",
+      "description": "Wird ausgelöst, wenn eine Aufgabe als erledigt markiert wird."
+    },
+    "document_uploaded": {
+      "label": "Dokument hochgeladen",
+      "description": "Wird ausgelöst, wenn ein Dokument hochgeladen wird."
+    },
+    "schedule": {
+      "label": "Ihre Behandlungstermine",
+      "description": "Cron- / Intervall-Zeitplan."
+    },
+    "invoice_issued": {
+      "label": "Rechnung ausgestellt",
+      "description": "Wird ausgelöst, wenn eine Rechnung ausgestellt wird."
+    },
+    "user_invited": {
+      "label": "Benutzer eingeladen",
+      "description": "Wird ausgelöst, wenn ein Teammitglied eingeladen wird."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Eingehender HTTP-Webhook."
+    },
+    "api_event": {
+      "label": "API-Ereignis",
+      "description": "Allgemeines API-Domänenereignis."
+    },
+    "ai_event": {
+      "label": "KI-Ereignis",
+      "description": "KI-Signal (Abschluss, Erkenntnis, Agentenschritt)."
+    },
+    "manual": {
+      "label": "Manueller Auslöser",
+      "description": "Bei Bedarf aus der Automatisierungs-UI oder API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Kunde erstellen",
+      "description": "CRM-Kundendatensatz erstellen."
+    },
+    "customer_update": {
+      "label": "Kunde aktualisieren",
+      "description": "Felder eines Kunden aktualisieren."
+    },
+    "project_create": {
+      "label": "Projekt erstellen",
+      "description": "Projekt aus dem Workflow-Kontext erstellen."
+    },
+    "notification_send": {
+      "label": "Benachrichtigung senden",
+      "description": "In-App-Benachrichtigung senden."
+    },
+    "email_send": {
+      "label": "E-Mail senden",
+      "description": "E-Mail über den Mail-Provider einreihen."
+    },
+    "invoice_create": {
+      "label": "Rechnung erstellen",
+      "description": "Eine Finanzrechnung erstellen."
+    },
+    "status_update": {
+      "label": "Status aktualisieren",
+      "description": "Status einer Entität in einem Modul aktualisieren."
+    },
+    "document_generate": {
+      "label": "Dokument erzeugen",
+      "description": "Dokument aus einer Vorlage erzeugen."
+    },
+    "api_call": {
+      "label": "API aufrufen",
+      "description": "HTTP-Aufruf an eine externe oder interne API."
+    },
+    "ai_run": {
+      "label": "KI ausführen",
+      "description": "KI-Prompt / Agentenschritt mit Kontext ausführen."
+    },
+    "task_assign": {
+      "label": "Aufgabe zuweisen",
+      "description": "Eine Aufgabe einem Benutzer zuweisen."
+    }
+  }
+}

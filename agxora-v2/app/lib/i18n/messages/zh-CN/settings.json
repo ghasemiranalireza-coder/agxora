@@ -1,0 +1,442 @@
+{
+  "controlCenter": "控制中心",
+  "settingsSections": "设置部分",
+  "profile": {
+    "label": "轮廓",
+    "description": "头像、身份和个人喜好",
+    "title": "轮廓",
+    "panelDescription": "头像、全名、电子邮件、角色、时区、语言和主题偏好。",
+    "language": "语言",
+    "timezone": "默认时区是 UTC",
+    "fullName": "姓名",
+    "email": "电子邮件",
+    "role": "角色",
+    "theme": "主题",
+    "avatar": "阿凡达",
+    "changeAvatar": "更改头像",
+    "region": "地区",
+    "personalPrefs": "个人喜好",
+    "supportLinks": "支持与法律",
+    "signedOut": "登录以查看您的帐户身份。",
+    "serverIdentityNotice": "姓名、电子邮件和角色来自您的服务器会话。它们不会存储在此浏览器中。",
+    "localPrefsNotice": "时区、地区和个人偏好尚未保留。保存它们只会更新此页面，直到您离开为止。",
+    "avatarUnavailable": "头像上传尚不可用。",
+    "appearanceNote": "外观配置仍在“外观”下。页眉仅提供主题快速切换。",
+    "prefsHint": "由 AI 助手跨模块使用。",
+    "themeResolved": "{mode}（已解决{appearance}）",
+    "regions": {
+      "EU": "欧洲联盟",
+      "US": "美国",
+      "MENA": "中东和北非地区",
+      "APAC": "亚太地区"
+    }
+  },
+  "organization": {
+    "label": "组织",
+    "description": "公司简介和纳税身份",
+    "title": "组织",
+    "panelDescription": "公司名称、徽标、地址、税务信息、部门和业务单位。"
+  },
+  "workspace": {
+    "label": "工作空间",
+    "description": "品牌、主页和默认模块",
+    "title": "工作空间",
+    "panelDescription": "工作区设置、默认仪表板、品牌、模块和主页。"
+  },
+  "team": {
+    "label": "团队",
+    "description": "成员、角色、邀请和组",
+    "title": "团队",
+    "panelDescription": "成员、角色、邀请和组。"
+  },
+  "ai": {
+    "label": "人工智能",
+    "description": "提供者、模型、创意和记忆",
+    "title": "人工智能",
+    "panelDescription": "提供者、模型、创造力、温度和内存偏好。",
+    "openAgentOs": "开放代理操作系统",
+    "openAiWorkspace": "开放人工智能工作空间",
+    "noticeSync": "AI设置通过AISettingsProvider同步-密钥从未存储在此处。",
+    "noticeProvider": "提供商实施位于人工智能服务层后面。 UI 永远不会收到 API 密钥或 SDK 详细信息。自治代理驻留在代理操作系统中。",
+    "preferredProvider": "首选人工智能提供商",
+    "defaultModel": "默认AI模型",
+    "temperature": "温度",
+    "topP": "顶P",
+    "maxTokens": "最大代币数",
+    "writingStyle": "写作风格",
+    "languagePreferences": "语言偏好",
+    "systemPrompt": "系统提示",
+    "systemPromptHint": "用作AI Platform的默认系统指令。",
+    "systemPromptPlaceholder": "您是AGXORA AI--企业运营助手……",
+    "apiKeyManagement": "API密钥管理",
+    "apiKeyHint": "密钥仅通过服务器环境变量提供。",
+    "apiKeyPlaceholder": "通过AGXORA_*环境变量配置（从不在浏览器中配置）",
+    "memory": "记忆",
+    "memoryDescription": "允许组织记忆跨模块通知人工智能回复。",
+    "automationSuggestions": "自动化建议",
+    "automationSuggestionsDescription": "在 Automation Engine 中呈现 AI 工作流程建议。",
+    "streaming": "流媒体",
+    "streamingDescription": "当提供者支持时流模型响应。",
+    "providers": {
+      "mock": "模拟（本地）",
+      "openai": "开放人工智能",
+      "azure": "Azure 开放人工智能",
+      "anthropic": "人择",
+      "google": "谷歌",
+      "openrouter": "开放路由器",
+      "ollama": "奥拉玛",
+      "local": "本地提供商"
+    },
+    "writingStyles": {
+      "professional": "专业的",
+      "concise": "简洁的",
+      "friendly": "友好的",
+      "technical": "技术的"
+    },
+    "languages": {
+      "auto": "匹配个人资料语言",
+      "en": "中文",
+      "de": "德语"
+    }
+  },
+  "appearance": {
+    "label": "外貌",
+    "description": "主题、密度和玻璃效果",
+    "title": "外貌",
+    "panelDescription": "主题、密度、重音、动画和玻璃效果。",
+    "noticeTheme": "主题模式是通过ThemeProvider的单一真相来源。页眉仅提供快速切换。",
+    "themeLabel": "主题",
+    "themeModeAria": "主题模式",
+    "resolvedAppearance": "解决外观：",
+    "accentColor": "强调色",
+    "accentNotice": "重音首选项被存储以供将来的 CSS var 接线使用——还不会改变锁定的颜色系统。",
+    "density": "密度",
+    "compactMode": "紧凑型模式",
+    "compactModeDescription": "减少企业表格和面板之间的填充。",
+    "animations": "动画",
+    "animationsDescription": "剖面运动和悬停升降机。尊重简化运动操作系统设置。",
+    "glassEffects": "玻璃效果",
+    "glassEffectsDescription": "磨砂玻璃卡片和侧边栏模糊强度偏好。",
+    "modes": {
+      "day": {
+        "label": "光",
+        "hint": "珍珠/冰企业日调色板"
+      },
+      "night": {
+        "label": "黑暗的",
+        "hint": "批准的电影夜景"
+      },
+      "auto": {
+        "label": "系统",
+        "hint": "遵循当地时间表（自动）"
+      }
+    },
+    "densities": {
+      "comfortable": "舒服的",
+      "compact": "袖珍的",
+      "spacious": "宽敞"
+    }
+  },
+  "notifications": {
+    "label": "通知",
+    "description": "电子邮件、推送和模块警报",
+    "title": "通知",
+    "panelDescription": "电子邮件、推送、桌面、移动和特定于模块的警报。",
+    "notice": "通知通道仅是首选项——保留传送适配器。",
+    "email": "电子邮件",
+    "push": "推",
+    "desktop": "桌面",
+    "mobile": "移动的",
+    "workflowAlerts": "工作流程警报",
+    "workflowAlertsDescription": "Automation Engine 执行和批准事件。",
+    "financeAlerts": "财经快讯",
+    "crmAlerts": "CRM警报",
+    "documentsAlerts": "文件提醒",
+    "deliveryNotice": "交付适配器在发布时发货。问题：",
+    "contactSupport": "联系支持人员"
+  },
+  "documents": {
+    "label": "文件",
+    "description": "存储、保留和知识",
+    "title": "文件",
+    "panelDescription": "存储首选项、保留、默认文件夹、版本控制和知识设置。",
+    "notice": "文档设置与Knowledge Hub架构集成。",
+    "storagePreferences": "存储首选项",
+    "retentionPolicy": "保留政策",
+    "defaultFolder": "默认文件夹",
+    "versioning": "版本控制",
+    "versioningDescription": "保留文档版本历史记录以供恢复/比较。",
+    "knowledgeSettings": "知识设置",
+    "knowledgeDescription": "用于知识中心搜索的人工智能索引。",
+    "storageOptions": {
+      "workspace-default": "工作区默认值",
+      "eu-region": "欧盟地区",
+      "encrypted-vault": "加密金库"
+    },
+    "retentionOptions": {
+      "30-days": "30天（划痕）",
+      "2-years": "2年",
+      "7-years": "7年",
+      "10-years": "10年"
+    }
+  },
+  "automation": {
+    "label": "自动化",
+    "description": "工作流程默认值和重试策略",
+    "title": "自动化",
+    "panelDescription": "工作流程默认值、AI 建议、执行日志、历史限制和重试策略。",
+    "notice": "自动化默认值适用于工作流引擎架构。",
+    "workflowDefaults": "工作流程默认值",
+    "historyLimits": "历史限制",
+    "retryPolicy": "重试策略",
+    "aiSuggestions": "人工智能建议",
+    "executionLogs": "执行日志",
+    "executionLogsDescription": "在工作流历史记录中保留详细的运行负载。",
+    "workflowOptions": {
+      "require-approval": "需要审批门",
+      "auto-run": "自动运行可信流",
+      "draft-only": "仅草稿"
+    },
+    "historyOptions": {
+      "30-days": "30天",
+      "90-days": "90天",
+      "365-days": "365天"
+    },
+    "retryOptions": {
+      "none": "无需重试",
+      "3-exponential": "3×指数",
+      "5-linear": "5×线性"
+    }
+  },
+  "integrations": {
+    "label": "集成",
+    "description": "已安装、连接且可用",
+    "title": "集成",
+    "panelDescription": "已安装、连接且可用的适配器。",
+    "openCenter": "打开集成中心",
+    "notice": "企业集成平台位于集成中心 - 连接器、OAuth、Webhooks、API 密钥和工作流事件桥。",
+    "columns": {
+      "integration": "一体<g id=\"1077\">化</g>",
+      "category": "类别",
+      "status": "地位",
+      "adapter": "适配器"
+    }
+  },
+  "security": {
+    "label": "安全",
+    "description": "会话、密码和帐户保护",
+    "title": "安全",
+    "panelDescription": "此帐户的服务器会话。设备、IP和MFA不会被存储。",
+    "activeSessions": "活跃会话",
+    "currentSession": "当前会话",
+    "otherSession": "其他场次",
+    "currentBadge": "本次会议",
+    "otherBadge": "其他场次",
+    "createdAt": "已登录",
+    "expiresAt": "过期",
+    "revoke": "撤销会话",
+    "revokeAria": "撤销登录于 {when} 的会话",
+    "revokeOthers": "退出其他会话",
+    "revokeOthersAria": "注销除当前会话之外的所有会话",
+    "revoked": "会话被撤销。",
+    "othersRevoked": "其他会话已退出。此会话仍然有效。",
+    "loading": "正在加载会话…",
+    "empty": "没有活动会话",
+    "emptyBody": "该帐户没有活动的服务器会话。",
+    "demoEmpty": "登录以在此浏览器中注册本地演示会话。",
+    "signedOutTitle": "未登录",
+    "signedOut": "登录以查看您的活动服务器会话。",
+    "loadFailed": "无法加载会话。",
+    "revokeFailed": "无法撤销该会话。",
+    "logout": "退出此会话",
+    "logoutAria": "注销当前服务器会话",
+    "password": "密码",
+    "changePassword": "重置密码",
+    "passwordHint": "密码更改使用现有的重置流程。专用的更改密码表格尚不可用。",
+    "mfaTitle": "双因素身份验证",
+    "mfaUnavailable": "双因素身份验证尚不可用。",
+    "ssoTitle": "单点登录和 OAuth",
+    "ssoUnavailable": "单点登录和 OAuth 提供商尚不可用。",
+    "encryptionTitle": "加密",
+    "encryptionUnavailable": "密钥管理和静态加密控制尚不可用。",
+    "trustedDevices": "可信设备",
+    "trustedUnavailable": "不存储受信任设备和 IP 历史记录。会话元数据仅限于创建和到期时间。",
+    "apiKeys": "API 密钥",
+    "apiKeysHint": "开发人员密钥在API和开发人员下进行管理。此面板不颁发密钥。",
+    "openApi": "打开API设置",
+    "serverNotice": "会话存储在服务器上。该浏览器从不将本地身份数据视为权威数据。",
+    "demoNotice": "演示模式仅使用本地浏览器会话。这不是生产身份验证。",
+    "noDeviceMeta": "不记录设备、IP 和用户代理。"
+  },
+  "billing": {
+    "label": "计费",
+    "description": "计划、使用情况、发票和付款",
+    "title": "计费",
+    "panelDescription": "当前计划、续订、使用情况、发票和升级路径。"
+  },
+  "api": {
+    "label": "API 和开发人员",
+    "description": "密钥、webhooks、令牌、沙箱",
+    "title": "API 和开发人员",
+    "panelDescription": "密钥、网络钩子、令牌和沙箱访问。",
+    "openPortal": "打开开发者门户",
+    "notice": "在集成中心生成、轮换和撤销密钥。那里提供了网关、webhook 测试器和 API 浏览器。",
+    "webhooks": "网络钩子",
+    "sandbox": "沙盒",
+    "sandboxEnabled": "启用",
+    "sandboxDisabled": "残疾人",
+    "tokensNotice": "开发者令牌从不显示​​完整的秘密——仅显示前缀。",
+    "columns": {
+      "name": "姓名",
+      "key": "钥匙",
+      "scope": "范围",
+      "lastUsed": "上次使用"
+    }
+  },
+  "audit": {
+    "label": "审核日志",
+    "description": "活动、安全和系统更改",
+    "title": "审核日志",
+    "panelDescription": "最近的活动、安全事件和系统更改。",
+    "columns": {
+      "when": "什么时候",
+      "actor": "演员",
+      "category": "类别",
+      "summary": "概括"
+    },
+    "categories": {
+      "activity": "最近的活动",
+      "security": "安全事件",
+      "system": "系统变更"
+    }
+  },
+  "advanced": {
+    "label": "先进的",
+    "description": "实验、重置、导入、导出",
+    "title": "先进的",
+    "panelDescription": "实验性功能、重置、导入和导出。",
+    "notice": "高级操作需要在申请前进行确认。",
+    "experimentalFeatures": "实验特点",
+    "experimentalDescription": "选择未完成的控制中心功能。",
+    "export": "出口",
+    "import": "进口",
+    "reset": "重置",
+    "exportUnavailable": "尚不支持导出。",
+    "importUnavailable": "导入尚不可用。",
+    "resetUnavailable": "重置尚不可用。"
+  },
+  "page": {
+    "eyebrow": "AGXORA 控制中心",
+    "title": "设置",
+    "lead": "每个 AGXORA 模块的企业配置 — 配置文件、组织、AI、外观、安全、计费和开发人员控制都集中在一个地方。",
+    "loading": "正在加载设置...",
+    "breadcrumb": "{label} · {description}"
+  },
+  "saveChanges": "保存更改",
+  "sessionNotice": "此会话已更新 — {area} 未连接。",
+  "kpi": {
+    "members": {
+      "label": "团队成员",
+      "caption": "活动座椅"
+    },
+    "integrations": {
+      "label": "集成",
+      "caption": "已连接的适配器"
+    },
+    "api": {
+      "label": "API 密钥",
+      "caption": "开发者代币"
+    },
+    "audit": {
+      "label": "审计事件",
+      "caption": "过去 7 天"
+    }
+  },
+  "unknown": {
+    "title": "设置",
+    "description": "未知部分。",
+    "emptyTitle": "未找到",
+    "emptyDescription": "从控制中心导航中选择一个部分。"
+  },
+  "controlPlane": {
+    "loading": "加载中…",
+    "loadFailed": "无法加载组织数据。登录并重试。",
+    "saveFailed": "无法保存更改。",
+    "saving": "保存…",
+    "orgName": "组织名称",
+    "orgSlug": "蛞蝓",
+    "owner": "所有者",
+    "counts": "成员·工作区",
+    "orgUpdated": "组织已更新。",
+    "countsValue": "{members} · {workspaces}",
+    "joined": "已加入",
+    "workspaceName": "工作区名称",
+    "switchWorkspace": "只显示使用中的工作区里的应用",
+    "active": "积极的",
+    "rename": "重命名",
+    "archive": "档案",
+    "create": "创建工作区",
+    "createWorkspace": "新工作区",
+    "workspaceCreated": "工作区已创建。",
+    "workspaceUpdated": "工作区已重命名。",
+    "workspaceArchived": "工作区已存档。",
+    "workspaceSwitched": "活动工作区已更新。",
+    "member": "成员",
+    "email": "电子邮件",
+    "role": "角色",
+    "status": "地位",
+    "actions": "行动",
+    "roleOwner": "所有者",
+    "roleAdmin": "行政",
+    "roleMember": "成员",
+    "changeRole": "改变角色",
+    "remove": "消除",
+    "invite": "邀请会员",
+    "inviteTitle": "邀请到工作区",
+    "sendInvite": "创建邀请",
+    "close": "关闭",
+    "pending": "待处理的邀请",
+    "noPending": "没有待处理的邀请。",
+    "revoke": "撤销",
+    "noMembers": "还没有会员",
+    "noMembersBody": "邀请队友加入此工作区。",
+    "inviteHonesty": "未配置电子邮件传送。直接分享邀请链接。",
+    "inviteLink": "邀请链接",
+    "inviteInvalid": "此邀请无效。",
+    "accept": "接受邀请",
+    "invitedAs": "{email} 被邀请作为 {role}。",
+    "inviteStatus": {
+      "pending": "待办的",
+      "expired": "这个邀请已过期。",
+      "revoked": "该邀请已被撤销。",
+      "accepted": "这个邀请已经被接受了。"
+    },
+    "transferOwnership": "转让所有权",
+    "transferTitle": "转移组织所有权",
+    "transferWarning": "这是一个危险的行为。在收件人确认之前，您仍然是所有者。确认后，您成为管理员，他们成为所有者。",
+    "transferTarget": "新主人",
+    "transferSelectMember": "选择现有成员...",
+    "transferTypeName": "键入“{name}”以确认",
+    "transferConfirmMismatch": "输入的姓名与所选成员不匹配。",
+    "transferInitiate": "发起转移",
+    "transferHonesty": "配置交付后，将发送一封确认电子邮件。否则直接与收件人共享确认链接。",
+    "transferLink": "确认链接",
+    "transferPendingTitle": "待定所有权转让",
+    "transferPendingBody": "等待{name} ({email}) 确认。过期{expires}。在此之前您仍然是所有者。",
+    "transferPendingNote": "在转移等待期间，成员角色不会改变。",
+    "cancelTransfer": "取消转账",
+    "transferCancelled": "所有权转让已取消。",
+    "transferInvalid": "该所有权转让无效。",
+    "transferConfirmTitle": "确认所有权转移",
+    "transferConfirmBody": "{from} 想要将组织所有权转让给 {to} ({email})。",
+    "transferConfirmDanger": "确认后，您将成为 OWNER，而之前的所有者将成为 ADMIN。",
+    "transferConfirmAction": "确认我成为新主人",
+    "transferWrongAccount": "以 {email} 身份登录以确认此转移。",
+    "transferStatus": {
+      "pending": "标题 (待确认信息)",
+      "expired": "该所有权转让已过期。",
+      "cancelled": "此次所有权转让已被取消。",
+      "confirmed": "本次股权转让已经完成。"
+    }
+  }
+}

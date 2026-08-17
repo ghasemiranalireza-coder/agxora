@@ -280,7 +280,7 @@ export function UniversalSearchOverlay(): JSX.Element | null {
               color: "var(--agx-text-muted, #94a3b8)",
             }}
           >
-            Esc
+            {t("dashboard.search.esc")}
           </kbd>
         </div>
 

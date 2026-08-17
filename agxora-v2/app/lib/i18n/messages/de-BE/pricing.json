@@ -1,0 +1,70 @@
+{
+  "navLabel": "Preisnavigation",
+  "navPricing": "Preise",
+  "navContactSales": "Vertrieb kontaktieren",
+  "navBookDemo": "Buchdemo",
+  "navSignIn": "anmelden",
+  "eyebrow": "Preise",
+  "title": "Pläne für Betreiber, die versenden.",
+  "lead": "Klare kommerzielle Ebenen. Beginnen Sie kostenlos, skalieren Sie, wenn Sie bereit sind, oder sprechen Sie mit dem Vertrieb über Unternehmenskonditionen.",
+  "billingInterval": "Zahlungsintervall:",
+  "monthly": "Monatlich",
+  "yearly": "Jährlich",
+  "savePercent": "Sparen Sie ~20 %",
+  "mostPopular": "AM BELIEBTESTEN",
+  "startFree": "Kostenlos starten",
+  "bookDemo": "Buchdemo",
+  "contactSales": "Vertrieb kontaktieren",
+  "perMonth": "/Mo",
+  "perMonthYearly": "/Monat wird jährlich abgerechnet",
+  "yearlyHint": "{amount}/Jahr · Sparen Sie {percent} %",
+  "commercialActions": "Kommerzielle Aktionen",
+  "legal": "Legal",
+  "planAria": "{name}-Plan – {cta}",
+  "plans": {
+    "starter": {
+      "name": "Anlasser",
+      "description": "Für Freiberufler und kleine Unternehmen.",
+      "features": [
+        "CRM & Kundenpipeline",
+        "Projekte und Dokumente",
+        "Regierter KI-Assistent",
+        "Bis zu 5 Sitze",
+        "E-Mail-Support"
+      ]
+    },
+    "business": {
+      "name": "Geschäft",
+      "description": "Für wachsende Teams.",
+      "features": [
+        "Alles im Starter",
+        "Finanz- und Analysemodule",
+        "Automatisierung und Audit-Export",
+        "Teamzusammenarbeit",
+        "Vorrangiger Support"
+      ]
+    },
+    "professional": {
+      "name": "Professional",
+      "description": "Für fortschrittliche Unternehmen.",
+      "features": [
+        "Alles im Starter",
+        "Finanz- und Analysemodule",
+        "API-Zugriff",
+        "Erweiterte Unternehmensabläufe",
+        "Priorisierter Support-Posteingang"
+      ]
+    },
+    "enterprise": {
+      "name": "Unternehmen",
+      "description": "Individuelle Preise für unbegrenzte Skalierung.",
+      "features": [
+        "Individuelle Preise",
+        "Unbegrenzte Skala",
+        "Dediziertes Onboarding",
+        "Benutzerdefinierte Integrationen",
+        "Vorrangiger Support"
+      ]
+    }
+  }
+}

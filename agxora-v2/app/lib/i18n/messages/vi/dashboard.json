@@ -1,0 +1,388 @@
+{
+  "skipToContent": "Chuyển đến nội dung bảng điều khiển",
+  "loading": "Đang tải trang tổng quan…",
+  "hero": {
+    "ariaLabel": "Anh hùng AGXORA CORE",
+    "eyebrow": "Hệ điều hành kinh doanh AI",
+    "title": "LÕI AGXORA",
+    "subtitle": "Kiểm soát hoạt động và thông tin theo thời gian thực — bề mặt chỉ huy không gian làm việc của bạn.",
+    "ctaGetStarted": "Bắt đầu",
+    "ctaViewActivity": "Xem hoạt động",
+    "openQuickActionsAria": "Mở tác vụ nhanh",
+    "viewActivityAria": "Xem hoạt động gần đây"
+  },
+  "quickActions": {
+    "title": "Hành động nhanh",
+    "subtitle": "Bạn nên làm gì tiếp theo?",
+    "ariaLabel": "Hành động nhanh",
+    "addCustomer": {
+      "label": "Thêm khách hàng",
+      "description": "Tạo bản ghi CRM"
+    },
+    "newProject": {
+      "label": "Dự án mới",
+      "description": "Bắt đầu theo dõi giao hàng"
+    },
+    "askAi": {
+      "label": "Hỏi AI",
+      "description": "Mở không gian làm việc AI"
+    },
+    "finance": {
+      "label": "Tài chính",
+      "description": "Hóa đơn và dòng tiền"
+    },
+    "automations": {
+      "label": "Tự động hóa",
+      "description": "Công cụ xử lý công việc"
+    },
+    "settings": {
+      "label": "Cài đặt",
+      "description": "Tùy chọn không gian làm việc"
+    }
+  },
+  "attention": {
+    "title": "Cần chú ý",
+    "ariaLabel": "Điều gì cần chú ý",
+    "empty": "Bạn đã rõ - hiện tại không có việc gì khẩn cấp.",
+    "tone": {
+      "critical": "Phê bình",
+      "warning": "Cảnh báo",
+      "info": "Thông tin",
+      "success": "Sẵn sàng",
+      "action": "Làm tiếp theo"
+    },
+    "addCustomer": {
+      "title": "Thêm khách hàng đầu tiên của bạn",
+      "detail": "Khởi động CRM với bản ghi tài khoản thực."
+    },
+    "createProject": {
+      "title": "Tạo một dự án",
+      "detail": "Mở đường phân phối cho lần tương tác tiếp theo của bạn."
+    },
+    "exploreAi": {
+      "title": "Khám phá không gian làm việc AI",
+      "detail": "Hỏi AGXORA về khách hàng, dự án hoặc các bước tiếp theo."
+    },
+    "reviewBilling": {
+      "title": "Xem lại thanh toán",
+      "detail": "Xác nhận kế hoạch và mức sử dụng khi bạn sẵn sàng mở rộng quy mô."
+    }
+  },
+  "overview": {
+    "title": "Chuyện gì đang xảy ra",
+    "subtitle": "Số lượng không gian làm việc cho {name}",
+    "fallbackName": "không gian làm việc của bạn",
+    "ariaLabel": "Tổng quan về doanh nghiệp",
+    "online": "Trực tuyến",
+    "emDash": "—",
+    "capacitySignal": "tín hiệu công suất {percent}%",
+    "activeClients": {
+      "title": "Khách hàng đang hoạt động",
+      "captionEmpty": "Chưa có khách hàng nào đang hoạt động",
+      "captionTotal": "Tổng cộng {count} trong không gian làm việc",
+      "add": "Thêm khách hàng",
+      "view": "Xem khách hàng"
+    },
+    "projects": {
+      "title": "Dự án",
+      "captionEmpty": "Không có dự án nào trong danh mục đầu tư",
+      "captionOpen": "Mở đường giao hàng",
+      "create": "Tạo dự án",
+      "open": "Dự án mở"
+    },
+    "activityToday": {
+      "title": "Hoạt động hôm nay",
+      "captionEmpty": "Chưa có gì được ghi lại ngày hôm nay",
+      "captionEvents": "Sự kiện trong không gian làm việc kể từ nửa đêm",
+      "viewFeed": "Xem nguồn cấp dữ liệu"
+    },
+    "revenue": {
+      "title": "Doanh thu",
+      "caption": "Kết nối thanh toán để hiển thị MRR",
+      "openBilling": "Thanh toán mở"
+    },
+    "clientShell": {
+      "title": "Vỏ khách hàng",
+      "caption": "Phiên trình duyệt đã sẵn sàng - không phải màn hình hoạt động trực tiếp",
+      "shellLoaded": "Đã tải shell ứng dụng",
+      "storesReady": "Cửa hàng không gian làm việc cục bộ đã sẵn sàng"
+    },
+    "growth": {
+      "title": "Sự phát triển",
+      "caption": "Số liệu xu hướng cần mức sử dụng tích lũy",
+      "openAnalytics": "Phân tích mở"
+    }
+  },
+  "activity": {
+    "title": "Hoạt động gần đây",
+    "subtitle": "Điều gì đã thay đổi ngày hôm nay",
+    "ariaLabel": "Hoạt động gần đây",
+    "todayCount": "{count} HÔM NAY",
+    "localBadge": "ĐỊA PHƯƠNG",
+    "emptyTitle": "Chưa có hoạt động nào",
+    "emptyBody": "Các sự kiện trong không gian làm việc sẽ xuất hiện ở đây khi bạn thêm khách hàng, dự án, v.v.",
+    "addCustomer": "Thêm khách hàng",
+    "newProject": "Dự án mới",
+    "kind": {
+      "customer": "Khách hàng",
+      "project": "Dự án",
+      "finance": "Tài chính",
+      "automation": "Tự động hóa",
+      "documents": "Tài liệu",
+      "team": "Đội",
+      "workspace": "Không gian làm việc"
+    },
+    "events": {
+      "customer_created": "Khách hàng đã tạo",
+      "customer_updated": "Khách hàng đã cập nhật",
+      "customer_deleted": "Khách hàng đã xóa",
+      "project_updated": "Đã cập nhật dự án",
+      "invoice_paid": "Hóa đơn đã thanh toán",
+      "document_uploaded": "Tài liệu đã được tải lên",
+      "workflow_executed": "Quy trình công việc được thực hiện",
+      "member_invited": "Thành viên nhóm được mời",
+      "generic": "Cập nhật không gian làm việc"
+    }
+  },
+  "chat": {
+    "title": "AGXORA AI",
+    "emptyState": "Hỏi AGXORA về khách hàng, dự án hoặc hành động tiếp theo. Cuộc trò chuyện của bạn vẫn ở trong phiên không gian làm việc này.",
+    "thinking": "AGXORA đang nghĩ…",
+    "errorDismiss": "{error} — nhấn để loại bỏ",
+    "placeholder": "Hãy hỏi AGXORA AI…",
+    "messageAria": "Tin nhắn AGXORA AI",
+    "sendAria": "Gửi tin nhắn",
+    "send": "Gửi"
+  },
+  "routeLoading": {
+    "team": "Đang tải nhóm…",
+    "projects": "Đang tải dự án…",
+    "project": "Đang tải dự án…",
+    "profile": "Đang tải hồ sơ…",
+    "integrations": "Đang tải tích hợp…",
+    "identity": "Đang tải danh tính…",
+    "finance": "Đang tải tài chính…",
+    "documents": "Đang tải tài liệu…",
+    "customers": "Đang tải khách hàng…",
+    "crm": "Đang tải CRM…",
+    "customer": "Đang tải khách hàng…",
+    "creator": "Đang tải studio sáng tạo…",
+    "billing": "Đang tải thanh toán…",
+    "billingAdmin": "Đang tải thanh toán của quản trị viên…",
+    "automation": "Đang tải tự động hóa…",
+    "analytics": "Đang tải Trung tâm thông minh…",
+    "ai": "Đang tải nền tảng AI…",
+    "agents": "Đang tải hệ điều hành đại lý…"
+  },
+  "shell": {
+    "memory": {
+      "title": "Ký ức",
+      "description": "Bộ nhớ tổ chức không được kết nối trong bản dựng này.",
+      "emptyTitle": "Không gian làm việc bộ nhớ chưa khả dụng",
+      "emptyBody": "Bộ nhớ lưu trữ liên tục của tổ chức không được kết nối. Trò chuyện có thể chỉ giữ lại ngữ cảnh tồn tại trong thời gian ngắn trong phiên — không có nội dung nào ở đây được lưu trữ dưới dạng bộ nhớ doanh nghiệp."
+    },
+    "invoices": {
+      "title": "Hóa đơn",
+      "description": "Kiến trúc thanh toán và hóa đơn cho người thuê doanh nghiệp.",
+      "emptyTitle": "Sổ cái hóa đơn chưa có sẵn",
+      "emptyBody": "Tuyến đường này là một lớp vỏ - việc tạo hóa đơn và lưu giữ không được kết nối. Sử dụng Tài chính để xem trước sổ cái mẫu hoặc Thanh toán để quản lý gói.",
+      "openFinance": "Tài chính mở",
+      "openBilling": "Thanh toán mở"
+    }
+  },
+  "search": {
+    "ariaLabel": "Tìm kiếm phổ quát",
+    "queryAria": "Truy vấn tìm kiếm phổ quát",
+    "placeholder": "Tìm kiếm khách hàng, hóa đơn, tài liệu, quy trình làm việc, cài đặt…",
+    "quickActions": "Thao tác nhanh",
+    "favorites": "Yêu thích",
+    "recentSearches": "Tìm kiếm gần đây",
+    "clear": "Thông thoáng",
+    "noRecentSearches": "Chưa có tìm kiếm nào gần đây. Hãy thử “Nordlicht”, “hóa đơn” hoặc “quy trình làm việc”.",
+    "recentActivity": "Hoạt động gần đây",
+    "aiReady": "AI Ready (Kiến trúc)",
+    "pinnedResults": "Kết quả được ghim",
+    "noMatches": "Không có kết quả phù hợp",
+    "noMatchesBody": "Hãy thử một từ khóa khác hoặc mở một mô-đun thông qua Thao tác nhanh.",
+    "close": "Đóng",
+    "open": "Mở",
+    "keyboardHints": "↑↓ điều hướng · Nhập mở · Ctrl/⌘ K chuyển đổi · Esc đóng",
+    "pinResult": "Ghim kết quả",
+    "unpinResult": "Bỏ ghim kết quả",
+    "previewEmpty": "Di chuột hoặc đánh dấu kết quả để xem trước, siêu dữ liệu và liên kết thông minh.",
+    "previewAria": "Xem trước toàn cầu",
+    "relatedItems": "Các mục liên quan",
+    "noSmartLinks": "Không có liên kết thông minh cho kết quả này.",
+    "groups": {
+      "crm": "CRM",
+      "finance": "Tài chính",
+      "documents": "Tài liệu",
+      "automation": "Tự động hóa",
+      "projects": "Dự án",
+      "creator": "Studio sáng tạo",
+      "settings": "Cài đặt",
+      "commands": "Lệnh",
+      "actions": "Thao tác nhanh"
+    },
+    "status": {
+      "architecture": "ngành kiến ​​​​trúc",
+      "planned": "kế hoạch"
+    },
+    "meta": {
+      "type": "Kiểu",
+      "module": "mô-đun",
+      "quickAction": "Hành động nhanh"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "Tạo khách hàng",
+        "subtitle": "Mở Khách hàng để thêm bản ghi"
+      },
+      "createInvoice": {
+        "title": "Tạo hóa đơn",
+        "subtitle": "Không gian làm việc hóa đơn tài chính mở"
+      },
+      "uploadDocument": {
+        "title": "Tải tài liệu lên",
+        "subtitle": "Trung tâm Kiến thức Tài liệu Mở"
+      },
+      "newWorkflow": {
+        "title": "Quy trình làm việc mới",
+        "subtitle": "Trình tạo Công cụ tự động hóa mở"
+      },
+      "newProject": {
+        "title": "Dự án mới",
+        "subtitle": "Mở không gian làm việc của Dự án"
+      },
+      "inviteMember": {
+        "title": "Mời thành viên nhóm",
+        "subtitle": "Mở lời mời nhóm"
+      },
+      "openBilling": {
+        "title": "Thanh toán mở",
+        "subtitle": "Gói, hóa đơn và đăng ký"
+      },
+      "openSettings": {
+        "title": "Mở Cài đặt",
+        "subtitle": "Tùy chọn không gian làm việc"
+      }
+    },
+    "commands": {
+      "openCrm": {
+        "title": "Mở CRM",
+        "subtitle": "Mô-đun AI CRM"
+      },
+      "openCustomers": {
+        "title": "Khách hàng mở",
+        "subtitle": "Quản lý khách hàng"
+      },
+      "openFinance": {
+        "title": "Tài chính mở",
+        "subtitle": "Phân hệ Tài chính & Thuế"
+      },
+      "openDocuments": {
+        "title": "Mở tài liệu",
+        "subtitle": "Trung tâm kiến ​​thức"
+      },
+      "openAutomation": {
+        "title": "Tự động hóa mở",
+        "subtitle": "Công cụ xử lý công việc"
+      },
+      "openSettings": {
+        "title": "Mở Cài đặt",
+        "subtitle": "Cài đặt không gian làm việc"
+      },
+      "openProjects": {
+        "title": "Dự án mở",
+        "subtitle": "Danh mục dự án"
+      },
+      "openAi": {
+        "title": "AI mở",
+        "subtitle": "Không gian làm việc nền tảng AI"
+      },
+      "openAnalytics": {
+        "title": "Mở phân tích",
+        "subtitle": "Trung tâm tình báo"
+      },
+      "openIdentity": {
+        "title": "Mở danh tính và quyền truy cập",
+        "subtitle": "Cài đặt IAM, RBAC, kiểm tra"
+      },
+      "openBilling": {
+        "title": "Thanh toán mở",
+        "subtitle": "Cổng đăng ký và kế hoạch"
+      },
+      "openIntegrations": {
+        "title": "Tích hợp mở",
+        "subtitle": "Trung tâm tích hợp & hệ sinh thái API"
+      }
+    },
+    "modules": {
+      "dashboard": {
+        "subtitle": "Tổng quan về trung tâm chỉ huy và toàn cầu"
+      },
+      "customers": {
+        "subtitle": "Hồ sơ khách hàng và CRM"
+      },
+      "projects": {
+        "subtitle": "Phân phối và theo dõi dự án"
+      },
+      "invoices": {
+        "title": "Hóa đơn",
+        "subtitle": "Thanh toán và hóa đơn"
+      },
+      "finance": {
+        "subtitle": "AI kế toán, ngân hàng, thuế và trí tuệ tài chính"
+      },
+      "crm": {
+        "subtitle": "Hệ điều hành CRM và Creator gốc AI"
+      },
+      "creator": {
+        "subtitle": "Hệ điều hành sản xuất và tiếp thị nội dung AI"
+      },
+      "documents": {
+        "subtitle": "Trung tâm kiến ​​thức & tài liệu AI"
+      },
+      "ai": {
+        "title": "trí tuệ nhân tạo",
+        "subtitle": "Nền tảng AI AGXORA - không gian làm việc dành cho doanh nghiệp"
+      },
+      "analytics": {
+        "subtitle": "Kinh doanh thông minh"
+      },
+      "automation": {
+        "subtitle": "Công cụ tự động hóa và quy trình làm việc AI"
+      },
+      "memory": {
+        "title": "Ký ức",
+        "subtitle": "Bộ nhớ tổ chức"
+      },
+      "team": {
+        "subtitle": "Thành viên và lời mời"
+      },
+      "settings": {
+        "subtitle": "Cài đặt không gian làm việc và AI"
+      }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "Tìm kiếm AI",
+        "description": "Xếp hạng kết quả bằng mô hình truy xuất trong tương lai trên các mô-đun."
+      },
+      "semantic": {
+        "title": "Tìm kiếm ngữ nghĩa",
+        "description": "Vector tương tự trên các tài liệu, hóa đơn và kiến ​​thức."
+      },
+      "nl": {
+        "title": "Tìm kiếm ngôn ngữ tự nhiên",
+        "description": "Phân tích các ý định như “hóa đơn quá hạn cho Nordlicht”."
+      },
+      "rag": {
+        "title": "Truy xuất kiến ​​thức",
+        "description": "Câu trả lời cơ bản trong kho dữ liệu của Trung tâm Kiến thức Tài liệu."
+      }
+    },
+    "esc": "Esc"
+  },
+  "summary": "{name}: {customers} khách hàng · {projects} dự án · {updates} cập nhật hôm nay."
+}

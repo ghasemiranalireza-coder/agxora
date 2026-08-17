@@ -1,0 +1,388 @@
+{
+  "skipToContent": "Lewati ke konten dasbor",
+  "loading": "Memuat dasbor…",
+  "hero": {
+    "ariaLabel": "Pahlawan INTI AGXORA",
+    "eyebrow": "Sistem Operasi Bisnis AI",
+    "title": "INTI AGXORA",
+    "subtitle": "Kecerdasan real-time dan kontrol operasional — permukaan perintah ruang kerja Anda.",
+    "ctaGetStarted": "Mulailah",
+    "ctaViewActivity": "Lihat aktivitas",
+    "openQuickActionsAria": "Buka tindakan cepat",
+    "viewActivityAria": "Lihat aktivitas terkini"
+  },
+  "quickActions": {
+    "title": "Tindakan cepat",
+    "subtitle": "Apa yang harus Anda lakukan selanjutnya?",
+    "ariaLabel": "Tindakan cepat",
+    "addCustomer": {
+      "label": "Tambahkan pelanggan",
+      "description": "Buat catatan CRM"
+    },
+    "newProject": {
+      "label": "Proyek baru",
+      "description": "Mulai jalur pengiriman"
+    },
+    "askAi": {
+      "label": "Tanya AI",
+      "description": "Buka ruang kerja AI"
+    },
+    "finance": {
+      "label": "Keuangan",
+      "description": "Faktur dan arus kas"
+    },
+    "automations": {
+      "label": "Otomatisasi",
+      "description": "Mesin alur kerja"
+    },
+    "settings": {
+      "label": "Pengaturan",
+      "description": "Preferensi ruang kerja"
+    }
+  },
+  "attention": {
+    "title": "Perlu perhatian",
+    "ariaLabel": "Apa yang perlu diperhatikan",
+    "empty": "Anda sudah jelas - tidak ada barang mendesak saat ini.",
+    "tone": {
+      "critical": "Kritis",
+      "warning": "Peringatan",
+      "info": "Informasi",
+      "success": "Siap",
+      "action": "Lakukan selanjutnya"
+    },
+    "addCustomer": {
+      "title": "Tambahkan pelanggan pertama Anda",
+      "detail": "Mulai CRM dengan catatan akun nyata."
+    },
+    "createProject": {
+      "title": "Buat proyek",
+      "detail": "Buka jalur pengiriman untuk pertunangan Anda berikutnya."
+    },
+    "exploreAi": {
+      "title": "Jelajahi ruang kerja AI",
+      "detail": "Tanyakan AGXORA tentang pelanggan, proyek, atau langkah selanjutnya."
+    },
+    "reviewBilling": {
+      "title": "Tinjau penagihan",
+      "detail": "Konfirmasikan paket dan penggunaan saat Anda siap melakukan penskalaan."
+    }
+  },
+  "overview": {
+    "title": "Apa yang sedang terjadi",
+    "subtitle": "Ruang kerja penting untuk {name}",
+    "fallbackName": "ruang kerja Anda",
+    "ariaLabel": "Ikhtisar bisnis",
+    "online": "On line",
+    "emDash": "—",
+    "capacitySignal": "{percent}% sinyal kapasitas",
+    "activeClients": {
+      "title": "Klien aktif",
+      "captionEmpty": "Belum ada pelanggan aktif",
+      "captionTotal": "{count} total di ruang kerja",
+      "add": "Tambahkan pelanggan",
+      "view": "Lihat pelanggan"
+    },
+    "projects": {
+      "title": "Proyek",
+      "captionEmpty": "Tidak ada proyek dalam portofolio",
+      "captionOpen": "Buka jalur pengiriman",
+      "create": "Buat proyek",
+      "open": "Buka proyek"
+    },
+    "activityToday": {
+      "title": "Aktivitas hari ini",
+      "captionEmpty": "Belum ada yang dicatat hari ini",
+      "captionEvents": "Acara ruang kerja sejak tengah malam",
+      "viewFeed": "Lihat umpan"
+    },
+    "revenue": {
+      "title": "Pendapatan",
+      "caption": "Hubungkan penagihan untuk menampilkan MRR",
+      "openBilling": "Buka penagihan"
+    },
+    "clientShell": {
+      "title": "Cangkang klien",
+      "caption": "Sesi browser siap — bukan monitor operasi langsung",
+      "shellLoaded": "Shell aplikasi dimuat",
+      "storesReady": "Toko ruang kerja lokal sudah siap"
+    },
+    "growth": {
+      "title": "Pertumbuhan",
+      "caption": "Metrik tren memerlukan akumulasi penggunaan",
+      "openAnalytics": "Buka analitik"
+    }
+  },
+  "activity": {
+    "title": "Aktivitas terkini",
+    "subtitle": "Apa yang berubah hari ini",
+    "ariaLabel": "Aktivitas terkini",
+    "todayCount": "{count} HARI INI",
+    "localBadge": "LOKAL",
+    "emptyTitle": "Belum ada aktivitas",
+    "emptyBody": "Acara ruang kerja akan muncul di sini saat Anda menambahkan pelanggan, proyek, dan lainnya.",
+    "addCustomer": "Tambahkan pelanggan",
+    "newProject": "Proyek baru",
+    "kind": {
+      "customer": "Pelanggan",
+      "project": "Proyek",
+      "finance": "Keuangan",
+      "automation": "Otomatisasi",
+      "documents": "Dokumen",
+      "team": "Tim",
+      "workspace": "Ruang kerja"
+    },
+    "events": {
+      "customer_created": "Pelanggan dibuat",
+      "customer_updated": "Pelanggan diperbarui",
+      "customer_deleted": "Pelanggan dihapus",
+      "project_updated": "Proyek diperbarui",
+      "invoice_paid": "Faktur dibayar",
+      "document_uploaded": "Dokumen diunggah",
+      "workflow_executed": "Alur kerja dijalankan",
+      "member_invited": "Anggota tim diundang",
+      "generic": "Pembaruan ruang kerja"
+    }
+  },
+  "chat": {
+    "title": "AGXORA AI",
+    "emptyState": "Tanyakan AGXORA tentang pelanggan, proyek, atau tindakan selanjutnya. Percakapan Anda tetap berada di sesi ruang kerja ini.",
+    "thinking": "AGXORA sedang berpikir…",
+    "errorDismiss": "{error} — ketuk untuk menutup",
+    "placeholder": "Tanya AGXORA AI…",
+    "messageAria": "Pesan AGXORA AI",
+    "sendAria": "Kirim pesan",
+    "send": "Mengirim"
+  },
+  "routeLoading": {
+    "team": "Memuat tim…",
+    "projects": "Memuat proyek…",
+    "project": "Memuat proyek…",
+    "profile": "Memuat profil…",
+    "integrations": "Memuat integrasi…",
+    "identity": "Memuat identitas…",
+    "finance": "Memuat keuangan…",
+    "documents": "Memuat dokumen…",
+    "customers": "Memuat pelanggan…",
+    "crm": "Memuat CRM…",
+    "customer": "Memuat pelanggan…",
+    "creator": "Memuat studio pembuat…",
+    "billing": "Memuat penagihan…",
+    "billingAdmin": "Memuat penagihan admin…",
+    "automation": "Memuat otomatisasi…",
+    "analytics": "Memuat Pusat Intelijen…",
+    "ai": "Memuat Platform AI…",
+    "agents": "Memuat OS Agen…"
+  },
+  "shell": {
+    "memory": {
+      "title": "Ingatan",
+      "description": "Memori organisasi tidak terhubung dalam build ini.",
+      "emptyTitle": "Ruang kerja memori belum tersedia",
+      "emptyBody": "Penyimpanan memori organisasi persisten tidak tersambung. Obrolan mungkin hanya menyimpan konteks jangka pendek dalam sesi — tidak ada apa pun di sini yang disimpan sebagai memori perusahaan."
+    },
+    "invoices": {
+      "title": "Faktur",
+      "description": "Arsitektur penagihan dan faktur untuk penyewa perusahaan.",
+      "emptyTitle": "Buku besar faktur belum tersedia",
+      "emptyBody": "Rute ini adalah shell — pembuatan dan persistensi faktur tidak terhubung. Gunakan Keuangan untuk contoh pratinjau buku besar, atau Penagihan untuk manajemen paket.",
+      "openFinance": "Keuangan Terbuka",
+      "openBilling": "Buka Penagihan"
+    }
+  },
+  "search": {
+    "ariaLabel": "Pencarian universal",
+    "queryAria": "Permintaan pencarian universal",
+    "placeholder": "Cari pelanggan, faktur, dokumen, alur kerja, pengaturan…",
+    "quickActions": "Tindakan Cepat",
+    "favorites": "Favorit",
+    "recentSearches": "Pencarian Terbaru",
+    "clear": "Jernih",
+    "noRecentSearches": "Belum ada pencarian terkini. Coba “Nordlicht”, “faktur”, atau “alur kerja”.",
+    "recentActivity": "Aktivitas Terkini",
+    "aiReady": "Siap AI (Arsitektur)",
+    "pinnedResults": "Hasil yang Disematkan",
+    "noMatches": "Tidak ada kecocokan",
+    "noMatchesBody": "Coba kata kunci lain, atau buka modul melalui Tindakan Cepat.",
+    "close": "Menutup",
+    "open": "Membuka",
+    "keyboardHints": "↑↓ navigasi · Masuk buka · Ctrl/⌘ K sakelar · Esc tutup",
+    "pinResult": "Hasil pin",
+    "unpinResult": "Lepas sematan hasil",
+    "previewEmpty": "Arahkan atau sorot hasil untuk pratinjau, metadata, dan tautan cerdas.",
+    "previewAria": "Pratinjau universal",
+    "relatedItems": "Item Terkait",
+    "noSmartLinks": "Tidak ada tautan cerdas untuk hasil ini.",
+    "groups": {
+      "crm": "CRM",
+      "finance": "Keuangan",
+      "documents": "Dokumen",
+      "automation": "Otomatisasi",
+      "projects": "Proyek",
+      "creator": "Studio Pembuat",
+      "settings": "Pengaturan",
+      "commands": "Perintah",
+      "actions": "Tindakan Cepat"
+    },
+    "status": {
+      "architecture": "arsitektur",
+      "planned": "berencana"
+    },
+    "meta": {
+      "type": "Jenis",
+      "module": "Modul",
+      "quickAction": "Tindakan Cepat"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "Buat Pelanggan",
+        "subtitle": "Buka Pelanggan untuk menambahkan catatan"
+      },
+      "createInvoice": {
+        "title": "Buat Faktur",
+        "subtitle": "Buka ruang kerja faktur Keuangan"
+      },
+      "uploadDocument": {
+        "title": "Unggah Dokumen",
+        "subtitle": "Buka Pusat Pengetahuan Dokumen"
+      },
+      "newWorkflow": {
+        "title": "Alur Kerja Baru",
+        "subtitle": "Buka pembuat Mesin Otomasi"
+      },
+      "newProject": {
+        "title": "Proyek Baru",
+        "subtitle": "Buka ruang kerja Proyek"
+      },
+      "inviteMember": {
+        "title": "Undang Anggota Tim",
+        "subtitle": "Buka undangan Tim"
+      },
+      "openBilling": {
+        "title": "Buka Penagihan",
+        "subtitle": "Paket, faktur, dan langganan"
+      },
+      "openSettings": {
+        "title": "Buka Pengaturan",
+        "subtitle": "Preferensi ruang kerja"
+      }
+    },
+    "commands": {
+      "openCrm": {
+        "title": "Buka CRM",
+        "subtitle": "Modul AI CRM"
+      },
+      "openCustomers": {
+        "title": "Pelanggan Terbuka",
+        "subtitle": "Manajemen pelanggan"
+      },
+      "openFinance": {
+        "title": "Keuangan Terbuka",
+        "subtitle": "Modul Keuangan & Pajak"
+      },
+      "openDocuments": {
+        "title": "Buka Dokumen",
+        "subtitle": "Pusat Pengetahuan"
+      },
+      "openAutomation": {
+        "title": "Buka Otomatisasi",
+        "subtitle": "Mesin alur kerja"
+      },
+      "openSettings": {
+        "title": "Buka Pengaturan",
+        "subtitle": "Pengaturan ruang kerja"
+      },
+      "openProjects": {
+        "title": "Buka Proyek",
+        "subtitle": "Portofolio proyek"
+      },
+      "openAi": {
+        "title": "Buka AI",
+        "subtitle": "Ruang kerja platform AI"
+      },
+      "openAnalytics": {
+        "title": "Buka Analisis",
+        "subtitle": "Pusat intelijen"
+      },
+      "openIdentity": {
+        "title": "Buka Identitas & Akses",
+        "subtitle": "Pengaturan IAM, RBAC, audit"
+      },
+      "openBilling": {
+        "title": "Buka Penagihan",
+        "subtitle": "Portal & paket berlangganan"
+      },
+      "openIntegrations": {
+        "title": "Integrasi Terbuka",
+        "subtitle": "Pusat Integrasi & ekosistem API"
+      }
+    },
+    "modules": {
+      "dashboard": {
+        "subtitle": "Ikhtisar pusat komando dan globe"
+      },
+      "customers": {
+        "subtitle": "Catatan pelanggan dan CRM"
+      },
+      "projects": {
+        "subtitle": "Pengiriman dan pelacakan proyek"
+      },
+      "invoices": {
+        "title": "Faktur",
+        "subtitle": "Penagihan dan faktur"
+      },
+      "finance": {
+        "subtitle": "Akuntansi AI, perbankan, pajak & intelijen keuangan"
+      },
+      "crm": {
+        "subtitle": "CRM asli AI dan Sistem Operasi Pembuat Konten"
+      },
+      "creator": {
+        "subtitle": "OS produksi dan pemasaran konten AI"
+      },
+      "documents": {
+        "subtitle": "Dokumen AI & Pusat Pengetahuan"
+      },
+      "ai": {
+        "title": "AI",
+        "subtitle": "Platform AI AGXORA — ruang kerja perusahaan"
+      },
+      "analytics": {
+        "subtitle": "Intelijen bisnis"
+      },
+      "automation": {
+        "subtitle": "Alur kerja AI dan mesin otomasi"
+      },
+      "memory": {
+        "title": "Ingatan",
+        "subtitle": "Memori organisasi"
+      },
+      "team": {
+        "subtitle": "Anggota dan undangan"
+      },
+      "settings": {
+        "subtitle": "Pengaturan ruang kerja dan AI"
+      }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "Pencarian AI",
+        "description": "Beri peringkat hasil dengan model pengambilan di masa mendatang di seluruh modul."
+      },
+      "semantic": {
+        "title": "Pencarian Semantik",
+        "description": "Kesamaan vektor atas dokumen, faktur, dan pengetahuan."
+      },
+      "nl": {
+        "title": "Pencarian Bahasa Alami",
+        "description": "Parsing maksud seperti “faktur yang telah jatuh tempo untuk Nordlicht”."
+      },
+      "rag": {
+        "title": "Pengambilan Pengetahuan",
+        "description": "Jawaban dasar di korpus Documents Knowledge Hub."
+      }
+    },
+    "esc": "Esc"
+  },
+  "summary": "{name}: {customers} pelanggan · {projects} proyek · {updates} pembaruan hari ini."
+}

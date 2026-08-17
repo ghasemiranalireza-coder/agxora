@@ -1,0 +1,174 @@
+{
+  "identity": {
+    "eyebrow": "エンタープライズ IAM",
+    "title": "アイデンティティとアクセス",
+    "lead": "組織、ワークスペース、RBAC、セキュリティ プレースホルダー、および監査アーキテクチャ。バックエンド アダプターは、この表面を変更せずに接続します。",
+    "openProfile": "プロフィールを開く",
+    "teamManagement": "チームマネジメント",
+    "tabs": {
+      "organization": "組織",
+      "workspace": "ワークスペース",
+      "roles": "役割と権限",
+      "security": "安全",
+      "audit": "監査ログ"
+    },
+    "organizationSettings": "組織の設定",
+    "workspaceSettings": "ワークスペースの設定",
+    "noOrganization": "活動している組織はありません。オンボーディングを完了するか、組織サービスからオンボーディングを作成します。",
+    "logoPlaceholder": "ロゴのアップロードとプランの請求アダプターは、将来の ID バックエンドのプレースホルダーです。",
+    "rbacTitle": "RBAC — デフォルトの役割",
+    "permissionMatrix": "権限マトリックス",
+    "canManageSettings": "設定を管理できます: {value} · 認証済み: {authenticated}",
+    "yes": "はい",
+    "no": "いいえ",
+    "securitySettings": "セキュリティ設定",
+    "passwordChange": {
+      "title": "パスワードの変更",
+      "detail": "パスワード変更は、構成されている場合、認証プロバイダーを介して接続します。"
+    },
+    "twoFactor": {
+      "title": "二要素認証 (2FA)",
+      "detail": "TOTP アダプターと WebAuthn アダプターは、有効になっている場合にここに登録されます。"
+    },
+    "activeSessions": {
+      "title": "アクティブなセッション",
+      "detail": "デバイス ディレクトリは ID セッション内に存在します。取り消しはサーバーセッションで権限を持つようになります。"
+    },
+    "apiKeys": {
+      "title": "APIキー",
+      "detail": "開発者向けのサービス アカウントとスコープ付きトークン。"
+    },
+    "absoluteTimeout": "絶対タイムアウト",
+    "idleTimeout": "アイドルタイムアウト",
+    "refreshSkew": "リフレッシュスキュー",
+    "persistentLogin": "永続的なログイン",
+    "disabled": "無効",
+    "enabled": "有効",
+    "days": "{count} 日",
+    "minutes": "{count}分",
+    "toggleIdlePolicy": "アイドルポリシープレースホルダーの切り替え",
+    "previewSessionExpired": "プレビューセッションの有効期限が切れました",
+    "previewAccountLocked": "プレビューアカウントがロックされました",
+    "auditActivity": "監査活動",
+    "auditLead": "ログイン、ログアウト、ロールの変更、招待、および組織のイベントはローカルに記録されます。後で不変のバックエンド監査ストアに置き換えます。",
+    "auditEmpty": "IAM イベントはまだありません。サインインするか、ロールを変更してログを入力します。",
+    "meta": {
+      "name": "名前",
+      "slug": "ナメクジ",
+      "plan": "プラン",
+      "owner": "所有者",
+      "created": "作成されました",
+      "yourRole": "あなたの役割",
+      "workspace": "ワークスペース",
+      "status": "状態",
+      "isolationKey": "隔離キー"
+    },
+    "matrix": {
+      "permission": "許可",
+      "owner": "所有者",
+      "admin": "管理者",
+      "manager": "マネージャー",
+      "member": "メンバー",
+      "viewer": "ビューア",
+      "yes": "はい"
+    },
+    "audit": {
+      "when": "いつ",
+      "action": "アクション",
+      "actor": "俳優",
+      "resource": "リソース"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "所有者",
+      "description": "請求と所有権の移転を含む完全な制御"
+    },
+    "admin": {
+      "name": "管理者",
+      "description": "人、セキュリティ、ワークスペース、モジュールを管理する"
+    },
+    "manager": {
+      "name": "マネージャー",
+      "description": "チームと運用モジュールを主導します。メンバーを招待する"
+    },
+    "member": {
+      "name": "メンバー",
+      "description": "日常的な運用アクセス"
+    },
+    "viewer": {
+      "name": "ビューア",
+      "description": "読み取り専用アクセス"
+    }
+  },
+  "profile": {
+    "eyebrow": "身元",
+    "title": "ユーザープロフィール",
+    "lead": "アカウントの ID、設定、セキュリティを管理します。組織とワークスペースのコントロールは ID 設定にあります。",
+    "guest": "ゲスト",
+    "notSignedIn": "サインインしていません",
+    "identitySettings": "ID設定",
+    "security": "安全",
+    "profileSection": "プロフィール",
+    "fullName": "フルネーム",
+    "email": "電子メール",
+    "language": "言語",
+    "timezone": "タイムゾーン",
+    "languageEnGb": "英語(イギリス)",
+    "languageEnUs": "英語 (米国)",
+    "languageDe": "ドイツ語",
+    "timezoneBerlin": "ヨーロッパ/ベルリン",
+    "timezoneLondon": "ヨーロッパ/ロンドン",
+    "timezoneUtc": "UTC",
+    "timezoneNewYork": "アメリカ/ニューヨーク",
+    "notifications": "通知",
+    "emailNotifications": "電子メール通知",
+    "pushNotifications": "プッシュ通知",
+    "workspace": "ワークスペース",
+    "noticeInitial": "プロファイル API が接続されるまで、設定はローカルに保存されます。",
+    "noticeSaved": "プロファイル設定が更新されました。",
+    "savePreferences": "設定を保存する"
+  },
+  "workspaceSelector": {
+    "empty": "ワークスペースはまだありません。ワークスペースをプロビジョニングするには組織を作成してください。",
+    "label": "アクティブなワークスペース",
+    "ariaLabel": "ワークスペースを切り替える"
+  },
+  "verifyEmail": {
+    "title": "メール認証",
+    "loading": "読み込み中…",
+    "skipForNow": "今のところスキップしてください",
+    "tokenPlaceholder": "検証トークン",
+    "tokenIssued": "現在のセッションに対して発行された検証トークン。",
+    "issueFailed": "トークンを発行できませんでした",
+    "verificationFailed": "検証に失敗しました",
+    "verify": "メールの確認",
+    "verifying": "確認中…",
+    "requestToken": "検証トークンをリクエストする"
+  },
+  "access": {
+    "eyebrow": "ID とアクセス",
+    "signIn": "サインイン",
+    "backToDashboard": "ダッシュボードに戻る",
+    "unauthorized": {
+      "title": "未認証",
+      "description": "AGXORA のこの領域を続けるにはサインインしてください。"
+    },
+    "forbidden": {
+      "title": "アクセス拒否",
+      "description": "このリソースの権限がロールに含まれていません。"
+    },
+    "expired_session": {
+      "title": "セッション期限切れ",
+      "description": "セッションの有効期限が切れました。作業を再開するには再度サインインしてください。"
+    },
+    "missing_permission": {
+      "title": "権限がありません",
+      "description": "必要なモジュールアクセスを付与するよう、オーナーまたは管理者に依頼してください。"
+    },
+    "account_locked": {
+      "title": "アカウントロック中",
+      "description": "このアカウントはロックされています。組織のオーナーに連絡するか、後でもう一度お試しください。"
+    }
+  }
+}

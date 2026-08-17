@@ -1,13 +1,14 @@
 "use client";
 
 import { useId, type JSX, type ReactNode, type SelectHTMLAttributes } from "react";
+import { useT } from "../../lib/i18n";
 
 /**
  * Search + filter controls — same surface as FormInput (agx-ui-control).
  * Entire labeled field is clickable via native <label> wrapping.
  */
 export function SearchField({
-  label = "Search",
+  label,
   value,
   onChange,
   placeholder,
@@ -19,10 +20,12 @@ export function SearchField({
   readonly placeholder?: string;
   readonly controlSize?: "sm" | "md";
 }): JSX.Element {
+  const t = useT();
+  const resolvedLabel = label ?? t("common.search");
   const id = useId();
   return (
     <label className="block min-w-0 flex-1 space-y-2" htmlFor={id}>
-      <span className="agx-ui-label">{label}</span>
+      <span className="agx-ui-label">{resolvedLabel}</span>
       <input
         id={id}
         type="search"

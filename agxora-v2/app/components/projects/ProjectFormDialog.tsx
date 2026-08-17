@@ -2,6 +2,7 @@
 
 import { useCallback, type JSX } from "react";
 import { useToast } from "../../lib/backend/hooks";
+import { useT } from "../../lib/i18n";
 import {
   PROJECT_COLORS,
   PROJECT_CURRENCIES,
@@ -12,7 +13,6 @@ import {
   projectStore,
   selectProjectFormSlice,
   shallowEqualRecord,
-  statusLabel,
   useProjectStoreSelector,
   type ProjectDraft,
 } from "../../lib/projects";
@@ -31,8 +31,12 @@ export function ProjectFormDialog(): JSX.Element {
     shallowEqualRecord,
   );
   const toast = useToast();
+  const t = useT();
   const errors = projectErrorMap(state.formErrors);
-  const title = state.formMode === "edit" ? "Edit Project" : "Create Project";
+  const title =
+    state.formMode === "edit"
+      ? t("projects.form.editTitle")
+      : t("projects.form.createTitle");
 
   const setField = useCallback(
     <K extends keyof ProjectDraft>(key: K, value: ProjectDraft[K]) => {
@@ -55,7 +59,7 @@ export function ProjectFormDialog(): JSX.Element {
             onClick={() => projectStore.closeForm()}
             disabled={state.saving}
           >
-            Cancel
+            {t("projects.form.cancel")}
           </Button>
           <Button
             variant="primary"
@@ -66,45 +70,50 @@ export function ProjectFormDialog(): JSX.Element {
               void projectStore.save().then((project) => {
                 if (project) {
                   toast.success(
-                    mode === "edit" ? "Project updated" : "Project created",
+                    mode === "edit"
+                      ? t("projects.toasts.projectUpdated")
+                      : t("projects.toasts.projectCreated"),
                     project.name,
                   );
                 } else if (projectStore.getSnapshot().formErrors.length > 0) {
                   toast.warning(
-                    "Check the form",
-                    projectStore.getSnapshot().formErrors[0]?.message ??
-                      "Validation failed.",
+                    t("projects.toasts.checkForm"),
+                    projectStore.getSnapshot().formErrors[0]?.message
+                      ? t(projectStore.getSnapshot().formErrors[0].message)
+                      : t("projects.toasts.validationFailed"),
                   );
                 }
               });
             }}
           >
-            {state.formMode === "edit" ? "Save changes" : "Create project"}
+            {state.formMode === "edit"
+              ? t("projects.form.saveChanges")
+              : t("projects.form.createProject")}
           </Button>
         </>
       }
     >
       <div className="grid gap-4 sm:grid-cols-2">
-        <FormField label="Project Name" error={errors.name}>
+        <FormField label={t("projects.form.projectName")} error={errors.name}>
           <FormInput
             value={state.draft.name}
             onChange={(e) => setField("name", e.target.value)}
             autoFocus
           />
         </FormField>
-        <FormField label="Customer" error={errors.customer}>
+        <FormField label={t("projects.form.customer")} error={errors.customer}>
           <FormInput
             value={state.draft.customer}
             onChange={(e) => setField("customer", e.target.value)}
           />
         </FormField>
-        <FormField label="Project Owner" error={errors.owner}>
+        <FormField label={t("projects.form.projectOwner")} error={errors.owner}>
           <FormInput
             value={state.draft.owner}
             onChange={(e) => setField("owner", e.target.value)}
           />
         </FormField>
-        <FormField label="Priority" error={errors.priority}>
+        <FormField label={t("projects.form.priority")} error={errors.priority}>
           <FormSelect
             value={state.draft.priority}
             onChange={(e) =>
@@ -113,12 +122,12 @@ export function ProjectFormDialog(): JSX.Element {
           >
             {PROJECT_PRIORITIES.map((priority) => (
               <option key={priority} value={priority}>
-                {priority}
+                {t(`projects.priority.${priority}`)}
               </option>
             ))}
           </FormSelect>
         </FormField>
-        <FormField label="Status" error={errors.status}>
+        <FormField label={t("projects.form.status")} error={errors.status}>
           <FormSelect
             value={state.draft.status}
             onChange={(e) =>
@@ -127,20 +136,20 @@ export function ProjectFormDialog(): JSX.Element {
           >
             {PROJECT_STATUSES.map((status) => (
               <option key={status} value={status}>
-                {statusLabel(status)}
+                {t(`projects.status.${status}`)}
               </option>
             ))}
           </FormSelect>
         </FormField>
-        <FormField label="Budget" error={errors.budget}>
+        <FormField label={t("projects.form.budget")} error={errors.budget}>
           <FormInput
             inputMode="decimal"
             value={state.draft.budget}
             onChange={(e) => setField("budget", e.target.value)}
-            placeholder="0"
+            placeholder={t("projects.form.budgetPlaceholder")}
           />
         </FormField>
-        <FormField label="Currency" error={errors.currency}>
+        <FormField label={t("projects.form.currency")} error={errors.currency}>
           <FormSelect
             value={state.draft.currency}
             onChange={(e) =>
@@ -154,27 +163,27 @@ export function ProjectFormDialog(): JSX.Element {
             ))}
           </FormSelect>
         </FormField>
-        <FormField label="Start Date" error={errors.startDate}>
+        <FormField label={t("projects.form.startDate")} error={errors.startDate}>
           <FormInput
             type="date"
             value={state.draft.startDate}
             onChange={(e) => setField("startDate", e.target.value)}
           />
         </FormField>
-        <FormField label="Due Date" error={errors.dueDate}>
+        <FormField label={t("projects.form.dueDate")} error={errors.dueDate}>
           <FormInput
             type="date"
             value={state.draft.dueDate}
             onChange={(e) => setField("dueDate", e.target.value)}
           />
         </FormField>
-        <FormField label="Color" error={errors.color}>
+        <FormField label={t("projects.form.color")} error={errors.color}>
           <div className="flex flex-wrap gap-2">
             {PROJECT_COLORS.map((color) => (
               <button
                 key={color}
                 type="button"
-                aria-label={`Select color ${color}`}
+                aria-label={t("projects.form.selectColor", { color })}
                 aria-pressed={state.draft.color === color}
                 onClick={() => setField("color", color)}
                 className="h-8 w-8 rounded-full border-2"
@@ -189,7 +198,7 @@ export function ProjectFormDialog(): JSX.Element {
             ))}
           </div>
         </FormField>
-        <FormField label="Icon" error={errors.icon}>
+        <FormField label={t("projects.form.icon")} error={errors.icon}>
           <FormSelect
             value={state.draft.icon}
             onChange={(e) =>
@@ -203,15 +212,19 @@ export function ProjectFormDialog(): JSX.Element {
             ))}
           </FormSelect>
         </FormField>
-        <FormField label="Tags" error={errors.tags} hint="Comma-separated">
+        <FormField
+          label={t("projects.form.tags")}
+          error={errors.tags}
+          hint={t("projects.form.tagsHint")}
+        >
           <FormInput
             value={state.draft.tags}
             onChange={(e) => setField("tags", e.target.value)}
-            placeholder="enterprise, rollout"
+            placeholder={t("projects.form.tagsPlaceholder")}
           />
         </FormField>
         <div className="sm:col-span-2">
-          <FormField label="Description" error={errors.description}>
+          <FormField label={t("projects.form.description")} error={errors.description}>
             <FormTextArea
               rows={4}
               value={state.draft.description}

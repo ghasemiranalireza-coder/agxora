@@ -1,0 +1,540 @@
+{
+  "enginePage": {
+    "sectionTitle": "سیستم عامل اتوماسیون AGXORA",
+    "title": "اتوماسیون",
+    "subtitle": "موتور گردش کار و اتوماسیون هوش مصنوعی سازمانی - بافت پیوند دهنده CRM، امور مالی، Creator Studio و هر ماژول AGXORA آینده.",
+    "loadingHistory": "در حال بارگذاری تاریخچه گردش کار…",
+    "loadingTemplates": "در حال بارگذاری کتابخانه قالب…",
+    "loadingIntegrations": "در حال بارگذاری مرکز ادغام…",
+    "dashboard": "داشبورد",
+    "workflowBuilder": "سازنده گردش کار",
+    "workflowBuilderSubtitle": "بوم مبتنی بر گره با قابلیت اتصال به شبکه، بزرگنمایی و حرکت روان، اتصال هاور و هدایت در حالت خالی.",
+    "openAssistant": "دستیار گردش کار هوش مصنوعی باز",
+    "workflowHistory": "تاریخچه گردش کار",
+    "workflowHistorySubtitle": "گزارش اجرا با وضعیت رنگی، ردیف‌های قابل کلیک و یک بازرس اجرای کامل.",
+    "templates": "الگوها",
+    "templatesSubtitle": "پیش‌نمایش قبل از بارگذاری — تعداد گره‌ها، سختی، زمان اجرا و موارد استفاده پیشنهادی.",
+    "integrationCenter": "مرکز ادغام",
+    "integrationCenterSubtitle": "فقط رجیستری آداپتور — متصل، بتا، برنامه‌ریزی‌شده، به‌زودی، غیرفعال. بدون APIهای فعال."
+  },
+  "assistant": {
+    "title": "دستیار گردش کار هوش مصنوعی",
+    "subtitle": "فقط اکتشافات محلی - هیچ مدل زنده‌ای لازم نیست.",
+    "closeAria": "دستیار گردش کار هوش مصنوعی را ببندید",
+    "close": "بستن",
+    "workflowScore": "امتیاز گردش کار",
+    "scoreOutOf": "/ 100",
+    "optimizationSuggestions": "پیشنهادات بهینه‌سازی",
+    "oneClickOptimize": "بهینه‌سازی با یک کلیک",
+    "noticeDefault": "بهینه‌سازی با یک کلیک هنوز جهشی در نمودار ایجاد نکرده است.",
+    "noticeQueued": "بهینه‌سازی صف‌بندی شده. موتور آینده تأخیرها و تأییدها را بازنویسی خواهد کرد."
+  },
+  "integrations": {
+    "intro": "مرکز ادغام — اختیاری. وضعیت‌ها: متصل، بتا، برنامه‌ریزی‌شده، به‌زودی، غیرفعال. بدون APIهای فعال.",
+    "category": "دسته:",
+    "reservedAdapter": "آداپتر رزروشده:",
+    "description": "توضیحات:"
+  },
+  "executionInspector": {
+    "title": "جزئیات اجرا",
+    "emptyTitle": "انتخاب یک اجرا",
+    "emptyDescription": "برای بررسی ورودی‌ها، خروجی‌ها و خلاصه هوش مصنوعی، یک اجرا از تاریخچه گردش کار انتخاب کنید.",
+    "workflowName": "نام گردش کار",
+    "trigger": "دستگیره",
+    "executionId": "شناسه اجرا",
+    "started": "شروع شده",
+    "finished": "پایان",
+    "duration": "مدت زمان",
+    "status": "وضعیت",
+    "success": "موفقیت",
+    "failed": "ناموفق",
+    "retryAvailable": "دوباره امتحان کردن موجود است",
+    "executedBy": "اجرا شده توسط",
+    "yes": "بله",
+    "no": "خیر",
+    "emDash": "—",
+    "input": "ورودی",
+    "output": "برون داد",
+    "aiSummary": "خلاصه هوش مصنوعی",
+    "errorMessage": "پیام خطا",
+    "retry": "تلاش مجدد",
+    "retryUnavailable": "تلاش مجدد در دسترس نیست",
+    "noticeDefault": "آداپتور Retry رزرو شده است - هنوز اجرای مجدد زنده‌ای انجام نشده است.",
+    "noticeQueued": "تلاش مجدد برای {id} در صف انتظار قرار گرفت."
+  },
+  "workflowBuilder": {
+    "elementsTitle": "عناصر گردش کار",
+    "paletteAria": "پالت",
+    "tabElements": "عناصر",
+    "tabTriggers": "محرک ها",
+    "tabActions": "اقدامات",
+    "tabAiActions": "اقدامات هوش مصنوعی",
+    "builderTitle": "سازنده گردش کار · {name}",
+    "builderHint": "جابجایی به شبکه {grid}px · ⌘/Ctrl+scroll بزرگنمایی · کشیدن بوم برای جابجایی · دوبار کلیک روی اتصال",
+    "autoSaved": "ذخیره خودکار",
+    "saving": "در حال ذخیره…",
+    "undo": "واگرد",
+    "redo": "مجدداً",
+    "zoomOut": "−",
+    "zoomIn": "+",
+    "resetView": "نمایش را بازنشانی کنید",
+    "emptyTitle": "بوم نقاشی خالی",
+    "emptyDescription": "برای شروع ساخت، یک Trigger از پالت بکشید. Snap-to-grid گره‌ها را در یک راستا نگه می‌دارد.",
+    "connectHint": "برای اتصال، روی هدف دوبار کلیک کنید",
+    "miniMapAria": "نقشه کوچک"
+  },
+  "workflowHistory": {
+    "title": "تاریخچه گردش کار · گزارش اجرا",
+    "statusFilter": "وضعیت",
+    "statusAll": "همه",
+    "statusSuccess": "موفقیت",
+    "statusFailed": "ناموفق",
+    "statusPending": "در انتظار",
+    "statusRetried": "تلاش مجدد",
+    "statusRunning": "در حال اجرا",
+    "runsAria": "گردش کار اجرا می‌شود",
+    "noMatches": "هیچ جریان کاری با این فیلتر مطابقت ندارد."
+  },
+  "workflowTemplates": {
+    "title": "کتابخانه‌ قالب‌ها",
+    "noticeDefault": "قبل از بارگذاری یک قالب در سازنده، پیش‌نمایش آن را ببینید.",
+    "noticeLoaded": "&quot;{name}&quot; در سازنده گردش کار بارگذاری شد.",
+    "nodesBadge": "{count} گره‌ها",
+    "recommendedFor": "توصیه شده برای: {for}",
+    "preview": "پیش‌نمایش",
+    "useTemplate": "استفاده از ساختار",
+    "previewTitle": "پیش نمایش قالب",
+    "close": "بستن",
+    "nodes": "گره ها",
+    "connections": "ارتباطات",
+    "estimatedRuntime": "زمان اجرای تخمینی",
+    "difficulty": "دشواری",
+    "requiredModules": "ماژول های مورد نیاز",
+    "usedAiFeatures": "ویژگی‌های هوش مصنوعی مورد استفاده",
+    "none": "هیچکدام"
+  },
+  "workspace": {
+    "loading": "در حال بارگذاری موتور اتوماسیون…",
+    "eyebrow": "موتور اتوماسیون گردش کار",
+    "title": "اتوماسیون",
+    "subtitle": "گردش‌های کاری قابل تنظیم در CRM، پروژه‌ها، امور مالی، اسناد و هوش مصنوعی - گذرگاه رویداد محلی و موتور درون مرورگر. صف توزیع‌شده و کارگران پشتیبان به هم متصل نیستند.",
+    "noticeDefault": "موتور اجرا مستقل از رابط کاربری است. ماژول‌ها رویدادها را منتشر می‌کنند؛ گردش‌های کاری مشترک می‌شوند.",
+    "tabs": {
+      "dashboard": "داشبورد",
+      "workflows": "محیط کار",
+      "editor": "ویرایشگر",
+      "history": "تاریخچه",
+      "templates": "الگوها",
+      "analytics": "تحلیل‌ها",
+      "settings": "تنظیمات"
+    },
+    "notice": {
+      "missingWrite": "گردش کار. مجوز نوشتن وجود ندارد.",
+      "missingExecute": "مجوز workflow.execute وجود ندارد.",
+      "created": "ایجاد شده {name}",
+      "templateApplied": "الگوی اعمال شده: {name}",
+      "runResult": "اجرای {status} ({duration}ms)",
+      "runFailed": "گردش کار اجرا نشد (غیرفعال یا مفقود).",
+      "publishedEvent": "رویداد دامنه منتشر شده: {type}",
+      "workflowStatus": "Workflow {status}",
+      "saved": "گردش کار ذخیره شد",
+      "retryResult": "Retry {status}",
+      "retryFailed": "تلاش ناموفق بود.  %s",
+      "settingsSaved": "تنظیمات اتوماسیون ذخیره شد"
+    },
+    "defaults": {
+      "untitledName": "گردش کار بدون عنوان",
+      "untitledDescription": "پیش‌نویس گردش کار - پیکربندی تریگر و اقدامات."
+    },
+    "dashboard": {
+      "workflows": "محیط کار",
+      "active": "فعال",
+      "runsToday": "امروز اجرا می‌شود",
+      "successRate": "رتبه موفق آمیز",
+      "recentWorkflows": "گردش‌های کاری اخیر",
+      "newWorkflow": "گردش کار جدید",
+      "eventBusDemo": "نسخه نمایشی اتوبوس رویداد",
+      "eventBusHint": "یک رویداد ماژول منتشر کنید. گردش‌های کاری فعال با محرک‌های منطبق، به طور خودکار در صف قرار می‌گیرند.",
+      "notifications": "اعلان‌ها"
+    },
+    "workflowList": {
+      "title": "فهرست گردش کار",
+      "newWorkflow": "گردش کار جدید",
+      "emptyTitle": "هنوز هیچ گردش کاری وجود ندارد.",
+      "emptyDescription": "یک گردش کار ایجاد کنید یا از یک الگو شروع کنید.",
+      "columns": {
+        "name": "نام",
+        "status": "وضعیت",
+        "nodes": "گره ها",
+        "updated": "به‌روزرسانی‌شده",
+        "actions": "اقدامات"
+      },
+      "run": "دویدن",
+      "disable": "غیر‌فعال",
+      "activate": "فعال سازی"
+    },
+    "editor": {
+      "selectPrompt": "یک گردش کار برای ویرایش انتخاب یا ایجاد کنید.",
+      "workflows": "محیط کار",
+      "title": "ویرایشگر گردش کار",
+      "hint": "معماری از تریگر → شرط → عمل → تأخیر → شاخه → حلقه پشتیبانی می‌کند. کشیدن و رها کردن بوم می‌تواند بدون تغییر موتور به موقعیت‌های گره متصل شود.",
+      "name": "نام",
+      "description": "توضیحات آگهی",
+      "trigger": "دستگیره",
+      "primaryAction": "اقدام اولیه",
+      "executionPath": "پیش‌نمایش مسیر اجرا",
+      "save": "ذخیره",
+      "runNow": "اجرا",
+      "triggerFallback": "دستگیره",
+      "actionFallback": "اقدام"
+    },
+    "history": {
+      "title": "سابقه اعدام",
+      "emptyTitle": "هنوز خبری از اعدام نیست.",
+      "emptyDescription": "یک گردش کار را اجرا کنید یا یک رویداد دامنه را منتشر کنید.",
+      "latestRun": "آخرین جزئیات اجرا",
+      "path": "مسیر: {path}",
+      "error": "· خطا: {error}",
+      "columns": {
+        "workflow": "فضای کاری",
+        "status": "وضعیت",
+        "triggeredBy": "تحریک شده توسط",
+        "duration": "مدت زمان",
+        "started": "شروع شده",
+        "retry": "تلاش مجدد"
+      },
+      "retry": "تلاش مجدد",
+      "emDash": "—"
+    },
+    "templates": {
+      "useTemplate": "از الگو استفاده کنید"
+    },
+    "analytics": {
+      "totalWorkflows": "کل گردش‌های کاری",
+      "activeWorkflows": "گردش‌های کاری فعال",
+      "executionsToday": "اعدام‌های امروز",
+      "successRate24h": "میزان موفقیت (24 ساعت)",
+      "failed24h": "ناموفق (۲۴ ساعت)",
+      "avgDuration": "میانگین مدت زمان"
+    },
+    "settings": {
+      "title": "تنظیمات اتوماسیون",
+      "subtitle": "سیاست تکرار، محدودیت‌های اجرا، همزمانی، زمان انقضا و ثبت وقایع برای اجرای توزیع‌شده.",
+      "maxRetryAttempts": "حداکثر تلاش برای تلاش مجدد",
+      "backoffMs": "برگشت (میلی‌ثانیه)",
+      "executionsPerHour": "اعدام‌ها / ساعت",
+      "concurrencyLimit": "محدودیت همزمانی",
+      "timeoutMs": "مهلت زمانی (میلی ثانیه)",
+      "logLevel": "سطح لاگ",
+      "saveSettings": "تنظیمات را ذخیره کن",
+      "logLevels": {
+        "error": "خطا",
+        "warn": "هشدار",
+        "info": "اطلاعات",
+        "debug": "اشکال‌زدایی"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "گردش‌کار خالی"
+  },
+  "status": {
+    "connected": "متصل",
+    "beta": "بتا",
+    "comingSoon": "به‌زودی",
+    "disabled": "غیرفعال",
+    "planned": "برنامه‌ریزی‌شده",
+    "success": "موفق",
+    "failed": "ناموفق",
+    "running": "در حال اجرا",
+    "pending": "در انتظار",
+    "retried": "تلاش مجدد"
+  },
+  "difficulty": {
+    "starter": "مبتدی",
+    "intermediate": "متوسط",
+    "advanced": "پیشرفته"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "راه‌انداز",
+      "description": "با وقوع رویداد شروع شود"
+    },
+    "el-condition": {
+      "label": "شرط",
+      "description": "بر اساس قواعد شاخه بزن"
+    },
+    "el-delay": {
+      "label": "تأخیر",
+      "description": "پیش از ادامه صبر کن"
+    },
+    "el-approval": {
+      "label": "تأیید",
+      "description": "دروازه تأیید انسانی"
+    },
+    "el-loop": {
+      "label": "حلقه",
+      "description": "روی یک مجموعه تکرار کن"
+    },
+    "el-merge": {
+      "label": "ادغام",
+      "description": "مسیرهای موازی را وصل کن"
+    },
+    "el-split": {
+      "label": "تقسیم",
+      "description": "مسیرهای موازی را پخش کن"
+    },
+    "el-ai-decision": {
+      "label": "تصمیم هوش مصنوعی",
+      "description": "از طریق هوش مصنوعی مسیر بده"
+    },
+    "el-notification": {
+      "label": "اعلان",
+      "description": "هشدار درون‌برنامه"
+    },
+    "el-webhook": {
+      "label": "جایگاه Webhook",
+      "description": "بازخوان HTTP رزرو شده"
+    },
+    "el-custom": {
+      "label": "اقدام سفارشی",
+      "description": "جایگاه اقدام توسعه‌پذیر"
+    },
+    "tr-customer": {
+      "label": "مشتری ایجاد شد",
+      "description": "رکورد مشتری CRM ایجاد شد"
+    },
+    "tr-lead": {
+      "label": "سرنخ ایجاد شد",
+      "description": "سرنخ جدید وارد قیف می‌شود"
+    },
+    "tr-invoice": {
+      "label": "فاکتور ایجاد شد",
+      "description": "فاکتور مالی صادر شد"
+    },
+    "tr-invoice-paid": {
+      "label": "فاکتور پرداخت شد",
+      "description": "پرداخت تسویه شد"
+    },
+    "tr-order": {
+      "label": "سفارش ایجاد شد",
+      "description": "سفارش ثبت شد"
+    },
+    "tr-order-done": {
+      "label": "سفارش تکمیل شد",
+      "description": "سفارش تحویل شد"
+    },
+    "tr-doc": {
+      "label": "سند بارگذاری شد",
+      "description": "بارگذاری به مخزن اسناد"
+    },
+    "tr-campaign": {
+      "label": "کمپین منتشر شد",
+      "description": "انتشار Creator Studio"
+    },
+    "tr-employee": {
+      "label": "کارمند افزوده شد",
+      "description": "تغییر فهرست تیم"
+    },
+    "tr-task": {
+      "label": "وظیفه تکمیل شد",
+      "description": "وظیفه انجام‌شده علامت خورد"
+    },
+    "tr-manual": {
+      "label": "راه‌انداز دستی",
+      "description": "در صورت تقاضا اجرا کن"
+    },
+    "tr-schedule": {
+      "label": "راه‌انداز زمان‌بندی",
+      "description": "زمان‌بندی cron / تقویم"
+    },
+    "tr-webhook": {
+      "label": "راه‌انداز Webhook",
+      "description": "رویداد HTTP ورودی"
+    },
+    "tr-api": {
+      "label": "راه‌انداز API",
+      "description": "شروع برنامه‌ای"
+    },
+    "ac-crm": {
+      "label": "ایجاد رکورد CRM",
+      "description": "موجودیت CRM را بنویس"
+    },
+    "ac-invoice": {
+      "label": "تولید فاکتور",
+      "description": "فاکتور مالی"
+    },
+    "ac-quote": {
+      "label": "تولید پیشنهاد قیمت",
+      "description": "سند پیشنهاد قیمت بساز"
+    },
+    "ac-delivery": {
+      "label": "تولید حواله تحویل",
+      "description": "حواله تحویل"
+    },
+    "ac-task": {
+      "label": "ایجاد وظیفه",
+      "description": "یک وظیفه باز کن"
+    },
+    "ac-assign": {
+      "label": "اختصاص کارمند",
+      "description": "به هم‌تیمی مسیر بده"
+    },
+    "ac-email": {
+      "label": "ارسال ایمیل",
+      "description": "ایمیل خروجی"
+    },
+    "ac-notify": {
+      "label": "ارسال اعلان",
+      "description": "اعلان درون‌برنامه"
+    },
+    "ac-ai-summary": {
+      "label": "تولید خلاصه هوش مصنوعی",
+      "description": "زمینه را خلاصه کن"
+    },
+    "ac-ai-content": {
+      "label": "تولید محتوای هوش مصنوعی",
+      "description": "پیش‌نویس Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "به‌روزرسانی مشتری",
+      "description": "مشتری CRM را وصله کن"
+    },
+    "ac-update-status": {
+      "label": "به‌روزرسانی وضعیت",
+      "description": "وضعیت موجودیت را تغییر بده"
+    },
+    "ac-pdf": {
+      "label": "خروجی PDF",
+      "description": "خروجی سند"
+    },
+    "ac-future": {
+      "label": "جایگاه API آینده",
+      "description": "جایگاه اقدام رزروشده"
+    },
+    "ai-decision": {
+      "label": "تصمیم هوش مصنوعی",
+      "description": "مسیر بعدی را تصمیم بگیر"
+    },
+    "ai-class": {
+      "label": "طبقه‌بندی هوش مصنوعی",
+      "description": "رکوردها را طبقه‌بندی کن"
+    },
+    "ai-text": {
+      "label": "تولید متن هوش مصنوعی",
+      "description": "متن تولید کن"
+    },
+    "ai-translate": {
+      "label": "ترجمه هوش مصنوعی",
+      "description": "محتوا را ترجمه کن"
+    },
+    "ai-email": {
+      "label": "پاسخ ایمیل هوش مصنوعی",
+      "description": "پاسخ پیش‌نویس کن"
+    },
+    "ai-sum": {
+      "label": "خلاصه‌سازی هوش مصنوعی",
+      "description": "زمینه را فشرده کن"
+    },
+    "ai-rec": {
+      "label": "پیشنهادهای هوش مصنوعی",
+      "description": "گام‌های بعدی را پیشنهاد بده"
+    },
+    "ai-route": {
+      "label": "مسیریابی هوش مصنوعی",
+      "description": "به مالک / صف مسیر بده"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "مشتری ایجاد شد",
+      "description": "وقتی یک رکورد مشتری در CRM ایجاد شود فعال می‌شود."
+    },
+    "project_created": {
+      "label": "پروژه ایجاد شد",
+      "description": "وقتی یک پروژه ایجاد شود فعال می‌شود."
+    },
+    "task_completed": {
+      "label": "وظیفه تکمیل شد",
+      "description": "وقتی وظیفه‌ای تکمیل شود فعال می‌شود."
+    },
+    "document_uploaded": {
+      "label": "سند بارگذاری شد",
+      "description": "وقتی سندی بارگذاری شود فعال می‌شود."
+    },
+    "schedule": {
+      "label": "زمان‌بندی",
+      "description": "محرک زمان‌بندی کرون / بازه‌ای."
+    },
+    "invoice_issued": {
+      "label": "صدور فاکتور",
+      "description": "وقتی فاکتور صادر شود فعال می‌شود."
+    },
+    "user_invited": {
+      "label": "دعوت کاربر",
+      "description": "وقتی عضوی به تیم دعوت شود فعال می‌شود."
+    },
+    "webhook": {
+      "label": "وب‌هوک",
+      "description": "وب‌هوک ورودی HTTP."
+    },
+    "api_event": {
+      "label": "رویداد API",
+      "description": "رویداد دامنه‌ای عمومی API."
+    },
+    "ai_event": {
+      "label": "رویداد هوش مصنوعی",
+      "description": "سیگنال هوش مصنوعی (تکمیل، بینش، گام عامل)."
+    },
+    "manual": {
+      "label": "محرک دستی",
+      "description": "اجرا به‌صورت دستی از رابط یا API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "ایجاد مشتری",
+      "description": "ایجاد رکورد مشتری در CRM."
+    },
+    "customer_update": {
+      "label": "به‌روزرسانی مشتری",
+      "description": "به‌روزرسانی فیلدهای مشتری."
+    },
+    "project_create": {
+      "label": "ایجاد پروژه",
+      "description": "ایجاد پروژه از بافت گردش‌کار."
+    },
+    "notification_send": {
+      "label": "ارسال اعلان",
+      "description": "ارسال اعلان درون‌برنامه."
+    },
+    "email_send": {
+      "label": "ارسال ایمیل",
+      "description": "صف‌کردن ایمیل از طریق ارائه‌دهنده."
+    },
+    "invoice_create": {
+      "label": "ایجاد فاکتور",
+      "description": "ایجاد فاکتور مالی."
+    },
+    "status_update": {
+      "label": "به‌روزرسانی وضعیت",
+      "description": "به‌روزرسانی وضعیت موجودیت در یک ماژول."
+    },
+    "document_generate": {
+      "label": "تولید سند",
+      "description": "تولید سند از روی قالب."
+    },
+    "api_call": {
+      "label": "فراخوانی API",
+      "description": "فراخوان HTTP به API داخلی یا خارجی."
+    },
+    "ai_run": {
+      "label": "اجرای هوش مصنوعی",
+      "description": "اجرای پرامپت / گام عامل با بافت."
+    },
+    "task_assign": {
+      "label": "واگذاری وظیفه",
+      "description": "واگذاری وظیفه به کاربر."
+    }
+  }
+}

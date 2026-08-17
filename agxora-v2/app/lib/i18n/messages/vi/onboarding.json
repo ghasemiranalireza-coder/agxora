@@ -1,0 +1,158 @@
+{
+  "eyebrow": "Hệ điều hành AGXORA",
+  "title": "Khởi động hệ điều hành doanh nghiệp của bạn",
+  "lead": "Chọn mẫu ngành của bạn. AGXORA định cấu hình các mô-đun, tác nhân, quy trình làm việc và kiến ​​thức về công ty — mà không khóa bạn mãi mãi vào một ngành dọc.",
+  "steps": {
+    "type": "Kiểu",
+    "company": "Công ty",
+    "locale": "Ngôn ngữ",
+    "goals": "Bàn thắng"
+  },
+  "companyName": "Tên công ty",
+  "companyPlaceholder": "Tập đoàn khách sạn Acme",
+  "template": "Bản mẫu",
+  "country": "Quốc gia",
+  "language": "Ngôn ngữ",
+  "languagePlaceholder": "vi",
+  "timezone": "Múi giờ",
+  "timezonePlaceholder": "UTC",
+  "goals": {
+    "increaseRevenue": "Tăng doanh thu",
+    "improveOperations": "Cải thiện hoạt động",
+    "delightCustomers": "Làm hài lòng khách hàng",
+    "reduceCosts": "Giảm chi phí",
+    "scaleWithAi": "Mở rộng quy mô bằng AI"
+  },
+  "failed": "Quá trình giới thiệu không thành công",
+  "back": "Mặt sau",
+  "continue": "Tiếp tục",
+  "launching": "Đang khởi chạy…",
+  "enterDashboard": "Nhập trang tổng quan",
+  "defaultCountry": "Hoa Kỳ",
+  "businessTypes": {
+    "hotel": {
+      "label": "Khách sạn",
+      "description": "Khách sạn, phòng, khách và vận hành cơ sở"
+    },
+    "restaurant": {
+      "label": "Nhà hàng",
+      "description": "Ẩm thực, bếp, đặt chỗ và trải nghiệm khách"
+    },
+    "cleaning": {
+      "label": "Vệ sinh",
+      "description": "Vận hành vệ sinh thương mại và dân cư"
+    },
+    "laundry": {
+      "label": "Giặt là",
+      "description": "Xưởng giặt, tuyến thu gom và chăm sóc vải"
+    },
+    "construction": {
+      "label": "Xây dựng",
+      "description": "Công trường, tổ đội, vật tư và bàn giao dự án"
+    },
+    "healthcare": {
+      "label": "Y tế",
+      "description": "Mạng lưới chăm sóc, bệnh nhân và vận hành lâm sàng"
+    },
+    "medical": {
+      "label": "Y khoa",
+      "description": "Phòng khám, lịch hẹn và đội ngũ chăm sóc"
+    },
+    "manufacturing": {
+      "label": "Sản xuất",
+      "description": "Dây chuyền, chất lượng và vận hành cung ứng"
+    },
+    "retail": {
+      "label": "Bán lẻ",
+      "description": "Cửa hàng, tồn kho, trưng bày và khách hàng"
+    },
+    "legal": {
+      "label": "Công ty luật",
+      "description": "Vụ việc, khách, hạn chót và thanh toán"
+    },
+    "accounting": {
+      "label": "Kế toán",
+      "description": "Sổ sách, khách, tờ khai và tư vấn"
+    },
+    "consulting": {
+      "label": "Tư vấn",
+      "description": "Hợp đồng, sản phẩm bàn giao và kết quả khách"
+    },
+    "real_estate": {
+      "label": "Bất động sản",
+      "description": "Tin đăng, khách, xem nhà và giao dịch"
+    },
+    "education": {
+      "label": "Giáo dục",
+      "description": "Chương trình, sinh viên, giảng viên và tuyển sinh"
+    },
+    "automotive": {
+      "label": "Ô tô",
+      "description": "Đại lý, khu dịch vụ và tồn kho xe"
+    },
+    "beauty": {
+      "label": "Salon làm đẹp",
+      "description": "Lịch hẹn, stylist, bán lẻ và hội viên"
+    },
+    "fitness": {
+      "label": "Phòng gym / thể hình",
+      "description": "Hội viên, lớp học, HLV và giữ chân"
+    },
+    "agriculture": {
+      "label": "Nông nghiệp",
+      "description": "Cây trồng, chăn nuôi, năng suất và chuỗi cung ứng"
+    },
+    "transport": {
+      "label": "Vận tải",
+      "description": "Điều phối đội xe, tuyến và vận hành hành khách/hàng"
+    },
+    "logistics": {
+      "label": "Logistics",
+      "description": "Đội xe, kho, tuyến và hoàn tất đơn"
+    },
+    "warehouse": {
+      "label": "Kho",
+      "description": "Lưu kho, lấy hàng, đóng gói và vòng quay tồn"
+    },
+    "insurance": {
+      "label": "Bảo hiểm",
+      "description": "Hợp đồng, bồi thường, thẩm định và giữ chân"
+    },
+    "finance": {
+      "label": "Tài chính",
+      "description": "Vốn, danh mục và vận hành tài chính"
+    },
+    "financial_services": {
+      "label": "Dịch vụ tài chính",
+      "description": "Tư vấn, sản phẩm, tuân thủ và khách hàng"
+    },
+    "technology": {
+      "label": "Công nghệ",
+      "description": "Sản phẩm, kỹ thuật và đội ngũ ra thị trường"
+    },
+    "saas": {
+      "label": "Phần mềm / SaaS",
+      "description": "Thuê bao, mức dùng và thành công khách hàng"
+    },
+    "ecommerce": {
+      "label": "Thương mại điện tử",
+      "description": "Danh mục online, giỏ hàng, hoàn tất đơn và LTV"
+    },
+    "agency": {
+      "label": "Đại lý marketing",
+      "description": "Khách, chiến dịch, retainer và bàn giao"
+    },
+    "freelancer": {
+      "label": "Freelancer",
+      "description": "Hành nghề độc lập, khách, pipeline và dòng tiền"
+    },
+    "government": {
+      "label": "Chính phủ",
+      "description": "Dịch vụ công, chương trình và người dân"
+    },
+    "nonprofit": {
+      "label": "Phi lợi nhuận",
+      "description": "Sứ mệnh, nhà tài trợ, chương trình và tác động"
+    }
+  }
+}

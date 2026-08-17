@@ -3,6 +3,7 @@
 import type { JSX } from "react";
 import type { AiFeaturePlan, PlatformIntegrationPlan } from "../../lib/creator-studio";
 import { integrationLabel } from "../../lib/creator-studio";
+import { useT } from "../../lib/i18n";
 import { Badge, Card } from "../ui";
 
 export function FutureIntegrations({
@@ -10,11 +11,12 @@ export function FutureIntegrations({
 }: {
   readonly platforms: readonly PlatformIntegrationPlan[];
 }): JSX.Element {
+  const t = useT();
+
   return (
     <Card padding="24px">
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Future integrations — optional. No live APIs until connected. Instagram, TikTok, YouTube,
-        Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.
+        {t("creator.integrations.lead")}
       </p>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
         {platforms.map((platform) => (
@@ -38,10 +40,11 @@ export function FutureIntegrations({
                   {platform.category}
                 </p>
               </div>
-              <Badge tone="warning">{integrationLabel(platform.status)}</Badge>
+              <Badge tone="warning">{t(integrationLabel(platform.status))}</Badge>
             </div>
             <p className="mt-3 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Adapter: <span style={{ color: "var(--agx-text, #f8fafc)" }}>{platform.adapter}</span>
+              {t("creator.integrations.adapter")}{" "}
+              <span style={{ color: "var(--agx-text, #f8fafc)" }}>{platform.adapter}</span>
             </p>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {platform.notes}
@@ -58,11 +61,12 @@ export function AiFeaturesPanel({
 }: {
   readonly features: readonly AiFeaturePlan[];
 }): JSX.Element {
+  const t = useT();
+
   return (
     <Card padding="24px">
       <p className="mb-4 text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        AI feature map — ideas, captions, hashtags, calendar, campaigns, audience, schedule, brand
-        consistency, rewrite, translate, multi-language.
+        {t("creator.aiFeaturesPanel.lead")}
       </p>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
         {features.map((feature) => (
@@ -79,7 +83,7 @@ export function AiFeaturesPanel({
                 {feature.label}
               </h3>
               <Badge tone={feature.status === "ready" ? "accent" : "warning"}>
-                {integrationLabel(feature.status)}
+                {t(integrationLabel(feature.status))}
               </Badge>
             </div>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>

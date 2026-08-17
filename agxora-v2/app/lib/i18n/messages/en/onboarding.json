@@ -1,0 +1,158 @@
+{
+  "eyebrow": "AGXORA OS",
+  "title": "Launch your business OS",
+  "lead": "Choose your industry template. AGXORA configures modules, agents, workflows, and company knowledge — without locking you into one vertical forever.",
+  "steps": {
+    "type": "Type",
+    "company": "Company",
+    "locale": "Locale",
+    "goals": "Goals"
+  },
+  "companyName": "Company name",
+  "companyPlaceholder": "Acme Hospitality Group",
+  "template": "Template",
+  "country": "Country",
+  "language": "Language",
+  "languagePlaceholder": "en",
+  "timezone": "Timezone",
+  "timezonePlaceholder": "UTC",
+  "goals": {
+    "increaseRevenue": "Increase revenue",
+    "improveOperations": "Improve operations",
+    "delightCustomers": "Delight customers",
+    "reduceCosts": "Reduce costs",
+    "scaleWithAi": "Scale with AI"
+  },
+  "failed": "Onboarding failed",
+  "back": "Back",
+  "continue": "Continue",
+  "launching": "Launching…",
+  "enterDashboard": "Enter dashboard",
+  "defaultCountry": "United States",
+  "businessTypes": {
+    "hotel": {
+      "label": "Hotel",
+      "description": "Hospitality, rooms, guests, and property operations"
+    },
+    "restaurant": {
+      "label": "Restaurant",
+      "description": "Dining, kitchen, reservations, and guest experience"
+    },
+    "cleaning": {
+      "label": "Cleaning",
+      "description": "Commercial and residential cleaning operations"
+    },
+    "laundry": {
+      "label": "Laundry",
+      "description": "Wash plants, pickup routes, and textile care"
+    },
+    "construction": {
+      "label": "Construction",
+      "description": "Jobsites, crews, materials, and project delivery"
+    },
+    "healthcare": {
+      "label": "Healthcare",
+      "description": "Care networks, patients, and clinical operations"
+    },
+    "medical": {
+      "label": "Medical",
+      "description": "Clinics, appointments, and care teams"
+    },
+    "manufacturing": {
+      "label": "Manufacturing",
+      "description": "Production lines, quality, and supply operations"
+    },
+    "retail": {
+      "label": "Retail",
+      "description": "Stores, inventory, merchandising, and customers"
+    },
+    "legal": {
+      "label": "Law Firm",
+      "description": "Matters, clients, deadlines, and billing"
+    },
+    "accounting": {
+      "label": "Accounting",
+      "description": "Books, clients, filings, and advisory work"
+    },
+    "consulting": {
+      "label": "Consulting",
+      "description": "Engagements, deliverables, and client outcomes"
+    },
+    "real_estate": {
+      "label": "Real Estate",
+      "description": "Listings, clients, showings, and transactions"
+    },
+    "education": {
+      "label": "Education",
+      "description": "Programs, students, faculty, and enrollment"
+    },
+    "automotive": {
+      "label": "Automotive",
+      "description": "Dealerships, service bays, and vehicle inventory"
+    },
+    "beauty": {
+      "label": "Beauty Salon",
+      "description": "Appointments, stylists, retail, and memberships"
+    },
+    "fitness": {
+      "label": "Gym / Fitness",
+      "description": "Memberships, classes, trainers, and retention"
+    },
+    "agriculture": {
+      "label": "Agriculture",
+      "description": "Crops, livestock, yields, and supply chains"
+    },
+    "transport": {
+      "label": "Transport",
+      "description": "Fleet movement, routes, and passenger/cargo ops"
+    },
+    "logistics": {
+      "label": "Logistics",
+      "description": "Fleet, warehouses, routes, and fulfillment"
+    },
+    "warehouse": {
+      "label": "Warehouse",
+      "description": "Storage, picking, packing, and inventory turns"
+    },
+    "insurance": {
+      "label": "Insurance",
+      "description": "Policies, claims, underwriting, and retention"
+    },
+    "finance": {
+      "label": "Finance",
+      "description": "Capital, portfolios, and financial operations"
+    },
+    "financial_services": {
+      "label": "Financial Services",
+      "description": "Advisory, products, compliance, and clients"
+    },
+    "technology": {
+      "label": "Technology",
+      "description": "Product, engineering, and go-to-market teams"
+    },
+    "saas": {
+      "label": "Software / SaaS",
+      "description": "Subscriptions, usage, and customer success"
+    },
+    "ecommerce": {
+      "label": "E-Commerce",
+      "description": "Online catalog, carts, fulfillment, and LTV"
+    },
+    "agency": {
+      "label": "Marketing Agency",
+      "description": "Clients, campaigns, retainers, and delivery"
+    },
+    "freelancer": {
+      "label": "Freelancer",
+      "description": "Solo practice, clients, pipeline, and cashflow"
+    },
+    "government": {
+      "label": "Government",
+      "description": "Public services, programs, and constituents"
+    },
+    "nonprofit": {
+      "label": "Non-Profit",
+      "description": "Missions, donors, programs, and impact"
+    }
+  }
+}

@@ -1,0 +1,540 @@
+{
+  "enginePage": {
+    "sectionTitle": "AGXORA Otomasyon İşletim Sistemi",
+    "title": "Otomasyon",
+    "subtitle": "Kurumsal Yapay Zeka İş Akışı ve Otomasyon Motoru — CRM, Finans, İçerik Stüdyosu ve gelecekteki tüm AGXORA modülleri için bağlantı dokusu.",
+    "loadingHistory": "İş akışı geçmişi yükleniyor…",
+    "loadingTemplates": "Şablon kitaplığı yükleniyor…",
+    "loadingIntegrations": "Entegrasyon merkezi yükleniyor…",
+    "dashboard": "Kontrol Paneli",
+    "workflowBuilder": "İş Akışı Oluşturucu",
+    "workflowBuilderSubtitle": "Izgaraya yaslama, yumuşak yakınlaştırma ve kaydırma, bağlantı üzerine gelme ve boş durum rehberliği özelliklerine sahip düğüm tabanlı tuval.",
+    "openAssistant": "AI İş Akışı Yardımcısını açın",
+    "workflowHistory": "İş Akışı Geçmişi",
+    "workflowHistorySubtitle": "Renkli durum, tıklanabilir satırlar ve tam yürütme denetçisi içeren yürütme günlüğü.",
+    "templates": "Şablonlar",
+    "templatesSubtitle": "Yüklemeden önce önizleme — düğüm sayıları, zorluk, çalışma süresi ve önerilen kullanım durumları.",
+    "integrationCenter": "Entegrasyon Merkezi",
+    "integrationCenterSubtitle": "Yalnızca bağdaştırıcı kaydı — Bağlı, Beta, Planlanan, Çok yakında, Devre Dışı. Canlı API yok."
+  },
+  "assistant": {
+    "title": "Yapay Zeka İş Akışı Asistanı",
+    "subtitle": "Yalnızca yerel buluşsal yöntem; canlı model gerekmez.",
+    "closeAria": "AI İş Akışı Asistanını Kapat",
+    "close": "Kapalı",
+    "workflowScore": "İş Akışı Puanı",
+    "scoreOutOf": "/ 100",
+    "optimizationSuggestions": "Optimizasyon Önerileri",
+    "oneClickOptimize": "Tek Tıklamayla Optimize Etme",
+    "noticeDefault": "Tek Tıklamayla Optimize henüz bir grafik mutasyonu değildir.",
+    "noticeQueued": "Optimize edildi sıraya alındı. Gelecekteki motor gecikmeleri ve onayları yeniden yazacak."
+  },
+  "integrations": {
+    "intro": "Entegrasyon Merkezi — isteğe bağlı. Durumlar: Bağlandı, Beta, Planlandı, Çok yakında, Devre Dışı. Canlı API yok.",
+    "category": "Kategori:",
+    "reservedAdapter": "Ayrılmış adaptör:",
+    "description": "Tanım:"
+  },
+  "executionInspector": {
+    "title": "Yürütme Ayrıntıları",
+    "emptyTitle": "Bir yürütme seçin",
+    "emptyDescription": "Girişleri, çıkışları ve AI özetini incelemek için İş Akışı Geçmişi'nden bir çalıştırma seçin.",
+    "workflowName": "İş Akışı Adı",
+    "trigger": "Tetiklemek",
+    "executionId": "Yürütme Kimliği",
+    "started": "Başlatıldı",
+    "finished": "Bitti",
+    "duration": "Süre",
+    "status": "Durum",
+    "success": "Başarı",
+    "failed": "Arızalı",
+    "retryAvailable": "Yeniden Dene Mevcut",
+    "executedBy": "Yürüten",
+    "yes": "Evet",
+    "no": "HAYIR",
+    "emDash": "—",
+    "input": "Giriş",
+    "output": "Çıkış",
+    "aiSummary": "Yapay Zeka Özeti",
+    "errorMessage": "Hata Mesajı",
+    "retry": "Yeniden dene",
+    "retryUnavailable": "Yeniden deneme kullanılamıyor",
+    "noticeDefault": "Bağdaştırıcıyı yeniden deneyin; henüz canlı yeniden yürütme yok.",
+    "noticeQueued": "{id} için kuyruğa alınmayı yeniden deneyin."
+  },
+  "workflowBuilder": {
+    "elementsTitle": "İş Akışı Öğeleri",
+    "paletteAria": "Palet",
+    "tabElements": "Elemanlar",
+    "tabTriggers": "Tetikleyiciler",
+    "tabActions": "Eylemler",
+    "tabAiActions": "Yapay Zeka Eylemleri",
+    "builderTitle": "İş Akışı Oluşturucu · {name}",
+    "builderHint": "{grid}px ızgarasına yapıştır · ⌘/Ctrl+kaydırma yakınlaştırma · tuvali yatay kaydırmaya sürükleyin · bağlantıya çift tıklayın",
+    "autoSaved": "Otomatik kaydedildi",
+    "saving": "Kaydediliyor…",
+    "undo": "Geri al",
+    "redo": "Yinele",
+    "zoomOut": "−",
+    "zoomIn": "+",
+    "resetView": "Görünümü sıfırla",
+    "emptyTitle": "Boş tuval",
+    "emptyDescription": "Oluşturmaya başlamak için paletten bir Tetikleyici sürükleyin. Izgaraya tutturma, düğümleri hizalı tutar.",
+    "connectHint": "Bağlanmak için hedefi çift tıklayın",
+    "miniMapAria": "Mini harita"
+  },
+  "workflowHistory": {
+    "title": "İş Akışı Geçmişi · Yürütme Günlüğü",
+    "statusFilter": "Durum",
+    "statusAll": "Tüm",
+    "statusSuccess": "Başarı",
+    "statusFailed": "Arızalı",
+    "statusPending": "Askıda olması",
+    "statusRetried": "Yeniden dene",
+    "statusRunning": "Koşma",
+    "runsAria": "İş akışı çalıştırmaları",
+    "noMatches": "Bu filtreyle eşleşen iş akışı çalıştırması yok."
+  },
+  "workflowTemplates": {
+    "title": "Şablon Kitaplığı",
+    "noticeDefault": "Bir şablonu oluşturucuya yüklemeden önce önizleyin.",
+    "noticeLoaded": "\"{name}\" iş akışı oluşturucuya yüklendi.",
+    "nodesBadge": "{count} düğüm",
+    "recommendedFor": "Şunun için önerilir: {for}",
+    "preview": "Önizleme",
+    "useTemplate": "Şablonu Kullan",
+    "previewTitle": "Şablon Önizlemesi",
+    "close": "Kapalı",
+    "nodes": "Düğümler",
+    "connections": "Bağlantılar",
+    "estimatedRuntime": "Tahmini Çalışma Süresi",
+    "difficulty": "Zorluk",
+    "requiredModules": "Gerekli Modüller",
+    "usedAiFeatures": "Kullanılan Yapay Zeka Özellikleri",
+    "none": "Hiçbiri"
+  },
+  "workspace": {
+    "loading": "Otomasyon motoru yükleniyor…",
+    "eyebrow": "İş Akışı Otomasyon Motoru",
+    "title": "Otomasyon",
+    "subtitle": "CRM, Projeler, Finans, Belgeler ve yapay zeka (yerel olay veri yolu ve tarayıcı içi motor) genelinde yapılandırılabilir iş iş akışları. Dağıtılmış kuyruk ve arka uç çalışanları birbirine bağlı değildir.",
+    "noticeDefault": "Yürütme motoru kullanıcı arayüzünden bağımsızdır. Modüller etkinlikleri yayınlar; iş akışları abone olun.",
+    "tabs": {
+      "dashboard": "Kontrol Paneli",
+      "workflows": "İş akışları",
+      "editor": "Editör",
+      "history": "Tarih",
+      "templates": "Şablonlar",
+      "analytics": "Analitik",
+      "settings": "Ayarlar"
+    },
+    "notice": {
+      "missingWrite": "İş akışı. yazma izni eksik.",
+      "missingExecute": "Workflow.execute izni eksik.",
+      "created": "{name} oluşturuldu",
+      "templateApplied": "Uygulanan şablon: {name}",
+      "runResult": "{status} ({duration}ms) komutunu çalıştırın",
+      "runFailed": "İş akışı çalıştırılamadı (devre dışı veya eksik).",
+      "publishedEvent": "Yayınlanan alan adı etkinliği: {type}",
+      "workflowStatus": "İş akışı {status}",
+      "saved": "İş akışı kaydedildi",
+      "retryResult": "{status}'u yeniden deneyin",
+      "retryFailed": "Yeniden deneme başarısız oldu",
+      "settingsSaved": "Otomasyon ayarları kaydedildi"
+    },
+    "defaults": {
+      "untitledName": "Başlıksız iş akışı",
+      "untitledDescription": "Taslak iş akışı — tetikleyiciyi ve eylemleri yapılandırın."
+    },
+    "dashboard": {
+      "workflows": "İş akışları",
+      "active": "Aktif",
+      "runsToday": "Bugün çalışıyor",
+      "successRate": "Başarı oranı",
+      "recentWorkflows": "Son iş akışları",
+      "newWorkflow": "Yeni iş akışı",
+      "eventBusDemo": "Etkinlik otobüsü demosu",
+      "eventBusHint": "Bir modül etkinliği yayınlayın. Eşleşen tetikleyicilere sahip etkin iş akışları otomatik olarak kuyruğa alınır.",
+      "notifications": "Bildirimler"
+    },
+    "workflowList": {
+      "title": "İş akışı listesi",
+      "newWorkflow": "Yeni iş akışı",
+      "emptyTitle": "Henüz iş akışı yok.",
+      "emptyDescription": "Bir iş akışı oluşturun veya bir şablondan başlayın.",
+      "columns": {
+        "name": "İsim",
+        "status": "Durum",
+        "nodes": "Düğümler",
+        "updated": "Güncellendi",
+        "actions": "Eylemler"
+      },
+      "run": "Koşmak",
+      "disable": "Devre dışı bırakmak",
+      "activate": "Etkinleştir"
+    },
+    "editor": {
+      "selectPrompt": "Düzenlemek için bir iş akışı seçin veya oluşturun.",
+      "workflows": "İş akışları",
+      "title": "İş akışı düzenleyicisi",
+      "hint": "Mimari, tetikleme → koşul → eylem → gecikme → dallanma → döngüyü destekler. Kanvas sürükle ve bırak özelliği, motor değişikliği olmadan düğüm konumlarına takılabilir.",
+      "name": "İsim",
+      "description": "Tanım",
+      "trigger": "Tetiklemek",
+      "primaryAction": "Birincil eylem",
+      "executionPath": "Yürütme yolu önizlemesi",
+      "save": "Kaydetmek",
+      "runNow": "Şimdi koş",
+      "triggerFallback": "Tetiklemek",
+      "actionFallback": "Aksiyon"
+    },
+    "history": {
+      "title": "Yürütme geçmişi",
+      "emptyTitle": "Henüz idam yok.",
+      "emptyDescription": "Bir iş akışı çalıştırın veya bir etki alanı etkinliği yayınlayın.",
+      "latestRun": "Son çalıştırma ayrıntısı",
+      "path": "Yol: {path}",
+      "error": "· Hata: {error}",
+      "columns": {
+        "workflow": "İş akışı",
+        "status": "Durum",
+        "triggeredBy": "Tarafından tetiklendi",
+        "duration": "Süre",
+        "started": "Başlatıldı",
+        "retry": "Yeniden dene"
+      },
+      "retry": "Yeniden dene",
+      "emDash": "—"
+    },
+    "templates": {
+      "useTemplate": "Şablonu kullan"
+    },
+    "analytics": {
+      "totalWorkflows": "Toplam iş akışları",
+      "activeWorkflows": "Aktif iş akışları",
+      "executionsToday": "Bugün idamlar",
+      "successRate24h": "Başarı oranı (24 saat)",
+      "failed24h": "Başarısız (24 saat)",
+      "avgDuration": "Ortalama süre"
+    },
+    "settings": {
+      "title": "Otomasyon ayarları",
+      "subtitle": "Dağıtılmış yürütme için yeniden deneme ilkesi, yürütme sınırları, eşzamanlılık, zaman aşımı ve günlük kayıtları.",
+      "maxRetryAttempts": "Maksimum yeniden deneme sayısı",
+      "backoffMs": "Geri çekilme (ms)",
+      "executionsPerHour": "İnfaz / saat",
+      "concurrencyLimit": "Eşzamanlılık sınırı",
+      "timeoutMs": "Zaman aşımı (ms)",
+      "logLevel": "Günlük düzeyi",
+      "saveSettings": "Ayarları kaydet",
+      "logLevels": {
+        "error": "hata",
+        "warn": "uyarı",
+        "info": "bilgi",
+        "debug": "hata ayıklama"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Boş iş akışı"
+  },
+  "status": {
+    "connected": "Bağlı",
+    "beta": "Beta",
+    "comingSoon": "Yakında",
+    "disabled": "Devre dışı",
+    "planned": "Planlandı",
+    "success": "Başarılı",
+    "failed": "Başarısız",
+    "running": "Çalışıyor",
+    "pending": "Beklemede",
+    "retried": "Yeniden dene"
+  },
+  "difficulty": {
+    "starter": "Başlangıç",
+    "intermediate": "Orta",
+    "advanced": "İleri"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Tetikleyici",
+      "description": "Bir olay tetiklendiğinde başlat"
+    },
+    "el-condition": {
+      "label": "Koşul",
+      "description": "Kurallara göre dallan"
+    },
+    "el-delay": {
+      "label": "Gecikme",
+      "description": "Devam etmeden önce bekle"
+    },
+    "el-approval": {
+      "label": "Onay",
+      "description": "İnsan onay kapısı"
+    },
+    "el-loop": {
+      "label": "Döngü",
+      "description": "Bir koleksiyon üzerinde yinele"
+    },
+    "el-merge": {
+      "label": "Birleştir",
+      "description": "Paralel yolları birleştir"
+    },
+    "el-split": {
+      "label": "Böl",
+      "description": "Paralel yollara dağıt"
+    },
+    "el-ai-decision": {
+      "label": "YZ kararı",
+      "description": "YZ ile yönlendir"
+    },
+    "el-notification": {
+      "label": "Bildirim",
+      "description": "Uygulama içi uyarı"
+    },
+    "el-webhook": {
+      "label": "Webhook yer tutucu",
+      "description": "HTTP geri çağırma ayrıldı"
+    },
+    "el-custom": {
+      "label": "Özel eylem",
+      "description": "Genişletilebilir eylem yuvası"
+    },
+    "tr-customer": {
+      "label": "Müşteri oluşturuldu",
+      "description": "CRM müşteri kaydı oluşturuldu"
+    },
+    "tr-lead": {
+      "label": "Potansiyel oluşturuldu",
+      "description": "Yeni potansiyel müşteri hunisine girer"
+    },
+    "tr-invoice": {
+      "label": "Fatura oluşturuldu",
+      "description": "Finans faturası kesildi"
+    },
+    "tr-invoice-paid": {
+      "label": "Fatura ödendi",
+      "description": "Ödeme tamamlandı"
+    },
+    "tr-order": {
+      "label": "Sipariş oluşturuldu",
+      "description": "Sipariş girildi"
+    },
+    "tr-order-done": {
+      "label": "Sipariş tamamlandı",
+      "description": "Sipariş karşılandı"
+    },
+    "tr-doc": {
+      "label": "Belge yüklendi",
+      "description": "Belge kasasına yükleme"
+    },
+    "tr-campaign": {
+      "label": "Kampanya yayımlandı",
+      "description": "Creator Studio yayını"
+    },
+    "tr-employee": {
+      "label": "Çalışan eklendi",
+      "description": "Ekip dizininde değişiklik"
+    },
+    "tr-task": {
+      "label": "Görev tamamlandı",
+      "description": "Görev bitti olarak işaretlendi"
+    },
+    "tr-manual": {
+      "label": "Manuel tetikleyici",
+      "description": "İsteğe bağlı çalıştır"
+    },
+    "tr-schedule": {
+      "label": "Zamanlama tetikleyicisi",
+      "description": "Cron / takvim zamanlaması"
+    },
+    "tr-webhook": {
+      "label": "Webhook tetikleyicisi",
+      "description": "Gelen HTTP olayı"
+    },
+    "tr-api": {
+      "label": "API tetikleyicisi",
+      "description": "Programatik başlatma"
+    },
+    "ac-crm": {
+      "label": "CRM kaydı oluştur",
+      "description": "CRM varlığı yaz"
+    },
+    "ac-invoice": {
+      "label": "Fatura oluştur",
+      "description": "Finans faturası"
+    },
+    "ac-quote": {
+      "label": "Teklif oluştur",
+      "description": "Teklif belgesi oluştur"
+    },
+    "ac-delivery": {
+      "label": "İrsaliye oluştur",
+      "description": "İrsaliye"
+    },
+    "ac-task": {
+      "label": "Görev oluştur",
+      "description": "Bir görev aç"
+    },
+    "ac-assign": {
+      "label": "Çalışan ata",
+      "description": "Takım arkadaşına yönlendir"
+    },
+    "ac-email": {
+      "label": "E-posta gönder",
+      "description": "Giden e-posta"
+    },
+    "ac-notify": {
+      "label": "Bildirim gönder",
+      "description": "Uygulama içi bildirim"
+    },
+    "ac-ai-summary": {
+      "label": "YZ özeti oluştur",
+      "description": "Bağlamı özetle"
+    },
+    "ac-ai-content": {
+      "label": "YZ içeriği oluştur",
+      "description": "Creator Studio taslağı"
+    },
+    "ac-update-customer": {
+      "label": "Müşteriyi güncelle",
+      "description": "CRM müşterisini yama"
+    },
+    "ac-update-status": {
+      "label": "Durumu güncelle",
+      "description": "Varlık durumunu değiştir"
+    },
+    "ac-pdf": {
+      "label": "PDF dışa aktar",
+      "description": "Belge dışa aktarma"
+    },
+    "ac-future": {
+      "label": "Gelecek API yer tutucu",
+      "description": "Ayrılmış eylem yuvası"
+    },
+    "ai-decision": {
+      "label": "YZ kararı",
+      "description": "Sonraki yolu belirle"
+    },
+    "ai-class": {
+      "label": "YZ sınıflandırma",
+      "description": "Kayıtları sınıflandır"
+    },
+    "ai-text": {
+      "label": "YZ metin üretimi",
+      "description": "Metin oluştur"
+    },
+    "ai-translate": {
+      "label": "YZ çeviri",
+      "description": "İçeriği çevir"
+    },
+    "ai-email": {
+      "label": "YZ e-posta yanıtı",
+      "description": "Yanıt taslağı"
+    },
+    "ai-sum": {
+      "label": "YZ özetleme",
+      "description": "Bağlamı yoğunlaştır"
+    },
+    "ai-rec": {
+      "label": "YZ önerileri",
+      "description": "Sonraki adımları öner"
+    },
+    "ai-route": {
+      "label": "YZ yönlendirme",
+      "description": "Sahibe / kuyruğa yönlendir"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Müşteri oluşturuldu",
+      "description": "Bir CRM müşteri kaydı oluşturulduğunda tetiklenir."
+    },
+    "project_created": {
+      "label": "Proje oluşturuldu",
+      "description": "Bir proje oluşturulduğunda tetiklenir."
+    },
+    "task_completed": {
+      "label": "Görev tamamlandı",
+      "description": "Bir görev tamamlandı olarak işaretlendiğinde tetiklenir."
+    },
+    "document_uploaded": {
+      "label": "Doküman yüklendi",
+      "description": "Bir belge yüklendiğinde tetiklenir."
+    },
+    "schedule": {
+      "label": "Takvim",
+      "description": "Cron / aralık zamanlama tetikleyicisi."
+    },
+    "invoice_issued": {
+      "label": "Fatura kesildi",
+      "description": "Bir fatura kesildiğinde tetiklenir."
+    },
+    "user_invited": {
+      "label": "Kullanıcı davet edildi",
+      "description": "Bir ekip üyesi davet edildiğinde tetiklenir."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Gelen HTTP webhook."
+    },
+    "api_event": {
+      "label": "API olayı",
+      "description": "Genel API etki alanı olayı."
+    },
+    "ai_event": {
+      "label": "AI olayı",
+      "description": "AI sinyali (tamamlanma, içgörü, aracı adımı)."
+    },
+    "manual": {
+      "label": "Manuel tetikleyici",
+      "description": "UI veya API’den isteğe bağlı çalıştırma."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Müşteri Oluştur",
+      "description": "CRM müşteri kaydı oluştur."
+    },
+    "customer_update": {
+      "label": "Müşteriyi güncelle",
+      "description": "Müşteri alanlarını güncelle."
+    },
+    "project_create": {
+      "label": "Proje Oluştur",
+      "description": "İş akışı bağlamından proje oluştur."
+    },
+    "notification_send": {
+      "label": "Bildirim gönder",
+      "description": "Uygulama içi bildirim gönder."
+    },
+    "email_send": {
+      "label": "E-posta gönder",
+      "description": "Posta sağlayıcısı üzerinden e-posta kuyruğa al."
+    },
+    "invoice_create": {
+      "label": "Fatura Oluştur",
+      "description": "Finans faturası oluştur."
+    },
+    "status_update": {
+      "label": "Durumu güncelle",
+      "description": "Bir modüldeki varlığın durumunu güncelle."
+    },
+    "document_generate": {
+      "label": "Belge oluştur",
+      "description": "Şablondan belge oluştur."
+    },
+    "api_call": {
+      "label": "API çağır",
+      "description": "Dahili veya harici API’ye HTTP çağrısı."
+    },
+    "ai_run": {
+      "label": "AI çalıştır",
+      "description": "Bağlamla AI istemi / aracı adımı çalıştır."
+    },
+    "task_assign": {
+      "label": "Görev ata",
+      "description": "Bir kullanıcıya görev ata."
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "loading": "Loading Agent Operating System…",
+  "eyebrow": "AI Agent Operating System",
+  "title": "Agent OS",
+  "subtitle": "Local agent workspace — agents can be activated and run as simulations across CRM, Projects, Finance, Workflows, and Integrations. Production autonomous execution is not connected.",
+  "noticeDefault": "Local Agent OS — runs are simulated in this workspace.",
+  "aiChat": "AI Chat",
+  "tabs": {
+    "dashboard": "Dashboard",
+    "registry": "Registry",
+    "marketplace": "Marketplace",
+    "monitor": "Monitor",
+    "history": "History",
+    "memory": "Memory",
+    "knowledge": "Knowledge",
+    "tools": "Tools",
+    "settings": "Settings"
+  },
+  "notice": {
+    "simulatedRun": "Simulated run · {status} ({duration}ms)",
+    "taskFailed": "Task failed",
+    "activated": "Activated locally: {agentId}",
+    "agentPaused": "Agent paused",
+    "agentActivated": "Agent activated",
+    "taskCancelled": "Task cancelled",
+    "supervisorDelegated": "Supervisor delegated a follow-up",
+    "settingsUpdated": "Agent OS settings updated for this local workspace."
+  },
+  "dashboard": {
+    "agents": "Agents",
+    "active": "Active",
+    "localReady": "Local ready",
+    "simulatedToday": "Simulated today",
+    "failedToday": "Failed today",
+    "avgExec": "Avg exec",
+    "toolCalls": "Tool calls",
+    "knowledge": "Knowledge",
+    "activeFleet": "Active fleet",
+    "emptyTitle": "No agents active",
+    "emptyDescription": "Install or activate an agent from the marketplace to start simulated runs."
+  },
+  "registry": {
+    "title": "Registry",
+    "selectPrompt": "Select an agent from the registry.",
+    "status": "Status: {status}",
+    "health": "Health: {health}",
+    "queue": "Queue: {queue}",
+    "usage": "Usage: {usage}",
+    "executeTask": "Execute task",
+    "supervisorDelegate": "Supervisor delegate"
+  },
+  "marketplace": {
+    "tools": "Tools: {tools}",
+    "installed": "Installed",
+    "installActivate": "Install & activate"
+  },
+  "monitor": {
+    "title": "Agent monitor",
+    "emptyTitle": "No agents to monitor",
+    "emptyDescription": "Activate agents from the marketplace.",
+    "latestConfidence": "Latest reasoning confidence: {confidence} — {steps}"
+  },
+  "history": {
+    "title": "Execution history",
+    "emptyTitle": "No executions yet",
+    "emptyDescription": "Run an agent task from the registry or monitor."
+  },
+  "memory": {
+    "title": "Memory center",
+    "subtitle": "Working · Conversation · Business · Long-term · Workspace · Agent scopes (architecture-ready).",
+    "emptyTitle": "No memory records",
+    "emptyDescription": "Execute a task to populate working/agent memory."
+  },
+  "knowledge": {
+    "title": "Knowledge center",
+    "subtitle": "Company, documents, projects, CRM, policies, procedures — plus vector/RAG placeholders.",
+    "emptyTitle": "No knowledge docs",
+    "emptyDescription": "Seed knowledge appears after workspace bootstrap."
+  },
+  "tools": {
+    "sensitive": " · sensitive",
+    "mcpReady": " · MCP-ready"
+  },
+  "settings": {
+    "title": "Agent OS settings",
+    "defaultLlmProvider": "Default LLM provider",
+    "enableSupervisor": "Enable supervisor agent architecture",
+    "isolateSensitive": "Isolate sensitive tools",
+    "saveSettings": "Save settings",
+    "providersHint": "Providers ready: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Swap adapters via registerLlmProvider without UI changes."
+  },
+  "columns": {
+    "agent": "Agent",
+    "status": "Status",
+    "health": "Health",
+    "queue": "Queue",
+    "usage": "Usage",
+    "actions": "Actions",
+    "task": "Task",
+    "duration": "Duration",
+    "created": "Created",
+    "scope": "Scope",
+    "key": "Key",
+    "value": "Value",
+    "at": "At",
+    "title": "Title",
+    "kind": "Kind",
+    "summary": "Summary"
+  },
+  "actions": {
+    "run": "Run",
+    "pause": "Pause",
+    "activate": "Activate",
+    "cancel": "Cancel",
+    "emDash": "—"
+  },
+  "goals": {
+    "executeBusiness": "Execute {agentId} business goal",
+    "planAndExecute": "Plan and execute a workspace business goal"
+  },
+  "os": {
+    "prioritizeCustomerImpact": "Prioritize customer impact",
+    "delegatedFollowUp": "Delegated follow-up"
+  }
+}

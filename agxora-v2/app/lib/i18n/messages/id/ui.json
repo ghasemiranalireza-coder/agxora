@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "Tidak ada hasil",
+    "noResultsDescription": "Tidak ada yang cocok dengan filter saat ini.",
+    "previous": "Sebelumnya",
+    "next": "Berikutnya",
+    "paginationRange": "{start}–{end} dari {total}",
+    "sortAscending": "Urutkan secara menaik",
+    "sortDescending": "Urutkan secara menurun"
+  },
+  "dialog": {
+    "close": "Tutup dialog"
+  },
+  "module": {
+    "notAvailableTitle": "{title} belum tersedia",
+    "notAvailableDescription": "Shell modul ini disiapkan untuk rilis mendatang. Belum ada catatan yang disimpan di sini."
+  },
+  "states": {
+    "errorLabel": "Kesalahan",
+    "errorTitle": "Ada yang tidak beres",
+    "errorDescription": "Kami tidak dapat menyelesaikan permintaan itu. Coba lagi sebentar lagi.",
+    "retry": "Mencoba kembali"
+  },
+  "empty": {
+    "crmTitle": "CRM Anda sudah siap",
+    "crmDescription": "Buat catatan pelanggan pertama untuk membuka kunci direktori, profil, dan aktivitas.",
+    "crmAction": "Buka CRM",
+    "projectsTitle": "Belum ada proyek",
+    "projectsDescription": "Siapkan ruang kerja pengiriman untuk melacak pencapaian, anggaran, dan kepemilikan tim.",
+    "projectsAction": "Buka Proyek",
+    "analyticsTitle": "Analytics menunggu sinyal",
+    "analyticsDescription": "Setelah ruang kerja Anda menghasilkan aktivitas, KPI eksekutif dan peringatan akan muncul di sini.",
+    "analyticsAction": "Buka Analisis",
+    "documentsTitle": "Pustaka dokumen kosong",
+    "documentsDescription": "Unggah atau buat aset pengetahuan untuk mendukung persetujuan, versi, dan konteks AI.",
+    "documentsAction": "Buka Dokumen",
+    "billingTitle": "Belum ada riwayat penagihan",
+    "billingDescription": "Tingkatkan rencana untuk menghasilkan faktur, perpanjangan, dan riwayat pembayaran.",
+    "billingAction": "Buka penagihan",
+    "agentsTitle": "Tidak ada agen yang aktif",
+    "agentsDescription": "Instal atau aktifkan agen dari pasar untuk memulai proses otonom.",
+    "agentsAction": "Buka Agen OS"
+  },
+  "yes": "Ya",
+  "no": "TIDAK",
+  "dash": "—"
+}

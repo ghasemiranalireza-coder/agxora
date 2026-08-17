@@ -1,0 +1,158 @@
+{
+  "eyebrow": "AGXORA OS",
+  "title": "Starten Sie Ihr Business-Betriebssystem",
+  "lead": "Wählen Sie Ihre Branchenvorlage. AGXORA konfiguriert Module, Agenten, Workflows und Unternehmenswissen — ohne Sie für immer in eine Vertikale zu sperren.",
+  "steps": {
+    "type": "Typ",
+    "company": "Firma",
+    "locale": "Locale (auch: Gebietsschema)",
+    "goals": "Ziele"
+  },
+  "companyName": "Firmenname",
+  "companyPlaceholder": "Acme Hospitality Group",
+  "template": "Schablone",
+  "country": "Land",
+  "language": "Sprache",
+  "languagePlaceholder": "en",
+  "timezone": "Zeitzone",
+  "timezonePlaceholder": "UTC",
+  "goals": {
+    "increaseRevenue": "Umsatzsteigerung",
+    "improveOperations": "Prozesse zu optimieren,",
+    "delightCustomers": "Kunden begeistern!",
+    "reduceCosts": "Senken Sie die Kosten",
+    "scaleWithAi": "Mit KI skalieren"
+  },
+  "failed": "Onboarding fehlgeschlagen",
+  "back": "Zurück",
+  "continue": "Weiter",
+  "launching": "Starten",
+  "enterDashboard": "Zum Dashboard",
+  "defaultCountry": "Vereinigte Staaten",
+  "businessTypes": {
+    "hotel": {
+      "label": "Hotel",
+      "description": "Gastgewerbe, Zimmer, Gäste und Immobilienbetrieb"
+    },
+    "restaurant": {
+      "label": "Restaurant",
+      "description": "Gastronomie, Küche, Reservierungen und Gästeerlebnis"
+    },
+    "cleaning": {
+      "label": "Reinigung",
+      "description": "Gewerbliche und private Reinigungsbetriebe"
+    },
+    "laundry": {
+      "label": "Wäscherei",
+      "description": "Waschanlagen, Abholrouten und Textilpflege"
+    },
+    "construction": {
+      "label": "Bauwesen",
+      "description": "Baustellen, Crews, Materialien und Projektlieferung"
+    },
+    "healthcare": {
+      "label": "Gesundheitswesen",
+      "description": "Versorgungsnetze, Patienten und klinischer Betrieb"
+    },
+    "medical": {
+      "label": "Medizin",
+      "description": "Kliniken, Termine und Versorgungsteams"
+    },
+    "manufacturing": {
+      "label": "Fertigung",
+      "description": "Fertigungsstraßen, Qualität und Lieferbetrieb"
+    },
+    "retail": {
+      "label": "Einzelhandel",
+      "description": "Filialen, Bestand, Merchandising und Kunden"
+    },
+    "legal": {
+      "label": "Kanzlei",
+      "description": "Mandate, Mandanten, Fristen und Abrechnung"
+    },
+    "accounting": {
+      "label": "Buchhaltung",
+      "description": "Bücher, Mandanten, Einreichungen und Beratung"
+    },
+    "consulting": {
+      "label": "Beratung",
+      "description": "Mandate, Liefergegenstände und Kundenergebnisse"
+    },
+    "real_estate": {
+      "label": "Immobilien",
+      "description": "Inserate, Kunden, Besichtigungen und Transaktionen"
+    },
+    "education": {
+      "label": "Bildung",
+      "description": "Programme, Studierende, Lehrkräfte und Einschreibung"
+    },
+    "automotive": {
+      "label": "Automobil",
+      "description": "Händler, Servicebuchten und Fahrzeugbestand"
+    },
+    "beauty": {
+      "label": "Schönheitssalon",
+      "description": "Termine, Stylisten, Retail und Mitgliedschaften"
+    },
+    "fitness": {
+      "label": "Fitnessstudio",
+      "description": "Mitgliedschaften, Kurse, Trainer und Bindung"
+    },
+    "agriculture": {
+      "label": "Landwirtschaft",
+      "description": "Anbau, Vieh, Erträge und Lieferketten"
+    },
+    "transport": {
+      "label": "Transport",
+      "description": "Flottenbewegung, Routen und Personen-/Güterbetrieb"
+    },
+    "logistics": {
+      "label": "Logistik",
+      "description": "Flotte, Lager, Routen und Fulfillment"
+    },
+    "warehouse": {
+      "label": "Lager",
+      "description": "Lagerung, Kommissionierung, Verpackung und Bestandsumschlag"
+    },
+    "insurance": {
+      "label": "Versicherung",
+      "description": "Policen, Schadenfälle, Underwriting und Bindung"
+    },
+    "finance": {
+      "label": "Finanzen",
+      "description": "Kapital, Portfolios und Finanzbetrieb"
+    },
+    "financial_services": {
+      "label": "Finanzdienstleistungen",
+      "description": "Beratung, Produkte, Compliance und Kunden"
+    },
+    "technology": {
+      "label": "Technologie",
+      "description": "Produkt, Engineering und Go-to-Market-Teams"
+    },
+    "saas": {
+      "label": "Software / SaaS",
+      "description": "Abonnements, Nutzung und Customer Success"
+    },
+    "ecommerce": {
+      "label": "E-Commerce",
+      "description": "Onlinekatalog, Warenkörbe, Fulfillment und LTV"
+    },
+    "agency": {
+      "label": "Marketingagentur",
+      "description": "Kunden, Kampagnen, Retainer und Lieferung"
+    },
+    "freelancer": {
+      "label": "Freelancer",
+      "description": "Einzelpraxis, Kunden, Pipeline und Cashflow"
+    },
+    "government": {
+      "label": "Öffentliche Verwaltung",
+      "description": "Öffentliche Dienste, Programme und Bürger"
+    },
+    "nonprofit": {
+      "label": "Gemeinnützig",
+      "description": "Missionen, Spender, Programme und Wirkung"
+    }
+  }
+}

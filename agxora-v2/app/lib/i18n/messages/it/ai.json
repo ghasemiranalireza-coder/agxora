@@ -1,0 +1,168 @@
+{
+  "platform": {
+    "loading": "Caricamento della piattaforma AI…",
+    "eyebrow": "Piattaforma AI AGXORA",
+    "title": "Spazio di lavoro aziendale basato sull'intelligenza artificiale",
+    "subtitle": "Intelligenza indipendente dal fornitore per CRM, progetti, finanza, documenti e automazione. Configura i provider in Impostazioni → AI.",
+    "newConversation": "Nuova conversazione",
+    "aiCommands": "Comandi dell'IA"
+  },
+  "mobileTabs": {
+    "chat": "Chiacchierata",
+    "conversations": "Conversazioni",
+    "prompts": "Richiede"
+  },
+  "usageBar": {
+    "provider": "Fornitore",
+    "model": "Modello",
+    "estimatedTokens": "Est. gettoni",
+    "tokensInOut": "(entrata {in} / uscita {out})",
+    "cost": "Costo",
+    "context": "Contesto",
+    "contextNone": "nessuno",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "Area di lavoro AI AGXORA",
+    "emptyHint": "Avvia una conversazione, scegli un prompt dalla libreria o apri la tavolozza dei comandi (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Conversazioni",
+    "new": "Nuovo",
+    "searchPlaceholder": "Cerca chat...",
+    "searchAria": "Cerca conversazioni",
+    "showArchived": "Mostra archiviato",
+    "pinned": "Appuntato",
+    "emptyPreview": "Conversazione vuota",
+    "noConversations": "Nessuna conversazione ancora",
+    "pin": "Spillo",
+    "unpin": "Sblocca",
+    "rename": "Rinominare",
+    "archive": "Archivio",
+    "unarchive": "Annulla l'archiviazione",
+    "delete": "Eliminare"
+  },
+  "composer": {
+    "placeholder": "Messaggio AGXORA AI… (Invio per inviare, Maiusc+Invio per una nuova riga)",
+    "ariaLabel": "Compositore di messaggi",
+    "commandsShortcut": "Comandi ⌘⇧K",
+    "stop": "Fermare",
+    "send": "Inviare"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Copia",
+    "retry": "Riprova"
+  },
+  "typingIndicator": {
+    "ariaLabel": "L'assistente sta scrivendo"
+  },
+  "promptLibrary": {
+    "title": "Biblioteca rapida",
+    "subtitle": "Modelli riutilizzabili in CRM, Progetti, Finanza e altro ancora.",
+    "searchPlaceholder": "Richieste di ricerca...",
+    "searchAria": "Richieste di ricerca",
+    "all": "Tutto",
+    "favorites": "Preferiti",
+    "recent": "Recente",
+    "library": "Biblioteca",
+    "noMatches": "Nessuna richiesta corrisponde",
+    "removeFavoriteAria": "Rimuovi preferito",
+    "addFavoriteAria": "Aggiungi preferito",
+    "favorited": "Preferito",
+    "favorite": "Preferito",
+    "usePrompt": "Usa il prompt"
+  },
+  "commandPalette": {
+    "ariaLabel": "Tavolozza dei comandi AI",
+    "filterAria": "Filtra i comandi dell'IA",
+    "placeholder": "Comando AI… riepiloga, proponi, analizza…",
+    "noMatches": "Nessun comando corrispondente",
+    "footer": "Registra i comandi futuri tramite RegisterAiCommand: l'interfaccia utente rimane invariata."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Progetti",
+    "finance": "Finanza",
+    "marketing": "Marketing",
+    "documents": "Documenti",
+    "automation": "Automazione",
+    "general": "Generale"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Riepiloga cliente",
+      "description": "Sintesi esecutiva di una relazione cliente"
+    },
+    "crm-follow-up-email": {
+      "title": "E-mail di follow-up",
+      "description": "Bozza un follow-up CRM professionale"
+    },
+    "projects-analyze": {
+      "title": "Analizza progetto",
+      "description": "Controllo di salute di un progetto"
+    },
+    "projects-task-list": {
+      "title": "Crea elenco attività",
+      "description": "Suddividi il lavoro in attività attuabili"
+    },
+    "finance-explain-invoice": {
+      "title": "Spiega fattura",
+      "description": "Spiegazione fattura in linguaggio semplice"
+    },
+    "finance-cashflow-brief": {
+      "title": "Sintesi del cashflow",
+      "description": "Breve narrazione del cashflow"
+    },
+    "marketing-campaign-outline": {
+      "title": "Schema campagna",
+      "description": "Struttura una campagna marketing"
+    },
+    "marketing-proposal": {
+      "title": "Genera proposta",
+      "description": "Bozza di proposta per il cliente"
+    },
+    "documents-summarize": {
+      "title": "Riepiloga documento",
+      "description": "Riepilogo documento strutturato"
+    },
+    "automation-workflow": {
+      "title": "Progetta workflow",
+      "description": "Schizzo di workflow di automazione"
+    },
+    "general-brainstorm": {
+      "title": "Brainstorm di opzioni",
+      "description": "Ideazione strutturata"
+    },
+    "general-explain": {
+      "title": "Spiega in modo semplice",
+      "description": "Spiegazione chiara per gli stakeholder"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Riepiloga cliente",
+      "description": "Sintesi esecutiva del cliente attivo"
+    },
+    "cmd-generate-proposal": {
+      "label": "Genera proposta",
+      "description": "Bozza lo schema di una proposta cliente"
+    },
+    "cmd-analyze-project": {
+      "label": "Analizza progetto",
+      "description": "Salute del progetto e analisi dei rischi"
+    },
+    "cmd-create-task-list": {
+      "label": "Crea elenco attività",
+      "description": "Suddividi il lavoro in attività attuabili"
+    },
+    "cmd-generate-email": {
+      "label": "Genera e-mail",
+      "description": "Bozza un’e-mail professionale"
+    },
+    "cmd-explain-invoice": {
+      "label": "Spiega fattura",
+      "description": "Spiegazione fattura in linguaggio semplice"
+    }
+  }
+}

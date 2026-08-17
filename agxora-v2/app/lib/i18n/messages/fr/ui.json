@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "Aucun résultat",
+    "noResultsDescription": "Rien ne correspond aux filtres actuels.",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "paginationRange": "{start}–{end} sur {total}",
+    "sortAscending": "Trier par ordre croissant",
+    "sortDescending": "Trier par ordre descendant"
+  },
+  "dialog": {
+    "close": "Fermer la boîte de dialogue"
+  },
+  "module": {
+    "notAvailableTitle": "{title} n'est pas encore disponible",
+    "notAvailableDescription": "Ce shell de module est préparé pour une version future. Aucun enregistrement n'est encore stocké ici."
+  },
+  "states": {
+    "errorLabel": "Erreur",
+    "errorTitle": "Quelque chose s'est mal passé",
+    "errorDescription": "Nous n'avons pas pu traiter cette demande. Réessayez dans un instant.",
+    "retry": "Réessayer"
+  },
+  "empty": {
+    "crmTitle": "Votre CRM est prêt",
+    "crmDescription": "Créez le premier enregistrement client pour déverrouiller le répertoire, les profils et l'activité.",
+    "crmAction": "Ouvrir le CRM",
+    "projectsTitle": "Aucun projet pour l'instant",
+    "projectsDescription": "Créez un espace de travail de livraison pour suivre les étapes, le budget et la propriété de l'équipe.",
+    "projectsAction": "Projets ouverts",
+    "analyticsTitle": "L'analyse attend le signal",
+    "analyticsDescription": "Une fois que votre espace de travail génère une activité, les KPI et les alertes des dirigeants apparaissent ici.",
+    "analyticsAction": "Analyse ouverte",
+    "documentsTitle": "La bibliothèque de documents est vide",
+    "documentsDescription": "Téléchargez ou créez des ressources de connaissances pour alimenter les approbations, les versions et le contexte de l'IA.",
+    "documentsAction": "Documents ouverts",
+    "billingTitle": "Pas encore d'historique de facturation",
+    "billingDescription": "Mettez à niveau un plan pour générer des factures, des renouvellements et un historique des paiements.",
+    "billingAction": "Facturation ouverte",
+    "agentsTitle": "Aucun agent actif",
+    "agentsDescription": "Installez ou activez un agent à partir de la place de marché pour démarrer des exécutions autonomes.",
+    "agentsAction": "Ouvrir le système d'exploitation de"
+  },
+  "yes": "Oui",
+  "no": "Non",
+  "dash": "—"
+}

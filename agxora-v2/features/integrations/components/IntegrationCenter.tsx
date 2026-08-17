@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
+import { useT } from "@/app/lib/i18n";
 import { integrationsStore } from "../store";
 import { integrationService } from "../services";
 import { useIntegrationPlatform } from "../hooks";
@@ -26,26 +27,35 @@ type TabId =
   | "webhooks"
   | "developer";
 
-const TABS: readonly { id: TabId; label: string }[] = [
-  { id: "dashboard", label: "Dashboard" },
-  { id: "installed", label: "Installed" },
-  { id: "available", label: "Available" },
-  { id: "logs", label: "Logs" },
-  { id: "api_keys", label: "API Keys" },
-  { id: "webhooks", label: "Webhooks" },
-  { id: "developer", label: "Developer" },
-];
+function connectionStatusLabel(
+  status: IntegrationConnection["status"],
+  t: ReturnType<typeof useT>,
+): string {
+  switch (status) {
+    case "connected":
+      return t("integrations.connectionStatus.connected");
+    case "pending_auth":
+      return t("integrations.connectionStatus.pendingAuth");
+    case "error":
+      return t("integrations.connectionStatus.error");
+    case "disabled":
+      return t("integrations.connectionStatus.disabled");
+    case "installed":
+      return t("integrations.connectionStatus.installed");
+    default:
+      return t("integrations.connectionStatus.available");
+  }
+}
 
 /**
  * Integration Center — modular interoperability surface.
  * Does not alter dashboard shell (layout / sidebar / header).
  */
 export function IntegrationCenter(): JSX.Element {
+  const t = useT();
   const platform = useIntegrationPlatform();
   const [tab, setTab] = useState<TabId>("dashboard");
-  const [notice, setNotice] = useState(
-    "Local demo connectors — OAuth and live sync are not connected.",
-  );
+  const [notice, setNotice] = useState(t("integrations.noticeDefault"));
   const [busy, setBusy] = useState(false);
   const [createdKeySecret, setCreatedKeySecret] = useState<string | null>(null);
   const [explorerPath, setExplorerPath] = useState("/api/v1/health");
@@ -73,13 +83,23 @@ export function IntegrationCenter(): JSX.Element {
     devDraft?.webhookSigningEnabled ??
     platform.developerSettings.webhookSigningEnabled;
 
+  const tabs: readonly { id: TabId; label: string }[] = [
+    { id: "dashboard", label: t("integrations.tabs.dashboard") },
+    { id: "installed", label: t("integrations.tabs.installed") },
+    { id: "available", label: t("integrations.tabs.available") },
+    { id: "logs", label: t("integrations.tabs.logs") },
+    { id: "api_keys", label: t("integrations.tabs.apiKeys") },
+    { id: "webhooks", label: t("integrations.tabs.webhooks") },
+    { id: "developer", label: t("integrations.tabs.developer") },
+  ];
+
   if (!platform.hydrated) {
     return (
       <div
         className="py-16 text-center text-sm"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        Loading integration platform…
+        {t("integrations.loading")}
       </div>
     );
   }
@@ -91,10 +111,10 @@ export function IntegrationCenter(): JSX.Element {
         platform.organizationId,
         connectorId,
       );
-      setNotice(`Demo connection: ${conn.displayName} (local stub only)`);
+      setNotice(t("integrations.notice.demoConnection", { name: conn.displayName }));
       setTab("installed");
     } catch (err) {
-      setNotice(err instanceof Error ? err.message : "Connect failed");
+      setNotice(err instanceof Error ? err.message : t("integrations.notice.connectFailed"));
     } finally {
       setBusy(false);
     }
@@ -108,7 +128,7 @@ export function IntegrationCenter(): JSX.Element {
       expiresAt: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString(),
     });
     setCreatedKeySecret(key.secretOnce ?? null);
-    setNotice(`API key created: ${key.prefix}`);
+    setNotice(t("integrations.notice.keyCreated", { prefix: key.prefix }));
   };
 
   const onCreateWebhook = () => {
@@ -119,7 +139,7 @@ export function IntegrationCenter(): JSX.Element {
       url: webhookUrl,
       events: ["customer.created", "invoice.issued", "integration.*"],
     });
-    setNotice(`Webhook created: ${endpoint.name}`);
+    setNotice(t("integrations.notice.webhookCreated", { name: endpoint.name }));
   };
 
   const onTestWebhook = async (endpoint: WebhookEndpoint) => {
@@ -130,7 +150,7 @@ export function IntegrationCenter(): JSX.Element {
         "integration.test",
         { ping: true, at: new Date().toISOString() },
       );
-      setNotice(`Webhook test ${delivery.status}`);
+      setNotice(t("integrations.notice.webhookTest", { status: delivery.status }));
     } finally {
       setBusy(false);
     }
@@ -150,19 +170,19 @@ export function IntegrationCenter(): JSX.Element {
         const msg =
           typeof result.body.message === "string"
             ? result.body.message
-            : "Failed to fetch";
-        setNotice(`API explorer network error: ${msg}`);
+            : t("integrations.errors.failedToFetch");
+        setNotice(t("integrations.notice.networkError", { message: msg }));
       } else if (result.statusCode >= 400) {
         const msg =
           typeof result.body.message === "string"
             ? result.body.message
-            : `HTTP ${result.statusCode}`;
-        setNotice(`API explorer → ${result.statusCode}: ${msg}`);
+            : t("integrations.errors.httpStatus", { status: result.statusCode });
+        setNotice(t("integrations.notice.explorerError", { status: result.statusCode, message: msg }));
       } else {
-        setNotice(`API explorer → ${result.statusCode}`);
+        setNotice(t("integrations.notice.explorerSuccess", { status: result.statusCode }));
       }
     } catch (err) {
-      setNotice(err instanceof Error ? err.message : "Explorer failed");
+      setNotice(err instanceof Error ? err.message : t("integrations.notice.explorerFailed"));
     } finally {
       setBusy(false);
     }
@@ -177,7 +197,10 @@ export function IntegrationCenter(): JSX.Element {
         mode,
       });
       setNotice(
-        `Demo sync · ${job.status} (${job.recordsProcessed} local records) — no external data transferred.`,
+        t("integrations.notice.syncResult", {
+          status: job.status,
+          records: job.recordsProcessed,
+        }),
       );
     } finally {
       setBusy(false);
@@ -185,26 +208,26 @@ export function IntegrationCenter(): JSX.Element {
   };
 
   const connectionColumns: DataTableColumn<IntegrationConnection>[] = [
-    { key: "name", header: "Integration", render: (r) => r.displayName },
+    { key: "name", header: t("integrations.columns.integration"), render: (r) => r.displayName },
     {
       key: "status",
-      header: "Status",
-      render: (r) => connectionStatusLabel(r.status),
+      header: t("integrations.columns.status"),
+      render: (r) => connectionStatusLabel(r.status, t),
     },
     {
       key: "health",
-      header: "Health",
-      render: (r) => (r.status === "connected" ? "Local demo" : r.health.status),
+      header: t("integrations.columns.health"),
+      render: (r) => (r.status === "connected" ? t("integrations.connectionStatus.localDemo") : r.health.status),
     },
     {
       key: "latency",
-      header: "Latency",
+      header: t("integrations.columns.latency"),
       render: (r) =>
-        r.health.latencyMs != null ? `${r.health.latencyMs}ms` : "—",
+        r.health.latencyMs != null ? `${r.health.latencyMs}ms` : t("integrations.actions.emDash"),
     },
     {
       key: "actions",
-      header: "Actions",
+      header: t("integrations.columns.actions"),
       render: (r) => (
         <div className="flex flex-wrap gap-1">
           <Button
@@ -212,29 +235,29 @@ export function IntegrationCenter(): JSX.Element {
             variant="secondary"
             disabled={busy}
             onClick={() => void integrationService.diagnose(r.id).then((c) => {
-              setNotice(c?.health.message ?? "Diagnosed");
+              setNotice(c?.health.message ?? t("integrations.notice.diagnosed"));
             })}
           >
-            Diagnose
+            {t("integrations.actions.diagnose")}
           </Button>
           <Button
             size="sm"
             variant="ghost"
             disabled={busy || r.status !== "connected"}
-            title="Demo sync only — no external transfer"
+            title={t("integrations.actions.demoSyncTitle")}
             onClick={() => void onSync(r.id, "manual")}
           >
-            Demo sync
+            {t("integrations.actions.demoSync")}
           </Button>
           <Button
             size="sm"
             variant="ghost"
             onClick={() => {
               integrationService.disconnect(r.id);
-              setNotice(`Removed demo connection: ${r.displayName}`);
+              setNotice(t("integrations.notice.removedConnection", { name: r.displayName }));
             }}
           >
-            Disconnect
+            {t("integrations.actions.disconnect")}
           </Button>
         </div>
       ),
@@ -244,35 +267,35 @@ export function IntegrationCenter(): JSX.Element {
   const logColumns: DataTableColumn<IntegrationLogEntry>[] = [
     {
       key: "at",
-      header: "When",
+      header: t("integrations.columns.when"),
       render: (r) => r.at.slice(0, 19).replace("T", " "),
     },
-    { key: "level", header: "Level", render: (r) => r.level },
-    { key: "source", header: "Source", render: (r) => r.source },
-    { key: "message", header: "Message", render: (r) => r.message },
+    { key: "level", header: t("integrations.columns.level"), render: (r) => r.level },
+    { key: "source", header: t("integrations.columns.source"), render: (r) => r.source },
+    { key: "message", header: t("integrations.columns.message"), render: (r) => r.message },
   ];
 
   const keyColumns: DataTableColumn<ApiKeyRecord>[] = [
-    { key: "name", header: "Name", render: (r) => r.name },
+    { key: "name", header: t("integrations.columns.name"), render: (r) => r.name },
     {
       key: "prefix",
-      header: "Key",
+      header: t("integrations.columns.key"),
       render: (r) => <span className="font-mono text-xs">{r.prefix}</span>,
     },
-    { key: "status", header: "Status", render: (r) => r.status },
+    { key: "status", header: t("integrations.columns.status"), render: (r) => r.status },
     {
       key: "scopes",
-      header: "Scopes",
+      header: t("integrations.columns.scopes"),
       render: (r) => r.scopes.slice(0, 2).join(", "),
     },
     {
       key: "usage",
-      header: "Usage",
+      header: t("integrations.columns.usage"),
       render: (r) => String(r.usageCount),
     },
     {
       key: "actions",
-      header: "Actions",
+      header: t("integrations.columns.actions"),
       render: (r) => (
         <div className="flex gap-1">
           <Button
@@ -282,10 +305,10 @@ export function IntegrationCenter(): JSX.Element {
             onClick={() => {
               const next = integrationService.rotateKey(r.id);
               if (next?.secretOnce) setCreatedKeySecret(next.secretOnce);
-              setNotice("Key rotated");
+              setNotice(t("integrations.notice.keyRotated"));
             }}
           >
-            Rotate
+            {t("integrations.actions.rotate")}
           </Button>
           <Button
             size="sm"
@@ -293,10 +316,10 @@ export function IntegrationCenter(): JSX.Element {
             disabled={r.status === "revoked"}
             onClick={() => {
               integrationService.revokeKey(r.id);
-              setNotice("Key revoked");
+              setNotice(t("integrations.notice.keyRevoked"));
             }}
           >
-            Revoke
+            {t("integrations.actions.revoke")}
           </Button>
         </div>
       ),
@@ -304,21 +327,21 @@ export function IntegrationCenter(): JSX.Element {
   ];
 
   const webhookColumns: DataTableColumn<WebhookEndpoint>[] = [
-    { key: "name", header: "Name", render: (r) => r.name },
-    { key: "direction", header: "Direction", render: (r) => r.direction },
+    { key: "name", header: t("integrations.columns.name"), render: (r) => r.name },
+    { key: "direction", header: t("integrations.columns.direction"), render: (r) => r.direction },
     {
       key: "url",
-      header: "URL",
+      header: t("integrations.columns.url"),
       render: (r) => <span className="font-mono text-[11px]">{r.url}</span>,
     },
     {
       key: "enabled",
-      header: "Enabled",
-      render: (r) => (r.enabled ? "yes" : "no"),
+      header: t("integrations.columns.enabled"),
+      render: (r) => (r.enabled ? t("integrations.actions.yes") : t("integrations.actions.no")),
     },
     {
       key: "actions",
-      header: "Actions",
+      header: t("integrations.columns.actions"),
       render: (r) => (
         <Button
           size="sm"
@@ -326,7 +349,7 @@ export function IntegrationCenter(): JSX.Element {
           disabled={busy}
           onClick={() => void onTestWebhook(r)}
         >
-          Test
+          {t("integrations.actions.test")}
         </Button>
       ),
     },
@@ -335,14 +358,14 @@ export function IntegrationCenter(): JSX.Element {
   const deliveryColumns: DataTableColumn<WebhookDelivery>[] = [
     {
       key: "at",
-      header: "When",
+      header: t("integrations.columns.when"),
       render: (r) => r.createdAt.slice(0, 19).replace("T", " "),
     },
-    { key: "event", header: "Event", render: (r) => r.eventType },
-    { key: "status", header: "Status", render: (r) => r.status },
+    { key: "event", header: t("integrations.columns.event"), render: (r) => r.eventType },
+    { key: "status", header: t("integrations.columns.status"), render: (r) => r.status },
     {
       key: "attempt",
-      header: "Attempt",
+      header: t("integrations.columns.attempt"),
       render: (r) => `${r.attempt}/${r.maxAttempts}`,
     },
   ];
@@ -354,39 +377,37 @@ export function IntegrationCenter(): JSX.Element {
           className="text-[11px] font-semibold uppercase tracking-[0.16em]"
           style={{ color: "var(--agx-accent, #22d3ee)" }}
         >
-          Enterprise Integration Platform
+          {t("integrations.eyebrow")}
         </p>
         <h1
           className="text-2xl font-semibold tracking-tight"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Integration Center
+          {t("integrations.title")}
         </h1>
         <p
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Connectors for Microsoft 365, Google, Slack, CRM, storage, and
-          automation ecosystems. Connections and sync in this build are local
-          demos — live OAuth is not connected.
+          {t("integrations.subtitle")}
         </p>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           {notice}
         </p>
         <div className="flex flex-wrap gap-2 pt-1">
-          {TABS.map((t) => (
+          {tabs.map((tabItem) => (
             <Button
-              key={t.id}
+              key={tabItem.id}
               size="sm"
-              variant={tab === t.id ? "primary" : "secondary"}
-              onClick={() => setTab(t.id)}
+              variant={tab === tabItem.id ? "primary" : "secondary"}
+              onClick={() => setTab(tabItem.id)}
             >
-              {t.label}
+              {tabItem.label}
             </Button>
           ))}
           <Link href="/dashboard/settings#integrations">
             <Button size="sm" variant="ghost">
-              Settings
+              {t("integrations.settings")}
             </Button>
           </Link>
         </div>
@@ -395,39 +416,39 @@ export function IntegrationCenter(): JSX.Element {
       {tab === "dashboard" ? (
         <>
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-            <Stat label="Demo links" value={String(platform.metrics.connectedCount)} />
-            <Stat label="Catalog" value={String(platform.metrics.availableCount)} />
-            <Stat label="API (24h)" value={String(platform.metrics.apiRequests24h)} />
+            <Stat label={t("integrations.dashboard.demoLinks")} value={String(platform.metrics.connectedCount)} />
+            <Stat label={t("integrations.dashboard.catalog")} value={String(platform.metrics.availableCount)} />
+            <Stat label={t("integrations.dashboard.api24h")} value={String(platform.metrics.apiRequests24h)} />
             <Stat
-              label="Webhooks (24h)"
+              label={t("integrations.dashboard.webhooks24h")}
               value={String(platform.metrics.webhookDeliveries24h)}
             />
           </div>
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-            <Stat label="Webhook failures" value={String(platform.metrics.webhookFailures24h)} />
-            <Stat label="Sync jobs" value={String(platform.metrics.syncJobs24h)} />
-            <Stat label="Conflicts" value={String(platform.metrics.syncConflicts24h)} />
-            <Stat label="Errors" value={String(platform.metrics.errorCount)} />
+            <Stat label={t("integrations.dashboard.webhookFailures")} value={String(platform.metrics.webhookFailures24h)} />
+            <Stat label={t("integrations.dashboard.syncJobs")} value={String(platform.metrics.syncJobs24h)} />
+            <Stat label={t("integrations.dashboard.conflicts")} value={String(platform.metrics.syncConflicts24h)} />
+            <Stat label={t("integrations.dashboard.errors")} value={String(platform.metrics.errorCount)} />
           </div>
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Connection status
+              {t("integrations.dashboard.connectionStatus")}
             </h2>
             <DataTable
               columns={connectionColumns}
               rows={[...platform.connections]}
               rowKey={(r) => r.id}
-              emptyTitle="No integrations installed"
-              emptyDescription="Browse Available to connect a provider."
+              emptyTitle={t("integrations.dashboard.emptyTitle")}
+              emptyDescription={t("integrations.dashboard.emptyDescription")}
               minWidth={720}
             />
           </Card>
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Event bridge demo
+              {t("integrations.dashboard.eventBridgeDemo")}
             </h2>
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Publish a connector event onto the Workflow Automation bus.
+              {t("integrations.dashboard.eventBridgeHint")}
             </p>
             <div className="flex flex-wrap gap-2">
               {(["slack", "hubspot", "github"] as const).map((id) => (
@@ -444,7 +465,7 @@ export function IntegrationCenter(): JSX.Element {
                       .then((e) => setNotice(`Published ${e.type}`));
                   }}
                 >
-                  Emit {id}
+                  {t("integrations.dashboard.emit", { id })}
                 </Button>
               ))}
             </div>
@@ -455,21 +476,23 @@ export function IntegrationCenter(): JSX.Element {
       {tab === "installed" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Installed integrations
+            {t("integrations.installed.title")}
           </h2>
           <DataTable
             columns={connectionColumns}
             rows={[...platform.connections]}
             rowKey={(r) => r.id}
-            emptyTitle="Nothing installed"
-            emptyDescription="Install from the Available catalog."
+            emptyTitle={t("integrations.installed.emptyTitle")}
+            emptyDescription={t("integrations.installed.emptyDescription")}
             minWidth={720}
           />
           {platform.syncJobs[0] ? (
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Latest sync: {platform.syncJobs[0].status} ·{" "}
-              {platform.syncJobs[0].recordsProcessed} records · mode{" "}
-              {platform.syncJobs[0].mode}
+              {t("integrations.installed.latestSync", {
+                status: platform.syncJobs[0].status,
+                records: platform.syncJobs[0].recordsProcessed,
+                mode: platform.syncJobs[0].mode,
+              })}
             </p>
           ) : null}
         </Card>
@@ -499,7 +522,7 @@ export function IntegrationCenter(): JSX.Element {
                   {c.description}
                 </p>
                 <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  Protocols: {c.protocols.join(", ")}
+                  {t("integrations.available.protocols", { protocols: c.protocols.join(", ") })}
                 </p>
                 <Button
                   size="sm"
@@ -507,10 +530,10 @@ export function IntegrationCenter(): JSX.Element {
                   onClick={() => void onConnect(c.id)}
                 >
                   {installed?.status === "connected"
-                    ? "Demo connection"
+                    ? t("integrations.available.demoConnection")
                     : installed
-                      ? "Connect (demo)"
-                      : "Install demo"}
+                      ? t("integrations.available.connectDemo")
+                      : t("integrations.available.installDemo")}
                 </Button>
               </Card>
             );
@@ -521,14 +544,14 @@ export function IntegrationCenter(): JSX.Element {
       {tab === "logs" ? (
         <Card className="space-y-3" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Integration logs
+            {t("integrations.logs.title")}
           </h2>
           <DataTable
             columns={logColumns}
             rows={[...platform.logs]}
             rowKey={(r) => r.id}
-            emptyTitle="No logs yet"
-            emptyDescription="Connect a provider or run diagnostics."
+            emptyTitle={t("integrations.logs.emptyTitle")}
+            emptyDescription={t("integrations.logs.emptyDescription")}
             minWidth={720}
           />
         </Card>
@@ -538,10 +561,10 @@ export function IntegrationCenter(): JSX.Element {
         <Card className="space-y-3" padding="20px" hover={false}>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              API keys
+              {t("integrations.apiKeys.title")}
             </h2>
             <Button size="sm" onClick={onCreateKey}>
-              Generate key
+              {t("integrations.apiKeys.generateKey")}
             </Button>
           </div>
           {createdKeySecret ? (
@@ -553,15 +576,15 @@ export function IntegrationCenter(): JSX.Element {
                   "color-mix(in srgb, var(--agx-border, #334155) 60%, transparent)",
               }}
             >
-              Copy now (shown once): {createdKeySecret}
+              {t("integrations.apiKeys.copyOnce", { secret: createdKeySecret })}
             </p>
           ) : null}
           <DataTable
             columns={keyColumns}
             rows={[...platform.apiKeys]}
             rowKey={(r) => r.id}
-            emptyTitle="No API keys"
-            emptyDescription="Generate a key for REST gateway access."
+            emptyTitle={t("integrations.apiKeys.emptyTitle")}
+            emptyDescription={t("integrations.apiKeys.emptyDescription")}
             minWidth={720}
           />
         </Card>
@@ -571,38 +594,38 @@ export function IntegrationCenter(): JSX.Element {
         <>
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Webhook endpoints
+              {t("integrations.webhooks.endpointsTitle")}
             </h2>
             <div className="flex flex-wrap gap-2">
               <input
                 value={webhookUrl}
                 onChange={(e) => setWebhookUrl(e.target.value)}
                 className="agx-ui-control min-w-[240px] flex-1 rounded-xl border px-3 py-2 text-sm"
-                placeholder="https://…"
+                placeholder={t("integrations.webhooks.urlPlaceholder")}
               />
               <Button size="sm" onClick={onCreateWebhook}>
-                Add outgoing webhook
+                {t("integrations.webhooks.addOutgoing")}
               </Button>
             </div>
             <DataTable
               columns={webhookColumns}
               rows={[...platform.webhooks]}
               rowKey={(r) => r.id}
-              emptyTitle="No webhooks"
-              emptyDescription="Create an outgoing endpoint to test delivery."
+              emptyTitle={t("integrations.webhooks.emptyTitle")}
+              emptyDescription={t("integrations.webhooks.emptyDescription")}
               minWidth={720}
             />
           </Card>
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Delivery logs
+              {t("integrations.webhooks.deliveryLogs")}
             </h2>
             <DataTable
               columns={deliveryColumns}
               rows={[...platform.deliveries]}
               rowKey={(r) => r.id}
-              emptyTitle="No deliveries"
-              emptyDescription="Send a test webhook to populate logs."
+              emptyTitle={t("integrations.webhooks.deliveriesEmptyTitle")}
+              emptyDescription={t("integrations.webhooks.deliveriesEmptyDescription")}
               minWidth={640}
             />
           </Card>
@@ -613,7 +636,7 @@ export function IntegrationCenter(): JSX.Element {
         <div className="grid gap-4 lg:grid-cols-2">
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              Developer settings
+              {t("integrations.developer.title")}
             </h2>
             <label className="flex items-center gap-2 text-sm" style={{ color: "var(--agx-ds-text)" }}>
               <input
@@ -627,7 +650,7 @@ export function IntegrationCenter(): JSX.Element {
                   }))
                 }
               />
-              Sandbox mode
+              {t("integrations.developer.sandboxMode")}
             </label>
             <label className="flex items-center gap-2 text-sm" style={{ color: "var(--agx-ds-text)" }}>
               <input
@@ -641,7 +664,7 @@ export function IntegrationCenter(): JSX.Element {
                   }))
                 }
               />
-              Webhook signing enabled
+              {t("integrations.developer.webhookSigning")}
             </label>
             <Button
               size="sm"
@@ -652,25 +675,26 @@ export function IntegrationCenter(): JSX.Element {
                   webhookSigningEnabled,
                 });
                 setDevDraft(null);
-                setNotice("Developer settings saved");
+                setNotice(t("integrations.notice.developerSaved"));
               }}
             >
-              Save settings
+              {t("integrations.developer.saveSettings")}
             </Button>
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              API docs placeholder: {platform.developerSettings.apiDocsUrl}
+              {t("integrations.developer.apiDocs", { url: platform.developerSettings.apiDocsUrl })} {platform.developerSettings.apiDocsUrl}
               <br />
-              SDK placeholder: {platform.developerSettings.sdkPlaceholderUrl}
+              {t("integrations.developer.sdk", { url: platform.developerSettings.sdkPlaceholderUrl })} {platform.developerSettings.sdkPlaceholderUrl}
             </p>
           </Card>
 
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              API explorer
+              {t("integrations.developer.explorerTitle")}
             </h2>
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              Gateway routes:{" "}
-              {platform.gatewayRoutes.map((r) => r.protocol).join(", ")}
+              {t("integrations.developer.gatewayRoutes", {
+                routes: platform.gatewayRoutes.map((r) => r.protocol).join(", "),
+              })}
             </p>
             <input
               value={explorerPath}
@@ -678,7 +702,7 @@ export function IntegrationCenter(): JSX.Element {
               className="agx-ui-control w-full rounded-xl border px-3 py-2 font-mono text-sm"
             />
             <Button size="sm" disabled={busy} onClick={() => void onExplore()}>
-              Send GET
+              {t("integrations.developer.sendGet")}
             </Button>
             {explorerResult ? (
               <pre
@@ -696,7 +720,7 @@ export function IntegrationCenter(): JSX.Element {
 
           <Card className="space-y-2 lg:col-span-2" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              OAuth providers
+              {t("integrations.developer.oauthProviders")}
             </h2>
             <ul className="flex flex-wrap gap-2 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {platform.oauthProviders.map((p) => (
@@ -714,32 +738,13 @@ export function IntegrationCenter(): JSX.Element {
               ))}
             </ul>
             <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              GraphQL, WebSocket, and gRPC gateway routes are registered as
-              placeholders. Field mapping and sync conflict resolution are
-              architecture-ready for backend implementation.
+              {t("integrations.developer.placeholdersHint")}
             </p>
           </Card>
         </div>
       ) : null}
     </div>
   );
-}
-
-function connectionStatusLabel(status: IntegrationConnection["status"]): string {
-  switch (status) {
-    case "connected":
-      return "Demo connection";
-    case "pending_auth":
-      return "Pending (demo)";
-    case "error":
-      return "Error";
-    case "disabled":
-      return "Disabled";
-    case "installed":
-      return "Installed";
-    default:
-      return "Available";
-  }
 }
 
 function Stat({ label, value }: { label: string; value: string }): JSX.Element {

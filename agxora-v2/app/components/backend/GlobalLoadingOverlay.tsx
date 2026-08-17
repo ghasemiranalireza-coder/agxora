@@ -2,6 +2,7 @@
 
 import type { JSX } from "react";
 import { useLoading } from "@/app/lib/backend/hooks";
+import { useT } from "@/app/lib/i18n";
 
 /**
  * Global loading overlay — architecture host.
@@ -10,6 +11,7 @@ import { useLoading } from "@/app/lib/backend/hooks";
  */
 export function GlobalLoadingOverlay(): JSX.Element {
   const loading = useLoading();
+  const t = useT();
   const active = loading.active;
 
   return (
@@ -18,7 +20,7 @@ export function GlobalLoadingOverlay(): JSX.Element {
       role="progressbar"
       aria-busy={active || undefined}
       aria-hidden={!active}
-      aria-label={loading.label ?? "Loading"}
+      aria-label={loading.label ?? t("backend.loading")}
       data-active={active ? "true" : "false"}
       style={{ opacity: active ? 1 : 0 }}
     >

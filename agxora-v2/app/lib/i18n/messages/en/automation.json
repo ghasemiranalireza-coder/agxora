@@ -1,0 +1,540 @@
+{
+  "enginePage": {
+    "sectionTitle": "AGXORA Automation OS",
+    "title": "Automation",
+    "subtitle": "Enterprise AI Workflow & Automation Engine — the connective tissue for CRM, Finance, Creator Studio, and every future AGXORA module.",
+    "loadingHistory": "Loading workflow history…",
+    "loadingTemplates": "Loading template library…",
+    "loadingIntegrations": "Loading integration center…",
+    "dashboard": "Dashboard",
+    "workflowBuilder": "Workflow Builder",
+    "workflowBuilderSubtitle": "Node-based canvas with snap-to-grid, smooth zoom & pan, connection hover, and empty-state guidance.",
+    "openAssistant": "Open AI Workflow Assistant",
+    "workflowHistory": "Workflow History",
+    "workflowHistorySubtitle": "Execution log with colored status, clickable rows, and a full execution inspector.",
+    "templates": "Templates",
+    "templatesSubtitle": "Preview before load — node counts, difficulty, runtime, and recommended use cases.",
+    "integrationCenter": "Integration Center",
+    "integrationCenterSubtitle": "Adapter registry only — Connected, Beta, Planned, Coming soon, Disabled. No live APIs."
+  },
+  "assistant": {
+    "title": "AI Workflow Assistant",
+    "subtitle": "Local heuristics only — no live model required.",
+    "closeAria": "Close AI Workflow Assistant",
+    "close": "Close",
+    "workflowScore": "Workflow Score",
+    "scoreOutOf": "/ 100",
+    "optimizationSuggestions": "Optimization Suggestions",
+    "oneClickOptimize": "One Click Optimize",
+    "noticeDefault": "One Click Optimize is a no graph mutation yet.",
+    "noticeQueued": "Optimize queued. Future engine will rewrite delays & approvals."
+  },
+  "integrations": {
+    "intro": "Integration Center — optional. Statuses: Connected, Beta, Planned, Coming soon, Disabled. No live APIs.",
+    "category": "Category:",
+    "reservedAdapter": "Reserved adapter:",
+    "description": "Description:"
+  },
+  "executionInspector": {
+    "title": "Execution Details",
+    "emptyTitle": "Select an execution",
+    "emptyDescription": "Choose a run from Workflow History to inspect inputs, outputs, and AI summary.",
+    "workflowName": "Workflow Name",
+    "trigger": "Trigger",
+    "executionId": "Execution ID",
+    "started": "Started",
+    "finished": "Finished",
+    "duration": "Duration",
+    "status": "Status",
+    "success": "Success",
+    "failed": "Failed",
+    "retryAvailable": "Retry Available",
+    "executedBy": "Executed By",
+    "yes": "Yes",
+    "no": "No",
+    "emDash": "—",
+    "input": "Input",
+    "output": "Output",
+    "aiSummary": "AI Summary",
+    "errorMessage": "Error Message",
+    "retry": "Retry",
+    "retryUnavailable": "Retry unavailable",
+    "noticeDefault": "Retry adapter reserved — no live re-execution yet.",
+    "noticeQueued": "Retry queued for {id}."
+  },
+  "workflowBuilder": {
+    "elementsTitle": "Workflow Elements",
+    "paletteAria": "Palette",
+    "tabElements": "Elements",
+    "tabTriggers": "Triggers",
+    "tabActions": "Actions",
+    "tabAiActions": "AI Actions",
+    "builderTitle": "Workflow Builder · {name}",
+    "builderHint": "Snap to {grid}px grid · ⌘/Ctrl+scroll zoom · drag canvas to pan · double-click connect",
+    "autoSaved": "Auto saved",
+    "saving": "Saving…",
+    "undo": "Undo",
+    "redo": "Redo",
+    "zoomOut": "−",
+    "zoomIn": "+",
+    "resetView": "Reset view",
+    "emptyTitle": "Empty canvas",
+    "emptyDescription": "Drag a Trigger from the palette to start building. Snap-to-grid keeps nodes aligned.",
+    "connectHint": "Double-click target to connect",
+    "miniMapAria": "Mini map"
+  },
+  "workflowHistory": {
+    "title": "Workflow History · Execution Log",
+    "statusFilter": "Status",
+    "statusAll": "All",
+    "statusSuccess": "Success",
+    "statusFailed": "Failed",
+    "statusPending": "Pending",
+    "statusRetried": "Retry",
+    "statusRunning": "Running",
+    "runsAria": "Workflow runs",
+    "noMatches": "No workflow runs match this filter."
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Empty workflow"
+  },
+  "workflowTemplates": {
+    "title": "Template Library",
+    "noticeDefault": "Preview a template before loading it into the builder.",
+    "noticeLoaded": "Loaded \"{name}\" into the workflow builder.",
+    "nodesBadge": "{count} nodes",
+    "recommendedFor": "Recommended for: {for}",
+    "preview": "Preview",
+    "useTemplate": "Use Template",
+    "previewTitle": "Template Preview",
+    "close": "Close",
+    "nodes": "Nodes",
+    "connections": "Connections",
+    "estimatedRuntime": "Estimated Runtime",
+    "difficulty": "Difficulty",
+    "requiredModules": "Required Modules",
+    "usedAiFeatures": "Used AI Features",
+    "none": "None"
+  },
+  "workspace": {
+    "loading": "Loading automation engine…",
+    "eyebrow": "Workflow Automation Engine",
+    "title": "Automation",
+    "subtitle": "Configurable business workflows across CRM, Projects, Finance, Documents, and AI — local event bus and in-browser engine. Distributed queue and backend workers are not connected.",
+    "noticeDefault": "Execution engine is UI-independent. Modules publish events; workflows subscribe.",
+    "tabs": {
+      "dashboard": "Dashboard",
+      "workflows": "Workflows",
+      "editor": "Editor",
+      "history": "History",
+      "templates": "Templates",
+      "analytics": "Analytics",
+      "settings": "Settings"
+    },
+    "notice": {
+      "missingWrite": "Missing workflow.write permission.",
+      "missingExecute": "Missing workflow.execute permission.",
+      "created": "Created {name}",
+      "templateApplied": "Template applied: {name}",
+      "runResult": "Run {status} ({duration}ms)",
+      "runFailed": "Workflow could not run (disabled or missing).",
+      "publishedEvent": "Published domain event: {type}",
+      "workflowStatus": "Workflow {status}",
+      "saved": "Workflow saved",
+      "retryResult": "Retry {status}",
+      "retryFailed": "Retry failed",
+      "settingsSaved": "Automation settings saved"
+    },
+    "defaults": {
+      "untitledName": "Untitled workflow",
+      "untitledDescription": "Draft workflow — configure trigger and actions."
+    },
+    "dashboard": {
+      "workflows": "Workflows",
+      "active": "Active",
+      "runsToday": "Runs today",
+      "successRate": "Success rate",
+      "recentWorkflows": "Recent workflows",
+      "newWorkflow": "New workflow",
+      "eventBusDemo": "Event bus demo",
+      "eventBusHint": "Publish a module event. Active workflows with matching triggers enqueue automatically.",
+      "notifications": "Notifications"
+    },
+    "workflowList": {
+      "title": "Workflow list",
+      "newWorkflow": "New workflow",
+      "emptyTitle": "No workflows yet.",
+      "emptyDescription": "Create a workflow or start from a template.",
+      "columns": {
+        "name": "Name",
+        "status": "Status",
+        "nodes": "Nodes",
+        "updated": "Updated",
+        "actions": "Actions"
+      },
+      "run": "Run",
+      "disable": "Disable",
+      "activate": "Activate"
+    },
+    "editor": {
+      "selectPrompt": "Select or create a workflow to edit.",
+      "workflows": "Workflows",
+      "title": "Workflow editor",
+      "hint": "Architecture supports trigger → condition → action → delay → branch → loop. Canvas drag-and-drop can plug into node positions without engine changes.",
+      "name": "Name",
+      "description": "Description",
+      "trigger": "Trigger",
+      "primaryAction": "Primary action",
+      "executionPath": "Execution path preview",
+      "save": "Save",
+      "runNow": "Run now",
+      "triggerFallback": "Trigger",
+      "actionFallback": "Action"
+    },
+    "history": {
+      "title": "Execution history",
+      "emptyTitle": "No executions yet.",
+      "emptyDescription": "Run a workflow or publish a domain event.",
+      "latestRun": "Latest run detail",
+      "path": "Path: {path}",
+      "error": " · Error: {error}",
+      "columns": {
+        "workflow": "Workflow",
+        "status": "Status",
+        "triggeredBy": "Triggered by",
+        "duration": "Duration",
+        "started": "Started",
+        "retry": "Retry"
+      },
+      "retry": "Retry",
+      "emDash": "—"
+    },
+    "templates": {
+      "useTemplate": "Use template"
+    },
+    "analytics": {
+      "totalWorkflows": "Total workflows",
+      "activeWorkflows": "Active workflows",
+      "executionsToday": "Executions today",
+      "successRate24h": "Success rate (24h)",
+      "failed24h": "Failed (24h)",
+      "avgDuration": "Avg duration"
+    },
+    "settings": {
+      "title": "Automation settings",
+      "subtitle": "Retry policy, execution limits, concurrency, timeout, and loggings for distributed execution.",
+      "maxRetryAttempts": "Max retry attempts",
+      "backoffMs": "Backoff (ms)",
+      "executionsPerHour": "Executions / hour",
+      "concurrencyLimit": "Concurrency limit",
+      "timeoutMs": "Timeout (ms)",
+      "logLevel": "Log level",
+      "logLevels": {
+        "error": "error",
+        "warn": "warn",
+        "info": "info",
+        "debug": "debug"
+      },
+      "saveSettings": "Save settings"
+    }
+  },
+  "status": {
+    "connected": "Connected",
+    "beta": "Beta",
+    "comingSoon": "Coming soon",
+    "disabled": "Disabled",
+    "planned": "Planned",
+    "success": "Success",
+    "failed": "Failed",
+    "running": "Running",
+    "pending": "Pending",
+    "retried": "Retry"
+  },
+  "difficulty": {
+    "starter": "Starter",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Trigger",
+      "description": "Start when an event fires"
+    },
+    "el-condition": {
+      "label": "Condition",
+      "description": "Branch on rules"
+    },
+    "el-delay": {
+      "label": "Delay",
+      "description": "Wait before continuing"
+    },
+    "el-approval": {
+      "label": "Approval",
+      "description": "Human approval gate"
+    },
+    "el-loop": {
+      "label": "Loop",
+      "description": "Iterate over a collection"
+    },
+    "el-merge": {
+      "label": "Merge",
+      "description": "Join parallel paths"
+    },
+    "el-split": {
+      "label": "Split",
+      "description": "Fan-out parallel paths"
+    },
+    "el-ai-decision": {
+      "label": "AI Decision",
+      "description": "Route via AI"
+    },
+    "el-notification": {
+      "label": "Notification",
+      "description": "In-app alert"
+    },
+    "el-webhook": {
+      "label": "Webhook Placeholder",
+      "description": "HTTP callback reserved"
+    },
+    "el-custom": {
+      "label": "Custom Action",
+      "description": "Extensible action slot"
+    },
+    "tr-customer": {
+      "label": "Customer Created",
+      "description": "CRM customer record created"
+    },
+    "tr-lead": {
+      "label": "Lead Created",
+      "description": "New lead enters pipeline"
+    },
+    "tr-invoice": {
+      "label": "Invoice Created",
+      "description": "Finance invoice issued"
+    },
+    "tr-invoice-paid": {
+      "label": "Invoice Paid",
+      "description": "Payment settled"
+    },
+    "tr-order": {
+      "label": "Order Created",
+      "description": "Order entered"
+    },
+    "tr-order-done": {
+      "label": "Order Completed",
+      "description": "Order fulfilled"
+    },
+    "tr-doc": {
+      "label": "Document Uploaded",
+      "description": "Document vault upload"
+    },
+    "tr-campaign": {
+      "label": "Campaign Published",
+      "description": "Creator Studio publish"
+    },
+    "tr-employee": {
+      "label": "Employee Added",
+      "description": "Team directory change"
+    },
+    "tr-task": {
+      "label": "Task Completed",
+      "description": "Task marked done"
+    },
+    "tr-manual": {
+      "label": "Manual Trigger",
+      "description": "Run on demand"
+    },
+    "tr-schedule": {
+      "label": "Schedule Trigger",
+      "description": "Cron / calendar schedule"
+    },
+    "tr-webhook": {
+      "label": "Webhook Trigger",
+      "description": "Inbound HTTP event"
+    },
+    "tr-api": {
+      "label": "API Trigger",
+      "description": "Programmatic start"
+    },
+    "ac-crm": {
+      "label": "Create CRM Record",
+      "description": "Write CRM entity"
+    },
+    "ac-invoice": {
+      "label": "Generate Invoice",
+      "description": "Finance invoice"
+    },
+    "ac-quote": {
+      "label": "Generate Quote",
+      "description": "Create quote document"
+    },
+    "ac-delivery": {
+      "label": "Generate Delivery Note",
+      "description": "Delivery note"
+    },
+    "ac-task": {
+      "label": "Create Task",
+      "description": "Open a task"
+    },
+    "ac-assign": {
+      "label": "Assign Employee",
+      "description": "Route to teammate"
+    },
+    "ac-email": {
+      "label": "Send Email",
+      "description": "Outbound email"
+    },
+    "ac-notify": {
+      "label": "Send Notification",
+      "description": "In-app notification"
+    },
+    "ac-ai-summary": {
+      "label": "Generate AI Summary",
+      "description": "Summarize context"
+    },
+    "ac-ai-content": {
+      "label": "Generate AI Content",
+      "description": "Creator Studio draft"
+    },
+    "ac-update-customer": {
+      "label": "Update Customer",
+      "description": "Patch CRM customer"
+    },
+    "ac-update-status": {
+      "label": "Update Status",
+      "description": "Change entity status"
+    },
+    "ac-pdf": {
+      "label": "Export PDF",
+      "description": "Document export"
+    },
+    "ac-future": {
+      "label": "Future API Placeholder",
+      "description": "Reserved action slot"
+    },
+    "ai-decision": {
+      "label": "AI Decision",
+      "description": "Decide next path"
+    },
+    "ai-class": {
+      "label": "AI Classification",
+      "description": "Classify records"
+    },
+    "ai-text": {
+      "label": "AI Text Generation",
+      "description": "Generate text"
+    },
+    "ai-translate": {
+      "label": "AI Translation",
+      "description": "Translate content"
+    },
+    "ai-email": {
+      "label": "AI Email Reply",
+      "description": "Draft reply"
+    },
+    "ai-sum": {
+      "label": "AI Summarization",
+      "description": "Condense context"
+    },
+    "ai-rec": {
+      "label": "AI Recommendations",
+      "description": "Suggest next steps"
+    },
+    "ai-route": {
+      "label": "AI Routing",
+      "description": "Route to owner / queue"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Customer created",
+      "description": "Fires when a CRM customer record is created."
+    },
+    "project_created": {
+      "label": "Project created",
+      "description": "Fires when a project is created."
+    },
+    "invoice_issued": {
+      "label": "Invoice issued",
+      "description": "Fires when an invoice is issued."
+    },
+    "task_completed": {
+      "label": "Task completed",
+      "description": "Fires when a task is marked complete."
+    },
+    "document_uploaded": {
+      "label": "Document uploaded",
+      "description": "Fires when a document is uploaded."
+    },
+    "user_invited": {
+      "label": "User invited",
+      "description": "Fires when a team member is invited."
+    },
+    "schedule": {
+      "label": "Schedule",
+      "description": "Cron / interval schedule trigger."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Inbound HTTP webhook trigger."
+    },
+    "api_event": {
+      "label": "API Event",
+      "description": "Generic API-emitted domain event."
+    },
+    "ai_event": {
+      "label": "AI Event",
+      "description": "AI platform signal (completion, insight, agent step)."
+    },
+    "manual": {
+      "label": "Manual trigger",
+      "description": "Run on demand from the Automation UI or API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Create Customer",
+      "description": "Create a CRM customer record."
+    },
+    "customer_update": {
+      "label": "Update Customer",
+      "description": "Update fields on a customer."
+    },
+    "project_create": {
+      "label": "Create Project",
+      "description": "Create a project from workflow context."
+    },
+    "document_generate": {
+      "label": "Generate Document",
+      "description": "Generate a document from a template."
+    },
+    "notification_send": {
+      "label": "Send Notification",
+      "description": "Push an in-app notification."
+    },
+    "email_send": {
+      "label": "Send Email",
+      "description": "Queue an email via the mail provider."
+    },
+    "api_call": {
+      "label": "Call API",
+      "description": "HTTP call to an external or internal API."
+    },
+    "ai_run": {
+      "label": "Run AI",
+      "description": "Execute an AI prompt / agent step with context."
+    },
+    "task_assign": {
+      "label": "Assign Task",
+      "description": "Assign a task to a user."
+    },
+    "invoice_create": {
+      "label": "Create Invoice",
+      "description": "Create a finance invoice."
+    },
+    "status_update": {
+      "label": "Update Status",
+      "description": "Update entity status in a module."
+    }
+  }
+}

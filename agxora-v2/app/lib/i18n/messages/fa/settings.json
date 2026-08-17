@@ -22,7 +22,14 @@
     "localPrefsNotice": "منطقه زمانی، منطقه و ترجیحات شخصی هنوز ذخیره نمی‌شوند. ذخیره فقط تا وقتی این صفحه باز است اعمال می‌شود.",
     "avatarUnavailable": "بارگذاری آواتار هنوز در دسترس نیست.",
     "appearanceNote": "پیکربندی ظاهر در بخش ظاهر باقی می‌ماند. هدر فقط یک تغییر سریع تم دارد.",
-    "prefsHint": "توسط دستیارهای هوش مصنوعی در ماژول‌ها استفاده می‌شود."
+    "prefsHint": "توسط دستیارهای هوش مصنوعی در ماژول‌ها استفاده می‌شود.",
+    "themeResolved": "{mode} (حل شده {appearance})",
+    "regions": {
+      "EU": "اتحادیه اروپا",
+      "US": "ایالات متحده",
+      "MENA": "منا",
+      "APAC": "آپاک"
+    }
   },
   "organization": {
     "label": "سازمان",
@@ -46,37 +53,174 @@
     "label": "هوش مصنوعی",
     "description": "ارائه‌دهنده، مدل، خلاقیت و حافظه",
     "title": "هوش مصنوعی",
-    "panelDescription": "ارائه‌دهنده، مدل، خلاقیت، دما و ترجیحات حافظه."
+    "panelDescription": "ارائه‌دهنده، مدل، خلاقیت، دما و ترجیحات حافظه.",
+    "openAgentOs": "سیستم عامل عامل باز",
+    "openAiWorkspace": "فضای کاری هوش مصنوعی باز",
+    "noticeSync": "تنظیمات هوش مصنوعی از طریق AISettingsProvider همگام‌سازی می‌شوند - کلیدهایی که هرگز در اینجا ذخیره نمی‌شوند.",
+    "noticeProvider": "پیاده‌سازی‌های ارائه‌دهنده در پشت لایه سرویس هوش مصنوعی باقی می‌مانند. رابط کاربری هرگز کلیدهای API یا جزئیات SDK را دریافت نمی‌کند. عامل‌های خودمختار در Agent OS قرار دارند.",
+    "preferredProvider": "ارائه دهنده هوش مصنوعی ترجیحی",
+    "defaultModel": "مدل پیش‌فرض هوش مصنوعی",
+    "temperature": "دما",
+    "topP": "بالا پ",
+    "maxTokens": "حداکثر توکن‌ها",
+    "writingStyle": "سبک نگارش",
+    "languagePreferences": "ترجیحات زبان",
+    "systemPrompt": "اعلان سیستم",
+    "systemPromptHint": "به عنوان دستورالعمل پیش‌فرض سیستم برای پلتفرم هوش مصنوعی اعمال می‌شود.",
+    "systemPromptPlaceholder": "شما AGXORA AI هستید - دستیار عملیاتی سازمانی ...",
+    "apiKeyManagement": "مدیریت کلیدی",
+    "apiKeyHint": "کلیدها فقط از طریق متغیرهای محیطی سرور ارائه می‌شوند.",
+    "apiKeyPlaceholder": "از طریق متغیرهای محیطی AGXORA_* پیکربندی شده است (هرگز در مرورگر نمایش داده نمی‌شود)",
+    "memory": "حافظه",
+    "memoryDescription": "Allow organization memory to inform AI replies across modules.",
+    "automationSuggestions": "پیشنهادات اتوماسیون",
+    "automationSuggestionsDescription": "پیشنهادهای گردش کار هوش مصنوعی سطحی در موتور اتوماسیون.",
+    "streaming": "Streaming",
+    "streamingDescription": "پاسخ‌های مدل را زمانی که ارائه‌دهنده از آن پشتیبانی می‌کند، پخش کنید.",
+    "providers": {
+      "mock": "مسخره (محلی)",
+      "openai": "OpenAI",
+      "azure": "Azure OpenAI",
+      "anthropic": "انسان‌نگر",
+      "google": "Google",
+      "openrouter": "اوپن‌روتر",
+      "ollama": "اولاما",
+      "local": "ارائه دهنده محلی"
+    },
+    "writingStyles": {
+      "professional": "حرفه‌ای",
+      "concise": "Concise",
+      "friendly": "Friendly",
+      "technical": "Technical"
+    },
+    "languages": {
+      "auto": "Match profile language",
+      "en": "انگلیسی",
+      "de": "آلمانی"
+    }
   },
   "appearance": {
     "label": "ظاهر",
     "description": "تم، تراکم و جلوه‌های شیشه‌ای",
     "title": "ظاهر",
-    "panelDescription": "تم، تراکم، رنگ تأکید، انیمیشن‌ها و جلوه‌های شیشه‌ای."
+    "panelDescription": "تم، تراکم، رنگ تأکید، انیمیشن‌ها و جلوه‌های شیشه‌ای.",
+    "noticeTheme": "حالت قالب تنها منبع حقیقت از طریق ThemeProvider است. هدر فقط یک تغییر سریع ارائه می‌دهد.",
+    "themeLabel": "تم",
+    "themeModeAria": "Theme mode",
+    "resolvedAppearance": "ظاهر حل شده:",
+    "accentColor": "رنگ حساب",
+    "accentNotice": "Accent preference is stored for future CSS var wiring — does not mutate the locked color system yet.",
+    "density": "Density",
+    "compactMode": "Compact Mode",
+    "compactModeDescription": "Reduce padding across enterprise tables and panels.",
+    "animations": "انیمیشن",
+    "animationsDescription": "Section motion and hover lifts. Respects reduced-motion OS setting.",
+    "glassEffects": "جلوه‌های شیشه‌ای",
+    "glassEffectsDescription": "Frosted glass cards and sidebar blur intensity preference.",
+    "modes": {
+      "day": {
+        "label": "روشن",
+        "hint": "پالت روز شرکت مروارید / یخ"
+      },
+      "night": {
+        "label": "Dark",
+        "hint": "Approved cinematic night look"
+      },
+      "auto": {
+        "label": "سیستم",
+        "hint": "برنامه محلی را دنبال کنید (خودکار)"
+      }
+    },
+    "densities": {
+      "comfortable": "Comfortable",
+      "compact": "نمایش طرح جمع و جور",
+      "spacious": "Spacious"
+    }
   },
   "notifications": {
     "label": "اعلان‌ها",
     "description": "ایمیل، پوش و هشدارهای ماژول",
     "title": "اعلان‌ها",
-    "panelDescription": "ایمیل، پوش، دسکتاپ، موبایل و هشدارهای ماژول."
+    "panelDescription": "ایمیل، پوش، دسکتاپ، موبایل و هشدارهای ماژول.",
+    "notice": "کانال‌های اعلان فقط تنظیمات برگزیده هستند - آداپتورهای تحویل رزرو شده‌اند.",
+    "email": "ایمیل",
+    "push": "پوش (Push)",
+    "desktop": "Desktop",
+    "mobile": "موبایل",
+    "workflowAlerts": "هشدارهای گردش کار",
+    "workflowAlertsDescription": "Automation Engine execution and approval events.",
+    "financeAlerts": "Finance Alerts",
+    "crmAlerts": "هشدارهای CRM",
+    "documentsAlerts": "Documents Alerts",
+    "deliveryNotice": "Delivery adapters ship at launch. Questions:",
+    "contactSupport": "با پشتیبانی تماس بگیرید"
   },
   "documents": {
     "label": "اسناد",
     "description": "ذخیره‌سازی، نگهداری و دانش",
     "title": "اسناد",
-    "panelDescription": "ذخیره‌سازی، نگهداری، پوشه پیش‌فرض، نسخه‌بندی و دانش."
+    "panelDescription": "ذخیره‌سازی، نگهداری، پوشه پیش‌فرض، نسخه‌بندی و دانش.",
+    "notice": "Documents settings integrate with the Knowledge Hub architecture.",
+    "storagePreferences": "تنظیمات ذخیره سازی",
+    "retentionPolicy": "سیاست نگهداری",
+    "defaultFolder": "Default Folder",
+    "versioning": "Versioning",
+    "versioningDescription": "تاریخچه نسخه سند را برای بازیابی/مقایسه نگه دارید.",
+    "knowledgeSettings": "Knowledge Settings",
+    "knowledgeDescription": "نمایه‌سازی هوش مصنوعی برای جستجوی مرکز دانش.",
+    "storageOptions": {
+      "workspace-default": "Workspace default",
+      "eu-region": "EU region",
+      "encrypted-vault": "Encrypted vault"
+    },
+    "retentionOptions": {
+      "30-days": "۳۰ روز (ابتدایی)",
+      "2-years": "2 years",
+      "7-years": "7 سال",
+      "10-years": "10 years"
+    }
   },
   "automation": {
     "label": "اتوماسیون",
     "description": "پیش‌فرض‌های گردش‌کار و سیاست تلاش مجدد",
     "title": "اتوماسیون",
-    "panelDescription": "پیش‌فرض‌های گردش‌کار، پیشنهادهای AI، گزارش اجرا، تاریخچه و سیاست تلاش مجدد."
+    "panelDescription": "پیش‌فرض‌های گردش‌کار، پیشنهادهای AI، گزارش اجرا، تاریخچه و سیاست تلاش مجدد.",
+    "notice": "پیش‌فرض‌های اتوماسیون برای معماری موتور گردش کار اعمال می‌شوند.",
+    "workflowDefaults": "Workflow Defaults",
+    "historyLimits": "محدودیت‌های تاریخچه",
+    "retryPolicy": "Retry Policy",
+    "aiSuggestions": "AI Suggestions",
+    "executionLogs": "گزارش‌های اجرایی",
+    "executionLogsDescription": "Retain detailed run payloads in Workflow History.",
+    "workflowOptions": {
+      "require-approval": "Require approval gates",
+      "auto-run": "جریان‌های قابل اعتماد را به صورت خودکار اجرا کنید",
+      "draft-only": "فقط پیش‌نویس"
+    },
+    "historyOptions": {
+      "30-days": "30 days",
+      "90-days": "۹۰ روز",
+      "365-days": "365 days"
+    },
+    "retryOptions": {
+      "none": "No retries",
+      "3-exponential": "۳× نمایی",
+      "5-linear": "5× linear"
+    }
   },
   "integrations": {
     "label": "یکپارچه‌سازی‌ها",
     "description": "نصب‌شده، متصل و موجود",
     "title": "یکپارچه‌سازی‌ها",
-    "panelDescription": "آداپترهای نصب‌شده، متصل و موجود."
+    "panelDescription": "آداپترهای نصب‌شده، متصل و موجود.",
+    "openCenter": "Open Integration Center",
+    "notice": "پلتفرم یکپارچه‌سازی سازمانی در مرکز یکپارچه‌سازی قرار دارد - کانکتورها، OAuth، وب‌هوک‌ها، کلیدهای API و پل رویداد گردش کار.",
+    "columns": {
+      "integration": "ادغام",
+      "category": "دسته",
+      "status": "وضعیت",
+      "adapter": "سازوارگر."
+    }
   },
   "security": {
     "label": "امنیت",
@@ -134,19 +278,52 @@
     "label": "API و توسعه‌دهندگان",
     "description": "کلیدها، وب‌هوک‌ها، توکن‌ها، سندباکس",
     "title": "API و توسعه‌دهندگان",
-    "panelDescription": "کلیدها، وب‌هوک‌ها، توکن‌ها و دسترسی سندباکس."
+    "panelDescription": "کلیدها، وب‌هوک‌ها، توکن‌ها و دسترسی سندباکس.",
+    "openPortal": "Open developer portal",
+    "notice": "کلیدها را در مرکز ادغام ایجاد، چرخش و لغو کنید. دروازه، تستر وب‌هوک و کاوشگر API در آنجا موجود است.",
+    "webhooks": "صفحات وب",
+    "sandbox": "محیط آزمایشی (SandBox)",
+    "sandboxEnabled": "فعال",
+    "sandboxDisabled": "غیرفعال",
+    "tokensNotice": "توکن‌های توسعه‌دهندگان هرگز تمام اسرار را نمایش نمی‌دهند - فقط پیشوند.",
+    "columns": {
+      "name": "نام",
+      "key": "کلید",
+      "scope": "محدوده",
+      "lastUsed": "Last used"
+    }
   },
   "audit": {
     "label": "گزارش‌های ممیزی",
     "description": "فعالیت، امنیت و تغییرات سیستم",
     "title": "گزارش‌های ممیزی",
-    "panelDescription": "فعالیت اخیر، رویدادهای امنیتی و تغییرات سیستم."
+    "panelDescription": "فعالیت اخیر، رویدادهای امنیتی و تغییرات سیستم.",
+    "columns": {
+      "when": "When",
+      "actor": "هنرمند",
+      "category": "دسته",
+      "summary": "خلاصه:"
+    },
+    "categories": {
+      "activity": "فعالیت اخیر",
+      "security": "Security Events",
+      "system": "تغییرات سیستم"
+    }
   },
   "advanced": {
     "label": "پیشرفته",
     "description": "آزمایشی، بازنشانی، درون‌ریزی، برون‌ریزی",
     "title": "پیشرفته",
-    "panelDescription": "قابلیت‌های آزمایشی، بازنشانی، درون‌ریزی و برون‌ریزی."
+    "panelDescription": "قابلیت‌های آزمایشی، بازنشانی، درون‌ریزی و برون‌ریزی.",
+    "notice": "اقدامات پیشرفته قبل از اعمال نیاز به تأیید دارند.",
+    "experimentalFeatures": "Experimental Features",
+    "experimentalDescription": "از قابلیت‌های ناتمام مرکز کنترل استفاده کنید.",
+    "export": "خروجی",
+    "import": "Import",
+    "reset": "بازنشانی کنید",
+    "exportUnavailable": "Export is not available yet.",
+    "importUnavailable": "واردات هنوز در دسترس نیست.",
+    "resetUnavailable": "Reset is not available yet."
   },
   "page": {
     "eyebrow": "مرکز کنترل AGXORA",

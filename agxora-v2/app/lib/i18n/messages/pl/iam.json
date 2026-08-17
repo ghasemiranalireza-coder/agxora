@@ -1,0 +1,174 @@
+{
+  "identity": {
+    "eyebrow": "Prawa korporacyjne",
+    "title": "Tożsamość i dostęp",
+    "lead": "Organizacja, obszar roboczy, RBAC, symbole zastępcze zabezpieczeń i architektura audytu. Adaptery zaplecza podłącza się bez zmiany tej powierzchni.",
+    "openProfile": "Otwórz profil",
+    "teamManagement": "Zarządzanie zespołem",
+    "tabs": {
+      "organization": "Organizacja",
+      "workspace": "Obszar roboczy",
+      "roles": "Role i uprawnienia",
+      "security": "Bezpieczeństwo",
+      "audit": "Dziennik audytu"
+    },
+    "organizationSettings": "Ustawienia organizacji",
+    "workspaceSettings": "Ustawienia obszaru roboczego",
+    "noOrganization": "Żadna organizacja nie jest aktywna. Dokończ wdrożenie lub utwórz je w usłudze organizacji.",
+    "logoPlaceholder": "Adaptery przesyłania logo i rozliczeń planów są obiektami zastępczymi dla przyszłego zaplecza tożsamości.",
+    "rbacTitle": "RBAC — role domyślne",
+    "permissionMatrix": "Macierz uprawnień",
+    "canManageSettings": "Może zarządzać ustawieniami: {value} · Uwierzytelniony: {authenticated}",
+    "yes": "Tak",
+    "no": "NIE",
+    "securitySettings": "Ustawienia zabezpieczeń",
+    "passwordChange": {
+      "title": "Zmiana hasła",
+      "detail": "Zmiana hasła łączy się za pośrednictwem dostawcy uwierzytelniania, jeśli jest skonfigurowany."
+    },
+    "twoFactor": {
+      "title": "Uwierzytelnianie dwuskładnikowe (2FA)",
+      "detail": "Adaptery TOTP i WebAuthn rejestrują się tutaj, jeśli są włączone."
+    },
+    "activeSessions": {
+      "title": "Aktywne sesje",
+      "detail": "Katalog urządzeń żyje w sesjach tożsamości; odwołanie staje się autorytatywne w przypadku sesji serwera."
+    },
+    "apiKeys": {
+      "title": "Klucze API",
+      "detail": "Konta usług i tokeny zakresu dla programistów."
+    },
+    "absoluteTimeout": "Absolutny limit czasu",
+    "idleTimeout": "Limit czasu bezczynności",
+    "refreshSkew": "Odśwież skos",
+    "persistentLogin": "Trwałe logowanie",
+    "disabled": "Wyłączony",
+    "enabled": "Włączony",
+    "days": "{count} dni",
+    "minutes": "{count} min",
+    "toggleIdlePolicy": "Przełącz symbol zastępczy bezczynnych zasad",
+    "previewSessionExpired": "Sesja podglądu wygasła",
+    "previewAccountLocked": "Konto podglądowe zablokowane",
+    "auditActivity": "Działalność audytowa",
+    "auditLead": "Logowanie, wylogowywanie, zmiany ról, zaproszenia i zdarzenia organizacyjne są rejestrowane lokalnie. Zastąp później niezmiennym magazynem audytu zaplecza.",
+    "auditEmpty": "Nie ma jeszcze żadnych wydarzeń IAM. Zaloguj się lub zmień rolę, aby wypełnić dziennik.",
+    "meta": {
+      "name": "Nazwa",
+      "slug": "Ślimak",
+      "plan": "Plan",
+      "owner": "Właściciel",
+      "created": "Stworzony",
+      "yourRole": "Twoja rola",
+      "workspace": "Obszar roboczy",
+      "status": "Status",
+      "isolationKey": "Klucz izolacji"
+    },
+    "matrix": {
+      "permission": "Pozwolenie",
+      "owner": "Właściciel",
+      "admin": "Administrator",
+      "manager": "Menedżer",
+      "member": "Członek",
+      "viewer": "Dozorca",
+      "yes": "Tak"
+    },
+    "audit": {
+      "when": "Gdy",
+      "action": "Działanie",
+      "actor": "Aktor",
+      "resource": "Ratunek"
+    }
+  },
+  "roles": {
+    "owner": {
+      "name": "Właściciel",
+      "description": "Pełna kontrola, w tym rozliczenia i przeniesienie własności"
+    },
+    "admin": {
+      "name": "Administrator",
+      "description": "Zarządzaj ludźmi, bezpieczeństwem, obszarami roboczymi i modułami"
+    },
+    "manager": {
+      "name": "Menedżer",
+      "description": "Zespoły prowadzące i moduły operacyjne; zaprosić członków"
+    },
+    "member": {
+      "name": "Członek",
+      "description": "Dostęp operacyjny na co dzień"
+    },
+    "viewer": {
+      "name": "Dozorca",
+      "description": "Dostęp tylko do odczytu"
+    }
+  },
+  "profile": {
+    "eyebrow": "Tożsamość",
+    "title": "Profil użytkownika",
+    "lead": "Zarządzaj tożsamością, preferencjami i bezpieczeństwem swojego konta. Elementy sterujące organizacją i obszarem roboczym znajdują się w Ustawieniach tożsamości.",
+    "guest": "Gość",
+    "notSignedIn": "Nie zalogowany",
+    "identitySettings": "Ustawienia tożsamości",
+    "security": "Bezpieczeństwo",
+    "profileSection": "Profil",
+    "fullName": "Pełne imię i nazwisko",
+    "email": "E-mail",
+    "language": "Język",
+    "timezone": "Strefa czasowa",
+    "languageEnGb": "Angielski (Wielka Brytania)",
+    "languageEnUs": "angielski (amerykański)",
+    "languageDe": "Niemiecki",
+    "timezoneBerlin": "Europa/Berlin",
+    "timezoneLondon": "Europa/Londyn",
+    "timezoneUtc": "UTC",
+    "timezoneNewYork": "Ameryka/Nowy Jork",
+    "notifications": "Powiadomienia",
+    "emailNotifications": "Powiadomienia e-mailowe",
+    "pushNotifications": "Powiadomienia push",
+    "workspace": "Obszar roboczy",
+    "noticeInitial": "Preferencje są zapisywane lokalnie do czasu połączenia interfejsu API profilu.",
+    "noticeSaved": "Zaktualizowano preferencje profilu.",
+    "savePreferences": "Zapisz preferencje"
+  },
+  "workspaceSelector": {
+    "empty": "Nie ma jeszcze obszarów roboczych — utwórz organizację, aby je udostępnić.",
+    "label": "Aktywna przestrzeń robocza",
+    "ariaLabel": "Zmień obszar roboczy"
+  },
+  "verifyEmail": {
+    "title": "Weryfikacja e-mailowa",
+    "loading": "Załadunek…",
+    "skipForNow": "Pomiń na razie",
+    "tokenPlaceholder": "Token weryfikacyjny",
+    "tokenIssued": "Token weryfikacyjny wydany dla bieżącej sesji.",
+    "issueFailed": "Nie można wystawić tokena",
+    "verificationFailed": "Weryfikacja nie powiodła się",
+    "verify": "Zweryfikuj adres e-mail",
+    "verifying": "Weryfikuję…",
+    "requestToken": "Poproś o token weryfikacyjny"
+  },
+  "access": {
+    "eyebrow": "Tożsamość i dostęp",
+    "signIn": "Zaloguj się",
+    "backToDashboard": "Powrót do pulpitu",
+    "unauthorized": {
+      "title": "Brak autoryzacji",
+      "description": "Zaloguj się, aby kontynuować w tym obszarze AGXORA."
+    },
+    "forbidden": {
+      "title": "Zabronione",
+      "description": "Twoja rola nie obejmuje uprawnienia do tego zasobu."
+    },
+    "expired_session": {
+      "title": "Sesja wygasła",
+      "description": "Sesja wygasła. Zaloguj się ponownie, aby wznowić pracę."
+    },
+    "missing_permission": {
+      "title": "Brak uprawnienia",
+      "description": "Poproś właściciela lub administratora o przyznanie wymaganego dostępu do modułu."
+    },
+    "account_locked": {
+      "title": "Konto zablokowane",
+      "description": "To konto jest zablokowane. Skontaktuj się z właścicielem organizacji lub spróbuj ponownie później."
+    }
+  }
+}

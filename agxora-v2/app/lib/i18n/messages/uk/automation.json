@@ -1,0 +1,540 @@
+{
+  "enginePage": {
+    "sectionTitle": "AGXORA Automation OS",
+    "title": "автоматизація",
+    "subtitle": "Enterprise AI Workflow & Automation Engine — сполучна тканина для CRM, Finance, Creator Studio та будь-якого майбутнього модуля AGXORA.",
+    "loadingHistory": "Завантаження історії робочого процесу…",
+    "loadingTemplates": "Завантаження бібліотеки шаблонів…",
+    "loadingIntegrations": "Завантаження центру інтеграції…",
+    "dashboard": "Приладова панель",
+    "workflowBuilder": "Конструктор робочих процесів",
+    "workflowBuilderSubtitle": "Полотно на основі вузлів із прив’язкою до сітки, плавним масштабуванням і панорамуванням, наведенням підключення та вказівками в порожньому стані.",
+    "openAssistant": "Відкрийте AI Workflow Assistant",
+    "workflowHistory": "Історія робочого процесу",
+    "workflowHistorySubtitle": "Журнал виконання з кольоровим статусом, рядками, які можна натиснути, і повним інспектором виконання.",
+    "templates": "Шаблони",
+    "templatesSubtitle": "Попередній перегляд перед завантаженням — кількість вузлів, складність, час виконання та рекомендовані випадки використання.",
+    "integrationCenter": "Інтеграційний центр",
+    "integrationCenterSubtitle": "Лише реєстр адаптера — підключено, бета-версія, заплановано, незабаром, вимкнено. Немає активних API."
+  },
+  "assistant": {
+    "title": "AI Workflow Assistant",
+    "subtitle": "Лише локальна евристика — жива модель не потрібна.",
+    "closeAria": "Закрийте AI Workflow Assistant",
+    "close": "Закрити",
+    "workflowScore": "Оцінка робочого процесу",
+    "scoreOutOf": "/ 100",
+    "optimizationSuggestions": "Пропозиції щодо оптимізації",
+    "oneClickOptimize": "Оптимізація в один клік",
+    "noticeDefault": "Оптимізація одним клацанням миші поки що не змінила графік.",
+    "noticeQueued": "Оптимізація в черзі. Майбутній механізм перепише затримки та схвалення."
+  },
+  "integrations": {
+    "intro": "Центр інтеграції — за бажанням. Статуси: підключено, бета-версія, планується, незабаром, вимкнено. Немає активних API.",
+    "category": "Категорія:",
+    "reservedAdapter": "Зарезервований адаптер:",
+    "description": "опис:"
+  },
+  "executionInspector": {
+    "title": "Деталі виконання",
+    "emptyTitle": "Виберіть виконання",
+    "emptyDescription": "Виберіть запуск із журналу робочих процесів, щоб перевірити вхідні дані, виходи та зведення AI.",
+    "workflowName": "Назва робочого процесу",
+    "trigger": "Тригер",
+    "executionId": "ID виконання",
+    "started": "розпочато",
+    "finished": "Готово",
+    "duration": "Тривалість",
+    "status": "Статус",
+    "success": "Успіх",
+    "failed": "Не вдалося",
+    "retryAvailable": "Повторна спроба доступна",
+    "executedBy": "Виконав",
+    "yes": "так",
+    "no": "немає",
+    "emDash": "—",
+    "input": "Введення",
+    "output": "Вихід",
+    "aiSummary": "AI Резюме",
+    "errorMessage": "Повідомлення про помилку",
+    "retry": "Повторіть спробу",
+    "retryUnavailable": "Повторна спроба недоступна",
+    "noticeDefault": "Адаптер повторної спроби зарезервовано — повторного виконання ще немає.",
+    "noticeQueued": "Повторна спроба в черзі для {id}."
+  },
+  "workflowBuilder": {
+    "elementsTitle": "Елементи робочого процесу",
+    "paletteAria": "Палітра",
+    "tabElements": "Елементи",
+    "tabTriggers": "Тригери",
+    "tabActions": "Дії",
+    "tabAiActions": "Дії AI",
+    "builderTitle": "Конструктор робочих процесів · {name}",
+    "builderHint": "Прив’язати до сітки {grid}px · ⌘/Ctrl+прокручування масштабу · перетягнути полотно для панорамування · двічі клацнути з’єднати",
+    "autoSaved": "Автоматично збережено",
+    "saving": "Збереження…",
+    "undo": "Скасувати",
+    "redo": "Повторити",
+    "zoomOut": "−",
+    "zoomIn": "+",
+    "resetView": "Скинути перегляд",
+    "emptyTitle": "Порожнє полотно",
+    "emptyDescription": "Перетягніть тригер з палітри, щоб розпочати створення. Прив’язка до сітки зберігає вузли вирівняними.",
+    "connectHint": "Двічі клацніть ціль, щоб підключитися",
+    "miniMapAria": "Міні карта"
+  },
+  "workflowHistory": {
+    "title": "Історія робочого процесу · Журнал виконання",
+    "statusFilter": "Статус",
+    "statusAll": "все",
+    "statusSuccess": "Успіх",
+    "statusFailed": "Не вдалося",
+    "statusPending": "В очікуванні",
+    "statusRetried": "Повторіть спробу",
+    "statusRunning": "Біг",
+    "runsAria": "Робочий процес запускається",
+    "noMatches": "Жоден запуск робочого циклу не відповідає цьому фільтру."
+  },
+  "workflowTemplates": {
+    "title": "Бібліотека шаблонів",
+    "noticeDefault": "Перегляньте шаблон перед завантаженням у конструктор.",
+    "noticeLoaded": "Завантажено \"{name}\" у конструктор робочих циклів.",
+    "nodesBadge": "{count} вузлів",
+    "recommendedFor": "Рекомендовано для: {for}",
+    "preview": "Попередній перегляд",
+    "useTemplate": "Використовуйте шаблон",
+    "previewTitle": "Попередній перегляд шаблону",
+    "close": "Закрити",
+    "nodes": "Вузли",
+    "connections": "Зв'язки",
+    "estimatedRuntime": "Приблизний час роботи",
+    "difficulty": "Складність",
+    "requiredModules": "Необхідні модулі",
+    "usedAiFeatures": "Використані функції ШІ",
+    "none": "Жодного"
+  },
+  "workspace": {
+    "loading": "Завантаження системи автоматизації…",
+    "eyebrow": "Механізм автоматизації робочого процесу",
+    "title": "автоматизація",
+    "subtitle": "Настроювані бізнес-процеси в CRM, Projects, Finance, Documents і AI — локальна шина подій і механізм у браузері. Розподілена черга та серверні працівники не підключені.",
+    "noticeDefault": "Механізм виконання не залежить від інтерфейсу користувача. Модулі публікують події; робочі процеси підписатися.",
+    "tabs": {
+      "dashboard": "Приладова панель",
+      "workflows": "Робочі процеси",
+      "editor": "редактор",
+      "history": "історія",
+      "templates": "Шаблони",
+      "analytics": "Аналітика",
+      "settings": "Налаштування"
+    },
+    "notice": {
+      "missingWrite": "Відсутній дозвіл workflow.write.",
+      "missingExecute": "Відсутній дозвіл workflow.execute.",
+      "created": "Створено {name}",
+      "templateApplied": "Застосовано шаблон: {name}",
+      "runResult": "Запустити {status} ({duration} мс)",
+      "runFailed": "Не вдалося запустити робочий процес (вимкнено або відсутній).",
+      "publishedEvent": "Опублікована подія домену: {type}",
+      "workflowStatus": "Робочий процес {status}",
+      "saved": "Робочий процес збережено",
+      "retryResult": "Повторити {status}",
+      "retryFailed": "Повторна спроба не вдалася",
+      "settingsSaved": "Налаштування автоматизації збережено"
+    },
+    "defaults": {
+      "untitledName": "Робочий процес без назви",
+      "untitledDescription": "Чернетка робочого процесу — налаштуйте тригер і дії."
+    },
+    "dashboard": {
+      "workflows": "Робочі процеси",
+      "active": "Активний",
+      "runsToday": "Запускається сьогодні",
+      "successRate": "Коефіцієнт успішності",
+      "recentWorkflows": "Останні робочі процеси",
+      "newWorkflow": "Новий робочий процес",
+      "eventBusDemo": "Демонстрація автобуса подій",
+      "eventBusHint": "Опублікувати подію модуля. Активні робочі процеси з відповідними тригерами автоматично ставляться в чергу.",
+      "notifications": "Сповіщення"
+    },
+    "workflowList": {
+      "title": "Список робочих процесів",
+      "newWorkflow": "Новий робочий процес",
+      "emptyTitle": "Робочих процесів ще немає.",
+      "emptyDescription": "Створіть робочий процес або почніть із шаблону.",
+      "columns": {
+        "name": "Ім'я",
+        "status": "Статус",
+        "nodes": "Вузли",
+        "updated": "Оновлено",
+        "actions": "Дії"
+      },
+      "run": "бігти",
+      "disable": "Вимкнути",
+      "activate": "активувати"
+    },
+    "editor": {
+      "selectPrompt": "Виберіть або створіть робочий цикл для редагування.",
+      "workflows": "Робочі процеси",
+      "title": "Редактор робочого процесу",
+      "hint": "Архітектура підтримує тригер → умова → дія → затримка → розгалуження → цикл. Функція перетягування Canvas може підключатися до позицій вузлів без змін механізму.",
+      "name": "Ім'я",
+      "description": "опис",
+      "trigger": "Тригер",
+      "primaryAction": "Первинна дія",
+      "executionPath": "Попередній перегляд шляху виконання",
+      "save": "зберегти",
+      "runNow": "Біжи зараз",
+      "triggerFallback": "Тригер",
+      "actionFallback": "Дія"
+    },
+    "history": {
+      "title": "Історія виконання",
+      "emptyTitle": "Жодних страт ще немає.",
+      "emptyDescription": "Запустіть робочий процес або опублікуйте подію домену.",
+      "latestRun": "Деталі останнього запуску",
+      "path": "Шлях: {path}",
+      "error": "· Помилка: {error}",
+      "columns": {
+        "workflow": "робочий процес",
+        "status": "Статус",
+        "triggeredBy": "Спровоковано",
+        "duration": "Тривалість",
+        "started": "розпочато",
+        "retry": "Повторіть спробу"
+      },
+      "retry": "Повторіть спробу",
+      "emDash": "—"
+    },
+    "templates": {
+      "useTemplate": "Використовуйте шаблон"
+    },
+    "analytics": {
+      "totalWorkflows": "Загальні робочі процеси",
+      "activeWorkflows": "Активні робочі процеси",
+      "executionsToday": "Страти сьогодні",
+      "successRate24h": "Рівень успіху (24 години)",
+      "failed24h": "Помилка (24 години)",
+      "avgDuration": "Середня тривалість"
+    },
+    "settings": {
+      "title": "Налаштування автоматизації",
+      "subtitle": "Політика повторних спроб, обмеження виконання, паралелізм, час очікування та журналювання для розподіленого виконання.",
+      "maxRetryAttempts": "Максимальна кількість повторних спроб",
+      "backoffMs": "Відстрочка (мс)",
+      "executionsPerHour": "Виконання / год",
+      "concurrencyLimit": "Ліміт паралельності",
+      "timeoutMs": "Час очікування (мс)",
+      "logLevel": "Рівень журналу",
+      "saveSettings": "Зберегти налаштування",
+      "logLevels": {
+        "error": "помилка",
+        "warn": "попередження",
+        "info": "інфо",
+        "debug": "налагодження"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "Порожній робочий процес"
+  },
+  "status": {
+    "connected": "Підключено",
+    "beta": "Бета",
+    "comingSoon": "Незабаром",
+    "disabled": "Вимкнено",
+    "planned": "Заплановано",
+    "success": "Успіх",
+    "failed": "Збій",
+    "running": "Виконується",
+    "pending": "Очікування",
+    "retried": "Повтор"
+  },
+  "difficulty": {
+    "starter": "Початковий",
+    "intermediate": "Середній",
+    "advanced": "Просунутий"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "Тригер",
+      "description": "Запустити, коли станеться подія"
+    },
+    "el-condition": {
+      "label": "Умова",
+      "description": "Розгалужуй за правилами"
+    },
+    "el-delay": {
+      "label": "Затримка",
+      "description": "Зачекати перед продовженням"
+    },
+    "el-approval": {
+      "label": "Затвердження",
+      "description": "Шлюз людського затвердження"
+    },
+    "el-loop": {
+      "label": "Цикл",
+      "description": "Ітерувати колекцію"
+    },
+    "el-merge": {
+      "label": "Об’єднати",
+      "description": "Об’єднати паралельні шляхи"
+    },
+    "el-split": {
+      "label": "Розділити",
+      "description": "Розвести паралельні шляхи"
+    },
+    "el-ai-decision": {
+      "label": "Рішення ШІ",
+      "description": "Маршрутизувати через ШІ"
+    },
+    "el-notification": {
+      "label": "Сповіщення",
+      "description": "Сповіщення в застосунку"
+    },
+    "el-webhook": {
+      "label": "Заповнювач Webhook",
+      "description": "HTTP-колбек зарезервовано"
+    },
+    "el-custom": {
+      "label": "Користувацька дія",
+      "description": "Розширюваний слот дії"
+    },
+    "tr-customer": {
+      "label": "Клієнта створено",
+      "description": "Створено запис клієнта CRM"
+    },
+    "tr-lead": {
+      "label": "Лід створено",
+      "description": "Новий лід потрапляє в воронку"
+    },
+    "tr-invoice": {
+      "label": "Рахунок створено",
+      "description": "Виставлено фінансовий рахунок"
+    },
+    "tr-invoice-paid": {
+      "label": "Рахунок оплачено",
+      "description": "Платіж завершено"
+    },
+    "tr-order": {
+      "label": "Замовлення створено",
+      "description": "Замовлення введено"
+    },
+    "tr-order-done": {
+      "label": "Замовлення виконано",
+      "description": "Замовлення виконано"
+    },
+    "tr-doc": {
+      "label": "Документ передано",
+      "description": "Передавання до сховища документів"
+    },
+    "tr-campaign": {
+      "label": "Кампанію опубліковано",
+      "description": "Публікація Creator Studio"
+    },
+    "tr-employee": {
+      "label": "Працівника додано",
+      "description": "Зміна в каталозі команди"
+    },
+    "tr-task": {
+      "label": "Завдання виконано",
+      "description": "Завдання позначено виконаним"
+    },
+    "tr-manual": {
+      "label": "Ручний тригер",
+      "description": "Запуск на вимогу"
+    },
+    "tr-schedule": {
+      "label": "Тригер розкладу",
+      "description": "Розклад cron / календар"
+    },
+    "tr-webhook": {
+      "label": "Тригер Webhook",
+      "description": "Вхідна HTTP-подія"
+    },
+    "tr-api": {
+      "label": "Тригер API",
+      "description": "Програмний запуск"
+    },
+    "ac-crm": {
+      "label": "Створити запис CRM",
+      "description": "Записати сутність CRM"
+    },
+    "ac-invoice": {
+      "label": "Сформувати рахунок",
+      "description": "Фінансовий рахунок"
+    },
+    "ac-quote": {
+      "label": "Сформувати пропозицію",
+      "description": "Створити документ пропозиції"
+    },
+    "ac-delivery": {
+      "label": "Сформувати накладну",
+      "description": "Накладна"
+    },
+    "ac-task": {
+      "label": "Створити завдання",
+      "description": "Відкрити завдання"
+    },
+    "ac-assign": {
+      "label": "Призначити працівника",
+      "description": "Направити колезі"
+    },
+    "ac-email": {
+      "label": "Надіслати ел. лист",
+      "description": "Вихідний лист"
+    },
+    "ac-notify": {
+      "label": "Надіслати сповіщення",
+      "description": "Сповіщення в застосунку"
+    },
+    "ac-ai-summary": {
+      "label": "Сформувати підсумок ШІ",
+      "description": "Стиснути контекст"
+    },
+    "ac-ai-content": {
+      "label": "Сформувати вміст ШІ",
+      "description": "Чернетка Creator Studio"
+    },
+    "ac-update-customer": {
+      "label": "Оновити клієнта",
+      "description": "Оновити клієнта CRM"
+    },
+    "ac-update-status": {
+      "label": "Оновити статус",
+      "description": "Змінити статус сутності"
+    },
+    "ac-pdf": {
+      "label": "Експорт PDF",
+      "description": "Експорт документа"
+    },
+    "ac-future": {
+      "label": "Заповнювач майбутнього API",
+      "description": "Зарезервований слот дії"
+    },
+    "ai-decision": {
+      "label": "Рішення ШІ",
+      "description": "Визначити наступний шлях"
+    },
+    "ai-class": {
+      "label": "Класифікація ШІ",
+      "description": "Класифікувати записи"
+    },
+    "ai-text": {
+      "label": "Генерація тексту ШІ",
+      "description": "Згенерувати текст"
+    },
+    "ai-translate": {
+      "label": "Переклад ШІ",
+      "description": "Перекласти вміст"
+    },
+    "ai-email": {
+      "label": "Відповідь ШІ ел. поштою",
+      "description": "Чернетка відповіді"
+    },
+    "ai-sum": {
+      "label": "Підсумок ШІ",
+      "description": "Стиснути контекст"
+    },
+    "ai-rec": {
+      "label": "Рекомендації ШІ",
+      "description": "Запропонувати наступні кроки"
+    },
+    "ai-route": {
+      "label": "Маршрутизація ШІ",
+      "description": "Направити власнику / в чергу"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "Клієнт створено",
+      "description": "Спрацьовує, коли створюється клієнт CRM."
+    },
+    "project_created": {
+      "label": "Проект створено",
+      "description": "Спрацьовує, коли створюється проєкт."
+    },
+    "task_completed": {
+      "label": "Завдання виконано",
+      "description": "Спрацьовує, коли завдання позначено виконаним."
+    },
+    "document_uploaded": {
+      "label": "Документ завантажено",
+      "description": "Спрацьовує, коли документ завантажено."
+    },
+    "schedule": {
+      "label": "розклад",
+      "description": "Тригер розкладу cron / інтервалу."
+    },
+    "invoice_issued": {
+      "label": "Рахунок виставлено",
+      "description": "Спрацьовує, коли виставляється рахунок."
+    },
+    "user_invited": {
+      "label": "Користувача запрошено",
+      "description": "Спрацьовує, коли запрошують учасника команди."
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "Вхідний HTTP-webhook."
+    },
+    "api_event": {
+      "label": "Подія API",
+      "description": "Загальна доменна подія API."
+    },
+    "ai_event": {
+      "label": "Подія ШІ",
+      "description": "Сигнал ШІ (завершення, інсайт, крок агента)."
+    },
+    "manual": {
+      "label": "Ручний тригер",
+      "description": "Запуск на вимогу з UI або API."
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "Створити клієнта",
+      "description": "Створити запис клієнта CRM."
+    },
+    "customer_update": {
+      "label": "Оновити клієнта",
+      "description": "Оновити поля клієнта."
+    },
+    "project_create": {
+      "label": "Створити проект",
+      "description": "Створити проєкт із контексту процесу."
+    },
+    "notification_send": {
+      "label": "Надіслати сповіщення",
+      "description": "Надіслати сповіщення в застосунку."
+    },
+    "email_send": {
+      "label": "Надіслати ел. лист",
+      "description": "Поставити лист у чергу через провайдера."
+    },
+    "invoice_create": {
+      "label": "Створити рахунок-фактуру",
+      "description": "Створити фінансовий рахунок."
+    },
+    "status_update": {
+      "label": "Оновити статус",
+      "description": "Оновити статус сутності в модулі."
+    },
+    "document_generate": {
+      "label": "Згенерувати документ",
+      "description": "Згенерувати документ із шаблону."
+    },
+    "api_call": {
+      "label": "Виклик API",
+      "description": "HTTP-виклик внутрішнього або зовнішнього API."
+    },
+    "ai_run": {
+      "label": "Запустити ШІ",
+      "description": "Виконати промпт ШІ / крок агента з контекстом."
+    },
+    "task_assign": {
+      "label": "Призначити завдання",
+      "description": "Призначити завдання користувачу."
+    }
+  }
+}

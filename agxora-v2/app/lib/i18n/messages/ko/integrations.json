@@ -1,0 +1,143 @@
+{
+  "loading": "통합 플랫폼 로드 중…",
+  "eyebrow": "기업 통합 플랫폼",
+  "title": "통합 센터",
+  "subtitle": "Microsoft 365, Google, Slack, CRM, 스토리지 및 자동화 에코시스템을 위한 커넥터입니다. 이 빌드의 연결 및 동기화는 로컬 데모이므로 라이브 OAuth가 연결되지 않습니다.",
+  "noticeDefault": "로컬 데모 커넥터 - OAuth와 라이브 동기화가 연결되지 않습니다.",
+  "settings": "설정",
+  "tabs": {
+    "dashboard": "계기반",
+    "installed": "설치됨",
+    "available": "사용 가능",
+    "logs": "로그",
+    "apiKeys": "API 키",
+    "webhooks": "웹훅",
+    "developer": "개발자"
+  },
+  "notice": {
+    "demoConnection": "데모 연결: {name}(로컬 스텁에만 해당)",
+    "connectFailed": "연결 실패",
+    "keyCreated": "생성된 API 키: {prefix}",
+    "webhookCreated": "웹훅 생성됨: {name}",
+    "webhookTest": "웹훅 테스트 {status}",
+    "networkError": "API 탐색기 네트워크 오류: {message}",
+    "explorerError": "API 탐색기 → {status}: {message}",
+    "explorerSuccess": "API 탐색기 → {status}",
+    "explorerFailed": "탐색기 실패",
+    "syncResult": "데모 동기화 · {status} ({records} 로컬 레코드) - 외부 데이터가 전송되지 않습니다.",
+    "diagnosed": "진단됨",
+    "removedConnection": "제거된 데모 연결: {name}",
+    "keyRotated": "키 순환됨",
+    "keyRevoked": "키가 취소되었습니다.",
+    "publishedEvent": "게시됨 {type}",
+    "developerSaved": "개발자 설정이 저장되었습니다."
+  },
+  "dashboard": {
+    "demoLinks": "데모 링크",
+    "catalog": "목록",
+    "api24h": "API(24시간)",
+    "webhooks24h": "웹훅(24시간)",
+    "webhookFailures": "웹훅 실패",
+    "syncJobs": "작업 동기화",
+    "conflicts": "충돌",
+    "errors": "오류",
+    "connectionStatus": "연결 상태",
+    "emptyTitle": "통합이 설치되지 않았습니다.",
+    "emptyDescription": "찾아보기 공급자를 연결할 수 있습니다.",
+    "eventBridgeDemo": "이벤트 브릿지 데모",
+    "eventBridgeHint": "워크플로 자동화 버스에 커넥터 이벤트를 게시합니다.",
+    "emit": "{id} 방출"
+  },
+  "installed": {
+    "title": "설치된 통합",
+    "emptyTitle": "아무것도 설치되지 않았습니다",
+    "emptyDescription": "사용 가능한 카탈로그에서 설치하십시오.",
+    "latestSync": "최신 동기화: {status} · {records} 레코드 · 모드 {mode}"
+  },
+  "available": {
+    "protocols": "프로토콜: {protocols}",
+    "demoConnection": "데모 연결",
+    "connectDemo": "연결(데모)",
+    "installDemo": "데모 설치"
+  },
+  "logs": {
+    "title": "통합 로그",
+    "emptyTitle": "아직 로그가 없습니다.",
+    "emptyDescription": "공급자를 연결하거나 진단을 실행하세요."
+  },
+  "apiKeys": {
+    "title": "API 키",
+    "generateKey": "키 생성",
+    "copyOnce": "지금 복사(한 번 표시됨): {secret}",
+    "emptyTitle": "API 키 없음",
+    "emptyDescription": "REST 게이트웨이 액세스를 위한 키를 생성합니다."
+  },
+  "webhooks": {
+    "endpointsTitle": "웹훅 엔드포인트",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "나가는 웹훅 추가",
+    "emptyTitle": "웹훅 없음",
+    "emptyDescription": "전달을 테스트하기 위해 나가는 끝점을 만듭니다.",
+    "deliveryLogs": "배송 로그",
+    "deliveriesEmptyTitle": "배달 불가",
+    "deliveriesEmptyDescription": "테스트 웹훅을 보내 로그를 채웁니다."
+  },
+  "developer": {
+    "title": "개발자 설정",
+    "sandboxMode": "샌드박스 모드",
+    "webhookSigning": "웹훅 서명이 활성화되었습니다.",
+    "saveSettings": "설정 저장",
+    "apiDocs": "API 문서 자리 표시자: {url}",
+    "sdk": "SDK 자리 표시자: {url}",
+    "explorerTitle": "API 탐색기",
+    "gatewayRoutes": "게이트웨이 경로: {routes}",
+    "sendGet": "GET 보내기",
+    "oauthProviders": "OAuth 제공업체",
+    "placeholdersHint": "GraphQL, WebSocket 및 gRPC 게이트웨이 경로는 자리 표시자로 등록됩니다. 필드 매핑 및 동기화 충돌 해결은 백엔드 구현을 위해 아키텍처에 즉시 적용됩니다."
+  },
+  "connectionStatus": {
+    "connected": "데모 연결",
+    "pendingAuth": "보류 중(데모)",
+    "error": "오류",
+    "disabled": "장애가 있는",
+    "installed": "설치됨",
+    "available": "사용 가능",
+    "localDemo": "로컬 데모"
+  },
+  "columns": {
+    "integration": "완성",
+    "status": "상태",
+    "health": "건강",
+    "latency": "숨어 있음",
+    "actions": "행위",
+    "when": "언제",
+    "level": "수준",
+    "source": "원천",
+    "message": "메시지",
+    "name": "이름",
+    "key": "열쇠",
+    "scopes": "범위",
+    "usage": "용법",
+    "direction": "방향",
+    "url": "URL",
+    "enabled": "활성화됨",
+    "event": "이벤트",
+    "attempt": "시도"
+  },
+  "actions": {
+    "diagnose": "진단하다",
+    "demoSync": "데모 동기화",
+    "demoSyncTitle": "데모 동기화만 가능 - 외부 전송 불가",
+    "disconnect": "연결 끊기",
+    "rotate": "회전",
+    "revoke": "취소",
+    "test": "시험",
+    "emDash": "—",
+    "yes": "예",
+    "no": "아니요"
+  },
+  "errors": {
+    "failedToFetch": "가져오지 못했습니다.",
+    "httpStatus": "HTTP {status}"
+  }
+}

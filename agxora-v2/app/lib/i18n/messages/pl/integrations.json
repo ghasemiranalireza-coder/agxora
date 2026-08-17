@@ -1,0 +1,143 @@
+{
+  "loading": "Ładowanie platformy integracyjnej…",
+  "eyebrow": "Platforma integracji przedsiębiorstw",
+  "title": "Centrum Integracyjne",
+  "subtitle": "Złącza dla ekosystemów Microsoft 365, Google, Slack, CRM, pamięci masowej i automatyzacji. Połączenia i synchronizacja w tej kompilacji to lokalne wersje demonstracyjne — na żywo OAuth nie jest podłączony.",
+  "noticeDefault": "Lokalne łączniki demonstracyjne — OAuth i synchronizacja na żywo nie są połączone.",
+  "settings": "Ustawienia",
+  "tabs": {
+    "dashboard": "Panel",
+    "installed": "Zainstalowany",
+    "available": "Dostępny",
+    "logs": "Dzienniki",
+    "apiKeys": "Klucze API",
+    "webhooks": "Haki internetowe",
+    "developer": "Wywoływacz"
+  },
+  "notice": {
+    "demoConnection": "Połączenie demonstracyjne: {name} (tylko lokalny odcinek pośredni)",
+    "connectFailed": "Połączenie nie powiodło się",
+    "keyCreated": "Utworzono klucz API: {prefix}",
+    "webhookCreated": "Utworzono webhook: {name}",
+    "webhookTest": "Test webhooka {status}",
+    "networkError": "Błąd sieciowy Eksploratora API: {message}",
+    "explorerError": "Eksplorator API → {status}: {message}",
+    "explorerSuccess": "Eksplorator API → {status}",
+    "explorerFailed": "Eksplorator nie powiódł się",
+    "syncResult": "Synchronizacja demonstracyjna · {status} ({records} rekordy lokalne) — żadne dane zewnętrzne nie zostały przesłane.",
+    "diagnosed": "Zdiagnozowano",
+    "removedConnection": "Usunięto połączenie demonstracyjne: {name}",
+    "keyRotated": "Klucz obrócony",
+    "keyRevoked": "Klucz unieważniony",
+    "publishedEvent": "Opublikowano {type}",
+    "developerSaved": "Ustawienia programisty zostały zapisane"
+  },
+  "dashboard": {
+    "demoLinks": "Linki demonstracyjne",
+    "catalog": "Katalog",
+    "api24h": "API (24h)",
+    "webhooks24h": "Webhooki (24h)",
+    "webhookFailures": "Awarie webhooka",
+    "syncJobs": "Synchronizuj zadania",
+    "conflicts": "Konflikty",
+    "errors": "Błędy",
+    "connectionStatus": "Stan połączenia",
+    "emptyTitle": "Brak zainstalowanych integracji",
+    "emptyDescription": "Przeglądaj Dostępne, aby połączyć się z dostawcą.",
+    "eventBridgeDemo": "Demo mostu zdarzeń",
+    "eventBridgeHint": "Opublikuj zdarzenie łącznika w magistrali Workflow Automation.",
+    "emit": "Emituj {id}"
+  },
+  "installed": {
+    "title": "Zainstalowane integracje",
+    "emptyTitle": "Nic nie zostało zainstalowane",
+    "emptyDescription": "Zainstaluj z dostępnego katalogu.",
+    "latestSync": "Ostatnia synchronizacja: {status} · {records} rekordy · tryb {mode}"
+  },
+  "available": {
+    "protocols": "Protokoły: {protocols}",
+    "demoConnection": "Połączenie demonstracyjne",
+    "connectDemo": "Połącz (demo)",
+    "installDemo": "Zainstaluj wersję demonstracyjną"
+  },
+  "logs": {
+    "title": "Dzienniki integracji",
+    "emptyTitle": "Nie ma jeszcze żadnych logów",
+    "emptyDescription": "Podłącz dostawcę lub uruchom diagnostykę."
+  },
+  "apiKeys": {
+    "title": "Klucze API",
+    "generateKey": "Wygeneruj klucz",
+    "copyOnce": "Skopiuj teraz (pokazane raz): {secret}",
+    "emptyTitle": "Brak kluczy API",
+    "emptyDescription": "Wygeneruj klucz dostępu do bramy REST."
+  },
+  "webhooks": {
+    "endpointsTitle": "Punkty końcowe webhooka",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "Dodaj wychodzącego webhooka",
+    "emptyTitle": "Brak webhooków",
+    "emptyDescription": "Utwórz wychodzący punkt końcowy, aby przetestować dostarczanie.",
+    "deliveryLogs": "Dzienniki dostaw",
+    "deliveriesEmptyTitle": "Brak dostaw",
+    "deliveriesEmptyDescription": "Wyślij testowego webhooka, aby zapełnić dzienniki."
+  },
+  "developer": {
+    "title": "Ustawienia programisty",
+    "sandboxMode": "Tryb piaskownicy",
+    "webhookSigning": "Włączono podpisywanie webhooka",
+    "saveSettings": "Zapisz ustawienia",
+    "apiDocs": "Symbol zastępczy dokumentacji API: {url}",
+    "sdk": "Symbol zastępczy pakietu SDK: {url}",
+    "explorerTitle": "Eksplorator API",
+    "gatewayRoutes": "Trasy bram: {routes}",
+    "sendGet": "Wyślij POBIERZ",
+    "oauthProviders": "Dostawcy OAuth",
+    "placeholdersHint": "Trasy bram GraphQL, WebSocket i gRPC są rejestrowane jako obiekty zastępcze. Mapowanie pól i rozwiązywanie konfliktów synchronizacji są gotowe do wdrożenia w architekturze."
+  },
+  "connectionStatus": {
+    "connected": "Połączenie demonstracyjne",
+    "pendingAuth": "Oczekujące (demo)",
+    "error": "Błąd",
+    "disabled": "Wyłączony",
+    "installed": "Zainstalowany",
+    "available": "Dostępny",
+    "localDemo": "Demo lokalne"
+  },
+  "columns": {
+    "integration": "Integracja",
+    "status": "Status",
+    "health": "Zdrowie",
+    "latency": "Utajenie",
+    "actions": "Działania",
+    "when": "Gdy",
+    "level": "Poziom",
+    "source": "Źródło",
+    "message": "Wiadomość",
+    "name": "Nazwa",
+    "key": "Klawisz",
+    "scopes": "Zakresy",
+    "usage": "Stosowanie",
+    "direction": "Kierunek",
+    "url": "Adres URL",
+    "enabled": "Włączony",
+    "event": "Wydarzenie",
+    "attempt": "Próba"
+  },
+  "actions": {
+    "diagnose": "Rozpoznać chorobę",
+    "demoSync": "Synchronizacja demonstracyjna",
+    "demoSyncTitle": "Tylko synchronizacja demonstracyjna — bez transferu zewnętrznego",
+    "disconnect": "Odłączyć",
+    "rotate": "Obracać",
+    "revoke": "Unieważnić",
+    "test": "Test",
+    "emDash": "—",
+    "yes": "Tak",
+    "no": "NIE"
+  },
+  "errors": {
+    "failedToFetch": "Nie udało się pobrać",
+    "httpStatus": "HTTP {status}"
+  }
+}

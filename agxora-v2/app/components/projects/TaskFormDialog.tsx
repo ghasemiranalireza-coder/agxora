@@ -2,12 +2,12 @@
 
 import { useCallback, type JSX } from "react";
 import { useToast } from "../../lib/backend/hooks";
+import { useT } from "../../lib/i18n";
 import {
   TASK_PRIORITIES,
   TASK_STATUSES,
   projectStore,
   taskErrorMap,
-  taskStatusLabel,
   useProjectStore,
   type TaskDraft,
 } from "../../lib/projects";
@@ -23,8 +23,12 @@ import {
 export function TaskFormDialog(): JSX.Element {
   const state = useProjectStore();
   const toast = useToast();
+  const t = useT();
   const errors = taskErrorMap(state.taskFormErrors);
-  const title = state.taskFormMode === "edit" ? "Edit Task" : "Create Task";
+  const title =
+    state.taskFormMode === "edit"
+      ? t("projects.taskForm.editTitle")
+      : t("projects.taskForm.createTitle");
 
   const setField = useCallback(
     <K extends keyof TaskDraft>(key: K, value: TaskDraft[K]) => {
@@ -46,7 +50,7 @@ export function TaskFormDialog(): JSX.Element {
             onClick={() => projectStore.closeTaskForm()}
             disabled={state.saving}
           >
-            Cancel
+            {t("projects.taskForm.cancel")}
           </Button>
           <Button
             variant="primary"
@@ -57,30 +61,32 @@ export function TaskFormDialog(): JSX.Element {
                 if (task) {
                   toast.success(
                     state.taskFormMode === "edit"
-                      ? "Task updated"
-                      : "Task created",
+                      ? t("projects.toasts.taskUpdated")
+                      : t("projects.toasts.taskCreated"),
                     task.title,
                   );
                 } else if (
                   projectStore.getSnapshot().taskFormErrors.length > 0
                 ) {
                   toast.warning(
-                    "Check the form",
+                    t("projects.toasts.checkForm"),
                     projectStore.getSnapshot().taskFormErrors[0]?.message ??
-                      "Validation failed.",
+                      t("projects.toasts.validationFailed"),
                   );
                 }
               });
             }}
           >
-            {state.taskFormMode === "edit" ? "Save changes" : "Create task"}
+            {state.taskFormMode === "edit"
+              ? t("projects.taskForm.saveChanges")
+              : t("projects.taskForm.createTask")}
           </Button>
         </>
       }
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="sm:col-span-2">
-          <FormField label="Title" error={errors.title}>
+          <FormField label={t("projects.taskForm.title")} error={errors.title}>
             <FormInput
               value={state.taskDraft.title}
               onChange={(e) => setField("title", e.target.value)}
@@ -88,13 +94,13 @@ export function TaskFormDialog(): JSX.Element {
             />
           </FormField>
         </div>
-        <FormField label="Assignee" error={errors.assignee}>
+        <FormField label={t("projects.taskForm.assignee")} error={errors.assignee}>
           <FormInput
             value={state.taskDraft.assignee}
             onChange={(e) => setField("assignee", e.target.value)}
           />
         </FormField>
-        <FormField label="Priority" error={errors.priority}>
+        <FormField label={t("projects.taskForm.priority")} error={errors.priority}>
           <FormSelect
             value={state.taskDraft.priority}
             onChange={(e) =>
@@ -103,12 +109,12 @@ export function TaskFormDialog(): JSX.Element {
           >
             {TASK_PRIORITIES.map((priority) => (
               <option key={priority} value={priority}>
-                {priority}
+                {t(`projects.priority.${priority}`)}
               </option>
             ))}
           </FormSelect>
         </FormField>
-        <FormField label="Status" error={errors.status}>
+        <FormField label={t("projects.taskForm.status")} error={errors.status}>
           <FormSelect
             value={state.taskDraft.status}
             onChange={(e) =>
@@ -117,33 +123,37 @@ export function TaskFormDialog(): JSX.Element {
           >
             {TASK_STATUSES.map((status) => (
               <option key={status} value={status}>
-                {taskStatusLabel(status)}
+                {t(`projects.taskStatus.${status}`)}
               </option>
             ))}
           </FormSelect>
         </FormField>
-        <FormField label="Deadline" error={errors.dueDate}>
+        <FormField label={t("projects.taskForm.deadline")} error={errors.dueDate}>
           <FormInput
             type="date"
             value={state.taskDraft.dueDate}
             onChange={(e) => setField("dueDate", e.target.value)}
           />
         </FormField>
-        <FormField label="Progress" error={errors.progress}>
+        <FormField label={t("projects.taskForm.progress")} error={errors.progress}>
           <FormInput
             inputMode="numeric"
             value={state.taskDraft.progress}
             onChange={(e) => setField("progress", e.target.value)}
           />
         </FormField>
-        <FormField label="Labels" error={errors.labels} hint="Comma-separated">
+        <FormField
+          label={t("projects.taskForm.labels")}
+          error={errors.labels}
+          hint={t("projects.taskForm.labelsHint")}
+        >
           <FormInput
             value={state.taskDraft.labels}
             onChange={(e) => setField("labels", e.target.value)}
           />
         </FormField>
         <div className="sm:col-span-2">
-          <FormField label="Description" error={errors.description}>
+          <FormField label={t("projects.taskForm.description")} error={errors.description}>
             <FormTextArea
               rows={3}
               value={state.taskDraft.description}

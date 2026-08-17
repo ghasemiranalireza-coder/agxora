@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState, type JSX, type ReactNode } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
 import { useOrganization } from "@/app/lib/organization";
+import { useT } from "@/app/lib/i18n";
 import {
   IAM_ROLES,
   buildPermissionMatrix,
@@ -24,10 +25,19 @@ type IdentityTab =
   | "security"
   | "audit";
 
+const TAB_IDS = [
+  "organization",
+  "workspace",
+  "roles",
+  "security",
+  "audit",
+] as const satisfies readonly IdentityTab[];
+
 /**
  * Identity & Access settings — org, workspace, RBAC matrix, security placeholders, audit.
  */
 export function IamIdentityWorkspace(): JSX.Element {
+  const t = useT();
   const [tab, setTab] = useState<IdentityTab>("organization");
   const { organization, workspace } = useOrganization();
   const { role, can, isAuthenticated } = useIamAuth();
@@ -43,54 +53,68 @@ export function IamIdentityWorkspace(): JSX.Element {
 
   const matrix = useMemo(() => buildPermissionMatrix(), []);
 
-  const matrixColumns: DataTableColumn<(typeof matrix)[number]>[] = [
-    {
-      key: "permissionId",
-      header: "Permission",
-      render: (row) => row.permissionId,
-    },
-    { key: "owner", header: "Owner", render: (row) => (row.owner ? "Yes" : "—") },
-    { key: "admin", header: "Admin", render: (row) => (row.admin ? "Yes" : "—") },
-    {
-      key: "manager",
-      header: "Manager",
-      render: (row) => (row.manager ? "Yes" : "—"),
-    },
-    {
-      key: "member",
-      header: "Member",
-      render: (row) => (row.member ? "Yes" : "—"),
-    },
-    {
-      key: "viewer",
-      header: "Viewer",
-      render: (row) => (row.viewer ? "Yes" : "—"),
-    },
-  ];
+  const matrixColumns: DataTableColumn<(typeof matrix)[number]>[] = useMemo(
+    () => [
+      {
+        key: "permissionId",
+        header: t("iam.identity.matrix.permission"),
+        render: (row) => row.permissionId,
+      },
+      {
+        key: "owner",
+        header: t("iam.identity.matrix.owner"),
+        render: (row) => (row.owner ? t("iam.identity.matrix.yes") : "—"),
+      },
+      {
+        key: "admin",
+        header: t("iam.identity.matrix.admin"),
+        render: (row) => (row.admin ? t("iam.identity.matrix.yes") : "—"),
+      },
+      {
+        key: "manager",
+        header: t("iam.identity.matrix.manager"),
+        render: (row) => (row.manager ? t("iam.identity.matrix.yes") : "—"),
+      },
+      {
+        key: "member",
+        header: t("iam.identity.matrix.member"),
+        render: (row) => (row.member ? t("iam.identity.matrix.yes") : "—"),
+      },
+      {
+        key: "viewer",
+        header: t("iam.identity.matrix.viewer"),
+        render: (row) => (row.viewer ? t("iam.identity.matrix.yes") : "—"),
+      },
+    ],
+    [t],
+  );
 
-  const auditColumns: DataTableColumn<(typeof audit)[number]>[] = [
-    {
-      key: "createdAt",
-      header: "When",
-      render: (row) => new Date(row.createdAt).toLocaleString(),
-    },
-    {
-      key: "action",
-      header: "Action",
-      render: (row) => formatAuditAction(row.action),
-    },
-    {
-      key: "actorUserId",
-      header: "Actor",
-      render: (row) => row.actorUserId ?? "—",
-    },
-    {
-      key: "resource",
-      header: "Resource",
-      render: (row) =>
-        row.resourceId ? `${row.resource}:${row.resourceId}` : row.resource,
-    },
-  ];
+  const auditColumns: DataTableColumn<(typeof audit)[number]>[] = useMemo(
+    () => [
+      {
+        key: "createdAt",
+        header: t("iam.identity.audit.when"),
+        render: (row) => new Date(row.createdAt).toLocaleString(),
+      },
+      {
+        key: "action",
+        header: t("iam.identity.audit.action"),
+        render: (row) => formatAuditAction(row.action),
+      },
+      {
+        key: "actorUserId",
+        header: t("iam.identity.audit.actor"),
+        render: (row) => row.actorUserId ?? "—",
+      },
+      {
+        key: "resource",
+        header: t("iam.identity.audit.resource"),
+        render: (row) =>
+          row.resourceId ? `${row.resource}:${row.resourceId}` : row.resource,
+      },
+    ],
+    [t],
+  );
 
   return (
     <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-4">
@@ -99,45 +123,36 @@ export function IamIdentityWorkspace(): JSX.Element {
           className="text-[11px] font-semibold uppercase tracking-[0.16em]"
           style={{ color: "var(--agx-accent, #22d3ee)" }}
         >
-          Enterprise IAM
+          {t("iam.identity.eyebrow")}
         </p>
         <h1
           className="text-2xl font-semibold tracking-tight"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Identity & Access
+          {t("iam.identity.title")}
         </h1>
         <p
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Organization, workspace, RBAC, security placeholders, and audit
-          architecture. Backend adapters plug in without changing this surface.
+          {t("iam.identity.lead")}
         </p>
         <div className="flex flex-wrap gap-2 pt-1">
           <Link href="/dashboard/profile">
             <Button size="sm" variant="secondary">
-              Open profile
+              {t("iam.identity.openProfile")}
             </Button>
           </Link>
           <Link href="/dashboard/team">
             <Button size="sm" variant="ghost">
-              Team management
+              {t("iam.identity.teamManagement")}
             </Button>
           </Link>
         </div>
       </Card>
 
       <div className="flex flex-wrap gap-2">
-        {(
-          [
-            ["organization", "Organization"],
-            ["workspace", "Workspace"],
-            ["roles", "Roles & permissions"],
-            ["security", "Security"],
-            ["audit", "Audit log"],
-          ] as const
-        ).map(([id, label]) => (
+        {TAB_IDS.map((id) => (
           <button
             key={id}
             type="button"
@@ -158,55 +173,53 @@ export function IamIdentityWorkspace(): JSX.Element {
             }}
             onClick={() => setTab(id)}
           >
-            {label}
+            {t(`iam.identity.tabs.${id}`)}
           </button>
         ))}
       </div>
 
       {tab === "organization" ? (
         <Card className="space-y-4" padding="24px" hover={false}>
-          <SectionTitle>Organization settings</SectionTitle>
+          <SectionTitle>{t("iam.identity.organizationSettings")}</SectionTitle>
           {orgView ? (
             <dl className="grid gap-3 sm:grid-cols-2 text-sm">
-              <Meta label="Name" value={orgView.name} />
-              <Meta label="Slug" value={orgView.slug} />
-              <Meta label="Plan" value={orgView.plan} />
-              <Meta label="Owner" value={orgView.ownerId} />
+              <Meta label={t("iam.identity.meta.name")} value={orgView.name} />
+              <Meta label={t("iam.identity.meta.slug")} value={orgView.slug} />
+              <Meta label={t("iam.identity.meta.plan")} value={orgView.plan} />
+              <Meta label={t("iam.identity.meta.owner")} value={orgView.ownerId} />
               <Meta
-                label="Created"
+                label={t("iam.identity.meta.created")}
                 value={new Date(orgView.createdAt).toLocaleString()}
               />
-              <Meta label="Your role" value={role ?? "—"} />
+              <Meta label={t("iam.identity.meta.yourRole")} value={role ?? "—"} />
             </dl>
           ) : (
             <p
               className="text-sm"
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
             >
-              No organization active. Complete onboarding or create one from the
-              organization service.
+              {t("iam.identity.noOrganization")}
             </p>
           )}
           <p
             className="text-xs"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            Logo upload and plan billing adapters are placeholders for the
-            future identity backend.
+            {t("iam.identity.logoPlaceholder")}
           </p>
         </Card>
       ) : null}
 
       {tab === "workspace" ? (
         <Card className="space-y-4" padding="24px" hover={false}>
-          <SectionTitle>Workspace settings</SectionTitle>
+          <SectionTitle>{t("iam.identity.workspaceSettings")}</SectionTitle>
           <WorkspaceSelector />
           {workspace ? (
             <dl className="grid gap-3 sm:grid-cols-2 text-sm">
-              <Meta label="Workspace" value={workspace.name} />
-              <Meta label="Slug" value={workspace.slug} />
-              <Meta label="Status" value={workspace.status} />
-              <Meta label="Isolation key" value={workspace.isolationKey} />
+              <Meta label={t("iam.identity.meta.workspace")} value={workspace.name} />
+              <Meta label={t("iam.identity.meta.slug")} value={workspace.slug} />
+              <Meta label={t("iam.identity.meta.status")} value={workspace.status} />
+              <Meta label={t("iam.identity.meta.isolationKey")} value={workspace.isolationKey} />
             </dl>
           ) : null}
         </Card>
@@ -214,7 +227,7 @@ export function IamIdentityWorkspace(): JSX.Element {
 
       {tab === "roles" ? (
         <Card className="space-y-4" padding="24px" hover={false}>
-          <SectionTitle>RBAC — default roles</SectionTitle>
+          <SectionTitle>{t("iam.identity.rbacTitle")}</SectionTitle>
           <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {IAM_ROLES.map((item) => (
               <div
@@ -229,18 +242,18 @@ export function IamIdentityWorkspace(): JSX.Element {
                   className="text-sm font-medium"
                   style={{ color: "var(--agx-text, #f8fafc)" }}
                 >
-                  {item.name}
+                  {t(`iam.roles.${item.key}.name`)}
                 </p>
                 <p
                   className="mt-1 text-[11px] leading-relaxed"
                   style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                 >
-                  {item.description}
+                  {t(`iam.roles.${item.key}.description`)}
                 </p>
               </div>
             ))}
           </div>
-          <SectionTitle>Permission matrix</SectionTitle>
+          <SectionTitle>{t("iam.identity.permissionMatrix")}</SectionTitle>
           <DataTable
             columns={matrixColumns}
             rows={matrix}
@@ -251,51 +264,67 @@ export function IamIdentityWorkspace(): JSX.Element {
             className="text-xs"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            Can manage settings: {can("settings.manage") ? "yes" : "no"} ·
-            Authenticated: {isAuthenticated ? "yes" : "no"}
+            {t("iam.identity.canManageSettings", {
+              value: can("settings.manage")
+                ? t("iam.identity.yes")
+                : t("iam.identity.no"),
+              authenticated: isAuthenticated
+                ? t("iam.identity.yes")
+                : t("iam.identity.no"),
+            })}
           </p>
         </Card>
       ) : null}
 
       {tab === "security" ? (
         <Card className="space-y-4" padding="24px" hover={false}>
-          <SectionTitle>Security settings</SectionTitle>
+          <SectionTitle>{t("iam.identity.securitySettings")}</SectionTitle>
           <Placeholder
-            title="Password change"
-            detail="Password change connects through the auth provider when configured."
+            title={t("iam.identity.passwordChange.title")}
+            detail={t("iam.identity.passwordChange.detail")}
           />
           <Placeholder
-            title="Two-factor authentication (2FA)"
-            detail="TOTP and WebAuthn adapters register here when enabled."
+            title={t("iam.identity.twoFactor.title")}
+            detail={t("iam.identity.twoFactor.detail")}
           />
           <Placeholder
-            title="Active sessions"
-            detail="Device directory lives in identity sessions; revocation becomes authoritative with server sessions."
+            title={t("iam.identity.activeSessions.title")}
+            detail={t("iam.identity.activeSessions.detail")}
           />
           <Placeholder
-            title="API keys"
-            detail="Service accounts and scoped tokens for developers."
+            title={t("iam.identity.apiKeys.title")}
+            detail={t("iam.identity.apiKeys.detail")}
           />
           <div className="grid gap-3 sm:grid-cols-2 text-sm">
             <Meta
-              label="Absolute timeout"
-              value={`${Math.round(policy.absoluteTimeoutMs / 86400000)} days`}
+              label={t("iam.identity.absoluteTimeout")}
+              value={t("iam.identity.days", {
+                count: Math.round(policy.absoluteTimeoutMs / 86400000),
+              })}
             />
             <Meta
-              label="Idle timeout"
+              label={t("iam.identity.idleTimeout")}
               value={
                 policy.idleTimeoutMs > 0
-                  ? `${Math.round(policy.idleTimeoutMs / 60000)} min`
-                  : "Disabled"
+                  ? t("iam.identity.minutes", {
+                      count: Math.round(policy.idleTimeoutMs / 60000),
+                    })
+                  : t("iam.identity.disabled")
               }
             />
             <Meta
-              label="Refresh skew"
-              value={`${Math.round(policy.refreshSkewMs / 60000)} min`}
+              label={t("iam.identity.refreshSkew")}
+              value={t("iam.identity.minutes", {
+                count: Math.round(policy.refreshSkewMs / 60000),
+              })}
             />
             <Meta
-              label="Persistent login"
-              value={policy.persistentLogin ? "Enabled" : "Disabled"}
+              label={t("iam.identity.persistentLogin")}
+              value={
+                policy.persistentLogin
+                  ? t("iam.identity.enabled")
+                  : t("iam.identity.disabled")
+              }
             />
           </div>
           <div className="flex flex-wrap gap-2">
@@ -308,16 +337,16 @@ export function IamIdentityWorkspace(): JSX.Element {
                 })
               }
             >
-              Toggle idle policy placeholder
+              {t("iam.identity.toggleIdlePolicy")}
             </Button>
             <Link href="/session-expired">
               <Button size="sm" variant="ghost">
-                Preview session expired
+                {t("iam.identity.previewSessionExpired")}
               </Button>
             </Link>
             <Link href="/account-locked">
               <Button size="sm" variant="ghost">
-                Preview account locked
+                {t("iam.identity.previewAccountLocked")}
               </Button>
             </Link>
           </div>
@@ -326,20 +355,19 @@ export function IamIdentityWorkspace(): JSX.Element {
 
       {tab === "audit" ? (
         <Card className="space-y-4" padding="24px" hover={false}>
-          <SectionTitle>Audit activity</SectionTitle>
+          <SectionTitle>{t("iam.identity.auditActivity")}</SectionTitle>
           <p
             className="text-xs"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
-            Login, logout, role changes, invites, and organization events are
-            recorded locally. Replace with an immutable backend audit store later.
+            {t("iam.identity.auditLead")}
           </p>
           {audit.length === 0 ? (
             <p
               className="py-8 text-center text-sm"
               style={{ color: "var(--agx-text-muted, #94a3b8)" }}
             >
-              No IAM events yet. Sign in or change a role to populate the log.
+              {t("iam.identity.auditEmpty")}
             </p>
           ) : (
             <DataTable

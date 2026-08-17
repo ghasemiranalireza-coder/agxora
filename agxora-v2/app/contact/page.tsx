@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import type { JSX } from "react";
-import Link from "next/link";
-import { LegalPageShell } from "../components/legal";
-import {
-  COMPANY,
-  formatCompanyAddress,
-  hasConfiguredAddress,
-} from "../lib/company";
+import { ContactPageContent } from "./ContactPageContent";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -28,62 +22,5 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage(): JSX.Element {
-  return (
-    <LegalPageShell title="Contact" eyebrow="Company">
-      <p>
-        Reach the AGXORA team for product questions, support, or enterprise
-        conversations. Prefer sales routing? Use{" "}
-        <Link href="/contact-sales">Contact Sales</Link>.
-      </p>
-
-      <dl className="p39-legal__card">
-        <div>
-          <dt>Company email</dt>
-          <dd>
-            <a href={`mailto:${COMPANY.email.company}`}>{COMPANY.email.company}</a>
-          </dd>
-        </div>
-        <div>
-          <dt>Support email</dt>
-          <dd>
-            <a href={`mailto:${COMPANY.email.support}`}>{COMPANY.email.support}</a>
-          </dd>
-        </div>
-        <div>
-          <dt>Sales</dt>
-          <dd>
-            <a href={`mailto:${COMPANY.email.sales}`}>{COMPANY.email.sales}</a>
-            {" · "}
-            <Link href="/contact-sales">Enterprise form</Link>
-          </dd>
-        </div>
-        <div>
-          <dt>Business address</dt>
-          <dd>
-            {COMPANY.legalName}
-            <br />
-            {hasConfiguredAddress()
-              ? formatCompanyAddress()
-              : "Available on request — set NEXT_PUBLIC_AGXORA_ADDRESS_* for production."}
-          </dd>
-        </div>
-      </dl>
-
-      <h2>Quick links</h2>
-      <ul>
-        <li>
-          <Link href="/pricing">Pricing</Link>
-        </li>
-        <li>
-          <Link href="/contact-sales">Contact Sales</Link>
-        </li>
-        <li>
-          <Link href="/imprint">Imprint</Link>
-        </li>
-        <li>
-          <Link href="/privacy">Privacy Policy</Link>
-        </li>
-      </ul>
-    </LegalPageShell>
-  );
+  return <ContactPageContent />;
 }

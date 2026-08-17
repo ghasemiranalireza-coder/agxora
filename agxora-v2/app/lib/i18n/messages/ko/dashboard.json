@@ -1,0 +1,388 @@
+{
+  "skipToContent": "대시보드 콘텐츠로 건너뛰기",
+  "loading": "대시보드 로드 중…",
+  "hero": {
+    "ariaLabel": "AGXORA CORE 영웅",
+    "eyebrow": "AI 비즈니스 운영 시스템",
+    "title": "악소라 코어",
+    "subtitle": "실시간 인텔리전스 및 운영 제어 - 작업 공간 명령 표면.",
+    "ctaGetStarted": "시작하기",
+    "ctaViewActivity": "활동 보기",
+    "openQuickActionsAria": "빠른 작업 열기",
+    "viewActivityAria": "최근 활동 보기"
+  },
+  "quickActions": {
+    "title": "빠른 작업",
+    "subtitle": "다음에는 무엇을 해야 합니까?",
+    "ariaLabel": "빠른 작업",
+    "addCustomer": {
+      "label": "고객 추가",
+      "description": "CRM 레코드 만들기"
+    },
+    "newProject": {
+      "label": "새 프로젝트",
+      "description": "배송 트랙 시작"
+    },
+    "askAi": {
+      "label": "AI에게 물어보세요",
+      "description": "AI 작업 영역 열기"
+    },
+    "finance": {
+      "label": "재원",
+      "description": "송장 및 현금 흐름"
+    },
+    "automations": {
+      "label": "자동화",
+      "description": "워크플로우 엔진"
+    },
+    "settings": {
+      "label": "설정",
+      "description": "작업공간 환경설정"
+    }
+  },
+  "attention": {
+    "title": "주의가 필요함",
+    "ariaLabel": "주의가 필요한 것",
+    "empty": "분명합니다. 지금은 긴급한 항목이 없습니다.",
+    "tone": {
+      "critical": "비판적인",
+      "warning": "경고",
+      "info": "정보",
+      "success": "준비가 된",
+      "action": "다음에 할 일"
+    },
+    "addCustomer": {
+      "title": "첫 번째 고객 추가",
+      "detail": "실제 계정 기록으로 CRM을 시작하세요."
+    },
+    "createProject": {
+      "title": "프로젝트 만들기",
+      "detail": "다음 참여를 위한 배송 트랙을 개설하세요."
+    },
+    "exploreAi": {
+      "title": "AI 작업 공간 살펴보기",
+      "detail": "고객, 프로젝트 또는 다음 단계에 대해 AGXORA에 문의하세요."
+    },
+    "reviewBilling": {
+      "title": "청구 검토",
+      "detail": "확장할 준비가 되면 계획과 사용량을 확인하세요."
+    }
+  },
+  "overview": {
+    "title": "무슨 일이야?",
+    "subtitle": "{name}의 작업공간 수",
+    "fallbackName": "당신의 작업 공간",
+    "ariaLabel": "사업개요",
+    "online": "온라인",
+    "emDash": "—",
+    "capacitySignal": "{percent}% 용량 신호",
+    "activeClients": {
+      "title": "활성 클라이언트",
+      "captionEmpty": "아직 활성 고객이 없습니다.",
+      "captionTotal": "작업공간의 총 {count}개",
+      "add": "고객 추가",
+      "view": "고객 보기"
+    },
+    "projects": {
+      "title": "프로젝트",
+      "captionEmpty": "포트폴리오에 프로젝트가 없습니다.",
+      "captionOpen": "배송 트랙 열기",
+      "create": "프로젝트 생성",
+      "open": "프로젝트 열기"
+    },
+    "activityToday": {
+      "title": "오늘 활동",
+      "captionEmpty": "오늘은 아직 기록된 내용이 없습니다.",
+      "captionEvents": "자정부터 진행된 작업공간 이벤트",
+      "viewFeed": "피드 보기"
+    },
+    "revenue": {
+      "title": "수익",
+      "caption": "MRR을 표시하려면 결제 연결",
+      "openBilling": "공개 청구"
+    },
+    "clientShell": {
+      "title": "클라이언트 셸",
+      "caption": "브라우저 세션 준비됨 - 실시간 운영 모니터가 아님",
+      "shellLoaded": "애플리케이션 셸 로드됨",
+      "storesReady": "지역 작업 공간 매장 준비됨"
+    },
+    "growth": {
+      "title": "성장",
+      "caption": "추세 지표에는 누적 사용량이 필요합니다.",
+      "openAnalytics": "공개 분석"
+    }
+  },
+  "activity": {
+    "title": "최근 활동",
+    "subtitle": "오늘은 무엇이 바뀌었나",
+    "ariaLabel": "최근 활동",
+    "todayCount": "오늘 {count}",
+    "localBadge": "현지의",
+    "emptyTitle": "아직 활동이 없습니다",
+    "emptyBody": "고객, 프로젝트 등을 추가하면 Workspace 이벤트가 여기에 표시됩니다.",
+    "addCustomer": "고객 추가",
+    "newProject": "새 프로젝트",
+    "kind": {
+      "customer": "고객",
+      "project": "프로젝트",
+      "finance": "재원",
+      "automation": "오토메이션",
+      "documents": "서류",
+      "team": "팀",
+      "workspace": "작업공간"
+    },
+    "events": {
+      "customer_created": "고객이 생성됨",
+      "customer_updated": "고객이 업데이트됨",
+      "customer_deleted": "고객이 삭제되었습니다.",
+      "project_updated": "프로젝트가 업데이트되었습니다.",
+      "invoice_paid": "송장 지불",
+      "document_uploaded": "문서가 업로드됨",
+      "workflow_executed": "실행된 워크플로",
+      "member_invited": "초대된 팀원",
+      "generic": "작업공간 업데이트"
+    }
+  },
+  "chat": {
+    "title": "아그소라 AI",
+    "emptyState": "고객, 프로젝트 또는 다음 조치에 대해 AGXORA에 문의하세요. 대화는 이 작업 공간 세션에 유지됩니다.",
+    "thinking": "AGXORA는 생각하고 있습니다…",
+    "errorDismiss": "{error} — 탭하여 닫으세요.",
+    "placeholder": "AGXORA AI에 물어보세요…",
+    "messageAria": "메시지 AGXORA AI",
+    "sendAria": "메시지 보내기",
+    "send": "보내다"
+  },
+  "routeLoading": {
+    "team": "팀 로드 중…",
+    "projects": "프로젝트 로드 중…",
+    "project": "프로젝트 로드 중…",
+    "profile": "프로필 로드 중…",
+    "integrations": "통합 로드 중…",
+    "identity": "ID 로드 중…",
+    "finance": "금융 로드 중…",
+    "documents": "문서 로드 중…",
+    "customers": "고객 로드 중…",
+    "crm": "CRM 로드 중…",
+    "customer": "고객 로드 중…",
+    "creator": "크리에이터 스튜디오 로드 중…",
+    "billing": "결제 로드 중…",
+    "billingAdmin": "관리 결제 로드 중…",
+    "automation": "자동화 로드 중…",
+    "analytics": "정보 센터 로드 중…",
+    "ai": "AI Platform 로드 중…",
+    "agents": "에이전트 OS 로드 중…"
+  },
+  "shell": {
+    "memory": {
+      "title": "메모리",
+      "description": "이 빌드에서는 조직 메모리가 연결되지 않습니다.",
+      "emptyTitle": "메모리 작업공간은 아직 사용할 수 없습니다.",
+      "emptyBody": "영구 조직 메모리 저장소가 연결되지 않았습니다. 채팅은 세션 중에만 단기 컨텍스트를 유지할 수 있습니다. 여기에는 엔터프라이즈 메모리로 저장되는 것이 없습니다."
+    },
+    "invoices": {
+      "title": "송장",
+      "description": "기업 테넌트를 위한 청구 및 송장 아키텍처.",
+      "emptyTitle": "송장 원장은 아직 사용할 수 없습니다.",
+      "emptyBody": "이 경로는 셸입니다. 송장 생성과 지속성은 연결되지 않습니다. 샘플 원장 미리보기에는 Finance를 사용하고 계획 관리에는 Billing을 사용하세요.",
+      "openFinance": "오픈파이낸스",
+      "openBilling": "공개 청구"
+    }
+  },
+  "search": {
+    "ariaLabel": "범용 검색",
+    "queryAria": "범용 검색어",
+    "placeholder": "고객, 송장, 문서, 작업 흐름, 설정 등을 검색하세요.",
+    "quickActions": "빠른 작업",
+    "favorites": "즐겨찾기",
+    "recentSearches": "최근 검색",
+    "clear": "분명한",
+    "noRecentSearches": "아직 최근 검색이 없습니다. \"Nordlicht\", \"invoice\" 또는 \"workflow\"를 사용해 보세요.",
+    "recentActivity": "최근 활동",
+    "aiReady": "AI 준비(아키텍처)",
+    "pinnedResults": "고정된 결과",
+    "noMatches": "일치하는 항목 없음",
+    "noMatchesBody": "다른 키워드를 시도하거나 빠른 작업을 통해 모듈을 엽니다.",
+    "close": "닫다",
+    "open": "열려 있는",
+    "keyboardHints": "↑↓ 탐색 · Enter 열기 · Ctrl/⌘ K 토글 · Esc 닫기",
+    "pinResult": "결과 고정",
+    "unpinResult": "결과 고정 해제",
+    "previewEmpty": "미리보기, 메타데이터 및 스마트 링크에 ​​대한 결과를 마우스로 가리키거나 강조 표시합니다.",
+    "previewAria": "유니버설 미리보기",
+    "relatedItems": "관련 품목",
+    "noSmartLinks": "이 결과에 대한 스마트 링크가 없습니다.",
+    "groups": {
+      "crm": "CRM",
+      "finance": "재원",
+      "documents": "서류",
+      "automation": "오토메이션",
+      "projects": "프로젝트",
+      "creator": "크리에이터 스튜디오",
+      "settings": "설정",
+      "commands": "명령",
+      "actions": "빠른 작업"
+    },
+    "status": {
+      "architecture": "건축학",
+      "planned": "계획된"
+    },
+    "meta": {
+      "type": "유형",
+      "module": "기준 치수",
+      "quickAction": "빠른 조치"
+    },
+    "actions": {
+      "createCustomer": {
+        "title": "고객 생성",
+        "subtitle": "고객을 열어 레코드를 추가하세요."
+      },
+      "createInvoice": {
+        "title": "송장 생성",
+        "subtitle": "금융 송장 작업공간 열기"
+      },
+      "uploadDocument": {
+        "title": "문서 업로드",
+        "subtitle": "문서 열기 지식 허브"
+      },
+      "newWorkflow": {
+        "title": "새로운 워크플로",
+        "subtitle": "개방형 자동화 엔진 빌더"
+      },
+      "newProject": {
+        "title": "새 프로젝트",
+        "subtitle": "프로젝트 작업 공간 열기"
+      },
+      "inviteMember": {
+        "title": "팀원 초대",
+        "subtitle": "공개 팀 초대"
+      },
+      "openBilling": {
+        "title": "공개 청구",
+        "subtitle": "계획, 청구서 및 구독"
+      },
+      "openSettings": {
+        "title": "설정 열기",
+        "subtitle": "작업공간 환경설정"
+      }
+    },
+    "commands": {
+      "openCrm": {
+        "title": "CRM 열기",
+        "subtitle": "AI CRM 모듈"
+      },
+      "openCustomers": {
+        "title": "오픈 고객",
+        "subtitle": "고객관리"
+      },
+      "openFinance": {
+        "title": "오픈파이낸스",
+        "subtitle": "재정 및 세금 모듈"
+      },
+      "openDocuments": {
+        "title": "문서 열기",
+        "subtitle": "지식 허브"
+      },
+      "openAutomation": {
+        "title": "개방형 자동화",
+        "subtitle": "워크플로우 엔진"
+      },
+      "openSettings": {
+        "title": "설정 열기",
+        "subtitle": "작업공간 설정"
+      },
+      "openProjects": {
+        "title": "프로젝트 열기",
+        "subtitle": "프로젝트 포트폴리오"
+      },
+      "openAi": {
+        "title": "오픈 AI",
+        "subtitle": "AI 플랫폼 작업공간"
+      },
+      "openAnalytics": {
+        "title": "오픈애널리틱스",
+        "subtitle": "정보 센터"
+      },
+      "openIdentity": {
+        "title": "공개 ID 및 액세스",
+        "subtitle": "IAM 설정, RBAC, 감사"
+      },
+      "openBilling": {
+        "title": "공개 청구",
+        "subtitle": "구독 포털 및 요금제"
+      },
+      "openIntegrations": {
+        "title": "개방형 통합",
+        "subtitle": "통합 센터 및 API 생태계"
+      }
+    },
+    "modules": {
+      "dashboard": {
+        "subtitle": "명령 센터 및 지구본 개요"
+      },
+      "customers": {
+        "subtitle": "고객 기록 및 CRM"
+      },
+      "projects": {
+        "subtitle": "프로젝트 납품 및 추적"
+      },
+      "invoices": {
+        "title": "송장",
+        "subtitle": "청구 및 송장"
+      },
+      "finance": {
+        "subtitle": "AI 회계, 은행, 세무 및 금융 인텔리전스"
+      },
+      "crm": {
+        "subtitle": "AI 기반 CRM 및 창작자 운영 체제"
+      },
+      "creator": {
+        "subtitle": "AI 콘텐츠 제작 및 마케팅 OS"
+      },
+      "documents": {
+        "subtitle": "AI 문서 및 지식 허브"
+      },
+      "ai": {
+        "title": "일체 포함",
+        "subtitle": "AGXORA AI 플랫폼 — 엔터프라이즈 작업 공간"
+      },
+      "analytics": {
+        "subtitle": "비즈니스 인텔리전스"
+      },
+      "automation": {
+        "subtitle": "AI 워크플로 및 자동화 엔진"
+      },
+      "memory": {
+        "title": "메모리",
+        "subtitle": "조직 메모리"
+      },
+      "team": {
+        "subtitle": "회원 및 초대"
+      },
+      "settings": {
+        "subtitle": "작업공간 및 AI 설정"
+      }
+    },
+    "capabilities": {
+      "aiSearch": {
+        "title": "AI 검색",
+        "description": "모듈 전반에 걸쳐 향후 검색 모델을 사용하여 결과 순위를 지정합니다."
+      },
+      "semantic": {
+        "title": "의미 검색",
+        "description": "문서, 송장 및 지식에 대한 벡터 유사성."
+      },
+      "nl": {
+        "title": "자연어 검색",
+        "description": "\"Nordlicht의 연체 송장\"과 같은 의도를 구문 분석합니다."
+      },
+      "rag": {
+        "title": "지식 검색",
+        "description": "Documents Knowledge Hub 코퍼스에서 답변을 찾아보세요."
+      }
+    },
+    "esc": "Esc"
+  },
+  "summary": "{name}: {customers} 고객 · {projects} 프로젝트 · 오늘 {updates} 업데이트."
+}

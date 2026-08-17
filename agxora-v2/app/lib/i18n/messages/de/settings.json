@@ -1,5 +1,5 @@
 {
-  "controlCenter": "Control Center",
+  "controlCenter": "Kontrollzentrum",
   "settingsSections": "Einstellungsbereiche",
   "profile": {
     "label": "Profil",
@@ -22,7 +22,14 @@
     "localPrefsNotice": "Zeitzone, Region und persönliche Einstellungen werden noch nicht gespeichert. Speichern aktualisiert nur diese Seite, bis Sie sie verlassen.",
     "avatarUnavailable": "Avatar-Upload ist noch nicht verfügbar.",
     "appearanceNote": "Die Darstellung bleibt unter Erscheinungsbild. Die Kopfzeile bietet nur einen Theme-Schnellwechsel.",
-    "prefsHint": "Wird von KI-Assistenten in den Modulen verwendet."
+    "prefsHint": "Wird von KI-Assistenten in den Modulen verwendet.",
+    "themeResolved": "{mode} (aufgelöst {appearance})",
+    "regions": {
+      "EU": "Europäische Union",
+      "US": "Vereinigte Staaten von Amerika",
+      "MENA": "MenaCity in Arkansas USA",
+      "APAC": "APAC"
+    }
   },
   "organization": {
     "label": "Organisation",
@@ -31,9 +38,9 @@
     "panelDescription": "Firmenname, Logo, Adresse, Steuerdaten, Abteilungen und Geschäftseinheiten."
   },
   "workspace": {
-    "label": "Workspace",
+    "label": "Arbeitsbereich",
     "description": "Branding, Startseite und Standardmodule",
-    "title": "Workspace",
+    "title": "Arbeitsbereich",
     "panelDescription": "Workspace-Einstellungen, Standard-Dashboard, Branding, Module und Startseite."
   },
   "team": {
@@ -43,40 +50,177 @@
     "panelDescription": "Mitglieder, Rollen, Einladungen und Gruppen."
   },
   "ai": {
-    "label": "AI",
+    "label": "KI",
     "description": "Anbieter, Modell, Kreativität und Speicher",
     "title": "KI",
-    "panelDescription": "Anbieter, Modell, Kreativität, Temperatur und Speichereinstellungen."
+    "panelDescription": "Anbieter, Modell, Kreativität, Temperatur und Speichereinstellungen.",
+    "openAgentOs": "Agent-Betriebssystem öffnen",
+    "openAiWorkspace": "KI-Arbeitsbereich öffnen",
+    "noticeSync": "KI-Einstellungen werden über AISettingsProvider synchronisiert — Schlüssel werden hier nie gespeichert.",
+    "noticeProvider": "Anbieterimplementierungen bleiben hinter der KI-Serviceebene zurück. Die Benutzeroberfläche erhält niemals API-Schlüssel oder SDK-Details. Autonome Agenten leben im Agenten-Betriebssystem.",
+    "preferredProvider": "Bevorzugter KI-Anbieter",
+    "defaultModel": "Standard-KI-Modell",
+    "temperature": "Temperatur",
+    "topP": "Top P",
+    "maxTokens": "Max. Token",
+    "writingStyle": "Schreibweisen",
+    "languagePreferences": "Spracheinstellungen",
+    "systemPrompt": "Systemaufforderung",
+    "systemPromptHint": "Angewandt als Standard-Systemanweisung für die KI-Plattform.",
+    "systemPromptPlaceholder": "Sie sind AGXORA AI — der Enterprise Operating Assistant…",
+    "apiKeyManagement": "API-Schlüsselverwaltung",
+    "apiKeyHint": "Schlüssel werden nur über Server-Umgebungsvariablen geliefert.",
+    "apiKeyPlaceholder": "Konfiguriert über AGXORA_* Umgebungsvariablen (nie im Browser)",
+    "memory": "Speicher",
+    "memoryDescription": "Erlauben Sie dem Arbeitsspeicher der Organisation, die KI-Antworten über Module hinweg zu informieren.",
+    "automationSuggestions": "Automatisierungsvorschläge",
+    "automationSuggestionsDescription": "Vorschläge für Oberflächen-KI-Workflows in der Automation Engine.",
+    "streaming": "Streaming",
+    "streamingDescription": "Modellantworten streamen, wenn der Anbieter sie unterstützt.",
+    "providers": {
+      "mock": "Mock (lokal)",
+      "openai": "OpenAI",
+      "azure": "Azure OpenAI",
+      "anthropic": "Anthropisch",
+      "google": "Google",
+      "openrouter": "OpenRouter",
+      "ollama": "Ollama",
+      "local": "LOKALVERSORGER"
+    },
+    "writingStyles": {
+      "professional": "Beratung",
+      "concise": "bündig",
+      "friendly": "Verbündet",
+      "technical": "Technisch"
+    },
+    "languages": {
+      "auto": "Sprache des übereinstimmenden Profils",
+      "en": "Deutsch",
+      "de": "Deutsch"
+    }
   },
   "appearance": {
-    "label": "Darstellung",
+    "label": "Erscheinungsbild",
     "description": "Theme, Dichte und Glas-Effekte",
     "title": "Erscheinungsbild",
-    "panelDescription": "Design, Dichte, Akzent, Animationen und Glaseffekte."
+    "panelDescription": "Design, Dichte, Akzent, Animationen und Glaseffekte.",
+    "noticeTheme": "Der Theme-Modus ist die einzige Quelle der Wahrheit über ThemeProvider. Die Kopfzeile bietet nur ein schnelles Umschalten.",
+    "themeLabel": "Design",
+    "themeModeAria": "Theme-Modus",
+    "resolvedAppearance": "Aufgelöstes Erscheinungsbild:",
+    "accentColor": "Akzentfarbe",
+    "accentNotice": "Akzentpräferenz wird für zukünftige CSS-VAR-Verkabelung gespeichert — verändert das gesperrte Farbsystem noch nicht.",
+    "density": "Dichte",
+    "compactMode": "Kompakt-Modus",
+    "compactModeDescription": "Reduzieren Sie die Polsterung über Enterprise-Tische und -Panels hinweg.",
+    "animations": "Animationen",
+    "animationsDescription": "Abschnittsbewegung und Schwebehebebühnen. Respektiert die Einstellung des Betriebssystems mit reduzierter Bewegung.",
+    "glassEffects": "Glaseffekte",
+    "glassEffectsDescription": "Präferenz für mattierte Glaskarten und Seitenleisten-Unschärfe.",
+    "modes": {
+      "day": {
+        "label": "Licht",
+        "hint": "Pearl /ICE-Unternehmenstagspalette"
+      },
+      "night": {
+        "label": "Dunkel",
+        "hint": "Zugelassener Cinematic Night Look"
+      },
+      "auto": {
+        "label": "system",
+        "hint": "Lokalen Zeitplan befolgen (Auto)"
+      }
+    },
+    "densities": {
+      "comfortable": "Bequem",
+      "compact": "Kompakt",
+      "spacious": "Geräumig"
+    }
   },
   "notifications": {
     "label": "Benachrichtigungen",
     "description": "E-Mail, Push und Modulalarme",
     "title": "Benachrichtigungen",
-    "panelDescription": "E-Mail, Push, Desktop, Mobil und modulspezifische Alerts."
+    "panelDescription": "E-Mail, Push, Desktop, Mobil und modulspezifische Alerts.",
+    "notice": "Benachrichtigungskanäle sind nur Präferenzen — Lieferadapter sind reserviert.",
+    "email": "E-Mail",
+    "push": "Schieben ",
+    "desktop": "Desktop",
+    "mobile": "Mobil",
+    "workflowAlerts": "Workflow-Warnungen",
+    "workflowAlertsDescription": "Automatisierungs-Engine-Ausführungs- und Genehmigungsereignisse",
+    "financeAlerts": "Finanzwarnungen",
+    "crmAlerts": "CRM-Warnungen",
+    "documentsAlerts": "Dokumentenwarnungen",
+    "deliveryNotice": "Lieferadapter werden beim Start ausgeliefert. Fragen:",
+    "contactSupport": "Support kontaktieren"
   },
   "documents": {
     "label": "Dokumente",
     "description": "Speicher, Aufbewahrung und Wissen",
     "title": "Dokumente",
-    "panelDescription": "Speicher, Aufbewahrung, Standardordner, Versionierung und Wissen."
+    "panelDescription": "Speicher, Aufbewahrung, Standardordner, Versionierung und Wissen.",
+    "notice": "Dokumenteinstellungen lassen sich in die Knowledge Hub-Architektur integrieren.",
+    "storagePreferences": "Speichereinstellungen",
+    "retentionPolicy": "Aufbewahrungsrichtlinie",
+    "defaultFolder": "Standard-Ordner",
+    "versioning": "Versionierung",
+    "versioningDescription": "Bewahren Sie den Versionsverlauf des Dokuments zum Wiederherstellen/Vergleichen",
+    "knowledgeSettings": "Wissenseinstellungen",
+    "knowledgeDescription": "KI-Indexierung für die Knowledge Hub-Suche.",
+    "storageOptions": {
+      "workspace-default": "Standard-Arbeitsbereich",
+      "eu-region": "EU-Region",
+      "encrypted-vault": "Verschlüsselter Tresor"
+    },
+    "retentionOptions": {
+      "30-days": "30 Tage (Kratzer)",
+      "2-years": "2 Jahre",
+      "7-years": "7 Jahre",
+      "10-years": "10 Jahre"
+    }
   },
   "automation": {
     "label": "Automatisierung",
     "description": "Workflow-Standards und Wiederholungsrichtlinie",
     "title": "Automatisierung",
-    "panelDescription": "Workflow-Standards, KI-Vorschläge, Ausführungsprotokolle, Historie und Wiederholung."
+    "panelDescription": "Workflow-Standards, KI-Vorschläge, Ausführungsprotokolle, Historie und Wiederholung.",
+    "notice": "Automatisierungsvorgaben gelten für die Workflow-Engine-Architektur.",
+    "workflowDefaults": "Workflow-Standards",
+    "historyLimits": "Verlaufsgrenzen",
+    "retryPolicy": "Wiederholungsrichtlinie",
+    "aiSuggestions": "KI-Vorschläge",
+    "executionLogs": "Ausführungsprotokolle",
+    "executionLogsDescription": "Behalten Sie detaillierte Run-Nutzlasten im Workflow-Verlauf bei.",
+    "workflowOptions": {
+      "require-approval": "Genehmigungstore erforderlich",
+      "auto-run": "Vertrauenswürdige Flows automatisch ausführen",
+      "draft-only": "nur Entwurf"
+    },
+    "historyOptions": {
+      "30-days": "30 Tage",
+      "90-days": "90 Tage",
+      "365-days": "365 Tage"
+    },
+    "retryOptions": {
+      "none": "Keine Wiederholungen",
+      "3-exponential": "3× exponentiell",
+      "5-linear": "5x linear"
+    }
   },
   "integrations": {
     "label": "Integrationen",
     "description": "Installiert, verbunden und verfügbar",
     "title": "Integrationen",
-    "panelDescription": "Installierte, verbundene und verfügbare Adapter."
+    "panelDescription": "Installierte, verbundene und verfügbare Adapter.",
+    "openCenter": "Integrationszentrum öffnen",
+    "notice": "Die Enterprise Integration Platform befindet sich im Integration Center — Konnektoren, OAuth, Webhooks, API-Schlüssel und die Workflow-Ereignisbrücke.",
+    "columns": {
+      "integration": "Integration",
+      "category": "Kategorie",
+      "status": "Status",
+      "adapter": "Adapter"
+    }
   },
   "security": {
     "label": "Sicherheit",
@@ -134,22 +278,55 @@
     "label": "API & Entwickler",
     "description": "Schlüssel, Webhooks, Tokens, Sandbox",
     "title": "API & Entwickler",
-    "panelDescription": "Schlüssel, Webhooks, Token und Sandbox-Zugang."
+    "panelDescription": "Schlüssel, Webhooks, Token und Sandbox-Zugang.",
+    "openPortal": "Portal für Entwickler",
+    "notice": "Generieren, Drehen und Widerrufen von Schlüsseln im Integrationscenter. Dort stehen Gateway, Webhook-Tester und API-Explorer zur Verfügung.",
+    "webhooks": "Webhooks",
+    "sandbox": "Sandbox",
+    "sandboxEnabled": "Aktiviert",
+    "sandboxDisabled": "Deaktiviert",
+    "tokensNotice": "Entwicklertoken zeigen niemals vollständige Geheimnisse an — nur Präfix.",
+    "columns": {
+      "name": "Name",
+      "key": "Passfeder",
+      "scope": "Reichweite",
+      "lastUsed": "Zuletzt verwendet"
+    }
   },
   "audit": {
     "label": "Audit-Protokolle",
     "description": "Aktivität, Sicherheit und Systemänderungen",
     "title": "Audit-Protokolle",
-    "panelDescription": "Aktuelle Aktivität, Sicherheitsereignisse und Systemänderungen."
+    "panelDescription": "Aktuelle Aktivität, Sicherheitsereignisse und Systemänderungen.",
+    "columns": {
+      "when": "Wann",
+      "actor": "Schauspieler",
+      "category": "Kategorie",
+      "summary": "Kurzdarstellung"
+    },
+    "categories": {
+      "activity": "Letzte Aktivität",
+      "security": "Sicherheitsereignisse",
+      "system": "Die Veränderungen des Systems"
+    }
   },
   "advanced": {
     "label": "Erweitert",
     "description": "Experimentell, Reset, Import, Export",
     "title": "Erweitert",
-    "panelDescription": "Experimentelle Funktionen, Zurücksetzen, Import und Export."
+    "panelDescription": "Experimentelle Funktionen, Zurücksetzen, Import und Export.",
+    "notice": "Erweiterte Aktionen müssen vor der Bewerbung bestätigt werden.",
+    "experimentalFeatures": "Experimentelle Funktionen",
+    "experimentalDescription": "Melden Sie sich für unfertige Control Center-Funktionen an.",
+    "export": "Export",
+    "import": "Import",
+    "reset": "Zurücksetzen",
+    "exportUnavailable": "Export ist noch nicht verfügbar.",
+    "importUnavailable": "Import ist noch nicht verfügbar.",
+    "resetUnavailable": "Reset ist noch nicht verfügbar."
   },
   "page": {
-    "eyebrow": "AGXORA Control Center",
+    "eyebrow": "AGXORA-Kontrollzentrum",
     "title": "Einstellungen",
     "lead": "Enterprise-Konfiguration für jedes AGXORA-Modul — Profil, Organisation, KI, Erscheinungsbild, Sicherheit, Abrechnung und Entwicklersteuerung an einem Ort.",
     "loading": "Einstellungen werden geladen…",

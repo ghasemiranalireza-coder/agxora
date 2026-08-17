@@ -1,0 +1,540 @@
+{
+  "enginePage": {
+    "sectionTitle": "AGXORA オートメーション OS",
+    "title": "オートメーション",
+    "subtitle": "Enterprise AI ワークフロー & オートメーション エンジン — CRM、財務、Creator Studio、および将来のすべての AGXORA モジュールの結合組織。",
+    "loadingHistory": "ワークフロー履歴を読み込み中…",
+    "loadingTemplates": "テンプレート ライブラリを読み込み中…",
+    "loadingIntegrations": "統合センターを読み込んでいます…",
+    "dashboard": "ダッシュボード",
+    "workflowBuilder": "ワークフロービルダー",
+    "workflowBuilderSubtitle": "グリッドへのスナップ、スムーズなズームとパン、接続ホバー、および空の状態のガイダンスを備えたノードベースのキャンバス。",
+    "openAssistant": "AI ワークフロー アシスタントを開く",
+    "workflowHistory": "ワークフロー履歴",
+    "workflowHistorySubtitle": "色付きのステータス、クリック可能な行、および完全な実行インスペクターを含む実行ログ。",
+    "templates": "テンプレート",
+    "templatesSubtitle": "ロード前のプレビュー - ノード数、難易度、実行時間、推奨される使用例。",
+    "integrationCenter": "インテグレーションセンター",
+    "integrationCenterSubtitle": "アダプター レジストリのみ — 接続済み、ベータ版、計画中、近日公開予定、無効。ライブ API はありません。"
+  },
+  "assistant": {
+    "title": "AIワークフローアシスタント",
+    "subtitle": "ローカル ヒューリスティックのみ - ライブ モデルは必要ありません。",
+    "closeAria": "AI ワークフロー アシスタントを閉じる",
+    "close": "近い",
+    "workflowScore": "ワークフロースコア",
+    "scoreOutOf": "/ 100",
+    "optimizationSuggestions": "最適化の提案",
+    "oneClickOptimize": "ワンクリックで最適化",
+    "noticeDefault": "One Click Optimize にはまだグラフの変更はありません。",
+    "noticeQueued": "キューを最適化します。将来のエンジンは遅延と承認を書き換えます。"
+  },
+  "integrations": {
+    "intro": "統合センター — オプション。ステータス: 接続済み、ベータ版、計画中、近日公開予定、無効。ライブ API はありません。",
+    "category": "カテゴリ：",
+    "reservedAdapter": "予約済みアダプター:",
+    "description": "説明："
+  },
+  "executionInspector": {
+    "title": "実行の詳細",
+    "emptyTitle": "実行を選択してください",
+    "emptyDescription": "[ワークフロー履歴] から実行を選択して、入力、出力、AI 概要を検査します。",
+    "workflowName": "ワークフロー名",
+    "trigger": "トリガー",
+    "executionId": "実行ID",
+    "started": "開始しました",
+    "finished": "終了した",
+    "duration": "間隔",
+    "status": "状態",
+    "success": "成功",
+    "failed": "失敗した",
+    "retryAvailable": "再試行可能",
+    "executedBy": "実行者",
+    "yes": "はい",
+    "no": "いいえ",
+    "emDash": "—",
+    "input": "入力",
+    "output": "出力",
+    "aiSummary": "AIの概要",
+    "errorMessage": "エラーメッセージ",
+    "retry": "リトライ",
+    "retryUnavailable": "再試行はできません",
+    "noticeDefault": "再試行アダプターが予約されています - ライブ再実行はまだ行われていません。",
+    "noticeQueued": "{id} の再試行がキューに入れられました。"
+  },
+  "workflowBuilder": {
+    "elementsTitle": "ワークフロー要素",
+    "paletteAria": "パレット",
+    "tabElements": "要素",
+    "tabTriggers": "トリガー",
+    "tabActions": "アクション",
+    "tabAiActions": "AI アクション",
+    "builderTitle": "ワークフロー ビルダー · {name}",
+    "builderHint": "{grid}px グリッドにスナップ · ⌘/Ctrl+スクロール ズーム · キャンバスをドラッグしてパン · ダブルクリック接続",
+    "autoSaved": "自動保存",
+    "saving": "保存中…",
+    "undo": "元に戻す",
+    "redo": "やり直し",
+    "zoomOut": "−",
+    "zoomIn": "+",
+    "resetView": "ビューをリセット",
+    "emptyTitle": "空のキャンバス",
+    "emptyDescription": "パレットからトリガーをドラッグして構築を開始します。グリッドにスナップすると、ノードが整列した状態に保たれます。",
+    "connectHint": "ターゲットをダブルクリックして接続します",
+    "miniMapAria": "ミニマップ"
+  },
+  "workflowHistory": {
+    "title": "ワークフロー履歴・実行ログ",
+    "statusFilter": "状態",
+    "statusAll": "全て",
+    "statusSuccess": "成功",
+    "statusFailed": "失敗した",
+    "statusPending": "保留中",
+    "statusRetried": "リトライ",
+    "statusRunning": "ランニング",
+    "runsAria": "ワークフローの実行",
+    "noMatches": "このフィルターに一致するワークフロー実行はありません。"
+  },
+  "workflowTemplates": {
+    "title": "テンプレートライブラリ",
+    "noticeDefault": "テンプレートをビルダーにロードする前にプレビューします。",
+    "noticeLoaded": "「{name}」をワークフロー ビルダーにロードしました。",
+    "nodesBadge": "{count} ノード",
+    "recommendedFor": "こんな方におすすめ: {for}",
+    "preview": "プレビュー",
+    "useTemplate": "テンプレートを使用する",
+    "previewTitle": "テンプレートのプレビュー",
+    "close": "近い",
+    "nodes": "ノード",
+    "connections": "接続",
+    "estimatedRuntime": "推定実行時間",
+    "difficulty": "困難",
+    "requiredModules": "必要なモジュール",
+    "usedAiFeatures": "使用された AI 機能",
+    "none": "なし"
+  },
+  "workspace": {
+    "loading": "自動化エンジンを読み込んでいます…",
+    "eyebrow": "ワークフロー自動化エンジン",
+    "title": "オートメーション",
+    "subtitle": "CRM、プロジェクト、財務、ドキュメント、AI にわたる構成可能なビジネス ワークフロー - ローカル イベント バスとブラウザ内エンジン。分散キューとバックエンド ワーカーは接続されていません。",
+    "noticeDefault": "実行エンジンは UI に依存しません。モジュールはイベントを公開します。ワークフローを購読します。",
+    "tabs": {
+      "dashboard": "ダッシュボード",
+      "workflows": "ワークフロー",
+      "editor": "エディタ",
+      "history": "歴史",
+      "templates": "テンプレート",
+      "analytics": "分析",
+      "settings": "設定"
+    },
+    "notice": {
+      "missingWrite": "workflow.write 権限がありません。",
+      "missingExecute": "workflow.execute 権限がありません。",
+      "created": "{name}を作成しました",
+      "templateApplied": "適用されたテンプレート: {name}",
+      "runResult": "{status} を実行 ({duration} ミリ秒)",
+      "runFailed": "ワークフローを実行できませんでした (無効または欠落しています)。",
+      "publishedEvent": "公開されたドメイン イベント: {type}",
+      "workflowStatus": "ワークフロー {status}",
+      "saved": "ワークフローが保存されました",
+      "retryResult": "再試行 {status}",
+      "retryFailed": "再試行に失敗しました",
+      "settingsSaved": "自動化設定が保存されました"
+    },
+    "defaults": {
+      "untitledName": "無題のワークフロー",
+      "untitledDescription": "ワークフローの草案 — トリガーとアクションを構成します。"
+    },
+    "dashboard": {
+      "workflows": "ワークフロー",
+      "active": "アクティブ",
+      "runsToday": "今日も運行",
+      "successRate": "成功率",
+      "recentWorkflows": "最近のワークフロー",
+      "newWorkflow": "新しいワークフロー",
+      "eventBusDemo": "イベントバスのデモ",
+      "eventBusHint": "モジュールイベントを発行します。一致するトリガーを持つアクティブなワークフローは、自動的にキューに追加されます。",
+      "notifications": "通知"
+    },
+    "workflowList": {
+      "title": "ワークフローリスト",
+      "newWorkflow": "新しいワークフロー",
+      "emptyTitle": "ワークフローはまだありません。",
+      "emptyDescription": "ワークフローを作成するか、テンプレートから開始します。",
+      "columns": {
+        "name": "名前",
+        "status": "状態",
+        "nodes": "ノード",
+        "updated": "更新されました",
+        "actions": "アクション"
+      },
+      "run": "走る",
+      "disable": "無効にする",
+      "activate": "活性化"
+    },
+    "editor": {
+      "selectPrompt": "編集するワークフローを選択または作成します。",
+      "workflows": "ワークフロー",
+      "title": "ワークフローエディター",
+      "hint": "アーキテクチャは、トリガー→条件→アクション→遅延→分岐→ループをサポートします。キャンバスのドラッグ アンド ドロップは、エンジンを変更せずにノードの位置に接続できます。",
+      "name": "名前",
+      "description": "説明",
+      "trigger": "トリガー",
+      "primaryAction": "主なアクション",
+      "executionPath": "実行パスのプレビュー",
+      "save": "保存",
+      "runNow": "今すぐ実行",
+      "triggerFallback": "トリガー",
+      "actionFallback": "アクション"
+    },
+    "history": {
+      "title": "実行履歴",
+      "emptyTitle": "まだ処刑はされていない。",
+      "emptyDescription": "ワークフローを実行するか、ドメイン イベントを公開します。",
+      "latestRun": "最新の実行の詳細",
+      "path": "パス: {path}",
+      "error": "· エラー: {error}",
+      "columns": {
+        "workflow": "ワークフロー",
+        "status": "状態",
+        "triggeredBy": "きっかけは",
+        "duration": "間隔",
+        "started": "開始しました",
+        "retry": "リトライ"
+      },
+      "retry": "リトライ",
+      "emDash": "—"
+    },
+    "templates": {
+      "useTemplate": "テンプレートを使用する"
+    },
+    "analytics": {
+      "totalWorkflows": "合計ワークフロー",
+      "activeWorkflows": "アクティブなワークフロー",
+      "executionsToday": "今日の死刑執行",
+      "successRate24h": "成功率(24時間)",
+      "failed24h": "失敗しました (24 時間)",
+      "avgDuration": "平均継続時間"
+    },
+    "settings": {
+      "title": "自動化設定",
+      "subtitle": "再試行ポリシー、実行制限、同時実行性、タイムアウト、分散実行のログ。",
+      "maxRetryAttempts": "最大再試行回数",
+      "backoffMs": "バックオフ (ミリ秒)",
+      "executionsPerHour": "実行数/時間",
+      "concurrencyLimit": "同時実行制限",
+      "timeoutMs": "タイムアウト (ミリ秒)",
+      "logLevel": "ログレベル",
+      "saveSettings": "設定を保存する",
+      "logLevels": {
+        "error": "エラー",
+        "warn": "警告",
+        "info": "情報",
+        "debug": "デバッグ"
+      }
+    }
+  },
+  "miniPreview": {
+    "emptyWorkflow": "空のワークフロー"
+  },
+  "status": {
+    "connected": "接続済み",
+    "beta": "ベータ",
+    "comingSoon": "近日公開",
+    "disabled": "無効",
+    "planned": "計画中",
+    "success": "成功",
+    "failed": "失敗",
+    "running": "実行中",
+    "pending": "保留中",
+    "retried": "再試行"
+  },
+  "difficulty": {
+    "starter": "入門",
+    "intermediate": "中級",
+    "advanced": "上級"
+  },
+  "catalog": {
+    "el-trigger": {
+      "label": "トリガー",
+      "description": "イベント発生時に開始"
+    },
+    "el-condition": {
+      "label": "条件",
+      "description": "ルールで分岐"
+    },
+    "el-delay": {
+      "label": "遅延",
+      "description": "続行前に待機"
+    },
+    "el-approval": {
+      "label": "承認",
+      "description": "人手による承認ゲート"
+    },
+    "el-loop": {
+      "label": "ループ",
+      "description": "コレクションを反復"
+    },
+    "el-merge": {
+      "label": "結合",
+      "description": "並列パスを結合"
+    },
+    "el-split": {
+      "label": "分割",
+      "description": "並列パスを分岐"
+    },
+    "el-ai-decision": {
+      "label": "AI 判定",
+      "description": "AI でルーティング"
+    },
+    "el-notification": {
+      "label": "通知",
+      "description": "アプリ内アラート"
+    },
+    "el-webhook": {
+      "label": "Webhook プレースホルダー",
+      "description": "HTTP コールバック予約済み"
+    },
+    "el-custom": {
+      "label": "カスタムアクション",
+      "description": "拡張可能なアクション枠"
+    },
+    "tr-customer": {
+      "label": "顧客を作成",
+      "description": "CRM 顧客レコードを作成"
+    },
+    "tr-lead": {
+      "label": "リードを作成",
+      "description": "新しいリードがパイプラインに入る"
+    },
+    "tr-invoice": {
+      "label": "請求書を作成",
+      "description": "財務請求書を発行"
+    },
+    "tr-invoice-paid": {
+      "label": "請求書を入金",
+      "description": "支払いが決済された"
+    },
+    "tr-order": {
+      "label": "注文を作成",
+      "description": "注文が登録された"
+    },
+    "tr-order-done": {
+      "label": "注文完了",
+      "description": "注文が履行された"
+    },
+    "tr-doc": {
+      "label": "ドキュメントをアップロード",
+      "description": "ドキュメント保管庫へのアップロード"
+    },
+    "tr-campaign": {
+      "label": "キャンペーンを公開",
+      "description": "Creator Studio の公開"
+    },
+    "tr-employee": {
+      "label": "従業員を追加",
+      "description": "チームディレクトリの変更"
+    },
+    "tr-task": {
+      "label": "タスク完了",
+      "description": "タスクを完了に設定"
+    },
+    "tr-manual": {
+      "label": "手動トリガー",
+      "description": "オンデマンド実行"
+    },
+    "tr-schedule": {
+      "label": "スケジュールトリガー",
+      "description": "Cron / カレンダー予定"
+    },
+    "tr-webhook": {
+      "label": "Webhook トリガー",
+      "description": "受信 HTTP イベント"
+    },
+    "tr-api": {
+      "label": "API トリガー",
+      "description": "プログラムからの開始"
+    },
+    "ac-crm": {
+      "label": "CRM レコードを作成",
+      "description": "CRM エンティティを書き込む"
+    },
+    "ac-invoice": {
+      "label": "請求書を生成",
+      "description": "財務請求書"
+    },
+    "ac-quote": {
+      "label": "見積を生成",
+      "description": "見積ドキュメントを作成"
+    },
+    "ac-delivery": {
+      "label": "納品書を生成",
+      "description": "納品書"
+    },
+    "ac-task": {
+      "label": "タスクを作成",
+      "description": "タスクを開く"
+    },
+    "ac-assign": {
+      "label": "従業員を割り当て",
+      "description": "チームメイトへルーティング"
+    },
+    "ac-email": {
+      "label": "メールを送信",
+      "description": "送信メール"
+    },
+    "ac-notify": {
+      "label": "通知を送信",
+      "description": "アプリ内通知"
+    },
+    "ac-ai-summary": {
+      "label": "AI 要約を生成",
+      "description": "コンテキストを要約"
+    },
+    "ac-ai-content": {
+      "label": "AI コンテンツを生成",
+      "description": "Creator Studio の下書き"
+    },
+    "ac-update-customer": {
+      "label": "顧客を更新",
+      "description": "CRM 顧客をパッチ"
+    },
+    "ac-update-status": {
+      "label": "ステータスを更新",
+      "description": "エンティティのステータスを変更"
+    },
+    "ac-pdf": {
+      "label": "PDF を書き出す",
+      "description": "ドキュメント書き出し"
+    },
+    "ac-future": {
+      "label": "将来の API プレースホルダー",
+      "description": "予約済みアクション枠"
+    },
+    "ai-decision": {
+      "label": "AI 判定",
+      "description": "次のパスを決定"
+    },
+    "ai-class": {
+      "label": "AI 分類",
+      "description": "レコードを分類"
+    },
+    "ai-text": {
+      "label": "AI テキスト生成",
+      "description": "テキストを生成"
+    },
+    "ai-translate": {
+      "label": "AI 翻訳",
+      "description": "コンテンツを翻訳"
+    },
+    "ai-email": {
+      "label": "AI メール返信",
+      "description": "返信を下書き"
+    },
+    "ai-sum": {
+      "label": "AI 要約",
+      "description": "コンテキストを凝縮"
+    },
+    "ai-rec": {
+      "label": "AI 推奨",
+      "description": "次のステップを提案"
+    },
+    "ai-route": {
+      "label": "AI ルーティング",
+      "description": "オーナー / キューへルーティング"
+    }
+  },
+  "triggers": {
+    "customer_created": {
+      "label": "お客様が作成した",
+      "description": "CRM の顧客レコードが作成されたときに発火します。"
+    },
+    "project_created": {
+      "label": "プロジェクトが作成されました",
+      "description": "プロジェクトが作成されたときに発火します。"
+    },
+    "task_completed": {
+      "label": "タスクが完了しました",
+      "description": "タスクが完了したときに発火します。"
+    },
+    "document_uploaded": {
+      "label": "ドキュメントがアップロードされました",
+      "description": "ドキュメントがアップロードされたときに発火します。"
+    },
+    "schedule": {
+      "label": "スケジュール",
+      "description": "Cron / 間隔スケジュールのトリガー。"
+    },
+    "invoice_issued": {
+      "label": "請求書発行",
+      "description": "請求書が発行されたときに発火します。"
+    },
+    "user_invited": {
+      "label": "ユーザー招待",
+      "description": "チームメンバーが招待されたときに発火します。"
+    },
+    "webhook": {
+      "label": "Webhook",
+      "description": "受信 HTTP Webhook。"
+    },
+    "api_event": {
+      "label": "API イベント",
+      "description": "汎用 API ドメインイベント。"
+    },
+    "ai_event": {
+      "label": "AI イベント",
+      "description": "AI シグナル（完了、洞察、エージェント手順）。"
+    },
+    "manual": {
+      "label": "手動トリガー",
+      "description": "自動化 UI または API からオンデマンド実行。"
+    }
+  },
+  "actions": {
+    "customer_create": {
+      "label": "顧客の作成",
+      "description": "CRM の顧客レコードを作成します。"
+    },
+    "customer_update": {
+      "label": "顧客を更新",
+      "description": "顧客のフィールドを更新します。"
+    },
+    "project_create": {
+      "label": "プロジェクトの作成",
+      "description": "ワークフローコンテキストからプロジェクトを作成します。"
+    },
+    "notification_send": {
+      "label": "通知を送信",
+      "description": "アプリ内通知を送信します。"
+    },
+    "email_send": {
+      "label": "メールを送信",
+      "description": "メールプロバイダー経由でメールをキューします。"
+    },
+    "invoice_create": {
+      "label": "請求書の作成",
+      "description": "財務の請求書を作成します。"
+    },
+    "status_update": {
+      "label": "ステータスを更新",
+      "description": "モジュール内エンティティのステータスを更新します。"
+    },
+    "document_generate": {
+      "label": "ドキュメント生成",
+      "description": "テンプレートからドキュメントを生成します。"
+    },
+    "api_call": {
+      "label": "API 呼び出し",
+      "description": "内部または外部 API への HTTP 呼び出し。"
+    },
+    "ai_run": {
+      "label": "AI を実行",
+      "description": "コンテキスト付きで AI プロンプト / エージェント手順を実行します。"
+    },
+    "task_assign": {
+      "label": "タスクを割り当て",
+      "description": "タスクをユーザーに割り当てます。"
+    }
+  }
+}

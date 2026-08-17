@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
+import { useT } from "@/app/lib/i18n";
 import { automationStore } from "../store";
 import { workflowService } from "../services";
 import { useAutomationEngine } from "../hooks";
@@ -25,27 +26,16 @@ type TabId =
   | "analytics"
   | "settings";
 
-const TABS: readonly { id: TabId; label: string }[] = [
-  { id: "dashboard", label: "Dashboard" },
-  { id: "workflows", label: "Workflows" },
-  { id: "editor", label: "Editor" },
-  { id: "history", label: "History" },
-  { id: "templates", label: "Templates" },
-  { id: "analytics", label: "Analytics" },
-  { id: "settings", label: "Settings" },
-];
-
 /**
  * Workflow Automation workspace — modular OS surface.
  * Does not alter dashboard shell (layout / sidebar / header).
  */
 export function AutomationWorkspace(): JSX.Element {
+  const t = useT();
   const engine = useAutomationEngine();
   const [tab, setTab] = useState<TabId>("dashboard");
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [notice, setNotice] = useState(
-    "Execution engine is UI-independent. Modules publish events; workflows subscribe.",
-  );
+  const [notice, setNotice] = useState(t("automation.workspace.noticeDefault"));
   const [busy, setBusy] = useState(false);
   const [settingsDraft, setSettingsDraft] = useState<WorkflowSettings | null>(
     null,
@@ -68,6 +58,16 @@ export function AutomationWorkspace(): JSX.Element {
 
   const effectiveSelectedId = selectedId ?? engine.workflows[0]?.id ?? null;
 
+  const tabs: readonly { id: TabId; label: string }[] = [
+    { id: "dashboard", label: t("automation.workspace.tabs.dashboard") },
+    { id: "workflows", label: t("automation.workspace.tabs.workflows") },
+    { id: "editor", label: t("automation.workspace.tabs.editor") },
+    { id: "history", label: t("automation.workspace.tabs.history") },
+    { id: "templates", label: t("automation.workspace.tabs.templates") },
+    { id: "analytics", label: t("automation.workspace.tabs.analytics") },
+    { id: "settings", label: t("automation.workspace.tabs.settings") },
+  ];
+
   const selected = useMemo(
     () => engine.workflows.find((w) => w.id === effectiveSelectedId) ?? null,
     [engine.workflows, effectiveSelectedId],
@@ -80,18 +80,18 @@ export function AutomationWorkspace(): JSX.Element {
 
   const onCreate = () => {
     if (!engine.permissions.canWrite) {
-      setNotice("Missing workflow.write permission.");
+      setNotice(t("automation.workspace.notice.missingWrite"));
       return;
     }
     const wf = workflowService.create({
       organizationId: engine.organizationId,
-      name: "Untitled workflow",
-      description: "Draft workflow — configure trigger and actions.",
+      name: t("automation.workspace.defaults.untitledName"),
+      description: t("automation.workspace.defaults.untitledDescription"),
       createdBy: engine.userId ?? undefined,
     });
     setSelectedId(wf.id);
     setTab("editor");
-    setNotice(`Created ${wf.name}`);
+    setNotice(t("automation.workspace.notice.created", { name: wf.name }));
   };
 
   const onUseTemplate = (templateId: string) => {
@@ -104,12 +104,12 @@ export function AutomationWorkspace(): JSX.Element {
     if (!wf) return;
     setSelectedId(wf.id);
     setTab("editor");
-    setNotice(`Template applied: ${wf.name}`);
+    setNotice(t("automation.workspace.notice.templateApplied", { name: wf.name }));
   };
 
   const onRun = async (workflowId: string) => {
     if (!engine.permissions.canExecute) {
-      setNotice("Missing workflow.execute permission.");
+      setNotice(t("automation.workspace.notice.missingExecute"));
       return;
     }
     setBusy(true);
@@ -120,8 +120,11 @@ export function AutomationWorkspace(): JSX.Element {
       });
       setNotice(
         exec
-          ? `Run ${exec.status} (${exec.durationMs ?? 0}ms)`
-          : "Workflow could not run (disabled or missing).",
+          ? t("automation.workspace.notice.runResult", {
+              status: exec.status,
+              duration: exec.durationMs ?? 0,
+            })
+          : t("automation.workspace.notice.runFailed"),
       );
       setTab("history");
     } finally {
@@ -136,7 +139,7 @@ export function AutomationWorkspace(): JSX.Element {
       source: "automation.ui",
       payload: { demo: true, at: new Date().toISOString() },
     });
-    setNotice(`Published domain event: ${type}`);
+    setNotice(t("automation.workspace.notice.publishedEvent", { type }));
     setTab("history");
   };
 
@@ -146,7 +149,7 @@ export function AutomationWorkspace(): JSX.Element {
         className="py-16 text-center text-sm"
         style={{ color: "var(--agx-text-muted, #94a3b8)" }}
       >
-        Loading automation engine…
+        {t("automation.workspace.loading")}
       </div>
     );
   }
@@ -158,34 +161,32 @@ export function AutomationWorkspace(): JSX.Element {
           className="text-[11px] font-semibold uppercase tracking-[0.16em]"
           style={{ color: "var(--agx-accent, #22d3ee)" }}
         >
-          Workflow Automation Engine
+          {t("automation.workspace.eyebrow")}
         </p>
         <h1
           className="text-2xl font-semibold tracking-tight"
           style={{ color: "var(--agx-text, #f8fafc)" }}
         >
-          Automation
+          {t("automation.workspace.title")}
         </h1>
         <p
           className="max-w-2xl text-sm leading-relaxed"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
-          Configurable business workflows across CRM, Projects, Finance,
-          Documents, and AI — local event bus and in-browser engine. Distributed
-          queue and backend workers are not connected.
+          {t("automation.workspace.subtitle")}
         </p>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           {notice}
         </p>
         <div className="flex flex-wrap gap-2 pt-1">
-          {TABS.map((t) => (
+          {tabs.map((tabItem) => (
             <Button
-              key={t.id}
+              key={tabItem.id}
               size="sm"
-              variant={tab === t.id ? "primary" : "secondary"}
-              onClick={() => setTab(t.id)}
+              variant={tab === tabItem.id ? "primary" : "secondary"}
+              onClick={() => setTab(tabItem.id)}
             >
-              {t.label}
+              {tabItem.label}
             </Button>
           ))}
         </div>
@@ -213,7 +214,7 @@ export function AutomationWorkspace(): JSX.Element {
           onRun={(id) => void onRun(id)}
           onStatus={(id, status) => {
             workflowService.setStatus(id, status);
-            setNotice(`Workflow ${status}`);
+            setNotice(t("automation.workspace.notice.workflowStatus", { status }));
           }}
         />
       ) : null}
@@ -231,7 +232,7 @@ export function AutomationWorkspace(): JSX.Element {
           onSelect={setSelectedId}
           onSave={(wf) => {
             workflowService.update(wf);
-            setNotice("Workflow saved");
+            setNotice(t("automation.workspace.notice.saved"));
           }}
           onRun={(id) => void onRun(id)}
         />
@@ -244,7 +245,7 @@ export function AutomationWorkspace(): JSX.Element {
           canExecute={engine.permissions.canExecute}
           onRetry={(id) => {
             void workflowService.retryExecution(id).then((exec) => {
-              setNotice(exec ? `Retry ${exec.status}` : "Retry failed");
+              setNotice(exec ? t("automation.workspace.notice.retryResult", { status: exec.status }) : t("automation.workspace.notice.retryFailed"));
             });
           }}
         />
@@ -270,7 +271,7 @@ export function AutomationWorkspace(): JSX.Element {
           onSave={() => {
             workflowService.saveSettings(engine.organizationId, settings);
             setSettingsDraft(null);
-            setNotice("Automation settings saved");
+            setNotice(t("automation.workspace.notice.settingsSaved"));
           }}
         />
       ) : null}
@@ -293,21 +294,22 @@ function DashboardPanel({
   onCreate: () => void;
   onPublishEvent: (type: string) => void;
 }): JSX.Element {
+  const t = useT();
   return (
     <>
       <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        <Stat label="Workflows" value={String(analytics.totalWorkflows)} />
-        <Stat label="Active" value={String(analytics.activeWorkflows)} />
-        <Stat label="Runs today" value={String(analytics.executionsToday)} />
-        <Stat label="Success rate" value={`${analytics.successRate}%`} />
+        <Stat label={t("automation.workspace.dashboard.workflows")} value={String(analytics.totalWorkflows)} />
+        <Stat label={t("automation.workspace.dashboard.active")} value={String(analytics.activeWorkflows)} />
+        <Stat label={t("automation.workspace.dashboard.runsToday")} value={String(analytics.executionsToday)} />
+        <Stat label={t("automation.workspace.dashboard.successRate")} value={`${analytics.successRate}%`} />
       </div>
       <Card className="space-y-3" padding="20px" hover={false}>
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Recent workflows
+            {t("automation.workspace.dashboard.recentWorkflows")}
           </h2>
           <Button size="sm" onClick={onCreate}>
-            New workflow
+            {t("automation.workspace.dashboard.newWorkflow")}
           </Button>
         </div>
         <ul className="space-y-2 text-sm">
@@ -332,10 +334,10 @@ function DashboardPanel({
       </Card>
       <Card className="space-y-3" padding="20px" hover={false}>
         <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Event bus demo
+          {t("automation.workspace.dashboard.eventBusDemo")}
         </h2>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Publish a module event. Active workflows with matching triggers enqueue automatically.
+          {t("automation.workspace.dashboard.eventBusHint")}
         </p>
         <div className="flex flex-wrap gap-2">
           {(
@@ -345,9 +347,9 @@ function DashboardPanel({
               "invoice.issued",
               "task.completed",
             ] as const
-          ).map((t) => (
-            <Button key={t} size="sm" variant="secondary" onClick={() => onPublishEvent(t)}>
-              {t}
+          ).map((eventType) => (
+            <Button key={eventType} size="sm" variant="secondary" onClick={() => onPublishEvent(eventType)}>
+              {eventType}
             </Button>
           ))}
         </div>
@@ -355,7 +357,7 @@ function DashboardPanel({
       {notifications.length > 0 ? (
         <Card className="space-y-2" padding="20px" hover={false}>
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Notifications
+            {t("automation.workspace.dashboard.notifications")}
           </h2>
           <ul className="space-y-2 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
             {notifications.slice(0, 5).map((n) => (
@@ -389,34 +391,35 @@ function WorkflowListPanel({
   onRun: (id: string) => void;
   onStatus: (id: string, status: WorkflowStatus) => void;
 }): JSX.Element {
+  const t = useT();
   const columns: DataTableColumn<WorkflowDefinition>[] = [
     {
       key: "name",
-      header: "Name",
+      header: t("automation.workspace.workflowList.columns.name"),
       render: (r) => (
         <button type="button" className="font-medium underline-offset-2 hover:underline" onClick={() => onOpen(r.id)}>
           {r.name}
         </button>
       ),
     },
-    { key: "status", header: "Status", render: (r) => r.status },
+    { key: "status", header: t("automation.workspace.workflowList.columns.status"), render: (r) => r.status },
     {
       key: "nodes",
-      header: "Nodes",
+      header: t("automation.workspace.workflowList.columns.nodes"),
       render: (r) => String(r.nodes.length),
     },
     {
       key: "updatedAt",
-      header: "Updated",
+      header: t("automation.workspace.workflowList.columns.updated"),
       render: (r) => r.updatedAt.slice(0, 10),
     },
     {
       key: "actions",
-      header: "Actions",
+      header: t("automation.workspace.workflowList.columns.actions"),
       render: (r) => (
         <div className="flex flex-wrap gap-1">
           <Button size="sm" variant="secondary" disabled={busy || !canExecute} onClick={() => onRun(r.id)}>
-            Run
+            {t("automation.workspace.workflowList.run")}
           </Button>
           {canWrite ? (
             <Button
@@ -426,7 +429,7 @@ function WorkflowListPanel({
                 onStatus(r.id, r.status === "active" ? "disabled" : "active")
               }
             >
-              {r.status === "active" ? "Disable" : "Activate"}
+              {r.status === "active" ? t("automation.workspace.workflowList.disable") : t("automation.workspace.workflowList.activate")}
             </Button>
           ) : null}
         </div>
@@ -438,18 +441,18 @@ function WorkflowListPanel({
     <Card className="space-y-3" padding="20px" hover={false}>
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Workflow list
+          {t("automation.workspace.workflowList.title")}
         </h2>
         <Button size="sm" onClick={onCreate} disabled={!canWrite}>
-          New workflow
+          {t("automation.workspace.workflowList.newWorkflow")}
         </Button>
       </div>
       <DataTable
         columns={columns}
         rows={[...workflows]}
         rowKey={(r) => r.id}
-        emptyTitle="No workflows yet."
-        emptyDescription="Create a workflow or start from a template."
+        emptyTitle={t("automation.workspace.workflowList.emptyTitle")}
+        emptyDescription={t("automation.workspace.workflowList.emptyDescription")}
         minWidth={720}
       />
     </Card>
@@ -479,6 +482,7 @@ function WorkflowEditorPanel({
   onSave: (wf: WorkflowDefinition) => void;
   onRun: (id: string) => void;
 }): JSX.Element {
+  const t = useT();
   const triggerNode = workflow?.nodes.find((n) => n.kind === "trigger");
   const actionNode = workflow?.nodes.find((n) => n.kind === "action");
   const [name, setName] = useState(workflow?.name ?? "");
@@ -498,7 +502,7 @@ function WorkflowEditorPanel({
     return (
       <Card padding="20px" hover={false}>
         <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Select or create a workflow to edit.
+          {t("automation.workspace.editor.selectPrompt")}
         </p>
       </Card>
     );
@@ -510,7 +514,7 @@ function WorkflowEditorPanel({
       {
         id: "n_trigger",
         kind: "trigger",
-        label: triggers.find((t) => t.type === triggerType)?.label ?? "Trigger",
+        label: triggers.find((tr) => tr.type === triggerType)?.label ?? t("automation.workspace.editor.triggerFallback"),
         position: { x: 80, y: 120 },
         config: { triggerType },
         next: ["n_action"],
@@ -518,7 +522,7 @@ function WorkflowEditorPanel({
       {
         id: "n_action",
         kind: "action",
-        label: actions.find((a) => a.type === actionType)?.label ?? "Action",
+        label: actions.find((a) => a.type === actionType)?.label ?? t("automation.workspace.editor.actionFallback"),
         position: { x: 360, y: 120 },
         config: { actionType, params: {}, outputKey: "result" },
       },
@@ -548,7 +552,7 @@ function WorkflowEditorPanel({
     <div className="grid gap-4 lg:grid-cols-[240px_minmax(0,1fr)]">
       <Card className="space-y-2" padding="16px" hover={false}>
         <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Workflows
+          {t("automation.workspace.editor.workflows")}
         </p>
         <ul className="space-y-1 text-sm">
           {workflows.map((w) => (
@@ -574,14 +578,13 @@ function WorkflowEditorPanel({
 
       <Card className="space-y-4" padding="20px" hover={false}>
         <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Workflow editor
+          {t("automation.workspace.editor.title")}
         </h2>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Architecture supports trigger → condition → action → delay → branch → loop.
-          Canvas drag-and-drop can plug into node positions without engine changes.
+          {t("automation.workspace.editor.hint")}
         </p>
         <label className="block text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Name
+          {t("automation.workspace.editor.name")}
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -590,7 +593,7 @@ function WorkflowEditorPanel({
           />
         </label>
         <label className="block text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Description
+          {t("automation.workspace.editor.description")}
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -601,22 +604,22 @@ function WorkflowEditorPanel({
         </label>
         <div className="grid gap-3 sm:grid-cols-2">
           <label className="block text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Trigger
+            {t("automation.workspace.editor.trigger")}
             <select
               value={triggerType}
               onChange={(e) => setTriggerType(e.target.value as TriggerType)}
               className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
               disabled={!canWrite}
             >
-              {triggers.map((t) => (
-                <option key={t.type} value={t.type}>
-                  {t.label}
+              {triggers.map((trigger) => (
+                <option key={trigger.type} value={trigger.type}>
+                  {t(`automation.triggers.${String(trigger.type).replaceAll(".", "_")}.label`)}
                 </option>
               ))}
             </select>
           </label>
           <label className="block text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Primary action
+            {t("automation.workspace.editor.primaryAction")}
             <select
               value={actionType}
               onChange={(e) =>
@@ -625,9 +628,9 @@ function WorkflowEditorPanel({
               className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
               disabled={!canWrite}
             >
-              {actions.map((a) => (
-                <option key={a.type} value={a.type}>
-                  {a.label}
+              {actions.map((action) => (
+                <option key={action.type} value={action.type}>
+                  {t(`automation.actions.${String(action.type).replaceAll(".", "_")}.label`)}
                 </option>
               ))}
             </select>
@@ -636,7 +639,7 @@ function WorkflowEditorPanel({
 
         <div className="rounded-2xl border p-4" style={{ borderColor: "color-mix(in srgb, var(--agx-border, #334155) 60%, transparent)" }}>
           <p className="mb-3 text-xs font-semibold uppercase tracking-wide" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Execution path preview
+            {t("automation.workspace.editor.executionPath")}
           </p>
           <ol className="flex flex-wrap items-center gap-2 text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
             {workflow.nodes.map((n, i) => (
@@ -657,7 +660,7 @@ function WorkflowEditorPanel({
 
         <div className="flex flex-wrap gap-2">
           <Button size="sm" onClick={save} disabled={!canWrite}>
-            Save
+            {t("automation.workspace.editor.save")}
           </Button>
           <Button
             size="sm"
@@ -665,7 +668,7 @@ function WorkflowEditorPanel({
             disabled={busy || !canExecute}
             onClick={() => onRun(workflow.id)}
           >
-            Run now
+            {t("automation.workspace.editor.runNow")}
           </Button>
         </div>
       </Card>
@@ -684,34 +687,35 @@ function HistoryPanel({
   canExecute: boolean;
   onRetry: (id: string) => void;
 }): JSX.Element {
+  const t = useT();
   const nameOf = (id: string) =>
     workflows.find((w) => w.id === id)?.name ?? id;
 
   const columns: DataTableColumn<WorkflowExecution>[] = [
     {
       key: "workflow",
-      header: "Workflow",
+      header: t("automation.workspace.history.columns.workflow"),
       render: (r) => nameOf(r.workflowId),
     },
-    { key: "status", header: "Status", render: (r) => r.status },
+    { key: "status", header: t("automation.workspace.history.columns.status"), render: (r) => r.status },
     {
       key: "triggeredBy",
-      header: "Triggered by",
+      header: t("automation.workspace.history.columns.triggeredBy"),
       render: (r) => r.triggeredBy,
     },
     {
       key: "duration",
-      header: "Duration",
-      render: (r) => (r.durationMs != null ? `${r.durationMs}ms` : "—"),
+      header: t("automation.workspace.history.columns.duration"),
+      render: (r) => (r.durationMs != null ? `${r.durationMs}ms` : t("automation.workspace.history.emDash")),
     },
     {
       key: "startedAt",
-      header: "Started",
+      header: t("automation.workspace.history.columns.started"),
       render: (r) => r.startedAt.slice(0, 19).replace("T", " "),
     },
     {
       key: "actions",
-      header: "Retry",
+      header: t("automation.workspace.history.columns.retry"),
       render: (r) =>
         r.status === "failed" ? (
           <Button
@@ -720,10 +724,10 @@ function HistoryPanel({
             disabled={!canExecute}
             onClick={() => onRetry(r.id)}
           >
-            Retry
+            {t("automation.workspace.history.retry")}
           </Button>
         ) : (
-          "—"
+          t("automation.workspace.history.emDash")
         ),
     },
   ];
@@ -734,25 +738,27 @@ function HistoryPanel({
     <>
       <Card className="space-y-3" padding="20px" hover={false}>
         <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-          Execution history
+          {t("automation.workspace.history.title")}
         </h2>
         <DataTable
           columns={columns}
           rows={[...executions]}
           rowKey={(r) => r.id}
-          emptyTitle="No executions yet."
-          emptyDescription="Run a workflow or publish a domain event."
+          emptyTitle={t("automation.workspace.history.emptyTitle")}
+          emptyDescription={t("automation.workspace.history.emptyDescription")}
           minWidth={800}
         />
       </Card>
       {latest ? (
         <Card className="space-y-2" padding="20px" hover={false}>
           <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            Latest run detail
+            {t("automation.workspace.history.latestRun")}
           </h3>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            Path: {latest.path.join(" → ") || "—"}
-            {latest.error ? ` · Error: ${latest.error}` : ""}
+            {t("automation.workspace.history.path", {
+              path: latest.path.join(" → ") || t("automation.workspace.history.emDash"),
+            })}
+            {latest.error ? t("automation.workspace.history.error", { error: latest.error }) : ""}
           </p>
           <ul className="space-y-2 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
             {latest.steps.map((s, i) => (
@@ -778,21 +784,22 @@ function TemplatesPanel({
   canWrite: boolean;
   onUse: (id: string) => void;
 }): JSX.Element {
+  const t = useT();
   return (
     <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3" id="workflow-templates">
-      {templates.map((t) => (
-        <Card key={t.id} className="flex flex-col gap-2" padding="20px" hover={false}>
+      {templates.map((tpl) => (
+        <Card key={tpl.id} className="flex flex-col gap-2" padding="20px" hover={false}>
           <p className="text-[11px] uppercase tracking-wide" style={{ color: "var(--agx-accent, #22d3ee)" }}>
-            {t.category} · {t.difficulty}
+            {tpl.category} · {tpl.difficulty}
           </p>
           <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            {t.name}
+            {tpl.name}
           </h3>
           <p className="flex-1 text-xs leading-relaxed" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            {t.description}
+            {tpl.description}
           </p>
-          <Button size="sm" disabled={!canWrite} onClick={() => onUse(t.id)}>
-            Use template
+          <Button size="sm" disabled={!canWrite} onClick={() => onUse(tpl.id)}>
+            {t("automation.workspace.templates.useTemplate")}
           </Button>
         </Card>
       ))}
@@ -805,14 +812,15 @@ function AnalyticsPanel({
 }: {
   analytics: ReturnType<typeof useAutomationEngine>["analytics"];
 }): JSX.Element {
+  const t = useT();
   return (
     <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-      <Stat label="Total workflows" value={String(analytics.totalWorkflows)} />
-      <Stat label="Active workflows" value={String(analytics.activeWorkflows)} />
-      <Stat label="Executions today" value={String(analytics.executionsToday)} />
-      <Stat label="Success rate (24h)" value={`${analytics.successRate}%`} />
-      <Stat label="Failed (24h)" value={String(analytics.failedLast24h)} />
-      <Stat label="Avg duration" value={`${analytics.avgDurationMs}ms`} />
+      <Stat label={t("automation.workspace.analytics.totalWorkflows")} value={String(analytics.totalWorkflows)} />
+      <Stat label={t("automation.workspace.analytics.activeWorkflows")} value={String(analytics.activeWorkflows)} />
+      <Stat label={t("automation.workspace.analytics.executionsToday")} value={String(analytics.executionsToday)} />
+      <Stat label={t("automation.workspace.analytics.successRate24h")} value={`${analytics.successRate}%`} />
+      <Stat label={t("automation.workspace.analytics.failed24h")} value={String(analytics.failedLast24h)} />
+      <Stat label={t("automation.workspace.analytics.avgDuration")} value={`${analytics.avgDurationMs}ms`} />
     </div>
   );
 }
@@ -828,18 +836,18 @@ function SettingsPanel({
   onChange: (s: WorkflowSettings) => void;
   onSave: () => void;
 }): JSX.Element {
+  const t = useT();
   return (
     <Card className="space-y-3" padding="20px" hover={false}>
       <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-        Automation settings
+        {t("automation.workspace.settings.title")}
       </h2>
       <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-        Retry policy, execution limits, concurrency, timeout, and loggings for
-        distributed execution.
+        {t("automation.workspace.settings.subtitle")}
       </p>
       <div className="grid gap-3 sm:grid-cols-2">
         <NumField
-          label="Max retry attempts"
+          label={t("automation.workspace.settings.maxRetryAttempts")}
           value={draft.retryPolicy.maxAttempts}
           disabled={!canAdmin}
           onChange={(n) =>
@@ -850,7 +858,7 @@ function SettingsPanel({
           }
         />
         <NumField
-          label="Backoff (ms)"
+          label={t("automation.workspace.settings.backoffMs")}
           value={draft.retryPolicy.backoffMs}
           disabled={!canAdmin}
           onChange={(n) =>
@@ -861,25 +869,25 @@ function SettingsPanel({
           }
         />
         <NumField
-          label="Executions / hour"
+          label={t("automation.workspace.settings.executionsPerHour")}
           value={draft.executionLimitPerHour}
           disabled={!canAdmin}
           onChange={(n) => onChange({ ...draft, executionLimitPerHour: n })}
         />
         <NumField
-          label="Concurrency limit"
+          label={t("automation.workspace.settings.concurrencyLimit")}
           value={draft.concurrencyLimit}
           disabled={!canAdmin}
           onChange={(n) => onChange({ ...draft, concurrencyLimit: n })}
         />
         <NumField
-          label="Timeout (ms)"
+          label={t("automation.workspace.settings.timeoutMs")}
           value={draft.timeoutMs}
           disabled={!canAdmin}
           onChange={(n) => onChange({ ...draft, timeoutMs: n })}
         />
         <label className="block text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-          Log level
+          {t("automation.workspace.settings.logLevel")}
           <select
             value={draft.logLevel}
             disabled={!canAdmin}
@@ -891,15 +899,15 @@ function SettingsPanel({
             }
             className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
           >
-            <option value="error">error</option>
-            <option value="warn">warn</option>
-            <option value="info">info</option>
-            <option value="debug">debug</option>
+            <option value="error">{t("automation.workspace.settings.logLevels.error")}</option>
+            <option value="warn">{t("automation.workspace.settings.logLevels.warn")}</option>
+            <option value="info">{t("automation.workspace.settings.logLevels.info")}</option>
+            <option value="debug">{t("automation.workspace.settings.logLevels.debug")}</option>
           </select>
         </label>
       </div>
       <Button size="sm" disabled={!canAdmin} onClick={onSave}>
-        Save settings
+        {t("automation.workspace.settings.saveSettings")}
       </Button>
     </Card>
   );

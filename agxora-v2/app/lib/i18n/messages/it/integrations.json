@@ -1,0 +1,143 @@
+{
+  "loading": "Caricamento della piattaforma di integrazione…",
+  "eyebrow": "Piattaforma di integrazione aziendale",
+  "title": "Centro di integrazione",
+  "subtitle": "Connettori per Microsoft 365, Google, Slack, CRM, storage ed ecosistemi di automazione. Le connessioni e la sincronizzazione in questa build sono demo locali: OAuth live non è connesso.",
+  "noticeDefault": "Connettori demo locali: OAuth e sincronizzazione live non sono collegati.",
+  "settings": "Impostazioni",
+  "tabs": {
+    "dashboard": "Pannello di controllo",
+    "installed": "Installato",
+    "available": "Disponibile",
+    "logs": "Registri",
+    "apiKeys": "Chiavi API",
+    "webhooks": "Webhook",
+    "developer": "Sviluppatore"
+  },
+  "notice": {
+    "demoConnection": "Connessione demo: {name} (solo stub locale)",
+    "connectFailed": "Connessione fallita",
+    "keyCreated": "Chiave API creata: {prefix}",
+    "webhookCreated": "Webhook creato: {name}",
+    "webhookTest": "Test del webhook {status}",
+    "networkError": "Errore di rete dell'API Explorer: {message}",
+    "explorerError": "Esplora API → {status}: {message}",
+    "explorerSuccess": "Esploratore API → {status}",
+    "explorerFailed": "Explorer non è riuscito",
+    "syncResult": "Sincronizzazione demo · {status} ({records} record locali): nessun dato esterno trasferito.",
+    "diagnosed": "Diagnosticato",
+    "removedConnection": "Connessione demo rimossa: {name}",
+    "keyRotated": "Chiave ruotata",
+    "keyRevoked": "Chiave revocata",
+    "publishedEvent": "Pubblicato {type}",
+    "developerSaved": "Impostazioni sviluppatore salvate"
+  },
+  "dashboard": {
+    "demoLinks": "Collegamenti dimostrativi",
+    "catalog": "Catalogare",
+    "api24h": "API (24 ore)",
+    "webhooks24h": "Webhook (24 ore)",
+    "webhookFailures": "Errori del webhook",
+    "syncJobs": "Sincronizza i lavori",
+    "conflicts": "Conflitti",
+    "errors": "Errori",
+    "connectionStatus": "Stato della connessione",
+    "emptyTitle": "Nessuna integrazione installata",
+    "emptyDescription": "Sfoglia Disponibile per connettere un provider.",
+    "eventBridgeDemo": "Demo del ponte degli eventi",
+    "eventBridgeHint": "Pubblica un evento del connettore sul bus di automazione del flusso di lavoro.",
+    "emit": "Emetti {id}"
+  },
+  "installed": {
+    "title": "Integrazioni installate",
+    "emptyTitle": "Niente installato",
+    "emptyDescription": "Installare dal catalogo Disponibile.",
+    "latestSync": "Ultima sincronizzazione: {status} · {records} record · modalità {mode}"
+  },
+  "available": {
+    "protocols": "Protocolli: {protocols}",
+    "demoConnection": "Connessione dimostrativa",
+    "connectDemo": "Connetti (dimostrazione)",
+    "installDemo": "Installa la demo"
+  },
+  "logs": {
+    "title": "Registri di integrazione",
+    "emptyTitle": "Nessun registro ancora",
+    "emptyDescription": "Connetti un provider o esegui la diagnostica."
+  },
+  "apiKeys": {
+    "title": "Chiavi API",
+    "generateKey": "Genera chiave",
+    "copyOnce": "Copia ora (mostrato una volta): {secret}",
+    "emptyTitle": "Nessuna chiave API",
+    "emptyDescription": "Genera una chiave per l'accesso al gateway REST."
+  },
+  "webhooks": {
+    "endpointsTitle": "Endpoint del webhook",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "Aggiungi webhook in uscita",
+    "emptyTitle": "Nessun webhook",
+    "emptyDescription": "Crea un endpoint in uscita per testare la consegna.",
+    "deliveryLogs": "Registri di consegna",
+    "deliveriesEmptyTitle": "Nessuna consegna",
+    "deliveriesEmptyDescription": "Invia un webhook di prova per popolare i log."
+  },
+  "developer": {
+    "title": "Impostazioni dello sviluppatore",
+    "sandboxMode": "Modalità sandbox",
+    "webhookSigning": "Firma del webhook abilitata",
+    "saveSettings": "Salva impostazioni",
+    "apiDocs": "Segnaposto documenti API: {url}",
+    "sdk": "Segnaposto SDK: {url}",
+    "explorerTitle": "Esploratore API",
+    "gatewayRoutes": "Percorsi gateway: {routes}",
+    "sendGet": "Invia GET",
+    "oauthProviders": "Provider OAuth",
+    "placeholdersHint": "Le rotte gateway GraphQL, WebSocket e gRPC vengono registrate come segnaposto. La mappatura dei campi e la risoluzione dei conflitti di sincronizzazione sono predisposti per l'architettura per l'implementazione del backend."
+  },
+  "connectionStatus": {
+    "connected": "Connessione dimostrativa",
+    "pendingAuth": "In attesa (demo)",
+    "error": "Errore",
+    "disabled": "Disabilitato",
+    "installed": "Installato",
+    "available": "Disponibile",
+    "localDemo": "Dimostrazione locale"
+  },
+  "columns": {
+    "integration": "Integrazione",
+    "status": "Stato",
+    "health": "Salute",
+    "latency": "Latenza",
+    "actions": "Azioni",
+    "when": "Quando",
+    "level": "Livello",
+    "source": "Fonte",
+    "message": "Messaggio",
+    "name": "Nome",
+    "key": "Chiave",
+    "scopes": "Ambiti",
+    "usage": "Utilizzo",
+    "direction": "Direzione",
+    "url": "URL",
+    "enabled": "Abilitato",
+    "event": "Evento",
+    "attempt": "Tentativo"
+  },
+  "actions": {
+    "diagnose": "Diagnosticare",
+    "demoSync": "Sincronizzazione demo",
+    "demoSyncTitle": "Solo sincronizzazione demo: nessun trasferimento esterno",
+    "disconnect": "Disconnetti",
+    "rotate": "Ruotare",
+    "revoke": "Revocare",
+    "test": "Test",
+    "emDash": "—",
+    "yes": "SÌ",
+    "no": "NO"
+  },
+  "errors": {
+    "failedToFetch": "Impossibile recuperare",
+    "httpStatus": "{status} HTTP"
+  }
+}

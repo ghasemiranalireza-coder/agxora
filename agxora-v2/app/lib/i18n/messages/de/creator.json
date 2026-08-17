@@ -1,0 +1,149 @@
+{
+  "page": {
+    "eyebrow": "AGXORA Marketing OS",
+    "title": "Kreativstudio",
+    "lead": "Produktion von Unternehmensinhalten — Generieren, Markieren, Planen, Veröffentlichen und Messen von KI-gestützten Kampagnen über jeden Kanal hinweg.",
+    "dashboard": "Dashboard",
+    "workspace": "Arbeitsbereich",
+    "workspaceSubtitle": "Erstellen von Inhalten · Kampagnen · Medienbibliothek · Vorlagen · Marken-Assets · Veröffentlichungswarteschlange · Analysen",
+    "workspaceAria": "Creator-Arbeitsbereich",
+    "integrations": "Zukünftige Integrationen",
+    "integrationsSubtitle": "Offizielle Plattformadapter reserviert — keine gefälschten Live-Verbindungen.",
+    "aiFeatures": "Eigenschaften AI",
+    "aiFeaturesSubtitle": "Capability Map für Produktion, Marke, Zeitplan und Lokalisierung."
+  },
+  "tabs": {
+    "create": "Inhalt erstellen",
+    "campaigns": "Kampagnen",
+    "media": "Mediathek",
+    "templates": "Templates",
+    "brand": "Marken-Assets",
+    "queue": "Veröffentlichungswarteschlange",
+    "analytics": "Analysen"
+  },
+  "templates": {
+    "emptyTitle": "Keine Vorlagen",
+    "emptyDescription": "Wiederverwendbare Inhalts- und Designvorlagen werden hier zu finden sein."
+  },
+  "campaign": {
+    "title": "Kampagnenplaner",
+    "calendar": "Content calendar",
+    "columns": {
+      "name": "Kampagnen-Name",
+      "objective": "Ziel",
+      "audience": "Branche",
+      "platforms": "Podeste",
+      "budget": "Budget",
+      "timeline": "Timeline",
+      "status": "Status"
+    },
+    "emptyTitle": "Keine Kampagnen",
+    "emptyDescription": "Erstellen Sie eine Kampagne, um Ziele, Zielgruppen und Zeitpläne zu planen."
+  },
+  "media": {
+    "title": "Mediathek",
+    "columns": {
+      "asset": "Asset",
+      "type": "Typ",
+      "folder": "Ordner",
+      "tags": "Schlagwörter",
+      "updated": "Aktualisiert"
+    },
+    "emptyTitle": "Keine Medien",
+    "emptyDescription": "Hier erscheinen Bilder, Videos, Dokumente, Logos und Vorlagen.",
+    "searchPlaceholder": "Assets, Ordner, Tags durchsuchen...",
+    "typeFilter": "Typ",
+    "allTypes": "Alle Typen",
+    "images": "Bilder",
+    "videos": "videos",
+    "documents": "Dokumente",
+    "logos": "Marken Logos",
+    "templates": "Templates"
+  },
+  "generator": {
+    "title": "KI-Inhaltsgenerator",
+    "lead": "Erstelle Instagram-Beschriftungen, TikTok-Skripte, LinkedIn-Posts, Anzeigen, SEO-Artikel und mehr.",
+    "brief": "Kurz",
+    "briefPlaceholder": "Beschreiben Sie das Angebot, die Zielgruppe und den CTA...",
+    "generateDraft": "Entwurf erstellen",
+    "aiRewrite": "AI Rewrite",
+    "translate": "Übersetzen",
+    "initialOutput": "Wählen Sie ein Format und eine Markenstimme aus und erstellen Sie dann einen Entwurf. Provider-Adapter sind reserviert — noch keine Live-Modellaufrufe.",
+    "draftStaged": "Entwurf inszeniert für {format} · voice: {voice}. Generationsadapter reserviert.",
+    "rewriteQueued": "AI Rewrite Queued — Rewrite-Adapter reserviert.",
+    "translateQueued": "Inhalt in Warteschlange übersetzen — mehrsprachiger Adapter reserviert.",
+    "brandVoice": "Brand Voice",
+    "brandVoiceLead": "Business-Tonvoreinstellungen plus benutzerdefinierte Markensprache für Konsistenz.",
+    "active": "Aktiv"
+  },
+  "queue": {
+    "title": "Veröffentlichungswarteschlange",
+    "columns": {
+      "title": "Titel",
+      "platform": "Plattform",
+      "format": "Format",
+      "status": "Status",
+      "scheduled": "Geplant",
+      "author": "Autor"
+    },
+    "emptyTitle": "Keine Beiträge in der Warteschlange",
+    "emptyDescription": "Entwürfe, Bewertungen und geplante Beiträge werden hier angezeigt.",
+    "filterStatus": "Filter Zst.",
+    "allStatuses": "Alle Status"
+  },
+  "analytics": {
+    "title": "Analysen",
+    "topPosts": "Top-Posten",
+    "engagement": "Eng {value}",
+    "reach": "Erreiche {value}",
+    "recommendations": "KI-Empfehlungen"
+  },
+  "integrations": {
+    "lead": "Zukünftige Integrationen — optional. Keine Live-APIs bis zur Verbindung. Instagram, TikTok, YouTube, Facebook, LinkedIn, Pinterest, Threads, X, Meta Business, Google Ads, Google Analytics.",
+    "adapter": "Adapter:"
+  },
+  "aiFeaturesPanel": {
+    "lead": "KI-Feature-Map — Ideen, Bildunterschriften, Hashtags, Kalender, Kampagnen, Zielgruppe, Zeitplan, Markenkonsistenz, Umschreiben, Übersetzen, mehrsprachig."
+  },
+  "formats": {
+    "instagram_caption": "Instagram-Bildunterschrift",
+    "tiktok_script": "TikTok-Skript",
+    "linkedin_post": "LinkedIn-Beitrag",
+    "facebook_post": "Facebook-Beitrag",
+    "x_post": "X-Beitrag",
+    "blog_article": "Blogartikel",
+    "newsletter": "Newsletter",
+    "email_campaign": "E-Mail-Kampagne",
+    "product_description": "Produktbeschreibung",
+    "ad_copy": "Anzeigentext",
+    "seo_article": "SEO-Artikel",
+    "landing_page_copy": "Landingpage-Text"
+  },
+  "publishStatus": {
+    "draft": "Entwurf",
+    "review": "Prüfung",
+    "approved": "Freigegeben",
+    "scheduled": "Geplant",
+    "published": "Veröffentlicht",
+    "archive": "Archiv"
+  },
+  "mediaKind": {
+    "image": "Bild",
+    "video": "Video",
+    "document": "Dokument",
+    "logo": "Markenlogo",
+    "template": "Vorlage"
+  },
+  "voice": {
+    "professional": "Professionell",
+    "friendly": "Freundlich",
+    "luxury": "Luxus",
+    "casual": "Locker"
+  },
+  "integrationStatus": {
+    "planned": "Geplant",
+    "ready": "Bereit",
+    "connected": "Verbunden",
+    "disabled": "Deaktiviert"
+  }
+}

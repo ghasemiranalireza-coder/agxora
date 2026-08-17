@@ -1,0 +1,62 @@
+{
+  "toast": {
+    "success": "Succès",
+    "warning": "Avertissement",
+    "error": "Erreur",
+    "info": "Informations",
+    "dismiss": "Rejeter la notification",
+    "close": "Fermer"
+  },
+  "network": {
+    "offline": "Vous semblez être hors ligne",
+    "offlineHelp": "Aide hors ligne",
+    "reconnected": "Connexion rétablie",
+    "offlineSyncHint": "Les modifications peuvent ne pas se synchroniser tant que la connexion n’est pas rétablie."
+  },
+  "errorBoundary": {
+    "backToDashboard": "Retour au tableau de bord",
+    "title": "Quelque chose s'est mal passé",
+    "retry": "Réessayer"
+  },
+  "notFound": {
+    "title": "Page non trouvée",
+    "message": "La page que vous avez demandée n'existe pas, a été déplacée ou n'est plus disponible.",
+    "recoveryNav": "Rétablissement",
+    "home": "Maison",
+    "pricing": "Tarification",
+    "contact": "Contact",
+    "signIn": "Se connecter",
+    "dashboard": "Tableau de bord"
+  },
+  "globalError": {
+    "title": "Quelque chose s'est mal passé",
+    "message": "Une erreur inattendue s'est produite, veuillez réessayer plus tard. Merci.",
+    "retry": "Réessayer"
+  },
+  "skipToMain": "Aller au contenu principal&#10;",
+  "offline": {
+    "title": "Vous êtes hors ligne",
+    "message": "Vérifiez votre connexion et réessayez lorsque vous serez de nouveau en ligne. Les écrans mis en cache peuvent toujours fonctionner.",
+    "home": "Maison",
+    "contact": "Contact",
+    "signIn": "Se connecter"
+  },
+  "logout": {
+    "title": "se déconnecter",
+    "signingOut": "Vous déconnecter…",
+    "endingSession": "Fin de la session",
+    "failed": "Échec de la déconnexion"
+  },
+  "demo": {
+    "title": "Réservez une démo",
+    "subtitle": "Planifiez une visite virtuelle en direct avec l'équipe AGXORA. Jusqu'à ce que la réservation de calendrier soit activée, envoyez-nous un e-mail pour demander une démonstration.",
+    "requestTitle": "Demander une démo",
+    "requestBody": "Nous finalisons la planification afin que vous puissiez choisir une heure qui convient à votre équipe. D'ici là, commencez gratuitement et explorez le produit à votre rythme — ou envoyez-nous un e-mail à {email}.",
+    "startFree": "Commencez plutôt gratuitement",
+    "backHome": "Retour à l’accueil",
+    "signIn": "Se connecter"
+  },
+  "loading": "Chargement",
+  "loadingEllipsis": "Chargement…",
+  "loadingIdentity": "Chargement de l’identité…"
+}

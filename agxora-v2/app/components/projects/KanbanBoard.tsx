@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useState, type DragEvent, type JSX } from "react";
+import { useT } from "../../lib/i18n";
 import {
   projectStore,
-  taskStatusLabel,
   useProjectStore,
   type TaskRecord,
   type TaskStatus,
@@ -14,6 +14,7 @@ import { ProgressBar, ProjectPriorityBadge } from "./ProjectBadges";
 
 export function KanbanBoard(): JSX.Element {
   const state = useProjectStore();
+  const t = useT();
   const [draggingId, setDraggingId] = useState<string | null>(null);
 
   const onDrop = useCallback(
@@ -28,9 +29,9 @@ export function KanbanBoard(): JSX.Element {
   if (state.tasks.length === 0) {
     return (
       <EmptyState
-        title="No tasks on the board"
-        description="Create tasks to organize delivery across To Do, In Progress, Review, and Done."
-        actionLabel="Add task"
+        title={t("projects.kanban.emptyTitle")}
+        description={t("projects.kanban.emptyDescription")}
+        actionLabel={t("projects.kanban.addTask")}
         onAction={() => projectStore.openTaskCreate()}
       />
     );
@@ -43,6 +44,7 @@ export function KanbanBoard(): JSX.Element {
         const tasks = ids
           .map((id) => state.tasks.find((task) => task.id === id))
           .filter((task): task is TaskRecord => Boolean(task));
+        const statusLabel = t(`projects.taskStatus.${status}`);
         return (
           <Card
             key={status}
@@ -55,7 +57,7 @@ export function KanbanBoard(): JSX.Element {
                 className="text-sm font-semibold"
                 style={{ color: "var(--agx-text, #f8fafc)" }}
               >
-                {taskStatusLabel(status)}
+                {statusLabel}
               </h3>
               <span
                 className="rounded-full px-2 py-0.5 text-[11px]"
@@ -77,7 +79,7 @@ export function KanbanBoard(): JSX.Element {
                 event.preventDefault();
                 onDrop(status, tasks.length);
               }}
-              aria-label={`${taskStatusLabel(status)} column`}
+              aria-label={t("projects.kanban.columnAria", { status: statusLabel })}
             >
               {tasks.map((task, index) => (
                 <div
@@ -119,14 +121,17 @@ export function KanbanBoard(): JSX.Element {
                       {task.assignee}
                     </p>
                   ) : null}
-                  <ProgressBar value={task.progress} label="Task progress" />
+                  <ProgressBar
+                    value={task.progress}
+                    label={t("projects.kanban.taskProgress")}
+                  />
                   <div className="flex flex-wrap gap-1">
                     <Button
                       size="sm"
                       variant="ghost"
                       onClick={() => projectStore.openTaskEdit(task)}
                     >
-                      Edit
+                      {t("projects.kanban.edit")}
                     </Button>
                     {task.status !== "done" ? (
                       <Button
@@ -134,7 +139,7 @@ export function KanbanBoard(): JSX.Element {
                         variant="ghost"
                         onClick={() => void projectStore.completeTask(task.id)}
                       >
-                        Complete
+                        {t("projects.kanban.complete")}
                       </Button>
                     ) : null}
                   </div>

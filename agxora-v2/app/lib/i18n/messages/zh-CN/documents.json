@@ -1,0 +1,388 @@
+{
+  "page": {
+    "brand": "AGXORA知识操作系统",
+    "title": "文件",
+    "subtitle": "企业文档和知识中心——在存储和审批后端连接之前预览示例内容。",
+    "sampleNotice": "示例库—浏览和过滤器在会话中工作。上传、批准和AI索引操作未连接。"
+  },
+  "sections": {
+    "kpis": {
+      "title": "知识仪表板"
+    },
+    "library": {
+      "title": "文档库",
+      "subtitle": "所有文档、最近的文档、收藏夹、共享的文档、已存档的文档、垃圾箱、知识库 — 包括文件夹、搜索、查看器和版本。"
+    },
+    "knowledge": {
+      "title": "知识库",
+      "subtitle": "文章、政策、流程、手册、常见问题解答和内部 wiki。"
+    },
+    "approvals": {
+      "title": "批准",
+      "subtitle": "草稿、审查中、批准、拒绝、存档——与自动化架构相关联。"
+    },
+    "ai": {
+      "title": "AI知识层",
+      "subtitle": "摘要、关键字、分类、标签、文件夹、相关文档、重复项、翻译、OCR 和搜索 - 仅架构。"
+    },
+    "activity": {
+      "title": "活动",
+      "subtitle": "最近的更改、上传、查看、共享和审核历史记录。"
+    },
+    "integrations": {
+      "title": "集成",
+      "subtitle": "保留驱动器适配器 — 无带电连接器。"
+    },
+    "security": {
+      "title": "安全与共享",
+      "subtitle": "RBAC、审计跟踪、加密、保留和共享范围。"
+    }
+  },
+  "loading": {
+    "knowledgeBase": "正在加载知识库...",
+    "approvals": "正在加载批准队列...",
+    "aiInsights": "正在加载AI洞察……",
+    "activity": "正在加载活动...",
+    "integrations": "正在加载集成...",
+    "security": "正在加载安全..."
+  },
+  "kpi": {
+    "documents": {
+      "label": "文件",
+      "caption": "示例·跨文件夹",
+      "delta": "+{count}"
+    },
+    "folders": {
+      "label": "文件夹",
+      "caption": "示例·包括智能收藏",
+      "delta": "+{count}"
+    },
+    "storage": {
+      "label": "已用存储空间",
+      "caption": "说明性计划样本·",
+      "delta": "+{size}"
+    },
+    "shared": {
+      "label": "共享文件",
+      "caption": "示例·组织 + 部门 + 用户",
+      "delta": "+{count}"
+    },
+    "activity": {
+      "label": "最近的活动",
+      "caption": "样本·最近 24 小时",
+      "delta": "+{count}"
+    },
+    "indexed": {
+      "label": "人工智能索引",
+      "caption": "样本· AI搜索未连接",
+      "delta": "{percent}"
+    },
+    "approvals": {
+      "label": "待批准",
+      "caption": "样品·自动化未连接",
+      "delta": "{count}"
+    },
+    "score": {
+      "label": "知识分数",
+      "caption": "示例·覆盖图",
+      "delta": "+{count}"
+    }
+  },
+  "library": {
+    "viewsAria": "图书馆景观",
+    "views": {
+      "all": "所有文件",
+      "recent": "最近",
+      "favorites": "收藏夹",
+      "shared": "共享",
+      "archived": "已存档",
+      "trash": "垃圾",
+      "knowledge": "知识库"
+    },
+    "dropzone": "将文件拖放到此处以暂存上传。",
+    "uploadReserved": "拖放上传是保留的存储 API。",
+    "filesStaged": "已准备上传 {count} 个文件（无存储写入）。",
+    "dropReceived": "收到丢弃（无存储写入）。",
+    "foldersTitle": "文件夹和收藏",
+    "foldersHint": "嵌套文件夹、收藏夹、智能收藏夹、标签、固定和收藏夹。",
+    "allFolders": "所有文件夹",
+    "smart": "聪明",
+    "collection": "收藏",
+    "pinned": "已固定",
+    "favorite": "最喜欢的",
+    "sharedBadge": "共享",
+    "title": "文档库",
+    "results": "{count} 个结果",
+    "resultOne": "{count} 个结果",
+    "selected": "· 已选择 {count} 个",
+    "bulkAction": "批量操作",
+    "bulkUnavailable": "{count}个项目的批量操作不可用—未连接存储突变。",
+    "searchLabel": "全球搜索",
+    "searchPlaceholder": "名称、标签、所有者、AI摘要……",
+    "typeLabel": "类型",
+    "statusLabel": "地位",
+    "departmentLabel": "署",
+    "ownerLabel": "所有者",
+    "allTypes": "所有类型",
+    "allStatuses": "所有状态",
+    "allDepartments": "所有部门",
+    "allOwners": "所有业主",
+    "favoritesOnly": "仅限收藏夹",
+    "emptyTitle": "没有可出示的文件",
+    "emptyDescription": "调整过滤器、清除搜索或添加知识资产以扩大图书馆。",
+    "selectAria": "选择{name}",
+    "versionHistoryTitle": "版本历史",
+    "close": "关闭",
+    "context": {
+      "open": "打开",
+      "share": "分享",
+      "favorite": "最喜欢的",
+      "move": "移动",
+      "delete": "删除",
+      "dismiss": "解雇",
+      "unavailable": "{action} 不可用 — 文档突变未与 {id} 连接。"
+    }
+  },
+  "viewer": {
+    "title": "文档查看器",
+    "emptyTitle": "选择一个文件",
+    "emptyDescription": "从库中选择一个文件来预览内容、元数据、标签、版本和链接的模块。",
+    "zoomOut": "缩放 -",
+    "zoomIn": "变焦+",
+    "prev": "上一篇",
+    "next": "下一个",
+    "page": "页数 {page} / {total}",
+    "searchInside": "里面搜索",
+    "findPlaceholder": "在预览中查找...",
+    "noMatches": "预览文本中没有匹配项。",
+    "meta": {
+      "owner": "所有者",
+      "created": "已创建",
+      "updated": "已更新",
+      "fileType": "文件类型",
+      "size": "规模​​",
+      "category": "类别",
+      "department": "署",
+      "status": "地位",
+      "retention": "保留",
+      "version": "版本",
+      "sharing": "分享"
+    },
+    "tags": "標籤",
+    "linkedModules": "链接模块",
+    "noModuleLinks": "还没有模块链接",
+    "versionHistory": "版本历史"
+  },
+  "versions": {
+    "title": "版本历史",
+    "emptyTitle": "未选择文档",
+    "emptyDescription": "打开文档以检查版本、注释、恢复和比较。",
+    "current": "{name}·当前{version}",
+    "restore": "恢复版本",
+    "compare": "比较版本",
+    "restoreTitle": "恢复需要存储 API",
+    "compareTitle": "比较需要存储API",
+    "noticeDefault": "恢复和比较需要存储 API。",
+    "restoreUnavailable": "{id} 无法恢复 — 存储 API 未连接。",
+    "compareUnavailable": "比较不可用（ {selected} ↔ {current} ） —存储API未连接。"
+  },
+  "approvals": {
+    "title": "审批流程",
+    "subtitle": "草稿→审核中→批准/拒绝→存档。队列项是样本文档；行动不会持续。",
+    "emptyTitle": "队列清空",
+    "emptyDescription": "样本集中没有草稿或审核中的文档。",
+    "approve": "批准",
+    "reject": "拒绝",
+    "sendToReview": "发送至审核",
+    "noticeDefault": "批准转换需要自动化工作流引擎 - 在此版本中未连接。",
+    "unavailable": "{action} 对于 {id} 不可用 — 工作流引擎未连接。示例文档状态未更改。",
+    "approveTitle": "无法批准 - 工作流引擎未连接",
+    "rejectTitle": "拒绝不可用 - 工作流引擎未连接",
+    "sendTitle": "发送审核不可用—工作流程引擎未连接"
+  },
+  "knowledge": {
+    "intro": "文章、政策、流程、手册、常见问题解答和内部 wiki — 知识中心的叙述层。"
+  },
+  "activity": {
+    "intro": "最近的更改、上传、查看、共享和审核历史记录 - 合规性跟踪的基础。"
+  },
+  "integrations": {
+    "intro": "云驱动器适配器仅是架构 - Google Drive、OneDrive、Dropbox、Box、SharePoint、Nextcloud。没有实时 API。",
+    "reservedAdapter": "预留适配器：",
+    "architecture": "建筑学",
+    "items": {
+      "google-drive": {
+        "description": "保留导入/同步架构 — 尚无实时 OAuth。"
+      },
+      "onedrive": {
+        "description": "保留 Microsoft Graph 文件挂钩。"
+      },
+      "dropbox": {
+        "description": "保留 Dropbox API 适配器。"
+      },
+      "box": {
+        "description": "企业Box连接器已保留。"
+      },
+      "sharepoint": {
+        "description": "保留站点库+元数据映射。"
+      },
+      "nextcloud": {
+        "description": "WebDAV 适配器保留 — 在自托管计划之前禁用。"
+      }
+    }
+  },
+  "security": {
+    "architectureTitle": "安全架构",
+    "sharingTitle": "共享模式",
+    "sharingIntro": "专用、组织、部门、特定用户和公共链接占位符。",
+    "enabled": "启用",
+    "placeholder": "占位符",
+    "notEnforced": "不强制执行",
+    "modelOnly": "仅型号",
+    "controls": {
+      "rbac": {
+        "title": "基于角色的访问",
+        "description": "所有者、编辑者、查看者和审批者角色映射到文档 ACL - 在此版本中未强制执行。"
+      },
+      "permissions": {
+        "title": "权限架构",
+        "description": "具有文档级覆盖的文件夹继承 - 在此版本中未强制执行。"
+      },
+      "audit": {
+        "title": "审计追踪",
+        "description": "视图、共享、还原和审批的活动事件—尚未持久化。"
+      },
+      "encryption": {
+        "title": "加密",
+        "description": "为 KMS 接线保留的静态和传输中加密挂钩。"
+      },
+      "retention": {
+        "title": "保留政策",
+        "description": "具有法律保留支持的按类别保留窗口 - 尚未强制执行。"
+      }
+    }
+  },
+  "ai": {
+    "architectureTitle": "AI特征架构",
+    "architectureIntro": "每一项能力都是为未来的AI指数预留的。 UI 显示确定性模拟见解。",
+    "insightsTitle": "选定文档的见解",
+    "emptyTitle": "选择一个文件",
+    "emptyDescription": "打开库中的文件以检查 AI 摘要、关键字和建议。",
+    "summary": "人工智能总结",
+    "keywords": "人工智能关键词",
+    "classification": "人工智能分类",
+    "suggestedFolder": "AI建议文件夹",
+    "translation": "人工智能翻译",
+    "ocr": "人工智能OCR",
+    "suggestedTags": "建议的标记",
+    "related": "人工智能相关文档",
+    "noRelated": "没有索引相关文档。",
+    "duplicateOf": "AI重复检测：可能的重复",
+    "noDuplicates": "AI 重复检测：没有标记近似重复。",
+    "sampleReady": "样品准备好",
+    "notApplicable": "不适用",
+    "runSearch": "运行人工智能搜索",
+    "searchTitle": "AI搜索未连接",
+    "noticeDefault": "人工智能功能仅适用于架构—无实时模型调用。",
+    "searchUnavailable": "AI 搜索不可用 — 语义索引未连接。上述示例见解是静态的。",
+    "features": {
+      "summary": {
+        "title": "人工智能总结",
+        "description": "每个模块的浓缩文档理解。"
+      },
+      "keywords": {
+        "title": "人工智能关键词",
+        "description": "提取主题信号用于搜索和路由。"
+      },
+      "classification": {
+        "title": "人工智能分类",
+        "description": "类别/部门分类建议。"
+      },
+      "tags": {
+        "title": "建议的标记",
+        "description": "在不改变图表的情况下标记推荐。"
+      },
+      "folder": {
+        "title": "AI建议文件夹",
+        "description": "智能放置到嵌套文件夹中。"
+      },
+      "related": {
+        "title": "人工智能相关文档",
+        "description": "绘制整个知识中心的邻居图。"
+      },
+      "duplicate": {
+        "title": "AI重复检测",
+        "description": "文档库的近似重复检测。"
+      },
+      "translation": {
+        "title": "人工智能翻译",
+        "description": "翻译准备标志 - 没有实时模型。"
+      },
+      "ocr": {
+        "title": "人工智能OCR",
+        "description": "OCR 管道保留用于扫描和 PDF。"
+      },
+      "search": {
+        "title": "人工智能搜索",
+        "description": "语义搜索为将来的索引保留。"
+      }
+    }
+  },
+  "status": {
+    "draft": "草稿",
+    "in_review": "审查中",
+    "approved": "已批准",
+    "rejected": "被拒绝",
+    "archived": "已存档"
+  },
+  "fileType": {
+    "pdf": "PDF",
+    "word": "单词",
+    "excel": "Excel",
+    "powerpoint": "微软幻灯片软件",
+    "image": "图像",
+    "video": "视频",
+    "audio": "声音的",
+    "markdown": "降价",
+    "text": "文本",
+    "json": "JSON",
+    "csv": "CSV",
+    "other": "其他"
+  },
+  "share": {
+    "private": "列兵",
+    "organization": "组织",
+    "department": "署",
+    "specific_users": "特定用户",
+    "public_link": "公共链接"
+  },
+  "module": {
+    "crm": "客户关系管理",
+    "finance": "金融",
+    "automation": "自动化",
+    "creator": "创作工作室",
+    "hr": "未来人力资源",
+    "projects": "今后的项目"
+  },
+  "knowledgeKind": {
+    "article": "文章",
+    "policy": "政策",
+    "process": "过程",
+    "manual": "手动的",
+    "faq": "常问问题",
+    "wiki": "内部维基"
+  },
+  "integrationStatus": {
+    "connected": "已连接",
+    "beta": "贝塔",
+    "coming_soon": "即将推出",
+    "disabled": "残疾人",
+    "planned": "计划"
+  },
+  "bytes": {
+    "b": "{value} B",
+    "kb": "{value} KB",
+    "mb": "{value} MB",
+    "gb": "{value} GB"
+  }
+}

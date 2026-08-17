@@ -18,7 +18,7 @@ export function SessionExpiredPage(): JSX.Element {
         className="text-[11px] font-semibold uppercase tracking-[0.18em]"
         style={{ color: "var(--agx-accent, #22d3ee)" }}
       >
-        Identity & Access
+        {t("iam.access.eyebrow")}
       </p>
       <h1
         className="text-2xl font-semibold"

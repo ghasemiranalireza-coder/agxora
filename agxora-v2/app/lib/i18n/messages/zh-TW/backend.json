@@ -1,0 +1,62 @@
+{
+  "toast": {
+    "success": "成功",
+    "warning": "警告",
+    "error": "錯誤",
+    "info": "資訊",
+    "dismiss": "關閉通知",
+    "close": "關閉"
+  },
+  "network": {
+    "offline": "您似乎處於離線狀態",
+    "offlineHelp": "離線說明",
+    "reconnected": "連線已恢復",
+    "offlineSyncHint": "連線恢復前，變更可能不會同步。"
+  },
+  "errorBoundary": {
+    "backToDashboard": "返回儀表板",
+    "title": "出了點問題",
+    "retry": "重試"
+  },
+  "notFound": {
+    "title": "找不到頁面",
+    "message": "您請求的頁面不存在、已移動或不再可用。",
+    "recoveryNav": "恢復",
+    "home": "家",
+    "pricing": "定價",
+    "contact": "接觸",
+    "signIn": "登入",
+    "dashboard": "儀表板"
+  },
+  "globalError": {
+    "title": "出了點問題",
+    "message": "發生意外錯誤。請再試一次。",
+    "retry": "重試"
+  },
+  "skipToMain": "跳至主要內容",
+  "offline": {
+    "title": "您離線",
+    "message": "請檢查您的連線，並在重新上線後重試。快取螢幕仍可能正常運作。",
+    "home": "家",
+    "contact": "接觸",
+    "signIn": "登入"
+  },
+  "logout": {
+    "title": "登出",
+    "signingOut": "正在將您登出…",
+    "endingSession": "會議結束...",
+    "failed": "註銷失敗"
+  },
+  "demo": {
+    "title": "預約演示",
+    "subtitle": "與AGXORA團隊安排現場演練。在行事曆預訂啟用之前，請傳送電子郵件給我們以申請示範。",
+    "requestTitle": "請求演示",
+    "requestBody": "我們正在完成日程安排，以便您可以選擇適合您的團隊的時間。在此之前，您可以免費開始並按照自己的步調探索該產品，或發送電子郵件至 {email}。",
+    "startFree": "改為免費開始",
+    "backHome": "回到家",
+    "signIn": "登入"
+  },
+  "loading": "載入中",
+  "loadingEllipsis": "載入中…",
+  "loadingIdentity": "正在載入身分…"
+}

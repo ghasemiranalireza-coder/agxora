@@ -2,6 +2,7 @@
 
 import type { JSX } from "react";
 import type { CustomerStatus } from "../../lib/customers";
+import { useT } from "../../lib/i18n";
 import { Badge, type BadgeTone } from "../ui";
 
 const STATUS_TONE: Record<CustomerStatus, BadgeTone> = {
@@ -16,5 +17,10 @@ export function CustomerStatusBadge({
 }: {
   readonly status: CustomerStatus;
 }): JSX.Element {
-  return <Badge tone={STATUS_TONE[status]}>{status}</Badge>;
+  const t = useT();
+  return (
+    <Badge tone={STATUS_TONE[status]}>
+      {t(`customers.status.${status}`)}
+    </Badge>
+  );
 }

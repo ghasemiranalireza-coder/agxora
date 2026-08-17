@@ -1,0 +1,158 @@
+{
+  "eyebrow": "アグソラ OS",
+  "title": "ビジネス OS を起動する",
+  "lead": "業界のテンプレートを選択します。 AGXORA は、モジュール、エージェント、ワークフロー、社内ナレッジを構成します。ユーザーを 1 つの垂直分野に永久に閉じ込めることはありません。",
+  "steps": {
+    "type": "タイプ",
+    "company": "会社",
+    "locale": "ロケール",
+    "goals": "目標"
+  },
+  "companyName": "会社名",
+  "companyPlaceholder": "アクメ ホスピタリティ グループ",
+  "template": "テンプレート",
+  "country": "国",
+  "language": "言語",
+  "languagePlaceholder": "jp",
+  "timezone": "タイムゾーン",
+  "timezonePlaceholder": "UTC",
+  "goals": {
+    "increaseRevenue": "収益の増加",
+    "improveOperations": "業務改善",
+    "delightCustomers": "顧客を喜ばせる",
+    "reduceCosts": "コストを削減する",
+    "scaleWithAi": "AI による拡張"
+  },
+  "failed": "オンボーディングに失敗しました",
+  "back": "戻る",
+  "continue": "続く",
+  "launching": "起動中…",
+  "enterDashboard": "ダッシュボードに入る",
+  "defaultCountry": "アメリカ合衆国",
+  "businessTypes": {
+    "hotel": {
+      "label": "ホテル",
+      "description": "ホスピタリティ、客室、ゲスト、物件運営"
+    },
+    "restaurant": {
+      "label": "レストラン",
+      "description": "飲食、厨房、予約、ゲスト体験"
+    },
+    "cleaning": {
+      "label": "清掃",
+      "description": "商業・住宅の清掃業務"
+    },
+    "laundry": {
+      "label": "ランドリー",
+      "description": "洗濯工場、集荷ルート、テキスタイルケア"
+    },
+    "construction": {
+      "label": "建設",
+      "description": "現場、クルー、資材、プロジェクト納品"
+    },
+    "healthcare": {
+      "label": "ヘルスケア",
+      "description": "ケアネットワーク、患者、臨床運営"
+    },
+    "medical": {
+      "label": "医療",
+      "description": "クリニック、予約、ケアチーム"
+    },
+    "manufacturing": {
+      "label": "製造",
+      "description": "生産ライン、品質、供給オペレーション"
+    },
+    "retail": {
+      "label": "小売",
+      "description": "店舗、在庫、マーチャンダイジング、顧客"
+    },
+    "legal": {
+      "label": "法律事務所",
+      "description": "案件、依頼者、期限、請求"
+    },
+    "accounting": {
+      "label": "会計",
+      "description": "帳簿、顧客、申告、アドバイザリー"
+    },
+    "consulting": {
+      "label": "コンサルティング",
+      "description": "案件、成果物、顧客アウトカム"
+    },
+    "real_estate": {
+      "label": "不動産",
+      "description": "物件、顧客、内覧、取引"
+    },
+    "education": {
+      "label": "教育",
+      "description": "プログラム、学生、教員、入学"
+    },
+    "automotive": {
+      "label": "自動車",
+      "description": "ディーラー、サービスベイ、車両在庫"
+    },
+    "beauty": {
+      "label": "美容サロン",
+      "description": "予約、スタイリスト、物販、会員"
+    },
+    "fitness": {
+      "label": "ジム / フィットネス",
+      "description": "会員、クラス、トレーナー、継続"
+    },
+    "agriculture": {
+      "label": "農業",
+      "description": "作物、家畜、収量、サプライチェーン"
+    },
+    "transport": {
+      "label": "輸送",
+      "description": "フリート移動、ルート、旅客/貨物オペレーション"
+    },
+    "logistics": {
+      "label": "物流",
+      "description": "フリート、倉庫、ルート、フルフィルメント"
+    },
+    "warehouse": {
+      "label": "倉庫",
+      "description": "保管、ピッキング、梱包、在庫回転"
+    },
+    "insurance": {
+      "label": "保険",
+      "description": "契約、請求、引受、継続"
+    },
+    "finance": {
+      "label": "金融",
+      "description": "資本、ポートフォリオ、金融オペレーション"
+    },
+    "financial_services": {
+      "label": "金融サービス",
+      "description": "アドバイザリー、商品、コンプライアンス、顧客"
+    },
+    "technology": {
+      "label": "テクノロジー",
+      "description": "プロダクト、エンジニアリング、GTM チーム"
+    },
+    "saas": {
+      "label": "ソフトウェア / SaaS",
+      "description": "サブスクリプション、利用、カスタマーサクセス"
+    },
+    "ecommerce": {
+      "label": "Eコマース",
+      "description": "オンラインカタログ、カート、フルフィルメント、LTV"
+    },
+    "agency": {
+      "label": "マーケティング代理店",
+      "description": "顧客、キャンペーン、リテーナー、納品"
+    },
+    "freelancer": {
+      "label": "フリーランサー",
+      "description": "個人事業、顧客、パイプライン、キャッシュフロー"
+    },
+    "government": {
+      "label": "行政",
+      "description": "公共サービス、プログラム、住民"
+    },
+    "nonprofit": {
+      "label": "非営利",
+      "description": "ミッション、寄付者、プログラム、インパクト"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "table": {
+    "noResults": "Nessun risultato",
+    "noResultsDescription": "Niente corrisponde ai filtri attuali.",
+    "previous": "Precedente",
+    "next": "Prossimo",
+    "paginationRange": "{start}–{end} di {total}",
+    "sortAscending": "Ordinamento crescente",
+    "sortDescending": "Ordina discendente"
+  },
+  "dialog": {
+    "close": "Chiudi la finestra di dialogo"
+  },
+  "module": {
+    "notAvailableTitle": "{title} non è ancora disponibile",
+    "notAvailableDescription": "La shell del modulo è pronta per una versione futura. Nessun record è ancora archiviato qui."
+  },
+  "states": {
+    "errorLabel": "Errore",
+    "errorTitle": "Qualcosa è andato storto",
+    "errorDescription": "Non è stato possibile completare la richiesta. Riprova tra un attimo.",
+    "retry": "Riprova"
+  },
+  "empty": {
+    "crmTitle": "Il tuo CRM è pronto",
+    "crmDescription": "Crea il primo record cliente per sbloccare directory, profili e attività.",
+    "crmAction": "Apri CRM",
+    "projectsTitle": "Nessun progetto ancora",
+    "projectsDescription": "Crea uno spazio di lavoro di consegna per tenere traccia dei traguardi, del budget e della proprietà del team.",
+    "projectsAction": "Progetti aperti",
+    "analyticsTitle": "Analytics attende il segnale",
+    "analyticsDescription": "Una volta che l'area di lavoro genera attività, i KPI esecutivi e gli avvisi vengono visualizzati qui.",
+    "analyticsAction": "Apri Analisi",
+    "documentsTitle": "La raccolta documenti è vuota",
+    "documentsDescription": "Carica o crea risorse di conoscenza per potenziare approvazioni, versioni e contesto AI.",
+    "documentsAction": "Apri documenti",
+    "billingTitle": "Nessuna cronologia di fatturazione ancora",
+    "billingDescription": "Aggiorna un piano per generare fatture, rinnovi e cronologia dei pagamenti.",
+    "billingAction": "Fatturazione aperta",
+    "agentsTitle": "Nessun agente attivo",
+    "agentsDescription": "Installa o attiva un agente dal marketplace per avviare corse autonome.",
+    "agentsAction": "Apri il sistema operativo dell'agente"
+  },
+  "yes": "SÌ",
+  "no": "NO",
+  "dash": "—"
+}

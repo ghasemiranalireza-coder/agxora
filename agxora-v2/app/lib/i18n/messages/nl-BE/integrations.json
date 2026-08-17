@@ -1,0 +1,143 @@
+{
+  "loading": "Integratieplatform laden…",
+  "eyebrow": "Enterprise-integratieplatform",
+  "title": "Integratie Centrum",
+  "subtitle": "Connectors voor Microsoft 365, Google, Slack, CRM, opslag en automatiseringsecosystemen. Verbindingen en synchronisatie in deze build zijn lokale demo's - live OAuth is niet verbonden.",
+  "noticeDefault": "Lokale demo-connectoren: OAuth en live-synchronisatie zijn niet verbonden.",
+  "settings": "Instellingen",
+  "tabs": {
+    "dashboard": "Gösterge Paneli",
+    "installed": "Geïnstalleerd",
+    "available": "Beschikbaar",
+    "logs": "Logboeken",
+    "apiKeys": "API-sleutels",
+    "webhooks": "Webhaken",
+    "developer": "Ontwikkelaar"
+  },
+  "notice": {
+    "demoConnection": "Demoverbinding: {name} (alleen lokale stub)",
+    "connectFailed": "Verbinding mislukt",
+    "keyCreated": "API-sleutel gemaakt: {prefix}",
+    "webhookCreated": "Webhook gemaakt: {name}",
+    "webhookTest": "Webhooktest {status}",
+    "networkError": "Netwerkfout in API-verkenner: {message}",
+    "explorerError": "API-verkenner → {status}: {message}",
+    "explorerSuccess": "API-verkenner → {status}",
+    "explorerFailed": "Verkenner is mislukt",
+    "syncResult": "Demosynchronisatie · {status} ({records} lokale records) — geen externe gegevens overgedragen.",
+    "diagnosed": "Gediagnosticeerd",
+    "removedConnection": "Demoverbinding verwijderd: {name}",
+    "keyRotated": "Sleutel gedraaid",
+    "keyRevoked": "Sleutel ingetrokken",
+    "publishedEvent": "Gepubliceerd {type}",
+    "developerSaved": "Ontwikkelaarsinstellingen opgeslagen"
+  },
+  "dashboard": {
+    "demoLinks": "Demo-links",
+    "catalog": "Catalogus",
+    "api24h": "API (24 uur)",
+    "webhooks24h": "Webhooks (24u)",
+    "webhookFailures": "Webhook-fouten",
+    "syncJobs": "Synchroniseer taken",
+    "conflicts": "Conflicten",
+    "errors": "Fouten",
+    "connectionStatus": "Verbindingsstatus",
+    "emptyTitle": "Geen integraties geïnstalleerd",
+    "emptyDescription": "Bladeren Beschikbaar om verbinding te maken met een provider.",
+    "eventBridgeDemo": "Eventbridge-demo",
+    "eventBridgeHint": "Publiceer een connectorgebeurtenis op de Workflow Automation-bus.",
+    "emit": "Zend {id} uit"
+  },
+  "installed": {
+    "title": "Geïnstalleerde integraties",
+    "emptyTitle": "Niets geïnstalleerd",
+    "emptyDescription": "Installeer vanuit de beschikbare catalogus.",
+    "latestSync": "Laatste synchronisatie: {status} · {records} records · modus {mode}"
+  },
+  "available": {
+    "protocols": "Protocollen: {protocols}",
+    "demoConnection": "Demo-verbinding",
+    "connectDemo": "Verbinden (demo)",
+    "installDemo": "Demo installeren"
+  },
+  "logs": {
+    "title": "Integratielogboeken",
+    "emptyTitle": "Nog geen logboeken",
+    "emptyDescription": "Sluit een provider aan of voer een diagnose uit."
+  },
+  "apiKeys": {
+    "title": "API-sleutels",
+    "generateKey": "Sleutel genereren",
+    "copyOnce": "Kopieer nu (eenmalig weergegeven): {secret}",
+    "emptyTitle": "Geen API-sleutels",
+    "emptyDescription": "Genereer een sleutel voor toegang tot de REST-gateway."
+  },
+  "webhooks": {
+    "endpointsTitle": "Webhook-eindpunten",
+    "urlPlaceholder": "https://…",
+    "addOutgoing": "Uitgaande webhook toevoegen",
+    "emptyTitle": "Geen webhooks",
+    "emptyDescription": "Maak een uitgaand eindpunt om de levering te testen.",
+    "deliveryLogs": "Leveringslogboeken",
+    "deliveriesEmptyTitle": "Geen leveringen",
+    "deliveriesEmptyDescription": "Verzend een testwebhook om logboeken te vullen."
+  },
+  "developer": {
+    "title": "Ontwikkelaarsinstellingen",
+    "sandboxMode": "Sandbox-modus",
+    "webhookSigning": "Webhook-ondertekening ingeschakeld",
+    "saveSettings": "Instellingen opslaan",
+    "apiDocs": "Tijdelijke aanduiding voor API-documenten: {url}",
+    "sdk": "Tijdelijke aanduiding voor SDK: {url}",
+    "explorerTitle": "API-verkenner",
+    "gatewayRoutes": "Gateway-routes: {routes}",
+    "sendGet": "Stuur GET",
+    "oauthProviders": "OAuth-providers",
+    "placeholdersHint": "GraphQL-, WebSocket- en gRPC-gatewayroutes worden geregistreerd als tijdelijke aanduidingen. Veldtoewijzing en oplossing van synchronisatieconflicten zijn architectuurklaar voor backend-implementatie."
+  },
+  "connectionStatus": {
+    "connected": "Demo-verbinding",
+    "pendingAuth": "In behandeling (demo)",
+    "error": "Fout",
+    "disabled": "Gehandicapt",
+    "installed": "Geïnstalleerd",
+    "available": "Beschikbaar",
+    "localDemo": "Lokale demo"
+  },
+  "columns": {
+    "integration": "Integratie",
+    "status": "Status",
+    "health": "Gezondheid",
+    "latency": "Latentie",
+    "actions": "Acties",
+    "when": "Wanneer",
+    "level": "Niveau",
+    "source": "Bron",
+    "message": "Bericht",
+    "name": "Naam",
+    "key": "Sleutel",
+    "scopes": "Bereik",
+    "usage": "Gebruik",
+    "direction": "Richting",
+    "url": "URL",
+    "enabled": "Ingeschakeld",
+    "event": "Evenement",
+    "attempt": "Poging"
+  },
+  "actions": {
+    "diagnose": "Diagnose",
+    "demoSync": "Demo-synchronisatie",
+    "demoSyncTitle": "Alleen demosynchronisatie - geen externe overdracht",
+    "disconnect": "Verbreek de verbinding",
+    "rotate": "Draaien",
+    "revoke": "Herroepen",
+    "test": "Test",
+    "emDash": "—",
+    "yes": "Ja",
+    "no": "Nee"
+  },
+  "errors": {
+    "failedToFetch": "Ophalen is mislukt",
+    "httpStatus": "HTTP-{status}"
+  }
+}

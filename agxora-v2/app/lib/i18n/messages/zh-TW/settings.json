@@ -1,0 +1,442 @@
+{
+  "controlCenter": "控制中心",
+  "settingsSections": "設定部分",
+  "profile": {
+    "label": "輪廓",
+    "description": "頭像、身分和個人喜好",
+    "title": "輪廓",
+    "panelDescription": "頭像、全名、電子郵件、角色、時區、語言和主題偏好。",
+    "language": "語言",
+    "timezone": "時區",
+    "fullName": "姓名",
+    "email": "電子郵件",
+    "role": "角色",
+    "theme": "主題",
+    "avatar": "阿凡達",
+    "changeAvatar": "更改頭像",
+    "region": "地區",
+    "personalPrefs": "個人喜好",
+    "supportLinks": "支持與法律",
+    "signedOut": "登入以查看您的帳戶身分。",
+    "serverIdentityNotice": "姓名、電子郵件和角色來自您的伺服器會話。它們不會儲存在此瀏覽器中。",
+    "localPrefsNotice": "時區、地區和個人偏好尚未保留。儲存這些資訊只會更新此頁面，直到你離開為止。",
+    "avatarUnavailable": "頭像上傳尚不可用。",
+    "appearanceNote": "外觀配置保留在“外觀”下。標題僅提供主題快速切換。",
+    "prefsHint": "由 AI 助理跨模組使用。",
+    "themeResolved": "{mode}（已解決{appearance}）",
+    "regions": {
+      "EU": "歐洲聯盟",
+      "US": "美國",
+      "MENA": "中東和北非地區",
+      "APAC": "亞太地區"
+    }
+  },
+  "organization": {
+    "label": "組織",
+    "description": "公司簡介和納稅身份",
+    "title": "組織",
+    "panelDescription": "公司名稱、標誌、地址、稅務資訊、部門和業務單位。"
+  },
+  "workspace": {
+    "label": "工作空間",
+    "description": "品牌、主頁和預設模組",
+    "title": "工作空間",
+    "panelDescription": "工作區設定、預設儀表板、品牌、模組和首頁。"
+  },
+  "team": {
+    "label": "團隊",
+    "description": "成員、角色、邀請和群組",
+    "title": "團隊",
+    "panelDescription": "成員、角色、邀請和群組。"
+  },
+  "ai": {
+    "label": "人工智慧",
+    "description": "提供者、模型、創造力和記憶",
+    "title": "人工智慧",
+    "panelDescription": "提供者、模型、創造力、溫度和記憶體偏好。",
+    "openAgentOs": "開放代理作業系統",
+    "openAiWorkspace": "開放人工智慧工作空間",
+    "noticeSync": "AI 設定透過 AISettingsProvider 同步 - 金鑰從未儲存在這裡。",
+    "noticeProvider": "提供者實施位於人工智慧服務層後面。 UI 永遠不會收到 API 金鑰或 SDK 詳細資訊。自治代理駐留在代理作業系統中。",
+    "preferredProvider": "首選人工智慧提供者",
+    "defaultModel": "預設AI模型",
+    "temperature": "溫度",
+    "topP": "頂P",
+    "maxTokens": "最大代幣數",
+    "writingStyle": "寫作風格",
+    "languagePreferences": "語言偏好",
+    "systemPrompt": "系統提示",
+    "systemPromptHint": "用作AI Platform的預設系統指令。",
+    "systemPromptPlaceholder": "您是AGXORA AI－企業營運助理…",
+    "apiKeyManagement": "API金鑰管理",
+    "apiKeyHint": "密鑰僅透過伺服器環境變數提供。",
+    "apiKeyPlaceholder": "透過 AGXORA_* 環境變數配置（不在瀏覽器中）",
+    "memory": "記憶",
+    "memoryDescription": "允許組織記憶跨模組通知人工智慧回應。",
+    "automationSuggestions": "自動化建議",
+    "automationSuggestionsDescription": "在 Automation Engine 中呈現 AI 工作流程建議。",
+    "streaming": "串流媒體",
+    "streamingDescription": "當提供者支援時流模型響應。",
+    "providers": {
+      "mock": "模擬（本地）",
+      "openai": "開放人工智慧",
+      "azure": "Azure 開放人工智慧",
+      "anthropic": "人擇",
+      "google": "Google",
+      "openrouter": "開放路由器",
+      "ollama": "奧拉瑪",
+      "local": "本地提供者"
+    },
+    "writingStyles": {
+      "professional": "專業的",
+      "concise": "簡潔的",
+      "friendly": "友善",
+      "technical": "技術的"
+    },
+    "languages": {
+      "auto": "匹配個人資料語言",
+      "en": "英語",
+      "de": "德文"
+    }
+  },
+  "appearance": {
+    "label": "外貌",
+    "description": "主題、密度和玻璃效果",
+    "title": "外貌",
+    "panelDescription": "主題、密度、重音、動畫和玻璃效果。",
+    "noticeTheme": "主題模式是透過 ThemeProvider 的單一事實來源。標頭僅提供快速切換。",
+    "themeLabel": "主題",
+    "themeModeAria": "主題模式",
+    "resolvedAppearance": "解決外觀：",
+    "accentColor": "強調色",
+    "accentNotice": "重音首選項被儲存以供將來的 CSS var 接線使用——還不會改變鎖定的顏色系統。",
+    "density": "密度",
+    "compactMode": "緊湊模式",
+    "compactModeDescription": "減少企業表格和麵板之間的填充。",
+    "animations": "動畫",
+    "animationsDescription": "剖面運動和懸停升降機。尊重簡化運動操作系統設定。",
+    "glassEffects": "玻璃效果",
+    "glassEffectsDescription": "磨砂玻璃卡和側邊欄模糊強度偏好。",
+    "modes": {
+      "day": {
+        "label": "光",
+        "hint": "珍珠/冰企業日調色盤"
+      },
+      "night": {
+        "label": "黑暗的",
+        "hint": "核准的電影夜景"
+      },
+      "auto": {
+        "label": "系統",
+        "hint": "遵循當地時間表（自動）"
+      }
+    },
+    "densities": {
+      "comfortable": "舒服的",
+      "compact": "袖珍的",
+      "spacious": "寬敞"
+    }
+  },
+  "notifications": {
+    "label": "通知",
+    "description": "電子郵件、推播和模組警報",
+    "title": "通知",
+    "panelDescription": "電子郵件、推播、電腦版、行動版和模組特定提醒。",
+    "notice": "通知通道僅是首選項－保留傳送適配器。",
+    "email": "電子郵件",
+    "push": "推",
+    "desktop": "桌面",
+    "mobile": "移動的",
+    "workflowAlerts": "工作流程警報",
+    "workflowAlertsDescription": "Automation Engine 執行和批准事件。",
+    "financeAlerts": "財經快訊",
+    "crmAlerts": "客戶關係管理警報",
+    "documentsAlerts": "文件提醒",
+    "deliveryNotice": "交付適配器在發佈時發貨。問題：",
+    "contactSupport": "聯繫支援人員"
+  },
+  "documents": {
+    "label": "文件",
+    "description": "儲存、保留和知識",
+    "title": "文件",
+    "panelDescription": "儲存首選項、保留、預設資料夾、版本控制和知識設定。",
+    "notice": "文件設定與知識中心架構整合。",
+    "storagePreferences": "儲存首選項",
+    "retentionPolicy": "保留政策",
+    "defaultFolder": "預設資料夾",
+    "versioning": "版本控制",
+    "versioningDescription": "保留文件版本歷史記錄以供恢復/比較。",
+    "knowledgeSettings": "知識設定",
+    "knowledgeDescription": "用於知識中心搜尋的人工智慧索引。",
+    "storageOptions": {
+      "workspace-default": "工作區預設值",
+      "eu-region": "歐盟地區",
+      "encrypted-vault": "加密金庫"
+    },
+    "retentionOptions": {
+      "30-days": "30 天（刮擦）",
+      "2-years": "2年",
+      "7-years": "7年",
+      "10-years": "10年"
+    }
+  },
+  "automation": {
+    "label": "自動化",
+    "description": "工作流程預設值和重試策略",
+    "title": "自動化",
+    "panelDescription": "工作流程預設值、AI 建議、執行日誌、歷史限制和重試策略。",
+    "notice": "自動化預設值適用於工作流程引擎架構。",
+    "workflowDefaults": "工作流程預設值",
+    "historyLimits": "歷史限制",
+    "retryPolicy": "重試政策",
+    "aiSuggestions": "人工智慧建議",
+    "executionLogs": "執行日誌",
+    "executionLogsDescription": "在工作流程歷史記錄中保留詳細的運行負載。",
+    "workflowOptions": {
+      "require-approval": "需要審核關卡",
+      "auto-run": "自動運行可信任流",
+      "draft-only": "僅草稿"
+    },
+    "historyOptions": {
+      "30-days": "30天",
+      "90-days": "90天",
+      "365-days": "365天"
+    },
+    "retryOptions": {
+      "none": "無需重試",
+      "3-exponential": "3×指數",
+      "5-linear": "5×線性"
+    }
+  },
+  "integrations": {
+    "label": "串接",
+    "description": "已安裝、連接且可用",
+    "title": "串接",
+    "panelDescription": "已安裝、連接且可用的適配器。",
+    "openCenter": "開放整合中心",
+    "notice": "企業整合平台位於整合中心 - 連接器、OAuth、Webhooks、API 密鑰和工作流程事件橋。",
+    "columns": {
+      "integration": "一體化",
+      "category": "類別",
+      "status": "地位",
+      "adapter": "適配器"
+    }
+  },
+  "security": {
+    "label": "安全性",
+    "description": "會話、密碼和帳戶保護",
+    "title": "安全性",
+    "panelDescription": "此帳戶的伺服器會話。不儲存設備、IP 和 MFA。",
+    "activeSessions": "活躍會話",
+    "currentSession": "目前會話",
+    "otherSession": "其他場次",
+    "currentBadge": "本次會議",
+    "otherBadge": "其他場次",
+    "createdAt": "已登入",
+    "expiresAt": "過期",
+    "revoke": "撤銷會話",
+    "revokeAria": "撤銷登入 {when} 的會話",
+    "revokeOthers": "退出其他會話",
+    "revokeOthersAria": "註銷除當前會話之外的所有會話",
+    "revoked": "會話被撤銷。",
+    "othersRevoked": "其他會話已登出。此會話仍然有效。",
+    "loading": "正在載入會話...",
+    "empty": "沒有活動會話",
+    "emptyBody": "該帳戶沒有活動的伺服器會話。",
+    "demoEmpty": "登入並在此瀏覽器中註冊本機演示會話。",
+    "signedOutTitle": "未登入",
+    "signedOut": "登入以查看您的活動伺服器會話。",
+    "loadFailed": "無法載入會話。",
+    "revokeFailed": "無法撤銷該會話。",
+    "logout": "退出此會話",
+    "logoutAria": "註銷目前伺服器會話",
+    "password": "密碼",
+    "changePassword": "重設密碼",
+    "passwordHint": "密碼更改使用現有的重設流程。專用的更改密碼表格尚不可用。",
+    "mfaTitle": "雙重身份驗證",
+    "mfaUnavailable": "雙重身份驗證尚不可用。",
+    "ssoTitle": "單一登入和 OAuth",
+    "ssoUnavailable": "單一登入和 OAuth 提供者尚不可用。",
+    "encryptionTitle": "加密",
+    "encryptionUnavailable": "金鑰管理和靜態加密控制尚不可用。",
+    "trustedDevices": "可信任設備",
+    "trustedUnavailable": "不儲存受信任設備和 IP 歷史記錄。會話元資料僅限於建立和到期時間。",
+    "apiKeys": "API 金鑰",
+    "apiKeysHint": "開發人員金鑰在 API 和開發人員下進行管理。此面板不發出密鑰。",
+    "openApi": "開啟API設定",
+    "serverNotice": "會話儲存在伺服器上。該瀏覽器從不將本地身份資料視為權威資料。",
+    "demoNotice": "演示模式僅使用本機瀏覽器會話。這不是生產認證。",
+    "noDeviceMeta": "不記錄設備、IP 和用戶代理程式。"
+  },
+  "billing": {
+    "label": "計費",
+    "description": "計劃、使用情況、發票和付款",
+    "title": "計費",
+    "panelDescription": "目前計劃、續約、使用情況、發票和升級路徑。"
+  },
+  "api": {
+    "label": "API 和開發人員",
+    "description": "金鑰、webhooks、令牌、沙箱",
+    "title": "API 和開發人員",
+    "panelDescription": "密鑰、網路鉤子、令牌和沙箱存取。",
+    "openPortal": "打開開發者入口網站",
+    "notice": "在整合中心產生、輪換和撤銷密鑰。那裡提供了網關、webhook 測試器和 API 瀏覽器。",
+    "webhooks": "網路鉤子",
+    "sandbox": "沙盒",
+    "sandboxEnabled": "啟用",
+    "sandboxDisabled": "殘障人士",
+    "tokensNotice": "開發者令牌從不顯示完整的秘密—僅顯示前綴。",
+    "columns": {
+      "name": "姓名",
+      "key": "鑰匙",
+      "scope": "範圍",
+      "lastUsed": "上次使用"
+    }
+  },
+  "audit": {
+    "label": "審核日誌",
+    "description": "活動、安全和系統更改",
+    "title": "審核日誌",
+    "panelDescription": "最近的活動、安全事件和系統變更。",
+    "columns": {
+      "when": "什麼時候",
+      "actor": "演員",
+      "category": "類別",
+      "summary": "概括"
+    },
+    "categories": {
+      "activity": "近期动态",
+      "security": "安全事件",
+      "system": "系統變更"
+    }
+  },
+  "advanced": {
+    "label": "先進的",
+    "description": "實驗、重置、導入、匯出",
+    "title": "先進的",
+    "panelDescription": "實驗性功能、重設、導入和匯出。",
+    "notice": "高級操作需要在申請前確認。",
+    "experimentalFeatures": "實驗特點",
+    "experimentalDescription": "選擇未完成的控制中心功能。",
+    "export": "出口",
+    "import": "進口",
+    "reset": "重置",
+    "exportUnavailable": "尚不支持導出。",
+    "importUnavailable": "導入尚不可用。",
+    "resetUnavailable": "重置尚不可用。"
+  },
+  "page": {
+    "eyebrow": "AGXORA 控制中心",
+    "title": "設定",
+    "lead": "每個 AGXORA 模組的企業配置 — 設定檔、組織、AI、外觀、安全性、計費和開發人員控制都集中在一個地方。",
+    "loading": "正在加載設定...",
+    "breadcrumb": "{label} · {description}"
+  },
+  "saveChanges": "儲存變更",
+  "sessionNotice": "此會話已更新 — {area} 未連線。",
+  "kpi": {
+    "members": {
+      "label": "團隊成員",
+      "caption": "活動座椅"
+    },
+    "integrations": {
+      "label": "串接",
+      "caption": "連接的適配器"
+    },
+    "api": {
+      "label": "API 金鑰",
+      "caption": "開發者代幣"
+    },
+    "audit": {
+      "label": "審計事件",
+      "caption": "過去 7 天"
+    }
+  },
+  "unknown": {
+    "title": "設定",
+    "description": "未知部分。",
+    "emptyTitle": "未找到",
+    "emptyDescription": "從控制中心導覽中選擇一個部分。"
+  },
+  "controlPlane": {
+    "loading": "載入中…",
+    "loadFailed": "無法載入組織資料。登入並重試。",
+    "saveFailed": "無法儲存變更。",
+    "saving": "儲存中…",
+    "orgName": "組織名稱",
+    "orgSlug": "蛞蝓",
+    "owner": "擁有者",
+    "counts": "成員·工作區",
+    "orgUpdated": "組織已更新。",
+    "countsValue": "{members} · {workspaces}",
+    "joined": "已加入",
+    "workspaceName": "工作區名稱",
+    "switchWorkspace": "活躍的工作空間",
+    "active": "積極的",
+    "rename": "重新命名",
+    "archive": "檔案",
+    "create": "建立工作區",
+    "createWorkspace": "新工作區",
+    "workspaceCreated": "工作區已建立。",
+    "workspaceUpdated": "工作區已重新命名。",
+    "workspaceArchived": "工作區已存檔。",
+    "workspaceSwitched": "活動工作區已更新。",
+    "member": "成員",
+    "email": "電子郵件",
+    "role": "角色",
+    "status": "地位",
+    "actions": "行動",
+    "roleOwner": "擁有者",
+    "roleAdmin": "行政",
+    "roleMember": "成員",
+    "changeRole": "改變角色",
+    "remove": "移除",
+    "invite": "邀請會員",
+    "inviteTitle": "邀請到工作區",
+    "sendInvite": "創建邀請",
+    "close": "關閉",
+    "pending": "待處理的邀請",
+    "noPending": "沒有待處理的邀請。",
+    "revoke": "撤銷",
+    "noMembers": "還沒有會員",
+    "noMembersBody": "邀請隊友加入此工作區。",
+    "inviteHonesty": "未配置電子郵件傳送。直接分享邀請連結。",
+    "inviteLink": "邀請連結",
+    "inviteInvalid": "此邀請無效。",
+    "accept": "接受邀請",
+    "invitedAs": "{email} 被邀請作為 {role}。",
+    "inviteStatus": {
+      "pending": "待辦的",
+      "expired": "此邀請已過期。",
+      "revoked": "該邀請已被撤銷。",
+      "accepted": "這個邀請已經被接受了。"
+    },
+    "transferOwnership": "轉讓所有權",
+    "transferTitle": "轉移組織所有權",
+    "transferWarning": "這是一個危險的行為。在收件者確認之前，您仍然是所有者。確認後，您成為管理員，他們成為所有者。",
+    "transferTarget": "新主人",
+    "transferSelectMember": "選擇現有成員...",
+    "transferTypeName": "輸入「{name}」確認",
+    "transferConfirmMismatch": "輸入的姓名與所選成員不符。",
+    "transferInitiate": "發起轉移",
+    "transferHonesty": "配置交付後，將發送一封確認電子郵件。否則直接與收件者分享確認連結。",
+    "transferLink": "確認連結",
+    "transferPendingTitle": "待定所有權轉讓",
+    "transferPendingBody": "等待{name} ({email}) 確認。過期{expires}。在此之前您仍然是所有者。",
+    "transferPendingNote": "在轉移等待期間，成員角色不會改變。",
+    "cancelTransfer": "取消轉帳",
+    "transferCancelled": "所有權轉讓已取消。",
+    "transferInvalid": "該所有權轉讓無效。",
+    "transferConfirmTitle": "確認所有權轉移",
+    "transferConfirmBody": "{from} 想要將組織所有權轉讓給 {to} ({email})。",
+    "transferConfirmDanger": "確認後，您將成為 OWNER，而先前的所有者將成為 ADMIN。",
+    "transferConfirmAction": "確認我成為新主人",
+    "transferWrongAccount": "以 {email} 身分登入以確認此轉移。",
+    "transferStatus": {
+      "pending": "待確認",
+      "expired": "此所有權轉讓已過期。",
+      "cancelled": "此次所有權轉讓已被取消。",
+      "confirmed": "本次股權轉讓已經完成。"
+    }
+  }
+}

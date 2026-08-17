@@ -1,0 +1,297 @@
+{
+  "page": {
+    "brand": "Hệ điều hành tài chính AGXORA",
+    "title": "Tài chính & Thuế",
+    "subtitle": "Thông tin kế toán, ngân hàng, thuế và tài chính — được xem trước bằng dữ liệu mẫu cho đến khi sổ cái trực tiếp kết nối.",
+    "sampleNotice": "Tập dữ liệu mẫu - số liệu và lịch sử xuất khẩu mang tính minh họa. DATEV / xuất tệp và nguồn cấp dữ liệu ngân hàng trực tiếp không được kết nối."
+  },
+  "sections": {
+    "overview": {
+      "title": "Tổng quan về tài chính"
+    },
+    "invoiceCenter": {
+      "title": "Trung tâm hóa đơn",
+      "subtitle": "Tìm kiếm, lọc và sắp xếp sổ cái hóa đơn doanh nghiệp bằng tính năng chấm điểm độ tin cậy của AI."
+    },
+    "aiInvoiceProcessing": {
+      "title": "Xử lý hóa đơn AI",
+      "subtitle": "Đường dẫn demo - Trích xuất OCR và AI không được kết nối."
+    },
+    "banking": {
+      "title": "Ngân hàng",
+      "subtitle": "Chỉ tài khoản mẫu - Nguồn cấp dữ liệu Ngân hàng mở không được kết nối."
+    },
+    "datev": {
+      "title": "Tích hợp DATEV",
+      "subtitle": "Lịch sử xuất mẫu - Việc tạo tệp DATEV không được kết nối."
+    },
+    "taxCenter": {
+      "title": "Trung tâm thuế",
+      "subtitle": "Tóm tắt VAT, thời hạn và các khoản thanh toán sắp tới."
+    },
+    "aiInsights": {
+      "title": "Thông tin chi tiết về AI",
+      "subtitle": "Chỉ phát hiện mẫu - các hành động sâu sắc không được kết nối."
+    },
+    "smartSearch": {
+      "title": "Tìm kiếm thông minh",
+      "subtitle": "Truy vấn ngôn ngữ tự nhiên trên hóa đơn, chi phí, VAT và xuất khẩu."
+    }
+  },
+  "overview": {
+    "metrics": {
+      "revenue": {
+        "label": "Doanh thu",
+        "caption": "Mẫu · 30 ngày qua",
+        "delta": "+8.4%"
+      },
+      "expenses": {
+        "label": "Chi phí",
+        "caption": "Mẫu · vận hành + giá vốn hàng bán",
+        "delta": "+2.1%"
+      },
+      "profit": {
+        "label": "Lợi nhuận",
+        "caption": "Mẫu · vận hành ròng",
+        "delta": "+12.6%"
+      },
+      "vat-due": {
+        "label": "VAT đến hạn",
+        "caption": "Mẫu · Cửa sổ Q2",
+        "delta": "Đến hạn sau {days} ngày nữa"
+      },
+      "open-invoices": {
+        "label": "Mở hóa đơn",
+        "caption": "Mẫu · {money} chưa thanh toán"
+      },
+      "paid-invoices": {
+        "label": "Hóa đơn đã thanh toán",
+        "caption": "Mẫu · quý này",
+        "delta": "+{count}"
+      },
+      "cashflow": {
+        "label": "Dòng tiền",
+        "caption": "Mẫu · Dự đoán 30 ngày",
+        "delta": "+4.2%"
+      },
+      "ai-score": {
+        "label": "Điểm tài chính AI",
+        "caption": "Điểm mẫu · không phải điểm rủi ro trực tiếp",
+        "delta": "+{count}"
+      }
+    },
+    "scoreOutOf": "{score} / {max}"
+  },
+  "invoices": {
+    "emptyTitle": "Không có hóa đơn",
+    "emptyDescription": "Không có hoá đơn nào phù hợp với tìm kiếm hoặc bộ lọc của bạn.",
+    "searchPlaceholder": "Mã số, công ty, chủng loại…",
+    "statusFilter": "Bộ lọc trạng thái",
+    "paymentFilter": "Bộ lọc thanh toán",
+    "sortBy": "Sắp xếp theo",
+    "toggleSort": "Chuyển đổi hướng sắp xếp",
+    "count": "{count} hóa đơn",
+    "countOne": "{count} hóa đơn",
+    "allStatuses": "Tất cả trạng thái",
+    "allPayments": "Tất cả các khoản thanh toán",
+    "columns": {
+      "number": "Số hóa đơn",
+      "company": "Công ty",
+      "amount": "Số lượng",
+      "vat": "VAT",
+      "status": "Trạng thái",
+      "dueDate": "Ngày đáo hạn",
+      "payment": "Trạng thái thanh toán",
+      "category": "Loại",
+      "ai": "Sự tự tin của AI"
+    },
+    "sort": {
+      "dueDate": "Ngày đến hạn",
+      "amount": "Số lượng",
+      "company": "Công ty",
+      "status": "Trạng thái",
+      "aiConfidence": "Sự tự tin của AI",
+      "number": "Hóa đơn #"
+    }
+  },
+  "status": {
+    "draft": "Bản nháp",
+    "open": "Mở",
+    "paid": "Trả",
+    "overdue": "Quá hạn",
+    "cancelled": "Đã hủy"
+  },
+  "payment": {
+    "unpaid": "Chưa thanh toán",
+    "partial": "một phần",
+    "paid": "Trả",
+    "refunded": "Đã hoàn tiền"
+  },
+  "category": {
+    "saas": "SaaS",
+    "office": "Văn phòng",
+    "travel": "Du lịch",
+    "marketing": "Tiếp thị",
+    "utilities": "Tiện ích",
+    "professional": "Chuyên nghiệp",
+    "other": "Khác"
+  },
+  "processing": {
+    "dropTitle": "Kéo và thả tệp hóa đơn",
+    "dropFormats": "PDF · Hình ảnh · Nhập email",
+    "uploadFiles": "Tải tập tin lên",
+    "emailImport": "Nhập email",
+    "dropHint": "Thả hóa đơn dạng PDF hoặc hình ảnh vào hệ thống cục bộ — OCR chưa được kết nối.",
+    "filesStaged": "(Các) tệp {count} chỉ được liệt kê cục bộ — tính năng trích xuất OCR / AI chưa được kết nối.",
+    "emailReserved": "Trình kết nối nhập email dành riêng cho IMAP / Microsoft Graph.",
+    "pipelineTitle": "Quy trình xử lý (bản demo)",
+    "stages": {
+      "ocr": "Trạng thái OCR",
+      "extraction": "Khai thác AI",
+      "categorization": "Phân loại",
+      "duplicateDetection": "Phát hiện trùng lặp"
+    }
+  },
+  "stage": {
+    "pending": "Không có sẵn",
+    "running": "Không được kết nối",
+    "complete": "Thử nghiệm",
+    "failed": "Thất bại",
+    "skipped": "Đã bỏ qua"
+  },
+  "banking": {
+    "connectionTitle": "Kết nối ngân hàng",
+    "connectBank": "Kết nối ngân hàng",
+    "description": "PSD2 / Bộ điều hợp ngân hàng mở không có dây. Sự phù hợp và đối chiếu dưới đây chỉ mang tính chất minh họa.",
+    "feedUnavailable": "Không có nguồn cấp dữ liệu ngân hàng - kết nối nhà cung cấp không được kết nối.",
+    "noticeDefault": "Ngân hàng mở chưa được kết nối - các tài khoản bên dưới là dữ liệu mẫu.",
+    "connectUnavailable": "Kết nối ngân hàng không khả dụng - Ngân hàng mở không được kết nối trong bản dựng này.",
+    "sampleAccounts": "Tài khoản mẫu",
+    "sample": "Vật mẫu",
+    "offline": "Ngoại tuyến",
+    "demoPrefix": "Thử nghiệm",
+    "latestTransactions": "Giao dịch mới nhất",
+    "sampleMatching": "So khớp mẫu",
+    "demoOnly": "Chỉ demo",
+    "sampleMatch": "Trận đấu mẫu",
+    "unmatched": "Chưa từng có",
+    "emptyBalance": "—"
+  },
+  "datev": {
+    "title": "Tích hợp DATEV",
+    "notConnected": "Không được kết nối",
+    "intro": "Lịch sử xuất khẩu mẫu dưới đây mang tính minh họa. Thông tin xác thực và tạo tệp không được kết nối trong bản dựng này.",
+    "noticeDefault": "Bộ điều hợp xuất không được kết nối - sẽ không có tệp nào được tạo.",
+    "exportUnavailable": "{title} không khả dụng — DATEV/xuất tệp không được kết nối.",
+    "exportUnavailableAria": "{title} — không có sẵn",
+    "historyTitle": "Lịch sử xuất khẩu (mẫu)",
+    "refresh": "Làm cho khỏe lại",
+    "refreshUnavailable": "Không thể làm mới - lịch sử xuất là dữ liệu mẫu tĩnh.",
+    "steuerberaterSample": "Vật mẫu",
+    "steuerberaterPending": "Chưa giải quyết",
+    "columns": {
+      "export": "Xuất khẩu",
+      "format": "Định dạng",
+      "period": "Giai đoạn",
+      "created": "Tạo",
+      "status": "Trạng thái",
+      "steuerberater": "đồ nướng"
+    },
+    "actions": {
+      "datev": {
+        "title": "Xuất DATEV",
+        "description": "Gói Buchungsstapel dành cho quy trình làm việc của Steuerberater."
+      },
+      "csv": {
+        "title": "Xuất CSV",
+        "description": "CSV sẵn sàng cho sổ cái cho bảng tính và nhập."
+      },
+      "pdf": {
+        "title": "Xuất PDF",
+        "description": "Gói tài liệu để xem xét và lưu trữ."
+      },
+      "xml": {
+        "title": "Xuất XML",
+        "description": "XML thuế có cấu trúc để gửi quy trình."
+      }
+    }
+  },
+  "exportStatus": {
+    "queued": "Mẫu · Xếp hàng đợi",
+    "ready": "Mẫu · Sẵn sàng",
+    "delivered": "Minh họa",
+    "failed": "Thất bại"
+  },
+  "tax": {
+    "vatSummaryTitle": "Tóm tắt thuế GTGT",
+    "monthlyVat": "VAT hàng tháng",
+    "quarterlyVat": "VAT hàng quý",
+    "collected": "Đã sưu tầm",
+    "deductible": "Được khấu trừ",
+    "netDue": "Nợ ròng",
+    "deadlinesTitle": "Thời hạn nộp thuế · Các khoản thanh toán sắp tới",
+    "duePrefix": "Quá hạn",
+    "deadlineStatus": {
+      "due_soon": "Đến hạn sớm",
+      "upcoming": "Sắp tới",
+      "overdue": "Quá hạn",
+      "paid": "Trả"
+    },
+    "deadlines": {
+      "td-1": "Khai thuế GTGT hàng tháng",
+      "td-2": "Quyết toán thuế GTGT hàng quý",
+      "td-3": "Thuế doanh nghiệp tạm ứng"
+    },
+    "period": {
+      "monthly": "hàng tháng",
+      "quarterly": "Hàng quý",
+      "annual": "Hàng năm"
+    }
+  },
+  "insights": {
+    "demoPrefix": "Thử nghiệm",
+    "noticeDefault": "Các hành động chuyên sâu không được kết nối — thẻ chỉ hiển thị các phát hiện mẫu.",
+    "actionUnavailable": "{action} không có sẵn — các hành động hiểu biết về tài chính không được kết nối.",
+    "actionUnavailableTitle": "{action} không có sẵn — không được kết nối",
+    "kinds": {
+      "unusual_expense": "Chi phí bất thường",
+      "duplicate_invoice": "Hóa đơn trùng lặp",
+      "missing_invoice": "Thiếu hóa đơn",
+      "late_payment": "Thanh toán trễ",
+      "cashflow_prediction": "Dự đoán dòng tiền",
+      "tax_optimization": "Tối ưu hóa thuế"
+    }
+  },
+  "search": {
+    "label": "Tìm kiếm ngôn ngữ tự nhiên",
+    "placeholder": "Hãy thử \"Hiển thị hóa đơn chưa thanh toán\"",
+    "submit": "Tìm kiếm",
+    "examplesTitle": "Ví dụ",
+    "hints": {
+      "idle": "Hỏi về hóa đơn, chi phí, VAT hoặc xuất khẩu.",
+      "unpaid_invoices": "Lọc Trung tâm hóa đơn cho các mục chưa thanh toán / mở.",
+      "july_expenses": "Hiển thị hoạt động bên chi phí tháng 7.",
+      "amazon": "Định vị hóa đơn và biên lai của Amazon.",
+      "vat_export": "Mở hành động xuất DATEV / VAT.",
+      "general": "Đang tìm kiếm sổ cái cho “{query}”."
+    },
+    "examples": {
+      "q1": {
+        "query": "Hiển thị hóa đơn chưa thanh toán",
+        "description": "Mở các khoản phải thu với trạng thái chưa thanh toán hoặc một phần"
+      },
+      "q2": {
+        "query": "Hiển thị chi phí tháng 7",
+        "description": "Hóa đơn bên chi phí và dòng tiền chảy ra ngân hàng trong tháng 7"
+      },
+      "q3": {
+        "query": "Tìm hóa đơn Amazon",
+        "description": "Nhà cung cấp phù hợp trên trung tâm hóa đơn và tải lên"
+      },
+      "q4": {
+        "query": "VAT xuất khẩu",
+        "description": "Chuyển tới DATEV/hành động xuất thuế"
+      }
+    }
+  }
+}

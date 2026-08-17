@@ -1,0 +1,168 @@
+{
+  "platform": {
+    "loading": "Carregando plataforma de IA…",
+    "eyebrow": "Plataforma AGXORA AI",
+    "title": "Espaço de trabalho de IA empresarial",
+    "subtitle": "Inteligência independente de provedor para CRM, projetos, finanças, documentos e automação. Configure provedores em Configurações → AI.",
+    "newConversation": "Nova conversa",
+    "aiCommands": "Comandos de IA"
+  },
+  "mobileTabs": {
+    "chat": "Bater papo",
+    "conversations": "Conversas",
+    "prompts": "Solicitações"
+  },
+  "usageBar": {
+    "provider": "Provedor",
+    "model": "Modelo",
+    "estimatedTokens": "Husa. fichas",
+    "tokensInOut": "(entrada {in} / saída {out})",
+    "cost": "Custo",
+    "context": "Contexto",
+    "contextNone": "nenhum",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "Espaço de trabalho AGXORA AI",
+    "emptyHint": "Inicie uma conversa, escolha um prompt da biblioteca ou abra a paleta de comandos (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Conversas",
+    "new": "Novo",
+    "searchPlaceholder": "Pesquisar bate-papos…",
+    "searchAria": "Pesquisar conversas",
+    "showArchived": "Mostrar arquivado",
+    "pinned": "Fixado",
+    "emptyPreview": "Conversa vazia",
+    "noConversations": "Ainda não há conversas",
+    "pin": "Alfinete",
+    "unpin": "Liberar",
+    "rename": "Renomear",
+    "archive": "Arquivo",
+    "unarchive": "Desarquivar",
+    "delete": "Excluir"
+  },
+  "composer": {
+    "placeholder": "Mensagem AGXORA AI… (Enter para enviar, Shift+Enter para nova linha)",
+    "ariaLabel": "Compositor de mensagens",
+    "commandsShortcut": "Comandos ⌘⇧K",
+    "stop": "Parar",
+    "send": "Enviar"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Cópia",
+    "retry": "Tentar novamente"
+  },
+  "typingIndicator": {
+    "ariaLabel": "O assistente está digitando"
+  },
+  "promptLibrary": {
+    "title": "Biblioteca de prompts",
+    "subtitle": "Modelos reutilizáveis ​​em CRM, projetos, finanças e muito mais.",
+    "searchPlaceholder": "Solicitações de pesquisa…",
+    "searchAria": "Solicitações de pesquisa",
+    "all": "Todos",
+    "favorites": "Favoritos",
+    "recent": "Recente",
+    "library": "Biblioteca",
+    "noMatches": "Nenhuma solicitação corresponde",
+    "removeFavoriteAria": "Remover favorito",
+    "addFavoriteAria": "Adicionar favorito",
+    "favorited": "Favorito",
+    "favorite": "Favorito",
+    "usePrompt": "Usar prompt"
+  },
+  "commandPalette": {
+    "ariaLabel": "Paleta de comandos AI",
+    "filterAria": "Filtrar comandos de IA",
+    "placeholder": "Comando de IA… resumir, propor, analisar…",
+    "noMatches": "Nenhum comando correspondente",
+    "footer": "Registre comandos futuros por meio de RegisterAiCommand — a IU permanece inalterada."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Projetos",
+    "finance": "Finanças",
+    "marketing": "Marketing",
+    "documents": "Documentos",
+    "automation": "Automatização",
+    "general": "Geral"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Resumir cliente",
+      "description": "Síntese executiva de uma relação com o cliente"
+    },
+    "crm-follow-up-email": {
+      "title": "E-mail de seguimento",
+      "description": "Redigir um seguimento CRM profissional"
+    },
+    "projects-analyze": {
+      "title": "Analisar projeto",
+      "description": "Verificação de saúde de um projeto"
+    },
+    "projects-task-list": {
+      "title": "Criar lista de tarefas",
+      "description": "Dividir o trabalho em tarefas acionáveis"
+    },
+    "finance-explain-invoice": {
+      "title": "Explicar fatura",
+      "description": "Explicação de fatura em linguagem simples"
+    },
+    "finance-cashflow-brief": {
+      "title": "Nota de cashflow",
+      "description": "Narrativa breve de cashflow"
+    },
+    "marketing-campaign-outline": {
+      "title": "Esboço de campanha",
+      "description": "Estruturar uma campanha de marketing"
+    },
+    "marketing-proposal": {
+      "title": "Gerar proposta",
+      "description": "Rascunho de proposta para o cliente"
+    },
+    "documents-summarize": {
+      "title": "Resumir documento",
+      "description": "Resumo de documento estruturado"
+    },
+    "automation-workflow": {
+      "title": "Conceber fluxo de trabalho",
+      "description": "Esboço de fluxo de automatização"
+    },
+    "general-brainstorm": {
+      "title": "Brainstorm de opções",
+      "description": "Ideação estruturada"
+    },
+    "general-explain": {
+      "title": "Explicar de forma simples",
+      "description": "Explicação clara para as partes interessadas"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Resumir cliente",
+      "description": "Síntese executiva do cliente ativo"
+    },
+    "cmd-generate-proposal": {
+      "label": "Gerar proposta",
+      "description": "Redigir o esboço de uma proposta ao cliente"
+    },
+    "cmd-analyze-project": {
+      "label": "Analisar projeto",
+      "description": "Saúde do projeto e análise de riscos"
+    },
+    "cmd-create-task-list": {
+      "label": "Criar lista de tarefas",
+      "description": "Dividir o trabalho em tarefas acionáveis"
+    },
+    "cmd-generate-email": {
+      "label": "Gerar e-mail",
+      "description": "Redigir um e-mail profissional"
+    },
+    "cmd-explain-invoice": {
+      "label": "Explicar fatura",
+      "description": "Explicação de fatura em linguagem simples"
+    }
+  }
+}

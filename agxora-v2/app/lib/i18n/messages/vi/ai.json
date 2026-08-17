@@ -1,0 +1,168 @@
+{
+  "platform": {
+    "loading": "Đang tải nền tảng AI…",
+    "eyebrow": "Nền tảng AI AGXORA",
+    "title": "Không gian làm việc AI dành cho doanh nghiệp",
+    "subtitle": "Thông tin độc lập dành cho nhà cung cấp dành cho CRM, Dự án, Tài chính, Tài liệu và Tự động hóa. Định cấu hình nhà cung cấp trong Cài đặt → AI.",
+    "newConversation": "Cuộc trò chuyện mới",
+    "aiCommands": "Lệnh AI"
+  },
+  "mobileTabs": {
+    "chat": "Trò chuyện",
+    "conversations": "Cuộc trò chuyện",
+    "prompts": "Lời nhắc"
+  },
+  "usageBar": {
+    "provider": "nhà cung cấp",
+    "model": "Người mẫu",
+    "estimatedTokens": "Ước tính. mã thông báo",
+    "tokensInOut": "(vào {in} / ra {out})",
+    "cost": "Trị giá",
+    "context": "Bối cảnh",
+    "contextNone": "không có",
+    "emDash": "—"
+  },
+  "chatThread": {
+    "title": "Không gian làm việc AGXORA AI",
+    "emptyHint": "Bắt đầu cuộc trò chuyện, chọn lời nhắc từ thư viện hoặc mở bảng lệnh (⌘⇧K / Ctrl⇧K)."
+  },
+  "conversationSidebar": {
+    "title": "Cuộc trò chuyện",
+    "new": "Mới",
+    "searchPlaceholder": "Tìm kiếm cuộc trò chuyện…",
+    "searchAria": "Tìm kiếm cuộc trò chuyện",
+    "showArchived": "Hiển thị đã lưu trữ",
+    "pinned": "Đã ghim",
+    "emptyPreview": "Cuộc trò chuyện trống",
+    "noConversations": "Chưa có cuộc trò chuyện nào",
+    "pin": "Ghim",
+    "unpin": "Bỏ ghim",
+    "rename": "Đổi tên",
+    "archive": "Lưu trữ",
+    "unarchive": "Hủy lưu trữ",
+    "delete": "Xóa bỏ"
+  },
+  "composer": {
+    "placeholder": "Tin nhắn AGXORA AI… (Enter để gửi, Shift+Enter để xuống dòng)",
+    "ariaLabel": "Người soạn tin nhắn",
+    "commandsShortcut": "Lệnh ⌘⇧K",
+    "stop": "Dừng lại",
+    "send": "Gửi"
+  },
+  "messageBubble": {
+    "ellipsis": "…",
+    "copy": "Sao chép",
+    "retry": "Thử lại"
+  },
+  "typingIndicator": {
+    "ariaLabel": "Trợ lý đang nhập văn bản"
+  },
+  "promptLibrary": {
+    "title": "Thư viện nhắc nhở",
+    "subtitle": "Các mẫu có thể tái sử dụng trên CRM, Dự án, Tài chính, v.v.",
+    "searchPlaceholder": "Lời nhắc tìm kiếm…",
+    "searchAria": "Lời nhắc tìm kiếm",
+    "all": "Tất cả",
+    "favorites": "Yêu thích",
+    "recent": "Gần đây",
+    "library": "Thư viện",
+    "noMatches": "Không có lời nhắc nào phù hợp",
+    "removeFavoriteAria": "Xóa yêu thích",
+    "addFavoriteAria": "Thêm yêu thích",
+    "favorited": "Yêu thích",
+    "favorite": "Yêu thích",
+    "usePrompt": "Sử dụng lời nhắc"
+  },
+  "commandPalette": {
+    "ariaLabel": "Bảng lệnh AI",
+    "filterAria": "Lọc lệnh AI",
+    "placeholder": "Lệnh AI… tóm tắt, đề xuất, phân tích…",
+    "noMatches": "Không có lệnh phù hợp",
+    "footer": "Đăng ký các lệnh trong tương lai thông qua registerAiCommand - Giao diện người dùng không thay đổi."
+  },
+  "categories": {
+    "crm": "CRM",
+    "projects": "Dự án",
+    "finance": "Tài chính",
+    "marketing": "Marketing",
+    "documents": "Tài liệu",
+    "automation": "Tự động hóa",
+    "general": "Chung"
+  },
+  "library": {
+    "crm-summarize-customer": {
+      "title": "Tóm tắt khách hàng",
+      "description": "Tóm tắt điều hành mối quan hệ khách hàng"
+    },
+    "crm-follow-up-email": {
+      "title": "Email theo dõi",
+      "description": "Soạn email theo dõi CRM chuyên nghiệp"
+    },
+    "projects-analyze": {
+      "title": "Phân tích dự án",
+      "description": "Kiểm tra sức khỏe dự án"
+    },
+    "projects-task-list": {
+      "title": "Tạo danh sách công việc",
+      "description": "Chia công việc thành các nhiệm vụ có thể thực hiện"
+    },
+    "finance-explain-invoice": {
+      "title": "Giải thích hóa đơn",
+      "description": "Giải thích hóa đơn bằng ngôn ngữ dễ hiểu"
+    },
+    "finance-cashflow-brief": {
+      "title": "Tóm tắt dòng tiền",
+      "description": "Mô tả ngắn về dòng tiền"
+    },
+    "marketing-campaign-outline": {
+      "title": "Dàn ý chiến dịch",
+      "description": "Cấu trúc chiến dịch marketing"
+    },
+    "marketing-proposal": {
+      "title": "Tạo đề xuất",
+      "description": "Bản nháp đề xuất dành cho khách"
+    },
+    "documents-summarize": {
+      "title": "Tóm tắt tài liệu",
+      "description": "Tóm tắt tài liệu có cấu trúc"
+    },
+    "automation-workflow": {
+      "title": "Thiết kế quy trình",
+      "description": "Phác thảo quy trình tự động hóa"
+    },
+    "general-brainstorm": {
+      "title": "Động não các lựa chọn",
+      "description": "Lên ý tưởng có cấu trúc"
+    },
+    "general-explain": {
+      "title": "Giải thích đơn giản",
+      "description": "Giải thích rõ cho các bên liên quan"
+    }
+  },
+  "commands": {
+    "cmd-summarize-customer": {
+      "label": "Tóm tắt khách hàng",
+      "description": "Tóm tắt điều hành khách hàng đang chọn"
+    },
+    "cmd-generate-proposal": {
+      "label": "Tạo đề xuất",
+      "description": "Soạn dàn ý đề xuất cho khách"
+    },
+    "cmd-analyze-project": {
+      "label": "Phân tích dự án",
+      "description": "Sức khỏe dự án và phân tích rủi ro"
+    },
+    "cmd-create-task-list": {
+      "label": "Tạo danh sách công việc",
+      "description": "Chia công việc thành các nhiệm vụ có thể thực hiện"
+    },
+    "cmd-generate-email": {
+      "label": "Tạo email",
+      "description": "Soạn email chuyên nghiệp"
+    },
+    "cmd-explain-invoice": {
+      "label": "Giải thích hóa đơn",
+      "description": "Giải thích hóa đơn bằng ngôn ngữ dễ hiểu"
+    }
+  }
+}
