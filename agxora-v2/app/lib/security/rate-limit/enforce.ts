@@ -1,5 +1,5 @@
 /**
- * Phase 46-A — rate-limit enforcement.
+ * Phase 46-A / 46-B — rate-limit enforcement.
  */
 
 import "server-only";
@@ -7,7 +7,7 @@ import "server-only";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import { resolveClientIpKey } from "./clientIp";
 import { getRateLimitPolicy, getRateLimitRuntimeConfig } from "./config";
-import { getActiveRateLimitStore } from "./memoryStore";
+import { getRateLimitStore } from "./provider";
 import type { RateLimitDecision, RateLimitPolicyId } from "./types";
 
 export type EnforceRateLimitInput = {
@@ -43,7 +43,9 @@ function buildKey(
  * Throws PersistenceError(rate_limited) when denied.
  * Auth/control policies fail closed on store capacity errors.
  */
-export function enforceRateLimit(input: EnforceRateLimitInput): RateLimitDecision {
+export async function enforceRateLimit(
+  input: EnforceRateLimitInput,
+): Promise<RateLimitDecision> {
   const runtime = getRateLimitRuntimeConfig();
   const policy = getRateLimitPolicy(input.policyId);
 
@@ -60,10 +62,10 @@ export function enforceRateLimit(input: EnforceRateLimitInput): RateLimitDecisio
 
   const ip = resolveClientIpKey(input.request);
   const key = buildKey(policy.id, policy.keyKind, ip, input.userId);
-  const store = getActiveRateLimitStore(runtime.maxKeys);
+  const store = getRateLimitStore(runtime.maxKeys);
 
   try {
-    const decision = store.consume({
+    const decision = await store.consume({
       key,
       max: policy.max,
       windowMs: policy.windowMs,

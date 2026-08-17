@@ -40,7 +40,7 @@ export type RateLimitStore = {
     readonly max: number;
     readonly windowMs: number;
     readonly now?: number;
-  }): RateLimitDecisionBase;
+  }): Promise<RateLimitDecisionBase>;
   reset(key?: string): void;
   size(): number;
 };

@@ -32,7 +32,7 @@ export async function POST(
     requireDatabase();
     const { id } = await context.params;
     const actor = await requireActorForWorkspace(id);
-    const limited = rateLimitResponse({
+    const limited = await rateLimitResponse({
       request,
       policyId: "control.invite",
       userId: actor.userId,

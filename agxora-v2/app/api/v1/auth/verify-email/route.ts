@@ -11,7 +11,7 @@ type Body = { readonly token?: string };
 export async function POST(request: Request): Promise<NextResponse> {
   try {
     requireDatabase();
-    const limited = rateLimitResponse({
+    const limited = await rateLimitResponse({
       request,
       policyId: "auth.verify_email",
     });

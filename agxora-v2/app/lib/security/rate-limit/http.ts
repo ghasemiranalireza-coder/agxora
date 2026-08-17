@@ -1,5 +1,5 @@
 /**
- * Phase 46-A — HTTP helpers for rate-limit responses.
+ * Phase 46-A / 46-B — HTTP helpers for rate-limit responses.
  */
 
 import { NextResponse } from "next/server";
@@ -10,11 +10,11 @@ import { enforceRateLimit, type EnforceRateLimitInput } from "./enforce";
  * Returns a 429 NextResponse when limited; otherwise null (caller continues).
  * Generic message — does not reveal account/resource existence.
  */
-export function rateLimitResponse(
+export async function rateLimitResponse(
   input: EnforceRateLimitInput,
-): NextResponse | null {
+): Promise<NextResponse | null> {
   try {
-    enforceRateLimit(input);
+    await enforceRateLimit(input);
     return null;
   } catch (error) {
     if (isPersistenceError(error) && error.code === "rate_limited") {
