@@ -33,13 +33,19 @@ export function LanguageSwitcher({
   const triggerRef = useRef<HTMLButtonElement>(null);
   const localeRef = useRef(locale);
   const activeIndexRef = useRef(0);
-  localeRef.current = locale;
 
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(() =>
     Math.max(0, SUPPORTED_LOCALES.indexOf(locale)),
   );
-  activeIndexRef.current = activeIndex;
+
+  useEffect(() => {
+    localeRef.current = locale;
+  }, [locale]);
+
+  useEffect(() => {
+    activeIndexRef.current = activeIndex;
+  }, [activeIndex]);
 
   const close = useCallback(() => setOpen(false), []);
 
@@ -114,25 +120,34 @@ export function LanguageSwitcher({
     const onListKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowDown") {
         event.preventDefault();
-        setActiveIndex((index) => (index + 1) % SUPPORTED_LOCALES.length);
+        setActiveIndex((index) => {
+          const next = (index + 1) % SUPPORTED_LOCALES.length;
+          activeIndexRef.current = next;
+          return next;
+        });
         return;
       }
       if (event.key === "ArrowUp") {
         event.preventDefault();
-        setActiveIndex(
-          (index) =>
-            (index - 1 + SUPPORTED_LOCALES.length) % SUPPORTED_LOCALES.length,
-        );
+        setActiveIndex((index) => {
+          const next =
+            (index - 1 + SUPPORTED_LOCALES.length) % SUPPORTED_LOCALES.length;
+          activeIndexRef.current = next;
+          return next;
+        });
         return;
       }
       if (event.key === "Home") {
         event.preventDefault();
+        activeIndexRef.current = 0;
         setActiveIndex(0);
         return;
       }
       if (event.key === "End") {
         event.preventDefault();
-        setActiveIndex(SUPPORTED_LOCALES.length - 1);
+        const last = SUPPORTED_LOCALES.length - 1;
+        activeIndexRef.current = last;
+        setActiveIndex(last);
         return;
       }
       if (event.key === "Enter" || event.key === " ") {
