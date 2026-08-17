@@ -497,9 +497,11 @@ describe("Phase 45 auth email delivery", () => {
     });
     const forgot = await requestPasswordReset("mail-reset@agxora.test");
     expect(forgot.delivery).toBe("queued");
-    expect(listMemoryEmailOutbox()).toHaveLength(1);
-    expect(listMemoryEmailOutbox()[0]?.kind).toBe("password_reset");
-    expect(listMemoryEmailOutbox()[0]?.to).toBe("mail-reset@agxora.test");
+    const resetMails = listMemoryEmailOutbox().filter(
+      (m) => m.kind === "password_reset",
+    );
+    expect(resetMails).toHaveLength(1);
+    expect(resetMails[0]?.to).toBe("mail-reset@agxora.test");
 
     await resetPasswordWithToken({
       token: forgot.resetToken!,
@@ -538,11 +540,100 @@ describe("Phase 45 auth email delivery", () => {
       password: "SecurePass1!",
       displayName: "Verify Mail",
     });
+    expect(
+      listMemoryEmailOutbox().some((m) => m.kind === "email_verification"),
+    ).toBe(true);
     const issued = await createEmailVerificationToken(registered.user.id);
     expect(issued.delivery).toBe("queued");
-    expect(listMemoryEmailOutbox()[0]?.kind).toBe("email_verification");
+    const verifyMails = listMemoryEmailOutbox().filter(
+      (m) => m.kind === "email_verification",
+    );
+    expect(verifyMails.length).toBeGreaterThanOrEqual(2);
     const verified = await verifyEmailWithToken(issued.rawToken);
     expect(verified.emailVerified).toBe(true);
+  });
+});
+
+describe("RC P0 email delivery and anti-enumeration", () => {
+  it("does not expose reset tokens when the expose flag is unset", async () => {
+    const previous = process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN;
+    delete process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN;
+    try {
+      await registerWithPassword({
+        email: "no-expose@agxora.test",
+        password: "SecurePass1!",
+        displayName: "No Expose",
+      });
+      const forgot = await requestPasswordReset("no-expose@agxora.test");
+      expect(forgot.ok).toBe(true);
+      expect(forgot.resetToken).toBeUndefined();
+    } finally {
+      if (previous === undefined) delete process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN;
+      else process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN = previous;
+    }
+  });
+
+  it("never exposes reset tokens in production even if the expose flag is set", async () => {
+    const previousEnv = process.env.NEXT_PUBLIC_AGXORA_ENV;
+    const previousFlag = process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN;
+    process.env.NEXT_PUBLIC_AGXORA_ENV = "production";
+    process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN = "1";
+    setEmailProviderForTests(memoryEmailProvider);
+    try {
+      await registerWithPassword({
+        email: "prod-expose@agxora.test",
+        password: "SecurePass1!",
+        displayName: "Prod Expose",
+      });
+      const missing = await requestPasswordReset("prod-missing@agxora.test");
+      const present = await requestPasswordReset("prod-expose@agxora.test");
+      expect(missing).toEqual({ ok: true, delivery: "queued" });
+      expect(present).toEqual({ ok: true, delivery: "queued" });
+      expect(JSON.stringify(present)).not.toContain("resetToken");
+    } finally {
+      if (previousEnv === undefined) delete process.env.NEXT_PUBLIC_AGXORA_ENV;
+      else process.env.NEXT_PUBLIC_AGXORA_ENV = previousEnv;
+      if (previousFlag === undefined) {
+        delete process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN;
+      } else {
+        process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN = previousFlag;
+      }
+    }
+  });
+
+  it("keeps forgot-password anti-enumeration when a provider is configured", async () => {
+    setEmailProviderForTests(memoryEmailProvider);
+    await registerWithPassword({
+      email: "enum-present@agxora.test",
+      password: "SecurePass1!",
+      displayName: "Enum Present",
+    });
+    const missing = await requestPasswordReset("enum-missing@agxora.test");
+    const present = await requestPasswordReset("enum-present@agxora.test");
+    expect(missing.ok).toBe(true);
+    expect(present.ok).toBe(true);
+    expect(missing.delivery).toBe(present.delivery);
+    expect(present.delivery).toBe("queued");
+    expect(missing.resetToken).toBeUndefined();
+    const resetMails = listMemoryEmailOutbox().filter(
+      (m) => m.kind === "password_reset",
+    );
+    expect(resetMails.map((m) => m.to)).toEqual(["enum-present@agxora.test"]);
+  });
+
+  it("queues registration verification email when a provider is configured", async () => {
+    setEmailProviderForTests(memoryEmailProvider);
+    await registerWithPassword({
+      email: "reg-verify@agxora.test",
+      password: "SecurePass1!",
+      displayName: "Reg Verify",
+    });
+    const verifyMails = listMemoryEmailOutbox().filter(
+      (m) => m.kind === "email_verification",
+    );
+    expect(verifyMails).toHaveLength(1);
+    expect(verifyMails[0]?.to).toBe("reg-verify@agxora.test");
+    expect(verifyMails[0]?.text).toContain("token=");
   });
 });
 

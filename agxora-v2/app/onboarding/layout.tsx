@@ -1,30 +1,12 @@
-"use client";
+import type { ReactNode } from "react";
+import { enforcePrivatePageAccess } from "@/app/lib/auth/server/enforcePrivatePageAccess";
+import { OnboardingClientLayout } from "./OnboardingClientLayout";
 
-import type { CSSProperties, ReactNode } from "react";
-import StarfieldBackground from "../components/StarfieldBackground";
+export const dynamic = "force-dynamic";
 
-const shellStyle: CSSProperties = {
-  position: "relative",
-  isolation: "isolate",
-  minHeight: "100vh",
-  background: "transparent",
-};
-
-const contentStyle: CSSProperties = {
-  position: "relative",
-  zIndex: 1,
-  minHeight: "100vh",
-  display: "flex",
-  alignItems: "center",
-};
-
-export default function OnboardingLayout({
+export default async function OnboardingLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
-  return (
-    <div style={shellStyle}>
-      <StarfieldBackground />
-      <div style={contentStyle}>{children}</div>
-    </div>
-  );
+  await enforcePrivatePageAccess("/onboarding");
+  return <OnboardingClientLayout>{children}</OnboardingClientLayout>;
 }

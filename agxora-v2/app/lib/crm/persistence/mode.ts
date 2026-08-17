@@ -1,6 +1,7 @@
 /**
  * CRM persistence mode — client-safe public flag.
- * Production must set NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE=database when API is live.
+ * Production must set NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE=database
+ * (/api/ready fails closed otherwise). Auth mode is never inferred from this flag.
  *
  * database mode (Phase 42.1 + Phase 47 + Phase 48 + Phase 49 + Phase 50):
  *   Customers + Contacts + Notes + Document metadata + Activities → PostgreSQL via /api/v1/crm/*
