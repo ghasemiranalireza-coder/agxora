@@ -36,6 +36,11 @@ export function LanguageSwitcher({
 
   const close = useCallback(() => setOpen(false), []);
 
+  const openMenu = useCallback(() => {
+    setActiveIndex(Math.max(0, SUPPORTED_LOCALES.indexOf(locale)));
+    setOpen(true);
+  }, [locale]);
+
   const choose = useCallback(
     (next: AppLocale) => {
       setLocale(next);
@@ -46,7 +51,6 @@ export function LanguageSwitcher({
 
   useEffect(() => {
     if (!open) return undefined;
-    setActiveIndex(Math.max(0, SUPPORTED_LOCALES.indexOf(locale)));
     const onPointer = (event: MouseEvent) => {
       if (!rootRef.current?.contains(event.target as Node)) close();
     };
@@ -62,7 +66,7 @@ export function LanguageSwitcher({
       document.removeEventListener("mousedown", onPointer);
       document.removeEventListener("keydown", onKey);
     };
-  }, [open, close, locale]);
+  }, [open, close]);
 
   useEffect(() => {
     if (!open) return;
@@ -80,7 +84,7 @@ export function LanguageSwitcher({
   const onTriggerKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
     if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      setOpen(true);
+      openMenu();
     }
   };
 
@@ -137,7 +141,7 @@ export function LanguageSwitcher({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={listId}
-        onClick={() => setOpen((value) => !value)}
+        onClick={() => (open ? close() : openMenu())}
         onKeyDown={onTriggerKeyDown}
       >
         <span className="agx-lang-switcher__label">{LOCALE_LABELS[locale]}</span>
