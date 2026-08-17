@@ -10,6 +10,7 @@
 import "server-only";
 
 import { prisma } from "@/app/lib/db/prisma";
+import { hashSessionToken } from "@/app/lib/auth/server/tokens";
 import { getActorBySessionToken } from "@/app/lib/tenancy/actor";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import type { Actor } from "@/app/lib/tenancy/types";
@@ -34,14 +35,14 @@ function isSessionId(value: string): boolean {
 
 function toPublicManagedSession(
   row: { id: string; createdAt: Date; expiresAt: Date },
-  currentToken: string,
-  rowToken: string,
+  currentTokenHash: string,
+  rowTokenHash: string,
 ): PublicManagedSession {
   return {
     id: row.id,
     createdAt: row.createdAt.toISOString(),
     expiresAt: row.expiresAt.toISOString(),
-    current: rowToken === currentToken,
+    current: rowTokenHash === currentTokenHash,
   };
 }
 
@@ -60,6 +61,7 @@ function assertNoSecrets(payload: unknown, forbidden: readonly string[]): void {
  */
 export async function listManagedSessions(actor: Actor): Promise<ManagedSessionList> {
   const now = new Date();
+  const currentTokenHash = hashSessionToken(actor.sessionToken);
   const rows = await prisma.session.findMany({
     where: {
       userId: actor.userId,
@@ -71,16 +73,16 @@ export async function listManagedSessions(actor: Actor): Promise<ManagedSessionL
       id: true,
       createdAt: true,
       expiresAt: true,
-      token: true,
+      tokenHash: true,
     },
   });
 
   const sessions = rows
-    .map((row) => toPublicManagedSession(row, actor.sessionToken, row.token))
+    .map((row) => toPublicManagedSession(row, currentTokenHash, row.tokenHash))
     .sort((a, b) => Number(b.current) - Number(a.current));
 
   const payload = { sessions };
-  assertNoSecrets(payload, [actor.sessionToken, ...rows.map((row) => row.token)]);
+  assertNoSecrets(payload, [actor.sessionToken, ...rows.map((row) => row.tokenHash)]);
   return payload;
 }
 
@@ -116,7 +118,7 @@ export async function revokeManagedSession(
     select: {
       id: true,
       userId: true,
-      token: true,
+      tokenHash: true,
       revokedAt: true,
       expiresAt: true,
     },
@@ -125,7 +127,7 @@ export async function revokeManagedSession(
   if (!row || row.userId !== actor.userId) {
     throw new PersistenceError("not_found", "Session not found");
   }
-  if (row.token === actor.sessionToken) {
+  if (row.tokenHash === hashSessionToken(actor.sessionToken)) {
     throw new PersistenceError(
       "validation",
       "Use logout to end the current session",
@@ -141,7 +143,7 @@ export async function revokeManagedSession(
   });
 
   const payload = { ok: true as const, id: row.id };
-  assertNoSecrets(payload, [row.token, actor.sessionToken]);
+  assertNoSecrets(payload, [row.tokenHash, actor.sessionToken]);
   return payload;
 }
 
@@ -167,7 +169,7 @@ export async function revokeOtherManagedSessions(
     where: {
       userId: actor.userId,
       revokedAt: null,
-      token: { not: actor.sessionToken },
+      tokenHash: { not: hashSessionToken(actor.sessionToken) },
     },
     data: { revokedAt: new Date() },
   });

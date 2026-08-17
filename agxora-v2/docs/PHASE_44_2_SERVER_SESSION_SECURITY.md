@@ -20,7 +20,7 @@ httpOnly agxora.server.session
   → public DTO { id, createdAt, expiresAt, current }
 ```
 
-Current session is the row whose **stored token matches the cookie**.
+Current session is the row whose **stored tokenHash matches the cookie** (Phase 44.3).
 The client never sends `currentSessionId` or `userId`.
 
 ## APIs

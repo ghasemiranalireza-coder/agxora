@@ -6,12 +6,17 @@
 
 import { PrismaClient, type MembershipRole } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import { createHash } from "crypto";
 
 const prisma = new PrismaClient();
 
 const SEED_MARK = "phase42_1";
 /** Shared seed password for local/dev only — change in real environments. */
 export const SEED_PASSWORD = "AgxoraSeed!23";
+
+function hashSessionToken(rawToken: string): string {
+  return createHash("sha256").update(rawToken, "utf8").digest("hex");
+}
 
 type SeedUser = {
   readonly email: string;
@@ -167,11 +172,12 @@ async function main(): Promise<void> {
       },
     });
 
+    const tokenHash = hashSessionToken(seed.token);
     await prisma.session.upsert({
-      where: { token: seed.token },
+      where: { tokenHash },
       create: {
         userId: user.id,
-        token: seed.token,
+        tokenHash,
         expiresAt,
         revokedAt: null,
         activeWorkspaceId: pair.workspaceId,

@@ -46,7 +46,7 @@ Login/Register
 
 ## Sessions
 
-- Server `sessions` table with `token`, `expiresAt`, `revokedAt`, `activeWorkspaceId`
+- Server `sessions` table with `tokenHash` (SHA-256 of cookie token), `expiresAt`, `revokedAt`, `activeWorkspaceId`
 - Logout sets `revokedAt` and clears cookie
 - Password reset revokes all user sessions
 - Fresh session issued on every login (fixation protection)

@@ -10,6 +10,7 @@ import { canControl } from "@/app/lib/tenancy/authorize";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import { jsonError } from "@/app/lib/crm/persistence/http";
 import { hashOpaqueToken } from "@/app/lib/auth/server/tokens";
+import { sessionRowForTests } from "@/app/lib/auth/server/sessionTestFixtures";
 import { registerWithPassword } from "@/app/lib/auth/server/service";
 import {
   forceMemoryEmailFailure,
@@ -144,10 +145,30 @@ async function seed(): Promise<{
   const expiresAt = new Date(Date.now() + 86_400_000);
   await prisma.session.createMany({
     data: [
-      { userId: ownerA.id, token: TOKEN_OWNER_A, expiresAt, activeWorkspaceId: wsA.id },
-      { userId: adminA.id, token: TOKEN_ADMIN_A, expiresAt, activeWorkspaceId: wsA.id },
-      { userId: memberA.id, token: TOKEN_MEMBER_A, expiresAt, activeWorkspaceId: wsA.id },
-      { userId: ownerB.id, token: TOKEN_OWNER_B, expiresAt, activeWorkspaceId: wsB.id },
+      sessionRowForTests({
+        userId: ownerA.id,
+        rawToken: TOKEN_OWNER_A,
+        expiresAt,
+        activeWorkspaceId: wsA.id,
+      }),
+      sessionRowForTests({
+        userId: adminA.id,
+        rawToken: TOKEN_ADMIN_A,
+        expiresAt,
+        activeWorkspaceId: wsA.id,
+      }),
+      sessionRowForTests({
+        userId: memberA.id,
+        rawToken: TOKEN_MEMBER_A,
+        expiresAt,
+        activeWorkspaceId: wsA.id,
+      }),
+      sessionRowForTests({
+        userId: ownerB.id,
+        rawToken: TOKEN_OWNER_B,
+        expiresAt,
+        activeWorkspaceId: wsB.id,
+      }),
     ],
   });
 
