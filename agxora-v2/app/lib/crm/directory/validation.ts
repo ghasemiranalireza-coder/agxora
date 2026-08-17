@@ -3,6 +3,7 @@ import type {
   CrmCustomerDraft,
   CrmCustomerRecord,
   CrmCustomerStatus,
+  CrmDocumentDraft,
   CrmNoteDraft,
   CrmTag,
 } from "./types";
@@ -20,6 +21,11 @@ export type CrmContactFieldError = {
 
 export type CrmNoteFieldError = {
   readonly field: keyof CrmNoteDraft | "form";
+  readonly message: string;
+};
+
+export type CrmDocumentFieldError = {
+  readonly field: keyof CrmDocumentDraft | "form";
   readonly message: string;
 };
 
@@ -52,6 +58,13 @@ export type ValidatedNotePayload = {
   readonly title: string;
   readonly body: string;
   readonly author: string;
+};
+
+export type ValidatedDocumentPayload = {
+  readonly name: string;
+  readonly mimeType: string;
+  readonly size: number;
+  readonly uploadedBy: string;
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -200,6 +213,31 @@ export function validateNoteDraft(draft: CrmNoteDraft):
   return { ok: true, value: { title, body, author } };
 }
 
+export function validateDocumentDraft(draft: CrmDocumentDraft):
+  | {
+      readonly ok: true;
+      readonly value: ValidatedDocumentPayload;
+    }
+  | { readonly ok: false; readonly errors: readonly CrmDocumentFieldError[] } {
+  const errors: CrmDocumentFieldError[] = [];
+  const name = draft.name.trim();
+  const mimeType = (draft.mimeType || "application/octet-stream").trim();
+  const size =
+    typeof draft.size === "number" && Number.isFinite(draft.size)
+      ? Math.max(0, Math.floor(draft.size))
+      : -1;
+  const uploadedBy = draft.uploadedBy.trim() || "System";
+
+  if (!name) {
+    errors.push({ field: "name", message: "crm.validation.documentNameRequired" });
+  }
+  if (size < 0) {
+    errors.push({ field: "size", message: "crm.validation.documentSizeInvalid" });
+  }
+  if (errors.length > 0) return { ok: false, errors };
+  return { ok: true, value: { name, mimeType, size, uploadedBy } };
+}
+
 export function customerErrorMap(
   errors: readonly CrmFieldError[],
 ): Partial<Record<keyof CrmCustomerDraft | "form", string>> {
@@ -224,6 +262,16 @@ export function noteErrorMap(
   errors: readonly CrmNoteFieldError[],
 ): Partial<Record<keyof CrmNoteDraft | "form", string>> {
   const map: Partial<Record<keyof CrmNoteDraft | "form", string>> = {};
+  for (const error of errors) {
+    if (!map[error.field]) map[error.field] = error.message;
+  }
+  return map;
+}
+
+export function documentErrorMap(
+  errors: readonly CrmDocumentFieldError[],
+): Partial<Record<keyof CrmDocumentDraft | "form", string>> {
+  const map: Partial<Record<keyof CrmDocumentDraft | "form", string>> = {};
   for (const error of errors) {
     if (!map[error.field]) map[error.field] = error.message;
   }

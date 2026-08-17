@@ -5,13 +5,16 @@ import { crmDirectoryRepository } from "./repository";
 import {
   remoteCreateContact,
   remoteCreateCustomer,
+  remoteCreateDocument,
   remoteCreateNote,
   remoteDeleteContact,
   remoteDeleteCustomer,
+  remoteDeleteDocument,
   remoteDeleteNote,
   remoteGetCustomer,
   remoteListContacts,
   remoteListCustomers,
+  remoteListDocuments,
   remoteListNotes,
   remoteUpdateContact,
   remoteUpdateCustomer,
@@ -28,8 +31,10 @@ import type {
 import {
   validateContactDraft,
   validateCustomerDraft,
+  validateDocumentDraft,
   validateNoteDraft,
   type CrmContactFieldError,
+  type CrmDocumentFieldError,
   type CrmFieldError,
   type CrmNoteFieldError,
 } from "./validation";
@@ -59,6 +64,15 @@ export class CrmNoteValidationError extends Error {
   constructor(errors: readonly CrmNoteFieldError[]) {
     super(errors[0]?.message ?? "Validation failed");
     this.name = "CrmNoteValidationError";
+    this.errors = errors;
+  }
+}
+
+export class CrmDocumentValidationError extends Error {
+  readonly errors: readonly CrmDocumentFieldError[];
+  constructor(errors: readonly CrmDocumentFieldError[]) {
+    super(errors[0]?.message ?? "Validation failed");
+    this.name = "CrmDocumentValidationError";
     this.errors = errors;
   }
 }
@@ -311,7 +325,10 @@ export class CrmDirectoryService {
     return this.repo.deleteNote(id);
   }
 
-  listDocuments(customerId: CrmCustomerId) {
+  async listDocuments(customerId: CrmCustomerId) {
+    if (isCrmDatabaseMode()) {
+      return remoteListDocuments(customerId);
+    }
     return this.repo.listDocuments(customerId);
   }
 
@@ -321,17 +338,30 @@ export class CrmDirectoryService {
     file: File,
     uploadedBy: string,
   ): Promise<CrmDocumentRecord> {
-    return this.repo.createDocument({
-      customerId,
-      organizationId,
+    const draft = {
       name: file.name,
       mimeType: file.type || "application/octet-stream",
       size: file.size,
       uploadedBy: uploadedBy.trim() || "System",
+    };
+    const result = validateDocumentDraft(draft);
+    if (!result.ok) throw new CrmDocumentValidationError(result.errors);
+    if (isCrmDatabaseMode()) {
+      // organizationId from the browser is ignored — server derives tenancy.
+      return remoteCreateDocument(customerId, draft);
+    }
+    return this.repo.createDocument({
+      customerId,
+      organizationId,
+      ...result.value,
     });
   }
 
-  deleteDocument(id: string) {
+  async deleteDocument(id: string) {
+    if (isCrmDatabaseMode()) {
+      await remoteDeleteDocument(id);
+      return;
+    }
     return this.repo.deleteDocument(id);
   }
 

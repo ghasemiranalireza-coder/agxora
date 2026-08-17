@@ -179,6 +179,13 @@ export type CrmNoteDraft = {
   author: string;
 };
 
+export type CrmDocumentDraft = {
+  name: string;
+  mimeType: string;
+  size: number;
+  uploadedBy: string;
+};
+
 export function statusLabel(status: CrmCustomerStatus): string {
   switch (status) {
     case "lead":
