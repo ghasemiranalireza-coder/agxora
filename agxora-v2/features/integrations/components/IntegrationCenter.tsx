@@ -243,7 +243,7 @@ export function IntegrationCenter(): JSX.Element {
             disabled={busy}
             onClick={() => void integrationService.diagnose(r.id).then((c) => {
               setNotice(
-                c
+                c?.health.message
                   ? localizeIntegrationMessage(t, c.health.message, {
                       name: c.displayName,
                     })
