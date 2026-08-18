@@ -2,6 +2,7 @@
  * Agent OS repository — LocalStorage now, REST later.
  */
 
+import type { ExecutionAttempt, ExecutionEvent, ExecutionJob } from "../execution/jobs";
 import type { GrowthInsight, Campaign } from "../campaigns/types";
 import type { GrowthBusinessProfile, GrowthStrategy } from "../growth/types";
 import type {
@@ -28,7 +29,7 @@ import type {
 import type { WebsiteProject } from "../website/types";
 
 export interface AgentsPersistedState {
-  readonly version: 4;
+  readonly version: 5;
   readonly runtimes: AgentRuntime[];
   readonly tasks: AgentTask[];
   readonly executions: AgentExecution[];
@@ -52,6 +53,9 @@ export interface AgentsPersistedState {
   readonly publishingJobs: SocialPublishingJob[];
   readonly campaigns: Campaign[];
   readonly growthInsights: GrowthInsight[];
+  readonly executionJobs: ExecutionJob[];
+  readonly executionAttempts: ExecutionAttempt[];
+  readonly executionEvents: ExecutionEvent[];
 }
 
 export type LegacyAgentsPersistedState = Partial<AgentsPersistedState> & {
@@ -74,7 +78,7 @@ export function normalizeState(
 ): AgentsPersistedState | null {
   if (!state) return null;
   return {
-    version: 4,
+    version: 5,
     runtimes: asArray(state.runtimes),
     tasks: asArray(state.tasks),
     executions: asArray(state.executions),
@@ -101,6 +105,9 @@ export function normalizeState(
     publishingJobs: asArray(state.publishingJobs),
     campaigns: asArray(state.campaigns),
     growthInsights: asArray(state.growthInsights),
+    executionJobs: asArray(state.executionJobs),
+    executionAttempts: asArray(state.executionAttempts),
+    executionEvents: asArray(state.executionEvents),
   };
 }
 
@@ -142,7 +149,7 @@ export class RestAgentsRepository implements AgentsRepository {
 
 export function emptyAgentsState(): AgentsPersistedState {
   return {
-    version: 4,
+    version: 5,
     runtimes: [],
     tasks: [],
     executions: [],
@@ -166,5 +173,8 @@ export function emptyAgentsState(): AgentsPersistedState {
     publishingJobs: [],
     campaigns: [],
     growthInsights: [],
+    executionJobs: [],
+    executionAttempts: [],
+    executionEvents: [],
   };
 }

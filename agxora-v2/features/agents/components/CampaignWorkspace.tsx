@@ -5,6 +5,7 @@ import { Badge, Button, Card } from "@/app/components/ui";
 import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
 import { evaluateCampaignReadiness } from "../campaigns/readiness";
 import type { Campaign } from "../campaigns/types";
+import { operationsService } from "../execution/service";
 import { growthService } from "../growth/service";
 import { useAgentOperatingSystem } from "../hooks";
 
@@ -90,6 +91,7 @@ export function CampaignWorkspace(): JSX.Element {
       {campaign && snapshot.profile ? (
         <CampaignDetail
           campaign={campaign}
+          jobs={operationsService.list(orgId)}
           readiness={evaluateCampaignReadiness({
             profile: snapshot.profile,
             campaign,
@@ -155,10 +157,12 @@ export function CampaignWorkspace(): JSX.Element {
 
 function CampaignDetail({
   campaign,
+  jobs,
   readiness,
   insights,
 }: {
   readonly campaign: Campaign;
+  readonly jobs: ReturnType<typeof operationsService.list>;
   readonly readiness: ReturnType<typeof evaluateCampaignReadiness>;
   readonly insights: ReturnType<typeof growthService.snapshot>["insights"];
 }): JSX.Element {
@@ -222,13 +226,21 @@ function CampaignDetail({
       </div>
       <div className="space-y-2">
         <p className="text-sm font-semibold">{t("agents.campaigns.labels.tasks")}</p>
-        {campaign.tasks.map((item) => (
-          <p key={item.id} className="text-sm">
-            {catalogCopy(t, `agents.campaigns.taskStatus.${item.status}`, item.status)}
-            {" · "}
-            {catalogCopy(t, `agents.campaigns.tasks.${item.code}`, item.code)}
-          </p>
-        ))}
+        {campaign.tasks.map((item) => {
+          const job = jobs.find(
+            (entry) => entry.campaignTaskId === item.id || entry.id === item.executionJobId,
+          );
+          return (
+            <p key={item.id} className="text-sm">
+              {catalogCopy(t, `agents.campaigns.taskStatus.${item.status}`, item.status)}
+              {" · "}
+              {catalogCopy(t, `agents.campaigns.tasks.${item.code}`, item.code)}
+              {job
+                ? ` · ${catalogCopy(t, `agents.operations.status.${job.status}`, job.status)}`
+                : ""}
+            </p>
+          );
+        })}
       </div>
       <div className="space-y-2">
         <p className="text-sm font-semibold">{t("agents.campaigns.labels.milestones")}</p>

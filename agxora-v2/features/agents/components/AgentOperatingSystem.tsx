@@ -10,6 +10,7 @@ import { agentOsService } from "../services";
 import { useAgentOperatingSystem } from "../hooks";
 import { GrowthWorkspace } from "./GrowthWorkspace";
 import { CampaignWorkspace } from "./CampaignWorkspace";
+import { OperationsWorkspace } from "./OperationsWorkspace";
 import type {
   AgentApproval,
   AgentExecution,
@@ -35,7 +36,8 @@ type TabId =
   | "growth"
   | "website"
   | "social"
-  | "campaigns";
+  | "campaigns"
+  | "operations";
 
 /**
  * AI Agent Operating System workspace.
@@ -76,6 +78,7 @@ export function AgentOperatingSystem(): JSX.Element {
     { id: "website", label: t("agents.tabs.website") },
     { id: "social", label: t("agents.tabs.social") },
     { id: "campaigns", label: t("agents.tabs.campaigns") },
+    { id: "operations", label: t("agents.tabs.operations") },
     { id: "registry", label: t("agents.tabs.registry") },
     { id: "marketplace", label: t("agents.tabs.marketplace") },
     { id: "monitor", label: t("agents.tabs.monitor") },
@@ -547,6 +550,7 @@ export function AgentOperatingSystem(): JSX.Element {
       {tab === "website" ? <GrowthWorkspace mode="website" /> : null}
       {tab === "social" ? <GrowthWorkspace mode="social" /> : null}
       {tab === "campaigns" ? <CampaignWorkspace /> : null}
+      {tab === "operations" ? <OperationsWorkspace /> : null}
 
       {tab === "registry" ? (
         <div className="grid gap-4 lg:grid-cols-[280px_minmax(0,1fr)]">

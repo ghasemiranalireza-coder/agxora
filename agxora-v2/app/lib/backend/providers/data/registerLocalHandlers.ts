@@ -168,6 +168,79 @@ export function registerLocalDataHandlers(): void {
       if (options.method === "GET" && path === "/agents/audit") {
         return mockOk(agentOsService.listStepExecutions(organizationId));
       }
+      const { operationsService } = await import("@/features/agents/execution/service");
+      if (options.method === "GET" && path === "/agents/operations") {
+        return mockOk(operationsService.overview(organizationId));
+      }
+      if (options.method === "GET" && path === "/agents/operations/events") {
+        return mockOk(operationsService.events(organizationId));
+      }
+      if (options.method === "POST" && path === "/agents/operations/enqueue") {
+        if (typeof body.toolId !== "string") {
+          return {
+            ok: false,
+            status: 400,
+            code: "invalid_operations_enqueue",
+            message: "toolId is required",
+          };
+        }
+        return mockOk(
+          operationsService.enqueue({
+            organizationId,
+            toolId: body.toolId as import("@/features/agents/types").ToolId,
+            title: typeof body.title === "string" ? body.title : undefined,
+            campaignId: typeof body.campaignId === "string" ? body.campaignId : undefined,
+            campaignTaskId:
+              typeof body.campaignTaskId === "string" ? body.campaignTaskId : undefined,
+            priority:
+              body.priority === "LOW" ||
+              body.priority === "NORMAL" ||
+              body.priority === "HIGH" ||
+              body.priority === "URGENT"
+                ? body.priority
+                : undefined,
+            params:
+              body.params && typeof body.params === "object"
+                ? (body.params as Record<string, unknown>)
+                : undefined,
+          }),
+          201,
+        );
+      }
+      const operationsStart = path.match(/^\/agents\/operations\/([^/]+)\/start$/);
+      if (options.method === "POST" && operationsStart) {
+        return mockOk(await operationsService.start(organizationId, operationsStart[1]));
+      }
+      const operationsCancel = path.match(/^\/agents\/operations\/([^/]+)\/cancel$/);
+      if (options.method === "POST" && operationsCancel) {
+        return mockOk(operationsService.cancel(organizationId, operationsCancel[1]));
+      }
+      const operationsRetry = path.match(/^\/agents\/operations\/([^/]+)\/retry$/);
+      if (options.method === "POST" && operationsRetry) {
+        return mockOk(await operationsService.retry(organizationId, operationsRetry[1]));
+      }
+      const operationsPause = path.match(/^\/agents\/operations\/([^/]+)\/pause$/);
+      if (options.method === "POST" && operationsPause) {
+        return mockOk(operationsService.pause(organizationId, operationsPause[1]));
+      }
+      const operationsMatch = path.match(/^\/agents\/operations\/([^/]+)$/);
+      if (options.method === "GET" && operationsMatch) {
+        const job = operationsService.get(organizationId, operationsMatch[1]);
+        if (!job) {
+          return {
+            ok: false,
+            status: 404,
+            code: "operations_job_missing",
+            message: "Execution job not found",
+          };
+        }
+        return mockOk({
+          job,
+          events: operationsService
+            .events(organizationId)
+            .filter((event) => event.executionJobId === job.id),
+        });
+      }
       if (options.method === "POST" && path === "/agents/tasks") {
         if (
           typeof body.agentInstanceId !== "string" ||
