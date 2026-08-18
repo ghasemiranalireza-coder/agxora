@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
 import type { ApiRequestOptions, ApiResponse } from "../types";
 import { localDataProvider } from "../providers/data/LocalDataProvider";
 import { registerLocalDataHandlers } from "../providers/data/registerLocalHandlers";
-import { buildHealthPayload } from "@/app/lib/production/health";
+import { buildLivenessPayload } from "@/app/lib/production/health";
 import { logPlatformEvent } from "../observability/logger";
 
 let handlersReady = false;
@@ -79,9 +79,9 @@ export async function dispatchApiRequest(
     }
   }
 
-  // Canonical health — prefer production health payload over local stub.
+  // Canonical liveness — never a readiness check.
   if (toLogicalPath(logical.split("?")[0] ?? logical) === "/health") {
-    const payload = buildHealthPayload();
+    const payload = buildLivenessPayload();
     return NextResponse.json(
       { ...payload, provider: "api-route" },
       {

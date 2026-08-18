@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
-import { createEmailVerificationToken } from "@/app/lib/auth/server";
+import {
+  createEmailVerificationToken,
+  mayExposeDevAuthTokens,
+} from "@/app/lib/auth/server";
 import { authJsonError, requireDatabase } from "@/app/lib/auth/server/http";
 import { requireCurrentActor } from "@/app/lib/tenancy";
 import { rateLimitResponse } from "@/app/lib/security/rate-limit";
@@ -22,7 +25,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     if (limited) return limited;
 
     const result = await createEmailVerificationToken(actor.userId);
-    const expose = process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN === "1";
+    const expose = mayExposeDevAuthTokens();
     return NextResponse.json({
       ok: true,
       delivery: result.delivery,

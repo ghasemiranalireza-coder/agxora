@@ -44,7 +44,6 @@ const enLeaves = collectLeafMap(enTree);
 const missing = [];
 const extra = [];
 const placeholderMismatches = [];
-const identicalEnglish = [];
 
 for (const locale of REQUIRED_LOCALES) {
   if (locale === "en") continue;

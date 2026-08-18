@@ -4,12 +4,12 @@
 
 import "server-only";
 
-import type { EmailMessage, EmailProvider, EmailSendResult } from "../types";
+import type { EmailProvider, EmailSendResult } from "../types";
 
 export const noneEmailProvider: EmailProvider = {
   id: "none",
   configured: false,
-  async send(_message: EmailMessage): Promise<EmailSendResult> {
+  async send(): Promise<EmailSendResult> {
     return { ok: false, error: "Email provider is not configured" };
   },
 };

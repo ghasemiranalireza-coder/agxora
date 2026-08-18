@@ -104,7 +104,7 @@ async function reload(organizationId: string | null): Promise<void> {
   try {
     const items = await customerCrmService.list(organizationId);
     commit({ items, loading: false, hydrated: true, error: null });
-  } catch (error) {
+  } catch {
     commit({
       loading: false,
       hydrated: true,

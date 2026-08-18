@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import { buildHealthPayload } from "@/app/lib/production/health";
+import { buildLivenessPayload } from "@/app/lib/production/health";
 
-/** Liveness / readiness — no secrets; safe for load balancers. */
+/** Liveness — process is up. Does not inspect DB, email, or auth config. */
 export async function GET() {
-  const payload = buildHealthPayload();
+  const payload = buildLivenessPayload();
   return NextResponse.json(payload, {
     status: 200,
     headers: {

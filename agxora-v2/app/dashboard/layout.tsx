@@ -1,40 +1,16 @@
-"use client";
+import type { ReactNode } from "react";
+import { enforcePrivatePageAccess } from "@/app/lib/auth/server/enforcePrivatePageAccess";
+import { DashboardClientLayout } from "./DashboardClientLayout";
 
-import dynamic from "next/dynamic";
-import type { CSSProperties, ReactNode } from "react";
-import { AppShell } from "../components/AppShell";
+export const dynamic = "force-dynamic";
 
 /**
- * Dashboard shell — starfield + persistent AppShell.
- * Keeps sidebar / top nav / command palette mounted across module navigations.
+ * Server layout — real PostgreSQL session validation before the client shell.
+ * Cookie presence is not authentication.
  */
-
-const StarfieldBackground = dynamic(
-  () => import("../components/StarfieldBackground"),
-  { ssr: false },
-);
-
-const shellStyle: CSSProperties = {
-  position: "relative",
-  isolation: "isolate",
-  minHeight: "100vh",
-  background: "transparent",
-};
-
-const contentStyle: CSSProperties = {
-  position: "relative",
-  zIndex: 1,
-};
-
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
-  return (
-    <div style={shellStyle}>
-      <StarfieldBackground />
-      <div style={contentStyle}>
-        <AppShell>{children}</AppShell>
-      </div>
-    </div>
-  );
+  await enforcePrivatePageAccess("/dashboard");
+  return <DashboardClientLayout>{children}</DashboardClientLayout>;
 }
