@@ -329,4 +329,36 @@ export const agentsStore = {
     persist();
     emit();
   },
+
+  nextExecutionQueueSeq(): number {
+    return state.executionJobs.reduce((max, job) => Math.max(max, job.queueSeq), 0) + 1;
+  },
+
+  upsertExecutionJob(job: import("../execution/jobs").ExecutionJob): void {
+    const idx = state.executionJobs.findIndex((item) => item.id === job.id);
+    const executionJobs = [...state.executionJobs];
+    if (idx >= 0) executionJobs[idx] = job;
+    else executionJobs.unshift(job);
+    state = { ...state, executionJobs: executionJobs.slice(0, 200) };
+    persist();
+    emit();
+  },
+
+  pushExecutionAttempt(attempt: import("../execution/jobs").ExecutionAttempt): void {
+    state = {
+      ...state,
+      executionAttempts: [attempt, ...state.executionAttempts].slice(0, 400),
+    };
+    persist();
+    emit();
+  },
+
+  pushExecutionEvent(event: import("../execution/jobs").ExecutionEvent): void {
+    state = {
+      ...state,
+      executionEvents: [event, ...state.executionEvents].slice(0, 400),
+    };
+    persist();
+    emit();
+  },
 };

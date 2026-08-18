@@ -53,6 +53,7 @@ export interface CampaignTask {
   readonly status: CampaignTaskStatus;
   readonly externalSideEffect: boolean;
   readonly requiresApproval: boolean;
+  readonly executionJobId?: string;
 }
 
 export interface CampaignMilestone {

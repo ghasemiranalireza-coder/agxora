@@ -18,7 +18,8 @@
     "growth": "Growth",
     "website": "Website Builder",
     "social": "Social Media",
-    "campaigns": "Campaigns"
+    "campaigns": "Campaigns",
+    "operations": "Operations"
   },
   "notice": {
     "simulatedRun": "Symulowany przebieg · {status} ({duration}ms)",
@@ -563,7 +564,9 @@
     },
     "blockers": {
       "social.disconnected": "Social account connection required",
-      "publishing.unavailable": "Publishing integration not configured"
+      "publishing.unavailable": "Publishing integration not configured",
+      "approval.rejected": "Approval was rejected",
+      "cancelled": "Execution was cancelled"
     },
     "taskStatus": {
       "pending": "Open",
@@ -600,6 +603,89 @@
       "risk.disconnected": "Social account is not connected",
       "action.review_approve": "Review and approve campaign content",
       "risk.publishing_unavailable": "Publishing integration is not configured"
+    }
+  },
+  "operations": {
+    "noticeReady": "Operations workspace ready.",
+    "noticeFailed": "Operations action failed",
+    "noticeStarted": "Execution started.",
+    "noticePaused": "Execution paused.",
+    "noticeCancelled": "Execution cancelled.",
+    "noticeRetry": "Retry requested.",
+    "empty": "No execution jobs yet. Enqueue a campaign or Agent OS task to operate it here.",
+    "emptyValue": "—",
+    "queueTitle": "Execution queue",
+    "eventsTitle": "Recent events",
+    "counts": {
+      "queued": "Queue",
+      "running": "Running",
+      "waiting": "Waiting for approval",
+      "blocked": "Blocked",
+      "failed": "Failed",
+      "completed": "Completed"
+    },
+    "actions": {
+      "start": "Start",
+      "pause": "Pause",
+      "retry": "Retry",
+      "cancel": "Cancel"
+    },
+    "labels": {
+      "id": "Execution ID",
+      "agent": "Agent",
+      "campaign": "Campaign",
+      "tool": "Tool",
+      "priority": "Priority",
+      "approval": "Approval",
+      "attempts": "Attempts",
+      "started": "Started",
+      "completed": "Completed",
+      "blocker": "Blocker",
+      "externalEffect": "External effect",
+      "result": "Result"
+    },
+    "externalEffect": {
+      "yes": "Yes",
+      "no": "No"
+    },
+    "status": {
+      "QUEUED": "Queued",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "READY": "Ready",
+      "RUNNING": "Running",
+      "VERIFYING": "Verifying",
+      "BLOCKED": "Blocked",
+      "RETRYING": "Retrying",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled"
+    },
+    "priority": {
+      "LOW": "Low",
+      "NORMAL": "Normal",
+      "HIGH": "High",
+      "URGENT": "Urgent"
+    },
+    "result": {
+      "unavailable": "Unavailable",
+      "completed": "Completed",
+      "blocked": "Blocked",
+      "failed": "Failed",
+      "rejected": "Rejected",
+      "cancelled": "Cancelled"
+    },
+    "events": {
+      "QUEUED": "Job queued",
+      "APPROVAL_REQUESTED": "Approval requested",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected",
+      "STARTED": "Execution started",
+      "VERIFICATION_STARTED": "Verification started",
+      "COMPLETED": "Execution completed",
+      "BLOCKED": "Execution blocked",
+      "FAILED": "Execution failed",
+      "RETRY_REQUESTED": "Retry requested",
+      "CANCELLED": "Execution cancelled"
     }
   }
 }

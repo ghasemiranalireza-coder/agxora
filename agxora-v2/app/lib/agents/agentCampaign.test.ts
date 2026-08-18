@@ -264,7 +264,7 @@ describe("Phase 44 growth campaign operations", () => {
       settings: [],
       toolInvocationCount24h: 2,
     });
-    expect(fromV2?.version).toBe(4);
+    expect(fromV2?.version).toBe(5);
     expect(fromV2?.campaigns).toEqual([]);
     expect(fromV2?.growthInsights).toEqual([]);
     expect(fromV2?.growthProfiles).toEqual([]);
@@ -276,7 +276,7 @@ describe("Phase 44 growth campaign operations", () => {
       socialAccounts: [],
       socialContent: [],
     });
-    expect(fromV3?.version).toBe(4);
+    expect(fromV3?.version).toBe(5);
     expect(fromV3?.campaigns).toEqual([]);
     expect(fromV3?.growthInsights).toEqual([]);
     expect(fromV3?.socialCalendars).toEqual([]);

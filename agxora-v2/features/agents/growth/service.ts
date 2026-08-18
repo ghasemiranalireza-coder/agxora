@@ -23,6 +23,7 @@ import { SOCIAL_PLATFORMS } from "./types";
 import type { SocialAccount } from "../social/types";
 import type { WebsiteProject } from "../website/types";
 import { evaluateCampaignReadiness } from "../campaigns/readiness";
+import { operationsService } from "../execution/service";
 import {
   CAMPAIGN_CHANNELS,
   type Campaign,
@@ -399,6 +400,7 @@ export const growthService = {
     if (input.state === "REJECTED" && task) {
       this.syncDomainAfterApproval(approval, task.input, { preservePublishResult: true });
     }
+    operationsService.syncFromApproval(approval, input.decidedBy ?? "operator");
     return approval;
   },
 
@@ -609,6 +611,15 @@ export const growthService = {
       toolId: "campaign_execute",
       title: "Execute growth campaign",
       payload: { campaignId: campaign.id, growthAction: "execute" },
+    });
+    operationsService.observeAgentTask({
+      organizationId,
+      task,
+      toolId: "campaign_execute",
+      campaignId: campaign.id,
+      title: "Execute growth campaign",
+      actor: "system",
+      priority: "HIGH",
     });
     if (task.status === "blocked") {
       auditGrowth("agent.growth.approval_requested", organizationId, campaign.id, {
