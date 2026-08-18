@@ -209,4 +209,99 @@ export const agentsStore = {
     persist();
     emit();
   },
+
+  upsertGrowthProfile(profile: import("../growth/types").GrowthBusinessProfile): void {
+    const idx = state.growthProfiles.findIndex((item) => item.id === profile.id);
+    const growthProfiles = [...state.growthProfiles];
+    if (idx >= 0) growthProfiles[idx] = profile;
+    else growthProfiles.unshift(profile);
+    state = { ...state, growthProfiles: growthProfiles.slice(0, 50) };
+    persist();
+    emit();
+  },
+
+  upsertGrowthStrategy(strategy: import("../growth/types").GrowthStrategy): void {
+    const idx = state.growthStrategies.findIndex((item) => item.id === strategy.id);
+    const growthStrategies = [...state.growthStrategies];
+    if (idx >= 0) growthStrategies[idx] = strategy;
+    else growthStrategies.unshift(strategy);
+    state = { ...state, growthStrategies: growthStrategies.slice(0, 50) };
+    persist();
+    emit();
+  },
+
+  upsertWebsiteProject(project: import("../website/types").WebsiteProject): void {
+    const idx = state.websiteProjects.findIndex((item) => item.id === project.id);
+    const websiteProjects = [...state.websiteProjects];
+    if (idx >= 0) websiteProjects[idx] = project;
+    else websiteProjects.unshift(project);
+    state = { ...state, websiteProjects: websiteProjects.slice(0, 50) };
+    persist();
+    emit();
+  },
+
+  upsertSocialAccount(account: import("../social/types").SocialAccount): void {
+    const idx = state.socialAccounts.findIndex((item) => item.id === account.id);
+    const socialAccounts = [...state.socialAccounts];
+    if (idx >= 0) socialAccounts[idx] = account;
+    else socialAccounts.unshift(account);
+    state = { ...state, socialAccounts: socialAccounts.slice(0, 50) };
+    persist();
+    emit();
+  },
+
+  upsertSocialStrategy(strategy: import("../social/types").SocialStrategy): void {
+    const idx = state.socialStrategies.findIndex((item) => item.id === strategy.id);
+    const socialStrategies = [...state.socialStrategies];
+    if (idx >= 0) socialStrategies[idx] = strategy;
+    else socialStrategies.unshift(strategy);
+    state = { ...state, socialStrategies: socialStrategies.slice(0, 50) };
+    persist();
+    emit();
+  },
+
+  upsertSocialCalendar(calendar: import("../social/types").SocialContentCalendar): void {
+    const idx = state.socialCalendars.findIndex((item) => item.id === calendar.id);
+    const socialCalendars = [...state.socialCalendars];
+    if (idx >= 0) socialCalendars[idx] = calendar;
+    else socialCalendars.unshift(calendar);
+    state = { ...state, socialCalendars: socialCalendars.slice(0, 50) };
+    persist();
+    emit();
+  },
+
+  replaceSocialContent(
+    organizationId: string,
+    items: readonly import("../social/types").SocialContentItem[],
+  ): void {
+    const others = state.socialContent.filter(
+      (item) => item.organizationId !== organizationId,
+    );
+    state = {
+      ...state,
+      socialContent: [...items, ...others].slice(0, 400),
+    };
+    persist();
+    emit();
+  },
+
+  upsertSocialContent(item: import("../social/types").SocialContentItem): void {
+    const idx = state.socialContent.findIndex((row) => row.id === item.id);
+    const socialContent = [...state.socialContent];
+    if (idx >= 0) socialContent[idx] = item;
+    else socialContent.unshift(item);
+    state = { ...state, socialContent: socialContent.slice(0, 400) };
+    persist();
+    emit();
+  },
+
+  upsertPublishingJob(job: import("../social/types").SocialPublishingJob): void {
+    const idx = state.publishingJobs.findIndex((item) => item.id === job.id);
+    const publishingJobs = [...state.publishingJobs];
+    if (idx >= 0) publishingJobs[idx] = job;
+    else publishingJobs.unshift(job);
+    state = { ...state, publishingJobs: publishingJobs.slice(0, 200) };
+    persist();
+    emit();
+  },
 };

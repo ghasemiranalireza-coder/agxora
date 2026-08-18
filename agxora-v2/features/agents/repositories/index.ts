@@ -2,6 +2,14 @@
  * Agent OS repository — LocalStorage now, REST later.
  */
 
+import type { GrowthBusinessProfile, GrowthStrategy } from "../growth/types";
+import type {
+  SocialAccount,
+  SocialContentCalendar,
+  SocialContentItem,
+  SocialPublishingJob,
+  SocialStrategy,
+} from "../social/types";
 import type {
   AgentApproval,
   AgentContextBundle,
@@ -16,9 +24,10 @@ import type {
   ReasoningTrace,
   StepExecution,
 } from "../types";
+import type { WebsiteProject } from "../website/types";
 
 export interface AgentsPersistedState {
-  readonly version: 2;
+  readonly version: 3;
   readonly runtimes: AgentRuntime[];
   readonly tasks: AgentTask[];
   readonly executions: AgentExecution[];
@@ -32,7 +41,19 @@ export interface AgentsPersistedState {
   readonly contexts: AgentContextBundle[];
   readonly settings: AgentOsSettings[];
   readonly toolInvocationCount24h: number;
+  readonly growthProfiles: GrowthBusinessProfile[];
+  readonly growthStrategies: GrowthStrategy[];
+  readonly websiteProjects: WebsiteProject[];
+  readonly socialAccounts: SocialAccount[];
+  readonly socialStrategies: SocialStrategy[];
+  readonly socialCalendars: SocialContentCalendar[];
+  readonly socialContent: SocialContentItem[];
+  readonly publishingJobs: SocialPublishingJob[];
 }
+
+export type LegacyAgentsPersistedState = Partial<AgentsPersistedState> & {
+  readonly version?: number;
+};
 
 export interface AgentsRepository {
   load(): AgentsPersistedState | null;
@@ -41,30 +62,40 @@ export interface AgentsRepository {
 
 const STORAGE_KEY = "agxora-agent-os-v1";
 
-function normalizeState(
-  state: Partial<AgentsPersistedState> | null,
+function asArray<T>(value: unknown): T[] {
+  return Array.isArray(value) ? [...(value as T[])] : [];
+}
+
+export function normalizeState(
+  state: LegacyAgentsPersistedState | null,
 ): AgentsPersistedState | null {
   if (!state) return null;
   return {
-    version: 2,
-    runtimes: Array.isArray(state.runtimes) ? [...state.runtimes] : [],
-    tasks: Array.isArray(state.tasks) ? [...state.tasks] : [],
-    executions: Array.isArray(state.executions) ? [...state.executions] : [],
-    approvals: Array.isArray(state.approvals) ? [...state.approvals] : [],
-    stepExecutions: Array.isArray(state.stepExecutions)
-      ? [...state.stepExecutions]
-      : [],
-    memories: Array.isArray(state.memories) ? [...state.memories] : [],
-    knowledge: Array.isArray(state.knowledge) ? [...state.knowledge] : [],
-    plans: Array.isArray(state.plans) ? [...state.plans] : [],
-    traces: Array.isArray(state.traces) ? [...state.traces] : [],
-    messages: Array.isArray(state.messages) ? [...state.messages] : [],
-    contexts: Array.isArray(state.contexts) ? [...state.contexts] : [],
-    settings: Array.isArray(state.settings) ? [...state.settings] : [],
+    version: 3,
+    runtimes: asArray(state.runtimes),
+    tasks: asArray(state.tasks),
+    executions: asArray(state.executions),
+    approvals: asArray(state.approvals),
+    stepExecutions: asArray(state.stepExecutions),
+    memories: asArray(state.memories),
+    knowledge: asArray(state.knowledge),
+    plans: asArray(state.plans),
+    traces: asArray(state.traces),
+    messages: asArray(state.messages),
+    contexts: asArray(state.contexts),
+    settings: asArray(state.settings),
     toolInvocationCount24h:
       typeof state.toolInvocationCount24h === "number"
         ? state.toolInvocationCount24h
         : 0,
+    growthProfiles: asArray(state.growthProfiles),
+    growthStrategies: asArray(state.growthStrategies),
+    websiteProjects: asArray(state.websiteProjects),
+    socialAccounts: asArray(state.socialAccounts),
+    socialStrategies: asArray(state.socialStrategies),
+    socialCalendars: asArray(state.socialCalendars),
+    socialContent: asArray(state.socialContent),
+    publishingJobs: asArray(state.publishingJobs),
   };
 }
 
@@ -74,7 +105,7 @@ export class LocalAgentsRepository implements AgentsRepository {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (!raw) return null;
-      return normalizeState(JSON.parse(raw) as Partial<AgentsPersistedState>);
+      return normalizeState(JSON.parse(raw) as LegacyAgentsPersistedState);
     } catch {
       return null;
     }
@@ -106,7 +137,7 @@ export class RestAgentsRepository implements AgentsRepository {
 
 export function emptyAgentsState(): AgentsPersistedState {
   return {
-    version: 2,
+    version: 3,
     runtimes: [],
     tasks: [],
     executions: [],
@@ -120,5 +151,13 @@ export function emptyAgentsState(): AgentsPersistedState {
     contexts: [],
     settings: [],
     toolInvocationCount24h: 0,
+    growthProfiles: [],
+    growthStrategies: [],
+    websiteProjects: [],
+    socialAccounts: [],
+    socialStrategies: [],
+    socialCalendars: [],
+    socialContent: [],
+    publishingJobs: [],
   };
 }
