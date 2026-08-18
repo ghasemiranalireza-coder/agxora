@@ -8,6 +8,7 @@ import type { DataTableColumn } from "@/app/components/ui";
 import { agentsStore } from "../store";
 import { agentOsService } from "../services";
 import { useAgentOperatingSystem } from "../hooks";
+import { GrowthWorkspace } from "./GrowthWorkspace";
 import type {
   AgentApproval,
   AgentExecution,
@@ -29,7 +30,10 @@ type TabId =
   | "memory"
   | "knowledge"
   | "tools"
-  | "settings";
+  | "settings"
+  | "growth"
+  | "website"
+  | "social";
 
 /**
  * AI Agent Operating System workspace.
@@ -66,6 +70,9 @@ export function AgentOperatingSystem(): JSX.Element {
 
   const tabs: readonly { id: TabId; label: string }[] = [
     { id: "dashboard", label: t("agents.tabs.dashboard") },
+    { id: "growth", label: t("agents.tabs.growth") },
+    { id: "website", label: t("agents.tabs.website") },
+    { id: "social", label: t("agents.tabs.social") },
     { id: "registry", label: t("agents.tabs.registry") },
     { id: "marketplace", label: t("agents.tabs.marketplace") },
     { id: "monitor", label: t("agents.tabs.monitor") },
@@ -532,6 +539,10 @@ export function AgentOperatingSystem(): JSX.Element {
           </Card>
         </>
       ) : null}
+
+      {tab === "growth" ? <GrowthWorkspace mode="growth" /> : null}
+      {tab === "website" ? <GrowthWorkspace mode="website" /> : null}
+      {tab === "social" ? <GrowthWorkspace mode="social" /> : null}
 
       {tab === "registry" ? (
         <div className="grid gap-4 lg:grid-cols-[280px_minmax(0,1fr)]">

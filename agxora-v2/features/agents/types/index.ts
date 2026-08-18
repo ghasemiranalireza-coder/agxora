@@ -14,6 +14,8 @@ export type AgentId =
   | "knowledge_assistant"
   | "support_assistant"
   | "meeting_assistant"
+  | "website_builder"
+  | "social_media"
   | "custom";
 
 export type AgentLifecycleStatus =
@@ -38,7 +40,12 @@ export type ToolId =
   | "search"
   | "notification"
   | "api"
-  | "mcp";
+  | "mcp"
+  | "website"
+  | "website_publish"
+  | "social"
+  | "social_publish"
+  | "social_schedule";
 
 export type MemoryScope =
   | "working"

@@ -205,7 +205,8 @@ export function registerLocalDataHandlers(): void {
             message: "approvalId and valid state are required",
           };
         }
-        const approval = await agentOsService.resolveApproval({
+        const { growthService } = await import("@/features/agents/growth/service");
+        const approval = await growthService.resolveApproval({
           approvalId: body.approvalId,
           state: body.state,
           decidedBy:
@@ -214,6 +215,80 @@ export function registerLocalDataHandlers(): void {
             typeof body.comment === "string" ? body.comment : undefined,
         });
         return mockOk(approval);
+      }
+
+      const { growthService } = await import("@/features/agents/growth/service");
+      growthService.ensure(organizationId);
+
+      if (options.method === "GET" && path === "/agents/growth/business-profile") {
+        return mockOk(growthService.getProfile(organizationId) ?? null);
+      }
+      if (options.method === "POST" && path === "/agents/growth/business-profile") {
+        const draft =
+          body.draft && typeof body.draft === "object"
+            ? (body.draft as Record<string, unknown>)
+            : body;
+        const profile = growthService.saveProfile({
+          organizationId,
+          seedFromBusinessOs: body.seedFromBusinessOs !== false,
+          draft: {
+            companyName:
+              typeof draft.companyName === "string" ? draft.companyName : undefined,
+            businessType:
+              typeof draft.businessType === "string" ? draft.businessType : undefined,
+            industry: typeof draft.industry === "string" ? draft.industry : undefined,
+            description:
+              typeof draft.description === "string" ? draft.description : undefined,
+            services: Array.isArray(draft.services)
+              ? draft.services.filter((item): item is string => typeof item === "string")
+              : undefined,
+            products: Array.isArray(draft.products)
+              ? draft.products.filter((item): item is string => typeof item === "string")
+              : undefined,
+            targetAudience:
+              typeof draft.targetAudience === "string"
+                ? draft.targetAudience
+                : undefined,
+            uniqueSellingProposition:
+              typeof draft.uniqueSellingProposition === "string"
+                ? draft.uniqueSellingProposition
+                : undefined,
+            websiteGoal:
+              typeof draft.websiteGoal === "string" ? draft.websiteGoal : undefined,
+          },
+        });
+        return mockOk(profile, 201);
+      }
+      if (options.method === "POST" && path === "/agents/growth/website/generate") {
+        return mockOk(await growthService.generateWebsite(organizationId), 201);
+      }
+      if (options.method === "GET" && path === "/agents/growth/website/projects") {
+        return mockOk(growthService.listWebsiteProjects(organizationId));
+      }
+      const projectMatch = path.match(/^\/agents\/growth\/website\/projects\/([^/]+)$/);
+      if (options.method === "GET" && projectMatch) {
+        const project = growthService.getWebsiteProject(organizationId, projectMatch[1]);
+        if (!project) {
+          return {
+            ok: false,
+            status: 404,
+            code: "website_project_missing",
+            message: "Website project not found",
+          };
+        }
+        return mockOk(project);
+      }
+      if (options.method === "POST" && path === "/agents/growth/social/strategy") {
+        return mockOk(await growthService.generateSocialStrategy(organizationId), 201);
+      }
+      if (options.method === "POST" && path === "/agents/growth/social/calendar") {
+        return mockOk(await growthService.generateCalendar(organizationId), 201);
+      }
+      if (options.method === "GET" && path === "/agents/growth/social/calendar") {
+        return mockOk(growthService.listCalendars(organizationId));
+      }
+      if (options.method === "POST" && path === "/agents/growth/content/generate") {
+        return mockOk(await growthService.generateContent(organizationId), 201);
       }
 
       return {

@@ -36,6 +36,7 @@ import type {
   AgentRuntime,
   AgentTask,
   StepExecution,
+  ToolId,
 } from "../types";
 import { DEFAULT_AGENT_OS_SETTINGS, EMPTY_ANALYTICS } from "../types";
 
@@ -175,6 +176,8 @@ export const agentOsService = {
         "executive_advisor",
         "crm_assistant",
         "workflow_coordinator",
+        "website_builder",
+        "social_media",
       ] as const) {
         this.register(organizationId, id, true);
       }
@@ -282,6 +285,7 @@ export const agentOsService = {
     readonly title: string;
     readonly goal?: string;
     readonly payload?: Readonly<Record<string, unknown>>;
+    readonly toolId?: ToolId;
   }): Promise<AgentTask> {
     this.ensureWorkspace(input.organizationId);
     const runtime = agentsStore
@@ -303,6 +307,7 @@ export const agentOsService = {
       input: {
         goal: input.goal ?? input.title,
         ...(input.payload ?? {}),
+        ...(input.toolId ? { toolId: input.toolId } : {}),
       },
       attempt: 1,
       maxAttempts: 3,
@@ -397,7 +402,10 @@ export const agentOsService = {
           agentInstanceId: task.agentInstanceId,
           taskId: task.id,
           goal,
-          toolId: def.tools[0],
+          toolId:
+            typeof task.input.toolId === "string"
+              ? (task.input.toolId as ToolId)
+              : def.tools[0],
         });
         const planErrors = validatePlan(plan);
         if (planErrors.length > 0) {
@@ -575,7 +583,7 @@ export const agentOsService = {
             organizationId: task.organizationId,
             agentInstanceId: task.agentInstanceId,
             taskId: task.id,
-            params: { step: step.title, goal },
+            params: { step: step.title, goal, ...task.input },
           });
           agentsStore.bumpToolInvocations();
           if (!result.ok) throw new Error(result.error ?? "Tool failed");

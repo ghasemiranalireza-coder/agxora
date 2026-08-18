@@ -4285,7 +4285,10 @@
       "memory": "Hafıza",
       "knowledge": "Bilgi",
       "tools": "Aletler",
-      "settings": "Ayarlar"
+      "settings": "Ayarlar",
+      "growth": "Growth",
+      "website": "Website Builder",
+      "social": "Social Media"
     },
     "notice": {
       "simulatedRun": "Simüle edilmiş çalıştırma · {status} ({duration}ms)",
@@ -4422,6 +4425,7 @@
       "Knowledge": "Bilgi",
       "Support": "Destek",
       "Productivity": "Verimlilik",
+      "Growth": "Growth",
       "Custom": "Özel"
     },
     "catalog": {
@@ -4468,6 +4472,14 @@
       "custom": {
         "name": "Özel ajan",
         "description": "Kuruluşa özel ajanlar için genişletme noktası."
+      },
+      "website_builder": {
+        "name": "Website Builder",
+        "description": "Plans and generates structured website previews from a growth profile."
+      },
+      "social_media": {
+        "name": "Social Media Agent",
+        "description": "Creates social strategy, calendars, and draft content pending approval."
       }
     },
     "toolsCatalog": {
@@ -4518,6 +4530,26 @@
       "mcp": {
         "name": "MCP aracı",
         "description": "Gelecekteki Model Context Protocol sunucu araçları."
+      },
+      "website": {
+        "name": "Website Generation Tool",
+        "description": "Generate a structured website specification and preview."
+      },
+      "website_publish": {
+        "name": "Website Publish Tool",
+        "description": "Attempt website publication through the publisher adapter."
+      },
+      "social": {
+        "name": "Social Generation Tool",
+        "description": "Generate social strategy, calendar, and draft content."
+      },
+      "social_publish": {
+        "name": "Social Publish Tool",
+        "description": "Attempt social publishing through a platform adapter."
+      },
+      "social_schedule": {
+        "name": "Social Schedule Tool",
+        "description": "Attempt social scheduling through a platform adapter."
       }
     },
     "knowledgeDocs": {
@@ -4609,6 +4641,126 @@
       "WAITING_FOR_APPROVAL": "Waiting for approval",
       "CANCELLED": "Cancelled",
       "BLOCKED": "Blocked"
+    },
+    "growth": {
+      "previewBadge": "PREVIEW",
+      "publishingNotConfigured": "Publishing integration not configured",
+      "connectionRequired": "Connection required",
+      "noFakePublish": "External publishing stays behind adapters. This workspace never claims a live publish.",
+      "noticeReady": "Growth workspace ready.",
+      "noticeFailed": "Growth action failed",
+      "noticeProfileSaved": "Growth business profile saved.",
+      "noticeStrategy": "Growth strategy generated.",
+      "noticeWebsite": "Website preview generated.",
+      "noticeSocialStrategy": "Social strategy generated.",
+      "noticeCalendar": "Social calendar generated.",
+      "noticeContent": "Social content generated.",
+      "noticePublishAttempted": "Publish attempted. Integration is not configured.",
+      "noticeScheduleAttempted": "Schedule attempted. Integration is not configured.",
+      "strategyTitle": "Growth strategy",
+      "socialStrategyTitle": "Social strategy",
+      "calendarTitle": "Content calendar",
+      "contentTitle": "Generated content",
+      "accountsTitle": "Social accounts",
+      "emptyWebsite": "Generate a website preview to inspect structure, sections, and copy.",
+      "modes": {
+        "growth": "Business growth",
+        "website": "Website builder",
+        "social": "Social media"
+      },
+      "fields": {
+        "companyName": "Company name",
+        "industry": "Industry",
+        "audience": "Target audience",
+        "tone": "Brand tone",
+        "services": "Services",
+        "platforms": "Preferred platforms",
+        "usp": "Unique selling proposition",
+        "description": "Description"
+      },
+      "actions": {
+        "saveProfile": "Save profile",
+        "generateStrategy": "Generate strategy",
+        "generateWebsite": "Generate website",
+        "generateSocialStrategy": "Generate social strategy",
+        "generateCalendar": "Generate calendar",
+        "generateContent": "Generate content",
+        "attemptPublish": "Attempt publish",
+        "attemptSchedule": "Attempt schedule"
+      },
+      "tones": {
+        "professional": "Professional",
+        "friendly": "Friendly",
+        "luxury": "Luxury",
+        "minimal": "Minimal",
+        "corporate": "Corporate",
+        "creative": "Creative"
+      },
+      "platforms": {
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "tiktok": "TikTok",
+        "linkedin": "LinkedIn",
+        "youtube": "YouTube"
+      },
+      "accountState": {
+        "DISCONNECTED": "Disconnected",
+        "CONNECTING": "Connecting",
+        "CONNECTED": "Connected",
+        "EXPIRED": "Expired",
+        "REAUTH_REQUIRED": "Reauthorization required",
+        "ERROR": "Error"
+      },
+      "websiteStatus": {
+        "DRAFT": "Draft",
+        "GENERATING": "Generating",
+        "PREVIEW": "Preview",
+        "NEEDS_CHANGES": "Needs changes",
+        "READY": "Ready",
+        "APPROVED": "Approved",
+        "PUBLISHED": "Published",
+        "FAILED": "Failed"
+      },
+      "contentStatus": {
+        "DRAFT": "Draft",
+        "PLANNED": "Planned",
+        "APPROVED": "Approved",
+        "READY": "Ready",
+        "PUBLISHING": "Publishing",
+        "PUBLISHED": "Published",
+        "FAILED": "Failed",
+        "BLOCKED": "Blocked",
+        "REJECTED": "Rejected",
+        "NEEDS_CHANGES": "Needs changes"
+      },
+      "contentTypes": {
+        "POST": "Post",
+        "STORY": "Story",
+        "REEL": "Reel",
+        "VIDEO": "Video",
+        "CAROUSEL": "Carousel",
+        "SHORT": "Short",
+        "ARTICLE": "Article"
+      },
+      "pages": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "contact": "Contact",
+        "custom": "Page"
+      },
+      "sections": {
+        "hero": "Hero",
+        "text": "Text",
+        "image": "Image",
+        "featureGrid": "Feature grid",
+        "services": "Services",
+        "testimonials": "Testimonials",
+        "cta": "Call to action",
+        "contact": "Contact",
+        "faq": "FAQ",
+        "footer": "Footer"
+      }
     }
   },
   "integrations": {

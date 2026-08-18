@@ -9,6 +9,15 @@ import type {
   ToolInvocationContext,
   ToolInvocationResult,
 } from "../types";
+import {
+  handleSocialPublishTool,
+  handleSocialScheduleTool,
+  handleSocialTool,
+} from "../social/handlers";
+import {
+  handleWebsitePublishTool,
+  handleWebsiteTool,
+} from "../website/handlers";
 
 export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
   {
@@ -209,6 +218,96 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     },
     mcpReady: true,
   },
+  {
+    id: "website",
+    name: "Website Generation Tool",
+    description: "Generate a structured website specification and preview.",
+    module: "website",
+    sensitive: false,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+        profileId: { type: "string", description: "Growth business profile id." },
+        projectId: { type: "string", description: "Website project id." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
+  {
+    id: "website_publish",
+    name: "Website Publish Tool",
+    description: "Attempt website publication through the publisher adapter.",
+    module: "website",
+    sensitive: true,
+    requiresApproval: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+        projectId: { type: "string", description: "Website project id." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
+  {
+    id: "social",
+    name: "Social Generation Tool",
+    description: "Generate social strategy, calendar, and draft content.",
+    module: "social",
+    sensitive: false,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+        profileId: { type: "string", description: "Growth business profile id." },
+        growthAction: { type: "string", description: "strategy, calendar, or content." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
+  {
+    id: "social_publish",
+    name: "Social Publish Tool",
+    description: "Attempt social publishing through a platform adapter.",
+    module: "social",
+    sensitive: true,
+    requiresApproval: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+        contentId: { type: "string", description: "Social content id." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
+  {
+    id: "social_schedule",
+    name: "Social Schedule Tool",
+    description: "Attempt social scheduling through a platform adapter.",
+    module: "social",
+    sensitive: true,
+    requiresApproval: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+        contentId: { type: "string", description: "Social content id." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
 ] as const;
 
 const handlers = new Map<ToolId, ToolHandler>();
@@ -250,3 +349,9 @@ export async function invokeTool(
   const handler = handlers.get(id) ?? stub(id);
   return Promise.resolve(handler(ctx));
 }
+
+registerToolHandler("website", handleWebsiteTool);
+registerToolHandler("website_publish", handleWebsitePublishTool);
+registerToolHandler("social", handleSocialTool);
+registerToolHandler("social_publish", handleSocialPublishTool);
+registerToolHandler("social_schedule", handleSocialScheduleTool);
