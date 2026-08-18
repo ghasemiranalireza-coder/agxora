@@ -39,6 +39,30 @@ export function useAgentOperatingSystem() {
     [organizationId, snapshot],
   );
 
+  const executions = useMemo(
+    () =>
+      snapshot.executions.filter((execution) =>
+        execution.organizationId === organizationId,
+      ),
+    [organizationId, snapshot],
+  );
+
+  const approvals = useMemo(
+    () =>
+      snapshot.approvals.filter((approval) =>
+        approval.organizationId === organizationId,
+      ),
+    [organizationId, snapshot],
+  );
+
+  const stepExecutions = useMemo(
+    () =>
+      snapshot.stepExecutions.filter((event) =>
+        event.organizationId === organizationId,
+      ),
+    [organizationId, snapshot],
+  );
+
   const memories = useMemo(
     () =>
       filterMemory(snapshot.memories, { organizationId }),
@@ -94,6 +118,9 @@ export function useAgentOperatingSystem() {
     runtimes,
     agentsWithDefs,
     tasks,
+    executions,
+    approvals,
+    stepExecutions,
     memories,
     knowledge,
     plans,

@@ -4295,7 +4295,10 @@
       "agentActivated": "Агент активирован",
       "taskCancelled": "Задача отменена",
       "supervisorDelegated": "Руководитель делегировал контроль",
-      "settingsUpdated": "Настройки ОС агента обновлены для этой локальной рабочей области."
+      "settingsUpdated": "Настройки ОС агента обновлены для этой локальной рабочей области.",
+      "approvalRequired": "Approval required before the next tool step can run.",
+      "approvalApproved": "Approval recorded and execution resumed.",
+      "approvalRejected": "Approval rejected. Execution is now blocked."
     },
     "dashboard": {
       "agents": "Агенты",
@@ -4308,7 +4311,8 @@
       "knowledge": "Знание",
       "activeFleet": "Активный флот",
       "emptyTitle": "Нет активных агентов",
-      "emptyDescription": "Установите или активируйте агент из магазина, чтобы запустить симуляцию запусков."
+      "emptyDescription": "Установите или активируйте агент из магазина, чтобы запустить симуляцию запусков.",
+      "pendingApprovals": "Pending approvals"
     },
     "registry": {
       "title": "Реестр",
@@ -4334,7 +4338,12 @@
     "history": {
       "title": "История выполнения",
       "emptyTitle": "Казней пока нет",
-      "emptyDescription": "Запустите задачу агента из реестра или монитора."
+      "emptyDescription": "Запустите задачу агента из реестра или монитора.",
+      "executionsTitle": "Execution lifecycle",
+      "approvalsTitle": "Pending approvals",
+      "noApprovalsTitle": "No approvals pending",
+      "noApprovalsDescription": "Approvals appear here when guarded tools require human review.",
+      "auditTitle": "Execution audit trail"
     },
     "memory": {
       "title": "Центр памяти",
@@ -4376,14 +4385,24 @@
       "at": "В",
       "title": "Заголовок",
       "kind": "Добрый",
-      "summary": "Краткое содержание"
+      "summary": "Краткое содержание",
+      "goal": "Goal",
+      "lifecycle": "Lifecycle",
+      "step": "Step",
+      "updated": "Updated",
+      "action": "Action",
+      "approval": "Approval",
+      "result": "Result",
+      "timestamp": "Timestamp"
     },
     "actions": {
       "run": "Бегать",
       "pause": "Пауза",
       "activate": "Активировать",
       "cancel": "Отмена",
-      "emDash": "—"
+      "emDash": "—",
+      "approve": "Approve",
+      "reject": "Reject"
     },
     "goals": {
       "executeBusiness": "Выполнить бизнес-цель {agentId}",
@@ -4544,7 +4563,8 @@
       "completed": "Завершено",
       "cancelled": "Отменено",
       "failed": "Сбой",
-      "retrying": "Повтор"
+      "retrying": "Повтор",
+      "blocked": "Blocked"
     },
     "memoryScope": {
       "working": "Рабочая",
@@ -4563,6 +4583,32 @@
       "procedures": "Процедуры",
       "vector": "Вектор",
       "rag": "RAG"
+    },
+    "executionLifecycle": {
+      "IDLE": "Idle",
+      "UNDERSTAND": "Understand",
+      "PLAN": "Plan",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "EXECUTING": "Executing",
+      "VERIFYING": "Verifying",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
+    },
+    "approvalState": {
+      "REQUIRES_APPROVAL": "Requires approval",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected"
+    },
+    "stepExecutionStatus": {
+      "PENDING": "Pending",
+      "RUNNING": "Running",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
     }
   },
   "integrations": {

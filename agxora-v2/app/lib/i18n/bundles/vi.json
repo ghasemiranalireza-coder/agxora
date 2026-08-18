@@ -4295,7 +4295,10 @@
       "agentActivated": "Tác nhân đã kích hoạt",
       "taskCancelled": "Nhiệm vụ đã bị hủy",
       "supervisorDelegated": "Người giám sát ủy quyền theo dõi",
-      "settingsUpdated": "Đã cập nhật cài đặt hệ điều hành của tác nhân cho không gian làm việc cục bộ này."
+      "settingsUpdated": "Đã cập nhật cài đặt hệ điều hành của tác nhân cho không gian làm việc cục bộ này.",
+      "approvalRequired": "Approval required before the next tool step can run.",
+      "approvalApproved": "Approval recorded and execution resumed.",
+      "approvalRejected": "Approval rejected. Execution is now blocked."
     },
     "dashboard": {
       "agents": "Đại lý",
@@ -4308,7 +4311,8 @@
       "knowledge": "Kiến thức",
       "activeFleet": "Đội tàu đang hoạt động",
       "emptyTitle": "Không có đại lý nào hoạt động",
-      "emptyDescription": "Cài đặt hoặc kích hoạt một đại lý từ thị trường để bắt đầu chạy mô phỏng."
+      "emptyDescription": "Cài đặt hoặc kích hoạt một đại lý từ thị trường để bắt đầu chạy mô phỏng.",
+      "pendingApprovals": "Pending approvals"
     },
     "registry": {
       "title": "Đăng ký",
@@ -4334,7 +4338,12 @@
     "history": {
       "title": "Lịch sử thực hiện",
       "emptyTitle": "Chưa có vụ hành quyết nào",
-      "emptyDescription": "Chạy tác vụ đại lý từ sổ đăng ký hoặc màn hình."
+      "emptyDescription": "Chạy tác vụ đại lý từ sổ đăng ký hoặc màn hình.",
+      "executionsTitle": "Execution lifecycle",
+      "approvalsTitle": "Pending approvals",
+      "noApprovalsTitle": "No approvals pending",
+      "noApprovalsDescription": "Approvals appear here when guarded tools require human review.",
+      "auditTitle": "Execution audit trail"
     },
     "memory": {
       "title": "Trung tâm trí nhớ",
@@ -4376,14 +4385,24 @@
       "at": "Tại",
       "title": "Tiêu đề",
       "kind": "Loại",
-      "summary": "Bản tóm tắt"
+      "summary": "Bản tóm tắt",
+      "goal": "Goal",
+      "lifecycle": "Lifecycle",
+      "step": "Step",
+      "updated": "Updated",
+      "action": "Action",
+      "approval": "Approval",
+      "result": "Result",
+      "timestamp": "Timestamp"
     },
     "actions": {
       "run": "Chạy",
       "pause": "Tạm dừng",
       "activate": "Kích hoạt",
       "cancel": "Hủy bỏ",
-      "emDash": "—"
+      "emDash": "—",
+      "approve": "Approve",
+      "reject": "Reject"
     },
     "goals": {
       "executeBusiness": "Thực thi mục tiêu kinh doanh {agentId}",
@@ -4544,7 +4563,8 @@
       "completed": "Hoàn tất",
       "cancelled": "Đã hủy",
       "failed": "Thất bại",
-      "retrying": "Đang thử lại"
+      "retrying": "Đang thử lại",
+      "blocked": "Blocked"
     },
     "memoryScope": {
       "working": "Làm việc",
@@ -4563,6 +4583,32 @@
       "procedures": "Quy trình",
       "vector": "Vector",
       "rag": "RAG"
+    },
+    "executionLifecycle": {
+      "IDLE": "Idle",
+      "UNDERSTAND": "Understand",
+      "PLAN": "Plan",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "EXECUTING": "Executing",
+      "VERIFYING": "Verifying",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
+    },
+    "approvalState": {
+      "REQUIRES_APPROVAL": "Requires approval",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected"
+    },
+    "stepExecutionStatus": {
+      "PENDING": "Pending",
+      "RUNNING": "Running",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
     }
   },
   "integrations": {

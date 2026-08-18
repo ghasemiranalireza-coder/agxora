@@ -17,6 +17,15 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Create/update customers and read account context.",
     module: "crm",
     sensitive: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
   },
   {
     id: "projects",
@@ -24,6 +33,15 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Manage projects, tasks, and delivery status.",
     module: "projects",
     sensitive: false,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
   },
   {
     id: "finance",
@@ -31,6 +49,15 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Invoices, balances, and finance summaries.",
     module: "finance",
     sensitive: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
   },
   {
     id: "documents",
@@ -38,6 +65,15 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Read and summarize workspace documents.",
     module: "documents",
     sensitive: false,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
   },
   {
     id: "workflow",
@@ -45,6 +81,16 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Trigger and inspect automation workflows.",
     module: "automation",
     sensitive: false,
+    requiresApproval: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
   },
   {
     id: "integration",
@@ -52,6 +98,16 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Call connected third-party connectors.",
     module: "integrations",
     sensitive: true,
+    requiresApproval: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
   },
   {
     id: "email",
@@ -59,6 +115,16 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Draft and queue outbound email.",
     module: "email",
     sensitive: true,
+    requiresApproval: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
   },
   {
     id: "calendar",
@@ -66,6 +132,15 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Schedule and inspect calendar events.",
     module: "calendar",
     sensitive: false,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
   },
   {
     id: "search",
@@ -73,6 +148,15 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Universal workspace search.",
     module: "search",
     sensitive: false,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
   },
   {
     id: "notification",
@@ -80,6 +164,15 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Send in-app notifications.",
     module: "notifications",
     sensitive: false,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
   },
   {
     id: "api",
@@ -87,6 +180,16 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Invoke internal API gateway routes.",
     module: "api",
     sensitive: true,
+    requiresApproval: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
   },
   {
     id: "mcp",
@@ -94,6 +197,16 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Future Model Context Protocol server tools.",
     module: "mcp",
     sensitive: true,
+    requiresApproval: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
     mcpReady: true,
   },
 ] as const;

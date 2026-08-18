@@ -9,7 +9,9 @@ import {
   type AgentsRepository,
 } from "../repositories";
 import type {
+  AgentApproval,
   AgentContextBundle,
+  AgentExecution,
   AgentMessage,
   AgentOsSettings,
   AgentPlan,
@@ -18,6 +20,7 @@ import type {
   KnowledgeDocument,
   MemoryRecord,
   ReasoningTrace,
+  StepExecution,
 } from "../types";
 
 type Listener = () => void;
@@ -63,6 +66,12 @@ export const agentsStore = {
     emit();
   },
 
+  reset(): void {
+    state = { ...emptyAgentsState(), hydrated: true };
+    persist();
+    emit();
+  },
+
   upsertRuntime(runtime: AgentRuntime): void {
     const idx = state.runtimes.findIndex((r) => r.instanceId === runtime.instanceId);
     const runtimes = [...state.runtimes];
@@ -80,6 +89,37 @@ export const agentsStore = {
     else tasks.unshift(task);
     if (tasks.length > 300) tasks.length = 300;
     state = { ...state, tasks };
+    persist();
+    emit();
+  },
+
+  upsertExecution(execution: AgentExecution): void {
+    const idx = state.executions.findIndex((e) => e.id === execution.id);
+    const executions = [...state.executions];
+    if (idx >= 0) executions[idx] = execution;
+    else executions.unshift(execution);
+    if (executions.length > 300) executions.length = 300;
+    state = { ...state, executions };
+    persist();
+    emit();
+  },
+
+  upsertApproval(approval: AgentApproval): void {
+    const idx = state.approvals.findIndex((a) => a.id === approval.id);
+    const approvals = [...state.approvals];
+    if (idx >= 0) approvals[idx] = approval;
+    else approvals.unshift(approval);
+    if (approvals.length > 300) approvals.length = 300;
+    state = { ...state, approvals };
+    persist();
+    emit();
+  },
+
+  pushStepExecution(stepExecution: StepExecution): void {
+    state = {
+      ...state,
+      stepExecutions: [stepExecution, ...state.stepExecutions].slice(0, 1000),
+    };
     persist();
     emit();
   },

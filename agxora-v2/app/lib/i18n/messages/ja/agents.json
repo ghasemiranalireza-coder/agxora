@@ -24,7 +24,10 @@
     "agentActivated": "エージェントがアクティブ化されました",
     "taskCancelled": "タスクがキャンセルされました",
     "supervisorDelegated": "監督者がフォローアップを委任した",
-    "settingsUpdated": "このローカル ワークスペースのエージェント OS 設定が更新されました。"
+    "settingsUpdated": "このローカル ワークスペースのエージェント OS 設定が更新されました。",
+    "approvalRequired": "Approval required before the next tool step can run.",
+    "approvalApproved": "Approval recorded and execution resumed.",
+    "approvalRejected": "Approval rejected. Execution is now blocked."
   },
   "dashboard": {
     "agents": "エージェント",
@@ -37,7 +40,8 @@
     "knowledge": "知識",
     "activeFleet": "アクティブなフリート",
     "emptyTitle": "アクティブなエージェントはありません",
-    "emptyDescription": "マーケットプレイスからエージェントをインストールまたはアクティブ化して、シミュレートされた実行を開始します。"
+    "emptyDescription": "マーケットプレイスからエージェントをインストールまたはアクティブ化して、シミュレートされた実行を開始します。",
+    "pendingApprovals": "Pending approvals"
   },
   "registry": {
     "title": "レジストリ",
@@ -63,7 +67,12 @@
   "history": {
     "title": "実行履歴",
     "emptyTitle": "まだ処刑はされていない",
-    "emptyDescription": "レジストリまたはモニターからエージェント タスクを実行します。"
+    "emptyDescription": "レジストリまたはモニターからエージェント タスクを実行します。",
+    "executionsTitle": "Execution lifecycle",
+    "approvalsTitle": "Pending approvals",
+    "noApprovalsTitle": "No approvals pending",
+    "noApprovalsDescription": "Approvals appear here when guarded tools require human review.",
+    "auditTitle": "Execution audit trail"
   },
   "memory": {
     "title": "記憶中枢",
@@ -105,14 +114,24 @@
     "at": "で",
     "title": "タイトル",
     "kind": "親切",
-    "summary": "まとめ"
+    "summary": "まとめ",
+    "goal": "Goal",
+    "lifecycle": "Lifecycle",
+    "step": "Step",
+    "updated": "Updated",
+    "action": "Action",
+    "approval": "Approval",
+    "result": "Result",
+    "timestamp": "Timestamp"
   },
   "actions": {
     "run": "走る",
     "pause": "一時停止",
     "activate": "活性化",
     "cancel": "キャンセル",
-    "emDash": "—"
+    "emDash": "—",
+    "approve": "Approve",
+    "reject": "Reject"
   },
   "goals": {
     "executeBusiness": "{agentId} ビジネス目標を実行する",
@@ -273,7 +292,8 @@
     "completed": "完了",
     "cancelled": "キャンセル",
     "failed": "失敗",
-    "retrying": "再試行中"
+    "retrying": "再試行中",
+    "blocked": "Blocked"
   },
   "memoryScope": {
     "working": "ワーキング",
@@ -292,5 +312,31 @@
     "procedures": "手順",
     "vector": "ベクトル",
     "rag": "RAG"
+  },
+  "executionLifecycle": {
+    "IDLE": "Idle",
+    "UNDERSTAND": "Understand",
+    "PLAN": "Plan",
+    "WAITING_FOR_APPROVAL": "Waiting for approval",
+    "EXECUTING": "Executing",
+    "VERIFYING": "Verifying",
+    "COMPLETED": "Completed",
+    "FAILED": "Failed",
+    "CANCELLED": "Cancelled",
+    "BLOCKED": "Blocked"
+  },
+  "approvalState": {
+    "REQUIRES_APPROVAL": "Requires approval",
+    "APPROVED": "Approved",
+    "REJECTED": "Rejected"
+  },
+  "stepExecutionStatus": {
+    "PENDING": "Pending",
+    "RUNNING": "Running",
+    "COMPLETED": "Completed",
+    "FAILED": "Failed",
+    "WAITING_FOR_APPROVAL": "Waiting for approval",
+    "CANCELLED": "Cancelled",
+    "BLOCKED": "Blocked"
   }
 }

@@ -4295,7 +4295,10 @@
       "agentActivated": "Agent geactiveerd",
       "taskCancelled": "Taak geannuleerd",
       "supervisorDelegated": "De toezichthouder heeft een vervolgopdracht gedelegeerd",
-      "settingsUpdated": "Agent OS-instellingen bijgewerkt voor deze lokale werkruimte."
+      "settingsUpdated": "Agent OS-instellingen bijgewerkt voor deze lokale werkruimte.",
+      "approvalRequired": "Approval required before the next tool step can run.",
+      "approvalApproved": "Approval recorded and execution resumed.",
+      "approvalRejected": "Approval rejected. Execution is now blocked."
     },
     "dashboard": {
       "agents": "Agenten",
@@ -4308,7 +4311,8 @@
       "knowledge": "Kennis",
       "activeFleet": "Actieve vloot",
       "emptyTitle": "Geen agenten actief",
-      "emptyDescription": "Installeer of activeer een agent van de marktplaats om gesimuleerde uitvoeringen te starten."
+      "emptyDescription": "Installeer of activeer een agent van de marktplaats om gesimuleerde uitvoeringen te starten.",
+      "pendingApprovals": "Pending approvals"
     },
     "registry": {
       "title": "Griffie",
@@ -4334,7 +4338,12 @@
     "history": {
       "title": "Uitvoeringsgeschiedenis",
       "emptyTitle": "Nog geen executies",
-      "emptyDescription": "Voer een agenttaak uit vanuit het register of de monitor."
+      "emptyDescription": "Voer een agenttaak uit vanuit het register of de monitor.",
+      "executionsTitle": "Execution lifecycle",
+      "approvalsTitle": "Pending approvals",
+      "noApprovalsTitle": "No approvals pending",
+      "noApprovalsDescription": "Approvals appear here when guarded tools require human review.",
+      "auditTitle": "Execution audit trail"
     },
     "memory": {
       "title": "Geheugen centrum",
@@ -4376,14 +4385,24 @@
       "at": "Bij",
       "title": "Titel",
       "kind": "Vriendelijk",
-      "summary": "Samenvatting"
+      "summary": "Samenvatting",
+      "goal": "Goal",
+      "lifecycle": "Lifecycle",
+      "step": "Step",
+      "updated": "Updated",
+      "action": "Action",
+      "approval": "Approval",
+      "result": "Result",
+      "timestamp": "Timestamp"
     },
     "actions": {
       "run": "Loop",
       "pause": "Pauze",
       "activate": "Inschakelen",
       "cancel": "Annuleren",
-      "emDash": "—"
+      "emDash": "—",
+      "approve": "Approve",
+      "reject": "Reject"
     },
     "goals": {
       "executeBusiness": "Voer het bedrijfsdoel van {agentId} uit",
@@ -4544,7 +4563,8 @@
       "completed": "Voltooid",
       "cancelled": "Geannuleerd",
       "failed": "Mislukt",
-      "retrying": "Opnieuw"
+      "retrying": "Opnieuw",
+      "blocked": "Blocked"
     },
     "memoryScope": {
       "working": "Werkgeheugen",
@@ -4563,6 +4583,32 @@
       "procedures": "Procedures",
       "vector": "Vector",
       "rag": "RAG"
+    },
+    "executionLifecycle": {
+      "IDLE": "Idle",
+      "UNDERSTAND": "Understand",
+      "PLAN": "Plan",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "EXECUTING": "Executing",
+      "VERIFYING": "Verifying",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
+    },
+    "approvalState": {
+      "REQUIRES_APPROVAL": "Requires approval",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected"
+    },
+    "stepExecutionStatus": {
+      "PENDING": "Pending",
+      "RUNNING": "Running",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
     }
   },
   "integrations": {

@@ -4295,7 +4295,10 @@
       "agentActivated": "Agente ativado",
       "taskCancelled": "Tarefa cancelada",
       "supervisorDelegated": "O supervisor delegou um acompanhamento",
-      "settingsUpdated": "Configurações do SO do agente atualizadas para este espaço de trabalho local."
+      "settingsUpdated": "Configurações do SO do agente atualizadas para este espaço de trabalho local.",
+      "approvalRequired": "Approval required before the next tool step can run.",
+      "approvalApproved": "Approval recorded and execution resumed.",
+      "approvalRejected": "Approval rejected. Execution is now blocked."
     },
     "dashboard": {
       "agents": "Agentes",
@@ -4308,7 +4311,8 @@
       "knowledge": "Conhecimento",
       "activeFleet": "Frota ativa",
       "emptyTitle": "Nenhum agente ativo",
-      "emptyDescription": "Instale ou ative um agente do marketplace para iniciar execuções simuladas."
+      "emptyDescription": "Instale ou ative um agente do marketplace para iniciar execuções simuladas.",
+      "pendingApprovals": "Pending approvals"
     },
     "registry": {
       "title": "Registro",
@@ -4334,7 +4338,12 @@
     "history": {
       "title": "Histórico de execução",
       "emptyTitle": "Ainda não há execuções",
-      "emptyDescription": "Execute uma tarefa de agente no registro ou monitor."
+      "emptyDescription": "Execute uma tarefa de agente no registro ou monitor.",
+      "executionsTitle": "Execution lifecycle",
+      "approvalsTitle": "Pending approvals",
+      "noApprovalsTitle": "No approvals pending",
+      "noApprovalsDescription": "Approvals appear here when guarded tools require human review.",
+      "auditTitle": "Execution audit trail"
     },
     "memory": {
       "title": "Centro de memória",
@@ -4376,14 +4385,24 @@
       "at": "No",
       "title": "Título",
       "kind": "Tipo",
-      "summary": "Resumo"
+      "summary": "Resumo",
+      "goal": "Goal",
+      "lifecycle": "Lifecycle",
+      "step": "Step",
+      "updated": "Updated",
+      "action": "Action",
+      "approval": "Approval",
+      "result": "Result",
+      "timestamp": "Timestamp"
     },
     "actions": {
       "run": "Correr",
       "pause": "Pausa",
       "activate": "Ativar",
       "cancel": "Cancelar",
-      "emDash": "—"
+      "emDash": "—",
+      "approve": "Approve",
+      "reject": "Reject"
     },
     "goals": {
       "executeBusiness": "Execute a meta de negócios {agentId}",
@@ -4544,7 +4563,8 @@
       "completed": "Concluído",
       "cancelled": "Cancelado",
       "failed": "Falhado",
-      "retrying": "A repetir"
+      "retrying": "A repetir",
+      "blocked": "Blocked"
     },
     "memoryScope": {
       "working": "Trabalho",
@@ -4563,6 +4583,32 @@
       "procedures": "Procedimentos",
       "vector": "Vetor",
       "rag": "RAG"
+    },
+    "executionLifecycle": {
+      "IDLE": "Idle",
+      "UNDERSTAND": "Understand",
+      "PLAN": "Plan",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "EXECUTING": "Executing",
+      "VERIFYING": "Verifying",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
+    },
+    "approvalState": {
+      "REQUIRES_APPROVAL": "Requires approval",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected"
+    },
+    "stepExecutionStatus": {
+      "PENDING": "Pending",
+      "RUNNING": "Running",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
     }
   },
   "integrations": {

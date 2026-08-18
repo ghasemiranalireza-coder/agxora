@@ -135,6 +135,103 @@ export function registerLocalDataHandlers(): void {
       };
     }
   });
+
+  localDataProvider.register("/agents", async (options) => {
+    try {
+      const { agentOsService } = await import("@/features/agents/services");
+      const path = stripQuery(options.path);
+      const body =
+        options.body && typeof options.body === "object"
+          ? (options.body as Record<string, unknown>)
+          : {};
+      const organizationId =
+        readQuery(options, "organizationId") ??
+        (typeof body.organizationId === "string" ? body.organizationId : null);
+
+      if (!organizationId) {
+        return {
+          ok: false,
+          status: 400,
+          code: "missing_organization_id",
+          message: "organizationId is required",
+        };
+      }
+
+      agentOsService.ensureWorkspace(organizationId);
+
+      if (options.method === "GET" && path === "/agents/executions") {
+        return mockOk(agentOsService.listExecutions(organizationId));
+      }
+      if (options.method === "GET" && path === "/agents/approvals") {
+        return mockOk(agentOsService.listApprovals(organizationId));
+      }
+      if (options.method === "GET" && path === "/agents/audit") {
+        return mockOk(agentOsService.listStepExecutions(organizationId));
+      }
+      if (options.method === "POST" && path === "/agents/tasks") {
+        if (
+          typeof body.agentInstanceId !== "string" ||
+          typeof body.title !== "string"
+        ) {
+          return {
+            ok: false,
+            status: 400,
+            code: "invalid_agent_task",
+            message: "agentInstanceId and title are required",
+          };
+        }
+        const task = await agentOsService.enqueueTask({
+          organizationId,
+          agentInstanceId: body.agentInstanceId,
+          title: body.title,
+          goal:
+            typeof body.goal === "string" ? body.goal : body.title,
+          payload:
+            body.payload && typeof body.payload === "object"
+              ? (body.payload as Record<string, unknown>)
+              : undefined,
+        });
+        return mockOk(task, 201);
+      }
+      if (options.method === "POST" && path === "/agents/approvals/resolve") {
+        if (
+          typeof body.approvalId !== "string" ||
+          (body.state !== "APPROVED" && body.state !== "REJECTED")
+        ) {
+          return {
+            ok: false,
+            status: 400,
+            code: "invalid_approval_resolution",
+            message: "approvalId and valid state are required",
+          };
+        }
+        const approval = await agentOsService.resolveApproval({
+          approvalId: body.approvalId,
+          state: body.state,
+          decidedBy:
+            typeof body.decidedBy === "string" ? body.decidedBy : undefined,
+          comment:
+            typeof body.comment === "string" ? body.comment : undefined,
+        });
+        return mockOk(approval);
+      }
+
+      return {
+        ok: false,
+        status: 404,
+        code: "agent_handler_missing",
+        message: `No agent handler for ${options.method ?? "GET"} ${path}`,
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        status: 500,
+        code: "agent_handler_error",
+        message:
+          error instanceof Error ? error.message : "Agent handler failed",
+      };
+    }
+  });
 }
 
 function readQuery(options: ApiRequestOptions, key: string): string | null {
@@ -142,4 +239,9 @@ function readQuery(options: ApiRequestOptions, key: string): string | null {
   if (idx < 0) return null;
   const params = new URLSearchParams(options.path.slice(idx + 1));
   return params.get(key);
+}
+
+function stripQuery(path: string): string {
+  const idx = path.indexOf("?");
+  return idx >= 0 ? path.slice(0, idx) : path;
 }

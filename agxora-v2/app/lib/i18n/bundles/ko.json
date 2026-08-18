@@ -4295,7 +4295,10 @@
       "agentActivated": "에이전트 활성화됨",
       "taskCancelled": "작업이 취소되었습니다.",
       "supervisorDelegated": "감독관이 후속 조치를 위임함",
-      "settingsUpdated": "이 로컬 작업공간에 대한 에이전트 OS 설정이 업데이트되었습니다."
+      "settingsUpdated": "이 로컬 작업공간에 대한 에이전트 OS 설정이 업데이트되었습니다.",
+      "approvalRequired": "Approval required before the next tool step can run.",
+      "approvalApproved": "Approval recorded and execution resumed.",
+      "approvalRejected": "Approval rejected. Execution is now blocked."
     },
     "dashboard": {
       "agents": "자치령 대표",
@@ -4308,7 +4311,8 @@
       "knowledge": "지식",
       "activeFleet": "활성 함대",
       "emptyTitle": "활성 에이전트가 없습니다.",
-      "emptyDescription": "시뮬레이션 실행을 시작하려면 마켓플레이스에서 에이전트를 설치하거나 활성화하세요."
+      "emptyDescription": "시뮬레이션 실행을 시작하려면 마켓플레이스에서 에이전트를 설치하거나 활성화하세요.",
+      "pendingApprovals": "Pending approvals"
     },
     "registry": {
       "title": "레지스트리",
@@ -4334,7 +4338,12 @@
     "history": {
       "title": "실행 이력",
       "emptyTitle": "아직 실행이 없습니다.",
-      "emptyDescription": "레지스트리 또는 모니터에서 에이전트 작업을 실행합니다."
+      "emptyDescription": "레지스트리 또는 모니터에서 에이전트 작업을 실행합니다.",
+      "executionsTitle": "Execution lifecycle",
+      "approvalsTitle": "Pending approvals",
+      "noApprovalsTitle": "No approvals pending",
+      "noApprovalsDescription": "Approvals appear here when guarded tools require human review.",
+      "auditTitle": "Execution audit trail"
     },
     "memory": {
       "title": "기억센터",
@@ -4376,14 +4385,24 @@
       "at": "~에",
       "title": "제목",
       "kind": "친절한",
-      "summary": "요약"
+      "summary": "요약",
+      "goal": "Goal",
+      "lifecycle": "Lifecycle",
+      "step": "Step",
+      "updated": "Updated",
+      "action": "Action",
+      "approval": "Approval",
+      "result": "Result",
+      "timestamp": "Timestamp"
     },
     "actions": {
       "run": "달리다",
       "pause": "정지시키다",
       "activate": "활성화",
       "cancel": "취소",
-      "emDash": "—"
+      "emDash": "—",
+      "approve": "Approve",
+      "reject": "Reject"
     },
     "goals": {
       "executeBusiness": "{agentId} 비즈니스 목표 실행",
@@ -4544,7 +4563,8 @@
       "completed": "완료",
       "cancelled": "취소됨",
       "failed": "실패",
-      "retrying": "재시도 중"
+      "retrying": "재시도 중",
+      "blocked": "Blocked"
     },
     "memoryScope": {
       "working": "작업",
@@ -4563,6 +4583,32 @@
       "procedures": "절차",
       "vector": "벡터",
       "rag": "RAG"
+    },
+    "executionLifecycle": {
+      "IDLE": "Idle",
+      "UNDERSTAND": "Understand",
+      "PLAN": "Plan",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "EXECUTING": "Executing",
+      "VERIFYING": "Verifying",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
+    },
+    "approvalState": {
+      "REQUIRES_APPROVAL": "Requires approval",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected"
+    },
+    "stepExecutionStatus": {
+      "PENDING": "Pending",
+      "RUNNING": "Running",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
     }
   },
   "integrations": {
