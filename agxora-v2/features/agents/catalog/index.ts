@@ -189,6 +189,22 @@ export const DEFAULT_AGENTS: readonly AgentDefinition[] = [
     category: "Growth",
   },
   {
+    id: "growth_campaign",
+    name: "Growth Campaign Agent",
+    avatar: "GC",
+    description: "Plans campaigns, evaluates readiness, and prepares execution behind approval.",
+    role: "Growth Campaign Agent",
+    capabilities: ["campaigns", "planning", "readiness"],
+    goals: ["Plan a campaign", "Evaluate campaign readiness"],
+    instructions:
+      "Plan campaigns from growth data. Never claim execution success without a real adapter.",
+    tools: ["campaign_plan", "campaign_readiness", "growth_insights", "campaign_execute"],
+    permissions: ["agents.execute", "tools.invoke", "knowledge.read"],
+    knowledgeSources: ["company", "crm"],
+    marketplace: true,
+    category: "Growth",
+  },
+  {
     id: "custom",
     name: "Custom Agent",
     avatar: "CU",

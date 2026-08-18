@@ -171,14 +171,21 @@ export const agentOsService = {
         createContextBundle({ organizationId, business: { name: "AGXORA" } }),
       );
     }
-    if (!snap.runtimes.some((r) => r.organizationId === organizationId)) {
-      for (const id of [
-        "executive_advisor",
-        "crm_assistant",
-        "workflow_coordinator",
-        "website_builder",
-        "social_media",
-      ] as const) {
+    const seedAgentIds = [
+      "executive_advisor",
+      "crm_assistant",
+      "workflow_coordinator",
+      "website_builder",
+      "social_media",
+      "growth_campaign",
+    ] as const;
+    const existingAgentIds = new Set(
+      snap.runtimes
+        .filter((runtime) => runtime.organizationId === organizationId)
+        .map((runtime) => runtime.agentId),
+    );
+    for (const id of seedAgentIds) {
+      if (!existingAgentIds.has(id)) {
         this.register(organizationId, id, true);
       }
     }

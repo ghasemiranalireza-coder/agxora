@@ -22,6 +22,14 @@ import type {
 import { SOCIAL_PLATFORMS } from "./types";
 import type { SocialAccount } from "../social/types";
 import type { WebsiteProject } from "../website/types";
+import { evaluateCampaignReadiness } from "../campaigns/readiness";
+import {
+  CAMPAIGN_CHANNELS,
+  type Campaign,
+  type CampaignChannelId,
+  type CampaignReadiness,
+  type GrowthInsight,
+} from "../campaigns/types";
 
 function orgFilter<T extends { organizationId: string }>(
   items: readonly T[],
@@ -107,6 +115,7 @@ export const growthService = {
     agentOsService.ensureWorkspace(organizationId);
     runtimeFor(organizationId, "website_builder");
     runtimeFor(organizationId, "social_media");
+    runtimeFor(organizationId, "growth_campaign");
     for (const account of disconnectedAccounts(organizationId, SOCIAL_PLATFORMS)) {
       agentsStore.upsertSocialAccount(account);
     }
@@ -439,6 +448,28 @@ export const growthService = {
         });
       }
     }
+    const campaignId =
+      typeof taskInput.campaignId === "string" ? taskInput.campaignId : undefined;
+    if (campaignId) {
+      const campaign = agentsStore
+        .getSnapshot()
+        .campaigns.find((item) => item.id === campaignId);
+      if (campaign) {
+        agentsStore.upsertCampaign({
+          ...campaign,
+          approvalState: approval.state,
+          status:
+            approval.state === "REJECTED"
+              ? "BLOCKED"
+              : campaign.status === "COMPLETED"
+                ? "COMPLETED"
+                : campaign.status === "BLOCKED" || campaign.status === "FAILED"
+                  ? campaign.status
+                  : "APPROVED",
+          updatedAt: nowIso(),
+        });
+      }
+    }
   },
 
   listWebsiteProjects(organizationId: string): readonly WebsiteProject[] {
@@ -469,6 +500,127 @@ export const growthService = {
     return orgFilter(agentsStore.getSnapshot().growthStrategies, organizationId);
   },
 
+  listCampaigns(organizationId: string): readonly Campaign[] {
+    return orgFilter(agentsStore.getSnapshot().campaigns, organizationId);
+  },
+
+  getCampaign(organizationId: string, campaignId: string): Campaign | undefined {
+    return this.listCampaigns(organizationId).find((item) => item.id === campaignId);
+  },
+
+  async planCampaign(
+    organizationId: string,
+    request?: {
+      readonly objective?: string;
+      readonly audience?: string;
+      readonly offer?: string;
+      readonly channels?: readonly string[];
+    },
+  ): Promise<Campaign> {
+    this.ensure(organizationId);
+    const profile =
+      latestProfile(organizationId) ??
+      this.saveProfile({ organizationId, draft: {} });
+    const existing = this.listCampaigns(organizationId)[0];
+    const channels = request?.channels?.filter((item): item is CampaignChannelId =>
+      CAMPAIGN_CHANNELS.includes(item as CampaignChannelId),
+    );
+    await runAgentTool({
+      organizationId,
+      agentId: "growth_campaign",
+      toolId: "campaign_plan",
+      title: "Plan growth campaign",
+      payload: {
+        profileId: profile.id,
+        campaignId: existing?.id,
+        objective: request?.objective,
+        audience: request?.audience,
+        offer: request?.offer,
+        channels,
+      },
+    });
+    const campaign = this.listCampaigns(organizationId)[0];
+    if (!campaign) throw new Error("Campaign planning did not persist a campaign");
+    auditGrowth("agent.growth.campaign_planned", organizationId, campaign.id, {
+      offer: campaign.offer,
+    });
+    return campaign;
+  },
+
+  async evaluateReadiness(organizationId: string): Promise<CampaignReadiness> {
+    this.ensure(organizationId);
+    const profile =
+      latestProfile(organizationId) ??
+      this.saveProfile({ organizationId, draft: {} });
+    await runAgentTool({
+      organizationId,
+      agentId: "growth_campaign",
+      toolId: "campaign_readiness",
+      title: "Evaluate campaign readiness",
+      payload: { campaignId: this.listCampaigns(organizationId)[0]?.id },
+    });
+    return evaluateCampaignReadiness({
+      profile,
+      campaign: this.listCampaigns(organizationId)[0],
+      accounts: this.listAccounts(organizationId),
+      website: this.listWebsiteProjects(organizationId)[0],
+    });
+  },
+
+  async generateInsights(organizationId: string): Promise<readonly GrowthInsight[]> {
+    this.ensure(organizationId);
+    if (!latestProfile(organizationId)) {
+      this.saveProfile({ organizationId, draft: {} });
+    }
+    await runAgentTool({
+      organizationId,
+      agentId: "growth_campaign",
+      toolId: "growth_insights",
+      title: "Generate growth insights",
+      payload: { campaignId: this.listCampaigns(organizationId)[0]?.id },
+    });
+    const insights = orgFilter(
+      agentsStore.getSnapshot().growthInsights,
+      organizationId,
+    );
+    auditGrowth("agent.growth.insights_generated", organizationId, organizationId, {
+      count: String(insights.length),
+    });
+    return insights;
+  },
+
+  async requestCampaignApproval(organizationId: string, campaignId?: string) {
+    this.ensure(organizationId);
+    const campaign = campaignId
+      ? this.getCampaign(organizationId, campaignId)
+      : this.listCampaigns(organizationId)[0];
+    if (!campaign) throw new Error("Campaign not found");
+    if (campaign.approvalState === "REJECTED") {
+      throw new Error("Rejected campaigns cannot be executed.");
+    }
+    agentsStore.upsertCampaign({
+      ...campaign,
+      status: "READY_FOR_APPROVAL",
+      updatedAt: nowIso(),
+    });
+    const task = await runAgentTool({
+      organizationId,
+      agentId: "growth_campaign",
+      toolId: "campaign_execute",
+      title: "Execute growth campaign",
+      payload: { campaignId: campaign.id, growthAction: "execute" },
+    });
+    if (task.status === "blocked") {
+      auditGrowth("agent.growth.approval_requested", organizationId, campaign.id, {
+        toolId: "campaign_execute",
+      });
+    }
+    return {
+      task,
+      campaign: this.getCampaign(organizationId, campaign.id)!,
+    };
+  },
+
   snapshot(organizationId: string) {
     this.ensure(organizationId);
     return {
@@ -486,6 +638,8 @@ export const growthService = {
       approvals: agentOsService.listApprovals(organizationId),
       executions: agentOsService.listExecutions(organizationId),
       audit: agentOsService.listStepExecutions(organizationId),
+      campaigns: this.listCampaigns(organizationId),
+      insights: orgFilter(agentsStore.getSnapshot().growthInsights, organizationId),
     };
   },
 };
