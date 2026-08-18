@@ -8,6 +8,7 @@ export * from "./tools";
 export * from "./memory";
 export * from "./knowledge";
 export * from "./planning";
+export * from "./execution";
 export * from "./reasoning";
 export * from "./orchestration";
 export * from "./context";

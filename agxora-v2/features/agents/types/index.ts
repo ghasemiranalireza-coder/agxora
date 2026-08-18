@@ -64,7 +64,34 @@ export type TaskStatus =
   | "completed"
   | "cancelled"
   | "failed"
-  | "retrying";
+  | "retrying"
+  | "blocked";
+
+export type AgentExecutionLifecycleStatus =
+  | "IDLE"
+  | "UNDERSTAND"
+  | "PLAN"
+  | "WAITING_FOR_APPROVAL"
+  | "EXECUTING"
+  | "VERIFYING"
+  | "COMPLETED"
+  | "FAILED"
+  | "CANCELLED"
+  | "BLOCKED";
+
+export type ApprovalState =
+  | "REQUIRES_APPROVAL"
+  | "APPROVED"
+  | "REJECTED";
+
+export type StepExecutionStatus =
+  | "PENDING"
+  | "RUNNING"
+  | "COMPLETED"
+  | "FAILED"
+  | "WAITING_FOR_APPROVAL"
+  | "CANCELLED"
+  | "BLOCKED";
 
 export type LlmProviderId =
   | "openai"
@@ -136,7 +163,21 @@ export interface AgentToolDefinition {
   readonly description: string;
   readonly module: string;
   readonly sensitive: boolean;
+  readonly requiresApproval?: boolean;
+  readonly inputSchema?: ToolInputSchema;
   readonly mcpReady?: boolean;
+}
+
+export interface ToolInputSchemaProperty {
+  readonly type: "string" | "number" | "boolean" | "object" | "array";
+  readonly description: string;
+}
+
+export interface ToolInputSchema {
+  readonly type: "object";
+  readonly properties: Readonly<Record<string, ToolInputSchemaProperty>>;
+  readonly required?: readonly string[];
+  readonly additionalProperties?: boolean;
 }
 
 export interface ToolInvocationContext {
@@ -152,6 +193,7 @@ export interface ToolInvocationResult {
   readonly output?: unknown;
   readonly error?: string;
   readonly durationMs: number;
+  readonly approvalRequired?: boolean;
 }
 
 export type ToolHandler = (
@@ -192,6 +234,7 @@ export interface AgentPlan {
   readonly id: string;
   readonly organizationId: string;
   readonly agentInstanceId: string;
+  readonly taskId?: string;
   readonly goal: string;
   readonly steps: readonly PlanStep[];
   readonly createdAt: string;
@@ -230,10 +273,65 @@ export interface AgentTask {
   readonly error?: string;
   readonly attempt: number;
   readonly maxAttempts: number;
+  readonly executionId?: string;
   readonly startedAt?: string;
   readonly finishedAt?: string;
   readonly durationMs?: number;
   readonly createdAt: string;
+}
+
+export interface AgentExecution {
+  readonly id: string;
+  readonly organizationId: string;
+  readonly agentInstanceId: string;
+  readonly taskId: string;
+  readonly planId?: string;
+  readonly goal: string;
+  readonly lifecycle: AgentExecutionLifecycleStatus;
+  readonly currentStepId?: string;
+  readonly result?: unknown;
+  readonly error?: string;
+  readonly blockedReason?: string;
+  readonly startedAt: string;
+  readonly updatedAt: string;
+  readonly finishedAt?: string;
+}
+
+export interface AgentApproval {
+  readonly id: string;
+  readonly organizationId: string;
+  readonly agentInstanceId: string;
+  readonly executionId: string;
+  readonly taskId: string;
+  readonly planId?: string;
+  readonly stepId: string;
+  readonly toolId?: ToolId;
+  readonly action: string;
+  readonly reason: string;
+  readonly state: ApprovalState;
+  readonly requestedAt: string;
+  readonly decidedAt?: string;
+  readonly decidedBy?: string;
+  readonly comment?: string;
+}
+
+export interface StepExecution {
+  readonly id: string;
+  readonly organizationId: string;
+  readonly agentInstanceId: string;
+  readonly executionId: string;
+  readonly taskId: string;
+  readonly planId?: string;
+  readonly stepId?: string;
+  readonly toolId?: ToolId;
+  readonly action: string;
+  readonly status: StepExecutionStatus;
+  readonly input?: unknown;
+  readonly result?: unknown;
+  readonly error?: string;
+  readonly approvalState?: ApprovalState;
+  readonly durationMs?: number;
+  readonly timestamp: string;
 }
 
 export interface AgentContextBundle {

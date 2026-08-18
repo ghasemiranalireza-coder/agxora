@@ -4295,7 +4295,10 @@
       "agentActivated": "Temsilci etkinleştirildi",
       "taskCancelled": "Görev iptal edildi",
       "supervisorDelegated": "Süpervizör takip yetkisi verdi",
-      "settingsUpdated": "Bu yerel çalışma alanı için Ajan İşletim Sistemi ayarları güncellendi."
+      "settingsUpdated": "Bu yerel çalışma alanı için Ajan İşletim Sistemi ayarları güncellendi.",
+      "approvalRequired": "Approval required before the next tool step can run.",
+      "approvalApproved": "Approval recorded and execution resumed.",
+      "approvalRejected": "Approval rejected. Execution is now blocked."
     },
     "dashboard": {
       "agents": "Temsilciler",
@@ -4308,7 +4311,8 @@
       "knowledge": "Bilgi",
       "activeFleet": "Aktif filo",
       "emptyTitle": "Aktif temsilci yok",
-      "emptyDescription": "Simüle edilmiş çalıştırmaları başlatmak için piyasadan bir aracı yükleyin veya etkinleştirin."
+      "emptyDescription": "Simüle edilmiş çalıştırmaları başlatmak için piyasadan bir aracı yükleyin veya etkinleştirin.",
+      "pendingApprovals": "Pending approvals"
     },
     "registry": {
       "title": "Kayıt defteri",
@@ -4334,7 +4338,12 @@
     "history": {
       "title": "Yürütme geçmişi",
       "emptyTitle": "Henüz idam yok",
-      "emptyDescription": "Kayıt defterinden veya monitörden bir aracı görevi çalıştırın."
+      "emptyDescription": "Kayıt defterinden veya monitörden bir aracı görevi çalıştırın.",
+      "executionsTitle": "Execution lifecycle",
+      "approvalsTitle": "Pending approvals",
+      "noApprovalsTitle": "No approvals pending",
+      "noApprovalsDescription": "Approvals appear here when guarded tools require human review.",
+      "auditTitle": "Execution audit trail"
     },
     "memory": {
       "title": "Hafıza merkezi",
@@ -4376,14 +4385,24 @@
       "at": "Şu tarihte:",
       "title": "Başlık",
       "kind": "Tür",
-      "summary": "Özet"
+      "summary": "Özet",
+      "goal": "Goal",
+      "lifecycle": "Lifecycle",
+      "step": "Step",
+      "updated": "Updated",
+      "action": "Action",
+      "approval": "Approval",
+      "result": "Result",
+      "timestamp": "Timestamp"
     },
     "actions": {
       "run": "Koşmak",
       "pause": "Duraklat",
       "activate": "Etkinleştir",
       "cancel": "İptal etmek",
-      "emDash": "—"
+      "emDash": "—",
+      "approve": "Approve",
+      "reject": "Reject"
     },
     "goals": {
       "executeBusiness": "{agentId} iş hedefini yürütün",
@@ -4544,7 +4563,8 @@
       "completed": "Tamamlandı",
       "cancelled": "İptal",
       "failed": "Başarısız",
-      "retrying": "Yeniden deneniyor"
+      "retrying": "Yeniden deneniyor",
+      "blocked": "Blocked"
     },
     "memoryScope": {
       "working": "Çalışma",
@@ -4563,6 +4583,32 @@
       "procedures": "Prosedürler",
       "vector": "Vektör",
       "rag": "RAG"
+    },
+    "executionLifecycle": {
+      "IDLE": "Idle",
+      "UNDERSTAND": "Understand",
+      "PLAN": "Plan",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "EXECUTING": "Executing",
+      "VERIFYING": "Verifying",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
+    },
+    "approvalState": {
+      "REQUIRES_APPROVAL": "Requires approval",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected"
+    },
+    "stepExecutionStatus": {
+      "PENDING": "Pending",
+      "RUNNING": "Running",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
     }
   },
   "integrations": {

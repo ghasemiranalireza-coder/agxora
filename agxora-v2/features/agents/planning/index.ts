@@ -14,7 +14,9 @@ function createId(prefix: string): string {
 export function decomposeGoal(input: {
   readonly organizationId: string;
   readonly agentInstanceId: string;
+  readonly taskId?: string;
   readonly goal: string;
+  readonly toolId?: import("../types").ToolId;
 }): AgentPlan {
   const parts = input.goal
     .split(/[.;]/)
@@ -26,6 +28,7 @@ export function decomposeGoal(input: {
     title,
     dependsOn: index === 0 ? [] : [`step_${index}`],
     status: "pending" as TaskStatus,
+    toolId: input.toolId,
   }));
 
   const now = new Date().toISOString();
@@ -33,11 +36,28 @@ export function decomposeGoal(input: {
     id: createId("plan"),
     organizationId: input.organizationId,
     agentInstanceId: input.agentInstanceId,
+    taskId: input.taskId,
     goal: input.goal,
     steps,
     createdAt: now,
     updatedAt: now,
   };
+}
+
+export function validatePlan(plan: AgentPlan): readonly string[] {
+  const errors: string[] = [];
+  if (plan.steps.length === 0) {
+    errors.push("Plan requires at least one step");
+  }
+  const ids = new Set(plan.steps.map((step) => step.id));
+  for (const step of plan.steps) {
+    for (const dependency of step.dependsOn) {
+      if (!ids.has(dependency)) {
+        errors.push(`Step ${step.id} depends on missing step ${dependency}`);
+      }
+    }
+  }
+  return errors;
 }
 
 export function nextExecutableSteps(plan: AgentPlan): readonly PlanStep[] {

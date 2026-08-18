@@ -9,12 +9,15 @@ import { agentsStore } from "../store";
 import { agentOsService } from "../services";
 import { useAgentOperatingSystem } from "../hooks";
 import type {
+  AgentApproval,
+  AgentExecution,
   AgentId,
   AgentRuntime,
   AgentTask,
   KnowledgeDocument,
   LlmProviderId,
   MemoryRecord,
+  StepExecution,
 } from "../types";
 
 type TabId =
@@ -93,7 +96,14 @@ export function AgentOperatingSystem(): JSX.Element {
         title,
         goal: title,
       });
-      setNotice(t("agents.notice.simulatedRun", { status: task.status, duration: task.durationMs ?? 0 }));
+      setNotice(
+        task.status === "blocked"
+          ? t("agents.notice.approvalRequired")
+          : t("agents.notice.simulatedRun", {
+              status: task.status,
+              duration: task.durationMs ?? 0,
+            }),
+      );
       setTab("history");
     } catch (err) {
       setNotice(localizeThrownError(t, err, "agents.notice.taskFailed"));
@@ -209,7 +219,10 @@ export function AgentOperatingSystem(): JSX.Element {
       key: "actions",
       header: t("agents.columns.actions"),
       render: (r) =>
-        r.status === "running" || r.status === "pending" || r.status === "retrying" ? (
+        r.status === "running" ||
+        r.status === "pending" ||
+        r.status === "retrying" ||
+        r.status === "blocked" ? (
           <Button
             size="sm"
             variant="ghost"
@@ -264,10 +277,164 @@ export function AgentOperatingSystem(): JSX.Element {
     },
   ];
 
+  const executionColumns: DataTableColumn<AgentExecution>[] = [
+    {
+      key: "goal",
+      header: t("agents.columns.goal"),
+      render: (execution) => execution.goal,
+    },
+    {
+      key: "lifecycle",
+      header: t("agents.columns.lifecycle"),
+      render: (execution) =>
+        catalogCopy(
+          t,
+          `agents.executionLifecycle.${execution.lifecycle}`,
+          execution.lifecycle,
+        ),
+    },
+    {
+      key: "step",
+      header: t("agents.columns.step"),
+      render: (execution) => execution.currentStepId ?? t("agents.actions.emDash"),
+    },
+    {
+      key: "updated",
+      header: t("agents.columns.updated"),
+      render: (execution) => execution.updatedAt.slice(0, 19).replace("T", " "),
+    },
+  ];
+
+  const approvalColumns: DataTableColumn<AgentApproval>[] = [
+    {
+      key: "action",
+      header: t("agents.columns.action"),
+      render: (approval) => approval.action,
+    },
+    {
+      key: "approval",
+      header: t("agents.columns.approval"),
+      render: (approval) =>
+        catalogCopy(
+          t,
+          `agents.approvalState.${approval.state}`,
+          approval.state,
+        ),
+    },
+    {
+      key: "step",
+      header: t("agents.columns.step"),
+      render: (approval) => approval.stepId,
+    },
+    {
+      key: "actions",
+      header: t("agents.columns.actions"),
+      render: (approval) =>
+        approval.state === "REQUIRES_APPROVAL" ? (
+          <div className="flex flex-wrap gap-1">
+            <Button
+              size="sm"
+              variant="secondary"
+              onClick={() => {
+                void agentOsService
+                  .resolveApproval({
+                    approvalId: approval.id,
+                    state: "APPROVED",
+                    decidedBy: aos.userId ?? "local-user",
+                  })
+                  .then(() => {
+                    setNotice(t("agents.notice.approvalApproved"));
+                  })
+                  .catch((err) => {
+                    setNotice(
+                      localizeThrownError(t, err, "agents.notice.taskFailed"),
+                    );
+                  });
+              }}
+            >
+              {t("agents.actions.approve")}
+            </Button>
+            <Button
+              size="sm"
+              variant="ghost"
+              onClick={() => {
+                void agentOsService
+                  .resolveApproval({
+                    approvalId: approval.id,
+                    state: "REJECTED",
+                    decidedBy: aos.userId ?? "local-user",
+                  })
+                  .then(() => {
+                    setNotice(t("agents.notice.approvalRejected"));
+                  })
+                  .catch((err) => {
+                    setNotice(
+                      localizeThrownError(t, err, "agents.notice.taskFailed"),
+                    );
+                  });
+              }}
+            >
+              {t("agents.actions.reject")}
+            </Button>
+          </div>
+        ) : (
+          t("agents.actions.emDash")
+        ),
+    },
+  ];
+
+  const stepExecutionColumns: DataTableColumn<StepExecution>[] = [
+    {
+      key: "action",
+      header: t("agents.columns.action"),
+      render: (event) => event.action,
+    },
+    {
+      key: "status",
+      header: t("agents.columns.status"),
+      render: (event) =>
+        catalogCopy(
+          t,
+          `agents.stepExecutionStatus.${event.status}`,
+          event.status,
+        ),
+    },
+    {
+      key: "approval",
+      header: t("agents.columns.approval"),
+      render: (event) =>
+        event.approvalState
+          ? catalogCopy(
+              t,
+              `agents.approvalState.${event.approvalState}`,
+              event.approvalState,
+            )
+          : t("agents.actions.emDash"),
+    },
+    {
+      key: "result",
+      header: t("agents.columns.result"),
+      render: (event) =>
+        event.error
+          ? event.error
+          : JSON.stringify(event.result ?? event.input ?? "").slice(0, 80),
+    },
+    {
+      key: "timestamp",
+      header: t("agents.columns.timestamp"),
+      render: (event) => event.timestamp.slice(0, 19).replace("T", " "),
+    },
+  ];
+
   const selectedRuntime = aos.runtimes.find(
     (r) => r.instanceId === effectiveSelected,
   );
   const supervisor = aos.runtimes.find((r) => r.agentId === "executive_advisor");
+  const pendingApprovals = aos.approvals.filter(
+    (approval) => approval.state === "REQUIRES_APPROVAL",
+  );
+  const recentExecutions = [...aos.executions].slice(0, 8);
+  const recentEvents = [...aos.stepExecutions].slice(0, 12);
 
   return (
     <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-4">
@@ -327,7 +494,10 @@ export function AgentOperatingSystem(): JSX.Element {
               label={t("agents.dashboard.toolCalls")}
               value={String(aos.metrics.toolInvocations24h)}
             />
-            <Stat label={t("agents.dashboard.knowledge")} value={String(aos.knowledge.length)} />
+            <Stat
+              label={t("agents.dashboard.pendingApprovals")}
+              value={String(pendingApprovals.length)}
+            />
           </div>
           <Card className="space-y-3" padding="20px" hover={false}>
             <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
@@ -340,6 +510,24 @@ export function AgentOperatingSystem(): JSX.Element {
               emptyTitle={t("agents.dashboard.emptyTitle")}
               emptyDescription={t("agents.dashboard.emptyDescription")}
               minWidth={720}
+            />
+          </Card>
+          <Card className="space-y-3" padding="20px" hover={false}>
+            <div className="flex items-center justify-between gap-3">
+              <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+                {t("agents.history.executionsTitle")}
+              </h2>
+              <span className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                {t("agents.dashboard.knowledge")}: {aos.knowledge.length}
+              </span>
+            </div>
+            <DataTable
+              columns={executionColumns}
+              rows={recentExecutions}
+              rowKey={(execution) => execution.id}
+              emptyTitle={t("agents.history.emptyTitle")}
+              emptyDescription={t("agents.history.emptyDescription")}
+              minWidth={760}
             />
           </Card>
         </>
@@ -543,19 +731,60 @@ export function AgentOperatingSystem(): JSX.Element {
       ) : null}
 
       {tab === "history" ? (
-        <Card className="space-y-3" padding="20px" hover={false}>
-          <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-            {t("agents.history.title")}
-          </h2>
-          <DataTable
-            columns={taskColumns}
-            rows={[...aos.tasks]}
-            rowKey={(r) => r.id}
-            emptyTitle={t("agents.history.emptyTitle")}
-            emptyDescription={t("agents.history.emptyDescription")}
-            minWidth={800}
-          />
-        </Card>
+        <div className="grid gap-4">
+          <Card className="space-y-3" padding="20px" hover={false}>
+            <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+              {t("agents.history.title")}
+            </h2>
+            <DataTable
+              columns={taskColumns}
+              rows={[...aos.tasks]}
+              rowKey={(r) => r.id}
+              emptyTitle={t("agents.history.emptyTitle")}
+              emptyDescription={t("agents.history.emptyDescription")}
+              minWidth={800}
+            />
+          </Card>
+          <Card className="space-y-3" padding="20px" hover={false}>
+            <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+              {t("agents.history.executionsTitle")}
+            </h2>
+            <DataTable
+              columns={executionColumns}
+              rows={[...aos.executions]}
+              rowKey={(execution) => execution.id}
+              emptyTitle={t("agents.history.emptyTitle")}
+              emptyDescription={t("agents.history.emptyDescription")}
+              minWidth={760}
+            />
+          </Card>
+          <Card className="space-y-3" padding="20px" hover={false}>
+            <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+              {t("agents.history.approvalsTitle")}
+            </h2>
+            <DataTable
+              columns={approvalColumns}
+              rows={pendingApprovals}
+              rowKey={(approval) => approval.id}
+              emptyTitle={t("agents.history.noApprovalsTitle")}
+              emptyDescription={t("agents.history.noApprovalsDescription")}
+              minWidth={760}
+            />
+          </Card>
+          <Card className="space-y-3" padding="20px" hover={false}>
+            <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+              {t("agents.history.auditTitle")}
+            </h2>
+            <DataTable
+              columns={stepExecutionColumns}
+              rows={recentEvents}
+              rowKey={(event) => event.id}
+              emptyTitle={t("agents.history.emptyTitle")}
+              emptyDescription={t("agents.history.emptyDescription")}
+              minWidth={820}
+            />
+          </Card>
+        </div>
       ) : null}
 
       {tab === "memory" ? (

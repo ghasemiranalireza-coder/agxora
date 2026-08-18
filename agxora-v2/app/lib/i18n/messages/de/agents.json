@@ -24,7 +24,10 @@
     "agentActivated": "Agent aktiviert",
     "taskCancelled": "Aufgabe abgebrochen.",
     "supervisorDelegated": "Der Vorgesetzte delegierte ein Follow-up",
-    "settingsUpdated": "Agent-Betriebssystemeinstellungen für diesen lokalen Arbeitsbereich aktualisiert."
+    "settingsUpdated": "Agent-Betriebssystemeinstellungen für diesen lokalen Arbeitsbereich aktualisiert.",
+    "approvalRequired": "Approval required before the next tool step can run.",
+    "approvalApproved": "Approval recorded and execution resumed.",
+    "approvalRejected": "Approval rejected. Execution is now blocked."
   },
   "dashboard": {
     "agents": "Agenten",
@@ -37,7 +40,8 @@
     "knowledge": "Kenntnisse",
     "activeFleet": "Aktive Flotte",
     "emptyTitle": "Keine Agenten aktiv",
-    "emptyDescription": "Installieren oder aktivieren Sie einen Agenten vom Marktplatz aus, um simulierte Läufe zu starten."
+    "emptyDescription": "Installieren oder aktivieren Sie einen Agenten vom Marktplatz aus, um simulierte Läufe zu starten.",
+    "pendingApprovals": "Pending approvals"
   },
   "registry": {
     "title": "Register",
@@ -63,7 +67,12 @@
   "history": {
     "title": "Ausführungshistorie",
     "emptyTitle": "Noch keine Hinrichtungen",
-    "emptyDescription": "Führen Sie eine Agentenaufgabe aus der Registrierung oder dem Monitor aus."
+    "emptyDescription": "Führen Sie eine Agentenaufgabe aus der Registrierung oder dem Monitor aus.",
+    "executionsTitle": "Execution lifecycle",
+    "approvalsTitle": "Pending approvals",
+    "noApprovalsTitle": "No approvals pending",
+    "noApprovalsDescription": "Approvals appear here when guarded tools require human review.",
+    "auditTitle": "Execution audit trail"
   },
   "memory": {
     "title": "Speicherzentrum",
@@ -105,14 +114,24 @@
     "at": "At",
     "title": "Titel",
     "kind": "Art",
-    "summary": "Kurzdarstellung"
+    "summary": "Kurzdarstellung",
+    "goal": "Goal",
+    "lifecycle": "Lifecycle",
+    "step": "Step",
+    "updated": "Updated",
+    "action": "Action",
+    "approval": "Approval",
+    "result": "Result",
+    "timestamp": "Timestamp"
   },
   "actions": {
     "run": "Ausführen",
     "pause": "Pause",
     "activate": "Aktivieren",
     "cancel": "Abbrechen",
-    "emDash": "—"
+    "emDash": "—",
+    "approve": "Approve",
+    "reject": "Reject"
   },
   "goals": {
     "executeBusiness": "{agentId} Geschäftsziel ausführen",
@@ -273,7 +292,8 @@
     "completed": "Abgeschlossen",
     "cancelled": "Abgebrochen",
     "failed": "Fehlgeschlagen",
-    "retrying": "Wird wiederholt"
+    "retrying": "Wird wiederholt",
+    "blocked": "Blocked"
   },
   "memoryScope": {
     "working": "Arbeitspeicher",
@@ -292,5 +312,31 @@
     "procedures": "Verfahren",
     "vector": "Vektor",
     "rag": "RAG"
+  },
+  "executionLifecycle": {
+    "IDLE": "Idle",
+    "UNDERSTAND": "Understand",
+    "PLAN": "Plan",
+    "WAITING_FOR_APPROVAL": "Waiting for approval",
+    "EXECUTING": "Executing",
+    "VERIFYING": "Verifying",
+    "COMPLETED": "Completed",
+    "FAILED": "Failed",
+    "CANCELLED": "Cancelled",
+    "BLOCKED": "Blocked"
+  },
+  "approvalState": {
+    "REQUIRES_APPROVAL": "Requires approval",
+    "APPROVED": "Approved",
+    "REJECTED": "Rejected"
+  },
+  "stepExecutionStatus": {
+    "PENDING": "Pending",
+    "RUNNING": "Running",
+    "COMPLETED": "Completed",
+    "FAILED": "Failed",
+    "WAITING_FOR_APPROVAL": "Waiting for approval",
+    "CANCELLED": "Cancelled",
+    "BLOCKED": "Blocked"
   }
 }

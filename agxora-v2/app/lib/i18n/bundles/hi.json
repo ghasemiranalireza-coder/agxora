@@ -4295,7 +4295,10 @@
       "agentActivated": "एजेंट सक्रिय हो गया",
       "taskCancelled": "कार्य रद्द कर दिया गया",
       "supervisorDelegated": "पर्यवेक्षक ने अनुवर्ती कार्रवाई सौंपी",
-      "settingsUpdated": "इस स्थानीय कार्यक्षेत्र के लिए एजेंट ओएस सेटिंग्स अपडेट की गईं।"
+      "settingsUpdated": "इस स्थानीय कार्यक्षेत्र के लिए एजेंट ओएस सेटिंग्स अपडेट की गईं।",
+      "approvalRequired": "Approval required before the next tool step can run.",
+      "approvalApproved": "Approval recorded and execution resumed.",
+      "approvalRejected": "Approval rejected. Execution is now blocked."
     },
     "dashboard": {
       "agents": "एजेंटों",
@@ -4308,7 +4311,8 @@
       "knowledge": "ज्ञान",
       "activeFleet": "सक्रिय बेड़ा",
       "emptyTitle": "कोई एजेंट सक्रिय नहीं",
-      "emptyDescription": "सिम्युलेटेड रन शुरू करने के लिए बाज़ार से एक एजेंट स्थापित या सक्रिय करें।"
+      "emptyDescription": "सिम्युलेटेड रन शुरू करने के लिए बाज़ार से एक एजेंट स्थापित या सक्रिय करें।",
+      "pendingApprovals": "Pending approvals"
     },
     "registry": {
       "title": "रजिस्ट्री",
@@ -4334,7 +4338,12 @@
     "history": {
       "title": "निष्पादन इतिहास",
       "emptyTitle": "अभी तक कोई निष्पादन नहीं",
-      "emptyDescription": "रजिस्ट्री या मॉनिटर से एजेंट कार्य चलाएँ।"
+      "emptyDescription": "रजिस्ट्री या मॉनिटर से एजेंट कार्य चलाएँ।",
+      "executionsTitle": "Execution lifecycle",
+      "approvalsTitle": "Pending approvals",
+      "noApprovalsTitle": "No approvals pending",
+      "noApprovalsDescription": "Approvals appear here when guarded tools require human review.",
+      "auditTitle": "Execution audit trail"
     },
     "memory": {
       "title": "स्मृति केंद्र",
@@ -4376,14 +4385,24 @@
       "at": "पर",
       "title": "शीर्षक",
       "kind": "दयालु",
-      "summary": "सारांश"
+      "summary": "सारांश",
+      "goal": "Goal",
+      "lifecycle": "Lifecycle",
+      "step": "Step",
+      "updated": "Updated",
+      "action": "Action",
+      "approval": "Approval",
+      "result": "Result",
+      "timestamp": "Timestamp"
     },
     "actions": {
       "run": "दौड़ना",
       "pause": "विराम",
       "activate": "सक्रिय करें",
       "cancel": "रद्द करना",
-      "emDash": "—"
+      "emDash": "—",
+      "approve": "Approve",
+      "reject": "Reject"
     },
     "goals": {
       "executeBusiness": "{agentId} व्यावसायिक लक्ष्य निष्पादित करें",
@@ -4544,7 +4563,8 @@
       "completed": "पूर्ण",
       "cancelled": "रद्द",
       "failed": "विफल",
-      "retrying": "पुनः प्रयास"
+      "retrying": "पुनः प्रयास",
+      "blocked": "Blocked"
     },
     "memoryScope": {
       "working": "कार्य",
@@ -4563,6 +4583,32 @@
       "procedures": "प्रक्रियाएँ",
       "vector": "वेक्टर",
       "rag": "RAG"
+    },
+    "executionLifecycle": {
+      "IDLE": "Idle",
+      "UNDERSTAND": "Understand",
+      "PLAN": "Plan",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "EXECUTING": "Executing",
+      "VERIFYING": "Verifying",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
+    },
+    "approvalState": {
+      "REQUIRES_APPROVAL": "Requires approval",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected"
+    },
+    "stepExecutionStatus": {
+      "PENDING": "Pending",
+      "RUNNING": "Running",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
     }
   },
   "integrations": {

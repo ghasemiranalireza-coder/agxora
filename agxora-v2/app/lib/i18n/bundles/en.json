@@ -4295,7 +4295,10 @@
       "agentActivated": "Agent activated",
       "taskCancelled": "Task cancelled",
       "supervisorDelegated": "Supervisor delegated a follow-up",
-      "settingsUpdated": "Agent OS settings updated for this local workspace."
+      "settingsUpdated": "Agent OS settings updated for this local workspace.",
+      "approvalRequired": "Approval required before the next tool step can run.",
+      "approvalApproved": "Approval recorded and execution resumed.",
+      "approvalRejected": "Approval rejected. Execution is now blocked."
     },
     "dashboard": {
       "agents": "Agents",
@@ -4308,7 +4311,8 @@
       "knowledge": "Knowledge",
       "activeFleet": "Active fleet",
       "emptyTitle": "No agents active",
-      "emptyDescription": "Install or activate an agent from the marketplace to start simulated runs."
+      "emptyDescription": "Install or activate an agent from the marketplace to start simulated runs.",
+      "pendingApprovals": "Pending approvals"
     },
     "registry": {
       "title": "Registry",
@@ -4334,7 +4338,12 @@
     "history": {
       "title": "Execution history",
       "emptyTitle": "No executions yet",
-      "emptyDescription": "Run an agent task from the registry or monitor."
+      "emptyDescription": "Run an agent task from the registry or monitor.",
+      "executionsTitle": "Execution lifecycle",
+      "approvalsTitle": "Pending approvals",
+      "noApprovalsTitle": "No approvals pending",
+      "noApprovalsDescription": "Approvals appear here when guarded tools require human review.",
+      "auditTitle": "Execution audit trail"
     },
     "memory": {
       "title": "Memory center",
@@ -4376,14 +4385,24 @@
       "at": "At",
       "title": "Title",
       "kind": "Kind",
-      "summary": "Summary"
+      "summary": "Summary",
+      "goal": "Goal",
+      "lifecycle": "Lifecycle",
+      "step": "Step",
+      "updated": "Updated",
+      "action": "Action",
+      "approval": "Approval",
+      "result": "Result",
+      "timestamp": "Timestamp"
     },
     "actions": {
       "run": "Run",
       "pause": "Pause",
       "activate": "Activate",
       "cancel": "Cancel",
-      "emDash": "—"
+      "emDash": "—",
+      "approve": "Approve",
+      "reject": "Reject"
     },
     "goals": {
       "executeBusiness": "Execute {agentId} business goal",
@@ -4544,7 +4563,8 @@
       "completed": "Completed",
       "cancelled": "Cancelled",
       "failed": "Failed",
-      "retrying": "Retrying"
+      "retrying": "Retrying",
+      "blocked": "Blocked"
     },
     "memoryScope": {
       "working": "Working",
@@ -4563,6 +4583,32 @@
       "procedures": "Procedures",
       "vector": "Vector",
       "rag": "RAG"
+    },
+    "executionLifecycle": {
+      "IDLE": "Idle",
+      "UNDERSTAND": "Understand",
+      "PLAN": "Plan",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "EXECUTING": "Executing",
+      "VERIFYING": "Verifying",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
+    },
+    "approvalState": {
+      "REQUIRES_APPROVAL": "Requires approval",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected"
+    },
+    "stepExecutionStatus": {
+      "PENDING": "Pending",
+      "RUNNING": "Running",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "CANCELLED": "Cancelled",
+      "BLOCKED": "Blocked"
     }
   },
   "integrations": {
