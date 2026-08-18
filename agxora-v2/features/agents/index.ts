@@ -24,3 +24,4 @@ export * from "./components";
 export * from "./growth";
 export * from "./website";
 export * from "./social";
+export * from "./campaigns";

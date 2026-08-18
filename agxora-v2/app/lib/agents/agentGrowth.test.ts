@@ -182,7 +182,7 @@ describe("Phase 43 AI growth agent foundation", () => {
     expect(generated.data.status).toBe("PREVIEW");
   });
 
-  it("normalizes version-2 persistence into version 3", () => {
+  it("normalizes version-2 persistence into the current Agent OS version", () => {
     const normalized = normalizeState({
       version: 2,
       runtimes: [],
@@ -199,11 +199,13 @@ describe("Phase 43 AI growth agent foundation", () => {
       settings: [],
       toolInvocationCount24h: 4,
     });
-    expect(normalized?.version).toBe(3);
+    expect(normalized?.version).toBe(4);
     expect(normalized?.growthProfiles).toEqual([]);
     expect(normalized?.websiteProjects).toEqual([]);
     expect(normalized?.socialAccounts).toEqual([]);
     expect(normalized?.socialContent).toEqual([]);
+    expect(normalized?.campaigns).toEqual([]);
+    expect(normalized?.growthInsights).toEqual([]);
     expect(normalized?.toolInvocationCount24h).toBe(4);
   });
 });

@@ -290,6 +290,52 @@ export function registerLocalDataHandlers(): void {
       if (options.method === "POST" && path === "/agents/growth/content/generate") {
         return mockOk(await growthService.generateContent(organizationId), 201);
       }
+      if (options.method === "GET" && path === "/agents/growth/campaigns") {
+        return mockOk(growthService.listCampaigns(organizationId));
+      }
+      if (options.method === "POST" && path === "/agents/growth/campaigns") {
+        return mockOk(await growthService.planCampaign(organizationId, {
+          objective: typeof body.objective === "string" ? body.objective : undefined,
+          audience: typeof body.audience === "string" ? body.audience : undefined,
+          offer: typeof body.offer === "string" ? body.offer : undefined,
+          channels: Array.isArray(body.channels)
+            ? body.channels.filter((item): item is string => typeof item === "string")
+            : undefined,
+        }), 201);
+      }
+      if (options.method === "POST" && path === "/agents/growth/campaigns/plan") {
+        return mockOk(await growthService.planCampaign(organizationId, {
+          objective: typeof body.objective === "string" ? body.objective : undefined,
+          audience: typeof body.audience === "string" ? body.audience : undefined,
+          offer: typeof body.offer === "string" ? body.offer : undefined,
+          channels: Array.isArray(body.channels)
+            ? body.channels.filter((item): item is string => typeof item === "string")
+            : undefined,
+        }), 201);
+      }
+      if (options.method === "POST" && path === "/agents/growth/campaigns/readiness") {
+        return mockOk(await growthService.evaluateReadiness(organizationId));
+      }
+      if (options.method === "POST" && path === "/agents/growth/insights") {
+        return mockOk(await growthService.generateInsights(organizationId), 201);
+      }
+      const campaignApprove = path.match(/^\/agents\/growth\/campaigns\/([^/]+)\/approve$/);
+      if (options.method === "POST" && campaignApprove) {
+        return mockOk(await growthService.requestCampaignApproval(organizationId, campaignApprove[1]));
+      }
+      const campaignMatch = path.match(/^\/agents\/growth\/campaigns\/([^/]+)$/);
+      if (options.method === "GET" && campaignMatch) {
+        const campaign = growthService.getCampaign(organizationId, campaignMatch[1]);
+        if (!campaign) {
+          return {
+            ok: false,
+            status: 404,
+            code: "campaign_missing",
+            message: "Campaign not found",
+          };
+        }
+        return mockOk(campaign);
+      }
 
       return {
         ok: false,

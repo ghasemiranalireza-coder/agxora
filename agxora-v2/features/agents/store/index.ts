@@ -304,4 +304,29 @@ export const agentsStore = {
     persist();
     emit();
   },
+
+  upsertCampaign(campaign: import("../campaigns/types").Campaign): void {
+    const idx = state.campaigns.findIndex((item) => item.id === campaign.id);
+    const campaigns = [...state.campaigns];
+    if (idx >= 0) campaigns[idx] = campaign;
+    else campaigns.unshift(campaign);
+    state = { ...state, campaigns: campaigns.slice(0, 50) };
+    persist();
+    emit();
+  },
+
+  replaceGrowthInsights(
+    organizationId: string,
+    insights: readonly import("../campaigns/types").GrowthInsight[],
+  ): void {
+    const others = state.growthInsights.filter(
+      (item) => item.organizationId !== organizationId,
+    );
+    state = {
+      ...state,
+      growthInsights: [...insights, ...others].slice(0, 200),
+    };
+    persist();
+    emit();
+  },
 };

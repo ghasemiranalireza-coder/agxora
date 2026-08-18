@@ -1,0 +1,272 @@
+"use client";
+
+import { useState, type JSX } from "react";
+import { Badge, Button, Card } from "@/app/components/ui";
+import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
+import { evaluateCampaignReadiness } from "../campaigns/readiness";
+import type { Campaign } from "../campaigns/types";
+import { growthService } from "../growth/service";
+import { useAgentOperatingSystem } from "../hooks";
+
+export function CampaignWorkspace(): JSX.Element {
+  const t = useT();
+  const aos = useAgentOperatingSystem();
+  const orgId = aos.organizationId;
+  const snapshot = growthService.snapshot(orgId);
+  const campaign = snapshot.campaigns[0];
+  const [notice, setNotice] = useState(t("agents.campaigns.noticeReady"));
+  const [busy, setBusy] = useState(false);
+  const pendingApprovals = snapshot.approvals.filter(
+    (item) => item.state === "REQUIRES_APPROVAL",
+  );
+
+  const run = async (action: () => Promise<void>, successKey: string) => {
+    setBusy(true);
+    try {
+      await action();
+      setNotice(t(successKey));
+    } catch (error) {
+      setNotice(localizeThrownError(t, error, "agents.campaigns.noticeFailed"));
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <div className="space-y-4">
+      <Card className="space-y-2" padding="24px" hover={false}>
+        <p
+          className="text-[11px] font-semibold uppercase tracking-[0.16em]"
+          style={{ color: "var(--agx-accent, #22d3ee)" }}
+        >
+          {t("agents.tabs.campaigns")}
+        </p>
+        <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          {notice}
+        </p>
+        <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          {t("agents.growth.noFakePublish")}
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            size="sm"
+            disabled={busy}
+            onClick={() =>
+              void run(async () => {
+                await growthService.planCampaign(orgId);
+              }, "agents.campaigns.noticePlanned")
+            }
+          >
+            {t("agents.campaigns.actions.plan")}
+          </Button>
+          <Button
+            size="sm"
+            variant="secondary"
+            disabled={busy || !campaign}
+            onClick={() =>
+              void run(async () => {
+                await growthService.evaluateReadiness(orgId);
+                await growthService.generateInsights(orgId);
+              }, "agents.campaigns.noticeReadiness")
+            }
+          >
+            {t("agents.campaigns.actions.readiness")}
+          </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            disabled={busy || !campaign}
+            onClick={() =>
+              void run(async () => {
+                await growthService.requestCampaignApproval(orgId, campaign?.id);
+              }, "agents.campaigns.noticeApprovalRequested")
+            }
+          >
+            {t("agents.campaigns.actions.requestApproval")}
+          </Button>
+        </div>
+      </Card>
+
+      {campaign && snapshot.profile ? (
+        <CampaignDetail
+          campaign={campaign}
+          readiness={evaluateCampaignReadiness({
+            profile: snapshot.profile,
+            campaign,
+            accounts: snapshot.accounts,
+            website: snapshot.websiteProjects[0],
+          })}
+          insights={snapshot.insights}
+        />
+      ) : (
+        <Card padding="24px" hover={false}>
+          <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {t("agents.campaigns.empty")}
+          </p>
+        </Card>
+      )}
+
+      {pendingApprovals.length > 0 ? (
+        <Card className="space-y-3" padding="24px" hover={false}>
+          <h3 className="text-base font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+            {t("agents.history.approvalsTitle")}
+          </h3>
+          {pendingApprovals.map((approval) => (
+            <div key={approval.id} className="flex flex-wrap items-center gap-2">
+              <span className="text-sm">{approval.action}</span>
+              <Button
+                size="sm"
+                disabled={busy}
+                onClick={() =>
+                  void run(async () => {
+                    await growthService.resolveApproval({
+                      approvalId: approval.id,
+                      state: "APPROVED",
+                      decidedBy: "operator",
+                    });
+                  }, "agents.notice.approvalApproved")
+                }
+              >
+                {t("agents.actions.approve")}
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                disabled={busy}
+                onClick={() =>
+                  void run(async () => {
+                    await growthService.resolveApproval({
+                      approvalId: approval.id,
+                      state: "REJECTED",
+                      decidedBy: "operator",
+                    });
+                  }, "agents.notice.approvalRejected")
+                }
+              >
+                {t("agents.actions.reject")}
+              </Button>
+            </div>
+          ))}
+        </Card>
+      ) : null}
+    </div>
+  );
+}
+
+function CampaignDetail({
+  campaign,
+  readiness,
+  insights,
+}: {
+  readonly campaign: Campaign;
+  readonly readiness: ReturnType<typeof evaluateCampaignReadiness>;
+  readonly insights: ReturnType<typeof growthService.snapshot>["insights"];
+}): JSX.Element {
+  const t = useT();
+  return (
+    <Card className="space-y-4" padding="24px" hover={false}>
+      <div className="flex flex-wrap items-center gap-2">
+        <h2 className="text-lg font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+          {campaign.name}
+        </h2>
+        <Badge tone="warning">
+          {catalogCopy(t, `agents.campaigns.status.${campaign.status}`, campaign.status)}
+        </Badge>
+        {campaign.executionResult && !campaign.executionResult.available ? (
+          <Badge>{t("agents.growth.publishingNotConfigured")}</Badge>
+        ) : null}
+      </div>
+      <DetailRow label={t("agents.campaigns.labels.objective")} value={campaign.objective.statement} />
+      <DetailRow label={t("agents.campaigns.labels.audience")} value={campaign.audience.description} />
+      <DetailRow label={t("agents.campaigns.labels.offer")} value={campaign.offer} />
+      <DetailRow label={t("agents.campaigns.labels.cta")} value={campaign.websiteCta} />
+      <DetailRow label={t("agents.campaigns.labels.strategy")} value={campaign.strategy} />
+      <DetailRow
+        label={t("agents.campaigns.labels.approval")}
+        value={
+          campaign.approvalState
+            ? catalogCopy(t, `agents.approvalState.${campaign.approvalState}`, campaign.approvalState)
+            : t("agents.campaigns.approval.none")
+        }
+      />
+      <div>
+        <p className="text-xs uppercase tracking-wide" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          {t("agents.campaigns.labels.channels")}
+        </p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {campaign.channels
+            .filter((channel) => channel.enabled)
+            .map((channel) => (
+              <Badge key={channel.id}>
+                {catalogCopy(t, `agents.campaigns.channels.${channel.id}`, channel.id)}
+              </Badge>
+            ))}
+        </div>
+      </div>
+      <DetailRow
+        label={t("agents.campaigns.labels.timeline")}
+        value={`${campaign.startDate} → ${campaign.endDate}`}
+      />
+      <div className="space-y-2">
+        <p className="text-sm font-semibold">
+          {t("agents.campaigns.labels.readiness")} {String(readiness.score)}
+        </p>
+        <p className="text-xs uppercase tracking-wide" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          {t("agents.campaigns.labels.blockers")}
+        </p>
+        {readiness.blockers.map((code) => (
+          <p key={code} className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {catalogCopy(t, `agents.campaigns.blockers.${code}`, code)}
+          </p>
+        ))}
+      </div>
+      <div className="space-y-2">
+        <p className="text-sm font-semibold">{t("agents.campaigns.labels.tasks")}</p>
+        {campaign.tasks.map((item) => (
+          <p key={item.id} className="text-sm">
+            {catalogCopy(t, `agents.campaigns.taskStatus.${item.status}`, item.status)}
+            {" · "}
+            {catalogCopy(t, `agents.campaigns.tasks.${item.code}`, item.code)}
+          </p>
+        ))}
+      </div>
+      <div className="space-y-2">
+        <p className="text-sm font-semibold">{t("agents.campaigns.labels.milestones")}</p>
+        {campaign.milestones.map((item) => (
+          <p key={item.id} className="text-sm">
+            {catalogCopy(t, `agents.campaigns.milestones.${item.code}`, item.code)}
+          </p>
+        ))}
+      </div>
+      <div className="space-y-2">
+        <p className="text-sm font-semibold">{t("agents.campaigns.labels.insights")}</p>
+        {insights.map((insight) => (
+          <p key={insight.id} className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {catalogCopy(t, `agents.campaigns.insightTypes.${insight.type}`, insight.type)}
+            {" · "}
+            {catalogCopy(t, `agents.campaigns.insights.${insight.code}`, insight.code)}
+          </p>
+        ))}
+      </div>
+    </Card>
+  );
+}
+
+function DetailRow({
+  label,
+  value,
+}: {
+  readonly label: string;
+  readonly value: string;
+}): JSX.Element {
+  return (
+    <div>
+      <p className="text-xs uppercase tracking-wide" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+        {label}
+      </p>
+      <p className="text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
+        {value}
+      </p>
+    </div>
+  );
+}

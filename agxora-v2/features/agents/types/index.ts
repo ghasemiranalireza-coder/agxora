@@ -16,6 +16,7 @@ export type AgentId =
   | "meeting_assistant"
   | "website_builder"
   | "social_media"
+  | "growth_campaign"
   | "custom";
 
 export type AgentLifecycleStatus =
@@ -45,7 +46,11 @@ export type ToolId =
   | "website_publish"
   | "social"
   | "social_publish"
-  | "social_schedule";
+  | "social_schedule"
+  | "campaign_plan"
+  | "campaign_readiness"
+  | "growth_insights"
+  | "campaign_execute";
 
 export type MemoryScope =
   | "working"

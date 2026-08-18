@@ -4288,7 +4288,8 @@
       "settings": "Настройки",
       "growth": "Growth",
       "website": "Website Builder",
-      "social": "Social Media"
+      "social": "Social Media",
+      "campaigns": "Campaigns"
     },
     "notice": {
       "simulatedRun": "Имитация запуска · {status} ({duration} мс)",
@@ -4480,6 +4481,10 @@
       "social_media": {
         "name": "Social Media Agent",
         "description": "Creates social strategy, calendars, and draft content pending approval."
+      },
+      "growth_campaign": {
+        "name": "Growth Campaign Agent",
+        "description": "Plans campaigns, evaluates readiness, and prepares execution behind approval."
       }
     },
     "toolsCatalog": {
@@ -4550,6 +4555,22 @@
       "social_schedule": {
         "name": "Social Schedule Tool",
         "description": "Attempt social scheduling through a platform adapter."
+      },
+      "campaign_plan": {
+        "name": "Campaign Plan Tool",
+        "description": "Create a structured campaign from growth website and social outputs."
+      },
+      "campaign_readiness": {
+        "name": "Campaign Readiness Tool",
+        "description": "Evaluate campaign readiness and execution blockers."
+      },
+      "growth_insights": {
+        "name": "Growth Insights Tool",
+        "description": "Generate deterministic growth priorities, risks, and next actions."
+      },
+      "campaign_execute": {
+        "name": "Campaign Execute Tool",
+        "description": "Attempt campaign execution through existing publish adapters."
       }
     },
     "knowledgeDocs": {
@@ -4760,6 +4781,96 @@
         "contact": "Contact",
         "faq": "FAQ",
         "footer": "Footer"
+      }
+    },
+    "campaigns": {
+      "noticeReady": "Campaign workspace ready.",
+      "noticeFailed": "Campaign action failed",
+      "noticePlanned": "Campaign plan generated.",
+      "noticeReadiness": "Campaign readiness and insights updated.",
+      "noticeApprovalRequested": "Campaign execution is waiting for approval.",
+      "empty": "Plan a campaign from the growth profile, website, and social foundation.",
+      "approval": {
+        "none": "Not requested"
+      },
+      "actions": {
+        "plan": "Plan campaign",
+        "readiness": "Evaluate readiness",
+        "requestApproval": "Request approval"
+      },
+      "labels": {
+        "objective": "Objective",
+        "audience": "Audience",
+        "offer": "Offer / service",
+        "cta": "Website CTA",
+        "strategy": "Strategy",
+        "approval": "Approval state",
+        "channels": "Channels",
+        "timeline": "Timeline",
+        "readiness": "Readiness",
+        "blockers": "Execution blockers",
+        "tasks": "Tasks",
+        "milestones": "Milestones",
+        "insights": "Growth insights"
+      },
+      "status": {
+        "DRAFT": "Draft",
+        "PLANNING": "Planning",
+        "READY_FOR_APPROVAL": "Ready for approval",
+        "APPROVED": "Approved",
+        "IN_PROGRESS": "In progress",
+        "BLOCKED": "Blocked",
+        "COMPLETED": "Completed",
+        "FAILED": "Failed",
+        "CANCELLED": "Cancelled"
+      },
+      "channels": {
+        "WEBSITE": "Website",
+        "INSTAGRAM": "Instagram",
+        "FACEBOOK": "Facebook",
+        "TIKTOK": "TikTok",
+        "LINKEDIN": "LinkedIn",
+        "YOUTUBE": "YouTube"
+      },
+      "blockers": {
+        "social.disconnected": "Social account connection required",
+        "publishing.unavailable": "Publishing integration not configured"
+      },
+      "taskStatus": {
+        "pending": "Open",
+        "completed": "Done",
+        "blocked": "Blocked"
+      },
+      "tasks": {
+        "prepare_website": "Prepare website landing page",
+        "review_website_cta": "Review website CTA",
+        "prepare_social_post": "Prepare social post",
+        "prepare_social_story": "Prepare social story",
+        "review_campaign_copy": "Review campaign copy",
+        "approve_campaign": "Approve campaign",
+        "connect_social_account": "Connect social account",
+        "configure_publishing": "Configure publishing integration",
+        "schedule_content": "Schedule content",
+        "publish_content": "Publish content"
+      },
+      "milestones": {
+        "plan_ready": "Campaign plan ready",
+        "review_assets": "Review campaign assets",
+        "approval": "Campaign approval",
+        "execution": "Execution readiness"
+      },
+      "insightTypes": {
+        "PRIORITY": "Priority",
+        "OPPORTUNITY": "Opportunity",
+        "RISK": "Risk",
+        "ACTION": "Action"
+      },
+      "insights": {
+        "priority.review_cta": "Complete website CTA before campaign approval",
+        "opportunity.promote_service": "Existing service content can support the campaign",
+        "risk.disconnected": "Social account is not connected",
+        "action.review_approve": "Review and approve campaign content",
+        "risk.publishing_unavailable": "Publishing integration is not configured"
       }
     }
   },

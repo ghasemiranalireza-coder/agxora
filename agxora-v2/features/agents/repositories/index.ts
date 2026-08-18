@@ -2,6 +2,7 @@
  * Agent OS repository — LocalStorage now, REST later.
  */
 
+import type { GrowthInsight, Campaign } from "../campaigns/types";
 import type { GrowthBusinessProfile, GrowthStrategy } from "../growth/types";
 import type {
   SocialAccount,
@@ -27,7 +28,7 @@ import type {
 import type { WebsiteProject } from "../website/types";
 
 export interface AgentsPersistedState {
-  readonly version: 3;
+  readonly version: 4;
   readonly runtimes: AgentRuntime[];
   readonly tasks: AgentTask[];
   readonly executions: AgentExecution[];
@@ -49,6 +50,8 @@ export interface AgentsPersistedState {
   readonly socialCalendars: SocialContentCalendar[];
   readonly socialContent: SocialContentItem[];
   readonly publishingJobs: SocialPublishingJob[];
+  readonly campaigns: Campaign[];
+  readonly growthInsights: GrowthInsight[];
 }
 
 export type LegacyAgentsPersistedState = Partial<AgentsPersistedState> & {
@@ -71,7 +74,7 @@ export function normalizeState(
 ): AgentsPersistedState | null {
   if (!state) return null;
   return {
-    version: 3,
+    version: 4,
     runtimes: asArray(state.runtimes),
     tasks: asArray(state.tasks),
     executions: asArray(state.executions),
@@ -96,6 +99,8 @@ export function normalizeState(
     socialCalendars: asArray(state.socialCalendars),
     socialContent: asArray(state.socialContent),
     publishingJobs: asArray(state.publishingJobs),
+    campaigns: asArray(state.campaigns),
+    growthInsights: asArray(state.growthInsights),
   };
 }
 
@@ -137,7 +142,7 @@ export class RestAgentsRepository implements AgentsRepository {
 
 export function emptyAgentsState(): AgentsPersistedState {
   return {
-    version: 3,
+    version: 4,
     runtimes: [],
     tasks: [],
     executions: [],
@@ -159,5 +164,7 @@ export function emptyAgentsState(): AgentsPersistedState {
     socialCalendars: [],
     socialContent: [],
     publishingJobs: [],
+    campaigns: [],
+    growthInsights: [],
   };
 }

@@ -10,6 +10,12 @@ import type {
   ToolInvocationResult,
 } from "../types";
 import {
+  handleCampaignExecuteTool,
+  handleCampaignPlanTool,
+  handleCampaignReadinessTool,
+  handleGrowthInsightsTool,
+} from "../campaigns/handlers";
+import {
   handleSocialPublishTool,
   handleSocialScheduleTool,
   handleSocialTool,
@@ -308,6 +314,77 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
       additionalProperties: true,
     },
   },
+  {
+    id: "campaign_plan",
+    name: "Campaign Plan Tool",
+    description: "Create a structured campaign from growth website and social outputs.",
+    module: "campaigns",
+    sensitive: false,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+        profileId: { type: "string", description: "Growth business profile id." },
+        objective: { type: "string", description: "Campaign objective." },
+        offer: { type: "string", description: "Promoted service or offer." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
+  {
+    id: "campaign_readiness",
+    name: "Campaign Readiness Tool",
+    description: "Evaluate campaign readiness and execution blockers.",
+    module: "campaigns",
+    sensitive: false,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+        campaignId: { type: "string", description: "Campaign id." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
+  {
+    id: "growth_insights",
+    name: "Growth Insights Tool",
+    description: "Generate deterministic growth priorities, risks, and next actions.",
+    module: "campaigns",
+    sensitive: false,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+        campaignId: { type: "string", description: "Campaign id." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
+  {
+    id: "campaign_execute",
+    name: "Campaign Execute Tool",
+    description: "Attempt campaign execution through existing publish adapters.",
+    module: "campaigns",
+    sensitive: true,
+    requiresApproval: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+        campaignId: { type: "string", description: "Campaign id." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
 ] as const;
 
 const handlers = new Map<ToolId, ToolHandler>();
@@ -355,3 +432,7 @@ registerToolHandler("website_publish", handleWebsitePublishTool);
 registerToolHandler("social", handleSocialTool);
 registerToolHandler("social_publish", handleSocialPublishTool);
 registerToolHandler("social_schedule", handleSocialScheduleTool);
+registerToolHandler("campaign_plan", handleCampaignPlanTool);
+registerToolHandler("campaign_readiness", handleCampaignReadinessTool);
+registerToolHandler("growth_insights", handleGrowthInsightsTool);
+registerToolHandler("campaign_execute", handleCampaignExecuteTool);
