@@ -1,9 +1,10 @@
 /**
- * Phase 51.0 — CRM Lead Status Advancement (Conversion Pipeline).
+ * Phase 51–52 — CRM status conversion + post-active disposition.
  *
  * Deterministic allowed transitions only. Live CRM status is the mutation
  * authority — never stale Lead Queue / GrowthCrmLink outcome.
  * Persistence remains v7 (no new Agent OS collections).
+ * No won/closed-won/deal/revenue semantics.
  */
 
 import {
@@ -15,14 +16,37 @@ import { getCrmBridgeProvider } from "./adapter";
 import { getGrowthCrmLink, listGrowthCrmLinks } from "./sync";
 import type { GrowthCrmLink } from "./types";
 
-/** Conservative conversion ladder — no won/closed-won/deal semantics. */
+/** Phase 51 conversion ladder — single next step only. */
+export const CRM_CONVERSION_NEXT: Readonly<
+  Partial<Record<CrmCustomerStatus, CrmCustomerStatus>>
+> = {
+  lead: "prospect",
+  prospect: "active",
+};
+
+/**
+ * Phase 52 disposition targets.
+ * `active` has two exits and always requires an explicit target.
+ */
+export const CRM_DISPOSITION_TARGETS: Readonly<
+  Record<CrmCustomerStatus, readonly CrmCustomerStatus[]>
+> = {
+  lead: ["inactive"],
+  prospect: ["inactive"],
+  active: ["vip", "inactive"],
+  inactive: ["archived"],
+  vip: [],
+  archived: [],
+};
+
+/** Full allowed transition map (conversion ∪ disposition). */
 export const CRM_STATUS_TRANSITIONS: Readonly<
   Record<CrmCustomerStatus, readonly CrmCustomerStatus[]>
 > = {
-  lead: ["prospect"],
-  prospect: ["active"],
-  active: [],
-  inactive: [],
+  lead: ["prospect", "inactive"],
+  prospect: ["active", "inactive"],
+  active: ["vip", "inactive"],
+  inactive: ["archived"],
   vip: [],
   archived: [],
 };
@@ -50,10 +74,24 @@ export interface CrmStatusAdvanceResult {
   readonly duplicated: boolean;
 }
 
+export type StatusTargetResolution = {
+  readonly ok: boolean;
+  readonly target?: CrmCustomerStatus;
+  readonly code?: string;
+  readonly message?: string;
+};
+
+/** Conversion-only next (Phase 51 ADVANCE_CRM_STATUS). */
 export function nextAllowedCrmStatus(
   current: CrmCustomerStatus,
 ): CrmCustomerStatus | undefined {
-  return CRM_STATUS_TRANSITIONS[current]?.[0];
+  return CRM_CONVERSION_NEXT[current];
+}
+
+export function dispositionTargetsFor(
+  current: CrmCustomerStatus,
+): readonly CrmCustomerStatus[] {
+  return CRM_DISPOSITION_TARGETS[current] ?? [];
 }
 
 export function isAllowedCrmStatusTransition(
@@ -63,15 +101,25 @@ export function isAllowedCrmStatusTransition(
   return (CRM_STATUS_TRANSITIONS[from] ?? []).includes(to);
 }
 
+export function isConversionTransition(
+  from: CrmCustomerStatus,
+  to: CrmCustomerStatus,
+): boolean {
+  return CRM_CONVERSION_NEXT[from] === to;
+}
+
+export function isDispositionTransition(
+  from: CrmCustomerStatus,
+  to: CrmCustomerStatus,
+): boolean {
+  return dispositionTargetsFor(from).includes(to);
+}
+
+/** Phase 51 ADVANCE — conversion ladder only. */
 export function resolveAdvanceTarget(input: {
   readonly current: CrmCustomerStatus;
   readonly requested?: CrmCustomerStatus;
-}): {
-  readonly ok: boolean;
-  readonly target?: CrmCustomerStatus;
-  readonly code?: string;
-  readonly message?: string;
-} {
+}): StatusTargetResolution {
   const next = nextAllowedCrmStatus(input.current);
   if (!next) {
     return {
@@ -88,7 +136,43 @@ export function resolveAdvanceTarget(input: {
       target: input.requested,
     };
   }
-  if (input.requested && !isAllowedCrmStatusTransition(input.current, input.requested)) {
+  return { ok: true, target: input.requested ?? next };
+}
+
+/**
+ * Phase 52 DISPOSE — disposition targets only.
+ * `active` always requires an explicit target (vip | inactive).
+ */
+export function resolveDispositionTarget(input: {
+  readonly current: CrmCustomerStatus;
+  readonly requested?: CrmCustomerStatus;
+}): StatusTargetResolution {
+  const targets = dispositionTargetsFor(input.current);
+  if (targets.length === 0) {
+    return {
+      ok: false,
+      code: "no_transition",
+      message: "crm_status_has_no_allowed_disposition",
+    };
+  }
+  if (input.current === "active" && !input.requested) {
+    return {
+      ok: false,
+      code: "explicit_target_required",
+      message: "crm_status_active_requires_explicit_target",
+    };
+  }
+  if (!input.requested) {
+    if (targets.length === 1) {
+      return { ok: true, target: targets[0] };
+    }
+    return {
+      ok: false,
+      code: "explicit_target_required",
+      message: "crm_status_explicit_target_required",
+    };
+  }
+  if (!targets.includes(input.requested)) {
     return {
       ok: false,
       code: "invalid_transition",
@@ -96,7 +180,54 @@ export function resolveAdvanceTarget(input: {
       target: input.requested,
     };
   }
-  return { ok: true, target: input.requested ?? next };
+  return { ok: true, target: input.requested };
+}
+
+/**
+ * Handler-side resolver: accept conversion or disposition when requested
+ * is present; never auto-pick among multiple active exits.
+ */
+export function resolveStatusMutationTarget(input: {
+  readonly current: CrmCustomerStatus;
+  readonly requested?: CrmCustomerStatus;
+}): StatusTargetResolution {
+  if (input.requested) {
+    if (isConversionTransition(input.current, input.requested)) {
+      return resolveAdvanceTarget(input);
+    }
+    if (isDispositionTransition(input.current, input.requested)) {
+      return resolveDispositionTarget(input);
+    }
+    return {
+      ok: false,
+      code: "invalid_transition",
+      message: "crm_status_transition_not_allowed",
+      target: input.requested,
+    };
+  }
+  const conv = nextAllowedCrmStatus(input.current);
+  const dispositions = dispositionTargetsFor(input.current);
+  if (conv && dispositions.length === 0) {
+    return resolveAdvanceTarget(input);
+  }
+  if (!conv && dispositions.length === 1) {
+    return resolveDispositionTarget(input);
+  }
+  if (input.current === "active" || dispositions.length > 1) {
+    return {
+      ok: false,
+      code: "explicit_target_required",
+      message: "crm_status_explicit_target_required",
+    };
+  }
+  if (conv) {
+    return resolveAdvanceTarget(input);
+  }
+  return {
+    ok: false,
+    code: "no_transition",
+    message: "crm_status_has_no_allowed_advance",
+  };
 }
 
 function isUnavailableError(error: unknown): boolean {
@@ -221,7 +352,7 @@ export async function advanceCrmCustomerStatus(input: {
     };
   }
 
-  const resolved = resolveAdvanceTarget({
+  const resolved = resolveStatusMutationTarget({
     current: customer.status,
     requested: input.targetStatus,
   });

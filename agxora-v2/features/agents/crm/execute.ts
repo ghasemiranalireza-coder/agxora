@@ -22,6 +22,7 @@ import {
   loadCrmStatusesForOrganization,
   nextAllowedCrmStatus,
   resolveAdvanceTarget,
+  resolveDispositionTarget,
 } from "./status";
 import { getGrowthCrmLink } from "./sync";
 import type {
@@ -37,6 +38,7 @@ const EXECUTABLE: ReadonlySet<string> = new Set([
   "RETRY_FAILED_FOLLOW_UP",
   "REVIEW_CRM_LINK",
   "ADVANCE_CRM_STATUS",
+  "DISPOSE_CRM_STATUS",
 ]);
 
 function dayKey(iso?: string): string | undefined {
@@ -171,9 +173,8 @@ export async function validateLeadAction(input: {
     });
     if (!live.ok) {
       if (live.code === "crm_unavailable") {
-        // Allow enqueue so Operations can surface BLOCKED after approval —
-        // never invent a successful mutation while CRM is unavailable.
-        const fallbackTarget = input.targetCrmStatus ?? "prospect";
+        const fallbackTarget =
+          input.targetCrmStatus ?? nextAllowedCrmStatus("lead") ?? "prospect";
         return {
           ok: true,
           code: "crm_unavailable",
@@ -189,6 +190,61 @@ export async function validateLeadAction(input: {
       };
     }
     const resolved = resolveAdvanceTarget({
+      current: live.status,
+      requested: input.targetCrmStatus,
+    });
+    if (!resolved.ok || !resolved.target) {
+      return {
+        ok: false,
+        code: resolved.code ?? "invalid_transition",
+        message: resolved.message ?? "crm_status_transition_not_allowed",
+        fromCrmStatus: live.status,
+        toCrmStatus: input.targetCrmStatus,
+      };
+    }
+    return {
+      ok: true,
+      fromCrmStatus: live.status,
+      toCrmStatus: resolved.target,
+    };
+  }
+
+  if (input.action === "DISPOSE_CRM_STATUS") {
+    if (!link || !link.customerId) {
+      return {
+        ok: false,
+        code: "missing_crm_link",
+        message: "crm_link_required_before_status_disposition",
+      };
+    }
+    const live = await readLiveCrmStatus({
+      organizationId: input.organizationId,
+      customerId: link.customerId,
+    });
+    if (!live.ok) {
+      if (live.code === "crm_unavailable") {
+        if (!input.targetCrmStatus) {
+          return {
+            ok: false,
+            code: "explicit_target_required",
+            message: "crm_status_explicit_target_required",
+          };
+        }
+        return {
+          ok: true,
+          code: "crm_unavailable",
+          message: live.message,
+          fromCrmStatus: undefined,
+          toCrmStatus: input.targetCrmStatus,
+        };
+      }
+      return {
+        ok: false,
+        code: live.code,
+        message: live.message,
+      };
+    }
+    const resolved = resolveDispositionTarget({
       current: live.status,
       requested: input.targetCrmStatus,
     });
@@ -460,11 +516,11 @@ export async function executeLeadAction(input: {
     };
   }
 
-  if (action === "ADVANCE_CRM_STATUS") {
+  if (action === "ADVANCE_CRM_STATUS" || action === "DISPOSE_CRM_STATUS") {
     const toCrmStatus =
       validation.toCrmStatus ??
       input.targetCrmStatus ??
-      (validation.fromCrmStatus
+      (action === "ADVANCE_CRM_STATUS" && validation.fromCrmStatus
         ? nextAllowedCrmStatus(validation.fromCrmStatus)
         : undefined);
     if (!toCrmStatus) {
@@ -476,7 +532,10 @@ export async function executeLeadAction(input: {
         status: "INVALID",
         createdAt: now,
         updatedAt: now,
-        message: "crm_status_has_no_allowed_advance",
+        message:
+          action === "DISPOSE_CRM_STATUS"
+            ? "crm_status_explicit_target_required"
+            : "crm_status_has_no_allowed_advance",
         readOnly: true,
         fromCrmStatus: validation.fromCrmStatus,
       };

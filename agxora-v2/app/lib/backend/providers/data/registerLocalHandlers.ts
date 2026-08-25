@@ -396,7 +396,7 @@ export function registerLocalDataHandlers(): void {
         return mockOk({
           link: growthService.getCrmLink(organizationId) ?? null,
           sync: growthService.getCrmSync(organizationId) ?? null,
-          lead: growthService.getCrmLinkedLead(organizationId),
+          lead: await growthService.getCrmLinkedLeadLive(organizationId),
         });
       }
       if (options.method === "POST" && path === "/agents/growth/crm/sync") {
@@ -412,7 +412,7 @@ export function registerLocalDataHandlers(): void {
             campaignId,
             customerId,
           }),
-          lead: growthService.getCrmLinkedLead(organizationId),
+          lead: await growthService.getCrmLinkedLeadLive(organizationId),
         });
       }
       if (options.method === "GET" && path === "/agents/growth/crm/leads/priority") {

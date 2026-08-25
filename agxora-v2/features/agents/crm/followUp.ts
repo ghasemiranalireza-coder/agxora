@@ -61,7 +61,7 @@ export function evaluateCrmLeadNextAction(input: {
   readonly link: GrowthCrmLink | null;
   readonly openFollowUps: readonly GrowthCrmFollowUp[];
   readonly today?: string;
-  /** Live CRM customer status — when present, status advance beats endless create. */
+  /** Live CRM customer status — when present, status advance/dispose beats endless create. */
   readonly crmStatus?: import("@/app/lib/crm/directory").CrmCustomerStatus;
 }): CrmLeadNextAction {
   if (!input.link) {
@@ -71,6 +71,12 @@ export function evaluateCrmLeadNextAction(input: {
   const open = sortOpenFollowUps(input.openFollowUps);
   if (open.length === 0) {
     const crmStatus = input.crmStatus;
+    if (crmStatus === "archived") {
+      return { code: "none", crmStatus };
+    }
+    if (crmStatus === "vip") {
+      return { code: "none", crmStatus };
+    }
     if (crmStatus === "lead") {
       return {
         code: "advance_crm_status",
@@ -83,6 +89,21 @@ export function evaluateCrmLeadNextAction(input: {
         code: "advance_crm_status",
         crmStatus,
         targetCrmStatus: "active",
+      };
+    }
+    if (crmStatus === "active") {
+      return {
+        code: "dispose_crm_status",
+        crmStatus,
+        dispositionTargets: ["vip", "inactive"],
+      };
+    }
+    if (crmStatus === "inactive") {
+      return {
+        code: "dispose_crm_status",
+        crmStatus,
+        targetCrmStatus: "archived",
+        dispositionTargets: ["archived"],
       };
     }
     return { code: "create_follow_up", crmStatus };
@@ -191,6 +212,9 @@ export function getCrmFollowUpByTask(
 export function getCrmLinkedLeadState(
   organizationId: string,
   profileId?: string,
+  options?: {
+    readonly crmStatus?: import("@/app/lib/crm/directory").CrmCustomerStatus;
+  },
 ): CrmLinkedLeadState {
   const link = getGrowthCrmLink(organizationId, profileId) ?? null;
   const followUps = link
@@ -211,6 +235,7 @@ export function getCrmLinkedLeadState(
     link,
     openFollowUps,
     today,
+    crmStatus: options?.crmStatus,
   });
   return {
     link,
