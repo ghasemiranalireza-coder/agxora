@@ -167,6 +167,8 @@ export function planCampaign(input: {
     task("configure_publishing", "pending", true),
     task("schedule_content", "pending", true),
     task("publish_content", "pending", true),
+    task("sync_crm_customer", "pending", false),
+    task("attach_crm_note", "pending", false),
   ];
 
   const milestones: CampaignMilestone[] = [

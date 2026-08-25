@@ -583,7 +583,9 @@
       "connect_social_account": "Connect social account",
       "configure_publishing": "Configure publishing integration",
       "schedule_content": "Schedule content",
-      "publish_content": "Publish content"
+      "publish_content": "Publish content",
+      "sync_crm_customer": "将增长资料同步到 CRM",
+      "attach_crm_note": "在 CRM 中附加活动备注"
     },
     "milestones": {
       "plan_ready": "Campaign plan ready",
@@ -686,6 +688,41 @@
       "FAILED": "Execution failed",
       "RETRY_REQUESTED": "Retry requested",
       "CANCELLED": "Execution cancelled"
+    }
+  },
+  "crmBridge": {
+    "noticeRequested": "已请求 CRM 同步。请批准待处理的 Agent OS 操作。",
+    "noticeSynced": "增长资料已同步到 CRM。",
+    "noticeFailed": "CRM 同步失败",
+    "actions": {
+      "sync": "同步到 CRM",
+      "openCrm": "打开 CRM 记录"
+    },
+    "labels": {
+      "status": "CRM 状态",
+      "customer": "CRM 客户",
+      "contact": "CRM 联系人",
+      "record": "CRM 记录"
+    },
+    "status": {
+      "unlinked": "未关联 CRM"
+    },
+    "syncStatus": {
+      "pending": "CRM 同步待处理",
+      "completed": "CRM 同步已完成",
+      "blocked": "CRM 同步已阻塞",
+      "failed": "CRM 同步失败"
+    },
+    "outcome": {
+      "linked": "已关联现有 CRM 客户",
+      "created": "已创建 CRM 客户",
+      "already-linked": "已关联到 CRM",
+      "blocked": "CRM 同步已阻塞",
+      "unavailable": "CRM 不可用",
+      "error": "CRM 同步错误"
+    },
+    "blockers": {
+      "unavailable": "CRM 提供方不可用"
     }
   }
 }

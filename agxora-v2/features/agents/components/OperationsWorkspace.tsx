@@ -242,10 +242,28 @@ function JobDetail({
         label={t("agents.operations.labels.blocker")}
         value={
           job.blocker
-            ? catalogCopy(t, `agents.campaigns.blockers.${job.blocker.code}`, job.blocker.code)
+            ? catalogCopy(
+                t,
+                job.blocker.code === "crm.unavailable"
+                  ? "agents.crmBridge.blockers.unavailable"
+                  : `agents.campaigns.blockers.${job.blocker.code}`,
+                job.blocker.code,
+              )
             : t("agents.operations.emptyValue")
         }
       />
+      {job.toolId === "crm" ? (
+        <DetailRow
+          label={t("agents.crmBridge.labels.status")}
+          value={
+            job.status === "COMPLETED"
+              ? t("agents.crmBridge.syncStatus.completed")
+              : job.status === "BLOCKED"
+                ? t("agents.crmBridge.syncStatus.blocked")
+                : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
+          }
+        />
+      ) : null}
       <DetailRow
         label={t("agents.operations.labels.externalEffect")}
         value={

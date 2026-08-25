@@ -23,6 +23,7 @@ import { SOCIAL_PLATFORMS } from "./types";
 import type { SocialAccount } from "../social/types";
 import type { WebsiteProject } from "../website/types";
 import { evaluateCampaignReadiness } from "../campaigns/readiness";
+import { getCampaignCrmSync, getGrowthCrmLink } from "../crm/sync";
 import { operationsService } from "../execution/service";
 import {
   CAMPAIGN_CHANNELS,
@@ -117,6 +118,7 @@ export const growthService = {
     runtimeFor(organizationId, "website_builder");
     runtimeFor(organizationId, "social_media");
     runtimeFor(organizationId, "growth_campaign");
+    runtimeFor(organizationId, "crm_assistant");
     for (const account of disconnectedAccounts(organizationId, SOCIAL_PLATFORMS)) {
       agentsStore.upsertSocialAccount(account);
     }
@@ -632,10 +634,74 @@ export const growthService = {
     };
   },
 
+  async requestCrmSync(
+    organizationId: string,
+    campaignId?: string,
+  ): Promise<{
+    readonly task: Awaited<ReturnType<typeof runAgentTool>>;
+    readonly job: ReturnType<typeof operationsService.enqueue>;
+    readonly link: ReturnType<typeof getGrowthCrmLink>;
+    readonly sync: ReturnType<typeof getCampaignCrmSync>;
+  }> {
+    this.ensure(organizationId);
+    const profile =
+      latestProfile(organizationId) ??
+      this.saveProfile({ organizationId, draft: {} });
+    const campaign = campaignId
+      ? this.getCampaign(organizationId, campaignId)
+      : this.listCampaigns(organizationId)[0];
+    const campaignTaskId = campaign?.tasks.find(
+      (task) => task.code === "sync_crm_customer",
+    )?.id;
+    const job = operationsService.enqueue({
+      organizationId,
+      toolId: "crm",
+      agentId: "crm_assistant",
+      campaignId: campaign?.id,
+      campaignTaskId,
+      title: "Sync growth profile to CRM",
+      priority: "HIGH",
+      params: {
+        action: "sync",
+        profileId: profile.id,
+        campaignId: campaign?.id,
+        attachNote: true,
+        growthAction: "crm_sync",
+      },
+    });
+    const started = await operationsService.start(organizationId, job.id);
+    if (started.status === "WAITING_FOR_APPROVAL") {
+      auditGrowth("agent.growth.crm_sync_approval_requested", organizationId, profile.id, {
+        jobId: started.id,
+      });
+    }
+    return {
+      task: agentsStore
+        .getSnapshot()
+        .tasks.find((item) => item.id === started.taskId)!,
+      job: operationsService.get(organizationId, started.id)!,
+      link: getGrowthCrmLink(organizationId, profile.id),
+      sync: campaign
+        ? getCampaignCrmSync(organizationId, campaign.id)
+        : undefined,
+    };
+  },
+
+  getCrmLink(organizationId: string) {
+    const profile = latestProfile(organizationId);
+    return getGrowthCrmLink(organizationId, profile?.id);
+  },
+
+  getCrmSync(organizationId: string, campaignId?: string) {
+    return getCampaignCrmSync(organizationId, campaignId);
+  },
+
   snapshot(organizationId: string) {
     this.ensure(organizationId);
+    const profile = this.getProfile(organizationId) ?? null;
+    const campaigns = this.listCampaigns(organizationId);
     return {
-      profile: this.getProfile(organizationId) ?? null,
+      profile,
       growthStrategy: this.listGrowthStrategies(organizationId)[0] ?? null,
       websiteProjects: this.listWebsiteProjects(organizationId),
       socialStrategy: this.listSocialStrategy(organizationId) ?? null,
@@ -649,8 +715,10 @@ export const growthService = {
       approvals: agentOsService.listApprovals(organizationId),
       executions: agentOsService.listExecutions(organizationId),
       audit: agentOsService.listStepExecutions(organizationId),
-      campaigns: this.listCampaigns(organizationId),
+      campaigns,
       insights: orgFilter(agentsStore.getSnapshot().growthInsights, organizationId),
+      crmLink: getGrowthCrmLink(organizationId, profile?.id ?? undefined) ?? null,
+      crmSync: getCampaignCrmSync(organizationId, campaigns[0]?.id) ?? null,
     };
   },
 };

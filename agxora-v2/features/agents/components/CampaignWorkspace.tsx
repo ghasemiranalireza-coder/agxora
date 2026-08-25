@@ -85,6 +85,18 @@ export function CampaignWorkspace(): JSX.Element {
           >
             {t("agents.campaigns.actions.requestApproval")}
           </Button>
+          <Button
+            size="sm"
+            variant="secondary"
+            disabled={busy || !snapshot.profile}
+            onClick={() =>
+              void run(async () => {
+                await growthService.requestCrmSync(orgId, campaign?.id);
+              }, "agents.crmBridge.noticeRequested")
+            }
+          >
+            {t("agents.crmBridge.actions.sync")}
+          </Button>
         </div>
       </Card>
 
@@ -99,6 +111,8 @@ export function CampaignWorkspace(): JSX.Element {
             website: snapshot.websiteProjects[0],
           })}
           insights={snapshot.insights}
+          crmLink={snapshot.crmLink}
+          crmSync={snapshot.crmSync}
         />
       ) : (
         <Card padding="24px" hover={false}>
@@ -160,11 +174,15 @@ function CampaignDetail({
   jobs,
   readiness,
   insights,
+  crmLink,
+  crmSync,
 }: {
   readonly campaign: Campaign;
   readonly jobs: ReturnType<typeof operationsService.list>;
   readonly readiness: ReturnType<typeof evaluateCampaignReadiness>;
   readonly insights: ReturnType<typeof growthService.snapshot>["insights"];
+  readonly crmLink: ReturnType<typeof growthService.snapshot>["crmLink"];
+  readonly crmSync: ReturnType<typeof growthService.snapshot>["crmSync"];
 }): JSX.Element {
   const t = useT();
   return (
@@ -179,12 +197,55 @@ function CampaignDetail({
         {campaign.executionResult && !campaign.executionResult.available ? (
           <Badge>{t("agents.growth.publishingNotConfigured")}</Badge>
         ) : null}
+        {crmLink ? (
+          <Badge tone="positive">
+            {catalogCopy(
+              t,
+              `agents.crmBridge.outcome.${crmLink.outcome}`,
+              crmLink.outcome,
+            )}
+          </Badge>
+        ) : (
+          <Badge>{t("agents.crmBridge.status.unlinked")}</Badge>
+        )}
       </div>
       <DetailRow label={t("agents.campaigns.labels.objective")} value={campaign.objective.statement} />
       <DetailRow label={t("agents.campaigns.labels.audience")} value={campaign.audience.description} />
       <DetailRow label={t("agents.campaigns.labels.offer")} value={campaign.offer} />
       <DetailRow label={t("agents.campaigns.labels.cta")} value={campaign.websiteCta} />
       <DetailRow label={t("agents.campaigns.labels.strategy")} value={campaign.strategy} />
+      <DetailRow
+        label={t("agents.crmBridge.labels.status")}
+        value={
+          crmSync
+            ? catalogCopy(t, `agents.crmBridge.syncStatus.${crmSync.status}`, crmSync.status)
+            : t("agents.crmBridge.status.unlinked")
+        }
+      />
+      {crmLink ? (
+        <>
+          <DetailRow
+            label={t("agents.crmBridge.labels.customer")}
+            value={crmLink.companyName}
+          />
+          <DetailRow
+            label={t("agents.crmBridge.labels.contact")}
+            value={crmLink.contactName ?? t("agents.operations.emptyValue")}
+          />
+          <div>
+            <p className="text-xs uppercase tracking-wide" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+              {t("agents.crmBridge.labels.record")}
+            </p>
+            <a
+              className="text-sm underline"
+              href={crmLink.href}
+              style={{ color: "var(--agx-accent, #22d3ee)" }}
+            >
+              {t("agents.crmBridge.actions.openCrm")}
+            </a>
+          </div>
+        </>
+      ) : null}
       <DetailRow
         label={t("agents.campaigns.labels.approval")}
         value={

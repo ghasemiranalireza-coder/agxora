@@ -143,6 +143,7 @@ export function agentIdForTool(toolId: ToolId): AgentId {
   ) {
     return "growth_campaign";
   }
+  if (toolId === "crm" || toolId === "email") return "crm_assistant";
   return "custom";
 }
 

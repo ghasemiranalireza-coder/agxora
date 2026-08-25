@@ -335,15 +335,17 @@ describe("Phase 45 growth execution operations center", () => {
     expect(after.status).not.toBe("COMPLETED");
   });
 
-  it("normalizes version 4 persistence into version 5", () => {
+  it("normalizes version 4 persistence into version 6", () => {
     const normalized = normalizeState({
       version: 4,
       campaigns: [],
       growthInsights: [],
       growthProfiles: [],
     });
-    expect(normalized?.version).toBe(5);
+    expect(normalized?.version).toBe(6);
     expect(normalized?.executionJobs).toEqual([]);
+    expect(normalized?.growthCrmLinks).toEqual([]);
+    expect(normalized?.campaignCrmSyncs).toEqual([]);
     expect(normalized?.executionAttempts).toEqual([]);
     expect(normalized?.executionEvents).toEqual([]);
     expect(normalized?.campaigns).toEqual([]);

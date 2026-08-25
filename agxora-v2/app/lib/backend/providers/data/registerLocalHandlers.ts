@@ -392,6 +392,30 @@ export function registerLocalDataHandlers(): void {
       if (options.method === "POST" && path === "/agents/growth/insights") {
         return mockOk(await growthService.generateInsights(organizationId), 201);
       }
+      if (options.method === "GET" && path === "/agents/growth/crm/link") {
+        return mockOk({
+          link: growthService.getCrmLink(organizationId) ?? null,
+          sync: growthService.getCrmSync(organizationId) ?? null,
+        });
+      }
+      if (options.method === "POST" && path === "/agents/growth/crm/sync") {
+        const campaignId =
+          typeof body.campaignId === "string" ? body.campaignId : undefined;
+        return mockOk(await growthService.requestCrmSync(organizationId, campaignId), 201);
+      }
+      const campaignCrmSync = path.match(/^\/agents\/growth\/campaigns\/([^/]+)\/crm-sync$/);
+      if (options.method === "POST" && campaignCrmSync) {
+        return mockOk(
+          await growthService.requestCrmSync(organizationId, campaignCrmSync[1]),
+          201,
+        );
+      }
+      if (options.method === "GET" && campaignCrmSync) {
+        return mockOk({
+          sync: growthService.getCrmSync(organizationId, campaignCrmSync[1]) ?? null,
+          link: growthService.getCrmLink(organizationId) ?? null,
+        });
+      }
       const campaignApprove = path.match(/^\/agents\/growth\/campaigns\/([^/]+)\/approve$/);
       if (options.method === "POST" && campaignApprove) {
         return mockOk(await growthService.requestCampaignApproval(organizationId, campaignApprove[1]));

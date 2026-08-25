@@ -4854,7 +4854,9 @@
         "connect_social_account": "Connect social account",
         "configure_publishing": "Configure publishing integration",
         "schedule_content": "Schedule content",
-        "publish_content": "Publish content"
+        "publish_content": "Publish content",
+        "sync_crm_customer": "グロースプロファイルを CRM に同期",
+        "attach_crm_note": "キャンペーンメモを CRM に添付"
       },
       "milestones": {
         "plan_ready": "Campaign plan ready",
@@ -4957,6 +4959,41 @@
         "FAILED": "Execution failed",
         "RETRY_REQUESTED": "Retry requested",
         "CANCELLED": "Execution cancelled"
+      }
+    },
+    "crmBridge": {
+      "noticeRequested": "CRM 同期をリクエストしました。保留中の Agent OS アクションを承認してください。",
+      "noticeSynced": "グロースプロファイルを CRM に同期しました。",
+      "noticeFailed": "CRM 同期に失敗しました",
+      "actions": {
+        "sync": "CRM に同期",
+        "openCrm": "CRM レコードを開く"
+      },
+      "labels": {
+        "status": "CRM ステータス",
+        "customer": "CRM 顧客",
+        "contact": "CRM 連絡先",
+        "record": "CRM レコード"
+      },
+      "status": {
+        "unlinked": "CRM 未リンク"
+      },
+      "syncStatus": {
+        "pending": "CRM 同期保留",
+        "completed": "CRM 同期完了",
+        "blocked": "CRM 同期ブロック",
+        "failed": "CRM 同期失敗"
+      },
+      "outcome": {
+        "linked": "既存の CRM 顧客をリンク",
+        "created": "CRM 顧客を作成",
+        "already-linked": "既に CRM にリンク済み",
+        "blocked": "CRM 同期ブロック",
+        "unavailable": "CRM 利用不可",
+        "error": "CRM 同期エラー"
+      },
+      "blockers": {
+        "unavailable": "CRM プロバイダーが利用できません"
       }
     }
   },

@@ -583,7 +583,9 @@
       "connect_social_account": "Connect social account",
       "configure_publishing": "Configure publishing integration",
       "schedule_content": "Schedule content",
-      "publish_content": "Publish content"
+      "publish_content": "Publish content",
+      "sync_crm_customer": "همگام‌سازی پروفایل رشد با CRM",
+      "attach_crm_note": "پیوست یادداشت کمپین در CRM"
     },
     "milestones": {
       "plan_ready": "Campaign plan ready",
@@ -686,6 +688,41 @@
       "FAILED": "Execution failed",
       "RETRY_REQUESTED": "Retry requested",
       "CANCELLED": "Execution cancelled"
+    }
+  },
+  "crmBridge": {
+    "noticeRequested": "همگام‌سازی CRM درخواست شد. اقدام معلق Agent OS را تأیید کنید.",
+    "noticeSynced": "پروفایل رشد با CRM همگام شد.",
+    "noticeFailed": "همگام‌سازی CRM ناموفق بود",
+    "actions": {
+      "sync": "همگام‌سازی با CRM",
+      "openCrm": "باز کردن رکورد CRM"
+    },
+    "labels": {
+      "status": "وضعیت CRM",
+      "customer": "مشتری CRM",
+      "contact": "مخاطب CRM",
+      "record": "رکورد CRM"
+    },
+    "status": {
+      "unlinked": "به CRM متصل نیست"
+    },
+    "syncStatus": {
+      "pending": "همگام‌سازی CRM در انتظار",
+      "completed": "همگام‌سازی CRM کامل شد",
+      "blocked": "همگام‌سازی CRM مسدود شد",
+      "failed": "همگام‌سازی CRM ناموفق"
+    },
+    "outcome": {
+      "linked": "مشتری موجود CRM متصل شد",
+      "created": "مشتری CRM ایجاد شد",
+      "already-linked": "قبلاً به CRM متصل است",
+      "blocked": "همگام‌سازی مسدود شد",
+      "unavailable": "CRM در دسترس نیست",
+      "error": "خطای همگام‌سازی CRM"
+    },
+    "blockers": {
+      "unavailable": "ارائه‌دهنده CRM در دسترس نیست"
     }
   }
 }

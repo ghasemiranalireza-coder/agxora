@@ -121,7 +121,9 @@ function syncCampaign(job: ExecutionJob): void {
   const tasks = campaign.tasks.map((task) => {
     const matchesTask = job.campaignTaskId
       ? task.id === job.campaignTaskId
-      : isExternalSideEffectTool(job.toolId) && task.code === "publish_content";
+      : (isExternalSideEffectTool(job.toolId) && task.code === "publish_content") ||
+        (job.toolId === "crm" &&
+          (task.code === "sync_crm_customer" || task.code === "attach_crm_note"));
     if (!matchesTask) return task;
     if (job.status === "COMPLETED") {
       return { ...task, status: "completed" as const, executionJobId: job.id };
@@ -186,6 +188,95 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
       status: "unavailable",
       externalEffect: false,
       message: "publishing_unavailable",
+      metadata: { toolId: job.toolId },
+    };
+  }
+
+  if (job.toolId === "crm") {
+    const profileId =
+      typeof job.params.profileId === "string" ? job.params.profileId : undefined;
+    const sync = agentsStore
+      .getSnapshot()
+      .campaignCrmSyncs.find((item) => {
+        if (item.taskId === task.id) return true;
+        if (job.campaignId !== undefined && item.campaignId === job.campaignId) {
+          return true;
+        }
+        // Profile-only ops: match the current profile-scoped sync row.
+        if (
+          !job.campaignId &&
+          profileId &&
+          !item.campaignId &&
+          item.profileId === profileId &&
+          item.organizationId === job.organizationId
+        ) {
+          return true;
+        }
+        return false;
+      });
+    const bridge = sync?.result;
+    const link = agentsStore
+      .getSnapshot()
+      .growthCrmLinks.find((item) => item.id === sync?.linkId);
+
+    // Current operation failures always win over any historical GrowthCrmLink.
+    if (
+      bridge?.outcome === "unavailable" ||
+      bridge?.available === false ||
+      sync?.status === "blocked"
+    ) {
+      return {
+        success: false,
+        status: "unavailable",
+        externalEffect: false,
+        message: bridge?.message ?? "crm_unavailable",
+        metadata: { toolId: job.toolId },
+      };
+    }
+
+    if (
+      bridge?.success === false ||
+      bridge?.outcome === "error" ||
+      sync?.status === "failed"
+    ) {
+      return {
+        success: false,
+        status: "failed",
+        externalEffect: false,
+        message: bridge?.message ?? task.error ?? "crm_failed",
+        metadata: { toolId: job.toolId },
+      };
+    }
+
+    // Only the CURRENT bridge/sync result may establish COMPLETED.
+    // Historical link outcomes are never used as a success fallback.
+    if (
+      bridge?.success === true ||
+      bridge?.outcome === "created" ||
+      bridge?.outcome === "linked" ||
+      bridge?.outcome === "already-linked"
+    ) {
+      return {
+        success: true,
+        status: "completed",
+        externalEffect: false,
+        message: bridge.outcome ?? "completed",
+        metadata: {
+          toolId: job.toolId,
+          ...(bridge.customerId || link?.customerId
+            ? { customerId: bridge.customerId ?? link?.customerId ?? "" }
+            : {}),
+        },
+      };
+    }
+
+    // Never fall through to Agent task COMPLETED for CRM jobs without an
+    // explicit current bridge success.
+    return {
+      success: false,
+      status: "failed",
+      externalEffect: false,
+      message: bridge?.message ?? task.error ?? "crm_result_unresolved",
       metadata: { toolId: job.toolId },
     };
   }
@@ -256,7 +347,13 @@ function finishJob(
   const blocker: ExecutionBlocker | undefined = result.success
     ? undefined
     : result.status === "unavailable"
-      ? { code: "publishing.unavailable", retryable: false }
+      ? {
+          code:
+            result.message === "crm_unavailable" || job.toolId === "crm"
+              ? "crm.unavailable"
+              : "publishing.unavailable",
+          retryable: false,
+        }
       : result.status === "rejected"
         ? { code: "approval.rejected", retryable: false }
         : result.status === "cancelled"

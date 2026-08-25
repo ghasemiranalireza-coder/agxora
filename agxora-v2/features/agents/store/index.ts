@@ -361,4 +361,24 @@ export const agentsStore = {
     persist();
     emit();
   },
+
+  upsertGrowthCrmLink(link: import("../crm/types").GrowthCrmLink): void {
+    const idx = state.growthCrmLinks.findIndex((item) => item.id === link.id);
+    const growthCrmLinks = [...state.growthCrmLinks];
+    if (idx >= 0) growthCrmLinks[idx] = link;
+    else growthCrmLinks.unshift(link);
+    state = { ...state, growthCrmLinks: growthCrmLinks.slice(0, 100) };
+    persist();
+    emit();
+  },
+
+  upsertCampaignCrmSync(sync: import("../crm/types").CampaignCrmSync): void {
+    const idx = state.campaignCrmSyncs.findIndex((item) => item.id === sync.id);
+    const campaignCrmSyncs = [...state.campaignCrmSyncs];
+    if (idx >= 0) campaignCrmSyncs[idx] = sync;
+    else campaignCrmSyncs.unshift(sync);
+    state = { ...state, campaignCrmSyncs: campaignCrmSyncs.slice(0, 100) };
+    persist();
+    emit();
+  },
 };
