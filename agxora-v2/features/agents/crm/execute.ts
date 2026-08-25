@@ -1,0 +1,407 @@
+/**
+ * Phase 50.0 — Lead Action Execution workflow.
+ *
+ * Validates deterministic Lead Queue actions and routes them through the
+ * existing Agent OS / Operations / CRM follow-up paths.
+ * No second execution engine. No persistence version bump.
+ */
+
+import { createGrowthId, nowIso } from "../growth/ids";
+import { agentsStore } from "../store";
+import { operationsService } from "../execution/service";
+import type { ExecutionJob } from "../execution/jobs";
+import {
+  getCrmFollowUp,
+  getCrmLinkedLeadState,
+  listCrmFollowUps,
+} from "./followUp";
+import { buildLeadActionQueue } from "./prioritize";
+import { getGrowthCrmLink } from "./sync";
+import type {
+  LeadActionExecution,
+  LeadActionExecutionRef,
+  LeadActionExecutionStatus,
+  LeadExecutableAction,
+} from "./types";
+
+const EXECUTABLE: ReadonlySet<string> = new Set([
+  "CREATE_FOLLOW_UP",
+  "COMPLETE_OVERDUE_FOLLOW_UP",
+  "RETRY_FAILED_FOLLOW_UP",
+  "REVIEW_CRM_LINK",
+]);
+
+function dayKey(iso?: string): string | undefined {
+  if (!iso) return undefined;
+  return iso.slice(0, 10);
+}
+
+function isOverdue(dueAt: string | undefined, today: string): boolean {
+  const due = dayKey(dueAt);
+  return Boolean(due && due < today);
+}
+
+function mapJobStatus(status: ExecutionJob["status"]): LeadActionExecutionStatus {
+  return status;
+}
+
+function blockerMessage(job: ExecutionJob): string | undefined {
+  return job.blocker?.code ?? job.result?.message;
+}
+
+function findApprovalId(organizationId: string, taskId?: string): string | undefined {
+  if (!taskId) return undefined;
+  return agentsStore
+    .getSnapshot()
+    .approvals.find(
+      (item) =>
+        item.organizationId === organizationId &&
+        item.taskId === taskId &&
+        item.state === "REQUIRES_APPROVAL",
+    )?.id;
+}
+
+export function isLeadExecutableAction(
+  action: string,
+): action is LeadExecutableAction {
+  return EXECUTABLE.has(action);
+}
+
+export function validateLeadAction(input: {
+  readonly organizationId: string;
+  readonly profileId: string;
+  readonly action: string;
+  readonly followUpId?: string;
+  readonly today?: string;
+}): {
+  readonly ok: boolean;
+  readonly code?: string;
+  readonly message?: string;
+  readonly followUpId?: string;
+} {
+  if (!isLeadExecutableAction(input.action)) {
+    return {
+      ok: false,
+      code: "invalid_action",
+      message: "unsupported_lead_action",
+    };
+  }
+
+  const today = input.today ?? nowIso().slice(0, 10);
+  const link = getGrowthCrmLink(input.organizationId, input.profileId);
+
+  if (input.action === "REVIEW_CRM_LINK") {
+    return { ok: true };
+  }
+
+  if (input.action === "CREATE_FOLLOW_UP") {
+    if (!link) {
+      return {
+        ok: false,
+        code: "missing_crm_link",
+        message: "crm_link_required_before_follow_up",
+      };
+    }
+    const open = listCrmFollowUps(input.organizationId, { linkId: link.id }).filter(
+      (item) =>
+        item.status === "pending" ||
+        item.status === "blocked" ||
+        item.status === "failed",
+    );
+    if (open.length > 0) {
+      return {
+        ok: false,
+        code: "active_follow_up_exists",
+        message: "open_follow_up_blocks_create",
+        followUpId: open[0]?.id,
+      };
+    }
+    return { ok: true };
+  }
+
+  const followUpId = input.followUpId;
+  if (!followUpId) {
+    return {
+      ok: false,
+      code: "missing_follow_up",
+      message: "follow_up_id_required",
+    };
+  }
+  const followUp = getCrmFollowUp(input.organizationId, followUpId);
+  if (!followUp || followUp.profileId !== input.profileId) {
+    return {
+      ok: false,
+      code: "follow_up_not_found",
+      message: "crm_follow_up_missing",
+    };
+  }
+
+  if (input.action === "RETRY_FAILED_FOLLOW_UP") {
+    if (followUp.status !== "failed") {
+      return {
+        ok: false,
+        code: "not_failed",
+        message: "follow_up_not_failed",
+        followUpId,
+      };
+    }
+    return { ok: true, followUpId };
+  }
+
+  // COMPLETE_OVERDUE_FOLLOW_UP — pending / overdue / failed / blocked are valid.
+  if (
+    followUp.status !== "pending" &&
+    followUp.status !== "failed" &&
+    followUp.status !== "blocked"
+  ) {
+    return {
+      ok: false,
+      code: "follow_up_not_completable",
+      message: "follow_up_not_open",
+      followUpId,
+    };
+  }
+
+  if (
+    followUp.status === "pending" &&
+    followUp.dueAt &&
+    !isOverdue(followUp.dueAt, today) &&
+    input.action === "COMPLETE_OVERDUE_FOLLOW_UP"
+  ) {
+    // Completing a non-overdue pending is still valid (operator chose complete).
+    // Spec allows pending where completion is valid.
+  }
+
+  return { ok: true, followUpId };
+}
+
+function isLeadActionJob(job: ExecutionJob, profileId: string): boolean {
+  if (job.toolId !== "crm") return false;
+  if (job.params.profileId !== profileId) return false;
+  const leadAction = job.params.leadAction;
+  if (typeof leadAction === "string" && isLeadExecutableAction(leadAction)) {
+    return true;
+  }
+  const growthAction = job.params.growthAction;
+  return (
+    growthAction === "crm_follow_up" ||
+    growthAction === "crm_follow_up_complete" ||
+    growthAction === "lead_action"
+  );
+}
+
+export function getLatestLeadActionExecution(
+  organizationId: string,
+  profileId: string,
+): LeadActionExecutionRef | undefined {
+  const jobs = operationsService
+    .list(organizationId)
+    .filter((job) => isLeadActionJob(job, profileId))
+    .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt));
+  const job = jobs[0];
+  if (!job) return undefined;
+  const action =
+    typeof job.params.leadAction === "string"
+      ? job.params.leadAction
+      : typeof job.params.growthAction === "string"
+        ? job.params.growthAction
+        : undefined;
+  return {
+    jobId: job.id,
+    taskId: job.taskId,
+    action,
+    status: mapJobStatus(job.status),
+    updatedAt: job.updatedAt,
+    message: job.result?.message ?? blockerMessage(job),
+    approvalId: findApprovalId(organizationId, job.taskId),
+  };
+}
+
+export function attachLeadExecutionsToQueue(
+  organizationId: string,
+  queue: ReturnType<typeof buildLeadActionQueue>,
+): ReturnType<typeof buildLeadActionQueue> {
+  return {
+    ...queue,
+    items: queue.items.map((item) => ({
+      ...item,
+      execution: getLatestLeadActionExecution(organizationId, item.profileId),
+    })),
+  };
+}
+
+type FollowUpRequester = (input: {
+  readonly organizationId: string;
+  readonly profileId: string;
+  readonly campaignId?: string;
+  readonly followUpId?: string;
+  readonly kind?: "call" | "email_draft" | "meeting" | "general";
+  readonly summary?: string;
+  readonly completionNote?: string;
+  readonly leadAction: LeadExecutableAction;
+}) => Promise<{
+  readonly job: ExecutionJob;
+  readonly taskId?: string;
+  readonly followUpId?: string;
+}>;
+
+/**
+ * Execute a validated lead action through existing Agent OS operations.
+ * REVIEW_CRM_LINK is read-only and never enqueues work.
+ */
+export async function executeLeadAction(input: {
+  readonly organizationId: string;
+  readonly profileId: string;
+  readonly action: string;
+  readonly followUpId?: string;
+  readonly campaignId?: string;
+  readonly summary?: string;
+  readonly completionNote?: string;
+  readonly today?: string;
+  readonly requestCreateFollowUp: FollowUpRequester;
+  readonly requestCompleteFollowUp: FollowUpRequester;
+}): Promise<{
+  readonly execution: LeadActionExecution;
+  readonly queue: ReturnType<typeof buildLeadActionQueue>;
+}> {
+  const now = nowIso();
+  const validation = validateLeadAction({
+    organizationId: input.organizationId,
+    profileId: input.profileId,
+    action: input.action,
+    followUpId: input.followUpId,
+    today: input.today,
+  });
+
+  if (!validation.ok || !isLeadExecutableAction(input.action)) {
+    const execution: LeadActionExecution = {
+      id: createGrowthId("lax"),
+      organizationId: input.organizationId,
+      profileId: input.profileId,
+      followUpId: input.followUpId,
+      action: input.action,
+      status: "INVALID",
+      createdAt: now,
+      updatedAt: now,
+      message: validation.message ?? "unsupported_lead_action",
+      readOnly: true,
+    };
+    return {
+      execution,
+      queue: attachLeadExecutionsToQueue(
+        input.organizationId,
+        buildLeadActionQueue(input.organizationId, { today: input.today }),
+      ),
+    };
+  }
+
+  const action = input.action;
+  const lead = getCrmLinkedLeadState(input.organizationId, input.profileId);
+
+  if (action === "REVIEW_CRM_LINK") {
+    const link = getGrowthCrmLink(input.organizationId, input.profileId);
+    const execution: LeadActionExecution = {
+      id: createGrowthId("lax"),
+      organizationId: input.organizationId,
+      profileId: input.profileId,
+      action,
+      status: "REVIEWED",
+      createdAt: now,
+      updatedAt: now,
+      message: link ? "crm_link_ready_for_review" : "crm_link_missing",
+      href: link?.href ?? lead.href,
+      customerId: link?.customerId ?? lead.customerId,
+      companyName: link?.companyName ?? lead.companyName,
+      readOnly: true,
+    };
+    return {
+      execution,
+      queue: attachLeadExecutionsToQueue(
+        input.organizationId,
+        buildLeadActionQueue(input.organizationId, { today: input.today }),
+      ),
+    };
+  }
+
+  if (action === "CREATE_FOLLOW_UP") {
+    const requested = await input.requestCreateFollowUp({
+      organizationId: input.organizationId,
+      profileId: input.profileId,
+      campaignId: input.campaignId,
+      kind: "general",
+      summary: input.summary ?? "Lead Action Queue: create CRM follow-up",
+      leadAction: action,
+    });
+    const execution = executionFromJob({
+      organizationId: input.organizationId,
+      profileId: input.profileId,
+      action,
+      job: requested.job,
+      followUpId: requested.followUpId,
+      now,
+    });
+    return {
+      execution,
+      queue: attachLeadExecutionsToQueue(
+        input.organizationId,
+        buildLeadActionQueue(input.organizationId, { today: input.today }),
+      ),
+    };
+  }
+
+  // COMPLETE_OVERDUE_FOLLOW_UP | RETRY_FAILED_FOLLOW_UP
+  const followUpId = validation.followUpId ?? input.followUpId!;
+  const requested = await input.requestCompleteFollowUp({
+    organizationId: input.organizationId,
+    profileId: input.profileId,
+    campaignId: input.campaignId,
+    followUpId,
+    completionNote:
+      input.completionNote ??
+      (action === "RETRY_FAILED_FOLLOW_UP"
+        ? "Lead Action Queue: retry failed follow-up"
+        : "Lead Action Queue: complete follow-up"),
+    leadAction: action,
+  });
+  const execution = executionFromJob({
+    organizationId: input.organizationId,
+    profileId: input.profileId,
+    action,
+    job: requested.job,
+    followUpId,
+    now,
+  });
+  return {
+    execution,
+    queue: attachLeadExecutionsToQueue(
+      input.organizationId,
+      buildLeadActionQueue(input.organizationId, { today: input.today }),
+    ),
+  };
+}
+
+function executionFromJob(input: {
+  readonly organizationId: string;
+  readonly profileId: string;
+  readonly action: LeadExecutableAction;
+  readonly job: ExecutionJob;
+  readonly followUpId?: string;
+  readonly now: string;
+}): LeadActionExecution {
+  const approvalId = findApprovalId(input.organizationId, input.job.taskId);
+  return {
+    id: input.job.id,
+    organizationId: input.organizationId,
+    profileId: input.profileId,
+    followUpId: input.followUpId,
+    action: input.action,
+    taskId: input.job.taskId,
+    jobId: input.job.id,
+    approvalId,
+    status: mapJobStatus(input.job.status),
+    createdAt: input.job.createdAt ?? input.now,
+    updatedAt: input.job.updatedAt ?? input.now,
+    message: input.job.result?.message ?? blockerMessage(input.job),
+    readOnly: false,
+  };
+}

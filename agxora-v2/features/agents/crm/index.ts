@@ -13,8 +13,12 @@ export type {
   GrowthCrmFollowUp,
   GrowthCrmLink,
   GrowthCrmLinkOutcome,
+  LeadActionExecution,
+  LeadActionExecutionRef,
+  LeadActionExecutionStatus,
   LeadActionItem,
   LeadActionQueue,
+  LeadExecutableAction,
   LeadPriorityReason,
   LeadRecommendedAction,
 } from "./types";
@@ -49,4 +53,11 @@ export {
   LEAD_PRIORITY_DUE_SOON_DAYS,
 } from "./prioritize";
 export type { LeadPriorityEvaluation } from "./prioritize";
+export {
+  attachLeadExecutionsToQueue,
+  executeLeadAction,
+  getLatestLeadActionExecution,
+  isLeadExecutableAction,
+  validateLeadAction,
+} from "./execute";
 export { handleCrmTool } from "./handlers";

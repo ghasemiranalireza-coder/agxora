@@ -28,6 +28,10 @@ import {
   getCrmLinkedLeadState,
   listCrmFollowUps,
 } from "../crm/followUp";
+import {
+  attachLeadExecutionsToQueue,
+  executeLeadAction,
+} from "../crm/execute";
 import { buildLeadActionQueue } from "../crm/prioritize";
 import { getCampaignCrmSync, getGrowthCrmLink } from "../crm/sync";
 import type { CrmFollowUpKind } from "../crm/types";
@@ -707,10 +711,12 @@ export const growthService = {
     organizationId: string,
     input?: {
       readonly campaignId?: string;
+      readonly profileId?: string;
       readonly kind?: CrmFollowUpKind;
       readonly title?: string;
       readonly summary?: string;
       readonly dueAt?: string;
+      readonly leadAction?: string;
     },
   ): Promise<{
     readonly task: Awaited<ReturnType<typeof runAgentTool>>;
@@ -719,9 +725,18 @@ export const growthService = {
     readonly lead: ReturnType<typeof getCrmLinkedLeadState>;
   }> {
     this.ensure(organizationId);
-    const profile =
-      latestProfile(organizationId) ??
-      this.saveProfile({ organizationId, draft: {} });
+    const profile = input?.profileId
+      ? agentsStore
+          .getSnapshot()
+          .growthProfiles.find(
+            (item) =>
+              item.id === input.profileId &&
+              item.organizationId === organizationId,
+          ) ??
+        latestProfile(organizationId) ??
+        this.saveProfile({ organizationId, draft: {} })
+      : latestProfile(organizationId) ??
+        this.saveProfile({ organizationId, draft: {} });
     const campaign = input?.campaignId
       ? this.getCampaign(organizationId, input.campaignId)
       : this.listCampaigns(organizationId)[0];
@@ -745,6 +760,7 @@ export const growthService = {
         summary: input?.summary,
         dueAt: input?.dueAt,
         growthAction: "crm_follow_up",
+        leadAction: input?.leadAction,
       },
     });
     const started = await operationsService.start(organizationId, job.id);
@@ -772,6 +788,8 @@ export const growthService = {
       readonly followUpId: string;
       readonly completionNote?: string;
       readonly campaignId?: string;
+      readonly profileId?: string;
+      readonly leadAction?: string;
     },
   ): Promise<{
     readonly task: Awaited<ReturnType<typeof runAgentTool>>;
@@ -780,10 +798,29 @@ export const growthService = {
     readonly lead: ReturnType<typeof getCrmLinkedLeadState>;
   }> {
     this.ensure(organizationId);
-    const profile =
-      latestProfile(organizationId) ??
-      this.saveProfile({ organizationId, draft: {} });
     const existing = getCrmFollowUp(organizationId, input.followUpId);
+    const profile = input.profileId
+      ? agentsStore
+          .getSnapshot()
+          .growthProfiles.find(
+            (item) =>
+              item.id === input.profileId &&
+              item.organizationId === organizationId,
+          ) ??
+        latestProfile(organizationId) ??
+        this.saveProfile({ organizationId, draft: {} })
+      : existing
+        ? agentsStore
+            .getSnapshot()
+            .growthProfiles.find(
+              (item) =>
+                item.id === existing.profileId &&
+                item.organizationId === organizationId,
+            ) ??
+          latestProfile(organizationId) ??
+          this.saveProfile({ organizationId, draft: {} })
+        : latestProfile(organizationId) ??
+          this.saveProfile({ organizationId, draft: {} });
     const campaign = input.campaignId
       ? this.getCampaign(organizationId, input.campaignId)
       : existing?.campaignId
@@ -803,6 +840,7 @@ export const growthService = {
         completionNote: input.completionNote,
         campaignId: campaign?.id ?? existing?.campaignId,
         growthAction: "crm_follow_up_complete",
+        leadAction: input.leadAction,
       },
     });
     const started = await operationsService.start(organizationId, job.id);
@@ -846,7 +884,78 @@ export const growthService = {
   /** Read-only Phase 49 lead prioritization queue — never mutates CRM. */
   getLeadActionQueue(organizationId: string) {
     this.ensure(organizationId);
-    return buildLeadActionQueue(organizationId);
+    return attachLeadExecutionsToQueue(
+      organizationId,
+      buildLeadActionQueue(organizationId),
+    );
+  },
+
+  /**
+   * Phase 50 — execute a validated Lead Action Queue recommendation through
+   * existing Agent OS / Operations / CRM follow-up paths.
+   */
+  async executeLeadAction(
+    organizationId: string,
+    input: {
+      readonly profileId: string;
+      readonly action: string;
+      readonly followUpId?: string;
+      readonly campaignId?: string;
+      readonly summary?: string;
+      readonly completionNote?: string;
+    },
+  ) {
+    this.ensure(organizationId);
+    const result = await executeLeadAction({
+      organizationId,
+      profileId: input.profileId,
+      action: input.action,
+      followUpId: input.followUpId,
+      campaignId: input.campaignId,
+      summary: input.summary,
+      completionNote: input.completionNote,
+      requestCreateFollowUp: async (req) => {
+        const created = await this.requestCrmFollowUp(organizationId, {
+          profileId: req.profileId,
+          campaignId: req.campaignId,
+          kind: req.kind,
+          summary: req.summary,
+          leadAction: req.leadAction,
+        });
+        return {
+          job: created.job,
+          taskId: created.task?.id,
+          followUpId: listCrmFollowUps(organizationId, {
+            campaignId: req.campaignId,
+          }).find((item) => item.taskId === created.task?.id)?.id,
+        };
+      },
+      requestCompleteFollowUp: async (req) => {
+        const completed = await this.requestCrmFollowUpComplete(organizationId, {
+          followUpId: req.followUpId!,
+          profileId: req.profileId,
+          campaignId: req.campaignId,
+          completionNote: req.completionNote,
+          leadAction: req.leadAction,
+        });
+        return {
+          job: completed.job,
+          taskId: completed.task?.id,
+          followUpId: req.followUpId,
+        };
+      },
+    });
+    auditGrowth(
+      "agent.growth.lead_action_requested",
+      organizationId,
+      input.profileId,
+      {
+        action: String(input.action),
+        status: String(result.execution.status),
+        ...(result.execution.jobId ? { jobId: result.execution.jobId } : {}),
+      },
+    );
+    return result;
   },
 
   snapshot(organizationId: string) {
@@ -876,7 +985,10 @@ export const growthService = {
       crmFollowUps: listCrmFollowUps(organizationId, {
         campaignId: campaigns[0]?.id,
       }),
-      leadActionQueue: buildLeadActionQueue(organizationId),
+      leadActionQueue: attachLeadExecutionsToQueue(
+        organizationId,
+        buildLeadActionQueue(organizationId),
+      ),
     };
   },
 };

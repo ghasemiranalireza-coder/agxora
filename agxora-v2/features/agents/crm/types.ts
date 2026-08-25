@@ -214,6 +214,8 @@ export interface LeadActionItem {
   readonly completedFollowUpCount: number;
   /** Phase 48 next-action projection for interoperability. */
   readonly phase48NextAction: CrmLeadNextAction;
+  /** Latest Agent OS execution for this lead (derived from Operations jobs). */
+  readonly execution?: LeadActionExecutionRef;
   readonly sortKey: string;
 }
 
@@ -231,4 +233,62 @@ export interface LeadActionQueue {
     readonly none: number;
     readonly total: number;
   };
+}
+
+/**
+ * Phase 50 executable actions — subset of recommended actions with safe
+ * underlying Agent OS / CRM operations.
+ */
+export type LeadExecutableAction =
+  | "CREATE_FOLLOW_UP"
+  | "COMPLETE_OVERDUE_FOLLOW_UP"
+  | "RETRY_FAILED_FOLLOW_UP"
+  | "REVIEW_CRM_LINK";
+
+export type LeadActionExecutionStatus =
+  | "QUEUED"
+  | "WAITING_FOR_APPROVAL"
+  | "READY"
+  | "RUNNING"
+  | "VERIFYING"
+  | "RETRYING"
+  | "COMPLETED"
+  | "FAILED"
+  | "BLOCKED"
+  | "CANCELLED"
+  | "REVIEWED"
+  | "INVALID";
+
+/**
+ * Ephemeral execution reference — points at existing ExecutionJob / AgentTask /
+ * GrowthCrmFollowUp records. Not a second CRM entity store.
+ */
+export interface LeadActionExecution {
+  readonly id: string;
+  readonly organizationId: string;
+  readonly profileId: string;
+  readonly followUpId?: string;
+  readonly action: LeadExecutableAction | string;
+  readonly taskId?: string;
+  readonly jobId?: string;
+  readonly approvalId?: string;
+  readonly status: LeadActionExecutionStatus;
+  readonly createdAt: string;
+  readonly updatedAt: string;
+  readonly message?: string;
+  readonly href?: string;
+  readonly readOnly?: boolean;
+  readonly customerId?: string;
+  readonly companyName?: string;
+}
+
+/** Latest ops projection attached to a queue item (derived, not persisted). */
+export interface LeadActionExecutionRef {
+  readonly jobId: string;
+  readonly taskId?: string;
+  readonly action?: LeadExecutableAction | string;
+  readonly status: LeadActionExecutionStatus;
+  readonly updatedAt: string;
+  readonly message?: string;
+  readonly approvalId?: string;
 }

@@ -141,18 +141,21 @@ export function CampaignWorkspace(): JSX.Element {
               });
             }, "agents.crmFollowUp.noticeCompleteRequested")
           }
-          onCreateFollowUp={() =>
+          onExecuteLeadAction={(profileId, action, followUpId) =>
             void run(async () => {
-              await growthService.requestCrmFollowUp(orgId, {
+              const result = await growthService.executeLeadAction(orgId, {
+                profileId,
+                action,
+                followUpId,
                 campaignId: campaign.id,
-                kind: "general",
               });
-            }, "agents.crmFollowUp.noticeRequested")
-          }
-          onSyncCrm={() =>
-            void run(async () => {
-              await growthService.requestCrmSync(orgId, campaign.id);
-            }, "agents.crmBridge.noticeRequested")
+              if (result.execution.status === "INVALID") {
+                throw new Error(result.execution.message ?? "invalid_lead_action");
+              }
+              if (result.execution.status === "REVIEWED") {
+                return;
+              }
+            }, "agents.leadQueue.noticeActionRequested")
           }
         />
       ) : (
@@ -222,8 +225,7 @@ function CampaignDetail({
   leadActionQueue,
   busy,
   onCompleteFollowUp,
-  onCreateFollowUp,
-  onSyncCrm,
+  onExecuteLeadAction,
 }: {
   readonly campaign: Campaign;
   readonly jobs: ReturnType<typeof operationsService.list>;
@@ -238,8 +240,11 @@ function CampaignDetail({
   >["leadActionQueue"];
   readonly busy: boolean;
   readonly onCompleteFollowUp: (followUpId: string) => void;
-  readonly onCreateFollowUp: () => void;
-  readonly onSyncCrm: () => void;
+  readonly onExecuteLeadAction: (
+    profileId: string,
+    action: string,
+    followUpId?: string,
+  ) => void;
 }): JSX.Element {
   const t = useT();
   const priorityTone = (
@@ -250,6 +255,23 @@ function CampaignDetail({
     if (priority === "MEDIUM") return "accent";
     if (priority === "LOW") return "default";
     return "positive";
+  };
+  const executableAction = (
+    recommended: (typeof leadActionQueue.items)[number]["recommendedAction"],
+  ): string | null => {
+    if (recommended === "CREATE_FOLLOW_UP") return "CREATE_FOLLOW_UP";
+    if (recommended === "COMPLETE_OVERDUE_FOLLOW_UP") {
+      return "COMPLETE_OVERDUE_FOLLOW_UP";
+    }
+    if (recommended === "COMPLETE_PENDING_FOLLOW_UP") {
+      return "COMPLETE_OVERDUE_FOLLOW_UP";
+    }
+    if (recommended === "REVIEW_BLOCKED_FOLLOW_UP") {
+      return "COMPLETE_OVERDUE_FOLLOW_UP";
+    }
+    if (recommended === "RETRY_FAILED_FOLLOW_UP") return "RETRY_FAILED_FOLLOW_UP";
+    if (recommended === "REVIEW_CRM_LINK") return "REVIEW_CRM_LINK";
+    return null;
   };
   return (
     <Card className="space-y-4" padding="24px" hover={false}>
@@ -429,6 +451,17 @@ function CampaignDetail({
                       : ""}
                   </p>
                 ) : null}
+                {item.execution ? (
+                  <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    {t("agents.leadQueue.labels.execution")}:{" "}
+                    {catalogCopy(
+                      t,
+                      `agents.leadQueue.executionStatus.${item.execution.status}`,
+                      item.execution.status,
+                    )}
+                    {item.execution.message ? ` · ${item.execution.message}` : ""}
+                  </p>
+                ) : null}
               </div>
               <div className="flex flex-wrap gap-2">
                 {item.href ? (
@@ -440,41 +473,45 @@ function CampaignDetail({
                     {t("agents.crmBridge.actions.openCrm")}
                   </a>
                 ) : null}
-                {item.recommendedAction === "COMPLETE_OVERDUE_FOLLOW_UP" ||
-                item.recommendedAction === "RETRY_FAILED_FOLLOW_UP" ||
-                item.recommendedAction === "REVIEW_BLOCKED_FOLLOW_UP" ||
-                item.recommendedAction === "COMPLETE_PENDING_FOLLOW_UP" ? (
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    disabled={busy || !item.followUpId}
-                    onClick={() => {
-                      if (item.followUpId) onCompleteFollowUp(item.followUpId);
-                    }}
-                  >
-                    {t("agents.crmFollowUp.actions.complete")}
-                  </Button>
-                ) : null}
-                {item.recommendedAction === "CREATE_FOLLOW_UP" ? (
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    disabled={busy}
-                    onClick={onCreateFollowUp}
-                  >
-                    {t("agents.crmFollowUp.actions.create")}
-                  </Button>
-                ) : null}
-                {item.recommendedAction === "REVIEW_CRM_LINK" ? (
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    disabled={busy}
-                    onClick={onSyncCrm}
-                  >
-                    {t("agents.crmBridge.actions.sync")}
-                  </Button>
-                ) : null}
+                {(() => {
+                  const action = executableAction(item.recommendedAction);
+                  if (!action) return null;
+                  const labelKey =
+                    action === "CREATE_FOLLOW_UP"
+                      ? "agents.leadQueue.controls.create"
+                      : action === "RETRY_FAILED_FOLLOW_UP"
+                        ? "agents.leadQueue.controls.retry"
+                        : action === "REVIEW_CRM_LINK"
+                          ? "agents.leadQueue.controls.review"
+                          : "agents.leadQueue.controls.complete";
+                  const needsFollowUp =
+                    action === "COMPLETE_OVERDUE_FOLLOW_UP" ||
+                    action === "RETRY_FAILED_FOLLOW_UP";
+                  return (
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      disabled={
+                        busy ||
+                        (needsFollowUp && !item.followUpId) ||
+                        item.execution?.status === "WAITING_FOR_APPROVAL" ||
+                        item.execution?.status === "RUNNING"
+                      }
+                      onClick={() => {
+                        if (action === "REVIEW_CRM_LINK" && item.href) {
+                          window.open(item.href, "_blank", "noopener,noreferrer");
+                        }
+                        onExecuteLeadAction(
+                          item.profileId,
+                          action,
+                          item.followUpId,
+                        );
+                      }}
+                    >
+                      {t(labelKey)}
+                    </Button>
+                  );
+                })()}
               </div>
             </div>
           ))
