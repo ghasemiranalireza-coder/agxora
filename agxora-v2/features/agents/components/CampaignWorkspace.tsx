@@ -295,6 +295,7 @@ function CampaignDetail({
     if (recommended === "RETRY_FAILED_FOLLOW_UP") return "RETRY_FAILED_FOLLOW_UP";
     if (recommended === "REVIEW_CRM_LINK") return "REVIEW_CRM_LINK";
     if (recommended === "ADVANCE_CRM_STATUS") return "ADVANCE_CRM_STATUS";
+    if (recommended === "DISPOSE_CRM_STATUS") return "DISPOSE_CRM_STATUS";
     return null;
   };
   return (
@@ -476,7 +477,17 @@ function CampaignDetail({
                           `agents.leadQueue.crmStatus.${item.targetCrmStatus}`,
                           item.targetCrmStatus,
                         )}`
-                      : ""}
+                      : item.dispositionTargets && item.dispositionTargets.length > 1
+                        ? ` → ${item.dispositionTargets
+                            .map((status) =>
+                              catalogCopy(
+                                t,
+                                `agents.leadQueue.crmStatus.${status}`,
+                                status,
+                              ),
+                            )
+                            .join(" | ")}`
+                        : ""}
                   </p>
                 ) : null}
                 {item.followUpStatus ? (
@@ -517,6 +528,46 @@ function CampaignDetail({
                 {(() => {
                   const action = executableAction(item.recommendedAction);
                   if (!action) return null;
+                  const busyBlocked =
+                    busy ||
+                    item.execution?.status === "WAITING_FOR_APPROVAL" ||
+                    item.execution?.status === "RUNNING";
+
+                  if (action === "DISPOSE_CRM_STATUS") {
+                    const targets =
+                      item.dispositionTargets && item.dispositionTargets.length > 0
+                        ? item.dispositionTargets
+                        : item.targetCrmStatus
+                          ? [item.targetCrmStatus]
+                          : [];
+                    return targets.map((target) => {
+                      const labelKey =
+                        target === "vip"
+                          ? "agents.leadQueue.controls.markVip"
+                          : target === "archived"
+                            ? "agents.leadQueue.controls.archive"
+                            : "agents.leadQueue.controls.markInactive";
+                      return (
+                        <Button
+                          key={`${item.id}-${target}`}
+                          size="sm"
+                          variant="ghost"
+                          disabled={busyBlocked}
+                          onClick={() =>
+                            onExecuteLeadAction(
+                              item.profileId,
+                              "DISPOSE_CRM_STATUS",
+                              undefined,
+                              target,
+                            )
+                          }
+                        >
+                          {t(labelKey)}
+                        </Button>
+                      );
+                    });
+                  }
+
                   const labelKey =
                     action === "CREATE_FOLLOW_UP"
                       ? "agents.leadQueue.controls.create"
@@ -535,10 +586,7 @@ function CampaignDetail({
                       size="sm"
                       variant="ghost"
                       disabled={
-                        busy ||
-                        (needsFollowUp && !item.followUpId) ||
-                        item.execution?.status === "WAITING_FOR_APPROVAL" ||
-                        item.execution?.status === "RUNNING"
+                        busyBlocked || (needsFollowUp && !item.followUpId)
                       }
                       onClick={() => {
                         if (action === "REVIEW_CRM_LINK" && item.href) {

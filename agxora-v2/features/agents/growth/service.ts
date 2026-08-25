@@ -946,6 +946,19 @@ export const growthService = {
     return getCrmLinkedLeadState(organizationId, profile?.id);
   },
 
+  /** Live-CRM-aware lead state for APIs / queue consistency (Phase 52). */
+  async getCrmLinkedLeadLive(organizationId: string) {
+    this.ensure(organizationId);
+    const profile = latestProfile(organizationId);
+    const link = getGrowthCrmLink(organizationId, profile?.id);
+    let crmStatus: CrmCustomerStatus | undefined;
+    if (link?.customerId) {
+      const statuses = await loadCrmStatusesForOrganization(organizationId);
+      crmStatus = statuses.get(link.customerId);
+    }
+    return getCrmLinkedLeadState(organizationId, profile?.id, { crmStatus });
+  },
+
   /** Read-only Phase 49/51 lead prioritization queue — never mutates CRM. */
   async getLeadActionQueue(organizationId: string) {
     this.ensure(organizationId);

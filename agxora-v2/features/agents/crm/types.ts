@@ -139,16 +139,19 @@ export type CrmLeadNextActionCode =
   | "complete_overdue_follow_up"
   | "complete_open_follow_up"
   | "advance_crm_status"
+  | "dispose_crm_status"
   | "none";
 
 export interface CrmLeadNextAction {
   readonly code: CrmLeadNextActionCode;
   readonly followUpId?: string;
   readonly dueAt?: string;
-  /** Live CRM status when known (Phase 51). */
+  /** Live CRM status when known (Phase 51+). */
   readonly crmStatus?: CrmCustomerStatus;
-  /** Deterministic next allowed CRM status when advancing. */
+  /** Deterministic next allowed CRM status when advancing/disposing. */
   readonly targetCrmStatus?: CrmCustomerStatus;
+  /** When active disposition: valid targets requiring explicit choice. */
+  readonly dispositionTargets?: readonly CrmCustomerStatus[];
 }
 
 /** Read-model for CRM-linked lead state inside Agent Operations. */
@@ -181,11 +184,13 @@ export type LeadPriorityReason =
   | "weak_crm_link"
   | "missing_crm_link"
   | "ready_for_status_advance"
+  | "ready_for_status_disposition"
+  | "crm_status_archived"
   | "no_action_needed";
 
 /**
  * Deterministic recommended next action for the Lead Action Queue.
- * Maps onto existing Phase 46–51 operations when an action button is shown.
+ * Maps onto existing Phase 46–52 operations when an action button is shown.
  */
 export type LeadRecommendedAction =
   | "COMPLETE_OVERDUE_FOLLOW_UP"
@@ -194,6 +199,7 @@ export type LeadRecommendedAction =
   | "COMPLETE_PENDING_FOLLOW_UP"
   | "CREATE_FOLLOW_UP"
   | "ADVANCE_CRM_STATUS"
+  | "DISPOSE_CRM_STATUS"
   | "REVIEW_CRM_LINK"
   | "NO_ACTION";
 
@@ -217,8 +223,10 @@ export interface LeadActionItem {
   readonly linkOutcome?: GrowthCrmLinkOutcome;
   /** Live CRM customer status when loaded for the queue. */
   readonly crmStatus?: CrmCustomerStatus;
-  /** Next allowed CRM status when ADVANCE_CRM_STATUS is recommended. */
+  /** Next allowed CRM status when ADVANCE/DISPOSE is recommended. */
   readonly targetCrmStatus?: CrmCustomerStatus;
+  /** Explicit disposition choices (e.g. active → vip|inactive). */
+  readonly dispositionTargets?: readonly CrmCustomerStatus[];
   readonly openFollowUpCount: number;
   readonly overdueFollowUpCount: number;
   readonly failedFollowUpCount: number;
@@ -249,7 +257,7 @@ export interface LeadActionQueue {
 }
 
 /**
- * Phase 50–51 executable actions — subset of recommended actions with safe
+ * Phase 50–52 executable actions — subset of recommended actions with safe
  * underlying Agent OS / CRM operations.
  */
 export type LeadExecutableAction =
@@ -257,7 +265,8 @@ export type LeadExecutableAction =
   | "COMPLETE_OVERDUE_FOLLOW_UP"
   | "RETRY_FAILED_FOLLOW_UP"
   | "REVIEW_CRM_LINK"
-  | "ADVANCE_CRM_STATUS";
+  | "ADVANCE_CRM_STATUS"
+  | "DISPOSE_CRM_STATUS";
 
 export type LeadActionExecutionStatus =
   | "QUEUED"

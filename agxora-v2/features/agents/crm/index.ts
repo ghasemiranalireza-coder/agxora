@@ -48,15 +48,23 @@ export {
 } from "./followUp";
 export {
   advanceCrmCustomerStatus,
+  dispositionTargetsFor,
   isAllowedCrmStatusTransition,
+  isConversionTransition,
+  isDispositionTransition,
   loadCrmStatusesForOrganization,
   nextAllowedCrmStatus,
   resolveAdvanceTarget,
+  resolveDispositionTarget,
+  resolveStatusMutationTarget,
+  CRM_CONVERSION_NEXT,
+  CRM_DISPOSITION_TARGETS,
   CRM_STATUS_TRANSITIONS,
 } from "./status";
 export type {
   CrmStatusAdvanceOutcome,
   CrmStatusAdvanceResult,
+  StatusTargetResolution,
 } from "./status";
 export {
   buildLeadActionQueue,

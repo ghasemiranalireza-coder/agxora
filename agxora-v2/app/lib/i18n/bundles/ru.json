@@ -5042,7 +5042,8 @@
         "complete_overdue_follow_up": "Complete overdue CRM follow-up",
         "complete_open_follow_up": "Complete open CRM follow-up",
         "none": "No CRM follow-up action needed",
-        "advance_crm_status": "Advance CRM status"
+        "advance_crm_status": "Advance CRM status",
+        "dispose_crm_status": "Dispose CRM status"
       },
       "ops": {
         "createSucceeded": "Follow-up note created",
@@ -5080,7 +5081,8 @@
         "CREATE_FOLLOW_UP": "Create follow-up",
         "REVIEW_CRM_LINK": "Review CRM link",
         "NO_ACTION": "No action needed",
-        "ADVANCE_CRM_STATUS": "Advance CRM status"
+        "ADVANCE_CRM_STATUS": "Advance CRM status",
+        "DISPOSE_CRM_STATUS": "Dispose CRM status"
       },
       "reasons": {
         "overdue_follow_up": "Overdue follow-up",
@@ -5093,7 +5095,9 @@
         "weak_crm_link": "Weak or incomplete CRM link",
         "missing_crm_link": "Missing CRM link",
         "no_action_needed": "No open CRM work",
-        "ready_for_status_advance": "Ready to advance CRM status"
+        "ready_for_status_advance": "Ready to advance CRM status",
+        "ready_for_status_disposition": "Ready for CRM status disposition",
+        "crm_status_archived": "CRM customer archived"
       },
       "noticeActionRequested": "Lead action requested through Agent OS. Approve if required.",
       "noticeReviewed": "CRM link opened for review. No mutation was performed.",
@@ -5103,7 +5107,10 @@
         "complete": "Complete Follow-up",
         "retry": "Retry",
         "review": "Review CRM",
-        "advance": "Advance Status"
+        "advance": "Advance Status",
+        "markVip": "Mark VIP",
+        "markInactive": "Mark Inactive",
+        "archive": "Archive"
       },
       "executionStatus": {
         "QUEUED": "Queued",
