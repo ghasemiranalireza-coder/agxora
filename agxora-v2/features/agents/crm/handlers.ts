@@ -95,7 +95,11 @@ export async function handleCrmTool(
       if (result.success) {
         return { ...task, status: "completed" as const };
       }
-      if (result.outcome === "unavailable" || result.outcome === "blocked") {
+      if (
+        result.outcome === "unavailable" ||
+        result.outcome === "blocked" ||
+        result.outcome === "error"
+      ) {
         return { ...task, status: "blocked" as const };
       }
       return task;
@@ -107,16 +111,21 @@ export async function handleCrmTool(
     });
   }
 
+  const output = {
+    action: action === "attach_note" ? "attach_note" : "sync",
+    result,
+    link: link ?? null,
+    sync: sync ?? null,
+    crmAvailable: result.available,
+    crmSuccess: result.success,
+  };
+
+  // Mirror website/social publish adapters: the tool invocation itself completes so
+  // Agent OS does not retry into a new execution/approval. Operations maps the
+  // CURRENT bridge/sync result to COMPLETED / BLOCKED / FAILED via outcomeFromTask.
   return {
     ok: true,
-    output: {
-      action: action === "attach_note" ? "attach_note" : "sync",
-      result,
-      link: link ?? null,
-      sync: sync ?? null,
-      crmAvailable: result.available,
-      crmSuccess: result.success,
-    },
+    output,
     durationMs: Date.now() - started,
   };
 }

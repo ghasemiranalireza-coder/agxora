@@ -200,32 +200,12 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
           item.taskId === task.id ||
           (job.campaignId !== undefined && item.campaignId === job.campaignId),
       );
+    const bridge = sync?.result;
     const link = agentsStore
       .getSnapshot()
       .growthCrmLinks.find((item) => item.id === sync?.linkId);
-    const bridge = sync?.result;
-    if (
-      bridge?.success === true ||
-      bridge?.outcome === "created" ||
-      bridge?.outcome === "linked" ||
-      bridge?.outcome === "already-linked" ||
-      link?.outcome === "created" ||
-      link?.outcome === "linked" ||
-      link?.outcome === "already-linked"
-    ) {
-      return {
-        success: true,
-        status: "completed",
-        externalEffect: false,
-        message: bridge?.outcome ?? link?.outcome ?? "completed",
-        metadata: {
-          toolId: job.toolId,
-          ...(bridge?.customerId || link?.customerId
-            ? { customerId: bridge?.customerId ?? link?.customerId ?? "" }
-            : {}),
-        },
-      };
-    }
+
+    // Current operation failures always win over any historical GrowthCrmLink.
     if (
       bridge?.outcome === "unavailable" ||
       bridge?.available === false ||
@@ -237,6 +217,42 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
         externalEffect: false,
         message: bridge?.message ?? "crm_unavailable",
         metadata: { toolId: job.toolId },
+      };
+    }
+
+    if (
+      bridge?.success === false ||
+      bridge?.outcome === "error" ||
+      sync?.status === "failed"
+    ) {
+      return {
+        success: false,
+        status: "failed",
+        externalEffect: false,
+        message: bridge?.message ?? task.error ?? "crm_failed",
+        metadata: { toolId: job.toolId },
+      };
+    }
+
+    // Only the CURRENT bridge/sync result may establish COMPLETED.
+    // Historical link outcomes are never used as a success fallback.
+    if (
+      bridge?.success === true ||
+      bridge?.outcome === "created" ||
+      bridge?.outcome === "linked" ||
+      bridge?.outcome === "already-linked"
+    ) {
+      return {
+        success: true,
+        status: "completed",
+        externalEffect: false,
+        message: bridge.outcome ?? "completed",
+        metadata: {
+          toolId: job.toolId,
+          ...(bridge.customerId || link?.customerId
+            ? { customerId: bridge.customerId ?? link?.customerId ?? "" }
+            : {}),
+        },
       };
     }
   }

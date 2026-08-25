@@ -11,8 +11,61 @@ import {
   resetCrmBridgeProvider,
   setCrmBridgeProvider,
   syncGrowthProfileToCrm,
+  type CrmBridgeProvider,
 } from "@/features/agents/crm";
 import { getWebsitePublisher, setWebsitePublisher } from "@/features/agents/website/publisher";
+
+function createFailingCrmBridge(
+  message = "crm_validation_failed",
+): CrmBridgeProvider {
+  return {
+    available: true,
+    async listCustomers() {
+      return [];
+    },
+    async getCustomer() {
+      return null;
+    },
+    async createCustomer() {
+      throw new Error(message);
+    },
+    async listContacts() {
+      return [];
+    },
+    async createContact() {
+      throw new Error(message);
+    },
+    async createNote() {
+      throw new Error(message);
+    },
+  };
+}
+
+/** Succeeds for createCustomer/contact, but fails createNote after N successful notes. */
+function createNoteFailAfterCrmBridge(
+  base: CrmBridgeProvider,
+  allowedNotes: number,
+  message = "crm_mutation_failed",
+): CrmBridgeProvider {
+  let notes = 0;
+  return {
+    available: true,
+    listCustomers: (organizationId) => base.listCustomers(organizationId),
+    getCustomer: (customerId) => base.getCustomer(customerId),
+    createCustomer: (organizationId, draft) =>
+      base.createCustomer(organizationId, draft),
+    listContacts: (customerId) => base.listContacts(customerId),
+    createContact: (organizationId, customerId, draft) =>
+      base.createContact(organizationId, customerId, draft),
+    async createNote(organizationId, customerId, draft) {
+      if (notes >= allowedNotes) {
+        throw new Error(message);
+      }
+      notes += 1;
+      return base.createNote(organizationId, customerId, draft);
+    },
+  };
+}
 
 describe("Phase 46 growth CRM bridge", () => {
   const organizationId = "org_phase46_test";
@@ -275,5 +328,74 @@ describe("Phase 46 growth CRM bridge", () => {
       link: { customerId: string } | null;
     };
     expect(payload.link?.customerId).toBeTruthy();
+  });
+
+  it("does not complete Operations when CRM validation/provider fails", async () => {
+    setCrmBridgeProvider(createFailingCrmBridge("crm_validation_failed"));
+    const campaign = await seedCampaign("Validation Fail Co", "validation.fail@example.com");
+    const requested = await growthService.requestCrmSync(organizationId, campaign.id);
+    await approvePending();
+    const job = operationsService.get(organizationId, requested.job.id);
+    expect(job?.status).not.toBe("COMPLETED");
+    expect(job?.status).toBe("FAILED");
+    expect(job?.result?.success).toBe(false);
+    expect(job?.result?.status).toBe("failed");
+    const sync = growthService.getCrmSync(organizationId, campaign.id);
+    expect(sync?.status).toBe("failed");
+    expect(sync?.outcome).toBe("error");
+  });
+
+  it("does not complete Operations when CRM mutation fails", async () => {
+    setCrmBridgeProvider(
+      createNoteFailAfterCrmBridge(createMemoryCrmBridge(), 0, "crm_mutation_failed"),
+    );
+    const campaign = await seedCampaign("Mutation Fail Co", "mutation.fail@example.com");
+    const requested = await growthService.requestCrmSync(organizationId, campaign.id);
+    await approvePending();
+    const job = operationsService.get(organizationId, requested.job.id);
+    expect(job?.status).not.toBe("COMPLETED");
+    expect(job?.status).toBe("FAILED");
+    expect(job?.result?.success).toBe(false);
+  });
+
+  it("does not let a stale successful GrowthCrmLink override a later failed sync", async () => {
+    const shared = createMemoryCrmBridge();
+    setCrmBridgeProvider(createNoteFailAfterCrmBridge(shared, 1, "crm_note_failed"));
+    const campaign = await seedCampaign("Stale Link Co", "stale.link@example.com");
+
+    const first = await growthService.requestCrmSync(organizationId, campaign.id);
+    await approvePending();
+    expect(operationsService.get(organizationId, first.job.id)?.status).toBe("COMPLETED");
+    const link = growthService.getCrmLink(organizationId);
+    expect(link?.outcome === "created" || link?.outcome === "linked").toBe(true);
+
+    const second = await growthService.requestCrmSync(organizationId, campaign.id);
+    await approvePending();
+    const secondJob = operationsService.get(organizationId, second.job.id);
+    expect(secondJob?.status).not.toBe("COMPLETED");
+    expect(secondJob?.status).toBe("FAILED");
+    expect(secondJob?.result?.success).toBe(false);
+    const sync = growthService.getCrmSync(organizationId, campaign.id);
+    expect(sync?.status).toBe("failed");
+    expect(sync?.outcome).toBe("error");
+    // Historical link may still exist, but must not force COMPLETED.
+    expect(growthService.getCrmLink(organizationId)?.customerId).toBe(link?.customerId);
+  });
+
+  it("allows a later successful sync to complete after a previous failure", async () => {
+    setCrmBridgeProvider(createFailingCrmBridge("crm_first_failure"));
+    const campaign = await seedCampaign("Retry Success Co", "retry.success@example.com");
+    const first = await growthService.requestCrmSync(organizationId, campaign.id);
+    await approvePending();
+    expect(operationsService.get(organizationId, first.job.id)?.status).toBe("FAILED");
+
+    setCrmBridgeProvider(createMemoryCrmBridge());
+    const second = await growthService.requestCrmSync(organizationId, campaign.id);
+    await approvePending();
+    const secondJob = operationsService.get(organizationId, second.job.id);
+    expect(secondJob?.status).toBe("COMPLETED");
+    expect(secondJob?.result?.success).toBe(true);
+    expect(growthService.getCrmSync(organizationId, campaign.id)?.status).toBe("completed");
+    expect(growthService.getCrmLink(organizationId)?.customerId).toBeTruthy();
   });
 });
