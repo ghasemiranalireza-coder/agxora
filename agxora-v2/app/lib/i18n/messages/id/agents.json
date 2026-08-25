@@ -770,7 +770,8 @@
       "create_follow_up": "Create a CRM follow-up",
       "complete_overdue_follow_up": "Complete overdue CRM follow-up",
       "complete_open_follow_up": "Complete open CRM follow-up",
-      "none": "No CRM follow-up action needed"
+      "none": "No CRM follow-up action needed",
+      "advance_crm_status": "Advance CRM status"
     },
     "ops": {
       "createSucceeded": "Follow-up note created",
@@ -790,7 +791,8 @@
       "score": "Priority score",
       "followUp": "Follow-up",
       "priority": "Priority",
-      "execution": "Execution"
+      "execution": "Execution",
+      "crmStatus": "CRM status"
     },
     "priority": {
       "CRITICAL": "Critical",
@@ -806,7 +808,8 @@
       "COMPLETE_PENDING_FOLLOW_UP": "Complete pending follow-up",
       "CREATE_FOLLOW_UP": "Create follow-up",
       "REVIEW_CRM_LINK": "Review CRM link",
-      "NO_ACTION": "No action needed"
+      "NO_ACTION": "No action needed",
+      "ADVANCE_CRM_STATUS": "Advance CRM status"
     },
     "reasons": {
       "overdue_follow_up": "Overdue follow-up",
@@ -818,7 +821,8 @@
       "recently_completed": "Recently completed follow-up",
       "weak_crm_link": "Weak or incomplete CRM link",
       "missing_crm_link": "Missing CRM link",
-      "no_action_needed": "No open CRM work"
+      "no_action_needed": "No open CRM work",
+      "ready_for_status_advance": "Ready to advance CRM status"
     },
     "noticeActionRequested": "Lead action requested through Agent OS. Approve if required.",
     "noticeReviewed": "CRM link opened for review. No mutation was performed.",
@@ -827,7 +831,8 @@
       "create": "Create Follow-up",
       "complete": "Complete Follow-up",
       "retry": "Retry",
-      "review": "Review CRM"
+      "review": "Review CRM",
+      "advance": "Advance Status"
     },
     "executionStatus": {
       "QUEUED": "Queued",
@@ -842,6 +847,14 @@
       "INVALID": "Invalid",
       "READY": "Ready",
       "RETRYING": "Retrying"
+    },
+    "crmStatus": {
+      "lead": "Lead",
+      "prospect": "Prospect",
+      "active": "Active",
+      "inactive": "Inactive",
+      "vip": "VIP",
+      "archived": "Archived"
     }
   }
 }

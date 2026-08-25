@@ -8,7 +8,9 @@
 
 import { nowIso } from "../growth/ids";
 import { agentsStore } from "../store";
+import type { CrmCustomerStatus } from "@/app/lib/crm/directory";
 import { evaluateCrmLeadNextAction, getCrmLinkedLeadState } from "./followUp";
+import { nextAllowedCrmStatus } from "./status";
 import { listGrowthCrmLinks } from "./sync";
 import type {
   CrmLeadPriority,
@@ -99,6 +101,8 @@ export function evaluateLeadPriority(input: {
   readonly openFollowUps: readonly GrowthCrmFollowUp[];
   readonly completedFollowUps?: readonly GrowthCrmFollowUp[];
   readonly today?: string;
+  /** Live CRM status — when lead/prospect with no open FU, prefer ADVANCE. */
+  readonly crmStatus?: CrmCustomerStatus;
 }): LeadPriorityEvaluation {
   const today = input.today ?? nowIso().slice(0, 10);
   const open = [...input.openFollowUps].sort((a, b) => {
@@ -198,6 +202,22 @@ export function evaluateLeadPriority(input: {
       input.link.outcome === "created" ||
       input.link.outcome === "already-linked")
   ) {
+    const advanceTarget =
+      input.crmStatus === "lead" || input.crmStatus === "prospect"
+        ? nextAllowedCrmStatus(input.crmStatus)
+        : undefined;
+    if (advanceTarget) {
+      reasons.push("ready_for_status_advance");
+      if (completed.length > 0) reasons.push("recently_completed");
+      if (open.length === 0) reasons.push("no_follow_up_after_link");
+      return {
+        priority: completed.length > 0 ? "LOW" : "MEDIUM",
+        score: completed.length > 0 ? SCORE.LOW : SCORE.MEDIUM - 5,
+        reasons,
+        recommendedAction: "ADVANCE_CRM_STATUS",
+      };
+    }
+
     if (completed.length > 0) {
       reasons.push("recently_completed");
       reasons.push("no_follow_up_after_link");
@@ -251,21 +271,30 @@ function buildItemFromLink(
   organizationId: string,
   link: GrowthCrmLink,
   today: string,
+  crmStatuses?: ReadonlyMap<string, CrmCustomerStatus>,
 ): LeadActionItem {
   const lead = getCrmLinkedLeadState(organizationId, link.profileId);
   const open = lead.openFollowUps;
+  const crmStatus =
+    (link.customerId ? crmStatuses?.get(link.customerId) : undefined) ??
+    (lead.customerId ? crmStatuses?.get(lead.customerId) : undefined);
   const evaluation = evaluateLeadPriority({
     link: lead.link ?? link,
     openFollowUps: open,
     completedFollowUps: lead.completedFollowUps,
     today,
+    crmStatus,
   });
   const overdueFollowUps = open.filter((item) => isOverdue(item, today));
   const phase48NextAction = evaluateCrmLeadNextAction({
     link: lead.link ?? link,
     openFollowUps: open,
     today,
+    crmStatus,
   });
+  const targetCrmStatus =
+    phase48NextAction.targetCrmStatus ??
+    (crmStatus ? nextAllowedCrmStatus(crmStatus) : undefined);
   const companyName = lead.companyName ?? link.companyName;
   const dueKey = earliestDueKey(open);
   const sortKey = [
@@ -293,6 +322,11 @@ function buildItemFromLink(
     followUpId: evaluation.followUp?.id ?? phase48NextAction.followUpId,
     dueAt: evaluation.followUp?.dueAt ?? phase48NextAction.dueAt,
     linkOutcome: link.outcome,
+    crmStatus,
+    targetCrmStatus:
+      evaluation.recommendedAction === "ADVANCE_CRM_STATUS"
+        ? targetCrmStatus
+        : undefined,
     openFollowUpCount: open.length,
     overdueFollowUpCount: overdueFollowUps.length,
     failedFollowUpCount: open.filter((item) => item.status === "failed").length,
@@ -380,6 +414,8 @@ export function buildLeadActionQueue(
     readonly today?: string;
     readonly includeUnlinkedProfiles?: boolean;
     readonly includeNone?: boolean;
+    /** Live CRM statuses keyed by customerId. */
+    readonly crmStatuses?: ReadonlyMap<string, CrmCustomerStatus>;
   },
 ): LeadActionQueue {
   const today = options?.today ?? nowIso().slice(0, 10);
@@ -388,7 +424,7 @@ export function buildLeadActionQueue(
   const links = listGrowthCrmLinks(organizationId);
   const linkedProfileIds = new Set(links.map((item) => item.profileId));
   const items: LeadActionItem[] = links.map((link) =>
-    buildItemFromLink(organizationId, link, today),
+    buildItemFromLink(organizationId, link, today, options?.crmStatuses),
   );
 
   if (includeUnlinked) {

@@ -1,11 +1,12 @@
 /**
- * Phase 50.0 — Lead Action Execution workflow.
+ * Phase 50–51 — Lead Action Execution workflow.
  *
  * Validates deterministic Lead Queue actions and routes them through the
- * existing Agent OS / Operations / CRM follow-up paths.
+ * existing Agent OS / Operations / CRM paths.
  * No second execution engine. No persistence version bump.
  */
 
+import type { CrmCustomerStatus } from "@/app/lib/crm/directory";
 import { createGrowthId, nowIso } from "../growth/ids";
 import { agentsStore } from "../store";
 import { operationsService } from "../execution/service";
@@ -16,6 +17,12 @@ import {
   listCrmFollowUps,
 } from "./followUp";
 import { buildLeadActionQueue } from "./prioritize";
+import { getCrmBridgeProvider } from "./adapter";
+import {
+  loadCrmStatusesForOrganization,
+  nextAllowedCrmStatus,
+  resolveAdvanceTarget,
+} from "./status";
 import { getGrowthCrmLink } from "./sync";
 import type {
   LeadActionExecution,
@@ -29,6 +36,7 @@ const EXECUTABLE: ReadonlySet<string> = new Set([
   "COMPLETE_OVERDUE_FOLLOW_UP",
   "RETRY_FAILED_FOLLOW_UP",
   "REVIEW_CRM_LINK",
+  "ADVANCE_CRM_STATUS",
 ]);
 
 function dayKey(iso?: string): string | undefined {
@@ -67,18 +75,73 @@ export function isLeadExecutableAction(
   return EXECUTABLE.has(action);
 }
 
-export function validateLeadAction(input: {
+async function readLiveCrmStatus(input: {
+  readonly organizationId: string;
+  readonly customerId: string;
+}): Promise<
+  | { readonly ok: true; readonly status: CrmCustomerStatus }
+  | { readonly ok: false; readonly code: string; readonly message: string }
+> {
+  const bridge = getCrmBridgeProvider();
+  if (!bridge.available) {
+    return {
+      ok: false,
+      code: "crm_unavailable",
+      message: "crm_bridge_unavailable",
+    };
+  }
+  try {
+    const customer = await bridge.getCustomer(input.customerId);
+    if (!customer) {
+      return {
+        ok: false,
+        code: "missing_customer",
+        message: "crm_customer_missing",
+      };
+    }
+    if (customer.organizationId !== input.organizationId) {
+      return {
+        ok: false,
+        code: "org_mismatch",
+        message: "crm_customer_org_mismatch",
+      };
+    }
+    return { ok: true, status: customer.status };
+  } catch (error) {
+    if (
+      error instanceof Error &&
+      (error.name === "CrmBridgeUnavailableError" ||
+        error.message.includes("_unavailable"))
+    ) {
+      return {
+        ok: false,
+        code: "crm_unavailable",
+        message: "crm_bridge_unavailable",
+      };
+    }
+    return {
+      ok: false,
+      code: "crm_read_failed",
+      message: error instanceof Error ? error.message : "crm_customer_read_failed",
+    };
+  }
+}
+
+export async function validateLeadAction(input: {
   readonly organizationId: string;
   readonly profileId: string;
   readonly action: string;
   readonly followUpId?: string;
+  readonly targetCrmStatus?: CrmCustomerStatus;
   readonly today?: string;
-}): {
+}): Promise<{
   readonly ok: boolean;
   readonly code?: string;
   readonly message?: string;
   readonly followUpId?: string;
-} {
+  readonly fromCrmStatus?: CrmCustomerStatus;
+  readonly toCrmStatus?: CrmCustomerStatus;
+}> {
   if (!isLeadExecutableAction(input.action)) {
     return {
       ok: false,
@@ -92,6 +155,57 @@ export function validateLeadAction(input: {
 
   if (input.action === "REVIEW_CRM_LINK") {
     return { ok: true };
+  }
+
+  if (input.action === "ADVANCE_CRM_STATUS") {
+    if (!link || !link.customerId) {
+      return {
+        ok: false,
+        code: "missing_crm_link",
+        message: "crm_link_required_before_status_advance",
+      };
+    }
+    const live = await readLiveCrmStatus({
+      organizationId: input.organizationId,
+      customerId: link.customerId,
+    });
+    if (!live.ok) {
+      if (live.code === "crm_unavailable") {
+        // Allow enqueue so Operations can surface BLOCKED after approval —
+        // never invent a successful mutation while CRM is unavailable.
+        const fallbackTarget = input.targetCrmStatus ?? "prospect";
+        return {
+          ok: true,
+          code: "crm_unavailable",
+          message: live.message,
+          fromCrmStatus: undefined,
+          toCrmStatus: fallbackTarget,
+        };
+      }
+      return {
+        ok: false,
+        code: live.code,
+        message: live.message,
+      };
+    }
+    const resolved = resolveAdvanceTarget({
+      current: live.status,
+      requested: input.targetCrmStatus,
+    });
+    if (!resolved.ok || !resolved.target) {
+      return {
+        ok: false,
+        code: resolved.code ?? "invalid_transition",
+        message: resolved.message ?? "crm_status_transition_not_allowed",
+        fromCrmStatus: live.status,
+        toCrmStatus: input.targetCrmStatus,
+      };
+    }
+    return {
+      ok: true,
+      fromCrmStatus: live.status,
+      toCrmStatus: resolved.target,
+    };
   }
 
   if (input.action === "CREATE_FOLLOW_UP") {
@@ -169,7 +283,6 @@ export function validateLeadAction(input: {
     input.action === "COMPLETE_OVERDUE_FOLLOW_UP"
   ) {
     // Completing a non-overdue pending is still valid (operator chose complete).
-    // Spec allows pending where completion is valid.
   }
 
   return { ok: true, followUpId };
@@ -186,6 +299,7 @@ function isLeadActionJob(job: ExecutionJob, profileId: string): boolean {
   return (
     growthAction === "crm_follow_up" ||
     growthAction === "crm_follow_up_complete" ||
+    growthAction === "crm_status_advance" ||
     growthAction === "lead_action"
   );
 }
@@ -230,6 +344,17 @@ export function attachLeadExecutionsToQueue(
   };
 }
 
+async function buildQueueWithLiveStatus(
+  organizationId: string,
+  today?: string,
+): Promise<ReturnType<typeof buildLeadActionQueue>> {
+  const crmStatuses = await loadCrmStatusesForOrganization(organizationId);
+  return attachLeadExecutionsToQueue(
+    organizationId,
+    buildLeadActionQueue(organizationId, { today, crmStatuses }),
+  );
+}
+
 type FollowUpRequester = (input: {
   readonly organizationId: string;
   readonly profileId: string;
@@ -245,9 +370,22 @@ type FollowUpRequester = (input: {
   readonly followUpId?: string;
 }>;
 
+type StatusAdvanceRequester = (input: {
+  readonly organizationId: string;
+  readonly profileId: string;
+  readonly campaignId?: string;
+  readonly targetCrmStatus: CrmCustomerStatus;
+  readonly fromCrmStatus?: CrmCustomerStatus;
+  readonly leadAction: LeadExecutableAction;
+}) => Promise<{
+  readonly job: ExecutionJob;
+  readonly taskId?: string;
+}>;
+
 /**
  * Execute a validated lead action through existing Agent OS operations.
  * REVIEW_CRM_LINK is read-only and never enqueues work.
+ * ADVANCE_CRM_STATUS re-reads live CRM status before enqueue and on execute.
  */
 export async function executeLeadAction(input: {
   readonly organizationId: string;
@@ -257,19 +395,22 @@ export async function executeLeadAction(input: {
   readonly campaignId?: string;
   readonly summary?: string;
   readonly completionNote?: string;
+  readonly targetCrmStatus?: CrmCustomerStatus;
   readonly today?: string;
   readonly requestCreateFollowUp: FollowUpRequester;
   readonly requestCompleteFollowUp: FollowUpRequester;
+  readonly requestAdvanceCrmStatus: StatusAdvanceRequester;
 }): Promise<{
   readonly execution: LeadActionExecution;
   readonly queue: ReturnType<typeof buildLeadActionQueue>;
 }> {
   const now = nowIso();
-  const validation = validateLeadAction({
+  const validation = await validateLeadAction({
     organizationId: input.organizationId,
     profileId: input.profileId,
     action: input.action,
     followUpId: input.followUpId,
+    targetCrmStatus: input.targetCrmStatus,
     today: input.today,
   });
 
@@ -285,13 +426,12 @@ export async function executeLeadAction(input: {
       updatedAt: now,
       message: validation.message ?? "unsupported_lead_action",
       readOnly: true,
+      fromCrmStatus: validation.fromCrmStatus,
+      toCrmStatus: validation.toCrmStatus,
     };
     return {
       execution,
-      queue: attachLeadExecutionsToQueue(
-        input.organizationId,
-        buildLeadActionQueue(input.organizationId, { today: input.today }),
-      ),
+      queue: await buildQueueWithLiveStatus(input.organizationId, input.today),
     };
   }
 
@@ -316,10 +456,55 @@ export async function executeLeadAction(input: {
     };
     return {
       execution,
-      queue: attachLeadExecutionsToQueue(
-        input.organizationId,
-        buildLeadActionQueue(input.organizationId, { today: input.today }),
-      ),
+      queue: await buildQueueWithLiveStatus(input.organizationId, input.today),
+    };
+  }
+
+  if (action === "ADVANCE_CRM_STATUS") {
+    const toCrmStatus =
+      validation.toCrmStatus ??
+      input.targetCrmStatus ??
+      (validation.fromCrmStatus
+        ? nextAllowedCrmStatus(validation.fromCrmStatus)
+        : undefined);
+    if (!toCrmStatus) {
+      const execution: LeadActionExecution = {
+        id: createGrowthId("lax"),
+        organizationId: input.organizationId,
+        profileId: input.profileId,
+        action,
+        status: "INVALID",
+        createdAt: now,
+        updatedAt: now,
+        message: "crm_status_has_no_allowed_advance",
+        readOnly: true,
+        fromCrmStatus: validation.fromCrmStatus,
+      };
+      return {
+        execution,
+        queue: await buildQueueWithLiveStatus(input.organizationId, input.today),
+      };
+    }
+    const requested = await input.requestAdvanceCrmStatus({
+      organizationId: input.organizationId,
+      profileId: input.profileId,
+      campaignId: input.campaignId,
+      targetCrmStatus: toCrmStatus,
+      fromCrmStatus: validation.fromCrmStatus,
+      leadAction: action,
+    });
+    const execution = executionFromJob({
+      organizationId: input.organizationId,
+      profileId: input.profileId,
+      action,
+      job: requested.job,
+      now,
+      fromCrmStatus: validation.fromCrmStatus,
+      toCrmStatus,
+    });
+    return {
+      execution,
+      queue: await buildQueueWithLiveStatus(input.organizationId, input.today),
     };
   }
 
@@ -342,10 +527,7 @@ export async function executeLeadAction(input: {
     });
     return {
       execution,
-      queue: attachLeadExecutionsToQueue(
-        input.organizationId,
-        buildLeadActionQueue(input.organizationId, { today: input.today }),
-      ),
+      queue: await buildQueueWithLiveStatus(input.organizationId, input.today),
     };
   }
 
@@ -373,10 +555,7 @@ export async function executeLeadAction(input: {
   });
   return {
     execution,
-    queue: attachLeadExecutionsToQueue(
-      input.organizationId,
-      buildLeadActionQueue(input.organizationId, { today: input.today }),
-    ),
+    queue: await buildQueueWithLiveStatus(input.organizationId, input.today),
   };
 }
 
@@ -387,6 +566,8 @@ function executionFromJob(input: {
   readonly job: ExecutionJob;
   readonly followUpId?: string;
   readonly now: string;
+  readonly fromCrmStatus?: CrmCustomerStatus;
+  readonly toCrmStatus?: CrmCustomerStatus;
 }): LeadActionExecution {
   const approvalId = findApprovalId(input.organizationId, input.job.taskId);
   return {
@@ -403,5 +584,7 @@ function executionFromJob(input: {
     updatedAt: input.job.updatedAt ?? input.now,
     message: input.job.result?.message ?? blockerMessage(input.job),
     readOnly: false,
+    fromCrmStatus: input.fromCrmStatus,
+    toCrmStatus: input.toCrmStatus,
   };
 }

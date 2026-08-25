@@ -201,6 +201,124 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
         : undefined;
     const action =
       typeof job.params.action === "string" ? job.params.action : undefined;
+    const isStatusAdvanceJob =
+      growthAction === "crm_status_advance" ||
+      action === "update_customer_status" ||
+      action === "advance_crm_status";
+
+    if (isStatusAdvanceJob) {
+      const stepResult = agentsStore
+        .getSnapshot()
+        .stepExecutions.filter(
+          (item) =>
+            item.taskId === task.id &&
+            item.toolId === "crm" &&
+            item.status === "COMPLETED",
+        )
+        .sort((a, b) => b.timestamp.localeCompare(a.timestamp))[0]?.result;
+      const output =
+        stepResult && typeof stepResult === "object"
+          ? (stepResult as Readonly<Record<string, unknown>>)
+          : undefined;
+      const statusResult =
+        output?.statusResult && typeof output.statusResult === "object"
+          ? (output.statusResult as Readonly<Record<string, unknown>>)
+          : output?.result && typeof output.result === "object"
+            ? (output.result as Readonly<Record<string, unknown>>)
+            : undefined;
+      const available =
+        typeof statusResult?.available === "boolean"
+          ? statusResult.available
+          : typeof output?.crmAvailable === "boolean"
+            ? output.crmAvailable
+            : undefined;
+      const success =
+        typeof statusResult?.success === "boolean"
+          ? statusResult.success
+          : typeof output?.crmSuccess === "boolean"
+            ? output.crmSuccess
+            : undefined;
+      const outcome =
+        typeof statusResult?.outcome === "string"
+          ? statusResult.outcome
+          : undefined;
+      const message =
+        typeof statusResult?.message === "string"
+          ? statusResult.message
+          : typeof output?.message === "string"
+            ? output.message
+            : undefined;
+
+      // Only CURRENT tool output may establish COMPLETED — never GrowthCrmLink.
+      if (
+        available === false ||
+        outcome === "unavailable" ||
+        message === "crm_bridge_unavailable"
+      ) {
+        return {
+          success: false,
+          status: "unavailable",
+          externalEffect: false,
+          message: message ?? "crm_unavailable",
+          metadata: {
+            toolId: job.toolId,
+            growthAction: growthAction ?? "crm_status_advance",
+          },
+        };
+      }
+
+      if (
+        success === false ||
+        outcome === "error" ||
+        outcome === "invalid_transition" ||
+        outcome === "missing_link" ||
+        outcome === "missing_customer" ||
+        outcome === "org_mismatch" ||
+        outcome === "blocked"
+      ) {
+        return {
+          success: false,
+          status: "failed",
+          externalEffect: false,
+          message: message ?? task.error ?? "crm_status_advance_failed",
+          metadata: {
+            toolId: job.toolId,
+            growthAction: growthAction ?? "crm_status_advance",
+          },
+        };
+      }
+
+      if (success === true && outcome === "advanced") {
+        return {
+          success: true,
+          status: "completed",
+          externalEffect: false,
+          message: "completed",
+          metadata: {
+            toolId: job.toolId,
+            growthAction: growthAction ?? "crm_status_advance",
+            ...(typeof statusResult?.customerId === "string"
+              ? { customerId: statusResult.customerId }
+              : {}),
+            ...(typeof statusResult?.toStatus === "string"
+              ? { toStatus: statusResult.toStatus }
+              : {}),
+          },
+        };
+      }
+
+      return {
+        success: false,
+        status: "failed",
+        externalEffect: false,
+        message: message ?? task.error ?? "crm_status_advance_unresolved",
+        metadata: {
+          toolId: job.toolId,
+          growthAction: growthAction ?? "crm_status_advance",
+        },
+      };
+    }
+
     const isFollowUpJob =
       growthAction === "crm_follow_up" ||
       growthAction === "crm_follow_up_complete" ||

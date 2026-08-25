@@ -33,8 +33,10 @@ import {
   executeLeadAction,
 } from "../crm/execute";
 import { buildLeadActionQueue } from "../crm/prioritize";
+import { loadCrmStatusesForOrganization } from "../crm/status";
 import { getCampaignCrmSync, getGrowthCrmLink } from "../crm/sync";
 import type { CrmFollowUpKind } from "../crm/types";
+import type { CrmCustomerStatus } from "@/app/lib/crm/directory";
 import { operationsService } from "../execution/service";
 import {
   CAMPAIGN_CHANNELS,
@@ -862,6 +864,69 @@ export const growthService = {
     };
   },
 
+  async requestCrmStatusAdvance(
+    organizationId: string,
+    input: {
+      readonly profileId: string;
+      readonly targetStatus: CrmCustomerStatus;
+      readonly fromStatus?: CrmCustomerStatus;
+      readonly campaignId?: string;
+      readonly leadAction?: string;
+    },
+  ): Promise<{
+    readonly task: Awaited<ReturnType<typeof runAgentTool>>;
+    readonly job: ReturnType<typeof operationsService.enqueue>;
+    readonly link: ReturnType<typeof getGrowthCrmLink>;
+  }> {
+    this.ensure(organizationId);
+    const profile =
+      agentsStore
+        .getSnapshot()
+        .growthProfiles.find(
+          (item) =>
+            item.id === input.profileId &&
+            item.organizationId === organizationId,
+        ) ??
+      latestProfile(organizationId) ??
+      this.saveProfile({ organizationId, draft: {} });
+    const campaign = input.campaignId
+      ? this.getCampaign(organizationId, input.campaignId)
+      : this.listCampaigns(organizationId)[0];
+    const job = operationsService.enqueue({
+      organizationId,
+      toolId: "crm",
+      agentId: "crm_assistant",
+      campaignId: campaign?.id,
+      title: `Advance CRM status to ${input.targetStatus}`,
+      priority: "HIGH",
+      params: {
+        action: "update_customer_status",
+        profileId: profile.id,
+        targetStatus: input.targetStatus,
+        fromStatus: input.fromStatus,
+        campaignId: campaign?.id,
+        growthAction: "crm_status_advance",
+        leadAction: input.leadAction ?? "ADVANCE_CRM_STATUS",
+      },
+    });
+    const started = await operationsService.start(organizationId, job.id);
+    if (started.status === "WAITING_FOR_APPROVAL") {
+      auditGrowth(
+        "agent.growth.crm_status_advance_approval_requested",
+        organizationId,
+        profile.id,
+        { jobId: started.id, targetStatus: input.targetStatus },
+      );
+    }
+    return {
+      task: agentsStore
+        .getSnapshot()
+        .tasks.find((item) => item.id === started.taskId)!,
+      job: operationsService.get(organizationId, started.id)!,
+      link: getGrowthCrmLink(organizationId, profile.id),
+    };
+  },
+
   listCrmFollowUps(
     organizationId: string,
     options?: {
@@ -881,18 +946,19 @@ export const growthService = {
     return getCrmLinkedLeadState(organizationId, profile?.id);
   },
 
-  /** Read-only Phase 49 lead prioritization queue — never mutates CRM. */
-  getLeadActionQueue(organizationId: string) {
+  /** Read-only Phase 49/51 lead prioritization queue — never mutates CRM. */
+  async getLeadActionQueue(organizationId: string) {
     this.ensure(organizationId);
+    const crmStatuses = await loadCrmStatusesForOrganization(organizationId);
     return attachLeadExecutionsToQueue(
       organizationId,
-      buildLeadActionQueue(organizationId),
+      buildLeadActionQueue(organizationId, { crmStatuses }),
     );
   },
 
   /**
-   * Phase 50 — execute a validated Lead Action Queue recommendation through
-   * existing Agent OS / Operations / CRM follow-up paths.
+   * Phase 50–51 — execute a validated Lead Action Queue recommendation through
+   * existing Agent OS / Operations / CRM paths.
    */
   async executeLeadAction(
     organizationId: string,
@@ -903,6 +969,7 @@ export const growthService = {
       readonly campaignId?: string;
       readonly summary?: string;
       readonly completionNote?: string;
+      readonly targetCrmStatus?: CrmCustomerStatus;
     },
   ) {
     this.ensure(organizationId);
@@ -914,6 +981,7 @@ export const growthService = {
       campaignId: input.campaignId,
       summary: input.summary,
       completionNote: input.completionNote,
+      targetCrmStatus: input.targetCrmStatus,
       requestCreateFollowUp: async (req) => {
         const created = await this.requestCrmFollowUp(organizationId, {
           profileId: req.profileId,
@@ -942,6 +1010,19 @@ export const growthService = {
           job: completed.job,
           taskId: completed.task?.id,
           followUpId: req.followUpId,
+        };
+      },
+      requestAdvanceCrmStatus: async (req) => {
+        const advanced = await this.requestCrmStatusAdvance(organizationId, {
+          profileId: req.profileId,
+          campaignId: req.campaignId,
+          targetStatus: req.targetCrmStatus,
+          fromStatus: req.fromCrmStatus,
+          leadAction: req.leadAction,
+        });
+        return {
+          job: advanced.job,
+          taskId: advanced.task?.id,
         };
       },
     });
@@ -985,6 +1066,7 @@ export const growthService = {
       crmFollowUps: listCrmFollowUps(organizationId, {
         campaignId: campaigns[0]?.id,
       }),
+      /** Sync projection without live CRM status; prefer getLeadActionQueue(). */
       leadActionQueue: attachLeadExecutionsToQueue(
         organizationId,
         buildLeadActionQueue(organizationId),

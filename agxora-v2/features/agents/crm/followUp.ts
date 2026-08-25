@@ -61,6 +61,8 @@ export function evaluateCrmLeadNextAction(input: {
   readonly link: GrowthCrmLink | null;
   readonly openFollowUps: readonly GrowthCrmFollowUp[];
   readonly today?: string;
+  /** Live CRM customer status — when present, status advance beats endless create. */
+  readonly crmStatus?: import("@/app/lib/crm/directory").CrmCustomerStatus;
 }): CrmLeadNextAction {
   if (!input.link) {
     return { code: "link_to_crm" };
@@ -68,7 +70,22 @@ export function evaluateCrmLeadNextAction(input: {
   const today = input.today ?? nowIso().slice(0, 10);
   const open = sortOpenFollowUps(input.openFollowUps);
   if (open.length === 0) {
-    return { code: "create_follow_up" };
+    const crmStatus = input.crmStatus;
+    if (crmStatus === "lead") {
+      return {
+        code: "advance_crm_status",
+        crmStatus,
+        targetCrmStatus: "prospect",
+      };
+    }
+    if (crmStatus === "prospect") {
+      return {
+        code: "advance_crm_status",
+        crmStatus,
+        targetCrmStatus: "active",
+      };
+    }
+    return { code: "create_follow_up", crmStatus };
   }
   const overdue = open.find((item) => isOverdue(item, today));
   if (overdue) {
@@ -76,6 +93,7 @@ export function evaluateCrmLeadNextAction(input: {
       code: "complete_overdue_follow_up",
       followUpId: overdue.id,
       dueAt: overdue.dueAt,
+      crmStatus: input.crmStatus,
     };
   }
   const next = open[0]!;
@@ -83,6 +101,7 @@ export function evaluateCrmLeadNextAction(input: {
     code: "complete_open_follow_up",
     followUpId: next.id,
     dueAt: next.dueAt,
+    crmStatus: input.crmStatus,
   };
 }
 
