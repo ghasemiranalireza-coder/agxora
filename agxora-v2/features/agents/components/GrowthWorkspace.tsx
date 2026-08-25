@@ -110,6 +110,18 @@ export function GrowthWorkspace({
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           {t("agents.growth.noFakePublish")}
         </p>
+        {snapshot.crmLink ? (
+          <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {t("agents.crmBridge.labels.customer")}: {snapshot.crmLink.companyName}{" "}
+            <a href={snapshot.crmLink.href} className="underline" style={{ color: "var(--agx-accent, #22d3ee)" }}>
+              {t("agents.crmBridge.actions.openCrm")}
+            </a>
+          </p>
+        ) : (
+          <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {t("agents.crmBridge.status.unlinked")}
+          </p>
+        )}
       </Card>
 
       {mode === "growth" ? (

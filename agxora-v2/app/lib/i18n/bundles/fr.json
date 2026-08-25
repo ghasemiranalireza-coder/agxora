@@ -4854,7 +4854,9 @@
         "connect_social_account": "Connect social account",
         "configure_publishing": "Configure publishing integration",
         "schedule_content": "Schedule content",
-        "publish_content": "Publish content"
+        "publish_content": "Publish content",
+        "sync_crm_customer": "Synchroniser le profil Growth avec le CRM",
+        "attach_crm_note": "Joindre une note de campagne au CRM"
       },
       "milestones": {
         "plan_ready": "Campaign plan ready",
@@ -4957,6 +4959,41 @@
         "FAILED": "Execution failed",
         "RETRY_REQUESTED": "Retry requested",
         "CANCELLED": "Execution cancelled"
+      }
+    },
+    "crmBridge": {
+      "noticeRequested": "Synchronisation CRM demandée. Approuvez l'action Agent OS en attente.",
+      "noticeSynced": "Profil Growth synchronisé avec le CRM.",
+      "noticeFailed": "Échec de la synchronisation CRM",
+      "actions": {
+        "sync": "Synchroniser avec le CRM",
+        "openCrm": "Ouvrir la fiche CRM"
+      },
+      "labels": {
+        "status": "Statut CRM",
+        "customer": "Client CRM",
+        "contact": "Contact CRM",
+        "record": "Fiche CRM"
+      },
+      "status": {
+        "unlinked": "Non lié au CRM"
+      },
+      "syncStatus": {
+        "pending": "Sync CRM en attente",
+        "completed": "Sync CRM terminée",
+        "blocked": "Sync CRM bloquée",
+        "failed": "Sync CRM échouée"
+      },
+      "outcome": {
+        "linked": "Client CRM existant lié",
+        "created": "Client CRM créé",
+        "already-linked": "Déjà lié au CRM",
+        "blocked": "Sync CRM bloquée",
+        "unavailable": "CRM indisponible",
+        "error": "Erreur de sync CRM"
+      },
+      "blockers": {
+        "unavailable": "Le fournisseur CRM est indisponible"
       }
     }
   },

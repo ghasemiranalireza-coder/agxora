@@ -15,6 +15,7 @@ import {
   handleCampaignReadinessTool,
   handleGrowthInsightsTool,
 } from "../campaigns/handlers";
+import { handleCrmTool } from "../crm/handlers";
 import {
   handleSocialPublishTool,
   handleSocialScheduleTool,
@@ -32,6 +33,7 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
     description: "Create/update customers and read account context.",
     module: "crm",
     sensitive: true,
+    requiresApproval: true,
     inputSchema: {
       type: "object",
       properties: {
@@ -436,3 +438,4 @@ registerToolHandler("campaign_plan", handleCampaignPlanTool);
 registerToolHandler("campaign_readiness", handleCampaignReadinessTool);
 registerToolHandler("growth_insights", handleGrowthInsightsTool);
 registerToolHandler("campaign_execute", handleCampaignExecuteTool);
+registerToolHandler("crm", handleCrmTool);

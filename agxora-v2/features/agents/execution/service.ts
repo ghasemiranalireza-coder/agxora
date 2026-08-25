@@ -121,7 +121,9 @@ function syncCampaign(job: ExecutionJob): void {
   const tasks = campaign.tasks.map((task) => {
     const matchesTask = job.campaignTaskId
       ? task.id === job.campaignTaskId
-      : isExternalSideEffectTool(job.toolId) && task.code === "publish_content";
+      : (isExternalSideEffectTool(job.toolId) && task.code === "publish_content") ||
+        (job.toolId === "crm" &&
+          (task.code === "sync_crm_customer" || task.code === "attach_crm_note"));
     if (!matchesTask) return task;
     if (job.status === "COMPLETED") {
       return { ...task, status: "completed" as const, executionJobId: job.id };
@@ -190,6 +192,55 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
     };
   }
 
+  if (job.toolId === "crm") {
+    const sync = agentsStore
+      .getSnapshot()
+      .campaignCrmSyncs.find(
+        (item) =>
+          item.taskId === task.id ||
+          (job.campaignId !== undefined && item.campaignId === job.campaignId),
+      );
+    const link = agentsStore
+      .getSnapshot()
+      .growthCrmLinks.find((item) => item.id === sync?.linkId);
+    const bridge = sync?.result;
+    if (
+      bridge?.success === true ||
+      bridge?.outcome === "created" ||
+      bridge?.outcome === "linked" ||
+      bridge?.outcome === "already-linked" ||
+      link?.outcome === "created" ||
+      link?.outcome === "linked" ||
+      link?.outcome === "already-linked"
+    ) {
+      return {
+        success: true,
+        status: "completed",
+        externalEffect: false,
+        message: bridge?.outcome ?? link?.outcome ?? "completed",
+        metadata: {
+          toolId: job.toolId,
+          ...(bridge?.customerId || link?.customerId
+            ? { customerId: bridge?.customerId ?? link?.customerId ?? "" }
+            : {}),
+        },
+      };
+    }
+    if (
+      bridge?.outcome === "unavailable" ||
+      bridge?.available === false ||
+      sync?.status === "blocked"
+    ) {
+      return {
+        success: false,
+        status: "unavailable",
+        externalEffect: false,
+        message: bridge?.message ?? "crm_unavailable",
+        metadata: { toolId: job.toolId },
+      };
+    }
+  }
+
   if (task.status === "failed") {
     return {
       success: false,
@@ -256,7 +307,13 @@ function finishJob(
   const blocker: ExecutionBlocker | undefined = result.success
     ? undefined
     : result.status === "unavailable"
-      ? { code: "publishing.unavailable", retryable: false }
+      ? {
+          code:
+            result.message === "crm_unavailable" || job.toolId === "crm"
+              ? "crm.unavailable"
+              : "publishing.unavailable",
+          retryable: false,
+        }
       : result.status === "rejected"
         ? { code: "approval.rejected", retryable: false }
         : result.status === "cancelled"

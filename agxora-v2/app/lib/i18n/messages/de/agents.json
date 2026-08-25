@@ -583,7 +583,9 @@
       "connect_social_account": "Connect social account",
       "configure_publishing": "Configure publishing integration",
       "schedule_content": "Schedule content",
-      "publish_content": "Publish content"
+      "publish_content": "Publish content",
+      "sync_crm_customer": "Wachstumsprofil mit CRM synchronisieren",
+      "attach_crm_note": "Kampagnennotiz im CRM anhängen"
     },
     "milestones": {
       "plan_ready": "Campaign plan ready",
@@ -686,6 +688,41 @@
       "FAILED": "Execution failed",
       "RETRY_REQUESTED": "Retry requested",
       "CANCELLED": "Execution cancelled"
+    }
+  },
+  "crmBridge": {
+    "noticeRequested": "CRM-Synchronisierung angefordert. Genehmigen Sie die ausstehende Agent-OS-Aktion.",
+    "noticeSynced": "Wachstumsprofil mit CRM synchronisiert.",
+    "noticeFailed": "CRM-Synchronisierung fehlgeschlagen",
+    "actions": {
+      "sync": "Mit CRM synchronisieren",
+      "openCrm": "CRM-Datensatz öffnen"
+    },
+    "labels": {
+      "status": "CRM-Status",
+      "customer": "CRM-Kunde",
+      "contact": "CRM-Kontakt",
+      "record": "CRM-Datensatz"
+    },
+    "status": {
+      "unlinked": "Nicht mit CRM verknüpft"
+    },
+    "syncStatus": {
+      "pending": "CRM-Sync ausstehend",
+      "completed": "CRM-Sync abgeschlossen",
+      "blocked": "CRM-Sync blockiert",
+      "failed": "CRM-Sync fehlgeschlagen"
+    },
+    "outcome": {
+      "linked": "Vorhandenen CRM-Kunden verknüpft",
+      "created": "CRM-Kunde erstellt",
+      "already-linked": "Bereits mit CRM verknüpft",
+      "blocked": "CRM-Sync blockiert",
+      "unavailable": "CRM nicht verfügbar",
+      "error": "CRM-Sync-Fehler"
+    },
+    "blockers": {
+      "unavailable": "CRM-Anbieter ist nicht verfügbar"
     }
   }
 }

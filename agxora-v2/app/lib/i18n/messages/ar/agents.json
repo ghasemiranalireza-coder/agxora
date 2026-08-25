@@ -583,7 +583,9 @@
       "connect_social_account": "Connect social account",
       "configure_publishing": "Configure publishing integration",
       "schedule_content": "Schedule content",
-      "publish_content": "Publish content"
+      "publish_content": "Publish content",
+      "sync_crm_customer": "مزامنة ملف النمو مع CRM",
+      "attach_crm_note": "إرفاق ملاحظة الحملة في CRM"
     },
     "milestones": {
       "plan_ready": "Campaign plan ready",
@@ -686,6 +688,41 @@
       "FAILED": "Execution failed",
       "RETRY_REQUESTED": "Retry requested",
       "CANCELLED": "Execution cancelled"
+    }
+  },
+  "crmBridge": {
+    "noticeRequested": "تم طلب مزامنة CRM. وافق على إجراء Agent OS المعلق.",
+    "noticeSynced": "تمت مزامنة ملف النمو مع CRM.",
+    "noticeFailed": "فشلت مزامنة CRM",
+    "actions": {
+      "sync": "مزامنة مع CRM",
+      "openCrm": "فتح سجل CRM"
+    },
+    "labels": {
+      "status": "حالة CRM",
+      "customer": "عميل CRM",
+      "contact": "جهة اتصال CRM",
+      "record": "سجل CRM"
+    },
+    "status": {
+      "unlinked": "غير مرتبط بـ CRM"
+    },
+    "syncStatus": {
+      "pending": "مزامنة CRM معلّقة",
+      "completed": "اكتملت مزامنة CRM",
+      "blocked": "مزامنة CRM محظورة",
+      "failed": "فشلت مزامنة CRM"
+    },
+    "outcome": {
+      "linked": "تم ربط عميل CRM موجود",
+      "created": "تم إنشاء عميل CRM",
+      "already-linked": "مرتبط مسبقًا بـ CRM",
+      "blocked": "مزامنة CRM محظورة",
+      "unavailable": "CRM غير متاح",
+      "error": "خطأ مزامنة CRM"
+    },
+    "blockers": {
+      "unavailable": "موفر CRM غير متاح"
     }
   }
 }
