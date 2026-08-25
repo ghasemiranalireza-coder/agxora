@@ -52,7 +52,8 @@ export interface CrmBridgeResult {
 export interface CampaignCrmSync {
   readonly id: string;
   readonly organizationId: string;
-  readonly campaignId: string;
+  /** Present for campaign-scoped syncs; omitted for profile-only CRM syncs. */
+  readonly campaignId?: string;
   readonly profileId: string;
   readonly linkId?: string;
   readonly customerId?: string;

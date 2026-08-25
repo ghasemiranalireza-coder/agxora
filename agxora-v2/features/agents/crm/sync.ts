@@ -146,19 +146,17 @@ export async function syncGrowthProfileToCrm(input: {
       available: false,
       success: false,
     });
-    const sync = input.campaignId
-      ? persistSync({
-          organizationId: input.organizationId,
-          campaignId: input.campaignId,
-          profileId: input.profile.id,
-          status: "blocked",
-          outcome: "unavailable",
-          result,
-          taskId: input.taskId,
-          executionJobId: input.executionJobId,
-          now,
-        })
-      : undefined;
+    const sync = persistSync({
+      organizationId: input.organizationId,
+      campaignId: input.campaignId,
+      profileId: input.profile.id,
+      status: "blocked",
+      outcome: "unavailable",
+      result,
+      taskId: input.taskId,
+      executionJobId: input.executionJobId,
+      now,
+    });
     return { result, sync };
   }
 
@@ -276,24 +274,22 @@ export async function syncGrowthProfileToCrm(input: {
       duplicated,
     });
 
-    const sync = input.campaignId
-      ? persistSync({
-          organizationId: input.organizationId,
-          campaignId: input.campaignId,
-          profileId: input.profile.id,
-          linkId: link.id,
-          customerId,
-          contactId,
-          noteId,
-          href: link.href,
-          status: "completed",
-          outcome,
-          result,
-          taskId: input.taskId,
-          executionJobId: input.executionJobId,
-          now,
-        })
-      : undefined;
+    const sync = persistSync({
+      organizationId: input.organizationId,
+      campaignId: input.campaignId,
+      profileId: input.profile.id,
+      linkId: link.id,
+      customerId,
+      contactId,
+      noteId,
+      href: link.href,
+      status: "completed",
+      outcome,
+      result,
+      taskId: input.taskId,
+      executionJobId: input.executionJobId,
+      now,
+    });
 
     return { result, link, sync };
   } catch (error) {
@@ -308,27 +304,25 @@ export async function syncGrowthProfileToCrm(input: {
       available: !unavailable,
       success: false,
     });
-    const sync = input.campaignId
-      ? persistSync({
-          organizationId: input.organizationId,
-          campaignId: input.campaignId,
-          profileId: input.profile.id,
-          status: unavailable ? "blocked" : "failed",
-          outcome,
-          result,
-          taskId: input.taskId,
-          executionJobId: input.executionJobId,
-          lastError: message,
-          now,
-        })
-      : undefined;
+    const sync = persistSync({
+      organizationId: input.organizationId,
+      campaignId: input.campaignId,
+      profileId: input.profile.id,
+      status: unavailable ? "blocked" : "failed",
+      outcome,
+      result,
+      taskId: input.taskId,
+      executionJobId: input.executionJobId,
+      lastError: message,
+      now,
+    });
     return { result, sync };
   }
 }
 
 function persistSync(input: {
   readonly organizationId: string;
-  readonly campaignId: string;
+  readonly campaignId?: string;
   readonly profileId: string;
   readonly linkId?: string;
   readonly customerId?: string;
@@ -345,11 +339,14 @@ function persistSync(input: {
 }): CampaignCrmSync {
   const existing = agentsStore
     .getSnapshot()
-    .campaignCrmSyncs.find(
-      (item) =>
-        item.organizationId === input.organizationId &&
-        item.campaignId === input.campaignId,
-    );
+    .campaignCrmSyncs.find((item) => {
+      if (item.organizationId !== input.organizationId) return false;
+      if (input.campaignId) {
+        return item.campaignId === input.campaignId;
+      }
+      // Profile-only syncs: match the profile-scoped row (no campaign invented).
+      return !item.campaignId && item.profileId === input.profileId;
+    });
   const sync: CampaignCrmSync = {
     id: existing?.id ?? createGrowthId("csync"),
     organizationId: input.organizationId,
@@ -390,5 +387,5 @@ export function getCampaignCrmSync(
     .getSnapshot()
     .campaignCrmSyncs.filter((item) => item.organizationId === organizationId);
   if (campaignId) return rows.find((item) => item.campaignId === campaignId);
-  return rows[0];
+  return rows.find((item) => !item.campaignId) ?? rows[0];
 }

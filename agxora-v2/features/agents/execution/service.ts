@@ -193,13 +193,27 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
   }
 
   if (job.toolId === "crm") {
+    const profileId =
+      typeof job.params.profileId === "string" ? job.params.profileId : undefined;
     const sync = agentsStore
       .getSnapshot()
-      .campaignCrmSyncs.find(
-        (item) =>
-          item.taskId === task.id ||
-          (job.campaignId !== undefined && item.campaignId === job.campaignId),
-      );
+      .campaignCrmSyncs.find((item) => {
+        if (item.taskId === task.id) return true;
+        if (job.campaignId !== undefined && item.campaignId === job.campaignId) {
+          return true;
+        }
+        // Profile-only ops: match the current profile-scoped sync row.
+        if (
+          !job.campaignId &&
+          profileId &&
+          !item.campaignId &&
+          item.profileId === profileId &&
+          item.organizationId === job.organizationId
+        ) {
+          return true;
+        }
+        return false;
+      });
     const bridge = sync?.result;
     const link = agentsStore
       .getSnapshot()
@@ -255,6 +269,16 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
         },
       };
     }
+
+    // Never fall through to Agent task COMPLETED for CRM jobs without an
+    // explicit current bridge success.
+    return {
+      success: false,
+      status: "failed",
+      externalEffect: false,
+      message: bridge?.message ?? task.error ?? "crm_result_unresolved",
+      metadata: { toolId: job.toolId },
+    };
   }
 
   if (task.status === "failed") {

@@ -398,4 +398,76 @@ describe("Phase 46 growth CRM bridge", () => {
     expect(growthService.getCrmSync(organizationId, campaign.id)?.status).toBe("completed");
     expect(growthService.getCrmLink(organizationId)?.customerId).toBeTruthy();
   });
+
+  it("does not complete Operations on profile-only CRM sync failure", async () => {
+    setCrmBridgeProvider(createFailingCrmBridge("crm_profile_only_failed"));
+    growthService.saveProfile({
+      organizationId,
+      seedFromBusinessOs: false,
+      draft: {
+        companyName: "Profile Only Fail",
+        services: ["ops"],
+        contactInformation: { email: "profile.only.fail@example.com" },
+      },
+    });
+    expect(growthService.listCampaigns(organizationId)).toHaveLength(0);
+    const requested = await growthService.requestCrmSync(organizationId);
+    expect(requested.job.campaignId).toBeUndefined();
+    await approvePending();
+    const job = operationsService.get(organizationId, requested.job.id);
+    expect(job?.status).not.toBe("COMPLETED");
+    expect(job?.status).toBe("FAILED");
+    expect(job?.result?.success).toBe(false);
+    const sync = growthService.getCrmSync(organizationId);
+    expect(sync?.campaignId).toBeUndefined();
+    expect(sync?.status).toBe("failed");
+    expect(sync?.outcome).toBe("error");
+  });
+
+  it("does not complete Operations on profile-only CRM unavailable", async () => {
+    setCrmBridgeProvider(createUnavailableCrmBridge());
+    growthService.saveProfile({
+      organizationId,
+      seedFromBusinessOs: false,
+      draft: {
+        companyName: "Profile Only Unavailable",
+        services: ["ops"],
+        contactInformation: { email: "profile.only.unavailable@example.com" },
+      },
+    });
+    expect(growthService.listCampaigns(organizationId)).toHaveLength(0);
+    const requested = await growthService.requestCrmSync(organizationId);
+    expect(requested.job.campaignId).toBeUndefined();
+    await approvePending();
+    const job = operationsService.get(organizationId, requested.job.id);
+    expect(job?.status).not.toBe("COMPLETED");
+    expect(job?.status).toBe("BLOCKED");
+    expect(job?.blocker?.code).toBe("crm.unavailable");
+    expect(job?.result?.success).toBe(false);
+    const sync = growthService.getCrmSync(organizationId);
+    expect(sync?.campaignId).toBeUndefined();
+    expect(sync?.status).toBe("blocked");
+    expect(sync?.outcome).toBe("unavailable");
+  });
+
+  it("completes profile-only CRM sync when the mutation succeeds", async () => {
+    growthService.saveProfile({
+      organizationId,
+      seedFromBusinessOs: false,
+      draft: {
+        companyName: "Profile Only Success",
+        services: ["ops"],
+        contactInformation: { email: "profile.only.success@example.com" },
+      },
+    });
+    expect(growthService.listCampaigns(organizationId)).toHaveLength(0);
+    const requested = await growthService.requestCrmSync(organizationId);
+    await approvePending();
+    const job = operationsService.get(organizationId, requested.job.id);
+    expect(job?.status).toBe("COMPLETED");
+    expect(job?.result?.success).toBe(true);
+    expect(growthService.getCrmLink(organizationId)?.customerId).toBeTruthy();
+    expect(growthService.getCrmSync(organizationId)?.status).toBe("completed");
+    expect(growthService.getCrmSync(organizationId)?.campaignId).toBeUndefined();
+  });
 });
