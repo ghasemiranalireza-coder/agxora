@@ -199,13 +199,14 @@ describe("Phase 43 AI growth agent foundation", () => {
       settings: [],
       toolInvocationCount24h: 4,
     });
-    expect(normalized?.version).toBe(6);
+    expect(normalized?.version).toBe(7);
     expect(normalized?.growthProfiles).toEqual([]);
     expect(normalized?.websiteProjects).toEqual([]);
     expect(normalized?.socialAccounts).toEqual([]);
     expect(normalized?.socialContent).toEqual([]);
     expect(normalized?.campaigns).toEqual([]);
     expect(normalized?.growthInsights).toEqual([]);
+    expect(normalized?.crmFollowUps).toEqual([]);
     expect(normalized?.toolInvocationCount24h).toBe(4);
   });
 });

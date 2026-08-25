@@ -97,6 +97,21 @@ export function CampaignWorkspace(): JSX.Element {
           >
             {t("agents.crmBridge.actions.sync")}
           </Button>
+          <Button
+            size="sm"
+            variant="ghost"
+            disabled={busy || !snapshot.crmLink}
+            onClick={() =>
+              void run(async () => {
+                await growthService.requestCrmFollowUp(orgId, {
+                  campaignId: campaign?.id,
+                  kind: "general",
+                });
+              }, "agents.crmFollowUp.noticeRequested")
+            }
+          >
+            {t("agents.crmFollowUp.actions.create")}
+          </Button>
         </div>
       </Card>
 
@@ -113,6 +128,8 @@ export function CampaignWorkspace(): JSX.Element {
           insights={snapshot.insights}
           crmLink={snapshot.crmLink}
           crmSync={snapshot.crmSync}
+          crmLead={snapshot.crmLead}
+          crmFollowUps={snapshot.crmFollowUps}
         />
       ) : (
         <Card padding="24px" hover={false}>
@@ -176,6 +193,8 @@ function CampaignDetail({
   insights,
   crmLink,
   crmSync,
+  crmLead,
+  crmFollowUps,
 }: {
   readonly campaign: Campaign;
   readonly jobs: ReturnType<typeof operationsService.list>;
@@ -183,6 +202,8 @@ function CampaignDetail({
   readonly insights: ReturnType<typeof growthService.snapshot>["insights"];
   readonly crmLink: ReturnType<typeof growthService.snapshot>["crmLink"];
   readonly crmSync: ReturnType<typeof growthService.snapshot>["crmSync"];
+  readonly crmLead: ReturnType<typeof growthService.snapshot>["crmLead"];
+  readonly crmFollowUps: ReturnType<typeof growthService.snapshot>["crmFollowUps"];
 }): JSX.Element {
   const t = useT();
   return (
@@ -232,6 +253,10 @@ function CampaignDetail({
             label={t("agents.crmBridge.labels.contact")}
             value={crmLink.contactName ?? t("agents.operations.emptyValue")}
           />
+          <DetailRow
+            label={t("agents.crmFollowUp.labels.open")}
+            value={String(crmLead.openFollowUps.length)}
+          />
           <div>
             <p className="text-xs uppercase tracking-wide" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {t("agents.crmBridge.labels.record")}
@@ -245,6 +270,20 @@ function CampaignDetail({
             </a>
           </div>
         </>
+      ) : null}
+      {crmFollowUps.length > 0 ? (
+        <div className="space-y-2">
+          <p className="text-sm font-semibold">{t("agents.crmFollowUp.labels.list")}</p>
+          {crmFollowUps.slice(0, 5).map((item) => (
+            <p key={item.id} className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+              {catalogCopy(t, `agents.crmFollowUp.status.${item.status}`, item.status)}
+              {" · "}
+              {catalogCopy(t, `agents.crmFollowUp.kind.${item.kind}`, item.kind)}
+              {" · "}
+              {item.title}
+            </p>
+          ))}
+        </div>
       ) : null}
       <DetailRow
         label={t("agents.campaigns.labels.approval")}

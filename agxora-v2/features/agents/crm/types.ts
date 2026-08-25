@@ -69,3 +69,70 @@ export interface CampaignCrmSync {
   readonly updatedAt: string;
   readonly lastError?: string;
 }
+
+/** Structured follow-up kinds — email is draft-only (never claimed as sent). */
+export type CrmFollowUpKind = "call" | "email_draft" | "meeting" | "general";
+
+export type CrmFollowUpStatus =
+  | "pending"
+  | "completed"
+  | "blocked"
+  | "failed"
+  | "cancelled";
+
+export type CrmFollowUpOutcome =
+  | "created"
+  | "completed"
+  | "blocked"
+  | "unavailable"
+  | "error"
+  | "missing_link";
+
+export interface CrmFollowUpResult {
+  readonly available: boolean;
+  readonly success: boolean;
+  readonly outcome: CrmFollowUpOutcome;
+  readonly message: string;
+  readonly noteId?: string;
+  readonly href?: string;
+  readonly duplicated: boolean;
+}
+
+/**
+ * Agent OS follow-up record — stores metadata + CRM note refs only.
+ * The durable CRM artifact is a real note created via existing CRM mutations.
+ */
+export interface GrowthCrmFollowUp {
+  readonly id: string;
+  readonly organizationId: string;
+  readonly profileId: string;
+  readonly linkId: string;
+  readonly customerId: string;
+  readonly contactId?: string;
+  readonly campaignId?: string;
+  readonly noteId?: string;
+  readonly href?: string;
+  readonly kind: CrmFollowUpKind;
+  readonly title: string;
+  readonly summary: string;
+  readonly dueAt?: string;
+  readonly status: CrmFollowUpStatus;
+  readonly outcome?: CrmFollowUpOutcome;
+  readonly result?: CrmFollowUpResult;
+  readonly executionJobId?: string;
+  readonly taskId?: string;
+  readonly createdAt: string;
+  readonly updatedAt: string;
+  readonly completedAt?: string;
+  readonly lastError?: string;
+}
+
+/** Read-model for CRM-linked lead state inside Agent Operations. */
+export interface CrmLinkedLeadState {
+  readonly link: GrowthCrmLink | null;
+  readonly customerId?: string;
+  readonly companyName?: string;
+  readonly href?: string;
+  readonly openFollowUps: readonly GrowthCrmFollowUp[];
+  readonly completedFollowUps: readonly GrowthCrmFollowUp[];
+}

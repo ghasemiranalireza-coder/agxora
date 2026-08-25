@@ -585,7 +585,8 @@
       "schedule_content": "Schedule content",
       "publish_content": "Publish content",
       "sync_crm_customer": "Sincronizar perfil Growth con CRM",
-      "attach_crm_note": "Adjuntar nota de campaña en CRM"
+      "attach_crm_note": "Adjuntar nota de campaña en CRM",
+      "schedule_crm_follow_up": "Schedule CRM follow-up for linked lead"
     },
     "milestones": {
       "plan_ready": "Campaign plan ready",
@@ -723,6 +724,42 @@
     },
     "blockers": {
       "unavailable": "El proveedor CRM no está disponible"
+    }
+  },
+  "crmFollowUp": {
+    "noticeRequested": "CRM follow-up requested. Approve the pending Agent OS action to create it.",
+    "noticeCreated": "CRM follow-up note created for the linked lead.",
+    "noticeFailed": "CRM follow-up failed",
+    "actions": {
+      "create": "Create CRM follow-up",
+      "complete": "Complete follow-up"
+    },
+    "labels": {
+      "list": "CRM follow-ups",
+      "open": "Open follow-ups",
+      "kind": "Follow-up kind",
+      "due": "Due"
+    },
+    "kind": {
+      "call": "Call",
+      "email_draft": "Email draft (not sent)",
+      "meeting": "Meeting",
+      "general": "General"
+    },
+    "status": {
+      "pending": "Follow-up open",
+      "completed": "Follow-up completed",
+      "blocked": "Follow-up blocked",
+      "failed": "Follow-up failed",
+      "cancelled": "Follow-up cancelled"
+    },
+    "outcome": {
+      "created": "Follow-up note created in CRM",
+      "completed": "Follow-up marked complete",
+      "blocked": "Follow-up blocked",
+      "unavailable": "CRM unavailable",
+      "error": "Follow-up error",
+      "missing_link": "CRM link required before follow-up"
     }
   }
 }
