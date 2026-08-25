@@ -422,6 +422,27 @@ export function registerLocalDataHandlers(): void {
           readOnly: true,
         });
       }
+      const leadAction = path.match(
+        /^\/agents\/growth\/crm\/leads\/([^/]+)\/actions$/,
+      );
+      if (options.method === "POST" && leadAction) {
+        return mockOk(
+          await growthService.executeLeadAction(organizationId, {
+            profileId: decodeURIComponent(leadAction[1]),
+            action: typeof body.action === "string" ? body.action : "",
+            followUpId:
+              typeof body.followUpId === "string" ? body.followUpId : undefined,
+            campaignId:
+              typeof body.campaignId === "string" ? body.campaignId : undefined,
+            summary: typeof body.summary === "string" ? body.summary : undefined,
+            completionNote:
+              typeof body.completionNote === "string"
+                ? body.completionNote
+                : undefined,
+          }),
+          201,
+        );
+      }
       if (options.method === "POST" && path === "/agents/growth/crm/follow-ups") {
         return mockOk(
           await growthService.requestCrmFollowUp(organizationId, {

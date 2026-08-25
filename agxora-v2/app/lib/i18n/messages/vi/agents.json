@@ -789,7 +789,8 @@
       "nextAction": "Recommended action",
       "score": "Priority score",
       "followUp": "Follow-up",
-      "priority": "Priority"
+      "priority": "Priority",
+      "execution": "Execution"
     },
     "priority": {
       "CRITICAL": "Critical",
@@ -818,6 +819,29 @@
       "weak_crm_link": "Weak or incomplete CRM link",
       "missing_crm_link": "Missing CRM link",
       "no_action_needed": "No open CRM work"
+    },
+    "noticeActionRequested": "Lead action requested through Agent OS. Approve if required.",
+    "noticeReviewed": "CRM link opened for review. No mutation was performed.",
+    "noticeInvalid": "Lead action rejected by deterministic validation.",
+    "controls": {
+      "create": "Create Follow-up",
+      "complete": "Complete Follow-up",
+      "retry": "Retry",
+      "review": "Review CRM"
+    },
+    "executionStatus": {
+      "QUEUED": "Queued",
+      "RUNNING": "Executing",
+      "WAITING_FOR_APPROVAL": "Waiting for approval",
+      "VERIFYING": "Verifying",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed",
+      "BLOCKED": "Blocked",
+      "CANCELLED": "Cancelled",
+      "REVIEWED": "Reviewed",
+      "INVALID": "Invalid",
+      "READY": "Ready",
+      "RETRYING": "Retrying"
     }
   }
 }
