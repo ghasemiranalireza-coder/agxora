@@ -130,6 +130,16 @@ export function CampaignWorkspace(): JSX.Element {
           crmSync={snapshot.crmSync}
           crmLead={snapshot.crmLead}
           crmFollowUps={snapshot.crmFollowUps}
+          busy={busy}
+          onCompleteFollowUp={(followUpId) =>
+            void run(async () => {
+              await growthService.requestCrmFollowUpComplete(orgId, {
+                followUpId,
+                campaignId: campaign.id,
+                completionNote: "Operator marked follow-up complete from Campaigns.",
+              });
+            }, "agents.crmFollowUp.noticeCompleteRequested")
+          }
         />
       ) : (
         <Card padding="24px" hover={false}>
@@ -195,6 +205,8 @@ function CampaignDetail({
   crmSync,
   crmLead,
   crmFollowUps,
+  busy,
+  onCompleteFollowUp,
 }: {
   readonly campaign: Campaign;
   readonly jobs: ReturnType<typeof operationsService.list>;
@@ -204,6 +216,8 @@ function CampaignDetail({
   readonly crmSync: ReturnType<typeof growthService.snapshot>["crmSync"];
   readonly crmLead: ReturnType<typeof growthService.snapshot>["crmLead"];
   readonly crmFollowUps: ReturnType<typeof growthService.snapshot>["crmFollowUps"];
+  readonly busy: boolean;
+  readonly onCompleteFollowUp: (followUpId: string) => void;
 }): JSX.Element {
   const t = useT();
   return (
@@ -243,6 +257,14 @@ function CampaignDetail({
             : t("agents.crmBridge.status.unlinked")
         }
       />
+      <DetailRow
+        label={t("agents.crmFollowUp.labels.nextAction")}
+        value={catalogCopy(
+          t,
+          `agents.crmFollowUp.nextAction.${crmLead.nextAction.code}`,
+          crmLead.nextAction.code,
+        )}
+      />
       {crmLink ? (
         <>
           <DetailRow
@@ -256,6 +278,10 @@ function CampaignDetail({
           <DetailRow
             label={t("agents.crmFollowUp.labels.open")}
             value={String(crmLead.openFollowUps.length)}
+          />
+          <DetailRow
+            label={t("agents.crmFollowUp.labels.overdue")}
+            value={String(crmLead.overdueFollowUps.length)}
           />
           <div>
             <p className="text-xs uppercase tracking-wide" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
@@ -275,13 +301,25 @@ function CampaignDetail({
         <div className="space-y-2">
           <p className="text-sm font-semibold">{t("agents.crmFollowUp.labels.list")}</p>
           {crmFollowUps.slice(0, 5).map((item) => (
-            <p key={item.id} className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {catalogCopy(t, `agents.crmFollowUp.status.${item.status}`, item.status)}
-              {" · "}
-              {catalogCopy(t, `agents.crmFollowUp.kind.${item.kind}`, item.kind)}
-              {" · "}
-              {item.title}
-            </p>
+            <div key={item.id} className="flex flex-wrap items-center gap-2">
+              <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                {catalogCopy(t, `agents.crmFollowUp.status.${item.status}`, item.status)}
+                {" · "}
+                {catalogCopy(t, `agents.crmFollowUp.kind.${item.kind}`, item.kind)}
+                {" · "}
+                {item.title}
+              </p>
+              {item.status === "pending" || item.status === "blocked" ? (
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  disabled={busy}
+                  onClick={() => onCompleteFollowUp(item.id)}
+                >
+                  {t("agents.crmFollowUp.actions.complete")}
+                </Button>
+              ) : null}
+            </div>
           ))}
         </div>
       ) : null}

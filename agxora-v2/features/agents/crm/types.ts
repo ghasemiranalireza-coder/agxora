@@ -110,7 +110,10 @@ export interface GrowthCrmFollowUp {
   readonly customerId: string;
   readonly contactId?: string;
   readonly campaignId?: string;
+  /** Note created when the follow-up was opened (Phase 47). */
   readonly noteId?: string;
+  /** Optional completion note id — never overwrites `noteId`. */
+  readonly completionNoteId?: string;
   readonly href?: string;
   readonly kind: CrmFollowUpKind;
   readonly title: string;
@@ -127,6 +130,20 @@ export interface GrowthCrmFollowUp {
   readonly lastError?: string;
 }
 
+/** Deterministic next action for a CRM-linked Growth lead (no fake analytics). */
+export type CrmLeadNextActionCode =
+  | "link_to_crm"
+  | "create_follow_up"
+  | "complete_overdue_follow_up"
+  | "complete_open_follow_up"
+  | "none";
+
+export interface CrmLeadNextAction {
+  readonly code: CrmLeadNextActionCode;
+  readonly followUpId?: string;
+  readonly dueAt?: string;
+}
+
 /** Read-model for CRM-linked lead state inside Agent Operations. */
 export interface CrmLinkedLeadState {
   readonly link: GrowthCrmLink | null;
@@ -135,4 +152,6 @@ export interface CrmLinkedLeadState {
   readonly href?: string;
   readonly openFollowUps: readonly GrowthCrmFollowUp[];
   readonly completedFollowUps: readonly GrowthCrmFollowUp[];
+  readonly overdueFollowUps: readonly GrowthCrmFollowUp[];
+  readonly nextAction: CrmLeadNextAction;
 }

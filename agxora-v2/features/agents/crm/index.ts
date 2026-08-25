@@ -6,6 +6,8 @@ export type {
   CrmFollowUpOutcome,
   CrmFollowUpResult,
   CrmFollowUpStatus,
+  CrmLeadNextAction,
+  CrmLeadNextActionCode,
   CrmLinkedLeadState,
   GrowthCrmFollowUp,
   GrowthCrmLink,
@@ -28,6 +30,7 @@ export {
 export {
   completeCrmFollowUp,
   createCrmFollowUp,
+  evaluateCrmLeadNextAction,
   getCrmFollowUp,
   getCrmFollowUpByTask,
   getCrmLinkedLeadState,
