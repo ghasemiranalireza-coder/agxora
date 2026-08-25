@@ -208,19 +208,100 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
       action === "complete_follow_up";
 
     if (isFollowUpJob) {
-      const followUp = agentsStore
-        .getSnapshot()
-        .crmFollowUps.find((item) => {
-          if (item.taskId === task.id) return true;
-          if (
-            typeof job.params.followUpId === "string" &&
-            item.id === job.params.followUpId
-          ) {
-            return true;
-          }
-          return false;
-        });
+      const isCompleteJob =
+        growthAction === "crm_follow_up_complete" ||
+        action === "complete_follow_up";
+      const followUpId =
+        typeof job.params.followUpId === "string"
+          ? job.params.followUpId
+          : undefined;
+      const followUps = agentsStore.getSnapshot().crmFollowUps;
+      const byTask = followUps.find((item) => item.taskId === task.id);
+      const byId = followUpId
+        ? followUps.find((item) => item.id === followUpId)
+        : undefined;
+      // Prefer the record written by THIS task. Fall back to followUpId only for
+      // idempotent already-completed completes (taskId may remain from a prior op).
+      const followUp = byTask ?? byId;
       const bridge = followUp?.result;
+      const fromCurrentTask = Boolean(byTask);
+
+      if (isCompleteJob) {
+        // Current-operation failures always win when this task wrote the result.
+        if (
+          fromCurrentTask &&
+          (bridge?.outcome === "unavailable" ||
+            bridge?.available === false ||
+            followUp?.status === "blocked")
+        ) {
+          return {
+            success: false,
+            status: "unavailable",
+            externalEffect: false,
+            message: bridge?.message ?? "crm_unavailable",
+            metadata: {
+              toolId: job.toolId,
+              growthAction: growthAction ?? "crm_follow_up_complete",
+            },
+          };
+        }
+
+        if (
+          fromCurrentTask &&
+          (bridge?.success === false ||
+            bridge?.outcome === "error" ||
+            bridge?.outcome === "missing_link" ||
+            followUp?.status === "failed")
+        ) {
+          return {
+            success: false,
+            status: "failed",
+            externalEffect: false,
+            message: bridge?.message ?? task.error ?? "crm_follow_up_failed",
+            metadata: {
+              toolId: job.toolId,
+              growthAction: growthAction ?? "crm_follow_up_complete",
+            },
+          };
+        }
+
+        // Success only from an explicit CURRENT completion outcome.
+        // Stale create outcomes ("created") must never complete a complete-job.
+        if (
+          bridge?.outcome === "completed" &&
+          bridge.success !== false &&
+          (fromCurrentTask || followUp?.status === "completed")
+        ) {
+          return {
+            success: true,
+            status: "completed",
+            externalEffect: false,
+            message: "completed",
+            metadata: {
+              toolId: job.toolId,
+              growthAction: growthAction ?? "crm_follow_up_complete",
+              ...(followUp?.customerId ? { customerId: followUp.customerId } : {}),
+              ...(followUp?.completionNoteId || followUp?.noteId
+                ? {
+                    noteId:
+                      followUp.completionNoteId ?? followUp.noteId ?? "",
+                  }
+                : {}),
+            },
+          };
+        }
+
+        return {
+          success: false,
+          status: "failed",
+          externalEffect: false,
+          message: bridge?.message ?? task.error ?? "crm_follow_up_unresolved",
+          metadata: {
+            toolId: job.toolId,
+            growthAction: growthAction ?? "crm_follow_up_complete",
+          },
+        };
+      }
 
       if (
         bridge?.outcome === "unavailable" ||
@@ -251,10 +332,10 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
         };
       }
 
+      // Create jobs: only CURRENT create outcomes may establish COMPLETED.
       if (
-        bridge?.success === true ||
-        bridge?.outcome === "created" ||
-        bridge?.outcome === "completed"
+        fromCurrentTask &&
+        (bridge?.success === true || bridge?.outcome === "created")
       ) {
         return {
           success: true,

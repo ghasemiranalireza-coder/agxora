@@ -178,7 +178,10 @@ export function getCrmLinkedLeadState(
     ? listCrmFollowUps(organizationId, { linkId: link.id })
     : listCrmFollowUps(organizationId);
   const openFollowUps = followUps.filter(
-    (item) => item.status === "pending" || item.status === "blocked",
+    (item) =>
+      item.status === "pending" ||
+      item.status === "blocked" ||
+      item.status === "failed",
   );
   const completedFollowUps = followUps.filter(
     (item) => item.status === "completed",
@@ -371,13 +374,22 @@ export async function completeCrmFollowUp(input: {
 
   if (existing.status === "completed") {
     const result =
-      existing.result ??
-      resultOf("completed", "crm_follow_up_already_completed", {
-        noteId: existing.noteId,
-        href: existing.href,
-        duplicated: true,
-      });
-    return { result: { ...result, duplicated: true }, followUp: existing };
+      existing.result?.outcome === "completed"
+        ? { ...existing.result, duplicated: true }
+        : resultOf("completed", "crm_follow_up_already_completed", {
+            noteId: existing.completionNoteId ?? existing.noteId,
+            href: existing.href,
+            duplicated: true,
+          });
+    // Record this task id so Operations can attribute the idempotent complete
+    // to the CURRENT job without inventing a new CRM note.
+    const followUp = persistFollowUp({
+      ...existing,
+      taskId: input.taskId ?? existing.taskId,
+      result,
+      updatedAt: nowIso(),
+    });
+    return { result, followUp };
   }
 
   const provider = input.provider ?? getCrmBridgeProvider();

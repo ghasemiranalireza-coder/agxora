@@ -258,4 +258,120 @@ describe("Phase 48 growth CRM follow-up completion", () => {
     expect(normalized?.version).toBe(7);
     expect(normalized?.crmFollowUps).toEqual([]);
   });
+
+  it("never lets a stale create outcome force COMPLETED on a complete job", async () => {
+    const { followUp } = await seedOpenFollowUp("Stale Create Outcome");
+    expect(followUp.outcome).toBe("created");
+    expect(followUp.status).toBe("pending");
+
+    const { registerToolHandler } = await import("@/features/agents/tools");
+    const { handleCrmTool } = await import("@/features/agents/crm/handlers");
+    registerToolHandler("crm", async () => ({
+      ok: true,
+      output: {
+        action: "complete_follow_up",
+        // Deliberately do not mutate the follow-up record — stale create remains.
+        crmSuccess: true,
+      },
+      durationMs: 1,
+    }));
+
+    try {
+      const requested = await growthService.requestCrmFollowUpComplete(
+        organizationId,
+        { followUpId: followUp.id },
+      );
+      await approvePending();
+      const job = operationsService.get(organizationId, requested.job.id);
+      expect(job?.status).toBe("FAILED");
+      expect(job?.result?.success).toBe(false);
+      expect(
+        growthService.getCrmFollowUp(organizationId, followUp.id)?.status,
+      ).toBe("pending");
+    } finally {
+      registerToolHandler("crm", handleCrmTool);
+    }
+  });
+
+  it("idempotent re-complete does not create another CRM completion note", async () => {
+    const provider = createMemoryCrmBridge();
+    setCrmBridgeProvider(provider);
+    const { campaign, followUp } = await seedOpenFollowUp("Idempotent Complete");
+    const beforeNotes = await provider.listNotes(followUp.customerId);
+
+    await growthService.requestCrmFollowUpComplete(organizationId, {
+      followUpId: followUp.id,
+      campaignId: campaign.id,
+      completionNote: "First completion note",
+    });
+    await approvePending();
+    const afterFirst = growthService.getCrmFollowUp(organizationId, followUp.id)!;
+    expect(afterFirst.status).toBe("completed");
+    expect(afterFirst.completionNoteId).toBeTruthy();
+    const midNotes = await provider.listNotes(followUp.customerId);
+    expect(midNotes.length).toBe(beforeNotes.length + 1);
+
+    await growthService.requestCrmFollowUpComplete(organizationId, {
+      followUpId: followUp.id,
+      campaignId: campaign.id,
+      completionNote: "Should not create another note",
+    });
+    await approvePending();
+    const afterSecond = growthService.getCrmFollowUp(organizationId, followUp.id)!;
+    expect(afterSecond.status).toBe("completed");
+    expect(afterSecond.completionNoteId).toBe(afterFirst.completionNoteId);
+    expect(afterSecond.noteId).toBe(afterFirst.noteId);
+    const endNotes = await provider.listNotes(followUp.customerId);
+    expect(endNotes.length).toBe(midNotes.length);
+    const job = operationsService
+      .list(organizationId)
+      .filter((item) => item.params.growthAction === "crm_follow_up_complete")
+      .at(0);
+    // Latest complete job should be COMPLETED via idempotent path
+    const latest = operationsService
+      .list(organizationId)
+      .filter((item) => item.params.growthAction === "crm_follow_up_complete")
+      .sort((a, b) => b.createdAt.localeCompare(a.createdAt))[0];
+    expect(latest?.status).toBe("COMPLETED");
+    void job;
+  });
+
+  it("keeps failed follow-ups actionable in next-action and lead state", async () => {
+    const memory = createMemoryCrmBridge();
+    setCrmBridgeProvider(memory);
+    const { followUp } = await seedOpenFollowUp("Failed Remains Open");
+    setCrmBridgeProvider(createNoteFailCrmBridge(memory));
+    await growthService.requestCrmFollowUpComplete(organizationId, {
+      followUpId: followUp.id,
+      completionNote: "will fail",
+    });
+    await approvePending();
+    const lead = growthService.getCrmLinkedLead(organizationId);
+    expect(lead.openFollowUps.some((item) => item.id === followUp.id)).toBe(true);
+    expect(lead.nextAction.code).toBe("complete_open_follow_up");
+    expect(lead.nextAction.followUpId).toBe(followUp.id);
+  });
+
+  it("blocks completion when approval is rejected", async () => {
+    const { followUp } = await seedOpenFollowUp("Reject Complete");
+    const requested = await growthService.requestCrmFollowUpComplete(
+      organizationId,
+      { followUpId: followUp.id },
+    );
+    const approval = growthService
+      .snapshot(organizationId)
+      .approvals.find((item) => item.state === "REQUIRES_APPROVAL");
+    await growthService.resolveApproval({
+      approvalId: approval!.id,
+      state: "REJECTED",
+      decidedBy: "tester",
+    });
+    const job = operationsService.get(organizationId, requested.job.id);
+    expect(job?.status).toBe("BLOCKED");
+    expect(job?.blocker?.code).toBe("approval.rejected");
+    expect(job?.result?.success).toBe(false);
+    expect(
+      growthService.getCrmFollowUp(organizationId, followUp.id)?.status,
+    ).toBe("pending");
+  });
 });

@@ -309,7 +309,9 @@ function CampaignDetail({
                 {" · "}
                 {item.title}
               </p>
-              {item.status === "pending" || item.status === "blocked" ? (
+              {item.status === "pending" ||
+              item.status === "blocked" ||
+              item.status === "failed" ? (
                 <Button
                   size="sm"
                   variant="ghost"
