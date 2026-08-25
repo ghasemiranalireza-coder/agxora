@@ -116,6 +116,8 @@ export function GrowthWorkspace({
             <a href={snapshot.crmLink.href} className="underline" style={{ color: "var(--agx-accent, #22d3ee)" }}>
               {t("agents.crmBridge.actions.openCrm")}
             </a>
+            {" · "}
+            {t("agents.crmFollowUp.labels.open")}: {String(snapshot.crmLead.openFollowUps.length)}
           </p>
         ) : (
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>

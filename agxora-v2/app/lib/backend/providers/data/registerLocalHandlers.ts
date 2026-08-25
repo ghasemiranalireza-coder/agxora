@@ -396,12 +396,43 @@ export function registerLocalDataHandlers(): void {
         return mockOk({
           link: growthService.getCrmLink(organizationId) ?? null,
           sync: growthService.getCrmSync(organizationId) ?? null,
+          lead: growthService.getCrmLinkedLead(organizationId),
         });
       }
       if (options.method === "POST" && path === "/agents/growth/crm/sync") {
         const campaignId =
           typeof body.campaignId === "string" ? body.campaignId : undefined;
         return mockOk(await growthService.requestCrmSync(organizationId, campaignId), 201);
+      }
+      if (options.method === "GET" && path === "/agents/growth/crm/follow-ups") {
+        const campaignId = readQuery(options, "campaignId") ?? undefined;
+        const customerId = readQuery(options, "customerId") ?? undefined;
+        return mockOk({
+          followUps: growthService.listCrmFollowUps(organizationId, {
+            campaignId,
+            customerId,
+          }),
+          lead: growthService.getCrmLinkedLead(organizationId),
+        });
+      }
+      if (options.method === "POST" && path === "/agents/growth/crm/follow-ups") {
+        return mockOk(
+          await growthService.requestCrmFollowUp(organizationId, {
+            campaignId:
+              typeof body.campaignId === "string" ? body.campaignId : undefined,
+            kind:
+              body.kind === "call" ||
+              body.kind === "email_draft" ||
+              body.kind === "meeting" ||
+              body.kind === "general"
+                ? body.kind
+                : undefined,
+            title: typeof body.title === "string" ? body.title : undefined,
+            summary: typeof body.summary === "string" ? body.summary : undefined,
+            dueAt: typeof body.dueAt === "string" ? body.dueAt : undefined,
+          }),
+          201,
+        );
       }
       const campaignCrmSync = path.match(/^\/agents\/growth\/campaigns\/([^/]+)\/crm-sync$/);
       if (options.method === "POST" && campaignCrmSync) {

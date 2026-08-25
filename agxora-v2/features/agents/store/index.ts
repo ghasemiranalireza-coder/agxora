@@ -381,4 +381,14 @@ export const agentsStore = {
     persist();
     emit();
   },
+
+  upsertGrowthCrmFollowUp(followUp: import("../crm/types").GrowthCrmFollowUp): void {
+    const idx = state.crmFollowUps.findIndex((item) => item.id === followUp.id);
+    const crmFollowUps = [...state.crmFollowUps];
+    if (idx >= 0) crmFollowUps[idx] = followUp;
+    else crmFollowUps.unshift(followUp);
+    state = { ...state, crmFollowUps: crmFollowUps.slice(0, 200) };
+    persist();
+    emit();
+  },
 };

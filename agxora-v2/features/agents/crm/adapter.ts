@@ -35,6 +35,7 @@ export interface CrmBridgeProvider {
     customerId: string,
     draft: CrmNoteDraft,
   ): Promise<CrmNoteRecord>;
+  listNotes(customerId: string): Promise<readonly CrmNoteRecord[]>;
 }
 
 function unavailableError(action: string): Error {
@@ -63,6 +64,9 @@ export function createUnavailableCrmBridge(): CrmBridgeProvider {
     },
     async createNote() {
       throw unavailableError("create_note");
+    },
+    async listNotes() {
+      throw unavailableError("list_notes");
     },
   };
 }
@@ -95,6 +99,9 @@ export function createDirectoryCrmBridge(): CrmBridgeProvider {
         customerId,
         organizationId,
       );
+    },
+    listNotes(customerId) {
+      return crmDirectoryService.listNotes(customerId);
     },
   };
 }
@@ -178,6 +185,9 @@ export function createMemoryCrmBridge(): CrmBridgeProvider {
       };
       notes.unshift(row);
       return row;
+    },
+    async listNotes(customerId) {
+      return notes.filter((row) => row.customerId === customerId);
     },
   };
 }

@@ -2,6 +2,12 @@ export type {
   CampaignCrmSync,
   CampaignCrmSyncStatus,
   CrmBridgeResult,
+  CrmFollowUpKind,
+  CrmFollowUpOutcome,
+  CrmFollowUpResult,
+  CrmFollowUpStatus,
+  CrmLinkedLeadState,
+  GrowthCrmFollowUp,
   GrowthCrmLink,
   GrowthCrmLinkOutcome,
 } from "./types";
@@ -19,4 +25,12 @@ export {
   getGrowthCrmLink,
   syncGrowthProfileToCrm,
 } from "./sync";
+export {
+  completeCrmFollowUp,
+  createCrmFollowUp,
+  getCrmFollowUp,
+  getCrmFollowUpByTask,
+  getCrmLinkedLeadState,
+  listCrmFollowUps,
+} from "./followUp";
 export { handleCrmTool } from "./handlers";

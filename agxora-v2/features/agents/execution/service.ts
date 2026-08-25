@@ -123,7 +123,9 @@ function syncCampaign(job: ExecutionJob): void {
       ? task.id === job.campaignTaskId
       : (isExternalSideEffectTool(job.toolId) && task.code === "publish_content") ||
         (job.toolId === "crm" &&
-          (task.code === "sync_crm_customer" || task.code === "attach_crm_note"));
+          (task.code === "sync_crm_customer" ||
+            task.code === "attach_crm_note" ||
+            task.code === "schedule_crm_follow_up"));
     if (!matchesTask) return task;
     if (job.status === "COMPLETED") {
       return { ...task, status: "completed" as const, executionJobId: job.id };
@@ -193,6 +195,90 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
   }
 
   if (job.toolId === "crm") {
+    const growthAction =
+      typeof job.params.growthAction === "string"
+        ? job.params.growthAction
+        : undefined;
+    const action =
+      typeof job.params.action === "string" ? job.params.action : undefined;
+    const isFollowUpJob =
+      growthAction === "crm_follow_up" ||
+      growthAction === "crm_follow_up_complete" ||
+      action === "create_follow_up" ||
+      action === "complete_follow_up";
+
+    if (isFollowUpJob) {
+      const followUp = agentsStore
+        .getSnapshot()
+        .crmFollowUps.find((item) => {
+          if (item.taskId === task.id) return true;
+          if (
+            typeof job.params.followUpId === "string" &&
+            item.id === job.params.followUpId
+          ) {
+            return true;
+          }
+          return false;
+        });
+      const bridge = followUp?.result;
+
+      if (
+        bridge?.outcome === "unavailable" ||
+        bridge?.available === false ||
+        followUp?.status === "blocked"
+      ) {
+        return {
+          success: false,
+          status: "unavailable",
+          externalEffect: false,
+          message: bridge?.message ?? "crm_unavailable",
+          metadata: { toolId: job.toolId, growthAction: growthAction ?? "crm_follow_up" },
+        };
+      }
+
+      if (
+        bridge?.success === false ||
+        bridge?.outcome === "error" ||
+        bridge?.outcome === "missing_link" ||
+        followUp?.status === "failed"
+      ) {
+        return {
+          success: false,
+          status: "failed",
+          externalEffect: false,
+          message: bridge?.message ?? task.error ?? "crm_follow_up_failed",
+          metadata: { toolId: job.toolId, growthAction: growthAction ?? "crm_follow_up" },
+        };
+      }
+
+      if (
+        bridge?.success === true ||
+        bridge?.outcome === "created" ||
+        bridge?.outcome === "completed"
+      ) {
+        return {
+          success: true,
+          status: "completed",
+          externalEffect: false,
+          message: bridge.outcome ?? "completed",
+          metadata: {
+            toolId: job.toolId,
+            growthAction: growthAction ?? "crm_follow_up",
+            ...(followUp?.customerId ? { customerId: followUp.customerId } : {}),
+            ...(followUp?.noteId ? { noteId: followUp.noteId } : {}),
+          },
+        };
+      }
+
+      return {
+        success: false,
+        status: "failed",
+        externalEffect: false,
+        message: bridge?.message ?? task.error ?? "crm_follow_up_unresolved",
+        metadata: { toolId: job.toolId, growthAction: growthAction ?? "crm_follow_up" },
+      };
+    }
+
     const profileId =
       typeof job.params.profileId === "string" ? job.params.profileId : undefined;
     const sync = agentsStore

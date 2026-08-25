@@ -23,7 +23,13 @@ import { SOCIAL_PLATFORMS } from "./types";
 import type { SocialAccount } from "../social/types";
 import type { WebsiteProject } from "../website/types";
 import { evaluateCampaignReadiness } from "../campaigns/readiness";
+import {
+  getCrmFollowUp,
+  getCrmLinkedLeadState,
+  listCrmFollowUps,
+} from "../crm/followUp";
 import { getCampaignCrmSync, getGrowthCrmLink } from "../crm/sync";
+import type { CrmFollowUpKind } from "../crm/types";
 import { operationsService } from "../execution/service";
 import {
   CAMPAIGN_CHANNELS,
@@ -696,6 +702,88 @@ export const growthService = {
     return getCampaignCrmSync(organizationId, campaignId);
   },
 
+  async requestCrmFollowUp(
+    organizationId: string,
+    input?: {
+      readonly campaignId?: string;
+      readonly kind?: CrmFollowUpKind;
+      readonly title?: string;
+      readonly summary?: string;
+      readonly dueAt?: string;
+    },
+  ): Promise<{
+    readonly task: Awaited<ReturnType<typeof runAgentTool>>;
+    readonly job: ReturnType<typeof operationsService.enqueue>;
+    readonly link: ReturnType<typeof getGrowthCrmLink>;
+    readonly lead: ReturnType<typeof getCrmLinkedLeadState>;
+  }> {
+    this.ensure(organizationId);
+    const profile =
+      latestProfile(organizationId) ??
+      this.saveProfile({ organizationId, draft: {} });
+    const campaign = input?.campaignId
+      ? this.getCampaign(organizationId, input.campaignId)
+      : this.listCampaigns(organizationId)[0];
+    const campaignTaskId = campaign?.tasks.find(
+      (task) => task.code === "schedule_crm_follow_up",
+    )?.id;
+    const job = operationsService.enqueue({
+      organizationId,
+      toolId: "crm",
+      agentId: "crm_assistant",
+      campaignId: campaign?.id,
+      campaignTaskId,
+      title: "Create CRM follow-up for growth lead",
+      priority: "HIGH",
+      params: {
+        action: "create_follow_up",
+        profileId: profile.id,
+        campaignId: campaign?.id,
+        kind: input?.kind ?? "general",
+        title: input?.title,
+        summary: input?.summary,
+        dueAt: input?.dueAt,
+        growthAction: "crm_follow_up",
+      },
+    });
+    const started = await operationsService.start(organizationId, job.id);
+    if (started.status === "WAITING_FOR_APPROVAL") {
+      auditGrowth(
+        "agent.growth.crm_follow_up_approval_requested",
+        organizationId,
+        profile.id,
+        { jobId: started.id },
+      );
+    }
+    return {
+      task: agentsStore
+        .getSnapshot()
+        .tasks.find((item) => item.id === started.taskId)!,
+      job: operationsService.get(organizationId, started.id)!,
+      link: getGrowthCrmLink(organizationId, profile.id),
+      lead: getCrmLinkedLeadState(organizationId, profile.id),
+    };
+  },
+
+  listCrmFollowUps(
+    organizationId: string,
+    options?: {
+      readonly customerId?: string;
+      readonly campaignId?: string;
+    },
+  ) {
+    return listCrmFollowUps(organizationId, options);
+  },
+
+  getCrmFollowUp(organizationId: string, followUpId: string) {
+    return getCrmFollowUp(organizationId, followUpId);
+  },
+
+  getCrmLinkedLead(organizationId: string) {
+    const profile = latestProfile(organizationId);
+    return getCrmLinkedLeadState(organizationId, profile?.id);
+  },
+
   snapshot(organizationId: string) {
     this.ensure(organizationId);
     const profile = this.getProfile(organizationId) ?? null;
@@ -719,6 +807,10 @@ export const growthService = {
       insights: orgFilter(agentsStore.getSnapshot().growthInsights, organizationId),
       crmLink: getGrowthCrmLink(organizationId, profile?.id ?? undefined) ?? null,
       crmSync: getCampaignCrmSync(organizationId, campaigns[0]?.id) ?? null,
+      crmLead: getCrmLinkedLeadState(organizationId, profile?.id ?? undefined),
+      crmFollowUps: listCrmFollowUps(organizationId, {
+        campaignId: campaigns[0]?.id,
+      }),
     };
   },
 };

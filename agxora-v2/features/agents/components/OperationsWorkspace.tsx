@@ -253,16 +253,48 @@ function JobDetail({
         }
       />
       {job.toolId === "crm" ? (
-        <DetailRow
-          label={t("agents.crmBridge.labels.status")}
-          value={
-            job.status === "COMPLETED"
-              ? t("agents.crmBridge.syncStatus.completed")
-              : job.status === "BLOCKED"
-                ? t("agents.crmBridge.syncStatus.blocked")
-                : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
-          }
-        />
+        <>
+          <DetailRow
+            label={t("agents.crmBridge.labels.status")}
+            value={
+              job.params.growthAction === "crm_follow_up" ||
+              job.params.action === "create_follow_up"
+                ? job.status === "COMPLETED"
+                  ? t("agents.crmFollowUp.status.completed")
+                  : job.status === "BLOCKED"
+                    ? t("agents.crmFollowUp.status.blocked")
+                    : job.status === "FAILED"
+                      ? t("agents.crmFollowUp.status.failed")
+                      : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
+                : job.status === "COMPLETED"
+                  ? t("agents.crmBridge.syncStatus.completed")
+                  : job.status === "BLOCKED"
+                    ? t("agents.crmBridge.syncStatus.blocked")
+                    : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
+            }
+          />
+          {job.result?.metadata.customerId ? (
+            <DetailRow
+              label={t("agents.crmBridge.labels.customer")}
+              value={job.result.metadata.customerId}
+            />
+          ) : null}
+          {typeof job.result?.metadata.customerId === "string" &&
+          job.result.metadata.customerId.length > 0 ? (
+            <div>
+              <p className="text-xs uppercase tracking-wide" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                {t("agents.crmBridge.labels.record")}
+              </p>
+              <a
+                className="text-sm underline"
+                href={`/dashboard/crm/${encodeURIComponent(job.result.metadata.customerId)}`}
+                style={{ color: "var(--agx-accent, #22d3ee)" }}
+              >
+                {t("agents.crmBridge.actions.openCrm")}
+              </a>
+            </div>
+          ) : null}
+        </>
       ) : null}
       <DetailRow
         label={t("agents.operations.labels.externalEffect")}

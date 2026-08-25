@@ -38,6 +38,9 @@ function createFailingCrmBridge(
     async createNote() {
       throw new Error(message);
     },
+    async listNotes() {
+      return [];
+    },
   };
 }
 
@@ -64,6 +67,7 @@ function createNoteFailAfterCrmBridge(
       notes += 1;
       return base.createNote(organizationId, customerId, draft);
     },
+    listNotes: (customerId) => base.listNotes(customerId),
   };
 }
 
@@ -185,7 +189,7 @@ describe("Phase 46 growth CRM bridge", () => {
     await growthService.requestCrmSync(organizationId, campaign.id);
     await approvePending();
     const snap = agentsStore.getSnapshot();
-    expect(snap.version).toBe(6);
+    expect(snap.version).toBe(7);
     expect(snap.growthCrmLinks.length).toBeGreaterThan(0);
     expect(snap.campaignCrmSyncs.length).toBeGreaterThan(0);
     expect(snap.growthCrmLinks[0]?.href).toMatch(/^\/dashboard\/crm\//);
@@ -287,16 +291,17 @@ describe("Phase 46 growth CRM bridge", () => {
     }
   });
 
-  it("normalizes older persistence versions into version 6", () => {
-    for (const version of [1, 2, 3, 4, 5] as const) {
+  it("normalizes older persistence versions into version 7", () => {
+    for (const version of [1, 2, 3, 4, 5, 6] as const) {
       const normalized = normalizeState({
         version,
         runtimes: [],
         tasks: [],
       });
-      expect(normalized?.version).toBe(6);
+      expect(normalized?.version).toBe(7);
       expect(normalized?.growthCrmLinks).toEqual([]);
       expect(normalized?.campaignCrmSyncs).toEqual([]);
+      expect(normalized?.crmFollowUps).toEqual([]);
       expect(normalized?.executionJobs).toEqual([]);
     }
   });
