@@ -25,6 +25,8 @@ function createNoteFailCrmBridge(
     getCustomer: (customerId) => base.getCustomer(customerId),
     createCustomer: (organizationId, draft) =>
       base.createCustomer(organizationId, draft),
+    updateCustomer: (organizationId, customerId, draft) =>
+      base.updateCustomer(organizationId, customerId, draft),
     listContacts: (customerId) => base.listContacts(customerId),
     createContact: (organizationId, customerId, draft) =>
       base.createContact(organizationId, customerId, draft),

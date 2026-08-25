@@ -24,6 +24,11 @@ export interface CrmBridgeProvider {
     organizationId: string,
     draft: CrmCustomerDraft,
   ): Promise<CrmCustomerRecord>;
+  updateCustomer(
+    organizationId: string,
+    customerId: string,
+    draft: CrmCustomerDraft,
+  ): Promise<CrmCustomerRecord>;
   listContacts(customerId: string): Promise<readonly CrmContactRecord[]>;
   createContact(
     organizationId: string,
@@ -56,6 +61,9 @@ export function createUnavailableCrmBridge(): CrmBridgeProvider {
     async createCustomer() {
       throw unavailableError("create");
     },
+    async updateCustomer() {
+      throw unavailableError("update");
+    },
     async listContacts() {
       throw unavailableError("list_contacts");
     },
@@ -82,6 +90,13 @@ export function createDirectoryCrmBridge(): CrmBridgeProvider {
     },
     createCustomer(organizationId, draft) {
       return crmDirectoryService.createFromDraft(draft, organizationId);
+    },
+    async updateCustomer(organizationId, customerId, draft) {
+      const existing = await crmDirectoryService.getById(customerId);
+      if (!existing || existing.organizationId !== organizationId) {
+        throw new Error("crm_customer_org_mismatch");
+      }
+      return crmDirectoryService.updateFromDraft(customerId, draft);
     },
     listContacts(customerId) {
       return crmDirectoryService.listContacts(customerId);
@@ -148,6 +163,33 @@ export function createMemoryCrmBridge(): CrmBridgeProvider {
         updatedAt: stamp,
       };
       customers.unshift(row);
+      return row;
+    },
+    async updateCustomer(organizationId, customerId, draft) {
+      const index = customers.findIndex((row) => row.id === customerId);
+      if (index < 0) throw new Error(`Customer not found: ${customerId}`);
+      const existing = customers[index]!;
+      if (existing.organizationId !== organizationId) {
+        throw new Error("crm_customer_org_mismatch");
+      }
+      const stamp = now();
+      const row: CrmCustomerRecord = {
+        ...existing,
+        companyName: draft.companyName,
+        contactName: draft.contactName,
+        email: draft.email,
+        phone: draft.phone,
+        website: draft.website,
+        industry: draft.industry,
+        country: draft.country,
+        city: draft.city,
+        address: draft.address,
+        taxNumber: draft.taxNumber,
+        status: draft.status,
+        owner: draft.owner,
+        updatedAt: stamp,
+      };
+      customers[index] = row;
       return row;
     },
     async listContacts(customerId) {

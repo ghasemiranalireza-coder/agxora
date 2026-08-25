@@ -3,6 +3,8 @@
  * CRM entities remain in the existing CRM directory / persistence stack.
  */
 
+import type { CrmCustomerStatus } from "@/app/lib/crm/directory";
+
 export type GrowthCrmLinkOutcome =
   | "linked"
   | "created"
@@ -136,12 +138,17 @@ export type CrmLeadNextActionCode =
   | "create_follow_up"
   | "complete_overdue_follow_up"
   | "complete_open_follow_up"
+  | "advance_crm_status"
   | "none";
 
 export interface CrmLeadNextAction {
   readonly code: CrmLeadNextActionCode;
   readonly followUpId?: string;
   readonly dueAt?: string;
+  /** Live CRM status when known (Phase 51). */
+  readonly crmStatus?: CrmCustomerStatus;
+  /** Deterministic next allowed CRM status when advancing. */
+  readonly targetCrmStatus?: CrmCustomerStatus;
 }
 
 /** Read-model for CRM-linked lead state inside Agent Operations. */
@@ -173,11 +180,12 @@ export type LeadPriorityReason =
   | "recently_completed"
   | "weak_crm_link"
   | "missing_crm_link"
+  | "ready_for_status_advance"
   | "no_action_needed";
 
 /**
  * Deterministic recommended next action for the Lead Action Queue.
- * Maps onto existing Phase 46–48 operations when an action button is shown.
+ * Maps onto existing Phase 46–51 operations when an action button is shown.
  */
 export type LeadRecommendedAction =
   | "COMPLETE_OVERDUE_FOLLOW_UP"
@@ -185,6 +193,7 @@ export type LeadRecommendedAction =
   | "REVIEW_BLOCKED_FOLLOW_UP"
   | "COMPLETE_PENDING_FOLLOW_UP"
   | "CREATE_FOLLOW_UP"
+  | "ADVANCE_CRM_STATUS"
   | "REVIEW_CRM_LINK"
   | "NO_ACTION";
 
@@ -206,6 +215,10 @@ export interface LeadActionItem {
   readonly followUpId?: string;
   readonly dueAt?: string;
   readonly linkOutcome?: GrowthCrmLinkOutcome;
+  /** Live CRM customer status when loaded for the queue. */
+  readonly crmStatus?: CrmCustomerStatus;
+  /** Next allowed CRM status when ADVANCE_CRM_STATUS is recommended. */
+  readonly targetCrmStatus?: CrmCustomerStatus;
   readonly openFollowUpCount: number;
   readonly overdueFollowUpCount: number;
   readonly failedFollowUpCount: number;
@@ -236,14 +249,15 @@ export interface LeadActionQueue {
 }
 
 /**
- * Phase 50 executable actions — subset of recommended actions with safe
+ * Phase 50–51 executable actions — subset of recommended actions with safe
  * underlying Agent OS / CRM operations.
  */
 export type LeadExecutableAction =
   | "CREATE_FOLLOW_UP"
   | "COMPLETE_OVERDUE_FOLLOW_UP"
   | "RETRY_FAILED_FOLLOW_UP"
-  | "REVIEW_CRM_LINK";
+  | "REVIEW_CRM_LINK"
+  | "ADVANCE_CRM_STATUS";
 
 export type LeadActionExecutionStatus =
   | "QUEUED"
@@ -280,6 +294,8 @@ export interface LeadActionExecution {
   readonly readOnly?: boolean;
   readonly customerId?: string;
   readonly companyName?: string;
+  readonly fromCrmStatus?: CrmCustomerStatus;
+  readonly toCrmStatus?: CrmCustomerStatus;
 }
 
 /** Latest ops projection attached to a queue item (derived, not persisted). */

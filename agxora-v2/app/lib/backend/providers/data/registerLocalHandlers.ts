@@ -416,7 +416,7 @@ export function registerLocalDataHandlers(): void {
         });
       }
       if (options.method === "GET" && path === "/agents/growth/crm/leads/priority") {
-        const queue = growthService.getLeadActionQueue(organizationId);
+        const queue = await growthService.getLeadActionQueue(organizationId);
         return mockOk({
           queue,
           readOnly: true,
@@ -426,6 +426,22 @@ export function registerLocalDataHandlers(): void {
         /^\/agents\/growth\/crm\/leads\/([^/]+)\/actions$/,
       );
       if (options.method === "POST" && leadAction) {
+        const targetCrmStatus =
+          body.targetCrmStatus === "lead" ||
+          body.targetCrmStatus === "prospect" ||
+          body.targetCrmStatus === "active" ||
+          body.targetCrmStatus === "inactive" ||
+          body.targetCrmStatus === "vip" ||
+          body.targetCrmStatus === "archived"
+            ? body.targetCrmStatus
+            : body.targetStatus === "lead" ||
+                body.targetStatus === "prospect" ||
+                body.targetStatus === "active" ||
+                body.targetStatus === "inactive" ||
+                body.targetStatus === "vip" ||
+                body.targetStatus === "archived"
+              ? body.targetStatus
+              : undefined;
         return mockOk(
           await growthService.executeLeadAction(organizationId, {
             profileId: decodeURIComponent(leadAction[1]),
@@ -439,6 +455,7 @@ export function registerLocalDataHandlers(): void {
               typeof body.completionNote === "string"
                 ? body.completionNote
                 : undefined,
+            targetCrmStatus,
           }),
           201,
         );

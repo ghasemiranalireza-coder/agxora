@@ -29,6 +29,9 @@ function createFailingCrmBridge(
     async createCustomer() {
       throw new Error(message);
     },
+    async updateCustomer() {
+      throw new Error(message);
+    },
     async listContacts() {
       return [];
     },
@@ -57,6 +60,8 @@ function createNoteFailAfterCrmBridge(
     getCustomer: (customerId) => base.getCustomer(customerId),
     createCustomer: (organizationId, draft) =>
       base.createCustomer(organizationId, draft),
+    updateCustomer: (organizationId, customerId, draft) =>
+      base.updateCustomer(organizationId, customerId, draft),
     listContacts: (customerId) => base.listContacts(customerId),
     createContact: (organizationId, customerId, draft) =>
       base.createContact(organizationId, customerId, draft),

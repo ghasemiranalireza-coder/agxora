@@ -47,6 +47,18 @@ export {
   listCrmFollowUps,
 } from "./followUp";
 export {
+  advanceCrmCustomerStatus,
+  isAllowedCrmStatusTransition,
+  loadCrmStatusesForOrganization,
+  nextAllowedCrmStatus,
+  resolveAdvanceTarget,
+  CRM_STATUS_TRANSITIONS,
+} from "./status";
+export type {
+  CrmStatusAdvanceOutcome,
+  CrmStatusAdvanceResult,
+} from "./status";
+export {
   buildLeadActionQueue,
   crmLeadPriorityRank,
   evaluateLeadPriority,

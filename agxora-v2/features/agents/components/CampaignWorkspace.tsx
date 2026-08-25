@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, type JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 import { Badge, Button, Card } from "@/app/components/ui";
 import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
 import { evaluateCampaignReadiness } from "../campaigns/readiness";
 import type { Campaign } from "../campaigns/types";
+import type { LeadActionQueue } from "../crm/types";
 import { operationsService } from "../execution/service";
 import { growthService } from "../growth/service";
 import { useAgentOperatingSystem } from "../hooks";
@@ -17,15 +18,37 @@ export function CampaignWorkspace(): JSX.Element {
   const campaign = snapshot.campaigns[0];
   const [notice, setNotice] = useState(t("agents.campaigns.noticeReady"));
   const [busy, setBusy] = useState(false);
+  const [leadActionQueue, setLeadActionQueue] = useState<LeadActionQueue>(
+    snapshot.leadActionQueue,
+  );
   const pendingApprovals = snapshot.approvals.filter(
     (item) => item.state === "REQUIRES_APPROVAL",
   );
+
+  useEffect(() => {
+    let cancelled = false;
+    void growthService.getLeadActionQueue(orgId).then((queue) => {
+      if (!cancelled) setLeadActionQueue(queue);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    orgId,
+    snapshot.crmFollowUps.length,
+    snapshot.crmLink?.updatedAt,
+    snapshot.approvals.length,
+    aos.tasks.length,
+    aos.executions.length,
+  ]);
 
   const run = async (action: () => Promise<void>, successKey: string) => {
     setBusy(true);
     try {
       await action();
       setNotice(t(successKey));
+      const queue = await growthService.getLeadActionQueue(orgId);
+      setLeadActionQueue(queue);
     } catch (error) {
       setNotice(localizeThrownError(t, error, "agents.campaigns.noticeFailed"));
     } finally {
@@ -130,7 +153,7 @@ export function CampaignWorkspace(): JSX.Element {
           crmSync={snapshot.crmSync}
           crmLead={snapshot.crmLead}
           crmFollowUps={snapshot.crmFollowUps}
-          leadActionQueue={snapshot.leadActionQueue}
+          leadActionQueue={leadActionQueue}
           busy={busy}
           onCompleteFollowUp={(followUpId) =>
             void run(async () => {
@@ -141,13 +164,14 @@ export function CampaignWorkspace(): JSX.Element {
               });
             }, "agents.crmFollowUp.noticeCompleteRequested")
           }
-          onExecuteLeadAction={(profileId, action, followUpId) =>
+          onExecuteLeadAction={(profileId, action, followUpId, targetCrmStatus) =>
             void run(async () => {
               const result = await growthService.executeLeadAction(orgId, {
                 profileId,
                 action,
                 followUpId,
                 campaignId: campaign.id,
+                targetCrmStatus,
               });
               if (result.execution.status === "INVALID") {
                 throw new Error(result.execution.message ?? "invalid_lead_action");
@@ -235,15 +259,14 @@ function CampaignDetail({
   readonly crmSync: ReturnType<typeof growthService.snapshot>["crmSync"];
   readonly crmLead: ReturnType<typeof growthService.snapshot>["crmLead"];
   readonly crmFollowUps: ReturnType<typeof growthService.snapshot>["crmFollowUps"];
-  readonly leadActionQueue: ReturnType<
-    typeof growthService.snapshot
-  >["leadActionQueue"];
+  readonly leadActionQueue: LeadActionQueue;
   readonly busy: boolean;
   readonly onCompleteFollowUp: (followUpId: string) => void;
   readonly onExecuteLeadAction: (
     profileId: string,
     action: string,
     followUpId?: string,
+    targetCrmStatus?: import("@/app/lib/crm/directory").CrmCustomerStatus,
   ) => void;
 }): JSX.Element {
   const t = useT();
@@ -271,6 +294,7 @@ function CampaignDetail({
     }
     if (recommended === "RETRY_FAILED_FOLLOW_UP") return "RETRY_FAILED_FOLLOW_UP";
     if (recommended === "REVIEW_CRM_LINK") return "REVIEW_CRM_LINK";
+    if (recommended === "ADVANCE_CRM_STATUS") return "ADVANCE_CRM_STATUS";
     return null;
   };
   return (
@@ -438,6 +462,23 @@ function CampaignDetail({
                     )
                     .join(" · ")}
                 </p>
+                {item.crmStatus ? (
+                  <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    {t("agents.leadQueue.labels.crmStatus")}:{" "}
+                    {catalogCopy(
+                      t,
+                      `agents.leadQueue.crmStatus.${item.crmStatus}`,
+                      item.crmStatus,
+                    )}
+                    {item.targetCrmStatus
+                      ? ` → ${catalogCopy(
+                          t,
+                          `agents.leadQueue.crmStatus.${item.targetCrmStatus}`,
+                          item.targetCrmStatus,
+                        )}`
+                      : ""}
+                  </p>
+                ) : null}
                 {item.followUpStatus ? (
                   <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                     {t("agents.leadQueue.labels.followUp")}:{" "}
@@ -483,7 +524,9 @@ function CampaignDetail({
                         ? "agents.leadQueue.controls.retry"
                         : action === "REVIEW_CRM_LINK"
                           ? "agents.leadQueue.controls.review"
-                          : "agents.leadQueue.controls.complete";
+                          : action === "ADVANCE_CRM_STATUS"
+                            ? "agents.leadQueue.controls.advance"
+                            : "agents.leadQueue.controls.complete";
                   const needsFollowUp =
                     action === "COMPLETE_OVERDUE_FOLLOW_UP" ||
                     action === "RETRY_FAILED_FOLLOW_UP";
@@ -505,6 +548,9 @@ function CampaignDetail({
                           item.profileId,
                           action,
                           item.followUpId,
+                          action === "ADVANCE_CRM_STATUS"
+                            ? item.targetCrmStatus
+                            : undefined,
                         );
                       }}
                     >

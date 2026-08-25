@@ -12,8 +12,10 @@ import {
 } from "./followUp";
 import { attachLeadExecutionsToQueue } from "./execute";
 import { buildLeadActionQueue } from "./prioritize";
+import { advanceCrmCustomerStatus, loadCrmStatusesForOrganization } from "./status";
 import { getCampaignCrmSync, getGrowthCrmLink, syncGrowthProfileToCrm } from "./sync";
 import type { CrmFollowUpKind } from "./types";
+import type { CrmCustomerStatus } from "@/app/lib/crm/directory";
 
 function readString(
   params: Readonly<Record<string, unknown>>,
@@ -21,6 +23,20 @@ function readString(
 ): string | undefined {
   const value = params[key];
   return typeof value === "string" && value.length > 0 ? value : undefined;
+}
+
+function parseCrmStatus(value: string | undefined): CrmCustomerStatus | undefined {
+  if (
+    value === "lead" ||
+    value === "prospect" ||
+    value === "active" ||
+    value === "inactive" ||
+    value === "vip" ||
+    value === "archived"
+  ) {
+    return value;
+  }
+  return undefined;
 }
 
 function latestProfile(organizationId: string, profileId?: string) {
@@ -127,9 +143,10 @@ export async function handleCrmTool(
   }
 
   if (action === "list_lead_priority" || action === "get_lead_priority") {
+    const crmStatuses = await loadCrmStatusesForOrganization(ctx.organizationId);
     const queue = attachLeadExecutionsToQueue(
       ctx.organizationId,
-      buildLeadActionQueue(ctx.organizationId),
+      buildLeadActionQueue(ctx.organizationId, { crmStatuses }),
     );
     return {
       ok: true,
@@ -137,6 +154,47 @@ export async function handleCrmTool(
         action: "list_lead_priority",
         queue,
         readOnly: true,
+      },
+      durationMs: Date.now() - started,
+    };
+  }
+
+  if (action === "update_customer_status" || action === "advance_crm_status") {
+    const profileId = readString(ctx.params, "profileId");
+    if (!profileId) {
+      return {
+        ok: false,
+        error: "profileId is required to advance CRM status.",
+        durationMs: Date.now() - started,
+      };
+    }
+    const targetStatus = parseCrmStatus(readString(ctx.params, "targetStatus"));
+    const { result, customer, link } = await advanceCrmCustomerStatus({
+      organizationId: ctx.organizationId,
+      profileId,
+      targetStatus,
+      taskId: ctx.taskId,
+      attachNote: true,
+    });
+    return {
+      ok: true,
+      output: {
+        action: "update_customer_status",
+        result,
+        statusResult: result,
+        customer: customer
+          ? {
+              id: customer.id,
+              status: customer.status,
+              organizationId: customer.organizationId,
+              companyName: customer.companyName,
+            }
+          : null,
+        link: link ?? null,
+        crmAvailable: result.available,
+        crmSuccess: result.success,
+        fromStatus: result.fromStatus,
+        toStatus: result.toStatus,
       },
       durationMs: Date.now() - started,
     };

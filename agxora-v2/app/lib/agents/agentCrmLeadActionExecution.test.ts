@@ -25,6 +25,8 @@ function createNoteFailCrmBridge(
     getCustomer: (customerId) => base.getCustomer(customerId),
     createCustomer: (organizationId, draft) =>
       base.createCustomer(organizationId, draft),
+    updateCustomer: (organizationId, customerId, draft) =>
+      base.updateCustomer(organizationId, customerId, draft),
     listContacts: (customerId) => base.listContacts(customerId),
     createContact: (organizationId, customerId, draft) =>
       base.createContact(organizationId, customerId, draft),
@@ -119,7 +121,7 @@ describe("Phase 50 growth CRM lead action execution", () => {
     const job = operationsService.get(organizationId, result.execution.jobId!);
     expect(job?.status).toBe("COMPLETED");
     expect(listCrmFollowUps(organizationId).length).toBe(1);
-    const queue = growthService.getLeadActionQueue(organizationId);
+    const queue = await growthService.getLeadActionQueue(organizationId);
     const item = queue.items.find((row) => row.profileId === profile.id);
     expect(item?.recommendedAction).not.toBe("CREATE_FOLLOW_UP");
     expect(item?.openFollowUpCount).toBe(1);
@@ -137,12 +139,12 @@ describe("Phase 50 growth CRM lead action execution", () => {
     const job = operationsService.get(organizationId, result.execution.jobId!);
     expect(job?.status).toBe("BLOCKED");
     expect(listCrmFollowUps(organizationId).length).toBe(0);
-    const queue = growthService.getLeadActionQueue(organizationId);
+    const queue = await growthService.getLeadActionQueue(organizationId);
     expect(
       queue.items.some(
         (item) =>
           item.profileId === profile.id &&
-          item.recommendedAction === "CREATE_FOLLOW_UP",
+          item.recommendedAction === "ADVANCE_CRM_STATUS",
       ),
     ).toBe(true);
   });
@@ -231,7 +233,7 @@ describe("Phase 50 growth CRM lead action execution", () => {
     expect(
       growthService.getCrmFollowUp(organizationId, followUp.id)?.status,
     ).toBe("blocked");
-    const queue = growthService.getLeadActionQueue(organizationId);
+    const queue = await growthService.getLeadActionQueue(organizationId);
     expect(queue.items.some((item) => item.profileId === profile.id)).toBe(true);
   });
 
@@ -292,8 +294,8 @@ describe("Phase 50 growth CRM lead action execution", () => {
     expect(listCrmFollowUps(organizationId).length).toBe(beforeFollowUps);
   });
 
-  it("blocks CREATE_FOLLOW_UP when an open follow-up already exists", () => {
-    const validation = validateLeadAction({
+  it("blocks CREATE_FOLLOW_UP when an open follow-up already exists", async () => {
+    const validation = await validateLeadAction({
       organizationId,
       profileId: "p1",
       action: "CREATE_FOLLOW_UP",
@@ -337,10 +339,10 @@ describe("Phase 50 growth CRM lead action execution", () => {
 
   it("recomputs queue after successful create", async () => {
     const { profile, campaign } = await seedLinkedProfile("Recompute Queue");
-    const before = growthService.getLeadActionQueue(organizationId);
+    const before = await growthService.getLeadActionQueue(organizationId);
     expect(
       before.items.find((item) => item.profileId === profile.id)?.recommendedAction,
-    ).toBe("CREATE_FOLLOW_UP");
+    ).toBe("ADVANCE_CRM_STATUS");
     const result = await growthService.executeLeadAction(organizationId, {
       profileId: profile.id,
       action: "CREATE_FOLLOW_UP",
@@ -350,7 +352,7 @@ describe("Phase 50 growth CRM lead action execution", () => {
     expect(
       operationsService.get(organizationId, result.execution.jobId!)?.status,
     ).toBe("COMPLETED");
-    const after = growthService.getLeadActionQueue(organizationId);
+    const after = await growthService.getLeadActionQueue(organizationId);
     const item = after.items.find((row) => row.profileId === profile.id);
     expect(item?.openFollowUpCount).toBeGreaterThan(0);
     expect(item?.recommendedAction).toMatch(/COMPLETE_|RETRY_/);
