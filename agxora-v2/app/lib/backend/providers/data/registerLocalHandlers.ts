@@ -434,6 +434,23 @@ export function registerLocalDataHandlers(): void {
           201,
         );
       }
+      const followUpComplete = path.match(
+        /^\/agents\/growth\/crm\/follow-ups\/([^/]+)\/complete$/,
+      );
+      if (options.method === "POST" && followUpComplete) {
+        return mockOk(
+          await growthService.requestCrmFollowUpComplete(organizationId, {
+            followUpId: followUpComplete[1],
+            completionNote:
+              typeof body.completionNote === "string"
+                ? body.completionNote
+                : undefined,
+            campaignId:
+              typeof body.campaignId === "string" ? body.campaignId : undefined,
+          }),
+          201,
+        );
+      }
       const campaignCrmSync = path.match(/^\/agents\/growth\/campaigns\/([^/]+)\/crm-sync$/);
       if (options.method === "POST" && campaignCrmSync) {
         return mockOk(

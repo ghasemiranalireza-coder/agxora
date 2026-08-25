@@ -257,20 +257,29 @@ function JobDetail({
           <DetailRow
             label={t("agents.crmBridge.labels.status")}
             value={
-              job.params.growthAction === "crm_follow_up" ||
-              job.params.action === "create_follow_up"
+              job.params.growthAction === "crm_follow_up_complete" ||
+              job.params.action === "complete_follow_up"
                 ? job.status === "COMPLETED"
-                  ? t("agents.crmFollowUp.status.completed")
+                  ? t("agents.crmFollowUp.ops.completeSucceeded")
                   : job.status === "BLOCKED"
                     ? t("agents.crmFollowUp.status.blocked")
                     : job.status === "FAILED"
                       ? t("agents.crmFollowUp.status.failed")
                       : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
-                : job.status === "COMPLETED"
-                  ? t("agents.crmBridge.syncStatus.completed")
-                  : job.status === "BLOCKED"
-                    ? t("agents.crmBridge.syncStatus.blocked")
-                    : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
+                : job.params.growthAction === "crm_follow_up" ||
+                    job.params.action === "create_follow_up"
+                  ? job.status === "COMPLETED"
+                    ? t("agents.crmFollowUp.ops.createSucceeded")
+                    : job.status === "BLOCKED"
+                      ? t("agents.crmFollowUp.status.blocked")
+                      : job.status === "FAILED"
+                        ? t("agents.crmFollowUp.status.failed")
+                        : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
+                  : job.status === "COMPLETED"
+                    ? t("agents.crmBridge.syncStatus.completed")
+                    : job.status === "BLOCKED"
+                      ? t("agents.crmBridge.syncStatus.blocked")
+                      : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
             }
           />
           {job.result?.metadata.customerId ? (

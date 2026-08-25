@@ -15,6 +15,7 @@ import type {
   CrmFollowUpKind,
   CrmFollowUpOutcome,
   CrmFollowUpResult,
+  CrmLeadNextAction,
   CrmLinkedLeadState,
   GrowthCrmFollowUp,
   GrowthCrmLink,
@@ -33,6 +34,56 @@ function isUnavailableError(error: unknown): boolean {
 
 function followUpHref(customerId: string): string {
   return `${HREF_PREFIX}/${encodeURIComponent(customerId)}`;
+}
+
+function dayKey(iso?: string): string | undefined {
+  if (!iso) return undefined;
+  return iso.slice(0, 10);
+}
+
+function isOverdue(followUp: GrowthCrmFollowUp, today: string): boolean {
+  const due = dayKey(followUp.dueAt);
+  return Boolean(due && due < today);
+}
+
+function sortOpenFollowUps(
+  items: readonly GrowthCrmFollowUp[],
+): GrowthCrmFollowUp[] {
+  return [...items].sort((a, b) => {
+    const aDue = dayKey(a.dueAt) ?? "9999-12-31";
+    const bDue = dayKey(b.dueAt) ?? "9999-12-31";
+    if (aDue !== bDue) return aDue.localeCompare(bDue);
+    return a.createdAt.localeCompare(b.createdAt);
+  });
+}
+
+export function evaluateCrmLeadNextAction(input: {
+  readonly link: GrowthCrmLink | null;
+  readonly openFollowUps: readonly GrowthCrmFollowUp[];
+  readonly today?: string;
+}): CrmLeadNextAction {
+  if (!input.link) {
+    return { code: "link_to_crm" };
+  }
+  const today = input.today ?? nowIso().slice(0, 10);
+  const open = sortOpenFollowUps(input.openFollowUps);
+  if (open.length === 0) {
+    return { code: "create_follow_up" };
+  }
+  const overdue = open.find((item) => isOverdue(item, today));
+  if (overdue) {
+    return {
+      code: "complete_overdue_follow_up",
+      followUpId: overdue.id,
+      dueAt: overdue.dueAt,
+    };
+  }
+  const next = open[0]!;
+  return {
+    code: "complete_open_follow_up",
+    followUpId: next.id,
+    dueAt: next.dueAt,
+  };
 }
 
 function buildFollowUpNoteBody(input: {
@@ -125,16 +176,32 @@ export function getCrmLinkedLeadState(
   const link = getGrowthCrmLink(organizationId, profileId) ?? null;
   const followUps = link
     ? listCrmFollowUps(organizationId, { linkId: link.id })
-    : [];
+    : listCrmFollowUps(organizationId);
+  const openFollowUps = followUps.filter(
+    (item) =>
+      item.status === "pending" ||
+      item.status === "blocked" ||
+      item.status === "failed",
+  );
+  const completedFollowUps = followUps.filter(
+    (item) => item.status === "completed",
+  );
+  const today = nowIso().slice(0, 10);
+  const overdueFollowUps = openFollowUps.filter((item) => isOverdue(item, today));
+  const nextAction = evaluateCrmLeadNextAction({
+    link,
+    openFollowUps,
+    today,
+  });
   return {
     link,
     customerId: link?.customerId,
     companyName: link?.companyName,
     href: link?.href,
-    openFollowUps: followUps.filter(
-      (item) => item.status === "pending" || item.status === "blocked",
-    ),
-    completedFollowUps: followUps.filter((item) => item.status === "completed"),
+    openFollowUps,
+    completedFollowUps,
+    overdueFollowUps,
+    nextAction,
   };
 }
 
@@ -307,17 +374,30 @@ export async function completeCrmFollowUp(input: {
 
   if (existing.status === "completed") {
     const result =
-      existing.result ??
-      resultOf("completed", "crm_follow_up_already_completed", {
-        noteId: existing.noteId,
-        href: existing.href,
-        duplicated: true,
-      });
-    return { result: { ...result, duplicated: true }, followUp: existing };
+      existing.result?.outcome === "completed"
+        ? { ...existing.result, duplicated: true }
+        : resultOf("completed", "crm_follow_up_already_completed", {
+            noteId: existing.completionNoteId ?? existing.noteId,
+            href: existing.href,
+            duplicated: true,
+          });
+    // Record this task id so Operations can attribute the idempotent complete
+    // to the CURRENT job without inventing a new CRM note.
+    const followUp = persistFollowUp({
+      ...existing,
+      taskId: input.taskId ?? existing.taskId,
+      result,
+      updatedAt: nowIso(),
+    });
+    return { result, followUp };
   }
 
   const provider = input.provider ?? getCrmBridgeProvider();
-  if (!provider.available) {
+  const wantsCompletionNote = Boolean(input.completionNote?.trim());
+
+  // Completing without a completion note is an Agent OS state transition only.
+  // CRM availability is required only when writing a completion note.
+  if (wantsCompletionNote && !provider.available) {
     const result = resultOf("unavailable", "crm_unavailable");
     const followUp = persistFollowUp({
       ...existing,
@@ -332,8 +412,8 @@ export async function completeCrmFollowUp(input: {
   }
 
   try {
-    let noteId = existing.noteId;
-    if (input.completionNote?.trim()) {
+    let completionNoteId = existing.completionNoteId;
+    if (wantsCompletionNote) {
       const note = await provider.createNote(
         input.organizationId,
         existing.customerId,
@@ -342,24 +422,26 @@ export async function completeCrmFollowUp(input: {
           body: [
             `Completed follow-up (${existing.kind}).`,
             "",
-            input.completionNote.trim(),
+            input.completionNote!.trim(),
             "",
             "Source: AGXORA Growth Agent (internal CRM note).",
           ].join("\n"),
           author: FOLLOW_UP_AUTHOR,
         }),
       );
-      noteId = note.id;
+      completionNoteId = note.id;
     }
 
     const href = existing.href ?? followUpHref(existing.customerId);
     const result = resultOf("completed", "crm_follow_up_completed", {
-      noteId,
+      noteId: completionNoteId ?? existing.noteId,
       href,
     });
+    // Preserve the original create noteId; store completion note separately.
     const followUp = persistFollowUp({
       ...existing,
-      noteId,
+      noteId: existing.noteId,
+      completionNoteId,
       href,
       status: "completed",
       outcome: "completed",

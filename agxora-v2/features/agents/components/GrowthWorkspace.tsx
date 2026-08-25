@@ -118,6 +118,13 @@ export function GrowthWorkspace({
             </a>
             {" · "}
             {t("agents.crmFollowUp.labels.open")}: {String(snapshot.crmLead.openFollowUps.length)}
+            {" · "}
+            {t("agents.crmFollowUp.labels.nextAction")}:{" "}
+            {catalogCopy(
+              t,
+              `agents.crmFollowUp.nextAction.${snapshot.crmLead.nextAction.code}`,
+              snapshot.crmLead.nextAction.code,
+            )}
           </p>
         ) : (
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>

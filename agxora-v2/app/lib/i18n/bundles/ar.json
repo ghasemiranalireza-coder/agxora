@@ -4999,7 +4999,9 @@
     },
     "crmFollowUp": {
       "noticeRequested": "CRM follow-up requested. Approve the pending Agent OS action to create it.",
+      "noticeCompleteRequested": "CRM follow-up completion requested. Approve the pending Agent OS action to finish it.",
       "noticeCreated": "CRM follow-up note created for the linked lead.",
+      "noticeCompleted": "CRM follow-up marked complete.",
       "noticeFailed": "CRM follow-up failed",
       "actions": {
         "create": "Create CRM follow-up",
@@ -5008,8 +5010,10 @@
       "labels": {
         "list": "CRM follow-ups",
         "open": "Open follow-ups",
+        "overdue": "Overdue follow-ups",
         "kind": "Follow-up kind",
-        "due": "Due"
+        "due": "Due",
+        "nextAction": "Next action"
       },
       "kind": {
         "call": "Call",
@@ -5031,6 +5035,17 @@
         "unavailable": "CRM unavailable",
         "error": "Follow-up error",
         "missing_link": "CRM link required before follow-up"
+      },
+      "nextAction": {
+        "link_to_crm": "Sync Growth profile to CRM",
+        "create_follow_up": "Create a CRM follow-up",
+        "complete_overdue_follow_up": "Complete overdue CRM follow-up",
+        "complete_open_follow_up": "Complete open CRM follow-up",
+        "none": "No CRM follow-up action needed"
+      },
+      "ops": {
+        "createSucceeded": "Follow-up note created",
+        "completeSucceeded": "Follow-up marked complete"
       }
     }
   },

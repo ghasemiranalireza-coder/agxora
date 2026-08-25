@@ -765,6 +765,64 @@ export const growthService = {
     };
   },
 
+  async requestCrmFollowUpComplete(
+    organizationId: string,
+    input: {
+      readonly followUpId: string;
+      readonly completionNote?: string;
+      readonly campaignId?: string;
+    },
+  ): Promise<{
+    readonly task: Awaited<ReturnType<typeof runAgentTool>>;
+    readonly job: ReturnType<typeof operationsService.enqueue>;
+    readonly followUp: ReturnType<typeof getCrmFollowUp>;
+    readonly lead: ReturnType<typeof getCrmLinkedLeadState>;
+  }> {
+    this.ensure(organizationId);
+    const profile =
+      latestProfile(organizationId) ??
+      this.saveProfile({ organizationId, draft: {} });
+    const existing = getCrmFollowUp(organizationId, input.followUpId);
+    const campaign = input.campaignId
+      ? this.getCampaign(organizationId, input.campaignId)
+      : existing?.campaignId
+        ? this.getCampaign(organizationId, existing.campaignId)
+        : this.listCampaigns(organizationId)[0];
+    const job = operationsService.enqueue({
+      organizationId,
+      toolId: "crm",
+      agentId: "crm_assistant",
+      campaignId: campaign?.id ?? existing?.campaignId,
+      title: "Complete CRM follow-up for growth lead",
+      priority: "HIGH",
+      params: {
+        action: "complete_follow_up",
+        profileId: profile.id,
+        followUpId: input.followUpId,
+        completionNote: input.completionNote,
+        campaignId: campaign?.id ?? existing?.campaignId,
+        growthAction: "crm_follow_up_complete",
+      },
+    });
+    const started = await operationsService.start(organizationId, job.id);
+    if (started.status === "WAITING_FOR_APPROVAL") {
+      auditGrowth(
+        "agent.growth.crm_follow_up_complete_approval_requested",
+        organizationId,
+        input.followUpId,
+        { jobId: started.id },
+      );
+    }
+    return {
+      task: agentsStore
+        .getSnapshot()
+        .tasks.find((item) => item.id === started.taskId)!,
+      job: operationsService.get(organizationId, started.id)!,
+      followUp: getCrmFollowUp(organizationId, input.followUpId),
+      lead: getCrmLinkedLeadState(organizationId, profile.id),
+    };
+  },
+
   listCrmFollowUps(
     organizationId: string,
     options?: {
