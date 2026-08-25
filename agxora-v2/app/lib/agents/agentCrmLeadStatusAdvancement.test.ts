@@ -210,18 +210,10 @@ describe("Phase 51 growth CRM lead status advancement", () => {
       action: "ADVANCE_CRM_STATUS",
       campaignId: campaign.id,
     });
-    // validation fails before enqueue when unavailable during live read
-    expect(["INVALID", "WAITING_FOR_APPROVAL", "BLOCKED"]).toContain(
-      result.execution.status,
-    );
-    if (result.execution.status === "WAITING_FOR_APPROVAL") {
-      await approvePending();
-      const job = operationsService.get(organizationId, result.execution.jobId!);
-      expect(job?.status).toBe("BLOCKED");
-    } else {
-      expect(result.execution.status).toBe("INVALID");
-      expect(result.execution.message).toMatch(/unavailable|crm_/);
-    }
+    expect(result.execution.status).toBe("WAITING_FOR_APPROVAL");
+    await approvePending();
+    const job = operationsService.get(organizationId, result.execution.jobId!);
+    expect(job?.status).toBe("BLOCKED");
   });
 
   it("fails when CRM mutation throws", async () => {

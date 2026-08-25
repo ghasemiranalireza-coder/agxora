@@ -170,6 +170,18 @@ export async function validateLeadAction(input: {
       customerId: link.customerId,
     });
     if (!live.ok) {
+      if (live.code === "crm_unavailable") {
+        // Allow enqueue so Operations can surface BLOCKED after approval —
+        // never invent a successful mutation while CRM is unavailable.
+        const fallbackTarget = input.targetCrmStatus ?? "prospect";
+        return {
+          ok: true,
+          code: "crm_unavailable",
+          message: live.message,
+          fromCrmStatus: undefined,
+          toCrmStatus: fallbackTarget,
+        };
+      }
       return {
         ok: false,
         code: live.code,
