@@ -130,6 +130,7 @@ export function CampaignWorkspace(): JSX.Element {
           crmSync={snapshot.crmSync}
           crmLead={snapshot.crmLead}
           crmFollowUps={snapshot.crmFollowUps}
+          leadActionQueue={snapshot.leadActionQueue}
           busy={busy}
           onCompleteFollowUp={(followUpId) =>
             void run(async () => {
@@ -139,6 +140,19 @@ export function CampaignWorkspace(): JSX.Element {
                 completionNote: "Operator marked follow-up complete from Campaigns.",
               });
             }, "agents.crmFollowUp.noticeCompleteRequested")
+          }
+          onCreateFollowUp={() =>
+            void run(async () => {
+              await growthService.requestCrmFollowUp(orgId, {
+                campaignId: campaign.id,
+                kind: "general",
+              });
+            }, "agents.crmFollowUp.noticeRequested")
+          }
+          onSyncCrm={() =>
+            void run(async () => {
+              await growthService.requestCrmSync(orgId, campaign.id);
+            }, "agents.crmBridge.noticeRequested")
           }
         />
       ) : (
@@ -205,8 +219,11 @@ function CampaignDetail({
   crmSync,
   crmLead,
   crmFollowUps,
+  leadActionQueue,
   busy,
   onCompleteFollowUp,
+  onCreateFollowUp,
+  onSyncCrm,
 }: {
   readonly campaign: Campaign;
   readonly jobs: ReturnType<typeof operationsService.list>;
@@ -216,10 +233,24 @@ function CampaignDetail({
   readonly crmSync: ReturnType<typeof growthService.snapshot>["crmSync"];
   readonly crmLead: ReturnType<typeof growthService.snapshot>["crmLead"];
   readonly crmFollowUps: ReturnType<typeof growthService.snapshot>["crmFollowUps"];
+  readonly leadActionQueue: ReturnType<
+    typeof growthService.snapshot
+  >["leadActionQueue"];
   readonly busy: boolean;
   readonly onCompleteFollowUp: (followUpId: string) => void;
+  readonly onCreateFollowUp: () => void;
+  readonly onSyncCrm: () => void;
 }): JSX.Element {
   const t = useT();
+  const priorityTone = (
+    priority: (typeof leadActionQueue.items)[number]["priority"],
+  ): "critical" | "warning" | "positive" | "default" | "accent" => {
+    if (priority === "CRITICAL") return "critical";
+    if (priority === "HIGH") return "warning";
+    if (priority === "MEDIUM") return "accent";
+    if (priority === "LOW") return "default";
+    return "positive";
+  };
   return (
     <Card className="space-y-4" padding="24px" hover={false}>
       <div className="flex flex-wrap items-center gap-2">
@@ -325,6 +356,130 @@ function CampaignDetail({
           ))}
         </div>
       ) : null}
+      <div className="space-y-2">
+        <p className="text-sm font-semibold">{t("agents.leadQueue.title")}</p>
+        <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          {t("agents.leadQueue.subtitle")}
+        </p>
+        <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          {t("agents.leadQueue.counts", {
+            critical: String(leadActionQueue.counts.critical),
+            high: String(leadActionQueue.counts.high),
+            medium: String(leadActionQueue.counts.medium),
+            low: String(leadActionQueue.counts.low),
+          })}
+        </p>
+        {leadActionQueue.items.length === 0 ? (
+          <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {t("agents.leadQueue.empty")}
+          </p>
+        ) : (
+          leadActionQueue.items.slice(0, 8).map((item) => (
+            <div
+              key={item.id}
+              className="flex flex-wrap items-start gap-2 border-t border-white/5 pt-2"
+            >
+              <Badge tone={priorityTone(item.priority)}>
+                {catalogCopy(
+                  t,
+                  `agents.leadQueue.priority.${item.priority}`,
+                  item.priority,
+                )}
+              </Badge>
+              <div className="min-w-0 flex-1 space-y-1">
+                <p className="text-sm font-medium" style={{ color: "var(--agx-text, #f8fafc)" }}>
+                  {item.companyName}
+                  {item.overdueFollowUpCount > 0 ? (
+                    <>
+                      {" · "}
+                      <span style={{ color: "var(--agx-danger, #f87171)" }}>
+                        {t("agents.leadQueue.overdue")}
+                      </span>
+                    </>
+                  ) : null}
+                </p>
+                <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                  {t("agents.leadQueue.labels.score")}: {String(item.score)}
+                  {" · "}
+                  {t("agents.leadQueue.labels.nextAction")}:{" "}
+                  {catalogCopy(
+                    t,
+                    `agents.leadQueue.action.${item.recommendedAction}`,
+                    item.recommendedAction,
+                  )}
+                </p>
+                <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                  {t("agents.leadQueue.labels.reasons")}:{" "}
+                  {item.reasons
+                    .map((reason) =>
+                      catalogCopy(t, `agents.leadQueue.reasons.${reason}`, reason),
+                    )
+                    .join(" · ")}
+                </p>
+                {item.followUpStatus ? (
+                  <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                    {t("agents.leadQueue.labels.followUp")}:{" "}
+                    {catalogCopy(
+                      t,
+                      `agents.crmFollowUp.status.${item.followUpStatus}`,
+                      item.followUpStatus,
+                    )}
+                    {item.dueAt
+                      ? ` · ${t("agents.crmFollowUp.labels.due")}: ${item.dueAt.slice(0, 10)}`
+                      : ""}
+                  </p>
+                ) : null}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {item.href ? (
+                  <a
+                    className="text-sm underline"
+                    href={item.href}
+                    style={{ color: "var(--agx-accent, #22d3ee)" }}
+                  >
+                    {t("agents.crmBridge.actions.openCrm")}
+                  </a>
+                ) : null}
+                {item.recommendedAction === "COMPLETE_OVERDUE_FOLLOW_UP" ||
+                item.recommendedAction === "RETRY_FAILED_FOLLOW_UP" ||
+                item.recommendedAction === "REVIEW_BLOCKED_FOLLOW_UP" ||
+                item.recommendedAction === "COMPLETE_PENDING_FOLLOW_UP" ? (
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    disabled={busy || !item.followUpId}
+                    onClick={() => {
+                      if (item.followUpId) onCompleteFollowUp(item.followUpId);
+                    }}
+                  >
+                    {t("agents.crmFollowUp.actions.complete")}
+                  </Button>
+                ) : null}
+                {item.recommendedAction === "CREATE_FOLLOW_UP" ? (
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    disabled={busy}
+                    onClick={onCreateFollowUp}
+                  >
+                    {t("agents.crmFollowUp.actions.create")}
+                  </Button>
+                ) : null}
+                {item.recommendedAction === "REVIEW_CRM_LINK" ? (
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    disabled={busy}
+                    onClick={onSyncCrm}
+                  >
+                    {t("agents.crmBridge.actions.sync")}
+                  </Button>
+                ) : null}
+              </div>
+            </div>
+          ))
+        )}
+      </div>
       <DetailRow
         label={t("agents.campaigns.labels.approval")}
         value={

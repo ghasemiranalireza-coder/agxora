@@ -776,5 +776,48 @@
       "createSucceeded": "Follow-up note created",
       "completeSucceeded": "Follow-up marked complete"
     }
+  },
+  "leadQueue": {
+    "title": "Lead Action Queue",
+    "subtitle": "Deterministic Growth CRM priorities — read-only projection, no analytics scoring.",
+    "empty": "No Growth CRM leads need attention right now.",
+    "overdue": "Overdue",
+    "counts": "Critical {critical} · High {high} · Medium {medium} · Low {low}",
+    "labels": {
+      "queue": "Lead queue",
+      "reasons": "Why",
+      "nextAction": "Recommended action",
+      "score": "Priority score",
+      "followUp": "Follow-up",
+      "priority": "Priority"
+    },
+    "priority": {
+      "CRITICAL": "Critical",
+      "HIGH": "High",
+      "MEDIUM": "Medium",
+      "LOW": "Low",
+      "NONE": "None"
+    },
+    "action": {
+      "COMPLETE_OVERDUE_FOLLOW_UP": "Complete overdue follow-up",
+      "RETRY_FAILED_FOLLOW_UP": "Retry failed follow-up",
+      "REVIEW_BLOCKED_FOLLOW_UP": "Review blocked follow-up",
+      "COMPLETE_PENDING_FOLLOW_UP": "Complete pending follow-up",
+      "CREATE_FOLLOW_UP": "Create follow-up",
+      "REVIEW_CRM_LINK": "Review CRM link",
+      "NO_ACTION": "No action needed"
+    },
+    "reasons": {
+      "overdue_follow_up": "Overdue follow-up",
+      "failed_follow_up": "Failed follow-up",
+      "blocked_follow_up": "Blocked follow-up",
+      "pending_due_soon": "Follow-up due soon",
+      "pending_follow_up": "Pending follow-up",
+      "no_follow_up_after_link": "No follow-up after CRM link",
+      "recently_completed": "Recently completed follow-up",
+      "weak_crm_link": "Weak or incomplete CRM link",
+      "missing_crm_link": "Missing CRM link",
+      "no_action_needed": "No open CRM work"
+    }
   }
 }

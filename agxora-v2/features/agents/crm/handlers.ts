@@ -10,6 +10,7 @@ import {
   getCrmLinkedLeadState,
   listCrmFollowUps,
 } from "./followUp";
+import { buildLeadActionQueue } from "./prioritize";
 import { getCampaignCrmSync, getGrowthCrmLink, syncGrowthProfileToCrm } from "./sync";
 import type { CrmFollowUpKind } from "./types";
 
@@ -119,6 +120,19 @@ export async function handleCrmTool(
           ctx.organizationId,
           readString(ctx.params, "profileId"),
         ),
+      },
+      durationMs: Date.now() - started,
+    };
+  }
+
+  if (action === "list_lead_priority" || action === "get_lead_priority") {
+    const queue = buildLeadActionQueue(ctx.organizationId);
+    return {
+      ok: true,
+      output: {
+        action: "list_lead_priority",
+        queue,
+        readOnly: true,
       },
       durationMs: Date.now() - started,
     };
