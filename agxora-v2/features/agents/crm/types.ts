@@ -155,3 +155,80 @@ export interface CrmLinkedLeadState {
   readonly overdueFollowUps: readonly GrowthCrmFollowUp[];
   readonly nextAction: CrmLeadNextAction;
 }
+
+/**
+ * Phase 49 deterministic lead priority categories (no ML / analytics).
+ * Same input state always yields the same category.
+ */
+export type CrmLeadPriority = "CRITICAL" | "HIGH" | "MEDIUM" | "LOW" | "NONE";
+
+/** Explainable reason codes for why a lead was prioritized. */
+export type LeadPriorityReason =
+  | "overdue_follow_up"
+  | "failed_follow_up"
+  | "blocked_follow_up"
+  | "pending_due_soon"
+  | "pending_follow_up"
+  | "no_follow_up_after_link"
+  | "recently_completed"
+  | "weak_crm_link"
+  | "missing_crm_link"
+  | "no_action_needed";
+
+/**
+ * Deterministic recommended next action for the Lead Action Queue.
+ * Maps onto existing Phase 46–48 operations when an action button is shown.
+ */
+export type LeadRecommendedAction =
+  | "COMPLETE_OVERDUE_FOLLOW_UP"
+  | "RETRY_FAILED_FOLLOW_UP"
+  | "REVIEW_BLOCKED_FOLLOW_UP"
+  | "COMPLETE_PENDING_FOLLOW_UP"
+  | "CREATE_FOLLOW_UP"
+  | "REVIEW_CRM_LINK"
+  | "NO_ACTION";
+
+/** Single prioritized lead projection — references only, never CRM payloads. */
+export interface LeadActionItem {
+  readonly id: string;
+  readonly organizationId: string;
+  readonly profileId: string;
+  readonly linkId?: string;
+  readonly customerId?: string;
+  readonly companyName: string;
+  readonly href?: string;
+  readonly priority: CrmLeadPriority;
+  /** Deterministic integer score — see docs/agent-growth-phase49.md formula. */
+  readonly score: number;
+  readonly reasons: readonly LeadPriorityReason[];
+  readonly recommendedAction: LeadRecommendedAction;
+  readonly followUpStatus?: CrmFollowUpStatus;
+  readonly followUpId?: string;
+  readonly dueAt?: string;
+  readonly linkOutcome?: GrowthCrmLinkOutcome;
+  readonly openFollowUpCount: number;
+  readonly overdueFollowUpCount: number;
+  readonly failedFollowUpCount: number;
+  readonly blockedFollowUpCount: number;
+  readonly pendingFollowUpCount: number;
+  readonly completedFollowUpCount: number;
+  /** Phase 48 next-action projection for interoperability. */
+  readonly phase48NextAction: CrmLeadNextAction;
+  readonly sortKey: string;
+}
+
+/** Org-scoped Lead Action Queue — computed read-model, not persisted. */
+export interface LeadActionQueue {
+  readonly organizationId: string;
+  readonly generatedAt: string;
+  readonly today: string;
+  readonly items: readonly LeadActionItem[];
+  readonly counts: {
+    readonly critical: number;
+    readonly high: number;
+    readonly medium: number;
+    readonly low: number;
+    readonly none: number;
+    readonly total: number;
+  };
+}

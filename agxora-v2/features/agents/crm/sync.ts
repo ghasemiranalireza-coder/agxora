@@ -370,6 +370,12 @@ function persistSync(input: {
   return sync;
 }
 
+export function listGrowthCrmLinks(
+  organizationId: string,
+): readonly GrowthCrmLink[] {
+  return orgLinks(organizationId);
+}
+
 export function getGrowthCrmLink(
   organizationId: string,
   profileId?: string,

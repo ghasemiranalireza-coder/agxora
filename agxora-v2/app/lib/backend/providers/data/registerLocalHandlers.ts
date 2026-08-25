@@ -415,6 +415,13 @@ export function registerLocalDataHandlers(): void {
           lead: growthService.getCrmLinkedLead(organizationId),
         });
       }
+      if (options.method === "GET" && path === "/agents/growth/crm/leads/priority") {
+        const queue = growthService.getLeadActionQueue(organizationId);
+        return mockOk({
+          queue,
+          readOnly: true,
+        });
+      }
       if (options.method === "POST" && path === "/agents/growth/crm/follow-ups") {
         return mockOk(
           await growthService.requestCrmFollowUp(organizationId, {

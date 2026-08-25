@@ -8,10 +8,15 @@ export type {
   CrmFollowUpStatus,
   CrmLeadNextAction,
   CrmLeadNextActionCode,
+  CrmLeadPriority,
   CrmLinkedLeadState,
   GrowthCrmFollowUp,
   GrowthCrmLink,
   GrowthCrmLinkOutcome,
+  LeadActionItem,
+  LeadActionQueue,
+  LeadPriorityReason,
+  LeadRecommendedAction,
 } from "./types";
 export {
   createDirectoryCrmBridge,
@@ -25,6 +30,7 @@ export type { CrmBridgeProvider } from "./adapter";
 export {
   getCampaignCrmSync,
   getGrowthCrmLink,
+  listGrowthCrmLinks,
   syncGrowthProfileToCrm,
 } from "./sync";
 export {
@@ -36,4 +42,11 @@ export {
   getCrmLinkedLeadState,
   listCrmFollowUps,
 } from "./followUp";
+export {
+  buildLeadActionQueue,
+  crmLeadPriorityRank,
+  evaluateLeadPriority,
+  LEAD_PRIORITY_DUE_SOON_DAYS,
+} from "./prioritize";
+export type { LeadPriorityEvaluation } from "./prioritize";
 export { handleCrmTool } from "./handlers";

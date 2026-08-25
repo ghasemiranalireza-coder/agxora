@@ -125,10 +125,19 @@ export function GrowthWorkspace({
               `agents.crmFollowUp.nextAction.${snapshot.crmLead.nextAction.code}`,
               snapshot.crmLead.nextAction.code,
             )}
+            {" · "}
+            {t("agents.leadQueue.labels.queue")}:{" "}
+            {String(snapshot.leadActionQueue.counts.total)}
+            {snapshot.leadActionQueue.counts.critical > 0
+              ? ` · ${t("agents.leadQueue.priority.CRITICAL")}`
+              : ""}
           </p>
         ) : (
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
             {t("agents.crmBridge.status.unlinked")}
+            {snapshot.leadActionQueue.counts.total > 0
+              ? ` · ${t("agents.leadQueue.labels.queue")}: ${String(snapshot.leadActionQueue.counts.total)}`
+              : ""}
           </p>
         )}
       </Card>

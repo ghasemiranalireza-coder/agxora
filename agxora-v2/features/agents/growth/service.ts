@@ -28,6 +28,7 @@ import {
   getCrmLinkedLeadState,
   listCrmFollowUps,
 } from "../crm/followUp";
+import { buildLeadActionQueue } from "../crm/prioritize";
 import { getCampaignCrmSync, getGrowthCrmLink } from "../crm/sync";
 import type { CrmFollowUpKind } from "../crm/types";
 import { operationsService } from "../execution/service";
@@ -842,6 +843,12 @@ export const growthService = {
     return getCrmLinkedLeadState(organizationId, profile?.id);
   },
 
+  /** Read-only Phase 49 lead prioritization queue — never mutates CRM. */
+  getLeadActionQueue(organizationId: string) {
+    this.ensure(organizationId);
+    return buildLeadActionQueue(organizationId);
+  },
+
   snapshot(organizationId: string) {
     this.ensure(organizationId);
     const profile = this.getProfile(organizationId) ?? null;
@@ -869,6 +876,7 @@ export const growthService = {
       crmFollowUps: listCrmFollowUps(organizationId, {
         campaignId: campaigns[0]?.id,
       }),
+      leadActionQueue: buildLeadActionQueue(organizationId),
     };
   },
 };
