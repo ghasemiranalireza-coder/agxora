@@ -2,28 +2,29 @@
  * Security helpers — session validation, token placeholders, data boundaries.
  */
 
-export interface SessionValidationResult {
-  readonly valid: boolean;
-  readonly reason?:
-    | "missing"
-    | "empty"
-    | "malformed"
-    | "expired_placeholder"
-    | "ok";
+export interface SessionCookieDescription {
+  readonly present: boolean;
 }
 
-/** Soft cookie session validation — replace with JWT/httpOnly server checks. */
+/**
+ * Edge-safe cookie presence check only.
+ * Never treat an arbitrary string as a valid session — Node layouts hash the
+ * token and look it up in PostgreSQL.
+ */
+export function describeSessionCookie(
+  token: string | null | undefined,
+): SessionCookieDescription {
+  return { present: Boolean(token?.trim()) };
+}
+
+/** @deprecated Use describeSessionCookie; presence is not authentication. */
 export function validateSessionToken(
   token: string | null | undefined,
-): SessionValidationResult {
-  if (token == null) return { valid: false, reason: "missing" };
-  if (!token.trim()) return { valid: false, reason: "empty" };
-  if (token.length < 8) return { valid: false, reason: "malformed" };
-  // Placeholder for exp claim parsing when remote auth is wired.
-  if (token.startsWith("expired_")) {
-    return { valid: false, reason: "expired_placeholder" };
+): { readonly valid: false; readonly reason: "unchecked" | "missing" } {
+  if (token == null || !token.trim()) {
+    return { valid: false, reason: "missing" };
   }
-  return { valid: true, reason: "ok" };
+  return { valid: false, reason: "unchecked" };
 }
 
 /** Sensitive field redaction for logs / analytics payloads. */

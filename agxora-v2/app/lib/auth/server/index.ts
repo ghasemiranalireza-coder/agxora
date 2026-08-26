@@ -26,10 +26,19 @@ export {
   createEmailVerificationToken,
   verifyEmailWithToken,
   switchActiveWorkspace,
+  mayExposeDevAuthTokens,
   type AuthSuccess,
   type PublicAuthUser,
   type PublicAuthSession,
 } from "./service";
+export {
+  inspectSessionToken,
+  decidePrivateRouteAccess,
+  evaluatePrivatePageAccess,
+  type SessionInspection,
+  type PrivateRouteDecision,
+} from "./privateRouteAccess";
+export { enforcePrivatePageAccess } from "./enforcePrivatePageAccess";
 export {
   listManagedSessions,
   listManagedSessionsForToken,

@@ -2,67 +2,60 @@ import { NextResponse, type NextRequest } from "next/server";
 import { AUTH_SESSION_COOKIE } from "./app/lib/auth/sessionStore";
 import { SERVER_SESSION_COOKIE } from "./app/lib/tenancy/sessionCookie";
 import {
-  AUTH_PAGE_PREFIXES,
   ADMIN_ROUTE_PREFIXES,
   PRIVATE_ROUTE_PREFIXES,
   isPublicPath,
   matchesPrefix,
 } from "./app/lib/production/routes";
 import { applySecurityHeaders } from "./app/lib/production/securityHeaders";
-import { validateSessionToken } from "./app/lib/production/security";
+import { describeSessionCookie } from "./app/lib/production/security";
+import { isAuthRequired, isProductionRuntime } from "./app/lib/production/env";
 
 /**
- * Soft auth gate — Phase 43 prefers httpOnly server session cookie.
- * Local demo cookie remains recognized only for AUTH_MODE=local.
+ * Coarse Edge gate — cookie presence is NOT authentication.
  *
  * Next.js 16: `proxy.ts` replaces deprecated `middleware.ts`.
- * Real authorization still happens server-side in API/actions.
+ * Real session validation (hash + DB + expiry + revocation) runs in
+ * Node server layouts via `enforcePrivatePageAccess`.
  */
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const localSession = request.cookies.get(AUTH_SESSION_COOKIE)?.value;
   const serverSession = request.cookies.get(SERVER_SESSION_COOKIE)?.value;
   const session = serverSession || localSession;
-  const hasSession = Boolean(session);
-  const tokenCheck = validateSessionToken(session);
+  const cookie = describeSessionCookie(session);
   const isPrivate = matchesPrefix(pathname, PRIVATE_ROUTE_PREFIXES);
   const isAdmin = matchesPrefix(pathname, ADMIN_ROUTE_PREFIXES);
-  const isAuthPage = matchesPrefix(pathname, AUTH_PAGE_PREFIXES);
   const isPublicExact = isPublicPath(pathname);
+  const authRequired = isAuthRequired();
 
-  // Authenticated users leave auth forms.
-  if (hasSession && isAuthPage) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/dashboard";
-    const redirect = NextResponse.redirect(url);
-    applySecurityHeaders(redirect.headers);
-    return redirect;
-  }
+  // Do not bounce auth forms based on cookie presence — the token may be fake.
+  // Valid sessions are handled after login by the server auth adapter.
 
-  // Hard gate when AGXORA_AUTH_REQUIRED=true.
-  if (process.env.AGXORA_AUTH_REQUIRED === "true" && isPrivate && !hasSession) {
+  // Coarse missing-cookie redirect when auth is required.
+  // Invalid/expired/revoked cookies are rejected by the Node layout, not here.
+  if (authRequired && isPrivate && !cookie.present) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
     url.searchParams.set("next", pathname);
     const redirect = NextResponse.redirect(url);
-    applySecurityHeaders(redirect.headers);
+    applySecurityHeaders(redirect.headers, isProductionRuntime());
     return redirect;
   }
 
-  // Soft signal headers for private routes when hard gate off (no UX change).
   const response = NextResponse.next();
-  applySecurityHeaders(response.headers);
+  applySecurityHeaders(response.headers, isProductionRuntime());
   response.headers.set(
     "x-agxora-route-class",
     isAdmin ? "admin" : isPrivate ? "private" : isPublicExact ? "public" : "public",
   );
-  if (isPrivate && !hasSession) {
+  if (isPrivate && !cookie.present) {
     response.headers.set("x-agxora-auth", "anonymous");
-  } else if (hasSession) {
-    response.headers.set("x-agxora-auth", serverSession ? "server-session" : "session");
-  }
-  if (hasSession && !tokenCheck.valid && tokenCheck.reason) {
-    response.headers.set("x-agxora-session-check", tokenCheck.reason);
+  } else if (cookie.present) {
+    response.headers.set(
+      "x-agxora-auth",
+      serverSession ? "cookie-present" : "local-cookie-present",
+    );
   }
 
   return response;

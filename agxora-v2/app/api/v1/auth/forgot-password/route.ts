@@ -9,9 +9,9 @@ export const runtime = "nodejs";
 type Body = { readonly email?: string };
 
 /**
- * Always returns a generic success shape for valid requests.
- * `delivery: "queued"` only after a successful provider handoff for an
- * existing account. Never claims email was sent without a handoff.
+ * Always returns a generic success shape for valid requests (anti-enumeration).
+ * `delivery` matches the current provider configuration for both existing and
+ * unknown emails. Never claims a handoff succeeded when the provider is missing.
  */
 export async function POST(request: Request): Promise<NextResponse> {
   try {
@@ -30,16 +30,10 @@ export async function POST(request: Request): Promise<NextResponse> {
     return NextResponse.json({
       ok: true,
       delivery: result.delivery,
-      // Only present when AGXORA_AUTH_EXPOSE_RESET_TOKEN=1 (dev/test)
+      // Only present when AGXORA_AUTH_EXPOSE_RESET_TOKEN=1 (never in production)
       ...(result.resetToken ? { resetToken: result.resetToken } : {}),
-      ...(result.delivery === "not_configured"
-        ? {
-            message:
-              "Password reset accepted. Email delivery is not configured or handoff did not succeed — use a reset link from a trusted channel if available.",
-          }
-        : {
-            message: "Password reset accepted. Email delivery was queued.",
-          }),
+      message:
+        "If an account exists for that email, password reset instructions will be sent when email delivery is configured.",
     });
   } catch (error) {
     return authJsonError(error);

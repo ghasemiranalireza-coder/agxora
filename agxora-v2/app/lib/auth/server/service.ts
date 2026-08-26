@@ -16,12 +16,20 @@ import {
   buildEmailVerificationEmail,
   buildPasswordResetEmail,
   deliverEmail,
+  isEmailDeliveryConfigured,
   type EmailDeliveryStatus,
 } from "@/app/lib/email";
+import { isProductionRuntime } from "@/app/lib/production/env";
 
 const GENERIC_AUTH_ERROR = "Invalid email or password";
 const RESET_TTL_MS = 60 * 60 * 1000;
 const VERIFY_TTL_MS = 24 * 60 * 60 * 1000;
+
+/** Dev/test only. Production never returns raw reset/verification tokens. */
+export function mayExposeDevAuthTokens(): boolean {
+  if (isProductionRuntime()) return false;
+  return process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN === "1";
+}
 
 export type PublicAuthUser = {
   readonly id: string;
@@ -189,6 +197,7 @@ export async function registerWithPassword(input: {
   });
 
   const session = await createServerSession(result.user.id, result.workspaceId);
+  await createEmailVerificationToken(result.user.id);
 
   return {
     user: toPublicUser(result.user),
@@ -280,9 +289,9 @@ export async function getSessionPublic(token: string | null): Promise<{
  * `delivery: "queued"` only after a successful provider handoff.
  * Dev/test may expose raw token when AGXORA_AUTH_EXPOSE_RESET_TOKEN=1.
  *
- * Anti-enumeration: missing accounts return the same ok shape. When a provider
- * is configured but the account is missing, delivery stays "not_configured"
- * (no message was handed off). Existing accounts report actual handoff status.
+ * Anti-enumeration: missing accounts return the same ok + delivery shape as
+ * existing accounts for the current provider configuration. No email is sent
+ * for unknown addresses.
  */
 export async function requestPasswordReset(emailRaw: string): Promise<{
   readonly ok: true;
@@ -293,7 +302,10 @@ export async function requestPasswordReset(emailRaw: string): Promise<{
   const user = await prisma.user.findUnique({ where: { email } });
 
   if (!user) {
-    return { ok: true, delivery: "not_configured" };
+    return {
+      ok: true,
+      delivery: isEmailDeliveryConfigured() ? "queued" : "not_configured",
+    };
   }
 
   const rawToken = createOpaqueToken(32);
@@ -312,7 +324,7 @@ export async function requestPasswordReset(emailRaw: string): Promise<{
     buildPasswordResetEmail({ to: email, rawToken }),
   );
 
-  if (process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN === "1") {
+  if (mayExposeDevAuthTokens()) {
     return { ok: true, delivery, resetToken: rawToken };
   }
   return { ok: true, delivery };

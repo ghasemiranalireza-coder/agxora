@@ -5,11 +5,13 @@
 
 export async function register(): Promise<void> {
   if (process.env.NEXT_RUNTIME === "nodejs") {
-    const { assertProdEnv } = await import("./app/lib/production/env");
+    const { assertProdEnv, isProductionRuntime } = await import(
+      "./app/lib/production/env"
+    );
     const warnings = assertProdEnv();
     if (warnings.length > 0) {
-      console.warn("[agxora:instrumentation] production env warnings:", warnings);
+      const log = isProductionRuntime() ? console.error : console.warn;
+      log("[agxora:instrumentation] production env issues:", warnings);
     }
-    // Future: import('@sentry/nextjs').then((Sentry) => { ... registerSentryHook })
   }
 }
