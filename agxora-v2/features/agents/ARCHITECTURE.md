@@ -15,7 +15,7 @@ features/agents/
   llm/             # OpenAI · Azure · Anthropic · Gemini · Local · Ollama · MCP · Custom
   security/        # Workspace isolation · tool allowlists · sensitive boundaries
   observability/   # Health · usage · errors · performance
-  repositories/    # LocalStorage now · REST later
+  repositories/    # LocalStorage (demo) · REST server (Phase 56)
   store/           # Persisted Agent OS state
   services/        # agentOsService (UI-independent execution pipeline)
   hooks/           # useAgentOperatingSystem
@@ -49,7 +49,8 @@ Memory scopes are first-class records. Knowledge retrieval is keyword-based toda
 1. New agent — add to `DEFAULT_AGENTS` (or register custom id).
 2. New tool — catalog entry + `registerToolHandler`.
 3. Live LLM — `registerLlmProvider`.
-4. Backend persistence — `setAgentsRepository(new RestAgentsRepository(url))`.
+4. Backend persistence — `setAgentsRepository(new RestAgentsRepository())` or
+   `NEXT_PUBLIC_AGXORA_AGENT_OS_PERSISTENCE=server` (Phase 56).
 
 ## Route
 

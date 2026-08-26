@@ -4,6 +4,7 @@
 
 import {
   emptyAgentsState,
+  filterStateForOrganization,
   LocalAgentsRepository,
   type AgentsPersistedState,
   type AgentsRepository,
@@ -27,6 +28,8 @@ type Listener = () => void;
 
 const listeners = new Set<Listener>();
 let repository: AgentsRepository = new LocalAgentsRepository();
+let hydratedOrganizationId: string | null = null;
+let hydrateInflight: Promise<void> | null = null;
 
 let state: AgentsPersistedState & { hydrated: boolean } = {
   ...emptyAgentsState(),
@@ -40,11 +43,22 @@ function emit(): void {
 function persist(): void {
   const { hydrated: _h, ...payload } = state;
   void _h;
-  repository.save(payload);
+  const scoped =
+    hydratedOrganizationId != null
+      ? filterStateForOrganization(payload, hydratedOrganizationId)
+      : payload;
+  // Local: sync LS write. Rest: updates cache + debounced PUT (no silent LS fallback).
+  repository.save(scoped);
 }
 
 export function setAgentsRepository(repo: AgentsRepository): void {
   repository = repo;
+  hydratedOrganizationId = null;
+  state = { ...emptyAgentsState(), hydrated: false };
+}
+
+export function getAgentsRepository(): AgentsRepository {
+  return repository;
 }
 
 export const agentsStore = {
@@ -59,10 +73,112 @@ export const agentsStore = {
     return state;
   },
 
-  hydrate(): void {
-    if (state.hydrated) return;
+  getHydratedOrganizationId(): string | null {
+    return hydratedOrganizationId;
+  },
+
+  /**
+   * Sync hydrate (local / cached). Sticky unless force or org changed.
+   */
+  hydrate(options?: {
+    readonly force?: boolean;
+    readonly organizationId?: string;
+  }): void {
+    const organizationId = options?.organizationId;
+    const force = options?.force === true;
+    const orgChanged =
+      organizationId != null &&
+      hydratedOrganizationId != null &&
+      organizationId !== hydratedOrganizationId;
+
+    if (state.hydrated && !force && !orgChanged) return;
+
+    if (organizationId && typeof repository.setOrganizationId === "function") {
+      repository.setOrganizationId(organizationId);
+    }
+
+    if (orgChanged || (force && organizationId != null)) {
+      // Drop previous org state before loading the next org.
+      state = { ...emptyAgentsState(), hydrated: false };
+      hydratedOrganizationId = null;
+      emit();
+    }
+
     const loaded = repository.load();
-    state = { ...(loaded ?? emptyAgentsState()), hydrated: true };
+    const next = loaded ?? emptyAgentsState();
+    state = {
+      ...(organizationId
+        ? filterStateForOrganization(next, organizationId)
+        : next),
+      hydrated: true,
+    };
+    hydratedOrganizationId = organizationId ?? hydratedOrganizationId;
+    emit();
+  },
+
+  /**
+   * Async hydrate for server repositories. Always re-fetches when force or
+   * organizationId differs from the last hydrated org.
+   */
+  async hydrateAsync(options?: {
+    readonly force?: boolean;
+    readonly organizationId?: string;
+  }): Promise<void> {
+    const organizationId = options?.organizationId;
+    const force = options?.force === true;
+    const orgChanged =
+      organizationId != null &&
+      hydratedOrganizationId != null &&
+      organizationId !== hydratedOrganizationId;
+
+    if (state.hydrated && !force && !orgChanged && !repository.loadAsync) {
+      return;
+    }
+
+    if (hydrateInflight) {
+      await hydrateInflight;
+      if (state.hydrated && !force && !orgChanged) return;
+    }
+
+    const run = async () => {
+      if (organizationId && typeof repository.setOrganizationId === "function") {
+        repository.setOrganizationId(organizationId);
+      }
+
+      if (orgChanged || force) {
+        state = { ...emptyAgentsState(), hydrated: false };
+        hydratedOrganizationId = null;
+        emit();
+      }
+
+      let loaded: AgentsPersistedState | null = null;
+      if (typeof repository.loadAsync === "function") {
+        loaded = await repository.loadAsync();
+      } else {
+        loaded = repository.load();
+      }
+
+      const next = loaded ?? emptyAgentsState();
+      state = {
+        ...(organizationId
+          ? filterStateForOrganization(next, organizationId)
+          : next),
+        hydrated: true,
+      };
+      hydratedOrganizationId = organizationId ?? hydratedOrganizationId;
+      emit();
+    };
+
+    hydrateInflight = run().finally(() => {
+      hydrateInflight = null;
+    });
+    await hydrateInflight;
+  },
+
+  /** Clear in-memory state without writing (logout / org teardown). */
+  clearMemory(): void {
+    state = { ...emptyAgentsState(), hydrated: false };
+    hydratedOrganizationId = null;
     emit();
   },
 

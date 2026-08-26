@@ -55,7 +55,7 @@ export function AgentOperatingSystem(): JSX.Element {
   const [sensitiveDraft, setSensitiveDraft] = useState<boolean | null>(null);
 
   useEffect(() => {
-    agentsStore.hydrate();
+    agentsStore.hydrate({ force: false });
   }, []);
 
   useEffect(() => {
