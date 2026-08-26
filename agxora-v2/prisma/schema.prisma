@@ -1,7 +1,7 @@
-// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50
+// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50 + Phase 56
 // PostgreSQL source of truth for User / Organization / Workspace / Membership /
 // Session / Customer / Contact / Note / Invitation / OwnershipTransfer /
-// ControlPlaneAuditEvent
+// ControlPlaneAuditEvent / AgentOsState
 
 generator client {
   provider = "prisma-client-js"
@@ -78,9 +78,27 @@ model Organization {
   invitations         Invitation[]
   ownershipTransfers  OwnershipTransfer[]
   auditEvents         ControlPlaneAuditEvent[]
+  agentOsState        AgentOsState?
 
   @@index([ownerId])
   @@map("organizations")
+}
+
+/// Phase 56 — org-scoped Agent OS snapshot (AgentsPersistedState v7 JSON).
+/// One row per organization. Not a second Agent/Approval/Operations engine.
+model AgentOsState {
+  id             String   @id @default(uuid()) @db.Uuid
+  organizationId String   @unique @db.Uuid
+  /// Mirrors AgentsPersistedState.version — remain 7
+  schemaVersion  Int      @default(7)
+  payload        Json
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId])
+  @@map("agent_os_states")
 }
 
 model Workspace {
