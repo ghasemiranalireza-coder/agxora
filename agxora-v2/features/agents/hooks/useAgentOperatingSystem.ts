@@ -16,7 +16,12 @@ const LOCAL_ORG = "org_local_default";
 
 export function useAgentsOrganizationId(): string {
   const { organization } = useOrganization();
-  return organization?.id ?? LOCAL_ORG;
+  const auth = useOptionalAuth();
+  return (
+    organization?.id ??
+    auth?.user?.defaultOrganizationId ??
+    LOCAL_ORG
+  );
 }
 
 export function useAgentOperatingSystem() {

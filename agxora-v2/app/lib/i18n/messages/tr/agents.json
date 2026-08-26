@@ -878,5 +878,8 @@
       "vip": "VIP",
       "archived": "Archived"
     }
+  },
+  "productionGate": {
+    "notReady": "Production readiness incomplete: {codes}. Configure auth, CRM database, Agent OS server persistence, and transactional email before serving customers."
   }
 }

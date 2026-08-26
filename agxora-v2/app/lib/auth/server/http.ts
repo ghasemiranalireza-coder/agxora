@@ -14,6 +14,8 @@ export function authSuccessResponse(result: AuthSuccess): NextResponse {
     ok: true,
     user: result.user,
     session: result.session,
+    organizationId: result.organizationId,
+    workspaceId: result.workspaceId,
   });
   applySessionCookie(response, result.rawSessionToken);
   return response;

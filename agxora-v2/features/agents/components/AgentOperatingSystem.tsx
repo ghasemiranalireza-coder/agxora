@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
+import { getPublicProductionReadinessSummary } from "@/app/lib/production/firstCustomerGate";
 import type { DataTableColumn } from "@/app/components/ui";
 import { agentsStore } from "../store";
 import { agentOsService } from "../services";
@@ -99,6 +100,8 @@ export function AgentOperatingSystem(): JSX.Element {
       </div>
     );
   }
+
+  const productionReadiness = getPublicProductionReadinessSummary();
 
   const onRun = async (instanceId: string, title: string) => {
     setBusy(true);
@@ -473,6 +476,21 @@ export function AgentOperatingSystem(): JSX.Element {
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           {notice}
         </p>
+        {productionReadiness.enforced && !productionReadiness.ready ? (
+          <p
+            className="rounded-md border px-3 py-2 text-xs"
+            style={{
+              color: "var(--agx-danger, #f87171)",
+              borderColor: "color-mix(in srgb, var(--agx-danger, #f87171) 35%, transparent)",
+              background:
+                "color-mix(in srgb, var(--agx-danger, #f87171) 8%, transparent)",
+            }}
+          >
+            {t("agents.productionGate.notReady", {
+              codes: productionReadiness.issueCodes.join(", "),
+            })}
+          </p>
+        ) : null}
         <div className="flex flex-wrap gap-2 pt-1">
           {tabs.map((tabItem) => (
             <Button

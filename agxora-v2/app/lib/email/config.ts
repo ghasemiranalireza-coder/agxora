@@ -9,6 +9,7 @@
 import "server-only";
 
 import type { EmailProviderId } from "./types";
+import { getEmailProviderId } from "./providerId";
 
 export type EmailConfig = {
   readonly provider: EmailProviderId;
@@ -17,16 +18,8 @@ export type EmailConfig = {
   readonly httpToken: string | null;
 };
 
-function parseProvider(raw: string | undefined): EmailProviderId {
-  const value = (raw ?? "none").trim().toLowerCase();
-  if (value === "console" || value === "http" || value === "memory") {
-    return value;
-  }
-  return "none";
-}
-
 export function getEmailConfig(): EmailConfig {
-  const provider = parseProvider(process.env.AGXORA_EMAIL_PROVIDER);
+  const provider = getEmailProviderId() as EmailProviderId;
   const from =
     process.env.AGXORA_EMAIL_FROM?.trim() ||
     process.env.NEXT_PUBLIC_AGXORA_EMAIL_SUPPORT?.trim() ||

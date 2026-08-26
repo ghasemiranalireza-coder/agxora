@@ -1,6 +1,12 @@
 /**
  * Environment configuration — production separation & assertions.
+ * Phase 57 extends asserts with first-customer production gate coherence.
  */
+
+import {
+  evaluateFirstCustomerProductionGate,
+  collectFirstCustomerModeSnapshot,
+} from "./firstCustomerGate";
 
 export type AgxoraRuntimeEnv =
   | "development"
@@ -50,17 +56,13 @@ export function getEnvSnapshot(): AgxoraEnvSnapshot {
 /**
  * Soft production assertions — log warnings; never throw in edge paths.
  * Call from instrumentation / health for ops visibility.
+ * Phase 57: includes first-customer mode coherence when production.
  */
 export function assertProdEnv(): readonly string[] {
   const env = getEnvSnapshot();
   const warnings: string[] = [];
+
   if (env.runtime === "production" || env.nodeEnv === "production") {
-    if (!env.authRequired) {
-      warnings.push("AGXORA_AUTH_REQUIRED should be true in production");
-    }
-    if (env.useMocks) {
-      warnings.push("AGXORA_USE_MOCKS should be false in production");
-    }
     if (env.dataProvider === "local" || env.dataProvider === "mock") {
       warnings.push(
         "NEXT_PUBLIC_AGXORA_DATA_PROVIDER should use a remote provider in production",
@@ -75,6 +77,19 @@ export function assertProdEnv(): readonly string[] {
     if (!process.env.NEXT_PUBLIC_AGXORA_VERSION) {
       warnings.push("NEXT_PUBLIC_AGXORA_VERSION should be set in production");
     }
+
+    const gate = evaluateFirstCustomerProductionGate(
+      collectFirstCustomerModeSnapshot({
+        runtime: env.runtime,
+        nodeEnv: env.nodeEnv,
+        authRequired: env.authRequired,
+        useMocks: env.useMocks,
+      }),
+    );
+    for (const issue of gate.issues) {
+      warnings.push(issue.message);
+    }
   }
+
   return warnings;
 }

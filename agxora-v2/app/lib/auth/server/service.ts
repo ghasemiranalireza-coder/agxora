@@ -46,6 +46,9 @@ export type AuthSuccess = {
   readonly session: PublicAuthSession;
   /** Raw session token for Set-Cookie only — never JSON-serialize to clients. */
   readonly rawSessionToken: string;
+  /** Phase 57 — membership organization (server authority). */
+  readonly organizationId: string;
+  readonly workspaceId: string;
 };
 
 function slugify(input: string): string {
@@ -185,7 +188,7 @@ export async function registerWithPassword(input: {
       },
     });
 
-    return { user, workspaceId: workspace.id };
+    return { user, workspaceId: workspace.id, organizationId: organization.id };
   });
 
   const session = await createServerSession(result.user.id, result.workspaceId);
@@ -194,6 +197,8 @@ export async function registerWithPassword(input: {
     user: toPublicUser(result.user),
     session: toPublicSession(session),
     rawSessionToken: session.rawSessionToken,
+    organizationId: result.organizationId,
+    workspaceId: result.workspaceId,
   };
 }
 
@@ -231,6 +236,8 @@ export async function loginWithPassword(input: {
     user: toPublicUser(user),
     session: toPublicSession(session),
     rawSessionToken: session.rawSessionToken,
+    organizationId: membership.organizationId,
+    workspaceId: membership.workspaceId,
   };
 }
 
@@ -252,6 +259,9 @@ export async function revokeAllUserSessions(userId: string): Promise<void> {
 export async function getSessionPublic(token: string | null): Promise<{
   user: PublicAuthUser;
   session: PublicAuthSession;
+  /** Phase 57 — authoritative membership organization for onboarding bind. */
+  readonly organizationId: string | null;
+  readonly workspaceId: string | null;
 } | null> {
   if (!token) return null;
   const session = await prisma.session.findUnique({
@@ -269,9 +279,33 @@ export async function getSessionPublic(token: string | null): Promise<{
       .catch(() => undefined);
     return null;
   }
+
+  const membership = session.activeWorkspaceId
+    ? await prisma.membership.findFirst({
+        where: {
+          userId: session.userId,
+          workspaceId: session.activeWorkspaceId,
+          status: "ACTIVE",
+          workspace: { archivedAt: null },
+        },
+      })
+    : null;
+  const active =
+    membership ??
+    (await prisma.membership.findFirst({
+      where: {
+        userId: session.userId,
+        status: "ACTIVE",
+        workspace: { archivedAt: null },
+      },
+      orderBy: { createdAt: "asc" },
+    }));
+
   return {
     user: toPublicUser(session.user),
     session: toPublicSession(session),
+    organizationId: active?.organizationId ?? null,
+    workspaceId: active?.workspaceId ?? null,
   };
 }
 
