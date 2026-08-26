@@ -296,6 +296,7 @@ function CampaignDetail({
     if (recommended === "REVIEW_CRM_LINK") return "REVIEW_CRM_LINK";
     if (recommended === "ADVANCE_CRM_STATUS") return "ADVANCE_CRM_STATUS";
     if (recommended === "DISPOSE_CRM_STATUS") return "DISPOSE_CRM_STATUS";
+    if (recommended === "REACTIVATE_CRM_STATUS") return "REACTIVATE_CRM_STATUS";
     return null;
   };
   return (
@@ -487,7 +488,18 @@ function CampaignDetail({
                               ),
                             )
                             .join(" | ")}`
-                        : ""}
+                        : item.reactivationTargets &&
+                            item.reactivationTargets.length > 1
+                          ? ` → ${item.reactivationTargets
+                              .map((status) =>
+                                catalogCopy(
+                                  t,
+                                  `agents.leadQueue.crmStatus.${status}`,
+                                  status,
+                                ),
+                              )
+                              .join(" | ")}`
+                          : ""}
                   </p>
                 ) : null}
                 {item.followUpStatus ? (
@@ -549,7 +561,7 @@ function CampaignDetail({
                             : "agents.leadQueue.controls.markInactive";
                       return (
                         <Button
-                          key={`${item.id}-${target}`}
+                          key={`${item.id}-dispose-${target}`}
                           size="sm"
                           variant="ghost"
                           disabled={busyBlocked}
@@ -557,6 +569,42 @@ function CampaignDetail({
                             onExecuteLeadAction(
                               item.profileId,
                               "DISPOSE_CRM_STATUS",
+                              undefined,
+                              target,
+                            )
+                          }
+                        >
+                          {t(labelKey)}
+                        </Button>
+                      );
+                    });
+                  }
+
+                  if (action === "REACTIVATE_CRM_STATUS") {
+                    const targets =
+                      item.reactivationTargets &&
+                      item.reactivationTargets.length > 0
+                        ? item.reactivationTargets
+                        : item.targetCrmStatus
+                          ? [item.targetCrmStatus]
+                          : [];
+                    return targets.map((target) => {
+                      const labelKey =
+                        item.crmStatus === "archived" && target === "inactive"
+                          ? "agents.leadQueue.controls.unarchive"
+                          : item.crmStatus === "vip" && target === "inactive"
+                            ? "agents.leadQueue.controls.vipToInactive"
+                            : "agents.leadQueue.controls.reactivateActive";
+                      return (
+                        <Button
+                          key={`${item.id}-reactivate-${target}`}
+                          size="sm"
+                          variant="ghost"
+                          disabled={busyBlocked}
+                          onClick={() =>
+                            onExecuteLeadAction(
+                              item.profileId,
+                              "REACTIVATE_CRM_STATUS",
                               undefined,
                               target,
                             )

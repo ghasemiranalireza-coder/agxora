@@ -1,5 +1,5 @@
 /**
- * Phase 51–52 — CRM status conversion + post-active disposition.
+ * Phase 51–53 — CRM status conversion, disposition, and reactivation.
  *
  * Deterministic allowed transitions only. Live CRM status is the mutation
  * authority — never stale Lead Queue / GrowthCrmLink outcome.
@@ -39,16 +39,33 @@ export const CRM_DISPOSITION_TARGETS: Readonly<
   archived: [],
 };
 
-/** Full allowed transition map (conversion ∪ disposition). */
+/**
+ * Phase 53 reactivation targets.
+ * `vip` has two exits and always requires an explicit target.
+ * `archived` may only return to `inactive` (no skip to active/vip).
+ * `inactive` reactivation is only to `active` (archive remains DISPOSE).
+ */
+export const CRM_REACTIVATION_TARGETS: Readonly<
+  Record<CrmCustomerStatus, readonly CrmCustomerStatus[]>
+> = {
+  lead: [],
+  prospect: [],
+  active: [],
+  inactive: ["active"],
+  vip: ["active", "inactive"],
+  archived: ["inactive"],
+};
+
+/** Full allowed transition map (conversion ∪ disposition ∪ reactivation). */
 export const CRM_STATUS_TRANSITIONS: Readonly<
   Record<CrmCustomerStatus, readonly CrmCustomerStatus[]>
 > = {
   lead: ["prospect", "inactive"],
   prospect: ["active", "inactive"],
   active: ["vip", "inactive"],
-  inactive: ["archived"],
-  vip: [],
-  archived: [],
+  inactive: ["archived", "active"],
+  vip: ["active", "inactive"],
+  archived: ["inactive"],
 };
 
 export type CrmStatusAdvanceOutcome =
@@ -94,6 +111,12 @@ export function dispositionTargetsFor(
   return CRM_DISPOSITION_TARGETS[current] ?? [];
 }
 
+export function reactivationTargetsFor(
+  current: CrmCustomerStatus,
+): readonly CrmCustomerStatus[] {
+  return CRM_REACTIVATION_TARGETS[current] ?? [];
+}
+
 export function isAllowedCrmStatusTransition(
   from: CrmCustomerStatus,
   to: CrmCustomerStatus,
@@ -113,6 +136,13 @@ export function isDispositionTransition(
   to: CrmCustomerStatus,
 ): boolean {
   return dispositionTargetsFor(from).includes(to);
+}
+
+export function isReactivationTransition(
+  from: CrmCustomerStatus,
+  to: CrmCustomerStatus,
+): boolean {
+  return reactivationTargetsFor(from).includes(to);
 }
 
 /** Phase 51 ADVANCE — conversion ladder only. */
@@ -184,8 +214,54 @@ export function resolveDispositionTarget(input: {
 }
 
 /**
- * Handler-side resolver: accept conversion or disposition when requested
- * is present; never auto-pick among multiple active exits.
+ * Phase 53 REACTIVATE — reactivation targets only.
+ * `vip` always requires an explicit target (active | inactive).
+ * `archived` may only go to `inactive`.
+ * `inactive` may only go to `active` under REACTIVATE.
+ */
+export function resolveReactivateTarget(input: {
+  readonly current: CrmCustomerStatus;
+  readonly requested?: CrmCustomerStatus;
+}): StatusTargetResolution {
+  const targets = reactivationTargetsFor(input.current);
+  if (targets.length === 0) {
+    return {
+      ok: false,
+      code: "no_transition",
+      message: "crm_status_has_no_allowed_reactivation",
+    };
+  }
+  if (input.current === "vip" && !input.requested) {
+    return {
+      ok: false,
+      code: "explicit_target_required",
+      message: "crm_status_vip_requires_explicit_target",
+    };
+  }
+  if (!input.requested) {
+    if (targets.length === 1) {
+      return { ok: true, target: targets[0] };
+    }
+    return {
+      ok: false,
+      code: "explicit_target_required",
+      message: "crm_status_explicit_target_required",
+    };
+  }
+  if (!targets.includes(input.requested)) {
+    return {
+      ok: false,
+      code: "invalid_transition",
+      message: "crm_status_transition_not_allowed",
+      target: input.requested,
+    };
+  }
+  return { ok: true, target: input.requested };
+}
+
+/**
+ * Handler-side resolver: accept conversion, disposition, or reactivation
+ * when requested is present; never auto-pick among multiple vip/active exits.
  */
 export function resolveStatusMutationTarget(input: {
   readonly current: CrmCustomerStatus;
@@ -198,6 +274,9 @@ export function resolveStatusMutationTarget(input: {
     if (isDispositionTransition(input.current, input.requested)) {
       return resolveDispositionTarget(input);
     }
+    if (isReactivationTransition(input.current, input.requested)) {
+      return resolveReactivateTarget(input);
+    }
     return {
       ok: false,
       code: "invalid_transition",
@@ -207,13 +286,22 @@ export function resolveStatusMutationTarget(input: {
   }
   const conv = nextAllowedCrmStatus(input.current);
   const dispositions = dispositionTargetsFor(input.current);
-  if (conv && dispositions.length === 0) {
+  const reactivations = reactivationTargetsFor(input.current);
+  if (conv && dispositions.length === 0 && reactivations.length === 0) {
     return resolveAdvanceTarget(input);
   }
-  if (!conv && dispositions.length === 1) {
+  if (!conv && dispositions.length === 1 && reactivations.length === 0) {
     return resolveDispositionTarget(input);
   }
-  if (input.current === "active" || dispositions.length > 1) {
+  if (!conv && dispositions.length === 0 && reactivations.length === 1) {
+    return resolveReactivateTarget(input);
+  }
+  if (
+    input.current === "active" ||
+    input.current === "vip" ||
+    dispositions.length > 1 ||
+    reactivations.length > 1
+  ) {
     return {
       ok: false,
       code: "explicit_target_required",
@@ -222,6 +310,12 @@ export function resolveStatusMutationTarget(input: {
   }
   if (conv) {
     return resolveAdvanceTarget(input);
+  }
+  if (reactivations.length === 1) {
+    return resolveReactivateTarget(input);
+  }
+  if (dispositions.length === 1) {
+    return resolveDispositionTarget(input);
   }
   return {
     ok: false,
@@ -241,11 +335,26 @@ function isUnavailableError(error: unknown): boolean {
 /**
  * Advance a linked CRM customer status using the live CRM record.
  * Optional status note is best-effort documentation (never claimed as email/publish).
+ *
+ * Mutation-time validation is action-scoped (ADVANCE / DISPOSE / REACTIVATE) and
+ * never uses the union resolver. When expectedFromStatus is provided, live status
+ * must match or the mutation fails (stale/concurrent).
  */
 export async function advanceCrmCustomerStatus(input: {
   readonly organizationId: string;
   readonly profileId: string;
   readonly targetStatus?: CrmCustomerStatus;
+  /** Live status observed at enqueue — must still match at mutate. */
+  readonly expectedFromStatus?: CrmCustomerStatus;
+  /**
+   * Lead Queue / job action discriminant. Defaults to ADVANCE for legacy jobs.
+   * Must not fall back to the union resolver.
+   */
+  readonly leadAction?:
+    | "ADVANCE_CRM_STATUS"
+    | "DISPOSE_CRM_STATUS"
+    | "REACTIVATE_CRM_STATUS"
+    | string;
   readonly taskId?: string;
   readonly attachNote?: boolean;
 }): Promise<{
@@ -352,10 +461,43 @@ export async function advanceCrmCustomerStatus(input: {
     };
   }
 
-  const resolved = resolveStatusMutationTarget({
-    current: customer.status,
-    requested: input.targetStatus,
-  });
+  if (
+    input.expectedFromStatus !== undefined &&
+    customer.status !== input.expectedFromStatus
+  ) {
+    return {
+      result: {
+        available: true,
+        success: false,
+        outcome: "invalid_transition",
+        message: "crm_status_stale_or_concurrent",
+        customerId: customer.id,
+        fromStatus: customer.status,
+        toStatus: input.targetStatus,
+        duplicated: false,
+        href: link.href,
+      },
+      customer,
+      link,
+    };
+  }
+
+  const leadAction = input.leadAction ?? "ADVANCE_CRM_STATUS";
+  const resolved =
+    leadAction === "DISPOSE_CRM_STATUS"
+      ? resolveDispositionTarget({
+          current: customer.status,
+          requested: input.targetStatus,
+        })
+      : leadAction === "REACTIVATE_CRM_STATUS"
+        ? resolveReactivateTarget({
+            current: customer.status,
+            requested: input.targetStatus,
+          })
+        : resolveAdvanceTarget({
+            current: customer.status,
+            requested: input.targetStatus,
+          });
   if (!resolved.ok || !resolved.target) {
     return {
       result: {

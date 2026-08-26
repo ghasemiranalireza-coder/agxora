@@ -140,6 +140,7 @@ export type CrmLeadNextActionCode =
   | "complete_open_follow_up"
   | "advance_crm_status"
   | "dispose_crm_status"
+  | "reactivate_crm_status"
   | "none";
 
 export interface CrmLeadNextAction {
@@ -148,10 +149,12 @@ export interface CrmLeadNextAction {
   readonly dueAt?: string;
   /** Live CRM status when known (Phase 51+). */
   readonly crmStatus?: CrmCustomerStatus;
-  /** Deterministic next allowed CRM status when advancing/disposing. */
+  /** Deterministic next allowed CRM status when advancing/disposing/reactivating. */
   readonly targetCrmStatus?: CrmCustomerStatus;
   /** When active disposition: valid targets requiring explicit choice. */
   readonly dispositionTargets?: readonly CrmCustomerStatus[];
+  /** When vip/archived/inactive reactivation: valid recovery targets. */
+  readonly reactivationTargets?: readonly CrmCustomerStatus[];
 }
 
 /** Read-model for CRM-linked lead state inside Agent Operations. */
@@ -185,12 +188,13 @@ export type LeadPriorityReason =
   | "missing_crm_link"
   | "ready_for_status_advance"
   | "ready_for_status_disposition"
+  | "ready_for_status_reactivation"
   | "crm_status_archived"
   | "no_action_needed";
 
 /**
  * Deterministic recommended next action for the Lead Action Queue.
- * Maps onto existing Phase 46–52 operations when an action button is shown.
+ * Maps onto existing Phase 46–53 operations when an action button is shown.
  */
 export type LeadRecommendedAction =
   | "COMPLETE_OVERDUE_FOLLOW_UP"
@@ -200,6 +204,7 @@ export type LeadRecommendedAction =
   | "CREATE_FOLLOW_UP"
   | "ADVANCE_CRM_STATUS"
   | "DISPOSE_CRM_STATUS"
+  | "REACTIVATE_CRM_STATUS"
   | "REVIEW_CRM_LINK"
   | "NO_ACTION";
 
@@ -223,10 +228,12 @@ export interface LeadActionItem {
   readonly linkOutcome?: GrowthCrmLinkOutcome;
   /** Live CRM customer status when loaded for the queue. */
   readonly crmStatus?: CrmCustomerStatus;
-  /** Next allowed CRM status when ADVANCE/DISPOSE is recommended. */
+  /** Next allowed CRM status when ADVANCE/DISPOSE/REACTIVATE is recommended. */
   readonly targetCrmStatus?: CrmCustomerStatus;
   /** Explicit disposition choices (e.g. active → vip|inactive). */
   readonly dispositionTargets?: readonly CrmCustomerStatus[];
+  /** Explicit reactivation choices (e.g. vip → active|inactive). */
+  readonly reactivationTargets?: readonly CrmCustomerStatus[];
   readonly openFollowUpCount: number;
   readonly overdueFollowUpCount: number;
   readonly failedFollowUpCount: number;
@@ -257,7 +264,7 @@ export interface LeadActionQueue {
 }
 
 /**
- * Phase 50–52 executable actions — subset of recommended actions with safe
+ * Phase 50–53 executable actions — subset of recommended actions with safe
  * underlying Agent OS / CRM operations.
  */
 export type LeadExecutableAction =
@@ -266,7 +273,8 @@ export type LeadExecutableAction =
   | "RETRY_FAILED_FOLLOW_UP"
   | "REVIEW_CRM_LINK"
   | "ADVANCE_CRM_STATUS"
-  | "DISPOSE_CRM_STATUS";
+  | "DISPOSE_CRM_STATUS"
+  | "REACTIVATE_CRM_STATUS";
 
 export type LeadActionExecutionStatus =
   | "QUEUED"
