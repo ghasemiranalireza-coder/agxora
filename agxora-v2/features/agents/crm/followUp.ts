@@ -72,10 +72,19 @@ export function evaluateCrmLeadNextAction(input: {
   if (open.length === 0) {
     const crmStatus = input.crmStatus;
     if (crmStatus === "archived") {
-      return { code: "none", crmStatus };
+      return {
+        code: "reactivate_crm_status",
+        crmStatus,
+        targetCrmStatus: "inactive",
+        reactivationTargets: ["inactive"],
+      };
     }
     if (crmStatus === "vip") {
-      return { code: "none", crmStatus };
+      return {
+        code: "reactivate_crm_status",
+        crmStatus,
+        reactivationTargets: ["active", "inactive"],
+      };
     }
     if (crmStatus === "lead") {
       return {
@@ -100,10 +109,10 @@ export function evaluateCrmLeadNextAction(input: {
     }
     if (crmStatus === "inactive") {
       return {
-        code: "dispose_crm_status",
+        code: "reactivate_crm_status",
         crmStatus,
-        targetCrmStatus: "archived",
-        dispositionTargets: ["archived"],
+        targetCrmStatus: "active",
+        reactivationTargets: ["active"],
       };
     }
     return { code: "create_follow_up", crmStatus };

@@ -772,7 +772,8 @@
       "complete_open_follow_up": "Complete open CRM follow-up",
       "none": "No CRM follow-up action needed",
       "advance_crm_status": "Advance CRM status",
-      "dispose_crm_status": "Dispose CRM status"
+      "dispose_crm_status": "Dispose CRM status",
+      "reactivate_crm_status": "Reactivate CRM status"
     },
     "ops": {
       "createSucceeded": "Follow-up note created",
@@ -811,7 +812,8 @@
       "REVIEW_CRM_LINK": "Review CRM link",
       "NO_ACTION": "No action needed",
       "ADVANCE_CRM_STATUS": "Advance CRM status",
-      "DISPOSE_CRM_STATUS": "Dispose CRM status"
+      "DISPOSE_CRM_STATUS": "Dispose CRM status",
+      "REACTIVATE_CRM_STATUS": "Reactivate CRM status"
     },
     "reasons": {
       "overdue_follow_up": "Overdue follow-up",
@@ -826,7 +828,8 @@
       "no_action_needed": "No open CRM work",
       "ready_for_status_advance": "Ready to advance CRM status",
       "ready_for_status_disposition": "Ready for CRM status disposition",
-      "crm_status_archived": "CRM customer archived"
+      "crm_status_archived": "CRM customer archived",
+      "ready_for_status_reactivation": "Ready for CRM status reactivation"
     },
     "noticeActionRequested": "Lead action requested through Agent OS. Approve if required.",
     "noticeReviewed": "CRM link opened for review. No mutation was performed.",
@@ -839,7 +842,10 @@
       "advance": "Advance Status",
       "markVip": "Mark VIP",
       "markInactive": "Mark Inactive",
-      "archive": "Archive"
+      "archive": "Archive",
+      "reactivateActive": "Reactivate → Active",
+      "vipToInactive": "VIP → Inactive",
+      "unarchive": "Unarchive → Inactive"
     },
     "executionStatus": {
       "QUEUED": "Queued",

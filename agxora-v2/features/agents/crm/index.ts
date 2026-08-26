@@ -52,13 +52,17 @@ export {
   isAllowedCrmStatusTransition,
   isConversionTransition,
   isDispositionTransition,
+  isReactivationTransition,
   loadCrmStatusesForOrganization,
   nextAllowedCrmStatus,
+  reactivationTargetsFor,
   resolveAdvanceTarget,
   resolveDispositionTarget,
+  resolveReactivateTarget,
   resolveStatusMutationTarget,
   CRM_CONVERSION_NEXT,
   CRM_DISPOSITION_TARGETS,
+  CRM_REACTIVATION_TARGETS,
   CRM_STATUS_TRANSITIONS,
 } from "./status";
 export type {

@@ -13,6 +13,7 @@ import { evaluateCrmLeadNextAction, getCrmLinkedLeadState } from "./followUp";
 import {
   dispositionTargetsFor,
   nextAllowedCrmStatus,
+  reactivationTargetsFor,
 } from "./status";
 import { listGrowthCrmLinks } from "./sync";
 import type {
@@ -205,27 +206,6 @@ export function evaluateLeadPriority(input: {
       input.link.outcome === "created" ||
       input.link.outcome === "already-linked")
   ) {
-    if (input.crmStatus === "archived") {
-      reasons.push("crm_status_archived");
-      reasons.push("no_action_needed");
-      return {
-        priority: "NONE",
-        score: SCORE.NONE,
-        reasons,
-        recommendedAction: "NO_ACTION",
-      };
-    }
-
-    if (input.crmStatus === "vip") {
-      reasons.push("no_action_needed");
-      return {
-        priority: "NONE",
-        score: SCORE.NONE,
-        reasons,
-        recommendedAction: "NO_ACTION",
-      };
-    }
-
     const advanceTarget =
       input.crmStatus === "lead" || input.crmStatus === "prospect"
         ? nextAllowedCrmStatus(input.crmStatus)
@@ -239,6 +219,23 @@ export function evaluateLeadPriority(input: {
         score: completed.length > 0 ? SCORE.LOW : SCORE.MEDIUM - 5,
         reasons,
         recommendedAction: "ADVANCE_CRM_STATUS",
+      };
+    }
+
+    const reactivationTargets =
+      input.crmStatus !== undefined
+        ? reactivationTargetsFor(input.crmStatus)
+        : [];
+    if (reactivationTargets.length > 0) {
+      reasons.push("ready_for_status_reactivation");
+      if (input.crmStatus === "archived") reasons.push("crm_status_archived");
+      if (completed.length > 0) reasons.push("recently_completed");
+      reasons.push("no_follow_up_after_link");
+      return {
+        priority: "LOW",
+        score: SCORE.LOW,
+        reasons,
+        recommendedAction: "REACTIVATE_CRM_STATUS",
       };
     }
 
@@ -353,6 +350,18 @@ function buildItemFromLink(
       ? phase48NextAction.targetCrmStatus ??
         (dispositionTargets?.length === 1 ? dispositionTargets[0] : undefined)
       : undefined;
+  const reactivationTargets =
+    evaluation.recommendedAction === "REACTIVATE_CRM_STATUS"
+      ? phase48NextAction.reactivationTargets ??
+        (crmStatus ? reactivationTargetsFor(crmStatus) : undefined)
+      : undefined;
+  const reactivateTarget =
+    evaluation.recommendedAction === "REACTIVATE_CRM_STATUS"
+      ? phase48NextAction.targetCrmStatus ??
+        (reactivationTargets?.length === 1
+          ? reactivationTargets[0]
+          : undefined)
+      : undefined;
   const companyName = lead.companyName ?? link.companyName;
   const dueKey = earliestDueKey(open);
   const sortKey = [
@@ -381,8 +390,9 @@ function buildItemFromLink(
     dueAt: evaluation.followUp?.dueAt ?? phase48NextAction.dueAt,
     linkOutcome: link.outcome,
     crmStatus,
-    targetCrmStatus: advanceTarget ?? disposeTarget,
+    targetCrmStatus: advanceTarget ?? disposeTarget ?? reactivateTarget,
     dispositionTargets,
+    reactivationTargets,
     openFollowUpCount: open.length,
     overdueFollowUpCount: overdueFollowUps.length,
     failedFollowUpCount: open.filter((item) => item.status === "failed").length,
