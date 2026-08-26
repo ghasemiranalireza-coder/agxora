@@ -38,9 +38,11 @@ export {
   syncGrowthProfileToCrm,
 } from "./sync";
 export {
+  cancelCrmFollowUp,
   completeCrmFollowUp,
   createCrmFollowUp,
   evaluateCrmLeadNextAction,
+  expectedFollowUpStatusesForLeadAction,
   getCrmFollowUp,
   getCrmFollowUpByTask,
   getCrmLinkedLeadState,

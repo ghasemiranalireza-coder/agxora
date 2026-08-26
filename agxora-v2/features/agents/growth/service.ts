@@ -864,6 +864,84 @@ export const growthService = {
     };
   },
 
+  async requestCrmFollowUpCancel(
+    organizationId: string,
+    input: {
+      readonly followUpId: string;
+      readonly campaignId?: string;
+      readonly profileId?: string;
+      readonly leadAction?: string;
+    },
+  ): Promise<{
+    readonly task: Awaited<ReturnType<typeof runAgentTool>>;
+    readonly job: ReturnType<typeof operationsService.enqueue>;
+    readonly followUp: ReturnType<typeof getCrmFollowUp>;
+    readonly lead: ReturnType<typeof getCrmLinkedLeadState>;
+  }> {
+    this.ensure(organizationId);
+    const existing = getCrmFollowUp(organizationId, input.followUpId);
+    const profile = input.profileId
+      ? agentsStore
+          .getSnapshot()
+          .growthProfiles.find(
+            (item) =>
+              item.id === input.profileId &&
+              item.organizationId === organizationId,
+          ) ??
+        latestProfile(organizationId) ??
+        this.saveProfile({ organizationId, draft: {} })
+      : existing
+        ? agentsStore
+            .getSnapshot()
+            .growthProfiles.find(
+              (item) =>
+                item.id === existing.profileId &&
+                item.organizationId === organizationId,
+            ) ??
+          latestProfile(organizationId) ??
+          this.saveProfile({ organizationId, draft: {} })
+        : latestProfile(organizationId) ??
+          this.saveProfile({ organizationId, draft: {} });
+    const campaign = input.campaignId
+      ? this.getCampaign(organizationId, input.campaignId)
+      : existing?.campaignId
+        ? this.getCampaign(organizationId, existing.campaignId)
+        : this.listCampaigns(organizationId)[0];
+    const job = operationsService.enqueue({
+      organizationId,
+      toolId: "crm",
+      agentId: "crm_assistant",
+      campaignId: campaign?.id ?? existing?.campaignId,
+      title: "Cancel CRM follow-up for growth lead",
+      priority: "HIGH",
+      params: {
+        action: "cancel_follow_up",
+        profileId: profile.id,
+        followUpId: input.followUpId,
+        campaignId: campaign?.id ?? existing?.campaignId,
+        growthAction: "crm_follow_up_cancel",
+        leadAction: input.leadAction ?? "CANCEL_FOLLOW_UP",
+      },
+    });
+    const started = await operationsService.start(organizationId, job.id);
+    if (started.status === "WAITING_FOR_APPROVAL") {
+      auditGrowth(
+        "agent.growth.crm_follow_up_cancel_approval_requested",
+        organizationId,
+        input.followUpId,
+        { jobId: started.id },
+      );
+    }
+    return {
+      task: agentsStore
+        .getSnapshot()
+        .tasks.find((item) => item.id === started.taskId)!,
+      job: operationsService.get(organizationId, started.id)!,
+      followUp: getCrmFollowUp(organizationId, input.followUpId),
+      lead: getCrmLinkedLeadState(organizationId, profile.id),
+    };
+  },
+
   async requestCrmStatusAdvance(
     organizationId: string,
     input: {
@@ -1022,6 +1100,19 @@ export const growthService = {
         return {
           job: completed.job,
           taskId: completed.task?.id,
+          followUpId: req.followUpId,
+        };
+      },
+      requestCancelFollowUp: async (req) => {
+        const cancelled = await this.requestCrmFollowUpCancel(organizationId, {
+          followUpId: req.followUpId,
+          profileId: req.profileId,
+          campaignId: req.campaignId,
+          leadAction: req.leadAction,
+        });
+        return {
+          job: cancelled.job,
+          taskId: cancelled.task?.id,
           followUpId: req.followUpId,
         };
       },

@@ -287,10 +287,10 @@ function CampaignDetail({
       return "COMPLETE_OVERDUE_FOLLOW_UP";
     }
     if (recommended === "COMPLETE_PENDING_FOLLOW_UP") {
-      return "COMPLETE_OVERDUE_FOLLOW_UP";
+      return "COMPLETE_PENDING_FOLLOW_UP";
     }
     if (recommended === "REVIEW_BLOCKED_FOLLOW_UP") {
-      return "COMPLETE_OVERDUE_FOLLOW_UP";
+      return "REVIEW_BLOCKED_FOLLOW_UP";
     }
     if (recommended === "RETRY_FAILED_FOLLOW_UP") return "RETRY_FAILED_FOLLOW_UP";
     if (recommended === "REVIEW_CRM_LINK") return "REVIEW_CRM_LINK";
@@ -616,6 +616,12 @@ function CampaignDetail({
                     });
                   }
 
+                  const canCancelFollowUp =
+                    Boolean(item.followUpId) &&
+                    (item.followUpStatus === "pending" ||
+                      item.followUpStatus === "blocked" ||
+                      item.followUpStatus === "failed");
+
                   const labelKey =
                     action === "CREATE_FOLLOW_UP"
                       ? "agents.leadQueue.controls.create"
@@ -625,33 +631,57 @@ function CampaignDetail({
                           ? "agents.leadQueue.controls.review"
                           : action === "ADVANCE_CRM_STATUS"
                             ? "agents.leadQueue.controls.advance"
-                            : "agents.leadQueue.controls.complete";
+                            : action === "COMPLETE_PENDING_FOLLOW_UP"
+                              ? "agents.leadQueue.controls.completePending"
+                              : action === "REVIEW_BLOCKED_FOLLOW_UP"
+                                ? "agents.leadQueue.controls.reviewBlocked"
+                                : "agents.leadQueue.controls.complete";
                   const needsFollowUp =
                     action === "COMPLETE_OVERDUE_FOLLOW_UP" ||
+                    action === "COMPLETE_PENDING_FOLLOW_UP" ||
+                    action === "REVIEW_BLOCKED_FOLLOW_UP" ||
                     action === "RETRY_FAILED_FOLLOW_UP";
                   return (
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      disabled={
-                        busyBlocked || (needsFollowUp && !item.followUpId)
-                      }
-                      onClick={() => {
-                        if (action === "REVIEW_CRM_LINK" && item.href) {
-                          window.open(item.href, "_blank", "noopener,noreferrer");
+                    <>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        disabled={
+                          busyBlocked || (needsFollowUp && !item.followUpId)
                         }
-                        onExecuteLeadAction(
-                          item.profileId,
-                          action,
-                          item.followUpId,
-                          action === "ADVANCE_CRM_STATUS"
-                            ? item.targetCrmStatus
-                            : undefined,
-                        );
-                      }}
-                    >
-                      {t(labelKey)}
-                    </Button>
+                        onClick={() => {
+                          if (action === "REVIEW_CRM_LINK" && item.href) {
+                            window.open(item.href, "_blank", "noopener,noreferrer");
+                          }
+                          onExecuteLeadAction(
+                            item.profileId,
+                            action,
+                            item.followUpId,
+                            action === "ADVANCE_CRM_STATUS"
+                              ? item.targetCrmStatus
+                              : undefined,
+                          );
+                        }}
+                      >
+                        {t(labelKey)}
+                      </Button>
+                      {canCancelFollowUp ? (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          disabled={busyBlocked}
+                          onClick={() =>
+                            onExecuteLeadAction(
+                              item.profileId,
+                              "CANCEL_FOLLOW_UP",
+                              item.followUpId,
+                            )
+                          }
+                        >
+                          {t("agents.leadQueue.controls.cancelFollowUp")}
+                        </Button>
+                      ) : null}
+                    </>
                   );
                 })()}
               </div>

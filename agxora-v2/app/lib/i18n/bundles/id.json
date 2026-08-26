@@ -5048,7 +5048,8 @@
       },
       "ops": {
         "createSucceeded": "Follow-up note created",
-        "completeSucceeded": "Follow-up marked complete"
+        "completeSucceeded": "Follow-up marked complete",
+        "cancelSucceeded": "Follow-up cancelled"
       }
     },
     "leadQueue": {
@@ -5116,7 +5117,10 @@
         "archive": "Archive",
         "reactivateActive": "Reactivate → Active",
         "vipToInactive": "VIP → Inactive",
-        "unarchive": "Unarchive → Inactive"
+        "unarchive": "Unarchive → Inactive",
+        "completePending": "Complete Pending",
+        "reviewBlocked": "Retry / Complete Blocked",
+        "cancelFollowUp": "Cancel Follow-up"
       },
       "executionStatus": {
         "QUEUED": "Queued",

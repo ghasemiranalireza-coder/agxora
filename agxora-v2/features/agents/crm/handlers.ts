@@ -5,6 +5,7 @@
 import { agentsStore } from "../store";
 import type { ToolInvocationContext, ToolInvocationResult } from "../types";
 import {
+  cancelCrmFollowUp,
   completeCrmFollowUp,
   createCrmFollowUp,
   getCrmLinkedLeadState,
@@ -213,11 +214,43 @@ export async function handleCrmTool(
         durationMs: Date.now() - started,
       };
     }
+    const leadAction = readString(ctx.params, "leadAction");
     const { result, followUp } = await completeCrmFollowUp({
       organizationId: ctx.organizationId,
       followUpId,
       completionNote: readString(ctx.params, "completionNote"),
       taskId: ctx.taskId,
+      leadAction,
+      requireCrmMutation: leadAction === "REVIEW_BLOCKED_FOLLOW_UP",
+    });
+    return {
+      ok: true,
+      output: {
+        action,
+        result,
+        followUp: followUp ?? null,
+        crmAvailable: result.available,
+        crmSuccess: result.success,
+        followUpResult: result,
+      },
+      durationMs: Date.now() - started,
+    };
+  }
+
+  if (action === "cancel_follow_up") {
+    const followUpId = readString(ctx.params, "followUpId");
+    if (!followUpId) {
+      return {
+        ok: false,
+        error: "followUpId is required to cancel a CRM follow-up.",
+        durationMs: Date.now() - started,
+      };
+    }
+    const { result, followUp } = await cancelCrmFollowUp({
+      organizationId: ctx.organizationId,
+      followUpId,
+      taskId: ctx.taskId,
+      leadAction: readString(ctx.params, "leadAction") ?? "CANCEL_FOLLOW_UP",
     });
     return {
       ok: true,
