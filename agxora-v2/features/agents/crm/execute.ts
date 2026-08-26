@@ -1,5 +1,5 @@
 /**
- * Phase 50–54 — Lead Action Execution workflow.
+ * Phase 50–55 — Lead Action Execution workflow.
  *
  * Validates deterministic Lead Queue actions and routes them through the
  * existing Agent OS / Operations / CRM paths.
@@ -12,9 +12,11 @@ import { agentsStore } from "../store";
 import { operationsService } from "../execution/service";
 import type { ExecutionJob } from "../execution/jobs";
 import {
+  defaultFollowUpDueAt,
   getCrmFollowUp,
   getCrmLinkedLeadState,
   listCrmFollowUps,
+  normalizeFollowUpDueAt,
 } from "./followUp";
 import { buildLeadActionQueue } from "./prioritize";
 import { getCrmBridgeProvider } from "./adapter";
@@ -38,6 +40,7 @@ const EXECUTABLE: ReadonlySet<string> = new Set([
   "COMPLETE_OVERDUE_FOLLOW_UP",
   "COMPLETE_PENDING_FOLLOW_UP",
   "REVIEW_BLOCKED_FOLLOW_UP",
+  "RESCHEDULE_FOLLOW_UP",
   "CANCEL_FOLLOW_UP",
   "RETRY_FAILED_FOLLOW_UP",
   "REVIEW_CRM_LINK",
@@ -140,12 +143,14 @@ export async function validateLeadAction(input: {
   readonly action: string;
   readonly followUpId?: string;
   readonly targetCrmStatus?: CrmCustomerStatus;
+  readonly dueAt?: string;
   readonly today?: string;
 }): Promise<{
   readonly ok: boolean;
   readonly code?: string;
   readonly message?: string;
   readonly followUpId?: string;
+  readonly dueAt?: string;
   readonly fromCrmStatus?: CrmCustomerStatus;
   readonly toCrmStatus?: CrmCustomerStatus;
 }> {
@@ -418,6 +423,31 @@ export async function validateLeadAction(input: {
     return { ok: true, followUpId };
   }
 
+  if (input.action === "RESCHEDULE_FOLLOW_UP") {
+    if (
+      followUp.status !== "pending" &&
+      followUp.status !== "blocked" &&
+      followUp.status !== "failed"
+    ) {
+      return {
+        ok: false,
+        code: "not_reschedulable",
+        message: "follow_up_not_reschedulable",
+        followUpId,
+      };
+    }
+    const dueAt = normalizeFollowUpDueAt(input.dueAt);
+    if (!dueAt) {
+      return {
+        ok: false,
+        code: "missing_due_at",
+        message: "follow_up_due_at_required",
+        followUpId,
+      };
+    }
+    return { ok: true, followUpId, dueAt };
+  }
+
   // COMPLETE_OVERDUE_FOLLOW_UP — pending / overdue / failed / blocked are valid.
   if (
     followUp.status !== "pending" &&
@@ -456,6 +486,7 @@ function isLeadActionJob(job: ExecutionJob, profileId: string): boolean {
     growthAction === "crm_follow_up" ||
     growthAction === "crm_follow_up_complete" ||
     growthAction === "crm_follow_up_cancel" ||
+    growthAction === "crm_follow_up_reschedule" ||
     growthAction === "crm_status_advance" ||
     growthAction === "lead_action"
   );
@@ -520,6 +551,7 @@ type FollowUpRequester = (input: {
   readonly kind?: "call" | "email_draft" | "meeting" | "general";
   readonly summary?: string;
   readonly completionNote?: string;
+  readonly dueAt?: string;
   readonly leadAction: LeadExecutableAction;
 }) => Promise<{
   readonly job: ExecutionJob;
@@ -532,6 +564,19 @@ type CancelFollowUpRequester = (input: {
   readonly profileId: string;
   readonly campaignId?: string;
   readonly followUpId: string;
+  readonly leadAction: LeadExecutableAction;
+}) => Promise<{
+  readonly job: ExecutionJob;
+  readonly taskId?: string;
+  readonly followUpId?: string;
+}>;
+
+type RescheduleFollowUpRequester = (input: {
+  readonly organizationId: string;
+  readonly profileId: string;
+  readonly campaignId?: string;
+  readonly followUpId: string;
+  readonly dueAt: string;
   readonly leadAction: LeadExecutableAction;
 }) => Promise<{
   readonly job: ExecutionJob;
@@ -564,11 +609,13 @@ export async function executeLeadAction(input: {
   readonly campaignId?: string;
   readonly summary?: string;
   readonly completionNote?: string;
+  readonly dueAt?: string;
   readonly targetCrmStatus?: CrmCustomerStatus;
   readonly today?: string;
   readonly requestCreateFollowUp: FollowUpRequester;
   readonly requestCompleteFollowUp: FollowUpRequester;
   readonly requestCancelFollowUp: CancelFollowUpRequester;
+  readonly requestRescheduleFollowUp: RescheduleFollowUpRequester;
   readonly requestAdvanceCrmStatus: StatusAdvanceRequester;
 }): Promise<{
   readonly execution: LeadActionExecution;
@@ -581,6 +628,7 @@ export async function executeLeadAction(input: {
     action: input.action,
     followUpId: input.followUpId,
     targetCrmStatus: input.targetCrmStatus,
+    dueAt: input.dueAt,
     today: input.today,
   });
 
@@ -686,12 +734,16 @@ export async function executeLeadAction(input: {
   }
 
   if (action === "CREATE_FOLLOW_UP") {
+    const dueAt =
+      normalizeFollowUpDueAt(input.dueAt) ??
+      defaultFollowUpDueAt(input.today);
     const requested = await input.requestCreateFollowUp({
       organizationId: input.organizationId,
       profileId: input.profileId,
       campaignId: input.campaignId,
       kind: "general",
       summary: input.summary ?? "Lead Action Queue: create CRM follow-up",
+      dueAt,
       leadAction: action,
     });
     const execution = executionFromJob({
@@ -709,6 +761,48 @@ export async function executeLeadAction(input: {
   }
 
   const followUpId = validation.followUpId ?? input.followUpId!;
+
+  if (action === "RESCHEDULE_FOLLOW_UP") {
+    const dueAt = validation.dueAt ?? normalizeFollowUpDueAt(input.dueAt);
+    if (!dueAt) {
+      const execution: LeadActionExecution = {
+        id: createGrowthId("lax"),
+        organizationId: input.organizationId,
+        profileId: input.profileId,
+        followUpId,
+        action,
+        status: "INVALID",
+        createdAt: now,
+        updatedAt: now,
+        message: "follow_up_due_at_required",
+        readOnly: true,
+      };
+      return {
+        execution,
+        queue: await buildQueueWithLiveStatus(input.organizationId, input.today),
+      };
+    }
+    const requested = await input.requestRescheduleFollowUp({
+      organizationId: input.organizationId,
+      profileId: input.profileId,
+      campaignId: input.campaignId,
+      followUpId,
+      dueAt,
+      leadAction: action,
+    });
+    const execution = executionFromJob({
+      organizationId: input.organizationId,
+      profileId: input.profileId,
+      action,
+      job: requested.job,
+      followUpId,
+      now,
+    });
+    return {
+      execution,
+      queue: await buildQueueWithLiveStatus(input.organizationId, input.today),
+    };
+  }
 
   if (action === "CANCEL_FOLLOW_UP") {
     const requested = await input.requestCancelFollowUp({

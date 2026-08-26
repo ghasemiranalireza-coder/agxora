@@ -5034,7 +5034,8 @@
         "blocked": "Follow-up blocked",
         "unavailable": "CRM unavailable",
         "error": "Follow-up error",
-        "missing_link": "CRM link required before follow-up"
+        "missing_link": "CRM link required before follow-up",
+        "rescheduled": "Rescheduled"
       },
       "nextAction": {
         "link_to_crm": "Sync Growth profile to CRM",
@@ -5049,7 +5050,8 @@
       "ops": {
         "createSucceeded": "Follow-up note created",
         "completeSucceeded": "Follow-up marked complete",
-        "cancelSucceeded": "Follow-up cancelled"
+        "cancelSucceeded": "Follow-up cancelled",
+        "rescheduleSucceeded": "Follow-up rescheduled"
       }
     },
     "leadQueue": {
@@ -5085,7 +5087,8 @@
         "NO_ACTION": "No action needed",
         "ADVANCE_CRM_STATUS": "Advance CRM status",
         "DISPOSE_CRM_STATUS": "Dispose CRM status",
-        "REACTIVATE_CRM_STATUS": "Reactivate CRM status"
+        "REACTIVATE_CRM_STATUS": "Reactivate CRM status",
+        "RESCHEDULE_FOLLOW_UP": "Reschedule follow-up"
       },
       "reasons": {
         "overdue_follow_up": "Overdue follow-up",
@@ -5101,7 +5104,8 @@
         "ready_for_status_advance": "Ready to advance CRM status",
         "ready_for_status_disposition": "Ready for CRM status disposition",
         "crm_status_archived": "CRM customer archived",
-        "ready_for_status_reactivation": "Ready for CRM status reactivation"
+        "ready_for_status_reactivation": "Ready for CRM status reactivation",
+        "undated_follow_up": "Follow-up has no due date"
       },
       "noticeActionRequested": "Lead action requested through Agent OS. Approve if required.",
       "noticeReviewed": "CRM link opened for review. No mutation was performed.",
@@ -5120,7 +5124,8 @@
         "unarchive": "Unarchive → Inactive",
         "completePending": "Complete Pending",
         "reviewBlocked": "Retry / Complete Blocked",
-        "cancelFollowUp": "Cancel Follow-up"
+        "cancelFollowUp": "Cancel Follow-up",
+        "reschedule": "Reschedule"
       },
       "executionStatus": {
         "QUEUED": "Queued",

@@ -41,12 +41,16 @@ export {
   cancelCrmFollowUp,
   completeCrmFollowUp,
   createCrmFollowUp,
+  defaultFollowUpDueAt,
+  DEFAULT_FOLLOW_UP_DUE_DAYS,
   evaluateCrmLeadNextAction,
   expectedFollowUpStatusesForLeadAction,
   getCrmFollowUp,
   getCrmFollowUpByTask,
   getCrmLinkedLeadState,
   listCrmFollowUps,
+  normalizeFollowUpDueAt,
+  rescheduleCrmFollowUp,
 } from "./followUp";
 export {
   advanceCrmCustomerStatus,

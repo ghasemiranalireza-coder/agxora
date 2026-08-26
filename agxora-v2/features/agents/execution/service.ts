@@ -323,9 +323,11 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
       growthAction === "crm_follow_up" ||
       growthAction === "crm_follow_up_complete" ||
       growthAction === "crm_follow_up_cancel" ||
+      growthAction === "crm_follow_up_reschedule" ||
       action === "create_follow_up" ||
       action === "complete_follow_up" ||
-      action === "cancel_follow_up";
+      action === "cancel_follow_up" ||
+      action === "reschedule_follow_up";
 
     if (isFollowUpJob) {
       const isCompleteJob =
@@ -334,6 +336,9 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
       const isCancelJob =
         growthAction === "crm_follow_up_cancel" ||
         action === "cancel_follow_up";
+      const isRescheduleJob =
+        growthAction === "crm_follow_up_reschedule" ||
+        action === "reschedule_follow_up";
       const followUpId =
         typeof job.params.followUpId === "string"
           ? job.params.followUpId
@@ -348,6 +353,61 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
       const followUp = byTask ?? byId;
       const bridge = followUp?.result;
       const fromCurrentTask = Boolean(byTask);
+
+      if (isRescheduleJob) {
+        if (
+          fromCurrentTask &&
+          (bridge?.success === false ||
+            bridge?.outcome === "error" ||
+            bridge?.outcome === "missing_link")
+        ) {
+          return {
+            success: false,
+            status: "failed",
+            externalEffect: false,
+            message:
+              bridge?.message ?? task.error ?? "crm_follow_up_reschedule_failed",
+            metadata: {
+              toolId: job.toolId,
+              growthAction: growthAction ?? "crm_follow_up_reschedule",
+            },
+          };
+        }
+
+        if (
+          bridge?.outcome === "rescheduled" &&
+          bridge.success !== false &&
+          fromCurrentTask
+        ) {
+          return {
+            success: true,
+            status: "completed",
+            externalEffect: false,
+            message: "rescheduled",
+            metadata: {
+              toolId: job.toolId,
+              growthAction: growthAction ?? "crm_follow_up_reschedule",
+              ...(followUp?.customerId ? { customerId: followUp.customerId } : {}),
+              ...(followUp?.noteId ? { noteId: followUp.noteId } : {}),
+              ...(followUp?.dueAt ? { dueAt: followUp.dueAt } : {}),
+            },
+          };
+        }
+
+        return {
+          success: false,
+          status: "failed",
+          externalEffect: false,
+          message:
+            bridge?.message ??
+            task.error ??
+            "crm_follow_up_reschedule_unresolved",
+          metadata: {
+            toolId: job.toolId,
+            growthAction: growthAction ?? "crm_follow_up_reschedule",
+          },
+        };
+      }
 
       if (isCancelJob) {
         if (

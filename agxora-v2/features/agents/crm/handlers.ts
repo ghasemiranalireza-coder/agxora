@@ -10,6 +10,7 @@ import {
   createCrmFollowUp,
   getCrmLinkedLeadState,
   listCrmFollowUps,
+  rescheduleCrmFollowUp,
 } from "./followUp";
 import { attachLeadExecutionsToQueue } from "./execute";
 import { buildLeadActionQueue } from "./prioritize";
@@ -251,6 +252,44 @@ export async function handleCrmTool(
       followUpId,
       taskId: ctx.taskId,
       leadAction: readString(ctx.params, "leadAction") ?? "CANCEL_FOLLOW_UP",
+    });
+    return {
+      ok: true,
+      output: {
+        action,
+        result,
+        followUp: followUp ?? null,
+        crmAvailable: result.available,
+        crmSuccess: result.success,
+        followUpResult: result,
+      },
+      durationMs: Date.now() - started,
+    };
+  }
+
+  if (action === "reschedule_follow_up") {
+    const followUpId = readString(ctx.params, "followUpId");
+    const dueAt = readString(ctx.params, "dueAt");
+    if (!followUpId) {
+      return {
+        ok: false,
+        error: "followUpId is required to reschedule a CRM follow-up.",
+        durationMs: Date.now() - started,
+      };
+    }
+    if (!dueAt) {
+      return {
+        ok: false,
+        error: "dueAt is required to reschedule a CRM follow-up.",
+        durationMs: Date.now() - started,
+      };
+    }
+    const { result, followUp } = await rescheduleCrmFollowUp({
+      organizationId: ctx.organizationId,
+      followUpId,
+      dueAt,
+      taskId: ctx.taskId,
+      leadAction: readString(ctx.params, "leadAction") ?? "RESCHEDULE_FOLLOW_UP",
     });
     return {
       ok: true,
