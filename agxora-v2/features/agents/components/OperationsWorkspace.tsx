@@ -273,6 +273,13 @@ function JobDetail({
                     : job.status === "FAILED"
                       ? t("agents.crmFollowUp.status.failed")
                       : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
+                : job.params.growthAction === "crm_follow_up_reschedule" ||
+                    job.params.action === "reschedule_follow_up"
+                  ? job.status === "COMPLETED"
+                    ? t("agents.crmFollowUp.ops.rescheduleSucceeded")
+                    : job.status === "FAILED"
+                      ? t("agents.crmFollowUp.status.failed")
+                      : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
                 : job.params.growthAction === "crm_follow_up" ||
                     job.params.action === "create_follow_up"
                   ? job.status === "COMPLETED"

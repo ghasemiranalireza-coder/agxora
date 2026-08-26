@@ -86,6 +86,7 @@ export type CrmFollowUpOutcome =
   | "created"
   | "completed"
   | "cancelled"
+  | "rescheduled"
   | "blocked"
   | "unavailable"
   | "error"
@@ -183,6 +184,7 @@ export type LeadPriorityReason =
   | "blocked_follow_up"
   | "pending_due_soon"
   | "pending_follow_up"
+  | "undated_follow_up"
   | "no_follow_up_after_link"
   | "recently_completed"
   | "weak_crm_link"
@@ -195,13 +197,14 @@ export type LeadPriorityReason =
 
 /**
  * Deterministic recommended next action for the Lead Action Queue.
- * Maps onto existing Phase 46–53 operations when an action button is shown.
+ * Maps onto existing Phase 46–55 operations when an action button is shown.
  */
 export type LeadRecommendedAction =
   | "COMPLETE_OVERDUE_FOLLOW_UP"
   | "RETRY_FAILED_FOLLOW_UP"
   | "REVIEW_BLOCKED_FOLLOW_UP"
   | "COMPLETE_PENDING_FOLLOW_UP"
+  | "RESCHEDULE_FOLLOW_UP"
   | "CREATE_FOLLOW_UP"
   | "ADVANCE_CRM_STATUS"
   | "DISPOSE_CRM_STATUS"
@@ -265,7 +268,7 @@ export interface LeadActionQueue {
 }
 
 /**
- * Phase 50–54 executable actions — subset of recommended actions with safe
+ * Phase 50–55 executable actions — subset of recommended actions with safe
  * underlying Agent OS / CRM operations.
  */
 export type LeadExecutableAction =
@@ -273,6 +276,7 @@ export type LeadExecutableAction =
   | "COMPLETE_OVERDUE_FOLLOW_UP"
   | "COMPLETE_PENDING_FOLLOW_UP"
   | "REVIEW_BLOCKED_FOLLOW_UP"
+  | "RESCHEDULE_FOLLOW_UP"
   | "CANCEL_FOLLOW_UP"
   | "RETRY_FAILED_FOLLOW_UP"
   | "REVIEW_CRM_LINK"

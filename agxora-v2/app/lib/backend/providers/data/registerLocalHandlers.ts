@@ -455,6 +455,7 @@ export function registerLocalDataHandlers(): void {
               typeof body.completionNote === "string"
                 ? body.completionNote
                 : undefined,
+            dueAt: typeof body.dueAt === "string" ? body.dueAt : undefined,
             targetCrmStatus,
           }),
           201,

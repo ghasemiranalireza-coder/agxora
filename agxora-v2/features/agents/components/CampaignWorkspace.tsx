@@ -6,6 +6,7 @@ import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
 import { evaluateCampaignReadiness } from "../campaigns/readiness";
 import type { Campaign } from "../campaigns/types";
 import type { LeadActionQueue } from "../crm/types";
+import { defaultFollowUpDueAt } from "../crm/followUp";
 import { operationsService } from "../execution/service";
 import { growthService } from "../growth/service";
 import { useAgentOperatingSystem } from "../hooks";
@@ -164,7 +165,7 @@ export function CampaignWorkspace(): JSX.Element {
               });
             }, "agents.crmFollowUp.noticeCompleteRequested")
           }
-          onExecuteLeadAction={(profileId, action, followUpId, targetCrmStatus) =>
+          onExecuteLeadAction={(profileId, action, followUpId, targetCrmStatus, dueAt) =>
             void run(async () => {
               const result = await growthService.executeLeadAction(orgId, {
                 profileId,
@@ -172,6 +173,7 @@ export function CampaignWorkspace(): JSX.Element {
                 followUpId,
                 campaignId: campaign.id,
                 targetCrmStatus,
+                dueAt,
               });
               if (result.execution.status === "INVALID") {
                 throw new Error(result.execution.message ?? "invalid_lead_action");
@@ -267,6 +269,7 @@ function CampaignDetail({
     action: string,
     followUpId?: string,
     targetCrmStatus?: import("@/app/lib/crm/directory").CrmCustomerStatus,
+    dueAt?: string,
   ) => void;
 }): JSX.Element {
   const t = useT();
@@ -291,6 +294,9 @@ function CampaignDetail({
     }
     if (recommended === "REVIEW_BLOCKED_FOLLOW_UP") {
       return "REVIEW_BLOCKED_FOLLOW_UP";
+    }
+    if (recommended === "RESCHEDULE_FOLLOW_UP") {
+      return "RESCHEDULE_FOLLOW_UP";
     }
     if (recommended === "RETRY_FAILED_FOLLOW_UP") return "RETRY_FAILED_FOLLOW_UP";
     if (recommended === "REVIEW_CRM_LINK") return "REVIEW_CRM_LINK";
@@ -621,6 +627,8 @@ function CampaignDetail({
                     (item.followUpStatus === "pending" ||
                       item.followUpStatus === "blocked" ||
                       item.followUpStatus === "failed");
+                  const canRescheduleFollowUp =
+                    canCancelFollowUp && action !== "RESCHEDULE_FOLLOW_UP";
 
                   const labelKey =
                     action === "CREATE_FOLLOW_UP"
@@ -635,12 +643,18 @@ function CampaignDetail({
                               ? "agents.leadQueue.controls.completePending"
                               : action === "REVIEW_BLOCKED_FOLLOW_UP"
                                 ? "agents.leadQueue.controls.reviewBlocked"
-                                : "agents.leadQueue.controls.complete";
+                                : action === "RESCHEDULE_FOLLOW_UP"
+                                  ? "agents.leadQueue.controls.reschedule"
+                                  : "agents.leadQueue.controls.complete";
                   const needsFollowUp =
                     action === "COMPLETE_OVERDUE_FOLLOW_UP" ||
                     action === "COMPLETE_PENDING_FOLLOW_UP" ||
                     action === "REVIEW_BLOCKED_FOLLOW_UP" ||
+                    action === "RESCHEDULE_FOLLOW_UP" ||
                     action === "RETRY_FAILED_FOLLOW_UP";
+                  const rescheduleDueAt = defaultFollowUpDueAt(
+                    leadActionQueue.today,
+                  );
                   return (
                     <>
                       <Button
@@ -660,11 +674,32 @@ function CampaignDetail({
                             action === "ADVANCE_CRM_STATUS"
                               ? item.targetCrmStatus
                               : undefined,
+                            action === "RESCHEDULE_FOLLOW_UP"
+                              ? rescheduleDueAt
+                              : undefined,
                           );
                         }}
                       >
                         {t(labelKey)}
                       </Button>
+                      {canRescheduleFollowUp ? (
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          disabled={busyBlocked || !item.followUpId}
+                          onClick={() =>
+                            onExecuteLeadAction(
+                              item.profileId,
+                              "RESCHEDULE_FOLLOW_UP",
+                              item.followUpId,
+                              undefined,
+                              rescheduleDueAt,
+                            )
+                          }
+                        >
+                          {t("agents.leadQueue.controls.reschedule")}
+                        </Button>
+                      ) : null}
                       {canCancelFollowUp ? (
                         <Button
                           size="sm"

@@ -167,7 +167,8 @@ function resultOf(
   const success =
     outcome === "created" ||
     outcome === "completed" ||
-    outcome === "cancelled";
+    outcome === "cancelled" ||
+    outcome === "rescheduled";
   return {
     available,
     success,
@@ -178,14 +179,38 @@ function resultOf(
   };
 }
 
-/** Statuses accepted by a Lead Queue complete/cancel action at mutate time. */
+/** Default create due offset (UTC calendar days) when operator omits dueAt. */
+export const DEFAULT_FOLLOW_UP_DUE_DAYS = 7;
+
+function addDaysUtc(day: string, days: number): string {
+  const date = new Date(`${day}T00:00:00.000Z`);
+  date.setUTCDate(date.getUTCDate() + days);
+  return date.toISOString().slice(0, 10);
+}
+
+/** Deterministic default dueAt (UTC midnight) for CREATE_FOLLOW_UP. */
+export function defaultFollowUpDueAt(today?: string): string {
+  const day = (today ?? nowIso().slice(0, 10)).slice(0, 10);
+  return `${addDaysUtc(day, DEFAULT_FOLLOW_UP_DUE_DAYS)}T00:00:00.000Z`;
+}
+
+export function normalizeFollowUpDueAt(
+  value: string | undefined,
+): string | undefined {
+  if (!value) return undefined;
+  const day = value.slice(0, 10);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) return undefined;
+  return `${day}T00:00:00.000Z`;
+}
+
+/** Statuses accepted by a Lead Queue complete/cancel/reschedule action at mutate time. */
 export function expectedFollowUpStatusesForLeadAction(
   leadAction: string | undefined,
 ): readonly GrowthCrmFollowUp["status"][] | undefined {
   if (leadAction === "COMPLETE_PENDING_FOLLOW_UP") return ["pending"];
   if (leadAction === "REVIEW_BLOCKED_FOLLOW_UP") return ["blocked"];
   if (leadAction === "RETRY_FAILED_FOLLOW_UP") return ["failed"];
-  if (leadAction === "CANCEL_FOLLOW_UP") {
+  if (leadAction === "CANCEL_FOLLOW_UP" || leadAction === "RESCHEDULE_FOLLOW_UP") {
     return ["pending", "blocked", "failed"];
   }
   if (leadAction === "COMPLETE_OVERDUE_FOLLOW_UP") {
@@ -304,6 +329,7 @@ export async function createCrmFollowUp(input: {
   const summary =
     input.summary?.trim() ||
     `Schedule ${kind.replace("_", " ")} follow-up for the linked Growth CRM lead.`;
+  const dueAt = normalizeFollowUpDueAt(input.dueAt) ?? defaultFollowUpDueAt();
 
   const base: GrowthCrmFollowUp = {
     id: createGrowthId("cfu"),
@@ -316,7 +342,7 @@ export async function createCrmFollowUp(input: {
     kind,
     title,
     summary,
-    dueAt: input.dueAt,
+    dueAt,
     status: "pending",
     taskId: input.taskId,
     createdAt: now,
@@ -378,7 +404,7 @@ export async function createCrmFollowUp(input: {
         body: buildFollowUpNoteBody({
           kind,
           summary,
-          dueAt: input.dueAt,
+          dueAt,
           campaignName: input.campaignName,
           companyName: link.companyName || customer.companyName,
         }),
@@ -646,6 +672,73 @@ export async function cancelCrmFollowUp(input: {
     ...existing,
     status: "cancelled",
     outcome: "cancelled",
+    result,
+    taskId: input.taskId ?? existing.taskId,
+    updatedAt: nowIso(),
+    lastError: undefined,
+  });
+  return { result, followUp };
+}
+
+/**
+ * Reschedule an open follow-up — Agent OS dueAt update only.
+ * No outbound communication. Status is preserved.
+ */
+export async function rescheduleCrmFollowUp(input: {
+  readonly organizationId: string;
+  readonly followUpId: string;
+  readonly dueAt: string;
+  readonly taskId?: string;
+  readonly leadAction?: string;
+}): Promise<{
+  readonly result: CrmFollowUpResult;
+  readonly followUp: GrowthCrmFollowUp | undefined;
+}> {
+  const existing = getCrmFollowUp(input.organizationId, input.followUpId);
+  if (!existing) {
+    return {
+      result: resultOf("error", "crm_follow_up_missing"),
+      followUp: undefined,
+    };
+  }
+
+  const expected =
+    expectedFollowUpStatusesForLeadAction(
+      input.leadAction ?? "RESCHEDULE_FOLLOW_UP",
+    ) ?? (["pending", "blocked", "failed"] as const);
+  if (!expected.includes(existing.status)) {
+    const result = resultOf("error", "crm_follow_up_status_stale");
+    const followUp = persistFollowUp({
+      ...existing,
+      taskId: input.taskId ?? existing.taskId,
+      result,
+      lastError: result.message,
+      updatedAt: nowIso(),
+    });
+    return { result, followUp };
+  }
+
+  const dueAt = normalizeFollowUpDueAt(input.dueAt);
+  if (!dueAt) {
+    const result = resultOf("error", "crm_follow_up_due_at_invalid");
+    const followUp = persistFollowUp({
+      ...existing,
+      taskId: input.taskId ?? existing.taskId,
+      result,
+      lastError: result.message,
+      updatedAt: nowIso(),
+    });
+    return { result, followUp };
+  }
+
+  const result = resultOf("rescheduled", "crm_follow_up_rescheduled", {
+    noteId: existing.noteId,
+    href: existing.href,
+  });
+  const followUp = persistFollowUp({
+    ...existing,
+    dueAt,
+    outcome: "rescheduled",
     result,
     taskId: input.taskId ?? existing.taskId,
     updatedAt: nowIso(),

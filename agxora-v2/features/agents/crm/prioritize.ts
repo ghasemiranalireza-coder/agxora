@@ -189,6 +189,19 @@ export function evaluateLeadPriority(input: {
     };
   }
 
+  const undated = pending.filter((item) => !dayKey(item.dueAt));
+  if (undated.length > 0) {
+    reasons.push("undated_follow_up");
+    reasons.push("pending_follow_up");
+    return {
+      priority: "MEDIUM",
+      score: SCORE.MEDIUM + 5,
+      reasons,
+      recommendedAction: "RESCHEDULE_FOLLOW_UP",
+      followUp: undated[0],
+    };
+  }
+
   if (pending.length > 0) {
     reasons.push("pending_follow_up");
     return {
