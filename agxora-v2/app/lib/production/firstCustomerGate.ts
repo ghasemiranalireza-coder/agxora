@@ -63,6 +63,25 @@ export type FirstCustomerGateResult = {
   readonly issues: readonly FirstCustomerGateIssue[];
 };
 
+/** Fail-closed runtime error when production gate blocks local/demo persistence. */
+export class FirstCustomerProductionGateError extends Error {
+  readonly code = "production_gate_not_ready" as const;
+  readonly issues: readonly FirstCustomerGateIssue[];
+
+  constructor(
+    issues: readonly FirstCustomerGateIssue[],
+    message?: string,
+  ) {
+    super(
+      message ??
+        (issues.map((issue) => issue.message).join("; ") ||
+          "First-customer production gate is not ready"),
+    );
+    this.name = "FirstCustomerProductionGateError";
+    this.issues = issues;
+  }
+}
+
 function resolveRuntimeEnvName(): AgxoraRuntimeEnvName {
   const raw = (
     process.env.NEXT_PUBLIC_AGXORA_ENV ??
@@ -215,18 +234,37 @@ export function evaluateFirstCustomerProductionGate(
   };
 }
 
-/** Public-safe mode summary for Agents shell (no secrets). */
-export function getPublicProductionReadinessSummary(): {
-  readonly enforced: boolean;
-  readonly ready: boolean;
-  readonly issueCodes: readonly FirstCustomerGateIssueCode[];
-} {
-  const result = evaluateFirstCustomerProductionGate(
-    collectFirstCustomerModeSnapshot(),
-  );
-  return {
-    enforced: result.enforced,
-    ready: result.ready,
-    issueCodes: result.issues.map((issue) => issue.code),
-  };
+/**
+ * Block Agent OS local persistence in production runtime (client-safe).
+ * Uses public env flags only — server-only gate fields are enforced on APIs.
+ */
+export function assertProductionAgentOsLocalPersistenceBlocked(
+  snapshot: FirstCustomerModeSnapshot = collectFirstCustomerModeSnapshot(),
+): void {
+  if (!isProductionRuntime(snapshot.runtime, snapshot.nodeEnv)) return;
+  if (snapshot.agentOsPersistence !== "local") return;
+  throw new FirstCustomerProductionGateError([
+    {
+      code: "agent_os_persistence",
+      message:
+        "Agent OS local persistence is not allowed in production; set NEXT_PUBLIC_AGXORA_AGENT_OS_PERSISTENCE=server",
+    },
+  ]);
+}
+
+/**
+ * Block CRM local persistence in production runtime (client-safe).
+ */
+export function assertProductionCrmLocalPersistenceBlocked(
+  snapshot: FirstCustomerModeSnapshot = collectFirstCustomerModeSnapshot(),
+): void {
+  if (!isProductionRuntime(snapshot.runtime, snapshot.nodeEnv)) return;
+  if (snapshot.crmPersistence !== "local") return;
+  throw new FirstCustomerProductionGateError([
+    {
+      code: "crm_persistence",
+      message:
+        "CRM local persistence is not allowed in production; set NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE=database",
+    },
+  ]);
 }

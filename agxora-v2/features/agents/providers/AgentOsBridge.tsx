@@ -35,7 +35,13 @@ export function AgentOsBridge({
   const sessionKey = auth?.user?.id ?? "anon";
 
   useEffect(() => {
-    ensureRepositoryForMode();
+    try {
+      ensureRepositoryForMode();
+    } catch {
+      // Fail closed: misconfigured production must not use localStorage.
+      agentsStore.clearMemory();
+      return;
+    }
 
     let cancelled = false;
 

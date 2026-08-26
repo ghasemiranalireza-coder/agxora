@@ -4,11 +4,10 @@ import Link from "next/link";
 import { useEffect, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
-import { getPublicProductionReadinessSummary } from "@/app/lib/production/firstCustomerGate";
 import type { DataTableColumn } from "@/app/components/ui";
 import { agentsStore } from "../store";
 import { agentOsService } from "../services";
-import { useAgentOperatingSystem } from "../hooks";
+import { useAgentOperatingSystem, useProductionReadinessFromHealth } from "../hooks";
 import { GrowthWorkspace } from "./GrowthWorkspace";
 import { CampaignWorkspace } from "./CampaignWorkspace";
 import { OperationsWorkspace } from "./OperationsWorkspace";
@@ -47,6 +46,7 @@ type TabId =
 export function AgentOperatingSystem(): JSX.Element {
   const t = useT();
   const aos = useAgentOperatingSystem();
+  const productionReadiness = useProductionReadinessFromHealth();
   const [tab, setTab] = useState<TabId>("dashboard");
   const [notice, setNotice] = useState(t("agents.noticeDefault"));
   const [busy, setBusy] = useState(false);
@@ -101,7 +101,36 @@ export function AgentOperatingSystem(): JSX.Element {
     );
   }
 
-  const productionReadiness = getPublicProductionReadinessSummary();
+  const productionGateBanner =
+    productionReadiness.status === "ready" &&
+    productionReadiness.data.enforced &&
+    !productionReadiness.data.ready ? (
+      <p
+        className="rounded-md border px-3 py-2 text-xs"
+        style={{
+          color: "var(--agx-danger, #f87171)",
+          borderColor:
+            "color-mix(in srgb, var(--agx-danger, #f87171) 35%, transparent)",
+          background:
+            "color-mix(in srgb, var(--agx-danger, #f87171) 8%, transparent)",
+        }}
+      >
+        {t("agents.productionGate.notReady", {
+          codes: productionReadiness.data.issueCodes.join(", "),
+        })}
+      </p>
+    ) : productionReadiness.status === "error" ? (
+      <p
+        className="rounded-md border px-3 py-2 text-xs"
+        style={{
+          color: "var(--agx-text-muted, #94a3b8)",
+          borderColor:
+            "color-mix(in srgb, var(--agx-text-muted, #94a3b8) 35%, transparent)",
+        }}
+      >
+        {t("agents.productionGate.readinessUnavailable")}
+      </p>
+    ) : null;
 
   const onRun = async (instanceId: string, title: string) => {
     setBusy(true);
@@ -476,21 +505,7 @@ export function AgentOperatingSystem(): JSX.Element {
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           {notice}
         </p>
-        {productionReadiness.enforced && !productionReadiness.ready ? (
-          <p
-            className="rounded-md border px-3 py-2 text-xs"
-            style={{
-              color: "var(--agx-danger, #f87171)",
-              borderColor: "color-mix(in srgb, var(--agx-danger, #f87171) 35%, transparent)",
-              background:
-                "color-mix(in srgb, var(--agx-danger, #f87171) 8%, transparent)",
-            }}
-          >
-            {t("agents.productionGate.notReady", {
-              codes: productionReadiness.issueCodes.join(", "),
-            })}
-          </p>
-        ) : null}
+        {productionGateBanner}
         <div className="flex flex-wrap gap-2 pt-1">
           {tabs.map((tabItem) => (
             <Button

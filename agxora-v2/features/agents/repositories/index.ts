@@ -12,6 +12,7 @@ import {
   getAgentOsPersistenceMode,
   type AgentOsPersistenceMode,
 } from "@/app/lib/agents/persistence/mode";
+import { assertProductionAgentOsLocalPersistenceBlocked } from "@/app/lib/production/firstCustomerGate";
 import {
   emptyAgentsState,
   filterStateForOrganization,
@@ -396,10 +397,11 @@ async function readErrorMessage(response: Response): Promise<string> {
 export function createAgentsRepositoryForMode(
   mode: AgentOsPersistenceMode = getAgentOsPersistenceMode(),
 ): AgentsRepository {
-  if (mode === "server") {
-    return new RestAgentsRepository();
+  if (mode === "local") {
+    assertProductionAgentOsLocalPersistenceBlocked();
+    return new LocalAgentsRepository();
   }
-  return new LocalAgentsRepository();
+  return new RestAgentsRepository();
 }
 
 export {

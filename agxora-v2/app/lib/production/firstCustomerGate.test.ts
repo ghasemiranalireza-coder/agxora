@@ -6,10 +6,17 @@ import { afterEach, describe, expect, it } from "vitest";
 import {
   collectFirstCustomerModeSnapshot,
   evaluateFirstCustomerProductionGate,
+  assertProductionAgentOsLocalPersistenceBlocked,
+  assertProductionCrmLocalPersistenceBlocked,
+  FirstCustomerProductionGateError,
   type FirstCustomerModeSnapshot,
 } from "@/app/lib/production/firstCustomerGate";
 import { assertProdEnv } from "@/app/lib/production/env";
 import { buildHealthPayload } from "@/app/lib/production/health";
+import { requireFirstCustomerProductionReady } from "@/app/lib/production/requireReady";
+import { createAgentsRepositoryForMode } from "@/features/agents/repositories";
+import { crmDirectoryService } from "@/app/lib/crm/directory/service";
+import { PersistenceError } from "@/app/lib/tenancy/errors";
 import {
   isClientMintedOrganizationId,
   resolveOnboardingOrganizationId,
@@ -286,5 +293,62 @@ describe("Phase 57 mode snapshot helper", () => {
     expect(snap.runtime).toBe("development");
     expect(snap.emailProvider).toBe("none");
     expect(JSON.stringify(snap)).not.toMatch(/postgresql:\/\//);
+  });
+});
+
+describe("Phase 57.1 fail-closed production runtime", () => {
+  function setMisconfiguredProductionEnv(): void {
+    process.env.NEXT_PUBLIC_AGXORA_ENV = "production";
+    process.env.NODE_ENV = "production";
+    process.env.NEXT_PUBLIC_AGXORA_AGENT_OS_PERSISTENCE = "local";
+    process.env.NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE = "local";
+    process.env.NEXT_PUBLIC_AGXORA_AUTH_MODE = "local";
+    process.env.AGXORA_AUTH_REQUIRED = "false";
+    process.env.AGXORA_EMAIL_PROVIDER = "none";
+    process.env.AGXORA_USE_MOCKS = "true";
+  }
+
+  it("misconfigured production cannot silently use Agent OS local persistence", () => {
+    setMisconfiguredProductionEnv();
+    expect(() => assertProductionAgentOsLocalPersistenceBlocked()).toThrow(
+      FirstCustomerProductionGateError,
+    );
+    expect(() => createAgentsRepositoryForMode("local")).toThrow(
+      FirstCustomerProductionGateError,
+    );
+  });
+
+  it("misconfigured production cannot silently use CRM local persistence", async () => {
+    setMisconfiguredProductionEnv();
+    expect(() => assertProductionCrmLocalPersistenceBlocked()).toThrow(
+      FirstCustomerProductionGateError,
+    );
+    await expect(crmDirectoryService.list("org_test")).rejects.toThrow(
+      FirstCustomerProductionGateError,
+    );
+  });
+
+  it("requireFirstCustomerProductionReady throws 503 PersistenceError in production", () => {
+    setMisconfiguredProductionEnv();
+    try {
+      requireFirstCustomerProductionReady();
+      expect.unreachable("expected gate failure");
+    } catch (error) {
+      expect(error).toBeInstanceOf(PersistenceError);
+      if (error instanceof PersistenceError) {
+        expect(error.code).toBe("misconfigured");
+        expect(error.status).toBe(503);
+      }
+    }
+  });
+
+  it("development local persistence remains allowed", () => {
+    process.env.NEXT_PUBLIC_AGXORA_ENV = "development";
+    process.env.NODE_ENV = "development";
+    process.env.NEXT_PUBLIC_AGXORA_AGENT_OS_PERSISTENCE = "local";
+    process.env.NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE = "local";
+    expect(() => assertProductionAgentOsLocalPersistenceBlocked()).not.toThrow();
+    expect(() => assertProductionCrmLocalPersistenceBlocked()).not.toThrow();
+    expect(() => createAgentsRepositoryForMode("local")).not.toThrow();
   });
 });

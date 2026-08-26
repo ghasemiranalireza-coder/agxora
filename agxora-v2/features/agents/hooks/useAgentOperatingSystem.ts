@@ -11,17 +11,15 @@ import { listLlmProviders } from "../llm";
 import { agentOsService } from "../services";
 import { filterMemory } from "../memory";
 import { getAgentDefinition } from "../catalog";
-
-const LOCAL_ORG = "org_local_default";
+import { resolveAgentsOrganizationId } from "./resolveAgentsOrganizationId";
 
 export function useAgentsOrganizationId(): string {
   const { organization } = useOrganization();
   const auth = useOptionalAuth();
-  return (
-    organization?.id ??
-    auth?.user?.defaultOrganizationId ??
-    LOCAL_ORG
-  );
+  return resolveAgentsOrganizationId({
+    sessionOrganizationId: organization?.id,
+    authOrganizationId: auth?.user?.defaultOrganizationId,
+  });
 }
 
 export function useAgentOperatingSystem() {

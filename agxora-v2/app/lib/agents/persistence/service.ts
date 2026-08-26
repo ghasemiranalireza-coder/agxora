@@ -17,12 +17,14 @@ import {
   type AgentsPersistedState,
   type LegacyAgentsPersistedState,
 } from "@/features/agents/repositories/state";
+import { requireFirstCustomerProductionReady } from "@/app/lib/production/requireReady";
 
 const SCHEMA_VERSION = 7;
 
 export async function getAgentOsStateForActor(
   actor: Actor,
 ): Promise<AgentsPersistedState> {
+  requireFirstCustomerProductionReady();
   const row = await prisma.agentOsState.findUnique({
     where: { organizationId: actor.organizationId },
   });
@@ -42,6 +44,7 @@ export async function putAgentOsStateForActor(
   actor: Actor,
   incoming: AgentsPersistedState | LegacyAgentsPersistedState | null | undefined,
 ): Promise<AgentsPersistedState> {
+  requireFirstCustomerProductionReady();
   if (!incoming || typeof incoming !== "object") {
     throw new PersistenceError("validation", "Missing Agent OS state payload", {
       details: [{ field: "state", message: "required" }],

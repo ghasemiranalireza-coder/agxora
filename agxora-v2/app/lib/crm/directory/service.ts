@@ -1,6 +1,7 @@
 import { recordActivity } from "../../backend/activity";
 import { auditLog } from "../../backend/audit";
 import { isCrmDatabaseMode } from "../persistence/mode";
+import { assertProductionCrmLocalPersistenceBlocked } from "@/app/lib/production/firstCustomerGate";
 import { crmDirectoryRepository } from "./repository";
 import {
   remoteCreateContact,
@@ -81,11 +82,16 @@ export class CrmDocumentValidationError extends Error {
 export class CrmDirectoryService {
   constructor(private readonly repo = crmDirectoryRepository) {}
 
+  private assertLocalPersistenceAllowed(): void {
+    assertProductionCrmLocalPersistenceBlocked();
+  }
+
   async list(organizationId?: string) {
     if (isCrmDatabaseMode()) {
       // Server scopes by actor membership — ignore client org hint.
       return remoteListCustomers();
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.listCustomers(organizationId);
   }
 
@@ -93,6 +99,7 @@ export class CrmDirectoryService {
     if (isCrmDatabaseMode()) {
       return remoteGetCustomer(id);
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.getCustomer(id);
   }
 
@@ -101,6 +108,7 @@ export class CrmDirectoryService {
   }
 
   getDatabase() {
+    this.assertLocalPersistenceAllowed();
     return this.repo.getDatabase();
   }
 
@@ -126,6 +134,7 @@ export class CrmDirectoryService {
       return customer;
     }
 
+    this.assertLocalPersistenceAllowed();
     const existing = await this.repo.listCustomers(organizationId);
     const result = validateCustomerDraft(draft, { existing });
     if (!result.ok) throw new CrmValidationError(result.errors);
@@ -172,6 +181,7 @@ export class CrmDirectoryService {
       return customer;
     }
 
+    this.assertLocalPersistenceAllowed();
     const existingCustomer = await this.repo.getCustomer(id);
     if (!existingCustomer) throw new Error(`Customer not found: ${id}`);
     const existing = await this.repo.listCustomers(
@@ -222,6 +232,7 @@ export class CrmDirectoryService {
       return existing;
     }
 
+    this.assertLocalPersistenceAllowed();
     const existing = await this.repo.getCustomer(id);
     if (!existing) return null;
     await this.repo.deleteCustomer(id);
@@ -246,6 +257,7 @@ export class CrmDirectoryService {
     if (isCrmDatabaseMode()) {
       return remoteListContacts(customerId);
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.listContacts(customerId);
   }
 
@@ -260,6 +272,7 @@ export class CrmDirectoryService {
       // organizationId from the browser is ignored — server derives tenancy.
       return remoteCreateContact(customerId, draft);
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.createContact({
       customerId,
       organizationId,
@@ -273,6 +286,7 @@ export class CrmDirectoryService {
     if (isCrmDatabaseMode()) {
       return remoteUpdateContact(id, draft);
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.updateContact(id, result.value);
   }
 
@@ -281,6 +295,7 @@ export class CrmDirectoryService {
       await remoteDeleteContact(id);
       return;
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.deleteContact(id);
   }
 
@@ -288,6 +303,7 @@ export class CrmDirectoryService {
     if (isCrmDatabaseMode()) {
       return remoteListNotes(customerId);
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.listNotes(customerId);
   }
 
@@ -302,6 +318,7 @@ export class CrmDirectoryService {
       // organizationId from the browser is ignored — server derives tenancy.
       return remoteCreateNote(customerId, draft);
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.createNote({
       customerId,
       organizationId,
@@ -315,6 +332,7 @@ export class CrmDirectoryService {
     if (isCrmDatabaseMode()) {
       return remoteUpdateNote(id, draft);
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.updateNote(id, result.value);
   }
 
@@ -323,6 +341,7 @@ export class CrmDirectoryService {
       await remoteDeleteNote(id);
       return;
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.deleteNote(id);
   }
 
@@ -330,6 +349,7 @@ export class CrmDirectoryService {
     if (isCrmDatabaseMode()) {
       return remoteListDocuments(customerId);
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.listDocuments(customerId);
   }
 
@@ -351,6 +371,7 @@ export class CrmDirectoryService {
       // organizationId from the browser is ignored — server derives tenancy.
       return remoteCreateDocument(customerId, draft);
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.createDocument({
       customerId,
       organizationId,
@@ -363,6 +384,7 @@ export class CrmDirectoryService {
       await remoteDeleteDocument(id);
       return;
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.deleteDocument(id);
   }
 
@@ -370,6 +392,7 @@ export class CrmDirectoryService {
     if (isCrmDatabaseMode()) {
       return remoteListActivities(customerId);
     }
+    this.assertLocalPersistenceAllowed();
     return this.repo.listActivities(customerId);
   }
 }
