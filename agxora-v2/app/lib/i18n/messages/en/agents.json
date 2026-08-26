@@ -4,6 +4,10 @@
   "title": "Agent OS",
   "subtitle": "Local agent workspace — agents can be activated and run as simulations across CRM, Projects, Finance, Workflows, and Integrations. Production autonomous execution is not connected.",
   "noticeDefault": "Local Agent OS — runs are simulated in this workspace.",
+  "productionGate": {
+    "notReady": "Production readiness incomplete: {codes}. Configure auth, CRM database, Agent OS server persistence, and transactional email before serving customers.",
+    "readinessUnavailable": "Unable to verify production readiness. Check /api/health or try again shortly."
+  },
   "aiChat": "AI Chat",
   "tabs": {
     "dashboard": "Dashboard",

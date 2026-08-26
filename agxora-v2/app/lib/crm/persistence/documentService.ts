@@ -22,6 +22,7 @@ import {
   documentAddedActivity,
   documentDeletedActivity,
 } from "./activityEmitter";
+import { assertCrmServerProductionReady } from "./assertProductionReady";
 
 /**
  * Resolve parent customer in the actor workspace or fail closed.
@@ -48,6 +49,7 @@ export async function listDocumentsForActor(
   actor: Actor,
   customerId: string,
 ): Promise<readonly CrmDocumentRecord[]> {
+  assertCrmServerProductionReady();
   const parent = await requireCustomerInActorWorkspace(actor, customerId);
   assertCan(actor, "customer.read", parent);
   return listDocumentsForCustomerInWorkspace(actor.workspaceId, customerId);
@@ -57,6 +59,7 @@ export async function getDocumentForActor(
   actor: Actor,
   documentId: string,
 ): Promise<CrmDocumentRecord> {
+  assertCrmServerProductionReady();
   assertCan(actor, "customer.read", {
     organizationId: actor.organizationId,
     workspaceId: actor.workspaceId,
@@ -76,6 +79,7 @@ export async function createDocumentForActor(
   customerId: string,
   draft: CrmDocumentDraft,
 ): Promise<CrmDocumentRecord> {
+  assertCrmServerProductionReady();
   const parent = await requireCustomerInActorWorkspace(actor, customerId);
   assertCan(actor, "customer.create", parent);
 
@@ -105,6 +109,7 @@ export async function deleteDocumentForActor(
   actor: Actor,
   documentId: string,
 ): Promise<void> {
+  assertCrmServerProductionReady();
   const existing = await getDocumentInWorkspace(actor.workspaceId, documentId);
   if (!existing) {
     throw new PersistenceError("not_found", "Document not found");

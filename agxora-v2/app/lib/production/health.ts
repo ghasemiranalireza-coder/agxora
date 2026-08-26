@@ -1,12 +1,18 @@
 /**
  * Health check payload — liveness / readiness architecture.
+ * Phase 57: exposes first-customer production gate readiness (no secrets).
  */
 
 import { assertProdEnv, getEnvSnapshot } from "./env";
+import {
+  collectFirstCustomerModeSnapshot,
+  evaluateFirstCustomerProductionGate,
+  type FirstCustomerGateIssueCode,
+} from "./firstCustomerGate";
 
 export interface HealthPayload {
   readonly ok: boolean;
-  readonly status: "healthy" | "degraded";
+  readonly status: "healthy" | "degraded" | "not_ready";
   readonly service: "agxora";
   readonly version: string;
   readonly runtime: string;
@@ -14,15 +20,40 @@ export interface HealthPayload {
   readonly mocksEnabled: boolean;
   readonly warnings: readonly string[];
   readonly checkedAt: string;
+  /** Phase 57 — first-customer production gate (public-safe). */
+  readonly productionGate: {
+    readonly enforced: boolean;
+    readonly ready: boolean;
+    readonly authMode: string;
+    readonly crmPersistence: string;
+    readonly agentOsPersistence: string;
+    readonly emailConfigured: boolean;
+    readonly issueCodes: readonly FirstCustomerGateIssueCode[];
+  };
 }
 
 export function buildHealthPayload(): HealthPayload {
   const env = getEnvSnapshot();
-  const warnings = assertProdEnv();
-  const degraded = warnings.length > 0 && env.nodeEnv === "production";
+  const warnings = [...assertProdEnv()];
+  const gate = evaluateFirstCustomerProductionGate(
+    collectFirstCustomerModeSnapshot({
+      runtime: env.runtime,
+      nodeEnv: env.nodeEnv,
+      authRequired: env.authRequired,
+      useMocks: env.useMocks,
+    }),
+  );
+
+  const productionBlocked = gate.enforced && !gate.ready;
+  const degraded =
+    warnings.length > 0 &&
+    (env.nodeEnv === "production" || env.runtime === "production");
+
   return {
+    // Liveness remains ok:true so load balancers do not kill the process;
+    // readiness is expressed via status + productionGate.ready.
     ok: true,
-    status: degraded ? "degraded" : "healthy",
+    status: productionBlocked ? "not_ready" : degraded ? "degraded" : "healthy",
     service: "agxora",
     version: env.appVersion,
     runtime: env.runtime,
@@ -30,5 +61,14 @@ export function buildHealthPayload(): HealthPayload {
     mocksEnabled: env.useMocks,
     warnings,
     checkedAt: new Date().toISOString(),
+    productionGate: {
+      enforced: gate.enforced,
+      ready: gate.ready,
+      authMode: gate.snapshot.authMode,
+      crmPersistence: gate.snapshot.crmPersistence,
+      agentOsPersistence: gate.snapshot.agentOsPersistence,
+      emailConfigured: gate.snapshot.emailProvider !== "none",
+      issueCodes: gate.issues.map((issue) => issue.code),
+    },
   };
 }

@@ -878,5 +878,9 @@
       "vip": "VIP",
       "archived": "Archived"
     }
+  },
+  "productionGate": {
+    "notReady": "Production readiness incomplete: {codes}. Configure auth, CRM database, Agent OS server persistence, and transactional email before serving customers.",
+    "readinessUnavailable": "Unable to verify production readiness. Check /api/health or try again shortly."
   }
 }

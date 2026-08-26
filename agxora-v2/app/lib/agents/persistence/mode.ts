@@ -4,9 +4,9 @@
  * local  (default): LocalAgentsRepository → browser localStorage (demo/dev)
  * server: RestAgentsRepository → /api/v1/agents/os-state (org-scoped Postgres)
  *
- * Production first-customer path must set:
+ * Phase 57 production gate requires:
  *   NEXT_PUBLIC_AGXORA_AGENT_OS_PERSISTENCE=server
- * alongside server auth + CRM database mode (Phase 57 gate).
+ * with server auth, CRM database mode, AUTH_REQUIRED, and email != none.
  */
 
 export type AgentOsPersistenceMode = "local" | "server";

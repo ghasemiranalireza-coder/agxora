@@ -24,6 +24,7 @@ import {
   contactDeletedActivity,
   contactUpdatedActivity,
 } from "./activityEmitter";
+import { assertCrmServerProductionReady } from "./assertProductionReady";
 
 /**
  * Resolve parent customer in the actor workspace or fail closed.
@@ -50,6 +51,7 @@ export async function listContactsForActor(
   actor: Actor,
   customerId: string,
 ): Promise<readonly CrmContactRecord[]> {
+  assertCrmServerProductionReady();
   const parent = await requireCustomerInActorWorkspace(actor, customerId);
   assertCan(actor, "customer.read", parent);
   return listContactsForCustomerInWorkspace(actor.workspaceId, customerId);
@@ -59,6 +61,7 @@ export async function getContactForActor(
   actor: Actor,
   contactId: string,
 ): Promise<CrmContactRecord> {
+  assertCrmServerProductionReady();
   assertCan(actor, "customer.read", {
     organizationId: actor.organizationId,
     workspaceId: actor.workspaceId,
@@ -78,6 +81,7 @@ export async function createContactForActor(
   customerId: string,
   draft: CrmContactDraft,
 ): Promise<CrmContactRecord> {
+  assertCrmServerProductionReady();
   const parent = await requireCustomerInActorWorkspace(actor, customerId);
   assertCan(actor, "customer.create", parent);
 
@@ -108,6 +112,7 @@ export async function updateContactForActor(
   contactId: string,
   draft: CrmContactDraft,
 ): Promise<CrmContactRecord> {
+  assertCrmServerProductionReady();
   const existing = await getContactInWorkspace(actor.workspaceId, contactId);
   if (!existing) {
     throw new PersistenceError("not_found", "Contact not found");
@@ -145,6 +150,7 @@ export async function deleteContactForActor(
   actor: Actor,
   contactId: string,
 ): Promise<void> {
+  assertCrmServerProductionReady();
   const existing = await getContactInWorkspace(actor.workspaceId, contactId);
   if (!existing) {
     throw new PersistenceError("not_found", "Contact not found");

@@ -7,8 +7,12 @@ import {
   type BusinessType,
   useBusinessOs,
 } from "../../lib/business";
+import { resolveOnboardingOrganizationId } from "../../lib/business/onboardingOrganization";
 import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
 import { resolveUserFacingErrorKey, useT } from "../../lib/i18n";
+import { useOptionalAuth } from "../../lib/auth";
+import { useOrganization } from "../../lib/organization";
+import { isServerAuthMode } from "../../lib/auth/mode";
 
 const surfaceTransition = [
   `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
@@ -43,6 +47,8 @@ export function OnboardingWizard(): JSX.Element {
   const { tokens } = useTheme();
   const router = useRouter();
   const { activateBusiness, primaryTemplate } = useBusinessOs();
+  const auth = useOptionalAuth();
+  const { organization } = useOrganization();
 
   const [step, setStep] = useState<Step>(0);
   const [businessType, setBusinessType] = useState<BusinessType | null>(null);
@@ -81,13 +87,17 @@ export function OnboardingWizard(): JSX.Element {
     setSubmitting(true);
     setError(null);
     try {
-      const organizationId =
-        typeof crypto !== "undefined" && "randomUUID" in crypto
-          ? `org_${crypto.randomUUID()}`
-          : `org_${Date.now().toString(36)}`;
+      const resolved = resolveOnboardingOrganizationId({
+        sessionOrganizationId: organization?.id ?? null,
+        authOrganizationId: auth?.user?.defaultOrganizationId ?? null,
+        requireAuthenticatedOrganization: isServerAuthMode(),
+      });
+      if (!resolved.ok) {
+        throw new Error(resolved.message);
+      }
 
       activateBusiness({
-        organizationId,
+        organizationId: resolved.organizationId,
         companyName: companyName.trim(),
         businessType,
         templateId: template.id,
@@ -95,6 +105,7 @@ export function OnboardingWizard(): JSX.Element {
         language: language.trim() || "en",
         timezone: timezone.trim() || "UTC",
         goals,
+        ownerSubjectId: auth?.userId ?? undefined,
       });
 
       router.push("/dashboard");

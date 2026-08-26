@@ -14,6 +14,7 @@ import {
   getActivityInWorkspace,
   listActivitiesForCustomerInWorkspace,
 } from "./activityRepository";
+import { assertCrmServerProductionReady } from "./assertProductionReady";
 
 /**
  * Resolve parent customer in the actor workspace or fail closed.
@@ -40,6 +41,7 @@ export async function listActivitiesForActor(
   actor: Actor,
   customerId: string,
 ): Promise<readonly CrmActivityRecord[]> {
+  assertCrmServerProductionReady();
   const parent = await requireCustomerInActorWorkspace(actor, customerId);
   assertCan(actor, "customer.read", parent);
   return listActivitiesForCustomerInWorkspace(actor.workspaceId, customerId);
@@ -49,6 +51,7 @@ export async function getActivityForActor(
   actor: Actor,
   activityId: string,
 ): Promise<CrmActivityRecord> {
+  assertCrmServerProductionReady();
   assertCan(actor, "customer.read", {
     organizationId: actor.organizationId,
     workspaceId: actor.workspaceId,

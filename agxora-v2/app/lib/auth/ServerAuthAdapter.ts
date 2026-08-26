@@ -7,7 +7,7 @@
 
 "use client";
 
-import { asUserId } from "../organization/types";
+import { asOrganizationId, asUserId } from "../organization/types";
 import type {
   AuthProviderPort,
   AuthSession,
@@ -36,16 +36,25 @@ type MePayload = {
     expiresAt: string;
     createdAt: string;
   } | null;
+  /** Phase 57 — membership organization from server session. */
+  organizationId?: string | null;
+  workspaceId?: string | null;
   message?: string;
   code?: string;
 };
 
-function toAuthUser(user: NonNullable<MePayload["user"]>): AuthUser {
+function toAuthUser(
+  user: NonNullable<MePayload["user"]>,
+  organizationId?: string | null,
+): AuthUser {
   return {
     id: asUserId(user.id),
     email: user.email,
     displayName: user.displayName,
     emailVerified: user.emailVerified,
+    defaultOrganizationId: organizationId
+      ? asOrganizationId(organizationId)
+      : undefined,
     createdAt: user.createdAt,
     updatedAt: user.updatedAt,
   };
@@ -103,7 +112,7 @@ export class ServerAuthAdapter implements AuthProviderPort {
       throw new Error("Registration failed");
     }
     return {
-      user: toAuthUser(payload.user),
+      user: toAuthUser(payload.user, payload.organizationId),
       session: toAuthSession(payload.session),
     };
   }
@@ -122,7 +131,7 @@ export class ServerAuthAdapter implements AuthProviderPort {
       throw new Error("Invalid email or password");
     }
     return {
-      user: toAuthUser(payload.user),
+      user: toAuthUser(payload.user, payload.organizationId),
       session: toAuthSession(payload.session),
     };
   }
@@ -141,7 +150,9 @@ export class ServerAuthAdapter implements AuthProviderPort {
 
   async getUser(): Promise<AuthUser | null> {
     const payload = await authFetch<MePayload>("/api/v1/auth/me");
-    return payload.user ? toAuthUser(payload.user) : null;
+    return payload.user
+      ? toAuthUser(payload.user, payload.organizationId)
+      : null;
   }
 
   async refreshSession(): Promise<AuthSession | null> {
@@ -190,15 +201,12 @@ export class ServerAuthAdapter implements AuthProviderPort {
   }
 
   async verifyEmail(input: VerifyEmailInput): Promise<AuthUser> {
-    const payload = await authFetch<{ ok: boolean; user: MePayload["user"] }>(
-      "/api/v1/auth/verify-email",
-      {
-        method: "POST",
-        body: JSON.stringify({ token: input.token }),
-      },
-    );
+    const payload = await authFetch<MePayload>("/api/v1/auth/verify-email", {
+      method: "POST",
+      body: JSON.stringify({ token: input.token }),
+    });
     if (!payload.user) throw new Error("Verification failed");
-    return toAuthUser(payload.user);
+    return toAuthUser(payload.user, payload.organizationId);
   }
 }
 

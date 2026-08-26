@@ -21,10 +21,12 @@ import {
   customerCreatedActivity,
   customerUpdatedActivity,
 } from "./activityEmitter";
+import { assertCrmServerProductionReady } from "./assertProductionReady";
 
 export async function listCustomersForActor(
   actor: Actor,
 ): Promise<readonly CrmCustomerRecord[]> {
+  assertCrmServerProductionReady();
   assertCan(actor, "customer.read", {
     organizationId: actor.organizationId,
     workspaceId: actor.workspaceId,
@@ -36,6 +38,7 @@ export async function getCustomerForActor(
   actor: Actor,
   customerId: string,
 ): Promise<CrmCustomerRecord> {
+  assertCrmServerProductionReady();
   assertCan(actor, "customer.read", {
     organizationId: actor.organizationId,
     workspaceId: actor.workspaceId,
@@ -51,6 +54,7 @@ export async function createCustomerForActor(
   actor: Actor,
   draft: CrmCustomerDraft,
 ): Promise<CrmCustomerRecord> {
+  assertCrmServerProductionReady();
   assertCan(actor, "customer.create", {
     organizationId: actor.organizationId,
     workspaceId: actor.workspaceId,
@@ -83,6 +87,7 @@ export async function updateCustomerForActor(
   customerId: string,
   draft: CrmCustomerDraft,
 ): Promise<CrmCustomerRecord> {
+  assertCrmServerProductionReady();
   const existingRow = await getCustomerInWorkspace(actor.workspaceId, customerId);
   if (!existingRow) {
     throw new PersistenceError("not_found", "Customer not found");
@@ -118,6 +123,7 @@ export async function deleteCustomerForActor(
   actor: Actor,
   customerId: string,
 ): Promise<void> {
+  assertCrmServerProductionReady();
   const existingRow = await getCustomerInWorkspace(actor.workspaceId, customerId);
   if (!existingRow) {
     throw new PersistenceError("not_found", "Customer not found");
