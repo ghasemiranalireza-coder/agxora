@@ -335,11 +335,26 @@ function isUnavailableError(error: unknown): boolean {
 /**
  * Advance a linked CRM customer status using the live CRM record.
  * Optional status note is best-effort documentation (never claimed as email/publish).
+ *
+ * Mutation-time validation is action-scoped (ADVANCE / DISPOSE / REACTIVATE) and
+ * never uses the union resolver. When expectedFromStatus is provided, live status
+ * must match or the mutation fails (stale/concurrent).
  */
 export async function advanceCrmCustomerStatus(input: {
   readonly organizationId: string;
   readonly profileId: string;
   readonly targetStatus?: CrmCustomerStatus;
+  /** Live status observed at enqueue — must still match at mutate. */
+  readonly expectedFromStatus?: CrmCustomerStatus;
+  /**
+   * Lead Queue / job action discriminant. Defaults to ADVANCE for legacy jobs.
+   * Must not fall back to the union resolver.
+   */
+  readonly leadAction?:
+    | "ADVANCE_CRM_STATUS"
+    | "DISPOSE_CRM_STATUS"
+    | "REACTIVATE_CRM_STATUS"
+    | string;
   readonly taskId?: string;
   readonly attachNote?: boolean;
 }): Promise<{
@@ -446,10 +461,43 @@ export async function advanceCrmCustomerStatus(input: {
     };
   }
 
-  const resolved = resolveStatusMutationTarget({
-    current: customer.status,
-    requested: input.targetStatus,
-  });
+  if (
+    input.expectedFromStatus !== undefined &&
+    customer.status !== input.expectedFromStatus
+  ) {
+    return {
+      result: {
+        available: true,
+        success: false,
+        outcome: "invalid_transition",
+        message: "crm_status_stale_or_concurrent",
+        customerId: customer.id,
+        fromStatus: customer.status,
+        toStatus: input.targetStatus,
+        duplicated: false,
+        href: link.href,
+      },
+      customer,
+      link,
+    };
+  }
+
+  const leadAction = input.leadAction ?? "ADVANCE_CRM_STATUS";
+  const resolved =
+    leadAction === "DISPOSE_CRM_STATUS"
+      ? resolveDispositionTarget({
+          current: customer.status,
+          requested: input.targetStatus,
+        })
+      : leadAction === "REACTIVATE_CRM_STATUS"
+        ? resolveReactivateTarget({
+            current: customer.status,
+            requested: input.targetStatus,
+          })
+        : resolveAdvanceTarget({
+            current: customer.status,
+            requested: input.targetStatus,
+          });
   if (!resolved.ok || !resolved.target) {
     return {
       result: {

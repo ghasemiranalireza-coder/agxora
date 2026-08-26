@@ -169,10 +169,14 @@ export async function handleCrmTool(
       };
     }
     const targetStatus = parseCrmStatus(readString(ctx.params, "targetStatus"));
+    const expectedFromStatus = parseCrmStatus(readString(ctx.params, "fromStatus"));
+    const leadAction = readString(ctx.params, "leadAction");
     const { result, customer, link } = await advanceCrmCustomerStatus({
       organizationId: ctx.organizationId,
       profileId,
       targetStatus,
+      expectedFromStatus,
+      leadAction,
       taskId: ctx.taskId,
       attachNote: true,
     });

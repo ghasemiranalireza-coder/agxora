@@ -58,8 +58,9 @@ Reuses the Phase 51–52 execution path only:
 - `REACTIVATE_CRM_STATUS` | `DISPOSE_CRM_STATUS` | `ADVANCE_CRM_STATUS` →
   `requestCrmStatusAdvance`
 - CRM tool `update_customer_status` → `advanceCrmCustomerStatus`
+  (action-scoped resolver + `fromStatus` concurrency check at mutate)
 - `resolveReactivateTarget` / `resolveDispositionTarget` /
-  `resolveAdvanceTarget` / `resolveStatusMutationTarget`
+  `resolveAdvanceTarget` at mutation time (never the union resolver)
 - `AgentApproval` + `operationsService` unchanged
 - Queue remains a derived read-model with live CRM statuses
 

@@ -333,6 +333,138 @@ describe("Phase 53 growth CRM status reactivation", () => {
     expect(result.execution.status).toBe("INVALID");
   });
 
+  it("fails post-approval when vip→inactive races to active (no COMPLETED)", async () => {
+    const { profile, campaign, link } = await seedAtStatus(
+      "Race Vip Inactive",
+      "vip",
+    );
+    const result = await growthService.executeLeadAction(organizationId, {
+      profileId: profile.id,
+      action: "REACTIVATE_CRM_STATUS",
+      campaignId: campaign.id,
+      targetCrmStatus: "inactive",
+    });
+    expect(result.execution.status).toBe("WAITING_FOR_APPROVAL");
+    await setCustomerStatus(link.customerId, "active");
+    await approvePending();
+    expect(
+      operationsService.get(organizationId, result.execution.jobId!)?.status,
+    ).toBe("FAILED");
+    expect(
+      (await getCrmBridgeProvider().getCustomer(link.customerId))?.status,
+    ).toBe("active");
+  });
+
+  it("fails post-approval when vip→active races to prospect (no COMPLETED)", async () => {
+    const { profile, campaign, link } = await seedAtStatus(
+      "Race Vip Active",
+      "vip",
+    );
+    const result = await growthService.executeLeadAction(organizationId, {
+      profileId: profile.id,
+      action: "REACTIVATE_CRM_STATUS",
+      campaignId: campaign.id,
+      targetCrmStatus: "active",
+    });
+    expect(result.execution.status).toBe("WAITING_FOR_APPROVAL");
+    await setCustomerStatus(link.customerId, "prospect");
+    await approvePending();
+    expect(
+      operationsService.get(organizationId, result.execution.jobId!)?.status,
+    ).toBe("FAILED");
+    expect(
+      (await getCrmBridgeProvider().getCustomer(link.customerId))?.status,
+    ).toBe("prospect");
+  });
+
+  it("fails post-approval when inactive→active races to archived (no COMPLETED)", async () => {
+    const { profile, campaign, link } = await seedAtStatus(
+      "Race Inactive Active",
+      "inactive",
+    );
+    const result = await growthService.executeLeadAction(organizationId, {
+      profileId: profile.id,
+      action: "REACTIVATE_CRM_STATUS",
+      campaignId: campaign.id,
+      targetCrmStatus: "active",
+    });
+    expect(result.execution.status).toBe("WAITING_FOR_APPROVAL");
+    await setCustomerStatus(link.customerId, "archived");
+    await approvePending();
+    expect(
+      operationsService.get(organizationId, result.execution.jobId!)?.status,
+    ).toBe("FAILED");
+    expect(
+      (await getCrmBridgeProvider().getCustomer(link.customerId))?.status,
+    ).toBe("archived");
+  });
+
+  it("fails post-approval ADVANCE when live status drifts (no cross-category COMPLETED)", async () => {
+    const { profile, campaign, link } = await seedAtStatus(
+      "Race Advance Drift",
+      "lead",
+    );
+    const result = await growthService.executeLeadAction(organizationId, {
+      profileId: profile.id,
+      action: "ADVANCE_CRM_STATUS",
+      campaignId: campaign.id,
+      targetCrmStatus: "prospect",
+    });
+    expect(result.execution.status).toBe("WAITING_FOR_APPROVAL");
+    // Drift to inactive — ADVANCE must not complete via DISPOSE/REACTIVATE union.
+    await setCustomerStatus(link.customerId, "inactive");
+    await approvePending();
+    expect(
+      operationsService.get(organizationId, result.execution.jobId!)?.status,
+    ).toBe("FAILED");
+    expect(
+      (await getCrmBridgeProvider().getCustomer(link.customerId))?.status,
+    ).toBe("inactive");
+  });
+
+  it("fails post-approval DISPOSE when live status drifts (no cross-category COMPLETED)", async () => {
+    const { profile, campaign, link } = await seedAtStatus(
+      "Race Dispose Drift",
+      "active",
+    );
+    const result = await growthService.executeLeadAction(organizationId, {
+      profileId: profile.id,
+      action: "DISPOSE_CRM_STATUS",
+      campaignId: campaign.id,
+      targetCrmStatus: "vip",
+    });
+    expect(result.execution.status).toBe("WAITING_FOR_APPROVAL");
+    // Drift to vip already — DISPOSE active→vip must not mutate further / COMPLETE.
+    await setCustomerStatus(link.customerId, "vip");
+    await approvePending();
+    expect(
+      operationsService.get(organizationId, result.execution.jobId!)?.status,
+    ).toBe("FAILED");
+    expect(
+      (await getCrmBridgeProvider().getCustomer(link.customerId))?.status,
+    ).toBe("vip");
+  });
+
+  it("successful current reactivation still produces COMPLETED", async () => {
+    const { profile, campaign, link } = await seedAtStatus(
+      "Happy Path Still Works",
+      "vip",
+    );
+    const result = await growthService.executeLeadAction(organizationId, {
+      profileId: profile.id,
+      action: "REACTIVATE_CRM_STATUS",
+      campaignId: campaign.id,
+      targetCrmStatus: "active",
+    });
+    await approvePending();
+    expect(
+      operationsService.get(organizationId, result.execution.jobId!)?.status,
+    ).toBe("COMPLETED");
+    expect(
+      (await getCrmBridgeProvider().getCustomer(link.customerId))?.status,
+    ).toBe("active");
+  });
+
   it("recomputs queue after reactivation without endless create", async () => {
     const { profile, campaign } = await seedAtStatus("Queue Reactivate", "vip");
     const before = await growthService.getLeadActionQueue(organizationId);
