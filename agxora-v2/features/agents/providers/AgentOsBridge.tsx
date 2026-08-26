@@ -8,7 +8,6 @@ import {
 } from "../repositories";
 import {
   agentsStore,
-  getAgentsRepository,
   setAgentsRepository,
 } from "../store";
 import { agentOsService } from "../services";
@@ -37,34 +36,32 @@ export function AgentOsBridge({
 
   useEffect(() => {
     ensureRepositoryForMode();
-    const repo = getAgentsRepository();
-    if (typeof repo.setOrganizationId === "function") {
-      repo.setOrganizationId(organizationId);
-    }
 
     let cancelled = false;
 
     const run = async () => {
       if (isAgentOsServerMode()) {
         try {
+          // Org/session change: flush then hard switch; adopt server org from GET.
           await agentsStore.hydrateAsync({
             force: true,
+            forceOrgSwitch: true,
             organizationId,
           });
         } catch {
           if (!cancelled) {
-            // Fail closed for in-memory view: empty org state (no localStorage fallback).
+            // Fail closed: empty memory, no localStorage fallback.
             agentsStore.clearMemory();
-            agentsStore.hydrate({ force: true, organizationId });
           }
           return;
         }
       } else {
         agentsStore.hydrate({ force: true, organizationId });
       }
-      if (!cancelled) {
-        agentOsService.ensureWorkspace(organizationId);
-      }
+      if (cancelled) return;
+      const scopedOrg =
+        agentsStore.getHydratedOrganizationId() ?? organizationId;
+      agentOsService.ensureWorkspace(scopedOrg);
     };
 
     void run();
@@ -72,13 +69,36 @@ export function AgentOsBridge({
     const onVisible = () => {
       if (document.visibilityState !== "visible") return;
       if (!isAgentOsServerMode()) return;
-      void agentsStore.hydrateAsync({ force: true, organizationId });
+      void (async () => {
+        // High #1: never force-discard unsaved/in-flight work.
+        if (
+          agentsStore.hasPendingPersistence() ||
+          agentsStore.isPersistenceDirty()
+        ) {
+          try {
+            await agentsStore.flushPersistence();
+          } catch {
+            return;
+          }
+          if (
+            agentsStore.hasPendingPersistence() ||
+            agentsStore.isPersistenceDirty()
+          ) {
+            return;
+          }
+        }
+        // Soft refresh only when clean — hydrateAsync skips GET if dirty.
+        await agentsStore.hydrateAsync({ force: true });
+      })();
     };
     document.addEventListener("visibilitychange", onVisible);
 
     return () => {
       cancelled = true;
       document.removeEventListener("visibilitychange", onVisible);
+      if (isAgentOsServerMode()) {
+        void agentsStore.flushPersistence().catch(() => undefined);
+      }
     };
   }, [organizationId, sessionKey]);
 

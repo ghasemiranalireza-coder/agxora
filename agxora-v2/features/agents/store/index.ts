@@ -30,6 +30,7 @@ const listeners = new Set<Listener>();
 let repository: AgentsRepository = new LocalAgentsRepository();
 let hydratedOrganizationId: string | null = null;
 let hydrateInflight: Promise<void> | null = null;
+let lastPersistenceError: string | null = null;
 
 let state: AgentsPersistedState & { hydrated: boolean } = {
   ...emptyAgentsState(),
@@ -43,17 +44,25 @@ function emit(): void {
 function persist(): void {
   const { hydrated: _h, ...payload } = state;
   void _h;
+  const orgId =
+    hydratedOrganizationId ??
+    (typeof repository.getAuthoritativeOrganizationId === "function"
+      ? repository.getAuthoritativeOrganizationId()
+      : null);
   const scoped =
-    hydratedOrganizationId != null
-      ? filterStateForOrganization(payload, hydratedOrganizationId)
-      : payload;
-  // Local: sync LS write. Rest: updates cache + debounced PUT (no silent LS fallback).
-  repository.save(scoped);
+    orgId != null ? filterStateForOrganization(payload, orgId) : payload;
+  try {
+    repository.save(scoped);
+  } catch (error) {
+    // Rest refuses unresolved/mismatch writes; keep memory, expose via getLastError.
+    void error;
+  }
 }
 
 export function setAgentsRepository(repo: AgentsRepository): void {
   repository = repo;
   hydratedOrganizationId = null;
+  lastPersistenceError = null;
   state = { ...emptyAgentsState(), hydrated: false };
 }
 
@@ -77,6 +86,40 @@ export const agentsStore = {
     return hydratedOrganizationId;
   },
 
+  getLastPersistenceError(): string | null {
+    return (
+      lastPersistenceError ??
+      (typeof repository.getLastError === "function"
+        ? repository.getLastError()
+        : null)
+    );
+  },
+
+  isPersistenceDirty(): boolean {
+    return typeof repository.isDirty === "function"
+      ? repository.isDirty()
+      : false;
+  },
+
+  hasPendingPersistence(): boolean {
+    return typeof repository.hasPendingOrInflight === "function"
+      ? repository.hasPendingOrInflight()
+      : false;
+  },
+
+  async flushPersistence(): Promise<void> {
+    if (typeof repository.flushNow === "function") {
+      try {
+        await repository.flushNow();
+        lastPersistenceError = null;
+      } catch (error) {
+        lastPersistenceError =
+          error instanceof Error ? error.message : "agent_os_flush_failed";
+        throw error;
+      }
+    }
+  },
+
   /**
    * Sync hydrate (local / cached). Sticky unless force or org changed.
    */
@@ -93,12 +136,7 @@ export const agentsStore = {
 
     if (state.hydrated && !force && !orgChanged) return;
 
-    if (organizationId && typeof repository.setOrganizationId === "function") {
-      repository.setOrganizationId(organizationId);
-    }
-
     if (orgChanged || (force && organizationId != null)) {
-      // Drop previous org state before loading the next org.
       state = { ...emptyAgentsState(), hydrated: false };
       hydratedOrganizationId = null;
       emit();
@@ -106,26 +144,33 @@ export const agentsStore = {
 
     const loaded = repository.load();
     const next = loaded ?? emptyAgentsState();
+    const authOrg =
+      typeof repository.getAuthoritativeOrganizationId === "function"
+        ? repository.getAuthoritativeOrganizationId()
+        : null;
+    const scopeOrg = authOrg ?? organizationId;
     state = {
-      ...(organizationId
-        ? filterStateForOrganization(next, organizationId)
-        : next),
+      ...(scopeOrg ? filterStateForOrganization(next, scopeOrg) : next),
       hydrated: true,
     };
-    hydratedOrganizationId = organizationId ?? hydratedOrganizationId;
+    hydratedOrganizationId = scopeOrg ?? hydratedOrganizationId;
     emit();
   },
 
   /**
-   * Async hydrate for server repositories. Always re-fetches when force or
-   * organizationId differs from the last hydrated org.
+   * Async hydrate for server repositories.
+   * Skips remote GET while dirty/pending unless forceOrgSwitch.
+   * Adopts authoritative organizationId from the server repository.
    */
   async hydrateAsync(options?: {
     readonly force?: boolean;
     readonly organizationId?: string;
+    /** When true, flush then clear and load even if dirty (org/session switch). */
+    readonly forceOrgSwitch?: boolean;
   }): Promise<void> {
     const organizationId = options?.organizationId;
     const force = options?.force === true;
+    const forceOrgSwitch = options?.forceOrgSwitch === true;
     const orgChanged =
       organizationId != null &&
       hydratedOrganizationId != null &&
@@ -137,18 +182,36 @@ export const agentsStore = {
 
     if (hydrateInflight) {
       await hydrateInflight;
-      if (state.hydrated && !force && !orgChanged) return;
+      if (state.hydrated && !force && !orgChanged && !forceOrgSwitch) return;
     }
 
     const run = async () => {
-      if (organizationId && typeof repository.setOrganizationId === "function") {
-        repository.setOrganizationId(organizationId);
+      const dirty =
+        typeof repository.isDirty === "function" && repository.isDirty();
+      const pending =
+        typeof repository.hasPendingOrInflight === "function" &&
+        repository.hasPendingOrInflight();
+
+      // High #1: never force-hydrate (or wait on flush/GET) while local
+      // persistence is pending/in-flight. Soft/visibility refresh keeps memory.
+      // Flush is owned by AgentOsBridge / flushPersistence — not hydrate.
+      if ((dirty || pending) && !forceOrgSwitch) {
+        return;
       }
 
-      if (orgChanged || force) {
+      if (forceOrgSwitch || orgChanged) {
+        if (typeof repository.flushNow === "function") {
+          try {
+            await repository.flushNow();
+          } catch {
+            // Best-effort flush before switching orgs.
+          }
+        }
         state = { ...emptyAgentsState(), hydrated: false };
         hydratedOrganizationId = null;
         emit();
+      } else if (force) {
+        // Soft force refresh with clean state: do not clear until GET succeeds.
       }
 
       let loaded: AgentsPersistedState | null = null;
@@ -158,14 +221,40 @@ export const agentsStore = {
         loaded = repository.load();
       }
 
+      // If loadAsync returned early due to dirty/pending, preserve memory.
+      if (
+        !forceOrgSwitch &&
+        ((typeof repository.isDirty === "function" && repository.isDirty()) ||
+          (typeof repository.hasPendingOrInflight === "function" &&
+            repository.hasPendingOrInflight()))
+      ) {
+        return;
+      }
+
       const next = loaded ?? emptyAgentsState();
+      const authOrg =
+        typeof repository.getAuthoritativeOrganizationId === "function"
+          ? repository.getAuthoritativeOrganizationId()
+          : null;
+      // High #3: never scope with a divergent client org id.
+      const scopeOrg = authOrg ?? null;
+      if (!scopeOrg && organizationId && !repository.loadAsync) {
+        // Local mode may use the provided organizationId.
+        state = {
+          ...filterStateForOrganization(next, organizationId),
+          hydrated: true,
+        };
+        hydratedOrganizationId = organizationId;
+        emit();
+        return;
+      }
+
       state = {
-        ...(organizationId
-          ? filterStateForOrganization(next, organizationId)
-          : next),
+        ...(scopeOrg ? filterStateForOrganization(next, scopeOrg) : next),
         hydrated: true,
       };
-      hydratedOrganizationId = organizationId ?? hydratedOrganizationId;
+      hydratedOrganizationId = scopeOrg;
+      lastPersistenceError = null;
       emit();
     };
 
