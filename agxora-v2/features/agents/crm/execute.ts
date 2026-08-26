@@ -1,5 +1,5 @@
 /**
- * Phase 50–53 — Lead Action Execution workflow.
+ * Phase 50–54 — Lead Action Execution workflow.
  *
  * Validates deterministic Lead Queue actions and routes them through the
  * existing Agent OS / Operations / CRM paths.
@@ -36,6 +36,9 @@ import type {
 const EXECUTABLE: ReadonlySet<string> = new Set([
   "CREATE_FOLLOW_UP",
   "COMPLETE_OVERDUE_FOLLOW_UP",
+  "COMPLETE_PENDING_FOLLOW_UP",
+  "REVIEW_BLOCKED_FOLLOW_UP",
+  "CANCEL_FOLLOW_UP",
   "RETRY_FAILED_FOLLOW_UP",
   "REVIEW_CRM_LINK",
   "ADVANCE_CRM_STATUS",
@@ -375,6 +378,46 @@ export async function validateLeadAction(input: {
     return { ok: true, followUpId };
   }
 
+  if (input.action === "COMPLETE_PENDING_FOLLOW_UP") {
+    if (followUp.status !== "pending") {
+      return {
+        ok: false,
+        code: "not_pending",
+        message: "follow_up_not_pending",
+        followUpId,
+      };
+    }
+    return { ok: true, followUpId };
+  }
+
+  if (input.action === "REVIEW_BLOCKED_FOLLOW_UP") {
+    if (followUp.status !== "blocked") {
+      return {
+        ok: false,
+        code: "not_blocked",
+        message: "follow_up_not_blocked",
+        followUpId,
+      };
+    }
+    return { ok: true, followUpId };
+  }
+
+  if (input.action === "CANCEL_FOLLOW_UP") {
+    if (
+      followUp.status !== "pending" &&
+      followUp.status !== "blocked" &&
+      followUp.status !== "failed"
+    ) {
+      return {
+        ok: false,
+        code: "not_cancellable",
+        message: "follow_up_not_cancellable",
+        followUpId,
+      };
+    }
+    return { ok: true, followUpId };
+  }
+
   // COMPLETE_OVERDUE_FOLLOW_UP — pending / overdue / failed / blocked are valid.
   if (
     followUp.status !== "pending" &&
@@ -412,6 +455,7 @@ function isLeadActionJob(job: ExecutionJob, profileId: string): boolean {
   return (
     growthAction === "crm_follow_up" ||
     growthAction === "crm_follow_up_complete" ||
+    growthAction === "crm_follow_up_cancel" ||
     growthAction === "crm_status_advance" ||
     growthAction === "lead_action"
   );
@@ -483,6 +527,18 @@ type FollowUpRequester = (input: {
   readonly followUpId?: string;
 }>;
 
+type CancelFollowUpRequester = (input: {
+  readonly organizationId: string;
+  readonly profileId: string;
+  readonly campaignId?: string;
+  readonly followUpId: string;
+  readonly leadAction: LeadExecutableAction;
+}) => Promise<{
+  readonly job: ExecutionJob;
+  readonly taskId?: string;
+  readonly followUpId?: string;
+}>;
+
 type StatusAdvanceRequester = (input: {
   readonly organizationId: string;
   readonly profileId: string;
@@ -512,6 +568,7 @@ export async function executeLeadAction(input: {
   readonly today?: string;
   readonly requestCreateFollowUp: FollowUpRequester;
   readonly requestCompleteFollowUp: FollowUpRequester;
+  readonly requestCancelFollowUp: CancelFollowUpRequester;
   readonly requestAdvanceCrmStatus: StatusAdvanceRequester;
 }): Promise<{
   readonly execution: LeadActionExecution;
@@ -651,18 +708,45 @@ export async function executeLeadAction(input: {
     };
   }
 
-  // COMPLETE_OVERDUE_FOLLOW_UP | RETRY_FAILED_FOLLOW_UP
   const followUpId = validation.followUpId ?? input.followUpId!;
+
+  if (action === "CANCEL_FOLLOW_UP") {
+    const requested = await input.requestCancelFollowUp({
+      organizationId: input.organizationId,
+      profileId: input.profileId,
+      campaignId: input.campaignId,
+      followUpId,
+      leadAction: action,
+    });
+    const execution = executionFromJob({
+      organizationId: input.organizationId,
+      profileId: input.profileId,
+      action,
+      job: requested.job,
+      followUpId,
+      now,
+    });
+    return {
+      execution,
+      queue: await buildQueueWithLiveStatus(input.organizationId, input.today),
+    };
+  }
+
+  // COMPLETE_OVERDUE | COMPLETE_PENDING | REVIEW_BLOCKED | RETRY_FAILED
+  const defaultNote =
+    action === "RETRY_FAILED_FOLLOW_UP"
+      ? "Lead Action Queue: retry failed follow-up"
+      : action === "REVIEW_BLOCKED_FOLLOW_UP"
+        ? "Lead Action Queue: review blocked follow-up"
+        : action === "COMPLETE_PENDING_FOLLOW_UP"
+          ? "Lead Action Queue: complete pending follow-up"
+          : "Lead Action Queue: complete follow-up";
   const requested = await input.requestCompleteFollowUp({
     organizationId: input.organizationId,
     profileId: input.profileId,
     campaignId: input.campaignId,
     followUpId,
-    completionNote:
-      input.completionNote ??
-      (action === "RETRY_FAILED_FOLLOW_UP"
-        ? "Lead Action Queue: retry failed follow-up"
-        : "Lead Action Queue: complete follow-up"),
+    completionNote: input.completionNote ?? defaultNote,
     leadAction: action,
   });
   const execution = executionFromJob({

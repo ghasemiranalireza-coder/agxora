@@ -85,6 +85,7 @@ export type CrmFollowUpStatus =
 export type CrmFollowUpOutcome =
   | "created"
   | "completed"
+  | "cancelled"
   | "blocked"
   | "unavailable"
   | "error"
@@ -264,12 +265,15 @@ export interface LeadActionQueue {
 }
 
 /**
- * Phase 50–53 executable actions — subset of recommended actions with safe
+ * Phase 50–54 executable actions — subset of recommended actions with safe
  * underlying Agent OS / CRM operations.
  */
 export type LeadExecutableAction =
   | "CREATE_FOLLOW_UP"
   | "COMPLETE_OVERDUE_FOLLOW_UP"
+  | "COMPLETE_PENDING_FOLLOW_UP"
+  | "REVIEW_BLOCKED_FOLLOW_UP"
+  | "CANCEL_FOLLOW_UP"
   | "RETRY_FAILED_FOLLOW_UP"
   | "REVIEW_CRM_LINK"
   | "ADVANCE_CRM_STATUS"

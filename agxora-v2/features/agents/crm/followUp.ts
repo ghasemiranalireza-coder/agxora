@@ -164,7 +164,10 @@ function resultOf(
   extras?: Partial<CrmFollowUpResult>,
 ): CrmFollowUpResult {
   const available = outcome !== "unavailable";
-  const success = outcome === "created" || outcome === "completed";
+  const success =
+    outcome === "created" ||
+    outcome === "completed" ||
+    outcome === "cancelled";
   return {
     available,
     success,
@@ -173,6 +176,23 @@ function resultOf(
     duplicated: false,
     ...extras,
   };
+}
+
+/** Statuses accepted by a Lead Queue complete/cancel action at mutate time. */
+export function expectedFollowUpStatusesForLeadAction(
+  leadAction: string | undefined,
+): readonly GrowthCrmFollowUp["status"][] | undefined {
+  if (leadAction === "COMPLETE_PENDING_FOLLOW_UP") return ["pending"];
+  if (leadAction === "REVIEW_BLOCKED_FOLLOW_UP") return ["blocked"];
+  if (leadAction === "RETRY_FAILED_FOLLOW_UP") return ["failed"];
+  if (leadAction === "CANCEL_FOLLOW_UP") {
+    return ["pending", "blocked", "failed"];
+  }
+  if (leadAction === "COMPLETE_OVERDUE_FOLLOW_UP") {
+    // Preserve Phase 48/50 semantics for overdue-complete.
+    return ["pending", "failed", "blocked"];
+  }
+  return undefined;
 }
 
 function persistFollowUp(row: GrowthCrmFollowUp): GrowthCrmFollowUp {
@@ -413,6 +433,10 @@ export async function completeCrmFollowUp(input: {
   readonly completionNote?: string;
   readonly taskId?: string;
   readonly provider?: CrmBridgeProvider;
+  /** Lead Queue action that requested this complete — enforces live status. */
+  readonly leadAction?: string;
+  /** When true (REVIEW_BLOCKED), success requires a real CRM completion note. */
+  readonly requireCrmMutation?: boolean;
 }): Promise<{
   readonly result: CrmFollowUpResult;
   readonly followUp: GrowthCrmFollowUp | undefined;
@@ -423,6 +447,19 @@ export async function completeCrmFollowUp(input: {
       result: resultOf("error", "crm_follow_up_missing"),
       followUp: undefined,
     };
+  }
+
+  const expected = expectedFollowUpStatusesForLeadAction(input.leadAction);
+  if (expected && !expected.includes(existing.status)) {
+    const result = resultOf("error", "crm_follow_up_status_stale");
+    const followUp = persistFollowUp({
+      ...existing,
+      taskId: input.taskId ?? existing.taskId,
+      result,
+      lastError: result.message,
+      updatedAt: nowIso(),
+    });
+    return { result, followUp };
   }
 
   if (existing.status === "completed") {
@@ -446,10 +483,12 @@ export async function completeCrmFollowUp(input: {
   }
 
   const provider = input.provider ?? getCrmBridgeProvider();
-  const wantsCompletionNote = Boolean(input.completionNote?.trim());
+  const wantsCompletionNote =
+    Boolean(input.completionNote?.trim()) || Boolean(input.requireCrmMutation);
 
   // Completing without a completion note is an Agent OS state transition only.
-  // CRM availability is required only when writing a completion note.
+  // CRM availability is required when writing a completion note, or when the
+  // Lead Queue action demands an honest CRM mutation (blocked review).
   if (wantsCompletionNote && !provider.available) {
     const result = resultOf("unavailable", "crm_unavailable");
     const followUp = persistFollowUp({
@@ -459,6 +498,18 @@ export async function completeCrmFollowUp(input: {
       result,
       lastError: result.message,
       taskId: input.taskId ?? existing.taskId,
+      updatedAt: nowIso(),
+    });
+    return { result, followUp };
+  }
+
+  if (input.requireCrmMutation && !input.completionNote?.trim()) {
+    const result = resultOf("error", "crm_follow_up_mutation_required");
+    const followUp = persistFollowUp({
+      ...existing,
+      taskId: input.taskId ?? existing.taskId,
+      result,
+      lastError: result.message,
       updatedAt: nowIso(),
     });
     return { result, followUp };
@@ -475,7 +526,7 @@ export async function completeCrmFollowUp(input: {
           body: [
             `Completed follow-up (${existing.kind}).`,
             "",
-            input.completionNote!.trim(),
+            (input.completionNote ?? "Lead Action Queue: review blocked follow-up").trim(),
             "",
             "Source: AGXORA Growth Agent (internal CRM note).",
           ].join("\n"),
@@ -483,6 +534,18 @@ export async function completeCrmFollowUp(input: {
         }),
       );
       completionNoteId = note.id;
+    }
+
+    if (input.requireCrmMutation && !completionNoteId) {
+      const result = resultOf("error", "crm_follow_up_mutation_required");
+      const followUp = persistFollowUp({
+        ...existing,
+        taskId: input.taskId ?? existing.taskId,
+        result,
+        lastError: result.message,
+        updatedAt: nowIso(),
+      });
+      return { result, followUp };
     }
 
     const href = existing.href ?? followUpHref(existing.customerId);
@@ -522,4 +585,71 @@ export async function completeCrmFollowUp(input: {
     });
     return { result, followUp };
   }
+}
+
+/**
+ * Cancel an open follow-up — Agent OS status only, no outbound communication
+ * and no CRM note mutation.
+ */
+export async function cancelCrmFollowUp(input: {
+  readonly organizationId: string;
+  readonly followUpId: string;
+  readonly taskId?: string;
+  readonly leadAction?: string;
+}): Promise<{
+  readonly result: CrmFollowUpResult;
+  readonly followUp: GrowthCrmFollowUp | undefined;
+}> {
+  const existing = getCrmFollowUp(input.organizationId, input.followUpId);
+  if (!existing) {
+    return {
+      result: resultOf("error", "crm_follow_up_missing"),
+      followUp: undefined,
+    };
+  }
+
+  if (existing.status === "cancelled") {
+    const result = resultOf("cancelled", "crm_follow_up_already_cancelled", {
+      noteId: existing.noteId,
+      href: existing.href,
+      duplicated: true,
+    });
+    const followUp = persistFollowUp({
+      ...existing,
+      taskId: input.taskId ?? existing.taskId,
+      result,
+      updatedAt: nowIso(),
+    });
+    return { result, followUp };
+  }
+
+  const expected =
+    expectedFollowUpStatusesForLeadAction(input.leadAction ?? "CANCEL_FOLLOW_UP") ??
+    (["pending", "blocked", "failed"] as const);
+  if (!expected.includes(existing.status)) {
+    const result = resultOf("error", "crm_follow_up_status_stale");
+    const followUp = persistFollowUp({
+      ...existing,
+      taskId: input.taskId ?? existing.taskId,
+      result,
+      lastError: result.message,
+      updatedAt: nowIso(),
+    });
+    return { result, followUp };
+  }
+
+  const result = resultOf("cancelled", "crm_follow_up_cancelled", {
+    noteId: existing.noteId,
+    href: existing.href,
+  });
+  const followUp = persistFollowUp({
+    ...existing,
+    status: "cancelled",
+    outcome: "cancelled",
+    result,
+    taskId: input.taskId ?? existing.taskId,
+    updatedAt: nowIso(),
+    lastError: undefined,
+  });
+  return { result, followUp };
 }
