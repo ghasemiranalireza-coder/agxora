@@ -97,7 +97,7 @@ GPT Image models return `b64_json`. Bounded conversion to
 - **Agent OS v7 persistence strips data URLs** (keeps mime/dimensions/provider metadata)
 - HTTPS provider URLs may be persisted when present and usable
 - Persistence remains **v7** (no v8)
-- Durable object storage remains **Phase 60**
+- Durable creative asset storage is implemented in **Phase 60** (Postgres BYTEA + authenticated GET)
 
 ## Honest unavailable / failure behavior
 
@@ -121,7 +121,7 @@ requirement. Unconfigured remains honestly unavailable.
 - Social publishing / OAuth / ads
 - Workers / schedulers
 - Persistence v8
-- Object storage / media platform (Phase 60)
+- Object storage / media platform (**done in Phase 60** — Postgres BYTEA + authenticated GET)
 - Outbound marketing email
 - Live LLM infrastructure
 

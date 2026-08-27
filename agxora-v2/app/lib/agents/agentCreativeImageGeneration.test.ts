@@ -35,6 +35,7 @@ import {
   sanitizeAssetsForPersistence,
   validateCreativeAssetUrl,
 } from "@/app/lib/creative/assets";
+import { setCreativeAssetStoreForTests } from "@/app/lib/creative/assetStore";
 import { resolveTrustedOpenAIBaseUrl } from "@/app/lib/creative/config";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import type { Actor } from "@/app/lib/tenancy/types";
@@ -215,6 +216,7 @@ beforeEach(() => {
   resetCreativeGenerationProvider();
   setServerCreativeImageProviderForTests(null);
   setCreativeGenerateLoadStateForTests(null);
+  setCreativeAssetStoreForTests(null);
   creativeService.clearPreviewAssetsForTests();
   delete process.env.AGXORA_CREATIVE_IMAGE_PROVIDER;
   delete process.env.AGXORA_OPENAI_API_KEY;
@@ -226,6 +228,7 @@ afterEach(() => {
   resetCreativeGenerationProvider();
   setServerCreativeImageProviderForTests(null);
   setCreativeGenerateLoadStateForTests(null);
+  setCreativeAssetStoreForTests(null);
   creativeService.clearPreviewAssetsForTests();
   resetRateLimitStore();
   setRateLimitStoreForTests(null);
@@ -312,7 +315,7 @@ describe("Phase 59.1 asset bounds", () => {
     expect(out.previewAssets ?? []).toEqual([]);
   });
 
-  it("persists metadata for valid bounded assets without embedding data URLs", async () => {
+  it("persists durable URL metadata for valid bounded assets without embedding data URLs", async () => {
     const small = `data:image/jpeg;base64,${Buffer.from("img").toString("base64")}`;
     setServerCreativeImageProviderForTests({
       id: "openai",
@@ -347,7 +350,10 @@ describe("Phase 59.1 asset bounds", () => {
     });
     expect(out.result.generated).toBe(true);
     expect(out.previewAssets?.[0]?.url).toBe(small);
-    expect(out.productionResult.assets?.[0]?.url).toBeUndefined();
+    expect(out.productionResult.assets?.[0]?.url).toMatch(
+      /^\/api\/v1\/agents\/creative\/assets\//,
+    );
+    expect(JSON.stringify(out.productionResult)).not.toContain("data:image/");
     expect(out.productionResult.assets?.[0]?.mimeType).toBe("image/jpeg");
   });
 });

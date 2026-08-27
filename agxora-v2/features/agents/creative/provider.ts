@@ -131,6 +131,8 @@ export function createTestCreativeProvider(
           {
             providerId: "test_creative",
             providerAssetId: `asset_${request.creativeProjectId}`,
+            // Local/test injection uses a short HTTPS stub URL (not paid OpenAI).
+            // Server Phase 60 path must return data URLs or real bytes to persist.
             url: "https://example.test/generated/creative.bin",
             mimeType:
               request.modality === "image" ? "image/png" : "video/mp4",

@@ -320,6 +320,11 @@ export function CreativeWorkspace(): JSX.Element {
                       href={asset.url}
                       target="_blank"
                       rel="noreferrer"
+                      download={
+                        asset.mimeType?.startsWith("image/")
+                          ? `agxora-creative-${index + 1}`
+                          : undefined
+                      }
                       className="inline-flex text-xs underline"
                       style={{ color: "var(--agx-accent, #22d3ee)" }}
                     >
