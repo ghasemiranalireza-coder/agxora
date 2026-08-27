@@ -25,6 +25,10 @@ import {
   handleWebsitePublishTool,
   handleWebsiteTool,
 } from "../website/handlers";
+import {
+  handleCreativeGenerateTool,
+  handleCreativeTool,
+} from "../creative/handlers";
 
 export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
   {
@@ -387,6 +391,50 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
       additionalProperties: true,
     },
   },
+  {
+    id: "creative",
+    name: "Creative Planning Tool",
+    description:
+      "Create creative briefs, concepts, scripts, storyboards, and production plans.",
+    module: "creative",
+    sensitive: false,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+        growthAction: {
+          type: "string",
+          description: "brief, script, storyboard, or plan.",
+        },
+        creativeId: { type: "string", description: "Creative project id." },
+        creativeType: { type: "string", description: "VIDEO_AD, SOCIAL_VIDEO, …" },
+        platform: { type: "string", description: "instagram_reels, tiktok, …" },
+        customerRequest: { type: "string", description: "Customer creative request." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
+  {
+    id: "creative_generate",
+    name: "Creative Generation Tool",
+    description:
+      "Execute approved creative media generation through a configured provider adapter.",
+    module: "creative",
+    sensitive: true,
+    requiresApproval: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+        creativeId: { type: "string", description: "Creative project id." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
 ] as const;
 
 const handlers = new Map<ToolId, ToolHandler>();
@@ -439,3 +487,5 @@ registerToolHandler("campaign_readiness", handleCampaignReadinessTool);
 registerToolHandler("growth_insights", handleGrowthInsightsTool);
 registerToolHandler("campaign_execute", handleCampaignExecuteTool);
 registerToolHandler("crm", handleCrmTool);
+registerToolHandler("creative", handleCreativeTool);
+registerToolHandler("creative_generate", handleCreativeGenerateTool);

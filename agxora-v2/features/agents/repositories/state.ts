@@ -33,6 +33,7 @@ import type {
   StepExecution,
 } from "../types";
 import type { WebsiteProject } from "../website/types";
+import type { CreativeProject } from "../creative/types";
 
 export interface AgentsPersistedState {
   readonly version: 7;
@@ -65,6 +66,8 @@ export interface AgentsPersistedState {
   readonly growthCrmLinks: GrowthCrmLink[];
   readonly campaignCrmSyncs: CampaignCrmSync[];
   readonly crmFollowUps: GrowthCrmFollowUp[];
+  /** Phase 58 — creative production projects (metadata + specs; no blobs). */
+  readonly creativeProjects: CreativeProject[];
 }
 
 export type LegacyAgentsPersistedState = Partial<AgentsPersistedState> & {
@@ -117,6 +120,7 @@ export function emptyAgentsState(): AgentsPersistedState {
     growthCrmLinks: [],
     campaignCrmSyncs: [],
     crmFollowUps: [],
+    creativeProjects: [],
   };
 }
 
@@ -158,6 +162,7 @@ export function normalizeState(
     growthCrmLinks: asArray(state.growthCrmLinks),
     campaignCrmSyncs: asArray(state.campaignCrmSyncs),
     crmFollowUps: asArray(state.crmFollowUps),
+    creativeProjects: asArray(state.creativeProjects),
   };
 }
 
@@ -212,6 +217,7 @@ export function filterStateForOrganization(
     growthCrmLinks: byOrg(normalized.growthCrmLinks, organizationId),
     campaignCrmSyncs: byOrg(normalized.campaignCrmSyncs, organizationId),
     crmFollowUps: byOrg(normalized.crmFollowUps, organizationId),
+    creativeProjects: byOrg(normalized.creativeProjects, organizationId),
   };
 }
 
@@ -245,6 +251,7 @@ export function stateContainsForeignOrganization(
     state.growthCrmLinks,
     state.campaignCrmSyncs,
     state.crmFollowUps,
+    state.creativeProjects,
   ];
   return arrays.some((items) =>
     items.some(

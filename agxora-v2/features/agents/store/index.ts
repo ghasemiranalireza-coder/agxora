@@ -596,4 +596,16 @@ export const agentsStore = {
     persist();
     emit();
   },
+
+  upsertCreativeProject(
+    project: import("../creative/types").CreativeProject,
+  ): void {
+    const idx = state.creativeProjects.findIndex((item) => item.id === project.id);
+    const creativeProjects = [...state.creativeProjects];
+    if (idx >= 0) creativeProjects[idx] = project;
+    else creativeProjects.unshift(project);
+    state = { ...state, creativeProjects: creativeProjects.slice(0, 100) };
+    persist();
+    emit();
+  },
 };
