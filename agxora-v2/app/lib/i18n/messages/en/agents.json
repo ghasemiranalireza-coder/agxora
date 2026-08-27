@@ -898,7 +898,8 @@
   },
   "creative": {
     "title": "Create Marketing Creative",
-    "subtitle": "Plan video ads, animations, scripts, and storyboards. Media generation runs only through a configured provider after approval.",
+    "subtitle": "Plan creatives and generate real IMAGE_AD assets when an image provider is configured. Video and animation generation are not available yet.",
+    "capabilityNotice": "Phase 59 real generation supports image ads only. Video, animation, voice, and social publishing are not implemented.",
     "noticeReady": "Describe the creative you want. Planning does not generate media files.",
     "noticeFailed": "Creative action failed",
     "noticeBrief": "Creative brief and concepts created.",
@@ -907,8 +908,9 @@
     "providerStatus": "Provider: {id} · {configured}",
     "providerConfigured": "configured",
     "providerUnavailable": "not configured",
+    "providerNotConfiguredDetail": "Image generation is not configured. AGXORA will not claim that an image was generated until a real provider succeeds.",
     "profileRequired": "Save a Growth business profile before creating creatives.",
-    "requestPlaceholder": "Example: Create a 20s Instagram Reels ad for our new product…",
+    "requestPlaceholder": "Example: Create an Instagram Feed image ad for our new product…",
     "projectsTitle": "Creative projects",
     "empty": "No creative projects yet.",
     "yes": "yes",
@@ -928,7 +930,12 @@
       "concepts": "Concepts: {count}",
       "scriptScenes": "Script scenes: {count}",
       "storyboardFrames": "Storyboard frames: {count}",
-      "result": "Production result: {status} · generated={generated} · {reason}"
+      "result": "Production result: {status} · generated={generated} · {reason}",
+      "unavailableHint": "Image generation is unavailable. No fake preview or asset URL is shown.",
+      "failedHint": "Generation failed. The creative was not marked completed.",
+      "generatedAssets": "Generated assets ({count}) · provider {provider}",
+      "assetAlt": "Generated creative asset {index}",
+      "openAsset": "Open generated asset"
     },
     "types": {
       "VIDEO_AD": "Video ad",

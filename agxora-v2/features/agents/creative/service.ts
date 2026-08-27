@@ -1,6 +1,7 @@
 /**
- * Phase 58 — Creative production orchestration.
+ * Phase 58/59 — Creative production orchestration.
  * Reuses Agent OS tools, Operations, and Approvals — no second engine.
+ * Phase 59: real image generation runs through a server boundary (secrets stay server-side).
  */
 
 import { auditLog } from "@/app/lib/backend/audit/logger";
@@ -17,13 +18,29 @@ import {
   generateCreativeScript,
   generateCreativeStoryboard,
 } from "./generators";
-import { getCreativeGenerationProvider } from "./provider";
+import {
+  getCreativeGenerationProvider,
+  type CreativeGenerationResult,
+} from "./provider";
 import { assertCreativeStatusTransition } from "./transitions";
 import type {
+  CreativeAssetRef,
   CreativeDraftInput,
   CreativeProject,
   CreativeStatus,
 } from "./types";
+import { sanitizeAssetsForPersistence } from "@/app/lib/creative/assets";
+
+type ServerProviderStatus = {
+  readonly id: string;
+  readonly configured: boolean;
+  readonly modalities: readonly string[];
+};
+
+let cachedServerProviderStatus: ServerProviderStatus | null = null;
+
+/** Session-only previews (data URLs). Never written into Agent OS persistence. */
+const previewAssetsByCreativeId = new Map<string, readonly CreativeAssetRef[]>();
 
 function orgFilter<T extends { organizationId: string }>(
   items: readonly T[],
@@ -92,6 +109,107 @@ function setStatus(
   return next;
 }
 
+function applyGenerationResult(
+  project: CreativeProject,
+  organizationId: string,
+  creativeId: string,
+  providerId: string,
+  providerConfigured: boolean,
+  result: CreativeGenerationResult,
+  previewAssets?: readonly CreativeAssetRef[],
+): CreativeProject {
+  if (
+    !providerConfigured ||
+    !result.available ||
+    result.status === "unavailable"
+  ) {
+    previewAssetsByCreativeId.delete(creativeId);
+    const blocked = setStatus(project, "PROVIDER_UNAVAILABLE", {
+      productionResult: {
+        available: false,
+        generated: false,
+        status: "unavailable",
+        reason: result.reason || "creative_provider_not_configured",
+        providerId,
+        assets: [],
+      },
+    });
+    auditCreative(
+      "agent.creative.provider_unavailable",
+      organizationId,
+      creativeId,
+      { providerId },
+    );
+    return blocked;
+  }
+
+  if (result.status === "failed" || !result.generated) {
+    previewAssetsByCreativeId.delete(creativeId);
+    const failed = setStatus(project, "FAILED", {
+      productionResult: {
+        available: true,
+        generated: false,
+        status: "failed",
+        reason: result.reason || "provider_failed",
+        providerId,
+        assets: [],
+      },
+    });
+    auditCreative("agent.creative.generation_failed", organizationId, creativeId);
+    return failed;
+  }
+
+  const rawAssets = (result.assets ?? []).filter(
+    (asset) => typeof asset.url === "string" && asset.url.length > 0,
+  );
+  const persistAssets = sanitizeAssetsForPersistence(
+    previewAssets && previewAssets.length > 0 ? previewAssets : rawAssets,
+  );
+
+  // Session preview may include bounded data URLs; Agent OS stores metadata only.
+  if (previewAssets && previewAssets.length > 0) {
+    previewAssetsByCreativeId.set(creativeId, previewAssets);
+  } else if (rawAssets.some((asset) => asset.url?.startsWith("data:image/"))) {
+    previewAssetsByCreativeId.set(creativeId, rawAssets);
+  } else {
+    previewAssetsByCreativeId.set(creativeId, persistAssets);
+  }
+
+  if (
+    persistAssets.length === 0 &&
+    !(previewAssets && previewAssets.length > 0) &&
+    rawAssets.length === 0
+  ) {
+    previewAssetsByCreativeId.delete(creativeId);
+    const failed = setStatus(project, "FAILED", {
+      productionResult: {
+        available: true,
+        generated: false,
+        status: "failed",
+        reason: "provider_returned_no_assets",
+        providerId,
+        assets: [],
+      },
+    });
+    return failed;
+  }
+
+  const completed = setStatus(project, "COMPLETED", {
+    productionResult: {
+      available: true,
+      generated: true,
+      status: "completed",
+      reason: "generated",
+      providerId,
+      assets: persistAssets,
+    },
+  });
+  auditCreative("agent.creative.generation_completed", organizationId, creativeId, {
+    providerId,
+  });
+  return completed;
+}
+
 export const creativeService = {
   list(organizationId: string): readonly CreativeProject[] {
     return orgFilter(agentsStore.getSnapshot().creativeProjects, organizationId);
@@ -101,13 +219,80 @@ export const creativeService = {
     return this.list(organizationId).find((item) => item.id === creativeId);
   },
 
+  /** Session-only preview assets (may include bounded data URLs). */
+  getPreviewAssets(creativeId: string): readonly CreativeAssetRef[] {
+    return previewAssetsByCreativeId.get(creativeId) ?? [];
+  },
+
+  clearPreviewAssetsForTests(): void {
+    previewAssetsByCreativeId.clear();
+  },
+
   providerStatus() {
     const provider = getCreativeGenerationProvider();
+    if (provider.configured && provider.id !== "none") {
+      return {
+        id: provider.id,
+        configured: true,
+        modalities: provider.modalities,
+      };
+    }
+    if (cachedServerProviderStatus) {
+      return cachedServerProviderStatus;
+    }
     return {
       id: provider.id,
-      configured: provider.configured,
+      configured: false,
       modalities: provider.modalities,
     };
+  },
+
+  /** Refresh provider status from the server boundary (no secrets returned). */
+  async refreshProviderStatus(): Promise<ServerProviderStatus> {
+    const local = getCreativeGenerationProvider();
+    if (local.configured && local.id !== "none") {
+      const status = {
+        id: local.id,
+        configured: true as const,
+        modalities: local.modalities,
+      };
+      cachedServerProviderStatus = status;
+      return status;
+    }
+
+    try {
+      const response = await fetch("/api/v1/agents/creative/status", {
+        method: "GET",
+        credentials: "include",
+      });
+      const payload = (await response.json()) as {
+        ok?: boolean;
+        provider?: {
+          id?: string;
+          configured?: boolean;
+          modalities?: readonly string[];
+        };
+      };
+      if (response.ok && payload.ok && payload.provider) {
+        const status: ServerProviderStatus = {
+          id: payload.provider.id ?? "none",
+          configured: payload.provider.configured === true,
+          modalities: payload.provider.modalities ?? ["image"],
+        };
+        cachedServerProviderStatus = status;
+        return status;
+      }
+    } catch {
+      // Fall through to local unavailable status.
+    }
+
+    const fallback: ServerProviderStatus = {
+      id: local.id,
+      configured: false,
+      modalities: local.modalities,
+    };
+    cachedServerProviderStatus = fallback;
+    return fallback;
   },
 
   /** Create brief + concepts (planning only). */
@@ -283,17 +468,20 @@ export const creativeService = {
     creativeId: string,
   ): Promise<CreativeProject> {
     let project = requireProject(organizationId, creativeId);
-    if (project.status !== "RUNNING" && project.status !== "QUEUED" && project.status !== "APPROVED") {
+    if (
+      project.status !== "RUNNING" &&
+      project.status !== "QUEUED" &&
+      project.status !== "APPROVED"
+    ) {
       project = this.markRunning(organizationId, creativeId);
     } else if (project.status !== "RUNNING") {
       project = this.markRunning(organizationId, creativeId);
     }
 
-    const provider = getCreativeGenerationProvider();
     const plan = project.productionPlan;
     if (!plan) throw new Error("Production plan missing");
 
-    const result = await provider.generate({
+    const generationRequest = {
       organizationId,
       creativeProjectId: project.id,
       creativeType: project.creativeType,
@@ -306,75 +494,135 @@ export const creativeService = {
       productionPlan: plan,
       language: project.brief.language,
       promptSummary: project.brief.customerRequest,
-    });
+    };
 
-    // Never accept fabricated success from an unconfigured provider.
-    if (!provider.configured || !result.available || result.status === "unavailable") {
-      const blocked = setStatus(project, "PROVIDER_UNAVAILABLE", {
-        productionResult: {
+    // Test / explicit local injection still uses the in-process provider.
+    const localProvider = getCreativeGenerationProvider();
+    if (localProvider.configured && localProvider.id !== "none") {
+      const result = await localProvider.generate(generationRequest);
+      return applyGenerationResult(
+        project,
+        organizationId,
+        creativeId,
+        localProvider.id,
+        localProvider.configured,
+        result,
+      );
+    }
+
+    // Phase 59 — real providers run on the server (API keys never enter the browser).
+    return this.runServerProviderGeneration(organizationId, creativeId, project);
+  },
+
+  async runServerProviderGeneration(
+    organizationId: string,
+    creativeId: string,
+    projectInput?: CreativeProject,
+  ): Promise<CreativeProject> {
+    const project = projectInput ?? requireProject(organizationId, creativeId);
+    const plan = project.productionPlan;
+    if (!plan) throw new Error("Production plan missing");
+
+    // Flush Agent OS state so the server can revalidate approvals/projects.
+    try {
+      await agentsStore.flushPersistence();
+    } catch {
+      // Continue — server may already have a prior synced snapshot.
+    }
+
+    let response: Response;
+    try {
+      response = await fetch("/api/v1/agents/creative/generate", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          creativeProjectId: project.id,
+          // Sent only so the server can reject mismatches — never authoritative.
+          organizationId,
+          // Informational only — server ignores this for authorization.
+          approvalState: project.approvalState,
+        }),
+      });
+    } catch {
+      return applyGenerationResult(
+        project,
+        organizationId,
+        creativeId,
+        "none",
+        false,
+        {
           available: false,
           generated: false,
           status: "unavailable",
-          reason: result.reason || "creative_provider_not_configured",
-          providerId: provider.id,
+          reason: "creative_generate_server_unreachable",
+          providerId: "none",
           assets: [],
         },
-      });
-      auditCreative(
-        "agent.creative.provider_unavailable",
+      );
+    }
+
+    const payload = (await response.json()) as {
+      ok?: boolean;
+      code?: string;
+      message?: string;
+      organizationId?: string;
+      providerId?: string;
+      result?: CreativeGenerationResult;
+      productionResult?: {
+        available?: boolean;
+        generated?: boolean;
+        status?: CreativeGenerationResult["status"];
+        reason?: string;
+        providerId?: string;
+        assets?: readonly CreativeAssetRef[];
+      };
+      previewAssets?: readonly CreativeAssetRef[];
+    };
+
+    if (response.status === 401) {
+      throw new Error("Authentication required for creative generation");
+    }
+    if (response.status === 403) {
+      throw new Error(payload.message || "Creative generation forbidden");
+    }
+    if (response.status === 429) {
+      throw new Error(payload.message || "Too many creative generation requests");
+    }
+    if (!response.ok || !payload.ok || !payload.result) {
+      return applyGenerationResult(
+        project,
         organizationId,
         creativeId,
-        { providerId: provider.id },
+        payload.providerId ?? "none",
+        false,
+        {
+          available: false,
+          generated: false,
+          status: "unavailable",
+          reason: payload.message || "creative_generate_server_error",
+          providerId: payload.providerId ?? "none",
+          assets: [],
+        },
       );
-      return blocked;
     }
 
-    if (result.status === "failed" || !result.generated) {
-      const failed = setStatus(project, "FAILED", {
-        productionResult: {
-          available: true,
-          generated: false,
-          status: "failed",
-          reason: result.reason || "provider_failed",
-          providerId: provider.id,
-          assets: [],
-        },
-      });
-      auditCreative("agent.creative.generation_failed", organizationId, creativeId);
-      return failed;
+    if (
+      typeof payload.organizationId === "string" &&
+      payload.organizationId !== organizationId
+    ) {
+      throw new Error("Organization mismatch from creative generation server");
     }
 
-    // Only persist assets when provider reports generated=true with assets.
-    const assets = (result.assets ?? []).filter(
-      (asset) => typeof asset.url === "string" && asset.url.length > 0,
+    const result = payload.result;
+    return applyGenerationResult(
+      project,
+      organizationId,
+      creativeId,
+      result.providerId || payload.providerId || "none",
+      result.status === "unavailable" ? false : true,
+      result,
+      payload.previewAssets,
     );
-    if (assets.length === 0) {
-      const failed = setStatus(project, "FAILED", {
-        productionResult: {
-          available: true,
-          generated: false,
-          status: "failed",
-          reason: "provider_returned_no_assets",
-          providerId: provider.id,
-          assets: [],
-        },
-      });
-      return failed;
-    }
-
-    const completed = setStatus(project, "COMPLETED", {
-      productionResult: {
-        available: true,
-        generated: true,
-        status: "completed",
-        reason: "generated",
-        providerId: provider.id,
-        assets,
-      },
-    });
-    auditCreative("agent.creative.generation_completed", organizationId, creativeId, {
-      providerId: provider.id,
-    });
-    return completed;
   },
 };
