@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type JSX } from "react";
+import { useEffect, useMemo, useState, type JSX } from "react";
 import {
   Badge,
   Button,
@@ -26,26 +26,39 @@ export function CreativeWorkspace(): JSX.Element {
   const aos = useAgentOperatingSystem();
   const orgId = aos.organizationId;
   const profile = growthService.snapshot(orgId).profile;
-  const provider = creativeService.providerStatus();
+  const [provider, setProvider] = useState(() => creativeService.providerStatus());
   const projects = aos.creativeProjects;
   const [notice, setNotice] = useState(t("agents.creative.noticeReady"));
   const [busy, setBusy] = useState(false);
-  const [creativeType, setCreativeType] = useState<CreativeType>("VIDEO_AD");
+  const [creativeType, setCreativeType] = useState<CreativeType>("IMAGE_AD");
   const [platform, setPlatform] =
-    useState<CreativePlatformId>("instagram_reels");
+    useState<CreativePlatformId>("instagram_feed");
   const [request, setRequest] = useState("");
   const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  useEffect(() => {
+    void creativeService.refreshProviderStatus().then(setProvider);
+  }, []);
 
   const selected = useMemo(
     () => projects.find((item) => item.id === selectedId) ?? projects[0] ?? null,
     [projects, selectedId],
   );
 
+  const generatedAssets =
+    selected?.productionResult?.generated === true
+      ? (selected.productionResult.assets ?? []).filter(
+          (asset) => typeof asset.url === "string" && asset.url.length > 0,
+        )
+      : [];
+
   const run = async (action: () => Promise<void>, successKey: string) => {
     setBusy(true);
     try {
       await action();
       setNotice(t(successKey));
+      const nextProvider = await creativeService.refreshProviderStatus();
+      setProvider(nextProvider);
     } catch (error) {
       setNotice(localizeThrownError(t, error, "agents.creative.noticeFailed"));
     } finally {
@@ -63,6 +76,9 @@ export function CreativeWorkspace(): JSX.Element {
           {t("agents.creative.subtitle")}
         </p>
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          {t("agents.creative.capabilityNotice")}
+        </p>
+        <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           {t("agents.creative.providerStatus", {
             id: provider.id,
             configured: provider.configured
@@ -70,6 +86,11 @@ export function CreativeWorkspace(): JSX.Element {
               : t("agents.creative.providerUnavailable"),
           })}
         </p>
+        {!provider.configured ? (
+          <p className="text-xs" style={{ color: "var(--agx-warning, #fbbf24)" }}>
+            {t("agents.creative.providerNotConfiguredDetail")}
+          </p>
+        ) : null}
         {!profile ? (
           <p className="text-xs" style={{ color: "var(--agx-danger, #f87171)" }}>
             {t("agents.creative.profileRequired")}
@@ -251,8 +272,61 @@ export function CreativeWorkspace(): JSX.Element {
                 })}
               </p>
             ) : null}
+
+            {selected.productionResult?.status === "unavailable" ? (
+              <p style={{ color: "var(--agx-warning, #fbbf24)" }}>
+                {t("agents.creative.detail.unavailableHint")}
+              </p>
+            ) : null}
+
+            {selected.productionResult?.status === "failed" ? (
+              <p style={{ color: "var(--agx-danger, #f87171)" }}>
+                {t("agents.creative.detail.failedHint")}
+              </p>
+            ) : null}
+
+            {generatedAssets.length > 0 ? (
+              <div className="space-y-2">
+                <p style={{ color: "var(--agx-text, #f8fafc)" }}>
+                  {t("agents.creative.detail.generatedAssets", {
+                    count: generatedAssets.length,
+                    provider: selected.productionResult?.providerId ?? "",
+                  })}
+                </p>
+                {generatedAssets.map((asset, index) => (
+                  <div
+                    key={`${asset.providerAssetId ?? asset.url}-${index}`}
+                    className="space-y-2 rounded-md border px-2 py-2"
+                    style={{
+                      borderColor:
+                        "color-mix(in srgb, var(--agx-text-muted, #94a3b8) 25%, transparent)",
+                    }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={asset.url}
+                      alt={t("agents.creative.detail.assetAlt", {
+                        index: index + 1,
+                      })}
+                      className="max-h-64 w-full rounded object-contain"
+                    />
+                    <a
+                      href={asset.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex text-xs underline"
+                      style={{ color: "var(--agx-accent, #22d3ee)" }}
+                    >
+                      {t("agents.creative.detail.openAsset")}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+
             {selected.script ? (
-              <p className="whitespace-pre-wrap rounded-md border px-2 py-2"
+              <p
+                className="whitespace-pre-wrap rounded-md border px-2 py-2"
                 style={{
                   borderColor:
                     "color-mix(in srgb, var(--agx-text-muted, #94a3b8) 25%, transparent)",
