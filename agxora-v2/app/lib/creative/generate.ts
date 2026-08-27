@@ -1,20 +1,28 @@
 /**
- * Phase 59 — server-side creative image generation service.
- * Actor organization is authoritative. Never trust client organizationId.
+ * Phase 59.1 — server-side creative image generation service.
+ * Actor organization is authoritative. Client approvalState is never authoritative.
  */
 
 import "server-only";
 
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import type { Actor } from "@/app/lib/tenancy/types";
+import { getAgentOsStateForActor } from "@/app/lib/agents/persistence";
+import type { AgentsPersistedState } from "@/features/agents/repositories/state";
 import type {
   CreativeGenerationRequest,
   CreativeGenerationResult,
 } from "@/features/agents/creative/provider";
 import type {
-  CreativeBrief,
+  CreativeAssetRef,
   CreativeProductionResult,
+  CreativeProject,
 } from "@/features/agents/creative/types";
+import { authorizeCreativeGenerationFromState } from "./authorize";
+import {
+  sanitizeAssetsForPersistence,
+  validateCreativeAssetUrl,
+} from "./assets";
 import { getServerCreativeImageProvider } from "./serverProvider";
 import type { CreativeImagePromptInput } from "./prompt";
 
@@ -22,11 +30,16 @@ export type ServerCreativeGenerateInput = {
   readonly creativeProjectId: string;
   /** Ignored for authority — actor.organizationId wins. */
   readonly organizationId?: string;
+  /**
+   * Informational only. MUST NOT authorize generation.
+   * Real AgentApproval is loaded from Agent OS state.
+   */
   readonly approvalState?: string;
-  readonly request: CreativeGenerationRequest;
-  readonly brief?: CreativeBrief;
-  readonly conceptTitle?: string;
-  readonly conceptSummary?: string;
+  /** Ignored for authority — server builds request from persisted project. */
+  readonly request?: CreativeGenerationRequest;
+  readonly brief?: unknown;
+  readonly conceptTitle?: unknown;
+  readonly conceptSummary?: unknown;
 };
 
 export type ServerCreativeGenerateSuccess = {
@@ -34,9 +47,28 @@ export type ServerCreativeGenerateSuccess = {
   readonly organizationId: string;
   readonly creativeProjectId: string;
   readonly providerId: string;
+  readonly approvalId: string;
+  readonly executionJobId: string;
   readonly result: CreativeGenerationResult;
+  /** Safe for Agent OS persistence (data URLs stripped). */
   readonly productionResult: CreativeProductionResult;
+  /**
+   * Optional preview assets including bounded data URLs for immediate UI.
+   * Not intended for Agent OS persistence.
+   */
+  readonly previewAssets?: readonly CreativeAssetRef[];
 };
+
+type LoadStateFn = (actor: Actor) => Promise<AgentsPersistedState>;
+
+let loadStateOverride: LoadStateFn | null = null;
+
+/** Test-only state loader injection (avoids Prisma in unit tests). */
+export function setCreativeGenerateLoadStateForTests(
+  loader: LoadStateFn | null,
+): void {
+  loadStateOverride = loader;
+}
 
 function toProductionResult(
   result: CreativeGenerationResult,
@@ -47,8 +79,74 @@ function toProductionResult(
     status: result.status,
     reason: result.reason,
     providerId: result.providerId,
-    assets: result.assets,
+    assets: sanitizeAssetsForPersistence(result.assets ?? []),
   };
+}
+
+function buildTrustedRequest(
+  actorOrganizationId: string,
+  project: CreativeProject,
+): CreativeImagePromptInput {
+  const plan = project.productionPlan;
+  if (!plan) {
+    throw new PersistenceError(
+      "validation",
+      "Creative production plan is required",
+      { details: [{ field: "productionPlan", message: "missing" }] },
+    );
+  }
+  const concept = project.concepts[0];
+  return {
+    organizationId: actorOrganizationId,
+    creativeProjectId: project.id,
+    creativeType: project.creativeType,
+    platform: project.platform,
+    modality: plan.modality,
+    aspectRatio: plan.aspectRatio,
+    durationSeconds: plan.estimatedDurationSeconds,
+    script: project.script,
+    storyboard: project.storyboard,
+    productionPlan: plan,
+    language: project.brief.language,
+    promptSummary: project.brief.customerRequest,
+    brief: project.brief,
+    conceptTitle: concept?.title,
+    conceptSummary: concept?.summary,
+  };
+}
+
+function boundAssetsOrFail(
+  providerId: string,
+  assets: readonly CreativeAssetRef[],
+): CreativeGenerationResult | { readonly assets: readonly CreativeAssetRef[] } {
+  const usable: CreativeAssetRef[] = [];
+  for (const asset of assets) {
+    if (typeof asset.url !== "string" || asset.url.length === 0) continue;
+    const reason = validateCreativeAssetUrl(asset.url);
+    if (reason === "provider_asset_too_large") {
+      return {
+        available: true,
+        generated: false,
+        status: "failed",
+        reason: "provider_asset_too_large",
+        providerId,
+        assets: [],
+      };
+    }
+    if (reason) continue;
+    usable.push(asset);
+  }
+  if (usable.length === 0) {
+    return {
+      available: true,
+      generated: false,
+      status: "failed",
+      reason: "provider_returned_no_assets",
+      providerId,
+      assets: [],
+    };
+  }
+  return { assets: usable };
 }
 
 /**
@@ -63,52 +161,34 @@ export async function generateCreativeImageForActor(
     throw new PersistenceError("validation", "creativeProjectId is required");
   }
 
-  if (input.approvalState !== "APPROVED") {
-    throw new PersistenceError(
-      "forbidden",
-      "Creative generation requires an approved AgentApproval",
-      {
-        details: [{ field: "approvalState", message: "must_be_APPROVED" }],
-      },
-    );
-  }
-
   // Client-supplied organizationId is never authoritative.
   if (
     typeof input.organizationId === "string" &&
     input.organizationId.length > 0 &&
     input.organizationId !== actor.organizationId
   ) {
-    throw new PersistenceError(
-      "forbidden",
-      "Organization mismatch",
-      {
-        details: [{ field: "organizationId", message: "actor_org_authoritative" }],
-      },
-    );
+    throw new PersistenceError("forbidden", "Organization mismatch", {
+      details: [{ field: "organizationId", message: "actor_org_authoritative" }],
+    });
   }
 
-  if (!input.request || typeof input.request !== "object") {
-    throw new PersistenceError("validation", "generation request is required");
-  }
+  // Client approvalState is informational only — never authorizes generation.
+  void input.approvalState;
+  void input.request;
+  void input.brief;
+  void input.conceptTitle;
+  void input.conceptSummary;
 
-  if (input.request.creativeProjectId !== input.creativeProjectId) {
-    throw new PersistenceError(
-      "validation",
-      "creativeProjectId does not match generation request",
-    );
-  }
+  const loadState = loadStateOverride ?? getAgentOsStateForActor;
+  const state = await loadState(actor);
+  const authz = authorizeCreativeGenerationFromState(
+    state,
+    actor.organizationId,
+    input.creativeProjectId,
+  );
 
   const provider = getServerCreativeImageProvider();
-
-  const request: CreativeImagePromptInput = {
-    ...input.request,
-    organizationId: actor.organizationId,
-    creativeProjectId: input.creativeProjectId,
-    brief: input.brief,
-    conceptTitle: input.conceptTitle,
-    conceptSummary: input.conceptSummary,
-  };
+  const request = buildTrustedRequest(actor.organizationId, authz.project);
 
   if (!provider.configured) {
     const result = await provider.generate(request);
@@ -123,8 +203,10 @@ export async function generateCreativeImageForActor(
     return {
       ok: true,
       organizationId: actor.organizationId,
-      creativeProjectId: input.creativeProjectId,
+      creativeProjectId: authz.project.id,
       providerId: provider.id,
+      approvalId: authz.approval.id,
+      executionJobId: authz.job.id,
       result: unavailable,
       productionResult: toProductionResult(unavailable),
     };
@@ -132,52 +214,80 @@ export async function generateCreativeImageForActor(
 
   const result = await provider.generate(request);
 
-  // Hard honesty: never accept generated=true without usable asset URLs.
-  if (result.status === "completed" || result.generated) {
-    const assets = (result.assets ?? []).filter(
-      (asset) => typeof asset.url === "string" && asset.url.length > 0,
-    );
-    if (!result.generated || assets.length === 0) {
-      const failed: CreativeGenerationResult = {
-        available: true,
-        generated: false,
-        status: "failed",
-        reason: "provider_returned_no_assets",
-        providerId: provider.id,
-        assets: [],
-      };
-      return {
-        ok: true,
-        organizationId: actor.organizationId,
-        creativeProjectId: input.creativeProjectId,
-        providerId: provider.id,
-        result: failed,
-        productionResult: toProductionResult(failed),
-      };
-    }
-    const completed: CreativeGenerationResult = {
-      ...result,
-      available: true,
-      generated: true,
-      status: "completed",
-      assets,
+  if (result.status === "unavailable" || !result.available) {
+    const unavailable: CreativeGenerationResult = {
+      available: false,
+      generated: false,
+      status: "unavailable",
+      reason: result.reason || "creative_provider_not_configured",
+      providerId: provider.id,
+      assets: [],
     };
     return {
       ok: true,
       organizationId: actor.organizationId,
-      creativeProjectId: input.creativeProjectId,
+      creativeProjectId: authz.project.id,
       providerId: provider.id,
-      result: completed,
-      productionResult: toProductionResult(completed),
+      approvalId: authz.approval.id,
+      executionJobId: authz.job.id,
+      result: unavailable,
+      productionResult: toProductionResult(unavailable),
     };
   }
+
+  if (result.status === "failed" || !result.generated) {
+    const failed: CreativeGenerationResult = {
+      available: true,
+      generated: false,
+      status: "failed",
+      reason: result.reason || "provider_failed",
+      providerId: provider.id,
+      assets: [],
+    };
+    return {
+      ok: true,
+      organizationId: actor.organizationId,
+      creativeProjectId: authz.project.id,
+      providerId: provider.id,
+      approvalId: authz.approval.id,
+      executionJobId: authz.job.id,
+      result: failed,
+      productionResult: toProductionResult(failed),
+    };
+  }
+
+  const bounded = boundAssetsOrFail(provider.id, result.assets ?? []);
+  if ("status" in bounded) {
+    return {
+      ok: true,
+      organizationId: actor.organizationId,
+      creativeProjectId: authz.project.id,
+      providerId: provider.id,
+      approvalId: authz.approval.id,
+      executionJobId: authz.job.id,
+      result: bounded,
+      productionResult: toProductionResult(bounded),
+    };
+  }
+
+  const completed: CreativeGenerationResult = {
+    available: true,
+    generated: true,
+    status: "completed",
+    reason: "generated",
+    providerId: provider.id,
+    assets: bounded.assets,
+  };
 
   return {
     ok: true,
     organizationId: actor.organizationId,
-    creativeProjectId: input.creativeProjectId,
+    creativeProjectId: authz.project.id,
     providerId: provider.id,
-    result,
-    productionResult: toProductionResult(result),
+    approvalId: authz.approval.id,
+    executionJobId: authz.job.id,
+    result: completed,
+    productionResult: toProductionResult(completed),
+    previewAssets: bounded.assets,
   };
 }

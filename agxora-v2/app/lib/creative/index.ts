@@ -10,3 +10,9 @@ export {
   buildCreativeImagePrompt,
   mapAspectRatioToOpenAISize,
 } from "./prompt";
+export {
+  MAX_CREATIVE_ASSET_DATA_URL_CHARS,
+  sanitizeAssetsForPersistence,
+  validateCreativeAssetUrl,
+  isUsableCreativeAssetUrl,
+} from "./assets";

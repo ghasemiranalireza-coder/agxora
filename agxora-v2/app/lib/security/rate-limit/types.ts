@@ -11,7 +11,8 @@ export type RateLimitPolicyId =
   | "auth.request_verification"
   | "control.invite"
   | "control.ownership_transfer_initiate"
-  | "control.ownership_transfer_confirm";
+  | "control.ownership_transfer_confirm"
+  | "agents.creative_generate";
 
 export type RateLimitKeyKind = "ip" | "user" | "ip_user";
 

@@ -45,12 +45,18 @@ export function CreativeWorkspace(): JSX.Element {
     [projects, selectedId],
   );
 
-  const generatedAssets =
-    selected?.productionResult?.generated === true
-      ? (selected.productionResult.assets ?? []).filter(
-          (asset) => typeof asset.url === "string" && asset.url.length > 0,
-        )
-      : [];
+  const generatedAssets = (() => {
+    if (selected?.productionResult?.generated !== true) return [];
+    const preview = creativeService.getPreviewAssets(selected.id);
+    if (preview.length > 0) {
+      return preview.filter(
+        (asset) => typeof asset.url === "string" && asset.url.length > 0,
+      );
+    }
+    return (selected.productionResult.assets ?? []).filter(
+      (asset) => typeof asset.url === "string" && asset.url.length > 0,
+    );
+  })();
 
   const run = async (action: () => Promise<void>, successKey: string) => {
     setBusy(true);

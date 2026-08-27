@@ -24,10 +24,12 @@ import {
 } from "./provider";
 import { assertCreativeStatusTransition } from "./transitions";
 import type {
+  CreativeAssetRef,
   CreativeDraftInput,
   CreativeProject,
   CreativeStatus,
 } from "./types";
+import { sanitizeAssetsForPersistence } from "@/app/lib/creative/assets";
 
 type ServerProviderStatus = {
   readonly id: string;
@@ -36,6 +38,9 @@ type ServerProviderStatus = {
 };
 
 let cachedServerProviderStatus: ServerProviderStatus | null = null;
+
+/** Session-only previews (data URLs). Never written into Agent OS persistence. */
+const previewAssetsByCreativeId = new Map<string, readonly CreativeAssetRef[]>();
 
 function orgFilter<T extends { organizationId: string }>(
   items: readonly T[],
@@ -111,12 +116,14 @@ function applyGenerationResult(
   providerId: string,
   providerConfigured: boolean,
   result: CreativeGenerationResult,
+  previewAssets?: readonly CreativeAssetRef[],
 ): CreativeProject {
   if (
     !providerConfigured ||
     !result.available ||
     result.status === "unavailable"
   ) {
+    previewAssetsByCreativeId.delete(creativeId);
     const blocked = setStatus(project, "PROVIDER_UNAVAILABLE", {
       productionResult: {
         available: false,
@@ -137,6 +144,7 @@ function applyGenerationResult(
   }
 
   if (result.status === "failed" || !result.generated) {
+    previewAssetsByCreativeId.delete(creativeId);
     const failed = setStatus(project, "FAILED", {
       productionResult: {
         available: true,
@@ -151,10 +159,28 @@ function applyGenerationResult(
     return failed;
   }
 
-  const assets = (result.assets ?? []).filter(
+  const rawAssets = (result.assets ?? []).filter(
     (asset) => typeof asset.url === "string" && asset.url.length > 0,
   );
-  if (assets.length === 0) {
+  const persistAssets = sanitizeAssetsForPersistence(
+    previewAssets && previewAssets.length > 0 ? previewAssets : rawAssets,
+  );
+
+  // Session preview may include bounded data URLs; Agent OS stores metadata only.
+  if (previewAssets && previewAssets.length > 0) {
+    previewAssetsByCreativeId.set(creativeId, previewAssets);
+  } else if (rawAssets.some((asset) => asset.url?.startsWith("data:image/"))) {
+    previewAssetsByCreativeId.set(creativeId, rawAssets);
+  } else {
+    previewAssetsByCreativeId.set(creativeId, persistAssets);
+  }
+
+  if (
+    persistAssets.length === 0 &&
+    !(previewAssets && previewAssets.length > 0) &&
+    rawAssets.length === 0
+  ) {
+    previewAssetsByCreativeId.delete(creativeId);
     const failed = setStatus(project, "FAILED", {
       productionResult: {
         available: true,
@@ -175,7 +201,7 @@ function applyGenerationResult(
       status: "completed",
       reason: "generated",
       providerId,
-      assets,
+      assets: persistAssets,
     },
   });
   auditCreative("agent.creative.generation_completed", organizationId, creativeId, {
@@ -191,6 +217,15 @@ export const creativeService = {
 
   get(organizationId: string, creativeId: string): CreativeProject | undefined {
     return this.list(organizationId).find((item) => item.id === creativeId);
+  },
+
+  /** Session-only preview assets (may include bounded data URLs). */
+  getPreviewAssets(creativeId: string): readonly CreativeAssetRef[] {
+    return previewAssetsByCreativeId.get(creativeId) ?? [];
+  },
+
+  clearPreviewAssetsForTests(): void {
+    previewAssetsByCreativeId.clear();
   },
 
   providerStatus() {
@@ -488,11 +523,13 @@ export const creativeService = {
     const plan = project.productionPlan;
     if (!plan) throw new Error("Production plan missing");
 
-    if (project.approvalState !== "APPROVED") {
-      throw new Error("Creative generation requires an approved AgentApproval");
+    // Flush Agent OS state so the server can revalidate approvals/projects.
+    try {
+      await agentsStore.flushPersistence();
+    } catch {
+      // Continue — server may already have a prior synced snapshot.
     }
 
-    const concept = project.concepts[0];
     let response: Response;
     try {
       response = await fetch("/api/v1/agents/creative/generate", {
@@ -501,26 +538,10 @@ export const creativeService = {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           creativeProjectId: project.id,
-          // Intentionally sent so the server can reject mismatches — never authoritative.
+          // Sent only so the server can reject mismatches — never authoritative.
           organizationId,
+          // Informational only — server ignores this for authorization.
           approvalState: project.approvalState,
-          brief: project.brief,
-          conceptTitle: concept?.title,
-          conceptSummary: concept?.summary,
-          request: {
-            organizationId,
-            creativeProjectId: project.id,
-            creativeType: project.creativeType,
-            platform: project.platform,
-            modality: plan.modality,
-            aspectRatio: plan.aspectRatio,
-            durationSeconds: plan.estimatedDurationSeconds,
-            script: project.script,
-            storyboard: project.storyboard,
-            productionPlan: plan,
-            language: project.brief.language,
-            promptSummary: project.brief.customerRequest,
-          },
         }),
       });
     } catch {
@@ -548,6 +569,15 @@ export const creativeService = {
       organizationId?: string;
       providerId?: string;
       result?: CreativeGenerationResult;
+      productionResult?: {
+        available?: boolean;
+        generated?: boolean;
+        status?: CreativeGenerationResult["status"];
+        reason?: string;
+        providerId?: string;
+        assets?: readonly CreativeAssetRef[];
+      };
+      previewAssets?: readonly CreativeAssetRef[];
     };
 
     if (response.status === 401) {
@@ -555,6 +585,9 @@ export const creativeService = {
     }
     if (response.status === 403) {
       throw new Error(payload.message || "Creative generation forbidden");
+    }
+    if (response.status === 429) {
+      throw new Error(payload.message || "Too many creative generation requests");
     }
     if (!response.ok || !payload.ok || !payload.result) {
       return applyGenerationResult(
@@ -574,7 +607,6 @@ export const creativeService = {
       );
     }
 
-    // Server organization must match the workspace org.
     if (
       typeof payload.organizationId === "string" &&
       payload.organizationId !== organizationId
@@ -583,19 +615,14 @@ export const creativeService = {
     }
 
     const result = payload.result;
-    const configured =
-      result.status !== "unavailable" || result.available === true
-        ? result.available || result.generated || result.status === "failed"
-        : false;
-
     return applyGenerationResult(
       project,
       organizationId,
       creativeId,
       result.providerId || payload.providerId || "none",
-      // Unavailable responses are honest "not configured" — treat as unconfigured.
-      result.status === "unavailable" ? false : configured || result.generated,
+      result.status === "unavailable" ? false : true,
       result,
+      payload.previewAssets,
     );
   },
 };

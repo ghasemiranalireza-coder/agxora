@@ -3,9 +3,11 @@
  *
  * Uses POST /v1/images/generations with a GPT Image model.
  * GPT Image models return base64 (`b64_json`), not hosted HTTPS URLs.
- * Phase 59 converts successful provider bytes into a usable `data:` URL.
- * Do not fabricate assets when the provider fails or returns empty data.
+ * Phase 59 converts successful provider bytes into a usable `data:` URL
+ * only when within bounded size limits (Phase 59.1).
  */
+
+import "server-only";
 
 import type {
   CreativeGenerationProvider,
@@ -17,6 +19,7 @@ import {
   mapAspectRatioToOpenAISize,
   type CreativeImagePromptInput,
 } from "./prompt";
+import { validateCreativeAssetUrl } from "./assets";
 
 export type OpenAIImagesProviderOptions = {
   readonly apiKey: string;
@@ -70,12 +73,7 @@ function sanitizeProviderMessage(message: string): string {
 }
 
 function isUsableAssetUrl(url: string): boolean {
-  if (!url || url.trim().length === 0) return false;
-  if (url.startsWith("https://")) return true;
-  if (url.startsWith("http://")) return true;
-  // GPT Image models return b64; Phase 59 embeds real bytes as data URLs.
-  if (url.startsWith("data:image/")) return true;
-  return false;
+  return validateCreativeAssetUrl(url) === null;
 }
 
 export function createOpenAICreativeImageProvider(
@@ -177,7 +175,10 @@ export function createOpenAICreativeImageProvider(
         }
 
         if (!assetUrl || !isUsableAssetUrl(assetUrl)) {
-          return failed(providerId, "provider_returned_no_assets");
+          const reason = assetUrl
+            ? validateCreativeAssetUrl(assetUrl) ?? "provider_returned_no_assets"
+            : "provider_returned_no_assets";
+          return failed(providerId, reason);
         }
 
         const dimensions =

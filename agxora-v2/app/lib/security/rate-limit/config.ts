@@ -75,6 +75,14 @@ export const RATE_LIMIT_POLICIES: Record<RateLimitPolicyId, RateLimitPolicy> = {
     keyKind: "ip_user",
     failClosed: true,
   },
+  /** Phase 59.1 — expensive image generation; conservative per-user budget. */
+  "agents.creative_generate": {
+    id: "agents.creative_generate",
+    max: 10,
+    windowMs: HOUR,
+    keyKind: "user",
+    failClosed: true,
+  },
 };
 
 export type RateLimitStoreId = "memory" | "http";
