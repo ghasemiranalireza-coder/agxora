@@ -156,6 +156,51 @@ function syncCampaign(job: ExecutionJob): void {
   });
 }
 
+function syncCreativeProject(job: ExecutionJob): void {
+  if (job.toolId !== "creative_generate") return;
+  const creativeId =
+    typeof job.params.creativeId === "string" ? job.params.creativeId : undefined;
+  const creative = agentsStore
+    .getSnapshot()
+    .creativeProjects.find(
+      (item) =>
+        item.organizationId === job.organizationId &&
+        (creativeId ? item.id === creativeId : item.executionJobId === job.id),
+    );
+  if (!creative) return;
+
+  if (job.status === "WAITING_FOR_APPROVAL") {
+    agentsStore.upsertCreativeProject({
+      ...creative,
+      executionJobId: job.id,
+      approvalState: "REQUIRES_APPROVAL",
+      updatedAt: nowIso(),
+    });
+    return;
+  }
+  if (job.result?.status === "rejected" || job.status === "CANCELLED") {
+    agentsStore.upsertCreativeProject({
+      ...creative,
+      status: "BLOCKED",
+      approvalState: "REJECTED",
+      executionJobId: job.id,
+      updatedAt: nowIso(),
+    });
+    return;
+  }
+  if (job.status === "RUNNING" || job.status === "VERIFYING") {
+    if (creative.status === "READY_FOR_APPROVAL" || creative.status === "APPROVED" || creative.status === "QUEUED") {
+      agentsStore.upsertCreativeProject({
+        ...creative,
+        status: "RUNNING",
+        approvalState: "APPROVED",
+        executionJobId: job.id,
+        updatedAt: nowIso(),
+      });
+    }
+  }
+}
+
 function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
   const campaign = job.campaignId
     ? agentsStore.getSnapshot().campaigns.find((item) => item.id === job.campaignId)
@@ -168,6 +213,55 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
     .socialContent.find((item) => item.taskId === task.id);
 
   if (isExternalSideEffectTool(job.toolId)) {
+    if (job.toolId === "creative_generate") {
+      const creativeId =
+        typeof job.params.creativeId === "string" ? job.params.creativeId : undefined;
+      const creative = agentsStore
+        .getSnapshot()
+        .creativeProjects.find(
+          (item) =>
+            item.organizationId === job.organizationId &&
+            (creativeId ? item.id === creativeId : item.executionJobId === job.id),
+        );
+      const result = creative?.productionResult;
+      if (result?.generated === true && result.available === true) {
+        return {
+          success: true,
+          status: "completed",
+          externalEffect: true,
+          message: "completed",
+          metadata: {
+            toolId: job.toolId,
+            creativeId: creative?.id ?? "",
+            providerId: result.providerId ?? "",
+          },
+        };
+      }
+      if (
+        creative?.status === "PROVIDER_UNAVAILABLE" ||
+        result?.status === "unavailable"
+      ) {
+        return {
+          success: false,
+          status: "unavailable",
+          externalEffect: false,
+          message: "creative_provider_unavailable",
+          metadata: {
+            toolId: job.toolId,
+            creativeId: creative?.id ?? "",
+            reason: result?.reason ?? "creative_provider_not_configured",
+          },
+        };
+      }
+      return {
+        success: false,
+        status: "failed",
+        externalEffect: false,
+        message: result?.reason ?? "creative_generation_failed",
+        metadata: { toolId: job.toolId, creativeId: creative?.id ?? "" },
+      };
+    }
+
     const published =
       campaign?.executionResult?.published === true ||
       website?.publishResult?.published === true ||
@@ -715,6 +809,7 @@ function applyOutcome(job: ExecutionJob, task: AgentTask, actor: string): Execut
     pushEvent(next, "APPROVAL_REQUESTED", actor);
     auditJob("agent.operations.approval_requested", next, { approvalId: approval.id });
     syncCampaign(next);
+    syncCreativeProject(next);
     return next;
   }
   if (task.status === "blocked" && approval?.state === "REJECTED") {
@@ -751,7 +846,10 @@ function finishJob(
           code:
             result.message === "crm_unavailable" || job.toolId === "crm"
               ? "crm.unavailable"
-              : "publishing.unavailable",
+              : result.message === "creative_provider_unavailable" ||
+                  job.toolId === "creative_generate"
+                ? "creative.provider_unavailable"
+                : "publishing.unavailable",
           retryable: false,
         }
       : result.status === "rejected"
@@ -804,6 +902,7 @@ function finishJob(
     next,
   );
   syncCampaign(next);
+  syncCreativeProject(next);
   return next;
 }
 
@@ -989,6 +1088,7 @@ export const operationsService = {
     pushEvent(next, "CANCELLED", actor);
     auditJob("agent.operations.execution_cancelled", next);
     syncCampaign(next);
+    syncCreativeProject(next);
     return next;
   },
 

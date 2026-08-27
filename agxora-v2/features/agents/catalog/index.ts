@@ -205,6 +205,23 @@ export const DEFAULT_AGENTS: readonly AgentDefinition[] = [
     category: "Growth",
   },
   {
+    id: "creative_producer",
+    name: "Creative Producer",
+    avatar: "CP",
+    description:
+      "Creates marketing creative briefs, scripts, storyboards, and production plans.",
+    role: "Creative Producer Agent",
+    capabilities: ["creative", "script", "storyboard", "production"],
+    goals: ["Plan creatives", "Prepare production for approval"],
+    instructions:
+      "Produce structured creative specifications. Never claim media was generated without a configured provider success.",
+    tools: ["creative", "creative_generate"],
+    permissions: ["agents.execute", "tools.invoke", "knowledge.read"],
+    knowledgeSources: ["company", "crm", "documents"],
+    marketplace: true,
+    category: "Growth",
+  },
+  {
     id: "custom",
     name: "Custom Agent",
     avatar: "CU",

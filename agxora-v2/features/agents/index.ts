@@ -26,3 +26,4 @@ export * from "./website";
 export * from "./social";
 export * from "./campaigns";
 export * from "./crm";
+export * from "./creative";

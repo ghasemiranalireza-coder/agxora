@@ -78,6 +78,14 @@ export function useAgentOperatingSystem() {
     [organizationId, snapshot],
   );
 
+  const creativeProjects = useMemo(
+    () =>
+      snapshot.creativeProjects.filter(
+        (item) => item.organizationId === organizationId,
+      ),
+    [organizationId, snapshot],
+  );
+
   const plans = useMemo(
     () => snapshot.plans.filter((p) => p.organizationId === organizationId),
     [organizationId, snapshot],
@@ -126,6 +134,7 @@ export function useAgentOperatingSystem() {
     stepExecutions,
     memories,
     knowledge,
+    creativeProjects,
     plans,
     traces,
     messages,
