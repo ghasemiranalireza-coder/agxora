@@ -51,3 +51,33 @@ export function requireSocialOAuthEncryptionKey(): Buffer {
 
 export const PUBLISH_ATTEMPT_IN_FLIGHT_TTL_MS = 15 * 60_000;
 export const OAUTH_STATE_TTL_MS = 10 * 60_000;
+
+export type YouTubePrivacyStatus = "private" | "unlisted" | "public";
+
+const DEFAULT_YOUTUBE_UPLOAD_MAX_DURATION_MS = 55_000;
+
+function envPositiveInt(name: string, fallback: number): number {
+  const raw = process.env[name]?.trim();
+  if (!raw) return fallback;
+  const n = Number.parseInt(raw, 10);
+  return Number.isFinite(n) && n > 0 ? n : fallback;
+}
+
+/** Phase 64 — server-only default YouTube upload privacy (never client-overridable). */
+export function getYouTubeDefaultPrivacyStatus(): YouTubePrivacyStatus {
+  const raw = process.env.AGXORA_YOUTUBE_DEFAULT_PRIVACY_STATUS?.trim().toLowerCase();
+  if (raw === "unlisted" || raw === "public") return raw;
+  return "private";
+}
+
+/** Phase 64 — in-request upload duration guard (fail-closed). */
+export function getYouTubeUploadMaxDurationMs(): number {
+  return envPositiveInt(
+    "AGXORA_YOUTUBE_UPLOAD_MAX_DURATION_MS",
+    DEFAULT_YOUTUBE_UPLOAD_MAX_DURATION_MS,
+  );
+}
+
+export function isYouTubePublishFullyConfigured(): boolean {
+  return isYouTubePublishEnabled() && Boolean(getYouTubeOAuthConfig());
+}

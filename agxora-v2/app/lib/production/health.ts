@@ -9,6 +9,10 @@ import {
   evaluateFirstCustomerProductionGate,
   type FirstCustomerGateIssueCode,
 } from "./firstCustomerGate";
+import {
+  evaluateYouTubePublishReadiness,
+  type PublishReadinessIssueCode,
+} from "@/app/lib/social/publishReadiness";
 
 export interface HealthPayload {
   readonly ok: boolean;
@@ -30,6 +34,12 @@ export interface HealthPayload {
     readonly emailConfigured: boolean;
     readonly issueCodes: readonly FirstCustomerGateIssueCode[];
   };
+  /** Phase 64 — YouTube publish readiness (public-safe, no secrets). */
+  readonly publishReadiness: {
+    readonly enabled: boolean;
+    readonly ready: boolean;
+    readonly issueCodes: readonly PublishReadinessIssueCode[];
+  };
 }
 
 export function buildHealthPayload(): HealthPayload {
@@ -45,6 +55,8 @@ export function buildHealthPayload(): HealthPayload {
   );
 
   const productionBlocked = gate.enforced && !gate.ready;
+  const publishReadiness = evaluateYouTubePublishReadiness();
+  const publishBlocked = publishReadiness.enabled && !publishReadiness.ready;
   const degraded =
     warnings.length > 0 &&
     (env.nodeEnv === "production" || env.runtime === "production");
@@ -53,7 +65,8 @@ export function buildHealthPayload(): HealthPayload {
     // Liveness remains ok:true so load balancers do not kill the process;
     // readiness is expressed via status + productionGate.ready.
     ok: true,
-    status: productionBlocked ? "not_ready" : degraded ? "degraded" : "healthy",
+    status:
+      productionBlocked || publishBlocked ? "not_ready" : degraded ? "degraded" : "healthy",
     service: "agxora",
     version: env.appVersion,
     runtime: env.runtime,
@@ -69,6 +82,11 @@ export function buildHealthPayload(): HealthPayload {
       agentOsPersistence: gate.snapshot.agentOsPersistence,
       emailConfigured: gate.snapshot.emailProvider !== "none",
       issueCodes: gate.issues.map((issue) => issue.code),
+    },
+    publishReadiness: {
+      enabled: publishReadiness.enabled,
+      ready: publishReadiness.ready,
+      issueCodes: publishReadiness.issues.map((issue) => issue.code),
     },
   };
 }
