@@ -4275,6 +4275,10 @@
     "title": "سیستم عامل عامل",
     "subtitle": "فضای کاری عامل محلی - عامل‌ها می‌توانند فعال شوند و به عنوان شبیه‌سازی در سراسر CRM، پروژه‌ها، امور مالی، گردش‌های کاری و یکپارچه‌سازی‌ها اجرا شوند. اجرای مستقل در تولید متصل نیست.",
     "noticeDefault": "سیستم‌عامل عامل محلی - اجراها در این فضای کاری شبیه‌سازی می‌شوند.",
+    "productionGate": {
+      "notReady": "Production readiness incomplete: {codes}. Configure auth, CRM database, Agent OS server persistence, and transactional email before serving customers.",
+      "readinessUnavailable": "Unable to verify production readiness. Check /api/health or try again shortly."
+    },
     "aiChat": "چت هوش مصنوعی",
     "tabs": {
       "dashboard": "داشبورد",
@@ -4290,7 +4294,8 @@
       "website": "Website Builder",
       "social": "Social Media",
       "campaigns": "Campaigns",
-      "operations": "Operations"
+      "operations": "Operations",
+      "creative": "Creative"
     },
     "notice": {
       "simulatedRun": "اجرای شبیه‌سازی‌شده · {status} ({duration}ms)",
@@ -4486,6 +4491,10 @@
       "growth_campaign": {
         "name": "Growth Campaign Agent",
         "description": "Plans campaigns, evaluates readiness, and prepares execution behind approval."
+      },
+      "creative_producer": {
+        "name": "Creative Producer",
+        "description": "Creates marketing creative briefs, scripts, storyboards, and production plans."
       }
     },
     "toolsCatalog": {
@@ -4572,6 +4581,14 @@
       "campaign_execute": {
         "name": "Campaign Execute Tool",
         "description": "Attempt campaign execution through existing publish adapters."
+      },
+      "creative": {
+        "name": "Creative Planning Tool",
+        "description": "Create creative briefs, concepts, scripts, storyboards, and production plans."
+      },
+      "creative_generate": {
+        "name": "Creative Generation Tool",
+        "description": "Execute approved creative media generation through a configured provider adapter."
       }
     },
     "knowledgeDocs": {
@@ -5149,6 +5166,79 @@
         "vip": "VIP",
         "archived": "Archived"
       }
+    },
+    "creative": {
+      "title": "Create Marketing Creative",
+      "subtitle": "Plan creatives and generate real IMAGE_AD assets when an image provider is configured. Video and animation generation are not available yet.",
+      "capabilityNotice": "Phase 59 real generation supports image ads only. Video, animation, voice, and social publishing are not implemented.",
+      "noticeReady": "Describe the creative you want. Planning does not generate media files.",
+      "noticeFailed": "Creative action failed",
+      "noticeBrief": "Creative brief and concepts created.",
+      "noticePlan": "Script, storyboard, and production plan are ready for approval.",
+      "noticeQueued": "Production requested. Approve in Operations if prompted. No media is fabricated when the provider is unavailable.",
+      "providerStatus": "Provider: {id} · {configured}",
+      "providerConfigured": "configured",
+      "providerUnavailable": "not configured",
+      "providerNotConfiguredDetail": "Image generation is not configured. AGXORA will not claim that an image was generated until a real provider succeeds.",
+      "profileRequired": "Save a Growth business profile before creating creatives.",
+      "requestPlaceholder": "Example: Create an Instagram Feed image ad for our new product…",
+      "projectsTitle": "Creative projects",
+      "empty": "No creative projects yet.",
+      "yes": "yes",
+      "no": "no",
+      "fields": {
+        "type": "Creative type",
+        "platform": "Platform",
+        "request": "What should we create?"
+      },
+      "actions": {
+        "createBrief": "Create brief",
+        "preparePlan": "Prepare script & plan",
+        "requestProduction": "Request production",
+        "regenerateImage": "Regenerate image"
+      },
+      "detail": {
+        "brief": "Brief",
+        "concepts": "Concepts: {count}",
+        "scriptScenes": "Script scenes: {count}",
+        "storyboardFrames": "Storyboard frames: {count}",
+        "result": "Production result: {status} · generated={generated} · {reason}",
+        "unavailableHint": "Image generation is unavailable. No fake preview or asset URL is shown.",
+        "failedHint": "Generation failed. The creative was not marked completed.",
+        "generatedAssets": "Generated assets ({count}) · provider {provider}",
+        "assetAlt": "Generated creative asset {index}",
+        "openAsset": "Open generated asset",
+        "unsupportedPaidGeneration": "Paid generation is not available for this creative type yet. Planning and scripts still work; video and animation cannot reach the image provider."
+      },
+      "types": {
+        "VIDEO_AD": "Video ad",
+        "SOCIAL_VIDEO": "Social video",
+        "ANIMATION": "Animation",
+        "IMAGE_AD": "Image ad",
+        "STORYBOARD": "Storyboard",
+        "SCRIPT": "Script",
+        "CREATIVE_CONCEPT": "Creative concept"
+      },
+      "platforms": {
+        "instagram_reels": "Instagram Reels",
+        "instagram_feed": "Instagram Feed",
+        "tiktok": "TikTok",
+        "youtube_shorts": "YouTube Shorts",
+        "youtube": "YouTube",
+        "facebook": "Facebook"
+      },
+      "status": {
+        "PLANNED": "Planned",
+        "READY_FOR_APPROVAL": "Ready for approval",
+        "APPROVED": "Approved",
+        "QUEUED": "Queued",
+        "RUNNING": "Running",
+        "COMPLETED": "Completed",
+        "FAILED": "Failed",
+        "BLOCKED": "Blocked",
+        "PROVIDER_UNAVAILABLE": "Provider unavailable"
+      },
+      "noticeRegenerateQueued": "Image regeneration requested. Approve in Operations before a new paid generation runs."
     }
   },
   "integrations": {

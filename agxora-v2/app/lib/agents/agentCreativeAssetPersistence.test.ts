@@ -383,6 +383,9 @@ describe("Phase 60 generate → durable persist lifecycle", () => {
       async get() {
         return null;
       },
+      async getPrimary() {
+        return null;
+      },
       async deletePrimary() {},
     });
 
@@ -437,9 +440,33 @@ describe("Phase 60 generate → durable persist lifecycle", () => {
     const blocked = await generateCreativeImageForActor(actorFor(ORG_A), {
       creativeProjectId: "creative_test_1",
     });
-    expect(blocked.result.reason).toBe("creative_already_has_durable_asset");
+    expect(blocked.result.reason).toBe("creative_regenerate_job_required");
     expect(blocked.result.generated).toBe(false);
     expect(generateSpy).not.toHaveBeenCalled();
+
+    const regenJob = baseJob(ORG_A, {
+      id: "job_regen",
+      approvalId: "approval_regen",
+      taskId: "task_regen",
+      params: {
+        creativeId: "creative_test_1",
+        growthAction: "creative_generate",
+        regenerate: true,
+      },
+    });
+    setCreativeGenerateLoadStateForTests(async () =>
+      stateWithAuthz(ORG_A, {
+        project: {
+          ...completedProject,
+          executionJobId: "job_regen",
+        },
+        job: regenJob,
+        approval: baseApproval(ORG_A, {
+          id: "approval_regen",
+          taskId: "task_regen",
+        }),
+      }),
+    );
 
     const regenerated = await generateCreativeImageForActor(actorFor(ORG_A), {
       creativeProjectId: "creative_test_1",
@@ -467,6 +494,9 @@ describe("Phase 60 generate → durable persist lifecycle", () => {
       },
       async get(input) {
         return inner.get(input);
+      },
+      async getPrimary(input) {
+        return inner.getPrimary(input);
       },
       async deletePrimary(input) {
         await inner.deletePrimary(input);
@@ -497,18 +527,36 @@ describe("Phase 60 generate → durable persist lifecycle", () => {
       configuredImageProvider(tinyJpegDataUrl("replacement-attempt")),
     );
     setCreativeGenerateLoadStateForTests(async () =>
-      stateWithAuthz(ORG_A, { project: completedProject }),
+      stateWithAuthz(ORG_A, {
+        project: {
+          ...completedProject,
+          executionJobId: "job_regen",
+        },
+        job: baseJob(ORG_A, {
+          id: "job_regen",
+          approvalId: "approval_regen",
+          taskId: "task_regen",
+          params: {
+            creativeId: "creative_test_1",
+            growthAction: "creative_generate",
+            regenerate: true,
+          },
+        }),
+        approval: baseApproval(ORG_A, {
+          id: "approval_regen",
+          taskId: "task_regen",
+        }),
+      }),
     );
 
     const failed = await generateCreativeImageForActor(actorFor(ORG_A), {
       creativeProjectId: "creative_test_1",
-      regenerate: true,
     });
     expect(failed.result.generated).toBe(false);
     expect(failed.result.status).toBe("failed");
     expect(failed.result.reason).toBe("creative_asset_storage_failed");
-    expect(failed.productionResult.assets ?? []).toEqual([]);
-    expect(failed.productionResult.generated).toBe(false);
+    expect(failed.productionResult.generated).toBe(true);
+    expect(failed.productionResult.assets?.[0]?.url).toBe(durableUrl);
 
     const preserved = await loadCreativeAssetForActor(
       actorFor(ORG_A),

@@ -923,7 +923,8 @@
     "actions": {
       "createBrief": "Create brief",
       "preparePlan": "Prepare script & plan",
-      "requestProduction": "Request production"
+      "requestProduction": "Request production",
+      "regenerateImage": "Regenerate image"
     },
     "detail": {
       "brief": "Brief",
@@ -935,7 +936,8 @@
       "failedHint": "Generation failed. The creative was not marked completed.",
       "generatedAssets": "Generated assets ({count}) · provider {provider}",
       "assetAlt": "Generated creative asset {index}",
-      "openAsset": "Open generated asset"
+      "openAsset": "Open generated asset",
+      "unsupportedPaidGeneration": "Paid generation is not available for this creative type yet. Planning and scripts still work; video and animation cannot reach the image provider."
     },
     "types": {
       "VIDEO_AD": "Video ad",
@@ -964,6 +966,7 @@
       "FAILED": "Failed",
       "BLOCKED": "Blocked",
       "PROVIDER_UNAVAILABLE": "Provider unavailable"
-    }
+    },
+    "noticeRegenerateQueued": "Image regeneration requested. Approve in Operations before a new paid generation runs."
   }
 }

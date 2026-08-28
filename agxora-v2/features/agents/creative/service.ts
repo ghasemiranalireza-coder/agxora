@@ -23,13 +23,22 @@ import {
   type CreativeGenerationResult,
 } from "./provider";
 import { assertCreativeStatusTransition } from "./transitions";
+import {
+  canRegenerateCompletedImage,
+  canRequestPaidGeneration,
+  hasAgentOsDurablePrimaryAsset,
+  shouldPreserveDurableProductionOnRegenerateFailure,
+} from "./capabilities";
 import type {
   CreativeAssetRef,
   CreativeDraftInput,
   CreativeProject,
   CreativeStatus,
 } from "./types";
-import { sanitizeAssetsForPersistence } from "@/app/lib/creative/assets";
+import {
+  hasDurablePrimaryAsset,
+  sanitizeAssetsForPersistence,
+} from "@/app/lib/creative/assets";
 
 type ServerProviderStatus = {
   readonly id: string;
@@ -117,12 +126,29 @@ function applyGenerationResult(
   providerConfigured: boolean,
   result: CreativeGenerationResult,
   previewAssets?: readonly CreativeAssetRef[],
+  options: { readonly jobRegenerate?: boolean } = {},
 ): CreativeProject {
+  const preserveOnFailure = shouldPreserveDurableProductionOnRegenerateFailure(
+    project,
+    options.jobRegenerate === true,
+  );
+
   if (
     !providerConfigured ||
     !result.available ||
     result.status === "unavailable"
   ) {
+    if (preserveOnFailure && project.productionResult) {
+      auditCreative(
+        "agent.creative.regeneration_unavailable",
+        organizationId,
+        creativeId,
+        { providerId },
+      );
+      return setStatus(project, "COMPLETED", {
+        productionResult: project.productionResult,
+      });
+    }
     previewAssetsByCreativeId.delete(creativeId);
     const blocked = setStatus(project, "PROVIDER_UNAVAILABLE", {
       productionResult: {
@@ -144,6 +170,14 @@ function applyGenerationResult(
   }
 
   if (result.status === "failed" || !result.generated) {
+    if (preserveOnFailure && project.productionResult) {
+      auditCreative("agent.creative.regeneration_failed", organizationId, creativeId, {
+        reason: result.reason || "provider_failed",
+      });
+      return setStatus(project, "COMPLETED", {
+        productionResult: project.productionResult,
+      });
+    }
     previewAssetsByCreativeId.delete(creativeId);
     const failed = setStatus(project, "FAILED", {
       productionResult: {
@@ -181,6 +215,14 @@ function applyGenerationResult(
   }
 
   if (!hasDurableUrl) {
+    if (preserveOnFailure && project.productionResult) {
+      auditCreative("agent.creative.regeneration_failed", organizationId, creativeId, {
+        reason: "creative_asset_not_durable",
+      });
+      return setStatus(project, "COMPLETED", {
+        productionResult: project.productionResult,
+      });
+    }
     previewAssetsByCreativeId.delete(creativeId);
     const failed = setStatus(project, "FAILED", {
       productionResult: {
@@ -383,10 +425,13 @@ export const creativeService = {
       project.platform,
       project.brief,
     );
+    const preserveProductionResult = hasAgentOsDurablePrimaryAsset(project);
     const next = setStatus(project, "READY_FOR_APPROVAL", {
       productionPlan,
       approvalState: undefined,
-      productionResult: undefined,
+      productionResult: preserveProductionResult
+        ? project.productionResult
+        : undefined,
     });
     auditCreative(
       "agent.creative.production_plan_ready",
@@ -404,6 +449,9 @@ export const creativeService = {
     const project = requireProject(organizationId, creativeId);
     if (!project.productionPlan) {
       throw new Error("Production plan is required before generation");
+    }
+    if (!canRequestPaidGeneration(project)) {
+      throw new Error("creative_paid_generation_unsupported");
     }
     if (
       project.status !== "READY_FOR_APPROVAL" &&
@@ -452,6 +500,56 @@ export const creativeService = {
     return { project: next, job };
   },
 
+  /**
+   * Phase 61 — explicit IMAGE_AD regenerate for COMPLETED creatives with durable assets.
+   * Re-queues through Operations + fresh AgentApproval (no silent paid regeneration).
+   */
+  async requestRegenerateProduction(organizationId: string, creativeId: string) {
+    const project = requireProject(organizationId, creativeId);
+    if (!canRegenerateCompletedImage(project)) {
+      throw new Error("Creative is not eligible for image regeneration");
+    }
+    if (!project.productionPlan) {
+      throw new Error("Production plan is required before regeneration");
+    }
+
+    const ready = setStatus(project, "READY_FOR_APPROVAL", {
+      productionResult: project.productionResult,
+      approvalState: undefined,
+    });
+
+    const job = operationsService.enqueue({
+      organizationId,
+      toolId: "creative_generate",
+      agentId: "creative_producer",
+      title: `Regenerate creative · ${ready.name}`,
+      campaignId: ready.campaignId,
+      priority: "HIGH",
+      params: {
+        creativeId: ready.id,
+        growthAction: "creative_generate",
+        profileId: ready.profileId,
+        customerId: ready.customerId,
+        regenerate: true,
+      },
+    });
+
+    const next: CreativeProject = {
+      ...ready,
+      executionJobId: job.id,
+      approvalState: "REQUIRES_APPROVAL",
+      updatedAt: nowIso(),
+    };
+    agentsStore.upsertCreativeProject(next);
+    auditCreative(
+      "agent.creative.regeneration_queued",
+      organizationId,
+      creativeId,
+      { jobId: job.id },
+    );
+    return { project: next, job };
+  },
+
   markApproved(organizationId: string, creativeId: string): CreativeProject {
     const project = requireProject(organizationId, creativeId);
     return setStatus(project, "APPROVED", { approvalState: "APPROVED" });
@@ -485,6 +583,24 @@ export const creativeService = {
     const plan = project.productionPlan;
     if (!plan) throw new Error("Production plan missing");
 
+    if (!canRequestPaidGeneration(project)) {
+      return applyGenerationResult(
+        project,
+        organizationId,
+        creativeId,
+        "none",
+        false,
+        {
+          available: true,
+          generated: false,
+          status: "failed",
+          reason: "creative_paid_generation_unsupported",
+          providerId: "none",
+          assets: [],
+        },
+      );
+    }
+
     const generationRequest = {
       organizationId,
       creativeProjectId: project.id,
@@ -500,6 +616,11 @@ export const creativeService = {
       promptSummary: project.brief.customerRequest,
     };
 
+    const boundJob = project.executionJobId
+      ? operationsService.get(organizationId, project.executionJobId)
+      : undefined;
+    const jobRegenerate = boundJob?.params.regenerate === true;
+
     // Test / explicit local injection still uses the in-process provider.
     const localProvider = getCreativeGenerationProvider();
     if (localProvider.configured && localProvider.id !== "none") {
@@ -511,6 +632,8 @@ export const creativeService = {
         localProvider.id,
         localProvider.configured,
         result,
+        undefined,
+        { jobRegenerate },
       );
     }
 
@@ -527,6 +650,11 @@ export const creativeService = {
     const plan = project.productionPlan;
     if (!plan) throw new Error("Production plan missing");
 
+    const boundJob = project.executionJobId
+      ? operationsService.get(organizationId, project.executionJobId)
+      : undefined;
+    const jobRegenerate = boundJob?.params.regenerate === true;
+
     // Flush Agent OS state so the server can revalidate approvals/projects.
     try {
       await agentsStore.flushPersistence();
@@ -542,9 +670,7 @@ export const creativeService = {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           creativeProjectId: project.id,
-          // Sent only so the server can reject mismatches — never authoritative.
           organizationId,
-          // Informational only — server ignores this for authorization.
           approvalState: project.approvalState,
         }),
       });
@@ -619,6 +745,28 @@ export const creativeService = {
     }
 
     const result = payload.result;
+    const serverProductionResult = payload.productionResult;
+
+    if (
+      (result.status === "failed" || !result.generated) &&
+      serverProductionResult?.generated === true &&
+      hasDurablePrimaryAsset(serverProductionResult.assets)
+    ) {
+      auditCreative("agent.creative.regeneration_failed", organizationId, creativeId, {
+        reason: result.reason || "provider_failed",
+      });
+      return setStatus(project, "COMPLETED", {
+        productionResult: {
+          available: serverProductionResult.available ?? true,
+          generated: true,
+          status: serverProductionResult.status ?? "completed",
+          reason: serverProductionResult.reason,
+          providerId: serverProductionResult.providerId,
+          assets: serverProductionResult.assets,
+        },
+      });
+    }
+
     return applyGenerationResult(
       project,
       organizationId,
@@ -627,6 +775,7 @@ export const creativeService = {
       result.status === "unavailable" ? false : true,
       result,
       payload.previewAssets,
+      { jobRegenerate },
     );
   },
 };

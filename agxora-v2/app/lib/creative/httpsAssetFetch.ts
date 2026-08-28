@@ -184,21 +184,49 @@ async function readBoundedResponseBody(
   return out;
 }
 
+const MAX_HTTPS_REDIRECTS = 5;
+
 export async function fetchTrustedHttpsAsset(
   url: string,
 ): Promise<{ mimeType: string; bytes: Uint8Array }> {
-  assertTrustedProviderAssetUrl(url);
+  let currentUrl = url.trim();
 
-  const response = await getFetchImpl()(url, {
-    method: "GET",
-    redirect: "follow",
-  });
+  for (let hop = 0; hop <= MAX_HTTPS_REDIRECTS; hop += 1) {
+    assertTrustedProviderAssetUrl(currentUrl);
 
-  if (!response.ok) {
-    throw new PersistenceError("persistence", "Failed to fetch provider asset", {
-      details: [{ field: "url", message: `provider_http_${response.status}` }],
+    const response = await getFetchImpl()(currentUrl, {
+      method: "GET",
+      redirect: "manual",
     });
+
+    if (response.status >= 300 && response.status < 400) {
+      const location = response.headers.get("location");
+      if (!location?.trim()) {
+        throw new PersistenceError("validation", "Redirect missing Location header", {
+          details: [{ field: "url", message: "provider_asset_url_not_trusted" }],
+        });
+      }
+      currentUrl = new URL(location.trim(), currentUrl).href;
+      continue;
+    }
+
+    if (!response.ok) {
+      throw new PersistenceError("persistence", "Failed to fetch provider asset", {
+        details: [{ field: "url", message: `provider_http_${response.status}` }],
+      });
+    }
+
+    return readTrustedHttpsAssetResponse(response);
   }
+
+  throw new PersistenceError("validation", "Too many HTTPS redirects", {
+    details: [{ field: "url", message: "provider_asset_url_not_trusted" }],
+  });
+}
+
+async function readTrustedHttpsAssetResponse(
+  response: Response,
+): Promise<{ mimeType: string; bytes: Uint8Array }> {
 
   const contentType = (response.headers.get("content-type") ?? "")
     .split(";")[0]

@@ -1,7 +1,7 @@
 /**
- * Phase 59.1 / Phase 60 — server-side creative image generation service.
- * Actor organization is authoritative. Client approvalState is never authoritative.
- * Phase 60 persists IMAGE_AD bytes into CreativeAssetStore before COMPLETED.
+ * Phase 59.1 / Phase 60 / 61.1 — server-side creative image generation service.
+ * Actor organization is authoritative. Client approvalState/regenerate never authorize.
+ * Phase 61.1: CreativeAssetStore primary + job.params.regenerate are authoritative.
  */
 
 import "server-only";
@@ -19,7 +19,9 @@ import type {
   CreativeProductionResult,
   CreativeProject,
 } from "@/features/agents/creative/types";
+import type { CreativeAssetRecord } from "./assetStore";
 import { authorizeCreativeGenerationFromState } from "./authorize";
+import { canRequestPaidGeneration } from "@/features/agents/creative/capabilities";
 import {
   hasDurablePrimaryAsset,
   sanitizeAssetsForPersistence,
@@ -28,6 +30,11 @@ import {
 import { persistProviderAssetsDurably } from "./persistAssets";
 import { getServerCreativeImageProvider } from "./serverProvider";
 import type { CreativeImagePromptInput } from "./prompt";
+import {
+  buildProductionResultFromStoredPrimary,
+  getStoredPrimaryCreativeAsset,
+  isRegenerateExecutionJob,
+} from "./storedPrimaryAsset";
 
 export type ServerCreativeGenerateInput = {
   readonly creativeProjectId: string;
@@ -44,8 +51,8 @@ export type ServerCreativeGenerateInput = {
   readonly conceptTitle?: unknown;
   readonly conceptSummary?: unknown;
   /**
-   * Phase 60 — explicit regenerate. Without this flag, COMPLETED creatives that
-   * already have a durable primary asset do not call the paid provider again.
+   * Informational only — MUST NOT authorize regenerate (Phase 61.1).
+   * Authoritative flag: bound ExecutionJob.params.regenerate === true.
    */
   readonly regenerate?: boolean;
 };
@@ -89,6 +96,35 @@ function toProductionResult(
     providerId: result.providerId,
     assets: sanitizeAssetsForPersistence(result.assets ?? []),
   };
+}
+
+function productionResultForOutcome(
+  project: CreativeProject,
+  result: CreativeGenerationResult,
+  jobRegenerate: boolean,
+  storedPrimary: CreativeAssetRecord | null,
+): CreativeProductionResult {
+  const hasStoredDurable = storedPrimary !== null;
+  const hasOsDurable =
+    project.productionResult?.generated === true &&
+    hasDurablePrimaryAsset(project.productionResult.assets);
+
+  if (
+    jobRegenerate &&
+    (hasStoredDurable || hasOsDurable) &&
+    (result.status === "failed" ||
+      !result.generated ||
+      result.status === "unavailable")
+  ) {
+    if (hasOsDurable && project.productionResult) {
+      return project.productionResult;
+    }
+    if (storedPrimary) {
+      return buildProductionResultFromStoredPrimary(storedPrimary);
+    }
+  }
+
+  return toProductionResult(result);
 }
 
 function buildTrustedRequest(
@@ -157,14 +193,14 @@ function boundAssetsOrFail(
   return { assets: usable };
 }
 
-function alreadyCompletedBlocked(
+function regenerateJobRequired(
   providerId: string,
 ): CreativeGenerationResult {
   return {
     available: true,
     generated: false,
     status: "failed",
-    reason: "creative_already_has_durable_asset",
+    reason: "creative_regenerate_job_required",
     providerId,
     assets: [],
   };
@@ -182,7 +218,6 @@ export async function generateCreativeImageForActor(
     throw new PersistenceError("validation", "creativeProjectId is required");
   }
 
-  // Client-supplied organizationId is never authoritative.
   if (
     typeof input.organizationId === "string" &&
     input.organizationId.length > 0 &&
@@ -193,8 +228,9 @@ export async function generateCreativeImageForActor(
     });
   }
 
-  // Client approvalState is informational only — never authorizes generation.
+  // Client fields are informational only — never authorize generation/regenerate.
   void input.approvalState;
+  void input.regenerate;
   void input.request;
   void input.brief;
   void input.conceptTitle;
@@ -210,105 +246,89 @@ export async function generateCreativeImageForActor(
 
   const provider = getServerCreativeImageProvider();
   const request = buildTrustedRequest(actor.organizationId, authz.project);
+  const jobRegenerate = isRegenerateExecutionJob(authz.job.params);
 
-  // Phase 60 regenerate policy: no silent paid re-generation when durable asset exists.
-  const durableExists =
-    authz.project.status === "COMPLETED" &&
-    authz.project.productionResult?.generated === true &&
-    hasDurablePrimaryAsset(authz.project.productionResult.assets);
+  const storedPrimary = await getStoredPrimaryCreativeAsset({
+    organizationId: actor.organizationId,
+    creativeProjectId: authz.project.id,
+  });
+  const hasExistingDurable = storedPrimary !== null;
 
-  if (durableExists && input.regenerate !== true) {
-    const blocked = alreadyCompletedBlocked(provider.id);
-    return {
-      ok: true,
-      organizationId: actor.organizationId,
-      creativeProjectId: authz.project.id,
+  const respond = (
+    result: CreativeGenerationResult,
+    previewAssets?: readonly CreativeAssetRef[],
+  ): ServerCreativeGenerateSuccess => ({
+    ok: true,
+    organizationId: actor.organizationId,
+    creativeProjectId: authz.project.id,
+    providerId: provider.id,
+    approvalId: authz.approval.id,
+    executionJobId: authz.job.id,
+    result,
+    productionResult: productionResultForOutcome(
+      authz.project,
+      result,
+      jobRegenerate,
+      storedPrimary,
+    ),
+    previewAssets,
+  });
+
+  if (!canRequestPaidGeneration(authz.project)) {
+    return respond({
+      available: true,
+      generated: false,
+      status: "failed",
+      reason: "creative_paid_generation_unsupported",
       providerId: provider.id,
-      approvalId: authz.approval.id,
-      executionJobId: authz.job.id,
-      result: blocked,
-      productionResult: toProductionResult(blocked),
-    };
+      assets: [],
+    });
+  }
+
+  // Phase 61.1: store-primary is authoritative; job.params.regenerate authorizes replacement.
+  if (hasExistingDurable && !jobRegenerate) {
+    return respond(regenerateJobRequired(provider.id));
   }
 
   if (!provider.configured) {
     const result = await provider.generate(request);
-    const unavailable: CreativeGenerationResult = {
+    return respond({
       available: false,
       generated: false,
       status: "unavailable",
       reason: result.reason || "creative_provider_not_configured",
       providerId: provider.id,
       assets: [],
-    };
-    return {
-      ok: true,
-      organizationId: actor.organizationId,
-      creativeProjectId: authz.project.id,
-      providerId: provider.id,
-      approvalId: authz.approval.id,
-      executionJobId: authz.job.id,
-      result: unavailable,
-      productionResult: toProductionResult(unavailable),
-    };
+    });
   }
 
   const result = await provider.generate(request);
 
   if (result.status === "unavailable" || !result.available) {
-    const unavailable: CreativeGenerationResult = {
+    return respond({
       available: false,
       generated: false,
       status: "unavailable",
       reason: result.reason || "creative_provider_not_configured",
       providerId: provider.id,
       assets: [],
-    };
-    return {
-      ok: true,
-      organizationId: actor.organizationId,
-      creativeProjectId: authz.project.id,
-      providerId: provider.id,
-      approvalId: authz.approval.id,
-      executionJobId: authz.job.id,
-      result: unavailable,
-      productionResult: toProductionResult(unavailable),
-    };
+    });
   }
 
   if (result.status === "failed" || !result.generated) {
-    const failed: CreativeGenerationResult = {
+    return respond({
       available: true,
       generated: false,
       status: "failed",
       reason: result.reason || "provider_failed",
       providerId: provider.id,
       assets: [],
-    };
-    return {
-      ok: true,
-      organizationId: actor.organizationId,
-      creativeProjectId: authz.project.id,
-      providerId: provider.id,
-      approvalId: authz.approval.id,
-      executionJobId: authz.job.id,
-      result: failed,
-      productionResult: toProductionResult(failed),
-    };
+    });
   }
 
   const bounded = boundAssetsOrFail(provider.id, result.assets ?? []);
   if ("status" in bounded) {
-    return {
-      ok: true,
-      organizationId: actor.organizationId,
-      creativeProjectId: authz.project.id,
-      providerId: provider.id,
-      approvalId: authz.approval.id,
-      executionJobId: authz.job.id,
-      result: bounded,
-      productionResult: toProductionResult(bounded),
-    };
+    return respond(bounded);
   }
 
   const persisted = await persistProviderAssetsDurably({
@@ -316,48 +336,29 @@ export async function generateCreativeImageForActor(
     creativeProjectId: authz.project.id,
     providerId: provider.id,
     assets: bounded.assets,
-    replaceExisting: durableExists && input.regenerate === true,
+    replaceExisting: hasExistingDurable && jobRegenerate,
   });
 
   if (!persisted.ok) {
-    const failed: CreativeGenerationResult = {
+    return respond({
       available: true,
       generated: false,
       status: "failed",
       reason: persisted.reason,
       providerId: provider.id,
       assets: [],
-    };
-    return {
-      ok: true,
-      organizationId: actor.organizationId,
-      creativeProjectId: authz.project.id,
-      providerId: provider.id,
-      approvalId: authz.approval.id,
-      executionJobId: authz.job.id,
-      result: failed,
-      productionResult: toProductionResult(failed),
-    };
+    });
   }
 
-  const completed: CreativeGenerationResult = {
-    available: true,
-    generated: true,
-    status: "completed",
-    reason: "generated",
-    providerId: provider.id,
-    assets: persisted.durableAssets,
-  };
-
-  return {
-    ok: true,
-    organizationId: actor.organizationId,
-    creativeProjectId: authz.project.id,
-    providerId: provider.id,
-    approvalId: authz.approval.id,
-    executionJobId: authz.job.id,
-    result: completed,
-    productionResult: toProductionResult(completed),
-    previewAssets: persisted.previewAssets,
-  };
+  return respond(
+    {
+      available: true,
+      generated: true,
+      status: "completed",
+      reason: "generated",
+      providerId: provider.id,
+      assets: persisted.durableAssets,
+    },
+    persisted.previewAssets,
+  );
 }
