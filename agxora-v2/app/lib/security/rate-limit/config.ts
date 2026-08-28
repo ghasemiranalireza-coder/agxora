@@ -83,6 +83,14 @@ export const RATE_LIMIT_POLICIES: Record<RateLimitPolicyId, RateLimitPolicy> = {
     keyKind: "user",
     failClosed: true,
   },
+  /** Phase 63.0 — external publish side effects; conservative per-user budget. */
+  "agents.creative_publish": {
+    id: "agents.creative_publish",
+    max: 10,
+    windowMs: HOUR,
+    keyKind: "user",
+    failClosed: true,
+  },
 };
 
 export type RateLimitStoreId = "memory" | "http";

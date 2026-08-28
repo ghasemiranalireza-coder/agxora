@@ -24,8 +24,10 @@ import {
 } from "./provider";
 import { assertCreativeStatusTransition } from "./transitions";
 import {
+  canPublishCompletedCreative,
   canRegenerateCompletedCreative,
   canRequestPaidGeneration,
+  canRequestPublish,
   hasAgentOsDurablePrimaryAsset,
   shouldPreserveDurableProductionOnRegenerateFailure,
 } from "./capabilities";
@@ -33,6 +35,7 @@ import type {
   CreativeAssetRef,
   CreativeDraftInput,
   CreativeProject,
+  CreativePublishResult,
   CreativeStatus,
 } from "./types";
 import {
@@ -260,6 +263,37 @@ function applyGenerationResult(
     providerId,
   });
   return completed;
+}
+
+function applyPublishResult(
+  project: CreativeProject,
+  organizationId: string,
+  creativeId: string,
+  publishResult: CreativePublishResult,
+): CreativeProject {
+  const productionResult = project.productionResult;
+  const next = {
+    ...project,
+    publishResult,
+    productionResult,
+    status: "COMPLETED" as const,
+    updatedAt: nowIso(),
+  };
+  agentsStore.upsertCreativeProject(next);
+  if (publishResult.published) {
+    auditCreative("agent.creative.publish_completed", organizationId, creativeId, {
+      platform: publishResult.platform ?? "",
+    });
+  } else if (publishResult.status === "unavailable") {
+    auditCreative("agent.creative.publish_unavailable", organizationId, creativeId, {
+      reason: publishResult.reason ?? "unavailable",
+    });
+  } else {
+    auditCreative("agent.creative.publish_failed", organizationId, creativeId, {
+      reason: publishResult.reason ?? "failed",
+    });
+  }
+  return next;
 }
 
 export const creativeService = {
@@ -556,9 +590,57 @@ export const creativeService = {
     return { project: next, job };
   },
 
+  /**
+   * Phase 63.0 — queue external publish via Operations for COMPLETED creatives.
+   */
+  async requestPublish(organizationId: string, creativeId: string) {
+    const project = requireProject(organizationId, creativeId);
+    if (!canRequestPublish(project)) {
+      throw new Error("Creative is not eligible for publish");
+    }
+
+    const job = operationsService.enqueue({
+      organizationId,
+      toolId: "creative_publish",
+      agentId: "creative_producer",
+      title: `Publish creative · ${project.name}`,
+      campaignId: project.campaignId,
+      priority: "HIGH",
+      params: {
+        creativeId: project.id,
+        growthAction: "creative_publish",
+        profileId: project.profileId,
+        customerId: project.customerId,
+      },
+    });
+
+    const next: CreativeProject = {
+      ...project,
+      publishExecutionJobId: job.id,
+      approvalState: "REQUIRES_APPROVAL",
+      updatedAt: nowIso(),
+    };
+    agentsStore.upsertCreativeProject(next);
+    auditCreative("agent.creative.publish_queued", organizationId, creativeId, {
+      jobId: job.id,
+    });
+    return { project: next, job };
+  },
+
   markApproved(organizationId: string, creativeId: string): CreativeProject {
     const project = requireProject(organizationId, creativeId);
     return setStatus(project, "APPROVED", { approvalState: "APPROVED" });
+  },
+
+  markPublishApproved(organizationId: string, creativeId: string): CreativeProject {
+    const project = requireProject(organizationId, creativeId);
+    const next: CreativeProject = {
+      ...project,
+      approvalState: "APPROVED",
+      updatedAt: nowIso(),
+    };
+    agentsStore.upsertCreativeProject(next);
+    return next;
   },
 
   markRejected(organizationId: string, creativeId: string): CreativeProject {
@@ -782,6 +864,104 @@ export const creativeService = {
       result,
       payload.previewAssets,
       { jobRegenerate },
+    );
+  },
+
+  async runProviderPublish(
+    organizationId: string,
+    creativeId: string,
+  ): Promise<CreativeProject> {
+    const project = requireProject(organizationId, creativeId);
+    if (!canPublishCompletedCreative(project)) {
+      throw new Error("Creative is not eligible for publish");
+    }
+    return this.runServerProviderPublish(organizationId, creativeId, project);
+  },
+
+  async runServerProviderPublish(
+    organizationId: string,
+    creativeId: string,
+    projectInput?: CreativeProject,
+  ): Promise<CreativeProject> {
+    const project = projectInput ?? requireProject(organizationId, creativeId);
+
+    try {
+      await agentsStore.flushPersistence();
+    } catch {
+      // Continue — server may already have a prior synced snapshot.
+    }
+
+    let response: Response;
+    try {
+      response = await fetch("/api/v1/agents/creative/publish", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          creativeProjectId: project.id,
+          organizationId,
+          approvalState: project.approvalState,
+        }),
+      });
+    } catch {
+      return applyPublishResult(
+        project,
+        organizationId,
+        creativeId,
+        {
+          available: false,
+          status: "unavailable",
+          published: false,
+          reason: "creative_publish_server_unreachable",
+          executionJobId: project.publishExecutionJobId,
+        },
+      );
+    }
+
+    const payload = (await response.json()) as {
+      ok?: boolean;
+      code?: string;
+      message?: string;
+      organizationId?: string;
+      publishResult?: CreativePublishResult;
+    };
+
+    if (response.status === 401) {
+      throw new Error("Authentication required for creative publish");
+    }
+    if (response.status === 403) {
+      throw new Error(payload.message || "Creative publish forbidden");
+    }
+    if (response.status === 429) {
+      throw new Error(payload.message || "Too many creative publish requests");
+    }
+    if (!response.ok || !payload.ok || !payload.publishResult) {
+      return applyPublishResult(
+        project,
+        organizationId,
+        creativeId,
+        {
+          available: false,
+          status: "unavailable",
+          published: false,
+          reason: payload.message || "creative_publish_server_error",
+          executionJobId: project.publishExecutionJobId,
+        },
+      );
+    }
+
+    if (
+      typeof payload.organizationId === "string" &&
+      payload.organizationId !== organizationId
+    ) {
+      throw new Error("Organization mismatch from creative publish server");
+    }
+
+    return applyPublishResult(
+      project,
+      organizationId,
+      creativeId,
+      payload.publishResult,
     );
   },
 };

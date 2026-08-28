@@ -226,3 +226,62 @@ export async function handleCreativeGenerateTool(
     };
   }
 }
+
+/** External publish — approval-gated; never fakes published success. */
+export async function handleCreativePublishTool(
+  ctx: ToolInvocationContext,
+): Promise<ToolInvocationResult> {
+  const started = Date.now();
+  const creativeId = readString(ctx.params, "creativeId");
+  if (!creativeId) {
+    return {
+      ok: false,
+      error: "creativeId is required",
+      durationMs: Date.now() - started,
+    };
+  }
+
+  try {
+    const before = agentsStore
+      .getSnapshot()
+      .creativeProjects.find(
+        (item) =>
+          item.id === creativeId && item.organizationId === ctx.organizationId,
+      );
+    if (!before) {
+      return {
+        ok: false,
+        error: "Creative project not found",
+        durationMs: Date.now() - started,
+      };
+    }
+
+    if (before.approvalState !== "APPROVED") {
+      creativeService.markPublishApproved(ctx.organizationId, creativeId);
+    }
+
+    const project = await creativeService.runProviderPublish(
+      ctx.organizationId,
+      creativeId,
+    );
+    const result = project.publishResult;
+    return {
+      ok: true,
+      output: {
+        creativeId: project.id,
+        status: project.status,
+        available: result?.available === true,
+        published: result?.published === true,
+        reason: result?.reason,
+        platform: result?.platform,
+      },
+      durationMs: Date.now() - started,
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      error: error instanceof Error ? error.message : "creative_publish_failed",
+      durationMs: Date.now() - started,
+    };
+  }
+}

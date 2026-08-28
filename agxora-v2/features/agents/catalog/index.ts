@@ -215,7 +215,7 @@ export const DEFAULT_AGENTS: readonly AgentDefinition[] = [
     goals: ["Plan creatives", "Prepare production for approval"],
     instructions:
       "Produce structured creative specifications. Never claim media was generated without a configured provider success.",
-    tools: ["creative", "creative_generate"],
+    tools: ["creative", "creative_generate", "creative_publish"],
     permissions: ["agents.execute", "tools.invoke", "knowledge.read"],
     knowledgeSources: ["company", "crm", "documents"],
     marketplace: true,

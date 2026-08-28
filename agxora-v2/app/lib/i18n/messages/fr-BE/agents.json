@@ -314,6 +314,10 @@
     "creative_generate": {
       "name": "Creative Generation Tool",
       "description": "Execute approved creative media generation through a configured provider adapter."
+    },
+    "creative_publish": {
+      "name": "Creative Publish Tool",
+      "description": "Attempt to publish a completed creative asset through a platform adapter."
     }
   },
   "knowledgeDocs": {
@@ -923,7 +927,8 @@
       "preparePlan": "Prepare script & plan",
       "requestProduction": "Request production",
       "regenerateImage": "Regenerate image",
-      "regenerateMedia": "Regenerate asset"
+      "regenerateMedia": "Regenerate asset",
+      "requestPublish": "Request publish"
     },
     "detail": {
       "brief": "Brief",
@@ -936,7 +941,10 @@
       "generatedAssets": "Generated assets ({count}) · provider {provider}",
       "assetAlt": "Generated creative asset {index}",
       "openAsset": "Open generated asset",
-      "unsupportedPaidGeneration": "Paid generation is not available for this creative type yet. Planning and scripts still work; animation cannot reach a paid provider."
+      "unsupportedPaidGeneration": "Paid generation is not available for this creative type yet. Planning and scripts still work; animation cannot reach a paid provider.",
+      "publishResult": "Publish result: {status} · published={published} · {reason}",
+      "publishUnavailableHint": "Publishing is unavailable. No fake published state is shown.",
+      "publishFailedHint": "Publish failed. The durable creative asset and production result are preserved."
     },
     "types": {
       "VIDEO_AD": "Video ad",
@@ -966,8 +974,9 @@
       "BLOCKED": "Blocked",
       "PROVIDER_UNAVAILABLE": "Provider unavailable"
     },
-    "capabilityNotice": "Phase 62 supports paid image ads (IMAGE_AD) and short-form video (VIDEO_AD, SOCIAL_VIDEO). Animation, voice, and social publishing are not implemented.",
+    "capabilityNotice": "Phase 63 supports publish orchestration for completed creatives. Platform adapters remain unavailable until Phase 63.1 OAuth and live integrations.",
     "providerNotConfiguredDetail": "Media generation is not configured. AGXORA will not claim that an asset was generated until a real provider succeeds.",
-    "noticeRegenerateQueued": "Regeneration requested. Approve in Operations if prompted."
+    "noticeRegenerateQueued": "Regeneration requested. Approve in Operations if prompted.",
+    "noticePublishQueued": "Publish requested. Approve in Operations if prompted. Adapters remain unavailable until configured."
   }
 }

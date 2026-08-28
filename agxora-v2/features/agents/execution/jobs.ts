@@ -118,6 +118,7 @@ export const EXTERNAL_SIDE_EFFECT_TOOLS: readonly ToolId[] = [
   "social_schedule",
   "campaign_execute",
   "creative_generate",
+  "creative_publish",
 ];
 
 export const EXECUTION_PRIORITIES: readonly ExecutionPriority[] = [
@@ -144,7 +145,7 @@ export function agentIdForTool(toolId: ToolId): AgentId {
   ) {
     return "growth_campaign";
   }
-  if (toolId === "creative" || toolId === "creative_generate") {
+  if (toolId === "creative" || toolId === "creative_generate" || toolId === "creative_publish") {
     return "creative_producer";
   }
   if (toolId === "crm" || toolId === "email") return "crm_assistant";

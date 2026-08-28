@@ -157,6 +157,10 @@ function syncCampaign(job: ExecutionJob): void {
 }
 
 function syncCreativeProject(job: ExecutionJob): void {
+  if (job.toolId === "creative_publish") {
+    syncCreativePublishProject(job);
+    return;
+  }
   if (job.toolId !== "creative_generate") return;
   const creativeId =
     typeof job.params.creativeId === "string" ? job.params.creativeId : undefined;
@@ -201,6 +205,37 @@ function syncCreativeProject(job: ExecutionJob): void {
   }
 }
 
+function syncCreativePublishProject(job: ExecutionJob): void {
+  const creativeId =
+    typeof job.params.creativeId === "string" ? job.params.creativeId : undefined;
+  const creative = agentsStore
+    .getSnapshot()
+    .creativeProjects.find(
+      (item) =>
+        item.organizationId === job.organizationId &&
+        (creativeId ? item.id === creativeId : item.publishExecutionJobId === job.id),
+    );
+  if (!creative) return;
+
+  if (job.status === "WAITING_FOR_APPROVAL") {
+    agentsStore.upsertCreativeProject({
+      ...creative,
+      publishExecutionJobId: job.id,
+      approvalState: "REQUIRES_APPROVAL",
+      updatedAt: nowIso(),
+    });
+    return;
+  }
+  if (job.result?.status === "rejected" || job.status === "CANCELLED") {
+    agentsStore.upsertCreativeProject({
+      ...creative,
+      approvalState: "REJECTED",
+      publishExecutionJobId: job.id,
+      updatedAt: nowIso(),
+    });
+  }
+}
+
 function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
   const campaign = job.campaignId
     ? agentsStore.getSnapshot().campaigns.find((item) => item.id === job.campaignId)
@@ -213,6 +248,52 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
     .socialContent.find((item) => item.taskId === task.id);
 
   if (isExternalSideEffectTool(job.toolId)) {
+    if (job.toolId === "creative_publish") {
+      const creativeId =
+        typeof job.params.creativeId === "string" ? job.params.creativeId : undefined;
+      const creative = agentsStore
+        .getSnapshot()
+        .creativeProjects.find(
+          (item) =>
+            item.organizationId === job.organizationId &&
+            (creativeId ? item.id === creativeId : item.publishExecutionJobId === job.id),
+        );
+      const publishResult = creative?.publishResult;
+      if (publishResult?.published === true && publishResult.available === true) {
+        return {
+          success: true,
+          status: "completed",
+          externalEffect: true,
+          message: "completed",
+          metadata: {
+            toolId: job.toolId,
+            creativeId: creative?.id ?? "",
+            platform: publishResult.platform ?? "",
+          },
+        };
+      }
+      if (publishResult?.status === "unavailable") {
+        return {
+          success: false,
+          status: "unavailable",
+          externalEffect: false,
+          message: publishResult.reason ?? "creative_publish_unavailable",
+          metadata: {
+            toolId: job.toolId,
+            creativeId: creative?.id ?? "",
+            reason: publishResult.reason ?? "creative_publish_unavailable",
+          },
+        };
+      }
+      return {
+        success: false,
+        status: "failed",
+        externalEffect: false,
+        message: publishResult?.reason ?? "creative_publish_failed",
+        metadata: { toolId: job.toolId, creativeId: creative?.id ?? "" },
+      };
+    }
+
     if (job.toolId === "creative_generate") {
       const creativeId =
         typeof job.params.creativeId === "string" ? job.params.creativeId : undefined;

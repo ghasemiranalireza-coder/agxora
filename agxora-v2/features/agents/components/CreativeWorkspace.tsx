@@ -15,6 +15,7 @@ import { creativeService } from "../creative/service";
 import {
   canRegenerateCompletedCreative,
   canRequestPaidGeneration,
+  canRequestPublish,
 } from "../creative/capabilities";
 import {
   CREATIVE_PLATFORMS,
@@ -67,6 +68,7 @@ export function CreativeWorkspace(): JSX.Element {
   const canRegenerateSelected = selected
     ? canRegenerateCompletedCreative(selected)
     : false;
+  const canPublishSelected = selected ? canRequestPublish(selected) : false;
 
   const generatedAssets = (() => {
     if (selected?.productionResult?.generated !== true) return [];
@@ -227,6 +229,25 @@ export function CreativeWorkspace(): JSX.Element {
               {t("agents.creative.actions.regenerateMedia")}
             </Button>
           ) : null}
+          {canPublishSelected ? (
+            <Button
+              size="sm"
+              variant="secondary"
+              disabled={busy}
+              onClick={() =>
+                void run(async () => {
+                  if (!selected) return;
+                  const { job } = await creativeService.requestPublish(
+                    orgId,
+                    selected.id,
+                  );
+                  await operationsService.start(orgId, job.id, aos.userId ?? "operator");
+                }, "agents.creative.noticePublishQueued")
+              }
+            >
+              {t("agents.creative.actions.requestPublish")}
+            </Button>
+          ) : null}
         </div>
         {!paidGenerationSupported && selected?.productionPlan ? (
           <p className="text-xs" style={{ color: "var(--agx-warning, #fbbf24)" }}>
@@ -335,6 +356,30 @@ export function CreativeWorkspace(): JSX.Element {
             {selected.productionResult?.status === "failed" ? (
               <p style={{ color: "var(--agx-danger, #f87171)" }}>
                 {t("agents.creative.detail.failedHint")}
+              </p>
+            ) : null}
+
+            {selected.publishResult ? (
+              <p>
+                {t("agents.creative.detail.publishResult", {
+                  status: selected.publishResult.status,
+                  reason: selected.publishResult.reason ?? "",
+                  published: selected.publishResult.published
+                    ? t("agents.creative.yes")
+                    : t("agents.creative.no"),
+                })}
+              </p>
+            ) : null}
+
+            {selected.publishResult?.status === "unavailable" ? (
+              <p style={{ color: "var(--agx-warning, #fbbf24)" }}>
+                {t("agents.creative.detail.publishUnavailableHint")}
+              </p>
+            ) : null}
+
+            {selected.publishResult?.status === "failed" ? (
+              <p style={{ color: "var(--agx-danger, #f87171)" }}>
+                {t("agents.creative.detail.publishFailedHint")}
               </p>
             ) : null}
 
