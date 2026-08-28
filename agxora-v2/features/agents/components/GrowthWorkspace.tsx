@@ -12,6 +12,7 @@ import {
 } from "@/app/components/ui";
 import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
 import { growthService } from "../growth/service";
+import { agentsStore } from "../store";
 import { SOCIAL_PLATFORMS, type BrandTone, type SocialPlatformId } from "../growth/types";
 import { useAgentOperatingSystem } from "../hooks";
 import { WebsitePreview } from "../website/preview";
@@ -333,6 +334,57 @@ export function GrowthWorkspace({
                   {`${catalogCopy(t, `agents.growth.platforms.${account.platform}`, account.platform)} · ${catalogCopy(t, `agents.growth.accountState.${account.state}`, account.state)}`}
                 </Badge>
               ))}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                size="sm"
+                variant="secondary"
+                disabled={busy}
+                onClick={() =>
+                  void run(async () => {
+                    const response = await fetch("/api/v1/agents/social/youtube/connect", {
+                      method: "POST",
+                      credentials: "include",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ redirectPath: "/agents?tab=social" }),
+                    });
+                    const payload = (await response.json()) as {
+                      ok?: boolean;
+                      authorizationUrl?: string;
+                      message?: string;
+                    };
+                    if (!response.ok || !payload.authorizationUrl) {
+                      throw new Error(payload.message || "YouTube connect failed");
+                    }
+                    window.location.href = payload.authorizationUrl;
+                  }, "agents.growth.noticeYouTubeConnect")
+                }
+              >
+                {t("agents.growth.actions.connectYouTube")}
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                disabled={busy}
+                onClick={() =>
+                  void run(async () => {
+                    const response = await fetch("/api/v1/agents/social/youtube/disconnect", {
+                      method: "POST",
+                      credentials: "include",
+                    });
+                    const payload = (await response.json()) as {
+                      ok?: boolean;
+                      message?: string;
+                    };
+                    if (!response.ok || !payload.ok) {
+                      throw new Error(payload.message || "YouTube disconnect failed");
+                    }
+                    await agentsStore.hydrateAsync({ force: true, organizationId: orgId });
+                  }, "agents.growth.noticeYouTubeDisconnect")
+                }
+              >
+                {t("agents.growth.actions.disconnectYouTube")}
+              </Button>
             </div>
             <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
               {t("agents.growth.connectionRequired")}

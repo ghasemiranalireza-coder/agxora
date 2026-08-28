@@ -66,6 +66,29 @@ export function createS3CompatibleCreativeBlobStore(
       );
       return streamToUint8Array(response.Body);
     },
+    async getObjectStream(key: string): Promise<ReadableStream<Uint8Array>> {
+      const response = await client.send(
+        new GetObjectCommand({ Bucket: config.bucket, Key: key }),
+      );
+      const body = response.Body;
+      if (!body) {
+        return new ReadableStream<Uint8Array>({
+          start(controller) {
+            controller.close();
+          },
+        });
+      }
+      if (body instanceof ReadableStream) {
+        return body as ReadableStream<Uint8Array>;
+      }
+      return new ReadableStream<Uint8Array>({
+        async start(controller) {
+          const bytes = await streamToUint8Array(body);
+          controller.enqueue(bytes);
+          controller.close();
+        },
+      });
+    },
     async deleteObject(key: string): Promise<void> {
       await client.send(
         new DeleteObjectCommand({ Bucket: config.bucket, Key: key }),

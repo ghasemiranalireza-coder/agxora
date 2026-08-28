@@ -13,7 +13,8 @@ export type RateLimitPolicyId =
   | "control.ownership_transfer_initiate"
   | "control.ownership_transfer_confirm"
   | "agents.creative_generate"
-  | "agents.creative_publish";
+  | "agents.creative_publish"
+  | "agents.social_connect";
 
 export type RateLimitKeyKind = "ip" | "user" | "ip_user";
 

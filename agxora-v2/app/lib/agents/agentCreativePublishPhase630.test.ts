@@ -25,6 +25,8 @@ import {
 } from "@/app/lib/creative/assetStore";
 import * as invokeSocialPublish from "@/app/lib/creative/invokeSocialPublish";
 import { evaluateFirstCustomerProductionGate } from "@/app/lib/production/firstCustomerGate";
+import { setPersistPublishResultForTests } from "@/app/lib/creative/persistPublishResult";
+import { setPublishAttemptStoreForTests } from "@/app/lib/creative/publishIdempotency";
 
 const ORG_A = "11111111-1111-4111-8111-111111111111";
 const ORG_B = "22222222-2222-4222-8222-222222222222";
@@ -228,12 +230,16 @@ describe("Phase 63.0 creative publish orchestration", () => {
     setAgentsRepository(new MemoryAgentsRepository());
     setCreativeAssetStoreForTests(createMemoryCreativeAssetStore());
     setCreativePublishLoadStateForTests(null);
+    setPublishAttemptStoreForTests(null);
+    setPersistPublishResultForTests(async (_actor, state) => state);
     vi.restoreAllMocks();
   });
 
   afterEach(() => {
     setCreativePublishLoadStateForTests(null);
     setCreativeAssetStoreForTests(null);
+    setPublishAttemptStoreForTests(null);
+    setPersistPublishResultForTests(null);
     vi.restoreAllMocks();
   });
 
@@ -370,7 +376,7 @@ describe("Phase 63.0 creative publish orchestration", () => {
     });
     expect(result.publishResult.published).toBe(false);
     expect(result.publishResult.status).toBe("unavailable");
-    expect(result.publishResult.reason).toBe("social_account_disconnected");
+    expect(result.publishResult.reason).toBe("social_credential_missing");
     expect(spy).not.toHaveBeenCalled();
   });
 
@@ -384,6 +390,7 @@ describe("Phase 63.0 creative publish orchestration", () => {
     expect(result.publishResult.published).toBe(false);
     expect(result.publishResult.status).toBe("unavailable");
     expect(result.publishResult.available).toBe(false);
+    expect(result.publishResult.reason).toBe("social_credential_missing");
   });
 
   it("does not call adapter on authorization failure", async () => {
