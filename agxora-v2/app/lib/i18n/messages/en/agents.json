@@ -954,7 +954,8 @@
       "publishResult": "Publish result: {status} · published={published} · {reason}",
       "publishUnavailableHint": "Publishing is unavailable. No fake published state is shown.",
       "publishFailedHint": "Publish failed. The durable creative asset and production result are preserved.",
-      "publishUploadingHint": "YouTube upload is in progress. Refresh for status updates."
+      "publishUploadingHint": "YouTube upload is in progress. Refresh for status updates.",
+      "publishUploadingProgress": "({percent}% uploaded)"
     },
     "types": {
       "VIDEO_AD": "Video ad",

@@ -9,6 +9,10 @@ import type { Actor } from "@/app/lib/tenancy/types";
 import { getAgentOsStateForActor } from "@/app/lib/agents/persistence";
 import { getValidSocialAccessTokenForActor } from "@/app/lib/social/credentials";
 import { publishYouTubeFromResumableSession } from "@/app/lib/social/adapters/youtubePublish";
+import {
+  getYouTubeWorkerMaxChunksPerRun,
+  getYouTubeWorkerMaxWallClockMsPerRun,
+} from "@/app/lib/social/config";
 import { getCreativeAssetStore } from "./assetStore";
 import { getCreativeBlobStore } from "./blobStore";
 import {
@@ -32,9 +36,15 @@ export type CreativePublishWorkerRunResult = {
   readonly processed: number;
   readonly completed: number;
   readonly failed: number;
+  readonly partial: number;
   readonly expired: number;
   readonly skipped: number;
 };
+
+const PARTIAL_UPLOAD_REASONS = new Set([
+  "youtube_upload_incomplete",
+  "youtube_upload_timeout",
+]);
 
 function buildWorkerActor(session: YouTubeUploadSessionRecord): Actor {
   return {
@@ -99,7 +109,7 @@ function projectCopyFromState(
 
 export async function processYouTubeUploadSession(
   session: YouTubeUploadSessionRecord,
-): Promise<"completed" | "failed" | "skipped"> {
+): Promise<"completed" | "failed" | "partial" | "skipped"> {
   const attempt = await getCreativePublishAttemptById(
     session.organizationId,
     session.publishAttemptId,
@@ -178,6 +188,7 @@ export async function processYouTubeUploadSession(
 
   const blobStore = getCreativeBlobStore();
   const objectKey = asset.objectKey;
+  let lastByteOffset = session.byteOffset;
 
   const adapterResult = await publishYouTubeFromResumableSession({
     accessToken,
@@ -187,10 +198,13 @@ export async function processYouTubeUploadSession(
     startOffset: session.byteOffset,
     title,
     description,
+    maxChunks: getYouTubeWorkerMaxChunksPerRun(),
+    deadlineMs: Date.now() + getYouTubeWorkerMaxWallClockMsPerRun(),
     readChunk: async (offset, maxLength) => {
       return blobStore.getObjectBytesRange(objectKey, offset, maxLength);
     },
     onProgress: async (offset) => {
+      lastByteOffset = offset;
       await updateYouTubeUploadSessionProgress({
         sessionId: session.id,
         organizationId: session.organizationId,
@@ -199,6 +213,20 @@ export async function processYouTubeUploadSession(
       });
     },
   });
+
+  if (
+    !adapterResult.published &&
+    (adapterResult.status === "uploading" ||
+      PARTIAL_UPLOAD_REASONS.has(adapterResult.reason ?? ""))
+  ) {
+    await updateYouTubeUploadSessionProgress({
+      sessionId: session.id,
+      organizationId: session.organizationId,
+      byteOffset: lastByteOffset,
+      status: "uploading",
+    });
+    return "partial";
+  }
 
   if (!adapterResult.published || !adapterResult.externalId) {
     const reason = adapterResult.reason ?? "youtube_upload_failed";
@@ -266,6 +294,7 @@ export async function runCreativePublishWorker(
     processed: 0,
     completed: 0,
     failed: 0,
+    partial: 0,
     expired,
     skipped: 0,
   } satisfies CreativePublishWorkerRunResult;
@@ -277,6 +306,8 @@ export async function runCreativePublishWorker(
       summary.completed += 1;
     } else if (outcome === "failed") {
       summary.failed += 1;
+    } else if (outcome === "partial") {
+      summary.partial += 1;
     } else {
       summary.skipped += 1;
     }

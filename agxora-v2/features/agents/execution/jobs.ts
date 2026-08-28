@@ -33,7 +33,8 @@ export type ExecutionResultStatus =
   | "blocked"
   | "failed"
   | "rejected"
-  | "cancelled";
+  | "cancelled"
+  | "in_progress";
 
 export interface ExecutionRetryPolicy {
   readonly retryable: boolean;

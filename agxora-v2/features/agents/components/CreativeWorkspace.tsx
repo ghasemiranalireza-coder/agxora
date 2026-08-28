@@ -374,6 +374,23 @@ export function CreativeWorkspace(): JSX.Element {
             {selected.publishResult?.status === "uploading" ? (
               <p style={{ color: "var(--agx-warning, #fbbf24)" }}>
                 {t("agents.creative.detail.publishUploadingHint")}
+                {typeof selected.publishResult.uploadByteSize === "number" &&
+                selected.publishResult.uploadByteSize > 0 &&
+                typeof selected.publishResult.uploadByteOffset === "number" ? (
+                  <>
+                    {" "}
+                    {t("agents.creative.detail.publishUploadingProgress", {
+                      percent: Math.min(
+                        100,
+                        Math.round(
+                          (selected.publishResult.uploadByteOffset /
+                            selected.publishResult.uploadByteSize) *
+                            100,
+                        ),
+                      ),
+                    })}
+                  </>
+                ) : null}
               </p>
             ) : null}
 

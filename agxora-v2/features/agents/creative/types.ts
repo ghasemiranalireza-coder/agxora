@@ -170,6 +170,9 @@ export interface CreativePublishResult {
   readonly externalUrl?: string;
   readonly publishedAt?: string;
   readonly executionJobId?: string;
+  /** Phase 66 — optional async upload progress (bytes only, no secrets). */
+  readonly uploadByteOffset?: number;
+  readonly uploadByteSize?: number;
 }
 
 export interface CreativeProject {

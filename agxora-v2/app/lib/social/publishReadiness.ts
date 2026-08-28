@@ -10,14 +10,18 @@ import {
   isYouTubeAsyncUploadEnabled,
   isYouTubePublishEnabled,
 } from "./config";
-import { isCreativePublishWorkerConfigured } from "@/app/lib/creative/publishWorkerAuth";
+import {
+  isCreativePublishSchedulerConfigured,
+  isCreativePublishWorkerConfigured,
+} from "@/app/lib/creative/publishWorkerAuth";
 
 export type PublishReadinessIssueCode =
   | "youtube_oauth_not_configured"
   | "social_oauth_encryption_key"
   | "creative_blob_store_not_s3"
   | "creative_blob_s3_not_configured"
-  | "creative_publish_worker_not_configured";
+  | "creative_publish_worker_not_configured"
+  | "creative_publish_scheduler_not_configured";
 
 export type PublishReadinessIssue = {
   readonly code: PublishReadinessIssueCode;
@@ -90,6 +94,18 @@ export function evaluateYouTubePublishReadiness(): PublishReadinessResult {
       code: "creative_publish_worker_not_configured",
       message:
         "Async YouTube upload requires AGXORA_CREATIVE_PUBLISH_WORKER_TOKEN for the trusted worker endpoint",
+    });
+  }
+
+  if (
+    isYouTubeAsyncUploadEnabled() &&
+    isCreativePublishWorkerConfigured() &&
+    !isCreativePublishSchedulerConfigured()
+  ) {
+    issues.push({
+      code: "creative_publish_scheduler_not_configured",
+      message:
+        "Async YouTube upload requires AGXORA_CREATIVE_PUBLISH_SCHEDULER_ENABLED=true with platform cron hitting /api/v1/internal/creative/publish/worker",
     });
   }
 

@@ -87,6 +87,8 @@ const DEFAULT_YOUTUBE_UPLOAD_SESSION_TTL_MS = 24 * 60 * 60_000;
 const DEFAULT_YOUTUBE_WORKER_MAX_SESSIONS_PER_RUN = 5;
 const DEFAULT_YOUTUBE_UPLOAD_SESSION_LEASE_MS = 5 * 60_000;
 const DEFAULT_YOUTUBE_ASYNC_SYNC_CHUNK_BUDGET = 2;
+const DEFAULT_YOUTUBE_WORKER_MAX_CHUNKS_PER_RUN = 4;
+const DEFAULT_YOUTUBE_WORKER_MAX_WALL_CLOCK_MS_PER_RUN = 45_000;
 
 /** Phase 65 — async cross-request YouTube upload (default off). */
 export function isYouTubeAsyncUploadEnabled(): boolean {
@@ -127,4 +129,26 @@ export function getYouTubeAsyncSyncChunkBudget(): number {
     "AGXORA_YOUTUBE_ASYNC_SYNC_CHUNK_BUDGET",
     DEFAULT_YOUTUBE_ASYNC_SYNC_CHUNK_BUDGET,
   );
+}
+
+/** Phase 66 — max resumable chunks per worker invocation (partial progress safe). */
+export function getYouTubeWorkerMaxChunksPerRun(): number {
+  return envPositiveInt(
+    "AGXORA_YOUTUBE_WORKER_MAX_CHUNKS_PER_RUN",
+    DEFAULT_YOUTUBE_WORKER_MAX_CHUNKS_PER_RUN,
+  );
+}
+
+/** Phase 66 — wall-clock budget per worker invocation in milliseconds. */
+export function getYouTubeWorkerMaxWallClockMsPerRun(): number {
+  return envPositiveInt(
+    "AGXORA_YOUTUBE_WORKER_MAX_WALL_CLOCK_MS_PER_RUN",
+    DEFAULT_YOUTUBE_WORKER_MAX_WALL_CLOCK_MS_PER_RUN,
+  );
+}
+
+/** Phase 66 — platform cron / scheduler explicitly enabled for async publish. */
+export function isCreativePublishSchedulerEnabled(): boolean {
+  const raw = process.env.AGXORA_CREATIVE_PUBLISH_SCHEDULER_ENABLED?.trim().toLowerCase();
+  return raw === "1" || raw === "true" || raw === "yes";
 }

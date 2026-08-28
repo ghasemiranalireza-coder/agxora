@@ -1,6 +1,7 @@
 /**
- * Phase 65.0 — trusted internal creative publish worker boundary.
+ * Phase 65.0 / 66.0 — trusted internal creative publish worker boundary.
  * POST /api/v1/internal/creative/publish/worker
+ * GET  /api/v1/internal/creative/publish/worker (Vercel Cron)
  */
 
 import { NextResponse } from "next/server";
@@ -10,12 +11,13 @@ import { getYouTubeWorkerMaxSessionsPerRun } from "@/app/lib/social/config";
 
 export const runtime = "nodejs";
 
-export async function POST(request: Request): Promise<NextResponse> {
+async function handleWorkerInvocation(request: Request): Promise<NextResponse> {
   try {
     assertCreativePublishWorkerAuthorized(request.headers.get("authorization"));
-    const body = (await request.json().catch(() => ({}))) as {
-      maxSessions?: number;
-    };
+    const body =
+      request.method === "POST"
+        ? ((await request.json().catch(() => ({}))) as { maxSessions?: number })
+        : {};
     const maxSessions = Math.min(
       Math.max(1, body.maxSessions ?? getYouTubeWorkerMaxSessionsPerRun()),
       getYouTubeWorkerMaxSessionsPerRun(),
@@ -32,4 +34,12 @@ export async function POST(request: Request): Promise<NextResponse> {
     }
     return NextResponse.json({ ok: false, error: "worker_failed" }, { status: 500 });
   }
+}
+
+export async function GET(request: Request): Promise<NextResponse> {
+  return handleWorkerInvocation(request);
+}
+
+export async function POST(request: Request): Promise<NextResponse> {
+  return handleWorkerInvocation(request);
 }

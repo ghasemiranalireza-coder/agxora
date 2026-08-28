@@ -329,6 +329,8 @@ describe("Phase 65.0 async YouTube publish foundation", () => {
       "AGXORA_YOUTUBE_UPLOAD_SESSION_TTL_MS",
       "AGXORA_YOUTUBE_UPLOAD_SESSION_LEASE_MS",
       "AGXORA_YOUTUBE_WORKER_MAX_SESSIONS_PER_RUN",
+      "AGXORA_YOUTUBE_WORKER_MAX_CHUNKS_PER_RUN",
+      "AGXORA_YOUTUBE_WORKER_MAX_WALL_CLOCK_MS_PER_RUN",
       "AGXORA_SOCIAL_OAUTH_ENCRYPTION_KEY",
     ]) {
       envBackup[key] = process.env[key];
@@ -341,6 +343,7 @@ describe("Phase 65.0 async YouTube publish foundation", () => {
     process.env.AGXORA_YOUTUBE_ASYNC_UPLOAD_ENABLED = "true";
     process.env.AGXORA_YOUTUBE_ASYNC_UPLOAD_THRESHOLD_BYTES = String(10 * 1024 * 1024);
     process.env.AGXORA_CREATIVE_PUBLISH_WORKER_TOKEN = "worker_secret_phase650";
+    process.env.AGXORA_YOUTUBE_WORKER_MAX_CHUNKS_PER_RUN = "100";
     process.env.AGXORA_SOCIAL_OAUTH_ENCRYPTION_KEY = Buffer.alloc(32, 3).toString("base64");
     process.env.AGXORA_YOUTUBE_UPLOAD_SESSION_LEASE_MS = "1000";
     setYouTubeResumableDepsForTests({
