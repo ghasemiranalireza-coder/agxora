@@ -54,6 +54,22 @@ describe("Phase 60.1 trusted HTTPS asset fetch", () => {
     expect(url.hostname).toBe(TRUSTED_HOST);
   });
 
+  it("rejects HTTPS redirect to an untrusted host", async () => {
+    setTrustedHttpsAssetFetchForTests(async () =>
+      new Response(null, {
+        status: 302,
+        headers: { Location: "https://evil.example.com/image.png" },
+      }),
+    );
+
+    await expect(fetchTrustedHttpsAsset(TRUSTED_URL)).rejects.toMatchObject({
+      code: "validation",
+      details: expect.arrayContaining([
+        expect.objectContaining({ message: "provider_asset_url_not_trusted" }),
+      ]),
+    });
+  });
+
   it("rejects untrusted HTTPS host before fetch", () => {
     expect(() =>
       assertTrustedProviderAssetUrl("https://evil.example.com/image.png"),

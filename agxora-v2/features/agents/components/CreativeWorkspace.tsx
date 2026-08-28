@@ -13,6 +13,10 @@ import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
 import { growthService } from "../growth/service";
 import { creativeService } from "../creative/service";
 import {
+  canRegenerateCompletedImage,
+  canRequestPaidGeneration,
+} from "../creative/capabilities";
+import {
   CREATIVE_PLATFORMS,
   CREATIVE_TYPES,
   type CreativePlatformId,
@@ -44,6 +48,13 @@ export function CreativeWorkspace(): JSX.Element {
     () => projects.find((item) => item.id === selectedId) ?? projects[0] ?? null,
     [projects, selectedId],
   );
+
+  const paidGenerationSupported = selected
+    ? canRequestPaidGeneration(selected)
+    : creativeType === "IMAGE_AD";
+  const canRegenerateSelected = selected
+    ? canRegenerateCompletedImage(selected)
+    : false;
 
   const generatedAssets = (() => {
     if (selected?.productionResult?.generated !== true) return [];
@@ -171,7 +182,7 @@ export function CreativeWorkspace(): JSX.Element {
           <Button
             size="sm"
             variant="secondary"
-            disabled={busy || !selected}
+            disabled={busy || !selected || !paidGenerationSupported}
             onClick={() =>
               void run(async () => {
                 if (!selected) return;
@@ -185,7 +196,31 @@ export function CreativeWorkspace(): JSX.Element {
           >
             {t("agents.creative.actions.requestProduction")}
           </Button>
+          {canRegenerateSelected ? (
+            <Button
+              size="sm"
+              variant="secondary"
+              disabled={busy}
+              onClick={() =>
+                void run(async () => {
+                  if (!selected) return;
+                  const { job } = await creativeService.requestRegenerateProduction(
+                    orgId,
+                    selected.id,
+                  );
+                  await operationsService.start(orgId, job.id, aos.userId ?? "operator");
+                }, "agents.creative.noticeRegenerateQueued")
+              }
+            >
+              {t("agents.creative.actions.regenerateImage")}
+            </Button>
+          ) : null}
         </div>
+        {!paidGenerationSupported && selected?.productionPlan ? (
+          <p className="text-xs" style={{ color: "var(--agx-warning, #fbbf24)" }}>
+            {t("agents.creative.detail.unsupportedPaidGeneration")}
+          </p>
+        ) : null}
         <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
           {notice}
         </p>

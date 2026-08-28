@@ -75,9 +75,9 @@ describe("Phase 58 creative production", () => {
     seedProfile(ORG_A);
     const project = creativeService.createBrief({
       organizationId: ORG_A,
-      creativeType: "SOCIAL_VIDEO",
-      platform: "tiktok",
-      customerRequest: "30s TikTok promo",
+      creativeType: "IMAGE_AD",
+      platform: "instagram_feed",
+      customerRequest: "Image ad for approval flow",
     });
     creativeService.prepareProductionPlan(ORG_A, project.id);
     const { job } = await creativeService.requestProduction(ORG_A, project.id);
@@ -105,9 +105,9 @@ describe("Phase 58 creative production", () => {
     seedProfile(ORG_A);
     const project = creativeService.createBrief({
       organizationId: ORG_A,
-      creativeType: "VIDEO_AD",
-      platform: "youtube_shorts",
-      customerRequest: "Short YouTube ad",
+      creativeType: "IMAGE_AD",
+      platform: "instagram_feed",
+      customerRequest: "Image ad unavailable path",
     });
     creativeService.prepareProductionPlan(ORG_A, project.id);
     const { job } = await creativeService.requestProduction(ORG_A, project.id);
@@ -131,14 +131,14 @@ describe("Phase 58 creative production", () => {
     expect(creative.productionResult?.assets ?? []).toHaveLength(0);
   });
 
-  it("completes only when a configured provider returns assets", async () => {
+  it("completes IMAGE_AD only when a configured provider returns assets", async () => {
     setCreativeGenerationProvider(createTestCreativeProvider());
     seedProfile(ORG_A);
     const project = creativeService.createBrief({
       organizationId: ORG_A,
-      creativeType: "ANIMATION",
-      platform: "instagram_reels",
-      customerRequest: "Animated promo",
+      creativeType: "IMAGE_AD",
+      platform: "instagram_feed",
+      customerRequest: "Image promo",
     });
     creativeService.prepareProductionPlan(ORG_A, project.id);
     const { job } = await creativeService.requestProduction(ORG_A, project.id);
@@ -159,6 +159,20 @@ describe("Phase 58 creative production", () => {
     expect(creative.status).toBe("COMPLETED");
     expect(creative.productionResult?.generated).toBe(true);
     expect(creative.productionResult?.assets?.length).toBeGreaterThan(0);
+  });
+
+  it("blocks ANIMATION paid generation at requestProduction", async () => {
+    seedProfile(ORG_A);
+    const project = creativeService.createBrief({
+      organizationId: ORG_A,
+      creativeType: "ANIMATION",
+      platform: "instagram_reels",
+      customerRequest: "Animated promo",
+    });
+    creativeService.prepareProductionPlan(ORG_A, project.id);
+    await expect(
+      creativeService.requestProduction(ORG_A, project.id),
+    ).rejects.toThrow(/creative_paid_generation_unsupported/);
   });
 
   it("enforces organization isolation", () => {
@@ -190,6 +204,7 @@ describe("Phase 58 creative production", () => {
 
   it("rejects invalid status transitions", () => {
     expect(canTransitionCreativeStatus("COMPLETED", "RUNNING")).toBe(false);
+    expect(canTransitionCreativeStatus("COMPLETED", "READY_FOR_APPROVAL")).toBe(true);
     expect(canTransitionCreativeStatus("PLANNED", "READY_FOR_APPROVAL")).toBe(true);
   });
 

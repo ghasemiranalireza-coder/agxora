@@ -21,6 +21,10 @@ import type {
 } from "@/features/agents/creative/types";
 import { authorizeCreativeGenerationFromState } from "./authorize";
 import {
+  canRequestPaidGeneration,
+  shouldPreserveDurableProductionOnRegenerateFailure,
+} from "@/features/agents/creative/capabilities";
+import {
   hasDurablePrimaryAsset,
   sanitizeAssetsForPersistence,
   validateCreativeAssetUrl,
@@ -89,6 +93,17 @@ function toProductionResult(
     providerId: result.providerId,
     assets: sanitizeAssetsForPersistence(result.assets ?? []),
   };
+}
+
+function productionResultForOutcome(
+  project: CreativeProject,
+  result: CreativeGenerationResult,
+  regenerate: boolean,
+): CreativeProductionResult {
+  if (shouldPreserveDurableProductionOnRegenerateFailure(project, regenerate)) {
+    return project.productionResult!;
+  }
+  return toProductionResult(result);
 }
 
 function buildTrustedRequest(
@@ -211,13 +226,37 @@ export async function generateCreativeImageForActor(
   const provider = getServerCreativeImageProvider();
   const request = buildTrustedRequest(actor.organizationId, authz.project);
 
-  // Phase 60 regenerate policy: no silent paid re-generation when durable asset exists.
-  const durableExists =
-    authz.project.status === "COMPLETED" &&
+  if (!canRequestPaidGeneration(authz.project)) {
+    const blocked: CreativeGenerationResult = {
+      available: true,
+      generated: false,
+      status: "failed",
+      reason: "creative_paid_generation_unsupported",
+      providerId: provider.id,
+      assets: [],
+    };
+    return {
+      ok: true,
+      organizationId: actor.organizationId,
+      creativeProjectId: authz.project.id,
+      providerId: provider.id,
+      approvalId: authz.approval.id,
+      executionJobId: authz.job.id,
+      result: blocked,
+      productionResult: productionResultForOutcome(
+        authz.project,
+        blocked,
+        input.regenerate === true,
+      ),
+    };
+  }
+
+  // Phase 60/61 regenerate policy: no silent paid re-generation when durable asset exists.
+  const hasExistingDurable =
     authz.project.productionResult?.generated === true &&
     hasDurablePrimaryAsset(authz.project.productionResult.assets);
 
-  if (durableExists && input.regenerate !== true) {
+  if (hasExistingDurable && input.regenerate !== true) {
     const blocked = alreadyCompletedBlocked(provider.id);
     return {
       ok: true,
@@ -227,7 +266,11 @@ export async function generateCreativeImageForActor(
       approvalId: authz.approval.id,
       executionJobId: authz.job.id,
       result: blocked,
-      productionResult: toProductionResult(blocked),
+      productionResult: productionResultForOutcome(
+        authz.project,
+        blocked,
+        false,
+      ),
     };
   }
 
@@ -249,7 +292,11 @@ export async function generateCreativeImageForActor(
       approvalId: authz.approval.id,
       executionJobId: authz.job.id,
       result: unavailable,
-      productionResult: toProductionResult(unavailable),
+      productionResult: productionResultForOutcome(
+        authz.project,
+        unavailable,
+        input.regenerate === true,
+      ),
     };
   }
 
@@ -272,7 +319,11 @@ export async function generateCreativeImageForActor(
       approvalId: authz.approval.id,
       executionJobId: authz.job.id,
       result: unavailable,
-      productionResult: toProductionResult(unavailable),
+      productionResult: productionResultForOutcome(
+        authz.project,
+        unavailable,
+        input.regenerate === true,
+      ),
     };
   }
 
@@ -293,7 +344,11 @@ export async function generateCreativeImageForActor(
       approvalId: authz.approval.id,
       executionJobId: authz.job.id,
       result: failed,
-      productionResult: toProductionResult(failed),
+      productionResult: productionResultForOutcome(
+        authz.project,
+        failed,
+        input.regenerate === true,
+      ),
     };
   }
 
@@ -307,7 +362,11 @@ export async function generateCreativeImageForActor(
       approvalId: authz.approval.id,
       executionJobId: authz.job.id,
       result: bounded,
-      productionResult: toProductionResult(bounded),
+      productionResult: productionResultForOutcome(
+        authz.project,
+        bounded,
+        input.regenerate === true,
+      ),
     };
   }
 
@@ -316,7 +375,7 @@ export async function generateCreativeImageForActor(
     creativeProjectId: authz.project.id,
     providerId: provider.id,
     assets: bounded.assets,
-    replaceExisting: durableExists && input.regenerate === true,
+    replaceExisting: hasExistingDurable && input.regenerate === true,
   });
 
   if (!persisted.ok) {
@@ -336,7 +395,11 @@ export async function generateCreativeImageForActor(
       approvalId: authz.approval.id,
       executionJobId: authz.job.id,
       result: failed,
-      productionResult: toProductionResult(failed),
+      productionResult: productionResultForOutcome(
+        authz.project,
+        failed,
+        input.regenerate === true,
+      ),
     };
   }
 

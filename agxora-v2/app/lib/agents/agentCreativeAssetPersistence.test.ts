@@ -507,8 +507,8 @@ describe("Phase 60 generate → durable persist lifecycle", () => {
     expect(failed.result.generated).toBe(false);
     expect(failed.result.status).toBe("failed");
     expect(failed.result.reason).toBe("creative_asset_storage_failed");
-    expect(failed.productionResult.assets ?? []).toEqual([]);
-    expect(failed.productionResult.generated).toBe(false);
+    expect(failed.productionResult.generated).toBe(true);
+    expect(failed.productionResult.assets?.[0]?.url).toBe(durableUrl);
 
     const preserved = await loadCreativeAssetForActor(
       actorFor(ORG_A),

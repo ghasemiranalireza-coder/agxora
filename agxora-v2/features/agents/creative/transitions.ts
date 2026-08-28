@@ -10,7 +10,8 @@ const ALLOWED: Readonly<Record<CreativeStatus, readonly CreativeStatus[]>> = {
   APPROVED: ["QUEUED", "RUNNING", "BLOCKED"],
   QUEUED: ["RUNNING", "APPROVED", "BLOCKED", "FAILED"],
   RUNNING: ["COMPLETED", "FAILED", "PROVIDER_UNAVAILABLE", "BLOCKED"],
-  COMPLETED: [],
+  // Phase 61 — explicit regenerate re-queues through approval (no silent paid regen).
+  COMPLETED: ["READY_FOR_APPROVAL"],
   FAILED: ["QUEUED", "READY_FOR_APPROVAL", "BLOCKED"],
   BLOCKED: ["READY_FOR_APPROVAL", "PLANNED"],
   PROVIDER_UNAVAILABLE: ["READY_FOR_APPROVAL", "QUEUED", "BLOCKED"],
