@@ -4277,6 +4277,7 @@
     "noticeDefault": "SO do Agente Local — as execuções são simuladas neste espaço de trabalho.",
     "productionGate": {
       "notReady": "Production readiness incomplete: {codes}. Configure auth, CRM database, Agent OS server persistence, and transactional email before serving customers.",
+      "publishNotReady": "YouTube publish readiness incomplete: {codes}. Configure OAuth, encryption key, and S3-compatible blob storage before enabling live publish.",
       "readinessUnavailable": "Unable to verify production readiness. Check /api/health or try again shortly."
     },
     "aiChat": "Bate-papo com IA",

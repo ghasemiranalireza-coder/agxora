@@ -255,6 +255,41 @@ export function setPublishAttemptStoreForTests(store: PublishAttemptStore | null
   if (store === null) memoryAttempts.clear();
 }
 
+/** Test-only seed for idempotency edge cases (memory store). */
+export function seedMemoryPublishAttemptForTests(input: {
+  readonly organizationId: string;
+  readonly publishExecutionJobId: string;
+  readonly creativeProjectId?: string;
+  readonly assetId?: string;
+  readonly platform?: string;
+  readonly status: CreativePublishAttemptStatus;
+  readonly expiresAt: Date;
+  readonly externalId?: string;
+  readonly publishResult?: CreativePublishResult;
+}): void {
+  const key = attemptKey(input.organizationId, input.publishExecutionJobId);
+  memoryAttempts.set(key, {
+    id: randomUUID(),
+    organizationId: input.organizationId,
+    publishExecutionJobId: input.publishExecutionJobId,
+    creativeProjectId: input.creativeProjectId ?? "creative_test",
+    assetId: input.assetId ?? "asset_test",
+    platform: input.platform ?? "youtube",
+    idempotencyKey: buildPublishIdempotencyKey({
+      organizationId: input.organizationId,
+      publishExecutionJobId: input.publishExecutionJobId,
+      creativeProjectId: input.creativeProjectId ?? "creative_test",
+      assetId: input.assetId ?? "asset_test",
+      platform: input.platform ?? "youtube",
+    }),
+    status: input.status,
+    expiresAt: input.expiresAt,
+    externalId: input.externalId,
+    publishResult: input.publishResult,
+    errorReason: undefined,
+  });
+}
+
 export async function acquireCreativePublishAttempt(
   input: PublishAttemptAcquireInput,
 ): Promise<PublishAttemptAcquireResult> {

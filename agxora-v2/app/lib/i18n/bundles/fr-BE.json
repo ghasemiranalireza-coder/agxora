@@ -4277,6 +4277,7 @@
     "noticeDefault": "Système d'exploitation de l'agent local — les exécutions sont simulées dans cet espace de travail.",
     "productionGate": {
       "notReady": "Production readiness incomplete: {codes}. Configure auth, CRM database, Agent OS server persistence, and transactional email before serving customers.",
+      "publishNotReady": "YouTube publish readiness incomplete: {codes}. Configure OAuth, encryption key, and S3-compatible blob storage before enabling live publish.",
       "readinessUnavailable": "Unable to verify production readiness. Check /api/health or try again shortly."
     },
     "aiChat": "Chat IA",

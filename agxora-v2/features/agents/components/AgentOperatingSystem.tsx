@@ -105,9 +105,7 @@ export function AgentOperatingSystem(): JSX.Element {
   }
 
   const productionGateBanner =
-    productionReadiness.status === "ready" &&
-    productionReadiness.data.enforced &&
-    !productionReadiness.data.ready ? (
+    productionReadiness.status === "ready" && !productionReadiness.data.ready ? (
       <p
         className="rounded-md border px-3 py-2 text-xs"
         style={{
@@ -118,9 +116,13 @@ export function AgentOperatingSystem(): JSX.Element {
             "color-mix(in srgb, var(--agx-danger, #f87171) 8%, transparent)",
         }}
       >
-        {t("agents.productionGate.notReady", {
-          codes: productionReadiness.data.issueCodes.join(", "),
-        })}
+        {productionReadiness.data.publishEnabled && !productionReadiness.data.publishReady
+          ? t("agents.productionGate.publishNotReady", {
+              codes: productionReadiness.data.publishIssueCodes.join(", "),
+            })
+          : t("agents.productionGate.notReady", {
+              codes: productionReadiness.data.issueCodes.join(", "),
+            })}
       </p>
     ) : productionReadiness.status === "error" ? (
       <p
