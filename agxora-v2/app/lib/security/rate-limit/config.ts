@@ -91,6 +91,14 @@ export const RATE_LIMIT_POLICIES: Record<RateLimitPolicyId, RateLimitPolicy> = {
     keyKind: "user",
     failClosed: true,
   },
+  /** Phase 63.1 — social OAuth connect/disconnect. */
+  "agents.social_connect": {
+    id: "agents.social_connect",
+    max: 20,
+    windowMs: HOUR,
+    keyKind: "user",
+    failClosed: true,
+  },
 };
 
 export type RateLimitStoreId = "memory" | "http";
