@@ -1,5 +1,5 @@
 /**
- * Phase 63.0 — server-side creative publish service.
+ * Phase 63.0 / 63.1 — server-side creative publish service.
  * Actor organization is authoritative. Client approvalState/media never authorize.
  */
 
@@ -15,10 +15,21 @@ import type {
 } from "@/features/agents/creative/types";
 import { canPublishCompletedCreative } from "@/features/agents/creative/capabilities";
 import { authorizeCreativePublishFromState } from "./authorizePublish";
-import { loadCreativeAssetBytes } from "./assetStore";
 import { invokeSocialAdapterForCreativePublish } from "./invokeSocialPublish";
 import { mapCreativeToSocialPublishTarget } from "./platformMap";
 import { getStoredPrimaryCreativeAsset } from "./storedPrimaryAsset";
+import { loadCreativeAssetMedia } from "./loadCreativeAssetMedia";
+import {
+  acquireCreativePublishAttempt,
+  completeCreativePublishAttempt,
+  mapPublishResultToAttemptStatus,
+} from "./publishIdempotency";
+import { persistPublishResultForActor } from "./persistPublishResult";
+import {
+  getValidSocialAccessTokenForActor,
+  hasActiveSocialCredential,
+} from "@/app/lib/social/credentials";
+import { isYouTubePublishEnabled } from "@/app/lib/social/config";
 
 export type ServerCreativePublishInput = {
   readonly creativeProjectId: string;
@@ -90,12 +101,60 @@ function toPublishResult(
     contentType: input.target.contentType,
     externalId: input.adapterResult.externalId,
     executionJobId: input.executionJobId,
+    publishedAt: published ? new Date().toISOString() : undefined,
+  };
+}
+
+async function finalizeUnavailablePublish(
+  actor: Actor,
+  input: {
+    readonly authz: ReturnType<typeof authorizeCreativePublishFromState>;
+    readonly target: ReturnType<typeof mapCreativeToSocialPublishTarget>;
+    readonly reason: string;
+    readonly attemptId?: string;
+    readonly state: AgentsPersistedState;
+  },
+): Promise<ServerCreativePublishSuccess> {
+  const publishResult: CreativePublishResult = {
+    available: false,
+    status: "unavailable",
+    published: false,
+    reason: input.reason,
+    platform: input.target.socialPlatform,
+    contentType: input.target.contentType,
+    executionJobId: input.authz.job.id,
+  };
+  if (input.attemptId) {
+    await completeCreativePublishAttempt({
+      attemptId: input.attemptId,
+      organizationId: actor.organizationId,
+      status: "unavailable",
+      publishResult,
+      errorReason: input.reason,
+    });
+  }
+  await persistPublishResultForActor(
+    actor,
+    {
+      creativeProjectId: input.authz.project.id,
+      publishExecutionJobId: input.authz.job.id,
+      publishResult,
+    },
+    input.state,
+  );
+  return {
+    ok: true,
+    organizationId: actor.organizationId,
+    creativeProjectId: input.authz.project.id,
+    approvalId: input.authz.approval.id,
+    publishExecutionJobId: input.authz.job.id,
+    publishResult,
+    idempotentReplay: false,
   };
 }
 
 /**
  * Publish a COMPLETED creative with durable primary asset through social adapters.
- * Adapters remain unavailable in Phase 63.0 unless explicitly configured in tests.
  */
 export async function publishCreativeForActor(
   actor: Actor,
@@ -198,42 +257,108 @@ export async function publishCreativeForActor(
     };
   }
 
-  const socialAccount = state.socialAccounts.find(
-    (item) =>
-      item.organizationId === actor.organizationId &&
-      item.platform === target.socialPlatform,
-  );
-  if (!socialAccount || socialAccount.state !== "CONNECTED") {
-    const publishResult: CreativePublishResult = {
-      available: false,
-      status: "unavailable",
-      published: false,
-      reason: "social_account_disconnected",
-      platform: target.socialPlatform,
-      contentType: target.contentType,
-      executionJobId: authz.job.id,
-    };
+  const lock = await acquireCreativePublishAttempt({
+    organizationId: actor.organizationId,
+    publishExecutionJobId: authz.job.id,
+    creativeProjectId: authz.project.id,
+    assetId: storedPrimary.id,
+    platform: target.socialPlatform,
+  });
+
+  if (lock.kind === "replay") {
+    await persistPublishResultForActor(
+      actor,
+      {
+        creativeProjectId: authz.project.id,
+        publishExecutionJobId: authz.job.id,
+        publishResult: lock.publishResult,
+      },
+      state,
+    );
     return {
       ok: true,
       organizationId: actor.organizationId,
       creativeProjectId: authz.project.id,
       approvalId: authz.approval.id,
       publishExecutionJobId: authz.job.id,
-      publishResult,
-      idempotentReplay: false,
+      publishResult: lock.publishResult,
+      idempotentReplay: true,
     };
   }
 
-  const bytes = await loadCreativeAssetBytes(storedPrimary);
+  if (lock.kind === "conflict") {
+    throw new PersistenceError("conflict", "Creative publish already in flight", {
+      details: [{ field: "publishExecutionJobId", message: "publish_in_flight" }],
+    });
+  }
+
+  if (lock.kind === "requires_new_job") {
+    throw new PersistenceError("forbidden", "Publish job is no longer eligible for retry", {
+      details: [{ field: "publishExecutionJobId", message: lock.reason }],
+    });
+  }
+
+  const attemptId = lock.attemptId;
+
+  if (target.socialPlatform === "youtube" && !isYouTubePublishEnabled()) {
+    return finalizeUnavailablePublish(actor, {
+      authz,
+      target,
+      reason: "youtube_publish_disabled",
+      attemptId,
+      state,
+    });
+  }
+
+  const hasCredential = await hasActiveSocialCredential(
+    actor.organizationId,
+    target.socialPlatform,
+  );
+  if (!hasCredential) {
+    return finalizeUnavailablePublish(actor, {
+      authz,
+      target,
+      reason: "social_credential_missing",
+      attemptId,
+      state,
+    });
+  }
+
+  const socialAccount = state.socialAccounts.find(
+    (item) =>
+      item.organizationId === actor.organizationId &&
+      item.platform === target.socialPlatform,
+  );
+  if (!socialAccount || socialAccount.state !== "CONNECTED") {
+    return finalizeUnavailablePublish(actor, {
+      authz,
+      target,
+      reason: "social_account_disconnected",
+      attemptId,
+      state,
+    });
+  }
+
+  const accessToken = await getValidSocialAccessTokenForActor(
+    actor,
+    target.socialPlatform,
+  );
+  if (!accessToken) {
+    return finalizeUnavailablePublish(actor, {
+      authz,
+      target,
+      reason: "social_token_refresh_failed",
+      attemptId,
+      state,
+    });
+  }
+
+  const media = await loadCreativeAssetMedia(storedPrimary);
   const adapterResult = await invokeSocialAdapterForCreativePublish({
     project: authz.project,
     target,
-    media: {
-      mimeType: storedPrimary.mimeType,
-      byteSize: storedPrimary.byteSize,
-      bytes,
-      assetId: storedPrimary.id,
-    },
+    media,
+    accessToken,
   });
 
   const publishResult = toPublishResult({
@@ -242,6 +367,25 @@ export async function publishCreativeForActor(
     executionJobId: authz.job.id,
     adapterResult,
   });
+
+  await completeCreativePublishAttempt({
+    attemptId,
+    organizationId: actor.organizationId,
+    status: mapPublishResultToAttemptStatus(publishResult),
+    publishResult,
+    externalId: publishResult.externalId,
+    errorReason: publishResult.reason,
+  });
+
+  await persistPublishResultForActor(
+    actor,
+    {
+      creativeProjectId: authz.project.id,
+      publishExecutionJobId: authz.job.id,
+      publishResult,
+    },
+    state,
+  );
 
   return {
     ok: true,
