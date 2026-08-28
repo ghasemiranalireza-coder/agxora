@@ -11,6 +11,20 @@ import { PersistenceError } from "@/app/lib/tenancy/errors";
 import type { CreativePublishResult } from "@/features/agents/creative/types";
 import { PUBLISH_ATTEMPT_IN_FLIGHT_TTL_MS } from "../social/config";
 
+export type PublishAttemptRecord = {
+  readonly id: string;
+  readonly organizationId: string;
+  readonly publishExecutionJobId: string;
+  readonly creativeProjectId: string;
+  readonly assetId: string;
+  readonly platform: string;
+  readonly status: CreativePublishAttemptStatus;
+  readonly publishResult?: CreativePublishResult;
+  readonly externalId?: string;
+  readonly errorReason?: string;
+  readonly expiresAt: Date;
+};
+
 export type PublishAttemptAcquireInput = {
   readonly organizationId: string;
   readonly publishExecutionJobId: string;
@@ -66,6 +80,11 @@ function toCreativePublishResult(value: unknown): CreativePublishResult | null {
 type PublishAttemptStore = {
   acquire(input: PublishAttemptAcquireInput): Promise<PublishAttemptAcquireResult>;
   complete(input: PublishAttemptCompleteInput): Promise<void>;
+  getById(organizationId: string, attemptId: string): Promise<PublishAttemptRecord | null>;
+  getByJobId(
+    organizationId: string,
+    publishExecutionJobId: string,
+  ): Promise<PublishAttemptRecord | null>;
 };
 
 const memoryAttempts = new Map<
@@ -106,6 +125,20 @@ function evaluateExistingAttempt(row: {
       };
     }
   }
+  if (row.status === "uploading") {
+    const publishResult = toCreativePublishResult(row.publishResult);
+    if (publishResult) {
+      return {
+        kind: "replay",
+        publishResult,
+        externalId: row.externalId ?? undefined,
+      };
+    }
+    if (row.expiresAt.getTime() > Date.now()) {
+      return { kind: "conflict" };
+    }
+    return { kind: "acquired", attemptId: "reclaim_uploading" };
+  }
   if (row.status === "in_flight") {
     if (row.expiresAt.getTime() > Date.now()) {
       return { kind: "conflict" };
@@ -119,6 +152,34 @@ function evaluateExistingAttempt(row: {
     return { kind: "acquired", attemptId: "reclaim_unavailable" };
   }
   return { kind: "requires_new_job", reason: row.status };
+}
+
+function mapMemoryRow(row: {
+  id: string;
+  organizationId: string;
+  publishExecutionJobId: string;
+  creativeProjectId: string;
+  assetId: string;
+  platform: string;
+  status: CreativePublishAttemptStatus;
+  publishResult?: CreativePublishResult;
+  externalId?: string;
+  errorReason?: string;
+  expiresAt: Date;
+}): PublishAttemptRecord {
+  return {
+    id: row.id,
+    organizationId: row.organizationId,
+    publishExecutionJobId: row.publishExecutionJobId,
+    creativeProjectId: row.creativeProjectId,
+    assetId: row.assetId,
+    platform: row.platform,
+    status: row.status,
+    publishResult: row.publishResult,
+    externalId: row.externalId,
+    errorReason: row.errorReason,
+    expiresAt: row.expiresAt,
+  };
 }
 
 const databasePublishAttemptStore: PublishAttemptStore = {
@@ -187,9 +248,56 @@ const databasePublishAttemptStore: PublishAttemptStore = {
         publishResult: input.publishResult as object,
         externalId: input.externalId ?? null,
         errorReason: input.errorReason ?? null,
-        completedAt: new Date(),
+        completedAt: input.status === "uploading" ? null : new Date(),
       },
     });
+  },
+
+  async getById(organizationId, attemptId) {
+    const row = await prisma.creativePublishAttempt.findFirst({
+      where: { id: attemptId, organizationId },
+    });
+    return row
+      ? {
+          id: row.id,
+          organizationId: row.organizationId,
+          publishExecutionJobId: row.publishExecutionJobId,
+          creativeProjectId: row.creativeProjectId,
+          assetId: row.assetId,
+          platform: row.platform,
+          status: row.status,
+          publishResult: toCreativePublishResult(row.publishResult) ?? undefined,
+          externalId: row.externalId ?? undefined,
+          errorReason: row.errorReason ?? undefined,
+          expiresAt: row.expiresAt,
+        }
+      : null;
+  },
+
+  async getByJobId(organizationId, publishExecutionJobId) {
+    const row = await prisma.creativePublishAttempt.findUnique({
+      where: {
+        organizationId_publishExecutionJobId: {
+          organizationId,
+          publishExecutionJobId,
+        },
+      },
+    });
+    return row
+      ? {
+          id: row.id,
+          organizationId: row.organizationId,
+          publishExecutionJobId: row.publishExecutionJobId,
+          creativeProjectId: row.creativeProjectId,
+          assetId: row.assetId,
+          platform: row.platform,
+          status: row.status,
+          publishResult: toCreativePublishResult(row.publishResult) ?? undefined,
+          externalId: row.externalId ?? undefined,
+          errorReason: row.errorReason ?? undefined,
+          expiresAt: row.expiresAt,
+        }
+      : null;
   },
 };
 
@@ -239,6 +347,18 @@ const memoryPublishAttemptStore: PublishAttemptStore = {
         return;
       }
     }
+  },
+  async getById(organizationId, attemptId) {
+    for (const row of memoryAttempts.values()) {
+      if (row.id === attemptId && row.organizationId === organizationId) {
+        return mapMemoryRow(row);
+      }
+    }
+    return null;
+  },
+  async getByJobId(organizationId, publishExecutionJobId) {
+    const row = memoryAttempts.get(attemptKey(organizationId, publishExecutionJobId));
+    return row ? mapMemoryRow(row) : null;
   },
 };
 
@@ -302,10 +422,25 @@ export async function completeCreativePublishAttempt(
   await resolveStore().complete(input);
 }
 
+export async function getCreativePublishAttemptById(
+  organizationId: string,
+  attemptId: string,
+): Promise<PublishAttemptRecord | null> {
+  return resolveStore().getById(organizationId, attemptId);
+}
+
+export async function getCreativePublishAttemptByJobId(
+  organizationId: string,
+  publishExecutionJobId: string,
+): Promise<PublishAttemptRecord | null> {
+  return resolveStore().getByJobId(organizationId, publishExecutionJobId);
+}
+
 export function mapPublishResultToAttemptStatus(
   publishResult: CreativePublishResult,
 ): CreativePublishAttemptStatus {
   if (publishResult.published) return "succeeded";
+  if (publishResult.status === "uploading") return "uploading";
   if (publishResult.status === "failed") return "failed";
   return "unavailable";
 }

@@ -25,11 +25,17 @@ import {
   mapPublishResultToAttemptStatus,
 } from "./publishIdempotency";
 import { persistPublishResultForActor } from "./persistPublishResult";
+import { isAsyncYouTubePublishEligible } from "./publishAsyncEligibility";
+import { createYouTubeUploadSession } from "./youtubeUploadSession";
 import {
   getValidSocialAccessTokenForActor,
   hasActiveSocialCredential,
 } from "@/app/lib/social/credentials";
-import { isYouTubePublishEnabled } from "@/app/lib/social/config";
+import {
+  isYouTubePublishEnabled,
+  getYouTubeDefaultPrivacyStatus,
+} from "@/app/lib/social/config";
+import { initializeYouTubeResumableUpload, resolveYouTubeResumableDeps } from "@/app/lib/social/adapters/youtubeResumable";
 
 export type ServerCreativePublishInput = {
   readonly creativeProjectId: string;
@@ -242,6 +248,20 @@ export async function publishCreativeForActor(
 
   const prior = authz.project.publishResult;
   if (
+    prior?.executionJobId === authz.job.id &&
+    prior.status === "uploading"
+  ) {
+    return {
+      ok: true,
+      organizationId: actor.organizationId,
+      creativeProjectId: authz.project.id,
+      approvalId: authz.approval.id,
+      publishExecutionJobId: authz.job.id,
+      publishResult: prior,
+      idempotentReplay: true,
+    };
+  }
+  if (
     authz.job.status === "COMPLETED" &&
     prior?.executionJobId === authz.job.id &&
     prior.published === true
@@ -351,6 +371,104 @@ export async function publishCreativeForActor(
       attemptId,
       state,
     });
+  }
+
+  if (isAsyncYouTubePublishEligible({ target, asset: storedPrimary })) {
+    const description =
+      authz.project.brief.cta ||
+      authz.project.brief.customerRequest ||
+      authz.project.name;
+    try {
+      const init = await initializeYouTubeResumableUpload({
+        accessToken,
+        mimeType: storedPrimary.mimeType,
+        byteSize: storedPrimary.byteSize,
+        title: authz.project.name,
+        description,
+        privacyStatus: getYouTubeDefaultPrivacyStatus(),
+        deps: resolveYouTubeResumableDeps(),
+      });
+      await createYouTubeUploadSession({
+        organizationId: actor.organizationId,
+        publishAttemptId: attemptId,
+        publishExecutionJobId: authz.job.id,
+        creativeProjectId: authz.project.id,
+        assetId: storedPrimary.id,
+        objectKey: storedPrimary.objectKey!,
+        actorUserId: actor.userId,
+        mimeType: storedPrimary.mimeType,
+        byteSize: storedPrimary.byteSize,
+        resumableUploadUrl: init.uploadUrl,
+      });
+      const publishResult: CreativePublishResult = {
+        available: true,
+        status: "uploading",
+        published: false,
+        reason: "youtube_upload_in_progress",
+        platform: target.socialPlatform,
+        contentType: target.contentType,
+        executionJobId: authz.job.id,
+      };
+      await completeCreativePublishAttempt({
+        attemptId,
+        organizationId: actor.organizationId,
+        status: "uploading",
+        publishResult,
+      });
+      await persistPublishResultForActor(
+        actor,
+        {
+          creativeProjectId: authz.project.id,
+          publishExecutionJobId: authz.job.id,
+          publishResult,
+        },
+        state,
+      );
+      return {
+        ok: true,
+        organizationId: actor.organizationId,
+        creativeProjectId: authz.project.id,
+        approvalId: authz.approval.id,
+        publishExecutionJobId: authz.job.id,
+        publishResult,
+        idempotentReplay: false,
+      };
+    } catch {
+      const publishResult: CreativePublishResult = {
+        available: true,
+        status: "failed",
+        published: false,
+        reason: "youtube_resumable_init_failed",
+        platform: target.socialPlatform,
+        contentType: target.contentType,
+        executionJobId: authz.job.id,
+      };
+      await completeCreativePublishAttempt({
+        attemptId,
+        organizationId: actor.organizationId,
+        status: "failed",
+        publishResult,
+        errorReason: "youtube_resumable_init_failed",
+      });
+      await persistPublishResultForActor(
+        actor,
+        {
+          creativeProjectId: authz.project.id,
+          publishExecutionJobId: authz.job.id,
+          publishResult,
+        },
+        state,
+      );
+      return {
+        ok: true,
+        organizationId: actor.organizationId,
+        creativeProjectId: authz.project.id,
+        approvalId: authz.approval.id,
+        publishExecutionJobId: authz.job.id,
+        publishResult,
+        idempotentReplay: false,
+      };
+    }
   }
 
   const media = await loadCreativeAssetMedia(storedPrimary);

@@ -22,6 +22,12 @@ export function createMemoryCreativeBlobStore(): CreativeBlobStore {
       if (!item) throw new Error("blob_not_found");
       return item.bytes;
     },
+    async getObjectBytesRange(key: string, offset: number, length: number): Promise<Uint8Array> {
+      const item = objects.get(key);
+      if (!item) throw new Error("blob_not_found");
+      const end = Math.min(offset + length, item.bytes.byteLength);
+      return item.bytes.subarray(offset, end);
+    },
     async getObjectStream(key: string): Promise<ReadableStream<Uint8Array>> {
       const item = objects.get(key);
       if (!item) throw new Error("blob_not_found");

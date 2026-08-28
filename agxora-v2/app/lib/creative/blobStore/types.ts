@@ -17,6 +17,7 @@ export type CreativeBlobStore = {
   readonly id: "memory" | "s3";
   putObject(input: CreativeBlobPutInput): Promise<CreativeBlobHead>;
   getObjectBytes(key: string): Promise<Uint8Array>;
+  getObjectBytesRange(key: string, offset: number, length: number): Promise<Uint8Array>;
   getObjectStream(key: string): Promise<ReadableStream<Uint8Array>>;
   deleteObject(key: string): Promise<void>;
   headObject(key: string): Promise<CreativeBlobHead | null>;

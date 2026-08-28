@@ -1,6 +1,7 @@
 /**
- * Phase 63.1 / 64.0 — YouTube creative publish adapter (env-gated, video-only).
- * Phase 64: incremental stream upload, size/duration guards, stable error codes.
+ * Phase 63.1 / 64.0 / 65.0 — YouTube creative publish adapter.
+ * Phase 64: incremental stream upload, size/duration guards.
+ * Phase 65: reusable resumable primitives for sync + async worker paths.
  */
 
 import "server-only";
@@ -15,13 +16,18 @@ import {
   getYouTubeUploadMaxDurationMs,
   isYouTubePublishEnabled,
 } from "../config";
+import {
+  finalizeYouTubeResumableUpload,
+  initializeYouTubeResumableUpload,
+  mapYouTubeUploadError,
+  resumeYouTubeUploadFromOffset,
+  resolveYouTubeResumableDeps,
+  uploadYouTubeChunk,
+  YOUTUBE_UPLOAD_CHUNK_SIZE,
+  type YouTubeResumableDeps,
+} from "./youtubeResumable";
 
-const CHUNK_SIZE = 256 * 1024;
-
-export type YouTubeUploadDeps = {
-  readonly now: () => number;
-  readonly fetch: typeof fetch;
-};
+export type YouTubeUploadDeps = YouTubeResumableDeps;
 
 let depsOverride: YouTubeUploadDeps | null = null;
 
@@ -31,7 +37,7 @@ export function setYouTubeUploadDepsForTests(deps: YouTubeUploadDeps | null): vo
 }
 
 function resolveDeps(): YouTubeUploadDeps {
-  return depsOverride ?? { now: () => Date.now(), fetch: globalThis.fetch };
+  return depsOverride ?? resolveYouTubeResumableDeps();
 }
 
 function unavailable(reason: string): SocialAdapterResult {
@@ -52,10 +58,14 @@ function failed(reason: string): SocialAdapterResult {
   };
 }
 
-function assertUploadDeadline(deadlineMs: number, now: () => number): void {
-  if (now() >= deadlineMs) {
-    throw new Error("youtube_upload_timeout");
-  }
+function published(videoId: string): SocialAdapterResult {
+  return {
+    available: true,
+    status: "published",
+    published: true,
+    reason: "published",
+    externalId: videoId,
+  };
 }
 
 async function* iterateUploadChunks(
@@ -66,8 +76,11 @@ async function* iterateUploadChunks(
     if (media.byteSize > maxBytes) {
       throw new Error("youtube_upload_size_exceeded");
     }
-    for (let offset = 0; offset < media.bytes.byteLength; offset += CHUNK_SIZE) {
-      yield media.bytes.subarray(offset, Math.min(offset + CHUNK_SIZE, media.bytes.byteLength));
+    for (let offset = 0; offset < media.bytes.byteLength; offset += YOUTUBE_UPLOAD_CHUNK_SIZE) {
+      yield media.bytes.subarray(
+        offset,
+        Math.min(offset + YOUTUBE_UPLOAD_CHUNK_SIZE, media.bytes.byteLength),
+      );
     }
     return;
   }
@@ -91,9 +104,9 @@ async function* iterateUploadChunks(
       merged.set(value, buffer.byteLength);
       buffer = merged;
 
-      while (buffer.byteLength >= CHUNK_SIZE) {
-        yield buffer.subarray(0, CHUNK_SIZE);
-        buffer = buffer.subarray(CHUNK_SIZE);
+      while (buffer.byteLength >= YOUTUBE_UPLOAD_CHUNK_SIZE) {
+        yield buffer.subarray(0, YOUTUBE_UPLOAD_CHUNK_SIZE);
+        buffer = buffer.subarray(YOUTUBE_UPLOAD_CHUNK_SIZE);
       }
     }
     if (buffer.byteLength > 0) {
@@ -116,101 +129,52 @@ async function uploadResumableVideoIncremental(input: {
   readonly deadlineMs: number;
   readonly deps: YouTubeUploadDeps;
 }): Promise<{ videoId: string }> {
-  const metadata = {
-    snippet: {
-      title: input.title.slice(0, 100),
-      description: input.description.slice(0, 5000),
-    },
-    status: {
-      privacyStatus: input.privacyStatus,
-      selfDeclaredMadeForKids: false,
-    },
-  };
+  void input.isShort;
+  const init = await initializeYouTubeResumableUpload({
+    accessToken: input.accessToken,
+    mimeType: input.mimeType,
+    byteSize: input.byteSize,
+    title: input.title,
+    description: input.description,
+    privacyStatus: input.privacyStatus,
+    deps: input.deps,
+  });
 
-  assertUploadDeadline(input.deadlineMs, input.deps.now);
-
-  const initResponse = await input.deps.fetch(
-    "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status",
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${input.accessToken}`,
-        "Content-Type": "application/json; charset=UTF-8",
-        "X-Upload-Content-Type": input.mimeType,
-        "X-Upload-Content-Length": String(input.byteSize),
-      },
-      body: JSON.stringify(metadata),
-    },
-  );
-
-  if (!initResponse.ok) {
-    throw new Error("youtube_resumable_init_failed");
-  }
-
-  const uploadUrl = initResponse.headers.get("Location");
-  if (!uploadUrl) {
-    throw new Error("youtube_resumable_missing_location");
+  if (input.deps.now() >= input.deadlineMs) {
+    throw new Error("youtube_upload_timeout");
   }
 
   let offset = 0;
   for await (const chunk of input.chunks) {
-    assertUploadDeadline(input.deadlineMs, input.deps.now);
-
-    const end = offset + chunk.byteLength - 1;
-    const putResponse = await input.deps.fetch(uploadUrl, {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${input.accessToken}`,
-        "Content-Length": String(chunk.byteLength),
-        "Content-Type": input.mimeType,
-        "Content-Range": `bytes ${offset}-${end}/${input.byteSize}`,
-      },
-      body: Buffer.from(chunk),
-    });
-    if (putResponse.status !== 308 && !putResponse.ok) {
-      throw new Error("youtube_chunk_upload_failed");
+    if (input.deps.now() >= input.deadlineMs) {
+      throw new Error("youtube_upload_timeout");
     }
-    offset += chunk.byteLength;
+    const result = await uploadYouTubeChunk({
+      accessToken: input.accessToken,
+      uploadUrl: init.uploadUrl,
+      mimeType: input.mimeType,
+      byteSize: input.byteSize,
+      offset,
+      chunk,
+      deps: input.deps,
+    });
+    if (result.completed && result.videoId) {
+      return { videoId: result.videoId };
+    }
+    offset = result.nextOffset;
   }
 
-  assertUploadDeadline(input.deadlineMs, input.deps.now);
+  if (input.deps.now() >= input.deadlineMs) {
+    throw new Error("youtube_upload_timeout");
+  }
 
-  const completeResponse = await input.deps.fetch(uploadUrl, {
-    method: "PUT",
-    headers: {
-      Authorization: `Bearer ${input.accessToken}`,
-      "Content-Length": "0",
-      "Content-Range": `bytes */${input.byteSize}`,
-    },
+  const finalized = await finalizeYouTubeResumableUpload({
+    accessToken: input.accessToken,
+    uploadUrl: init.uploadUrl,
+    byteSize: input.byteSize,
+    deps: input.deps,
   });
-  if (!completeResponse.ok) {
-    throw new Error("youtube_upload_finalize_failed");
-  }
-
-  const payload = (await completeResponse.json()) as { id?: string };
-  if (!payload.id) {
-    throw new Error("youtube_missing_video_id");
-  }
-
-  void input.isShort;
-  return { videoId: payload.id };
-}
-
-const KNOWN_UPLOAD_FAILURE_REASONS = new Set([
-  "youtube_resumable_init_failed",
-  "youtube_resumable_missing_location",
-  "youtube_chunk_upload_failed",
-  "youtube_upload_finalize_failed",
-  "youtube_missing_video_id",
-  "youtube_upload_timeout",
-  "youtube_upload_size_exceeded",
-]);
-
-function mapUploadError(error: unknown): string {
-  if (error instanceof Error && KNOWN_UPLOAD_FAILURE_REASONS.has(error.message)) {
-    return error.message;
-  }
-  return "youtube_upload_failed";
+  return { videoId: finalized.videoId };
 }
 
 export async function publishCreativeToYouTube(input: {
@@ -268,14 +232,66 @@ export async function publishCreativeToYouTube(input: {
       deps,
     });
 
+    return published(result.videoId);
+  } catch (error) {
+    return failed(mapYouTubeUploadError(error));
+  }
+}
+
+export async function publishYouTubeFromResumableSession(input: {
+  readonly accessToken: string;
+  readonly uploadUrl: string;
+  readonly mimeType: string;
+  readonly byteSize: number;
+  readonly startOffset: number;
+  readonly title: string;
+  readonly description: string;
+  readonly readChunk: (offset: number, maxLength: number) => Promise<Uint8Array>;
+  readonly onProgress?: (offset: number) => Promise<void>;
+  readonly maxChunks?: number;
+  readonly deadlineMs?: number;
+}): Promise<SocialAdapterResult> {
+  const deps = resolveDeps();
+  try {
+    const result = await resumeYouTubeUploadFromOffset({
+      accessToken: input.accessToken,
+      uploadUrl: input.uploadUrl,
+      mimeType: input.mimeType,
+      byteSize: input.byteSize,
+      startOffset: input.startOffset,
+      deps,
+      deadlineMs: input.deadlineMs,
+      maxChunks: input.maxChunks,
+      readChunk: async (offset, maxLength) => {
+        const chunk = await input.readChunk(offset, maxLength);
+        if (input.onProgress) {
+          await input.onProgress(offset + chunk.byteLength);
+        }
+        return chunk;
+      },
+    });
+
+    if (result.completed && result.videoId) {
+      return published(result.videoId);
+    }
+
+    if (result.nextOffset >= input.byteSize) {
+      const finalized = await finalizeYouTubeResumableUpload({
+        accessToken: input.accessToken,
+        uploadUrl: input.uploadUrl,
+        byteSize: input.byteSize,
+        deps,
+      });
+      return published(finalized.videoId);
+    }
+
     return {
       available: true,
-      status: "published",
-      published: true,
-      reason: "published",
-      externalId: result.videoId,
+      status: "failed",
+      published: false,
+      reason: "youtube_upload_incomplete",
     };
   } catch (error) {
-    return failed(mapUploadError(error));
+    return failed(mapYouTubeUploadError(error));
   }
 }

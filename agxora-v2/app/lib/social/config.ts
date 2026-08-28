@@ -81,3 +81,50 @@ export function getYouTubeUploadMaxDurationMs(): number {
 export function isYouTubePublishFullyConfigured(): boolean {
   return isYouTubePublishEnabled() && Boolean(getYouTubeOAuthConfig());
 }
+
+const DEFAULT_YOUTUBE_ASYNC_UPLOAD_THRESHOLD_BYTES = 10 * 1024 * 1024;
+const DEFAULT_YOUTUBE_UPLOAD_SESSION_TTL_MS = 24 * 60 * 60_000;
+const DEFAULT_YOUTUBE_WORKER_MAX_SESSIONS_PER_RUN = 5;
+const DEFAULT_YOUTUBE_UPLOAD_SESSION_LEASE_MS = 5 * 60_000;
+const DEFAULT_YOUTUBE_ASYNC_SYNC_CHUNK_BUDGET = 2;
+
+/** Phase 65 — async cross-request YouTube upload (default off). */
+export function isYouTubeAsyncUploadEnabled(): boolean {
+  const raw = process.env.AGXORA_YOUTUBE_ASYNC_UPLOAD_ENABLED?.trim().toLowerCase();
+  return raw === "1" || raw === "true" || raw === "yes";
+}
+
+export function getYouTubeAsyncUploadThresholdBytes(): number {
+  return envPositiveInt(
+    "AGXORA_YOUTUBE_ASYNC_UPLOAD_THRESHOLD_BYTES",
+    DEFAULT_YOUTUBE_ASYNC_UPLOAD_THRESHOLD_BYTES,
+  );
+}
+
+export function getYouTubeUploadSessionTtlMs(): number {
+  return envPositiveInt(
+    "AGXORA_YOUTUBE_UPLOAD_SESSION_TTL_MS",
+    DEFAULT_YOUTUBE_UPLOAD_SESSION_TTL_MS,
+  );
+}
+
+export function getYouTubeWorkerMaxSessionsPerRun(): number {
+  return envPositiveInt(
+    "AGXORA_YOUTUBE_WORKER_MAX_SESSIONS_PER_RUN",
+    DEFAULT_YOUTUBE_WORKER_MAX_SESSIONS_PER_RUN,
+  );
+}
+
+export function getYouTubeUploadSessionLeaseMs(): number {
+  return envPositiveInt(
+    "AGXORA_YOUTUBE_UPLOAD_SESSION_LEASE_MS",
+    DEFAULT_YOUTUBE_UPLOAD_SESSION_LEASE_MS,
+  );
+}
+
+export function getYouTubeAsyncSyncChunkBudget(): number {
+  return envPositiveInt(
+    "AGXORA_YOUTUBE_ASYNC_SYNC_CHUNK_BUDGET",
+    DEFAULT_YOUTUBE_ASYNC_SYNC_CHUNK_BUDGET,
+  );
+}

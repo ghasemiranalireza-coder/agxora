@@ -66,6 +66,21 @@ export function createS3CompatibleCreativeBlobStore(
       );
       return streamToUint8Array(response.Body);
     },
+    async getObjectBytesRange(
+      key: string,
+      offset: number,
+      length: number,
+    ): Promise<Uint8Array> {
+      const end = offset + length - 1;
+      const response = await client.send(
+        new GetObjectCommand({
+          Bucket: config.bucket,
+          Key: key,
+          Range: `bytes=${offset}-${end}`,
+        }),
+      );
+      return streamToUint8Array(response.Body);
+    },
     async getObjectStream(key: string): Promise<ReadableStream<Uint8Array>> {
       const response = await client.send(
         new GetObjectCommand({ Bucket: config.bucket, Key: key }),
