@@ -158,6 +158,20 @@ export interface CreativeProductionResult {
   readonly assets?: readonly CreativeAssetRef[];
 }
 
+/** Phase 63.0 — publish metadata only (no bytes, tokens, or secrets). */
+export interface CreativePublishResult {
+  readonly available: boolean;
+  readonly status: "unavailable" | "published" | "failed";
+  readonly published: boolean;
+  readonly reason?: string;
+  readonly platform?: string;
+  readonly contentType?: string;
+  readonly externalId?: string;
+  readonly externalUrl?: string;
+  readonly publishedAt?: string;
+  readonly executionJobId?: string;
+}
+
 export interface CreativeProject {
   readonly id: string;
   readonly organizationId: string;
@@ -174,8 +188,10 @@ export interface CreativeProject {
   readonly storyboard?: CreativeStoryboard;
   readonly productionPlan?: CreativeProductionPlan;
   readonly productionResult?: CreativeProductionResult;
+  readonly publishResult?: CreativePublishResult;
   readonly approvalState?: ApprovalState;
   readonly executionJobId?: string;
+  readonly publishExecutionJobId?: string;
   readonly taskId?: string;
   readonly createdAt: string;
   readonly updatedAt: string;

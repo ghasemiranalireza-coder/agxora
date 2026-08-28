@@ -96,3 +96,23 @@ export function shouldPreserveDurableProductionOnRegenerateFailure(
 ): boolean {
   return jobRegenerate === true && hasAgentOsDurablePrimaryAsset(project);
 }
+
+/** COMPLETED creative with durable primary asset — eligible for explicit publish. */
+export function canPublishCompletedCreative(project: CreativeProject): boolean {
+  return (
+    project.status === "COMPLETED" &&
+    project.productionResult?.generated === true &&
+    hasDurablePrimaryAsset(project.productionResult.assets)
+  );
+}
+
+/** UI/service gate for queueing creative_publish. */
+export function canRequestPublish(
+  project: Pick<CreativeProject, "status" | "productionResult">,
+): boolean {
+  return (
+    project.status === "COMPLETED" &&
+    project.productionResult?.generated === true &&
+    hasDurablePrimaryAsset(project.productionResult.assets)
+  );
+}

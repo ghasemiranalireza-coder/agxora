@@ -53,7 +53,8 @@ export type ToolId =
   | "growth_insights"
   | "campaign_execute"
   | "creative"
-  | "creative_generate";
+  | "creative_generate"
+  | "creative_publish";
 
 export type MemoryScope =
   | "working"

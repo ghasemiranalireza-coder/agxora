@@ -27,6 +27,7 @@ import {
 } from "../website/handlers";
 import {
   handleCreativeGenerateTool,
+  handleCreativePublishTool,
   handleCreativeTool,
 } from "../creative/handlers";
 
@@ -435,6 +436,25 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
       additionalProperties: true,
     },
   },
+  {
+    id: "creative_publish",
+    name: "Creative Publish Tool",
+    description:
+      "Attempt to publish a completed creative asset through a platform adapter.",
+    module: "creative",
+    sensitive: true,
+    requiresApproval: true,
+    inputSchema: {
+      type: "object",
+      properties: {
+        step: { type: "string", description: "Step title being executed." },
+        goal: { type: "string", description: "Top-level goal for the task." },
+        creativeId: { type: "string", description: "Creative project id." },
+      },
+      required: ["step", "goal"],
+      additionalProperties: true,
+    },
+  },
 ] as const;
 
 const handlers = new Map<ToolId, ToolHandler>();
@@ -489,3 +509,4 @@ registerToolHandler("campaign_execute", handleCampaignExecuteTool);
 registerToolHandler("crm", handleCrmTool);
 registerToolHandler("creative", handleCreativeTool);
 registerToolHandler("creative_generate", handleCreativeGenerateTool);
+registerToolHandler("creative_publish", handleCreativePublishTool);
