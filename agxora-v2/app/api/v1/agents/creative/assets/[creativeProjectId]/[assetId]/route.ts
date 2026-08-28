@@ -35,7 +35,7 @@ export async function GET(
       assetId,
     );
 
-    const body = Buffer.from(record.bytes);
+    const body = Buffer.from(record.bytes ?? []);
     return new NextResponse(body, {
       status: 200,
       headers: {

@@ -13,7 +13,7 @@ import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
 import { growthService } from "../growth/service";
 import { creativeService } from "../creative/service";
 import {
-  canRegenerateCompletedImage,
+  canRegenerateCompletedCreative,
   canRequestPaidGeneration,
 } from "../creative/capabilities";
 import {
@@ -51,9 +51,21 @@ export function CreativeWorkspace(): JSX.Element {
 
   const paidGenerationSupported = selected
     ? canRequestPaidGeneration(selected)
-    : creativeType === "IMAGE_AD";
+    : canRequestPaidGeneration({
+        creativeType,
+        productionPlan: {
+          summary: "",
+          creativeType,
+          platform,
+          modality: creativeType === "IMAGE_AD" ? "image" : "video",
+          estimatedDurationSeconds: 0,
+          aspectRatio: "1:1",
+          requiresExternalGeneration: true,
+          checklist: [],
+        },
+      });
   const canRegenerateSelected = selected
-    ? canRegenerateCompletedImage(selected)
+    ? canRegenerateCompletedCreative(selected)
     : false;
 
   const generatedAssets = (() => {
@@ -212,7 +224,7 @@ export function CreativeWorkspace(): JSX.Element {
                 }, "agents.creative.noticeRegenerateQueued")
               }
             >
-              {t("agents.creative.actions.regenerateImage")}
+              {t("agents.creative.actions.regenerateMedia")}
             </Button>
           ) : null}
         </div>
@@ -334,7 +346,9 @@ export function CreativeWorkspace(): JSX.Element {
                     provider: selected.productionResult?.providerId ?? "",
                   })}
                 </p>
-                {generatedAssets.map((asset, index) => (
+                {generatedAssets.map((asset, index) => {
+                  const showVideo = asset.mimeType?.startsWith("video/") === true;
+                  return (
                   <div
                     key={`${asset.providerAssetId ?? asset.url}-${index}`}
                     className="space-y-2 rounded-md border px-2 py-2"
@@ -343,14 +357,22 @@ export function CreativeWorkspace(): JSX.Element {
                         "color-mix(in srgb, var(--agx-text-muted, #94a3b8) 25%, transparent)",
                     }}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={asset.url}
-                      alt={t("agents.creative.detail.assetAlt", {
-                        index: index + 1,
-                      })}
-                      className="max-h-64 w-full rounded object-contain"
-                    />
+                    {showVideo ? (
+                      <video
+                        src={asset.url}
+                        controls
+                        className="max-h-64 w-full rounded object-contain"
+                      />
+                    ) : (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img
+                        src={asset.url}
+                        alt={t("agents.creative.detail.assetAlt", {
+                          index: index + 1,
+                        })}
+                        className="max-h-64 w-full rounded object-contain"
+                      />
+                    )}
                     <a
                       href={asset.url}
                       target="_blank"
@@ -358,7 +380,9 @@ export function CreativeWorkspace(): JSX.Element {
                       download={
                         asset.mimeType?.startsWith("image/")
                           ? `agxora-creative-${index + 1}`
-                          : undefined
+                          : asset.mimeType?.startsWith("video/")
+                            ? `agxora-creative-${index + 1}.mp4`
+                            : undefined
                       }
                       className="inline-flex text-xs underline"
                       style={{ color: "var(--agx-accent, #22d3ee)" }}
@@ -366,7 +390,8 @@ export function CreativeWorkspace(): JSX.Element {
                       {t("agents.creative.detail.openAsset")}
                     </a>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             ) : null}
 

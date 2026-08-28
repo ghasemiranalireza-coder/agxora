@@ -10,6 +10,7 @@ import { getAgentOsStateForActor } from "@/app/lib/agents/persistence";
 import type { AgentsPersistedState } from "@/features/agents/repositories/state";
 import {
   getCreativeAssetStore,
+  loadCreativeAssetBytes,
   type CreativeAssetRecord,
 } from "./assetStore";
 
@@ -85,5 +86,6 @@ export async function loadCreativeAssetForActor(
     });
   }
 
-  return record;
+  const bytes = await loadCreativeAssetBytes(record);
+  return { ...record, bytes };
 }

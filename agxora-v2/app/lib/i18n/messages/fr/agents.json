@@ -898,7 +898,7 @@
   },
   "creative": {
     "title": "Create Marketing Creative",
-    "subtitle": "Plan creatives and generate real IMAGE_AD assets when an image provider is configured. Video and animation generation are not available yet.",
+    "subtitle": "Plan creatives and generate real IMAGE_AD, VIDEO_AD, and SOCIAL_VIDEO assets when providers are configured. Animation generation is not available yet.",
     "noticeReady": "Describe the creative you want. Planning does not generate media files.",
     "noticeFailed": "Creative action failed",
     "noticeBrief": "Creative brief and concepts created.",
@@ -908,7 +908,7 @@
     "providerConfigured": "configured",
     "providerUnavailable": "not configured",
     "profileRequired": "Save a Growth business profile before creating creatives.",
-    "requestPlaceholder": "Example: Create an Instagram Feed image ad for our new product…",
+    "requestPlaceholder": "Example: Create an Instagram Feed image ad or TikTok video for our new product…",
     "projectsTitle": "Creative projects",
     "empty": "No creative projects yet.",
     "yes": "yes",
@@ -922,7 +922,8 @@
       "createBrief": "Create brief",
       "preparePlan": "Prepare script & plan",
       "requestProduction": "Request production",
-      "regenerateImage": "Regenerate image"
+      "regenerateImage": "Regenerate image",
+      "regenerateMedia": "Regenerate asset"
     },
     "detail": {
       "brief": "Brief",
@@ -930,12 +931,12 @@
       "scriptScenes": "Script scenes: {count}",
       "storyboardFrames": "Storyboard frames: {count}",
       "result": "Production result: {status} · generated={generated} · {reason}",
-      "unavailableHint": "Image generation is unavailable. No fake preview or asset URL is shown.",
+      "unavailableHint": "Media generation is unavailable. No fake preview or asset URL is shown.",
       "failedHint": "Generation failed. The creative was not marked completed.",
       "generatedAssets": "Generated assets ({count}) · provider {provider}",
       "assetAlt": "Generated creative asset {index}",
       "openAsset": "Open generated asset",
-      "unsupportedPaidGeneration": "Paid generation is not available for this creative type yet. Planning and scripts still work; video and animation cannot reach the image provider."
+      "unsupportedPaidGeneration": "Paid generation is not available for this creative type yet. Planning and scripts still work; animation cannot reach a paid provider."
     },
     "types": {
       "VIDEO_AD": "Video ad",
@@ -965,8 +966,8 @@
       "BLOCKED": "Blocked",
       "PROVIDER_UNAVAILABLE": "Provider unavailable"
     },
-    "capabilityNotice": "Phase 59 real generation supports image ads only. Video, animation, voice, and social publishing are not implemented.",
-    "providerNotConfiguredDetail": "Image generation is not configured. AGXORA will not claim that an image was generated until a real provider succeeds.",
-    "noticeRegenerateQueued": "Image regeneration requested. Approve in Operations before a new paid generation runs."
+    "capabilityNotice": "Phase 62 supports paid image ads (IMAGE_AD) and short-form video (VIDEO_AD, SOCIAL_VIDEO). Animation, voice, and social publishing are not implemented.",
+    "providerNotConfiguredDetail": "Media generation is not configured. AGXORA will not claim that an asset was generated until a real provider succeeds.",
+    "noticeRegenerateQueued": "Regeneration requested. Approve in Operations if prompted."
   }
 }

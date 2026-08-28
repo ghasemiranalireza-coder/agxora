@@ -1,5 +1,5 @@
 /**
- * Phase 60 / 60.1 — materialize provider assets into the durable CreativeAssetStore.
+ * Phase 60 / 62 — materialize provider assets into the durable CreativeAssetStore.
  * Provider success without a successful put must not become durable COMPLETED.
  */
 
@@ -9,10 +9,14 @@ import type { CreativeAssetRef } from "@/features/agents/creative/types";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import {
   ALLOWED_CREATIVE_IMAGE_MIME_TYPES,
+  ALLOWED_CREATIVE_VIDEO_MIME_TYPES,
   MAX_CREATIVE_ASSET_DECODED_BYTES,
+  MAX_CREATIVE_VIDEO_DECODED_BYTES,
   MAX_PRIMARY_ASSETS_PER_CREATIVE,
   isAllowedCreativeImageMimeType,
+  isAllowedCreativeVideoMimeType,
   isDurableCreativeAssetUrl,
+  isVideoCreativeMimeType,
   validateCreativeAssetUrl,
 } from "./assets";
 import {
@@ -21,7 +25,10 @@ import {
   type CreativeAssetStore,
 } from "./assetStore";
 import { parseDurableCreativeAssetUrl } from "./assetStorePaths";
-import { fetchTrustedHttpsAsset } from "./httpsAssetFetch";
+import {
+  fetchTrustedHttpsAsset,
+  fetchTrustedProviderVideoAsset,
+} from "./httpsAssetFetch";
 
 function newAssetId(): string {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
@@ -31,7 +38,7 @@ function newAssetId(): string {
 }
 
 function mimeFromDataUrl(dataUrl: string): string | null {
-  const match = /^data:(image\/[a-z0-9.+-]+);base64,/i.exec(dataUrl);
+  const match = /^data:((?:image|video)\/[a-z0-9.+-]+);base64,/i.exec(dataUrl);
   if (!match?.[1]) return null;
   const mime = match[1].toLowerCase();
   if (mime === "image/jpg") return "image/jpeg";
@@ -49,12 +56,19 @@ function decodeDataUrl(dataUrl: string): {
     });
   }
   const mimeType = mimeFromDataUrl(dataUrl);
-  if (!mimeType || !isAllowedCreativeImageMimeType(mimeType)) {
+  if (
+    !mimeType ||
+    (!isAllowedCreativeImageMimeType(mimeType) &&
+      !isAllowedCreativeVideoMimeType(mimeType))
+  ) {
     throw new PersistenceError("validation", "Unsupported creative asset MIME type", {
       details: [
         {
           field: "mimeType",
-          message: `allowed:${ALLOWED_CREATIVE_IMAGE_MIME_TYPES.join(",")}`,
+          message: `allowed:${[
+            ...ALLOWED_CREATIVE_IMAGE_MIME_TYPES,
+            ...ALLOWED_CREATIVE_VIDEO_MIME_TYPES,
+          ].join(",")}`,
         },
       ],
     });
@@ -79,7 +93,10 @@ function decodeDataUrl(dataUrl: string): {
       details: [{ field: "bytes", message: "empty" }],
     });
   }
-  if (bytes.byteLength > MAX_CREATIVE_ASSET_DECODED_BYTES) {
+  const maxBytes = isVideoCreativeMimeType(mimeType)
+    ? MAX_CREATIVE_VIDEO_DECODED_BYTES
+    : MAX_CREATIVE_ASSET_DECODED_BYTES;
+  if (bytes.byteLength > maxBytes) {
     throw new PersistenceError("validation", "Asset exceeds size limit", {
       details: [{ field: "bytes", message: "provider_asset_too_large" }],
     });
@@ -118,6 +135,7 @@ async function resolveExistingDurableAsset(
       mimeType: record.mimeType,
       width: record.width,
       height: record.height,
+      durationMs: record.durationMs,
     },
   ];
 }
@@ -129,7 +147,7 @@ export type PersistDurableAssetsInput = {
   readonly assets: readonly CreativeAssetRef[];
   /**
    * When true, replacement uses upsert on (organizationId, creativeProjectId).
-   * Phase 60.1: never deletes the existing primary before put succeeds.
+   * Phase 60.1 / 61.1: never deletes the existing primary before put succeeds.
    */
   readonly replaceExisting: boolean;
 };
@@ -152,6 +170,8 @@ function mapPersistenceFailure(error: PersistenceError): string {
   if (detail === "provider_asset_url_not_trusted") {
     return "provider_asset_url_not_trusted";
   }
+  if (detail === "not_configured") return "creative_blob_store_not_configured";
+  if (detail === "storage_put_failed") return "creative_asset_storage_failed";
   if (detail === "empty" || detail === "invalid_base64") {
     return "provider_returned_no_assets";
   }
@@ -160,8 +180,8 @@ function mapPersistenceFailure(error: PersistenceError): string {
 }
 
 /**
- * Store the first usable IMAGE_AD asset as the durable primary.
- * Returns durable URL refs for Agent OS; never returns data:image URLs.
+ * Store the first usable primary asset (image inline BYTEA or video object blob).
+ * Returns durable URL refs for Agent OS; never returns data: URLs.
  */
 export async function persistProviderAssetsDurably(
   input: PersistDurableAssetsInput,
@@ -174,24 +194,31 @@ export async function persistProviderAssetsDurably(
     return { ok: false, reason: "provider_returned_no_assets" };
   }
 
-  // Phase 60: one primary asset only.
   const primary = candidates[0]!;
   const previewAssets = candidates.slice(0, MAX_PRIMARY_ASSETS_PER_CREATIVE);
 
   try {
-    void input.replaceExisting;
-
     let mimeType = primary.mimeType;
     let bytes: Uint8Array;
 
-    if (primary.url!.startsWith("data:image/")) {
+    if (
+      primary.url!.startsWith("data:image/") ||
+      primary.url!.startsWith("data:video/")
+    ) {
       const decoded = decodeDataUrl(primary.url!);
       mimeType = decoded.mimeType;
       bytes = decoded.bytes;
     } else if (primary.url!.startsWith("https://")) {
-      const fetched = await fetchTrustedHttpsAsset(primary.url!);
-      mimeType =
-        primary.mimeType && isAllowedCreativeImageMimeType(primary.mimeType)
+      const isVideo =
+        primary.mimeType && isVideoCreativeMimeType(primary.mimeType);
+      const fetched = isVideo
+        ? await fetchTrustedProviderVideoAsset(primary.url!)
+        : await fetchTrustedHttpsAsset(primary.url!);
+      mimeType = isVideo
+        ? primary.mimeType && isAllowedCreativeVideoMimeType(primary.mimeType)
+          ? primary.mimeType
+          : fetched.mimeType
+        : primary.mimeType && isAllowedCreativeImageMimeType(primary.mimeType)
           ? primary.mimeType
           : fetched.mimeType;
       bytes = fetched.bytes;
@@ -215,17 +242,21 @@ export async function persistProviderAssetsDurably(
     }
 
     const assetId = newAssetId();
-    // Upsert replaces primary in place — never delete before put (Phase 60.1).
+    const modality = isVideoCreativeMimeType(mimeType ?? "") ? "video" : "image";
+
     await store.put({
       organizationId: input.organizationId,
       creativeProjectId: input.creativeProjectId,
       assetId,
-      mimeType: mimeType ?? "image/jpeg",
+      mimeType: mimeType ?? (modality === "video" ? "video/mp4" : "image/jpeg"),
       bytes,
       width: primary.width,
       height: primary.height,
+      durationMs: primary.durationMs,
+      modality,
       providerId: primary.providerId || input.providerId,
       providerAssetId: primary.providerAssetId,
+      replaceExisting: input.replaceExisting,
     });
 
     const durableUrl = buildDurableCreativeAssetUrl(
@@ -242,6 +273,9 @@ export async function persistProviderAssetsDurably(
       durationMs: primary.durationMs,
     };
 
+    const isDataPreview = (url: string | undefined) =>
+      url?.startsWith("data:image/") || url?.startsWith("data:video/");
+
     return {
       ok: true,
       durableAssets: [durableAsset],
@@ -249,9 +283,7 @@ export async function persistProviderAssetsDurably(
         index === 0
           ? {
               ...asset,
-              url: asset.url?.startsWith("data:image/")
-                ? asset.url
-                : durableUrl,
+              url: isDataPreview(asset.url) ? asset.url : durableUrl,
               mimeType: durableAsset.mimeType,
             }
           : asset,

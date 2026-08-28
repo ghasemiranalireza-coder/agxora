@@ -42,6 +42,7 @@ export function buildProductionResultFromStoredPrimary(
         mimeType: stored.mimeType,
         width: stored.width,
         height: stored.height,
+        durationMs: stored.durationMs,
       },
     ],
   };

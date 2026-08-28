@@ -1,7 +1,7 @@
-// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50 + Phase 56 + Phase 60
+// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50 + Phase 56 + Phase 60 + Phase 62
 // PostgreSQL source of truth for User / Organization / Workspace / Membership /
 // Session / Customer / Contact / Note / Invitation / OwnershipTransfer /
-// ControlPlaneAuditEvent / AgentOsState / CreativeAsset (IMAGE_AD bytes)
+// ControlPlaneAuditEvent / AgentOsState / CreativeAsset (IMAGE inline + video object refs)
 
 generator client {
   provider = "prisma-client-js"
@@ -85,22 +85,32 @@ model Organization {
   @@map("organizations")
 }
 
-/// Phase 60 — durable IMAGE_AD bytes (outside Agent OS JSON).
-/// One primary asset per creative is the Phase 60 policy; table allows replace-in-place.
+enum CreativeAssetStorageBackend {
+  inline_bytea
+  object_s3
+}
+
+/// Phase 60 / 62 — durable creative assets (outside Agent OS JSON).
+/// One primary asset per creative; IMAGE uses inline BYTEA; video uses object storage.
 model CreativeAsset {
-  id                 String   @id
-  organizationId     String   @db.Uuid
+  id                 String                      @id
+  organizationId     String                      @db.Uuid
   creativeProjectId  String
   mimeType           String
   byteSize           Int
   width              Int?
   height             Int?
+  durationMs         Int?
+  modality           String?
   providerId         String?
   providerAssetId    String?
-  /// Raw image bytes — never mirrored into Agent OS v7 JSON.
-  bytes              Bytes
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  storageBackend     CreativeAssetStorageBackend @default(inline_bytea)
+  objectBucket       String?
+  objectKey          String?
+  /// Inline IMAGE bytes when storageBackend=inline_bytea; null for object_s3.
+  bytes              Bytes?
+  createdAt          DateTime                    @default(now())
+  updatedAt          DateTime                    @updatedAt
 
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 
