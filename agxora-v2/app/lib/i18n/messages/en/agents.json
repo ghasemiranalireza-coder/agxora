@@ -429,6 +429,8 @@
     "noticeContent": "Social content generated.",
     "noticePublishAttempted": "Publish attempted. Integration is not configured.",
     "noticeScheduleAttempted": "Schedule attempted. Integration is not configured.",
+    "noticeYouTubeConnect": "Redirecting to YouTube authorization…",
+    "noticeYouTubeDisconnect": "YouTube disconnected.",
     "strategyTitle": "Growth strategy",
     "socialStrategyTitle": "Social strategy",
     "calendarTitle": "Content calendar",
@@ -458,7 +460,9 @@
       "generateCalendar": "Generate calendar",
       "generateContent": "Generate content",
       "attemptPublish": "Attempt publish",
-      "attemptSchedule": "Attempt schedule"
+      "attemptSchedule": "Attempt schedule",
+      "connectYouTube": "Connect YouTube",
+      "disconnectYouTube": "Disconnect YouTube"
     },
     "tones": {
       "professional": "Professional",
