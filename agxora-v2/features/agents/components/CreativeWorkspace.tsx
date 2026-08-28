@@ -371,6 +371,12 @@ export function CreativeWorkspace(): JSX.Element {
               </p>
             ) : null}
 
+            {selected.publishResult?.status === "uploading" ? (
+              <p style={{ color: "var(--agx-warning, #fbbf24)" }}>
+                {t("agents.creative.detail.publishUploadingHint")}
+              </p>
+            ) : null}
+
             {selected.publishResult?.status === "unavailable" ? (
               <p style={{ color: "var(--agx-warning, #fbbf24)" }}>
                 {t("agents.creative.detail.publishUnavailableHint")}

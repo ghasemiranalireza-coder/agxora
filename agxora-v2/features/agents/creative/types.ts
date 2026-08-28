@@ -161,7 +161,7 @@ export interface CreativeProductionResult {
 /** Phase 63.0 — publish metadata only (no bytes, tokens, or secrets). */
 export interface CreativePublishResult {
   readonly available: boolean;
-  readonly status: "unavailable" | "published" | "failed";
+  readonly status: "unavailable" | "published" | "failed" | "uploading";
   readonly published: boolean;
   readonly reason?: string;
   readonly platform?: string;
