@@ -57,6 +57,11 @@ export type CreativeAssetStore = {
     readonly creativeProjectId: string;
     readonly assetId: string;
   }): Promise<CreativeAssetRecord | null>;
+  /** Primary asset for (organizationId, creativeProjectId), if any. */
+  getPrimary(input: {
+    readonly organizationId: string;
+    readonly creativeProjectId: string;
+  }): Promise<CreativeAssetRecord | null>;
   /** Remove the primary asset for a creative (regenerate replace). */
   deletePrimary(input: {
     readonly organizationId: string;
@@ -165,6 +170,9 @@ export function createMemoryCreativeAssetStore(): CreativeAssetStore {
       if (record.id !== input.assetId) return null;
       return record;
     },
+    async getPrimary(input) {
+      return byKey.get(primaryKey(input.organizationId, input.creativeProjectId)) ?? null;
+    },
     async deletePrimary(input) {
       byKey.delete(primaryKey(input.organizationId, input.creativeProjectId));
     },
@@ -239,6 +247,38 @@ export function createDatabaseCreativeAssetStore(): CreativeAssetStore {
         });
         if (!row) return null;
         if (row.id !== input.assetId) return null;
+        if (row.organizationId !== input.organizationId) return null;
+        return toRecord({
+          ...row,
+          bytes: new Uint8Array(row.bytes),
+        });
+      } catch (error) {
+        throw new PersistenceError(
+          "persistence",
+          "Failed to load creative asset",
+          {
+            details: [
+              {
+                field: "creativeAsset",
+                message:
+                  error instanceof Error ? error.name : "storage_get_failed",
+              },
+            ],
+          },
+        );
+      }
+    },
+    async getPrimary(input) {
+      try {
+        const row = await prisma.creativeAsset.findUnique({
+          where: {
+            organizationId_creativeProjectId: {
+              organizationId: input.organizationId,
+              creativeProjectId: input.creativeProjectId,
+            },
+          },
+        });
+        if (!row) return null;
         if (row.organizationId !== input.organizationId) return null;
         return toRecord({
           ...row,

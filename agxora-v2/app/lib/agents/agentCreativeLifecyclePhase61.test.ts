@@ -134,7 +134,11 @@ function baseProject(
 
 function stateWithAuthz(
   organizationId: string,
-  patch: { project?: Partial<CreativeProject> } = {},
+  patch: {
+    project?: Partial<CreativeProject>;
+    job?: Partial<ExecutionJob>;
+    regenerateJob?: boolean;
+  } = {},
 ): AgentsPersistedState {
   const project = baseProject(organizationId, patch.project);
   const approval: AgentApproval = {
@@ -173,8 +177,9 @@ function stateWithAuthz(
     params: {
       creativeId: project.id,
       growthAction: "creative_generate",
-      regenerate: true,
+      ...(patch.regenerateJob ? { regenerate: true } : {}),
     },
+    ...patch.job,
   };
   return {
     version: 7,
@@ -324,7 +329,7 @@ describe("Phase 61 IMAGE_AD lifecycle", () => {
     expect(queued.productionResult?.assets?.length).toBeGreaterThan(0);
   });
 
-  it("requires explicit regenerate flag on server when durable asset exists", async () => {
+  it("requires regenerate ExecutionJob when durable asset exists", async () => {
     const generateSpy = vi.fn(async () => ({
       available: true,
       generated: true,
@@ -356,26 +361,41 @@ describe("Phase 61 IMAGE_AD lifecycle", () => {
     expect(first.result.generated).toBe(true);
     const durableUrl = first.productionResult.assets?.[0]?.url;
     expect(durableUrl).toBeTruthy();
+    expect(generateSpy).toHaveBeenCalledTimes(1);
 
-    const completedProject = baseProject(ORG_A, {
-      status: "COMPLETED",
-      productionResult: first.productionResult,
-    });
     setCreativeGenerateLoadStateForTests(async () =>
-      stateWithAuthz(ORG_A, { project: completedProject }),
+      stateWithAuthz(ORG_A, {
+        project: {
+          status: "COMPLETED",
+          executionJobId: "job_1",
+          productionResult: first.productionResult,
+        },
+      }),
     );
 
     const blocked = await generateCreativeImageForActor(actorFor(ORG_A), {
       creativeProjectId: "creative_phase61",
+      regenerate: true,
     });
-    expect(blocked.result.reason).toBe("creative_already_has_durable_asset");
+    expect(blocked.result.reason).toBe("creative_regenerate_job_required");
     expect(generateSpy).toHaveBeenCalledTimes(1);
+
+    setCreativeGenerateLoadStateForTests(async () =>
+      stateWithAuthz(ORG_A, {
+        regenerateJob: true,
+        project: {
+          status: "RUNNING",
+          executionJobId: "job_1",
+          productionResult: first.productionResult,
+        },
+      }),
+    );
 
     const regen = await generateCreativeImageForActor(actorFor(ORG_A), {
       creativeProjectId: "creative_phase61",
-      regenerate: true,
     });
     expect(regen.result.generated).toBe(true);
+    expect(generateSpy).toHaveBeenCalledTimes(2);
     expect(regen.productionResult.assets?.[0]?.url).not.toBe(durableUrl);
   });
 
@@ -393,6 +413,9 @@ describe("Phase 61 IMAGE_AD lifecycle", () => {
       },
       async get(input) {
         return inner.get(input);
+      },
+      async getPrimary(input) {
+        return inner.getPrimary(input);
       },
       async deletePrimary(input) {
         await inner.deletePrimary(input);
@@ -430,6 +453,7 @@ describe("Phase 61 IMAGE_AD lifecycle", () => {
 
     setCreativeGenerateLoadStateForTests(async () =>
       stateWithAuthz(ORG_A, {
+        regenerateJob: true,
         project: {
           status: "COMPLETED",
           productionResult: first.productionResult,
@@ -439,7 +463,6 @@ describe("Phase 61 IMAGE_AD lifecycle", () => {
 
     const failed = await generateCreativeImageForActor(actorFor(ORG_A), {
       creativeProjectId: "creative_phase61",
-      regenerate: true,
     });
     expect(failed.result.generated).toBe(false);
     expect(failed.result.status).toBe("failed");

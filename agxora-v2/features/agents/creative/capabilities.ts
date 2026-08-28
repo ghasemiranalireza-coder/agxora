@@ -1,6 +1,6 @@
 /**
  * Phase 61 — Creative paid-generation capability gates.
- * Planning remains available for all types; paid provider calls are IMAGE_AD only.
+ * Phase 61.1: regenerate authorization follows ExecutionJob.params.regenerate (server).
  */
 
 import { hasDurablePrimaryAsset } from "@/app/lib/creative/assets";
@@ -36,14 +36,20 @@ export function canRegenerateCompletedImage(project: CreativeProject): boolean {
   );
 }
 
-/** Preserve Agent OS productionResult when a paid regenerate attempt fails. */
-export function shouldPreserveDurableProductionOnRegenerateFailure(
+/** Agent OS durable URL present (store may also hold bytes — checked server-side). */
+export function hasAgentOsDurablePrimaryAsset(
   project: Pick<CreativeProject, "productionResult">,
-  regenerate: boolean,
 ): boolean {
   return (
-    regenerate === true &&
     project.productionResult?.generated === true &&
     hasDurablePrimaryAsset(project.productionResult.assets)
   );
+}
+
+/** Preserve productionResult when an authorized regenerate attempt fails (client hint). */
+export function shouldPreserveDurableProductionOnRegenerateFailure(
+  project: Pick<CreativeProject, "productionResult">,
+  jobRegenerate: boolean,
+): boolean {
+  return jobRegenerate === true && hasAgentOsDurablePrimaryAsset(project);
 }

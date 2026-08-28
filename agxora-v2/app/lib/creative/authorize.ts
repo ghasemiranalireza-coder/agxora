@@ -1,6 +1,7 @@
 /**
- * Phase 59.1 — authorize creative generation from persisted Agent OS state.
+ * Phase 59.1 / 61.1 — authorize creative generation from persisted Agent OS state.
  * Client approvalState is never authoritative.
+ * Phase 61.1: exact executionJobId binding only — no stale/latest job fallback.
  */
 
 import { PersistenceError } from "@/app/lib/tenancy/errors";
@@ -21,7 +22,8 @@ function readCreativeId(params: Readonly<Record<string, unknown>>): string | und
 }
 
 /**
- * Resolve actor-owned creative project + APPROVED creative_generate approval.
+ * Resolve actor-owned creative project + APPROVED creative_generate approval
+ * for the exact bound ExecutionJob on the project.
  * Throws PersistenceError; never calls a provider.
  */
 export function authorizeCreativeGenerationFromState(
@@ -44,25 +46,7 @@ export function authorizeCreativeGenerationFromState(
     );
   }
 
-  const jobs = state.executionJobs.filter(
-    (job) =>
-      job.organizationId === actorOrganizationId &&
-      job.toolId === "creative_generate" &&
-      readCreativeId(job.params) === creativeProjectId,
-  );
-
-  let job: ExecutionJob | undefined;
-  if (project.executionJobId) {
-    job = jobs.find((item) => item.id === project.executionJobId);
-    if (!job) {
-      // Fall back to any matching job if the pointer is stale, but still org-bound.
-      job = jobs[jobs.length - 1];
-    }
-  } else {
-    job = jobs[jobs.length - 1];
-  }
-
-  if (!job) {
+  if (!project.executionJobId) {
     throw new PersistenceError(
       "forbidden",
       "No creative_generate execution job bound to this creative project",
@@ -72,11 +56,29 @@ export function authorizeCreativeGenerationFromState(
     );
   }
 
+  const job = state.executionJobs.find(
+    (item) =>
+      item.id === project.executionJobId &&
+      item.organizationId === actorOrganizationId &&
+      item.toolId === "creative_generate" &&
+      readCreativeId(item.params) === creativeProjectId,
+  );
+
+  if (!job) {
+    throw new PersistenceError(
+      "forbidden",
+      "Bound creative_generate execution job is missing or stale",
+      {
+        details: [{ field: "executionJobId", message: "stale_bound_job" }],
+      },
+    );
+  }
+
   let approval: AgentApproval | undefined;
   if (job.approvalId) {
     approval = state.approvals.find(
       (item) =>
-        item.id === job!.approvalId &&
+        item.id === job.approvalId &&
         item.organizationId === actorOrganizationId,
     );
   }
@@ -86,7 +88,7 @@ export function authorizeCreativeGenerationFromState(
         (item) =>
           item.organizationId === actorOrganizationId &&
           item.toolId === "creative_generate" &&
-          item.taskId === job!.taskId,
+          item.taskId === job.taskId,
       )
       .sort((a, b) => a.requestedAt.localeCompare(b.requestedAt))
       .at(-1);

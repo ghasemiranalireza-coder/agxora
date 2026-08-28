@@ -26,6 +26,7 @@ import { assertCreativeStatusTransition } from "./transitions";
 import {
   canRegenerateCompletedImage,
   canRequestPaidGeneration,
+  hasAgentOsDurablePrimaryAsset,
   shouldPreserveDurableProductionOnRegenerateFailure,
 } from "./capabilities";
 import type {
@@ -117,13 +118,6 @@ function setStatus(
   return next;
 }
 
-function hadDurableProductionBeforeRun(project: CreativeProject): boolean {
-  return (
-    project.productionResult?.generated === true &&
-    hasDurablePrimaryAsset(project.productionResult.assets)
-  );
-}
-
 function applyGenerationResult(
   project: CreativeProject,
   organizationId: string,
@@ -132,11 +126,11 @@ function applyGenerationResult(
   providerConfigured: boolean,
   result: CreativeGenerationResult,
   previewAssets?: readonly CreativeAssetRef[],
-  options: { readonly regenerate?: boolean } = {},
+  options: { readonly jobRegenerate?: boolean } = {},
 ): CreativeProject {
   const preserveOnFailure = shouldPreserveDurableProductionOnRegenerateFailure(
     project,
-    options.regenerate === true || hadDurableProductionBeforeRun(project),
+    options.jobRegenerate === true,
   );
 
   if (
@@ -431,10 +425,13 @@ export const creativeService = {
       project.platform,
       project.brief,
     );
+    const preserveProductionResult = hasAgentOsDurablePrimaryAsset(project);
     const next = setStatus(project, "READY_FOR_APPROVAL", {
       productionPlan,
       approvalState: undefined,
-      productionResult: undefined,
+      productionResult: preserveProductionResult
+        ? project.productionResult
+        : undefined,
     });
     auditCreative(
       "agent.creative.production_plan_ready",
@@ -619,6 +616,11 @@ export const creativeService = {
       promptSummary: project.brief.customerRequest,
     };
 
+    const boundJob = project.executionJobId
+      ? operationsService.get(organizationId, project.executionJobId)
+      : undefined;
+    const jobRegenerate = boundJob?.params.regenerate === true;
+
     // Test / explicit local injection still uses the in-process provider.
     const localProvider = getCreativeGenerationProvider();
     if (localProvider.configured && localProvider.id !== "none") {
@@ -630,6 +632,8 @@ export const creativeService = {
         localProvider.id,
         localProvider.configured,
         result,
+        undefined,
+        { jobRegenerate },
       );
     }
 
@@ -649,9 +653,7 @@ export const creativeService = {
     const boundJob = project.executionJobId
       ? operationsService.get(organizationId, project.executionJobId)
       : undefined;
-    const regenerateExplicit =
-      boundJob?.params.regenerate === true ||
-      hadDurableProductionBeforeRun(project);
+    const jobRegenerate = boundJob?.params.regenerate === true;
 
     // Flush Agent OS state so the server can revalidate approvals/projects.
     try {
@@ -668,11 +670,8 @@ export const creativeService = {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           creativeProjectId: project.id,
-          // Sent only so the server can reject mismatches — never authoritative.
           organizationId,
-          // Informational only — server ignores this for authorization.
           approvalState: project.approvalState,
-          regenerate: regenerateExplicit ? true : undefined,
         }),
       });
     } catch {
@@ -747,28 +746,25 @@ export const creativeService = {
 
     const result = payload.result;
     const serverProductionResult = payload.productionResult;
-    const regenerate =
-      regenerateExplicit ||
-      shouldPreserveDurableProductionOnRegenerateFailure(
-        project,
-        regenerateExplicit,
-      );
 
     if (
       (result.status === "failed" || !result.generated) &&
       serverProductionResult?.generated === true &&
       hasDurablePrimaryAsset(serverProductionResult.assets)
     ) {
-      return applyGenerationResult(
-        project,
-        organizationId,
-        creativeId,
-        result.providerId || payload.providerId || "none",
-        result.status === "unavailable" ? false : true,
-        result,
-        payload.previewAssets,
-        { regenerate: true },
-      );
+      auditCreative("agent.creative.regeneration_failed", organizationId, creativeId, {
+        reason: result.reason || "provider_failed",
+      });
+      return setStatus(project, "COMPLETED", {
+        productionResult: {
+          available: serverProductionResult.available ?? true,
+          generated: true,
+          status: serverProductionResult.status ?? "completed",
+          reason: serverProductionResult.reason,
+          providerId: serverProductionResult.providerId,
+          assets: serverProductionResult.assets,
+        },
+      });
     }
 
     return applyGenerationResult(
@@ -779,7 +775,7 @@ export const creativeService = {
       result.status === "unavailable" ? false : true,
       result,
       payload.previewAssets,
-      { regenerate },
+      { jobRegenerate },
     );
   },
 };
