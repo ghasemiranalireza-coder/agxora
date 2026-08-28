@@ -1,5 +1,5 @@
 /**
- * Phase 60 — materialize provider assets into the durable CreativeAssetStore.
+ * Phase 60 / 60.1 — materialize provider assets into the durable CreativeAssetStore.
  * Provider success without a successful put must not become durable COMPLETED.
  */
 
@@ -18,7 +18,10 @@ import {
 import {
   buildDurableCreativeAssetUrl,
   getCreativeAssetStore,
+  type CreativeAssetStore,
 } from "./assetStore";
+import { parseDurableCreativeAssetUrl } from "./assetStorePaths";
+import { fetchTrustedHttpsAsset } from "./httpsAssetFetch";
 
 function newAssetId(): string {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
@@ -84,40 +87,39 @@ function decodeDataUrl(dataUrl: string): {
   return { mimeType, bytes };
 }
 
-async function fetchHttpsAsset(
+async function resolveExistingDurableAsset(
+  store: CreativeAssetStore,
+  organizationId: string,
+  creativeProjectId: string,
   url: string,
-): Promise<{ mimeType: string; bytes: Uint8Array }> {
-  const response = await fetch(url, { method: "GET", redirect: "follow" });
-  if (!response.ok) {
-    throw new PersistenceError("persistence", "Failed to fetch provider asset", {
-      details: [{ field: "url", message: `provider_http_${response.status}` }],
-    });
-  }
-  const contentType = (response.headers.get("content-type") ?? "")
-    .split(";")[0]
-    ?.trim()
-    .toLowerCase();
-  const mimeType =
-    contentType && isAllowedCreativeImageMimeType(contentType)
-      ? contentType
-      : "image/png";
-  if (!isAllowedCreativeImageMimeType(mimeType)) {
-    throw new PersistenceError("validation", "Unsupported creative asset MIME type", {
-      details: [{ field: "mimeType", message: "unsupported" }],
-    });
-  }
-  const buffer = new Uint8Array(await response.arrayBuffer());
-  if (buffer.byteLength === 0) {
-    throw new PersistenceError("validation", "Asset bytes are empty", {
-      details: [{ field: "bytes", message: "empty" }],
-    });
-  }
-  if (buffer.byteLength > MAX_CREATIVE_ASSET_DECODED_BYTES) {
-    throw new PersistenceError("validation", "Asset exceeds size limit", {
-      details: [{ field: "bytes", message: "provider_asset_too_large" }],
-    });
-  }
-  return { mimeType, bytes: buffer };
+): Promise<readonly CreativeAssetRef[] | null> {
+  const parsed = parseDurableCreativeAssetUrl(url);
+  if (!parsed) return null;
+  if (parsed.creativeProjectId !== creativeProjectId) return null;
+
+  const record = await store.get({
+    organizationId,
+    creativeProjectId,
+    assetId: parsed.assetId,
+  });
+  if (!record) return null;
+  if (record.organizationId !== organizationId) return null;
+  if (record.creativeProjectId !== creativeProjectId) return null;
+
+  const durableUrl = buildDurableCreativeAssetUrl(
+    creativeProjectId,
+    parsed.assetId,
+  );
+  return [
+    {
+      providerId: record.providerId ?? "stored",
+      providerAssetId: record.providerAssetId ?? parsed.assetId,
+      url: durableUrl,
+      mimeType: record.mimeType,
+      width: record.width,
+      height: record.height,
+    },
+  ];
 }
 
 export type PersistDurableAssetsInput = {
@@ -125,7 +127,10 @@ export type PersistDurableAssetsInput = {
   readonly creativeProjectId: string;
   readonly providerId: string;
   readonly assets: readonly CreativeAssetRef[];
-  /** When true, replace any existing primary asset for this creative. */
+  /**
+   * When true, replacement uses upsert on (organizationId, creativeProjectId).
+   * Phase 60.1: never deletes the existing primary before put succeeds.
+   */
   readonly replaceExisting: boolean;
 };
 
@@ -140,6 +145,19 @@ export type PersistDurableAssetsResult =
       readonly ok: false;
       readonly reason: string;
     };
+
+function mapPersistenceFailure(error: PersistenceError): string {
+  const detail = error.details?.[0]?.message;
+  if (detail === "provider_asset_too_large") return "provider_asset_too_large";
+  if (detail === "provider_asset_url_not_trusted") {
+    return "provider_asset_url_not_trusted";
+  }
+  if (detail === "empty" || detail === "invalid_base64") {
+    return "provider_returned_no_assets";
+  }
+  if (detail === "unsupported") return "creative_asset_storage_failed";
+  return "creative_asset_storage_failed";
+}
 
 /**
  * Store the first usable IMAGE_AD asset as the durable primary.
@@ -161,12 +179,7 @@ export async function persistProviderAssetsDurably(
   const previewAssets = candidates.slice(0, MAX_PRIMARY_ASSETS_PER_CREATIVE);
 
   try {
-    if (input.replaceExisting) {
-      await store.deletePrimary({
-        organizationId: input.organizationId,
-        creativeProjectId: input.creativeProjectId,
-      });
-    }
+    void input.replaceExisting;
 
     let mimeType = primary.mimeType;
     let bytes: Uint8Array;
@@ -176,23 +189,33 @@ export async function persistProviderAssetsDurably(
       mimeType = decoded.mimeType;
       bytes = decoded.bytes;
     } else if (primary.url!.startsWith("https://")) {
-      const fetched = await fetchHttpsAsset(primary.url!);
-      mimeType = primary.mimeType && isAllowedCreativeImageMimeType(primary.mimeType)
-        ? primary.mimeType
-        : fetched.mimeType;
+      const fetched = await fetchTrustedHttpsAsset(primary.url!);
+      mimeType =
+        primary.mimeType && isAllowedCreativeImageMimeType(primary.mimeType)
+          ? primary.mimeType
+          : fetched.mimeType;
       bytes = fetched.bytes;
     } else if (isDurableCreativeAssetUrl(primary.url!)) {
-      // Already durable — nothing to store.
+      const existing = await resolveExistingDurableAsset(
+        store,
+        input.organizationId,
+        input.creativeProjectId,
+        primary.url!,
+      );
+      if (!existing) {
+        return { ok: false, reason: "creative_asset_not_durable" };
+      }
       return {
         ok: true,
-        durableAssets: previewAssets,
-        previewAssets,
+        durableAssets: existing,
+        previewAssets: existing,
       };
     } else {
       return { ok: false, reason: "provider_returned_unusable_asset_url" };
     }
 
     const assetId = newAssetId();
+    // Upsert replaces primary in place — never delete before put (Phase 60.1).
     await store.put({
       organizationId: input.organizationId,
       creativeProjectId: input.creativeProjectId,
@@ -226,7 +249,6 @@ export async function persistProviderAssetsDurably(
         index === 0
           ? {
               ...asset,
-              // Prefer durable URL in preview too when data URL absent.
               url: asset.url?.startsWith("data:image/")
                 ? asset.url
                 : durableUrl,
@@ -237,21 +259,7 @@ export async function persistProviderAssetsDurably(
     };
   } catch (error) {
     if (error instanceof PersistenceError) {
-      const detail = error.details?.[0]?.message;
-      return {
-        ok: false,
-        reason:
-          detail === "provider_asset_too_large" ||
-          detail === "empty" ||
-          detail === "invalid_base64" ||
-          detail === "unsupported"
-            ? detail === "empty"
-              ? "provider_returned_no_assets"
-              : detail === "provider_asset_too_large"
-                ? "provider_asset_too_large"
-                : "creative_asset_storage_failed"
-            : "creative_asset_storage_failed",
-      };
+      return { ok: false, reason: mapPersistenceFailure(error) };
     }
     return { ok: false, reason: "creative_asset_storage_failed" };
   }

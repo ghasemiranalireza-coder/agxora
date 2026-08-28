@@ -34,6 +34,7 @@ import {
 } from "@/app/lib/creative/assets";
 import { creativeService } from "@/features/agents/creative/service";
 import { evaluateFirstCustomerProductionGate } from "@/app/lib/production/firstCustomerGate";
+import { persistProviderAssetsDurably } from "@/app/lib/creative/persistAssets";
 
 const ORG_A = "11111111-1111-4111-8111-111111111111";
 const ORG_B = "22222222-2222-4222-8222-222222222222";
@@ -450,6 +451,86 @@ describe("Phase 60 generate → durable persist lifecycle", () => {
       /^\/api\/v1\/agents\/creative\/assets\//,
     );
     expect(regenerated.productionResult.assets?.[0]?.url).not.toBe(durableUrl);
+  });
+
+  it("preserves existing durable primary when regenerate put fails", async () => {
+    const inner = createMemoryCreativeAssetStore();
+    let putCalls = 0;
+    setCreativeAssetStoreForTests({
+      id: "memory",
+      async put(input) {
+        putCalls += 1;
+        if (putCalls > 1) {
+          throw new PersistenceError("persistence", "disk full");
+        }
+        return inner.put(input);
+      },
+      async get(input) {
+        return inner.get(input);
+      },
+      async deletePrimary(input) {
+        await inner.deletePrimary(input);
+      },
+    });
+
+    const first = await generateCreativeImageForActor(actorFor(ORG_A), {
+      creativeProjectId: "creative_test_1",
+    });
+    expect(first.result.generated).toBe(true);
+    const durableUrl = first.productionResult.assets?.[0]?.url;
+    expect(durableUrl).toBeTruthy();
+    const parsed = parseDurableCreativeAssetUrl(durableUrl!);
+    expect(parsed).not.toBeNull();
+
+    const original = await loadCreativeAssetForActor(
+      actorFor(ORG_A),
+      parsed!.creativeProjectId,
+      parsed!.assetId,
+    );
+    const originalBytes = Buffer.from(original.bytes);
+
+    const completedProject = baseProject(ORG_A, {
+      status: "COMPLETED",
+      productionResult: first.productionResult,
+    });
+    setServerCreativeImageProviderForTests(
+      configuredImageProvider(tinyJpegDataUrl("replacement-attempt")),
+    );
+    setCreativeGenerateLoadStateForTests(async () =>
+      stateWithAuthz(ORG_A, { project: completedProject }),
+    );
+
+    const failed = await generateCreativeImageForActor(actorFor(ORG_A), {
+      creativeProjectId: "creative_test_1",
+      regenerate: true,
+    });
+    expect(failed.result.generated).toBe(false);
+    expect(failed.result.status).toBe("failed");
+    expect(failed.result.reason).toBe("creative_asset_storage_failed");
+    expect(failed.productionResult.assets ?? []).toEqual([]);
+    expect(failed.productionResult.generated).toBe(false);
+
+    const preserved = await loadCreativeAssetForActor(
+      actorFor(ORG_A),
+      parsed!.creativeProjectId,
+      parsed!.assetId,
+    );
+    expect(Buffer.from(preserved.bytes).equals(originalBytes)).toBe(true);
+  });
+
+  it("does not trust forged durable URL without store ownership proof (M1)", async () => {
+    setCreativeAssetStoreForTests(createMemoryCreativeAssetStore());
+    const forged = buildDurableCreativeAssetUrl("creative_other", "asset_fake");
+    const out = await persistProviderAssetsDurably({
+      organizationId: ORG_A,
+      creativeProjectId: "creative_test_1",
+      providerId: "openai",
+      replaceExisting: false,
+      assets: [{ providerId: "openai", url: forged, mimeType: "image/png" }],
+    });
+    expect(out.ok).toBe(false);
+    if (out.ok) return;
+    expect(out.reason).toBe("creative_asset_not_durable");
   });
 });
 
