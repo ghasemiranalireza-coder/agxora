@@ -1,5 +1,5 @@
 /**
- * Phase 59.1 / Phase 60 / 61.1 — server-side creative image generation service.
+ * Phase 59.1 / Phase 60 / 61.1 / 62.0 — server-side creative media generation service.
  * Actor organization is authoritative. Client approvalState/regenerate never authorize.
  * Phase 61.1: CreativeAssetStore primary + job.params.regenerate are authoritative.
  */
@@ -28,8 +28,9 @@ import {
   validateCreativeAssetUrl,
 } from "./assets";
 import { persistProviderAssetsDurably } from "./persistAssets";
-import { getServerCreativeImageProvider } from "./serverProvider";
+import { getServerCreativeMediaProvider } from "./serverProvider";
 import type { CreativeImagePromptInput } from "./prompt";
+import type { CreativeVideoPromptInput } from "./videoPrompt";
 import {
   buildProductionResultFromStoredPrimary,
   getStoredPrimaryCreativeAsset,
@@ -130,7 +131,7 @@ function productionResultForOutcome(
 function buildTrustedRequest(
   actorOrganizationId: string,
   project: CreativeProject,
-): CreativeImagePromptInput {
+): CreativeImagePromptInput | CreativeVideoPromptInput {
   const plan = project.productionPlan;
   if (!plan) {
     throw new PersistenceError(
@@ -207,7 +208,7 @@ function regenerateJobRequired(
 }
 
 /**
- * Run image generation for an approved creative.
+ * Run media generation for an approved creative (IMAGE_AD or VIDEO_AD / SOCIAL_VIDEO).
  * Secrets never leave this server path.
  */
 export async function generateCreativeImageForActor(
@@ -244,7 +245,9 @@ export async function generateCreativeImageForActor(
     input.creativeProjectId,
   );
 
-  const provider = getServerCreativeImageProvider();
+  const plan = authz.project.productionPlan;
+  const modality = plan?.modality ?? "image";
+  const provider = getServerCreativeMediaProvider(modality);
   const request = buildTrustedRequest(actor.organizationId, authz.project);
   const jobRegenerate = isRegenerateExecutionJob(authz.job.params);
 

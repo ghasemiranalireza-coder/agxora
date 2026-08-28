@@ -24,7 +24,7 @@ import {
 } from "./provider";
 import { assertCreativeStatusTransition } from "./transitions";
 import {
-  canRegenerateCompletedImage,
+  canRegenerateCompletedCreative,
   canRequestPaidGeneration,
   hasAgentOsDurablePrimaryAsset,
   shouldPreserveDurableProductionOnRegenerateFailure,
@@ -206,7 +206,13 @@ function applyGenerationResult(
   // Session preview may include bounded data URLs; durable URL is source of truth.
   if (previewAssets && previewAssets.length > 0) {
     previewAssetsByCreativeId.set(creativeId, previewAssets);
-  } else if (rawAssets.some((asset) => asset.url?.startsWith("data:image/"))) {
+  } else if (
+    rawAssets.some(
+      (asset) =>
+        asset.url?.startsWith("data:image/") ||
+        asset.url?.startsWith("data:video/"),
+    )
+  ) {
     previewAssetsByCreativeId.set(creativeId, rawAssets);
   } else if (hasDurableUrl) {
     previewAssetsByCreativeId.set(creativeId, persistAssets);
@@ -501,13 +507,13 @@ export const creativeService = {
   },
 
   /**
-   * Phase 61 — explicit IMAGE_AD regenerate for COMPLETED creatives with durable assets.
+   * Phase 61 / 62 — explicit regenerate for COMPLETED creatives with durable assets.
    * Re-queues through Operations + fresh AgentApproval (no silent paid regeneration).
    */
   async requestRegenerateProduction(organizationId: string, creativeId: string) {
     const project = requireProject(organizationId, creativeId);
-    if (!canRegenerateCompletedImage(project)) {
-      throw new Error("Creative is not eligible for image regeneration");
+    if (!canRegenerateCompletedCreative(project)) {
+      throw new Error("Creative is not eligible for media regeneration");
     }
     if (!project.productionPlan) {
       throw new Error("Production plan is required before regeneration");

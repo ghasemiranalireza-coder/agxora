@@ -9,7 +9,9 @@ import { PersistenceError } from "@/app/lib/tenancy/errors";
 import {
   ALLOWED_CREATIVE_IMAGE_MIME_TYPES,
   MAX_CREATIVE_ASSET_DECODED_BYTES,
+  MAX_CREATIVE_VIDEO_DECODED_BYTES,
   isAllowedCreativeImageMimeType,
+  isAllowedCreativeVideoMimeType,
 } from "./assets";
 
 /** Narrow allowlist for OpenAI Images temporary HTTPS asset hosts. */
@@ -19,8 +21,18 @@ export const TRUSTED_PROVIDER_ASSET_HOSTS = [
   "oaidalleapiprod.blob.core.windows.net",
 ] as const;
 
+/** Phase 62 — allowlist for OpenAI Video temporary HTTPS asset hosts. */
+export const TRUSTED_PROVIDER_VIDEO_HOSTS = [
+  "cdn.openai.com",
+  "files.oaiusercontent.com",
+  "oaidalleapiprodscus.blob.core.windows.net",
+] as const;
+
 export type TrustedProviderAssetHost =
   (typeof TRUSTED_PROVIDER_ASSET_HOSTS)[number];
+
+export type TrustedProviderVideoHost =
+  (typeof TRUSTED_PROVIDER_VIDEO_HOSTS)[number];
 
 let fetchImplOverride: typeof fetch | null = null;
 
@@ -75,6 +87,23 @@ function isBlockedHostname(hostname: string): boolean {
  * Rejects http://, private hosts, and non-allowlisted hosts.
  */
 export function assertTrustedProviderAssetUrl(url: string): URL {
+  return assertTrustedProviderAssetUrlWithHosts(
+    url,
+    TRUSTED_PROVIDER_ASSET_HOSTS,
+  );
+}
+
+export function assertTrustedProviderVideoAssetUrl(url: string): URL {
+  return assertTrustedProviderAssetUrlWithHosts(
+    url,
+    TRUSTED_PROVIDER_VIDEO_HOSTS,
+  );
+}
+
+function assertTrustedProviderAssetUrlWithHosts(
+  url: string,
+  allowedHosts: readonly string[],
+): URL {
   let parsed: URL;
   try {
     parsed = new URL(url.trim());
@@ -110,7 +139,7 @@ export function assertTrustedProviderAssetUrl(url: string): URL {
   }
 
   if (
-    !(TRUSTED_PROVIDER_ASSET_HOSTS as readonly string[]).includes(hostname)
+    !(allowedHosts as readonly string[]).includes(hostname)
   ) {
     throw new PersistenceError(
       "validation",
@@ -189,10 +218,38 @@ const MAX_HTTPS_REDIRECTS = 5;
 export async function fetchTrustedHttpsAsset(
   url: string,
 ): Promise<{ mimeType: string; bytes: Uint8Array }> {
+  return fetchTrustedHttpsAssetWithHosts(url, TRUSTED_PROVIDER_ASSET_HOSTS, {
+    maxBytes: MAX_CREATIVE_ASSET_DECODED_BYTES,
+    validateMime: isAllowedCreativeImageMimeType,
+    fallbackMime: "image/png",
+  });
+}
+
+export async function fetchTrustedProviderVideoAsset(
+  url: string,
+): Promise<{ mimeType: string; bytes: Uint8Array }> {
+  return fetchTrustedHttpsAssetWithHosts(url, TRUSTED_PROVIDER_VIDEO_HOSTS, {
+    maxBytes: MAX_CREATIVE_VIDEO_DECODED_BYTES,
+    validateMime: isAllowedCreativeVideoMimeType,
+    fallbackMime: "video/mp4",
+  });
+}
+
+type TrustedFetchOptions = {
+  readonly maxBytes: number;
+  readonly validateMime: (mime: string | undefined) => boolean;
+  readonly fallbackMime: string;
+};
+
+async function fetchTrustedHttpsAssetWithHosts(
+  url: string,
+  allowedHosts: readonly string[],
+  options: TrustedFetchOptions,
+): Promise<{ mimeType: string; bytes: Uint8Array }> {
   let currentUrl = url.trim();
 
   for (let hop = 0; hop <= MAX_HTTPS_REDIRECTS; hop += 1) {
-    assertTrustedProviderAssetUrl(currentUrl);
+    assertTrustedProviderAssetUrlWithHosts(currentUrl, allowedHosts);
 
     const response = await getFetchImpl()(currentUrl, {
       method: "GET",
@@ -216,7 +273,7 @@ export async function fetchTrustedHttpsAsset(
       });
     }
 
-    return readTrustedHttpsAssetResponse(response);
+    return readTrustedHttpsAssetResponse(response, options);
   }
 
   throw new PersistenceError("validation", "Too many HTTPS redirects", {
@@ -226,26 +283,23 @@ export async function fetchTrustedHttpsAsset(
 
 async function readTrustedHttpsAssetResponse(
   response: Response,
+  options: TrustedFetchOptions,
 ): Promise<{ mimeType: string; bytes: Uint8Array }> {
-
   const contentType = (response.headers.get("content-type") ?? "")
     .split(";")[0]
     ?.trim()
     .toLowerCase();
   const mimeType =
-    contentType && isAllowedCreativeImageMimeType(contentType)
+    contentType && options.validateMime(contentType)
       ? contentType
-      : "image/png";
-  if (!isAllowedCreativeImageMimeType(mimeType)) {
+      : options.fallbackMime;
+  if (!options.validateMime(mimeType)) {
     throw new PersistenceError("validation", "Unsupported creative asset MIME type", {
       details: [{ field: "mimeType", message: "unsupported" }],
     });
   }
 
-  const bytes = await readBoundedResponseBody(
-    response,
-    MAX_CREATIVE_ASSET_DECODED_BYTES,
-  );
+  const bytes = await readBoundedResponseBody(response, options.maxBytes);
 
   return { mimeType, bytes };
 }

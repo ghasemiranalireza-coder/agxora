@@ -222,7 +222,7 @@ describe("Phase 61 IMAGE_AD lifecycle", () => {
     expect(canTransitionCreativeStatus("COMPLETED", "READY_FOR_APPROVAL")).toBe(true);
   });
 
-  it("blocks paid generation for VIDEO_AD before operations enqueue", async () => {
+  it("allows paid generation for VIDEO_AD when production plan modality is video (Phase 62)", async () => {
     seedProfile(ORG_A);
     const project = creativeService.createBrief({
       organizationId: ORG_A,
@@ -232,10 +232,9 @@ describe("Phase 61 IMAGE_AD lifecycle", () => {
     });
     creativeService.prepareProductionPlan(ORG_A, project.id);
     const planned = creativeService.get(ORG_A, project.id)!;
-    expect(canRequestPaidGeneration(planned)).toBe(false);
-    await expect(
-      creativeService.requestProduction(ORG_A, project.id),
-    ).rejects.toThrow(/creative_paid_generation_unsupported/);
+    expect(canRequestPaidGeneration(planned)).toBe(true);
+    const { job } = await creativeService.requestProduction(ORG_A, project.id);
+    expect(job.params.creativeId).toBe(planned.id);
   });
 
   it("blocks paid generation for ANIMATION on the server generate path", async () => {
