@@ -1,0 +1,35 @@
+# Phase 66.0 — platform-native async publish worker scheduling (Hobby-compatible).
+# Vercel Hobby allows daily cron only; use GitHub Actions for sub-daily worker invocations.
+# Pro deployments may optionally add Vercel Cron in agxora-v2/vercel.json instead.
+name: Creative Publish Worker
+
+on:
+  schedule:
+    # GitHub Actions minimum practical interval is 5 minutes.
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: creative-publish-worker
+  cancel-in-progress: false
+
+jobs:
+  invoke-worker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Invoke creative publish worker
+        env:
+          APP_URL: ${{ secrets.AGXORA_APP_URL }}
+          WORKER_TOKEN: ${{ secrets.AGXORA_CREATIVE_PUBLISH_WORKER_TOKEN }}
+        run: |
+          if [ -z "$APP_URL" ] || [ -z "$WORKER_TOKEN" ]; then
+            echo "Skipping: configure repository secrets AGXORA_APP_URL and AGXORA_CREATIVE_PUBLISH_WORKER_TOKEN."
+            exit 0
+          fi
+          curl --fail-with-body --silent --show-error \
+            --request POST \
+            --header "Authorization: Bearer ${WORKER_TOKEN}" \
+            --header "Content-Type: application/json" \
+            --data '{}' \
+            "${APP_URL%/}/api/v1/internal/creative/publish/worker"

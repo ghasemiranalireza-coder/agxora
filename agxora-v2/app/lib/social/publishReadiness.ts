@@ -105,7 +105,7 @@ export function evaluateYouTubePublishReadiness(): PublishReadinessResult {
     issues.push({
       code: "creative_publish_scheduler_not_configured",
       message:
-        "Async YouTube upload requires AGXORA_CREATIVE_PUBLISH_SCHEDULER_ENABLED=true with platform cron hitting /api/v1/internal/creative/publish/worker",
+        "Async YouTube upload requires AGXORA_CREATIVE_PUBLISH_SCHEDULER_ENABLED=true with GitHub Actions workflow (.github/workflows/creative-publish-worker.yml) or Vercel Cron (Pro) hitting /api/v1/internal/creative/publish/worker",
     });
   }
 
