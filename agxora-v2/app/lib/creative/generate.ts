@@ -1,6 +1,7 @@
 /**
- * Phase 59.1 — server-side creative image generation service.
+ * Phase 59.1 / Phase 60 — server-side creative image generation service.
  * Actor organization is authoritative. Client approvalState is never authoritative.
+ * Phase 60 persists IMAGE_AD bytes into CreativeAssetStore before COMPLETED.
  */
 
 import "server-only";
@@ -20,9 +21,11 @@ import type {
 } from "@/features/agents/creative/types";
 import { authorizeCreativeGenerationFromState } from "./authorize";
 import {
+  hasDurablePrimaryAsset,
   sanitizeAssetsForPersistence,
   validateCreativeAssetUrl,
 } from "./assets";
+import { persistProviderAssetsDurably } from "./persistAssets";
 import { getServerCreativeImageProvider } from "./serverProvider";
 import type { CreativeImagePromptInput } from "./prompt";
 
@@ -40,6 +43,11 @@ export type ServerCreativeGenerateInput = {
   readonly brief?: unknown;
   readonly conceptTitle?: unknown;
   readonly conceptSummary?: unknown;
+  /**
+   * Phase 60 — explicit regenerate. Without this flag, COMPLETED creatives that
+   * already have a durable primary asset do not call the paid provider again.
+   */
+  readonly regenerate?: boolean;
 };
 
 export type ServerCreativeGenerateSuccess = {
@@ -50,7 +58,7 @@ export type ServerCreativeGenerateSuccess = {
   readonly approvalId: string;
   readonly executionJobId: string;
   readonly result: CreativeGenerationResult;
-  /** Safe for Agent OS persistence (data URLs stripped). */
+  /** Safe for Agent OS persistence (data URLs stripped; durable URLs kept). */
   readonly productionResult: CreativeProductionResult;
   /**
    * Optional preview assets including bounded data URLs for immediate UI.
@@ -149,6 +157,19 @@ function boundAssetsOrFail(
   return { assets: usable };
 }
 
+function alreadyCompletedBlocked(
+  providerId: string,
+): CreativeGenerationResult {
+  return {
+    available: true,
+    generated: false,
+    status: "failed",
+    reason: "creative_already_has_durable_asset",
+    providerId,
+    assets: [],
+  };
+}
+
 /**
  * Run image generation for an approved creative.
  * Secrets never leave this server path.
@@ -189,6 +210,26 @@ export async function generateCreativeImageForActor(
 
   const provider = getServerCreativeImageProvider();
   const request = buildTrustedRequest(actor.organizationId, authz.project);
+
+  // Phase 60 regenerate policy: no silent paid re-generation when durable asset exists.
+  const durableExists =
+    authz.project.status === "COMPLETED" &&
+    authz.project.productionResult?.generated === true &&
+    hasDurablePrimaryAsset(authz.project.productionResult.assets);
+
+  if (durableExists && input.regenerate !== true) {
+    const blocked = alreadyCompletedBlocked(provider.id);
+    return {
+      ok: true,
+      organizationId: actor.organizationId,
+      creativeProjectId: authz.project.id,
+      providerId: provider.id,
+      approvalId: authz.approval.id,
+      executionJobId: authz.job.id,
+      result: blocked,
+      productionResult: toProductionResult(blocked),
+    };
+  }
 
   if (!provider.configured) {
     const result = await provider.generate(request);
@@ -270,13 +311,42 @@ export async function generateCreativeImageForActor(
     };
   }
 
+  const persisted = await persistProviderAssetsDurably({
+    organizationId: actor.organizationId,
+    creativeProjectId: authz.project.id,
+    providerId: provider.id,
+    assets: bounded.assets,
+    replaceExisting: durableExists && input.regenerate === true,
+  });
+
+  if (!persisted.ok) {
+    const failed: CreativeGenerationResult = {
+      available: true,
+      generated: false,
+      status: "failed",
+      reason: persisted.reason,
+      providerId: provider.id,
+      assets: [],
+    };
+    return {
+      ok: true,
+      organizationId: actor.organizationId,
+      creativeProjectId: authz.project.id,
+      providerId: provider.id,
+      approvalId: authz.approval.id,
+      executionJobId: authz.job.id,
+      result: failed,
+      productionResult: toProductionResult(failed),
+    };
+  }
+
   const completed: CreativeGenerationResult = {
     available: true,
     generated: true,
     status: "completed",
     reason: "generated",
     providerId: provider.id,
-    assets: bounded.assets,
+    assets: persisted.durableAssets,
   };
 
   return {
@@ -288,6 +358,6 @@ export async function generateCreativeImageForActor(
     executionJobId: authz.job.id,
     result: completed,
     productionResult: toProductionResult(completed),
-    previewAssets: bounded.assets,
+    previewAssets: persisted.previewAssets,
   };
 }

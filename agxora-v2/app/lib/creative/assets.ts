@@ -1,9 +1,10 @@
 /**
- * Phase 59.1 — bounded creative asset URL helpers.
+ * Phase 59.1 / Phase 60 — bounded creative asset URL helpers.
  * Never persist unbounded base64/data URLs into Agent OS v7.
  */
 
 import type { CreativeAssetRef } from "@/features/agents/creative/types";
+import { parseDurableCreativeAssetUrl } from "./assetStorePaths";
 
 /** Hard ceiling on a single asset data URL string (chars). Fail closed above. */
 export const MAX_CREATIVE_ASSET_DATA_URL_CHARS = 400_000;
@@ -11,11 +12,40 @@ export const MAX_CREATIVE_ASSET_DATA_URL_CHARS = 400_000;
 /** Approximate max decoded bytes implied by the data-URL ceiling. */
 export const MAX_CREATIVE_ASSET_DECODED_BYTES = 300_000;
 
+/** Phase 60 — one primary IMAGE_AD asset per creative. */
+export const MAX_PRIMARY_ASSETS_PER_CREATIVE = 1;
+
+/** Allowed image MIME types for durable storage (derived from Phase 59 image path). */
+export const ALLOWED_CREATIVE_IMAGE_MIME_TYPES = [
+  "image/jpeg",
+  "image/jpg",
+  "image/png",
+  "image/webp",
+] as const;
+
+export type AllowedCreativeImageMimeType =
+  (typeof ALLOWED_CREATIVE_IMAGE_MIME_TYPES)[number];
+
+export function isAllowedCreativeImageMimeType(
+  mimeType: string | undefined,
+): mimeType is AllowedCreativeImageMimeType {
+  if (!mimeType) return false;
+  const normalized = mimeType.trim().toLowerCase();
+  return (ALLOWED_CREATIVE_IMAGE_MIME_TYPES as readonly string[]).includes(
+    normalized,
+  );
+}
+
+export function isDurableCreativeAssetUrl(url: string): boolean {
+  return parseDurableCreativeAssetUrl(url) !== null;
+}
+
 export function isUsableCreativeAssetUrl(url: string): boolean {
   if (!url || url.trim().length === 0) return false;
   const trimmed = url.trim();
   if (trimmed.startsWith("https://")) return true;
   if (trimmed.startsWith("data:image/")) return true;
+  if (isDurableCreativeAssetUrl(trimmed)) return true;
   // Disallow plain http: — not accepted for persisted/returned creative assets.
   return false;
 }
@@ -48,8 +78,8 @@ export function validateCreativeAssetUrl(url: string): string | null {
 
 /**
  * Strip binary data URLs before Agent OS persistence.
- * Keeps metadata (provider/mime/dimensions) so snapshots stay bounded.
- * HTTPS provider URLs are kept (typically short).
+ * Keeps durable app URLs + metadata. HTTPS provider URLs kept only if still present
+ * (Phase 60 prefers durable app URLs after store.put).
  */
 export function sanitizeAssetsForPersistence(
   assets: readonly CreativeAssetRef[],
@@ -79,4 +109,15 @@ export function sanitizeAssetsForPersistence(
     }
     return asset;
   });
+}
+
+/** True when the creative already has a durable primary asset URL. */
+export function hasDurablePrimaryAsset(
+  assets: readonly CreativeAssetRef[] | undefined,
+): boolean {
+  if (!assets || assets.length === 0) return false;
+  return assets.some(
+    (asset) =>
+      typeof asset.url === "string" && isDurableCreativeAssetUrl(asset.url),
+  );
 }

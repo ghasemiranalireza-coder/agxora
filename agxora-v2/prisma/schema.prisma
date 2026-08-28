@@ -1,7 +1,7 @@
-// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50 + Phase 56
+// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50 + Phase 56 + Phase 60
 // PostgreSQL source of truth for User / Organization / Workspace / Membership /
 // Session / Customer / Contact / Note / Invitation / OwnershipTransfer /
-// ControlPlaneAuditEvent / AgentOsState
+// ControlPlaneAuditEvent / AgentOsState / CreativeAsset (IMAGE_AD bytes)
 
 generator client {
   provider = "prisma-client-js"
@@ -79,9 +79,35 @@ model Organization {
   ownershipTransfers  OwnershipTransfer[]
   auditEvents         ControlPlaneAuditEvent[]
   agentOsState        AgentOsState?
+  creativeAssets      CreativeAsset[]
 
   @@index([ownerId])
   @@map("organizations")
+}
+
+/// Phase 60 — durable IMAGE_AD bytes (outside Agent OS JSON).
+/// One primary asset per creative is the Phase 60 policy; table allows replace-in-place.
+model CreativeAsset {
+  id                 String   @id
+  organizationId     String   @db.Uuid
+  creativeProjectId  String
+  mimeType           String
+  byteSize           Int
+  width              Int?
+  height             Int?
+  providerId         String?
+  providerAssetId    String?
+  /// Raw image bytes — never mirrored into Agent OS v7 JSON.
+  bytes              Bytes
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, creativeProjectId])
+  @@index([organizationId])
+  @@index([organizationId, creativeProjectId])
+  @@map("creative_assets")
 }
 
 /// Phase 56 — org-scoped Agent OS snapshot (AgentsPersistedState v7 JSON).

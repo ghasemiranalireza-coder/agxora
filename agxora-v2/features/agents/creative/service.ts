@@ -162,31 +162,35 @@ function applyGenerationResult(
   const rawAssets = (result.assets ?? []).filter(
     (asset) => typeof asset.url === "string" && asset.url.length > 0,
   );
-  const persistAssets = sanitizeAssetsForPersistence(
-    previewAssets && previewAssets.length > 0 ? previewAssets : rawAssets,
+  // Phase 60: Agent OS persistence uses server durable URLs from result.assets.
+  // Never prefer session data URLs for persistence (they would be stripped).
+  const persistAssets = sanitizeAssetsForPersistence(rawAssets);
+  const hasDurableUrl = persistAssets.some(
+    (asset) => typeof asset.url === "string" && asset.url.length > 0,
   );
 
-  // Session preview may include bounded data URLs; Agent OS stores metadata only.
+  // Session preview may include bounded data URLs; durable URL is source of truth.
   if (previewAssets && previewAssets.length > 0) {
     previewAssetsByCreativeId.set(creativeId, previewAssets);
   } else if (rawAssets.some((asset) => asset.url?.startsWith("data:image/"))) {
     previewAssetsByCreativeId.set(creativeId, rawAssets);
-  } else {
+  } else if (hasDurableUrl) {
     previewAssetsByCreativeId.set(creativeId, persistAssets);
+  } else {
+    previewAssetsByCreativeId.delete(creativeId);
   }
 
-  if (
-    persistAssets.length === 0 &&
-    !(previewAssets && previewAssets.length > 0) &&
-    rawAssets.length === 0
-  ) {
+  if (!hasDurableUrl) {
     previewAssetsByCreativeId.delete(creativeId);
     const failed = setStatus(project, "FAILED", {
       productionResult: {
         available: true,
         generated: false,
         status: "failed",
-        reason: "provider_returned_no_assets",
+        reason:
+          rawAssets.length === 0 && !(previewAssets && previewAssets.length > 0)
+            ? "provider_returned_no_assets"
+            : "creative_asset_not_durable",
         providerId,
         assets: [],
       },
