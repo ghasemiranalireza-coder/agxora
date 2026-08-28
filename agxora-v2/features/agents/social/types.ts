@@ -131,7 +131,7 @@ export interface SocialPublishingJob {
 
 export interface SocialAdapterResult {
   readonly available: boolean;
-  readonly status: "unavailable" | "published" | "scheduled" | "failed";
+  readonly status: "unavailable" | "published" | "scheduled" | "failed" | "uploading";
   readonly published: boolean;
   readonly reason?: string;
   readonly externalId?: string;

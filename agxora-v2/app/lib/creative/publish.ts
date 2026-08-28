@@ -86,7 +86,7 @@ function toPublishResult(
     readonly executionJobId: string;
     readonly adapterResult: {
       readonly available: boolean;
-      readonly status: "unavailable" | "published" | "scheduled" | "failed";
+      readonly status: "unavailable" | "published" | "scheduled" | "failed" | "uploading";
       readonly published: boolean;
       readonly reason?: string;
       readonly externalId?: string;
@@ -100,7 +100,13 @@ function toPublishResult(
     input.adapterResult.status === "published";
   return {
     available: input.adapterResult.available,
-    status: published ? "published" : input.adapterResult.status === "failed" ? "failed" : "unavailable",
+    status: published
+      ? "published"
+      : input.adapterResult.status === "uploading"
+        ? "uploading"
+        : input.adapterResult.status === "failed"
+          ? "failed"
+          : "unavailable",
     published,
     reason: input.reasonOverride ?? input.adapterResult.reason,
     platform: input.target.socialPlatform,

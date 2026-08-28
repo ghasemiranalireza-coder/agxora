@@ -59,7 +59,11 @@ export async function persistPublishResultForActor(
       status:
         input.publishResult.published === true
           ? ("COMPLETED" as const)
-          : job.status,
+          : input.publishResult.status === "failed"
+            ? ("FAILED" as const)
+            : input.publishResult.status === "uploading"
+              ? ("VERIFYING" as const)
+              : job.status,
       updatedAt: new Date().toISOString(),
     };
   });

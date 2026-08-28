@@ -284,6 +284,10 @@ function applyPublishResult(
     auditCreative("agent.creative.publish_completed", organizationId, creativeId, {
       platform: publishResult.platform ?? "",
     });
+  } else if (publishResult.status === "uploading") {
+    auditCreative("agent.creative.publish_uploading", organizationId, creativeId, {
+      platform: publishResult.platform ?? "",
+    });
   } else if (publishResult.status === "unavailable") {
     auditCreative("agent.creative.publish_unavailable", organizationId, creativeId, {
       reason: publishResult.reason ?? "unavailable",
@@ -294,6 +298,80 @@ function applyPublishResult(
     });
   }
   return next;
+}
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
+const PUBLISH_STATUS_POLL_INITIAL_MS = 500;
+const PUBLISH_STATUS_POLL_MAX_MS = 5_000;
+const PUBLISH_STATUS_POLL_MAX_ATTEMPTS = 120;
+
+function isTerminalPublishStatus(status: CreativePublishResult["status"]): boolean {
+  return status === "published" || status === "failed" || status === "unavailable";
+}
+
+async function pollCreativePublishStatus(
+  organizationId: string,
+  creativeProjectId: string,
+  publishExecutionJobId: string,
+  initial: CreativePublishResult,
+): Promise<CreativePublishResult> {
+  if (initial.status !== "uploading") {
+    return initial;
+  }
+
+  let delayMs = PUBLISH_STATUS_POLL_INITIAL_MS;
+  let latest = initial;
+
+  for (let attempt = 0; attempt < PUBLISH_STATUS_POLL_MAX_ATTEMPTS; attempt += 1) {
+    await sleep(delayMs);
+    delayMs = Math.min(Math.round(delayMs * 1.5), PUBLISH_STATUS_POLL_MAX_MS);
+
+    let response: Response;
+    try {
+      response = await fetch(
+        `/api/v1/agents/creative/publish/status?creativeProjectId=${encodeURIComponent(creativeProjectId)}&publishExecutionJobId=${encodeURIComponent(publishExecutionJobId)}`,
+        {
+          method: "GET",
+          credentials: "include",
+        },
+      );
+    } catch {
+      continue;
+    }
+
+    const payload = (await response.json()) as {
+      ok?: boolean;
+      organizationId?: string;
+      publishResult?: CreativePublishResult;
+      uploadSession?: { byteOffset?: number; byteSize?: number };
+    };
+
+    if (!response.ok || !payload.ok || !payload.publishResult) {
+      continue;
+    }
+    if (
+      typeof payload.organizationId === "string" &&
+      payload.organizationId !== organizationId
+    ) {
+      throw new Error("Organization mismatch from creative publish status");
+    }
+
+    latest = {
+      ...payload.publishResult,
+      uploadByteOffset: payload.uploadSession?.byteOffset,
+      uploadByteSize: payload.uploadSession?.byteSize,
+    };
+    if (isTerminalPublishStatus(latest.status)) {
+      return latest;
+    }
+  }
+
+  return latest;
 }
 
 export const creativeService = {
@@ -957,11 +1035,33 @@ export const creativeService = {
       throw new Error("Organization mismatch from creative publish server");
     }
 
-    return applyPublishResult(
+    let publishResult = payload.publishResult;
+    if (
+      publishResult.status === "uploading" &&
+      project.publishExecutionJobId
+    ) {
+      publishResult = await pollCreativePublishStatus(
+        organizationId,
+        project.id,
+        project.publishExecutionJobId,
+        publishResult,
+      );
+    }
+
+    const applied = applyPublishResult(
       project,
       organizationId,
       creativeId,
-      payload.publishResult,
+      publishResult,
     );
+
+    if (project.publishExecutionJobId) {
+      operationsService.reconcileCreativePublishResult(
+        organizationId,
+        project.publishExecutionJobId,
+      );
+    }
+
+    return applied;
   },
 };

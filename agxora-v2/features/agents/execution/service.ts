@@ -285,6 +285,19 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
           },
         };
       }
+      if (publishResult?.status === "uploading") {
+        return {
+          success: false,
+          status: "in_progress",
+          externalEffect: true,
+          message: publishResult.reason ?? "youtube_upload_in_progress",
+          metadata: {
+            toolId: job.toolId,
+            creativeId: creative?.id ?? "",
+            platform: publishResult.platform ?? "",
+          },
+        };
+      }
       return {
         success: false,
         status: "failed",
@@ -920,6 +933,20 @@ function finishJob(
   actor: string,
   result: ExecutionResult,
 ): ExecutionJob {
+  if (result.status === "in_progress") {
+    const next = persistJob({
+      ...job,
+      taskId: task.id,
+      status: "VERIFYING",
+      result,
+      updatedAt: nowIso(),
+    });
+    pushEvent(next, "VERIFICATION_STARTED", actor);
+    syncCampaign(next);
+    syncCreativeProject(next);
+    return next;
+  }
+
   const blocker: ExecutionBlocker | undefined = result.success
     ? undefined
     : result.status === "unavailable"
@@ -1261,6 +1288,29 @@ export const operationsService = {
       updatedAt: nowIso(),
     });
     return applyOutcome(started, input.task, input.actor ?? "system");
+  },
+
+  reconcileCreativePublishResult(
+    organizationId: string,
+    jobId: string,
+    actor = "system",
+  ): ExecutionJob | undefined {
+    const job = getJob(organizationId, jobId);
+    if (!job || job.toolId !== "creative_publish") return undefined;
+    const task = agentsStore
+      .getSnapshot()
+      .tasks.find((item) => item.id === job.taskId);
+    if (!task) return undefined;
+    const outcome = outcomeFromTask(job, task);
+    if (outcome.status === "in_progress") {
+      return persistJob({
+        ...job,
+        status: "VERIFYING",
+        result: outcome,
+        updatedAt: nowIso(),
+      });
+    }
+    return finishJob(job, task, actor, outcome);
   },
 
   operationsReadiness(organizationId: string) {

@@ -287,7 +287,7 @@ export async function publishYouTubeFromResumableSession(input: {
 
     return {
       available: true,
-      status: "failed",
+      status: "uploading",
       published: false,
       reason: "youtube_upload_incomplete",
     };
