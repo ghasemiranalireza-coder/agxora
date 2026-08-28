@@ -1,4 +1,4 @@
-// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50 + Phase 56 + Phase 60 + Phase 62
+// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50 + Phase 56 + Phase 60 + Phase 62 + Phase 63.1
 // PostgreSQL source of truth for User / Organization / Workspace / Membership /
 // Session / Customer / Contact / Note / Invitation / OwnershipTransfer /
 // ControlPlaneAuditEvent / AgentOsState / CreativeAsset (IMAGE inline + video object refs)
@@ -54,6 +54,7 @@ model User {
   ownershipTransfersFrom  OwnershipTransfer[]     @relation("OwnershipTransferFrom")
   ownershipTransfersTo    OwnershipTransfer[]     @relation("OwnershipTransferTo")
   auditEvents             ControlPlaneAuditEvent[]
+  socialOAuthStates       SocialOAuthState[]
 
   @@index([externalAuthId])
   @@map("users")
@@ -78,11 +79,97 @@ model Organization {
   invitations         Invitation[]
   ownershipTransfers  OwnershipTransfer[]
   auditEvents         ControlPlaneAuditEvent[]
-  agentOsState        AgentOsState?
-  creativeAssets      CreativeAsset[]
+  agentOsState              AgentOsState?
+  creativeAssets            CreativeAsset[]
+  socialPlatformCredentials SocialPlatformCredential[]
+  socialOAuthStates         SocialOAuthState[]
+  creativePublishAttempts   CreativePublishAttempt[]
 
   @@index([ownerId])
   @@map("organizations")
+}
+
+enum SocialPlatform {
+  youtube
+}
+
+enum CreativePublishAttemptStatus {
+  in_flight
+  succeeded
+  failed
+  unavailable
+}
+
+/// Phase 63.1 — org-scoped encrypted OAuth credentials (never in Agent OS JSON).
+model SocialPlatformCredential {
+  id                   String         @id @default(uuid()) @db.Uuid
+  organizationId       String         @db.Uuid
+  platform             SocialPlatform
+  externalAccountId    String?
+  externalAccountName  String?
+  scopes               String[]       @default([])
+  /// AES-256-GCM encrypted JSON: { accessToken, refreshToken, tokenType }
+  encryptedPayload     String         @db.Text
+  accessTokenExpiresAt DateTime?
+  revokedAt            DateTime?
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, platform])
+  @@index([organizationId])
+  @@map("social_platform_credentials")
+}
+
+/// Phase 63.1 — single-use PKCE OAuth state (hashed at rest).
+model SocialOAuthState {
+  id               String         @id @default(uuid()) @db.Uuid
+  organizationId   String         @db.Uuid
+  userId           String         @db.Uuid
+  platform         SocialPlatform
+  stateHash        String         @unique
+  codeVerifierHash String
+  /// AES-encrypted PKCE verifier — never returned to clients.
+  encryptedCodeVerifier String      @db.Text
+  redirectPath     String?
+  consumedAt       DateTime?
+  expiresAt        DateTime
+  createdAt        DateTime       @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, platform])
+  @@index([expiresAt])
+  @@map("social_oauth_states")
+}
+
+/// Phase 63.1 — publish idempotency + audit (no secrets).
+model CreativePublishAttempt {
+  id                    String                       @id @default(uuid()) @db.Uuid
+  organizationId        String                       @db.Uuid
+  publishExecutionJobId String
+  creativeProjectId     String
+  assetId               String
+  platform              String
+  idempotencyKey        String
+  status                CreativePublishAttemptStatus
+  publishResult         Json?
+  externalId            String?
+  errorReason           String?
+  expiresAt             DateTime
+  startedAt             DateTime                     @default(now())
+  completedAt           DateTime?
+  createdAt             DateTime                     @default(now())
+  updatedAt             DateTime                     @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, publishExecutionJobId])
+  @@index([organizationId, idempotencyKey])
+  @@index([status, expiresAt])
+  @@map("creative_publish_attempts")
 }
 
 enum CreativeAssetStorageBackend {
