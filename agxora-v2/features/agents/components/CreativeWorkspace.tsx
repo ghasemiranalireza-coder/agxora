@@ -70,6 +70,44 @@ export function CreativeWorkspace(): JSX.Element {
     : false;
   const canPublishSelected = selected ? canRequestPublish(selected) : false;
 
+  const uploadingProjectId =
+    selected?.publishResult?.status === "uploading" ? selected.id : null;
+  const uploadingPublishJobId =
+    selected?.publishResult?.status === "uploading"
+      ? selected.publishExecutionJobId
+      : null;
+
+  useEffect(() => {
+    if (!uploadingProjectId || !uploadingPublishJobId) {
+      return;
+    }
+    let cancelled = false;
+    const refresh = () => {
+      if (cancelled) return;
+      void creativeService
+        .refreshPublishStatusFromServer(orgId, uploadingProjectId)
+        .catch(() => undefined);
+    };
+    refresh();
+    const intervalId = window.setInterval(refresh, 15_000);
+    return () => {
+      cancelled = true;
+      window.clearInterval(intervalId);
+    };
+  }, [orgId, uploadingProjectId, uploadingPublishJobId]);
+
+  const publishFailureHint = (reason: string | undefined): string => {
+    if (!reason) {
+      return t("agents.creative.detail.publishFailedHint");
+    }
+    const key = `agents.creative.detail.publishFailureReason.${reason}`;
+    const localized = t(key);
+    if (localized !== key) {
+      return localized;
+    }
+    return t("agents.creative.detail.publishFailedHint");
+  };
+
   const generatedAssets = (() => {
     if (selected?.productionResult?.generated !== true) return [];
     const preview = creativeService.getPreviewAssets(selected.id);
@@ -402,7 +440,7 @@ export function CreativeWorkspace(): JSX.Element {
 
             {selected.publishResult?.status === "failed" ? (
               <p style={{ color: "var(--agx-danger, #f87171)" }}>
-                {t("agents.creative.detail.publishFailedHint")}
+                {publishFailureHint(selected.publishResult.reason)}
               </p>
             ) : null}
 

@@ -24,6 +24,11 @@ export function isCreativePublishSchedulerConfigured(): boolean {
   return raw === "1" || raw === "true" || raw === "yes";
 }
 
+export function isCreativePublishSchedulerStrict(): boolean {
+  const raw = process.env.AGXORA_CREATIVE_PUBLISH_SCHEDULER_STRICT?.trim().toLowerCase();
+  return raw === "1" || raw === "true" || raw === "yes";
+}
+
 export function assertCreativePublishWorkerAuthorized(
   authorizationHeader: string | null,
 ): void {

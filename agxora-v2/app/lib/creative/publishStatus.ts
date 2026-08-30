@@ -1,5 +1,5 @@
 /**
- * Phase 65.0 — actor-scoped creative publish status lookup.
+ * Phase 65.0 / 67.0 — actor-scoped creative publish status lookup.
  */
 
 import "server-only";
@@ -11,6 +11,10 @@ import { authorizeCreativePublishFromState } from "./authorizePublish";
 import { getCreativePublishAttemptByJobId } from "./publishIdempotency";
 import { findYouTubeUploadSessionByPublishJob } from "./youtubeUploadSession";
 import type { CreativePublishResult } from "@/features/agents/creative/types";
+import {
+  persistTerminalCreativePublishForSession,
+  synthesizeTerminalPublishResultFromSession,
+} from "./reconcilePublishLifecycle";
 
 export type CreativePublishStatusResult = {
   readonly organizationId: string;
@@ -58,7 +62,7 @@ export async function getCreativePublishStatusForActor(
     input.publishExecutionJobId,
   );
 
-  const publishResult =
+  const basePublishResult =
     attempt?.publishResult ??
     authz.project.publishResult ??
     ({
@@ -68,6 +72,24 @@ export async function getCreativePublishStatusForActor(
       reason: "publish_not_started",
       executionJobId: input.publishExecutionJobId,
     } satisfies CreativePublishResult);
+
+  const publishResult = synthesizeTerminalPublishResultFromSession(
+    basePublishResult,
+    session,
+  );
+
+  if (
+    publishResult.status === "failed" &&
+    basePublishResult.status === "uploading" &&
+    session &&
+    (session.status === "expired" || session.status === "failed")
+  ) {
+    await persistTerminalCreativePublishForSession(session, publishResult, {
+      attempt,
+      errorReason: publishResult.reason,
+      currentState: state,
+    });
+  }
 
   return {
     organizationId: actor.organizationId,

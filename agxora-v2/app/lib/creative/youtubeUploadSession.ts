@@ -79,6 +79,9 @@ type SessionStore = {
     readonly errorReason: string;
   }): Promise<YouTubeUploadSessionRecord>;
   expireStale(now: Date): Promise<number>;
+  listSessionsNeedingTerminalReconciliation(input: {
+    readonly limit: number;
+  }): Promise<readonly YouTubeUploadSessionRecord[]>;
 };
 
 type MemoryRow = YouTubeUploadSessionRecord & { readonly encryptedResumableUrl: string };
@@ -249,6 +252,12 @@ const memorySessionStore: SessionStore = {
     }
     return count;
   },
+  async listSessionsNeedingTerminalReconciliation(input) {
+    return [...memorySessions.values()]
+      .filter((row) => row.status === "expired" || row.status === "failed")
+      .slice(0, input.limit)
+      .map(mapRow);
+  },
 };
 
 const databaseSessionStore: SessionStore = {
@@ -383,6 +392,16 @@ const databaseSessionStore: SessionStore = {
     });
     return result.count;
   },
+  async listSessionsNeedingTerminalReconciliation(input) {
+    const rows = await prisma.creativeYouTubeUploadSession.findMany({
+      where: { status: { in: ["expired", "failed"] } },
+      orderBy: { createdAt: "asc" },
+      take: input.limit,
+    });
+    return rows.map((row) =>
+      mapRow({ ...row, encryptedResumableUrl: row.encryptedResumableUrl }),
+    );
+  },
 };
 
 let storeOverride: SessionStore | null = null;
@@ -457,6 +476,12 @@ export async function failYouTubeUploadSession(input: {
 
 export async function expireStaleYouTubeUploadSessions(now = new Date()): Promise<number> {
   return resolveStore().expireStale(now);
+}
+
+export async function listYouTubeUploadSessionsNeedingTerminalReconciliation(
+  limit: number,
+): Promise<readonly YouTubeUploadSessionRecord[]> {
+  return resolveStore().listSessionsNeedingTerminalReconciliation({ limit });
 }
 
 export async function resolveYouTubeUploadUrl(

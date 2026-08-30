@@ -1,5 +1,5 @@
 /**
- * Phase 63.1 — server-side publishResult persistence to Agent OS v7.
+ * Phase 63.1 / 67.0 — server-side publishResult persistence to Agent OS v7.
  */
 
 import "server-only";
@@ -11,6 +11,10 @@ import {
 } from "@/app/lib/agents/persistence";
 import type { AgentsPersistedState } from "@/features/agents/repositories/state";
 import type { CreativePublishResult } from "@/features/agents/creative/types";
+import {
+  executionJobStatusFromCreativePublish,
+  executionResultFromCreativePublish,
+} from "./publishExecutionOutcome";
 
 type PersistFn = (
   actor: Actor,
@@ -54,16 +58,19 @@ export async function persistPublishResultForActor(
     ) {
       return job;
     }
+    const nextStatus = executionJobStatusFromCreativePublish(
+      input.publishResult,
+      job.status,
+    );
+    const nextResult = executionResultFromCreativePublish(
+      job,
+      input.publishResult,
+      input.creativeProjectId,
+    );
     return {
       ...job,
-      status:
-        input.publishResult.published === true
-          ? ("COMPLETED" as const)
-          : input.publishResult.status === "failed"
-            ? ("FAILED" as const)
-            : input.publishResult.status === "uploading"
-              ? ("VERIFYING" as const)
-              : job.status,
+      status: nextStatus,
+      result: nextResult,
       updatedAt: new Date().toISOString(),
     };
   });

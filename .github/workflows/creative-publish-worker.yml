@@ -1,4 +1,4 @@
-# Phase 66.0 — platform-native async publish worker scheduling (Hobby-compatible).
+# Phase 66.0 / 67.0 — platform-native async publish worker scheduling (Hobby-compatible).
 # Vercel Hobby allows daily cron only; use GitHub Actions for sub-daily worker invocations.
 # Pro deployments may optionally add Vercel Cron in agxora-v2/vercel.json instead.
 name: Creative Publish Worker
@@ -22,8 +22,13 @@ jobs:
         env:
           APP_URL: ${{ secrets.AGXORA_APP_URL }}
           WORKER_TOKEN: ${{ secrets.AGXORA_CREATIVE_PUBLISH_WORKER_TOKEN }}
+          SCHEDULER_STRICT: ${{ vars.AGXORA_CREATIVE_PUBLISH_SCHEDULER_STRICT }}
         run: |
           if [ -z "$APP_URL" ] || [ -z "$WORKER_TOKEN" ]; then
+            if [ "$SCHEDULER_STRICT" = "true" ] || [ "$SCHEDULER_STRICT" = "1" ] || [ "$SCHEDULER_STRICT" = "yes" ]; then
+              echo "Error: AGXORA_CREATIVE_PUBLISH_SCHEDULER_STRICT is enabled but AGXORA_APP_URL or AGXORA_CREATIVE_PUBLISH_WORKER_TOKEN is missing."
+              exit 1
+            fi
             echo "Skipping: configure repository secrets AGXORA_APP_URL and AGXORA_CREATIVE_PUBLISH_WORKER_TOKEN."
             exit 0
           fi

@@ -1,11 +1,10 @@
 /**
- * Phase 65.0 — trusted internal creative publish worker.
+ * Phase 65.0 / 67.0 — trusted internal creative publish worker.
  */
 
 import "server-only";
 
 import { randomUUID } from "crypto";
-import type { Actor } from "@/app/lib/tenancy/types";
 import { getAgentOsStateForActor } from "@/app/lib/agents/persistence";
 import { getValidSocialAccessTokenForActor } from "@/app/lib/social/credentials";
 import { publishYouTubeFromResumableSession } from "@/app/lib/social/adapters/youtubePublish";
@@ -19,9 +18,15 @@ import {
   completeCreativePublishAttempt,
   getCreativePublishAttemptById,
   mapPublishResultToAttemptStatus,
+  type PublishAttemptRecord,
 } from "./publishIdempotency";
-import { persistPublishResultForActor } from "./persistPublishResult";
 import type { CreativePublishResult } from "@/features/agents/creative/types";
+import {
+  buildWorkerActorFromSession,
+  persistTerminalCreativePublishForSession,
+  reconcileExpiredYouTubeUploadSessions,
+  toTerminalFailedPublishResult,
+} from "./reconcilePublishLifecycle";
 import {
   claimDueYouTubeUploadSessions,
   completeYouTubeUploadSession,
@@ -38,6 +43,7 @@ export type CreativePublishWorkerRunResult = {
   readonly failed: number;
   readonly partial: number;
   readonly expired: number;
+  readonly reconciled: number;
   readonly skipped: number;
 };
 
@@ -45,19 +51,6 @@ const PARTIAL_UPLOAD_REASONS = new Set([
   "youtube_upload_incomplete",
   "youtube_upload_timeout",
 ]);
-
-function buildWorkerActor(session: YouTubeUploadSessionRecord): Actor {
-  return {
-    userId: session.actorUserId,
-    email: "worker@internal.agxora",
-    name: "Publish Worker",
-    organizationId: session.organizationId,
-    workspaceId: "worker",
-    membershipId: "worker",
-    role: "MEMBER",
-    sessionToken: "worker",
-  };
-}
 
 function toPublishedResult(input: {
   readonly executionJobId: string;
@@ -77,21 +70,6 @@ function toPublishedResult(input: {
   };
 }
 
-function toFailedResult(input: {
-  readonly executionJobId: string;
-  readonly reason: string;
-}): CreativePublishResult {
-  return {
-    available: true,
-    status: "failed",
-    published: false,
-    reason: input.reason,
-    platform: "youtube",
-    contentType: "video",
-    executionJobId: input.executionJobId,
-  };
-}
-
 function projectCopyFromState(
   session: YouTubeUploadSessionRecord,
   state: Awaited<ReturnType<typeof getAgentOsStateForActor>>,
@@ -107,6 +85,18 @@ function projectCopyFromState(
   return { title, description };
 }
 
+async function persistWorkerTerminalOutcome(
+  session: YouTubeUploadSessionRecord,
+  publishResult: CreativePublishResult,
+  attempt: PublishAttemptRecord | null,
+  errorReason?: string,
+): Promise<void> {
+  await persistTerminalCreativePublishForSession(session, publishResult, {
+    attempt,
+    errorReason,
+  });
+}
+
 export async function processYouTubeUploadSession(
   session: YouTubeUploadSessionRecord,
 ): Promise<"completed" | "failed" | "partial" | "skipped"> {
@@ -115,11 +105,21 @@ export async function processYouTubeUploadSession(
     session.publishAttemptId,
   );
   if (!attempt || attempt.organizationId !== session.organizationId) {
+    const reason = "publish_attempt_not_found";
     await failYouTubeUploadSession({
       sessionId: session.id,
       organizationId: session.organizationId,
-      errorReason: "publish_attempt_not_found",
+      errorReason: reason,
     });
+    await persistWorkerTerminalOutcome(
+      session,
+      toTerminalFailedPublishResult({
+        executionJobId: session.publishExecutionJobId,
+        reason,
+      }),
+      null,
+      reason,
+    );
     return "failed";
   }
 
@@ -145,21 +145,15 @@ export async function processYouTubeUploadSession(
       organizationId: session.organizationId,
       errorReason: reason,
     });
-    const publishResult = toFailedResult({
+    const publishResult = toTerminalFailedPublishResult({
       executionJobId: session.publishExecutionJobId,
       reason,
     });
-    await completeCreativePublishAttempt({
-      attemptId: attempt.id,
-      organizationId: session.organizationId,
-      status: mapPublishResultToAttemptStatus(publishResult),
-      publishResult,
-      errorReason: reason,
-    });
+    await persistWorkerTerminalOutcome(session, publishResult, attempt, reason);
     return "failed";
   }
 
-  const actor = buildWorkerActor(session);
+  const actor = buildWorkerActorFromSession(session);
   const state = await getAgentOsStateForActor(actor);
   const { title, description } = projectCopyFromState(session, state);
   const accessToken = await getValidSocialAccessTokenForActor(actor, "youtube");
@@ -170,17 +164,11 @@ export async function processYouTubeUploadSession(
       organizationId: session.organizationId,
       errorReason: reason,
     });
-    const publishResult = toFailedResult({
+    const publishResult = toTerminalFailedPublishResult({
       executionJobId: session.publishExecutionJobId,
       reason,
     });
-    await completeCreativePublishAttempt({
-      attemptId: attempt.id,
-      organizationId: session.organizationId,
-      status: mapPublishResultToAttemptStatus(publishResult),
-      publishResult,
-      errorReason: reason,
-    });
+    await persistWorkerTerminalOutcome(session, publishResult, attempt, reason);
     return "failed";
   }
 
@@ -235,22 +223,11 @@ export async function processYouTubeUploadSession(
       organizationId: session.organizationId,
       errorReason: reason,
     });
-    const publishResult = toFailedResult({
+    const publishResult = toTerminalFailedPublishResult({
       executionJobId: session.publishExecutionJobId,
       reason,
     });
-    await completeCreativePublishAttempt({
-      attemptId: attempt.id,
-      organizationId: session.organizationId,
-      status: mapPublishResultToAttemptStatus(publishResult),
-      publishResult,
-      errorReason: reason,
-    });
-    await persistPublishResultForActor(actor, {
-      creativeProjectId: session.creativeProjectId,
-      publishExecutionJobId: session.publishExecutionJobId,
-      publishResult,
-    });
+    await persistWorkerTerminalOutcome(session, publishResult, attempt, reason);
     return "failed";
   }
 
@@ -272,10 +249,9 @@ export async function processYouTubeUploadSession(
     externalId: adapterResult.externalId,
     errorReason: undefined,
   });
-  await persistPublishResultForActor(actor, {
-    creativeProjectId: session.creativeProjectId,
-    publishExecutionJobId: session.publishExecutionJobId,
-    publishResult,
+  await persistTerminalCreativePublishForSession(session, publishResult, {
+    attempt,
+    currentState: state,
   });
   return "completed";
 }
@@ -284,6 +260,7 @@ export async function runCreativePublishWorker(
   maxSessions: number,
 ): Promise<CreativePublishWorkerRunResult> {
   const expired = await expireStaleYouTubeUploadSessions();
+  const reconciled = await reconcileExpiredYouTubeUploadSessions(maxSessions);
   const claimId = randomUUID();
   const sessions = await claimDueYouTubeUploadSessions({
     limit: maxSessions,
@@ -296,6 +273,7 @@ export async function runCreativePublishWorker(
     failed: 0,
     partial: 0,
     expired,
+    reconciled,
     skipped: 0,
   } satisfies CreativePublishWorkerRunResult;
 

@@ -5225,6 +5225,13 @@
         "publishResult": "Publish result: {status} · published={published} · {reason}",
         "publishUnavailableHint": "Publishing is unavailable. No fake published state is shown.",
         "publishFailedHint": "Publish failed. The durable creative asset and production result are preserved.",
+        "publishFailureReason": {
+          "youtube_upload_session_expired": "The YouTube upload session expired before the video finished uploading. Request a new publish from Operations.",
+          "social_token_refresh_failed": "YouTube credentials could not be refreshed. Reconnect YouTube in settings, then request a new publish.",
+          "asset_storage_unavailable": "The durable video asset is unavailable in object storage. Publish cannot continue until storage is restored.",
+          "youtube_upload_failed": "YouTube rejected or interrupted the upload. The creative asset is preserved.",
+          "publish_attempt_not_found": "The publish attempt record is missing. Request a new publish from Operations."
+        },
         "publishUploadingHint": "YouTube upload is in progress. Refresh for status updates.",
         "publishUploadingProgress": "({percent}% uploaded)"
       },
