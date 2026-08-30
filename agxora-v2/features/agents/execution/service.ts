@@ -23,6 +23,7 @@ import {
 } from "./jobs";
 import { countJobsByStatus, inspectExecutionQueue, sortExecutionQueue } from "./queue";
 import { evaluateCampaignOperationsReadiness } from "./readiness";
+import { executionResultFromCreativePublish } from "@/app/lib/creative/publishExecutionOutcome";
 
 function nowIso(): string {
   return new Date().toISOString();
@@ -258,53 +259,11 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
             item.organizationId === job.organizationId &&
             (creativeId ? item.id === creativeId : item.publishExecutionJobId === job.id),
         );
-      const publishResult = creative?.publishResult;
-      if (publishResult?.published === true && publishResult.available === true) {
-        return {
-          success: true,
-          status: "completed",
-          externalEffect: true,
-          message: "completed",
-          metadata: {
-            toolId: job.toolId,
-            creativeId: creative?.id ?? "",
-            platform: publishResult.platform ?? "",
-          },
-        };
-      }
-      if (publishResult?.status === "unavailable") {
-        return {
-          success: false,
-          status: "unavailable",
-          externalEffect: false,
-          message: publishResult.reason ?? "creative_publish_unavailable",
-          metadata: {
-            toolId: job.toolId,
-            creativeId: creative?.id ?? "",
-            reason: publishResult.reason ?? "creative_publish_unavailable",
-          },
-        };
-      }
-      if (publishResult?.status === "uploading") {
-        return {
-          success: false,
-          status: "in_progress",
-          externalEffect: true,
-          message: publishResult.reason ?? "youtube_upload_in_progress",
-          metadata: {
-            toolId: job.toolId,
-            creativeId: creative?.id ?? "",
-            platform: publishResult.platform ?? "",
-          },
-        };
-      }
-      return {
-        success: false,
-        status: "failed",
-        externalEffect: false,
-        message: publishResult?.reason ?? "creative_publish_failed",
-        metadata: { toolId: job.toolId, creativeId: creative?.id ?? "" },
-      };
+      return executionResultFromCreativePublish(
+        job,
+        creative?.publishResult,
+        creative?.id,
+      );
     }
 
     if (job.toolId === "creative_generate") {

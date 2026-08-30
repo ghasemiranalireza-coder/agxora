@@ -1064,4 +1064,77 @@ export const creativeService = {
 
     return applied;
   },
+
+  async refreshPublishStatusFromServer(
+    organizationId: string,
+    creativeId: string,
+  ): Promise<CreativeProject | undefined> {
+    const project = this.get(organizationId, creativeId);
+    if (
+      !project ||
+      project.publishResult?.status !== "uploading" ||
+      !project.publishExecutionJobId
+    ) {
+      return project;
+    }
+
+    let response: Response;
+    try {
+      response = await fetch(
+        `/api/v1/agents/creative/publish/status?creativeProjectId=${encodeURIComponent(project.id)}&publishExecutionJobId=${encodeURIComponent(project.publishExecutionJobId)}`,
+        {
+          method: "GET",
+          credentials: "include",
+        },
+      );
+    } catch {
+      return project;
+    }
+
+    const payload = (await response.json()) as {
+      ok?: boolean;
+      organizationId?: string;
+      publishResult?: CreativePublishResult;
+      uploadSession?: { byteOffset?: number; byteSize?: number };
+    };
+
+    if (!response.ok || !payload.ok || !payload.publishResult) {
+      return project;
+    }
+    if (
+      typeof payload.organizationId === "string" &&
+      payload.organizationId !== organizationId
+    ) {
+      return project;
+    }
+
+    const publishResult = {
+      ...payload.publishResult,
+      uploadByteOffset: payload.uploadSession?.byteOffset,
+      uploadByteSize: payload.uploadSession?.byteSize,
+    };
+
+    if (publishResult.status === project.publishResult?.status) {
+      return project;
+    }
+
+    const applied = applyPublishResult(
+      project,
+      organizationId,
+      creativeId,
+      publishResult,
+    );
+
+    if (
+      isTerminalPublishStatus(publishResult.status) &&
+      project.publishExecutionJobId
+    ) {
+      operationsService.reconcileCreativePublishResult(
+        organizationId,
+        project.publishExecutionJobId,
+      );
+    }
+
+    return applied;
+  },
 };
