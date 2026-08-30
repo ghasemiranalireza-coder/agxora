@@ -1,6 +1,5 @@
 /**
- * Adapter — bridges AIEngine to the existing chat module AiProvider interface
- * without changing ChatPanel / dashboard UI.
+ * Adapter — bridges server AI chat to the dashboard chat module interface.
  */
 
 import type { MemoryContextPacket } from "../../memory/MemoryTypes";
@@ -9,34 +8,52 @@ import type {
   AiCompletionResponse,
   AiProvider as ChatAiProvider,
 } from "../../modules/chat/types";
-import { aiEngine, type AIEngine } from "../AIEngine";
 import type { AIRuntimeContext } from "../AIContext";
+import { requestServerAiChat } from "../clientChat";
+import type { AISettings } from "../AISettings";
 
 export type RuntimeContextEnricher = (
   request: AiCompletionRequest,
 ) => Partial<AIRuntimeContext> | undefined;
 
+export type ChatSettingsGetter = () => Partial<AISettings> | undefined;
+export type ChatLocaleGetter = () => string | undefined;
+
 export interface ChatProviderAdapter extends ChatAiProvider {
-  readonly engine: AIEngine;
   setEnricher(enricher: RuntimeContextEnricher | null): void;
+  setSettingsGetter(getter: ChatSettingsGetter | null): void;
+  setLocaleGetter(getter: ChatLocaleGetter | null): void;
 }
 
 export function createChatProviderAdapter(
-  engine: AIEngine = aiEngine,
   enricher?: RuntimeContextEnricher | null,
+  settingsGetter?: ChatSettingsGetter | null,
+  localeGetter?: ChatLocaleGetter | null,
 ): ChatProviderAdapter {
   let resolveExtras: RuntimeContextEnricher | null = enricher ?? null;
+  let resolveSettings: ChatSettingsGetter | null = settingsGetter ?? null;
+  let resolveLocale: ChatLocaleGetter | null = localeGetter ?? null;
 
   return {
-    id: "ai-engine",
-    engine,
+    id: "server-ai-chat",
     setEnricher(next) {
       resolveExtras = next;
     },
+    setSettingsGetter(next) {
+      resolveSettings = next;
+    },
+    setLocaleGetter(next) {
+      resolveLocale = next;
+    },
     async complete(request: AiCompletionRequest): Promise<AiCompletionResponse> {
       const context = toRuntimeContext(request, resolveExtras?.(request));
-      const response = await engine.generate({
+      const settings = resolveSettings?.();
+      const response = await requestServerAiChat({
         context,
+        providerId: settings?.defaultProviderId,
+        modelId: settings?.defaultModelId,
+        settings,
+        preferredLocale: resolveLocale?.(),
         signal: request.signal,
       });
 
@@ -50,7 +67,7 @@ export function createChatProviderAdapter(
         },
         metadata: {
           finishReason: response.finishReason,
-          engine: true,
+          server: true,
         },
       };
     },
@@ -62,7 +79,7 @@ function toRuntimeContext(
   extras?: Partial<AIRuntimeContext>,
 ): AIRuntimeContext {
   const memory: MemoryContextPacket = request.memory;
-  const base: AIRuntimeContext = {
+  return {
     organization: {
       organizationId: request.organizationId ?? null,
       workspaceId: request.workspaceId ?? null,
@@ -85,8 +102,7 @@ function toRuntimeContext(
     userPrompt: request.userMessage.content,
     systemPrompt:
       extras?.systemPrompt ??
-      "You are AGXORA AI. Use organization memory and conversation history. Stay provider-independent.",
+      "You are AGXORA AI. Use organization memory and conversation history.",
     toolResults: extras?.toolResults,
   };
-  return base;
 }

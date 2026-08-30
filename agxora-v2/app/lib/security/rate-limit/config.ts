@@ -107,6 +107,14 @@ export const RATE_LIMIT_POLICIES: Record<RateLimitPolicyId, RateLimitPolicy> = {
     keyKind: "user",
     failClosed: true,
   },
+  /** AI chat — conservative per-user budget. */
+  "ai.chat": {
+    id: "ai.chat",
+    max: 60,
+    windowMs: HOUR,
+    keyKind: "user",
+    failClosed: true,
+  },
 };
 
 export type RateLimitStoreId = "memory" | "http";
