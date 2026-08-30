@@ -13,7 +13,6 @@ import {
   type ChatProviderAdapter,
 } from "../../ai/adapters/chatProviderAdapter";
 import { useOptionalAISettings } from "../../ai/AIProviderContext";
-import { aiEngine } from "../../ai/AIEngine";
 import { useBusinessOs } from "../../business";
 import { useOptionalMemory } from "../../memory";
 import { useOrganization } from "../../organization";
@@ -40,7 +39,7 @@ export function ChatProvider({
 
   const [adapter] = useState<ChatProviderAdapter | null>(() => {
     if (injected) return null;
-    return createChatProviderAdapter(aiEngine);
+    return createChatProviderAdapter();
   });
 
   const [service] = useState<ChatService>(() => {
@@ -74,6 +73,11 @@ export function ChatProvider({
   useEffect(() => {
     service.setContext(organization?.id ?? null, workspace?.id ?? null);
   }, [service, organization?.id, workspace?.id]);
+
+  useEffect(() => {
+    if (!adapter) return;
+    adapter.setSettingsGetter(() => aiSettings?.settings);
+  }, [adapter, aiSettings?.settings]);
 
   useEffect(() => {
     if (!adapter) return;
@@ -131,11 +135,6 @@ export function ChatProvider({
     workspace?.id,
     aiSettings?.settings.systemPromptOverride,
   ]);
-
-  useEffect(() => {
-    if (!aiSettings) return;
-    aiEngine.updateSettings(aiSettings.settings);
-  }, [aiSettings, aiSettings?.settings]);
 
   const syncFromService = useCallback(() => {
     setMessages(service.listMessages());
