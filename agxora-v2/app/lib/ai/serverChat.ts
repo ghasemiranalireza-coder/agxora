@@ -5,10 +5,12 @@
 import "server-only";
 
 import type { Actor } from "@/app/lib/tenancy/types";
+import { PersistenceError } from "@/app/lib/tenancy/errors";
 import type { AIRuntimeContext } from "./AIContext";
 import { AIError } from "./AIErrorHandler";
 import type { AIProviderId } from "./AIModel";
 import type { AIChatResponse } from "./AIProvider";
+import { buildLanguageInstruction, resolveChatLocale } from "./chatLanguage";
 import { assemblePrompt } from "./prompt/assemblePrompt";
 import { mergeAISettings, type AISettings } from "./AISettings";
 import { trimToContextWindow } from "./AITokenCounter";
@@ -27,6 +29,7 @@ export type ServerAiChatInput = {
   readonly settings?: Partial<AISettings>;
   readonly providerId?: AIProviderId;
   readonly modelId?: string;
+  readonly preferredLocale?: string | null;
 };
 
 export type ServerAiReadiness = {
@@ -34,12 +37,10 @@ export type ServerAiReadiness = {
   readonly defaultProviderId: AIProviderId | null;
   readonly configuredProviders: readonly AIProviderId[];
   readonly mockAllowed: boolean;
-  readonly issueCode?: "provider_not_configured";
+  readonly mockOnly: boolean;
+  readonly issueCode?: "provider_not_configured" | "mock_only";
   readonly message: string;
 };
-
-const LANGUAGE_INSTRUCTION =
-  "Respond in the same language the user writes in. If the user writes in German, respond in German. If the user writes in Persian, respond in Persian. Match the user's language naturally.";
 
 export function evaluateServerAiReadiness(): ServerAiReadiness {
   const configuredProviders = (
@@ -54,18 +55,21 @@ export function evaluateServerAiReadiness(): ServerAiReadiness {
     ] as const
   ).filter((id) => isServerAiProviderConfigured(id));
 
-  const defaultProviderId = getDefaultConfiguredServerProviderId();
   const mockAllowed = isMockChatAllowed();
+  const defaultProviderId = getDefaultConfiguredServerProviderId();
+  const mockOnly = defaultProviderId === "mock";
 
-  if (!defaultProviderId) {
+  if (!defaultProviderId || mockOnly) {
     return {
       ready: false,
-      defaultProviderId: null,
+      defaultProviderId: mockOnly ? "mock" : null,
       configuredProviders,
       mockAllowed,
-      issueCode: "provider_not_configured",
-      message:
-        "No AI provider is configured. Set AGXORA_OPENAI_API_KEY on the server.",
+      mockOnly,
+      issueCode: mockOnly ? "mock_only" : "provider_not_configured",
+      message: mockOnly
+        ? "Only mock AI is available. Configure AGXORA_OPENAI_API_KEY for real chat."
+        : "No AI provider is configured. Set AGXORA_OPENAI_API_KEY on the server.",
     };
   }
 
@@ -74,10 +78,27 @@ export function evaluateServerAiReadiness(): ServerAiReadiness {
     defaultProviderId,
     configuredProviders,
     mockAllowed,
-    message:
-      defaultProviderId === "mock"
-        ? "Mock AI provider enabled for development"
-        : `${defaultProviderId} is configured for chat`,
+    mockOnly: false,
+    message: `${defaultProviderId} is configured for chat`,
+  };
+}
+
+function assertActorOrganizationScope(
+  actor: Actor,
+  context: AIRuntimeContext,
+): AIRuntimeContext {
+  const clientOrg = context.organization.organizationId;
+  if (clientOrg && clientOrg !== actor.organizationId) {
+    throw new PersistenceError("forbidden", "Organization mismatch", {
+      details: [{ field: "organizationId", message: "cross_org" }],
+    });
+  }
+  return {
+    ...context,
+    organization: {
+      ...context.organization,
+      organizationId: actor.organizationId,
+    },
   };
 }
 
@@ -85,8 +106,6 @@ export async function generateServerAiChatForActor(
   actor: Actor,
   input: ServerAiChatInput,
 ): Promise<AIChatResponse> {
-  void actor.organizationId;
-
   const settings = mergeAISettings(input.settings);
   const providerId = resolveServerProviderId(
     input.providerId ?? settings.defaultProviderId,
@@ -94,14 +113,23 @@ export async function generateServerAiChatForActor(
   const provider = createServerAIProvider(providerId);
   const modelId = input.modelId ?? settings.defaultModelId;
 
+  const scopedContext = assertActorOrganizationScope(actor, input.context);
+  const locale = resolveChatLocale({
+    preferredLocale: input.preferredLocale,
+    organizationLanguage: scopedContext.organization.language,
+  });
+
   const enrichedContext: AIRuntimeContext = {
-    ...input.context,
+    ...scopedContext,
     organization: {
-      ...input.context.organization,
-      organizationId:
-        input.context.organization.organizationId ?? actor.organizationId,
+      ...scopedContext.organization,
+      organizationId: actor.organizationId,
+      language: locale,
     },
-    systemPrompt: [input.context.systemPrompt?.trim(), LANGUAGE_INSTRUCTION]
+    systemPrompt: [
+      scopedContext.systemPrompt?.trim(),
+      buildLanguageInstruction(locale),
+    ]
       .filter(Boolean)
       .join("\n\n"),
   };

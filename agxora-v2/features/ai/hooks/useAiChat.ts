@@ -2,6 +2,7 @@
 
 import { useCallback, useRef } from "react";
 import { useAISettings } from "@/app/lib/ai/AIProviderContext";
+import { useLocale } from "@/app/lib/i18n";
 import { useOrganization } from "@/app/lib/organization";
 import { generateAiReply } from "../services/aiPlatformService";
 import { aiConversationStore } from "../store/conversationStore";
@@ -9,6 +10,7 @@ import { useAiActiveConversation, useAiGenerating } from "./useAiConversations";
 
 export function useAiChat() {
   const { settings } = useAISettings();
+  const { locale } = useLocale();
   const { organization } = useOrganization();
   const conversation = useAiActiveConversation();
   const generating = useAiGenerating();
@@ -30,6 +32,7 @@ export function useAiChat() {
         settings,
         organizationId: organization?.id ?? null,
         workspaceId: null,
+        preferredLocale: locale,
       });
       abortRef.current = handle.abort;
       try {
@@ -40,7 +43,7 @@ export function useAiChat() {
         abortRef.current = null;
       }
     },
-    [ensureConversation, generating, organization?.id, settings],
+    [ensureConversation, generating, locale, organization?.id, settings],
   );
 
   const retry = useCallback(
@@ -60,6 +63,7 @@ export function useAiChat() {
         settings,
         organizationId: organization?.id ?? null,
         workspaceId: null,
+        preferredLocale: locale,
         retryAssistantMessageId: assistantMessageId,
       });
       abortRef.current = handle.abort;
@@ -71,7 +75,7 @@ export function useAiChat() {
         abortRef.current = null;
       }
     },
-    [conversation, generating, organization?.id, settings],
+    [conversation, generating, locale, organization?.id, settings],
   );
 
   const stop = useCallback(() => {

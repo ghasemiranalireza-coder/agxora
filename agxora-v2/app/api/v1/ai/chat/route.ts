@@ -19,6 +19,7 @@ type AiChatRequestBody = {
   readonly providerId?: AIProviderId;
   readonly modelId?: string;
   readonly settings?: Partial<AISettings>;
+  readonly preferredLocale?: string;
 };
 
 function jsonAiError(error: unknown): NextResponse {
@@ -68,6 +69,8 @@ export async function POST(request: Request): Promise<NextResponse> {
       providerId: body.providerId,
       modelId: body.modelId,
       settings: body.settings,
+      preferredLocale:
+        typeof body.preferredLocale === "string" ? body.preferredLocale : undefined,
     });
 
     return NextResponse.json({

@@ -17,18 +17,22 @@ export type RuntimeContextEnricher = (
 ) => Partial<AIRuntimeContext> | undefined;
 
 export type ChatSettingsGetter = () => Partial<AISettings> | undefined;
+export type ChatLocaleGetter = () => string | undefined;
 
 export interface ChatProviderAdapter extends ChatAiProvider {
   setEnricher(enricher: RuntimeContextEnricher | null): void;
   setSettingsGetter(getter: ChatSettingsGetter | null): void;
+  setLocaleGetter(getter: ChatLocaleGetter | null): void;
 }
 
 export function createChatProviderAdapter(
   enricher?: RuntimeContextEnricher | null,
   settingsGetter?: ChatSettingsGetter | null,
+  localeGetter?: ChatLocaleGetter | null,
 ): ChatProviderAdapter {
   let resolveExtras: RuntimeContextEnricher | null = enricher ?? null;
   let resolveSettings: ChatSettingsGetter | null = settingsGetter ?? null;
+  let resolveLocale: ChatLocaleGetter | null = localeGetter ?? null;
 
   return {
     id: "server-ai-chat",
@@ -38,6 +42,9 @@ export function createChatProviderAdapter(
     setSettingsGetter(next) {
       resolveSettings = next;
     },
+    setLocaleGetter(next) {
+      resolveLocale = next;
+    },
     async complete(request: AiCompletionRequest): Promise<AiCompletionResponse> {
       const context = toRuntimeContext(request, resolveExtras?.(request));
       const settings = resolveSettings?.();
@@ -46,6 +53,7 @@ export function createChatProviderAdapter(
         providerId: settings?.defaultProviderId,
         modelId: settings?.defaultModelId,
         settings,
+        preferredLocale: resolveLocale?.(),
         signal: request.signal,
       });
 

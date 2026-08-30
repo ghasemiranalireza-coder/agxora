@@ -13,6 +13,7 @@ export type ClientAiChatInput = {
   readonly providerId?: AIProviderId;
   readonly modelId?: string;
   readonly settings?: Partial<AISettings>;
+  readonly preferredLocale?: string;
   readonly signal?: AbortSignal;
 };
 
@@ -28,6 +29,7 @@ export async function requestServerAiChat(
       providerId: input.providerId,
       modelId: input.modelId,
       settings: input.settings,
+      preferredLocale: input.preferredLocale,
     }),
     signal: input.signal,
   });

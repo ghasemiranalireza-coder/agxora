@@ -61,14 +61,31 @@ export function createServerAIProvider(providerId: AIProviderId): AIProvider {
 export function resolveServerProviderId(
   requested?: AIProviderId | null,
 ): AIProviderId {
-  if (requested && requested !== "mock" && isServerAiProviderConfigured(requested)) {
-    return requested;
-  }
-  if (requested === "mock" && isMockChatAllowed()) {
+  if (requested === "mock") {
+    if (!isMockChatAllowed()) {
+      throw new AIError({
+        code: "PROVIDER_NOT_CONFIGURED",
+        message:
+          "Mock AI is disabled. Configure AGXORA_OPENAI_API_KEY on the server.",
+        providerId: "mock",
+      });
+    }
     return "mock";
   }
+
+  if (requested) {
+    if (isServerAiProviderConfigured(requested)) {
+      return requested;
+    }
+    throw new AIError({
+      code: "PROVIDER_NOT_CONFIGURED",
+      message: `${requested} is not configured on the server.`,
+      providerId: requested,
+    });
+  }
+
   const fallback = getDefaultConfiguredServerProviderId();
-  if (!fallback) {
+  if (!fallback || fallback === "mock") {
     throw new AIError({
       code: "PROVIDER_NOT_CONFIGURED",
       message:

@@ -19,6 +19,7 @@ export interface AiGenerateOptions {
   readonly settings: AISettings;
   readonly organizationId?: string | null;
   readonly workspaceId?: string | null;
+  readonly preferredLocale?: string;
   /** When regenerating, the assistant message to replace. */
   readonly retryAssistantMessageId?: string;
 }
@@ -114,6 +115,7 @@ export function generateAiReply(options: AiGenerateOptions): AiGenerateHandle {
         providerId: options.settings.defaultProviderId,
         modelId: options.settings.defaultModelId,
         settings: options.settings,
+        preferredLocale: options.preferredLocale,
         signal: controller.signal,
       });
 
