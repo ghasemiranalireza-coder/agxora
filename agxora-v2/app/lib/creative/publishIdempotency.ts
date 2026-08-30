@@ -9,7 +9,10 @@ import type { CreativePublishAttemptStatus } from "@prisma/client";
 import { prisma } from "@/app/lib/db/prisma";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import type { CreativePublishResult } from "@/features/agents/creative/types";
-import { PUBLISH_ATTEMPT_IN_FLIGHT_TTL_MS } from "../social/config";
+import {
+  getYouTubeUploadSessionTtlMs,
+  PUBLISH_ATTEMPT_IN_FLIGHT_TTL_MS,
+} from "../social/config";
 
 export type PublishAttemptRecord = {
   readonly id: string;
@@ -53,7 +56,18 @@ export type PublishAttemptCompleteInput = {
   readonly publishResult: CreativePublishResult;
   readonly externalId?: string;
   readonly errorReason?: string;
+  /** Phase 68 — async uploading attempts align to upload session TTL. */
+  readonly expiresAt?: Date;
 };
+
+function resolveAttemptExpiresAtOnComplete(
+  input: PublishAttemptCompleteInput,
+): Date | undefined {
+  if (input.status === "uploading") {
+    return input.expiresAt ?? new Date(Date.now() + getYouTubeUploadSessionTtlMs());
+  }
+  return input.expiresAt;
+}
 
 export function buildPublishIdempotencyKey(input: PublishAttemptAcquireInput): string {
   return createHash("sha256")
@@ -137,7 +151,10 @@ function evaluateExistingAttempt(row: {
     if (row.expiresAt.getTime() > Date.now()) {
       return { kind: "conflict" };
     }
-    return { kind: "acquired", attemptId: "reclaim_uploading" };
+    return {
+      kind: "requires_new_job",
+      reason: "uploading_without_result_expired",
+    };
   }
   if (row.status === "in_flight") {
     if (row.expiresAt.getTime() > Date.now()) {
@@ -238,6 +255,7 @@ const databasePublishAttemptStore: PublishAttemptStore = {
   },
 
   async complete(input) {
+    const expiresAt = resolveAttemptExpiresAtOnComplete(input);
     await prisma.creativePublishAttempt.updateMany({
       where: {
         id: input.attemptId,
@@ -249,6 +267,7 @@ const databasePublishAttemptStore: PublishAttemptStore = {
         externalId: input.externalId ?? null,
         errorReason: input.errorReason ?? null,
         completedAt: input.status === "uploading" ? null : new Date(),
+        ...(expiresAt ? { expiresAt } : {}),
       },
     });
   },
@@ -335,6 +354,7 @@ const memoryPublishAttemptStore: PublishAttemptStore = {
     return { kind: "acquired", attemptId };
   },
   async complete(input) {
+    const expiresAt = resolveAttemptExpiresAtOnComplete(input);
     for (const [key, row] of memoryAttempts.entries()) {
       if (row.id === input.attemptId && row.organizationId === input.organizationId) {
         memoryAttempts.set(key, {
@@ -343,6 +363,7 @@ const memoryPublishAttemptStore: PublishAttemptStore = {
           publishResult: input.publishResult,
           externalId: input.externalId,
           errorReason: input.errorReason,
+          ...(expiresAt ? { expiresAt } : {}),
         });
         return;
       }

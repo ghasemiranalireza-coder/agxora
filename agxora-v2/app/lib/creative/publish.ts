@@ -394,7 +394,7 @@ export async function publishCreativeForActor(
         privacyStatus: getYouTubeDefaultPrivacyStatus(),
         deps: resolveYouTubeResumableDeps(),
       });
-      await createYouTubeUploadSession({
+      const uploadSession = await createYouTubeUploadSession({
         organizationId: actor.organizationId,
         publishAttemptId: attemptId,
         publishExecutionJobId: authz.job.id,
@@ -420,6 +420,7 @@ export async function publishCreativeForActor(
         organizationId: actor.organizationId,
         status: "uploading",
         publishResult,
+        expiresAt: uploadSession.expiresAt,
       });
       await persistPublishResultForActor(
         actor,
