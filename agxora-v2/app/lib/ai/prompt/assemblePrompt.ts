@@ -6,6 +6,12 @@
 
 import type { AIMessageSlice, AIRuntimeContext } from "../AIContext";
 
+export const DEFAULT_AGXORA_SYSTEM_PROMPT =
+  "You are AGXORA AI, the enterprise operating assistant for this organization. Be precise, actionable, and helpful.";
+
+export const LANGUAGE_GUIDANCE =
+  "Reply in the same language as the user's latest message. Support Persian (فارسی), German, and English naturally. Do not switch language unless the user asks.";
+
 export interface AssembledPrompt {
   readonly messages: readonly AIMessageSlice[];
   readonly systemPrompt: string;
@@ -16,9 +22,9 @@ export function assemblePrompt(context: AIRuntimeContext): AssembledPrompt {
   const sections: string[] = [];
 
   sections.push(
-    context.systemPrompt?.trim() ||
-      "You are AGXORA AI, the operating assistant for a universal business operating system.",
+    context.systemPrompt?.trim() || DEFAULT_AGXORA_SYSTEM_PROMPT,
   );
+  sections.push(LANGUAGE_GUIDANCE);
 
   const org = context.organization;
   if (org.companyName || org.organizationId) {

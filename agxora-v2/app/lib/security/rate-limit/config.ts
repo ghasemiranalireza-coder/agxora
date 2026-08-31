@@ -107,6 +107,14 @@ export const RATE_LIMIT_POLICIES: Record<RateLimitPolicyId, RateLimitPolicy> = {
     keyKind: "user",
     failClosed: true,
   },
+  /** Authenticated OpenAI chat — per-user budget, fail closed. */
+  "ai.chat": {
+    id: "ai.chat",
+    max: 60,
+    windowMs: HOUR,
+    keyKind: "user",
+    failClosed: true,
+  },
 };
 
 export type RateLimitStoreId = "memory" | "http";

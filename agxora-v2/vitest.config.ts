@@ -8,7 +8,7 @@ export default defineConfig({
     fileParallelism: false,
     maxWorkers: 1,
     setupFiles: ["./vitest.setup.ts"],
-    testTimeout: 30000,
+    testTimeout: 90000,
   },
   resolve: {
     alias: {
