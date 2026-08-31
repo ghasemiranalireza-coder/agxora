@@ -83,7 +83,7 @@ export class OpenAIProvider implements AIProvider {
     const response = await fetch(OPENAI_CHAT_PATH, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      credentials: "same-origin",
+      credentials: "include",
       body: JSON.stringify(toChatBody(request, false)),
       signal: request.signal,
     });
@@ -121,7 +121,7 @@ export class OpenAIProvider implements AIProvider {
         "Content-Type": "application/json",
         Accept: "text/event-stream",
       },
-      credentials: "same-origin",
+      credentials: "include",
       body: JSON.stringify(toChatBody(request, true)),
       signal: request.signal,
     });
@@ -237,7 +237,7 @@ export class OpenAIProvider implements AIProvider {
       const response = await fetch(OPENAI_READINESS_PATH, {
         method: "GET",
         headers: { Accept: "application/json" },
-        credentials: "same-origin",
+        credentials: "include",
         cache: "no-store",
       });
       const payload = (await parseJson(response)) as {

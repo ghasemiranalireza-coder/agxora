@@ -8,6 +8,12 @@
 export type AgxoraAuthMode = "server" | "local";
 
 export function getAuthMode(): AgxoraAuthMode {
+  // Production identity is always the httpOnly server-session path.
+  // LocalAuthAdapter cannot satisfy requireCurrentActor() on /api/v1/ai/chat.
+  if (process.env.NODE_ENV === "production") {
+    return "server";
+  }
+
   const explicit = (
     process.env.NEXT_PUBLIC_AGXORA_AUTH_MODE || ""
   )
