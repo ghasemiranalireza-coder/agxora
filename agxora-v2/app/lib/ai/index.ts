@@ -19,8 +19,8 @@ export * from "./AIVoice";
 export * from "./AIVision";
 export * from "./prompt/assemblePrompt";
 export { MockAIProvider } from "./providers/MockAIProvider";
+export { OpenAIProvider } from "./providers/OpenAIProvider";
 export {
-  OpenAIProvider,
   AnthropicProvider,
   GoogleGeminiProvider,
   OpenRouterProvider,

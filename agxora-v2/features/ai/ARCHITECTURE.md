@@ -24,7 +24,8 @@ Core engine remains in `app/lib/ai/` (AIEngine, AIProvider, factory, settings). 
 - `AIProvider` interface (chat / stream / embeddings / health / tools / vision)
 - Implementations: OpenAI, Anthropic, Google, OpenRouter, Ollama, **Azure OpenAI**, **Local**, Mock
 - Factory registration via `registerAIProvider` — pluggable without UI changes
-- Stub providers stay architecture-ready; mock fallback keeps the workspace usable when keys are missing
+- OpenAI chat is live when `AGXORA_OPENAI_API_KEY` is set (server-side only)
+- Mock remains available for unit tests; production errors are not replaced with mock text
 
 ## Chat workspace (`/dashboard/ai`)
 

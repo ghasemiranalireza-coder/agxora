@@ -6,8 +6,7 @@
 import { aiEngine } from "@/app/lib/ai/AIEngine";
 import type { AIRuntimeContext } from "@/app/lib/ai/AIContext";
 import type { AISettings } from "@/app/lib/ai/AISettings";
-import { AIError, toAIError } from "@/app/lib/ai/AIErrorHandler";
-import { createAIProvider } from "@/app/lib/ai/AIProviderFactory";
+import { toAIError } from "@/app/lib/ai/AIErrorHandler";
 import { buildContextPreamble, getAiPlatformContext } from "../context";
 import { aiConversationStore } from "../store/conversationStore";
 import { aiUsageTracker } from "../store/usageTracker";
@@ -67,7 +66,7 @@ function buildRuntimeContext(input: {
 
 /**
  * Send a user message and stream/complete an assistant reply.
- * Falls back to mock when the selected provider is not configured.
+ * Provider errors are returned as structured AI errors — never mock text.
  */
 export function generateAiReply(options: AiGenerateOptions): AiGenerateHandle {
   const controller = new AbortController();
@@ -167,70 +166,6 @@ export function generateAiReply(options: AiGenerateOptions): AiGenerateHandle {
     } catch (error) {
       const aiError = toAIError(error, options.settings.defaultProviderId);
 
-      // Transparent fallback for unconfigured stubs — keep workspace usable.
-      if (
-        aiError.code === "PROVIDER_NOT_CONFIGURED" &&
-        options.settings.defaultProviderId !== "mock"
-      ) {
-        try {
-          const mock = createAIProvider("mock");
-          const fallback = await mock.stream(
-            {
-              context,
-              modelId: "mock-local",
-              settings: { ...options.settings, defaultProviderId: "mock", defaultModelId: "mock-local" },
-              signal: controller.signal,
-            },
-            (event) => {
-              if (event.type === "delta" && event.delta) {
-                const current = store
-                  .getConversation(options.conversationId)
-                  ?.messages.find((m) => m.id === assistantId);
-                const nextContent = `${current?.content ?? ""}${event.delta}`;
-                store.updateMessage(options.conversationId, assistantId!, {
-                  content: nextContent,
-                  status: "streaming",
-                });
-              }
-            },
-          );
-
-          const note = `\n\n_Provider \`${options.settings.defaultProviderId}\` is not configured yet — replied with the local mock engine._`;
-          const content = `${fallback.content}${note}`;
-          store.updateMessage(options.conversationId, assistantId!, {
-            content,
-            status: "complete",
-            estimatedTokens: estimateTokens(content),
-            providerId: "mock",
-            model: "mock-local",
-            error: undefined,
-          });
-          aiUsageTracker.record({
-            promptTokens: fallback.usage?.promptTokens,
-            completionTokens: fallback.usage?.completionTokens,
-            providerId: "mock",
-            model: "mock-local",
-          });
-          return {
-            id: assistantId!,
-            role: "assistant",
-            content,
-            createdAt: new Date().toISOString(),
-            status: "complete",
-            providerId: "mock",
-            model: "mock-local",
-            estimatedTokens: estimateTokens(content),
-          };
-        } catch (fallbackError) {
-          const fb = toAIError(fallbackError, "mock");
-          store.updateMessage(options.conversationId, assistantId!, {
-            status: "error",
-            error: fb.message,
-          });
-          throw fb;
-        }
-      }
-
       store.updateMessage(options.conversationId, assistantId!, {
         status: "error",
         error: aiError.message,
@@ -253,4 +188,4 @@ export function createEmptyAssistantPlaceholder(): string {
   return createAiId("msg");
 }
 
-export type { AIError };
+export type { AIError } from "@/app/lib/ai/AIErrorHandler";

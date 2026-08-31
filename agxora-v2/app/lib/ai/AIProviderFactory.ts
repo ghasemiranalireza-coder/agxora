@@ -5,13 +5,13 @@
 import type { AIProviderId } from "./AIModel";
 import type { AIProvider } from "./AIProvider";
 import { MockAIProvider } from "./providers/MockAIProvider";
+import { OpenAIProvider } from "./providers/OpenAIProvider";
 import {
   AnthropicProvider,
   AzureOpenAIProvider,
   GoogleGeminiProvider,
   LocalProvider,
   OllamaProvider,
-  OpenAIProvider,
   OpenRouterProvider,
 } from "./providers/StubProviders";
 

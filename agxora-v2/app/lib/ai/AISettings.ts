@@ -20,8 +20,8 @@ export interface AISettings {
 }
 
 export const DEFAULT_AI_SETTINGS: AISettings = {
-  defaultProviderId: "mock",
-  defaultModelId: "mock-local",
+  defaultProviderId: "openai",
+  defaultModelId: "gpt-4.1",
   temperature: 0.4,
   topP: 1,
   maxTokens: 2048,

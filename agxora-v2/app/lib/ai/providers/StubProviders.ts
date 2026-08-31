@@ -84,12 +84,6 @@ export abstract class StubAIProvider implements AIProvider {
   }
 }
 
-export class OpenAIProvider extends StubAIProvider {
-  readonly id = "openai" as const;
-  readonly displayName = "OpenAI";
-  protected readonly envKey = AI_ENV_KEYS.openai;
-}
-
 export class AnthropicProvider extends StubAIProvider {
   readonly id = "anthropic" as const;
   readonly displayName = "Anthropic Claude";

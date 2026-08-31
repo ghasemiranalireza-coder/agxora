@@ -12,7 +12,7 @@ export {
   AIProviderFactory,
   aiProviderFactory,
 } from "@/app/lib/ai/AIProviderFactory";
-export { OpenAIProvider } from "@/app/lib/ai/providers/StubProviders";
+export { OpenAIProvider } from "@/app/lib/ai/providers/OpenAIProvider";
 export { AzureOpenAIProvider } from "@/app/lib/ai/providers/StubProviders";
 export { LocalProvider } from "@/app/lib/ai/providers/StubProviders";
 export { AnthropicProvider } from "@/app/lib/ai/providers/StubProviders";

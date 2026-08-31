@@ -443,5 +443,7 @@ describe("Phase 46-A route wiring", () => {
     expect(RATE_LIMIT_POLICIES["control.ownership_transfer_confirm"].keyKind).toBe(
       "ip_user",
     );
+    expect(RATE_LIMIT_POLICIES["ai.chat"].keyKind).toBe("user");
+    expect(RATE_LIMIT_POLICIES["ai.chat"].failClosed).toBe(true);
   });
 });
