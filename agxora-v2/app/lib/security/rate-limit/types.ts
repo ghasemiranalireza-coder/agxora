@@ -16,6 +16,7 @@ export type RateLimitPolicyId =
   | "agents.creative_publish"
   | "agents.creative_publish_status"
   | "agents.social_connect"
+  | "integrations.mutate"
   | "ai.chat";
 
 export type RateLimitKeyKind = "ip" | "user" | "ip_user";

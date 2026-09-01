@@ -50,6 +50,9 @@
     "analytics": "Analitica",
     "billing": "Fatturazione",
     "aiWorkspace": "Spazio di lavoro IA",
+    "integrations": "Integrations",
+    "social": "Social",
+    "email": "Email",
     "customers": "Clienti",
     "automation": "Automazione",
     "financeTax": "Finanza e tasse",
@@ -973,7 +976,9 @@
       "automation": "Caricamento dell'automazione…",
       "analytics": "Caricamento Centro Intelligence…",
       "ai": "Caricamento della piattaforma AI…",
-      "agents": "Caricamento del sistema operativo dell'agente…"
+      "agents": "Caricamento del sistema operativo dell'agente…",
+      "social": "Loading social hub…",
+      "email": "Loading email hub…"
     },
     "shell": {
       "memory": {
@@ -6790,5 +6795,44 @@
       "verifying": "Verifica…",
       "requestToken": "Richiedi token di verifica"
     }
+  },
+  "businessAgent": {
+    "connectedAccounts": "Connected accounts",
+    "connectedAccountsLead": "Official OAuth connections for this organization and workspace. Tokens stay on the server. SAFE MODE is the default — publish and send require approval.",
+    "autonomyMode": "Autonomy mode",
+    "connected": "Connected",
+    "notConnected": "Not connected",
+    "notImplemented": "API not implemented yet",
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "permissions": "Permissions",
+    "permRead": "Read",
+    "permDraft": "Create drafts",
+    "permSchedule": "Schedule",
+    "permPublish": "Publish automatically",
+    "permSend": "Send email automatically",
+    "permDelete": "Delete",
+    "connectFailed": "Could not start the official connection.",
+    "disconnectFailed": "Could not disconnect.",
+    "permissionFailed": "Could not update permissions.",
+    "policyFailed": "Could not update autonomy mode.",
+    "loadFailed": "Could not load data.",
+    "socialHubTitle": "Social media hub",
+    "socialHubLead": "Campaigns, drafts, calendar, and publish status. External publishing happens only through official APIs after approval.",
+    "emailHubTitle": "Email hub",
+    "emailHubLead": "AI-assisted business email campaigns and drafts. This is not a Gmail or Outlook clone.",
+    "emailNotClone": "Inbox sync and sending will use official OAuth in Phase 2. Nothing is sent automatically.",
+    "campaigns": "Campaigns",
+    "noCampaigns": "No campaigns yet.",
+    "items": "items",
+    "calendar": "Content calendar",
+    "noCalendar": "No calendar items yet.",
+    "untitled": "Untitled",
+    "noEmailDrafts": "No email drafts yet.",
+    "commandCenter": "AI command center",
+    "commandCenterLead": "Describe a business goal. AGXORA will create a plan that waits for approval. It will not publish or send until you authorize it.",
+    "goal": "Goal",
+    "createPlan": "Create plan",
+    "runFailed": "Could not create the agent run."
   }
 }

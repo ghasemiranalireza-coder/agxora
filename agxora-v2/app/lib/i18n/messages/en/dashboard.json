@@ -15,12 +15,30 @@
     "title": "Quick actions",
     "subtitle": "What should you do next?",
     "ariaLabel": "Quick actions",
-    "addCustomer": { "label": "Add customer", "description": "Create a CRM record" },
-    "newProject": { "label": "New project", "description": "Start a delivery track" },
-    "askAi": { "label": "Ask AI", "description": "Open the AI workspace" },
-    "finance": { "label": "Finance", "description": "Invoices and cashflow" },
-    "automations": { "label": "Automations", "description": "Workflow engine" },
-    "settings": { "label": "Settings", "description": "Workspace preferences" }
+    "addCustomer": {
+      "label": "Add customer",
+      "description": "Create a CRM record"
+    },
+    "newProject": {
+      "label": "New project",
+      "description": "Start a delivery track"
+    },
+    "askAi": {
+      "label": "Ask AI",
+      "description": "Open the AI workspace"
+    },
+    "finance": {
+      "label": "Finance",
+      "description": "Invoices and cashflow"
+    },
+    "automations": {
+      "label": "Automations",
+      "description": "Workflow engine"
+    },
+    "settings": {
+      "label": "Settings",
+      "description": "Workspace preferences"
+    }
   },
   "attention": {
     "title": "Needs attention",
@@ -154,7 +172,9 @@
     "automation": "Loading automation…",
     "analytics": "Loading Intelligence Center…",
     "ai": "Loading AI Platform…",
-    "agents": "Loading Agent OS…"
+    "agents": "Loading Agent OS…",
+    "social": "Loading social hub…",
+    "email": "Loading email hub…"
   },
   "shell": {
     "memory": {
@@ -251,34 +271,101 @@
       }
     },
     "commands": {
-      "openCrm": { "title": "Open CRM", "subtitle": "AI CRM module" },
-      "openCustomers": { "title": "Open Customers", "subtitle": "Customer management" },
-      "openFinance": { "title": "Open Finance", "subtitle": "Finance & Tax module" },
-      "openDocuments": { "title": "Open Documents", "subtitle": "Knowledge Hub" },
-      "openAutomation": { "title": "Open Automation", "subtitle": "Workflow engine" },
-      "openSettings": { "title": "Open Settings", "subtitle": "Workspace settings" },
-      "openProjects": { "title": "Open Projects", "subtitle": "Project portfolio" },
-      "openAi": { "title": "Open AI", "subtitle": "AI platform workspace" },
-      "openAnalytics": { "title": "Open Analytics", "subtitle": "Intelligence center" },
-      "openIdentity": { "title": "Open Identity & Access", "subtitle": "IAM settings, RBAC, audit" },
-      "openBilling": { "title": "Open Billing", "subtitle": "Subscription portal & plans" },
-      "openIntegrations": { "title": "Open Integrations", "subtitle": "Integration Center & API ecosystem" }
+      "openCrm": {
+        "title": "Open CRM",
+        "subtitle": "AI CRM module"
+      },
+      "openCustomers": {
+        "title": "Open Customers",
+        "subtitle": "Customer management"
+      },
+      "openFinance": {
+        "title": "Open Finance",
+        "subtitle": "Finance & Tax module"
+      },
+      "openDocuments": {
+        "title": "Open Documents",
+        "subtitle": "Knowledge Hub"
+      },
+      "openAutomation": {
+        "title": "Open Automation",
+        "subtitle": "Workflow engine"
+      },
+      "openSettings": {
+        "title": "Open Settings",
+        "subtitle": "Workspace settings"
+      },
+      "openProjects": {
+        "title": "Open Projects",
+        "subtitle": "Project portfolio"
+      },
+      "openAi": {
+        "title": "Open AI",
+        "subtitle": "AI platform workspace"
+      },
+      "openAnalytics": {
+        "title": "Open Analytics",
+        "subtitle": "Intelligence center"
+      },
+      "openIdentity": {
+        "title": "Open Identity & Access",
+        "subtitle": "IAM settings, RBAC, audit"
+      },
+      "openBilling": {
+        "title": "Open Billing",
+        "subtitle": "Subscription portal & plans"
+      },
+      "openIntegrations": {
+        "title": "Open Integrations",
+        "subtitle": "Integration Center & API ecosystem"
+      }
     },
     "modules": {
-      "dashboard": { "subtitle": "Command center and globe overview" },
-      "customers": { "subtitle": "Customer records and CRM" },
-      "projects": { "subtitle": "Project delivery and tracking" },
-      "invoices": { "title": "Invoices", "subtitle": "Billing and invoices" },
-      "finance": { "subtitle": "AI accounting, banking, tax & financial intelligence" },
-      "crm": { "subtitle": "AI-native CRM and Creator Operating System" },
-      "creator": { "subtitle": "AI content production and marketing OS" },
-      "documents": { "subtitle": "AI Documents & Knowledge Hub" },
-      "ai": { "title": "AI", "subtitle": "AGXORA AI Platform — enterprise workspace" },
-      "analytics": { "subtitle": "Business intelligence" },
-      "automation": { "subtitle": "AI workflow and automation engine" },
-      "memory": { "title": "Memory", "subtitle": "Organization memory" },
-      "team": { "subtitle": "Members and invitations" },
-      "settings": { "subtitle": "Workspace and AI settings" }
+      "dashboard": {
+        "subtitle": "Command center and globe overview"
+      },
+      "customers": {
+        "subtitle": "Customer records and CRM"
+      },
+      "projects": {
+        "subtitle": "Project delivery and tracking"
+      },
+      "invoices": {
+        "title": "Invoices",
+        "subtitle": "Billing and invoices"
+      },
+      "finance": {
+        "subtitle": "AI accounting, banking, tax & financial intelligence"
+      },
+      "crm": {
+        "subtitle": "AI-native CRM and Creator Operating System"
+      },
+      "creator": {
+        "subtitle": "AI content production and marketing OS"
+      },
+      "documents": {
+        "subtitle": "AI Documents & Knowledge Hub"
+      },
+      "ai": {
+        "title": "AI",
+        "subtitle": "AGXORA AI Platform — enterprise workspace"
+      },
+      "analytics": {
+        "subtitle": "Business intelligence"
+      },
+      "automation": {
+        "subtitle": "AI workflow and automation engine"
+      },
+      "memory": {
+        "title": "Memory",
+        "subtitle": "Organization memory"
+      },
+      "team": {
+        "subtitle": "Members and invitations"
+      },
+      "settings": {
+        "subtitle": "Workspace and AI settings"
+      }
     },
     "capabilities": {
       "aiSearch": {

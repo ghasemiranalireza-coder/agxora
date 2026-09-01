@@ -25,7 +25,7 @@ const NAMESPACES = [
   "dashboard", "auth", "crm", "finance", "documents", "landing",
   "ui", "projects", "automation", "team", "customers", "ai", "agents",
   "integrations", "intelligence", "legal", "onboarding", "creator",
-  "backend", "workspace", "iam",
+  "backend", "workspace", "iam", "businessAgent",
 ];
 
 function readJson(filePath) {
