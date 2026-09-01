@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import type { JSX } from "react";
 import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
+import { AgentCommandPanel } from "../../../features/business-agent";
 
 const AiPlatformWorkspace = dynamic(
   () =>
@@ -14,5 +15,10 @@ const AiPlatformWorkspace = dynamic(
 );
 
 export default function RoutePage(): JSX.Element {
-  return <AiPlatformWorkspace />;
+  return (
+    <>
+      <AgentCommandPanel />
+      <AiPlatformWorkspace />
+    </>
+  );
 }

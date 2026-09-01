@@ -59,6 +59,7 @@ export type MessageTree = {
   readonly backend: Record<string, unknown>;
   readonly workspace: Record<string, unknown>;
   readonly iam: Record<string, unknown>;
+  readonly businessAgent: Record<string, unknown>;
 };
 
 const CATALOGS: Readonly<Record<AppLocale, MessageTree>> = {

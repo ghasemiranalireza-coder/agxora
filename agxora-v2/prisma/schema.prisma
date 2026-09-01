@@ -1,7 +1,8 @@
-// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50 + Phase 56 + Phase 60 + Phase 62 + Phase 63.1
+// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50 + Phase 56 + Phase 60 + Phase 62 + Phase 63.1 + Phase 70
 // PostgreSQL source of truth for User / Organization / Workspace / Membership /
 // Session / Customer / Contact / Note / Invitation / OwnershipTransfer /
-// ControlPlaneAuditEvent / AgentOsState / CreativeAsset (IMAGE inline + video object refs)
+// ControlPlaneAuditEvent / AgentOsState / CreativeAsset (IMAGE inline + video object refs) /
+// business-agent integrations, campaigns, runs, and external-action audit
 
 generator client {
   provider = "prisma-client-js"
@@ -55,6 +56,8 @@ model User {
   ownershipTransfersTo    OwnershipTransfer[]     @relation("OwnershipTransferTo")
   auditEvents             ControlPlaneAuditEvent[]
   socialOAuthStates       SocialOAuthState[]
+  agentRuns               AgentRun[]
+  externalActionAudits    ExternalActionAudit[]
 
   @@index([externalAuthId])
   @@map("users")
@@ -85,6 +88,12 @@ model Organization {
   socialOAuthStates         SocialOAuthState[]
   creativePublishAttempts   CreativePublishAttempt[]
   creativeYouTubeUploadSessions CreativeYouTubeUploadSession[]
+  integrationConnections    IntegrationConnection[]
+  agentPolicies             AgentPolicy[]
+  agentRuns                 AgentRun[]
+  campaigns                 Campaign[]
+  campaignItems             CampaignItem[]
+  externalActionAudits      ExternalActionAudit[]
 
   @@index([ownerId])
   @@map("organizations")
@@ -287,6 +296,12 @@ model Workspace {
   invitations         Invitation[]
   ownershipTransfers  OwnershipTransfer[]
   auditEvents         ControlPlaneAuditEvent[]
+  integrationConnections IntegrationConnection[]
+  agentPolicies          AgentPolicy[]
+  agentRuns              AgentRun[]
+  campaigns              Campaign[]
+  campaignItems          CampaignItem[]
+  externalActionAudits   ExternalActionAudit[]
 
   @@unique([organizationId, slug])
   @@index([organizationId])
@@ -583,4 +598,252 @@ model CustomerActivity {
   @@index([customerId, createdAt])
   @@index([workspaceId, customerId])
   @@map("customer_activities")
+}
+
+/// Phase 70 — official provider catalog ids (OAuth is implemented per-provider; YouTube already exists).
+enum IntegrationProvider {
+  email_gmail
+  email_microsoft
+  instagram
+  facebook
+  tiktok
+  youtube
+  linkedin
+  x
+}
+
+enum IntegrationConnectionStatus {
+  not_connected
+  connected
+  disconnected
+  error
+}
+
+enum AutonomyMode {
+  SAFE
+  ASSISTED
+  AUTONOMOUS
+}
+
+enum CampaignStatus {
+  draft
+  needs_approval
+  approved
+  scheduled
+  executing
+  completed
+  failed
+  cancelled
+}
+
+enum ContentItemStatus {
+  DRAFT
+  NEEDS_APPROVAL
+  APPROVED
+  SCHEDULED
+  PUBLISHING
+  PUBLISHED
+  FAILED
+  CANCELLED
+}
+
+enum AgentRunStatus {
+  PENDING
+  RUNNING
+  WAITING_APPROVAL
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum ExternalActionStatus {
+  planned
+  approval_required
+  executing
+  completed
+  failed
+  cancelled
+}
+
+/// Org+workspace connection metadata and SAFE-default permissions. Never stores OAuth tokens.
+model IntegrationConnection {
+  id                  String                       @id @default(uuid()) @db.Uuid
+  organizationId      String                       @db.Uuid
+  workspaceId         String                       @db.Uuid
+  provider            IntegrationProvider
+  status              IntegrationConnectionStatus  @default(not_connected)
+  accountLabel        String?
+  externalAccountId   String?
+  lastError           String?
+  canRead             Boolean                      @default(true)
+  canCreateDraft      Boolean                      @default(true)
+  canSchedule         Boolean                      @default(false)
+  canPublish          Boolean                      @default(false)
+  canSendEmail        Boolean                      @default(false)
+  canDelete           Boolean                      @default(false)
+  createdByUserId     String                       @db.Uuid
+  connectedAt         DateTime?
+  disconnectedAt      DateTime?
+  createdAt           DateTime                     @default(now())
+  updatedAt           DateTime                     @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, workspaceId, provider])
+  @@index([organizationId, workspaceId])
+  @@index([workspaceId, provider])
+  @@map("integration_connections")
+}
+
+/// Per-workspace autonomy. Default SAFE — never auto-escalate.
+model AgentPolicy {
+  id              String       @id @default(uuid()) @db.Uuid
+  organizationId  String       @db.Uuid
+  workspaceId     String       @db.Uuid
+  mode            AutonomyMode @default(SAFE)
+  updatedByUserId String       @db.Uuid
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@unique([organizationId, workspaceId])
+  @@index([workspaceId])
+  @@map("agent_policies")
+}
+
+model AgentRun {
+  id             String         @id @default(uuid()) @db.Uuid
+  organizationId String         @db.Uuid
+  workspaceId    String         @db.Uuid
+  userId         String         @db.Uuid
+  campaignId     String?        @db.Uuid
+  goal           String
+  status         AgentRunStatus @default(PENDING)
+  result         Json?
+  error          String?
+  startedAt      DateTime       @default(now())
+  completedAt    DateTime?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  organization Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace      @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  user         User           @relation(fields: [userId], references: [id], onDelete: Restrict)
+  campaign     Campaign?      @relation(fields: [campaignId], references: [id], onDelete: SetNull)
+  steps        AgentRunStep[]
+
+  @@index([organizationId, workspaceId, createdAt])
+  @@index([workspaceId, status])
+  @@index([userId])
+  @@map("agent_runs")
+}
+
+model AgentRunStep {
+  id             String         @id @default(uuid()) @db.Uuid
+  agentRunId     String         @db.Uuid
+  organizationId String         @db.Uuid
+  workspaceId    String         @db.Uuid
+  ordinal        Int
+  name           String
+  status         AgentRunStatus @default(PENDING)
+  input          Json?
+  output         Json?
+  error          String?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  agentRun AgentRun @relation(fields: [agentRunId], references: [id], onDelete: Cascade)
+
+  @@unique([agentRunId, ordinal])
+  @@index([organizationId, workspaceId])
+  @@map("agent_run_steps")
+}
+
+model Campaign {
+  id              String         @id @default(uuid()) @db.Uuid
+  organizationId  String         @db.Uuid
+  workspaceId     String         @db.Uuid
+  createdByUserId String         @db.Uuid
+  name            String
+  objective       String         @default("")
+  targetAudience  String         @default("")
+  channels        IntegrationProvider[]
+  startDate       DateTime?
+  endDate         DateTime?
+  status          CampaignStatus @default(draft)
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  organization Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace      @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  items        CampaignItem[]
+  agentRuns    AgentRun[]
+
+  @@index([organizationId, workspaceId, createdAt])
+  @@index([workspaceId, status])
+  @@map("campaigns")
+}
+
+/// Content calendar row (campaign-scoped). External ids/URLs only after a real provider success.
+model CampaignItem {
+  id                String            @id @default(uuid()) @db.Uuid
+  campaignId        String            @db.Uuid
+  organizationId    String            @db.Uuid
+  workspaceId       String            @db.Uuid
+  createdByUserId   String            @db.Uuid
+  approvedByUserId  String?           @db.Uuid
+  provider          IntegrationProvider
+  contentType       String
+  title             String            @default("")
+  caption           String            @default("")
+  body              String            @default("")
+  script            String            @default("")
+  mediaRequirement  String            @default("")
+  scheduledAt       DateTime?
+  publishedAt       DateTime?
+  status            ContentItemStatus @default(DRAFT)
+  externalId        String?
+  externalUrl       String?
+  error             String?
+  retryCount        Int               @default(0)
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  campaign     Campaign     @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId, workspaceId, scheduledAt])
+  @@index([campaignId, status])
+  @@index([workspaceId, provider, status])
+  @@map("campaign_items")
+}
+
+/// External-action audit. Never store OAuth tokens, API keys, or raw secrets in metadata.
+model ExternalActionAudit {
+  id             String               @id @default(uuid()) @db.Uuid
+  organizationId String               @db.Uuid
+  workspaceId    String               @db.Uuid
+  userId         String               @db.Uuid
+  agentRunId     String?              @db.Uuid
+  provider       IntegrationProvider?
+  action         String
+  target         String?
+  status         ExternalActionStatus
+  externalId     String?
+  error          String?
+  metadata       Json                 @default("{}")
+  createdAt      DateTime             @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  user         User         @relation(fields: [userId], references: [id], onDelete: Restrict)
+
+  @@index([organizationId, workspaceId, createdAt])
+  @@index([workspaceId, action, createdAt])
+  @@index([userId, createdAt])
+  @@map("external_action_audits")
 }

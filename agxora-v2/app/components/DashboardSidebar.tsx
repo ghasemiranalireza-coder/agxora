@@ -67,6 +67,21 @@ const NAV_ITEMS = [
     path: "M12 3v3 M12 18v3 M3 12h3 M18 12h3 M5.6 5.6l2.1 2.1 M16.3 16.3l2.1 2.1 M5.6 18.4l2.1-2.1 M16.3 7.7l2.1-2.1 M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z",
   },
   {
+    labelKey: "navigation.integrations",
+    href: "/dashboard/integrations",
+    path: "M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71",
+  },
+  {
+    labelKey: "navigation.social",
+    href: "/dashboard/social",
+    path: "M4 12v8h16v-8 M8 12V7a4 4 0 0 1 8 0v5",
+  },
+  {
+    labelKey: "navigation.email",
+    href: "/dashboard/email",
+    path: "M4 6h16v12H4Z M4 6l8 7 8-7",
+  },
+  {
     labelKey: "navigation.customers",
     href: "/dashboard/customers",
     path: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",

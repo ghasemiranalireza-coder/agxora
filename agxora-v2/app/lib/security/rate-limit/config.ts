@@ -107,6 +107,14 @@ export const RATE_LIMIT_POLICIES: Record<RateLimitPolicyId, RateLimitPolicy> = {
     keyKind: "user",
     failClosed: true,
   },
+  /** Phase 70 — integration, campaign, and agent-run mutations. */
+  "integrations.mutate": {
+    id: "integrations.mutate",
+    max: 60,
+    windowMs: HOUR,
+    keyKind: "user",
+    failClosed: true,
+  },
   /** Authenticated OpenAI chat — per-user budget, fail closed. */
   "ai.chat": {
     id: "ai.chat",

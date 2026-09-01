@@ -50,6 +50,9 @@
     "analytics": "해석학",
     "billing": "청구",
     "aiWorkspace": "AI 작업 공간",
+    "integrations": "Integrations",
+    "social": "Social",
+    "email": "Email",
     "customers": "고객",
     "automation": "오토메이션",
     "financeTax": "금융 및 세금",
@@ -973,7 +976,9 @@
       "automation": "자동화 로드 중…",
       "analytics": "정보 센터 로드 중…",
       "ai": "AI Platform 로드 중…",
-      "agents": "에이전트 OS 로드 중…"
+      "agents": "에이전트 OS 로드 중…",
+      "social": "Loading social hub…",
+      "email": "Loading email hub…"
     },
     "shell": {
       "memory": {
@@ -6790,5 +6795,44 @@
       "verifying": "확인 중…",
       "requestToken": "확인 토큰 요청"
     }
+  },
+  "businessAgent": {
+    "connectedAccounts": "Connected accounts",
+    "connectedAccountsLead": "Official OAuth connections for this organization and workspace. Tokens stay on the server. SAFE MODE is the default — publish and send require approval.",
+    "autonomyMode": "Autonomy mode",
+    "connected": "Connected",
+    "notConnected": "Not connected",
+    "notImplemented": "API not implemented yet",
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "permissions": "Permissions",
+    "permRead": "Read",
+    "permDraft": "Create drafts",
+    "permSchedule": "Schedule",
+    "permPublish": "Publish automatically",
+    "permSend": "Send email automatically",
+    "permDelete": "Delete",
+    "connectFailed": "Could not start the official connection.",
+    "disconnectFailed": "Could not disconnect.",
+    "permissionFailed": "Could not update permissions.",
+    "policyFailed": "Could not update autonomy mode.",
+    "loadFailed": "Could not load data.",
+    "socialHubTitle": "Social media hub",
+    "socialHubLead": "Campaigns, drafts, calendar, and publish status. External publishing happens only through official APIs after approval.",
+    "emailHubTitle": "Email hub",
+    "emailHubLead": "AI-assisted business email campaigns and drafts. This is not a Gmail or Outlook clone.",
+    "emailNotClone": "Inbox sync and sending will use official OAuth in Phase 2. Nothing is sent automatically.",
+    "campaigns": "Campaigns",
+    "noCampaigns": "No campaigns yet.",
+    "items": "items",
+    "calendar": "Content calendar",
+    "noCalendar": "No calendar items yet.",
+    "untitled": "Untitled",
+    "noEmailDrafts": "No email drafts yet.",
+    "commandCenter": "AI command center",
+    "commandCenterLead": "Describe a business goal. AGXORA will create a plan that waits for approval. It will not publish or send until you authorize it.",
+    "goal": "Goal",
+    "createPlan": "Create plan",
+    "runFailed": "Could not create the agent run."
   }
 }
