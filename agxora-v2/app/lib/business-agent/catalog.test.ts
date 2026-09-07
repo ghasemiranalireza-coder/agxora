@@ -19,6 +19,9 @@ describe("business-agent catalog", () => {
     const youtube = INTEGRATION_CATALOG.find((item) => item.provider === "youtube");
     const gmail = INTEGRATION_CATALOG.find((item) => item.provider === "email_gmail");
     expect(youtube?.implementationStatus).toBe("oauth_ready");
+    expect(youtube?.capabilities).toEqual(["read", "create_draft", "publish"]);
+    expect(youtube?.capabilities).not.toContain("schedule");
+    expect(youtube?.capabilities).not.toContain("analytics");
     expect(gmail?.implementationStatus).toBe("oauth_ready");
     expect(
       INTEGRATION_CATALOG.filter(
