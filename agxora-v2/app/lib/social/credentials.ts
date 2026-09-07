@@ -11,7 +11,7 @@ import { PersistenceError } from "@/app/lib/tenancy/errors";
 import type { Actor } from "@/app/lib/tenancy/types";
 import { hashOpaqueToken } from "@/app/lib/auth/server/tokens";
 import { decryptSocialSecret, encryptSocialSecret } from "./crypto";
-import { getGoogleOAuthConfigForPlatform } from "./config";
+import { getGoogleOAuthConfigForPlatform, getLinkedInOAuthConfig } from "./config";
 
 export type StoredSocialTokens = {
   readonly accessToken: string;
@@ -68,6 +68,65 @@ function isActiveCredential(row: {
   encryptedPayload: string;
 }): boolean {
   return row.revokedAt == null && row.encryptedPayload.length > 0;
+}
+
+async function refreshLinkedInAccessToken(
+  refreshToken: string,
+): Promise<{ accessToken: string; expiresAt?: Date; invalidGrant?: boolean }> {
+  const config = getLinkedInOAuthConfig();
+  if (!config) {
+    throw new PersistenceError("misconfigured", "LinkedIn OAuth is not configured");
+  }
+  const body = new URLSearchParams({
+    client_id: config.clientId,
+    client_secret: config.clientSecret,
+    refresh_token: refreshToken,
+    grant_type: "refresh_token",
+  });
+  const response = await fetch("https://www.linkedin.com/oauth/v2/accessToken", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body,
+  });
+  if (!response.ok) {
+    let invalidGrant = false;
+    try {
+      const payload = (await response.json()) as { error?: string };
+      invalidGrant = payload.error === "invalid_grant";
+    } catch {
+      invalidGrant = false;
+    }
+    if (invalidGrant) {
+      return { accessToken: "", invalidGrant: true };
+    }
+    throw new PersistenceError("forbidden", "OAuth token refresh failed", {
+      details: [{ field: "refresh", message: "token_refresh_failed" }],
+    });
+  }
+  const payload = (await response.json()) as {
+    access_token?: string;
+    expires_in?: number;
+  };
+  if (!payload.access_token) {
+    throw new PersistenceError("forbidden", "OAuth token refresh failed", {
+      details: [{ field: "refresh", message: "missing_access_token" }],
+    });
+  }
+  const expiresAt =
+    typeof payload.expires_in === "number"
+      ? new Date(Date.now() + payload.expires_in * 1000)
+      : undefined;
+  return { accessToken: payload.access_token, expiresAt };
+}
+
+async function refreshStoredAccessToken(
+  refreshToken: string,
+  platform: SocialPlatform,
+): Promise<{ accessToken: string; expiresAt?: Date; invalidGrant?: boolean }> {
+  if (platform === "linkedin") {
+    return refreshLinkedInAccessToken(refreshToken);
+  }
+  return refreshGoogleAccessToken(refreshToken, platform);
 }
 
 async function refreshGoogleAccessToken(
@@ -228,7 +287,7 @@ const databaseCredentialStore: CredentialStore = {
     }
 
     try {
-      const refreshed = await refreshGoogleAccessToken(tokens.refreshToken, platform);
+      const refreshed = await refreshStoredAccessToken(tokens.refreshToken, platform);
       if (refreshed.invalidGrant) {
         await prisma.socialPlatformCredential.update({
           where: { id: row.id },
@@ -310,7 +369,7 @@ const memoryCredentialStore: CredentialStore = {
     }
     if (!item.tokens.refreshToken) return null;
     try {
-      const refreshed = await refreshGoogleAccessToken(
+      const refreshed = await refreshStoredAccessToken(
         item.tokens.refreshToken,
         platform,
       );
@@ -353,6 +412,7 @@ export function setSocialCredentialStoreForTests(store: CredentialStore | null):
 export function socialPlatformFromSocialId(platformId: string): SocialPlatform | null {
   if (platformId === "youtube") return "youtube";
   if (platformId === "gmail" || platformId === "email_gmail") return "gmail";
+  if (platformId === "linkedin") return "linkedin";
   return null;
 }
 

@@ -14,6 +14,7 @@ import {
 } from "./catalog";
 import { executeGmailToolForActor } from "./gmail-tools";
 import { executeYouTubeCampaignItemForActor } from "./youtube-publish";
+import { executeLinkedInCampaignItemForActor } from "./linkedin-publish";
 
 export type CampaignItemDraft = {
   readonly provider: IntegrationProviderId;
@@ -219,6 +220,24 @@ export async function executeCampaignItemForActor(
     return item;
   }
 
+  if (
+    item.provider === "linkedin" &&
+    kind === "publish" &&
+    item.status === "PUBLISHED" &&
+    item.externalId
+  ) {
+    await recordExternalAction({
+      actor,
+      provider: "linkedin",
+      action: "linkedin.publish_post",
+      status: "completed",
+      target: item.id,
+      externalId: item.externalId,
+      metadata: { idempotentReplay: true },
+    });
+    return item;
+  }
+
   const policy = await getAgentPolicyForActor(actor);
   if (policy.mode === "SAFE" && item.status !== "APPROVED") {
     await recordExternalAction({
@@ -270,6 +289,10 @@ export async function executeCampaignItemForActor(
 
   if (item.provider === "youtube") {
     return executeYouTubeCampaignItemForActor(actor, item, kind);
+  }
+
+  if (item.provider === "linkedin") {
+    return executeLinkedInCampaignItemForActor(actor, item, kind);
   }
 
   if (item.provider === "email_gmail" && kind === "send_email") {

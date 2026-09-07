@@ -22,16 +22,21 @@ type Campaign = {
   readonly items: readonly CalendarItem[];
 };
 
-type YoutubeIntegration = {
+type SocialIntegration = {
   readonly connected: boolean;
   readonly permissions: { readonly canPublish: boolean };
 };
+
+function isPublishableProvider(provider: string): boolean {
+  return provider === "youtube" || provider === "linkedin";
+}
 
 export function SocialHub(): JSX.Element {
   const t = useT();
   const [campaigns, setCampaigns] = useState<readonly Campaign[]>([]);
   const [items, setItems] = useState<readonly CalendarItem[]>([]);
-  const [youtube, setYoutube] = useState<YoutubeIntegration | null>(null);
+  const [youtube, setYoutube] = useState<SocialIntegration | null>(null);
+  const [linkedin, setLinkedin] = useState<SocialIntegration | null>(null);
   const [safeMode, setSafeMode] = useState("SAFE");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
@@ -55,7 +60,11 @@ export function SocialHub(): JSX.Element {
     const youtubeRow = (integrationsRes.integrations ?? []).find(
       (row: { provider: string }) => row.provider === "youtube",
     );
+    const linkedinRow = (integrationsRes.integrations ?? []).find(
+      (row: { provider: string }) => row.provider === "linkedin",
+    );
     setYoutube(youtubeRow ?? null);
+    setLinkedin(linkedinRow ?? null);
     setSafeMode(policyRes.policy?.mode ?? "SAFE");
   }, [t]);
 
@@ -81,7 +90,11 @@ export function SocialHub(): JSX.Element {
         const youtubeRow = (integrationsRes.integrations ?? []).find(
           (row: { provider: string }) => row.provider === "youtube",
         );
+        const linkedinRow = (integrationsRes.integrations ?? []).find(
+          (row: { provider: string }) => row.provider === "linkedin",
+        );
         setYoutube(youtubeRow ?? null);
+        setLinkedin(linkedinRow ?? null);
         setSafeMode(policyRes.policy?.mode ?? "SAFE");
       })
       .catch(() => setError(t("businessAgent.loadFailed")));
@@ -121,12 +134,16 @@ export function SocialHub(): JSX.Element {
     >
       {error ? <p role="alert">{error}</p> : null}
       <p>{t("businessAgent.youtubePublishSupported")}</p>
+      <p>{t("businessAgent.linkedinPublishSupported")}</p>
       <p>
         {t("businessAgent.autonomyMode")}: <strong>{safeMode}</strong>
         {safeMode === "SAFE" ? ` · ${t("businessAgent.safeModePublish")}` : ""}
       </p>
       {youtube && !youtube.permissions.canPublish ? (
         <p>{t("businessAgent.publishPermissionOff")}</p>
+      ) : null}
+      {linkedin && !linkedin.permissions.canPublish ? (
+        <p>{t("businessAgent.linkedinPublishPermissionOff")}</p>
       ) : null}
       <h3>{t("businessAgent.campaigns")}</h3>
       {campaigns.length === 0 ? <p>{t("businessAgent.noCampaigns")}</p> : null}
@@ -145,10 +162,14 @@ export function SocialHub(): JSX.Element {
             {item.provider} · {item.contentType} · {item.title || t("businessAgent.untitled")} · {item.status}
             {item.scheduledAt ? ` · ${item.scheduledAt}` : ""}
             {item.error ? ` · ${item.error}` : ""}
-            {item.externalId ? ` · YouTube ${item.externalId}` : ""}
-            {item.provider !== "youtube" ? ` · ${t("businessAgent.providerUnavailable")}` : ""}
+            {item.externalId
+              ? ` · ${item.provider === "linkedin" ? "LinkedIn" : "YouTube"} ${item.externalId}`
+              : ""}
+            {!isPublishableProvider(item.provider)
+              ? ` · ${t("businessAgent.providerUnavailable")}`
+              : ""}
             <div>
-              {item.provider === "youtube" && item.status === "NEEDS_APPROVAL" ? (
+              {isPublishableProvider(item.provider) && item.status === "NEEDS_APPROVAL" ? (
                 <>
                   <button
                     type="button"
@@ -166,13 +187,20 @@ export function SocialHub(): JSX.Element {
                   </button>
                 </>
               ) : null}
-              {item.provider === "youtube" && item.status === "APPROVED" ? (
+              {isPublishableProvider(item.provider) && item.status === "APPROVED" ? (
                 <button
                   type="button"
-                  disabled={busy === item.id || !youtube?.permissions.canPublish}
+                  disabled={
+                    busy === item.id ||
+                    (item.provider === "youtube"
+                      ? !youtube?.permissions.canPublish
+                      : !linkedin?.permissions.canPublish)
+                  }
                   onClick={() => void mutateItem(item.id, "execute")}
                 >
-                  {t("businessAgent.publishApproved")}
+                  {item.provider === "linkedin"
+                    ? t("businessAgent.publishApprovedPost")
+                    : t("businessAgent.publishApproved")}
                 </button>
               ) : null}
             </div>

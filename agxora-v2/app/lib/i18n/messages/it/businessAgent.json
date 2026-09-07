@@ -56,5 +56,10 @@
   "rejectPublish": "Reject publish",
   "publishApproved": "Publish approved video",
   "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-  "providerUnavailable": "This provider is not implemented yet."
+  "providerUnavailable": "This provider is not implemented yet.",
+  "linkedinPublishSupported": "LinkedIn member text posts are supported through the official UGC Posts API after approval. Publish permission stays off by default. Image, video, scheduling, and analytics are not implemented.",
+  "linkedinPublishPermissionOff": "LinkedIn publish permission is off. Enable it on Connected accounts before publishing.",
+  "publishApprovedPost": "Publish approved post",
+  "linkedinDenied": "LinkedIn access was denied. Nothing was connected.",
+  "linkedinError": "LinkedIn connection failed. Nothing was marked connected."
 }

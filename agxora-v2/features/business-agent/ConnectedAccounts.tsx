@@ -46,12 +46,20 @@ export function ConnectedAccounts(): JSX.Element {
     if (typeof window === "undefined") return null;
     return new URLSearchParams(window.location.search).get("gmail");
   });
+  const [linkedinQuery] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null;
+    return new URLSearchParams(window.location.search).get("linkedin");
+  });
   const callbackNotice =
     gmailQuery === "denied"
       ? t("businessAgent.gmailDenied")
       : gmailQuery === "error"
         ? t("businessAgent.gmailError")
-        : null;
+        : linkedinQuery === "denied"
+          ? t("businessAgent.linkedinDenied")
+          : linkedinQuery === "error"
+            ? t("businessAgent.linkedinError")
+            : null;
 
   const reload = useCallback(async () => {
     const [list, policyRes] = await Promise.all([

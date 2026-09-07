@@ -7,6 +7,7 @@ import type { Actor } from "@/app/lib/tenancy/types";
 import { hasActiveSocialCredential, getSocialCredentialSummary } from "@/app/lib/social/credentials";
 import { beginYouTubeOAuthForActor, disconnectYouTubeForActor } from "@/app/lib/social/oauth/youtube";
 import { beginGmailOAuthForActor, disconnectGmailForActor } from "@/app/lib/social/oauth/gmail";
+import { beginLinkedInOAuthForActor, disconnectLinkedInForActor } from "@/app/lib/social/oauth/linkedin";
 import { recordExternalAction } from "./audit";
 import {
   assertCanManageIntegrations,
@@ -55,6 +56,10 @@ async function youtubeConnected(actor: Actor): Promise<boolean> {
 
 async function gmailConnected(actor: Actor): Promise<boolean> {
   return hasActiveSocialCredential(actor.organizationId, "gmail");
+}
+
+async function linkedinConnected(actor: Actor): Promise<boolean> {
+  return hasActiveSocialCredential(actor.organizationId, "linkedin");
 }
 
 async function upsertConnection(
@@ -118,9 +123,10 @@ export async function listIntegrationsForActor(
     },
   });
   const byProvider = new Map(rows.map((row) => [row.provider, row]));
-  const [ytLive, gmailLive, gmailSummary] = await Promise.all([
+  const [ytLive, gmailLive, linkedinLive, gmailSummary] = await Promise.all([
     youtubeConnected(actor),
     gmailConnected(actor),
+    linkedinConnected(actor),
     getSocialCredentialSummary(actor.organizationId, "gmail"),
   ]);
 
@@ -131,7 +137,9 @@ export async function listIntegrationsForActor(
         ? ytLive
         : entry.provider === "email_gmail"
           ? gmailLive
-          : false;
+          : entry.provider === "linkedin"
+            ? linkedinLive
+            : false;
     const connected = liveConnected || row?.status === "connected";
     const accountLabel =
       entry.provider === "email_gmail"
@@ -203,6 +211,22 @@ export async function connectIntegrationForActor(
     return { authorizationUrl: result.authorizationUrl, connected: false };
   }
 
+  if (provider === "linkedin") {
+    const result = await beginLinkedInOAuthForActor(actor, redirectPath);
+    await upsertConnection(actor, "linkedin", {
+      status: "not_connected",
+      lastError: null,
+    });
+    await recordExternalAction({
+      actor,
+      provider: "linkedin",
+      action: "connect_begin",
+      status: "planned",
+      metadata: { oauth: true },
+    });
+    return { authorizationUrl: result.authorizationUrl, connected: false };
+  }
+
   await recordExternalAction({
     actor,
     provider,
@@ -232,6 +256,8 @@ export async function disconnectIntegrationForActor(
     await disconnectYouTubeForActor(actor);
   } else if (provider === "email_gmail") {
     await disconnectGmailForActor(actor);
+  } else if (provider === "linkedin") {
+    await disconnectLinkedInForActor(actor);
   } else {
     const entry = getCatalogEntry(provider);
     if (entry.implementationStatus === "not_implemented") {
