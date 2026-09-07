@@ -103,8 +103,9 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     label: "YouTube",
     category: "social",
     implementationStatus: "oauth_ready",
-    capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
-    oauthNote: "Uses the existing official Google YouTube OAuth flow.",
+    capabilities: ["read", "create_draft", "publish"],
+    oauthNote:
+      "Uses official Google YouTube OAuth. Video publish uses the existing resumable upload pipeline after approval. Publish permission stays off by default. Scheduling via publishAt and YouTube Analytics are not implemented.",
   },
   {
     provider: "linkedin",
