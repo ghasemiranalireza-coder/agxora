@@ -15,17 +15,25 @@ describe("business-agent catalog", () => {
     expect(SAFE_PERMISSIONS.canCreateDraft).toBe(true);
   });
 
-  it("marks YouTube and Gmail as oauth_ready in Phase 2", () => {
+  it("marks YouTube, Gmail, and LinkedIn as oauth_ready", () => {
     const youtube = INTEGRATION_CATALOG.find((item) => item.provider === "youtube");
     const gmail = INTEGRATION_CATALOG.find((item) => item.provider === "email_gmail");
+    const linkedin = INTEGRATION_CATALOG.find((item) => item.provider === "linkedin");
     expect(youtube?.implementationStatus).toBe("oauth_ready");
     expect(youtube?.capabilities).toEqual(["read", "create_draft", "publish"]);
     expect(youtube?.capabilities).not.toContain("schedule");
     expect(youtube?.capabilities).not.toContain("analytics");
     expect(gmail?.implementationStatus).toBe("oauth_ready");
+    expect(linkedin?.implementationStatus).toBe("oauth_ready");
+    expect(linkedin?.capabilities).toEqual(["read", "create_draft", "publish"]);
+    expect(linkedin?.capabilities).not.toContain("schedule");
+    expect(linkedin?.capabilities).not.toContain("analytics");
     expect(
       INTEGRATION_CATALOG.filter(
-        (item) => item.provider !== "youtube" && item.provider !== "email_gmail",
+        (item) =>
+          item.provider !== "youtube" &&
+          item.provider !== "email_gmail" &&
+          item.provider !== "linkedin",
       ).every((item) => item.implementationStatus === "not_implemented"),
     ).toBe(true);
   });

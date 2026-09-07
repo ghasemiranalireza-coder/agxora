@@ -6818,7 +6818,7 @@
     "policyFailed": "Could not update autonomy mode.",
     "loadFailed": "Could not load data.",
     "socialHubTitle": "Social media hub",
-    "socialHubLead": "Campaigns, drafts, and calendar. YouTube video publish uses the official upload API after approval. Other social providers stay unavailable.",
+    "socialHubLead": "Campaigns, drafts, and calendar. YouTube video publish and LinkedIn member text posts use official APIs after approval. Other social providers stay unavailable.",
     "emailHubTitle": "Email hub",
     "emailHubLead": "AI-assisted business email campaigns and drafts. This is not a Gmail or Outlook clone.",
     "emailNotClone": "Official Google OAuth. Read and draft when connected. Sending stays off until you enable it, approve the action, and Gmail confirms.",
@@ -6854,6 +6854,11 @@
     "rejectPublish": "Reject publish",
     "publishApproved": "Publish approved video",
     "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-    "providerUnavailable": "This provider is not implemented yet."
+    "providerUnavailable": "This provider is not implemented yet.",
+    "linkedinPublishSupported": "LinkedIn member text posts are supported through the official UGC Posts API after approval. Publish permission stays off by default. Image, video, scheduling, and analytics are not implemented.",
+    "linkedinPublishPermissionOff": "LinkedIn publish permission is off. Enable it on Connected accounts before publishing.",
+    "publishApprovedPost": "Publish approved post",
+    "linkedinDenied": "LinkedIn access was denied. Nothing was connected.",
+    "linkedinError": "LinkedIn connection failed. Nothing was marked connected."
   }
 }

@@ -111,9 +111,10 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     provider: "linkedin",
     label: "LinkedIn",
     category: "social",
-    implementationStatus: "not_implemented",
-    capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
-    oauthNote: "Official LinkedIn OAuth is not implemented yet.",
+    implementationStatus: "oauth_ready",
+    capabilities: ["read", "create_draft", "publish"],
+    oauthNote:
+      "Uses official LinkedIn OAuth (openid, profile, email, w_member_social). Member text posts use the official UGC Posts API after approval. Publish permission stays off by default. Image, video, scheduling, and analytics are not implemented.",
   },
   {
     provider: "x",

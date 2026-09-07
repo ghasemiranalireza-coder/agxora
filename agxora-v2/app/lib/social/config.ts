@@ -4,7 +4,7 @@
 
 import "server-only";
 
-export type SocialPlatformId = "youtube";
+export type SocialPlatformId = "youtube" | "linkedin";
 
 const YOUTUBE_SCOPES = [
   "https://www.googleapis.com/auth/youtube.upload",
@@ -60,6 +60,42 @@ export function getGoogleOAuthConfigForPlatform(
   platform: "youtube" | "gmail",
 ): GoogleOAuthConfig | null {
   return platform === "gmail" ? getGmailOAuthConfig() : getYouTubeOAuthConfig();
+}
+
+const LINKEDIN_OAUTH_SCOPES = [
+  "openid",
+  "profile",
+  "email",
+  "w_member_social",
+] as const;
+
+export type LinkedInOAuthConfig = {
+  readonly clientId: string;
+  readonly clientSecret: string;
+  readonly redirectUri: string;
+  readonly scopes: readonly string[];
+};
+
+export function isLinkedInPublishEnabled(): boolean {
+  const raw = process.env.AGXORA_LINKEDIN_PUBLISH_ENABLED?.trim().toLowerCase();
+  return raw === "1" || raw === "true" || raw === "yes";
+}
+
+export function getLinkedInOAuthConfig(): LinkedInOAuthConfig | null {
+  const clientId = process.env.AGXORA_LINKEDIN_OAUTH_CLIENT_ID?.trim();
+  const clientSecret = process.env.AGXORA_LINKEDIN_OAUTH_CLIENT_SECRET?.trim();
+  const redirectUri = process.env.AGXORA_LINKEDIN_OAUTH_REDIRECT_URI?.trim();
+  if (!clientId || !clientSecret || !redirectUri) return null;
+  return {
+    clientId,
+    clientSecret,
+    redirectUri,
+    scopes: LINKEDIN_OAUTH_SCOPES,
+  };
+}
+
+export function isLinkedInPublishFullyConfigured(): boolean {
+  return isLinkedInPublishEnabled() && Boolean(getLinkedInOAuthConfig());
 }
 
 export function requireSocialOAuthEncryptionKey(): Buffer {

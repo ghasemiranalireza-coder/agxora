@@ -102,6 +102,7 @@ model Organization {
 enum SocialPlatform {
   youtube
   gmail
+  linkedin
 }
 
 enum CreativePublishAttemptStatus {
