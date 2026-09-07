@@ -6,6 +6,7 @@ import type { Actor } from "@/app/lib/tenancy/types";
 import type { Prisma } from "@prisma/client";
 import { recordExternalAction } from "./audit";
 import { AGENT_PLAN_STEPS } from "./catalog";
+import { GMAIL_CHAT_GUIDANCE } from "./gmail-tools";
 import { redactSecrets } from "./redact";
 
 export async function listAgentRunsForActor(actor: Actor) {
@@ -59,6 +60,7 @@ export async function createPlanRunForActor(
     }
   }
 
+  const emailIntent = /(email|gmail|inbox|reply|mailbox)/i.test(goal);
   const run = await prisma.agentRun.create({
     data: {
       organizationId: actor.organizationId,
@@ -69,8 +71,20 @@ export async function createPlanRunForActor(
       status: "WAITING_APPROVAL",
       result: redactSecrets({
         phase: "PLAN",
-        message:
-          "Plan created. External publish/send is blocked until approval and provider implementation.",
+        message: emailIntent
+          ? "Email plan created. Gmail read and draft can run when connected and permitted. Sending stays blocked until approval, send permission, and Gmail confirmation."
+          : "Plan created. External publish/send is blocked until approval and provider implementation.",
+        gmail: emailIntent
+          ? {
+              tools: [
+                "gmail.list_messages",
+                "gmail.get_message",
+                "gmail.create_draft",
+              ],
+              sendBlockedUntilApproval: true,
+              guidance: GMAIL_CHAT_GUIDANCE,
+            }
+          : undefined,
       }) as Prisma.InputJsonValue,
       steps: {
         create: AGENT_PLAN_STEPS.map((name, ordinal) => ({

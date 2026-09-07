@@ -12,6 +12,7 @@ import {
   isIntegrationProviderId,
   type IntegrationProviderId,
 } from "./catalog";
+import { executeGmailToolForActor } from "./gmail-tools";
 
 export type CampaignItemDraft = {
   readonly provider: IntegrationProviderId;
@@ -152,6 +153,37 @@ export async function approveCampaignItemForActor(
   return updated;
 }
 
+export async function rejectCampaignItemForActor(
+  actor: Actor,
+  itemId: string,
+) {
+  const item = await prisma.campaignItem.findFirst({
+    where: {
+      id: itemId,
+      organizationId: actor.organizationId,
+      workspaceId: actor.workspaceId,
+    },
+  });
+  if (!item) {
+    throw new PersistenceError("not_found", "Content item not found");
+  }
+  const updated = await prisma.campaignItem.update({
+    where: { id: item.id },
+    data: {
+      status: "CANCELLED",
+      error: null,
+    },
+  });
+  await recordExternalAction({
+    actor,
+    provider: item.provider,
+    action: "content_reject",
+    status: "cancelled",
+    target: item.id,
+  });
+  return updated;
+}
+
 export async function executeCampaignItemForActor(
   actor: Actor,
   itemId: string,
@@ -215,6 +247,86 @@ export async function executeCampaignItemForActor(
       "Integration not implemented yet",
       { status: 501 },
     );
+  }
+
+  if (item.provider === "email_gmail" && kind === "send_email") {
+    if (item.status !== "APPROVED") {
+      await recordExternalAction({
+        actor,
+        provider: "email_gmail",
+        action: "gmail.send_message",
+        status: "approval_required",
+        target: item.id,
+        error: "approval_required",
+      });
+      throw new PersistenceError(
+        "forbidden",
+        "Sending Gmail requires explicit approval",
+      );
+    }
+
+    await prisma.campaignItem.update({
+      where: { id: item.id },
+      data: { status: "PUBLISHING" },
+    });
+    await recordExternalAction({
+      actor,
+      provider: "email_gmail",
+      action: "gmail.send_message",
+      status: "executing",
+      target: item.id,
+    });
+
+    try {
+      const result = (await executeGmailToolForActor(actor, "gmail.send_message", {
+        to: item.caption || undefined,
+        subject: item.title,
+        body: item.body,
+        approved: true,
+      })) as { id?: string; threadId?: string };
+
+      const sentId = typeof result.id === "string" ? result.id : null;
+      if (!sentId) {
+        throw new PersistenceError(
+          "validation",
+          "Gmail did not confirm the send",
+          { status: 502 },
+        );
+      }
+
+      const published = await prisma.campaignItem.update({
+        where: { id: item.id },
+        data: {
+          status: "PUBLISHED",
+          externalId: sentId,
+          error: null,
+        },
+      });
+      await recordExternalAction({
+        actor,
+        provider: "email_gmail",
+        action: "gmail.send_message",
+        status: "completed",
+        target: item.id,
+        externalId: sentId,
+        metadata: { threadId: result.threadId ?? null },
+      });
+      return published;
+    } catch (error) {
+      const message =
+        error instanceof PersistenceError
+          ? error.message
+          : "Gmail send failed";
+      await prisma.campaignItem.update({
+        where: { id: item.id },
+        data: {
+          status: "FAILED",
+          error: message,
+          retryCount: { increment: 1 },
+        },
+      });
+      throw error;
+    }
   }
 
   // YouTube OAuth exists, but campaign publish is not wired to the creative

@@ -61,9 +61,10 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     provider: "email_gmail",
     label: "Gmail / Google Workspace",
     category: "email",
-    implementationStatus: "not_implemented",
+    implementationStatus: "oauth_ready",
     capabilities: ["read", "create_draft", "schedule", "send_email"],
-    oauthNote: "Official Google OAuth will be added in Phase 2. Not connected.",
+    oauthNote:
+      "Uses official Google OAuth. Read and draft are allowed by default. Sending stays off until you enable it and approve the action.",
   },
   {
     provider: "email_microsoft",

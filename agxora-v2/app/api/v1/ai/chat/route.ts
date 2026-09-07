@@ -101,9 +101,18 @@ export async function POST(request: Request): Promise<Response> {
     }
 
     const context = bindChatContextToActor(actor, body.context);
+    const { GMAIL_CHAT_GUIDANCE } = await import(
+      "@/app/lib/business-agent/gmail-tools"
+    );
+    const contextWithGmail = {
+      ...context,
+      systemPrompt: [context.systemPrompt, GMAIL_CHAT_GUIDANCE]
+        .filter((part) => typeof part === "string" && part.trim().length > 0)
+        .join("\n\n"),
+    };
     const stream = Boolean(body.stream);
     const input = {
-      context,
+      context: contextWithGmail,
       modelId: body.modelId,
       temperature: body.temperature,
       maxTokens: body.maxTokens,

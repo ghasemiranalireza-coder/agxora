@@ -445,5 +445,8 @@ describe("Phase 46-A route wiring", () => {
     );
     expect(RATE_LIMIT_POLICIES["ai.chat"].keyKind).toBe("user");
     expect(RATE_LIMIT_POLICIES["ai.chat"].failClosed).toBe(true);
+    expect(RATE_LIMIT_POLICIES["gmail.mutate"].keyKind).toBe("user");
+    expect(RATE_LIMIT_POLICIES["gmail.mutate"].failClosed).toBe(true);
+    expect(RATE_LIMIT_POLICIES["gmail.mutate"].max).toBe(30);
   });
 });
