@@ -49,5 +49,12 @@
   "createGmailDraft": "Create Gmail draft",
   "subject": "Subject",
   "externalActions": "Gmail actions",
-  "emailExamples": "Examples: Check my emails from today. Draft a response. Prepare replies to urgent emails. Send stays blocked until you approve."
+  "emailExamples": "Examples: Check my emails from today. Draft a response. Prepare replies to urgent emails. Send stays blocked until you approve.",
+  "youtubePublishSupported": "YouTube video publish is supported through the official upload API after approval. Publish permission stays off by default. Scheduling and analytics are not implemented.",
+  "safeModePublish": "SAFE MODE is active. Publishing requires explicit approval and YouTube confirmation.",
+  "approvePublish": "Approve publish",
+  "rejectPublish": "Reject publish",
+  "publishApproved": "Publish approved video",
+  "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
+  "providerUnavailable": "This provider is not implemented yet."
 }

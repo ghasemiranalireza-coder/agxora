@@ -93,16 +93,14 @@ export async function createPlanRunForActor(
           ordinal,
           name,
           status:
-            ordinal <= 4
-              ? ("COMPLETED" as const)
-              : ordinal === 5
-                ? ("WAITING_APPROVAL" as const)
-                : ("PENDING" as const),
+            ordinal === 5
+              ? ("WAITING_APPROVAL" as const)
+              : ("PENDING" as const),
           output:
-            ordinal <= 4
+            name === "generate_content" || name === "create_drafts"
               ? (redactSecrets({
-                  status: "planned",
-                  note: "Prepared locally. No external API was called.",
+                  status: "not_generated",
+                  note: "Content generation is not implemented yet. No drafts were created.",
                 }) as Prisma.InputJsonValue)
               : undefined,
         })),

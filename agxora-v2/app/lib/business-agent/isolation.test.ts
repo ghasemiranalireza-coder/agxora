@@ -148,6 +148,12 @@ describe("Phase 70 business-agent isolation", () => {
 
     const run = await createPlanRunForActor(ownerA, { goal: "Prepare next week" });
     expect(run.status).toBe("WAITING_APPROVAL");
+    expect(run.steps.find((step) => step.name === "generate_content")?.status).not.toBe(
+      "COMPLETED",
+    );
+    expect(run.steps.find((step) => step.name === "create_drafts")?.status).not.toBe(
+      "COMPLETED",
+    );
     const runsB = await listAgentRunsForActor(await actor(TOKEN_B));
     expect(runsB).toHaveLength(0);
   });

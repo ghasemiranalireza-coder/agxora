@@ -13,6 +13,7 @@ import {
   type IntegrationProviderId,
 } from "./catalog";
 import { executeGmailToolForActor } from "./gmail-tools";
+import { executeYouTubeCampaignItemForActor } from "./youtube-publish";
 
 export type CampaignItemDraft = {
   readonly provider: IntegrationProviderId;
@@ -200,6 +201,24 @@ export async function executeCampaignItemForActor(
     throw new PersistenceError("not_found", "Content item not found");
   }
 
+  if (
+    item.provider === "youtube" &&
+    kind === "publish" &&
+    item.status === "PUBLISHED" &&
+    item.externalId
+  ) {
+    await recordExternalAction({
+      actor,
+      provider: "youtube",
+      action: "youtube.publish_video",
+      status: "completed",
+      target: item.id,
+      externalId: item.externalId,
+      metadata: { idempotentReplay: true },
+    });
+    return item;
+  }
+
   const policy = await getAgentPolicyForActor(actor);
   if (policy.mode === "SAFE" && item.status !== "APPROVED") {
     await recordExternalAction({
@@ -247,6 +266,10 @@ export async function executeCampaignItemForActor(
       "Integration not implemented yet",
       { status: 501 },
     );
+  }
+
+  if (item.provider === "youtube") {
+    return executeYouTubeCampaignItemForActor(actor, item, kind);
   }
 
   if (item.provider === "email_gmail" && kind === "send_email") {
@@ -329,8 +352,8 @@ export async function executeCampaignItemForActor(
     }
   }
 
-  // YouTube OAuth exists, but campaign publish is not wired to the creative
-  // upload pipeline in Phase 1. Never report fake success.
+  // Remaining providers are either not implemented or not wired for this
+  // operation. Never report fake success.
   await prisma.campaignItem.update({
     where: { id: item.id },
     data: {
