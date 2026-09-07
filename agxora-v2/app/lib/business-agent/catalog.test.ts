@@ -15,13 +15,15 @@ describe("business-agent catalog", () => {
     expect(SAFE_PERMISSIONS.canCreateDraft).toBe(true);
   });
 
-  it("marks only YouTube as oauth_ready in Phase 1", () => {
+  it("marks YouTube and Gmail as oauth_ready in Phase 2", () => {
     const youtube = INTEGRATION_CATALOG.find((item) => item.provider === "youtube");
+    const gmail = INTEGRATION_CATALOG.find((item) => item.provider === "email_gmail");
     expect(youtube?.implementationStatus).toBe("oauth_ready");
+    expect(gmail?.implementationStatus).toBe("oauth_ready");
     expect(
-      INTEGRATION_CATALOG.filter((item) => item.provider !== "youtube").every(
-        (item) => item.implementationStatus === "not_implemented",
-      ),
+      INTEGRATION_CATALOG.filter(
+        (item) => item.provider !== "youtube" && item.provider !== "email_gmail",
+      ).every((item) => item.implementationStatus === "not_implemented"),
     ).toBe(true);
   });
 
@@ -33,6 +35,9 @@ describe("business-agent catalog", () => {
       true,
     );
     expect(AGENT_TOOL_CATALOG.find((tool) => tool.name === "send_email")?.sideEffect).toBe(true);
+    expect(AGENT_TOOL_CATALOG.find((tool) => tool.name === "gmail.send_message")?.sideEffect).toBe(
+      true,
+    );
     expect(permissionGranted(SAFE_PERMISSIONS, "publish")).toBe(false);
     expect(isIntegrationProviderId("instagram")).toBe(true);
     expect(isIntegrationProviderId("unknown")).toBe(false);

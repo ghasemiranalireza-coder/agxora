@@ -11,17 +11,26 @@ const YOUTUBE_SCOPES = [
   "https://www.googleapis.com/auth/youtube.readonly",
 ] as const;
 
+/** Least-privilege Gmail scopes for Phase 2. AGXORA still defaults canSendEmail=false. */
+export const GMAIL_OAUTH_SCOPES = [
+  "https://www.googleapis.com/auth/gmail.readonly",
+  "https://www.googleapis.com/auth/gmail.compose",
+  "https://www.googleapis.com/auth/gmail.send",
+] as const;
+
+export type GoogleOAuthConfig = {
+  readonly clientId: string;
+  readonly clientSecret: string;
+  readonly redirectUri: string;
+  readonly scopes: readonly string[];
+};
+
 export function isYouTubePublishEnabled(): boolean {
   const raw = process.env.AGXORA_YOUTUBE_PUBLISH_ENABLED?.trim().toLowerCase();
   return raw === "1" || raw === "true" || raw === "yes";
 }
 
-export function getYouTubeOAuthConfig(): {
-  readonly clientId: string;
-  readonly clientSecret: string;
-  readonly redirectUri: string;
-  readonly scopes: readonly string[];
-} | null {
+export function getYouTubeOAuthConfig(): GoogleOAuthConfig | null {
   const clientId = process.env.AGXORA_YOUTUBE_OAUTH_CLIENT_ID?.trim();
   const clientSecret = process.env.AGXORA_YOUTUBE_OAUTH_CLIENT_SECRET?.trim();
   const redirectUri = process.env.AGXORA_YOUTUBE_OAUTH_REDIRECT_URI?.trim();
@@ -32,6 +41,25 @@ export function getYouTubeOAuthConfig(): {
     redirectUri,
     scopes: YOUTUBE_SCOPES,
   };
+}
+
+export function getGmailOAuthConfig(): GoogleOAuthConfig | null {
+  const clientId = process.env.AGXORA_GMAIL_OAUTH_CLIENT_ID?.trim();
+  const clientSecret = process.env.AGXORA_GMAIL_OAUTH_CLIENT_SECRET?.trim();
+  const redirectUri = process.env.AGXORA_GMAIL_OAUTH_REDIRECT_URI?.trim();
+  if (!clientId || !clientSecret || !redirectUri) return null;
+  return {
+    clientId,
+    clientSecret,
+    redirectUri,
+    scopes: GMAIL_OAUTH_SCOPES,
+  };
+}
+
+export function getGoogleOAuthConfigForPlatform(
+  platform: "youtube" | "gmail",
+): GoogleOAuthConfig | null {
+  return platform === "gmail" ? getGmailOAuthConfig() : getYouTubeOAuthConfig();
 }
 
 export function requireSocialOAuthEncryptionKey(): Buffer {

@@ -123,6 +123,14 @@ export const RATE_LIMIT_POLICIES: Record<RateLimitPolicyId, RateLimitPolicy> = {
     keyKind: "user",
     failClosed: true,
   },
+  /** Phase 71 — Gmail draft/send mutations. */
+  "gmail.mutate": {
+    id: "gmail.mutate",
+    max: 30,
+    windowMs: HOUR,
+    keyKind: "user",
+    failClosed: true,
+  },
 };
 
 export type RateLimitStoreId = "memory" | "http";

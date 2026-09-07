@@ -27,10 +27,17 @@ export function AgentCommandPanel(): JSX.Element {
   }, [t]);
 
   useEffect(() => {
-    void reload().catch((err: unknown) => {
-      setError(err instanceof Error ? err.message : t("businessAgent.loadFailed"));
-    });
-  }, [reload, t]);
+    void fetch("/api/v1/agent-runs", { credentials: "include" })
+      .then((r) => r.json())
+      .then((body) => {
+        if (!body.ok) {
+          setError(body.message || t("businessAgent.loadFailed"));
+          return;
+        }
+        setRuns(body.runs ?? []);
+      })
+      .catch(() => setError(t("businessAgent.loadFailed")));
+  }, [t]);
 
   async function createRun() {
     setBusy(true);
@@ -59,6 +66,8 @@ export function AgentCommandPanel(): JSX.Element {
     <section style={{ marginBottom: 24 }}>
       <h2 className="agx-ui-section-title">{t("businessAgent.commandCenter")}</h2>
       <p className="agx-ui-section-lead">{t("businessAgent.commandCenterLead")}</p>
+      <p>{t("businessAgent.safeModeActive")}</p>
+      <p>{t("businessAgent.emailExamples")}</p>
       <label>
         {t("businessAgent.goal")}
         <input
