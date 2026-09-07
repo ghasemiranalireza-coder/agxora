@@ -11,7 +11,7 @@ import { PersistenceError } from "@/app/lib/tenancy/errors";
 import type { Actor } from "@/app/lib/tenancy/types";
 import { hashOpaqueToken } from "@/app/lib/auth/server/tokens";
 import { decryptSocialSecret, encryptSocialSecret } from "./crypto";
-import { getYouTubeOAuthConfig } from "./config";
+import { getGoogleOAuthConfigForPlatform } from "./config";
 
 export type StoredSocialTokens = {
   readonly accessToken: string;
@@ -72,10 +72,18 @@ function isActiveCredential(row: {
 
 async function refreshGoogleAccessToken(
   refreshToken: string,
-): Promise<{ accessToken: string; expiresAt?: Date }> {
-  const config = getYouTubeOAuthConfig();
+  platform: SocialPlatform,
+): Promise<{ accessToken: string; expiresAt?: Date; invalidGrant?: boolean }> {
+  const config = getGoogleOAuthConfigForPlatform(
+    platform === "gmail" ? "gmail" : "youtube",
+  );
   if (!config) {
-    throw new PersistenceError("misconfigured", "YouTube OAuth is not configured");
+    throw new PersistenceError(
+      "misconfigured",
+      platform === "gmail"
+        ? "Gmail OAuth is not configured"
+        : "YouTube OAuth is not configured",
+    );
   }
   const body = new URLSearchParams({
     client_id: config.clientId,
@@ -89,6 +97,16 @@ async function refreshGoogleAccessToken(
     body,
   });
   if (!response.ok) {
+    let invalidGrant = false;
+    try {
+      const payload = (await response.json()) as { error?: string };
+      invalidGrant = payload.error === "invalid_grant";
+    } catch {
+      invalidGrant = false;
+    }
+    if (invalidGrant) {
+      return { accessToken: "", invalidGrant: true };
+    }
     throw new PersistenceError("forbidden", "OAuth token refresh failed", {
       details: [{ field: "refresh", message: "token_refresh_failed" }],
     });
@@ -210,7 +228,18 @@ const databaseCredentialStore: CredentialStore = {
     }
 
     try {
-      const refreshed = await refreshGoogleAccessToken(tokens.refreshToken);
+      const refreshed = await refreshGoogleAccessToken(tokens.refreshToken, platform);
+      if (refreshed.invalidGrant) {
+        await prisma.socialPlatformCredential.update({
+          where: { id: row.id },
+          data: {
+            revokedAt: new Date(),
+            encryptedPayload: "",
+            accessTokenExpiresAt: null,
+          },
+        });
+        return null;
+      }
       const nextTokens: StoredSocialTokens = {
         ...tokens,
         accessToken: refreshed.accessToken,
@@ -281,7 +310,18 @@ const memoryCredentialStore: CredentialStore = {
     }
     if (!item.tokens.refreshToken) return null;
     try {
-      const refreshed = await refreshGoogleAccessToken(item.tokens.refreshToken);
+      const refreshed = await refreshGoogleAccessToken(
+        item.tokens.refreshToken,
+        platform,
+      );
+      if (refreshed.invalidGrant) {
+        memoryCredentials.set(memoryKey(actor.organizationId, platform), {
+          ...item,
+          summary: { ...item.summary, revokedAt: new Date() },
+          tokens: { accessToken: "" },
+        });
+        return null;
+      }
       const nextTokens = { ...item.tokens, accessToken: refreshed.accessToken };
       memoryCredentials.set(memoryKey(actor.organizationId, platform), {
         summary: {
@@ -312,7 +352,17 @@ export function setSocialCredentialStoreForTests(store: CredentialStore | null):
 
 export function socialPlatformFromSocialId(platformId: string): SocialPlatform | null {
   if (platformId === "youtube") return "youtube";
+  if (platformId === "gmail" || platformId === "email_gmail") return "gmail";
   return null;
+}
+
+export async function getSocialCredentialSummary(
+  organizationId: string,
+  platformId: string,
+): Promise<SocialCredentialSummary | null> {
+  const platform = socialPlatformFromSocialId(platformId);
+  if (!platform) return null;
+  return resolveStore().getCredentialSummary(organizationId, platform);
 }
 
 export async function hasActiveSocialCredential(

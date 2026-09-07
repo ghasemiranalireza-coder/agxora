@@ -4,8 +4,9 @@ import type { IntegrationConnection, IntegrationProvider } from "@prisma/client"
 import { prisma } from "@/app/lib/db/prisma";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import type { Actor } from "@/app/lib/tenancy/types";
-import { hasActiveSocialCredential } from "@/app/lib/social/credentials";
+import { hasActiveSocialCredential, getSocialCredentialSummary } from "@/app/lib/social/credentials";
 import { beginYouTubeOAuthForActor, disconnectYouTubeForActor } from "@/app/lib/social/oauth/youtube";
+import { beginGmailOAuthForActor, disconnectGmailForActor } from "@/app/lib/social/oauth/gmail";
 import { recordExternalAction } from "./audit";
 import {
   assertCanManageIntegrations,
@@ -50,6 +51,10 @@ function flagsFromRow(row: IntegrationConnection | null): IntegrationPermissionF
 
 async function youtubeConnected(actor: Actor): Promise<boolean> {
   return hasActiveSocialCredential(actor.organizationId, "youtube");
+}
+
+async function gmailConnected(actor: Actor): Promise<boolean> {
+  return hasActiveSocialCredential(actor.organizationId, "gmail");
 }
 
 async function upsertConnection(
@@ -113,13 +118,29 @@ export async function listIntegrationsForActor(
     },
   });
   const byProvider = new Map(rows.map((row) => [row.provider, row]));
-  const ytLive = await youtubeConnected(actor);
+  const [ytLive, gmailLive, gmailSummary] = await Promise.all([
+    youtubeConnected(actor),
+    gmailConnected(actor),
+    getSocialCredentialSummary(actor.organizationId, "gmail"),
+  ]);
 
   return INTEGRATION_CATALOG.map((entry) => {
     const row = byProvider.get(entry.provider) ?? null;
-    const liveConnected = entry.provider === "youtube" ? ytLive : false;
-    const connected =
-      liveConnected || row?.status === "connected";
+    const liveConnected =
+      entry.provider === "youtube"
+        ? ytLive
+        : entry.provider === "email_gmail"
+          ? gmailLive
+          : false;
+    const connected = liveConnected || row?.status === "connected";
+    const accountLabel =
+      entry.provider === "email_gmail"
+        ? (row?.accountLabel ?? gmailSummary?.externalAccountName ?? null)
+        : (row?.accountLabel ?? null);
+    const externalAccountId =
+      entry.provider === "email_gmail"
+        ? (row?.externalAccountId ?? gmailSummary?.externalAccountId ?? null)
+        : (row?.externalAccountId ?? null);
     return {
       provider: entry.provider,
       label: entry.label,
@@ -130,8 +151,8 @@ export async function listIntegrationsForActor(
       status: connected
         ? "connected"
         : (row?.status ?? "not_connected"),
-      accountLabel: row?.accountLabel ?? null,
-      externalAccountId: row?.externalAccountId ?? null,
+      accountLabel,
+      externalAccountId,
       lastError: row?.lastError ?? null,
       permissions: flagsFromRow(row),
       connectedAt: row?.connectedAt?.toISOString() ?? null,
@@ -166,6 +187,22 @@ export async function connectIntegrationForActor(
     return { authorizationUrl: result.authorizationUrl, connected: false };
   }
 
+  if (provider === "email_gmail") {
+    const result = await beginGmailOAuthForActor(actor, redirectPath);
+    await upsertConnection(actor, "email_gmail", {
+      status: "not_connected",
+      lastError: null,
+    });
+    await recordExternalAction({
+      actor,
+      provider: "email_gmail",
+      action: "connect_begin",
+      status: "planned",
+      metadata: { oauth: true },
+    });
+    return { authorizationUrl: result.authorizationUrl, connected: false };
+  }
+
   await recordExternalAction({
     actor,
     provider,
@@ -193,6 +230,8 @@ export async function disconnectIntegrationForActor(
   assertCanManageIntegrations(actor);
   if (provider === "youtube") {
     await disconnectYouTubeForActor(actor);
+  } else if (provider === "email_gmail") {
+    await disconnectGmailForActor(actor);
   } else {
     const entry = getCatalogEntry(provider);
     if (entry.implementationStatus === "not_implemented") {
@@ -258,6 +297,42 @@ export async function updatePermissionsForActor(
     metadata: { permissions: merged },
   });
   return flagsFromRow(row);
+}
+
+export async function markIntegrationConnectedForActor(
+  actor: Actor,
+  provider: IntegrationProviderId,
+  input: {
+    readonly accountLabel?: string | null;
+    readonly externalAccountId?: string | null;
+  },
+): Promise<void> {
+  await upsertConnection(actor, provider, {
+    status: "connected",
+    accountLabel: input.accountLabel ?? null,
+    externalAccountId: input.externalAccountId ?? null,
+    lastError: null,
+    connectedAt: new Date(),
+    disconnectedAt: null,
+  });
+  await recordExternalAction({
+    actor,
+    provider,
+    action: "connect_complete",
+    status: "completed",
+    metadata: { accountLabel: input.accountLabel ?? null },
+  });
+}
+
+export async function markIntegrationErrorForActor(
+  actor: Actor,
+  provider: IntegrationProviderId,
+  error: string,
+): Promise<void> {
+  await upsertConnection(actor, provider, {
+    status: "error",
+    lastError: error,
+  });
 }
 
 export async function getPermissionFlagsForActor(

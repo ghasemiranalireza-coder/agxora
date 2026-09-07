@@ -17,7 +17,11 @@ export type AgentToolName =
   | "schedule_content"
   | "publish_content"
   | "send_email"
-  | "check_publish_status";
+  | "check_publish_status"
+  | "gmail.list_messages"
+  | "gmail.get_message"
+  | "gmail.create_draft"
+  | "gmail.send_message";
 
 export type AgentToolDefinition = {
   readonly name: AgentToolName;
@@ -116,5 +120,30 @@ export const AGENT_TOOL_CATALOG: readonly AgentToolDefinition[] = [
     sideEffect: false,
     requiredPermission: "read",
     description: "Verify an external publish/send result",
+  },
+  {
+    name: "gmail.list_messages",
+    sideEffect: false,
+    requiredPermission: "read",
+    description: "List or search Gmail messages via the official Gmail API",
+  },
+  {
+    name: "gmail.get_message",
+    sideEffect: false,
+    requiredPermission: "read",
+    description: "Read one Gmail message via the official Gmail API",
+  },
+  {
+    name: "gmail.create_draft",
+    sideEffect: false,
+    requiredPermission: "create_draft",
+    description: "Create a Gmail draft via the official Gmail API (does not send)",
+  },
+  {
+    name: "gmail.send_message",
+    sideEffect: true,
+    requiredPermission: "send_email",
+    description:
+      "Send email via Gmail only after approval, canSendEmail, and Gmail confirmation",
   },
 ];

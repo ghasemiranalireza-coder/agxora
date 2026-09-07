@@ -42,6 +42,17 @@ export function ConnectedAccounts(): JSX.Element {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
 
+  const [gmailQuery] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null;
+    return new URLSearchParams(window.location.search).get("gmail");
+  });
+  const callbackNotice =
+    gmailQuery === "denied"
+      ? t("businessAgent.gmailDenied")
+      : gmailQuery === "error"
+        ? t("businessAgent.gmailError")
+        : null;
+
   const reload = useCallback(async () => {
     const [list, policyRes] = await Promise.all([
       api<{ integrations: IntegrationSummary[] }>("/api/v1/integrations"),
@@ -52,10 +63,18 @@ export function ConnectedAccounts(): JSX.Element {
   }, []);
 
   useEffect(() => {
-    void reload().catch((err: unknown) => {
-      setError(err instanceof Error ? err.message : "Failed to load integrations");
-    });
-  }, [reload]);
+    void Promise.all([
+      api<{ integrations: IntegrationSummary[] }>("/api/v1/integrations"),
+      api<{ policy: Policy }>("/api/v1/agent-policy"),
+    ])
+      .then(([list, policyRes]) => {
+        setItems(list.integrations);
+        setPolicy(policyRes.policy);
+      })
+      .catch((err: unknown) => {
+        setError(err instanceof Error ? err.message : t("businessAgent.loadFailed"));
+      });
+  }, [t]);
 
   async function connect(provider: string) {
     setBusy(provider);
@@ -146,9 +165,9 @@ export function ConnectedAccounts(): JSX.Element {
           ))}
         </p>
       ) : null}
-      {error ? (
+      {error || callbackNotice ? (
         <p role="alert" style={{ color: "var(--agx-danger, #b00020)" }}>
-          {error}
+          {error || callbackNotice}
         </p>
       ) : null}
       <div style={{ display: "grid", gap: 16 }}>
@@ -172,6 +191,11 @@ export function ConnectedAccounts(): JSX.Element {
                     ? ` · ${t("businessAgent.notImplemented")}`
                     : ""}
                 </div>
+                {item.accountLabel ? (
+                  <div>
+                    {t("businessAgent.accountEmail")}: {item.accountLabel}
+                  </div>
+                ) : null}
                 <small>{item.oauthNote}</small>
               </div>
               <div>
