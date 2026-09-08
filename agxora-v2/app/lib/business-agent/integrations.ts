@@ -7,6 +7,7 @@ import type { Actor } from "@/app/lib/tenancy/types";
 import { hasActiveSocialCredential, getSocialCredentialSummary } from "@/app/lib/social/credentials";
 import { beginYouTubeOAuthForActor, disconnectYouTubeForActor } from "@/app/lib/social/oauth/youtube";
 import { beginGmailOAuthForActor, disconnectGmailForActor } from "@/app/lib/social/oauth/gmail";
+import { beginAmazonOAuthForActor, disconnectAmazonForActor } from "@/app/lib/amazon/oauth";
 import { recordExternalAction } from "./audit";
 import {
   assertCanManageIntegrations,
@@ -25,7 +26,7 @@ import {
 export type IntegrationSummary = {
   readonly provider: IntegrationProviderId;
   readonly label: string;
-  readonly category: "email" | "social";
+  readonly category: "email" | "social" | "commerce";
   readonly implementationStatus: "oauth_ready" | "not_implemented";
   readonly oauthNote: string;
   readonly connected: boolean;
@@ -55,6 +56,10 @@ async function youtubeConnected(actor: Actor): Promise<boolean> {
 
 async function gmailConnected(actor: Actor): Promise<boolean> {
   return hasActiveSocialCredential(actor.organizationId, "gmail");
+}
+
+async function amazonConnected(actor: Actor): Promise<boolean> {
+  return hasActiveSocialCredential(actor.organizationId, "amazon");
 }
 
 async function upsertConnection(
@@ -118,10 +123,12 @@ export async function listIntegrationsForActor(
     },
   });
   const byProvider = new Map(rows.map((row) => [row.provider, row]));
-  const [ytLive, gmailLive, gmailSummary] = await Promise.all([
+  const [ytLive, gmailLive, amazonLive, gmailSummary, amazonSummary] = await Promise.all([
     youtubeConnected(actor),
     gmailConnected(actor),
+    amazonConnected(actor),
     getSocialCredentialSummary(actor.organizationId, "gmail"),
+    getSocialCredentialSummary(actor.organizationId, "amazon"),
   ]);
 
   return INTEGRATION_CATALOG.map((entry) => {
@@ -131,16 +138,27 @@ export async function listIntegrationsForActor(
         ? ytLive
         : entry.provider === "email_gmail"
           ? gmailLive
-          : false;
-    const connected = liveConnected || row?.status === "connected";
+          : entry.provider === "amazon_seller"
+            ? amazonLive
+            : false;
+    const connected =
+      entry.provider === "youtube" ||
+      entry.provider === "email_gmail" ||
+      entry.provider === "amazon_seller"
+        ? liveConnected
+        : row?.status === "connected";
     const accountLabel =
       entry.provider === "email_gmail"
         ? (row?.accountLabel ?? gmailSummary?.externalAccountName ?? null)
-        : (row?.accountLabel ?? null);
+        : entry.provider === "amazon_seller"
+          ? (row?.accountLabel ?? amazonSummary?.externalAccountName ?? null)
+          : (row?.accountLabel ?? null);
     const externalAccountId =
       entry.provider === "email_gmail"
         ? (row?.externalAccountId ?? gmailSummary?.externalAccountId ?? null)
-        : (row?.externalAccountId ?? null);
+        : entry.provider === "amazon_seller"
+          ? (row?.externalAccountId ?? amazonSummary?.externalAccountId ?? null)
+          : (row?.externalAccountId ?? null);
     return {
       provider: entry.provider,
       label: entry.label,
@@ -203,6 +221,22 @@ export async function connectIntegrationForActor(
     return { authorizationUrl: result.authorizationUrl, connected: false };
   }
 
+  if (provider === "amazon_seller") {
+    const result = await beginAmazonOAuthForActor(actor, redirectPath);
+    await upsertConnection(actor, "amazon_seller", {
+      status: "not_connected",
+      lastError: null,
+    });
+    await recordExternalAction({
+      actor,
+      provider: "amazon_seller",
+      action: "connect_begin",
+      status: "planned",
+      metadata: { oauth: true },
+    });
+    return { authorizationUrl: result.authorizationUrl, connected: false };
+  }
+
   await recordExternalAction({
     actor,
     provider,
@@ -232,6 +266,8 @@ export async function disconnectIntegrationForActor(
     await disconnectYouTubeForActor(actor);
   } else if (provider === "email_gmail") {
     await disconnectGmailForActor(actor);
+  } else if (provider === "amazon_seller") {
+    await disconnectAmazonForActor(actor);
   } else {
     const entry = getCatalogEntry(provider);
     if (entry.implementationStatus === "not_implemented") {

@@ -102,6 +102,7 @@ model Organization {
 enum SocialPlatform {
   youtube
   gmail
+  amazon
 }
 
 enum CreativePublishAttemptStatus {
@@ -611,6 +612,7 @@ enum IntegrationProvider {
   youtube
   linkedin
   x
+  amazon_seller
 }
 
 enum IntegrationConnectionStatus {

@@ -68,6 +68,7 @@ export function AgentCommandPanel(): JSX.Element {
       <p className="agx-ui-section-lead">{t("businessAgent.commandCenterLead")}</p>
       <p>{t("businessAgent.safeModeActive")}</p>
       <p>{t("businessAgent.emailExamples")}</p>
+      <p>{t("businessAgent.amazonExamples")}</p>
       <label>
         {t("businessAgent.goal")}
         <input

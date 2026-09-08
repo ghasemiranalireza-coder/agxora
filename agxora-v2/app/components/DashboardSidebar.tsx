@@ -82,6 +82,11 @@ const NAV_ITEMS = [
     path: "M4 6h16v12H4Z M4 6l8 7 8-7",
   },
   {
+    labelKey: "navigation.amazon",
+    href: "/dashboard/amazon",
+    path: "M4 7h16v10H4Z M8 7V5h8v2 M7 12h10",
+  },
+  {
     labelKey: "navigation.customers",
     href: "/dashboard/customers",
     path: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",

@@ -12,6 +12,7 @@ import type { Actor } from "@/app/lib/tenancy/types";
 import { hashOpaqueToken } from "@/app/lib/auth/server/tokens";
 import { decryptSocialSecret, encryptSocialSecret } from "./crypto";
 import { getGoogleOAuthConfigForPlatform } from "./config";
+import { refreshAmazonAccessToken } from "@/app/lib/amazon/lwa";
 
 export type StoredSocialTokens = {
   readonly accessToken: string;
@@ -68,6 +69,16 @@ function isActiveCredential(row: {
   encryptedPayload: string;
 }): boolean {
   return row.revokedAt == null && row.encryptedPayload.length > 0;
+}
+
+async function refreshStoredAccessToken(
+  refreshToken: string,
+  platform: SocialPlatform,
+): Promise<{ accessToken: string; expiresAt?: Date; invalidGrant?: boolean }> {
+  if (platform === "amazon") {
+    return refreshAmazonAccessToken(refreshToken);
+  }
+  return refreshGoogleAccessToken(refreshToken, platform);
 }
 
 async function refreshGoogleAccessToken(
@@ -228,7 +239,7 @@ const databaseCredentialStore: CredentialStore = {
     }
 
     try {
-      const refreshed = await refreshGoogleAccessToken(tokens.refreshToken, platform);
+      const refreshed = await refreshStoredAccessToken(tokens.refreshToken, platform);
       if (refreshed.invalidGrant) {
         await prisma.socialPlatformCredential.update({
           where: { id: row.id },
@@ -310,7 +321,7 @@ const memoryCredentialStore: CredentialStore = {
     }
     if (!item.tokens.refreshToken) return null;
     try {
-      const refreshed = await refreshGoogleAccessToken(
+      const refreshed = await refreshStoredAccessToken(
         item.tokens.refreshToken,
         platform,
       );
@@ -353,6 +364,7 @@ export function setSocialCredentialStoreForTests(store: CredentialStore | null):
 export function socialPlatformFromSocialId(platformId: string): SocialPlatform | null {
   if (platformId === "youtube") return "youtube";
   if (platformId === "gmail" || platformId === "email_gmail") return "gmail";
+  if (platformId === "amazon" || platformId === "amazon_seller") return "amazon";
   return null;
 }
 

@@ -272,6 +272,30 @@ export async function executeCampaignItemForActor(
     return executeYouTubeCampaignItemForActor(actor, item, kind);
   }
 
+  if (item.provider === "amazon_seller") {
+    await prisma.campaignItem.update({
+      where: { id: item.id },
+      data: {
+        status: "FAILED",
+        error: "Amazon Seller writes are not implemented",
+        retryCount: { increment: 1 },
+      },
+    });
+    await recordExternalAction({
+      actor,
+      provider: "amazon_seller",
+      action: kind,
+      status: "failed",
+      target: item.id,
+      error: "amazon_write_not_implemented",
+    });
+    throw new PersistenceError(
+      "validation",
+      "Amazon Seller is read-only in this phase",
+      { status: 501 },
+    );
+  }
+
   if (item.provider === "email_gmail" && kind === "send_email") {
     if (item.status !== "APPROVED") {
       await recordExternalAction({

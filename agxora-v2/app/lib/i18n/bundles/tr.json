@@ -71,7 +71,8 @@
     "notificationsEmpty": "Hepsi tamam. Uyarılar ve bahsetmeler burada görünür.",
     "accountSettings": "Hesap ayarları",
     "security": "Güvenlik",
-    "themeToggle": "Hızlı tema geçişi. Tercih: {mode}"
+    "themeToggle": "Hızlı tema geçişi. Tercih: {mode}",
+    "amazon": "Amazon"
   },
   "pricing": {
     "navLabel": "Fiyatlandırmada gezinme",
@@ -6854,6 +6855,21 @@
     "rejectPublish": "Reject publish",
     "publishApproved": "Publish approved video",
     "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-    "providerUnavailable": "This provider is not implemented yet."
+    "providerUnavailable": "This provider is not implemented yet.",
+    "amazonHubTitle": "Amazon Seller",
+    "amazonHubLead": "Official Amazon Selling Partner API for your seller account. Reads only. AGXORA does not shop on Amazon or place consumer orders.",
+    "amazonReadOnly": "Marketplace discovery, listings, inventory, non-PII orders, pricing, and sales metrics use official SP-API reads after you connect. Write operations are not implemented.",
+    "amazonAdsOutOfScope": "Amazon Ads is a separate future module and is not implemented in this phase.",
+    "amazonNotConnected": "Amazon Seller is not connected. Connect it from Connected accounts using official Amazon authorization.",
+    "amazonExamples": "Examples: Analyze my Amazon sales. Which products are selling best? Which products have low inventory? Show me my Amazon products. Which listings need attention?",
+    "amazonDenied": "Amazon Seller access was denied. Nothing was connected.",
+    "amazonError": "Amazon Seller connection failed. Nothing was marked connected.",
+    "amazonSafeMode": "SAFE MODE is active. Amazon commercial writes are blocked.",
+    "analyzeAmazon": "Analyze Amazon seller data",
+    "noAmazonData": "No Amazon seller data loaded yet.",
+    "amazonListings": "Listings",
+    "amazonMarketplaces": "Marketplaces",
+    "amazonLowInventory": "Low inventory",
+    "amazonNeedsAttention": "Listings needing attention"
   }
 }

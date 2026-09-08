@@ -39,6 +39,10 @@ type OAuthStateStore = {
     platform: SocialPlatform;
     state: string;
   }): Promise<OAuthStateConsumeResult>;
+  findLatestUnconsumed(input: {
+    actor: Actor;
+    platform: SocialPlatform;
+  }): Promise<{ redirectPath?: string } | null>;
 };
 
 const memoryStates = new Map<
@@ -121,6 +125,20 @@ const databaseOAuthStateStore: OAuthStateStore = {
       redirectPath: row.redirectPath ?? undefined,
     };
   },
+  async findLatestUnconsumed({ actor, platform }) {
+    const row = await prisma.socialOAuthState.findFirst({
+      where: {
+        organizationId: actor.organizationId,
+        userId: actor.userId,
+        platform,
+        consumedAt: null,
+        expiresAt: { gt: new Date() },
+      },
+      orderBy: { createdAt: "desc" },
+    });
+    if (!row) return null;
+    return { redirectPath: row.redirectPath ?? undefined };
+  },
 };
 
 const memoryOAuthStateStore: OAuthStateStore = {
@@ -165,6 +183,21 @@ const memoryOAuthStateStore: OAuthStateStore = {
       redirectPath: row.redirectPath,
     };
   },
+  async findLatestUnconsumed({ actor, platform }) {
+    let latest: { redirectPath?: string; expiresAt: Date } | null = null;
+    for (const row of memoryStates.values()) {
+      if (row.consumedAt) continue;
+      if (row.platform !== platform) continue;
+      if (row.organizationId !== actor.organizationId || row.userId !== actor.userId) {
+        continue;
+      }
+      if (row.expiresAt.getTime() <= Date.now()) continue;
+      if (!latest || row.expiresAt > latest.expiresAt) {
+        latest = { redirectPath: row.redirectPath, expiresAt: row.expiresAt };
+      }
+    }
+    return latest ? { redirectPath: latest.redirectPath } : null;
+  },
 };
 
 let storeOverride: OAuthStateStore | null = null;
@@ -195,6 +228,13 @@ export async function consumeSocialOAuthState(input: {
   readonly state: string;
 }): Promise<OAuthStateConsumeResult> {
   return resolveStore().consume(input);
+}
+
+export async function findLatestUnconsumedSocialOAuthState(input: {
+  readonly actor: Actor;
+  readonly platform: SocialPlatform;
+}): Promise<{ readonly redirectPath?: string } | null> {
+  return resolveStore().findLatestUnconsumed(input);
 }
 
 export function verifyPkceVerifier(
