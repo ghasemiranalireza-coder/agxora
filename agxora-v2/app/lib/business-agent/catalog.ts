@@ -12,6 +12,7 @@ export const INTEGRATION_PROVIDERS = [
   "youtube",
   "linkedin",
   "x",
+  "amazon_seller",
 ] as const;
 
 export type IntegrationProviderId = (typeof INTEGRATION_PROVIDERS)[number];
@@ -50,7 +51,7 @@ export const SAFE_PERMISSIONS: IntegrationPermissionFlags = {
 export type IntegrationCatalogEntry = {
   readonly provider: IntegrationProviderId;
   readonly label: string;
-  readonly category: "email" | "social";
+  readonly category: "email" | "social" | "commerce";
   readonly implementationStatus: ProviderImplementationStatus;
   readonly capabilities: readonly IntegrationCapability[];
   readonly oauthNote: string;
@@ -122,6 +123,15 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     implementationStatus: "not_implemented",
     capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
     oauthNote: "Official X OAuth is not implemented yet.",
+  },
+  {
+    provider: "amazon_seller",
+    label: "Amazon Seller",
+    category: "commerce",
+    implementationStatus: "oauth_ready",
+    capabilities: ["read", "analytics"],
+    oauthNote:
+      "Uses official Amazon Selling Partner API (Login with Amazon). Seller authorization, marketplace discovery, listings, inventory, non-PII orders, pricing, and sales metrics are read-only. Price/inventory/listing writes, order changes, refunds, reports, and Amazon Ads are not implemented.",
   },
 ];
 

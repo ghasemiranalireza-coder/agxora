@@ -23,7 +23,10 @@ function redactValue(value: unknown): unknown {
     );
     return Object.fromEntries(entries);
   }
-  if (typeof value === "string" && /^(sk-|ya29\.|xox|ghp_|Bearer )/i.test(value)) {
+  if (
+    typeof value === "string" &&
+    /^(sk-|ya29\.|xox|ghp_|Bearer |Atza\||Atzr\|)/i.test(value)
+  ) {
     return "[redacted]";
   }
   return value;

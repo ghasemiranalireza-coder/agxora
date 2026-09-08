@@ -7,7 +7,7 @@ import { useT } from "@/app/lib/i18n";
 type IntegrationSummary = {
   readonly provider: string;
   readonly label: string;
-  readonly category: "email" | "social";
+  readonly category: "email" | "social" | "commerce";
   readonly implementationStatus: "oauth_ready" | "not_implemented";
   readonly oauthNote: string;
   readonly connected: boolean;
@@ -46,12 +46,20 @@ export function ConnectedAccounts(): JSX.Element {
     if (typeof window === "undefined") return null;
     return new URLSearchParams(window.location.search).get("gmail");
   });
+  const [amazonQuery] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null;
+    return new URLSearchParams(window.location.search).get("amazon");
+  });
   const callbackNotice =
     gmailQuery === "denied"
       ? t("businessAgent.gmailDenied")
       : gmailQuery === "error"
         ? t("businessAgent.gmailError")
-        : null;
+        : amazonQuery === "denied"
+          ? t("businessAgent.amazonDenied")
+          : amazonQuery === "error"
+            ? t("businessAgent.amazonError")
+            : null;
 
   const reload = useCallback(async () => {
     const [list, policyRes] = await Promise.all([
@@ -82,7 +90,9 @@ export function ConnectedAccounts(): JSX.Element {
     try {
       const result = await api<{ authorizationUrl?: string }>(
         `/api/v1/integrations/${provider}/connect`,
-        { method: "POST", body: JSON.stringify({ redirectPath: "/dashboard/integrations" }) },
+        { method: "POST", body: JSON.stringify({
+          redirectPath: provider === "amazon_seller" ? "/dashboard/amazon" : "/dashboard/integrations",
+        }) },
       );
       if (result.authorizationUrl) {
         window.location.assign(result.authorizationUrl);
