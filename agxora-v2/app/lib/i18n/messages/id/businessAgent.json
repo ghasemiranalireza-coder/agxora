@@ -63,5 +63,23 @@
   "approvePlan": "Approve plan",
   "rejectPlan": "Reject plan",
   "noRuns": "No agent runs yet.",
-  "approveFailed": "Could not update the agent run."
+  "approveFailed": "Could not update the agent run.",
+  "goalPlaceholder": "What would you like AGXORA to do?",
+  "statusAvailable": "Available",
+  "statusRequiresAuthorization": "Requires authorization",
+  "statusRequiresPermission": "Requires permission",
+  "statusUnsupported": "Unsupported",
+  "statusPremium": "Premium",
+  "connectUnavailable": "Not available yet",
+  "exampleSummarize": "Summarize my latest customer emails",
+  "exampleYoutube": "Create a YouTube campaign",
+  "exampleLinkedin": "Prepare a LinkedIn post",
+  "exampleAnalyze": "Analyze my business",
+  "runStatus": {
+    "waiting": "Waiting for approval",
+    "running": "In progress",
+    "completed": "Completed",
+    "failed": "Could not complete",
+    "rejected": "Rejected"
+  }
 }

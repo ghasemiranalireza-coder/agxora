@@ -6,7 +6,8 @@
     "type": "Jenis",
     "company": "Perusahaan",
     "locale": "Lokal",
-    "goals": "Sasaran"
+    "goals": "Sasaran",
+    "meet": "Meet AGXORA"
   },
   "companyName": "Nama perusahaan",
   "companyPlaceholder": "Grup Perhotelan Acme",
@@ -154,5 +155,17 @@
       "label": "Nirlaba",
       "description": "Misi, donatur, program, dan dampak"
     }
+  },
+  "meet": {
+    "title": "Meet AGXORA AI",
+    "lead": "AGXORA is the heart of your business operating system. You describe a goal. AGXORA plans the work and asks for approval before it sends or publishes anything.",
+    "flowAsk": "You ask for a business goal.",
+    "flowUnderstand": "AGXORA understands the goal.",
+    "flowCheck": "AGXORA checks which capabilities are available.",
+    "flowPlan": "AGXORA prepares a plan.",
+    "flowApprove": "AGXORA asks for your approval when required.",
+    "flowExecute": "After approval, AGXORA executes through official connections.",
+    "flowConfirm": "AGXORA confirms the result. Nothing is invented.",
+    "integrationsHint": "You can connect Gmail or YouTube later. You do not need to configure every integration now."
   }
 }

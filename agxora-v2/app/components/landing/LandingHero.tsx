@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "../../lib/i18n";
 import { LandingCta } from "./LandingCta";
 import { LANDING_ENTER } from "./motion";
+import { LANDING_GLOBE_TAGS, LANDING_HERO_CHIPS } from "./content";
 
 const AgxoraGlobe3D = dynamic(
   () => import("../AgxoraGlobe3D").then((m) => m.default),
@@ -40,7 +41,9 @@ export function LandingHero(): JSX.Element {
             {t("landing.hero.brand")}
           </p>
           <h1 id="p31-hero-headline" className="p31-hero__headline">
-            {t("landing.hero.headline")}
+            {t("landing.hero.headlineBefore")}
+            <span className="p31-hero__highlight">{t("landing.hero.headlineHighlight")}</span>
+            {t("landing.hero.headlineAfter")}
           </h1>
           <p className="p31-hero__subtitle">{t("landing.hero.subtitle")}</p>
           <div className="p31-hero__cta">
@@ -49,6 +52,11 @@ export function LandingHero(): JSX.Element {
               {t("landing.hero.ctaExplore")}
             </LandingCta>
           </div>
+          <ul className="p31-hero__chips">
+            {LANDING_HERO_CHIPS.map((key) => (
+              <li key={key}>{t(`landing.hero.chips.${key}`)}</li>
+            ))}
+          </ul>
         </motion.div>
 
         <motion.div
@@ -62,13 +70,23 @@ export function LandingHero(): JSX.Element {
           <div className="p31-globe">
             <div className="p31-globe__glow" aria-hidden="true" />
             <div className="p31-globe__ring" aria-hidden="true" />
+            <div className="p31-globe__ring p31-globe__ring--outer" aria-hidden="true" />
             <div className="p31-globe__reflection" aria-hidden="true" />
             <div className="p31-globe__stage">
               <AgxoraGlobe3D variant="hero" />
             </div>
+            <ul className="p31-globe__tags">
+              {LANDING_GLOBE_TAGS.map((tag) => (
+                <li key={tag} className={`p31-globe-tag p31-globe-tag--${tag}`}>
+                  <span className="p31-globe-tag__dot" aria-hidden="true" />
+                  {t(`landing.hero.tags.${tag}`)}
+                </li>
+              ))}
+            </ul>
           </div>
         </motion.div>
       </div>
+      <p className="p31-hero__scroll">{t("landing.hero.scrollHint")}</p>
     </section>
   );
 }

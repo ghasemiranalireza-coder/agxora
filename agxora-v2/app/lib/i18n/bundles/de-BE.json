@@ -60,6 +60,7 @@
     "documents": "Unterlagen",
     "team": "Team",
     "settings": "Einstellungen",
+    "productTagline": "KI Business OS",
     "toggleNavigation": "Navigation umschalten",
     "primary": "Primär",
     "menu": "Menü",
@@ -813,7 +814,13 @@
       "ctaGetStarted": "Erste Schritte",
       "ctaViewActivity": "Aktivität anzeigen",
       "openQuickActionsAria": "Schnellaktionen öffnen",
+      "openCommandCenterAria": "AGXORA fragen, was Sie heute tun möchten",
       "viewActivityAria": "Aktuelle Aktivitäten anzeigen"
+    },
+    "command": {
+      "eyebrow": "KI-Kommandozentrale",
+      "askToday": "Was möchten Sie heute tun?",
+      "lead": "Beschreiben Sie ein Geschäftsziel. AGXORA versteht es, prüft verfügbare Fähigkeiten, erstellt einen Plan und wartet auf Ihre Freigabe, bevor etwas gesendet oder veröffentlicht wird."
     },
     "quickActions": {
       "title": "Schnelle Aktionen",
@@ -2680,10 +2687,25 @@
     "hero": {
       "brand": "AGXORA",
       "headline": "Das intelligente Business-Betriebssystem.",
+      "headlineBefore": "Das intelligente ",
+      "headlineHighlight": "Business",
+      "headlineAfter": " Operating System.",
       "subtitle": "Verbinden Sie Kunden, Finanzen, Dokumente und KI in einer ruhigen Kommandozentrale – entwickelt für Gründer und Betreiber, die Klarheit und keinen weiteren Tool-Stack benötigen.",
       "ctaStart": "Kostenlos starten",
       "ctaExplore": "Sehen Sie, wie es funktioniert",
-      "globeAria": "Visualisierung globaler Intelligenz"
+      "globeAria": "Visualisierung globaler Intelligenz",
+      "scrollHint": "Scrollen, um mehr zu entdecken",
+      "chips": {
+        "ai": "KI-gestützt",
+        "secure": "Sicher & DSGVO-konform",
+        "unified": "Alles an einem Ort"
+      },
+      "tags": {
+        "customers": "Kunden",
+        "growth": "Wachstum",
+        "automation": "Automatisierung",
+        "success": "Erfolg"
+      }
     },
     "trust": {
       "ariaLabel": "Warum AGXORA",
@@ -6039,7 +6061,8 @@
       "type": "Typ",
       "company": "Unternehmen",
       "locale": "Locale (auch: Gebietsschema)",
-      "goals": "Ziele"
+      "goals": "Ziele",
+      "meet": "AGXORA kennenlernen"
     },
     "companyName": "Firmenname",
     "companyPlaceholder": "Acme Hospitality Group",
@@ -6055,6 +6078,18 @@
       "delightCustomers": "Kunden begeistern!",
       "reduceCosts": "Senken Sie die Kosten",
       "scaleWithAi": "Mit KI skalieren"
+    },
+    "meet": {
+      "title": "Lernen Sie AGXORA AI kennen",
+      "lead": "AGXORA ist das Herz Ihres Business Operating Systems. Sie beschreiben ein Ziel. AGXORA plant die Arbeit und fragt nach Freigabe, bevor etwas gesendet oder veröffentlicht wird.",
+      "flowAsk": "Sie nennen ein Geschäftsziel.",
+      "flowUnderstand": "AGXORA versteht das Ziel.",
+      "flowCheck": "AGXORA prüft, welche Fähigkeiten verfügbar sind.",
+      "flowPlan": "AGXORA erstellt einen Plan.",
+      "flowApprove": "AGXORA fragt bei Bedarf nach Ihrer Freigabe.",
+      "flowExecute": "Nach der Freigabe führt AGXORA über offizielle Verbindungen aus.",
+      "flowConfirm": "AGXORA bestätigt das Ergebnis. Es wird nichts erfunden.",
+      "integrationsHint": "Gmail oder YouTube können Sie später verbinden. Sie müssen nicht jetzt jede Integration einrichten."
     },
     "failed": "Onboarding fehlgeschlagen",
     "back": "Zurück",
@@ -6832,6 +6867,7 @@
     "commandCenter": "AI command center",
     "commandCenterLead": "Describe a business goal. AGXORA will create a plan that waits for approval. It will not publish or send until you authorize it.",
     "goal": "Goal",
+    "goalPlaceholder": "Was soll AGXORA tun?",
     "createPlan": "Create plan",
     "runFailed": "Could not create the agent run.",
     "accountEmail": "Account",
@@ -6861,6 +6897,23 @@
     "rejectPublish": "Reject publish",
     "publishApproved": "Publish approved video",
     "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-    "providerUnavailable": "This provider is not implemented yet."
+    "providerUnavailable": "This provider is not implemented yet.",
+    "statusAvailable": "Verfügbar",
+    "statusRequiresAuthorization": "Autorisierung erforderlich",
+    "statusRequiresPermission": "Berechtigung erforderlich",
+    "statusUnsupported": "Nicht unterstützt",
+    "statusPremium": "Premium",
+    "connectUnavailable": "Noch nicht verfügbar",
+    "exampleSummarize": "Letzte Kunden-E-Mails zusammenfassen",
+    "exampleYoutube": "YouTube-Kampagne erstellen",
+    "exampleLinkedin": "LinkedIn-Beitrag vorbereiten",
+    "exampleAnalyze": "Geschäft analysieren",
+    "runStatus": {
+      "waiting": "Wartet auf Freigabe",
+      "running": "In Bearbeitung",
+      "completed": "Abgeschlossen",
+      "failed": "Konnte nicht abgeschlossen werden",
+      "rejected": "Abgelehnt"
+    }
   }
 }

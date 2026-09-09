@@ -10,6 +10,7 @@ import { useRecentActivity } from "../../lib/backend/hooks";
 import { ActivityFeed } from "./ActivityFeed";
 import { AttentionPanel, type AttentionItem } from "./AttentionPanel";
 import { BusinessOverview } from "./BusinessOverview";
+import { CommandCenter } from "./CommandCenter";
 import { HeroSection } from "./HeroSection";
 import { QuickActions } from "./QuickActions";
 import "./dashboard.css";
@@ -109,9 +110,10 @@ export function DashboardHome(): JSX.Element {
   return (
     <div className="agx-dashboard-home">
       <HeroSection />
+      <CommandCenter />
+      <BusinessOverview />
       <AttentionPanel items={attention} summary={summary} />
       <QuickActions />
-      <BusinessOverview />
       <div className="agx-bottom-grid" style={{ display: "grid", gap: "22px" }}>
         <ActivityFeed items={activity} />
         <ChatPanel />

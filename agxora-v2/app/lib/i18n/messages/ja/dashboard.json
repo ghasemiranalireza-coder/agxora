@@ -9,7 +9,8 @@
     "ctaGetStarted": "始めましょう",
     "ctaViewActivity": "アクティビティの表示",
     "openQuickActionsAria": "クイックアクションを開く",
-    "viewActivityAria": "最近のアクティビティを表示する"
+    "viewActivityAria": "最近のアクティビティを表示する",
+    "openCommandCenterAria": "Ask AGXORA what to do today"
   },
   "quickActions": {
     "title": "クイックアクション",
@@ -386,5 +387,10 @@
     },
     "esc": "Esc"
   },
-  "summary": "{name}: {customers} 人の顧客 · {projects} プロジェクト · {updates} 件の本日の更新。"
+  "summary": "{name}: {customers} 人の顧客 · {projects} プロジェクト · {updates} 件の本日の更新。",
+  "command": {
+    "eyebrow": "AI Command Center",
+    "askToday": "What would you like to do today?",
+    "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
+  }
 }

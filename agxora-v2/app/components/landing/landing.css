@@ -1,12 +1,13 @@
 /* Phase 32 — Executive landing refinement (.p31). Hierarchy + restraint. */
 
 .p31 {
-  --p31-bg: #05070c;
-  --p31-ink: #f7f9fc;
-  --p31-muted: rgba(176, 188, 204, 0.68);
-  --p31-line: rgba(148, 163, 184, 0.11);
-  --p31-accent: #7dd3fc;
-  --p31-blue: #1d4ed8;
+  --p31-bg: #0c1424;
+  --p31-ink: #f4f8fb;
+  --p31-muted: rgba(196, 208, 222, 0.72);
+  --p31-line: rgba(148, 163, 184, 0.14);
+  --p31-accent: #22d3ee;
+  --p31-gold: #c9a66b;
+  --p31-blue: #4ea6f5;
   --p31-radius: 16px;
   --p31-radius-lg: 24px;
   --p31-space: 8px;
@@ -73,10 +74,24 @@
 .p31-wordmark {
   font-family: var(--p31-display);
   font-weight: 700;
-  letter-spacing: 0.28em;
-  text-indent: 0.28em;
+  letter-spacing: 0.22em;
+  text-indent: 0;
   font-size: 12px;
+  color: #f4f8fb;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   transition: opacity var(--p31-motion-micro) var(--p31-ease);
+}
+
+.p31-mark {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  background:
+    linear-gradient(135deg, var(--p31-gold) 48%, transparent 48%),
+    linear-gradient(315deg, var(--p31-accent) 48%, transparent 48%);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -140,20 +155,20 @@
 }
 
 .p31-btn--primary {
-  color: #041018;
-  background: linear-gradient(180deg, #f0f9ff 0%, #7dd3fc 48%, #38bdf8 100%);
+  color: #1a140c;
+  background: linear-gradient(180deg, #e8d5a8 0%, var(--p31-gold) 52%, #a9844a 100%);
   box-shadow:
-    0 12px 32px rgba(56, 189, 248, 0.28),
-    0 0 0 1px rgba(125, 211, 252, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    0 12px 32px rgba(201, 166, 107, 0.28),
+    0 0 0 1px rgba(232, 213, 168, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .p31-btn--primary:hover:not(.is-loading) {
     filter: brightness(1.04);
     box-shadow:
-      0 14px 36px rgba(56, 189, 248, 0.34),
-      0 0 0 1px rgba(125, 211, 252, 0.35),
+      0 14px 36px rgba(201, 166, 107, 0.36),
+      0 0 0 1px rgba(232, 213, 168, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.55);
   }
 
@@ -217,11 +232,11 @@
 }
 
 .p31-header.is-scrolled {
-  background: rgba(5, 7, 12, 0.86);
-  border-bottom-color: rgba(148, 163, 184, 0.12);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.28);
+  background: rgba(12, 20, 36, 0.82);
+  border-bottom-color: rgba(148, 163, 184, 0.14);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.22);
 }
 
 .p31-nav {
@@ -394,14 +409,14 @@
   background:
     radial-gradient(ellipse 52% 46% at 76% 44%, rgba(30, 64, 175, 0.14), transparent 68%),
     radial-gradient(ellipse 34% 26% at 16% 20%, rgba(125, 211, 252, 0.06), transparent 60%),
-    linear-gradient(180deg, #05070c 0%, #070b13 52%, #05070c 100%);
+    linear-gradient(180deg, #10182a 0%, #0c1424 52%, #0a1220 100%);
 }
 
 html[dir="rtl"] .p31-hero__wash {
   background:
     radial-gradient(ellipse 52% 46% at 24% 44%, rgba(30, 64, 175, 0.14), transparent 68%),
     radial-gradient(ellipse 34% 26% at 84% 20%, rgba(125, 211, 252, 0.06), transparent 60%),
-    linear-gradient(180deg, #05070c 0%, #070b13 52%, #05070c 100%);
+    linear-gradient(180deg, #10182a 0%, #0c1424 52%, #0a1220 100%);
 }
 
 .p31-hero__beam {
@@ -439,7 +454,7 @@ html[dir="rtl"] .p31-hero__wash {
   font-weight: 700;
   letter-spacing: 0.3em;
   text-indent: 0.3em;
-  color: var(--p31-accent);
+  color: var(--p31-gold);
 }
 
 html[dir="rtl"] .p31-hero__brandmark,
@@ -450,13 +465,21 @@ html[dir="rtl"] .p31-wordmark {
 
 .p31-hero__headline {
   margin: 0 0 20px;
-  max-width: 14ch;
+  max-width: 16ch;
   font-family: var(--p31-display);
   font-size: clamp(40px, 5.4vw, 64px);
   font-weight: 700;
   letter-spacing: -0.042em;
   line-height: 1.05;
   color: var(--p31-ink);
+  text-shadow: 0 0 42px rgba(244, 248, 251, 0.12);
+}
+
+.p31-hero__highlight {
+  background: linear-gradient(180deg, #e8d5a8 0%, var(--p31-gold) 55%, #a9844a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 html[dir="rtl"] .p31-hero__headline {
@@ -479,6 +502,44 @@ html[dir="rtl"] .p31-hero__headline {
   flex-wrap: wrap;
   align-items: center;
   gap: 14px;
+}
+
+.p31-hero__chips {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.p31-hero__chips li {
+  position: relative;
+  padding-inline-start: 16px;
+  font-size: 13px;
+  color: var(--p31-muted);
+}
+
+.p31-hero__chips li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.45em;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--p31-accent);
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.45);
+}
+
+.p31-hero__scroll {
+  position: relative;
+  z-index: 2;
+  margin: 28px auto 0;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--p31-muted);
 }
 
 /* Globe — signature object, controlled depth */
@@ -527,6 +588,65 @@ html[dir="rtl"] .p31-hero__globe {
     inset 0 0 80px rgba(37, 99, 235, 0.08),
     0 0 40px rgba(125, 211, 252, 0.04);
   pointer-events: none;
+}
+
+.p31-globe__ring--outer {
+  inset: -6%;
+  border-color: rgba(34, 211, 238, 0.16);
+  transform: rotate(-18deg);
+  box-shadow: none;
+}
+
+.p31-globe__tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.p31-globe-tag {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(12, 20, 36, 0.55);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  color: #f4f8fb;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.p31-globe-tag__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--p31-accent);
+  box-shadow: 0 0 8px rgba(34, 211, 238, 0.55);
+}
+
+.p31-globe-tag--customers {
+  top: 10%;
+  inset-inline-start: -6%;
+}
+
+.p31-globe-tag--growth {
+  top: 6%;
+  inset-inline-end: 2%;
+}
+
+.p31-globe-tag--automation {
+  bottom: 22%;
+  inset-inline-start: -10%;
+}
+
+.p31-globe-tag--success {
+  bottom: 16%;
+  inset-inline-end: 0;
 }
 
 .p31-globe__reflection {
@@ -605,9 +725,8 @@ html[dir="rtl"] .p31-hero__globe {
 
 /* Trust — conversion signals (no invented logos) */
 .p31-trust {
-  padding: clamp(64px, 10vh, 96px) 0;
-  border-top: 1px solid rgba(148, 163, 184, 0.07);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.07);
+  padding: 0 0 clamp(56px, 8vh, 88px);
+  border: none;
 }
 
 .p31-trust__eyebrow {
@@ -626,23 +745,31 @@ html[dir="rtl"] .p31-hero__globe {
   padding: 0;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--p31-line);
-  border: 1px solid var(--p31-line);
-  border-radius: var(--p31-radius-lg);
+  gap: 0;
+  background: rgba(12, 22, 40, 0.48);
+  border: 1px solid rgba(34, 211, 238, 0.18);
+  border-radius: 20px;
   overflow: hidden;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
 }
 
 .p31-trust__signals li {
   padding: 28px 22px;
-  background: #080b12;
-  text-align: center;
+  background: transparent;
+  text-align: start;
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.08);
   transition: background var(--p31-motion-standard) var(--p31-ease);
+}
+
+.p31-trust__signals li:last-child {
+  border-inline-end: 0;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .p31-trust__signals li:hover {
-    background: #0a0e16;
+    background: rgba(255, 255, 255, 0.03);
   }
 }
 
@@ -650,9 +777,9 @@ html[dir="rtl"] .p31-hero__globe {
   display: block;
   margin-bottom: 8px;
   font-family: var(--p31-display);
-  font-size: 15px;
-  font-weight: 650;
-  letter-spacing: -0.01em;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--p31-ink);
 }
 
@@ -1089,6 +1216,10 @@ html[dir="rtl"] .p31-hero__globe {
     justify-self: center;
     opacity: 0.9;
     transform: none;
+  }
+
+  .p31-globe__tags {
+    display: none;
   }
 
   html[dir="rtl"] .p31-hero__globe {

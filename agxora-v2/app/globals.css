@@ -193,7 +193,7 @@ select {
   }
 
   .agx-nav-item.is-active:hover {
-    background: var(--agx-nav-active-bg, rgba(34, 211, 238, 0.12)) !important;
+    background: color-mix(in srgb, var(--agx-ds-gold, #c9a66b) 18%, transparent) !important;
     transform: translateX(0);
   }
 
@@ -231,6 +231,27 @@ select {
 
 .agx-theme-option:active {
   transform: scale(0.98) !important;
+}
+
+.agx-sidebar-brand {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  margin: 2px 0 32px;
+}
+
+.agx-sidebar-wordmark {
+  color: var(--agx-ds-gold, #c9a66b);
+  letter-spacing: 0.28em;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.agx-sidebar-tagline {
+  color: var(--agx-text-muted, #94a3b8);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .agx-sidebar-toggle:focus-visible {

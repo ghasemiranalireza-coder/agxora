@@ -63,5 +63,23 @@
   "approvePlan": "Plan freigeben",
   "rejectPlan": "Plan ablehnen",
   "noRuns": "Noch keine Agentenläufe.",
-  "approveFailed": "Der Agentenlauf konnte nicht aktualisiert werden."
+  "approveFailed": "Der Agentenlauf konnte nicht aktualisiert werden.",
+  "goalPlaceholder": "Was soll AGXORA tun?",
+  "statusAvailable": "Verfügbar",
+  "statusRequiresAuthorization": "Autorisierung erforderlich",
+  "statusRequiresPermission": "Berechtigung erforderlich",
+  "statusUnsupported": "Nicht unterstützt",
+  "statusPremium": "Premium",
+  "connectUnavailable": "Noch nicht verfügbar",
+  "exampleSummarize": "Letzte Kunden-E-Mails zusammenfassen",
+  "exampleYoutube": "YouTube-Kampagne erstellen",
+  "exampleLinkedin": "LinkedIn-Beitrag vorbereiten",
+  "exampleAnalyze": "Geschäft analysieren",
+  "runStatus": {
+    "waiting": "Wartet auf Freigabe",
+    "running": "In Bearbeitung",
+    "completed": "Abgeschlossen",
+    "failed": "Konnte nicht abgeschlossen werden",
+    "rejected": "Abgelehnt"
+  }
 }

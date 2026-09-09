@@ -34,6 +34,7 @@
   "commandCenter": "AI command center",
   "commandCenterLead": "Describe a business goal. AGXORA will create a plan that waits for approval. It will not publish or send until you authorize it.",
   "goal": "Goal",
+  "goalPlaceholder": "What would you like AGXORA to do?",
   "createPlan": "Create plan",
   "runFailed": "Could not create the agent run.",
   "accountEmail": "Account",
@@ -63,5 +64,22 @@
   "rejectPublish": "Reject publish",
   "publishApproved": "Publish approved video",
   "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-  "providerUnavailable": "This provider is not implemented yet."
+  "providerUnavailable": "This provider is not implemented yet.",
+  "statusAvailable": "Available",
+  "statusRequiresAuthorization": "Requires authorization",
+  "statusRequiresPermission": "Requires permission",
+  "statusUnsupported": "Unsupported",
+  "statusPremium": "Premium",
+  "connectUnavailable": "Not available yet",
+  "exampleSummarize": "Summarize my latest customer emails",
+  "exampleYoutube": "Create a YouTube campaign",
+  "exampleLinkedin": "Prepare a LinkedIn post",
+  "exampleAnalyze": "Analyze my business",
+  "runStatus": {
+    "waiting": "Waiting for approval",
+    "running": "In progress",
+    "completed": "Completed",
+    "failed": "Could not complete",
+    "rejected": "Rejected"
+  }
 }

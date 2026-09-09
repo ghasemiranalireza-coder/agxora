@@ -60,6 +60,7 @@
     "documents": "Documents",
     "team": "Team",
     "settings": "Settings",
+    "productTagline": "AI Business OS",
     "toggleNavigation": "Toggle navigation",
     "primary": "Primary",
     "menu": "Menu",
@@ -810,10 +811,16 @@
       "eyebrow": "AI Business Operating System",
       "title": "AGXORA CORE",
       "subtitle": "Real-time intelligence and operational control — your workspace command surface.",
-      "ctaGetStarted": "Get started",
+      "ctaGetStarted": "Ask AGXORA",
       "ctaViewActivity": "View activity",
       "openQuickActionsAria": "Open quick actions",
+      "openCommandCenterAria": "Ask AGXORA what to do today",
       "viewActivityAria": "View recent activity"
+    },
+    "command": {
+      "eyebrow": "AI Command Center",
+      "askToday": "What would you like to do today?",
+      "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
     },
     "quickActions": {
       "title": "Quick actions",
@@ -2680,30 +2687,45 @@
     "hero": {
       "brand": "AGXORA",
       "headline": "The intelligent business operating system.",
+      "headlineBefore": "The intelligent ",
+      "headlineHighlight": "business",
+      "headlineAfter": " operating system.",
       "subtitle": "Connect customers, finance, documents, and AI in one calm command center — built for founders and operators who need clarity, not another tool stack.",
       "ctaStart": "Start Free",
       "ctaExplore": "See how it works",
-      "globeAria": "Global intelligence visualization"
+      "globeAria": "Global intelligence visualization",
+      "scrollHint": "Scroll to discover more",
+      "chips": {
+        "ai": "AI-assisted",
+        "secure": "Secure & GDPR-ready",
+        "unified": "Everything in one place"
+      },
+      "tags": {
+        "customers": "Customers",
+        "growth": "Growth",
+        "automation": "Automation",
+        "success": "Success"
+      }
     },
     "trust": {
       "ariaLabel": "Why AGXORA",
       "eyebrow": "Built as one system",
       "signals": {
         "unified": {
-          "title": "Unified workspace",
+          "title": "One workspace",
           "detail": "CRM, finance, and documents together"
         },
         "intelligence": {
-          "title": "Governed AI",
-          "detail": "Assistance inside your real workflows"
+          "title": "More efficiency",
+          "detail": "Through governed AI automation"
         },
         "clarity": {
-          "title": "Operator clarity",
-          "detail": "Less switching. Faster decisions."
+          "title": "Less effort",
+          "detail": "More time for the work that matters"
         },
         "path": {
-          "title": "Clear path to scale",
-          "detail": "Start free. Grow when ready."
+          "title": "Ready worldwide",
+          "detail": "Built for every industry"
         }
       }
     },
@@ -6039,7 +6061,8 @@
       "type": "Type",
       "company": "Company",
       "locale": "Locale",
-      "goals": "Goals"
+      "goals": "Goals",
+      "meet": "Meet AGXORA"
     },
     "companyName": "Company name",
     "companyPlaceholder": "Acme Hospitality Group",
@@ -6055,6 +6078,18 @@
       "delightCustomers": "Delight customers",
       "reduceCosts": "Reduce costs",
       "scaleWithAi": "Scale with AI"
+    },
+    "meet": {
+      "title": "Meet AGXORA AI",
+      "lead": "AGXORA is the heart of your business operating system. You describe a goal. AGXORA plans the work and asks for approval before it sends or publishes anything.",
+      "flowAsk": "You ask for a business goal.",
+      "flowUnderstand": "AGXORA understands the goal.",
+      "flowCheck": "AGXORA checks which capabilities are available.",
+      "flowPlan": "AGXORA prepares a plan.",
+      "flowApprove": "AGXORA asks for your approval when required.",
+      "flowExecute": "After approval, AGXORA executes through official connections.",
+      "flowConfirm": "AGXORA confirms the result. Nothing is invented.",
+      "integrationsHint": "You can connect Gmail or YouTube later. You do not need to configure every integration now."
     },
     "failed": "Onboarding failed",
     "back": "Back",
@@ -6832,6 +6867,7 @@
     "commandCenter": "AI command center",
     "commandCenterLead": "Describe a business goal. AGXORA will create a plan that waits for approval. It will not publish or send until you authorize it.",
     "goal": "Goal",
+    "goalPlaceholder": "What would you like AGXORA to do?",
     "createPlan": "Create plan",
     "runFailed": "Could not create the agent run.",
     "accountEmail": "Account",
@@ -6861,6 +6897,23 @@
     "rejectPublish": "Reject publish",
     "publishApproved": "Publish approved video",
     "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-    "providerUnavailable": "This provider is not implemented yet."
+    "providerUnavailable": "This provider is not implemented yet.",
+    "statusAvailable": "Available",
+    "statusRequiresAuthorization": "Requires authorization",
+    "statusRequiresPermission": "Requires permission",
+    "statusUnsupported": "Unsupported",
+    "statusPremium": "Premium",
+    "connectUnavailable": "Not available yet",
+    "exampleSummarize": "Summarize my latest customer emails",
+    "exampleYoutube": "Create a YouTube campaign",
+    "exampleLinkedin": "Prepare a LinkedIn post",
+    "exampleAnalyze": "Analyze my business",
+    "runStatus": {
+      "waiting": "Waiting for approval",
+      "running": "In progress",
+      "completed": "Completed",
+      "failed": "Could not complete",
+      "rejected": "Rejected"
+    }
   }
 }

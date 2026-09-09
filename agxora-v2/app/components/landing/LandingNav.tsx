@@ -72,6 +72,7 @@ export function LandingNav(): JSX.Element {
     <header className={`p31-header${scrolled ? " is-scrolled" : ""}${open ? " is-open" : ""}`}>
       <nav className="p31-nav" aria-label={t("landing.nav.ariaPrimary")}>
         <Link href="/" className="p31-wordmark" onClick={close}>
+          <span className="p31-mark" aria-hidden="true" />
           AGXORA
         </Link>
 

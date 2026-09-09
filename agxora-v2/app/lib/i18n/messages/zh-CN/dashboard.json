@@ -9,7 +9,8 @@
     "ctaGetStarted": "开始使用",
     "ctaViewActivity": "查看活动",
     "openQuickActionsAria": "快捷操作",
-    "viewActivityAria": "查看最近的活动"
+    "viewActivityAria": "查看最近的活动",
+    "openCommandCenterAria": "Ask AGXORA what to do today"
   },
   "quickActions": {
     "title": "快捷操作",
@@ -386,5 +387,10 @@
     },
     "esc": "Esc"
   },
-  "summary": "{name}：{customers} 客户 · {projects} 项目 · {updates} 今天更新。"
+  "summary": "{name}：{customers} 客户 · {projects} 项目 · {updates} 今天更新。",
+  "command": {
+    "eyebrow": "AI Command Center",
+    "askToday": "What would you like to do today?",
+    "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
+  }
 }

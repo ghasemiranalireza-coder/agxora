@@ -60,6 +60,7 @@
     "documents": "文件",
     "team": "團隊",
     "settings": "設定",
+    "productTagline": "AI Business OS",
     "toggleNavigation": "切換導航",
     "primary": "基本的",
     "menu": "選單",
@@ -813,7 +814,13 @@
       "ctaGetStarted": "開始使用",
       "ctaViewActivity": "檢視活動",
       "openQuickActionsAria": "開啟快速操作",
+      "openCommandCenterAria": "Ask AGXORA what to do today",
       "viewActivityAria": "查看最近的活動"
+    },
+    "command": {
+      "eyebrow": "AI Command Center",
+      "askToday": "What would you like to do today?",
+      "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
     },
     "quickActions": {
       "title": "快速行動",
@@ -2680,10 +2687,25 @@
     "hero": {
       "brand": "愛格索拉",
       "headline": "智慧業務作業系統。",
+      "headlineBefore": "The intelligent ",
+      "headlineHighlight": "business",
+      "headlineAfter": " operating system.",
       "subtitle": "在一個平靜的指揮中心連接客戶、財務、文件和人工智慧——專為需要清晰度而不是另一個工具堆疊的創始人和運營商而構建。",
       "ctaStart": "免費開始",
       "ctaExplore": "看看它是如何工作的",
-      "globeAria": "全球情報視覺化"
+      "globeAria": "全球情報視覺化",
+      "scrollHint": "Scroll to discover more",
+      "chips": {
+        "ai": "AI-assisted",
+        "secure": "Secure & GDPR-ready",
+        "unified": "Everything in one place"
+      },
+      "tags": {
+        "customers": "Customers",
+        "growth": "Growth",
+        "automation": "Automation",
+        "success": "Success"
+      }
     },
     "trust": {
       "ariaLabel": "為什麼選擇 AGXORA",
@@ -6039,7 +6061,8 @@
       "type": "類型",
       "company": "公司",
       "locale": "語言環境",
-      "goals": "目标"
+      "goals": "目标",
+      "meet": "Meet AGXORA"
     },
     "companyName": "公司名稱",
     "companyPlaceholder": "艾克美酒店集團",
@@ -6055,6 +6078,18 @@
       "delightCustomers": "讓顧客滿意",
       "reduceCosts": "降低成本",
       "scaleWithAi": "利用人工智慧進行擴展"
+    },
+    "meet": {
+      "title": "Meet AGXORA AI",
+      "lead": "AGXORA is the heart of your business operating system. You describe a goal. AGXORA plans the work and asks for approval before it sends or publishes anything.",
+      "flowAsk": "You ask for a business goal.",
+      "flowUnderstand": "AGXORA understands the goal.",
+      "flowCheck": "AGXORA checks which capabilities are available.",
+      "flowPlan": "AGXORA prepares a plan.",
+      "flowApprove": "AGXORA asks for your approval when required.",
+      "flowExecute": "After approval, AGXORA executes through official connections.",
+      "flowConfirm": "AGXORA confirms the result. Nothing is invented.",
+      "integrationsHint": "You can connect Gmail or YouTube later. You do not need to configure every integration now."
     },
     "failed": "入職失敗",
     "back": "後退",
@@ -6832,6 +6867,7 @@
     "commandCenter": "AI command center",
     "commandCenterLead": "Describe a business goal. AGXORA will create a plan that waits for approval. It will not publish or send until you authorize it.",
     "goal": "Goal",
+    "goalPlaceholder": "What would you like AGXORA to do?",
     "createPlan": "Create plan",
     "runFailed": "Could not create the agent run.",
     "accountEmail": "Account",
@@ -6861,6 +6897,23 @@
     "rejectPublish": "Reject publish",
     "publishApproved": "Publish approved video",
     "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-    "providerUnavailable": "This provider is not implemented yet."
+    "providerUnavailable": "This provider is not implemented yet.",
+    "statusAvailable": "Available",
+    "statusRequiresAuthorization": "Requires authorization",
+    "statusRequiresPermission": "Requires permission",
+    "statusUnsupported": "Unsupported",
+    "statusPremium": "Premium",
+    "connectUnavailable": "Not available yet",
+    "exampleSummarize": "Summarize my latest customer emails",
+    "exampleYoutube": "Create a YouTube campaign",
+    "exampleLinkedin": "Prepare a LinkedIn post",
+    "exampleAnalyze": "Analyze my business",
+    "runStatus": {
+      "waiting": "Waiting for approval",
+      "running": "In progress",
+      "completed": "Completed",
+      "failed": "Could not complete",
+      "rejected": "Rejected"
+    }
   }
 }

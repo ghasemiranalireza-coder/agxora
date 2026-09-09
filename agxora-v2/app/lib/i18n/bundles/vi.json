@@ -60,6 +60,7 @@
     "documents": "Tài liệu",
     "team": "Đội",
     "settings": "Cài đặt",
+    "productTagline": "AI Business OS",
     "toggleNavigation": "Chuyển đổi điều hướng",
     "primary": "Sơ đẳng",
     "menu": "Menu",
@@ -813,7 +814,13 @@
       "ctaGetStarted": "Bắt đầu",
       "ctaViewActivity": "Xem hoạt động",
       "openQuickActionsAria": "Mở tác vụ nhanh",
+      "openCommandCenterAria": "Ask AGXORA what to do today",
       "viewActivityAria": "Xem hoạt động gần đây"
+    },
+    "command": {
+      "eyebrow": "AI Command Center",
+      "askToday": "What would you like to do today?",
+      "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
     },
     "quickActions": {
       "title": "Hành động nhanh",
@@ -2680,10 +2687,25 @@
     "hero": {
       "brand": "AGXORA",
       "headline": "Hệ điều hành kinh doanh thông minh.",
+      "headlineBefore": "The intelligent ",
+      "headlineHighlight": "business",
+      "headlineAfter": " operating system.",
       "subtitle": "Kết nối khách hàng, tài chính, tài liệu và AI trong một trung tâm chỉ huy yên tĩnh — được xây dựng cho những người sáng lập và điều hành cần sự rõ ràng chứ không phải một nhóm công cụ khác.",
       "ctaStart": "Bắt đầu miễn phí",
       "ctaExplore": "Xem cách nó hoạt động",
-      "globeAria": "Trực quan hóa tình báo toàn cầu"
+      "globeAria": "Trực quan hóa tình báo toàn cầu",
+      "scrollHint": "Scroll to discover more",
+      "chips": {
+        "ai": "AI-assisted",
+        "secure": "Secure & GDPR-ready",
+        "unified": "Everything in one place"
+      },
+      "tags": {
+        "customers": "Customers",
+        "growth": "Growth",
+        "automation": "Automation",
+        "success": "Success"
+      }
     },
     "trust": {
       "ariaLabel": "Tại sao AGXORA",
@@ -6039,7 +6061,8 @@
       "type": "Kiểu",
       "company": "Công ty",
       "locale": "Ngôn ngữ",
-      "goals": "Bàn thắng"
+      "goals": "Bàn thắng",
+      "meet": "Meet AGXORA"
     },
     "companyName": "Tên công ty",
     "companyPlaceholder": "Tập đoàn khách sạn Acme",
@@ -6055,6 +6078,18 @@
       "delightCustomers": "Làm hài lòng khách hàng",
       "reduceCosts": "Giảm chi phí",
       "scaleWithAi": "Mở rộng quy mô bằng AI"
+    },
+    "meet": {
+      "title": "Meet AGXORA AI",
+      "lead": "AGXORA is the heart of your business operating system. You describe a goal. AGXORA plans the work and asks for approval before it sends or publishes anything.",
+      "flowAsk": "You ask for a business goal.",
+      "flowUnderstand": "AGXORA understands the goal.",
+      "flowCheck": "AGXORA checks which capabilities are available.",
+      "flowPlan": "AGXORA prepares a plan.",
+      "flowApprove": "AGXORA asks for your approval when required.",
+      "flowExecute": "After approval, AGXORA executes through official connections.",
+      "flowConfirm": "AGXORA confirms the result. Nothing is invented.",
+      "integrationsHint": "You can connect Gmail or YouTube later. You do not need to configure every integration now."
     },
     "failed": "Quá trình giới thiệu không thành công",
     "back": "Mặt sau",
@@ -6832,6 +6867,7 @@
     "commandCenter": "AI command center",
     "commandCenterLead": "Describe a business goal. AGXORA will create a plan that waits for approval. It will not publish or send until you authorize it.",
     "goal": "Goal",
+    "goalPlaceholder": "What would you like AGXORA to do?",
     "createPlan": "Create plan",
     "runFailed": "Could not create the agent run.",
     "accountEmail": "Account",
@@ -6861,6 +6897,23 @@
     "rejectPublish": "Reject publish",
     "publishApproved": "Publish approved video",
     "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-    "providerUnavailable": "This provider is not implemented yet."
+    "providerUnavailable": "This provider is not implemented yet.",
+    "statusAvailable": "Available",
+    "statusRequiresAuthorization": "Requires authorization",
+    "statusRequiresPermission": "Requires permission",
+    "statusUnsupported": "Unsupported",
+    "statusPremium": "Premium",
+    "connectUnavailable": "Not available yet",
+    "exampleSummarize": "Summarize my latest customer emails",
+    "exampleYoutube": "Create a YouTube campaign",
+    "exampleLinkedin": "Prepare a LinkedIn post",
+    "exampleAnalyze": "Analyze my business",
+    "runStatus": {
+      "waiting": "Waiting for approval",
+      "running": "In progress",
+      "completed": "Completed",
+      "failed": "Could not complete",
+      "rejected": "Rejected"
+    }
   }
 }

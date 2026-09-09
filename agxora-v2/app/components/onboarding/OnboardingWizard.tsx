@@ -22,7 +22,7 @@ const surfaceTransition = [
   `backdrop-filter ${THEME_TRANSITION_MS}ms ease`,
 ].join(", ");
 
-type Step = 0 | 1 | 2 | 3;
+type Step = 0 | 1 | 2 | 3 | 4;
 
 const GOAL_OPTIONS = [
   "Increase revenue",
@@ -40,7 +40,7 @@ const GOAL_I18N_KEYS: Record<(typeof GOAL_OPTIONS)[number], string> = {
   "Scale with AI": "scaleWithAi",
 };
 
-const STEP_KEYS = ["type", "company", "locale", "goals"] as const;
+const STEP_KEYS = ["type", "company", "locale", "goals", "meet"] as const;
 
 export function OnboardingWizard(): JSX.Element {
   const t = useT();
@@ -117,7 +117,7 @@ export function OnboardingWizard(): JSX.Element {
 
   const next = (): void => {
     if (!canContinue()) return;
-    if (step < 3) {
+    if (step < 4) {
       setStep((step + 1) as Step);
       return;
     }
@@ -418,6 +418,65 @@ export function OnboardingWizard(): JSX.Element {
           </div>
         ) : null}
 
+        {step === 4 ? (
+          <div
+            className="agx-onboarding-meet"
+            style={{
+              display: "grid",
+              gap: "14px",
+            }}
+          >
+            <h2
+              style={{
+                margin: 0,
+                fontSize: "22px",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              {t("onboarding.meet.title")}
+            </h2>
+            <p
+              style={{
+                margin: 0,
+                color: tokens.textMuted,
+                lineHeight: 1.6,
+                fontSize: "15px",
+              }}
+            >
+              {t("onboarding.meet.lead")}
+            </p>
+            <ol
+              style={{
+                margin: 0,
+                padding: "0 0 0 1.2em",
+                display: "grid",
+                gap: "8px",
+                color: tokens.text,
+                fontSize: "14px",
+                lineHeight: 1.5,
+              }}
+            >
+              <li>{t("onboarding.meet.flowAsk")}</li>
+              <li>{t("onboarding.meet.flowUnderstand")}</li>
+              <li>{t("onboarding.meet.flowCheck")}</li>
+              <li>{t("onboarding.meet.flowPlan")}</li>
+              <li>{t("onboarding.meet.flowApprove")}</li>
+              <li>{t("onboarding.meet.flowExecute")}</li>
+              <li>{t("onboarding.meet.flowConfirm")}</li>
+            </ol>
+            <p
+              style={{
+                margin: 0,
+                color: tokens.textMuted,
+                fontSize: "13px",
+                lineHeight: 1.55,
+              }}
+            >
+              {t("onboarding.meet.integrationsHint")}
+            </p>
+          </div>
+        ) : null}
+
         {error ? (
           <p
             style={{
@@ -462,7 +521,7 @@ export function OnboardingWizard(): JSX.Element {
               marginLeft: "auto",
             }}
           >
-            {step === 3
+            {step === 4
               ? submitting
                 ? t("onboarding.launching")
                 : t("onboarding.enterDashboard")

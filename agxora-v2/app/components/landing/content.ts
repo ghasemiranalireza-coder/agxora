@@ -17,6 +17,15 @@ export const LANDING_TRUST_KEYS = [
   "path",
 ] as const;
 
+export const LANDING_HERO_CHIPS = ["ai", "secure", "unified"] as const;
+
+export const LANDING_GLOBE_TAGS = [
+  "customers",
+  "growth",
+  "automation",
+  "success",
+] as const;
+
 /** Narrative bands — visual modifiers reuse existing CSS keys. */
 export const LANDING_STORY = [
   { id: "fragmented", visual: "integrations" },

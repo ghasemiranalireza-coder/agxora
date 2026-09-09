@@ -96,7 +96,7 @@
   .agx-hero-cta-primary:hover {
     filter: brightness(1.04);
     box-shadow:
-      0 14px 40px rgba(34, 211, 238, 0.32),
+      0 14px 40px rgba(201, 166, 107, 0.32),
       inset 0 1px 0 rgba(255, 255, 255, 0.38);
   }
 
@@ -126,6 +126,10 @@
   }
 }
 
+.agx-command-center {
+  scroll-margin-top: 24px;
+}
+
 @media (max-width: 640px) {
   .agx-dashboard-home {
     max-width: 100%;
@@ -135,6 +139,12 @@
   .agx-bottom-grid .agx-glass-panel {
     padding: 24px !important;
     border-radius: 24px !important;
+  }
+
+  .agx-hero-cta-row {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 

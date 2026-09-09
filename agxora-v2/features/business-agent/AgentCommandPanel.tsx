@@ -1,12 +1,14 @@
 "use client";
 
 import { useCallback, useEffect, useState, type JSX } from "react";
+import { AGCommandInput } from "@/app/components/ag/AGCommandInput";
+import { AGStatus } from "@/app/components/ag/AGStatus";
+import { Button } from "@/app/components/ui/Button";
 import { useT } from "@/app/lib/i18n";
 
 type RunResult = {
   readonly message?: string;
   readonly requiresApproval?: boolean;
-  readonly understood?: readonly string[];
   readonly phase?: string;
 };
 
@@ -24,7 +26,29 @@ function runResult(run: Run): RunResult {
   return result;
 }
 
-export function AgentCommandPanel(): JSX.Element {
+function statusKey(status: string): string {
+  switch (status) {
+    case "WAITING_APPROVAL":
+      return "waiting";
+    case "RUNNING":
+      return "running";
+    case "COMPLETED":
+      return "completed";
+    case "FAILED":
+      return "failed";
+    case "REJECTED":
+    case "CANCELLED":
+      return "rejected";
+    default:
+      return "running";
+  }
+}
+
+export function AgentCommandPanel({
+  compact = false,
+}: {
+  readonly compact?: boolean;
+}): JSX.Element {
   const t = useT();
   const [goal, setGoal] = useState("");
   const [runs, setRuns] = useState<readonly Run[]>([]);
@@ -99,58 +123,90 @@ export function AgentCommandPanel(): JSX.Element {
   }
 
   return (
-    <section style={{ marginBottom: 24 }}>
-      <h2 className="agx-ui-section-title">{t("businessAgent.commandCenter")}</h2>
-      <p className="agx-ui-section-lead">{t("businessAgent.commandCenterLead")}</p>
-      <p>{t("businessAgent.safeModeActive")}</p>
-      <p>{t("businessAgent.agentExamples")}</p>
-      <label>
-        {t("businessAgent.goal")}
-        <input
-          value={goal}
-          onChange={(event) => setGoal(event.target.value)}
-          style={{ display: "block", width: "100%", margin: "8px 0" }}
-        />
-      </label>
-      <button type="button" disabled={Boolean(busy) || !goal.trim()} onClick={() => void createRun()}>
-        {t("businessAgent.createPlan")}
-      </button>
-      {error ? <p role="alert">{error}</p> : null}
-      {runs.length === 0 ? <p>{t("businessAgent.noRuns")}</p> : null}
-      <ul>
+    <section className="agx-agent-panel" aria-label={t("businessAgent.commandCenter")}>
+      {compact ? null : (
+        <>
+          <h2 className="agx-ui-section-title">{t("businessAgent.commandCenter")}</h2>
+          <p className="agx-ui-section-lead">{t("businessAgent.commandCenterLead")}</p>
+        </>
+      )}
+      <p className="agx-agent-panel__safe">{t("businessAgent.safeModeActive")}</p>
+      <p className="agx-agent-panel__examples">{t("businessAgent.agentExamples")}</p>
+      <AGCommandInput
+        id="agx-agent-goal"
+        label={t("businessAgent.goal")}
+        value={goal}
+        onChange={setGoal}
+        placeholder={t("businessAgent.goalPlaceholder")}
+        disabled={Boolean(busy)}
+        submitLabel={t("businessAgent.createPlan")}
+        onSubmit={() => void createRun()}
+      />
+      <div className="agx-agent-panel__chips">
+        {(
+          [
+            "exampleSummarize",
+            "exampleYoutube",
+            "exampleLinkedin",
+            "exampleAnalyze",
+          ] as const
+        ).map((key) => (
+          <button
+            key={key}
+            type="button"
+            className="agx-agent-panel__chip"
+            disabled={Boolean(busy)}
+            onClick={() => setGoal(t(`businessAgent.${key}`))}
+          >
+            {t(`businessAgent.${key}`)}
+          </button>
+        ))}
+      </div>
+      {error ? (
+        <p role="alert" className="agx-agent-panel__error">
+          {error}
+        </p>
+      ) : null}
+      {runs.length === 0 ? (
+        <p className="agx-agent-panel__empty">{t("businessAgent.noRuns")}</p>
+      ) : null}
+      <ul className="agx-agent-panel__runs">
         {runs.map((run) => {
           const result = runResult(run);
+          const visual = statusKey(run.status);
           return (
-            <li key={run.id} style={{ marginBottom: 12 }}>
-              <div>
-                {run.status} · {run.goal}
+            <li key={run.id} className="agx-agent-panel__run">
+              <div className="agx-agent-panel__run-head">
+                <AGStatus status={visual}>
+                  {t(`businessAgent.runStatus.${visual}`)}
+                </AGStatus>
+                <span className="agx-agent-panel__goal">{run.goal}</span>
               </div>
-              {result.understood && result.understood.length > 0 ? (
-                <div>{result.understood.join(", ")}</div>
+              {result.message ? (
+                <p className="agx-agent-panel__message">{result.message}</p>
               ) : null}
-              {result.message ? <div>{result.message}</div> : null}
               {run.status === "WAITING_APPROVAL" || result.requiresApproval ? (
-                <div>{t("businessAgent.waitingApproval")}</div>
+                <p className="agx-agent-panel__note">{t("businessAgent.waitingApproval")}</p>
               ) : null}
               {run.status === "RUNNING" && result.phase === "PLAN_APPROVED" ? (
-                <div>{t("businessAgent.planApproved")}</div>
+                <p className="agx-agent-panel__note">{t("businessAgent.planApproved")}</p>
               ) : null}
               {run.status === "WAITING_APPROVAL" ? (
-                <div>
-                  <button
-                    type="button"
+                <div className="agx-agent-panel__actions">
+                  <Button
+                    variant="premium"
                     disabled={Boolean(busy)}
                     onClick={() => void mutateRun(run.id, "approve")}
                   >
                     {t("businessAgent.approvePlan")}
-                  </button>
-                  <button
-                    type="button"
+                  </Button>
+                  <Button
+                    variant="outline"
                     disabled={Boolean(busy)}
                     onClick={() => void mutateRun(run.id, "reject")}
                   >
                     {t("businessAgent.rejectPlan")}
-                  </button>
+                  </Button>
                 </div>
               ) : null}
             </li>

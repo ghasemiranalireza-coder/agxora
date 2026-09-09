@@ -60,6 +60,7 @@
     "documents": "서류",
     "team": "팀",
     "settings": "설정",
+    "productTagline": "AI Business OS",
     "toggleNavigation": "탐색 전환",
     "primary": "주요한",
     "menu": "메뉴",
@@ -813,7 +814,13 @@
       "ctaGetStarted": "시작하기",
       "ctaViewActivity": "활동 보기",
       "openQuickActionsAria": "빠른 작업 열기",
+      "openCommandCenterAria": "Ask AGXORA what to do today",
       "viewActivityAria": "최근 활동 보기"
+    },
+    "command": {
+      "eyebrow": "AI Command Center",
+      "askToday": "What would you like to do today?",
+      "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
     },
     "quickActions": {
       "title": "빠른 작업",
@@ -2680,10 +2687,25 @@
     "hero": {
       "brand": "악소라",
       "headline": "지능형 비즈니스 운영 체제.",
+      "headlineBefore": "The intelligent ",
+      "headlineHighlight": "business",
+      "headlineAfter": " operating system.",
       "subtitle": "다른 도구 스택이 아닌 명확성이 필요한 창립자와 운영자를 위해 구축된 차분한 하나의 명령 센터에서 고객, 재무, 문서 및 AI를 연결합니다.",
       "ctaStart": "무료로 시작하세요",
       "ctaExplore": "작동 방식 보기",
-      "globeAria": "글로벌 인텔리전스 시각화"
+      "globeAria": "글로벌 인텔리전스 시각화",
+      "scrollHint": "Scroll to discover more",
+      "chips": {
+        "ai": "AI-assisted",
+        "secure": "Secure & GDPR-ready",
+        "unified": "Everything in one place"
+      },
+      "tags": {
+        "customers": "Customers",
+        "growth": "Growth",
+        "automation": "Automation",
+        "success": "Success"
+      }
     },
     "trust": {
       "ariaLabel": "왜 AGXORA인가?",
@@ -6039,7 +6061,8 @@
       "type": "유형",
       "company": "회사",
       "locale": "장소",
-      "goals": "목표"
+      "goals": "목표",
+      "meet": "Meet AGXORA"
     },
     "companyName": "회사명",
     "companyPlaceholder": "Acme 환대 그룹",
@@ -6055,6 +6078,18 @@
       "delightCustomers": "고객 만족",
       "reduceCosts": "비용 절감",
       "scaleWithAi": "AI로 확장"
+    },
+    "meet": {
+      "title": "Meet AGXORA AI",
+      "lead": "AGXORA is the heart of your business operating system. You describe a goal. AGXORA plans the work and asks for approval before it sends or publishes anything.",
+      "flowAsk": "You ask for a business goal.",
+      "flowUnderstand": "AGXORA understands the goal.",
+      "flowCheck": "AGXORA checks which capabilities are available.",
+      "flowPlan": "AGXORA prepares a plan.",
+      "flowApprove": "AGXORA asks for your approval when required.",
+      "flowExecute": "After approval, AGXORA executes through official connections.",
+      "flowConfirm": "AGXORA confirms the result. Nothing is invented.",
+      "integrationsHint": "You can connect Gmail or YouTube later. You do not need to configure every integration now."
     },
     "failed": "온보딩 실패",
     "back": "뒤쪽에",
@@ -6832,6 +6867,7 @@
     "commandCenter": "AI command center",
     "commandCenterLead": "Describe a business goal. AGXORA will create a plan that waits for approval. It will not publish or send until you authorize it.",
     "goal": "Goal",
+    "goalPlaceholder": "What would you like AGXORA to do?",
     "createPlan": "Create plan",
     "runFailed": "Could not create the agent run.",
     "accountEmail": "Account",
@@ -6861,6 +6897,23 @@
     "rejectPublish": "Reject publish",
     "publishApproved": "Publish approved video",
     "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-    "providerUnavailable": "This provider is not implemented yet."
+    "providerUnavailable": "This provider is not implemented yet.",
+    "statusAvailable": "Available",
+    "statusRequiresAuthorization": "Requires authorization",
+    "statusRequiresPermission": "Requires permission",
+    "statusUnsupported": "Unsupported",
+    "statusPremium": "Premium",
+    "connectUnavailable": "Not available yet",
+    "exampleSummarize": "Summarize my latest customer emails",
+    "exampleYoutube": "Create a YouTube campaign",
+    "exampleLinkedin": "Prepare a LinkedIn post",
+    "exampleAnalyze": "Analyze my business",
+    "runStatus": {
+      "waiting": "Waiting for approval",
+      "running": "In progress",
+      "completed": "Completed",
+      "failed": "Could not complete",
+      "rejected": "Rejected"
+    }
   }
 }

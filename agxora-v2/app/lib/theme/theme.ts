@@ -67,11 +67,11 @@ export interface ThemeTokens {
 /** Approved night look — cinematic space, preserved. */
 export const NIGHT_TOKENS: ThemeTokens = {
   skyGradient:
-    "radial-gradient(circle at 50% 42%, #0d1a3a 0%, #081226 42%, #040910 72%, #02060d 100%)",
-  skySolid: "#02060d",
+    "radial-gradient(circle at 50% 42%, #1a2744 0%, #141e34 38%, #121a2a 68%, #0e1624 100%)",
+  skySolid: "#121a2a",
   sidebarBg:
     "linear-gradient(180deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.02) 100%)",
-  sidebarBorder: "rgba(34,211,238,0.22)",
+  sidebarBorder: "rgba(201,166,107,0.22)",
   sidebarShadow: "8px 0 40px rgba(0,0,0,0.35)",
   sidebarBlur: "blur(28px) saturate(140%)",
   cardBg: "rgba(255,255,255,0.045)",
@@ -99,8 +99,8 @@ export const NIGHT_TOKENS: ThemeTokens = {
   inputBorder: "rgba(34,211,238,0.28)",
   divider: "rgba(255,255,255,0.08)",
   navHoverBg: "rgba(255,255,255,0.05)",
-  navActiveBg: "rgba(34,211,238,0.12)",
-  navActiveGlow: "0 0 24px rgba(34,211,238,0.18)",
+  navActiveBg: "rgba(201,166,107,0.12)",
+  navActiveGlow: "0 0 24px rgba(201,166,107,0.18)",
   starOpacity: 1,
   particleOpacity: 0,
   bloomIntensity: 0.28,
@@ -296,5 +296,14 @@ export function tokensToCssVars(
       : "rgba(12,18,32,0.98)",
     "--agx-surface": tokens.inputBg,
     "--agx-border": tokens.cardBorder,
+    "--agx-ds-gold": isDay ? "#b08948" : "#c9a66b",
+    "--agx-ds-on-gold": "#1a140c",
+    "--agx-ds-ai-cyan": isDay ? "#0e7490" : "#22d3ee",
+    "--agx-ds-ai-blue": isDay ? "#3d7a96" : "#4ea6f5",
+    "--agx-ds-background": tokens.skySolid,
+    "--agx-ds-glass": isDay
+      ? "rgba(255,255,255,0.42)"
+      : "rgba(18, 28, 46, 0.55)",
+    "--agx-ds-text-secondary": isDay ? "#334155" : "#d5deea",
   };
 }

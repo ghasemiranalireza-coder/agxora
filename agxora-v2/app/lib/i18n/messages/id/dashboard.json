@@ -9,7 +9,8 @@
     "ctaGetStarted": "Mulailah",
     "ctaViewActivity": "Lihat aktivitas",
     "openQuickActionsAria": "Buka tindakan cepat",
-    "viewActivityAria": "Lihat aktivitas terkini"
+    "viewActivityAria": "Lihat aktivitas terkini",
+    "openCommandCenterAria": "Ask AGXORA what to do today"
   },
   "quickActions": {
     "title": "Tindakan cepat",
@@ -386,5 +387,10 @@
     },
     "esc": "Esc"
   },
-  "summary": "{name}: {customers} pelanggan · {projects} proyek · {updates} pembaruan hari ini."
+  "summary": "{name}: {customers} pelanggan · {projects} proyek · {updates} pembaruan hari ini.",
+  "command": {
+    "eyebrow": "AI Command Center",
+    "askToday": "What would you like to do today?",
+    "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
+  }
 }

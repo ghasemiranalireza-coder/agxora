@@ -51,13 +51,13 @@ export function HeroSection(): JSX.Element {
     fontSize: "14px",
     fontWeight: 600,
     letterSpacing: "0.02em",
-    color: isDay ? "#0b1520" : "#041018",
+    color: isDay ? "#1a140c" : "var(--agx-ds-on-gold, #1a140c)",
     background: isDay
-      ? "linear-gradient(180deg, #f7fbff 0%, #d7e8f4 100%)"
-      : "linear-gradient(180deg, #7ee7f7 0%, #22d3ee 55%, #0ea5c6 100%)",
+      ? "linear-gradient(180deg, #f4e6c4 0%, #c9a66b 52%, #a9844a 100%)"
+      : "linear-gradient(180deg, #e8d5a8 0%, var(--agx-ds-gold, #c9a66b) 52%, #a9844a 100%)",
     boxShadow: isDay
-      ? "0 10px 28px rgba(90,130,160,0.22), inset 0 1px 0 rgba(255,255,255,0.9)"
-      : "0 12px 36px rgba(34,211,238,0.28), inset 0 1px 0 rgba(255,255,255,0.35)",
+      ? "0 10px 28px rgba(176, 137, 72, 0.22), inset 0 1px 0 rgba(255,255,255,0.9)"
+      : "0 12px 36px rgba(201, 166, 107, 0.28), inset 0 1px 0 rgba(255,255,255,0.35)",
     transition: surfaceTransition,
   };
 
@@ -129,8 +129,8 @@ export function HeroSection(): JSX.Element {
             type="button"
             className="agx-hero-cta agx-hero-cta-primary"
             style={primaryCtaStyle}
-            onClick={() => scrollToId("agx-quick-actions", !!reduceMotion)}
-            aria-label={t("dashboard.hero.openQuickActionsAria")}
+            onClick={() => scrollToId("agx-command-center", !!reduceMotion)}
+            aria-label={t("dashboard.hero.openCommandCenterAria")}
           >
             {t("dashboard.hero.ctaGetStarted")}
           </button>

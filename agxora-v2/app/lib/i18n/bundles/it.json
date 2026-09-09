@@ -60,6 +60,7 @@
     "documents": "Documenti",
     "team": "Squadra",
     "settings": "Impostazioni",
+    "productTagline": "AI Business OS",
     "toggleNavigation": "Attiva/disattiva la navigazione",
     "primary": "Primario",
     "menu": "Menu",
@@ -813,7 +814,13 @@
       "ctaGetStarted": "Inizia",
       "ctaViewActivity": "Visualizza attività",
       "openQuickActionsAria": "Apri azioni rapide",
+      "openCommandCenterAria": "Ask AGXORA what to do today",
       "viewActivityAria": "Visualizza l'attività recente"
+    },
+    "command": {
+      "eyebrow": "AI Command Center",
+      "askToday": "What would you like to do today?",
+      "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
     },
     "quickActions": {
       "title": "Azioni rapide",
@@ -2680,10 +2687,25 @@
     "hero": {
       "brand": "AGXORA",
       "headline": "Il sistema operativo aziendale intelligente.",
+      "headlineBefore": "The intelligent ",
+      "headlineHighlight": "business",
+      "headlineAfter": " operating system.",
       "subtitle": "Connetti clienti, finanza, documenti e intelligenza artificiale in un unico centro di comando tranquillo, creato per fondatori e operatori che necessitano di chiarezza, non di un altro stack di strumenti.",
       "ctaStart": "Inizia gratis",
       "ctaExplore": "Guarda come funziona",
-      "globeAria": "Visualizzazione dell'intelligenza globale"
+      "globeAria": "Visualizzazione dell'intelligenza globale",
+      "scrollHint": "Scroll to discover more",
+      "chips": {
+        "ai": "AI-assisted",
+        "secure": "Secure & GDPR-ready",
+        "unified": "Everything in one place"
+      },
+      "tags": {
+        "customers": "Customers",
+        "growth": "Growth",
+        "automation": "Automation",
+        "success": "Success"
+      }
     },
     "trust": {
       "ariaLabel": "Perché AGXORA",
@@ -6039,7 +6061,8 @@
       "type": "Tipo",
       "company": "Azienda",
       "locale": "Locale",
-      "goals": "Obiettivi"
+      "goals": "Obiettivi",
+      "meet": "Meet AGXORA"
     },
     "companyName": "Nome dell'azienda",
     "companyPlaceholder": "Gruppo di ospitalità Acme",
@@ -6055,6 +6078,18 @@
       "delightCustomers": "Delizia i clienti",
       "reduceCosts": "Ridurre i costi",
       "scaleWithAi": "Scala con l'intelligenza artificiale"
+    },
+    "meet": {
+      "title": "Meet AGXORA AI",
+      "lead": "AGXORA is the heart of your business operating system. You describe a goal. AGXORA plans the work and asks for approval before it sends or publishes anything.",
+      "flowAsk": "You ask for a business goal.",
+      "flowUnderstand": "AGXORA understands the goal.",
+      "flowCheck": "AGXORA checks which capabilities are available.",
+      "flowPlan": "AGXORA prepares a plan.",
+      "flowApprove": "AGXORA asks for your approval when required.",
+      "flowExecute": "After approval, AGXORA executes through official connections.",
+      "flowConfirm": "AGXORA confirms the result. Nothing is invented.",
+      "integrationsHint": "You can connect Gmail or YouTube later. You do not need to configure every integration now."
     },
     "failed": "L'onboarding non è riuscito",
     "back": "Indietro",
@@ -6832,6 +6867,7 @@
     "commandCenter": "AI command center",
     "commandCenterLead": "Describe a business goal. AGXORA will create a plan that waits for approval. It will not publish or send until you authorize it.",
     "goal": "Goal",
+    "goalPlaceholder": "What would you like AGXORA to do?",
     "createPlan": "Create plan",
     "runFailed": "Could not create the agent run.",
     "accountEmail": "Account",
@@ -6861,6 +6897,23 @@
     "rejectPublish": "Reject publish",
     "publishApproved": "Publish approved video",
     "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-    "providerUnavailable": "This provider is not implemented yet."
+    "providerUnavailable": "This provider is not implemented yet.",
+    "statusAvailable": "Available",
+    "statusRequiresAuthorization": "Requires authorization",
+    "statusRequiresPermission": "Requires permission",
+    "statusUnsupported": "Unsupported",
+    "statusPremium": "Premium",
+    "connectUnavailable": "Not available yet",
+    "exampleSummarize": "Summarize my latest customer emails",
+    "exampleYoutube": "Create a YouTube campaign",
+    "exampleLinkedin": "Prepare a LinkedIn post",
+    "exampleAnalyze": "Analyze my business",
+    "runStatus": {
+      "waiting": "Waiting for approval",
+      "running": "In progress",
+      "completed": "Completed",
+      "failed": "Could not complete",
+      "rejected": "Rejected"
+    }
   }
 }

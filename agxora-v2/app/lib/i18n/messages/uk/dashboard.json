@@ -9,7 +9,8 @@
     "ctaGetStarted": "Почніть роботу",
     "ctaViewActivity": "Переглянути діяльність",
     "openQuickActionsAria": "Відкрити швидкі дії",
-    "viewActivityAria": "Переглянути останні дії"
+    "viewActivityAria": "Переглянути останні дії",
+    "openCommandCenterAria": "Ask AGXORA what to do today"
   },
   "quickActions": {
     "title": "Швидкі дії",
@@ -386,5 +387,10 @@
     },
     "esc": "Esc"
   },
-  "summary": "{name}: {customers} клієнти · {projects} проекти · {updates} оновлення сьогодні."
+  "summary": "{name}: {customers} клієнти · {projects} проекти · {updates} оновлення сьогодні.",
+  "command": {
+    "eyebrow": "AI Command Center",
+    "askToday": "What would you like to do today?",
+    "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
+  }
 }
