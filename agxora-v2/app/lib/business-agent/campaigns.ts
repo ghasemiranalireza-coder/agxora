@@ -14,6 +14,15 @@ import {
 } from "./catalog";
 import { executeGmailToolForActor } from "./gmail-tools";
 import { executeYouTubeCampaignItemForActor } from "./youtube-publish";
+import {
+  firstUnsupportedCampaignProvider,
+  supportedCampaignChannels,
+  unsupportedCampaignProviderMessage,
+} from "./campaign-providers";
+import {
+  campaignItemApproveBlockReason,
+  decideExternalActionPolicy,
+} from "./policy-gates";
 
 export type CampaignItemDraft = {
   readonly provider: IntegrationProviderId;
@@ -69,7 +78,16 @@ export async function createCampaignForActor(
   if (!name) {
     throw new PersistenceError("validation", "Campaign name is required");
   }
-  const channels = (input.channels ?? []).filter(isIntegrationProviderId);
+  const channels = supportedCampaignChannels(
+    (input.channels ?? []).filter(isIntegrationProviderId),
+  );
+  const unsupportedItem = firstUnsupportedCampaignProvider(input.items ?? []);
+  if (unsupportedItem) {
+    throw new PersistenceError(
+      "validation",
+      unsupportedCampaignProviderMessage(unsupportedItem),
+    );
+  }
   const campaign = await prisma.campaign.create({
     data: {
       organizationId: actor.organizationId,
@@ -135,6 +153,13 @@ export async function approveCampaignItemForActor(
   });
   if (!item) {
     throw new PersistenceError("not_found", "Content item not found");
+  }
+  if (item.status === "APPROVED") {
+    return item;
+  }
+  const blocked = campaignItemApproveBlockReason(item.status);
+  if (blocked) {
+    throw new PersistenceError("conflict", blocked);
   }
   const updated = await prisma.campaignItem.update({
     where: { id: item.id },
@@ -220,19 +245,21 @@ export async function executeCampaignItemForActor(
   }
 
   const policy = await getAgentPolicyForActor(actor);
-  if (policy.mode === "SAFE" && item.status !== "APPROVED") {
+  const gate = decideExternalActionPolicy({
+    mode: policy.mode,
+    itemStatus: item.status,
+    kind,
+  });
+  if (gate.blocked) {
     await recordExternalAction({
       actor,
       provider: item.provider,
       action: kind,
       status: "approval_required",
       target: item.id,
-      error: "safe_mode_requires_approval",
+      error: gate.code,
     });
-    throw new PersistenceError(
-      "forbidden",
-      "SAFE MODE requires explicit approval before external actions",
-    );
+    throw new PersistenceError("forbidden", gate.message);
   }
 
   const permission =

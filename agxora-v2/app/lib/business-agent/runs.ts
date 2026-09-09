@@ -5,12 +5,39 @@ import { PersistenceError } from "@/app/lib/tenancy/errors";
 import type { Actor } from "@/app/lib/tenancy/types";
 import type { Prisma } from "@prisma/client";
 import { recordExternalAction } from "./audit";
-import { AGENT_PLAN_STEPS } from "./catalog";
-import { GMAIL_CHAT_GUIDANCE } from "./gmail-tools";
+import { resolveAgentIntentResults, type IntegrationCapabilitySnapshot } from "./agent-intent";
+import {
+  applyPlanApproval,
+  applyPlanRejection,
+  buildAgentRunPlan,
+  planApprovalBlockReason,
+} from "./agent-run-plan";
+import { getAgentPolicyForActor } from "./policy";
+import { listIntegrationsForActor } from "./integrations";
 import { redactSecrets } from "./redact";
 
+function publicRun<T>(value: T): T {
+  return redactSecrets(value);
+}
+
+function redactStoredRun<T extends {
+  result: unknown;
+  error?: string | null;
+  steps: readonly { output: unknown }[];
+}>(run: T): T {
+  return {
+    ...run,
+    result: publicRun(run.result),
+    error: run.error,
+    steps: run.steps.map((step) => ({
+      ...step,
+      output: publicRun(step.output),
+    })),
+  };
+}
+
 export async function listAgentRunsForActor(actor: Actor) {
-  return prisma.agentRun.findMany({
+  const rows = await prisma.agentRun.findMany({
     where: {
       organizationId: actor.organizationId,
       workspaceId: actor.workspaceId,
@@ -21,6 +48,7 @@ export async function listAgentRunsForActor(actor: Actor) {
       steps: { orderBy: { ordinal: "asc" } },
     },
   });
+  return rows.map((row) => redactStoredRun(row));
 }
 
 export async function getAgentRunForActor(actor: Actor, runId: string) {
@@ -35,7 +63,23 @@ export async function getAgentRunForActor(actor: Actor, runId: string) {
   if (!run) {
     throw new PersistenceError("not_found", "Agent run not found");
   }
-  return run;
+  return redactStoredRun(run);
+}
+
+async function snapshotsForActor(
+  actor: Actor,
+): Promise<IntegrationCapabilitySnapshot[]> {
+  const integrations = await listIntegrationsForActor(actor);
+  return integrations.map((item) => ({
+    provider: item.provider,
+    label: item.label,
+    implementationStatus: item.implementationStatus,
+    connected: item.connected,
+    canRead: item.permissions.canRead,
+    canCreateDraft: item.permissions.canCreateDraft,
+    canPublish: item.permissions.canPublish,
+    canSendEmail: item.permissions.canSendEmail,
+  }));
 }
 
 export async function createPlanRunForActor(
@@ -60,7 +104,18 @@ export async function createPlanRunForActor(
     }
   }
 
-  const emailIntent = /(email|gmail|inbox|reply|mailbox)/i.test(goal);
+  const policy = await getAgentPolicyForActor(actor);
+  const capabilities = resolveAgentIntentResults({
+    goal,
+    integrations: await snapshotsForActor(actor),
+  });
+  const plan = buildAgentRunPlan({
+    organizationId: actor.organizationId,
+    workspaceId: actor.workspaceId,
+    policyMode: policy.mode,
+    capabilities,
+  });
+
   const run = await prisma.agentRun.create({
     data: {
       organizationId: actor.organizationId,
@@ -68,41 +123,17 @@ export async function createPlanRunForActor(
       userId: actor.userId,
       campaignId: input.campaignId ?? null,
       goal,
-      status: "WAITING_APPROVAL",
-      result: redactSecrets({
-        phase: "PLAN",
-        message: emailIntent
-          ? "Email plan created. Gmail read and draft can run when connected and permitted. Sending stays blocked until approval, send permission, and Gmail confirmation."
-          : "Plan created. External publish/send is blocked until approval and provider implementation.",
-        gmail: emailIntent
-          ? {
-              tools: [
-                "gmail.list_messages",
-                "gmail.get_message",
-                "gmail.create_draft",
-              ],
-              sendBlockedUntilApproval: true,
-              guidance: GMAIL_CHAT_GUIDANCE,
-            }
-          : undefined,
-      }) as Prisma.InputJsonValue,
+      status: plan.runStatus,
+      completedAt: plan.runStatus === "COMPLETED" ? new Date() : null,
+      result: publicRun(plan.result) as Prisma.InputJsonValue,
       steps: {
-        create: AGENT_PLAN_STEPS.map((name, ordinal) => ({
+        create: plan.steps.map((step, ordinal) => ({
           organizationId: actor.organizationId,
           workspaceId: actor.workspaceId,
           ordinal,
-          name,
-          status:
-            ordinal === 5
-              ? ("WAITING_APPROVAL" as const)
-              : ("PENDING" as const),
-          output:
-            name === "generate_content" || name === "create_drafts"
-              ? (redactSecrets({
-                  status: "not_generated",
-                  note: "Content generation is not implemented yet. No drafts were created.",
-                }) as Prisma.InputJsonValue)
-              : undefined,
+          name: step.name,
+          status: step.status,
+          output: publicRun(step.output) as Prisma.InputJsonValue,
         })),
       },
     },
@@ -112,9 +143,152 @@ export async function createPlanRunForActor(
   await recordExternalAction({
     actor,
     action: "agent_run_create",
-    status: "approval_required",
+    status: plan.runStatus === "COMPLETED" ? "completed" : "approval_required",
     agentRunId: run.id,
-    metadata: { goalLength: goal.length },
+    metadata: {
+      goalLength: goal.length,
+      understood: capabilities.map((item) => item.kind),
+      unsupportedOnly: plan.runStatus === "COMPLETED",
+    },
   });
-  return run;
+  return redactStoredRun(run);
+}
+
+export async function approveAgentRunForActor(actor: Actor, runId: string) {
+  const run = await prisma.agentRun.findFirst({
+    where: {
+      id: runId,
+      organizationId: actor.organizationId,
+      workspaceId: actor.workspaceId,
+    },
+    include: { steps: { orderBy: { ordinal: "asc" } } },
+  });
+  if (!run) {
+    throw new PersistenceError("not_found", "Agent run not found");
+  }
+  const blocked = planApprovalBlockReason(run.status);
+  if (blocked) {
+    throw new PersistenceError("conflict", blocked);
+  }
+
+  const currentResult =
+    run.result && typeof run.result === "object" && !Array.isArray(run.result)
+      ? (run.result as Record<string, unknown>)
+      : {};
+  const nextResult = publicRun(applyPlanApproval(currentResult));
+
+  await prisma.$transaction([
+    prisma.agentRun.updateMany({
+      where: {
+        id: run.id,
+        organizationId: actor.organizationId,
+        workspaceId: actor.workspaceId,
+        status: "WAITING_APPROVAL",
+      },
+      data: {
+        status: "RUNNING",
+        result: nextResult as Prisma.InputJsonValue,
+        error: null,
+      },
+    }),
+    prisma.agentRunStep.updateMany({
+      where: {
+        agentRunId: run.id,
+        organizationId: actor.organizationId,
+        workspaceId: actor.workspaceId,
+        name: "wait_for_approval",
+      },
+      data: {
+        status: "COMPLETED",
+        output: publicRun({
+          status: "approved",
+          providerExecution: "not_started",
+          note: "Plan approved. Nothing was published or sent.",
+        }) as Prisma.InputJsonValue,
+      },
+    }),
+    prisma.agentRunStep.updateMany({
+      where: {
+        agentRunId: run.id,
+        organizationId: actor.organizationId,
+        workspaceId: actor.workspaceId,
+        name: { in: ["analyze_business_context", "analyze_connected_channels"] },
+      },
+      data: { status: "COMPLETED" },
+    }),
+  ]);
+
+  await recordExternalAction({
+    actor,
+    action: "agent_run_approve",
+    status: "completed",
+    agentRunId: run.id,
+    metadata: { providerExecution: "not_started" },
+  });
+  return getAgentRunForActor(actor, run.id);
+}
+
+export async function rejectAgentRunForActor(actor: Actor, runId: string) {
+  const run = await prisma.agentRun.findFirst({
+    where: {
+      id: runId,
+      organizationId: actor.organizationId,
+      workspaceId: actor.workspaceId,
+    },
+    include: { steps: { orderBy: { ordinal: "asc" } } },
+  });
+  if (!run) {
+    throw new PersistenceError("not_found", "Agent run not found");
+  }
+  if (run.status !== "WAITING_APPROVAL") {
+    throw new PersistenceError(
+      "conflict",
+      "This plan cannot be rejected in its current status.",
+    );
+  }
+
+  const currentResult =
+    run.result && typeof run.result === "object" && !Array.isArray(run.result)
+      ? (run.result as Record<string, unknown>)
+      : {};
+  const nextResult = publicRun(applyPlanRejection(currentResult));
+
+  await prisma.$transaction([
+    prisma.agentRun.updateMany({
+      where: {
+        id: run.id,
+        organizationId: actor.organizationId,
+        workspaceId: actor.workspaceId,
+        status: "WAITING_APPROVAL",
+      },
+      data: {
+        status: "CANCELLED",
+        result: nextResult as Prisma.InputJsonValue,
+        completedAt: new Date(),
+      },
+    }),
+    prisma.agentRunStep.updateMany({
+      where: {
+        agentRunId: run.id,
+        organizationId: actor.organizationId,
+        workspaceId: actor.workspaceId,
+        name: "wait_for_approval",
+      },
+      data: {
+        status: "CANCELLED",
+        output: publicRun({
+          status: "rejected",
+          note: "Plan rejected. Nothing was published or sent.",
+        }) as Prisma.InputJsonValue,
+      },
+    }),
+  ]);
+
+  await recordExternalAction({
+    actor,
+    action: "agent_run_reject",
+    status: "cancelled",
+    agentRunId: run.id,
+  });
+  return getAgentRunForActor(actor, run.id);
 }
