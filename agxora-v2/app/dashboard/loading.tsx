@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { MetricCardSkeleton } from "../components/dashboard/MetricCard";
 import { Skeleton } from "../components/ui";
 import {
@@ -11,7 +11,11 @@ import {
 /** App Router loading UI — matches dashboard structure to avoid layout jump. */
 export default async function DashboardLoading(): Promise<JSX.Element> {
   const jar = await cookies();
-  const locale = resolveServerLocale(jar.get(LOCALE_COOKIE)?.value);
+  const headerList = await headers();
+  const locale = resolveServerLocale(
+    jar.get(LOCALE_COOKIE)?.value,
+    headerList.get("accept-language"),
+  );
   const loadingLabel = resolveMessage(locale, "dashboard.loading");
 
   return (

@@ -280,7 +280,7 @@ export function DashboardSidebar(): JSX.Element {
             type="button"
             className="agx-mobile-nav-overlay"
             aria-label={t("common.close")}
-            initial={reduceMotion ? false : { opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             exit={reduceMotion ? undefined : { opacity: 0 }}
             transition={drawerTransition}
@@ -329,19 +329,9 @@ export function DashboardSidebar(): JSX.Element {
           }}
         />
 
-        <h2
-          style={{
-            position: "relative",
-            color: tokens.accent,
-            letterSpacing: "0.32em",
-            marginBottom: "40px",
-            marginTop: "2px",
-            fontSize: "13px",
-            fontWeight: 700,
-            transition: surfaceTransition,
-          }}
-        >
-          AGXORA
+        <h2 className="agx-sidebar-brand">
+          <span className="agx-sidebar-wordmark">AGXORA</span>
+          <span className="agx-sidebar-tagline">{t("navigation.productTagline")}</span>
         </h2>
 
         <nav
@@ -373,11 +363,17 @@ export function DashboardSidebar(): JSX.Element {
                   padding: "13px 14px",
                   borderRadius: "16px",
                   border: active
-                    ? `1px solid ${tokens.panelBorder}`
+                    ? "1px solid color-mix(in srgb, var(--agx-ds-gold, #c9a66b) 42%, transparent)"
                     : "1px solid transparent",
-                  background: active ? tokens.navActiveBg : "transparent",
-                  boxShadow: active ? tokens.navActiveGlow : "none",
-                  color: active ? tokens.accent : tokens.textMuted,
+                  background: active
+                    ? "color-mix(in srgb, var(--agx-ds-gold, #c9a66b) 14%, transparent)"
+                    : "transparent",
+                  boxShadow: active
+                    ? "0 0 24px color-mix(in srgb, var(--agx-ds-gold, #c9a66b) 16%, transparent)"
+                    : "none",
+                  color: active
+                    ? "var(--agx-ds-gold, #c9a66b)"
+                    : tokens.textMuted,
                   fontSize: "14px",
                   fontWeight: active ? 600 : 500,
                   letterSpacing: "0.01em",

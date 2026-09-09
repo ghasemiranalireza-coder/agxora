@@ -10,7 +10,7 @@ import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "../../lib/i18n";
 import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
-import { framerTransition, MOTION_LARGE_S } from "./motion";
+import { framerTransition, hydrateSafeMotion, MOTION_LARGE_S } from "./motion";
 
 const AgxoraGlobe3D = dynamic(() => import("../AgxoraGlobe3D").then((m) => m.default), {
   ssr: false,
@@ -51,13 +51,13 @@ export function HeroSection(): JSX.Element {
     fontSize: "14px",
     fontWeight: 600,
     letterSpacing: "0.02em",
-    color: isDay ? "#0b1520" : "#041018",
+    color: isDay ? "#1a140c" : "var(--agx-ds-on-gold, #1a140c)",
     background: isDay
-      ? "linear-gradient(180deg, #f7fbff 0%, #d7e8f4 100%)"
-      : "linear-gradient(180deg, #7ee7f7 0%, #22d3ee 55%, #0ea5c6 100%)",
+      ? "linear-gradient(180deg, #f4e6c4 0%, #c9a66b 52%, #a9844a 100%)"
+      : "linear-gradient(180deg, #e8d5a8 0%, var(--agx-ds-gold, #c9a66b) 52%, #a9844a 100%)",
     boxShadow: isDay
-      ? "0 10px 28px rgba(90,130,160,0.22), inset 0 1px 0 rgba(255,255,255,0.9)"
-      : "0 12px 36px rgba(34,211,238,0.28), inset 0 1px 0 rgba(255,255,255,0.35)",
+      ? "0 10px 28px rgba(176, 137, 72, 0.22), inset 0 1px 0 rgba(255,255,255,0.9)"
+      : "0 12px 36px rgba(201, 166, 107, 0.28), inset 0 1px 0 rgba(255,255,255,0.35)",
     transition: surfaceTransition,
   };
 
@@ -80,21 +80,18 @@ export function HeroSection(): JSX.Element {
     transition: surfaceTransition,
   };
 
-  const fadeUp = reduceMotion
-    ? {}
-    : {
-        initial: { opacity: 0, y: 12 },
-        animate: { opacity: 1, y: 0 },
-        transition: framerTransition(MOTION_LARGE_S),
-      };
+  const fadeUp = {
+    ...hydrateSafeMotion(reduceMotion, framerTransition(MOTION_LARGE_S)),
+    animate: { opacity: 1, y: 0 },
+  };
 
-  const globeRise = reduceMotion
-    ? {}
-    : {
-        initial: { opacity: 0, y: 14, scale: 0.992 },
-        animate: { opacity: 1, y: 0, scale: 1 },
-        transition: { ...framerTransition(MOTION_LARGE_S), delay: 0.04 },
-      };
+  const globeRise = {
+    ...hydrateSafeMotion(reduceMotion, {
+      ...framerTransition(MOTION_LARGE_S),
+      delay: 0.04,
+    }),
+    animate: { opacity: 1, y: 0, scale: 1 },
+  };
 
   return (
     <section className="agx-hero" aria-label={t("dashboard.hero.ariaLabel")}>
@@ -109,8 +106,10 @@ export function HeroSection(): JSX.Element {
         <h1
           className="agx-hero-title"
           style={{
-            color: tokens.accent,
-            textShadow: tokens.titleShadow,
+            color: tokens.text,
+            textShadow: isDay
+              ? tokens.titleShadow
+              : "0 8px 28px rgba(8, 14, 28, 0.45)",
             transition: surfaceTransition,
           }}
         >
@@ -129,8 +128,8 @@ export function HeroSection(): JSX.Element {
             type="button"
             className="agx-hero-cta agx-hero-cta-primary"
             style={primaryCtaStyle}
-            onClick={() => scrollToId("agx-quick-actions", !!reduceMotion)}
-            aria-label={t("dashboard.hero.openQuickActionsAria")}
+            onClick={() => scrollToId("agx-command-center", !!reduceMotion)}
+            aria-label={t("dashboard.hero.openCommandCenterAria")}
           >
             {t("dashboard.hero.ctaGetStarted")}
           </button>

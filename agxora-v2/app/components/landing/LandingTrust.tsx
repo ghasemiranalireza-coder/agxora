@@ -4,7 +4,7 @@ import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "../../lib/i18n";
 import { LANDING_TRUST_KEYS } from "./content";
-import { LANDING_FADE } from "./motion";
+import { LANDING_FADE, hydrateSafeMotion } from "./motion";
 
 /** Trust strip — honest product signals only (no invented logos). */
 export function LandingTrust(): JSX.Element {
@@ -16,10 +16,9 @@ export function LandingTrust(): JSX.Element {
       <div className="p31-wrap">
         <motion.p
           className="p31-trust__eyebrow"
-          initial={reduceMotion ? false : { opacity: 0 }}
+          {...hydrateSafeMotion(reduceMotion, LANDING_FADE)}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={LANDING_FADE}
         >
           {t("landing.trust.eyebrow")}
         </motion.p>
@@ -28,13 +27,12 @@ export function LandingTrust(): JSX.Element {
           {LANDING_TRUST_KEYS.map((key, i) => (
             <motion.li
               key={key}
-              initial={reduceMotion ? false : { opacity: 0, y: 6 }}
+              {...hydrateSafeMotion(reduceMotion, {
+                ...LANDING_FADE,
+                delay: Math.min(i * 0.04, 0.12),
+              })}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{
-                ...LANDING_FADE,
-                delay: reduceMotion ? 0 : Math.min(i * 0.04, 0.12),
-              }}
             >
               <strong>{t(`landing.trust.signals.${key}.title`)}</strong>
               <span>{t(`landing.trust.signals.${key}.detail`)}</span>

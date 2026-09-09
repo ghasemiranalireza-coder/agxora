@@ -50,9 +50,9 @@ export function CreatorStudioPage(): JSX.Element {
     <div className="agx-ui-module-page agx-page-enter">
       <motion.header
         className="space-y-2"
-        initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: reduceMotion === true ? 0 : 0.24, ease: [0.22, 1, 0.36, 1] }}
       >
         <p className="agx-ui-section-title">{t("creator.page.eyebrow")}</p>
         <h1

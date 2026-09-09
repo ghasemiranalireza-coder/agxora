@@ -178,20 +178,6 @@ export function BusinessOverview(): JSX.Element {
     ],
   );
 
-  const cardVariants = reduceMotion
-    ? undefined
-    : {
-        hidden: { opacity: 0, y: 8 },
-        show: (i: number) => ({
-          opacity: 1,
-          y: 0,
-          transition: {
-            ...framerTransition(MOTION_STANDARD_S),
-            delay: Math.min(i * 0.04, 0.2),
-          },
-        }),
-      };
-
   const workspaceName =
     organization?.name ?? t("dashboard.overview.fallbackName");
 
@@ -234,27 +220,22 @@ export function BusinessOverview(): JSX.Element {
           ? Array.from({ length: 6 }, (_, index) => (
               <MetricCardSkeleton key={`sk-${index}`} />
             ))
-          : metrics.map((metric, index) => {
-              if (!cardVariants) {
-                return (
-                  <div key={metric.title} className="h-full">
-                    <MetricCard {...metric} />
-                  </div>
-                );
-              }
-              return (
-                <motion.div
-                  key={metric.title}
-                  className="h-full"
-                  custom={index}
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate="show"
-                >
-                  <MetricCard {...metric} />
-                </motion.div>
-              );
-            })}
+          : metrics.map((metric, index) => (
+              <motion.div
+                key={metric.title}
+                className="h-full"
+                initial={false}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  ...framerTransition(MOTION_STANDARD_S),
+                  delay:
+                    reduceMotion === true ? 0 : Math.min(index * 0.04, 0.2),
+                  duration: reduceMotion === true ? 0 : MOTION_STANDARD_S,
+                }}
+              >
+                <MetricCard {...metric} />
+              </motion.div>
+            ))}
       </div>
     </section>
   );

@@ -15,30 +15,45 @@
   "hero": {
     "brand": "AGXORA",
     "headline": "The intelligent business operating system.",
+    "headlineBefore": "The intelligent ",
+    "headlineHighlight": "business",
+    "headlineAfter": " operating system.",
     "subtitle": "Connect customers, finance, documents, and AI in one calm command center — built for founders and operators who need clarity, not another tool stack.",
     "ctaStart": "Start Free",
     "ctaExplore": "See how it works",
-    "globeAria": "Global intelligence visualization"
+    "globeAria": "Global intelligence visualization",
+    "scrollHint": "Scroll to discover more",
+    "chips": {
+      "ai": "AI-assisted",
+      "secure": "Secure & GDPR-ready",
+      "unified": "Everything in one place"
+    },
+    "tags": {
+      "customers": "Customers",
+      "growth": "Growth",
+      "automation": "Automation",
+      "success": "Success"
+    }
   },
   "trust": {
     "ariaLabel": "Why AGXORA",
     "eyebrow": "Built as one system",
     "signals": {
       "unified": {
-        "title": "Unified workspace",
+        "title": "One workspace",
         "detail": "CRM, finance, and documents together"
       },
       "intelligence": {
-        "title": "Governed AI",
-        "detail": "Assistance inside your real workflows"
+        "title": "More efficiency",
+        "detail": "Through governed AI automation"
       },
       "clarity": {
-        "title": "Operator clarity",
-        "detail": "Less switching. Faster decisions."
+        "title": "Less effort",
+        "detail": "More time for the work that matters"
       },
       "path": {
-        "title": "Clear path to scale",
-        "detail": "Start free. Grow when ready."
+        "title": "Ready worldwide",
+        "detail": "Built for every industry"
       }
     }
   },

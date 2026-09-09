@@ -29,7 +29,7 @@ export function AttentionPanel({
 
   return (
     <section
-      id="agx-command-center"
+      id="agx-needs-attention"
       className="agx-glass-panel agx-hero-follow agx-dash-panel"
       aria-label={t("dashboard.attention.ariaLabel")}
       style={{

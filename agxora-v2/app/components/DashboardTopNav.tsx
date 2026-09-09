@@ -138,6 +138,21 @@ export function DashboardTopNav(): JSX.Element {
         </div>
       </div>
 
+      <button
+        type="button"
+        className="agx-topnav-search"
+        onClick={() => {
+          window.dispatchEvent(new CustomEvent("agxora:command-palette"));
+        }}
+        aria-label={t("navigation.search")}
+      >
+        <SvgIcon d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z M21 21l-4.3-4.3" />
+        <span className="agx-topnav-search__label">
+          {t("navigation.searchPlaceholder")}
+        </span>
+        <kbd className="agx-topnav-search__kbd">{t("navigation.searchShortcut")}</kbd>
+      </button>
+
       <div
         style={{
           display: "flex",
@@ -146,15 +161,6 @@ export function DashboardTopNav(): JSX.Element {
           flexShrink: 0,
         }}
       >
-        <IconButton
-          label={t("navigation.search")}
-          onClick={() => {
-            window.dispatchEvent(new CustomEvent("agxora:command-palette"));
-          }}
-        >
-          <SvgIcon d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z M21 21l-4.3-4.3" />
-        </IconButton>
-
         <div ref={notifRef} style={{ position: "relative" }}>
           <IconButton
             label={t("navigation.notifications")}

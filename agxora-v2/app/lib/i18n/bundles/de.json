@@ -60,10 +60,13 @@
     "documents": "Dokumente",
     "team": "Team",
     "settings": "Einstellungen",
+    "productTagline": "KI Business OS",
     "toggleNavigation": "Navigation umschalten",
     "primary": "Primär",
     "menu": "Menü",
     "search": "Suche",
+    "searchPlaceholder": "Workspace durchsuchen…",
+    "searchShortcut": "Strg K",
     "notifications": "Benachrichtigungen",
     "profile": "Profil",
     "currentOrganization": "Aktuelle Organisation",
@@ -810,10 +813,16 @@
       "eyebrow": "KI-Geschäftsbetriebssystem",
       "title": "AGXORA CORE",
       "subtitle": "Echtzeit-Intelligenz und operative Steuerung — die Kommandozentrale Ihres Workspace.",
-      "ctaGetStarted": "Loslegen",
+      "ctaGetStarted": "AGXORA fragen",
       "ctaViewActivity": "Aktivität ansehen",
       "openQuickActionsAria": "Schnellaktionen öffnen",
+      "openCommandCenterAria": "AGXORA fragen, was Sie heute tun möchten",
       "viewActivityAria": "Aktuelle Aktivität ansehen"
+    },
+    "command": {
+      "eyebrow": "KI-Kommandozentrale",
+      "askToday": "Was möchten Sie heute tun?",
+      "lead": "Beschreiben Sie ein Geschäftsziel. AGXORA versteht es, prüft verfügbare Fähigkeiten, erstellt einen Plan und wartet auf Ihre Freigabe, bevor etwas gesendet oder veröffentlicht wird."
     },
     "quickActions": {
       "title": "Schnellaktionen",
@@ -2680,30 +2689,45 @@
     "hero": {
       "brand": "AGXORA",
       "headline": "Das intelligente Business Operating System.",
+      "headlineBefore": "Das intelligente ",
+      "headlineHighlight": "Business",
+      "headlineAfter": " Operating System.",
       "subtitle": "Verbindet Kunden, Finanzen, Dokumente und KI in einem ruhigen Command Center — für Gründer und Operatoren, die Klarheit brauchen, nicht noch einen Tool-Stack.",
       "ctaStart": "Kostenlos starten",
       "ctaExplore": "So funktioniert’s",
-      "globeAria": "Visualisierung globaler Intelligenz"
+      "globeAria": "Visualisierung globaler Intelligenz",
+      "scrollHint": "Scrollen, um mehr zu entdecken",
+      "chips": {
+        "ai": "KI-gestützt",
+        "secure": "Sicher & DSGVO-konform",
+        "unified": "Alles an einem Ort"
+      },
+      "tags": {
+        "customers": "Kunden",
+        "growth": "Wachstum",
+        "automation": "Automatisierung",
+        "success": "Erfolg"
+      }
     },
     "trust": {
       "ariaLabel": "Warum AGXORA",
       "eyebrow": "Als ein System gebaut",
       "signals": {
         "unified": {
-          "title": "Einheitlicher Workspace",
+          "title": "Ein Workspace",
           "detail": "CRM, Finanzen und Dokumente zusammen"
         },
         "intelligence": {
-          "title": "Gesteuerte KI",
-          "detail": "Unterstützung in echten Workflows"
+          "title": "Mehr Effizienz",
+          "detail": "Durch gesteuerte KI-Automatisierung"
         },
         "clarity": {
-          "title": "Operator-Klarheit",
-          "detail": "Weniger Wechsel. Schnellere Entscheidungen."
+          "title": "Weniger Aufwand",
+          "detail": "Mehr Zeit für das Wesentliche"
         },
         "path": {
-          "title": "Klarer Wachstumspfad",
-          "detail": "Kostenlos starten. Skalieren, wenn bereit."
+          "title": "Global einsetzbar",
+          "detail": "Für jede Branche"
         }
       }
     },
@@ -6039,7 +6063,8 @@
       "type": "Typ",
       "company": "Firma",
       "locale": "Locale (auch: Gebietsschema)",
-      "goals": "Ziele"
+      "goals": "Ziele",
+      "meet": "AGXORA kennenlernen"
     },
     "companyName": "Firmenname",
     "companyPlaceholder": "Acme Hospitality Group",
@@ -6055,6 +6080,18 @@
       "delightCustomers": "Kunden begeistern!",
       "reduceCosts": "Senken Sie die Kosten",
       "scaleWithAi": "Mit KI skalieren"
+    },
+    "meet": {
+      "title": "Lernen Sie AGXORA AI kennen",
+      "lead": "AGXORA ist das Herz Ihres Business Operating Systems. Sie beschreiben ein Ziel. AGXORA plant die Arbeit und fragt nach Freigabe, bevor etwas gesendet oder veröffentlicht wird.",
+      "flowAsk": "Sie nennen ein Geschäftsziel.",
+      "flowUnderstand": "AGXORA versteht das Ziel.",
+      "flowCheck": "AGXORA prüft, welche Fähigkeiten verfügbar sind.",
+      "flowPlan": "AGXORA erstellt einen Plan.",
+      "flowApprove": "AGXORA fragt bei Bedarf nach Ihrer Freigabe.",
+      "flowExecute": "Nach der Freigabe führt AGXORA über offizielle Verbindungen aus.",
+      "flowConfirm": "AGXORA bestätigt das Ergebnis. Es wird nichts erfunden.",
+      "integrationsHint": "Gmail oder YouTube können Sie später verbinden. Sie müssen nicht jetzt jede Integration einrichten."
     },
     "failed": "Onboarding fehlgeschlagen",
     "back": "Zurück",
@@ -6831,8 +6868,9 @@
     "noEmailDrafts": "No email drafts yet.",
     "commandCenter": "AI command center",
     "commandCenterLead": "Describe a business goal. AGXORA will create a plan that waits for approval. It will not publish or send until you authorize it.",
-    "goal": "Goal",
-    "createPlan": "Create plan",
+    "goal": "Ziel",
+    "goalPlaceholder": "Was soll AGXORA tun?",
+    "createPlan": "Plan erstellen",
     "runFailed": "Could not create the agent run.",
     "accountEmail": "Account",
     "gmailDenied": "Gmail access was denied. Nothing was connected.",
@@ -6861,6 +6899,23 @@
     "rejectPublish": "Reject publish",
     "publishApproved": "Publish approved video",
     "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-    "providerUnavailable": "This provider is not implemented yet."
+    "providerUnavailable": "This provider is not implemented yet.",
+    "statusAvailable": "Verfügbar",
+    "statusRequiresAuthorization": "Autorisierung erforderlich",
+    "statusRequiresPermission": "Berechtigung erforderlich",
+    "statusUnsupported": "Nicht unterstützt",
+    "statusPremium": "Premium",
+    "connectUnavailable": "Noch nicht verfügbar",
+    "exampleSummarize": "Letzte Kunden-E-Mails zusammenfassen",
+    "exampleYoutube": "YouTube-Kampagne erstellen",
+    "exampleLinkedin": "LinkedIn-Beitrag vorbereiten",
+    "exampleAnalyze": "Geschäft analysieren",
+    "runStatus": {
+      "waiting": "Wartet auf Freigabe",
+      "running": "In Bearbeitung",
+      "completed": "Abgeschlossen",
+      "failed": "Konnte nicht abgeschlossen werden",
+      "rejected": "Abgelehnt"
+    }
   }
 }

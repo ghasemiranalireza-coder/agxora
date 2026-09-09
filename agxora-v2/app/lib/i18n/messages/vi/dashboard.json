@@ -9,7 +9,8 @@
     "ctaGetStarted": "Bắt đầu",
     "ctaViewActivity": "Xem hoạt động",
     "openQuickActionsAria": "Mở tác vụ nhanh",
-    "viewActivityAria": "Xem hoạt động gần đây"
+    "viewActivityAria": "Xem hoạt động gần đây",
+    "openCommandCenterAria": "Ask AGXORA what to do today"
   },
   "quickActions": {
     "title": "Hành động nhanh",
@@ -386,5 +387,10 @@
     },
     "esc": "Esc"
   },
-  "summary": "{name}: {customers} khách hàng · {projects} dự án · {updates} cập nhật hôm nay."
+  "summary": "{name}: {customers} khách hàng · {projects} dự án · {updates} cập nhật hôm nay.",
+  "command": {
+    "eyebrow": "AI Command Center",
+    "askToday": "What would you like to do today?",
+    "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
+  }
 }

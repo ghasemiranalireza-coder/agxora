@@ -15,30 +15,45 @@
   "hero": {
     "brand": "AGXORA",
     "headline": "Das intelligente Business Operating System.",
+    "headlineBefore": "Das intelligente ",
+    "headlineHighlight": "Business",
+    "headlineAfter": " Operating System.",
     "subtitle": "Verbindet Kunden, Finanzen, Dokumente und KI in einem ruhigen Command Center — für Gründer und Operatoren, die Klarheit brauchen, nicht noch einen Tool-Stack.",
     "ctaStart": "Kostenlos starten",
     "ctaExplore": "So funktioniert’s",
-    "globeAria": "Visualisierung globaler Intelligenz"
+    "globeAria": "Visualisierung globaler Intelligenz",
+    "scrollHint": "Scrollen, um mehr zu entdecken",
+    "chips": {
+      "ai": "KI-gestützt",
+      "secure": "Sicher & DSGVO-konform",
+      "unified": "Alles an einem Ort"
+    },
+    "tags": {
+      "customers": "Kunden",
+      "growth": "Wachstum",
+      "automation": "Automatisierung",
+      "success": "Erfolg"
+    }
   },
   "trust": {
     "ariaLabel": "Warum AGXORA",
     "eyebrow": "Als ein System gebaut",
     "signals": {
       "unified": {
-        "title": "Einheitlicher Workspace",
+        "title": "Ein Workspace",
         "detail": "CRM, Finanzen und Dokumente zusammen"
       },
       "intelligence": {
-        "title": "Gesteuerte KI",
-        "detail": "Unterstützung in echten Workflows"
+        "title": "Mehr Effizienz",
+        "detail": "Durch gesteuerte KI-Automatisierung"
       },
       "clarity": {
-        "title": "Operator-Klarheit",
-        "detail": "Weniger Wechsel. Schnellere Entscheidungen."
+        "title": "Weniger Aufwand",
+        "detail": "Mehr Zeit für das Wesentliche"
       },
       "path": {
-        "title": "Klarer Wachstumspfad",
-        "detail": "Kostenlos starten. Skalieren, wenn bereit."
+        "title": "Global einsetzbar",
+        "detail": "Für jede Branche"
       }
     }
   },

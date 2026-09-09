@@ -9,7 +9,8 @@
     "ctaGetStarted": "시작하기",
     "ctaViewActivity": "활동 보기",
     "openQuickActionsAria": "빠른 작업 열기",
-    "viewActivityAria": "최근 활동 보기"
+    "viewActivityAria": "최근 활동 보기",
+    "openCommandCenterAria": "Ask AGXORA what to do today"
   },
   "quickActions": {
     "title": "빠른 작업",
@@ -386,5 +387,10 @@
     },
     "esc": "Esc"
   },
-  "summary": "{name}: {customers} 고객 · {projects} 프로젝트 · 오늘 {updates} 업데이트."
+  "summary": "{name}: {customers} 고객 · {projects} 프로젝트 · 오늘 {updates} 업데이트.",
+  "command": {
+    "eyebrow": "AI Command Center",
+    "askToday": "What would you like to do today?",
+    "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
+  }
 }

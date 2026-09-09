@@ -22,7 +22,7 @@ const surfaceTransition = [
   `backdrop-filter ${THEME_TRANSITION_MS}ms ease`,
 ].join(", ");
 
-type Step = 0 | 1 | 2 | 3;
+type Step = 0 | 1 | 2 | 3 | 4;
 
 const GOAL_OPTIONS = [
   "Increase revenue",
@@ -40,7 +40,7 @@ const GOAL_I18N_KEYS: Record<(typeof GOAL_OPTIONS)[number], string> = {
   "Scale with AI": "scaleWithAi",
 };
 
-const STEP_KEYS = ["type", "company", "locale", "goals"] as const;
+const STEP_KEYS = ["type", "company", "locale", "goals", "meet"] as const;
 
 export function OnboardingWizard(): JSX.Element {
   const t = useT();
@@ -117,7 +117,7 @@ export function OnboardingWizard(): JSX.Element {
 
   const next = (): void => {
     if (!canContinue()) return;
-    if (step < 3) {
+    if (step < 4) {
       setStep((step + 1) as Step);
       return;
     }
@@ -418,6 +418,65 @@ export function OnboardingWizard(): JSX.Element {
           </div>
         ) : null}
 
+        {step === 4 ? (
+          <div
+            className="agx-onboarding-meet"
+            style={{
+              display: "grid",
+              gap: "14px",
+            }}
+          >
+            <h2
+              style={{
+                margin: 0,
+                fontSize: "22px",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              {t("onboarding.meet.title")}
+            </h2>
+            <p
+              style={{
+                margin: 0,
+                color: tokens.textMuted,
+                lineHeight: 1.6,
+                fontSize: "15px",
+              }}
+            >
+              {t("onboarding.meet.lead")}
+            </p>
+            <ol
+              style={{
+                margin: 0,
+                padding: "0 0 0 1.2em",
+                display: "grid",
+                gap: "8px",
+                color: tokens.text,
+                fontSize: "14px",
+                lineHeight: 1.5,
+              }}
+            >
+              <li>{t("onboarding.meet.flowAsk")}</li>
+              <li>{t("onboarding.meet.flowUnderstand")}</li>
+              <li>{t("onboarding.meet.flowCheck")}</li>
+              <li>{t("onboarding.meet.flowPlan")}</li>
+              <li>{t("onboarding.meet.flowApprove")}</li>
+              <li>{t("onboarding.meet.flowExecute")}</li>
+              <li>{t("onboarding.meet.flowConfirm")}</li>
+            </ol>
+            <p
+              style={{
+                margin: 0,
+                color: tokens.textMuted,
+                fontSize: "13px",
+                lineHeight: 1.55,
+              }}
+            >
+              {t("onboarding.meet.integrationsHint")}
+            </p>
+          </div>
+        ) : null}
+
         {error ? (
           <p
             style={{
@@ -431,11 +490,18 @@ export function OnboardingWizard(): JSX.Element {
         ) : null}
 
         <div
+          className="agx-onboarding-actions"
           style={{
             display: "flex",
             gap: "12px",
             marginTop: "28px",
             flexWrap: "wrap",
+            position: "sticky",
+            bottom: 8,
+            zIndex: 2,
+            padding: "12px 0 4px",
+            background:
+              "linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--agx-ds-background, #121a2a) 88%, transparent) 28%)",
           }}
         >
           <button
@@ -462,7 +528,7 @@ export function OnboardingWizard(): JSX.Element {
               marginLeft: "auto",
             }}
           >
-            {step === 3
+            {step === 4
               ? submitting
                 ? t("onboarding.launching")
                 : t("onboarding.enterDashboard")
@@ -506,9 +572,13 @@ function buttonStyle(
     padding: "0 16px",
     minHeight: 40,
     borderRadius: "12px",
-    border: `1px solid ${tokens.panelBorder}`,
-    background: primary ? tokens.chatReplyBg : tokens.chatBubbleBg,
-    color: primary ? tokens.accent : tokens.text,
+    border: primary
+      ? "1px solid transparent"
+      : `1px solid ${tokens.panelBorder}`,
+    background: primary
+      ? "linear-gradient(180deg, #e8d5a8 0%, var(--agx-ds-gold, #c9a66b) 52%, #a9844a 100%)"
+      : tokens.chatBubbleBg,
+    color: primary ? "var(--agx-ds-on-gold, #1a140c)" : tokens.text,
     fontSize: "13px",
     fontWeight: 650,
     letterSpacing: "0.01em",

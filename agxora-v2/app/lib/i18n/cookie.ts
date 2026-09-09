@@ -31,11 +31,50 @@ export function parseLocaleCookieValue(
   }
 }
 
-/** Deterministic SSR locale: valid cookie → that locale; else DEFAULT_LOCALE. */
+/**
+ * Map an Accept-Language header to an AppLocale.
+ * Cookie still wins in resolveServerLocale; this is only the no-cookie fallback
+ * so German (and other) browsers SSR the same copy the client hydrates.
+ */
+export function localeFromAcceptLanguage(
+  header: string | null | undefined,
+): AppLocale | null {
+  if (!header?.trim()) return null;
+  const ranked = header
+    .split(",")
+    .map((part) => {
+      const [rawTag, ...params] = part.trim().split(";");
+      const qParam = params.find((item) => item.trim().startsWith("q="));
+      const quality = qParam
+        ? Number.parseFloat(qParam.trim().slice(2))
+        : 1;
+      return {
+        tag: rawTag?.trim() ?? "",
+        quality: Number.isFinite(quality) ? quality : 0,
+      };
+    })
+    .filter((item) => item.tag.length > 0)
+    .sort((a, b) => b.quality - a.quality);
+  for (const item of ranked) {
+    const hit = normalizeToAppLocale(item.tag);
+    if (hit) return hit;
+  }
+  return null;
+}
+
+/**
+ * Deterministic SSR locale: valid cookie → that locale; else Accept-Language;
+ * else DEFAULT_LOCALE. Never reads navigator/document.
+ */
 export function resolveServerLocale(
   rawCookie: string | null | undefined,
+  acceptLanguage?: string | null,
 ): AppLocale {
-  return parseLocaleCookieValue(rawCookie) ?? DEFAULT_LOCALE;
+  return (
+    parseLocaleCookieValue(rawCookie) ??
+    localeFromAcceptLanguage(acceptLanguage) ??
+    DEFAULT_LOCALE
+  );
 }
 
 export function readLocaleCookie(): AppLocale | null {

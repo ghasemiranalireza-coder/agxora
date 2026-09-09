@@ -35,6 +35,7 @@ export { FormatPreferencesSync } from "./FormatPreferencesSync";
 
 export {
   parseLocaleCookieValue,
+  localeFromAcceptLanguage,
   resolveServerLocale,
 } from "./cookie";
 

@@ -49,11 +49,18 @@ export const UI = {
     padXSm: 12,
   },
   color: {
-    text: "var(--agx-text, #f4f8fb)",
-    textMuted: "var(--agx-text-muted, #94a3b8)",
-    accent: "var(--agx-accent, #22d3ee)",
-    border: "var(--agx-ds-border, rgba(255,255,255,0.1))",
+    background: "var(--agx-ds-background, #121a2a)",
     surface: "var(--agx-ds-surface, rgba(255,255,255,0.035))",
+    glass: "var(--agx-ds-glass, rgba(18, 28, 46, 0.55))",
+    elevated: "var(--agx-ds-elevated, rgba(22, 32, 52, 0.92))",
+    border: "var(--agx-ds-border, rgba(255,255,255,0.1))",
+    text: "var(--agx-text, #f4f8fb)",
+    textSecondary: "var(--agx-ds-text-secondary, #d5deea)",
+    textMuted: "var(--agx-text-muted, #a8b6c7)",
+    aiCyan: "var(--agx-ds-ai-cyan, #22d3ee)",
+    aiBlue: "var(--agx-ds-ai-blue, #4ea6f5)",
+    gold: "var(--agx-ds-gold, #c9a66b)",
+    accent: "var(--agx-accent, #22d3ee)",
     success: "var(--agx-ds-success, #34d399)",
     warning: "var(--agx-ds-warning, #fbbf24)",
     danger: "var(--agx-ds-danger, #fb7185)",
@@ -87,7 +94,8 @@ export type BadgeTone =
   | "positive"
   | "warning"
   | "critical"
-  | "accent";
+  | "accent"
+  | "gold";
 
 export const BADGE_TONES: Record<
   BadgeTone,
@@ -117,5 +125,10 @@ export const BADGE_TONES: Record<
     border: "color-mix(in srgb, var(--agx-accent, #22d3ee) 28%, transparent)",
     background: "color-mix(in srgb, var(--agx-accent, #22d3ee) 12%, transparent)",
     color: "var(--agx-accent, #22d3ee)",
+  },
+  gold: {
+    border: "color-mix(in srgb, var(--agx-ds-gold, #c9a66b) 32%, transparent)",
+    background: "color-mix(in srgb, var(--agx-ds-gold, #c9a66b) 14%, transparent)",
+    color: "var(--agx-ds-gold, #c9a66b)",
   },
 };

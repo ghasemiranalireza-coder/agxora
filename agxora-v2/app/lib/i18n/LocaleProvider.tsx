@@ -3,8 +3,9 @@
 /**
  * LocaleProvider — first-class UI locale for AGXORA (Phase 41 P0).
  *
- * SSR: seed from `initialLocale` (validated cookie via root layout, else en).
- * Client hydrate: same seed → no mismatch; then soft-resolve storage/browser.
+ * SSR: seed from `initialLocale` (cookie, else Accept-Language, else en).
+ * Client hydrate: same seed → no mismatch. Soft-resolve storage/browser only
+ * after paint, and only when it differs from the SSR seed.
  *
  * Resolution (client, after mount):
  * 1. Explicit user preference (setter / profile)
@@ -65,7 +66,7 @@ export function LocaleProvider({
   userLanguage,
 }: {
   readonly children: ReactNode;
-  /** Server-validated locale from cookie (or DEFAULT_LOCALE). Must match SSR html. */
+  /** Server-validated locale (cookie, else Accept-Language, else DEFAULT_LOCALE). Must match SSR html. */
   readonly initialLocale?: AppLocale;
   readonly workspaceLanguage?: string | null;
   readonly userLanguage?: string | null;
@@ -80,8 +81,9 @@ export function LocaleProvider({
   setActiveFormatLocale(locale);
 
   useEffect(() => {
-    // Soft client resolution after hydration (storage / browser when cookie absent).
-    const id = window.setTimeout(() => {
+    // After paint — never during the hydrate render — so German/English copy
+    // from the SSR seed matches the first client tree.
+    const id = window.requestAnimationFrame(() => {
       if (explicitChoiceRef.current) {
         setHydrated(true);
         return;
@@ -90,14 +92,16 @@ export function LocaleProvider({
         userPreference: userLanguage,
         workspaceLanguage,
       });
-      setActiveFormatLocale(resolved);
-      setLocaleState(resolved);
+      if (resolved !== seed) {
+        setActiveFormatLocale(resolved);
+        setLocaleState(resolved);
+      }
       writeLocaleCookie(resolved);
       writeLocaleStorage(resolved);
       setHydrated(true);
-    }, 0);
-    return () => window.clearTimeout(id);
-  }, [userLanguage, workspaceLanguage]);
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, [userLanguage, workspaceLanguage, seed]);
 
   const setLocale = useCallback((next: AppLocale) => {
     explicitChoiceRef.current = true;

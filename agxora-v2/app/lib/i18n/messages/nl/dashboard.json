@@ -9,7 +9,8 @@
     "ctaGetStarted": "Ga aan de slag",
     "ctaViewActivity": "Activiteit bekijken",
     "openQuickActionsAria": "Snelle acties openen",
-    "viewActivityAria": "Bekijk recente activiteit"
+    "viewActivityAria": "Bekijk recente activiteit",
+    "openCommandCenterAria": "Ask AGXORA what to do today"
   },
   "quickActions": {
     "title": "Snelle acties",
@@ -386,5 +387,10 @@
     },
     "esc": "Esc"
   },
-  "summary": "{name}: {customers} klanten · {projects} projecten · {updates} updates vandaag."
+  "summary": "{name}: {customers} klanten · {projects} projecten · {updates} updates vandaag.",
+  "command": {
+    "eyebrow": "AI Command Center",
+    "askToday": "What would you like to do today?",
+    "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
+  }
 }

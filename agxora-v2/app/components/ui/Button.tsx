@@ -8,7 +8,8 @@ export type ButtonVariant =
   | "secondary"
   | "outline"
   | "ghost"
-  | "danger";
+  | "danger"
+  | "premium";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   readonly variant?: ButtonVariant;
@@ -46,6 +47,12 @@ const variantStyle: Record<
     border: "color-mix(in srgb, var(--agx-ds-danger, #fb7185) 35%, transparent)",
     background: "color-mix(in srgb, var(--agx-ds-danger, #fb7185) 12%, transparent)",
     color: "var(--agx-ds-danger, #fb7185)",
+  },
+  premium: {
+    border: "transparent",
+    background:
+      "linear-gradient(180deg, #e8d5a8 0%, var(--agx-ds-gold, #c9a66b) 52%, #a9844a 100%)",
+    color: "var(--agx-ds-on-gold, #1a140c)",
   },
 };
 
@@ -85,11 +92,12 @@ export function Button({
         background: v.background,
         color: v.color,
         fontSize: size === "sm" ? UI.typography.caption : UI.typography.body,
-        fontWeight: variant === "primary" ? 650 : 550,
+        fontWeight: variant === "primary" || variant === "premium" ? 650 : 550,
         letterSpacing: "0.01em",
         cursor: isDisabled ? "not-allowed" : "pointer",
         opacity: isDisabled ? 0.55 : 1,
-        boxShadow: variant === "primary" ? UI.shadow.sm : "none",
+        boxShadow:
+          variant === "primary" || variant === "premium" ? UI.shadow.sm : "none",
         transition:
           "opacity var(--agx-ds-duration, 160ms) var(--agx-ds-ease), background var(--agx-ds-duration, 160ms) ease, border-color var(--agx-ds-duration, 160ms) ease, transform var(--agx-ds-duration, 160ms) var(--agx-ds-ease), box-shadow var(--agx-ds-duration, 160ms) ease",
         ...style,
@@ -140,7 +148,7 @@ export function IconButton({
           : "var(--agx-ds-surface, rgba(255,255,255,0.03))",
         color: active
           ? "var(--agx-accent, #22d3ee)"
-          : "var(--agx-ds-text-muted, #94a3b8)",
+          : "var(--agx-ds-text-muted, #a8b6c7)",
         cursor: rest.disabled ? "not-allowed" : "pointer",
         transition:
           "background var(--agx-ds-duration, 160ms) ease, border-color var(--agx-ds-duration, 160ms) ease, color var(--agx-ds-duration, 160ms) ease",

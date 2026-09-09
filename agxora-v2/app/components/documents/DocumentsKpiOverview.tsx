@@ -53,9 +53,9 @@ export function DocumentsKpiOverview({
         return (
           <motion.div
             key={metric.id}
-            initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, delay: 0.03 * index, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: reduceMotion === true ? 0 : 0.35, delay: 0.03 * index, ease: [0.22, 1, 0.36, 1] }}
           >
             <Card className="h-full" padding="24px">
               <div className="flex items-start justify-between gap-2">

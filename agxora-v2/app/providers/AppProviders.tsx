@@ -33,7 +33,7 @@ import { IntelligenceBridge } from "../../features/intelligence/providers";
 
 interface AppProvidersProps {
   readonly children: ReactNode;
-  /** Validated SSR locale from cookie (matches root html lang/dir). */
+  /** Validated SSR locale from cookie or Accept-Language (matches root html lang/dir). */
   readonly initialLocale?: AppLocale;
 }
 

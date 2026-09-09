@@ -60,10 +60,13 @@
     "documents": "Documentos",
     "team": "Equipo",
     "settings": "Ajustes",
+    "productTagline": "AI Business OS",
     "toggleNavigation": "Alternar navegación",
     "primary": "Primario",
     "menu": "Menú",
     "search": "Buscar",
+    "searchPlaceholder": "Search workspace…",
+    "searchShortcut": "Ctrl K",
     "notifications": "Notificaciones",
     "profile": "Perfil",
     "currentOrganization": "Organización actual",
@@ -813,7 +816,13 @@
       "ctaGetStarted": "empezar",
       "ctaViewActivity": "Ver actividad",
       "openQuickActionsAria": "Abrir acciones rápidas",
+      "openCommandCenterAria": "Ask AGXORA what to do today",
       "viewActivityAria": "Ver actividad reciente"
+    },
+    "command": {
+      "eyebrow": "AI Command Center",
+      "askToday": "What would you like to do today?",
+      "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
     },
     "quickActions": {
       "title": "Acciones rápidas",
@@ -2680,10 +2689,25 @@
     "hero": {
       "brand": "AGXORA",
       "headline": "El sistema operativo empresarial inteligente.",
+      "headlineBefore": "The intelligent ",
+      "headlineHighlight": "business",
+      "headlineAfter": " operating system.",
       "subtitle": "Conecte clientes, finanzas, documentos e inteligencia artificial en un centro de comando tranquilo, creado para fundadores y operadores que necesitan claridad, no otra pila de herramientas.",
       "ctaStart": "Comience gratis",
       "ctaExplore": "Mira como funciona",
-      "globeAria": "Visualización de inteligencia global"
+      "globeAria": "Visualización de inteligencia global",
+      "scrollHint": "Scroll to discover more",
+      "chips": {
+        "ai": "AI-assisted",
+        "secure": "Secure & GDPR-ready",
+        "unified": "Everything in one place"
+      },
+      "tags": {
+        "customers": "Customers",
+        "growth": "Growth",
+        "automation": "Automation",
+        "success": "Success"
+      }
     },
     "trust": {
       "ariaLabel": "¿Por qué AGXORA?",
@@ -6039,7 +6063,8 @@
       "type": "Tipo",
       "company": "Compañía",
       "locale": "Lugar",
-      "goals": "Objetivos"
+      "goals": "Objetivos",
+      "meet": "Meet AGXORA"
     },
     "companyName": "Nombre de empresa",
     "companyPlaceholder": "Grupo hotelero Acme",
@@ -6055,6 +6080,18 @@
       "delightCustomers": "Deleitar a los clientes",
       "reduceCosts": "Reducir costos",
       "scaleWithAi": "Escalar con IA"
+    },
+    "meet": {
+      "title": "Meet AGXORA AI",
+      "lead": "AGXORA is the heart of your business operating system. You describe a goal. AGXORA plans the work and asks for approval before it sends or publishes anything.",
+      "flowAsk": "You ask for a business goal.",
+      "flowUnderstand": "AGXORA understands the goal.",
+      "flowCheck": "AGXORA checks which capabilities are available.",
+      "flowPlan": "AGXORA prepares a plan.",
+      "flowApprove": "AGXORA asks for your approval when required.",
+      "flowExecute": "After approval, AGXORA executes through official connections.",
+      "flowConfirm": "AGXORA confirms the result. Nothing is invented.",
+      "integrationsHint": "You can connect Gmail or YouTube later. You do not need to configure every integration now."
     },
     "failed": "La incorporación falló",
     "back": "Atrás",
@@ -6832,6 +6869,7 @@
     "commandCenter": "AI command center",
     "commandCenterLead": "Describe a business goal. AGXORA will create a plan that waits for approval. It will not publish or send until you authorize it.",
     "goal": "Goal",
+    "goalPlaceholder": "What would you like AGXORA to do?",
     "createPlan": "Create plan",
     "runFailed": "Could not create the agent run.",
     "accountEmail": "Account",
@@ -6861,6 +6899,23 @@
     "rejectPublish": "Reject publish",
     "publishApproved": "Publish approved video",
     "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-    "providerUnavailable": "This provider is not implemented yet."
+    "providerUnavailable": "This provider is not implemented yet.",
+    "statusAvailable": "Available",
+    "statusRequiresAuthorization": "Requires authorization",
+    "statusRequiresPermission": "Requires permission",
+    "statusUnsupported": "Unsupported",
+    "statusPremium": "Premium",
+    "connectUnavailable": "Not available yet",
+    "exampleSummarize": "Summarize my latest customer emails",
+    "exampleYoutube": "Create a YouTube campaign",
+    "exampleLinkedin": "Prepare a LinkedIn post",
+    "exampleAnalyze": "Analyze my business",
+    "runStatus": {
+      "waiting": "Waiting for approval",
+      "running": "In progress",
+      "completed": "Completed",
+      "failed": "Could not complete",
+      "rejected": "Rejected"
+    }
   }
 }

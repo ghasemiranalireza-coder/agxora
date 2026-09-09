@@ -60,10 +60,13 @@
     "documents": "書類",
     "team": "チーム",
     "settings": "設定",
+    "productTagline": "AI Business OS",
     "toggleNavigation": "ナビゲーションを切り替え",
     "primary": "主要な",
     "menu": "メニュー",
     "search": "検索",
+    "searchPlaceholder": "Search workspace…",
+    "searchShortcut": "Ctrl K",
     "notifications": "通知",
     "profile": "プロフィール",
     "currentOrganization": "現在の組織",
@@ -813,7 +816,13 @@
       "ctaGetStarted": "始めましょう",
       "ctaViewActivity": "アクティビティの表示",
       "openQuickActionsAria": "クイックアクションを開く",
+      "openCommandCenterAria": "Ask AGXORA what to do today",
       "viewActivityAria": "最近のアクティビティを表示する"
+    },
+    "command": {
+      "eyebrow": "AI Command Center",
+      "askToday": "What would you like to do today?",
+      "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
     },
     "quickActions": {
       "title": "クイックアクション",
@@ -2680,10 +2689,25 @@
     "hero": {
       "brand": "アグソラ",
       "headline": "インテリジェントなビジネス オペレーティング システム。",
+      "headlineBefore": "The intelligent ",
+      "headlineHighlight": "business",
+      "headlineAfter": " operating system.",
       "subtitle": "顧客、財務、ドキュメント、AI を 1 つの落ち着いたコマンド センターに接続します。別のツール スタックではなく、明確さを必要とする創業者やオペレーター向けに構築されています。",
       "ctaStart": "無料で始める",
       "ctaExplore": "どのように機能するか見てみましょう",
-      "globeAria": "グローバルインテリジェンスの可視化"
+      "globeAria": "グローバルインテリジェンスの可視化",
+      "scrollHint": "Scroll to discover more",
+      "chips": {
+        "ai": "AI-assisted",
+        "secure": "Secure & GDPR-ready",
+        "unified": "Everything in one place"
+      },
+      "tags": {
+        "customers": "Customers",
+        "growth": "Growth",
+        "automation": "Automation",
+        "success": "Success"
+      }
     },
     "trust": {
       "ariaLabel": "アグソラを選ぶ理由",
@@ -6039,7 +6063,8 @@
       "type": "タイプ",
       "company": "会社",
       "locale": "ロケール",
-      "goals": "目標"
+      "goals": "目標",
+      "meet": "Meet AGXORA"
     },
     "companyName": "会社名",
     "companyPlaceholder": "アクメ ホスピタリティ グループ",
@@ -6055,6 +6080,18 @@
       "delightCustomers": "顧客を喜ばせる",
       "reduceCosts": "コストを削減する",
       "scaleWithAi": "AI による拡張"
+    },
+    "meet": {
+      "title": "Meet AGXORA AI",
+      "lead": "AGXORA is the heart of your business operating system. You describe a goal. AGXORA plans the work and asks for approval before it sends or publishes anything.",
+      "flowAsk": "You ask for a business goal.",
+      "flowUnderstand": "AGXORA understands the goal.",
+      "flowCheck": "AGXORA checks which capabilities are available.",
+      "flowPlan": "AGXORA prepares a plan.",
+      "flowApprove": "AGXORA asks for your approval when required.",
+      "flowExecute": "After approval, AGXORA executes through official connections.",
+      "flowConfirm": "AGXORA confirms the result. Nothing is invented.",
+      "integrationsHint": "You can connect Gmail or YouTube later. You do not need to configure every integration now."
     },
     "failed": "オンボーディングに失敗しました",
     "back": "戻る",
@@ -6832,6 +6869,7 @@
     "commandCenter": "AI command center",
     "commandCenterLead": "Describe a business goal. AGXORA will create a plan that waits for approval. It will not publish or send until you authorize it.",
     "goal": "Goal",
+    "goalPlaceholder": "What would you like AGXORA to do?",
     "createPlan": "Create plan",
     "runFailed": "Could not create the agent run.",
     "accountEmail": "Account",
@@ -6861,6 +6899,23 @@
     "rejectPublish": "Reject publish",
     "publishApproved": "Publish approved video",
     "publishPermissionOff": "Publish permission is off. Enable it on Connected accounts before publishing.",
-    "providerUnavailable": "This provider is not implemented yet."
+    "providerUnavailable": "This provider is not implemented yet.",
+    "statusAvailable": "Available",
+    "statusRequiresAuthorization": "Requires authorization",
+    "statusRequiresPermission": "Requires permission",
+    "statusUnsupported": "Unsupported",
+    "statusPremium": "Premium",
+    "connectUnavailable": "Not available yet",
+    "exampleSummarize": "Summarize my latest customer emails",
+    "exampleYoutube": "Create a YouTube campaign",
+    "exampleLinkedin": "Prepare a LinkedIn post",
+    "exampleAnalyze": "Analyze my business",
+    "runStatus": {
+      "waiting": "Waiting for approval",
+      "running": "In progress",
+      "completed": "Completed",
+      "failed": "Could not complete",
+      "rejected": "Rejected"
+    }
   }
 }

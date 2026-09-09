@@ -9,7 +9,8 @@
     "ctaGetStarted": "Erste Schritte",
     "ctaViewActivity": "Aktivität anzeigen",
     "openQuickActionsAria": "Schnellaktionen öffnen",
-    "viewActivityAria": "Aktuelle Aktivitäten anzeigen"
+    "viewActivityAria": "Aktuelle Aktivitäten anzeigen",
+    "openCommandCenterAria": "AGXORA fragen, was Sie heute tun möchten"
   },
   "quickActions": {
     "title": "Schnelle Aktionen",
@@ -386,5 +387,10 @@
     },
     "esc": "Esc"
   },
-  "summary": "{name}: {customers} Kunden · {projects} Projekte · {updates} Updates heute."
+  "summary": "{name}: {customers} Kunden · {projects} Projekte · {updates} Updates heute.",
+  "command": {
+    "eyebrow": "KI-Kommandozentrale",
+    "askToday": "Was möchten Sie heute tun?",
+    "lead": "Beschreiben Sie ein Geschäftsziel. AGXORA versteht es, prüft verfügbare Fähigkeiten, erstellt einen Plan und wartet auf Ihre Freigabe, bevor etwas gesendet oder veröffentlicht wird."
+  }
 }

@@ -96,7 +96,7 @@
   .agx-hero-cta-primary:hover {
     filter: brightness(1.04);
     box-shadow:
-      0 14px 40px rgba(34, 211, 238, 0.32),
+      0 14px 40px rgba(201, 166, 107, 0.32),
       inset 0 1px 0 rgba(255, 255, 255, 0.38);
   }
 
@@ -124,6 +124,12 @@
   .agx-bottom-grid {
     grid-template-columns: 1fr !important;
   }
+}
+
+.agx-command-center {
+  scroll-margin-top: 24px;
+  position: relative;
+  z-index: 4;
 }
 
 @media (max-width: 640px) {

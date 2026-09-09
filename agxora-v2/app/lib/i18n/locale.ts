@@ -2,8 +2,9 @@
  * AGXORA global locale model — expanded for worldwide language support.
  *
  * Never read navigator/window during SSR or render.
- * SSR reads validated agxora-locale cookie only (see resolveServerLocale).
- * Client soft-resolves storage / browser after hydration.
+ * SSR: validated agxora-locale cookie, else Accept-Language, else DEFAULT_LOCALE
+ * (see resolveServerLocale). Client soft-resolves storage / browser after hydration
+ * only when that result differs from the SSR seed.
  */
 
 export const DEFAULT_LOCALE = "en" as const;

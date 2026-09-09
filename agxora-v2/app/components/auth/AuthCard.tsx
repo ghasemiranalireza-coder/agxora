@@ -13,18 +13,21 @@ const pageStyle: CSSProperties = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  background: "var(--agx-sky-gradient, linear-gradient(160deg,#05070c 0%,#0b1220 48%,#0a1628 100%))",
+  background:
+    "var(--agx-sky-gradient, linear-gradient(160deg, #10182a 0%, #0c1424 48%, #121a2a 100%))",
   padding: "24px",
 };
 
 const cardStyle: CSSProperties = {
   width: "100%",
   maxWidth: "440px",
-  background: "var(--agx-ds-elevated, rgba(12,18,32,0.98))",
-  border: "1px solid var(--agx-ds-border, rgba(125,211,252,0.18))",
+  background: "var(--agx-ds-glass, rgba(18, 28, 46, 0.55))",
+  border: "1px solid var(--agx-ds-border, rgba(255,255,255,0.1))",
   borderRadius: "24px",
   padding: "40px 32px",
   boxShadow: "var(--agx-ds-shadow-lg, 0 24px 56px rgba(0,0,0,0.34))",
+  backdropFilter: "blur(22px) saturate(140%)",
+  WebkitBackdropFilter: "blur(22px) saturate(140%)",
 };
 
 /** Matches `.agx-ui-control` height / radius / colors. */
@@ -52,8 +55,8 @@ export const authButtonStyle: CSSProperties = {
   borderRadius: 12,
   border: "none",
   background:
-    "linear-gradient(180deg, color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 88%, white) 0%, var(--agx-ds-accent, #22d3ee) 55%, color-mix(in srgb, var(--agx-ds-accent, #22d3ee) 75%, #0e7490) 100%)",
-  color: "var(--agx-ds-on-accent, #041018)",
+    "linear-gradient(180deg, #e8d5a8 0%, var(--agx-ds-gold, #c9a66b) 52%, #a9844a 100%)",
+  color: "var(--agx-ds-on-gold, #1a140c)",
   fontWeight: 650,
   letterSpacing: "0.01em",
   fontSize: 13,
@@ -185,6 +188,7 @@ export function AuthCard({
             textAlign: "center",
             marginBottom: 8,
             letterSpacing: "0.28em",
+            color: "var(--agx-ds-gold, #c9a66b)",
           }}
         >
           {t("auth.brand")}
