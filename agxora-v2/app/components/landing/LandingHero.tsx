@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "../../lib/i18n";
 import { LandingCta } from "./LandingCta";
-import { LANDING_ENTER } from "./motion";
+import { LANDING_ENTER, hydrateSafeMotion } from "./motion";
 import { LANDING_GLOBE_TAGS, LANDING_HERO_CHIPS } from "./content";
 
 const AgxoraGlobe3D = dynamic(
@@ -33,9 +33,8 @@ export function LandingHero(): JSX.Element {
       <div className="p31-hero__shell">
         <motion.div
           className="p31-hero__copy"
-          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+          {...hydrateSafeMotion(reduceMotion, LANDING_ENTER)}
           animate={{ opacity: 1, y: 0 }}
-          transition={LANDING_ENTER}
         >
           <p className="p31-hero__brandmark" aria-label={t("landing.hero.brand")}>
             {t("landing.hero.brand")}
@@ -63,9 +62,11 @@ export function LandingHero(): JSX.Element {
           className="p31-hero__globe"
           aria-label={t("landing.hero.globeAria")}
           role="img"
-          initial={reduceMotion ? false : { opacity: 0, scale: 0.992 }}
+          {...hydrateSafeMotion(reduceMotion, {
+            ...LANDING_ENTER,
+            delay: 0.05,
+          })}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ ...LANDING_ENTER, delay: reduceMotion ? 0 : 0.05 }}
         >
           <div className="p31-globe">
             <div className="p31-globe__glow" aria-hidden="true" />

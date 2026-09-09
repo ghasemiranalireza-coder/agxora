@@ -97,9 +97,9 @@ export function SettingsControlCenter(): JSX.Element {
     <div className="agx-ui-module-page agx-page-enter">
       <motion.header
         className="space-y-2"
-        initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: reduceMotion === true ? 0 : 0.24, ease: [0.22, 1, 0.36, 1] }}
       >
         <p className="agx-ui-section-title">{t("settings.page.eyebrow")}</p>
         <h1
@@ -131,9 +131,9 @@ export function SettingsControlCenter(): JSX.Element {
           </p>
           <motion.div
             key={section}
-            initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: reduceMotion === true ? 0 : 0.28, ease: [0.22, 1, 0.36, 1] }}
           >
             {loading ? (
               <Card className="space-y-3" padding="24px" hover={false}>

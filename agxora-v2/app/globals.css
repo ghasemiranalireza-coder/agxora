@@ -637,6 +637,51 @@ select {
   }
 }
 
+/* Short phones — keep Command Center + primary CTA in the first viewport. */
+@media (max-width: 430px) and (max-height: 740px) {
+  .agx-hero-eyebrow {
+    margin-bottom: 4px;
+  }
+
+  .agx-hero-title {
+    font-size: clamp(26px, 8.4vw, 32px) !important;
+  }
+
+  .agx-hero-subtitle {
+    margin-top: 6px;
+    font-size: 13px !important;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .agx-hero-cta-row {
+    margin-top: 10px;
+    flex-direction: row !important;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .agx-hero-cta-row button {
+    flex: 1 1 0;
+    min-width: 0;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    font-size: 13px;
+  }
+
+  .agx-hero-globe-stage {
+    height: clamp(56px, 8vh, 72px);
+  }
+
+  .agx-globe-loading {
+    min-height: 56px;
+  }
+}
+
 @media (max-width: 768px) {
   html,
   body {

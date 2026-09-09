@@ -284,7 +284,7 @@
   margin: 0;
   min-height: 18px;
   font-size: 12px;
-  color: #64748b;
+  color: var(--agx-ds-text-muted, #a8b6c7);
 }
 
 .p35-plan__features {

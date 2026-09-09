@@ -4,7 +4,7 @@ import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "../../lib/i18n";
 import { LandingCta } from "./LandingCta";
-import { LANDING_FADE } from "./motion";
+import { LANDING_FADE, hydrateSafeMotion } from "./motion";
 
 export function LandingFinalCta(): JSX.Element {
   const reduceMotion = useReducedMotion();
@@ -15,10 +15,9 @@ export function LandingFinalCta(): JSX.Element {
       <div className="p31-wrap">
         <motion.div
           className="p31-close__panel"
-          initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+          {...hydrateSafeMotion(reduceMotion, LANDING_FADE)}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={LANDING_FADE}
         >
           <h2 id="p31-close-title" className="p31-display">
             {t("landing.close.title")}

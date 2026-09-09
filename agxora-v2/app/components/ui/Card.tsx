@@ -78,9 +78,13 @@ export function Section({
     <motion.section
       id={id}
       className="space-y-4"
-      initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: UI.motion.base, delay, ease: UI.motion.ease }}
+      transition={{
+        duration: reduceMotion === true ? 0 : UI.motion.base,
+        delay: reduceMotion === true ? 0 : delay,
+        ease: UI.motion.ease,
+      }}
     >
       <header className="space-y-1">
         <h2

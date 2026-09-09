@@ -101,10 +101,10 @@ export function FinanceOverview({
         return (
           <motion.div
             key={metric.id}
-            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.4,
+              duration: reduceMotion === true ? 0 : 0.4,
               delay: 0.04 * index,
               ease: [0.22, 1, 0.36, 1],
             }}

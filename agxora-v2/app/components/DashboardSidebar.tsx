@@ -280,7 +280,7 @@ export function DashboardSidebar(): JSX.Element {
             type="button"
             className="agx-mobile-nav-overlay"
             aria-label={t("common.close")}
-            initial={reduceMotion ? false : { opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             exit={reduceMotion ? undefined : { opacity: 0 }}
             transition={drawerTransition}

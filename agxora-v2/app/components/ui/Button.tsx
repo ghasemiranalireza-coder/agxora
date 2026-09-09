@@ -148,7 +148,7 @@ export function IconButton({
           : "var(--agx-ds-surface, rgba(255,255,255,0.03))",
         color: active
           ? "var(--agx-accent, #22d3ee)"
-          : "var(--agx-ds-text-muted, #94a3b8)",
+          : "var(--agx-ds-text-muted, #a8b6c7)",
         cursor: rest.disabled ? "not-allowed" : "pointer",
         transition:
           "background var(--agx-ds-duration, 160ms) ease, border-color var(--agx-ds-duration, 160ms) ease, color var(--agx-ds-duration, 160ms) ease",

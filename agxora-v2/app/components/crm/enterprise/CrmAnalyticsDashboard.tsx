@@ -20,9 +20,9 @@ function Kpi({
   const reduceMotion = useReducedMotion();
   return (
     <motion.div
-      initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.25 }}
+      transition={{ duration: reduceMotion === true ? 0 : 0.25 }}
     >
       <Card hover className="h-full space-y-2" padding="18px">
         <p

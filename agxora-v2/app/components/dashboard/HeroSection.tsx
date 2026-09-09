@@ -10,7 +10,7 @@ import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "../../lib/i18n";
 import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
-import { framerTransition, MOTION_LARGE_S } from "./motion";
+import { framerTransition, hydrateSafeMotion, MOTION_LARGE_S } from "./motion";
 
 const AgxoraGlobe3D = dynamic(() => import("../AgxoraGlobe3D").then((m) => m.default), {
   ssr: false,
@@ -80,21 +80,18 @@ export function HeroSection(): JSX.Element {
     transition: surfaceTransition,
   };
 
-  const fadeUp = reduceMotion
-    ? {}
-    : {
-        initial: { opacity: 0, y: 12 },
-        animate: { opacity: 1, y: 0 },
-        transition: framerTransition(MOTION_LARGE_S),
-      };
+  const fadeUp = {
+    ...hydrateSafeMotion(reduceMotion, framerTransition(MOTION_LARGE_S)),
+    animate: { opacity: 1, y: 0 },
+  };
 
-  const globeRise = reduceMotion
-    ? {}
-    : {
-        initial: { opacity: 0, y: 14, scale: 0.992 },
-        animate: { opacity: 1, y: 0, scale: 1 },
-        transition: { ...framerTransition(MOTION_LARGE_S), delay: 0.04 },
-      };
+  const globeRise = {
+    ...hydrateSafeMotion(reduceMotion, {
+      ...framerTransition(MOTION_LARGE_S),
+      delay: 0.04,
+    }),
+    animate: { opacity: 1, y: 0, scale: 1 },
+  };
 
   return (
     <section className="agx-hero" aria-label={t("dashboard.hero.ariaLabel")}>

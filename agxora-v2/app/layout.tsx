@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import {
   Geist,
   Geist_Mono,
@@ -144,7 +144,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const jar = await cookies();
-  const initialLocale = resolveServerLocale(jar.get(LOCALE_COOKIE)?.value);
+  const headerList = await headers();
+  const initialLocale = resolveServerLocale(
+    jar.get(LOCALE_COOKIE)?.value,
+    headerList.get("accept-language"),
+  );
   const dir = localeDirection(initialLocale);
   const lang = toBcp47(initialLocale);
 

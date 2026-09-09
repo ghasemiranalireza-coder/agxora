@@ -4,7 +4,7 @@ import type { JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "../../lib/i18n";
 import { LANDING_PREVIEW_MODULES } from "./content";
-import { LANDING_ENTER, LANDING_FADE } from "./motion";
+import { LANDING_ENTER, LANDING_FADE, hydrateSafeMotion } from "./motion";
 
 /** Illustrative product preview — clearly labeled, no fabricated live metrics. */
 export function LandingPreview(): JSX.Element {
@@ -20,10 +20,9 @@ export function LandingPreview(): JSX.Element {
       <div className="p31-wrap p31-wrap--wide">
         <motion.div
           className="p31-product__intro"
-          initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+          {...hydrateSafeMotion(reduceMotion, LANDING_FADE)}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={LANDING_FADE}
         >
           <h2 id="p31-product-title" className="p31-display">
             {t("landing.product.title")}
@@ -33,10 +32,9 @@ export function LandingPreview(): JSX.Element {
 
         <motion.div
           className="p31-product__bezel p31-product__bezel--xl"
-          initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+          {...hydrateSafeMotion(reduceMotion, LANDING_ENTER)}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.18 }}
-          transition={LANDING_ENTER}
         >
           <div className="p31-product__frame">
             <div className="p31-product__chrome" aria-hidden="true">

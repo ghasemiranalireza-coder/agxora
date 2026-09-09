@@ -56,7 +56,7 @@ export const UI = {
     border: "var(--agx-ds-border, rgba(255,255,255,0.1))",
     text: "var(--agx-text, #f4f8fb)",
     textSecondary: "var(--agx-ds-text-secondary, #d5deea)",
-    textMuted: "var(--agx-text-muted, #94a3b8)",
+    textMuted: "var(--agx-text-muted, #a8b6c7)",
     aiCyan: "var(--agx-ds-ai-cyan, #22d3ee)",
     aiBlue: "var(--agx-ds-ai-blue, #4ea6f5)",
     gold: "var(--agx-ds-gold, #c9a66b)",

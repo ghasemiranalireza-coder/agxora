@@ -26,6 +26,11 @@ import {
 } from "./localizeAppCopy";
 import { formatCurrency, formatDate, formatNumber, setActiveFormatLocale } from "./format";
 import { resolveUserFacingErrorKey } from "./errorMap";
+import {
+  localeFromAcceptLanguage,
+  parseLocaleCookieValue,
+  resolveServerLocale,
+} from "./cookie";
 
 const ROOT = process.cwd();
 
@@ -63,6 +68,27 @@ describe("locale model", () => {
     expect(isCjkLocale("zh-CN")).toBe(true);
     expect(isCjkLocale("ja")).toBe(true);
     expect(isCjkLocale("en")).toBe(false);
+  });
+});
+
+describe("SSR locale resolution", () => {
+  it("prefers a valid cookie over Accept-Language", () => {
+    expect(parseLocaleCookieValue("de")).toBe("de");
+    expect(resolveServerLocale("en", "de-DE,de;q=0.9,en;q=0.8")).toBe("en");
+    expect(resolveServerLocale("de", "en-US,en;q=0.9")).toBe("de");
+  });
+
+  it("uses Accept-Language when the cookie is missing so German SSR matches the client", () => {
+    expect(localeFromAcceptLanguage("de-DE,de;q=0.9,en;q=0.8")).toBe("de");
+    expect(localeFromAcceptLanguage("en-US,en;q=0.9")).toBe("en");
+    expect(localeFromAcceptLanguage("fr-BE,fr;q=0.8")).toBe("fr-BE");
+    expect(resolveServerLocale(null, "de-DE,de;q=0.9")).toBe("de");
+    expect(resolveServerLocale(undefined, "en-GB,en;q=0.8")).toBe("en");
+  });
+
+  it("falls back to English when cookie and Accept-Language are absent", () => {
+    expect(resolveServerLocale(null, null)).toBe(DEFAULT_LOCALE);
+    expect(resolveServerLocale("", "")).toBe("en");
   });
 });
 
