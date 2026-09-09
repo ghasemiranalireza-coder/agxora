@@ -59,7 +59,7 @@ export function DashboardHome(): JSX.Element {
         id: "explore",
         title: t("dashboard.attention.exploreAi.title"),
         detail: t("dashboard.attention.exploreAi.detail"),
-        href: "/dashboard/ai",
+        href: "#agx-command-center",
         tone: "info",
       });
     }

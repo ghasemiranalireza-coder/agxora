@@ -410,10 +410,8 @@ select.agx-ui-control option {
 }
 
 .agx-command-center__card {
-  border-color: color-mix(in srgb, var(--agx-ds-gold, #c9a66b) 28%, var(--agx-card-border, rgba(255,255,255,0.1))) !important;
-  box-shadow:
-    var(--agx-card-shadow, 0 10px 40px rgba(0,0,0,0.32)),
-    0 0 48px color-mix(in srgb, var(--agx-ds-ai-cyan, #22d3ee) 12%, transparent) !important;
+  border-color: color-mix(in srgb, var(--agx-ds-gold, #c9a66b) 22%, var(--agx-card-border, rgba(255,255,255,0.1))) !important;
+  box-shadow: var(--agx-card-shadow, 0 10px 40px rgba(0,0,0,0.32)) !important;
 }
 
 .agx-command-center__eyebrow {
@@ -427,17 +425,17 @@ select.agx-ui-control option {
 
 .agx-command-center__title {
   margin: 0 0 8px;
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(20px, 2.4vw, 28px);
   letter-spacing: -0.03em;
   color: var(--agx-text, #f4f8fb);
 }
 
 .agx-command-center__lead {
-  margin: 0 0 18px;
+  margin: 0 0 12px;
   max-width: 62ch;
   color: var(--agx-text-muted, #94a3b8);
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .agx-agent-panel {
@@ -564,7 +562,64 @@ select.agx-ui-control option {
   font-size: 13px;
 }
 
+.agx-topnav-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 220px;
+  min-width: 0;
+  max-width: 420px;
+  min-height: 40px;
+  margin: 0 auto;
+  padding: 0 12px;
+  border-radius: var(--agx-ds-radius-md);
+  border: 1px solid var(--agx-ds-border);
+  background: var(--agx-ds-surface);
+  color: var(--agx-ds-text-muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  text-align: start;
+}
+
+.agx-topnav-search:focus-visible {
+  outline: none;
+  border-color: color-mix(in srgb, var(--agx-ds-accent) 55%, transparent);
+  box-shadow: var(--agx-ds-shadow-focus);
+}
+
+.agx-topnav-search__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agx-topnav-search__kbd {
+  margin-inline-start: auto;
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--agx-ds-border);
+  background: color-mix(in srgb, var(--agx-ds-elevated) 70%, transparent);
+  color: var(--agx-ds-text-muted);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+}
+
 @media (max-width: 720px) {
+  .agx-topnav-search {
+    flex: 0 0 40px;
+    max-width: 40px;
+    min-width: 40px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .agx-topnav-search__label,
+  .agx-topnav-search__kbd {
+    display: none;
+  }
+
   .agx-command-center__title {
     font-size: 22px;
   }

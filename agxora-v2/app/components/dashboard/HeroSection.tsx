@@ -109,8 +109,10 @@ export function HeroSection(): JSX.Element {
         <h1
           className="agx-hero-title"
           style={{
-            color: tokens.accent,
-            textShadow: tokens.titleShadow,
+            color: tokens.text,
+            textShadow: isDay
+              ? tokens.titleShadow
+              : "0 8px 28px rgba(8, 14, 28, 0.45)",
             transition: surfaceTransition,
           }}
         >

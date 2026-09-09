@@ -490,11 +490,18 @@ export function OnboardingWizard(): JSX.Element {
         ) : null}
 
         <div
+          className="agx-onboarding-actions"
           style={{
             display: "flex",
             gap: "12px",
             marginTop: "28px",
             flexWrap: "wrap",
+            position: "sticky",
+            bottom: 8,
+            zIndex: 2,
+            padding: "12px 0 4px",
+            background:
+              "linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--agx-ds-background, #121a2a) 88%, transparent) 28%)",
           }}
         >
           <button
@@ -565,9 +572,13 @@ function buttonStyle(
     padding: "0 16px",
     minHeight: 40,
     borderRadius: "12px",
-    border: `1px solid ${tokens.panelBorder}`,
-    background: primary ? tokens.chatReplyBg : tokens.chatBubbleBg,
-    color: primary ? tokens.accent : tokens.text,
+    border: primary
+      ? "1px solid transparent"
+      : `1px solid ${tokens.panelBorder}`,
+    background: primary
+      ? "linear-gradient(180deg, #e8d5a8 0%, var(--agx-ds-gold, #c9a66b) 52%, #a9844a 100%)"
+      : tokens.chatBubbleBg,
+    color: primary ? "var(--agx-ds-on-gold, #1a140c)" : tokens.text,
     fontSize: "13px",
     fontWeight: 650,
     letterSpacing: "0.01em",
