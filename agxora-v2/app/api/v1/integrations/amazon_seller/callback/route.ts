@@ -43,7 +43,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     const sellingPartnerId = url.searchParams.get("selling_partner_id") ?? undefined;
     if (!code || !state) {
       return NextResponse.json(
-        { ok: false, message: "Missing OAuth callback parameters" },
+        { ok: false, message: "Amazon connection could not be completed." },
         { status: 400 },
       );
     }

@@ -25,6 +25,9 @@ describe("business-agent catalog", () => {
     expect(youtube?.capabilities).not.toContain("analytics");
     expect(gmail?.implementationStatus).toBe("oauth_ready");
     expect(amazon?.implementationStatus).toBe("oauth_ready");
+    expect(amazon?.productPackage).toBe("premium");
+    expect(gmail?.productPackage).toBe("core");
+    expect(youtube?.productPackage).toBe("social");
     expect(amazon?.capabilities).toEqual(["read", "analytics"]);
     expect(amazon?.capabilities).not.toContain("publish");
     expect(

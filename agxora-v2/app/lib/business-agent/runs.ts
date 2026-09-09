@@ -63,8 +63,7 @@ export async function createPlanRunForActor(
   }
 
   const emailIntent = /(email|gmail|inbox|reply|mailbox)/i.test(goal);
-  const amazonIntent =
-    /(amazon|sp-api|listing|lagerbestand|فروش آمازون|محصولات آمازون)/i.test(goal);
+  const amazonIntent = /(amazon|sp-api|lagerbestand|فروش آمازون|محصولات آمازون)/i.test(goal);
   const amazonCapability = amazonIntent
     ? await resolveAmazonCapabilityForActor(actor)
     : null;

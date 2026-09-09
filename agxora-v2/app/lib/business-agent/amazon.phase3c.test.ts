@@ -49,9 +49,12 @@ vi.mock("./integrations", async (importOriginal) => {
         provider: "amazon_seller",
         label: "Amazon Seller",
         category: "commerce",
+        productPackage: "premium",
         implementationStatus: "oauth_ready",
         oauthNote: "Amazon Seller",
         connected: actor.organizationId === "org-a" && actor.workspaceId === "ws-a",
+        planAccess: true,
+        canConnect: false,
         status: actor.organizationId === "org-a" ? "connected" : "not_connected",
         accountLabel: actor.organizationId === "org-a" ? "seller-org-a" : null,
         externalAccountId: actor.organizationId === "org-a" ? "seller-org-a" : null,
@@ -67,6 +70,14 @@ vi.mock("./integrations", async (importOriginal) => {
         connectedAt: null,
       },
     ]),
+    requireAmazonSellerConnectionForActor: vi.fn(async (actor: Actor) => {
+      if (actor.organizationId !== "org-a" || actor.workspaceId !== "ws-a") {
+        throw new PersistenceError(
+          "forbidden",
+          "Amazon Seller is not connected for this workspace.",
+        );
+      }
+    }),
     assertProviderPermission: vi.fn(async (actor, provider, permission) => {
       if (actor.organizationId !== "org-a" || actor.workspaceId !== "ws-a") {
         throw new PersistenceError(
@@ -531,6 +542,9 @@ describe("Phase 3C Amazon Seller SP-API", () => {
     const body = await response.json();
     expect(body.ok).toBe(false);
     assertNoSecretLeak(body);
+    await expect(beginAmazonOAuthForActor(actorA, "/dashboard/amazon")).rejects.toMatchObject({
+      code: "forbidden",
+    });
   });
 
   it("returns capability status without claiming Amazon success or leaking secrets", async () => {

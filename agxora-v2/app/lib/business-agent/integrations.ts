@@ -9,7 +9,11 @@ import { beginYouTubeOAuthForActor, disconnectYouTubeForActor } from "@/app/lib/
 import { beginGmailOAuthForActor, disconnectGmailForActor } from "@/app/lib/social/oauth/gmail";
 import { beginAmazonOAuthForActor, disconnectAmazonForActor } from "@/app/lib/amazon/oauth";
 import { recordExternalAction } from "./audit";
-import { assertMarketplacePlanAccess } from "./entitlements";
+import { assertMarketplacePlanAccess, hasMarketplacePlanAccess } from "./entitlements";
+import {
+  amazonSellerConnectedInWorkspace,
+  canStartOfficialConnect,
+} from "./product-structure";
 import {
   assertCanManageIntegrations,
   permissionGranted,
@@ -28,9 +32,12 @@ export type IntegrationSummary = {
   readonly provider: IntegrationProviderId;
   readonly label: string;
   readonly category: "email" | "social" | "commerce";
+  readonly productPackage: "core" | "social" | "premium";
   readonly implementationStatus: "oauth_ready" | "not_implemented";
   readonly oauthNote: string;
   readonly connected: boolean;
+  readonly planAccess: boolean;
+  readonly canConnect: boolean;
   readonly status: IntegrationConnection["status"];
   readonly accountLabel: string | null;
   readonly externalAccountId: string | null;
@@ -132,6 +139,8 @@ export async function listIntegrationsForActor(
     getSocialCredentialSummary(actor.organizationId, "amazon"),
   ]);
 
+  const marketplacePlan = hasMarketplacePlanAccess(actor.organizationId);
+
   return INTEGRATION_CATALOG.map((entry) => {
     const row = byProvider.get(entry.provider) ?? null;
     const liveConnected =
@@ -143,30 +152,47 @@ export async function listIntegrationsForActor(
             ? amazonLive
             : false;
     const connected =
-      entry.provider === "youtube" ||
-      entry.provider === "email_gmail" ||
       entry.provider === "amazon_seller"
-        ? liveConnected
-        : row?.status === "connected";
+        ? amazonSellerConnectedInWorkspace({
+            credentialLive: liveConnected,
+            workspaceStatus: row?.status ?? null,
+          })
+        : entry.provider === "youtube" || entry.provider === "email_gmail"
+          ? liveConnected
+          : row?.status === "connected";
+    const planAccess =
+      entry.provider === "amazon_seller" ? marketplacePlan.entitled : true;
+    const canConnect = canStartOfficialConnect({
+      implementationStatus: entry.implementationStatus,
+      connected,
+      planAccess,
+    });
     const accountLabel =
       entry.provider === "email_gmail"
         ? (row?.accountLabel ?? gmailSummary?.externalAccountName ?? null)
         : entry.provider === "amazon_seller"
-          ? (row?.accountLabel ?? amazonSummary?.externalAccountName ?? null)
+          ? connected
+            ? (row?.accountLabel ?? amazonSummary?.externalAccountName ?? null)
+            : (row?.accountLabel ?? null)
           : (row?.accountLabel ?? null);
     const externalAccountId =
       entry.provider === "email_gmail"
         ? (row?.externalAccountId ?? gmailSummary?.externalAccountId ?? null)
         : entry.provider === "amazon_seller"
-          ? (row?.externalAccountId ?? amazonSummary?.externalAccountId ?? null)
+          ? connected
+            ? (row?.externalAccountId ?? amazonSummary?.externalAccountId ?? null)
+            : (row?.externalAccountId ?? null)
           : (row?.externalAccountId ?? null);
     return {
       provider: entry.provider,
       label: entry.label,
       category: entry.category,
+      productPackage: entry.productPackage,
       implementationStatus: entry.implementationStatus,
       oauthNote: entry.oauthNote,
       connected,
+      planAccess,
+      canConnect,
       status: connected
         ? "connected"
         : (row?.status ?? "not_connected"),
@@ -174,9 +200,35 @@ export async function listIntegrationsForActor(
       externalAccountId,
       lastError: row?.lastError ?? null,
       permissions: flagsFromRow(row),
-      connectedAt: row?.connectedAt?.toISOString() ?? null,
+      connectedAt: connected ? row?.connectedAt?.toISOString() ?? null : null,
     };
   });
+}
+
+export async function requireAmazonSellerConnectionForActor(actor: Actor): Promise<void> {
+  const live = await hasActiveSocialCredential(actor.organizationId, "amazon");
+  const row = await prisma.integrationConnection.findUnique({
+    where: {
+      organizationId_workspaceId_provider: {
+        organizationId: actor.organizationId,
+        workspaceId: actor.workspaceId,
+        provider: "amazon_seller",
+      },
+    },
+    select: { status: true },
+  });
+  if (
+    !amazonSellerConnectedInWorkspace({
+      credentialLive: live,
+      workspaceStatus: row?.status ?? null,
+    })
+  ) {
+    throw new PersistenceError(
+      "forbidden",
+      "Amazon Seller is not connected for this workspace.",
+      { details: [{ field: "amazon_seller", message: "not_connected" }] },
+    );
+  }
 }
 
 export async function connectIntegrationForActor(

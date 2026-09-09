@@ -5,6 +5,12 @@ import {
 } from "./entitlements";
 import { MARKETPLACE_CATALOG } from "./marketplace-catalog";
 import { evaluateAmazonCapability } from "./capabilities";
+import {
+  PRODUCT_STRUCTURE,
+  amazonSellerConnectedInWorkspace,
+  canStartOfficialConnect,
+  productPackageForProvider,
+} from "./product-structure";
 
 describe("marketplace entitlements", () => {
   afterEach(() => {
@@ -74,5 +80,56 @@ describe("marketplace entitlements", () => {
         (item) => item.implementationStatus === "not_implemented" && item.tier === "premium",
       ),
     ).toBe(true);
+  });
+
+  it("maps Core, Social, and Premium packages without billing", () => {
+    expect(PRODUCT_STRUCTURE.map((pkg) => pkg.id)).toEqual(["core", "social", "premium"]);
+    expect(productPackageForProvider("email_gmail")).toBe("core");
+    expect(productPackageForProvider("youtube")).toBe("social");
+    expect(productPackageForProvider("amazon_seller")).toBe("premium");
+    expect(
+      PRODUCT_STRUCTURE.find((pkg) => pkg.id === "premium")?.features.some(
+        (feature) => feature.id === "marketplace",
+      ),
+    ).toBe(true);
+  });
+
+  it("requires a workspace connection row before treating Amazon as connected", () => {
+    expect(
+      amazonSellerConnectedInWorkspace({
+        credentialLive: true,
+        workspaceStatus: null,
+      }),
+    ).toBe(false);
+    expect(
+      amazonSellerConnectedInWorkspace({
+        credentialLive: true,
+        workspaceStatus: "connected",
+      }),
+    ).toBe(true);
+  });
+
+  it("does not advertise Amazon Connect without plan access", () => {
+    expect(
+      canStartOfficialConnect({
+        implementationStatus: "oauth_ready",
+        connected: false,
+        planAccess: false,
+      }),
+    ).toBe(false);
+    expect(
+      canStartOfficialConnect({
+        implementationStatus: "oauth_ready",
+        connected: false,
+        planAccess: true,
+      }),
+    ).toBe(true);
+    expect(
+      canStartOfficialConnect({
+        implementationStatus: "not_implemented",
+        connected: false,
+        planAccess: true,
+      }),
+    ).toBe(false);
   });
 });

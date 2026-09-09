@@ -20,7 +20,7 @@ import {
 } from "@/app/lib/amazon/client";
 import { recordExternalAction } from "./audit";
 import { assertMarketplacePlanAccess } from "./entitlements";
-import { assertProviderPermission } from "./integrations";
+import { assertProviderPermission, requireAmazonSellerConnectionForActor } from "./integrations";
 import { getAgentPolicyForActor } from "./policy";
 import { redactSecrets } from "./redact";
 import type { AgentToolName } from "./tools";
@@ -54,6 +54,7 @@ function publicToolPayload<T>(value: T): T {
 
 async function assertAmazonRead(actor: Actor): Promise<void> {
   assertMarketplacePlanAccess(actor.organizationId);
+  await requireAmazonSellerConnectionForActor(actor);
   await assertProviderPermission(actor, "amazon_seller", "read");
 }
 
