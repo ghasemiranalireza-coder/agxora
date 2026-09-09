@@ -110,12 +110,12 @@ describe("Phase 70 business-agent isolation", () => {
 
     await createCampaignForActor(ownerA, {
       name: "Org A campaign",
-      channels: ["instagram"],
+      channels: ["youtube"],
       items: [
         {
-          provider: "instagram",
-          contentType: "post",
-          title: "Draft post",
+          provider: "youtube",
+          contentType: "video",
+          title: "Draft video",
           caption: "Hello",
         },
       ],
@@ -136,9 +136,19 @@ describe("Phase 70 business-agent isolation", () => {
       status: 501,
     });
 
+    await expect(
+      createCampaignForActor(ownerA, {
+        name: "Needs approval",
+        items: [{ provider: "instagram", contentType: "post", title: "X" }],
+      }),
+    ).rejects.toMatchObject({
+      code: "validation",
+      message: expect.stringMatching(/not available/i),
+    });
+
     const campaign = await createCampaignForActor(ownerA, {
       name: "Needs approval",
-      items: [{ provider: "instagram", contentType: "post", title: "X" }],
+      items: [{ provider: "youtube", contentType: "video", title: "X" }],
     });
     const itemId = campaign.items[0]?.id;
     expect(itemId).toBeTruthy();

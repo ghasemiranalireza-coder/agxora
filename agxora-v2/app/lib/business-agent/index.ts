@@ -12,3 +12,20 @@ export {
 export { AGENT_TOOL_CATALOG } from "./tools";
 export { redactSecrets } from "./redact";
 export { GMAIL_CHAT_GUIDANCE } from "./gmail-tools";
+export {
+  detectAgentIntents,
+  resolveAgentIntentResults,
+  agentPlanMessage,
+} from "./agent-intent";
+export {
+  buildAgentRunPlan,
+  uniquePlanTools,
+  applyPlanApproval,
+  applyPlanRejection,
+} from "./agent-run-plan";
+export {
+  isExecutableCampaignProvider,
+  firstUnsupportedCampaignProvider,
+  supportedCampaignChannels,
+} from "./campaign-providers";
+export { decideExternalActionPolicy } from "./policy-gates";
