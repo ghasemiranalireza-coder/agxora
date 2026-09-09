@@ -131,7 +131,7 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     implementationStatus: "oauth_ready",
     capabilities: ["read", "analytics"],
     oauthNote:
-      "Uses official Amazon Selling Partner API (Login with Amazon). Seller authorization, marketplace discovery, listings, inventory, non-PII orders, pricing, and sales metrics are read-only. Price/inventory/listing writes, order changes, refunds, reports, and Amazon Ads are not implemented.",
+      "Amazon Seller is a Premium Marketplace connection. Connect with Amazon's official authorization. AGXORA can then review products, inventory, and sales. Changing prices or inventory is not available yet.",
   },
 ];
 

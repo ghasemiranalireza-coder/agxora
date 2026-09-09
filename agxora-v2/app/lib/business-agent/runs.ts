@@ -8,6 +8,7 @@ import { recordExternalAction } from "./audit";
 import { AGENT_PLAN_STEPS } from "./catalog";
 import { GMAIL_CHAT_GUIDANCE } from "./gmail-tools";
 import { AMAZON_CHAT_GUIDANCE } from "./amazon-tools";
+import { resolveAmazonCapabilityForActor } from "./capabilities";
 import { redactSecrets } from "./redact";
 
 export async function listAgentRunsForActor(actor: Actor) {
@@ -64,6 +65,15 @@ export async function createPlanRunForActor(
   const emailIntent = /(email|gmail|inbox|reply|mailbox)/i.test(goal);
   const amazonIntent =
     /(amazon|sp-api|listing|lagerbestand|فروش آمازون|محصولات آمازون)/i.test(goal);
+  const amazonCapability = amazonIntent
+    ? await resolveAmazonCapabilityForActor(actor)
+    : null;
+  const amazonMessage = amazonCapability
+    ? amazonCapability.canAnalyze
+      ? "Amazon Seller is connected and allowed for this workspace. AGXORA can analyze the seller account after Amazon confirms the data. Price and inventory changes stay unavailable."
+      : amazonCapability.missingSteps[0]?.message ??
+        "Amazon Seller is not ready yet."
+    : undefined;
   const run = await prisma.agentRun.create({
     data: {
       organizationId: actor.organizationId,
@@ -74,8 +84,8 @@ export async function createPlanRunForActor(
       status: "WAITING_APPROVAL",
       result: redactSecrets({
         phase: "PLAN",
-        message: amazonIntent
-          ? "Amazon Seller plan created. Official SP-API reads can run when connected and permitted. Price, inventory, listing, order, refund, and Ads writes stay unimplemented."
+        message: amazonMessage
+          ? amazonMessage
           : emailIntent
             ? "Email plan created. Gmail read and draft can run when connected and permitted. Sending stays blocked until approval, send permission, and Gmail confirmation."
             : "Plan created. External publish/send is blocked until approval and provider implementation.",
@@ -90,17 +100,24 @@ export async function createPlanRunForActor(
               guidance: GMAIL_CHAT_GUIDANCE,
             }
           : undefined,
-        amazon: amazonIntent
+        amazon: amazonCapability
           ? {
-              tools: [
-                "amazon.list_marketplaces",
-                "amazon.list_listings",
-                "amazon.list_inventory",
-                "amazon.list_orders",
-                "amazon.list_sales",
-                "amazon.analyze",
-              ],
+              tools: amazonCapability.canAnalyze
+                ? [
+                    "amazon.list_marketplaces",
+                    "amazon.list_listings",
+                    "amazon.list_inventory",
+                    "amazon.list_orders",
+                    "amazon.list_sales",
+                    "amazon.analyze",
+                  ]
+                : [],
               writesBlocked: true,
+              canAnalyze: amazonCapability.canAnalyze,
+              planAccess: amazonCapability.planAccess,
+              connected: amazonCapability.connected,
+              canRead: amazonCapability.canRead,
+              missingSteps: amazonCapability.missingSteps,
               guidance: AMAZON_CHAT_GUIDANCE,
             }
           : undefined,

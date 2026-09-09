@@ -30,7 +30,8 @@ export type AgentToolName =
   | "amazon.list_pricing"
   | "amazon.analyze"
   | "amazon.update_price"
-  | "amazon.update_inventory";
+  | "amazon.update_inventory"
+  | "amazon.update_listing";
 
 export type AgentToolDefinition = {
   readonly name: AgentToolName;
@@ -208,5 +209,11 @@ export const AGENT_TOOL_CATALOG: readonly AgentToolDefinition[] = [
     sideEffect: true,
     requiredPermission: "publish",
     description: "Amazon inventory changes are not implemented",
+  },
+  {
+    name: "amazon.update_listing",
+    sideEffect: true,
+    requiredPermission: "publish",
+    description: "Amazon listing changes are not implemented",
   },
 ];

@@ -6,6 +6,7 @@
 import { NextResponse } from "next/server";
 import { requireDatabase } from "@/app/lib/auth/server/http";
 import { executeAmazonToolForActor, isAmazonToolName } from "@/app/lib/business-agent/amazon-tools";
+import { resolveAmazonCapabilityForActor } from "@/app/lib/business-agent/capabilities";
 import { jsonError } from "@/app/lib/crm/persistence/http";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import { requireCurrentActor } from "@/app/lib/tenancy";
@@ -21,6 +22,7 @@ const RESOURCE_TOOLS = {
   pricing: "amazon.list_pricing",
   analyze: "amazon.analyze",
   reports: "amazon.list_marketplaces",
+  status: "amazon.list_marketplaces",
 } as const;
 
 type Resource = keyof typeof RESOURCE_TOOLS;
@@ -46,6 +48,17 @@ export async function GET(
         { ok: false, kind: "unsupported", reason: "amazon_reports_not_implemented" },
         { status: 501 },
       );
+    }
+    if (resource === "status") {
+      const capability = await resolveAmazonCapabilityForActor(actor);
+      const serialized = JSON.stringify(capability);
+      if (/access_token|refresh_token|client_secret|Atza\||Atzr\|/i.test(serialized)) {
+        return NextResponse.json(
+          { ok: false, message: "Refusing to return credential material" },
+          { status: 500 },
+        );
+      }
+      return NextResponse.json({ ok: true, ...capability });
     }
     const tool = RESOURCE_TOOLS[resource];
     if (!isAmazonToolName(tool)) {

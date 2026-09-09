@@ -44,9 +44,16 @@ export function isAmazonSellerEnabled(): boolean {
   return raw === "1" || raw === "true" || raw === "yes";
 }
 
+export type AmazonSpApiEnvironment = "sandbox" | "production";
+
 export function isAmazonSpApiSandbox(): boolean {
   const raw = process.env.AGXORA_AMAZON_SP_API_SANDBOX?.trim().toLowerCase();
   return raw === "1" || raw === "true" || raw === "yes";
+}
+
+/** Official hosted SP-API sandbox vs production. Never invents Amazon data. */
+export function getAmazonSpApiEnvironment(): AmazonSpApiEnvironment {
+  return isAmazonSpApiSandbox() ? "sandbox" : "production";
 }
 
 function parseRegion(raw: string | undefined): AmazonSpApiRegion {

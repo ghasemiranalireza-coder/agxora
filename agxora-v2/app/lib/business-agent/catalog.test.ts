@@ -54,6 +54,9 @@ describe("business-agent catalog", () => {
     expect(AGENT_TOOL_CATALOG.find((tool) => tool.name === "amazon.update_price")?.sideEffect).toBe(
       true,
     );
+    expect(AGENT_TOOL_CATALOG.find((tool) => tool.name === "amazon.update_listing")?.sideEffect).toBe(
+      true,
+    );
     expect(permissionGranted(SAFE_PERMISSIONS, "publish")).toBe(false);
     expect(isIntegrationProviderId("instagram")).toBe(true);
     expect(isIntegrationProviderId("amazon_seller")).toBe(true);

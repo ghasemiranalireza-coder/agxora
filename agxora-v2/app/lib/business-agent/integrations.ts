@@ -9,6 +9,7 @@ import { beginYouTubeOAuthForActor, disconnectYouTubeForActor } from "@/app/lib/
 import { beginGmailOAuthForActor, disconnectGmailForActor } from "@/app/lib/social/oauth/gmail";
 import { beginAmazonOAuthForActor, disconnectAmazonForActor } from "@/app/lib/amazon/oauth";
 import { recordExternalAction } from "./audit";
+import { assertMarketplacePlanAccess } from "./entitlements";
 import {
   assertCanManageIntegrations,
   permissionGranted,
@@ -222,6 +223,7 @@ export async function connectIntegrationForActor(
   }
 
   if (provider === "amazon_seller") {
+    assertMarketplacePlanAccess(actor.organizationId);
     const result = await beginAmazonOAuthForActor(actor, redirectPath);
     await upsertConnection(actor, "amazon_seller", {
       status: "not_connected",
