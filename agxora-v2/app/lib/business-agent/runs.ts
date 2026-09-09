@@ -9,6 +9,14 @@ import { AGENT_PLAN_STEPS } from "./catalog";
 import { GMAIL_CHAT_GUIDANCE } from "./gmail-tools";
 import { AMAZON_CHAT_GUIDANCE } from "./amazon-tools";
 import { resolveAmazonCapabilityForActor } from "./capabilities";
+import { hasMarketplacePlanAccess } from "./entitlements";
+import {
+  describeAmazonMarketplaceIntent,
+  describeUnsupportedMarketplaceIntent,
+  detectMarketplaceProviders,
+  marketplacePlanMessage,
+  type MarketplaceIntentResult,
+} from "./marketplace-intent";
 import { redactSecrets } from "./redact";
 
 export async function listAgentRunsForActor(actor: Actor) {
@@ -63,16 +71,23 @@ export async function createPlanRunForActor(
   }
 
   const emailIntent = /(email|gmail|inbox|reply|mailbox)/i.test(goal);
-  const amazonIntent = /(amazon|sp-api|lagerbestand|فروش آمازون|محصولات آمازون)/i.test(goal);
-  const amazonCapability = amazonIntent
-    ? await resolveAmazonCapabilityForActor(actor)
-    : null;
-  const amazonMessage = amazonCapability
-    ? amazonCapability.canAnalyze
-      ? "Amazon Seller is connected and allowed for this workspace. AGXORA can analyze the seller account after Amazon confirms the data. Price and inventory changes stay unavailable."
-      : amazonCapability.missingSteps[0]?.message ??
-        "Amazon Seller is not ready yet."
-    : undefined;
+  const marketplaceProviders = detectMarketplaceProviders(goal);
+  const marketplaceIntents: MarketplaceIntentResult[] = [];
+  for (const provider of marketplaceProviders) {
+    if (provider === "amazon_seller") {
+      const amazonCapability = await resolveAmazonCapabilityForActor(actor);
+      marketplaceIntents.push(describeAmazonMarketplaceIntent(amazonCapability));
+    } else {
+      marketplaceIntents.push(
+        describeUnsupportedMarketplaceIntent(
+          provider,
+          hasMarketplacePlanAccess(actor.organizationId).entitled,
+        ),
+      );
+    }
+  }
+  const amazonIntent = marketplaceIntents.find((intent) => intent.provider === "amazon_seller");
+  const marketplaceMessage = marketplacePlanMessage(marketplaceIntents);
   const run = await prisma.agentRun.create({
     data: {
       organizationId: actor.organizationId,
@@ -83,8 +98,8 @@ export async function createPlanRunForActor(
       status: "WAITING_APPROVAL",
       result: redactSecrets({
         phase: "PLAN",
-        message: amazonMessage
-          ? amazonMessage
+        message: marketplaceMessage
+          ? marketplaceMessage
           : emailIntent
             ? "Email plan created. Gmail read and draft can run when connected and permitted. Sending stays blocked until approval, send permission, and Gmail confirmation."
             : "Plan created. External publish/send is blocked until approval and provider implementation.",
@@ -99,9 +114,10 @@ export async function createPlanRunForActor(
               guidance: GMAIL_CHAT_GUIDANCE,
             }
           : undefined,
-        amazon: amazonCapability
+        marketplace: marketplaceIntents.length > 0 ? marketplaceIntents : undefined,
+        amazon: amazonIntent
           ? {
-              tools: amazonCapability.canAnalyze
+              tools: amazonIntent.canAnalyze
                 ? [
                     "amazon.list_marketplaces",
                     "amazon.list_listings",
@@ -112,11 +128,11 @@ export async function createPlanRunForActor(
                   ]
                 : [],
               writesBlocked: true,
-              canAnalyze: amazonCapability.canAnalyze,
-              planAccess: amazonCapability.planAccess,
-              connected: amazonCapability.connected,
-              canRead: amazonCapability.canRead,
-              missingSteps: amazonCapability.missingSteps,
+              kind: amazonIntent.kind,
+              canAnalyze: amazonIntent.canAnalyze,
+              planAccess: amazonIntent.planAccess,
+              connected: amazonIntent.connected,
+              missingSteps: amazonIntent.missingSteps,
               guidance: AMAZON_CHAT_GUIDANCE,
             }
           : undefined,

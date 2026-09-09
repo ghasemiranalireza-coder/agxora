@@ -87,6 +87,8 @@ describe("marketplace entitlements", () => {
     expect(productPackageForProvider("email_gmail")).toBe("core");
     expect(productPackageForProvider("youtube")).toBe("social");
     expect(productPackageForProvider("amazon_seller")).toBe("premium");
+    expect(productPackageForProvider("shopify")).toBe("premium");
+    expect(productPackageForProvider("ebay")).toBe("premium");
     expect(
       PRODUCT_STRUCTURE.find((pkg) => pkg.id === "premium")?.features.some(
         (feature) => feature.id === "marketplace",

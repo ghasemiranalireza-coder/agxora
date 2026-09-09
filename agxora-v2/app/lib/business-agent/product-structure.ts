@@ -67,7 +67,7 @@ export const PRODUCT_STRUCTURE: readonly ProductPackage[] = [
 ];
 
 const CORE_PROVIDERS = new Set(["email_gmail", "email_microsoft"]);
-const PREMIUM_PROVIDERS = new Set(["amazon_seller"]);
+const PREMIUM_PROVIDERS = new Set(["amazon_seller", "alibaba", "ebay", "shopify"]);
 
 export function productPackageForProvider(provider: string): ProductPackageId {
   if (CORE_PROVIDERS.has(provider)) return "core";
