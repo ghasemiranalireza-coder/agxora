@@ -8,6 +8,7 @@ import "server-only";
 import { randomBytes } from "crypto";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import type { Actor } from "@/app/lib/tenancy/types";
+import { assertMarketplacePlanAccess } from "@/app/lib/business-agent/entitlements";
 import {
   AMAZON_LWA_TOKEN_URL,
   getAmazonLwaConfig,
@@ -68,6 +69,7 @@ export async function beginAmazonOAuthForActor(
   actor: Actor,
   redirectPath?: string,
 ): Promise<AmazonConnectResult> {
+  assertMarketplacePlanAccess(actor.organizationId);
   const config = requireAmazonEnabled();
   const issued = await issueSocialOAuthState({
     actor,
@@ -96,6 +98,7 @@ export async function continueAmazonOAuthLoginForActor(
     readonly version?: string | null;
   },
 ): Promise<{ readonly amazonRedirectUrl: string }> {
+  assertMarketplacePlanAccess(actor.organizationId);
   const config = requireAmazonEnabled();
   if (!isAllowedAmazonCallbackUri(input.amazonCallbackUri)) {
     throw new PersistenceError("forbidden", "Invalid Amazon callback URI", {
@@ -139,6 +142,7 @@ export async function completeAmazonOAuthForActor(
     readonly sellingPartnerId?: string;
   },
 ): Promise<AmazonCallbackResult> {
+  assertMarketplacePlanAccess(actor.organizationId);
   const config = requireAmazonEnabled();
   const consumed = await consumeSocialOAuthState({
     actor,
@@ -176,7 +180,7 @@ export async function completeAmazonOAuthForActor(
     body,
   });
   if (!tokenResponse.ok) {
-    throw new PersistenceError("forbidden", "OAuth token exchange failed", {
+    throw new PersistenceError("forbidden", "Amazon connection could not be completed", {
       details: [{ field: "code", message: "token_exchange_failed" }],
     });
   }
@@ -187,7 +191,7 @@ export async function completeAmazonOAuthForActor(
     token_type?: string;
   };
   if (!tokens.access_token || !tokens.refresh_token) {
-    throw new PersistenceError("forbidden", "OAuth token exchange failed", {
+    throw new PersistenceError("forbidden", "Amazon connection could not be completed", {
       details: [{ field: "code", message: "missing_tokens" }],
     });
   }

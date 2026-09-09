@@ -8,9 +8,12 @@ type IntegrationSummary = {
   readonly provider: string;
   readonly label: string;
   readonly category: "email" | "social" | "commerce";
+  readonly productPackage?: "core" | "social" | "premium";
   readonly implementationStatus: "oauth_ready" | "not_implemented";
   readonly oauthNote: string;
   readonly connected: boolean;
+  readonly planAccess?: boolean;
+  readonly canConnect?: boolean;
   readonly status: string;
   readonly accountLabel: string | null;
   readonly permissions: IntegrationPermissionFlags;
@@ -220,7 +223,11 @@ export function ConnectedAccounts(): JSX.Element {
                 ) : (
                   <button
                     type="button"
-                    disabled={busy === item.provider}
+                    disabled={
+                      busy === item.provider ||
+                      item.canConnect === false ||
+                      item.implementationStatus !== "oauth_ready"
+                    }
                     onClick={() => void connect(item.provider)}
                   >
                     {t("businessAgent.connect")}

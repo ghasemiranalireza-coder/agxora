@@ -13,6 +13,9 @@ import {
   continueAmazonOAuthLoginForActor,
 } from "@/app/lib/amazon/oauth";
 import { amazonReportsUnsupported, amazonAdsUnsupported } from "@/app/lib/amazon/client";
+import { setMarketplaceEntitlementForTests } from "./entitlements";
+import { evaluateAmazonCapability } from "./capabilities";
+import { getAmazonSpApiEnvironment } from "@/app/lib/amazon/config";
 
 const policyState = vi.hoisted(() => ({
   mode: "SAFE" as "SAFE" | "ASSISTED" | "AUTONOMOUS",
@@ -41,6 +44,40 @@ vi.mock("./integrations", async (importOriginal) => {
   const actual = await importOriginal<typeof import("./integrations")>();
   return {
     ...actual,
+    listIntegrationsForActor: vi.fn(async (actor: Actor) => [
+      {
+        provider: "amazon_seller",
+        label: "Amazon Seller",
+        category: "commerce",
+        productPackage: "premium",
+        implementationStatus: "oauth_ready",
+        oauthNote: "Amazon Seller",
+        connected: actor.organizationId === "org-a" && actor.workspaceId === "ws-a",
+        planAccess: true,
+        canConnect: false,
+        status: actor.organizationId === "org-a" ? "connected" : "not_connected",
+        accountLabel: actor.organizationId === "org-a" ? "seller-org-a" : null,
+        externalAccountId: actor.organizationId === "org-a" ? "seller-org-a" : null,
+        lastError: null,
+        permissions: {
+          canRead: policyState.flags.canRead,
+          canCreateDraft: policyState.flags.canCreateDraft,
+          canSchedule: policyState.flags.canSchedule,
+          canPublish: policyState.flags.canPublish,
+          canSendEmail: policyState.flags.canSendEmail,
+          canDelete: policyState.flags.canDelete,
+        },
+        connectedAt: null,
+      },
+    ]),
+    requireAmazonSellerConnectionForActor: vi.fn(async (actor: Actor) => {
+      if (actor.organizationId !== "org-a" || actor.workspaceId !== "ws-a") {
+        throw new PersistenceError(
+          "forbidden",
+          "Amazon Seller is not connected for this workspace.",
+        );
+      }
+    }),
     assertProviderPermission: vi.fn(async (actor, provider, permission) => {
       if (actor.organizationId !== "org-a" || actor.workspaceId !== "ws-a") {
         throw new PersistenceError(
@@ -235,6 +272,7 @@ describe("Phase 3C Amazon Seller SP-API", () => {
     process.env.AGXORA_AMAZON_SP_API_REDIRECT_URI =
       "http://localhost:3000/api/v1/integrations/amazon_seller/callback";
     vi.clearAllMocks();
+    setMarketplaceEntitlementForTests(true);
     await seedAmazon();
   });
 
@@ -242,6 +280,7 @@ describe("Phase 3C Amazon Seller SP-API", () => {
     setSocialCredentialStoreForTests(null);
     setAmazonSpApiHttpForTests(null);
     setAmazonOAuthHttpForTests(null);
+    setMarketplaceEntitlementForTests(null);
   });
 
   it("rejects unauthenticated Amazon reads with 401", async () => {
@@ -477,5 +516,85 @@ describe("Phase 3C Amazon Seller SP-API", () => {
     const first = await executeAmazonToolForActor(actorA, "amazon.list_marketplaces");
     const second = await executeAmazonToolForActor(actorA, "amazon.list_marketplaces");
     expect(first).toEqual(second);
+  });
+
+  it("denies Amazon reads without Premium Marketplace plan access", async () => {
+    setMarketplaceEntitlementForTests(false);
+    await expect(
+      executeAmazonToolForActor(actorA, "amazon.list_marketplaces"),
+    ).rejects.toMatchObject({ code: "forbidden" });
+    await expect(
+      executeAmazonToolForActor(actorA, "amazon.update_listing"),
+    ).rejects.toMatchObject({ code: "forbidden" });
+  });
+
+  it("rejects Amazon connect without Marketplace plan access", async () => {
+    setMarketplaceEntitlementForTests(false);
+    const response = await connectAmazon(
+      new Request("http://localhost/api/v1/integrations/amazon_seller/connect", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ redirectPath: "/dashboard/amazon" }),
+      }),
+      { params: Promise.resolve({ provider: "amazon_seller" }) },
+    );
+    expect(response.status).toBe(403);
+    const body = await response.json();
+    expect(body.ok).toBe(false);
+    assertNoSecretLeak(body);
+    await expect(beginAmazonOAuthForActor(actorA, "/dashboard/amazon")).rejects.toMatchObject({
+      code: "forbidden",
+    });
+  });
+
+  it("returns capability status without claiming Amazon success or leaking secrets", async () => {
+    const ready = evaluateAmazonCapability({
+      planAccess: true,
+      configured: true,
+      connected: true,
+      canRead: true,
+      environment: "production",
+    });
+    expect(ready.canAnalyze).toBe(true);
+    expect(ready.missingSteps).toEqual([]);
+
+    const blocked = evaluateAmazonCapability({
+      planAccess: false,
+      configured: false,
+      connected: false,
+      canRead: false,
+      environment: "unconfigured",
+    });
+    expect(blocked.canAnalyze).toBe(false);
+    expect(blocked.missingSteps.map((step) => step.code)).toEqual([
+      "plan_required",
+      "not_configured",
+      "not_connected",
+    ]);
+    assertNoSecretLeak(blocked);
+
+    const status = await amazonResource(
+      new Request("http://localhost/api/v1/integrations/amazon_seller/status"),
+      { params: Promise.resolve({ resource: "status" }) },
+    );
+    expect(status.status).toBe(200);
+    const body = await status.json();
+    expect(body.ok).toBe(true);
+    expect(body.tier).toBe("premium");
+    expect(body.canAnalyze).toBe(true);
+    assertNoSecretLeak(body);
+  });
+
+  it("selects the official Amazon sandbox endpoint only when sandbox is enabled", () => {
+    const previous = process.env.AGXORA_AMAZON_SP_API_SANDBOX;
+    delete process.env.AGXORA_AMAZON_SP_API_SANDBOX;
+    expect(getAmazonSpApiEnvironment()).toBe("production");
+    process.env.AGXORA_AMAZON_SP_API_SANDBOX = "true";
+    expect(getAmazonSpApiEnvironment()).toBe("sandbox");
+    if (previous === undefined) {
+      delete process.env.AGXORA_AMAZON_SP_API_SANDBOX;
+    } else {
+      process.env.AGXORA_AMAZON_SP_API_SANDBOX = previous;
+    }
   });
 });

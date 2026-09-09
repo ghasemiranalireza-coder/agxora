@@ -19,13 +19,14 @@ import {
   listAmazonSalesMetricsForActor,
 } from "@/app/lib/amazon/client";
 import { recordExternalAction } from "./audit";
-import { assertProviderPermission } from "./integrations";
+import { assertMarketplacePlanAccess } from "./entitlements";
+import { assertProviderPermission, requireAmazonSellerConnectionForActor } from "./integrations";
 import { getAgentPolicyForActor } from "./policy";
 import { redactSecrets } from "./redact";
 import type { AgentToolName } from "./tools";
 
 export const AMAZON_CHAT_GUIDANCE =
-  "Amazon Seller uses the official Selling Partner API only. Reads (marketplaces, listings, inventory, non-PII orders, sales, pricing) may run when connected and canRead is granted. Price changes, inventory changes, listing edits, cancellations, refunds, reports, and Amazon Ads are not implemented. Never invent Amazon data. Never include LWA tokens or client secrets in replies.";
+  "Amazon Seller is a Premium Marketplace capability. Check plan access, connection, and read permission before any Amazon read. Official SP-API reads may run only when all three are satisfied. Price, inventory, listing, order, refund, and Ads writes are not implemented. Never invent Amazon data. Never include LWA tokens or client secrets in replies. Speak to customers without OAuth, token, or API jargon.";
 
 export type AmazonToolName =
   | "amazon.list_marketplaces"
@@ -36,7 +37,8 @@ export type AmazonToolName =
   | "amazon.list_pricing"
   | "amazon.analyze"
   | "amazon.update_price"
-  | "amazon.update_inventory";
+  | "amazon.update_inventory"
+  | "amazon.update_listing";
 
 export type AmazonToolArgs = {
   readonly marketplaceId?: string;
@@ -51,10 +53,13 @@ function publicToolPayload<T>(value: T): T {
 }
 
 async function assertAmazonRead(actor: Actor): Promise<void> {
+  assertMarketplacePlanAccess(actor.organizationId);
+  await requireAmazonSellerConnectionForActor(actor);
   await assertProviderPermission(actor, "amazon_seller", "read");
 }
 
 async function assertAmazonWriteBlocked(actor: Actor, action: AmazonToolName): Promise<never> {
+  assertMarketplacePlanAccess(actor.organizationId);
   const policy = await getAgentPolicyForActor(actor);
   if (policy.mode === "SAFE") {
     await recordExternalAction({
@@ -212,6 +217,8 @@ export async function executeAmazonToolForActor(
     case "amazon.update_price":
       return assertAmazonWriteBlocked(actor, name);
     case "amazon.update_inventory":
+      return assertAmazonWriteBlocked(actor, name);
+    case "amazon.update_listing":
       return assertAmazonWriteBlocked(actor, name);
     default: {
       const _never: never = name;

@@ -8,6 +8,15 @@ import { recordExternalAction } from "./audit";
 import { AGENT_PLAN_STEPS } from "./catalog";
 import { GMAIL_CHAT_GUIDANCE } from "./gmail-tools";
 import { AMAZON_CHAT_GUIDANCE } from "./amazon-tools";
+import { resolveAmazonCapabilityForActor } from "./capabilities";
+import { hasMarketplacePlanAccess } from "./entitlements";
+import {
+  describeAmazonMarketplaceIntent,
+  describeUnsupportedMarketplaceIntent,
+  detectMarketplaceProviders,
+  marketplacePlanMessage,
+  type MarketplaceIntentResult,
+} from "./marketplace-intent";
 import { redactSecrets } from "./redact";
 
 export async function listAgentRunsForActor(actor: Actor) {
@@ -62,8 +71,23 @@ export async function createPlanRunForActor(
   }
 
   const emailIntent = /(email|gmail|inbox|reply|mailbox)/i.test(goal);
-  const amazonIntent =
-    /(amazon|sp-api|listing|lagerbestand|فروش آمازون|محصولات آمازون)/i.test(goal);
+  const marketplaceProviders = detectMarketplaceProviders(goal);
+  const marketplaceIntents: MarketplaceIntentResult[] = [];
+  for (const provider of marketplaceProviders) {
+    if (provider === "amazon_seller") {
+      const amazonCapability = await resolveAmazonCapabilityForActor(actor);
+      marketplaceIntents.push(describeAmazonMarketplaceIntent(amazonCapability));
+    } else {
+      marketplaceIntents.push(
+        describeUnsupportedMarketplaceIntent(
+          provider,
+          hasMarketplacePlanAccess(actor.organizationId).entitled,
+        ),
+      );
+    }
+  }
+  const amazonIntent = marketplaceIntents.find((intent) => intent.provider === "amazon_seller");
+  const marketplaceMessage = marketplacePlanMessage(marketplaceIntents);
   const run = await prisma.agentRun.create({
     data: {
       organizationId: actor.organizationId,
@@ -74,8 +98,8 @@ export async function createPlanRunForActor(
       status: "WAITING_APPROVAL",
       result: redactSecrets({
         phase: "PLAN",
-        message: amazonIntent
-          ? "Amazon Seller plan created. Official SP-API reads can run when connected and permitted. Price, inventory, listing, order, refund, and Ads writes stay unimplemented."
+        message: marketplaceMessage
+          ? marketplaceMessage
           : emailIntent
             ? "Email plan created. Gmail read and draft can run when connected and permitted. Sending stays blocked until approval, send permission, and Gmail confirmation."
             : "Plan created. External publish/send is blocked until approval and provider implementation.",
@@ -90,17 +114,25 @@ export async function createPlanRunForActor(
               guidance: GMAIL_CHAT_GUIDANCE,
             }
           : undefined,
+        marketplace: marketplaceIntents.length > 0 ? marketplaceIntents : undefined,
         amazon: amazonIntent
           ? {
-              tools: [
-                "amazon.list_marketplaces",
-                "amazon.list_listings",
-                "amazon.list_inventory",
-                "amazon.list_orders",
-                "amazon.list_sales",
-                "amazon.analyze",
-              ],
+              tools: amazonIntent.canAnalyze
+                ? [
+                    "amazon.list_marketplaces",
+                    "amazon.list_listings",
+                    "amazon.list_inventory",
+                    "amazon.list_orders",
+                    "amazon.list_sales",
+                    "amazon.analyze",
+                  ]
+                : [],
               writesBlocked: true,
+              kind: amazonIntent.kind,
+              canAnalyze: amazonIntent.canAnalyze,
+              planAccess: amazonIntent.planAccess,
+              connected: amazonIntent.connected,
+              missingSteps: amazonIntent.missingSteps,
               guidance: AMAZON_CHAT_GUIDANCE,
             }
           : undefined,

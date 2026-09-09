@@ -3,6 +3,9 @@
  * Provider tokens never appear in these types.
  */
 
+import type { ProductPackageId } from "./product-structure";
+import { productPackageForProvider } from "./product-structure";
+
 export const INTEGRATION_PROVIDERS = [
   "email_gmail",
   "email_microsoft",
@@ -52,6 +55,7 @@ export type IntegrationCatalogEntry = {
   readonly provider: IntegrationProviderId;
   readonly label: string;
   readonly category: "email" | "social" | "commerce";
+  readonly productPackage: ProductPackageId;
   readonly implementationStatus: ProviderImplementationStatus;
   readonly capabilities: readonly IntegrationCapability[];
   readonly oauthNote: string;
@@ -62,6 +66,7 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     provider: "email_gmail",
     label: "Gmail / Google Workspace",
     category: "email",
+    productPackage: productPackageForProvider("email_gmail"),
     implementationStatus: "oauth_ready",
     capabilities: ["read", "create_draft", "schedule", "send_email"],
     oauthNote:
@@ -71,6 +76,7 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     provider: "email_microsoft",
     label: "Microsoft 365 / Outlook",
     category: "email",
+    productPackage: productPackageForProvider("email_microsoft"),
     implementationStatus: "not_implemented",
     capabilities: ["read", "create_draft", "schedule", "send_email"],
     oauthNote: "Official Microsoft Graph OAuth is not implemented yet.",
@@ -79,6 +85,7 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     provider: "instagram",
     label: "Instagram",
     category: "social",
+    productPackage: productPackageForProvider("instagram"),
     implementationStatus: "not_implemented",
     capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
     oauthNote: "Official Meta OAuth is not implemented yet.",
@@ -87,6 +94,7 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     provider: "facebook",
     label: "Facebook Pages",
     category: "social",
+    productPackage: productPackageForProvider("facebook"),
     implementationStatus: "not_implemented",
     capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
     oauthNote: "Official Meta OAuth is not implemented yet.",
@@ -95,6 +103,7 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     provider: "tiktok",
     label: "TikTok",
     category: "social",
+    productPackage: productPackageForProvider("tiktok"),
     implementationStatus: "not_implemented",
     capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
     oauthNote: "Official TikTok OAuth is not implemented yet.",
@@ -103,6 +112,7 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     provider: "youtube",
     label: "YouTube",
     category: "social",
+    productPackage: productPackageForProvider("youtube"),
     implementationStatus: "oauth_ready",
     capabilities: ["read", "create_draft", "publish"],
     oauthNote:
@@ -112,6 +122,7 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     provider: "linkedin",
     label: "LinkedIn",
     category: "social",
+    productPackage: productPackageForProvider("linkedin"),
     implementationStatus: "not_implemented",
     capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
     oauthNote: "Official LinkedIn OAuth is not implemented yet.",
@@ -120,6 +131,7 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     provider: "x",
     label: "X",
     category: "social",
+    productPackage: productPackageForProvider("x"),
     implementationStatus: "not_implemented",
     capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
     oauthNote: "Official X OAuth is not implemented yet.",
@@ -128,10 +140,11 @@ export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
     provider: "amazon_seller",
     label: "Amazon Seller",
     category: "commerce",
+    productPackage: productPackageForProvider("amazon_seller"),
     implementationStatus: "oauth_ready",
     capabilities: ["read", "analytics"],
     oauthNote:
-      "Uses official Amazon Selling Partner API (Login with Amazon). Seller authorization, marketplace discovery, listings, inventory, non-PII orders, pricing, and sales metrics are read-only. Price/inventory/listing writes, order changes, refunds, reports, and Amazon Ads are not implemented.",
+      "Amazon Seller is a Premium Marketplace connection. Connect with Amazon's official authorization. AGXORA can then review products, inventory, and sales. Changing prices or inventory is not available yet.",
   },
 ];
 

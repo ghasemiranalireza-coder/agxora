@@ -13,3 +13,7 @@ export { AGENT_TOOL_CATALOG } from "./tools";
 export { redactSecrets } from "./redact";
 export { GMAIL_CHAT_GUIDANCE } from "./gmail-tools";
 export { AMAZON_CHAT_GUIDANCE } from "./amazon-tools";
+export { MARKETPLACE_CATALOG } from "./marketplace-catalog";
+export { PRODUCT_STRUCTURE } from "./product-structure";
+export { detectMarketplaceProviders } from "./marketplace-intent";
+export { marketplaceOperationStatus } from "./marketplace-contract";

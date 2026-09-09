@@ -25,6 +25,9 @@ describe("business-agent catalog", () => {
     expect(youtube?.capabilities).not.toContain("analytics");
     expect(gmail?.implementationStatus).toBe("oauth_ready");
     expect(amazon?.implementationStatus).toBe("oauth_ready");
+    expect(amazon?.productPackage).toBe("premium");
+    expect(gmail?.productPackage).toBe("core");
+    expect(youtube?.productPackage).toBe("social");
     expect(amazon?.capabilities).toEqual(["read", "analytics"]);
     expect(amazon?.capabilities).not.toContain("publish");
     expect(
@@ -52,6 +55,9 @@ describe("business-agent catalog", () => {
       false,
     );
     expect(AGENT_TOOL_CATALOG.find((tool) => tool.name === "amazon.update_price")?.sideEffect).toBe(
+      true,
+    );
+    expect(AGENT_TOOL_CATALOG.find((tool) => tool.name === "amazon.update_listing")?.sideEffect).toBe(
       true,
     );
     expect(permissionGranted(SAFE_PERMISSIONS, "publish")).toBe(false);
