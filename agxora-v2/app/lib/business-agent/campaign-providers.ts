@@ -31,3 +31,9 @@ export function supportedCampaignChannels(
 ): IntegrationProviderId[] {
   return [...new Set(channels.filter(isExecutableCampaignProvider))];
 }
+
+export function firstUnsupportedRequestedChannel(
+  channels: readonly IntegrationProviderId[],
+): IntegrationProviderId | null {
+  return channels.find((provider) => !isExecutableCampaignProvider(provider)) ?? null;
+}

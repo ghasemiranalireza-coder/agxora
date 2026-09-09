@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   firstUnsupportedCampaignProvider,
+  firstUnsupportedRequestedChannel,
   isExecutableCampaignProvider,
   supportedCampaignChannels,
   unsupportedCampaignProviderMessage,
@@ -30,5 +31,7 @@ describe("campaign provider eligibility", () => {
     expect(supportedCampaignChannels(["instagram", "youtube", "x", "youtube"])).toEqual([
       "youtube",
     ]);
+    expect(firstUnsupportedRequestedChannel(["instagram", "x"])).toBe("instagram");
+    expect(firstUnsupportedRequestedChannel(["youtube"])).toBeNull();
   });
 });

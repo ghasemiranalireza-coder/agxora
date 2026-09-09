@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
   campaignItemApproveBlockReason,
+  campaignItemRejectBlockReason,
   decideExternalActionPolicy,
+  planStatusClaimSucceeded,
 } from "./policy-gates";
 
 describe("external action policy gates", () => {
@@ -54,5 +56,14 @@ describe("external action policy gates", () => {
     expect(campaignItemApproveBlockReason("NEEDS_APPROVAL")).toBeNull();
     expect(campaignItemApproveBlockReason("PUBLISHED")).toMatch(/already published/i);
     expect(campaignItemApproveBlockReason("CANCELLED")).toMatch(/cancelled/i);
+  });
+
+  it("does not reject a confirmed or in-flight provider result", () => {
+    expect(campaignItemRejectBlockReason("NEEDS_APPROVAL")).toBeNull();
+    expect(campaignItemRejectBlockReason("APPROVED")).toBeNull();
+    expect(campaignItemRejectBlockReason("PUBLISHED")).toMatch(/already published/i);
+    expect(campaignItemRejectBlockReason("PUBLISHING")).toMatch(/already executing/i);
+    expect(planStatusClaimSucceeded(1)).toBe(true);
+    expect(planStatusClaimSucceeded(0)).toBe(false);
   });
 });

@@ -101,6 +101,8 @@ describe("agent run plan", () => {
     expect(redacted.phase).toBe("PLAN_APPROVED");
     expect(redacted.providerExecution).toBe("not_started");
     expect(redacted.access_token).toBe("[redacted]");
+    expect(String(redacted.message)).toMatch(/Nothing was published or sent/i);
+    expect(redacted).not.toHaveProperty("externalId");
     expect(applyPlanRejection({ phase: "PLAN" }).phase).toBe("CANCELLED");
     expect(planApprovalBlockReason("WAITING_APPROVAL")).toBeNull();
     expect(planApprovalBlockReason("COMPLETED")).toMatch(/already complete/i);

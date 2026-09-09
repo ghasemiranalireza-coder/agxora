@@ -14,6 +14,7 @@ import {
 } from "./agent-run-plan";
 import { getAgentPolicyForActor } from "./policy";
 import { listIntegrationsForActor } from "./integrations";
+import { planStatusClaimSucceeded } from "./policy-gates";
 import { redactSecrets } from "./redact";
 
 function publicRun<T>(value: T): T {
@@ -177,7 +178,7 @@ export async function approveAgentRunForActor(actor: Actor, runId: string) {
       : {};
   const nextResult = publicRun(applyPlanApproval(currentResult));
 
-  await prisma.$transaction([
+  const [claimed] = await prisma.$transaction([
     prisma.agentRun.updateMany({
       where: {
         id: run.id,
@@ -217,6 +218,13 @@ export async function approveAgentRunForActor(actor: Actor, runId: string) {
       data: { status: "COMPLETED" },
     }),
   ]);
+  if (!planStatusClaimSucceeded(claimed.count)) {
+    throw new PersistenceError(
+      "conflict",
+      planApprovalBlockReason("RUNNING") ??
+        "This plan cannot be approved in its current status.",
+    );
+  }
 
   await recordExternalAction({
     actor,
@@ -253,7 +261,7 @@ export async function rejectAgentRunForActor(actor: Actor, runId: string) {
       : {};
   const nextResult = publicRun(applyPlanRejection(currentResult));
 
-  await prisma.$transaction([
+  const [claimed] = await prisma.$transaction([
     prisma.agentRun.updateMany({
       where: {
         id: run.id,
@@ -283,6 +291,12 @@ export async function rejectAgentRunForActor(actor: Actor, runId: string) {
       },
     }),
   ]);
+  if (!planStatusClaimSucceeded(claimed.count)) {
+    throw new PersistenceError(
+      "conflict",
+      "This plan cannot be rejected in its current status.",
+    );
+  }
 
   await recordExternalAction({
     actor,

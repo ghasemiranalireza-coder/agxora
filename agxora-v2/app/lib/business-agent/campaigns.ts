@@ -16,11 +16,13 @@ import { executeGmailToolForActor } from "./gmail-tools";
 import { executeYouTubeCampaignItemForActor } from "./youtube-publish";
 import {
   firstUnsupportedCampaignProvider,
+  firstUnsupportedRequestedChannel,
   supportedCampaignChannels,
   unsupportedCampaignProviderMessage,
 } from "./campaign-providers";
 import {
   campaignItemApproveBlockReason,
+  campaignItemRejectBlockReason,
   decideExternalActionPolicy,
 } from "./policy-gates";
 
@@ -78,9 +80,17 @@ export async function createCampaignForActor(
   if (!name) {
     throw new PersistenceError("validation", "Campaign name is required");
   }
-  const channels = supportedCampaignChannels(
-    (input.channels ?? []).filter(isIntegrationProviderId),
-  );
+  const requestedChannels = (input.channels ?? []).filter(isIntegrationProviderId);
+  const channels = supportedCampaignChannels(requestedChannels);
+  if (requestedChannels.length > 0 && channels.length === 0) {
+    const unsupported = firstUnsupportedRequestedChannel(requestedChannels);
+    throw new PersistenceError(
+      "validation",
+      unsupported
+        ? unsupportedCampaignProviderMessage(unsupported)
+        : "None of the selected channels are available in AGXORA yet. Nothing was created or published.",
+    );
+  }
   const unsupportedItem = firstUnsupportedCampaignProvider(input.items ?? []);
   if (unsupportedItem) {
     throw new PersistenceError(
@@ -192,6 +202,13 @@ export async function rejectCampaignItemForActor(
   });
   if (!item) {
     throw new PersistenceError("not_found", "Content item not found");
+  }
+  if (item.status === "CANCELLED") {
+    return item;
+  }
+  const blocked = campaignItemRejectBlockReason(item.status);
+  if (blocked) {
+    throw new PersistenceError("conflict", blocked);
   }
   const updated = await prisma.campaignItem.update({
     where: { id: item.id },

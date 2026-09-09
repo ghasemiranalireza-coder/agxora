@@ -66,3 +66,18 @@ export function campaignItemApproveBlockReason(status: string): string | null {
   }
   return null;
 }
+
+export function campaignItemRejectBlockReason(status: string): string | null {
+  if (status === "CANCELLED") return null;
+  if (status === "PUBLISHED") {
+    return "This item is already published. Reject does not change a confirmed provider result.";
+  }
+  if (status === "PUBLISHING") {
+    return "This item is already executing. Wait for provider confirmation.";
+  }
+  return null;
+}
+
+export function planStatusClaimSucceeded(count: number): boolean {
+  return count === 1;
+}
