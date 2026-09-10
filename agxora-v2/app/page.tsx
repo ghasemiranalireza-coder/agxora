@@ -109,19 +109,19 @@ const FEATURE_ITEMS: readonly FeatureItem[] = [
     icon: "zap",
     title: "Automatisierungen",
     sub: "Spart Zeit und reduziert Fehler",
-    tileClass: "border-emerald-300/25 bg-emerald-400/10 text-emerald-300",
+    tileClass: "border-violet-300/25 bg-violet-400/10 text-violet-300",
   },
   {
     icon: "plug",
     title: "Integrationen",
     sub: "Verbindet Ihre Tools",
-    tileClass: "border-blue-300/25 bg-blue-400/10 text-blue-300",
+    tileClass: "border-fuchsia-300/25 bg-fuchsia-400/10 text-fuchsia-300",
   },
   {
     icon: "store",
     title: "Marketplace",
     sub: "Erweitert Ihre Möglichkeiten",
-    tileClass: "border-fuchsia-300/25 bg-fuchsia-400/10 text-fuchsia-300",
+    tileClass: "border-amber-300/25 bg-amber-400/10 text-amber-300",
   },
 ];
 
@@ -133,23 +133,23 @@ interface HeroBadge {
 }
 
 const HERO_BADGES: readonly HeroBadge[] = [
-  { icon: "users", label: "Kunden", position: "left-0 top-[10%]", delay: "0s" },
+  { icon: "users", label: "Kunden", position: "left-[1%] top-[9%]", delay: "0s" },
   {
     icon: "trendingUp",
     label: "Wachstum",
-    position: "right-0 top-[22%]",
+    position: "right-0 top-[17%]",
     delay: "1.8s",
   },
   {
     icon: "zap",
     label: "Automatisierung",
-    position: "bottom-[30%] left-[2%]",
+    position: "bottom-[37%] left-0",
     delay: "3.2s",
   },
   {
     icon: "star",
     label: "Erfolg",
-    position: "bottom-[22%] right-[4%]",
+    position: "bottom-[27%] right-[2%]",
     delay: "4.6s",
   },
 ];
@@ -169,16 +169,17 @@ export default function Home(): JSX.Element {
         {/* Hero */}
         <section
           id="produkt"
-          className="mx-auto grid max-w-7xl items-center gap-10 px-5 pb-16 pt-12 md:px-8 lg:grid-cols-[minmax(0,10fr)_minmax(0,11fr)] lg:gap-6 lg:pt-16"
+          className="mx-auto grid max-w-7xl items-center gap-10 px-5 pb-14 pt-10 md:px-8 lg:grid-cols-[minmax(0,9fr)_minmax(0,11fr)] lg:gap-4 lg:pt-2"
         >
-          <div className="max-w-xl">
+          <div className="max-w-xl lg:pt-10">
             <span className="glass-chip inline-flex items-center gap-2 px-3.5 py-1.5 text-[11px] font-semibold tracking-[0.3em] text-agx-gold-soft">
               <span className="h-1.5 w-1.5 rounded-full bg-agx-gold shadow-[0_0_8px_rgba(242,178,62,0.8)]" />
               AGXORA
             </span>
 
-            <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight text-agx-ink [text-shadow:0_0_32px_rgba(130,175,255,0.3)] md:text-5xl xl:text-[3.85rem]">
-              Das intelligente{" "}
+            <h1 className="mt-5 text-4xl font-bold leading-[1.06] tracking-tight text-agx-ink [text-shadow:0_0_32px_rgba(130,175,255,0.3)] md:text-5xl xl:text-[3.7rem]">
+              Das intelligente
+              <br />
               <span className="gold-text drop-shadow-[0_0_22px_rgba(242,178,62,0.45)]">
                 Business
               </span>
@@ -205,8 +206,8 @@ export default function Home(): JSX.Element {
 
           </div>
 
-          {/* Hero globe with floating glass badges */}
-          <div className="relative mx-auto h-[380px] w-full max-w-[420px] sm:h-[490px] sm:max-w-[560px] lg:h-[640px] lg:max-w-none">
+          {/* Hero globe with floating glass badges — dominant, up to the nav */}
+          <div className="relative mx-auto h-[380px] w-full max-w-[420px] sm:h-[500px] sm:max-w-[560px] lg:-mt-4 lg:h-[690px] lg:max-w-none">
             <div
               aria-hidden="true"
               className="absolute inset-0 rounded-full"
@@ -231,7 +232,7 @@ export default function Home(): JSX.Element {
           </div>
 
           {/* Trust indicators — full hero width, like the reference */}
-          <div className="grid gap-6 sm:grid-cols-3 lg:col-span-2 lg:-mt-4">
+          <div className="grid gap-6 sm:grid-cols-3 lg:col-span-2 lg:-mt-14">
             {TRUST_ITEMS.map((item) => (
               <div key={item.title} className="flex items-start gap-3">
                 <span
@@ -252,12 +253,15 @@ export default function Home(): JSX.Element {
           </div>
         </section>
 
-        {/* Value strip */}
+        {/* Value strip — one glass bar with internal dividers, like the reference */}
         <section className="mx-auto max-w-7xl px-5 md:px-8">
-          <div className="glass-panel grid gap-6 px-6 py-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="glass-panel grid gap-y-2 px-2 py-2 sm:grid-cols-2 lg:grid-cols-4">
             {VALUE_ITEMS.map((item) => (
-              <div key={item.title} className="flex items-start gap-3.5">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-agx-line bg-agx-cyan/10 text-agx-cyan-soft">
+              <div
+                key={item.title}
+                className="flex items-start gap-3.5 border-agx-line px-5 py-4 lg:border-l lg:first:border-l-0"
+              >
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-agx-cyan/25 bg-agx-cyan/10 text-agx-cyan-soft">
                   <Icon name={item.icon} className="h-4.5 w-4.5" />
                 </span>
                 <span>
@@ -276,7 +280,7 @@ export default function Home(): JSX.Element {
         {/* Feature grid */}
         <section id="plattform" className="mx-auto max-w-7xl px-5 pt-24 md:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-semibold tracking-tight text-agx-ink md:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-agx-ink md:text-4xl">
               Eine Plattform. Unendliche Möglichkeiten.
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-agx-dim">
@@ -307,35 +311,49 @@ export default function Home(): JSX.Element {
           </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="relative mx-auto max-w-7xl overflow-hidden px-5 pb-16 pt-28 md:px-8">
+        {/* Final CTA — real cinematic Earth anchored at the lower left,
+            copy left-aligned in the right half, like the reference */}
+        <section className="relative overflow-hidden pb-20 pt-28">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -bottom-40 -left-40 h-[420px] w-[420px] rounded-full"
+            className="pointer-events-none absolute -bottom-72 -left-48 hidden h-[680px] w-[680px] lg:block"
+          >
+            <AgxoraGlobe3D />
+          </div>
+          {/* Soft glow fallback where the Earth is hidden */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-40 -left-40 h-[420px] w-[420px] rounded-full lg:hidden"
             style={{
               background:
                 "radial-gradient(circle at 62% 34%, rgba(64, 130, 220, 0.4) 0%, rgba(20, 52, 110, 0.24) 38%, rgba(6, 16, 38, 0.1) 62%, transparent 75%)",
-              boxShadow: "inset -30px -20px 80px rgba(2, 8, 20, 0.8)",
             }}
           />
 
-          <div className="relative mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-semibold leading-tight tracking-tight text-agx-ink md:text-4xl">
-              Bereit, Ihr Business auf das
-              <br className="hidden sm:block" /> nächste Level zu bringen?
-            </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-agx-dim">
-              Schließen Sie sich Unternehmen an, die bereits auf AGXORA setzen.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5">
-              <Link href="/login" className="btn-gold px-6 py-3 text-[15px]">
-                Kostenlos starten
-                <Icon name="arrowRight" className="h-4 w-4" strokeWidth={2.2} />
-              </Link>
-              <Link href="/dashboard" className="btn-ghost px-5 py-3 text-[15px]">
-                <Icon name="play" className="h-4 w-4" />
-                Demo ansehen
-              </Link>
+          <div className="relative mx-auto max-w-7xl px-5 md:px-8">
+            <div className="mx-auto max-w-2xl text-center lg:mx-0 lg:ml-[45%] lg:max-w-xl lg:text-left">
+              <h2 className="text-3xl font-bold leading-tight tracking-tight text-agx-ink md:text-4xl">
+                Bereit, Ihr Business
+                <br className="hidden sm:block" /> auf das nächste Level zu
+                bringen?
+              </h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-agx-dim">
+                Schließen Sie sich Unternehmen an, die bereits auf AGXORA
+                setzen.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5 lg:justify-start">
+                <Link href="/login" className="btn-gold px-6 py-3 text-[15px]">
+                  Kostenlos starten
+                  <Icon name="arrowRight" className="h-4 w-4" strokeWidth={2.2} />
+                </Link>
+                <Link
+                  href="/dashboard"
+                  className="btn-ghost px-5 py-3 text-[15px]"
+                >
+                  <Icon name="play" className="h-4 w-4" />
+                  Demo ansehen
+                </Link>
+              </div>
             </div>
           </div>
         </section>

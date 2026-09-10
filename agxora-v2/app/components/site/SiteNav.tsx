@@ -55,6 +55,7 @@ function LanguageChip(): JSX.Element {
     <span className="glass-chip inline-flex items-center gap-2 px-3 py-1.5 text-xs text-agx-dim">
       <Icon name="globe" className="h-3.5 w-3.5" />
       Deutsch
+      <Icon name="chevronDown" className="h-3 w-3 text-agx-faint" />
     </span>
   );
 }

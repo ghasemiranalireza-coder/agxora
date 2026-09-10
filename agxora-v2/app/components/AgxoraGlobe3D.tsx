@@ -373,7 +373,7 @@ function Planet({ profile }: PlanetProps): JSX.Element {
           shininess={14}
           emissiveMap={nightMap}
           emissive={new THREE.Color("#ffc276")}
-          emissiveIntensity={2.1}
+          emissiveIntensity={2.7}
         />
       </mesh>
 
@@ -528,22 +528,23 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
     <>
       <color attach="background" args={["#0a1832"]} />
 
-      {/* Key sun — warm white, high and off-axis so the ocean glint
-          sits near the limb instead of mid-planet */}
+      {/* Key sun — warm white, from behind-right so most of the visible
+          disc stays in night (gold city lights) with a sunlit crescent
+          on the right limb, like the reference */}
       <directionalLight
-        position={[6, 3, 2.8]}
-        intensity={3.6}
+        position={[8, 2, -2]}
+        intensity={5}
         color="#fff1da"
       />
       {/* Warm sunset kiss on the upper-right limb, like the reference */}
-      <pointLight position={[3.4, 2.2, 1.6]} intensity={15} color="#ffd9a0" distance={9} decay={2} />
+      <pointLight position={[3.6, 1.8, 0.6]} intensity={13} color="#ffd9a0" distance={9} decay={2} />
       {/* Cool blue bounce for the shadowed limb */}
       <directionalLight
         position={[-5, -1.6, -3]}
-        intensity={0.85}
+        intensity={0.8}
         color="#6f9de8"
       />
-      <ambientLight intensity={0.55} />
+      <ambientLight intensity={0.22} />
 
       <Planet profile={profile} />
       <AtmosphereGlow />

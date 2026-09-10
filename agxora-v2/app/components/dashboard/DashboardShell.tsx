@@ -50,7 +50,7 @@ function SidebarNav(): JSX.Element {
             key={item.label}
             href={item.href}
             aria-current="page"
-            className={`${itemClass} border border-agx-cyan/25 bg-agx-cyan/10 font-medium text-agx-ink`}
+            className={`${itemClass} border border-agx-cyan/30 bg-gradient-to-r from-[rgba(58,130,246,0.3)] to-[rgba(30,84,170,0.16)] font-medium text-agx-ink shadow-[0_0_18px_rgba(60,140,255,0.16)]`}
           >
             <Icon name={item.icon} className="h-4 w-4 text-agx-cyan-soft" />
             {item.label}
@@ -79,7 +79,7 @@ function SidebarNav(): JSX.Element {
 function SidebarFooter(): JSX.Element {
   return (
     <div className="mt-auto flex items-center gap-3 border-t border-agx-line pt-4">
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#ffd57a] to-[#d98f1f] text-[12px] font-bold text-[#221302]">
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#5ea2ff] to-[#2158b8] text-[12px] font-bold text-white">
         AG
       </span>
       <span>
@@ -94,14 +94,20 @@ function SidebarFooter(): JSX.Element {
   );
 }
 
-function SidebarContent(): JSX.Element {
+interface SidebarContentProps {
+  readonly withLogo?: boolean;
+}
+
+function SidebarContent({ withLogo = false }: SidebarContentProps): JSX.Element {
   return (
     <div className="flex h-full flex-col gap-6 px-4 py-5">
-      <div className="px-1.5">
-        <Link href="/">
-          <AgxoraLogo />
-        </Link>
-      </div>
+      {withLogo && (
+        <div className="px-1.5">
+          <Link href="/">
+            <AgxoraLogo />
+          </Link>
+        </div>
+      )}
       <SidebarNav />
       <SidebarFooter />
     </div>
@@ -109,7 +115,7 @@ function SidebarContent(): JSX.Element {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Topbar                                                             */
+/*  Topbar — full-width app bar with the logo cell above the sidebar   */
 /* ------------------------------------------------------------------ */
 
 interface TopbarProps {
@@ -122,56 +128,70 @@ function Topbar({ onMenu, searchRef }: TopbarProps): JSX.Element {
     "hidden h-9 w-9 items-center justify-center rounded-xl border border-agx-line bg-[rgba(12,24,48,0.5)] text-agx-dim md:flex";
 
   return (
-    <header className="sticky top-0 z-30 border-b border-agx-line bg-[rgba(7,15,34,0.78)] backdrop-blur-xl">
-      <div className="flex items-center gap-3 px-4 py-3 md:px-6">
-        <button
-          type="button"
-          onClick={onMenu}
-          aria-label="Navigation öffnen"
-          className="btn-ghost h-10 w-10 shrink-0 p-0 lg:hidden"
-        >
-          <Icon name="menu" className="h-5 w-5" />
-        </button>
+    <header className="sticky top-0 z-30 border-b border-agx-line bg-[rgba(7,15,34,0.8)] backdrop-blur-xl">
+      <div className="flex items-stretch">
+        {/* Logo cell — sits exactly above the sidebar, like the reference */}
+        <div className="hidden w-[248px] shrink-0 items-center border-r border-agx-line px-6 lg:flex">
+          <Link href="/">
+            <AgxoraLogo />
+          </Link>
+        </div>
 
-        <label className="flex min-w-0 flex-1 items-center gap-2.5 rounded-xl border border-agx-line bg-[rgba(8,17,36,0.6)] px-3.5 py-2 md:max-w-md">
-          <Icon name="search" className="h-4 w-4 shrink-0 text-agx-faint" />
-          <input
-            ref={searchRef}
-            type="search"
-            placeholder="Suchen… (Strg + K)"
-            className="w-full min-w-0 bg-transparent text-[13.5px] text-agx-ink outline-none placeholder:text-agx-faint"
-          />
-        </label>
+        <div className="flex h-16 min-w-0 flex-1 items-center gap-3 px-4 md:px-6">
+          <button
+            type="button"
+            onClick={onMenu}
+            aria-label="Navigation öffnen"
+            className="btn-ghost h-10 w-10 shrink-0 p-0 lg:hidden"
+          >
+            <Icon name="menu" className="h-5 w-5" />
+          </button>
 
-        <div className="ml-auto flex items-center gap-2.5">
-          <span className={iconChip} aria-hidden="true">
-            <Icon name="grid" className="h-4 w-4" />
-          </span>
-          <span className={iconChip} aria-hidden="true">
-            <Icon name="bell" className="h-4 w-4" />
-          </span>
-          <span className={iconChip} aria-hidden="true">
-            <Icon name="moon" className="h-4 w-4" />
-          </span>
+          <label className="flex min-w-0 flex-1 items-center gap-2.5 rounded-full border border-agx-line bg-[rgba(8,17,36,0.6)] px-4 py-2 md:max-w-md">
+            <Icon name="search" className="h-4 w-4 shrink-0 text-agx-faint" />
+            <input
+              ref={searchRef}
+              type="search"
+              placeholder="Suchen… (Strg + K)"
+              className="w-full min-w-0 bg-transparent text-[13.5px] text-agx-ink outline-none placeholder:text-agx-faint"
+            />
+          </label>
 
-          <span className="glass-chip hidden items-center gap-2 px-3 py-1.5 text-xs text-agx-dim sm:inline-flex">
-            <Icon name="globe" className="h-3.5 w-3.5" />
-            Deutsch
-          </span>
-
-          <span className="flex items-center gap-2.5 rounded-xl border border-agx-line bg-[rgba(12,24,48,0.5)] px-2.5 py-1.5">
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#ffd57a] to-[#d98f1f] text-[11px] font-bold text-[#221302]">
-              AG
+          <div className="ml-auto flex items-center gap-2.5">
+            <span className={iconChip} aria-hidden="true">
+              <Icon name="grid" className="h-4 w-4" />
             </span>
-            <span className="hidden xl:block">
-              <span className="block text-[12.5px] font-semibold leading-tight text-agx-ink">
-                Alireza Ghasemi
-              </span>
-              <span className="block text-[10.5px] leading-tight text-agx-faint">
-                Demo-Workspace
-              </span>
+            <span className={iconChip} aria-hidden="true">
+              <Icon name="bell" className="h-4 w-4" />
             </span>
-          </span>
+            <span className={iconChip} aria-hidden="true">
+              <Icon name="moon" className="h-4 w-4" />
+            </span>
+
+            <span className="glass-chip hidden items-center gap-2 px-3 py-1.5 text-xs text-agx-dim sm:inline-flex">
+              <Icon name="globe" className="h-3.5 w-3.5" />
+              Deutsch
+              <Icon name="chevronDown" className="h-3 w-3 text-agx-faint" />
+            </span>
+
+            <span className="flex items-center gap-2.5 rounded-xl border border-agx-line bg-[rgba(12,24,48,0.5)] px-2.5 py-1.5">
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#5ea2ff] to-[#2158b8] text-[11px] font-bold text-white">
+                AG
+              </span>
+              <span className="hidden xl:block">
+                <span className="block text-[12.5px] font-semibold leading-tight text-agx-ink">
+                  Alireza Ghasemi
+                </span>
+                <span className="block text-[10.5px] leading-tight text-agx-faint">
+                  Demo-Workspace
+                </span>
+              </span>
+              <Icon
+                name="chevronDown"
+                className="hidden h-3 w-3 text-agx-faint xl:block"
+              />
+            </span>
+          </div>
         </div>
       </div>
     </header>
@@ -197,59 +217,69 @@ function CommandCenter({ inputRef }: CommandCenterProps): JSX.Element {
   const [command, setCommand] = useState("");
 
   return (
-    <section className="glass-panel px-5 py-6 md:px-7">
-      <p className="text-[13.5px] text-agx-dim">👋 Willkommen zurück</p>
-      <h1 className="mt-1.5 text-2xl font-bold tracking-tight text-agx-ink md:text-[1.9rem]">
-        Bereit für den nächsten Schritt?
-      </h1>
-      <p className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-agx-dim">
-        Sagen Sie AGXORA, was Sie erreichen möchten – der KI Agent übernimmt
-        den Rest.
-      </p>
-
-      <form
-        onSubmit={(event) => event.preventDefault()}
-        className="mt-5 flex items-center gap-2.5 rounded-2xl border border-agx-line-strong bg-[rgba(5,12,26,0.66)] py-2 pl-4 pr-2 transition-colors focus-within:border-agx-cyan/50"
+    <section className="glass-panel relative overflow-hidden px-5 py-6 md:px-8 md:py-7">
+      {/* Cinematic Earth inside the panel, upper right — like the reference */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-28 -top-44 hidden h-[480px] w-[480px] opacity-90 sm:block"
       >
-        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-agx-cyan/15 text-agx-cyan-soft">
-          <Icon name="bot" className="h-4 w-4" />
-        </span>
-        <input
-          ref={inputRef}
-          value={command}
-          onChange={(event) => setCommand(event.target.value)}
-          placeholder="Was möchten Sie heute tun?"
-          aria-label="Auftrag an AGXORA"
-          className="w-full min-w-0 bg-transparent text-[14.5px] text-agx-ink outline-none placeholder:text-agx-faint"
-        />
-        <button
-          type="submit"
-          aria-label="Auftrag senden"
-          className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-xl border border-agx-cyan/50 bg-gradient-to-br from-[#7ad4ff] to-[#2d8fd9] text-[#03182c] shadow-[0_0_18px_rgba(76,195,255,0.35)] transition-transform hover:-translate-y-px"
-        >
-          <Icon name="arrowRight" className="h-4 w-4" strokeWidth={2.4} />
-        </button>
-      </form>
-
-      <div className="mt-4 flex flex-wrap gap-2">
-        {COMMAND_CHIPS.map((chip) => (
-          <button
-            key={chip}
-            type="button"
-            onClick={() => {
-              setCommand(chip);
-              inputRef.current?.focus();
-            }}
-            className="cursor-pointer rounded-full border border-agx-line bg-[rgba(12,24,48,0.5)] px-3.5 py-1.5 text-xs text-agx-dim transition-colors hover:border-agx-line-strong hover:text-agx-ink"
-          >
-            {chip}
-          </button>
-        ))}
+        <AgxoraGlobe3D />
       </div>
 
-      <p className="mt-4 text-[11.5px] text-agx-faint">
-        Demo – der KI Agent ist in dieser Umgebung noch nicht verbunden.
-      </p>
+      <div className="relative">
+        <p className="text-[13.5px] text-agx-dim">
+          👋 Willkommen zurück, Alireza
+        </p>
+        <h1 className="mt-2 text-[1.65rem] font-bold tracking-tight text-agx-ink md:text-[2.05rem]">
+          Bereit für den nächsten Schritt?
+        </h1>
+        <p className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-agx-dim">
+          Sagen Sie AGXORA, was Sie erreichen möchten – der KI Agent übernimmt
+          den Rest.
+        </p>
+
+        <form
+          onSubmit={(event) => event.preventDefault()}
+          className="mt-6 flex items-center gap-3 rounded-full border border-agx-line-strong bg-[rgba(6,14,30,0.72)] py-2 pl-5 pr-2 backdrop-blur-md transition-colors focus-within:border-agx-cyan/50"
+        >
+          <Icon name="search" className="h-4.5 w-4.5 shrink-0 text-agx-faint" />
+          <input
+            ref={inputRef}
+            value={command}
+            onChange={(event) => setCommand(event.target.value)}
+            placeholder="Was möchten Sie heute tun?"
+            aria-label="Auftrag an AGXORA"
+            className="w-full min-w-0 bg-transparent text-[15px] text-agx-ink outline-none placeholder:text-agx-faint"
+          />
+          <button
+            type="submit"
+            aria-label="Auftrag senden"
+            className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-xl border border-agx-cyan/50 bg-gradient-to-br from-[#8fd9ff] to-[#2d8fd9] text-[#03182c] shadow-[0_0_22px_rgba(76,195,255,0.4)] transition-transform hover:-translate-y-px"
+          >
+            <Icon name="arrowRight" className="h-4.5 w-4.5" strokeWidth={2.4} />
+          </button>
+        </form>
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          {COMMAND_CHIPS.map((chip) => (
+            <button
+              key={chip}
+              type="button"
+              onClick={() => {
+                setCommand(chip);
+                inputRef.current?.focus();
+              }}
+              className="cursor-pointer rounded-full border border-agx-line bg-[rgba(10,21,44,0.66)] px-3.5 py-1.5 text-xs text-agx-dim backdrop-blur-md transition-colors hover:border-agx-line-strong hover:text-agx-ink"
+            >
+              {chip}
+            </button>
+          ))}
+        </div>
+
+        <p className="mt-4 text-[11.5px] text-agx-faint">
+          Demo – der KI Agent ist in dieser Umgebung noch nicht verbunden.
+        </p>
+      </div>
     </section>
   );
 }
@@ -267,43 +297,50 @@ interface AiPanelProps {
 
 function AiPanel({ onTalk }: AiPanelProps): JSX.Element {
   return (
-    <aside className="glass-panel flex flex-col px-5 py-6 md:px-6">
-      <div className="flex items-center gap-3">
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-agx-gold/35 bg-agx-gold/12 text-agx-gold-soft">
-          <Icon name="bot" className="h-5 w-5" />
-        </span>
-        <span>
-          <span className="block text-[15px] font-semibold text-agx-ink">
-            AGXORA AI
-          </span>
-          <span className="block text-xs text-agx-cyan-soft/85">
-            Ihr intelligenter Business Partner
-          </span>
-        </span>
-      </div>
+    <aside className="glass-panel relative flex flex-col overflow-hidden px-5 py-6 md:px-6">
+      {/* Soft planetary glow bleeding in from the command center side */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-24 -top-28 h-64 w-64 rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(64, 140, 235, 0.35) 0%, rgba(30, 80, 170, 0.16) 45%, transparent 70%)",
+        }}
+      />
 
-      <ul className="mt-5 flex flex-col gap-3">
-        {AI_CAPABILITIES.map((capability) => (
-          <li
-            key={capability}
-            className="flex items-center gap-2.5 text-[13px] text-agx-dim"
+      <div className="relative flex h-full flex-col">
+        <h2 className="text-[19px] font-bold tracking-tight text-agx-ink">
+          AGXORA AI
+        </h2>
+        <p className="mt-1 max-w-[170px] text-[12.5px] leading-snug text-agx-dim">
+          Ihr intelligenter Business Partner
+        </p>
+
+        <ul className="mt-5 flex flex-col gap-3">
+          {AI_CAPABILITIES.map((capability) => (
+            <li
+              key={capability}
+              className="flex items-center gap-2.5 text-[13px] text-agx-dim"
+            >
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-300">
+                <Icon name="check" className="h-3 w-3" strokeWidth={2.6} />
+              </span>
+              {capability}
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-auto pt-6">
+          <button
+            type="button"
+            onClick={onTalk}
+            className="btn-gold w-full px-4 py-2.5 text-[13.5px]"
           >
-            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-agx-cyan/15 text-agx-cyan-soft">
-              <Icon name="check" className="h-3 w-3" strokeWidth={2.4} />
-            </span>
-            {capability}
-          </li>
-        ))}
-      </ul>
-
-      <button
-        type="button"
-        onClick={onTalk}
-        className="btn-gold mt-6 w-full px-4 py-2.5 text-[13.5px]"
-      >
-        Mit dem KI Agenten sprechen
-        <Icon name="arrowRight" className="h-3.5 w-3.5" strokeWidth={2.2} />
-      </button>
+            Mit dem KI Agenten sprechen
+            <Icon name="arrowRight" className="h-3.5 w-3.5" strokeWidth={2.2} />
+          </button>
+        </div>
+      </div>
     </aside>
   );
 }
@@ -373,29 +410,22 @@ export function DashboardShell(): JSX.Element {
     <div className="relative min-h-screen">
       <StarfieldBackground />
 
-      <div className="relative z-[1] flex min-h-screen">
-        {/* Desktop sidebar */}
-        <aside className="sticky top-0 hidden h-screen w-[248px] shrink-0 border-r border-agx-line bg-[rgba(8,17,38,0.72)] backdrop-blur-xl lg:block">
-          <SidebarContent />
-        </aside>
+      <div className="relative z-[1] flex min-h-screen flex-col">
+        {/* Full-width app bar with the logo above the sidebar column */}
+        <Topbar onMenu={() => setDrawerOpen(true)} searchRef={searchRef} />
 
-        <MobileDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-          <SidebarContent />
-        </MobileDrawer>
+        <div className="flex flex-1 items-stretch">
+          {/* Desktop sidebar — starts below the topbar, like the reference */}
+          <aside className="sticky top-16 hidden h-[calc(100vh-4rem)] w-[248px] shrink-0 border-r border-agx-line bg-[rgba(8,17,38,0.6)] backdrop-blur-xl lg:block">
+            <SidebarContent />
+          </aside>
 
-        <div className="flex min-w-0 flex-1 flex-col">
-          <Topbar onMenu={() => setDrawerOpen(true)} searchRef={searchRef} />
+          <MobileDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+            <SidebarContent withLogo />
+          </MobileDrawer>
 
-          <main className="relative mx-auto w-full max-w-[1200px] px-4 pb-12 pt-6 md:px-6">
-            {/* Cinematic globe backdrop, top-right behind the panels */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-20 -top-16 z-0 hidden h-[500px] w-[500px] opacity-95 lg:block"
-            >
-              <AgxoraGlobe3D />
-            </div>
-
-            <div className="relative z-[1] flex flex-col gap-5">
+          <main className="relative mx-auto w-full min-w-0 max-w-[1200px] px-4 pb-12 pt-6 md:px-6">
+            <div className="relative flex flex-col gap-5">
               <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_330px]">
                 <CommandCenter inputRef={commandRef} />
                 <AiPanel onTalk={focusCommand} />

@@ -78,12 +78,12 @@ export function KpiRow(): JSX.Element {
               {item.title}
             </span>
             <span
-              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border ${item.tileClass}`}
+              className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${item.tileClass}`}
             >
               <Icon name={item.icon} className="h-4.5 w-4.5" />
             </span>
           </div>
-          <p className="mt-1.5 text-[30px] font-bold leading-none tracking-tight text-agx-ink/75">
+          <p className="mt-1 text-[32px] font-bold leading-none tracking-tight text-agx-ink/80">
             –
           </p>
           <p className="mt-3 text-[12px] font-medium text-agx-dim">{item.empty}</p>
@@ -138,7 +138,7 @@ function PanelHeader({
 
 export function LowerPanels(): JSX.Element {
   return (
-    <section className="grid gap-4 lg:grid-cols-3">
+    <section className="grid gap-4 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,1.1fr)_minmax(0,0.88fr)]">
       {/* Letzte Aktivitäten — honest empty state */}
       <article className="glass-panel flex flex-col px-5 py-5">
         <PanelHeader title="Letzte Aktivitäten" />
@@ -209,18 +209,26 @@ export function LowerPanels(): JSX.Element {
 /* ------------------------------------------------------------------ */
 
 /** Reference-style AI robot — glossy white segmented shell, dark visor
-    with camera-lens eyes, side ear pod, warm gold back-light and thin
-    gold orbit wires. Pure inline SVG/CSS, no image assets. */
+    with camera-lens eyes, side ear pod, dark space vignette, warm gold
+    light swirls with glowing particles. Pure inline SVG/CSS, no assets. */
 function AiRobot(): JSX.Element {
   return (
-    <div aria-hidden="true" className="relative h-48 w-48 shrink-0 sm:h-52 sm:w-52">
+    <div aria-hidden="true" className="relative h-52 w-52 shrink-0 sm:h-60 sm:w-60">
+      {/* Dark circular space vignette behind the head, like the reference */}
+      <div
+        className="absolute -inset-4 rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle at 50% 50%, rgba(4, 10, 24, 0.85) 0%, rgba(6, 14, 30, 0.55) 52%, transparent 74%)",
+        }}
+      />
       {/* Warm gold back-light behind the upper-right of the head */}
       <div
         className="absolute -inset-5 rounded-full"
         style={{
           background:
-            "radial-gradient(circle at 66% 34%, rgba(255, 209, 128, 0.42) 0%, rgba(242, 178, 62, 0.14) 42%, transparent 68%)," +
-            "radial-gradient(circle at 30% 76%, rgba(60, 120, 220, 0.18) 0%, transparent 55%)",
+            "radial-gradient(circle at 66% 34%, rgba(255, 209, 128, 0.46) 0%, rgba(242, 178, 62, 0.16) 42%, transparent 68%)," +
+            "radial-gradient(circle at 30% 76%, rgba(60, 120, 220, 0.2) 0%, transparent 55%)",
         }}
       />
 
@@ -257,17 +265,24 @@ function AiRobot(): JSX.Element {
           </filter>
         </defs>
 
-        {/* Gold orbit wires behind the head */}
-        <g opacity="0.8">
-          <ellipse cx="120" cy="126" rx="112" ry="52" fill="none" stroke="url(#agxGoldWire)" strokeWidth="1.4" transform="rotate(-16 120 126)" />
-          <ellipse cx="120" cy="128" rx="104" ry="66" fill="none" stroke="url(#agxGoldWire)" strokeWidth="1" opacity="0.65" transform="rotate(9 120 128)" />
-          <ellipse cx="120" cy="124" rx="116" ry="42" fill="none" stroke="url(#agxGoldWire)" strokeWidth="0.8" opacity="0.5" transform="rotate(-32 120 124)" />
+        {/* Gold light swirls behind the head — prominent, like the reference */}
+        <g opacity="0.9">
+          <ellipse cx="120" cy="126" rx="112" ry="52" fill="none" stroke="url(#agxGoldWire)" strokeWidth="2.2" transform="rotate(-16 120 126)" />
+          <ellipse cx="120" cy="128" rx="104" ry="66" fill="none" stroke="url(#agxGoldWire)" strokeWidth="1.4" opacity="0.7" transform="rotate(9 120 128)" />
+          <ellipse cx="120" cy="124" rx="116" ry="42" fill="none" stroke="url(#agxGoldWire)" strokeWidth="1.1" opacity="0.55" transform="rotate(-32 120 124)" />
+          <path d="M 186 24 Q 238 78 218 152" fill="none" stroke="url(#agxGoldWire)" strokeWidth="2.6" opacity="0.75" filter="url(#agxSoft)" />
+          <path d="M 30 42 Q 4 96 22 158" fill="none" stroke="url(#agxGoldWire)" strokeWidth="1.6" opacity="0.5" filter="url(#agxSoft)" />
         </g>
-        {/* Glowing orbit nodes */}
-        <circle cx="26" cy="150" r="3.4" fill="#ffd57a" filter="url(#agxSoft)" />
-        <circle cx="214" cy="96" r="2.8" fill="#ffcb62" filter="url(#agxSoft)" />
-        <circle cx="196" cy="182" r="2.2" fill="#ffd57a" filter="url(#agxSoft)" opacity="0.85" />
-        <circle cx="52" cy="62" r="2" fill="#ffe3a3" filter="url(#agxSoft)" opacity="0.8" />
+        {/* Glowing gold particles scattered around the swirls */}
+        <circle cx="26" cy="150" r="3.6" fill="#ffd57a" filter="url(#agxSoft)" />
+        <circle cx="214" cy="96" r="3" fill="#ffcb62" filter="url(#agxSoft)" />
+        <circle cx="196" cy="182" r="2.4" fill="#ffd57a" filter="url(#agxSoft)" opacity="0.85" />
+        <circle cx="52" cy="62" r="2.2" fill="#ffe3a3" filter="url(#agxSoft)" opacity="0.8" />
+        <circle cx="226" cy="140" r="2" fill="#ffdf98" filter="url(#agxSoft)" opacity="0.9" />
+        <circle cx="180" cy="18" r="2.4" fill="#ffd57a" filter="url(#agxSoft)" opacity="0.85" />
+        <circle cx="14" cy="104" r="1.8" fill="#ffe3a3" filter="url(#agxSoft)" opacity="0.7" />
+        <circle cx="118" cy="228" r="2.2" fill="#ffd57a" filter="url(#agxSoft)" opacity="0.75" />
+        <circle cx="70" cy="14" r="1.6" fill="#ffe9b8" filter="url(#agxSoft)" opacity="0.65" />
 
         <g transform="rotate(-5 120 122)">
           {/* Ear pod — camera-style concentric lens on the left */}
@@ -444,11 +459,11 @@ export function AutomationSection({
   onAutomate,
 }: AutomationSectionProps): JSX.Element {
   return (
-    <section className="grid gap-4 lg:grid-cols-[minmax(0,5fr)_minmax(0,3fr)]">
-      <article className="glass-panel flex flex-col items-center gap-6 px-6 py-7 sm:flex-row sm:gap-8 md:px-8">
+    <section className="grid gap-4 lg:grid-cols-[minmax(0,2.12fr)_minmax(0,0.88fr)]">
+      <article className="glass-panel flex flex-col items-center gap-6 px-6 py-7 sm:flex-row sm:gap-9 md:px-9">
         <AiRobot />
         <div className="text-center sm:text-left">
-          <h2 className="text-lg font-semibold leading-snug tracking-tight text-agx-ink md:text-xl">
+          <h2 className="text-lg font-bold leading-snug tracking-tight text-agx-ink md:text-[21px]">
             Automatisieren Sie Ihr Business
             <br className="hidden md:block" /> mit AGXORA AI
           </h2>
@@ -467,14 +482,14 @@ export function AutomationSection({
             </button>
             <Link href="/" className="btn-ghost px-4 py-2.5 text-[13.5px]">
               <Icon name="play" className="h-3.5 w-3.5" />
-              Mehr erfahren
+              Demo ansehen
             </Link>
           </div>
         </div>
       </article>
 
       <article className="glass-panel px-6 py-7">
-        <h2 className="text-lg font-semibold tracking-tight text-agx-ink">
+        <h2 className="text-[16.5px] font-bold tracking-tight text-agx-ink">
           Wachstum beginnt mit einer Idee.
         </h2>
         <p className="mt-1.5 text-[13.5px] text-agx-dim">

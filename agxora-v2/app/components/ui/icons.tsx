@@ -12,6 +12,7 @@ export type IconName =
   | "calendar"
   | "chart"
   | "check"
+  | "chevronDown"
   | "circle"
   | "clock"
   | "euro"
@@ -79,6 +80,7 @@ const PATHS: Record<IconName, JSX.Element> = {
     </>
   ),
   check: <path d="M20 6 9 17l-5-5" />,
+  chevronDown: <path d="m6 9 6 6 6-6" />,
   circle: <circle cx="12" cy="12" r="9" />,
   clock: (
     <>
