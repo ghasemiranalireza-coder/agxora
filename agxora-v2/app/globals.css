@@ -40,7 +40,9 @@ body {
   padding: 0;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  /* `clip` blocks horizontal overflow without creating a scroll
+     container, so `position: sticky` (nav/topbar) keeps working. */
+  overflow-x: clip;
   background: var(--color-agx-deep);
   color: var(--color-agx-ink);
   font-family: var(--font-sans);
