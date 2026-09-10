@@ -128,12 +128,12 @@ interface PlanetMaps {
 
 const SEA_LEVEL = 0.535;
 
-/** Muted premium palette — deep night-navy oceans, dark warm land. */
-const ABYSS = new THREE.Color("#031430");
-const SHALLOWS = new THREE.Color("#0a3a6a");
-const LOWLAND = new THREE.Color("#3c5233");
-const HIGHLAND = new THREE.Color("#6b5c40");
-const PEAKS = new THREE.Color("#7d7663");
+/** Muted premium palette — deep saturated oceans, dark warm land. */
+const ABYSS = new THREE.Color("#062248");
+const SHALLOWS = new THREE.Color("#0d4a86");
+const LOWLAND = new THREE.Color("#465c39");
+const HIGHLAND = new THREE.Color("#6f6044");
+const PEAKS = new THREE.Color("#837a66");
 const POLAR_ICE = new THREE.Color("#d5e0ea");
 
 function mixColors(a: THREE.Color, b: THREE.Color, t: number): THREE.Color {
@@ -204,19 +204,19 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
         // Warm gold civilization glow — clustered, biased toward coasts
         // and lowlands, fading toward the poles.
         const cluster = fbm3D(cities, px * 6.4, py * 6.4, pz * 6.4, 4);
-        const sprinkle = cities(px * 30, py * 30, pz * 30);
+        const sprinkle = cities(px * 34, py * 34, pz * 34);
         const coastBias = 1 - smooth(SEA_LEVEL + 0.02, SEA_LEVEL + 0.17, elevation);
         const latBand = 1 - smooth(0.92, 1.22, latAbs);
         cityGlow =
-          smooth(0.55, 0.76, cluster) *
-          (0.4 + sprinkle * 0.6) *
+          smooth(0.6, 0.82, cluster) *
+          (0.18 + sprinkle * sprinkle * 0.82) *
           (0.3 + coastBias * 0.7) *
           latBand *
           (1 - iceEdge);
       } else {
         const depth = smooth(SEA_LEVEL, SEA_LEVEL - 0.3, elevation);
         color = mixColors(SHALLOWS, ABYSS, depth);
-        roughness = 0.24;
+        roughness = 0.34;
         bump = 0.35;
       }
 
@@ -255,7 +255,7 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
       cloudData[i + 3] = 255;
 
       // Gold-tinted emissive city lights.
-      const glow = THREE.MathUtils.clamp(cityGlow * 1.8, 0, 1);
+      const glow = THREE.MathUtils.clamp(cityGlow * 1.5, 0, 1);
       lightsData[i] = Math.round(glow * 255);
       lightsData[i + 1] = Math.round(glow * 176);
       lightsData[i + 2] = Math.round(glow * 84);
@@ -441,7 +441,7 @@ function ConnectionArcs({
     const material = new THREE.LineBasicMaterial({
       color: new THREE.Color("#7fd0ff"),
       transparent: true,
-      opacity: 0.16,
+      opacity: 0.09,
       depthWrite: false,
       blending: THREE.AdditiveBlending,
     });
@@ -457,7 +457,7 @@ function ConnectionArcs({
 
       const start = a.clone().multiplyScalar(1.008);
       const end = b.clone().multiplyScalar(1.008);
-      const lift = 1 + 0.12 + angle * 0.16;
+      const lift = 1 + 0.05 + angle * 0.09;
       const mid = start.clone().add(end).normalize().multiplyScalar(lift);
       const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
       const geometry = new THREE.BufferGeometry().setFromPoints(
@@ -590,11 +590,11 @@ function Planet({ profile }: PlanetProps): JSX.Element {
           bumpMap={maps.bumpMap}
           bumpScale={0.014}
           metalness={0}
-          clearcoat={0.42}
-          clearcoatRoughness={0.42}
+          clearcoat={0.2}
+          clearcoatRoughness={0.6}
           emissiveMap={maps.lightsMap}
           emissive={new THREE.Color("#ffffff")}
-          emissiveIntensity={1.35}
+          emissiveIntensity={1.1}
         />
       </mesh>
 
@@ -611,7 +611,7 @@ function Planet({ profile }: PlanetProps): JSX.Element {
           color="#ffffff"
           alphaMap={maps.cloudMap}
           transparent
-          opacity={0.4}
+          opacity={0.26}
           depthWrite={false}
           roughness={1}
           metalness={0}
@@ -662,9 +662,9 @@ function AtmosphereGlow(): JSX.Element {
         vertexShader: RIM_VERTEX,
         fragmentShader: RIM_FRAGMENT,
         uniforms: {
-          rimTint: { value: new THREE.Color("#5cbcf6") },
-          rimGain: { value: 0.9 },
-          rimCurve: { value: 4.8 },
+          rimTint: { value: new THREE.Color("#54b8f8") },
+          rimGain: { value: 1.2 },
+          rimCurve: { value: 4.2 },
         },
         side: THREE.BackSide,
         transparent: true,
@@ -730,15 +730,16 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
     <>
       <color attach="background" args={["#030b1a"]} />
 
-      {/* Key sun — clean white, slightly high and camera-left */}
-      <directionalLight position={[5, 2.2, 4]} intensity={2.4} color="#ffffff" />
+      {/* Key sun — clean white, high and well off-axis so the ocean glint
+          sits on the limb instead of mid-planet */}
+      <directionalLight position={[7, 3.4, 1.6]} intensity={2.9} color="#ffffff" />
       {/* Cold bounce from deep space for the shadowed limb */}
       <directionalLight
         position={[-5, -1.8, -3.5]}
-        intensity={0.38}
+        intensity={0.55}
         color="#4d7fd6"
       />
-      <ambientLight intensity={0.12} />
+      <ambientLight intensity={0.18} />
 
       <Planet profile={profile} />
       <AtmosphereGlow />

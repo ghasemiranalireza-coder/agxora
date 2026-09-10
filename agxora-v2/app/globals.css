@@ -65,8 +65,11 @@ textarea {
 
 /* ------------------------------------------------------------------ */
 /*  Shared surfaces & controls                                         */
+/*  Defined in the components layer so Tailwind utilities (including   */
+/*  responsive variants like `lg:hidden`) keep cascade precedence.     */
 /* ------------------------------------------------------------------ */
 
+@layer components {
 .glass-panel {
   border-radius: 18px;
   border: 1px solid var(--color-agx-line);
@@ -157,6 +160,7 @@ textarea {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
 }
 
 /* Floating hero badges */
