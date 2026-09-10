@@ -203,7 +203,7 @@ export default function Home(): JSX.Element {
               </a>
             </div>
 
-            <div className="mt-10 grid gap-5 sm:grid-cols-3">
+            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
               {TRUST_ITEMS.map((item) => (
                 <div key={item.title} className="flex items-start gap-3">
                   <span
@@ -212,10 +212,10 @@ export default function Home(): JSX.Element {
                     <Icon name={item.icon} className="h-4 w-4" />
                   </span>
                   <span>
-                    <span className="block text-[13px] font-semibold text-agx-ink">
+                    <span className="block whitespace-nowrap text-[13px] font-semibold text-agx-ink">
                       {item.title}
                     </span>
-                    <span className="mt-0.5 block text-xs text-agx-faint">
+                    <span className="mt-0.5 block max-w-[180px] text-xs leading-snug text-agx-faint">
                       {item.sub}
                     </span>
                   </span>
