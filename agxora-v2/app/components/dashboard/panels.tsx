@@ -197,31 +197,150 @@ export function LowerPanels(): JSX.Element {
 /*  Automation section — AI core visual + growth panel                 */
 /* ------------------------------------------------------------------ */
 
-/** Procedural "AI core" orb — pure CSS, no image assets. */
-function AiCoreOrb(): JSX.Element {
+/** Reference-style AI robot — glossy helmet, cyan visor eyes, gold swirl.
+    Pure inline SVG/CSS, no image assets. */
+function AiRobot(): JSX.Element {
   return (
-    <div aria-hidden="true" className="relative h-36 w-36 shrink-0">
+    <div aria-hidden="true" className="relative h-44 w-44 shrink-0">
+      {/* Warm ambient glow */}
       <div
-        className="absolute -inset-3 rounded-full opacity-80"
+        className="absolute -inset-6 rounded-full"
         style={{
           background:
-            "radial-gradient(circle at 50% 55%, rgba(242, 178, 62, 0.34) 0%, rgba(242, 178, 62, 0.1) 45%, transparent 70%)",
+            "radial-gradient(circle at 50% 58%, rgba(242, 178, 62, 0.3) 0%, rgba(242, 178, 62, 0.08) 48%, transparent 72%)",
         }}
       />
-      <div className="absolute inset-0 rounded-full border border-agx-gold/35" />
-      <div className="absolute -inset-2 rounded-full border border-agx-gold/15" />
-      <div
-        className="absolute inset-3 rounded-full border border-white/10"
-        style={{
-          background:
-            "radial-gradient(circle at 34% 28%, #1d3050 0%, #0a1526 52%, #050b18 100%)",
-          boxShadow:
-            "inset -8px -10px 24px rgba(0,0,0,0.6), inset 4px 6px 14px rgba(140,190,255,0.14), 0 14px 34px rgba(2,8,20,0.6)",
-        }}
-      />
-      <span className="absolute left-[34%] top-[44%] h-2 w-3.5 rounded-full bg-agx-cyan shadow-[0_0_12px_rgba(76,195,255,0.9)]" />
-      <span className="absolute left-[56%] top-[44%] h-2 w-3.5 rounded-full bg-agx-cyan shadow-[0_0_12px_rgba(76,195,255,0.9)]" />
-      <span className="absolute bottom-[6%] left-[52%] h-2 w-2 rounded-full bg-agx-gold shadow-[0_0_10px_rgba(242,178,62,0.9)]" />
+      {/* Gold spark particles */}
+      <span className="absolute left-[6%] top-[30%] h-1.5 w-1.5 rounded-full bg-agx-gold-soft shadow-[0_0_8px_rgba(255,213,122,0.9)]" />
+      <span className="absolute right-[4%] top-[52%] h-2 w-2 rounded-full bg-agx-gold shadow-[0_0_10px_rgba(242,178,62,0.9)]" />
+      <span className="absolute bottom-[14%] left-[16%] h-1 w-1 rounded-full bg-agx-gold-soft shadow-[0_0_6px_rgba(255,213,122,0.9)]" />
+
+      <svg viewBox="0 0 240 240" className="relative h-full w-full">
+        <defs>
+          <radialGradient id="agxHelmet" cx="36%" cy="26%" r="85%">
+            <stop offset="0%" stopColor="#f5f9ff" />
+            <stop offset="42%" stopColor="#c7d4e7" />
+            <stop offset="74%" stopColor="#8b9db8" />
+            <stop offset="100%" stopColor="#54657f" />
+          </radialGradient>
+          <linearGradient id="agxVisor" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#182742" />
+            <stop offset="100%" stopColor="#050b18" />
+          </linearGradient>
+          <linearGradient id="agxGold" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#ffe3a3" stopOpacity="0" />
+            <stop offset="30%" stopColor="#ffd57a" />
+            <stop offset="70%" stopColor="#e8a52e" />
+            <stop offset="100%" stopColor="#e8a52e" stopOpacity="0" />
+          </linearGradient>
+          <radialGradient id="agxEye" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#e6f8ff" />
+            <stop offset="45%" stopColor="#4cc3ff" />
+            <stop offset="100%" stopColor="#4cc3ff" stopOpacity="0" />
+          </radialGradient>
+          <filter id="agxSoft" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="2.2" />
+          </filter>
+          <filter id="agxGlow" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="5" />
+          </filter>
+        </defs>
+
+        {/* Gold orbit — upper arc behind the head */}
+        <g transform="rotate(-14 120 128)">
+          <path
+            d="M 18 132 A 102 42 0 0 1 222 132"
+            fill="none"
+            stroke="url(#agxGold)"
+            strokeWidth="7"
+            strokeLinecap="round"
+            filter="url(#agxGlow)"
+            opacity="0.75"
+          />
+          <path
+            d="M 18 132 A 102 42 0 0 1 222 132"
+            fill="none"
+            stroke="url(#agxGold)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            opacity="0.9"
+          />
+        </g>
+
+        {/* Ear pods */}
+        <rect x="30" y="102" width="15" height="44" rx="7" fill="#3c4c66" />
+        <rect x="195" y="102" width="15" height="44" rx="7" fill="#2e3c52" />
+
+        {/* Helmet */}
+        <ellipse
+          cx="120"
+          cy="122"
+          rx="80"
+          ry="76"
+          fill="url(#agxHelmet)"
+          stroke="rgba(255,255,255,0.28)"
+          strokeWidth="1"
+        />
+        {/* Helmet top highlight */}
+        <ellipse
+          cx="96"
+          cy="72"
+          rx="42"
+          ry="20"
+          fill="#ffffff"
+          opacity="0.3"
+          filter="url(#agxSoft)"
+        />
+
+        {/* Visor */}
+        <rect
+          x="60"
+          y="88"
+          width="120"
+          height="86"
+          rx="42"
+          fill="url(#agxVisor)"
+          stroke="rgba(76,195,255,0.28)"
+          strokeWidth="1.2"
+        />
+        {/* Visor inner reflection */}
+        <path
+          d="M 74 104 Q 120 92 166 104"
+          fill="none"
+          stroke="rgba(140,190,255,0.25)"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+
+        {/* Eyes */}
+        <ellipse cx="97" cy="132" rx="17" ry="11" fill="url(#agxEye)" filter="url(#agxGlow)" />
+        <ellipse cx="143" cy="132" rx="17" ry="11" fill="url(#agxEye)" filter="url(#agxGlow)" />
+        <ellipse cx="97" cy="132" rx="10" ry="6" fill="#dff6ff" />
+        <ellipse cx="143" cy="132" rx="10" ry="6" fill="#dff6ff" />
+
+        {/* Chin light */}
+        <circle cx="120" cy="188" r="5" fill="#f2b23e" filter="url(#agxSoft)" />
+
+        {/* Gold orbit — lower arc in front of the head */}
+        <g transform="rotate(-14 120 128)">
+          <path
+            d="M 222 132 A 102 42 0 0 1 18 132"
+            fill="none"
+            stroke="url(#agxGold)"
+            strokeWidth="8"
+            strokeLinecap="round"
+            filter="url(#agxGlow)"
+            opacity="0.85"
+          />
+          <path
+            d="M 222 132 A 102 42 0 0 1 18 132"
+            fill="none"
+            stroke="url(#agxGold)"
+            strokeWidth="3.5"
+            strokeLinecap="round"
+          />
+        </g>
+      </svg>
     </div>
   );
 }
@@ -267,7 +386,7 @@ export function AutomationSection({
   return (
     <section className="grid gap-4 lg:grid-cols-[minmax(0,5fr)_minmax(0,3fr)]">
       <article className="glass-panel flex flex-col items-center gap-6 px-6 py-7 sm:flex-row sm:gap-8 md:px-8">
-        <AiCoreOrb />
+        <AiRobot />
         <div className="text-center sm:text-left">
           <h2 className="text-lg font-semibold leading-snug tracking-tight text-agx-ink md:text-xl">
             Automatisieren Sie Ihr Business

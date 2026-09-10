@@ -173,8 +173,11 @@ export default function Home(): JSX.Element {
               AGXORA
             </span>
 
-            <h1 className="mt-5 text-4xl font-semibold leading-[1.08] tracking-tight text-agx-ink md:text-5xl xl:text-[3.6rem]">
-              Das intelligente <span className="gold-text">Business</span>
+            <h1 className="mt-5 text-4xl font-semibold leading-[1.08] tracking-tight text-agx-ink [text-shadow:0_0_32px_rgba(130,175,255,0.28)] md:text-5xl xl:text-[3.7rem]">
+              Das intelligente{" "}
+              <span className="gold-text drop-shadow-[0_0_22px_rgba(242,178,62,0.45)]">
+                Business
+              </span>
               <br />
               Operating System.
             </h1>
@@ -221,18 +224,18 @@ export default function Home(): JSX.Element {
               className="absolute inset-0 rounded-full"
               style={{
                 background:
-                  "radial-gradient(circle at 50% 48%, rgba(38, 92, 180, 0.34) 0%, rgba(14, 40, 92, 0.16) 42%, transparent 68%)",
+                  "radial-gradient(circle at 50% 48%, rgba(50, 112, 210, 0.42) 0%, rgba(22, 56, 120, 0.2) 44%, transparent 70%)",
               }}
             />
             <AgxoraGlobe3D />
             {HERO_BADGES.map((badge) => (
               <span
                 key={badge.label}
-                className={`glass-chip agx-float pointer-events-none absolute inline-flex items-center gap-2.5 px-4 py-2 text-[13px] font-medium text-agx-ink ${badge.position}`}
+                className={`glass-chip agx-float pointer-events-none absolute inline-flex items-center gap-2.5 py-2 pl-2.5 pr-4.5 text-[13.5px] font-semibold text-agx-ink ${badge.position}`}
                 style={{ animationDelay: badge.delay }}
               >
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-agx-cyan/15 text-agx-cyan-soft">
-                  <Icon name={badge.icon} className="h-3.5 w-3.5" />
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#5ecaff] to-[#2a7fd4] text-white shadow-[0_0_14px_rgba(76,195,255,0.55)]">
+                  <Icon name={badge.icon} className="h-3.5 w-3.5" strokeWidth={2} />
                 </span>
                 {badge.label}
               </span>
@@ -277,7 +280,7 @@ export default function Home(): JSX.Element {
             {FEATURE_ITEMS.map((item) => (
               <article
                 key={item.title}
-                className="glass-panel group px-5 py-6 transition-transform duration-200 hover:-translate-y-1"
+                className="glass-panel group px-5 py-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_22px_50px_rgba(2,7,18,0.55),0_0_30px_rgba(70,150,255,0.14)]"
               >
                 <span
                   className={`flex h-11 w-11 items-center justify-center rounded-xl border ${item.tileClass}`}

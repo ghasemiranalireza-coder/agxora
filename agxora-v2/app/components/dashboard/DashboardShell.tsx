@@ -387,7 +387,7 @@ export function DashboardShell(): JSX.Element {
             {/* Cinematic globe backdrop, top-right behind the panels */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -right-28 -top-16 z-0 hidden h-[430px] w-[430px] opacity-75 lg:block"
+              className="pointer-events-none absolute -right-24 -top-14 z-0 hidden h-[460px] w-[460px] opacity-90 lg:block"
             >
               <AgxoraGlobe3D />
             </div>
