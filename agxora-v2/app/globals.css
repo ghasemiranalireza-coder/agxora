@@ -10,11 +10,11 @@
 /* ------------------------------------------------------------------ */
 
 @theme {
-  --color-agx-deep: #060f22;
-  --color-agx-navy: #0a1730;
-  --color-agx-panel: #10213f;
-  --color-agx-line: rgba(140, 178, 240, 0.17);
-  --color-agx-line-strong: rgba(150, 190, 250, 0.3);
+  --color-agx-deep: #081228;
+  --color-agx-navy: #0c1b38;
+  --color-agx-panel: #132548;
+  --color-agx-line: rgba(140, 178, 240, 0.22);
+  --color-agx-line-strong: rgba(150, 190, 250, 0.36);
   --color-agx-cyan: #4cc3ff;
   --color-agx-cyan-soft: #9bd8ff;
   --color-agx-blue: #3b82f6;
@@ -77,24 +77,24 @@ textarea {
   border: 1px solid var(--color-agx-line);
   background: linear-gradient(
     165deg,
-    rgba(26, 48, 92, 0.6) 0%,
-    rgba(13, 26, 52, 0.55) 100%
+    rgba(32, 58, 108, 0.62) 0%,
+    rgba(15, 30, 60, 0.58) 100%
   );
   backdrop-filter: blur(18px) saturate(150%);
   -webkit-backdrop-filter: blur(18px) saturate(150%);
   box-shadow:
-    0 18px 44px rgba(2, 7, 18, 0.5),
-    0 0 24px rgba(60, 130, 230, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    0 18px 44px rgba(2, 8, 22, 0.45),
+    0 0 30px rgba(70, 140, 240, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
 }
 
 .glass-chip {
   border-radius: 999px;
-  border: 1px solid rgba(165, 200, 255, 0.26);
+  border: 1px solid rgba(165, 200, 255, 0.3);
   background: linear-gradient(
     150deg,
-    rgba(30, 54, 98, 0.78) 0%,
-    rgba(13, 26, 52, 0.72) 100%
+    rgba(36, 62, 110, 0.8) 0%,
+    rgba(16, 32, 62, 0.74) 100%
   );
   backdrop-filter: blur(14px) saturate(155%);
   -webkit-backdrop-filter: blur(14px) saturate(155%);

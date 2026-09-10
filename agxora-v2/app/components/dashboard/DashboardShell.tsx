@@ -122,7 +122,7 @@ function Topbar({ onMenu, searchRef }: TopbarProps): JSX.Element {
     "hidden h-9 w-9 items-center justify-center rounded-xl border border-agx-line bg-[rgba(12,24,48,0.5)] text-agx-dim md:flex";
 
   return (
-    <header className="sticky top-0 z-30 border-b border-agx-line bg-[rgba(4,10,24,0.78)] backdrop-blur-xl">
+    <header className="sticky top-0 z-30 border-b border-agx-line bg-[rgba(7,15,34,0.78)] backdrop-blur-xl">
       <div className="flex items-center gap-3 px-4 py-3 md:px-6">
         <button
           type="button"
@@ -199,7 +199,7 @@ function CommandCenter({ inputRef }: CommandCenterProps): JSX.Element {
   return (
     <section className="glass-panel px-5 py-6 md:px-7">
       <p className="text-[13.5px] text-agx-dim">👋 Willkommen zurück</p>
-      <h1 className="mt-1.5 text-2xl font-semibold tracking-tight text-agx-ink md:text-[1.85rem]">
+      <h1 className="mt-1.5 text-2xl font-bold tracking-tight text-agx-ink md:text-[1.9rem]">
         Bereit für den nächsten Schritt?
       </h1>
       <p className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-agx-dim">
@@ -211,7 +211,9 @@ function CommandCenter({ inputRef }: CommandCenterProps): JSX.Element {
         onSubmit={(event) => event.preventDefault()}
         className="mt-5 flex items-center gap-2.5 rounded-2xl border border-agx-line-strong bg-[rgba(5,12,26,0.66)] py-2 pl-4 pr-2 transition-colors focus-within:border-agx-cyan/50"
       >
-        <Icon name="sparkles" className="h-4.5 w-4.5 shrink-0 text-agx-gold-soft" />
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-agx-cyan/15 text-agx-cyan-soft">
+          <Icon name="bot" className="h-4 w-4" />
+        </span>
         <input
           ref={inputRef}
           value={command}
@@ -223,9 +225,9 @@ function CommandCenter({ inputRef }: CommandCenterProps): JSX.Element {
         <button
           type="submit"
           aria-label="Auftrag senden"
-          className="btn-gold h-9 w-9 shrink-0 !rounded-xl !p-0"
+          className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-xl border border-agx-cyan/50 bg-gradient-to-br from-[#7ad4ff] to-[#2d8fd9] text-[#03182c] shadow-[0_0_18px_rgba(76,195,255,0.35)] transition-transform hover:-translate-y-px"
         >
-          <Icon name="arrowRight" className="h-4 w-4" strokeWidth={2.2} />
+          <Icon name="arrowRight" className="h-4 w-4" strokeWidth={2.4} />
         </button>
       </form>
 
@@ -274,7 +276,7 @@ function AiPanel({ onTalk }: AiPanelProps): JSX.Element {
           <span className="block text-[15px] font-semibold text-agx-ink">
             AGXORA AI
           </span>
-          <span className="block text-xs text-agx-faint">
+          <span className="block text-xs text-agx-cyan-soft/85">
             Ihr intelligenter Business Partner
           </span>
         </span>
@@ -300,6 +302,7 @@ function AiPanel({ onTalk }: AiPanelProps): JSX.Element {
         className="btn-gold mt-6 w-full px-4 py-2.5 text-[13.5px]"
       >
         Mit dem KI Agenten sprechen
+        <Icon name="arrowRight" className="h-3.5 w-3.5" strokeWidth={2.2} />
       </button>
     </aside>
   );
@@ -328,7 +331,7 @@ function MobileDrawer({
         className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-200 ${open ? "opacity-100" : "opacity-0"}`}
       />
       <div
-        className={`absolute inset-y-0 left-0 w-[280px] max-w-[85vw] border-r border-agx-line bg-[rgba(6,13,29,0.97)] backdrop-blur-2xl transition-transform duration-250 ${open ? "translate-x-0" : "-translate-x-full"}`}
+        className={`absolute inset-y-0 left-0 w-[280px] max-w-[85vw] border-r border-agx-line bg-[rgba(9,19,40,0.97)] backdrop-blur-2xl transition-transform duration-250 ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
         <button
           type="button"
@@ -372,7 +375,7 @@ export function DashboardShell(): JSX.Element {
 
       <div className="relative z-[1] flex min-h-screen">
         {/* Desktop sidebar */}
-        <aside className="sticky top-0 hidden h-screen w-[248px] shrink-0 border-r border-agx-line bg-[rgba(5,12,26,0.72)] backdrop-blur-xl lg:block">
+        <aside className="sticky top-0 hidden h-screen w-[248px] shrink-0 border-r border-agx-line bg-[rgba(8,17,38,0.72)] backdrop-blur-xl lg:block">
           <SidebarContent />
         </aside>
 
@@ -387,7 +390,7 @@ export function DashboardShell(): JSX.Element {
             {/* Cinematic globe backdrop, top-right behind the panels */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -right-24 -top-14 z-0 hidden h-[460px] w-[460px] opacity-90 lg:block"
+              className="pointer-events-none absolute -right-20 -top-16 z-0 hidden h-[500px] w-[500px] opacity-95 lg:block"
             >
               <AgxoraGlobe3D />
             </div>

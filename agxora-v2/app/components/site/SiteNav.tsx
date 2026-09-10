@@ -63,7 +63,7 @@ export function SiteNav(): JSX.Element {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-agx-line bg-[rgba(4,10,24,0.72)] backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-agx-line bg-[rgba(7,15,34,0.72)] backdrop-blur-xl">
       <nav
         aria-label="Hauptnavigation"
         className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-3.5 md:px-8"
@@ -86,6 +86,7 @@ export function SiteNav(): JSX.Element {
           </Link>
           <Link href="/login" className="btn-gold px-4 py-2 text-sm">
             Kostenlos starten
+            <Icon name="arrowRight" className="h-3.5 w-3.5" strokeWidth={2.2} />
           </Link>
         </div>
 

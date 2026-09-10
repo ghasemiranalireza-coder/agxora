@@ -14,6 +14,7 @@ interface TrustItem {
   readonly icon: IconName;
   readonly title: string;
   readonly sub: string;
+  readonly tint: string;
 }
 
 const TRUST_ITEMS: readonly TrustItem[] = [
@@ -21,16 +22,19 @@ const TRUST_ITEMS: readonly TrustItem[] = [
     icon: "sparkles",
     title: "KI-gestützt",
     sub: "Von der Idee zur Umsetzung",
+    tint: "text-agx-gold-soft",
   },
   {
     icon: "shield",
     title: "Sicher & DSGVO-konform",
     sub: "Ihre Daten bleiben Ihre Daten",
+    tint: "text-agx-cyan-soft",
   },
   {
     icon: "layers",
     title: "Alles an einem Ort",
     sub: "Ein System. Keine Grenzen.",
+    tint: "text-agx-gold-soft",
   },
 ];
 
@@ -173,7 +177,7 @@ export default function Home(): JSX.Element {
               AGXORA
             </span>
 
-            <h1 className="mt-5 text-4xl font-semibold leading-[1.08] tracking-tight text-agx-ink [text-shadow:0_0_32px_rgba(130,175,255,0.28)] md:text-5xl xl:text-[3.7rem]">
+            <h1 className="mt-5 text-4xl font-bold leading-[1.05] tracking-tight text-agx-ink [text-shadow:0_0_32px_rgba(130,175,255,0.3)] md:text-5xl xl:text-[3.85rem]">
               Das intelligente{" "}
               <span className="gold-text drop-shadow-[0_0_22px_rgba(242,178,62,0.45)]">
                 Business
@@ -191,6 +195,7 @@ export default function Home(): JSX.Element {
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
               <Link href="/login" className="btn-gold px-6 py-3 text-[15px]">
                 Kostenlos starten
+                <Icon name="arrowRight" className="h-4 w-4" strokeWidth={2.2} />
               </Link>
               <a href="#plattform" className="btn-ghost px-5 py-3 text-[15px]">
                 <Icon name="play" className="h-4 w-4" />
@@ -201,7 +206,9 @@ export default function Home(): JSX.Element {
             <div className="mt-10 grid gap-5 sm:grid-cols-3">
               {TRUST_ITEMS.map((item) => (
                 <div key={item.title} className="flex items-start gap-3">
-                  <span className="glass-chip flex h-9 w-9 shrink-0 items-center justify-center !rounded-xl text-agx-cyan-soft">
+                  <span
+                    className={`glass-chip flex h-9 w-9 shrink-0 items-center justify-center !rounded-xl ${item.tint}`}
+                  >
                     <Icon name={item.icon} className="h-4 w-4" />
                   </span>
                   <span>
@@ -218,23 +225,23 @@ export default function Home(): JSX.Element {
           </div>
 
           {/* Hero globe with floating glass badges */}
-          <div className="relative mx-auto h-[380px] w-full max-w-[420px] sm:h-[480px] sm:max-w-[540px] lg:h-[600px] lg:max-w-none">
+          <div className="relative mx-auto h-[380px] w-full max-w-[420px] sm:h-[490px] sm:max-w-[560px] lg:h-[640px] lg:max-w-none">
             <div
               aria-hidden="true"
               className="absolute inset-0 rounded-full"
               style={{
                 background:
-                  "radial-gradient(circle at 50% 48%, rgba(50, 112, 210, 0.42) 0%, rgba(22, 56, 120, 0.2) 44%, transparent 70%)",
+                  "radial-gradient(circle at 50% 48%, rgba(56, 122, 224, 0.46) 0%, rgba(26, 62, 130, 0.22) 44%, transparent 70%)",
               }}
             />
             <AgxoraGlobe3D />
             {HERO_BADGES.map((badge) => (
               <span
                 key={badge.label}
-                className={`glass-chip agx-float pointer-events-none absolute inline-flex items-center gap-2.5 py-2 pl-2.5 pr-4.5 text-[13.5px] font-semibold text-agx-ink ${badge.position}`}
+                className={`glass-chip agx-float pointer-events-none absolute inline-flex items-center gap-2.5 py-2 pl-2 pr-4.5 text-[13.5px] font-semibold text-agx-ink ${badge.position}`}
                 style={{ animationDelay: badge.delay }}
               >
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#5ecaff] to-[#2a7fd4] text-white shadow-[0_0_14px_rgba(76,195,255,0.55)]">
+                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-[#5ecaff] to-[#2a7fd4] text-white shadow-[0_0_14px_rgba(76,195,255,0.55)]">
                   <Icon name={badge.icon} className="h-3.5 w-3.5" strokeWidth={2} />
                 </span>
                 {badge.label}
@@ -321,6 +328,7 @@ export default function Home(): JSX.Element {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5">
               <Link href="/login" className="btn-gold px-6 py-3 text-[15px]">
                 Kostenlos starten
+                <Icon name="arrowRight" className="h-4 w-4" strokeWidth={2.2} />
               </Link>
               <Link href="/dashboard" className="btn-ghost px-5 py-3 text-[15px]">
                 <Icon name="play" className="h-4 w-4" />

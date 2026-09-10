@@ -234,9 +234,10 @@ const backdropStyle: CSSProperties = {
   zIndex: 0,
   pointerEvents: "none",
   background:
-    "radial-gradient(1100px 700px at 82% 8%, rgba(47, 98, 195, 0.22) 0%, transparent 65%), " +
-    "radial-gradient(1000px 800px at 8% 92%, rgba(36, 82, 168, 0.2) 0%, transparent 65%), " +
-    "radial-gradient(circle at center, #13254e 0%, #0a1734 45%, #050b1e 100%)",
+    "radial-gradient(1100px 700px at 82% 8%, rgba(52, 108, 212, 0.3) 0%, transparent 65%), " +
+    "radial-gradient(1000px 800px at 8% 92%, rgba(42, 94, 190, 0.26) 0%, transparent 65%), " +
+    "radial-gradient(900px 600px at 50% 45%, rgba(38, 80, 160, 0.14) 0%, transparent 70%), " +
+    "radial-gradient(circle at center, #16295a 0%, #0d1c3d 45%, #081228 100%)",
 };
 
 export default function StarfieldBackground(): JSX.Element {

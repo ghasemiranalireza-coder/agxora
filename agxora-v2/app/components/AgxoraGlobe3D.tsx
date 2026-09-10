@@ -373,7 +373,7 @@ function Planet({ profile }: PlanetProps): JSX.Element {
           shininess={14}
           emissiveMap={nightMap}
           emissive={new THREE.Color("#ffc276")}
-          emissiveIntensity={1.6}
+          emissiveIntensity={2.1}
         />
       </mesh>
 
@@ -475,8 +475,9 @@ function GlowShell({ scale, tint, gain, curve }: GlowShellProps): JSX.Element {
 function AtmosphereGlow(): JSX.Element {
   return (
     <>
-      <GlowShell scale={1.045} tint="#58bdff" gain={1.3} curve={3.9} />
-      <GlowShell scale={1.12} tint="#2f7fe0" gain={0.55} curve={2.6} />
+      <GlowShell scale={1.028} tint="#8ee4ff" gain={2.0} curve={4.6} />
+      <GlowShell scale={1.05} tint="#54bcff" gain={2.9} curve={3.3} />
+      <GlowShell scale={1.13} tint="#2f7fe0" gain={1.05} curve={2.4} />
     </>
   );
 }
@@ -525,22 +526,24 @@ interface SpaceSceneProps {
 function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
   return (
     <>
-      <color attach="background" args={["#071127"]} />
+      <color attach="background" args={["#0a1832"]} />
 
       {/* Key sun — warm white, high and off-axis so the ocean glint
           sits near the limb instead of mid-planet */}
       <directionalLight
         position={[6, 3, 2.8]}
-        intensity={3.3}
-        color="#fff4e4"
+        intensity={3.6}
+        color="#fff1da"
       />
+      {/* Warm sunset kiss on the upper-right limb, like the reference */}
+      <pointLight position={[3.4, 2.2, 1.6]} intensity={15} color="#ffd9a0" distance={9} decay={2} />
       {/* Cool blue bounce for the shadowed limb */}
       <directionalLight
         position={[-5, -1.6, -3]}
-        intensity={0.7}
-        color="#5f8fdc"
+        intensity={0.85}
+        color="#6f9de8"
       />
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.55} />
 
       <Planet profile={profile} />
       <AtmosphereGlow />
@@ -549,8 +552,8 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
 
       <EffectComposer multisampling={profile.msaa}>
         <Bloom
-          intensity={compact ? 0.34 : 0.46}
-          luminanceThreshold={0.44}
+          intensity={compact ? 0.4 : 0.56}
+          luminanceThreshold={0.4}
           luminanceSmoothing={0.9}
           mipmapBlur
         />
@@ -603,7 +606,7 @@ export default function AgxoraGlobe3D({
           powerPreference: "high-performance",
           alpha: false,
           toneMapping: THREE.ACESFilmicToneMapping,
-          toneMappingExposure: 1.22,
+          toneMappingExposure: 1.28,
         }}
         style={{ position: "absolute", inset: 0 }}
       >

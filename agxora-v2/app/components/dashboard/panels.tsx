@@ -11,6 +11,7 @@ interface KpiItem {
   readonly title: string;
   readonly empty: string;
   readonly hint: string;
+  readonly tileClass: string;
 }
 
 const KPI_ITEMS: readonly KpiItem[] = [
@@ -19,24 +20,32 @@ const KPI_ITEMS: readonly KpiItem[] = [
     title: "Gesamtumsatz",
     empty: "Noch keine Umsatzdaten",
     hint: "Verbinden Sie Ihre Finanzquellen",
+    tileClass:
+      "border-agx-gold/35 bg-agx-gold/12 text-agx-gold-soft shadow-[0_0_16px_rgba(242,178,62,0.14)]",
   },
   {
     icon: "users",
     title: "Aktive Kunden",
     empty: "Noch keine Kunden erfasst",
     hint: "Legen Sie Ihren ersten Kunden an",
+    tileClass:
+      "border-agx-cyan/25 bg-agx-cyan/10 text-agx-cyan-soft shadow-[0_0_16px_rgba(76,195,255,0.12)]",
   },
   {
     icon: "megaphone",
     title: "Laufende Kampagnen",
     empty: "Keine laufenden Kampagnen",
     hint: "Starten Sie Ihre erste Kampagne",
+    tileClass:
+      "border-agx-blue/30 bg-agx-blue/12 text-[#9dc2ff] shadow-[0_0_16px_rgba(59,130,246,0.14)]",
   },
   {
     icon: "clock",
     title: "Zeitersparnis",
     empty: "Noch keine Daten",
     hint: "Richten Sie Automatisierungen ein",
+    tileClass:
+      "border-agx-gold/35 bg-agx-gold/12 text-agx-gold-soft shadow-[0_0_16px_rgba(242,178,62,0.14)]",
   },
 ];
 
@@ -63,20 +72,22 @@ export function KpiRow(): JSX.Element {
   return (
     <section aria-label="Kennzahlen" className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
       {KPI_ITEMS.map((item) => (
-        <article key={item.title} className="glass-panel px-5 py-4.5">
+        <article key={item.title} className="glass-panel px-5 py-5">
           <div className="flex items-start justify-between gap-3">
-            <span className="text-[12.5px] font-medium text-agx-dim">
+            <span className="text-[13px] font-medium text-agx-dim">
               {item.title}
             </span>
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-agx-cyan/20 bg-agx-cyan/10 text-agx-cyan-soft">
-              <Icon name={item.icon} className="h-4 w-4" />
+            <span
+              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border ${item.tileClass}`}
+            >
+              <Icon name={item.icon} className="h-4.5 w-4.5" />
             </span>
           </div>
-          <p className="mt-2 text-[26px] font-semibold leading-none text-agx-ink/70">
+          <p className="mt-1.5 text-[30px] font-bold leading-none tracking-tight text-agx-ink/75">
             –
           </p>
-          <p className="mt-2.5 text-[12px] text-agx-dim">{item.empty}</p>
-          <p className="mt-0.5 text-[11px] text-agx-faint">{item.hint}</p>
+          <p className="mt-3 text-[12px] font-medium text-agx-dim">{item.empty}</p>
+          <p className="mt-0.5 text-[11px] leading-snug text-agx-faint">{item.hint}</p>
           <KpiBaseline />
         </article>
       ))}
@@ -166,7 +177,7 @@ export function LowerPanels(): JSX.Element {
                   {item.label}
                 </span>
               </span>
-              <span className="rounded-full border border-agx-line px-2.5 py-1 text-[10.5px] text-agx-faint">
+              <span className="whitespace-nowrap rounded-full border border-agx-line-strong bg-[rgba(16,32,62,0.5)] px-2.5 py-1 text-[10.5px] font-medium text-agx-dim">
                 Nicht verbunden
               </span>
             </li>
@@ -197,177 +208,226 @@ export function LowerPanels(): JSX.Element {
 /*  Automation section — AI core visual + growth panel                 */
 /* ------------------------------------------------------------------ */
 
-/** Reference-style AI robot — glossy helmet, cyan visor eyes, gold swirl.
-    Pure inline SVG/CSS, no image assets. */
+/** Reference-style AI robot — glossy white segmented shell, dark visor
+    with camera-lens eyes, side ear pod, warm gold back-light and thin
+    gold orbit wires. Pure inline SVG/CSS, no image assets. */
 function AiRobot(): JSX.Element {
   return (
-    <div aria-hidden="true" className="relative h-44 w-44 shrink-0">
-      {/* Warm ambient glow */}
+    <div aria-hidden="true" className="relative h-48 w-48 shrink-0 sm:h-52 sm:w-52">
+      {/* Warm gold back-light behind the upper-right of the head */}
       <div
-        className="absolute -inset-6 rounded-full"
+        className="absolute -inset-5 rounded-full"
         style={{
           background:
-            "radial-gradient(circle at 50% 58%, rgba(242, 178, 62, 0.3) 0%, rgba(242, 178, 62, 0.08) 48%, transparent 72%)",
+            "radial-gradient(circle at 66% 34%, rgba(255, 209, 128, 0.42) 0%, rgba(242, 178, 62, 0.14) 42%, transparent 68%)," +
+            "radial-gradient(circle at 30% 76%, rgba(60, 120, 220, 0.18) 0%, transparent 55%)",
         }}
       />
-      {/* Gold spark particles */}
-      <span className="absolute left-[6%] top-[30%] h-1.5 w-1.5 rounded-full bg-agx-gold-soft shadow-[0_0_8px_rgba(255,213,122,0.9)]" />
-      <span className="absolute right-[4%] top-[52%] h-2 w-2 rounded-full bg-agx-gold shadow-[0_0_10px_rgba(242,178,62,0.9)]" />
-      <span className="absolute bottom-[14%] left-[16%] h-1 w-1 rounded-full bg-agx-gold-soft shadow-[0_0_6px_rgba(255,213,122,0.9)]" />
 
       <svg viewBox="0 0 240 240" className="relative h-full w-full">
         <defs>
-          <radialGradient id="agxHelmet" cx="36%" cy="26%" r="85%">
-            <stop offset="0%" stopColor="#f5f9ff" />
-            <stop offset="42%" stopColor="#c7d4e7" />
-            <stop offset="74%" stopColor="#8b9db8" />
-            <stop offset="100%" stopColor="#54657f" />
+          <radialGradient id="agxShell" cx="34%" cy="22%" r="90%">
+            <stop offset="0%" stopColor="#ffffff" />
+            <stop offset="30%" stopColor="#eef3fa" />
+            <stop offset="56%" stopColor="#c3cfdf" />
+            <stop offset="78%" stopColor="#8b9cb4" />
+            <stop offset="100%" stopColor="#586a86" />
           </radialGradient>
-          <linearGradient id="agxVisor" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#182742" />
-            <stop offset="100%" stopColor="#050b18" />
-          </linearGradient>
-          <linearGradient id="agxGold" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#ffe3a3" stopOpacity="0" />
-            <stop offset="30%" stopColor="#ffd57a" />
-            <stop offset="70%" stopColor="#e8a52e" />
+          <radialGradient id="agxVisor" cx="42%" cy="30%" r="92%">
+            <stop offset="0%" stopColor="#22375c" />
+            <stop offset="45%" stopColor="#101f3b" />
+            <stop offset="100%" stopColor="#040a18" />
+          </radialGradient>
+          <radialGradient id="agxLens" cx="38%" cy="32%" r="80%">
+            <stop offset="0%" stopColor="#3d6799" />
+            <stop offset="45%" stopColor="#1c3356" />
+            <stop offset="100%" stopColor="#081527" />
+          </radialGradient>
+          <linearGradient id="agxGoldWire" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#ffd57a" stopOpacity="0" />
+            <stop offset="35%" stopColor="#ffd57a" stopOpacity="0.9" />
+            <stop offset="65%" stopColor="#e8a52e" stopOpacity="0.9" />
             <stop offset="100%" stopColor="#e8a52e" stopOpacity="0" />
           </linearGradient>
-          <radialGradient id="agxEye" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#e6f8ff" />
-            <stop offset="45%" stopColor="#4cc3ff" />
-            <stop offset="100%" stopColor="#4cc3ff" stopOpacity="0" />
-          </radialGradient>
           <filter id="agxSoft" x="-40%" y="-40%" width="180%" height="180%">
             <feGaussianBlur stdDeviation="2.2" />
           </filter>
           <filter id="agxGlow" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur stdDeviation="5" />
+            <feGaussianBlur stdDeviation="4.5" />
           </filter>
         </defs>
 
-        {/* Gold orbit — upper arc behind the head */}
-        <g transform="rotate(-14 120 128)">
-          <path
-            d="M 18 132 A 102 42 0 0 1 222 132"
-            fill="none"
-            stroke="url(#agxGold)"
-            strokeWidth="7"
-            strokeLinecap="round"
-            filter="url(#agxGlow)"
-            opacity="0.75"
-          />
-          <path
-            d="M 18 132 A 102 42 0 0 1 222 132"
-            fill="none"
-            stroke="url(#agxGold)"
-            strokeWidth="3"
-            strokeLinecap="round"
-            opacity="0.9"
-          />
+        {/* Gold orbit wires behind the head */}
+        <g opacity="0.8">
+          <ellipse cx="120" cy="126" rx="112" ry="52" fill="none" stroke="url(#agxGoldWire)" strokeWidth="1.4" transform="rotate(-16 120 126)" />
+          <ellipse cx="120" cy="128" rx="104" ry="66" fill="none" stroke="url(#agxGoldWire)" strokeWidth="1" opacity="0.65" transform="rotate(9 120 128)" />
+          <ellipse cx="120" cy="124" rx="116" ry="42" fill="none" stroke="url(#agxGoldWire)" strokeWidth="0.8" opacity="0.5" transform="rotate(-32 120 124)" />
         </g>
+        {/* Glowing orbit nodes */}
+        <circle cx="26" cy="150" r="3.4" fill="#ffd57a" filter="url(#agxSoft)" />
+        <circle cx="214" cy="96" r="2.8" fill="#ffcb62" filter="url(#agxSoft)" />
+        <circle cx="196" cy="182" r="2.2" fill="#ffd57a" filter="url(#agxSoft)" opacity="0.85" />
+        <circle cx="52" cy="62" r="2" fill="#ffe3a3" filter="url(#agxSoft)" opacity="0.8" />
 
-        {/* Ear pods */}
-        <rect x="30" y="102" width="15" height="44" rx="7" fill="#3c4c66" />
-        <rect x="195" y="102" width="15" height="44" rx="7" fill="#2e3c52" />
+        <g transform="rotate(-5 120 122)">
+          {/* Ear pod — camera-style concentric lens on the left */}
+          <ellipse cx="38" cy="128" rx="22" ry="27" fill="#8598b2" />
+          <ellipse cx="36" cy="128" rx="17" ry="22" fill="#3b4d68" />
+          <ellipse cx="35" cy="128" rx="12" ry="16" fill="#141f33" />
+          <ellipse cx="34" cy="128" rx="6.5" ry="9" fill="#2c4466" opacity="0.9" />
+          <ellipse cx="31" cy="119" rx="3.4" ry="2.6" fill="#b8cbe2" opacity="0.8" />
 
-        {/* Helmet */}
-        <ellipse
-          cx="120"
-          cy="122"
-          rx="80"
-          ry="76"
-          fill="url(#agxHelmet)"
-          stroke="rgba(255,255,255,0.28)"
-          strokeWidth="1"
-        />
-        {/* Helmet top highlight */}
-        <ellipse
-          cx="96"
-          cy="72"
-          rx="42"
-          ry="20"
-          fill="#ffffff"
-          opacity="0.3"
-          filter="url(#agxSoft)"
-        />
+          {/* Head shell */}
+          <ellipse
+            cx="124"
+            cy="122"
+            rx="80"
+            ry="78"
+            fill="url(#agxShell)"
+            stroke="rgba(255,255,255,0.3)"
+            strokeWidth="1"
+          />
 
-        {/* Visor */}
-        <rect
-          x="60"
-          y="88"
-          width="120"
-          height="86"
-          rx="42"
-          fill="url(#agxVisor)"
-          stroke="rgba(76,195,255,0.28)"
-          strokeWidth="1.2"
-        />
-        {/* Visor inner reflection */}
-        <path
-          d="M 74 104 Q 120 92 166 104"
-          fill="none"
-          stroke="rgba(140,190,255,0.25)"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
+          {/* Panel seams on the shell */}
+          <path d="M 74 58 Q 118 40 166 56" fill="none" stroke="rgba(50,68,94,0.35)" strokeWidth="1.4" />
+          <path d="M 58 176 Q 96 200 150 196" fill="none" stroke="rgba(50,68,94,0.4)" strokeWidth="1.4" />
+          <path d="M 170 190 Q 196 172 202 142" fill="none" stroke="rgba(50,68,94,0.32)" strokeWidth="1.2" />
+          <path d="M 96 199 L 100 188" fill="none" stroke="rgba(50,68,94,0.35)" strokeWidth="1.2" />
 
-        {/* Eyes */}
-        <ellipse cx="97" cy="132" rx="17" ry="11" fill="url(#agxEye)" filter="url(#agxGlow)" />
-        <ellipse cx="143" cy="132" rx="17" ry="11" fill="url(#agxEye)" filter="url(#agxGlow)" />
-        <ellipse cx="97" cy="132" rx="10" ry="6" fill="#dff6ff" />
-        <ellipse cx="143" cy="132" rx="10" ry="6" fill="#dff6ff" />
-
-        {/* Chin light */}
-        <circle cx="120" cy="188" r="5" fill="#f2b23e" filter="url(#agxSoft)" />
-
-        {/* Gold orbit — lower arc in front of the head */}
-        <g transform="rotate(-14 120 128)">
+          {/* Warm gold rim light along the upper-right edge */}
           <path
-            d="M 222 132 A 102 42 0 0 1 18 132"
+            d="M 154 50 A 80 78 0 0 1 202 132"
             fill="none"
-            stroke="url(#agxGold)"
-            strokeWidth="8"
+            stroke="#ffd694"
+            strokeWidth="7"
             strokeLinecap="round"
             filter="url(#agxGlow)"
             opacity="0.85"
           />
+          {/* Cool blue bounce along the lower-left edge */}
           <path
-            d="M 222 132 A 102 42 0 0 1 18 132"
+            d="M 50 154 A 80 78 0 0 0 96 196"
             fill="none"
-            stroke="url(#agxGold)"
-            strokeWidth="3.5"
+            stroke="#5f92d8"
+            strokeWidth="5"
             strokeLinecap="round"
+            filter="url(#agxGlow)"
+            opacity="0.4"
+          />
+
+          {/* Top gloss highlight */}
+          <ellipse cx="98" cy="66" rx="40" ry="17" fill="#ffffff" opacity="0.4" filter="url(#agxSoft)" />
+
+          {/* Visor — large dark glass with a soft top reflection */}
+          <rect
+            x="66"
+            y="76"
+            width="122"
+            height="100"
+            rx="50"
+            fill="url(#agxVisor)"
+            stroke="rgba(20,32,52,0.9)"
+            strokeWidth="2.5"
+          />
+          <rect
+            x="66"
+            y="76"
+            width="122"
+            height="100"
+            rx="50"
+            fill="none"
+            stroke="rgba(150,190,240,0.28)"
+            strokeWidth="1"
+          />
+          <path
+            d="M 82 96 Q 127 80 172 96"
+            fill="none"
+            stroke="rgba(170,205,250,0.3)"
+            strokeWidth="3"
+            strokeLinecap="round"
+            filter="url(#agxSoft)"
+          />
+
+          {/* Camera-lens eyes */}
+          <g>
+            <circle cx="108" cy="128" r="23" fill="#0b1830" />
+            <circle cx="108" cy="128" r="23" fill="none" stroke="#3f6293" strokeWidth="2.4" />
+            <circle cx="108" cy="128" r="16" fill="url(#agxLens)" />
+            <circle cx="108" cy="128" r="8" fill="#091423" />
+            <circle cx="102" cy="121" r="3.2" fill="#9fc6ee" opacity="0.85" />
+            <circle cx="108" cy="128" r="24.5" fill="none" stroke="#4cc3ff" strokeWidth="1.2" opacity="0.35" filter="url(#agxSoft)" />
+          </g>
+          <g>
+            <circle cx="156" cy="124" r="19" fill="#0b1830" />
+            <circle cx="156" cy="124" r="19" fill="none" stroke="#3f6293" strokeWidth="2.2" />
+            <circle cx="156" cy="124" r="13" fill="url(#agxLens)" />
+            <circle cx="156" cy="124" r="6.5" fill="#091423" />
+            <circle cx="151" cy="118" r="2.6" fill="#9fc6ee" opacity="0.85" />
+            <circle cx="156" cy="124" r="20.5" fill="none" stroke="#4cc3ff" strokeWidth="1" opacity="0.35" filter="url(#agxSoft)" />
+          </g>
+
+          {/* Soft mouth light at the bottom of the visor */}
+          <path
+            d="M 116 162 Q 128 168 142 161"
+            fill="none"
+            stroke="#4cc3ff"
+            strokeWidth="3"
+            strokeLinecap="round"
+            opacity="0.55"
+            filter="url(#agxSoft)"
           />
         </g>
+
+        {/* Front gold orbit segment crossing the lower left */}
+        <path
+          d="M 10 168 Q 70 206 150 198"
+          fill="none"
+          stroke="url(#agxGoldWire)"
+          strokeWidth="1.6"
+          opacity="0.85"
+        />
+        <circle cx="86" cy="199" r="2.6" fill="#ffd57a" filter="url(#agxSoft)" />
       </svg>
     </div>
   );
 }
 
-/** Decorative growth bars — no axes, no numbers, no fabricated data. */
+/** Decorative growth bars — subtle grid, no numbers, no fabricated data. */
 function GrowthIllustration(): JSX.Element {
   const bars = [26, 38, 32, 48, 44, 60, 56, 74, 70, 88];
   return (
     <svg
-      viewBox="0 0 200 100"
-      className="mt-5 h-28 w-full"
+      viewBox="0 0 200 104"
+      className="mt-5 h-32 w-full"
       preserveAspectRatio="none"
       aria-hidden="true"
     >
       <defs>
         <linearGradient id="agx-bar" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%" stopColor="rgba(242,178,62,0.15)" />
-          <stop offset="100%" stopColor="rgba(255,213,122,0.85)" />
+          <stop offset="0%" stopColor="rgba(242,178,62,0.18)" />
+          <stop offset="70%" stopColor="rgba(250,196,90,0.75)" />
+          <stop offset="100%" stopColor="rgba(255,222,150,0.95)" />
         </linearGradient>
       </defs>
+      {/* Faint horizontal grid — orientation only, no values */}
+      {[14, 40, 66].map((y) => (
+        <path
+          key={y}
+          d={`M0 ${y} H200`}
+          stroke="rgba(140,178,240,0.12)"
+          strokeWidth="1"
+          strokeDasharray="2 5"
+          fill="none"
+        />
+      ))}
+      <path d="M0 92 H200" stroke="rgba(140,178,240,0.22)" strokeWidth="1" fill="none" />
       {bars.map((height, index) => (
         <rect
           key={index}
           x={index * 20 + 4}
-          y={100 - height}
+          y={92 - height * 0.85}
           width={12}
-          height={height}
+          height={height * 0.85}
           rx={3}
           fill="url(#agx-bar)"
         />
@@ -403,6 +463,7 @@ export function AutomationSection({
               className="btn-gold px-5 py-2.5 text-[13.5px]"
             >
               Jetzt automatisieren
+              <Icon name="arrowRight" className="h-3.5 w-3.5" strokeWidth={2.2} />
             </button>
             <Link href="/" className="btn-ghost px-4 py-2.5 text-[13.5px]">
               <Icon name="play" className="h-3.5 w-3.5" />
