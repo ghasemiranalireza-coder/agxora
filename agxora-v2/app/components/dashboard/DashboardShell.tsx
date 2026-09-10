@@ -221,7 +221,7 @@ function CommandCenter({ inputRef }: CommandCenterProps): JSX.Element {
       {/* Cinematic Earth inside the panel, upper right — like the reference */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-28 -top-44 hidden h-[480px] w-[480px] opacity-90 sm:block"
+        className="pointer-events-none absolute -right-20 -top-40 hidden h-[520px] w-[520px] opacity-95 sm:block"
       >
         <AgxoraGlobe3D />
       </div>
