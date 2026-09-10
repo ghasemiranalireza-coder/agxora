@@ -1,14 +1,17 @@
 "use client";
 
 /**
- * AgxoraGlobe3D — AGXORA AI Business Operating System.
+ * AgxoraGlobe3D — AGXORA Business Operating System.
  *
- * 100% procedural cinematic Earth. Every pixel is computed at runtime:
- * continents, oceans, ice caps, clouds, atmosphere and stars are all
- * generated from seeded noise — zero files, zero loaders, zero network.
+ * 100% procedural cinematic Earth: continents, oceans, ice caps, clouds,
+ * warm gold city lights, orbital rings and connection arcs are all computed
+ * at runtime from seeded noise — zero files, zero loaders, zero network.
+ *
+ * The canvas is frameless and edge-masked so it blends into the page's
+ * global starfield backdrop. Sized by its parent container.
  *
  * Next.js 16 · React 19 · React Three Fiber · three.js ·
- * @react-three/drei · @react-three/postprocessing · strict TypeScript.
+ * @react-three/postprocessing · strict TypeScript.
  */
 
 import {
@@ -22,7 +25,7 @@ import {
 } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Bloom, EffectComposer, Vignette } from "@react-three/postprocessing";
+import { Bloom, EffectComposer } from "@react-three/postprocessing";
 
 /* ======================================================================== */
 /*  Deterministic noise toolkit                                             */
@@ -119,17 +122,19 @@ interface PlanetMaps {
   readonly roughnessMap: THREE.DataTexture;
   readonly bumpMap: THREE.DataTexture;
   readonly cloudMap: THREE.DataTexture;
+  readonly lightsMap: THREE.DataTexture;
+  readonly cityAnchors: readonly THREE.Vector3[];
 }
 
 const SEA_LEVEL = 0.535;
 
-/** Muted, premium palette — nothing saturated or cartoon-like. */
-const ABYSS = new THREE.Color("#041c38");
-const SHALLOWS = new THREE.Color("#0c4174");
-const LOWLAND = new THREE.Color("#46603c");
-const HIGHLAND = new THREE.Color("#79684a");
-const PEAKS = new THREE.Color("#8f8878");
-const POLAR_ICE = new THREE.Color("#dbe4ea");
+/** Muted premium palette — deep night-navy oceans, dark warm land. */
+const ABYSS = new THREE.Color("#031430");
+const SHALLOWS = new THREE.Color("#0a3a6a");
+const LOWLAND = new THREE.Color("#3c5233");
+const HIGHLAND = new THREE.Color("#6b5c40");
+const PEAKS = new THREE.Color("#7d7663");
+const POLAR_ICE = new THREE.Color("#d5e0ea");
 
 function mixColors(a: THREE.Color, b: THREE.Color, t: number): THREE.Color {
   return a.clone().lerp(b, THREE.MathUtils.clamp(t, 0, 1));
@@ -141,19 +146,23 @@ function smooth(edge0: number, edge1: number, value: number): number {
 }
 
 /**
- * Renders equirectangular surface / roughness / elevation / cloud maps by
- * sampling seamless 3D noise on the unit sphere. Runs once per quality
- * profile and is fully deterministic.
+ * Renders equirectangular surface / roughness / elevation / cloud / city
+ * light maps by sampling seamless 3D noise on the unit sphere, and collects
+ * anchor points of the brightest city clusters for beacons and arcs.
+ * Runs once per quality profile and is fully deterministic.
  */
 function generatePlanetMaps(width: number, height: number): PlanetMaps {
   const continents = makeValueNoise3D(0xa17c);
   const detail = makeValueNoise3D(0x52f1);
   const clouds = makeValueNoise3D(0x39d7);
+  const cities = makeValueNoise3D(0x77aa);
 
   const colorData = new Uint8Array(width * height * 4);
   const roughData = new Uint8Array(width * height * 4);
   const bumpData = new Uint8Array(width * height * 4);
   const cloudData = new Uint8Array(width * height * 4);
+  const lightsData = new Uint8Array(width * height * 4);
+  const cityAnchors: THREE.Vector3[] = [];
 
   for (let row = 0; row < height; row += 1) {
     const v = row / (height - 1);
@@ -179,6 +188,7 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
       let color: THREE.Color;
       let roughness: number;
       let bump: number;
+      let cityGlow = 0;
 
       if (isLand) {
         const relief = smooth(SEA_LEVEL, SEA_LEVEL + 0.22, elevation);
@@ -188,8 +198,21 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
             : mixColors(HIGHLAND, PEAKS, (relief - 0.45) / 0.55);
         // Dry out land near the equator, cool it toward the poles.
         color = mixColors(color, HIGHLAND, (1 - latAbs / Math.PI) * 0.12);
-        roughness = 0.86;
+        roughness = 0.9;
         bump = 0.45 + relief * 0.55;
+
+        // Warm gold civilization glow — clustered, biased toward coasts
+        // and lowlands, fading toward the poles.
+        const cluster = fbm3D(cities, px * 6.4, py * 6.4, pz * 6.4, 4);
+        const sprinkle = cities(px * 30, py * 30, pz * 30);
+        const coastBias = 1 - smooth(SEA_LEVEL + 0.02, SEA_LEVEL + 0.17, elevation);
+        const latBand = 1 - smooth(0.92, 1.22, latAbs);
+        cityGlow =
+          smooth(0.55, 0.76, cluster) *
+          (0.4 + sprinkle * 0.6) *
+          (0.3 + coastBias * 0.7) *
+          latBand *
+          (1 - iceEdge);
       } else {
         const depth = smooth(SEA_LEVEL, SEA_LEVEL - 0.3, elevation);
         color = mixColors(SHALLOWS, ABYSS, depth);
@@ -230,6 +253,18 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
       cloudData[i + 1] = cloudByte;
       cloudData[i + 2] = cloudByte;
       cloudData[i + 3] = 255;
+
+      // Gold-tinted emissive city lights.
+      const glow = THREE.MathUtils.clamp(cityGlow * 1.8, 0, 1);
+      lightsData[i] = Math.round(glow * 255);
+      lightsData[i + 1] = Math.round(glow * 176);
+      lightsData[i + 2] = Math.round(glow * 84);
+      lightsData[i + 3] = 255;
+
+      // Sparse, deterministic sampling of the brightest clusters.
+      if (cityGlow > 0.42 && row % 5 === 2 && col % 9 === 4) {
+        cityAnchors.push(new THREE.Vector3(px, py, pz));
+      }
     }
   }
 
@@ -255,6 +290,8 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
     roughnessMap: buildTexture(roughData, false),
     bumpMap: buildTexture(bumpData, false),
     cloudMap: buildTexture(cloudData, false),
+    lightsMap: buildTexture(lightsData, true),
+    cityAnchors,
   };
 }
 
@@ -262,59 +299,14 @@ function generatePlanetMaps(width: number, height: number): PlanetMaps {
 /*  Quality profiles                                                        */
 /* ======================================================================== */
 
-interface StarShell {
-  readonly amount: number;
-  readonly innerRadius: number;
-  readonly outerRadius: number;
-  readonly sizeFloor: number;
-  readonly sizeCeil: number;
-  readonly drift: number;
-  readonly parallax: number;
-  readonly seed: number;
-}
-
 interface RenderProfile {
   readonly pixelRatio: [number, number];
   readonly sphereDetail: number;
   readonly mapWidth: number;
   readonly mapHeight: number;
-  readonly shells: readonly StarShell[];
+  readonly beaconCount: number;
+  readonly arcCount: number;
   readonly msaa: number;
-}
-
-function starShells(density: number): readonly StarShell[] {
-  return [
-    {
-      amount: Math.round(6500 * density),
-      innerRadius: 50,
-      outerRadius: 105,
-      sizeFloor: 0.2,
-      sizeCeil: 0.85,
-      drift: 0.0014,
-      parallax: 0.007,
-      seed: 0xbead01,
-    },
-    {
-      amount: Math.round(4200 * density),
-      innerRadius: 26,
-      outerRadius: 54,
-      sizeFloor: 0.28,
-      sizeCeil: 1.25,
-      drift: 0.0026,
-      parallax: 0.018,
-      seed: 0xbead02,
-    },
-    {
-      amount: Math.round(2300 * density),
-      innerRadius: 12,
-      outerRadius: 28,
-      sizeFloor: 0.32,
-      sizeCeil: 1.15,
-      drift: 0.004,
-      parallax: 0.034,
-      seed: 0xbead03,
-    },
-  ];
 }
 
 const PROFILE_DESKTOP: RenderProfile = {
@@ -322,7 +314,8 @@ const PROFILE_DESKTOP: RenderProfile = {
   sphereDetail: 96,
   mapWidth: 1024,
   mapHeight: 512,
-  shells: starShells(1),
+  beaconCount: 64,
+  arcCount: 7,
   msaa: 4,
 };
 
@@ -331,7 +324,8 @@ const PROFILE_COMPACT: RenderProfile = {
   sphereDetail: 64,
   mapWidth: 512,
   mapHeight: 256,
-  shells: starShells(0.4),
+  beaconCount: 36,
+  arcCount: 5,
   msaa: 0,
 };
 
@@ -347,6 +341,198 @@ function useRenderProfile(): { profile: RenderProfile; compact: boolean } {
   }, []);
 
   return { profile: compact ? PROFILE_COMPACT : PROFILE_DESKTOP, compact };
+}
+
+/* ======================================================================== */
+/*  City beacons & connection arcs                                          */
+/* ======================================================================== */
+
+const BEACON_VERTEX = /* glsl */ `
+  attribute float beaconSize;
+
+  void main() {
+    vec4 mv = modelViewMatrix * vec4(position, 1.0);
+    gl_PointSize = beaconSize * (230.0 / -mv.z);
+    gl_Position = projectionMatrix * mv;
+  }
+`;
+
+const BEACON_FRAGMENT = /* glsl */ `
+  uniform vec3 beaconTint;
+
+  void main() {
+    float d = length(gl_PointCoord - vec2(0.5));
+    float halo = smoothstep(0.5, 0.05, d);
+    float core = smoothstep(0.16, 0.02, d);
+    gl_FragColor = vec4(beaconTint * (halo * 0.55 + core), halo * 0.85);
+  }
+`;
+
+interface CityBeaconsProps {
+  readonly anchors: readonly THREE.Vector3[];
+  readonly count: number;
+}
+
+/** Small warm-gold glow points on the strongest illuminated clusters. */
+function CityBeacons({ anchors, count }: CityBeaconsProps): JSX.Element | null {
+  const assets = useMemo(() => {
+    if (anchors.length === 0) return null;
+    const rand = seededRandom(0xc17b);
+    const picked = Math.min(count, anchors.length);
+    const positions = new Float32Array(picked * 3);
+    const sizes = new Float32Array(picked);
+
+    for (let i = 0; i < picked; i += 1) {
+      const anchor = anchors[Math.floor(rand() * anchors.length)];
+      const lifted = anchor.clone().multiplyScalar(1.006);
+      positions[i * 3] = lifted.x;
+      positions[i * 3 + 1] = lifted.y;
+      positions[i * 3 + 2] = lifted.z;
+      sizes[i] = 0.024 + rand() * 0.05;
+    }
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute("beaconSize", new THREE.BufferAttribute(sizes, 1));
+
+    const material = new THREE.ShaderMaterial({
+      vertexShader: BEACON_VERTEX,
+      fragmentShader: BEACON_FRAGMENT,
+      uniforms: { beaconTint: { value: new THREE.Color("#ffcb7a") } },
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+
+    return { geometry, material };
+  }, [anchors, count]);
+
+  useEffect(() => {
+    if (assets === null) return undefined;
+    return () => {
+      assets.geometry.dispose();
+      assets.material.dispose();
+    };
+  }, [assets]);
+
+  if (assets === null) return null;
+
+  return (
+    <points>
+      <primitive object={assets.geometry} attach="geometry" />
+      <primitive object={assets.material} attach="material" />
+    </points>
+  );
+}
+
+interface ConnectionArcsProps {
+  readonly anchors: readonly THREE.Vector3[];
+  readonly count: number;
+}
+
+/** Very subtle luminous arcs linking distant city clusters. */
+function ConnectionArcs({
+  anchors,
+  count,
+}: ConnectionArcsProps): JSX.Element | null {
+  const lines = useMemo<THREE.Line[]>(() => {
+    if (anchors.length < 2) return [];
+    const rand = seededRandom(0xa4c5);
+    const material = new THREE.LineBasicMaterial({
+      color: new THREE.Color("#7fd0ff"),
+      transparent: true,
+      opacity: 0.16,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+
+    const built: THREE.Line[] = [];
+    let guard = 0;
+    while (built.length < count && guard < 200) {
+      guard += 1;
+      const a = anchors[Math.floor(rand() * anchors.length)];
+      const b = anchors[Math.floor(rand() * anchors.length)];
+      const angle = a.angleTo(b);
+      if (angle < 0.55 || angle > 2.1) continue;
+
+      const start = a.clone().multiplyScalar(1.008);
+      const end = b.clone().multiplyScalar(1.008);
+      const lift = 1 + 0.12 + angle * 0.16;
+      const mid = start.clone().add(end).normalize().multiplyScalar(lift);
+      const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
+      const geometry = new THREE.BufferGeometry().setFromPoints(
+        curve.getPoints(56),
+      );
+      built.push(new THREE.Line(geometry, material));
+    }
+    return built;
+  }, [anchors, count]);
+
+  useEffect(
+    () => () => {
+      lines.forEach((line) => {
+        line.geometry.dispose();
+      });
+      if (lines.length > 0) {
+        (lines[0].material as THREE.Material).dispose();
+      }
+    },
+    [lines],
+  );
+
+  if (lines.length === 0) return null;
+
+  return (
+    <group>
+      {lines.map((line, index) => (
+        <primitive key={index} object={line} />
+      ))}
+    </group>
+  );
+}
+
+/* ======================================================================== */
+/*  Orbital rings                                                           */
+/* ======================================================================== */
+
+const RING_DRIFT = 0.018;
+
+/** Two paper-thin inclined orbital rings with a very slow precession. */
+function OrbitalRings(): JSX.Element {
+  const ringGroup = useRef<THREE.Group>(null);
+
+  useFrame((_, delta) => {
+    if (ringGroup.current !== null) {
+      ringGroup.current.rotation.y += delta * RING_DRIFT;
+    }
+  });
+
+  return (
+    <group ref={ringGroup}>
+      <mesh rotation={[1.78, 0, -0.34]}>
+        <ringGeometry args={[1.38, 1.392, 160]} />
+        <meshBasicMaterial
+          color="#8fd8ff"
+          transparent
+          opacity={0.26}
+          side={THREE.DoubleSide}
+          depthWrite={false}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+      <mesh rotation={[1.32, 0.12, 0.42]}>
+        <ringGeometry args={[1.58, 1.589, 160]} />
+        <meshBasicMaterial
+          color="#9fc7ff"
+          transparent
+          opacity={0.14}
+          side={THREE.DoubleSide}
+          depthWrite={false}
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
+    </group>
+  );
 }
 
 /* ======================================================================== */
@@ -376,6 +562,7 @@ function Planet({ profile }: PlanetProps): JSX.Element {
       maps.roughnessMap.dispose();
       maps.bumpMap.dispose();
       maps.cloudMap.dispose();
+      maps.lightsMap.dispose();
     },
     [maps],
   );
@@ -391,7 +578,7 @@ function Planet({ profile }: PlanetProps): JSX.Element {
 
   return (
     <group ref={spinGroup} rotation={[0.11, -1.05, 0.05]}>
-      {/* Surface — physically based, fully procedural */}
+      {/* Surface — physically based, fully procedural, gold city lights */}
       <mesh>
         <sphereGeometry
           args={[PLANET_RADIUS, profile.sphereDetail, profile.sphereDetail]}
@@ -405,26 +592,34 @@ function Planet({ profile }: PlanetProps): JSX.Element {
           metalness={0}
           clearcoat={0.42}
           clearcoatRoughness={0.42}
-          emissive={new THREE.Color("#08223f")}
-          emissiveIntensity={0.22}
+          emissiveMap={maps.lightsMap}
+          emissive={new THREE.Color("#ffffff")}
+          emissiveIntensity={1.35}
         />
       </mesh>
 
       {/* Thin procedural cloud veil */}
       <mesh ref={cloudMesh}>
         <sphereGeometry
-          args={[PLANET_RADIUS * 1.014, profile.sphereDetail, profile.sphereDetail]}
+          args={[
+            PLANET_RADIUS * 1.014,
+            profile.sphereDetail,
+            profile.sphereDetail,
+          ]}
         />
         <meshStandardMaterial
           color="#ffffff"
           alphaMap={maps.cloudMap}
           transparent
-          opacity={0.5}
+          opacity={0.4}
           depthWrite={false}
           roughness={1}
           metalness={0}
         />
       </mesh>
+
+      <CityBeacons anchors={maps.cityAnchors} count={profile.beaconCount} />
+      <ConnectionArcs anchors={maps.cityAnchors} count={profile.arcCount} />
     </group>
   );
 }
@@ -467,9 +662,9 @@ function AtmosphereGlow(): JSX.Element {
         vertexShader: RIM_VERTEX,
         fragmentShader: RIM_FRAGMENT,
         uniforms: {
-          rimTint: { value: new THREE.Color("#6fb0e8") },
-          rimGain: { value: 0.8 },
-          rimCurve: { value: 5.2 },
+          rimTint: { value: new THREE.Color("#5cbcf6") },
+          rimGain: { value: 0.9 },
+          rimCurve: { value: 4.8 },
         },
         side: THREE.BackSide,
         transparent: true,
@@ -482,7 +677,7 @@ function AtmosphereGlow(): JSX.Element {
   useEffect(() => () => rimMaterial.dispose(), [rimMaterial]);
 
   return (
-    <mesh scale={1.04}>
+    <mesh scale={1.045}>
       <sphereGeometry args={[PLANET_RADIUS, 48, 48]} />
       <primitive object={rimMaterial} attach="material" />
     </mesh>
@@ -490,123 +685,11 @@ function AtmosphereGlow(): JSX.Element {
 }
 
 /* ======================================================================== */
-/*  Layered starfield                                                       */
-/* ======================================================================== */
-
-const STARS_VERTEX = /* glsl */ `
-  attribute float starSize;
-  attribute vec3 starTint;
-  varying vec3 vTint;
-
-  void main() {
-    vTint = starTint;
-    vec4 mv = modelViewMatrix * vec4(position, 1.0);
-    gl_PointSize = starSize * (170.0 / -mv.z);
-    gl_Position = projectionMatrix * mv;
-  }
-`;
-
-const STARS_FRAGMENT = /* glsl */ `
-  varying vec3 vTint;
-
-  void main() {
-    float d = length(gl_PointCoord - vec2(0.5));
-    float a = smoothstep(0.5, 0.06, d);
-    gl_FragColor = vec4(vTint, a);
-  }
-`;
-
-const STAR_TINTS: readonly THREE.Color[] = [
-  new THREE.Color("#ffffff"),
-  new THREE.Color("#d8e6fb"),
-  new THREE.Color("#c2d8f7"),
-  new THREE.Color("#f7e7cd"),
-  new THREE.Color("#a8c8f2"),
-];
-
-interface StarShellProps {
-  readonly shell: StarShell;
-}
-
-function StarShellPoints({ shell }: StarShellProps): JSX.Element {
-  const pointsRef = useRef<THREE.Points>(null);
-
-  const { starGeometry, starMaterial } = useMemo(() => {
-    const rand = seededRandom(shell.seed);
-    const positions = new Float32Array(shell.amount * 3);
-    const sizes = new Float32Array(shell.amount);
-    const tints = new Float32Array(shell.amount * 3);
-    const span = shell.outerRadius - shell.innerRadius;
-    const sizeSpan = shell.sizeCeil - shell.sizeFloor;
-
-    for (let i = 0; i < shell.amount; i += 1) {
-      const r = shell.innerRadius + Math.cbrt(rand()) * span;
-      const azimuth = rand() * Math.PI * 2;
-      const polar = Math.acos(2 * rand() - 1);
-
-      positions[i * 3] = r * Math.sin(polar) * Math.cos(azimuth);
-      positions[i * 3 + 1] = r * Math.sin(polar) * Math.sin(azimuth);
-      positions[i * 3 + 2] = r * Math.cos(polar);
-
-      sizes[i] = shell.sizeFloor + Math.pow(rand(), 3) * sizeSpan;
-
-      const tint = STAR_TINTS[Math.floor(rand() * STAR_TINTS.length)];
-      const luma = 0.35 + Math.pow(rand(), 1.5) * 0.65;
-      tints[i * 3] = tint.r * luma;
-      tints[i * 3 + 1] = tint.g * luma;
-      tints[i * 3 + 2] = tint.b * luma;
-    }
-
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    geometry.setAttribute("starSize", new THREE.BufferAttribute(sizes, 1));
-    geometry.setAttribute("starTint", new THREE.BufferAttribute(tints, 3));
-
-    const material = new THREE.ShaderMaterial({
-      vertexShader: STARS_VERTEX,
-      fragmentShader: STARS_FRAGMENT,
-      transparent: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-    });
-
-    return { starGeometry: geometry, starMaterial: material };
-  }, [shell]);
-
-  useEffect(
-    () => () => {
-      starGeometry.dispose();
-      starMaterial.dispose();
-    },
-    [starGeometry, starMaterial],
-  );
-
-  useFrame((state, delta) => {
-    const points = pointsRef.current;
-    if (points === null) return;
-
-    points.rotation.y += delta * shell.drift;
-    const targetX = -state.pointer.y * shell.parallax;
-    const targetZ = state.pointer.x * shell.parallax;
-    const ease = 1 - Math.exp(-delta * 1.4);
-    points.rotation.x += (targetX - points.rotation.x) * ease;
-    points.rotation.z += (targetZ - points.rotation.z) * ease;
-  });
-
-  return (
-    <points ref={pointsRef}>
-      <primitive object={starGeometry} attach="geometry" />
-      <primitive object={starMaterial} attach="material" />
-    </points>
-  );
-}
-
-/* ======================================================================== */
 /*  Cinematic camera                                                        */
 /* ======================================================================== */
 
-const CAMERA_HOME_Z = 4.3;
-const CAMERA_FOCUS = new THREE.Vector3(0, -0.22, 0);
+const CAMERA_HOME_Z = 3.35;
+const CAMERA_FOCUS = new THREE.Vector3(0, 0.02, 0);
 
 interface CameraDriftProps {
   readonly parallax: boolean;
@@ -616,12 +699,12 @@ function CameraDrift({ parallax }: CameraDriftProps): null {
   useFrame(({ camera, clock, pointer }, delta) => {
     const t = clock.elapsedTime;
 
-    const glideX = Math.sin(t * 0.014) * 0.42;
-    const glideY = 0.38 + Math.sin(t * 0.029) * 0.055;
-    const glideZ = CAMERA_HOME_Z + Math.sin(t * 0.041) * 0.08;
+    const glideX = Math.sin(t * 0.014) * 0.3;
+    const glideY = 0.14 + Math.sin(t * 0.029) * 0.05;
+    const glideZ = CAMERA_HOME_Z + Math.sin(t * 0.041) * 0.07;
 
-    const px = parallax ? pointer.x * 0.14 : 0;
-    const py = parallax ? pointer.y * 0.08 : 0;
+    const px = parallax ? pointer.x * 0.11 : 0;
+    const py = parallax ? pointer.y * 0.07 : 0;
 
     const ease = 1 - Math.exp(-delta * 1.1);
     camera.position.x += (glideX + px - camera.position.x) * ease;
@@ -645,34 +728,30 @@ interface SpaceSceneProps {
 function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
   return (
     <>
-      <color attach="background" args={["#01030a"]} />
+      <color attach="background" args={["#030b1a"]} />
 
       {/* Key sun — clean white, slightly high and camera-left */}
-      <directionalLight position={[5, 2.6, 4]} intensity={2.9} color="#ffffff" />
+      <directionalLight position={[5, 2.2, 4]} intensity={2.4} color="#ffffff" />
       {/* Cold bounce from deep space for the shadowed limb */}
       <directionalLight
         position={[-5, -1.8, -3.5]}
-        intensity={0.32}
+        intensity={0.38}
         color="#4d7fd6"
       />
-      <ambientLight intensity={0.07} />
-
-      {profile.shells.map((shell) => (
-        <StarShellPoints key={shell.seed} shell={shell} />
-      ))}
+      <ambientLight intensity={0.12} />
 
       <Planet profile={profile} />
       <AtmosphereGlow />
+      <OrbitalRings />
       <CameraDrift parallax={!compact} />
 
       <EffectComposer multisampling={profile.msaa}>
         <Bloom
-          intensity={compact ? 0.24 : 0.34}
-          luminanceThreshold={0.5}
-          luminanceSmoothing={0.92}
+          intensity={compact ? 0.32 : 0.44}
+          luminanceThreshold={0.46}
+          luminanceSmoothing={0.9}
           mipmapBlur
         />
-        <Vignette eskil={false} offset={0.25} darkness={0.72} />
       </EffectComposer>
     </>
   );
@@ -682,64 +761,40 @@ function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
 /*  Exported component                                                      */
 /* ======================================================================== */
 
+const EDGE_MASK =
+  "radial-gradient(closest-side, black 58%, rgba(0, 0, 0, 0.4) 80%, transparent 99%)";
+
 const frameStyle: CSSProperties = {
   position: "relative",
   width: "100%",
-  height: "clamp(340px, 60vh, 560px)",
-  borderRadius: "24px",
-  overflow: "hidden",
-  background: "radial-gradient(circle at 50% 45%, #071226 0%, #01030a 70%)",
-  border: "1px solid rgba(34, 211, 238, 0.18)",
+  height: "100%",
+  maskImage: EDGE_MASK,
+  WebkitMaskImage: EDGE_MASK,
 };
 
-const coreBadgeStyle: CSSProperties = {
-  position: "absolute",
-  left: "50%",
-  bottom: "32px",
-  transform: "translateX(-50%)",
-  display: "flex",
-  alignItems: "center",
-  gap: "12px",
-  padding: "13px 30px",
-  borderRadius: "999px",
-  background:
-    "linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02))",
-  border: "1px solid rgba(255, 255, 255, 0.12)",
-  boxShadow:
-    "0 8px 32px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08)",
-  backdropFilter: "blur(18px) saturate(140%)",
-  WebkitBackdropFilter: "blur(18px) saturate(140%)",
-  color: "rgba(226, 240, 250, 0.95)",
-  fontFamily:
-    '"SF Pro Display", "Inter", "Segoe UI", system-ui, -apple-system, sans-serif',
-  fontWeight: 600,
-  fontSize: "14.5px",
-  letterSpacing: "4px",
-  whiteSpace: "nowrap",
-  pointerEvents: "none",
-  userSelect: "none",
-};
+interface AgxoraGlobe3DProps {
+  readonly className?: string;
+}
 
-const coreBadgeDotStyle: CSSProperties = {
-  width: "7px",
-  height: "7px",
-  borderRadius: "50%",
-  background: "#7dd3fc",
-  boxShadow: "0 0 6px rgba(125, 211, 252, 0.55)",
-};
-
-export default function AgxoraGlobe3D(): JSX.Element {
+export default function AgxoraGlobe3D({
+  className,
+}: AgxoraGlobe3DProps): JSX.Element {
   const { profile, compact } = useRenderProfile();
 
   return (
-    <div style={frameStyle} aria-label="AGXORA AI CORE — 3D globe">
+    <div
+      style={frameStyle}
+      className={className}
+      aria-label="AGXORA — cinematic 3D globe"
+      role="img"
+    >
       <Canvas
         dpr={profile.pixelRatio}
         camera={{
-          position: [0, 0.38, CAMERA_HOME_Z],
-          fov: 42,
+          position: [0, 0.14, CAMERA_HOME_Z],
+          fov: 41,
           near: 0.1,
-          far: 220,
+          far: 60,
         }}
         gl={{
           antialias: false,
@@ -754,12 +809,6 @@ export default function AgxoraGlobe3D(): JSX.Element {
           <SpaceScene profile={profile} compact={compact} />
         </Suspense>
       </Canvas>
-
-      {/* The single AGXORA AI CORE label */}
-      <div style={coreBadgeStyle}>
-        <span style={coreBadgeDotStyle} />
-        AGXORA AI CORE
-      </div>
     </div>
   );
 }
