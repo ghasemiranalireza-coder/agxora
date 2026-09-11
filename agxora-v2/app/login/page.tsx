@@ -23,49 +23,42 @@ export default function LoginPage(): JSX.Element {
         <h1 className="mt-7 text-center text-xl font-semibold tracking-tight text-agx-ink">
           Willkommen zurück
         </h1>
-        <p className="mt-1.5 text-center text-[13px] text-agx-dim">
+        <p className="mt-1.5 text-center text-body-sm text-agx-dim">
           Melden Sie sich bei Ihrem Workspace an.
         </p>
 
         <form className="mt-7 flex flex-col gap-4">
           <label className="flex flex-col gap-1.5">
-            <span className="text-[12.5px] font-medium text-agx-dim">
-              E-Mail
-            </span>
+            <span className="input-label">E-Mail</span>
             <input
               type="email"
               autoComplete="email"
               placeholder="name@firma.de"
-              className="rounded-xl border border-agx-line bg-[rgba(6,14,30,0.6)] px-3.5 py-2.5 text-[14px] text-agx-ink outline-none transition-colors placeholder:text-agx-faint focus:border-agx-cyan/50"
+              className="input-field"
             />
           </label>
 
           <label className="flex flex-col gap-1.5">
-            <span className="text-[12.5px] font-medium text-agx-dim">
-              Passwort
-            </span>
+            <span className="input-label">Passwort</span>
             <input
               type="password"
               autoComplete="current-password"
               placeholder="••••••••"
-              className="rounded-xl border border-agx-line bg-[rgba(6,14,30,0.6)] px-3.5 py-2.5 text-[14px] text-agx-ink outline-none transition-colors placeholder:text-agx-faint focus:border-agx-cyan/50"
+              className="input-field"
             />
           </label>
 
-          <button type="submit" className="btn-gold mt-2 w-full px-4 py-3 text-[14.5px]">
+          <button type="submit" className="btn-gold mt-2 w-full px-4 py-3 text-body">
             Anmelden
           </button>
         </form>
 
-        <p className="mt-6 text-center text-[12px] text-agx-faint">
+        <p className="mt-6 text-center text-caption text-agx-faint">
           Demo – die Anmeldung ist in dieser Umgebung noch nicht verbunden.
         </p>
 
         <p className="mt-3 text-center">
-          <Link
-            href="/"
-            className="text-[12.5px] text-agx-dim transition-colors hover:text-agx-ink"
-          >
+          <Link href="/" className="nav-link text-label">
             ← Zurück zur Startseite
           </Link>
         </p>

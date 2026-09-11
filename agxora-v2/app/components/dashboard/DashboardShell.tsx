@@ -39,9 +39,6 @@ const SIDEBAR_ITEMS: readonly SidebarItem[] = [
 ];
 
 function SidebarNav(): JSX.Element {
-  const itemClass =
-    "flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-[13.5px]";
-
   return (
     <nav aria-label="Dashboard-Navigation" className="flex flex-col gap-1">
       {SIDEBAR_ITEMS.map((item) =>
@@ -50,16 +47,13 @@ function SidebarNav(): JSX.Element {
             key={item.label}
             href={item.href}
             aria-current="page"
-            className={`${itemClass} border border-agx-cyan/30 bg-gradient-to-r from-[rgba(58,130,246,0.3)] to-[rgba(30,84,170,0.16)] font-medium text-agx-ink shadow-[0_0_18px_rgba(60,140,255,0.16)]`}
+            className="side-item side-item-active"
           >
             <Icon name={item.icon} className="h-4 w-4 text-agx-cyan-soft" />
             {item.label}
           </Link>
         ) : (
-          <span
-            key={item.label}
-            className={`${itemClass} cursor-default text-agx-dim`}
-          >
+          <span key={item.label} className="side-item side-item-muted">
             <Icon name={item.icon} className="h-4 w-4 text-agx-faint" />
             {item.label}
           </span>
@@ -68,7 +62,7 @@ function SidebarNav(): JSX.Element {
 
       <div className="my-3 border-t border-agx-line" />
 
-      <span className={`${itemClass} cursor-default text-agx-dim`}>
+      <span className="side-item side-item-muted">
         <Icon name="settings" className="h-4 w-4 text-agx-faint" />
         Einstellungen
       </span>
@@ -79,14 +73,12 @@ function SidebarNav(): JSX.Element {
 function SidebarFooter(): JSX.Element {
   return (
     <div className="mt-auto flex items-center gap-3 border-t border-agx-line pt-4">
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#5ea2ff] to-[#2158b8] text-[12px] font-bold text-white">
-        AG
-      </span>
+      <span className="avatar-badge h-9 w-9 text-caption">AG</span>
       <span>
-        <span className="block text-[13px] font-semibold text-agx-ink">
+        <span className="block text-body-sm font-semibold leading-tight text-agx-ink">
           AGXORA Workspace
         </span>
-        <span className="block text-[11.5px] text-agx-faint">
+        <span className="block text-caption text-agx-faint">
           Demo-Arbeitsbereich
         </span>
       </span>
@@ -124,8 +116,7 @@ interface TopbarProps {
 }
 
 function Topbar({ onMenu, searchRef }: TopbarProps): JSX.Element {
-  const iconChip =
-    "hidden h-9 w-9 items-center justify-center rounded-xl border border-agx-line bg-[rgba(12,24,48,0.5)] text-agx-dim md:flex";
+  const iconChip = "icon-chip hidden md:flex";
 
   return (
     <header className="sticky top-0 z-30 border-b border-agx-line bg-[rgba(7,15,34,0.8)] backdrop-blur-xl">
@@ -147,13 +138,13 @@ function Topbar({ onMenu, searchRef }: TopbarProps): JSX.Element {
             <Icon name="menu" className="h-5 w-5" />
           </button>
 
-          <label className="flex min-w-0 flex-1 items-center gap-2.5 rounded-full border border-agx-line bg-[rgba(8,17,36,0.6)] px-4 py-2 md:max-w-md">
+          <label className="input-shell min-w-0 flex-1 gap-2.5 px-4 py-2 md:max-w-md">
             <Icon name="search" className="h-4 w-4 shrink-0 text-agx-faint" />
             <input
               ref={searchRef}
               type="search"
               placeholder="Suchen… (Strg + K)"
-              className="w-full min-w-0 bg-transparent text-[13.5px] text-agx-ink outline-none placeholder:text-agx-faint"
+              className="input-bare text-body-sm"
             />
           </label>
 
@@ -175,11 +166,9 @@ function Topbar({ onMenu, searchRef }: TopbarProps): JSX.Element {
             </span>
 
             <span className="flex items-center gap-2.5 rounded-xl border border-agx-line bg-[rgba(12,24,48,0.5)] px-2.5 py-1.5">
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-[#5ea2ff] to-[#2158b8] text-[11px] font-bold text-white">
-                AG
-              </span>
+              <span className="avatar-badge h-7 w-7 text-[11px]">AG</span>
               <span className="hidden xl:block">
-                <span className="block text-[12.5px] font-semibold leading-tight text-agx-ink">
+                <span className="block text-label font-semibold leading-tight text-agx-ink">
                   Alireza Ghasemi
                 </span>
                 <span className="block text-[10.5px] leading-tight text-agx-faint">
@@ -227,20 +216,20 @@ function CommandCenter({ inputRef }: CommandCenterProps): JSX.Element {
       </div>
 
       <div className="relative">
-        <p className="text-[13.5px] text-agx-dim">
+        <p className="text-body-sm text-agx-dim">
           👋 Willkommen zurück, Alireza
         </p>
-        <h1 className="mt-2 text-[1.65rem] font-bold tracking-tight text-agx-ink md:text-[2.05rem]">
+        <h1 className="mt-2 text-h2 font-bold tracking-tight text-agx-ink md:text-h1">
           Bereit für den nächsten Schritt?
         </h1>
-        <p className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-agx-dim">
+        <p className="mt-2 max-w-xl text-body-sm leading-relaxed text-agx-dim">
           Sagen Sie AGXORA, was Sie erreichen möchten – der KI Agent übernimmt
           den Rest.
         </p>
 
         <form
           onSubmit={(event) => event.preventDefault()}
-          className="mt-6 flex items-center gap-3 rounded-full border border-agx-line-strong bg-[rgba(6,14,30,0.72)] py-2 pl-5 pr-2 backdrop-blur-md transition-colors focus-within:border-agx-cyan/50"
+          className="input-shell mt-6 gap-3 py-2 pl-5 pr-2"
         >
           <Icon name="search" className="h-4.5 w-4.5 shrink-0 text-agx-faint" />
           <input
@@ -249,12 +238,12 @@ function CommandCenter({ inputRef }: CommandCenterProps): JSX.Element {
             onChange={(event) => setCommand(event.target.value)}
             placeholder="Was möchten Sie heute tun?"
             aria-label="Auftrag an AGXORA"
-            className="w-full min-w-0 bg-transparent text-[15px] text-agx-ink outline-none placeholder:text-agx-faint"
+            className="input-bare text-body"
           />
           <button
             type="submit"
             aria-label="Auftrag senden"
-            className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-xl border border-agx-cyan/50 bg-gradient-to-br from-[#8fd9ff] to-[#2d8fd9] text-[#03182c] shadow-[0_0_22px_rgba(76,195,255,0.4)] transition-transform hover:-translate-y-px"
+            className="btn-ai h-10 w-10 shrink-0 p-0"
           >
             <Icon name="arrowRight" className="h-4.5 w-4.5" strokeWidth={2.4} />
           </button>
@@ -269,14 +258,14 @@ function CommandCenter({ inputRef }: CommandCenterProps): JSX.Element {
                 setCommand(chip);
                 inputRef.current?.focus();
               }}
-              className="cursor-pointer rounded-full border border-agx-line bg-[rgba(10,21,44,0.66)] px-3.5 py-1.5 text-xs text-agx-dim backdrop-blur-md transition-colors hover:border-agx-line-strong hover:text-agx-ink"
+              className="chip-action"
             >
               {chip}
             </button>
           ))}
         </div>
 
-        <p className="mt-4 text-[11.5px] text-agx-faint">
+        <p className="mt-4 text-caption text-agx-faint">
           Demo – der KI Agent ist in dieser Umgebung noch nicht verbunden.
         </p>
       </div>
@@ -309,10 +298,10 @@ function AiPanel({ onTalk }: AiPanelProps): JSX.Element {
       />
 
       <div className="relative flex h-full flex-col">
-        <h2 className="text-[19px] font-bold tracking-tight text-agx-ink">
+        <h2 className="text-h3 font-bold tracking-tight text-agx-ink">
           AGXORA AI
         </h2>
-        <p className="mt-1 max-w-[170px] text-[12.5px] leading-snug text-agx-dim">
+        <p className="mt-1 max-w-[170px] text-label leading-snug text-agx-dim">
           Ihr intelligenter Business Partner
         </p>
 
@@ -320,9 +309,9 @@ function AiPanel({ onTalk }: AiPanelProps): JSX.Element {
           {AI_CAPABILITIES.map((capability) => (
             <li
               key={capability}
-              className="flex items-center gap-2.5 text-[13px] text-agx-dim"
+              className="flex items-center gap-2.5 text-body-sm text-agx-dim"
             >
-              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-300">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-agx-success/15 text-agx-success">
                 <Icon name="check" className="h-3 w-3" strokeWidth={2.6} />
               </span>
               {capability}
@@ -334,7 +323,7 @@ function AiPanel({ onTalk }: AiPanelProps): JSX.Element {
           <button
             type="button"
             onClick={onTalk}
-            className="btn-gold w-full px-4 py-2.5 text-[13.5px]"
+            className="btn-gold w-full px-4 py-2.5 text-body-sm"
           >
             Mit dem KI Agenten sprechen
             <Icon name="arrowRight" className="h-3.5 w-3.5" strokeWidth={2.2} />

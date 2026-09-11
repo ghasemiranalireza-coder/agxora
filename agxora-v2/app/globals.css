@@ -5,24 +5,78 @@
 @custom-variant hover (&:hover);
 
 /* ------------------------------------------------------------------ */
-/*  AGXORA design tokens — deep navy, soft blue, controlled cyan,      */
-/*  warm gold. Exposed to Tailwind as `agx-*` colors via @theme.       */
+/*  AGXORA design tokens                                               */
+/*                                                                     */
+/*  Semantic palette — deep navy backgrounds, glass surfaces, warm     */
+/*  gold for premium/primary actions, cyan for AI/status. Exposed to   */
+/*  Tailwind as `agx-*` colors, `agx-*` radii and a semantic type      */
+/*  scale (text-display … text-caption) via @theme.                    */
 /* ------------------------------------------------------------------ */
 
 @theme {
+  /* Backgrounds — primary page, secondary, elevated panel */
   --color-agx-deep: #081228;
   --color-agx-navy: #0c1b38;
   --color-agx-panel: #132548;
+
+  /* Borders — default and hover/strong */
   --color-agx-line: rgba(140, 178, 240, 0.22);
   --color-agx-line-strong: rgba(150, 190, 250, 0.36);
-  --color-agx-cyan: #4cc3ff;
-  --color-agx-cyan-soft: #9bd8ff;
-  --color-agx-blue: #3b82f6;
-  --color-agx-gold: #f2b23e;
-  --color-agx-gold-soft: #ffd57a;
+
+  /* Text — primary / secondary / muted / disabled */
   --color-agx-ink: #edf3ff;
   --color-agx-dim: #9db1d4;
   --color-agx-faint: #6a7fa8;
+  --color-agx-disabled: #51648c;
+
+  /* Brand — warm gold (premium, primary CTA) */
+  --color-agx-gold: #f2b23e;
+  --color-agx-gold-soft: #ffd57a;
+  --color-agx-gold-muted: rgba(242, 178, 62, 0.14);
+
+  /* AI — cyan/blue (assistant, active, status) */
+  --color-agx-cyan: #4cc3ff;
+  --color-agx-cyan-soft: #9bd8ff;
+  --color-agx-cyan-muted: rgba(76, 195, 255, 0.12);
+  --color-agx-blue: #3b82f6;
+
+  /* Status */
+  --color-agx-success: #55d38a;
+  --color-agx-warning: #f5c04d;
+  --color-agx-error: #f26d6d;
+  --color-agx-info: #5aa7ff;
+
+  /* Radius scale — small tiles, controls/cards, panels, pills */
+  --radius-agx-sm: 8px;
+  --radius-agx-md: 12px;
+  --radius-agx-lg: 18px;
+  --radius-agx-pill: 999px;
+
+  /* Type scale */
+  --text-display: 3.7rem;
+  --text-display--line-height: 1.06;
+  --text-display--letter-spacing: -0.02em;
+  --text-h1: 2.05rem;
+  --text-h1--line-height: 1.18;
+  --text-h1--letter-spacing: -0.015em;
+  --text-h2: 1.65rem;
+  --text-h2--line-height: 1.22;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h3: 1.1875rem; /* 19px */
+  --text-h3--line-height: 1.3;
+  --text-h4: 1rem;
+  --text-h4--line-height: 1.4;
+  --text-body: 0.9375rem; /* 15px */
+  --text-body--line-height: 1.6;
+  --text-body-sm: 0.84375rem; /* 13.5px */
+  --text-body-sm--line-height: 1.55;
+  --text-label: 0.78125rem; /* 12.5px */
+  --text-label--line-height: 1.4;
+  --text-caption: 0.75rem; /* 12px */
+  --text-caption--line-height: 1.45;
+  --text-kpi: 2rem; /* 32px */
+  --text-kpi--line-height: 1;
+  --text-kpi--letter-spacing: -0.02em;
 
   --font-sans:
     var(--font-geist-sans), "Inter", "Segoe UI", system-ui, -apple-system,
@@ -65,6 +119,12 @@ textarea {
   background: rgba(76, 195, 255, 0.28);
 }
 
+/* Consistent, visible keyboard focus everywhere. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid rgba(120, 200, 255, 0.8);
+  outline-offset: 2px;
+}
+
 /* ------------------------------------------------------------------ */
 /*  Shared surfaces & controls                                         */
 /*  Defined in the components layer so Tailwind utilities (including   */
@@ -72,8 +132,11 @@ textarea {
 /* ------------------------------------------------------------------ */
 
 @layer components {
-.glass-panel {
-  border-radius: 18px;
+/* ---------- Glass surfaces ---------- */
+
+.glass-panel,
+.glass-card {
+  border-radius: var(--radius-agx-lg);
   border: 1px solid var(--color-agx-line);
   background: linear-gradient(
     165deg,
@@ -89,8 +152,25 @@ textarea {
     inset 0 0 26px rgba(90, 150, 255, 0.05);
 }
 
+/* Interactive glass card — subtle lift + glow on hover. */
+.glass-card {
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-agx-line-strong);
+  box-shadow:
+    0 22px 50px rgba(2, 7, 18, 0.55),
+    0 0 30px rgba(70, 150, 255, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
 .glass-chip {
-  border-radius: 999px;
+  border-radius: var(--radius-agx-pill);
   border: 1px solid rgba(165, 200, 255, 0.3);
   background: linear-gradient(
     150deg,
@@ -105,25 +185,50 @@ textarea {
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.btn-gold {
+/* ---------- Buttons ---------- */
+
+/* Shared button base — every variant has the same geometry, focus and
+   disabled treatment. */
+.btn-gold,
+.btn-ghost,
+.btn-ai,
+.btn-danger {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 1px solid rgba(255, 214, 130, 0.55);
-  border-radius: 12px;
-  background: linear-gradient(180deg, #ffd57a 0%, #f2b23e 55%, #e09a25 100%);
-  color: #221302;
-  font-weight: 650;
+  border-radius: var(--radius-agx-md);
   cursor: pointer;
   white-space: nowrap;
-  box-shadow:
-    0 10px 30px rgba(242, 178, 62, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
     filter 180ms ease;
+}
+
+.btn-gold:disabled,
+.btn-ghost:disabled,
+.btn-ai:disabled,
+.btn-danger:disabled,
+.btn-gold[aria-busy="true"],
+.btn-ghost[aria-busy="true"],
+.btn-ai[aria-busy="true"],
+.btn-danger[aria-busy="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Primary — premium gold. */
+.btn-gold {
+  border: 1px solid rgba(255, 214, 130, 0.55);
+  background: linear-gradient(180deg, #ffd57a 0%, #f2b23e 55%, #e09a25 100%);
+  color: #221302;
+  font-weight: 650;
+  box-shadow:
+    0 10px 30px rgba(242, 178, 62, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .btn-gold:hover {
@@ -134,24 +239,19 @@ textarea {
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
+.btn-gold:active {
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
+
+/* Secondary — translucent glass with a subtle border. */
 .btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
   border: 1px solid var(--color-agx-line-strong);
-  border-radius: 12px;
   background: rgba(14, 27, 52, 0.45);
   color: var(--color-agx-ink);
   font-weight: 550;
-  cursor: pointer;
-  white-space: nowrap;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background 180ms ease;
 }
 
 .btn-ghost:hover {
@@ -160,11 +260,271 @@ textarea {
   background: rgba(20, 38, 70, 0.6);
 }
 
+.btn-ghost:active {
+  transform: translateY(0);
+}
+
+/* AI — cyan, for assistant/command actions. */
+.btn-ai {
+  border: 1px solid rgba(76, 195, 255, 0.5);
+  background: linear-gradient(135deg, #8fd9ff 0%, #2d8fd9 100%);
+  color: #03182c;
+  font-weight: 600;
+  box-shadow: 0 0 22px rgba(76, 195, 255, 0.4);
+}
+
+.btn-ai:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.btn-ai:active {
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
+
+/* Destructive — reserved for irreversible actions. */
+.btn-danger {
+  border: 1px solid rgba(242, 109, 109, 0.45);
+  background: rgba(242, 109, 109, 0.14);
+  color: #ffb9b9;
+  font-weight: 600;
+}
+
+.btn-danger:hover {
+  transform: translateY(-1px);
+  border-color: rgba(242, 109, 109, 0.7);
+  background: rgba(242, 109, 109, 0.22);
+}
+
+/* ---------- Inputs ---------- */
+
+.input-label {
+  font-size: var(--text-label);
+  font-weight: 500;
+  color: var(--color-agx-dim);
+}
+
+/* Direct input control (login forms etc.). */
+.input-field {
+  width: 100%;
+  border-radius: var(--radius-agx-md);
+  border: 1px solid var(--color-agx-line);
+  background: rgba(6, 14, 30, 0.6);
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  color: var(--color-agx-ink);
+  outline: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.input-field::placeholder {
+  color: var(--color-agx-faint);
+}
+
+.input-field:focus {
+  border-color: rgba(76, 195, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(76, 195, 255, 0.14);
+}
+
+.input-field[aria-invalid="true"] {
+  border-color: rgba(242, 109, 109, 0.65);
+}
+
+/* Container-style input with leading icon / trailing action
+   (topbar search, Command Center). */
+.input-shell {
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-agx-pill);
+  border: 1px solid var(--color-agx-line);
+  background: rgba(6, 14, 30, 0.62);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.input-shell:focus-within {
+  border-color: rgba(76, 195, 255, 0.5);
+  box-shadow: 0 0 0 3px rgba(76, 195, 255, 0.12);
+}
+
+.input-bare {
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-agx-ink);
+}
+
+.input-bare::placeholder {
+  color: var(--color-agx-faint);
+}
+
+/* Inputs inside a focus-ring shell shouldn't double up outlines. */
+.input-shell .input-bare:focus-visible {
+  outline: none;
+}
+
+/* ---------- Badges & chips ---------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--radius-agx-pill);
+  padding: 4px 10px;
+  font-size: 10.5px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badge-neutral {
+  border: 1px solid var(--color-agx-line-strong);
+  background: rgba(16, 32, 62, 0.5);
+  color: var(--color-agx-dim);
+}
+
+.badge-ai {
+  border: 1px solid rgba(76, 195, 255, 0.35);
+  background: var(--color-agx-cyan-muted);
+  color: var(--color-agx-cyan-soft);
+}
+
+.badge-gold {
+  border: 1px solid rgba(242, 178, 62, 0.4);
+  background: var(--color-agx-gold-muted);
+  color: var(--color-agx-gold-soft);
+}
+
+.badge-success {
+  border: 1px solid rgba(85, 211, 138, 0.35);
+  background: rgba(85, 211, 138, 0.12);
+  color: #93e8b8;
+}
+
+/* Interactive suggestion chip (Command Center quick actions). */
+.chip-action {
+  cursor: pointer;
+  border-radius: var(--radius-agx-pill);
+  border: 1px solid var(--color-agx-line);
+  background: rgba(10, 21, 44, 0.66);
+  padding: 6px 14px;
+  font-size: var(--text-caption);
+  color: var(--color-agx-dim);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.chip-action:hover {
+  border-color: var(--color-agx-line-strong);
+  color: var(--color-agx-ink);
+}
+
+/* ---------- Icon containers ---------- */
+
+/* Square icon tile — size and tint come from utilities at the call site. */
+.icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--radius-agx-md);
+  border: 1px solid transparent;
+}
+
+/* Topbar utility chip. */
+.icon-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+  border-radius: var(--radius-agx-md);
+  border: 1px solid var(--color-agx-line);
+  background: rgba(12, 24, 48, 0.5);
+  color: var(--color-agx-dim);
+}
+
+/* Round workspace/user avatar. */
+.avatar-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--radius-agx-pill);
+  background: linear-gradient(135deg, #5ea2ff 0%, #2158b8 100%);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ---------- Navigation ---------- */
+
+.nav-link {
+  font-size: 0.875rem;
+  color: var(--color-agx-dim);
+  transition: color 160ms ease;
+}
+
+.nav-link:hover {
+  color: var(--color-agx-ink);
+}
+
+/* Sidebar items. */
+.side-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: var(--radius-agx-md);
+  padding: 10px 14px;
+  font-size: var(--text-body-sm);
+}
+
+.side-item-active {
+  border: 1px solid rgba(76, 195, 255, 0.3);
+  background: linear-gradient(
+    90deg,
+    rgba(58, 130, 246, 0.3) 0%,
+    rgba(30, 84, 170, 0.16) 100%
+  );
+  font-weight: 500;
+  color: var(--color-agx-ink);
+  box-shadow: 0 0 18px rgba(60, 140, 255, 0.16);
+}
+
+.side-item-muted {
+  cursor: default;
+  color: var(--color-agx-dim);
+}
+
+/* ---------- Text ---------- */
+
 .gold-text {
   background: linear-gradient(120deg, #ffe3a3 0%, #f6bd51 45%, #e29a2a 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* ---------- Loading ---------- */
+
+/* Subtle shimmer placeholder for content that is still loading. */
+.skeleton {
+  border-radius: var(--radius-agx-md);
+  background: linear-gradient(
+    100deg,
+    rgba(140, 178, 240, 0.08) 40%,
+    rgba(140, 178, 240, 0.16) 50%,
+    rgba(140, 178, 240, 0.08) 60%
+  );
+  background-size: 200% 100%;
+  animation: agx-shimmer 1.8s linear infinite;
 }
 }
 
@@ -179,12 +539,19 @@ textarea {
   }
 }
 
+@keyframes agx-shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
 .agx-float {
   animation: agx-float 7s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .agx-float {
+  .agx-float,
+  .skeleton {
     animation: none;
   }
 }

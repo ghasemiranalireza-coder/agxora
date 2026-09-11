@@ -33,14 +33,14 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }): JSX.Element {
             key={item.label}
             href={item.href}
             onClick={onNavigate}
-            className="text-sm text-agx-dim transition-colors hover:text-agx-ink"
+            className="nav-link"
           >
             {item.label}
           </a>
         ) : (
           <span
             key={item.label}
-            className="cursor-default text-sm text-agx-dim/70"
+            className="cursor-default text-sm text-agx-disabled"
           >
             {item.label}
           </span>
@@ -79,10 +79,7 @@ export function SiteNav(): JSX.Element {
 
         <div className="hidden items-center gap-3 lg:flex">
           <LanguageChip />
-          <Link
-            href="/login"
-            className="px-2 text-sm text-agx-dim transition-colors hover:text-agx-ink"
-          >
+          <Link href="/login" className="nav-link px-2">
             Anmelden
           </Link>
           <Link href="/login" className="btn-gold px-4 py-2 text-sm">

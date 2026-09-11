@@ -177,7 +177,7 @@ export default function Home(): JSX.Element {
               AGXORA
             </span>
 
-            <h1 className="mt-5 text-4xl font-bold leading-[1.06] tracking-tight text-agx-ink [text-shadow:0_0_32px_rgba(130,175,255,0.3)] md:text-5xl xl:text-[3.7rem]">
+            <h1 className="mt-5 text-4xl font-bold leading-[1.06] tracking-tight text-agx-ink [text-shadow:0_0_32px_rgba(130,175,255,0.3)] md:text-5xl xl:text-display">
               Das intelligente
               <br />
               <span className="gold-text drop-shadow-[0_0_22px_rgba(242,178,62,0.45)]">
@@ -194,11 +194,11 @@ export default function Home(): JSX.Element {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3.5">
-              <Link href="/login" className="btn-gold px-6 py-3 text-[15px]">
+              <Link href="/login" className="btn-gold px-6 py-3 text-body">
                 Kostenlos starten
                 <Icon name="arrowRight" className="h-4 w-4" strokeWidth={2.2} />
               </Link>
-              <a href="#plattform" className="btn-ghost px-5 py-3 text-[15px]">
+              <a href="#plattform" className="btn-ghost px-5 py-3 text-body">
                 <Icon name="play" className="h-4 w-4" />
                 So funktioniert&apos;s
               </a>
@@ -220,7 +220,7 @@ export default function Home(): JSX.Element {
             {HERO_BADGES.map((badge) => (
               <span
                 key={badge.label}
-                className={`glass-chip agx-float pointer-events-none absolute inline-flex items-center gap-2.5 py-2 pl-2 pr-4.5 text-[13.5px] font-semibold text-agx-ink ${badge.position}`}
+                className={`glass-chip agx-float pointer-events-none absolute inline-flex items-center gap-2.5 py-2 pl-2 pr-4.5 text-body-sm font-semibold text-agx-ink ${badge.position}`}
                 style={{ animationDelay: badge.delay }}
               >
                 <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-[#5ecaff] to-[#2a7fd4] text-white shadow-[0_0_14px_rgba(76,195,255,0.55)]">
@@ -241,10 +241,10 @@ export default function Home(): JSX.Element {
                   <Icon name={item.icon} className="h-4.5 w-4.5" />
                 </span>
                 <span>
-                  <span className="block text-[13.5px] font-semibold text-agx-ink">
+                  <span className="block text-body-sm font-semibold text-agx-ink">
                     {item.title}
                   </span>
-                  <span className="mt-0.5 block text-xs leading-snug text-agx-faint">
+                  <span className="mt-0.5 block text-caption leading-snug text-agx-faint">
                     {item.sub}
                   </span>
                 </span>
@@ -261,14 +261,14 @@ export default function Home(): JSX.Element {
                 key={item.title}
                 className="flex items-start gap-3.5 border-agx-line px-5 py-4 lg:border-l lg:first:border-l-0"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-agx-cyan/25 bg-agx-cyan/10 text-agx-cyan-soft">
+                <span className="icon-tile h-10 w-10 border border-agx-cyan/25 bg-agx-cyan/10 text-agx-cyan-soft">
                   <Icon name={item.icon} className="h-4.5 w-4.5" />
                 </span>
                 <span>
-                  <span className="block text-[15px] font-semibold text-agx-ink">
+                  <span className="block text-body font-semibold text-agx-ink">
                     {item.title}
                   </span>
-                  <span className="mt-0.5 block text-[13px] text-agx-dim">
+                  <span className="mt-0.5 block text-body-sm text-agx-dim">
                     {item.sub}
                   </span>
                 </span>
@@ -283,7 +283,7 @@ export default function Home(): JSX.Element {
             <h2 className="text-3xl font-bold tracking-tight text-agx-ink md:text-4xl">
               Eine Plattform. Unendliche Möglichkeiten.
             </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-agx-dim">
+            <p className="mt-4 text-body leading-relaxed text-agx-dim">
               AGXORA vereint die wichtigsten Business-Funktionen in einem
               intelligenten System.
             </p>
@@ -291,19 +291,14 @@ export default function Home(): JSX.Element {
 
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {FEATURE_ITEMS.map((item) => (
-              <article
-                key={item.title}
-                className="glass-panel group px-5 py-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_22px_50px_rgba(2,7,18,0.55),0_0_30px_rgba(70,150,255,0.14)]"
-              >
-                <span
-                  className={`flex h-11 w-11 items-center justify-center rounded-xl border ${item.tileClass}`}
-                >
+              <article key={item.title} className="glass-card px-5 py-6">
+                <span className={`icon-tile h-11 w-11 border ${item.tileClass}`}>
                   <Icon name={item.icon} className="h-5 w-5" />
                 </span>
-                <h3 className="mt-4 text-[15px] font-semibold text-agx-ink">
+                <h3 className="mt-4 text-body font-semibold text-agx-ink">
                   {item.title}
                 </h3>
-                <p className="mt-1.5 text-[13px] leading-relaxed text-agx-dim">
+                <p className="mt-1.5 text-body-sm leading-relaxed text-agx-dim">
                   {item.sub}
                 </p>
               </article>
@@ -337,18 +332,18 @@ export default function Home(): JSX.Element {
                 <br className="hidden sm:block" /> auf das nächste Level zu
                 bringen?
               </h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-agx-dim">
+              <p className="mt-4 text-body leading-relaxed text-agx-dim">
                 Schließen Sie sich Unternehmen an, die bereits auf AGXORA
                 setzen.
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3.5 lg:justify-start">
-                <Link href="/login" className="btn-gold px-6 py-3 text-[15px]">
+                <Link href="/login" className="btn-gold px-6 py-3 text-body">
                   Kostenlos starten
                   <Icon name="arrowRight" className="h-4 w-4" strokeWidth={2.2} />
                 </Link>
                 <Link
                   href="/dashboard"
-                  className="btn-ghost px-5 py-3 text-[15px]"
+                  className="btn-ghost px-5 py-3 text-body"
                 >
                   <Icon name="play" className="h-4 w-4" />
                   Demo ansehen
@@ -362,7 +357,7 @@ export default function Home(): JSX.Element {
         <footer className="border-t border-agx-line">
           <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 py-8 sm:flex-row md:px-8">
             <AgxoraLogo />
-            <p className="text-[13px] text-agx-faint">
+            <p className="text-body-sm text-agx-faint">
               © 2026 AGXORA. Alle Rechte vorbehalten.
             </p>
           </div>

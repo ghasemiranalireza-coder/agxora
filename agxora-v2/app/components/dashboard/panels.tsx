@@ -74,20 +74,20 @@ export function KpiRow(): JSX.Element {
       {KPI_ITEMS.map((item) => (
         <article key={item.title} className="glass-panel px-5 py-5">
           <div className="flex items-start justify-between gap-3">
-            <span className="text-[13px] font-medium text-agx-dim">
+            <span className="text-body-sm font-medium text-agx-dim">
               {item.title}
             </span>
-            <span
-              className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${item.tileClass}`}
-            >
+            <span className={`icon-tile h-10 w-10 border ${item.tileClass}`}>
               <Icon name={item.icon} className="h-4.5 w-4.5" />
             </span>
           </div>
-          <p className="mt-1 text-[32px] font-bold leading-none tracking-tight text-agx-ink/80">
-            –
+          <p className="mt-1 text-kpi font-bold text-agx-ink/80">–</p>
+          <p className="mt-3 text-caption font-medium text-agx-dim">
+            {item.empty}
           </p>
-          <p className="mt-3 text-[12px] font-medium text-agx-dim">{item.empty}</p>
-          <p className="mt-0.5 text-[11px] leading-snug text-agx-faint">{item.hint}</p>
+          <p className="mt-0.5 text-caption leading-snug text-agx-faint">
+            {item.hint}
+          </p>
           <KpiBaseline />
         </article>
       ))}
@@ -128,9 +128,9 @@ function PanelHeader({
 }): JSX.Element {
   return (
     <header className="mb-4">
-      <h2 className="text-[14.5px] font-semibold text-agx-ink">{title}</h2>
+      <h2 className="text-body font-semibold text-agx-ink">{title}</h2>
       {sub !== undefined && (
-        <p className="mt-0.5 text-[11.5px] text-agx-faint">{sub}</p>
+        <p className="mt-0.5 text-caption text-agx-faint">{sub}</p>
       )}
     </header>
   );
@@ -146,10 +146,10 @@ export function LowerPanels(): JSX.Element {
           <span className="flex h-11 w-11 items-center justify-center rounded-full border border-agx-line bg-[rgba(12,24,48,0.5)] text-agx-faint">
             <Icon name="activity" className="h-5 w-5" />
           </span>
-          <p className="text-[13px] font-medium text-agx-dim">
+          <p className="text-body-sm font-medium text-agx-dim">
             Noch keine Aktivitäten
           </p>
-          <p className="max-w-[220px] text-[11.5px] leading-relaxed text-agx-faint">
+          <p className="max-w-[220px] text-caption leading-relaxed text-agx-faint">
             Ihre Aktionen erscheinen hier, sobald Sie loslegen.
           </p>
         </div>
@@ -169,17 +169,15 @@ export function LowerPanels(): JSX.Element {
             >
               <span className="flex items-center gap-3">
                 <span
-                  className={`flex h-8 w-8 items-center justify-center rounded-lg text-[13px] font-bold ${item.tileClass}`}
+                  className={`icon-tile h-8 w-8 rounded-agx-sm text-body-sm font-bold ${item.tileClass}`}
                 >
                   {item.mark}
                 </span>
-                <span className="text-[13px] font-medium text-agx-ink">
+                <span className="text-body-sm font-medium text-agx-ink">
                   {item.label}
                 </span>
               </span>
-              <span className="whitespace-nowrap rounded-full border border-agx-line-strong bg-[rgba(16,32,62,0.5)] px-2.5 py-1 text-[10.5px] font-medium text-agx-dim">
-                Nicht verbunden
-              </span>
+              <span className="badge badge-neutral">Nicht verbunden</span>
             </li>
           ))}
         </ul>
@@ -192,7 +190,7 @@ export function LowerPanels(): JSX.Element {
           {NEXT_STEPS.map((step) => (
             <li
               key={step}
-              className="flex items-center gap-3 rounded-xl px-2 py-2.5 text-[13px] text-agx-dim"
+              className="flex items-center gap-3 rounded-xl px-2 py-2.5 text-body-sm text-agx-dim"
             >
               <span className="h-4 w-4 shrink-0 rounded-full border-[1.5px] border-agx-cyan/45" />
               {step}
@@ -463,11 +461,11 @@ export function AutomationSection({
       <article className="glass-panel flex flex-col items-center gap-6 px-6 py-7 sm:flex-row sm:gap-9 md:px-9">
         <AiRobot />
         <div className="text-center sm:text-left">
-          <h2 className="text-lg font-bold leading-snug tracking-tight text-agx-ink md:text-[21px]">
+          <h2 className="text-h3 font-bold leading-snug tracking-tight text-agx-ink md:text-[21px]">
             Automatisieren Sie Ihr Business
             <br className="hidden md:block" /> mit AGXORA AI
           </h2>
-          <p className="mt-2.5 max-w-md text-[13.5px] leading-relaxed text-agx-dim">
+          <p className="mt-2.5 max-w-md text-body-sm leading-relaxed text-agx-dim">
             Lassen Sie die KI Ihre wiederkehrenden Aufgaben übernehmen, während
             Sie sich auf das Wesentliche konzentrieren.
           </p>
@@ -475,12 +473,12 @@ export function AutomationSection({
             <button
               type="button"
               onClick={onAutomate}
-              className="btn-gold px-5 py-2.5 text-[13.5px]"
+              className="btn-gold px-5 py-2.5 text-body-sm"
             >
               Jetzt automatisieren
               <Icon name="arrowRight" className="h-3.5 w-3.5" strokeWidth={2.2} />
             </button>
-            <Link href="/" className="btn-ghost px-4 py-2.5 text-[13.5px]">
+            <Link href="/" className="btn-ghost px-4 py-2.5 text-body-sm">
               <Icon name="play" className="h-3.5 w-3.5" />
               Demo ansehen
             </Link>
@@ -489,10 +487,10 @@ export function AutomationSection({
       </article>
 
       <article className="glass-panel px-6 py-7">
-        <h2 className="text-[16.5px] font-bold tracking-tight text-agx-ink">
+        <h2 className="text-h4 font-bold tracking-tight text-agx-ink">
           Wachstum beginnt mit einer Idee.
         </h2>
-        <p className="mt-1.5 text-[13.5px] text-agx-dim">
+        <p className="mt-1.5 text-body-sm text-agx-dim">
           AGXORA macht den Rest.
         </p>
         <GrowthIllustration />
