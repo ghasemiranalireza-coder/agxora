@@ -525,10 +525,16 @@ interface SpaceSceneProps {
 }
 
 function SpaceScene({ profile, compact, lightSide }: SpaceSceneProps): JSX.Element {
-  // Mirror the sun to the other limb for instances whose visible portion
-  // would otherwise be dominated by the sunlit crescent (e.g. the CTA
-  // globe anchored at the lower left, showing its upper-right quarter).
-  const m = lightSide === "left" ? -1 : 1;
+  // Move the sunlit crescent to the lower-left limb for instances whose
+  // visible portion is the upper/right region (e.g. the CTA globe is
+  // anchored past the lower-left page edge), so what stays on screen is
+  // the night side with gold city lights — same language as the hero.
+  const keyPos: readonly [number, number, number] =
+    lightSide === "left" ? [-6.5, -4.5, -2] : [8, 2, -2];
+  const kissPos: readonly [number, number, number] =
+    lightSide === "left" ? [-2.8, -2.4, 0.6] : [3.6, 1.8, 0.6];
+  const bouncePos: readonly [number, number, number] =
+    lightSide === "left" ? [5, 1.6, -3] : [-5, -1.6, -3];
 
   return (
     <>
@@ -538,15 +544,15 @@ function SpaceScene({ profile, compact, lightSide }: SpaceSceneProps): JSX.Eleme
           disc stays in night (gold city lights) with a sunlit crescent
           on one limb, like the reference */}
       <directionalLight
-        position={[8 * m, 2, -2]}
+        position={[...keyPos]}
         intensity={5}
         color="#fff1da"
       />
       {/* Warm sunset kiss on the sunlit limb, like the reference */}
-      <pointLight position={[3.6 * m, 1.8, 0.6]} intensity={13} color="#ffd9a0" distance={9} decay={2} />
+      <pointLight position={[...kissPos]} intensity={13} color="#ffd9a0" distance={9} decay={2} />
       {/* Cool blue bounce for the shadowed limb */}
       <directionalLight
-        position={[-5 * m, -1.6, -3]}
+        position={[...bouncePos]}
         intensity={0.8}
         color="#6f9de8"
       />

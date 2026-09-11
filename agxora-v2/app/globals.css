@@ -110,11 +110,15 @@ img {
   height: auto;
 }
 
-button,
-input,
-textarea {
-  max-width: 100%;
-  font-family: inherit;
+/* In the base layer so utility classes (e.g. `max-w-sm`) can override
+   the overflow guard — un-layered rules would outrank every @layer. */
+@layer base {
+  button,
+  input,
+  textarea {
+    max-width: 100%;
+    font-family: inherit;
+  }
 }
 
 ::selection {
