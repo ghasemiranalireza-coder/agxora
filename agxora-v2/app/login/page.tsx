@@ -53,7 +53,7 @@ export default function LoginPage(): JSX.Element {
           </button>
         </form>
 
-        <p className="mt-6 text-center text-caption text-agx-faint">
+        <p className="mt-6 text-center text-caption text-agx-dim">
           Demo – die Anmeldung ist in dieser Umgebung noch nicht verbunden.
         </p>
 

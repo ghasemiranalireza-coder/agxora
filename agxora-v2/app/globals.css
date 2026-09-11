@@ -23,10 +23,12 @@
   --color-agx-line: rgba(140, 178, 240, 0.22);
   --color-agx-line-strong: rgba(150, 190, 250, 0.36);
 
-  /* Text — primary / secondary / muted / disabled */
+  /* Text — primary / secondary / muted / disabled.
+     `faint` is reserved for decorative, non-essential content; informative
+     small text uses `dim` (≥4.5:1 on every glass surface). */
   --color-agx-ink: #edf3ff;
   --color-agx-dim: #9db1d4;
-  --color-agx-faint: #6a7fa8;
+  --color-agx-faint: #7d90b8;
   --color-agx-disabled: #51648c;
 
   /* Brand — warm gold (premium, primary CTA) */

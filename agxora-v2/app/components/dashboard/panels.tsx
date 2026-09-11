@@ -9,7 +9,6 @@ import { Icon, type IconName } from "../ui/icons";
 interface KpiItem {
   readonly icon: IconName;
   readonly title: string;
-  readonly empty: string;
   readonly hint: string;
   readonly tileClass: string;
 }
@@ -18,7 +17,6 @@ const KPI_ITEMS: readonly KpiItem[] = [
   {
     icon: "euro",
     title: "Gesamtumsatz",
-    empty: "Noch keine Umsatzdaten",
     hint: "Verbinden Sie Ihre Finanzquellen",
     tileClass:
       "border-agx-gold/35 bg-agx-gold/12 text-agx-gold-soft shadow-[0_0_16px_rgba(242,178,62,0.14)]",
@@ -26,7 +24,6 @@ const KPI_ITEMS: readonly KpiItem[] = [
   {
     icon: "users",
     title: "Aktive Kunden",
-    empty: "Noch keine Kunden erfasst",
     hint: "Legen Sie Ihren ersten Kunden an",
     tileClass:
       "border-agx-cyan/25 bg-agx-cyan/10 text-agx-cyan-soft shadow-[0_0_16px_rgba(76,195,255,0.12)]",
@@ -34,7 +31,6 @@ const KPI_ITEMS: readonly KpiItem[] = [
   {
     icon: "megaphone",
     title: "Laufende Kampagnen",
-    empty: "Keine laufenden Kampagnen",
     hint: "Starten Sie Ihre erste Kampagne",
     tileClass:
       "border-agx-blue/30 bg-agx-blue/12 text-[#9dc2ff] shadow-[0_0_16px_rgba(59,130,246,0.14)]",
@@ -42,31 +38,11 @@ const KPI_ITEMS: readonly KpiItem[] = [
   {
     icon: "clock",
     title: "Zeitersparnis",
-    empty: "Noch keine Daten",
     hint: "Richten Sie Automatisierungen ein",
     tileClass:
       "border-agx-gold/35 bg-agx-gold/12 text-agx-gold-soft shadow-[0_0_16px_rgba(242,178,62,0.14)]",
   },
 ];
-
-function KpiBaseline(): JSX.Element {
-  return (
-    <svg
-      viewBox="0 0 120 24"
-      className="mt-3 h-6 w-full text-agx-faint/60"
-      preserveAspectRatio="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M0 18 H120"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeDasharray="3 5"
-        fill="none"
-      />
-    </svg>
-  );
-}
 
 export function KpiRow(): JSX.Element {
   return (
@@ -81,14 +57,16 @@ export function KpiRow(): JSX.Element {
               <Icon name={item.icon} className="h-4.5 w-4.5" />
             </span>
           </div>
-          <p className="mt-1 text-kpi font-bold text-agx-ink/80">–</p>
-          <p className="mt-3 text-caption font-medium text-agx-dim">
-            {item.empty}
+          {/* Deliberate empty state — data is unavailable, nothing failed. */}
+          <p className="mt-2 flex items-center gap-3">
+            <span className="text-kpi font-bold text-agx-dim">—</span>
+            <span className="badge badge-neutral uppercase tracking-[0.1em]">
+              Noch keine Daten
+            </span>
           </p>
-          <p className="mt-0.5 text-caption leading-snug text-agx-faint">
+          <p className="mt-3.5 text-caption leading-snug text-agx-dim">
             {item.hint}
           </p>
-          <KpiBaseline />
         </article>
       ))}
     </section>
@@ -99,17 +77,80 @@ export function KpiRow(): JSX.Element {
 /*  Lower grid — activities / integrations / next steps                */
 /* ------------------------------------------------------------------ */
 
+/* Simplified monochrome brand glyphs — visual identification only, no
+   claim about connection state (every row says "Nicht verbunden"). */
+function GmailMark(): JSX.Element {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4"
+      aria-hidden="true"
+    >
+      <rect x="2.5" y="5" width="19" height="14" rx="2.5" />
+      <path d="m2.5 7.5 8 6a2.4 2.4 0 0 0 3 0l8-6" />
+    </svg>
+  );
+}
+
+function YouTubeMark(): JSX.Element {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+      <path
+        d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29.3 29.3 0 0 0 2 12a29.3 29.3 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29.3 29.3 0 0 0 22 12a29.3 29.3 0 0 0-.4-4.8z"
+        opacity="0.4"
+      />
+      <path d="M10 15.2V8.8L15.6 12z" />
+    </svg>
+  );
+}
+
+function LinkedInMark(): JSX.Element {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+      <path d="M6.94 8.9H4.1V20h2.84zM5.52 3.8a1.66 1.66 0 1 0 0 3.32 1.66 1.66 0 0 0 0-3.32z" />
+      <path d="M13 8.9h-2.72V20h2.83v-5.85c0-1.55.78-2.5 2.12-2.5 1.32 0 1.98.93 1.98 2.5V20H20v-6.66c0-2.94-1.57-4.34-3.76-4.34A3.6 3.6 0 0 0 13 10.66z" />
+    </svg>
+  );
+}
+
+function AmazonMark(): JSX.Element {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4"
+      aria-hidden="true"
+    >
+      {/* Simplified lowercase a */}
+      <circle cx="11" cy="9.5" r="3.4" />
+      <path d="M14.4 6.4v6.5" />
+      {/* Signature smile arrow */}
+      <path d="M4.5 15.6c4.3 3.2 10.8 3.2 14.6.3" />
+      <path d="m19.6 13.7.4 2.5-2.5-.5" />
+    </svg>
+  );
+}
+
 interface IntegrationItem {
   readonly label: string;
-  readonly mark: string;
+  readonly mark: JSX.Element;
   readonly tileClass: string;
 }
 
 const INTEGRATIONS: readonly IntegrationItem[] = [
-  { label: "Gmail", mark: "G", tileClass: "bg-red-400/15 text-red-300" },
-  { label: "YouTube", mark: "Y", tileClass: "bg-rose-400/15 text-rose-300" },
-  { label: "LinkedIn", mark: "in", tileClass: "bg-sky-400/15 text-sky-300" },
-  { label: "Amazon", mark: "a", tileClass: "bg-amber-400/15 text-amber-300" },
+  { label: "Gmail", mark: <GmailMark />, tileClass: "bg-red-400/15 text-red-300" },
+  { label: "YouTube", mark: <YouTubeMark />, tileClass: "bg-rose-400/15 text-rose-300" },
+  { label: "LinkedIn", mark: <LinkedInMark />, tileClass: "bg-sky-400/15 text-sky-300" },
+  { label: "Amazon", mark: <AmazonMark />, tileClass: "bg-amber-400/15 text-amber-300" },
 ];
 
 const NEXT_STEPS: readonly string[] = [
@@ -130,7 +171,7 @@ function PanelHeader({
     <header className="mb-4">
       <h2 className="text-body font-semibold text-agx-ink">{title}</h2>
       {sub !== undefined && (
-        <p className="mt-0.5 text-caption text-agx-faint">{sub}</p>
+        <p className="mt-0.5 text-caption text-agx-dim">{sub}</p>
       )}
     </header>
   );
@@ -149,7 +190,7 @@ export function LowerPanels(): JSX.Element {
           <p className="text-body-sm font-medium text-agx-dim">
             Noch keine Aktivitäten
           </p>
-          <p className="max-w-[220px] text-caption leading-relaxed text-agx-faint">
+          <p className="max-w-[220px] text-caption leading-relaxed text-agx-dim">
             Ihre Aktionen erscheinen hier, sobald Sie loslegen.
           </p>
         </div>
@@ -169,7 +210,7 @@ export function LowerPanels(): JSX.Element {
             >
               <span className="flex items-center gap-3">
                 <span
-                  className={`icon-tile h-8 w-8 rounded-agx-sm text-body-sm font-bold ${item.tileClass}`}
+                  className={`icon-tile h-8 w-8 rounded-agx-sm ${item.tileClass}`}
                 >
                   {item.mark}
                 </span>
@@ -183,20 +224,26 @@ export function LowerPanels(): JSX.Element {
         </ul>
       </article>
 
-      {/* Nächste Schritte — suggestions, nothing pretends to be done */}
+      {/* Nächste Schritte — a numbered sequence, deliberately
+          non-interactive (no radio/checkbox affordance). */}
       <article className="glass-panel px-5 py-5">
         <PanelHeader title="Ihre nächsten Schritte" />
-        <ul className="flex flex-col gap-1.5">
-          {NEXT_STEPS.map((step) => (
+        <ol className="flex flex-col gap-1.5">
+          {NEXT_STEPS.map((step, index) => (
             <li
               key={step}
               className="flex items-center gap-3 rounded-xl px-2 py-2.5 text-body-sm text-agx-dim"
             >
-              <span className="h-4 w-4 shrink-0 rounded-full border-[1.5px] border-agx-cyan/45" />
+              <span
+                aria-hidden="true"
+                className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-agx-line bg-[rgba(12,24,48,0.55)] text-[11px] font-semibold text-agx-cyan-soft"
+              >
+                {index + 1}
+              </span>
               {step}
             </li>
           ))}
-        </ul>
+        </ol>
       </article>
     </section>
   );
@@ -233,15 +280,15 @@ function AiRobot(): JSX.Element {
       <svg viewBox="0 0 240 240" className="relative h-full w-full">
         <defs>
           <radialGradient id="agxShell" cx="34%" cy="22%" r="90%">
-            <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="30%" stopColor="#eef3fa" />
-            <stop offset="56%" stopColor="#c3cfdf" />
-            <stop offset="78%" stopColor="#8b9cb4" />
-            <stop offset="100%" stopColor="#586a86" />
+            <stop offset="0%" stopColor="#f3f7fd" />
+            <stop offset="30%" stopColor="#e6edf7" />
+            <stop offset="56%" stopColor="#bcc9da" />
+            <stop offset="78%" stopColor="#8798b0" />
+            <stop offset="100%" stopColor="#566884" />
           </radialGradient>
           <radialGradient id="agxVisor" cx="42%" cy="30%" r="92%">
-            <stop offset="0%" stopColor="#22375c" />
-            <stop offset="45%" stopColor="#101f3b" />
+            <stop offset="0%" stopColor="#1a2a48" />
+            <stop offset="45%" stopColor="#0c1830" />
             <stop offset="100%" stopColor="#040a18" />
           </radialGradient>
           <radialGradient id="agxLens" cx="38%" cy="32%" r="80%">
@@ -297,7 +344,7 @@ function AiRobot(): JSX.Element {
             rx="80"
             ry="78"
             fill="url(#agxShell)"
-            stroke="rgba(255,255,255,0.3)"
+            stroke="rgba(255,255,255,0.18)"
             strokeWidth="1"
           />
 
@@ -328,8 +375,8 @@ function AiRobot(): JSX.Element {
             opacity="0.4"
           />
 
-          {/* Top gloss highlight */}
-          <ellipse cx="98" cy="66" rx="40" ry="17" fill="#ffffff" opacity="0.4" filter="url(#agxSoft)" />
+          {/* Top gloss highlight — kept subtle for a matte, enterprise look */}
+          <ellipse cx="98" cy="66" rx="34" ry="13" fill="#ffffff" opacity="0.2" filter="url(#agxSoft)" />
 
           {/* Visor — large dark glass with a soft top reflection */}
           <rect
@@ -379,16 +426,6 @@ function AiRobot(): JSX.Element {
             <circle cx="156" cy="124" r="20.5" fill="none" stroke="#4cc3ff" strokeWidth="1" opacity="0.35" filter="url(#agxSoft)" />
           </g>
 
-          {/* Soft mouth light at the bottom of the visor */}
-          <path
-            d="M 116 162 Q 128 168 142 161"
-            fill="none"
-            stroke="#4cc3ff"
-            strokeWidth="3"
-            strokeLinecap="round"
-            opacity="0.55"
-            filter="url(#agxSoft)"
-          />
         </g>
 
         {/* Front gold orbit segment crossing the lower left */}
@@ -405,7 +442,8 @@ function AiRobot(): JSX.Element {
   );
 }
 
-/** Decorative growth bars — subtle grid, no numbers, no fabricated data. */
+/** Abstract growth motif — deliberately ghosted (soft blur, low opacity,
+    no axes or grid) so it cannot be mistaken for real analytics. */
 function GrowthIllustration(): JSX.Element {
   const bars = [26, 38, 32, 48, 44, 60, 56, 74, 70, 88];
   return (
@@ -417,34 +455,27 @@ function GrowthIllustration(): JSX.Element {
     >
       <defs>
         <linearGradient id="agx-bar" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%" stopColor="rgba(242,178,62,0.18)" />
-          <stop offset="70%" stopColor="rgba(250,196,90,0.75)" />
-          <stop offset="100%" stopColor="rgba(255,222,150,0.95)" />
+          <stop offset="0%" stopColor="rgba(242,178,62,0.06)" />
+          <stop offset="70%" stopColor="rgba(250,196,90,0.32)" />
+          <stop offset="100%" stopColor="rgba(255,222,150,0.46)" />
         </linearGradient>
+        <filter id="agx-bar-soft" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="1.4" />
+        </filter>
       </defs>
-      {/* Faint horizontal grid — orientation only, no values */}
-      {[14, 40, 66].map((y) => (
-        <path
-          key={y}
-          d={`M0 ${y} H200`}
-          stroke="rgba(140,178,240,0.12)"
-          strokeWidth="1"
-          strokeDasharray="2 5"
-          fill="none"
-        />
-      ))}
-      <path d="M0 92 H200" stroke="rgba(140,178,240,0.22)" strokeWidth="1" fill="none" />
-      {bars.map((height, index) => (
-        <rect
-          key={index}
-          x={index * 20 + 4}
-          y={92 - height * 0.85}
-          width={12}
-          height={height * 0.85}
-          rx={3}
-          fill="url(#agx-bar)"
-        />
-      ))}
+      <g filter="url(#agx-bar-soft)">
+        {bars.map((height, index) => (
+          <rect
+            key={index}
+            x={index * 20 + 4}
+            y={96 - height * 0.85}
+            width={12}
+            height={height * 0.85}
+            rx={4}
+            fill="url(#agx-bar)"
+          />
+        ))}
+      </g>
     </svg>
   );
 }

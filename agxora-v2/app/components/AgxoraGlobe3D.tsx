@@ -521,26 +521,32 @@ function CameraDrift({ parallax }: CameraDriftProps): null {
 interface SpaceSceneProps {
   readonly profile: RenderProfile;
   readonly compact: boolean;
+  readonly lightSide: "left" | "right";
 }
 
-function SpaceScene({ profile, compact }: SpaceSceneProps): JSX.Element {
+function SpaceScene({ profile, compact, lightSide }: SpaceSceneProps): JSX.Element {
+  // Mirror the sun to the other limb for instances whose visible portion
+  // would otherwise be dominated by the sunlit crescent (e.g. the CTA
+  // globe anchored at the lower left, showing its upper-right quarter).
+  const m = lightSide === "left" ? -1 : 1;
+
   return (
     <>
       <color attach="background" args={["#0a1832"]} />
 
-      {/* Key sun — warm white, from behind-right so most of the visible
+      {/* Key sun — warm white, from behind so most of the visible
           disc stays in night (gold city lights) with a sunlit crescent
-          on the right limb, like the reference */}
+          on one limb, like the reference */}
       <directionalLight
-        position={[8, 2, -2]}
+        position={[8 * m, 2, -2]}
         intensity={5}
         color="#fff1da"
       />
-      {/* Warm sunset kiss on the upper-right limb, like the reference */}
-      <pointLight position={[3.6, 1.8, 0.6]} intensity={13} color="#ffd9a0" distance={9} decay={2} />
+      {/* Warm sunset kiss on the sunlit limb, like the reference */}
+      <pointLight position={[3.6 * m, 1.8, 0.6]} intensity={13} color="#ffd9a0" distance={9} decay={2} />
       {/* Cool blue bounce for the shadowed limb */}
       <directionalLight
-        position={[-5, -1.6, -3]}
+        position={[-5 * m, -1.6, -3]}
         intensity={0.8}
         color="#6f9de8"
       />
@@ -578,12 +584,25 @@ const frameStyle: CSSProperties = {
   WebkitMaskImage: EDGE_MASK,
 };
 
+/* Soft planetary glow shown through the transparent canvas until the
+   scene (textures) has loaded — avoids a hard pop-in on first paint. */
+const loadingGlowStyle: CSSProperties = {
+  position: "absolute",
+  inset: "10%",
+  borderRadius: "50%",
+  background:
+    "radial-gradient(circle at 50% 46%, rgba(46, 108, 200, 0.42) 0%, rgba(20, 52, 110, 0.24) 46%, transparent 72%)",
+};
+
 interface AgxoraGlobe3DProps {
   readonly className?: string;
+  /** Which limb receives the sunlit crescent. Default: right. */
+  readonly lightSide?: "left" | "right";
 }
 
 export default function AgxoraGlobe3D({
   className,
+  lightSide = "right",
 }: AgxoraGlobe3DProps): JSX.Element {
   const { profile, compact } = useRenderProfile();
 
@@ -594,6 +613,7 @@ export default function AgxoraGlobe3D({
       aria-label="AGXORA — cinematic 3D globe"
       role="img"
     >
+      <div style={loadingGlowStyle} aria-hidden="true" />
       <Canvas
         dpr={profile.pixelRatio}
         camera={{
@@ -605,14 +625,16 @@ export default function AgxoraGlobe3D({
         gl={{
           antialias: false,
           powerPreference: "high-performance",
-          alpha: false,
+          // Transparent until the scene attaches its opaque background,
+          // so the loading glow shows through instead of a black disc.
+          alpha: true,
           toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 1.28,
         }}
         style={{ position: "absolute", inset: 0 }}
       >
         <Suspense fallback={null}>
-          <SpaceScene profile={profile} compact={compact} />
+          <SpaceScene profile={profile} compact={compact} lightSide={lightSide} />
         </Suspense>
       </Canvas>
     </div>

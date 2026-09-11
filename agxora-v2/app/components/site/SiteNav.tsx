@@ -6,46 +6,38 @@ import { Icon } from "../ui/icons";
 import { AgxoraLogo } from "./AgxoraLogo";
 
 /**
- * Landing navigation. Only real destinations are rendered as links —
- * sections that exist on this page get anchors, everything else stays a
- * non-interactive item until the corresponding page ships.
+ * Landing navigation. Every item is a real destination — sections that
+ * exist on this page get anchors, real routes get links. Items without a
+ * destination (Preise, Vertrieb, Ressourcen) are omitted until their
+ * pages ship, instead of rendering dead-looking disabled entries.
  */
 
 interface NavItem {
   readonly label: string;
-  readonly href?: string;
+  readonly href: string;
 }
 
 const NAV_ITEMS: readonly NavItem[] = [
-  { label: "Produkt", href: "#produkt" },
-  { label: "Plattform", href: "#plattform" },
-  { label: "Preise" },
-  { label: "Vertrieb" },
-  { label: "Ressourcen" },
+  // Root-relative anchors so the section links also work from other
+  // pages (legal placeholders) that render this nav.
+  { label: "Produkt", href: "/#produkt" },
+  { label: "Plattform", href: "/#plattform" },
+  { label: "Kontakt", href: "/kontakt" },
 ];
 
 function NavLinks({ onNavigate }: { onNavigate?: () => void }): JSX.Element {
   return (
     <>
-      {NAV_ITEMS.map((item) =>
-        item.href !== undefined ? (
-          <a
-            key={item.label}
-            href={item.href}
-            onClick={onNavigate}
-            className="nav-link"
-          >
-            {item.label}
-          </a>
-        ) : (
-          <span
-            key={item.label}
-            className="cursor-default text-sm text-agx-disabled"
-          >
-            {item.label}
-          </span>
-        ),
-      )}
+      {NAV_ITEMS.map((item) => (
+        <Link
+          key={item.label}
+          href={item.href}
+          onClick={onNavigate}
+          className="nav-link"
+        >
+          {item.label}
+        </Link>
+      ))}
     </>
   );
 }

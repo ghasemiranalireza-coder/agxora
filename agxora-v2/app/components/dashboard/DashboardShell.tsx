@@ -78,7 +78,7 @@ function SidebarFooter(): JSX.Element {
         <span className="block text-body-sm font-semibold leading-tight text-agx-ink">
           AGXORA Workspace
         </span>
-        <span className="block text-caption text-agx-faint">
+        <span className="block text-caption text-agx-dim">
           Demo-Arbeitsbereich
         </span>
       </span>
@@ -171,7 +171,7 @@ function Topbar({ onMenu, searchRef }: TopbarProps): JSX.Element {
                 <span className="block text-label font-semibold leading-tight text-agx-ink">
                   Alireza Ghasemi
                 </span>
-                <span className="block text-[10.5px] leading-tight text-agx-faint">
+                <span className="block text-[10.5px] leading-tight text-agx-dim">
                   Demo-Workspace
                 </span>
               </span>
@@ -265,7 +265,7 @@ function CommandCenter({ inputRef }: CommandCenterProps): JSX.Element {
           ))}
         </div>
 
-        <p className="mt-4 text-caption text-agx-faint">
+        <p className="mt-4 text-caption text-agx-dim">
           Demo – der KI Agent ist in dieser Umgebung noch nicht verbunden.
         </p>
       </div>
@@ -320,10 +320,12 @@ function AiPanel({ onTalk }: AiPanelProps): JSX.Element {
         </ul>
 
         <div className="mt-auto pt-6">
+          {/* max-w keeps the CTA proportioned when the panel stacks to
+              full width below the xl two-column layout. */}
           <button
             type="button"
             onClick={onTalk}
-            className="btn-gold w-full px-4 py-2.5 text-body-sm"
+            className="btn-gold w-full max-w-sm px-4 py-2.5 text-body-sm"
           >
             Mit dem KI Agenten sprechen
             <Icon name="arrowRight" className="h-3.5 w-3.5" strokeWidth={2.2} />
@@ -413,7 +415,7 @@ export function DashboardShell(): JSX.Element {
             <SidebarContent withLogo />
           </MobileDrawer>
 
-          <main className="relative mx-auto w-full min-w-0 max-w-[1200px] px-4 pb-12 pt-6 md:px-6">
+          <main className="relative mx-auto w-full min-w-0 max-w-[1400px] px-4 pb-12 pt-6 md:px-6">
             <div className="relative flex flex-col gap-5">
               <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_330px]">
                 <CommandCenter inputRef={commandRef} />

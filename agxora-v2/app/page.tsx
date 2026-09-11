@@ -33,7 +33,7 @@ const TRUST_ITEMS: readonly TrustItem[] = [
   {
     icon: "layers",
     title: "Alles an einem Ort",
-    sub: "Ein System. Keine Grenzen.",
+    sub: "Weniger Tools. Mehr Überblick.",
     tint: "text-agx-gold-soft",
   },
 ];
@@ -223,7 +223,7 @@ export default function Home(): JSX.Element {
                 className={`glass-chip agx-float pointer-events-none absolute inline-flex items-center gap-2.5 py-2 pl-2 pr-4.5 text-body-sm font-semibold text-agx-ink ${badge.position}`}
                 style={{ animationDelay: badge.delay }}
               >
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-[#5ecaff] to-[#2a7fd4] text-white shadow-[0_0_14px_rgba(76,195,255,0.55)]">
+                <span className="icon-tile h-7 w-7 rounded-agx-sm bg-gradient-to-br from-agx-cyan to-agx-blue text-white shadow-[0_0_14px_rgba(76,195,255,0.55)]">
                   <Icon name={badge.icon} className="h-3.5 w-3.5" strokeWidth={2} />
                 </span>
                 {badge.label}
@@ -236,7 +236,7 @@ export default function Home(): JSX.Element {
             {TRUST_ITEMS.map((item) => (
               <div key={item.title} className="flex items-start gap-3">
                 <span
-                  className={`glass-chip flex h-10 w-10 shrink-0 items-center justify-center !rounded-xl ${item.tint}`}
+                  className={`icon-tile h-10 w-10 border border-agx-line bg-[rgba(16,32,62,0.6)] ${item.tint}`}
                 >
                   <Icon name={item.icon} className="h-4.5 w-4.5" />
                 </span>
@@ -244,7 +244,7 @@ export default function Home(): JSX.Element {
                   <span className="block text-body-sm font-semibold text-agx-ink">
                     {item.title}
                   </span>
-                  <span className="mt-0.5 block text-caption leading-snug text-agx-faint">
+                  <span className="mt-0.5 block text-caption leading-snug text-agx-dim">
                     {item.sub}
                   </span>
                 </span>
@@ -313,7 +313,10 @@ export default function Home(): JSX.Element {
             aria-hidden="true"
             className="pointer-events-none absolute -bottom-72 -left-48 hidden h-[680px] w-[680px] lg:block"
           >
-            <AgxoraGlobe3D />
+            {/* The visible portion is the upper-right quarter — put the
+                sunlit crescent on the hidden left limb so this instance
+                shows the same night-side, gold-city-light look as the hero. */}
+            <AgxoraGlobe3D lightSide="left" />
           </div>
           {/* Soft glow fallback where the Earth is hidden */}
           <div
@@ -355,9 +358,26 @@ export default function Home(): JSX.Element {
 
         {/* Footer */}
         <footer className="border-t border-agx-line">
-          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 py-8 sm:flex-row md:px-8">
+          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-5 py-8 sm:flex-row md:px-8">
             <AgxoraLogo />
-            <p className="text-body-sm text-agx-faint">
+            <nav
+              aria-label="Rechtliches"
+              className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
+            >
+              <Link href="/impressum" className="nav-link text-body-sm">
+                Impressum
+              </Link>
+              <Link href="/datenschutz" className="nav-link text-body-sm">
+                Datenschutz
+              </Link>
+              <Link href="/agb" className="nav-link text-body-sm">
+                AGB
+              </Link>
+              <Link href="/kontakt" className="nav-link text-body-sm">
+                Kontakt
+              </Link>
+            </nav>
+            <p className="text-body-sm text-agx-dim">
               © 2026 AGXORA. Alle Rechte vorbehalten.
             </p>
           </div>
