@@ -12,7 +12,7 @@ import type {
 
 export const SETTINGS_KPIS: readonly SettingsKpi[] = [
   { id: "members", label: "Team Members", value: "18", caption: "Active seats" },
-  { id: "integrations", label: "Integrations", value: "6", caption: "Connected adapters" },
+  { id: "integrations", label: "Integrations", value: "0", caption: "Connected adapters" },
   { id: "api", label: "API Keys", value: "3", caption: "Developer tokens" },
   { id: "audit", label: "Audit Events", value: "124", caption: "Last 7 days" },
 ];
@@ -60,33 +60,35 @@ export const TEAM_MEMBERS: readonly TeamMemberRow[] = [
   { id: "m5", name: "Riley Chen", email: "riley@agxora.io", role: "Viewer", status: "invited" },
 ];
 
+// Honesty rule: none of these adapters has a live backend implementation,
+// so no row may claim "connected", "installed", or "available".
 export const SETTINGS_INTEGRATIONS: readonly IntegrationRow[] = [
   {
     id: "i-gdrive",
     name: "Google Drive",
     category: "Documents",
-    state: "connected",
+    state: "future",
     adapter: "GoogleDriveAdapter",
   },
   {
     id: "i-stripe",
     name: "Stripe",
     category: "Finance",
-    state: "installed",
+    state: "future",
     adapter: "StripeAdapter",
   },
   {
     id: "i-slack",
     name: "Slack",
     category: "Communication",
-    state: "available",
+    state: "future",
     adapter: "SlackAdapter",
   },
   {
     id: "i-hubspot",
     name: "HubSpot",
     category: "CRM",
-    state: "available",
+    state: "future",
     adapter: "HubSpotAdapter",
   },
   {

@@ -4,16 +4,19 @@ import Link from "next/link";
 import { useEffect, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import type { DataTableColumn } from "@/app/components/ui";
+import {
+  BrandMark,
+  BrandTile,
+  brandForConnector,
+} from "@/app/components/ui/BrandMark";
 import { catalogCopy, localizeThrownError, localizeIntegrationMessage, useT } from "@/app/lib/i18n";
 import { integrationsStore } from "../store";
 import { integrationService } from "../services";
 import { useIntegrationPlatform } from "../hooks";
 import type {
   ApiKeyRecord,
-  ConnectorId,
   IntegrationConnection,
   IntegrationLogEntry,
-  SyncMode,
   WebhookDelivery,
   WebhookEndpoint,
 } from "../types";
@@ -104,22 +107,6 @@ export function IntegrationCenter(): JSX.Element {
     );
   }
 
-  const onConnect = async (connectorId: ConnectorId) => {
-    setBusy(true);
-    try {
-      const conn = await integrationService.connect(
-        platform.organizationId,
-        connectorId,
-      );
-      setNotice(t("integrations.notice.demoConnection", { name: conn.displayName }));
-      setTab("installed");
-    } catch (err) {
-      setNotice(localizeThrownError(t, err, "integrations.notice.connectFailed"));
-    } finally {
-      setBusy(false);
-    }
-  };
-
   const onCreateKey = () => {
     const key = integrationService.createKey({
       organizationId: platform.organizationId,
@@ -188,31 +175,15 @@ export function IntegrationCenter(): JSX.Element {
     }
   };
 
-  const onSync = async (connectionId: string, mode: SyncMode) => {
-    setBusy(true);
-    try {
-      const job = await integrationService.sync({
-        organizationId: platform.organizationId,
-        connectionId,
-        mode,
-      });
-      setNotice(
-        t("integrations.notice.syncResult", {
-          status: job.status,
-          records: job.recordsProcessed,
-        }),
-      );
-    } finally {
-      setBusy(false);
-    }
-  };
-
   const connectionColumns: DataTableColumn<IntegrationConnection>[] = [
-    { key: "name", header: t("integrations.columns.integration"), render: (r) =>
-      r.connectorId === "custom"
-        ? catalogCopy(t, "integrations.connectorNames.custom", r.displayName)
-        : r.displayName
-    },
+    { key: "name", header: t("integrations.columns.integration"), render: (r) => (
+      <span className="inline-flex items-center gap-2">
+        <BrandMark id={brandForConnector(r.connectorId)} size={16} />
+        {r.connectorId === "custom"
+          ? catalogCopy(t, "integrations.connectorNames.custom", r.displayName)
+          : r.displayName}
+      </span>
+    ) },
     {
       key: "status",
       header: t("integrations.columns.status"),
@@ -222,9 +193,7 @@ export function IntegrationCenter(): JSX.Element {
       key: "health",
       header: t("integrations.columns.health"),
       render: (r) =>
-        r.status === "connected"
-          ? t("integrations.connectionStatus.localDemo")
-          : catalogCopy(t, `integrations.healthStatus.${r.health.status}`, r.health.status),
+        catalogCopy(t, `integrations.healthStatus.${r.health.status}`, r.health.status),
     },
     {
       key: "latency",
@@ -252,15 +221,6 @@ export function IntegrationCenter(): JSX.Element {
             })}
           >
             {t("integrations.actions.diagnose")}
-          </Button>
-          <Button
-            size="sm"
-            variant="ghost"
-            disabled={busy || r.status !== "connected"}
-            title={t("integrations.actions.demoSyncTitle")}
-            onClick={() => void onSync(r.id, "manual")}
-          >
-            {t("integrations.actions.demoSync")}
           </Button>
           <Button
             size="sm"
@@ -458,35 +418,6 @@ export function IntegrationCenter(): JSX.Element {
               minWidth={720}
             />
           </Card>
-          <Card className="space-y-3" padding="20px" hover={false}>
-            <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-              {t("integrations.dashboard.eventBridgeDemo")}
-            </h2>
-            <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {t("integrations.dashboard.eventBridgeHint")}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {(["slack", "hubspot", "github"] as const).map((id) => (
-                <Button
-                  key={id}
-                  size="sm"
-                  variant="secondary"
-                  disabled={busy}
-                  onClick={() => {
-                    void integrationService
-                      .emitConnectorEvent(platform.organizationId, id, "ping", {
-                        demo: true,
-                      })
-                      .then((e) =>
-                        setNotice(t("integrations.notice.publishedEvent", { type: e.type })),
-                      );
-                  }}
-                >
-                  {t("integrations.dashboard.emit", { id })}
-                </Button>
-              ))}
-            </div>
-          </Card>
         </>
       ) : null}
 
@@ -503,15 +434,6 @@ export function IntegrationCenter(): JSX.Element {
             emptyDescription={t("integrations.installed.emptyDescription")}
             minWidth={720}
           />
-          {platform.syncJobs[0] ? (
-            <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-              {t("integrations.installed.latestSync", {
-                status: platform.syncJobs[0].status,
-                records: platform.syncJobs[0].recordsProcessed,
-                mode: platform.syncJobs[0].mode,
-              })}
-            </p>
-          ) : null}
         </Card>
       ) : null}
 
@@ -530,11 +452,14 @@ export function IntegrationCenter(): JSX.Element {
                   {catalogCopy(t, `integrations.categories.${c.category}`, c.category)} ·{" "}
                   {catalogCopy(t, `integrations.auth.${c.authMethod}`, c.authMethod)}
                 </p>
-                <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
-                  {c.id === "custom"
-                    ? catalogCopy(t, "integrations.connectorNames.custom", c.name)
-                    : c.name}
-                </h3>
+                <div className="flex items-center gap-2.5">
+                  <BrandTile id={brandForConnector(c.id)} size={30} />
+                  <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
+                    {c.id === "custom"
+                      ? catalogCopy(t, "integrations.connectorNames.custom", c.name)
+                      : c.name}
+                  </h3>
+                </div>
                 <p
                   className="flex-1 text-xs leading-relaxed"
                   style={{ color: "var(--agx-text-muted, #94a3b8)" }}
@@ -544,17 +469,14 @@ export function IntegrationCenter(): JSX.Element {
                 <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                   {t("integrations.available.protocols", { protocols: c.protocols.join(", ") })}
                 </p>
-                <Button
-                  size="sm"
-                  disabled={busy || installed?.status === "connected"}
-                  onClick={() => void onConnect(c.id)}
+                <p
+                  className="text-xs font-medium"
+                  style={{ color: "var(--agx-text-muted, #94a3b8)" }}
                 >
-                  {installed?.status === "connected"
-                    ? t("integrations.available.demoConnection")
-                    : installed
-                      ? t("integrations.available.connectDemo")
-                      : t("integrations.available.installDemo")}
-                </Button>
+                  {installed
+                    ? connectionStatusLabel(installed.status, t)
+                    : t("businessAgent.connectUnavailable")}
+                </p>
               </Card>
             );
           })}
