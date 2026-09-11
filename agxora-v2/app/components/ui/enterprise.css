@@ -542,6 +542,13 @@ select.agx-ui-control option {
   align-items: flex-start;
 }
 
+.agx-integrations__identity {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
 .agx-integrations__alert {
   color: var(--agx-ds-danger, #fb7185);
 }

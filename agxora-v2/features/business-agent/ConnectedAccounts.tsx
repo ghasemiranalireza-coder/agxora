@@ -2,6 +2,10 @@
 
 import { useCallback, useEffect, useState, type JSX } from "react";
 import { AGStatus } from "@/app/components/ag/AGStatus";
+import {
+  BrandTile,
+  brandForIntegrationProvider,
+} from "@/app/components/ui/BrandMark";
 import { Button } from "@/app/components/ui/Button";
 import { Card } from "@/app/components/ui/Card";
 import type { IntegrationPermissionFlags } from "@/app/lib/business-agent/catalog";
@@ -194,7 +198,9 @@ export function ConnectedAccounts(): JSX.Element {
           return (
             <Card key={item.provider} hover={false} className="agx-integrations__card">
               <header className="agx-integrations__head">
-                <div>
+                <div className="agx-integrations__identity">
+                  <BrandTile id={brandForIntegrationProvider(item.provider)} />
+                  <div>
                   <strong>{item.label}</strong>
                   <div className="agx-integrations__badges">
                     {item.implementationStatus === "oauth_ready" && !item.connected ? (
@@ -225,6 +231,7 @@ export function ConnectedAccounts(): JSX.Element {
                     </div>
                   ) : null}
                   <small>{item.oauthNote}</small>
+                  </div>
                 </div>
                 <div>
                   {item.connected ? (

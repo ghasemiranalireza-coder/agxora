@@ -81,18 +81,21 @@ export async function deliverOutgoingWebhook(input: {
     };
   }
 
+  // Honesty rule: no live HTTP client exists in this build, so an outgoing
+  // delivery can never be reported as "delivered" (no request is made).
   return {
     id: createId("whd"),
     endpointId: input.endpoint.id,
     organizationId: input.organizationId,
     direction: "outgoing",
     eventType: input.eventType,
-    status: ok ? "delivered" : "failed",
+    status: "failed",
     attempt,
     maxAttempts: policy.maxAttempts,
     payloadPreview: payloadStr.slice(0, 180),
-    responseCode: ok ? 200 : 503,
-    error: ok ? undefined : "Delivery failed",
+    error: ok
+      ? "Outgoing delivery is not connected in this build — no request was sent"
+      : "Endpoint disabled or missing URL",
     createdAt: nowIso(),
     completedAt: nowIso(),
   };

@@ -26,14 +26,18 @@ export interface ConnectorProvider {
 
 const providers = new Map<ConnectorId, ConnectorProvider>();
 
+/**
+ * Architecture placeholder. Stub providers have no live backend and must
+ * NEVER report a healthy or connected state.
+ */
 function stubProvider(id: ConnectorId): ConnectorProvider {
   return {
     id,
     async testConnection() {
       return {
-        ok: true,
-        latencyMs: 40 + Math.floor(Math.random() * 80),
-        message: "integrations.logs.stubHealthy",
+        ok: false,
+        latencyMs: 0,
+        message: "integrations.noticeDefault",
       };
     },
     async publishEvent() {

@@ -3,7 +3,6 @@
  */
 
 import { CONNECTOR_CATALOG, getConnectorDefinition, getConnectorProvider } from "../connectors";
-import { beginOAuth } from "../oauth";
 import { invokeApiGateway, DEFAULT_GATEWAY_ROUTES } from "../gateway";
 import {
   createWebhookSecretRef,
@@ -117,93 +116,21 @@ export const integrationService = {
     return connection;
   },
 
+  /**
+   * Honesty guard: no connector in this build has a live backend, so a
+   * connection can never be established. This must NEVER mark a connection
+   * "connected" or "healthy" without a real, verified provider link.
+   */
   async connect(
     organizationId: string,
     connectorId: ConnectorId,
   ): Promise<IntegrationConnection> {
-    let connection =
-      this.listConnections(organizationId).find(
-        (c) => c.connectorId === connectorId,
-      ) ?? this.install(organizationId, connectorId);
-
-    const def = getConnectorDefinition(connectorId)!;
-
-    if (def.authMethod === "oauth2" && def.oauthProvider) {
-      const state = createId("oauth");
-      const auth = await beginOAuth({
-        providerId: def.oauthProvider,
-        connectorId,
-        organizationId,
-        redirectUri: "https://app.agxora.local/oauth/callback",
-        scopes: def.scopes,
-        state,
-        codeChallenge: createId("chal").slice(0, 32),
-      });
-      const vault = getSecretVault().store({
-        kind: "oauth_token",
-        plaintextPlaceholder: `pending:${auth.state}`,
-      });
-      connection = {
-        ...connection,
-        status: "connected",
-        credentialRef: vault,
-        connectedAt: nowIso(),
-        health: {
-          status: "healthy",
-          lastCheckedAt: nowIso(),
-          latencyMs: 55,
-          message: auth.placeholder
-            ? "integrations.health.oauthStubPlaceholder"
-            : "integrations.health.oauthStubLive",
-        },
-        config: {
-          ...connection.config,
-          oauthState: auth.state,
-          authorizationUrl: auth.authorizationUrl,
-        },
-      };
-    } else if (def.authMethod === "api_key" || def.authMethod === "webhook") {
-      const vault = getSecretVault().store({
-        kind: "api_secret",
-        plaintextPlaceholder: `stub_key_${connectorId}`,
-      });
-      connection = {
-        ...connection,
-        status: "connected",
-        credentialRef: vault,
-        connectedAt: nowIso(),
-        health: {
-          status: "healthy",
-          lastCheckedAt: nowIso(),
-          latencyMs: 42,
-          message: "integrations.health.demoCredential",
-        },
-      };
-    } else {
-      connection = {
-        ...connection,
-        status: "connected",
-        connectedAt: nowIso(),
-        health: {
-          status: "healthy",
-          lastCheckedAt: nowIso(),
-          message: "integrations.health.demoConnection",
-        },
-      };
-    }
-
-    integrationsStore.upsertConnection(connection);
-    publishIntegrationEvent({
-      organizationId,
-      connectorId,
-      eventType: "connected",
-      payload: { connectionId: connection.id },
-    });
-    log(organizationId, "info", "connector", "integrations.logs.demoConnected", {
-      connectionId: connection.id,
+    const def = getConnectorDefinition(connectorId);
+    if (!def) throw new Error("integrations.errors.unknownConnector");
+    log(organizationId, "warn", "connector", "integrations.noticeDefault", {
       data: { name: def.name },
     });
-    return connection;
+    throw new Error("integrations.noticeDefault");
   },
 
   disconnect(connectionId: string): void {

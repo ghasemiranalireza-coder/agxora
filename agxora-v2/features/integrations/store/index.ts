@@ -58,8 +58,40 @@ export const integrationsStore = {
 
   hydrate(): void {
     if (state.hydrated) return;
-    const loaded = repository.load();
-    state = { ...(loaded ?? emptyIntegrationsState()), hydrated: true };
+    const loaded = repository.load() ?? emptyIntegrationsState();
+    // Data honesty migration: earlier builds fabricated "connected"/"healthy"
+    // demo connections, fake sync jobs, and "stub healthy" log entries in
+    // local storage. No real connector backend exists for this platform, so
+    // any such persisted state is fake and must not surface as live status.
+    const hadFakeState =
+      loaded.connections.some((c) => c.status === "connected") ||
+      loaded.syncJobs.length > 0 ||
+      loaded.logs.some((l) => l.message === "integrations.logs.stubHealthy");
+    const connections = loaded.connections.map((c) =>
+      c.status === "connected"
+        ? {
+            ...c,
+            status: "installed" as const,
+            credentialRef: undefined,
+            connectedAt: undefined,
+            health: {
+              status: "unknown" as const,
+              lastCheckedAt: c.health.lastCheckedAt,
+              message: "integrations.noticeDefault",
+            },
+          }
+        : c,
+    );
+    state = {
+      ...loaded,
+      connections,
+      syncJobs: [],
+      logs: loaded.logs.filter(
+        (l) => l.message !== "integrations.logs.stubHealthy",
+      ),
+      hydrated: true,
+    };
+    if (hadFakeState) persist();
     emit();
   },
 
