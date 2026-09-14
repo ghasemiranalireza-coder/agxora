@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { agentsStore } from "@/features/agents/store";
 import { growthService } from "@/features/agents/growth/service";
 import { operationsService } from "@/features/agents/execution/service";
@@ -42,12 +42,16 @@ describe("Phase 54 CRM follow-up lifecycle control", () => {
   const organizationId = "org_phase54_test";
 
   beforeEach(() => {
+    // Freeze calendar day so pending vs overdue recommendations stay deterministic.
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(new Date("2026-08-26T12:00:00.000Z"));
     agentsStore.reset();
     setCrmBridgeProvider(createMemoryCrmBridge());
   });
 
   afterEach(() => {
     resetCrmBridgeProvider();
+    vi.useRealTimers();
   });
 
   async function approvePending() {

@@ -36,7 +36,8 @@ export async function runSyncJob(input: {
   let processed = 0;
   let conflicts = 0;
   let error: string | undefined;
-  let status: SyncJob["status"] = "succeeded";
+  // Local mapping only — never report successful external delivery.
+  let status: SyncJob["status"] = "failed";
 
   try {
     for (const record of sourceRecords) {
@@ -49,6 +50,8 @@ export async function runSyncJob(input: {
         conflicts += 1;
       }
     }
+    error =
+      "Local mapping only — no external connector delivery in this build";
     if (conflicts > 0) status = "conflict";
   } catch (err) {
     status = "failed";

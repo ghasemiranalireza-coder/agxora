@@ -13,6 +13,10 @@ import {
   upsertSocialCredentialForActor,
   revokeSocialCredentialForActor,
 } from "../credentials";
+import {
+  GMAIL_OAUTH_FALLBACK_PATH,
+  resolveSafeInternalPath,
+} from "@/app/lib/security/safeInternalPath";
 import { consumeSocialOAuthState, issueSocialOAuthState } from "./state";
 
 export type GmailConnectResult = {
@@ -54,7 +58,7 @@ export async function beginGmailOAuthForActor(
     actor,
     platform: "gmail",
     codeVerifier: pkce.verifier,
-    redirectPath,
+    redirectPath: resolveSafeInternalPath(redirectPath, GMAIL_OAUTH_FALLBACK_PATH),
   });
 
   const params = new URLSearchParams({
@@ -157,7 +161,10 @@ export async function completeGmailOAuthForActor(
   return {
     connected: true,
     emailAddress,
-    redirectPath: consumed.redirectPath,
+    redirectPath: resolveSafeInternalPath(
+      consumed.redirectPath,
+      GMAIL_OAUTH_FALLBACK_PATH,
+    ),
   };
 }
 

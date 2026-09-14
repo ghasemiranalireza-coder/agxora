@@ -10,11 +10,14 @@ import type {
   TeamMemberRow,
 } from "./types";
 
+// Prototype layout only — counts are honest empty until live settings APIs exist.
+export const SETTINGS_DATA_SOURCE = "demo-prototype" as const;
+
 export const SETTINGS_KPIS: readonly SettingsKpi[] = [
-  { id: "members", label: "Team Members", value: "18", caption: "Active seats" },
+  { id: "members", label: "Team Members", value: "0", caption: "Active seats" },
   { id: "integrations", label: "Integrations", value: "0", caption: "Connected adapters" },
-  { id: "api", label: "API Keys", value: "3", caption: "Developer tokens" },
-  { id: "audit", label: "Audit Events", value: "124", caption: "Last 7 days" },
+  { id: "api", label: "API Keys", value: "0", caption: "Developer tokens" },
+  { id: "audit", label: "Audit Events", value: "0", caption: "Last 7 days" },
 ];
 
 export const DEFAULT_APPEARANCE_PREFS: AppearancePrefs = {
@@ -53,11 +56,11 @@ export const DEFAULT_AUTOMATION_PREFS: AutomationPrefs = {
 };
 
 export const TEAM_MEMBERS: readonly TeamMemberRow[] = [
-  { id: "m1", name: "Alex Morgan", email: "alex@agxora.io", role: "Owner", status: "active" },
-  { id: "m2", name: "Sam Rivera", email: "sam@agxora.io", role: "Admin", status: "active" },
-  { id: "m3", name: "Jordan Lee", email: "jordan@agxora.io", role: "Finance", status: "active" },
-  { id: "m4", name: "Casey Ng", email: "casey@agxora.io", role: "Creator", status: "active" },
-  { id: "m5", name: "Riley Chen", email: "riley@agxora.io", role: "Viewer", status: "invited" },
+  { id: "m1", name: "Demo · Alex Morgan", email: "demo.alex@example.invalid", role: "Owner", status: "active" },
+  { id: "m2", name: "Demo · Sam Rivera", email: "demo.sam@example.invalid", role: "Admin", status: "active" },
+  { id: "m3", name: "Demo · Jordan Lee", email: "demo.jordan@example.invalid", role: "Finance", status: "active" },
+  { id: "m4", name: "Demo · Casey Ng", email: "demo.casey@example.invalid", role: "Creator", status: "active" },
+  { id: "m5", name: "Demo · Riley Chen", email: "demo.riley@example.invalid", role: "Viewer", status: "invited" },
 ];
 
 // Honesty rule: none of these adapters has a live backend implementation,
@@ -111,61 +114,61 @@ export const AUDIT_LOGS: readonly AuditLogRow[] = [
   {
     id: "a1",
     at: "2026-07-30T16:20:00Z",
-    actor: "Alex Morgan",
+    actor: "Demo · Alex Morgan",
     category: "security",
-    summary: "Enabled 2FA enrollment reminder for admins",
+    summary: "Demo sample: Enabled 2FA enrollment reminder for admins",
   },
   {
     id: "a2",
     at: "2026-07-30T14:05:00Z",
-    actor: "Sam Rivera",
+    actor: "Demo · Sam Rivera",
     category: "system",
-    summary: "Updated workspace default modules",
+    summary: "Demo sample: Updated workspace default modules",
   },
   {
     id: "a3",
     at: "2026-07-29T19:40:00Z",
-    actor: "Jordan Lee",
+    actor: "Demo · Jordan Lee",
     category: "activity",
-    summary: "Changed Finance alert preferences",
+    summary: "Demo sample: Changed Finance alert preferences",
   },
   {
     id: "a4",
     at: "2026-07-29T11:12:00Z",
-    actor: "System",
+    actor: "Demo · System",
     category: "security",
-    summary: "Rotated sandbox developer token prefix",
+    summary: "Demo sample: Rotated sandbox developer token prefix",
   },
   {
     id: "a5",
     at: "2026-07-28T09:00:00Z",
-    actor: "Casey Ng",
+    actor: "Demo · Casey Ng",
     category: "activity",
-    summary: "Invited Riley Chen as Viewer",
+    summary: "Demo sample: Invited Riley Chen as Viewer",
   },
 ];
 
 export const API_KEYS: readonly ApiKeyRow[] = [
   {
     id: "k1",
-    name: "Production Server",
-    prefix: "agx_live_8f3a…",
+    name: "Demo · Production Server (not a live key)",
+    prefix: "demo_not_live_8f3a…",
     createdAt: "2026-05-01T10:00:00Z",
     lastUsed: "2026-07-30T12:00:00Z",
     scope: "read:write",
   },
   {
     id: "k2",
-    name: "CI Pipeline",
-    prefix: "agx_ci_91bc…",
+    name: "Demo · CI Pipeline (not a live key)",
+    prefix: "demo_not_live_91bc…",
     createdAt: "2026-06-12T10:00:00Z",
     lastUsed: "2026-07-29T22:10:00Z",
     scope: "read",
   },
   {
     id: "k3",
-    name: "Sandbox",
-    prefix: "agx_test_22de…",
+    name: "Demo · Sandbox (not a live key)",
+    prefix: "demo_not_live_22de…",
     createdAt: "2026-07-01T10:00:00Z",
     lastUsed: "2026-07-28T08:00:00Z",
     scope: "sandbox",

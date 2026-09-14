@@ -63,8 +63,8 @@ abstract class StubPaymentProvider implements PaymentProvider {
 
   async health() {
     return {
-      ok: true,
-      message: `${this.displayName} adapter ready (mock — no live network)`,
+      ok: false,
+      message: `${this.displayName} adapter is a local stub — no live network`,
     };
   }
 }

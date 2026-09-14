@@ -309,11 +309,11 @@ export const DATEV_EXPORTS: readonly DatevExportRecord[] = [
   {
     id: "exp-1",
     format: "datev",
-    label: "DATEV Buchungsstapel Q2",
+    label: "DATEV Buchungsstapel Q2 (sample — not delivered)",
     createdAt: "2026-07-15T10:00:00Z",
-    status: "delivered",
+    status: "queued",
     period: "Q2 2026",
-    steuerberaterReady: true,
+    steuerberaterReady: false,
   },
   {
     id: "exp-2",
@@ -336,11 +336,11 @@ export const DATEV_EXPORTS: readonly DatevExportRecord[] = [
   {
     id: "exp-4",
     format: "pdf",
-    label: "Steuerberater PDF pack",
+    label: "Steuerberater PDF pack (sample — not delivered)",
     createdAt: "2026-07-20T14:00:00Z",
-    status: "delivered",
+    status: "queued",
     period: "Q2 2026",
-    steuerberaterReady: true,
+    steuerberaterReady: false,
   },
 ];
 

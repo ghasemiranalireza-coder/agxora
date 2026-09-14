@@ -25,9 +25,9 @@ export const CREATOR_PLATFORM_INTEGRATIONS: readonly PlatformIntegrationPlan[] =
     id: "youtube",
     platform: "YouTube",
     category: "social",
-    status: "planned",
+    status: "ready",
     adapter: "YouTubeCreatorAdapter",
-    notes: "YouTube Data API upload + analytics reserved.",
+    notes: "YouTube publishing is available for connected accounts.",
   },
   {
     id: "facebook",

@@ -65,9 +65,9 @@ export const AUTOMATION_INTEGRATIONS: readonly IntegrationPlan[] = [
     id: "google-workspace",
     name: "Google Workspace",
     category: "Productivity",
-    status: "connected",
+    status: "planned",
     adapter: "GoogleWorkspaceAdapter",
-    notes: "Gmail / Drive / Calendar hooks reserved for OAuth wiring.",
+    notes: "Not connected — Google Workspace adapter is reserved. No live Workspace backend in this build.",
   },
   {
     id: "m365",

@@ -9,7 +9,14 @@ import type { ApiRequestOptions, ApiResponse } from "../types";
 import { localDataProvider } from "../providers/data/LocalDataProvider";
 import { registerLocalDataHandlers } from "../providers/data/registerLocalHandlers";
 import { buildHealthPayload } from "@/app/lib/production/health";
+import { jsonError } from "@/app/lib/crm/persistence/http";
+import { requireCurrentActor } from "@/app/lib/tenancy";
+import { isPersistenceError } from "@/app/lib/tenancy/errors";
 import { logPlatformEvent } from "../observability/logger";
+import {
+  bindCatchAllRequestToActor,
+  isPublicCatchAllLogicalPath,
+} from "./bindCatchAllTenant";
 
 let handlersReady = false;
 
@@ -91,7 +98,7 @@ export async function dispatchApiRequest(
     );
   }
 
-  const options: ApiRequestOptions = {
+  let options: ApiRequestOptions = {
     method: methodOf(request, body !== undefined),
     path: logical,
     body,
@@ -99,8 +106,13 @@ export async function dispatchApiRequest(
 
   let result: ApiResponse<unknown>;
   try {
+    if (!isPublicCatchAllLogicalPath(toLogicalPath(logical.split("?")[0] ?? logical))) {
+      const actor = await requireCurrentActor();
+      options = bindCatchAllRequestToActor(actor, options);
+    }
     result = await localDataProvider.request(options);
   } catch (error) {
+    if (isPersistenceError(error)) return jsonError(error);
     const message =
       error instanceof Error ? error.message : "Handler threw unexpectedly";
     logPlatformEvent("api.error", {

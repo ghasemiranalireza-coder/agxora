@@ -61,7 +61,7 @@ function requireApiKey(): string {
   if (!apiKey) {
     throw new AIError({
       code: "PROVIDER_NOT_CONFIGURED",
-      message: "OpenAI is not configured. Set AGXORA_OPENAI_API_KEY on the server.",
+      message: "OpenAI is not configured on the server.",
       providerId: "openai",
       retryable: false,
     });
