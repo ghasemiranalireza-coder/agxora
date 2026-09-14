@@ -47,7 +47,7 @@ export function LandingHero(): JSX.Element {
           <p className="p31-hero__subtitle">{t("landing.hero.subtitle")}</p>
           <div className="p31-hero__cta">
             <LandingCta href="/register">{t("landing.hero.ctaStart")}</LandingCta>
-            <LandingCta href="#product" variant="ghost">
+            <LandingCta href="#capabilities" variant="ghost">
               {t("landing.hero.ctaExplore")}
             </LandingCta>
           </div>

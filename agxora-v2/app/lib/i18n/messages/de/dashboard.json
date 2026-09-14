@@ -10,7 +10,10 @@
     "ctaViewActivity": "Aktivität ansehen",
     "openQuickActionsAria": "Schnellaktionen öffnen",
     "openCommandCenterAria": "AGXORA fragen, was Sie heute tun möchten",
-    "viewActivityAria": "Aktuelle Aktivität ansehen"
+    "viewActivityAria": "Aktuelle Aktivität ansehen",
+    "greeting": "Welcome back",
+    "workspace": "{name}",
+    "statusSafe": "SAFE mode is the default. External actions wait for your approval."
   },
   "command": {
     "eyebrow": "KI-Kommandozentrale",
@@ -392,5 +395,17 @@
     },
     "esc": "Esc"
   },
-  "summary": "{name}: {customers} Kunden · {projects} Projekte · {updates} Updates heute."
+  "summary": "{name}: {customers} Kunden · {projects} Projekte · {updates} Updates heute.",
+  "snapshot": {
+    "title": "Integrations",
+    "subtitle": "Live provider states from Integration Center — never invented.",
+    "open": "Open Integration Center",
+    "empty": "Connect a provider to unlock this insight.",
+    "loading": "Loading provider states…",
+    "error": "Provider states are unavailable right now.",
+    "availableCount": "{count} available",
+    "connectedCount": "{count} connected",
+    "comingSoonCount": "{count} coming soon",
+    "noneConnected": "No providers connected yet."
+  }
 }

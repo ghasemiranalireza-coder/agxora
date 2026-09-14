@@ -51,7 +51,7 @@ export const UI = {
   color: {
     background: "var(--agx-ds-background, #121a2a)",
     surface: "var(--agx-ds-surface, rgba(255,255,255,0.035))",
-    glass: "var(--agx-ds-glass, rgba(18, 28, 46, 0.55))",
+    glass: "var(--agx-ds-glass, rgba(16, 26, 42, 0.62))",
     elevated: "var(--agx-ds-elevated, rgba(22, 32, 52, 0.92))",
     border: "var(--agx-ds-border, rgba(255,255,255,0.1))",
     text: "var(--agx-text, #f4f8fb)",
@@ -70,6 +70,8 @@ export const UI = {
     sm: "var(--agx-ds-shadow-sm, 0 4px 14px rgba(0,0,0,0.16))",
     md: "var(--agx-ds-shadow-md, 0 12px 32px rgba(0,0,0,0.26))",
     lg: "var(--agx-ds-shadow-lg, 0 24px 56px rgba(0,0,0,0.34))",
+    gold: "var(--agx-ds-glow-gold, 0 10px 28px rgba(201, 166, 107, 0.18))",
+    cyan: "var(--agx-ds-glow-cyan, 0 8px 22px rgba(34, 211, 238, 0.12))",
   },
   motion: {
     fast: 0.16,

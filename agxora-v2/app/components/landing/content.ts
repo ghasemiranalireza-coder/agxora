@@ -5,6 +5,7 @@
 export const LANDING_NAV = [
   { href: "#product", messageKey: "landing.nav.product" },
   { href: "#platform", messageKey: "landing.nav.platform" },
+  { href: "#connected", messageKey: "landing.nav.integrations" },
   { href: "/pricing", messageKey: "landing.nav.pricing" },
   { href: "/contact-sales", messageKey: "landing.nav.sales" },
   { href: "#start", messageKey: "landing.nav.getStarted" },
@@ -15,9 +16,18 @@ export const LANDING_TRUST_KEYS = [
   "intelligence",
   "clarity",
   "path",
+  "marketing",
+  "operations",
 ] as const;
 
-export const LANDING_HERO_CHIPS = ["ai", "secure", "unified"] as const;
+export const LANDING_HERO_CHIPS = [
+  "ai",
+  "secure",
+  "unified",
+  "intelligence",
+  "marketing",
+  "operations",
+] as const;
 
 export const LANDING_GLOBE_TAGS = [
   "customers",
@@ -39,4 +49,32 @@ export const LANDING_PREVIEW_MODULES = [
   "moduleFinance",
   "moduleDocuments",
   "moduleAi",
+] as const;
+
+export const LANDING_AGENT_STEPS = [
+  "request",
+  "plan",
+  "approval",
+  "execution",
+  "confirmation",
+  "audit",
+] as const;
+
+export const LANDING_AUTOMATION_KEYS = [
+  "governed",
+  "capabilities",
+  "confirmation",
+] as const;
+
+export const LANDING_SECURITY_KEYS = [
+  "approval",
+  "design",
+  "audit",
+] as const;
+
+export const LANDING_USE_CASE_KEYS = [
+  "founder",
+  "operations",
+  "marketing",
+  "support",
 ] as const;

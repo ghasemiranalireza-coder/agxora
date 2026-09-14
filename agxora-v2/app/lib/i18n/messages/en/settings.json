@@ -326,7 +326,7 @@
   "page": {
     "eyebrow": "AGXORA Control Center",
     "title": "Settings",
-    "lead": "Enterprise configuration for every AGXORA module — profile, organization, AI, appearance, security, billing, and developer controls in one place.",
+    "lead": "Enterprise configuration for every AGXORA module — profile, organization, AI, appearance, security, billing, and developer controls in one place. Counts stay at zero until live settings APIs exist.",
     "loading": "Loading settings…",
     "breadcrumb": "{label} · {description}"
   },
@@ -335,19 +335,19 @@
   "kpi": {
     "members": {
       "label": "Team Members",
-      "caption": "Active seats"
+      "caption": "No data available yet"
     },
     "integrations": {
       "label": "Integrations",
-      "caption": "Connected adapters"
+      "caption": "Connect a provider to unlock this insight."
     },
     "api": {
       "label": "API Keys",
-      "caption": "Developer tokens"
+      "caption": "No data available yet"
     },
     "audit": {
       "label": "Audit Events",
-      "caption": "Last 7 days"
+      "caption": "No data available yet"
     }
   },
   "unknown": {

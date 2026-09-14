@@ -9,6 +9,7 @@ import type { CSSProperties, JSX } from "react";
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "../../lib/i18n";
+import { useOrganization } from "../../lib/organization";
 import { THEME_TRANSITION_MS, useTheme } from "../../lib/theme";
 import { framerTransition, hydrateSafeMotion, MOTION_LARGE_S } from "./motion";
 
@@ -39,8 +40,10 @@ function scrollToId(id: string, reduceMotion: boolean): void {
 export function HeroSection(): JSX.Element {
   const { tokens } = useTheme();
   const { t } = useLocale();
+  const { organization } = useOrganization();
   const isDay = tokens.tone === "day";
   const reduceMotion = useReducedMotion();
+  const workspaceName = organization?.name ?? t("dashboard.overview.fallbackName");
 
   const primaryCtaStyle: CSSProperties = {
     appearance: "none",
@@ -100,7 +103,7 @@ export function HeroSection(): JSX.Element {
           className="agx-hero-eyebrow"
           style={{ color: tokens.textMuted, transition: surfaceTransition }}
         >
-          {t("dashboard.hero.eyebrow")}
+          {t("dashboard.hero.greeting")}
         </p>
 
         <h1
@@ -113,7 +116,7 @@ export function HeroSection(): JSX.Element {
             transition: surfaceTransition,
           }}
         >
-          {t("dashboard.hero.title")}
+          {t("dashboard.hero.workspace", { name: workspaceName })}
         </h1>
 
         <p
@@ -121,6 +124,9 @@ export function HeroSection(): JSX.Element {
           style={{ color: tokens.textMuted, transition: surfaceTransition }}
         >
           {t("dashboard.hero.subtitle")}
+        </p>
+        <p className="agx-hero-status" style={{ color: tokens.textMuted, transition: surfaceTransition }}>
+          {t("dashboard.hero.statusSafe")}
         </p>
 
         <div className="agx-hero-cta-row">

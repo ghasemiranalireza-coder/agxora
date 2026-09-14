@@ -12,7 +12,7 @@ export function Badge({
 }): JSX.Element {
   return (
     <span
-      className="inline-flex items-center font-semibold tracking-wide"
+      className="agx-ui-badge inline-flex items-center font-semibold tracking-wide"
       style={{
         ...BADGE_TONES[tone],
         borderRadius: UI.radius.pill,

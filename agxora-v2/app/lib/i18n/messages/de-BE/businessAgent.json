@@ -81,5 +81,14 @@
     "completed": "Abgeschlossen",
     "failed": "Konnte nicht abgeschlossen werden",
     "rejected": "Abgelehnt"
+  },
+  "pipeline": {
+    "aria": "Agent run stages",
+    "request": "Request",
+    "plan": "Plan",
+    "approval": "Waiting for approval",
+    "execution": "Execution",
+    "confirmation": "Provider confirmation",
+    "audit": "Audit"
   }
 }

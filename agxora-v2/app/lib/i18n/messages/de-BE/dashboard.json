@@ -10,7 +10,10 @@
     "ctaViewActivity": "Aktivität anzeigen",
     "openQuickActionsAria": "Schnellaktionen öffnen",
     "viewActivityAria": "Aktuelle Aktivitäten anzeigen",
-    "openCommandCenterAria": "AGXORA fragen, was Sie heute tun möchten"
+    "openCommandCenterAria": "AGXORA fragen, was Sie heute tun möchten",
+    "greeting": "Welcome back",
+    "workspace": "{name}",
+    "statusSafe": "SAFE mode is the default. External actions wait for your approval."
   },
   "quickActions": {
     "title": "Schnelle Aktionen",
@@ -392,5 +395,17 @@
     "eyebrow": "KI-Kommandozentrale",
     "askToday": "Was möchten Sie heute tun?",
     "lead": "Beschreiben Sie ein Geschäftsziel. AGXORA versteht es, prüft verfügbare Fähigkeiten, erstellt einen Plan und wartet auf Ihre Freigabe, bevor etwas gesendet oder veröffentlicht wird."
+  },
+  "snapshot": {
+    "title": "Integrations",
+    "subtitle": "Live provider states from Integration Center — never invented.",
+    "open": "Open Integration Center",
+    "empty": "Connect a provider to unlock this insight.",
+    "loading": "Loading provider states…",
+    "error": "Provider states are unavailable right now.",
+    "availableCount": "{count} available",
+    "connectedCount": "{count} connected",
+    "comingSoonCount": "{count} coming soon",
+    "noneConnected": "No providers connected yet."
   }
 }

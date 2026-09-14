@@ -12,7 +12,11 @@ export function LandingTrust(): JSX.Element {
   const { t } = useLocale();
 
   return (
-    <section className="p31-trust" aria-label={t("landing.trust.ariaLabel")}>
+    <section
+      id="capabilities"
+      className="p31-trust"
+      aria-label={t("landing.trust.ariaLabel")}
+    >
       <div className="p31-wrap">
         <motion.p
           className="p31-trust__eyebrow"

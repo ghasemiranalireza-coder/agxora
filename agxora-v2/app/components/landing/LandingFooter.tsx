@@ -16,6 +16,7 @@ export function LandingFooter(): JSX.Element {
         <nav aria-label={t("landing.footer.ariaNav")}>
           <Link href="#product">{t("landing.footer.product")}</Link>
           <Link href="#platform">{t("landing.footer.platform")}</Link>
+          <Link href="#connected">{t("landing.nav.integrations")}</Link>
           <Link href="/pricing">{t("landing.footer.pricing")}</Link>
           <Link href="/login">{t("landing.footer.signIn")}</Link>
           <Link href="/register">{t("landing.footer.startFree")}</Link>
