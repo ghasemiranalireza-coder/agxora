@@ -19,7 +19,9 @@
     "healthcheck": "curl -sf http://127.0.0.1:3000/api/health",
     "i18n:validate": "node scripts/i18n/validate-i18n.mjs",
     "i18n:check": "node scripts/i18n/check-hardcoded.mjs",
-    "i18n:bundles": "node scripts/i18n/build-bundles.mjs"
+    "i18n:bundles": "node scripts/i18n/build-bundles.mjs",
+    "guardian": "tsx scripts/guardian/cli.ts check --dry-run",
+    "guardian:check": "tsx scripts/guardian/cli.ts check --dry-run"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
