@@ -534,12 +534,13 @@ html[dir="rtl"] .p31-hero__headline {
 }
 
 .p31-hero__scroll {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  flex-shrink: 0;
-  margin: 28px 0 0;
+  position: absolute;
+  inset-inline: 0;
+  bottom: 20px;
+  z-index: 3;
+  margin: 0;
   text-align: center;
+  pointer-events: none;
   font-size: 12px;
   letter-spacing: 0.04em;
   color: var(--p31-muted);
