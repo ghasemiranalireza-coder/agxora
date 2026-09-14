@@ -109,8 +109,9 @@ export function receiveIncomingWebhook(input: {
   readonly signatureHeader?: string;
 }): WebhookDelivery {
   const payloadStr = JSON.stringify(input.payload);
-  let status: WebhookDelivery["status"] = "delivered";
-  let error: string | undefined;
+  let status: WebhookDelivery["status"] = "queued";
+  let error: string | undefined =
+    "Incoming webhook was recorded locally — it was not delivered to an external system";
 
   if (input.endpoint.secretRef && input.signatureHeader) {
     const expected = signWebhookPayloadPlaceholder(
@@ -133,7 +134,7 @@ export function receiveIncomingWebhook(input: {
     attempt: 1,
     maxAttempts: 1,
     payloadPreview: payloadStr.slice(0, 180),
-    responseCode: status === "delivered" ? 200 : 401,
+    responseCode: status === "signed_pending" ? 401 : undefined,
     error,
     createdAt: nowIso(),
     completedAt: nowIso(),

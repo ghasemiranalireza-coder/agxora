@@ -12,6 +12,10 @@ import {
   upsertSocialCredentialForActor,
   revokeSocialCredentialForActor,
 } from "../credentials";
+import {
+  resolveSafeInternalPath,
+  YOUTUBE_OAUTH_FALLBACK_PATH,
+} from "@/app/lib/security/safeInternalPath";
 import { issueSocialOAuthState, consumeSocialOAuthState } from "./state";
 import { patchSocialAccountConnectionForActor } from "@/app/lib/creative/persistPublishResult";
 
@@ -49,7 +53,10 @@ export async function beginYouTubeOAuthForActor(
     actor,
     platform: "youtube",
     codeVerifier: pkce.verifier,
-    redirectPath,
+    redirectPath: resolveSafeInternalPath(
+      redirectPath,
+      YOUTUBE_OAUTH_FALLBACK_PATH,
+    ),
   });
 
   const params = new URLSearchParams({
@@ -160,7 +167,10 @@ export async function completeYouTubeOAuthForActor(
   return {
     connected: true,
     displayName: channelName,
-    redirectPath: consumed.redirectPath,
+    redirectPath: resolveSafeInternalPath(
+      consumed.redirectPath,
+      YOUTUBE_OAUTH_FALLBACK_PATH,
+    ),
   };
 }
 

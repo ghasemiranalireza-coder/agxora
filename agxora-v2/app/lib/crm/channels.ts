@@ -11,9 +11,9 @@ export const COMMUNICATION_CHANNELS: readonly ChannelAdapterPlan[] = [
     id: "email",
     channel: "Email",
     category: "email",
-    status: "ready",
+    status: "planned",
     adapter: "EmailAdapter",
-    notes: "IMAP / SMTP / Microsoft Graph / Gmail API hooks reserved.",
+    notes: "IMAP / SMTP / Microsoft Graph / Gmail API hooks reserved. Communication Hub email is not live.",
   },
   {
     id: "whatsapp",

@@ -56,7 +56,7 @@ export const DOCUMENT_INTEGRATIONS: readonly DocumentIntegration[] = [
     id: "google-drive",
     name: "Google Drive",
     adapter: "GoogleDriveAdapter",
-    status: "beta",
+    status: "planned",
     description: "Import / sync architecture reserved — no live OAuth yet.",
   },
   {

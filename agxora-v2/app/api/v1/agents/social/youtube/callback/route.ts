@@ -5,6 +5,10 @@
 import { NextResponse } from "next/server";
 import { requireCurrentActor } from "@/app/lib/tenancy";
 import { jsonError } from "@/app/lib/crm/persistence/http";
+import {
+  buildSafeSameOriginRedirectUrl,
+  YOUTUBE_OAUTH_FALLBACK_PATH,
+} from "@/app/lib/security/safeInternalPath";
 import { completeYouTubeOAuthForActor } from "@/app/lib/social/oauth/youtube";
 
 export const runtime = "nodejs";
@@ -23,8 +27,11 @@ export async function GET(request: Request): Promise<NextResponse> {
     }
 
     const result = await completeYouTubeOAuthForActor(actor, { code, state });
-    const redirectPath = result.redirectPath ?? "/agents?tab=social";
-    const redirectUrl = new URL(redirectPath, url.origin);
+    const redirectUrl = buildSafeSameOriginRedirectUrl(
+      request.url,
+      result.redirectPath,
+      YOUTUBE_OAUTH_FALLBACK_PATH,
+    );
     redirectUrl.searchParams.set("youtube", "connected");
     return NextResponse.redirect(redirectUrl);
   } catch (error) {

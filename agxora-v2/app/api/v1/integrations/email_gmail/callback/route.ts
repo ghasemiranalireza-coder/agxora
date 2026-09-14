@@ -7,6 +7,10 @@ import { NextResponse } from "next/server";
 import { requireDatabase } from "@/app/lib/auth/server/http";
 import { jsonError } from "@/app/lib/crm/persistence/http";
 import { markIntegrationConnectedForActor } from "@/app/lib/business-agent/integrations";
+import {
+  buildSafeSameOriginRedirectUrl,
+  GMAIL_OAUTH_FALLBACK_PATH,
+} from "@/app/lib/security/safeInternalPath";
 import { completeGmailOAuthForActor } from "@/app/lib/social/oauth/gmail";
 import { requireCurrentActor } from "@/app/lib/tenancy";
 
@@ -17,7 +21,11 @@ function redirectWithGmailStatus(
   path: string,
   status: "connected" | "denied" | "error",
 ): NextResponse {
-  const redirectUrl = new URL(path, new URL(requestUrl).origin);
+  const redirectUrl = buildSafeSameOriginRedirectUrl(
+    requestUrl,
+    path,
+    GMAIL_OAUTH_FALLBACK_PATH,
+  );
   redirectUrl.searchParams.set("gmail", status);
   return NextResponse.redirect(redirectUrl);
 }
@@ -28,7 +36,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     const actor = await requireCurrentActor();
     const url = new URL(request.url);
     const error = url.searchParams.get("error");
-    const defaultPath = "/dashboard/integrations";
+    const defaultPath = GMAIL_OAUTH_FALLBACK_PATH;
 
     if (error === "access_denied") {
       return redirectWithGmailStatus(request.url, defaultPath, "denied");

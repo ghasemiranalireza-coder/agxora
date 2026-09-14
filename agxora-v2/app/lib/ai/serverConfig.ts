@@ -5,7 +5,6 @@
 import "server-only";
 
 import { resolveTrustedOpenAIBaseUrl } from "@/app/lib/creative/config";
-import { AI_ENV_KEYS } from "./AISettings";
 
 export const DEFAULT_OPENAI_CHAT_MODEL = "gpt-4.1";
 
@@ -44,6 +43,6 @@ export function getAiServerConfig(): AiServerPublicConfig {
     chatModelId,
     message: configured
       ? "OpenAI is configured"
-      : `OpenAI is not configured (set ${AI_ENV_KEYS.openai})`,
+      : "OpenAI is not configured on the server",
   };
 }
