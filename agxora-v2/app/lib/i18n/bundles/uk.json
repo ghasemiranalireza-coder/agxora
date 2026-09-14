@@ -681,7 +681,10 @@
       "audit": {
         "label": "Події аудиту",
         "caption": "Останні 7 днів"
-      }
+      },
+      "emptyTitle": "No data available yet",
+      "emptyBody": "Team members, connected integrations, API keys, and audit events will appear here when live settings APIs exist. These are not tenant totals.",
+      "emptyValue": "—"
     },
     "unknown": {
       "title": "Налаштування",
@@ -813,6 +816,9 @@
       "eyebrow": "ОС для бізнесу на базі ШІ",
       "title": "AGXORA CORE",
       "subtitle": "Розвідка в реальному часі та оперативний контроль — ваша робоча область команд.",
+      "greeting": "Welcome back",
+      "workspace": "{name}",
+      "statusSafe": "SAFE mode is the default. External actions wait for your approval.",
       "ctaGetStarted": "Почніть роботу",
       "ctaViewActivity": "Переглянути діяльність",
       "openQuickActionsAria": "Відкрити швидкі дії",
@@ -1199,7 +1205,19 @@
         }
       }
     },
-    "summary": "{name}: {customers} клієнти · {projects} проекти · {updates} оновлення сьогодні."
+    "summary": "{name}: {customers} клієнти · {projects} проекти · {updates} оновлення сьогодні.",
+    "snapshot": {
+      "title": "Integrations",
+      "subtitle": "Live provider states from Integration Center — never invented.",
+      "open": "Open Integration Center",
+      "empty": "Connect a provider to unlock this insight.",
+      "loading": "Loading provider states…",
+      "error": "Provider states are unavailable right now.",
+      "availableCount": "{count} available",
+      "connectedCount": "{count} connected",
+      "comingSoonCount": "{count} coming soon",
+      "noneConnected": "No providers connected yet."
+    }
   },
   "auth": {
     "login": {
@@ -2678,6 +2696,7 @@
       "ariaPrimary": "Первинний",
       "product": "Продукт",
       "platform": "Платформа",
+      "integrations": "Integrations",
       "pricing": "Ціноутворення",
       "sales": "Продажі",
       "getStarted": "Почніть роботу",
@@ -2700,7 +2719,10 @@
       "chips": {
         "ai": "AI-assisted",
         "secure": "Secure & GDPR-ready",
-        "unified": "Everything in one place"
+        "unified": "Everything in one place",
+        "intelligence": "Business Intelligence",
+        "marketing": "Marketing",
+        "operations": "Operations"
       },
       "tags": {
         "customers": "Customers",
@@ -2728,8 +2750,25 @@
         "path": {
           "title": "Чистий шлях до масштабу",
           "detail": "Почніть безкоштовно. Вирощуйте, коли будете готові."
+        },
+        "marketing": {
+          "title": "Marketing",
+          "detail": "Campaigns and drafts stay in your control."
+        },
+        "operations": {
+          "title": "Operations",
+          "detail": "One command center for the work of the business."
         }
       }
+    },
+    "network": {
+      "title": "Enterprise infrastructure, not another chatbot.",
+      "lead": "Business signals enter AGXORA. Agents plan the work. Connected systems execute only after approval.",
+      "aria": "How AGXORA sits between your business, AI agents, and connected systems",
+      "business": "Business",
+      "agxora": "AGXORA",
+      "agents": "AI Agents",
+      "systems": "Connected Systems"
     },
     "product": {
       "title": "Всередині робочого простору AGXORA",
@@ -2773,6 +2812,64 @@
           "detail": "Сьогодні: підключена операційна система. Попереду: глибші агенти та автоматизація — чесно доставлені під час доставки."
         }
       }
+    },
+    "connected": {
+      "title": "Your business. Connected.",
+      "lead": "These states come from the canonical provider registry. Gmail and YouTube are the only production OAuth integrations. Nothing here is marked connected.",
+      "available": "Available",
+      "comingSoon": "Coming soon",
+      "comingSoonLead": "Architecture is in place. These providers are not connectable yet.",
+      "cta": "Open Integration Center"
+    },
+    "agents": {
+      "title": "Don't just use AI. Give AI a job.",
+      "lead": "Every external action follows the same path. Execution never appears complete before the provider confirms it.",
+      "request": "User request",
+      "plan": "Agent plan",
+      "approval": "Waiting for approval",
+      "execution": "Execution",
+      "confirmation": "Provider confirmation",
+      "audit": "Audit"
+    },
+    "automation": {
+      "title": "From workflow to autonomy.",
+      "lead": "Start with an approved plan. Expand automation only where the product actually supports it.",
+      "governed": {
+        "title": "Governed by default",
+        "detail": "SAFE mode keeps send and publish behind explicit approval."
+      },
+      "capabilities": {
+        "title": "Real capabilities only",
+        "detail": "Agents plan against the resolver — not a decorative catalog."
+      },
+      "confirmation": {
+        "title": "Provider confirmation",
+        "detail": "A run is complete when the provider confirms, not when the UI animates."
+      }
+    },
+    "security": {
+      "title": "AI that works with control.",
+      "lead": "Control is part of the product, not a slogan overlay.",
+      "approval": {
+        "title": "Human approval",
+        "detail": "Plans wait. Send and publish stay blocked until you authorize them."
+      },
+      "design": {
+        "title": "Secure by design",
+        "detail": "Production access is gated. Secrets stay on the server. Public routes stay public."
+      },
+      "audit": {
+        "title": "Audit trail",
+        "detail": "Agent runs and workspace activity are recorded as they happen — empty until you use them."
+      }
+    },
+    "useCases": {
+      "title": "Built for operators who need a system, not a demo.",
+      "lead": "AGXORA is for founders and teams who want AI inside the business — with the same standards they expect from enterprise software.",
+      "founder": "Founders consolidating tools",
+      "operations": "Operations teams governing AI",
+      "marketing": "Marketing teams running approved campaigns",
+      "support": "Teams answering from real inboxes"
     },
     "close": {
       "title": "Почніть безкоштовно. Масштаб, коли буде готовий.",
@@ -5535,6 +5632,8 @@
     },
     "center": {
       "subtitle": "One catalog for every AGXORA provider. Gmail and YouTube are the only production OAuth integrations. Other providers are architecture only — not connected.",
+      "legendTitle": "Provider states",
+      "legendLead": "States come from the live resolver. Connected appears only after the provider confirms.",
       "filterLabel": "Integration categories",
       "emptyFilter": "No providers in this view.",
       "declaredOnly": "declared",
@@ -6962,6 +7061,15 @@
       "completed": "Completed",
       "failed": "Could not complete",
       "rejected": "Rejected"
+    },
+    "pipeline": {
+      "aria": "Agent run stages",
+      "request": "Request",
+      "plan": "Plan",
+      "approval": "Waiting for approval",
+      "execution": "Execution",
+      "confirmation": "Provider confirmation",
+      "audit": "Audit"
     }
   }
 }

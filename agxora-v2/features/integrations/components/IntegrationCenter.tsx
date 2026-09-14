@@ -2,6 +2,7 @@
 
 import { useMemo, useState, type JSX } from "react";
 import { Button, Card } from "@/app/components/ui";
+import { AGStatus } from "@/app/components/ag/AGStatus";
 import { catalogCopy, useT } from "@/app/lib/i18n";
 import {
   CENTER_FILTERS,
@@ -167,6 +168,43 @@ export function IntegrationCenter(): JSX.Element {
             "One catalog for every AGXORA provider. Gmail and YouTube are the only production OAuth integrations. Other providers are architecture only — not connected.",
           )}
         </p>
+        <div className="agx-integrations__legend-block">
+          <p className="agx-integrations__legend-title">
+            {catalogCopy(t, "integrations.center.legendTitle", "Provider states")}
+          </p>
+          <p className="agx-ui-hint">
+            {catalogCopy(
+              t,
+              "integrations.center.legendLead",
+              "States come from the live resolver. Connected appears only after the provider confirms.",
+            )}
+          </p>
+          <ul className="agx-ui-legend" aria-label={catalogCopy(t, "integrations.center.legendTitle", "Provider states")}>
+            {(
+              [
+                ["available", t("businessAgent.statusAvailable")],
+                ["connected", t("businessAgent.connected")],
+                ["requires_authorization", t("businessAgent.statusRequiresAuthorization")],
+                ["requires_permission", t("businessAgent.statusRequiresPermission")],
+                [
+                  "requires_reauth",
+                  catalogCopy(t, "integrations.center.status.requiresReauth", "Reconnect required"),
+                ],
+                ["error", catalogCopy(t, "integrations.center.status.error", "Error")],
+                ["coming_soon", t("common.comingSoon")],
+                ["unsupported", t("businessAgent.statusUnsupported")],
+                [
+                  "upgrade_required",
+                  catalogCopy(t, "integrations.center.status.upgrade", "Upgrade"),
+                ],
+              ] as const
+            ).map(([status, label]) => (
+              <li key={status} className="agx-ui-legend__item">
+                <AGStatus status={status}>{label}</AGStatus>
+              </li>
+            ))}
+          </ul>
+        </div>
         {policy ? (
           <div className="agx-integrations__policy">
             <span>

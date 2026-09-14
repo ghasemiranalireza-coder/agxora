@@ -237,8 +237,10 @@
     "keyName": "Key {n}",
     "webhookName": "Webhook {n}"
   },
-  "center": {
+    "center": {
     "subtitle": "One catalog for every AGXORA provider. Gmail and YouTube are the only production OAuth integrations. Other providers are architecture only — not connected.",
+    "legendTitle": "Provider states",
+    "legendLead": "States come from the live resolver. Connected appears only after the provider confirms.",
     "filterLabel": "Integration categories",
     "emptyFilter": "No providers in this view.",
     "declaredOnly": "declared",

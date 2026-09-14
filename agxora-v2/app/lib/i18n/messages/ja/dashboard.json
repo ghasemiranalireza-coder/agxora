@@ -10,7 +10,10 @@
     "ctaViewActivity": "アクティビティの表示",
     "openQuickActionsAria": "クイックアクションを開く",
     "viewActivityAria": "最近のアクティビティを表示する",
-    "openCommandCenterAria": "Ask AGXORA what to do today"
+    "openCommandCenterAria": "Ask AGXORA what to do today",
+    "greeting": "Welcome back",
+    "workspace": "{name}",
+    "statusSafe": "SAFE mode is the default. External actions wait for your approval."
   },
   "quickActions": {
     "title": "クイックアクション",
@@ -392,5 +395,17 @@
     "eyebrow": "AI Command Center",
     "askToday": "What would you like to do today?",
     "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
+  },
+  "snapshot": {
+    "title": "Integrations",
+    "subtitle": "Live provider states from Integration Center — never invented.",
+    "open": "Open Integration Center",
+    "empty": "Connect a provider to unlock this insight.",
+    "loading": "Loading provider states…",
+    "error": "Provider states are unavailable right now.",
+    "availableCount": "{count} available",
+    "connectedCount": "{count} connected",
+    "comingSoonCount": "{count} coming soon",
+    "noneConnected": "No providers connected yet."
   }
 }

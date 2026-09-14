@@ -181,6 +181,7 @@ export function AuthCard({
   const t = useT();
   return (
     <main style={pageStyle} className="agx-auth-page">
+      <div className="agx-auth-page__atmosphere" aria-hidden="true" />
       <div style={cardStyle} data-auth-card="">
         <p
           className="agx-ui-section-title"

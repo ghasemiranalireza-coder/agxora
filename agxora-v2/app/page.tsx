@@ -23,19 +23,19 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    absolute: "AGXORA — Intelligent Business Operating System",
+    absolute: "AGXORA — The AI Operating System for Your Business",
   },
   description:
-    "AGXORA connects customers, finance, documents, and governed AI in one calm command center for founders and operators.",
+    "Connect your business. Let AI operate it. AGXORA is the AI operating system for agents, integrations, and governed automation.",
   applicationName: "AGXORA",
   keywords: [
     "AGXORA",
-    "business operating system",
+    "AI operating system",
     "enterprise AI platform",
-    "CRM",
-    "finance",
-    "documents",
+    "AI agents",
+    "integrations",
     "automation",
+    "business intelligence",
     "B2B SaaS",
   ],
   alternates: { canonical: "/" },
@@ -43,15 +43,15 @@ export const metadata: Metadata = {
     type: "website",
     url: "/",
     siteName: "AGXORA",
-    title: "AGXORA — Intelligent Business Operating System",
+    title: "AGXORA — The AI Operating System for Your Business",
     description:
-      "Connect customers, finance, documents, and AI in one operating surface — start free when you are ready.",
+      "Connect your business. Let AI operate it. Gmail and YouTube are live today. Other providers ship honestly as they become available.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AGXORA — Intelligent Business Operating System",
+    title: "AGXORA — The AI Operating System for Your Business",
     description:
-      "An intelligent business operating system for founders and operators — start free.",
+      "Connect your business. Let AI operate it — with human approval before send or publish.",
   },
   robots: { index: true, follow: true },
 };
@@ -63,7 +63,7 @@ const jsonLd = {
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description:
-    "AGXORA is an intelligent business operating system connecting CRM, finance, documents, and governed AI.",
+    "AGXORA is the AI operating system for your business — agents, integrations, and governed automation with human approval.",
   url: siteUrl,
   offers: {
     "@type": "Offer",

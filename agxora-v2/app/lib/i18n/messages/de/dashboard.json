@@ -10,7 +10,10 @@
     "ctaViewActivity": "Aktivität ansehen",
     "openQuickActionsAria": "Schnellaktionen öffnen",
     "openCommandCenterAria": "AGXORA fragen, was Sie heute tun möchten",
-    "viewActivityAria": "Aktuelle Aktivität ansehen"
+    "viewActivityAria": "Aktuelle Aktivität ansehen",
+    "greeting": "Willkommen zurück",
+    "workspace": "{name}",
+    "statusSafe": "SAFE-Modus ist die Standardeinstellung. Externe Aktionen warten auf Ihre Freigabe."
   },
   "command": {
     "eyebrow": "KI-Kommandozentrale",
@@ -392,5 +395,23 @@
     },
     "esc": "Esc"
   },
-  "summary": "{name}: {customers} Kunden · {projects} Projekte · {updates} Updates heute."
+  "summary": "{name}: {customers} Kunden · {projects} Projekte · {updates} Updates heute.",
+  "snapshot": {
+    "title": "Integrations-Snapshot",
+    "subtitle": "Live-Anbieterstatus aus dem Integrationscenter — niemals erfunden.",
+    "open": "Integrationscenter öffnen",
+    "empty": "Noch keine Anbieter im Snapshot. Öffnen Sie das Integrationscenter, um den Live-Vertrag zu sehen.",
+    "loading": "Anbieterstatus wird geladen…",
+    "error": "Anbieterstatus ist gerade nicht verfügbar.",
+    "availableCount": "{count} verfügbar",
+    "connectedCount": "{count} verbunden",
+    "comingSoonCount": "{count} demnächst",
+    "noneConnected": "Noch keine Anbieter verbunden.",
+    "body": "Live-Zählungen aus dem Integrationsvertrag. Verbunden bedeutet eine echte aktive Bindung, nicht eine Marketing-Kachel.",
+    "connected": "Verbunden",
+    "available": "Verfügbar",
+    "comingSoon": "Demnächst",
+    "attention": "Aufmerksamkeit",
+    "cta": "Integrationen öffnen"
+  }
 }

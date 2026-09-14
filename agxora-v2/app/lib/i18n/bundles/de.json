@@ -681,7 +681,10 @@
       "audit": {
         "label": "Audit-Ereignisse",
         "caption": "Letzte 7 Tage"
-      }
+      },
+      "emptyTitle": "Keine Live-Kennzahlen in diesem Arbeitsbereich",
+      "emptyBody": "Einstellungen zeigen hier keine erfundenen KPI-Zahlen. Sobald echte Telemetrie angebunden ist, erscheinen die Werte an dieser Stelle.",
+      "emptyValue": "—"
     },
     "unknown": {
       "title": "Einstellungen",
@@ -813,6 +816,9 @@
       "eyebrow": "KI-Geschäftsbetriebssystem",
       "title": "AGXORA CORE",
       "subtitle": "Echtzeit-Intelligenz und operative Steuerung — die Kommandozentrale Ihres Workspace.",
+      "greeting": "Willkommen zurück",
+      "workspace": "{name}",
+      "statusSafe": "SAFE-Modus ist die Standardeinstellung. Externe Aktionen warten auf Ihre Freigabe.",
       "ctaGetStarted": "AGXORA fragen",
       "ctaViewActivity": "Aktivität ansehen",
       "openQuickActionsAria": "Schnellaktionen öffnen",
@@ -1199,7 +1205,25 @@
         }
       }
     },
-    "summary": "{name}: {customers} Kunden · {projects} Projekte · {updates} Updates heute."
+    "summary": "{name}: {customers} Kunden · {projects} Projekte · {updates} Updates heute.",
+    "snapshot": {
+      "title": "Integrations-Snapshot",
+      "subtitle": "Live-Anbieterstatus aus dem Integrationscenter — niemals erfunden.",
+      "open": "Integrationscenter öffnen",
+      "empty": "Noch keine Anbieter im Snapshot. Öffnen Sie das Integrationscenter, um den Live-Vertrag zu sehen.",
+      "loading": "Anbieterstatus wird geladen…",
+      "error": "Anbieterstatus ist gerade nicht verfügbar.",
+      "availableCount": "{count} verfügbar",
+      "connectedCount": "{count} verbunden",
+      "comingSoonCount": "{count} demnächst",
+      "noneConnected": "Noch keine Anbieter verbunden.",
+      "body": "Live-Zählungen aus dem Integrationsvertrag. Verbunden bedeutet eine echte aktive Bindung, nicht eine Marketing-Kachel.",
+      "connected": "Verbunden",
+      "available": "Verfügbar",
+      "comingSoon": "Demnächst",
+      "attention": "Aufmerksamkeit",
+      "cta": "Integrationen öffnen"
+    }
   },
   "auth": {
     "login": {
@@ -2678,6 +2702,7 @@
       "ariaPrimary": "Primär",
       "product": "Produkt",
       "platform": "Plattform",
+      "integrations": "Integrationen",
       "pricing": "Preise",
       "sales": "Vertrieb",
       "getStarted": "Loslegen",
@@ -2688,11 +2713,11 @@
     },
     "hero": {
       "brand": "AGXORA",
-      "headline": "Das intelligente Business Operating System.",
-      "headlineBefore": "Das intelligente ",
-      "headlineHighlight": "Business",
-      "headlineAfter": " Operating System.",
-      "subtitle": "Verbindet Kunden, Finanzen, Dokumente und KI in einem ruhigen Command Center — für Gründer und Operatoren, die Klarheit brauchen, nicht noch einen Tool-Stack.",
+      "headline": "Das KI-Betriebssystem für Ihr Unternehmen.",
+      "headlineBefore": "Das ",
+      "headlineHighlight": "KI-Betriebssystem",
+      "headlineAfter": " für Ihr Unternehmen.",
+      "subtitle": "Verbinden Sie Ihr Unternehmen. Lassen Sie KI es betreiben.",
       "ctaStart": "Kostenlos starten",
       "ctaExplore": "So funktioniert’s",
       "globeAria": "Visualisierung globaler Intelligenz",
@@ -2700,14 +2725,20 @@
       "chips": {
         "ai": "KI-gestützt",
         "secure": "Sicher & DSGVO-konform",
-        "unified": "Alles an einem Ort"
+        "unified": "Alles an einem Ort",
+        "intelligence": "Business Intelligence",
+        "marketing": "Marketing",
+        "operations": "Operations"
       },
       "tags": {
         "customers": "Kunden",
         "growth": "Wachstum",
         "automation": "Automatisierung",
         "success": "Erfolg"
-      }
+      },
+      "eyebrow": "AGXORA OS",
+      "ctaPrimary": "Kostenlos starten",
+      "ctaSecondary": "Integrationen ansehen"
     },
     "trust": {
       "ariaLabel": "Warum AGXORA",
@@ -2728,8 +2759,33 @@
         "path": {
           "title": "Global einsetzbar",
           "detail": "Für jede Branche"
+        },
+        "marketing": {
+          "title": "Marketing",
+          "detail": "Kampagnen und Entwürfe bleiben unter Ihrer Kontrolle."
+        },
+        "operations": {
+          "title": "Operations",
+          "detail": "Ein Command Center für die Arbeit des Unternehmens."
         }
-      }
+      },
+      "registryBacked": "Anbieterstatus kommt aus der Integrations-Registry, nicht aus Marketingtext.",
+      "noFakeMetrics": "Keine erfundenen Kennzahlen. Keine erfundenen Verbindungen."
+    },
+    "network": {
+      "title": "Sehen Sie, wie Ihr Unternehmen verbunden wird.",
+      "lead": "Geschäftssignale gelangen zu AGXORA. Agenten planen die Arbeit. Verbundene Systeme führen erst nach Freigabe aus.",
+      "aria": "Wie AGXORA zwischen Ihrem Unternehmen, KI-Agenten und verbundenen Systemen steht",
+      "business": "Unternehmen",
+      "agxora": "AGXORA",
+      "agents": "KI-Agenten",
+      "systems": "Verbundene Systeme",
+      "kicker": "Netzwerk",
+      "body": "AGXORA sitzt im Zentrum. E-Mail, YouTube und weitere Systeme treten hinzu, wenn sie registriert und aktiviert sind.",
+      "center": "AGXORA",
+      "note": "Live-Status kommt aus der Integrations-Registry. Gmail und YouTube sind verfügbar. Weitere Anbieter folgen.",
+      "available": "Verfügbar",
+      "comingSoon": "Demnächst"
     },
     "product": {
       "title": "Im AGXORA-Workspace",
@@ -2774,6 +2830,89 @@
         }
       }
     },
+    "connected": {
+      "title": "Verbinden Sie das, was Ihr Unternehmen bereits nutzt.",
+      "lead": "Diese Zustände kommen aus der kanonischen Anbieter-Registry. Gmail und YouTube sind die einzigen Produktions-OAuth-Integrationen. Hier ist nichts als verbunden markiert.",
+      "available": "Verfügbar",
+      "comingSoon": "Demnächst",
+      "comingSoonLead": "Die Architektur steht. Diese Anbieter sind noch nicht verbindbar.",
+      "cta": "Integrationen öffnen",
+      "kicker": "Verbindung",
+      "body": "Jeder Anbieter folgt derselben Registry, denselben Adaptervertrag und derselben ehrlichen Zustandsprojektion."
+    },
+    "agents": {
+      "title": "Agenten, die innerhalb sicherer Grenzen handeln.",
+      "lead": "Jede externe Aktion folgt demselben Pfad. Ausführung gilt erst als abgeschlossen, wenn der Anbieter bestätigt.",
+      "request": "Nutzeranfrage",
+      "plan": "Agentenplan",
+      "approval": "Wartet auf Freigabe",
+      "execution": "Ausführung",
+      "confirmation": "Anbieterbestätigung",
+      "audit": "Audit",
+      "kicker": "Agenten",
+      "body": "Der Business Agent plant, fordert Freigabe an und führt nur nach Bestätigung aus. SAFE bleibt die Standardhaltung.",
+      "cta": "Agenten-Pipeline ansehen"
+    },
+    "automation": {
+      "title": "Automatisierung, die Sie kontrollieren können.",
+      "lead": "Beginnen Sie mit einem freigegebenen Plan. Erweitern Sie Automatisierung nur dort, wo das Produkt sie wirklich unterstützt.",
+      "governed": {
+        "title": "Standardmäßig gesteuert",
+        "detail": "Der SAFE-Modus hält Senden und Veröffentlichen hinter ausdrücklicher Freigabe."
+      },
+      "capabilities": {
+        "title": "Nur echte Fähigkeiten",
+        "detail": "Agenten planen gegen den Resolver — nicht gegen einen dekorativen Katalog."
+      },
+      "confirmation": {
+        "title": "Anbieterbestätigung",
+        "detail": "Ein Lauf ist abgeschlossen, wenn der Anbieter bestätigt — nicht wenn die Oberfläche animiert."
+      },
+      "kicker": "Automatisierung",
+      "body": "Pipelines machen Anfrage, Plan, Freigabe, Ausführung, Bestätigung und Audit sichtbar. Nichts läuft still im Hintergrund.",
+      "cta": "Pipeline-Steuerung sehen"
+    },
+    "security": {
+      "title": "Kontrolle, die das Betriebssystem zusammenhält.",
+      "lead": "Kontrolle ist Teil des Produkts, kein Slogan darüber.",
+      "approval": {
+        "title": "Menschliche Freigabe",
+        "detail": "Pläne warten. Senden und Veröffentlichen bleiben gesperrt, bis Sie sie autorisieren."
+      },
+      "design": {
+        "title": "Sicher by Design",
+        "detail": "Produktionszugang ist geschützt. Geheimnisse bleiben auf dem Server. Öffentliche Routen bleiben öffentlich."
+      },
+      "audit": {
+        "title": "Audit-Spur",
+        "detail": "Agentenläufe und Workspace-Aktivität werden aufgezeichnet, sobald sie passieren — leer, bis Sie sie nutzen."
+      },
+      "kicker": "Sicherheit",
+      "body": "Rollen, Sitzungen, Guardian-Schutz und Audit-Spuren bleiben Teil des Produkts — nicht nur der Infrastruktur.",
+      "cta": "Steuerung und Sicherheit"
+    },
+    "useCases": {
+      "title": "Gebaut für Teams, die E-Mail, Inhalte und Betrieb zusammenführen.",
+      "lead": "AGXORA ist für Gründer und Teams, die KI im Unternehmen wollen — mit denselben Standards, die sie von Enterprise-Software erwarten.",
+      "founder": "Gründer, die Tools zusammenführen",
+      "operations": "Operations-Teams, die KI steuern",
+      "marketing": "Marketing-Teams mit freigegebenen Kampagnen",
+      "support": "Teams, die aus echten Posteingängen antworten",
+      "kicker": "Anwendungsfälle",
+      "body": "Starten Sie mit Gmail und YouTube. Weitere Systeme folgen demselben Integrationsvertrag, sobald sie registriert sind.",
+      "email": {
+        "title": "E-Mail-Betrieb",
+        "body": "Gmail ist verfügbar. Weitere Posteingänge folgen demselben Anbietervertrag."
+      },
+      "content": {
+        "title": "Inhalte und Reichweite",
+        "body": "YouTube ist verfügbar. Kampagnen bleiben an echte Verbindungen gebunden."
+      },
+      "ops": {
+        "title": "Betrieb und Steuerung",
+        "body": "Agenten, Integrationen und Audit bleiben in einem Arbeitsbereich sichtbar."
+      }
+    },
     "close": {
       "title": "Kostenlos starten. Skalieren, wenn bereit.",
       "lead": "Workspace anlegen und das Command Center erkunden.",
@@ -2798,7 +2937,11 @@
       "imprint": "Impressum",
       "copyright": "© {year} {company}"
     },
-    "globeAria": "AGXORA AI CORE — 3D-Globus"
+    "globeAria": "AGXORA AI CORE — 3D-Globus",
+    "chips": {
+      "gmailYoutubeAvailable": "Gmail und YouTube verfügbar",
+      "otherComingSoon": "Weitere Anbieter folgen"
+    }
   },
   "ui": {
     "table": {
@@ -5535,6 +5678,8 @@
     },
     "center": {
       "subtitle": "One catalog for every AGXORA provider. Gmail and YouTube are the only production OAuth integrations. Other providers are architecture only — not connected.",
+      "legendTitle": "So lesen Sie den Anbieterstatus",
+      "legendLead": "Status kommt aus dem Live-Resolver. Verbunden erscheint erst, wenn der Anbieter bestätigt.",
       "filterLabel": "Integration categories",
       "emptyFilter": "No providers in this view.",
       "declaredOnly": "declared",
@@ -5575,7 +5720,17 @@
         "schedule": "Schedule",
         "publish": "Publish",
         "send": "Send"
-      }
+      },
+      "legendLive": "Live-Vertrag",
+      "legendLiveHint": "Status kommt nur aus Registry, Resolver und Projektion.",
+      "legendAvailable": "Verfügbar",
+      "legendAvailableHint": "Registriert und aktivierbar. Noch nicht verbunden, bis eine Bindung existiert.",
+      "legendComingSoon": "Demnächst",
+      "legendComingSoonHint": "Registriert, aber noch nicht aktivierbar.",
+      "legendConnected": "Verbunden",
+      "legendConnectedHint": "Eine aktive Bindung existiert für diesen Arbeitsbereich.",
+      "legendAttention": "Aufmerksamkeit",
+      "legendAttentionHint": "Fehler, Degradierung oder ausstehende Aktion — nie ein Fake-Erfolg."
     }
   },
   "intelligence": {
@@ -6962,6 +7117,16 @@
       "completed": "Abgeschlossen",
       "failed": "Konnte nicht abgeschlossen werden",
       "rejected": "Abgelehnt"
+    },
+    "pipeline": {
+      "aria": "Stufen des Agentenlaufs",
+      "request": "Anfrage",
+      "plan": "Plan",
+      "approval": "Freigabe",
+      "execution": "Ausführung",
+      "confirmation": "Bestätigung",
+      "audit": "Audit",
+      "title": "Ausführungspipeline"
     }
   }
 }

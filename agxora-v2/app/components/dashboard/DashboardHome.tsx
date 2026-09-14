@@ -12,6 +12,7 @@ import { AttentionPanel, type AttentionItem } from "./AttentionPanel";
 import { BusinessOverview } from "./BusinessOverview";
 import { CommandCenter } from "./CommandCenter";
 import { HeroSection } from "./HeroSection";
+import { IntegrationsSnapshot } from "./IntegrationsSnapshot";
 import { QuickActions } from "./QuickActions";
 import "./dashboard.css";
 
@@ -111,8 +112,9 @@ export function DashboardHome(): JSX.Element {
     <div className="agx-dashboard-home">
       <HeroSection />
       <CommandCenter />
-      <BusinessOverview />
       <AttentionPanel items={attention} summary={summary} />
+      <IntegrationsSnapshot />
+      <BusinessOverview />
       <QuickActions />
       <div className="agx-bottom-grid" style={{ display: "grid", gap: "22px" }}>
         <ActivityFeed items={activity} />

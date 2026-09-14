@@ -30,6 +30,8 @@ describe("AGXORA design tokens", () => {
     expect(UI.color.aiCyan).toContain("--agx-ds-ai-cyan");
     expect(UI.color.aiBlue).toContain("--agx-ds-ai-blue");
     expect(UI.color.gold).not.toMatch(/#00ff|#ff00ff/i);
+    expect(UI.shadow.gold).toContain("--agx-ds-glow-gold");
+    expect(UI.shadow.cyan).toContain("--agx-ds-glow-cyan");
   });
 
   it("keeps muted text at AA contrast on the navy canvas", () => {

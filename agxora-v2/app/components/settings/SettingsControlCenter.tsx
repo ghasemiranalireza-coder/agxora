@@ -3,39 +3,21 @@
 import { useCallback, useEffect, useState, type JSX, type KeyboardEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  SETTINGS_KPIS,
   SETTINGS_NAV,
   type SettingsSectionId,
 } from "../../lib/settings";
 import { useT } from "../../lib/i18n";
-import { Card, Skeleton } from "../ui";
+import { Card, EmptyState, Skeleton } from "../ui";
 import { SettingsNav } from "./SettingsNav";
 import { SettingsSectionPanel } from "./SettingsPanels";
 
-function KpiStrip(): JSX.Element {
+function MetricsEmptyState(): JSX.Element {
   const t = useT();
   return (
-    <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-      {SETTINGS_KPIS.map((kpi) => (
-        <Card key={kpi.id} padding="16px" hover={false}>
-          <p
-            className="text-[11px] font-semibold uppercase tracking-[0.14em]"
-            style={{ color: "var(--agx-text-muted, #94a3b8)" }}
-          >
-            {t(`settings.kpi.${kpi.id}.label`)}
-          </p>
-          <p
-            className="mt-2 text-xl font-semibold tabular-nums"
-            style={{ color: "var(--agx-text, #f8fafc)" }}
-          >
-            {kpi.value}
-          </p>
-          <p className="mt-1 text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            {t(`settings.kpi.${kpi.id}.caption`)}
-          </p>
-        </Card>
-      ))}
-    </div>
+    <EmptyState
+      title={t("settings.kpi.emptyTitle")}
+      description={t("settings.kpi.emptyBody")}
+    />
   );
 }
 
@@ -113,7 +95,7 @@ export function SettingsControlCenter(): JSX.Element {
         </p>
       </motion.header>
 
-      <KpiStrip />
+      <MetricsEmptyState />
 
       <div
         className="grid grid-cols-1 gap-4 xl:grid-cols-[280px_minmax(0,1fr)]"

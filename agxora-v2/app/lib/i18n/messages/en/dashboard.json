@@ -5,7 +5,10 @@
     "ariaLabel": "AGXORA CORE",
     "eyebrow": "AI Business Operating System",
     "title": "AGXORA CORE",
-    "subtitle": "Real-time intelligence and operational control — your workspace command surface.",
+    "subtitle": "Workspace command surface. Live counts only — never invented KPIs.",
+    "greeting": "Welcome back",
+    "workspace": "{name}",
+    "statusSafe": "SAFE mode is the default. External actions wait for your approval.",
     "ctaGetStarted": "Ask AGXORA",
     "ctaViewActivity": "View activity",
     "openQuickActionsAria": "Open quick actions",
@@ -392,5 +395,17 @@
       }
     }
   },
-  "summary": "{name}: {customers} customers · {projects} projects · {updates} updates today."
+  "summary": "{name}: {customers} customers · {projects} projects · {updates} updates today.",
+  "snapshot": {
+    "title": "Integrations",
+    "subtitle": "Live provider states from Integration Center — never invented.",
+    "open": "Open Integration Center",
+    "empty": "Connect a provider to unlock this insight.",
+    "loading": "Loading provider states…",
+    "error": "Provider states are unavailable right now.",
+    "availableCount": "{count} available",
+    "connectedCount": "{count} connected",
+    "comingSoonCount": "{count} coming soon",
+    "noneConnected": "No providers connected yet."
+  }
 }

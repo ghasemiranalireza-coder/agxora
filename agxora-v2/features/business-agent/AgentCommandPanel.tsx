@@ -44,6 +44,42 @@ function statusKey(status: string): string {
   }
 }
 
+const PIPELINE_STEPS = [
+  "request",
+  "plan",
+  "approval",
+  "execution",
+  "confirmation",
+  "audit",
+] as const;
+
+function pipelineIndex(status: string): number {
+  switch (status) {
+    case "WAITING_APPROVAL":
+    case "REJECTED":
+    case "CANCELLED":
+      return 2;
+    case "RUNNING":
+    case "FAILED":
+      return 3;
+    case "COMPLETED":
+      return 5;
+    default:
+      return 1;
+  }
+}
+
+function pipelineState(
+  stepIndex: number,
+  current: number,
+  status: string,
+): "done" | "current" | "upcoming" {
+  if (status === "COMPLETED") return "done";
+  if (stepIndex < current) return "done";
+  if (stepIndex === current) return "current";
+  return "upcoming";
+}
+
 export function AgentCommandPanel({
   compact = false,
 }: {
@@ -185,6 +221,26 @@ export function AgentCommandPanel({
               {result.message ? (
                 <p className="agx-agent-panel__message">{result.message}</p>
               ) : null}
+              <ol
+                className="agx-ui-pipeline"
+                aria-label={t("businessAgent.pipeline.aria")}
+              >
+                {PIPELINE_STEPS.map((step, stepIndex) => {
+                  const current = pipelineIndex(run.status);
+                  const state = pipelineState(stepIndex, current, run.status);
+                  return (
+                    <li
+                      key={step}
+                      className="agx-ui-pipeline__step"
+                      data-state={state}
+                      data-gate={step === "approval" ? "approval" : undefined}
+                      aria-current={state === "current" ? "step" : undefined}
+                    >
+                      {t(`businessAgent.pipeline.${step}`)}
+                    </li>
+                  );
+                })}
+              </ol>
               {run.status === "WAITING_APPROVAL" || result.requiresApproval ? (
                 <p className="agx-agent-panel__note">{t("businessAgent.waitingApproval")}</p>
               ) : null}

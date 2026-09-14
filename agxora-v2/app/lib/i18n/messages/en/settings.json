@@ -125,9 +125,18 @@
     "glassEffects": "Glass Effects",
     "glassEffectsDescription": "Frosted glass cards and sidebar blur intensity preference.",
     "modes": {
-      "day": { "label": "Light", "hint": "Pearl / ice enterprise day palette" },
-      "night": { "label": "Dark", "hint": "Approved cinematic night look" },
-      "auto": { "label": "System", "hint": "Follow local schedule (Auto)" }
+      "day": {
+        "label": "Light",
+        "hint": "Pearl / ice enterprise day palette"
+      },
+      "night": {
+        "label": "Dark",
+        "hint": "Approved cinematic night look"
+      },
+      "auto": {
+        "label": "System",
+        "hint": "Follow local schedule (Auto)"
+      }
     },
     "densities": {
       "comfortable": "Comfortable",
@@ -335,20 +344,23 @@
   "kpi": {
     "members": {
       "label": "Team Members",
-      "caption": "Active seats"
+      "caption": "No data available yet"
     },
     "integrations": {
       "label": "Integrations",
-      "caption": "Connected adapters"
+      "caption": "Connect a provider to unlock this insight."
     },
     "api": {
       "label": "API Keys",
-      "caption": "Developer tokens"
+      "caption": "No data available yet"
     },
     "audit": {
       "label": "Audit Events",
-      "caption": "Last 7 days"
-    }
+      "caption": "No data available yet"
+    },
+    "emptyTitle": "No data available yet",
+    "emptyBody": "Team members, connected integrations, API keys, and audit events will appear here when live settings APIs exist. These are not tenant totals.",
+    "emptyValue": "—"
   },
   "unknown": {
     "title": "Settings",
