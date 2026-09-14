@@ -5,8 +5,6 @@ import { prisma } from "@/app/lib/db/prisma";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
 import type { Actor } from "@/app/lib/tenancy/types";
 import { hasActiveSocialCredential, getSocialCredentialSummary } from "@/app/lib/social/credentials";
-import { beginYouTubeOAuthForActor, disconnectYouTubeForActor } from "@/app/lib/social/oauth/youtube";
-import { beginGmailOAuthForActor, disconnectGmailForActor } from "@/app/lib/social/oauth/gmail";
 import { recordExternalAction } from "./audit";
 import {
   assertCanManageIntegrations,
@@ -181,57 +179,51 @@ export async function connectIntegrationForActor(
     throw new PersistenceError("validation", "Unknown integration provider");
   }
   const entry = getCatalogEntry(persistenceId);
-
-  if (persistenceId === "youtube") {
-    const result = await beginYouTubeOAuthForActor(actor, redirectPath);
-    await upsertConnection(actor, "youtube", {
-      status: "not_connected",
-      lastError: null,
-    });
-    await recordExternalAction({
-      actor,
-      provider: "youtube",
-      action: "connect_begin",
-      status: "planned",
-      metadata: { oauth: true, canonicalProviderId: toCanonicalProviderId("youtube") },
-    });
-    return { authorizationUrl: result.authorizationUrl, connected: false };
+  const canonical = toCanonicalProviderId(persistenceId);
+  if (!canonical) {
+    throw new PersistenceError("validation", "Unknown integration provider");
   }
 
-  if (persistenceId === "email_gmail") {
-    const result = await beginGmailOAuthForActor(actor, redirectPath);
-    await upsertConnection(actor, "email_gmail", {
-      status: "not_connected",
-      lastError: null,
-    });
+  const { adapterContextFromActor, getProviderAdapter } = await import(
+    "@/app/lib/integrations/adapters"
+  );
+  const adapter = getProviderAdapter(canonical);
+  const result = await adapter.connect(
+    adapterContextFromActor(actor, { redirectPath }),
+  );
+  if (result.code === "not_implemented") {
     await recordExternalAction({
       actor,
-      provider: "email_gmail",
+      provider: persistenceId,
       action: "connect_begin",
-      status: "planned",
-      metadata: { oauth: true, canonicalProviderId: toCanonicalProviderId("gmail") },
+      status: "failed",
+      error: "not_implemented",
     });
-    return { authorizationUrl: result.authorizationUrl, connected: false };
+    throw new PersistenceError(
+      "validation",
+      "Integration not implemented yet",
+      {
+        status: 501,
+        details: [
+          { field: "provider", message: "not_implemented" },
+          { field: "note", message: entry.oauthNote },
+        ],
+      },
+    );
   }
 
+  await upsertConnection(actor, persistenceId, {
+    status: "not_connected",
+    lastError: null,
+  });
   await recordExternalAction({
     actor,
     provider: persistenceId,
     action: "connect_begin",
-    status: "failed",
-    error: "not_implemented",
+    status: "planned",
+    metadata: { oauth: true, canonicalProviderId: canonical },
   });
-  throw new PersistenceError(
-    "validation",
-    "Integration not implemented yet",
-    {
-      status: 501,
-      details: [
-        { field: "provider", message: "not_implemented" },
-        { field: "note", message: entry.oauthNote },
-      ],
-    },
-  );
+  return { authorizationUrl: result.authorizationUrl, connected: result.connected };
 }
 
 export async function disconnectIntegrationForActor(
@@ -243,11 +235,17 @@ export async function disconnectIntegrationForActor(
   if (!persistenceId || !isIntegrationProviderId(persistenceId)) {
     throw new PersistenceError("validation", "Unknown integration provider");
   }
-  if (persistenceId === "youtube") {
-    await disconnectYouTubeForActor(actor);
-  } else if (persistenceId === "email_gmail") {
-    await disconnectGmailForActor(actor);
-  } else {
+  const canonical = toCanonicalProviderId(persistenceId);
+  if (!canonical) {
+    throw new PersistenceError("validation", "Unknown integration provider");
+  }
+
+  const { adapterContextFromActor, getProviderAdapter } = await import(
+    "@/app/lib/integrations/adapters"
+  );
+  const adapter = getProviderAdapter(canonical);
+  const result = await adapter.disconnect(adapterContextFromActor(actor));
+  if (result.code === "not_implemented") {
     const entry = getCatalogEntry(persistenceId);
     if (entry.implementationStatus === "not_implemented") {
       const row = await prisma.integrationConnection.findUnique({

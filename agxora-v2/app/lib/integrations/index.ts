@@ -72,9 +72,16 @@ export {
   UnimplementedProviderAdapter,
   getProviderAdapter,
   registerProviderAdapter,
+  ADAPTER_RESULT_CODES,
   type AdapterContext,
+  type AdapterExecuteResult,
+  type AdapterResultCode,
   type ProviderAdapter,
 } from "./adapter";
+export {
+  adapterContextFromActor,
+  requireAdapterActor,
+} from "./adapter-context";
 export {
   projectAgentCatalog,
   projectConnectorCatalog,

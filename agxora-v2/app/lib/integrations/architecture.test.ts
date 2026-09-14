@@ -70,7 +70,15 @@ describe("capability layers and agent compatibility", () => {
       workspaceId: "ws-a",
       userId: "user-a",
     });
+    expect(executed.ok).toBe(false);
     expect(executed.code).toBe("not_implemented");
+    const connected = await adapter.connect({
+      organizationId: "org-a",
+      workspaceId: "ws-a",
+      userId: "user-a",
+    });
+    expect(connected.connected).toBe(false);
+    expect(connected.code).toBe("not_implemented");
   });
 });
 

@@ -12,8 +12,11 @@ import {
   isIntegrationProviderId,
   type IntegrationProviderId,
 } from "./catalog";
-import { executeGmailToolForActor } from "./gmail-tools";
-import { executeYouTubeCampaignItemForActor } from "./youtube-publish";
+import { executeProviderCapabilityForActor } from "@/app/lib/integrations/adapters";
+import { toCanonicalProviderId } from "@/app/lib/integrations/ids";
+import { isImplementedProvider } from "@/app/lib/integrations/registry";
+import { persistenceErrorFromAdapterResult } from "@/app/lib/integrations/adapter-errors";
+import type { ProviderCapability } from "@/app/lib/integrations/types";
 import {
   firstUnsupportedCampaignProvider,
   firstUnsupportedRequestedChannel,
@@ -243,16 +246,11 @@ export async function executeCampaignItemForActor(
     throw new PersistenceError("not_found", "Content item not found");
   }
 
-  if (
-    item.provider === "youtube" &&
-    kind === "publish" &&
-    item.status === "PUBLISHED" &&
-    item.externalId
-  ) {
+  if (kind === "publish" && item.status === "PUBLISHED" && item.externalId) {
     await recordExternalAction({
       actor,
-      provider: "youtube",
-      action: "youtube.publish_video",
+      provider: item.provider,
+      action: item.provider === "youtube" ? "youtube.publish_video" : kind,
       status: "completed",
       target: item.id,
       externalId: item.externalId,
@@ -287,8 +285,15 @@ export async function executeCampaignItemForActor(
         : "publish";
   await assertProviderPermission(actor, item.provider, permission);
 
-  const catalog = getCatalogEntry(item.provider);
-  if (catalog.implementationStatus === "not_implemented") {
+  const canonical = toCanonicalProviderId(item.provider);
+  const capability: ProviderCapability =
+    kind === "send_email" ? "send" : kind === "schedule" ? "schedule" : "publish";
+  const unimplemented =
+    !canonical ||
+    !isImplementedProvider(canonical) ||
+    getCatalogEntry(item.provider).implementationStatus === "not_implemented";
+
+  if (unimplemented) {
     await prisma.campaignItem.update({
       where: { id: item.id },
       data: {
@@ -312,111 +317,59 @@ export async function executeCampaignItemForActor(
     );
   }
 
-  if (item.provider === "youtube") {
-    return executeYouTubeCampaignItemForActor(actor, item, kind);
-  }
+  const result = await executeProviderCapabilityForActor(
+    actor,
+    canonical,
+    capability,
+    {
+      source: "campaign_item",
+      campaignItemId: item.id,
+      operation: kind,
+      title: item.title,
+      caption: item.caption,
+      body: item.body,
+      script: item.script,
+      mediaRequirement: item.mediaRequirement,
+      contentType: item.contentType,
+      scheduledAt: item.scheduledAt,
+    },
+  );
 
-  if (item.provider === "email_gmail" && kind === "send_email") {
-    if (item.status !== "APPROVED") {
-      await recordExternalAction({
-        actor,
-        provider: "email_gmail",
-        action: "gmail.send_message",
-        status: "approval_required",
-        target: item.id,
-        error: "approval_required",
+  if (!result.ok) {
+    if (result.code === "not_implemented") {
+      const latest = await prisma.campaignItem.findFirst({
+        where: {
+          id: item.id,
+          organizationId: actor.organizationId,
+          workspaceId: actor.workspaceId,
+        },
       });
-      throw new PersistenceError(
-        "forbidden",
-        "Sending Gmail requires explicit approval",
-      );
-    }
-
-    await prisma.campaignItem.update({
-      where: { id: item.id },
-      data: { status: "PUBLISHING" },
-    });
-    await recordExternalAction({
-      actor,
-      provider: "email_gmail",
-      action: "gmail.send_message",
-      status: "executing",
-      target: item.id,
-    });
-
-    try {
-      const result = (await executeGmailToolForActor(actor, "gmail.send_message", {
-        to: item.caption || undefined,
-        subject: item.title,
-        body: item.body,
-        approved: true,
-      })) as { id?: string; threadId?: string };
-
-      const sentId = typeof result.id === "string" ? result.id : null;
-      if (!sentId) {
+      if (latest && latest.status !== "FAILED") {
+        await prisma.campaignItem.update({
+          where: { id: item.id },
+          data: {
+            status: "FAILED",
+            error: "Automatic publishing is not supported for this operation yet",
+            retryCount: { increment: 1 },
+          },
+        });
+        await recordExternalAction({
+          actor,
+          provider: item.provider,
+          action: kind,
+          status: "failed",
+          target: item.id,
+          error: "publish_pipeline_not_wired",
+        });
         throw new PersistenceError(
           "validation",
-          "Gmail did not confirm the send",
-          { status: 502 },
+          "Automatic publishing is not supported for this operation through the official API.",
+          { status: 501 },
         );
       }
-
-      const published = await prisma.campaignItem.update({
-        where: { id: item.id },
-        data: {
-          status: "PUBLISHED",
-          externalId: sentId,
-          error: null,
-        },
-      });
-      await recordExternalAction({
-        actor,
-        provider: "email_gmail",
-        action: "gmail.send_message",
-        status: "completed",
-        target: item.id,
-        externalId: sentId,
-        metadata: { threadId: result.threadId ?? null },
-      });
-      return published;
-    } catch (error) {
-      const message =
-        error instanceof PersistenceError
-          ? error.message
-          : "Gmail send failed";
-      await prisma.campaignItem.update({
-        where: { id: item.id },
-        data: {
-          status: "FAILED",
-          error: message,
-          retryCount: { increment: 1 },
-        },
-      });
-      throw error;
     }
+    throw persistenceErrorFromAdapterResult(result);
   }
 
-  // Remaining providers are either not implemented or not wired for this
-  // operation. Never report fake success.
-  await prisma.campaignItem.update({
-    where: { id: item.id },
-    data: {
-      status: "FAILED",
-      error: "Automatic publishing is not supported for this operation yet",
-      retryCount: { increment: 1 },
-    },
-  });
-  await recordExternalAction({
-    actor,
-    provider: item.provider,
-    action: kind,
-    status: "failed",
-    target: item.id,
-    error: "publish_pipeline_not_wired",
-  });
-  throw new PersistenceError(
-    "validation",
-    "Automatic publishing is not supported for this operation through the official API.",
-    { status: 501 },
-  );
+  return result.output as typeof item;
 }
