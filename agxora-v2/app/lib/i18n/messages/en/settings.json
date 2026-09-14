@@ -125,9 +125,18 @@
     "glassEffects": "Glass Effects",
     "glassEffectsDescription": "Frosted glass cards and sidebar blur intensity preference.",
     "modes": {
-      "day": { "label": "Light", "hint": "Pearl / ice enterprise day palette" },
-      "night": { "label": "Dark", "hint": "Approved cinematic night look" },
-      "auto": { "label": "System", "hint": "Follow local schedule (Auto)" }
+      "day": {
+        "label": "Light",
+        "hint": "Pearl / ice enterprise day palette"
+      },
+      "night": {
+        "label": "Dark",
+        "hint": "Approved cinematic night look"
+      },
+      "auto": {
+        "label": "System",
+        "hint": "Follow local schedule (Auto)"
+      }
     },
     "densities": {
       "comfortable": "Comfortable",
@@ -326,7 +335,7 @@
   "page": {
     "eyebrow": "AGXORA Control Center",
     "title": "Settings",
-    "lead": "Enterprise configuration for every AGXORA module — profile, organization, AI, appearance, security, billing, and developer controls in one place. Counts stay at zero until live settings APIs exist.",
+    "lead": "Enterprise configuration for every AGXORA module — profile, organization, AI, appearance, security, billing, and developer controls in one place.",
     "loading": "Loading settings…",
     "breadcrumb": "{label} · {description}"
   },
@@ -348,7 +357,10 @@
     "audit": {
       "label": "Audit Events",
       "caption": "No data available yet"
-    }
+    },
+    "emptyTitle": "No data available yet",
+    "emptyBody": "Team members, connected integrations, API keys, and audit events will appear here when live settings APIs exist. These are not tenant totals.",
+    "emptyValue": "—"
   },
   "unknown": {
     "title": "Settings",

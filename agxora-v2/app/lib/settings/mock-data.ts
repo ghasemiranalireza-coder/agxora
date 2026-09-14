@@ -23,11 +23,14 @@ function settingsStateFor(providerId: string): IntegrationRow["state"] {
 // Prototype layout only — counts are honest empty until live settings APIs exist.
 export const SETTINGS_DATA_SOURCE = "demo-prototype" as const;
 
+/** Prototype metrics — never render these as live tenant totals. */
+export const SETTINGS_KPI_EMPTY_VALUE = "—" as const;
+
 export const SETTINGS_KPIS: readonly SettingsKpi[] = [
-  { id: "members", label: "Team Members", value: "0", caption: "Active seats" },
-  { id: "integrations", label: "Integrations", value: "0", caption: "Connected adapters" },
-  { id: "api", label: "API Keys", value: "0", caption: "Developer tokens" },
-  { id: "audit", label: "Audit Events", value: "0", caption: "Last 7 days" },
+  { id: "members", label: "Team Members", value: SETTINGS_KPI_EMPTY_VALUE, caption: "No data available yet" },
+  { id: "integrations", label: "Integrations", value: SETTINGS_KPI_EMPTY_VALUE, caption: "Connect a provider to unlock this insight." },
+  { id: "api", label: "API Keys", value: SETTINGS_KPI_EMPTY_VALUE, caption: "No data available yet" },
+  { id: "audit", label: "Audit Events", value: SETTINGS_KPI_EMPTY_VALUE, caption: "No data available yet" },
 ];
 
 export const DEFAULT_APPEARANCE_PREFS: AppearancePrefs = {

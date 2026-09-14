@@ -280,7 +280,17 @@
       "publish": "Publish",
       "send": "Send"
     },
-    "legendTitle": "Provider states",
-    "legendLead": "States come from the live resolver. Connected appears only after the provider confirms."
+    "legendTitle": "So lesen Sie den Anbieterstatus",
+    "legendLead": "Status kommt aus dem Live-Resolver. Verbunden erscheint erst, wenn der Anbieter bestätigt.",
+    "legendLive": "Live-Vertrag",
+    "legendLiveHint": "Status kommt nur aus Registry, Resolver und Projektion.",
+    "legendAvailable": "Verfügbar",
+    "legendAvailableHint": "Registriert und aktivierbar. Noch nicht verbunden, bis eine Bindung existiert.",
+    "legendComingSoon": "Demnächst",
+    "legendComingSoonHint": "Registriert, aber noch nicht aktivierbar.",
+    "legendConnected": "Verbunden",
+    "legendConnectedHint": "Eine aktive Bindung existiert für diesen Arbeitsbereich.",
+    "legendAttention": "Aufmerksamkeit",
+    "legendAttentionHint": "Fehler, Degradierung oder ausstehende Aktion — nie ein Fake-Erfolg."
   }
 }

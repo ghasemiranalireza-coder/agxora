@@ -83,12 +83,13 @@
     "rejected": "Rejected"
   },
   "pipeline": {
-    "aria": "Agent run stages",
-    "request": "Request",
-    "plan": "Plan",
-    "approval": "Waiting for approval",
-    "execution": "Execution",
-    "confirmation": "Provider confirmation",
-    "audit": "Audit"
+    "aria": "مراحل اجرای عامل",
+    "request": "درخواست",
+    "plan": "برنامه",
+    "approval": "تأیید",
+    "execution": "اجرا",
+    "confirmation": "تأیید نهایی",
+    "audit": "ممیزی",
+    "title": "خط لوله اجرا"
   }
 }

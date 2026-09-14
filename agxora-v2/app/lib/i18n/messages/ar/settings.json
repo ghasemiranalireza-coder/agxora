@@ -357,7 +357,10 @@
     "audit": {
       "label": "أحداث التدقيق",
       "caption": "آخر 7 أيام"
-    }
+    },
+    "emptyTitle": "No data available yet",
+    "emptyBody": "Team members, connected integrations, API keys, and audit events will appear here when live settings APIs exist. These are not tenant totals.",
+    "emptyValue": "—"
   },
   "unknown": {
     "title": "إعدادات",

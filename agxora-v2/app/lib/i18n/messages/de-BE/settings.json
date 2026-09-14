@@ -357,7 +357,10 @@
     "audit": {
       "label": "Audit-Ereignisse",
       "caption": "Letzte 7 Tage"
-    }
+    },
+    "emptyTitle": "Keine Live-Kennzahlen in diesem Arbeitsbereich",
+    "emptyBody": "Einstellungen zeigen hier keine erfundenen KPI-Zahlen. Sobald echte Telemetrie angebunden ist, erscheinen die Werte an dieser Stelle.",
+    "emptyValue": "—"
   },
   "unknown": {
     "title": "Einstellungen",

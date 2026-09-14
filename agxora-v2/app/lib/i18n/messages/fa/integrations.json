@@ -280,7 +280,17 @@
       "publish": "Publish",
       "send": "Send"
     },
-    "legendTitle": "Provider states",
-    "legendLead": "States come from the live resolver. Connected appears only after the provider confirms."
+    "legendTitle": "چگونه وضعیت ارائه‌دهنده را بخوانید",
+    "legendLead": "وضعیت از Resolver زنده می‌آید. متصل فقط پس از تأیید ارائه‌دهنده ظاهر می‌شود.",
+    "legendLive": "قرارداد زنده",
+    "legendLiveHint": "وضعیت فقط از رجیستری، Resolver و Projection می‌آید.",
+    "legendAvailable": "در دسترس",
+    "legendAvailableHint": "ثبت شده و قابل فعال‌سازی. تا وقتی اتصال نباشد، متصل نیست.",
+    "legendComingSoon": "به‌زودی",
+    "legendComingSoonHint": "ثبت شده اما هنوز قابل فعال‌سازی نیست.",
+    "legendConnected": "متصل",
+    "legendConnectedHint": "یک اتصال فعال برای این فضای کاری وجود دارد.",
+    "legendAttention": "نیاز به توجه",
+    "legendAttentionHint": "خطا، افت کیفیت یا اقدام معلق — هرگز موفقیت ساختگی نیست."
   }
 }

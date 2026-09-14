@@ -11,9 +11,9 @@
     "openQuickActionsAria": "Schnellaktionen öffnen",
     "viewActivityAria": "Aktuelle Aktivitäten anzeigen",
     "openCommandCenterAria": "AGXORA fragen, was Sie heute tun möchten",
-    "greeting": "Welcome back",
+    "greeting": "Willkommen zurück",
     "workspace": "{name}",
-    "statusSafe": "SAFE mode is the default. External actions wait for your approval."
+    "statusSafe": "SAFE-Modus ist die Standardeinstellung. Externe Aktionen warten auf Ihre Freigabe."
   },
   "quickActions": {
     "title": "Schnelle Aktionen",
@@ -397,15 +397,21 @@
     "lead": "Beschreiben Sie ein Geschäftsziel. AGXORA versteht es, prüft verfügbare Fähigkeiten, erstellt einen Plan und wartet auf Ihre Freigabe, bevor etwas gesendet oder veröffentlicht wird."
   },
   "snapshot": {
-    "title": "Integrations",
-    "subtitle": "Live provider states from Integration Center — never invented.",
-    "open": "Open Integration Center",
-    "empty": "Connect a provider to unlock this insight.",
-    "loading": "Loading provider states…",
-    "error": "Provider states are unavailable right now.",
-    "availableCount": "{count} available",
-    "connectedCount": "{count} connected",
-    "comingSoonCount": "{count} coming soon",
-    "noneConnected": "No providers connected yet."
+    "title": "Integrations-Snapshot",
+    "subtitle": "Live-Anbieterstatus aus dem Integrationscenter — niemals erfunden.",
+    "open": "Integrationscenter öffnen",
+    "empty": "Noch keine Anbieter im Snapshot. Öffnen Sie das Integrationscenter, um den Live-Vertrag zu sehen.",
+    "loading": "Anbieterstatus wird geladen…",
+    "error": "Anbieterstatus ist gerade nicht verfügbar.",
+    "availableCount": "{count} verfügbar",
+    "connectedCount": "{count} verbunden",
+    "comingSoonCount": "{count} demnächst",
+    "noneConnected": "Noch keine Anbieter verbunden.",
+    "body": "Live-Zählungen aus dem Integrationsvertrag. Verbunden bedeutet eine echte aktive Bindung, nicht eine Marketing-Kachel.",
+    "connected": "Verbunden",
+    "available": "Verfügbar",
+    "comingSoon": "Demnächst",
+    "attention": "Aufmerksamkeit",
+    "cta": "Integrationen öffnen"
   }
 }

@@ -80,7 +80,8 @@ describe("provider and catalog honesty", () => {
 
   it("labels settings prototype data instead of presenting live tenant counts", () => {
     expect(SETTINGS_DATA_SOURCE).toBe("demo-prototype");
-    expect(SETTINGS_KPIS.find((row) => row.id === "members")?.value).toBe("0");
+    expect(SETTINGS_KPIS.every((row) => row.value === "—")).toBe(true);
+    expect(SETTINGS_KPIS.every((row) => !/^\d+$/.test(row.value))).toBe(true);
     expect(TEAM_MEMBERS.every((row) => row.name.startsWith("Demo ·"))).toBe(true);
     expect(API_KEYS.every((row) => row.prefix.startsWith("demo_not_live_"))).toBe(
       true,

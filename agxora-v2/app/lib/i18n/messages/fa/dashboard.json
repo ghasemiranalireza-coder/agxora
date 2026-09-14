@@ -11,9 +11,9 @@
     "openQuickActionsAria": "باز کردن اقدامات سریع",
     "viewActivityAria": "مشاهده فعالیت اخیر",
     "openCommandCenterAria": "Ask AGXORA what to do today",
-    "greeting": "Welcome back",
+    "greeting": "خوش برگشتید",
     "workspace": "{name}",
-    "statusSafe": "SAFE mode is the default. External actions wait for your approval."
+    "statusSafe": "حالت SAFE پیش‌فرض است. اقدامات خارجی منتظر تأیید شما می‌مانند."
   },
   "quickActions": {
     "title": "اقدامات سریع",
@@ -397,15 +397,21 @@
     "lead": "Describe a business goal. AGXORA will understand it, check what is available, create a plan, and wait for your approval before anything is sent or published."
   },
   "snapshot": {
-    "title": "Integrations",
-    "subtitle": "Live provider states from Integration Center — never invented.",
-    "open": "Open Integration Center",
-    "empty": "Connect a provider to unlock this insight.",
-    "loading": "Loading provider states…",
-    "error": "Provider states are unavailable right now.",
-    "availableCount": "{count} available",
-    "connectedCount": "{count} connected",
-    "comingSoonCount": "{count} coming soon",
-    "noneConnected": "No providers connected yet."
+    "title": "نمای یکپارچه‌سازی",
+    "subtitle": "وضعیت زنده ارائه‌دهنده از مرکز یکپارچه‌سازی — هرگز ساختگی نیست.",
+    "open": "باز کردن مرکز یکپارچه‌سازی",
+    "empty": "هنوز ارائه‌دهنده‌ای در نما نیست. مرکز یکپارچه‌سازی را باز کنید تا قرارداد زنده را ببینید.",
+    "loading": "در حال بارگذاری وضعیت ارائه‌دهندگان…",
+    "error": "وضعیت ارائه‌دهندگان فعلاً در دسترس نیست.",
+    "availableCount": "{count} در دسترس",
+    "connectedCount": "{count} متصل",
+    "comingSoonCount": "{count} به‌زودی",
+    "noneConnected": "هنوز ارائه‌دهنده‌ای متصل نشده است.",
+    "body": "شمارش زنده از قرارداد یکپارچه‌سازی. متصل یعنی اتصال فعال واقعی، نه کاشی بازاریابی.",
+    "connected": "متصل",
+    "available": "در دسترس",
+    "comingSoon": "به‌زودی",
+    "attention": "نیاز به توجه",
+    "cta": "باز کردن یکپارچه‌سازی‌ها"
   }
 }

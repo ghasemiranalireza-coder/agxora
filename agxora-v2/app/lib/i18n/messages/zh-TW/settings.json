@@ -357,7 +357,10 @@
     "audit": {
       "label": "審計事件",
       "caption": "過去 7 天"
-    }
+    },
+    "emptyTitle": "No data available yet",
+    "emptyBody": "Team members, connected integrations, API keys, and audit events will appear here when live settings APIs exist. These are not tenant totals.",
+    "emptyValue": "—"
   },
   "unknown": {
     "title": "設定",

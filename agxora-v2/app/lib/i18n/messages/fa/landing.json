@@ -11,33 +11,36 @@
     "startFree": "شروع رایگان",
     "openMenu": "باز کردن منو",
     "closeMenu": "بستن منو",
-    "integrations": "Integrations"
+    "integrations": "یکپارچه‌سازی‌ها"
   },
   "hero": {
     "brand": "آگکسورا",
-    "headline": "سیستم‌عامل هوشمند کسب‌وکار.",
-    "subtitle": "مشتریان، مالی، اسناد و هوش مصنوعی را در یک مرکز فرمان آرام به هم وصل کنید — برای بنیان‌گذاران و اپراتورهایی که به شفافیت نیاز دارند، نه پشته‌ای دیگر از ابزارها.",
+    "headline": "سیستم‌عامل هوش مصنوعی برای کسب‌وکار شما.",
+    "subtitle": "کسب‌وکارتان را متصل کنید. بگذارید هوش مصنوعی آن را اداره کند.",
     "ctaStart": "شروع رایگان",
     "ctaExplore": "ببینید چگونه کار می‌کند",
     "globeAria": "تجسم هوش جهانی",
-    "headlineBefore": "The intelligent ",
-    "headlineHighlight": "business",
-    "headlineAfter": " operating system.",
-    "scrollHint": "Scroll to discover more",
+    "headlineBefore": "",
+    "headlineHighlight": "سیستم‌عامل هوش مصنوعی",
+    "headlineAfter": " برای کسب‌وکار شما.",
+    "scrollHint": "برای دیدن بیشتر پیمایش کنید",
     "chips": {
-      "ai": "AI-assisted",
-      "secure": "Secure & GDPR-ready",
-      "unified": "Everything in one place",
-      "intelligence": "Business Intelligence",
-      "marketing": "Marketing",
-      "operations": "Operations"
+      "ai": "عامل‌های هوش مصنوعی",
+      "secure": "خودکارسازی",
+      "unified": "یکپارچه‌سازی‌ها",
+      "intelligence": "هوش کسب‌وکار",
+      "marketing": "بازاریابی",
+      "operations": "عملیات"
     },
     "tags": {
-      "customers": "Customers",
-      "growth": "Growth",
-      "automation": "Automation",
-      "success": "Success"
-    }
+      "customers": "کسب‌وکار",
+      "growth": "عامل‌ها",
+      "automation": "سیستم‌ها",
+      "success": "هوش"
+    },
+    "eyebrow": "سیستم‌عامل AGXORA",
+    "ctaPrimary": "شروع رایگان",
+    "ctaSecondary": "مشاهده یکپارچه‌سازی‌ها"
   },
   "trust": {
     "ariaLabel": "چرا AGXORA",
@@ -60,14 +63,16 @@
         "detail": "رایگان شروع کنید. وقتی آماده بودید مقیاس دهید."
       },
       "marketing": {
-        "title": "Marketing",
-        "detail": "Campaigns and drafts stay in your control."
+        "title": "بازاریابی",
+        "detail": "کمپین‌ها و پیش‌نویس‌ها تحت کنترل شما می‌مانند."
       },
       "operations": {
-        "title": "Operations",
-        "detail": "One command center for the work of the business."
+        "title": "عملیات",
+        "detail": "یک مرکز فرمان برای کار کسب‌وکار."
       }
-    }
+    },
+    "registryBacked": "وضعیت ارائه‌دهنده از رجیستری یکپارچه‌سازی می‌آید، نه از متن بازاریابی.",
+    "noFakeMetrics": "بدون شاخص ساختگی. بدون اتصال ساختگی."
   },
   "product": {
     "title": "داخل فضای کاری AGXORA",
@@ -138,70 +143,105 @@
   },
   "globeAria": "AGXORA AI CORE — کره سه‌بعدی",
   "network": {
-    "title": "Enterprise infrastructure, not another chatbot.",
-    "lead": "Business signals enter AGXORA. Agents plan the work. Connected systems execute only after approval.",
-    "aria": "How AGXORA sits between your business, AI agents, and connected systems",
-    "business": "Business",
+    "title": "ببینید کسب‌وکارتان چگونه متصل می‌شود.",
+    "lead": "سیگنال‌های کسب‌وکار وارد AGXORA می‌شوند. عامل‌ها کار را برنامه‌ریزی می‌کنند. سیستم‌های متصل فقط پس از تأیید اجرا می‌کنند.",
+    "aria": "چگونه AGXORA بین کسب‌وکار، عامل‌های هوش مصنوعی و سیستم‌های متصل قرار می‌گیرد",
+    "business": "کسب‌وکار",
     "agxora": "AGXORA",
-    "agents": "AI Agents",
-    "systems": "Connected Systems"
+    "agents": "عامل‌های هوش مصنوعی",
+    "systems": "سیستم‌های متصل",
+    "kicker": "شبکه",
+    "body": "AGXORA در مرکز قرار دارد. ایمیل، یوتیوب و سیستم‌های دیگر وقتی ثبت و فعال شوند وارد می‌شوند.",
+    "center": "AGXORA",
+    "note": "وضعیت زنده از رجیستری یکپارچه‌سازی می‌آید. جیمیل و یوتیوب در دسترس هستند. سایر ارائه‌دهندگان به‌زودی.",
+    "available": "در دسترس",
+    "comingSoon": "به‌زودی"
   },
   "connected": {
-    "title": "Your business. Connected.",
-    "lead": "These states come from the canonical provider registry. Gmail and YouTube are the only production OAuth integrations. Nothing here is marked connected.",
-    "available": "Available",
-    "comingSoon": "Coming soon",
-    "comingSoonLead": "Architecture is in place. These providers are not connectable yet.",
-    "cta": "Open Integration Center"
+    "title": "همان ابزارهایی را وصل کنید که کسب‌وکارتان همین حالا استفاده می‌کند.",
+    "lead": "این وضعیت‌ها از رجیستری کانونی ارائه‌دهنده می‌آیند. جیمیل و یوتیوب تنها یکپارچه‌سازی‌های OAuth تولیدی هستند. اینجا هیچ‌چیز به‌عنوان متصل علامت نخورده است.",
+    "available": "در دسترس",
+    "comingSoon": "به‌زودی",
+    "comingSoonLead": "معماری آماده است. این ارائه‌دهندگان هنوز قابل اتصال نیستند.",
+    "cta": "باز کردن یکپارچه‌سازی‌ها",
+    "kicker": "اتصال",
+    "body": "هر ارائه‌دهنده از همان رجیستری، همان قرارداد آداپتور و همان نمایش صادقانه وضعیت پیروی می‌کند."
   },
   "agents": {
-    "title": "Don't just use AI. Give AI a job.",
-    "lead": "Every external action follows the same path. Execution never appears complete before the provider confirms it.",
-    "request": "User request",
-    "plan": "Agent plan",
-    "approval": "Waiting for approval",
-    "execution": "Execution",
-    "confirmation": "Provider confirmation",
-    "audit": "Audit"
+    "title": "عامل‌هایی که داخل مرزهای امن عمل می‌کنند.",
+    "lead": "هر اقدام خارجی همان مسیر را طی می‌کند. اجرا تا تأیید ارائه‌دهنده کامل نشان داده نمی‌شود.",
+    "request": "درخواست کاربر",
+    "plan": "برنامه عامل",
+    "approval": "در انتظار تأیید",
+    "execution": "اجرا",
+    "confirmation": "تأیید ارائه‌دهنده",
+    "audit": "ممیزی",
+    "kicker": "عامل‌ها",
+    "body": "عامل کسب‌وکار برنامه می‌ریزد، تأیید می‌خواهد و فقط پس از تأیید اجرا می‌کند. SAFE پیش‌فرض باقی می‌ماند.",
+    "cta": "مشاهده خط لوله عامل"
   },
   "automation": {
-    "title": "From workflow to autonomy.",
-    "lead": "Start with an approved plan. Expand automation only where the product actually supports it.",
+    "title": "خودکارسازی‌ای که می‌توانید کنترلش کنید.",
+    "lead": "با یک برنامه تأییدشده شروع کنید. خودکارسازی را فقط جایی گسترش دهید که محصول واقعاً پشتیبانی می‌کند.",
     "governed": {
-      "title": "Governed by default",
-      "detail": "SAFE mode keeps send and publish behind explicit approval."
+      "title": "به‌طور پیش‌فرض تحت حاکمیت",
+      "detail": "حالت SAFE ارسال و انتشار را پشت تأیید صریح نگه می‌دارد."
     },
     "capabilities": {
-      "title": "Real capabilities only",
-      "detail": "Agents plan against the resolver — not a decorative catalog."
+      "title": "فقط قابلیت‌های واقعی",
+      "detail": "عامل‌ها در برابر Resolver برنامه می‌ریزند — نه یک کاتالوگ تزئینی."
     },
     "confirmation": {
-      "title": "Provider confirmation",
-      "detail": "A run is complete when the provider confirms, not when the UI animates."
-    }
+      "title": "تأیید ارائه‌دهنده",
+      "detail": "یک اجرا وقتی کامل است که ارائه‌دهنده تأیید کند، نه وقتی رابط حرکت می‌کند."
+    },
+    "kicker": "خودکارسازی",
+    "body": "خط لوله درخواست، برنامه، تأیید، اجرا، تأیید نهایی و ممیزی را آشکار می‌کند. هیچ چیز بی‌صدا در پس‌زمینه اجرا نمی‌شود.",
+    "cta": "مشاهده کنترل خط لوله"
   },
   "security": {
-    "title": "AI that works with control.",
-    "lead": "Control is part of the product, not a slogan overlay.",
+    "title": "کنترلی که سیستم‌عامل را یکپارچه نگه می‌دارد.",
+    "lead": "کنترل بخشی از محصول است، نه شعاری روی آن.",
     "approval": {
-      "title": "Human approval",
-      "detail": "Plans wait. Send and publish stay blocked until you authorize them."
+      "title": "تأیید انسانی",
+      "detail": "برنامه‌ها منتظر می‌مانند. ارسال و انتشار تا اجازه شما مسدود است."
     },
     "design": {
-      "title": "Secure by design",
-      "detail": "Production access is gated. Secrets stay on the server. Public routes stay public."
+      "title": "امن به‌صورت طراحی‌شده",
+      "detail": "دسترسی تولید محدود است. اسرار روی سرور می‌مانند. مسیرهای عمومی عمومی می‌مانند."
     },
     "audit": {
-      "title": "Audit trail",
-      "detail": "Agent runs and workspace activity are recorded as they happen — empty until you use them."
-    }
+      "title": "رد ممیزی",
+      "detail": "اجرای عامل و فعالیت فضای کاری همان لحظه ثبت می‌شود — تا وقتی استفاده نکنید خالی است."
+    },
+    "kicker": "امنیت",
+    "body": "نقش‌ها، نشست‌ها، حفاظت Guardian و رد ممیزی بخشی از محصول هستند — نه فقط زیرساخت.",
+    "cta": "کنترل و امنیت"
   },
   "useCases": {
-    "title": "Built for operators who need a system, not a demo.",
-    "lead": "AGXORA is for founders and teams who want AI inside the business — with the same standards they expect from enterprise software.",
-    "founder": "Founders consolidating tools",
-    "operations": "Operations teams governing AI",
-    "marketing": "Marketing teams running approved campaigns",
-    "support": "Teams answering from real inboxes"
+    "title": "برای تیم‌هایی که ایمیل، محتوا و عملیات را در یک جا جمع می‌کنند.",
+    "lead": "AGXORA برای بنیان‌گذاران و تیم‌هایی است که هوش مصنوعی را داخل کسب‌وکار می‌خواهند — با همان استانداردهایی که از نرم‌افزار سازمانی انتظار دارند.",
+    "founder": "بنیان‌گذارانی که ابزارها را یکپارچه می‌کنند",
+    "operations": "تیم‌های عملیاتی که هوش مصنوعی را راهبری می‌کنند",
+    "marketing": "تیم‌های بازاریابی با کمپین‌های تأییدشده",
+    "support": "تیم‌هایی که از صندوق ورودی واقعی پاسخ می‌دهند",
+    "kicker": "موارد استفاده",
+    "body": "با جیمیل و یوتیوب شروع کنید. سیستم‌های بعدی همان قرارداد یکپارچه‌سازی را دنبال می‌کنند.",
+    "email": {
+      "title": "عملیات ایمیل",
+      "body": "جیمیل در دسترس است. صندوق‌های بعدی همان قرارداد ارائه‌دهنده را دنبال می‌کنند."
+    },
+    "content": {
+      "title": "محتوا و دسترسی",
+      "body": "یوتیوب در دسترس است. کمپین‌ها به اتصال واقعی وابسته‌اند."
+    },
+    "ops": {
+      "title": "عملیات و کنترل",
+      "body": "عامل‌ها، یکپارچه‌سازی‌ها و ممیزی در یک فضای کاری دیده می‌شوند."
+    }
+  },
+  "chips": {
+    "gmailYoutubeAvailable": "جیمیل و یوتیوب در دسترس هستند",
+    "otherComingSoon": "سایر ارائه‌دهندگان به‌زودی"
   }
 }

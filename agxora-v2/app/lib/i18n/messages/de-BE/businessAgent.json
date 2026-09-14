@@ -83,12 +83,13 @@
     "rejected": "Abgelehnt"
   },
   "pipeline": {
-    "aria": "Agent run stages",
-    "request": "Request",
+    "aria": "Stufen des Agentenlaufs",
+    "request": "Anfrage",
     "plan": "Plan",
-    "approval": "Waiting for approval",
-    "execution": "Execution",
-    "confirmation": "Provider confirmation",
-    "audit": "Audit"
+    "approval": "Freigabe",
+    "execution": "Ausführung",
+    "confirmation": "Bestätigung",
+    "audit": "Audit",
+    "title": "Ausführungspipeline"
   }
 }
