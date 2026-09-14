@@ -535,6 +535,51 @@ select.agx-ui-control option {
 .agx-integrations__grid {
   display: grid;
   gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+}
+
+.agx-integrations__card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.agx-integrations__filters,
+.agx-integrations__caps,
+.agx-integrations__actions,
+.agx-integrations__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.agx-integrations__filters {
+  padding-top: 8px;
+}
+
+.agx-integrations__category {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--agx-accent, #22d3ee);
+}
+
+.agx-integrations__cap {
+  list-style: none;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--agx-border, #334155) 70%, transparent);
+  color: var(--agx-text-muted, #94a3b8);
+}
+
+.agx-integrations__cap--implemented {
+  color: var(--agx-text, #f8fafc);
+  border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 40%, transparent);
+}
+
+.agx-integrations__actions {
+  justify-content: flex-end;
 }
 
 .agx-integrations__head {
@@ -632,7 +677,8 @@ select.agx-ui-control option {
   }
 
   .agx-integrations__head,
-  .agx-integrations__policy {
+  .agx-integrations__policy,
+  .agx-integrations__actions {
     flex-direction: column;
     align-items: stretch;
   }

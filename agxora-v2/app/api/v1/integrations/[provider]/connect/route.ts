@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { requireDatabase } from "@/app/lib/auth/server/http";
 import { connectIntegrationForActor } from "@/app/lib/business-agent/integrations";
-import { isIntegrationProviderId } from "@/app/lib/business-agent/catalog";
+import { persistenceProviderFromUnknown } from "@/app/lib/business-agent/catalog";
 import { jsonError } from "@/app/lib/crm/persistence/http";
 import { rateLimitResponse } from "@/app/lib/security/rate-limit";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
@@ -26,7 +26,8 @@ export async function POST(
     if (limited) return limited;
 
     const { provider } = await context.params;
-    if (!isIntegrationProviderId(provider)) {
+    const persistenceId = persistenceProviderFromUnknown(provider);
+    if (!persistenceId) {
       throw new PersistenceError("validation", "Unknown integration provider");
     }
     const body = (await request.json().catch(() => ({}))) as {
@@ -34,12 +35,12 @@ export async function POST(
     };
     const result = await connectIntegrationForActor(
       actor,
-      provider,
+      persistenceId,
       body.redirectPath,
     );
     return NextResponse.json({
       ok: true,
-      provider,
+      provider: persistenceId,
       connected: result.connected,
       authorizationUrl: result.authorizationUrl,
     });

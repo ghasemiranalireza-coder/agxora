@@ -43,6 +43,7 @@ export interface TeamMemberRow {
 
 export interface IntegrationRow {
   readonly id: string;
+  readonly providerId?: string;
   readonly name: string;
   readonly category: string;
   readonly state: "installed" | "connected" | "available" | "future";

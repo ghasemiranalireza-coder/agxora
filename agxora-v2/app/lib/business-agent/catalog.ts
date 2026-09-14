@@ -1,7 +1,19 @@
 /**
- * Phase 70 — business-agent catalog and public types.
- * Provider tokens never appear in these types.
+ * Phase 70 — business-agent catalog projection.
+ *
+ * Provider identity and implementation status come from the canonical
+ * Integration registry. This file keeps Prisma-compatible ids so existing
+ * Gmail/YouTube records and Agent tools continue to work.
  */
+
+import { SAFE_PERMISSIONS, type WorkspacePermissionFlags } from "@/app/lib/integrations/permission-flags";
+import {
+  projectAgentCatalog,
+  type AgentCapability,
+  type AgentCatalogProjection,
+  type AgentImplementationStatus,
+} from "@/app/lib/integrations/projections";
+import { toPersistenceProviderId } from "@/app/lib/integrations/ids";
 
 export const INTEGRATION_PROVIDERS = [
   "email_gmail",
@@ -16,36 +28,13 @@ export const INTEGRATION_PROVIDERS = [
 
 export type IntegrationProviderId = (typeof INTEGRATION_PROVIDERS)[number];
 
-export type ProviderImplementationStatus =
-  | "oauth_ready"
-  | "not_implemented";
+export type ProviderImplementationStatus = AgentImplementationStatus;
 
-export type IntegrationCapability =
-  | "read"
-  | "create_draft"
-  | "schedule"
-  | "publish"
-  | "send_email"
-  | "delete"
-  | "analytics";
+export type IntegrationCapability = AgentCapability;
 
-export type IntegrationPermissionFlags = {
-  readonly canRead: boolean;
-  readonly canCreateDraft: boolean;
-  readonly canSchedule: boolean;
-  readonly canPublish: boolean;
-  readonly canSendEmail: boolean;
-  readonly canDelete: boolean;
-};
+export type IntegrationPermissionFlags = WorkspacePermissionFlags;
 
-export const SAFE_PERMISSIONS: IntegrationPermissionFlags = {
-  canRead: true,
-  canCreateDraft: true,
-  canSchedule: false,
-  canPublish: false,
-  canSendEmail: false,
-  canDelete: false,
-};
+export { SAFE_PERMISSIONS };
 
 export type IntegrationCatalogEntry = {
   readonly provider: IntegrationProviderId;
@@ -56,74 +45,15 @@ export type IntegrationCatalogEntry = {
   readonly oauthNote: string;
 };
 
-export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] = [
-  {
-    provider: "email_gmail",
-    label: "Gmail / Google Workspace",
-    category: "email",
-    implementationStatus: "oauth_ready",
-    capabilities: ["read", "create_draft", "schedule", "send_email"],
-    oauthNote:
-      "Uses official Google OAuth. Read and draft are allowed by default. Sending stays off until you enable it and approve the action.",
-  },
-  {
-    provider: "email_microsoft",
-    label: "Microsoft 365 / Outlook",
-    category: "email",
-    implementationStatus: "not_implemented",
-    capabilities: ["read", "create_draft", "schedule", "send_email"],
-    oauthNote: "Official Microsoft Graph OAuth is not implemented yet.",
-  },
-  {
-    provider: "instagram",
-    label: "Instagram",
-    category: "social",
-    implementationStatus: "not_implemented",
-    capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
-    oauthNote: "Official Meta OAuth is not implemented yet.",
-  },
-  {
-    provider: "facebook",
-    label: "Facebook Pages",
-    category: "social",
-    implementationStatus: "not_implemented",
-    capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
-    oauthNote: "Official Meta OAuth is not implemented yet.",
-  },
-  {
-    provider: "tiktok",
-    label: "TikTok",
-    category: "social",
-    implementationStatus: "not_implemented",
-    capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
-    oauthNote: "Official TikTok OAuth is not implemented yet.",
-  },
-  {
-    provider: "youtube",
-    label: "YouTube",
-    category: "social",
-    implementationStatus: "oauth_ready",
-    capabilities: ["read", "create_draft", "publish"],
-    oauthNote:
-      "Uses official Google YouTube OAuth. Video publish uses the existing resumable upload pipeline after approval. Publish permission stays off by default. Scheduling via publishAt and YouTube Analytics are not implemented.",
-  },
-  {
-    provider: "linkedin",
-    label: "LinkedIn",
-    category: "social",
-    implementationStatus: "not_implemented",
-    capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
-    oauthNote: "Official LinkedIn OAuth is not implemented yet.",
-  },
-  {
-    provider: "x",
-    label: "X",
-    category: "social",
-    implementationStatus: "not_implemented",
-    capabilities: ["read", "create_draft", "schedule", "publish", "analytics"],
-    oauthNote: "Official X OAuth is not implemented yet.",
-  },
-];
+export const INTEGRATION_CATALOG: readonly IntegrationCatalogEntry[] =
+  projectAgentCatalog().map((entry: AgentCatalogProjection) => ({
+    provider: entry.provider,
+    label: entry.label,
+    category: entry.category,
+    implementationStatus: entry.implementationStatus,
+    capabilities: entry.capabilities,
+    oauthNote: entry.oauthNote,
+  }));
 
 export function isIntegrationProviderId(
   value: unknown,
@@ -142,6 +72,14 @@ export function getCatalogEntry(
     throw new Error(`unknown_provider:${provider}`);
   }
   return entry;
+}
+
+export function persistenceProviderFromUnknown(
+  value: string,
+): IntegrationProviderId | null {
+  if (isIntegrationProviderId(value)) return value;
+  const mapped = toPersistenceProviderId(value);
+  return mapped && isIntegrationProviderId(mapped) ? mapped : null;
 }
 
 export const AGENT_PLAN_STEPS = [

@@ -168,6 +168,7 @@ export interface DocumentActivity {
 
 export interface DocumentIntegration {
   readonly id: string;
+  readonly providerId?: string;
   readonly name: string;
   readonly adapter: string;
   readonly status: IntegrationStatus;

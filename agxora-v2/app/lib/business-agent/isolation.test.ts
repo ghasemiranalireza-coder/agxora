@@ -9,7 +9,11 @@ import {
   executeCampaignItemForActor,
   listCampaignsForActor,
 } from "./campaigns";
-import { connectIntegrationForActor } from "./integrations";
+import {
+  connectIntegrationForActor,
+  listCanonicalProvidersForActor,
+} from "./integrations";
+import { upsertSocialCredentialForActor } from "@/app/lib/social/credentials";
 import { createPlanRunForActor, listAgentRunsForActor } from "./runs";
 import { getAgentPolicyForActor, setAgentPolicyForActor } from "./policy";
 
@@ -25,6 +29,7 @@ async function resetFixtures(): Promise<void> {
   await prisma.campaignItem.deleteMany();
   await prisma.campaign.deleteMany();
   await prisma.integrationConnection.deleteMany();
+  await prisma.socialPlatformCredential.deleteMany();
   await prisma.agentPolicy.deleteMany();
   await prisma.session.deleteMany();
   await prisma.membership.deleteMany();
@@ -166,6 +171,30 @@ describe("Phase 70 business-agent isolation", () => {
     );
     const runsB = await listAgentRunsForActor(await actor(TOKEN_B));
     expect(runsB).toHaveLength(0);
+  });
+
+  it("does not leak Gmail connection state across organizations", async () => {
+    process.env.AGXORA_SOCIAL_OAUTH_ENCRYPTION_KEY = Buffer.alloc(32, 11).toString(
+      "base64",
+    );
+    const ownerA = await actor(TOKEN_A);
+    const ownerB = await actor(TOKEN_B);
+    await upsertSocialCredentialForActor(ownerA, "gmail", {
+      tokens: { accessToken: "test-access", tokenType: "Bearer" },
+      scopes: ["gmail.readonly"],
+      externalAccountName: "ops@org-a.test",
+    });
+    const providersA = await listCanonicalProvidersForActor(ownerA);
+    const providersB = await listCanonicalProvidersForActor(ownerB);
+    const gmailA = providersA.find((row) => row.providerId === "gmail");
+    const gmailB = providersB.find((row) => row.providerId === "gmail");
+    expect(gmailA?.connected).toBe(true);
+    expect(gmailA?.accountLabel).toBe("ops@org-a.test");
+    expect(gmailB?.connected).toBe(false);
+    expect(gmailB?.accountLabel).toBeNull();
+    expect(providersA.find((row) => row.providerId === "linkedin")?.connected).toBe(
+      false,
+    );
   });
 
   it("blocks members from changing autonomy and unpublished execute in SAFE mode", async () => {

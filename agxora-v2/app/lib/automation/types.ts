@@ -111,6 +111,7 @@ export interface WorkflowTemplate {
 
 export interface IntegrationPlan {
   readonly id: string;
+  readonly providerId?: string;
   readonly name: string;
   readonly category: IntegrationCategory;
   readonly status: IntegrationStatus;

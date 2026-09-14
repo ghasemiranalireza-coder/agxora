@@ -160,7 +160,9 @@
     "crm": "CRM",
     "automation": "Автоматизація",
     "devtools": "Інструменти розробника",
-    "custom": "Власний"
+    "custom": "Власний",
+    "social": "Соцмережі",
+    "marketplace": "Маркетплейс і e-commerce"
   },
   "auth": {
     "oauth2": "OAuth 2.0",
@@ -234,5 +236,49 @@
   "generated": {
     "keyName": "Ключ {n}",
     "webhookName": "Вебхук {n}"
+  },
+  "center": {
+    "subtitle": "One catalog for every AGXORA provider. Gmail and YouTube are the only production OAuth integrations. Other providers are architecture only — not connected.",
+    "filterLabel": "Integration categories",
+    "emptyFilter": "No providers in this view.",
+    "declaredOnly": "declared",
+    "developerHint": "Developer tools are local workspace utilities. They are not a live provider connection.",
+    "filters": {
+      "all": "All",
+      "connected": "Connected",
+      "available": "Available",
+      "communication": "Communication",
+      "social": "Social",
+      "productivity": "Productivity",
+      "storage": "Storage",
+      "crm": "CRM",
+      "automation": "Automation",
+      "marketplace": "Marketplace & E-Commerce"
+    },
+    "actions": {
+      "configure": "Configure",
+      "configurePermissions": "Configure permissions",
+      "reconnect": "Reconnect",
+      "upgrade": "Upgrade"
+    },
+    "status": {
+      "requiresReauth": "Reconnect required",
+      "error": "Error",
+      "upgrade": "Upgrade"
+    },
+    "capabilities": {
+      "connect": "Connect",
+      "read": "Read",
+      "analyze": "Analyze",
+      "create": "Create",
+      "update": "Update",
+      "delete": "Delete",
+      "upload": "Upload",
+      "download": "Download",
+      "sync": "Sync",
+      "schedule": "Schedule",
+      "publish": "Publish",
+      "send": "Send"
+    }
   }
 }

@@ -4,7 +4,7 @@ import {
   getPermissionFlagsForActor,
   updatePermissionsForActor,
 } from "@/app/lib/business-agent/integrations";
-import { isIntegrationProviderId } from "@/app/lib/business-agent/catalog";
+import { persistenceProviderFromUnknown } from "@/app/lib/business-agent/catalog";
 import { jsonError } from "@/app/lib/crm/persistence/http";
 import { rateLimitResponse } from "@/app/lib/security/rate-limit";
 import { PersistenceError } from "@/app/lib/tenancy/errors";
@@ -22,11 +22,12 @@ export async function GET(
     requireDatabase();
     const actor = await requireCurrentActor();
     const { provider } = await context.params;
-    if (!isIntegrationProviderId(provider)) {
+    const persistenceId = persistenceProviderFromUnknown(provider);
+    if (!persistenceId) {
       throw new PersistenceError("validation", "Unknown integration provider");
     }
-    const permissions = await getPermissionFlagsForActor(actor, provider);
-    return NextResponse.json({ ok: true, provider, permissions });
+    const permissions = await getPermissionFlagsForActor(actor, persistenceId);
+    return NextResponse.json({ ok: true, provider: persistenceId, permissions });
   } catch (error) {
     return jsonError(error);
   }
@@ -47,7 +48,8 @@ export async function PUT(
     if (limited) return limited;
 
     const { provider } = await context.params;
-    if (!isIntegrationProviderId(provider)) {
+    const persistenceId = persistenceProviderFromUnknown(provider);
+    if (!persistenceId) {
       throw new PersistenceError("validation", "Unknown integration provider");
     }
     const body = (await request.json().catch(() => ({}))) as {
@@ -58,8 +60,8 @@ export async function PUT(
       canSendEmail?: boolean;
       canDelete?: boolean;
     };
-    const permissions = await updatePermissionsForActor(actor, provider, body);
-    return NextResponse.json({ ok: true, provider, permissions });
+    const permissions = await updatePermissionsForActor(actor, persistenceId, body);
+    return NextResponse.json({ ok: true, provider: persistenceId, permissions });
   } catch (error) {
     return jsonError(error);
   }

@@ -165,15 +165,15 @@ export const integrationService = {
     if (!connection) return null;
     const provider = getConnectorProvider(connection.connectorId);
     const result = await provider.testConnection(connection);
-      const next: IntegrationConnection = {
+    const next: IntegrationConnection = {
       ...connection,
-      status: result.ok ? "connected" : "error",
-      lastError: result.ok ? undefined : result.message,
+      status: "error",
+      lastError: result.ok ? "integrations.noticeDefault" : result.message,
       health: {
-        status: result.ok ? "healthy" : "down",
+        status: "unknown",
         lastCheckedAt: nowIso(),
         latencyMs: result.latencyMs,
-        message: result.message,
+        message: result.message ?? "integrations.noticeDefault",
       },
     };
     integrationsStore.upsertConnection(next);

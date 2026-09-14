@@ -31,6 +31,10 @@ export type BrandMarkId =
   | "make"
   | "github"
   | "gitlab"
+  | "amazon"
+  | "shopify"
+  | "ebay"
+  | "alibaba"
   | "generic";
 
 interface BrandMarkDef {
@@ -119,18 +123,80 @@ const BRAND_MARKS: Record<BrandMarkId, BrandMarkDef> = {
     path: "m23.6004 9.5927-.0337-.0862L20.3.9814a.851.851 0 0 0-.3362-.405.8748.8748 0 0 0-.9997.0539.8748.8748 0 0 0-.29.4399l-2.2055 6.748H7.5375l-2.2057-6.748a.8573.8573 0 0 0-.29-.4412.8748.8748 0 0 0-.9997-.0537.8585.8585 0 0 0-.3362.4049L.4332 9.5015l-.0325.0862a6.0657 6.0657 0 0 0 2.0119 7.0105l.0113.0087.03.0213 4.976 3.7264 2.462 1.8633 1.4995 1.1321a1.0085 1.0085 0 0 0 1.2197 0l1.4995-1.1321 2.4619-1.8633 5.006-3.7489.0125-.01a6.0682 6.0682 0 0 0 2.0094-7.003z",
     tint: "#fc8547",
   },
+  amazon: {
+    path: "M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.551 8.447-1.653.191-.08.333-.03.425.144.092.175.05.32-.125.437-1.016.7-2.07 1.23-3.16 1.59a17.47 17.47 0 0 1-5.587.9c-4.958 0-9.27-1.414-12.936-4.24-.14-.108-.15-.223-.032-.322zm23.19-2.07c-.24-.3-.99-.14-2.97.48-1.98.62-3.3 1.05-3.96 1.29-.18.06-.27.18-.27.36 0 .10.0.1.2.33 1.5.48 2.67.72 3.51.72.84 0 1.68-.18 2.52-.54.66-.27 1.11-.63 1.35-1.08.12-.24.15-.42.09-.54zM15.24 8.7c0 1.02.27 1.8.81 2.34.54.54 1.41.81 2.61.81.72 0 1.59-.15 2.61-.45v-.87c-.78.3-1.5.45-2.16.45-.72 0-1.23-.15-1.53-.45-.3-.3-.45-.75-.45-1.35V4.5h-1.89V8.7zM10.41 11.76c.6 0 1.11-.12 1.53-.36.42-.24.63-.57.63-.99 0-.48-.21-.84-.63-1.08-.42-.24-.99-.48-1.71-.72-.96-.3-1.68-.63-2.16-.99-.48-.36-.72-.87-.72-1.53 0-.72.3-1.32.9-1.8.6-.48 1.41-.72 2.43-.72.9 0 1.71.18 2.43.54v1.71c-.66-.42-1.41-.63-2.25-.63-.54 0-.96.12-1.26.36-.3.24-.45.54-.45.9 0 .42.21.75.63.99.42.24.99.48 1.71.72 1.02.36 1.77.72 2.25 1.08.48.36.72.87.72 1.53 0 .78-.33 1.41-.99 1.89-.66.48-1.53.72-2.61.72-.96 0-1.92-.21-2.88-.63v-1.77c.84.54 1.77.81 2.79.81zM4.8 3.87 6.63 12h1.98l2.34-8.13H8.88l-1.26 5.31h-.06L6.27 3.87H4.8z",
+    tint: "#f2a900",
+  },
+  shopify: {
+    path: "M15.337 23.589l3.378-.584s-.672-4.733-.672-4.781c-.024-.479-.359-.899-.838-1.054l-2.397-.838v16.118c.024 0 3.402-3.861 3.402-3.861zM12.78.458c-.119 0-.239.024-.359.048-.024-.072-.072-.167-.119-.263C12.087.024 11.8-.07 11.513.026c0 0-8.28 2.037-8.831 2.18-.551.144-.79.79-.79.79S.036 6.26.012 6.547c-.024.287 1.437 21.546 1.437 21.546l10.33 1.795V.458h.001z",
+    tint: "#95bf47",
+  },
+  ebay: {
+    path: "M6.2 8.4h2.7l1.5 7.1h.1l1.7-7.1h2.5L11.4 18H8.7zm8.6 0h2.4v10H14.8zm3.5 0h2.5l2.4 6.3h.1l2.3-6.3H24l-3.6 10h-2.6zM0 8.4h4.6c1.8 0 2.9.9 2.9 2.4 0 1.1-.6 1.9-1.6 2.2v.1c1.4.3 2.2 1.2 2.2 2.6 0 1.9-1.5 3-3.6 3H0zm2.5 3.9h1.7c.8 0 1.2-.4 1.2-1s-.4-.9-1.2-.9H2.5zm0 4.2h1.9c.9 0 1.4-.4 1.4-1.1s-.5-1-1.4-1H2.5z",
+    tint: "#e53238",
+  },
+  alibaba: {
+    path: "M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm4.2 6.2H7.8v1.4h8.4V8.2zm-7.6 2.3 3.4 5.1 3.4-5.1h-1.6l-1.8 2.7-1.8-2.7H8.6zm-.8 5.3h8.4v-1.4H7.8v1.4z",
+    tint: "#ff6a00",
+  },
   generic: {
     path: "M12 2 21 7v10l-9 5-9-5V7zm0 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8z",
     tint: "#94a3b8",
   },
 };
 
+/** Canonical or legacy provider id → brand mark id. */
+export function brandForCanonicalProvider(provider: string): BrandMarkId {
+  switch (provider) {
+    case "gmail":
+    case "email_gmail":
+      return "gmail";
+    case "microsoft365":
+    case "email_microsoft":
+    case "m365":
+      return "microsoft";
+    case "google_workspace":
+    case "google_calendar":
+    case "google-workspace":
+    case "google-calendar":
+      return "google";
+    case "amazon_seller":
+    case "amazon":
+      return "amazon";
+    case "instagram":
+    case "facebook":
+    case "tiktok":
+    case "youtube":
+    case "linkedin":
+    case "x":
+    case "slack":
+    case "discord":
+    case "dropbox":
+    case "onedrive":
+    case "google_drive":
+    case "hubspot":
+    case "salesforce":
+    case "zapier":
+    case "make":
+    case "github":
+    case "gitlab":
+    case "shopify":
+    case "ebay":
+    case "alibaba":
+      return provider;
+    default:
+      return "generic";
+  }
+}
+
 /** Business-agent integration provider id → brand mark id. */
 export function brandForIntegrationProvider(provider: string): BrandMarkId {
   switch (provider) {
     case "email_gmail":
+    case "gmail":
       return "gmail";
     case "email_microsoft":
+    case "microsoft365":
       return "microsoft";
     case "instagram":
     case "facebook":
@@ -140,7 +206,7 @@ export function brandForIntegrationProvider(provider: string): BrandMarkId {
     case "x":
       return provider;
     default:
-      return "generic";
+      return brandForCanonicalProvider(provider);
   }
 }
 
@@ -162,9 +228,13 @@ export function brandForConnector(connectorId: string): BrandMarkId {
     case "make":
     case "github":
     case "gitlab":
+    case "amazon":
+    case "shopify":
+    case "ebay":
+    case "alibaba":
       return connectorId;
     default:
-      return "generic";
+      return brandForCanonicalProvider(connectorId);
   }
 }
 

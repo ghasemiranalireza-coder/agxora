@@ -9,6 +9,16 @@ import type {
   SettingsKpi,
   TeamMemberRow,
 } from "./types";
+import { getProviderDefinition } from "@/app/lib/integrations/registry";
+import { toCanonicalProviderId } from "@/app/lib/integrations/ids";
+
+function settingsStateFor(providerId: string): IntegrationRow["state"] {
+  const canonical = toCanonicalProviderId(providerId);
+  if (!canonical) return "future";
+  const status = getProviderDefinition(canonical).implementationStatus;
+  if (status === "available") return "available";
+  return "future";
+}
 
 // Prototype layout only — counts are honest empty until live settings APIs exist.
 export const SETTINGS_DATA_SOURCE = "demo-prototype" as const;
@@ -63,14 +73,31 @@ export const TEAM_MEMBERS: readonly TeamMemberRow[] = [
   { id: "m5", name: "Demo · Riley Chen", email: "demo.riley@example.invalid", role: "Viewer", status: "invited" },
 ];
 
-// Honesty rule: none of these adapters has a live backend implementation,
-// so no row may claim "connected", "installed", or "available".
+// Honesty rule: this prototype table is not live tenant connection state.
+// Gmail/YouTube may show implementation "available". Never "connected".
 export const SETTINGS_INTEGRATIONS: readonly IntegrationRow[] = [
   {
+    id: "i-gmail",
+    providerId: "gmail",
+    name: "Gmail",
+    category: "Communication",
+    state: settingsStateFor("gmail"),
+    adapter: "GmailAdapter",
+  },
+  {
+    id: "i-youtube",
+    providerId: "youtube",
+    name: "YouTube",
+    category: "Social",
+    state: settingsStateFor("youtube"),
+    adapter: "YouTubeAdapter",
+  },
+  {
     id: "i-gdrive",
+    providerId: "google_drive",
     name: "Google Drive",
     category: "Documents",
-    state: "future",
+    state: settingsStateFor("google_drive"),
     adapter: "GoogleDriveAdapter",
   },
   {
@@ -82,16 +109,18 @@ export const SETTINGS_INTEGRATIONS: readonly IntegrationRow[] = [
   },
   {
     id: "i-slack",
+    providerId: "slack",
     name: "Slack",
     category: "Communication",
-    state: "future",
+    state: settingsStateFor("slack"),
     adapter: "SlackAdapter",
   },
   {
     id: "i-hubspot",
+    providerId: "hubspot",
     name: "HubSpot",
     category: "CRM",
-    state: "future",
+    state: settingsStateFor("hubspot"),
     adapter: "HubSpotAdapter",
   },
   {

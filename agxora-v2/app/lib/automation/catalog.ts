@@ -1,4 +1,5 @@
 import type { CatalogItem, IntegrationPlan } from "./types";
+import { moduleStatusFromCanonical } from "@/app/lib/integrations/projections";
 
 export const WORKFLOW_ELEMENTS: readonly CatalogItem[] = [
   { id: "el-trigger", label: "Trigger", description: "Start when an event fires", kind: "trigger" },
@@ -63,25 +64,28 @@ export const AI_ACTIONS: readonly CatalogItem[] = [
 export const AUTOMATION_INTEGRATIONS: readonly IntegrationPlan[] = [
   {
     id: "google-workspace",
+    providerId: "google_workspace",
     name: "Google Workspace",
     category: "Productivity",
-    status: "planned",
+    status: moduleStatusFromCanonical("google_workspace", "planned"),
     adapter: "GoogleWorkspaceAdapter",
     notes: "Not connected — Google Workspace adapter is reserved. No live Workspace backend in this build.",
   },
   {
     id: "m365",
+    providerId: "microsoft365",
     name: "Microsoft 365",
     category: "Productivity",
-    status: "planned",
+    status: moduleStatusFromCanonical("microsoft365", "planned"),
     adapter: "Microsoft365Adapter",
     notes: "Outlook / Teams / Graph hooks reserved.",
   },
   {
     id: "slack",
+    providerId: "slack",
     name: "Slack",
     category: "Communication",
-    status: "coming_soon",
+    status: moduleStatusFromCanonical("slack", "coming_soon"),
     adapter: "SlackAdapter",
     notes: "Events API + chat posts reserved.",
   },
@@ -95,9 +99,10 @@ export const AUTOMATION_INTEGRATIONS: readonly IntegrationPlan[] = [
   },
   {
     id: "discord",
+    providerId: "discord",
     name: "Discord",
     category: "Communication",
-    status: "planned",
+    status: moduleStatusFromCanonical("discord", "planned"),
     adapter: "DiscordAdapter",
     notes: "Webhook + bot adapter reserved.",
   },
@@ -119,9 +124,10 @@ export const AUTOMATION_INTEGRATIONS: readonly IntegrationPlan[] = [
   },
   {
     id: "shopify",
+    providerId: "shopify",
     name: "Shopify",
     category: "Commerce",
-    status: "planned",
+    status: moduleStatusFromCanonical("shopify", "planned"),
     adapter: "ShopifyAdapter",
     notes: "Order / product events reserved.",
   },
@@ -143,17 +149,19 @@ export const AUTOMATION_INTEGRATIONS: readonly IntegrationPlan[] = [
   },
   {
     id: "hubspot",
+    providerId: "hubspot",
     name: "HubSpot",
     category: "CRM",
-    status: "planned",
+    status: moduleStatusFromCanonical("hubspot", "planned"),
     adapter: "HubSpotAdapter",
     notes: "CRM sync adapter reserved.",
   },
   {
     id: "salesforce",
+    providerId: "salesforce",
     name: "Salesforce",
     category: "CRM",
-    status: "coming_soon",
+    status: moduleStatusFromCanonical("salesforce", "coming_soon"),
     adapter: "SalesforceAdapter",
     notes: "Platform Events adapter reserved.",
   },
