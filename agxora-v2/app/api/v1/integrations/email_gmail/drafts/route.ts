@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { requireDatabase } from "@/app/lib/auth/server/http";
-import { executeGmailToolForActor } from "@/app/lib/business-agent/gmail-tools";
+import { executeProviderCapabilityOrThrow } from "@/app/lib/integrations/adapters";
 import { jsonError } from "@/app/lib/crm/persistence/http";
 import { rateLimitResponse } from "@/app/lib/security/rate-limit";
 import { requireCurrentActor } from "@/app/lib/tenancy";
@@ -29,13 +29,19 @@ export async function POST(request: Request): Promise<NextResponse> {
     if (!body.to?.trim() || !body.subject?.trim()) {
       throw new PersistenceError("validation", "to and subject are required");
     }
-    const result = await executeGmailToolForActor(actor, "gmail.create_draft", {
-      to: body.to,
-      subject: body.subject,
-      body: body.body ?? "",
-      cc: body.cc,
-      inReplyTo: body.inReplyTo,
-    });
+    const result = await executeProviderCapabilityOrThrow(
+      actor,
+      "gmail",
+      "create",
+      {
+        operation: "gmail.create_draft",
+        to: body.to,
+        subject: body.subject,
+        body: body.body ?? "",
+        cc: body.cc,
+        inReplyTo: body.inReplyTo,
+      },
+    );
     return NextResponse.json({ ok: true, ...((result as object) ?? {}), sent: false });
   } catch (error) {
     return jsonError(error);

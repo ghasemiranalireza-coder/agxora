@@ -1,7 +1,7 @@
 /**
  * Capability layers.
  *
- * Resolution (architecture only — execution still uses existing Gmail/YouTube paths):
+ * Resolution:
  *   provider declares capability
  *           ↓
  *   provider implementation supports capability
@@ -18,7 +18,7 @@
  *           ↓
  *   approval
  *           ↓
- *   execution
+ *   adapter.execute → existing Gmail/YouTube implementation
  *
  * A declared capability is never treated as executable on its own.
  */

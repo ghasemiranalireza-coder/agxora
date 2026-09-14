@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { requireDatabase } from "@/app/lib/auth/server/http";
-import { executeGmailToolForActor } from "@/app/lib/business-agent/gmail-tools";
+import { executeProviderCapabilityOrThrow } from "@/app/lib/integrations/adapters";
 import { jsonError } from "@/app/lib/crm/persistence/http";
 import { requireCurrentActor } from "@/app/lib/tenancy";
 
@@ -16,9 +16,12 @@ export async function GET(
     requireDatabase();
     const actor = await requireCurrentActor();
     const { id } = await context.params;
-    const result = await executeGmailToolForActor(actor, "gmail.get_message", {
-      messageId: id,
-    });
+    const result = await executeProviderCapabilityOrThrow(
+      actor,
+      "gmail",
+      "read",
+      { operation: "gmail.get_message", messageId: id },
+    );
     return NextResponse.json({ ok: true, ...((result as object) ?? {}) });
   } catch (error) {
     return jsonError(error);
