@@ -391,6 +391,8 @@
   position: relative;
   min-height: min(100svh, 920px);
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: clamp(56px, 9vh, 104px) 0 clamp(80px, 12vh, 128px);
 }
@@ -534,7 +536,9 @@ html[dir="rtl"] .p31-hero__headline {
 .p31-hero__scroll {
   position: relative;
   z-index: 2;
-  margin: 28px auto 0;
+  width: 100%;
+  flex-shrink: 0;
+  margin: 28px 0 0;
   text-align: center;
   font-size: 12px;
   letter-spacing: 0.04em;
