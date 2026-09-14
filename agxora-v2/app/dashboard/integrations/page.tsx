@@ -3,7 +3,6 @@
 import dynamic from "next/dynamic";
 import type { JSX } from "react";
 import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
-import { ConnectedAccounts } from "../../../features/business-agent";
 
 const Page = dynamic(
   () =>
@@ -17,10 +16,5 @@ const Page = dynamic(
 );
 
 export default function RoutePage(): JSX.Element {
-  return (
-    <>
-      <ConnectedAccounts />
-      <Page />
-    </>
-  );
+  return <Page />;
 }

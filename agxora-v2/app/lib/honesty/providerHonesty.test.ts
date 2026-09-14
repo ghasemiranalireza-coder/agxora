@@ -7,6 +7,7 @@ import { CREATOR_PLATFORM_INTEGRATIONS } from "@/app/lib/creator-studio/platform
 import {
   API_KEYS,
   SETTINGS_DATA_SOURCE,
+  SETTINGS_INTEGRATIONS,
   SETTINGS_KPIS,
   TEAM_MEMBERS,
 } from "@/app/lib/settings/mock-data";
@@ -82,6 +83,12 @@ describe("provider and catalog honesty", () => {
     expect(SETTINGS_KPIS.find((row) => row.id === "members")?.value).toBe("0");
     expect(TEAM_MEMBERS.every((row) => row.name.startsWith("Demo ·"))).toBe(true);
     expect(API_KEYS.every((row) => row.prefix.startsWith("demo_not_live_"))).toBe(
+      true,
+    );
+    expect(SETTINGS_INTEGRATIONS.every((row) => row.state !== "connected")).toBe(
+      true,
+    );
+    expect(SETTINGS_INTEGRATIONS.every((row) => row.state !== "installed")).toBe(
       true,
     );
   });

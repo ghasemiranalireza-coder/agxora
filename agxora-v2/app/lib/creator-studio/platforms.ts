@@ -1,4 +1,5 @@
 import type { AiFeaturePlan, PlatformIntegrationPlan } from "./types";
+import { moduleStatusFromCanonical } from "@/app/lib/integrations/projections";
 
 /**
  * Future platform integrations — architecture only.
@@ -7,41 +8,46 @@ import type { AiFeaturePlan, PlatformIntegrationPlan } from "./types";
 export const CREATOR_PLATFORM_INTEGRATIONS: readonly PlatformIntegrationPlan[] = [
   {
     id: "instagram",
+    providerId: "instagram",
     platform: "Instagram",
     category: "social",
-    status: "planned",
+    status: moduleStatusFromCanonical("instagram", "planned"),
     adapter: "InstagramCreatorAdapter",
     notes: "Official Graph API publish + insights reserved.",
   },
   {
     id: "tiktok",
+    providerId: "tiktok",
     platform: "TikTok",
     category: "social",
-    status: "planned",
+    status: moduleStatusFromCanonical("tiktok", "planned"),
     adapter: "TikTokCreatorAdapter",
     notes: "TikTok Content Posting API adapter reserved.",
   },
   {
     id: "youtube",
+    providerId: "youtube",
     platform: "YouTube",
     category: "social",
-    status: "ready",
+    status: moduleStatusFromCanonical("youtube", "ready"),
     adapter: "YouTubeCreatorAdapter",
     notes: "YouTube publishing is available for connected accounts.",
   },
   {
     id: "facebook",
+    providerId: "facebook",
     platform: "Facebook",
     category: "social",
-    status: "planned",
+    status: moduleStatusFromCanonical("facebook", "planned"),
     adapter: "FacebookPagesAdapter",
     notes: "Pages publishing adapter reserved.",
   },
   {
     id: "linkedin",
+    providerId: "linkedin",
     platform: "LinkedIn",
     category: "social",
-    status: "planned",
+    status: moduleStatusFromCanonical("linkedin", "planned"),
     adapter: "LinkedInCreatorAdapter",
     notes: "UGC / organization posts adapter reserved.",
   },
@@ -63,9 +69,10 @@ export const CREATOR_PLATFORM_INTEGRATIONS: readonly PlatformIntegrationPlan[] =
   },
   {
     id: "x",
+    providerId: "x",
     platform: "X",
     category: "social",
-    status: "planned",
+    status: moduleStatusFromCanonical("x", "planned"),
     adapter: "XCreatorAdapter",
     notes: "X API v2 posts adapter reserved.",
   },

@@ -124,6 +124,7 @@ export interface TopPost {
 
 export interface PlatformIntegrationPlan {
   readonly id: string;
+  readonly providerId?: string;
   readonly platform: string;
   readonly category: "social" | "ads" | "analytics";
   readonly status: IntegrationStatus;

@@ -6,6 +6,7 @@ import type {
   SecurityControl,
   ShareScope,
 } from "./types";
+import { moduleStatusFromCanonical } from "@/app/lib/integrations/projections";
 
 export const DOCUMENT_FILE_TYPES: readonly DocumentFileType[] = [
   "pdf",
@@ -54,23 +55,26 @@ export const SHARE_SCOPES: readonly ShareScope[] = [
 export const DOCUMENT_INTEGRATIONS: readonly DocumentIntegration[] = [
   {
     id: "google-drive",
+    providerId: "google_drive",
     name: "Google Drive",
     adapter: "GoogleDriveAdapter",
-    status: "planned",
+    status: moduleStatusFromCanonical("google_drive", "planned"),
     description: "Import / sync architecture reserved — no live OAuth yet.",
   },
   {
     id: "onedrive",
+    providerId: "onedrive",
     name: "OneDrive",
     adapter: "OneDriveAdapter",
-    status: "planned",
+    status: moduleStatusFromCanonical("onedrive", "planned"),
     description: "Microsoft Graph file hooks reserved.",
   },
   {
     id: "dropbox",
+    providerId: "dropbox",
     name: "Dropbox",
     adapter: "DropboxAdapter",
-    status: "planned",
+    status: moduleStatusFromCanonical("dropbox", "planned"),
     description: "Dropbox API adapter reserved.",
   },
   {

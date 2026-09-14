@@ -18,9 +18,13 @@ import {
   INTEGRATION_CATALOG,
   SAFE_PERMISSIONS,
   isIntegrationProviderId,
+  persistenceProviderFromUnknown,
   type IntegrationPermissionFlags,
   type IntegrationProviderId,
 } from "./catalog";
+import { resolveCanonicalProvidersForActor } from "@/app/lib/integrations/resolve-for-actor";
+import type { ResolvedProviderState } from "@/app/lib/integrations/resolver";
+import { toCanonicalProviderId } from "@/app/lib/integrations/ids";
 
 export type IntegrationSummary = {
   readonly provider: IntegrationProviderId;
@@ -132,7 +136,7 @@ export async function listIntegrationsForActor(
         : entry.provider === "email_gmail"
           ? gmailLive
           : false;
-    const connected = liveConnected || row?.status === "connected";
+    const connected = liveConnected;
     const accountLabel =
       entry.provider === "email_gmail"
         ? (row?.accountLabel ?? gmailSummary?.externalAccountName ?? null)
@@ -160,18 +164,25 @@ export async function listIntegrationsForActor(
   });
 }
 
+export async function listCanonicalProvidersForActor(
+  actor: Actor,
+): Promise<readonly ResolvedProviderState[]> {
+  return resolveCanonicalProvidersForActor(actor);
+}
+
 export async function connectIntegrationForActor(
   actor: Actor,
-  provider: IntegrationProviderId,
+  provider: IntegrationProviderId | string,
   redirectPath?: string,
 ): Promise<{ readonly authorizationUrl?: string; readonly connected: boolean }> {
   assertCanManageIntegrations(actor);
-  if (!isIntegrationProviderId(provider)) {
+  const persistenceId = persistenceProviderFromUnknown(String(provider));
+  if (!persistenceId || !isIntegrationProviderId(persistenceId)) {
     throw new PersistenceError("validation", "Unknown integration provider");
   }
-  const entry = getCatalogEntry(provider);
+  const entry = getCatalogEntry(persistenceId);
 
-  if (provider === "youtube") {
+  if (persistenceId === "youtube") {
     const result = await beginYouTubeOAuthForActor(actor, redirectPath);
     await upsertConnection(actor, "youtube", {
       status: "not_connected",
@@ -182,12 +193,12 @@ export async function connectIntegrationForActor(
       provider: "youtube",
       action: "connect_begin",
       status: "planned",
-      metadata: { oauth: true },
+      metadata: { oauth: true, canonicalProviderId: toCanonicalProviderId("youtube") },
     });
     return { authorizationUrl: result.authorizationUrl, connected: false };
   }
 
-  if (provider === "email_gmail") {
+  if (persistenceId === "email_gmail") {
     const result = await beginGmailOAuthForActor(actor, redirectPath);
     await upsertConnection(actor, "email_gmail", {
       status: "not_connected",
@@ -198,14 +209,14 @@ export async function connectIntegrationForActor(
       provider: "email_gmail",
       action: "connect_begin",
       status: "planned",
-      metadata: { oauth: true },
+      metadata: { oauth: true, canonicalProviderId: toCanonicalProviderId("gmail") },
     });
     return { authorizationUrl: result.authorizationUrl, connected: false };
   }
 
   await recordExternalAction({
     actor,
-    provider,
+    provider: persistenceId,
     action: "connect_begin",
     status: "failed",
     error: "not_implemented",
@@ -225,22 +236,26 @@ export async function connectIntegrationForActor(
 
 export async function disconnectIntegrationForActor(
   actor: Actor,
-  provider: IntegrationProviderId,
+  provider: IntegrationProviderId | string,
 ): Promise<void> {
   assertCanManageIntegrations(actor);
-  if (provider === "youtube") {
+  const persistenceId = persistenceProviderFromUnknown(String(provider));
+  if (!persistenceId || !isIntegrationProviderId(persistenceId)) {
+    throw new PersistenceError("validation", "Unknown integration provider");
+  }
+  if (persistenceId === "youtube") {
     await disconnectYouTubeForActor(actor);
-  } else if (provider === "email_gmail") {
+  } else if (persistenceId === "email_gmail") {
     await disconnectGmailForActor(actor);
   } else {
-    const entry = getCatalogEntry(provider);
+    const entry = getCatalogEntry(persistenceId);
     if (entry.implementationStatus === "not_implemented") {
       const row = await prisma.integrationConnection.findUnique({
         where: {
           organizationId_workspaceId_provider: {
             organizationId: actor.organizationId,
             workspaceId: actor.workspaceId,
-            provider,
+            provider: persistenceId,
           },
         },
       });
@@ -254,7 +269,7 @@ export async function disconnectIntegrationForActor(
     }
   }
 
-  await upsertConnection(actor, provider, {
+  await upsertConnection(actor, persistenceId, {
     status: "disconnected",
     disconnectedAt: new Date(),
     connectedAt: null,
@@ -263,7 +278,7 @@ export async function disconnectIntegrationForActor(
   });
   await recordExternalAction({
     actor,
-    provider,
+    provider: persistenceId,
     action: "disconnect",
     status: "completed",
   });
@@ -271,16 +286,20 @@ export async function disconnectIntegrationForActor(
 
 export async function updatePermissionsForActor(
   actor: Actor,
-  provider: IntegrationProviderId,
+  provider: IntegrationProviderId | string,
   flags: Partial<IntegrationPermissionFlags>,
 ): Promise<IntegrationPermissionFlags> {
   assertCanManageIntegrations(actor);
+  const persistenceId = persistenceProviderFromUnknown(String(provider));
+  if (!persistenceId || !isIntegrationProviderId(persistenceId)) {
+    throw new PersistenceError("validation", "Unknown integration provider");
+  }
   const existing = await prisma.integrationConnection.findUnique({
     where: {
       organizationId_workspaceId_provider: {
         organizationId: actor.organizationId,
         workspaceId: actor.workspaceId,
-        provider,
+        provider: persistenceId,
       },
     },
   });
@@ -288,10 +307,10 @@ export async function updatePermissionsForActor(
     ...flagsFromRow(existing),
     ...flags,
   };
-  const row = await upsertConnection(actor, provider, merged);
+  const row = await upsertConnection(actor, persistenceId, merged);
   await recordExternalAction({
     actor,
-    provider,
+    provider: persistenceId,
     action: "permissions_update",
     status: "completed",
     metadata: { permissions: merged },
@@ -337,14 +356,18 @@ export async function markIntegrationErrorForActor(
 
 export async function getPermissionFlagsForActor(
   actor: Actor,
-  provider: IntegrationProviderId,
+  provider: IntegrationProviderId | string,
 ): Promise<IntegrationPermissionFlags> {
+  const persistenceId = persistenceProviderFromUnknown(String(provider));
+  if (!persistenceId || !isIntegrationProviderId(persistenceId)) {
+    return SAFE_PERMISSIONS;
+  }
   const row = await prisma.integrationConnection.findUnique({
     where: {
       organizationId_workspaceId_provider: {
         organizationId: actor.organizationId,
         workspaceId: actor.workspaceId,
-        provider,
+        provider: persistenceId,
       },
     },
   });

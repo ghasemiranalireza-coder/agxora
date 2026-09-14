@@ -5,6 +5,7 @@ export {
   SAFE_PERMISSIONS,
   getCatalogEntry,
   isIntegrationProviderId,
+  persistenceProviderFromUnknown,
   type IntegrationCatalogEntry,
   type IntegrationPermissionFlags,
   type IntegrationProviderId,
