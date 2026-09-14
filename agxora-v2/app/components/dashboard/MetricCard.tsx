@@ -200,10 +200,10 @@ export function MetricCard({
         aria-hidden="true"
       />
 
-      <header className="relative flex items-start justify-between gap-3">
-        <div className="flex items-center gap-3">
+      <header className="relative flex min-w-0 items-start justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-3">
           <span
-            className="flex h-11 w-11 items-center justify-center rounded-2xl border"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border"
             style={{
               borderColor: "var(--agx-card-border, rgba(255,255,255,0.08))",
               background:
@@ -215,7 +215,7 @@ export function MetricCard({
             {icon}
           </span>
           <h3
-            className="text-[11px] font-semibold uppercase tracking-[0.2em]"
+            className="min-w-0 break-words text-[11px] font-semibold uppercase tracking-[0.2em]"
             style={{ color: "var(--agx-text-muted, #94a3b8)" }}
           >
             {title}
@@ -256,7 +256,7 @@ export function MetricCard({
           {value}
         </p>
         <p
-          className="mt-1.5 text-xs tracking-[0.04em]"
+          className="mt-1.5 break-words text-xs tracking-[0.04em]"
           style={{ color: "var(--agx-text-muted, #94a3b8)" }}
         >
           {caption}

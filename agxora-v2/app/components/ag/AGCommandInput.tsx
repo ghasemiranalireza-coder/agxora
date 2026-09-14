@@ -68,6 +68,9 @@ export function AGCommandInput({
             fontWeight: 650,
             cursor: disabled || !value.trim() ? "not-allowed" : "pointer",
             opacity: disabled || !value.trim() ? 0.55 : 1,
+            maxWidth: "100%",
+            whiteSpace: "normal",
+            overflowWrap: "anywhere",
           }}
         >
           {submitLabel}
