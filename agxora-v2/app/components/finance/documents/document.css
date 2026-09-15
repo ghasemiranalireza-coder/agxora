@@ -107,6 +107,12 @@
   margin: 18px 0;
 }
 
+.agx-doc__meta > div span,
+.agx-doc__meta > div strong,
+.agx-doc__meta > div p {
+  display: block;
+}
+
 .agx-doc__meta dl {
   display: grid;
   gap: 6px;
@@ -282,8 +288,15 @@
 
 .agx-doc-thumb .agx-doc {
   width: 210mm;
-  transform: scale(0.34);
+  max-width: none;
+  min-width: 210mm;
+  transform: scale(0.24);
   transform-origin: top left;
+}
+
+.agx-doc-thumb .agx-doc__number {
+  overflow-wrap: normal;
+  white-space: nowrap;
 }
 
 .agx-doc-templates {
