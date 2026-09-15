@@ -6,7 +6,13 @@
  * Phase 44: organization / workspace / membership / invitation actions
  */
 
-import type { Actor, ControlPlaneAction, CustomerAction, MembershipRole } from "./types";
+import type {
+  Actor,
+  ControlPlaneAction,
+  CustomerAction,
+  FinanceAction,
+  MembershipRole,
+} from "./types";
 import { PersistenceError } from "./errors";
 
 const ROLE_RANK: Record<MembershipRole, number> = {
@@ -30,6 +36,12 @@ const ROLE_PERMISSIONS: Record<MembershipRole, readonly CustomerAction[]> = {
     "customer.delete",
   ],
   MEMBER: ["customer.read", "customer.create", "customer.update"],
+};
+
+const FINANCE_PERMISSIONS: Record<MembershipRole, readonly FinanceAction[]> = {
+  OWNER: ["finance.read", "finance.write", "finance.bill", "finance.status"],
+  ADMIN: ["finance.read", "finance.write", "finance.bill", "finance.status"],
+  MEMBER: ["finance.read", "finance.write", "finance.bill"],
 };
 
 const CONTROL_PERMISSIONS: Record<MembershipRole, readonly ControlPlaneAction[]> = {
@@ -84,6 +96,10 @@ export function can(actor: Actor, action: CustomerAction): boolean {
   return ROLE_PERMISSIONS[actor.role].includes(action);
 }
 
+export function canFinance(actor: Actor, action: FinanceAction): boolean {
+  return FINANCE_PERMISSIONS[actor.role].includes(action);
+}
+
 export function canControl(actor: Actor, action: ControlPlaneAction): boolean {
   return CONTROL_PERMISSIONS[actor.role].includes(action);
 }
@@ -117,6 +133,20 @@ export function assertCan(
 ): void {
   assertTenant(actor, resource);
   if (!can(actor, action)) {
+    throw new PersistenceError("forbidden", `Missing permission: ${action}`);
+  }
+}
+
+export function assertFinance(
+  actor: Actor,
+  action: FinanceAction,
+  resource: {
+    readonly organizationId: string;
+    readonly workspaceId: string;
+  },
+): void {
+  assertTenant(actor, resource);
+  if (!canFinance(actor, action)) {
     throw new PersistenceError("forbidden", `Missing permission: ${action}`);
   }
 }

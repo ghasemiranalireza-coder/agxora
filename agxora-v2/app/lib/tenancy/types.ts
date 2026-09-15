@@ -21,6 +21,12 @@ export type CustomerAction =
   | "customer.update"
   | "customer.delete";
 
+export type FinanceAction =
+  | "finance.read"
+  | "finance.write"
+  | "finance.bill"
+  | "finance.status";
+
 export type ControlPlaneAction =
   | "organization.read"
   | "organization.update"

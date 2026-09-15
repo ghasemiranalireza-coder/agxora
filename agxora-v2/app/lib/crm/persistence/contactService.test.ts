@@ -63,6 +63,10 @@ function contactDraft(partial?: Partial<CrmContactDraft>): CrmContactDraft {
 
 async function resetFixtures(): Promise<void> {
   await prisma.contact.deleteMany();
+  await prisma.financeIdempotencyKey.deleteMany();
+  await prisma.invoice.deleteMany();
+  await prisma.deliveryNote.deleteMany();
+  await prisma.financeNumberSequence.deleteMany();
   await prisma.customer.deleteMany();
   await prisma.controlPlaneAuditEvent.deleteMany();
   await prisma.invitation.deleteMany();
