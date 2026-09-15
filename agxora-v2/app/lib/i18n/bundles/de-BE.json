@@ -772,6 +772,14 @@
         "cancelled": "Diese Eigentumsübertragung wurde abgebrochen.",
         "confirmed": "Diese Eigentumsübertragung wurde bereits abgeschlossen."
       }
+    },
+    "financeDocuments": {
+      "label": "Finanzdokumente",
+      "description": "Briefpapier, Logo und Rechnungsvorlagen",
+      "title": "Finanzdokumente",
+      "panelDescription": "Firmenbriefpapier, Logo, Markenfarben und Vorlagen für Lieferscheine und Rechnungen.",
+      "body": "Öffnen Sie den Dokumentendesigner, um Lieferschein- und Rechnungsvorlagen zu wählen und Ihr Briefpapier zu prüfen. Bereits ausgestellte Belege behalten ihr ursprüngliches Erscheinungsbild.",
+      "open": "Dokumentendesigner öffnen"
     }
   },
   "errors": {
@@ -2317,7 +2325,8 @@
         "label": "Finance sections",
         "overview": "Overview",
         "deliveryNotes": "Delivery notes",
-        "invoices": "Invoices"
+        "invoices": "Invoices",
+        "documents": "Dokumente"
       },
       "kpis": {
         "openDeliveryNotes": "Open delivery notes",
@@ -2416,6 +2425,75 @@
         "save": "Could not save",
         "preview": "Could not build billing preview",
         "bill": "Could not create the invoice"
+      }
+    },
+    "documents": {
+      "brand": "Dokumentendesign",
+      "title": "Vorlagen & Briefpapier",
+      "subtitle": "Legen Sie fest, wie Lieferscheine und Rechnungen Ihres Unternehmens aussehen. Neue Belege nutzen das gespeicherte Design. Bereits ausgestellte Belege behalten ihr ursprüngliches Briefpapier.",
+      "company": "Firmenangaben",
+      "logoBranding": "Logo & Marke",
+      "deliveryDesign": "Lieferschein-Design",
+      "invoiceDesign": "Rechnungs-Design",
+      "preview": "Dokumentvorschau",
+      "previewHint": "Nur Beispieldaten. Das Speichern erzeugt keine Rechnungen und ändert keine Abrechnungsdaten.",
+      "save": "Dokumenteneinstellungen speichern",
+      "saving": "Wird gespeichert…",
+      "saved": "Dokumenteneinstellungen gespeichert.",
+      "uploadLogo": "Logo hochladen",
+      "removeLogo": "Logo entfernen",
+      "noLogo": "Kein Logo hinterlegt",
+      "yourCompany": "Ihr Unternehmen",
+      "invoice": "Rechnung",
+      "deliveryNote": "Lieferschein",
+      "invoiceNumber": "Rechnungsnummer",
+      "deliveryNumber": "Lieferscheinnummer",
+      "invoiceDate": "Rechnungsdatum",
+      "deliveryDate": "Lieferdatum",
+      "dueDate": "Fälligkeitsdatum",
+      "orderNumber": "Auftrag",
+      "customer": "Kunde",
+      "meta": "Belegdaten",
+      "description": "Beschreibung",
+      "quantity": "Menge",
+      "unitPrice": "Einzelpreis",
+      "vat": "MwSt.",
+      "total": "Gesamt",
+      "net": "Netto",
+      "tax": "MwSt.",
+      "gross": "Brutto",
+      "vatId": "USt-IdNr.",
+      "taxNumber": "Steuernummer",
+      "printReady": "Druckfertiges Layout. PDF-Export ist in dieser Phase nicht verbunden.",
+      "fields": {
+        "companyName": "Firmenname",
+        "street": "Straße",
+        "postalCode": "PLZ",
+        "city": "Ort",
+        "country": "Land",
+        "phone": "Telefon",
+        "email": "E-Mail",
+        "website": "Website",
+        "vatId": "USt-IdNr.",
+        "taxNumber": "Steuernummer",
+        "iban": "IBAN",
+        "bic": "BIC",
+        "commercialRegister": "Handelsregister",
+        "managingDirector": "Geschäftsführer / Inhaber",
+        "primaryColor": "Primäre Markenfarbe",
+        "secondaryColor": "Sekundärfarbe"
+      },
+      "templates": {
+        "CLASSIC": "Klassisch",
+        "MODERN": "Modern",
+        "COMPACT": "Kompakt",
+        "PROFESSIONAL": "Professionell"
+      },
+      "errors": {
+        "load": "Dokumenteneinstellungen konnten nicht geladen werden",
+        "save": "Dokumenteneinstellungen konnten nicht gespeichert werden",
+        "logo": "Logo konnte nicht aktualisiert werden",
+        "forbidden": "Nur Inhaber und Administratoren können das Briefpapier ändern"
       }
     }
   },

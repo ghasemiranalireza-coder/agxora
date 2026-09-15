@@ -10,6 +10,7 @@ const LINKS = [
   { href: "/dashboard/finance", key: "finance.core.nav.overview", exact: true },
   { href: "/dashboard/finance/delivery-notes", key: "finance.core.nav.deliveryNotes" },
   { href: "/dashboard/finance/invoices", key: "finance.core.nav.invoices" },
+  { href: "/dashboard/settings/finance", key: "finance.core.nav.documents" },
 ] as const;
 
 export function FinanceShell({

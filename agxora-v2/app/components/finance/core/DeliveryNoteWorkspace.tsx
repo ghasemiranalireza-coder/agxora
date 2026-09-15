@@ -27,6 +27,7 @@ import {
   SearchField,
 } from "../../ui";
 import { FinanceShell } from "./FinanceShell";
+import { IssuedDeliveryNoteDocument } from "../documents/IssuedDocument";
 import {
   billDeliveryNotes,
   createDeliveryNote,
@@ -392,6 +393,7 @@ export function DeliveryNoteWorkspace({
               </li>
             ))}
           </ul>
+          <IssuedDeliveryNoteDocument note={detail} />
         </Card>
       ) : null}
 

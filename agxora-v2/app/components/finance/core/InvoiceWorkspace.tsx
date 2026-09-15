@@ -16,6 +16,7 @@ import {
   SearchField,
 } from "../../ui";
 import { FinanceShell } from "./FinanceShell";
+import { IssuedInvoiceDocument } from "../documents/IssuedDocument";
 import { fetchInvoice, fetchInvoices, updateInvoiceStatus } from "./financeApi";
 
 function money(value: string, currency: string): string {
@@ -249,6 +250,7 @@ export function InvoiceWorkspace({
             {t("finance.core.totals.tax")}: {money(detail.taxTotal, detail.currency)} ·{" "}
             {t("finance.core.totals.gross")}: {money(detail.grossTotal, detail.currency)}
           </p>
+          <IssuedInvoiceDocument invoice={detail} />
         </Card>
       ) : null}
     </FinanceShell>

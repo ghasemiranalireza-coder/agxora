@@ -304,7 +304,8 @@
       "label": "Finance sections",
       "overview": "Overview",
       "deliveryNotes": "Delivery notes",
-      "invoices": "Invoices"
+      "invoices": "Invoices",
+      "documents": "المستندات"
     },
     "kpis": {
       "openDeliveryNotes": "Open delivery notes",
@@ -403,6 +404,75 @@
       "save": "Could not save",
       "preview": "Could not build billing preview",
       "bill": "Could not create the invoice"
+    }
+  },
+  "documents": {
+    "brand": "تصميم المستندات",
+    "title": "القوالب والترويسة",
+    "subtitle": "حدد شكل إشعارات التسليم والفواتير. المستندات الجديدة تستخدم التصميم المحفوظ. المستندات الصادرة تحتفظ بترويستها الأصلية.",
+    "company": "بيانات الشركة",
+    "logoBranding": "الشعار والعلامة",
+    "deliveryDesign": "تصميم إشعار التسليم",
+    "invoiceDesign": "تصميم الفاتورة",
+    "preview": "معاينة المستند",
+    "previewHint": "بيانات نموذجية فقط. الحفظ لا ينشئ فواتير ولا يغيّر سجلات الفوترة.",
+    "save": "حفظ إعدادات المستند",
+    "saving": "جارٍ الحفظ…",
+    "saved": "تم حفظ إعدادات المستند.",
+    "uploadLogo": "رفع الشعار",
+    "removeLogo": "إزالة الشعار",
+    "noLogo": "لا يوجد شعار",
+    "yourCompany": "شركتك",
+    "invoice": "فاتورة",
+    "deliveryNote": "إشعار تسليم",
+    "invoiceNumber": "رقم الفاتورة",
+    "deliveryNumber": "رقم إشعار التسليم",
+    "invoiceDate": "تاريخ الفاتورة",
+    "deliveryDate": "تاريخ التسليم",
+    "dueDate": "تاريخ الاستحقاق",
+    "orderNumber": "طلب",
+    "customer": "العميل",
+    "meta": "بيانات المستند",
+    "description": "الوصف",
+    "quantity": "الكمية",
+    "unitPrice": "سعر الوحدة",
+    "vat": "ضريبة",
+    "total": "الإجمالي",
+    "net": "الصافي",
+    "tax": "ضريبة القيمة المضافة",
+    "gross": "الإجمالي شامل الضريبة",
+    "vatId": "الرقم الضريبي",
+    "taxNumber": "رقم الضريبة",
+    "printReady": "تخطيط جاهز للطباعة. تصدير PDF غير متصل في هذه المرحلة.",
+    "fields": {
+      "companyName": "اسم الشركة",
+      "street": "الشارع",
+      "postalCode": "الرمز البريدي",
+      "city": "المدينة",
+      "country": "البلد",
+      "phone": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "website": "الموقع",
+      "vatId": "الرقم الضريبي / USt-IdNr.",
+      "taxNumber": "رقم الضريبة",
+      "iban": "IBAN",
+      "bic": "BIC",
+      "commercialRegister": "السجل التجاري",
+      "managingDirector": "المدير / المالك",
+      "primaryColor": "لون العلامة الأساسي",
+      "secondaryColor": "اللون الثانوي"
+    },
+    "templates": {
+      "CLASSIC": "كلاسيكي",
+      "MODERN": "حديث",
+      "COMPACT": "مدمج",
+      "PROFESSIONAL": "احترافي"
+    },
+    "errors": {
+      "load": "تعذر تحميل إعدادات المستند",
+      "save": "تعذر حفظ إعدادات المستند",
+      "logo": "تعذر تحديث الشعار",
+      "forbidden": "يمكن للمالكين والمسؤولين فقط تغيير ترويسة المستندات"
     }
   }
 }

@@ -13,6 +13,7 @@ export const SETTINGS_NAV: readonly SettingsNavItem[] = [
   { id: "integrations", label: "Integrations", description: "Installed, connected, and available" },
   { id: "security", label: "Security", description: "Sessions, password, and account protection" },
   { id: "billing", label: "Billing", description: "Plan, usage, invoices, and payments" },
+  { id: "financeDocuments", label: "Finance documents", description: "Letterhead, logo, and invoice templates" },
   { id: "api", label: "API & Developers", description: "Keys, webhooks, tokens, sandbox" },
   { id: "audit", label: "Audit Logs", description: "Activity, security, and system changes" },
   { id: "advanced", label: "Advanced", description: "Experimental, reset, import, export" },
