@@ -65,6 +65,8 @@ function draft(partial?: Partial<CrmCustomerDraft>): CrmCustomerDraft {
 }
 
 async function wipe(): Promise<void> {
+  await prisma.financeDocumentSettings.deleteMany();
+  await prisma.financeDocumentLogo.deleteMany();
   await prisma.financeIdempotencyKey.deleteMany();
   await prisma.invoice.deleteMany();
   await prisma.deliveryNote.deleteMany();

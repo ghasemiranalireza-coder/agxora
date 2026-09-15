@@ -55,6 +55,8 @@ const TOKEN_MEMBER_A = "cp_token_member_a";
 const TOKEN_OWNER_B = "cp_token_owner_b";
 
 async function wipe(): Promise<void> {
+  await prisma.financeDocumentSettings.deleteMany();
+  await prisma.financeDocumentLogo.deleteMany();
   await prisma.financeIdempotencyKey.deleteMany();
   await prisma.invoice.deleteMany();
   await prisma.deliveryNote.deleteMany();

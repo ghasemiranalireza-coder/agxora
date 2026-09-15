@@ -61,6 +61,8 @@ function noteDraft(partial?: Partial<CrmNoteDraft>): CrmNoteDraft {
 async function resetFixtures(): Promise<void> {
   await prisma.note.deleteMany();
   await prisma.contact.deleteMany();
+  await prisma.financeDocumentSettings.deleteMany();
+  await prisma.financeDocumentLogo.deleteMany();
   await prisma.financeIdempotencyKey.deleteMany();
   await prisma.invoice.deleteMany();
   await prisma.deliveryNote.deleteMany();

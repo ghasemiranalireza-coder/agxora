@@ -36,6 +36,16 @@ describe("UI text containment", () => {
     expect(dashboard).toMatch(/\.agx-metric-card[\s\S]*overflow-wrap:\s*anywhere/);
   });
 
+  it("lets finance document templates wrap without forcing page overflow", () => {
+    const documents = css("app/components/finance/documents/document.css");
+    expect(documents).toContain("minmax(min(100%, 220px), 1fr)");
+    expect(documents).toMatch(/\.agx-doc-settings[\s\S]*minmax\(0/);
+    expect(documents).toMatch(/\.agx-doc__tablewrap[\s\S]*overflow-x:\s*auto/);
+    expect(documents).toContain(".agx-doc--modern");
+    expect(documents).toContain(".agx-doc--compact");
+    expect(documents).toContain(".agx-doc--professional");
+  });
+
   it("lets Finance tables scroll inside the page instead of crushing columns", () => {
     const finance = css("app/components/finance/core/finance.css");
     expect(finance).toContain("minmax(min(100%, 220px), 1fr)");

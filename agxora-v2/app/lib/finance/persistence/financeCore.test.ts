@@ -57,6 +57,8 @@ function line(partial?: Partial<{ description: string; quantity: string; unitPri
 }
 
 async function resetFixtures(): Promise<void> {
+  await prisma.financeDocumentSettings.deleteMany();
+  await prisma.financeDocumentLogo.deleteMany();
   await prisma.financeIdempotencyKey.deleteMany();
   await prisma.invoice.deleteMany();
   await prisma.deliveryNote.deleteMany();
@@ -377,6 +379,7 @@ describe("Phase 80 finance Lieferschein → Rechnung", () => {
     const member = await actor(TOKEN_MEMBER);
     expect(canFinance(member, "finance.bill")).toBe(true);
     expect(canFinance(member, "finance.status")).toBe(false);
+    expect(canFinance(member, "finance.document_settings")).toBe(false);
     const customer = await createCustomerForActor(owner, customerDraft("l@fin.test", "Lima GmbH"));
     const note = await createDeliveryNoteForActor(member, { customerId: customer.id, items: [line()] });
     const billed = await billDeliveryNotesForActor(member, {
