@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type JSX } from "react";
+import { useState, type JSX } from "react";
 import { useLocale } from "../../../lib/i18n";
 import type { FinanceLineDraft, FinanceLineView } from "../../../lib/finance/core/types";
 import { Button, Dialog, FormField, FormInput, Icon, IconButton } from "../../ui";
@@ -90,10 +90,6 @@ export function ItemDraftDialog({
 }): JSX.Element {
   const { t } = useLocale();
   const [draft, setDraft] = useState(value);
-
-  useEffect(() => {
-    if (open) setDraft(value);
-  }, [open, value]);
 
   return (
     <Dialog

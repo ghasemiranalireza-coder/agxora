@@ -75,7 +75,32 @@ function parseBoolean(value: unknown, field: string): boolean {
 }
 
 export function parseSettingsPatch(input: FinanceDocumentSettingsPatch): FinanceDocumentSettingsPatch {
-  const patch: FinanceDocumentSettingsPatch = {};
+  const patch: {
+    invoiceTemplate?: FinanceDocumentTemplate;
+    deliveryNoteTemplate?: FinanceDocumentTemplate;
+    companyName?: string;
+    street?: string;
+    postalCode?: string;
+    city?: string;
+    country?: string;
+    phone?: string;
+    email?: string;
+    website?: string;
+    vatId?: string;
+    taxNumber?: string;
+    iban?: string;
+    bic?: string;
+    commercialRegister?: string;
+    managingDirector?: string;
+    primaryColor?: string;
+    secondaryColor?: string;
+    qrEnabled?: boolean;
+    qrPosition?: FinanceQrSettingsView["position"];
+    qrIncludeAmount?: boolean;
+    qrIncludeInvoiceNumber?: boolean;
+    qrIncludeCustomerName?: boolean;
+    qrRemittanceText?: string;
+  } = {};
   if (input.invoiceTemplate !== undefined) {
     patch.invoiceTemplate = parseTemplate(input.invoiceTemplate, "invoiceTemplate");
   }
