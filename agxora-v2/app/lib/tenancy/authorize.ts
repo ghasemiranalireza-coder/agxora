@@ -39,8 +39,8 @@ const ROLE_PERMISSIONS: Record<MembershipRole, readonly CustomerAction[]> = {
 };
 
 const FINANCE_PERMISSIONS: Record<MembershipRole, readonly FinanceAction[]> = {
-  OWNER: ["finance.read", "finance.write", "finance.bill", "finance.status"],
-  ADMIN: ["finance.read", "finance.write", "finance.bill", "finance.status"],
+  OWNER: ["finance.read", "finance.write", "finance.bill", "finance.status", "finance.document_settings"],
+  ADMIN: ["finance.read", "finance.write", "finance.bill", "finance.status", "finance.document_settings"],
   MEMBER: ["finance.read", "finance.write", "finance.bill"],
 };
 

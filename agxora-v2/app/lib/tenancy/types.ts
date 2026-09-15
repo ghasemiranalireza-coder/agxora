@@ -25,7 +25,8 @@ export type FinanceAction =
   | "finance.read"
   | "finance.write"
   | "finance.bill"
-  | "finance.status";
+  | "finance.status"
+  | "finance.document_settings";
 
 export type ControlPlaneAction =
   | "organization.read"

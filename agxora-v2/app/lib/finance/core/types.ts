@@ -58,6 +58,7 @@ export type DeliveryNoteView = {
   readonly items: readonly FinanceLineView[];
   readonly invoiceId: string | null;
   readonly invoiceNumber: string | null;
+  readonly documentSnapshot: import("../documents/types").FinanceDocumentSnapshot | null;
 };
 
 export type InvoiceView = {
@@ -82,8 +83,9 @@ export type InvoiceView = {
     readonly id: string;
     readonly number: string;
     readonly date: string;
-    readonly netTotal: string;
-  }[];
+      readonly netTotal: string;
+    }[];
+  readonly documentSnapshot: import("../documents/types").FinanceDocumentSnapshot | null;
 };
 
 export type FinanceOverviewView = {

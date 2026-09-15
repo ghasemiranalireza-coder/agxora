@@ -12,6 +12,7 @@ import type {
   FinanceLineView,
   InvoiceView,
 } from "../core/types";
+import { parseDocumentSnapshot } from "../documents/validation";
 
 function isoDate(value: Date): string {
   return value.toISOString().slice(0, 10);
@@ -67,6 +68,7 @@ export function toDeliveryNoteView(row: DeliveryNoteWithRelations): DeliveryNote
       .map((item) => toLineView(item)),
     invoiceId: link?.invoice?.id ?? link?.invoiceId ?? null,
     invoiceNumber: link?.invoice?.invoiceNumber ?? null,
+    documentSnapshot: parseDocumentSnapshot(row.documentSnapshot),
   };
 }
 
@@ -104,6 +106,7 @@ export function toInvoiceView(row: InvoiceWithRelations): InvoiceView {
       date: isoDate(link.deliveryNote.date),
       netTotal: moneyString(link.deliveryNote.netTotal),
     })),
+    documentSnapshot: parseDocumentSnapshot(row.documentSnapshot),
   };
 }
 

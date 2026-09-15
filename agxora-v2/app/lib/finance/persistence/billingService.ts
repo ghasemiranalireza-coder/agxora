@@ -32,6 +32,7 @@ import {
   type InvoiceWithRelations,
 } from "./mappers";
 import { nextDocumentNumber } from "./sequence";
+import { captureDocumentSnapshot } from "../documents/snapshot";
 
 function financeReady(): void {
   requireFirstCustomerProductionReady();
@@ -44,7 +45,16 @@ function tenant(actor: Actor) {
 async function loadCustomer(actor: Actor, customerId: string) {
   const customer = await prisma.customer.findFirst({
     where: { id: customerId, workspaceId: actor.workspaceId, organizationId: actor.organizationId },
-    select: { id: true, companyName: true, organizationId: true, workspaceId: true },
+    select: {
+      id: true,
+      companyName: true,
+      address: true,
+      city: true,
+      country: true,
+      taxNumber: true,
+      organizationId: true,
+      workspaceId: true,
+    },
   });
   if (!customer) {
     throw new PersistenceError("not_found", "Customer not found");
@@ -163,6 +173,18 @@ export async function createDeliveryNoteForActor(
       kind: "DELIVERY_NOTE",
       year: yearOf(validated.date),
     });
+    const snapshot = await captureDocumentSnapshot(
+      actor,
+      "DELIVERY_NOTE",
+      {
+        companyName: customer.companyName,
+        address: customer.address,
+        city: customer.city,
+        country: customer.country,
+        taxNumber: customer.taxNumber,
+      },
+      tx,
+    );
     const row = await tx.deliveryNote.create({
       data: {
         organizationId: actor.organizationId,
@@ -179,6 +201,7 @@ export async function createDeliveryNoteForActor(
         taxTotal: computed.totals.taxTotal,
         grossTotal: computed.totals.grossTotal,
         createdByUserId: actor.userId,
+        documentSnapshot: snapshot as Prisma.InputJsonValue,
         items: {
           create: computed.lines.map((line, index) => ({
             organizationId: actor.organizationId,
@@ -247,6 +270,18 @@ export async function updateDeliveryNoteForActor(
 
   const updated = await prisma.$transaction(async (tx) => {
     await tx.deliveryNoteItem.deleteMany({ where: { deliveryNoteId: existing.id } });
+    const snapshot = await captureDocumentSnapshot(
+      actor,
+      "DELIVERY_NOTE",
+      {
+        companyName: customer.companyName,
+        address: customer.address,
+        city: customer.city,
+        country: customer.country,
+        taxNumber: customer.taxNumber,
+      },
+      tx,
+    );
     const row = await tx.deliveryNote.update({
       where: { id: existing.id },
       data: {
@@ -259,6 +294,7 @@ export async function updateDeliveryNoteForActor(
         netTotal: computed.totals.netTotal,
         taxTotal: computed.totals.taxTotal,
         grossTotal: computed.totals.grossTotal,
+        documentSnapshot: snapshot as Prisma.InputJsonValue,
         items: {
           create: computed.lines.map((line, index) => ({
             organizationId: actor.organizationId,
@@ -569,6 +605,26 @@ export async function billDeliveryNotesForActor(
       const taxTotal = locked.reduce((sum, row) => sum.add(row.taxTotal), new Prisma.Decimal(0));
       const grossTotal = locked.reduce((sum, row) => sum.add(row.grossTotal), new Prisma.Decimal(0));
       const first = locked[0];
+      const customerRow = await tx.customer.findFirst({
+        where: {
+          id: first.customerId,
+          workspaceId: actor.workspaceId,
+          organizationId: actor.organizationId,
+        },
+        select: { companyName: true, address: true, city: true, country: true, taxNumber: true },
+      });
+      const invoiceSnapshot = await captureDocumentSnapshot(
+        actor,
+        "INVOICE",
+        {
+          companyName: first.customerCompanyName,
+          address: customerRow?.address ?? "",
+          city: customerRow?.city ?? "",
+          country: customerRow?.country ?? "",
+          taxNumber: customerRow?.taxNumber ?? "",
+        },
+        tx,
+      );
       const invoiceNumber = await nextDocumentNumber(tx, {
         organizationId: actor.organizationId,
         workspaceId: actor.workspaceId,
@@ -592,6 +648,7 @@ export async function billDeliveryNotesForActor(
           taxTotal,
           grossTotal,
           createdByUserId: actor.userId,
+          documentSnapshot: invoiceSnapshot as Prisma.InputJsonValue,
           items: { create: invoiceItems },
           deliveryNotes: {
             create: locked.map((note) => ({
