@@ -25,11 +25,8 @@ import {
   handleWebsitePublishTool,
   handleWebsiteTool,
 } from "../website/handlers";
-import {
-  handleCreativeGenerateTool,
-  handleCreativePublishTool,
-  handleCreativeTool,
-} from "../creative/handlers";
+import { handleCreativeGenerateTool, handleCreativePublishTool, handleCreativeTool } from "../creative/handlers";
+import { handleFinanceTool } from "../finance/handlers";
 
 export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
   {
@@ -68,14 +65,24 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
   {
     id: "finance",
     name: "Finance Tool",
-    description: "Invoices, balances, and finance summaries.",
+    description:
+      "Create an invoice from eligible delivery notes via the authenticated finance billing API.",
     module: "finance",
     sensitive: true,
+    requiresApproval: true,
     inputSchema: {
       type: "object",
       properties: {
         step: { type: "string", description: "Step title being executed." },
         goal: { type: "string", description: "Top-level goal for the task." },
+        action: {
+          type: "string",
+          description: "create_invoice_from_eligible_delivery_notes",
+        },
+        deliveryNoteIds: {
+          type: "string",
+          description: "Eligible delivery note ids (server-validated).",
+        },
       },
       required: ["step", "goal"],
       additionalProperties: true,
@@ -507,6 +514,7 @@ registerToolHandler("campaign_readiness", handleCampaignReadinessTool);
 registerToolHandler("growth_insights", handleGrowthInsightsTool);
 registerToolHandler("campaign_execute", handleCampaignExecuteTool);
 registerToolHandler("crm", handleCrmTool);
+registerToolHandler("finance", handleFinanceTool);
 registerToolHandler("creative", handleCreativeTool);
 registerToolHandler("creative_generate", handleCreativeGenerateTool);
 registerToolHandler("creative_publish", handleCreativePublishTool);

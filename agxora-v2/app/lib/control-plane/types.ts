@@ -102,6 +102,14 @@ export const CONTROL_AUDIT_ACTIONS = [
   "ownership_transfer_cancelled",
   "ownership_transfer_completed",
   "ownership_transfer_failed",
+  "lieferschein_created",
+  "lieferschein_updated",
+  "invoice_draft_created",
+  "lieferscheine_billed",
+  "invoice_status_changed",
+  "finance_document_settings_updated",
+  "finance_logo_uploaded",
+  "finance_logo_removed",
 ] as const;
 
 export type ControlAuditAction = (typeof CONTROL_AUDIT_ACTIONS)[number];

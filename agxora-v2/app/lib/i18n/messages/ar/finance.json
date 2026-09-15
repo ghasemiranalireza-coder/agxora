@@ -293,5 +293,186 @@
         "description": "انتقل إلى DATEV / إجراءات التصدير الضريبية"
       }
     }
+  },
+  "core": {
+    "brand": "AGXORA Finance",
+    "title": "Business Finance",
+    "subtitle": "Create delivery notes and convert them into invoices. Totals come from this workspace database only.",
+    "honesty": "PDF export, email sending, payment collection, and DATEV are not connected in this phase.",
+    "loading": "Loading finance data…",
+    "nav": {
+      "label": "Finance sections",
+      "overview": "Overview",
+      "deliveryNotes": "Delivery notes",
+      "invoices": "Invoices",
+      "documents": "المستندات"
+    },
+    "kpis": {
+      "openDeliveryNotes": "Open delivery notes",
+      "unbilled": "Unbilled delivery notes",
+      "openInvoices": "Open invoices",
+      "overdue": "Overdue invoices",
+      "draftInvoices": "Draft invoices"
+    },
+    "empty": {
+      "overviewTitle": "No finance documents yet",
+      "overviewBody": "Create a delivery note to start billing. This overview stays empty until records exist in the database.",
+      "deliveryTitle": "No delivery notes",
+      "deliveryBody": "There are no delivery notes in this workspace yet.",
+      "invoiceTitle": "No invoices",
+      "invoiceBody": "Invoices appear here after you bill one or more open delivery notes."
+    },
+    "actions": {
+      "createDeliveryNote": "Create delivery note",
+      "billSelected": "Bill selected delivery notes",
+      "billAllOpen": "Bill all open for customer",
+      "billDateRange": "Bill open in date range",
+      "save": "Save",
+      "cancel": "Cancel",
+      "confirmBill": "Create draft invoice",
+      "addLine": "Add line",
+      "markOpen": "Mark open",
+      "markPaid": "Mark paid",
+      "markCancelled": "Cancel invoice"
+    },
+    "filters": {
+      "search": "Search number, order, or customer",
+      "searchInvoice": "Search invoice number or customer",
+      "status": "Status",
+      "customer": "Customer",
+      "allStatuses": "All statuses",
+      "allCustomers": "All customers",
+      "chooseCustomer": "Choose a customer",
+      "dateFrom": "From",
+      "dateTo": "To"
+    },
+    "table": {
+      "select": "Select",
+      "selectRow": "Select {number}",
+      "deliveryNumber": "Delivery note no.",
+      "invoiceNumber": "Invoice no.",
+      "date": "Date",
+      "customer": "Customer",
+      "order": "Order",
+      "net": "Net",
+      "status": "Status",
+      "dueDate": "Due date",
+      "notes": "Notes"
+    },
+    "totals": {
+      "net": "Net",
+      "tax": "VAT",
+      "gross": "Gross"
+    },
+    "status": {
+      "DRAFT": "Draft",
+      "OPEN": "Open",
+      "ABGERECHNET": "Billed",
+      "CANCELLED": "Cancelled"
+    },
+    "invoiceStatus": {
+      "DRAFT": "Draft",
+      "OPEN": "Open",
+      "PAID": "Paid",
+      "OVERDUE": "Overdue",
+      "CANCELLED": "Cancelled"
+    },
+    "form": {
+      "description": "Description",
+      "quantity": "Qty",
+      "unit": "Unit",
+      "unitPrice": "Unit price (net)",
+      "taxRate": "VAT %"
+    },
+    "delivery": {
+      "title": "Delivery notes",
+      "subtitle": "Create, filter, and bill Lieferscheine. Already billed notes cannot be billed again.",
+      "billedAs": "Billed on invoice"
+    },
+    "invoice": {
+      "title": "Invoices",
+      "subtitle": "Draft invoices created from delivery notes. Sending and payment collection are not connected.",
+      "createdFrom": "Created from delivery notes",
+      "futureBoundary": "PDF, email, payment, and reminder tools are not implemented in this phase."
+    },
+    "bill": {
+      "previewTitle": "Confirm billing",
+      "count": "Delivery notes"
+    },
+    "errors": {
+      "load": "Could not load finance data",
+      "save": "Could not save",
+      "preview": "Could not build billing preview",
+      "bill": "Could not create the invoice"
+    }
+  },
+  "documents": {
+    "brand": "تصميم المستندات",
+    "title": "القوالب والترويسة",
+    "subtitle": "حدد شكل إشعارات التسليم والفواتير. المستندات الجديدة تستخدم التصميم المحفوظ. المستندات الصادرة تحتفظ بترويستها الأصلية.",
+    "company": "بيانات الشركة",
+    "logoBranding": "الشعار والعلامة",
+    "deliveryDesign": "تصميم إشعار التسليم",
+    "invoiceDesign": "تصميم الفاتورة",
+    "preview": "معاينة المستند",
+    "previewHint": "بيانات نموذجية فقط. الحفظ لا ينشئ فواتير ولا يغيّر سجلات الفوترة.",
+    "save": "حفظ إعدادات المستند",
+    "saving": "جارٍ الحفظ…",
+    "saved": "تم حفظ إعدادات المستند.",
+    "uploadLogo": "رفع الشعار",
+    "removeLogo": "إزالة الشعار",
+    "noLogo": "لا يوجد شعار",
+    "yourCompany": "شركتك",
+    "invoice": "فاتورة",
+    "deliveryNote": "إشعار تسليم",
+    "invoiceNumber": "رقم الفاتورة",
+    "deliveryNumber": "رقم إشعار التسليم",
+    "invoiceDate": "تاريخ الفاتورة",
+    "deliveryDate": "تاريخ التسليم",
+    "dueDate": "تاريخ الاستحقاق",
+    "orderNumber": "طلب",
+    "customer": "العميل",
+    "meta": "بيانات المستند",
+    "description": "الوصف",
+    "quantity": "الكمية",
+    "unitPrice": "سعر الوحدة",
+    "vat": "ضريبة",
+    "total": "الإجمالي",
+    "net": "الصافي",
+    "tax": "ضريبة القيمة المضافة",
+    "gross": "الإجمالي شامل الضريبة",
+    "vatId": "الرقم الضريبي",
+    "taxNumber": "رقم الضريبة",
+    "printReady": "تخطيط جاهز للطباعة. تصدير PDF غير متصل في هذه المرحلة.",
+    "fields": {
+      "companyName": "اسم الشركة",
+      "street": "الشارع",
+      "postalCode": "الرمز البريدي",
+      "city": "المدينة",
+      "country": "البلد",
+      "phone": "الهاتف",
+      "email": "البريد الإلكتروني",
+      "website": "الموقع",
+      "vatId": "الرقم الضريبي / USt-IdNr.",
+      "taxNumber": "رقم الضريبة",
+      "iban": "IBAN",
+      "bic": "BIC",
+      "commercialRegister": "السجل التجاري",
+      "managingDirector": "المدير / المالك",
+      "primaryColor": "لون العلامة الأساسي",
+      "secondaryColor": "اللون الثانوي"
+    },
+    "templates": {
+      "CLASSIC": "كلاسيكي",
+      "MODERN": "حديث",
+      "COMPACT": "مدمج",
+      "PROFESSIONAL": "احترافي"
+    },
+    "errors": {
+      "load": "تعذر تحميل إعدادات المستند",
+      "save": "تعذر حفظ إعدادات المستند",
+      "logo": "تعذر تحديث الشعار",
+      "forbidden": "يمكن للمالكين والمسؤولين فقط تغيير ترويسة المستندات"
+    }
   }
 }

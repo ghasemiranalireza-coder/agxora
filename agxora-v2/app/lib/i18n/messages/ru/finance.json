@@ -293,5 +293,186 @@
         "description": "Перейти к DATEV/налоговым экспортным действиям"
       }
     }
+  },
+  "core": {
+    "brand": "AGXORA Finance",
+    "title": "Business Finance",
+    "subtitle": "Create delivery notes and convert them into invoices. Totals come from this workspace database only.",
+    "honesty": "PDF export, email sending, payment collection, and DATEV are not connected in this phase.",
+    "loading": "Loading finance data…",
+    "nav": {
+      "label": "Finance sections",
+      "overview": "Overview",
+      "deliveryNotes": "Delivery notes",
+      "invoices": "Invoices",
+      "documents": "Documents"
+    },
+    "kpis": {
+      "openDeliveryNotes": "Open delivery notes",
+      "unbilled": "Unbilled delivery notes",
+      "openInvoices": "Open invoices",
+      "overdue": "Overdue invoices",
+      "draftInvoices": "Draft invoices"
+    },
+    "empty": {
+      "overviewTitle": "No finance documents yet",
+      "overviewBody": "Create a delivery note to start billing. This overview stays empty until records exist in the database.",
+      "deliveryTitle": "No delivery notes",
+      "deliveryBody": "There are no delivery notes in this workspace yet.",
+      "invoiceTitle": "No invoices",
+      "invoiceBody": "Invoices appear here after you bill one or more open delivery notes."
+    },
+    "actions": {
+      "createDeliveryNote": "Create delivery note",
+      "billSelected": "Bill selected delivery notes",
+      "billAllOpen": "Bill all open for customer",
+      "billDateRange": "Bill open in date range",
+      "save": "Save",
+      "cancel": "Cancel",
+      "confirmBill": "Create draft invoice",
+      "addLine": "Add line",
+      "markOpen": "Mark open",
+      "markPaid": "Mark paid",
+      "markCancelled": "Cancel invoice"
+    },
+    "filters": {
+      "search": "Search number, order, or customer",
+      "searchInvoice": "Search invoice number or customer",
+      "status": "Status",
+      "customer": "Customer",
+      "allStatuses": "All statuses",
+      "allCustomers": "All customers",
+      "chooseCustomer": "Choose a customer",
+      "dateFrom": "From",
+      "dateTo": "To"
+    },
+    "table": {
+      "select": "Select",
+      "selectRow": "Select {number}",
+      "deliveryNumber": "Delivery note no.",
+      "invoiceNumber": "Invoice no.",
+      "date": "Date",
+      "customer": "Customer",
+      "order": "Order",
+      "net": "Net",
+      "status": "Status",
+      "dueDate": "Due date",
+      "notes": "Notes"
+    },
+    "totals": {
+      "net": "Net",
+      "tax": "VAT",
+      "gross": "Gross"
+    },
+    "status": {
+      "DRAFT": "Draft",
+      "OPEN": "Open",
+      "ABGERECHNET": "Billed",
+      "CANCELLED": "Cancelled"
+    },
+    "invoiceStatus": {
+      "DRAFT": "Draft",
+      "OPEN": "Open",
+      "PAID": "Paid",
+      "OVERDUE": "Overdue",
+      "CANCELLED": "Cancelled"
+    },
+    "form": {
+      "description": "Description",
+      "quantity": "Qty",
+      "unit": "Unit",
+      "unitPrice": "Unit price (net)",
+      "taxRate": "VAT %"
+    },
+    "delivery": {
+      "title": "Delivery notes",
+      "subtitle": "Create, filter, and bill Lieferscheine. Already billed notes cannot be billed again.",
+      "billedAs": "Billed on invoice"
+    },
+    "invoice": {
+      "title": "Invoices",
+      "subtitle": "Draft invoices created from delivery notes. Sending and payment collection are not connected.",
+      "createdFrom": "Created from delivery notes",
+      "futureBoundary": "PDF, email, payment, and reminder tools are not implemented in this phase."
+    },
+    "bill": {
+      "previewTitle": "Confirm billing",
+      "count": "Delivery notes"
+    },
+    "errors": {
+      "load": "Could not load finance data",
+      "save": "Could not save",
+      "preview": "Could not build billing preview",
+      "bill": "Could not create the invoice"
+    }
+  },
+  "documents": {
+    "brand": "Document design",
+    "title": "Templates & letterhead",
+    "subtitle": "Choose how your delivery notes and invoices look. New documents use the saved design. Already issued documents keep the letterhead they were created with.",
+    "company": "Company information",
+    "logoBranding": "Logo & branding",
+    "deliveryDesign": "Delivery note design",
+    "invoiceDesign": "Invoice design",
+    "preview": "Document preview",
+    "previewHint": "Sample data only. Saving settings does not create invoices or change billing records.",
+    "save": "Save document settings",
+    "saving": "Saving…",
+    "saved": "Document settings saved.",
+    "uploadLogo": "Upload logo",
+    "removeLogo": "Remove logo",
+    "noLogo": "No logo uploaded",
+    "yourCompany": "Your company",
+    "invoice": "Invoice",
+    "deliveryNote": "Delivery Note",
+    "invoiceNumber": "Invoice Number",
+    "deliveryNumber": "Delivery Note Number",
+    "invoiceDate": "Invoice Date",
+    "deliveryDate": "Delivery Date",
+    "dueDate": "Due Date",
+    "orderNumber": "Order",
+    "customer": "Customer",
+    "meta": "Document details",
+    "description": "Description",
+    "quantity": "Quantity",
+    "unitPrice": "Unit Price",
+    "vat": "VAT",
+    "total": "Total",
+    "net": "Net",
+    "tax": "VAT",
+    "gross": "Gross",
+    "vatId": "VAT ID",
+    "taxNumber": "Tax number",
+    "printReady": "Print-ready layout. PDF export is not connected in this phase.",
+    "fields": {
+      "companyName": "Company name",
+      "street": "Street",
+      "postalCode": "ZIP / postal code",
+      "city": "City",
+      "country": "Country",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website",
+      "vatId": "VAT ID / USt-IdNr.",
+      "taxNumber": "Tax number",
+      "iban": "IBAN",
+      "bic": "BIC",
+      "commercialRegister": "Commercial register",
+      "managingDirector": "Managing director / owner",
+      "primaryColor": "Primary brand color",
+      "secondaryColor": "Secondary color"
+    },
+    "templates": {
+      "CLASSIC": "Classic",
+      "MODERN": "Modern",
+      "COMPACT": "Compact",
+      "PROFESSIONAL": "Professional"
+    },
+    "errors": {
+      "load": "Could not load document settings",
+      "save": "Could not save document settings",
+      "logo": "Could not update the logo",
+      "forbidden": "Only owners and admins can change document branding"
+    }
   }
 }

@@ -1,9 +1,18 @@
-export type { Actor, CustomerAction, ControlPlaneAction, MembershipRole, AuthzResource } from "./types";
+export type {
+  Actor,
+  CustomerAction,
+  FinanceAction,
+  ControlPlaneAction,
+  MembershipRole,
+  AuthzResource,
+} from "./types";
 export { PersistenceError, isPersistenceError } from "./errors";
 export {
   can,
+  canFinance,
   canControl,
   assertCan,
+  assertFinance,
   assertControl,
   assertCanGrantRole,
   assertCanManageTarget,

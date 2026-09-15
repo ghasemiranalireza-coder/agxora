@@ -23,6 +23,12 @@ const TOKEN_B = "ba_token_owner_b";
 const TOKEN_MEMBER = "ba_token_member_a";
 
 async function resetFixtures(): Promise<void> {
+  await prisma.financeDocumentSettings.deleteMany();
+  await prisma.financeDocumentLogo.deleteMany();
+  await prisma.financeIdempotencyKey.deleteMany();
+  await prisma.invoice.deleteMany();
+  await prisma.deliveryNote.deleteMany();
+  await prisma.financeNumberSequence.deleteMany();
   await prisma.externalActionAudit.deleteMany();
   await prisma.agentRunStep.deleteMany();
   await prisma.agentRun.deleteMany();

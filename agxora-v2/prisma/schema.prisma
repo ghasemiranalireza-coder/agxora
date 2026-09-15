@@ -1,4 +1,4 @@
-// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50 + Phase 56 + Phase 60 + Phase 62 + Phase 63.1 + Phase 70
+// AGXORA Phase 42.1 + Phase 43 + Phase 44 + Phase 45-B + Phase 47 + Phase 48 + Phase 49 + Phase 50 + Phase 56 + Phase 60 + Phase 62 + Phase 63.1 + Phase 70 + Phase 80 finance core
 // PostgreSQL source of truth for User / Organization / Workspace / Membership /
 // Session / Customer / Contact / Note / Invitation / OwnershipTransfer /
 // ControlPlaneAuditEvent / AgentOsState / CreativeAsset (IMAGE inline + video object refs) /
@@ -58,6 +58,9 @@ model User {
   socialOAuthStates       SocialOAuthState[]
   agentRuns               AgentRun[]
   externalActionAudits    ExternalActionAudit[]
+  createdDeliveryNotes    DeliveryNote[] @relation("DeliveryNoteCreatedBy")
+  createdInvoices         Invoice[]      @relation("InvoiceCreatedBy")
+  uploadedFinanceLogos    FinanceDocumentLogo[] @relation("FinanceDocumentLogoUploadedBy")
 
   @@index([externalAuthId])
   @@map("users")
@@ -79,6 +82,12 @@ model Organization {
   notes       Note[]
   customerDocuments CustomerDocument[]
   customerActivities CustomerActivity[]
+  deliveryNotes           DeliveryNote[]
+  invoices                Invoice[]
+  financeNumberSequences  FinanceNumberSequence[]
+  financeIdempotencyKeys  FinanceIdempotencyKey[]
+  financeDocumentSettings FinanceDocumentSettings[]
+  financeDocumentLogos    FinanceDocumentLogo[]
   invitations         Invitation[]
   ownershipTransfers  OwnershipTransfer[]
   auditEvents         ControlPlaneAuditEvent[]
@@ -294,6 +303,12 @@ model Workspace {
   notes        Note[]
   customerDocuments CustomerDocument[]
   customerActivities CustomerActivity[]
+  deliveryNotes           DeliveryNote[]
+  invoices                Invoice[]
+  financeNumberSequences  FinanceNumberSequence[]
+  financeIdempotencyKeys  FinanceIdempotencyKey[]
+  financeDocumentSettings FinanceDocumentSettings?
+  financeDocumentLogos    FinanceDocumentLogo[]
   invitations         Invitation[]
   ownershipTransfers  OwnershipTransfer[]
   auditEvents         ControlPlaneAuditEvent[]
@@ -488,6 +503,8 @@ model Customer {
   notes        Note[]
   customerDocuments CustomerDocument[]
   customerActivities CustomerActivity[]
+  deliveryNotes DeliveryNote[]
+  invoices      Invoice[]
 
   @@index([workspaceId])
   @@index([organizationId])
@@ -847,4 +864,281 @@ model ExternalActionAudit {
   @@index([workspaceId, action, createdAt])
   @@index([userId, createdAt])
   @@map("external_action_audits")
+}
+
+/// Phase 80 — Lieferschein → Rechnung. Monetary columns are Decimal (never float).
+enum DeliveryNoteStatus {
+  DRAFT
+  OPEN
+  ABGERECHNET
+  CANCELLED
+}
+
+enum InvoiceStatus {
+  DRAFT
+  OPEN
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+enum FinanceDocumentKind {
+  DELIVERY_NOTE
+  INVOICE
+}
+
+enum FinanceIdempotencyStatus {
+  IN_PROGRESS
+  COMPLETED
+  FAILED
+}
+
+model DeliveryNote {
+  id                   String             @id @default(uuid()) @db.Uuid
+  organizationId       String             @db.Uuid
+  workspaceId          String             @db.Uuid
+  customerId           String             @db.Uuid
+  /// Snapshot of customer.companyName at create/update time (display, not tenancy).
+  customerCompanyName  String
+  number               String
+  date                 DateTime           @db.Date
+  orderNumber          String             @default("")
+  status               DeliveryNoteStatus @default(OPEN)
+  notes                String             @default("")
+  currency             String             @default("EUR")
+  netTotal             Decimal            @db.Decimal(19, 2)
+  taxTotal             Decimal            @db.Decimal(19, 2)
+  grossTotal           Decimal            @db.Decimal(19, 2)
+  createdByUserId      String             @db.Uuid
+  /// Frozen letterhead/template used while this note is OPEN; frozen after ABGERECHNET.
+  documentSnapshot     Json?
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+
+  organization Organization         @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace            @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  customer     Customer             @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  createdBy    User                 @relation("DeliveryNoteCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  items        DeliveryNoteItem[]
+  invoiceLinks InvoiceDeliveryNote[]
+
+  @@unique([workspaceId, number])
+  @@index([organizationId])
+  @@index([workspaceId, status])
+  @@index([workspaceId, customerId])
+  @@index([workspaceId, date])
+  @@index([customerId])
+  @@map("delivery_notes")
+}
+
+model DeliveryNoteItem {
+  id              String   @id @default(uuid()) @db.Uuid
+  deliveryNoteId  String   @db.Uuid
+  organizationId  String   @db.Uuid
+  workspaceId     String   @db.Uuid
+  position        Int
+  description     String
+  quantity        Decimal  @db.Decimal(19, 4)
+  unit            String   @default("Stk")
+  unitPriceNet    Decimal  @db.Decimal(19, 4)
+  taxRate         Decimal  @db.Decimal(5, 2)
+  lineTotalNet    Decimal  @db.Decimal(19, 2)
+  taxTotal        Decimal  @db.Decimal(19, 2)
+  lineTotalGross  Decimal  @db.Decimal(19, 2)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  deliveryNote DeliveryNote @relation(fields: [deliveryNoteId], references: [id], onDelete: Cascade)
+
+  @@index([deliveryNoteId])
+  @@index([workspaceId])
+  @@map("delivery_note_items")
+}
+
+model Invoice {
+  id                   String        @id @default(uuid()) @db.Uuid
+  organizationId       String        @db.Uuid
+  workspaceId          String        @db.Uuid
+  customerId           String        @db.Uuid
+  customerCompanyName  String
+  invoiceNumber        String
+  invoiceDate          DateTime      @db.Date
+  dueDate              DateTime      @db.Date
+  status               InvoiceStatus @default(DRAFT)
+  notes                String        @default("")
+  currency             String        @default("EUR")
+  netTotal             Decimal       @db.Decimal(19, 2)
+  taxTotal             Decimal       @db.Decimal(19, 2)
+  grossTotal           Decimal       @db.Decimal(19, 2)
+  createdByUserId      String        @db.Uuid
+  /// Frozen letterhead/template at billing time. Later branding edits do not rewrite this.
+  documentSnapshot     Json?
+  createdAt            DateTime      @default(now())
+  updatedAt            DateTime      @updatedAt
+
+  organization  Organization          @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace     Workspace             @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  customer      Customer              @relation(fields: [customerId], references: [id], onDelete: Restrict)
+  createdBy     User                  @relation("InvoiceCreatedBy", fields: [createdByUserId], references: [id], onDelete: Restrict)
+  items         InvoiceItem[]
+  deliveryNotes InvoiceDeliveryNote[]
+  idempotencyKeys FinanceIdempotencyKey[]
+
+  @@unique([workspaceId, invoiceNumber])
+  @@index([organizationId])
+  @@index([workspaceId, status])
+  @@index([workspaceId, customerId])
+  @@index([workspaceId, invoiceDate])
+  @@index([workspaceId, dueDate])
+  @@index([customerId])
+  @@map("finance_invoices")
+}
+
+model InvoiceItem {
+  id                String   @id @default(uuid()) @db.Uuid
+  invoiceId         String   @db.Uuid
+  organizationId    String   @db.Uuid
+  workspaceId       String   @db.Uuid
+  deliveryNoteId    String?  @db.Uuid
+  deliveryNoteNumber String  @default("")
+  position          Int
+  description       String
+  quantity          Decimal  @db.Decimal(19, 4)
+  unit              String   @default("Stk")
+  unitPriceNet      Decimal  @db.Decimal(19, 4)
+  taxRate           Decimal  @db.Decimal(5, 2)
+  lineTotalNet      Decimal  @db.Decimal(19, 2)
+  taxTotal          Decimal  @db.Decimal(19, 2)
+  lineTotalGross    Decimal  @db.Decimal(19, 2)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  @@index([invoiceId])
+  @@index([workspaceId])
+  @@index([deliveryNoteId])
+  @@map("finance_invoice_items")
+}
+
+/// Source Lieferschein references. deliveryNoteId is unique so a note cannot be billed twice.
+model InvoiceDeliveryNote {
+  id             String   @id @default(uuid()) @db.Uuid
+  invoiceId      String   @db.Uuid
+  deliveryNoteId String   @unique @db.Uuid
+  organizationId String   @db.Uuid
+  workspaceId    String   @db.Uuid
+  createdAt      DateTime @default(now())
+
+  invoice      Invoice      @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  deliveryNote DeliveryNote @relation(fields: [deliveryNoteId], references: [id], onDelete: Restrict)
+
+  @@unique([invoiceId, deliveryNoteId])
+  @@index([invoiceId])
+  @@index([workspaceId])
+  @@map("invoice_delivery_notes")
+}
+
+model FinanceNumberSequence {
+  id             String              @id @default(uuid()) @db.Uuid
+  organizationId String              @db.Uuid
+  workspaceId    String              @db.Uuid
+  kind           FinanceDocumentKind
+  year           Int
+  nextValue      Int                 @default(1)
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@unique([workspaceId, kind, year])
+  @@index([organizationId])
+  @@map("finance_number_sequences")
+}
+
+model FinanceIdempotencyKey {
+  id             String                    @id @default(uuid()) @db.Uuid
+  organizationId String                    @db.Uuid
+  workspaceId    String                    @db.Uuid
+  idempotencyKey String
+  requestHash    String
+  status         FinanceIdempotencyStatus  @default(IN_PROGRESS)
+  invoiceId      String?                   @db.Uuid
+  createdAt      DateTime                  @default(now())
+  updatedAt      DateTime                  @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  invoice      Invoice?     @relation(fields: [invoiceId], references: [id], onDelete: SetNull)
+
+  @@unique([workspaceId, idempotencyKey])
+  @@index([organizationId])
+  @@index([invoiceId])
+  @@map("finance_idempotency_keys")
+}
+
+enum FinanceDocumentTemplate {
+  CLASSIC
+  MODERN
+  COMPACT
+  PROFESSIONAL
+}
+
+/// Immutable logo bytes. Replacing a logo creates a new row so issued documents keep the old file.
+model FinanceDocumentLogo {
+  id             String   @id @default(uuid()) @db.Uuid
+  organizationId String   @db.Uuid
+  workspaceId    String   @db.Uuid
+  mimeType       String
+  fileName       String   @default("")
+  byteSize       Int
+  bytes          Bytes
+  uploadedByUserId String @db.Uuid
+  createdAt      DateTime @default(now())
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  uploadedBy   User         @relation("FinanceDocumentLogoUploadedBy", fields: [uploadedByUserId], references: [id], onDelete: Restrict)
+  settings     FinanceDocumentSettings[]
+
+  @@index([organizationId])
+  @@index([workspaceId])
+  @@map("finance_document_logos")
+}
+
+/// Workspace letterhead and default templates. One row per workspace.
+model FinanceDocumentSettings {
+  id                   String                   @id @default(uuid()) @db.Uuid
+  organizationId       String                   @db.Uuid
+  workspaceId          String                   @unique @db.Uuid
+  invoiceTemplate      FinanceDocumentTemplate  @default(CLASSIC)
+  deliveryNoteTemplate FinanceDocumentTemplate  @default(CLASSIC)
+  companyName          String                   @default("")
+  street               String                   @default("")
+  postalCode           String                   @default("")
+  city                 String                   @default("")
+  country              String                   @default("")
+  phone                String                   @default("")
+  email                String                   @default("")
+  website              String                   @default("")
+  vatId                String                   @default("")
+  taxNumber            String                   @default("")
+  iban                 String                   @default("")
+  bic                  String                   @default("")
+  commercialRegister   String                   @default("")
+  managingDirector     String                   @default("")
+  primaryColor         String                   @default("#1B365D")
+  secondaryColor       String                   @default("#C4A35A")
+  logoId               String?                  @db.Uuid
+  createdAt            DateTime                 @default(now())
+  updatedAt            DateTime                 @updatedAt
+
+  organization Organization         @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  workspace    Workspace            @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  logo         FinanceDocumentLogo? @relation(fields: [logoId], references: [id], onDelete: SetNull)
+
+  @@index([organizationId])
+  @@index([logoId])
+  @@map("finance_document_settings")
 }

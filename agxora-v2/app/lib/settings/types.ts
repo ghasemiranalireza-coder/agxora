@@ -16,6 +16,7 @@ export type SettingsSectionId =
   | "integrations"
   | "security"
   | "billing"
+  | "financeDocuments"
   | "api"
   | "audit"
   | "advanced";

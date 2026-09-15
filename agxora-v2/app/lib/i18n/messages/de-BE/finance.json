@@ -293,5 +293,186 @@
         "description": "Zu DATEV /Steuerexportaktionen springen"
       }
     }
+  },
+  "core": {
+    "brand": "AGXORA Finance",
+    "title": "Business Finance",
+    "subtitle": "Create delivery notes and convert them into invoices. Totals come from this workspace database only.",
+    "honesty": "PDF export, email sending, payment collection, and DATEV are not connected in this phase.",
+    "loading": "Loading finance data…",
+    "nav": {
+      "label": "Finance sections",
+      "overview": "Overview",
+      "deliveryNotes": "Delivery notes",
+      "invoices": "Invoices",
+      "documents": "Dokumente"
+    },
+    "kpis": {
+      "openDeliveryNotes": "Open delivery notes",
+      "unbilled": "Unbilled delivery notes",
+      "openInvoices": "Open invoices",
+      "overdue": "Overdue invoices",
+      "draftInvoices": "Draft invoices"
+    },
+    "empty": {
+      "overviewTitle": "No finance documents yet",
+      "overviewBody": "Create a delivery note to start billing. This overview stays empty until records exist in the database.",
+      "deliveryTitle": "No delivery notes",
+      "deliveryBody": "There are no delivery notes in this workspace yet.",
+      "invoiceTitle": "No invoices",
+      "invoiceBody": "Invoices appear here after you bill one or more open delivery notes."
+    },
+    "actions": {
+      "createDeliveryNote": "Create delivery note",
+      "billSelected": "Bill selected delivery notes",
+      "billAllOpen": "Bill all open for customer",
+      "billDateRange": "Bill open in date range",
+      "save": "Save",
+      "cancel": "Cancel",
+      "confirmBill": "Create draft invoice",
+      "addLine": "Add line",
+      "markOpen": "Mark open",
+      "markPaid": "Mark paid",
+      "markCancelled": "Cancel invoice"
+    },
+    "filters": {
+      "search": "Search number, order, or customer",
+      "searchInvoice": "Search invoice number or customer",
+      "status": "Status",
+      "customer": "Customer",
+      "allStatuses": "All statuses",
+      "allCustomers": "All customers",
+      "chooseCustomer": "Choose a customer",
+      "dateFrom": "From",
+      "dateTo": "To"
+    },
+    "table": {
+      "select": "Select",
+      "selectRow": "Select {number}",
+      "deliveryNumber": "Delivery note no.",
+      "invoiceNumber": "Invoice no.",
+      "date": "Date",
+      "customer": "Customer",
+      "order": "Order",
+      "net": "Net",
+      "status": "Status",
+      "dueDate": "Due date",
+      "notes": "Notes"
+    },
+    "totals": {
+      "net": "Net",
+      "tax": "VAT",
+      "gross": "Gross"
+    },
+    "status": {
+      "DRAFT": "Draft",
+      "OPEN": "Open",
+      "ABGERECHNET": "Billed",
+      "CANCELLED": "Cancelled"
+    },
+    "invoiceStatus": {
+      "DRAFT": "Draft",
+      "OPEN": "Open",
+      "PAID": "Paid",
+      "OVERDUE": "Overdue",
+      "CANCELLED": "Cancelled"
+    },
+    "form": {
+      "description": "Description",
+      "quantity": "Qty",
+      "unit": "Unit",
+      "unitPrice": "Unit price (net)",
+      "taxRate": "VAT %"
+    },
+    "delivery": {
+      "title": "Delivery notes",
+      "subtitle": "Create, filter, and bill Lieferscheine. Already billed notes cannot be billed again.",
+      "billedAs": "Billed on invoice"
+    },
+    "invoice": {
+      "title": "Invoices",
+      "subtitle": "Draft invoices created from delivery notes. Sending and payment collection are not connected.",
+      "createdFrom": "Created from delivery notes",
+      "futureBoundary": "PDF, email, payment, and reminder tools are not implemented in this phase."
+    },
+    "bill": {
+      "previewTitle": "Confirm billing",
+      "count": "Delivery notes"
+    },
+    "errors": {
+      "load": "Could not load finance data",
+      "save": "Could not save",
+      "preview": "Could not build billing preview",
+      "bill": "Could not create the invoice"
+    }
+  },
+  "documents": {
+    "brand": "Dokumentendesign",
+    "title": "Vorlagen & Briefpapier",
+    "subtitle": "Legen Sie fest, wie Lieferscheine und Rechnungen Ihres Unternehmens aussehen. Neue Belege nutzen das gespeicherte Design. Bereits ausgestellte Belege behalten ihr ursprüngliches Briefpapier.",
+    "company": "Firmenangaben",
+    "logoBranding": "Logo & Marke",
+    "deliveryDesign": "Lieferschein-Design",
+    "invoiceDesign": "Rechnungs-Design",
+    "preview": "Dokumentvorschau",
+    "previewHint": "Nur Beispieldaten. Das Speichern erzeugt keine Rechnungen und ändert keine Abrechnungsdaten.",
+    "save": "Dokumenteneinstellungen speichern",
+    "saving": "Wird gespeichert…",
+    "saved": "Dokumenteneinstellungen gespeichert.",
+    "uploadLogo": "Logo hochladen",
+    "removeLogo": "Logo entfernen",
+    "noLogo": "Kein Logo hinterlegt",
+    "yourCompany": "Ihr Unternehmen",
+    "invoice": "Rechnung",
+    "deliveryNote": "Lieferschein",
+    "invoiceNumber": "Rechnungsnummer",
+    "deliveryNumber": "Lieferscheinnummer",
+    "invoiceDate": "Rechnungsdatum",
+    "deliveryDate": "Lieferdatum",
+    "dueDate": "Fälligkeitsdatum",
+    "orderNumber": "Auftrag",
+    "customer": "Kunde",
+    "meta": "Belegdaten",
+    "description": "Beschreibung",
+    "quantity": "Menge",
+    "unitPrice": "Einzelpreis",
+    "vat": "MwSt.",
+    "total": "Gesamt",
+    "net": "Netto",
+    "tax": "MwSt.",
+    "gross": "Brutto",
+    "vatId": "USt-IdNr.",
+    "taxNumber": "Steuernummer",
+    "printReady": "Druckfertiges Layout. PDF-Export ist in dieser Phase nicht verbunden.",
+    "fields": {
+      "companyName": "Firmenname",
+      "street": "Straße",
+      "postalCode": "PLZ",
+      "city": "Ort",
+      "country": "Land",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "website": "Website",
+      "vatId": "USt-IdNr.",
+      "taxNumber": "Steuernummer",
+      "iban": "IBAN",
+      "bic": "BIC",
+      "commercialRegister": "Handelsregister",
+      "managingDirector": "Geschäftsführer / Inhaber",
+      "primaryColor": "Primäre Markenfarbe",
+      "secondaryColor": "Sekundärfarbe"
+    },
+    "templates": {
+      "CLASSIC": "Klassisch",
+      "MODERN": "Modern",
+      "COMPACT": "Kompakt",
+      "PROFESSIONAL": "Professionell"
+    },
+    "errors": {
+      "load": "Dokumenteneinstellungen konnten nicht geladen werden",
+      "save": "Dokumenteneinstellungen konnten nicht gespeichert werden",
+      "logo": "Logo konnte nicht aktualisiert werden",
+      "forbidden": "Nur Inhaber und Administratoren können das Briefpapier ändern"
+    }
   }
 }

@@ -1,0 +1,384 @@
+.agx-doc-stage,
+.agx-doc-thumb,
+.agx-doc {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.agx-doc-stage {
+  overflow-x: auto;
+  background: color-mix(in srgb, var(--agx-text, #0f172a) 6%, transparent);
+  border-radius: 18px;
+  padding: 12px;
+}
+
+.agx-doc {
+  --doc-primary: #1b365d;
+  --doc-secondary: #c4a35a;
+  box-sizing: border-box;
+  width: min(100%, 210mm);
+  margin: 0 auto;
+  padding: 28px 32px;
+  background: #fff;
+  color: #122033;
+  font-family: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.agx-doc p,
+.agx-doc h2,
+.agx-doc span,
+.agx-doc td,
+.agx-doc th,
+.agx-doc strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.agx-doc__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--doc-primary);
+}
+
+.agx-doc__brand {
+  display: flex;
+  gap: 12px;
+  min-width: 0;
+}
+
+.agx-doc__logo {
+  width: auto;
+  max-width: 140px;
+  max-height: 56px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.agx-doc__mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--doc-primary);
+  color: #fff;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.agx-doc__company {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--doc-primary);
+}
+
+.agx-doc__seller p {
+  margin: 0;
+  color: #3b4a5c;
+}
+
+.agx-doc__kicker {
+  margin: 0;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--doc-secondary);
+  font-weight: 700;
+}
+
+.agx-doc__number {
+  margin: 4px 0 0;
+  font-size: 22px;
+  letter-spacing: -0.03em;
+  color: var(--doc-primary);
+}
+
+.agx-doc__meta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.agx-doc__meta > div span,
+.agx-doc__meta > div strong,
+.agx-doc__meta > div p {
+  display: block;
+}
+
+.agx-doc__meta dl {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.agx-doc__meta dt {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #66788c;
+}
+
+.agx-doc__meta dd,
+.agx-doc__meta strong {
+  margin: 0;
+  font-weight: 650;
+}
+
+.agx-doc__tablewrap {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.agx-doc__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 28rem;
+}
+
+.agx-doc__table th {
+  text-align: start;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #d5deea;
+  padding: 8px 6px;
+  white-space: nowrap;
+}
+
+.agx-doc__table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid #eef2f7;
+  vertical-align: top;
+}
+
+.agx-doc__totals {
+  margin-top: 16px;
+  margin-inline-start: auto;
+  width: min(100%, 240px);
+}
+
+.agx-doc__totals p {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0;
+}
+
+.agx-doc__gross {
+  border-top: 2px solid var(--doc-primary);
+  padding-top: 6px;
+  font-size: 15px;
+}
+
+.agx-doc__footer {
+  margin-top: 28px;
+  padding-top: 12px;
+  border-top: 1px solid #d5deea;
+  color: #5b6b7c;
+  font-size: 11px;
+}
+
+.agx-doc__printnote {
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.agx-doc--modern {
+  font-family: "Geist", "Segoe UI", sans-serif;
+  padding: 32px;
+}
+
+.agx-doc--modern .agx-doc__header {
+  border-bottom: 0;
+  align-items: stretch;
+}
+
+.agx-doc--modern .agx-doc__titleblock {
+  background: color-mix(in srgb, var(--doc-primary) 10%, white);
+  border-radius: 16px;
+  padding: 12px 16px;
+}
+
+.agx-doc--modern .agx-doc__meta {
+  background: #f6f8fb;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.agx-doc--modern .agx-doc__table th {
+  background: color-mix(in srgb, var(--doc-primary) 8%, white);
+}
+
+.agx-doc--compact {
+  font-family: "Geist", "Segoe UI", sans-serif;
+  padding: 16px 18px;
+  font-size: 12px;
+}
+
+.agx-doc--compact .agx-doc__header {
+  padding-bottom: 8px;
+  border-bottom-width: 1px;
+}
+
+.agx-doc--compact .agx-doc__meta {
+  margin: 10px 0;
+  gap: 8px;
+}
+
+.agx-doc--compact .agx-doc__table th,
+.agx-doc--compact .agx-doc__table td {
+  padding: 4px 5px;
+}
+
+.agx-doc--compact .agx-doc__logo {
+  max-height: 36px;
+}
+
+.agx-doc--professional {
+  font-family: "Geist", "Segoe UI", sans-serif;
+  padding: 0 0 24px;
+}
+
+.agx-doc--professional .agx-doc__header {
+  background: var(--doc-primary);
+  color: #fff;
+  padding: 24px 28px;
+  border-bottom: 4px solid var(--doc-secondary);
+  align-items: center;
+}
+
+.agx-doc--professional .agx-doc__company,
+.agx-doc--professional .agx-doc__number,
+.agx-doc--professional .agx-doc__kicker,
+.agx-doc--professional .agx-doc__seller p {
+  color: #fff;
+}
+
+.agx-doc--professional .agx-doc__mark {
+  background: var(--doc-secondary);
+  color: #122033;
+}
+
+.agx-doc--professional .agx-doc__meta,
+.agx-doc--professional .agx-doc__tablewrap,
+.agx-doc--professional .agx-doc__totals,
+.agx-doc--professional .agx-doc__footer {
+  padding-inline: 28px;
+}
+
+.agx-doc--professional .agx-doc__gross {
+  border-top-color: var(--doc-secondary);
+}
+
+.agx-doc-thumb {
+  height: 210px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--agx-text-muted, #94a3b8) 28%, transparent);
+  border-radius: 16px;
+  background: #edf1f6;
+  pointer-events: none;
+}
+
+.agx-doc-thumb .agx-doc {
+  width: 210mm;
+  max-width: none;
+  min-width: 210mm;
+  transform: scale(0.24);
+  transform-origin: top left;
+}
+
+.agx-doc-thumb .agx-doc__number {
+  overflow-wrap: normal;
+  white-space: nowrap;
+}
+
+.agx-doc-templates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+  min-width: 0;
+}
+
+.agx-doc-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 10px;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--agx-text-muted, #94a3b8) 30%, transparent);
+  background: color-mix(in srgb, var(--agx-ds-surface, rgba(255,255,255,0.04)) 80%, transparent);
+  text-align: start;
+  cursor: pointer;
+}
+
+.agx-doc-card:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.agx-doc-card.is-selected {
+  border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 70%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--agx-accent, #22d3ee) 35%, transparent);
+}
+
+.agx-doc-settings {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 20px;
+  min-width: 0;
+}
+
+.agx-doc-formgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 12px;
+  min-width: 0;
+}
+
+.agx-doc-logo-preview {
+  max-width: 180px;
+  max-height: 64px;
+  object-fit: contain;
+}
+
+@media (max-width: 960px) {
+  .agx-doc-settings {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .agx-doc__meta {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media print {
+  .agx-finance-core header,
+  .agx-finance-nav,
+  .agx-doc-settings,
+  .agx-finance-actions,
+  .agx-finance-toolbar {
+    display: none !important;
+  }
+
+  .agx-doc-stage {
+    background: transparent;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .agx-doc {
+    width: 100%;
+    box-shadow: none;
+  }
+}

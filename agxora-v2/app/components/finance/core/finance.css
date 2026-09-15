@@ -1,0 +1,112 @@
+.agx-finance-core {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-wrap: anywhere;
+}
+
+.agx-finance-core button,
+.agx-finance-core a,
+.agx-finance-core p,
+.agx-finance-core h1,
+.agx-finance-core h2,
+.agx-finance-core h3 {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Keep the 7-column Lieferschein/Rechnung grid readable on 768/390.
+   Do not set min-width: 0 on table cells — that crushes headers/status.
+   Page stays contained; the table scrolls inside this wrapper. */
+.agx-finance-core .overflow-x-auto {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.agx-finance-core table.agx-ui-table {
+  width: max(100%, 52rem);
+  min-width: 52rem;
+}
+
+.agx-finance-core table.agx-ui-table th {
+  white-space: nowrap;
+}
+
+.agx-finance-core table.agx-ui-table th,
+.agx-finance-core table.agx-ui-table td {
+  min-width: 6.5rem;
+  overflow-wrap: anywhere;
+}
+
+.agx-finance-core table.agx-ui-table th:first-child,
+.agx-finance-core table.agx-ui-table td:first-child {
+  min-width: 2.75rem;
+  width: 2.75rem;
+}
+
+.agx-finance-core table.agx-ui-table .agx-ui-badge {
+  white-space: nowrap;
+}
+
+.agx-finance-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.agx-finance-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--agx-text-muted, #94a3b8) 35%, transparent);
+  color: var(--agx-text, #f8fafc);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.agx-finance-nav a[aria-current="page"] {
+  border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 55%, transparent);
+  background: color-mix(in srgb, var(--agx-accent, #22d3ee) 14%, transparent);
+}
+
+.agx-finance-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 1rem;
+  min-width: 0;
+}
+
+.agx-finance-toolbar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.agx-finance-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.agx-finance-line-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .agx-finance-line-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

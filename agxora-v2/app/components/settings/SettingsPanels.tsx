@@ -904,6 +904,23 @@ function AdvancedPanel(): JSX.Element {
   );
 }
 
+function FinanceDocumentsPanel(): JSX.Element {
+  const t = useT();
+  return (
+    <SettingsPanel
+      title={t("settings.financeDocuments.title")}
+      description={t("settings.financeDocuments.panelDescription")}
+    >
+      <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+        {t("settings.financeDocuments.body")}
+      </p>
+      <Link href="/dashboard/settings/finance" style={{ textDecoration: "none" }}>
+        <Button variant="primary">{t("settings.financeDocuments.open")}</Button>
+      </Link>
+    </SettingsPanel>
+  );
+}
+
 export function SettingsSectionPanel({
   section,
 }: {
@@ -934,6 +951,8 @@ export function SettingsSectionPanel({
       return <SecurityPanel />;
     case "billing":
       return <BillingPanel />;
+    case "financeDocuments":
+      return <FinanceDocumentsPanel />;
     case "api":
       return <ApiPanel />;
     case "audit":

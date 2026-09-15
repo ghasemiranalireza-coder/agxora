@@ -293,5 +293,186 @@
         "description": "Zu DATEV-/Steuer-Exportaktionen springen"
       }
     }
+  },
+  "core": {
+    "brand": "AGXORA Finanzen",
+    "title": "Unternehmensfinanzen",
+    "subtitle": "Lieferscheine anlegen und zu Rechnungen abrechnen. Beträge stammen nur aus der Datenbank dieses Arbeitsbereichs.",
+    "honesty": "PDF-Export, E-Mail-Versand, Zahlungseinzug und DATEV sind in dieser Phase nicht verbunden.",
+    "loading": "Finanzdaten werden geladen…",
+    "nav": {
+      "label": "Finanzbereiche",
+      "overview": "Übersicht",
+      "deliveryNotes": "Lieferscheine",
+      "invoices": "Rechnungen",
+      "documents": "Dokumente"
+    },
+    "kpis": {
+      "openDeliveryNotes": "Offene Lieferscheine",
+      "unbilled": "Unabgerechnete Lieferscheine",
+      "openInvoices": "Offene Rechnungen",
+      "overdue": "Überfällige Rechnungen",
+      "draftInvoices": "Entwurfsrechnungen"
+    },
+    "empty": {
+      "overviewTitle": "Noch keine Finanzbelege",
+      "overviewBody": "Legen Sie einen Lieferschein an, um abzurechnen. Die Übersicht bleibt leer, bis Datensätze in der Datenbank existieren.",
+      "deliveryTitle": "Keine Lieferscheine",
+      "deliveryBody": "In diesem Arbeitsbereich gibt es noch keine Lieferscheine.",
+      "invoiceTitle": "Keine Rechnungen",
+      "invoiceBody": "Rechnungen erscheinen hier, nachdem Sie einen oder mehrere offene Lieferscheine abgerechnet haben."
+    },
+    "actions": {
+      "createDeliveryNote": "Lieferschein erstellen",
+      "billSelected": "Ausgewählte Lieferscheine abrechnen",
+      "billAllOpen": "Alle offenen des Kunden abrechnen",
+      "billDateRange": "Offene im Zeitraum abrechnen",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "confirmBill": "Entwurfsrechnung erstellen",
+      "addLine": "Position hinzufügen",
+      "markOpen": "Als offen markieren",
+      "markPaid": "Als bezahlt markieren",
+      "markCancelled": "Rechnung stornieren"
+    },
+    "filters": {
+      "search": "Nummer, Auftrag oder Kunde suchen",
+      "searchInvoice": "Rechnungsnummer oder Kunde suchen",
+      "status": "Status",
+      "customer": "Kunde",
+      "allStatuses": "Alle Status",
+      "allCustomers": "Alle Kunden",
+      "chooseCustomer": "Kunde wählen",
+      "dateFrom": "Von",
+      "dateTo": "Bis"
+    },
+    "table": {
+      "select": "Auswahl",
+      "selectRow": "{number} auswählen",
+      "deliveryNumber": "Lieferschein-Nr.",
+      "invoiceNumber": "Rechnung-Nr.",
+      "date": "Datum",
+      "customer": "Kunde",
+      "order": "Auftrag",
+      "net": "Netto",
+      "status": "Status",
+      "dueDate": "Fälligkeit",
+      "notes": "Notizen"
+    },
+    "totals": {
+      "net": "Netto",
+      "tax": "MwSt.",
+      "gross": "Brutto"
+    },
+    "status": {
+      "DRAFT": "Entwurf",
+      "OPEN": "Offen",
+      "ABGERECHNET": "Abgerechnet",
+      "CANCELLED": "Storniert"
+    },
+    "invoiceStatus": {
+      "DRAFT": "Entwurf",
+      "OPEN": "Offen",
+      "PAID": "Bezahlt",
+      "OVERDUE": "Überfällig",
+      "CANCELLED": "Storniert"
+    },
+    "form": {
+      "description": "Beschreibung",
+      "quantity": "Menge",
+      "unit": "Einheit",
+      "unitPrice": "Einzelpreis (netto)",
+      "taxRate": "MwSt. %"
+    },
+    "delivery": {
+      "title": "Lieferscheine",
+      "subtitle": "Lieferscheine anlegen, filtern und abrechnen. Bereits abgerechnete Belege können nicht erneut abgerechnet werden.",
+      "billedAs": "Abgerechnet auf Rechnung"
+    },
+    "invoice": {
+      "title": "Rechnungen",
+      "subtitle": "Entwurfsrechnungen aus Lieferscheinen. Versand und Zahlungseinzug sind nicht verbunden.",
+      "createdFrom": "Erstellt aus Lieferscheinen",
+      "futureBoundary": "PDF, E-Mail, Zahlung und Mahnung sind in dieser Phase nicht implementiert."
+    },
+    "bill": {
+      "previewTitle": "Abrechnung bestätigen",
+      "count": "Lieferscheine"
+    },
+    "errors": {
+      "load": "Finanzdaten konnten nicht geladen werden",
+      "save": "Speichern fehlgeschlagen",
+      "preview": "Abrechnungsvorschau konnte nicht erstellt werden",
+      "bill": "Rechnung konnte nicht erstellt werden"
+    }
+  },
+  "documents": {
+    "brand": "Dokumentendesign",
+    "title": "Vorlagen & Briefpapier",
+    "subtitle": "Legen Sie fest, wie Lieferscheine und Rechnungen Ihres Unternehmens aussehen. Neue Belege nutzen das gespeicherte Design. Bereits ausgestellte Belege behalten ihr ursprüngliches Briefpapier.",
+    "company": "Firmenangaben",
+    "logoBranding": "Logo & Marke",
+    "deliveryDesign": "Lieferschein-Design",
+    "invoiceDesign": "Rechnungs-Design",
+    "preview": "Dokumentvorschau",
+    "previewHint": "Nur Beispieldaten. Das Speichern erzeugt keine Rechnungen und ändert keine Abrechnungsdaten.",
+    "save": "Dokumenteneinstellungen speichern",
+    "saving": "Wird gespeichert…",
+    "saved": "Dokumenteneinstellungen gespeichert.",
+    "uploadLogo": "Logo hochladen",
+    "removeLogo": "Logo entfernen",
+    "noLogo": "Kein Logo hinterlegt",
+    "yourCompany": "Ihr Unternehmen",
+    "invoice": "Rechnung",
+    "deliveryNote": "Lieferschein",
+    "invoiceNumber": "Rechnungsnummer",
+    "deliveryNumber": "Lieferscheinnummer",
+    "invoiceDate": "Rechnungsdatum",
+    "deliveryDate": "Lieferdatum",
+    "dueDate": "Fälligkeitsdatum",
+    "orderNumber": "Auftrag",
+    "customer": "Kunde",
+    "meta": "Belegdaten",
+    "description": "Beschreibung",
+    "quantity": "Menge",
+    "unitPrice": "Einzelpreis",
+    "vat": "MwSt.",
+    "total": "Gesamt",
+    "net": "Netto",
+    "tax": "MwSt.",
+    "gross": "Brutto",
+    "vatId": "USt-IdNr.",
+    "taxNumber": "Steuernummer",
+    "printReady": "Druckfertiges Layout. PDF-Export ist in dieser Phase nicht verbunden.",
+    "fields": {
+      "companyName": "Firmenname",
+      "street": "Straße",
+      "postalCode": "PLZ",
+      "city": "Ort",
+      "country": "Land",
+      "phone": "Telefon",
+      "email": "E-Mail",
+      "website": "Website",
+      "vatId": "USt-IdNr.",
+      "taxNumber": "Steuernummer",
+      "iban": "IBAN",
+      "bic": "BIC",
+      "commercialRegister": "Handelsregister",
+      "managingDirector": "Geschäftsführer / Inhaber",
+      "primaryColor": "Primäre Markenfarbe",
+      "secondaryColor": "Sekundärfarbe"
+    },
+    "templates": {
+      "CLASSIC": "Klassisch",
+      "MODERN": "Modern",
+      "COMPACT": "Kompakt",
+      "PROFESSIONAL": "Professionell"
+    },
+    "errors": {
+      "load": "Dokumenteneinstellungen konnten nicht geladen werden",
+      "save": "Dokumenteneinstellungen konnten nicht gespeichert werden",
+      "logo": "Logo konnte nicht aktualisiert werden",
+      "forbidden": "Nur Inhaber und Administratoren können das Briefpapier ändern"
+    }
   }
 }
