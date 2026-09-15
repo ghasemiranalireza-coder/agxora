@@ -496,6 +496,84 @@ select.agx-ui-control option {
   background: var(--agx-ds-gold-soft);
 }
 
+/*
+ * Text containment — flex/grid children default to min-width: auto, so long
+ * labels, German compounds, and RTL strings overflow cards. Wrap inside the
+ * box; do not use global break-all or overflow:hidden as the only defense.
+ */
+.agx-ui-card,
+.agx-ui-panel,
+.agx-ui-stack,
+.agx-ui-page,
+.agx-ui-module-page,
+.agx-metric-card,
+.agx-integrations__card,
+.agx-integrations__identity,
+.agx-integrations__identity > div,
+.agx-agent-panel,
+.agx-command-center,
+.agx-command-center__card {
+  min-width: 0;
+  min-inline-size: 0;
+}
+
+.agx-ui-card,
+.agx-ui-panel,
+.agx-metric-card,
+.agx-integrations__card,
+.agx-agent-panel,
+.agx-command-center__card,
+.agx-ui-section-title,
+.agx-ui-section-lead,
+.agx-ui-hint,
+.agx-ui-error,
+.agx-ui-table th,
+.agx-ui-table td {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.agx-ui-badge,
+.agx-ui-chip,
+.agx-ui-pipeline__step,
+.agx-agent-panel__chip,
+.agx-integrations__cap {
+  max-width: 100%;
+  min-width: 0;
+  min-inline-size: 0;
+  height: auto;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: start;
+  line-height: 1.35;
+  padding-block: 4px;
+}
+
+.agx-ui-btn {
+  max-width: 100%;
+  min-inline-size: 0;
+  height: auto;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.agx-ui-legend,
+.agx-ui-legend__item,
+.agx-integrations__head,
+.agx-integrations__actions,
+.agx-integrations__badges,
+.agx-integrations__meta {
+  min-width: 0;
+  min-inline-size: 0;
+}
+
+.agx-ui-legend__item {
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
 .agx-ui-pulse {
   position: relative;
 }

@@ -126,8 +126,8 @@ export function ProviderCard({
       <header className="agx-integrations__head">
         <div className="agx-integrations__identity">
           <BrandTile id={brandForCanonicalProvider(item.providerId)} />
-          <div>
-            <strong>{item.displayName}</strong>
+          <div className="min-w-0">
+            <strong className="block break-words">{item.displayName}</strong>
             <div className="agx-integrations__meta">
               <span className="agx-integrations__category">{categoryLabel}</span>
               <div className="agx-integrations__badges">
@@ -135,11 +135,11 @@ export function ProviderCard({
               </div>
             </div>
             {item.accountLabel ? (
-              <div>
+              <div className="break-words">
                 {t("businessAgent.accountEmail")}: {item.accountLabel}
               </div>
             ) : null}
-            <small>{item.description}</small>
+            <small className="block break-words">{item.description}</small>
           </div>
         </div>
         <div className="agx-integrations__actions">

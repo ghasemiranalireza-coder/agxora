@@ -110,6 +110,16 @@
   opacity: 0.92;
 }
 
+.agx-metric-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.agx-metric-card__action {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
 .agx-dash-snapshot {
   margin: 0 0 22px;
 }
@@ -145,7 +155,7 @@
   padding: 0;
   display: grid;
   gap: 12px;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
 }
 
 .agx-dash-snapshot__list li {

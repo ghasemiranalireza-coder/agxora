@@ -125,11 +125,17 @@
   justify-content: center;
   gap: 10px;
   min-height: 52px;
-  padding: 0 28px;
+  max-width: 100%;
+  height: auto;
+  padding: 12px 28px;
   border-radius: 999px;
   font-size: 14px;
   font-weight: 600;
   border: 1px solid transparent;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
+  line-height: 1.3;
   transition:
     box-shadow var(--p31-motion-standard) var(--p31-ease),
     background var(--p31-motion-standard) var(--p31-ease),
@@ -1477,12 +1483,14 @@ html[dir="rtl"] .p31-hero__globe {
 }
 
 .p31-connected__card {
+  min-width: 0;
   padding: 22px;
   border-radius: 20px;
   border: 1px solid rgba(148, 163, 184, 0.16);
   background: rgba(12, 22, 40, 0.5);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
+  overflow-wrap: anywhere;
 }
 
 .p31-connected__card header {
@@ -1502,6 +1510,7 @@ html[dir="rtl"] .p31-hero__globe {
 .p31-connected__card strong {
   font-size: 16px;
   letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
 }
 
 .p31-connected__card p {
@@ -1522,20 +1531,23 @@ html[dir="rtl"] .p31-hero__globe {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
   gap: 10px;
 }
 
 .p31-connected__soon li {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
+  min-width: 0;
   min-height: 48px;
   padding: 8px 12px;
   border-radius: 14px;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: rgba(255, 255, 255, 0.02);
   font-size: 13px;
+  overflow-wrap: anywhere;
 }
 
 .p31-connected__soon li span {
@@ -1560,11 +1572,13 @@ html[dir="rtl"] .p31-hero__globe {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
   padding: 18px 16px;
   border-radius: 16px;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: rgba(12, 22, 40, 0.48);
   min-height: 108px;
+  overflow-wrap: anywhere;
 }
 
 .p31-agents__pipeline li span {
@@ -1591,12 +1605,14 @@ html[dir="rtl"] .p31-hero__globe {
 }
 
 .p31-cards__item {
+  min-width: 0;
   padding: 24px;
   border-radius: 20px;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: rgba(12, 22, 40, 0.48);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
+  overflow-wrap: anywhere;
 }
 
 .p31-cards__item h3 {
@@ -1623,12 +1639,14 @@ html[dir="rtl"] .p31-hero__globe {
 }
 
 .p31-usecases__list li {
+  min-width: 0;
   padding: 20px 22px;
   border-radius: 16px;
   border: 1px solid rgba(201, 166, 107, 0.18);
   background: rgba(12, 22, 40, 0.48);
   font-size: 15px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 960px) {

@@ -22,6 +22,10 @@ export function Badge({
         fontSize: UI.typography.label,
         lineHeight: 1.35,
         minHeight: 24,
+        maxWidth: "100%",
+        whiteSpace: "normal",
+        overflowWrap: "anywhere",
+        textAlign: "start",
       }}
     >
       {children}
