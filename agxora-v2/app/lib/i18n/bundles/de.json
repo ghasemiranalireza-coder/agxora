@@ -2424,7 +2424,19 @@
         "load": "Finanzdaten konnten nicht geladen werden",
         "save": "Speichern fehlgeschlagen",
         "preview": "Abrechnungsvorschau konnte nicht erstellt werden",
-        "bill": "Rechnung konnte nicht erstellt werden"
+        "bill": "Rechnung konnte nicht erstellt werden",
+        "deleteItem": "Artikel konnte nicht gelöscht werden"
+      },
+      "items": {
+        "actions": "Aktionen",
+        "edit": "Artikel bearbeiten",
+        "delete": "Artikel löschen",
+        "deleteTitle": "Artikel löschen?",
+        "deleteBody": "Dieser Artikel wird aus dem Lieferschein entfernt.",
+        "confirmDelete": "Löschen",
+        "add": "Artikel hinzufügen",
+        "editTitle": "Artikel bearbeiten",
+        "saveItem": "Artikel speichern"
       }
     },
     "documents": {
@@ -2494,6 +2506,36 @@
         "save": "Dokumenteneinstellungen konnten nicht gespeichert werden",
         "logo": "Logo konnte nicht aktualisiert werden",
         "forbidden": "Nur Inhaber und Administratoren können das Briefpapier ändern"
+      },
+      "qr": {
+        "title": "QR-Code",
+        "subtitle": "Zeigt einen SEPA-Zahlungs-QR-Code auf Rechnungen, damit Kunden mit einer kompatiblen Banking-App zahlen können.",
+        "enabled": "SEPA-QR-Code auf Rechnungen aktivieren",
+        "enabledHint": "Lieferscheine zeigen keinen Zahlungs-QR-Code.",
+        "position": "Position",
+        "positions": {
+          "BOTTOM_RIGHT": "Unten rechts",
+          "BOTTOM_LEFT": "Unten links",
+          "AFTER_TOTALS": "Unter den Summen"
+        },
+        "includeAmount": "Rechnungsbetrag einbeziehen",
+        "includeInvoiceNumber": "Rechnungsnummer als Verwendungszweck einbeziehen",
+        "includeCustomerName": "Kundenname im Verwendungszweck einbeziehen",
+        "remittance": "Zusätzlicher Verwendungszweck (optional)",
+        "paymentDetails": "Zahlungsdetails (SEPA)",
+        "scanHint": "Scannen Sie diesen QR-Code mit einer kompatiblen Banking-App, um eine SEPA-Überweisung zu starten.",
+        "beneficiary": "Empfänger",
+        "amount": "Betrag",
+        "reference": "Verwendungszweck",
+        "unavailable": "SEPA QR-Code kann nicht erstellt werden.",
+        "missing": {
+          "missing_beneficiary": "SEPA QR-Code kann nicht erstellt werden, da der Firmenname fehlt.",
+          "missing_iban": "SEPA QR-Code kann nicht erstellt werden, da keine gültige IBAN hinterlegt ist.",
+          "invalid_iban": "SEPA QR-Code kann nicht erstellt werden, da die IBAN ungültig ist.",
+          "invalid_bic": "SEPA QR-Code kann nicht erstellt werden, da die BIC ungültig ist.",
+          "invalid_amount": "SEPA QR-Code kann nicht erstellt werden, da der Betrag ungültig ist.",
+          "invalid_currency": "SEPA QR-Code kann nicht erstellt werden, da nur EUR unterstützt wird."
+        }
       }
     }
   },

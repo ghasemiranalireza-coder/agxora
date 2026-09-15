@@ -112,6 +112,45 @@ describe("finance document snapshots", () => {
     expect(parseDocumentSnapshot({ version: 2, kind: "INVOICE", template: "CLASSIC" })).toBeNull();
     expect(parseDocumentSnapshot({ version: 1, kind: "INVOICE", template: "FANCY" })).toBeNull();
   });
+
+  it("round-trips optional frozen payment QR data without rejecting legacy snapshots", () => {
+    const legacy = parseDocumentSnapshot({
+      version: 1,
+      kind: "INVOICE",
+      template: "CLASSIC",
+      branding: { companyName: "Nordlicht Handel GmbH" },
+      customer: { companyName: "Hanseatische Handels GmbH" },
+      frozenAt: "2026-09-15T10:00:00.000Z",
+    });
+    expect(legacy?.payment).toBeUndefined();
+    const withPayment = parseDocumentSnapshot({
+      version: 1,
+      kind: "INVOICE",
+      template: "CLASSIC",
+      branding: { companyName: "Nordlicht Handel GmbH", iban: "DE89370400440532013000" },
+      customer: { companyName: "Hanseatische Handels GmbH" },
+      frozenAt: "2026-09-15T10:00:00.000Z",
+      payment: {
+        enabled: true,
+        position: "BOTTOM_RIGHT",
+        includeAmount: true,
+        includeInvoiceNumber: true,
+        includeCustomerName: false,
+        remittanceText: "",
+        beneficiaryName: "Nordlicht Handel GmbH",
+        iban: "DE89370400440532013000",
+        bic: "COBADEFFXXX",
+        amount: "11.90",
+        currency: "EUR",
+        reference: "RE-2026-000001",
+        customerName: null,
+        epcPayload: "BCD\n002\n1\nSCT\nCOBADEFFXXX\nNordlicht Handel GmbH\nDE89370400440532013000\nEUR11.90\n\nRE-2026-000001",
+        missing: [],
+      },
+    });
+    expect(withPayment?.payment?.iban).toBe("DE89370400440532013000");
+    expect(withPayment?.payment?.epcPayload?.startsWith("BCD\n")).toBe(true);
+  });
 });
 
 describe("finance document CSS templates", () => {
@@ -124,5 +163,8 @@ describe("finance document CSS templates", () => {
     expect(css).toContain("minmax(min(100%, 220px), 1fr)");
     expect(css).toMatch(/\.agx-doc__tablewrap[\s\S]*overflow-x:\s*auto/);
     expect(css).toMatch(/\.agx-doc-settings[\s\S]*minmax\(0,\s*1fr\)/);
+    expect(css).toMatch(/\.agx-doc__payment[\s\S]*minmax\(0,\s*1fr\)/);
+    expect(css).toMatch(/\.agx-doc__qr[\s\S]*aspect-ratio:\s*1\s*\/\s*1/);
+    expect(css).toMatch(/\.agx-doc__qr[\s\S]*object-fit:\s*contain/);
   });
 });

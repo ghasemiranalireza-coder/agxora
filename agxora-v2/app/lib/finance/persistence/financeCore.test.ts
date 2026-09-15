@@ -10,6 +10,7 @@ import type { CrmCustomerDraft } from "@/app/lib/crm/directory/types";
 import {
   billDeliveryNotesForActor,
   createDeliveryNoteForActor,
+  deleteDeliveryNoteItemForActor,
   getDeliveryNoteForActor,
   getFinanceOverviewForActor,
   getInvoiceForActor,
@@ -417,5 +418,55 @@ describe("Phase 80 finance Lieferschein → Rechnung", () => {
     });
     expect((await getDeliveryNoteForActor(owner, note.id)).status).toBe("OPEN");
     expect(await listInvoicesForActor(owner)).toHaveLength(0);
+  });
+
+  it("deletes one delivery note item without deleting the note", async () => {
+    const owner = await actor(TOKEN_A);
+    const customer = await createCustomerForActor(owner, customerDraft("item-del@fin.test", "Item GmbH"));
+    const note = await createDeliveryNoteForActor(owner, {
+      customerId: customer.id,
+      items: [line({ description: "Keep", unitPriceNet: "10.00" }), line({ description: "Drop", unitPriceNet: "5.00" })],
+    });
+    expect(note.items).toHaveLength(2);
+    const drop = note.items.find((item) => item.description === "Drop");
+    if (!drop) throw new Error("missing drop item");
+    const updated = await deleteDeliveryNoteItemForActor(owner, note.id, drop.id);
+    expect(updated.id).toBe(note.id);
+    expect(updated.items).toHaveLength(1);
+    expect(updated.items[0].description).toBe("Keep");
+    expect(updated.items[0].position).toBe(1);
+    expect(updated.netTotal).toBe("10.00");
+    expect((await getDeliveryNoteForActor(owner, note.id)).items).toHaveLength(1);
+  });
+
+  it("rejects deleting the last delivery note item", async () => {
+    const owner = await actor(TOKEN_A);
+    const customer = await createCustomerForActor(owner, customerDraft("last-item@fin.test", "Last GmbH"));
+    const note = await createDeliveryNoteForActor(owner, { customerId: customer.id, items: [line()] });
+    await expect(deleteDeliveryNoteItemForActor(owner, note.id, note.items[0].id)).rejects.toMatchObject({
+      code: "validation",
+    });
+    expect((await getDeliveryNoteForActor(owner, note.id)).items).toHaveLength(1);
+  });
+
+  it("rejects deleting items on billed notes and across tenants", async () => {
+    const ownerA = await actor(TOKEN_A);
+    const ownerB = await actor(TOKEN_B);
+    const customer = await createCustomerForActor(ownerA, customerDraft("billed-item@fin.test", "Billed GmbH"));
+    const note = await createDeliveryNoteForActor(ownerA, {
+      customerId: customer.id,
+      items: [line({ description: "A" }), line({ description: "B" })],
+    });
+    await expect(deleteDeliveryNoteItemForActor(ownerB, note.id, note.items[0].id)).rejects.toMatchObject({
+      code: "not_found",
+    });
+    await billDeliveryNotesForActor(ownerA, {
+      deliveryNoteIds: [note.id],
+      idempotencyKey: "bill-then-delete-item",
+    });
+    await expect(deleteDeliveryNoteItemForActor(ownerA, note.id, note.items[0].id)).rejects.toMatchObject({
+      code: "conflict",
+    });
+    expect((await getDeliveryNoteForActor(ownerA, note.id)).items).toHaveLength(2);
   });
 });

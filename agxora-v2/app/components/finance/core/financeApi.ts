@@ -88,6 +88,17 @@ export async function updateDeliveryNote(
   return data.deliveryNote;
 }
 
+export async function deleteDeliveryNoteItem(
+  deliveryNoteId: string,
+  itemId: string,
+): Promise<DeliveryNoteView> {
+  const data = await financeFetch<{ deliveryNote: DeliveryNoteView }>(
+    `/api/v1/finance/delivery-notes/${encodeURIComponent(deliveryNoteId)}/items/${encodeURIComponent(itemId)}`,
+    { method: "DELETE" },
+  );
+  return data.deliveryNote;
+}
+
 export async function fetchInvoices(
   filter: InvoiceListFilter = {},
 ): Promise<InvoiceView[]> {

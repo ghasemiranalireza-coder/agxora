@@ -1128,9 +1128,15 @@ model FinanceDocumentSettings {
   bic                  String                   @default("")
   commercialRegister   String                   @default("")
   managingDirector     String                   @default("")
-  primaryColor         String                   @default("#1B365D")
-  secondaryColor       String                   @default("#C4A35A")
-  logoId               String?                  @db.Uuid
+  primaryColor           String                   @default("#1B365D")
+  secondaryColor         String                   @default("#C4A35A")
+  logoId                 String?                  @db.Uuid
+  qrEnabled              Boolean                  @default(true)
+  qrPosition             String                   @default("BOTTOM_RIGHT")
+  qrIncludeAmount        Boolean                  @default(true)
+  qrIncludeInvoiceNumber Boolean                  @default(true)
+  qrIncludeCustomerName  Boolean                  @default(false)
+  qrRemittanceText       String                   @default("")
   createdAt            DateTime                 @default(now())
   updatedAt            DateTime                 @updatedAt
 

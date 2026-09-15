@@ -44,6 +44,8 @@ describe("UI text containment", () => {
     expect(documents).toContain(".agx-doc--modern");
     expect(documents).toContain(".agx-doc--compact");
     expect(documents).toContain(".agx-doc--professional");
+    expect(documents).toMatch(/\.agx-doc__payment[\s\S]*minmax\(0,\s*1fr\)/);
+    expect(documents).toMatch(/\.agx-doc__qr[\s\S]*aspect-ratio:\s*1\s*\/\s*1/);
   });
 
   it("lets Finance tables scroll inside the page instead of crushing columns", () => {
@@ -52,6 +54,7 @@ describe("UI text containment", () => {
     expect(finance).toMatch(/\.agx-finance-core \.overflow-x-auto[\s\S]*overflow-x:\s*auto/);
     expect(finance).toMatch(/overflow-x:\s*clip/);
     expect(finance).toMatch(/table\.agx-ui-table[\s\S]*min-width:\s*52rem/);
+    expect(finance).toMatch(/\.agx-finance-item-table-wrap[\s\S]*overflow-x:\s*auto/);
     expect(finance).not.toMatch(
       /\.agx-finance-core table,\s*\.agx-finance-core td,\s*\.agx-finance-core th[\s\S]*min-width:\s*0/,
     );

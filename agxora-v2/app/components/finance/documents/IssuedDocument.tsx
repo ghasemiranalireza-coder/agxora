@@ -38,6 +38,7 @@ function modelFromInvoice(
       grossTotal: invoice.grossTotal,
       branding,
       customer,
+      payment: snapshot?.payment ?? undefined,
       items: invoice.items.map((item) => ({
         description: item.description,
         quantity: item.quantity,

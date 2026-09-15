@@ -323,6 +323,120 @@ export async function updateDeliveryNoteForActor(
   return toDeliveryNoteView(updated as DeliveryNoteWithRelations);
 }
 
+export async function deleteDeliveryNoteItemForActor(
+  actor: Actor,
+  deliveryNoteId: string,
+  itemId: string,
+): Promise<DeliveryNoteView> {
+  financeReady();
+  const noteId = assertUuid(deliveryNoteId, "id");
+  const lineId = assertUuid(itemId, "itemId");
+  const existing = await prisma.deliveryNote.findFirst({
+    where: {
+      id: noteId,
+      workspaceId: actor.workspaceId,
+      organizationId: actor.organizationId,
+    },
+    include: { items: true },
+  });
+  if (!existing) {
+    throw new PersistenceError("not_found", "Delivery note not found");
+  }
+  assertFinance(actor, "finance.write", {
+    organizationId: existing.organizationId,
+    workspaceId: existing.workspaceId,
+  });
+  if (existing.status === "ABGERECHNET" || existing.status === "CANCELLED") {
+    throw new PersistenceError("conflict", "Billed or cancelled delivery notes cannot be edited");
+  }
+  const target = existing.items.find(
+    (item) =>
+      item.id === lineId &&
+      item.deliveryNoteId === existing.id &&
+      item.workspaceId === actor.workspaceId &&
+      item.organizationId === actor.organizationId,
+  );
+  if (!target) {
+    throw new PersistenceError("not_found", "Delivery note item not found");
+  }
+  if (existing.items.length <= 1) {
+    throw new PersistenceError("validation", "A delivery note needs at least one line item");
+  }
+
+  const customer = await loadCustomer(actor, existing.customerId);
+
+  const updated = await prisma.$transaction(async (tx) => {
+    const removed = await tx.deliveryNoteItem.deleteMany({
+      where: {
+        id: target.id,
+        deliveryNoteId: existing.id,
+        workspaceId: actor.workspaceId,
+        organizationId: actor.organizationId,
+      },
+    });
+    if (removed.count !== 1) {
+      throw new PersistenceError("not_found", "Delivery note item not found");
+    }
+    const remaining = await tx.deliveryNoteItem.findMany({
+      where: {
+        deliveryNoteId: existing.id,
+        workspaceId: actor.workspaceId,
+        organizationId: actor.organizationId,
+      },
+      orderBy: { position: "asc" },
+    });
+    if (remaining.length === 0) {
+      throw new PersistenceError("validation", "A delivery note needs at least one line item");
+    }
+    for (let index = 0; index < remaining.length; index += 1) {
+      const nextPosition = index + 1;
+      if (remaining[index].position !== nextPosition) {
+        await tx.deliveryNoteItem.update({
+          where: { id: remaining[index].id },
+          data: { position: nextPosition },
+        });
+      }
+    }
+    const computed = totalsFromLines(
+      remaining.map((item) => ({
+        quantity: item.quantity,
+        unitPriceNet: item.unitPriceNet,
+        taxRate: item.taxRate,
+      })),
+    );
+    const snapshot = await captureDocumentSnapshot(
+      actor,
+      "DELIVERY_NOTE",
+      {
+        companyName: customer.companyName,
+        address: customer.address,
+        city: customer.city,
+        country: customer.country,
+        taxNumber: customer.taxNumber,
+      },
+      tx,
+    );
+    const row = await tx.deliveryNote.update({
+      where: { id: existing.id },
+      data: {
+        netTotal: computed.totals.netTotal,
+        taxTotal: computed.totals.taxTotal,
+        grossTotal: computed.totals.grossTotal,
+        documentSnapshot: snapshot as Prisma.InputJsonValue,
+      },
+      include: deliveryNoteInclude,
+    });
+    await audit(tx, actor, "lieferschein_item_deleted", {
+      deliveryNoteId: row.id,
+      itemId: target.id,
+      number: row.number,
+    });
+    return row;
+  });
+
+  return toDeliveryNoteView(updated as DeliveryNoteWithRelations);
+}
+
 async function resolveBillableIds(
   actor: Actor,
   input: BillDeliveryNotesInput,
@@ -613,6 +727,12 @@ export async function billDeliveryNotesForActor(
         },
         select: { companyName: true, address: true, city: true, country: true, taxNumber: true },
       });
+      const invoiceNumber = await nextDocumentNumber(tx, {
+        organizationId: actor.organizationId,
+        workspaceId: actor.workspaceId,
+        kind: "INVOICE",
+        year: yearOf(invoiceDate),
+      });
       const invoiceSnapshot = await captureDocumentSnapshot(
         actor,
         "INVOICE",
@@ -624,13 +744,13 @@ export async function billDeliveryNotesForActor(
           taxNumber: customerRow?.taxNumber ?? "",
         },
         tx,
+        {
+          amount: moneyString(grossTotal),
+          currency: first.currency,
+          invoiceNumber,
+          customerName: first.customerCompanyName,
+        },
       );
-      const invoiceNumber = await nextDocumentNumber(tx, {
-        organizationId: actor.organizationId,
-        workspaceId: actor.workspaceId,
-        kind: "INVOICE",
-        year: yearOf(invoiceDate),
-      });
 
       const invoice = await tx.invoice.create({
         data: {

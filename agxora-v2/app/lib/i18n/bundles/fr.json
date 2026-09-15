@@ -2418,7 +2418,19 @@
         "load": "Could not load finance data",
         "save": "Could not save",
         "preview": "Could not build billing preview",
-        "bill": "Could not create the invoice"
+        "bill": "Could not create the invoice",
+        "deleteItem": "Could not delete the item"
+      },
+      "items": {
+        "actions": "Actions",
+        "edit": "Edit item",
+        "delete": "Delete item",
+        "deleteTitle": "Delete item?",
+        "deleteBody": "This item will be removed from the delivery note.",
+        "confirmDelete": "Delete",
+        "add": "Add article",
+        "editTitle": "Edit item",
+        "saveItem": "Save item"
       }
     },
     "documents": {
@@ -2488,6 +2500,36 @@
         "save": "Could not save document settings",
         "logo": "Could not update the logo",
         "forbidden": "Only owners and admins can change document branding"
+      },
+      "qr": {
+        "title": "QR Code",
+        "subtitle": "Show a SEPA payment QR code on invoices so customers can pay with a compatible banking app.",
+        "enabled": "Enable SEPA QR code on invoices",
+        "enabledHint": "Delivery notes never show a payment QR code.",
+        "position": "Position",
+        "positions": {
+          "BOTTOM_RIGHT": "Bottom right",
+          "BOTTOM_LEFT": "Bottom left",
+          "AFTER_TOTALS": "Below totals"
+        },
+        "includeAmount": "Include invoice amount",
+        "includeInvoiceNumber": "Include invoice number as payment reference",
+        "includeCustomerName": "Include customer name in remittance",
+        "remittance": "Additional remittance text (optional)",
+        "paymentDetails": "Payment details (SEPA)",
+        "scanHint": "Scan this QR code with a compatible banking app to start a SEPA credit transfer.",
+        "beneficiary": "Beneficiary",
+        "amount": "Amount",
+        "reference": "Reference",
+        "unavailable": "SEPA QR code cannot be created.",
+        "missing": {
+          "missing_beneficiary": "SEPA QR code cannot be created because the company name is missing.",
+          "missing_iban": "SEPA QR code cannot be created because no valid IBAN is stored.",
+          "invalid_iban": "SEPA QR code cannot be created because the IBAN is invalid.",
+          "invalid_bic": "SEPA QR code cannot be created because the BIC is invalid.",
+          "invalid_amount": "SEPA QR code cannot be created because the amount is invalid.",
+          "invalid_currency": "SEPA QR code cannot be created because only EUR is supported."
+        }
       }
     }
   },

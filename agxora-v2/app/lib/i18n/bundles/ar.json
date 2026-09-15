@@ -2418,7 +2418,19 @@
         "load": "Could not load finance data",
         "save": "Could not save",
         "preview": "Could not build billing preview",
-        "bill": "Could not create the invoice"
+        "bill": "Could not create the invoice",
+        "deleteItem": "تعذر حذف الصنف"
+      },
+      "items": {
+        "actions": "إجراءات",
+        "edit": "تعديل الصنف",
+        "delete": "حذف الصنف",
+        "deleteTitle": "حذف الصنف؟",
+        "deleteBody": "سيتم إزالة هذا الصنف من إشعار التسليم.",
+        "confirmDelete": "حذف",
+        "add": "إضافة صنف",
+        "editTitle": "تعديل الصنف",
+        "saveItem": "حفظ الصنف"
       }
     },
     "documents": {
@@ -2488,6 +2500,36 @@
         "save": "تعذر حفظ إعدادات المستند",
         "logo": "تعذر تحديث الشعار",
         "forbidden": "يمكن للمالكين والمسؤولين فقط تغيير ترويسة المستندات"
+      },
+      "qr": {
+        "title": "رمز QR",
+        "subtitle": "اعرض رمز QR لدفع SEPA على الفواتير ليتمكن العملاء من الدفع بتطبيق مصرفي متوافق.",
+        "enabled": "تفعيل رمز QR لـ SEPA على الفواتير",
+        "enabledHint": "إشعارات التسليم لا تعرض رمز QR للدفع.",
+        "position": "الموضع",
+        "positions": {
+          "BOTTOM_RIGHT": "أسفل اليمين",
+          "BOTTOM_LEFT": "أسفل اليسار",
+          "AFTER_TOTALS": "تحت الإجماليات"
+        },
+        "includeAmount": "تضمين مبلغ الفاتورة",
+        "includeInvoiceNumber": "تضمين رقم الفاتورة كمرجع للدفع",
+        "includeCustomerName": "تضمين اسم العميل في بيان الدفع",
+        "remittance": "نص إضافي لبيان الدفع (اختياري)",
+        "paymentDetails": "تفاصيل الدفع (SEPA)",
+        "scanHint": "امسح رمز QR هذا بتطبيق مصرفي متوافق لبدء تحويل SEPA.",
+        "beneficiary": "المستفيد",
+        "amount": "المبلغ",
+        "reference": "المرجع",
+        "unavailable": "تعذر إنشاء رمز QR لـ SEPA.",
+        "missing": {
+          "missing_beneficiary": "تعذر إنشاء رمز QR لـ SEPA لأن اسم الشركة غير موجود.",
+          "missing_iban": "تعذر إنشاء رمز QR لـ SEPA لأنه لا يوجد IBAN صالح.",
+          "invalid_iban": "تعذر إنشاء رمز QR لـ SEPA لأن IBAN غير صالح.",
+          "invalid_bic": "تعذر إنشاء رمز QR لـ SEPA لأن BIC غير صالح.",
+          "invalid_amount": "تعذر إنشاء رمز QR لـ SEPA لأن المبلغ غير صالح.",
+          "invalid_currency": "تعذر إنشاء رمز QR لـ SEPA لأن اليورو فقط مدعوم."
+        }
       }
     }
   },
