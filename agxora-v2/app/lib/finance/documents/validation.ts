@@ -2,11 +2,13 @@ import { PersistenceError } from "@/app/lib/tenancy/errors";
 import {
   DEFAULT_PRIMARY_COLOR,
   DEFAULT_SECONDARY_COLOR,
+  DEFAULT_QR_SETTINGS,
   FINANCE_DOCUMENT_TEMPLATES,
   FINANCE_LOGO_MIME_TYPES,
   MAX_FINANCE_LOGO_BYTES,
   emptyBranding,
   isFinanceDocumentTemplate,
+  isFinanceQrPosition,
   type FinanceBrandingView,
   type FinanceCustomerBlock,
   type FinanceDocumentKind,
@@ -14,7 +16,10 @@ import {
   type FinanceDocumentSnapshot,
   type FinanceDocumentTemplate,
   type FinanceLogoMimeType,
+  type FinancePaymentQrSnapshot,
+  type FinanceQrSettingsView,
 } from "./types";
+import { normalizeBic, normalizeIban } from "./epcQr";
 
 const HEX_COLOR = /^#[0-9A-Fa-f]{6}$/;
 const TEXT_LIMITS: Record<string, number> = {
@@ -62,27 +67,15 @@ export function parseTemplate(value: unknown, field: string): FinanceDocumentTem
   return value;
 }
 
+function parseBoolean(value: unknown, field: string): boolean {
+  if (typeof value !== "boolean") {
+    throw new PersistenceError("validation", `${field} must be a boolean`);
+  }
+  return value;
+}
+
 export function parseSettingsPatch(input: FinanceDocumentSettingsPatch): FinanceDocumentSettingsPatch {
-  const patch: {
-    invoiceTemplate?: FinanceDocumentTemplate;
-    deliveryNoteTemplate?: FinanceDocumentTemplate;
-    companyName?: string;
-    street?: string;
-    postalCode?: string;
-    city?: string;
-    country?: string;
-    phone?: string;
-    email?: string;
-    website?: string;
-    vatId?: string;
-    taxNumber?: string;
-    iban?: string;
-    bic?: string;
-    commercialRegister?: string;
-    managingDirector?: string;
-    primaryColor?: string;
-    secondaryColor?: string;
-  } = {};
+  const patch: FinanceDocumentSettingsPatch = {};
   if (input.invoiceTemplate !== undefined) {
     patch.invoiceTemplate = parseTemplate(input.invoiceTemplate, "invoiceTemplate");
   }
@@ -120,6 +113,32 @@ export function parseSettingsPatch(input: FinanceDocumentSettingsPatch): Finance
       throw new PersistenceError("validation", "Invalid secondaryColor");
     }
     patch.secondaryColor = normalizeHexColor(color, DEFAULT_SECONDARY_COLOR);
+  }
+  if (input.qrEnabled !== undefined) patch.qrEnabled = parseBoolean(input.qrEnabled, "qrEnabled");
+  if (input.qrPosition !== undefined) {
+    if (!isFinanceQrPosition(input.qrPosition)) {
+      throw new PersistenceError("validation", "Invalid qrPosition");
+    }
+    patch.qrPosition = input.qrPosition;
+  }
+  if (input.qrIncludeAmount !== undefined) {
+    patch.qrIncludeAmount = parseBoolean(input.qrIncludeAmount, "qrIncludeAmount");
+  }
+  if (input.qrIncludeInvoiceNumber !== undefined) {
+    patch.qrIncludeInvoiceNumber = parseBoolean(input.qrIncludeInvoiceNumber, "qrIncludeInvoiceNumber");
+  }
+  if (input.qrIncludeCustomerName !== undefined) {
+    patch.qrIncludeCustomerName = parseBoolean(input.qrIncludeCustomerName, "qrIncludeCustomerName");
+  }
+  if (input.qrRemittanceText !== undefined) {
+    if (typeof input.qrRemittanceText !== "string") {
+      throw new PersistenceError("validation", "Invalid qrRemittanceText");
+    }
+    const remittance = input.qrRemittanceText.replace(/[\r\n]+/g, " ").trim();
+    if (remittance.length > 140) {
+      throw new PersistenceError("validation", "qrRemittanceText is too long");
+    }
+    patch.qrRemittanceText = remittance;
   }
   return patch;
 }
@@ -172,6 +191,7 @@ export function parseDocumentSnapshot(value: unknown): FinanceDocumentSnapshot |
   const branding = parseBranding(row.branding);
   const customer = parseCustomerBlock(row.customer);
   if (!branding || !customer) return null;
+  const payment = parsePaymentSnapshot(row.payment);
   return {
     version: 1,
     kind: row.kind as FinanceDocumentKind,
@@ -179,6 +199,54 @@ export function parseDocumentSnapshot(value: unknown): FinanceDocumentSnapshot |
     branding,
     customer,
     frozenAt: typeof row.frozenAt === "string" ? row.frozenAt : new Date().toISOString(),
+    ...(payment !== undefined ? { payment } : {}),
+  };
+}
+
+function parsePaymentSnapshot(value: unknown): FinancePaymentQrSnapshot | null | undefined {
+  if (value === undefined) return undefined;
+  if (value === null) return null;
+  if (typeof value !== "object") return undefined;
+  const row = value as Record<string, unknown>;
+  const epcPayload =
+    typeof row.epcPayload === "string" && row.epcPayload.startsWith("BCD\n") ? row.epcPayload : null;
+  const missing = Array.isArray(row.missing)
+    ? row.missing.filter((entry): entry is string => typeof entry === "string")
+    : [];
+  return {
+    enabled: row.enabled === true,
+    position: isFinanceQrPosition(row.position) ? row.position : "BOTTOM_RIGHT",
+    includeAmount: row.includeAmount === true,
+    includeInvoiceNumber: row.includeInvoiceNumber === true,
+    includeCustomerName: row.includeCustomerName === true,
+    remittanceText: str(row.remittanceText).slice(0, 140),
+    beneficiaryName: str(row.beneficiaryName).slice(0, 70),
+    iban: normalizeIban(str(row.iban)),
+    bic: normalizeBic(str(row.bic)),
+    amount: typeof row.amount === "string" ? row.amount : null,
+    currency: "EUR",
+    reference: typeof row.reference === "string" ? row.reference : null,
+    customerName: typeof row.customerName === "string" ? row.customerName : null,
+    epcPayload,
+    missing,
+  };
+}
+
+export function qrFromRow(row: {
+  readonly qrEnabled?: boolean;
+  readonly qrPosition?: string;
+  readonly qrIncludeAmount?: boolean;
+  readonly qrIncludeInvoiceNumber?: boolean;
+  readonly qrIncludeCustomerName?: boolean;
+  readonly qrRemittanceText?: string;
+}): FinanceQrSettingsView {
+  return {
+    enabled: row.qrEnabled ?? DEFAULT_QR_SETTINGS.enabled,
+    position: isFinanceQrPosition(row.qrPosition) ? row.qrPosition : DEFAULT_QR_SETTINGS.position,
+    includeAmount: row.qrIncludeAmount ?? DEFAULT_QR_SETTINGS.includeAmount,
+    includeInvoiceNumber: row.qrIncludeInvoiceNumber ?? DEFAULT_QR_SETTINGS.includeInvoiceNumber,
+    includeCustomerName: row.qrIncludeCustomerName ?? DEFAULT_QR_SETTINGS.includeCustomerName,
+    remittanceText: row.qrRemittanceText ?? DEFAULT_QR_SETTINGS.remittanceText,
   };
 }
 

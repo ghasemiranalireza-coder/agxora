@@ -4,6 +4,7 @@ import type { JSX } from "react";
 import { useLocale } from "../../../lib/i18n";
 import { financeLogoUrl, type FinanceDocumentTemplate } from "../../../lib/finance/documents/types";
 import type { FinanceDocumentModel } from "./sampleData";
+import { SepaQrCode } from "./SepaQrCode";
 import "./document.css";
 
 function money(value: string, currency: string): string {
@@ -141,6 +142,8 @@ export function DocumentRenderer({
         </p>
       </section>
 
+      {isInvoice ? <InvoicePaymentSection model={model} /> : null}
+
       <footer className="agx-doc__footer">
         {branding.vatId || branding.taxNumber ? (
           <p>
@@ -170,4 +173,52 @@ export function DocumentRenderer({
     return <div className="agx-doc-thumb">{paper}</div>;
   }
   return <div className="agx-doc-stage">{paper}</div>;
+}
+
+function InvoicePaymentSection({ model }: { readonly model: FinanceDocumentModel }): JSX.Element | null {
+  const { t } = useLocale();
+  const payment = model.payment;
+  if (!payment || !payment.enabled) return null;
+  const position = payment.position.toLowerCase().replaceAll("_", "-");
+  const missingKey = payment.missing[0]
+    ? `finance.documents.qr.missing.${payment.missing[0]}`
+    : "finance.documents.qr.unavailable";
+  const qrLabel = t("finance.documents.qr.paymentDetails");
+  return (
+    <section className={`agx-doc__payment agx-doc__payment--${position}`} aria-label={qrLabel}>
+      <div className="agx-doc__payment-copy">
+        <h3>{qrLabel}</h3>
+        <p>{t("finance.documents.qr.scanHint")}</p>
+        {payment.beneficiaryName ? (
+          <p>
+            <span>{t("finance.documents.qr.beneficiary")}</span>
+            <strong>{payment.beneficiaryName}</strong>
+          </p>
+        ) : null}
+        {payment.iban ? <p>IBAN {payment.iban}</p> : null}
+        {payment.bic ? <p>BIC {payment.bic}</p> : null}
+        {payment.amount ? (
+          <p>
+            <span>{t("finance.documents.qr.amount")}</span>
+            <strong>{money(payment.amount, payment.currency)}</strong>
+          </p>
+        ) : null}
+        {payment.reference ? (
+          <p>
+            <span>{t("finance.documents.qr.reference")}</span>
+            <strong>{payment.reference}</strong>
+          </p>
+        ) : null}
+      </div>
+      <div className="agx-doc__qr-wrap">
+        {payment.epcPayload ? (
+          <SepaQrCode payload={payment.epcPayload} label={qrLabel} />
+        ) : (
+          <p className="agx-doc__qr-missing" role="status">
+            {t(missingKey)}
+          </p>
+        )}
+      </div>
+    </section>
+  );
 }

@@ -31,12 +31,20 @@ import { IssuedDeliveryNoteDocument } from "../documents/IssuedDocument";
 import {
   billDeliveryNotes,
   createDeliveryNote,
+  deleteDeliveryNoteItem,
   fetchDeliveryNote,
   fetchDeliveryNotes,
   fetchFinanceCustomers,
   previewBilling,
+  updateDeliveryNote,
   type FinanceCustomerOption,
 } from "./financeApi";
+import {
+  ConfirmDeleteItemDialog,
+  DeliveryNoteItemActions,
+  ItemDraftDialog,
+  lineViewToDraft,
+} from "./DeliveryNoteItemActions";
 
 function money(value: string, currency: string): string {
   return formatCurrency(Number(value), undefined, currency);
@@ -79,6 +87,11 @@ export function DeliveryNoteWorkspace({
   const [billBusy, setBillBusy] = useState(false);
   const [detail, setDetail] = useState<DeliveryNoteView | null>(null);
   const [idempotencyKey, setIdempotencyKey] = useState("");
+  const [draftDeleteIndex, setDraftDeleteIndex] = useState<number | null>(null);
+  const [itemBusy, setItemBusy] = useState(false);
+  const [pendingDeleteItemId, setPendingDeleteItemId] = useState<string | null>(null);
+  const [editingItemId, setEditingItemId] = useState<string | null>(null);
+  const [addingItem, setAddingItem] = useState(false);
   const [draft, setDraft] = useState<DeliveryNoteDraft>({
     customerId: "",
     date: new Date().toISOString().slice(0, 10),
@@ -222,6 +235,51 @@ export function DeliveryNoteWorkspace({
       await load();
     } catch (err) {
       setError(err instanceof Error ? err.message : t("finance.core.errors.save"));
+    }
+  }
+
+  const detailEditable =
+    detail != null && detail.status !== "ABGERECHNET" && detail.status !== "CANCELLED";
+
+  function draftFromDetail(note: DeliveryNoteView): DeliveryNoteDraft {
+    return {
+      customerId: note.customerId,
+      date: note.date,
+      orderNumber: note.orderNumber,
+      notes: note.notes,
+      status: note.status,
+      items: note.items.map((item) => lineViewToDraft(item)),
+    };
+  }
+
+  async function saveDetailDraft(next: DeliveryNoteDraft): Promise<boolean> {
+    if (!detail) return false;
+    setItemBusy(true);
+    try {
+      const updated = await updateDeliveryNote(detail.id, next);
+      setDetail(updated);
+      setError(null);
+      return true;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : t("finance.core.errors.save"));
+      return false;
+    } finally {
+      setItemBusy(false);
+    }
+  }
+
+  async function confirmDeletePersistedItem(): Promise<void> {
+    if (!detail || !pendingDeleteItemId) return;
+    setItemBusy(true);
+    try {
+      const updated = await deleteDeliveryNoteItem(detail.id, pendingDeleteItemId);
+      setDetail(updated);
+      setPendingDeleteItemId(null);
+      setError(null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : t("finance.core.errors.deleteItem"));
+    } finally {
+      setItemBusy(false);
     }
   }
 
@@ -386,13 +444,45 @@ export function DeliveryNoteWorkspace({
               <Link href={`/dashboard/finance/invoices/${detail.invoiceId}`}>{detail.invoiceNumber}</Link>
             </p>
           ) : null}
-          <ul className="space-y-1 text-sm">
-            {detail.items.map((item) => (
-              <li key={item.id}>
-                {item.description} · {item.quantity} {item.unit} · {money(item.lineTotalNet, detail.currency)}
-              </li>
-            ))}
-          </ul>
+          <div className="agx-finance-item-table-wrap">
+            <table className="agx-finance-item-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>{t("finance.core.form.description")}</th>
+                  <th>{t("finance.core.form.quantity")}</th>
+                  <th>{t("finance.core.form.unit")}</th>
+                  <th>{t("finance.core.table.net")}</th>
+                  {detailEditable ? <th>{t("finance.core.items.actions")}</th> : null}
+                </tr>
+              </thead>
+              <tbody>
+                {detail.items.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.position}</td>
+                    <td>{item.description}</td>
+                    <td>{item.quantity}</td>
+                    <td>{item.unit}</td>
+                    <td>{money(item.lineTotalNet, detail.currency)}</td>
+                    {detailEditable ? (
+                      <td>
+                        <DeliveryNoteItemActions
+                          disableDelete={detail.items.length <= 1}
+                          onEdit={() => setEditingItemId(item.id)}
+                          onDelete={() => setPendingDeleteItemId(item.id)}
+                        />
+                      </td>
+                    ) : null}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {detailEditable ? (
+            <Button onClick={() => setAddingItem(true)} disabled={itemBusy}>
+              {t("finance.core.items.add")}
+            </Button>
+          ) : null}
           <IssuedDeliveryNoteDocument note={detail} />
         </Card>
       ) : null}
@@ -491,6 +581,10 @@ export function DeliveryNoteWorkspace({
                   setDraft((current) => ({ ...current, items }));
                 }}
               />
+              <DeliveryNoteItemActions
+                disableDelete={draft.items.length <= 1}
+                onDelete={() => setDraftDeleteIndex(index)}
+              />
             </div>
           ))}
           <Button
@@ -498,7 +592,7 @@ export function DeliveryNoteWorkspace({
               setDraft((current) => ({ ...current, items: [...current.items, { ...EMPTY_LINE }] }))
             }
           >
-            {t("finance.core.actions.addLine")}
+            {t("finance.core.items.add")}
           </Button>
         </div>
       </Dialog>
@@ -546,6 +640,69 @@ export function DeliveryNoteWorkspace({
           </div>
         ) : null}
       </Dialog>
+
+      <ConfirmDeleteItemDialog
+        open={draftDeleteIndex !== null}
+        onClose={() => setDraftDeleteIndex(null)}
+        onConfirm={() => {
+          if (draftDeleteIndex === null) return;
+          setDraft((current) => {
+            if (current.items.length <= 1) return current;
+            return {
+              ...current,
+              items: current.items.filter((_, index) => index !== draftDeleteIndex),
+            };
+          });
+          setDraftDeleteIndex(null);
+        }}
+      />
+
+      <ConfirmDeleteItemDialog
+        open={pendingDeleteItemId !== null}
+        busy={itemBusy}
+        onClose={() => setPendingDeleteItemId(null)}
+        onConfirm={() => void confirmDeletePersistedItem()}
+      />
+
+      {detail && editingItemId ? (
+        <ItemDraftDialog
+          key={editingItemId}
+          open
+          title={t("finance.core.items.editTitle")}
+          value={lineViewToDraft(detail.items.find((item) => item.id === editingItemId) ?? detail.items[0])}
+          busy={itemBusy}
+          onClose={() => setEditingItemId(null)}
+          onSave={(next) => {
+            const base = draftFromDetail(detail);
+            void saveDetailDraft({
+              ...base,
+              items: detail.items.map((item) => (item.id === editingItemId ? next : lineViewToDraft(item))),
+            }).then((ok) => {
+              if (ok) setEditingItemId(null);
+            });
+          }}
+        />
+      ) : null}
+
+      {detail && addingItem ? (
+        <ItemDraftDialog
+          key="add-item"
+          open
+          title={t("finance.core.items.add")}
+          value={EMPTY_LINE}
+          busy={itemBusy}
+          onClose={() => setAddingItem(false)}
+          onSave={(next) => {
+            const base = draftFromDetail(detail);
+            void saveDetailDraft({
+              ...base,
+              items: [...base.items, next],
+            }).then((ok) => {
+              if (ok) setAddingItem(false);
+            });
+          }}
+        />
+      ) : null}
     </FinanceShell>
   );
 }

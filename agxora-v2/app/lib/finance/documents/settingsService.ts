@@ -8,13 +8,63 @@ import { requireFirstCustomerProductionReady } from "@/app/lib/production/requir
 import { assertUuid } from "../core/validation";
 import {
   emptyBranding,
+  emptyQrSettings,
   type FinanceDocumentSettingsPatch,
   type FinanceDocumentSettingsView,
 } from "./types";
-import { brandingFromRow, parseSettingsPatch } from "./validation";
+import { brandingFromRow, parseSettingsPatch, qrFromRow } from "./validation";
 
 function tenant(actor: Actor) {
   return { organizationId: actor.organizationId, workspaceId: actor.workspaceId };
+}
+
+function toSettingsView(
+  row: {
+    readonly organizationId: string;
+    readonly workspaceId: string;
+    readonly invoiceTemplate: FinanceDocumentSettingsView["invoiceTemplate"];
+    readonly deliveryNoteTemplate: FinanceDocumentSettingsView["deliveryNoteTemplate"];
+    readonly companyName: string;
+    readonly street: string;
+    readonly postalCode: string;
+    readonly city: string;
+    readonly country: string;
+    readonly phone: string;
+    readonly email: string;
+    readonly website: string;
+    readonly vatId: string;
+    readonly taxNumber: string;
+    readonly iban: string;
+    readonly bic: string;
+    readonly commercialRegister: string;
+    readonly managingDirector: string;
+    readonly primaryColor: string;
+    readonly secondaryColor: string;
+    readonly logoId: string | null;
+    readonly qrEnabled: boolean;
+    readonly qrPosition: string;
+    readonly qrIncludeAmount: boolean;
+    readonly qrIncludeInvoiceNumber: boolean;
+    readonly qrIncludeCustomerName: boolean;
+    readonly qrRemittanceText: string;
+    readonly updatedAt: Date;
+  },
+  organizationName = "",
+): FinanceDocumentSettingsView {
+  const branding = brandingFromRow(row);
+  return {
+    organizationId: row.organizationId,
+    workspaceId: row.workspaceId,
+    invoiceTemplate: row.invoiceTemplate,
+    deliveryNoteTemplate: row.deliveryNoteTemplate,
+    branding: {
+      ...branding,
+      companyName: branding.companyName || organizationName,
+    },
+    qr: qrFromRow(row),
+    persisted: true,
+    updatedAt: row.updatedAt.toISOString(),
+  };
 }
 
 export async function getDocumentSettingsForActor(
@@ -38,23 +88,12 @@ export async function getDocumentSettingsForActor(
       invoiceTemplate: "CLASSIC",
       deliveryNoteTemplate: "CLASSIC",
       branding: emptyBranding(organization?.name ?? ""),
+      qr: emptyQrSettings(),
       persisted: false,
       updatedAt: null,
     };
   }
-  const branding = brandingFromRow(settings);
-  return {
-    organizationId: settings.organizationId,
-    workspaceId: settings.workspaceId,
-    invoiceTemplate: settings.invoiceTemplate,
-    deliveryNoteTemplate: settings.deliveryNoteTemplate,
-    branding: {
-      ...branding,
-      companyName: branding.companyName || organization?.name || "",
-    },
-    persisted: true,
-    updatedAt: settings.updatedAt.toISOString(),
-  };
+  return toSettingsView(settings, organization?.name ?? "");
 }
 
 export async function patchDocumentSettingsForActor(
@@ -90,6 +129,12 @@ export async function patchDocumentSettingsForActor(
     managingDirector: patch.managingDirector ?? existing?.managingDirector ?? "",
     primaryColor: patch.primaryColor ?? existing?.primaryColor ?? "#1B365D",
     secondaryColor: patch.secondaryColor ?? existing?.secondaryColor ?? "#C4A35A",
+    qrEnabled: patch.qrEnabled ?? existing?.qrEnabled ?? true,
+    qrPosition: patch.qrPosition ?? existing?.qrPosition ?? "BOTTOM_RIGHT",
+    qrIncludeAmount: patch.qrIncludeAmount ?? existing?.qrIncludeAmount ?? true,
+    qrIncludeInvoiceNumber: patch.qrIncludeInvoiceNumber ?? existing?.qrIncludeInvoiceNumber ?? true,
+    qrIncludeCustomerName: patch.qrIncludeCustomerName ?? existing?.qrIncludeCustomerName ?? false,
+    qrRemittanceText: patch.qrRemittanceText ?? existing?.qrRemittanceText ?? "",
   };
 
   const saved = await prisma.$transaction(async (tx) => {
@@ -114,21 +159,14 @@ export async function patchDocumentSettingsForActor(
         metadata: {
           invoiceTemplate: row.invoiceTemplate,
           deliveryNoteTemplate: row.deliveryNoteTemplate,
+          qrEnabled: row.qrEnabled,
         },
       },
     });
     return row;
   });
 
-  return {
-    organizationId: saved.organizationId,
-    workspaceId: saved.workspaceId,
-    invoiceTemplate: saved.invoiceTemplate,
-    deliveryNoteTemplate: saved.deliveryNoteTemplate,
-    branding: brandingFromRow(saved),
-    persisted: true,
-    updatedAt: saved.updatedAt.toISOString(),
-  };
+  return toSettingsView(saved, organization?.name ?? "");
 }
 
 export async function getFinanceLogoBytesForActor(
@@ -204,15 +242,7 @@ export async function uploadFinanceLogoForActor(
     return row;
   });
 
-  return {
-    organizationId: saved.organizationId,
-    workspaceId: saved.workspaceId,
-    invoiceTemplate: saved.invoiceTemplate,
-    deliveryNoteTemplate: saved.deliveryNoteTemplate,
-    branding: brandingFromRow(saved),
-    persisted: true,
-    updatedAt: saved.updatedAt.toISOString(),
-  };
+  return toSettingsView(saved);
 }
 
 export async function removeFinanceLogoForActor(actor: Actor): Promise<FinanceDocumentSettingsView> {
@@ -240,13 +270,5 @@ export async function removeFinanceLogoForActor(actor: Actor): Promise<FinanceDo
     });
     return row;
   });
-  return {
-    organizationId: saved.organizationId,
-    workspaceId: saved.workspaceId,
-    invoiceTemplate: saved.invoiceTemplate,
-    deliveryNoteTemplate: saved.deliveryNoteTemplate,
-    branding: brandingFromRow(saved),
-    persisted: true,
-    updatedAt: saved.updatedAt.toISOString(),
-  };
+  return toSettingsView(saved);
 }

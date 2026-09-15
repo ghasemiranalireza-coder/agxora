@@ -191,6 +191,9 @@ describe("finance document settings", () => {
     await expect(
       patchDocumentSettingsForActor(owner, { primaryColor: "navy" }),
     ).rejects.toMatchObject({ code: "validation" });
+    await expect(
+      patchDocumentSettingsForActor(owner, { qrPosition: "TOP" as never }),
+    ).rejects.toMatchObject({ code: "validation" });
   });
 
   it("allows MEMBER to read settings but not update branding or logos", async () => {
@@ -206,6 +209,9 @@ describe("finance document settings", () => {
       uploadFinanceLogoForActor(member, { bytes: PNG_1x1, fileName: "logo.png", claimedType: "image/png" }),
     ).rejects.toMatchObject({ code: "forbidden" });
     await expect(removeFinanceLogoForActor(member)).rejects.toMatchObject({ code: "forbidden" });
+    await expect(
+      patchDocumentSettingsForActor(member, { qrEnabled: false }),
+    ).rejects.toMatchObject({ code: "forbidden" });
   });
 
   it("isolates logos between workspaces and tenants", async () => {
@@ -287,5 +293,92 @@ describe("finance document settings", () => {
     await expect(getInvoiceForActor(ownerB, billed.invoice.id)).rejects.toMatchObject({
       code: "not_found",
     });
+  });
+
+  it("returns QR defaults without a persisted settings row", async () => {
+    const owner = await actor(TOKEN_A);
+    const settings = await getDocumentSettingsForActor(owner);
+    expect(settings.qr.enabled).toBe(true);
+    expect(settings.qr.position).toBe("BOTTOM_RIGHT");
+    expect(settings.qr.includeAmount).toBe(true);
+    expect(settings.qr.includeInvoiceNumber).toBe(true);
+    expect(settings.qr.includeCustomerName).toBe(false);
+  });
+
+  it("lets OWNER patch QR settings for the active workspace only", async () => {
+    const owner = await actor(TOKEN_A);
+    const saved = await patchDocumentSettingsForActor(owner, {
+      qrEnabled: true,
+      qrPosition: "BOTTOM_LEFT",
+      qrIncludeAmount: false,
+      qrIncludeInvoiceNumber: true,
+      qrIncludeCustomerName: true,
+      qrRemittanceText: "Rechnung",
+      iban: "DE89370400440532013000",
+    });
+    expect(saved.qr.position).toBe("BOTTOM_LEFT");
+    expect(saved.qr.includeAmount).toBe(false);
+    expect(saved.qr.remittanceText).toBe("Rechnung");
+    const ownerB = await actor(TOKEN_B);
+    const other = await getDocumentSettingsForActor(ownerB);
+    expect(other.qr.position).toBe("BOTTOM_RIGHT");
+    expect(other.persisted).toBe(false);
+  });
+
+  it("freezes invoice QR payment data so later IBAN edits do not rewrite issued documents", async () => {
+    const owner = await actor(TOKEN_A);
+    await patchDocumentSettingsForActor(owner, {
+      companyName: "Nordlicht Handel GmbH",
+      iban: "DE89370400440532013000",
+      bic: "COBADEFFXXX",
+      qrEnabled: true,
+      qrIncludeAmount: true,
+      qrIncludeInvoiceNumber: true,
+    });
+    const customer = await createCustomerForActor(owner, customerDraft("qr@fin.test", "Hanseatische Handels GmbH"));
+    const note = await createDeliveryNoteForActor(owner, {
+      customerId: customer.id,
+      items: [{ description: "Widget", quantity: "1", unitPriceNet: "10.00", taxRate: "19.00" }],
+    });
+    const billed = await billDeliveryNotesForActor(owner, {
+      deliveryNoteIds: [note.id],
+      idempotencyKey: "docs-qr-freeze",
+    });
+    const frozenPayload = billed.invoice.documentSnapshot?.payment?.epcPayload;
+    expect(frozenPayload).toContain("BCD\n002\n1\nSCT");
+    expect(frozenPayload).toContain("DE89370400440532013000");
+    expect(billed.invoice.documentSnapshot?.payment?.iban).toBe("DE89370400440532013000");
+
+    await patchDocumentSettingsForActor(owner, {
+      iban: "DE44500105175407324931",
+      companyName: "Changed GmbH",
+    });
+
+    const reloaded = await getInvoiceForActor(owner, billed.invoice.id);
+    expect(reloaded.documentSnapshot?.payment?.iban).toBe("DE89370400440532013000");
+    expect(reloaded.documentSnapshot?.payment?.epcPayload).toBe(frozenPayload);
+    expect(reloaded.documentSnapshot?.payment?.epcPayload).not.toContain("DE44500105175407324931");
+    expect(reloaded.documentSnapshot?.branding.iban).toBe("DE89370400440532013000");
+  });
+
+  it("still bills invoices when IBAN is missing and does not attach a broken QR payload", async () => {
+    const owner = await actor(TOKEN_A);
+    await patchDocumentSettingsForActor(owner, {
+      companyName: "Nordlicht Handel GmbH",
+      iban: "",
+      qrEnabled: true,
+    });
+    const customer = await createCustomerForActor(owner, customerDraft("noiban@fin.test", "No Iban GmbH"));
+    const note = await createDeliveryNoteForActor(owner, {
+      customerId: customer.id,
+      items: [{ description: "Widget", quantity: "1", unitPriceNet: "10.00", taxRate: "19.00" }],
+    });
+    const billed = await billDeliveryNotesForActor(owner, {
+      deliveryNoteIds: [note.id],
+      idempotencyKey: "docs-qr-missing-iban",
+    });
+    expect(billed.invoice.id).toBeTruthy();
+    expect(billed.invoice.documentSnapshot?.payment?.epcPayload).toBeNull();
+    expect(billed.invoice.documentSnapshot?.payment?.missing).toContain("missing_iban");
   });
 });

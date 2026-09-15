@@ -3,6 +3,7 @@ export {
   getDeliveryNoteForActor,
   createDeliveryNoteForActor,
   updateDeliveryNoteForActor,
+  deleteDeliveryNoteItemForActor,
   previewBillingForActor,
   billDeliveryNotesForActor,
   createInvoiceDraftForActor,

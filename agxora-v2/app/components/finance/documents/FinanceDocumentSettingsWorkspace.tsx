@@ -8,8 +8,10 @@ import {
   type FinanceBrandingView,
   type FinanceDocumentSettingsView,
   type FinanceDocumentTemplate,
+  type FinanceQrSettingsView,
 } from "../../../lib/finance/documents/types";
-import { Button, Card, ErrorState, FormField, FormInput } from "../../ui";
+import { FINANCE_QR_POSITIONS, buildPaymentQrSnapshot, emptyQrSettings } from "../../../lib/finance/documents/epcQr";
+import { Button, Card, Checkbox, ErrorState, FormField, FormInput, FormSelect, Switch } from "../../ui";
 import { DocumentRenderer } from "./DocumentRenderer";
 import { sampleDeliveryNote, sampleInvoice } from "./sampleData";
 import "./document.css";
@@ -31,6 +33,7 @@ export function FinanceDocumentSettingsWorkspace(): JSX.Element {
   const [draft, setDraft] = useState<FinanceBrandingView | null>(null);
   const [invoiceTemplate, setInvoiceTemplate] = useState<FinanceDocumentTemplate>("CLASSIC");
   const [deliveryTemplate, setDeliveryTemplate] = useState<FinanceDocumentTemplate>("CLASSIC");
+  const [qr, setQr] = useState<FinanceQrSettingsView>(emptyQrSettings());
   const [previewKind, setPreviewKind] = useState<PreviewKind>("INVOICE");
   const [busy, setBusy] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -44,6 +47,7 @@ export function FinanceDocumentSettingsWorkspace(): JSX.Element {
     setDraft(next.branding);
     setInvoiceTemplate(next.invoiceTemplate);
     setDeliveryTemplate(next.deliveryNoteTemplate);
+    setQr(next.qr ?? emptyQrSettings());
   }, []);
 
   useEffect(() => {
@@ -66,8 +70,15 @@ export function FinanceDocumentSettingsWorkspace(): JSX.Element {
   const branding = draft ?? settings?.branding;
   const previewModel = useMemo(() => {
     if (!branding) return null;
-    return previewKind === "INVOICE" ? sampleInvoice(branding) : sampleDeliveryNote(branding);
-  }, [branding, previewKind]);
+    if (previewKind !== "INVOICE") return sampleDeliveryNote(branding);
+    const payment = buildPaymentQrSnapshot(qr, branding, {
+      amount: "3220.05",
+      currency: "EUR",
+      invoiceNumber: "RE-2026-000001",
+      customerName: "Hanseatische Handels GmbH",
+    });
+    return sampleInvoice(branding, payment);
+  }, [branding, previewKind, qr]);
   const activeTemplate = previewKind === "INVOICE" ? invoiceTemplate : deliveryTemplate;
 
   async function save(): Promise<void> {
@@ -83,6 +94,12 @@ export function FinanceDocumentSettingsWorkspace(): JSX.Element {
         body: JSON.stringify({
           invoiceTemplate,
           deliveryNoteTemplate: deliveryTemplate,
+          qrEnabled: qr.enabled,
+          qrPosition: qr.position,
+          qrIncludeAmount: qr.includeAmount,
+          qrIncludeInvoiceNumber: qr.includeInvoiceNumber,
+          qrIncludeCustomerName: qr.includeCustomerName,
+          qrRemittanceText: qr.remittanceText,
           ...draft,
         }),
       });
@@ -98,6 +115,7 @@ export function FinanceDocumentSettingsWorkspace(): JSX.Element {
       setDraft(body.settings.branding);
       setInvoiceTemplate(body.settings.invoiceTemplate);
       setDeliveryTemplate(body.settings.deliveryNoteTemplate);
+      setQr(body.settings.qr ?? emptyQrSettings());
       setNotice(t("finance.documents.saved"));
     } catch (err) {
       setError(err instanceof Error ? err.message : t("finance.documents.errors.save"));
@@ -255,6 +273,70 @@ export function FinanceDocumentSettingsWorkspace(): JSX.Element {
                   />
                 </FormField>
               </div>
+            </Card>
+
+            <Card className="space-y-3" padding="18px">
+              <h2 className="text-lg font-semibold">{t("finance.documents.qr.title")}</h2>
+              <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+                {t("finance.documents.qr.subtitle")}
+              </p>
+              <Switch
+                label={t("finance.documents.qr.enabled")}
+                description={t("finance.documents.qr.enabledHint")}
+                checked={qr.enabled}
+                disabled={!canEdit || busy}
+                onChange={(enabled) => setQr((current) => ({ ...current, enabled }))}
+              />
+              <FormField label={t("finance.documents.qr.position")}>
+                <FormSelect
+                  value={qr.position}
+                  disabled={!canEdit || busy || !qr.enabled}
+                  onChange={(event) =>
+                    setQr((current) => ({
+                      ...current,
+                      position: event.target.value as FinanceQrSettingsView["position"],
+                    }))
+                  }
+                >
+                  {FINANCE_QR_POSITIONS.map((position) => (
+                    <option key={position} value={position}>
+                      {t(`finance.documents.qr.positions.${position}`)}
+                    </option>
+                  ))}
+                </FormSelect>
+              </FormField>
+              <Checkbox
+                label={t("finance.documents.qr.includeAmount")}
+                checked={qr.includeAmount}
+                disabled={!canEdit || busy || !qr.enabled}
+                onChange={(includeAmount) => setQr((current) => ({ ...current, includeAmount }))}
+              />
+              <Checkbox
+                label={t("finance.documents.qr.includeInvoiceNumber")}
+                checked={qr.includeInvoiceNumber}
+                disabled={!canEdit || busy || !qr.enabled}
+                onChange={(includeInvoiceNumber) =>
+                  setQr((current) => ({ ...current, includeInvoiceNumber }))
+                }
+              />
+              <Checkbox
+                label={t("finance.documents.qr.includeCustomerName")}
+                checked={qr.includeCustomerName}
+                disabled={!canEdit || busy || !qr.enabled}
+                onChange={(includeCustomerName) =>
+                  setQr((current) => ({ ...current, includeCustomerName }))
+                }
+              />
+              <FormField label={t("finance.documents.qr.remittance")}>
+                <FormInput
+                  value={qr.remittanceText}
+                  disabled={!canEdit || busy || !qr.enabled}
+                  maxLength={140}
+                  onChange={(event) =>
+                    setQr((current) => ({ ...current, remittanceText: event.target.value }))
+                  }
+                />
+              </FormField>
             </Card>
 
             <Card className="space-y-3" padding="18px">

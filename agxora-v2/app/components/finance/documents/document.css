@@ -178,6 +178,99 @@
   font-size: 15px;
 }
 
+.agx-doc__payment {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: start;
+  margin-top: 20px;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid #d5deea;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.agx-doc__payment--bottom-left {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.agx-doc__payment--bottom-left .agx-doc__qr-wrap {
+  order: -1;
+}
+
+.agx-doc__payment--after-totals {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.agx-doc__payment-copy {
+  min-width: 0;
+}
+
+.agx-doc__payment-copy h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--doc-primary);
+}
+
+.agx-doc__payment-copy p {
+  margin: 0 0 4px;
+  color: #3b4a5c;
+}
+
+.agx-doc__payment-copy span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #66788c;
+}
+
+.agx-doc__qr-wrap {
+  width: 160px;
+  min-width: 160px;
+  box-sizing: border-box;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid #d5deea;
+  border-radius: 8px;
+  justify-self: end;
+}
+
+.agx-doc__qr {
+  display: block;
+  width: 144px;
+  height: 144px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
+.agx-doc__qr--pending {
+  background: #ffffff;
+}
+
+.agx-doc__qr-missing {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #5b6b7c;
+}
+
+.agx-doc--compact .agx-doc__qr-wrap {
+  width: 144px;
+  min-width: 144px;
+  padding: 6px;
+}
+
+.agx-doc--compact .agx-doc__qr {
+  width: 128px;
+  height: 128px;
+}
+
 .agx-doc__footer {
   margin-top: 28px;
   padding-top: 12px;
@@ -270,6 +363,7 @@
 .agx-doc--professional .agx-doc__meta,
 .agx-doc--professional .agx-doc__tablewrap,
 .agx-doc--professional .agx-doc__totals,
+.agx-doc--professional .agx-doc__payment,
 .agx-doc--professional .agx-doc__footer {
   padding-inline: 28px;
 }
@@ -360,6 +454,17 @@
   .agx-doc__meta {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  .agx-doc__payment,
+  .agx-doc__payment--bottom-left,
+  .agx-doc__payment--after-totals {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .agx-doc__qr-wrap {
+    justify-self: center;
+    order: 2;
+  }
 }
 
 @media print {
@@ -380,5 +485,12 @@
   .agx-doc {
     width: 100%;
     box-shadow: none;
+  }
+
+  .agx-doc__qr-wrap,
+  .agx-doc__qr {
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }

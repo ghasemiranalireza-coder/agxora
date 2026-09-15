@@ -1,4 +1,9 @@
-import type { FinanceBrandingView, FinanceCustomerBlock, FinanceDocumentKind } from "../../../lib/finance/documents/types";
+import type {
+  FinanceBrandingView,
+  FinanceCustomerBlock,
+  FinanceDocumentKind,
+  FinancePaymentQrSnapshot,
+} from "../../../lib/finance/documents/types";
 
 export type FinanceDocumentLine = {
   readonly description: string;
@@ -23,6 +28,7 @@ export type FinanceDocumentModel = {
   readonly branding: FinanceBrandingView;
   readonly customer: FinanceCustomerBlock;
   readonly items: readonly FinanceDocumentLine[];
+  readonly payment?: FinancePaymentQrSnapshot | null;
 };
 
 export const SAMPLE_BRANDING: FinanceBrandingView = {
@@ -53,7 +59,10 @@ export const SAMPLE_CUSTOMER: FinanceCustomerBlock = {
   taxNumber: "DE999111222",
 };
 
-export function sampleInvoice(branding: FinanceBrandingView): FinanceDocumentModel {
+export function sampleInvoice(
+  branding: FinanceBrandingView,
+  payment?: FinancePaymentQrSnapshot | null,
+): FinanceDocumentModel {
   return {
     kind: "INVOICE",
     number: "RE-2026-000001",
@@ -66,6 +75,7 @@ export function sampleInvoice(branding: FinanceBrandingView): FinanceDocumentMod
     grossTotal: "3220.05",
     branding,
     customer: SAMPLE_CUSTOMER,
+    payment: payment ?? undefined,
     items: [
       {
         description: "Industriepumpe",
