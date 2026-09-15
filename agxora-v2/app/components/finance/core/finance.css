@@ -1,6 +1,7 @@
 .agx-finance-core {
   min-width: 0;
   max-width: 100%;
+  overflow-x: clip;
   overflow-wrap: anywhere;
 }
 
@@ -45,6 +46,10 @@
 .agx-finance-core table.agx-ui-table td:first-child {
   min-width: 2.75rem;
   width: 2.75rem;
+}
+
+.agx-finance-core table.agx-ui-table .agx-ui-badge {
+  white-space: nowrap;
 }
 
 .agx-finance-nav {

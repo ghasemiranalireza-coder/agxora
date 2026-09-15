@@ -40,6 +40,7 @@ describe("UI text containment", () => {
     const finance = css("app/components/finance/core/finance.css");
     expect(finance).toContain("minmax(min(100%, 220px), 1fr)");
     expect(finance).toMatch(/\.agx-finance-core \.overflow-x-auto[\s\S]*overflow-x:\s*auto/);
+    expect(finance).toMatch(/overflow-x:\s*clip/);
     expect(finance).toMatch(/table\.agx-ui-table[\s\S]*min-width:\s*52rem/);
     expect(finance).not.toMatch(
       /\.agx-finance-core table,\s*\.agx-finance-core td,\s*\.agx-finance-core th[\s\S]*min-width:\s*0/,
