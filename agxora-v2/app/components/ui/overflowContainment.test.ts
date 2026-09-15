@@ -35,4 +35,14 @@ describe("UI text containment", () => {
     expect(dashboard).toContain("minmax(min(100%, 220px), 1fr)");
     expect(dashboard).toMatch(/\.agx-metric-card[\s\S]*overflow-wrap:\s*anywhere/);
   });
+
+  it("lets Finance tables scroll inside the page instead of crushing columns", () => {
+    const finance = css("app/components/finance/core/finance.css");
+    expect(finance).toContain("minmax(min(100%, 220px), 1fr)");
+    expect(finance).toMatch(/\.agx-finance-core \.overflow-x-auto[\s\S]*overflow-x:\s*auto/);
+    expect(finance).toMatch(/table\.agx-ui-table[\s\S]*min-width:\s*52rem/);
+    expect(finance).not.toMatch(
+      /\.agx-finance-core table,\s*\.agx-finance-core td,\s*\.agx-finance-core th[\s\S]*min-width:\s*0/,
+    );
+  });
 });

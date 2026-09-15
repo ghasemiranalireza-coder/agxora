@@ -1,11 +1,9 @@
 .agx-finance-core {
   min-width: 0;
+  max-width: 100%;
   overflow-wrap: anywhere;
 }
 
-.agx-finance-core table,
-.agx-finance-core td,
-.agx-finance-core th,
 .agx-finance-core button,
 .agx-finance-core a,
 .agx-finance-core p,
@@ -14,6 +12,39 @@
 .agx-finance-core h3 {
   min-width: 0;
   overflow-wrap: anywhere;
+}
+
+/* Keep the 7-column Lieferschein/Rechnung grid readable on 768/390.
+   Do not set min-width: 0 on table cells — that crushes headers/status.
+   Page stays contained; the table scrolls inside this wrapper. */
+.agx-finance-core .overflow-x-auto {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.agx-finance-core table.agx-ui-table {
+  width: max(100%, 52rem);
+  min-width: 52rem;
+}
+
+.agx-finance-core table.agx-ui-table th {
+  white-space: nowrap;
+}
+
+.agx-finance-core table.agx-ui-table th,
+.agx-finance-core table.agx-ui-table td {
+  min-width: 6.5rem;
+  overflow-wrap: anywhere;
+}
+
+.agx-finance-core table.agx-ui-table th:first-child,
+.agx-finance-core table.agx-ui-table td:first-child {
+  min-width: 2.75rem;
+  width: 2.75rem;
 }
 
 .agx-finance-nav {
