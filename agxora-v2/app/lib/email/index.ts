@@ -19,6 +19,7 @@ export {
   getEmailProvider,
   setEmailProviderForTests,
 } from "./provider";
+export { createHttpEmailProvider } from "./providers/http";
 export {
   buildEmailVerificationEmail,
   buildInvitationEmail,

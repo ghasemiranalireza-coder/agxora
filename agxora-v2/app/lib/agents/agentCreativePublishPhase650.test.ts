@@ -773,7 +773,7 @@ describe("Phase 65.0 async YouTube publish foundation", () => {
       authMode: "server",
       crmPersistence: "database",
       agentOsPersistence: "server",
-      emailProvider: "resend",
+      emailProvider: "http",
       useMocks: false,
     });
     expect(gate.ready).toBe(true);
