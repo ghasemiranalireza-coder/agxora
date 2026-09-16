@@ -831,7 +831,8 @@
       "ctaViewActivity": "Ver actividad",
       "openQuickActionsAria": "Abrir acciones rápidas",
       "openCommandCenterAria": "Ask AGXORA what to do today",
-      "viewActivityAria": "Ver actividad reciente"
+      "viewActivityAria": "Ver actividad reciente",
+      "globeAria": "Globo de operaciones globales de AGXORA — visualización decorativa de inteligencia empresarial mundial"
     },
     "command": {
       "eyebrow": "AI Command Center",
@@ -3173,7 +3174,18 @@
     },
     "yes": "Sí",
     "no": "No",
-    "dash": "—"
+    "dash": "—",
+    "voice": {
+      "start": "Iniciar entrada de voz",
+      "stop": "Detener escucha",
+      "listening": "Escuchando…",
+      "unsupported": "La entrada de voz no está disponible en este navegador. Puede seguir escribiendo.",
+      "denied": "Se denegó el acceso al micrófono. Seguir escribiendo funciona.",
+      "error": "La entrada de voz se detuvo. El texto capturado se conserva."
+    },
+    "globe": {
+      "aria": "Globo de operaciones globales de AGXORA"
+    }
   },
   "projects": {
     "page": {

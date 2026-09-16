@@ -831,7 +831,8 @@
       "ctaViewActivity": "Aktivität anzeigen",
       "openQuickActionsAria": "Schnellaktionen öffnen",
       "openCommandCenterAria": "AGXORA fragen, was Sie heute tun möchten",
-      "viewActivityAria": "Aktuelle Aktivitäten anzeigen"
+      "viewActivityAria": "Aktuelle Aktivitäten anzeigen",
+      "globeAria": "AGXORA-Globus für globale Operationen — dekorative Visualisierung weltweiter Business Intelligence"
     },
     "command": {
       "eyebrow": "KI-Kommandozentrale",
@@ -3219,7 +3220,18 @@
     },
     "yes": "Ja",
     "no": "Nr.",
-    "dash": "—"
+    "dash": "—",
+    "voice": {
+      "start": "Spracheingabe starten",
+      "stop": "Zuhören beenden",
+      "listening": "Hört zu…",
+      "unsupported": "Spracheingabe ist in diesem Browser nicht verfügbar. Sie können weiter tippen.",
+      "denied": "Mikrofonzugriff wurde verweigert. Tippen funktioniert weiterhin.",
+      "error": "Spracheingabe beendet. Erfasster Text bleibt erhalten."
+    },
+    "globe": {
+      "aria": "AGXORA-Globus für globale Operationen"
+    }
   },
   "projects": {
     "page": {

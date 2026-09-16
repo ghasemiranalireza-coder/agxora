@@ -22,7 +22,7 @@ import {
   FormField,
   FormInput,
   FormSelect,
-  FormTextArea,
+  VoiceBoundTextArea,
 } from "../ui";
 
 export function ProjectFormDialog(): JSX.Element {
@@ -225,10 +225,10 @@ export function ProjectFormDialog(): JSX.Element {
         </FormField>
         <div className="sm:col-span-2">
           <FormField label={t("projects.form.description")} error={errors.description}>
-            <FormTextArea
+            <VoiceBoundTextArea
               rows={4}
               value={state.draft.description}
-              onChange={(e) => setField("description", e.target.value)}
+              onChange={(value) => setField("description", value)}
             />
           </FormField>
         </div>

@@ -831,7 +831,8 @@
       "ctaViewActivity": "檢視活動",
       "openQuickActionsAria": "開啟快速操作",
       "openCommandCenterAria": "Ask AGXORA what to do today",
-      "viewActivityAria": "查看最近的活動"
+      "viewActivityAria": "查看最近的活動",
+      "globeAria": "AGXORA 全球營運地球儀 — 全球商業智慧的裝飾性視覺化"
     },
     "command": {
       "eyebrow": "AI Command Center",
@@ -3173,7 +3174,18 @@
     },
     "yes": "是的",
     "no": "不",
-    "dash": "—"
+    "dash": "—",
+    "voice": {
+      "start": "開始語音輸入",
+      "stop": "停止聆聽",
+      "listening": "正在聆聽…",
+      "unsupported": "此瀏覽器不支援語音輸入。您可以繼續鍵入。",
+      "denied": "麥克風權限被拒絕。鍵入功能仍然可用。",
+      "error": "語音輸入已停止。已辨識的文字會保留。"
+    },
+    "globe": {
+      "aria": "AGXORA 全球營運地球儀"
+    }
   },
   "projects": {
     "page": {

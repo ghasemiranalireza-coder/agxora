@@ -2,11 +2,13 @@
 
 import {
   useCallback,
+  useRef,
+  useState,
   type FormEvent,
   type JSX,
   type KeyboardEvent,
 } from "react";
-import { Button } from "@/app/components/ui";
+import { Button, VoiceInputButton } from "@/app/components/ui";
 import { useT } from "@/app/lib/i18n";
 
 export interface ComposerProps {
@@ -29,13 +31,15 @@ export function Composer({
   onOpenCommands,
 }: ComposerProps): JSX.Element {
   const t = useT();
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const [listening, setListening] = useState(false);
 
   const submit = useCallback(() => {
     const value = draft.trim();
-    if (!value || disabled || generating) return;
+    if (!value || disabled || generating || listening) return;
     onSend(value);
     onDraftChange("");
-  }, [disabled, draft, generating, onDraftChange, onSend]);
+  }, [disabled, draft, generating, listening, onDraftChange, onSend]);
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -45,7 +49,7 @@ export function Composer({
   const onKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
-      submit();
+      if (!listening) submit();
     }
   };
 
@@ -56,17 +60,21 @@ export function Composer({
         style={{
           background:
             "color-mix(in srgb, var(--agx-bg-elevated, #1e293b) 80%, transparent)",
-          border:
-            "1px solid color-mix(in srgb, var(--agx-border, #334155) 75%, transparent)",
+          border: listening
+            ? "1px solid color-mix(in srgb, #fb7185 45%, transparent)"
+            : "1px solid color-mix(in srgb, var(--agx-border, #334155) 75%, transparent)",
         }}
       >
         <textarea
+          ref={inputRef}
           value={draft}
           onChange={(e) => onDraftChange(e.target.value)}
           onKeyDown={onKeyDown}
           rows={3}
           disabled={disabled}
-          placeholder={t("ai.composer.placeholder")}
+          placeholder={
+            listening ? t("ui.voice.listening") : t("ai.composer.placeholder")
+          }
           className="w-full resize-none bg-transparent px-2 py-1.5 text-sm outline-none"
           style={{ color: "var(--agx-text, #f8fafc)" }}
           aria-label={t("ai.composer.ariaLabel")}
@@ -85,6 +93,13 @@ export function Composer({
             ) : null}
           </div>
           <div className="flex items-center gap-2">
+            <VoiceInputButton
+              value={draft}
+              onChange={onDraftChange}
+              disabled={disabled || generating}
+              inputRef={inputRef}
+              onListeningChange={setListening}
+            />
             {generating && onStop ? (
               <Button type="button" size="sm" variant="secondary" onClick={onStop}>
                 {t("ai.composer.stop")}
@@ -94,7 +109,7 @@ export function Composer({
               type="submit"
               size="sm"
               variant="primary"
-              disabled={disabled || generating || !draft.trim()}
+              disabled={disabled || generating || listening || !draft.trim()}
             >
               {t("ai.composer.send")}
             </Button>

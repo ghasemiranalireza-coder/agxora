@@ -43,5 +43,16 @@
   },
   "yes": "Oui",
   "no": "Non",
-  "dash": "—"
+  "dash": "—",
+  "voice": {
+    "start": "Démarrer la saisie vocale",
+    "stop": "Arrêter l’écoute",
+    "listening": "Écoute…",
+    "unsupported": "La saisie vocale n’est pas disponible dans ce navigateur. Vous pouvez continuer à taper.",
+    "denied": "L’accès au microphone a été refusé. La saisie au clavier reste disponible.",
+    "error": "La saisie vocale s’est arrêtée. Le texte déjà saisi est conservé."
+  },
+  "globe": {
+    "aria": "Globe des opérations mondiales AGXORA"
+  }
 }

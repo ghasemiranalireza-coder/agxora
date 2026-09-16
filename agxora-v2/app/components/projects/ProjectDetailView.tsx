@@ -23,7 +23,7 @@ import {
   FormField,
   FormInput,
   FormSelect,
-  FormTextArea,
+  VoiceBoundTextArea,
   Skeleton,
   SkeletonCard,
 } from "../ui";
@@ -580,10 +580,10 @@ function NotesTab(): JSX.Element {
           />
         </FormField>
         <FormField label={t("projects.notes.body")} error={errors.body}>
-          <FormTextArea
+          <VoiceBoundTextArea
             rows={8}
             value={state.noteDraft.body}
-            onChange={(e) => projectStore.patchNoteDraft({ body: e.target.value })}
+            onChange={(value) => projectStore.patchNoteDraft({ body: value })}
           />
         </FormField>
         <div className="flex gap-2">

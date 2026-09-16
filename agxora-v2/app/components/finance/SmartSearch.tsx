@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState, type FormEvent, type JSX } from "react";
+import { useMemo, useRef, useState, type FormEvent, type JSX } from "react";
 import { resolveSmartQuery } from "../../lib/finance";
 import { useLocale } from "../../lib/i18n";
+import { VoiceInputButton } from "../ui";
 import { FinanceButton, FinanceGlassCard } from "./FinancePrimitives";
 
 const EXAMPLE_IDS = ["q1", "q2", "q3", "q4"] as const;
@@ -13,6 +14,8 @@ export function SmartSearch({
   readonly onQuery?: (query: string, intent?: string) => void;
 }): JSX.Element {
   const { t } = useLocale();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const listeningRef = useRef(false);
   const [query, setQuery] = useState("");
   const [submitted, setSubmitted] = useState("");
 
@@ -35,6 +38,7 @@ export function SmartSearch({
 
   const onSubmit = (event: FormEvent): void => {
     event.preventDefault();
+    if (listeningRef.current) return;
     run(query);
   };
 
@@ -48,18 +52,29 @@ export function SmartSearch({
           >
             {t("finance.search.label")}
           </span>
-          <div className="flex flex-col gap-2 sm:flex-row">
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={t("finance.search.placeholder")}
-              className="w-full rounded-xl border px-4 py-3 text-sm outline-none"
-              style={{
-                borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
-                background: "rgba(255,255,255,0.04)",
-                color: "var(--agx-text, #f8fafc)",
-              }}
-            />
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+            <div className="agx-voice-field min-w-0 flex-1">
+              <input
+                ref={inputRef}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder={t("finance.search.placeholder")}
+                className="agx-ui-control w-full"
+                style={{
+                  borderColor: "var(--agx-card-border, rgba(255,255,255,0.12))",
+                  background: "rgba(255,255,255,0.04)",
+                  color: "var(--agx-text, #f8fafc)",
+                }}
+              />
+              <VoiceInputButton
+                value={query}
+                onChange={setQuery}
+                inputRef={inputRef}
+                onListeningChange={(listening) => {
+                  listeningRef.current = listening;
+                }}
+              />
+            </div>
             <FinanceButton type="submit" variant="primary">
               {t("finance.search.submit")}
             </FinanceButton>

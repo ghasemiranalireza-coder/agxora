@@ -831,7 +831,8 @@
       "ctaViewActivity": "गतिविधि देखें",
       "openQuickActionsAria": "त्वरित कार्रवाई खोलें",
       "openCommandCenterAria": "Ask AGXORA what to do today",
-      "viewActivityAria": "हाल की गतिविधि देखें"
+      "viewActivityAria": "हाल की गतिविधि देखें",
+      "globeAria": "AGXORA वैश्विक संचालन ग्लोब — विश्वव्यापी बिज़नेस इंटेलिजेंस का सजावटी दृश्य"
     },
     "command": {
       "eyebrow": "AI Command Center",
@@ -3173,7 +3174,18 @@
     },
     "yes": "हाँ",
     "no": "नहीं",
-    "dash": "—"
+    "dash": "—",
+    "voice": {
+      "start": "वॉइस इनपुट शुरू करें",
+      "stop": "सुनना बंद करें",
+      "listening": "सुन रहा है…",
+      "unsupported": "इस ब्राउज़र में वॉइस इनपुट उपलब्ध नहीं है। आप टाइप करना जारी रख सकते हैं।",
+      "denied": "माइक्रोफ़ोन की अनुमति अस्वीकार कर दी गई। टाइप करना अभी भी काम करता है।",
+      "error": "वॉइस इनपुट रुक गया। कैप्चर किया गया टेक्स्ट सुरक्षित है।"
+    },
+    "globe": {
+      "aria": "AGXORA वैश्विक संचालन ग्लोब"
+    }
   },
   "projects": {
     "page": {

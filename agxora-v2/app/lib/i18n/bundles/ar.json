@@ -831,7 +831,8 @@
       "ctaViewActivity": "عرض النشاط",
       "openQuickActionsAria": "فتح الإجراءات السريعة",
       "openCommandCenterAria": "Ask AGXORA what to do today",
-      "viewActivityAria": "عرض النشاط الأخير"
+      "viewActivityAria": "عرض النشاط الأخير",
+      "globeAria": "كرة عمليات AGXORA العالمية — تصور زخرفي للذكاء التجاري العالمي"
     },
     "command": {
       "eyebrow": "AI Command Center",
@@ -3173,7 +3174,18 @@
     },
     "yes": "نعم",
     "no": "لا",
-    "dash": "—"
+    "dash": "—",
+    "voice": {
+      "start": "بدء الإدخال الصوتي",
+      "stop": "إيقاف الاستماع",
+      "listening": "جارٍ الاستماع…",
+      "unsupported": "الإدخال الصوتي غير متاح في هذا المتصفح. يمكنك متابعة الكتابة.",
+      "denied": "تم رفض الوصول إلى الميكروفون. الكتابة ما زالت تعمل.",
+      "error": "توقف الإدخال الصوتي. تم الاحتفاظ بالنص الملتقط."
+    },
+    "globe": {
+      "aria": "كرة عمليات AGXORA العالمية"
+    }
   },
   "projects": {
     "page": {

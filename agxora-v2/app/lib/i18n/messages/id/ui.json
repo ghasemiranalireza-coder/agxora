@@ -43,5 +43,16 @@
   },
   "yes": "Ya",
   "no": "TIDAK",
-  "dash": "—"
+  "dash": "—",
+  "voice": {
+    "start": "Mulai input suara",
+    "stop": "Berhenti mendengarkan",
+    "listening": "Mendengarkan…",
+    "unsupported": "Input suara tidak tersedia di browser ini. Anda tetap dapat mengetik.",
+    "denied": "Akses mikrofon ditolak. Mengetik tetap berfungsi.",
+    "error": "Input suara berhenti. Teks yang sudah tertangkap tetap ada."
+  },
+  "globe": {
+    "aria": "Globe operasi global AGXORA"
+  }
 }

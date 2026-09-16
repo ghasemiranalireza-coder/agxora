@@ -23,8 +23,8 @@ import {
   FormField,
   FormInput,
   FormSelect,
-  FormTextArea,
   SearchField,
+  VoiceBoundTextArea,
 } from "../../ui";
 import { FinanceShell } from "./FinanceShell";
 import { IssuedDeliveryNoteDocument } from "../documents/IssuedDocument";
@@ -529,9 +529,10 @@ export function DeliveryNoteWorkspace({
             />
           </FormField>
           <FormField label={t("finance.core.table.notes")}>
-            <FormTextArea
+            <VoiceBoundTextArea
               value={draft.notes ?? ""}
-              onChange={(event) => setDraft((current) => ({ ...current, notes: event.target.value }))}
+              onChange={(value) => setDraft((current) => ({ ...current, notes: value }))}
+              rows={3}
             />
           </FormField>
           {draft.items.map((item, index) => (

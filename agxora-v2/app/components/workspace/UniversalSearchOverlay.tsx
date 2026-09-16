@@ -30,7 +30,7 @@ import {
   searchGroupLabel,
 } from "../../lib/workspace/search-i18n";
 import { useLocale } from "../../lib/i18n";
-import { Badge, Button, EmptyState } from "../ui";
+import { Badge, Button, EmptyState, VoiceInputButton } from "../ui";
 import { OVERLAY_Z, lockBodyScroll, pushOverlay, isTopOverlay } from "../ui/overlayStack";
 import { SearchPreview } from "./SearchPreview";
 import { VirtualResultList } from "./VirtualResultList";
@@ -71,6 +71,7 @@ export function UniversalSearchOverlay(): JSX.Element | null {
   const router = useRouter();
   const { t } = useLocale();
   const inputRef = useRef<HTMLInputElement>(null);
+  const listeningRef = useRef(false);
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
@@ -208,6 +209,10 @@ export function UniversalSearchOverlay(): JSX.Element | null {
   }, []);
 
   const onInputKeyDown = (event: KeyboardEvent<HTMLInputElement>): void => {
+    if (listeningRef.current && event.key === "Enter") {
+      event.preventDefault();
+      return;
+    }
     if (event.key === "ArrowDown") {
       event.preventDefault();
       setActiveIndex((i) => Math.min(selectable.length - 1, i + 1));
@@ -272,6 +277,17 @@ export function UniversalSearchOverlay(): JSX.Element | null {
             aria-controls="universal-search-results"
             className="min-w-0 flex-1 bg-transparent text-[15px] outline-none"
             style={{ color: "var(--agx-text, #f8fafc)" }}
+          />
+          <VoiceInputButton
+            value={query}
+            onChange={(next) => {
+              setQuery(next);
+              setActiveIndex(0);
+            }}
+            inputRef={inputRef}
+            onListeningChange={(listening) => {
+              listeningRef.current = listening;
+            }}
           />
           <kbd
             className="hidden rounded-md border px-2 py-1 text-[10px] font-semibold uppercase tracking-wide sm:inline"

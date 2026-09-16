@@ -831,7 +831,8 @@
       "ctaViewActivity": "View activity",
       "openQuickActionsAria": "Open quick actions",
       "openCommandCenterAria": "Ask AGXORA what to do today",
-      "viewActivityAria": "View recent activity"
+      "viewActivityAria": "View recent activity",
+      "globeAria": "AGXORA global operations globe — decorative visualization of worldwide business intelligence"
     },
     "command": {
       "eyebrow": "AI Command Center",
@@ -3173,7 +3174,18 @@
     },
     "yes": "Yes",
     "no": "No",
-    "dash": "—"
+    "dash": "—",
+    "voice": {
+      "start": "Start voice input",
+      "stop": "Stop listening",
+      "listening": "Listening…",
+      "unsupported": "Voice input isn’t available in this browser. You can keep typing.",
+      "denied": "Microphone access was denied. Typing still works.",
+      "error": "Voice input stopped. Captured text is kept so you can edit it."
+    },
+    "globe": {
+      "aria": "AGXORA global operations globe"
+    }
   },
   "projects": {
     "page": {

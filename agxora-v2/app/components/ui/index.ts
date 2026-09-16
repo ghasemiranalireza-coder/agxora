@@ -17,6 +17,8 @@ export { SearchField, FilterSelect } from "./Filters";
 export { Dialog } from "./Dialog";
 export { OVERLAY_Z, pushOverlay, lockBodyScroll, isTopOverlay } from "./overlayStack";
 export { FormField, FormInput, FormTextArea, FormSelect } from "./Form";
+export { VoiceInputButton } from "./VoiceInputButton";
+export { VoiceBoundInput, VoiceBoundTextArea } from "./VoiceBoundField";
 export { Checkbox, Switch } from "./Switch";
 export { Icon } from "./Icon";
 export { UI, BADGE_TONES } from "./tokens";

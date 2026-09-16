@@ -19,7 +19,7 @@ import {
   FormField,
   FormInput,
   FormSelect,
-  FormTextArea,
+  VoiceBoundTextArea,
 } from "../../ui";
 
 export function CrmCustomerFormDialog(): JSX.Element {
@@ -194,10 +194,10 @@ export function CrmCustomerFormDialog(): JSX.Element {
               label={t("crm.form.address")}
               error={translateError(errors.address)}
             >
-              <FormTextArea
+              <VoiceBoundTextArea
                 rows={2}
                 value={state.draft.address}
-                onChange={(e) => setField("address", e.target.value)}
+                onChange={(value) => setField("address", value)}
               />
             </FormField>
           </div>

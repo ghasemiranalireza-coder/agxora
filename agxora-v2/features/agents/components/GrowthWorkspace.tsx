@@ -8,7 +8,7 @@ import {
   FormField,
   FormInput,
   FormSelect,
-  FormTextArea,
+  VoiceBoundTextArea,
 } from "@/app/components/ui";
 import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
 import { growthService } from "../growth/service";
@@ -177,10 +177,10 @@ export function GrowthWorkspace({
             </div>
             <div className="md:col-span-2">
               <FormField label={t("agents.growth.fields.description")}>
-                <FormTextArea
+                <VoiceBoundTextArea
                   rows={4}
                   value={description}
-                  onChange={(event) => setDescription(event.target.value)}
+                  onChange={(value) => setDescription(value)}
                 />
               </FormField>
             </div>

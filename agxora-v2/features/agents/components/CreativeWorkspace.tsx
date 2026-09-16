@@ -7,7 +7,7 @@ import {
   Card,
   FormField,
   FormSelect,
-  FormTextArea,
+  VoiceBoundTextArea,
 } from "@/app/components/ui";
 import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
 import { growthService } from "../growth/service";
@@ -190,9 +190,9 @@ export function CreativeWorkspace(): JSX.Element {
           </FormSelect>
         </FormField>
         <FormField label={t("agents.creative.fields.request")}>
-          <FormTextArea
+          <VoiceBoundTextArea
             value={request}
-            onChange={(e) => setRequest(e.target.value)}
+            onChange={(value) => setRequest(value)}
             rows={4}
             placeholder={t("agents.creative.requestPlaceholder")}
           />

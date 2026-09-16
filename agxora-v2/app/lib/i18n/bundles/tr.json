@@ -831,7 +831,8 @@
       "ctaViewActivity": "Etkinliği görüntüle",
       "openQuickActionsAria": "Hızlı işlemleri aç",
       "openCommandCenterAria": "Ask AGXORA what to do today",
-      "viewActivityAria": "Son etkinliği görüntüle"
+      "viewActivityAria": "Son etkinliği görüntüle",
+      "globeAria": "AGXORA küresel operasyonlar küresi — dünya çapında iş zekasının dekoratif görselleştirmesi"
     },
     "command": {
       "eyebrow": "AI Command Center",
@@ -3173,7 +3174,18 @@
     },
     "yes": "Evet",
     "no": "HAYIR",
-    "dash": "—"
+    "dash": "—",
+    "voice": {
+      "start": "Sesli girişi başlat",
+      "stop": "Dinlemeyi durdur",
+      "listening": "Dinleniyor…",
+      "unsupported": "Bu tarayıcıda sesli giriş yok. Yazmaya devam edebilirsiniz.",
+      "denied": "Mikrofon erişimi reddedildi. Yazmak hâlâ çalışır.",
+      "error": "Sesli giriş durdu. Yakalanan metin korunur."
+    },
+    "globe": {
+      "aria": "AGXORA küresel operasyonlar küresi"
+    }
   },
   "projects": {
     "page": {

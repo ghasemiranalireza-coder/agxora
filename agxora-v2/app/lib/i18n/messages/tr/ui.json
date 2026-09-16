@@ -43,5 +43,16 @@
   },
   "yes": "Evet",
   "no": "HAYIR",
-  "dash": "—"
+  "dash": "—",
+  "voice": {
+    "start": "Sesli girişi başlat",
+    "stop": "Dinlemeyi durdur",
+    "listening": "Dinleniyor…",
+    "unsupported": "Bu tarayıcıda sesli giriş yok. Yazmaya devam edebilirsiniz.",
+    "denied": "Mikrofon erişimi reddedildi. Yazmak hâlâ çalışır.",
+    "error": "Sesli giriş durdu. Yakalanan metin korunur."
+  },
+  "globe": {
+    "aria": "AGXORA küresel operasyonlar küresi"
+  }
 }

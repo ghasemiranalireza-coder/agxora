@@ -1,7 +1,8 @@
 "use client";
 
-import type { FormEvent, JSX } from "react";
+import { useRef, type FormEvent, type JSX } from "react";
 import { UI } from "../ui/tokens";
+import { VoiceInputButton } from "../ui/VoiceInputButton";
 
 export function AGCommandInput({
   id,
@@ -22,8 +23,12 @@ export function AGCommandInput({
   readonly submitLabel: string;
   readonly onSubmit: () => void;
 }): JSX.Element {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const listeningRef = useRef(false);
+
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (listeningRef.current) return;
     if (!value.trim() || disabled) return;
     onSubmit();
   }
@@ -46,12 +51,22 @@ export function AGCommandInput({
       >
         <input
           id={id}
+          ref={inputRef}
           className="agx-ui-control"
           value={value}
           placeholder={placeholder}
           disabled={disabled}
           onChange={(event) => onChange(event.target.value)}
           style={{ flex: "1 1 220px", minWidth: 0 }}
+        />
+        <VoiceInputButton
+          value={value}
+          onChange={onChange}
+          disabled={disabled}
+          inputRef={inputRef}
+          onListeningChange={(listening) => {
+            listeningRef.current = listening;
+          }}
         />
         <button
           type="submit"

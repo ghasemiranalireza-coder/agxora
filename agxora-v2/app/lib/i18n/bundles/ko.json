@@ -831,7 +831,8 @@
       "ctaViewActivity": "활동 보기",
       "openQuickActionsAria": "빠른 작업 열기",
       "openCommandCenterAria": "Ask AGXORA what to do today",
-      "viewActivityAria": "최근 활동 보기"
+      "viewActivityAria": "최근 활동 보기",
+      "globeAria": "AGXORA 글로벌 운영 지구본 — 전 세계 비즈니스 인텔리전스의 장식적 시각화"
     },
     "command": {
       "eyebrow": "AI Command Center",
@@ -3173,7 +3174,18 @@
     },
     "yes": "예",
     "no": "아니요",
-    "dash": "—"
+    "dash": "—",
+    "voice": {
+      "start": "음성 입력 시작",
+      "stop": "듣기 중지",
+      "listening": "듣는 중…",
+      "unsupported": "이 브라우저에서는 음성 입력을 사용할 수 없습니다. 계속 입력할 수 있습니다.",
+      "denied": "마이크 권한이 거부되었습니다. 키보드 입력은 계속 사용할 수 있습니다.",
+      "error": "음성 입력이 중지되었습니다. 이미 인식된 텍스트는 유지됩니다."
+    },
+    "globe": {
+      "aria": "AGXORA 글로벌 운영 지구본"
+    }
   },
   "projects": {
     "page": {
