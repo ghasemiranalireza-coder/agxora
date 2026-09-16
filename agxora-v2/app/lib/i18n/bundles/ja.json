@@ -831,7 +831,8 @@
       "ctaViewActivity": "アクティビティの表示",
       "openQuickActionsAria": "クイックアクションを開く",
       "openCommandCenterAria": "Ask AGXORA what to do today",
-      "viewActivityAria": "最近のアクティビティを表示する"
+      "viewActivityAria": "最近のアクティビティを表示する",
+      "globeAria": "AGXORA グローバルオペレーション地球儀 — 世界のビジネスインテリジェンスの装飾的な可視化"
     },
     "command": {
       "eyebrow": "AI Command Center",
@@ -3173,7 +3174,18 @@
     },
     "yes": "はい",
     "no": "いいえ",
-    "dash": "—"
+    "dash": "—",
+    "voice": {
+      "start": "音声入力を開始",
+      "stop": "聞き取りを停止",
+      "listening": "聞き取り中…",
+      "unsupported": "このブラウザでは音声入力を利用できません。キーボード入力は引き続き使えます。",
+      "denied": "マイクへのアクセスが拒否されました。キーボード入力は使えます。",
+      "error": "音声入力が停止しました。取得済みのテキストは残ります。"
+    },
+    "globe": {
+      "aria": "AGXORA グローバルオペレーション地球儀"
+    }
   },
   "projects": {
     "page": {

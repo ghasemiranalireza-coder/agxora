@@ -831,7 +831,8 @@
       "ctaViewActivity": "Lihat aktivitas",
       "openQuickActionsAria": "Buka tindakan cepat",
       "openCommandCenterAria": "Ask AGXORA what to do today",
-      "viewActivityAria": "Lihat aktivitas terkini"
+      "viewActivityAria": "Lihat aktivitas terkini",
+      "globeAria": "Globe operasi global AGXORA — visualisasi dekoratif intelijen bisnis dunia"
     },
     "command": {
       "eyebrow": "AI Command Center",
@@ -3173,7 +3174,18 @@
     },
     "yes": "Ya",
     "no": "TIDAK",
-    "dash": "—"
+    "dash": "—",
+    "voice": {
+      "start": "Mulai input suara",
+      "stop": "Berhenti mendengarkan",
+      "listening": "Mendengarkan…",
+      "unsupported": "Input suara tidak tersedia di browser ini. Anda tetap dapat mengetik.",
+      "denied": "Akses mikrofon ditolak. Mengetik tetap berfungsi.",
+      "error": "Input suara berhenti. Teks yang sudah tertangkap tetap ada."
+    },
+    "globe": {
+      "aria": "Globe operasi global AGXORA"
+    }
   },
   "projects": {
     "page": {

@@ -1,7 +1,8 @@
 "use client";
 
-import { useId, type JSX, type ReactNode, type SelectHTMLAttributes } from "react";
+import { useId, useRef, type JSX, type ReactNode, type SelectHTMLAttributes } from "react";
 import { useT } from "../../lib/i18n";
+import { VoiceInputButton } from "./VoiceInputButton";
 
 /**
  * Search + filter controls — same surface as FormInput (agx-ui-control).
@@ -23,22 +24,27 @@ export function SearchField({
   const t = useT();
   const resolvedLabel = label ?? t("common.search");
   const id = useId();
+  const inputRef = useRef<HTMLInputElement>(null);
   return (
     <label className="block min-w-0 flex-1 space-y-2" htmlFor={id}>
       <span className="agx-ui-label">{resolvedLabel}</span>
-      <input
-        id={id}
-        type="search"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        className={
-          controlSize === "sm"
-            ? "agx-ui-control agx-ui-control--sm"
-            : "agx-ui-control"
-        }
-        autoComplete="off"
-      />
+      <div className="agx-voice-field">
+        <input
+          id={id}
+          ref={inputRef}
+          type="search"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={placeholder}
+          className={
+            controlSize === "sm"
+              ? "agx-ui-control agx-ui-control--sm"
+              : "agx-ui-control"
+          }
+          autoComplete="off"
+        />
+        <VoiceInputButton value={value} onChange={onChange} inputRef={inputRef} />
+      </div>
     </label>
   );
 }

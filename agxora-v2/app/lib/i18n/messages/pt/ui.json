@@ -43,5 +43,16 @@
   },
   "yes": "Sim",
   "no": "Não",
-  "dash": "—"
+  "dash": "—",
+  "voice": {
+    "start": "Iniciar entrada de voz",
+    "stop": "Parar de ouvir",
+    "listening": "A ouvir…",
+    "unsupported": "A entrada de voz não está disponível neste browser. Pode continuar a escrever.",
+    "denied": "O acesso ao microfone foi recusado. Continuar a escrever funciona.",
+    "error": "A entrada de voz parou. O texto capturado foi mantido."
+  },
+  "globe": {
+    "aria": "Globo de operações globais AGXORA"
+  }
 }

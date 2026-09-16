@@ -20,7 +20,7 @@ import {
   ErrorState,
   FormField,
   FormInput,
-  FormTextArea,
+  VoiceBoundTextArea,
   Skeleton,
   SkeletonCard,
 } from "../../ui";
@@ -275,11 +275,11 @@ function ContactsTab(): JSX.Element {
           />
         </FormField>
         <FormField label={t("crm.profile.contacts.notes")} error={tx(errors.notes)}>
-          <FormTextArea
+          <VoiceBoundTextArea
             rows={3}
             value={state.contactDraft.notes}
-            onChange={(e) =>
-              crmStore.patchContactDraft({ notes: e.target.value })
+            onChange={(value) =>
+              crmStore.patchContactDraft({ notes: value })
             }
           />
         </FormField>
@@ -634,10 +634,10 @@ function NotesTab(): JSX.Element {
           />
         </FormField>
         <FormField label={t("crm.profile.notes.body")} error={tx(errors.body)}>
-          <FormTextArea
+          <VoiceBoundTextArea
             rows={8}
             value={state.noteDraft.body}
-            onChange={(e) => crmStore.patchNoteDraft({ body: e.target.value })}
+            onChange={(value) => crmStore.patchNoteDraft({ body: value })}
           />
         </FormField>
         <div className="flex gap-2">

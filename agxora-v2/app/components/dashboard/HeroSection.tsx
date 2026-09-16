@@ -151,7 +151,11 @@ export function HeroSection(): JSX.Element {
         </div>
       </motion.div>
 
-      <motion.div className="agx-hero-globe-stage" {...globeRise}>
+      <motion.div
+        className="agx-hero-globe-stage"
+        aria-label={t("dashboard.hero.globeAria")}
+        {...globeRise}
+      >
         <div className="agx-hero-globe-depth" aria-hidden="true" />
         <div className="agx-hero-globe-canvas">
           <AgxoraGlobe3D variant="hero" />

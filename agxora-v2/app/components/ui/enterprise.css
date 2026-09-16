@@ -989,3 +989,104 @@ select.agx-ui-control option {
   }
 }
 
+/* Voice → text (speech recognition). First-party microphone only. */
+.agx-voice {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.agx-voice-field {
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+
+.agx-voice-field .agx-ui-control {
+  padding-inline-end: 48px;
+}
+
+.agx-voice-field textarea.agx-ui-control {
+  padding-bottom: 40px;
+}
+
+.agx-voice-field .agx-voice {
+  position: absolute;
+  inset-inline-end: 6px;
+  bottom: 6px;
+}
+
+.agx-voice__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: 1px solid var(--agx-ds-border, rgba(255, 255, 255, 0.12));
+  background: color-mix(in srgb, var(--agx-ds-surface, rgba(255, 255, 255, 0.04)) 88%, transparent);
+  color: var(--agx-ds-text-muted, #a8b6c7);
+  cursor: pointer;
+  transition:
+    color var(--agx-ds-duration, 160ms) ease,
+    border-color var(--agx-ds-duration, 160ms) ease,
+    background var(--agx-ds-duration, 160ms) ease,
+    box-shadow var(--agx-ds-duration, 160ms) ease;
+}
+
+.agx-voice__btn:hover:not(:disabled) {
+  color: var(--agx-accent, #22d3ee);
+  border-color: color-mix(in srgb, var(--agx-accent, #22d3ee) 40%, transparent);
+}
+
+.agx-voice__btn:focus-visible {
+  outline: none;
+  box-shadow: var(--agx-ds-shadow-focus);
+}
+
+.agx-voice__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.agx-voice__btn--live {
+  color: #fb7185;
+  border-color: color-mix(in srgb, #fb7185 50%, transparent);
+  background: color-mix(in srgb, #fb7185 14%, transparent);
+  animation: agx-voice-pulse 1.6s ease-in-out infinite;
+}
+
+.agx-voice__hint {
+  position: absolute;
+  z-index: 3;
+  inset-inline-end: 0;
+  top: calc(100% + 6px);
+  width: max-content;
+  max-width: min(280px, 70vw);
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--agx-ds-border, rgba(255, 255, 255, 0.12));
+  background: var(--agx-ds-elevated, #121820);
+  color: var(--agx-ds-text-muted, #a8b6c7);
+  font-size: 11px;
+  line-height: 1.4;
+  box-shadow: var(--agx-ds-shadow-sm);
+}
+
+@keyframes agx-voice-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, #fb7185 0%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 5px color-mix(in srgb, #fb7185 18%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agx-voice__btn--live {
+    animation: none;
+  }
+}
+

@@ -16,7 +16,7 @@ import {
   FormField,
   FormInput,
   FormSelect,
-  FormTextArea,
+  VoiceBoundTextArea,
 } from "../ui";
 
 export function CustomerFormDialog(): JSX.Element {
@@ -205,10 +205,10 @@ export function CustomerFormDialog(): JSX.Element {
           </FormField>
           <div className="sm:col-span-2">
             <FormField label={t("customers.form.notes")} error={errors.notes}>
-              <FormTextArea
+              <VoiceBoundTextArea
                 rows={4}
                 value={state.draft.notes}
-                onChange={(e) => setField("notes", e.target.value)}
+                onChange={(value) => setField("notes", value)}
               />
             </FormField>
           </div>

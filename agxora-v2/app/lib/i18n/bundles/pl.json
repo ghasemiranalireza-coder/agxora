@@ -831,7 +831,8 @@
       "ctaViewActivity": "Zobacz aktywność",
       "openQuickActionsAria": "Otwórz szybkie akcje",
       "openCommandCenterAria": "Ask AGXORA what to do today",
-      "viewActivityAria": "Zobacz ostatnią aktywność"
+      "viewActivityAria": "Zobacz ostatnią aktywność",
+      "globeAria": "Globus operacji globalnych AGXORA — dekoracyjna wizualizacja globalnego wywiadu biznesowego"
     },
     "command": {
       "eyebrow": "AI Command Center",
@@ -3173,7 +3174,18 @@
     },
     "yes": "Tak",
     "no": "NIE",
-    "dash": "—"
+    "dash": "—",
+    "voice": {
+      "start": "Rozpocznij wprowadzanie głosowe",
+      "stop": "Zatrzymaj nasłuchiwanie",
+      "listening": "Słucham…",
+      "unsupported": "Wprowadzanie głosowe jest niedostępne w tej przeglądarce. Możesz dalej pisać.",
+      "denied": "Odmówiono dostępu do mikrofonu. Pisanie nadal działa.",
+      "error": "Wprowadzanie głosowe zostało zatrzymane. Przechwycony tekst pozostaje."
+    },
+    "globe": {
+      "aria": "Globus operacji globalnych AGXORA"
+    }
   },
   "projects": {
     "page": {

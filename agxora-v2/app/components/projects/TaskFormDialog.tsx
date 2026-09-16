@@ -17,7 +17,7 @@ import {
   FormField,
   FormInput,
   FormSelect,
-  FormTextArea,
+  VoiceBoundTextArea,
 } from "../ui";
 
 export function TaskFormDialog(): JSX.Element {
@@ -154,10 +154,10 @@ export function TaskFormDialog(): JSX.Element {
         </FormField>
         <div className="sm:col-span-2">
           <FormField label={t("projects.taskForm.description")} error={errors.description}>
-            <FormTextArea
+            <VoiceBoundTextArea
               rows={3}
               value={state.taskDraft.description}
-              onChange={(e) => setField("description", e.target.value)}
+              onChange={(value) => setField("description", value)}
             />
           </FormField>
         </div>

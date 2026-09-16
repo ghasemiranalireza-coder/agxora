@@ -3,7 +3,7 @@
 import { useState, type JSX } from "react";
 import { useLocale } from "../../../lib/i18n";
 import type { FinanceLineDraft, FinanceLineView } from "../../../lib/finance/core/types";
-import { Button, Dialog, FormField, FormInput, Icon, IconButton } from "../../ui";
+import { Button, Dialog, FormField, FormInput, Icon, IconButton, VoiceBoundInput } from "../../ui";
 
 const ICON_EDIT =
   "M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z";
@@ -110,9 +110,9 @@ export function ItemDraftDialog({
     >
       <div className="space-y-3">
         <FormField label={t("finance.core.form.description")} required>
-          <FormInput
+          <VoiceBoundInput
             value={draft.description}
-            onChange={(event) => setDraft({ ...draft, description: event.target.value })}
+            onChange={(value) => setDraft({ ...draft, description: value })}
           />
         </FormField>
         <FormField label={t("finance.core.form.quantity")}>

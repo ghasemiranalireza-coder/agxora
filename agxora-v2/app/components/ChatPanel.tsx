@@ -3,6 +3,7 @@
 import {
   useEffect,
   useRef,
+  useState,
   type FormEvent,
   type JSX,
   type KeyboardEvent,
@@ -10,6 +11,7 @@ import {
 import { useChat } from "../lib/modules/chat";
 import { useLocale } from "../lib/i18n";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
+import { VoiceInputButton } from "./ui";
 
 const surfaceTransition = [
   `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
@@ -41,6 +43,8 @@ export function ChatPanel(): JSX.Element {
 
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const listeningRef = useRef(false);
+  const [listening, setListening] = useState(false);
 
   useEffect(() => {
     const node = listRef.current;
@@ -62,7 +66,7 @@ export function ChatPanel(): JSX.Element {
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>): void => {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
-      void handleSend();
+      if (!listeningRef.current) void handleSend();
     }
   };
 
@@ -191,7 +195,13 @@ export function ChatPanel(): JSX.Element {
       ) : null}
 
       <form
-        onSubmit={handleSubmit}
+        onSubmit={(event) => {
+          if (listeningRef.current) {
+            event.preventDefault();
+            return;
+          }
+          handleSubmit(event);
+        }}
         style={{
           display: "flex",
           alignItems: "center",
@@ -201,7 +211,9 @@ export function ChatPanel(): JSX.Element {
         <input
           ref={inputRef}
           className="agx-input"
-          placeholder={t("dashboard.chat.placeholder")}
+          placeholder={
+            listening ? t("ui.voice.listening") : t("dashboard.chat.placeholder")
+          }
           value={draft}
           onChange={(event) => setDraft(event.target.value)}
           onKeyDown={handleKeyDown}
@@ -212,7 +224,9 @@ export function ChatPanel(): JSX.Element {
             minWidth: 0,
             padding: "14px 16px",
             borderRadius: "16px",
-            border: `1px solid ${tokens.inputBorder}`,
+            border: listening
+              ? "1px solid color-mix(in srgb, #fb7185 45%, transparent)"
+              : `1px solid ${tokens.inputBorder}`,
             background: tokens.inputBg,
             color: tokens.text,
             outline: "none",
@@ -221,9 +235,19 @@ export function ChatPanel(): JSX.Element {
             transition: surfaceTransition,
           }}
         />
+        <VoiceInputButton
+          value={draft}
+          onChange={setDraft}
+          disabled={disabled}
+          inputRef={inputRef}
+          onListeningChange={(next) => {
+            listeningRef.current = next;
+            setListening(next);
+          }}
+        />
         <button
           type="submit"
-          disabled={!canSend}
+          disabled={!canSend || listening}
           aria-label={t("dashboard.chat.sendAria")}
           style={{
             flexShrink: 0,

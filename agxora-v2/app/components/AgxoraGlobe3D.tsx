@@ -1,14 +1,13 @@
 "use client";
 
 /**
- * AgxoraGlobe3D — AGXORA AI Business Operating System.
+ * AgxoraGlobe3D — AGXORA global intelligence Earth.
  *
- * 100% procedural cinematic Earth. Every pixel is computed at runtime:
- * continents, oceans, ice caps, clouds, atmosphere and stars are all
- * generated from seeded noise — zero files, zero loaders, zero network.
+ * Procedural cinematic Earth (continents, oceans, ice, clouds, city lights)
+ * plus a sparse global-network overlay. No audio, no remote textures.
  *
  * Next.js 16 · React 19 · React Three Fiber · three.js ·
- * @react-three/drei · @react-three/postprocessing · strict TypeScript.
+ * @react-three/postprocessing · strict TypeScript.
  */
 
 import {
@@ -25,6 +24,8 @@ import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Bloom, EffectComposer, Vignette } from "@react-three/postprocessing";
 import "@/app/lib/three/clockCompat";
+import { GlobeNetwork } from "./globe/GlobeNetwork";
+import { useT } from "../lib/i18n";
 import {
   DAY_TOKENS,
   NIGHT_TOKENS,
@@ -393,19 +394,20 @@ function useRenderProfile(): { profile: RenderProfile; compact: boolean } {
 
 const PLANET_RADIUS = 1;
 /** Slow continuous spin — premium, never aggressive. */
-const PLANET_SPIN = 0.0088;
-const CLOUD_SPIN = 0.014;
-const CLOUD_HIGH_SPIN = 0.009;
+const PLANET_SPIN = 0.055;
+const CLOUD_SPIN = 0.018;
+const CLOUD_HIGH_SPIN = 0.011;
 /** Hero composition — globe sits high in the stage. */
-const PLANET_BASE_Y = 0.1;
-const PLANET_FLOAT_AMP = 0.03;
-const PLANET_FLOAT_SPEED = 0.26;
+const PLANET_BASE_Y = 0.06;
+const PLANET_FLOAT_AMP = 0.016;
+const PLANET_FLOAT_SPEED = 0.18;
 
 interface PlanetProps {
   readonly profile: RenderProfile;
+  readonly compact: boolean;
 }
 
-function Planet({ profile }: PlanetProps): JSX.Element {
+function Planet({ profile, compact }: PlanetProps): JSX.Element {
   const floatGroup = useRef<THREE.Group>(null);
   const spinGroup = useRef<THREE.Group>(null);
   const cloudMesh = useRef<THREE.Mesh>(null);
@@ -414,6 +416,63 @@ function Planet({ profile }: PlanetProps): JSX.Element {
   const cloudMat = useRef<THREE.MeshStandardMaterial>(null);
   const cloudHighMat = useRef<THREE.MeshStandardMaterial>(null);
   const reduceMotion = useReducedMotion();
+  const { gl } = useThree();
+  const drag = useRef({
+    active: false,
+    lastX: 0,
+    lastY: 0,
+    vx: 0,
+    vy: 0,
+  });
+
+  useEffect(() => {
+    const el = gl.domElement;
+    const onPointerDown = (event: PointerEvent): void => {
+      drag.current.active = true;
+      drag.current.lastX = event.clientX;
+      drag.current.lastY = event.clientY;
+      el.setPointerCapture(event.pointerId);
+      el.style.cursor = "grabbing";
+    };
+    const onPointerMove = (event: PointerEvent): void => {
+      if (!drag.current.active || !spinGroup.current) return;
+      const dx = event.clientX - drag.current.lastX;
+      const dy = event.clientY - drag.current.lastY;
+      drag.current.lastX = event.clientX;
+      drag.current.lastY = event.clientY;
+      drag.current.vx = dx * 0.0045;
+      drag.current.vy = dy * 0.0032;
+      spinGroup.current.rotation.y += drag.current.vx;
+      spinGroup.current.rotation.x = THREE.MathUtils.clamp(
+        spinGroup.current.rotation.x + drag.current.vy,
+        -0.48,
+        0.48,
+      );
+    };
+    const onPointerUp = (event: PointerEvent): void => {
+      drag.current.active = false;
+      el.style.cursor = "grab";
+      try {
+        el.releasePointerCapture(event.pointerId);
+      } catch {
+        // already released
+      }
+    };
+    el.addEventListener("pointerdown", onPointerDown);
+    el.addEventListener("pointermove", onPointerMove);
+    el.addEventListener("pointerup", onPointerUp);
+    el.addEventListener("pointercancel", onPointerUp);
+    el.style.cursor = "grab";
+    el.style.touchAction = "none";
+    return () => {
+      el.removeEventListener("pointerdown", onPointerDown);
+      el.removeEventListener("pointermove", onPointerMove);
+      el.removeEventListener("pointerup", onPointerUp);
+      el.removeEventListener("pointercancel", onPointerUp);
+      el.style.cursor = "";
+      el.style.touchAction = "";
+    };
+  }, [gl]);
 
   const maps = useMemo<PlanetMaps>(
     () => generatePlanetMaps(profile.mapWidth, profile.mapHeight),
@@ -440,8 +499,15 @@ function Planet({ profile }: PlanetProps): JSX.Element {
           PLANET_BASE_Y + Math.sin(t * PLANET_FLOAT_SPEED) * PLANET_FLOAT_AMP;
         floatGroup.current.rotation.z = Math.sin(t * 0.14) * 0.007;
       }
-      if (spinGroup.current !== null) {
-        spinGroup.current.rotation.y += delta * PLANET_SPIN;
+      if (spinGroup.current !== null && !drag.current.active) {
+        spinGroup.current.rotation.y += delta * PLANET_SPIN + drag.current.vx;
+        spinGroup.current.rotation.x = THREE.MathUtils.clamp(
+          spinGroup.current.rotation.x + drag.current.vy,
+          -0.48,
+          0.48,
+        );
+        drag.current.vx *= 0.92;
+        drag.current.vy *= 0.9;
       }
       if (cloudMesh.current !== null) {
         cloudMesh.current.rotation.y += delta * CLOUD_SPIN;
@@ -555,6 +621,7 @@ function Planet({ profile }: PlanetProps): JSX.Element {
             metalness={0}
           />
         </mesh>
+        <GlobeNetwork radius={PLANET_RADIUS} compact={compact} />
       </group>
 
       <AtmosphereGlow />
@@ -988,19 +1055,21 @@ function SpaceScene({
 
       {/* Regression: ~13% smaller hero diameter; camera/lights/spacing unchanged */}
       <group scale={globeScale}>
-        <Planet profile={profile} />
+        <Planet profile={profile} compact={compact} />
       </group>
       <CameraDrift parallax={!compact} />
 
-      <EffectComposer multisampling={profile.msaa} frameBufferType={THREE.HalfFloatType}>
-        <Bloom
-          intensity={bloomIntensity * 0.78}
-          luminanceThreshold={appearance === "day" ? 0.78 : 0.62}
-          luminanceSmoothing={0.95}
-          mipmapBlur
-        />
-        <Vignette eskil={false} offset={0.42} darkness={vignetteDarkness} />
-      </EffectComposer>
+      {compact ? null : (
+        <EffectComposer multisampling={profile.msaa} frameBufferType={THREE.HalfFloatType}>
+          <Bloom
+            intensity={bloomIntensity * 0.62}
+            luminanceThreshold={appearance === "day" ? 0.8 : 0.66}
+            luminanceSmoothing={0.95}
+            mipmapBlur
+          />
+          <Vignette eskil={false} offset={0.48} darkness={vignetteDarkness} />
+        </EffectComposer>
+      )}
     </>
   );
 }
@@ -1020,9 +1089,10 @@ export default function AgxoraGlobe3D({
 }: AgxoraGlobe3DProps): JSX.Element {
   const { profile, compact } = useRenderProfile();
   const { tokens } = useTheme();
+  const t = useT();
   const isHero = variant === "hero";
   /** Restore balanced hero diameter (~13% reduction). Position/camera/lights unchanged. */
-  const globeScale = isHero ? 0.87 : 1;
+  const globeScale = isHero ? 0.92 : 1;
 
   const frameStyle = useMemo<CSSProperties>(() => {
     if (isHero) {
@@ -1055,7 +1125,8 @@ export default function AgxoraGlobe3D({
   return (
     <div
       style={frameStyle}
-      aria-label="AGXORA AI CORE — 3D globe"
+      aria-hidden={isHero}
+      aria-label={isHero ? undefined : t("dashboard.hero.globeAria")}
       className={
         isHero ? "agx-globe-stage agx-globe-enter" : "agx-globe-frame agx-globe-enter"
       }
@@ -1064,13 +1135,13 @@ export default function AgxoraGlobe3D({
         dpr={profile.pixelRatio}
         camera={{
           position: [0, PLANET_BASE_Y * 0.55, CAMERA_HOME_Z],
-          fov: isHero ? 36 : 38,
+          fov: isHero ? 34 : 38,
           near: 0.1,
           far: 220,
         }}
         gl={{
           antialias: false,
-          powerPreference: "high-performance",
+          powerPreference: compact ? "low-power" : "high-performance",
           alpha: true,
           premultipliedAlpha: true,
           toneMapping: THREE.ACESFilmicToneMapping,
@@ -1080,7 +1151,7 @@ export default function AgxoraGlobe3D({
           position: "absolute",
           inset: 0,
           background: "transparent",
-          pointerEvents: compact ? "none" : "auto",
+          pointerEvents: "auto",
         }}
       >
         <Suspense fallback={null}>
