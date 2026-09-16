@@ -25,7 +25,7 @@ export function useSpeechToText(options: {
   readonly lang: string;
   readonly value: string;
   readonly onChange: (next: string) => void;
-  readonly selection?: VoiceSelection | null;
+  readonly getSelection?: () => VoiceSelection | null;
   readonly disabled?: boolean;
 }): {
   readonly status: VoiceStatus;
@@ -37,7 +37,7 @@ export function useSpeechToText(options: {
   readonly toggle: () => void;
   readonly dismissMessage: () => void;
 } {
-  const { lang, value, onChange, selection, disabled } = options;
+  const { lang, value, onChange, getSelection, disabled } = options;
   const [status, setStatus] = useState<VoiceStatus>(() =>
     isSpeechRecognitionSupported() ? "idle" : "unsupported",
   );
@@ -50,14 +50,16 @@ export function useSpeechToText(options: {
     committed: string;
   } | null>(null);
   const valueRef = useRef(value);
-  const selectionRef = useRef(selection);
+  const getSelectionRef = useRef(getSelection);
   const onChangeRef = useRef(onChange);
   const langRef = useRef(lang);
 
-  valueRef.current = value;
-  selectionRef.current = selection;
-  onChangeRef.current = onChange;
-  langRef.current = lang;
+  useEffect(() => {
+    valueRef.current = value;
+    getSelectionRef.current = getSelection;
+    onChangeRef.current = onChange;
+    langRef.current = lang;
+  }, [getSelection, lang, onChange, value]);
 
   const stopEngine = useCallback((abort = false) => {
     const engine = recognitionRef.current;
@@ -82,7 +84,7 @@ export function useSpeechToText(options: {
     }
     stopEngine(true);
     const current = valueRef.current;
-    const caret = selectionRef.current;
+    const caret = getSelectionRef.current?.() ?? null;
     sessionRef.current = {
       original: current,
       start: caret?.start ?? current.length,

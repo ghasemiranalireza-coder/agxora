@@ -29,12 +29,15 @@ export function VoiceInputButton({
 }): JSX.Element {
   const t = useT();
   const { locale } = useLocale();
-  const selection = readSelection(inputRef, value);
+  const getSelection = useCallback(
+    () => readSelection(inputRef, value),
+    [inputRef, value],
+  );
   const voice = useSpeechToText({
     lang: lang ?? speechLangFromLocale(locale),
     value,
     onChange,
-    selection,
+    getSelection,
     disabled,
   });
 
