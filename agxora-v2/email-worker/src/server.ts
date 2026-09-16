@@ -4,7 +4,7 @@
  */
 
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
-import { handleEmailWorkerRequest } from "./handler";
+import { handleEmailWorkerRequest } from "./handler.ts";
 
 function readBody(req: IncomingMessage, limit: number): Promise<Buffer> {
   return new Promise((resolve, reject) => {

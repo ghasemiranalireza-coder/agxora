@@ -7,7 +7,7 @@
  */
 
 import { timingSafeEqual } from "node:crypto";
-import { sendViaEsp } from "./esp";
+import { sendViaEsp } from "./esp.ts";
 
 export const EMAIL_KINDS = [
   "invitation",
