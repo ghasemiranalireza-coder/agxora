@@ -80,7 +80,9 @@ export function buildHealthPayload(): HealthPayload {
       authMode: gate.snapshot.authMode,
       crmPersistence: gate.snapshot.crmPersistence,
       agentOsPersistence: gate.snapshot.agentOsPersistence,
-      emailConfigured: gate.snapshot.emailProvider !== "none",
+      emailConfigured:
+        gate.snapshot.emailProvider === "http" &&
+        gate.snapshot.emailDeliveryConfigured !== false,
       issueCodes: gate.issues.map((issue) => issue.code),
     },
     publishReadiness: {

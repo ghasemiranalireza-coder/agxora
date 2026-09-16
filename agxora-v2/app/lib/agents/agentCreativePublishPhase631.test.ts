@@ -616,7 +616,7 @@ describe("Phase 63.1 YouTube publish hardening", () => {
       authMode: "server",
       crmPersistence: "database",
       agentOsPersistence: "server",
-      emailProvider: "resend",
+      emailProvider: "http",
       useMocks: false,
     });
     expect(gate.ready).toBe(true);
