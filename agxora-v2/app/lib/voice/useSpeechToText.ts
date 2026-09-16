@@ -21,6 +21,17 @@ export type VoiceSelection = {
   readonly end: number;
 };
 
+/**
+ * SSR and the first client render must share this value. Probing
+ * `window` / SpeechRecognition here would disable the mic on the server
+ * and enable it in the browser (hydration mismatch).
+ */
+export const INITIAL_VOICE_STATUS: VoiceStatus = "idle";
+
+export function voiceStatusAfterMount(): VoiceStatus {
+  return isSpeechRecognitionSupported() ? "idle" : "unsupported";
+}
+
 export function useSpeechToText(options: {
   readonly lang: string;
   readonly value: string;
@@ -38,9 +49,7 @@ export function useSpeechToText(options: {
   readonly dismissMessage: () => void;
 } {
   const { lang, value, onChange, getSelection, disabled } = options;
-  const [status, setStatus] = useState<VoiceStatus>(() =>
-    isSpeechRecognitionSupported() ? "idle" : "unsupported",
-  );
+  const [status, setStatus] = useState<VoiceStatus>(INITIAL_VOICE_STATUS);
   const [message, setMessage] = useState<VoiceStatus | null>(null);
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const sessionRef = useRef<{
@@ -60,6 +69,14 @@ export function useSpeechToText(options: {
     onChangeRef.current = onChange;
     langRef.current = lang;
   }, [getSelection, lang, onChange, value]);
+
+  useEffect(() => {
+    const next = voiceStatusAfterMount();
+    setStatus((current) => {
+      if (current !== "idle") return current;
+      return next;
+    });
+  }, []);
 
   const stopEngine = useCallback((abort = false) => {
     const engine = recognitionRef.current;
