@@ -71,11 +71,11 @@ export function useSpeechToText(options: {
   }, [getSelection, lang, onChange, value]);
 
   useEffect(() => {
-    const next = voiceStatusAfterMount();
-    setStatus((current) => {
-      if (current !== "idle") return current;
-      return next;
+    const frame = window.requestAnimationFrame(() => {
+      const next = voiceStatusAfterMount();
+      setStatus((current) => (current === "idle" ? next : current));
     });
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   const stopEngine = useCallback((abort = false) => {

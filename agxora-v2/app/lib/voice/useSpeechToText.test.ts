@@ -41,11 +41,10 @@ describe("voice hydration contract", () => {
 
   it("probes support only via the after-mount helper", () => {
     expect(HOOK_SOURCE).toMatch(/voiceStatusAfterMount\(\)/);
-    const effectBlock = HOOK_SOURCE.slice(
-      HOOK_SOURCE.indexOf("voiceStatusAfterMount"),
+    expect(HOOK_SOURCE).toContain("requestAnimationFrame");
+    expect(HOOK_SOURCE).not.toMatch(
+      /useState<VoiceStatus>\(\(\)\s*=>/,
     );
-    expect(HOOK_SOURCE).toContain("useEffect(() => {\n    const next = voiceStatusAfterMount();");
-    expect(effectBlock.length).toBeGreaterThan(0);
   });
 
   it("reports idle after mount when webkit SpeechRecognition exists", () => {
