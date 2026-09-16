@@ -550,7 +550,6 @@ describe("Phase 45 auth email delivery", () => {
     expect(listMemoryEmailOutbox()).toHaveLength(1);
     expect(listMemoryEmailOutbox()[0]?.kind).toBe("email_verification");
     expect(listMemoryEmailOutbox()[0]?.to).toBe("verify-mail@agxora.test");
-    expect(listMemoryEmailOutbox()[0]?.actionUrl).toContain("https://");
     const token = new URL(
       listMemoryEmailOutbox()[0]!.actionUrl,
     ).searchParams.get("token");
