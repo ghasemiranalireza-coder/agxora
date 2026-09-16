@@ -23,7 +23,7 @@ export function getEmailConfig(): EmailConfig {
   const from =
     process.env.AGXORA_EMAIL_FROM?.trim() ||
     process.env.NEXT_PUBLIC_AGXORA_EMAIL_SUPPORT?.trim() ||
-    "noreply@agxora.app";
+    "noreply@agxora.de";
   const httpUrl = process.env.AGXORA_EMAIL_HTTP_URL?.trim() || null;
   const httpToken = process.env.AGXORA_EMAIL_HTTP_TOKEN?.trim() || null;
   return { provider, from, httpUrl, httpToken };

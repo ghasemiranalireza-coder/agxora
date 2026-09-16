@@ -479,7 +479,7 @@ describe("Phase 63.0 creative publish orchestration", () => {
       authMode: "server",
       crmPersistence: "database",
       agentOsPersistence: "server",
-      emailProvider: "resend",
+      emailProvider: "http",
       useMocks: false,
     });
     expect(gate.ready).toBe(true);

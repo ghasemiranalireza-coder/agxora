@@ -2,7 +2,7 @@
  * Phase 45 — email delivery handoff contract tests.
  */
 
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   deliverEmail,
   forceMemoryEmailFailure,
@@ -15,12 +15,29 @@ import {
   buildPasswordResetEmail,
   buildEmailVerificationEmail,
   redactActionUrl,
+  getAppOrigin,
+  getEmailConfig,
+  getEmailProvider,
+  createHttpEmailProvider,
 } from "./index";
+import { isHttpEmailDeliveryConfigured } from "./providerId";
+
+const emailEnvKeys = [
+  "AGXORA_EMAIL_PROVIDER",
+  "AGXORA_EMAIL_FROM",
+  "AGXORA_EMAIL_HTTP_URL",
+  "AGXORA_EMAIL_HTTP_TOKEN",
+  "NEXT_PUBLIC_AGXORA_SITE_URL",
+  "AGXORA_APP_ORIGIN",
+] as const;
 
 afterEach(() => {
   setEmailProviderForTests(null);
   resetMemoryEmailOutbox();
-  delete process.env.AGXORA_EMAIL_PROVIDER;
+  vi.unstubAllGlobals();
+  for (const key of emailEnvKeys) {
+    delete process.env[key];
+  }
 });
 
 describe("Phase 45 email delivery contract", () => {
@@ -80,5 +97,61 @@ describe("Phase 45 email delivery contract", () => {
         "password_reset",
       ),
     ).toBe("https://agxora.app/reset-password?token=[redacted]");
+  });
+
+  it("builds action URLs from NEXT_PUBLIC_AGXORA_SITE_URL", () => {
+    process.env.NEXT_PUBLIC_AGXORA_SITE_URL = "https://agxora.de/";
+    expect(getAppOrigin()).toBe("https://agxora.de");
+    expect(
+      buildEmailVerificationEmail({
+        to: "user@test.dev",
+        rawToken: "verify-secret",
+      }).actionUrl,
+    ).toBe("https://agxora.de/verify-email?token=verify-secret");
+  });
+
+  it("defaults From to noreply@agxora.de", () => {
+    expect(getEmailConfig().from).toBe("noreply@agxora.de");
+  });
+
+  it("treats http without URL+token as not production-configured", () => {
+    process.env.AGXORA_EMAIL_PROVIDER = "http";
+    process.env.AGXORA_EMAIL_HTTP_URL = "https://email-worker.example/send";
+    expect(isHttpEmailDeliveryConfigured()).toBe(false);
+    expect(getEmailProvider().id).toBe("none");
+    process.env.AGXORA_EMAIL_HTTP_TOKEN = "worker-token";
+    expect(isHttpEmailDeliveryConfigured()).toBe(true);
+    expect(getEmailProvider().id).toBe("http");
+  });
+
+  it("HTTP provider posts the existing payload with bearer auth", async () => {
+    const fetchMock = vi.fn(async () => {
+      return new Response(JSON.stringify({ id: "msg_1" }), {
+        status: 200,
+        headers: { "content-type": "application/json" },
+      });
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    const provider = createHttpEmailProvider({
+      provider: "http",
+      from: "noreply@agxora.de",
+      httpUrl: "https://email-worker.example/send",
+      httpToken: "worker-secret",
+    });
+    const result = await provider.send(
+      buildPasswordResetEmail({ to: "a@test.dev", rawToken: "reset-secret" }),
+    );
+    expect(result).toEqual({ ok: true, providerMessageId: "msg_1" });
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit];
+    expect(url).toBe("https://email-worker.example/send");
+    expect((init.headers as Record<string, string>).authorization).toBe(
+      "Bearer worker-secret",
+    );
+    const body = JSON.parse(String(init.body)) as Record<string, string>;
+    expect(body.from).toBe("noreply@agxora.de");
+    expect(body.to).toBe("a@test.dev");
+    expect(body.kind).toBe("password_reset");
+    expect(body.actionUrl).toContain("reset-secret");
   });
 });

@@ -76,8 +76,10 @@ HTTP payload:
 }
 ```
 
-No ESP SDK dependencies were added. Production SMTP/ESP integration belongs in
-the HTTP worker behind `AGXORA_EMAIL_HTTP_URL`.
+No ESP SDK dependencies were added to the Next.js app. Production SMTP/ESP
+integration belongs in `email-worker/` behind `AGXORA_EMAIL_HTTP_URL`.
+Production readiness requires `AGXORA_EMAIL_PROVIDER=http` plus a live worker
+URL and bearer token. `console` and `memory` do not satisfy the Production Gate.
 
 ## Invitation delivery
 
@@ -108,7 +110,9 @@ Legacy `AGXORA_AUTH_EMAIL_DELIVERY=configured` alone **no longer** claims
 ## Verification delivery
 
 `createEmailVerificationToken` creates the hashed verification token, then
-attempts delivery.
+attempts delivery. Successful registration also calls this best-effort so a
+new account receives a verification email without changing the auth contract
+(`emailVerified` still starts false; register still succeeds if delivery fails).
 
 New route: `POST /api/v1/auth/request-verification` (requires current actor).
 
@@ -121,7 +125,7 @@ Server-only (never `NEXT_PUBLIC_*` for secrets):
 
 ```bash
 AGXORA_EMAIL_PROVIDER=none|console|http|memory
-AGXORA_EMAIL_FROM=noreply@agxora.app
+AGXORA_EMAIL_FROM=noreply@agxora.de
 AGXORA_EMAIL_HTTP_URL=
 AGXORA_EMAIL_HTTP_TOKEN=
 # Optional link origin override (else NEXT_PUBLIC_AGXORA_SITE_URL)
