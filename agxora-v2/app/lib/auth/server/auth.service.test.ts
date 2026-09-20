@@ -530,8 +530,8 @@ describe("Phase 43 password reset", () => {
         message:
           "If an account exists for this email, a reset link will be sent when email delivery is configured.",
       });
-      expect(JSON.stringify(presentJson)).not.toContain("delivery");
-      expect(JSON.stringify(presentJson)).not.toContain("resetToken");
+      expect("delivery" in presentJson).toBe(false);
+      expect("resetToken" in presentJson).toBe(false);
       expect(listMemoryEmailOutbox()).toHaveLength(1);
     } finally {
       if (previousExpose === undefined) {
