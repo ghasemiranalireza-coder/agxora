@@ -85,6 +85,27 @@ describe("AGXORA email worker", () => {
     await expect(bad.json()).resolves.toEqual({ ok: false, error: "invalid_email" });
   });
 
+  it("rejects disallowed From and unknown kinds", async () => {
+    const from = await postSend({ ...payload(), from: "other@agxora.de" });
+    expect(from.status).toBe(400);
+    await expect(from.json()).resolves.toEqual({ ok: false, error: "from_not_allowed" });
+    const kind = await postSend({ ...payload(), kind: "marketing" });
+    expect(kind.status).toBe(400);
+    await expect(kind.json()).resolves.toEqual({ ok: false, error: "invalid_kind" });
+  });
+
+  it("rejects non-http(s) action URLs", async () => {
+    const response = await postSend({
+      ...payload(),
+      actionUrl: "javascript:alert(1)",
+    });
+    expect(response.status).toBe(400);
+    await expect(response.json()).resolves.toEqual({
+      ok: false,
+      error: "invalid_action_url",
+    });
+  });
+
   it("rejects oversized payloads", async () => {
     const response = await postSend(payload(), {
       env: { EMAIL_WORKER_MAX_BYTES: "32" },

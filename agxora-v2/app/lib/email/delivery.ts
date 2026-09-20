@@ -30,7 +30,6 @@ export async function deliverEmail(
     console.error("[agxora.email] handoff failed", {
       provider: provider.id,
       kind: message.kind,
-      to: message.to,
       error: result.error,
     });
     return { delivery: "not_configured", error: result.error };
