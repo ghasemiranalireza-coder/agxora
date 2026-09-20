@@ -50,7 +50,7 @@ export async function incomingToFetchRequest(
     return new Request(url, { method, headers });
   }
   const body = await readBody(req, maxBytes(env));
-  return new Request(url, { method, headers, body });
+  return new Request(url, { method, headers, body: new Uint8Array(body) });
 }
 
 export async function handleVercelRequest(
