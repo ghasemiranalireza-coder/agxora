@@ -193,6 +193,12 @@ export async function registerWithPassword(input: {
 
   const session = await createServerSession(result.user.id, result.workspaceId);
 
+  try {
+    await createEmailVerificationToken(result.user.id);
+  } catch {
+    console.error("[agxora.auth] post-register verification email failed");
+  }
+
   return {
     user: toPublicUser(result.user),
     session: toPublicSession(session),

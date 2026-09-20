@@ -5,7 +5,7 @@
  *   auth=server + AUTH_REQUIRED
  *   CRM=database
  *   Agent OS=server
- *   email provider != none
+ *   email provider = http with worker URL + token
  *   mocks=false
  *
  * Development/local/demo remains permissive.
@@ -22,6 +22,7 @@ import {
 } from "@/app/lib/agents/persistence/mode";
 import {
   getEmailProviderId,
+  isHttpEmailDeliveryConfigured,
   type EmailProviderIdName,
 } from "@/app/lib/email/providerId";
 
@@ -53,6 +54,8 @@ export type FirstCustomerModeSnapshot = {
   readonly crmPersistence: CrmPersistenceMode;
   readonly agentOsPersistence: AgentOsPersistenceMode;
   readonly emailProvider: EmailProviderIdName;
+  /** True when HTTP worker URL + token are present. Test snapshots may omit it. */
+  readonly emailDeliveryConfigured?: boolean;
   readonly useMocks: boolean;
 };
 
@@ -119,6 +122,8 @@ export function collectFirstCustomerModeSnapshot(
     agentOsPersistence:
       overrides.agentOsPersistence ?? getAgentOsPersistenceMode(),
     emailProvider: overrides.emailProvider ?? getEmailProviderId(),
+    emailDeliveryConfigured:
+      overrides.emailDeliveryConfigured ?? isHttpEmailDeliveryConfigured(),
     useMocks:
       overrides.useMocks ?? process.env.AGXORA_USE_MOCKS !== "false",
   };
@@ -173,11 +178,14 @@ export function evaluateFirstCustomerProductionGate(
         "NEXT_PUBLIC_AGXORA_AGENT_OS_PERSISTENCE must be server in production",
     });
   }
-  if (snapshot.emailProvider === "none") {
+  if (
+    snapshot.emailProvider !== "http" ||
+    snapshot.emailDeliveryConfigured === false
+  ) {
     issues.push({
       code: "email_provider",
       message:
-        "AGXORA_EMAIL_PROVIDER must not be none in production (transactional auth email required)",
+        "AGXORA_EMAIL_PROVIDER must be http with HTTPS AGXORA_EMAIL_HTTP_URL and AGXORA_EMAIL_HTTP_TOKEN in production (transactional auth email required)",
     });
   }
   if (snapshot.useMocks) {

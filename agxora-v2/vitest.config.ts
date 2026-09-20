@@ -4,7 +4,7 @@ import path from "path";
 export default defineConfig({
   test: {
     environment: "node",
-    include: ["app/**/*.test.ts", "prisma/**/*.test.ts"],
+    include: ["app/**/*.test.ts", "prisma/**/*.test.ts", "email-worker/**/*.test.ts"],
     fileParallelism: false,
     maxWorkers: 1,
     setupFiles: ["./vitest.setup.ts"],

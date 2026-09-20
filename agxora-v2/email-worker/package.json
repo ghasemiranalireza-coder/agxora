@@ -1,0 +1,15 @@
+{
+  "name": "agxora-email-worker",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Minimal AGXORA transactional email worker. No Prisma. No AGXORA database credentials.",
+  "scripts": {
+    "start": "node --experimental-strip-types src/server.ts",
+    "test": "node --experimental-strip-types --test src/handler.test.ts",
+    "vercel-build": "node scripts/vercel-build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

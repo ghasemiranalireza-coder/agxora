@@ -1,7 +1,7 @@
 /**
  * Phase 45 — HTTP webhook provider (fetch-based, no extra dependencies).
  *
- * POSTs JSON to AGXORA_EMAIL_HTTP_URL. Optional bearer AGXORA_EMAIL_HTTP_TOKEN.
+ * POSTs JSON to AGXORA_EMAIL_HTTP_URL with required bearer AGXORA_EMAIL_HTTP_TOKEN.
  * The downstream worker owns SMTP/ESP integration.
  */
 
@@ -12,7 +12,8 @@ import type { EmailMessage, EmailProvider, EmailSendResult } from "../types";
 
 export function createHttpEmailProvider(config: EmailConfig): EmailProvider {
   const url = config.httpUrl;
-  const configured = Boolean(url);
+  const token = config.httpToken;
+  const configured = Boolean(url && token);
 
   return {
     id: "http",
@@ -21,14 +22,15 @@ export function createHttpEmailProvider(config: EmailConfig): EmailProvider {
       if (!url) {
         return { ok: false, error: "AGXORA_EMAIL_HTTP_URL is not set" };
       }
+      if (!token) {
+        return { ok: false, error: "AGXORA_EMAIL_HTTP_TOKEN is not set" };
+      }
 
       const headers: Record<string, string> = {
         "content-type": "application/json",
         accept: "application/json",
+        authorization: `Bearer ${token}`,
       };
-      if (config.httpToken) {
-        headers.authorization = `Bearer ${config.httpToken}`;
-      }
 
       try {
         const response = await fetch(url, {

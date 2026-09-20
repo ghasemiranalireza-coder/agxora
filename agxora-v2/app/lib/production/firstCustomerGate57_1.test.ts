@@ -16,6 +16,11 @@ const envKeys = [
   "NEXT_PUBLIC_AGXORA_AUTH_MODE",
   "NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE",
   "NEXT_PUBLIC_AGXORA_AGENT_OS_PERSISTENCE",
+  "AGXORA_EMAIL_PROVIDER",
+  "AGXORA_EMAIL_HTTP_URL",
+  "AGXORA_EMAIL_HTTP_TOKEN",
+  "AGXORA_AUTH_REQUIRED",
+  "AGXORA_USE_MOCKS",
 ] as const;
 
 const originalEnv: Record<string, string | undefined> = {};
@@ -62,7 +67,9 @@ describe("Phase 57.1 client production readiness", () => {
     process.env.NEXT_PUBLIC_AGXORA_AUTH_MODE = "server";
     process.env.NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE = "database";
     process.env.NEXT_PUBLIC_AGXORA_AGENT_OS_PERSISTENCE = "server";
-    process.env.AGXORA_EMAIL_PROVIDER = "console";
+    process.env.AGXORA_EMAIL_PROVIDER = "http";
+    process.env.AGXORA_EMAIL_HTTP_URL = "https://email-worker.example/send";
+    process.env.AGXORA_EMAIL_HTTP_TOKEN = "test-worker-token";
     process.env.AGXORA_USE_MOCKS = "false";
     process.env.NEXT_PUBLIC_AGXORA_SITE_URL = "https://agxora.app";
     process.env.NEXT_PUBLIC_AGXORA_VERSION = "0.39.0";
