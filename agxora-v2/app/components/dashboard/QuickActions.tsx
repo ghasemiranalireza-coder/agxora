@@ -4,6 +4,12 @@ import Link from "next/link";
 import type { JSX } from "react";
 import { useLocale } from "../../lib/i18n";
 import { useTheme } from "../../lib/theme";
+import {
+  FIRST_CUSTOMER_AGENTS_HREF,
+  FIRST_CUSTOMER_CUSTOMER_HREF,
+  FIRST_CUSTOMER_FINANCE_HREF,
+  FIRST_CUSTOMER_SETTINGS_HREF,
+} from "../../lib/workspace/firstCustomerSurface";
 import { interactionTransition } from "./motion";
 
 type QuickAction = {
@@ -14,43 +20,31 @@ type QuickAction = {
   readonly icon: string;
 };
 
-const ACTIONS: readonly QuickAction[] = [
+export const DASHBOARD_QUICK_ACTIONS: readonly QuickAction[] = [
   {
     id: "customer",
     messageKey: "addCustomer",
-    href: "/dashboard/customers",
+    href: FIRST_CUSTOMER_CUSTOMER_HREF,
     primary: true,
     icon: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
   },
   {
-    id: "project",
-    messageKey: "newProject",
-    href: "/dashboard/projects",
+    id: "invoice",
+    messageKey: "finance",
+    href: FIRST_CUSTOMER_FINANCE_HREF,
     primary: true,
-    icon: "M3 7h18 M3 12h18 M3 17h12",
+    icon: "M12 2v20 M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6",
   },
   {
     id: "ai",
     messageKey: "askAi",
-    href: "/dashboard/ai",
+    href: FIRST_CUSTOMER_AGENTS_HREF,
     icon: "M12 2l2.2 6.6L21 11l-6.8 2.4L12 20l-2.2-6.6L3 11l6.8-2.4z",
-  },
-  {
-    id: "invoice",
-    messageKey: "finance",
-    href: "/dashboard/finance",
-    icon: "M12 2v20 M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6",
-  },
-  {
-    id: "automation",
-    messageKey: "automations",
-    href: "/dashboard/automation",
-    icon: "M12 2v4 M12 18v4 M4.93 4.93l2.83 2.83 M16.24 16.24l2.83 2.83 M2 12h4 M18 12h4",
   },
   {
     id: "settings",
     messageKey: "settings",
-    href: "/dashboard/settings",
+    href: FIRST_CUSTOMER_SETTINGS_HREF,
     icon: "M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9c.3.6.9 1 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z",
   },
 ];
@@ -102,7 +96,7 @@ export function QuickActions(): JSX.Element {
       </header>
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
-        {ACTIONS.map((action) => (
+        {DASHBOARD_QUICK_ACTIONS.map((action) => (
           <Link
             key={action.id}
             href={action.href}

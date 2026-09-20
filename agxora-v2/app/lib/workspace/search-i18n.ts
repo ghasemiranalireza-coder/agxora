@@ -14,26 +14,6 @@ const ACTION_KEYS: Record<string, LabelKeys> = {
     titleKey: "dashboard.search.actions.createInvoice.title",
     subtitleKey: "dashboard.search.actions.createInvoice.subtitle",
   },
-  "action-upload-document": {
-    titleKey: "dashboard.search.actions.uploadDocument.title",
-    subtitleKey: "dashboard.search.actions.uploadDocument.subtitle",
-  },
-  "action-new-workflow": {
-    titleKey: "dashboard.search.actions.newWorkflow.title",
-    subtitleKey: "dashboard.search.actions.newWorkflow.subtitle",
-  },
-  "action-new-project": {
-    titleKey: "dashboard.search.actions.newProject.title",
-    subtitleKey: "dashboard.search.actions.newProject.subtitle",
-  },
-  "action-invite-member": {
-    titleKey: "dashboard.search.actions.inviteMember.title",
-    subtitleKey: "dashboard.search.actions.inviteMember.subtitle",
-  },
-  "action-open-billing": {
-    titleKey: "dashboard.search.actions.openBilling.title",
-    subtitleKey: "dashboard.search.actions.openBilling.subtitle",
-  },
   "action-open-settings": {
     titleKey: "dashboard.search.actions.openSettings.title",
     subtitleKey: "dashboard.search.actions.openSettings.subtitle",
@@ -46,48 +26,20 @@ const COMMAND_KEYS: Record<string, LabelKeys> = {
     subtitleKey: "dashboard.search.commands.openCrm.subtitle",
   },
   "cmd-open-customers": {
-    titleKey: "dashboard.search.commands.openCustomers.title",
-    subtitleKey: "dashboard.search.commands.openCustomers.subtitle",
+    titleKey: "dashboard.search.commands.openCrm.title",
+    subtitleKey: "dashboard.search.commands.openCrm.subtitle",
   },
   "cmd-open-finance": {
     titleKey: "dashboard.search.commands.openFinance.title",
     subtitleKey: "dashboard.search.commands.openFinance.subtitle",
   },
-  "cmd-open-documents": {
-    titleKey: "dashboard.search.commands.openDocuments.title",
-    subtitleKey: "dashboard.search.commands.openDocuments.subtitle",
-  },
-  "cmd-open-automation": {
-    titleKey: "dashboard.search.commands.openAutomation.title",
-    subtitleKey: "dashboard.search.commands.openAutomation.subtitle",
-  },
   "cmd-open-settings": {
     titleKey: "dashboard.search.commands.openSettings.title",
     subtitleKey: "dashboard.search.commands.openSettings.subtitle",
   },
-  "cmd-open-projects": {
-    titleKey: "dashboard.search.commands.openProjects.title",
-    subtitleKey: "dashboard.search.commands.openProjects.subtitle",
-  },
-  "cmd-open-ai": {
-    titleKey: "dashboard.search.commands.openAi.title",
-    subtitleKey: "dashboard.search.commands.openAi.subtitle",
-  },
-  "cmd-open-analytics": {
-    titleKey: "dashboard.search.commands.openAnalytics.title",
-    subtitleKey: "dashboard.search.commands.openAnalytics.subtitle",
-  },
-  "cmd-open-identity": {
-    titleKey: "dashboard.search.commands.openIdentity.title",
-    subtitleKey: "dashboard.search.commands.openIdentity.subtitle",
-  },
-  "cmd-open-billing": {
-    titleKey: "dashboard.search.commands.openBilling.title",
-    subtitleKey: "dashboard.search.commands.openBilling.subtitle",
-  },
-  "cmd-open-integrations": {
-    titleKey: "dashboard.search.commands.openIntegrations.title",
-    subtitleKey: "dashboard.search.commands.openIntegrations.subtitle",
+  "cmd-open-agents": {
+    titleKey: "navigation.agents",
+    subtitleKey: "dashboard.quickActions.askAi.description",
   },
 };
 

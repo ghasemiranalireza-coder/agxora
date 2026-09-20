@@ -137,7 +137,7 @@ export function ActivityFeed({
           </p>
           <div className="flex flex-wrap gap-2">
             <Link
-              href="/dashboard/customers"
+              href="/dashboard/crm"
               className="rounded-xl border px-3 py-2 text-xs font-semibold no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
               style={{
                 borderColor: "color-mix(in srgb, var(--agx-accent, #22d3ee) 40%, transparent)",
@@ -148,7 +148,7 @@ export function ActivityFeed({
               {t("dashboard.activity.addCustomer")}
             </Link>
             <Link
-              href="/dashboard/projects"
+              href="/dashboard/finance"
               className="rounded-xl border px-3 py-2 text-xs font-semibold no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
               style={{
                 borderColor: tokens.panelBorder,
@@ -156,7 +156,7 @@ export function ActivityFeed({
                 outlineColor: "var(--agx-accent, #22d3ee)",
               }}
             >
-              {t("dashboard.activity.newProject")}
+              {t("dashboard.quickActions.finance.label")}
             </Link>
           </div>
         </div>

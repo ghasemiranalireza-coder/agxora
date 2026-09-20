@@ -4,9 +4,13 @@ import { useEffect, useMemo, type JSX } from "react";
 import { ChatPanel } from "../ChatPanel";
 import { useLocale } from "../../lib/i18n";
 import { useOrganization } from "../../lib/organization";
-import { customerStore, useCustomerStore } from "../../lib/customers";
-import { projectStore, useProjectStore } from "../../lib/projects";
+import { crmStore, useCrmStore } from "../../lib/crm/directory";
 import { useRecentActivity } from "../../lib/backend/hooks";
+import {
+  FIRST_CUSTOMER_AGENTS_HREF,
+  FIRST_CUSTOMER_CUSTOMER_HREF,
+  FIRST_CUSTOMER_FINANCE_HREF,
+} from "../../lib/workspace/firstCustomerSurface";
 import { ActivityFeed } from "./ActivityFeed";
 import { AttentionPanel, type AttentionItem } from "./AttentionPanel";
 import { BusinessOverview } from "./BusinessOverview";
@@ -26,32 +30,30 @@ export function DashboardHome(): JSX.Element {
   const { t } = useLocale();
   const { organization } = useOrganization();
   const organizationId = organization?.id ?? LOCAL_ORG_FALLBACK;
-  const customers = useCustomerStore();
-  const projects = useProjectStore();
+  const crm = useCrmStore();
   const activity = useRecentActivity();
 
   useEffect(() => {
-    void customerStore.hydrate(organizationId);
-    void projectStore.hydrate(organizationId);
+    void crmStore.hydrate(organizationId);
   }, [organizationId]);
 
   const attention = useMemo((): readonly AttentionItem[] => {
     const items: AttentionItem[] = [];
-    if (customers.hydrated && customers.items.length === 0) {
+    if (crm.hydrated && crm.items.length === 0) {
       items.push({
         id: "customers",
         title: t("dashboard.attention.addCustomer.title"),
         detail: t("dashboard.attention.addCustomer.detail"),
-        href: "/dashboard/customers",
+        href: FIRST_CUSTOMER_CUSTOMER_HREF,
         tone: "action",
       });
     }
-    if (projects.hydrated && projects.items.length === 0) {
+    if (items.length < 3) {
       items.push({
-        id: "projects",
-        title: t("dashboard.attention.createProject.title"),
-        detail: t("dashboard.attention.createProject.detail"),
-        href: "/dashboard/projects",
+        id: "finance",
+        title: t("dashboard.quickActions.finance.label"),
+        detail: t("dashboard.quickActions.finance.description"),
+        href: FIRST_CUSTOMER_FINANCE_HREF,
         tone: "action",
       });
     }
@@ -60,28 +62,12 @@ export function DashboardHome(): JSX.Element {
         id: "explore",
         title: t("dashboard.attention.exploreAi.title"),
         detail: t("dashboard.attention.exploreAi.detail"),
-        href: "#agx-command-center",
-        tone: "info",
-      });
-    }
-    if (items.length < 3) {
-      items.push({
-        id: "billing",
-        title: t("dashboard.attention.reviewBilling.title"),
-        detail: t("dashboard.attention.reviewBilling.detail"),
-        href: "/dashboard/billing",
+        href: FIRST_CUSTOMER_AGENTS_HREF,
         tone: "info",
       });
     }
     return items.slice(0, 3);
-  }, [
-    customers.hydrated,
-    customers.items.length,
-    projects.hydrated,
-    projects.items.length,
-    activity.length,
-    t,
-  ]);
+  }, [activity.length, crm.hydrated, crm.items.length, t]);
 
   const summary = useMemo(() => {
     const today = activity.filter((row) => {
@@ -96,17 +82,11 @@ export function DashboardHome(): JSX.Element {
     const name = organization?.name ?? t("dashboard.overview.fallbackName");
     return t("dashboard.summary", {
       name,
-      customers: customers.items.length,
-      projects: projects.items.length,
+      customers: crm.items.length,
+      projects: 0,
       updates: today,
     });
-  }, [
-    activity,
-    customers.items.length,
-    organization?.name,
-    projects.items.length,
-    t,
-  ]);
+  }, [activity, crm.items.length, organization?.name, t]);
 
   return (
     <div className="agx-dashboard-home">

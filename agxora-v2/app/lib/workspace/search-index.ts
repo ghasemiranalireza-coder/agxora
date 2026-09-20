@@ -5,14 +5,22 @@
  */
 
 import { SAAS_MODULES } from "../saas/modules";
+import {
+  FIRST_CUSTOMER_AGENTS_HREF,
+  FIRST_CUSTOMER_CUSTOMER_HREF,
+  FIRST_CUSTOMER_FINANCE_HREF,
+  FIRST_CUSTOMER_SEARCH_MODULE_KEYS,
+  FIRST_CUSTOMER_SETTINGS_HREF,
+  isFirstCustomerSearchHrefAllowed,
+} from "./firstCustomerSurface";
 import type { QuickAction, RecentActivityItem, SearchResult } from "./types";
 
 export const QUICK_ACTIONS: readonly QuickAction[] = [
   {
     id: "action-create-customer",
     title: "Create Customer",
-    subtitle: "Open Customers to add a record",
-    href: "/dashboard/customers",
+    subtitle: "Open CRM to add a real customer record",
+    href: FIRST_CUSTOMER_CUSTOMER_HREF,
     keywords: ["create", "customer", "crm", "new"],
   },
   {
@@ -23,45 +31,10 @@ export const QUICK_ACTIONS: readonly QuickAction[] = [
     keywords: ["create", "invoice", "finance", "billing"],
   },
   {
-    id: "action-upload-document",
-    title: "Upload Document",
-    subtitle: "Open Documents Knowledge Hub",
-    href: "/dashboard/documents",
-    keywords: ["upload", "document", "file", "knowledge"],
-  },
-  {
-    id: "action-new-workflow",
-    title: "New Workflow",
-    subtitle: "Open Automation Engine builder",
-    href: "/dashboard/automation",
-    keywords: ["workflow", "automation", "new"],
-  },
-  {
-    id: "action-new-project",
-    title: "New Project",
-    subtitle: "Open Projects workspace",
-    href: "/dashboard/projects",
-    keywords: ["project", "new"],
-  },
-  {
-    id: "action-invite-member",
-    title: "Invite Team Member",
-    subtitle: "Open Team invitations",
-    href: "/dashboard/team",
-    keywords: ["invite", "team", "member"],
-  },
-  {
-    id: "action-open-billing",
-    title: "Open Billing",
-    subtitle: "Plans, invoices, and subscription",
-    href: "/dashboard/billing",
-    keywords: ["billing", "subscription", "plan"],
-  },
-  {
     id: "action-open-settings",
     title: "Open Settings",
     subtitle: "Workspace preferences",
-    href: "/dashboard/settings",
+    href: FIRST_CUSTOMER_SETTINGS_HREF,
     keywords: ["settings", "preferences"],
   },
 ];
@@ -73,17 +46,17 @@ export const COMMAND_ENTRIES: readonly SearchResult[] = [
     group: "commands",
     title: "Open CRM",
     subtitle: "AI CRM module",
-    href: "/dashboard/crm",
+    href: FIRST_CUSTOMER_CUSTOMER_HREF,
     keywords: ["open", "crm", "customers"],
   },
   {
     id: "cmd-open-customers",
     kind: "module",
     group: "commands",
-    title: "Open Customers",
-    subtitle: "Customer management",
-    href: "/dashboard/customers",
-    keywords: ["open", "customers", "accounts"],
+    title: "Open CRM",
+    subtitle: "Real customer records in CRM",
+    href: FIRST_CUSTOMER_CUSTOMER_HREF,
+    keywords: ["open", "customers", "accounts", "crm"],
   },
   {
     id: "cmd-open-finance",
@@ -91,26 +64,8 @@ export const COMMAND_ENTRIES: readonly SearchResult[] = [
     group: "commands",
     title: "Open Finance",
     subtitle: "Finance & Tax module",
-    href: "/dashboard/finance",
+    href: FIRST_CUSTOMER_FINANCE_HREF,
     keywords: ["open", "finance", "tax"],
-  },
-  {
-    id: "cmd-open-documents",
-    kind: "module",
-    group: "commands",
-    title: "Open Documents",
-    subtitle: "Knowledge Hub",
-    href: "/dashboard/documents",
-    keywords: ["open", "documents", "knowledge"],
-  },
-  {
-    id: "cmd-open-automation",
-    kind: "module",
-    group: "commands",
-    title: "Open Automation",
-    subtitle: "Workflow engine",
-    href: "/dashboard/automation",
-    keywords: ["open", "automation", "workflow"],
   },
   {
     id: "cmd-open-settings",
@@ -118,62 +73,17 @@ export const COMMAND_ENTRIES: readonly SearchResult[] = [
     group: "commands",
     title: "Open Settings",
     subtitle: "Workspace settings",
-    href: "/dashboard/settings",
+    href: FIRST_CUSTOMER_SETTINGS_HREF,
     keywords: ["open", "settings"],
   },
   {
-    id: "cmd-open-projects",
+    id: "cmd-open-agents",
     kind: "module",
     group: "commands",
-    title: "Open Projects",
-    subtitle: "Project portfolio",
-    href: "/dashboard/projects",
-    keywords: ["open", "projects"],
-  },
-  {
-    id: "cmd-open-ai",
-    kind: "module",
-    group: "commands",
-    title: "Open AI",
-    subtitle: "AI platform workspace",
-    href: "/dashboard/ai",
-    keywords: ["open", "ai", "assistant"],
-  },
-  {
-    id: "cmd-open-analytics",
-    kind: "module",
-    group: "commands",
-    title: "Open Analytics",
-    subtitle: "Intelligence center",
-    href: "/dashboard/analytics",
-    keywords: ["open", "analytics", "intelligence"],
-  },
-  {
-    id: "cmd-open-identity",
-    kind: "module",
-    group: "commands",
-    title: "Open Identity & Access",
-    subtitle: "IAM settings, RBAC, audit",
-    href: "/dashboard/identity",
-    keywords: ["open", "identity", "iam", "rbac", "security", "audit"],
-  },
-  {
-    id: "cmd-open-billing",
-    kind: "module",
-    group: "commands",
-    title: "Open Billing",
-    subtitle: "Subscription portal & plans",
-    href: "/dashboard/billing",
-    keywords: ["open", "billing", "subscription", "plans"],
-  },
-  {
-    id: "cmd-open-integrations",
-    kind: "module",
-    group: "commands",
-    title: "Open Integrations",
-    subtitle: "Integration Center & API ecosystem",
-    href: "/dashboard/integrations",
-    keywords: ["open", "integrations", "connectors", "webhooks", "oauth", "api"],
+    title: "Open Agents",
+    subtitle: "Agent operating system",
+    href: FIRST_CUSTOMER_AGENTS_HREF,
+    keywords: ["open", "agents", "ai", "operations"],
   },
 ];
 
@@ -182,9 +92,12 @@ let cachedIndex: readonly SearchResult[] | null = null;
 export function buildSearchIndex(): readonly SearchResult[] {
   if (cachedIndex) return cachedIndex;
 
+  const allowedModules = new Set<string>(FIRST_CUSTOMER_SEARCH_MODULE_KEYS);
   const results: SearchResult[] = [];
 
   for (const mod of SAAS_MODULES) {
+    if (!allowedModules.has(mod.key)) continue;
+    if (!isFirstCustomerSearchHrefAllowed(mod.href)) continue;
     results.push({
       id: `module-${mod.key}`,
       kind: "module",
@@ -199,6 +112,7 @@ export function buildSearchIndex(): readonly SearchResult[] {
   }
 
   for (const action of QUICK_ACTIONS) {
+    if (!isFirstCustomerSearchHrefAllowed(action.href)) continue;
     results.push({
       id: action.id,
       kind: "action",
@@ -213,6 +127,7 @@ export function buildSearchIndex(): readonly SearchResult[] {
   }
 
   for (const cmd of COMMAND_ENTRIES) {
+    if (!isFirstCustomerSearchHrefAllowed(cmd.href)) continue;
     results.push(cmd);
   }
 
