@@ -17,13 +17,14 @@ export function getEmailProviderId(): EmailProviderIdName {
 
 /**
  * Production transactional email is configured only when the HTTP worker
- * URL and bearer token are both present. console/memory/none are not
- * production delivery paths.
+ * HTTPS URL and bearer token are both present. console/memory/none and
+ * plaintext http:// worker URLs are not production delivery paths.
  */
 export function isHttpEmailDeliveryConfigured(): boolean {
+  const url = process.env.AGXORA_EMAIL_HTTP_URL?.trim() ?? "";
   return (
     getEmailProviderId() === "http" &&
-    Boolean(process.env.AGXORA_EMAIL_HTTP_URL?.trim()) &&
+    /^https:\/\//i.test(url) &&
     Boolean(process.env.AGXORA_EMAIL_HTTP_TOKEN?.trim())
   );
 }

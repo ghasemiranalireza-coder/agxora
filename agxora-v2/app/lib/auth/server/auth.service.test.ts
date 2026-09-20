@@ -4,6 +4,7 @@
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import { PrismaClient } from "@prisma/client";
+import { POST as forgotPasswordRoute } from "@/app/api/v1/auth/forgot-password/route";
 import {
   getActorBySessionToken,
 } from "@/app/lib/tenancy/actor";
@@ -490,6 +491,55 @@ describe("Phase 43 password reset", () => {
     expect(missing.ok).toBe(true);
     expect(present.ok).toBe(true);
     expect(missing.delivery).toBe(present.delivery);
+  });
+
+  it("forgot-password HTTP JSON does not reveal existence, delivery, or tokens", async () => {
+    const previousExpose = process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN;
+    delete process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN;
+    try {
+      await registerWithPassword({
+        email: "present-http@agxora.test",
+        password: "SecurePass1!",
+        displayName: "Present HTTP",
+      });
+      setEmailProviderForTests(memoryEmailProvider);
+      resetMemoryEmailOutbox();
+
+      const missing = await forgotPasswordRoute(
+        new Request("http://localhost/api/v1/auth/forgot-password", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ email: "nobody-http@agxora.test" }),
+        }),
+      );
+      const present = await forgotPasswordRoute(
+        new Request("http://localhost/api/v1/auth/forgot-password", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ email: "present-http@agxora.test" }),
+        }),
+      );
+
+      expect(missing.status).toBe(200);
+      expect(present.status).toBe(200);
+      const missingJson = (await missing.json()) as Record<string, unknown>;
+      const presentJson = (await present.json()) as Record<string, unknown>;
+      expect(missingJson).toEqual(presentJson);
+      expect(missingJson).toEqual({
+        ok: true,
+        message:
+          "If an account exists for this email, a reset link will be sent when email delivery is configured.",
+      });
+      expect(JSON.stringify(presentJson)).not.toContain("delivery");
+      expect(JSON.stringify(presentJson)).not.toContain("resetToken");
+      expect(listMemoryEmailOutbox()).toHaveLength(1);
+    } finally {
+      if (previousExpose === undefined) {
+        delete process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN;
+      } else {
+        process.env.AGXORA_AUTH_EXPOSE_RESET_TOKEN = previousExpose;
+      }
+    }
   });
 });
 

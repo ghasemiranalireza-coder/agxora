@@ -124,6 +124,31 @@ describe("Phase 45 email delivery contract", () => {
     expect(getEmailProvider().id).toBe("http");
   });
 
+  it("does not treat plaintext HTTP worker URLs as production-configured", () => {
+    process.env.AGXORA_EMAIL_PROVIDER = "http";
+    process.env.AGXORA_EMAIL_HTTP_URL = "http://127.0.0.1:8787/send";
+    process.env.AGXORA_EMAIL_HTTP_TOKEN = "worker-token";
+    expect(isHttpEmailDeliveryConfigured()).toBe(false);
+    expect(getEmailProvider().id).toBe("http");
+  });
+
+  it("does not log recipients or action URLs on failed handoff", async () => {
+    const spy = vi.spyOn(console, "error").mockImplementation(() => undefined);
+    setEmailProviderForTests(memoryEmailProvider);
+    forceMemoryEmailFailure("boom");
+    await deliverEmail(
+      buildPasswordResetEmail({
+        to: "secret-user@test.dev",
+        rawToken: "reset-secret",
+      }),
+    );
+    const serialized = JSON.stringify(spy.mock.calls);
+    expect(serialized).not.toContain("secret-user@test.dev");
+    expect(serialized).not.toContain("reset-secret");
+    expect(serialized).not.toContain("/reset-password");
+    spy.mockRestore();
+  });
+
   it("HTTP provider posts the existing payload with bearer auth", async () => {
     const fetchMock = vi.fn(async () => {
       return new Response(JSON.stringify({ id: "msg_1" }), {

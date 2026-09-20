@@ -185,7 +185,7 @@ export function evaluateFirstCustomerProductionGate(
     issues.push({
       code: "email_provider",
       message:
-        "AGXORA_EMAIL_PROVIDER must be http with AGXORA_EMAIL_HTTP_URL and AGXORA_EMAIL_HTTP_TOKEN in production (transactional auth email required)",
+        "AGXORA_EMAIL_PROVIDER must be http with HTTPS AGXORA_EMAIL_HTTP_URL and AGXORA_EMAIL_HTTP_TOKEN in production (transactional auth email required)",
     });
   }
   if (snapshot.useMocks) {
