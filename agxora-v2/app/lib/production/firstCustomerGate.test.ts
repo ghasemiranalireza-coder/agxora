@@ -30,6 +30,7 @@ const VALID_PROD: FirstCustomerModeSnapshot = {
   crmPersistence: "database",
   agentOsPersistence: "server",
   emailProvider: "http",
+  emailDeliveryConfigured: true,
   useMocks: false,
 };
 
@@ -45,6 +46,7 @@ const envKeys = [
   "NEXT_PUBLIC_AGXORA_SITE_URL",
   "NEXT_PUBLIC_AGXORA_VERSION",
   "NEXT_PUBLIC_AGXORA_DATA_PROVIDER",
+  "AGXORA_EMAIL_HTTP_URL",
   "AGXORA_EMAIL_HTTP_TOKEN",
   "DATABASE_URL",
 ] as const;
@@ -105,6 +107,13 @@ describe("Phase 57 first-customer production gate", () => {
       "agent_os_persistence",
     ],
     ["email none", { emailProvider: "none" as const }, "email_provider"],
+    ["email console", { emailProvider: "console" as const }, "email_provider"],
+    ["email memory", { emailProvider: "memory" as const }, "email_provider"],
+    [
+      "http without worker",
+      { emailProvider: "http" as const, emailDeliveryConfigured: false },
+      "email_provider",
+    ],
     ["mocks true", { useMocks: true }, "mocks_enabled"],
     ["auth not required", { authRequired: false }, "auth_required"],
   ])("fails production when %s", (_label, patch, code) => {
@@ -199,7 +208,9 @@ describe("Phase 57 health / readiness", () => {
     process.env.NEXT_PUBLIC_AGXORA_AUTH_MODE = "server";
     process.env.NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE = "database";
     process.env.NEXT_PUBLIC_AGXORA_AGENT_OS_PERSISTENCE = "server";
-    process.env.AGXORA_EMAIL_PROVIDER = "console";
+    process.env.AGXORA_EMAIL_PROVIDER = "http";
+    process.env.AGXORA_EMAIL_HTTP_URL = "https://email-worker.example/send";
+    process.env.AGXORA_EMAIL_HTTP_TOKEN = "test-worker-token";
     process.env.AGXORA_USE_MOCKS = "false";
     process.env.NEXT_PUBLIC_AGXORA_SITE_URL = "https://agxora.app";
     process.env.NEXT_PUBLIC_AGXORA_VERSION = "0.39.0";
@@ -210,6 +221,16 @@ describe("Phase 57 health / readiness", () => {
     expect(payload.productionGate.emailConfigured).toBe(true);
     expect(payload.status).not.toBe("not_ready");
     expect(assertProdEnv().some((w) => /EMAIL_PROVIDER/.test(w))).toBe(false);
+    expect(JSON.stringify(payload)).not.toContain("test-worker-token");
+  });
+
+  it("console email provider is not production-ready", () => {
+    const result = evaluateFirstCustomerProductionGate({
+      ...VALID_PROD,
+      emailProvider: "console",
+    });
+    expect(result.ready).toBe(false);
+    expect(result.issues.some((i) => i.code === "email_provider")).toBe(true);
   });
 
   it("email provider none fails production readiness", () => {

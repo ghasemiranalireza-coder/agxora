@@ -641,7 +641,7 @@ describe("Phase 66.0 async publish operations completion", () => {
       authMode: "server",
       crmPersistence: "database",
       agentOsPersistence: "server",
-      emailProvider: "resend",
+      emailProvider: "http",
       useMocks: false,
     });
     expect(gate.ready).toBe(true);

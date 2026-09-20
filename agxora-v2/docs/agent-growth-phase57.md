@@ -26,7 +26,7 @@ When `NEXT_PUBLIC_AGXORA_ENV=production` (or `NODE_ENV=production`), require:
 | Auth mode | `server` |
 | `NEXT_PUBLIC_AGXORA_CRM_PERSISTENCE` | `database` |
 | `NEXT_PUBLIC_AGXORA_AGENT_OS_PERSISTENCE` | `server` |
-| `AGXORA_EMAIL_PROVIDER` | not `none` |
+| `AGXORA_EMAIL_PROVIDER` | `http` with `AGXORA_EMAIL_HTTP_URL` + `AGXORA_EMAIL_HTTP_TOKEN` |
 | `AGXORA_USE_MOCKS` | `false` |
 
 Invalid mixed combinations (also rejected in production):
@@ -69,8 +69,10 @@ Local demo may still mint a temporary `org_*` id when auth is local.
 
 ## Auth email requirement
 
-Production requires transactional auth email (`AGXORA_EMAIL_PROVIDER != none`)
-for verification, invite, and password reset flows.
+Production requires transactional auth email via the HTTP worker
+(`AGXORA_EMAIL_PROVIDER=http` with URL + token) for verification, invite, and
+password reset flows. `console` / `memory` / `none` keep `productionGate.ready`
+false.
 
 **Not in scope:** outbound CRM sales/follow-up email, marketing email, OAuth.
 
