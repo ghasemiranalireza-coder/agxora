@@ -219,4 +219,34 @@ describe("AGXORA email worker", () => {
     expect(JSON.stringify(body)).not.toContain("re_test");
     expect(JSON.stringify(body)).not.toContain(TOKEN);
   });
+
+  it("accepts invitation, password_reset, email_verification, and ownership_transfer", async () => {
+    const kinds = [
+      "invitation",
+      "password_reset",
+      "email_verification",
+      "ownership_transfer",
+    ] as const;
+    for (const kind of kinds) {
+      const response = await postSend(
+        payload({
+          kind,
+          actionUrl: `https://agxora.de/${kind}?token=one-time-secret`,
+        }),
+      );
+      expect(response.status).toBe(200);
+      await expect(response.json()).resolves.toEqual({ ok: true, id: "msg_1" });
+    }
+  });
+
+  it("returns 503 when Resend is selected but RESEND_API_KEY is missing", async () => {
+    const response = await postSend(payload(), {
+      env: { RESEND_API_KEY: "" },
+    });
+    expect(response.status).toBe(503);
+    await expect(response.json()).resolves.toEqual({
+      ok: false,
+      error: "esp_not_configured",
+    });
+  });
 });
