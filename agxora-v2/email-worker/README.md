@@ -94,6 +94,39 @@ for the ESP to mark the domain verified, then send a test.
 
 Until the ESP shows the domain as verified, do not claim email is production-ready.
 
+## Deploy (separate Vercel project)
+
+`src/server.ts` is a persistent Node HTTP server (`listen()`). Vercel cannot
+run that entrypoint. The **same** `handleEmailWorkerRequest` is exposed through
+`api/*.ts` for a **separate** Vercel project. Do not add this worker to the
+main AGXORA Vercel project. Do not set `DATABASE_URL` here.
+
+1. In Vercel → Add New Project → this GitHub repo.
+2. Project name: `agxora-email-worker`
+3. Root Directory: `agxora-v2/email-worker`
+4. Framework Preset: Other
+5. Production environment variables (enter in the Vercel UI, never in Git):
+
+```
+EMAIL_WORKER_ESP=resend
+RESEND_API_KEY=
+EMAIL_WORKER_TOKEN=
+EMAIL_WORKER_ALLOWED_FROM=noreply@agxora.de
+```
+
+Generate `EMAIL_WORKER_TOKEN` in the Vercel UI (random bearer). It must differ
+from `RESEND_API_KEY`. Later, the AGXORA app uses the same value as
+`AGXORA_EMAIL_HTTP_TOKEN`. Do not put `RESEND_API_KEY` on the AGXORA project.
+
+After deploy, confirm:
+
+- `GET https://<vercel-host>/health` → HTTP 200
+- `POST https://<vercel-host>/send` without Authorization → 401
+
+Do not change `agxora.de` DNS for the first deploy. The Vercel HTTPS hostname
+is enough. Do not enable AGXORA `AGXORA_EMAIL_PROVIDER=http` until that URL
+is confirmed.
+
 ## Run locally
 
 ```bash
