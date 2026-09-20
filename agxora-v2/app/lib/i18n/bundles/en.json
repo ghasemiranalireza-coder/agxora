@@ -46,7 +46,8 @@
   "navigation": {
     "dashboard": "Dashboard",
     "projects": "Projects",
-    "aiCrm": "AI CRM",
+    "aiCrm": "CRM",
+    "agents": "Agents",
     "analytics": "Analytics",
     "billing": "Billing",
     "aiWorkspace": "AI Workspace",
@@ -845,15 +846,15 @@
       "ariaLabel": "Quick actions",
       "addCustomer": {
         "label": "Add customer",
-        "description": "Create a CRM record"
+        "description": "Create a real customer in CRM"
       },
       "newProject": {
         "label": "New project",
         "description": "Start a delivery track"
       },
       "askAi": {
-        "label": "Ask AI",
-        "description": "Open the AI workspace"
+        "label": "Open Agents",
+        "description": "Open the Agent operating system"
       },
       "finance": {
         "label": "Finance",
@@ -880,8 +881,8 @@
         "action": "Do next"
       },
       "addCustomer": {
-        "title": "Add your first customer",
-        "detail": "Start the CRM with a real account record."
+        "title": "Add your first customer in CRM",
+        "detail": "Real customers live in CRM and can be used on invoices."
       },
       "createProject": {
         "title": "Create a project",
@@ -908,8 +909,8 @@
         "title": "Active customers",
         "captionEmpty": "No active customers yet",
         "captionTotal": "{count} total in workspace",
-        "add": "Add customer",
-        "view": "View customers"
+        "add": "Add in CRM",
+        "view": "Open CRM"
       },
       "projects": {
         "title": "Projects",
@@ -926,8 +927,8 @@
       },
       "revenue": {
         "title": "Revenue",
-        "caption": "Connect billing to show MRR",
-        "openBilling": "Open billing"
+        "caption": "Finance documents use real CRM customers",
+        "openBilling": "Open Finance"
       },
       "clientShell": {
         "title": "Client shell",
@@ -949,8 +950,8 @@
       "localBadge": "Local",
       "emptyTitle": "No activity yet",
       "emptyBody": "Workspace events will appear here as you add customers, projects, and more.",
-      "addCustomer": "Add customer",
-      "newProject": "New project",
+      "addCustomer": "Open CRM",
+      "newProject": "Open Finance",
       "kind": {
         "customer": "Customer",
         "project": "Project",
@@ -1067,7 +1068,7 @@
       "actions": {
         "createCustomer": {
           "title": "Create Customer",
-          "subtitle": "Open Customers to add a record"
+          "subtitle": "Open CRM to add a real customer record"
         },
         "createInvoice": {
           "title": "Create Invoice",

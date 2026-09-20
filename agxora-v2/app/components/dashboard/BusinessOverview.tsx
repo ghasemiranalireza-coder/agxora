@@ -4,9 +4,9 @@ import { useEffect, useMemo, useState, type JSX } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { formatNumber, useLocale } from "../../lib/i18n";
 import { useOrganization } from "../../lib/organization";
-import { customerStore, useCustomerStore } from "../../lib/customers";
-import { projectStore, useProjectStore } from "../../lib/projects";
+import { crmStore, useCrmStore } from "../../lib/crm/directory";
 import { useRecentActivity } from "../../lib/backend/hooks";
+import { FIRST_CUSTOMER_CUSTOMER_HREF, FIRST_CUSTOMER_FINANCE_HREF } from "../../lib/workspace/firstCustomerSurface";
 import {
   MetricCard,
   MetricCardSkeleton,
@@ -59,18 +59,14 @@ export function BusinessOverview(): JSX.Element {
   const { t, locale } = useLocale();
   const { organization } = useOrganization();
   const organizationId = organization?.id ?? LOCAL_ORG_FALLBACK;
-  const customers = useCustomerStore();
-  const projects = useProjectStore();
+  const crm = useCrmStore();
   const activity = useRecentActivity();
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
     void (async () => {
-      await Promise.all([
-        customerStore.hydrate(organizationId),
-        projectStore.hydrate(organizationId),
-      ]);
+      await crmStore.hydrate(organizationId);
       if (!cancelled) setReady(true);
     })();
     return () => {
@@ -79,10 +75,9 @@ export function BusinessOverview(): JSX.Element {
   }, [organizationId]);
 
   const activeCustomers = useMemo(
-    () => customers.items.filter((row) => row.status === "active").length,
-    [customers.items],
+    () => crm.items.filter((row) => row.status === "active").length,
+    [crm.items],
   );
-  const projectCount = projects.items.length;
   const todayActivity = useMemo(() => {
     const start = new Date();
     start.setHours(0, 0, 0, 0);
@@ -98,10 +93,10 @@ export function BusinessOverview(): JSX.Element {
           activeCustomers === 0
             ? t("dashboard.overview.activeClients.captionEmpty")
             : t("dashboard.overview.activeClients.captionTotal", {
-                count: formatNumber(customers.items.length, locale),
+                count: formatNumber(crm.items.length, locale),
               }),
         icon: <Icon path={ICON_PATHS.clients} />,
-        href: "/dashboard/customers",
+        href: FIRST_CUSTOMER_CUSTOMER_HREF,
         actionLabel:
           activeCustomers === 0
             ? t("dashboard.overview.activeClients.add")
@@ -109,17 +104,9 @@ export function BusinessOverview(): JSX.Element {
       },
       {
         title: t("dashboard.overview.projects.title"),
-        value: formatNumber(projectCount, locale),
-        caption:
-          projectCount === 0
-            ? t("dashboard.overview.projects.captionEmpty")
-            : t("dashboard.overview.projects.captionOpen"),
+        value: t("dashboard.overview.emDash"),
+        caption: t("dashboard.overview.projects.captionEmpty"),
         icon: <Icon path={ICON_PATHS.projects} />,
-        href: "/dashboard/projects",
-        actionLabel:
-          projectCount === 0
-            ? t("dashboard.overview.projects.create")
-            : t("dashboard.overview.projects.open"),
       },
       {
         title: t("dashboard.overview.activityToday.title"),
@@ -137,7 +124,7 @@ export function BusinessOverview(): JSX.Element {
         value: t("dashboard.overview.emDash"),
         caption: t("dashboard.overview.revenue.caption"),
         icon: <Icon path={ICON_PATHS.revenue} />,
-        href: "/dashboard/billing",
+        href: FIRST_CUSTOMER_FINANCE_HREF,
         actionLabel: t("dashboard.overview.revenue.openBilling"),
       },
       {
@@ -164,18 +151,9 @@ export function BusinessOverview(): JSX.Element {
         value: t("dashboard.overview.emDash"),
         caption: t("dashboard.overview.growth.caption"),
         icon: <Icon path={ICON_PATHS.growth} />,
-        href: "/dashboard/analytics",
-        actionLabel: t("dashboard.overview.growth.openAnalytics"),
       },
     ],
-    [
-      activeCustomers,
-      customers.items.length,
-      locale,
-      projectCount,
-      t,
-      todayActivity,
-    ],
+    [activeCustomers, crm.items.length, locale, t, todayActivity],
   );
 
   const workspaceName =

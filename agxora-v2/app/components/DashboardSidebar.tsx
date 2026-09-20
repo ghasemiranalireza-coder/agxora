@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState, type JSX } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
 import { useT } from "../lib/i18n";
+import { PRIMARY_NAV_ITEMS } from "../lib/workspace/firstCustomerSurface";
 
 const surfaceTransition = [
   `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
@@ -35,88 +36,7 @@ function NavIcon({ path }: { readonly path: string }): JSX.Element {
   );
 }
 
-const NAV_ITEMS = [
-  {
-    labelKey: "navigation.dashboard",
-    href: "/dashboard",
-    path: "M3 12l9-9 9 9 M5 10v9a1 1 0 0 0 1 1h3m6 0h3a1 1 0 0 0 1-1v-9 M9 20v-6h6v6",
-  },
-  {
-    labelKey: "navigation.projects",
-    href: "/dashboard/projects",
-    path: "M4 5h16 M4 12h16 M4 19h10",
-  },
-  {
-    labelKey: "navigation.aiCrm",
-    href: "/dashboard/crm",
-    path: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
-  },
-  {
-    labelKey: "navigation.analytics",
-    href: "/dashboard/analytics",
-    path: "M4 19V5 M10 19V9 M16 19v-6 M22 19V7",
-  },
-  {
-    labelKey: "navigation.billing",
-    href: "/dashboard/billing",
-    path: "M4 6h16v12H4Z M4 10h16 M8 14h4",
-  },
-  {
-    labelKey: "navigation.aiWorkspace",
-    href: "/dashboard/ai",
-    path: "M12 3v3 M12 18v3 M3 12h3 M18 12h3 M5.6 5.6l2.1 2.1 M16.3 16.3l2.1 2.1 M5.6 18.4l2.1-2.1 M16.3 7.7l2.1-2.1 M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z",
-  },
-  {
-    labelKey: "navigation.integrations",
-    href: "/dashboard/integrations",
-    path: "M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71",
-  },
-  {
-    labelKey: "navigation.social",
-    href: "/dashboard/social",
-    path: "M4 12v8h16v-8 M8 12V7a4 4 0 0 1 8 0v5",
-  },
-  {
-    labelKey: "navigation.email",
-    href: "/dashboard/email",
-    path: "M4 6h16v12H4Z M4 6l8 7 8-7",
-  },
-  {
-    labelKey: "navigation.customers",
-    href: "/dashboard/customers",
-    path: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
-  },
-  {
-    labelKey: "navigation.automation",
-    href: "/dashboard/automation",
-    path: "M12 3a4 4 0 0 1 4 4v1h1a3 3 0 0 1 0 6h-.5 M8 8V7a4 4 0 0 1 4-4 M7 14h.5A3 3 0 0 1 7 8h1m4 12v-3m-4 3h8",
-  },
-  {
-    labelKey: "navigation.financeTax",
-    href: "/dashboard/finance",
-    path: "M3 21h18 M5 21V10l7-5 7 5v11 M9 21v-6h6v6 M12 5v2",
-  },
-  {
-    labelKey: "navigation.aiCreatorStudio",
-    href: "/dashboard/creator",
-    path: "M12 20h9 M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z",
-  },
-  {
-    labelKey: "navigation.documents",
-    href: "/dashboard/documents",
-    path: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z M14 2v6h6 M8 13h8 M8 17h8 M8 9h2",
-  },
-  {
-    labelKey: "navigation.team",
-    href: "/dashboard/team",
-    path: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8 M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75",
-  },
-  {
-    labelKey: "navigation.settings",
-    href: "/dashboard/settings",
-    path: "M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V20a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V10c.2.6.8 1 1.5 1H20a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z",
-  },
-] as const;
+const NAV_ITEMS = PRIMARY_NAV_ITEMS;
 
 /**
  * Dashboard sidebar — preserves approved glass visual language.

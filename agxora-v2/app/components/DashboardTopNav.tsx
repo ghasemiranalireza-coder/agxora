@@ -261,20 +261,6 @@ export function DashboardTopNav(): JSX.Element {
                 {t("navigation.accountSettings")}
               </Link>
               <Link
-                href="/dashboard/projects"
-                onClick={() => setProfileOpen(false)}
-                className="agx-topnav-menu-link"
-                style={{
-                  display: "block",
-                  color: tokens.text,
-                  fontSize: 12,
-                  textDecoration: "none",
-                  padding: "8px 4px",
-                }}
-              >
-                {t("navigation.projects")}
-              </Link>
-              <Link
                 href="/dashboard/crm"
                 onClick={() => setProfileOpen(false)}
                 className="agx-topnav-menu-link"
@@ -289,7 +275,7 @@ export function DashboardTopNav(): JSX.Element {
                 {t("navigation.aiCrm")}
               </Link>
               <Link
-                href="/dashboard/analytics"
+                href="/dashboard/finance"
                 onClick={() => setProfileOpen(false)}
                 className="agx-topnav-menu-link"
                 style={{
@@ -300,10 +286,10 @@ export function DashboardTopNav(): JSX.Element {
                   padding: "8px 4px",
                 }}
               >
-                {t("navigation.analytics")}
+                {t("navigation.financeTax")}
               </Link>
               <Link
-                href="/dashboard/billing"
+                href="/dashboard/agents"
                 onClick={() => setProfileOpen(false)}
                 className="agx-topnav-menu-link"
                 style={{
@@ -314,21 +300,7 @@ export function DashboardTopNav(): JSX.Element {
                   padding: "8px 4px",
                 }}
               >
-                {t("navigation.billing")}
-              </Link>
-              <Link
-                href="/dashboard/ai"
-                onClick={() => setProfileOpen(false)}
-                className="agx-topnav-menu-link"
-                style={{
-                  display: "block",
-                  color: tokens.text,
-                  fontSize: 12,
-                  textDecoration: "none",
-                  padding: "8px 4px",
-                }}
-              >
-                {t("navigation.aiWorkspace")}
+                {t("navigation.agents")}
               </Link>
               <Link
                 href="/dashboard/settings#security"
@@ -344,22 +316,6 @@ export function DashboardTopNav(): JSX.Element {
               >
                 {t("navigation.security")}
               </Link>
-              <Link
-                href="/dashboard/team"
-                onClick={() => setProfileOpen(false)}
-                className="agx-topnav-menu-link"
-                style={{
-                  display: "block",
-                  color: tokens.text,
-                  fontSize: 12,
-                  textDecoration: "none",
-                  padding: "8px 4px",
-                  marginBottom: 8,
-                }}
-              >
-                {t("navigation.team")}
-              </Link>
-
               {isAuthenticated ? (
                 <button
                   type="button"
