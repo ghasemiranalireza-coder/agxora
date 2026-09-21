@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState, type JSX } from "react";
 import { formatCurrency, formatDisplayDate, useLocale } from "../../../lib/i18n";
 import type { InvoiceStatus, InvoiceView } from "../../../lib/finance/core/types";
@@ -18,6 +18,12 @@ import {
 import { FinanceShell } from "./FinanceShell";
 import { IssuedInvoiceDocument } from "../documents/IssuedDocument";
 import { fetchInvoice, fetchInvoices, updateInvoiceStatus } from "./financeApi";
+import {
+  invoiceStatusMessageKey,
+  isInvoiceMarkedPaid,
+  parseFinanceCustomerIdFromSearch,
+  parseFinanceInvoiceStatus,
+} from "../../../lib/workspace/firstCustomerInvoiceUx";
 
 function money(value: string, currency: string): string {
   return formatCurrency(Number(value), undefined, currency);
@@ -37,10 +43,15 @@ export function InvoiceWorkspace({
 }): JSX.Element {
   const { t } = useLocale();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const scopedCustomerId = parseFinanceCustomerIdFromSearch(searchParams);
+  const scopedStatus = parseFinanceInvoiceStatus(searchParams.get("status"));
   const [rows, setRows] = useState<InvoiceView[]>([]);
   const [detail, setDetail] = useState<InvoiceView | null>(null);
   const [query, setQuery] = useState("");
-  const [status, setStatus] = useState<InvoiceStatus | "all">("all");
+  const [status, setStatus] = useState<InvoiceStatus | "all">(
+    scopedStatus && scopedStatus !== "all" ? scopedStatus : "all",
+  );
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -49,6 +60,7 @@ export function InvoiceWorkspace({
       const items = await fetchInvoices({
         query,
         status,
+        customerId: scopedCustomerId ?? undefined,
       });
       setRows(items);
       setError(null);
@@ -57,13 +69,17 @@ export function InvoiceWorkspace({
     } finally {
       setLoading(false);
     }
-  }, [query, status, t]);
+  }, [query, scopedCustomerId, status, t]);
 
   useEffect(() => {
     let cancelled = false;
     void (async () => {
       try {
-        const items = await fetchInvoices({ query, status });
+        const items = await fetchInvoices({
+          query,
+          status,
+          customerId: scopedCustomerId ?? undefined,
+        });
         if (cancelled) return;
         setRows(items);
         setError(null);
@@ -77,7 +93,7 @@ export function InvoiceWorkspace({
     return () => {
       cancelled = true;
     };
-  }, [query, status, t]);
+  }, [query, scopedCustomerId, status, t]);
 
   useEffect(() => {
     if (!detailId) return;
@@ -130,6 +146,12 @@ export function InvoiceWorkspace({
           <option value="CANCELLED">{t("finance.core.invoiceStatus.CANCELLED")}</option>
         </FilterSelect>
       </div>
+
+      {scopedCustomerId ? (
+        <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          {t("finance.core.invoice.customerScoped")}
+        </p>
+      ) : null}
 
       {error ? <ErrorState title={t("finance.core.errors.load")} description={error} /> : null}
 
@@ -185,7 +207,7 @@ export function InvoiceWorkspace({
               key: "status",
               header: t("finance.core.table.status"),
               render: (row) => (
-                <Badge tone={statusTone(row.status)}>{t(`finance.core.invoiceStatus.${row.status}`)}</Badge>
+                <Badge tone={statusTone(row.status)}>{t(invoiceStatusMessageKey(row.status))}</Badge>
               ),
             },
           ]}
@@ -205,9 +227,12 @@ export function InvoiceWorkspace({
               {t("finance.core.table.dueDate")}: {formatDisplayDate(detail.dueDate)}
             </p>
             <Badge tone={statusTone(detail.status)}>
-              {t(`finance.core.invoiceStatus.${detail.status}`)}
+              {t(invoiceStatusMessageKey(detail.status))}
             </Badge>
           </div>
+          <p className="text-sm" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {t("finance.core.invoice.savedHint")}
+          </p>
           <div className="agx-finance-actions">
             <Button disabled={detail.status !== "DRAFT"} onClick={() => void setStatusForDetail("OPEN")}>
               {t("finance.core.actions.markOpen")}
@@ -224,7 +249,9 @@ export function InvoiceWorkspace({
             </Button>
           </div>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            {t("finance.core.invoice.futureBoundary")}
+            {isInvoiceMarkedPaid(detail.status)
+              ? t("finance.core.invoice.manualPaid")
+              : t("finance.core.invoice.futureBoundary")}
           </p>
           <div>
             <h3 className="text-sm font-semibold">{t("finance.core.invoice.createdFrom")}</h3>

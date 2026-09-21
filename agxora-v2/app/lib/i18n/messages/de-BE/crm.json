@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "Noch keine Rechnungen",
-      "emptyDescription": "Rechnungen für diesen Kunden werden hier angezeigt, wenn sie über die Finanzen verlinkt sind."
+      "emptyDescription": "Rechnungen für diesen Kunden werden hier angezeigt, wenn sie über die Finanzen verlinkt sind.",
+      "createCta": "Rechnung erstellen",
+      "hint": "Rechnungen entstehen in Finance aus Lieferscheinen für diesen Kunden.",
+      "loadError": "Rechnungen für diesen Kunden konnten nicht geladen werden.",
+      "openInvoice": "Rechnung öffnen"
     },
     "activity": {
       "title": "Aktivität",

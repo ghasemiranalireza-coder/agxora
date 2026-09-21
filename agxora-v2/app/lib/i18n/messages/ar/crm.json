@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "لا توجد فواتير بعد",
-      "emptyDescription": "تظهر الفواتير الخاصة بهذا العميل هنا عند ربطها من Finance."
+      "emptyDescription": "تظهر الفواتير الخاصة بهذا العميل هنا عند ربطها من Finance.",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "نشاط",

@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "還沒有發票",
-      "emptyDescription": "從財務連結後，該客戶的發票將顯示在此。"
+      "emptyDescription": "從財務連結後，該客戶的發票將顯示在此。",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "活動",

@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "No invoices yet",
-      "emptyDescription": "Invoices for this customer appear here when linked from Finance."
+      "emptyDescription": "Create a delivery note in Finance, then bill it. Saved invoices for this customer appear here.",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "Activity",

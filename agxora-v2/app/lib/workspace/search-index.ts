@@ -26,7 +26,7 @@ export const QUICK_ACTIONS: readonly QuickAction[] = [
   {
     id: "action-create-invoice",
     title: "Create Invoice",
-    subtitle: "Open Finance invoice workspace",
+    subtitle: "Create a delivery note, then bill it in Finance",
     href: "/dashboard/finance/delivery-notes",
     keywords: ["create", "invoice", "finance", "billing"],
   },

@@ -107,6 +107,9 @@ describe("first-customer surface lockdown", () => {
       expect(isFirstCustomerSearchHrefAllowed(item.href)).toBe(true);
     }
     expect(index.some((item) => item.href === "/dashboard/crm")).toBe(true);
+    expect(index.some((item) => item.href === "/dashboard/finance/delivery-notes")).toBe(
+      true,
+    );
     expect(index.some((item) => item.href === "/dashboard/customers")).toBe(
       false,
     );

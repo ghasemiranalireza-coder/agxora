@@ -11,17 +11,25 @@ import type { FinanceOverviewView } from "../../../lib/finance/core/types";
 function MetricCard({
   label,
   value,
+  href,
 }: {
   readonly label: string;
   readonly value: string;
+  readonly href?: string;
 }): JSX.Element {
-  return (
+  const card = (
     <Card className="min-w-0 space-y-2" padding="18px">
       <p className="agx-ui-label">{label}</p>
       <p className="text-2xl font-semibold tabular-nums" style={{ color: "var(--agx-text, #f8fafc)" }}>
         {value}
       </p>
     </Card>
+  );
+  if (!href) return card;
+  return (
+    <Link href={href} style={{ textDecoration: "none" }}>
+      {card}
+    </Link>
   );
 }
 
@@ -81,22 +89,27 @@ export function FinanceOverviewCore(): JSX.Element {
           <MetricCard
             label={t("finance.core.kpis.openDeliveryNotes")}
             value={String(overview.openDeliveryNotes)}
+            href="/dashboard/finance/delivery-notes"
           />
           <MetricCard
             label={t("finance.core.kpis.unbilled")}
             value={String(overview.unbilledDeliveryNotes)}
+            href="/dashboard/finance/delivery-notes"
           />
           <MetricCard
             label={t("finance.core.kpis.openInvoices")}
             value={String(overview.openInvoices)}
+            href="/dashboard/finance/invoices?status=OPEN"
           />
           <MetricCard
             label={t("finance.core.kpis.overdue")}
             value={String(overview.overdueInvoices)}
+            href="/dashboard/finance/invoices?status=OVERDUE"
           />
           <MetricCard
             label={t("finance.core.kpis.draftInvoices")}
             value={String(overview.draftInvoices)}
+            href="/dashboard/finance/invoices?status=DRAFT"
           />
         </div>
       ) : null}

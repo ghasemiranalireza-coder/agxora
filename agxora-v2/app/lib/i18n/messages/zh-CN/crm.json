@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "还没有发票",
-      "emptyDescription": "从财务链接时，此客户的发票将显示在此处。"
+      "emptyDescription": "从财务链接时，此客户的发票将显示在此处。",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "活动",

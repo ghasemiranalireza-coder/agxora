@@ -387,24 +387,33 @@
     "delivery": {
       "title": "Delivery notes",
       "subtitle": "Create, filter, and bill Lieferscheine. Already billed notes cannot be billed again.",
-      "billedAs": "Billed on invoice"
+      "billedAs": "Billed on invoice",
+      "customerScoped": "Es werden Lieferscheine des ausgewählten Kunden angezeigt."
     },
     "invoice": {
       "title": "Invoices",
       "subtitle": "Draft invoices created from delivery notes. Sending and payment collection are not connected.",
       "createdFrom": "Created from delivery notes",
-      "futureBoundary": "PDF, email, payment, and reminder tools are not implemented in this phase."
+      "futureBoundary": "PDF, email, payment, and reminder tools are not implemented in this phase.",
+      "manualPaid": "Bezahlt ist eine Buchungsmarkierung in diesem Arbeitsbereich. Zahlungseinzug ist nicht verbunden.",
+      "savedHint": "Diese Rechnung ist in Finance gespeichert.",
+      "customerScoped": "Es werden Rechnungen des ausgewählten Kunden angezeigt.",
+      "unknownStatus": "Unbekannter Status"
     },
     "bill": {
       "previewTitle": "Confirm billing",
-      "count": "Delivery notes"
+      "count": "Delivery notes",
+      "savedAfterConfirm": "Die Rechnung wird erst gespeichert, wenn dieser Schritt gelingt. Sie beginnt als Entwurf."
     },
     "errors": {
       "load": "Could not load finance data",
       "save": "Could not save",
       "preview": "Could not build billing preview",
       "bill": "Could not create the invoice",
-      "deleteItem": "Artikel konnte nicht gelöscht werden"
+      "deleteItem": "Artikel konnte nicht gelöscht werden",
+      "missingCustomer": "Wählen Sie vor dem Speichern einen Kunden.",
+      "missingLine": "Fügen Sie mindestens eine Position mit Beschreibung hinzu.",
+      "invalidAmount": "Menge und Einzelpreis müssen gültige Beträge sein."
     },
     "items": {
       "actions": "Aktionen",

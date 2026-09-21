@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "هنوز فاکتوری نیست",
-      "emptyDescription": "فاکتورهای این مشتری پس از اتصال از Finance اینجا نمایش داده می‌شوند."
+      "emptyDescription": "فاکتورهای این مشتری پس از اتصال از Finance اینجا نمایش داده می‌شوند.",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "فعالیت",

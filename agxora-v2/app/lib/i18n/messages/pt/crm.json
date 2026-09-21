@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "Ainda não há faturas",
-      "emptyDescription": "As faturas deste cliente aparecem aqui quando vinculadas pelo Financeiro."
+      "emptyDescription": "As faturas deste cliente aparecem aqui quando vinculadas pelo Financeiro.",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "Atividade",

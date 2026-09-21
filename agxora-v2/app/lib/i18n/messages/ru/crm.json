@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "Счетов пока нет",
-      "emptyDescription": "Счета-фактуры для этого клиента появляются здесь, если они связаны с Finance."
+      "emptyDescription": "Счета-фактуры для этого клиента появляются здесь, если они связаны с Finance.",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "Активность",

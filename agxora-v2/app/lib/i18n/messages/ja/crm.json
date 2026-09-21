@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "まだ請求書はありません",
-      "emptyDescription": "この顧客の請求書は、財務からリンクされるとここに表示されます。"
+      "emptyDescription": "この顧客の請求書は、財務からリンクされるとここに表示されます。",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "活動",

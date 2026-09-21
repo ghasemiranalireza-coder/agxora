@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "아직 인보이스가 없습니다.",
-      "emptyDescription": "Finance에서 연결되면 이 고객의 송장이 여기에 표시됩니다."
+      "emptyDescription": "Finance에서 연결되면 이 고객의 송장이 여기에 표시됩니다.",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "활동",
