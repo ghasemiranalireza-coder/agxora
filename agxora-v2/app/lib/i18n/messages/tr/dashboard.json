@@ -110,13 +110,15 @@
       "title": "Uygulama kabuğu",
       "caption": "Tarayıcı oturumu hazır; canlı operasyon monitörü değil",
       "shellLoaded": "Uygulama kabuğu yüklendi",
-      "storesReady": "Yerel çalışma alanı depoları hazır"
+      "storesReady": "Yerel çalışma alanı depoları hazır",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "Büyüme",
       "caption": "Trend metriklerinin birikmiş kullanıma ihtiyacı var",
       "openAnalytics": "Analitikleri aç"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "Son etkinlik",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

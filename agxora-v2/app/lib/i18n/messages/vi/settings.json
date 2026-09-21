@@ -217,17 +217,19 @@
   },
   "integrations": {
     "label": "Tích hợp",
-    "description": "Đã cài đặt, kết nối và khả dụng",
+    "description": "Connector availability — none connected by default",
     "title": "Tích hợp",
-    "panelDescription": "Các bộ điều hợp đã được cài đặt, kết nối và có sẵn.",
+    "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
     "openCenter": "Trung tâm tích hợp mở",
-    "notice": "Nền tảng tích hợp doanh nghiệp nằm trong Trung tâm tích hợp — trình kết nối, OAuth, webhook, khóa API và cầu nối sự kiện quy trình công việc.",
+    "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
     "columns": {
       "integration": "Tích hợp",
       "category": "Loại",
       "status": "Trạng thái",
       "adapter": "Bộ chuyển đổi"
-    }
+    },
+    "emptyTitle": "No live integrations connected",
+    "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected."
   },
   "security": {
     "label": "Bảo vệ",
@@ -277,9 +279,11 @@
   },
   "billing": {
     "label": "Thanh toán",
-    "description": "Kế hoạch, cách sử dụng, hóa đơn và thanh toán",
+    "description": "AGXORA subscription — not customer Finance invoices",
     "title": "Thanh toán",
-    "panelDescription": "Gói hiện tại, gia hạn, sử dụng, hóa đơn và lộ trình nâng cấp."
+    "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+    "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+    "openFinance": "Open Finance invoices"
   },
   "api": {
     "label": "API & Nhà phát triển",

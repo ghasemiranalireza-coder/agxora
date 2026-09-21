@@ -33,7 +33,8 @@
     "settingsUpdated": "Pengaturan OS Agen diperbarui untuk ruang kerja lokal ini.",
     "approvalRequired": "Approval required before the next tool step can run.",
     "approvalApproved": "Approval recorded and execution resumed.",
-    "approvalRejected": "Approval rejected. Execution is now blocked."
+    "approvalRejected": "Approval rejected. Execution is now blocked.",
+    "runFinished": "Run finished · {status} ({duration}ms)"
   },
   "dashboard": {
     "agents": "Agen",
@@ -46,8 +47,10 @@
     "knowledge": "Pengetahuan",
     "activeFleet": "Armada aktif",
     "emptyTitle": "Tidak ada agen yang aktif",
-    "emptyDescription": "Instal atau aktifkan agen dari pasar untuk memulai simulasi berjalan.",
-    "pendingApprovals": "Pending approvals"
+    "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
+    "pendingApprovals": "Pending approvals",
+    "healthy": "Healthy",
+    "tasksTodayCount": "Tasks today"
   },
   "registry": {
     "title": "Registri",
@@ -63,7 +66,8 @@
     "tools": "Alat: {tools}",
     "installed": "Dipasang",
     "installActivate": "Instal & aktifkan",
-    "noLiveTools": "No live customer tools on this agent yet."
+    "noLiveTools": "No live customer tools on this agent yet.",
+    "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
   },
   "monitor": {
     "title": "Pemantau agen",

@@ -1,6 +1,13 @@
 {
   "skipToContent": "Skip to dashboard content",
   "loading": "Loading dashboard…",
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
+  },
   "hero": {
     "ariaLabel": "AGXORA CORE",
     "eyebrow": "AI Business Operating System",
@@ -83,6 +90,7 @@
     "subtitle": "Workspace counts for {name}",
     "fallbackName": "your workspace",
     "ariaLabel": "Business overview",
+    "workspaceBadge": "Workspace",
     "online": "Online",
     "emDash": "—",
     "capacitySignal": "{percent}% capacity signal",
@@ -115,7 +123,8 @@
       "title": "Client shell",
       "caption": "Browser session ready — not a live ops monitor",
       "shellLoaded": "Application shell loaded",
-      "storesReady": "Local workspace stores ready"
+      "storesReady": "Local workspace stores ready",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "Growth",

@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "एकीकरण",
-      "description": "स्थापित, कनेक्टेड और उपलब्ध",
+      "description": "Connector availability — none connected by default",
       "title": "एकीकरण",
-      "panelDescription": "स्थापित, कनेक्टेड और उपलब्ध एडाप्टर।",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "एकीकरण केंद्र खोलें",
-      "notice": "एंटरप्राइज़ इंटीग्रेशन प्लेटफ़ॉर्म इंटीग्रेशन सेंटर में रहता है - कनेक्टर, ओएथ, वेबहुक, एपीआई कुंजी और वर्कफ़्लो इवेंट ब्रिज।",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "एकीकरण",
         "category": "वर्ग",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "बिलिंग",
-      "description": "योजना, उपयोग, चालान और भुगतान",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "बिलिंग",
-      "panelDescription": "वर्तमान योजना, नवीनीकरण, उपयोग, चालान और अपग्रेड पथ।"
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "एपीआई और डेवलपर्स",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "डैशबोर्ड सामग्री पर जाएं",
     "loading": "डैशबोर्ड लोड हो रहा है...",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "AI बिज़नेस ऑपरेटिंग सिस्टम",
@@ -904,6 +915,7 @@
       "subtitle": "{name} के लिए कार्यक्षेत्र गणना",
       "fallbackName": "आपका कार्यक्षेत्र",
       "ariaLabel": "व्यापार सिंहावलोकन",
+      "workspaceBadge": "Workspace",
       "online": "ऑनलाइन",
       "emDash": "—",
       "capacitySignal": "{percent}% क्षमता संकेत",
@@ -936,7 +948,8 @@
         "title": "ऐप शेल",
         "caption": "ब्राउज़र सत्र तैयार - लाइव ऑप्स मॉनिटर नहीं",
         "shellLoaded": "एप्लिकेशन शेल लोड किया गया",
-        "storesReady": "स्थानीय वर्कस्पेस स्टोर तैयार"
+        "storesReady": "स्थानीय वर्कस्पेस स्टोर तैयार",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "विकास",
@@ -1623,6 +1636,7 @@
         "title": "परियोजनाओं",
         "emptyTitle": "कोई लिंक्ड प्रोजेक्ट नहीं",
         "emptyDescription": "वे परियोजनाएँ जिनके ग्राहक का नाम इस कंपनी से मेल खाता है, यहाँ दिखाई देती हैं। डेटा प्रोजेक्ट मॉड्यूल से पढ़ा जाता है - कुछ भी डुप्लिकेट नहीं किया जाता है।",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "प्रोजेक्ट खोलें"
       },
       "documents": {
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "सिम्युलेटेड रन · {status} ({duration}एमएस)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "कार्य विफल",
       "activated": "स्थानीय रूप से सक्रिय: {agentId}",
       "agentPaused": "एजेंट रुक गया",
@@ -4701,14 +4716,16 @@
       "agents": "एजेंटों",
       "active": "सक्रिय",
       "localReady": "स्थानीय तैयार",
+      "healthy": "Healthy",
       "simulatedToday": "आज अनुकरण किया गया",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "आज असफल हो गया",
       "avgExec": "औसत निष्पादन",
       "toolCalls": "टूल कॉल",
       "knowledge": "ज्ञान",
       "activeFleet": "सक्रिय बेड़ा",
       "emptyTitle": "कोई एजेंट सक्रिय नहीं",
-      "emptyDescription": "सिम्युलेटेड रन शुरू करने के लिए बाज़ार से एक एजेंट स्थापित या सक्रिय करें।",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "उपकरण: {tools}",
       "installed": "स्थापित",
       "installActivate": "इंस्टॉल करें और सक्रिय करें",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "एजेंट मॉनिटर",

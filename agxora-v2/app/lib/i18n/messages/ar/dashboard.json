@@ -110,13 +110,15 @@
       "title": "واجهة التطبيق",
       "caption": "جلسة المتصفح جاهزة — وليست مراقبة العمليات المباشرة",
       "shellLoaded": "تم تحميل غلاف التطبيق",
-      "storesReady": "مخازن مساحة العمل المحلية جاهزة"
+      "storesReady": "مخازن مساحة العمل المحلية جاهزة",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "نمو",
       "caption": "تحتاج مقاييس الاتجاه إلى الاستخدام المتراكم",
       "openAnalytics": "فتح التحليلات"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "النشاط الأخير",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

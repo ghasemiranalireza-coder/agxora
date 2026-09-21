@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "Integrationen",
-      "description": "Installiert, verbunden und verfügbar",
+      "description": "Konnektor-Verfügbarkeit — standardmäßig nichts verbunden",
       "title": "Integrationen",
-      "panelDescription": "Installierte, verbundene und verfügbare Adapter.",
+      "panelDescription": "Diese Seite meldet keinen Live-Konnektorstatus. Der First-Customer-Pfad behandelt den Katalog nicht als verbunden.",
       "openCenter": "Integrationszentrum öffnen",
-      "notice": "Die Enterprise Integration Platform befindet sich im Integration Center — Konnektoren, OAuth, Webhooks, API-Schlüssel und die Workflow-Ereignisbrücke.",
+      "notice": "Gmail, Stripe, HubSpot und ähnliche Konnektoren gelten hier nicht als verbunden. Behandeln Sie diesen Katalog nicht als betriebsbereit.",
+      "emptyTitle": "Keine live verbundenen Integrationen",
+      "emptyDescription": "Externe Konnektoren gehören nicht zum First-Customer-Betriebspfad. Nicht verfügbare oder zukünftige Adapter werden nicht als verbunden angezeigt.",
       "columns": {
         "integration": "Integration",
         "category": "Kategorie",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "Abrechnung",
-      "description": "Tarif, Nutzung, Rechnungen und Zahlungen",
+      "description": "AGXORA-Abo — keine Kunden-Finanzrechnungen",
       "title": "Abrechnung",
-      "panelDescription": "Aktueller Tarif, Verlängerung, Nutzung, Rechnungen und Upgrade-Pfad."
+      "panelDescription": "AGXORA-Workspace-Tarif und Abonnement. Kundenrechnungen werden in Finanzen erstellt.",
+      "notFinanceNotice": "Das ist AGXORA-Kontoabrechnung, keine Kunden-Finanzrechnungen. Erstellen und senden Sie Kundenrechnungen in Finanzen.",
+      "openFinance": "Finanzrechnungen öffnen"
     },
     "api": {
       "label": "API & Entwickler",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "Zum Dashboard-Inhalt springen",
     "loading": "Dashboard wird geladen…",
+    "legacy": {
+      "openDashboard": "Zurück zum Dashboard",
+      "projects": {
+        "title": "Projekte-Modul nicht verfügbar",
+        "description": "Der First-Customer-Workspace verwendet das Legacy-Projekte-Modul nicht."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "KI-Geschäftsbetriebssystem",
@@ -904,6 +915,7 @@
       "subtitle": "Kennzahlen für {name}",
       "fallbackName": "Ihren Workspace",
       "ariaLabel": "Geschäftsübersicht",
+      "workspaceBadge": "Workspace",
       "online": "Online",
       "emDash": "—",
       "capacitySignal": "{percent} % Auslastungssignal",
@@ -936,7 +948,8 @@
         "title": "Anwendungsshell",
         "caption": "Browsersitzung bereit — kein Live-Ops-Monitor",
         "shellLoaded": "Anwendungs-Shell geladen",
-        "storesReady": "Lokale Workspace-Stores bereit"
+        "storesReady": "Lokale Workspace-Stores bereit",
+        "crmReady": "CRM-Verzeichnis bereit"
       },
       "growth": {
         "title": "Wachstum",
@@ -1629,6 +1642,7 @@
         "title": "Projekte",
         "emptyTitle": "Keine verknüpften Projekte",
         "emptyDescription": "Projekte mit passendem Kundennamen erscheinen hier. Daten stammen aus dem Projekte-Modul — nichts wird dupliziert.",
+        "unavailableDescription": "Der First-Customer-Arbeitsbereich verwendet nicht das Legacy-Projekte-Modul.",
         "openProjects": "Projekte öffnen"
       },
       "documents": {
@@ -4705,8 +4719,8 @@
     "loading": "Agent-Betriebssystem wird geladen...",
     "eyebrow": "AI-Agent-Betriebssystem",
     "title": "Agenten-Betriebssystem",
-    "subtitle": "Lokaler Agentenarbeitsbereich — Agenten können als Simulationen für CRM, Projekte, Finanzen, Workflows und Integrationen aktiviert und ausgeführt werden. Die autonome Produktionsausführung ist nicht verbunden.",
-    "noticeDefault": "Lokales Agenten-Betriebssystem — Läufe werden in diesem Arbeitsbereich simuliert.",
+    "subtitle": "Agentenarbeitsbereich für CRM und Finanzen. Kundenbezogene CRM-Aktionen erfordern Freigabe und speichern in das echte CRM, wenn die CRM-Datenbank konfiguriert ist.",
+    "noticeDefault": "Agent-OS — CRM- und Finanz-Tools erfordern Freigabe. Abschlüsse werden nur nach erfolgreicher echter Operation angezeigt.",
     "productionGate": {
       "notReady": "Production readiness incomplete: {codes}. Configure auth, CRM database, Agent OS server persistence, and transactional email before serving customers.",
       "publishNotReady": "YouTube publish readiness incomplete: {codes}. Configure OAuth, encryption key, and S3-compatible blob storage before enabling live publish.",
@@ -4732,6 +4746,7 @@
     },
     "notice": {
       "simulatedRun": "Simulierter Lauf · {status} ({duration}ms)",
+      "runFinished": "Lauf beendet · {status} ({duration}ms)",
       "taskFailed": "Aufgabe fehlgeschlagen",
       "activated": "Lokal aktiviert: {agentId}",
       "agentPaused": "Agent pausiert",
@@ -4747,14 +4762,16 @@
       "agents": "Agenten",
       "active": "Aktiv",
       "localReady": "Lokal bereit",
+      "healthy": "Bereit",
       "simulatedToday": "Heute simuliert",
+      "tasksTodayCount": "Aufgaben heute",
       "failedToday": "Heute fehlgeschlagen",
       "avgExec": "Durchschn. Ausf.",
       "toolCalls": "Werkzeugaufrufe",
       "knowledge": "Kenntnisse",
       "activeFleet": "Aktive Flotte",
       "emptyTitle": "Keine Agenten aktiv",
-      "emptyDescription": "Installieren oder aktivieren Sie einen Agenten vom Marktplatz aus, um simulierte Läufe zu starten.",
+      "emptyDescription": "Installieren oder aktivieren Sie einen CRM- oder Finanz-Agenten, um einen echten Lauf zu starten. Abschlüsse erscheinen erst nach erfolgreicher Operation.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4771,7 +4788,8 @@
       "tools": "Tools: {tools}",
       "installed": "Installiert",
       "installActivate": "Installieren & Aktivieren",
-      "noLiveTools": "Dieser Agent hat noch keine produktiven Kundentools."
+      "noLiveTools": "Dieser Agent hat noch keine produktiven Kundentools.",
+      "unavailable": "Dieser Agent ist im First-Customer-Pfad nicht verfügbar. Nur CRM- und Finanz-Tools können installiert werden."
     },
     "monitor": {
       "title": "Agentenmonitor",

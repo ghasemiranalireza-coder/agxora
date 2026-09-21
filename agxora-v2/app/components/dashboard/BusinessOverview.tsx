@@ -8,6 +8,11 @@ import { crmStore, useCrmStore } from "../../lib/crm/directory";
 import { useRecentActivity } from "../../lib/backend/hooks";
 import { FIRST_CUSTOMER_CUSTOMER_HREF, FIRST_CUSTOMER_FINANCE_HREF } from "../../lib/workspace/firstCustomerSurface";
 import {
+  firstCustomerStoresReadyKey,
+  firstCustomerWorkspaceBadgeKey,
+} from "../../lib/workspace/firstCustomerHardening";
+import { isCrmDatabaseMode } from "../../lib/crm/persistence/mode";
+import {
   MetricCard,
   MetricCardSkeleton,
   type MetricCardProps,
@@ -61,6 +66,8 @@ export function BusinessOverview(): JSX.Element {
   const organizationId = organization?.id ?? LOCAL_ORG_FALLBACK;
   const crm = useCrmStore();
   const activity = useRecentActivity();
+  const crmDatabaseMode = isCrmDatabaseMode();
+  const storesReady = crm.hydrated;
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -140,8 +147,8 @@ export function BusinessOverview(): JSX.Element {
               ok: true,
             },
             {
-              label: t("dashboard.overview.clientShell.storesReady"),
-              ok: true,
+              label: t(firstCustomerStoresReadyKey(crmDatabaseMode)),
+              ok: storesReady,
             },
           ],
         },
@@ -153,7 +160,7 @@ export function BusinessOverview(): JSX.Element {
         icon: <Icon path={ICON_PATHS.growth} />,
       },
     ],
-    [activeCustomers, crm.items.length, locale, t, todayActivity],
+    [activeCustomers, crm.items.length, crmDatabaseMode, locale, storesReady, t, todayActivity],
   );
 
   const workspaceName =
@@ -187,7 +194,7 @@ export function BusinessOverview(): JSX.Element {
             color: "var(--agx-text-muted, #94a3b8)",
           }}
         >
-          {t("dashboard.activity.localBadge")}
+          {t(firstCustomerWorkspaceBadgeKey(crmDatabaseMode))}
         </span>
       </header>
 

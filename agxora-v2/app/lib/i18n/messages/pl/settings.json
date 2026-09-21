@@ -217,17 +217,19 @@
   },
   "integrations": {
     "label": "Integracje",
-    "description": "Zainstalowany, podłączony i dostępny",
+    "description": "Connector availability — none connected by default",
     "title": "Integracje",
-    "panelDescription": "Zainstalowane, podłączone i dostępne adaptery.",
+    "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
     "openCenter": "Otwórz Centrum integracji",
-    "notice": "Enterprise Integration Platform znajduje się w Centrum Integracyjnym — konektory, OAuth, webhooki, klucze API i mostek zdarzeń przepływu pracy.",
+    "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
     "columns": {
       "integration": "Integracja",
       "category": "Kategoria",
       "status": "Status",
       "adapter": "Adapter"
-    }
+    },
+    "emptyTitle": "No live integrations connected",
+    "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected."
   },
   "security": {
     "label": "Bezpieczeństwo",
@@ -277,9 +279,11 @@
   },
   "billing": {
     "label": "Rozliczenia",
-    "description": "Planowanie, użytkowanie, faktury i płatności",
+    "description": "AGXORA subscription — not customer Finance invoices",
     "title": "Rozliczenia",
-    "panelDescription": "Bieżący plan, odnowienie, użytkowanie, faktury i ścieżka aktualizacji."
+    "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+    "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+    "openFinance": "Open Finance invoices"
   },
   "api": {
     "label": "API i programiści",

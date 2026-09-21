@@ -110,13 +110,15 @@
       "title": "Shell aplikasi",
       "caption": "Sesi browser siap — bukan monitor operasi langsung",
       "shellLoaded": "Shell aplikasi dimuat",
-      "storesReady": "Store workspace lokal siap"
+      "storesReady": "Store workspace lokal siap",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "Pertumbuhan",
       "caption": "Metrik tren memerlukan akumulasi penggunaan",
       "openAnalytics": "Buka analitik"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "Aktivitas terkini",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

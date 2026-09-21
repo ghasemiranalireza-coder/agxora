@@ -110,13 +110,15 @@
       "title": "应用外壳",
       "caption": "浏览器会话就绪 - 不是实时操作监视器",
       "shellLoaded": "已加载应用程序外壳",
-      "storesReady": "本地工作区存储已就绪"
+      "storesReady": "本地工作区存储已就绪",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "增长率",
       "caption": "趋势指标需要累积使用量",
       "openAnalytics": "开放分析"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "最近的活动",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

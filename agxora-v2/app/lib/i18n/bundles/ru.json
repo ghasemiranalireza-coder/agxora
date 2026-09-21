@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "Интеграции",
-      "description": "Установлено, подключено и доступно",
+      "description": "Connector availability — none connected by default",
       "title": "Интеграции",
-      "panelDescription": "Установленные, подключенные и доступные адаптеры.",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "Открытый интеграционный центр",
-      "notice": "Платформа корпоративной интеграции находится в Центре интеграции — коннекторы, OAuth, веб-перехватчики, ключи API и мост событий рабочего процесса.",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "Интеграция",
         "category": "Категория",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "Биллинг",
-      "description": "План, использование, счета и платежи",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "Биллинг",
-      "panelDescription": "Текущий план, продление, использование, счета и путь обновления."
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "API и разработчики",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "Перейти к содержимому информационной панели",
     "loading": "Загрузка панели управления…",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "ОС для бизнеса на базе ИИ",
@@ -904,6 +915,7 @@
       "subtitle": "Показатели пространства для {name}",
       "fallbackName": "ваше рабочее пространство",
       "ariaLabel": "Обзор бизнеса",
+      "workspaceBadge": "Workspace",
       "online": "Онлайн",
       "emDash": "—",
       "capacitySignal": "{percent}% сигнал емкости",
@@ -936,7 +948,8 @@
         "title": "Оболочка приложения",
         "caption": "Готовый сеанс браузера, а не мониторинг операций в реальном времени",
         "shellLoaded": "Оболочка приложения загружена",
-        "storesReady": "Локальные хранилища пространства готовы"
+        "storesReady": "Локальные хранилища пространства готовы",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "Рост",
@@ -1623,6 +1636,7 @@
         "title": "Проекты",
         "emptyTitle": "Нет связанных проектов",
         "emptyDescription": "Здесь появляются проекты, имя клиента которых совпадает с этой компанией. Данные считываются из модуля «Проекты» — ничего не дублируется.",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "Открытые проекты"
       },
       "documents": {
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "Имитация запуска · {status} ({duration} мс)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "Задача не выполнена",
       "activated": "Активировано локально: {agentId}",
       "agentPaused": "Агент приостановлен",
@@ -4701,14 +4716,16 @@
       "agents": "Агенты",
       "active": "Активный",
       "localReady": "Локальная готовность",
+      "healthy": "Healthy",
       "simulatedToday": "Смоделировано сегодня",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "Не удалось сегодня",
       "avgExec": "Среднее исполнение",
       "toolCalls": "Вызовы инструментов",
       "knowledge": "Знание",
       "activeFleet": "Активный флот",
       "emptyTitle": "Нет активных агентов",
-      "emptyDescription": "Установите или активируйте агент из магазина, чтобы запустить симуляцию запусков.",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "Инструменты: {tools}",
       "installed": "Установлено",
       "installActivate": "Установка & активация",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "Агент монитор",

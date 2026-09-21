@@ -12,7 +12,6 @@ import {
   DEFAULT_AUTOMATION_PREFS,
   DEFAULT_DOCUMENTS_PREFS,
   DEFAULT_NOTIFICATION_PREFS,
-  SETTINGS_INTEGRATIONS,
   type AppearancePrefs,
   type AutomationPrefs,
   type DocumentsPrefs,
@@ -22,7 +21,7 @@ import {
 import { useTheme, type ThemeMode } from "../../lib/theme";
 import { Badge, Button, DataTable, EmptyState } from "../ui";
 import type { DataTableColumn } from "../ui";
-import { AccountBillingSection, SaasNavLink } from "../../../features/saas";
+import { AccountBillingSection } from "../../../features/saas";
 import { useAuth } from "../../lib/auth";
 import { isServerAuthMode } from "../../lib/auth/mode";
 import { controlPlaneClient } from "../../lib/control-plane/client";
@@ -264,18 +263,11 @@ function AiPanel(): JSX.Element {
       title={t("settings.ai.title")}
       description={t("settings.ai.panelDescription")}
       actions={
-        <>
-          <Link href="/dashboard/agents">
-            <Button size="sm" variant="primary">
-              {t("settings.ai.openAgentOs")}
-            </Button>
-          </Link>
-          <Link href="/dashboard/ai">
-            <Button size="sm" variant="secondary">
-              {t("settings.ai.openAiWorkspace")}
-            </Button>
-          </Link>
-        </>
+        <Link href="/dashboard/agents">
+          <Button size="sm" variant="primary">
+            {t("settings.ai.openAgentOs")}
+          </Button>
+        </Link>
       }
     >
       <SettingsNotice>{t("settings.ai.noticeProvider")}</SettingsNotice>
@@ -703,52 +695,17 @@ function AutomationPanel(): JSX.Element {
 
 function IntegrationsPanel(): JSX.Element {
   const t = useT();
-  const columns = useMemo<DataTableColumn<(typeof SETTINGS_INTEGRATIONS)[number]>[]>(
-    () => [
-      { key: "name", header: t("settings.integrations.columns.integration"), render: (r) => r.name },
-      { key: "category", header: t("settings.integrations.columns.category"), render: (r) => r.category },
-      {
-        key: "state",
-        header: t("settings.integrations.columns.status"),
-        render: (r) => (
-          <Badge
-            tone={
-              r.state === "connected"
-                ? "positive"
-                : r.state === "installed"
-                  ? "accent"
-                  : r.state === "available"
-                    ? "warning"
-                    : "default"
-            }
-          >
-            {r.state}
-          </Badge>
-        ),
-      },
-      {
-        key: "adapter",
-        header: t("settings.integrations.columns.adapter"),
-        render: (r) => <span className="font-mono text-xs">{r.adapter}</span>,
-      },
-    ],
-    [t],
-  );
 
   return (
     <SettingsPanel
       title={t("settings.integrations.title")}
       description={t("settings.integrations.panelDescription")}
-      actions={
-        <Link href="/dashboard/integrations">
-          <Button size="sm" variant="primary">
-            {t("settings.integrations.openCenter")}
-          </Button>
-        </Link>
-      }
     >
       <SettingsNotice>{t("settings.integrations.notice")}</SettingsNotice>
-      <DataTable columns={columns} rows={SETTINGS_INTEGRATIONS} rowKey={(r) => r.id} minWidth={680} />
+      <EmptyState
+        title={t("settings.integrations.emptyTitle")}
+        description={t("settings.integrations.emptyDescription")}
+      />
     </SettingsPanel>
   );
 }
@@ -759,12 +716,15 @@ function BillingPanel(): JSX.Element {
     <SettingsPanel
       title={t("settings.billing.title")}
       description={t("settings.billing.panelDescription")}
-      actions={
-        <SaasNavLink href="/dashboard/billing" variant="primary" size="sm">
-          {t("billing.openBillingPortal")}
-        </SaasNavLink>
-      }
     >
+      <SettingsNotice>{t("settings.billing.notFinanceNotice")}</SettingsNotice>
+      <div className="mb-4">
+        <Link href="/dashboard/finance">
+          <Button size="sm" variant="secondary">
+            {t("settings.billing.openFinance")}
+          </Button>
+        </Link>
+      </div>
       <AccountBillingSection />
       <SettingsNotice>
         {t("billing.billingQuestions")}{" "}

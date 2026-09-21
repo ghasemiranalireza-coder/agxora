@@ -134,11 +134,8 @@ export function AccountBillingSection(): JSX.Element {
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <SaasNavLink href="/dashboard/billing" variant="primary">
+        <SaasNavLink href="/pricing" variant="primary">
           {t("billing.upgrade")}
-        </SaasNavLink>
-        <SaasNavLink href="/pricing" variant="secondary">
-          {t("billing.viewPricing")}
         </SaasNavLink>
         <SaasNavLink href="/contact-sales" variant="ghost">
           {t("billing.contactSales")}

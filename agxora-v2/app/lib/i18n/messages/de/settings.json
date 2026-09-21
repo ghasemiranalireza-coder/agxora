@@ -217,17 +217,19 @@
   },
   "integrations": {
     "label": "Integrationen",
-    "description": "Installiert, verbunden und verfügbar",
+    "description": "Konnektor-Verfügbarkeit — standardmäßig nichts verbunden",
     "title": "Integrationen",
-    "panelDescription": "Installierte, verbundene und verfügbare Adapter.",
+    "panelDescription": "Diese Seite meldet keinen Live-Konnektorstatus. Der First-Customer-Pfad behandelt den Katalog nicht als verbunden.",
     "openCenter": "Integrationszentrum öffnen",
-    "notice": "Die Enterprise Integration Platform befindet sich im Integration Center — Konnektoren, OAuth, Webhooks, API-Schlüssel und die Workflow-Ereignisbrücke.",
+    "notice": "Gmail, Stripe, HubSpot und ähnliche Konnektoren gelten hier nicht als verbunden. Behandeln Sie diesen Katalog nicht als betriebsbereit.",
     "columns": {
       "integration": "Integration",
       "category": "Kategorie",
       "status": "Status",
       "adapter": "Adapter"
-    }
+    },
+    "emptyTitle": "Keine live verbundenen Integrationen",
+    "emptyDescription": "Externe Konnektoren gehören nicht zum First-Customer-Betriebspfad. Nicht verfügbare oder zukünftige Adapter werden nicht als verbunden angezeigt."
   },
   "security": {
     "label": "Sicherheit",
@@ -277,9 +279,11 @@
   },
   "billing": {
     "label": "Abrechnung",
-    "description": "Tarif, Nutzung, Rechnungen und Zahlungen",
+    "description": "AGXORA-Abo — keine Kunden-Finanzrechnungen",
     "title": "Abrechnung",
-    "panelDescription": "Aktueller Tarif, Verlängerung, Nutzung, Rechnungen und Upgrade-Pfad."
+    "panelDescription": "AGXORA-Workspace-Tarif und Abonnement. Kundenrechnungen werden in Finanzen erstellt.",
+    "notFinanceNotice": "Das ist AGXORA-Kontoabrechnung, keine Kunden-Finanzrechnungen. Erstellen und senden Sie Kundenrechnungen in Finanzen.",
+    "openFinance": "Finanzrechnungen öffnen"
   },
   "api": {
     "label": "API & Entwickler",

@@ -10,7 +10,6 @@ import {
   crmStore,
   noteErrorMap,
   useCrmStore,
-  useCustomerProjects,
   useSelectedCrmCustomer,
 } from "../../../lib/crm/directory";
 import {
@@ -25,19 +24,14 @@ import {
   SkeletonCard,
 } from "../../ui";
 import { createInvoiceHrefForCustomer } from "../../../lib/workspace/firstCustomerInvoiceUx";
+import {
+  FIRST_CUSTOMER_CRM_PROFILE_TABS,
+  isFirstCustomerCrmProfileTab,
+} from "../../../lib/workspace/firstCustomerHardening";
 import { CrmStatusBadge, CrmTagChips } from "./CrmBadges";
 import { CrmCustomerInvoices } from "./CrmCustomerInvoices";
 
-const TAB_IDS = [
-  "overview",
-  "contacts",
-  "projects",
-  "documents",
-  "invoices",
-  "activity",
-  "notes",
-  "settings",
-] as const;
+const TAB_IDS = FIRST_CUSTOMER_CRM_PROFILE_TABS;
 
 export function CrmCustomerProfile({
   customerId,
@@ -77,6 +71,10 @@ export function CrmCustomerProfile({
       </div>
     );
   }
+
+  const profileTab = isFirstCustomerCrmProfileTab(state.profileTab)
+    ? state.profileTab
+    : "overview";
 
   return (
     <div className="mx-auto w-full max-w-[1100px] space-y-5">
@@ -140,8 +138,8 @@ export function CrmCustomerProfile({
             <Button
               key={tabId}
               size="sm"
-              variant={state.profileTab === tabId ? "primary" : "ghost"}
-              aria-current={state.profileTab === tabId ? "page" : undefined}
+              variant={profileTab === tabId ? "primary" : "ghost"}
+              aria-current={profileTab === tabId ? "page" : undefined}
               onClick={() => crmStore.setProfileTab(tabId)}
             >
               {t(`crm.profile.tabs.${tabId}`)}
@@ -150,16 +148,15 @@ export function CrmCustomerProfile({
         </nav>
       </Card>
 
-      {state.profileTab === "overview" ? <OverviewTab /> : null}
-      {state.profileTab === "contacts" ? <ContactsTab /> : null}
-      {state.profileTab === "projects" ? <ProjectsTab /> : null}
-      {state.profileTab === "documents" ? <DocumentsTab /> : null}
-      {state.profileTab === "invoices" ? (
+      {profileTab === "overview" ? <OverviewTab /> : null}
+      {profileTab === "contacts" ? <ContactsTab /> : null}
+      {profileTab === "documents" ? <DocumentsTab /> : null}
+      {profileTab === "invoices" ? (
         <CrmCustomerInvoices customerId={customer.id} />
       ) : null}
-      {state.profileTab === "activity" ? <ActivityTab /> : null}
-      {state.profileTab === "notes" ? <NotesTab /> : null}
-      {state.profileTab === "settings" ? <SettingsTab /> : null}
+      {profileTab === "activity" ? <ActivityTab /> : null}
+      {profileTab === "notes" ? <NotesTab /> : null}
+      {profileTab === "settings" ? <SettingsTab /> : null}
     </div>
   );
 }
@@ -386,62 +383,6 @@ function ContactsTab(): JSX.Element {
         )}
       </Card>
     </div>
-  );
-}
-
-function ProjectsTab(): JSX.Element {
-  const customer = useSelectedCrmCustomer();
-  const state = useCrmStore();
-  const projects = useCustomerProjects(
-    customer?.companyName,
-    state.organizationId,
-  );
-  const router = useRouter();
-  const { t } = useLocale();
-
-  if (projects.length === 0) {
-    return (
-      <EmptyState
-        title={t("crm.profile.projects.emptyTitle")}
-        description={t("crm.profile.projects.emptyDescription")}
-        actionLabel={t("crm.profile.projects.openProjects")}
-        onAction={() => router.push("/dashboard/projects")}
-      />
-    );
-  }
-
-  return (
-    <Card hover={false} className="space-y-3" padding="18px">
-      <h2
-        className="text-sm font-semibold"
-        style={{ color: "var(--agx-text, #f8fafc)" }}
-      >
-        {t("crm.profile.projects.title")}
-      </h2>
-      <ul className="space-y-2">
-        {projects.map((project) => (
-          <li key={project.id}>
-            <button
-              type="button"
-              className="flex w-full items-center justify-between gap-3 rounded-xl border px-3 py-3 text-left"
-              style={{
-                borderColor: "var(--agx-card-border, rgba(255,255,255,0.1))",
-                color: "var(--agx-text, #f8fafc)",
-              }}
-              onClick={() => router.push(`/dashboard/projects/${project.id}`)}
-            >
-              <span className="text-sm font-medium">{project.name}</span>
-              <span
-                className="text-[11px]"
-                style={{ color: "var(--agx-text-muted, #94a3b8)" }}
-              >
-                {project.status} · {project.progress}%
-              </span>
-            </button>
-          </li>
-        ))}
-      </ul>
-    </Card>
   );
 }
 

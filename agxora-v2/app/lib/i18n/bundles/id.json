@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "Integrasi",
-      "description": "Terpasang, terhubung, dan tersedia",
+      "description": "Connector availability — none connected by default",
       "title": "Integrasi",
-      "panelDescription": "Adaptor terpasang, terhubung, dan tersedia.",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "Buka Pusat Integrasi",
-      "notice": "Platform Integrasi Perusahaan ada di Pusat Integrasi — konektor, OAuth, webhook, kunci API, dan jembatan peristiwa alur kerja.",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "Integrasi",
         "category": "Kategori",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "Penagihan",
-      "description": "Paket, penggunaan, faktur, dan pembayaran",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "Penagihan",
-      "panelDescription": "Paket saat ini, perpanjangan, penggunaan, faktur, dan jalur peningkatan."
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "API & Pengembang",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "Lewati ke konten dasbor",
     "loading": "Memuat dasbor…",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "Sistem operasi bisnis AI",
@@ -904,6 +915,7 @@
       "subtitle": "Hitungan ruang kerja untuk {name}",
       "fallbackName": "ruang kerja Anda",
       "ariaLabel": "Ikhtisar bisnis",
+      "workspaceBadge": "Workspace",
       "online": "Online",
       "emDash": "—",
       "capacitySignal": "{percent}% sinyal kapasitas",
@@ -936,7 +948,8 @@
         "title": "Shell aplikasi",
         "caption": "Sesi browser siap — bukan monitor operasi langsung",
         "shellLoaded": "Shell aplikasi dimuat",
-        "storesReady": "Store workspace lokal siap"
+        "storesReady": "Store workspace lokal siap",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "Pertumbuhan",
@@ -1623,6 +1636,7 @@
         "title": "Proyek",
         "emptyTitle": "Tidak ada proyek terkait",
         "emptyDescription": "Proyek yang nama pelanggannya cocok dengan perusahaan ini muncul di sini. Data dibaca dari modul Projects — tidak ada yang diduplikasi.",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "Buka Proyek"
       },
       "documents": {
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "Simulasi dijalankan · {status} ({duration}ms)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "Tugas gagal",
       "activated": "Diaktifkan secara lokal: {agentId}",
       "agentPaused": "Agen berhenti",
@@ -4701,14 +4716,16 @@
       "agents": "Agen",
       "active": "Aktif",
       "localReady": "Lokal siap",
+      "healthy": "Healthy",
       "simulatedToday": "Simulasi hari ini",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "Gagal hari ini",
       "avgExec": "Rata-rata eksekutif",
       "toolCalls": "Panggilan alat",
       "knowledge": "Pengetahuan",
       "activeFleet": "Armada aktif",
       "emptyTitle": "Tidak ada agen yang aktif",
-      "emptyDescription": "Instal atau aktifkan agen dari pasar untuk memulai simulasi berjalan.",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "Alat: {tools}",
       "installed": "Dipasang",
       "installActivate": "Instal & aktifkan",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "Pemantau agen",

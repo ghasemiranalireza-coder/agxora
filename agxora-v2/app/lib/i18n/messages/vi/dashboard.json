@@ -110,13 +110,15 @@
       "title": "Lớp vỏ ứng dụng",
       "caption": "Phiên trình duyệt đã sẵn sàng - không phải màn hình hoạt động trực tiếp",
       "shellLoaded": "Đã tải shell ứng dụng",
-      "storesReady": "Kho lưu trữ workspace cục bộ sẵn sàng"
+      "storesReady": "Kho lưu trữ workspace cục bộ sẵn sàng",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "Sự phát triển",
       "caption": "Số liệu xu hướng cần mức sử dụng tích lũy",
       "openAnalytics": "Phân tích mở"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "Hoạt động gần đây",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

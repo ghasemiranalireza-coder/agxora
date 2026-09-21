@@ -2,8 +2,8 @@
   "loading": "Agent-Betriebssystem wird geladen...",
   "eyebrow": "AI-Agent-Betriebssystem",
   "title": "Agenten-Betriebssystem",
-  "subtitle": "Lokaler Agentenarbeitsbereich — Agenten können als Simulationen für CRM, Projekte, Finanzen, Workflows und Integrationen aktiviert und ausgeführt werden. Die autonome Produktionsausführung ist nicht verbunden.",
-  "noticeDefault": "Lokales Agenten-Betriebssystem — Läufe werden in diesem Arbeitsbereich simuliert.",
+  "subtitle": "Agentenarbeitsbereich für CRM und Finanzen. Kundenbezogene CRM-Aktionen erfordern Freigabe und speichern in das echte CRM, wenn die CRM-Datenbank konfiguriert ist.",
+  "noticeDefault": "Agent-OS — CRM- und Finanz-Tools erfordern Freigabe. Abschlüsse werden nur nach erfolgreicher echter Operation angezeigt.",
   "aiChat": "KI-Chat",
   "tabs": {
     "dashboard": "Dashboard",
@@ -24,6 +24,7 @@
   },
   "notice": {
     "simulatedRun": "Simulierter Lauf · {status} ({duration}ms)",
+    "runFinished": "Lauf beendet · {status} ({duration}ms)",
     "taskFailed": "Aufgabe fehlgeschlagen",
     "activated": "Lokal aktiviert: {agentId}",
     "agentPaused": "Agent pausiert",
@@ -39,14 +40,16 @@
     "agents": "Agenten",
     "active": "Aktiv",
     "localReady": "Lokal bereit",
+    "healthy": "Bereit",
     "simulatedToday": "Heute simuliert",
+    "tasksTodayCount": "Aufgaben heute",
     "failedToday": "Heute fehlgeschlagen",
     "avgExec": "Durchschn. Ausf.",
     "toolCalls": "Werkzeugaufrufe",
     "knowledge": "Kenntnisse",
     "activeFleet": "Aktive Flotte",
     "emptyTitle": "Keine Agenten aktiv",
-    "emptyDescription": "Installieren oder aktivieren Sie einen Agenten vom Marktplatz aus, um simulierte Läufe zu starten.",
+    "emptyDescription": "Installieren oder aktivieren Sie einen CRM- oder Finanz-Agenten, um einen echten Lauf zu starten. Abschlüsse erscheinen erst nach erfolgreicher Operation.",
     "pendingApprovals": "Pending approvals"
   },
   "registry": {
@@ -63,7 +66,8 @@
     "tools": "Tools: {tools}",
     "installed": "Installiert",
     "installActivate": "Installieren & Aktivieren",
-    "noLiveTools": "Dieser Agent hat noch keine produktiven Kundentools."
+    "noLiveTools": "Dieser Agent hat noch keine produktiven Kundentools.",
+    "unavailable": "Dieser Agent ist im First-Customer-Pfad nicht verfügbar. Nur CRM- und Finanz-Tools können installiert werden."
   },
   "monitor": {
     "title": "Agentenmonitor",

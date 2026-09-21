@@ -33,7 +33,8 @@
     "settingsUpdated": "Se actualizó la configuración del sistema operativo del agente para este espacio de trabajo local.",
     "approvalRequired": "Approval required before the next tool step can run.",
     "approvalApproved": "Approval recorded and execution resumed.",
-    "approvalRejected": "Approval rejected. Execution is now blocked."
+    "approvalRejected": "Approval rejected. Execution is now blocked.",
+    "runFinished": "Run finished · {status} ({duration}ms)"
   },
   "dashboard": {
     "agents": "Agentes",
@@ -46,8 +47,10 @@
     "knowledge": "Conocimiento",
     "activeFleet": "Flota activa",
     "emptyTitle": "No hay agentes activos",
-    "emptyDescription": "Instale o active un agente del mercado para iniciar ejecuciones simuladas.",
-    "pendingApprovals": "Pending approvals"
+    "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
+    "pendingApprovals": "Pending approvals",
+    "healthy": "Healthy",
+    "tasksTodayCount": "Tasks today"
   },
   "registry": {
     "title": "Registro",
@@ -63,7 +66,8 @@
     "tools": "Herramientas: {tools}",
     "installed": "Instalado",
     "installActivate": "Instalar y activar",
-    "noLiveTools": "No live customer tools on this agent yet."
+    "noLiveTools": "No live customer tools on this agent yet.",
+    "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
   },
   "monitor": {
     "title": "Monitor de agente",

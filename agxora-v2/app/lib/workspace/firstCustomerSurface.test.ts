@@ -25,11 +25,13 @@ const FORBIDDEN_PRIMARY_HREFS = [
   "/dashboard/projects",
   "/dashboard/analytics",
   "/dashboard/billing",
+  "/dashboard/invoices",
   "/dashboard/documents",
   "/dashboard/creator",
   "/dashboard/automation",
   "/dashboard/team",
   "/dashboard/email",
+  "/dashboard/ai",
 ] as const;
 
 describe("first-customer surface lockdown", () => {

@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "Entegrasyonlar",
-      "description": "Kurulu, bağlı ve kullanılabilir",
+      "description": "Connector availability — none connected by default",
       "title": "Entegrasyonlar",
-      "panelDescription": "Kurulu, bağlı ve mevcut adaptörler.",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "Entegrasyon Merkezini Aç",
-      "notice": "Kurumsal Entegrasyon Platformu, bağlayıcılar, OAuth, web kancaları, API anahtarları ve iş akışı olay köprüsünden oluşan Entegrasyon Merkezi'nde bulunur.",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "Entegrasyon",
         "category": "Kategori",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "Faturalandırma",
-      "description": "Plan, kullanım, faturalar ve ödemeler",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "Faturalandırma",
-      "panelDescription": "Mevcut plan, yenileme, kullanım, faturalar ve yükseltme yolu."
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "API ve Geliştiriciler",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "Kontrol paneli içeriğine atla",
     "loading": "Kontrol paneli yükleniyor…",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "AI iş işletim sistemi",
@@ -904,6 +915,7 @@
       "subtitle": "{name} için çalışma alanı sayıları",
       "fallbackName": "çalışma alanınız",
       "ariaLabel": "İşletmeye genel bakış",
+      "workspaceBadge": "Workspace",
       "online": "Çevrimiçi",
       "emDash": "—",
       "capacitySignal": "%{percent} kapasite sinyali",
@@ -936,7 +948,8 @@
         "title": "Uygulama kabuğu",
         "caption": "Tarayıcı oturumu hazır; canlı operasyon monitörü değil",
         "shellLoaded": "Uygulama kabuğu yüklendi",
-        "storesReady": "Yerel çalışma alanı depoları hazır"
+        "storesReady": "Yerel çalışma alanı depoları hazır",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "Büyüme",
@@ -1623,6 +1636,7 @@
         "title": "Projeler",
         "emptyTitle": "Bağlantılı proje yok",
         "emptyDescription": "Müşteri adı bu şirketle eşleşen projeler burada görünür. Veriler Projeler modülünden okunur; hiçbir şey kopyalanmaz.",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "Açık Projeler"
       },
       "documents": {
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "Simüle edilmiş çalıştırma · {status} ({duration}ms)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "Görev başarısız oldu",
       "activated": "Yerel olarak etkinleştirildi: {agentId}",
       "agentPaused": "Temsilci duraklatıldı",
@@ -4701,14 +4716,16 @@
       "agents": "Temsilciler",
       "active": "Aktif",
       "localReady": "Yerel hazır",
+      "healthy": "Healthy",
       "simulatedToday": "Bugün simüle edildi",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "Bugün başarısız oldu",
       "avgExec": "Ortalama yönetici",
       "toolCalls": "Araç çağrıları",
       "knowledge": "Bilgi",
       "activeFleet": "Aktif filo",
       "emptyTitle": "Aktif temsilci yok",
-      "emptyDescription": "Simüle edilmiş çalıştırmaları başlatmak için piyasadan bir aracı yükleyin veya etkinleştirin.",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "Araçlar: {tools}",
       "installed": "Yüklendi",
       "installActivate": "Yükle ve etkinleştir",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "Temsilci monitörü",

@@ -1,9 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState, type JSX } from "react";
 import { Button, Card, DataTable } from "@/app/components/ui";
 import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
+import {
+  FIRST_CUSTOMER_AGENT_OS_TAB_IDS,
+  firstCustomerAgentRunNoticeKey,
+  isFirstCustomerAgentOsTab,
+  isFirstCustomerMarketplaceInstallAllowed,
+} from "@/app/lib/workspace/firstCustomerHardening";
 import type { DataTableColumn } from "@/app/components/ui";
 import { agentsStore } from "../store";
 import { isCustomerFacingAgentTool } from "../tools";
@@ -76,23 +81,10 @@ export function AgentOperatingSystem(): JSX.Element {
   const isolateSensitive =
     sensitiveDraft ?? aos.settings.isolateSensitiveTools;
 
-  const tabs: readonly { id: TabId; label: string }[] = [
-    { id: "dashboard", label: t("agents.tabs.dashboard") },
-    { id: "growth", label: t("agents.tabs.growth") },
-    { id: "website", label: t("agents.tabs.website") },
-    { id: "social", label: t("agents.tabs.social") },
-    { id: "campaigns", label: t("agents.tabs.campaigns") },
-    { id: "creative", label: t("agents.tabs.creative") },
-    { id: "operations", label: t("agents.tabs.operations") },
-    { id: "registry", label: t("agents.tabs.registry") },
-    { id: "marketplace", label: t("agents.tabs.marketplace") },
-    { id: "monitor", label: t("agents.tabs.monitor") },
-    { id: "history", label: t("agents.tabs.history") },
-    { id: "memory", label: t("agents.tabs.memory") },
-    { id: "knowledge", label: t("agents.tabs.knowledge") },
-    { id: "tools", label: t("agents.tabs.tools") },
-    { id: "settings", label: t("agents.tabs.settings") },
-  ];
+  const tabs: readonly { id: TabId; label: string }[] = FIRST_CUSTOMER_AGENT_OS_TAB_IDS.map(
+    (id) => ({ id, label: t(`agents.tabs.${id}`) }),
+  );
+  const visibleTab = isFirstCustomerAgentOsTab(tab) ? tab : "dashboard";
 
   if (!aos.hydrated) {
     return (
@@ -148,12 +140,10 @@ export function AgentOperatingSystem(): JSX.Element {
         goal: title,
       });
       setNotice(
-        task.status === "blocked"
-          ? t("agents.notice.approvalRequired")
-          : t("agents.notice.simulatedRun", {
-              status: task.status,
-              duration: task.durationMs ?? 0,
-            }),
+        t(firstCustomerAgentRunNoticeKey(task.status), {
+          status: task.status,
+          duration: task.durationMs ?? 0,
+        }),
       );
       setTab("history");
     } catch (err) {
@@ -164,6 +154,11 @@ export function AgentOperatingSystem(): JSX.Element {
   };
 
   const onInstall = (agentId: AgentId) => {
+    const listed = aos.marketplace.find((agent) => agent.id === agentId);
+    if (!listed || !isFirstCustomerMarketplaceInstallAllowed(listed.tools)) {
+      setNotice(t("agents.marketplace.unavailable"));
+      return;
+    }
     const runtime = agentOsService.register(aos.organizationId, agentId, true);
     setSelectedInstance(runtime.instanceId);
     setNotice(t("agents.notice.activated", { agentId }));
@@ -517,17 +512,12 @@ export function AgentOperatingSystem(): JSX.Element {
             <Button
               key={tabItem.id}
               size="sm"
-              variant={tab === tabItem.id ? "primary" : "secondary"}
+              variant={visibleTab === tabItem.id ? "primary" : "secondary"}
               onClick={() => setTab(tabItem.id)}
             >
               {tabItem.label}
             </Button>
           ))}
-          <Link href="/dashboard/ai">
-            <Button size="sm" variant="ghost">
-              {t("agents.aiChat")}
-            </Button>
-          </Link>
         </div>
       </Card>
 
@@ -536,8 +526,8 @@ export function AgentOperatingSystem(): JSX.Element {
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             <Stat label={t("agents.dashboard.agents")} value={String(aos.metrics.totalAgents)} />
             <Stat label={t("agents.dashboard.active")} value={String(aos.metrics.activeAgents)} />
-            <Stat label={t("agents.dashboard.localReady")} value={String(aos.metrics.healthyAgents)} />
-            <Stat label={t("agents.dashboard.simulatedToday")} value={String(aos.metrics.tasksToday)} />
+            <Stat label={t("agents.dashboard.healthy")} value={String(aos.metrics.healthyAgents)} />
+            <Stat label={t("agents.dashboard.tasksTodayCount")} value={String(aos.metrics.tasksToday)} />
           </div>
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             <Stat label={t("agents.dashboard.failedToday")} value={String(aos.metrics.failedToday)} />
@@ -718,7 +708,9 @@ export function AgentOperatingSystem(): JSX.Element {
 
       {tab === "marketplace" ? (
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {aos.marketplace.map((agent) => {
+          {aos.marketplace
+            .filter((agent) => isFirstCustomerMarketplaceInstallAllowed(agent.tools))
+            .map((agent) => {
             const installed = aos.runtimes.some((r) => r.agentId === agent.id);
             return (
               <Card key={agent.id} className="flex flex-col gap-2" padding="20px" hover={false}>
@@ -893,7 +885,7 @@ export function AgentOperatingSystem(): JSX.Element {
 
       {tab === "tools" ? (
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {aos.tools.map((tool) => (
+          {aos.tools.filter((tool) => isCustomerFacingAgentTool(tool.id)).map((tool) => (
             <Card key={tool.id} className="space-y-2" padding="20px" hover={false}>
               <h3 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
                 {catalogCopy(t, `agents.toolsCatalog.${tool.id}.name`, tool.name)}

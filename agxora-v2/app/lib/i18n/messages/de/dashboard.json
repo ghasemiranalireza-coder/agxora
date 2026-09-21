@@ -83,6 +83,7 @@
     "subtitle": "Kennzahlen für {name}",
     "fallbackName": "Ihren Workspace",
     "ariaLabel": "Geschäftsübersicht",
+    "workspaceBadge": "Workspace",
     "online": "Online",
     "emDash": "—",
     "capacitySignal": "{percent} % Auslastungssignal",
@@ -115,7 +116,8 @@
       "title": "Anwendungsshell",
       "caption": "Browsersitzung bereit — kein Live-Ops-Monitor",
       "shellLoaded": "Anwendungs-Shell geladen",
-      "storesReady": "Lokale Workspace-Stores bereit"
+      "storesReady": "Lokale Workspace-Stores bereit",
+      "crmReady": "CRM-Verzeichnis bereit"
     },
     "growth": {
       "title": "Wachstum",
@@ -415,5 +417,12 @@
     "comingSoon": "Demnächst",
     "attention": "Aufmerksamkeit",
     "cta": "Integrationen öffnen"
+  },
+  "legacy": {
+    "openDashboard": "Zurück zum Dashboard",
+    "projects": {
+      "title": "Projekte-Modul nicht verfügbar",
+      "description": "Der First-Customer-Workspace verwendet das Legacy-Projekte-Modul nicht."
+    }
   }
 }

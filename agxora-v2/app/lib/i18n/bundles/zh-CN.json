@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "集成",
-      "description": "已安装、连接且可用",
+      "description": "Connector availability — none connected by default",
       "title": "集成",
-      "panelDescription": "已安装、连接且可用的适配器。",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "打开集成中心",
-      "notice": "企业集成平台位于集成中心 - 连接器、OAuth、Webhooks、API 密钥和工作流事件桥。",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "一体化",
         "category": "类别",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "计费",
-      "description": "计划、使用情况、发票和付款",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "计费",
-      "panelDescription": "当前计划、续订、使用情况、发票和升级路径。"
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "API 和开发人员",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "跳至仪表板内容",
     "loading": "正在加载仪表板...",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "AI 商业操作系统",
@@ -904,6 +915,7 @@
       "subtitle": "{name} 的工作区计数",
       "fallbackName": "你的工作空间",
       "ariaLabel": "业务概况",
+      "workspaceBadge": "Workspace",
       "online": "在线",
       "emDash": "—",
       "capacitySignal": "{percent}% 容量信号",
@@ -936,7 +948,8 @@
         "title": "应用外壳",
         "caption": "浏览器会话就绪 - 不是实时操作监视器",
         "shellLoaded": "已加载应用程序外壳",
-        "storesReady": "本地工作区存储已就绪"
+        "storesReady": "本地工作区存储已就绪",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "增长率",
@@ -1623,6 +1636,7 @@
         "title": "项目",
         "emptyTitle": "没有链接的项目",
         "emptyDescription": "此处显示客户名称与此公司匹配的项目。数据从项目模块读取—没有重复。",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "开放项目"
       },
       "documents": {
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "模拟运行· {status} （ {duration}毫秒）",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "任务失败",
       "activated": "已在本地激活： {agentId}",
       "agentPaused": "客服代表已暂停",
@@ -4701,14 +4716,16 @@
       "agents": "代理",
       "active": "积极的",
       "localReady": "本地准备就绪",
+      "healthy": "Healthy",
       "simulatedToday": "今天模拟",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "今天失败",
       "avgExec": "平均执行次数",
       "toolCalls": "工具调用",
       "knowledge": "知识",
       "activeFleet": "活跃机队",
       "emptyTitle": "没有活跃的代理",
-      "emptyDescription": "从市场安装或激活代理以开始模拟运行。",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "工具： {tools}",
       "installed": "已安装",
       "installActivate": "安装并激活",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "代理监控",

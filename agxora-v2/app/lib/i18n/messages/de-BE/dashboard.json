@@ -110,13 +110,15 @@
       "title": "Anwendungsshell",
       "caption": "Bereit für die Browsersitzung – kein Live-Betriebsmonitor",
       "shellLoaded": "Anwendungsshell geladen",
-      "storesReady": "Lokale Workspace-Stores bereit"
+      "storesReady": "Lokale Workspace-Stores bereit",
+      "crmReady": "CRM-Verzeichnis bereit"
     },
     "growth": {
       "title": "Wachstum",
       "caption": "Trendmetriken erfordern eine akkumulierte Nutzung",
       "openAnalytics": "Offene Analysen"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "Aktuelle Aktivität",
@@ -415,5 +417,12 @@
     "comingSoon": "Demnächst",
     "attention": "Aufmerksamkeit",
     "cta": "Integrationen öffnen"
+  },
+  "legacy": {
+    "openDashboard": "Zurück zum Dashboard",
+    "projects": {
+      "title": "Projekte-Modul nicht verfügbar",
+      "description": "Der First-Customer-Workspace verwendet das Legacy-Projekte-Modul nicht."
+    }
   }
 }

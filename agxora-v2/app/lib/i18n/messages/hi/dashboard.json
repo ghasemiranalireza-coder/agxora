@@ -110,13 +110,15 @@
       "title": "ऐप शेल",
       "caption": "ब्राउज़र सत्र तैयार - लाइव ऑप्स मॉनिटर नहीं",
       "shellLoaded": "एप्लिकेशन शेल लोड किया गया",
-      "storesReady": "स्थानीय वर्कस्पेस स्टोर तैयार"
+      "storesReady": "स्थानीय वर्कस्पेस स्टोर तैयार",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "विकास",
       "caption": "ट्रेंड मेट्रिक्स को संचित उपयोग की आवश्यकता है",
       "openAnalytics": "विश्लेषिकी खोलें"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "हाल की गतिविधि",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

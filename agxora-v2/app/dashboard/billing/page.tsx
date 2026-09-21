@@ -1,18 +1,13 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
+import { FirstCustomerLegacyRedirect } from "../../components/workspace/FirstCustomerLegacyRedirect";
+import { firstCustomerLegacyRedirect } from "../../lib/workspace/firstCustomerHardening";
 
-const Page = dynamic(
-  () =>
-    import("../../../features/saas").then((mod) => mod.CustomerBillingPortal),
-  {
-    ssr: false,
-    loading: createRouteLoading("dashboard.routeLoading.billing"),
-  },
-);
-
-export default function RoutePage(): JSX.Element {
-  return <Page />;
+export default function BillingPage(): JSX.Element {
+  return (
+    <FirstCustomerLegacyRedirect
+      href={firstCustomerLegacyRedirect("/dashboard/billing")}
+    />
+  );
 }

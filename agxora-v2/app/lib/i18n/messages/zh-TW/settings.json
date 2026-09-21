@@ -217,17 +217,19 @@
   },
   "integrations": {
     "label": "串接",
-    "description": "已安裝、連接且可用",
+    "description": "Connector availability — none connected by default",
     "title": "串接",
-    "panelDescription": "已安裝、連接且可用的適配器。",
+    "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
     "openCenter": "開放整合中心",
-    "notice": "企業整合平台位於整合中心 - 連接器、OAuth、Webhooks、API 密鑰和工作流程事件橋。",
+    "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
     "columns": {
       "integration": "一體化",
       "category": "類別",
       "status": "地位",
       "adapter": "適配器"
-    }
+    },
+    "emptyTitle": "No live integrations connected",
+    "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected."
   },
   "security": {
     "label": "安全性",
@@ -277,9 +279,11 @@
   },
   "billing": {
     "label": "計費",
-    "description": "計劃、使用情況、發票和付款",
+    "description": "AGXORA subscription — not customer Finance invoices",
     "title": "計費",
-    "panelDescription": "目前計劃、續約、使用情況、發票和升級路徑。"
+    "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+    "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+    "openFinance": "Open Finance invoices"
   },
   "api": {
     "label": "API 和開發人員",
