@@ -1,20 +1,17 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import type { JSX } from "react";
-import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { FIRST_CUSTOMER_TEAM_SETTINGS_HREF } from "../../lib/workspace/firstCustomerTeamEmail";
 
-const TeamWorkspace = dynamic(
-  () =>
-    import("../../components/team/TeamWorkspace").then(
-      (mod) => mod.TeamWorkspace,
-    ),
-  {
-    ssr: false,
-    loading: createRouteLoading("dashboard.routeLoading.team"),
-  },
-);
-
-export default function TeamPage(): JSX.Element {
-  return <TeamWorkspace />;
+/**
+ * Legacy /dashboard/team is a localStorage demo. First-customer team
+ * management is Settings → Team (Prisma control plane).
+ */
+export default function TeamPage(): null {
+  const router = useRouter();
+  useEffect(() => {
+    router.replace(FIRST_CUSTOMER_TEAM_SETTINGS_HREF);
+  }, [router]);
+  return null;
 }

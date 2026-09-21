@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "تیم",
-      "description": "اعضا، نقش‌ها، دعوت‌ها و گروه‌ها",
+      "description": "Members, roles, and invitations",
       "title": "تیم",
-      "panelDescription": "اعضا، نقش‌ها، دعوت‌ها و گروه‌ها."
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "هوش مصنوعی",
@@ -735,7 +735,9 @@
       "revoke": "لغو",
       "noMembers": "هنوز عضوی نیست",
       "noMembersBody": "همکاری را به این فضای کاری دعوت کنید.",
-      "inviteHonesty": "ارسال ایمیل پیکربندی نشده است. لینک دعوت را مستقیم به اشتراک بگذارید.",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "لینک دعوت",
       "inviteInvalid": "این دعوت معتبر نیست.",
       "accept": "پذیرش دعوت",
@@ -1291,7 +1293,7 @@
       "email": "ایمیل",
       "submit": "درخواست بازنشانی",
       "submitting": "در حال ارسال…",
-      "success": "اگر حسابی با آن ایمیل وجود داشته باشد، درخواست ثبت شد. ارسال ایمیل هنوز پیکربندی نشده است.",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "بازگشت به ورود",
       "failed": "پردازش درخواست ممکن نشد",
       "loading": "فراموشی رمز عبور"
@@ -7289,7 +7291,7 @@
       "loading": "در حال بارگذاری…",
       "skipForNow": "فعلا رد شوید",
       "tokenPlaceholder": "Token تأیید",
-      "tokenIssued": "توکن تأیید برای جلسه فعلی صادر شده است.",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "امکان بررسی دسترسی توکن وجود ندارد.",
       "verificationFailed": "تاییدیه ناموفق بود",
       "verify": "تایید ایمیل",

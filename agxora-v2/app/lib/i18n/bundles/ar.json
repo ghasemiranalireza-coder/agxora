@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "فريق",
-      "description": "الأعضاء والأدوار والدعوات والمجموعات",
+      "description": "Members, roles, and invitations",
       "title": "فريق",
-      "panelDescription": "الأعضاء والأدوار والدعوات والمجموعات."
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "منظمة العفو الدولية",
@@ -735,7 +735,9 @@
       "revoke": "إبطال",
       "noMembers": "لا يوجد أعضاء حتى الآن",
       "noMembersBody": "قم بدعوة زميل في الفريق إلى مساحة العمل هذه.",
-      "inviteHonesty": "لم يتم تكوين تسليم البريد الإلكتروني. شارك رابط الدعوة مباشرة.",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "رابط الدعوة",
       "inviteInvalid": "هذه الدعوة غير صالحة.",
       "accept": "قبول الدعوة",
@@ -1285,7 +1287,7 @@
       "email": "بريد إلكتروني",
       "submit": "طلب إعادة التعيين",
       "submitting": "تقديم…",
-      "success": "إذا كان هناك حساب لهذا البريد الإلكتروني، فسيتم تسجيل طلب إعادة تعيين. لم يتم تكوين تسليم البريد الإلكتروني بعد.",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "العودة لتسجيل الدخول",
       "failed": "تعذرت معالجة طلب إعادة التعيين",
       "loading": "هل نسيت كلمة السر"
@@ -7233,7 +7235,7 @@
       "loading": "تحميل…",
       "skipForNow": "تخطي الآن",
       "tokenPlaceholder": "رمز التحقق",
-      "tokenIssued": "تم إصدار رمز التحقق للدورة الحالية.",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "لا يمكن إصدار الرمز المميز",
       "verificationFailed": "فشل التحقق",
       "verify": "التحقق من البريد الإلكتروني",

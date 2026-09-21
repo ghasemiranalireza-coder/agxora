@@ -28,6 +28,10 @@ import {
   SettingsPanel,
   SettingsSelect,
 } from "../forms/SettingsControls";
+import {
+  inviteHonestyMessageKey,
+  shouldShowManualInviteLink,
+} from "../../../lib/workspace/firstCustomerTeamEmail";
 
 type Role = "OWNER" | "ADMIN" | "MEMBER";
 
@@ -357,6 +361,7 @@ export function TeamControlPanel(): JSX.Element {
   const [inviteEmail, setInviteEmail] = useState("");
   const [inviteRole, setInviteRole] = useState<"ADMIN" | "MEMBER">("MEMBER");
   const [inviteLink, setInviteLink] = useState<string | null>(null);
+  const [inviteDelivery, setInviteDelivery] = useState<string | null>(null);
   const [transferOpen, setTransferOpen] = useState(false);
   const [transferTargetId, setTransferTargetId] = useState("");
   const [transferConfirmName, setTransferConfirmName] = useState("");
@@ -479,7 +484,8 @@ export function TeamControlPanel(): JSX.Element {
     setBusy(true);
     try {
       const result = await controlPlaneClient.invite(workspaceId, inviteEmail, inviteRole);
-      if (result.acceptPath) {
+      setInviteDelivery(result.delivery);
+      if (shouldShowManualInviteLink(result.delivery, result.acceptPath)) {
         setInviteLink(`${window.location.origin}${result.acceptPath}`);
       } else {
         setInviteLink("");
@@ -670,6 +676,7 @@ export function TeamControlPanel(): JSX.Element {
         onClose={() => {
           setInviteOpen(false);
           setInviteLink(null);
+          setInviteDelivery(null);
         }}
         footer={
           <div className="flex justify-end gap-2">
@@ -713,7 +720,7 @@ export function TeamControlPanel(): JSX.Element {
             </SettingsSelect>
           </SettingsField>
           <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            {t("settings.controlPlane.inviteHonesty")}
+            {t(inviteHonestyMessageKey(inviteDelivery))}
           </p>
           {inviteLink ? (
             <p className="break-all text-xs" role="status">

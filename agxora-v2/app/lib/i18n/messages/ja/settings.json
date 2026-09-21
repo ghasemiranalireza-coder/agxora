@@ -45,9 +45,9 @@
   },
   "team": {
     "label": "チーム",
-    "description": "メンバー、役割、招待状、およびグループ",
+    "description": "Members, roles, and invitations",
     "title": "チーム",
-    "panelDescription": "メンバー、役割、招待状、およびグループ。"
+    "panelDescription": "Members, roles, and invitations."
   },
   "ai": {
     "label": "AI",
@@ -410,7 +410,7 @@
     "revoke": "取り消す",
     "noMembers": "まだメンバーがいません",
     "noMembersBody": "チームメイトをこのワークスペースに招待します。",
-    "inviteHonesty": "電子メール配信が設定されていません。招待リンクを直接共有します。",
+    "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
     "inviteLink": "招待リンク",
     "inviteInvalid": "この招待は無効です。",
     "accept": "招待を承諾する",
@@ -447,7 +447,9 @@
       "expired": "この所有権の譲渡は期限切れになりました。",
       "cancelled": "この所有権移転はキャンセルされました。",
       "confirmed": "この所有権移転はすでに完了しています。"
-    }
+    },
+    "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+    "inviteQueued": "Invitation created. Email delivery was queued for the recipient."
   },
   "financeDocuments": {
     "label": "Finance documents",

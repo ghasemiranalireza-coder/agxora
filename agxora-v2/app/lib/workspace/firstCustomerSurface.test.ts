@@ -28,6 +28,8 @@ const FORBIDDEN_PRIMARY_HREFS = [
   "/dashboard/documents",
   "/dashboard/creator",
   "/dashboard/automation",
+  "/dashboard/team",
+  "/dashboard/email",
 ] as const;
 
 describe("first-customer surface lockdown", () => {
@@ -108,5 +110,7 @@ describe("first-customer surface lockdown", () => {
     expect(index.some((item) => item.href === "/dashboard/customers")).toBe(
       false,
     );
+    expect(index.some((item) => item.href === "/dashboard/team")).toBe(false);
+    expect(index.some((item) => item.href === "/dashboard/email")).toBe(false);
   });
 });

@@ -45,9 +45,9 @@
   },
   "team": {
     "label": "Team",
-    "description": "Mitglieder, Rollen, Einladungen und Gruppen",
+    "description": "Mitglieder, Rollen und Einladungen",
     "title": "Team",
-    "panelDescription": "Mitglieder, Rollen, Einladungen und Gruppen."
+    "panelDescription": "Mitglieder, Rollen und Einladungen."
   },
   "ai": {
     "label": "KI",
@@ -410,7 +410,9 @@
     "revoke": "Widerrufen",
     "noMembers": "Noch keine Mitglieder",
     "noMembersBody": "Laden Sie eine Person in diesen Workspace ein.",
-    "inviteHonesty": "E-Mail-Versand ist nicht konfiguriert. Teilen Sie den Einladungslink direkt.",
+    "inviteHonesty": "E-Mail-Zustellung wurde nicht angenommen. Teilen Sie den Einladungslink direkt.",
+    "inviteBeforeSend": "Einladungen nutzen den serverseitigen E-Mail-Pfad. AGXORA bestätigt den Versand nur, wenn der Server die Zustellung angenommen hat. Ist E-Mail nicht verfügbar, wird stattdessen ein teilbarer Einladungslink angezeigt.",
+    "inviteQueued": "Einladung erstellt. Die E-Mail-Zustellung wurde für den Empfänger angenommen.",
     "inviteLink": "Einladungslink",
     "inviteInvalid": "Diese Einladung ist ungültig.",
     "accept": "Einladung annehmen",

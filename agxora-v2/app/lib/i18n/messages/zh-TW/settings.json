@@ -45,9 +45,9 @@
   },
   "team": {
     "label": "團隊",
-    "description": "成員、角色、邀請和群組",
+    "description": "Members, roles, and invitations",
     "title": "團隊",
-    "panelDescription": "成員、角色、邀請和群組。"
+    "panelDescription": "Members, roles, and invitations."
   },
   "ai": {
     "label": "人工智慧",
@@ -410,7 +410,7 @@
     "revoke": "撤銷",
     "noMembers": "還沒有會員",
     "noMembersBody": "邀請隊友加入此工作區。",
-    "inviteHonesty": "未配置電子郵件傳送。直接分享邀請連結。",
+    "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
     "inviteLink": "邀請連結",
     "inviteInvalid": "此邀請無效。",
     "accept": "接受邀請",
@@ -447,7 +447,9 @@
       "expired": "此所有權轉讓已過期。",
       "cancelled": "此次所有權轉讓已被取消。",
       "confirmed": "本次股權轉讓已經完成。"
-    }
+    },
+    "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+    "inviteQueued": "Invitation created. Email delivery was queued for the recipient."
   },
   "financeDocuments": {
     "label": "Finance documents",

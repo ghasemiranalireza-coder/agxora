@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "团队",
-      "description": "成员、角色、邀请和组",
+      "description": "Members, roles, and invitations",
       "title": "团队",
-      "panelDescription": "成员、角色、邀请和组。"
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "人工智能",
@@ -735,7 +735,9 @@
       "revoke": "撤销",
       "noMembers": "还没有会员",
       "noMembersBody": "邀请队友加入此工作区。",
-      "inviteHonesty": "未配置电子邮件传送。直接分享邀请链接。",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "邀请链接",
       "inviteInvalid": "此邀请无效。",
       "accept": "接受邀请",
@@ -1285,7 +1287,7 @@
       "email": "电子邮件",
       "submit": "请求重置",
       "submitting": "提交中...",
-      "success": "如果该电子邮件的帐户存在，则会记录重置请求。尚未配置电子邮件传送。",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "返回登录",
       "failed": "无法处理请求。",
       "loading": "忘记密码"
@@ -7233,7 +7235,7 @@
       "loading": "加载中…",
       "skipForNow": "暂时跳过",
       "tokenPlaceholder": "验证令牌",
-      "tokenIssued": "为当前会话颁发的验证令牌。",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "无法发放令牌",
       "verificationFailed": "验证失败",
       "verify": "验证邮箱",

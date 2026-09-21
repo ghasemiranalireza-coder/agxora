@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "Equipe",
-      "description": "Membros, funções, convites e grupos",
+      "description": "Members, roles, and invitations",
       "title": "Equipe",
-      "panelDescription": "Membros, funções, convites e grupos."
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "IA",
@@ -735,7 +735,9 @@
       "revoke": "Revogar",
       "noMembers": "Ainda não há membros",
       "noMembersBody": "Convide um colega de equipe para este espaço de trabalho.",
-      "inviteHonesty": "A entrega de e-mail não está configurada. Compartilhe o link do convite diretamente.",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "Link de convite",
       "inviteInvalid": "Este convite não é válido.",
       "accept": "Aceitar convite",
@@ -1285,7 +1287,7 @@
       "email": "E-mail",
       "submit": "Solicitar redefinição",
       "submitting": "Enviando…",
-      "success": "Se existir uma conta para esse email, uma solicitação de redefinição foi registrada. A entrega de e-mail ainda não está configurada.",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "Voltar para fazer login",
       "failed": "Não foi possível processar a solicitação de redefinição",
       "loading": "Esqueceu sua senha"
@@ -7233,7 +7235,7 @@
       "loading": "Carregando…",
       "skipForNow": "Pular por enquanto",
       "tokenPlaceholder": "Token de verificação",
-      "tokenIssued": "Token de verificação emitido para a sessão atual.",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "Não foi possível emitir o token",
       "verificationFailed": "Falha na verificação",
       "verify": "Verificar e-mail",

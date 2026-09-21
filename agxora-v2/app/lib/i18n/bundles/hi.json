@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "टीम",
-      "description": "सदस्य, भूमिकाएँ, निमंत्रण और समूह",
+      "description": "Members, roles, and invitations",
       "title": "टीम",
-      "panelDescription": "सदस्य, भूमिकाएँ, निमंत्रण और समूह।"
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "ऐ",
@@ -735,7 +735,9 @@
       "revoke": "रद्द करना",
       "noMembers": "अभी तक कोई सदस्य नहीं",
       "noMembersBody": "इस कार्यक्षेत्र में किसी टीम-साथी को आमंत्रित करें.",
-      "inviteHonesty": "ईमेल डिलीवरी कॉन्फ़िगर नहीं है. आमंत्रण लिंक सीधे साझा करें.",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "लिंक आमंत्रित करें",
       "inviteInvalid": "यह आमंत्रण मान्य नहीं है.",
       "accept": "निमंत्रण स्वीकार करो",
@@ -1285,7 +1287,7 @@
       "email": "ईमेल",
       "submit": "रीसेट का अनुरोध करें",
       "submitting": "सबमिट किया जा रहा है...",
-      "success": "यदि उस ईमेल के लिए कोई खाता मौजूद है, तो एक रीसेट अनुरोध रिकॉर्ड किया गया था। ईमेल डिलीवरी अभी तक कॉन्फ़िगर नहीं की गई है.",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "साइन इन करने के लिए वापस जाएँ",
       "failed": "रीसेट अनुरोध संसाधित नहीं किया जा सका",
       "loading": "पासवर्ड भूल गए"
@@ -7233,7 +7235,7 @@
       "loading": "लोड हो रहा है...",
       "skipForNow": "अभी के लिए छोड़ दे",
       "tokenPlaceholder": "सत्यापन टोकन",
-      "tokenIssued": "वर्तमान सत्र के लिए सत्यापन टोकन जारी किया गया।",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "टोकन जारी नहीं हो सका",
       "verificationFailed": "सत्यापन में विफल रहा",
       "verify": "ईमेल सत्यापित करें",

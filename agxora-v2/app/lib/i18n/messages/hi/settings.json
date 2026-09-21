@@ -45,9 +45,9 @@
   },
   "team": {
     "label": "टीम",
-    "description": "सदस्य, भूमिकाएँ, निमंत्रण और समूह",
+    "description": "Members, roles, and invitations",
     "title": "टीम",
-    "panelDescription": "सदस्य, भूमिकाएँ, निमंत्रण और समूह।"
+    "panelDescription": "Members, roles, and invitations."
   },
   "ai": {
     "label": "ऐ",
@@ -410,7 +410,7 @@
     "revoke": "रद्द करना",
     "noMembers": "अभी तक कोई सदस्य नहीं",
     "noMembersBody": "इस कार्यक्षेत्र में किसी टीम-साथी को आमंत्रित करें.",
-    "inviteHonesty": "ईमेल डिलीवरी कॉन्फ़िगर नहीं है. आमंत्रण लिंक सीधे साझा करें.",
+    "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
     "inviteLink": "लिंक आमंत्रित करें",
     "inviteInvalid": "यह आमंत्रण मान्य नहीं है.",
     "accept": "निमंत्रण स्वीकार करो",
@@ -447,7 +447,9 @@
       "expired": "यह स्वामित्व हस्तांतरण समाप्त हो गया है.",
       "cancelled": "यह स्वामित्व हस्तांतरण रद्द कर दिया गया था.",
       "confirmed": "यह स्वामित्व हस्तांतरण पहले ही पूरा हो चुका था."
-    }
+    },
+    "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+    "inviteQueued": "Invitation created. Email delivery was queued for the recipient."
   },
   "financeDocuments": {
     "label": "Finance documents",

@@ -45,9 +45,9 @@
   },
   "team": {
     "label": "فريق",
-    "description": "الأعضاء والأدوار والدعوات والمجموعات",
+    "description": "Members, roles, and invitations",
     "title": "فريق",
-    "panelDescription": "الأعضاء والأدوار والدعوات والمجموعات."
+    "panelDescription": "Members, roles, and invitations."
   },
   "ai": {
     "label": "منظمة العفو الدولية",
@@ -410,7 +410,7 @@
     "revoke": "إبطال",
     "noMembers": "لا يوجد أعضاء حتى الآن",
     "noMembersBody": "قم بدعوة زميل في الفريق إلى مساحة العمل هذه.",
-    "inviteHonesty": "لم يتم تكوين تسليم البريد الإلكتروني. شارك رابط الدعوة مباشرة.",
+    "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
     "inviteLink": "رابط الدعوة",
     "inviteInvalid": "هذه الدعوة غير صالحة.",
     "accept": "قبول الدعوة",
@@ -447,7 +447,9 @@
       "expired": "انتهت صلاحية نقل الملكية هذا.",
       "cancelled": "تم إلغاء نقل الملكية هذا.",
       "confirmed": "لقد اكتمل نقل الملكية هذا بالفعل."
-    }
+    },
+    "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+    "inviteQueued": "Invitation created. Email delivery was queued for the recipient."
   },
   "financeDocuments": {
     "label": "مستندات مالية",
