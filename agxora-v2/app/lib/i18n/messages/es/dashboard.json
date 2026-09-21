@@ -110,13 +110,15 @@
       "title": "Capa de la aplicación",
       "caption": "Sesión de navegador lista, no un monitor de operaciones en vivo",
       "shellLoaded": "Shell de la aplicación cargado",
-      "storesReady": "Almacenes locales del espacio listos"
+      "storesReady": "Almacenes locales del espacio listos",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "Crecimiento",
       "caption": "Las métricas de tendencia necesitan un uso acumulado",
       "openAnalytics": "Análisis abiertos"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "Actividad reciente",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "Intégrations",
-      "description": "Installé, connecté et disponible",
+      "description": "Connector availability — none connected by default",
       "title": "Intégrations",
-      "panelDescription": "Adaptateurs installés, connectés et disponibles.",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "Ouvrir le Centre d'intégration",
-      "notice": "Enterprise Integration Platform réside dans le centre d'intégration : connecteurs, OAuth, webhooks, clés API et pont d'événements de workflow.",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "Intégration",
         "category": "Catégorie",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "Facturation",
-      "description": "Planification, utilisation, factures et paiements",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "Facturation",
-      "panelDescription": "Plan actuel, renouvellement, utilisation, factures et chemin de mise à niveau."
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "API et développeurs",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "Passer au contenu du tableau de bord",
     "loading": "Chargement du tableau de bord",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "Système d’exploitation métier IA",
@@ -904,6 +915,7 @@
       "subtitle": "Compteurs de l’espace pour {name}",
       "fallbackName": "Votre espace de travail",
       "ariaLabel": "Aperçu de l'entreprise",
+      "workspaceBadge": "Workspace",
       "online": "En ligne",
       "emDash": "—",
       "capacitySignal": "{percent} % du signal de capacité",
@@ -936,7 +948,8 @@
         "title": "Coque applicative",
         "caption": "Session du navigateur prête — pas un moniteur d'opérations en direct",
         "shellLoaded": "Shell d'application chargé",
-        "storesReady": "Stores locaux de l’espace prêts"
+        "storesReady": "Stores locaux de l’espace prêts",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "Croissance",
@@ -1623,6 +1636,7 @@
         "title": "Projets",
         "emptyTitle": "Aucun projet lié",
         "emptyDescription": "Les projets dont le nom de client correspond à cette entreprise apparaissent ici. Les données sont lues à partir du module Projets — rien n'est dupliqué.",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "Projets ouverts"
       },
       "documents": {
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "Exécution simulée · {status} ({duration} ms)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "La tâche a échoué",
       "activated": "Activé localement : {agentId}",
       "agentPaused": "Agent en pause",
@@ -4701,14 +4716,16 @@
       "agents": "Agents",
       "active": "Actif",
       "localReady": "Prêt pour les locaux",
+      "healthy": "Healthy",
       "simulatedToday": "Simulé aujourd'hui",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "Échec aujourd'hui",
       "avgExec": "Exécutif moyen",
       "toolCalls": "Appels d'outils",
       "knowledge": "Connaissance",
       "activeFleet": "nombre de véhicules disponibles pour l'exploitation",
       "emptyTitle": "Aucun agent actif",
-      "emptyDescription": "Installez ou activez un agent depuis la place de marché pour démarrer des exécutions simulées.",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "Outils : {tools}",
       "installed": "Installé",
       "installActivate": "Installer et activer",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "Moniteur d'agent",

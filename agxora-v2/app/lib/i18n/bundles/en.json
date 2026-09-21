@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "Integrations",
-      "description": "Installed, connected, and available",
+      "description": "Connector availability — none connected by default",
       "title": "Integrations",
-      "panelDescription": "Installed, connected, and available adapters.",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "Open Integration Center",
-      "notice": "Enterprise Integration Platform lives in the Integration Center — connectors, OAuth, webhooks, API keys, and the workflow event bridge.",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "Integration",
         "category": "Category",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "Billing",
-      "description": "Plan, usage, invoices, and payments",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "Billing",
-      "panelDescription": "Current plan, renewal, usage, invoices, and upgrade path."
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "API & Developers",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "Skip to dashboard content",
     "loading": "Loading dashboard…",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "AI Business Operating System",
@@ -904,6 +915,7 @@
       "subtitle": "Workspace counts for {name}",
       "fallbackName": "your workspace",
       "ariaLabel": "Business overview",
+      "workspaceBadge": "Workspace",
       "online": "Online",
       "emDash": "—",
       "capacitySignal": "{percent}% capacity signal",
@@ -936,7 +948,8 @@
         "title": "Client shell",
         "caption": "Browser session ready — not a live ops monitor",
         "shellLoaded": "Application shell loaded",
-        "storesReady": "Local workspace stores ready"
+        "storesReady": "Local workspace stores ready",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "Growth",
@@ -1623,6 +1636,7 @@
         "title": "Projects",
         "emptyTitle": "No linked projects",
         "emptyDescription": "Projects whose customer name matches this company appear here. Data is read from the Projects module — nothing is duplicated.",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "Open Projects"
       },
       "documents": {
@@ -4659,8 +4673,8 @@
     "loading": "Loading Agent Operating System…",
     "eyebrow": "AI Agent Operating System",
     "title": "Agent OS",
-    "subtitle": "Local agent workspace — agents can be activated and run as simulations across CRM, Projects, Finance, Workflows, and Integrations. Production autonomous execution is not connected.",
-    "noticeDefault": "Local Agent OS — runs are simulated in this workspace.",
+    "subtitle": "Agent workspace for CRM and Finance. Customer-facing CRM actions require approval and persist to real CRM when the CRM database is configured.",
+    "noticeDefault": "Agent OS — CRM and Finance tools require approval. Completions are shown only after the real operation succeeds.",
     "productionGate": {
       "notReady": "Production readiness incomplete: {codes}. Configure auth, CRM database, Agent OS server persistence, and transactional email before serving customers.",
       "publishNotReady": "YouTube publish readiness incomplete: {codes}. Configure OAuth, encryption key, and S3-compatible blob storage before enabling live publish.",
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "Simulated run · {status} ({duration}ms)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "Task failed",
       "activated": "Activated locally: {agentId}",
       "agentPaused": "Agent paused",
@@ -4701,14 +4716,16 @@
       "agents": "Agents",
       "active": "Active",
       "localReady": "Local ready",
+      "healthy": "Healthy",
       "simulatedToday": "Simulated today",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "Failed today",
       "avgExec": "Avg exec",
       "toolCalls": "Tool calls",
       "knowledge": "Knowledge",
       "activeFleet": "Active fleet",
       "emptyTitle": "No agents active",
-      "emptyDescription": "Install or activate an agent from the marketplace to start simulated runs.",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "Tools: {tools}",
       "installed": "Installed",
       "installActivate": "Install & activate",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "Agent monitor",

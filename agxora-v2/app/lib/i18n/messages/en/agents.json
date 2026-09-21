@@ -2,8 +2,8 @@
   "loading": "Loading Agent Operating System…",
   "eyebrow": "AI Agent Operating System",
   "title": "Agent OS",
-  "subtitle": "Local agent workspace — agents can be activated and run as simulations across CRM, Projects, Finance, Workflows, and Integrations. Production autonomous execution is not connected.",
-  "noticeDefault": "Local Agent OS — runs are simulated in this workspace.",
+  "subtitle": "Agent workspace for CRM and Finance. Customer-facing CRM actions require approval and persist to real CRM when the CRM database is configured.",
+  "noticeDefault": "Agent OS — CRM and Finance tools require approval. Completions are shown only after the real operation succeeds.",
   "productionGate": {
     "notReady": "Production readiness incomplete: {codes}. Configure auth, CRM database, Agent OS server persistence, and transactional email before serving customers.",
     "publishNotReady": "YouTube publish readiness incomplete: {codes}. Configure OAuth, encryption key, and S3-compatible blob storage before enabling live publish.",
@@ -29,6 +29,7 @@
   },
   "notice": {
     "simulatedRun": "Simulated run · {status} ({duration}ms)",
+    "runFinished": "Run finished · {status} ({duration}ms)",
     "taskFailed": "Task failed",
     "activated": "Activated locally: {agentId}",
     "agentPaused": "Agent paused",
@@ -44,14 +45,16 @@
     "agents": "Agents",
     "active": "Active",
     "localReady": "Local ready",
+    "healthy": "Healthy",
     "simulatedToday": "Simulated today",
+    "tasksTodayCount": "Tasks today",
     "failedToday": "Failed today",
     "avgExec": "Avg exec",
     "toolCalls": "Tool calls",
     "knowledge": "Knowledge",
     "activeFleet": "Active fleet",
     "emptyTitle": "No agents active",
-    "emptyDescription": "Install or activate an agent from the marketplace to start simulated runs.",
+    "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
     "pendingApprovals": "Pending approvals"
   },
   "registry": {
@@ -68,7 +71,8 @@
     "tools": "Tools: {tools}",
     "installed": "Installed",
     "installActivate": "Install & activate",
-    "noLiveTools": "No live customer tools on this agent yet."
+    "noLiveTools": "No live customer tools on this agent yet.",
+    "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
   },
   "monitor": {
     "title": "Agent monitor",

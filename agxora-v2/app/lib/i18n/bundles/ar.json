@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "التكامل",
-      "description": "مثبت ومتصل ومتاح",
+      "description": "Connector availability — none connected by default",
       "title": "التكامل",
-      "panelDescription": "المحولات المثبتة والمتصلة والمتاحة.",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "فتح مركز التكامل",
-      "notice": "يوجد نظام Enterprise Integration Platform في مركز التكامل — الموصلات وOAuth وخطافات الويب ومفاتيح API وجسر أحداث سير العمل.",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "اندماج",
         "category": "فئة",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "الفواتير",
-      "description": "الخطة والاستخدام والفواتير والمدفوعات",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "الفواتير",
-      "panelDescription": "الخطة الحالية والتجديد والاستخدام والفواتير ومسار الترقية."
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "واجهة برمجة التطبيقات والمطورين",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "انتقل إلى محتوى لوحة القيادة",
     "loading": "جارٍ تحميل لوحة البيانات…",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "نظام تشغيل الأعمال بالذكاء الاصطناعي",
@@ -904,6 +915,7 @@
       "subtitle": "عدادات مساحة العمل لـ {name}",
       "fallbackName": "مساحة العمل الخاصة بك",
       "ariaLabel": "نظرة عامة على الأعمال",
+      "workspaceBadge": "Workspace",
       "online": "متصل",
       "emDash": "—",
       "capacitySignal": "{percent}% إشارة السعة",
@@ -936,7 +948,8 @@
         "title": "واجهة التطبيق",
         "caption": "جلسة المتصفح جاهزة — وليست مراقبة العمليات المباشرة",
         "shellLoaded": "تم تحميل غلاف التطبيق",
-        "storesReady": "مخازن مساحة العمل المحلية جاهزة"
+        "storesReady": "مخازن مساحة العمل المحلية جاهزة",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "نمو",
@@ -1623,6 +1636,7 @@
         "title": "المشاريع",
         "emptyTitle": "لا توجد مشاريع مرتبطة",
         "emptyDescription": "تظهر هنا المشاريع التي يتطابق اسم عملائها مع هذه الشركة. تتم قراءة البيانات من وحدة المشاريع - ولا يتم تكرار أي شيء.",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "المشاريع المفتوحة"
       },
       "documents": {
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "محاكاة التشغيل · {status} ({duration} مللي ثانية)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "فشلت المهمة",
       "activated": "تم التنشيط محليًا: {agentId}",
       "agentPaused": "توقف الوكيل مؤقتًا",
@@ -4701,14 +4716,16 @@
       "agents": "الوكلاء",
       "active": "نشيط",
       "localReady": "محلية جاهزة",
+      "healthy": "Healthy",
       "simulatedToday": "محاكاة اليوم",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "فشل اليوم",
       "avgExec": "متوسط ​​التنفيذ",
       "toolCalls": "مكالمات الأداة",
       "knowledge": "معرفة",
       "activeFleet": "أسطول نشط",
       "emptyTitle": "لا يوجد وكلاء نشطين",
-      "emptyDescription": "قم بتثبيت أو تنشيط وكيل من السوق لبدء عمليات التشغيل المحاكية.",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "الأدوات: {tools}",
       "installed": "تم التثبيت",
       "installActivate": "التثبيت والتنشيط",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "مراقب الوكيل",

@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "Tích hợp",
-      "description": "Đã cài đặt, kết nối và khả dụng",
+      "description": "Connector availability — none connected by default",
       "title": "Tích hợp",
-      "panelDescription": "Các bộ điều hợp đã được cài đặt, kết nối và có sẵn.",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "Trung tâm tích hợp mở",
-      "notice": "Nền tảng tích hợp doanh nghiệp nằm trong Trung tâm tích hợp — trình kết nối, OAuth, webhook, khóa API và cầu nối sự kiện quy trình công việc.",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "Tích hợp",
         "category": "Loại",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "Thanh toán",
-      "description": "Kế hoạch, cách sử dụng, hóa đơn và thanh toán",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "Thanh toán",
-      "panelDescription": "Gói hiện tại, gia hạn, sử dụng, hóa đơn và lộ trình nâng cấp."
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "API & Nhà phát triển",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "Chuyển đến nội dung bảng điều khiển",
     "loading": "Đang tải trang tổng quan…",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "Hệ điều hành kinh doanh AI",
@@ -904,6 +915,7 @@
       "subtitle": "Số liệu không gian cho {name}",
       "fallbackName": "không gian làm việc của bạn",
       "ariaLabel": "Tổng quan về doanh nghiệp",
+      "workspaceBadge": "Workspace",
       "online": "Trực tuyến",
       "emDash": "—",
       "capacitySignal": "tín hiệu công suất {percent}%",
@@ -936,7 +948,8 @@
         "title": "Lớp vỏ ứng dụng",
         "caption": "Phiên trình duyệt đã sẵn sàng - không phải màn hình hoạt động trực tiếp",
         "shellLoaded": "Đã tải shell ứng dụng",
-        "storesReady": "Kho lưu trữ workspace cục bộ sẵn sàng"
+        "storesReady": "Kho lưu trữ workspace cục bộ sẵn sàng",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "Sự phát triển",
@@ -1623,6 +1636,7 @@
         "title": "Dự án",
         "emptyTitle": "Không có dự án được liên kết",
         "emptyDescription": "Các dự án có tên khách hàng trùng với công ty này sẽ xuất hiện ở đây. Dữ liệu được đọc từ mô-đun Dự án - không có dữ liệu nào bị trùng lặp.",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "Dự án mở"
       },
       "documents": {
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "Chạy mô phỏng · {status} ({duration}ms)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "Nhiệm vụ thất bại",
       "activated": "Đã kích hoạt cục bộ: {agentId}",
       "agentPaused": "Đại lý đã tạm dừng",
@@ -4701,14 +4716,16 @@
       "agents": "Đại lý",
       "active": "Tích cực",
       "localReady": "Sẵn sàng tại địa phương",
+      "healthy": "Healthy",
       "simulatedToday": "Mô phỏng ngày hôm nay",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "Hôm nay thất bại",
       "avgExec": "Người điều hành trung bình",
       "toolCalls": "Cuộc gọi công cụ",
       "knowledge": "Kiến thức",
       "activeFleet": "Đội tàu đang hoạt động",
       "emptyTitle": "Không có đại lý nào hoạt động",
-      "emptyDescription": "Cài đặt hoặc kích hoạt một đại lý từ thị trường để bắt đầu chạy mô phỏng.",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "Công cụ: {tools}",
       "installed": "Đã cài đặt",
       "installActivate": "Cài đặt và kích hoạt",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "giám sát đại lý",

@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "یکپارچه‌سازی‌ها",
-      "description": "نصب‌شده، متصل و موجود",
+      "description": "Connector availability — none connected by default",
       "title": "یکپارچه‌سازی‌ها",
-      "panelDescription": "آداپترهای نصب‌شده، متصل و موجود.",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "مرکز یکپارچه‌سازی را باز کنید",
-      "notice": "پلتفرم یکپارچه‌سازی سازمانی در مرکز یکپارچه‌سازی قرار دارد - کانکتورها، OAuth، وب‌هوک‌ها، کلیدهای API و پل رویداد گردش کار.",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "ادغام",
         "category": "دسته",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "صورتحساب",
-      "description": "طرح، مصرف، فاکتورها و پرداخت‌ها",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "صورتحساب",
-      "panelDescription": "طرح فعلی، تمدید، مصرف، فاکتورها و مسیر ارتقا."
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "API و توسعه‌دهندگان",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "رفتن به محتوای داشبورد",
     "loading": "در حال بارگذاری داشبورد…",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "سیستم عامل کسب‌وکار هوش مصنوعی",
@@ -904,6 +915,7 @@
       "subtitle": "شمارش فضای کاری برای {name}",
       "fallbackName": "فضای کاری شما",
       "ariaLabel": "نمای کلی کسب‌وکار",
+      "workspaceBadge": "Workspace",
       "online": "آنلاین",
       "emDash": "—",
       "capacitySignal": "سیگنال ظرفیت {percent}٪",
@@ -936,7 +948,8 @@
         "title": "پوسته برنامه",
         "caption": "نشست مرورگر آماده است — مانیتور عملیات زنده نیست",
         "shellLoaded": "پوسته برنامه بارگذاری شد",
-        "storesReady": "ذخیره‌های محلی فضای کاری آماده است"
+        "storesReady": "ذخیره‌های محلی فضای کاری آماده است",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "رشد",
@@ -1629,6 +1642,7 @@
         "title": "پروژه‌ها",
         "emptyTitle": "پروژه متصل نیست",
         "emptyDescription": "پروژه‌هایی که نام مشتری با این شرکت مطابقت دارد اینجا نمایش داده می‌شوند. داده از ماژول پروژه‌ها خوانده می‌شود — چیزی تکرار نمی‌شود.",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "باز کردن پروژه‌ها"
       },
       "documents": {
@@ -4732,6 +4746,7 @@
     },
     "notice": {
       "simulatedRun": "اجرای شبیه‌سازی‌شده · {status} ({duration}ms)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "وظیفه انجام نشد",
       "activated": "فعال‌سازی محلی: {agentId}",
       "agentPaused": "مامور مکث کرد",
@@ -4747,14 +4762,16 @@
       "agents": "عوامل",
       "active": "فعال",
       "localReady": "آماده محلی",
+      "healthy": "Healthy",
       "simulatedToday": "امروز شبیه‌سازی شده",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "امروز شکست خورد",
       "avgExec": "میانگین اجرایی",
       "toolCalls": "فراخوانی‌های ابزار",
       "knowledge": "آگاهی",
       "activeFleet": "ناوگان فعال",
       "emptyTitle": "هیچ نماینده‌ای فعال نیست",
-      "emptyDescription": "برای شروع اجرای شبیه‌سازی‌شده، یک عامل را از بازار نصب یا فعال کنید.",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4771,7 +4788,8 @@
       "tools": "ابزارها: {tools}",
       "installed": "نصب شده",
       "installActivate": "نصب و فعال",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "مانیتور عامل",

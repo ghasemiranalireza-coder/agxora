@@ -1,18 +1,13 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
-
-const ProjectsWorkspace = dynamic(
-  () =>
-    import("../../components/projects").then((mod) => mod.ProjectsWorkspace),
-  {
-    ssr: false,
-    loading: createRouteLoading("dashboard.routeLoading.projects"),
-  },
-);
+import { FirstCustomerLegacyUnavailable } from "../../components/workspace/FirstCustomerLegacyUnavailable";
 
 export default function ProjectsPage(): JSX.Element {
-  return <ProjectsWorkspace />;
+  return (
+    <FirstCustomerLegacyUnavailable
+      titleKey="dashboard.legacy.projects.title"
+      descriptionKey="dashboard.legacy.projects.description"
+    />
+  );
 }

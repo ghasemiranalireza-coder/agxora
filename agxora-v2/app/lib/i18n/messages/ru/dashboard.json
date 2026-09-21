@@ -110,13 +110,15 @@
       "title": "Оболочка приложения",
       "caption": "Готовый сеанс браузера, а не мониторинг операций в реальном времени",
       "shellLoaded": "Оболочка приложения загружена",
-      "storesReady": "Локальные хранилища пространства готовы"
+      "storesReady": "Локальные хранилища пространства готовы",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "Рост",
       "caption": "Показатели тренда требуют накопленного использования",
       "openAnalytics": "Открытая аналитика"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "Недавняя активность",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

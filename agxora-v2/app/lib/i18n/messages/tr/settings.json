@@ -217,17 +217,19 @@
   },
   "integrations": {
     "label": "Entegrasyonlar",
-    "description": "Kurulu, bağlı ve kullanılabilir",
+    "description": "Connector availability — none connected by default",
     "title": "Entegrasyonlar",
-    "panelDescription": "Kurulu, bağlı ve mevcut adaptörler.",
+    "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
     "openCenter": "Entegrasyon Merkezini Aç",
-    "notice": "Kurumsal Entegrasyon Platformu, bağlayıcılar, OAuth, web kancaları, API anahtarları ve iş akışı olay köprüsünden oluşan Entegrasyon Merkezi'nde bulunur.",
+    "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
     "columns": {
       "integration": "Entegrasyon",
       "category": "Kategori",
       "status": "Durum",
       "adapter": "Adaptör"
-    }
+    },
+    "emptyTitle": "No live integrations connected",
+    "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected."
   },
   "security": {
     "label": "Güvenlik",
@@ -277,9 +279,11 @@
   },
   "billing": {
     "label": "Faturalandırma",
-    "description": "Plan, kullanım, faturalar ve ödemeler",
+    "description": "AGXORA subscription — not customer Finance invoices",
     "title": "Faturalandırma",
-    "panelDescription": "Mevcut plan, yenileme, kullanım, faturalar ve yükseltme yolu."
+    "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+    "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+    "openFinance": "Open Finance invoices"
   },
   "api": {
     "label": "API ve Geliştiriciler",

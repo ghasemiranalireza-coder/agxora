@@ -110,13 +110,15 @@
       "title": "アプリケーションシェル",
       "caption": "ブラウザセッションの準備完了 — ライブ運用モニターではない",
       "shellLoaded": "アプリケーションシェルがロードされました",
-      "storesReady": "ローカルワークスペースストアの準備完了"
+      "storesReady": "ローカルワークスペースストアの準備完了",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "成長",
       "caption": "トレンドメトリクスには累積使用量が必要です",
       "openAnalytics": "オープンアナリティクス"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "最近の活動",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

@@ -1,18 +1,13 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
-
-const CustomersWorkspace = dynamic(
-  () =>
-    import("../../components/customers").then((mod) => mod.CustomersWorkspace),
-  {
-    ssr: false,
-    loading: createRouteLoading("dashboard.routeLoading.customers"),
-  },
-);
+import { FirstCustomerLegacyRedirect } from "../../components/workspace/FirstCustomerLegacyRedirect";
+import { firstCustomerLegacyRedirect } from "../../lib/workspace/firstCustomerHardening";
 
 export default function CustomersPage(): JSX.Element {
-  return <CustomersWorkspace />;
+  return (
+    <FirstCustomerLegacyRedirect
+      href={firstCustomerLegacyRedirect("/dashboard/customers")}
+    />
+  );
 }

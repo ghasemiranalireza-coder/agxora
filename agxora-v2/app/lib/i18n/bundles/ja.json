@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "統合",
-      "description": "インストール、接続、利用可能",
+      "description": "Connector availability — none connected by default",
       "title": "統合",
-      "panelDescription": "インストールされ、接続され、使用可能なアダプター。",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "オープンインテグレーションセンター",
-      "notice": "Enterprise Integration Platform は、コネクタ、OAuth、Webhook、API キー、ワークフロー イベント ブリッジなどの統合センター内に存在します。",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "統合",
         "category": "カテゴリ",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "請求する",
-      "description": "プラン、使用量、請求書、支払い",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "請求する",
-      "panelDescription": "現在のプラン、更新、使用量、請求書、アップグレード パス。"
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "APIと開発者",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "ダッシュボードのコンテンツにスキップ",
     "loading": "ダッシュボードを読み込み中…",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "AIビジネスオペレーティングシステム",
@@ -904,6 +915,7 @@
       "subtitle": "{name}のワークスペース集計",
       "fallbackName": "あなたのワークスペース",
       "ariaLabel": "事業概要",
+      "workspaceBadge": "Workspace",
       "online": "オンライン",
       "emDash": "—",
       "capacitySignal": "{percent}% 容量信号",
@@ -936,7 +948,8 @@
         "title": "アプリケーションシェル",
         "caption": "ブラウザセッションの準備完了 — ライブ運用モニターではない",
         "shellLoaded": "アプリケーションシェルがロードされました",
-        "storesReady": "ローカルワークスペースストアの準備完了"
+        "storesReady": "ローカルワークスペースストアの準備完了",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "成長",
@@ -1623,6 +1636,7 @@
         "title": "プロジェクト",
         "emptyTitle": "リンクされたプロジェクトはありません",
         "emptyDescription": "顧客名がこの会社と一致するプロジェクトがここに表示されます。データはプロジェクト モジュールから読み取られます。重複するものはありません。",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "オープンプロジェクト"
       },
       "documents": {
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "シミュレートされた実行 · {status} ({duration}ms)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "タスクが失敗しました",
       "activated": "ローカルでアクティブ化: {agentId}",
       "agentPaused": "エージェントが一時停止しました",
@@ -4701,14 +4716,16 @@
       "agents": "エージェント",
       "active": "アクティブ",
       "localReady": "ローカル対応",
+      "healthy": "Healthy",
       "simulatedToday": "今日のシミュレーション",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "今日は失敗しました",
       "avgExec": "平均実行者",
       "toolCalls": "ツール呼び出し",
       "knowledge": "知識",
       "activeFleet": "アクティブなフリート",
       "emptyTitle": "アクティブなエージェントはありません",
-      "emptyDescription": "マーケットプレイスからエージェントをインストールまたはアクティブ化して、シミュレートされた実行を開始します。",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "ツール: {tools}",
       "installed": "インストール済み",
       "installActivate": "インストールとアクティベーション",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "エージェントモニター",

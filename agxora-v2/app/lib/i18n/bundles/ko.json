@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "통합",
-      "description": "설치, 연결 및 사용 가능",
+      "description": "Connector availability — none connected by default",
       "title": "통합",
-      "panelDescription": "설치, 연결 및 사용 가능한 어댑터입니다.",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "개방형 통합 센터",
-      "notice": "엔터프라이즈 통합 플랫폼은 통합 센터(커넥터, OAuth, 웹후크, API 키 및 워크플로 이벤트 브리지)에 있습니다.",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "완성",
         "category": "범주",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "청구",
-      "description": "요금제, 사용량, 청구서, 결제",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "청구",
-      "panelDescription": "현재 요금제, 갱신, 사용량, 송장 및 업그레이드 경로."
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "API 및 개발자",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "대시보드 콘텐츠로 건너뛰기",
     "loading": "대시보드 로드 중…",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "AI 비즈니스 운영 체제",
@@ -904,6 +915,7 @@
       "subtitle": "{name}의 워크스페이스 수치",
       "fallbackName": "당신의 작업 공간",
       "ariaLabel": "사업개요",
+      "workspaceBadge": "Workspace",
       "online": "온라인",
       "emDash": "—",
       "capacitySignal": "{percent}% 용량 신호",
@@ -936,7 +948,8 @@
         "title": "앱 셸",
         "caption": "브라우저 세션 준비됨 - 실시간 운영 모니터가 아님",
         "shellLoaded": "애플리케이션 셸 로드됨",
-        "storesReady": "로컬 워크스페이스 스토어 준비됨"
+        "storesReady": "로컬 워크스페이스 스토어 준비됨",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "성장",
@@ -1623,6 +1636,7 @@
         "title": "프로젝트",
         "emptyTitle": "연결된 프로젝트 없음",
         "emptyDescription": "고객 이름이 이 회사와 일치하는 프로젝트가 여기에 표시됩니다. 프로젝트 모듈에서 데이터를 읽으며 중복되는 내용은 없습니다.",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "프로젝트 열기"
       },
       "documents": {
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "시뮬레이션된 실행 · {status}({duration}ms)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "작업 실패",
       "activated": "로컬에서 활성화됨: {agentId}",
       "agentPaused": "상담원이 일시중지되었습니다.",
@@ -4701,14 +4716,16 @@
       "agents": "자치령 대표",
       "active": "활동적인",
       "localReady": "로컬 준비",
+      "healthy": "Healthy",
       "simulatedToday": "오늘 시뮬레이션됨",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "오늘은 실패했습니다",
       "avgExec": "평균 집행",
       "toolCalls": "도구 호출",
       "knowledge": "지식",
       "activeFleet": "활성 함대",
       "emptyTitle": "활성 에이전트가 없습니다.",
-      "emptyDescription": "시뮬레이션 실행을 시작하려면 마켓플레이스에서 에이전트를 설치하거나 활성화하세요.",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "도구: {tools}",
       "installed": "설치됨",
       "installActivate": "설치 및 활성화",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "에이전트 모니터",

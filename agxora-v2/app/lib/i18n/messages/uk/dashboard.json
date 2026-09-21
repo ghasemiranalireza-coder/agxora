@@ -110,13 +110,15 @@
       "title": "Оболонка застосунку",
       "caption": "Готовий сеанс веб-переглядача — не живий монітор операцій",
       "shellLoaded": "Оболонку програми завантажено",
-      "storesReady": "Локальні сховища простору готові"
+      "storesReady": "Локальні сховища простору готові",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "зростання",
       "caption": "Трендові показники потребують накопиченого використання",
       "openAnalytics": "Відкрита аналітика"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "Остання діяльність",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

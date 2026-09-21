@@ -217,17 +217,19 @@
   },
   "integrations": {
     "label": "통합",
-    "description": "설치, 연결 및 사용 가능",
+    "description": "Connector availability — none connected by default",
     "title": "통합",
-    "panelDescription": "설치, 연결 및 사용 가능한 어댑터입니다.",
+    "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
     "openCenter": "개방형 통합 센터",
-    "notice": "엔터프라이즈 통합 플랫폼은 통합 센터(커넥터, OAuth, 웹후크, API 키 및 워크플로 이벤트 브리지)에 있습니다.",
+    "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
     "columns": {
       "integration": "완성",
       "category": "범주",
       "status": "상태",
       "adapter": "어댑터"
-    }
+    },
+    "emptyTitle": "No live integrations connected",
+    "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected."
   },
   "security": {
     "label": "보안",
@@ -277,9 +279,11 @@
   },
   "billing": {
     "label": "청구",
-    "description": "요금제, 사용량, 청구서, 결제",
+    "description": "AGXORA subscription — not customer Finance invoices",
     "title": "청구",
-    "panelDescription": "현재 요금제, 갱신, 사용량, 송장 및 업그레이드 경로."
+    "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+    "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+    "openFinance": "Open Finance invoices"
   },
   "api": {
     "label": "API 및 개발자",

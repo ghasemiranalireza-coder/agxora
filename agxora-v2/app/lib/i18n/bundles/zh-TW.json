@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "串接",
-      "description": "已安裝、連接且可用",
+      "description": "Connector availability — none connected by default",
       "title": "串接",
-      "panelDescription": "已安裝、連接且可用的適配器。",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "開放整合中心",
-      "notice": "企業整合平台位於整合中心 - 連接器、OAuth、Webhooks、API 密鑰和工作流程事件橋。",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "一體化",
         "category": "類別",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "計費",
-      "description": "計劃、使用情況、發票和付款",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "計費",
-      "panelDescription": "目前計劃、續約、使用情況、發票和升級路徑。"
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "API 和開發人員",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "跳至儀表板內容",
     "loading": "正在加載儀表板...",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "AI 商業作業系統",
@@ -904,6 +915,7 @@
       "subtitle": "{name} 的工作區計數",
       "fallbackName": "你的工作空間",
       "ariaLabel": "業務概況",
+      "workspaceBadge": "Workspace",
       "online": "在線",
       "emDash": "—",
       "capacitySignal": "{percent}% 容量訊號",
@@ -936,7 +948,8 @@
         "title": "應用程式外殼",
         "caption": "瀏覽器工作階段就緒—不是即時作業系統監視器",
         "shellLoaded": "已載入應用程式外殼",
-        "storesReady": "本機工作區儲存已就緒"
+        "storesReady": "本機工作區儲存已就緒",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "成長",
@@ -1623,6 +1636,7 @@
         "title": "專案",
         "emptyTitle": "沒有連結的項目",
         "emptyDescription": "客戶名稱與該公司相符的項目將顯示在此。數據是從“項目”模組讀取的——沒有任何重複。",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "打開項目"
       },
       "documents": {
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "模擬運行 · {status} ({duration}ms)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "任務失敗",
       "activated": "本地激活：{agentId}",
       "agentPaused": "代理已暫停",
@@ -4701,14 +4716,16 @@
       "agents": "代理商",
       "active": "積極的",
       "localReady": "本地準備就緒",
+      "healthy": "Healthy",
       "simulatedToday": "今天模擬",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "今天失敗了",
       "avgExec": "平均執行次數",
       "toolCalls": "工具調用",
       "knowledge": "知識",
       "activeFleet": "活躍機隊",
       "emptyTitle": "沒有活躍的代理",
-      "emptyDescription": "從市場安裝或啟動代理以開始模擬運行。",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "工具：{tools}",
       "installed": "已安裝",
       "installActivate": "安裝並啟用",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "代理監控",

@@ -542,11 +542,13 @@
     },
     "integrations": {
       "label": "Інтеграції",
-      "description": "Встановлено, підключено та доступно",
+      "description": "Connector availability — none connected by default",
       "title": "Інтеграції",
-      "panelDescription": "Встановлені, підключені та доступні адаптери.",
+      "panelDescription": "This page does not report live connector state. First-customer production does not treat the catalog as connected.",
       "openCenter": "Відкритий інтеграційний центр",
-      "notice": "Enterprise Integration Platform знаходиться в Центрі інтеграції — конектори, OAuth, веб-хуки, ключі API та міст подій робочого процесу.",
+      "notice": "No Gmail, Stripe, HubSpot, or similar connector is claimed connected from Settings. Do not treat this catalog as operational.",
+      "emptyTitle": "No live integrations connected",
+      "emptyDescription": "External connectors are not part of the first-customer operational path. Unavailable or future adapters are not shown as connected.",
       "columns": {
         "integration": "Інтеграція",
         "category": "Категорія",
@@ -602,9 +604,11 @@
     },
     "billing": {
       "label": "Виставлення рахунків",
-      "description": "План, використання, рахунки та платежі",
+      "description": "AGXORA subscription — not customer Finance invoices",
       "title": "Виставлення рахунків",
-      "panelDescription": "Поточний план, оновлення, використання, рахунки та шлях оновлення."
+      "panelDescription": "AGXORA workspace plan and subscription. Customer invoices are created in Finance.",
+      "notFinanceNotice": "This is AGXORA account billing, not customer Finance invoices. Create and send customer invoices in Finance.",
+      "openFinance": "Open Finance invoices"
     },
     "api": {
       "label": "API та розробники",
@@ -822,6 +826,13 @@
   "dashboard": {
     "skipToContent": "Перейти до вмісту інформаційної панелі",
     "loading": "Завантаження інформаційної панелі…",
+    "legacy": {
+      "openDashboard": "Back to dashboard",
+      "projects": {
+        "title": "Projects module unavailable",
+        "description": "The first-customer workspace does not use the legacy Projects module."
+      }
+    },
     "hero": {
       "ariaLabel": "AGXORA CORE",
       "eyebrow": "ОС для бізнесу на базі ШІ",
@@ -904,6 +915,7 @@
       "subtitle": "Показники простору для {name}",
       "fallbackName": "ваш робочий простір",
       "ariaLabel": "Огляд діяльності",
+      "workspaceBadge": "Workspace",
       "online": "Онлайн",
       "emDash": "—",
       "capacitySignal": "{percent}% потужності сигналу",
@@ -936,7 +948,8 @@
         "title": "Оболонка застосунку",
         "caption": "Готовий сеанс веб-переглядача — не живий монітор операцій",
         "shellLoaded": "Оболонку програми завантажено",
-        "storesReady": "Локальні сховища простору готові"
+        "storesReady": "Локальні сховища простору готові",
+        "crmReady": "CRM directory ready"
       },
       "growth": {
         "title": "зростання",
@@ -1623,6 +1636,7 @@
         "title": "Проекти",
         "emptyTitle": "Немає пов’язаних проектів",
         "emptyDescription": "Тут відображаються проекти, ім’я клієнта яких відповідає цій компанії. Дані зчитуються з модуля Проекти — нічого не дублюється.",
+        "unavailableDescription": "The first-customer workspace does not use the legacy Projects module.",
         "openProjects": "Відкрити проекти"
       },
       "documents": {
@@ -4686,6 +4700,7 @@
     },
     "notice": {
       "simulatedRun": "Змодельований запуск · {status} ({duration} мс)",
+      "runFinished": "Run finished · {status} ({duration}ms)",
       "taskFailed": "Завдання не виконано",
       "activated": "Активовано локально: {agentId}",
       "agentPaused": "Агент зробив паузу",
@@ -4701,14 +4716,16 @@
       "agents": "Агенти",
       "active": "Активний",
       "localReady": "Місцеві готові",
+      "healthy": "Healthy",
       "simulatedToday": "Змодельовано сьогодні",
+      "tasksTodayCount": "Tasks today",
       "failedToday": "Сьогодні не вдалося",
       "avgExec": "Середнє виконання",
       "toolCalls": "Виклики інструментів",
       "knowledge": "Знання",
       "activeFleet": "Активний автопарк",
       "emptyTitle": "Немає активних агентів",
-      "emptyDescription": "Встановіть або активуйте агента з торгової площадки, щоб почати симуляцію.",
+      "emptyDescription": "Install or activate a CRM or Finance agent to start a real run. Completions appear only after the operation succeeds.",
       "pendingApprovals": "Pending approvals"
     },
     "registry": {
@@ -4725,7 +4742,8 @@
       "tools": "Інструменти: {tools}",
       "installed": "встановлено",
       "installActivate": "Встановити та активувати",
-      "noLiveTools": "No live customer tools on this agent yet."
+      "noLiveTools": "No live customer tools on this agent yet.",
+      "unavailable": "This agent is not available on the first-customer path. Only CRM and Finance tools can be installed."
     },
     "monitor": {
       "title": "Монітор агента",

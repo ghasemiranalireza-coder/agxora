@@ -110,13 +110,15 @@
       "title": "앱 셸",
       "caption": "브라우저 세션 준비됨 - 실시간 운영 모니터가 아님",
       "shellLoaded": "애플리케이션 셸 로드됨",
-      "storesReady": "로컬 워크스페이스 스토어 준비됨"
+      "storesReady": "로컬 워크스페이스 스토어 준비됨",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "성장",
       "caption": "추세 지표에는 누적 사용량이 필요합니다.",
       "openAnalytics": "공개 분석"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "최근 활동",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

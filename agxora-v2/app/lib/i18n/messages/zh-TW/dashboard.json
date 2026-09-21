@@ -110,13 +110,15 @@
       "title": "應用程式外殼",
       "caption": "瀏覽器工作階段就緒—不是即時作業系統監視器",
       "shellLoaded": "已載入應用程式外殼",
-      "storesReady": "本機工作區儲存已就緒"
+      "storesReady": "本機工作區儲存已就緒",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "成長",
       "caption": "趨勢指標需要累積使用量",
       "openAnalytics": "開放分析"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "最近的活動",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

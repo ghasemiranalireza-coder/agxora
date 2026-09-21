@@ -110,13 +110,15 @@
       "title": "Applicatieshell",
       "caption": "Browsersessie klaar - geen live operationele monitor",
       "shellLoaded": "Applicatieshell geladen",
-      "storesReady": "Lokale werkruimte-stores gereed"
+      "storesReady": "Lokale werkruimte-stores gereed",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "Groei",
       "caption": "Trendstatistieken hebben geaccumuleerd gebruik nodig",
       "openAnalytics": "Open analyses"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "Recente activiteit",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

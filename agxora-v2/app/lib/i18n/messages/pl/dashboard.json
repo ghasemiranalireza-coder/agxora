@@ -110,13 +110,15 @@
       "title": "Powłoka aplikacji",
       "caption": "Gotowy do sesji przeglądarki — nie do monitora operacji na żywo",
       "shellLoaded": "Załadowano powłokę aplikacji",
-      "storesReady": "Lokalne magazyny przestrzeni gotowe"
+      "storesReady": "Lokalne magazyny przestrzeni gotowe",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "Wzrost",
       "caption": "Metryki trendów wymagają skumulowanego użycia",
       "openAnalytics": "Otwarta analityka"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "Ostatnia aktywność",
@@ -409,5 +411,12 @@
     "connectedCount": "{count} connected",
     "comingSoonCount": "{count} coming soon",
     "noneConnected": "No providers connected yet."
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

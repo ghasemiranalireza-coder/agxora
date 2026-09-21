@@ -110,13 +110,15 @@
       "title": "پوسته برنامه",
       "caption": "نشست مرورگر آماده است — مانیتور عملیات زنده نیست",
       "shellLoaded": "پوسته برنامه بارگذاری شد",
-      "storesReady": "ذخیره‌های محلی فضای کاری آماده است"
+      "storesReady": "ذخیره‌های محلی فضای کاری آماده است",
+      "crmReady": "CRM directory ready"
     },
     "growth": {
       "title": "رشد",
       "caption": "معیارهای روند به مصرف انباشته نیاز دارند",
       "openAnalytics": "باز کردن تحلیل‌ها"
-    }
+    },
+    "workspaceBadge": "Workspace"
   },
   "activity": {
     "title": "فعالیت اخیر",
@@ -415,5 +417,12 @@
     "comingSoon": "به‌زودی",
     "attention": "نیاز به توجه",
     "cta": "باز کردن یکپارچه‌سازی‌ها"
+  },
+  "legacy": {
+    "openDashboard": "Back to dashboard",
+    "projects": {
+      "title": "Projects module unavailable",
+      "description": "The first-customer workspace does not use the legacy Projects module."
+    }
   }
 }

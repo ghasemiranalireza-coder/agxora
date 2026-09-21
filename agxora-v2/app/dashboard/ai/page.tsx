@@ -1,24 +1,13 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import type { JSX } from "react";
-import { createRouteLoading } from "../../components/dashboard/RouteLoadingPanel";
-import { AgentCommandPanel } from "../../../features/business-agent";
+import { FirstCustomerLegacyRedirect } from "../../components/workspace/FirstCustomerLegacyRedirect";
+import { firstCustomerLegacyRedirect } from "../../lib/workspace/firstCustomerHardening";
 
-const AiPlatformWorkspace = dynamic(
-  () =>
-    import("../../../features/ai").then((mod) => mod.AiPlatformWorkspace),
-  {
-    ssr: false,
-    loading: createRouteLoading("dashboard.routeLoading.ai"),
-  },
-);
-
-export default function RoutePage(): JSX.Element {
+export default function AiPage(): JSX.Element {
   return (
-    <>
-      <AgentCommandPanel />
-      <AiPlatformWorkspace />
-    </>
+    <FirstCustomerLegacyRedirect
+      href={firstCustomerLegacyRedirect("/dashboard/ai")}
+    />
   );
 }
