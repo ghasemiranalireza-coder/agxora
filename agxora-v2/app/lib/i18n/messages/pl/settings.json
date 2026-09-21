@@ -45,9 +45,9 @@
   },
   "team": {
     "label": "Zespół",
-    "description": "Członkowie, role, zaproszenia i grupy",
+    "description": "Members, roles, and invitations",
     "title": "Zespół",
-    "panelDescription": "Członkowie, role, zaproszenia i grupy."
+    "panelDescription": "Members, roles, and invitations."
   },
   "ai": {
     "label": "sztuczna inteligencja",
@@ -410,7 +410,7 @@
     "revoke": "Unieważnić",
     "noMembers": "Nie ma jeszcze członków",
     "noMembersBody": "Zaproś członka zespołu do tego obszaru roboczego.",
-    "inviteHonesty": "Dostarczanie wiadomości e-mail nie jest skonfigurowane. Udostępnij bezpośrednio link z zaproszeniem.",
+    "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
     "inviteLink": "Zaproś link",
     "inviteInvalid": "To zaproszenie jest nieważne.",
     "accept": "Zaakceptuj zaproszenie",
@@ -447,7 +447,9 @@
       "expired": "To przeniesienie własności wygasło.",
       "cancelled": "To przeniesienie własności zostało anulowane.",
       "confirmed": "To przeniesienie własności zostało już zakończone."
-    }
+    },
+    "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+    "inviteQueued": "Invitation created. Email delivery was queued for the recipient."
   },
   "financeDocuments": {
     "label": "Finance documents",

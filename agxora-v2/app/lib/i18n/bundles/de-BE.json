@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "Team",
-      "description": "Mitglieder, Rollen, Einladungen und Gruppen",
+      "description": "Mitglieder, Rollen und Einladungen",
       "title": "Team",
-      "panelDescription": "Mitglieder, Rollen, Einladungen und Gruppen."
+      "panelDescription": "Mitglieder, Rollen und Einladungen."
     },
     "ai": {
       "label": "KI",
@@ -735,7 +735,9 @@
       "revoke": "Widerrufen",
       "noMembers": "Noch keine Mitglieder",
       "noMembersBody": "Laden Sie einen Teamkollegen in diesen Arbeitsbereich ein.",
-      "inviteHonesty": "Die E-Mail-Zustellung ist nicht konfiguriert. Teilen Sie den Einladungslink direkt.",
+      "inviteHonesty": "E-Mail-Zustellung wurde nicht angenommen. Teilen Sie den Einladungslink direkt.",
+      "inviteBeforeSend": "Einladungen nutzen den serverseitigen E-Mail-Pfad. AGXORA bestätigt den Versand nur, wenn der Server die Zustellung angenommen hat. Ist E-Mail nicht verfügbar, wird stattdessen ein teilbarer Einladungslink angezeigt.",
+      "inviteQueued": "Einladung erstellt. Die E-Mail-Zustellung wurde für den Empfänger angenommen.",
       "inviteLink": "Einladungslink",
       "inviteInvalid": "Diese Einladung ist ungültig.",
       "accept": "Einladung annehmen",
@@ -1291,7 +1293,7 @@
       "email": "E-Mail",
       "submit": "Rücksetzung anfordern",
       "submitting": "Einreichen…",
-      "success": "Wenn für diese E-Mail ein Konto vorhanden ist, wurde eine Reset-Anfrage aufgezeichnet. Die E-Mail-Zustellung ist noch nicht konfiguriert.",
+      "success": "Falls ein Konto mit dieser E-Mail existiert, wurde eine Zurücksetzung angefordert. Prüfen Sie Ihren Posteingang. AGXORA bestätigt die Zustellung auf dieser Seite nicht.",
       "backToSignIn": "Zurück zur Anmeldung",
       "failed": "Die Rücksetzanfrage konnte nicht verarbeitet werden",
       "loading": "Passwort vergessen"
@@ -7289,7 +7291,7 @@
       "loading": "Wird geladen ...",
       "skipForNow": "Zunächst überspringen",
       "tokenPlaceholder": "Verifizierungstoken",
-      "tokenIssued": "Verifizierungstoken für die aktuelle Sitzung ausgestellt.",
+      "tokenIssued": "Eine Verifizierungsanfrage wurde aufgezeichnet. Prüfen Sie Ihren Posteingang. Wenn keine E-Mail ankommt, ist die Zustellung nicht verfügbar.",
       "issueFailed": "Token konnte nicht ausgegeben werden",
       "verificationFailed": "Verifizierung fehlgeschlagen",
       "verify": "Bitte E-Mail-Adresse verifizieren",

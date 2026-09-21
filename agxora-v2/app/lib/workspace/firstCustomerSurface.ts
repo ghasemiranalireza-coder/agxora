@@ -19,6 +19,8 @@ export const HIDDEN_PRIMARY_NAV_HREFS = [
   "/dashboard/documents",
   "/dashboard/creator",
   "/dashboard/automation",
+  "/dashboard/team",
+  "/dashboard/email",
 ] as const;
 
 export type PrimaryNavItem = {

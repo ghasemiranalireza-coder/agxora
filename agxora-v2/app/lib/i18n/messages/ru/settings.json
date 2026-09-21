@@ -45,9 +45,9 @@
   },
   "team": {
     "label": "Команда",
-    "description": "Участники, роли, приглашения и группы",
+    "description": "Members, roles, and invitations",
     "title": "Команда",
-    "panelDescription": "Участники, роли, приглашения и группы."
+    "panelDescription": "Members, roles, and invitations."
   },
   "ai": {
     "label": "ИИ",
@@ -410,7 +410,7 @@
     "revoke": "Отозвать",
     "noMembers": "Пока нет участников",
     "noMembersBody": "Пригласите товарища по команде в это рабочее пространство.",
-    "inviteHonesty": "Доставка электронной почты не настроена. Поделитесь ссылкой для приглашения напрямую.",
+    "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
     "inviteLink": "Ссылка для приглашения",
     "inviteInvalid": "Это приглашение недействительно.",
     "accept": "Принять приглашение",
@@ -447,7 +447,9 @@
       "expired": "Срок действия передачи права собственности истек.",
       "cancelled": "Передача права собственности была отменена.",
       "confirmed": "Передача права собственности уже завершена."
-    }
+    },
+    "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+    "inviteQueued": "Invitation created. Email delivery was queued for the recipient."
   },
   "financeDocuments": {
     "label": "Finance documents",

@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "Đội",
-      "description": "Thành viên, vai trò, lời mời và nhóm",
+      "description": "Members, roles, and invitations",
       "title": "Đội",
-      "panelDescription": "Thành viên, vai trò, lời mời và nhóm."
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "trí tuệ nhân tạo",
@@ -735,7 +735,9 @@
       "revoke": "Thu hồi",
       "noMembers": "Chưa có thành viên nào",
       "noMembersBody": "Mời đồng đội đến không gian làm việc này.",
-      "inviteHonesty": "Việc gửi email chưa được định cấu hình. Chia sẻ liên kết mời trực tiếp.",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "Mời liên kết",
       "inviteInvalid": "Lời mời này không hợp lệ.",
       "accept": "Chấp nhận lời mời",
@@ -1285,7 +1287,7 @@
       "email": "E-mail",
       "submit": "Yêu cầu đặt lại",
       "submitting": "Đang gửi…",
-      "success": "Nếu có tài khoản cho email đó thì yêu cầu đặt lại sẽ được ghi lại. Việc gửi email chưa được định cấu hình.",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "Quay lại để đăng nhập",
       "failed": "Không thể xử lý yêu cầu đặt lại",
       "loading": "Quên mật khẩu"
@@ -7233,7 +7235,7 @@
       "loading": "Đang tải…",
       "skipForNow": "Bỏ qua bây giờ",
       "tokenPlaceholder": "Mã thông báo xác minh",
-      "tokenIssued": "Mã thông báo xác minh được cấp cho phiên hiện tại.",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "Không thể phát hành mã thông báo",
       "verificationFailed": "Xác minh không thành công",
       "verify": "Xác minh email",

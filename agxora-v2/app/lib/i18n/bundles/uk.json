@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "Команда",
-      "description": "Учасники, ролі, запрошення та групи",
+      "description": "Members, roles, and invitations",
       "title": "Команда",
-      "panelDescription": "Учасники, ролі, запрошення та групи."
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "ШІ",
@@ -735,7 +735,9 @@
       "revoke": "Відкликати",
       "noMembers": "Ще немає учасників",
       "noMembersBody": "Запросіть напарника до цієї робочої області.",
-      "inviteHonesty": "Доставка електронної пошти не налаштована. Поділіться посиланням запрошення безпосередньо.",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "Посилання на запрошення",
       "inviteInvalid": "Це запрошення недійсне.",
       "accept": "Прийняти запрошення",
@@ -1285,7 +1287,7 @@
       "email": "Електронна пошта",
       "submit": "Скидання запиту",
       "submitting": "Надсилання…",
-      "success": "Якщо для цієї електронної пошти існує обліковий запис, було записано запит на скидання. Доставка електронною поштою ще не налаштована.",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "Назад до входу",
       "failed": "Не вдалося обробити запит на скидання",
       "loading": "забув пароль"
@@ -7233,7 +7235,7 @@
       "loading": "Завантаження…",
       "skipForNow": "Пропустити поки що",
       "tokenPlaceholder": "Маркер підтвердження",
-      "tokenIssued": "Маркер підтвердження, виданий для поточного сеансу.",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "Не вдалося видати маркер",
       "verificationFailed": "Не вдалося перевірити",
       "verify": "Підтвердити електронну адресу",

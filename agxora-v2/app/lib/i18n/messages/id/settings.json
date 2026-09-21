@@ -45,9 +45,9 @@
   },
   "team": {
     "label": "Tim",
-    "description": "Anggota, peran, undangan, dan grup",
+    "description": "Members, roles, and invitations",
     "title": "Tim",
-    "panelDescription": "Anggota, peran, undangan, dan grup."
+    "panelDescription": "Members, roles, and invitations."
   },
   "ai": {
     "label": "AI",
@@ -410,7 +410,7 @@
     "revoke": "Menarik kembali",
     "noMembers": "Belum ada anggota",
     "noMembersBody": "Undang rekan satu tim ke ruang kerja ini.",
-    "inviteHonesty": "Pengiriman email tidak dikonfigurasi. Bagikan tautan undangan secara langsung.",
+    "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
     "inviteLink": "Tautan undangan",
     "inviteInvalid": "Undangan ini tidak sah.",
     "accept": "Terima undangan",
@@ -447,7 +447,9 @@
       "expired": "Pengalihan kepemilikan ini telah berakhir.",
       "cancelled": "Pengalihan kepemilikan ini dibatalkan.",
       "confirmed": "Pengalihan kepemilikan ini telah selesai."
-    }
+    },
+    "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+    "inviteQueued": "Invitation created. Email delivery was queued for the recipient."
   },
   "financeDocuments": {
     "label": "Finance documents",

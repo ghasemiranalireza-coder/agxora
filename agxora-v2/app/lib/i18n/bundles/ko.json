@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "팀",
-      "description": "구성원, 역할, 초대 및 그룹",
+      "description": "Members, roles, and invitations",
       "title": "팀",
-      "panelDescription": "구성원, 역할, 초대 및 그룹."
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "일체 포함",
@@ -735,7 +735,9 @@
       "revoke": "취소",
       "noMembers": "아직 회원이 없습니다.",
       "noMembersBody": "이 작업 공간에 팀원을 초대하세요.",
-      "inviteHonesty": "이메일 전달이 구성되지 않았습니다. 초대 링크를 직접 공유하세요.",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "초대 링크",
       "inviteInvalid": "이 초대는 유효하지 않습니다.",
       "accept": "초대 수락",
@@ -1285,7 +1287,7 @@
       "email": "이메일",
       "submit": "재설정 요청",
       "submitting": "제출 중…",
-      "success": "해당 이메일에 대한 계정이 존재하는 경우 재설정 요청이 기록되었습니다. 이메일 전송이 아직 구성되지 않았습니다.",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "로그인으로 돌아가기",
       "failed": "재설정 요청을 처리할 수 없습니다.",
       "loading": "비밀번호를 잊으셨나요?"
@@ -7233,7 +7235,7 @@
       "loading": "로드 중…",
       "skipForNow": "지금은 건너뛰기",
       "tokenPlaceholder": "인증 토큰",
-      "tokenIssued": "현재 세션에 대해 발급된 확인 토큰입니다.",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "토큰을 발행할 수 없습니다.",
       "verificationFailed": "확인 실패",
       "verify": "이메일 확인",

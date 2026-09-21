@@ -143,7 +143,7 @@ export function IamIdentityWorkspace(): JSX.Element {
               {t("iam.identity.openProfile")}
             </Button>
           </Link>
-          <Link href="/dashboard/team">
+          <Link href="/dashboard/settings#team">
             <Button size="sm" variant="ghost">
               {t("iam.identity.teamManagement")}
             </Button>

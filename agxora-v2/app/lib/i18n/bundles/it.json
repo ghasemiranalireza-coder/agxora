@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "Squadra",
-      "description": "Membri, ruoli, inviti e gruppi",
+      "description": "Members, roles, and invitations",
       "title": "Squadra",
-      "panelDescription": "Membri, ruoli, inviti e gruppi."
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "AI",
@@ -735,7 +735,9 @@
       "revoke": "Revocare",
       "noMembers": "Nessun membro ancora",
       "noMembersBody": "Invita un compagno di squadra in quest'area di lavoro.",
-      "inviteHonesty": "La consegna della posta elettronica non è configurata. Condividi direttamente il link di invito.",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "Collegamento di invito",
       "inviteInvalid": "Questo invito non è valido.",
       "accept": "Accetta l'invito",
@@ -1285,7 +1287,7 @@
       "email": "E-mail",
       "submit": "Richiedi il ripristino",
       "submitting": "Invio...",
-      "success": "Se esiste un account per quell'e-mail, è stata registrata una richiesta di reimpostazione. La consegna della posta elettronica non è ancora configurata.",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "Torna per accedere",
       "failed": "Impossibile elaborare la richiesta di reimpostazione",
       "loading": "Ha dimenticato la password"
@@ -7233,7 +7235,7 @@
       "loading": "Caricamento…",
       "skipForNow": "Salta per ora",
       "tokenPlaceholder": "Token di verifica",
-      "tokenIssued": "Token di verifica emesso per la sessione corrente.",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "Impossibile emettere il token",
       "verificationFailed": "Verifica non riuscita",
       "verify": "Verifica e-mail",

@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "Zespół",
-      "description": "Członkowie, role, zaproszenia i grupy",
+      "description": "Members, roles, and invitations",
       "title": "Zespół",
-      "panelDescription": "Członkowie, role, zaproszenia i grupy."
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "sztuczna inteligencja",
@@ -735,7 +735,9 @@
       "revoke": "Unieważnić",
       "noMembers": "Nie ma jeszcze członków",
       "noMembersBody": "Zaproś członka zespołu do tego obszaru roboczego.",
-      "inviteHonesty": "Dostarczanie wiadomości e-mail nie jest skonfigurowane. Udostępnij bezpośrednio link z zaproszeniem.",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "Zaproś link",
       "inviteInvalid": "To zaproszenie jest nieważne.",
       "accept": "Zaakceptuj zaproszenie",
@@ -1285,7 +1287,7 @@
       "email": "E-mail",
       "submit": "Poproś o reset",
       "submitting": "Przedkładający…",
-      "success": "Jeśli dla tego adresu e-mail istnieje konto, zarejestrowano prośbę o zresetowanie. Dostarczanie wiadomości e-mail nie zostało jeszcze skonfigurowane.",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "Wróć do logowania",
       "failed": "Nie można przetworzyć żądania resetowania",
       "loading": "Zapomniałem hasła"
@@ -7233,7 +7235,7 @@
       "loading": "Załadunek…",
       "skipForNow": "Pomiń na razie",
       "tokenPlaceholder": "Token weryfikacyjny",
-      "tokenIssued": "Token weryfikacyjny wydany dla bieżącej sesji.",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "Nie można wystawić tokena",
       "verificationFailed": "Weryfikacja nie powiodła się",
       "verify": "Zweryfikuj adres e-mail",

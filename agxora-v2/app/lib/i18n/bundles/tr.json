@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "Takım",
-      "description": "Üyeler, roller, davetler ve gruplar",
+      "description": "Members, roles, and invitations",
       "title": "Takım",
-      "panelDescription": "Üyeler, roller, davetler ve gruplar."
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "yapay zeka",
@@ -735,7 +735,9 @@
       "revoke": "Geri çekmek",
       "noMembers": "Henüz üye yok",
       "noMembersBody": "Bu çalışma alanına bir ekip arkadaşınızı davet edin.",
-      "inviteHonesty": "E-posta teslimi yapılandırılmamış. Davet bağlantısını doğrudan paylaşın.",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "Bağlantıyı davet et",
       "inviteInvalid": "Bu davetiye geçerli değil.",
       "accept": "Daveti kabul et",
@@ -1285,7 +1287,7 @@
       "email": "E-posta",
       "submit": "Sıfırlama isteği",
       "submitting": "Gönderiliyor…",
-      "success": "Söz konusu e-posta için bir hesap mevcutsa sıfırlama isteği kaydedildi. E-posta teslimi henüz yapılandırılmadı.",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "Oturum açmak için geri dön",
       "failed": "Sıfırlama isteği işlenemedi",
       "loading": "Parolanızı mı unuttunuz"
@@ -7233,7 +7235,7 @@
       "loading": "Yükleniyor…",
       "skipForNow": "Şimdilik atla",
       "tokenPlaceholder": "Doğrulama jetonu",
-      "tokenIssued": "Geçerli oturum için verilen doğrulama jetonu.",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "Jeton verilemedi",
       "verificationFailed": "Doğrulama başarısız oldu",
       "verify": "E-postayı Doğrula",

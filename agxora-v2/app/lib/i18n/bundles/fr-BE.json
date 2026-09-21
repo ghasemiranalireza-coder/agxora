@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "Équipe",
-      "description": "Membres, rôles, invitations et groupes",
+      "description": "Members, roles, and invitations",
       "title": "Équipe",
-      "panelDescription": "Membres, rôles, invitations et groupes."
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "PA",
@@ -735,7 +735,9 @@
       "revoke": "Révoquer",
       "noMembers": "Pas encore de membres",
       "noMembersBody": "Invitez un collègue dans cet espace de travail.",
-      "inviteHonesty": "La livraison des e-mails n'est pas configurée. Partagez directement le lien d'invitation.",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "Lien d'invitation",
       "inviteInvalid": "Cette invitation n'est pas valide.",
       "accept": "Accepter l’invitation",
@@ -1285,7 +1287,7 @@
       "email": "E-mail",
       "submit": "Demander une réinitialisation",
       "submitting": "Soumission…",
-      "success": "Si un compte existe pour cet e-mail, une demande de réinitialisation a été enregistrée. La livraison des e-mails n'est pas encore configurée.",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "Retour pour vous connecter",
       "failed": "Impossible de traiter la demande de réinitialisation",
       "loading": "Mot de passe oublié"
@@ -7233,7 +7235,7 @@
       "loading": "Chargement…",
       "skipForNow": "Ignorer pour le moment",
       "tokenPlaceholder": "Jeton de vérification",
-      "tokenIssued": "Jeton de vérification émis pour la session en cours.",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "Impossible d'émettre le jeton",
       "verificationFailed": "La vérification a échoué",
       "verify": "Vérifier l'e-mail",

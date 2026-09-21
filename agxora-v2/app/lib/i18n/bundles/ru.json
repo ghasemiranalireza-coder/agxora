@@ -370,9 +370,9 @@
     },
     "team": {
       "label": "Команда",
-      "description": "Участники, роли, приглашения и группы",
+      "description": "Members, roles, and invitations",
       "title": "Команда",
-      "panelDescription": "Участники, роли, приглашения и группы."
+      "panelDescription": "Members, roles, and invitations."
     },
     "ai": {
       "label": "ИИ",
@@ -735,7 +735,9 @@
       "revoke": "Отозвать",
       "noMembers": "Пока нет участников",
       "noMembersBody": "Пригласите товарища по команде в это рабочее пространство.",
-      "inviteHonesty": "Доставка электронной почты не настроена. Поделитесь ссылкой для приглашения напрямую.",
+      "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
+      "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+      "inviteQueued": "Invitation created. Email delivery was queued for the recipient.",
       "inviteLink": "Ссылка для приглашения",
       "inviteInvalid": "Это приглашение недействительно.",
       "accept": "Принять приглашение",
@@ -1285,7 +1287,7 @@
       "email": "Электронная почта",
       "submit": "Запросить сброс",
       "submitting": "Отправка…",
-      "success": "Если для этого адреса электронной почты существует учетная запись, был записан запрос на сброс. Доставка электронной почты еще не настроена.",
+      "success": "If an account exists for that email, a reset request was recorded. Check your inbox. AGXORA does not confirm delivery on this page.",
       "backToSignIn": "Вернуться для входа в систему",
       "failed": "Не удалось обработать запрос на сброс",
       "loading": "Забыли пароль"
@@ -7233,7 +7235,7 @@
       "loading": "Загрузка…",
       "skipForNow": "Пропустить сейчас",
       "tokenPlaceholder": "Токен подтверждения",
-      "tokenIssued": "Токен проверки, выданный для текущего сеанса.",
+      "tokenIssued": "A verification request was recorded. Check your inbox. If no email arrives, delivery is unavailable.",
       "issueFailed": "Не удалось выдать токен",
       "verificationFailed": "Проверка не удалась",
       "verify": "Подтвердите адрес электронной почты",

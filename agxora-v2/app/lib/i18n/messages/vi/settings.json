@@ -45,9 +45,9 @@
   },
   "team": {
     "label": "Đội",
-    "description": "Thành viên, vai trò, lời mời và nhóm",
+    "description": "Members, roles, and invitations",
     "title": "Đội",
-    "panelDescription": "Thành viên, vai trò, lời mời và nhóm."
+    "panelDescription": "Members, roles, and invitations."
   },
   "ai": {
     "label": "trí tuệ nhân tạo",
@@ -410,7 +410,7 @@
     "revoke": "Thu hồi",
     "noMembers": "Chưa có thành viên nào",
     "noMembersBody": "Mời đồng đội đến không gian làm việc này.",
-    "inviteHonesty": "Việc gửi email chưa được định cấu hình. Chia sẻ liên kết mời trực tiếp.",
+    "inviteHonesty": "Email delivery was not queued. Share the invite link directly.",
     "inviteLink": "Mời liên kết",
     "inviteInvalid": "Lời mời này không hợp lệ.",
     "accept": "Chấp nhận lời mời",
@@ -447,7 +447,9 @@
       "expired": "Việc chuyển quyền sở hữu này đã hết hạn.",
       "cancelled": "Việc chuyển quyền sở hữu này đã bị hủy.",
       "confirmed": "Việc chuyển quyền sở hữu này đã hoàn tất."
-    }
+    },
+    "inviteBeforeSend": "Invitations use the server email path. AGXORA confirms email only after the server queues delivery. If delivery is unavailable, a shareable invite link is shown instead.",
+    "inviteQueued": "Invitation created. Email delivery was queued for the recipient."
   },
   "financeDocuments": {
     "label": "Finance documents",
