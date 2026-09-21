@@ -740,6 +740,74 @@ function outcomeFromTask(job: ExecutionJob, task: AgentTask): ExecutionResult {
       };
     }
 
+    const isCustomerReadJob =
+      action === "get_customer" || action === "read_customer";
+    if (isCustomerReadJob) {
+      const stepResult = agentsStore
+        .getSnapshot()
+        .stepExecutions.filter(
+          (item) =>
+            item.taskId === task.id &&
+            item.toolId === "crm" &&
+            item.status === "COMPLETED",
+        )
+        .sort((a, b) => b.timestamp.localeCompare(a.timestamp))[0]?.result;
+      const output =
+        stepResult && typeof stepResult === "object"
+          ? (stepResult as Readonly<Record<string, unknown>>)
+          : undefined;
+      const customer =
+        output?.customer && typeof output.customer === "object"
+          ? (output.customer as Readonly<Record<string, unknown>>)
+          : undefined;
+      const crmAvailable =
+        typeof output?.crmAvailable === "boolean" ? output.crmAvailable : undefined;
+      const crmSuccess =
+        typeof output?.crmSuccess === "boolean" ? output.crmSuccess : undefined;
+      const invalidCustomerId = output?.invalidCustomerId === true;
+      const customerId =
+        typeof customer?.id === "string" ? customer.id : undefined;
+
+      if (crmAvailable === false) {
+        return {
+          success: false,
+          status: "unavailable",
+          externalEffect: false,
+          message: task.error ?? "crm_unavailable",
+          metadata: { toolId: job.toolId, action: "get_customer" },
+        };
+      }
+      if (invalidCustomerId || crmSuccess === false || !customerId) {
+        return {
+          success: false,
+          status: "failed",
+          externalEffect: false,
+          message: task.error ?? "crm_customer_read_failed",
+          metadata: { toolId: job.toolId, action: "get_customer" },
+        };
+      }
+      if (crmSuccess === true) {
+        return {
+          success: true,
+          status: "completed",
+          externalEffect: false,
+          message: "completed",
+          metadata: {
+            toolId: job.toolId,
+            action: "get_customer",
+            customerId,
+          },
+        };
+      }
+      return {
+        success: false,
+        status: "failed",
+        externalEffect: false,
+        message: task.error ?? "crm_customer_read_unresolved",
+        metadata: { toolId: job.toolId, action: "get_customer" },
+      };
+    }
+
     const profileId =
       typeof job.params.profileId === "string" ? job.params.profileId : undefined;
     const sync = agentsStore

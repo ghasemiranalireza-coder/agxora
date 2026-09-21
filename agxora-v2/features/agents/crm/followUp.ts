@@ -11,6 +11,7 @@ import {
   type CrmBridgeProvider,
 } from "./adapter";
 import { getGrowthCrmLink } from "./sync";
+import { agentCrmCustomerIdIssue } from "@/app/lib/workspace/firstCustomerAgentCrm";
 import type {
   CrmFollowUpKind,
   CrmFollowUpOutcome,
@@ -376,6 +377,22 @@ export async function createCrmFollowUp(input: {
       updatedAt: nowIso(),
     });
     return { result, followUp, link: undefined };
+  }
+
+  if (agentCrmCustomerIdIssue(link.customerId)) {
+    const result = resultOf("error", "crm_customer_id_invalid");
+    const followUp = persistFollowUp({
+      ...base,
+      linkId: link.id,
+      customerId: link.customerId,
+      contactId: link.contactId,
+      status: "failed",
+      outcome: "error",
+      result,
+      lastError: result.message,
+      updatedAt: nowIso(),
+    });
+    return { result, followUp, link };
   }
 
   try {

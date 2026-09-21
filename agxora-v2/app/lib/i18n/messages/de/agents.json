@@ -735,7 +735,8 @@
       "pending": "CRM-Sync ausstehend",
       "completed": "CRM-Sync abgeschlossen",
       "blocked": "CRM-Sync blockiert",
-      "failed": "CRM-Sync fehlgeschlagen"
+      "failed": "CRM-Sync fehlgeschlagen",
+      "readCompleted": "Echter CRM-Kunde geladen."
     },
     "outcome": {
       "linked": "Vorhandenen CRM-Kunden verknüpft",
@@ -746,8 +747,11 @@
       "error": "CRM-Sync-Fehler"
     },
     "blockers": {
-      "unavailable": "CRM-Anbieter ist nicht verfügbar"
-    }
+      "unavailable": "CRM-Anbieter ist nicht verfügbar",
+      "mockCustomerId": "Mock-Kunden-IDs sind nicht erlaubt. Verwenden Sie einen echten CRM-Kunden.",
+      "invalidCustomerId": "Die Kunden-ID muss eine echte CRM-UUID sein."
+    },
+    "honesty": "Agent-CRM liest und aktualisiert echte CRM-Kunden erst nach Freigabe. Mock- oder LocalStorage-Kunden werden nicht verwendet."
   },
   "crmFollowUp": {
     "noticeRequested": "CRM follow-up requested. Approve the pending Agent OS action to create it.",

@@ -18,6 +18,7 @@ import type {
   GrowthCrmLink,
   GrowthCrmLinkOutcome,
 } from "./types";
+import { agentCrmCustomerIdIssue } from "@/app/lib/workspace/firstCustomerAgentCrm";
 
 function crmHref(customerId: string): string {
   return `/dashboard/crm/${customerId}`;
@@ -163,6 +164,25 @@ export async function syncGrowthProfileToCrm(input: {
   try {
     let outcome: GrowthCrmLinkOutcome = "created";
     let customerId = existingLink?.customerId;
+    if (customerId && agentCrmCustomerIdIssue(customerId)) {
+      const result = resultOf("error", {
+        message: "crm_customer_id_invalid",
+        success: false,
+      });
+      const sync = persistSync({
+        organizationId: input.organizationId,
+        campaignId: input.campaignId,
+        profileId: input.profile.id,
+        status: "failed",
+        outcome: "error",
+        result,
+        taskId: input.taskId,
+        executionJobId: input.executionJobId,
+        lastError: "crm_customer_id_invalid",
+        now,
+      });
+      return { result, sync };
+    }
     let contactId = existingLink?.contactId;
     let noteId = existingLink?.noteId;
     let companyName = existingLink?.companyName ?? input.profile.companyName;

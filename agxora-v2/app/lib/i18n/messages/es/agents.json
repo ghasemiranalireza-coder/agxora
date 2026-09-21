@@ -735,7 +735,8 @@
       "pending": "Sync CRM pendiente",
       "completed": "Sync CRM completada",
       "blocked": "Sync CRM bloqueada",
-      "failed": "Sync CRM fallida"
+      "failed": "Sync CRM fallida",
+      "readCompleted": "Real CRM customer loaded."
     },
     "outcome": {
       "linked": "Cliente CRM existente vinculado",
@@ -746,8 +747,11 @@
       "error": "Error de sync CRM"
     },
     "blockers": {
-      "unavailable": "El proveedor CRM no está disponible"
-    }
+      "unavailable": "El proveedor CRM no está disponible",
+      "mockCustomerId": "Mock customer IDs are not allowed. Use a real CRM customer.",
+      "invalidCustomerId": "Customer ID must be a real CRM UUID."
+    },
+    "honesty": "Agent CRM reads and updates real CRM customers only after approval. Mock or localStorage customers are not used."
   },
   "crmFollowUp": {
     "noticeRequested": "CRM follow-up requested. Approve the pending Agent OS action to create it.",

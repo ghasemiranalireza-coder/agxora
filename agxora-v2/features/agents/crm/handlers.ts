@@ -18,6 +18,12 @@ import { advanceCrmCustomerStatus, loadCrmStatusesForOrganization } from "./stat
 import { getCampaignCrmSync, getGrowthCrmLink, syncGrowthProfileToCrm } from "./sync";
 import type { CrmFollowUpKind } from "./types";
 import type { CrmCustomerStatus } from "@/app/lib/crm/directory";
+import {
+  AGENT_CRM_CUSTOMER_READ_FIELDS,
+  agentCrmCustomerIdErrorMessage,
+  agentCrmCustomerIdIssue,
+} from "@/app/lib/workspace/firstCustomerAgentCrm";
+import { getCrmBridgeProvider } from "./adapter";
 
 function readString(
   params: Readonly<Record<string, unknown>>,
@@ -69,6 +75,47 @@ function parseFollowUpKind(value: string | undefined): CrmFollowUpKind {
   return "general";
 }
 
+function invalidCustomerIdResult(
+  started: number,
+  issue: NonNullable<ReturnType<typeof agentCrmCustomerIdIssue>>,
+): ToolInvocationResult {
+  return {
+    ok: false,
+    error: agentCrmCustomerIdErrorMessage(issue),
+    output: {
+      crmAvailable: true,
+      crmSuccess: false,
+      invalidCustomerId: true,
+      issue,
+    },
+    durationMs: Date.now() - started,
+  };
+}
+
+function publicCustomerFields(customer: {
+  readonly id: string;
+  readonly companyName: string;
+  readonly contactName: string;
+  readonly email: string;
+  readonly phone: string;
+  readonly address: string;
+  readonly city: string;
+  readonly country: string;
+  readonly status: string;
+}) {
+  return {
+    id: customer.id,
+    companyName: customer.companyName,
+    contactName: customer.contactName,
+    email: customer.email,
+    phone: customer.phone,
+    address: customer.address,
+    city: customer.city,
+    country: customer.country,
+    status: customer.status,
+  };
+}
+
 function markCampaignFollowUpTask(
   organizationId: string,
   campaignId: string | undefined,
@@ -100,6 +147,68 @@ export async function handleCrmTool(
 ): Promise<ToolInvocationResult> {
   const started = Date.now();
   const action = readString(ctx.params, "action") ?? "sync";
+  const requestedCustomerId = readString(ctx.params, "customerId");
+  if (requestedCustomerId) {
+    const issue = agentCrmCustomerIdIssue(requestedCustomerId);
+    if (issue) return invalidCustomerIdResult(started, issue);
+  }
+
+  if (action === "get_customer" || action === "read_customer") {
+    if (!requestedCustomerId) {
+      return invalidCustomerIdResult(started, "missing");
+    }
+    const provider = getCrmBridgeProvider();
+    if (!provider.available) {
+      return {
+        ok: false,
+        error: "CRM is unavailable for the first-customer Agent path.",
+        output: {
+          action,
+          crmAvailable: false,
+          crmSuccess: false,
+        },
+        durationMs: Date.now() - started,
+      };
+    }
+    try {
+      const customer = await provider.getCustomer(requestedCustomerId);
+      if (!customer || customer.organizationId !== ctx.organizationId) {
+        return {
+          ok: false,
+          error: "Customer not found",
+          output: {
+            action,
+            crmAvailable: true,
+            crmSuccess: false,
+          },
+          durationMs: Date.now() - started,
+        };
+      }
+      return {
+        ok: true,
+        output: {
+          action: "get_customer",
+          customer: publicCustomerFields(customer),
+          fields: AGENT_CRM_CUSTOMER_READ_FIELDS,
+          crmAvailable: true,
+          crmSuccess: true,
+        },
+        durationMs: Date.now() - started,
+      };
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "crm_bridge_error";
+      return {
+        ok: false,
+        error: message,
+        output: {
+          action,
+          crmAvailable: false,
+          crmSuccess: false,
+        },
+        durationMs: Date.now() - started,
+      };
+    }
+  }
 
   if (action === "get_link" || action === "get_linked_record") {
     const profileId = readString(ctx.params, "profileId");
