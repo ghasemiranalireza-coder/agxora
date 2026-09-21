@@ -15,6 +15,8 @@ import {
   type CrmNoteDraft,
   type CrmNoteRecord,
 } from "@/app/lib/crm/directory";
+import { isCrmDatabaseMode } from "@/app/lib/crm/persistence/mode";
+import { assertRealCustomerId } from "@/app/lib/workspace/firstCustomerAgentCrm";
 
 export interface CrmBridgeProvider {
   readonly available: boolean;
@@ -80,18 +82,23 @@ export function createUnavailableCrmBridge(): CrmBridgeProvider {
 }
 
 export function createDirectoryCrmBridge(): CrmBridgeProvider {
+  if (!isCrmDatabaseMode()) {
+    return createUnavailableCrmBridge();
+  }
   return {
     available: true,
     listCustomers(organizationId) {
       return crmDirectoryService.list(organizationId);
     },
     getCustomer(customerId) {
+      assertRealCustomerId(customerId);
       return crmDirectoryService.getById(customerId);
     },
     createCustomer(organizationId, draft) {
       return crmDirectoryService.createFromDraft(draft, organizationId);
     },
     async updateCustomer(organizationId, customerId, draft) {
+      assertRealCustomerId(customerId);
       const existing = await crmDirectoryService.getById(customerId);
       if (!existing || existing.organizationId !== organizationId) {
         throw new Error("crm_customer_org_mismatch");
@@ -99,9 +106,11 @@ export function createDirectoryCrmBridge(): CrmBridgeProvider {
       return crmDirectoryService.updateFromDraft(customerId, draft);
     },
     listContacts(customerId) {
+      assertRealCustomerId(customerId);
       return crmDirectoryService.listContacts(customerId);
     },
     createContact(organizationId, customerId, draft) {
+      assertRealCustomerId(customerId);
       return crmDirectoryService.createContactFromDraft(
         draft,
         customerId,
@@ -109,6 +118,7 @@ export function createDirectoryCrmBridge(): CrmBridgeProvider {
       );
     },
     createNote(organizationId, customerId, draft) {
+      assertRealCustomerId(customerId);
       return crmDirectoryService.createNoteFromDraft(
         draft,
         customerId,
@@ -116,6 +126,7 @@ export function createDirectoryCrmBridge(): CrmBridgeProvider {
       );
     },
     listNotes(customerId) {
+      assertRealCustomerId(customerId);
       return crmDirectoryService.listNotes(customerId);
     },
   };
@@ -128,6 +139,9 @@ export function createMemoryCrmBridge(): CrmBridgeProvider {
   const notes: CrmNoteRecord[] = [];
   let seq = 0;
   const nextId = (prefix: string) => {
+    // Isolated tests still inject this bridge. Customer IDs must be UUID-shaped
+    // so Agent CRM fail-closed checks match Prisma and never mint cus_*/crm_*.
+    if (prefix === "crm") return crypto.randomUUID();
     seq += 1;
     return `${prefix}_mem_${seq}`;
   };

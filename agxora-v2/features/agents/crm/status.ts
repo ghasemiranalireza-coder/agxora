@@ -15,6 +15,7 @@ import {
 import { getCrmBridgeProvider } from "./adapter";
 import { getGrowthCrmLink, listGrowthCrmLinks } from "./sync";
 import type { GrowthCrmLink } from "./types";
+import { agentCrmCustomerIdIssue } from "@/app/lib/workspace/firstCustomerAgentCrm";
 
 /** Phase 51 conversion ladder — single next step only. */
 export const CRM_CONVERSION_NEXT: Readonly<
@@ -374,6 +375,20 @@ export async function advanceCrmCustomerStatus(input: {
       },
       customer: null,
       link: link ?? null,
+    };
+  }
+  if (agentCrmCustomerIdIssue(link.customerId)) {
+    return {
+      result: {
+        available: true,
+        success: false,
+        outcome: "error",
+        message: "crm_customer_id_invalid",
+        customerId: link.customerId,
+        duplicated: false,
+      },
+      customer: null,
+      link,
     };
   }
 

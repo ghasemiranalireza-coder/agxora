@@ -5443,7 +5443,8 @@
         "pending": "همگام‌سازی CRM در انتظار",
         "completed": "همگام‌سازی CRM کامل شد",
         "blocked": "همگام‌سازی CRM مسدود شد",
-        "failed": "همگام‌سازی CRM ناموفق"
+        "failed": "همگام‌سازی CRM ناموفق",
+        "readCompleted": "Real CRM customer loaded."
       },
       "outcome": {
         "linked": "مشتری موجود CRM متصل شد",
@@ -5454,8 +5455,11 @@
         "error": "خطای همگام‌سازی CRM"
       },
       "blockers": {
-        "unavailable": "ارائه‌دهنده CRM در دسترس نیست"
-      }
+        "unavailable": "ارائه‌دهنده CRM در دسترس نیست",
+        "mockCustomerId": "Mock customer IDs are not allowed. Use a real CRM customer.",
+        "invalidCustomerId": "Customer ID must be a real CRM UUID."
+      },
+      "honesty": "Agent CRM reads and updates real CRM customers only after approval. Mock or localStorage customers are not used."
     },
     "crmFollowUp": {
       "noticeRequested": "CRM follow-up requested. Approve the pending Agent OS action to create it.",

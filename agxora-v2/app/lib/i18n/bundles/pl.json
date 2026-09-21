@@ -5397,7 +5397,8 @@
         "pending": "CRM sync pending",
         "completed": "CRM sync completed",
         "blocked": "CRM sync blocked",
-        "failed": "CRM sync failed"
+        "failed": "CRM sync failed",
+        "readCompleted": "Real CRM customer loaded."
       },
       "outcome": {
         "linked": "Linked existing CRM customer",
@@ -5408,8 +5409,11 @@
         "error": "CRM sync error"
       },
       "blockers": {
-        "unavailable": "CRM provider is unavailable"
-      }
+        "unavailable": "CRM provider is unavailable",
+        "mockCustomerId": "Mock customer IDs are not allowed. Use a real CRM customer.",
+        "invalidCustomerId": "Customer ID must be a real CRM UUID."
+      },
+      "honesty": "Agent CRM reads and updates real CRM customers only after approval. Mock or localStorage customers are not used."
     },
     "crmFollowUp": {
       "noticeRequested": "CRM follow-up requested. Approve the pending Agent OS action to create it.",

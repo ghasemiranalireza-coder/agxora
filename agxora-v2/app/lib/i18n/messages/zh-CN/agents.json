@@ -735,7 +735,8 @@
       "pending": "CRM 同步待处理",
       "completed": "CRM 同步已完成",
       "blocked": "CRM 同步已阻塞",
-      "failed": "CRM 同步失败"
+      "failed": "CRM 同步失败",
+      "readCompleted": "Real CRM customer loaded."
     },
     "outcome": {
       "linked": "已关联现有 CRM 客户",
@@ -746,8 +747,11 @@
       "error": "CRM 同步错误"
     },
     "blockers": {
-      "unavailable": "CRM 提供方不可用"
-    }
+      "unavailable": "CRM 提供方不可用",
+      "mockCustomerId": "Mock customer IDs are not allowed. Use a real CRM customer.",
+      "invalidCustomerId": "Customer ID must be a real CRM UUID."
+    },
+    "honesty": "Agent CRM reads and updates real CRM customers only after approval. Mock or localStorage customers are not used."
   },
   "crmFollowUp": {
     "noticeRequested": "CRM follow-up requested. Approve the pending Agent OS action to create it.",

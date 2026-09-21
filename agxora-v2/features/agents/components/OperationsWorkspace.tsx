@@ -3,6 +3,7 @@
 import { useState, type JSX } from "react";
 import { Badge, Button, Card } from "@/app/components/ui";
 import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
+import { parseRealCustomerId } from "@/app/lib/workspace/firstCustomerAgentCrm";
 import { operationsService } from "../execution/service";
 import { canRetryJob, type ExecutionJob } from "../execution/jobs";
 import { growthService } from "../growth/service";
@@ -189,6 +190,7 @@ function JobDetail({
   const showCancel = job.status !== "COMPLETED" && job.status !== "CANCELLED" && !busy;
   const showRetry = canRetryJob(job) && !busy;
   const showApproval = job.status === "WAITING_FOR_APPROVAL" && Boolean(job.approvalId) && !busy;
+  const realCustomerId = parseRealCustomerId(job.result?.metadata.customerId);
   return (
     <Card className="space-y-3" padding="24px" hover={false}>
       <div className="flex flex-wrap items-center gap-2">
@@ -289,34 +291,43 @@ function JobDetail({
                       : job.status === "FAILED"
                         ? t("agents.crmFollowUp.status.failed")
                         : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
-                  : job.status === "COMPLETED"
-                    ? t("agents.crmBridge.syncStatus.completed")
+                  : job.result?.success === true && job.status === "COMPLETED"
+                    ? job.params.action === "get_customer" ||
+                      job.params.action === "read_customer"
+                      ? t("agents.crmBridge.syncStatus.readCompleted")
+                      : t("agents.crmBridge.syncStatus.completed")
                     : job.status === "BLOCKED"
                       ? t("agents.crmBridge.syncStatus.blocked")
-                      : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
+                      : job.status === "FAILED"
+                        ? t("agents.crmBridge.syncStatus.failed")
+                        : catalogCopy(t, `agents.operations.status.${job.status}`, job.status)
             }
           />
-          {job.result?.metadata.customerId ? (
+          {realCustomerId ? (
             <DetailRow
               label={t("agents.crmBridge.labels.customer")}
-              value={job.result.metadata.customerId}
+              value={realCustomerId}
             />
           ) : null}
-          {typeof job.result?.metadata.customerId === "string" &&
-          job.result.metadata.customerId.length > 0 ? (
+          {realCustomerId ? (
             <div>
               <p className="text-xs uppercase tracking-wide" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
                 {t("agents.crmBridge.labels.record")}
               </p>
               <a
                 className="text-sm underline"
-                href={`/dashboard/crm/${encodeURIComponent(job.result.metadata.customerId)}`}
+                href={`/dashboard/crm/${encodeURIComponent(realCustomerId)}`}
                 style={{ color: "var(--agx-accent, #22d3ee)" }}
               >
                 {t("agents.crmBridge.actions.openCrm")}
               </a>
             </div>
           ) : null}
+          <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {job.status === "WAITING_FOR_APPROVAL"
+              ? t("agents.crmBridge.noticeRequested")
+              : t("agents.crmBridge.honesty")}
+          </p>
         </>
       ) : null}
       <DetailRow
