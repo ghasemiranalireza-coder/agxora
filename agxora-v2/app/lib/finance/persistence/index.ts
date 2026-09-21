@@ -18,6 +18,7 @@ export { jsonError } from "@/app/lib/crm/persistence/http";
 export {
   getDocumentSettingsForActor,
   patchDocumentSettingsForActor,
+  applyOnboardingFinanceSettingsForActor,
   getFinanceLogoBytesForActor,
   uploadFinanceLogoForActor,
   removeFinanceLogoForActor,

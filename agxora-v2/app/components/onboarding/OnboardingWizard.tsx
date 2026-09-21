@@ -13,6 +13,7 @@ import { resolveUserFacingErrorKey, useT } from "../../lib/i18n";
 import { useOptionalAuth } from "../../lib/auth";
 import { useOrganization } from "../../lib/organization";
 import { isServerAuthMode } from "../../lib/auth/mode";
+import { persistOnboardingFinanceSettings } from "../../lib/finance/documents/onboardingFinanceClient";
 
 const surfaceTransition = [
   `background ${THEME_TRANSITION_MS}ms cubic-bezier(0.22, 1, 0.36, 1)`,
@@ -53,6 +54,13 @@ export function OnboardingWizard(): JSX.Element {
   const [step, setStep] = useState<Step>(0);
   const [businessType, setBusinessType] = useState<BusinessType | null>(null);
   const [companyName, setCompanyName] = useState("");
+  const [street, setStreet] = useState("");
+  const [houseNumber, setHouseNumber] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [city, setCity] = useState("");
+  const [vatId, setVatId] = useState("");
+  const [iban, setIban] = useState("");
+  const [bic, setBic] = useState("");
   const [country, setCountry] = useState("");
   const [language, setLanguage] = useState("en");
   const [timezone, setTimezone] = useState("UTC");
@@ -106,6 +114,18 @@ export function OnboardingWizard(): JSX.Element {
         timezone: timezone.trim() || "UTC",
         goals,
         ownerSubjectId: auth?.userId ?? undefined,
+      });
+
+      await persistOnboardingFinanceSettings({
+        companyName: companyName.trim(),
+        street,
+        houseNumber,
+        postalCode,
+        city,
+        country: resolvedCountry,
+        vatId,
+        iban,
+        bic,
       });
 
       router.push("/dashboard");
@@ -293,6 +313,16 @@ export function OnboardingWizard(): JSX.Element {
 
         {step === 1 ? (
           <div style={{ display: "grid", gap: "16px" }}>
+            <p
+              style={{
+                margin: 0,
+                color: tokens.textMuted,
+                fontSize: "13px",
+                lineHeight: 1.5,
+              }}
+            >
+              {t("onboarding.invoiceHint")}
+            </p>
             <label style={{ display: "grid", gap: "8px" }}>
               <span style={{ fontSize: "13px", color: tokens.textMuted }}>
                 {t("onboarding.companyName")}
@@ -305,6 +335,98 @@ export function OnboardingWizard(): JSX.Element {
                 style={inputStyle(tokens)}
               />
             </label>
+            <div
+              style={{
+                display: "grid",
+                gap: "14px",
+                gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+              }}
+            >
+              <label style={{ display: "grid", gap: "8px", gridColumn: "1 / -1" }}>
+                <span style={{ fontSize: "13px", color: tokens.textMuted }}>
+                  {t("onboarding.street")}
+                </span>
+                <input
+                  className="agx-input"
+                  value={street}
+                  onChange={(event) => setStreet(event.target.value)}
+                  placeholder={t("onboarding.streetPlaceholder")}
+                  style={inputStyle(tokens)}
+                />
+              </label>
+              <label style={{ display: "grid", gap: "8px" }}>
+                <span style={{ fontSize: "13px", color: tokens.textMuted }}>
+                  {t("onboarding.houseNumber")}
+                </span>
+                <input
+                  className="agx-input"
+                  value={houseNumber}
+                  onChange={(event) => setHouseNumber(event.target.value)}
+                  placeholder={t("onboarding.houseNumberPlaceholder")}
+                  style={inputStyle(tokens)}
+                />
+              </label>
+              <label style={{ display: "grid", gap: "8px" }}>
+                <span style={{ fontSize: "13px", color: tokens.textMuted }}>
+                  {t("onboarding.postalCode")}
+                </span>
+                <input
+                  className="agx-input"
+                  value={postalCode}
+                  onChange={(event) => setPostalCode(event.target.value)}
+                  placeholder={t("onboarding.postalCodePlaceholder")}
+                  style={inputStyle(tokens)}
+                />
+              </label>
+              <label style={{ display: "grid", gap: "8px" }}>
+                <span style={{ fontSize: "13px", color: tokens.textMuted }}>
+                  {t("onboarding.city")}
+                </span>
+                <input
+                  className="agx-input"
+                  value={city}
+                  onChange={(event) => setCity(event.target.value)}
+                  placeholder={t("onboarding.cityPlaceholder")}
+                  style={inputStyle(tokens)}
+                />
+              </label>
+              <label style={{ display: "grid", gap: "8px" }}>
+                <span style={{ fontSize: "13px", color: tokens.textMuted }}>
+                  {t("onboarding.vatId")}
+                </span>
+                <input
+                  className="agx-input"
+                  value={vatId}
+                  onChange={(event) => setVatId(event.target.value)}
+                  placeholder={t("onboarding.vatIdPlaceholder")}
+                  style={inputStyle(tokens)}
+                />
+              </label>
+              <label style={{ display: "grid", gap: "8px" }}>
+                <span style={{ fontSize: "13px", color: tokens.textMuted }}>
+                  {t("onboarding.iban")}
+                </span>
+                <input
+                  className="agx-input"
+                  value={iban}
+                  onChange={(event) => setIban(event.target.value)}
+                  placeholder={t("onboarding.ibanPlaceholder")}
+                  style={inputStyle(tokens)}
+                />
+              </label>
+              <label style={{ display: "grid", gap: "8px" }}>
+                <span style={{ fontSize: "13px", color: tokens.textMuted }}>
+                  {t("onboarding.bic")}
+                </span>
+                <input
+                  className="agx-input"
+                  value={bic}
+                  onChange={(event) => setBic(event.target.value)}
+                  placeholder={t("onboarding.bicPlaceholder")}
+                  style={inputStyle(tokens)}
+                />
+              </label>
+            </div>
             {template ? (
               <div
                 style={{

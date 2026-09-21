@@ -13,6 +13,11 @@ import {
   type FinanceDocumentSettingsView,
 } from "./types";
 import { brandingFromRow, parseSettingsPatch, qrFromRow } from "./validation";
+import {
+  buildOnboardingFinancePatch,
+  hasOnboardingFinancePatch,
+  type OnboardingFinanceInput,
+} from "./onboardingFinanceSeed";
 
 function tenant(actor: Actor) {
   return { organizationId: actor.organizationId, workspaceId: actor.workspaceId };
@@ -167,6 +172,22 @@ export async function patchDocumentSettingsForActor(
   });
 
   return toSettingsView(saved, organization?.name ?? "");
+}
+
+/**
+ * First-customer onboarding write-through into FinanceDocumentSettings.
+ * Uses the same actor/tenant/authorization path as Settings → Finance.
+ * Empty optional fields are omitted so existing values are preserved.
+ */
+export async function applyOnboardingFinanceSettingsForActor(
+  actor: Actor,
+  input: OnboardingFinanceInput,
+): Promise<FinanceDocumentSettingsView> {
+  const patch = buildOnboardingFinancePatch(input);
+  if (!hasOnboardingFinancePatch(patch)) {
+    return getDocumentSettingsForActor(actor);
+  }
+  return patchDocumentSettingsForActor(actor, patch);
 }
 
 export async function getFinanceLogoBytesForActor(
