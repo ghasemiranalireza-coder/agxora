@@ -32,6 +32,13 @@ export {
   qrFromRow,
 } from "./validation";
 export {
+  buildOnboardingFinancePatch,
+  composeOnboardingStreet,
+  hasOnboardingFinancePatch,
+} from "./onboardingFinanceSeed";
+export type { OnboardingFinanceInput } from "./onboardingFinanceSeed";
+export { persistOnboardingFinanceSettings } from "./onboardingFinanceClient";
+export {
   buildEpcQrPayload,
   buildPaymentQrSnapshot,
   formatEpcAmount,
