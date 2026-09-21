@@ -977,6 +977,7 @@
       "title": "أجكسورا منظمة العفو الدولية",
       "emptyState": "اسأل AGXORA عن العملاء أو المشاريع أو الإجراءات التالية. تبقى محادثتك في جلسة مساحة العمل هذه.",
       "thinking": "AGXORA تفكر...",
+      "unavailable": "AI assistance is currently unavailable.",
       "errorDismiss": "{error} — انقر للرفض",
       "placeholder": "اسأل AGXORA AI...",
       "messageAria": "رسالة AGXORA AI",
@@ -4708,7 +4709,8 @@
     "marketplace": {
       "tools": "الأدوات: {tools}",
       "installed": "تم التثبيت",
-      "installActivate": "التثبيت والتنشيط"
+      "installActivate": "التثبيت والتنشيط",
+      "noLiveTools": "No live customer tools on this agent yet."
     },
     "monitor": {
       "title": "مراقب الوكيل",
@@ -4745,6 +4747,7 @@
     "settings": {
       "title": "إعدادات نظام تشغيل الوكيل",
       "defaultLlmProvider": "مزود LLM الافتراضي",
+      "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers.",
       "enableSupervisor": "تمكين بنية وكيل المشرف",
       "isolateSensitive": "عزل الأدوات الحساسة",
       "saveSettings": "حفظ الإعدادات",

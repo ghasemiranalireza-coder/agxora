@@ -11,7 +11,7 @@ export const DEFAULT_OPENAI_CHAT_MODEL = "gpt-4.1";
 export type AiServerPublicConfig = {
   readonly ready: boolean;
   readonly configured: boolean;
-  readonly defaultProviderId: "openai" | "mock";
+  readonly defaultProviderId: "openai";
   readonly defaultModelId: string;
   readonly providerId: "openai";
   readonly chatModelId: string;
@@ -37,8 +37,8 @@ export function getAiServerConfig(): AiServerPublicConfig {
   return {
     ready: configured,
     configured,
-    defaultProviderId: configured ? "openai" : "mock",
-    defaultModelId: configured ? chatModelId : "mock-local",
+    defaultProviderId: "openai",
+    defaultModelId: chatModelId,
     providerId: "openai",
     chatModelId,
     message: configured

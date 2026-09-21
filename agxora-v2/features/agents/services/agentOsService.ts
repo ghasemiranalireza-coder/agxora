@@ -14,7 +14,7 @@ import {
 } from "../execution";
 import { createContextBundle } from "../context";
 import { retrieveKnowledge, seedKnowledge } from "../knowledge";
-import { getLlmProvider } from "../llm";
+import { getLlmProvider, isSimulatedLlmResult } from "../llm";
 import { createMemoryRecord } from "../memory";
 import { createAgentMessage } from "../orchestration";
 import {
@@ -658,6 +658,8 @@ export const agentOsService = {
           .map((output) => JSON.stringify(output))
           .join("\n")}`,
       });
+      const llmUnavailable = isSimulatedLlmResult(completion);
+      const completionText = llmUnavailable ? "" : completion.text;
 
       agentsStore.pushMemory(
         createMemoryRecord({
@@ -665,7 +667,10 @@ export const agentOsService = {
           agentInstanceId: task.agentInstanceId,
           scope: "working",
           key: `task:${task.id}`,
-          value: { goal, completion: completion.text },
+          value: {
+            goal,
+            completion: llmUnavailable ? { unavailable: true } : completionText,
+          },
         }),
       );
       agentsStore.pushMemory(
@@ -689,7 +694,8 @@ export const agentOsService = {
         finishedAt,
         durationMs,
         output: {
-          completion: completion.text,
+          completion: completionText,
+          llmUnavailable,
           confidence: trace?.confidence ?? 0.5,
           tools: toolOutputs,
           planId: activePlan.id,
@@ -708,7 +714,8 @@ export const agentOsService = {
       );
       recordEvent(
         lifecycleEvent(execution, "VERIFYING", "COMPLETED", undefined, {
-          completion: completion.text,
+          completion: completionText,
+          llmUnavailable,
         }),
       );
       majorAudit("agent.execution.completed", execution, {

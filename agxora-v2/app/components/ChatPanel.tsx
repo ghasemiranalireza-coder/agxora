@@ -9,7 +9,7 @@ import {
   type KeyboardEvent,
 } from "react";
 import { useChat } from "../lib/modules/chat";
-import { useLocale } from "../lib/i18n";
+import { isTranslationKey, useLocale } from "../lib/i18n";
 import { THEME_TRANSITION_MS, useTheme } from "../lib/theme";
 import { VoiceInputButton } from "./ui";
 
@@ -190,7 +190,11 @@ export function ChatPanel(): JSX.Element {
             transition: surfaceTransition,
           }}
         >
-          {t("dashboard.chat.errorDismiss", { error })}
+          {t(
+            isTranslationKey(error)
+              ? error
+              : "dashboard.chat.unavailable",
+          )}
         </button>
       ) : null}
 

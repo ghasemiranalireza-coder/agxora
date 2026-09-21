@@ -62,7 +62,8 @@
   "marketplace": {
     "tools": "Tools: {tools}",
     "installed": "Installiert",
-    "installActivate": "Installieren & Aktivieren"
+    "installActivate": "Installieren & Aktivieren",
+    "noLiveTools": "No live customer tools on this agent yet."
   },
   "monitor": {
     "title": "Agentenmonitor",
@@ -102,7 +103,8 @@
     "enableSupervisor": "Supervisor-Agent-Architektur aktivieren",
     "isolateSensitive": "Isolieren Sie empfindliche Werkzeuge",
     "saveSettings": "Einstellungen speichern",
-    "providersHint": "Bereit für Anbieter: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Adapter über registerLlmProvider ohne UI-Änderungen tauschen."
+    "providersHint": "Customer-facing Agent OS does not present simulated LLM providers as live intelligence. CRM and Finance tools remain available where they are actually functional.",
+    "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers."
   },
   "columns": {
     "agent": "Vertreter",

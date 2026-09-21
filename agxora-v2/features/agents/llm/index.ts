@@ -21,6 +21,7 @@ export interface LlmCompletionResult {
 export interface LlmProviderAdapter {
   readonly id: LlmProviderId;
   readonly displayName: string;
+  readonly simulated?: boolean;
   complete(req: LlmCompletionRequest): Promise<LlmCompletionResult>;
 }
 
@@ -32,6 +33,7 @@ function stubAdapter(
   return {
     id,
     displayName,
+    simulated: true,
     async complete(req) {
       return {
         providerId: id,
@@ -60,6 +62,24 @@ export function getLlmProvider(id: LlmProviderId): LlmProviderAdapter {
 
 export function listLlmProviders(): readonly LlmProviderAdapter[] {
   return Array.from(adapters.values());
+}
+
+/** Customer-facing Agent OS must not list simulated LLM adapters as live providers. */
+export function listCustomerFacingLlmProviders(): readonly LlmProviderAdapter[] {
+  return listLlmProviders().filter((adapter) => adapter.simulated === false);
+}
+
+export function isSimulatedLlmAdapter(adapter: LlmProviderAdapter): boolean {
+  return adapter.simulated !== false;
+}
+
+export function isSimulatedLlmResult(
+  result: Pick<LlmCompletionResult, "simulated" | "text">,
+): boolean {
+  return (
+    result.simulated === true ||
+    (result.text.includes("[") && result.text.includes("stub]"))
+  );
 }
 
 export function registerLlmProvider(adapter: LlmProviderAdapter): void {

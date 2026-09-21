@@ -34,6 +34,15 @@ export {
   type RuntimeContextEnricher,
 } from "./adapters/chatProviderAdapter";
 export {
+  selectCustomerChatProviderId,
+  isMockAiProviderId,
+  containsInventedBusinessMetrics,
+  isUnsafeSimulatedAiText,
+  customerAiUnavailableError,
+  CUSTOMER_CHAT_PROVIDER_ID,
+  CUSTOMER_AI_UNAVAILABLE_KEY,
+} from "./customerChatProvider";
+export {
   AISettingsProvider,
   useAISettings,
   useOptionalAISettings,

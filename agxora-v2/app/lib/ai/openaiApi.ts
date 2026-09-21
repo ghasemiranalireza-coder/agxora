@@ -46,5 +46,7 @@ export function isMockAiFallbackText(content: string): boolean {
   }
   if (text.includes("replied with the local mock engine")) return true;
   if (text.includes("the provider interface is already live")) return true;
+  if (text.includes("approximately 18%")) return true;
+  if (text.includes("about 12%")) return true;
   return false;
 }

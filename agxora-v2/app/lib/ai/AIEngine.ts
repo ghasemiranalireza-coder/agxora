@@ -3,7 +3,7 @@
  */
 
 import type { AIRuntimeContext } from "./AIContext";
-import { AIError, logAIError, toAIError } from "./AIErrorHandler";
+import { AIError, logAIError } from "./AIErrorHandler";
 import type { AIProviderId } from "./AIModel";
 import type {
   AIChatResponse,
@@ -27,6 +27,12 @@ import {
   defaultToolRegistry,
   type AIToolRegistry,
 } from "./AITools";
+import {
+  customerAiErrorForThrow,
+  customerAiUnavailableError,
+  isUnsafeSimulatedAiText,
+  selectCustomerChatProviderId,
+} from "./customerChatProvider";
 import { assemblePrompt } from "./prompt/assemblePrompt";
 
 export interface AIEngineGenerateInput {
@@ -56,18 +62,26 @@ export class AIEngine {
   }
 
   updateSettings(partial: Partial<AISettings>): AISettings {
-    this.settings = mergeAISettings({ ...this.settings, ...partial });
-    if (partial.defaultProviderId) {
-      this.provider = this.factory.create(partial.defaultProviderId);
+    const nextProviderId = partial.defaultProviderId
+      ? selectCustomerChatProviderId(partial.defaultProviderId)
+      : undefined;
+    this.settings = mergeAISettings({
+      ...this.settings,
+      ...partial,
+      ...(nextProviderId ? { defaultProviderId: nextProviderId } : {}),
+    });
+    if (nextProviderId) {
+      this.provider = this.factory.create(nextProviderId);
     }
     return this.settings;
   }
 
   setProvider(providerId: AIProviderId): AIProvider {
-    this.provider = this.factory.create(providerId);
+    const resolvedId = selectCustomerChatProviderId(providerId);
+    this.provider = this.factory.create(resolvedId);
     this.settings = {
       ...this.settings,
-      defaultProviderId: providerId,
+      defaultProviderId: resolvedId,
     };
     return this.provider;
   }
@@ -89,10 +103,16 @@ export class AIEngine {
 
   async generate(input: AIEngineGenerateInput): Promise<AIChatResponse> {
     const settings = mergeAISettings({ ...this.settings, ...input.settings });
-    const provider = input.providerId
-      ? this.factory.create(input.providerId)
-      : this.provider;
-    const modelId = input.modelId ?? settings.defaultModelId;
+    const requestedId = input.providerId ?? this.provider.id;
+    const resolvedId = selectCustomerChatProviderId(requestedId);
+    const provider =
+      resolvedId === this.provider.id
+        ? this.provider
+        : this.factory.create(resolvedId);
+    const modelId =
+      input.modelId && input.modelId !== "mock-local"
+        ? input.modelId
+        : settings.defaultModelId;
 
     const limit = this.rateLimiter.check(
       `${provider.id}:${input.context.organization.organizationId ?? "anon"}`,
@@ -133,15 +153,20 @@ export class AIEngine {
     };
 
     try {
+      let response: AIChatResponse;
       if (settings.streamingEnabled && input.onStream) {
-        return await provider.stream(request, input.onStream);
+        response = await provider.stream(request, input.onStream);
+      } else if (input.useTools) {
+        response = await provider.toolCalling(request);
+      } else {
+        response = await provider.chat(request);
       }
-      if (input.useTools) {
-        return await provider.toolCalling(request);
+      if (provider.id === "mock" || isUnsafeSimulatedAiText(response.content)) {
+        throw customerAiUnavailableError(provider.id);
       }
-      return await provider.chat(request);
+      return response;
     } catch (error) {
-      const aiError = toAIError(error, provider.id);
+      const aiError = customerAiErrorForThrow(error, provider.id);
       logAIError(aiError);
       throw aiError;
     }

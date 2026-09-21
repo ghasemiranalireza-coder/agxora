@@ -977,6 +977,7 @@
       "title": "هوش مصنوعی آگکسورا",
       "emptyState": "از AGXORA درباره مشتریان، پروژه‌ها یا اقدامات بعدی بپرسید. گفتگوی شما در این نشست فضای کاری باقی می‌ماند.",
       "thinking": "AGXORA در حال فکر کردن است…",
+      "unavailable": "AI assistance is currently unavailable.",
       "errorDismiss": "{error} — برای بستن ضربه بزنید",
       "placeholder": "از AGXORA AI بپرسید…",
       "messageAria": "پیام به AGXORA AI",
@@ -4754,7 +4755,8 @@
     "marketplace": {
       "tools": "ابزارها: {tools}",
       "installed": "نصب شده",
-      "installActivate": "نصب و فعال"
+      "installActivate": "نصب و فعال",
+      "noLiveTools": "No live customer tools on this agent yet."
     },
     "monitor": {
       "title": "مانیتور عامل",
@@ -4791,6 +4793,7 @@
     "settings": {
       "title": "تنظیمات سیستم عامل عامل",
       "defaultLlmProvider": "ارائه دهنده پیش فرض LLM",
+      "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers.",
       "enableSupervisor": "معماری عامل ناظر را فعال کنید",
       "isolateSensitive": "ابزارهای حساس را ایزوله کنید",
       "saveSettings": "تنظیمات را ذخیره کن",

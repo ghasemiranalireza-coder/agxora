@@ -464,6 +464,16 @@ export const TOOL_CATALOG: readonly AgentToolDefinition[] = [
   },
 ] as const;
 
+export const FIRST_CUSTOMER_AGENT_TOOL_IDS = ["crm", "finance"] as const;
+
+export function isCustomerFacingAgentTool(id: ToolId): boolean {
+  return (FIRST_CUSTOMER_AGENT_TOOL_IDS as readonly string[]).includes(id);
+}
+
+export function listCustomerFacingAgentTools(): readonly AgentToolDefinition[] {
+  return TOOL_CATALOG.filter((tool) => isCustomerFacingAgentTool(tool.id));
+}
+
 const handlers = new Map<ToolId, ToolHandler>();
 
 function stub(id: ToolId): ToolHandler {

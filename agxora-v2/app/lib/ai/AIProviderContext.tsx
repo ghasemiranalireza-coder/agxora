@@ -44,12 +44,23 @@ export function AISettingsProvider({ children }: { children: ReactNode }) {
   );
 
   const updateSettings = useCallback((patch: AISettingsPatch) => {
-    setSettings((prev) => mergeAISettings({ ...prev, ...patch }));
+    setSettings((prev) =>
+      mergeAISettings({
+        ...prev,
+        ...patch,
+        ...(patch.defaultProviderId === "mock"
+          ? { defaultProviderId: "openai" }
+          : {}),
+      }),
+    );
   }, []);
 
   const setProvider = useCallback((provider: AIProviderId) => {
     setSettings((prev) =>
-      mergeAISettings({ ...prev, defaultProviderId: provider }),
+      mergeAISettings({
+        ...prev,
+        defaultProviderId: provider === "mock" ? "openai" : provider,
+      }),
     );
   }, []);
 

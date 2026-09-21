@@ -285,7 +285,6 @@ function AiPanel(): JSX.Element {
             value={settings.defaultProviderId}
             onChange={(e) => setProvider(e.target.value as AIProviderId)}
           >
-            <option value="mock">{t("settings.ai.providers.mock")}</option>
             <option value="openai">{t("settings.ai.providers.openai")}</option>
             <option value="azure">{t("settings.ai.providers.azure")}</option>
             <option value="anthropic">{t("settings.ai.providers.anthropic")}</option>

@@ -62,7 +62,8 @@
   "marketplace": {
     "tools": "الأدوات: {tools}",
     "installed": "تم التثبيت",
-    "installActivate": "التثبيت والتنشيط"
+    "installActivate": "التثبيت والتنشيط",
+    "noLiveTools": "No live customer tools on this agent yet."
   },
   "monitor": {
     "title": "مراقب الوكيل",
@@ -102,7 +103,8 @@
     "enableSupervisor": "تمكين بنية وكيل المشرف",
     "isolateSensitive": "عزل الأدوات الحساسة",
     "saveSettings": "حفظ الإعدادات",
-    "providersHint": "مقدمو الخدمة جاهزون: OpenAI، وAzure OpenAI، وAnthropic، وGemini، وLocal، وOllama، وMCP، وCustom. قم بتبديل المحولات عبر RegisterLlmProvider بدون تغييرات في واجهة المستخدم."
+    "providersHint": "مقدمو الخدمة جاهزون: OpenAI، وAzure OpenAI، وAnthropic، وGemini، وLocal، وOllama، وMCP، وCustom. قم بتبديل المحولات عبر RegisterLlmProvider بدون تغييرات في واجهة المستخدم.",
+    "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers."
   },
   "columns": {
     "agent": "عامل",

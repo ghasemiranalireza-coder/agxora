@@ -977,6 +977,7 @@
       "title": "AGXORA AI",
       "emptyState": "Pergunte à AGXORA sobre clientes, projetos ou próximas ações. Sua conversa permanece nesta sessão do espaço de trabalho.",
       "thinking": "AGXORA está pensando…",
+      "unavailable": "AI assistance is currently unavailable.",
       "errorDismiss": "{error} – toque para dispensar",
       "placeholder": "Pergunte à AGXORA AI…",
       "messageAria": "Mensagem AGXORA AI",
@@ -4708,7 +4709,8 @@
     "marketplace": {
       "tools": "Ferramentas: {tools}",
       "installed": "Instalado",
-      "installActivate": "Instalar e ativar"
+      "installActivate": "Instalar e ativar",
+      "noLiveTools": "No live customer tools on this agent yet."
     },
     "monitor": {
       "title": "Monitor de agente",
@@ -4745,10 +4747,11 @@
     "settings": {
       "title": "Configurações do SO do agente",
       "defaultLlmProvider": "Provedor LLM padrão",
+      "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers.",
       "enableSupervisor": "Habilitar arquitetura de agente supervisor",
       "isolateSensitive": "Isole ferramentas confidenciais",
       "saveSettings": "Salvar configurações",
-      "providersHint": "Provedores prontos: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Troque adaptadores por meio de RegisterLlmProvider sem alterações na interface do usuário."
+      "providersHint": "Customer-facing Agent OS does not present simulated LLM providers as live intelligence. CRM and Finance tools remain available where they are actually functional."
     },
     "columns": {
       "agent": "Agente",

@@ -1,7 +1,7 @@
 "use client";
 
 import { memo, useCallback, type JSX } from "react";
-import { useT } from "@/app/lib/i18n";
+import { useT, localizeThrownError } from "@/app/lib/i18n";
 import { MarkdownContent } from "../utils/markdown";
 import type { AiMessage } from "../types";
 import { TypingIndicator } from "./TypingIndicator";
@@ -69,7 +69,7 @@ function MessageBubbleInner({
               className="mt-2 text-xs"
               style={{ color: "var(--agx-danger, #f87171)" }}
             >
-              {message.error}
+              {localizeThrownError(t, message.error, "dashboard.chat.unavailable")}
             </p>
           ) : null}
         </div>

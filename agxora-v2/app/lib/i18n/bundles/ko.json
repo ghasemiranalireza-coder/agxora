@@ -977,6 +977,7 @@
       "title": "아그소라 AI",
       "emptyState": "고객, 프로젝트 또는 다음 조치에 대해 AGXORA에 문의하세요. 대화는 이 작업 공간 세션에 유지됩니다.",
       "thinking": "AGXORA는 생각하고 있습니다…",
+      "unavailable": "AI assistance is currently unavailable.",
       "errorDismiss": "{error} — 탭하여 닫으세요.",
       "placeholder": "AGXORA AI에 물어보세요…",
       "messageAria": "메시지 AGXORA AI",
@@ -4708,7 +4709,8 @@
     "marketplace": {
       "tools": "도구: {tools}",
       "installed": "설치됨",
-      "installActivate": "설치 및 활성화"
+      "installActivate": "설치 및 활성화",
+      "noLiveTools": "No live customer tools on this agent yet."
     },
     "monitor": {
       "title": "에이전트 모니터",
@@ -4745,10 +4747,11 @@
     "settings": {
       "title": "에이전트 OS 설정",
       "defaultLlmProvider": "기본 LLM 제공업체",
+      "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers.",
       "enableSupervisor": "감독자 에이전트 아키텍처 활성화",
       "isolateSensitive": "민감한 도구를 분리하세요",
       "saveSettings": "설정 저장",
-      "providersHint": "준비된 공급자: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. UI 변경 없이 RegisterLlmProvider를 통해 어댑터를 교환합니다."
+      "providersHint": "Customer-facing Agent OS does not present simulated LLM providers as live intelligence. CRM and Finance tools remain available where they are actually functional."
     },
     "columns": {
       "agent": "대리인",
