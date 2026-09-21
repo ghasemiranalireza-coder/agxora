@@ -1075,7 +1075,7 @@
         },
         "createInvoice": {
           "title": "إنشاء فاتورة",
-          "subtitle": "افتح مساحة عمل الفاتورة المالية"
+          "subtitle": "Create a delivery note, then bill it in Finance"
         },
         "uploadDocument": {
           "title": "تحميل الوثيقة",
@@ -1635,7 +1635,11 @@
       },
       "invoices": {
         "emptyTitle": "لا توجد فواتير بعد",
-        "emptyDescription": "تظهر الفواتير الخاصة بهذا العميل هنا عند ربطها من Finance."
+        "emptyDescription": "تظهر الفواتير الخاصة بهذا العميل هنا عند ربطها من Finance.",
+        "createCta": "Create invoice",
+        "hint": "Invoices are created in Finance from delivery notes for this customer.",
+        "loadError": "Could not load invoices for this customer.",
+        "openInvoice": "Open invoice"
       },
       "activity": {
         "title": "نشاط",
@@ -2407,24 +2411,33 @@
       "delivery": {
         "title": "Delivery notes",
         "subtitle": "Create, filter, and bill Lieferscheine. Already billed notes cannot be billed again.",
-        "billedAs": "Billed on invoice"
+        "billedAs": "Billed on invoice",
+        "customerScoped": "Showing delivery notes for the selected customer."
       },
       "invoice": {
         "title": "Invoices",
         "subtitle": "Draft invoices created from delivery notes. Sending and payment collection are not connected.",
         "createdFrom": "Created from delivery notes",
-        "futureBoundary": "PDF, email, payment, and reminder tools are not implemented in this phase."
+        "futureBoundary": "PDF, email, payment, and reminder tools are not implemented in this phase.",
+        "manualPaid": "Paid is a bookkeeping mark in this workspace. Payment collection is not connected.",
+        "savedHint": "This invoice is saved in Finance.",
+        "customerScoped": "Showing invoices for the selected customer.",
+        "unknownStatus": "Unknown status"
       },
       "bill": {
         "previewTitle": "Confirm billing",
-        "count": "Delivery notes"
+        "count": "Delivery notes",
+        "savedAfterConfirm": "The invoice is saved only after this step succeeds. It starts as a draft."
       },
       "errors": {
         "load": "Could not load finance data",
         "save": "Could not save",
         "preview": "Could not build billing preview",
         "bill": "Could not create the invoice",
-        "deleteItem": "تعذر حذف الصنف"
+        "deleteItem": "تعذر حذف الصنف",
+        "missingCustomer": "Choose a customer before saving.",
+        "missingLine": "Add at least one line with a description.",
+        "invalidAmount": "Quantity and unit price must be valid amounts."
       },
       "items": {
         "actions": "إجراءات",

@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useState, type JSX } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState, type JSX } from "react";
 import { formatCurrency, formatDisplayDate, useLocale } from "../../../lib/i18n";
 import type {
   BillingPreviewView,
@@ -45,6 +45,11 @@ import {
   ItemDraftDialog,
   lineViewToDraft,
 } from "./DeliveryNoteItemActions";
+import {
+  firstInvoiceDraftIssue,
+  firstInvoiceDraftIssueMessageKey,
+  parseFinanceCustomerIdFromSearch,
+} from "../../../lib/workspace/firstCustomerInvoiceUx";
 
 function money(value: string, currency: string): string {
   return formatCurrency(Number(value), undefined, currency);
@@ -72,19 +77,25 @@ export function DeliveryNoteWorkspace({
 }): JSX.Element {
   const { t } = useLocale();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const scopedCustomerId = parseFinanceCustomerIdFromSearch(searchParams);
+  const openCreateFromCrm = searchParams.get("create") === "1";
+  const appliedScope = useRef(false);
   const [rows, setRows] = useState<DeliveryNoteView[]>([]);
   const [customers, setCustomers] = useState<FinanceCustomerOption[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<DeliveryNoteStatus | "all">("all");
-  const [customerId, setCustomerId] = useState("all");
+  const [customerId, setCustomerId] = useState(scopedCustomerId ?? "all");
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
   const [selected, setSelected] = useState<readonly string[]>([]);
   const [formOpen, setFormOpen] = useState(false);
   const [preview, setPreview] = useState<BillingPreviewView | null>(null);
   const [billBusy, setBillBusy] = useState(false);
+  const [invoiceDate, setInvoiceDate] = useState("");
+  const [dueDate, setDueDate] = useState("");
   const [detail, setDetail] = useState<DeliveryNoteView | null>(null);
   const [idempotencyKey, setIdempotencyKey] = useState("");
   const [draftDeleteIndex, setDraftDeleteIndex] = useState<number | null>(null);
@@ -121,6 +132,16 @@ export function DeliveryNoteWorkspace({
       setLoading(false);
     }
   }, [customerId, dateFrom, dateTo, query, status, t]);
+
+  useEffect(() => {
+    if (appliedScope.current || !scopedCustomerId) return;
+    appliedScope.current = true;
+    setCustomerId(scopedCustomerId);
+    setDraft((current) => ({ ...current, customerId: scopedCustomerId }));
+    if (openCreateFromCrm) {
+      setFormOpen(true);
+    }
+  }, [openCreateFromCrm, scopedCustomerId]);
 
   useEffect(() => {
     let cancelled = false;
@@ -190,6 +211,10 @@ export function DeliveryNoteWorkspace({
         dateTo: dateTo || undefined,
       });
       setPreview(data);
+      const today = new Date().toISOString().slice(0, 10);
+      const due = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+      setInvoiceDate(today);
+      setDueDate(due);
       setIdempotencyKey(
         typeof crypto !== "undefined" && crypto.randomUUID
           ? crypto.randomUUID()
@@ -208,9 +233,15 @@ export function DeliveryNoteWorkspace({
         {
           mode: "selected",
           deliveryNoteIds: preview.deliveryNotes.map((row) => row.id),
+          invoiceDate: invoiceDate || undefined,
+          dueDate: dueDate || undefined,
         },
         idempotencyKey,
       );
+      if (!invoice?.id) {
+        setError(t("finance.core.errors.bill"));
+        return;
+      }
       setPreview(null);
       setSelected([]);
       router.push(`/dashboard/finance/invoices/${invoice.id}`);
@@ -222,11 +253,20 @@ export function DeliveryNoteWorkspace({
   }
 
   async function saveDraft(): Promise<void> {
+    const issue = firstInvoiceDraftIssue(draft);
+    if (issue) {
+      setError(t(firstInvoiceDraftIssueMessageKey(issue)));
+      return;
+    }
     try {
-      await createDeliveryNote(draft);
+      const saved = await createDeliveryNote(draft);
+      if (!saved?.id) {
+        setError(t("finance.core.errors.save"));
+        return;
+      }
       setFormOpen(false);
       setDraft({
-        customerId: customers[0]?.id ?? "",
+        customerId: (customerId !== "all" ? customerId : customers[0]?.id) ?? "",
         date: new Date().toISOString().slice(0, 10),
         orderNumber: "",
         notes: "",
@@ -291,7 +331,11 @@ export function DeliveryNoteWorkspace({
           onClick={() => {
             setDraft((current) => ({
               ...current,
-              customerId: current.customerId || customers[0]?.id || "",
+              customerId:
+                current.customerId ||
+                (customerId !== "all" ? customerId : "") ||
+                customers[0]?.id ||
+                "",
             }));
             setFormOpen(true);
           }}
@@ -318,6 +362,12 @@ export function DeliveryNoteWorkspace({
           {t("finance.core.actions.billDateRange")}
         </Button>
       </div>
+
+      {customerId !== "all" ? (
+        <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+          {t("finance.core.delivery.customerScoped")}
+        </p>
+      ) : null}
 
       <div className="agx-finance-toolbar">
         <SearchField
@@ -637,6 +687,23 @@ export function DeliveryNoteWorkspace({
             </p>
             <p>
               {t("finance.core.totals.gross")}: {money(preview.grossTotal, preview.currency)}
+            </p>
+            <FormField label={t("finance.core.table.date")}>
+              <FormInput
+                type="date"
+                value={invoiceDate}
+                onChange={(event) => setInvoiceDate(event.target.value)}
+              />
+            </FormField>
+            <FormField label={t("finance.core.table.dueDate")}>
+              <FormInput
+                type="date"
+                value={dueDate}
+                onChange={(event) => setDueDate(event.target.value)}
+              />
+            </FormField>
+            <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+              {t("finance.core.bill.savedAfterConfirm")}
             </p>
           </div>
         ) : null}

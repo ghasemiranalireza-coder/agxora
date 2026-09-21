@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "Nog geen facturen",
-      "emptyDescription": "Facturen voor deze klant verschijnen hier wanneer ze zijn gekoppeld vanuit Financiën."
+      "emptyDescription": "Facturen voor deze klant verschijnen hier wanneer ze zijn gekoppeld vanuit Financiën.",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "Activiteit",

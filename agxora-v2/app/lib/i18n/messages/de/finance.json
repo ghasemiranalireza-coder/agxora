@@ -387,24 +387,33 @@
     "delivery": {
       "title": "Lieferscheine",
       "subtitle": "Lieferscheine anlegen, filtern und abrechnen. Bereits abgerechnete Belege können nicht erneut abgerechnet werden.",
-      "billedAs": "Abgerechnet auf Rechnung"
+      "billedAs": "Abgerechnet auf Rechnung",
+      "customerScoped": "Es werden Lieferscheine des ausgewählten Kunden angezeigt."
     },
     "invoice": {
       "title": "Rechnungen",
       "subtitle": "Entwurfsrechnungen aus Lieferscheinen. Versand und Zahlungseinzug sind nicht verbunden.",
       "createdFrom": "Erstellt aus Lieferscheinen",
-      "futureBoundary": "PDF, E-Mail, Zahlung und Mahnung sind in dieser Phase nicht implementiert."
+      "futureBoundary": "PDF, E-Mail, Zahlung und Mahnung sind in dieser Phase nicht implementiert.",
+      "manualPaid": "Bezahlt ist eine Buchungsmarkierung in diesem Arbeitsbereich. Zahlungseinzug ist nicht verbunden.",
+      "savedHint": "Diese Rechnung ist in Finance gespeichert.",
+      "customerScoped": "Es werden Rechnungen des ausgewählten Kunden angezeigt.",
+      "unknownStatus": "Unbekannter Status"
     },
     "bill": {
       "previewTitle": "Abrechnung bestätigen",
-      "count": "Lieferscheine"
+      "count": "Lieferscheine",
+      "savedAfterConfirm": "Die Rechnung wird erst gespeichert, wenn dieser Schritt gelingt. Sie beginnt als Entwurf."
     },
     "errors": {
       "load": "Finanzdaten konnten nicht geladen werden",
       "save": "Speichern fehlgeschlagen",
       "preview": "Abrechnungsvorschau konnte nicht erstellt werden",
       "bill": "Rechnung konnte nicht erstellt werden",
-      "deleteItem": "Artikel konnte nicht gelöscht werden"
+      "deleteItem": "Artikel konnte nicht gelöscht werden",
+      "missingCustomer": "Wählen Sie vor dem Speichern einen Kunden.",
+      "missingLine": "Fügen Sie mindestens eine Position mit Beschreibung hinzu.",
+      "invalidAmount": "Menge und Einzelpreis müssen gültige Beträge sein."
     },
     "items": {
       "actions": "Aktionen",

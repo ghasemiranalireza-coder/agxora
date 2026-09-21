@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "Chưa có hoá đơn",
-      "emptyDescription": "Hóa đơn cho khách hàng này xuất hiện ở đây khi được liên kết từ Finance."
+      "emptyDescription": "Hóa đơn cho khách hàng này xuất hiện ở đây khi được liên kết từ Finance.",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "Hoạt động",

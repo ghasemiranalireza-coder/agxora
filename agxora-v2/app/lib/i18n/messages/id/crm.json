@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "Belum ada faktur",
-      "emptyDescription": "Faktur untuk pelanggan ini muncul di sini ketika ditautkan dari Keuangan."
+      "emptyDescription": "Faktur untuk pelanggan ini muncul di sini ketika ditautkan dari Keuangan.",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "Aktivitas",

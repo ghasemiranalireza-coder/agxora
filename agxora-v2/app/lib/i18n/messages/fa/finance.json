@@ -387,24 +387,33 @@
     "delivery": {
       "title": "حواله‌های تحویل",
       "subtitle": "حواله بسازید، فیلتر کنید و صورتحساب کنید. حواله صورتحساب‌شده دوباره قابل صورتحساب نیست.",
-      "billedAs": "صورتحساب‌شده در فاکتور"
+      "billedAs": "صورتحساب‌شده در فاکتور",
+      "customerScoped": "Showing delivery notes for the selected customer."
     },
     "invoice": {
       "title": "فاکتورها",
       "subtitle": "فاکتورهای پیش‌نویس ساخته‌شده از حواله‌ها. ارسال و دریافت پرداخت متصل نیست.",
       "createdFrom": "ایجادشده از حواله‌های تحویل",
-      "futureBoundary": "PDF، ایمیل، پرداخت و یادآوری در این مرحله پیاده‌سازی نشده‌اند."
+      "futureBoundary": "PDF، ایمیل، پرداخت و یادآوری در این مرحله پیاده‌سازی نشده‌اند.",
+      "manualPaid": "Paid is a bookkeeping mark in this workspace. Payment collection is not connected.",
+      "savedHint": "This invoice is saved in Finance.",
+      "customerScoped": "Showing invoices for the selected customer.",
+      "unknownStatus": "Unknown status"
     },
     "bill": {
       "previewTitle": "تأیید صورتحساب",
-      "count": "حواله‌های تحویل"
+      "count": "حواله‌های تحویل",
+      "savedAfterConfirm": "The invoice is saved only after this step succeeds. It starts as a draft."
     },
     "errors": {
       "load": "بارگذاری داده‌های مالی ممکن نشد",
       "save": "ذخیره ممکن نشد",
       "preview": "پیش‌نمایش صورتحساب ساخته نشد",
       "bill": "ایجاد فاکتور ممکن نشد",
-      "deleteItem": "حذف کالا ممکن نشد"
+      "deleteItem": "حذف کالا ممکن نشد",
+      "missingCustomer": "Choose a customer before saving.",
+      "missingLine": "Add at least one line with a description.",
+      "invalidAmount": "Quantity and unit price must be valid amounts."
     },
     "items": {
       "actions": "اقدامات",

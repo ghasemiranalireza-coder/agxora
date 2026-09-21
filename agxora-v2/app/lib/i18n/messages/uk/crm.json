@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "Ще немає рахунків-фактур",
-      "emptyDescription": "Рахунки-фактури для цього клієнта з’являються тут, якщо зв’язатися з Фінансами."
+      "emptyDescription": "Рахунки-фактури для цього клієнта з’являються тут, якщо зв’язатися з Фінансами.",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "діяльність",

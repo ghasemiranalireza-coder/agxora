@@ -24,7 +24,9 @@ import {
   Skeleton,
   SkeletonCard,
 } from "../../ui";
+import { createInvoiceHrefForCustomer } from "../../../lib/workspace/firstCustomerInvoiceUx";
 import { CrmStatusBadge, CrmTagChips } from "./CrmBadges";
+import { CrmCustomerInvoices } from "./CrmCustomerInvoices";
 
 const TAB_IDS = [
   "overview",
@@ -110,6 +112,15 @@ export function CrmCustomerProfile({
             <CrmStatusBadge status={customer.status} />
             <Button
               size="sm"
+              variant="primary"
+              onClick={() =>
+                router.push(createInvoiceHrefForCustomer(customer.id))
+              }
+            >
+              {t("crm.profile.invoices.createCta")}
+            </Button>
+            <Button
+              size="sm"
               variant="secondary"
               onClick={() => crmStore.openEdit(customer)}
             >
@@ -144,12 +155,7 @@ export function CrmCustomerProfile({
       {state.profileTab === "projects" ? <ProjectsTab /> : null}
       {state.profileTab === "documents" ? <DocumentsTab /> : null}
       {state.profileTab === "invoices" ? (
-        <Card hover={false} padding="18px">
-          <EmptyState
-            title={t("crm.profile.invoices.emptyTitle")}
-            description={t("crm.profile.invoices.emptyDescription")}
-          />
-        </Card>
+        <CrmCustomerInvoices customerId={customer.id} />
       ) : null}
       {state.profileTab === "activity" ? <ActivityTab /> : null}
       {state.profileTab === "notes" ? <NotesTab /> : null}

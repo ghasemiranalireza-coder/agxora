@@ -268,7 +268,11 @@
     },
     "invoices": {
       "emptyTitle": "अभी तक कोई चालान नहीं",
-      "emptyDescription": "फाइनेंस से लिंक होने पर इस ग्राहक के चालान यहां दिखाई देते हैं।"
+      "emptyDescription": "फाइनेंस से लिंक होने पर इस ग्राहक के चालान यहां दिखाई देते हैं।",
+      "createCta": "Create invoice",
+      "hint": "Invoices are created in Finance from delivery notes for this customer.",
+      "loadError": "Could not load invoices for this customer.",
+      "openInvoice": "Open invoice"
     },
     "activity": {
       "title": "गतिविधि",
