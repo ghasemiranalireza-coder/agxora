@@ -977,6 +977,7 @@
       "title": "AGXORA AI",
       "emptyState": "AGXORA'ya müşteriler, projeler veya sonraki eylemler hakkında sorun. Konuşmanız bu çalışma alanı oturumunda kalır.",
       "thinking": "AGXORA düşünüyor…",
+      "unavailable": "AI assistance is currently unavailable.",
       "errorDismiss": "{error} — kapatmak için dokunun",
       "placeholder": "AGXORA AI'ya sorun…",
       "messageAria": "AGXORA AI'ya mesaj gönderin",
@@ -4708,7 +4709,8 @@
     "marketplace": {
       "tools": "Araçlar: {tools}",
       "installed": "Yüklendi",
-      "installActivate": "Yükle ve etkinleştir"
+      "installActivate": "Yükle ve etkinleştir",
+      "noLiveTools": "No live customer tools on this agent yet."
     },
     "monitor": {
       "title": "Temsilci monitörü",
@@ -4745,10 +4747,11 @@
     "settings": {
       "title": "Aracı İşletim Sistemi ayarları",
       "defaultLlmProvider": "Varsayılan LLM sağlayıcısı",
+      "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers.",
       "enableSupervisor": "Denetleyici aracısı mimarisini etkinleştir",
       "isolateSensitive": "Hassas araçları izole edin",
       "saveSettings": "Ayarları kaydet",
-      "providersHint": "Sağlayıcılar hazır: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Bağdaştırıcıları, kullanıcı arayüzü değişikliği olmadan, RegisterLlmProvider aracılığıyla değiştirin."
+      "providersHint": "Customer-facing Agent OS does not present simulated LLM providers as live intelligence. CRM and Finance tools remain available where they are actually functional."
     },
     "columns": {
       "agent": "Ajan",

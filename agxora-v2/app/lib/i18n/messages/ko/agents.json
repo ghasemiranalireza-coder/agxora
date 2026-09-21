@@ -62,7 +62,8 @@
   "marketplace": {
     "tools": "도구: {tools}",
     "installed": "설치됨",
-    "installActivate": "설치 및 활성화"
+    "installActivate": "설치 및 활성화",
+    "noLiveTools": "No live customer tools on this agent yet."
   },
   "monitor": {
     "title": "에이전트 모니터",
@@ -102,7 +103,8 @@
     "enableSupervisor": "감독자 에이전트 아키텍처 활성화",
     "isolateSensitive": "민감한 도구를 분리하세요",
     "saveSettings": "설정 저장",
-    "providersHint": "준비된 공급자: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. UI 변경 없이 RegisterLlmProvider를 통해 어댑터를 교환합니다."
+    "providersHint": "Customer-facing Agent OS does not present simulated LLM providers as live intelligence. CRM and Finance tools remain available where they are actually functional.",
+    "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers."
   },
   "columns": {
     "agent": "대리인",

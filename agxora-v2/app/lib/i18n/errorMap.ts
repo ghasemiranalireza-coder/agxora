@@ -60,6 +60,8 @@ const CODE_TO_KEY: Record<string, string> = {
   OFFLINE: "errors.codes.COMMON_OFFLINE",
   VALIDATION: "errors.codes.COMMON_VALIDATION",
   TIMEOUT: "errors.codes.COMMON_TIMEOUT",
+  PROVIDER_NOT_CONFIGURED: "dashboard.chat.unavailable",
+  PROVIDER_UNAVAILABLE: "dashboard.chat.unavailable",
   UNKNOWN: "errors.codes.COMMON_UNKNOWN",
 };
 

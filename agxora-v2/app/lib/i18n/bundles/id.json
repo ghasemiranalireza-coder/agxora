@@ -977,6 +977,7 @@
       "title": "AGXORA AI",
       "emptyState": "Tanyakan AGXORA tentang pelanggan, proyek, atau tindakan selanjutnya. Percakapan Anda tetap berada di sesi ruang kerja ini.",
       "thinking": "AGXORA sedang berpikir…",
+      "unavailable": "AI assistance is currently unavailable.",
       "errorDismiss": "{error} — ketuk untuk menutup",
       "placeholder": "Tanya AGXORA AI…",
       "messageAria": "Pesan AGXORA AI",
@@ -4708,7 +4709,8 @@
     "marketplace": {
       "tools": "Alat: {tools}",
       "installed": "Dipasang",
-      "installActivate": "Instal & aktifkan"
+      "installActivate": "Instal & aktifkan",
+      "noLiveTools": "No live customer tools on this agent yet."
     },
     "monitor": {
       "title": "Pemantau agen",
@@ -4745,10 +4747,11 @@
     "settings": {
       "title": "Pengaturan OS Agen",
       "defaultLlmProvider": "Penyedia LLM bawaan",
+      "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers.",
       "enableSupervisor": "Aktifkan arsitektur agen pengawas",
       "isolateSensitive": "Pisahkan alat sensitif",
       "saveSettings": "Simpan pengaturan",
-      "providersHint": "Penyedia siap: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Tukar adaptor melalui registerLlmProvider tanpa perubahan UI."
+      "providersHint": "Customer-facing Agent OS does not present simulated LLM providers as live intelligence. CRM and Finance tools remain available where they are actually functional."
     },
     "columns": {
       "agent": "Agen",

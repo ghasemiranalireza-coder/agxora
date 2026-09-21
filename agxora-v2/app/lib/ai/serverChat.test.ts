@@ -18,7 +18,7 @@ describe("serverChat unit", () => {
     const config = getAiServerConfig();
     expect(config.ready).toBe(false);
     expect(config.configured).toBe(false);
-    expect(config.defaultProviderId).toBe("mock");
+    expect(config.defaultProviderId).toBe("openai");
     expect(JSON.stringify(config)).not.toMatch(/sk-/i);
 
     await expect(

@@ -62,7 +62,8 @@
   "marketplace": {
     "tools": "Інструменти: {tools}",
     "installed": "встановлено",
-    "installActivate": "Встановити та активувати"
+    "installActivate": "Встановити та активувати",
+    "noLiveTools": "No live customer tools on this agent yet."
   },
   "monitor": {
     "title": "Монітор агента",
@@ -102,7 +103,8 @@
     "enableSupervisor": "Увімкнути архітектуру агента супервізора",
     "isolateSensitive": "Ізолюйте чутливі інструменти",
     "saveSettings": "Зберегти налаштування",
-    "providersHint": "Готові постачальники: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Заміна адаптерів через registerLlmProvider без змін інтерфейсу користувача."
+    "providersHint": "Customer-facing Agent OS does not present simulated LLM providers as live intelligence. CRM and Finance tools remain available where they are actually functional.",
+    "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers."
   },
   "columns": {
     "agent": "Агент",

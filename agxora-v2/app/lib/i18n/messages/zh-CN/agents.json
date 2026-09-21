@@ -62,7 +62,8 @@
   "marketplace": {
     "tools": "工具： {tools}",
     "installed": "已安装",
-    "installActivate": "安装并激活"
+    "installActivate": "安装并激活",
+    "noLiveTools": "No live customer tools on this agent yet."
   },
   "monitor": {
     "title": "代理监控",
@@ -102,7 +103,8 @@
     "enableSupervisor": "启用主管代理架构",
     "isolateSensitive": "隔离敏感工具",
     "saveSettings": "保存设置",
-    "providersHint": "准备就绪的提供商：OpenAI、Azure OpenAI、Anthropic、Gemini、Local、Ollama、MCP、Custom。通过 registerLlmProvider 交换适配器，无需更改 UI。"
+    "providersHint": "准备就绪的提供商：OpenAI、Azure OpenAI、Anthropic、Gemini、Local、Ollama、MCP、Custom。通过 registerLlmProvider 交换适配器，无需更改 UI。",
+    "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers."
   },
   "columns": {
     "agent": "代理人",

@@ -62,7 +62,8 @@
   "marketplace": {
     "tools": "उपकरण: {tools}",
     "installed": "स्थापित",
-    "installActivate": "इंस्टॉल करें और सक्रिय करें"
+    "installActivate": "इंस्टॉल करें और सक्रिय करें",
+    "noLiveTools": "No live customer tools on this agent yet."
   },
   "monitor": {
     "title": "एजेंट मॉनिटर",
@@ -102,7 +103,8 @@
     "enableSupervisor": "पर्यवेक्षक एजेंट आर्किटेक्चर सक्षम करें",
     "isolateSensitive": "संवेदनशील उपकरणों को अलग करें",
     "saveSettings": "सेटिंग्स सेव करें",
-    "providersHint": "प्रदाता तैयार हैं: ओपनएआई, एज़्योर ओपनएआई, एंथ्रोपिक, जेमिनी, लोकल, ओलामा, एमसीपी, कस्टम। यूआई परिवर्तन के बिना रजिस्टरएलएलएमप्रोवाइडर के माध्यम से एडेप्टर स्वैप करें।"
+    "providersHint": "प्रदाता तैयार हैं: ओपनएआई, एज़्योर ओपनएआई, एंथ्रोपिक, जेमिनी, लोकल, ओलामा, एमसीपी, कस्टम। यूआई परिवर्तन के बिना रजिस्टरएलएलएमप्रोवाइडर के माध्यम से एडेप्टर स्वैप करें।",
+    "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers."
   },
   "columns": {
     "agent": "प्रतिनिधि",

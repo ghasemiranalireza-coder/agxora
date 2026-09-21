@@ -977,6 +977,7 @@
       "title": "AGXORA AI",
       "emptyState": "Vraag AGXORA naar klanten, projecten of volgende acties. Uw gesprek blijft in deze werkruimtesessie.",
       "thinking": "AGXORA denkt...",
+      "unavailable": "AI assistance is currently unavailable.",
       "errorDismiss": "{error} — tik om te negeren",
       "placeholder": "Vraag AGXORA AI…",
       "messageAria": "Bericht AGXORA AI",
@@ -4708,7 +4709,8 @@
     "marketplace": {
       "tools": "Gereedschap: {tools}",
       "installed": "Geïnstalleerd",
-      "installActivate": "Installeren en activeren"
+      "installActivate": "Installeren en activeren",
+      "noLiveTools": "No live customer tools on this agent yet."
     },
     "monitor": {
       "title": "Agentmonitor",
@@ -4745,10 +4747,11 @@
     "settings": {
       "title": "Agent OS-instellingen",
       "defaultLlmProvider": "Standaard LLM-provider",
+      "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers.",
       "enableSupervisor": "Schakel supervisor-agentarchitectuur in",
       "isolateSensitive": "Isoleer gevoelige gereedschappen",
       "saveSettings": "Instellingen opslaan",
-      "providersHint": "Providers klaar: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Verwissel adapters via registerLlmProvider zonder UI-wijzigingen."
+      "providersHint": "Customer-facing Agent OS does not present simulated LLM providers as live intelligence. CRM and Finance tools remain available where they are actually functional."
     },
     "columns": {
       "agent": "Tussenpersoon",

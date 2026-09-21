@@ -977,6 +977,7 @@
       "title": "AGXORA AI",
       "emptyState": "Hỏi AGXORA về khách hàng, dự án hoặc hành động tiếp theo. Cuộc trò chuyện của bạn vẫn ở trong phiên không gian làm việc này.",
       "thinking": "AGXORA đang nghĩ…",
+      "unavailable": "AI assistance is currently unavailable.",
       "errorDismiss": "{error} — nhấn để loại bỏ",
       "placeholder": "Hãy hỏi AGXORA AI…",
       "messageAria": "Tin nhắn AGXORA AI",
@@ -4708,7 +4709,8 @@
     "marketplace": {
       "tools": "Công cụ: {tools}",
       "installed": "Đã cài đặt",
-      "installActivate": "Cài đặt và kích hoạt"
+      "installActivate": "Cài đặt và kích hoạt",
+      "noLiveTools": "No live customer tools on this agent yet."
     },
     "monitor": {
       "title": "giám sát đại lý",
@@ -4745,10 +4747,11 @@
     "settings": {
       "title": "Cài đặt hệ điều hành đại lý",
       "defaultLlmProvider": "Nhà cung cấp LLM mặc định",
+      "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers.",
       "enableSupervisor": "Kích hoạt kiến ​​trúc tác nhân giám sát",
       "isolateSensitive": "Cô lập các công cụ nhạy cảm",
       "saveSettings": "Lưu cài đặt",
-      "providersHint": "Các nhà cung cấp đã sẵn sàng: OpenAI, Azure OpenAI, Anthropic, Gemini, Local, Ollama, MCP, Custom. Hoán đổi bộ điều hợp thông qua registerLlmProvider mà không thay đổi giao diện người dùng."
+      "providersHint": "Customer-facing Agent OS does not present simulated LLM providers as live intelligence. CRM and Finance tools remain available where they are actually functional."
     },
     "columns": {
       "agent": "Đại lý",

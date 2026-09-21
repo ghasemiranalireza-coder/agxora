@@ -977,6 +977,7 @@
       "title": "艾克索拉人工智能",
       "emptyState": "向 AGXORA 询问有关客户、项目或下一步行动的信息。您的对话将保留在此工作区会话中。",
       "thinking": "AGXORA 正在思考……",
+      "unavailable": "AI assistance is currently unavailable.",
       "errorDismiss": "{error} — 点击即可关闭",
       "placeholder": "询问 AGXORA AI...",
       "messageAria": "消息 AGXORA AI",
@@ -4708,7 +4709,8 @@
     "marketplace": {
       "tools": "工具： {tools}",
       "installed": "已安装",
-      "installActivate": "安装并激活"
+      "installActivate": "安装并激活",
+      "noLiveTools": "No live customer tools on this agent yet."
     },
     "monitor": {
       "title": "代理监控",
@@ -4745,6 +4747,7 @@
     "settings": {
       "title": "代理操作系统设置",
       "defaultLlmProvider": "默认法学硕士提供商",
+      "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers.",
       "enableSupervisor": "启用主管代理架构",
       "isolateSensitive": "隔离敏感工具",
       "saveSettings": "保存设置",

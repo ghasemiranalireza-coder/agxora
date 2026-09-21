@@ -1,3 +1,8 @@
+import {
+  CUSTOMER_AI_UNAVAILABLE_KEY,
+  isCustomerAiUnavailableError,
+  isUnsafeSimulatedAiText,
+} from "../../ai/customerChatProvider";
 import { createChatProviderAdapter } from "../../ai/adapters/chatProviderAdapter";
 import {
   createConversationId,
@@ -59,6 +64,8 @@ export function createChatService(config: ChatServiceConfig): ChatService {
       }
 
       abortController?.abort();
+
+      abortController?.abort();
       abortController = new AbortController();
       const signal = abortController.signal;
 
@@ -107,6 +114,13 @@ export function createChatService(config: ChatServiceConfig): ChatService {
           signal,
         });
 
+        if (
+          completion.provider === "mock" ||
+          isUnsafeSimulatedAiText(completion.content)
+        ) {
+          throw new Error(CUSTOMER_AI_UNAVAILABLE_KEY);
+        }
+
         const assistantMessage = createMessage({
           conversationId: conversation.id,
           role: "assistant",
@@ -141,8 +155,13 @@ export function createChatService(config: ChatServiceConfig): ChatService {
           throw error;
         }
 
-        const message =
-          error instanceof Error ? error.message : "Failed to generate response";
+        const message = isCustomerAiUnavailableError(error)
+          ? CUSTOMER_AI_UNAVAILABLE_KEY
+          : error instanceof Error
+            ? isUnsafeSimulatedAiText(error.message)
+              ? CUSTOMER_AI_UNAVAILABLE_KEY
+              : error.message
+            : CUSTOMER_AI_UNAVAILABLE_KEY;
 
         const failed = createMessage({
           conversationId: conversation.id,

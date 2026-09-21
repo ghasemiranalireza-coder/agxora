@@ -977,6 +977,7 @@
       "title": "एग्क्सोरा एआई",
       "emptyState": "AGXORA से ग्राहकों, परियोजनाओं या अगली कार्रवाइयों के बारे में पूछें। आपकी बातचीत इस कार्यक्षेत्र सत्र में रहती है.",
       "thinking": "एजीएक्सओआरए सोच रहा है...",
+      "unavailable": "AI assistance is currently unavailable.",
       "errorDismiss": "{error} - ख़ारिज करने के लिए टैप करें",
       "placeholder": "एजीएक्सओआरए एआई से पूछें...",
       "messageAria": "संदेश एजीएक्सओआरए एआई",
@@ -4708,7 +4709,8 @@
     "marketplace": {
       "tools": "उपकरण: {tools}",
       "installed": "स्थापित",
-      "installActivate": "इंस्टॉल करें और सक्रिय करें"
+      "installActivate": "इंस्टॉल करें और सक्रिय करें",
+      "noLiveTools": "No live customer tools on this agent yet."
     },
     "monitor": {
       "title": "एजेंट मॉनिटर",
@@ -4745,6 +4747,7 @@
     "settings": {
       "title": "एजेंट ओएस सेटिंग्स",
       "defaultLlmProvider": "डिफ़ॉल्ट एलएलएम प्रदाता",
+      "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers.",
       "enableSupervisor": "पर्यवेक्षक एजेंट आर्किटेक्चर सक्षम करें",
       "isolateSensitive": "संवेदनशील उपकरणों को अलग करें",
       "saveSettings": "सेटिंग्स सेव करें",

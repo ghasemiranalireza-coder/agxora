@@ -62,7 +62,8 @@
   "marketplace": {
     "tools": "ツール: {tools}",
     "installed": "インストール済み",
-    "installActivate": "インストールとアクティベーション"
+    "installActivate": "インストールとアクティベーション",
+    "noLiveTools": "No live customer tools on this agent yet."
   },
   "monitor": {
     "title": "エージェントモニター",
@@ -102,7 +103,8 @@
     "enableSupervisor": "スーパーバイザ エージェント アーキテクチャを有効にする",
     "isolateSensitive": "機密性の高いツールを隔離する",
     "saveSettings": "設定を保存する",
-    "providersHint": "対応プロバイダー: OpenAI、Azure OpenAI、Anthropic、Gemini、Local、Ollama、MCP、Custom。 UI を変更せずに registerLlmProvider 経由でアダプターを交換します。"
+    "providersHint": "対応プロバイダー: OpenAI、Azure OpenAI、Anthropic、Gemini、Local、Ollama、MCP、Custom。 UI を変更せずに registerLlmProvider 経由でアダプターを交換します。",
+    "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers."
   },
   "columns": {
     "agent": "エージェント",

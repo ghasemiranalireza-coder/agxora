@@ -6,6 +6,7 @@ import { Button, Card, DataTable } from "@/app/components/ui";
 import { catalogCopy, localizeThrownError, useT } from "@/app/lib/i18n";
 import type { DataTableColumn } from "@/app/components/ui";
 import { agentsStore } from "../store";
+import { isCustomerFacingAgentTool } from "../tools";
 import { agentOsService } from "../services";
 import { useAgentOperatingSystem, useProductionReadinessFromHealth } from "../hooks";
 import { GrowthWorkspace } from "./GrowthWorkspace";
@@ -745,11 +746,18 @@ export function AgentOperatingSystem(): JSX.Element {
                   {catalogCopy(t, `agents.catalog.${agent.id}.description`, agent.description)}
                 </p>
                 <p className="text-[11px]" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-                  {t("agents.marketplace.tools", {
-                    tools: agent.tools
-                      .map((id) => catalogCopy(t, `agents.toolsCatalog.${id}.name`, id))
-                      .join(", "),
-                  })}
+                  {(() => {
+                    const liveTools = agent.tools.filter(isCustomerFacingAgentTool);
+                    return liveTools.length > 0
+                      ? t("agents.marketplace.tools", {
+                          tools: liveTools
+                            .map((id) =>
+                              catalogCopy(t, `agents.toolsCatalog.${id}.name`, id),
+                            )
+                            .join(", "),
+                        })
+                      : t("agents.marketplace.noLiveTools");
+                  })()}
                 </p>
                 <Button
                   size="sm"
@@ -908,22 +916,9 @@ export function AgentOperatingSystem(): JSX.Element {
           <h2 className="text-sm font-semibold" style={{ color: "var(--agx-text, #f8fafc)" }}>
             {t("agents.settings.title")}
           </h2>
-          <label className="block text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
-            {t("agents.settings.defaultLlmProvider")}
-            <select
-              value={llmProvider}
-              onChange={(e) => setLlmDraft(e.target.value as LlmProviderId)}
-              className="agx-ui-control mt-1 w-full rounded-xl border px-3 py-2 text-sm"
-            >
-              {aos.llmProviders.map((p) => (
-                <option key={p.id} value={p.id}>
-                  {p.id === "local" || p.id === "mcp" || p.id === "custom"
-                    ? catalogCopy(t, `agents.llm.${p.id}`, p.displayName)
-                    : p.displayName}
-                </option>
-              ))}
-            </select>
-          </label>
+          <p className="text-xs" style={{ color: "var(--agx-text-muted, #94a3b8)" }}>
+            {t("agents.settings.llmUnavailable")}
+          </p>
           <label className="flex items-center gap-2 text-sm" style={{ color: "var(--agx-text, #f8fafc)" }}>
             <input
               type="checkbox"

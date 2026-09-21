@@ -6,8 +6,8 @@ import { useOptionalAuth } from "@/app/lib/auth";
 import { agentsStore } from "../store";
 import { computeAgentOsMetrics } from "../observability";
 import { DEFAULT_AGENTS, listMarketplaceAgents } from "../catalog";
-import { TOOL_CATALOG } from "../tools";
-import { listLlmProviders } from "../llm";
+import { listCustomerFacingAgentTools } from "../tools";
+import { listCustomerFacingLlmProviders } from "../llm";
 import { agentOsService } from "../services";
 import { filterMemory } from "../memory";
 import { getAgentDefinition } from "../catalog";
@@ -138,8 +138,8 @@ export function useAgentOperatingSystem() {
     plans,
     traces,
     messages,
-    tools: TOOL_CATALOG,
-    llmProviders: listLlmProviders(),
+    tools: listCustomerFacingAgentTools(),
+    llmProviders: listCustomerFacingLlmProviders(),
     metrics,
     settings: agentOsService.getSettings(organizationId),
     context:

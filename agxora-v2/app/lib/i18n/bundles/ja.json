@@ -977,6 +977,7 @@
       "title": "アグソラAI",
       "emptyState": "顧客、プロジェクト、次のアクションについて AGXORA に質問してください。会話はこのワークスペース セッションに残ります。",
       "thinking": "AGXORAは考えています…",
+      "unavailable": "AI assistance is currently unavailable.",
       "errorDismiss": "{error} — タップして閉じます",
       "placeholder": "AGXORA AI に質問してください…",
       "messageAria": "メッセージ AGXORA AI",
@@ -4708,7 +4709,8 @@
     "marketplace": {
       "tools": "ツール: {tools}",
       "installed": "インストール済み",
-      "installActivate": "インストールとアクティベーション"
+      "installActivate": "インストールとアクティベーション",
+      "noLiveTools": "No live customer tools on this agent yet."
     },
     "monitor": {
       "title": "エージェントモニター",
@@ -4745,6 +4747,7 @@
     "settings": {
       "title": "エージェントOSの設定",
       "defaultLlmProvider": "デフォルトの LLM プロバイダー",
+      "llmUnavailable": "AI planning is currently unavailable. Simulated LLM adapters are not shown as live providers.",
       "enableSupervisor": "スーパーバイザ エージェント アーキテクチャを有効にする",
       "isolateSensitive": "機密性の高いツールを隔離する",
       "saveSettings": "設定を保存する",

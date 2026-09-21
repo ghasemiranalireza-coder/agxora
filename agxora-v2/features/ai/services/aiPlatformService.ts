@@ -6,7 +6,13 @@
 import { aiEngine } from "@/app/lib/ai/AIEngine";
 import type { AIRuntimeContext } from "@/app/lib/ai/AIContext";
 import type { AISettings } from "@/app/lib/ai/AISettings";
-import { toAIError } from "@/app/lib/ai/AIErrorHandler";
+import {
+  CUSTOMER_AI_UNAVAILABLE_KEY,
+  customerAiErrorForThrow,
+  customerAiUnavailableError,
+  isUnsafeSimulatedAiText,
+  selectCustomerChatProviderId,
+} from "@/app/lib/ai/customerChatProvider";
 import { buildContextPreamble, getAiPlatformContext } from "../context";
 import { aiConversationStore } from "../store/conversationStore";
 import { aiUsageTracker } from "../store/usageTracker";
@@ -109,14 +115,22 @@ export function generateAiReply(options: AiGenerateOptions): AiGenerateHandle {
       workspaceId: options.workspaceId,
     });
 
+    const providerId = selectCustomerChatProviderId(
+      options.settings.defaultProviderId,
+    );
+
     // Ensure engine mirrors UI settings without leaking keys.
-    aiEngine.updateSettings(options.settings);
+    // Mock is never a customer chat provider.
+    aiEngine.updateSettings({
+      ...options.settings,
+      defaultProviderId: providerId,
+    });
 
     try {
       const response = await aiEngine.generate({
         context,
-        settings: options.settings,
-        providerId: options.settings.defaultProviderId,
+        settings: { ...options.settings, defaultProviderId: providerId },
+        providerId,
         modelId: options.settings.defaultModelId,
         signal: controller.signal,
         onStream: options.settings.streamingEnabled
@@ -134,6 +148,13 @@ export function generateAiReply(options: AiGenerateOptions): AiGenerateHandle {
             }
           : undefined,
       });
+
+      if (response.providerId === "mock" || isUnsafeSimulatedAiText(response.content)) {
+        throw customerAiErrorForThrow(
+          customerAiUnavailableError(response.providerId),
+          providerId,
+        );
+      }
 
       const finalMessage: AiMessage = {
         id: assistantId,
@@ -164,11 +185,12 @@ export function generateAiReply(options: AiGenerateOptions): AiGenerateHandle {
 
       return finalMessage;
     } catch (error) {
-      const aiError = toAIError(error, options.settings.defaultProviderId);
+      const aiError = customerAiErrorForThrow(error, providerId);
 
       store.updateMessage(options.conversationId, assistantId!, {
         status: "error",
-        error: aiError.message,
+        content: "",
+        error: CUSTOMER_AI_UNAVAILABLE_KEY,
       });
       // Keep user message on failure; drop empty streaming bubble content stays.
       void userMessageId;

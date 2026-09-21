@@ -11,6 +11,10 @@ import type {
 } from "../../modules/chat/types";
 import { aiEngine, type AIEngine } from "../AIEngine";
 import type { AIRuntimeContext } from "../AIContext";
+import {
+  customerAiUnavailableError,
+  isUnsafeSimulatedAiText,
+} from "../customerChatProvider";
 
 export type RuntimeContextEnricher = (
   request: AiCompletionRequest,
@@ -39,6 +43,10 @@ export function createChatProviderAdapter(
         context,
         signal: request.signal,
       });
+
+      if (response.providerId === "mock" || isUnsafeSimulatedAiText(response.content)) {
+        throw customerAiUnavailableError(response.providerId);
+      }
 
       return {
         content: response.content,
